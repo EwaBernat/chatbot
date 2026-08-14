@@ -1,10 +1,4 @@
-import { CalculateMetadataFunction, Composition } from "remotion";
-
-type Props = {};
-
-const calculateMetadata: CalculateMetadataFunction<Props> = () => {
-  return {};
-};
+import { AbsoluteFill, Composition, Interactive } from "remotion";
 
 export const MyComposition = () => {
   return (
@@ -15,11 +9,25 @@ export const MyComposition = () => {
       fps={30}
       width={1280}
       height={720}
-      calculateMetadata={calculateMetadata}
     />
   );
 };
 
-export const MyComponent: React.FC<Props> = () => {
-  return null;
+export const MyComponent: React.FC = () => {
+  return (
+    <AbsoluteFill
+      style={{
+        backgroundColor: "white",
+        alignItems: "center",
+        justifyContent: "center",
+      }}
+    >
+      <Interactive.Div
+        name="Greeting card"
+        style={{ fontSize: 80, padding: 24 }}
+      >
+        Hello
+      </Interactive.Div>
+    </AbsoluteFill>
+  );
 };
