@@ -10,9 +10,30 @@ elementy typograficzne, których broszura potrzebuje. Podmieniasz tylko teksty i
 | `szablon-broszury-A4.html` | **Plik roboczy** — tu edytujesz treść. Fonty pobiera z Google Fonts. |
 | `szablon-broszury-A4-druk.html` | Wersja z **osadzonymi fontami** — działa bez internetu, z niej powstaje PDF. Generowana automatycznie. |
 | `Broszura-szablon-A4.pdf` | **Gotowy PDF** do druku i podglądu (9 stron A4). |
+| `edytor-broszury.html` | **Edytor** — wpisywanie treści, przesuwanie elementów łapką, wstawianie zdjęć, druk do PDF. |
 | `zbuduj-pdf.sh` | Przebudowuje PDF po zmianach w szablonie. |
+| `narzedzia/zbuduj-edytor.py` | Składa edytor z szablonu. Uruchom po każdej zmianie szablonu. |
+| `zasoby/logo-pctp.svg` | Logo PCTP w wersji wektorowej. |
 | `narzedzia/osadz-fonty.py` | Wstawia fonty do wersji do druku (wywoływane przez `zbuduj-pdf.sh`). |
 | `narzedzia/mulish-osadzony.css` | Mulish (latin + latin-ext) zakodowany w base64. |
+
+## Edytor — najprostsza droga
+
+Otwórz `edytor-broszury.html` w przeglądarce. Bez znajomości HTML zrobisz w nim wszystko:
+
+- **Treść → Formularz** — wpisujesz tytuł, podtytuł, autorkę i tytuły rozdziałów; broszura zmienia się w trakcie pisania.
+- **Treść → Wklej tekst** — wklejasz całą treść naraz i klikasz *Rozłóż tekst*. Akapity oddzielasz pustą linią,
+  linia od `#` to tytuł broszury, od `##` — tytuł kolejnego rozdziału.
+- **Edytuj tekst** — klikasz dowolne zdanie wprost w broszurze i poprawiasz je na miejscu.
+- **Przenoś elementy** — najeżdżasz na ramkę, cytat czy zdjęcie, łapiesz złotą łapkę i przeciągasz w nowe miejsce.
+- **Zdjęcia** — klikasz ramkę na zdjęcie i wybierasz: z dysku, ze schowka (`Ctrl+V` — tędy trafiają grafiki
+  z Canvy i Gammy) albo z adresu internetowego. Plik można też po prostu upuścić na ramkę.
+  W oknie są skróty do banków zdjęć na darmowej licencji: Unsplash, Pexels, Pixabay, Openverse, Wikimedia Commons.
+- **Zapisz** — zapamiętuje wersję w przeglądarce; **Przywróć wzór** cofa wszystko do stanu wyjściowego.
+- **Drukuj / PDF** — wyłącza narzędzia i otwiera okno druku gotowe na A4.
+
+Zdjęcia z dysku i ze schowka wchodzą w środek pliku, więc broszura działa potem bez internetu.
+Zdjęcie wstawione z adresu internetowego wymaga połączenia z siecią w chwili druku.
 
 ## Jak zrobić z tego własną broszurę
 

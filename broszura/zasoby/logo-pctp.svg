@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 600" role="img"
+     aria-label="Logo Pomorskiego Centrum Terapii Pedagogicznej">
+  <title>Pomorskie Centrum Terapii Pedagogicznej</title>
+  <defs>
+    <radialGradient id="tarcza" cx="38%" cy="26%" r="82%">
+      <stop offset="0%"   stop-color="#6E4C9B"/>
+      <stop offset="55%"  stop-color="#583A83"/>
+      <stop offset="100%" stop-color="#43286A"/>
+    </radialGradient>
+  </defs>
+
+  <!-- obręcz -->
+  <circle cx="300" cy="300" r="298" fill="#4A2C77"/>
+  <circle cx="300" cy="300" r="286" fill="#D9CCE9"/>
+  <circle cx="300" cy="300" r="272" fill="url(#tarcza)"/>
+
+  <!-- łodygi -->
+  <g fill="none" stroke="#C9A227" stroke-width="9" stroke-linecap="round">
+    <path d="M300 272 L300 176"/>
+    <path d="M300 272 C296 236 278 206 253 186"/>
+    <path d="M300 272 C304 236 322 206 347 186"/>
+    <path d="M300 272 C288 240 262 214 231 199"/>
+    <path d="M300 272 C312 240 338 214 369 199"/>
+  </g>
+
+  <!-- płatki: zewnętrzne (lawenda), wewnętrzne (łosoś), środkowy (pomarańcz) -->
+  <g>
+    <ellipse cx="232" cy="176" rx="20" ry="43" fill="#9C8AC6" transform="rotate(-32 232 176)"/>
+    <ellipse cx="368" cy="176" rx="20" ry="43" fill="#9C8AC6" transform="rotate(32 368 176)"/>
+    <ellipse cx="258" cy="152" rx="21" ry="46" fill="#F0A472" transform="rotate(-17 258 152)"/>
+    <ellipse cx="342" cy="152" rx="21" ry="46" fill="#F0A472" transform="rotate(17 342 152)"/>
+    <ellipse cx="300" cy="139" rx="22" ry="49" fill="#E8722F"/>
+  </g>
+
+  <!-- serce kwiatu -->
+  <circle cx="300" cy="176" r="13" fill="#FDFBF6"/>
+
+  <!-- sygnatura -->
+  <text x="300" y="418" text-anchor="middle"
+        font-family="Georgia, 'Times New Roman', 'Liberation Serif', serif"
+        font-size="132" font-weight="700" letter-spacing="6" fill="#F7F3EA">PCTP</text>
+</svg>
