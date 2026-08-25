@@ -9,10 +9,11 @@ Używaj tych danych w każdym materiale tworzonym w tym repozytorium, bez pytani
 | Instytucja | Pomorskie Centrum Terapii Pedagogicznej |
 | Skrót | PCTP |
 | E-mail | kontakt@eduplaner2026.pl |
+| Autorka | Mirosława Ewa Jurczyszyn |
 | Rok wydania | 2026 |
 | Logo | `broszura/zasoby/logo-pctp.svg` — wektorowe, wstawiane bezpośrednio w HTML |
 
-Autorka materiałów jest kobietą — w tekstach stosuj formy żeńskie
+Autorką materiałów jest **Mirosława Ewa Jurczyszyn** — w tekstach stosuj formy żeńskie
 („Słowo od autorki", „Imię i nazwisko autorki").
 
 ### Logo
