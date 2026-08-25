@@ -1,5 +1,8 @@
 # Mały Książę moim bohaterem — podróż emocjonalna
 
+**Pomorskie Centrum Terapii Pedagogicznej**
+opracowanie: Mirosława Ewa Jurczyszyn · kontakt@eduplaner2026
+
 Broszura edukacyjna: adaptacja lektury „Mały Książę” Antoine'a de Saint-Exupéry'ego
 dla młodzieży ze spektrum autyzmu.
 
@@ -50,6 +53,12 @@ i bez treści urwanej między arkuszami.
 Rozdziały 17 i 26 dotykają tematu śmierci — w oryginale opisanej przenośnią.
 W broszurze nazwano to wprost i spokojnie, z odesłaniem ucznia do zaufanej osoby dorosłej.
 Warto zaplanować te lekcje na początek dnia.
+
+## Identyfikacja wydawcy
+
+Logo PCTP jest **wektorem SVG osadzonym w pliku** (odrysowanym z oryginału), więc skaluje się
+bez utraty jakości i nie wymaga zewnętrznego obrazu. Występuje w trzech miejscach:
+okładka, stopka każdej strony (mały znak) oraz metryczka na ostatniej stronie.
 
 ## Forma techniczna
 
