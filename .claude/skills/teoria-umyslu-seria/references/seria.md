@@ -36,6 +36,33 @@ Mapa treści — sprawdź przed pisaniem kolejnej części, żeby nie dublować:
 Część 1 jest **przekrojowa**: dotyka wszystkiego po trochu. Kolejne części powinny wchodzić
 w głąb jednego obszaru, a do podstaw odsyłać („szerzej w części 1, s. 4").
 
+## Część 2A — Zabawy i zajęcia terapeutyczne (opublikowana)
+
+**Tytuł:** Teoria umysłu w przedszkolu — gotowe zajęcia
+**Podtytuł:** Program dla dziecka z autyzmem. *Jak przez sześć miesięcy nauczyć przedszkolaka
+rozumieć emocje — swoje i cudze?*
+**Objętość:** 27 stron A4. **Plik:** `broszura-teoria-umyslu-2a/index.html` w repozytorium.
+
+Zakres: wyłącznie **TUE i przedszkolne prekursory** — sześć faz rozwoju od wspólnego pola uwagi
+do wiedzy i niewiedzy. Świadomie NIE obejmuje fałszywego przekonania, emocji ukrytych, ironii
+i gafy: to materiał szkolny na kolejne części.
+
+| Strony | Zawartość |
+|---|---|
+| 3–7 | Profil dziecka, sześć faz rozwoju, diagnoza wstępna (10 prób), mapa programu, struktura spotkania |
+| 8–13 | Sześć modułów miesięcznych: 48 spotkań, materiały, pytania kluczowe, kryteria, zadania dla rodziców, gotowe zapisy do IPET |
+| 14–16 | 12 scenariuszy rozpisanych co do zdania |
+| 17–19 | Sześć autorskich opowiadań z pytaniami, bajki klasyczne |
+| 20–22 | Trzy karty pracy do druku (buźki SVG, termometr, historyjki, perspektywa) |
+| 23 | Wyprawka materiałów |
+| 24–26 | Sześć celów SMART do IPET, zapisy do WOPFU i dostosowania, karta monitorowania |
+| 27 | Zadania dla rodziców, literatura, kontakt |
+
+Nowe komponenty wprowadzone w tej części (dostępne dla kolejnych): `.mies` (nagłówek miesiąca),
+`.spotk` (tabela spotkań), `.pyt` (ramka pytań kluczowych), `.opow` (blok opowiadania),
+`.wyprawka` (lista z kratkami), `.pole-pracy` i `.wytnij` (elementy kart pracy),
+generator buziek SVG w pięciu emocjach.
+
 ## Kolejne części — propozycje do uzgodnienia
 
 To **propozycje**, nie ustalenia. Zanim zaczniesz pisać, potwierdź numer, nazwę i zakres
@@ -43,9 +70,8 @@ z użytkowniczką i dopisz część do tabeli powyżej po publikacji.
 
 Naturalny podział wynika z trzech filarów, bo tak zbudowana jest część 1:
 
-- **Część 2 — Emocje (TUE).** Rozpoznawanie i nazywanie emocji, emocje złożone i ukryte,
-  aleksytymia, termometr emocji, praca z ciałem, 20+ ćwiczeń dla poziomu I–II, karta
-  obserwacji emocji, program 15 spotkań dla przedszkola.
+- **Część 2B — TUE w szkole.** To samo podejście co w 2A, ale dla klas I–III: emocje złożone
+  i ukryte, aleksytymia, emocje w grupie rówieśniczej.
 - **Część 3 — Przekonania (TUK).** Fałszywe przekonanie I i II rzędu, wiedza i niewiedza,
   intencja a skutek, dymki myśli, praca z lekturą, ćwiczenia dla klas I–VI.
 - **Część 4 — Umiejętności społeczne (TUS).** Gafy, ironia, konflikt, komunikacja cyfrowa,
