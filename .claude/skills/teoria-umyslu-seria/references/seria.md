@@ -63,6 +63,34 @@ Nowe komponenty wprowadzone w tej części (dostępne dla kolejnych): `.mies` (n
 `.wyprawka` (lista z kratkami), `.pole-pracy` i `.wytnij` (elementy kart pracy),
 generator buziek SVG w pięciu emocjach.
 
+## Część 2B — Emocje złożone i zabawa razem (opublikowana)
+
+**Tytuł:** Emocje złożone i zabawa razem — drugie pół roku
+**Podtytuł:** Poradnik nauczyciela przedszkola. *Co robić, gdy dziecko zna już cztery emocje,
+a wciąż nie umie bawić się z innymi?*
+**Objętość:** 27 stron A4. **Plik:** `broszura-teoria-umyslu-2b/index.html` w repozytorium.
+
+Kontynuacja 2A: miesiące 7–12, kolejne 48 spotkań. Zakres: emocje złożone (duma, wstyd, zazdrość,
+zawód, tęsknota), regulacja emocji, zabawa symboliczna, wejście do zabawy z rówieśnikiem, intencja a skutek.
+Nadal **poza zakresem**: fałszywe przekonanie, emocje ukryte, ironia — materiał szkolny.
+
+| Strony | Zawartość |
+|---|---|
+| 3–4 | Próba kontrolna po 2A, mapa miesięcy 7–12 |
+| 5–10 | Sześć modułów miesięcznych z zadaniami dla rodziców i zapisami do IPET |
+| 11–13 | Scenariusze 13–24 |
+| 14–16 | Trzy narzędzia ilustrowane: koło emocji, gra planszowa, karty sytuacji |
+| 17–19 | Karty pracy 4 i 5, opowiadania 7–10 |
+| 20–27 | **Dokumentacja:** różnice rewalidacja/PPP, dwa wzory sprawozdań, 48 wpisów do dziennika, sprawozdanie wypełnione, cele SMART, karta monitorowania, rodzice i literatura |
+
+Nowe komponenty dla kolejnych części: `.narz` (karta narzędzia), `.spraw` (wzór sprawozdania
+z sekcjami do wypełnienia), `.roznice` (tabela porównawcza dwóch trybów), `.page--dz`
+(zagęszczona typografia dla długich tabel), generator koła emocji, planszy do gry i kart sytuacji.
+
+**Ważne merytorycznie:** rozdział rewalidacja / pomoc psychologiczno-pedagogiczna (s. 20) jest
+punktem odniesienia dla całej serii — cele rewalidacyjne wynikają z orzeczenia i IPET, cele PPP
+z bieżącego rozpoznania. Sprawozdania różnią się w sekcjach II, IV, VI i VII.
+
 ## Kolejne części — propozycje do uzgodnienia
 
 To **propozycje**, nie ustalenia. Zanim zaczniesz pisać, potwierdź numer, nazwę i zakres
@@ -70,8 +98,8 @@ z użytkowniczką i dopisz część do tabeli powyżej po publikacji.
 
 Naturalny podział wynika z trzech filarów, bo tak zbudowana jest część 1:
 
-- **Część 2B — TUE w szkole.** To samo podejście co w 2A, ale dla klas I–III: emocje złożone
-  i ukryte, aleksytymia, emocje w grupie rówieśniczej.
+- **Część 3 — Przekonania (TUK) w szkole.** Fałszywe przekonanie I i II rzędu, emocje ukryte,
+  wiedza i niewiedza, praca z lekturą — dla klas I–VI.
 - **Część 3 — Przekonania (TUK).** Fałszywe przekonanie I i II rzędu, wiedza i niewiedza,
   intencja a skutek, dymki myśli, praca z lekturą, ćwiczenia dla klas I–VI.
 - **Część 4 — Umiejętności społeczne (TUS).** Gafy, ironia, konflikt, komunikacja cyfrowa,
