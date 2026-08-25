@@ -3,7 +3,7 @@
 Broszura metodyczna dla nauczycieli, nauczycieli współorganizujących, terapeutów i rodziców.
 Opracowanie: **Mirosława Ewa Jurczyszyn** · kontakt@eduplaner2026.pl
 
-## Zawartość (22 strony A4)
+## Zawartość (23 strony A4)
 
 1. Definicja teorii umysłu i po co jej w szkole
 2. Trzy filary: **TUE → TUK → TUS** i kolejność pracy (+ proporcje czasu)

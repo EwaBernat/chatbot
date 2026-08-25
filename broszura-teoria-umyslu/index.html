@@ -378,6 +378,24 @@ table.karta tbody tr{background:none}
 .blad{display:grid; grid-template-columns:20px 1fr; gap:8px; font-size:8.6pt; line-height:1.4}
 .blad span{font-family:"Fraunces",serif; font-size:12pt; font-weight:700; color:var(--gold); line-height:1}
 
+/* ---------- Spis treści ---------- */
+.spis{display:flex; flex-direction:column; gap:11px}
+.czesc__h{display:flex; align-items:baseline; gap:9px; padding:0 0 3px; border-bottom:2px solid var(--rail); margin-bottom:4px}
+.czesc__n{font-family:"Fraunces",serif; font-size:12.5pt; font-weight:700; color:var(--rail); line-height:1}
+.czesc__t{font-family:"Fraunces",serif; font-size:11.5pt; font-weight:600; color:var(--ink); line-height:1.1}
+.czesc__s{margin-left:auto; font-size:7.6pt; letter-spacing:.09em; text-transform:uppercase;
+  font-weight:800; color:var(--muted); white-space:nowrap}
+.poz{display:flex; align-items:baseline; gap:7px; padding:2.2px 0}
+.poz__t{font-size:9.2pt; color:var(--ink); white-space:nowrap; overflow:hidden; text-overflow:ellipsis}
+.poz__t b{font-weight:700}
+.poz__t span{color:var(--ink2); font-size:8.6pt}
+.poz i{flex:1; border-bottom:1px dotted #DCD4C9; transform:translateY(-3px); min-width:12px}
+.poz__p{font-family:"Fraunces",serif; font-weight:600; font-size:10pt; color:var(--rail);
+  font-variant-numeric:tabular-nums; min-width:15px; text-align:right}
+.skroty{display:grid; grid-template-columns:1fr 1fr; gap:3px 22px; font-size:8.4pt}
+.skroty div{display:flex; gap:6px; align-items:baseline}
+.skroty b{color:var(--tuk); font-weight:800; white-space:nowrap; min-width:12mm}
+
 @media print{
   body{background:#fff}
   .page{
@@ -481,6 +499,82 @@ table.karta tbody tr{background:none}
   </div>
 </section>
 
+<!-- ============ SPIS TREŚCI ============ -->
+<section class="page">
+  <div class="page__body">
+    <div>
+      <div class="eyebrow">Spis treści</div>
+      <h2 class="h-sec">Co znajdziesz w tej broszurze</h2>
+      <p class="lead" style="margin-top:4px">Cztery części, które odpowiadają czterem pytaniom nauczyciela:
+      <strong>o co chodzi</strong>, <strong>jak to rozpoznać</strong>, <strong>co mi wolno i co muszę zmienić</strong>
+      oraz <strong>co konkretnie zrobić w poniedziałek</strong>.</p>
+    </div>
+
+    <div class="spis">
+      <div style="--rail:var(--tue)">
+        <div class="czesc__h"><span class="czesc__n">I</span><span class="czesc__t">Zrozumieć</span><span class="czesc__s">podstawy</span></div>
+        <div class="poz"><span class="poz__t"><b>Czym jest teoria umysłu</b> <span>— definicja, od której wszystko się zaczyna</span></span><i></i><span class="poz__p">3</span></div>
+        <div class="poz"><span class="poz__t"><b>TUE, TUK, TUS — trzy filary</b> <span>— co ćwiczyć najpierw i dlaczego właśnie to</span></span><i></i><span class="poz__p">4</span></div>
+        <div class="poz"><span class="poz__t"><b>Proporcje pracy</b> <span>— ile czasu na który filar na każdym poziomie</span></span><i></i><span class="poz__p">5</span></div>
+        <div class="poz"><span class="poz__t"><b>Etapy rozwoju: 0–6 lat</b> <span>— normy wiekowe dla dziecka i przedszkolaka</span></span><i></i><span class="poz__p">6</span></div>
+        <div class="poz"><span class="poz__t"><b>Etapy rozwoju: uczeń i dorosły</b> <span>— teoria umysłu wyższego rzędu, od 6 lat wzwyż</span></span><i></i><span class="poz__p">7</span></div>
+        <div class="poz"><span class="poz__t"><b>Przyczyny zaburzeń</b> <span>— sześć mechanizmów i problem podwójnej empatii</span></span><i></i><span class="poz__p">8</span></div>
+      </div>
+      <div style="--rail:var(--gold)">
+        <div class="czesc__h"><span class="czesc__n">II</span><span class="czesc__t">Rozpoznać i ocenić</span><span class="czesc__s">diagnoza funkcjonalna</span></div>
+        <div class="poz"><span class="poz__t"><b>Jak rozpoznać w przedszkolu i szkole</b> <span>— listy obserwacyjne i zapisywanie spostrzeżeń</span></span><i></i><span class="poz__p">9</span></div>
+        <div class="poz"><span class="poz__t"><b>Próba orientacyjna</b> <span>— dwa pudełka, dziesięć minut, badanie Sally-Anne</span></span><i></i><span class="poz__p">10</span></div>
+        <div class="poz"><span class="poz__t"><b>Testy i narzędzia oceny</b> <span>— co wolno nauczycielowi, a co psychologowi</span></span><i></i><span class="poz__p">11</span></div>
+        <div class="poz"><span class="poz__t"><b>Cztery poziomy funkcjonowania</b> <span>— i priorytet pracy na każdym z nich</span></span><i></i><span class="poz__p">12</span></div>
+        <div class="poz"><span class="poz__t"><b>Od obserwacji do dokumentacji</b> <span>— gotowe formuły zapisu do WOPFU i celów do IPET</span></span><i></i><span class="poz__p">13</span></div>
+      </div>
+      <div style="--rail:var(--tuk)">
+        <div class="czesc__h"><span class="czesc__n">III</span><span class="czesc__t">Dostosować</span><span class="czesc__s">codzienna praktyka</span></div>
+        <div class="poz"><span class="poz__t"><b>Podstawa prawna</b> <span>— kształcenie specjalne i pomoc psychologiczno-pedagogiczna</span></span><i></i><span class="poz__p">14</span></div>
+        <div class="poz"><span class="poz__t"><b>Dostosowanie przekazu słownego</b> <span>— tabela „zamiast → powiedz" i siedem zasad</span></span><i></i><span class="poz__p">15</span></div>
+        <div class="poz"><span class="poz__t"><b>Dostosowanie lektur i tekstów</b> <span>— pięć technik pracy z tekstem, konkretne tytuły</span></span><i></i><span class="poz__p">16</span></div>
+      </div>
+      <div style="--rail:var(--tus)">
+        <div class="czesc__h"><span class="czesc__n">IV</span><span class="czesc__t">Działać</span><span class="czesc__s">gotowe materiały</span></div>
+        <div class="poz"><span class="poz__t"><b>Ćwiczenia 1–6 · TUE</b> <span>— przedszkole i poziom I–II</span></span><i></i><span class="poz__p">17</span></div>
+        <div class="poz"><span class="poz__t"><b>Ćwiczenia 7–12 · TUK</b> <span>— klasy I–III i poziom III</span></span><i></i><span class="poz__p">18</span></div>
+        <div class="poz"><span class="poz__t"><b>Ćwiczenia 13–18 · TUS</b> <span>— klasy IV–VIII, szkoła ponadpodstawowa, dorośli</span></span><i></i><span class="poz__p">19</span></div>
+        <div class="poz"><span class="poz__t"><b>Metodyka zajęć</b> <span>— zasady, błędy, generalizacja, współpraca z rodzicami</span></span><i></i><span class="poz__p">20</span></div>
+        <div class="poz"><span class="poz__t"><b>Program „Widzę – Myślę – Rozumiem"</b> <span>— 30 spotkań gotowych do wpisania do IPET</span></span><i></i><span class="poz__p">21</span></div>
+        <div class="poz"><span class="poz__t"><b>Karta obserwacji — do druku</b> <span>— formularz do wypełnienia i powielania</span></span><i></i><span class="poz__p">22</span></div>
+        <div class="poz"><span class="poz__t"><b>Literatura, źródła i kontakt</b> <span>— badania, publikacje po polsku, akty prawne</span></span><i></i><span class="poz__p">23</span></div>
+      </div>
+    </div>
+
+    <div class="grid g-2-1">
+      <div class="card card--plain">
+        <h4>Skróty używane w broszurze</h4>
+        <div class="skroty" style="margin-top:3px">
+          <div><b>ToM</b><span>teoria umysłu (<em>theory of mind</em>)</span></div>
+          <div><b>TUE</b><span>teoria umysłu emocjonalna</span></div>
+          <div><b>TUK</b><span>teoria umysłu kognitywna</span></div>
+          <div><b>TUS</b><span>trening umiejętności społecznych</span></div>
+          <div><b>WOPFU</b><span>wielospecjalistyczna ocena poziomu funkcjonowania ucznia</span></div>
+          <div><b>IPET</b><span>indywidualny program edukacyjno-terapeutyczny</span></div>
+          <div><b>PPP</b><span>pomoc psychologiczno-pedagogiczna</span></div>
+          <div><b>AAC</b><span>komunikacja wspomagająca i alternatywna</span></div>
+          <div><b>ASD</b><span>spektrum autyzmu</span></div>
+        </div>
+      </div>
+      <div class="card card--gold">
+        <h4 style="color:var(--gold)">Jak korzystać z broszury</h4>
+        <ul style="font-size:8.8pt">
+          <li><strong>Nie musisz czytać po kolei.</strong> Jeśli masz już ucznia i termin zespołu —
+          zacznij od części II i III.</li>
+          <li><strong>Najpierw ustal poziom</strong> (s. 12), potem dobieraj ćwiczenia — nie odwrotnie.</li>
+          <li><strong>Karta obserwacji ze s. 22</strong> jest przeznaczona do kopiowania na użytek placówki.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="page__foot"><span><b>Spis treści</b> · cztery części broszury</span><span class="num">2</span></div>
+</section>
+
 <!-- ============ 2. DEFINICJA + SPIS ============ -->
 <section class="page">
   <div class="page__body">
@@ -532,37 +626,55 @@ table.karta tbody tr{background:none}
       Zachowanie oceniane jako złośliwość bywa skutkiem niedojrzałej teorii umysłu — a zmiana tej interpretacji
       zmienia całą pomoc, jakiej udzielamy.</p>
     </div>
+    <div class="grid g-1-2">
+      <div class="card card--plain" style="align-items:center;gap:7px">
+        <h4 style="align-self:flex-start">Teoria umysłu w jednym obrazku</h4>
+        <div style="display:flex;align-items:center;gap:10px;margin:2px 0">
+          <div style="text-align:center">
+            <svg viewBox="0 0 120 100" width="74" height="62" role="img" aria-label="Koszyk z kulką — to, co Ala myśli">
+              <path d="M22 42 H98 L87 88 H33 Z" fill="#F0DFA6" stroke="#A07A0A" stroke-width="3" stroke-linejoin="round"/>
+              <path d="M38 42 Q60 14 82 42" fill="none" stroke="#A07A0A" stroke-width="3" stroke-linecap="round"/>
+              <circle cx="60" cy="66" r="13" fill="#C4547A"/>
+            </svg>
+            <p style="font-size:7.2pt;letter-spacing:.09em;text-transform:uppercase;font-weight:800;color:var(--tuk)">Co myśli Ala</p>
+          </div>
+          <span style="font-family:Fraunces,serif;font-size:17pt;color:var(--muted)">≠</span>
+          <div style="text-align:center">
+            <svg viewBox="0 0 120 100" width="74" height="62" role="img" aria-label="Pudełko z kulką — jak jest naprawdę">
+              <rect x="26" y="46" width="68" height="42" rx="4" fill="#DDF0EC" stroke="#0E8B78" stroke-width="3"/>
+              <rect x="19" y="32" width="82" height="15" rx="4" fill="#B5DED6" stroke="#0E8B78" stroke-width="3"/>
+              <circle cx="60" cy="68" r="13" fill="#C4547A"/>
+            </svg>
+            <p style="font-size:7.2pt;letter-spacing:.09em;text-transform:uppercase;font-weight:800;color:var(--tus)">Jak jest naprawdę</p>
+          </div>
+        </div>
+        <p style="font-size:8.8pt;color:var(--ink2);text-align:center">Ala schowała kulkę do koszyka i wyszła.
+        Ktoś przełożył kulkę do pudełka. <strong>Gdzie Ala będzie jej szukać?</strong><br>
+        Kto odpowie „w koszyku" — ma teorię umysłu. Kto odpowie „w pudełku" — opisuje rzeczywistość,
+        a nie cudzą myśl.</p>
+      </div>
 
-    <hr class="rule">
-
-    <div>
-      <div class="eyebrow">W tej broszurze</div>
-      <div class="toc" style="margin-top:6px">
-        <div><span class="t">Definicja teorii umysłu</span><span class="p">2</span></div>
-        <div><span class="t">Trzy filary: TUE, TUK, TUS</span><span class="p">3</span></div>
-        <div><span class="t">Proporcje pracy</span><span class="p">4</span></div>
-        <div><span class="t">Etapy rozwoju: 0–6 lat</span><span class="p">5</span></div>
-        <div><span class="t">Etapy: uczeń i dorosły</span><span class="p">6</span></div>
-        <div><span class="t">Przyczyny zaburzeń</span><span class="p">7</span></div>
-        <div><span class="t">Jak rozpoznać w szkole</span><span class="p">8</span></div>
-        <div><span class="t">Próba orientacyjna</span><span class="p">9</span></div>
-        <div><span class="t">Testy i narzędzia</span><span class="p">10</span></div>
-        <div><span class="t">Cztery poziomy</span><span class="p">11</span></div>
-        <div><span class="t">Zapis do WOPFU i IPET</span><span class="p">12</span></div>
-        <div><span class="t">Podstawa prawna</span><span class="p">13</span></div>
-        <div><span class="t">Przekaz słowny</span><span class="p">14</span></div>
-        <div><span class="t">Lektury i teksty</span><span class="p">15</span></div>
-        <div><span class="t">Ćwiczenia 1–6 · TUE</span><span class="p">16</span></div>
-        <div><span class="t">Ćwiczenia 7–12 · TUK</span><span class="p">17</span></div>
-        <div><span class="t">Ćwiczenia 13–18 · TUS</span><span class="p">18</span></div>
-        <div><span class="t">Metodyka zajęć</span><span class="p">19</span></div>
-        <div><span class="t">Program 30 spotkań</span><span class="p">20</span></div>
-        <div><span class="t">Karta obserwacji</span><span class="p">21</span></div>
-        <div><span class="t">Literatura i kontakt</span><span class="p">22</span></div>
+      <div class="card card--plain">
+        <h4>Trzy sytuacje z jednego dnia w szkole</h4>
+        <div class="tbl-wrap">
+        <table>
+          <thead><tr><th style="width:38%">Co widzimy — i jak zwykle to oceniamy</th><th>Co się dzieje naprawdę</th></tr></thead>
+          <tbody>
+            <tr><td><strong>Mówi pani, że ma plamę na bluzce.</strong><br><span style="color:var(--tue)">„Jest bezczelny."</span></td>
+              <td>Mówi prawdę i nie przewiduje, że komuś może być z tego powodu przykro. Nie ma intencji zranienia — brakuje mu przewidywania cudzej reakcji.</td></tr>
+            <tr><td><strong>Nie prosi o pomoc, choć nie rozumie zadania.</strong><br><span style="color:var(--tue)">„Nie chce mu się."</span></td>
+              <td>Zakłada, że skoro <em>on</em> wie, że sobie nie radzi, to nauczyciel też to wie. Prośba wydaje mu się zbędna.</td></tr>
+            <tr><td><strong>Śmieje się, gdy koledzy z niego żartują.</strong><br><span style="color:var(--tue)">„Widocznie mu to nie przeszkadza."</span></td>
+              <td>Nie odróżnia żartu <em>z kimś</em> od żartu <em>z kogoś</em>. Śmiech to próba dopasowania się, nie zgoda.</td></tr>
+          </tbody>
+        </table>
+        </div>
+        <p style="font-size:8.4pt;color:var(--ink2)">W każdej z tych sytuacji pierwsza interpretacja prowadzi do kary,
+        druga — do nauczenia umiejętności. <strong>To jest praktyczna różnica, którą robi teoria umysłu.</strong></p>
       </div>
     </div>
   </div>
-  <div class="page__foot"><span><b>Teoria umysłu a funkcjonowanie dziecka, ucznia z autyzmem</b></span><span class="num">2</span></div>
+  <div class="page__foot"><span><b>Teoria umysłu a funkcjonowanie dziecka, ucznia z autyzmem</b></span><span class="num">3</span></div>
 </section>
 
 <!-- ============ 3. TUE / TUK / TUS ============ -->
@@ -659,7 +771,7 @@ table.karta tbody tr{background:none}
       </div>
     </div>
   </div>
-  <div class="page__foot"><span><b>TUE → TUK → TUS</b> · trzy filary i kolejność pracy</span><span class="num">3</span></div>
+  <div class="page__foot"><span><b>TUE → TUK → TUS</b> · trzy filary i kolejność pracy</span><span class="num">4</span></div>
 </section>
 
 <!-- ============ 3b. PROPORCJE ============ -->
@@ -781,7 +893,7 @@ table.karta tbody tr{background:none}
       społecznym, a mniej ćwiczeniom przy stoliku. <strong>Model orientacyjny do planowania zajęć.</strong></figcaption>
     </figure>
   </div>
-  <div class="page__foot"><span><b>TUE → TUK → TUS</b> · proporcje pracy na kolejnych poziomach</span><span class="num">4</span></div>
+  <div class="page__foot"><span><b>TUE → TUK → TUS</b> · proporcje pracy na kolejnych poziomach</span><span class="num">5</span></div>
 </section>
 
 <!-- ============ 4. ETAPY 0–6 ============ -->
@@ -850,11 +962,11 @@ table.karta tbody tr{background:none}
           <li>nie rozumie, że ktoś czegoś nie wie</li>
         </ul>
         <p style="font-size:8.40pt;color:var(--ink2)">Trzy i więcej zaznaczonych pozycji — skieruj obserwację
-        do specjalisty i uwzględnij w arkuszu obserwacji (s. 17).</p>
+        do specjalisty i uwzględnij w arkuszu obserwacji (s. 22).</p>
       </div>
     </div>
   </div>
-  <div class="page__foot"><span><b>Etapy rozwoju</b> · 0–6 lat</span><span class="num">5</span></div>
+  <div class="page__foot"><span><b>Etapy rozwoju</b> · 0–6 lat</span><span class="num">6</span></div>
 </section>
 
 <!-- ============ 5. ETAPY: UCZEŃ I DOROSŁY ============ -->
@@ -959,7 +1071,7 @@ table.karta tbody tr{background:none}
       </div>
     </div>
   </div>
-  <div class="page__foot"><span><b>Etapy rozwoju</b> · uczeń i osoba dorosła</span><span class="num">6</span></div>
+  <div class="page__foot"><span><b>Etapy rozwoju</b> · uczeń i osoba dorosła</span><span class="num">7</span></div>
 </section>
 
 <!-- ============ 6. PRZYCZYNY ============ -->
@@ -1039,7 +1151,7 @@ table.karta tbody tr{background:none}
 
     
   </div>
-  <div class="page__foot"><span><b>Przyczyny</b> · sześć nakładających się mechanizmów</span><span class="num">7</span></div>
+  <div class="page__foot"><span><b>Przyczyny</b> · sześć nakładających się mechanizmów</span><span class="num">8</span></div>
 </section>
 
 <!-- ============ 7. JAK ROZPOZNAĆ ============ -->
@@ -1108,7 +1220,7 @@ table.karta tbody tr{background:none}
   </div>
 
  </div>
-  <div class="page__foot"><span><b>Rozpoznanie</b> · co obserwować w przedszkolu i szkole</span><span class="num">8</span></div>
+  <div class="page__foot"><span><b>Rozpoznanie</b> · co obserwować w przedszkolu i szkole</span><span class="num">9</span></div>
 </section>
 
 <!-- ============ 7b. PRÓBA ORIENTACYJNA ============ -->
@@ -1206,7 +1318,7 @@ table.karta tbody tr{background:none}
           każde dostosowanie wpisane do IPET.</p>
         </div>
   </div>
-  <div class="page__foot"><span><b>Rozpoznanie</b> · próba orientacyjna i badanie Sally-Anne</span><span class="num">9</span></div>
+  <div class="page__foot"><span><b>Rozpoznanie</b> · próba orientacyjna i badanie Sally-Anne</span><span class="num">10</span></div>
 </section>
 
 <!-- ============ 8. TESTY ============ -->
@@ -1275,7 +1387,7 @@ table.karta tbody tr{background:none}
     </table>
     </div>
   </div>
-  <div class="page__foot"><span><b>Testy i narzędzia</b> · co wolno nauczycielowi, co psychologowi</span><span class="num">10</span></div>
+  <div class="page__foot"><span><b>Testy i narzędzia</b> · co wolno nauczycielowi, co psychologowi</span><span class="num">11</span></div>
 </section>
 
 <!-- ============ 9. POZIOMY FUNKCJONOWANIA ============ -->
@@ -1361,7 +1473,7 @@ table.karta tbody tr{background:none}
       </div>
     </div>
   </div>
-  <div class="page__foot"><span><b>Poziom funkcjonowania</b> · cztery poziomy i priorytety pracy</span><span class="num">11</span></div>
+  <div class="page__foot"><span><b>Poziom funkcjonowania</b> · cztery poziomy i priorytety pracy</span><span class="num">12</span></div>
 </section>
 
 <!-- ============ 9b. OD OCENY DO DOKUMENTACJI ============ -->
@@ -1482,7 +1594,7 @@ table.karta tbody tr{background:none}
       Bez dwóch ostatnich elementów cel nie nadaje się do oceny efektywności.</p>
     </div>
   </div>
-  <div class="page__foot"><span><b>Poziom funkcjonowania</b> · od obserwacji do zapisu w WOPFU i IPET</span><span class="num">12</span></div>
+  <div class="page__foot"><span><b>Poziom funkcjonowania</b> · od obserwacji do zapisu w WOPFU i IPET</span><span class="num">13</span></div>
 </section>
 
 <!-- ============ 10. PODSTAWA PRAWNA ============ -->
@@ -1574,7 +1686,7 @@ table.karta tbody tr{background:none}
       </div>
     </div>
   </div>
-  <div class="page__foot"><span><b>Podstawa prawna</b> · kształcenie specjalne i pomoc psychologiczno-pedagogiczna</span><span class="num">13</span></div>
+  <div class="page__foot"><span><b>Podstawa prawna</b> · kształcenie specjalne i pomoc psychologiczno-pedagogiczna</span><span class="num">14</span></div>
 </section>
 
 <!-- ============ 11. PRZEKAZ SŁOWNY ============ -->
@@ -1648,7 +1760,7 @@ table.karta tbody tr{background:none}
       </div>
     </div>
   </div>
-  <div class="page__foot"><span><b>Dostosowanie przekazu słownego</b> · zamiast ⟶ powiedz</span><span class="num">14</span></div>
+  <div class="page__foot"><span><b>Dostosowanie przekazu słownego</b> · zamiast ⟶ powiedz</span><span class="num">15</span></div>
 </section>
 
 <!-- ============ 12. LEKTURY ============ -->
@@ -1727,7 +1839,7 @@ table.karta tbody tr{background:none}
       Dostosowania z tej strony obowiązują wszystkich nauczycieli ucznia, nie tylko polonistę.</p>
     </div>
   </div>
-  <div class="page__foot"><span><b>Lektury i teksty</b> · jak dostosować, nie obniżając wymagań</span><span class="num">15</span></div>
+  <div class="page__foot"><span><b>Lektury i teksty</b> · jak dostosować, nie obniżając wymagań</span><span class="num">16</span></div>
 </section>
 
 <!-- ============ ĆWICZENIA TUE ============ -->
@@ -1802,7 +1914,7 @@ table.karta tbody tr{background:none}
       </div>
     </div>
   </div>
-  <div class="page__foot"><span><b>Ćwiczenia TUE</b> · przedszkole, poziom I–II</span><span class="num">16</span></div>
+  <div class="page__foot"><span><b>Ćwiczenia TUE</b> · przedszkole, poziom I–II</span><span class="num">17</span></div>
 </section>
 
 <!-- ============ ĆWICZENIA TUK ============ -->
@@ -1877,7 +1989,7 @@ table.karta tbody tr{background:none}
       </div>
     </div>
   </div>
-  <div class="page__foot"><span><b>Ćwiczenia TUK</b> · klasy I–III, poziom III</span><span class="num">17</span></div>
+  <div class="page__foot"><span><b>Ćwiczenia TUK</b> · klasy I–III, poziom III</span><span class="num">18</span></div>
 </section>
 
 <!-- ============ ĆWICZENIA TUS ============ -->
@@ -1952,7 +2064,7 @@ table.karta tbody tr{background:none}
       </div>
     </div>
   </div>
-  <div class="page__foot"><span><b>Ćwiczenia TUS</b> · klasy IV–VIII, szkoła ponadpodstawowa, dorośli</span><span class="num">18</span></div>
+  <div class="page__foot"><span><b>Ćwiczenia TUS</b> · klasy IV–VIII, szkoła ponadpodstawowa, dorośli</span><span class="num">19</span></div>
 </section>
 
 <!-- ============ METODYKA ZAJĘĆ ============ -->
@@ -2051,7 +2163,7 @@ table.karta tbody tr{background:none}
       </div>
     </div>
   </div>
-  <div class="page__foot"><span><b>Metodyka</b> · zasady, materiały, generalizacja, rodzice</span><span class="num">19</span></div>
+  <div class="page__foot"><span><b>Metodyka</b> · zasady, materiały, generalizacja, rodzice</span><span class="num">20</span></div>
 </section>
 
 
@@ -2138,7 +2250,7 @@ table.karta tbody tr{background:none}
           <h4 style="color:var(--gold)">Ocena efektywności</h4>
           <ul style="font-size:9.00pt">
             <li><strong>Próba kontrolna</strong> po każdym module (spotkania 10, 20, 30) — te same zadania co na wejściu.</li>
-            <li><strong>Karta obserwacji</strong> (s. 17) wypełniana przez wychowawcę we wrześniu, styczniu i czerwcu.</li>
+            <li><strong>Karta obserwacji</strong> (s. 22) wypełniana przez wychowawcę we wrześniu, styczniu i czerwcu.</li>
             <li><strong>Generalizacja</strong> — czy umiejętność pojawia się <em>poza</em> salą terapeutyczną.</li>
             <li><strong>Zapis do WOPFU</strong> dwa razy w roku szkolnym.</li>
           </ul>
@@ -2151,7 +2263,7 @@ table.karta tbody tr{background:none}
       </div>
     </div>
   </div>
-  <div class="page__foot"><span><b>Program</b> · „Widzę – Myślę – Rozumiem", 30 spotkań</span><span class="num">20</span></div>
+  <div class="page__foot"><span><b>Program</b> · „Widzę – Myślę – Rozumiem", 30 spotkań</span><span class="num">21</span></div>
 </section>
 
 <!-- ============ KARTA OBSERWACJI ============ -->
@@ -2276,7 +2388,7 @@ table.karta tbody tr{background:none}
       <div><i></i>data omówienia z rodzicami</div>
     </div>
   </div>
-  <div class="page__foot"><span><b>Karta obserwacji</b> · narzędzie do druku i kopiowania</span><span class="num">21</span></div>
+  <div class="page__foot"><span><b>Karta obserwacji</b> · narzędzie do druku i kopiowania</span><span class="num">22</span></div>
 </section>
 
 <!-- ============ 18. LITERATURA + KONTAKT ============ -->
@@ -2339,16 +2451,16 @@ table.karta tbody tr{background:none}
         <span style="font-size:9.40pt;color:var(--ink2)">Pedagog specjalny · terapeuta · autorka materiałów dla oświaty</span>
         <span style="font-size:11.00pt;color:var(--tuk);font-weight:700">kontakt@eduplaner2026.pl</span>
         <span style="font-size:8.40pt;color:var(--muted);margin-top:4px">Broszurę można kopiować i wykorzystywać w pracy
-        z dziećmi i uczniami. Karta obserwacji ze s. 17 jest przeznaczona do powielania na użytek własny placówki.</span>
+        z dziećmi i uczniami. Karta obserwacji ze s. 22 jest przeznaczona do powielania na użytek własny placówki.</span>
       </div>
       <div style="text-align:right;flex:none">
         <p style="font-family:Fraunces,serif;font-size:13.00pt;line-height:1.25;color:var(--tuk)">Teoria umysłu<br>a funkcjonowanie<br>dziecka, ucznia<br>z autyzmem</p>
-        <p style="font-size:8.00pt;color:var(--muted);margin-top:6px">wydanie 1 · 22 strony</p>
+        <p style="font-size:8.00pt;color:var(--muted);margin-top:6px">wydanie 1 · 23 strony</p>
       </div>
     </div>
 
     <p style="font-size:8.40pt;color:var(--muted);text-align:center">Materiał ma charakter informacyjno-metodyczny.
     Nie zastępuje diagnozy specjalistycznej ani wykładni przepisów prawa oświatowego.</p>
   </div>
-  <div class="page__foot"><span><b>Literatura, źródła i kontakt</b></span><span class="num">22</span></div>
+  <div class="page__foot"><span><b>Literatura, źródła i kontakt</b></span><span class="num">23</span></div>
 </section>
