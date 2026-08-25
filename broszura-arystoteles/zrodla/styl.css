@@ -412,3 +412,72 @@ dl.slownik dd{ margin:0 0 2mm; font-size:.9em; color:var(--atrament-2); line-hei
 .tyl-wydawca p{ font-family:var(--display); font-size:.74em; letter-spacing:.13em;
   text-transform:uppercase; color:var(--atrament-3); line-height:1.7; }
 .tyl-wydawca strong{ color:var(--morze); font-weight:800; font-size:1.3em; letter-spacing:.1em; }
+
+/* ---------- załącznik: gra ---------------------------------------------- */
+ol.zasady-gry{ list-style:none; margin:0; padding:0; display:flex; flex-direction:column; gap:0; }
+ol.zasady-gry li{
+  display:grid; grid-template-columns:9mm 1fr; gap:3.5mm; align-items:baseline;
+  padding:2.8mm 0; border-bottom:.3mm dotted var(--linia);
+}
+ol.zasady-gry li:last-child{ border-bottom:none; }
+ol.zasady-gry em{ font-style:normal; font-weight:700; color:var(--szafran); }
+.zg-nr{
+  display:grid; place-items:center; width:7.5mm; height:7.5mm; border-radius:50%;
+  background:var(--morze); color:var(--papier);
+  font-family:var(--display); font-weight:800; font-size:.9em;
+}
+.siatka-pola{ display:grid; grid-template-columns:1fr 1fr; gap:4mm; }
+.pole-opis{ padding:4mm 5mm; }
+.pole-w{ background:var(--oliwka-tlo); border:.5mm dashed var(--oliwka); }
+.pole-p{ background:var(--papier-cien); border:.5mm solid var(--linia); }
+.po-t{ font-family:var(--display); font-weight:800; font-size:1.02em; margin-bottom:1.5mm; }
+.pole-w .po-t{ color:var(--oliwka); }
+.po-o{ font-size:.94em; color:var(--atrament-2); line-height:1.5; }
+
+.plansza-strona .strona-tresc{ gap:4mm; }
+
+ol.karty-gry{
+  list-style:none; margin:0; padding:0; flex:1;
+  display:grid; grid-template-columns:1fr 1fr; grid-template-rows:repeat(3,1fr); gap:5mm;
+}
+.karta-gry{
+  border:.6mm dashed var(--glina); background:var(--karta); padding:5mm 5.5mm;
+  display:flex; flex-direction:column; justify-content:space-between; gap:3mm;
+}
+.kg-gora{ display:flex; align-items:center; gap:3mm; }
+.kg-nr{
+  display:grid; place-items:center; width:8.5mm; height:8.5mm; flex:0 0 auto; border-radius:50%;
+  background:var(--morze); color:var(--papier); font-family:var(--display); font-weight:800; font-size:1em;
+}
+.kg-emocja{
+  font-family:var(--display); font-weight:800; font-size:.82em; letter-spacing:.15em;
+  text-transform:uppercase; color:var(--glina);
+}
+.kg-pytanie{ font-size:1em; line-height:1.45; }
+.kg-dol{
+  display:flex; justify-content:space-between; align-items:baseline; gap:3mm;
+  border-top:.3mm dotted var(--glina); padding-top:2.4mm;
+  font-size:.78em; color:var(--atrament-3);
+}
+.kg-dol strong{ color:var(--glina); }
+
+.tabela-solo td.pole-pisania{ border-bottom:.4mm solid var(--linia); height:10mm; }
+.tabela-solo td:first-child{ font-family:var(--display); font-weight:700; color:var(--morze); width:14mm; }
+.tabela-solo th:nth-child(2){ width:34mm; }
+.tabela-solo th:last-child{ width:22mm; }
+
+/* ---------- zageszczenia: spis treści, załącznik ------------------------ */
+.strona.spis .strona-tresc{ gap:4mm; padding-top:4mm; }
+.strona.spis .tresc{ gap:1.05mm; }
+.strona.spis .tresc-poz{ font-size:.87em; }
+.strona.spis .tresc-dzial{ margin-top:2mm; padding-bottom:1mm; font-size:.74em; }
+.strona.spis .tresc-nr{ width:5.8mm; height:5.8mm; font-size:.72em; margin-right:1.2mm; }
+.strona.spis .dzial-tytul{ font-size:1.8em; padding-bottom:2.4mm; }
+.karty-plaskie{ flex:0 0 auto; grid-template-columns:repeat(4,1fr); grid-template-rows:auto; gap:3.5mm; }
+.karty-plaskie .karta-mini{ padding:4mm 4.5mm; }
+.karty-plaskie .km-o{ font-size:.88em; }
+.pole-e{ background:var(--morze-jasne); border:.5mm solid var(--morze); }
+.pole-e .po-t{ color:var(--morze); }
+.siatka-pola{ grid-template-columns:repeat(3,1fr); }
+.strona.plansza-strona .ilu-info svg{ max-width:none; }
+.kostka-mala svg{ max-width:138mm; margin:0 auto; }

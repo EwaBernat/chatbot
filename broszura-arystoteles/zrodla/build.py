@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 """Skład broszury 'Spotkanie z Arystotelesem' — makieta A4, strony o stałym rozmiarze."""
 import json, re, sys, io
+import gra
 import os
 TU = os.path.dirname(os.path.abspath(__file__))
 WYJSCIE = os.path.dirname(TU)
@@ -165,7 +166,13 @@ spis += ['<li class="tresc-dzial">Dodatki</li>',
          poz('Słowniczek', 48),
          poz('Jak pracować z tą broszurą <em>· dla dorosłych</em>', 49),
          poz('Nota o cytatach i źródłach', 50),
-         poz('Moje notatki', 51)]
+         poz('Moje notatki', 51),
+         '<li class="tresc-dzial">Załącznik · gra</li>',
+         poz('Emocje według Arystotelesa <em>· o grze</em>', 52),
+         poz('Zasady gry krok po kroku', 53),
+         poz('Plansza <em>· dwadzieścia pól</em>', 54),
+         poz('Kostki do wycięcia', 55),
+         poz('Karty do wycięcia', 57)]
 strona(klasa='spis', pagina='Spis treści', html=
        '<h2 class="dzial-tytul">Spis treści</h2><ol class="tresc">%s</ol>' % '\n'.join(spis))
 
@@ -215,6 +222,7 @@ strona(pagina='Zanim zaczniesz', html='''
     <li><span>Moja karta emocji – do noszenia w piórniku</span><span>str. 47</span></li>
     <li><span>Słowniczek trudnych słów</span><span>str. 48</span></li>
     <li><span>Miejsce na Twoje notatki</span><span>str. 51</span></li>
+    <li><span>Gra planszowa „Emocje według Arystotelesa”</span><span>str. 52</span></li>
   </ol>
 </div>''')
 
@@ -455,7 +463,151 @@ strona(pagina='Dodatki', html='''
 <p class="lead">Miejsce na Twoje zdanie, Twój rysunek albo jedną liczbę od 0 do 10.</p>
 <div class="linie">%s</div>''' % ('<span class="linia-do-pisania"></span>' * 22))
 
-# ======================================================= 52. TYLNA OKŁADKA
+# ======================================================= 52-59. ZAŁĄCZNIK: GRA
+KARTY = [
+ (1, 'ciekawość', 'Opowiedz o czymś, co ostatnio chciało Ci się sprawdzić albo rozłożyć na części.', 9),
+ (2, 'niepewność', 'Opowiedz o miejscu, w którym nie znasz jeszcze zasad.', 12),
+ (3, 'napięcie sporu', 'Opowiedz o sytuacji, w której miałeś lub miałaś inne zdanie niż ktoś dorosły.', 15),
+ (4, 'zachwyt', 'Opowiedz o swojej dziedzinie — o czymś, o czym wiesz więcej niż inni.', 18),
+ (5, 'duma', 'Opowiedz o czymś, co dziś umiesz, a rok temu jeszcze nie.', 21),
+ (6, 'ulga', 'Opowiedz o chwili, w której coś trudnego wreszcie się skończyło.', 24),
+ (7, 'strach', 'Opowiedz o czymś, czego boisz się w zwykłym tygodniu.', 27),
+ (8, 'zniechęcenie', 'Opowiedz o czymś, czego uczysz się dłużej, niż byś chciał lub chciała.', 30),
+ (9, 'samotność', 'Opowiedz o przerwie w szkole albo o staniu obok grupy.', 33),
+ (10, 'gniew', 'Opowiedz o sytuacji, która według Ciebie była niesprawiedliwa.', 36),
+ (11, 'nadzieja', 'Opowiedz o czymś, na co teraz czekasz.', 39),
+ (12, 'wdzięczność', 'Opowiedz o osobie, której chciałoby Ci się powiedzieć „dziękuję”.', 42),
+]
+
+def karta(k):
+    return ('<li class="karta-gry"><div class="kg-gora"><span class="kg-nr">%d</span>'
+            '<span class="kg-emocja">%s</span></div>'
+            '<p class="kg-pytanie">%s</p>'
+            '<div class="kg-dol"><span>Nie chcesz? Powiedz <strong>PAS</strong>.</span>'
+            '<span>str. %d</span></div></li>') % k
+
+strona(pagina='Załącznik · gra', html='''
+<p class="etykieta">Załącznik</p>
+<h2 class="dzial-tytul">Emocje według Arystotelesa</h2>
+<p class="lead">Gra planszowa, w której nikt nie wygrywa i nikt nie przegrywa. Przechodzicie razem
+przez dwanaście emocji z tej książeczki i opowiadacie o nich tyle, ile chcecie.</p>
+%s
+<div class="karty-4 karty-plaskie">
+  <div class="karta-mini"><p class="km-t">Dla kogo</p><p class="km-o">Dla młodzieży w spektrum autyzmu,
+    samodzielnie albo z osobą dorosłą.</p></div>
+  <div class="karta-mini"><p class="km-t">Ile osób</p><p class="km-o">Od 1 do 4. Wersja dla jednej osoby
+    jest na stronie 59.</p></div>
+  <div class="karta-mini"><p class="km-t">Ile trwa</p><p class="km-o">Około 20–30 minut. Można przerwać
+    w dowolnym momencie i wrócić później.</p></div>
+  <div class="karta-mini"><p class="km-t">Co potrzebujesz</p><p class="km-o">Nożyczek, kleju i pionków —
+    pionkiem może być gumka, moneta albo klocek.</p></div>
+</div>
+<div class="na-koncu">
+  <p class="etykieta">Co wytniesz z tego załącznika</p>
+  <ol>
+    <li><span>Plansza — dwadzieścia pól</span><span>str. 54</span></li>
+    <li><span>Kostka miary — do sklejenia</span><span>str. 55</span></li>
+    <li><span>Kostka emocji — do sklejenia</span><span>str. 56</span></li>
+    <li><span>Dwanaście kart z pytaniami</span><span>str. 57–58</span></li>
+    <li><span>Żetony w kształcie listków</span><span>str. 56</span></li>
+  </ol>
+</div>''' % figura(gra.kostka_ilustracja(), None, None, 'ilu-scena'))
+
+strona(pagina='Załącznik · gra', html='''
+<h2 class="dzial-tytul">Zasady gry krok po kroku</h2>
+<p class="lead">Kolejność jest zawsze taka sama. Możesz do niej wracać w trakcie gry.</p>
+<ol class="zasady-gry">
+  <li><span class="zg-nr">1</span><span>Każdy stawia swój pionek na polu <strong>START</strong>.</span></li>
+  <li><span class="zg-nr">2</span><span>Zaczyna osoba, która ostatnia miała urodziny. Potem kolej idzie w prawo.</span></li>
+  <li><span class="zg-nr">3</span><span>Rzuć <strong>kostką miary</strong>. Liczba mówi, o ile pól przesuwasz pionek.</span></li>
+  <li><span class="zg-nr">4</span><span>Przeczytaj, jakie to pole. Na polu z numerem weź <strong>kartę</strong>
+      o tym samym numerze.</span></li>
+  <li><span class="zg-nr">5</span><span>Przeczytaj pytanie z karty i odpowiedz. Możesz też powiedzieć
+      <strong>„pas”</strong> — to jest ruch zgodny z zasadami.</span></li>
+  <li><span class="zg-nr">6</span><span>Spójrz na słowo z kostki: <em>za mało</em>, <em>właściwa miara</em>
+      albo <em>za dużo</em>. Powiedz jedno zdanie o tym, ile tej emocji było w Twojej sytuacji.
+      Jeśli słowo z kostki pasuje do Twojej odpowiedzi — weź dodatkowy listek.</span></li>
+  <li><span class="zg-nr">7</span><span>Za każdą turę bierzesz <strong>jeden listek</strong>. Za „pas” też.</span></li>
+  <li><span class="zg-nr">8</span><span>Gra kończy się, gdy wszyscy dojdą do <strong>METY</strong>.
+      Każdy mówi, ile ma listków — i to wszystko. Nikt nie wygrywa i nikt nie przegrywa.</span></li>
+</ol>
+<div class="uwaga-panel">
+  <p class="etykieta">Zasady wsparcia — obowiązują wszystkich</p>
+  <p>Nie ma limitu czasu. Można myśleć długo i nikt nie pogania.</p>
+  <p>„Pas” nic nie kosztuje i nikt o niego nie dopytuje.</p>
+  <p>Można odpowiedzieć jednym słowem, liczbą albo pokazać ją na palcach.</p>
+  <p>Nikt nie komentuje cudzej odpowiedzi. Wolno powiedzieć tylko „dziękuję”.</p>
+  <p>Można przerwać grę i wrócić później — zaznacz ołówkiem pole, na którym stoisz.</p>
+</div>''')
+
+strona(pagina='Załącznik · plansza', klasa='plansza-strona', html='''
+<h2 class="dzial-tytul">Plansza</h2>
+%s
+<div class="siatka-pola">
+  <div class="pole-opis pole-e"><p class="po-t">Pole z numerem</p>
+    <p class="po-o">Weź kartę o tym samym numerze i odpowiedz na pytanie.</p></div>
+  <div class="pole-opis pole-w"><p class="po-t">Pole z wieńcem</p>
+    <p class="po-o">Rzuć kostką emocji i opowiedz o emocji, która wypadła. Karty nie bierzesz.</p></div>
+  <div class="pole-opis pole-p"><p class="po-t">Pole PRZERWA</p>
+    <p class="po-o">Nic nie robisz. To pełnoprawny ruch, a nie strata tury.</p></div>
+</div>''' % figura(gra.plansza(), None,
+   'Dwadzieścia pól. Dwanaście z nich to spotkania z tej książeczki, cztery to pola z wieńcem, dwa to przerwy.',
+   'ilu-info'))
+
+strona(pagina='Załącznik · kostki', html='''
+<h2 class="dzial-tytul">Kostka miary</h2>
+<p class="lead">Ta kostka pochodzi wprost od Arystotelesa. Mówi nie tylko, o ile pól idziesz,
+ale też ile danej emocji było w Twojej sytuacji: za mało, właściwa miara czy za dużo.
+To jest złoty środek ze spotkania siódmego, zamieniony w ruch w grze.</p>
+%s
+<div class="ramka-wskazowka">
+  <p class="etykieta">Jak skleić</p>
+  <p class="t">Wytnij po linii ciągłej. Zegnij po wszystkich liniach przerywanych — najpierw w jedną stronę,
+  potem w drugą, żeby papier się zmiękczył. Posmaruj klejem tylko szare klapki i sklejaj po kolei:
+  najpierw pierścień z czterech ścian, potem górę, na końcu dół. Przytrzymaj każdą krawędź przez chwilę.</p>
+</div>''' % figura(gra.siatka_kostki(
+    [('2 · właściwa miara', 'idziesz o 2 pola'), ('1 · za mało', 'idziesz o 1 pole'),
+     ('3 · za dużo', 'idziesz o 3 pola'), ('2 · za dużo', 'idziesz o 2 pola'),
+     ('1 · właściwa miara', 'idziesz o 1 pole'), ('3 · za mało', 'idziesz o 3 pola')],
+    'Kostka miary — wytnij i sklej', 'var(--szafran-tlo)'), None, None, 'ilu-info'))
+
+strona(pagina='Załącznik · kostki', html='''
+<h2 class="dzial-tytul">Kostka emocji i żetony</h2>
+<p class="lead">Kostki emocji używasz na polach z wieńcem. Listki to żetony — jeden za każdą turę.</p>
+%s
+%s''' % (figura(gra.siatka_kostki(
+    [('ciekawość', 'chcę sprawdzić'), ('strach', 'uwaga, niebezpiecznie'),
+     ('gniew', 'to niesprawiedliwe'), ('radość', 'jest dobrze'),
+     ('smutek', 'coś się skończyło'), ('spokój', 'nic mnie nie rusza')],
+    'Kostka emocji — wytnij i sklej', 'var(--oliwka-tlo)'), None, None, 'ilu-info kostka-mala'),
+   figura(gra.zetony(18), 'Żetony · listki', 'Wytnij osiemnaście listków. Jeśli zabraknie, użyjcie guzików albo fasolek.', 'ilu-info')))
+
+for _i, _zakres in ((0, 'Karty 1–6'), (6, 'Karty 7–12')):
+    strona(pagina='Załącznik · karty', html='''
+<h2 class="dzial-tytul">%s</h2>
+<p class="lead">Wytnij wzdłuż przerywanych linii. Odłóż karty numerem do góry, w jednym stosie.</p>
+<ol class="karty-gry">%s</ol>''' % (_zakres, ''.join(karta(k) for k in KARTY[_i:_i + 6])))
+
+strona(pagina='Załącznik · gra', html='''
+<h2 class="dzial-tytul">Gra dla jednej osoby</h2>
+<p class="lead">Wszystko działa tak samo, tylko rzucasz sam. Zamiast opowiadać komuś — zapisujesz.
+Możesz przejść całą planszę jednego dnia albo po jednym polu dziennie.</p>
+<div class="przewijalne">
+<table class="tabela-solo">
+  <thead><tr><th>Pole</th><th>Emocja</th><th>Moja odpowiedź — jedno słowo wystarczy</th><th>Siła 0–10</th></tr></thead>
+  <tbody>%s</tbody>
+</table>
+</div>
+<div class="uwaga-panel">
+  <p class="etykieta">Po skończonej grze</p>
+  <p>Popatrz na kolumnę z liczbami. Która emocja miała u Ciebie najwyższą siłę? Która najniższą?</p>
+  <p>Nie musisz nic z tym robić. Sama wiedza o tym, co i jak mocno czujesz, jest już wynikiem gry —
+  Arystoteles nazwałby ją poznaniem samego siebie.</p>
+</div>''' % ''.join('<tr><td>%d</td><td class="pole-pisania">&nbsp;</td>'
+                     '<td class="pole-pisania">&nbsp;</td><td class="pole-pisania">&nbsp;</td></tr>' % n
+                     for n in range(1, 13)))
+
+# ======================================================= 60. TYLNA OKŁADKA
 strona(klasa='tyl', html='''
 <div class="tyl-gora">
   <div class="tyl-logo">%s</div>
@@ -470,6 +622,7 @@ strona(klasa='tyl', html='''
     <li>Każdy rozdział ma zawsze te same pięć części – zawsze wiesz, co będzie dalej.</li>
     <li>Sześćdziesiąt pytań bez ocen. „Nie wiem” jest pełną odpowiedzią.</li>
     <li>Duże litery, dosłowny język, emocje opisane przez sygnały z własnego ciała.</li>
+    <li>Załącznik: gra planszowa z planszą, dwiema kostkami i kartami do wycięcia.</li>
   </ul>
   <blockquote class="tyl-cytat">
     <p>„Każdy może się rozgniewać – to łatwe. Ale rozgniewać się na właściwą osobę,

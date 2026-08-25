@@ -3,8 +3,8 @@
 Broszura edukacyjna dla młodzieży w spektrum autyzmu. Opowiadanie o życiu i ideach
 Arystotelesa, prowadzące przez dwanaście emocji, z pytaniami do samodzielnej pracy.
 
-**Format:** makieta książkowa A4, **52 strony**, druk dwustronny, oprawa zeszytowa
-(52 = 13 arkuszy, liczba podzielna przez 4).
+**Format:** makieta książkowa A4, **60 stron**, druk dwustronny, oprawa zeszytowa
+(60 = 15 arkuszy, liczba podzielna przez 4).
 
 ## Pliki
 
@@ -12,8 +12,8 @@ Arystotelesa, prowadzące przez dwanaście emocji, z pytaniami do samodzielnej p
 |---|---|
 | `broszura.html` | Wersja źródłowa (publikacja online). Kroje z Google Fonts. |
 | `do-druku.html` | Wersja samodzielna: kroje osadzone w pliku, działa bez internetu. |
-| `Spotkanie-z-Arystotelesem.pdf` | Gotowy plik do druku — A4, 52 strony. |
-| `zrodla/` | Skrypty składu: treść w JSON + arkusz stylów + generator. |
+| `Spotkanie-z-Arystotelesem.pdf` | Gotowy plik do druku — A4, 60 stron. |
+| `zrodla/` | Skrypty składu: treść w JSON + arkusz stylów + generator + grafiki gry. |
 | `logo/` | Znak wydawcy PCTP i znak serii „Mała Filozofia” — SVG + PNG, opis w `logo/README.md`. |
 
 Ponowne wygenerowanie całości:
@@ -30,6 +30,8 @@ python3 zrodla/druk.py      # osadza kroje → do-druku.html
 - **60 pytań** — po 5 na rozdział, numerowane ciągiem 1–60.
 - **8 infografik** + 7 ilustracji scenicznych (wektorowe SVG).
 - Karta emocji do wycięcia, słowniczek, strona notatek, strona dla dorosłych.
+- **Załącznik: gra planszowa** „Emocje według Arystotelesa” — plansza, dwie kostki
+  do sklejenia, dwanaście kart z pytaniami, żetony, wersja dla jednej osoby.
 
 ## Paginacja
 
@@ -47,7 +49,25 @@ python3 zrodla/druk.py      # osadza kroje → do-druku.html
 | 49 | Jak pracować z broszurą (dla dorosłych) |
 | 50 | Nota o cytatach i źródłach |
 | 51 | Moje notatki |
-| 52 | Tylna okładka |
+| 52–59 | **Załącznik: gra „Emocje według Arystotelesa”** |
+| 60 | Tylna okładka |
+
+### Załącznik — gra
+
+| Strona | Zawartość |
+|---|---|
+| 52 | O grze: dla kogo, ile osób, co potrzebujesz, co wytniesz |
+| 53 | Zasady krok po kroku + zasady wsparcia |
+| 54 | Plansza — dwadzieścia pól, z opisem trzech rodzajów pól |
+| 55 | Kostka miary — siatka do wycięcia i sklejenia |
+| 56 | Kostka emocji — siatka do wycięcia + osiemnaście żetonów |
+| 57–58 | Dwanaście kart z pytaniami do wycięcia |
+| 59 | Wersja dla jednej osoby + tabela do wypełnienia |
+
+Gra jest **kooperacyjna: nikt nie wygrywa i nikt nie przegrywa**. „Pas” jest ruchem
+zgodnym z zasadami i nie kosztuje nic. Kostka miary łączy ruch z nauką o złotym środku
+ze spotkania siódmego: liczba mówi, o ile pól idziesz, a słowo — czy emocji było
+za mało, właściwa miara, czy za dużo.
 
 **Numeracja stron** biegnie w stopce od strony 4 do 51, przy zewnętrznej krawędzi
 (na stronach nieparzystych po prawej, na parzystych po lewej). Okładki i strony
@@ -151,9 +171,11 @@ z lewej, obwódka) — rozpoznaje się je także na wydruku czarno-białym.
 - **Spady:** do offsetu dodaj 3 mm z każdej strony i pasery (plik jest bez spadów).
 - **Papier:** offset lub matowa kreda 120–150 g. Matowy nie odbija światła.
 - **Okładka:** karton 250–300 g, folia matowa.
-- **Oprawa:** zeszytowa (52 strony = 13 arkuszy) albo klejona.
-- Strony 45–47 i 51 są przeznaczone do wycinania i zapisywania — nie umieszczaj
-  na nich lakieru UV.
+- **Oprawa:** zeszytowa (60 stron = 15 arkuszy) albo klejona.
+- Strony 45–47, 51 oraz **54–58** są przeznaczone do wycinania i zapisywania —
+  nie umieszczaj na nich lakieru UV.
+- Strony 54–58 (plansza, kostki, karty) najlepiej wypadną na papierze **170–200 g**;
+  jeśli cała broszura idzie na 120–150 g, rozważ dodruk załącznika na grubszym papierze.
 
 ## Odtworzenie w Canvie lub InDesignie
 
