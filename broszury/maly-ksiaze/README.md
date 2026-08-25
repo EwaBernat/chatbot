@@ -17,12 +17,16 @@ Ctrl+P → format **A4**, marginesy **brak/none**, zaznacz **grafika tła**.
 Dokument jest złożony tak, że **107 sekcji = dokładnie 107 stron A4** — bez pustych stron
 i bez treści urwanej między arkuszami.
 
+**Numeracja stron** jest ciągła (1–107). Okładka liczy się jako strona 1, ale nie ma nadruku.
+Numery w spisie treści są wyliczane automatycznie przy składaniu, więc nie rozjadą się
+po zmianie treści.
+
 ## Zawartość
 
 | Część | Strony | Co zawiera |
 |---|---|---|
 | Okładka | 1 | — |
-| Spis treści | 2 | części broszury + spis 27 rozdziałów z etapami E1–E5 |
+| Spis treści | 2 | części broszury + spis 27 rozdziałów z etapami E1–E5 i numerami stron |
 | A. Jak korzystać | 2 | wskazówki dla ucznia, nauczyciela i rodzica; założenia adaptacji |
 | B. Trzy narzędzia | 2 | termometr emocji, sygnalizator oceny sytuacji, drabina teorii umysłu |
 | C. Karty postaci | 1 | 6 kart |

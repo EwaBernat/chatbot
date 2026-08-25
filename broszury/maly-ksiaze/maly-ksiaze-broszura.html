@@ -100,6 +100,11 @@ small{font-weight:400;font-size:.82em;color:var(--szary)}
 .s-tyt{flex:1}
 .s-etap{flex:none;font-family:var(--font-h);font-size:8pt;font-weight:700;color:var(--z600);
   background:var(--z100);border-radius:20px;padding:.6mm 2.2mm}
+.s-str{flex:none;min-width:7mm;text-align:right;font-family:var(--font-h);font-weight:700;
+  font-size:9.6pt;color:var(--z700);font-variant-numeric:tabular-nums}
+.spis-str-h{float:right;font-size:8.4pt;color:var(--z600);letter-spacing:.06em}
+.spis-legenda{font-size:8.8pt;color:var(--szary);margin:-1mm 0 2.5mm}
+.spis-legenda span{font-family:var(--font-h);font-weight:700;color:var(--z600)}
 .spis-info{margin-top:6mm;background:var(--z050);border:1px solid var(--z200);
   border-radius:8px;padding:4mm}
 .rytm{padding-left:5mm;margin:2mm 0}
@@ -290,6 +295,10 @@ figcaption{font-size:9pt;color:var(--szary);padding:2mm 3mm;background:var(--z05
 .f-znak{display:flex;align-items:center;gap:2mm}
 .f-znak svg.mark{width:5mm;height:5mm;display:block;flex:none}
 .f-znak b{color:var(--z600);letter-spacing:.08em}
+.f-srodek{margin:0 auto;text-align:center}
+.f-nr{font-family:var(--font-h);font-size:11.5pt;font-weight:700;color:var(--z600);
+  line-height:1;letter-spacing:0;min-width:9mm;text-align:right;
+  font-variant-numeric:tabular-nums}
 
 /* ---------- ĆWICZENIA ---------- */
 .cwiczenia{display:grid;gap:4mm}
@@ -566,8 +575,8 @@ figcaption{font-size:9pt;color:var(--szary);padding:2mm 3mm;background:var(--z05
   <h2 class="dzial-h">Spis treści</h2>
   <div class="spis-jedna">
     <div>
-      <h3 class="spis-h">Części broszury</h3>
-      <ol class="spis-lista spis-czesci"><li><a href="#jak-korzystac"><span class="s-nr">A</span><span class="s-tyt">Jak korzystać z broszury? Wskazówki dla nauczyciela i rodzica</span></a></li><li><a href="#narzedzia"><span class="s-nr">B</span><span class="s-tyt">Trzy narzędzia: termometr, sygnalizator, drabina</span></a></li><li><a href="#postacie"><span class="s-nr">C</span><span class="s-tyt">Karty postaci</span></a></li><li><a href="#cwiczenia"><span class="s-nr">D</span><span class="s-tyt">Ćwiczenia końcowe (8 zestawów)</span></a></li><li><a href="#gra"><span class="s-nr">E</span><span class="s-tyt">Gra „Podróż Małego Księcia”</span></a></li><li><a href="#scenariusz"><span class="s-nr">F</span><span class="s-tyt">Scenariusz przedstawienia szkolnego</span></a></li></ol>
+      <h3 class="spis-h">Części broszury <span class="spis-str-h">str.</span></h3>
+      <ol class="spis-lista spis-czesci"><li><a href="#jak-korzystac"><span class="s-nr">A</span><span class="s-tyt">Jak korzystać z broszury? Wskazówki dla nauczyciela i rodzica</span><span class="s-str">4</span></a></li><li><a href="#narzedzia"><span class="s-nr">B</span><span class="s-tyt">Trzy narzędzia: termometr, sygnalizator, drabina</span><span class="s-str">6</span></a></li><li><a href="#postacie"><span class="s-nr">C</span><span class="s-tyt">Karty postaci</span><span class="s-str">8</span></a></li><li><a href="#cwiczenia"><span class="s-nr">D</span><span class="s-tyt">Ćwiczenia końcowe (8 zestawów)</span><span class="s-str">90</span></a></li><li><a href="#gra"><span class="s-nr">E</span><span class="s-tyt">Gra „Podróż Małego Księcia”</span><span class="s-str">94</span></a></li><li><a href="#scenariusz"><span class="s-nr">F</span><span class="s-tyt">Scenariusz przedstawienia szkolnego</span><span class="s-str">97</span></a></li></ol>
       <div class="spis-info">
         <p><b>27 rozdziałów, każdy na trzech stronach.</b> Rytm jest zawsze taki sam, więc uczeń wie, czego się spodziewać:</p><ol class="rytm"><li><b>Strona 1 — Historia i słowa.</b> Co się wydarzyło + trudne pojęcia.</li><li><b>Strona 2 — Emocje i wnioski.</b> Kto co czuje, zależności, przyczyna ➜ skutek, ocena sytuacji.</li><li><b>Strona 3 — Myślenie i pytania.</b> Ćwiczenie teorii umysłu, pytania łatwiejsze i trudniejsze, miejsce na notatki.</li></ol><p class="mini">Siedem stałych elementów rozdziału:</p>
         <ol class="siedem">
@@ -578,13 +587,13 @@ figcaption{font-size:9pt;color:var(--szary);padding:2mm 3mm;background:var(--z05
       </div>
     </div>
   </div>
-<footer class="r-foot"><span class="f-znak"><svg class="mark" viewBox="0 0 200 200" aria-hidden="true"><use href="#pctp-mark"/></svg><b>PCTP</b> · Mały Książę moim bohaterem</span><span>Pomorskie Centrum Terapii Pedagogicznej</span></footer></section>
+<footer class="r-foot"><span class="f-znak"><svg class="mark" viewBox="0 0 200 200" aria-hidden="true"><use href="#pctp-mark"/></svg><b>PCTP</b> · Mały Książę moim bohaterem</span><span class="f-srodek">Pomorskie Centrum Terapii Pedagogicznej</span><span class="f-nr">2</span></footer></section>
 <section class="page" id="spis2">
   <h2 class="dzial-h">Spis rozdziałów</h2>
   <p class="lead">Każdy rozdział zajmuje trzy strony. Litera <b>E1–E5</b> pokazuje, na którym etapie
   drabiny teorii umysłu jest ćwiczenie w tym rozdziale.</p>
-  <ol class="spis-lista spis-rozdzialy dwie-kolumny"><li><a href="#r1"><span class="s-nr">1</span><span class="s-tyt">Rysunek, którego nikt nie rozumiał</span><span class="s-etap">E1</span></a></li><li><a href="#r2"><span class="s-nr">2</span><span class="s-tyt">Awaria na pustyni i dziwna prośba</span><span class="s-etap">E1</span></a></li><li><a href="#r3"><span class="s-nr">3</span><span class="s-tyt">Pytania bez odpowiedzi</span><span class="s-etap">E1</span></a></li><li><a href="#r4"><span class="s-nr">4</span><span class="s-tyt">Planeta B-612 i dorośli, którzy lubią liczby</span><span class="s-etap">E2</span></a></li><li><a href="#r5"><span class="s-nr">5</span><span class="s-tyt">Baobaby — problem, którego nie wolno odkładać</span><span class="s-etap">E3</span></a></li><li><a href="#r6"><span class="s-nr">6</span><span class="s-tyt">Czterdzieści cztery zachody słońca</span><span class="s-etap">E3</span></a></li><li><a href="#r7"><span class="s-nr">7</span><span class="s-tyt">Kłótnia o kolce</span><span class="s-etap">E4</span></a></li><li><a href="#r8"><span class="s-nr">8</span><span class="s-tyt">Róża, która chciała być podziwiana</span><span class="s-etap">E4</span></a></li><li><a href="#r9"><span class="s-nr">9</span><span class="s-tyt">Pożegnanie, które przyszło za późno</span><span class="s-etap">E5</span></a></li><li><a href="#r10"><span class="s-nr">10</span><span class="s-tyt">Planeta Króla — władza bez poddanych</span><span class="s-etap">E3</span></a></li><li><a href="#r11"><span class="s-nr">11</span><span class="s-tyt">Planeta Próżnego — słyszy tylko pochwały</span><span class="s-etap">E4</span></a></li><li><a href="#r12"><span class="s-nr">12</span><span class="s-tyt">Planeta Pijaka — błędne koło</span><span class="s-etap">E4</span></a></li><li><a href="#r13"><span class="s-nr">13</span><span class="s-tyt">Planeta Bankiera — liczenie gwiazd</span><span class="s-etap">E3</span></a></li><li><a href="#r14"><span class="s-nr">14</span><span class="s-tyt">Planeta Latarnika — wierność zasadzie</span><span class="s-etap">E5</span></a></li><li><a href="#r15"><span class="s-nr">15</span><span class="s-tyt">Planeta Geografa — kto wie, ale nigdy nie widział</span><span class="s-etap">E5</span></a></li><li><a href="#r16"><span class="s-nr">16</span><span class="s-tyt">Ziemia — planeta pełna ludzi</span><span class="s-etap">E2</span></a></li><li><a href="#r17"><span class="s-nr">17</span><span class="s-tyt">Wąż — pierwsze spotkanie</span><span class="s-etap">E5</span></a></li><li><a href="#r18"><span class="s-nr">18</span><span class="s-tyt">Kwiat o trzech płatkach</span><span class="s-etap">E2</span></a></li><li><a href="#r19"><span class="s-nr">19</span><span class="s-tyt">Góra i echo</span><span class="s-etap">E4</span></a></li><li><a href="#r20"><span class="s-nr">20</span><span class="s-tyt">Ogród pięciu tysięcy róż</span><span class="s-etap">E5</span></a></li><li><a href="#r21"><span class="s-nr">21</span><span class="s-tyt">Lis i sekret oswajania</span><span class="s-etap">E3</span></a></li><li><a href="#r22"><span class="s-nr">22</span><span class="s-tyt">Zwrotniczy — pociągi, które gdzieś pędzą</span><span class="s-etap">E3</span></a></li><li><a href="#r23"><span class="s-nr">23</span><span class="s-tyt">Kupiec i pigułki na pragnienie</span><span class="s-etap">E4</span></a></li><li><a href="#r24"><span class="s-nr">24</span><span class="s-tyt">Ósmy dzień — wspólne szukanie studni</span><span class="s-etap">E5</span></a></li><li><a href="#r25"><span class="s-nr">25</span><span class="s-tyt">Studnia — woda, która jest darem</span><span class="s-etap">E4</span></a></li><li><a href="#r26"><span class="s-nr">26</span><span class="s-tyt">Pożegnanie i gwiazdy, które się śmieją</span><span class="s-etap">E5</span></a></li><li><a href="#r27"><span class="s-nr">27</span><span class="s-tyt">Sześć lat później — pytanie bez odpowiedzi</span><span class="s-etap">E5</span></a></li></ol>
-<footer class="r-foot"><span class="f-znak"><svg class="mark" viewBox="0 0 200 200" aria-hidden="true"><use href="#pctp-mark"/></svg><b>PCTP</b> · Mały Książę moim bohaterem</span><span>Pomorskie Centrum Terapii Pedagogicznej</span></footer></section>
+  <p class="spis-legenda"><span>nr</span> numer rozdziału &nbsp;·&nbsp; <span>E1–E5</span> etap teorii umysłu &nbsp;·&nbsp; <span>str.</span> strona, na której zaczyna się rozdział</p><ol class="spis-lista spis-rozdzialy dwie-kolumny"><li><a href="#r1"><span class="s-nr">1</span><span class="s-tyt">Rysunek, którego nikt nie rozumiał</span><span class="s-etap">E1</span><span class="s-str">9</span></a></li><li><a href="#r2"><span class="s-nr">2</span><span class="s-tyt">Awaria na pustyni i dziwna prośba</span><span class="s-etap">E1</span><span class="s-str">12</span></a></li><li><a href="#r3"><span class="s-nr">3</span><span class="s-tyt">Pytania bez odpowiedzi</span><span class="s-etap">E1</span><span class="s-str">15</span></a></li><li><a href="#r4"><span class="s-nr">4</span><span class="s-tyt">Planeta B-612 i dorośli, którzy lubią liczby</span><span class="s-etap">E2</span><span class="s-str">18</span></a></li><li><a href="#r5"><span class="s-nr">5</span><span class="s-tyt">Baobaby — problem, którego nie wolno odkładać</span><span class="s-etap">E3</span><span class="s-str">21</span></a></li><li><a href="#r6"><span class="s-nr">6</span><span class="s-tyt">Czterdzieści cztery zachody słońca</span><span class="s-etap">E3</span><span class="s-str">24</span></a></li><li><a href="#r7"><span class="s-nr">7</span><span class="s-tyt">Kłótnia o kolce</span><span class="s-etap">E4</span><span class="s-str">27</span></a></li><li><a href="#r8"><span class="s-nr">8</span><span class="s-tyt">Róża, która chciała być podziwiana</span><span class="s-etap">E4</span><span class="s-str">30</span></a></li><li><a href="#r9"><span class="s-nr">9</span><span class="s-tyt">Pożegnanie, które przyszło za późno</span><span class="s-etap">E5</span><span class="s-str">33</span></a></li><li><a href="#r10"><span class="s-nr">10</span><span class="s-tyt">Planeta Króla — władza bez poddanych</span><span class="s-etap">E3</span><span class="s-str">36</span></a></li><li><a href="#r11"><span class="s-nr">11</span><span class="s-tyt">Planeta Próżnego — słyszy tylko pochwały</span><span class="s-etap">E4</span><span class="s-str">39</span></a></li><li><a href="#r12"><span class="s-nr">12</span><span class="s-tyt">Planeta Pijaka — błędne koło</span><span class="s-etap">E4</span><span class="s-str">42</span></a></li><li><a href="#r13"><span class="s-nr">13</span><span class="s-tyt">Planeta Bankiera — liczenie gwiazd</span><span class="s-etap">E3</span><span class="s-str">45</span></a></li><li><a href="#r14"><span class="s-nr">14</span><span class="s-tyt">Planeta Latarnika — wierność zasadzie</span><span class="s-etap">E5</span><span class="s-str">48</span></a></li><li><a href="#r15"><span class="s-nr">15</span><span class="s-tyt">Planeta Geografa — kto wie, ale nigdy nie widział</span><span class="s-etap">E5</span><span class="s-str">51</span></a></li><li><a href="#r16"><span class="s-nr">16</span><span class="s-tyt">Ziemia — planeta pełna ludzi</span><span class="s-etap">E2</span><span class="s-str">54</span></a></li><li><a href="#r17"><span class="s-nr">17</span><span class="s-tyt">Wąż — pierwsze spotkanie</span><span class="s-etap">E5</span><span class="s-str">57</span></a></li><li><a href="#r18"><span class="s-nr">18</span><span class="s-tyt">Kwiat o trzech płatkach</span><span class="s-etap">E2</span><span class="s-str">60</span></a></li><li><a href="#r19"><span class="s-nr">19</span><span class="s-tyt">Góra i echo</span><span class="s-etap">E4</span><span class="s-str">63</span></a></li><li><a href="#r20"><span class="s-nr">20</span><span class="s-tyt">Ogród pięciu tysięcy róż</span><span class="s-etap">E5</span><span class="s-str">66</span></a></li><li><a href="#r21"><span class="s-nr">21</span><span class="s-tyt">Lis i sekret oswajania</span><span class="s-etap">E3</span><span class="s-str">69</span></a></li><li><a href="#r22"><span class="s-nr">22</span><span class="s-tyt">Zwrotniczy — pociągi, które gdzieś pędzą</span><span class="s-etap">E3</span><span class="s-str">72</span></a></li><li><a href="#r23"><span class="s-nr">23</span><span class="s-tyt">Kupiec i pigułki na pragnienie</span><span class="s-etap">E4</span><span class="s-str">75</span></a></li><li><a href="#r24"><span class="s-nr">24</span><span class="s-tyt">Ósmy dzień — wspólne szukanie studni</span><span class="s-etap">E5</span><span class="s-str">78</span></a></li><li><a href="#r25"><span class="s-nr">25</span><span class="s-tyt">Studnia — woda, która jest darem</span><span class="s-etap">E4</span><span class="s-str">81</span></a></li><li><a href="#r26"><span class="s-nr">26</span><span class="s-tyt">Pożegnanie i gwiazdy, które się śmieją</span><span class="s-etap">E5</span><span class="s-str">84</span></a></li><li><a href="#r27"><span class="s-nr">27</span><span class="s-tyt">Sześć lat później — pytanie bez odpowiedzi</span><span class="s-etap">E5</span><span class="s-str">87</span></a></li></ol>
+<footer class="r-foot"><span class="f-znak"><svg class="mark" viewBox="0 0 200 200" aria-hidden="true"><use href="#pctp-mark"/></svg><b>PCTP</b> · Mały Książę moim bohaterem</span><span class="f-srodek">Pomorskie Centrum Terapii Pedagogicznej</span><span class="f-nr">3</span></footer></section>
 
 <section class="page" id="jak-korzystac">
   <h2 class="dzial-h"><span class="dzial-litera">A</span>Jak korzystać z broszury?</h2>
@@ -627,7 +636,7 @@ figcaption{font-size:9pt;color:var(--szary);padding:2mm 3mm;background:var(--z05
   <div class="uwaga jasna"><b>Zasada trzech stron.</b> Rozdział zawsze wygląda tak samo:
   strona 1 — historia i słowa, strona 2 — emocje i wnioski, strona 3 — myślenie i pytania.
   Przewidywalność układu jest tu narzędziem, nie ozdobą: uczeń nie musi za każdym razem uczyć się strony od nowa.</div>
-<footer class="r-foot"><span class="f-znak"><svg class="mark" viewBox="0 0 200 200" aria-hidden="true"><use href="#pctp-mark"/></svg><b>PCTP</b> · Mały Książę moim bohaterem</span><span>Pomorskie Centrum Terapii Pedagogicznej</span></footer></section>
+<footer class="r-foot"><span class="f-znak"><svg class="mark" viewBox="0 0 200 200" aria-hidden="true"><use href="#pctp-mark"/></svg><b>PCTP</b> · Mały Książę moim bohaterem</span><span class="f-srodek">Pomorskie Centrum Terapii Pedagogicznej</span><span class="f-nr">4</span></footer></section>
 <section class="page" id="jak-korzystac2">
   <h2 class="dzial-h"><span class="dzial-litera">A</span>Założenia adaptacji</h2>
   <p class="lead">Poniższe zasady zastosowano w każdym z 27 rozdziałów. Warto je znać, zanim zacznie się pracę —
@@ -649,7 +658,7 @@ figcaption{font-size:9pt;color:var(--szary);padding:2mm 3mm;background:var(--z05
     W broszurze nazywamy to wprost i spokojnie, bo domyślanie się jest dla ucznia trudniejsze niż jasna informacja.
     Uprzedź o tym uczniów wcześniej, zaplanuj te lekcje na początek dnia i miej pod ręką kontakt do psychologa szkolnego.
   </div>
-<footer class="r-foot"><span class="f-znak"><svg class="mark" viewBox="0 0 200 200" aria-hidden="true"><use href="#pctp-mark"/></svg><b>PCTP</b> · Mały Książę moim bohaterem</span><span>Pomorskie Centrum Terapii Pedagogicznej</span></footer></section>
+<footer class="r-foot"><span class="f-znak"><svg class="mark" viewBox="0 0 200 200" aria-hidden="true"><use href="#pctp-mark"/></svg><b>PCTP</b> · Mały Książę moim bohaterem</span><span class="f-srodek">Pomorskie Centrum Terapii Pedagogicznej</span><span class="f-nr">5</span></footer></section>
 
 <section class="page" id="narzedzia">
   <h2 class="dzial-h"><span class="dzial-litera">B</span>Trzy narzędzia do całej broszury</h2>
@@ -688,7 +697,7 @@ figcaption{font-size:9pt;color:var(--szary);padding:2mm 3mm;background:var(--z05
     <div><b>Drabina</b><span>gdy ćwiczenie okazuje się za trudne i trzeba zejść o etap niżej</span></div>
   </div>
 
-<footer class="r-foot"><span class="f-znak"><svg class="mark" viewBox="0 0 200 200" aria-hidden="true"><use href="#pctp-mark"/></svg><b>PCTP</b> · Mały Książę moim bohaterem</span><span>Pomorskie Centrum Terapii Pedagogicznej</span></footer></section>
+<footer class="r-foot"><span class="f-znak"><svg class="mark" viewBox="0 0 200 200" aria-hidden="true"><use href="#pctp-mark"/></svg><b>PCTP</b> · Mały Książę moim bohaterem</span><span class="f-srodek">Pomorskie Centrum Terapii Pedagogicznej</span><span class="f-nr">6</span></footer></section>
 <section class="page" id="narzedzia2">
   <h2 class="dzial-h"><span class="dzial-litera">B</span>Drabina teorii umysłu</h2>
   <div class="narz-box szeroki">
@@ -720,7 +729,7 @@ figcaption{font-size:9pt;color:var(--szary);padding:2mm 3mm;background:var(--z05
     </div>
     <p class="mini">Jeśli uczeń nie radzi sobie z ćwiczeniem na etapie E4, wróć do rozdziału z etapem E2 lub E3. Kolejność etapów jest ważniejsza niż kolejność rozdziałów.</p>
   </div>
-<footer class="r-foot"><span class="f-znak"><svg class="mark" viewBox="0 0 200 200" aria-hidden="true"><use href="#pctp-mark"/></svg><b>PCTP</b> · Mały Książę moim bohaterem</span><span>Pomorskie Centrum Terapii Pedagogicznej</span></footer></section>
+<footer class="r-foot"><span class="f-znak"><svg class="mark" viewBox="0 0 200 200" aria-hidden="true"><use href="#pctp-mark"/></svg><b>PCTP</b> · Mały Książę moim bohaterem</span><span class="f-srodek">Pomorskie Centrum Terapii Pedagogicznej</span><span class="f-nr">7</span></footer></section>
 
 <section class="page" id="postacie">
   <h2 class="dzial-h"><span class="dzial-litera">C</span>Karty postaci</h2>
@@ -768,7 +777,7 @@ figcaption{font-size:9pt;color:var(--szary);padding:2mm 3mm;background:var(--z05
           <p><b>Jak się zachowuje:</b> Każdy jest zamknięty w jednym zajęciu i nie widzi nic poza nim.</p>
           <p><b>Po co jest w książce:</b> Tylko Latarnik zasługuje w oczach chłopca na szacunek — bo pracuje dla kogoś innego niż on sam.</p>
         </div></div></div>
-<footer class="r-foot"><span class="f-znak"><svg class="mark" viewBox="0 0 200 200" aria-hidden="true"><use href="#pctp-mark"/></svg><b>PCTP</b> · Mały Książę moim bohaterem</span><span>Pomorskie Centrum Terapii Pedagogicznej</span></footer></section>
+<footer class="r-foot"><span class="f-znak"><svg class="mark" viewBox="0 0 200 200" aria-hidden="true"><use href="#pctp-mark"/></svg><b>PCTP</b> · Mały Książę moim bohaterem</span><span class="f-srodek">Pomorskie Centrum Terapii Pedagogicznej</span><span class="f-nr">8</span></footer></section>
 
 <section class="page rozdzial" id="r1">
   <header class="r-head">
@@ -796,7 +805,7 @@ figcaption{font-size:9pt;color:var(--szary);padding:2mm 3mm;background:var(--z05
       </div>
     </div>
   </div>
-  <footer class="r-foot"><span class="f-znak"><svg class="mark" viewBox="0 0 200 200" aria-hidden="true"><use href="#pctp-mark"/></svg><b>PCTP</b> · Mały Książę moim bohaterem</span><span>rozdział 1/27 · strona 1/3</span></footer>
+  <footer class="r-foot"><span class="f-znak"><svg class="mark" viewBox="0 0 200 200" aria-hidden="true"><use href="#pctp-mark"/></svg><b>PCTP</b> · Mały Książę moim bohaterem</span><span class="f-srodek">rozdział 1/27 · część 1 z 3</span><span class="f-nr">9</span></footer>
 </section>
 <section class="page rozdzial" id="r1b">
   <header class="r-head mini"><div class="r-nr"><span>ROZDZ.</span><b>1</b></div><div class="r-tyt"><h2>Rysunek, którego nikt nie rozumiał</h2><p class="r-miejsce">część 2 z 3 · Emocje i wnioski</p></div><div class="r-ikona"><svg viewBox="0 0 64 64" width="52" height="52" aria-hidden="true"><circle cx="32" cy="32" r="30" fill="#1F8A63"/><path d="M14 36l36-14-8 18 6 8-10-4-8 6-2-10z" fill="#CFEBDD"/></svg></div></header>
@@ -820,7 +829,7 @@ figcaption{font-size:9pt;color:var(--szary);padding:2mm 3mm;background:var(--z05
     <p class="o-pyt">Czy dorośli zachowali się w porządku wobec chłopca?</p>
     <p class="o-odp"><span class="znak">!</span>ŻÓŁTE. Nie chcieli zrobić mu przykrości — po prostu nie zapytali: „a co to jest?”. Jedno pytanie zmieniłoby całą sytuację.</p>
   </div>
-  <footer class="r-foot"><span class="f-znak"><svg class="mark" viewBox="0 0 200 200" aria-hidden="true"><use href="#pctp-mark"/></svg><b>PCTP</b> · Mały Książę moim bohaterem</span><span>rozdział 1/27 · strona 2/3</span></footer>
+  <footer class="r-foot"><span class="f-znak"><svg class="mark" viewBox="0 0 200 200" aria-hidden="true"><use href="#pctp-mark"/></svg><b>PCTP</b> · Mały Książę moim bohaterem</span><span class="f-srodek">rozdział 1/27 · część 2 z 3</span><span class="f-nr">10</span></footer>
 </section>
 <section class="page rozdzial" id="r1c">
   <header class="r-head mini"><div class="r-nr"><span>ROZDZ.</span><b>1</b></div><div class="r-tyt"><h2>Rysunek, którego nikt nie rozumiał</h2><p class="r-miejsce">część 3 z 3 · Myślenie i pytania</p></div><div class="r-ikona"><svg viewBox="0 0 64 64" width="52" height="52" aria-hidden="true"><circle cx="32" cy="32" r="30" fill="#1F8A63"/><path d="M14 36l36-14-8 18 6 8-10-4-8 6-2-10z" fill="#CFEBDD"/></svg></div></header>
@@ -845,7 +854,7 @@ figcaption{font-size:9pt;color:var(--szary);padding:2mm 3mm;background:var(--z05
     <h3>Miejsce na notatki i własne pytania</h3>
     <div class="linie"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
   </div>
-  <footer class="r-foot"><span class="f-znak"><svg class="mark" viewBox="0 0 200 200" aria-hidden="true"><use href="#pctp-mark"/></svg><b>PCTP</b> · Mały Książę moim bohaterem</span><span>rozdział 1/27 · strona 3/3</span></footer>
+  <footer class="r-foot"><span class="f-znak"><svg class="mark" viewBox="0 0 200 200" aria-hidden="true"><use href="#pctp-mark"/></svg><b>PCTP</b> · Mały Książę moim bohaterem</span><span class="f-srodek">rozdział 1/27 · część 3 z 3</span><span class="f-nr">11</span></footer>
 </section>
 
 <section class="page rozdzial" id="r2">
@@ -888,7 +897,7 @@ figcaption{font-size:9pt;color:var(--szary);padding:2mm 3mm;background:var(--z05
       </div>
     </div>
   </div>
-  <footer class="r-foot"><span class="f-znak"><svg class="mark" viewBox="0 0 200 200" aria-hidden="true"><use href="#pctp-mark"/></svg><b>PCTP</b> · Mały Książę moim bohaterem</span><span>rozdział 2/27 · strona 1/3</span></footer>
+  <footer class="r-foot"><span class="f-znak"><svg class="mark" viewBox="0 0 200 200" aria-hidden="true"><use href="#pctp-mark"/></svg><b>PCTP</b> · Mały Książę moim bohaterem</span><span class="f-srodek">rozdział 2/27 · część 1 z 3</span><span class="f-nr">12</span></footer>
 </section>
 <section class="page rozdzial" id="r2b">
   <header class="r-head mini"><div class="r-nr"><span>ROZDZ.</span><b>2</b></div><div class="r-tyt"><h2>Awaria na pustyni i dziwna prośba</h2><p class="r-miejsce">część 2 z 3 · Emocje i wnioski</p></div><div class="r-ikona"><svg viewBox="0 0 64 64" width="52" height="52" aria-hidden="true"><circle cx="32" cy="32" r="30" fill="#1F8A63"/><ellipse cx="30" cy="36" rx="15" ry="10" fill="#fff"/><circle cx="20" cy="28" r="7" fill="#fff"/><circle cx="32" cy="24" r="7" fill="#fff"/><circle cx="43" cy="30" r="6" fill="#fff"/><ellipse cx="45" cy="40" rx="7" ry="6" fill="#F3E7C9"/><circle cx="47" cy="39" r="1.4" fill="#0B3D2E"/></svg></div></header>
@@ -912,7 +921,7 @@ figcaption{font-size:9pt;color:var(--szary);padding:2mm 3mm;background:var(--z05
     <p class="o-pyt">Czy Mały Książę zachował się niegrzecznie, odrzucając trzy rysunki?</p>
     <p class="o-odp"><span class="znak">!</span>ŻÓŁTE. Mówił szczerze, co myśli — to nie jest złośliwość. Ale nie podziękował i nie wyjaśnił, o co dokładnie mu chodzi. Można powiedzieć: „to nie ten, szukam baranka, który…”.</p>
   </div>
-  <footer class="r-foot"><span class="f-znak"><svg class="mark" viewBox="0 0 200 200" aria-hidden="true"><use href="#pctp-mark"/></svg><b>PCTP</b> · Mały Książę moim bohaterem</span><span>rozdział 2/27 · strona 2/3</span></footer>
+  <footer class="r-foot"><span class="f-znak"><svg class="mark" viewBox="0 0 200 200" aria-hidden="true"><use href="#pctp-mark"/></svg><b>PCTP</b> · Mały Książę moim bohaterem</span><span class="f-srodek">rozdział 2/27 · część 2 z 3</span><span class="f-nr">13</span></footer>
 </section>
 <section class="page rozdzial" id="r2c">
   <header class="r-head mini"><div class="r-nr"><span>ROZDZ.</span><b>2</b></div><div class="r-tyt"><h2>Awaria na pustyni i dziwna prośba</h2><p class="r-miejsce">część 3 z 3 · Myślenie i pytania</p></div><div class="r-ikona"><svg viewBox="0 0 64 64" width="52" height="52" aria-hidden="true"><circle cx="32" cy="32" r="30" fill="#1F8A63"/><ellipse cx="30" cy="36" rx="15" ry="10" fill="#fff"/><circle cx="20" cy="28" r="7" fill="#fff"/><circle cx="32" cy="24" r="7" fill="#fff"/><circle cx="43" cy="30" r="6" fill="#fff"/><ellipse cx="45" cy="40" rx="7" ry="6" fill="#F3E7C9"/><circle cx="47" cy="39" r="1.4" fill="#0B3D2E"/></svg></div></header>
@@ -937,7 +946,7 @@ figcaption{font-size:9pt;color:var(--szary);padding:2mm 3mm;background:var(--z05
     <h3>Miejsce na notatki i własne pytania</h3>
     <div class="linie"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
   </div>
-  <footer class="r-foot"><span class="f-znak"><svg class="mark" viewBox="0 0 200 200" aria-hidden="true"><use href="#pctp-mark"/></svg><b>PCTP</b> · Mały Książę moim bohaterem</span><span>rozdział 2/27 · strona 3/3</span></footer>
+  <footer class="r-foot"><span class="f-znak"><svg class="mark" viewBox="0 0 200 200" aria-hidden="true"><use href="#pctp-mark"/></svg><b>PCTP</b> · Mały Książę moim bohaterem</span><span class="f-srodek">rozdział 2/27 · część 3 z 3</span><span class="f-nr">14</span></footer>
 </section>
 
 <section class="page rozdzial" id="r3">
@@ -966,7 +975,7 @@ figcaption{font-size:9pt;color:var(--szary);padding:2mm 3mm;background:var(--z05
       </div>
     </div>
   </div>
-  <footer class="r-foot"><span class="f-znak"><svg class="mark" viewBox="0 0 200 200" aria-hidden="true"><use href="#pctp-mark"/></svg><b>PCTP</b> · Mały Książę moim bohaterem</span><span>rozdział 3/27 · strona 1/3</span></footer>
+  <footer class="r-foot"><span class="f-znak"><svg class="mark" viewBox="0 0 200 200" aria-hidden="true"><use href="#pctp-mark"/></svg><b>PCTP</b> · Mały Książę moim bohaterem</span><span class="f-srodek">rozdział 3/27 · część 1 z 3</span><span class="f-nr">15</span></footer>
 </section>
 <section class="page rozdzial" id="r3b">
   <header class="r-head mini"><div class="r-nr"><span>ROZDZ.</span><b>3</b></div><div class="r-tyt"><h2>Pytania bez odpowiedzi</h2><p class="r-miejsce">część 2 z 3 · Emocje i wnioski</p></div><div class="r-ikona"><svg viewBox="0 0 64 64" width="52" height="52" aria-hidden="true"><circle cx="32" cy="32" r="30" fill="#1F8A63"/><path d="M24 24a8 8 0 1 1 12 8c-3 2-4 4-4 7" stroke="#CFEBDD" stroke-width="5" fill="none" stroke-linecap="round"/><circle cx="32" cy="47" r="3.2" fill="#CFEBDD"/></svg></div></header>
@@ -990,7 +999,7 @@ figcaption{font-size:9pt;color:var(--szary);padding:2mm 3mm;background:var(--z05
     <p class="o-pyt">Czy to niegrzeczne — nie odpowiadać na pytanie?</p>
     <p class="o-odp"><span class="znak">!</span>ŻÓŁTE. Czasem ktoś nie odpowiada, bo nie chce, a czasem bo nie umie albo temat jest dla niego trudny. Warto zapytać: „wolisz o tym nie mówić?” zamiast pytać dziesięć razy.</p>
   </div>
-  <footer class="r-foot"><span class="f-znak"><svg class="mark" viewBox="0 0 200 200" aria-hidden="true"><use href="#pctp-mark"/></svg><b>PCTP</b> · Mały Książę moim bohaterem</span><span>rozdział 3/27 · strona 2/3</span></footer>
+  <footer class="r-foot"><span class="f-znak"><svg class="mark" viewBox="0 0 200 200" aria-hidden="true"><use href="#pctp-mark"/></svg><b>PCTP</b> · Mały Książę moim bohaterem</span><span class="f-srodek">rozdział 3/27 · część 2 z 3</span><span class="f-nr">16</span></footer>
 </section>
 <section class="page rozdzial" id="r3c">
   <header class="r-head mini"><div class="r-nr"><span>ROZDZ.</span><b>3</b></div><div class="r-tyt"><h2>Pytania bez odpowiedzi</h2><p class="r-miejsce">część 3 z 3 · Myślenie i pytania</p></div><div class="r-ikona"><svg viewBox="0 0 64 64" width="52" height="52" aria-hidden="true"><circle cx="32" cy="32" r="30" fill="#1F8A63"/><path d="M24 24a8 8 0 1 1 12 8c-3 2-4 4-4 7" stroke="#CFEBDD" stroke-width="5" fill="none" stroke-linecap="round"/><circle cx="32" cy="47" r="3.2" fill="#CFEBDD"/></svg></div></header>
@@ -1015,7 +1024,7 @@ figcaption{font-size:9pt;color:var(--szary);padding:2mm 3mm;background:var(--z05
     <h3>Miejsce na notatki i własne pytania</h3>
     <div class="linie"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
   </div>
-  <footer class="r-foot"><span class="f-znak"><svg class="mark" viewBox="0 0 200 200" aria-hidden="true"><use href="#pctp-mark"/></svg><b>PCTP</b> · Mały Książę moim bohaterem</span><span>rozdział 3/27 · strona 3/3</span></footer>
+  <footer class="r-foot"><span class="f-znak"><svg class="mark" viewBox="0 0 200 200" aria-hidden="true"><use href="#pctp-mark"/></svg><b>PCTP</b> · Mały Książę moim bohaterem</span><span class="f-srodek">rozdział 3/27 · część 3 z 3</span><span class="f-nr">17</span></footer>
 </section>
 
 <section class="page rozdzial" id="r4">
@@ -1044,7 +1053,7 @@ figcaption{font-size:9pt;color:var(--szary);padding:2mm 3mm;background:var(--z05
       </div>
     </div>
   </div>
-  <footer class="r-foot"><span class="f-znak"><svg class="mark" viewBox="0 0 200 200" aria-hidden="true"><use href="#pctp-mark"/></svg><b>PCTP</b> · Mały Książę moim bohaterem</span><span>rozdział 4/27 · strona 1/3</span></footer>
+  <footer class="r-foot"><span class="f-znak"><svg class="mark" viewBox="0 0 200 200" aria-hidden="true"><use href="#pctp-mark"/></svg><b>PCTP</b> · Mały Książę moim bohaterem</span><span class="f-srodek">rozdział 4/27 · część 1 z 3</span><span class="f-nr">18</span></footer>
 </section>
 <section class="page rozdzial" id="r4b">
   <header class="r-head mini"><div class="r-nr"><span>ROZDZ.</span><b>4</b></div><div class="r-tyt"><h2>Planeta B-612 i dorośli, którzy lubią liczby</h2><p class="r-miejsce">część 2 z 3 · Emocje i wnioski</p></div><div class="r-ikona"><svg viewBox="0 0 64 64" width="52" height="52" aria-hidden="true"><circle cx="32" cy="32" r="30" fill="#0B3D2E"/><circle cx="32" cy="34" r="17" fill="#1F8A63"/><ellipse cx="32" cy="34" rx="27" ry="8" fill="none" stroke="#E3B23C" stroke-width="3" transform="rotate(-18 32 34)"/><circle cx="26" cy="30" r="3" fill="#14664A"/></svg></div></header>
@@ -1068,7 +1077,7 @@ figcaption{font-size:9pt;color:var(--szary);padding:2mm 3mm;background:var(--z05
     <p class="o-pyt">Czy naukowcy postąpili sprawiedliwie?</p>
     <p class="o-odp"><span class="znak">✖</span>CZERWONE. Ocenili odkrycie po stroju człowieka, a nie po dowodach. To niesprawiedliwe i tak nie powinno się robić.</p>
   </div>
-  <footer class="r-foot"><span class="f-znak"><svg class="mark" viewBox="0 0 200 200" aria-hidden="true"><use href="#pctp-mark"/></svg><b>PCTP</b> · Mały Książę moim bohaterem</span><span>rozdział 4/27 · strona 2/3</span></footer>
+  <footer class="r-foot"><span class="f-znak"><svg class="mark" viewBox="0 0 200 200" aria-hidden="true"><use href="#pctp-mark"/></svg><b>PCTP</b> · Mały Książę moim bohaterem</span><span class="f-srodek">rozdział 4/27 · część 2 z 3</span><span class="f-nr">19</span></footer>
 </section>
 <section class="page rozdzial" id="r4c">
   <header class="r-head mini"><div class="r-nr"><span>ROZDZ.</span><b>4</b></div><div class="r-tyt"><h2>Planeta B-612 i dorośli, którzy lubią liczby</h2><p class="r-miejsce">część 3 z 3 · Myślenie i pytania</p></div><div class="r-ikona"><svg viewBox="0 0 64 64" width="52" height="52" aria-hidden="true"><circle cx="32" cy="32" r="30" fill="#0B3D2E"/><circle cx="32" cy="34" r="17" fill="#1F8A63"/><ellipse cx="32" cy="34" rx="27" ry="8" fill="none" stroke="#E3B23C" stroke-width="3" transform="rotate(-18 32 34)"/><circle cx="26" cy="30" r="3" fill="#14664A"/></svg></div></header>
@@ -1093,7 +1102,7 @@ figcaption{font-size:9pt;color:var(--szary);padding:2mm 3mm;background:var(--z05
     <h3>Miejsce na notatki i własne pytania</h3>
     <div class="linie"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
   </div>
-  <footer class="r-foot"><span class="f-znak"><svg class="mark" viewBox="0 0 200 200" aria-hidden="true"><use href="#pctp-mark"/></svg><b>PCTP</b> · Mały Książę moim bohaterem</span><span>rozdział 4/27 · strona 3/3</span></footer>
+  <footer class="r-foot"><span class="f-znak"><svg class="mark" viewBox="0 0 200 200" aria-hidden="true"><use href="#pctp-mark"/></svg><b>PCTP</b> · Mały Książę moim bohaterem</span><span class="f-srodek">rozdział 4/27 · część 3 z 3</span><span class="f-nr">20</span></footer>
 </section>
 
 <section class="page rozdzial" id="r5">
@@ -1132,7 +1141,7 @@ figcaption{font-size:9pt;color:var(--szary);padding:2mm 3mm;background:var(--z05
       </div>
     </div>
   </div>
-  <footer class="r-foot"><span class="f-znak"><svg class="mark" viewBox="0 0 200 200" aria-hidden="true"><use href="#pctp-mark"/></svg><b>PCTP</b> · Mały Książę moim bohaterem</span><span>rozdział 5/27 · strona 1/3</span></footer>
+  <footer class="r-foot"><span class="f-znak"><svg class="mark" viewBox="0 0 200 200" aria-hidden="true"><use href="#pctp-mark"/></svg><b>PCTP</b> · Mały Książę moim bohaterem</span><span class="f-srodek">rozdział 5/27 · część 1 z 3</span><span class="f-nr">21</span></footer>
 </section>
 <section class="page rozdzial" id="r5b">
   <header class="r-head mini"><div class="r-nr"><span>ROZDZ.</span><b>5</b></div><div class="r-tyt"><h2>Baobaby — problem, którego nie wolno odkładać</h2><p class="r-miejsce">część 2 z 3 · Emocje i wnioski</p></div><div class="r-ikona"><svg viewBox="0 0 64 64" width="52" height="52" aria-hidden="true"><circle cx="32" cy="32" r="30" fill="#1F8A63"/><path d="M32 50V22M32 30l-10-8M32 32l11-9M32 22l-7-8M32 22l8-8" stroke="#0B3D2E" stroke-width="4.5" fill="none" stroke-linecap="round"/><path d="M16 52h32" stroke="#CFEBDD" stroke-width="4" stroke-linecap="round"/></svg></div></header>
@@ -1156,7 +1165,7 @@ figcaption{font-size:9pt;color:var(--szary);padding:2mm 3mm;background:var(--z05
     <p class="o-pyt">Ktoś mówi: „zrobię to jutro, dziś mi się nie chce”. Czy to zawsze zły pomysł?</p>
     <p class="o-odp"><span class="znak">!</span>ŻÓŁTE. Czasem odpoczynek jest potrzebny i przełożenie czegoś jest w porządku. Ale są rzeczy, które rosną, gdy się je odkłada — jak baobab. Warto najpierw zapytać: czy to urośnie?</p>
   </div>
-  <footer class="r-foot"><span class="f-znak"><svg class="mark" viewBox="0 0 200 200" aria-hidden="true"><use href="#pctp-mark"/></svg><b>PCTP</b> · Mały Książę moim bohaterem</span><span>rozdział 5/27 · strona 2/3</span></footer>
+  <footer class="r-foot"><span class="f-znak"><svg class="mark" viewBox="0 0 200 200" aria-hidden="true"><use href="#pctp-mark"/></svg><b>PCTP</b> · Mały Książę moim bohaterem</span><span class="f-srodek">rozdział 5/27 · część 2 z 3</span><span class="f-nr">22</span></footer>
 </section>
 <section class="page rozdzial" id="r5c">
   <header class="r-head mini"><div class="r-nr"><span>ROZDZ.</span><b>5</b></div><div class="r-tyt"><h2>Baobaby — problem, którego nie wolno odkładać</h2><p class="r-miejsce">część 3 z 3 · Myślenie i pytania</p></div><div class="r-ikona"><svg viewBox="0 0 64 64" width="52" height="52" aria-hidden="true"><circle cx="32" cy="32" r="30" fill="#1F8A63"/><path d="M32 50V22M32 30l-10-8M32 32l11-9M32 22l-7-8M32 22l8-8" stroke="#0B3D2E" stroke-width="4.5" fill="none" stroke-linecap="round"/><path d="M16 52h32" stroke="#CFEBDD" stroke-width="4" stroke-linecap="round"/></svg></div></header>
@@ -1181,7 +1190,7 @@ figcaption{font-size:9pt;color:var(--szary);padding:2mm 3mm;background:var(--z05
     <h3>Miejsce na notatki i własne pytania</h3>
     <div class="linie"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
   </div>
-  <footer class="r-foot"><span class="f-znak"><svg class="mark" viewBox="0 0 200 200" aria-hidden="true"><use href="#pctp-mark"/></svg><b>PCTP</b> · Mały Książę moim bohaterem</span><span>rozdział 5/27 · strona 3/3</span></footer>
+  <footer class="r-foot"><span class="f-znak"><svg class="mark" viewBox="0 0 200 200" aria-hidden="true"><use href="#pctp-mark"/></svg><b>PCTP</b> · Mały Książę moim bohaterem</span><span class="f-srodek">rozdział 5/27 · część 3 z 3</span><span class="f-nr">23</span></footer>
 </section>
 
 <section class="page rozdzial" id="r6">
@@ -1226,7 +1235,7 @@ figcaption{font-size:9pt;color:var(--szary);padding:2mm 3mm;background:var(--z05
       </div>
     </div>
   </div>
-  <footer class="r-foot"><span class="f-znak"><svg class="mark" viewBox="0 0 200 200" aria-hidden="true"><use href="#pctp-mark"/></svg><b>PCTP</b> · Mały Książę moim bohaterem</span><span>rozdział 6/27 · strona 1/3</span></footer>
+  <footer class="r-foot"><span class="f-znak"><svg class="mark" viewBox="0 0 200 200" aria-hidden="true"><use href="#pctp-mark"/></svg><b>PCTP</b> · Mały Książę moim bohaterem</span><span class="f-srodek">rozdział 6/27 · część 1 z 3</span><span class="f-nr">24</span></footer>
 </section>
 <section class="page rozdzial" id="r6b">
   <header class="r-head mini"><div class="r-nr"><span>ROZDZ.</span><b>6</b></div><div class="r-tyt"><h2>Czterdzieści cztery zachody słońca</h2><p class="r-miejsce">część 2 z 3 · Emocje i wnioski</p></div><div class="r-ikona"><svg viewBox="0 0 64 64" width="52" height="52" aria-hidden="true"><circle cx="32" cy="32" r="30" fill="#0B3D2E"/><circle cx="32" cy="38" r="14" fill="#E3B23C"/><path d="M6 44h52" stroke="#14664A" stroke-width="6"/><g stroke="#F4D06F" stroke-width="3" stroke-linecap="round"><path d="M32 14v6M14 24l4 4M50 24l-4 4"/></g></svg></div></header>
@@ -1250,7 +1259,7 @@ figcaption{font-size:9pt;color:var(--szary);padding:2mm 3mm;background:var(--z05
     <p class="o-pyt">Mały Książę nie odpowiedział na pytanie narratora. Jak zachował się narrator?</p>
     <p class="o-odp"><span class="znak">✔</span>ZIELONE. Nie powtórzył pytania i nie naciskał. Dał chłopcu spokój. To dobre zachowanie, gdy ktoś jest smutny.</p>
   </div>
-  <footer class="r-foot"><span class="f-znak"><svg class="mark" viewBox="0 0 200 200" aria-hidden="true"><use href="#pctp-mark"/></svg><b>PCTP</b> · Mały Książę moim bohaterem</span><span>rozdział 6/27 · strona 2/3</span></footer>
+  <footer class="r-foot"><span class="f-znak"><svg class="mark" viewBox="0 0 200 200" aria-hidden="true"><use href="#pctp-mark"/></svg><b>PCTP</b> · Mały Książę moim bohaterem</span><span class="f-srodek">rozdział 6/27 · część 2 z 3</span><span class="f-nr">25</span></footer>
 </section>
 <section class="page rozdzial" id="r6c">
   <header class="r-head mini"><div class="r-nr"><span>ROZDZ.</span><b>6</b></div><div class="r-tyt"><h2>Czterdzieści cztery zachody słońca</h2><p class="r-miejsce">część 3 z 3 · Myślenie i pytania</p></div><div class="r-ikona"><svg viewBox="0 0 64 64" width="52" height="52" aria-hidden="true"><circle cx="32" cy="32" r="30" fill="#0B3D2E"/><circle cx="32" cy="38" r="14" fill="#E3B23C"/><path d="M6 44h52" stroke="#14664A" stroke-width="6"/><g stroke="#F4D06F" stroke-width="3" stroke-linecap="round"><path d="M32 14v6M14 24l4 4M50 24l-4 4"/></g></svg></div></header>
@@ -1275,7 +1284,7 @@ figcaption{font-size:9pt;color:var(--szary);padding:2mm 3mm;background:var(--z05
     <h3>Miejsce na notatki i własne pytania</h3>
     <div class="linie"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
   </div>
-  <footer class="r-foot"><span class="f-znak"><svg class="mark" viewBox="0 0 200 200" aria-hidden="true"><use href="#pctp-mark"/></svg><b>PCTP</b> · Mały Książę moim bohaterem</span><span>rozdział 6/27 · strona 3/3</span></footer>
+  <footer class="r-foot"><span class="f-znak"><svg class="mark" viewBox="0 0 200 200" aria-hidden="true"><use href="#pctp-mark"/></svg><b>PCTP</b> · Mały Książę moim bohaterem</span><span class="f-srodek">rozdział 6/27 · część 3 z 3</span><span class="f-nr">26</span></footer>
 </section>
 
 <section class="page rozdzial" id="r7">
@@ -1304,7 +1313,7 @@ figcaption{font-size:9pt;color:var(--szary);padding:2mm 3mm;background:var(--z05
       </div>
     </div>
   </div>
-  <footer class="r-foot"><span class="f-znak"><svg class="mark" viewBox="0 0 200 200" aria-hidden="true"><use href="#pctp-mark"/></svg><b>PCTP</b> · Mały Książę moim bohaterem</span><span>rozdział 7/27 · strona 1/3</span></footer>
+  <footer class="r-foot"><span class="f-znak"><svg class="mark" viewBox="0 0 200 200" aria-hidden="true"><use href="#pctp-mark"/></svg><b>PCTP</b> · Mały Książę moim bohaterem</span><span class="f-srodek">rozdział 7/27 · część 1 z 3</span><span class="f-nr">27</span></footer>
 </section>
 <section class="page rozdzial" id="r7b">
   <header class="r-head mini"><div class="r-nr"><span>ROZDZ.</span><b>7</b></div><div class="r-tyt"><h2>Kłótnia o kolce</h2><p class="r-miejsce">część 2 z 3 · Emocje i wnioski</p></div><div class="r-ikona"><svg viewBox="0 0 64 64" width="52" height="52" aria-hidden="true"><circle cx="32" cy="32" r="30" fill="#1F8A63"/><path d="M32 52V20" stroke="#0B3D2E" stroke-width="4" stroke-linecap="round"/><g stroke="#CFEBDD" stroke-width="3" stroke-linecap="round"><path d="M32 44l-8-6M32 36l8-6M32 28l-8-5"/></g><circle cx="32" cy="18" r="6" fill="#D96D8B"/></svg></div></header>
@@ -1328,7 +1337,7 @@ figcaption{font-size:9pt;color:var(--szary);padding:2mm 3mm;background:var(--z05
     <p class="o-pyt">Kto zachował się źle w tej kłótni?</p>
     <p class="o-odp"><span class="znak">!</span>ŻÓŁTE po obu stronach. Narrator odpowiedział lekceważąco, choć był zmęczony — mógł powiedzieć: „porozmawiajmy za chwilę”. Mały Książę krzyczał zamiast powiedzieć: „boję się o mój kwiat”. Obaj mieli powody i obaj mogli zrobić to lepiej.</p>
   </div>
-  <footer class="r-foot"><span class="f-znak"><svg class="mark" viewBox="0 0 200 200" aria-hidden="true"><use href="#pctp-mark"/></svg><b>PCTP</b> · Mały Książę moim bohaterem</span><span>rozdział 7/27 · strona 2/3</span></footer>
+  <footer class="r-foot"><span class="f-znak"><svg class="mark" viewBox="0 0 200 200" aria-hidden="true"><use href="#pctp-mark"/></svg><b>PCTP</b> · Mały Książę moim bohaterem</span><span class="f-srodek">rozdział 7/27 · część 2 z 3</span><span class="f-nr">28</span></footer>
 </section>
 <section class="page rozdzial" id="r7c">
   <header class="r-head mini"><div class="r-nr"><span>ROZDZ.</span><b>7</b></div><div class="r-tyt"><h2>Kłótnia o kolce</h2><p class="r-miejsce">część 3 z 3 · Myślenie i pytania</p></div><div class="r-ikona"><svg viewBox="0 0 64 64" width="52" height="52" aria-hidden="true"><circle cx="32" cy="32" r="30" fill="#1F8A63"/><path d="M32 52V20" stroke="#0B3D2E" stroke-width="4" stroke-linecap="round"/><g stroke="#CFEBDD" stroke-width="3" stroke-linecap="round"><path d="M32 44l-8-6M32 36l8-6M32 28l-8-5"/></g><circle cx="32" cy="18" r="6" fill="#D96D8B"/></svg></div></header>
@@ -1353,7 +1362,7 @@ figcaption{font-size:9pt;color:var(--szary);padding:2mm 3mm;background:var(--z05
     <h3>Miejsce na notatki i własne pytania</h3>
     <div class="linie"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
   </div>
-  <footer class="r-foot"><span class="f-znak"><svg class="mark" viewBox="0 0 200 200" aria-hidden="true"><use href="#pctp-mark"/></svg><b>PCTP</b> · Mały Książę moim bohaterem</span><span>rozdział 7/27 · strona 3/3</span></footer>
+  <footer class="r-foot"><span class="f-znak"><svg class="mark" viewBox="0 0 200 200" aria-hidden="true"><use href="#pctp-mark"/></svg><b>PCTP</b> · Mały Książę moim bohaterem</span><span class="f-srodek">rozdział 7/27 · część 3 z 3</span><span class="f-nr">29</span></footer>
 </section>
 
 <section class="page rozdzial" id="r8">
@@ -1401,7 +1410,7 @@ figcaption{font-size:9pt;color:var(--szary);padding:2mm 3mm;background:var(--z05
       </div>
     </div>
   </div>
-  <footer class="r-foot"><span class="f-znak"><svg class="mark" viewBox="0 0 200 200" aria-hidden="true"><use href="#pctp-mark"/></svg><b>PCTP</b> · Mały Książę moim bohaterem</span><span>rozdział 8/27 · strona 1/3</span></footer>
+  <footer class="r-foot"><span class="f-znak"><svg class="mark" viewBox="0 0 200 200" aria-hidden="true"><use href="#pctp-mark"/></svg><b>PCTP</b> · Mały Książę moim bohaterem</span><span class="f-srodek">rozdział 8/27 · część 1 z 3</span><span class="f-nr">30</span></footer>
 </section>
 <section class="page rozdzial" id="r8b">
   <header class="r-head mini"><div class="r-nr"><span>ROZDZ.</span><b>8</b></div><div class="r-tyt"><h2>Róża, która chciała być podziwiana</h2><p class="r-miejsce">część 2 z 3 · Emocje i wnioski</p></div><div class="r-ikona"><svg viewBox="0 0 64 64" width="52" height="52" aria-hidden="true"><circle cx="32" cy="32" r="30" fill="#1F8A63"/><path d="M32 54V32" stroke="#0B3D2E" stroke-width="4" stroke-linecap="round"/><ellipse cx="32" cy="24" rx="13" ry="11" fill="#D96D8B"/><circle cx="32" cy="24" r="5" fill="#F0A9BE"/><path d="M32 42c-9-2-13-8-13-8s9-4 13 3z" fill="#14664A"/></svg></div></header>
@@ -1425,7 +1434,7 @@ figcaption{font-size:9pt;color:var(--szary);padding:2mm 3mm;background:var(--z05
     <p class="o-pyt">Czy róża zachowała się dobrze wobec Małego Księcia?</p>
     <p class="o-odp"><span class="znak">!</span>ŻÓŁTE. Nie chciała mu zrobić krzywdy — ukrywała strach za rozkazami i przechwałkami. Ale to nie fair, gdy druga osoba musi się wszystkiego domyślać. Uczciwiej: „boję się, zostań przy mnie”.</p>
   </div>
-  <footer class="r-foot"><span class="f-znak"><svg class="mark" viewBox="0 0 200 200" aria-hidden="true"><use href="#pctp-mark"/></svg><b>PCTP</b> · Mały Książę moim bohaterem</span><span>rozdział 8/27 · strona 2/3</span></footer>
+  <footer class="r-foot"><span class="f-znak"><svg class="mark" viewBox="0 0 200 200" aria-hidden="true"><use href="#pctp-mark"/></svg><b>PCTP</b> · Mały Książę moim bohaterem</span><span class="f-srodek">rozdział 8/27 · część 2 z 3</span><span class="f-nr">31</span></footer>
 </section>
 <section class="page rozdzial" id="r8c">
   <header class="r-head mini"><div class="r-nr"><span>ROZDZ.</span><b>8</b></div><div class="r-tyt"><h2>Róża, która chciała być podziwiana</h2><p class="r-miejsce">część 3 z 3 · Myślenie i pytania</p></div><div class="r-ikona"><svg viewBox="0 0 64 64" width="52" height="52" aria-hidden="true"><circle cx="32" cy="32" r="30" fill="#1F8A63"/><path d="M32 54V32" stroke="#0B3D2E" stroke-width="4" stroke-linecap="round"/><ellipse cx="32" cy="24" rx="13" ry="11" fill="#D96D8B"/><circle cx="32" cy="24" r="5" fill="#F0A9BE"/><path d="M32 42c-9-2-13-8-13-8s9-4 13 3z" fill="#14664A"/></svg></div></header>
@@ -1450,7 +1459,7 @@ figcaption{font-size:9pt;color:var(--szary);padding:2mm 3mm;background:var(--z05
     <h3>Miejsce na notatki i własne pytania</h3>
     <div class="linie"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
   </div>
-  <footer class="r-foot"><span class="f-znak"><svg class="mark" viewBox="0 0 200 200" aria-hidden="true"><use href="#pctp-mark"/></svg><b>PCTP</b> · Mały Książę moim bohaterem</span><span>rozdział 8/27 · strona 3/3</span></footer>
+  <footer class="r-foot"><span class="f-znak"><svg class="mark" viewBox="0 0 200 200" aria-hidden="true"><use href="#pctp-mark"/></svg><b>PCTP</b> · Mały Książę moim bohaterem</span><span class="f-srodek">rozdział 8/27 · część 3 z 3</span><span class="f-nr">32</span></footer>
 </section>
 
 <section class="page rozdzial" id="r9">
@@ -1479,7 +1488,7 @@ figcaption{font-size:9pt;color:var(--szary);padding:2mm 3mm;background:var(--z05
       </div>
     </div>
   </div>
-  <footer class="r-foot"><span class="f-znak"><svg class="mark" viewBox="0 0 200 200" aria-hidden="true"><use href="#pctp-mark"/></svg><b>PCTP</b> · Mały Książę moim bohaterem</span><span>rozdział 9/27 · strona 1/3</span></footer>
+  <footer class="r-foot"><span class="f-znak"><svg class="mark" viewBox="0 0 200 200" aria-hidden="true"><use href="#pctp-mark"/></svg><b>PCTP</b> · Mały Książę moim bohaterem</span><span class="f-srodek">rozdział 9/27 · część 1 z 3</span><span class="f-nr">33</span></footer>
 </section>
 <section class="page rozdzial" id="r9b">
   <header class="r-head mini"><div class="r-nr"><span>ROZDZ.</span><b>9</b></div><div class="r-tyt"><h2>Pożegnanie, które przyszło za późno</h2><p class="r-miejsce">część 2 z 3 · Emocje i wnioski</p></div><div class="r-ikona"><svg viewBox="0 0 64 64" width="52" height="52" aria-hidden="true"><circle cx="32" cy="32" r="30" fill="#1F8A63"/><path d="M14 48l12-20 12 20z" fill="#0B3D2E"/><path d="M36 50l8-14 8 14z" fill="#14664A"/><path d="M22 30q4-8 8 0z" fill="#E3B23C"/></svg></div></header>
@@ -1503,7 +1512,7 @@ figcaption{font-size:9pt;color:var(--szary);padding:2mm 3mm;background:var(--z05
     <p class="o-pyt">Róża powiedziała „byłam głupia, przepraszam”. Czy to było dobre zachowanie?</p>
     <p class="o-odp"><span class="znak">✔</span>ZIELONE. Przyznanie się do błędu i przeproszenie jest odważne. Szkoda tylko, że zrobiła to tak późno — w trakcie byłoby łatwiej im obojgu.</p>
   </div>
-  <footer class="r-foot"><span class="f-znak"><svg class="mark" viewBox="0 0 200 200" aria-hidden="true"><use href="#pctp-mark"/></svg><b>PCTP</b> · Mały Książę moim bohaterem</span><span>rozdział 9/27 · strona 2/3</span></footer>
+  <footer class="r-foot"><span class="f-znak"><svg class="mark" viewBox="0 0 200 200" aria-hidden="true"><use href="#pctp-mark"/></svg><b>PCTP</b> · Mały Książę moim bohaterem</span><span class="f-srodek">rozdział 9/27 · część 2 z 3</span><span class="f-nr">34</span></footer>
 </section>
 <section class="page rozdzial" id="r9c">
   <header class="r-head mini"><div class="r-nr"><span>ROZDZ.</span><b>9</b></div><div class="r-tyt"><h2>Pożegnanie, które przyszło za późno</h2><p class="r-miejsce">część 3 z 3 · Myślenie i pytania</p></div><div class="r-ikona"><svg viewBox="0 0 64 64" width="52" height="52" aria-hidden="true"><circle cx="32" cy="32" r="30" fill="#1F8A63"/><path d="M14 48l12-20 12 20z" fill="#0B3D2E"/><path d="M36 50l8-14 8 14z" fill="#14664A"/><path d="M22 30q4-8 8 0z" fill="#E3B23C"/></svg></div></header>
@@ -1528,7 +1537,7 @@ figcaption{font-size:9pt;color:var(--szary);padding:2mm 3mm;background:var(--z05
     <h3>Miejsce na notatki i własne pytania</h3>
     <div class="linie"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
   </div>
-  <footer class="r-foot"><span class="f-znak"><svg class="mark" viewBox="0 0 200 200" aria-hidden="true"><use href="#pctp-mark"/></svg><b>PCTP</b> · Mały Książę moim bohaterem</span><span>rozdział 9/27 · strona 3/3</span></footer>
+  <footer class="r-foot"><span class="f-znak"><svg class="mark" viewBox="0 0 200 200" aria-hidden="true"><use href="#pctp-mark"/></svg><b>PCTP</b> · Mały Książę moim bohaterem</span><span class="f-srodek">rozdział 9/27 · część 3 z 3</span><span class="f-nr">35</span></footer>
 </section>
 
 <section class="page rozdzial" id="r10">
@@ -1557,7 +1566,7 @@ figcaption{font-size:9pt;color:var(--szary);padding:2mm 3mm;background:var(--z05
       </div>
     </div>
   </div>
-  <footer class="r-foot"><span class="f-znak"><svg class="mark" viewBox="0 0 200 200" aria-hidden="true"><use href="#pctp-mark"/></svg><b>PCTP</b> · Mały Książę moim bohaterem</span><span>rozdział 10/27 · strona 1/3</span></footer>
+  <footer class="r-foot"><span class="f-znak"><svg class="mark" viewBox="0 0 200 200" aria-hidden="true"><use href="#pctp-mark"/></svg><b>PCTP</b> · Mały Książę moim bohaterem</span><span class="f-srodek">rozdział 10/27 · część 1 z 3</span><span class="f-nr">36</span></footer>
 </section>
 <section class="page rozdzial" id="r10b">
   <header class="r-head mini"><div class="r-nr"><span>ROZDZ.</span><b>10</b></div><div class="r-tyt"><h2>Planeta Króla — władza bez poddanych</h2><p class="r-miejsce">część 2 z 3 · Emocje i wnioski</p></div><div class="r-ikona"><svg viewBox="0 0 64 64" width="52" height="52" aria-hidden="true"><circle cx="32" cy="32" r="30" fill="#1F8A63"/><path d="M16 42l-4-18 10 7 10-13 10 13 10-7-4 18z" fill="#E3B23C" stroke="#0B3D2E" stroke-width="2" stroke-linejoin="round"/><rect x="16" y="42" width="32" height="6" rx="3" fill="#0B3D2E"/></svg></div></header>
@@ -1581,7 +1590,7 @@ figcaption{font-size:9pt;color:var(--szary);padding:2mm 3mm;background:var(--z05
     <p class="o-pyt">Król rozkazał chłopcu ziewać. Czy to jest sensowny rozkaz?</p>
     <p class="o-odp"><span class="znak">✖</span>CZERWONE (co do sensu, nie co do złej woli). Nie da się ziewać na komendę. Rozkaz, którego nie można wykonać, tylko stresuje. Dobre polecenie da się wykonać i wiadomo, kiedy się skończy.</p>
   </div>
-  <footer class="r-foot"><span class="f-znak"><svg class="mark" viewBox="0 0 200 200" aria-hidden="true"><use href="#pctp-mark"/></svg><b>PCTP</b> · Mały Książę moim bohaterem</span><span>rozdział 10/27 · strona 2/3</span></footer>
+  <footer class="r-foot"><span class="f-znak"><svg class="mark" viewBox="0 0 200 200" aria-hidden="true"><use href="#pctp-mark"/></svg><b>PCTP</b> · Mały Książę moim bohaterem</span><span class="f-srodek">rozdział 10/27 · część 2 z 3</span><span class="f-nr">37</span></footer>
 </section>
 <section class="page rozdzial" id="r10c">
   <header class="r-head mini"><div class="r-nr"><span>ROZDZ.</span><b>10</b></div><div class="r-tyt"><h2>Planeta Króla — władza bez poddanych</h2><p class="r-miejsce">część 3 z 3 · Myślenie i pytania</p></div><div class="r-ikona"><svg viewBox="0 0 64 64" width="52" height="52" aria-hidden="true"><circle cx="32" cy="32" r="30" fill="#1F8A63"/><path d="M16 42l-4-18 10 7 10-13 10 13 10-7-4 18z" fill="#E3B23C" stroke="#0B3D2E" stroke-width="2" stroke-linejoin="round"/><rect x="16" y="42" width="32" height="6" rx="3" fill="#0B3D2E"/></svg></div></header>
@@ -1606,7 +1615,7 @@ figcaption{font-size:9pt;color:var(--szary);padding:2mm 3mm;background:var(--z05
     <h3>Miejsce na notatki i własne pytania</h3>
     <div class="linie"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
   </div>
-  <footer class="r-foot"><span class="f-znak"><svg class="mark" viewBox="0 0 200 200" aria-hidden="true"><use href="#pctp-mark"/></svg><b>PCTP</b> · Mały Książę moim bohaterem</span><span>rozdział 10/27 · strona 3/3</span></footer>
+  <footer class="r-foot"><span class="f-znak"><svg class="mark" viewBox="0 0 200 200" aria-hidden="true"><use href="#pctp-mark"/></svg><b>PCTP</b> · Mały Książę moim bohaterem</span><span class="f-srodek">rozdział 10/27 · część 3 z 3</span><span class="f-nr">38</span></footer>
 </section>
 
 <section class="page rozdzial" id="r11">
@@ -1635,7 +1644,7 @@ figcaption{font-size:9pt;color:var(--szary);padding:2mm 3mm;background:var(--z05
       </div>
     </div>
   </div>
-  <footer class="r-foot"><span class="f-znak"><svg class="mark" viewBox="0 0 200 200" aria-hidden="true"><use href="#pctp-mark"/></svg><b>PCTP</b> · Mały Książę moim bohaterem</span><span>rozdział 11/27 · strona 1/3</span></footer>
+  <footer class="r-foot"><span class="f-znak"><svg class="mark" viewBox="0 0 200 200" aria-hidden="true"><use href="#pctp-mark"/></svg><b>PCTP</b> · Mały Książę moim bohaterem</span><span class="f-srodek">rozdział 11/27 · część 1 z 3</span><span class="f-nr">39</span></footer>
 </section>
 <section class="page rozdzial" id="r11b">
   <header class="r-head mini"><div class="r-nr"><span>ROZDZ.</span><b>11</b></div><div class="r-tyt"><h2>Planeta Próżnego — słyszy tylko pochwały</h2><p class="r-miejsce">część 2 z 3 · Emocje i wnioski</p></div><div class="r-ikona"><svg viewBox="0 0 64 64" width="52" height="52" aria-hidden="true"><circle cx="32" cy="32" r="30" fill="#1F8A63"/><ellipse cx="32" cy="44" rx="24" ry="6" fill="#CFEBDD"/><path d="M20 44V26a12 8 0 0 1 24 0v18z" fill="#14664A"/><path d="M20 34h24" stroke="#E3B23C" stroke-width="4"/></svg></div></header>
@@ -1659,7 +1668,7 @@ figcaption{font-size:9pt;color:var(--szary);padding:2mm 3mm;background:var(--z05
     <p class="o-pyt">Czy Mały Książę postąpił dobrze, mówiąc Próżnemu, że jest najpiękniejszy?</p>
     <p class="o-odp"><span class="znak">!</span>ŻÓŁTE. Sprawił mu przyjemność i nikogo nie skrzywdził. Ale powiedział coś, w co sam nie wierzył. Warto wiedzieć, kiedy miła odpowiedź pomaga, a kiedy jest już nieszczera.</p>
   </div>
-  <footer class="r-foot"><span class="f-znak"><svg class="mark" viewBox="0 0 200 200" aria-hidden="true"><use href="#pctp-mark"/></svg><b>PCTP</b> · Mały Książę moim bohaterem</span><span>rozdział 11/27 · strona 2/3</span></footer>
+  <footer class="r-foot"><span class="f-znak"><svg class="mark" viewBox="0 0 200 200" aria-hidden="true"><use href="#pctp-mark"/></svg><b>PCTP</b> · Mały Książę moim bohaterem</span><span class="f-srodek">rozdział 11/27 · część 2 z 3</span><span class="f-nr">40</span></footer>
 </section>
 <section class="page rozdzial" id="r11c">
   <header class="r-head mini"><div class="r-nr"><span>ROZDZ.</span><b>11</b></div><div class="r-tyt"><h2>Planeta Próżnego — słyszy tylko pochwały</h2><p class="r-miejsce">część 3 z 3 · Myślenie i pytania</p></div><div class="r-ikona"><svg viewBox="0 0 64 64" width="52" height="52" aria-hidden="true"><circle cx="32" cy="32" r="30" fill="#1F8A63"/><ellipse cx="32" cy="44" rx="24" ry="6" fill="#CFEBDD"/><path d="M20 44V26a12 8 0 0 1 24 0v18z" fill="#14664A"/><path d="M20 34h24" stroke="#E3B23C" stroke-width="4"/></svg></div></header>
@@ -1684,7 +1693,7 @@ figcaption{font-size:9pt;color:var(--szary);padding:2mm 3mm;background:var(--z05
     <h3>Miejsce na notatki i własne pytania</h3>
     <div class="linie"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
   </div>
-  <footer class="r-foot"><span class="f-znak"><svg class="mark" viewBox="0 0 200 200" aria-hidden="true"><use href="#pctp-mark"/></svg><b>PCTP</b> · Mały Książę moim bohaterem</span><span>rozdział 11/27 · strona 3/3</span></footer>
+  <footer class="r-foot"><span class="f-znak"><svg class="mark" viewBox="0 0 200 200" aria-hidden="true"><use href="#pctp-mark"/></svg><b>PCTP</b> · Mały Książę moim bohaterem</span><span class="f-srodek">rozdział 11/27 · część 3 z 3</span><span class="f-nr">41</span></footer>
 </section>
 
 <section class="page rozdzial" id="r12">
@@ -1713,7 +1722,7 @@ figcaption{font-size:9pt;color:var(--szary);padding:2mm 3mm;background:var(--z05
       </div>
     </div>
   </div>
-  <footer class="r-foot"><span class="f-znak"><svg class="mark" viewBox="0 0 200 200" aria-hidden="true"><use href="#pctp-mark"/></svg><b>PCTP</b> · Mały Książę moim bohaterem</span><span>rozdział 12/27 · strona 1/3</span></footer>
+  <footer class="r-foot"><span class="f-znak"><svg class="mark" viewBox="0 0 200 200" aria-hidden="true"><use href="#pctp-mark"/></svg><b>PCTP</b> · Mały Książę moim bohaterem</span><span class="f-srodek">rozdział 12/27 · część 1 z 3</span><span class="f-nr">42</span></footer>
 </section>
 <section class="page rozdzial" id="r12b">
   <header class="r-head mini"><div class="r-nr"><span>ROZDZ.</span><b>12</b></div><div class="r-tyt"><h2>Planeta Pijaka — błędne koło</h2><p class="r-miejsce">część 2 z 3 · Emocje i wnioski</p></div><div class="r-ikona"><svg viewBox="0 0 64 64" width="52" height="52" aria-hidden="true"><circle cx="32" cy="32" r="30" fill="#1F8A63"/><path d="M27 16h10v8l6 10v20H21V34l6-10z" fill="#14664A" stroke="#0B3D2E" stroke-width="2"/><rect x="21" y="40" width="22" height="14" fill="#0B3D2E"/><rect x="25" y="12" width="14" height="5" rx="2" fill="#E3B23C"/></svg></div></header>
@@ -1737,7 +1746,7 @@ figcaption{font-size:9pt;color:var(--szary);padding:2mm 3mm;background:var(--z05
     <p class="o-pyt">Mały Książę nie pomógł Pijakowi. Czy zrobił źle?</p>
     <p class="o-odp"><span class="znak">✔</span>ZIELONE. Dziecko nie może wyleczyć dorosłego z uzależnienia — to zadanie dla lekarzy. Dobre zachowanie to: nie wyśmiewać, nie oceniać i powiedzieć o sytuacji zaufanej dorosłej osobie.</p>
   </div>
-  <footer class="r-foot"><span class="f-znak"><svg class="mark" viewBox="0 0 200 200" aria-hidden="true"><use href="#pctp-mark"/></svg><b>PCTP</b> · Mały Książę moim bohaterem</span><span>rozdział 12/27 · strona 2/3</span></footer>
+  <footer class="r-foot"><span class="f-znak"><svg class="mark" viewBox="0 0 200 200" aria-hidden="true"><use href="#pctp-mark"/></svg><b>PCTP</b> · Mały Książę moim bohaterem</span><span class="f-srodek">rozdział 12/27 · część 2 z 3</span><span class="f-nr">43</span></footer>
 </section>
 <section class="page rozdzial" id="r12c">
   <header class="r-head mini"><div class="r-nr"><span>ROZDZ.</span><b>12</b></div><div class="r-tyt"><h2>Planeta Pijaka — błędne koło</h2><p class="r-miejsce">część 3 z 3 · Myślenie i pytania</p></div><div class="r-ikona"><svg viewBox="0 0 64 64" width="52" height="52" aria-hidden="true"><circle cx="32" cy="32" r="30" fill="#1F8A63"/><path d="M27 16h10v8l6 10v20H21V34l6-10z" fill="#14664A" stroke="#0B3D2E" stroke-width="2"/><rect x="21" y="40" width="22" height="14" fill="#0B3D2E"/><rect x="25" y="12" width="14" height="5" rx="2" fill="#E3B23C"/></svg></div></header>
@@ -1762,7 +1771,7 @@ figcaption{font-size:9pt;color:var(--szary);padding:2mm 3mm;background:var(--z05
     <h3>Miejsce na notatki i własne pytania</h3>
     <div class="linie"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
   </div>
-  <footer class="r-foot"><span class="f-znak"><svg class="mark" viewBox="0 0 200 200" aria-hidden="true"><use href="#pctp-mark"/></svg><b>PCTP</b> · Mały Książę moim bohaterem</span><span>rozdział 12/27 · strona 3/3</span></footer>
+  <footer class="r-foot"><span class="f-znak"><svg class="mark" viewBox="0 0 200 200" aria-hidden="true"><use href="#pctp-mark"/></svg><b>PCTP</b> · Mały Książę moim bohaterem</span><span class="f-srodek">rozdział 12/27 · część 3 z 3</span><span class="f-nr">44</span></footer>
 </section>
 
 <section class="page rozdzial" id="r13">
@@ -1791,7 +1800,7 @@ figcaption{font-size:9pt;color:var(--szary);padding:2mm 3mm;background:var(--z05
       </div>
     </div>
   </div>
-  <footer class="r-foot"><span class="f-znak"><svg class="mark" viewBox="0 0 200 200" aria-hidden="true"><use href="#pctp-mark"/></svg><b>PCTP</b> · Mały Książę moim bohaterem</span><span>rozdział 13/27 · strona 1/3</span></footer>
+  <footer class="r-foot"><span class="f-znak"><svg class="mark" viewBox="0 0 200 200" aria-hidden="true"><use href="#pctp-mark"/></svg><b>PCTP</b> · Mały Książę moim bohaterem</span><span class="f-srodek">rozdział 13/27 · część 1 z 3</span><span class="f-nr">45</span></footer>
 </section>
 <section class="page rozdzial" id="r13b">
   <header class="r-head mini"><div class="r-nr"><span>ROZDZ.</span><b>13</b></div><div class="r-tyt"><h2>Planeta Bankiera — liczenie gwiazd</h2><p class="r-miejsce">część 2 z 3 · Emocje i wnioski</p></div><div class="r-ikona"><svg viewBox="0 0 64 64" width="52" height="52" aria-hidden="true"><circle cx="32" cy="32" r="30" fill="#1F8A63"/><ellipse cx="32" cy="44" rx="16" ry="6" fill="#E3B23C"/><ellipse cx="32" cy="36" rx="16" ry="6" fill="#F4D06F"/><ellipse cx="32" cy="28" rx="16" ry="6" fill="#E3B23C"/><ellipse cx="32" cy="20" rx="16" ry="6" fill="#F4D06F"/></svg></div></header>
@@ -1815,7 +1824,7 @@ figcaption{font-size:9pt;color:var(--szary);padding:2mm 3mm;background:var(--z05
     <p class="o-pyt">Bankier mówi: „nie mam czasu, jestem poważny”. Czy to dobre wytłumaczenie?</p>
     <p class="o-odp"><span class="znak">!</span>ŻÓŁTE. Każdy czasem jest zajęty i to normalne. Ale Bankier nie ma czasu NIGDY i na NIKOGO — a to znak, że coś jest nie tak z jego planem dnia.</p>
   </div>
-  <footer class="r-foot"><span class="f-znak"><svg class="mark" viewBox="0 0 200 200" aria-hidden="true"><use href="#pctp-mark"/></svg><b>PCTP</b> · Mały Książę moim bohaterem</span><span>rozdział 13/27 · strona 2/3</span></footer>
+  <footer class="r-foot"><span class="f-znak"><svg class="mark" viewBox="0 0 200 200" aria-hidden="true"><use href="#pctp-mark"/></svg><b>PCTP</b> · Mały Książę moim bohaterem</span><span class="f-srodek">rozdział 13/27 · część 2 z 3</span><span class="f-nr">46</span></footer>
 </section>
 <section class="page rozdzial" id="r13c">
   <header class="r-head mini"><div class="r-nr"><span>ROZDZ.</span><b>13</b></div><div class="r-tyt"><h2>Planeta Bankiera — liczenie gwiazd</h2><p class="r-miejsce">część 3 z 3 · Myślenie i pytania</p></div><div class="r-ikona"><svg viewBox="0 0 64 64" width="52" height="52" aria-hidden="true"><circle cx="32" cy="32" r="30" fill="#1F8A63"/><ellipse cx="32" cy="44" rx="16" ry="6" fill="#E3B23C"/><ellipse cx="32" cy="36" rx="16" ry="6" fill="#F4D06F"/><ellipse cx="32" cy="28" rx="16" ry="6" fill="#E3B23C"/><ellipse cx="32" cy="20" rx="16" ry="6" fill="#F4D06F"/></svg></div></header>
@@ -1840,7 +1849,7 @@ figcaption{font-size:9pt;color:var(--szary);padding:2mm 3mm;background:var(--z05
     <h3>Miejsce na notatki i własne pytania</h3>
     <div class="linie"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
   </div>
-  <footer class="r-foot"><span class="f-znak"><svg class="mark" viewBox="0 0 200 200" aria-hidden="true"><use href="#pctp-mark"/></svg><b>PCTP</b> · Mały Książę moim bohaterem</span><span>rozdział 13/27 · strona 3/3</span></footer>
+  <footer class="r-foot"><span class="f-znak"><svg class="mark" viewBox="0 0 200 200" aria-hidden="true"><use href="#pctp-mark"/></svg><b>PCTP</b> · Mały Książę moim bohaterem</span><span class="f-srodek">rozdział 13/27 · część 3 z 3</span><span class="f-nr">47</span></footer>
 </section>
 
 <section class="page rozdzial" id="r14">
@@ -1869,7 +1878,7 @@ figcaption{font-size:9pt;color:var(--szary);padding:2mm 3mm;background:var(--z05
       </div>
     </div>
   </div>
-  <footer class="r-foot"><span class="f-znak"><svg class="mark" viewBox="0 0 200 200" aria-hidden="true"><use href="#pctp-mark"/></svg><b>PCTP</b> · Mały Książę moim bohaterem</span><span>rozdział 14/27 · strona 1/3</span></footer>
+  <footer class="r-foot"><span class="f-znak"><svg class="mark" viewBox="0 0 200 200" aria-hidden="true"><use href="#pctp-mark"/></svg><b>PCTP</b> · Mały Książę moim bohaterem</span><span class="f-srodek">rozdział 14/27 · część 1 z 3</span><span class="f-nr">48</span></footer>
 </section>
 <section class="page rozdzial" id="r14b">
   <header class="r-head mini"><div class="r-nr"><span>ROZDZ.</span><b>14</b></div><div class="r-tyt"><h2>Planeta Latarnika — wierność zasadzie</h2><p class="r-miejsce">część 2 z 3 · Emocje i wnioski</p></div><div class="r-ikona"><svg viewBox="0 0 64 64" width="52" height="52" aria-hidden="true"><circle cx="32" cy="32" r="30" fill="#0B3D2E"/><path d="M24 26h16l-3 22H27z" fill="#E3B23C"/><path d="M22 26l10-12 10 12z" fill="#14664A"/><rect x="28" y="48" width="8" height="8" fill="#14664A"/><circle cx="32" cy="34" r="16" fill="#F4D06F" opacity=".22"/></svg></div></header>
@@ -1893,7 +1902,7 @@ figcaption{font-size:9pt;color:var(--szary);padding:2mm 3mm;background:var(--z05
     <p class="o-pyt">Latarnik pracuje bez przerwy i jest wyczerpany. Czy trzymanie się zasady jest tu dobre?</p>
     <p class="o-odp"><span class="znak">!</span>ŻÓŁTE. Wierność umowie zasługuje na szacunek. Ale nikt nie powinien pracować bez odpoczynku — zasadę trzeba było zmienić razem z tym, kto ją ustalił. Trzymanie się zasady, która szkodzi, nie jest zaletą.</p>
   </div>
-  <footer class="r-foot"><span class="f-znak"><svg class="mark" viewBox="0 0 200 200" aria-hidden="true"><use href="#pctp-mark"/></svg><b>PCTP</b> · Mały Książę moim bohaterem</span><span>rozdział 14/27 · strona 2/3</span></footer>
+  <footer class="r-foot"><span class="f-znak"><svg class="mark" viewBox="0 0 200 200" aria-hidden="true"><use href="#pctp-mark"/></svg><b>PCTP</b> · Mały Książę moim bohaterem</span><span class="f-srodek">rozdział 14/27 · część 2 z 3</span><span class="f-nr">49</span></footer>
 </section>
 <section class="page rozdzial" id="r14c">
   <header class="r-head mini"><div class="r-nr"><span>ROZDZ.</span><b>14</b></div><div class="r-tyt"><h2>Planeta Latarnika — wierność zasadzie</h2><p class="r-miejsce">część 3 z 3 · Myślenie i pytania</p></div><div class="r-ikona"><svg viewBox="0 0 64 64" width="52" height="52" aria-hidden="true"><circle cx="32" cy="32" r="30" fill="#0B3D2E"/><path d="M24 26h16l-3 22H27z" fill="#E3B23C"/><path d="M22 26l10-12 10 12z" fill="#14664A"/><rect x="28" y="48" width="8" height="8" fill="#14664A"/><circle cx="32" cy="34" r="16" fill="#F4D06F" opacity=".22"/></svg></div></header>
@@ -1918,7 +1927,7 @@ figcaption{font-size:9pt;color:var(--szary);padding:2mm 3mm;background:var(--z05
     <h3>Miejsce na notatki i własne pytania</h3>
     <div class="linie"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
   </div>
-  <footer class="r-foot"><span class="f-znak"><svg class="mark" viewBox="0 0 200 200" aria-hidden="true"><use href="#pctp-mark"/></svg><b>PCTP</b> · Mały Książę moim bohaterem</span><span>rozdział 14/27 · strona 3/3</span></footer>
+  <footer class="r-foot"><span class="f-znak"><svg class="mark" viewBox="0 0 200 200" aria-hidden="true"><use href="#pctp-mark"/></svg><b>PCTP</b> · Mały Książę moim bohaterem</span><span class="f-srodek">rozdział 14/27 · część 3 z 3</span><span class="f-nr">50</span></footer>
 </section>
 
 <section class="page rozdzial" id="r15">
@@ -1947,7 +1956,7 @@ figcaption{font-size:9pt;color:var(--szary);padding:2mm 3mm;background:var(--z05
       </div>
     </div>
   </div>
-  <footer class="r-foot"><span class="f-znak"><svg class="mark" viewBox="0 0 200 200" aria-hidden="true"><use href="#pctp-mark"/></svg><b>PCTP</b> · Mały Książę moim bohaterem</span><span>rozdział 15/27 · strona 1/3</span></footer>
+  <footer class="r-foot"><span class="f-znak"><svg class="mark" viewBox="0 0 200 200" aria-hidden="true"><use href="#pctp-mark"/></svg><b>PCTP</b> · Mały Książę moim bohaterem</span><span class="f-srodek">rozdział 15/27 · część 1 z 3</span><span class="f-nr">51</span></footer>
 </section>
 <section class="page rozdzial" id="r15b">
   <header class="r-head mini"><div class="r-nr"><span>ROZDZ.</span><b>15</b></div><div class="r-tyt"><h2>Planeta Geografa — kto wie, ale nigdy nie widział</h2><p class="r-miejsce">część 2 z 3 · Emocje i wnioski</p></div><div class="r-ikona"><svg viewBox="0 0 64 64" width="52" height="52" aria-hidden="true"><circle cx="32" cy="32" r="30" fill="#1F8A63"/><path d="M14 20h16a4 4 0 0 1 4 4v24a6 6 0 0 0-6-4H14z" fill="#CFEBDD"/><path d="M50 20H34a4 4 0 0 0-4 4v24a6 6 0 0 1 6-4h14z" fill="#A7DCC4"/><path d="M32 24v24" stroke="#0B3D2E" stroke-width="2"/></svg></div></header>
@@ -1971,7 +1980,7 @@ figcaption{font-size:9pt;color:var(--szary);padding:2mm 3mm;background:var(--z05
     <p class="o-pyt">Geograf uznał, że kwiat nie jest wart zapisania. Czy miał rację?</p>
     <p class="o-odp"><span class="znak">!</span>ŻÓŁTE. Według jego zasad — tak, bo zapisuje tylko rzeczy trwałe. Ale dla Małego Księcia róża jest najważniejsza na świecie. To pokazuje, że „ważne” zależy od tego, kto ocenia.</p>
   </div>
-  <footer class="r-foot"><span class="f-znak"><svg class="mark" viewBox="0 0 200 200" aria-hidden="true"><use href="#pctp-mark"/></svg><b>PCTP</b> · Mały Książę moim bohaterem</span><span>rozdział 15/27 · strona 2/3</span></footer>
+  <footer class="r-foot"><span class="f-znak"><svg class="mark" viewBox="0 0 200 200" aria-hidden="true"><use href="#pctp-mark"/></svg><b>PCTP</b> · Mały Książę moim bohaterem</span><span class="f-srodek">rozdział 15/27 · część 2 z 3</span><span class="f-nr">52</span></footer>
 </section>
 <section class="page rozdzial" id="r15c">
   <header class="r-head mini"><div class="r-nr"><span>ROZDZ.</span><b>15</b></div><div class="r-tyt"><h2>Planeta Geografa — kto wie, ale nigdy nie widział</h2><p class="r-miejsce">część 3 z 3 · Myślenie i pytania</p></div><div class="r-ikona"><svg viewBox="0 0 64 64" width="52" height="52" aria-hidden="true"><circle cx="32" cy="32" r="30" fill="#1F8A63"/><path d="M14 20h16a4 4 0 0 1 4 4v24a6 6 0 0 0-6-4H14z" fill="#CFEBDD"/><path d="M50 20H34a4 4 0 0 0-4 4v24a6 6 0 0 1 6-4h14z" fill="#A7DCC4"/><path d="M32 24v24" stroke="#0B3D2E" stroke-width="2"/></svg></div></header>
@@ -1996,7 +2005,7 @@ figcaption{font-size:9pt;color:var(--szary);padding:2mm 3mm;background:var(--z05
     <h3>Miejsce na notatki i własne pytania</h3>
     <div class="linie"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
   </div>
-  <footer class="r-foot"><span class="f-znak"><svg class="mark" viewBox="0 0 200 200" aria-hidden="true"><use href="#pctp-mark"/></svg><b>PCTP</b> · Mały Książę moim bohaterem</span><span>rozdział 15/27 · strona 3/3</span></footer>
+  <footer class="r-foot"><span class="f-znak"><svg class="mark" viewBox="0 0 200 200" aria-hidden="true"><use href="#pctp-mark"/></svg><b>PCTP</b> · Mały Książę moim bohaterem</span><span class="f-srodek">rozdział 15/27 · część 3 z 3</span><span class="f-nr">53</span></footer>
 </section>
 
 <section class="page rozdzial" id="r16">
@@ -2025,7 +2034,7 @@ figcaption{font-size:9pt;color:var(--szary);padding:2mm 3mm;background:var(--z05
       </div>
     </div>
   </div>
-  <footer class="r-foot"><span class="f-znak"><svg class="mark" viewBox="0 0 200 200" aria-hidden="true"><use href="#pctp-mark"/></svg><b>PCTP</b> · Mały Książę moim bohaterem</span><span>rozdział 16/27 · strona 1/3</span></footer>
+  <footer class="r-foot"><span class="f-znak"><svg class="mark" viewBox="0 0 200 200" aria-hidden="true"><use href="#pctp-mark"/></svg><b>PCTP</b> · Mały Książę moim bohaterem</span><span class="f-srodek">rozdział 16/27 · część 1 z 3</span><span class="f-nr">54</span></footer>
 </section>
 <section class="page rozdzial" id="r16b">
   <header class="r-head mini"><div class="r-nr"><span>ROZDZ.</span><b>16</b></div><div class="r-tyt"><h2>Ziemia — planeta pełna ludzi</h2><p class="r-miejsce">część 2 z 3 · Emocje i wnioski</p></div><div class="r-ikona"><svg viewBox="0 0 64 64" width="52" height="52" aria-hidden="true"><circle cx="32" cy="32" r="30" fill="#14664A"/><circle cx="32" cy="32" r="22" fill="#3FA87C"/><path d="M16 26q10 6 20 0t12 4-10 10-14-2-8-12z" fill="#0B3D2E" opacity=".6"/><ellipse cx="32" cy="32" rx="22" ry="8" fill="none" stroke="#CFEBDD" stroke-width="1.6" opacity=".6"/></svg></div></header>
@@ -2049,7 +2058,7 @@ figcaption{font-size:9pt;color:var(--szary);padding:2mm 3mm;background:var(--z05
     <p class="o-pyt">Narrator wyśmiewa dorosłych za pomocą liczb. Czy to w porządku?</p>
     <p class="o-odp"><span class="znak">!</span>ŻÓŁTE. Śmieszne liczby dobrze pokazują, o co mu chodzi, i nikogo konkretnego nie ranią. Ale wyśmiewanie rzadko kogoś przekonuje — częściej zamyka rozmowę.</p>
   </div>
-  <footer class="r-foot"><span class="f-znak"><svg class="mark" viewBox="0 0 200 200" aria-hidden="true"><use href="#pctp-mark"/></svg><b>PCTP</b> · Mały Książę moim bohaterem</span><span>rozdział 16/27 · strona 2/3</span></footer>
+  <footer class="r-foot"><span class="f-znak"><svg class="mark" viewBox="0 0 200 200" aria-hidden="true"><use href="#pctp-mark"/></svg><b>PCTP</b> · Mały Książę moim bohaterem</span><span class="f-srodek">rozdział 16/27 · część 2 z 3</span><span class="f-nr">55</span></footer>
 </section>
 <section class="page rozdzial" id="r16c">
   <header class="r-head mini"><div class="r-nr"><span>ROZDZ.</span><b>16</b></div><div class="r-tyt"><h2>Ziemia — planeta pełna ludzi</h2><p class="r-miejsce">część 3 z 3 · Myślenie i pytania</p></div><div class="r-ikona"><svg viewBox="0 0 64 64" width="52" height="52" aria-hidden="true"><circle cx="32" cy="32" r="30" fill="#14664A"/><circle cx="32" cy="32" r="22" fill="#3FA87C"/><path d="M16 26q10 6 20 0t12 4-10 10-14-2-8-12z" fill="#0B3D2E" opacity=".6"/><ellipse cx="32" cy="32" rx="22" ry="8" fill="none" stroke="#CFEBDD" stroke-width="1.6" opacity=".6"/></svg></div></header>
@@ -2074,7 +2083,7 @@ figcaption{font-size:9pt;color:var(--szary);padding:2mm 3mm;background:var(--z05
     <h3>Miejsce na notatki i własne pytania</h3>
     <div class="linie"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
   </div>
-  <footer class="r-foot"><span class="f-znak"><svg class="mark" viewBox="0 0 200 200" aria-hidden="true"><use href="#pctp-mark"/></svg><b>PCTP</b> · Mały Książę moim bohaterem</span><span>rozdział 16/27 · strona 3/3</span></footer>
+  <footer class="r-foot"><span class="f-znak"><svg class="mark" viewBox="0 0 200 200" aria-hidden="true"><use href="#pctp-mark"/></svg><b>PCTP</b> · Mały Książę moim bohaterem</span><span class="f-srodek">rozdział 16/27 · część 3 z 3</span><span class="f-nr">56</span></footer>
 </section>
 
 <section class="page rozdzial" id="r17">
@@ -2112,7 +2121,7 @@ figcaption{font-size:9pt;color:var(--szary);padding:2mm 3mm;background:var(--z05
       </div>
     </div>
   </div>
-  <footer class="r-foot"><span class="f-znak"><svg class="mark" viewBox="0 0 200 200" aria-hidden="true"><use href="#pctp-mark"/></svg><b>PCTP</b> · Mały Książę moim bohaterem</span><span>rozdział 17/27 · strona 1/3</span></footer>
+  <footer class="r-foot"><span class="f-znak"><svg class="mark" viewBox="0 0 200 200" aria-hidden="true"><use href="#pctp-mark"/></svg><b>PCTP</b> · Mały Książę moim bohaterem</span><span class="f-srodek">rozdział 17/27 · część 1 z 3</span><span class="f-nr">57</span></footer>
 </section>
 <section class="page rozdzial" id="r17b">
   <header class="r-head mini"><div class="r-nr"><span>ROZDZ.</span><b>17</b></div><div class="r-tyt"><h2>Wąż — pierwsze spotkanie</h2><p class="r-miejsce">część 2 z 3 · Emocje i wnioski</p></div><div class="r-ikona"><svg viewBox="0 0 64 64" width="52" height="52" aria-hidden="true"><circle cx="32" cy="32" r="30" fill="#0B3D2E"/><path d="M12 44q10-14 20-4t20-10" fill="none" stroke="#E3B23C" stroke-width="7" stroke-linecap="round"/><circle cx="52" cy="30" r="5" fill="#E3B23C"/><circle cx="53" cy="29" r="1.6" fill="#0B3D2E"/></svg></div></header>
@@ -2136,7 +2145,7 @@ figcaption{font-size:9pt;color:var(--szary);padding:2mm 3mm;background:var(--z05
     <p class="o-pyt">Wąż proponuje pomoc, ale mówi zagadkami. Czy to bezpieczna propozycja?</p>
     <p class="o-odp"><span class="znak">✖</span>CZERWONE. Kiedy ktoś proponuje pomoc, ale nie mówi wprost, na czym ona polega — to sygnał ostrzegawczy. Zawsze pytaj wprost: „co dokładnie chcesz zrobić?” i powiedz o tym zaufanej dorosłej osobie.</p>
   </div>
-  <footer class="r-foot"><span class="f-znak"><svg class="mark" viewBox="0 0 200 200" aria-hidden="true"><use href="#pctp-mark"/></svg><b>PCTP</b> · Mały Książę moim bohaterem</span><span>rozdział 17/27 · strona 2/3</span></footer>
+  <footer class="r-foot"><span class="f-znak"><svg class="mark" viewBox="0 0 200 200" aria-hidden="true"><use href="#pctp-mark"/></svg><b>PCTP</b> · Mały Książę moim bohaterem</span><span class="f-srodek">rozdział 17/27 · część 2 z 3</span><span class="f-nr">58</span></footer>
 </section>
 <section class="page rozdzial" id="r17c">
   <header class="r-head mini"><div class="r-nr"><span>ROZDZ.</span><b>17</b></div><div class="r-tyt"><h2>Wąż — pierwsze spotkanie</h2><p class="r-miejsce">część 3 z 3 · Myślenie i pytania</p></div><div class="r-ikona"><svg viewBox="0 0 64 64" width="52" height="52" aria-hidden="true"><circle cx="32" cy="32" r="30" fill="#0B3D2E"/><path d="M12 44q10-14 20-4t20-10" fill="none" stroke="#E3B23C" stroke-width="7" stroke-linecap="round"/><circle cx="52" cy="30" r="5" fill="#E3B23C"/><circle cx="53" cy="29" r="1.6" fill="#0B3D2E"/></svg></div></header>
@@ -2161,7 +2170,7 @@ figcaption{font-size:9pt;color:var(--szary);padding:2mm 3mm;background:var(--z05
     <h3>Miejsce na notatki i własne pytania</h3>
     <div class="linie"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
   </div>
-  <footer class="r-foot"><span class="f-znak"><svg class="mark" viewBox="0 0 200 200" aria-hidden="true"><use href="#pctp-mark"/></svg><b>PCTP</b> · Mały Książę moim bohaterem</span><span>rozdział 17/27 · strona 3/3</span></footer>
+  <footer class="r-foot"><span class="f-znak"><svg class="mark" viewBox="0 0 200 200" aria-hidden="true"><use href="#pctp-mark"/></svg><b>PCTP</b> · Mały Książę moim bohaterem</span><span class="f-srodek">rozdział 17/27 · część 3 z 3</span><span class="f-nr">59</span></footer>
 </section>
 
 <section class="page rozdzial" id="r18">
@@ -2190,7 +2199,7 @@ figcaption{font-size:9pt;color:var(--szary);padding:2mm 3mm;background:var(--z05
       </div>
     </div>
   </div>
-  <footer class="r-foot"><span class="f-znak"><svg class="mark" viewBox="0 0 200 200" aria-hidden="true"><use href="#pctp-mark"/></svg><b>PCTP</b> · Mały Książę moim bohaterem</span><span>rozdział 18/27 · strona 1/3</span></footer>
+  <footer class="r-foot"><span class="f-znak"><svg class="mark" viewBox="0 0 200 200" aria-hidden="true"><use href="#pctp-mark"/></svg><b>PCTP</b> · Mały Książę moim bohaterem</span><span class="f-srodek">rozdział 18/27 · część 1 z 3</span><span class="f-nr">60</span></footer>
 </section>
 <section class="page rozdzial" id="r18b">
   <header class="r-head mini"><div class="r-nr"><span>ROZDZ.</span><b>18</b></div><div class="r-tyt"><h2>Kwiat o trzech płatkach</h2><p class="r-miejsce">część 2 z 3 · Emocje i wnioski</p></div><div class="r-ikona"><svg viewBox="0 0 64 64" width="52" height="52" aria-hidden="true"><circle cx="32" cy="32" r="30" fill="#1F8A63"/><path d="M32 52V28" stroke="#0B3D2E" stroke-width="4" stroke-linecap="round"/><circle cx="32" cy="22" r="6" fill="#CFEBDD"/><circle cx="22" cy="28" r="5" fill="#A7DCC4"/><circle cx="42" cy="28" r="5" fill="#A7DCC4"/></svg></div></header>
@@ -2214,7 +2223,7 @@ figcaption{font-size:9pt;color:var(--szary);padding:2mm 3mm;background:var(--z05
     <p class="o-pyt">Kwiat podał złą liczbę ludzi. Czy skłamał?</p>
     <p class="o-odp"><span class="znak">✔</span>ZIELONE dla intencji. Kwiat nie skłamał — powiedział to, co wiedział. Kłamstwo to mówienie nieprawdy specjalnie. Pomyłka to co innego. Warto umieć je rozróżniać.</p>
   </div>
-  <footer class="r-foot"><span class="f-znak"><svg class="mark" viewBox="0 0 200 200" aria-hidden="true"><use href="#pctp-mark"/></svg><b>PCTP</b> · Mały Książę moim bohaterem</span><span>rozdział 18/27 · strona 2/3</span></footer>
+  <footer class="r-foot"><span class="f-znak"><svg class="mark" viewBox="0 0 200 200" aria-hidden="true"><use href="#pctp-mark"/></svg><b>PCTP</b> · Mały Książę moim bohaterem</span><span class="f-srodek">rozdział 18/27 · część 2 z 3</span><span class="f-nr">61</span></footer>
 </section>
 <section class="page rozdzial" id="r18c">
   <header class="r-head mini"><div class="r-nr"><span>ROZDZ.</span><b>18</b></div><div class="r-tyt"><h2>Kwiat o trzech płatkach</h2><p class="r-miejsce">część 3 z 3 · Myślenie i pytania</p></div><div class="r-ikona"><svg viewBox="0 0 64 64" width="52" height="52" aria-hidden="true"><circle cx="32" cy="32" r="30" fill="#1F8A63"/><path d="M32 52V28" stroke="#0B3D2E" stroke-width="4" stroke-linecap="round"/><circle cx="32" cy="22" r="6" fill="#CFEBDD"/><circle cx="22" cy="28" r="5" fill="#A7DCC4"/><circle cx="42" cy="28" r="5" fill="#A7DCC4"/></svg></div></header>
@@ -2239,7 +2248,7 @@ figcaption{font-size:9pt;color:var(--szary);padding:2mm 3mm;background:var(--z05
     <h3>Miejsce na notatki i własne pytania</h3>
     <div class="linie"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
   </div>
-  <footer class="r-foot"><span class="f-znak"><svg class="mark" viewBox="0 0 200 200" aria-hidden="true"><use href="#pctp-mark"/></svg><b>PCTP</b> · Mały Książę moim bohaterem</span><span>rozdział 18/27 · strona 3/3</span></footer>
+  <footer class="r-foot"><span class="f-znak"><svg class="mark" viewBox="0 0 200 200" aria-hidden="true"><use href="#pctp-mark"/></svg><b>PCTP</b> · Mały Książę moim bohaterem</span><span class="f-srodek">rozdział 18/27 · część 3 z 3</span><span class="f-nr">62</span></footer>
 </section>
 
 <section class="page rozdzial" id="r19">
@@ -2268,7 +2277,7 @@ figcaption{font-size:9pt;color:var(--szary);padding:2mm 3mm;background:var(--z05
       </div>
     </div>
   </div>
-  <footer class="r-foot"><span class="f-znak"><svg class="mark" viewBox="0 0 200 200" aria-hidden="true"><use href="#pctp-mark"/></svg><b>PCTP</b> · Mały Książę moim bohaterem</span><span>rozdział 19/27 · strona 1/3</span></footer>
+  <footer class="r-foot"><span class="f-znak"><svg class="mark" viewBox="0 0 200 200" aria-hidden="true"><use href="#pctp-mark"/></svg><b>PCTP</b> · Mały Książę moim bohaterem</span><span class="f-srodek">rozdział 19/27 · część 1 z 3</span><span class="f-nr">63</span></footer>
 </section>
 <section class="page rozdzial" id="r19b">
   <header class="r-head mini"><div class="r-nr"><span>ROZDZ.</span><b>19</b></div><div class="r-tyt"><h2>Góra i echo</h2><p class="r-miejsce">część 2 z 3 · Emocje i wnioski</p></div><div class="r-ikona"><svg viewBox="0 0 64 64" width="52" height="52" aria-hidden="true"><circle cx="32" cy="32" r="30" fill="#1F8A63"/><path d="M8 50l16-26 10 16 8-12 14 22z" fill="#14664A"/><g fill="none" stroke="#CFEBDD" stroke-width="2.6" stroke-linecap="round"><path d="M40 18a10 10 0 0 1 0 12M46 14a16 16 0 0 1 0 20"/></g></svg></div></header>
@@ -2292,7 +2301,7 @@ figcaption{font-size:9pt;color:var(--szary);padding:2mm 3mm;background:var(--z05
     <p class="o-pyt">Mały Książę uznał, że ludzie na Ziemi tylko powtarzają cudze słowa. Czy jego wniosek jest słuszny?</p>
     <p class="o-odp"><span class="znak">✖</span>CZERWONE (jako wniosek). Ocenił wszystkich ludzi na podstawie jednego zdarzenia — i to takiego, którego nie zrozumiał. Tak powstają uprzedzenia. Jeden przykład to za mało, żeby ocenić całą grupę.</p>
   </div>
-  <footer class="r-foot"><span class="f-znak"><svg class="mark" viewBox="0 0 200 200" aria-hidden="true"><use href="#pctp-mark"/></svg><b>PCTP</b> · Mały Książę moim bohaterem</span><span>rozdział 19/27 · strona 2/3</span></footer>
+  <footer class="r-foot"><span class="f-znak"><svg class="mark" viewBox="0 0 200 200" aria-hidden="true"><use href="#pctp-mark"/></svg><b>PCTP</b> · Mały Książę moim bohaterem</span><span class="f-srodek">rozdział 19/27 · część 2 z 3</span><span class="f-nr">64</span></footer>
 </section>
 <section class="page rozdzial" id="r19c">
   <header class="r-head mini"><div class="r-nr"><span>ROZDZ.</span><b>19</b></div><div class="r-tyt"><h2>Góra i echo</h2><p class="r-miejsce">część 3 z 3 · Myślenie i pytania</p></div><div class="r-ikona"><svg viewBox="0 0 64 64" width="52" height="52" aria-hidden="true"><circle cx="32" cy="32" r="30" fill="#1F8A63"/><path d="M8 50l16-26 10 16 8-12 14 22z" fill="#14664A"/><g fill="none" stroke="#CFEBDD" stroke-width="2.6" stroke-linecap="round"><path d="M40 18a10 10 0 0 1 0 12M46 14a16 16 0 0 1 0 20"/></g></svg></div></header>
@@ -2317,7 +2326,7 @@ figcaption{font-size:9pt;color:var(--szary);padding:2mm 3mm;background:var(--z05
     <h3>Miejsce na notatki i własne pytania</h3>
     <div class="linie"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
   </div>
-  <footer class="r-foot"><span class="f-znak"><svg class="mark" viewBox="0 0 200 200" aria-hidden="true"><use href="#pctp-mark"/></svg><b>PCTP</b> · Mały Książę moim bohaterem</span><span>rozdział 19/27 · strona 3/3</span></footer>
+  <footer class="r-foot"><span class="f-znak"><svg class="mark" viewBox="0 0 200 200" aria-hidden="true"><use href="#pctp-mark"/></svg><b>PCTP</b> · Mały Książę moim bohaterem</span><span class="f-srodek">rozdział 19/27 · część 3 z 3</span><span class="f-nr">65</span></footer>
 </section>
 
 <section class="page rozdzial" id="r20">
@@ -2353,7 +2362,7 @@ figcaption{font-size:9pt;color:var(--szary);padding:2mm 3mm;background:var(--z05
       </div>
     </div>
   </div>
-  <footer class="r-foot"><span class="f-znak"><svg class="mark" viewBox="0 0 200 200" aria-hidden="true"><use href="#pctp-mark"/></svg><b>PCTP</b> · Mały Książę moim bohaterem</span><span>rozdział 20/27 · strona 1/3</span></footer>
+  <footer class="r-foot"><span class="f-znak"><svg class="mark" viewBox="0 0 200 200" aria-hidden="true"><use href="#pctp-mark"/></svg><b>PCTP</b> · Mały Książę moim bohaterem</span><span class="f-srodek">rozdział 20/27 · część 1 z 3</span><span class="f-nr">66</span></footer>
 </section>
 <section class="page rozdzial" id="r20b">
   <header class="r-head mini"><div class="r-nr"><span>ROZDZ.</span><b>20</b></div><div class="r-tyt"><h2>Ogród pięciu tysięcy róż</h2><p class="r-miejsce">część 2 z 3 · Emocje i wnioski</p></div><div class="r-ikona"><svg viewBox="0 0 64 64" width="52" height="52" aria-hidden="true"><circle cx="32" cy="32" r="30" fill="#1F8A63"/><g fill="#D96D8B"><circle cx="18" cy="28" r="6"/><circle cx="32" cy="22" r="6"/><circle cx="46" cy="28" r="6"/><circle cx="25" cy="40" r="6"/><circle cx="39" cy="40" r="6"/></g><path d="M12 52h40" stroke="#14664A" stroke-width="4" stroke-linecap="round"/></svg></div></header>
@@ -2377,7 +2386,7 @@ figcaption{font-size:9pt;color:var(--szary);padding:2mm 3mm;background:var(--z05
     <p class="o-pyt">Mały Książę uznał, że róża go okłamała. Czy miał rację?</p>
     <p class="o-odp"><span class="znak">!</span>ŻÓŁTE. Zrozumiał jej słowa dosłownie — jako informację o gatunku kwiatów. Róża mówiła jednak o czymś innym: o tym, że dla NIEGO jest jedyna. Nie skłamała. Powiedziała to nieprecyzyjnie.</p>
   </div>
-  <footer class="r-foot"><span class="f-znak"><svg class="mark" viewBox="0 0 200 200" aria-hidden="true"><use href="#pctp-mark"/></svg><b>PCTP</b> · Mały Książę moim bohaterem</span><span>rozdział 20/27 · strona 2/3</span></footer>
+  <footer class="r-foot"><span class="f-znak"><svg class="mark" viewBox="0 0 200 200" aria-hidden="true"><use href="#pctp-mark"/></svg><b>PCTP</b> · Mały Książę moim bohaterem</span><span class="f-srodek">rozdział 20/27 · część 2 z 3</span><span class="f-nr">67</span></footer>
 </section>
 <section class="page rozdzial" id="r20c">
   <header class="r-head mini"><div class="r-nr"><span>ROZDZ.</span><b>20</b></div><div class="r-tyt"><h2>Ogród pięciu tysięcy róż</h2><p class="r-miejsce">część 3 z 3 · Myślenie i pytania</p></div><div class="r-ikona"><svg viewBox="0 0 64 64" width="52" height="52" aria-hidden="true"><circle cx="32" cy="32" r="30" fill="#1F8A63"/><g fill="#D96D8B"><circle cx="18" cy="28" r="6"/><circle cx="32" cy="22" r="6"/><circle cx="46" cy="28" r="6"/><circle cx="25" cy="40" r="6"/><circle cx="39" cy="40" r="6"/></g><path d="M12 52h40" stroke="#14664A" stroke-width="4" stroke-linecap="round"/></svg></div></header>
@@ -2402,7 +2411,7 @@ figcaption{font-size:9pt;color:var(--szary);padding:2mm 3mm;background:var(--z05
     <h3>Miejsce na notatki i własne pytania</h3>
     <div class="linie"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
   </div>
-  <footer class="r-foot"><span class="f-znak"><svg class="mark" viewBox="0 0 200 200" aria-hidden="true"><use href="#pctp-mark"/></svg><b>PCTP</b> · Mały Książę moim bohaterem</span><span>rozdział 20/27 · strona 3/3</span></footer>
+  <footer class="r-foot"><span class="f-znak"><svg class="mark" viewBox="0 0 200 200" aria-hidden="true"><use href="#pctp-mark"/></svg><b>PCTP</b> · Mały Książę moim bohaterem</span><span class="f-srodek">rozdział 20/27 · część 3 z 3</span><span class="f-nr">68</span></footer>
 </section>
 
 <section class="page rozdzial" id="r21">
@@ -2451,7 +2460,7 @@ figcaption{font-size:9pt;color:var(--szary);padding:2mm 3mm;background:var(--z05
       </div>
     </div>
   </div>
-  <footer class="r-foot"><span class="f-znak"><svg class="mark" viewBox="0 0 200 200" aria-hidden="true"><use href="#pctp-mark"/></svg><b>PCTP</b> · Mały Książę moim bohaterem</span><span>rozdział 21/27 · strona 1/3</span></footer>
+  <footer class="r-foot"><span class="f-znak"><svg class="mark" viewBox="0 0 200 200" aria-hidden="true"><use href="#pctp-mark"/></svg><b>PCTP</b> · Mały Książę moim bohaterem</span><span class="f-srodek">rozdział 21/27 · część 1 z 3</span><span class="f-nr">69</span></footer>
 </section>
 <section class="page rozdzial" id="r21b">
   <header class="r-head mini"><div class="r-nr"><span>ROZDZ.</span><b>21</b></div><div class="r-tyt"><h2>Lis i sekret oswajania</h2><p class="r-miejsce">część 2 z 3 · Emocje i wnioski</p></div><div class="r-ikona"><svg viewBox="0 0 64 64" width="52" height="52" aria-hidden="true"><circle cx="32" cy="32" r="30" fill="#14664A"/><path d="M32 48c-11 0-18-8-18-17s7-15 18-15 18 6 18 15-7 17-18 17z" fill="#3FA87C"/><path d="M18 20l-4-10 12 5zM46 20l4-10-12 5z" fill="#1F8A63"/><circle cx="25" cy="31" r="3" fill="#0B3D2E"/><circle cx="39" cy="31" r="3" fill="#0B3D2E"/><path d="M32 38l-4-3h8z" fill="#0B3D2E"/></svg></div></header>
@@ -2475,7 +2484,7 @@ figcaption{font-size:9pt;color:var(--szary);padding:2mm 3mm;background:var(--z05
     <p class="o-pyt">Lis wiedział, że rozstanie będzie bolało — i mimo to poprosił o oswojenie. Czy dobrze zrobił?</p>
     <p class="o-odp"><span class="znak">✔</span>ZIELONE. Świadomie wybrał przyjaźń, chociaż wiedział, że będzie go potem bolało. Sam mówi, że zyskał więcej, niż stracił. To dojrzała decyzja.</p>
   </div>
-  <footer class="r-foot"><span class="f-znak"><svg class="mark" viewBox="0 0 200 200" aria-hidden="true"><use href="#pctp-mark"/></svg><b>PCTP</b> · Mały Książę moim bohaterem</span><span>rozdział 21/27 · strona 2/3</span></footer>
+  <footer class="r-foot"><span class="f-znak"><svg class="mark" viewBox="0 0 200 200" aria-hidden="true"><use href="#pctp-mark"/></svg><b>PCTP</b> · Mały Książę moim bohaterem</span><span class="f-srodek">rozdział 21/27 · część 2 z 3</span><span class="f-nr">70</span></footer>
 </section>
 <section class="page rozdzial" id="r21c">
   <header class="r-head mini"><div class="r-nr"><span>ROZDZ.</span><b>21</b></div><div class="r-tyt"><h2>Lis i sekret oswajania</h2><p class="r-miejsce">część 3 z 3 · Myślenie i pytania</p></div><div class="r-ikona"><svg viewBox="0 0 64 64" width="52" height="52" aria-hidden="true"><circle cx="32" cy="32" r="30" fill="#14664A"/><path d="M32 48c-11 0-18-8-18-17s7-15 18-15 18 6 18 15-7 17-18 17z" fill="#3FA87C"/><path d="M18 20l-4-10 12 5zM46 20l4-10-12 5z" fill="#1F8A63"/><circle cx="25" cy="31" r="3" fill="#0B3D2E"/><circle cx="39" cy="31" r="3" fill="#0B3D2E"/><path d="M32 38l-4-3h8z" fill="#0B3D2E"/></svg></div></header>
@@ -2500,7 +2509,7 @@ figcaption{font-size:9pt;color:var(--szary);padding:2mm 3mm;background:var(--z05
     <h3>Miejsce na notatki i własne pytania</h3>
     <div class="linie"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
   </div>
-  <footer class="r-foot"><span class="f-znak"><svg class="mark" viewBox="0 0 200 200" aria-hidden="true"><use href="#pctp-mark"/></svg><b>PCTP</b> · Mały Książę moim bohaterem</span><span>rozdział 21/27 · strona 3/3</span></footer>
+  <footer class="r-foot"><span class="f-znak"><svg class="mark" viewBox="0 0 200 200" aria-hidden="true"><use href="#pctp-mark"/></svg><b>PCTP</b> · Mały Książę moim bohaterem</span><span class="f-srodek">rozdział 21/27 · część 3 z 3</span><span class="f-nr">71</span></footer>
 </section>
 
 <section class="page rozdzial" id="r22">
@@ -2529,7 +2538,7 @@ figcaption{font-size:9pt;color:var(--szary);padding:2mm 3mm;background:var(--z05
       </div>
     </div>
   </div>
-  <footer class="r-foot"><span class="f-znak"><svg class="mark" viewBox="0 0 200 200" aria-hidden="true"><use href="#pctp-mark"/></svg><b>PCTP</b> · Mały Książę moim bohaterem</span><span>rozdział 22/27 · strona 1/3</span></footer>
+  <footer class="r-foot"><span class="f-znak"><svg class="mark" viewBox="0 0 200 200" aria-hidden="true"><use href="#pctp-mark"/></svg><b>PCTP</b> · Mały Książę moim bohaterem</span><span class="f-srodek">rozdział 22/27 · część 1 z 3</span><span class="f-nr">72</span></footer>
 </section>
 <section class="page rozdzial" id="r22b">
   <header class="r-head mini"><div class="r-nr"><span>ROZDZ.</span><b>22</b></div><div class="r-tyt"><h2>Zwrotniczy — pociągi, które gdzieś pędzą</h2><p class="r-miejsce">część 2 z 3 · Emocje i wnioski</p></div><div class="r-ikona"><svg viewBox="0 0 64 64" width="52" height="52" aria-hidden="true"><circle cx="32" cy="32" r="30" fill="#1F8A63"/><rect x="14" y="20" width="36" height="22" rx="5" fill="#CFEBDD"/><rect x="19" y="25" width="10" height="9" fill="#14664A"/><rect x="35" y="25" width="10" height="9" fill="#14664A"/><circle cx="22" cy="46" r="5" fill="#0B3D2E"/><circle cx="42" cy="46" r="5" fill="#0B3D2E"/></svg></div></header>
@@ -2553,7 +2562,7 @@ figcaption{font-size:9pt;color:var(--szary);padding:2mm 3mm;background:var(--z05
     <p class="o-pyt">Dorośli w pociągu śpią i ziewają. Czy to znaczy, że są leniwi?</p>
     <p class="o-odp"><span class="znak">!</span>ŻÓŁTE. Mogą być po prostu zmęczeni pracą — to zrozumiałe. Ale autor pokazuje coś innego: że przestali zauważać świat wokół. Warto czasem podnieść głowę i popatrzeć przez okno.</p>
   </div>
-  <footer class="r-foot"><span class="f-znak"><svg class="mark" viewBox="0 0 200 200" aria-hidden="true"><use href="#pctp-mark"/></svg><b>PCTP</b> · Mały Książę moim bohaterem</span><span>rozdział 22/27 · strona 2/3</span></footer>
+  <footer class="r-foot"><span class="f-znak"><svg class="mark" viewBox="0 0 200 200" aria-hidden="true"><use href="#pctp-mark"/></svg><b>PCTP</b> · Mały Książę moim bohaterem</span><span class="f-srodek">rozdział 22/27 · część 2 z 3</span><span class="f-nr">73</span></footer>
 </section>
 <section class="page rozdzial" id="r22c">
   <header class="r-head mini"><div class="r-nr"><span>ROZDZ.</span><b>22</b></div><div class="r-tyt"><h2>Zwrotniczy — pociągi, które gdzieś pędzą</h2><p class="r-miejsce">część 3 z 3 · Myślenie i pytania</p></div><div class="r-ikona"><svg viewBox="0 0 64 64" width="52" height="52" aria-hidden="true"><circle cx="32" cy="32" r="30" fill="#1F8A63"/><rect x="14" y="20" width="36" height="22" rx="5" fill="#CFEBDD"/><rect x="19" y="25" width="10" height="9" fill="#14664A"/><rect x="35" y="25" width="10" height="9" fill="#14664A"/><circle cx="22" cy="46" r="5" fill="#0B3D2E"/><circle cx="42" cy="46" r="5" fill="#0B3D2E"/></svg></div></header>
@@ -2578,7 +2587,7 @@ figcaption{font-size:9pt;color:var(--szary);padding:2mm 3mm;background:var(--z05
     <h3>Miejsce na notatki i własne pytania</h3>
     <div class="linie"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
   </div>
-  <footer class="r-foot"><span class="f-znak"><svg class="mark" viewBox="0 0 200 200" aria-hidden="true"><use href="#pctp-mark"/></svg><b>PCTP</b> · Mały Książę moim bohaterem</span><span>rozdział 22/27 · strona 3/3</span></footer>
+  <footer class="r-foot"><span class="f-znak"><svg class="mark" viewBox="0 0 200 200" aria-hidden="true"><use href="#pctp-mark"/></svg><b>PCTP</b> · Mały Książę moim bohaterem</span><span class="f-srodek">rozdział 22/27 · część 3 z 3</span><span class="f-nr">74</span></footer>
 </section>
 
 <section class="page rozdzial" id="r23">
@@ -2607,7 +2616,7 @@ figcaption{font-size:9pt;color:var(--szary);padding:2mm 3mm;background:var(--z05
       </div>
     </div>
   </div>
-  <footer class="r-foot"><span class="f-znak"><svg class="mark" viewBox="0 0 200 200" aria-hidden="true"><use href="#pctp-mark"/></svg><b>PCTP</b> · Mały Książę moim bohaterem</span><span>rozdział 23/27 · strona 1/3</span></footer>
+  <footer class="r-foot"><span class="f-znak"><svg class="mark" viewBox="0 0 200 200" aria-hidden="true"><use href="#pctp-mark"/></svg><b>PCTP</b> · Mały Książę moim bohaterem</span><span class="f-srodek">rozdział 23/27 · część 1 z 3</span><span class="f-nr">75</span></footer>
 </section>
 <section class="page rozdzial" id="r23b">
   <header class="r-head mini"><div class="r-nr"><span>ROZDZ.</span><b>23</b></div><div class="r-tyt"><h2>Kupiec i pigułki na pragnienie</h2><p class="r-miejsce">część 2 z 3 · Emocje i wnioski</p></div><div class="r-ikona"><svg viewBox="0 0 64 64" width="52" height="52" aria-hidden="true"><circle cx="32" cy="32" r="30" fill="#1F8A63"/><rect x="14" y="26" width="36" height="14" rx="7" fill="#CFEBDD" transform="rotate(-20 32 33)"/><path d="M32 33m0 0" fill="none"/><rect x="14" y="26" width="18" height="14" rx="7" fill="#E3B23C" transform="rotate(-20 32 33)"/></svg></div></header>
@@ -2631,7 +2640,7 @@ figcaption{font-size:9pt;color:var(--szary);padding:2mm 3mm;background:var(--z05
     <p class="o-pyt">Czy oszczędzanie czasu jest dobre?</p>
     <p class="o-odp"><span class="znak">!</span>ŻÓŁTE. Zależy, co robimy z zaoszczędzonym czasem. Jeśli używamy go na coś ważnego — bardzo dobrze. Jeśli tylko oszczędzamy dla samego oszczędzania — traci to sens.</p>
   </div>
-  <footer class="r-foot"><span class="f-znak"><svg class="mark" viewBox="0 0 200 200" aria-hidden="true"><use href="#pctp-mark"/></svg><b>PCTP</b> · Mały Książę moim bohaterem</span><span>rozdział 23/27 · strona 2/3</span></footer>
+  <footer class="r-foot"><span class="f-znak"><svg class="mark" viewBox="0 0 200 200" aria-hidden="true"><use href="#pctp-mark"/></svg><b>PCTP</b> · Mały Książę moim bohaterem</span><span class="f-srodek">rozdział 23/27 · część 2 z 3</span><span class="f-nr">76</span></footer>
 </section>
 <section class="page rozdzial" id="r23c">
   <header class="r-head mini"><div class="r-nr"><span>ROZDZ.</span><b>23</b></div><div class="r-tyt"><h2>Kupiec i pigułki na pragnienie</h2><p class="r-miejsce">część 3 z 3 · Myślenie i pytania</p></div><div class="r-ikona"><svg viewBox="0 0 64 64" width="52" height="52" aria-hidden="true"><circle cx="32" cy="32" r="30" fill="#1F8A63"/><rect x="14" y="26" width="36" height="14" rx="7" fill="#CFEBDD" transform="rotate(-20 32 33)"/><path d="M32 33m0 0" fill="none"/><rect x="14" y="26" width="18" height="14" rx="7" fill="#E3B23C" transform="rotate(-20 32 33)"/></svg></div></header>
@@ -2656,7 +2665,7 @@ figcaption{font-size:9pt;color:var(--szary);padding:2mm 3mm;background:var(--z05
     <h3>Miejsce na notatki i własne pytania</h3>
     <div class="linie"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
   </div>
-  <footer class="r-foot"><span class="f-znak"><svg class="mark" viewBox="0 0 200 200" aria-hidden="true"><use href="#pctp-mark"/></svg><b>PCTP</b> · Mały Książę moim bohaterem</span><span>rozdział 23/27 · strona 3/3</span></footer>
+  <footer class="r-foot"><span class="f-znak"><svg class="mark" viewBox="0 0 200 200" aria-hidden="true"><use href="#pctp-mark"/></svg><b>PCTP</b> · Mały Książę moim bohaterem</span><span class="f-srodek">rozdział 23/27 · część 3 z 3</span><span class="f-nr">77</span></footer>
 </section>
 
 <section class="page rozdzial" id="r24">
@@ -2685,7 +2694,7 @@ figcaption{font-size:9pt;color:var(--szary);padding:2mm 3mm;background:var(--z05
       </div>
     </div>
   </div>
-  <footer class="r-foot"><span class="f-znak"><svg class="mark" viewBox="0 0 200 200" aria-hidden="true"><use href="#pctp-mark"/></svg><b>PCTP</b> · Mały Książę moim bohaterem</span><span>rozdział 24/27 · strona 1/3</span></footer>
+  <footer class="r-foot"><span class="f-znak"><svg class="mark" viewBox="0 0 200 200" aria-hidden="true"><use href="#pctp-mark"/></svg><b>PCTP</b> · Mały Książę moim bohaterem</span><span class="f-srodek">rozdział 24/27 · część 1 z 3</span><span class="f-nr">78</span></footer>
 </section>
 <section class="page rozdzial" id="r24b">
   <header class="r-head mini"><div class="r-nr"><span>ROZDZ.</span><b>24</b></div><div class="r-tyt"><h2>Ósmy dzień — wspólne szukanie studni</h2><p class="r-miejsce">część 2 z 3 · Emocje i wnioski</p></div><div class="r-ikona"><svg viewBox="0 0 64 64" width="52" height="52" aria-hidden="true"><circle cx="32" cy="32" r="30" fill="#0B3D2E"/><path d="M6 48q26-10 52 0" stroke="#14664A" stroke-width="8" fill="none"/><circle cx="26" cy="22" r="5" fill="#F3E7C9"/><path d="M26 27v12l-6 10M26 39l7 10M20 32l12-4 8 6" stroke="#E3B23C" stroke-width="3.5" fill="none" stroke-linecap="round"/></svg></div></header>
@@ -2709,7 +2718,7 @@ figcaption{font-size:9pt;color:var(--szary);padding:2mm 3mm;background:var(--z05
     <p class="o-pyt">Narrator nakrzyczał na Małego Księcia. Czy można go usprawiedliwić?</p>
     <p class="o-odp"><span class="znak">!</span>ŻÓŁTE. Był w realnym niebezpieczeństwie i bał się o życie — strach często zamienia się w złość. To wyjaśnia jego zachowanie, ale go nie usprawiedliwia. Można powiedzieć: „boję się i nie dam rady teraz rozmawiać”.</p>
   </div>
-  <footer class="r-foot"><span class="f-znak"><svg class="mark" viewBox="0 0 200 200" aria-hidden="true"><use href="#pctp-mark"/></svg><b>PCTP</b> · Mały Książę moim bohaterem</span><span>rozdział 24/27 · strona 2/3</span></footer>
+  <footer class="r-foot"><span class="f-znak"><svg class="mark" viewBox="0 0 200 200" aria-hidden="true"><use href="#pctp-mark"/></svg><b>PCTP</b> · Mały Książę moim bohaterem</span><span class="f-srodek">rozdział 24/27 · część 2 z 3</span><span class="f-nr">79</span></footer>
 </section>
 <section class="page rozdzial" id="r24c">
   <header class="r-head mini"><div class="r-nr"><span>ROZDZ.</span><b>24</b></div><div class="r-tyt"><h2>Ósmy dzień — wspólne szukanie studni</h2><p class="r-miejsce">część 3 z 3 · Myślenie i pytania</p></div><div class="r-ikona"><svg viewBox="0 0 64 64" width="52" height="52" aria-hidden="true"><circle cx="32" cy="32" r="30" fill="#0B3D2E"/><path d="M6 48q26-10 52 0" stroke="#14664A" stroke-width="8" fill="none"/><circle cx="26" cy="22" r="5" fill="#F3E7C9"/><path d="M26 27v12l-6 10M26 39l7 10M20 32l12-4 8 6" stroke="#E3B23C" stroke-width="3.5" fill="none" stroke-linecap="round"/></svg></div></header>
@@ -2734,7 +2743,7 @@ figcaption{font-size:9pt;color:var(--szary);padding:2mm 3mm;background:var(--z05
     <h3>Miejsce na notatki i własne pytania</h3>
     <div class="linie"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
   </div>
-  <footer class="r-foot"><span class="f-znak"><svg class="mark" viewBox="0 0 200 200" aria-hidden="true"><use href="#pctp-mark"/></svg><b>PCTP</b> · Mały Książę moim bohaterem</span><span>rozdział 24/27 · strona 3/3</span></footer>
+  <footer class="r-foot"><span class="f-znak"><svg class="mark" viewBox="0 0 200 200" aria-hidden="true"><use href="#pctp-mark"/></svg><b>PCTP</b> · Mały Książę moim bohaterem</span><span class="f-srodek">rozdział 24/27 · część 3 z 3</span><span class="f-nr">80</span></footer>
 </section>
 
 <section class="page rozdzial" id="r25">
@@ -2777,7 +2786,7 @@ figcaption{font-size:9pt;color:var(--szary);padding:2mm 3mm;background:var(--z05
       </div>
     </div>
   </div>
-  <footer class="r-foot"><span class="f-znak"><svg class="mark" viewBox="0 0 200 200" aria-hidden="true"><use href="#pctp-mark"/></svg><b>PCTP</b> · Mały Książę moim bohaterem</span><span>rozdział 25/27 · strona 1/3</span></footer>
+  <footer class="r-foot"><span class="f-znak"><svg class="mark" viewBox="0 0 200 200" aria-hidden="true"><use href="#pctp-mark"/></svg><b>PCTP</b> · Mały Książę moim bohaterem</span><span class="f-srodek">rozdział 25/27 · część 1 z 3</span><span class="f-nr">81</span></footer>
 </section>
 <section class="page rozdzial" id="r25b">
   <header class="r-head mini"><div class="r-nr"><span>ROZDZ.</span><b>25</b></div><div class="r-tyt"><h2>Studnia — woda, która jest darem</h2><p class="r-miejsce">część 2 z 3 · Emocje i wnioski</p></div><div class="r-ikona"><svg viewBox="0 0 64 64" width="52" height="52" aria-hidden="true"><circle cx="32" cy="32" r="30" fill="#1F8A63"/><rect x="20" y="36" width="24" height="16" rx="3" fill="#CFEBDD"/><path d="M18 32l14-10 14 10z" fill="#14664A"/><rect x="22" y="35" width="20" height="4" fill="#0B3D2E"/><path d="M32 39v6" stroke="#0B3D2E" stroke-width="2"/></svg></div></header>
@@ -2801,7 +2810,7 @@ figcaption{font-size:9pt;color:var(--szary);padding:2mm 3mm;background:var(--z05
     <p class="o-pyt">Mały Książę nie mówi narratorowi o swoim planie. Czy to w porządku?</p>
     <p class="o-odp"><span class="znak">✖</span>CZERWONE. Ukrywanie ważnych planów przed osobą, która się o nas troszczy, sprawia jej ból. Kiedy planujesz coś ważnego, powiedz o tym komuś bliskiemu — nawet jeśli boisz się jego reakcji.</p>
   </div>
-  <footer class="r-foot"><span class="f-znak"><svg class="mark" viewBox="0 0 200 200" aria-hidden="true"><use href="#pctp-mark"/></svg><b>PCTP</b> · Mały Książę moim bohaterem</span><span>rozdział 25/27 · strona 2/3</span></footer>
+  <footer class="r-foot"><span class="f-znak"><svg class="mark" viewBox="0 0 200 200" aria-hidden="true"><use href="#pctp-mark"/></svg><b>PCTP</b> · Mały Książę moim bohaterem</span><span class="f-srodek">rozdział 25/27 · część 2 z 3</span><span class="f-nr">82</span></footer>
 </section>
 <section class="page rozdzial" id="r25c">
   <header class="r-head mini"><div class="r-nr"><span>ROZDZ.</span><b>25</b></div><div class="r-tyt"><h2>Studnia — woda, która jest darem</h2><p class="r-miejsce">część 3 z 3 · Myślenie i pytania</p></div><div class="r-ikona"><svg viewBox="0 0 64 64" width="52" height="52" aria-hidden="true"><circle cx="32" cy="32" r="30" fill="#1F8A63"/><rect x="20" y="36" width="24" height="16" rx="3" fill="#CFEBDD"/><path d="M18 32l14-10 14 10z" fill="#14664A"/><rect x="22" y="35" width="20" height="4" fill="#0B3D2E"/><path d="M32 39v6" stroke="#0B3D2E" stroke-width="2"/></svg></div></header>
@@ -2826,7 +2835,7 @@ figcaption{font-size:9pt;color:var(--szary);padding:2mm 3mm;background:var(--z05
     <h3>Miejsce na notatki i własne pytania</h3>
     <div class="linie"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
   </div>
-  <footer class="r-foot"><span class="f-znak"><svg class="mark" viewBox="0 0 200 200" aria-hidden="true"><use href="#pctp-mark"/></svg><b>PCTP</b> · Mały Książę moim bohaterem</span><span>rozdział 25/27 · strona 3/3</span></footer>
+  <footer class="r-foot"><span class="f-znak"><svg class="mark" viewBox="0 0 200 200" aria-hidden="true"><use href="#pctp-mark"/></svg><b>PCTP</b> · Mały Książę moim bohaterem</span><span class="f-srodek">rozdział 25/27 · część 3 z 3</span><span class="f-nr">83</span></footer>
 </section>
 
 <section class="page rozdzial" id="r26">
@@ -2866,7 +2875,7 @@ figcaption{font-size:9pt;color:var(--szary);padding:2mm 3mm;background:var(--z05
       </div>
     </div>
   </div>
-  <footer class="r-foot"><span class="f-znak"><svg class="mark" viewBox="0 0 200 200" aria-hidden="true"><use href="#pctp-mark"/></svg><b>PCTP</b> · Mały Książę moim bohaterem</span><span>rozdział 26/27 · strona 1/3</span></footer>
+  <footer class="r-foot"><span class="f-znak"><svg class="mark" viewBox="0 0 200 200" aria-hidden="true"><use href="#pctp-mark"/></svg><b>PCTP</b> · Mały Książę moim bohaterem</span><span class="f-srodek">rozdział 26/27 · część 1 z 3</span><span class="f-nr">84</span></footer>
 </section>
 <section class="page rozdzial" id="r26b">
   <header class="r-head mini"><div class="r-nr"><span>ROZDZ.</span><b>26</b></div><div class="r-tyt"><h2>Pożegnanie i gwiazdy, które się śmieją</h2><p class="r-miejsce">część 2 z 3 · Emocje i wnioski</p></div><div class="r-ikona"><svg viewBox="0 0 64 64" width="52" height="52" aria-hidden="true"><circle cx="32" cy="32" r="30" fill="#0B3D2E"/><path d="M32 12l6 14 15 1-11 10 3 15-13-8-13 8 3-15-11-10 15-1z" fill="#E3B23C"/><circle cx="27" cy="30" r="1.8" fill="#0B3D2E"/><circle cx="37" cy="30" r="1.8" fill="#0B3D2E"/><path d="M27 36q5 5 10 0" stroke="#0B3D2E" stroke-width="1.8" fill="none" stroke-linecap="round"/></svg></div></header>
@@ -2890,7 +2899,7 @@ figcaption{font-size:9pt;color:var(--szary);padding:2mm 3mm;background:var(--z05
     <p class="o-pyt">Mały Książę poprosił: „nie przychodź”. Narrator przyszedł. Kto miał rację?</p>
     <p class="o-odp"><span class="znak">!</span>ŻÓŁTE po obu stronach. Chłopiec chciał oszczędzić przyjacielowi bólu. Narrator nie chciał zostawić go samego. Obaj kierowali się troską. W trudnych chwilach dobrze jest zapytać wprost: „czy chcesz, żebym był obok?”.</p>
   </div>
-  <footer class="r-foot"><span class="f-znak"><svg class="mark" viewBox="0 0 200 200" aria-hidden="true"><use href="#pctp-mark"/></svg><b>PCTP</b> · Mały Książę moim bohaterem</span><span>rozdział 26/27 · strona 2/3</span></footer>
+  <footer class="r-foot"><span class="f-znak"><svg class="mark" viewBox="0 0 200 200" aria-hidden="true"><use href="#pctp-mark"/></svg><b>PCTP</b> · Mały Książę moim bohaterem</span><span class="f-srodek">rozdział 26/27 · część 2 z 3</span><span class="f-nr">85</span></footer>
 </section>
 <section class="page rozdzial" id="r26c">
   <header class="r-head mini"><div class="r-nr"><span>ROZDZ.</span><b>26</b></div><div class="r-tyt"><h2>Pożegnanie i gwiazdy, które się śmieją</h2><p class="r-miejsce">część 3 z 3 · Myślenie i pytania</p></div><div class="r-ikona"><svg viewBox="0 0 64 64" width="52" height="52" aria-hidden="true"><circle cx="32" cy="32" r="30" fill="#0B3D2E"/><path d="M32 12l6 14 15 1-11 10 3 15-13-8-13 8 3-15-11-10 15-1z" fill="#E3B23C"/><circle cx="27" cy="30" r="1.8" fill="#0B3D2E"/><circle cx="37" cy="30" r="1.8" fill="#0B3D2E"/><path d="M27 36q5 5 10 0" stroke="#0B3D2E" stroke-width="1.8" fill="none" stroke-linecap="round"/></svg></div></header>
@@ -2915,7 +2924,7 @@ figcaption{font-size:9pt;color:var(--szary);padding:2mm 3mm;background:var(--z05
     <h3>Miejsce na notatki i własne pytania</h3>
     <div class="linie"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
   </div>
-  <footer class="r-foot"><span class="f-znak"><svg class="mark" viewBox="0 0 200 200" aria-hidden="true"><use href="#pctp-mark"/></svg><b>PCTP</b> · Mały Książę moim bohaterem</span><span>rozdział 26/27 · strona 3/3</span></footer>
+  <footer class="r-foot"><span class="f-znak"><svg class="mark" viewBox="0 0 200 200" aria-hidden="true"><use href="#pctp-mark"/></svg><b>PCTP</b> · Mały Książę moim bohaterem</span><span class="f-srodek">rozdział 26/27 · część 3 z 3</span><span class="f-nr">86</span></footer>
 </section>
 
 <section class="page rozdzial" id="r27">
@@ -2944,7 +2953,7 @@ figcaption{font-size:9pt;color:var(--szary);padding:2mm 3mm;background:var(--z05
       </div>
     </div>
   </div>
-  <footer class="r-foot"><span class="f-znak"><svg class="mark" viewBox="0 0 200 200" aria-hidden="true"><use href="#pctp-mark"/></svg><b>PCTP</b> · Mały Książę moim bohaterem</span><span>rozdział 27/27 · strona 1/3</span></footer>
+  <footer class="r-foot"><span class="f-znak"><svg class="mark" viewBox="0 0 200 200" aria-hidden="true"><use href="#pctp-mark"/></svg><b>PCTP</b> · Mały Książę moim bohaterem</span><span class="f-srodek">rozdział 27/27 · część 1 z 3</span><span class="f-nr">87</span></footer>
 </section>
 <section class="page rozdzial" id="r27b">
   <header class="r-head mini"><div class="r-nr"><span>ROZDZ.</span><b>27</b></div><div class="r-tyt"><h2>Sześć lat później — pytanie bez odpowiedzi</h2><p class="r-miejsce">część 2 z 3 · Emocje i wnioski</p></div><div class="r-ikona"><svg viewBox="0 0 64 64" width="52" height="52" aria-hidden="true"><circle cx="32" cy="32" r="30" fill="#1F8A63"/><rect x="14" y="22" width="36" height="24" rx="4" fill="#CFEBDD"/><path d="M14 24l18 14 18-14" fill="none" stroke="#14664A" stroke-width="3"/></svg></div></header>
@@ -2968,7 +2977,7 @@ figcaption{font-size:9pt;color:var(--szary);padding:2mm 3mm;background:var(--z05
     <p class="o-pyt">Narrator nie wie, jak skończyła się historia róży. Czy da się z tym żyć?</p>
     <p class="o-odp"><span class="znak">✔</span>ZIELONE. Da się. Nie zawsze poznajemy zakończenie. Można wybrać, w co wierzymy, i można poprosić kogoś o rozmowę, gdy niepewność jest za trudna.</p>
   </div>
-  <footer class="r-foot"><span class="f-znak"><svg class="mark" viewBox="0 0 200 200" aria-hidden="true"><use href="#pctp-mark"/></svg><b>PCTP</b> · Mały Książę moim bohaterem</span><span>rozdział 27/27 · strona 2/3</span></footer>
+  <footer class="r-foot"><span class="f-znak"><svg class="mark" viewBox="0 0 200 200" aria-hidden="true"><use href="#pctp-mark"/></svg><b>PCTP</b> · Mały Książę moim bohaterem</span><span class="f-srodek">rozdział 27/27 · część 2 z 3</span><span class="f-nr">88</span></footer>
 </section>
 <section class="page rozdzial" id="r27c">
   <header class="r-head mini"><div class="r-nr"><span>ROZDZ.</span><b>27</b></div><div class="r-tyt"><h2>Sześć lat później — pytanie bez odpowiedzi</h2><p class="r-miejsce">część 3 z 3 · Myślenie i pytania</p></div><div class="r-ikona"><svg viewBox="0 0 64 64" width="52" height="52" aria-hidden="true"><circle cx="32" cy="32" r="30" fill="#1F8A63"/><rect x="14" y="22" width="36" height="24" rx="4" fill="#CFEBDD"/><path d="M14 24l18 14 18-14" fill="none" stroke="#14664A" stroke-width="3"/></svg></div></header>
@@ -2993,7 +3002,7 @@ figcaption{font-size:9pt;color:var(--szary);padding:2mm 3mm;background:var(--z05
     <h3>Miejsce na notatki i własne pytania</h3>
     <div class="linie"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
   </div>
-  <footer class="r-foot"><span class="f-znak"><svg class="mark" viewBox="0 0 200 200" aria-hidden="true"><use href="#pctp-mark"/></svg><b>PCTP</b> · Mały Książę moim bohaterem</span><span>rozdział 27/27 · strona 3/3</span></footer>
+  <footer class="r-foot"><span class="f-znak"><svg class="mark" viewBox="0 0 200 200" aria-hidden="true"><use href="#pctp-mark"/></svg><b>PCTP</b> · Mały Książę moim bohaterem</span><span class="f-srodek">rozdział 27/27 · część 3 z 3</span><span class="f-nr">89</span></footer>
 </section>
 <section class="page" id="cwiczenia">
   <h2 class="dzial-h"><span class="dzial-litera">D</span>Ćwiczenia końcowe</h2><p class="lead">Osiem zestawów do wykorzystania po przeczytaniu całości albo po większych partiach. Każdy ma podany cel, czas i konkretne dostosowanie. <b>Nie trzeba robić wszystkich — trzy zrobione dobrze znaczą więcej niż osiem po łebkach.</b></p>
@@ -3013,7 +3022,7 @@ figcaption{font-size:9pt;color:var(--szary);padding:2mm 3mm;background:var(--z05
       <p class="c-dost"><b>Dostosowanie:</b> Użyj dwóch kolorów papieru: zielony = przyczyna, złoty = skutek. Kolor od razu podpowiada, gdzie co położyć.</p>
     </div></div>
   
-<footer class="r-foot"><span class="f-znak"><svg class="mark" viewBox="0 0 200 200" aria-hidden="true"><use href="#pctp-mark"/></svg><b>PCTP</b> · Mały Książę moim bohaterem</span><span>Pomorskie Centrum Terapii Pedagogicznej</span></footer></section><section class="page" id="cwiczenia2">
+<footer class="r-foot"><span class="f-znak"><svg class="mark" viewBox="0 0 200 200" aria-hidden="true"><use href="#pctp-mark"/></svg><b>PCTP</b> · Mały Książę moim bohaterem</span><span class="f-srodek">Pomorskie Centrum Terapii Pedagogicznej</span><span class="f-nr">90</span></footer></section><section class="page" id="cwiczenia2">
   <h2 class="dzial-h"><span class="dzial-litera">D</span>Ćwiczenia końcowe <small class="cd">· ciąg dalszy (2 z 3)</small></h2>
   <div class="cwiczenia"><div class="cwicz">
       <div class="c-head"><span class="c-nr">3</span>
@@ -3031,7 +3040,7 @@ figcaption{font-size:9pt;color:var(--szary);padding:2mm 3mm;background:var(--z05
       <p class="c-dost"><b>Dostosowanie:</b> Przygotuj bank gotowych myśli do wycięcia i wklejenia. Pisanie od zera bywa barierą — wtedy ćwiczenie sprawdza pisanie, a nie rozumienie.</p>
     </div></div>
   
-<footer class="r-foot"><span class="f-znak"><svg class="mark" viewBox="0 0 200 200" aria-hidden="true"><use href="#pctp-mark"/></svg><b>PCTP</b> · Mały Książę moim bohaterem</span><span>Pomorskie Centrum Terapii Pedagogicznej</span></footer></section><section class="page" id="cwiczenia3">
+<footer class="r-foot"><span class="f-znak"><svg class="mark" viewBox="0 0 200 200" aria-hidden="true"><use href="#pctp-mark"/></svg><b>PCTP</b> · Mały Książę moim bohaterem</span><span class="f-srodek">Pomorskie Centrum Terapii Pedagogicznej</span><span class="f-nr">91</span></footer></section><section class="page" id="cwiczenia3">
   <h2 class="dzial-h"><span class="dzial-litera">D</span>Ćwiczenia końcowe <small class="cd">· ciąg dalszy (3 z 3)</small></h2>
   <div class="cwiczenia"><div class="cwicz">
       <div class="c-head"><span class="c-nr">5</span>
@@ -3049,7 +3058,7 @@ figcaption{font-size:9pt;color:var(--szary);padding:2mm 3mm;background:var(--z05
       <p class="c-dost"><b>Dostosowanie:</b> Zawsze zapisuj oba znaczenia — nigdy nie kasuj dosłownego. Dosłowne rozumienie nie jest błędem, tylko innym sposobem czytania. Chodzi o dodanie drugiej możliwości, nie o zastąpienie pierwszej.</p>
     </div></div>
   
-<footer class="r-foot"><span class="f-znak"><svg class="mark" viewBox="0 0 200 200" aria-hidden="true"><use href="#pctp-mark"/></svg><b>PCTP</b> · Mały Książę moim bohaterem</span><span>Pomorskie Centrum Terapii Pedagogicznej</span></footer></section><section class="page" id="cwiczenia4">
+<footer class="r-foot"><span class="f-znak"><svg class="mark" viewBox="0 0 200 200" aria-hidden="true"><use href="#pctp-mark"/></svg><b>PCTP</b> · Mały Książę moim bohaterem</span><span class="f-srodek">Pomorskie Centrum Terapii Pedagogicznej</span><span class="f-nr">92</span></footer></section><section class="page" id="cwiczenia4">
   <h2 class="dzial-h"><span class="dzial-litera">D</span>Ćwiczenia końcowe <small class="cd">· ciąg dalszy (4 z 3)</small></h2>
   <div class="cwiczenia"><div class="cwicz">
       <div class="c-head"><span class="c-nr">7</span>
@@ -3067,7 +3076,7 @@ figcaption{font-size:9pt;color:var(--szary);padding:2mm 3mm;background:var(--z05
       <p class="c-dost"><b>Dostosowanie:</b> Lista sposobów powinna być konkretna i wykonalna w szkole: „proszę o przerwę”, „idę do kącika wyciszenia”, „zakładam słuchawki”, „piję wodę”, „rysuję”.</p>
     </div></div>
   <div class="uwaga"><b>Jak sprawdzić, czy to działa?</b> Nie po tym, ile ćwiczeń uczeń wykonał, tylko po tym, czy zaczyna sam mówić zdania typu „on chyba tak pomyślał, bo…”, „ona się chyba bała, dlatego krzyknęła”. To jest właściwy wskaźnik postępu.</div>
-<footer class="r-foot"><span class="f-znak"><svg class="mark" viewBox="0 0 200 200" aria-hidden="true"><use href="#pctp-mark"/></svg><b>PCTP</b> · Mały Książę moim bohaterem</span><span>Pomorskie Centrum Terapii Pedagogicznej</span></footer></section>
+<footer class="r-foot"><span class="f-znak"><svg class="mark" viewBox="0 0 200 200" aria-hidden="true"><use href="#pctp-mark"/></svg><b>PCTP</b> · Mały Książę moim bohaterem</span><span class="f-srodek">Pomorskie Centrum Terapii Pedagogicznej</span><span class="f-nr">93</span></footer></section>
 
 <section class="page" id="gra">
   <h2 class="dzial-h"><span class="dzial-litera">E</span>Gra „Podróż Małego Księcia”</h2>
@@ -3088,12 +3097,12 @@ figcaption{font-size:9pt;color:var(--szary);padding:2mm 3mm;background:var(--z05
     <ol class="dwie-kolumny"><li>Gramy 2–5 osób. Można też grać zespołowo: cała klasa przeciwko planszy.</li><li>Każdy gracz wybiera pionek: baranek, róża, lis, wąż lub latarnia.</li><li>Rzucamy kostką i przesuwamy pionek o tyle pól.</li><li>Kolor pola mówi, z której talii bierzemy kartę zadania.</li><li>Zadanie wykonuje gracz. Jeśli chce — może poprosić o pomoc („koło ratunkowe”).</li><li>Za wykonane zadanie gracz dostaje jedną gwiazdkę. Za pomoc koledze — też gwiazdkę.</li><li>NIKT NIE WYPADA Z GRY. Nie ma cofania się o pola i nie ma czekania na kolejkę bez ruchu.</li><li>Gra kończy się, gdy pierwszy gracz dojdzie do mety — ale gramy dalej, aż wszyscy dojdą.</li><li>Na koniec liczymy gwiazdki całej grupy razem i zapisujemy wynik klasy na plakacie.</li></ol>
   </div>
 
-<footer class="r-foot"><span class="f-znak"><svg class="mark" viewBox="0 0 200 200" aria-hidden="true"><use href="#pctp-mark"/></svg><b>PCTP</b> · Mały Książę moim bohaterem</span><span>Pomorskie Centrum Terapii Pedagogicznej</span></footer></section>
+<footer class="r-foot"><span class="f-znak"><svg class="mark" viewBox="0 0 200 200" aria-hidden="true"><use href="#pctp-mark"/></svg><b>PCTP</b> · Mały Książę moim bohaterem</span><span class="f-srodek">Pomorskie Centrum Terapii Pedagogicznej</span><span class="f-nr">94</span></footer></section>
 <section class="page" id="gra2">
   <h2 class="dzial-h"><span class="dzial-litera">E</span>Karty zadań do gry</h2>
   <h3 class="pod-h">Talie 1 i 2 <small>— 8 kart w każdej, kolor talii = kolor pola na planszy</small></h3>
   <div class="talie"><div class="talia"><h4><span class="kropka" style="background:#6FC5A0"></span>EMOCJE</h4><ol><li>Pokaż miną lub wskaż na karcie: jak wygląda ZDZIWIENIE?</li><li>Nazwij emocję: Mały Książę patrzy na 5000 róż i płacze.</li><li>Ustaw na termometrze 1–5: złość narratora w rozdziale 24.</li><li>Podaj po czym poznasz, że ktoś się wstydzi. Wymień 2 sygnały.</li><li>Powiedz, co pomaga TOBIE, gdy jest Ci smutno.</li><li>Jaka emocja ukrywa się pod zdaniem róży: „Nie boję się tygrysów”?</li><li>Nazwij dwie emocje, które Latarnik czuje jednocześnie.</li><li>Pokaż na skali, jak bardzo cieszy się lis o godzinie 15:00.</li></ol></div><div class="talia"><h4><span class="kropka" style="background:#E3B23C"></span>WNIOSKI</h4><ol><li>Dokończ: „Ponieważ planeta kręci się coraz szybciej, więc … ”.</li><li>Dlaczego Mały Książę pieli baobaby codziennie? Podaj skutek zaniedbania.</li><li>Dokończ: „Ponieważ róża bała się zimna, więc … ”.</li><li>Co się stało, gdy astronom założył europejski garnitur? Dlaczego?</li><li>Ułóż łańcuch: pusta woda → strach narratora → … </li><li>Dlaczego kwiat o trzech płatkach podał złą liczbę ludzi?</li><li>Dokończ: „Ponieważ narrator zapomniał rzemyka, więc … ”.</li><li>Skąd narrator wiedział, że chłopcu było smutno w dniu 44 zachodów?</li></ol></div></div>
-<footer class="r-foot"><span class="f-znak"><svg class="mark" viewBox="0 0 200 200" aria-hidden="true"><use href="#pctp-mark"/></svg><b>PCTP</b> · Mały Książę moim bohaterem</span><span>Pomorskie Centrum Terapii Pedagogicznej</span></footer></section>
+<footer class="r-foot"><span class="f-znak"><svg class="mark" viewBox="0 0 200 200" aria-hidden="true"><use href="#pctp-mark"/></svg><b>PCTP</b> · Mały Książę moim bohaterem</span><span class="f-srodek">Pomorskie Centrum Terapii Pedagogicznej</span><span class="f-nr">95</span></footer></section>
 <section class="page" id="gra3">
   <h2 class="dzial-h"><span class="dzial-litera">E</span>Karty zadań <small class="cd">· talie 3 i 4</small></h2>
   <div class="talie"><div class="talia"><h4><span class="kropka" style="background:#1F8A63"></span>OCENA SYTUACJI</h4><ol><li>Kolega odrzuca Twój rysunek i mówi „brzydki”. Zielone, żółte czy czerwone?</li><li>Ktoś nie odpowiada na Twoje pytanie. Co robisz? Podaj 2 opcje.</li><li>Król każe ziewać na komendę. Oceń ten rozkaz i uzasadnij.</li><li>Narrator krzyczy ze strachu o życie. Oceń i wyjaśnij różnicę: wyjaśnić a usprawiedliwić.</li><li>Ktoś obiecuje pomoc, ale nie mówi jaką. Co robisz?</li><li>Bankier mówi „nie mam czasu” po raz trzeci. Oceń.</li><li>Mały Książę mówi Próżnemu miły komplement, w który nie wierzy. Oceń.</li><li>Róża przeprasza dopiero na pożegnanie. Oceń i powiedz, co byłoby lepsze.</li></ol></div><div class="talia"><h4><span class="kropka" style="background:#D96D8B"></span>CO ON MYŚLI?</h4><ol><li>Narrator naprawia silnik. O czym myśli? A o czym myśli Mały Książę?</li><li>Róża płacze pod kloszem. Czy Mały Książę o tym wie? Dlaczego nie?</li><li>Latarnik pracuje bez przerwy. Co myśli o nim chłopiec PRZED rozmową, a co PO?</li><li>Wąż mówi zagadkami. Co chce, żebyś pomyślał?</li><li>Geograf mówi „efemeryczny”. Czy wie, że sprawił przykrość?</li><li>Mały Książę prosi: „nie przychodź”. Dlaczego? Co myśli o uczuciach narratora?</li><li>Ktoś w klasie odwraca wzrok, gdy do niego mówisz. Podaj 3 możliwe powody.</li><li>Kolega nie odpisał na wiadomość. Podaj 3 wyjaśnienia — w tym takie, które nie dotyczą Ciebie.</li></ol></div></div>
@@ -3102,7 +3111,7 @@ figcaption{font-size:9pt;color:var(--szary);padding:2mm 3mm;background:var(--z05
   <div class="gra-uwaga"><b>Dlaczego w tej grze nikt nie przegrywa?</b> Rywalizacja i presja czasu obciążają uczniów
   ze spektrum autyzmu tak mocno, że przestają myśleć o zadaniu, a zaczynają myśleć o porażce. Wspólny wynik klasy
   zamienia grę we współpracę — a ćwiczone umiejętności są społeczne, więc współpraca jest tu również treścią, nie tylko formą.</div>
-<footer class="r-foot"><span class="f-znak"><svg class="mark" viewBox="0 0 200 200" aria-hidden="true"><use href="#pctp-mark"/></svg><b>PCTP</b> · Mały Książę moim bohaterem</span><span>Pomorskie Centrum Terapii Pedagogicznej</span></footer></section>
+<footer class="r-foot"><span class="f-znak"><svg class="mark" viewBox="0 0 200 200" aria-hidden="true"><use href="#pctp-mark"/></svg><b>PCTP</b> · Mały Książę moim bohaterem</span><span class="f-srodek">Pomorskie Centrum Terapii Pedagogicznej</span><span class="f-nr">96</span></footer></section>
 
 <section class="page" id="scenariusz">
   <h2 class="dzial-h"><span class="dzial-litera">F</span>Scenariusz przedstawienia</h2>
@@ -3134,7 +3143,7 @@ figcaption{font-size:9pt;color:var(--szary);padding:2mm 3mm;background:var(--z05
   <table class="tab-role szeroka"><tbody><tr><td><b>Narrator I i Narrator II</b></td><td>role mówiące, tekst czytany z kartki — dzielą się kwestiami, żeby nikt nie miał za dużo</td></tr><tr><td><b>Mały Książę</b></td><td>rola główna, krótkie zdania, dużo powtórzeń</td></tr><tr><td><b>Róża</b></td><td>5 kwestii, może stać w jednym miejscu przez całe przedstawienie</td></tr><tr><td><b>Lis</b></td><td>kluczowa scena, tekst podzielony na krótkie linijki</td></tr><tr><td><b>Król, Próżny, Bankier, Latarnik, Geograf</b></td><td>po 2–4 zdania każdy, sceny niezależne — można zagrać tylko część</td></tr><tr><td><b>Wąż</b></td><td>3 krótkie kwestie, może być rolą lalkarską (wąż na patyku)</td></tr><tr><td><b>Chór Gwiazd (4–8 osób)</b></td><td>rola bez tekstu indywidualnego: wspólne zdania chórem, trzymanie lampek</td></tr><tr><td><b>Ogród Róż (dowolna liczba)</b></td><td>rola bez tekstu: stanie w rzędzie z kwiatami, jedno wspólne zdanie</td></tr><tr><td><b>Zespół techniczny (2–4 osoby)</b></td><td>światło, dźwięk, podawanie rekwizytów — pełnoprawne role dla uczniów, którzy nie chcą występować</td></tr></tbody></table>
   <p class="mini">Klasa mniejsza — jedna osoba gra dwie planety dorosłych.
   Klasa większa — Chór Gwiazd i Ogród Róż przyjmą dowolną liczbę osób.</p>
-<footer class="r-foot"><span class="f-znak"><svg class="mark" viewBox="0 0 200 200" aria-hidden="true"><use href="#pctp-mark"/></svg><b>PCTP</b> · Mały Książę moim bohaterem</span><span>Pomorskie Centrum Terapii Pedagogicznej</span></footer></section>
+<footer class="r-foot"><span class="f-znak"><svg class="mark" viewBox="0 0 200 200" aria-hidden="true"><use href="#pctp-mark"/></svg><b>PCTP</b> · Mały Książę moim bohaterem</span><span class="f-srodek">Pomorskie Centrum Terapii Pedagogicznej</span><span class="f-nr">97</span></footer></section>
 
 <section class="page" id="scenariusz2">
   <h2 class="dzial-h"><span class="dzial-litera">F</span>Zasady dostosowania i plan prób</h2>
@@ -3146,7 +3155,7 @@ figcaption{font-size:9pt;color:var(--szary);padding:2mm 3mm;background:var(--z05
   jak role sceniczne — to nie jest gest kurtuazji, tylko warunek, żeby nikt nie został poza projektem.</div>
   <p class="mini">Powieś plan wizualny 8 scen w miejscu prób i za kulisami. Uczniowie mają wtedy stale przed oczami
   informację, ile jeszcze zostało — to jedno z najskuteczniejszych dostosowań w całym projekcie.</p>
-<footer class="r-foot"><span class="f-znak"><svg class="mark" viewBox="0 0 200 200" aria-hidden="true"><use href="#pctp-mark"/></svg><b>PCTP</b> · Mały Książę moim bohaterem</span><span>Pomorskie Centrum Terapii Pedagogicznej</span></footer></section>
+<footer class="r-foot"><span class="f-znak"><svg class="mark" viewBox="0 0 200 200" aria-hidden="true"><use href="#pctp-mark"/></svg><b>PCTP</b> · Mały Książę moim bohaterem</span><span class="f-srodek">Pomorskie Centrum Terapii Pedagogicznej</span><span class="f-nr">98</span></footer></section>
 
 <section class="page" id="scenariusz3">
   <h2 class="dzial-h"><span class="dzial-litera">F</span>Program, rekwizyty i plan prób</h2>
@@ -3162,7 +3171,7 @@ figcaption{font-size:9pt;color:var(--szary);padding:2mm 3mm;background:var(--z05
       <table class="tab-prob"><tbody><tr><td><b>Próba 1</b></td><td>Czytanie całości przy stole. Nikt nie wstaje. Każdy dostaje swoją kartę-podpowiedź.</td></tr><tr><td><b>Próba 2</b></td><td>Ustawienie miejsc na scenie. Oznaczamy taśmą zielone kropki. Bez tekstu — tylko chodzenie.</td></tr><tr><td><b>Próba 3</b></td><td>Sceny 1–3 z tekstem i ruchem.</td></tr><tr><td><b>Próba 4</b></td><td>Sceny 4–5. Planety dorosłych i ogród róż.</td></tr><tr><td><b>Próba 5</b></td><td>Scena 6 — lis. Poświęcamy jej całą próbę.</td></tr><tr><td><b>Próba 6</b></td><td>Sceny 7–8 z rekwizytami i światłem.</td></tr><tr><td><b>Próba 7</b></td><td>Całość bez przerywania. Zespół techniczny ćwiczy zmiany.</td></tr><tr><td><b>Próba 8</b></td><td>Próba generalna w kostiumach, w pełnym świetle, z planem wizualnym na ścianie.</td></tr></tbody></table>
     </div>
   </div>
-<footer class="r-foot"><span class="f-znak"><svg class="mark" viewBox="0 0 200 200" aria-hidden="true"><use href="#pctp-mark"/></svg><b>PCTP</b> · Mały Książę moim bohaterem</span><span>Pomorskie Centrum Terapii Pedagogicznej</span></footer></section>
+<footer class="r-foot"><span class="f-znak"><svg class="mark" viewBox="0 0 200 200" aria-hidden="true"><use href="#pctp-mark"/></svg><b>PCTP</b> · Mały Książę moim bohaterem</span><span class="f-srodek">Pomorskie Centrum Terapii Pedagogicznej</span><span class="f-nr">99</span></footer></section>
 <section class="page" id="scenariusz-t1">
   <h2 class="dzial-h"><span class="dzial-litera">F</span>Tekst przedstawienia <small class="cd">· sceny 1 i 2 z 8</small></h2>
   <div class="sceny"><div class="scena">
@@ -3177,7 +3186,7 @@ figcaption{font-size:9pt;color:var(--szary);padding:2mm 3mm;background:var(--z05
       <p class="s-wsk"><b>Wskazówka reżyserska:</b> Powtórzenie „narysuj mi baranka” jest celowe — daje aktorowi drugą szansę na tę samą kwestię. Skrzynkę podaje zespół techniczny.</p>
     </div></div>
   
-<footer class="r-foot"><span class="f-znak"><svg class="mark" viewBox="0 0 200 200" aria-hidden="true"><use href="#pctp-mark"/></svg><b>PCTP</b> · Mały Książę moim bohaterem</span><span>Pomorskie Centrum Terapii Pedagogicznej</span></footer></section>
+<footer class="r-foot"><span class="f-znak"><svg class="mark" viewBox="0 0 200 200" aria-hidden="true"><use href="#pctp-mark"/></svg><b>PCTP</b> · Mały Książę moim bohaterem</span><span class="f-srodek">Pomorskie Centrum Terapii Pedagogicznej</span><span class="f-nr">100</span></footer></section>
 <section class="page" id="scenariusz-t2">
   <h2 class="dzial-h"><span class="dzial-litera">F</span>Tekst przedstawienia <small class="cd">· scena 3 z 8</small></h2>
   <div class="sceny"><div class="scena">
@@ -3187,7 +3196,7 @@ figcaption{font-size:9pt;color:var(--szary);padding:2mm 3mm;background:var(--z05
       <p class="s-wsk"><b>Wskazówka reżyserska:</b> Róża stoi w jednym miejscu przez całą scenę — nie musi się poruszać. Narrator II tłumaczy publiczności ukryte uczucie; to samo robimy w broszurze.</p>
     </div></div>
   
-<footer class="r-foot"><span class="f-znak"><svg class="mark" viewBox="0 0 200 200" aria-hidden="true"><use href="#pctp-mark"/></svg><b>PCTP</b> · Mały Książę moim bohaterem</span><span>Pomorskie Centrum Terapii Pedagogicznej</span></footer></section>
+<footer class="r-foot"><span class="f-znak"><svg class="mark" viewBox="0 0 200 200" aria-hidden="true"><use href="#pctp-mark"/></svg><b>PCTP</b> · Mały Książę moim bohaterem</span><span class="f-srodek">Pomorskie Centrum Terapii Pedagogicznej</span><span class="f-nr">101</span></footer></section>
 <section class="page" id="scenariusz-t3">
   <h2 class="dzial-h"><span class="dzial-litera">F</span>Tekst przedstawienia <small class="cd">· scena 4 z 8</small></h2>
   <div class="sceny"><div class="scena">
@@ -3197,7 +3206,7 @@ figcaption{font-size:9pt;color:var(--szary);padding:2mm 3mm;background:var(--z05
       <p class="s-wsk"><b>Wskazówka reżyserska:</b> Każdy dorosły ma tylko 2–4 zdania i siedzi na swoim krześle. Jeśli klasa jest mała, można zagrać trzy planety zamiast pięciu — scena nadal działa.</p>
     </div></div>
   
-<footer class="r-foot"><span class="f-znak"><svg class="mark" viewBox="0 0 200 200" aria-hidden="true"><use href="#pctp-mark"/></svg><b>PCTP</b> · Mały Książę moim bohaterem</span><span>Pomorskie Centrum Terapii Pedagogicznej</span></footer></section>
+<footer class="r-foot"><span class="f-znak"><svg class="mark" viewBox="0 0 200 200" aria-hidden="true"><use href="#pctp-mark"/></svg><b>PCTP</b> · Mały Książę moim bohaterem</span><span class="f-srodek">Pomorskie Centrum Terapii Pedagogicznej</span><span class="f-nr">102</span></footer></section>
 <section class="page" id="scenariusz-t4">
   <h2 class="dzial-h"><span class="dzial-litera">F</span>Tekst przedstawienia <small class="cd">· scena 5 z 8</small></h2>
   <div class="sceny"><div class="scena">
@@ -3207,7 +3216,7 @@ figcaption{font-size:9pt;color:var(--szary);padding:2mm 3mm;background:var(--z05
       <p class="s-wsk"><b>Wskazówka reżyserska:</b> Rola dla dowolnej liczby uczniów, jedno wspólne zdanie powtórzone dwa razy. Nikt nie mówi sam. Idealna pierwsza rola sceniczna.</p>
     </div></div>
   
-<footer class="r-foot"><span class="f-znak"><svg class="mark" viewBox="0 0 200 200" aria-hidden="true"><use href="#pctp-mark"/></svg><b>PCTP</b> · Mały Książę moim bohaterem</span><span>Pomorskie Centrum Terapii Pedagogicznej</span></footer></section>
+<footer class="r-foot"><span class="f-znak"><svg class="mark" viewBox="0 0 200 200" aria-hidden="true"><use href="#pctp-mark"/></svg><b>PCTP</b> · Mały Książę moim bohaterem</span><span class="f-srodek">Pomorskie Centrum Terapii Pedagogicznej</span><span class="f-nr">103</span></footer></section>
 <section class="page" id="scenariusz-t5">
   <h2 class="dzial-h"><span class="dzial-litera">F</span>Tekst przedstawienia <small class="cd">· scena 6 z 8</small></h2>
   <div class="sceny"><div class="scena">
@@ -3217,7 +3226,7 @@ figcaption{font-size:9pt;color:var(--szary);padding:2mm 3mm;background:var(--z05
       <p class="s-wsk"><b>Wskazówka reżyserska:</b> Najważniejsza scena. Tekst lisa celowo pocięty na jednozdaniowe kwestie. Tempo bardzo wolne — po każdym zdaniu lisa zostaw dwie sekundy ciszy.</p>
     </div></div>
   
-<footer class="r-foot"><span class="f-znak"><svg class="mark" viewBox="0 0 200 200" aria-hidden="true"><use href="#pctp-mark"/></svg><b>PCTP</b> · Mały Książę moim bohaterem</span><span>Pomorskie Centrum Terapii Pedagogicznej</span></footer></section>
+<footer class="r-foot"><span class="f-znak"><svg class="mark" viewBox="0 0 200 200" aria-hidden="true"><use href="#pctp-mark"/></svg><b>PCTP</b> · Mały Książę moim bohaterem</span><span class="f-srodek">Pomorskie Centrum Terapii Pedagogicznej</span><span class="f-nr">104</span></footer></section>
 <section class="page" id="scenariusz-t6">
   <h2 class="dzial-h"><span class="dzial-litera">F</span>Tekst przedstawienia <small class="cd">· scena 7 z 8</small></h2>
   <div class="sceny"><div class="scena">
@@ -3227,7 +3236,7 @@ figcaption{font-size:9pt;color:var(--szary);padding:2mm 3mm;background:var(--z05
       <p class="s-wsk"><b>Wskazówka reżyserska:</b> Scena wspólnego działania — obaj ciągną sznurek razem. Fizyczne działanie ułatwia grę uczniom, którym trudno „grać uczucia”.</p>
     </div></div>
   
-<footer class="r-foot"><span class="f-znak"><svg class="mark" viewBox="0 0 200 200" aria-hidden="true"><use href="#pctp-mark"/></svg><b>PCTP</b> · Mały Książę moim bohaterem</span><span>Pomorskie Centrum Terapii Pedagogicznej</span></footer></section>
+<footer class="r-foot"><span class="f-znak"><svg class="mark" viewBox="0 0 200 200" aria-hidden="true"><use href="#pctp-mark"/></svg><b>PCTP</b> · Mały Książę moim bohaterem</span><span class="f-srodek">Pomorskie Centrum Terapii Pedagogicznej</span><span class="f-nr">105</span></footer></section>
 <section class="page" id="scenariusz-t7">
   <h2 class="dzial-h"><span class="dzial-litera">F</span>Tekst przedstawienia <small class="cd">· scena 8 z 8</small></h2>
   <div class="sceny"><div class="scena">
@@ -3239,7 +3248,7 @@ figcaption{font-size:9pt;color:var(--szary);padding:2mm 3mm;background:var(--z05
   <div class="uwaga"><b>Finał bez niespodzianek.</b> Po ostatnim zdaniu cały zespół —
         łącznie z ekipą techniczną — ustawia się w rzędzie i kłania jednocześnie. Ustalcie to na próbie 7 i nie zmieniajcie.
         Wiedza o tym, co dokładnie stanie się na końcu, jest dla wielu uczniów warunkiem tego, żeby w ogóle wejść na scenę.</div>
-<footer class="r-foot"><span class="f-znak"><svg class="mark" viewBox="0 0 200 200" aria-hidden="true"><use href="#pctp-mark"/></svg><b>PCTP</b> · Mały Książę moim bohaterem</span><span>Pomorskie Centrum Terapii Pedagogicznej</span></footer></section>
+<footer class="r-foot"><span class="f-znak"><svg class="mark" viewBox="0 0 200 200" aria-hidden="true"><use href="#pctp-mark"/></svg><b>PCTP</b> · Mały Książę moim bohaterem</span><span class="f-srodek">Pomorskie Centrum Terapii Pedagogicznej</span><span class="f-nr">106</span></footer></section>
 
 <section class="page konc" id="koniec">
   <figure class="ilu mini"><div class="ilu-box" style="padding-bottom:80.000%"><svg viewBox="0 0 200 160" role="img" aria-label="Gwiazdy, ktore sie smieja jak piecset milionow dzwoneczkow">
@@ -3297,6 +3306,6 @@ figcaption{font-size:9pt;color:var(--szary);padding:2mm 3mm;background:var(--z05
       <p class="m-mail"><span>kontakt</span> kontakt@eduplaner2026</p>
     </div>
   </div>
-<footer class="r-foot"><span class="f-znak"><svg class="mark" viewBox="0 0 200 200" aria-hidden="true"><use href="#pctp-mark"/></svg><b>PCTP</b> · Mały Książę moim bohaterem</span><span>Pomorskie Centrum Terapii Pedagogicznej</span></footer></section>
+<footer class="r-foot"><span class="f-znak"><svg class="mark" viewBox="0 0 200 200" aria-hidden="true"><use href="#pctp-mark"/></svg><b>PCTP</b> · Mały Książę moim bohaterem</span><span class="f-srodek">Pomorskie Centrum Terapii Pedagogicznej</span><span class="f-nr">107</span></footer></section>
 </body>
 </html>
