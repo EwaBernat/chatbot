@@ -1,0 +1,1941 @@
+<title>Spotkanie z Arystotelesem</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Alegreya+Sans:wght@500;700;800&family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400;1,700&display=swap">
+<style>
+/* ============================================================
+   SPOTKANIE Z ARYSTOTELESEM — seria "Mała Filozofia"
+   Broszura dla młodzieży w spektrum autyzmu
+   Paleta: kamień, morze egejskie, oliwka, szafran
+   ============================================================ */
+:root{
+  --papier:      #EFEBE2;   /* wapienny kamień, ciepły ale nie kremowy */
+  --papier-2:    #E4DFD3;   /* cień na kamieniu */
+  --karta:       #F8F6F0;   /* jasna karta na papierze */
+  --atrament:    #1F2E33;   /* granatowo-zielona czerń, nie #000 */
+  --atrament-2:  #4A5C60;   /* tekst drugoplanowy */
+  --morze:       #1E5A6B;   /* egejski błękit — kolor wiodący */
+  --morze-jasne: #D7E4E6;
+  --szafran:     #C8901E;   /* akcent — szafran, nie terakota */
+  --szafran-tlo: #F5E6C4;
+  --oliwka:      #63804F;   /* zieleń oliwna — sekcja "emocje" */
+  --oliwka-tlo:  #E2E8D9;
+  --glina:       #B0603F;   /* glina — tylko dla pytań */
+  --glina-tlo:   #F2DFD6;
+  --linia:       #CFC8B8;
+
+  --display: "Alegreya Sans", "Trebuchet MS", sans-serif;
+  --tekst: "Atkinson Hyperlegible", "Verdana", "Segoe UI", sans-serif;
+
+  --krok: clamp(1rem, 0.6rem + 1.2vw, 1.6rem);
+  --miara: 62ch;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --papier:      #16211F;
+    --papier-2:    #1D2A28;
+    --karta:       #1E2B2A;
+    --atrament:    #ECE7DB;
+    --atrament-2:  #AFBBB8;
+    --morze:       #7EC3D4;
+    --morze-jasne: #23393F;
+    --szafran:     #E8B84B;
+    --szafran-tlo: #3A3121;
+    --oliwka:      #A6C489;
+    --oliwka-tlo:  #26301F;
+    --glina:       #E19673;
+    --glina-tlo:   #35231C;
+    --linia:       #3A4744;
+  }
+}
+:root[data-theme="dark"]{
+  --papier:#16211F; --papier-2:#1D2A28; --karta:#1E2B2A;
+  --atrament:#ECE7DB; --atrament-2:#AFBBB8;
+  --morze:#7EC3D4; --morze-jasne:#23393F;
+  --szafran:#E8B84B; --szafran-tlo:#3A3121;
+  --oliwka:#A6C489; --oliwka-tlo:#26301F;
+  --glina:#E19673; --glina-tlo:#35231C;
+  --linia:#3A4744;
+}
+
+*{box-sizing:border-box;}
+body{
+  margin:0;
+  background:var(--papier);
+  color:var(--atrament);
+  font-family:var(--tekst);
+  font-size:19px;
+  line-height:1.85;
+  letter-spacing:0.005em;
+  -webkit-font-smoothing:antialiased;
+}
+.arkusz{
+  max-width:53rem;
+  margin:0 auto;
+  padding:var(--krok);
+  display:flex;
+  flex-direction:column;
+  gap:calc(var(--krok) * 2);
+}
+p{margin:0;}
+.t{max-width:var(--miara);}
+.blok{display:flex; flex-direction:column; gap:0.9rem;}
+
+/* ---------- typografia ---------- */
+h1,h2,h3,h4{font-family:var(--display); text-wrap:balance; margin:0; line-height:1.15;}
+h1{font-size:clamp(2.6rem,1.6rem+4.4vw,4.6rem); font-weight:800; letter-spacing:-0.02em;}
+h2{font-size:clamp(1.7rem,1.2rem+1.9vw,2.5rem); font-weight:800; letter-spacing:-0.01em;}
+h3{font-size:clamp(1.25rem,1.05rem+0.8vw,1.6rem); font-weight:700;}
+h4{font-size:1.05rem; font-weight:700;}
+.etykieta{
+  font-family:var(--display); font-weight:700;
+  font-size:0.78rem; letter-spacing:0.18em; text-transform:uppercase;
+  color:var(--atrament-2);
+}
+
+/* ---------- okładka ---------- */
+.okladka{
+  position:relative; overflow:hidden;
+  background:var(--karta);
+  border:2px solid var(--linia);
+  border-radius:2px;
+  padding:clamp(1.4rem,1rem+2vw,3rem);
+  display:grid; gap:1.6rem;
+}
+.okladka .seria{
+  display:inline-flex; align-items:center; gap:0.6rem;
+  font-family:var(--display); font-weight:700;
+  font-size:0.8rem; letter-spacing:0.22em; text-transform:uppercase;
+  color:var(--morze);
+}
+.okladka .seria::before{content:""; width:2.2rem; height:2px; background:var(--szafran);}
+.okladka .podtytul{font-size:1.25rem; line-height:1.5; color:var(--atrament-2); max-width:36ch;}
+.okladka .zajawka{
+  font-family:var(--display); font-weight:700; font-size:1.15rem;
+  color:var(--morze); max-width:40ch; line-height:1.45;
+}
+.okladka-dol{
+  display:flex; flex-wrap:wrap; gap:0.6rem 1.4rem; align-items:center;
+  border-top:2px solid var(--linia); padding-top:1rem;
+  font-size:0.92rem; color:var(--atrament-2);
+}
+.plakietka{
+  background:var(--szafran-tlo); color:var(--atrament);
+  border:1px solid var(--szafran);
+  padding:0.28rem 0.7rem; border-radius:999px;
+  font-family:var(--display); font-weight:700; font-size:0.82rem;
+}
+
+/* ---------- karty / sekcje ---------- */
+.karta{
+  background:var(--karta);
+  border:1px solid var(--linia);
+  border-radius:2px;
+  padding:clamp(1.1rem,0.8rem+1.4vw,2rem);
+  display:flex; flex-direction:column; gap:1.1rem;
+}
+.rozdzial{
+  background:var(--karta);
+  border:1px solid var(--linia);
+  border-left:10px solid var(--morze);
+  border-radius:2px;
+  padding:clamp(1.1rem,0.8rem+1.4vw,2.2rem);
+  display:flex; flex-direction:column; gap:1.5rem;
+}
+.naglowek-rozdzialu{display:flex; gap:1.1rem; align-items:flex-start;}
+.numer{
+  flex:0 0 auto;
+  width:3.4rem; height:3.4rem; border-radius:50%;
+  background:var(--morze); color:var(--karta);
+  display:grid; place-items:center;
+  font-family:var(--display); font-weight:800; font-size:1.5rem;
+}
+:root[data-theme="dark"] .numer,
+:root:not([data-theme="light"]) .numer{color:#12201F;}
+@media (prefers-color-scheme: light){:root:not([data-theme="dark"]) .numer{color:var(--karta);}}
+.krok-tytul{display:flex; align-items:center; gap:0.6rem; color:var(--morze);}
+.krok-tytul .kolko{
+  width:1.6rem; height:1.6rem; flex:0 0 auto; border-radius:50%;
+  border:2px solid currentColor; display:grid; place-items:center;
+  font-family:var(--display); font-weight:700; font-size:0.85rem;
+}
+
+/* ---------- cytat ---------- */
+.cytat{
+  background:var(--morze-jasne);
+  border:none; border-top:3px solid var(--morze); border-bottom:3px solid var(--morze);
+  padding:1.2rem 1.3rem; margin:0;
+  display:flex; flex-direction:column; gap:0.6rem;
+}
+.cytat q{
+  font-family:var(--display); font-weight:700;
+  font-size:clamp(1.15rem,1rem+0.7vw,1.5rem); line-height:1.4;
+  quotes:"„" "”";
+}
+.cytat cite{font-style:normal; font-size:0.88rem; color:var(--atrament-2);}
+
+/* ---------- emocja ---------- */
+.emocja{
+  background:var(--oliwka-tlo);
+  border:2px dashed var(--oliwka);
+  border-radius:2px; padding:1.1rem 1.2rem;
+  display:flex; flex-direction:column; gap:0.8rem;
+}
+.emocja .krok-tytul{color:var(--oliwka);}
+.emocja-nazwa{
+  display:inline-block; align-self:flex-start;
+  background:var(--oliwka); color:var(--karta);
+  font-family:var(--display); font-weight:800; font-size:1.1rem;
+  padding:0.3rem 0.9rem; border-radius:999px;
+}
+:root[data-theme="dark"] .emocja-nazwa{color:#16211F;}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]) .emocja-nazwa{color:#16211F;}}
+
+/* ---------- w twoim życiu ---------- */
+.zycie{
+  background:var(--szafran-tlo);
+  border-left:6px solid var(--szafran);
+  padding:1.1rem 1.2rem;
+  display:flex; flex-direction:column; gap:0.8rem;
+}
+.zycie .krok-tytul{color:var(--szafran);}
+:root:not([data-theme="dark"]) .zycie .krok-tytul{color:#8A6210;}
+
+/* ---------- pytania ---------- */
+.pytania-blok{
+  background:var(--glina-tlo);
+  border:1px solid var(--glina);
+  border-radius:2px; padding:1.1rem 1.2rem;
+  display:flex; flex-direction:column; gap:0.8rem;
+}
+.pytania-blok .krok-tytul{color:var(--glina);}
+:root:not([data-theme="dark"]) .pytania-blok .krok-tytul{color:#8E4527;}
+ol.pytania{margin:0; padding:0; list-style:none; display:flex; flex-direction:column; gap:0.7rem; counter-reset:none;}
+ol.pytania li{
+  display:flex; gap:0.7rem; align-items:baseline;
+  border-bottom:1px dotted var(--glina); padding-bottom:0.6rem;
+}
+ol.pytania li:last-child{border-bottom:none; padding-bottom:0;}
+ol.pytania .nr{
+  flex:0 0 2.1rem; text-align:right;
+  font-family:var(--display); font-weight:800; color:var(--glina);
+  font-variant-numeric:tabular-nums; font-size:0.95rem;
+}
+:root:not([data-theme="dark"]) ol.pytania .nr{color:#8E4527;}
+
+/* ---------- listy ---------- */
+ul.lista{margin:0; padding:0; list-style:none; display:flex; flex-direction:column; gap:0.6rem;}
+ul.lista li{display:flex; gap:0.7rem; align-items:flex-start;}
+ul.lista li::before{
+  content:""; flex:0 0 auto; margin-top:0.62em;
+  width:0.6rem; height:0.6rem; background:var(--szafran);
+  transform:rotate(45deg);
+}
+
+/* ---------- grafiki ---------- */
+figure{margin:0; display:flex; flex-direction:column; gap:0.6rem;}
+figure svg{width:100%; height:auto; display:block;}
+figcaption{font-size:0.88rem; color:var(--atrament-2); max-width:60ch;}
+.rama{background:var(--karta); border:1px solid var(--linia); padding:0.9rem; border-radius:2px;}
+.przewijalne{overflow-x:auto;}
+
+/* ---------- siatki ---------- */
+.siatka-2{display:grid; grid-template-columns:repeat(auto-fit,minmax(15rem,1fr)); gap:1rem;}
+.siatka-3{display:grid; grid-template-columns:repeat(auto-fit,minmax(12rem,1fr)); gap:1rem;}
+.mini{
+  background:var(--papier-2); border:1px solid var(--linia);
+  padding:0.9rem 1rem; border-radius:2px;
+  display:flex; flex-direction:column; gap:0.4rem;
+}
+.mini strong{font-family:var(--display); font-size:1.05rem;}
+.mini span{font-size:0.92rem; color:var(--atrament-2); line-height:1.6;}
+
+table{border-collapse:collapse; width:100%; font-size:0.95rem;}
+th,td{text-align:left; padding:0.6rem 0.7rem; border-bottom:1px solid var(--linia); vertical-align:top;}
+th{font-family:var(--display); font-weight:700; color:var(--morze); font-size:0.85rem; letter-spacing:0.08em; text-transform:uppercase;}
+
+hr.oddech{border:none; border-top:2px solid var(--linia); margin:0;}
+.stopka{font-size:0.9rem; color:var(--atrament-2); display:flex; flex-direction:column; gap:0.5rem;}
+a{color:var(--morze);}
+a:focus-visible, :focus-visible{outline:3px solid var(--szafran); outline-offset:3px;}
+@media (prefers-reduced-motion: reduce){*{animation:none !important; transition:none !important;}}
+
+/* ---------- DRUK: A4, duże litery ---------- */
+@media print{
+  @page{size:A4; margin:14mm 15mm 16mm 15mm;}
+  body{background:#FFF; color:#1F2E33; font-size:12.8pt; line-height:1.65;}
+  .arkusz{max-width:none; padding:0; gap:8mm;}
+  .rozdzial, .karta, .okladka{break-inside:auto; page-break-inside:auto; box-shadow:none;}
+  .rozdzial{page-break-before:always;}
+  .okladka{min-height:250mm; align-content:center;}
+  .pytania-blok, .emocja, .zycie, .cytat, figure{break-inside:avoid; page-break-inside:avoid;}
+  h2,h3{break-after:avoid;}
+  .blok{gap:0.28rem;}
+  .emocja,.zycie,.pytania-blok{gap:0.5rem;}
+  ol.pytania{gap:0.45rem;}
+  .bez-druku{display:none;}
+}
+</style>
+
+<div class="arkusz">
+
+<!-- ================= PANEL 1 — OKŁADKA ================= -->
+<header class="okladka">
+  <span class="seria">Seria · Mała Filozofia · Tom 1</span>
+
+  <figure>
+    <svg viewBox="0 0 800 470" role="img" aria-label="Portret Arystotelesa w medalionie, kolumny greckie, morze i pięć twarzy emocji">
+      <rect x="0" y="0" width="800" height="470" fill="var(--papier-2)"/>
+      <circle cx="672" cy="96" r="62" fill="var(--szafran-tlo)" stroke="var(--szafran)" stroke-width="3"/>
+      <g stroke="var(--linia)" stroke-width="3" fill="var(--papier)">
+        <rect x="56" y="150" width="26" height="150"/><rect x="48" y="140" width="42" height="12"/><rect x="48" y="300" width="42" height="12"/>
+        <rect x="104" y="150" width="26" height="150"/><rect x="96" y="140" width="42" height="12"/><rect x="96" y="300" width="42" height="12"/>
+        <rect x="152" y="150" width="26" height="150"/><rect x="144" y="140" width="42" height="12"/><rect x="144" y="300" width="42" height="12"/>
+      </g>
+      <g stroke="var(--morze)" stroke-width="4" fill="none" opacity="0.55" stroke-linecap="round">
+        <path d="M20 336 q30 -14 60 0 t60 0 t60 0 t60 0"/>
+        <path d="M560 336 q30 -14 60 0 t60 0 t60 0"/>
+        <path d="M20 366 q30 -14 60 0 t60 0 t60 0"/>
+        <path d="M600 366 q30 -14 60 0 t60 0"/>
+      </g>
+      <circle cx="400" cy="212" r="152" fill="var(--karta)" stroke="var(--morze)" stroke-width="7"/>
+      <circle cx="400" cy="212" r="136" fill="none" stroke="var(--szafran)" stroke-width="2"/>
+      <circle cx="400" cy="192" r="68" fill="var(--karta)" stroke="var(--morze)" stroke-width="4"/>
+      <g fill="var(--karta)" stroke="var(--morze)" stroke-width="4"><circle cx="333" cy="198" r="11"/><circle cx="467" cy="198" r="11"/></g>
+      <path d="M346 216 c-12 68 16 110 54 112 c38 -2 66 -44 54 -112 c-12 28 -26 40 -42 44 h-24 c-16 -4 -30 -16 -42 -44 z" fill="var(--papier-2)" stroke="var(--morze)" stroke-width="4"/>
+      <path d="M333 188 q6 -78 67 -78 q61 0 67 78 q-15 -20 -33 -14 q-14 -20 -32 -12 q-20 -8 -35 10 q-19 -6 -34 16 z" fill="var(--linia)" stroke="var(--morze)" stroke-width="3"/>
+      <g fill="var(--atrament)"><circle cx="378" cy="190" r="7"/><circle cx="422" cy="190" r="7"/></g>
+      <g stroke="var(--atrament)" stroke-width="4" fill="none" stroke-linecap="round">
+        <path d="M366 172 q12 -8 24 -2"/><path d="M434 172 q-12 -8 -24 -2"/>
+        <path d="M400 200 q-7 16 5 20"/>
+        <path d="M386 236 q14 8 28 0"/>
+      </g>
+      <path d="M370 228 q30 -16 60 0" stroke="var(--morze)" stroke-width="5" fill="none" stroke-linecap="round"/>
+      <g fill="var(--oliwka)" opacity="0.9">
+        <ellipse cx="286" cy="150" rx="19" ry="9" transform="rotate(-38 286 150)"/>
+        <ellipse cx="304" cy="118" rx="19" ry="9" transform="rotate(-20 304 118)"/>
+        <ellipse cx="336" cy="94"  rx="19" ry="9" transform="rotate(-8 336 94)"/>
+        <ellipse cx="514" cy="150" rx="19" ry="9" transform="rotate(38 514 150)"/>
+        <ellipse cx="496" cy="118" rx="19" ry="9" transform="rotate(20 496 118)"/>
+        <ellipse cx="464" cy="94"  rx="19" ry="9" transform="rotate(8 464 94)"/>
+      </g>
+      <g stroke="var(--oliwka)" stroke-width="3" fill="none"><path d="M282 162 q34 -74 118 -84 q84 10 118 84"/></g>
+      <g stroke-width="3">
+        <circle cx="212" cy="418" r="30" fill="var(--szafran-tlo)" stroke="var(--szafran)"/>
+        <circle cx="306" cy="418" r="30" fill="var(--glina-tlo)" stroke="var(--glina)"/>
+        <circle cx="400" cy="418" r="30" fill="var(--morze-jasne)" stroke="var(--morze)"/>
+        <circle cx="494" cy="418" r="30" fill="var(--oliwka-tlo)" stroke="var(--oliwka)"/>
+        <circle cx="588" cy="418" r="30" fill="var(--papier)" stroke="var(--linia)"/>
+      </g>
+      <g fill="var(--atrament)">
+        <circle cx="203" cy="411" r="4"/><circle cx="221" cy="411" r="4"/>
+        <circle cx="297" cy="411" r="4"/><circle cx="315" cy="411" r="4"/>
+        <circle cx="391" cy="411" r="4"/><circle cx="409" cy="411" r="4"/>
+        <circle cx="485" cy="411" r="4"/><circle cx="503" cy="411" r="4"/>
+        <circle cx="579" cy="411" r="4"/><circle cx="597" cy="411" r="4"/>
+      </g>
+      <g stroke="var(--atrament)" stroke-width="3.5" fill="none" stroke-linecap="round">
+        <path d="M201 426 q11 11 22 0"/>
+        <path d="M295 430 q11 -11 22 0"/>
+        <path d="M389 428 h22"/>
+        <path d="M483 426 q11 9 22 0"/>
+        <path d="M577 429 q11 -6 22 0"/>
+      </g>
+    </svg>
+  </figure>
+
+  <div class="blok">
+    <h1>Spotkanie<br>z Arystotelesem</h1>
+    <p class="podtytul">Opowiadanie o filozofie, który uczył ludzi nazywać to, co czują.</p>
+    <p class="zajawka">Dwanaście spotkań. Dwanaście emocji. Sześćdziesiąt pytań, na które odpowiadasz po swojemu.</p>
+  </div>
+
+  <div class="okladka-dol">
+    <span class="plakietka">Dla młodzieży w spektrum autyzmu</span>
+    <span class="plakietka">Prosty język</span>
+    <span class="plakietka">Duże litery</span>
+    <span class="plakietka">12 spotkań · 60 pytań</span>
+  </div>
+</header>
+
+<!-- ================= PANEL 2 — WPROWADZENIE ================= -->
+<section class="karta">
+  <span class="etykieta">Zanim zaczniesz</span>
+  <h2>Ta książeczka czyta się powoli</h2>
+  <p class="t">Ta broszura jest opowiadaniem.</p>
+  <p class="t">Poznasz w niej człowieka, który żył bardzo dawno temu i nazywał się Arystoteles.</p>
+  <p class="t">Arystoteles całe życie przyglądał się światu i ludziom.</p>
+  <p class="t">Najbardziej ciekawiło go to, co czujemy w środku.</p>
+  <p class="t">W każdym rozdziale spotkasz jedną jego myśl i jedną emocję.</p>
+  <p class="t">Czytaj w swoim tempie i wracaj do miejsc, które Ci się spodobały.</p>
+
+  <hr class="oddech">
+
+  <h3>Każdy rozdział ma zawsze te same pięć części</h3>
+  <p class="etykieta">Kolejność nigdy się nie zmienia</p>
+  <div class="siatka-3">
+    <div class="mini"><strong>① Scena</strong><span>Krótka historia z życia Arystotelesa.</span></div>
+    <div class="mini"><strong>② Myśl</strong><span>Jedno jego zdanie, wytłumaczone prostymi słowami.</span></div>
+    <div class="mini"><strong>③ Emocja</strong><span>Uczucie, o którym mówi ta scena. Z nazwą i opisem ciała.</span></div>
+    <div class="mini"><strong>④ W Twoim życiu</strong><span>Zwykła sytuacja, która może zdarzyć się dzisiaj.</span></div>
+    <div class="mini"><strong>⑤ Pięć pytań</strong><span>Pytania bez ocen. Nie ma złych odpowiedzi.</span></div>
+    <div class="mini"><strong>Razem</strong><span>12 rozdziałów × 5 pytań = 60 pytań.</span></div>
+  </div>
+
+  <hr class="oddech">
+
+  <h3>Zasady, które obowiązują w tej broszurze</h3>
+  <ul class="lista">
+    <li>Możesz nie odpowiadać na pytanie. Wolno przejść dalej.</li>
+    <li>Możesz odpowiedzieć jednym słowem. To pełna odpowiedź.</li>
+    <li>Możesz czytać z kimś dorosłym albo całkiem sam.</li>
+    <li>Możesz zrobić przerwę po każdym rozdziale. Przerwa nie jest porażką.</li>
+    <li>Nie musisz nic czuć „na zawołanie”. Emocje przychodzą same.</li>
+  </ul>
+</section>
+
+<!-- ================= PANEL 3 — KIM BYŁ ARYSTOTELES ================= -->
+<section class="karta">
+  <span class="etykieta">Infografika 1</span>
+  <h2>Życie Arystotelesa w ośmiu punktach</h2>
+  <p class="podtytul" style="font-size:1rem">Skrót „p.n.e.” znaczy: przed naszą erą. Im większa liczba, tym dawniej.</p>
+  <figure class="rama przewijalne">
+    <svg viewBox="0 0 1020 320" role="img" aria-label="Oś czasu życia Arystotelesa od roku 384 p.n.e. do 322 p.n.e., osiem punktów" style="min-width:640px">
+      <line x1="40" y1="140" x2="980" y2="140" stroke="var(--linia)" stroke-width="6" stroke-linecap="round"/>
+      <line x1="40" y1="140" x2="980" y2="140" stroke="var(--morze)" stroke-width="6" stroke-linecap="round" stroke-dasharray="2 18"/>
+      <g font-family="Alegreya Sans, sans-serif">
+        <g transform="translate(60,0)">
+          <circle cx="0" cy="140" r="17" fill="var(--szafran)" stroke="var(--karta)" stroke-width="4"/>
+          <text x="0" y="102" text-anchor="middle" font-size="24" font-weight="800" fill="var(--atrament)">384</text>
+          <text x="0" y="80" text-anchor="middle" font-size="13" fill="var(--atrament-2)">p.n.e.</text>
+          <text x="0" y="190" text-anchor="middle" font-size="16" fill="var(--atrament)">Rodzi się</text>
+          <text x="0" y="212" text-anchor="middle" font-size="16" fill="var(--atrament)">w Stagirze</text>
+        </g>
+        <g transform="translate(190,0)">
+          <circle cx="0" cy="140" r="14" fill="var(--morze)" stroke="var(--karta)" stroke-width="4"/>
+          <text x="0" y="102" text-anchor="middle" font-size="24" font-weight="800" fill="var(--atrament)">367</text>
+          <text x="0" y="190" text-anchor="middle" font-size="16" fill="var(--atrament)">Idzie uczyć</text>
+          <text x="0" y="212" text-anchor="middle" font-size="16" fill="var(--atrament)">się do Aten</text>
+        </g>
+        <g transform="translate(320,0)">
+          <circle cx="0" cy="140" r="14" fill="var(--morze)" stroke="var(--karta)" stroke-width="4"/>
+          <text x="0" y="102" text-anchor="middle" font-size="24" font-weight="800" fill="var(--atrament)">347</text>
+          <text x="0" y="190" text-anchor="middle" font-size="16" fill="var(--atrament)">Umiera Platon.</text>
+          <text x="0" y="212" text-anchor="middle" font-size="16" fill="var(--atrament)">Wyjazd do Assos</text>
+        </g>
+        <g transform="translate(455,0)">
+          <circle cx="0" cy="140" r="14" fill="var(--oliwka)" stroke="var(--karta)" stroke-width="4"/>
+          <text x="0" y="102" text-anchor="middle" font-size="24" font-weight="800" fill="var(--atrament)">345</text>
+          <text x="0" y="190" text-anchor="middle" font-size="16" fill="var(--atrament)">Bada zwierzęta</text>
+          <text x="0" y="212" text-anchor="middle" font-size="16" fill="var(--atrament)">na wyspie Lesbos</text>
+        </g>
+        <g transform="translate(590,0)">
+          <circle cx="0" cy="140" r="14" fill="var(--morze)" stroke="var(--karta)" stroke-width="4"/>
+          <text x="0" y="102" text-anchor="middle" font-size="24" font-weight="800" fill="var(--atrament)">343</text>
+          <text x="0" y="190" text-anchor="middle" font-size="16" fill="var(--atrament)">Uczy chłopca</text>
+          <text x="0" y="212" text-anchor="middle" font-size="16" fill="var(--atrament)">Aleksandra</text>
+        </g>
+        <g transform="translate(720,0)">
+          <circle cx="0" cy="140" r="14" fill="var(--szafran)" stroke="var(--karta)" stroke-width="4"/>
+          <text x="0" y="102" text-anchor="middle" font-size="24" font-weight="800" fill="var(--atrament)">335</text>
+          <text x="0" y="190" text-anchor="middle" font-size="16" fill="var(--atrament)">Zakłada własną</text>
+          <text x="0" y="212" text-anchor="middle" font-size="16" fill="var(--atrament)">szkołę Likejon</text>
+        </g>
+        <g transform="translate(850,0)">
+          <circle cx="0" cy="140" r="14" fill="var(--glina)" stroke="var(--karta)" stroke-width="4"/>
+          <text x="0" y="102" text-anchor="middle" font-size="24" font-weight="800" fill="var(--atrament)">323</text>
+          <text x="0" y="190" text-anchor="middle" font-size="16" fill="var(--atrament)">Wyjeżdża</text>
+          <text x="0" y="212" text-anchor="middle" font-size="16" fill="var(--atrament)">z Aten</text>
+        </g>
+        <g transform="translate(965,0)">
+          <circle cx="0" cy="140" r="17" fill="var(--glina)" stroke="var(--karta)" stroke-width="4"/>
+          <text x="0" y="102" text-anchor="middle" font-size="24" font-weight="800" fill="var(--atrament)">322</text>
+          <text x="0" y="190" text-anchor="middle" font-size="16" fill="var(--atrament)">Umiera</text>
+          <text x="0" y="212" text-anchor="middle" font-size="16" fill="var(--atrament)">w Chalkis</text>
+        </g>
+      </g>
+      <text x="40" y="285" font-size="15" fill="var(--atrament-2)" font-family="Atkinson Hyperlegible, sans-serif">Żył 62 lata. Uczył się 20 lat, zanim zaczął uczyć innych.</text>
+    </svg>
+    <figcaption>Oś czasu czyta się od lewej do prawej. Lewa strona to początek życia, prawa strona to koniec.</figcaption>
+  </figure>
+
+  <div class="siatka-2">
+    <div class="mini"><strong>Skąd pochodził</strong><span>Ze Stagiry — małego miasta na północy Grecji, blisko morza.</span></div>
+    <div class="mini"><strong>Kim był jego ojciec</strong><span>Lekarzem. Dlatego Arystoteles od dziecka oglądał kości, zioła i narzędzia.</span></div>
+    <div class="mini"><strong>Co robił najczęściej</strong><span>Patrzył, liczył, zapisywał. Zbadał ponad 500 gatunków zwierząt.</span></div>
+    <div class="mini"><strong>Dlaczego jest tu ważny</strong><span>Napisał pierwszą w Europie listę emocji i wyjaśnił, skąd się biorą.</span></div>
+  </div>
+</section>
+
+<!-- ================= PANEL 4 — MAPA EMOCJI ================= -->
+<section class="karta">
+  <span class="etykieta">Infografika 2</span>
+  <h2>Termometr emocji</h2>
+  <p class="podtytul" style="font-size:1rem">Emocja to nie tylko „jest” albo „nie ma”. Emocja ma siłę. Siłę można zmierzyć.</p>
+  <figure class="rama przewijalne">
+    <svg viewBox="0 0 900 300" role="img" aria-label="Termometr emocji z pięcioma poziomami siły od 0 do 10" style="min-width:600px">
+      <rect x="40" y="96" width="700" height="56" rx="28" fill="var(--papier-2)" stroke="var(--linia)" stroke-width="3"/>
+      <rect x="46" y="102" width="130" height="44" rx="22" fill="var(--morze-jasne)"/>
+      <rect x="182" y="102" width="130" height="44" rx="6" fill="var(--oliwka-tlo)"/>
+      <rect x="318" y="102" width="130" height="44" rx="6" fill="var(--szafran-tlo)"/>
+      <rect x="454" y="102" width="130" height="44" rx="6" fill="var(--glina-tlo)"/>
+      <rect x="590" y="102" width="144" height="44" rx="22" fill="var(--glina)" opacity="0.55"/>
+      <circle cx="770" cy="124" r="42" fill="var(--glina-tlo)" stroke="var(--glina)" stroke-width="4"/>
+      <g font-family="Alegreya Sans, sans-serif" font-weight="800" font-size="22" fill="var(--atrament)" text-anchor="middle">
+        <text x="111" y="132">0–2</text><text x="247" y="132">3–4</text><text x="383" y="132">5–6</text>
+        <text x="519" y="132">7–8</text><text x="662" y="132">9–10</text>
+        <text x="770" y="132">STOP</text>
+      </g>
+      <g font-family="Atkinson Hyperlegible, sans-serif" font-size="16" fill="var(--atrament)" text-anchor="middle">
+        <text x="111" y="190">spokój</text><text x="111" y="212">nic mnie nie</text><text x="111" y="234">rusza</text>
+        <text x="247" y="190">lekko czuję</text><text x="247" y="212">mogę dalej</text><text x="247" y="234">robić swoje</text>
+        <text x="383" y="190">wyraźnie czuję</text><text x="383" y="212">trudniej mi się</text><text x="383" y="234">skupić</text>
+        <text x="519" y="190">bardzo mocno</text><text x="519" y="212">ciało reaguje,</text><text x="519" y="234">chce mi się wyjść</text>
+        <text x="662" y="190">za dużo</text><text x="662" y="212">nie umiem już</text><text x="662" y="234">mówić i myśleć</text>
+        <text x="770" y="190">tu proszę</text><text x="770" y="212">o pomoc albo</text><text x="770" y="234">idę w ciszę</text>
+      </g>
+      <text x="40" y="70" font-family="Atkinson Hyperlegible, sans-serif" font-size="17" fill="var(--atrament-2)">Zanim nazwiesz emocję, pokaż jej siłę: od 0 do 10.</text>
+      <text x="40" y="284" font-family="Atkinson Hyperlegible, sans-serif" font-size="15" fill="var(--atrament-2)">Arystoteles pisał to samo innymi słowami: liczy się nie to, że czujesz, ale ile i kiedy.</text>
+    </svg>
+    <figcaption>Możesz pokazać liczbę na palcach zamiast mówić. To też jest odpowiedź.</figcaption>
+  </figure>
+
+  <hr class="oddech">
+
+  <h3>Spis dwunastu spotkań</h3>
+  <div class="przewijalne">
+  <table>
+    <thead><tr><th>Nr</th><th>Spotkanie</th><th>Emocja</th><th>Gdzie ją czuć w ciele</th></tr></thead>
+    <tbody>
+      <tr><td>1</td><td>Chłopiec w domu lekarza</td><td>Ciekawość</td><td>Lekkie mrowienie w rękach, oczy szeroko otwarte</td></tr>
+      <tr><td>2</td><td>Pierwszy dzień w Atenach</td><td>Niepewność</td><td>Ściśnięty żołądek, chłodne dłonie</td></tr>
+      <tr><td>3</td><td>Nie zgadzam się z nauczycielem</td><td>Napięcie sporu</td><td>Zaciśnięte szczęki, szybszy oddech</td></tr>
+      <tr><td>4</td><td>Ośmiornica w porcie Lesbos</td><td>Zachwyt</td><td>Ciepło w klatce piersiowej, czas przestaje istnieć</td></tr>
+      <tr><td>5</td><td>Lekcja dla trudnego ucznia</td><td>Duma</td><td>Prosty kręgosłup, ciepło na twarzy</td></tr>
+      <tr><td>6</td><td>Szkoła, w której się chodzi</td><td>Ulga</td><td>Rozluźnione ramiona, wolniejszy oddech</td></tr>
+      <tr><td>7</td><td>Waga w środku</td><td>Strach</td><td>Zimno w brzuchu, mocne bicie serca</td></tr>
+      <tr><td>8</td><td>Sto razy to samo</td><td>Zniechęcenie</td><td>Ciężkie ręce, ochota, żeby usiąść</td></tr>
+      <tr><td>9</td><td>Trzy rodzaje przyjaciół</td><td>Samotność</td><td>Pusto w klatce piersiowej, ciężka głowa</td></tr>
+      <tr><td>10</td><td>Gniew, który ma miarę</td><td>Gniew</td><td>Gorąco w twarzy, napięte pięści</td></tr>
+      <tr><td>11</td><td>Jedna jaskółka</td><td>Nadzieja</td><td>Lżejsza klatka piersiowa, chęć ruchu</td></tr>
+      <tr><td>12</td><td>Ostatnia droga do Chalkis</td><td>Smutek i wdzięczność</td><td>Ciepło w oczach, ciężar w gardle</td></tr>
+    </tbody>
+  </table>
+  </div>
+  <p class="podtytul" style="font-size:0.95rem">Jeśli czujesz coś innego niż w tabeli — masz rację Ty, nie tabela. Ciało każdego człowieka mówi trochę inaczej.</p>
+</section>
+
+<!-- ================= SPOTKANIE 1 ================= -->
+<article class="rozdzial">
+  <div class="naglowek-rozdzialu">
+    <div class="numer">1</div>
+    <div class="blok">
+      <span class="etykieta">Emocja: ciekawość</span>
+      <h2>Chłopiec w domu lekarza</h2>
+    </div>
+  </div>
+
+  <figure>
+    <svg viewBox="0 0 640 190" role="img" aria-label="Stół lekarza ze słoikami ziół, zwojem i kością ptaka">
+      <rect x="0" y="0" width="640" height="190" fill="var(--papier-2)"/>
+      <rect x="40" y="128" width="560" height="12" fill="var(--linia)"/>
+      <rect x="70" y="150" width="12" height="34" fill="var(--linia)"/><rect x="558" y="150" width="12" height="34" fill="var(--linia)"/>
+      <g stroke="var(--morze)" stroke-width="3">
+        <rect x="90" y="76" width="46" height="52" rx="6" fill="var(--morze-jasne)"/>
+        <rect x="150" y="60" width="46" height="68" rx="6" fill="var(--oliwka-tlo)"/>
+        <rect x="210" y="88" width="46" height="40" rx="6" fill="var(--szafran-tlo)"/>
+      </g>
+      <g stroke="var(--oliwka)" stroke-width="3" fill="none">
+        <path d="M113 76 v-22"/><path d="M113 62 q-14 -6 -18 -18"/><path d="M113 62 q14 -6 18 -18"/>
+        <path d="M173 60 v-26"/><path d="M173 46 q-14 -6 -18 -18"/>
+      </g>
+      <g transform="translate(300,0)">
+        <rect x="0" y="96" width="120" height="32" rx="16" fill="var(--karta)" stroke="var(--szafran)" stroke-width="3"/>
+        <circle cx="0" cy="112" r="16" fill="var(--karta)" stroke="var(--szafran)" stroke-width="3"/>
+        <circle cx="120" cy="112" r="16" fill="var(--karta)" stroke="var(--szafran)" stroke-width="3"/>
+      </g>
+      <g transform="translate(470,64)">
+        <path d="M0 40 q6 -34 34 -38 q26 -4 34 12 q-24 4 -30 18 q-6 14 -22 16 q-12 2 -16 -8 z" fill="var(--karta)" stroke="var(--glina)" stroke-width="3"/>
+        <circle cx="16" cy="32" r="5" fill="var(--glina-tlo)" stroke="var(--glina)" stroke-width="2"/>
+      </g>
+      <text x="470" y="150" font-family="Atkinson Hyperlegible, sans-serif" font-size="15" fill="var(--atrament-2)">kość ptaka</text>
+      <text x="92" y="150" font-family="Atkinson Hyperlegible, sans-serif" font-size="15" fill="var(--atrament-2)">zioła ojca</text>
+    </svg>
+  </figure>
+
+  <div class="blok">
+    <h3 class="krok-tytul"><span class="kolko">1</span> Scena</h3>
+    <p class="t">Stagira była małym miastem nad morzem.</p>
+    <p class="t">Domy stały blisko siebie, a wiatr pachniał solą i oliwą.</p>
+    <p class="t">W jednym z tych domów mieszkał chłopiec o imieniu Arystoteles.</p>
+    <p class="t">Jego ojciec, Nikomach, był lekarzem.</p>
+    <p class="t">W pracowni ojca leżały słoiki z ziołami, zwoje i małe narzędzia.</p>
+    <p class="t">Chłopiec lubił układać te narzędzia według wielkości.</p>
+    <p class="t">Nikt go o to nie prosił.</p>
+    <p class="t">Robił tak, bo wtedy świat wydawał mu się poukładany.</p>
+    <p class="t">Pewnego dnia ojciec przyniósł do domu kość ptaka.</p>
+    <p class="t">Arystoteles oglądał ją bardzo długo.</p>
+    <p class="t">Zauważył, że kość jest pusta w środku.</p>
+    <p class="t">Zapytał, dlaczego kość ptaka jest lżejsza niż kość psa.</p>
+    <p class="t">Ojciec nie znał odpowiedzi i powiedział to wprost.</p>
+    <p class="t">Wtedy chłopiec pierwszy raz pomyślał, że na świecie zostało jeszcze bardzo dużo pytań dla niego.</p>
+  </div>
+
+  <blockquote class="cytat">
+    <q>Wszyscy ludzie z natury dążą do poznania.</q>
+    <cite>Arystoteles, „Metafizyka”, księga I — pierwsze zdanie</cite>
+  </blockquote>
+
+  <div class="blok">
+    <h3 class="krok-tytul"><span class="kolko">2</span> Myśl Arystotelesa</h3>
+    <p class="t">Tym zdaniem Arystoteles zaczął swoją najsłynniejszą książkę.</p>
+    <p class="t">Znaczy ono tyle: każdy człowiek chce wiedzieć.</p>
+    <p class="t">Ciekawość nie jest dziwactwem.</p>
+    <p class="t">Ciekawość jest częścią wyposażenia człowieka, tak samo jak oddech.</p>
+    <p class="t">Arystoteles uważał, że „dlaczego?” to najważniejsze pytanie świata.</p>
+    <p class="t">Nie wstydził się mówić „nie wiem”.</p>
+    <p class="t">Uważał, że „nie wiem” jest początkiem drogi, a nie jej końcem.</p>
+    <p class="t">Kiedy ktoś śmiał się z jego pytań, on pytał dalej.</p>
+    <p class="t">Zapisywał odpowiedzi w zeszytach z papirusu.</p>
+    <p class="t">Dzięki temu wiemy dziś rzeczy, których nikt przed nim nie zapisał.</p>
+  </div>
+
+  <div class="emocja">
+    <h3 class="krok-tytul"><span class="kolko">3</span> Emocja</h3>
+    <span class="emocja-nazwa">Ciekawość</span>
+    <p class="t">Ciekawość to emocja, która ciągnie Cię w stronę czegoś.</p>
+    <p class="t">Czujesz ją wtedy, gdy chcesz podejść bliżej i sprawdzić.</p>
+    <p class="t">W ciele bywa lekka: oczy otwierają się szerzej, a ręce chcą dotknąć.</p>
+    <p class="t">Ciekawość jest przyjemna, ale potrafi też męczyć.</p>
+    <p class="t">Kiedy trwa bardzo długo, głowa robi się gorąca i trudno przestać myśleć.</p>
+    <p class="t">Wolno wtedy powiedzieć: „wrócę do tego jutro”.</p>
+    <p class="t">Ciekawość nie ucieknie i poczeka na Ciebie.</p>
+  </div>
+
+  <div class="zycie">
+    <h3 class="krok-tytul"><span class="kolko">4</span> W Twoim życiu</h3>
+    <p class="t">Wyobraź sobie, że dwudziesty raz oglądasz ten sam film o pociągach albo rozkładasz stary zegarek.</p>
+    <p class="t">Ktoś mówi: „znowu to samo, daj już spokój”.</p>
+    <p class="t">To zdanie może zaboleć, chociaż nie miało boleć.</p>
+    <p class="t">Twoja ciekawość nie jest „znowu tym samym”, tylko Twoim sposobem poznawania świata.</p>
+    <p class="t">Możesz odpowiedzieć spokojnie: „to mnie interesuje i właśnie się tego uczę”.</p>
+    <p class="t">Arystoteles powiedziałby dokładnie to samo, tylko po grecku.</p>
+  </div>
+
+  <div class="pytania-blok">
+    <h3 class="krok-tytul"><span class="kolko">5</span> Pięć pytań</h3>
+    <ol class="pytania">
+      <li><span class="nr">1.</span><span>Jaka rzecz zaciekawiła Cię ostatnio tak bardzo, że chciało Ci się o niej czytać?</span></li>
+      <li><span class="nr">2.</span><span>Gdzie w ciele czujesz ciekawość najpierw — w oczach, w rękach, w brzuchu?</span></li>
+      <li><span class="nr">3.</span><span>Czy zdarza Ci się pytać „dlaczego?” tylko w myślach? Co sprawia, że nie pytasz na głos?</span></li>
+      <li><span class="nr">4.</span><span>Kto w Twoim otoczeniu odpowiada na Twoje pytania najspokojniej?</span></li>
+      <li><span class="nr">5.</span><span>Gdyby ktoś dał Ci jedną prawdziwą odpowiedź, o co byś zapytał lub zapytała?</span></li>
+    </ol>
+  </div>
+</article>
+
+<!-- ================= SPOTKANIE 2 ================= -->
+<article class="rozdzial">
+  <div class="naglowek-rozdzialu">
+    <div class="numer">2</div>
+    <div class="blok">
+      <span class="etykieta">Emocja: niepewność</span>
+      <h2>Pierwszy dzień w Atenach</h2>
+    </div>
+  </div>
+
+  <figure>
+    <svg viewBox="0 0 640 190" role="img" aria-label="Schody prowadzące do szkoły z kolumnami, mała postać na dole schodów">
+      <rect x="0" y="0" width="640" height="190" fill="var(--papier-2)"/>
+      <g fill="var(--papier)" stroke="var(--linia)" stroke-width="2">
+        <rect x="300" y="150" width="320" height="16"/><rect x="330" y="134" width="290" height="16"/>
+        <rect x="360" y="118" width="260" height="16"/><rect x="390" y="102" width="230" height="16"/>
+      </g>
+      <g fill="var(--karta)" stroke="var(--morze)" stroke-width="3">
+        <rect x="424" y="44" width="20" height="58"/><rect x="474" y="44" width="20" height="58"/>
+        <rect x="524" y="44" width="20" height="58"/><rect x="574" y="44" width="20" height="58"/>
+      </g>
+      <path d="M404 44 h210 l-105 -30 z" fill="var(--morze-jasne)" stroke="var(--morze)" stroke-width="3"/>
+      <g transform="translate(150,96)">
+        <circle cx="0" cy="0" r="17" fill="var(--karta)" stroke="var(--glina)" stroke-width="3"/>
+        <path d="M-16 22 q16 -8 32 0 l6 44 h-44 z" fill="var(--glina-tlo)" stroke="var(--glina)" stroke-width="3"/>
+        <g fill="var(--atrament)"><circle cx="-6" cy="-2" r="2.6"/><circle cx="6" cy="-2" r="2.6"/></g>
+        <path d="M-6 9 h12" stroke="var(--atrament)" stroke-width="2.6" stroke-linecap="round"/>
+      </g>
+      <g stroke="var(--szafran)" stroke-width="3" fill="none" stroke-dasharray="8 8"><path d="M178 130 h110"/></g>
+      <text x="60" y="176" font-family="Atkinson Hyperlegible, sans-serif" font-size="15" fill="var(--atrament-2)">17 lat, nowe miasto, nikogo znajomego</text>
+    </svg>
+  </figure>
+
+  <div class="blok">
+    <h3 class="krok-tytul"><span class="kolko">1</span> Scena</h3>
+    <p class="t">Arystoteles miał siedemnaście lat, kiedy przyjechał do Aten.</p>
+    <p class="t">Ateny były wtedy największym i najgłośniejszym miastem Grecji.</p>
+    <p class="t">Na ulicach handlowano rybami, wełną i oliwą.</p>
+    <p class="t">Wszędzie było za dużo dźwięków naraz.</p>
+    <p class="t">Chłopiec ze Stagiry nie znał tu nikogo.</p>
+    <p class="t">Mówił z obcym akcentem i inni to słyszeli.</p>
+    <p class="t">Przyszedł pod bramę szkoły, która nazywała się Akademia.</p>
+    <p class="t">Szkołę prowadził najsławniejszy filozof świata, Platon.</p>
+    <p class="t">Arystoteles stanął przed schodami i nie wszedł od razu.</p>
+    <p class="t">Stał tak długą chwilę i liczył stopnie.</p>
+    <p class="t">Naliczył ich osiem.</p>
+    <p class="t">Potem policzył je jeszcze raz, żeby się uspokoić.</p>
+    <p class="t">Dopiero wtedy wszedł do środka.</p>
+    <p class="t">Został w tej szkole dwadzieścia lat.</p>
+  </div>
+
+  <blockquote class="cytat">
+    <q>Poznanie samego siebie jest początkiem wszelkiej mądrości.</q>
+    <cite>Myśl przypisywana Arystotelesowi — powtarzana od stuleci, choć nie ma jej dosłownie w jego księgach</cite>
+  </blockquote>
+
+  <div class="blok">
+    <h3 class="krok-tytul"><span class="kolko">2</span> Myśl Arystotelesa</h3>
+    <p class="t">Arystoteles nie wszedł do Akademii jako gotowy mądry człowiek.</p>
+    <p class="t">Wszedł tam jako ktoś, kto się bał i nie wiedział, czy da radę.</p>
+    <p class="t">Przez pierwsze lata głównie słuchał i notował.</p>
+    <p class="t">Uczniowie żartowali, że więcej czyta niż mówi.</p>
+    <p class="t">On uważał, że najpierw trzeba poznać siebie, a potem świat.</p>
+    <p class="t">Pisał, że człowiek uczy się powoli i etapami.</p>
+    <p class="t">Najpierw patrzysz, potem rozumiesz, a dopiero na końcu potrafisz.</p>
+    <p class="t">Przeskoczenie któregoś etapu nie działa.</p>
+    <p class="t">Dlatego wolno Ci być na początku drogi.</p>
+    <p class="t">Bycie na początku nie znaczy, że jesteś gorszy albo gorsza.</p>
+  </div>
+
+  <div class="emocja">
+    <h3 class="krok-tytul"><span class="kolko">3</span> Emocja</h3>
+    <span class="emocja-nazwa">Niepewność</span>
+    <p class="t">Niepewność pojawia się tam, gdzie nie znasz zasad.</p>
+    <p class="t">Nowa szkoła, nowy pokój, nowa osoba — to typowe miejsca niepewności.</p>
+    <p class="t">W ciele czuć ją najczęściej w brzuchu i w dłoniach.</p>
+    <p class="t">Żołądek robi się ciasny, a dłonie chłodne albo mokre.</p>
+    <p class="t">Niepewność nie jest tchórzostwem.</p>
+    <p class="t">Niepewność to sygnał: „nie mam jeszcze dość informacji”.</p>
+    <p class="t">Kiedy zdobędziesz informacje, ta emocja zwykle sama się zmniejsza.</p>
+  </div>
+
+  <div class="zycie">
+    <h3 class="krok-tytul"><span class="kolko">4</span> W Twoim życiu</h3>
+    <p class="t">Wyobraź sobie pierwszy dzień w nowej klasie albo pierwszą wizytę w nieznanym budynku.</p>
+    <p class="t">Nie wiesz, gdzie usiąść, gdzie jest toaleta i o której jest przerwa.</p>
+    <p class="t">Możesz wtedy zrobić to, co zrobił Arystoteles: znaleźć coś policzalnego.</p>
+    <p class="t">Policz okna, stopnie, płytki albo swoje oddechy do sześciu.</p>
+    <p class="t">Liczenie daje mózgowi zadanie i obniża napięcie.</p>
+    <p class="t">Potem możesz zapytać o jedną konkretną rzecz, na przykład o godzinę przerwy.</p>
+  </div>
+
+  <div class="pytania-blok">
+    <h3 class="krok-tytul"><span class="kolko">5</span> Pięć pytań</h3>
+    <ol class="pytania">
+      <li><span class="nr">6.</span><span>Jakie nowe miejsce jest dla Ciebie najtrudniejsze — i co dokładnie w nim przeszkadza?</span></li>
+      <li><span class="nr">7.</span><span>Co pomaga Ci wejść do środka, gdy stoisz pod drzwiami i się wahasz?</span></li>
+      <li><span class="nr">8.</span><span>Ile wynosi Twoja niepewność na termometrze od 0 do 10 w pierwszym dniu czegoś nowego?</span></li>
+      <li><span class="nr">9.</span><span>O jaką jedną informację najbardziej chciałoby Ci się zapytać w nowym miejscu?</span></li>
+      <li><span class="nr">10.</span><span>Czy znasz kogoś, kto też się denerwuje przed nowym miejscem, choć tego nie widać?</span></li>
+    </ol>
+  </div>
+</article>
+
+<!-- ================= SPOTKANIE 3 ================= -->
+<article class="rozdzial">
+  <div class="naglowek-rozdzialu">
+    <div class="numer">3</div>
+    <div class="blok">
+      <span class="etykieta">Emocja: napięcie sporu</span>
+      <h2>Nie zgadzam się z nauczycielem</h2>
+    </div>
+  </div>
+
+  <figure>
+    <svg viewBox="0 0 640 190" role="img" aria-label="Dwie głowy zwrócone do siebie, między nimi świecąca lampka prawdy">
+      <rect x="0" y="0" width="640" height="190" fill="var(--papier-2)"/>
+      <g transform="translate(130,95)">
+        <circle cx="0" cy="0" r="46" fill="var(--karta)" stroke="var(--morze)" stroke-width="4"/>
+        <path d="M-46 -6 q4 -46 46 -46 q42 0 46 46 q-14 -22 -46 -22 q-32 0 -46 22 z" fill="var(--linia)"/>
+        <circle cx="18" cy="2" r="5" fill="var(--atrament)"/>
+        <path d="M14 24 q14 -6 24 -2" stroke="var(--atrament)" stroke-width="4" fill="none" stroke-linecap="round"/>
+      </g>
+      <g transform="translate(510,95)">
+        <circle cx="0" cy="0" r="46" fill="var(--karta)" stroke="var(--glina)" stroke-width="4"/>
+        <path d="M-46 -6 q4 -46 46 -46 q42 0 46 46 q-14 -22 -46 -22 q-32 0 -46 22 z" fill="var(--linia)"/>
+        <circle cx="-18" cy="2" r="5" fill="var(--atrament)"/>
+        <path d="M-38 24 q10 -4 24 2" stroke="var(--atrament)" stroke-width="4" fill="none" stroke-linecap="round"/>
+      </g>
+      <g stroke="var(--atrament-2)" stroke-width="3" fill="none" stroke-dasharray="7 9">
+        <path d="M186 78 h74"/><path d="M380 78 h74"/>
+      </g>
+      <g transform="translate(320,86)">
+        <circle cx="0" cy="0" r="34" fill="var(--szafran-tlo)" stroke="var(--szafran)" stroke-width="4"/>
+        <path d="M-11 12 h22 v10 h-22 z" fill="var(--szafran)"/>
+        <g stroke="var(--szafran)" stroke-width="4" stroke-linecap="round">
+          <path d="M0 -48 v-12"/><path d="M-34 -34 l-9 -9"/><path d="M34 -34 l9 -9"/>
+        </g>
+      </g>
+      <text x="320" y="172" text-anchor="middle" font-family="Atkinson Hyperlegible, sans-serif" font-size="16" fill="var(--atrament-2)">między nami stoi prawda, a nie zwycięstwo</text>
+    </svg>
+  </figure>
+
+  <div class="blok">
+    <h3 class="krok-tytul"><span class="kolko">1</span> Scena</h3>
+    <p class="t">Mijały lata i Arystoteles przestał być uczniem cichym.</p>
+    <p class="t">Zaczął zadawać Platonowi pytania na środku sali.</p>
+    <p class="t">Platon uczył, że prawdziwy świat jest gdzieś poza nami.</p>
+    <p class="t">Mówił, że to, co widzimy i dotykamy, jest tylko cieniem.</p>
+    <p class="t">Arystoteles słuchał tego bardzo uważnie.</p>
+    <p class="t">Potem podnosił z ziemi liść i oglądał go pod światło.</p>
+    <p class="t">Myślał tak: ten liść jest prawdziwy tutaj, w mojej ręce.</p>
+    <p class="t">Pewnego dnia powiedział to głośno przy wszystkich.</p>
+    <p class="t">W sali zrobiło się cicho.</p>
+    <p class="t">Uczniowie patrzyli to na jednego, to na drugiego.</p>
+    <p class="t">Serce Arystotelesa biło szybko, a szczęki miał zaciśnięte.</p>
+    <p class="t">Bał się, że nauczyciel się obrazi i każe mu odejść.</p>
+    <p class="t">Platon jednak nie krzyknął, tylko poprosił, żeby powtórzył swój argument.</p>
+    <p class="t">Ten spór trwał wiele lat i żaden z nich nie przestał szanować drugiego.</p>
+  </div>
+
+  <blockquote class="cytat">
+    <q>Przyjacielem Platon, lecz większym przyjacielem prawda.</q>
+    <cite>Zdanie znane od średniowiecza jako streszczenie postawy Arystotelesa („Amicus Plato, sed magis amica veritas”)</cite>
+  </blockquote>
+
+  <div class="blok">
+    <h3 class="krok-tytul"><span class="kolko">2</span> Myśl Arystotelesa</h3>
+    <p class="t">To zdanie mówi coś bardzo praktycznego.</p>
+    <p class="t">Możesz kogoś lubić i jednocześnie mieć inne zdanie.</p>
+    <p class="t">Inne zdanie nie kończy przyjaźni.</p>
+    <p class="t">Arystoteles nie spierał się po to, żeby wygrać.</p>
+    <p class="t">Spierał się po to, żeby sprawdzić, jak jest naprawdę.</p>
+    <p class="t">Uczył, że w sporze atakuje się myśl, a nigdy człowieka.</p>
+    <p class="t">Napisał całą księgę o tym, jak rozpoznać nieuczciwy argument.</p>
+    <p class="t">Nazwał ją „O dowodach sofistycznych”.</p>
+    <p class="t">Wyliczył w niej trzynaście sposobów, którymi ludzie oszukują w rozmowie.</p>
+    <p class="t">Uczciwy spór jest jedną z najtrudniejszych rzeczy, jakich uczy filozofia.</p>
+  </div>
+
+  <div class="emocja">
+    <h3 class="krok-tytul"><span class="kolko">3</span> Emocja</h3>
+    <span class="emocja-nazwa">Napięcie sporu</span>
+    <p class="t">Kiedy się z kimś nie zgadzasz, ciało napina się jak lina.</p>
+    <p class="t">Szczęki się zaciskają, oddech przyspiesza, a głos robi się wyższy.</p>
+    <p class="t">To napięcie nie jest jeszcze złością.</p>
+    <p class="t">Napięcie mówi: „zaraz wydarzy się coś ważnego”.</p>
+    <p class="t">Jeśli zauważysz je odpowiednio wcześnie, możesz wybrać, co zrobisz dalej.</p>
+    <p class="t">Wolno powiedzieć: „potrzebuję chwili, odpowiem za moment”.</p>
+    <p class="t">Cisza w środku sporu jest dozwolona i bardzo pomaga.</p>
+  </div>
+
+  <div class="zycie">
+    <h3 class="krok-tytul"><span class="kolko">4</span> W Twoim życiu</h3>
+    <p class="t">Wyobraź sobie, że ktoś dorosły mówi coś, co według Ciebie jest nieprawdą.</p>
+    <p class="t">Wiesz to dokładnie, bo dużo o tym czytasz.</p>
+    <p class="t">W środku rośnie napięcie i chce Ci się przerwać w połowie zdania.</p>
+    <p class="t">Możesz zapisać swoją uwagę na kartce i powiedzieć ją po lekcji.</p>
+    <p class="t">Zdanie „mam inne informacje, czy mogę je pokazać?” działa lepiej niż „to nieprawda”.</p>
+    <p class="t">Prawda jest ważniejsza od wygranej, a spokój pomaga tę prawdę pokazać.</p>
+  </div>
+
+  <div class="pytania-blok">
+    <h3 class="krok-tytul"><span class="kolko">5</span> Pięć pytań</h3>
+    <ol class="pytania">
+      <li><span class="nr">11.</span><span>Kiedy ostatnio wiesz na pewno, że ktoś się myli — i co wtedy robisz?</span></li>
+      <li><span class="nr">12.</span><span>Co dzieje się w Twoim ciele w pierwszej sekundzie sporu?</span></li>
+      <li><span class="nr">13.</span><span>Czy łatwiej Ci nie zgodzić się na piśmie niż na głos? Jak myślisz, dlaczego?</span></li>
+      <li><span class="nr">14.</span><span>Czy da się kogoś lubić i uważać, że nie ma racji? Podaj przykład ze swojego życia.</span></li>
+      <li><span class="nr">15.</span><span>Jakiego zdania możesz użyć następnym razem zamiast słów „to nieprawda”?</span></li>
+    </ol>
+  </div>
+</article>
+
+<!-- ================= SPOTKANIE 4 ================= -->
+<article class="rozdzial">
+  <div class="naglowek-rozdzialu">
+    <div class="numer">4</div>
+    <div class="blok">
+      <span class="etykieta">Emocja: zachwyt</span>
+      <h2>Ośmiornica w porcie Lesbos</h2>
+    </div>
+  </div>
+
+  <figure>
+    <svg viewBox="0 0 640 200" role="img" aria-label="Ośmiornica w płytkiej lagunie, obok notatnik z rysunkiem">
+      <rect x="0" y="0" width="640" height="200" fill="var(--morze-jasne)"/>
+      <g stroke="var(--morze)" stroke-width="3" fill="none" opacity="0.5" stroke-linecap="round">
+        <path d="M20 30 q26 -12 52 0 t52 0 t52 0"/><path d="M420 30 q26 -12 52 0 t52 0 t52 0"/>
+      </g>
+      <g transform="translate(220,58)">
+        <path d="M0 40 q-6 -46 44 -46 q50 0 44 46 q-4 22 -22 24 h-44 q-18 -2 -22 -24 z" fill="var(--glina-tlo)" stroke="var(--glina)" stroke-width="4"/>
+        <g stroke="var(--glina)" stroke-width="4" fill="none" stroke-linecap="round">
+          <path d="M6 62 q-24 22 -14 52"/><path d="M24 66 q-16 28 -4 52"/><path d="M44 68 q0 30 6 50"/>
+          <path d="M64 66 q16 28 26 44"/><path d="M82 62 q26 20 34 40"/>
+          <path d="M-2 54 q-30 12 -38 40"/>
+        </g>
+        <g fill="var(--atrament)"><circle cx="28" cy="26" r="6"/><circle cx="60" cy="26" r="6"/></g>
+        <path d="M34 44 q10 8 20 0" stroke="var(--atrament)" stroke-width="3.5" fill="none" stroke-linecap="round"/>
+      </g>
+      <g transform="translate(430,54)">
+        <rect x="0" y="0" width="150" height="112" rx="4" fill="var(--karta)" stroke="var(--atrament-2)" stroke-width="3"/>
+        <g stroke="var(--morze)" stroke-width="2.5" fill="none">
+          <path d="M40 62 q-6 -34 35 -34 q41 0 35 34 q-3 16 -17 18 h-36 q-14 -2 -17 -18 z"/>
+          <path d="M46 80 q-14 14 -10 26"/><path d="M66 82 q-8 16 -2 24"/><path d="M92 82 q8 16 14 22"/>
+        </g>
+        <g stroke="var(--linia)" stroke-width="2"><path d="M14 20 h122"/><path d="M14 32 h80"/></g>
+      </g>
+      <text x="430" y="186" font-family="Atkinson Hyperlegible, sans-serif" font-size="15" fill="var(--atrament-2)">notatka, w którą nikt nie wierzył 2000 lat</text>
+    </svg>
+  </figure>
+
+  <div class="blok">
+    <h3 class="krok-tytul"><span class="kolko">1</span> Scena</h3>
+    <p class="t">Kiedy Platon umarł, Arystoteles wyjechał z Aten.</p>
+    <p class="t">Zamieszkał najpierw w mieście Assos, a potem na wyspie Lesbos.</p>
+    <p class="t">Na Lesbos jest laguna, w której woda jest ciepła i płytka.</p>
+    <p class="t">Arystoteles chodził tam codziennie rano.</p>
+    <p class="t">Rozmawiał z rybakami i prosił, żeby pokazywali mu swój połów.</p>
+    <p class="t">Rybacy uważali go za dziwaka.</p>
+    <p class="t">Nikt wcześniej nie chciał oglądać zwykłej ryby z tak bliska.</p>
+    <p class="t">On oglądał, mierzył i rysował.</p>
+    <p class="t">Pewnego dnia przyniesiono mu ośmiornicę.</p>
+    <p class="t">Zauważył, że jedno z jej ramion wygląda inaczej niż pozostałe.</p>
+    <p class="t">Zapisał to i narysował dokładnie.</p>
+    <p class="t">Przez ponad dwa tysiące lat nikt mu w tej sprawie nie wierzył.</p>
+    <p class="t">Dopiero w XIX wieku uczeni sprawdzili to pod mikroskopem.</p>
+    <p class="t">Miał rację, bo to ramię naprawdę jest inne.</p>
+  </div>
+
+  <blockquote class="cytat">
+    <q>W każdej rzeczy naturalnej jest coś godnego podziwu.</q>
+    <cite>Arystoteles, „O częściach zwierząt”, księga I</cite>
+  </blockquote>
+
+  <div class="blok">
+    <h3 class="krok-tytul"><span class="kolko">2</span> Myśl Arystotelesa</h3>
+    <p class="t">Arystoteles opisał ponad pięćset gatunków zwierząt.</p>
+    <p class="t">Robił to bez mikroskopu i bez aparatu.</p>
+    <p class="t">Miał tylko oczy, ręce i cierpliwość.</p>
+    <p class="t">Ludzie pytali go, po co ogląda ślimaki i muszle.</p>
+    <p class="t">Odpowiedział im zdaniem z księgi o zwierzętach.</p>
+    <p class="t">Napisał, że w każdej rzeczy w przyrodzie jest coś godnego podziwu.</p>
+    <p class="t">Dodał, że nie należy brzydzić się badaniem małych stworzeń.</p>
+    <p class="t">Uważał, że rzecz nudna dla jednych bywa fascynująca dla innych.</p>
+    <p class="t">Sam potrafił patrzeć na jedno zwierzę przez wiele godzin.</p>
+    <p class="t">Z tej uważności powstała pierwsza biologia na świecie.</p>
+  </div>
+
+  <div class="emocja">
+    <h3 class="krok-tytul"><span class="kolko">3</span> Emocja</h3>
+    <span class="emocja-nazwa">Zachwyt</span>
+    <p class="t">Zachwyt pojawia się wtedy, gdy coś wciąga Cię całkowicie.</p>
+    <p class="t">Czujesz ciepło w klatce piersiowej i lekkość w głowie.</p>
+    <p class="t">Czas przestaje być ważny i czasem nie słyszysz, że ktoś woła.</p>
+    <p class="t">Zachwyt bywa mylony z „zawieszeniem się”.</p>
+    <p class="t">Jest odwrotnie, bo Twój mózg pracuje wtedy bardzo intensywnie.</p>
+    <p class="t">Zachwyt to najlepszy stan do uczenia się.</p>
+    <p class="t">Warto wiedzieć, co go u Ciebie wywołuje, i wracać do tego często.</p>
+  </div>
+
+  <div class="zycie">
+    <h3 class="krok-tytul"><span class="kolko">4</span> W Twoim życiu</h3>
+    <p class="t">Wyobraź sobie, że znasz nazwy wszystkich planet albo cały rozkład jazdy jednej linii.</p>
+    <p class="t">Ktoś mówi: „po co Ci to, przecież się nie przyda”.</p>
+    <p class="t">Arystoteles usłyszał to samo o swoich ośmiornicach.</p>
+    <p class="t">Jego notatki okazały się potrzebne dwa tysiące lat później.</p>
+    <p class="t">Twoja wiedza też jest prawdziwą wiedzą, nawet jeśli dziś nikomu nie jest potrzebna.</p>
+    <p class="t">Możesz spokojnie powiedzieć: „to jest moja dziedzina i znam ją dobrze”.</p>
+  </div>
+
+  <div class="pytania-blok">
+    <h3 class="krok-tytul"><span class="kolko">5</span> Pięć pytań</h3>
+    <ol class="pytania">
+      <li><span class="nr">16.</span><span>Jaka jest Twoja dziedzina — temat, o którym wiesz więcej niż inni wokół Ciebie?</span></li>
+      <li><span class="nr">17.</span><span>Ile czasu potrafisz zajmować się nią bez przerwy, nie zauważając zegara?</span></li>
+      <li><span class="nr">18.</span><span>Co czujesz w ciele, kiedy ktoś nazywa Twoje zainteresowanie „dziwnym”?</span></li>
+      <li><span class="nr">19.</span><span>Komu chciałoby Ci się opowiedzieć o swojej dziedzinie, gdyby ta osoba naprawdę słuchała?</span></li>
+      <li><span class="nr">20.</span><span>Co takiego zauważasz w swojej dziedzinie, czego inni zwykle nie widzą?</span></li>
+    </ol>
+  </div>
+</article>
+
+<!-- ================= SPOTKANIE 5 ================= -->
+<article class="rozdzial">
+  <div class="naglowek-rozdzialu">
+    <div class="numer">5</div>
+    <div class="blok">
+      <span class="etykieta">Emocja: duma</span>
+      <h2>Lekcja dla trudnego ucznia</h2>
+    </div>
+  </div>
+
+  <figure>
+    <svg viewBox="0 0 640 190" role="img" aria-label="Gaj oliwny, rozwinięty zwój i chłopiec idący obok nauczyciela">
+      <rect x="0" y="0" width="640" height="190" fill="var(--oliwka-tlo)"/>
+      <g fill="var(--oliwka)" opacity="0.35">
+        <circle cx="70" cy="60" r="42"/><circle cx="150" cy="46" r="34"/><circle cx="560" cy="56" r="46"/><circle cx="486" cy="44" r="30"/>
+      </g>
+      <g stroke="var(--oliwka)" stroke-width="6" stroke-linecap="round"><path d="M70 100 v46"/><path d="M560 102 v44"/></g>
+      <rect x="0" y="146" width="640" height="6" fill="var(--oliwka)" opacity="0.5"/>
+      <g transform="translate(250,52)">
+        <rect x="0" y="0" width="140" height="86" rx="3" fill="var(--karta)" stroke="var(--szafran)" stroke-width="3"/>
+        <circle cx="0" cy="43" r="12" fill="var(--szafran-tlo)" stroke="var(--szafran)" stroke-width="3"/>
+        <circle cx="140" cy="43" r="12" fill="var(--szafran-tlo)" stroke="var(--szafran)" stroke-width="3"/>
+        <g stroke="var(--linia)" stroke-width="3"><path d="M20 22 h100"/><path d="M20 40 h100"/><path d="M20 58 h70"/></g>
+      </g>
+      <g transform="translate(180,86)">
+        <circle cx="0" cy="0" r="14" fill="var(--karta)" stroke="var(--morze)" stroke-width="3"/>
+        <path d="M-13 18 q13 -7 26 0 l5 42 h-36 z" fill="var(--morze-jasne)" stroke="var(--morze)" stroke-width="3"/>
+      </g>
+      <g transform="translate(432,92)">
+        <circle cx="0" cy="0" r="12" fill="var(--karta)" stroke="var(--glina)" stroke-width="3"/>
+        <path d="M-11 16 q11 -6 22 0 l4 38 h-30 z" fill="var(--glina-tlo)" stroke="var(--glina)" stroke-width="3"/>
+      </g>
+      <text x="320" y="180" text-anchor="middle" font-family="Atkinson Hyperlegible, sans-serif" font-size="15" fill="var(--atrament-2)">Mieza — sala lekcyjna bez ścian</text>
+    </svg>
+  </figure>
+
+  <div class="blok">
+    <h3 class="krok-tytul"><span class="kolko">1</span> Scena</h3>
+    <p class="t">Kiedy Arystoteles miał czterdzieści jeden lat, dostał niezwykły list.</p>
+    <p class="t">Pisał go król Macedonii, Filip.</p>
+    <p class="t">Król prosił, żeby Arystoteles uczył jego syna.</p>
+    <p class="t">Syn miał trzynaście lat i nazywał się Aleksander.</p>
+    <p class="t">Aleksander był szybki, niecierpliwy i bardzo pewny siebie.</p>
+    <p class="t">Nie lubił siedzieć w miejscu.</p>
+    <p class="t">Nauczyciel wybrał więc dziwną salę lekcyjną.</p>
+    <p class="t">Zabrał chłopca do gaju za miastem, do miejsca zwanego Mieza.</p>
+    <p class="t">Uczyli się, chodząc między drzewami.</p>
+    <p class="t">Arystoteles czytał z nim Homera i tłumaczył, co czuje bohater.</p>
+    <p class="t">Pytał Aleksandra, co on sam zrobiłby na miejscu Achillesa.</p>
+    <p class="t">Chłopiec odpowiadał krótko, ale z każdym miesiącem dokładniej.</p>
+    <p class="t">Po trzech latach Aleksander potrafił nazwać to, co czuje.</p>
+    <p class="t">Wiele lat później woził ze sobą na dalekie wyprawy zwoje od swojego nauczyciela.</p>
+  </div>
+
+  <blockquote class="cytat">
+    <q>Korzenie edukacji są gorzkie, ale owoc jest słodki.</q>
+    <cite>Myśl przypisywana Arystotelesowi przez starożytnego pisarza Diogenesa Laertiosa</cite>
+  </blockquote>
+
+  <div class="blok">
+    <h3 class="krok-tytul"><span class="kolko">2</span> Myśl Arystotelesa</h3>
+    <p class="t">Nauczanie było drugą wielką pasją Arystotelesa, zaraz po badaniu.</p>
+    <p class="t">Uważał, że uczenie się jest na początku niewygodne.</p>
+    <p class="t">Korzeń jest gorzki, ponieważ nauka na starcie męczy.</p>
+    <p class="t">Owoc jest słodki, ponieważ potem umiesz coś, co kiedyś było niemożliwe.</p>
+    <p class="t">Arystoteles nie kazał uczniom siedzieć nieruchomo.</p>
+    <p class="t">Wiedział, że każdy uczy się w swoim tempie.</p>
+    <p class="t">Nie oceniał ucznia po tym, jak szybko odpowiada.</p>
+    <p class="t">Oceniał po tym, czy uczeń naprawdę rozumie.</p>
+    <p class="t">To jest ogromna różnica.</p>
+    <p class="t">Wielu nauczycieli uczy się jej przez całe życie.</p>
+  </div>
+
+  <div class="emocja">
+    <h3 class="krok-tytul"><span class="kolko">3</span> Emocja</h3>
+    <span class="emocja-nazwa">Duma</span>
+    <p class="t">Duma to emocja, która przychodzi po wysiłku.</p>
+    <p class="t">Czujesz ją wtedy, gdy coś się udało, chociaż było trudne.</p>
+    <p class="t">W ciele prostuje się plecy, a na twarzy robi się ciepło.</p>
+    <p class="t">Duma nie znaczy, że ktoś jest lepszy od innych ludzi.</p>
+    <p class="t">Duma mówi tylko jedno: dziś umiem więcej niż wczoraj.</p>
+    <p class="t">Wolno cieszyć się z małych kroków.</p>
+    <p class="t">Mały krok też jest prawdziwym krokiem.</p>
+  </div>
+
+  <div class="zycie">
+    <h3 class="krok-tytul"><span class="kolko">4</span> W Twoim życiu</h3>
+    <p class="t">Wyobraź sobie, że po wielu próbach udaje Ci się samodzielnie kupić bilet.</p>
+    <p class="t">Albo pierwszy raz mówisz na głos, że czegoś nie rozumiesz.</p>
+    <p class="t">Inni mogą tego nie zauważyć, bo dla nich to drobiazg.</p>
+    <p class="t">Dla Ciebie to nie jest drobiazg i masz prawo być z tego dumny lub dumna.</p>
+    <p class="t">Możesz zaznaczyć ten dzień w kalendarzu jednym kolorem.</p>
+    <p class="t">Zapisane sukcesy bardzo się przydają w gorszym tygodniu.</p>
+  </div>
+
+  <div class="pytania-blok">
+    <h3 class="krok-tytul"><span class="kolko">5</span> Pięć pytań</h3>
+    <ol class="pytania">
+      <li><span class="nr">21.</span><span>Co potrafisz dziś, czego rok temu jeszcze nie potrafiłeś ani nie potrafiłaś?</span></li>
+      <li><span class="nr">22.</span><span>Jak wygląda duma w Twoim ciele — czy w ogóle daje się ją zauważyć?</span></li>
+      <li><span class="nr">23.</span><span>Kto zauważa Twoje małe kroki? A kto ich nie zauważa?</span></li>
+      <li><span class="nr">24.</span><span>Jaka nauka była dla Ciebie „gorzkim korzeniem”, a potem dała słodki owoc?</span></li>
+      <li><span class="nr">25.</span><span>Gdzie mógłbyś lub mogłabyś zapisywać swoje sukcesy, żeby ich nie zgubić?</span></li>
+    </ol>
+  </div>
+</article>
+
+<!-- ================= SPOTKANIE 6 ================= -->
+<article class="rozdzial">
+  <div class="naglowek-rozdzialu">
+    <div class="numer">6</div>
+    <div class="blok">
+      <span class="etykieta">Emocja: ulga</span>
+      <h2>Szkoła, w której się chodzi</h2>
+    </div>
+  </div>
+
+  <figure>
+    <svg viewBox="0 0 640 190" role="img" aria-label="Kryta ścieżka między drzewami ze śladami stóp — szkoła Likejon">
+      <rect x="0" y="0" width="640" height="190" fill="var(--papier-2)"/>
+      <g fill="var(--oliwka)" opacity="0.3"><circle cx="52" cy="52" r="38"/><circle cx="588" cy="48" r="42"/><circle cx="120" cy="34" r="26"/></g>
+      <g fill="var(--karta)" stroke="var(--morze)" stroke-width="3">
+        <rect x="120" y="52" width="16" height="82"/><rect x="220" y="52" width="16" height="82"/>
+        <rect x="320" y="52" width="16" height="82"/><rect x="420" y="52" width="16" height="82"/><rect x="516" y="52" width="16" height="82"/>
+      </g>
+      <rect x="104" y="38" width="444" height="16" rx="3" fill="var(--morze-jasne)" stroke="var(--morze)" stroke-width="3"/>
+      <rect x="0" y="134" width="640" height="8" fill="var(--linia)"/>
+      <g fill="var(--szafran)" opacity="0.85">
+        <ellipse cx="150" cy="158" rx="13" ry="8" transform="rotate(-14 150 158)"/>
+        <ellipse cx="196" cy="170" rx="13" ry="8" transform="rotate(-8 196 170)"/>
+        <ellipse cx="248" cy="156" rx="13" ry="8" transform="rotate(-14 248 156)"/>
+        <ellipse cx="298" cy="170" rx="13" ry="8" transform="rotate(-8 298 170)"/>
+        <ellipse cx="350" cy="156" rx="13" ry="8" transform="rotate(-14 350 156)"/>
+        <ellipse cx="400" cy="170" rx="13" ry="8" transform="rotate(-8 400 170)"/>
+        <ellipse cx="452" cy="156" rx="13" ry="8" transform="rotate(-14 452 156)"/>
+      </g>
+      <text x="470" y="176" font-family="Atkinson Hyperlegible, sans-serif" font-size="15" fill="var(--atrament-2)">myśl idzie z krokiem</text>
+    </svg>
+  </figure>
+
+  <div class="blok">
+    <h3 class="krok-tytul"><span class="kolko">1</span> Scena</h3>
+    <p class="t">W roku 335 przed naszą erą Arystoteles wrócił do Aten.</p>
+    <p class="t">Miał wtedy prawie pięćdziesiąt lat.</p>
+    <p class="t">Postanowił założyć własną szkołę.</p>
+    <p class="t">Wybrał gaj przy świątyni boga Apollina Likejosa.</p>
+    <p class="t">Od tej nazwy szkołę nazwano Likejon.</p>
+    <p class="t">W Likejonie nie było ławek ustawionych w rzędach.</p>
+    <p class="t">Były za to długie, kryte ścieżki między drzewami.</p>
+    <p class="t">Nauczyciel i uczniowie chodzili tymi ścieżkami tam i z powrotem.</p>
+    <p class="t">Rozmawiali w ruchu, a nie w bezruchu.</p>
+    <p class="t">Ludzie zaczęli nazywać ich perypatetykami.</p>
+    <p class="t">To greckie słowo znaczy mniej więcej „ci, którzy chodzą”.</p>
+    <p class="t">Rano odbywały się trudne wykłady dla stałych uczniów.</p>
+    <p class="t">Po południu przyjść i posłuchać mógł każdy mieszkaniec miasta.</p>
+    <p class="t">Szkoła miała też pierwszą w Europie bibliotekę i zbiór okazów przyrodniczych.</p>
+  </div>
+
+  <blockquote class="cytat">
+    <q>Tego, czego mamy się nauczyć, uczymy się, robiąc to.</q>
+    <cite>Arystoteles, „Etyka nikomachejska”, księga II</cite>
+  </blockquote>
+
+  <div class="blok">
+    <h3 class="krok-tytul"><span class="kolko">2</span> Myśl Arystotelesa</h3>
+    <p class="t">Arystoteles zauważył coś, co dziś potwierdzają badania mózgu.</p>
+    <p class="t">Ruch pomaga myśleć i uspokaja ciało.</p>
+    <p class="t">Kiedy idziesz, oddech sam się wyrównuje.</p>
+    <p class="t">Kiedy oddech się wyrównuje, napięcie spada.</p>
+    <p class="t">Kiedy napięcie spada, łatwiej znaleźć słowa.</p>
+    <p class="t">Dlatego trudne rozmowy często lepiej prowadzić w drodze niż przy stole.</p>
+    <p class="t">Arystoteles pisał też, że wielu rzeczy uczymy się dopiero wtedy, gdy je robimy.</p>
+    <p class="t">Nie da się nauczyć pływania z samej książki.</p>
+    <p class="t">Nie da się też nauczyć rozmowy bez rozmawiania.</p>
+    <p class="t">Pierwsze próby zawsze wychodzą niezgrabnie i tak ma być.</p>
+  </div>
+
+  <div class="emocja">
+    <h3 class="krok-tytul"><span class="kolko">3</span> Emocja</h3>
+    <span class="emocja-nazwa">Ulga</span>
+    <p class="t">Ulga to emocja, która przychodzi zaraz po napięciu.</p>
+    <p class="t">Czujesz ją wtedy, gdy coś trudnego wreszcie się kończy.</p>
+    <p class="t">Ramiona opadają, oddech robi się dłuższy, czasem chce się ziewnąć.</p>
+    <p class="t">Ulga bywa cicha i łatwo ją przeoczyć.</p>
+    <p class="t">Warto ją zauważać, bo pokazuje, co naprawdę Cię męczyło.</p>
+    <p class="t">Po dużej uldze często przychodzi zmęczenie.</p>
+    <p class="t">Zmęczenie po trudnym dniu nie jest lenistwem.</p>
+  </div>
+
+  <div class="zycie">
+    <h3 class="krok-tytul"><span class="kolko">4</span> W Twoim życiu</h3>
+    <p class="t">Wyobraź sobie, że masz w domu do przeprowadzenia trudną rozmowę.</p>
+    <p class="t">Siedzenie naprzeciwko drugiej osoby i patrzenie jej w oczy bywa nie do zniesienia.</p>
+    <p class="t">Możesz poprosić: „porozmawiajmy w czasie spaceru”.</p>
+    <p class="t">Podczas chodzenia nie trzeba patrzeć na siebie i słowa przychodzą łatwiej.</p>
+    <p class="t">To nie jest unikanie rozmowy, tylko wybór lepszych warunków.</p>
+    <p class="t">Arystoteles uczył tak przez dwanaście lat i nikt nie nazwał tego unikaniem.</p>
+  </div>
+
+  <div class="pytania-blok">
+    <h3 class="krok-tytul"><span class="kolko">5</span> Pięć pytań</h3>
+    <ol class="pytania">
+      <li><span class="nr">26.</span><span>Czy łatwiej Ci rozmawiać w ruchu niż siedząc naprzeciwko kogoś?</span></li>
+      <li><span class="nr">27.</span><span>Jaki ruch najszybciej uspokaja Twoje ciało — chodzenie, kołysanie, ściskanie czegoś w dłoni?</span></li>
+      <li><span class="nr">28.</span><span>Po czym poznajesz u siebie ulgę? Co robi wtedy Twój oddech?</span></li>
+      <li><span class="nr">29.</span><span>Jakie warunki musisz mieć, żeby trudna rozmowa była możliwa?</span></li>
+      <li><span class="nr">30.</span><span>O co możesz poprosić, zanim taka rozmowa się zacznie?</span></li>
+    </ol>
+  </div>
+</article>
+
+<!-- ================= SPOTKANIE 7 ================= -->
+<article class="rozdzial">
+  <div class="naglowek-rozdzialu">
+    <div class="numer">7</div>
+    <div class="blok">
+      <span class="etykieta">Emocja: strach</span>
+      <h2>Waga w środku</h2>
+    </div>
+  </div>
+
+  <figure class="rama przewijalne">
+    <span class="etykieta">Infografika 3 · złoty środek</span>
+    <svg viewBox="0 0 900 300" role="img" aria-label="Waga złotego środka: za mało po lewej, właściwa miara pośrodku, za dużo po prawej" style="min-width:620px">
+      <rect x="60" y="196" width="780" height="12" rx="6" fill="var(--linia)"/>
+      <rect x="60" y="150" width="240" height="46" rx="6" fill="var(--glina-tlo)" stroke="var(--glina)" stroke-width="3"/>
+      <rect x="330" y="140" width="240" height="56" rx="6" fill="var(--oliwka-tlo)" stroke="var(--oliwka)" stroke-width="4"/>
+      <rect x="600" y="150" width="240" height="46" rx="6" fill="var(--glina-tlo)" stroke="var(--glina)" stroke-width="3"/>
+      <g font-family="Alegreya Sans, sans-serif" font-weight="800" text-anchor="middle" fill="var(--atrament)">
+        <text x="180" y="182" font-size="24">ZA MAŁO</text>
+        <text x="450" y="178" font-size="28">WŁAŚCIWA MIARA</text>
+        <text x="720" y="182" font-size="24">ZA DUŻO</text>
+      </g>
+      <g font-family="Atkinson Hyperlegible, sans-serif" font-size="18" text-anchor="middle" fill="var(--atrament-2)">
+        <text x="180" y="240">tchórzostwo</text><text x="180" y="266">ucieczka od wszystkiego</text>
+        <text x="450" y="240">odwaga</text><text x="450" y="266">boję się i mimo to działam</text>
+        <text x="720" y="240">brawura</text><text x="720" y="266">ryzyko bez sensu</text>
+      </g>
+      <g stroke="var(--morze)" stroke-width="5" fill="none" stroke-linecap="round">
+        <path d="M450 140 v-42"/><path d="M300 98 h300"/>
+        <path d="M300 98 l-26 34 h52 z" fill="var(--morze-jasne)"/>
+        <path d="M600 98 l-26 34 h52 z" fill="var(--morze-jasne)"/>
+      </g>
+      <circle cx="450" cy="92" r="14" fill="var(--szafran)" stroke="var(--karta)" stroke-width="4"/>
+      <text x="450" y="58" text-anchor="middle" font-family="Atkinson Hyperlegible, sans-serif" font-size="18" fill="var(--atrament-2)">cnota to nie brak emocji — to jej właściwa miara</text>
+    </svg>
+    <figcaption>Środek nie leży dokładnie w połowie u każdego. Twój środek zależy od Twojego życia.</figcaption>
+  </figure>
+
+  <div class="blok">
+    <h3 class="krok-tytul"><span class="kolko">1</span> Scena</h3>
+    <p class="t">Uczniowie zadali kiedyś Arystotelesowi trudne pytanie.</p>
+    <p class="t">Zapytali, czy odważny człowiek to taki, który nigdy się nie boi.</p>
+    <p class="t">Arystoteles odpowiedział, że taki człowiek nie byłby odważny, tylko nierozsądny.</p>
+    <p class="t">Uczniowie bardzo się zdziwili.</p>
+    <p class="t">Nauczyciel wziął wtedy do ręki wagę kupiecką.</p>
+    <p class="t">Na jednej szalce położył kamyk i nazwał go tchórzostwem.</p>
+    <p class="t">Na drugiej szalce położył drugi kamyk i nazwał go brawurą.</p>
+    <p class="t">Waga przechylała się raz w jedną, raz w drugą stronę.</p>
+    <p class="t">Arystoteles pokazał palcem punkt pośrodku.</p>
+    <p class="t">Powiedział, że właśnie tam mieszka odwaga.</p>
+    <p class="t">Odważny człowiek boi się właściwych rzeczy i we właściwym stopniu.</p>
+    <p class="t">Nie rzuca się w ogień bez powodu.</p>
+    <p class="t">Nie ucieka też przed każdym cieniem.</p>
+    <p class="t">Uczniowie długo patrzyli na wagę i nikt nic nie mówił.</p>
+  </div>
+
+  <blockquote class="cytat">
+    <q>Cnota jest środkiem pomiędzy dwiema wadami: jedną z nadmiaru i drugą z niedostatku.</q>
+    <cite>Arystoteles, „Etyka nikomachejska”, księga II</cite>
+  </blockquote>
+
+  <div class="blok">
+    <h3 class="krok-tytul"><span class="kolko">2</span> Myśl Arystotelesa</h3>
+    <p class="t">Ten pomysł nazywa się złotym środkiem.</p>
+    <p class="t">Po grecku Arystoteles pisał o mesotes, czyli o środku.</p>
+    <p class="t">Zasada jest prosta: prawie każda dobra cecha leży pomiędzy dwiema złymi.</p>
+    <p class="t">Za mało odwagi to tchórzostwo, a za dużo to brawura.</p>
+    <p class="t">Za mało szczerości to kłamstwo, a za dużo to słowa, które ranią bez potrzeby.</p>
+    <p class="t">Środek nie leży w tym samym miejscu u każdego człowieka.</p>
+    <p class="t">Dla jednej osoby odwagą jest wyjście na scenę.</p>
+    <p class="t">Dla innej odwagą jest podniesienie ręki na lekcji.</p>
+    <p class="t">Obie te rzeczy są tak samo prawdziwą odwagą.</p>
+    <p class="t">Twój środek wyznacza Twoje życie, a nie życie kogoś innego.</p>
+  </div>
+
+  <div class="przewijalne">
+  <table>
+    <thead><tr><th>Za mało</th><th>Właściwa miara</th><th>Za dużo</th></tr></thead>
+    <tbody>
+      <tr><td>Nigdy nie mówię, czego chcę</td><td>Mówię spokojnie, czego potrzebuję</td><td>Żądam natychmiast i podniesionym głosem</td></tr>
+      <tr><td>Nie proszę o pomoc wcale</td><td>Proszę, gdy naprawdę nie daję rady</td><td>Proszę, zanim spróbuję sam lub sama</td></tr>
+      <tr><td>Milczę, choć coś mnie boli</td><td>Mówię o tym jednej zaufanej osobie</td><td>Opowiadam o tym wszystkim wokół</td></tr>
+      <tr><td>Nie odpoczywam prawie wcale</td><td>Robię przerwę, gdy ciało jej potrzebuje</td><td>Odkładam wszystko na później</td></tr>
+    </tbody>
+  </table>
+  </div>
+
+  <div class="emocja">
+    <h3 class="krok-tytul"><span class="kolko">3</span> Emocja</h3>
+    <span class="emocja-nazwa">Strach</span>
+    <p class="t">Strach to emocja, która ostrzega.</p>
+    <p class="t">Mówi jedno zdanie: „uwaga, może być niebezpiecznie”.</p>
+    <p class="t">W ciele czuć zimno w brzuchu i mocne bicie serca.</p>
+    <p class="t">Czasem drżą ręce albo robi się sucho w ustach.</p>
+    <p class="t">Strach nie jest wadą i nie da się go po prostu wyłączyć.</p>
+    <p class="t">Można za to sprawdzić, czy jego siła pasuje do sytuacji.</p>
+    <p class="t">Jeśli strach jest większy niż zagrożenie, warto powiedzieć o tym zaufanej osobie.</p>
+  </div>
+
+  <div class="zycie">
+    <h3 class="krok-tytul"><span class="kolko">4</span> W Twoim życiu</h3>
+    <p class="t">Wyobraź sobie, że jutro masz odpowiadać przy tablicy.</p>
+    <p class="t">Serce wali, a w nocy trudno zasnąć.</p>
+    <p class="t">Zapytaj wtedy siebie: ile wynosi mój strach w skali od 0 do 10.</p>
+    <p class="t">Potem zapytaj: ile wynosi prawdziwe niebezpieczeństwo w tej samej skali.</p>
+    <p class="t">Jeśli obie liczby bardzo się różnią, to strach mówi głośniej niż fakty.</p>
+    <p class="t">Samo nazwanie tej różnicy zwykle trochę zmniejsza napięcie.</p>
+  </div>
+
+  <div class="pytania-blok">
+    <h3 class="krok-tytul"><span class="kolko">5</span> Pięć pytań</h3>
+    <ol class="pytania">
+      <li><span class="nr">31.</span><span>Czego boisz się najbardziej w zwykłym tygodniu?</span></li>
+      <li><span class="nr">32.</span><span>Ile wynosi ten strach na skali od 0 do 10, a ile wynosi prawdziwe zagrożenie?</span></li>
+      <li><span class="nr">33.</span><span>Co dla Ciebie osobiście jest odwagą? Nie musi to być to samo, co dla innych.</span></li>
+      <li><span class="nr">34.</span><span>W czym miewasz „za dużo”, a w czym „za mało”?</span></li>
+      <li><span class="nr">35.</span><span>Kto pomaga Ci sprawdzić, czy Twój strach pasuje do sytuacji?</span></li>
+    </ol>
+  </div>
+</article>
+
+<!-- ================= SPOTKANIE 8 ================= -->
+<article class="rozdzial">
+  <div class="naglowek-rozdzialu">
+    <div class="numer">8</div>
+    <div class="blok">
+      <span class="etykieta">Emocja: zniechęcenie</span>
+      <h2>Sto razy to samo</h2>
+    </div>
+  </div>
+
+  <figure class="rama">
+    <span class="etykieta">Infografika 4 · jak powstaje nawyk</span>
+    <svg viewBox="0 0 780 300" role="img" aria-label="Koło nawyku: powtórzenie, ślad w mózgu, łatwiej, charakter">
+      <circle cx="390" cy="150" r="104" fill="none" stroke="var(--linia)" stroke-width="26"/>
+      <path d="M390 46 a104 104 0 0 1 90 156" fill="none" stroke="var(--szafran)" stroke-width="26" stroke-linecap="round"/>
+      <path d="M480 202 l30 -6 -14 28 z" fill="var(--szafran)"/>
+      <g font-family="Alegreya Sans, sans-serif" font-weight="800" font-size="20" fill="var(--atrament)" text-anchor="middle">
+        <text x="390" y="24">1. ROBISZ TO RAZ</text>
+        <text x="700" y="156">2. ZOSTAJE ŚLAD</text>
+        <text x="390" y="290">3. DRUGI RAZ JEST ŁATWIEJ</text>
+        <text x="80" y="156">4. TO JUŻ NAWYK</text>
+      </g>
+      <g font-family="Atkinson Hyperlegible, sans-serif" font-size="17" fill="var(--atrament)" text-anchor="middle">
+        <text x="390" y="132">powtórzenie</text>
+        <text x="390" y="162">buduje</text>
+        <text x="390" y="192">charakter</text>
+      </g>
+      <g fill="var(--morze)"><circle cx="390" cy="46" r="13"/><circle cx="494" cy="150" r="13"/><circle cx="390" cy="254" r="13"/><circle cx="286" cy="150" r="13"/></g>
+    </svg>
+    <figcaption>Arystoteles nazywał to greckim słowem <em>hexis</em> — trwały nawyk, który zostaje w człowieku.</figcaption>
+  </figure>
+
+  <div class="blok">
+    <h3 class="krok-tytul"><span class="kolko">1</span> Scena</h3>
+    <p class="t">Do Likejonu przyszedł kiedyś młody człowiek.</p>
+    <p class="t">Był smutny i mówił bardzo cicho.</p>
+    <p class="t">Powiedział, że chce być dobrym człowiekiem, ale mu to nie wychodzi.</p>
+    <p class="t">Mówił, że wciąż się złości i wciąż tego potem żałuje.</p>
+    <p class="t">Arystoteles zapytał go, czy umie grać na kitarze.</p>
+    <p class="t">Kitara to starożytny instrument podobny do liry.</p>
+    <p class="t">Młody człowiek odpowiedział, że nie umie.</p>
+    <p class="t">Nauczyciel zapytał, co trzeba zrobić, żeby umieć.</p>
+    <p class="t">Uczeń powiedział, że trzeba ćwiczyć bardzo długo.</p>
+    <p class="t">Arystoteles skinął głową i nic więcej nie dodał.</p>
+    <p class="t">Uczeń zamyślił się na dłuższą chwilę.</p>
+    <p class="t">Potem sam powiedział to, co miał usłyszeć.</p>
+    <p class="t">Powiedział, że spokoju też trzeba się uczyć tak jak grania.</p>
+    <p class="t">Wyszedł ze szkoły spokojniejszy, niż do niej przyszedł.</p>
+  </div>
+
+  <blockquote class="cytat">
+    <q>Stajemy się sprawiedliwi, czyniąc rzeczy sprawiedliwe, a odważni — czyniąc rzeczy odważne.</q>
+    <cite>Arystoteles, „Etyka nikomachejska”, księga II</cite>
+  </blockquote>
+
+  <div class="blok">
+    <h3 class="krok-tytul"><span class="kolko">2</span> Myśl Arystotelesa</h3>
+    <p class="t">Arystoteles nie wierzył, że ludzie rodzą się dobrzy albo źli.</p>
+    <p class="t">Uważał, że charakter powstaje z powtarzania.</p>
+    <p class="t">Jedna próba prawie niczego nie zmienia.</p>
+    <p class="t">Sto prób zmienia bardzo dużo.</p>
+    <p class="t">Nazwał to greckim słowem hexis, czyli trwały nawyk.</p>
+    <p class="t">Nawyk działa nawet wtedy, gdy nie masz siły ani ochoty.</p>
+    <p class="t">Dlatego spokoju najlepiej uczyć się w łatwe dni.</p>
+    <p class="t">W trudne dni korzystasz z tego, co wyćwiczyłeś lub wyćwiczyłaś wcześniej.</p>
+    <p class="t">Arystoteles powtarzał to uczniom przez dwanaście lat.</p>
+    <p class="t">Dziś mówią to samo terapeuci i trenerzy.</p>
+  </div>
+
+  <div class="emocja">
+    <h3 class="krok-tytul"><span class="kolko">3</span> Emocja</h3>
+    <span class="emocja-nazwa">Zniechęcenie</span>
+    <p class="t">Zniechęcenie przychodzi wtedy, gdy próbujesz i nie widzisz efektu.</p>
+    <p class="t">Ręce robią się ciężkie, a ciało chce usiąść.</p>
+    <p class="t">W głowie pojawia się zdanie „i tak mi się nie uda”.</p>
+    <p class="t">To zdanie jest myślą, a nie faktem.</p>
+    <p class="t">Zniechęcenie zwykle mówi o zmęczeniu, a nie o Twoich możliwościach.</p>
+    <p class="t">Pomaga zmniejszyć krok zamiast rezygnować z całej drogi.</p>
+    <p class="t">Trzy minuty ćwiczenia to zawsze więcej niż zero minut.</p>
+  </div>
+
+  <div class="zycie">
+    <h3 class="krok-tytul"><span class="kolko">4</span> W Twoim życiu</h3>
+    <p class="t">Wyobraź sobie, że uczysz się mówić „nie chcę” zamiast milczeć.</p>
+    <p class="t">Pierwszy raz nie wychodzi, drugi raz też nie.</p>
+    <p class="t">Chce Ci się przestać i uznać, że to nie dla Ciebie.</p>
+    <p class="t">Możesz wtedy liczyć swoje próby zamiast liczyć porażki.</p>
+    <p class="t">Piąta próba wygląda inaczej niż pierwsza, nawet jeśli tego nie widać.</p>
+    <p class="t">Arystoteles powiedziałby, że po prostu ćwiczysz — tak samo jak przy nauce gry na instrumencie.</p>
+  </div>
+
+  <div class="pytania-blok">
+    <h3 class="krok-tytul"><span class="kolko">5</span> Pięć pytań</h3>
+    <ol class="pytania">
+      <li><span class="nr">36.</span><span>Czego uczysz się teraz, choć idzie to wolniej, niż byś chciał lub chciała?</span></li>
+      <li><span class="nr">37.</span><span>Jakie zdanie mówi Ci w głowie zniechęcenie? Zapisz je dokładnie.</span></li>
+      <li><span class="nr">38.</span><span>Jaki jest Twój najmniejszy możliwy krok — taki, który da się zrobić w trzy minuty?</span></li>
+      <li><span class="nr">39.</span><span>Jaki nawyk już masz i wcale Cię nie kosztuje wysiłku?</span></li>
+      <li><span class="nr">40.</span><span>Kto może policzyć razem z Tobą Twoje próby, a nie Twoje błędy?</span></li>
+    </ol>
+  </div>
+</article>
+
+<!-- ================= SPOTKANIE 9 ================= -->
+<article class="rozdzial">
+  <div class="naglowek-rozdzialu">
+    <div class="numer">9</div>
+    <div class="blok">
+      <span class="etykieta">Emocja: samotność</span>
+      <h2>Trzy rodzaje przyjaciół</h2>
+    </div>
+  </div>
+
+  <figure class="rama przewijalne">
+    <span class="etykieta">Infografika 5 · trzy rodzaje przyjaźni</span>
+    <svg viewBox="0 0 860 290" role="img" aria-label="Trzy koła: przyjaźń z pożytku, z przyjemności i prawdziwa" style="min-width:600px">
+      <g>
+        <circle cx="150" cy="128" r="86" fill="var(--morze-jasne)" stroke="var(--morze)" stroke-width="4"/>
+        <circle cx="430" cy="128" r="86" fill="var(--szafran-tlo)" stroke="var(--szafran)" stroke-width="4"/>
+        <circle cx="710" cy="128" r="86" fill="var(--oliwka-tlo)" stroke="var(--oliwka)" stroke-width="6"/>
+      </g>
+      <g font-family="Alegreya Sans, sans-serif" font-weight="800" font-size="22" fill="var(--atrament)" text-anchor="middle">
+        <text x="150" y="112">Z POŻYTKU</text><text x="430" y="112">Z PRZYJEMNOŚCI</text><text x="710" y="112">PRAWDZIWA</text>
+      </g>
+      <g font-family="Atkinson Hyperlegible, sans-serif" font-size="16" fill="var(--atrament)" text-anchor="middle">
+        <text x="150" y="144">pomagamy sobie</text><text x="150" y="166">w konkretnej sprawie</text>
+        <text x="430" y="144">dobrze się razem</text><text x="430" y="166">bawimy</text>
+        <text x="710" y="144">chcę Twojego dobra</text><text x="710" y="166">dla Ciebie samego</text>
+      </g>
+      <g font-family="Atkinson Hyperlegible, sans-serif" font-size="15" fill="var(--atrament-2)" text-anchor="middle">
+        <text x="150" y="246">trwa tyle, ile sprawa</text>
+        <text x="430" y="246">trwa tyle, ile zabawa</text>
+        <text x="710" y="246">trwa latami · jest rzadka</text>
+      </g>
+      <g stroke="var(--linia)" stroke-width="3"><path d="M244 128 h92"/><path d="M524 128 h92"/></g>
+      <text x="430" y="34" text-anchor="middle" font-family="Atkinson Hyperlegible, sans-serif" font-size="17" fill="var(--atrament-2)">Wszystkie trzy są w porządku. Tylko trzecia wymaga czasu.</text>
+    </svg>
+    <figcaption>Podział z „Etyki nikomachejskiej”, księgi VIII i IX — najdłuższego tekstu o przyjaźni w starożytności.</figcaption>
+  </figure>
+
+  <div class="blok">
+    <h3 class="krok-tytul"><span class="kolko">1</span> Scena</h3>
+    <p class="t">Arystoteles miał wielu znajomych, ale niewielu przyjaciół.</p>
+    <p class="t">Zauważył, że ludzie używają słowa „przyjaciel” na bardzo wiele sposobów.</p>
+    <p class="t">Postanowił to uporządkować.</p>
+    <p class="t">Napisał o przyjaźni dwie całe księgi.</p>
+    <p class="t">To najdłuższy tekst o przyjaźni, jaki został ze starożytności.</p>
+    <p class="t">Podzielił przyjaźń na trzy rodzaje.</p>
+    <p class="t">Pierwszy rodzaj jest z pożytku.</p>
+    <p class="t">Tacy ludzie trzymają się razem, bo sobie w czymś pomagają.</p>
+    <p class="t">Drugi rodzaj jest z przyjemności.</p>
+    <p class="t">Tacy ludzie są razem, bo dobrze się razem bawią.</p>
+    <p class="t">Trzeci rodzaj jest najrzadszy ze wszystkich.</p>
+    <p class="t">To przyjaźń, w której chcesz dobra drugiej osoby dla niej samej.</p>
+    <p class="t">Arystoteles pisał, że taka przyjaźń rośnie powoli i potrzebuje lat.</p>
+    <p class="t">Dodał, że nie da się mieć wielu takich przyjaciół naraz.</p>
+  </div>
+
+  <blockquote class="cytat">
+    <q>Przyjaciel to jedna dusza mieszkająca w dwóch ciałach.</q>
+    <cite>Odpowiedź Arystotelesa na pytanie „czym jest przyjaciel?”, zapisana przez Diogenesa Laertiosa</cite>
+  </blockquote>
+
+  <div class="blok">
+    <h3 class="krok-tytul"><span class="kolko">2</span> Myśl Arystotelesa</h3>
+    <p class="t">Ten podział pomaga przestać się zamartwiać.</p>
+    <p class="t">Wielu ludzi myśli, że mają za mało przyjaciół.</p>
+    <p class="t">Arystoteles powiedziałby, że mają wielu znajomych i że to jest w porządku.</p>
+    <p class="t">Przyjaźń pierwszego i drugiego rodzaju bywa krótka.</p>
+    <p class="t">Kończy się wtedy, gdy kończy się wspólna sprawa albo wspólna zabawa.</p>
+    <p class="t">To nie znaczy, że ktoś zawiódł albo zrobił coś źle.</p>
+    <p class="t">Przyjaźń trzeciego rodzaju trwa latami.</p>
+    <p class="t">Arystoteles uważał, że do szczęścia wystarczy kilku prawdziwych przyjaciół.</p>
+    <p class="t">Jeden dobry przyjaciel to naprawdę bardzo dużo.</p>
+    <p class="t">Sam pisał, że nikt nie chciałby żyć bez przyjaciół, nawet mając wszystko inne.</p>
+  </div>
+
+  <div class="emocja">
+    <h3 class="krok-tytul"><span class="kolko">3</span> Emocja</h3>
+    <span class="emocja-nazwa">Samotność</span>
+    <p class="t">Samotność to emocja, która mówi o braku bliskości.</p>
+    <p class="t">Można ją czuć nawet wtedy, gdy wokół jest dużo osób.</p>
+    <p class="t">W ciele bywa jak pustka w klatce piersiowej i ciężar w głowie.</p>
+    <p class="t">Samotność nie znaczy, że jesteś kimś nielubianym.</p>
+    <p class="t">Czasem znaczy tylko tyle, że Twoi ludzie jeszcze się nie pojawili.</p>
+    <p class="t">Bycie samemu z wyboru to zupełnie co innego niż samotność.</p>
+    <p class="t">Cisza po dniu pełnym bodźców bywa potrzebna i zdrowa.</p>
+  </div>
+
+  <div class="zycie">
+    <h3 class="krok-tytul"><span class="kolko">4</span> W Twoim życiu</h3>
+    <p class="t">Wyobraź sobie przerwę w szkole, gdy wszyscy stoją w grupach.</p>
+    <p class="t">Ty stoisz obok i nie wiesz, czy podejść.</p>
+    <p class="t">W środku robi się pusto i ciężko.</p>
+    <p class="t">Możesz sprawdzić, jakiego rodzaju przyjaźni tak naprawdę szukasz.</p>
+    <p class="t">Czasem wystarczy jedna osoba, z którą można pomilczeć obok siebie.</p>
+    <p class="t">Milczenie we dwoje też jest prawdziwą formą bycia razem.</p>
+  </div>
+
+  <div class="pytania-blok">
+    <h3 class="krok-tytul"><span class="kolko">5</span> Pięć pytań</h3>
+    <ol class="pytania">
+      <li><span class="nr">41.</span><span>Kto należy u Ciebie do przyjaźni z pożytku, a kto do przyjaźni z przyjemności?</span></li>
+      <li><span class="nr">42.</span><span>Czy masz kogoś z trzeciego rodzaju? Jeśli nie — kto mógłby nim kiedyś zostać?</span></li>
+      <li><span class="nr">43.</span><span>Czym różni się u Ciebie „jestem sam” od „jestem samotny”?</span></li>
+      <li><span class="nr">44.</span><span>Jak wygląda dobre bycie razem bez rozmawiania?</span></li>
+      <li><span class="nr">45.</span><span>Co możesz powiedzieć albo zrobić, żeby podejść do kogoś na przerwie?</span></li>
+    </ol>
+  </div>
+</article>
+
+<!-- ================= SPOTKANIE 10 ================= -->
+<article class="rozdzial">
+  <div class="naglowek-rozdzialu">
+    <div class="numer">10</div>
+    <div class="blok">
+      <span class="etykieta">Emocja: gniew</span>
+      <h2>Gniew, który ma miarę</h2>
+    </div>
+  </div>
+
+  <figure class="rama przewijalne">
+    <span class="etykieta">Infografika 6 · pięć pytań do złości</span>
+    <svg viewBox="0 0 900 250" role="img" aria-label="Pięć pól z pytaniami: na kogo, jak bardzo, kiedy, po co, w jaki sposób" style="min-width:620px">
+      <g>
+        <rect x="20" y="60" width="156" height="120" rx="8" fill="var(--glina-tlo)" stroke="var(--glina)" stroke-width="4"/>
+        <rect x="196" y="60" width="156" height="120" rx="8" fill="var(--glina-tlo)" stroke="var(--glina)" stroke-width="4"/>
+        <rect x="372" y="60" width="156" height="120" rx="8" fill="var(--glina-tlo)" stroke="var(--glina)" stroke-width="4"/>
+        <rect x="548" y="60" width="156" height="120" rx="8" fill="var(--szafran-tlo)" stroke="var(--szafran)" stroke-width="5"/>
+        <rect x="724" y="60" width="156" height="120" rx="8" fill="var(--glina-tlo)" stroke="var(--glina)" stroke-width="4"/>
+      </g>
+      <g font-family="Alegreya Sans, sans-serif" font-weight="800" font-size="26" fill="var(--atrament)" text-anchor="middle">
+        <text x="98" y="106">NA KOGO</text><text x="274" y="106">JAK BARDZO</text><text x="450" y="106">KIEDY</text>
+        <text x="626" y="106">PO CO</text><text x="802" y="106">JAK</text>
+      </g>
+      <g font-family="Atkinson Hyperlegible, sans-serif" font-size="15" fill="var(--atrament)" text-anchor="middle">
+        <text x="98" y="136">na właściwą</text><text x="98" y="158">osobę</text>
+        <text x="274" y="136">w odpowiednim</text><text x="274" y="158">stopniu</text>
+        <text x="450" y="136">we właściwym</text><text x="450" y="158">czasie</text>
+        <text x="626" y="136">w dobrym</text><text x="626" y="158">celu</text>
+        <text x="802" y="136">we właściwy</text><text x="802" y="158">sposób</text>
+      </g>
+      <text x="450" y="36" text-anchor="middle" font-family="Atkinson Hyperlegible, sans-serif" font-size="18" fill="var(--atrament-2)">Rozgniewać się jest łatwo. Rozgniewać się dobrze — trudno.</text>
+      <text x="626" y="212" text-anchor="middle" font-family="Atkinson Hyperlegible, sans-serif" font-size="16" fill="var(--szafran)" font-weight="700">to pytanie zmienia najwięcej</text>
+    </svg>
+  </figure>
+
+  <div class="blok">
+    <h3 class="krok-tytul"><span class="kolko">1</span> Scena</h3>
+    <p class="t">Pewnego dnia w Likejonie ktoś zniszczył cudzy zwój.</p>
+    <p class="t">Uczeń, do którego zwój należał, wpadł w gniew.</p>
+    <p class="t">Krzyczał tak głośno, że słychać go było w całym gaju.</p>
+    <p class="t">Arystoteles podszedł i poprosił go, żeby usiadł.</p>
+    <p class="t">Nie powiedział mu, że nie wolno się złościć.</p>
+    <p class="t">Zapytał zamiast tego o trzy rzeczy.</p>
+    <p class="t">Zapytał, na kogo dokładnie jest zły.</p>
+    <p class="t">Zapytał, jak bardzo jest zły w tej chwili.</p>
+    <p class="t">Zapytał, co chce dzięki tej złości osiągnąć.</p>
+    <p class="t">Uczeń zamilkł, bo nie znał odpowiedzi na trzecie pytanie.</p>
+    <p class="t">Po chwili powiedział, że chce, aby zwój został naprawiony.</p>
+    <p class="t">Arystoteles odpowiedział, że to jest bardzo dobry cel.</p>
+    <p class="t">Poszli razem do człowieka, który potrafił naprawiać zwoje.</p>
+    <p class="t">Gniew nie zniknął od razu, ale przestał być bezużyteczny.</p>
+  </div>
+
+  <blockquote class="cytat">
+    <q>Każdy może się rozgniewać — to łatwe. Ale rozgniewać się na właściwą osobę, we właściwym stopniu, we właściwym czasie, we właściwym celu i we właściwy sposób — to nie jest łatwe.</q>
+    <cite>Arystoteles, „Etyka nikomachejska”, księga II</cite>
+  </blockquote>
+
+  <div class="blok">
+    <h3 class="krok-tytul"><span class="kolko">2</span> Myśl Arystotelesa</h3>
+    <p class="t">Arystoteles pisał o gniewie więcej niż o jakiejkolwiek innej emocji.</p>
+    <p class="t">W księdze o sztuce mówienia opisał kilkanaście różnych uczuć.</p>
+    <p class="t">Był pierwszym człowiekiem w Europie, który zrobił taką listę.</p>
+    <p class="t">Nie uważał emocji za coś złego.</p>
+    <p class="t">Uważał, że emocja jest jak siła i sama w sobie nie jest ani dobra, ani zła.</p>
+    <p class="t">Ważne jest to, co z tą siłą zrobisz.</p>
+    <p class="t">Dlatego zapisał zdanie o gniewie, które cytuje się do dziś.</p>
+    <p class="t">To zdanie wymienia pięć rzeczy naraz.</p>
+    <p class="t">Wymienia osobę, stopień, czas, cel i sposób.</p>
+    <p class="t">Trudność nie leży w samym gniewie, tylko w tych pięciu rzeczach.</p>
+  </div>
+
+  <div class="emocja">
+    <h3 class="krok-tytul"><span class="kolko">3</span> Emocja</h3>
+    <span class="emocja-nazwa">Gniew</span>
+    <p class="t">Gniew pojawia się wtedy, gdy ktoś przekroczy Twoją granicę.</p>
+    <p class="t">W ciele robi się gorąco w twarzy, a dłonie zaciskają się w pięści.</p>
+    <p class="t">Głos idzie w górę, a myśli robią się szybkie i krótkie.</p>
+    <p class="t">Gniew nie jest zły ani zakazany.</p>
+    <p class="t">Gniew mówi ważną rzecz: „stało się coś niesprawiedliwego”.</p>
+    <p class="t">Problemem bywa nie sam gniew, lecz to, co robimy pod jego wpływem.</p>
+    <p class="t">Między emocją a działaniem zawsze mieści się jeden oddech.</p>
+  </div>
+
+  <div class="zycie">
+    <h3 class="krok-tytul"><span class="kolko">4</span> W Twoim życiu</h3>
+    <p class="t">Wyobraź sobie, że ktoś bierze Twoją rzecz bez pytania.</p>
+    <p class="t">Robi Ci się gorąco i chcesz krzyczeć.</p>
+    <p class="t">Możesz wtedy zadać sobie trzy pytania Arystotelesa.</p>
+    <p class="t">Na kogo jestem zły lub zła, jak bardzo jestem zły lub zła, i czego właściwie chcę.</p>
+    <p class="t">Trzecie pytanie jest najważniejsze, bo zamienia złość w cel.</p>
+    <p class="t">Zdanie „chcę odzyskać swoją rzecz” działa lepiej niż krzyk.</p>
+  </div>
+
+  <div class="pytania-blok">
+    <h3 class="krok-tytul"><span class="kolko">5</span> Pięć pytań</h3>
+    <ol class="pytania">
+      <li><span class="nr">46.</span><span>Co najczęściej wywołuje u Ciebie złość — hałas, niesprawiedliwość, zmiana planu?</span></li>
+      <li><span class="nr">47.</span><span>Po czym poznajesz, że złość dopiero się zaczyna? Jaki jest pierwszy sygnał w ciele?</span></li>
+      <li><span class="nr">48.</span><span>Czego zwykle chcesz, gdy jesteś zły lub zła? Nazwij to jednym zdaniem.</span></li>
+      <li><span class="nr">49.</span><span>Co pomaga Ci wrócić do spokoju: ruch, cisza, woda, koc, muzyka?</span></li>
+      <li><span class="nr">50.</span><span>Komu możesz powiedzieć „jestem teraz zły” zamiast krzyczeć?</span></li>
+    </ol>
+  </div>
+</article>
+
+<!-- ================= SPOTKANIE 11 ================= -->
+<article class="rozdzial">
+  <div class="naglowek-rozdzialu">
+    <div class="numer">11</div>
+    <div class="blok">
+      <span class="etykieta">Emocja: nadzieja</span>
+      <h2>Jedna jaskółka</h2>
+    </div>
+  </div>
+
+  <figure class="rama przewijalne">
+    <span class="etykieta">Infografika 7 · z czego składa się dobre życie</span>
+    <svg viewBox="0 0 880 300" role="img" aria-label="Trzy filary eudajmonii: robienie swojego, bliscy ludzie, zwykłe warunki" style="min-width:620px">
+      <g stroke="var(--morze)" stroke-width="4" fill="none" stroke-linecap="round">
+        <path d="M120 76 q28 -34 66 -16 q-14 34 -50 30 z" fill="var(--morze-jasne)"/>
+        <path d="M186 60 q34 -8 48 20 q-34 12 -56 -4"/>
+      </g>
+      <text x="256" y="70" font-family="Atkinson Hyperlegible, sans-serif" font-size="17" fill="var(--atrament-2)">jedna jaskółka nie czyni wiosny — liczy się całe życie</text>
+      <g>
+        <rect x="40" y="112" width="252" height="140" rx="8" fill="var(--oliwka-tlo)" stroke="var(--oliwka)" stroke-width="4"/>
+        <rect x="314" y="112" width="252" height="140" rx="8" fill="var(--morze-jasne)" stroke="var(--morze)" stroke-width="4"/>
+        <rect x="588" y="112" width="252" height="140" rx="8" fill="var(--szafran-tlo)" stroke="var(--szafran)" stroke-width="4"/>
+      </g>
+      <g font-family="Alegreya Sans, sans-serif" font-weight="800" font-size="23" fill="var(--atrament)" text-anchor="middle">
+        <text x="166" y="152">ROBIĘ SWOJE</text><text x="440" y="152">MAM BLISKICH</text><text x="714" y="152">MAM WARUNKI</text>
+      </g>
+      <g font-family="Atkinson Hyperlegible, sans-serif" font-size="16" fill="var(--atrament)" text-anchor="middle">
+        <text x="166" y="186">to, co potrafię</text><text x="166" y="210">najlepiej na świecie</text><text x="166" y="234">i co mnie wciąga</text>
+        <text x="440" y="186">kilka osób,</text><text x="440" y="210">przy których</text><text x="440" y="234">mogę być sobą</text>
+        <text x="714" y="186">zdrowie, jedzenie,</text><text x="714" y="210">spokojne miejsce,</text><text x="714" y="234">przewidywalny dzień</text>
+      </g>
+      <text x="440" y="284" text-anchor="middle" font-family="Atkinson Hyperlegible, sans-serif" font-size="16" fill="var(--atrament-2)">Arystoteles nazywał to eudajmonią: życiem, które idzie dobrze.</text>
+    </svg>
+  </figure>
+
+  <div class="blok">
+    <h3 class="krok-tytul"><span class="kolko">1</span> Scena</h3>
+    <p class="t">Późną zimą uczniowie zobaczyli nad gajem jedną jaskółkę.</p>
+    <p class="t">Ucieszyli się i zawołali, że wiosna już przyszła.</p>
+    <p class="t">Arystoteles popatrzył w niebo i pokręcił głową.</p>
+    <p class="t">Powiedział, że jedna jaskółka nie czyni wiosny.</p>
+    <p class="t">Uczniowie pomyśleli, że nauczyciel psuje im radość.</p>
+    <p class="t">On jednak mówił o czymś zupełnie innym.</p>
+    <p class="t">Wyjaśnił, że wiosna to nie jeden ptak, tylko cała pora roku.</p>
+    <p class="t">Tak samo szczęście to nie jeden dobry dzień.</p>
+    <p class="t">Szczęście jest tym, jak wygląda całe życie.</p>
+    <p class="t">Jeden zły dzień nie psuje całego życia.</p>
+    <p class="t">Jeden dobry dzień też jeszcze go nie ratuje.</p>
+    <p class="t">Liczy się kierunek, w którym idziesz.</p>
+    <p class="t">Uczniowie przez chwilę milczeli.</p>
+    <p class="t">Potem jeden z nich powiedział, że to zdanie daje mu nadzieję.</p>
+  </div>
+
+  <blockquote class="cytat">
+    <q>Jedna jaskółka nie czyni wiosny ani jeden dzień. Tak samo jeden dzień ani krótki czas nie czynią człowieka szczęśliwym.</q>
+    <cite>Arystoteles, „Etyka nikomachejska”, księga I</cite>
+  </blockquote>
+
+  <div class="blok">
+    <h3 class="krok-tytul"><span class="kolko">2</span> Myśl Arystotelesa</h3>
+    <p class="t">Arystoteles miał na szczęście osobne słowo.</p>
+    <p class="t">Nazywał je eudajmonią.</p>
+    <p class="t">To słowo nie znaczy „dobry humor”.</p>
+    <p class="t">Znaczy raczej „życie, które idzie dobrze”.</p>
+    <p class="t">Eudajmonii nie da się poczuć przez pięć minut.</p>
+    <p class="t">Widać ją dopiero z dłuższej perspektywy.</p>
+    <p class="t">Arystoteles pisał, że do szczęścia potrzebne są trzy rzeczy.</p>
+    <p class="t">Potrzebne jest robienie tego, co potrafisz najlepiej.</p>
+    <p class="t">Potrzebni są ludzie, z którymi jesteś blisko.</p>
+    <p class="t">Potrzebne są też zwykłe warunki: zdrowie, jedzenie i spokojne miejsce.</p>
+  </div>
+
+  <div class="emocja">
+    <h3 class="krok-tytul"><span class="kolko">3</span> Emocja</h3>
+    <span class="emocja-nazwa">Nadzieja</span>
+    <p class="t">Nadzieja to emocja skierowana w przyszłość.</p>
+    <p class="t">Mówi jedno: „może być lepiej niż teraz”.</p>
+    <p class="t">W ciele czuć ją jako lekkość w klatce piersiowej i chęć ruchu.</p>
+    <p class="t">Nadzieja nie znaczy, że wszystko na pewno się uda.</p>
+    <p class="t">Znaczy tylko tyle, że jest to możliwe.</p>
+    <p class="t">Nadzieja rośnie od małych faktów, a nie od wielkich obietnic.</p>
+    <p class="t">Jeden dobry dzień w tygodniu to już fakt, na którym można ją oprzeć.</p>
+  </div>
+
+  <div class="zycie">
+    <h3 class="krok-tytul"><span class="kolko">4</span> W Twoim życiu</h3>
+    <p class="t">Wyobraź sobie tydzień, w którym prawie wszystko poszło źle.</p>
+    <p class="t">W głowie pojawia się zdanie „zawsze tak jest”.</p>
+    <p class="t">Możesz sprawdzić, czy słowo „zawsze” jest prawdziwe.</p>
+    <p class="t">Policz dni dobre i dni złe w ostatnim miesiącu.</p>
+    <p class="t">Bardzo często okazuje się, że „zawsze” nie jest prawdą.</p>
+    <p class="t">To nie zmienia trudnego tygodnia, ale zmienia to, co myślisz o sobie.</p>
+  </div>
+
+  <div class="pytania-blok">
+    <h3 class="krok-tytul"><span class="kolko">5</span> Pięć pytań</h3>
+    <ol class="pytania">
+      <li><span class="nr">51.</span><span>Co robisz najlepiej na świecie? Nie musi to być nic wielkiego.</span></li>
+      <li><span class="nr">52.</span><span>Kto należy do Twoich bliskich ludzi — nawet jeśli jest to jedna osoba?</span></li>
+      <li><span class="nr">53.</span><span>Jakich warunków potrzebujesz, żeby Twój dzień był spokojny?</span></li>
+      <li><span class="nr">54.</span><span>Ile dobrych dni miałeś lub miałaś w ostatnim miesiącu? Policz je uczciwie.</span></li>
+      <li><span class="nr">55.</span><span>Co daje Ci nadzieję, kiedy dzień jest trudny?</span></li>
+    </ol>
+  </div>
+</article>
+
+<!-- ================= SPOTKANIE 12 ================= -->
+<article class="rozdzial">
+  <div class="naglowek-rozdzialu">
+    <div class="numer">12</div>
+    <div class="blok">
+      <span class="etykieta">Emocja: smutek i wdzięczność</span>
+      <h2>Ostatnia droga do Chalkis</h2>
+    </div>
+  </div>
+
+  <figure>
+    <svg viewBox="0 0 640 200" role="img" aria-label="Łódź na morzu o zachodzie słońca, w łodzi skrzynia ze zwojami">
+      <rect x="0" y="0" width="640" height="200" fill="var(--szafran-tlo)"/>
+      <circle cx="500" cy="86" r="52" fill="var(--szafran)" opacity="0.55"/>
+      <rect x="0" y="126" width="640" height="74" fill="var(--morze-jasne)"/>
+      <g stroke="var(--morze)" stroke-width="3" fill="none" opacity="0.6" stroke-linecap="round">
+        <path d="M10 150 q28 -12 56 0 t56 0 t56 0 t56 0 t56 0 t56 0 t56 0 t56 0 t56 0 t56 0"/>
+        <path d="M10 178 q28 -12 56 0 t56 0 t56 0 t56 0 t56 0 t56 0 t56 0 t56 0 t56 0 t56 0"/>
+      </g>
+      <g transform="translate(150,84)">
+        <path d="M0 46 q80 26 176 0 l-22 34 h-132 z" fill="var(--karta)" stroke="var(--atrament-2)" stroke-width="3"/>
+        <rect x="52" y="14" width="60" height="32" rx="3" fill="var(--glina-tlo)" stroke="var(--glina)" stroke-width="3"/>
+        <g stroke="var(--glina)" stroke-width="2.5"><path d="M62 22 h40"/><path d="M62 32 h40"/></g>
+        <path d="M140 46 v-56" stroke="var(--atrament-2)" stroke-width="4"/>
+        <path d="M140 -10 q34 20 0 40 z" fill="var(--morze-jasne)" stroke="var(--morze)" stroke-width="3"/>
+      </g>
+      <text x="30" y="42" font-family="Atkinson Hyperlegible, sans-serif" font-size="16" fill="var(--atrament-2)">rok 323 p.n.e. — wyjazd z Aten do Chalkis</text>
+    </svg>
+  </figure>
+
+  <div class="blok">
+    <h3 class="krok-tytul"><span class="kolko">1</span> Scena</h3>
+    <p class="t">W roku 323 przed naszą erą umarł Aleksander.</p>
+    <p class="t">W Atenach zaczęto źle patrzeć na wszystkich związanych z Macedonią.</p>
+    <p class="t">Arystoteles pochodził z północy i uczył kiedyś Aleksandra.</p>
+    <p class="t">Oskarżono go o brak szacunku dla bogów.</p>
+    <p class="t">Kilkadziesiąt lat wcześniej takie samo oskarżenie postawiono Sokratesowi.</p>
+    <p class="t">Sokrates został wtedy skazany na śmierć.</p>
+    <p class="t">Arystoteles postanowił wyjechać z miasta.</p>
+    <p class="t">Powiedział, że nie pozwoli Ateńczykom zgrzeszyć przeciw filozofii po raz drugi.</p>
+    <p class="t">Popłynął na wyspę Eubeję, do miasta Chalkis.</p>
+    <p class="t">Zabrał ze sobą księgi i notatki.</p>
+    <p class="t">Zostawił w Atenach szkołę, uczniów i całe swoje dotychczasowe życie.</p>
+    <p class="t">W Chalkis zamieszkał w domu po matce.</p>
+    <p class="t">Zmarł tam rok później, mając sześćdziesiąt dwa lata.</p>
+    <p class="t">W testamencie zadbał o swoją rodzinę i dał wolność ludziom, którzy mu służyli.</p>
+  </div>
+
+  <blockquote class="cytat">
+    <q>Nie pozwolę Ateńczykom zgrzeszyć przeciw filozofii po raz drugi.</q>
+    <cite>Słowa Arystotelesa przed opuszczeniem Aten, przekazane przez starożytnych pisarzy</cite>
+  </blockquote>
+
+  <div class="blok">
+    <h3 class="krok-tytul"><span class="kolko">2</span> Myśl Arystotelesa</h3>
+    <p class="t">Po Arystotelesie zostało bardzo dużo.</p>
+    <p class="t">Zostały księgi o zwierzętach, o niebie, o duszy i o państwie.</p>
+    <p class="t">Zostały też pierwsze w Europie zasady logiki.</p>
+    <p class="t">Przez wiele wieków nazywano go po prostu „Filozofem”.</p>
+    <p class="t">Nie trzeba było dodawać imienia, bo wszyscy wiedzieli, o kogo chodzi.</p>
+    <p class="t">Jego księgi czytali uczeni arabscy, a potem uczeni w całej Europie.</p>
+    <p class="t">Do dziś uczą się o nim ludzie na całym świecie.</p>
+    <p class="t">A zaczęło się od chłopca, który oglądał kość ptaka.</p>
+    <p class="t">Ciekawość jednego dziecka zmieniła sposób myślenia milionów ludzi.</p>
+    <p class="t">Twoja ciekawość też ma wartość, nawet jeśli nikt jeszcze o tym nie wie.</p>
+  </div>
+
+  <div class="emocja">
+    <h3 class="krok-tytul"><span class="kolko">3</span> Emocja</h3>
+    <span class="emocja-nazwa">Smutek i wdzięczność</span>
+    <p class="t">Smutek pojawia się wtedy, gdy coś się kończy.</p>
+    <p class="t">Czuć go w gardle i w oczach, a całe ciało robi się wolniejsze.</p>
+    <p class="t">Smutek nie jest błędem i nie trzeba go szybko przerywać.</p>
+    <p class="t">Obok smutku bardzo często stoi wdzięczność.</p>
+    <p class="t">Wdzięczność mówi: „to było ważne i dobrze, że było”.</p>
+    <p class="t">Obie te emocje mogą być w Tobie w tej samej chwili.</p>
+    <p class="t">Człowiek potrafi czuć dwie rzeczy naraz i to jest zupełnie normalne.</p>
+  </div>
+
+  <div class="zycie">
+    <h3 class="krok-tytul"><span class="kolko">4</span> W Twoim życiu</h3>
+    <p class="t">Wyobraź sobie ostatni dzień w szkole albo pożegnanie z ważną osobą.</p>
+    <p class="t">Jest Ci smutno, chociaż nic złego się nie stało.</p>
+    <p class="t">To znaczy, że coś miało dla Ciebie dużą wartość.</p>
+    <p class="t">Możesz zapisać jedno zdanie o tym, co ta osoba Ci dała.</p>
+    <p class="t">Takie zdanie zostaje z Tobą znacznie dłużej niż samo pożegnanie.</p>
+    <p class="t">Arystoteles zostawił po sobie księgi, a Ty możesz zostawić jedną notatkę.</p>
+  </div>
+
+  <div class="pytania-blok">
+    <h3 class="krok-tytul"><span class="kolko">5</span> Pięć pytań</h3>
+    <ol class="pytania">
+      <li><span class="nr">56.</span><span>Z czym albo z kim było Ci ostatnio trudno się pożegnać?</span></li>
+      <li><span class="nr">57.</span><span>Czy zdarza Ci się czuć smutek i wdzięczność w tej samej chwili?</span></li>
+      <li><span class="nr">58.</span><span>Komu chciałoby Ci się powiedzieć „dziękuję”, choć nigdy tego nie powiedziałeś ani nie powiedziałaś?</span></li>
+      <li><span class="nr">59.</span><span>Która z dwunastu myśli Arystotelesa została z Tobą najmocniej?</span></li>
+      <li><span class="nr">60.</span><span>Co chciałbyś lub chciałabyś po sobie zostawić — nawet jeśli to jedna notatka?</span></li>
+    </ol>
+  </div>
+</article>
+
+<!-- ================= PANEL 5 — PODSUMOWANIE: 12 HASEŁ ================= -->
+<section class="karta">
+  <span class="etykieta">Infografika 8 · ściana haseł</span>
+  <h2>Dwanaście zdań na dwanaście emocji</h2>
+  <p class="podtytul" style="font-size:1rem">Możesz wyciąć te pola i powiesić jedno na ścianie. Wybierz to, które dziś do Ciebie pasuje.</p>
+  <div class="siatka-2">
+    <div class="mini"><strong>1 · ciekawość</strong><span>„Wszyscy ludzie z natury dążą do poznania.”<br>Chcieć wiedzieć to normalne.</span></div>
+    <div class="mini"><strong>2 · niepewność</strong><span>„Poznanie samego siebie jest początkiem mądrości.”<br>Wolno być na początku drogi.</span></div>
+    <div class="mini"><strong>3 · napięcie sporu</strong><span>„Przyjacielem Platon, lecz większym przyjacielem prawda.”<br>Można lubić i mieć inne zdanie.</span></div>
+    <div class="mini"><strong>4 · zachwyt</strong><span>„W każdej rzeczy naturalnej jest coś godnego podziwu.”<br>Twoja dziedzina jest ważna.</span></div>
+    <div class="mini"><strong>5 · duma</strong><span>„Korzenie edukacji są gorzkie, ale owoc słodki.”<br>Trudny początek to jeszcze nie porażka.</span></div>
+    <div class="mini"><strong>6 · ulga</strong><span>„Uczymy się, robiąc.”<br>Pierwsze próby mają prawo być niezgrabne.</span></div>
+    <div class="mini"><strong>7 · strach</strong><span>„Cnota jest środkiem między dwiema wadami.”<br>Sprawdź miarę, nie samą emocję.</span></div>
+    <div class="mini"><strong>8 · zniechęcenie</strong><span>„Stajemy się odważni, czyniąc rzeczy odważne.”<br>Sto prób zmienia bardzo dużo.</span></div>
+    <div class="mini"><strong>9 · samotność</strong><span>„Przyjaciel to jedna dusza w dwóch ciałach.”<br>Jeden prawdziwy przyjaciel to dużo.</span></div>
+    <div class="mini"><strong>10 · gniew</strong><span>„Rozgniewać się dobrze — to nie jest łatwe.”<br>Zapytaj: po co jestem zły?</span></div>
+    <div class="mini"><strong>11 · nadzieja</strong><span>„Jedna jaskółka nie czyni wiosny.”<br>Jeden zły dzień to jeszcze nie całe życie.</span></div>
+    <div class="mini"><strong>12 · smutek</strong><span>„Nie pozwolę zgrzeszyć przeciw filozofii drugi raz.”<br>Odejście też bywa mądrą decyzją.</span></div>
+  </div>
+</section>
+
+<!-- ================= KARTA DO WYDRUKU ================= -->
+<section class="karta">
+  <span class="etykieta">Do wycięcia i noszenia przy sobie</span>
+  <h2>Moja karta emocji</h2>
+  <p class="podtytul" style="font-size:1rem">Cztery kroki Arystotelesa w wersji kieszonkowej. Możesz ją pokazać zamiast mówić.</p>
+  <figure class="rama przewijalne">
+    <svg viewBox="0 0 860 340" role="img" aria-label="Karta kieszonkowa z czterema krokami: nazwij, zmierz, znajdź powód, wybierz działanie" style="min-width:600px">
+      <rect x="14" y="14" width="832" height="312" rx="10" fill="var(--karta)" stroke="var(--morze)" stroke-width="5" stroke-dasharray="14 10"/>
+      <text x="48" y="66" font-family="Alegreya Sans, sans-serif" font-weight="800" font-size="28" fill="var(--morze)">CO SIĘ ZE MNĄ TERAZ DZIEJE?</text>
+      <g>
+        <rect x="48" y="92" width="180" height="196" rx="8" fill="var(--oliwka-tlo)" stroke="var(--oliwka)" stroke-width="3"/>
+        <rect x="248" y="92" width="180" height="196" rx="8" fill="var(--morze-jasne)" stroke="var(--morze)" stroke-width="3"/>
+        <rect x="448" y="92" width="180" height="196" rx="8" fill="var(--glina-tlo)" stroke="var(--glina)" stroke-width="3"/>
+        <rect x="648" y="92" width="180" height="196" rx="8" fill="var(--szafran-tlo)" stroke="var(--szafran)" stroke-width="3"/>
+      </g>
+      <g font-family="Alegreya Sans, sans-serif" font-weight="800" font-size="46" fill="var(--atrament)" opacity="0.25" text-anchor="middle">
+        <text x="138" y="146">1</text><text x="338" y="146">2</text><text x="538" y="146">3</text><text x="738" y="146">4</text>
+      </g>
+      <g font-family="Alegreya Sans, sans-serif" font-weight="800" font-size="22" fill="var(--atrament)" text-anchor="middle">
+        <text x="138" y="188">NAZWIJ</text><text x="338" y="188">ZMIERZ</text><text x="538" y="188">ZNAJDŹ</text><text x="738" y="188">WYBIERZ</text>
+      </g>
+      <g font-family="Atkinson Hyperlegible, sans-serif" font-size="16" fill="var(--atrament)" text-anchor="middle">
+        <text x="138" y="222">„czuję…”</text><text x="138" y="248">jedno słowo</text><text x="138" y="272">wystarczy</text>
+        <text x="338" y="222">od 0 do 10</text><text x="338" y="248">możesz pokazać</text><text x="338" y="272">na palcach</text>
+        <text x="538" y="222">co się stało</text><text x="538" y="248">tuż przed tym</text><text x="538" y="272">uczuciem?</text>
+        <text x="738" y="222">ruch, cisza,</text><text x="738" y="248">woda, prośba</text><text x="738" y="272">o pomoc</text>
+      </g>
+    </svg>
+    <figcaption>Wytnij wzdłuż przerywanej linii. Karta mieści się w kieszeni i w piórniku.</figcaption>
+  </figure>
+</section>
+
+<!-- ================= SŁOWNICZEK ================= -->
+<section class="karta">
+  <span class="etykieta">Trudne słowa, wyjaśnione</span>
+  <h2>Słowniczek</h2>
+  <div class="przewijalne">
+  <table>
+    <thead><tr><th>Słowo</th><th>Co znaczy</th></tr></thead>
+    <tbody>
+      <tr><td>Filozofia</td><td>Zadawanie pytań o to, jak wygląda świat i jak dobrze żyć. Po grecku: „miłość mądrości”.</td></tr>
+      <tr><td>Akademia</td><td>Szkoła Platona w Atenach. Arystoteles uczył się w niej dwadzieścia lat.</td></tr>
+      <tr><td>Likejon</td><td>Szkoła założona przez Arystotelesa. Uczono się w niej, spacerując.</td></tr>
+      <tr><td>Perypatetycy</td><td>Uczniowie Arystotelesa. Nazwa znaczy mniej więcej „ci, którzy chodzą”.</td></tr>
+      <tr><td>Cnota</td><td>Dobra cecha charakteru, wyćwiczona przez powtarzanie. Nie jest to dar ani przypadek.</td></tr>
+      <tr><td>Złoty środek</td><td>Właściwa miara między „za mało” a „za dużo”. Po grecku: mesotes.</td></tr>
+      <tr><td>Hexis</td><td>Trwały nawyk. Coś, co robisz automatycznie, bo powtarzałeś to wiele razy.</td></tr>
+      <tr><td>Eudajmonia</td><td>Szczęście rozumiane jako całe życie, które idzie dobrze. Nie chwilowy dobry humor.</td></tr>
+      <tr><td>Retoryka</td><td>Sztuka mówienia. Arystoteles opisał w niej listę ludzkich emocji.</td></tr>
+      <tr><td>p.n.e.</td><td>Przed naszą erą. Im większa liczba, tym dawniej.</td></tr>
+    </tbody>
+  </table>
+  </div>
+</section>
+
+<!-- ================= PANEL 6 — DLA DOROSŁYCH I STOPKA ================= -->
+<section class="karta">
+  <span class="etykieta">Dla rodziców, nauczycieli i terapeutów</span>
+  <h2>Jak pracować z tą broszurą</h2>
+  <ul class="lista">
+    <li><strong>Jeden rozdział to jedno spotkanie.</strong> Nie trzeba czytać więcej niż jeden na raz.</li>
+    <li><strong>Struktura jest stała.</strong> Pięć kroków w każdym rozdziale wraca w tej samej kolejności — to obniża napięcie i pozwala przewidzieć, co będzie dalej.</li>
+    <li><strong>Pytania nie są sprawdzianem.</strong> Odpowiedź „nie wiem” jest pełną odpowiedzią. Można odpowiadać pisemnie, ustnie, rysunkiem albo liczbą na palcach.</li>
+    <li><strong>Emocje opisane są przez ciało</strong>, a nie przez mimikę innych osób. To celowe: rozpoznawanie emocji zaczyna się od sygnałów z własnego ciała.</li>
+    <li><strong>Język jest dosłowny.</strong> Unikamy przenośni bez wyjaśnienia, ironii i pytań podchwytliwych.</li>
+    <li><strong>Skala 0–10</strong> z Infografiki 2 wraca w wielu rozdziałach. Warto ustalić ją raz i używać także poza broszurą.</li>
+    <li><strong>Tempo należy do czytelnika.</strong> Przerwa w połowie rozdziału nie psuje pracy.</li>
+  </ul>
+
+  <hr class="oddech">
+
+  <h3>Nota o cytatach</h3>
+  <ul class="lista">
+    <li>Zdania z rozdziałów <strong>1, 4, 6, 7, 8, 9, 10 i 11</strong> pochodzą z zachowanych dzieł Arystotelesa („Metafizyka”, „O częściach zwierząt”, „Etyka nikomachejska”), podanych w uproszczonym przekładzie.</li>
+    <li>Zdania z rozdziałów <strong>2, 3, 5 i 12</strong> to myśli przypisywane Arystotelesowi przez późniejszych autorów — nie ma ich dosłownie w jego księgach. Zaznaczono to pod każdym z nich.</li>
+    <li>Sceny w rozdziałach są <strong>opowiadaniem</strong>: opierają się na faktach z życia Arystotelesa, ale dialogi zostały napisane na potrzeby tej broszury.</li>
+    <li>Fakty historyczne (daty, miejsca, liczba zbadanych gatunków, treść testamentu) pochodzą z relacji starożytnych, głównie od Diogenesa Laertiosa.</li>
+  </ul>
+
+  <hr class="oddech">
+
+  <div class="stopka">
+    <p><strong>Spotkanie z Arystotelesem</strong> — seria „Mała Filozofia”, tom 1.</p>
+    <p>Broszura edukacyjna dla młodzieży w spektrum autyzmu. 12 rozdziałów · 450 zdań opowiadania · 60 pytań · 8 infografik.</p>
+    <p>Wydanie pierwsze. Skład i ilustracje przygotowane w formacie A4, gotowe do druku dwustronnego.</p>
+    <p>Miejsce na dane wydawcy: nazwa, adres, strona internetowa, numer ISBN, cena.</p>
+  </div>
+</section>
+
+<!-- ================= NOTA TECHNICZNA (nie drukuje się) ================= -->
+<section class="karta bez-druku">
+  <span class="etykieta">Nota produkcyjna</span>
+  <h2>Jak to wydrukować i złożyć</h2>
+  <div class="siatka-2">
+    <div class="mini"><strong>Format</strong><span>A4 pionowo, druk dwustronny. Marginesy: 15 mm boczne, 14 mm górny, 16 mm dolny.</span></div>
+    <div class="mini"><strong>Spady</strong><span>Do drukarni offsetowej dodaj 3 mm spadu z każdej strony i pasery.</span></div>
+    <div class="mini"><strong>Typografia</strong><span>Nagłówki: Alegreya Sans ExtraBold. Tekst: Atkinson Hyperlegible, 12,8 pt, interlinia 1,65 — krój zaprojektowany dla osób z trudnościami w czytaniu.</span></div>
+    <div class="mini"><strong>Kolory</strong><span>Kamień #EFEBE2 · atrament #1F2E33 · morze #1E5A6B · szafran #C8901E · oliwka #63804F · glina #B0603F.</span></div>
+    <div class="mini"><strong>Papier</strong><span>Offset lub matowy kremowy 120–150 g. Papier matowy nie odbija światła i mniej męczy wzrok.</span></div>
+    <div class="mini"><strong>PDF</strong><span>Otwórz plik w przeglądarce i wybierz Drukuj → Zapisz jako PDF. Style druku włączają się automatycznie.</span></div>
+  </div>
+</section>
+
+</div>
