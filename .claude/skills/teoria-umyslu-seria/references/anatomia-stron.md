@@ -157,6 +157,28 @@ Wiersze parzyste dostają klasę `alt` (delikatny pas prowadzący wzrok przez sz
 Pod tabelą: pola sum `.wynik-box` dla każdego filaru, pole ustalonego poziomu, miejsce
 na wniosek i trzy linie na podpisy.
 
+## Buźki i termometr emocji
+
+`scripts/buzki.py` rysuje dwa zestawy twarzy jako SVG — bez plików graficznych, więc drukują się ostro
+w każdym rozmiarze i nie powiększają pliku:
+
+```bash
+python3 scripts/buzki.py radosc "#C4547A"     # radosc, smutek, zlosc, strach, zdziwienie
+python3 -c "import sys;sys.path.insert(0,'scripts');from buzki import intensywnosc;print(intensywnosc(4,'#C4547A'))"
+```
+
+- `twarz(emocja, kolor)` — pięć emocji do kart pracy i tablicy emocji.
+- `intensywnosc(n, kolor)` — pięć min pokazujących **natężenie** odczucia (1 spokój → 5 bardzo mocno).
+  Termometr mierzy siłę, nie rodzaj emocji, dlatego wymaga osobnego zestawu.
+
+Termometr emocji buduj jako **jeden SVG** z rurką, bańką, polami w rampie jednego odcienia
+(jasny → nasycony), twarzami natężenia po prawej i kratkami do zaznaczenia. Trzymanie wszystkiego
+w jednym SVG rozwiązuje problem, który przy układzie z osobnych elementów HTML wraca zawsze:
+twarze i kratki rozjeżdżają się z podziałką przy każdej zmianie szerokości kolumny.
+Zagnieżdżone `<svg x= y= width= height=>` pozwala wstawić gotową twarz w wyliczonym miejscu.
+
+Na jasnych polach rampy rysuj twarze kolorem `--ink2`, nie kolorem pola — inaczej znikają.
+
 ## Stopka wydawnicza (ostatnia strona)
 
 Blok z logo PCTP, autorką, adresem, tytułem broszury, nadtytułem serii i plakietką numeru części,
