@@ -1,0 +1,483 @@
+/* ==========================================================================
+   SPOTKANIE Z ARYSTOTELESEM — makieta broszury A4
+   Strony o stałym rozmiarze: podgląd na ekranie = dokładnie to, co w druku.
+   ========================================================================== */
+:root{
+  --papier:      #F7F4EC;   /* kolor karty broszury */
+  --papier-cien: #EDE8DC;
+  --karta:       #F7F4EC;   /* aliasy dla ilustracji SVG */
+  --papier-2:    #EDE8DC;
+  --atrament:    #1F2E33;
+  --atrament-2:  #55666A;
+  --atrament-3:  #8A9698;
+  --morze:       #1E5A6B;
+  --morze-jasne: #E2ECEE;
+  --szafran:     #B07E13;
+  --szafran-tlo: #F7EED8;
+  --oliwka:      #5C7A49;
+  --oliwka-tlo:  #E9EEE1;
+  --glina:       #A2563A;
+  --glina-tlo:   #F6E7E0;
+  --linia:       #D3CCBB;
+  --linia-cienka:#E3DDCF;
+
+  --display: "Alegreya Sans", "Trebuchet MS", sans-serif;
+  --tekst:   "Atkinson Hyperlegible", Verdana, "Segoe UI", sans-serif;
+
+  --pion:  24mm;   /* margines wewnętrzny (przy grzbiecie) */
+  --zewn:  18mm;   /* margines zewnętrzny */
+  --gora:  15mm;
+  --dol:   13mm;
+  --miara: 152mm;  /* szerokość kolumny tekstu ≈ 66 znaków */
+}
+/* tło aplikacji dopasowuje się do motywu widza; kartki zawsze zostają kartkami */
+:root{ --pulpit:#DAD4C6; --pulpit-cien:rgba(31,46,51,.20); }
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){ --pulpit:#161C1E; --pulpit-cien:rgba(0,0,0,.55); }
+}
+:root[data-theme="dark"]{ --pulpit:#161C1E; --pulpit-cien:rgba(0,0,0,.55); }
+
+*{ box-sizing:border-box; }
+body{
+  margin:0; background:var(--pulpit); color:var(--atrament);
+  font-family:var(--tekst);
+  -webkit-print-color-adjust:exact; print-color-adjust:exact;
+}
+.ksiazka{
+  font-size:12pt; line-height:1.62;
+  display:flex; flex-direction:column; align-items:center; gap:9mm;
+  padding:9mm 4mm;
+}
+@media screen and (max-width:1000px){ .ksiazka{ zoom:.72; } }
+@media screen and (max-width:760px){  .ksiazka{ zoom:.52; } }
+@media screen and (max-width:520px){  .ksiazka{ zoom:.36; } }
+
+.strona{
+  width:210mm; height:297mm; flex:0 0 auto;
+  background:var(--papier); color:var(--atrament);
+  position:relative; overflow:hidden;
+  display:flex; flex-direction:column;
+  padding:var(--gora) var(--zewn) var(--dol) var(--pion);
+  box-shadow:0 1mm 5mm var(--pulpit-cien);
+}
+.strona.lewa{ padding-left:var(--zewn); padding-right:var(--pion); }
+p{ margin:0; }
+
+/* ---------- żywa pagina i stopka ---------------------------------------- */
+.zywa-pagina{
+  flex:0 0 9mm; display:flex; justify-content:space-between; align-items:flex-start;
+  gap:8mm; font-family:var(--display); font-weight:500;
+  font-size:.62em; letter-spacing:.14em; text-transform:uppercase;
+  color:var(--atrament-3); border-bottom:.4mm solid var(--linia-cienka);
+  padding-bottom:2.4mm; white-space:nowrap; overflow:hidden;
+}
+.zywa-pagina .zp-p{ color:var(--morze); text-overflow:ellipsis; overflow:hidden; }
+.strona.lewa .zywa-pagina{ flex-direction:row-reverse; }
+.zywa-pagina.pusta{ border-bottom:none; }
+.stopka-strony{
+  flex:0 0 10mm; display:flex; align-items:flex-end; justify-content:flex-end; gap:3mm;
+  font-family:var(--display); font-size:.8em; color:var(--atrament-2);
+  font-variant-numeric:tabular-nums; padding-bottom:1mm;
+}
+.strona.lewa .stopka-strony{ justify-content:flex-start; flex-direction:row-reverse; }
+.stopka-strony .ss-znak{ color:var(--szafran); }
+.stopka-strony.pusta{ visibility:hidden; }
+
+.strona-tresc{
+  flex:1 1 auto; min-height:0; overflow:hidden;
+  display:flex; flex-direction:column; gap:5.4mm;
+  padding-top:6mm;
+}
+
+/* ---------- typografia bazowa ------------------------------------------- */
+h1,h2,h3,h4{ font-family:var(--display); margin:0; text-wrap:balance; line-height:1.14; }
+.strona-tresc p{ max-width:var(--miara); }
+p.t{ margin:0 0 2.7mm; hyphens:none; }
+p.t:last-child{ margin-bottom:0; }
+.dzial-tytul{
+  font-size:2.05em; font-weight:800; letter-spacing:-.015em; color:var(--morze);
+  padding-bottom:3mm; border-bottom:.8mm solid var(--szafran); align-self:flex-start;
+}
+.lead{ font-size:1.06em; color:var(--atrament-2); line-height:1.5; max-width:140mm; }
+.etykieta{
+  font-family:var(--display); font-weight:700; font-size:.66em;
+  letter-spacing:.17em; text-transform:uppercase; color:var(--atrament-3);
+}
+
+/* ---------- okładka ------------------------------------------------------ */
+.strona.okladka{
+  padding:0; background:var(--papier-cien);
+  display:grid; grid-template-rows:auto 1fr auto;
+}
+.okl-gora{
+  display:flex; justify-content:space-between; align-items:flex-start;
+  padding:16mm 18mm 0; font-family:var(--display);
+}
+.okl-seria{ font-weight:800; font-size:1.15em; letter-spacing:.22em; text-transform:uppercase; color:var(--morze); }
+.okl-tom{ padding-top:2.5mm; font-size:.85em; letter-spacing:.18em; text-transform:uppercase; color:var(--szafran); }
+.okl-obraz{ display:grid; place-items:center; padding:0 6mm; }
+.okl-obraz svg{ width:100%; max-width:182mm; height:auto; }
+.okl-dol{ background:var(--papier); padding:14mm 18mm 18mm; display:flex; flex-direction:column; gap:5mm; }
+.okl-dol h1{ font-size:3.5em; font-weight:800; letter-spacing:-.025em; color:var(--atrament); }
+.okl-podtytul{ font-size:1.12em; color:var(--atrament-2); max-width:145mm; line-height:1.45; }
+.okl-pasek{
+  display:flex; gap:0; margin-top:2mm; border-top:.8mm solid var(--szafran);
+  padding-top:4mm; font-family:var(--display); font-weight:700;
+  font-size:.9em; letter-spacing:.1em; text-transform:uppercase; color:var(--morze);
+}
+.okl-pasek span{ flex:1; text-align:center; border-right:.4mm solid var(--linia); }
+.okl-pasek span:first-child{ text-align:left; }
+.okl-pasek span:last-child{ border-right:none; text-align:right; }
+
+/* ---------- strona tytułowa ---------------------------------------------- */
+.strona.tytulowa{ justify-content:center; }
+.tyt-blok{ display:flex; flex-direction:column; align-items:center; text-align:center; gap:7mm; margin-top:-14mm; }
+.tyt-seria{ font-family:var(--display); font-size:.8em; letter-spacing:.24em; text-transform:uppercase; color:var(--szafran); }
+.tyt-glowny{ font-size:3.1em; font-weight:800; letter-spacing:-.02em; color:var(--atrament); }
+.tyt-ornament svg{ width:78mm; height:auto; }
+.tyt-pod{ font-size:1.15em; color:var(--atrament-2); line-height:1.5; }
+.tyt-adres{ font-family:var(--display); font-size:.92em; color:var(--morze); letter-spacing:.04em; }
+.tyt-wydawca{
+  position:absolute; left:0; right:0; bottom:20mm; text-align:center;
+  font-family:var(--display); font-size:.75em; letter-spacing:.16em;
+  text-transform:uppercase; color:var(--atrament-3);
+}
+
+/* ---------- strona redakcyjna -------------------------------------------- */
+.strona.redakcyjna .strona-tresc{ justify-content:flex-end; gap:6mm; font-size:.86em; }
+.red-gora{ border-bottom:.8mm solid var(--szafran); padding-bottom:3mm; }
+.red-tytul{ font-family:var(--display); font-weight:800; font-size:1.5em; color:var(--morze); }
+.red-seria{ color:var(--atrament-2); }
+.metryka{ margin:0; display:grid; grid-template-columns:34mm 1fr; gap:2.4mm 6mm; }
+.metryka dt{ font-family:var(--display); font-weight:700; font-size:.85em; letter-spacing:.06em;
+  text-transform:uppercase; color:var(--atrament-3); padding-top:.4mm; }
+.metryka dd{ margin:0; border-bottom:.3mm dotted var(--linia); padding-bottom:1.6mm; }
+.red-nota,.red-kroje{ border-left:1mm solid var(--linia); padding-left:5mm; color:var(--atrament-2); }
+.red-kroje p{ margin:0 0 2mm; }
+.red-copy{ font-size:.86em; color:var(--atrament-3); border-top:.4mm solid var(--linia-cienka); padding-top:3mm; }
+
+/* ---------- spis treści -------------------------------------------------- */
+.tresc{ list-style:none; margin:0; padding:0; display:flex; flex-direction:column; gap:1.6mm; }
+.tresc-dzial{
+  font-family:var(--display); font-weight:800; font-size:.78em; letter-spacing:.2em;
+  text-transform:uppercase; color:var(--szafran); margin-top:3mm;
+  border-bottom:.4mm solid var(--linia-cienka); padding-bottom:1.3mm;
+}
+.tresc-dzial:first-child{ margin-top:0; }
+.tresc-poz{ display:flex; align-items:baseline; gap:2.5mm; font-size:.94em; }
+.tresc-poz .tresc-nazwa{ flex:0 1 auto; }
+.tresc-poz em{ font-style:normal; color:var(--atrament-3); font-size:.9em; }
+.tresc-poz .kropki{ flex:1 1 auto; border-bottom:.4mm dotted var(--linia); transform:translateY(-1.2mm); min-width:8mm; }
+.tresc-poz .str{ font-family:var(--display); font-weight:700; color:var(--morze);
+  font-variant-numeric:tabular-nums; min-width:8mm; text-align:right; }
+.tresc-poz.roz .tresc-nazwa{ font-weight:700; }
+.tresc-nr{
+  display:inline-grid; place-items:center; width:6.5mm; height:6.5mm; margin-right:1.5mm;
+  border-radius:50%; background:var(--morze-jasne); color:var(--morze);
+  font-family:var(--display); font-weight:800; font-size:.76em; vertical-align:.4mm;
+}
+
+/* ---------- strony wstępne ----------------------------------------------- */
+.zasady{ background:var(--morze-jasne); border-left:1.6mm solid var(--morze); padding:5mm 6mm; }
+.zasady .etykieta{ color:var(--morze); display:block; margin-bottom:3mm; }
+ul.lista{ list-style:none; margin:0; padding:0; display:flex; flex-direction:column; gap:2.6mm; }
+ul.lista li{ display:block; position:relative; padding-left:6mm; max-width:var(--miara); }
+ul.lista li::before{
+  content:""; position:absolute; left:0; top:.62em;
+  width:2mm; height:2mm; background:var(--szafran); transform:rotate(45deg);
+}
+.lista-dorosli li{ max-width:none; }
+
+ol.kroki{ list-style:none; margin:0; padding:0; display:flex; flex-direction:column; gap:0; }
+ol.kroki li{
+  display:grid; grid-template-columns:11mm 46mm 1fr; align-items:baseline; gap:4mm;
+  padding:4mm 0; border-bottom:.4mm solid var(--linia-cienka);
+}
+ol.kroki li:last-child{ border-bottom:none; }
+.krok-cyfra{
+  display:grid; place-items:center; width:9mm; height:9mm; border-radius:50%;
+  background:var(--morze); color:var(--papier);
+  font-family:var(--display); font-weight:800; font-size:1em;
+}
+.krok-nazwa{ font-family:var(--display); font-weight:800; font-size:1.08em; color:var(--morze); }
+.krok-opis{ color:var(--atrament-2); font-size:.96em; }
+.podsum{
+  align-self:flex-start; background:var(--szafran-tlo); border:.5mm solid var(--szafran);
+  padding:3mm 6mm; font-family:var(--display); font-size:1.05em;
+}
+
+.karty-4{ flex:1; display:grid; grid-template-columns:1fr 1fr; grid-template-rows:1fr 1fr; gap:5mm; }
+.karta-mini{ background:var(--papier-cien); border-top:1mm solid var(--morze); padding:5mm 6mm;
+  display:flex; flex-direction:column; justify-content:center; }
+.km-t{ font-family:var(--display); font-weight:800; color:var(--morze); font-size:1em; margin-bottom:1.5mm; }
+.km-o{ font-size:.96em; color:var(--atrament-2); line-height:1.5; }
+.ramka-wskazowka{ background:var(--papier-cien); padding:5mm 6mm; border-left:1.6mm solid var(--szafran); }
+.ramka-wskazowka .etykieta{ display:block; margin-bottom:2.5mm; }
+
+/* ---------- ilustracje --------------------------------------------------- */
+figure.ilustracja{ margin:0; display:flex; flex-direction:column; gap:2.5mm; }
+figure.ilustracja svg{ width:100%; height:auto; display:block; }
+figure.ilustracja figcaption{ font-size:.84em; color:var(--atrament-3); line-height:1.45; max-width:150mm; }
+figure.ilustracja .etykieta{ margin-bottom:.5mm; }
+.ilu-rozdzial{ background:var(--papier-cien); padding:4mm 5mm; }
+.ilu-scena svg{ max-width:132mm; margin:0 auto; }
+.ilu-info svg{ max-width:none; }
+.ilu-rozdzial figcaption{ text-align:center; align-self:center; }
+.ilu-info figcaption{ text-align:left; align-self:flex-start; }
+.ornament{ align-self:center; margin-top:1mm; }
+.ornament svg{ width:42mm; height:auto; display:block; }
+
+/* ---------- otwarcie rozdziału ------------------------------------------- */
+.otwarcie{ display:flex; flex-direction:column; gap:2.5mm; }
+.otw-nad{ font-family:var(--display); font-weight:700; font-size:.72em; letter-spacing:.22em;
+  text-transform:uppercase; color:var(--szafran); }
+.otw-linia{ display:flex; align-items:center; gap:4mm; }
+.otw-cyfra{ font-family:var(--display); font-weight:800; font-size:3.4em; line-height:.9; color:var(--morze); }
+.otw-kreska{ flex:1; height:.8mm; background:var(--morze); opacity:.35; }
+.otw-tytul{ font-size:2.1em; font-weight:800; letter-spacing:-.015em; max-width:150mm; }
+.otw-emocja{ font-family:var(--display); font-size:1em; color:var(--atrament-2); }
+.otw-emocja strong{ color:var(--oliwka); }
+
+/* ---------- części rozdziału --------------------------------------------- */
+.czesc{ display:flex; flex-direction:column; gap:3mm; }
+.czesc-tytul{
+  display:flex; align-items:center; gap:3mm;
+  font-size:1.12em; font-weight:800; letter-spacing:.02em; color:var(--morze);
+}
+.cz-nr{
+  display:grid; place-items:center; width:7mm; height:7mm; flex:0 0 auto;
+  border:.5mm solid currentColor; border-radius:50%;
+  font-size:.66em; font-weight:800;
+}
+blockquote.cytat{
+  margin:0; padding:7mm 0; border-top:.8mm solid var(--morze); border-bottom:.8mm solid var(--morze);
+  display:flex; flex-direction:column; gap:3mm;
+}
+.cytat-tekst{
+  font-family:var(--display); font-weight:700; font-size:1.5em; line-height:1.32;
+  color:var(--morze); max-width:none;
+}
+.cytat-tekst::before{ content:"„"; }
+.cytat-tekst::after{ content:"”"; }
+.cytat-zrodlo{ font-size:.84em; color:var(--atrament-3); line-height:1.45; }
+
+.blok-emocja{ background:var(--oliwka-tlo); padding:4.2mm 5.5mm; }
+.blok-emocja .czesc-tytul{ color:var(--oliwka); }
+.emocja-nazwa{
+  align-self:flex-start; font-family:var(--display); font-weight:800; font-size:1.3em;
+  color:var(--oliwka); border-bottom:.8mm solid var(--oliwka); padding-bottom:1mm; margin-bottom:1mm;
+}
+.blok-zycie{ border-left:1.6mm solid var(--szafran); padding:.5mm 0 .5mm 5.5mm; }
+.blok-zycie .czesc-tytul{ color:var(--szafran); }
+.blok-pytania{ background:var(--glina-tlo); padding:4.2mm 5.5mm; }
+.blok-pytania .czesc-tytul{ color:var(--glina); }
+ol.pytania{ list-style:none; margin:0; padding:0; display:flex; flex-direction:column; gap:0; }
+ol.pytania li{
+  display:grid; grid-template-columns:9mm 1fr; gap:2mm; align-items:baseline;
+  padding:2.5mm 0; border-bottom:.3mm dotted var(--glina);
+}
+ol.pytania li:last-child{ border-bottom:none; padding-bottom:0; }
+ol.pytania li:first-child{ padding-top:1mm; }
+.p-nr{ font-family:var(--display); font-weight:800; color:var(--glina); font-variant-numeric:tabular-nums; }
+.p-tresc{ line-height:1.5; }
+
+.tabela-blok{ display:flex; flex-direction:column; gap:2.5mm; }
+table{ border-collapse:collapse; width:100%; font-size:.88em; }
+th,td{ text-align:left; padding:2.4mm 3mm; border-bottom:.3mm solid var(--linia); vertical-align:top; line-height:1.4; }
+thead th{ font-family:var(--display); font-weight:800; font-size:.86em; letter-spacing:.1em;
+  text-transform:uppercase; color:var(--morze); border-bottom:.6mm solid var(--morze); }
+tbody tr:last-child td{ border-bottom:none; }
+
+/* ---------- hasła, słownik, notatki -------------------------------------- */
+ol.hasla{ list-style:none; margin:0; padding:0; flex:1; display:grid;
+  grid-template-columns:1fr 1fr; grid-template-rows:repeat(3,1fr); gap:5mm; }
+.haslo{ position:relative; background:var(--papier-cien); padding:6mm 6mm 6mm 13mm;
+  border-left:1mm solid var(--morze); display:flex; flex-direction:column; justify-content:center; }
+.h-nr{ position:absolute; left:4mm; top:4.4mm; font-family:var(--display); font-weight:800;
+  font-size:1.3em; color:var(--morze); opacity:.5; }
+.h-emocja{ font-family:var(--display); font-weight:700; font-size:.72em; letter-spacing:.16em;
+  text-transform:uppercase; color:var(--szafran); margin-bottom:1.5mm; }
+.h-cytat{ font-family:var(--display); font-weight:700; font-size:1.1em; line-height:1.32; margin-bottom:2.5mm; }
+.h-po{ font-size:.88em; color:var(--atrament-2); line-height:1.45; }
+
+dl.slownik{ margin:0; display:flex; flex-direction:column; gap:0; }
+dl.slownik dt{ font-family:var(--display); font-weight:800; font-size:.98em; color:var(--morze);
+  border-top:.4mm solid var(--linia-cienka); padding-top:2mm; }
+dl.slownik dd{ margin:0 0 2mm; font-size:.9em; color:var(--atrament-2); line-height:1.5; max-width:var(--miara); }
+.nota-grupa{ border-left:1mm solid var(--linia); padding-left:5mm; display:flex; flex-direction:column; gap:2mm; }
+.linie{ flex:1; display:flex; flex-direction:column; justify-content:space-between; padding:4mm 0 2mm; }
+.linia-do-pisania{ display:block; border-bottom:.4mm solid var(--linia); }
+
+/* ---------- tylna okładka ------------------------------------------------ */
+.strona.tyl{ background:var(--papier-cien); padding:16mm 18mm; display:flex; flex-direction:column; gap:8mm; }
+.tyl-gora{ border-bottom:.8mm solid var(--szafran); padding-bottom:4mm; }
+.tyl-seria{ font-family:var(--display); font-weight:700; font-size:.78em; letter-spacing:.22em;
+  text-transform:uppercase; color:var(--szafran); margin-bottom:2mm; }
+.tyl-tytul{ font-family:var(--display); font-weight:800; font-size:2.1em; color:var(--morze); }
+.tyl-tresc{ flex:1; display:flex; flex-direction:column; gap:6mm; justify-content:space-between; }
+.tyl-lead{ font-size:1.06em; line-height:1.55; }
+.tyl-lista{ list-style:none; margin:0; padding:0; display:flex; flex-direction:column; gap:2.6mm; }
+.tyl-lista li{ display:block; position:relative; padding-left:6mm; font-size:.96em; }
+.tyl-lista li::before{ content:""; position:absolute; left:0; top:.62em; width:2mm; height:2mm;
+  background:var(--morze); transform:rotate(45deg); }
+.tyl-cytat{ margin:0; background:var(--papier); border-left:1.6mm solid var(--morze); padding:5mm 6mm; }
+.tyl-cytat p{ font-family:var(--display); font-weight:500; font-size:1.02em; line-height:1.4; margin-bottom:2.5mm; }
+.tyl-cytat cite{ font-style:normal; font-size:.82em; color:var(--atrament-3); }
+.tyl-emocje{ border-top:.4mm solid var(--linia); padding-top:5mm; }
+.tyl-emocje .etykieta{ display:block; margin-bottom:3.5mm; }
+.tyl-emocje ul{ list-style:none; margin:0; padding:0; display:grid;
+  grid-template-columns:repeat(3,1fr); gap:2.4mm 4mm; }
+.tyl-emocje li{ font-family:var(--display); font-weight:700; font-size:.92em; color:var(--morze); }
+.tyl-emocje li::before{ content:"· "; color:var(--szafran); }
+.tyl-dol{ display:flex; justify-content:space-between; align-items:flex-end; gap:8mm;
+  border-top:.4mm solid var(--linia); padding-top:5mm; }
+.tyl-kod svg{ width:52mm; height:auto; display:block; }
+.tyl-isbn{ font-family:var(--display); font-size:.72em; letter-spacing:.16em; text-transform:uppercase;
+  color:var(--atrament-3); margin-top:2mm; }
+.tyl-wydawca{ font-family:var(--display); font-size:.78em; letter-spacing:.14em; text-transform:uppercase;
+  color:var(--atrament-3); text-align:right; line-height:1.6; }
+
+:focus-visible{ outline:.8mm solid var(--szafran); outline-offset:1mm; }
+@media (prefers-reduced-motion: reduce){ *{ animation:none!important; transition:none!important; } }
+
+/* ---------- DRUK --------------------------------------------------------- */
+@media print{
+  @page{ size:A4; margin:0; }
+  html,body{ background:#FFFFFF; }
+  .ksiazka{ gap:0; padding:0; }
+  .strona{ box-shadow:none; margin:0; break-after:page; page-break-after:always; break-inside:avoid; }
+  .strona:last-child{ break-after:auto; page-break-after:auto; }
+}
+
+/* ---------- uzupełnienia stron wstępnych i dodatków --------------------- */
+.frontispis{ display:flex; flex-direction:column; align-items:center; gap:2.5mm; margin-top:1mm; }
+.frontispis svg{ width:108mm; height:auto; display:block; }
+.frontispis figcaption{ font-family:var(--display); font-size:.82em; letter-spacing:.14em;
+  text-transform:uppercase; color:var(--atrament-3); text-align:center; }
+.moja-skala{ width:100%; }
+.moja-skala th,.moja-skala td{ padding:2.8mm 3mm; }
+.moja-skala td.pole{ border-bottom:.4mm solid var(--linia); width:58%; }
+.na-koncu{ background:var(--morze-jasne); padding:5mm 6mm; }
+.na-koncu .etykieta{ color:var(--morze); display:block; margin-bottom:3mm; }
+.na-koncu ol{ list-style:none; margin:0; padding:0; display:flex; flex-direction:column; gap:2.2mm; }
+.na-koncu li{ display:flex; justify-content:space-between; gap:4mm; font-size:.96em;
+  border-bottom:.3mm dotted var(--linia); padding-bottom:1.6mm; }
+.na-koncu li span:last-child{ font-family:var(--display); font-weight:700; color:var(--morze);
+  font-variant-numeric:tabular-nums; white-space:nowrap; }
+.karta-instrukcja{ display:grid; grid-template-columns:1fr 1fr; gap:4mm 7mm; }
+.karta-instrukcja p{ font-size:.94em; color:var(--atrament-2); line-height:1.5; }
+.karta-instrukcja strong{ color:var(--atrament); }
+
+.tyt-stopka{ position:absolute; left:var(--pion); right:var(--zewn); bottom:50mm;
+  display:flex; justify-content:center; gap:8mm; border-top:.4mm solid var(--linia);
+  padding-top:4mm; font-family:var(--display); font-weight:700; font-size:.8em;
+  letter-spacing:.16em; text-transform:uppercase; color:var(--morze); }
+.uwaga-panel{ background:var(--szafran-tlo); border-left:1.6mm solid var(--szafran); padding:5mm 6mm;
+  display:flex; flex-direction:column; gap:2.6mm; }
+.uwaga-panel .etykieta{ color:#8A6210; }
+.uwaga-panel p{ font-size:.96em; line-height:1.55; }
+
+.odpowiedzi{ display:flex; flex-direction:column; gap:3.5mm; }
+.odpowiedzi .etykieta{ color:var(--atrament-3); }
+.linie-odp{ display:flex; flex-direction:column; gap:8.5mm; padding-top:1mm; }
+
+/* ---------- znak serii „Mała Filozofia” --------------------------------- */
+.okl-logo svg{ width:64mm; height:auto; display:block; }
+.tyt-logo svg{ width:46mm; height:auto; display:block; margin:0 auto; }
+.tyl-logo svg{ width:58mm; height:auto; display:block; }
+.red-gora{ display:flex; align-items:center; gap:5mm; }
+.red-znak svg{ width:14mm; height:auto; display:block; }
+.zp-l{ display:inline-flex; align-items:center; gap:2.4mm; }
+.zp-znak{ display:inline-block; width:4.6mm; flex:0 0 auto; }
+.zp-znak svg{ width:4.6mm; height:4.6mm; display:block; }
+.strona.lewa .zp-l{ flex-direction:row-reverse; }
+
+/* ---------- znak wydawcy (PCTP) ----------------------------------------- */
+.pctp-znak svg{ width:100%; height:auto; display:block; }
+.okl-wydawca{ display:flex; align-items:center; gap:4mm; margin-top:5mm; }
+.okl-wydawca .pctp-znak{ width:17mm; flex:0 0 auto; }
+.okl-wydawca p{ font-family:var(--display); font-size:.72em; letter-spacing:.14em;
+  text-transform:uppercase; color:var(--atrament-3); line-height:1.6; }
+.okl-wydawca strong{ color:var(--morze); font-weight:800; letter-spacing:.1em; }
+.tyt-wydawca{ position:absolute; left:0; right:0; bottom:18mm;
+  display:flex; align-items:center; justify-content:center; gap:5mm; }
+.tyt-wydawca .pctp-znak{ width:20mm; flex:0 0 auto; }
+.tyt-wydawca p{ font-family:var(--display); font-size:.74em; letter-spacing:.14em;
+  text-transform:uppercase; color:var(--atrament-3); line-height:1.7; text-align:left; }
+.tyt-wydawca strong{ color:var(--morze); font-weight:800; font-size:1.25em; letter-spacing:.1em; }
+.dd-wydawca{ display:flex; align-items:center; gap:4mm; }
+.dd-wydawca .pctp-znak{ width:14mm; flex:0 0 auto; }
+.tyl-wydawca{ display:flex; align-items:center; gap:4mm; text-align:left; }
+.tyl-wydawca .pctp-znak{ width:19mm; flex:0 0 auto; }
+.tyl-wydawca p{ font-family:var(--display); font-size:.74em; letter-spacing:.13em;
+  text-transform:uppercase; color:var(--atrament-3); line-height:1.7; }
+.tyl-wydawca strong{ color:var(--morze); font-weight:800; font-size:1.3em; letter-spacing:.1em; }
+
+/* ---------- załącznik: gra ---------------------------------------------- */
+ol.zasady-gry{ list-style:none; margin:0; padding:0; display:flex; flex-direction:column; gap:0; }
+ol.zasady-gry li{
+  display:grid; grid-template-columns:9mm 1fr; gap:3.5mm; align-items:baseline;
+  padding:2.8mm 0; border-bottom:.3mm dotted var(--linia);
+}
+ol.zasady-gry li:last-child{ border-bottom:none; }
+ol.zasady-gry em{ font-style:normal; font-weight:700; color:var(--szafran); }
+.zg-nr{
+  display:grid; place-items:center; width:7.5mm; height:7.5mm; border-radius:50%;
+  background:var(--morze); color:var(--papier);
+  font-family:var(--display); font-weight:800; font-size:.9em;
+}
+.siatka-pola{ display:grid; grid-template-columns:1fr 1fr; gap:4mm; }
+.pole-opis{ padding:4mm 5mm; }
+.pole-w{ background:var(--oliwka-tlo); border:.5mm dashed var(--oliwka); }
+.pole-p{ background:var(--papier-cien); border:.5mm solid var(--linia); }
+.po-t{ font-family:var(--display); font-weight:800; font-size:1.02em; margin-bottom:1.5mm; }
+.pole-w .po-t{ color:var(--oliwka); }
+.po-o{ font-size:.94em; color:var(--atrament-2); line-height:1.5; }
+
+.plansza-strona .strona-tresc{ gap:4mm; }
+
+ol.karty-gry{
+  list-style:none; margin:0; padding:0; flex:1;
+  display:grid; grid-template-columns:1fr 1fr; grid-template-rows:repeat(3,1fr); gap:5mm;
+}
+.karta-gry{
+  border:.6mm dashed var(--glina); background:var(--karta); padding:5mm 5.5mm;
+  display:flex; flex-direction:column; justify-content:space-between; gap:3mm;
+}
+.kg-gora{ display:flex; align-items:center; gap:3mm; }
+.kg-nr{
+  display:grid; place-items:center; width:8.5mm; height:8.5mm; flex:0 0 auto; border-radius:50%;
+  background:var(--morze); color:var(--papier); font-family:var(--display); font-weight:800; font-size:1em;
+}
+.kg-emocja{
+  font-family:var(--display); font-weight:800; font-size:.82em; letter-spacing:.15em;
+  text-transform:uppercase; color:var(--glina);
+}
+.kg-pytanie{ font-size:1em; line-height:1.45; }
+.kg-dol{
+  display:flex; justify-content:space-between; align-items:baseline; gap:3mm;
+  border-top:.3mm dotted var(--glina); padding-top:2.4mm;
+  font-size:.78em; color:var(--atrament-3);
+}
+.kg-dol strong{ color:var(--glina); }
+
+.tabela-solo td.pole-pisania{ border-bottom:.4mm solid var(--linia); height:10mm; }
+.tabela-solo td:first-child{ font-family:var(--display); font-weight:700; color:var(--morze); width:14mm; }
+.tabela-solo th:nth-child(2){ width:34mm; }
+.tabela-solo th:last-child{ width:22mm; }
+
+/* ---------- zageszczenia: spis treści, załącznik ------------------------ */
+.strona.spis .strona-tresc{ gap:4mm; padding-top:4mm; }
+.strona.spis .tresc{ gap:1.05mm; }
+.strona.spis .tresc-poz{ font-size:.87em; }
+.strona.spis .tresc-dzial{ margin-top:2mm; padding-bottom:1mm; font-size:.74em; }
+.strona.spis .tresc-nr{ width:5.8mm; height:5.8mm; font-size:.72em; margin-right:1.2mm; }
+.strona.spis .dzial-tytul{ font-size:1.8em; padding-bottom:2.4mm; }
+.karty-plaskie{ flex:0 0 auto; grid-template-columns:repeat(4,1fr); grid-template-rows:auto; gap:3.5mm; }
+.karty-plaskie .karta-mini{ padding:4mm 4.5mm; }
+.karty-plaskie .km-o{ font-size:.88em; }
+.pole-e{ background:var(--morze-jasne); border:.5mm solid var(--morze); }
+.pole-e .po-t{ color:var(--morze); }
+.siatka-pola{ grid-template-columns:repeat(3,1fr); }
+.strona.plansza-strona .ilu-info svg{ max-width:none; }
+.kostka-mala svg{ max-width:138mm; margin:0 auto; }

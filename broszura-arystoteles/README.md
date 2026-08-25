@@ -200,3 +200,18 @@ tej broszury.
 Atkinson Hyperlegible — SIL OFL 1.1, Braille Institute of America.
 Alegreya Sans — SIL OFL 1.1, Huerta Tipográfica.
 Oba można legalnie osadzać w plikach i wykorzystywać komercyjnie.
+
+## Skill
+
+Skład tej broszury został wydzielony do skilla `mala-filozofia-broszura`
+(w repozytorium: `.claude/skills/mala-filozofia-broszura/`, do instalacji:
+`mala-filozofia-broszura.skill` w katalogu głównym).
+
+Skrypty w `zrodla/` są kopią skryptów ze skilla — repozytorium działa samodzielnie,
+ale kanonicznym źródłem jest skill. Cała treść tego tomu siedzi w `zrodla/tresc.json`.
+
+```
+python3 zrodla/build.py   zrodla/tresc.json .   # broszura.html
+python3 zrodla/druk.py    .                     # do-druku.html + PDF
+python3 zrodla/sprawdz.py zrodla/tresc.json .   # kontrola treści i łamania stron
+```

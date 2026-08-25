@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 600" width="600" height="600"
+     role="img" aria-label="Znak PCTP">
+<g id="logo">
+  <defs>
+    <radialGradient id="pctpTlo" cx="42%" cy="30%" r="82%">
+      <stop offset="0%" stop-color="#6142A0"/>
+      <stop offset="55%" stop-color="#4E3288"/>
+      <stop offset="100%" stop-color="#3B2270"/>
+    </radialGradient>
+  </defs>
+  <circle cx="300" cy="300" r="298" fill="#3B2270"/>
+  <circle cx="300" cy="300" r="288" fill="#D7CBE8"/>
+  <circle cx="300" cy="300" r="270" fill="#3B2270"/>
+  <circle cx="300" cy="300" r="262" fill="url(#pctpTlo)"/>
+
+  <g stroke="#C6A02A" stroke-width="9" fill="none" stroke-linecap="round">
+    <path d="M300 268 V196"/>
+    <path d="M300 268 C284 240, 258 222, 236 210"/>
+    <path d="M300 268 C316 240, 342 222, 364 210"/>
+  </g>
+
+  <g>
+    <ellipse cx="228" cy="184" rx="24" ry="48" transform="rotate(-30 228 184)" fill="#A98FCB"/>
+    <ellipse cx="372" cy="184" rx="24" ry="48" transform="rotate(30 372 184)" fill="#A98FCB"/>
+    <ellipse cx="256" cy="158" rx="25" ry="52" transform="rotate(-16 256 158)" fill="#F0A268"/>
+    <ellipse cx="344" cy="158" rx="25" ry="52" transform="rotate(16 344 158)" fill="#F0A268"/>
+    <ellipse cx="300" cy="142" rx="26" ry="55" fill="#E8722C"/>
+    <circle cx="300" cy="176" r="14" fill="#FFFFFF"/>
+  </g>
+
+  <g transform="translate(129.13 412)" fill="#F5EFE4"><path transform="translate(0.000 0) scale(0.06055 -0.06055)" d="M871 944Q871 1104 811.5 1167.5Q752 1231 602 1231H523V636H606Q745 636 808.0 706.0Q871 776 871 944ZM523 526V100L746 73V0H48V73L207 100V1242L35 1268V1341H626Q911 1341 1052.0 1245.5Q1193 1150 1193 946Q1193 526 703 526Z"/><path transform="translate(81.744 0) scale(0.06055 -0.06055)" d="M815 -20Q478 -20 289.0 159.0Q100 338 100 655Q100 999 280.5 1177.5Q461 1356 814 1356Q1047 1356 1297 1289L1303 967H1213L1185 1161Q1053 1251 878 1251Q646 1251 539.0 1106.5Q432 962 432 658Q432 377 544.0 230.0Q656 83 870 83Q983 83 1067.5 113.0Q1152 143 1200 184L1232 404H1323L1317 64Q1227 29 1083.0 4.5Q939 -20 815 -20Z"/><path transform="translate(177.293 0) scale(0.06055 -0.06055)" d="M310 0V73L523 100V1235H472Q243 1235 150 1215L123 966H32V1341H1335V966H1243L1216 1215Q1133 1233 888 1233H839V100L1052 73V0Z"/><path transform="translate(266.000 0) scale(0.06055 -0.06055)" d="M871 944Q871 1104 811.5 1167.5Q752 1231 602 1231H523V636H606Q745 636 808.0 706.0Q871 776 871 944ZM523 526V100L746 73V0H48V73L207 100V1242L35 1268V1341H626Q911 1341 1052.0 1245.5Q1193 1150 1193 946Q1193 526 703 526Z"/></g>
+</g>
+</svg>
