@@ -298,6 +298,71 @@ svg{display:block; max-width:100%}
 .page--tight ol,.page--tight ul{line-height:1.32}
 .page--tight .card h4{margin-bottom:1px}
 
+/* ---------- Karta obserwacji (formularz) ---------- */
+.karta-head{display:grid; grid-template-columns:1.7fr .8fr .9fr 1.3fr; gap:8px}
+.fld{border:1px solid var(--line); border-radius:9px; padding:4px 9px 5px; background:#FCFAF7}
+.fld b{display:block; font-size:6.6pt; letter-spacing:.13em; text-transform:uppercase; color:var(--muted); font-weight:800}
+.fld i{display:block; margin-top:9px; border-bottom:1px dotted #C8C1D2}
+.skala{display:flex; gap:10px; flex-wrap:wrap; align-items:center; font-size:8pt; color:var(--ink2)}
+.skala span{display:flex; align-items:center; gap:4px}
+.skala u{text-decoration:none; width:15px;height:15px; border:1.3px solid #B9B2C6; border-radius:4px;
+  display:inline-flex; align-items:center; justify-content:center; font-size:7.4pt; font-weight:800; color:var(--ink2); background:#fff}
+
+table.karta{font-size:8.6pt; border-collapse:separate; border-spacing:0}
+table.karta th{font-size:6.8pt; padding:4px 6px; border-bottom:1.5px solid var(--ink2); background:none}
+table.karta td{padding:0; border:0; vertical-align:middle}
+table.karta tbody tr{background:none}
+.karta .it td{border-bottom:1px solid #EFE9E1; padding:2px 6px; height:16px}
+.karta .it td:first-child{border-left:3px solid var(--rail); padding-left:9px}
+.karta .grp td{padding:3px 9px; border-bottom:1px solid var(--rail)}
+.karta .grp td:first-child{border-left:3px solid var(--rail)}
+.karta .grp{background:var(--tint)}
+.karta .grp b{font-size:9pt; color:var(--rail); font-family:"Fraunces",serif; font-weight:600}
+.karta .sc{text-align:center; width:8.4mm}
+.box{width:12px;height:12px;border:1.3px solid #B9B2C6;border-radius:4px;display:inline-block;background:#fff}
+.karta .ex{width:36mm}
+.karta .ex i{display:block;border-bottom:1px dotted #CFC8D6;height:9px}
+.g-tue{--rail:var(--tue); --tint:var(--tue-soft)}
+.g-tuk{--rail:var(--tuk); --tint:var(--tuk-soft)}
+.g-tus{--rail:var(--tus); --tint:var(--tus-soft)}
+.suma{display:flex;align-items:center;gap:7px;font-size:8.4pt;color:var(--ink2);white-space:nowrap}
+.suma em{font-style:normal;display:inline-block;width:34px;border-bottom:1.4px solid var(--rail);height:13px}
+.linia{border-bottom:1px dotted #C8C1D2; height:12px; margin-top:6px}
+.pole{font-size:7.2pt;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);font-weight:800;margin-top:6px}
+.karta .ex i{margin-top:6px}
+.wynik{display:grid; grid-template-columns:repeat(3,1fr) 1.25fr; gap:10px; align-items:stretch}
+.wynik-box{border:1px solid var(--rail); background:var(--tint); border-radius:10px; padding:6px 9px;
+  display:flex; flex-direction:column; gap:2px}
+.wynik-box .lab{font-size:7pt;letter-spacing:.12em;text-transform:uppercase;font-weight:800;color:var(--rail)}
+.wynik-box .pkt{display:flex;align-items:baseline;gap:5px;font-family:"Fraunces",serif;font-size:13pt;color:var(--ink)}
+.wynik-box .pkt u{text-decoration:none;display:inline-block;width:42px;border-bottom:1.6px solid var(--rail)}
+.wynik-box .pkt small{font-size:9pt;color:var(--ink2);font-family:"Nunito Sans",sans-serif}
+.wynik-box p{font-size:7.6pt;color:var(--ink2);line-height:1.3}
+.podpis{display:grid;grid-template-columns:1fr 1fr 1fr;gap:16px;font-size:7.4pt;color:var(--muted);margin-top:0}
+.podpis div i{display:block;border-bottom:1px solid #C8C1D2;margin-bottom:2px;height:12px}
+
+/* ---------- Strona zapisu do dokumentacji ---------- */
+.dok{background:#fff; border:1px solid var(--line); border-radius:11px; overflow:hidden;
+  box-shadow:0 1px 0 rgba(46,42,59,.04), 0 8px 18px rgba(46,42,59,.06); display:flex; flex-direction:column}
+.dok__bar{background:var(--tuk-soft); border-bottom:1px solid var(--tuk-mid); padding:5px 13px;
+  display:flex; justify-content:space-between; align-items:center;
+  font-size:6.9pt; letter-spacing:.13em; text-transform:uppercase; font-weight:800; color:var(--tuk)}
+.dok__body{padding:10px 14px 12px; display:flex; flex-direction:column; gap:7px; font-size:8.7pt; line-height:1.48}
+.dok__body>div{border-left:2px solid var(--tuk-mid); padding-left:10px}
+.dok__body b{color:var(--tuk)}
+.dok__note{background:#FBF9F6; border-top:1px dashed var(--line); padding:6px 13px; font-size:7.6pt; color:var(--ink2)}
+
+.kroki{display:flex; flex-direction:column; gap:0}
+.krok{display:grid; grid-template-columns:26px 1fr; gap:10px; padding:0 0 9px}
+.krok__n{width:24px;height:24px;border-radius:50%; display:flex;align-items:center;justify-content:center;
+  font-family:"Fraunces",serif; font-size:11pt; font-weight:700; color:#fff; background:var(--kolor); flex:none; position:relative}
+.krok:not(:last-child) .krok__n::after{content:""; position:absolute; top:26px; left:50%; width:1.5px; height:calc(100% - 4px);
+  transform:translateX(-50%); background:var(--line)}
+.krok h5{margin:0; font-size:9.4pt; font-family:"Nunito Sans",sans-serif; font-weight:800; color:var(--ink); line-height:1.25}
+.krok p{font-size:8.5pt; color:var(--ink2); line-height:1.4; margin-top:1px}
+.blad{display:grid; grid-template-columns:20px 1fr; gap:8px; font-size:8.6pt; line-height:1.4}
+.blad span{font-family:"Fraunces",serif; font-size:12pt; font-weight:700; color:var(--gold); line-height:1}
+
 @media print{
   body{background:#fff}
   .page{
@@ -393,7 +458,7 @@ svg{display:block; max-width:100%}
       <span class="kicker" style="color:var(--muted)">Opracowanie</span>
       <span class="n">Mirosława Ewa Jurczyszyn</span>
       <span class="r">Pedagog specjalny · terapeuta · autorka materiałów dla oświaty</span>
-      <span class="m">ewabernat6544@gmail.com</span>
+      <span class="m">kontakt@eduplaner2026.pl</span>
     </div>
     <div class="logobox">
       <svg viewBox="0 0 600 600" role="img" aria-label="Logo PCTP"><use href="#pctp"></use></svg>
@@ -1290,69 +1355,119 @@ svg{display:block; max-width:100%}
     <div>
       <div class="eyebrow">Ocena poziomu funkcjonowania · zapis</div>
       <h2 class="h-sec">Od obserwacji do zapisu w dokumentacji</h2>
-      <p class="lead" style="margin-top:4px">Ocena ma sens tylko wtedy, gdy trafia do WOPFU i przekłada się
-      na konkretne dostosowania w IPET. Poniżej gotowa formuła zapisu.</p>
+      <p class="lead" style="margin-top:4px">Ocena ma sens tylko wtedy, gdy trafia do WOPFU i przekłada się na
+      dostosowania w IPET. Po lewej droga w pięciu krokach, po prawej gotowa formuła zapisu.</p>
     </div>
 
-    <div class="grid g-1-2">
-      
-
-      <div style="display:flex;flex-direction:column;gap:12px">
-        <div class="card card--plain">
-          <h4>Gotowa formuła zapisu do WOPFU</h4>
-          <p style="font-size:9.00pt;background:#fff;border-left:3px solid var(--tuk);border-radius:6px;padding:9px 11px">
-          <strong>Mocne strony:</strong> rozpoznaje i nazywa emocje podstawowe (radość, smutek, złość, strach)
-          na zdjęciach i u siebie; rozumie perspektywę wzrokową.<br><br>
-          <strong>Trudności:</strong> nie rozwiązuje zadań fałszywego przekonania I rzędu; nie rozpoznaje ironii;
-          interpretuje polecenia dosłownie; przypisuje intencję negatywną zdarzeniom przypadkowym.<br>
-          <strong>Poziom teorii umysłu:</strong> II (emocjonalno-percepcyjny).<br>
-          <strong>Wniosek:</strong> zajęcia rozwijające kompetencje emocjonalno-społeczne 1× w tygodniu, grupa do 4 osób;
-          dostosowanie przekazu słownego i lektur na wszystkich zajęciach.</p>
+    <div class="grid g2">
+      <div style="display:flex;flex-direction:column;gap:10px">
+      <div class="kroki">
+        <div class="krok" style="--kolor:var(--tue)">
+          <span class="krok__n">1</span>
+          <div><h5>Obserwuj i zapisuj</h5>
+          <p>Trzy sytuacje, trzy różne dni, karta obserwacji z końca broszury. Notuj <strong>zachowania</strong>,
+          nie etykiety.</p></div>
         </div>
-        
+        <div class="krok" style="--kolor:var(--gold)">
+          <span class="krok__n">2</span>
+          <div><h5>Ustal poziom</h5>
+          <p>Sumuj punkty <strong>w obrębie filaru</strong> — TUE, TUK i TUS osobno. Nie planuj celów z poziomu
+          wyższego niż ustalony.</p></div>
+        </div>
+        <div class="krok" style="--kolor:var(--tuk)">
+          <span class="krok__n">3</span>
+          <div><h5>Zapisz w WOPFU</h5>
+          <p>Mocne strony, trudności, poziom teorii umysłu i wniosek — formuła obok. Zespół opracowuje ocenę
+          <strong>co najmniej dwa razy w roku szkolnym</strong>.</p></div>
+        </div>
+        <div class="krok" style="--kolor:var(--tus)">
+          <span class="krok__n">4</span>
+          <div><h5>Przełóż na IPET</h5>
+          <p>Każdy cel z <strong>mierzalnym kryterium</strong>, forma i wymiar zajęć, dostosowania obowiązujące
+          na <em>wszystkich</em> zajęciach.</p></div>
+        </div>
+        <div class="krok" style="--kolor:#8B849D">
+          <span class="krok__n">5</span>
+          <div><h5>Oceń efektywność</h5>
+          <p>Po semestrze porównaj karty obserwacji: co się zmieniło, czego zabrakło, co dalej.</p></div>
+        </div>
       </div>
-    </div>
-
-    <div class="grid g2">
-      
       <div class="callout callout--law">
-          <span class="kicker" style="color:var(--tuk)">Kto to robi w szkole</span>
-          <p style="font-size:9.00pt">Zespół nauczycieli i specjalistów, w tym <strong>pedagog specjalny</strong>.
-          Nauczyciel przedmiotu odpowiada za dostosowania <em>na swojej lekcji</em> — także wtedy, gdy ucznia prowadzi
-          nauczyciel współorganizujący.</p>
+        <span class="kicker" style="color:var(--tuk)">Kto to robi w szkole</span>
+        <p style="font-size:9.00pt">Zespół nauczycieli i specjalistów, w tym <strong>pedagog specjalny</strong>.
+        Nauczyciel przedmiotu odpowiada za dostosowania <em>na swojej lekcji</em> — także gdy ucznia prowadzi
+        nauczyciel współorganizujący.</p>
         </div>
-    </div>
+      </div>
 
-    <div class="grid g2">
-      <div style="display:flex;flex-direction:column;gap:12px">
+      <div style="display:flex;flex-direction:column;gap:9px">
+        <div class="dok">
+          <div class="dok__bar"><span>WOPFU · fragment</span><span>wzór do skopiowania</span></div>
+          <div class="dok__body">
+            <div><b>Mocne strony:</b> rozpoznaje i nazywa emocje podstawowe (radość, smutek, złość, strach)
+            na zdjęciach i u siebie; rozumie perspektywę wzrokową.</div>
+            <div><b>Trudności:</b> nie rozwiązuje zadań fałszywego przekonania I rzędu; nie rozpoznaje ironii;
+            interpretuje polecenia dosłownie; przypisuje intencję negatywną zdarzeniom przypadkowym.</div>
+            <div><b>Poziom teorii umysłu:</b> II (emocjonalno-percepcyjny).</div>
+            <div><b>Wniosek:</b> zajęcia rozwijające kompetencje emocjonalno-społeczne 1× w tygodniu, grupa do 4 osób;
+            dostosowanie przekazu słownego i lektur na wszystkich zajęciach.</div>
+          </div>
+          <div class="dok__note"><strong>Cel do IPET z kryterium:</strong> „Uczeń wskaże, gdzie bohater będzie szukał
+          przedmiotu, w 4 z 5 historyjek, z podpowiedzią wizualną — do końca semestru."</div>
+        </div>
+
         <div class="callout callout--warn">
           <span class="kicker" style="color:var(--gold)">Poziom „kompensacyjny" — najczęściej przeoczany</span>
           <p style="font-size:9.00pt">Uczeń w normie intelektualnej może <strong>zdawać zadania każdego poziomu</strong>
           i mimo to nie radzić sobie na przerwie. Gdy wyniki prób są dobre, a funkcjonowanie złe —
           <strong>opisuj funkcjonowanie, nie wynik próby</strong>.</p>
         </div>
-        <div class="card card--plain">
-          <h4>Jak używać tej tabeli</h4>
-          <p style="font-size:9.20pt">Przepisz <strong>priorytet pracy</strong> wprost do IPET. Nie planuj celów
-          z poziomu wyższego niż ustalony — to najczęstsza przyczyna tego, że zajęcia „nie przynoszą efektów".</p>
+
+        
+      </div>
+    </div>
+
+    <div class="card card--gold">
+      <h4 style="color:var(--gold)">Pięć błędów, które unieważniają dobrą ocenę funkcjonowania</h4>
+      <div class="grid g2" style="gap:6px 22px;margin-top:2px">
+        <div style="display:flex;flex-direction:column;gap:6px">
+          <div class="blad"><span>1</span><div><strong>Sam wynik próby zamiast opisu funkcjonowania.</strong>
+          „Nie rozwiązał zadania" nie mówi nauczycielowi, co ma zrobić na lekcji.</div></div>
+          <div class="blad"><span>2</span><div><strong>Cele bez kryterium.</strong> „Rozwijanie umiejętności
+          społecznych" jest niemierzalne. „Nazywa cztery emocje na zdjęciach w 4 z 5 prób" — jest.</div></div>
+          <div class="blad"><span>3</span><div><strong>Dostosowania tylko dla zajęć rewalidacyjnych.</strong>
+          Trudność działa przez cały dzień — dostosowania muszą obowiązywać na każdej lekcji.</div></div>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:6px">
+          <div class="blad"><span>4</span><div><strong>IPET, którego nie zna nauczyciel matematyki,</strong>
+          nie zmienia niczego. Przekaż zalecenia całemu zespołowi.</div></div>
+          <div class="blad"><span>5</span><div><strong>Ocena raz w roku.</strong> Przepisy wymagają co najmniej
+          dwóch ocen w roku szkolnym — i to jest minimum, nie zalecenie.</div></div>
         </div>
       </div>
     </div>
-    <div class="card card--gold">
-      <h4 style="color:var(--gold)">Pięć błędów, które unieważniają dobrą ocenę funkcjonowania</h4>
-      <ol style="font-size:9.20pt">
-        <li><strong>Sam wynik próby zamiast opisu funkcjonowania.</strong> „Nie rozwiązał zadania" nie mówi
-        nauczycielowi przedmiotu, co ma zrobić w poniedziałek.</li>
-        <li><strong>Cele bez kryterium.</strong> „Rozwijanie umiejętności społecznych" jest niemierzalne.
-        „Nazywa cztery emocje na zdjęciach w 4 z 5 prób" — jest.</li>
-        <li><strong>Dostosowania tylko dla zajęć rewalidacyjnych.</strong> Trudność działa przez cały dzień —
-        dostosowania muszą obowiązywać na każdej lekcji.</li>
-        <li><strong>IPET, którego nie zna nauczyciel matematyki,</strong> nie zmienia niczego w życiu ucznia.</li>
-        <li><strong>Ocena raz w roku.</strong> Przepisy wymagają co najmniej dwóch ocen w roku szkolnym.</li>
-      </ol>
+    <div class="card card--plain">
+      <h4>Gotowe cele z kryterium — do skopiowania do IPET</h4>
+      <div class="tbl-wrap">
+      <table>
+        <thead><tr><th style="width:30mm">Poziom</th><th>Cel sformułowany tak, żeby dało się sprawdzić, czy został osiągnięty</th></tr></thead>
+        <tbody>
+          <tr><td><span class="tag tag--tue">Poziom I</span></td>
+            <td>Uczeń podąży wzrokiem za spojrzeniem dorosłego i wskaże właściwy przedmiot <strong>w 4 z 5 prób</strong>, do końca semestru.</td></tr>
+          <tr><td><span class="tag tag--gold">Poziom II</span></td>
+            <td>Uczeń nazwie emocję na zdjęciu twarzy (radość, smutek, złość, strach) <strong>w 8 z 10 kart</strong> i wskaże jej przyczynę zdaniem „…bo…", do stycznia.</td></tr>
+          <tr><td><span class="tag tag--tuk">Poziom III</span></td>
+            <td>Uczeń wskaże, gdzie bohater będzie szukał przedmiotu, <strong>w 4 z 5 historyjek</strong>, bez podpowiedzi wizualnej, do czerwca.</td></tr>
+          <tr><td><span class="tag tag--tus">Poziom IV</span></td>
+            <td>Uczeń rozpozna gafę <strong>w 4 z 6 scenek</strong>, wyjaśni, że autor nie chciał sprawić przykrości, i zaproponuje zdanie naprawcze, do czerwca.</td></tr>
+        </tbody>
+      </table>
+      </div>
+      <p style="font-size:7.8pt;color:var(--ink2)">Schemat: <strong>co zrobi + w jakich warunkach + ile razy na ile prób + do kiedy.</strong>
+      Bez dwóch ostatnich elementów cel nie nadaje się do oceny efektywności.</p>
     </div>
   </div>
-  <div class="page__foot"><span><b>Poziom funkcjonowania</b> · profil grupy i zapis do WOPFU</span><span class="num">12</span></div>
+  <div class="page__foot"><span><b>Poziom funkcjonowania</b> · od obserwacji do zapisu w WOPFU i IPET</span><span class="num">12</span></div>
 </section>
 
 <!-- ============ 10. PODSTAWA PRAWNA ============ -->
@@ -2024,80 +2139,120 @@ svg{display:block; max-width:100%}
   <div class="page__foot"><span><b>Program</b> · „Widzę – Myślę – Rozumiem", 30 spotkań</span><span class="num">20</span></div>
 </section>
 
-<!-- ============ 17. KARTA OBSERWACJI ============ -->
+<!-- ============ KARTA OBSERWACJI ============ -->
 <section class="page">
   <div class="page__body">
     <div>
       <div class="eyebrow">Narzędzie do druku</div>
       <h2 class="h-sec">Karta obserwacji teorii umysłu — do WOPFU</h2>
-      <p class="lead" style="margin-top:4px">Wypełnij po trzech obserwacjach w trzech sytuacjach. Skala:
-      <strong>0</strong> — nie występuje, <strong>1</strong> — z pomocą, <strong>2</strong> — samodzielnie, niekonsekwentnie,
-      <strong>3</strong> — samodzielnie i trwale.</p>
+      <p class="lead" style="margin-top:4px">Wypełnij po trzech obserwacjach w trzech różnych sytuacjach.
+      Zaznacz jedną kratkę w każdym wierszu.</p>
     </div>
 
-    <div style="display:flex;gap:14px;font-size:9.00pt;align-items:flex-end;flex-wrap:wrap">
-      <span style="flex:1;min-width:60mm;border-bottom:1px solid var(--ink2);padding-bottom:2px">Uczeń / uczennica:</span>
-      <span style="width:26mm;border-bottom:1px solid var(--ink2);padding-bottom:2px">Klasa:</span>
-      <span style="width:30mm;border-bottom:1px solid var(--ink2);padding-bottom:2px">Data:</span>
-      <span style="width:40mm;border-bottom:1px solid var(--ink2);padding-bottom:2px">Obserwator:</span>
+    <div class="karta-head">
+      <div class="fld"><b>Uczeń / uczennica</b><i></i></div>
+      <div class="fld"><b>Klasa / grupa</b><i></i></div>
+      <div class="fld"><b>Data obserwacji</b><i></i></div>
+      <div class="fld"><b>Obserwator</b><i></i></div>
+    </div>
+
+    <div class="skala">
+      <strong style="font-size:7pt;letter-spacing:.12em;text-transform:uppercase;color:var(--muted)">Skala</strong>
+      <span><u>0</u> nie występuje</span>
+      <span><u>1</u> tylko z pomocą dorosłego</span>
+      <span><u>2</u> samodzielnie, ale niekonsekwentnie</span>
+      <span><u>3</u> samodzielnie i trwale</span>
     </div>
 
     <div class="tbl-wrap">
-    <table style="font-size:8.90pt">
-      <thead><tr><th style="width:14mm">Filar</th><th>Umiejętność — obserwowalne zachowanie</th>
-        <th style="width:8mm;text-align:center">0</th><th style="width:8mm;text-align:center">1</th>
-        <th style="width:8mm;text-align:center">2</th><th style="width:8mm;text-align:center">3</th>
-        <th style="width:34mm">Przykład sytuacji</th></tr></thead>
+    <table class="karta">
+      <thead><tr>
+        <th colspan="2">Umiejętność — obserwowalne zachowanie</th>
+        <th class="sc">0</th><th class="sc">1</th><th class="sc">2</th><th class="sc">3</th>
+        <th class="ex">Przykład sytuacji / notatka</th>
+      </tr></thead>
       <tbody>
-        <tr><td rowspan="6"><span class="tag tag--tue">TUE</span></td><td>Nawiązuje kontakt wzrokowy i dzieli uwagę (pokazuje, przynosi, sprawdza twarz dorosłego)</td><td></td><td></td><td></td><td></td><td></td></tr>
-        <tr><td>Nazywa 4 emocje podstawowe u siebie</td><td></td><td></td><td></td><td></td><td></td></tr>
-        <tr><td>Rozpoznaje emocje na twarzy innej osoby</td><td></td><td></td><td></td><td></td><td></td></tr>
-        <tr><td>Wskazuje przyczynę emocji („jest smutny, bo…")</td><td></td><td></td><td></td><td></td><td></td></tr>
-        <tr><td>Rozumie, że ktoś może chcieć czegoś innego niż on</td><td></td><td></td><td></td><td></td><td></td></tr>
-        <tr><td>Rozumie perspektywę wzrokową („ja widzę, ty nie widzisz")</td><td></td><td></td><td></td><td></td><td></td></tr>
-        <tr><td rowspan="6"><span class="tag tag--tuk">TUK</span></td><td>Odróżnia to, co ktoś myśli, od tego, co mówi</td><td></td><td></td><td></td><td></td><td></td></tr>
-        <tr><td>Rozumie, że kto nie widział, ten nie wie</td><td></td><td></td><td></td><td></td><td></td></tr>
-        <tr><td>Rozwiązuje zadanie fałszywego przekonania I rzędu</td><td></td><td></td><td></td><td></td><td></td></tr>
-        <tr><td>Rozumie emocję ukrytą (czuję jedno, pokazuję drugie)</td><td></td><td></td><td></td><td></td><td></td></tr>
-        <tr><td>Odróżnia zdarzenie przypadkowe od celowego i uzasadnia</td><td></td><td></td><td></td><td></td><td></td></tr>
-        <tr><td>Rozwiązuje zadanie fałszywego przekonania II rzędu</td><td></td><td></td><td></td><td></td><td></td></tr>
-        <tr><td rowspan="6"><span class="tag tag--tus">TUS</span></td><td>Rozpoznaje gafę i wie, że autor nie chciał sprawić przykrości</td><td></td><td></td><td></td><td></td><td></td></tr>
-        <tr><td>Odróżnia żart od dokuczania; stosuje zdanie sprawdzające</td><td></td><td></td><td></td><td></td><td></td></tr>
-        <tr><td>Wyjaśnia motywy bohatera lektury bez podpowiedzi</td><td></td><td></td><td></td><td></td><td></td></tr>
-        <tr><td>Wchodzi do wspólnej zabawy / pracy grupowej i negocjuje rolę</td><td></td><td></td><td></td><td></td><td></td></tr>
-        <tr><td>Prosi o pomoc, gdy jej potrzebuje</td><td></td><td></td><td></td><td></td><td></td></tr>
-        <tr><td>Nazywa własne potrzeby i granice wobec dorosłego</td><td></td><td></td><td></td><td></td><td></td></tr>
+        <tr class="grp g-tue"><td colspan="2"><span class="tag tag--tue">TUE</span> <b>Emocje — co on czuje</b></td>
+          <td colspan="4" class="sc"></td>
+          <td class="ex"><span class="suma">razem <em></em> / 18</span></td></tr>
+        <tr class="it g-tue"><td colspan="2">Nawiązuje kontakt wzrokowy i dzieli uwagę (pokazuje, przynosi, sprawdza twarz dorosłego)</td><td class="sc"><span class="box"></span></td><td class="sc"><span class="box"></span></td><td class="sc"><span class="box"></span></td><td class="sc"><span class="box"></span></td><td class="ex"><i></i></td></tr>
+        <tr class="it g-tue"><td colspan="2">Nazywa 4 emocje podstawowe u siebie</td><td class="sc"><span class="box"></span></td><td class="sc"><span class="box"></span></td><td class="sc"><span class="box"></span></td><td class="sc"><span class="box"></span></td><td class="ex"><i></i></td></tr>
+        <tr class="it g-tue"><td colspan="2">Rozpoznaje emocje na twarzy innej osoby</td><td class="sc"><span class="box"></span></td><td class="sc"><span class="box"></span></td><td class="sc"><span class="box"></span></td><td class="sc"><span class="box"></span></td><td class="ex"><i></i></td></tr>
+        <tr class="it g-tue"><td colspan="2">Wskazuje przyczynę emocji („jest smutny, bo…")</td><td class="sc"><span class="box"></span></td><td class="sc"><span class="box"></span></td><td class="sc"><span class="box"></span></td><td class="sc"><span class="box"></span></td><td class="ex"><i></i></td></tr>
+        <tr class="it g-tue"><td colspan="2">Rozumie, że ktoś może chcieć czegoś innego niż on</td><td class="sc"><span class="box"></span></td><td class="sc"><span class="box"></span></td><td class="sc"><span class="box"></span></td><td class="sc"><span class="box"></span></td><td class="ex"><i></i></td></tr>
+        <tr class="it g-tue"><td colspan="2">Rozumie perspektywę wzrokową („ja widzę, ty nie widzisz")</td><td class="sc"><span class="box"></span></td><td class="sc"><span class="box"></span></td><td class="sc"><span class="box"></span></td><td class="sc"><span class="box"></span></td><td class="ex"><i></i></td></tr>
+        <tr class="grp g-tuk"><td colspan="2"><span class="tag tag--tuk">TUK</span> <b>Przekonania — co on wie i myśli</b></td>
+          <td colspan="4" class="sc"></td>
+          <td class="ex"><span class="suma">razem <em></em> / 18</span></td></tr>
+        <tr class="it g-tuk"><td colspan="2">Odróżnia to, co ktoś myśli, od tego, co mówi</td><td class="sc"><span class="box"></span></td><td class="sc"><span class="box"></span></td><td class="sc"><span class="box"></span></td><td class="sc"><span class="box"></span></td><td class="ex"><i></i></td></tr>
+        <tr class="it g-tuk"><td colspan="2">Rozumie, że kto nie widział, ten nie wie</td><td class="sc"><span class="box"></span></td><td class="sc"><span class="box"></span></td><td class="sc"><span class="box"></span></td><td class="sc"><span class="box"></span></td><td class="ex"><i></i></td></tr>
+        <tr class="it g-tuk"><td colspan="2">Rozwiązuje zadanie fałszywego przekonania I rzędu</td><td class="sc"><span class="box"></span></td><td class="sc"><span class="box"></span></td><td class="sc"><span class="box"></span></td><td class="sc"><span class="box"></span></td><td class="ex"><i></i></td></tr>
+        <tr class="it g-tuk"><td colspan="2">Rozumie emocję ukrytą (czuję jedno, pokazuję drugie)</td><td class="sc"><span class="box"></span></td><td class="sc"><span class="box"></span></td><td class="sc"><span class="box"></span></td><td class="sc"><span class="box"></span></td><td class="ex"><i></i></td></tr>
+        <tr class="it g-tuk"><td colspan="2">Odróżnia zdarzenie przypadkowe od celowego i uzasadnia</td><td class="sc"><span class="box"></span></td><td class="sc"><span class="box"></span></td><td class="sc"><span class="box"></span></td><td class="sc"><span class="box"></span></td><td class="ex"><i></i></td></tr>
+        <tr class="it g-tuk"><td colspan="2">Rozwiązuje zadanie fałszywego przekonania II rzędu</td><td class="sc"><span class="box"></span></td><td class="sc"><span class="box"></span></td><td class="sc"><span class="box"></span></td><td class="sc"><span class="box"></span></td><td class="ex"><i></i></td></tr>
+        <tr class="grp g-tus"><td colspan="2"><span class="tag tag--tus">TUS</span> <b>Działanie — co z tym robi</b></td>
+          <td colspan="4" class="sc"></td>
+          <td class="ex"><span class="suma">razem <em></em> / 18</span></td></tr>
+        <tr class="it g-tus"><td colspan="2">Rozpoznaje gafę i wie, że autor nie chciał sprawić przykrości</td><td class="sc"><span class="box"></span></td><td class="sc"><span class="box"></span></td><td class="sc"><span class="box"></span></td><td class="sc"><span class="box"></span></td><td class="ex"><i></i></td></tr>
+        <tr class="it g-tus"><td colspan="2">Odróżnia żart od dokuczania; stosuje zdanie sprawdzające</td><td class="sc"><span class="box"></span></td><td class="sc"><span class="box"></span></td><td class="sc"><span class="box"></span></td><td class="sc"><span class="box"></span></td><td class="ex"><i></i></td></tr>
+        <tr class="it g-tus"><td colspan="2">Wyjaśnia motywy bohatera lektury bez podpowiedzi</td><td class="sc"><span class="box"></span></td><td class="sc"><span class="box"></span></td><td class="sc"><span class="box"></span></td><td class="sc"><span class="box"></span></td><td class="ex"><i></i></td></tr>
+        <tr class="it g-tus"><td colspan="2">Wchodzi do wspólnej zabawy / pracy grupowej i negocjuje rolę</td><td class="sc"><span class="box"></span></td><td class="sc"><span class="box"></span></td><td class="sc"><span class="box"></span></td><td class="sc"><span class="box"></span></td><td class="ex"><i></i></td></tr>
+        <tr class="it g-tus"><td colspan="2">Prosi o pomoc, gdy jej potrzebuje</td><td class="sc"><span class="box"></span></td><td class="sc"><span class="box"></span></td><td class="sc"><span class="box"></span></td><td class="sc"><span class="box"></span></td><td class="ex"><i></i></td></tr>
+        <tr class="it g-tus"><td colspan="2">Nazywa własne potrzeby i granice wobec dorosłego</td><td class="sc"><span class="box"></span></td><td class="sc"><span class="box"></span></td><td class="sc"><span class="box"></span></td><td class="sc"><span class="box"></span></td><td class="ex"><i></i></td></tr>
       </tbody>
     </table>
     </div>
 
-    <div class="grid g-2-1">
-      <div class="card card--plain" style="gap:9px">
-        <h4>Wniosek do WOPFU / IPET</h4>
-        <p style="font-size:8.60pt;color:var(--muted)">Poziom teorii umysłu (I / II / III / IV):</p>
-        <div style="border-bottom:1px solid var(--line);height:12px"></div>
-        <p style="font-size:8.60pt;color:var(--muted)">Mocne strony:</p>
-        <div style="border-bottom:1px solid var(--line);height:12px"></div>
-        <div style="border-bottom:1px solid var(--line);height:12px"></div>
-        <p style="font-size:8.60pt;color:var(--muted)">Priorytet pracy na najbliższy semestr:</p>
-        <div style="border-bottom:1px solid var(--line);height:12px"></div>
-        <div style="border-bottom:1px solid var(--line);height:12px"></div>
-        <p style="font-size:8.60pt;color:var(--muted)">Zalecane dostosowania na zajęciach edukacyjnych:</p>
-        <div style="border-bottom:1px solid var(--line);height:12px"></div>
-        <div style="border-bottom:1px solid var(--line);height:12px"></div>
+    <div class="wynik">
+      <div class="wynik-box g-tue">
+        <span class="lab">TUE · emocje</span>
+        <span class="pkt"><u></u><small>/ 18 pkt</small></span>
+        <p>poniżej 10 pkt → poziom I–II: pracuj wyłącznie na emocjach</p>
       </div>
-      <div class="card card--gold">
-        <h4 style="color:var(--gold)">Jak liczyć wynik</h4>
-        <p style="font-size:9.00pt">Sumuj punkty w obrębie filaru — nie w całości.</p>
-        <ul style="font-size:9.00pt">
-          <li><strong>TUE poniżej 10 pkt</strong> → poziom I–II, pracuj wyłącznie na emocjach</li>
-          <li><strong>TUE 12+, TUK poniżej 8</strong> → poziom II, zacznij TUK</li>
-          <li><strong>TUK 12+, TUS poniżej 8</strong> → poziom III, zacznij TUS</li>
-          <li><strong>TUS 12+</strong> → poziom IV, pracuj nad generalizacją i samorzecznictwem</li>
-        </ul>
-        <p style="font-size:8.40pt;color:var(--ink2)">Progi mają charakter orientacyjny i służą planowaniu zajęć —
-        nie są normą testową ani podstawą diagnozy.</p>
+      <div class="wynik-box g-tuk">
+        <span class="lab">TUK · przekonania</span>
+        <span class="pkt"><u></u><small>/ 18 pkt</small></span>
+        <p>TUE 12+, TUK poniżej 8 → poziom II: zacznij TUK</p>
       </div>
+      <div class="wynik-box g-tus">
+        <span class="lab">TUS · działanie</span>
+        <span class="pkt"><u></u><small>/ 18 pkt</small></span>
+        <p>TUK 12+, TUS poniżej 8 → poziom III. TUS 12+ → poziom IV</p>
+      </div>
+      <div class="wynik-box" style="--rail:var(--gold); --tint:var(--gold-soft)">
+        <span class="lab">Ustalony poziom</span>
+        <div style="display:flex;gap:6px;margin:2px 0 1px">
+          <span class="tag tag--tue" style="opacity:.9">I</span>
+          <span class="tag tag--gold" style="opacity:.9">II</span>
+          <span class="tag tag--tuk" style="opacity:.9">III</span>
+          <span class="tag tag--tus" style="opacity:.9">IV</span>
+        </div>
+        <p>Zakreśl poziom i przepisz priorytet pracy do IPET. Sumuj punkty <strong>w obrębie filaru</strong>,
+        nie w całości. Progi są orientacyjne.</p>
+      </div>
+    </div>
+
+    <div class="card card--plain" style="gap:3px">
+      <h4>Wniosek do WOPFU / IPET</h4>
+      <div class="grid g2" style="gap:4px 20px;margin-top:1px">
+        <div>
+          <p class="pole">Mocne strony</p><div class="linia"></div><div class="linia"></div>
+          <p class="pole">Priorytet pracy na najbliższy semestr</p><div class="linia"></div><div class="linia"></div>
+        </div>
+        <div>
+          <p class="pole">Zalecane dostosowania na zajęciach edukacyjnych</p><div class="linia"></div><div class="linia"></div>
+          <p class="pole">Forma pomocy / wymiar godzin</p><div class="linia"></div><div class="linia"></div>
+        </div>
+      </div>
+      <p style="font-size:7.6pt;color:var(--ink2);margin-top:2px"><strong>Zanim wpiszesz:</strong> opisuj zachowanie,
+      nie ucznia; obserwuj w trzech sytuacjach i trzech dniach; kartę wypełnia zespół. Powtórz we wrześniu, styczniu
+      i czerwcu. Karta jest narzędziem obserwacyjnym, nie testem diagnostycznym.</p>
+    </div>
+
+    <div class="podpis">
+      <div><i></i>podpis osoby wypełniającej</div>
+      <div><i></i>podpis wychowawcy / pedagoga specjalnego</div>
+      <div><i></i>data omówienia z rodzicami</div>
     </div>
   </div>
   <div class="page__foot"><span><b>Karta obserwacji</b> · narzędzie do druku i kopiowania</span><span class="num">21</span></div>
@@ -2161,7 +2316,7 @@ svg{display:block; max-width:100%}
         <span class="kicker" style="color:var(--muted)">Opracowanie i kontakt</span>
         <span style="font-family:Fraunces,serif;font-size:16.00pt;font-weight:600">Mirosława Ewa Jurczyszyn</span>
         <span style="font-size:9.40pt;color:var(--ink2)">Pedagog specjalny · terapeuta · autorka materiałów dla oświaty</span>
-        <span style="font-size:11.00pt;color:var(--tuk);font-weight:700">ewabernat6544@gmail.com</span>
+        <span style="font-size:11.00pt;color:var(--tuk);font-weight:700">kontakt@eduplaner2026.pl</span>
         <span style="font-size:8.40pt;color:var(--muted);margin-top:4px">Broszurę można kopiować i wykorzystywać w pracy
         z dziećmi i uczniami. Karta obserwacji ze s. 17 jest przeznaczona do powielania na użytek własny placówki.</span>
       </div>

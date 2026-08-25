@@ -1,7 +1,7 @@
 # Teoria umysłu a funkcjonowanie dziecka, ucznia z autyzmem
 
 Broszura metodyczna dla nauczycieli, nauczycieli współorganizujących, terapeutów i rodziców.
-Opracowanie: **Mirosława Ewa Jurczyszyn** · ewabernat6544@gmail.com
+Opracowanie: **Mirosława Ewa Jurczyszyn** · kontakt@eduplaner2026.pl
 
 ## Zawartość (22 strony A4)
 
