@@ -110,11 +110,11 @@ p.t:last-child{ margin-bottom:0; }
   display:grid; grid-template-rows:auto 1fr auto;
 }
 .okl-gora{
-  display:flex; justify-content:space-between; align-items:baseline;
+  display:flex; justify-content:space-between; align-items:flex-start;
   padding:16mm 18mm 0; font-family:var(--display);
 }
 .okl-seria{ font-weight:800; font-size:1.15em; letter-spacing:.22em; text-transform:uppercase; color:var(--morze); }
-.okl-tom{ font-size:.85em; letter-spacing:.18em; text-transform:uppercase; color:var(--szafran); }
+.okl-tom{ padding-top:2.5mm; font-size:.85em; letter-spacing:.18em; text-transform:uppercase; color:var(--szafran); }
 .okl-obraz{ display:grid; place-items:center; padding:0 6mm; }
 .okl-obraz svg{ width:100%; max-width:182mm; height:auto; }
 .okl-dol{ background:var(--papier); padding:14mm 18mm 18mm; display:flex; flex-direction:column; gap:5mm; }
@@ -368,7 +368,7 @@ dl.slownik dd{ margin:0 0 2mm; font-size:.9em; color:var(--atrament-2); line-hei
 .karta-instrukcja p{ font-size:.94em; color:var(--atrament-2); line-height:1.5; }
 .karta-instrukcja strong{ color:var(--atrament); }
 
-.tyt-stopka{ position:absolute; left:var(--pion); right:var(--zewn); bottom:34mm;
+.tyt-stopka{ position:absolute; left:var(--pion); right:var(--zewn); bottom:50mm;
   display:flex; justify-content:center; gap:8mm; border-top:.4mm solid var(--linia);
   padding-top:4mm; font-family:var(--display); font-weight:700; font-size:.8em;
   letter-spacing:.16em; text-transform:uppercase; color:var(--morze); }
@@ -380,3 +380,35 @@ dl.slownik dd{ margin:0 0 2mm; font-size:.9em; color:var(--atrament-2); line-hei
 .odpowiedzi{ display:flex; flex-direction:column; gap:3.5mm; }
 .odpowiedzi .etykieta{ color:var(--atrament-3); }
 .linie-odp{ display:flex; flex-direction:column; gap:8.5mm; padding-top:1mm; }
+
+/* ---------- znak serii „Mała Filozofia” --------------------------------- */
+.okl-logo svg{ width:64mm; height:auto; display:block; }
+.tyt-logo svg{ width:46mm; height:auto; display:block; margin:0 auto; }
+.tyl-logo svg{ width:58mm; height:auto; display:block; }
+.red-gora{ display:flex; align-items:center; gap:5mm; }
+.red-znak svg{ width:14mm; height:auto; display:block; }
+.zp-l{ display:inline-flex; align-items:center; gap:2.4mm; }
+.zp-znak{ display:inline-block; width:4.6mm; flex:0 0 auto; }
+.zp-znak svg{ width:4.6mm; height:4.6mm; display:block; }
+.strona.lewa .zp-l{ flex-direction:row-reverse; }
+
+/* ---------- znak wydawcy (PCTP) ----------------------------------------- */
+.pctp-znak svg{ width:100%; height:auto; display:block; }
+.okl-wydawca{ display:flex; align-items:center; gap:4mm; margin-top:5mm; }
+.okl-wydawca .pctp-znak{ width:17mm; flex:0 0 auto; }
+.okl-wydawca p{ font-family:var(--display); font-size:.72em; letter-spacing:.14em;
+  text-transform:uppercase; color:var(--atrament-3); line-height:1.6; }
+.okl-wydawca strong{ color:var(--morze); font-weight:800; letter-spacing:.1em; }
+.tyt-wydawca{ position:absolute; left:0; right:0; bottom:18mm;
+  display:flex; align-items:center; justify-content:center; gap:5mm; }
+.tyt-wydawca .pctp-znak{ width:20mm; flex:0 0 auto; }
+.tyt-wydawca p{ font-family:var(--display); font-size:.74em; letter-spacing:.14em;
+  text-transform:uppercase; color:var(--atrament-3); line-height:1.7; text-align:left; }
+.tyt-wydawca strong{ color:var(--morze); font-weight:800; font-size:1.25em; letter-spacing:.1em; }
+.dd-wydawca{ display:flex; align-items:center; gap:4mm; }
+.dd-wydawca .pctp-znak{ width:14mm; flex:0 0 auto; }
+.tyl-wydawca{ display:flex; align-items:center; gap:4mm; text-align:left; }
+.tyl-wydawca .pctp-znak{ width:19mm; flex:0 0 auto; }
+.tyl-wydawca p{ font-family:var(--display); font-size:.74em; letter-spacing:.13em;
+  text-transform:uppercase; color:var(--atrament-3); line-height:1.7; }
+.tyl-wydawca strong{ color:var(--morze); font-weight:800; font-size:1.3em; letter-spacing:.1em; }

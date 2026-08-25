@@ -13,6 +13,26 @@ def svg(pref):
         if k.startswith(pref): return v
     raise KeyError(pref)
 
+def wczytaj_logo(nazwa):
+    """Wstawia plik z katalogu logo/ jako kod SVG, z kolorami na tokenach palety."""
+    s = open(os.path.join(WYJSCIE, 'logo', nazwa), encoding='utf-8').read()
+    s = re.sub(r'<\?xml[^>]*\?>', '', s)
+    s = re.sub(r'\s(?:width|height)="[^"]*"', '', s.split('>', 1)[0]) + '>' + s.split('>', 1)[1]
+    s = s.replace('<g id="logo">', '<g>')
+    wczytaj_logo.licznik = getattr(wczytaj_logo, 'licznik', 0) + 1
+    for stary in set(re.findall(r'id="([\w-]+)"', s)):
+        nowy = '%s-%d' % (stary, wczytaj_logo.licznik)
+        s = s.replace('id="%s"' % stary, 'id="%s"' % nowy).replace('#%s)' % stary, '#%s)' % nowy)
+    for hexa, token in (('#1E5A6B', 'var(--morze)'), ('#B07E13', 'var(--szafran)'),
+                        ('#5C7A49', 'var(--oliwka)'), ('#1F2E33', 'var(--atrament)')):
+        s = s.replace(hexa, token)
+    return s.strip()
+
+ZNAK = wczytaj_logo('mala-filozofia-znak.svg')
+LOGO_POZ = wczytaj_logo('mala-filozofia-logo-poziome.svg')
+LOGO_PION = wczytaj_logo('mala-filozofia-logo-pionowe.svg')
+PCTP = lambda: wczytaj_logo('pctp-logo.svg')
+
 ORNAMENT = """<svg viewBox="0 0 160 24" role="img" aria-label="Ozdobnik: trzy listki oliwne">
   <g fill="var(--oliwka)" opacity=".8">
     <ellipse cx="80" cy="12" rx="11" ry="5"/>
@@ -49,7 +69,7 @@ def figura(s, etykieta=None, podpis=None, klasa=''):
 # ======================================================= 1. OKŁADKA
 strona(klasa='okladka', html='''
 <div class="okl-gora">
-  <p class="okl-seria">Mała Filozofia</p>
+  <div class="okl-logo">%s</div>
   <p class="okl-tom">Tom pierwszy</p>
 </div>
 <div class="okl-obraz">%s</div>
@@ -59,19 +79,22 @@ strona(klasa='okladka', html='''
   <div class="okl-pasek">
     <span>12 spotkań</span><span>12 emocji</span><span>60 pytań</span>
   </div>
-</div>''' % svg('Portret Arystotelesa'))
+  <div class="okl-wydawca"><div class="pctp-znak">%s</div><p>Wydawca<br><strong>PCTP</strong></p></div>
+</div>''' % (LOGO_POZ, svg('Portret Arystotelesa'), PCTP()))
 
 # ======================================================= 2. STRONA TYTUŁOWA
 strona(klasa='tytulowa', html='''
 <div class="tyt-blok">
-  <p class="tyt-seria">Seria &nbsp;·&nbsp; Mała Filozofia &nbsp;·&nbsp; Tom 1</p>
+  <div class="tyt-logo">%s</div>
+  <p class="tyt-seria">Tom pierwszy</p>
   <h1 class="tyt-glowny">Spotkanie<br>z Arystotelesem</h1>
   <div class="tyt-ornament">%s</div>
   <p class="tyt-pod">Opowiadanie o filozofie,<br>który uczył ludzi nazywać to, co czują</p>
   <p class="tyt-adres">Broszura edukacyjna dla młodzieży w spektrum autyzmu</p>
 </div>
 <div class="tyt-stopka"><span>12 spotkań</span><span>12 emocji</span><span>60 pytań</span></div>
-<p class="tyt-wydawca">Miejsce na logo i nazwę wydawcy</p>''' % '''
+<div class="tyt-wydawca"><div class="pctp-znak">%s</div>
+  <p><strong>PCTP</strong><br>miejsce na pełną nazwę i adres wydawcy</p></div>''' % (LOGO_PION, '''
 <svg viewBox="0 0 300 60" role="img" aria-label="Gałązka oliwna">
   <path d="M20 30 H280" stroke="var(--linia)" stroke-width="2"/>
   <g fill="var(--oliwka)">
@@ -82,13 +105,16 @@ strona(klasa='tytulowa', html='''
     <ellipse cx="166" cy="40" rx="13" ry="6" transform="rotate(-20 166 40)"/>
   </g>
   <circle cx="150" cy="30" r="5" fill="var(--szafran)"/>
-</svg>''')
+</svg>''', PCTP()))
 
 # ======================================================= 3. STRONA REDAKCYJNA
 strona(klasa='redakcyjna', html='''
 <div class="red-gora">
-  <p class="red-tytul">Spotkanie z Arystotelesem</p>
-  <p class="red-seria">Seria „Mała Filozofia”, tom 1</p>
+  <div class="red-znak">%s</div>
+  <div>
+    <p class="red-tytul">Spotkanie z Arystotelesem</p>
+    <p class="red-seria">Seria „Mała Filozofia”, tom 1</p>
+  </div>
 </div>
 <dl class="metryka">
   <dt>Przeznaczenie</dt><dd>Broszura edukacyjna dla młodzieży w spektrum autyzmu oraz dla osób,
@@ -98,7 +124,8 @@ strona(klasa='redakcyjna', html='''
   <dt>Wydanie</dt><dd>Pierwsze</dd>
   <dt>Tekst i opracowanie</dt><dd>&nbsp;</dd>
   <dt>Ilustracje i skład</dt><dd>&nbsp;</dd>
-  <dt>Wydawca</dt><dd>&nbsp;</dd>
+  <dt>Wydawca</dt><dd class="dd-wydawca"><span class="pctp-znak">%s</span>
+    <span><strong>PCTP</strong> · miejsce na pełną nazwę, adres i stronę internetową</span></dd>
   <dt>ISBN</dt><dd>&nbsp;</dd>
 </dl>
 <div class="red-nota">
@@ -114,7 +141,7 @@ strona(klasa='redakcyjna', html='''
 </div>
 <p class="red-copy">© Wszystkie prawa zastrzeżone. Kopiowanie całości lub fragmentów
 w celach komercyjnych wymaga zgody wydawcy. Karty i strony do wypełnienia wolno
-kopiować na własny użytek.</p>''')
+kopiować na własny użytek.</p>''' % (ZNAK, PCTP()))
 
 # ======================================================= 4. SPIS TREŚCI
 def poz(t, s, klasa=''):
@@ -431,7 +458,7 @@ strona(pagina='Dodatki', html='''
 # ======================================================= 52. TYLNA OKŁADKA
 strona(klasa='tyl', html='''
 <div class="tyl-gora">
-  <p class="tyl-seria">Mała Filozofia · Tom 1</p>
+  <div class="tyl-logo">%s</div>
   <h2 class="tyl-tytul">Spotkanie z Arystotelesem</h2>
 </div>
 <div class="tyl-tresc">
@@ -463,9 +490,12 @@ strona(klasa='tyl', html='''
     </svg>
     <p class="tyl-isbn">ISBN · cena</p>
   </div>
-  <p class="tyl-wydawca">Miejsce na logo,<br>nazwę i adres wydawcy</p>
-</div>''' % ''.join('<rect x="%d" y="12" width="%d" height="48"/>' % (12 + i * 9, 2 + (i % 3))
-                   for i in range(20)))
+  <div class="tyl-wydawca"><div class="pctp-znak">%s</div>
+    <p><strong>PCTP</strong><br>miejsce na adres<br>i stronę internetową</p></div>
+</div>''' % (LOGO_POZ,
+       ''.join('<rect x="%d" y="12" width="%d" height="48"/>' % (12 + i * 9, 2 + (i % 3))
+               for i in range(20)),
+       PCTP()))
 
 # ---------------------------------------------------------------- typografia PL
 def popraw_typografie(html):
@@ -508,8 +538,10 @@ for idx, (klasa, pagina, tresc) in enumerate(STRONY):
     stopka = ''
     if klasa not in ('tytulowa', 'redakcyjna'):
         lewy = 'Mała Filozofia · Spotkanie z Arystotelesem'
-        glowa = ('<div class="zywa-pagina"><span class="zp-l">%s</span><span class="zp-p">%s</span></div>'
-                 % (lewy, pagina))
+        glowa = ('<div class="zywa-pagina"><span class="zp-l">'
+                 '<span class="zp-znak"><svg viewBox="-4 -4 72 72" aria-hidden="true">'
+                 '<use href="#znak-serii"/></svg></span>%s</span>'
+                 '<span class="zp-p">%s</span></div>' % (lewy, pagina))
         stopka = ('<div class="stopka-strony"><span class="ss-znak">·</span>'
                   '<span class="ss-nr">%d</span></div>' % numer)
     else:
@@ -518,7 +550,10 @@ for idx, (klasa, pagina, tresc) in enumerate(STRONY):
     strony_html.append('<section class="%s" data-nr="%d">%s<div class="strona-tresc">%s</div>%s</section>'
                        % (strona_klasa, numer, glowa, tresc, stopka))
 
-body = '<div class="ksiazka">\n%s\n</div>' % '\n'.join(strony_html)
+SYMBOL = ('<svg width="0" height="0" style="position:absolute" aria-hidden="true">'
+          '<symbol id="znak-serii" viewBox="-4 -4 72 72">%s</symbol></svg>'
+          % re.sub(r'</?svg[^>]*>', '', ZNAK))
+body = '<div class="ksiazka">\n%s\n%s\n</div>' % (SYMBOL, '\n'.join(strony_html))
 body = popraw_typografie(body)
 FRAG = ('<title>Spotkanie z Arystotelesem</title>\n'
  '<link rel="preconnect" href="https://fonts.googleapis.com">\n'

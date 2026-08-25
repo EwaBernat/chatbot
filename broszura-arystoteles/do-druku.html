@@ -247,11 +247,11 @@ p.t:last-child{ margin-bottom:0; }
   display:grid; grid-template-rows:auto 1fr auto;
 }
 .okl-gora{
-  display:flex; justify-content:space-between; align-items:baseline;
+  display:flex; justify-content:space-between; align-items:flex-start;
   padding:16mm 18mm 0; font-family:var(--display);
 }
 .okl-seria{ font-weight:800; font-size:1.15em; letter-spacing:.22em; text-transform:uppercase; color:var(--morze); }
-.okl-tom{ font-size:.85em; letter-spacing:.18em; text-transform:uppercase; color:var(--szafran); }
+.okl-tom{ padding-top:2.5mm; font-size:.85em; letter-spacing:.18em; text-transform:uppercase; color:var(--szafran); }
 .okl-obraz{ display:grid; place-items:center; padding:0 6mm; }
 .okl-obraz svg{ width:100%; max-width:182mm; height:auto; }
 .okl-dol{ background:var(--papier); padding:14mm 18mm 18mm; display:flex; flex-direction:column; gap:5mm; }
@@ -505,7 +505,7 @@ dl.slownik dd{ margin:0 0 2mm; font-size:.9em; color:var(--atrament-2); line-hei
 .karta-instrukcja p{ font-size:.94em; color:var(--atrament-2); line-height:1.5; }
 .karta-instrukcja strong{ color:var(--atrament); }
 
-.tyt-stopka{ position:absolute; left:var(--pion); right:var(--zewn); bottom:34mm;
+.tyt-stopka{ position:absolute; left:var(--pion); right:var(--zewn); bottom:50mm;
   display:flex; justify-content:center; gap:8mm; border-top:.4mm solid var(--linia);
   padding-top:4mm; font-family:var(--display); font-weight:700; font-size:.8em;
   letter-spacing:.16em; text-transform:uppercase; color:var(--morze); }
@@ -517,13 +517,72 @@ dl.slownik dd{ margin:0 0 2mm; font-size:.9em; color:var(--atrament-2); line-hei
 .odpowiedzi{ display:flex; flex-direction:column; gap:3.5mm; }
 .odpowiedzi .etykieta{ color:var(--atrament-3); }
 .linie-odp{ display:flex; flex-direction:column; gap:8.5mm; padding-top:1mm; }
+
+/* ---------- znak serii „Mała Filozofia” --------------------------------- */
+.okl-logo svg{ width:64mm; height:auto; display:block; }
+.tyt-logo svg{ width:46mm; height:auto; display:block; margin:0 auto; }
+.tyl-logo svg{ width:58mm; height:auto; display:block; }
+.red-gora{ display:flex; align-items:center; gap:5mm; }
+.red-znak svg{ width:14mm; height:auto; display:block; }
+.zp-l{ display:inline-flex; align-items:center; gap:2.4mm; }
+.zp-znak{ display:inline-block; width:4.6mm; flex:0 0 auto; }
+.zp-znak svg{ width:4.6mm; height:4.6mm; display:block; }
+.strona.lewa .zp-l{ flex-direction:row-reverse; }
+
+/* ---------- znak wydawcy (PCTP) ----------------------------------------- */
+.pctp-znak svg{ width:100%; height:auto; display:block; }
+.okl-wydawca{ display:flex; align-items:center; gap:4mm; margin-top:5mm; }
+.okl-wydawca .pctp-znak{ width:17mm; flex:0 0 auto; }
+.okl-wydawca p{ font-family:var(--display); font-size:.72em; letter-spacing:.14em;
+  text-transform:uppercase; color:var(--atrament-3); line-height:1.6; }
+.okl-wydawca strong{ color:var(--morze); font-weight:800; letter-spacing:.1em; }
+.tyt-wydawca{ position:absolute; left:0; right:0; bottom:18mm;
+  display:flex; align-items:center; justify-content:center; gap:5mm; }
+.tyt-wydawca .pctp-znak{ width:20mm; flex:0 0 auto; }
+.tyt-wydawca p{ font-family:var(--display); font-size:.74em; letter-spacing:.14em;
+  text-transform:uppercase; color:var(--atrament-3); line-height:1.7; text-align:left; }
+.tyt-wydawca strong{ color:var(--morze); font-weight:800; font-size:1.25em; letter-spacing:.1em; }
+.dd-wydawca{ display:flex; align-items:center; gap:4mm; }
+.dd-wydawca .pctp-znak{ width:14mm; flex:0 0 auto; }
+.tyl-wydawca{ display:flex; align-items:center; gap:4mm; text-align:left; }
+.tyl-wydawca .pctp-znak{ width:19mm; flex:0 0 auto; }
+.tyl-wydawca p{ font-family:var(--display); font-size:.74em; letter-spacing:.13em;
+  text-transform:uppercase; color:var(--atrament-3); line-height:1.7; }
+.tyl-wydawca strong{ color:var(--morze); font-weight:800; font-size:1.3em; letter-spacing:.1em; }
 </style>
 </head>
 <body>
 <div class="ksiazka">
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><symbol id="znak-serii" viewBox="-4 -4 72 72">
+<g>  <circle cx="32" cy="32" r="27" fill="none" stroke="var(--morze)" stroke-width="4.6"
+          stroke-dasharray="146 23.6" stroke-dashoffset="-139" stroke-linecap="round"/>
+  <path d="M24.5 27.5 C24.5 18.6, 41 18, 41 26.2 C41 32.6, 32 33.6, 32 39.4"
+        fill="none" stroke="var(--morze)" stroke-width="5" stroke-linecap="round"/>
+  <circle cx="32" cy="46.6" r="3.4" fill="var(--szafran)"/>
+  <g fill="var(--oliwka)">
+    <ellipse cx="25.8" cy="5.2" rx="6.4" ry="3" transform="rotate(-20 25.8 5.2)"/>
+    <ellipse cx="38.2" cy="5.2" rx="6.4" ry="3" transform="rotate(20 38.2 5.2)"/>
+    <circle cx="32" cy="8.6" r="2.8"/>
+  </g>
+</g>
+</symbol></svg>
 <section class="strona okladka prawa" data-nr="1">
 <div class="okl-gora">
-  <p class="okl-seria">Mała Filozofia</p>
+  <div class="okl-logo"><svg xmlns="http://www.w3.org/2000/svg" viewBox="-4 -4 203 72" role="img" aria-label="Logo serii Mała Filozofia">
+<g>  <circle cx="32" cy="32" r="27" fill="none" stroke="var(--morze)" stroke-width="4.6"
+          stroke-dasharray="146 23.6" stroke-dashoffset="-139" stroke-linecap="round"/>
+  <path d="M24.5 27.5 C24.5 18.6, 41 18, 41 26.2 C41 32.6, 32 33.6, 32 39.4"
+        fill="none" stroke="var(--morze)" stroke-width="5" stroke-linecap="round"/>
+  <circle cx="32" cy="46.6" r="3.4" fill="var(--szafran)"/>
+  <g fill="var(--oliwka)">
+    <ellipse cx="25.8" cy="5.2" rx="6.4" ry="3" transform="rotate(-20 25.8 5.2)"/>
+    <ellipse cx="38.2" cy="5.2" rx="6.4" ry="3" transform="rotate(20 38.2 5.2)"/>
+    <circle cx="32" cy="8.6" r="2.8"/>
+  </g>
+  <g transform="translate(78 29)" fill="var(--atrament)"><path transform="translate(0.000 0) scale(0.02000 -0.02000)" d="M759 0H616L608 196L590 408H580L452 65H328L216 408H205L185 211L172 0H37L101 645H288L311 551L394 275H404L494 548L520 645H704Z"/><path transform="translate(18.820 0) scale(0.02000 -0.02000)" d="M598 0H433L416 93L407 130L291 132L191 129L183 103L165 0H6L214 645H409ZM376 252 313 497H303L228 252L302 250Z"/><path transform="translate(33.840 0) scale(0.02000 -0.02000)" d="M458 121 447 0H84L93 191L92 228L37 200L22 208L-6 302L90 351L84 645H249L245 430L332 474L347 467L376 374L242 305L240 207L243 133H448Z"/><path transform="translate(45.800 0) scale(0.02000 -0.02000)" d="M598 0H433L416 93L407 130L291 132L191 129L183 103L165 0H6L214 645H409ZM376 252 313 497H303L228 252L302 250Z"/></g>
+  <g transform="translate(78 52)" fill="var(--morze)"><path transform="translate(0.000 0) scale(0.02000 -0.02000)" d="M233 518 230 368H311L423 371L432 359L422 239L299 242H228L227 207L233 0H70L79 191L70 645H474L483 633L472 513L316 519Z"/><path transform="translate(12.120 0) scale(0.02000 -0.02000)" d="M227 207 233 0H70L79 191L70 645H236Z"/><path transform="translate(21.080 0) scale(0.02000 -0.02000)" d="M440 121 429 0H66L75 191L66 645H231L222 207L225 133H430Z"/><path transform="translate(32.700 0) scale(0.02000 -0.02000)" d="M624 338Q624 172 542.0 80.5Q460 -11 311 -11Q174 -11 99.0 73.5Q24 158 24 313Q24 477 105.5 566.0Q187 655 336 655Q474 655 549.0 572.5Q624 490 624 338ZM193 334Q193 249 206.0 200.5Q219 152 247.5 131.0Q276 110 325 110Q373 110 401.0 128.5Q429 147 441.5 189.0Q454 231 454 304Q454 388 441.0 436.0Q428 484 400.0 504.5Q372 525 322 525Q275 525 247.0 506.5Q219 488 206.0 446.5Q193 405 193 334Z"/><path transform="translate(48.440 0) scale(0.02000 -0.02000)" d="M522 529 220 122H414L528 130L534 122L521 -4L362 0H116L29 -5V111L334 523H150L36 514L30 521L42 647L180 645H454L522 646Z"/><path transform="translate(62.380 0) scale(0.02000 -0.02000)" d="M624 338Q624 172 542.0 80.5Q460 -11 311 -11Q174 -11 99.0 73.5Q24 158 24 313Q24 477 105.5 566.0Q187 655 336 655Q474 655 549.0 572.5Q624 490 624 338ZM193 334Q193 249 206.0 200.5Q219 152 247.5 131.0Q276 110 325 110Q373 110 401.0 128.5Q429 147 441.5 189.0Q454 231 454 304Q454 388 441.0 436.0Q428 484 400.0 504.5Q372 525 322 525Q275 525 247.0 506.5Q219 488 206.0 446.5Q193 405 193 334Z"/><path transform="translate(78.120 0) scale(0.02000 -0.02000)" d="M233 518 230 368H311L423 371L432 359L422 239L299 242H228L227 207L233 0H70L79 191L70 645H474L483 633L472 513L316 519Z"/><path transform="translate(90.240 0) scale(0.02000 -0.02000)" d="M227 207 233 0H70L79 191L70 645H236Z"/><path transform="translate(99.200 0) scale(0.02000 -0.02000)" d="M598 0H433L416 93L407 130L291 132L191 129L183 103L165 0H6L214 645H409ZM376 252 313 497H303L228 252L302 250Z"/></g>
+</g>
+</svg></div>
   <p class="okl-tom">Tom pierwszy</p>
 </div>
 <div class="okl-obraz"><svg viewBox="0 0 800 470" role="img" aria-label="Portret Arystotelesa w medalionie, kolumny greckie, morze i pięć twarzy emocji">
@@ -590,10 +649,58 @@ dl.slownik dd{ margin:0 0 2mm; font-size:.9em; color:var(--atrament-2); line-hei
   <div class="okl-pasek">
     <span>12 spotkań</span><span>12 emocji</span><span>60 pytań</span>
   </div>
+  <div class="okl-wydawca"><div class="pctp-znak"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 600"
+     role="img" aria-label="Znak PCTP">
+<g>
+  <defs>
+    <radialGradient id="pctpTlo-4" cx="42%" cy="30%" r="82%">
+      <stop offset="0%" stop-color="#6142A0"/>
+      <stop offset="55%" stop-color="#4E3288"/>
+      <stop offset="100%" stop-color="#3B2270"/>
+    </radialGradient>
+  </defs>
+  <circle cx="300" cy="300" r="298" fill="#3B2270"/>
+  <circle cx="300" cy="300" r="288" fill="#D7CBE8"/>
+  <circle cx="300" cy="300" r="270" fill="#3B2270"/>
+  <circle cx="300" cy="300" r="262" fill="url(#pctpTlo-4)"/>
+
+  <g stroke="#C6A02A" stroke-width="9" fill="none" stroke-linecap="round">
+    <path d="M300 268 V196"/>
+    <path d="M300 268 C284 240, 258 222, 236 210"/>
+    <path d="M300 268 C316 240, 342 222, 364 210"/>
+  </g>
+
+  <g>
+    <ellipse cx="228" cy="184" rx="24" ry="48" transform="rotate(-30 228 184)" fill="#A98FCB"/>
+    <ellipse cx="372" cy="184" rx="24" ry="48" transform="rotate(30 372 184)" fill="#A98FCB"/>
+    <ellipse cx="256" cy="158" rx="25" ry="52" transform="rotate(-16 256 158)" fill="#F0A268"/>
+    <ellipse cx="344" cy="158" rx="25" ry="52" transform="rotate(16 344 158)" fill="#F0A268"/>
+    <ellipse cx="300" cy="142" rx="26" ry="55" fill="#E8722C"/>
+    <circle cx="300" cy="176" r="14" fill="#FFFFFF"/>
+  </g>
+
+  <g transform="translate(129.13 412)" fill="#F5EFE4"><path transform="translate(0.000 0) scale(0.06055 -0.06055)" d="M871 944Q871 1104 811.5 1167.5Q752 1231 602 1231H523V636H606Q745 636 808.0 706.0Q871 776 871 944ZM523 526V100L746 73V0H48V73L207 100V1242L35 1268V1341H626Q911 1341 1052.0 1245.5Q1193 1150 1193 946Q1193 526 703 526Z"/><path transform="translate(81.744 0) scale(0.06055 -0.06055)" d="M815 -20Q478 -20 289.0 159.0Q100 338 100 655Q100 999 280.5 1177.5Q461 1356 814 1356Q1047 1356 1297 1289L1303 967H1213L1185 1161Q1053 1251 878 1251Q646 1251 539.0 1106.5Q432 962 432 658Q432 377 544.0 230.0Q656 83 870 83Q983 83 1067.5 113.0Q1152 143 1200 184L1232 404H1323L1317 64Q1227 29 1083.0 4.5Q939 -20 815 -20Z"/><path transform="translate(177.293 0) scale(0.06055 -0.06055)" d="M310 0V73L523 100V1235H472Q243 1235 150 1215L123 966H32V1341H1335V966H1243L1216 1215Q1133 1233 888 1233H839V100L1052 73V0Z"/><path transform="translate(266.000 0) scale(0.06055 -0.06055)" d="M871 944Q871 1104 811.5 1167.5Q752 1231 602 1231H523V636H606Q745 636 808.0 706.0Q871 776 871 944ZM523 526V100L746 73V0H48V73L207 100V1242L35 1268V1341H626Q911 1341 1052.0 1245.5Q1193 1150 1193 946Q1193 526 703 526Z"/></g>
+</g>
+</svg></div><p>Wydawca<br><strong>PCTP</strong></p></div>
 </div></section>
 <section class="strona tytulowa lewa" data-nr="2"><div class="zywa-pagina pusta"></div><div class="strona-tresc">
 <div class="tyt-blok">
-  <p class="tyt-seria">Seria &nbsp;·&nbsp; Mała Filozofia &nbsp;·&nbsp; Tom 1</p>
+  <div class="tyt-logo"><svg xmlns="http://www.w3.org/2000/svg" viewBox="-4 -4 136 138" role="img" aria-label="Logo pionowe serii Mała Filozofia">
+<g>  <g transform="translate(32.08 0)">  <circle cx="32" cy="32" r="27" fill="none" stroke="var(--morze)" stroke-width="4.6"
+          stroke-dasharray="146 23.6" stroke-dashoffset="-139" stroke-linecap="round"/>
+  <path d="M24.5 27.5 C24.5 18.6, 41 18, 41 26.2 C41 32.6, 32 33.6, 32 39.4"
+        fill="none" stroke="var(--morze)" stroke-width="5" stroke-linecap="round"/>
+  <circle cx="32" cy="46.6" r="3.4" fill="var(--szafran)"/>
+  <g fill="var(--oliwka)">
+    <ellipse cx="25.8" cy="5.2" rx="6.4" ry="3" transform="rotate(-20 25.8 5.2)"/>
+    <ellipse cx="38.2" cy="5.2" rx="6.4" ry="3" transform="rotate(20 38.2 5.2)"/>
+    <circle cx="32" cy="8.6" r="2.8"/>
+  </g></g>
+  <g transform="translate(35.71 98)" fill="var(--atrament)"><path transform="translate(0.000 0) scale(0.01900 -0.01900)" d="M759 0H616L608 196L590 408H580L452 65H328L216 408H205L185 211L172 0H37L101 645H288L311 551L394 275H404L494 548L520 645H704Z"/><path transform="translate(18.419 0) scale(0.01900 -0.01900)" d="M598 0H433L416 93L407 130L291 132L191 129L183 103L165 0H6L214 645H409ZM376 252 313 497H303L228 252L302 250Z"/><path transform="translate(33.228 0) scale(0.01900 -0.01900)" d="M458 121 447 0H84L93 191L92 228L37 200L22 208L-6 302L90 351L84 645H249L245 430L332 474L347 467L376 374L242 305L240 207L243 133H448Z"/><path transform="translate(45.130 0) scale(0.01900 -0.01900)" d="M598 0H433L416 93L407 130L291 132L191 129L183 103L165 0H6L214 645H409ZM376 252 313 497H303L228 252L302 250Z"/></g>
+  <g transform="translate(9.00 121)" fill="var(--morze)"><path transform="translate(0.000 0) scale(0.01900 -0.01900)" d="M233 518 230 368H311L423 371L432 359L422 239L299 242H228L227 207L233 0H70L79 191L70 645H474L483 633L472 513L316 519Z"/><path transform="translate(12.054 0) scale(0.01900 -0.01900)" d="M227 207 233 0H70L79 191L70 645H236Z"/><path transform="translate(21.106 0) scale(0.01900 -0.01900)" d="M440 121 429 0H66L75 191L66 645H231L222 207L225 133H430Z"/><path transform="translate(32.685 0) scale(0.01900 -0.01900)" d="M624 338Q624 172 542.0 80.5Q460 -11 311 -11Q174 -11 99.0 73.5Q24 158 24 313Q24 477 105.5 566.0Q187 655 336 655Q474 655 549.0 572.5Q624 490 624 338ZM193 334Q193 249 206.0 200.5Q219 152 247.5 131.0Q276 110 325 110Q373 110 401.0 128.5Q429 147 441.5 189.0Q454 231 454 304Q454 388 441.0 436.0Q428 484 400.0 504.5Q372 525 322 525Q275 525 247.0 506.5Q219 488 206.0 446.5Q193 405 193 334Z"/><path transform="translate(48.178 0) scale(0.01900 -0.01900)" d="M522 529 220 122H414L528 130L534 122L521 -4L362 0H116L29 -5V111L334 523H150L36 514L30 521L42 647L180 645H454L522 646Z"/><path transform="translate(61.961 0) scale(0.01900 -0.01900)" d="M624 338Q624 172 542.0 80.5Q460 -11 311 -11Q174 -11 99.0 73.5Q24 158 24 313Q24 477 105.5 566.0Q187 655 336 655Q474 655 549.0 572.5Q624 490 624 338ZM193 334Q193 249 206.0 200.5Q219 152 247.5 131.0Q276 110 325 110Q373 110 401.0 128.5Q429 147 441.5 189.0Q454 231 454 304Q454 388 441.0 436.0Q428 484 400.0 504.5Q372 525 322 525Q275 525 247.0 506.5Q219 488 206.0 446.5Q193 405 193 334Z"/><path transform="translate(77.454 0) scale(0.01900 -0.01900)" d="M233 518 230 368H311L423 371L432 359L422 239L299 242H228L227 207L233 0H70L79 191L70 645H474L483 633L472 513L316 519Z"/><path transform="translate(89.508 0) scale(0.01900 -0.01900)" d="M227 207 233 0H70L79 191L70 645H236Z"/><path transform="translate(98.560 0) scale(0.01900 -0.01900)" d="M598 0H433L416 93L407 130L291 132L191 129L183 103L165 0H6L214 645H409ZM376 252 313 497H303L228 252L302 250Z"/></g>
+</g>
+</svg></div>
+  <p class="tyt-seria">Tom pierwszy</p>
   <h1 class="tyt-glowny">Spotkanie<br>z Arystotelesem</h1>
   <div class="tyt-ornament">
 <svg viewBox="0 0 300 60" role="img" aria-label="Gałązka oliwna">
@@ -611,11 +718,59 @@ dl.slownik dd{ margin:0 0 2mm; font-size:.9em; color:var(--atrament-2); line-hei
   <p class="tyt-adres">Broszura edukacyjna dla młodzieży w spektrum autyzmu</p>
 </div>
 <div class="tyt-stopka"><span>12 spotkań</span><span>12 emocji</span><span>60 pytań</span></div>
-<p class="tyt-wydawca">Miejsce na logo i nazwę wydawcy</p></div><div class="stopka-strony pusta"></div></section>
+<div class="tyt-wydawca"><div class="pctp-znak"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 600"
+     role="img" aria-label="Znak PCTP">
+<g>
+  <defs>
+    <radialGradient id="pctpTlo-5" cx="42%" cy="30%" r="82%">
+      <stop offset="0%" stop-color="#6142A0"/>
+      <stop offset="55%" stop-color="#4E3288"/>
+      <stop offset="100%" stop-color="#3B2270"/>
+    </radialGradient>
+  </defs>
+  <circle cx="300" cy="300" r="298" fill="#3B2270"/>
+  <circle cx="300" cy="300" r="288" fill="#D7CBE8"/>
+  <circle cx="300" cy="300" r="270" fill="#3B2270"/>
+  <circle cx="300" cy="300" r="262" fill="url(#pctpTlo-5)"/>
+
+  <g stroke="#C6A02A" stroke-width="9" fill="none" stroke-linecap="round">
+    <path d="M300 268 V196"/>
+    <path d="M300 268 C284 240, 258 222, 236 210"/>
+    <path d="M300 268 C316 240, 342 222, 364 210"/>
+  </g>
+
+  <g>
+    <ellipse cx="228" cy="184" rx="24" ry="48" transform="rotate(-30 228 184)" fill="#A98FCB"/>
+    <ellipse cx="372" cy="184" rx="24" ry="48" transform="rotate(30 372 184)" fill="#A98FCB"/>
+    <ellipse cx="256" cy="158" rx="25" ry="52" transform="rotate(-16 256 158)" fill="#F0A268"/>
+    <ellipse cx="344" cy="158" rx="25" ry="52" transform="rotate(16 344 158)" fill="#F0A268"/>
+    <ellipse cx="300" cy="142" rx="26" ry="55" fill="#E8722C"/>
+    <circle cx="300" cy="176" r="14" fill="#FFFFFF"/>
+  </g>
+
+  <g transform="translate(129.13 412)" fill="#F5EFE4"><path transform="translate(0.000 0) scale(0.06055 -0.06055)" d="M871 944Q871 1104 811.5 1167.5Q752 1231 602 1231H523V636H606Q745 636 808.0 706.0Q871 776 871 944ZM523 526V100L746 73V0H48V73L207 100V1242L35 1268V1341H626Q911 1341 1052.0 1245.5Q1193 1150 1193 946Q1193 526 703 526Z"/><path transform="translate(81.744 0) scale(0.06055 -0.06055)" d="M815 -20Q478 -20 289.0 159.0Q100 338 100 655Q100 999 280.5 1177.5Q461 1356 814 1356Q1047 1356 1297 1289L1303 967H1213L1185 1161Q1053 1251 878 1251Q646 1251 539.0 1106.5Q432 962 432 658Q432 377 544.0 230.0Q656 83 870 83Q983 83 1067.5 113.0Q1152 143 1200 184L1232 404H1323L1317 64Q1227 29 1083.0 4.5Q939 -20 815 -20Z"/><path transform="translate(177.293 0) scale(0.06055 -0.06055)" d="M310 0V73L523 100V1235H472Q243 1235 150 1215L123 966H32V1341H1335V966H1243L1216 1215Q1133 1233 888 1233H839V100L1052 73V0Z"/><path transform="translate(266.000 0) scale(0.06055 -0.06055)" d="M871 944Q871 1104 811.5 1167.5Q752 1231 602 1231H523V636H606Q745 636 808.0 706.0Q871 776 871 944ZM523 526V100L746 73V0H48V73L207 100V1242L35 1268V1341H626Q911 1341 1052.0 1245.5Q1193 1150 1193 946Q1193 526 703 526Z"/></g>
+</g>
+</svg></div>
+  <p><strong>PCTP</strong><br>miejsce na pełną nazwę i adres wydawcy</p></div></div><div class="stopka-strony pusta"></div></section>
 <section class="strona redakcyjna prawa" data-nr="3"><div class="zywa-pagina pusta"></div><div class="strona-tresc">
 <div class="red-gora">
-  <p class="red-tytul">Spotkanie z Arystotelesem</p>
-  <p class="red-seria">Seria „Mała Filozofia”, tom 1</p>
+  <div class="red-znak"><svg xmlns="http://www.w3.org/2000/svg" viewBox="-4 -4 72 72" role="img" aria-label="Znak serii Mała Filozofia">
+<g>  <circle cx="32" cy="32" r="27" fill="none" stroke="var(--morze)" stroke-width="4.6"
+          stroke-dasharray="146 23.6" stroke-dashoffset="-139" stroke-linecap="round"/>
+  <path d="M24.5 27.5 C24.5 18.6, 41 18, 41 26.2 C41 32.6, 32 33.6, 32 39.4"
+        fill="none" stroke="var(--morze)" stroke-width="5" stroke-linecap="round"/>
+  <circle cx="32" cy="46.6" r="3.4" fill="var(--szafran)"/>
+  <g fill="var(--oliwka)">
+    <ellipse cx="25.8" cy="5.2" rx="6.4" ry="3" transform="rotate(-20 25.8 5.2)"/>
+    <ellipse cx="38.2" cy="5.2" rx="6.4" ry="3" transform="rotate(20 38.2 5.2)"/>
+    <circle cx="32" cy="8.6" r="2.8"/>
+  </g>
+</g>
+</svg></div>
+  <div>
+    <p class="red-tytul">Spotkanie z Arystotelesem</p>
+    <p class="red-seria">Seria „Mała Filozofia”, tom 1</p>
+  </div>
 </div>
 <dl class="metryka">
   <dt>Przeznaczenie</dt><dd>Broszura edukacyjna dla młodzieży w spektrum autyzmu oraz dla osób,
@@ -625,7 +780,40 @@ dl.slownik dd{ margin:0 0 2mm; font-size:.9em; color:var(--atrament-2); line-hei
   <dt>Wydanie</dt><dd>Pierwsze</dd>
   <dt>Tekst i opracowanie</dt><dd>&nbsp;</dd>
   <dt>Ilustracje i skład</dt><dd>&nbsp;</dd>
-  <dt>Wydawca</dt><dd>&nbsp;</dd>
+  <dt>Wydawca</dt><dd class="dd-wydawca"><span class="pctp-znak"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 600"
+     role="img" aria-label="Znak PCTP">
+<g>
+  <defs>
+    <radialGradient id="pctpTlo-6" cx="42%" cy="30%" r="82%">
+      <stop offset="0%" stop-color="#6142A0"/>
+      <stop offset="55%" stop-color="#4E3288"/>
+      <stop offset="100%" stop-color="#3B2270"/>
+    </radialGradient>
+  </defs>
+  <circle cx="300" cy="300" r="298" fill="#3B2270"/>
+  <circle cx="300" cy="300" r="288" fill="#D7CBE8"/>
+  <circle cx="300" cy="300" r="270" fill="#3B2270"/>
+  <circle cx="300" cy="300" r="262" fill="url(#pctpTlo-6)"/>
+
+  <g stroke="#C6A02A" stroke-width="9" fill="none" stroke-linecap="round">
+    <path d="M300 268 V196"/>
+    <path d="M300 268 C284 240, 258 222, 236 210"/>
+    <path d="M300 268 C316 240, 342 222, 364 210"/>
+  </g>
+
+  <g>
+    <ellipse cx="228" cy="184" rx="24" ry="48" transform="rotate(-30 228 184)" fill="#A98FCB"/>
+    <ellipse cx="372" cy="184" rx="24" ry="48" transform="rotate(30 372 184)" fill="#A98FCB"/>
+    <ellipse cx="256" cy="158" rx="25" ry="52" transform="rotate(-16 256 158)" fill="#F0A268"/>
+    <ellipse cx="344" cy="158" rx="25" ry="52" transform="rotate(16 344 158)" fill="#F0A268"/>
+    <ellipse cx="300" cy="142" rx="26" ry="55" fill="#E8722C"/>
+    <circle cx="300" cy="176" r="14" fill="#FFFFFF"/>
+  </g>
+
+  <g transform="translate(129.13 412)" fill="#F5EFE4"><path transform="translate(0.000 0) scale(0.06055 -0.06055)" d="M871 944Q871 1104 811.5 1167.5Q752 1231 602 1231H523V636H606Q745 636 808.0 706.0Q871 776 871 944ZM523 526V100L746 73V0H48V73L207 100V1242L35 1268V1341H626Q911 1341 1052.0 1245.5Q1193 1150 1193 946Q1193 526 703 526Z"/><path transform="translate(81.744 0) scale(0.06055 -0.06055)" d="M815 -20Q478 -20 289.0 159.0Q100 338 100 655Q100 999 280.5 1177.5Q461 1356 814 1356Q1047 1356 1297 1289L1303 967H1213L1185 1161Q1053 1251 878 1251Q646 1251 539.0 1106.5Q432 962 432 658Q432 377 544.0 230.0Q656 83 870 83Q983 83 1067.5 113.0Q1152 143 1200 184L1232 404H1323L1317 64Q1227 29 1083.0 4.5Q939 -20 815 -20Z"/><path transform="translate(177.293 0) scale(0.06055 -0.06055)" d="M310 0V73L523 100V1235H472Q243 1235 150 1215L123 966H32V1341H1335V966H1243L1216 1215Q1133 1233 888 1233H839V100L1052 73V0Z"/><path transform="translate(266.000 0) scale(0.06055 -0.06055)" d="M871 944Q871 1104 811.5 1167.5Q752 1231 602 1231H523V636H606Q745 636 808.0 706.0Q871 776 871 944ZM523 526V100L746 73V0H48V73L207 100V1242L35 1268V1341H626Q911 1341 1052.0 1245.5Q1193 1150 1193 946Q1193 526 703 526Z"/></g>
+</g>
+</svg></span>
+    <span><strong>PCTP</strong> · miejsce na pełną nazwę, adres i stronę internetową</span></dd>
   <dt>ISBN</dt><dd>&nbsp;</dd>
 </dl>
 <div class="red-nota">
@@ -642,7 +830,7 @@ dl.slownik dd{ margin:0 0 2mm; font-size:.9em; color:var(--atrament-2); line-hei
 <p class="red-copy">© Wszystkie prawa zastrzeżone. Kopiowanie całości lub fragmentów
 w celach komercyjnych wymaga zgody wydawcy. Karty i strony do wypełnienia wolno
 kopiować na własny użytek.</p></div><div class="stopka-strony pusta"></div></section>
-<section class="strona spis lewa" data-nr="4"><div class="zywa-pagina"><span class="zp-l">Mała Filozofia · Spotkanie z Arystotelesem</span><span class="zp-p">Spis treści</span></div><div class="strona-tresc"><h2 class="dzial-tytul">Spis treści</h2><ol class="tresc"><li class="tresc-dzial">Zanim zaczniesz</li>
+<section class="strona spis lewa" data-nr="4"><div class="zywa-pagina"><span class="zp-l"><span class="zp-znak"><svg viewBox="-4 -4 72 72" aria-hidden="true"><use href="#znak-serii"/></svg></span>Mała Filozofia · Spotkanie z Arystotelesem</span><span class="zp-p">Spis treści</span></div><div class="strona-tresc"><h2 class="dzial-tytul">Spis treści</h2><ol class="tresc"><li class="tresc-dzial">Zanim zaczniesz</li>
 <li class="tresc-poz "><span class="tresc-nazwa">Ta książeczka czyta się powoli</span><span class="kropki"></span><span class="str">5</span></li>
 <li class="tresc-poz "><span class="tresc-nazwa">Każdy rozdział ma te same pięć części</span><span class="kropki"></span><span class="str">6</span></li>
 <li class="tresc-poz "><span class="tresc-nazwa">Życie Arystotelesa w ośmiu punktach <em>· infografika</em></span><span class="kropki"></span><span class="str">7</span></li>
@@ -667,7 +855,7 @@ kopiować na własny użytek.</p></div><div class="stopka-strony pusta"></div></
 <li class="tresc-poz "><span class="tresc-nazwa">Jak pracować z tą broszurą <em>· dla dorosłych</em></span><span class="kropki"></span><span class="str">49</span></li>
 <li class="tresc-poz "><span class="tresc-nazwa">Nota o cytatach i źródłach</span><span class="kropki"></span><span class="str">50</span></li>
 <li class="tresc-poz "><span class="tresc-nazwa">Moje notatki</span><span class="kropki"></span><span class="str">51</span></li></ol></div><div class="stopka-strony"><span class="ss-znak">·</span><span class="ss-nr">4</span></div></section>
-<section class="strona  prawa" data-nr="5"><div class="zywa-pagina"><span class="zp-l">Mała Filozofia · Spotkanie z Arystotelesem</span><span class="zp-p">Zanim zaczniesz</span></div><div class="strona-tresc">
+<section class="strona  prawa" data-nr="5"><div class="zywa-pagina"><span class="zp-l"><span class="zp-znak"><svg viewBox="-4 -4 72 72" aria-hidden="true"><use href="#znak-serii"/></svg></span>Mała Filozofia · Spotkanie z Arystotelesem</span><span class="zp-p">Zanim zaczniesz</span></div><div class="strona-tresc">
 <h2 class="dzial-tytul">Ta książeczka czyta się powoli</h2>
 <p class="t">Ta broszura jest opowiadaniem. Poznasz w niej człowieka, który żył bardzo dawno temu i nazywał się Arystoteles. Arystoteles całe życie przyglądał się światu i ludziom.</p>
 <p class="t">Najbardziej ciekawiło go to, co czujemy w środku. W każdym rozdziale spotkasz jedną jego myśl i jedną emocję. Czytaj w swoim tempie i wracaj do miejsc, które Ci się spodobały.</p>
@@ -739,7 +927,7 @@ kopiować na własny użytek.</p></div><div class="stopka-strony pusta"></div></
     <li>Nie musisz nic czuć „na zawołanie”. Emocje przychodzą same.</li>
   </ul>
 </div></div><div class="stopka-strony"><span class="ss-znak">·</span><span class="ss-nr">5</span></div></section>
-<section class="strona  lewa" data-nr="6"><div class="zywa-pagina"><span class="zp-l">Mała Filozofia · Spotkanie z Arystotelesem</span><span class="zp-p">Zanim zaczniesz</span></div><div class="strona-tresc">
+<section class="strona  lewa" data-nr="6"><div class="zywa-pagina"><span class="zp-l"><span class="zp-znak"><svg viewBox="-4 -4 72 72" aria-hidden="true"><use href="#znak-serii"/></svg></span>Mała Filozofia · Spotkanie z Arystotelesem</span><span class="zp-p">Zanim zaczniesz</span></div><div class="strona-tresc">
 <h2 class="dzial-tytul">Każdy rozdział ma te same pięć części</h2>
 <p class="lead">Kolejność nigdy się nie zmienia. Zawsze wiesz, co będzie dalej.</p>
 <ol class="kroki">
@@ -764,7 +952,7 @@ kopiować na własny użytek.</p></div><div class="stopka-strony pusta"></div></
     <li><span>Miejsce na Twoje notatki</span><span>str. 51</span></li>
   </ol>
 </div></div><div class="stopka-strony"><span class="ss-znak">·</span><span class="ss-nr">6</span></div></section>
-<section class="strona  prawa" data-nr="7"><div class="zywa-pagina"><span class="zp-l">Mała Filozofia · Spotkanie z Arystotelesem</span><span class="zp-p">Zanim zaczniesz</span></div><div class="strona-tresc">
+<section class="strona  prawa" data-nr="7"><div class="zywa-pagina"><span class="zp-l"><span class="zp-znak"><svg viewBox="-4 -4 72 72" aria-hidden="true"><use href="#znak-serii"/></svg></span>Mała Filozofia · Spotkanie z Arystotelesem</span><span class="zp-p">Zanim zaczniesz</span></div><div class="strona-tresc">
 <h2 class="dzial-tytul">Życie Arystotelesa w ośmiu punktach</h2>
 <p class="lead">Skrót „p.n.e.” znaczy: przed naszą erą. Im większa liczba, tym dawniej.</p>
 <figure class="ilustracja "><svg viewBox="0 0 1020 320" role="img" aria-label="Oś czasu życia Arystotelesa od roku 384 p.n.e. do 322 p.n.e., osiem punktów" style="min-width:640px">
@@ -829,7 +1017,7 @@ kopiować na własny użytek.</p></div><div class="stopka-strony pusta"></div></
   <div class="karta-mini"><p class="km-t">Co robił najczęściej</p><p class="km-o">Patrzył, liczył, zapisywał. Opisał ponad 500 gatunków zwierząt.</p></div>
   <div class="karta-mini"><p class="km-t">Dlaczego jest tu ważny</p><p class="km-o">Ułożył pierwszą w Europie listę emocji i wyjaśnił, skąd się biorą.</p></div>
 </div></div><div class="stopka-strony"><span class="ss-znak">·</span><span class="ss-nr">7</span></div></section>
-<section class="strona  lewa" data-nr="8"><div class="zywa-pagina"><span class="zp-l">Mała Filozofia · Spotkanie z Arystotelesem</span><span class="zp-p">Zanim zaczniesz</span></div><div class="strona-tresc">
+<section class="strona  lewa" data-nr="8"><div class="zywa-pagina"><span class="zp-l"><span class="zp-znak"><svg viewBox="-4 -4 72 72" aria-hidden="true"><use href="#znak-serii"/></svg></span>Mała Filozofia · Spotkanie z Arystotelesem</span><span class="zp-p">Zanim zaczniesz</span></div><div class="strona-tresc">
 <h2 class="dzial-tytul">Termometr emocji</h2>
 <p class="lead">Emocja to nie tylko „jest” albo „nie ma”. Emocja ma siłę, a siłę można zmierzyć.</p>
 <figure class="ilustracja "><svg viewBox="0 0 900 300" role="img" aria-label="Termometr emocji z pięcioma poziomami siły od 0 do 10" style="min-width:600px">
@@ -875,7 +1063,7 @@ kopiować na własny użytek.</p></div><div class="stopka-strony pusta"></div></
     </tbody>
   </table>
 </div></div><div class="stopka-strony"><span class="ss-znak">·</span><span class="ss-nr">8</span></div></section>
-<section class="strona otwarcie-strona prawa" data-nr="9"><div class="zywa-pagina"><span class="zp-l">Mała Filozofia · Spotkanie z Arystotelesem</span><span class="zp-p">1 · Chłopiec w domu lekarza</span></div><div class="strona-tresc">
+<section class="strona otwarcie-strona prawa" data-nr="9"><div class="zywa-pagina"><span class="zp-l"><span class="zp-znak"><svg viewBox="-4 -4 72 72" aria-hidden="true"><use href="#znak-serii"/></svg></span>Mała Filozofia · Spotkanie z Arystotelesem</span><span class="zp-p">1 · Chłopiec w domu lekarza</span></div><div class="strona-tresc">
 <header class="otwarcie">
   <p class="otw-nad">Spotkanie pierwsze</p>
   <div class="otw-linia"><span class="otw-cyfra">1</span><span class="otw-kreska"></span></div>
@@ -922,7 +1110,7 @@ kopiować na własny użytek.</p></div><div class="stopka-strony pusta"></div></
   </g>
   <g stroke="var(--linia)" stroke-width="1.4"><path d="M4 12 H44"/><path d="M116 12 H156"/></g>
 </svg></div></div><div class="stopka-strony"><span class="ss-znak">·</span><span class="ss-nr">9</span></div></section>
-<section class="strona  lewa" data-nr="10"><div class="zywa-pagina"><span class="zp-l">Mała Filozofia · Spotkanie z Arystotelesem</span><span class="zp-p">1 · Chłopiec w domu lekarza</span></div><div class="strona-tresc">
+<section class="strona  lewa" data-nr="10"><div class="zywa-pagina"><span class="zp-l"><span class="zp-znak"><svg viewBox="-4 -4 72 72" aria-hidden="true"><use href="#znak-serii"/></svg></span>Mała Filozofia · Spotkanie z Arystotelesem</span><span class="zp-p">1 · Chłopiec w domu lekarza</span></div><div class="strona-tresc">
 <blockquote class="cytat">
   <p class="cytat-tekst">Wszyscy ludzie z natury dążą do poznania.</p>
   <p class="cytat-zrodlo">Arystoteles, „Metafizyka”, księga I – pierwsze zdanie</p>
@@ -939,7 +1127,7 @@ kopiować na własny użytek.</p></div><div class="stopka-strony pusta"></div></
   <p class="t">Ciekawość to emocja, która ciągnie Cię w stronę czegoś. Czujesz ją wtedy, gdy chcesz podejść bliżej i sprawdzić. W ciele bywa lekka: oczy otwierają się szerzej, a ręce chcą dotknąć. Ciekawość jest przyjemna, ale potrafi też męczyć.</p>
 <p class="t">Kiedy trwa bardzo długo, głowa robi się gorąca i trudno przestać myśleć. Wolno wtedy powiedzieć: „wrócę do tego jutro”. Ciekawość nie ucieknie i poczeka na Ciebie.</p>
 </section></div><div class="stopka-strony"><span class="ss-znak">·</span><span class="ss-nr">10</span></div></section>
-<section class="strona  prawa" data-nr="11"><div class="zywa-pagina"><span class="zp-l">Mała Filozofia · Spotkanie z Arystotelesem</span><span class="zp-p">1 · Chłopiec w domu lekarza</span></div><div class="strona-tresc">
+<section class="strona  prawa" data-nr="11"><div class="zywa-pagina"><span class="zp-l"><span class="zp-znak"><svg viewBox="-4 -4 72 72" aria-hidden="true"><use href="#znak-serii"/></svg></span>Mała Filozofia · Spotkanie z Arystotelesem</span><span class="zp-p">1 · Chłopiec w domu lekarza</span></div><div class="strona-tresc">
 <section class="czesc blok-zycie">
   <h3 class="czesc-tytul"><span class="cz-nr">4</span>W Twoim życiu</h3>
   <p class="t">Wyobraź sobie, że dwudziesty raz oglądasz ten sam film o pociągach albo rozkładasz stary zegarek. Ktoś mówi: „znowu to samo, daj już spokój”. To zdanie może zaboleć, chociaż nie miało boleć.</p>
@@ -958,7 +1146,7 @@ kopiować na własny użytek.</p></div><div class="stopka-strony pusta"></div></
   <p class="etykieta">Miejsce na Twoją odpowiedź</p>
   <div class="linie-odp"><span class="linia-do-pisania"></span><span class="linia-do-pisania"></span><span class="linia-do-pisania"></span><span class="linia-do-pisania"></span><span class="linia-do-pisania"></span></div>
 </div></div><div class="stopka-strony"><span class="ss-znak">·</span><span class="ss-nr">11</span></div></section>
-<section class="strona otwarcie-strona lewa" data-nr="12"><div class="zywa-pagina"><span class="zp-l">Mała Filozofia · Spotkanie z Arystotelesem</span><span class="zp-p">2 · Pierwszy dzień w Atenach</span></div><div class="strona-tresc">
+<section class="strona otwarcie-strona lewa" data-nr="12"><div class="zywa-pagina"><span class="zp-l"><span class="zp-znak"><svg viewBox="-4 -4 72 72" aria-hidden="true"><use href="#znak-serii"/></svg></span>Mała Filozofia · Spotkanie z Arystotelesem</span><span class="zp-p">2 · Pierwszy dzień w Atenach</span></div><div class="strona-tresc">
 <header class="otwarcie">
   <p class="otw-nad">Spotkanie drugie</p>
   <div class="otw-linia"><span class="otw-cyfra">2</span><span class="otw-kreska"></span></div>
@@ -1000,7 +1188,7 @@ kopiować na własny użytek.</p></div><div class="stopka-strony pusta"></div></
   </g>
   <g stroke="var(--linia)" stroke-width="1.4"><path d="M4 12 H44"/><path d="M116 12 H156"/></g>
 </svg></div></div><div class="stopka-strony"><span class="ss-znak">·</span><span class="ss-nr">12</span></div></section>
-<section class="strona  prawa" data-nr="13"><div class="zywa-pagina"><span class="zp-l">Mała Filozofia · Spotkanie z Arystotelesem</span><span class="zp-p">2 · Pierwszy dzień w Atenach</span></div><div class="strona-tresc">
+<section class="strona  prawa" data-nr="13"><div class="zywa-pagina"><span class="zp-l"><span class="zp-znak"><svg viewBox="-4 -4 72 72" aria-hidden="true"><use href="#znak-serii"/></svg></span>Mała Filozofia · Spotkanie z Arystotelesem</span><span class="zp-p">2 · Pierwszy dzień w Atenach</span></div><div class="strona-tresc">
 <blockquote class="cytat">
   <p class="cytat-tekst">Poznanie samego siebie jest początkiem wszelkiej mądrości.</p>
   <p class="cytat-zrodlo">Myśl przypisywana Arystotelesowi – powtarzana od stuleci, choć nie ma jej dosłownie w jego księgach</p>
@@ -1017,7 +1205,7 @@ kopiować na własny użytek.</p></div><div class="stopka-strony pusta"></div></
   <p class="t">Niepewność pojawia się tam, gdzie nie znasz zasad. Nowa szkoła, nowy pokój, nowa osoba – to typowe miejsca niepewności. W ciele czuć ją najczęściej w brzuchu i w dłoniach. Żołądek robi się ciasny, a dłonie chłodne albo mokre.</p>
 <p class="t">Niepewność nie jest tchórzostwem. Niepewność to sygnał: „nie mam jeszcze dość informacji”. Kiedy zdobędziesz informacje, ta emocja zwykle sama się zmniejsza.</p>
 </section></div><div class="stopka-strony"><span class="ss-znak">·</span><span class="ss-nr">13</span></div></section>
-<section class="strona  lewa" data-nr="14"><div class="zywa-pagina"><span class="zp-l">Mała Filozofia · Spotkanie z Arystotelesem</span><span class="zp-p">2 · Pierwszy dzień w Atenach</span></div><div class="strona-tresc">
+<section class="strona  lewa" data-nr="14"><div class="zywa-pagina"><span class="zp-l"><span class="zp-znak"><svg viewBox="-4 -4 72 72" aria-hidden="true"><use href="#znak-serii"/></svg></span>Mała Filozofia · Spotkanie z Arystotelesem</span><span class="zp-p">2 · Pierwszy dzień w Atenach</span></div><div class="strona-tresc">
 <section class="czesc blok-zycie">
   <h3 class="czesc-tytul"><span class="cz-nr">4</span>W Twoim życiu</h3>
   <p class="t">Wyobraź sobie pierwszy dzień w nowej klasie albo pierwszą wizytę w nieznanym budynku. Nie wiesz, gdzie usiąść, gdzie jest toaleta i o której jest przerwa. Możesz wtedy zrobić to, co zrobił Arystoteles: znaleźć coś policzalnego.</p>
@@ -1036,7 +1224,7 @@ kopiować na własny użytek.</p></div><div class="stopka-strony pusta"></div></
   <p class="etykieta">Miejsce na Twoją odpowiedź</p>
   <div class="linie-odp"><span class="linia-do-pisania"></span><span class="linia-do-pisania"></span><span class="linia-do-pisania"></span><span class="linia-do-pisania"></span><span class="linia-do-pisania"></span></div>
 </div></div><div class="stopka-strony"><span class="ss-znak">·</span><span class="ss-nr">14</span></div></section>
-<section class="strona otwarcie-strona prawa" data-nr="15"><div class="zywa-pagina"><span class="zp-l">Mała Filozofia · Spotkanie z Arystotelesem</span><span class="zp-p">3 · Nie zgadzam się z nauczycielem</span></div><div class="strona-tresc">
+<section class="strona otwarcie-strona prawa" data-nr="15"><div class="zywa-pagina"><span class="zp-l"><span class="zp-znak"><svg viewBox="-4 -4 72 72" aria-hidden="true"><use href="#znak-serii"/></svg></span>Mała Filozofia · Spotkanie z Arystotelesem</span><span class="zp-p">3 · Nie zgadzam się z nauczycielem</span></div><div class="strona-tresc">
 <header class="otwarcie">
   <p class="otw-nad">Spotkanie trzecie</p>
   <div class="otw-linia"><span class="otw-cyfra">3</span><span class="otw-kreska"></span></div>
@@ -1084,7 +1272,7 @@ kopiować na własny użytek.</p></div><div class="stopka-strony pusta"></div></
   </g>
   <g stroke="var(--linia)" stroke-width="1.4"><path d="M4 12 H44"/><path d="M116 12 H156"/></g>
 </svg></div></div><div class="stopka-strony"><span class="ss-znak">·</span><span class="ss-nr">15</span></div></section>
-<section class="strona  lewa" data-nr="16"><div class="zywa-pagina"><span class="zp-l">Mała Filozofia · Spotkanie z Arystotelesem</span><span class="zp-p">3 · Nie zgadzam się z nauczycielem</span></div><div class="strona-tresc">
+<section class="strona  lewa" data-nr="16"><div class="zywa-pagina"><span class="zp-l"><span class="zp-znak"><svg viewBox="-4 -4 72 72" aria-hidden="true"><use href="#znak-serii"/></svg></span>Mała Filozofia · Spotkanie z Arystotelesem</span><span class="zp-p">3 · Nie zgadzam się z nauczycielem</span></div><div class="strona-tresc">
 <blockquote class="cytat">
   <p class="cytat-tekst">Przyjacielem Platon, lecz większym przyjacielem prawda.</p>
   <p class="cytat-zrodlo">Zdanie znane od średniowiecza jako streszczenie postawy Arystotelesa („Amicus Plato, sed magis amica veritas”)</p>
@@ -1101,7 +1289,7 @@ kopiować na własny użytek.</p></div><div class="stopka-strony pusta"></div></
   <p class="t">Kiedy się z kimś nie zgadzasz, ciało napina się jak lina. Szczęki się zaciskają, oddech przyspiesza, a głos robi się wyższy. To napięcie nie jest jeszcze złością. Napięcie mówi: „zaraz wydarzy się coś ważnego”.</p>
 <p class="t">Jeśli zauważysz je odpowiednio wcześnie, możesz wybrać, co zrobisz dalej. Wolno powiedzieć: „potrzebuję chwili, odpowiem za moment”. Cisza w środku sporu jest dozwolona i bardzo pomaga.</p>
 </section></div><div class="stopka-strony"><span class="ss-znak">·</span><span class="ss-nr">16</span></div></section>
-<section class="strona  prawa" data-nr="17"><div class="zywa-pagina"><span class="zp-l">Mała Filozofia · Spotkanie z Arystotelesem</span><span class="zp-p">3 · Nie zgadzam się z nauczycielem</span></div><div class="strona-tresc">
+<section class="strona  prawa" data-nr="17"><div class="zywa-pagina"><span class="zp-l"><span class="zp-znak"><svg viewBox="-4 -4 72 72" aria-hidden="true"><use href="#znak-serii"/></svg></span>Mała Filozofia · Spotkanie z Arystotelesem</span><span class="zp-p">3 · Nie zgadzam się z nauczycielem</span></div><div class="strona-tresc">
 <section class="czesc blok-zycie">
   <h3 class="czesc-tytul"><span class="cz-nr">4</span>W Twoim życiu</h3>
   <p class="t">Wyobraź sobie, że ktoś dorosły mówi coś, co według Ciebie jest nieprawdą. Wiesz to dokładnie, bo dużo o tym czytasz. W środku rośnie napięcie i chce Ci się przerwać w połowie zdania.</p>
@@ -1120,7 +1308,7 @@ kopiować na własny użytek.</p></div><div class="stopka-strony pusta"></div></
   <p class="etykieta">Miejsce na Twoją odpowiedź</p>
   <div class="linie-odp"><span class="linia-do-pisania"></span><span class="linia-do-pisania"></span><span class="linia-do-pisania"></span><span class="linia-do-pisania"></span><span class="linia-do-pisania"></span></div>
 </div></div><div class="stopka-strony"><span class="ss-znak">·</span><span class="ss-nr">17</span></div></section>
-<section class="strona otwarcie-strona lewa" data-nr="18"><div class="zywa-pagina"><span class="zp-l">Mała Filozofia · Spotkanie z Arystotelesem</span><span class="zp-p">4 · Ośmiornica w porcie Lesbos</span></div><div class="strona-tresc">
+<section class="strona otwarcie-strona lewa" data-nr="18"><div class="zywa-pagina"><span class="zp-l"><span class="zp-znak"><svg viewBox="-4 -4 72 72" aria-hidden="true"><use href="#znak-serii"/></svg></span>Mała Filozofia · Spotkanie z Arystotelesem</span><span class="zp-p">4 · Ośmiornica w porcie Lesbos</span></div><div class="strona-tresc">
 <header class="otwarcie">
   <p class="otw-nad">Spotkanie czwarte</p>
   <div class="otw-linia"><span class="otw-cyfra">4</span><span class="otw-kreska"></span></div>
@@ -1167,7 +1355,7 @@ kopiować na własny użytek.</p></div><div class="stopka-strony pusta"></div></
   </g>
   <g stroke="var(--linia)" stroke-width="1.4"><path d="M4 12 H44"/><path d="M116 12 H156"/></g>
 </svg></div></div><div class="stopka-strony"><span class="ss-znak">·</span><span class="ss-nr">18</span></div></section>
-<section class="strona  prawa" data-nr="19"><div class="zywa-pagina"><span class="zp-l">Mała Filozofia · Spotkanie z Arystotelesem</span><span class="zp-p">4 · Ośmiornica w porcie Lesbos</span></div><div class="strona-tresc">
+<section class="strona  prawa" data-nr="19"><div class="zywa-pagina"><span class="zp-l"><span class="zp-znak"><svg viewBox="-4 -4 72 72" aria-hidden="true"><use href="#znak-serii"/></svg></span>Mała Filozofia · Spotkanie z Arystotelesem</span><span class="zp-p">4 · Ośmiornica w porcie Lesbos</span></div><div class="strona-tresc">
 <blockquote class="cytat">
   <p class="cytat-tekst">W każdej rzeczy naturalnej jest coś godnego podziwu.</p>
   <p class="cytat-zrodlo">Arystoteles, „O częściach zwierząt”, księga I</p>
@@ -1184,7 +1372,7 @@ kopiować na własny użytek.</p></div><div class="stopka-strony pusta"></div></
   <p class="t">Zachwyt pojawia się wtedy, gdy coś wciąga Cię całkowicie. Czujesz ciepło w klatce piersiowej i lekkość w głowie. Czas przestaje być ważny i czasem nie słyszysz, że ktoś woła. Zachwyt bywa mylony z „zawieszeniem się”.</p>
 <p class="t">Jest odwrotnie, bo Twój mózg pracuje wtedy bardzo intensywnie. Zachwyt to najlepszy stan do uczenia się. Warto wiedzieć, co go u Ciebie wywołuje, i wracać do tego często.</p>
 </section></div><div class="stopka-strony"><span class="ss-znak">·</span><span class="ss-nr">19</span></div></section>
-<section class="strona  lewa" data-nr="20"><div class="zywa-pagina"><span class="zp-l">Mała Filozofia · Spotkanie z Arystotelesem</span><span class="zp-p">4 · Ośmiornica w porcie Lesbos</span></div><div class="strona-tresc">
+<section class="strona  lewa" data-nr="20"><div class="zywa-pagina"><span class="zp-l"><span class="zp-znak"><svg viewBox="-4 -4 72 72" aria-hidden="true"><use href="#znak-serii"/></svg></span>Mała Filozofia · Spotkanie z Arystotelesem</span><span class="zp-p">4 · Ośmiornica w porcie Lesbos</span></div><div class="strona-tresc">
 <section class="czesc blok-zycie">
   <h3 class="czesc-tytul"><span class="cz-nr">4</span>W Twoim życiu</h3>
   <p class="t">Wyobraź sobie, że znasz nazwy wszystkich planet albo cały rozkład jazdy jednej linii. Ktoś mówi: „po co Ci to, przecież się nie przyda”. Arystoteles usłyszał to samo o swoich ośmiornicach.</p>
@@ -1203,7 +1391,7 @@ kopiować na własny użytek.</p></div><div class="stopka-strony pusta"></div></
   <p class="etykieta">Miejsce na Twoją odpowiedź</p>
   <div class="linie-odp"><span class="linia-do-pisania"></span><span class="linia-do-pisania"></span><span class="linia-do-pisania"></span><span class="linia-do-pisania"></span><span class="linia-do-pisania"></span></div>
 </div></div><div class="stopka-strony"><span class="ss-znak">·</span><span class="ss-nr">20</span></div></section>
-<section class="strona otwarcie-strona prawa" data-nr="21"><div class="zywa-pagina"><span class="zp-l">Mała Filozofia · Spotkanie z Arystotelesem</span><span class="zp-p">5 · Lekcja dla trudnego ucznia</span></div><div class="strona-tresc">
+<section class="strona otwarcie-strona prawa" data-nr="21"><div class="zywa-pagina"><span class="zp-l"><span class="zp-znak"><svg viewBox="-4 -4 72 72" aria-hidden="true"><use href="#znak-serii"/></svg></span>Mała Filozofia · Spotkanie z Arystotelesem</span><span class="zp-p">5 · Lekcja dla trudnego ucznia</span></div><div class="strona-tresc">
 <header class="otwarcie">
   <p class="otw-nad">Spotkanie piąte</p>
   <div class="otw-linia"><span class="otw-cyfra">5</span><span class="otw-kreska"></span></div>
@@ -1248,7 +1436,7 @@ kopiować na własny użytek.</p></div><div class="stopka-strony pusta"></div></
   </g>
   <g stroke="var(--linia)" stroke-width="1.4"><path d="M4 12 H44"/><path d="M116 12 H156"/></g>
 </svg></div></div><div class="stopka-strony"><span class="ss-znak">·</span><span class="ss-nr">21</span></div></section>
-<section class="strona  lewa" data-nr="22"><div class="zywa-pagina"><span class="zp-l">Mała Filozofia · Spotkanie z Arystotelesem</span><span class="zp-p">5 · Lekcja dla trudnego ucznia</span></div><div class="strona-tresc">
+<section class="strona  lewa" data-nr="22"><div class="zywa-pagina"><span class="zp-l"><span class="zp-znak"><svg viewBox="-4 -4 72 72" aria-hidden="true"><use href="#znak-serii"/></svg></span>Mała Filozofia · Spotkanie z Arystotelesem</span><span class="zp-p">5 · Lekcja dla trudnego ucznia</span></div><div class="strona-tresc">
 <blockquote class="cytat">
   <p class="cytat-tekst">Korzenie edukacji są gorzkie, ale owoc jest słodki.</p>
   <p class="cytat-zrodlo">Myśl przypisywana Arystotelesowi przez starożytnego pisarza Diogenesa Laertiosa</p>
@@ -1265,7 +1453,7 @@ kopiować na własny użytek.</p></div><div class="stopka-strony pusta"></div></
   <p class="t">Duma to emocja, która przychodzi po wysiłku. Czujesz ją wtedy, gdy coś się udało, chociaż było trudne. W ciele prostuje się plecy, a na twarzy robi się ciepło. Duma nie znaczy, że ktoś jest lepszy od innych ludzi.</p>
 <p class="t">Duma mówi tylko jedno: dziś umiem więcej niż wczoraj. Wolno cieszyć się z małych kroków. Mały krok też jest prawdziwym krokiem.</p>
 </section></div><div class="stopka-strony"><span class="ss-znak">·</span><span class="ss-nr">22</span></div></section>
-<section class="strona  prawa" data-nr="23"><div class="zywa-pagina"><span class="zp-l">Mała Filozofia · Spotkanie z Arystotelesem</span><span class="zp-p">5 · Lekcja dla trudnego ucznia</span></div><div class="strona-tresc">
+<section class="strona  prawa" data-nr="23"><div class="zywa-pagina"><span class="zp-l"><span class="zp-znak"><svg viewBox="-4 -4 72 72" aria-hidden="true"><use href="#znak-serii"/></svg></span>Mała Filozofia · Spotkanie z Arystotelesem</span><span class="zp-p">5 · Lekcja dla trudnego ucznia</span></div><div class="strona-tresc">
 <section class="czesc blok-zycie">
   <h3 class="czesc-tytul"><span class="cz-nr">4</span>W Twoim życiu</h3>
   <p class="t">Wyobraź sobie, że po wielu próbach udaje Ci się samodzielnie kupić bilet. Albo pierwszy raz mówisz na głos, że czegoś nie rozumiesz. Inni mogą tego nie zauważyć, bo dla nich to drobiazg.</p>
@@ -1284,7 +1472,7 @@ kopiować na własny użytek.</p></div><div class="stopka-strony pusta"></div></
   <p class="etykieta">Miejsce na Twoją odpowiedź</p>
   <div class="linie-odp"><span class="linia-do-pisania"></span><span class="linia-do-pisania"></span><span class="linia-do-pisania"></span><span class="linia-do-pisania"></span><span class="linia-do-pisania"></span></div>
 </div></div><div class="stopka-strony"><span class="ss-znak">·</span><span class="ss-nr">23</span></div></section>
-<section class="strona otwarcie-strona lewa" data-nr="24"><div class="zywa-pagina"><span class="zp-l">Mała Filozofia · Spotkanie z Arystotelesem</span><span class="zp-p">6 · Szkoła, w której się chodzi</span></div><div class="strona-tresc">
+<section class="strona otwarcie-strona lewa" data-nr="24"><div class="zywa-pagina"><span class="zp-l"><span class="zp-znak"><svg viewBox="-4 -4 72 72" aria-hidden="true"><use href="#znak-serii"/></svg></span>Mała Filozofia · Spotkanie z Arystotelesem</span><span class="zp-p">6 · Szkoła, w której się chodzi</span></div><div class="strona-tresc">
 <header class="otwarcie">
   <p class="otw-nad">Spotkanie szóste</p>
   <div class="otw-linia"><span class="otw-cyfra">6</span><span class="otw-kreska"></span></div>
@@ -1326,7 +1514,7 @@ kopiować na własny użytek.</p></div><div class="stopka-strony pusta"></div></
   </g>
   <g stroke="var(--linia)" stroke-width="1.4"><path d="M4 12 H44"/><path d="M116 12 H156"/></g>
 </svg></div></div><div class="stopka-strony"><span class="ss-znak">·</span><span class="ss-nr">24</span></div></section>
-<section class="strona  prawa" data-nr="25"><div class="zywa-pagina"><span class="zp-l">Mała Filozofia · Spotkanie z Arystotelesem</span><span class="zp-p">6 · Szkoła, w której się chodzi</span></div><div class="strona-tresc">
+<section class="strona  prawa" data-nr="25"><div class="zywa-pagina"><span class="zp-l"><span class="zp-znak"><svg viewBox="-4 -4 72 72" aria-hidden="true"><use href="#znak-serii"/></svg></span>Mała Filozofia · Spotkanie z Arystotelesem</span><span class="zp-p">6 · Szkoła, w której się chodzi</span></div><div class="strona-tresc">
 <blockquote class="cytat">
   <p class="cytat-tekst">Tego, czego mamy się nauczyć, uczymy się, robiąc to.</p>
   <p class="cytat-zrodlo">Arystoteles, „Etyka nikomachejska”, księga II</p>
@@ -1343,7 +1531,7 @@ kopiować na własny użytek.</p></div><div class="stopka-strony pusta"></div></
   <p class="t">Ulga to emocja, która przychodzi zaraz po napięciu. Czujesz ją wtedy, gdy coś trudnego wreszcie się kończy. Ramiona opadają, oddech robi się dłuższy, czasem chce się ziewnąć. Ulga bywa cicha i łatwo ją przeoczyć.</p>
 <p class="t">Warto ją zauważać, bo pokazuje, co naprawdę Cię męczyło. Po dużej uldze często przychodzi zmęczenie. Zmęczenie po trudnym dniu nie jest lenistwem.</p>
 </section></div><div class="stopka-strony"><span class="ss-znak">·</span><span class="ss-nr">25</span></div></section>
-<section class="strona  lewa" data-nr="26"><div class="zywa-pagina"><span class="zp-l">Mała Filozofia · Spotkanie z Arystotelesem</span><span class="zp-p">6 · Szkoła, w której się chodzi</span></div><div class="strona-tresc">
+<section class="strona  lewa" data-nr="26"><div class="zywa-pagina"><span class="zp-l"><span class="zp-znak"><svg viewBox="-4 -4 72 72" aria-hidden="true"><use href="#znak-serii"/></svg></span>Mała Filozofia · Spotkanie z Arystotelesem</span><span class="zp-p">6 · Szkoła, w której się chodzi</span></div><div class="strona-tresc">
 <section class="czesc blok-zycie">
   <h3 class="czesc-tytul"><span class="cz-nr">4</span>W Twoim życiu</h3>
   <p class="t">Wyobraź sobie, że masz w domu do przeprowadzenia trudną rozmowę. Siedzenie naprzeciwko drugiej osoby i patrzenie jej w oczy bywa nie do zniesienia. Możesz poprosić: „porozmawiajmy w czasie spaceru”.</p>
@@ -1362,7 +1550,7 @@ kopiować na własny użytek.</p></div><div class="stopka-strony pusta"></div></
   <p class="etykieta">Miejsce na Twoją odpowiedź</p>
   <div class="linie-odp"><span class="linia-do-pisania"></span><span class="linia-do-pisania"></span><span class="linia-do-pisania"></span><span class="linia-do-pisania"></span><span class="linia-do-pisania"></span></div>
 </div></div><div class="stopka-strony"><span class="ss-znak">·</span><span class="ss-nr">26</span></div></section>
-<section class="strona otwarcie-strona prawa" data-nr="27"><div class="zywa-pagina"><span class="zp-l">Mała Filozofia · Spotkanie z Arystotelesem</span><span class="zp-p">7 · Waga w środku</span></div><div class="strona-tresc">
+<section class="strona otwarcie-strona prawa" data-nr="27"><div class="zywa-pagina"><span class="zp-l"><span class="zp-znak"><svg viewBox="-4 -4 72 72" aria-hidden="true"><use href="#znak-serii"/></svg></span>Mała Filozofia · Spotkanie z Arystotelesem</span><span class="zp-p">7 · Waga w środku</span></div><div class="strona-tresc">
 <header class="otwarcie">
   <p class="otw-nad">Spotkanie siódme</p>
   <div class="otw-linia"><span class="otw-cyfra">7</span><span class="otw-kreska"></span></div>
@@ -1400,7 +1588,7 @@ kopiować na własny użytek.</p></div><div class="stopka-strony pusta"></div></
 <p class="t">Nie rzuca się w ogień bez powodu. Nie ucieka też przed każdym cieniem. Uczniowie długo patrzyli na wagę i nikt nic nie mówił.</p>
 </section>
 </div><div class="stopka-strony"><span class="ss-znak">·</span><span class="ss-nr">27</span></div></section>
-<section class="strona  lewa" data-nr="28"><div class="zywa-pagina"><span class="zp-l">Mała Filozofia · Spotkanie z Arystotelesem</span><span class="zp-p">7 · Waga w środku</span></div><div class="strona-tresc">
+<section class="strona  lewa" data-nr="28"><div class="zywa-pagina"><span class="zp-l"><span class="zp-znak"><svg viewBox="-4 -4 72 72" aria-hidden="true"><use href="#znak-serii"/></svg></span>Mała Filozofia · Spotkanie z Arystotelesem</span><span class="zp-p">7 · Waga w środku</span></div><div class="strona-tresc">
 <blockquote class="cytat">
   <p class="cytat-tekst">Cnota jest środkiem pomiędzy dwiema wadami: jedną z nadmiaru i drugą z niedostatku.</p>
   <p class="cytat-zrodlo">Arystoteles, „Etyka nikomachejska”, księga II</p>
@@ -1417,7 +1605,7 @@ kopiować na własny użytek.</p></div><div class="stopka-strony pusta"></div></
   <p class="t">Strach to emocja, która ostrzega. Mówi jedno zdanie: „uwaga, może być niebezpiecznie”. W ciele czuć zimno w brzuchu i mocne bicie serca. Czasem drżą ręce albo robi się sucho w ustach.</p>
 <p class="t">Strach nie jest wadą i nie da się go po prostu wyłączyć. Można za to sprawdzić, czy jego siła pasuje do sytuacji. Jeśli strach jest większy niż zagrożenie, warto powiedzieć o tym zaufanej osobie.</p>
 </section></div><div class="stopka-strony"><span class="ss-znak">·</span><span class="ss-nr">28</span></div></section>
-<section class="strona  prawa" data-nr="29"><div class="zywa-pagina"><span class="zp-l">Mała Filozofia · Spotkanie z Arystotelesem</span><span class="zp-p">7 · Waga w środku</span></div><div class="strona-tresc">
+<section class="strona  prawa" data-nr="29"><div class="zywa-pagina"><span class="zp-l"><span class="zp-znak"><svg viewBox="-4 -4 72 72" aria-hidden="true"><use href="#znak-serii"/></svg></span>Mała Filozofia · Spotkanie z Arystotelesem</span><span class="zp-p">7 · Waga w środku</span></div><div class="strona-tresc">
 <section class="czesc blok-zycie">
   <h3 class="czesc-tytul"><span class="cz-nr">4</span>W Twoim życiu</h3>
   <p class="t">Wyobraź sobie, że jutro masz odpowiadać przy tablicy. Serce wali, a w nocy trudno zasnąć. Zapytaj wtedy siebie: ile wynosi mój strach w skali od 0 do 10.</p>
@@ -1432,7 +1620,7 @@ kopiować na własny użytek.</p></div><div class="stopka-strony pusta"></div></
 <li><span class="p-nr">35</span><span class="p-tresc">Kto pomaga Ci sprawdzić, czy Twój strach pasuje do sytuacji?</span></li></ol>
 </section>
 <div class="tabela-blok"><p class="etykieta">Ten sam pomysł w codziennych sprawach</p><table class="tab-srodek"><thead><tr><th>Za mało</th><th>Właściwa miara</th><th>Za dużo</th></tr></thead><tbody><tr><td>Nigdy nie mówię, czego chcę</td><td>Mówię spokojnie, czego potrzebuję</td><td>Żądam natychmiast i podniesionym głosem</td></tr><tr><td>Nie proszę o pomoc wcale</td><td>Proszę, gdy naprawdę nie daję rady</td><td>Proszę, zanim spróbuję sam lub sama</td></tr><tr><td>Milczę, choć coś mnie boli</td><td>Mówię o tym jednej zaufanej osobie</td><td>Opowiadam o tym wszystkim wokół</td></tr></tbody></table></div></div><div class="stopka-strony"><span class="ss-znak">·</span><span class="ss-nr">29</span></div></section>
-<section class="strona otwarcie-strona lewa" data-nr="30"><div class="zywa-pagina"><span class="zp-l">Mała Filozofia · Spotkanie z Arystotelesem</span><span class="zp-p">8 · Sto razy to samo</span></div><div class="strona-tresc">
+<section class="strona otwarcie-strona lewa" data-nr="30"><div class="zywa-pagina"><span class="zp-l"><span class="zp-znak"><svg viewBox="-4 -4 72 72" aria-hidden="true"><use href="#znak-serii"/></svg></span>Mała Filozofia · Spotkanie z Arystotelesem</span><span class="zp-p">8 · Sto razy to samo</span></div><div class="strona-tresc">
 <header class="otwarcie">
   <p class="otw-nad">Spotkanie ósme</p>
   <div class="otw-linia"><span class="otw-cyfra">8</span><span class="otw-kreska"></span></div>
@@ -1464,7 +1652,7 @@ kopiować na własny użytek.</p></div><div class="stopka-strony pusta"></div></
 <p class="t">Potem sam powiedział to, co miał usłyszeć. Powiedział, że spokoju też trzeba się uczyć tak jak grania. Wyszedł ze szkoły spokojniejszy, niż do niej przyszedł.</p>
 </section>
 </div><div class="stopka-strony"><span class="ss-znak">·</span><span class="ss-nr">30</span></div></section>
-<section class="strona  prawa" data-nr="31"><div class="zywa-pagina"><span class="zp-l">Mała Filozofia · Spotkanie z Arystotelesem</span><span class="zp-p">8 · Sto razy to samo</span></div><div class="strona-tresc">
+<section class="strona  prawa" data-nr="31"><div class="zywa-pagina"><span class="zp-l"><span class="zp-znak"><svg viewBox="-4 -4 72 72" aria-hidden="true"><use href="#znak-serii"/></svg></span>Mała Filozofia · Spotkanie z Arystotelesem</span><span class="zp-p">8 · Sto razy to samo</span></div><div class="strona-tresc">
 <blockquote class="cytat">
   <p class="cytat-tekst">Stajemy się sprawiedliwi, czyniąc rzeczy sprawiedliwe, a odważni – czyniąc rzeczy odważne.</p>
   <p class="cytat-zrodlo">Arystoteles, „Etyka nikomachejska”, księga II</p>
@@ -1481,7 +1669,7 @@ kopiować na własny użytek.</p></div><div class="stopka-strony pusta"></div></
   <p class="t">Zniechęcenie przychodzi wtedy, gdy próbujesz i nie widzisz efektu. Ręce robią się ciężkie, a ciało chce usiąść. W głowie pojawia się zdanie „i tak mi się nie uda”. To zdanie jest myślą, a nie faktem.</p>
 <p class="t">Zniechęcenie zwykle mówi o zmęczeniu, a nie o Twoich możliwościach. Pomaga zmniejszyć krok zamiast rezygnować z całej drogi. Trzy minuty ćwiczenia to zawsze więcej niż zero minut.</p>
 </section></div><div class="stopka-strony"><span class="ss-znak">·</span><span class="ss-nr">31</span></div></section>
-<section class="strona  lewa" data-nr="32"><div class="zywa-pagina"><span class="zp-l">Mała Filozofia · Spotkanie z Arystotelesem</span><span class="zp-p">8 · Sto razy to samo</span></div><div class="strona-tresc">
+<section class="strona  lewa" data-nr="32"><div class="zywa-pagina"><span class="zp-l"><span class="zp-znak"><svg viewBox="-4 -4 72 72" aria-hidden="true"><use href="#znak-serii"/></svg></span>Mała Filozofia · Spotkanie z Arystotelesem</span><span class="zp-p">8 · Sto razy to samo</span></div><div class="strona-tresc">
 <section class="czesc blok-zycie">
   <h3 class="czesc-tytul"><span class="cz-nr">4</span>W Twoim życiu</h3>
   <p class="t">Wyobraź sobie, że uczysz się mówić „nie chcę” zamiast milczeć. Pierwszy raz nie wychodzi, drugi raz też nie. Chce Ci się przestać i uznać, że to nie dla Ciebie.</p>
@@ -1500,7 +1688,7 @@ kopiować na własny użytek.</p></div><div class="stopka-strony pusta"></div></
   <p class="etykieta">Miejsce na Twoją odpowiedź</p>
   <div class="linie-odp"><span class="linia-do-pisania"></span><span class="linia-do-pisania"></span><span class="linia-do-pisania"></span><span class="linia-do-pisania"></span><span class="linia-do-pisania"></span></div>
 </div></div><div class="stopka-strony"><span class="ss-znak">·</span><span class="ss-nr">32</span></div></section>
-<section class="strona otwarcie-strona prawa" data-nr="33"><div class="zywa-pagina"><span class="zp-l">Mała Filozofia · Spotkanie z Arystotelesem</span><span class="zp-p">9 · Trzy rodzaje przyjaciół</span></div><div class="strona-tresc">
+<section class="strona otwarcie-strona prawa" data-nr="33"><div class="zywa-pagina"><span class="zp-l"><span class="zp-znak"><svg viewBox="-4 -4 72 72" aria-hidden="true"><use href="#znak-serii"/></svg></span>Mała Filozofia · Spotkanie z Arystotelesem</span><span class="zp-p">9 · Trzy rodzaje przyjaciół</span></div><div class="strona-tresc">
 <header class="otwarcie">
   <p class="otw-nad">Spotkanie dziewiąte</p>
   <div class="otw-linia"><span class="otw-cyfra">9</span><span class="otw-kreska"></span></div>
@@ -1537,7 +1725,7 @@ kopiować na własny użytek.</p></div><div class="stopka-strony pusta"></div></
 <p class="t">To przyjaźń, w której chcesz dobra drugiej osoby dla niej samej. Arystoteles pisał, że taka przyjaźń rośnie powoli i potrzebuje lat. Dodał, że nie da się mieć wielu takich przyjaciół naraz.</p>
 </section>
 </div><div class="stopka-strony"><span class="ss-znak">·</span><span class="ss-nr">33</span></div></section>
-<section class="strona  lewa" data-nr="34"><div class="zywa-pagina"><span class="zp-l">Mała Filozofia · Spotkanie z Arystotelesem</span><span class="zp-p">9 · Trzy rodzaje przyjaciół</span></div><div class="strona-tresc">
+<section class="strona  lewa" data-nr="34"><div class="zywa-pagina"><span class="zp-l"><span class="zp-znak"><svg viewBox="-4 -4 72 72" aria-hidden="true"><use href="#znak-serii"/></svg></span>Mała Filozofia · Spotkanie z Arystotelesem</span><span class="zp-p">9 · Trzy rodzaje przyjaciół</span></div><div class="strona-tresc">
 <blockquote class="cytat">
   <p class="cytat-tekst">Przyjaciel to jedna dusza mieszkająca w dwóch ciałach.</p>
   <p class="cytat-zrodlo">Odpowiedź Arystotelesa na pytanie „czym jest przyjaciel?”, zapisana przez Diogenesa Laertiosa</p>
@@ -1554,7 +1742,7 @@ kopiować na własny użytek.</p></div><div class="stopka-strony pusta"></div></
   <p class="t">Samotność to emocja, która mówi o braku bliskości. Można ją czuć nawet wtedy, gdy wokół jest dużo osób. W ciele bywa jak pustka w klatce piersiowej i ciężar w głowie. Samotność nie znaczy, że jesteś kimś nielubianym.</p>
 <p class="t">Czasem znaczy tylko tyle, że Twoi ludzie jeszcze się nie pojawili. Bycie samemu z wyboru to zupełnie co innego niż samotność. Cisza po dniu pełnym bodźców bywa potrzebna i zdrowa.</p>
 </section></div><div class="stopka-strony"><span class="ss-znak">·</span><span class="ss-nr">34</span></div></section>
-<section class="strona  prawa" data-nr="35"><div class="zywa-pagina"><span class="zp-l">Mała Filozofia · Spotkanie z Arystotelesem</span><span class="zp-p">9 · Trzy rodzaje przyjaciół</span></div><div class="strona-tresc">
+<section class="strona  prawa" data-nr="35"><div class="zywa-pagina"><span class="zp-l"><span class="zp-znak"><svg viewBox="-4 -4 72 72" aria-hidden="true"><use href="#znak-serii"/></svg></span>Mała Filozofia · Spotkanie z Arystotelesem</span><span class="zp-p">9 · Trzy rodzaje przyjaciół</span></div><div class="strona-tresc">
 <section class="czesc blok-zycie">
   <h3 class="czesc-tytul"><span class="cz-nr">4</span>W Twoim życiu</h3>
   <p class="t">Wyobraź sobie przerwę w szkole, gdy wszyscy stoją w grupach. Ty stoisz obok i nie wiesz, czy podejść. W środku robi się pusto i ciężko.</p>
@@ -1573,7 +1761,7 @@ kopiować na własny użytek.</p></div><div class="stopka-strony pusta"></div></
   <p class="etykieta">Miejsce na Twoją odpowiedź</p>
   <div class="linie-odp"><span class="linia-do-pisania"></span><span class="linia-do-pisania"></span><span class="linia-do-pisania"></span><span class="linia-do-pisania"></span><span class="linia-do-pisania"></span></div>
 </div></div><div class="stopka-strony"><span class="ss-znak">·</span><span class="ss-nr">35</span></div></section>
-<section class="strona otwarcie-strona lewa" data-nr="36"><div class="zywa-pagina"><span class="zp-l">Mała Filozofia · Spotkanie z Arystotelesem</span><span class="zp-p">10 · Gniew, który ma miarę</span></div><div class="strona-tresc">
+<section class="strona otwarcie-strona lewa" data-nr="36"><div class="zywa-pagina"><span class="zp-l"><span class="zp-znak"><svg viewBox="-4 -4 72 72" aria-hidden="true"><use href="#znak-serii"/></svg></span>Mała Filozofia · Spotkanie z Arystotelesem</span><span class="zp-p">10 · Gniew, który ma miarę</span></div><div class="strona-tresc">
 <header class="otwarcie">
   <p class="otw-nad">Spotkanie dziesiąte</p>
   <div class="otw-linia"><span class="otw-cyfra">10</span><span class="otw-kreska"></span></div>
@@ -1610,7 +1798,7 @@ kopiować na własny użytek.</p></div><div class="stopka-strony pusta"></div></
 <p class="t">Arystoteles odpowiedział, że to jest bardzo dobry cel. Poszli razem do człowieka, który potrafił naprawiać zwoje. Gniew nie zniknął od razu, ale przestał być bezużyteczny.</p>
 </section>
 </div><div class="stopka-strony"><span class="ss-znak">·</span><span class="ss-nr">36</span></div></section>
-<section class="strona  prawa" data-nr="37"><div class="zywa-pagina"><span class="zp-l">Mała Filozofia · Spotkanie z Arystotelesem</span><span class="zp-p">10 · Gniew, który ma miarę</span></div><div class="strona-tresc">
+<section class="strona  prawa" data-nr="37"><div class="zywa-pagina"><span class="zp-l"><span class="zp-znak"><svg viewBox="-4 -4 72 72" aria-hidden="true"><use href="#znak-serii"/></svg></span>Mała Filozofia · Spotkanie z Arystotelesem</span><span class="zp-p">10 · Gniew, który ma miarę</span></div><div class="strona-tresc">
 <blockquote class="cytat">
   <p class="cytat-tekst">Każdy może się rozgniewać – to łatwe. Ale rozgniewać się na właściwą osobę, we właściwym stopniu, we właściwym czasie, we właściwym celu i we właściwy sposób – to nie jest łatwe.</p>
   <p class="cytat-zrodlo">Arystoteles, „Etyka nikomachejska”, księga II</p>
@@ -1627,7 +1815,7 @@ kopiować na własny użytek.</p></div><div class="stopka-strony pusta"></div></
   <p class="t">Gniew pojawia się wtedy, gdy ktoś przekroczy Twoją granicę. W ciele robi się gorąco w twarzy, a dłonie zaciskają się w pięści. Głos idzie w górę, a myśli robią się szybkie i krótkie. Gniew nie jest zły ani zakazany.</p>
 <p class="t">Gniew mówi ważną rzecz: „stało się coś niesprawiedliwego”. Problemem bywa nie sam gniew, lecz to, co robimy pod jego wpływem. Między emocją a działaniem zawsze mieści się jeden oddech.</p>
 </section></div><div class="stopka-strony"><span class="ss-znak">·</span><span class="ss-nr">37</span></div></section>
-<section class="strona  lewa" data-nr="38"><div class="zywa-pagina"><span class="zp-l">Mała Filozofia · Spotkanie z Arystotelesem</span><span class="zp-p">10 · Gniew, który ma miarę</span></div><div class="strona-tresc">
+<section class="strona  lewa" data-nr="38"><div class="zywa-pagina"><span class="zp-l"><span class="zp-znak"><svg viewBox="-4 -4 72 72" aria-hidden="true"><use href="#znak-serii"/></svg></span>Mała Filozofia · Spotkanie z Arystotelesem</span><span class="zp-p">10 · Gniew, który ma miarę</span></div><div class="strona-tresc">
 <section class="czesc blok-zycie">
   <h3 class="czesc-tytul"><span class="cz-nr">4</span>W Twoim życiu</h3>
   <p class="t">Wyobraź sobie, że ktoś bierze Twoją rzecz bez pytania. Robi Ci się gorąco i chcesz krzyczeć. Możesz wtedy zadać sobie trzy pytania Arystotelesa.</p>
@@ -1646,7 +1834,7 @@ kopiować na własny użytek.</p></div><div class="stopka-strony pusta"></div></
   <p class="etykieta">Miejsce na Twoją odpowiedź</p>
   <div class="linie-odp"><span class="linia-do-pisania"></span><span class="linia-do-pisania"></span><span class="linia-do-pisania"></span><span class="linia-do-pisania"></span><span class="linia-do-pisania"></span></div>
 </div></div><div class="stopka-strony"><span class="ss-znak">·</span><span class="ss-nr">38</span></div></section>
-<section class="strona otwarcie-strona prawa" data-nr="39"><div class="zywa-pagina"><span class="zp-l">Mała Filozofia · Spotkanie z Arystotelesem</span><span class="zp-p">11 · Jedna jaskółka</span></div><div class="strona-tresc">
+<section class="strona otwarcie-strona prawa" data-nr="39"><div class="zywa-pagina"><span class="zp-l"><span class="zp-znak"><svg viewBox="-4 -4 72 72" aria-hidden="true"><use href="#znak-serii"/></svg></span>Mała Filozofia · Spotkanie z Arystotelesem</span><span class="zp-p">11 · Jedna jaskółka</span></div><div class="strona-tresc">
 <header class="otwarcie">
   <p class="otw-nad">Spotkanie jedenaste</p>
   <div class="otw-linia"><span class="otw-cyfra">11</span><span class="otw-kreska"></span></div>
@@ -1682,7 +1870,7 @@ kopiować na własny użytek.</p></div><div class="stopka-strony pusta"></div></
 <p class="t">Liczy się kierunek, w którym idziesz. Uczniowie przez chwilę milczeli. Potem jeden z nich powiedział, że to zdanie daje mu nadzieję.</p>
 </section>
 </div><div class="stopka-strony"><span class="ss-znak">·</span><span class="ss-nr">39</span></div></section>
-<section class="strona  lewa" data-nr="40"><div class="zywa-pagina"><span class="zp-l">Mała Filozofia · Spotkanie z Arystotelesem</span><span class="zp-p">11 · Jedna jaskółka</span></div><div class="strona-tresc">
+<section class="strona  lewa" data-nr="40"><div class="zywa-pagina"><span class="zp-l"><span class="zp-znak"><svg viewBox="-4 -4 72 72" aria-hidden="true"><use href="#znak-serii"/></svg></span>Mała Filozofia · Spotkanie z Arystotelesem</span><span class="zp-p">11 · Jedna jaskółka</span></div><div class="strona-tresc">
 <blockquote class="cytat">
   <p class="cytat-tekst">Jedna jaskółka nie czyni wiosny ani jeden dzień. Tak samo jeden dzień ani krótki czas nie czynią człowieka szczęśliwym.</p>
   <p class="cytat-zrodlo">Arystoteles, „Etyka nikomachejska”, księga I</p>
@@ -1699,7 +1887,7 @@ kopiować na własny użytek.</p></div><div class="stopka-strony pusta"></div></
   <p class="t">Nadzieja to emocja skierowana w przyszłość. Mówi jedno: „może być lepiej niż teraz”. W ciele czuć ją jako lekkość w klatce piersiowej i chęć ruchu. Nadzieja nie znaczy, że wszystko na pewno się uda.</p>
 <p class="t">Znaczy tylko tyle, że jest to możliwe. Nadzieja rośnie od małych faktów, a nie od wielkich obietnic. Jeden dobry dzień w tygodniu to już fakt, na którym można ją oprzeć.</p>
 </section></div><div class="stopka-strony"><span class="ss-znak">·</span><span class="ss-nr">40</span></div></section>
-<section class="strona  prawa" data-nr="41"><div class="zywa-pagina"><span class="zp-l">Mała Filozofia · Spotkanie z Arystotelesem</span><span class="zp-p">11 · Jedna jaskółka</span></div><div class="strona-tresc">
+<section class="strona  prawa" data-nr="41"><div class="zywa-pagina"><span class="zp-l"><span class="zp-znak"><svg viewBox="-4 -4 72 72" aria-hidden="true"><use href="#znak-serii"/></svg></span>Mała Filozofia · Spotkanie z Arystotelesem</span><span class="zp-p">11 · Jedna jaskółka</span></div><div class="strona-tresc">
 <section class="czesc blok-zycie">
   <h3 class="czesc-tytul"><span class="cz-nr">4</span>W Twoim życiu</h3>
   <p class="t">Wyobraź sobie tydzień, w którym prawie wszystko poszło źle. W głowie pojawia się zdanie „zawsze tak jest”. Możesz sprawdzić, czy słowo „zawsze” jest prawdziwe.</p>
@@ -1718,7 +1906,7 @@ kopiować na własny użytek.</p></div><div class="stopka-strony pusta"></div></
   <p class="etykieta">Miejsce na Twoją odpowiedź</p>
   <div class="linie-odp"><span class="linia-do-pisania"></span><span class="linia-do-pisania"></span><span class="linia-do-pisania"></span><span class="linia-do-pisania"></span><span class="linia-do-pisania"></span></div>
 </div></div><div class="stopka-strony"><span class="ss-znak">·</span><span class="ss-nr">41</span></div></section>
-<section class="strona otwarcie-strona lewa" data-nr="42"><div class="zywa-pagina"><span class="zp-l">Mała Filozofia · Spotkanie z Arystotelesem</span><span class="zp-p">12 · Ostatnia droga do Chalkis</span></div><div class="strona-tresc">
+<section class="strona otwarcie-strona lewa" data-nr="42"><div class="zywa-pagina"><span class="zp-l"><span class="zp-znak"><svg viewBox="-4 -4 72 72" aria-hidden="true"><use href="#znak-serii"/></svg></span>Mała Filozofia · Spotkanie z Arystotelesem</span><span class="zp-p">12 · Ostatnia droga do Chalkis</span></div><div class="strona-tresc">
 <header class="otwarcie">
   <p class="otw-nad">Spotkanie dwunaste</p>
   <div class="otw-linia"><span class="otw-cyfra">12</span><span class="otw-kreska"></span></div>
@@ -1757,7 +1945,7 @@ kopiować na własny użytek.</p></div><div class="stopka-strony pusta"></div></
   </g>
   <g stroke="var(--linia)" stroke-width="1.4"><path d="M4 12 H44"/><path d="M116 12 H156"/></g>
 </svg></div></div><div class="stopka-strony"><span class="ss-znak">·</span><span class="ss-nr">42</span></div></section>
-<section class="strona  prawa" data-nr="43"><div class="zywa-pagina"><span class="zp-l">Mała Filozofia · Spotkanie z Arystotelesem</span><span class="zp-p">12 · Ostatnia droga do Chalkis</span></div><div class="strona-tresc">
+<section class="strona  prawa" data-nr="43"><div class="zywa-pagina"><span class="zp-l"><span class="zp-znak"><svg viewBox="-4 -4 72 72" aria-hidden="true"><use href="#znak-serii"/></svg></span>Mała Filozofia · Spotkanie z Arystotelesem</span><span class="zp-p">12 · Ostatnia droga do Chalkis</span></div><div class="strona-tresc">
 <blockquote class="cytat">
   <p class="cytat-tekst">Nie pozwolę Ateńczykom zgrzeszyć przeciw filozofii po raz drugi.</p>
   <p class="cytat-zrodlo">Słowa Arystotelesa przed opuszczeniem Aten, przekazane przez starożytnych pisarzy</p>
@@ -1774,7 +1962,7 @@ kopiować na własny użytek.</p></div><div class="stopka-strony pusta"></div></
   <p class="t">Smutek pojawia się wtedy, gdy coś się kończy. Czuć go w gardle i w oczach, a całe ciało robi się wolniejsze. Smutek nie jest błędem i nie trzeba go szybko przerywać. Obok smutku bardzo często stoi wdzięczność.</p>
 <p class="t">Wdzięczność mówi: „to było ważne i dobrze, że było”. Obie te emocje mogą być w Tobie w tej samej chwili. Człowiek potrafi czuć dwie rzeczy naraz i to jest zupełnie normalne.</p>
 </section></div><div class="stopka-strony"><span class="ss-znak">·</span><span class="ss-nr">43</span></div></section>
-<section class="strona  lewa" data-nr="44"><div class="zywa-pagina"><span class="zp-l">Mała Filozofia · Spotkanie z Arystotelesem</span><span class="zp-p">12 · Ostatnia droga do Chalkis</span></div><div class="strona-tresc">
+<section class="strona  lewa" data-nr="44"><div class="zywa-pagina"><span class="zp-l"><span class="zp-znak"><svg viewBox="-4 -4 72 72" aria-hidden="true"><use href="#znak-serii"/></svg></span>Mała Filozofia · Spotkanie z Arystotelesem</span><span class="zp-p">12 · Ostatnia droga do Chalkis</span></div><div class="strona-tresc">
 <section class="czesc blok-zycie">
   <h3 class="czesc-tytul"><span class="cz-nr">4</span>W Twoim życiu</h3>
   <p class="t">Wyobraź sobie ostatni dzień w szkole albo pożegnanie z ważną osobą. Jest Ci smutno, chociaż nic złego się nie stało. To znaczy, że coś miało dla Ciebie dużą wartość.</p>
@@ -1793,7 +1981,7 @@ kopiować na własny użytek.</p></div><div class="stopka-strony pusta"></div></
   <p class="etykieta">Miejsce na Twoją odpowiedź</p>
   <div class="linie-odp"><span class="linia-do-pisania"></span><span class="linia-do-pisania"></span><span class="linia-do-pisania"></span><span class="linia-do-pisania"></span><span class="linia-do-pisania"></span></div>
 </div></div><div class="stopka-strony"><span class="ss-znak">·</span><span class="ss-nr">44</span></div></section>
-<section class="strona  prawa" data-nr="45"><div class="zywa-pagina"><span class="zp-l">Mała Filozofia · Spotkanie z Arystotelesem</span><span class="zp-p">Dodatki</span></div><div class="strona-tresc">
+<section class="strona  prawa" data-nr="45"><div class="zywa-pagina"><span class="zp-l"><span class="zp-znak"><svg viewBox="-4 -4 72 72" aria-hidden="true"><use href="#znak-serii"/></svg></span>Mała Filozofia · Spotkanie z Arystotelesem</span><span class="zp-p">Dodatki</span></div><div class="strona-tresc">
 <h2 class="dzial-tytul">Dwanaście zdań na dwanaście emocji</h2>
 <p class="lead">Spotkania 1–6. Możesz wyciąć jedno pole i powiesić je na ścianie.</p>
 <ol class="hasla"><li class="haslo"><span class="h-nr">1</span><p class="h-emocja">ciekawość</p><p class="h-cytat">„Wszyscy ludzie z natury dążą do poznania.”</p><p class="h-po">Chcieć wiedzieć to normalne.</p></li>
@@ -1802,7 +1990,7 @@ kopiować na własny użytek.</p></div><div class="stopka-strony pusta"></div></
 <li class="haslo"><span class="h-nr">4</span><p class="h-emocja">zachwyt</p><p class="h-cytat">„W każdej rzeczy naturalnej jest coś godnego podziwu.”</p><p class="h-po">Twoja dziedzina jest ważna.</p></li>
 <li class="haslo"><span class="h-nr">5</span><p class="h-emocja">duma</p><p class="h-cytat">„Korzenie edukacji są gorzkie, ale owoc słodki.”</p><p class="h-po">Trudny początek to jeszcze nie porażka.</p></li>
 <li class="haslo"><span class="h-nr">6</span><p class="h-emocja">ulga</p><p class="h-cytat">„Tego, czego mamy się nauczyć, uczymy się, robiąc to.”</p><p class="h-po">Pierwsze próby mają prawo być niezgrabne.</p></li></ol></div><div class="stopka-strony"><span class="ss-znak">·</span><span class="ss-nr">45</span></div></section>
-<section class="strona  lewa" data-nr="46"><div class="zywa-pagina"><span class="zp-l">Mała Filozofia · Spotkanie z Arystotelesem</span><span class="zp-p">Dodatki</span></div><div class="strona-tresc">
+<section class="strona  lewa" data-nr="46"><div class="zywa-pagina"><span class="zp-l"><span class="zp-znak"><svg viewBox="-4 -4 72 72" aria-hidden="true"><use href="#znak-serii"/></svg></span>Mała Filozofia · Spotkanie z Arystotelesem</span><span class="zp-p">Dodatki</span></div><div class="strona-tresc">
 <h2 class="dzial-tytul">Dwanaście zdań na dwanaście emocji</h2>
 <p class="lead">Spotkania 7–12. Wybierz to zdanie, które dziś do Ciebie pasuje.</p>
 <ol class="hasla"><li class="haslo"><span class="h-nr">7</span><p class="h-emocja">strach</p><p class="h-cytat">„Cnota jest środkiem między dwiema wadami.”</p><p class="h-po">Sprawdź miarę, nie samą emocję.</p></li>
@@ -1811,7 +1999,7 @@ kopiować na własny użytek.</p></div><div class="stopka-strony pusta"></div></
 <li class="haslo"><span class="h-nr">10</span><p class="h-emocja">gniew</p><p class="h-cytat">„Rozgniewać się dobrze – to nie jest łatwe.”</p><p class="h-po">Zapytaj siebie: po co jestem zły?</p></li>
 <li class="haslo"><span class="h-nr">11</span><p class="h-emocja">nadzieja</p><p class="h-cytat">„Jedna jaskółka nie czyni wiosny.”</p><p class="h-po">Jeden zły dzień to jeszcze nie całe życie.</p></li>
 <li class="haslo"><span class="h-nr">12</span><p class="h-emocja">smutek</p><p class="h-cytat">„Nie pozwolę zgrzeszyć przeciw filozofii po raz drugi.”</p><p class="h-po">Odejście też bywa mądrą decyzją.</p></li></ol></div><div class="stopka-strony"><span class="ss-znak">·</span><span class="ss-nr">46</span></div></section>
-<section class="strona  prawa" data-nr="47"><div class="zywa-pagina"><span class="zp-l">Mała Filozofia · Spotkanie z Arystotelesem</span><span class="zp-p">Dodatki</span></div><div class="strona-tresc">
+<section class="strona  prawa" data-nr="47"><div class="zywa-pagina"><span class="zp-l"><span class="zp-znak"><svg viewBox="-4 -4 72 72" aria-hidden="true"><use href="#znak-serii"/></svg></span>Mała Filozofia · Spotkanie z Arystotelesem</span><span class="zp-p">Dodatki</span></div><div class="strona-tresc">
 <h2 class="dzial-tytul">Moja karta emocji</h2>
 <p class="lead">Cztery kroki Arystotelesa w wersji kieszonkowej. Wytnij wzdłuż przerywanej linii –
 karta mieści się w piórniku. Możesz ją pokazać zamiast mówić.</p>
@@ -1851,7 +2039,7 @@ karta mieści się w piórniku. Możesz ją pokazać zamiast mówić.</p>
   <p><strong>Po wszystkim.</strong> Wróć do kroku drugiego i sprawdź, czy liczba się zmieniła.
   Zwykle spada o jeden albo dwa punkty.</p>
 </div></div><div class="stopka-strony"><span class="ss-znak">·</span><span class="ss-nr">47</span></div></section>
-<section class="strona  lewa" data-nr="48"><div class="zywa-pagina"><span class="zp-l">Mała Filozofia · Spotkanie z Arystotelesem</span><span class="zp-p">Dodatki</span></div><div class="strona-tresc">
+<section class="strona  lewa" data-nr="48"><div class="zywa-pagina"><span class="zp-l"><span class="zp-znak"><svg viewBox="-4 -4 72 72" aria-hidden="true"><use href="#znak-serii"/></svg></span>Mała Filozofia · Spotkanie z Arystotelesem</span><span class="zp-p">Dodatki</span></div><div class="strona-tresc">
 <h2 class="dzial-tytul">Słowniczek</h2>
 <p class="lead">Trudne słowa z tej broszury, wyjaśnione po kolei.</p>
 <dl class="slownik"><dt>Filozofia</dt><dd>Zadawanie pytań o to, jak wygląda świat i jak dobrze żyć. Po grecku: „miłość mądrości”.</dd>
@@ -1866,7 +2054,7 @@ karta mieści się w piórniku. Możesz ją pokazać zamiast mówić.</p>
 <dt>Kitara</dt><dd>Starożytny instrument strunowy, podobny do liry.</dd>
 <dt>Zwój</dt><dd>Dawna książka: długi pas papirusu zwinięty w rulon.</dd>
 <dt>p.n.e.</dt><dd>Przed naszą erą. Im większa liczba, tym dawniej.</dd></dl></div><div class="stopka-strony"><span class="ss-znak">·</span><span class="ss-nr">48</span></div></section>
-<section class="strona  prawa" data-nr="49"><div class="zywa-pagina"><span class="zp-l">Mała Filozofia · Spotkanie z Arystotelesem</span><span class="zp-p">Dodatki</span></div><div class="strona-tresc">
+<section class="strona  prawa" data-nr="49"><div class="zywa-pagina"><span class="zp-l"><span class="zp-znak"><svg viewBox="-4 -4 72 72" aria-hidden="true"><use href="#znak-serii"/></svg></span>Mała Filozofia · Spotkanie z Arystotelesem</span><span class="zp-p">Dodatki</span></div><div class="strona-tresc">
 <h2 class="dzial-tytul">Jak pracować z tą broszurą</h2>
 <p class="lead">Strona dla rodziców, nauczycieli i terapeutów.</p>
 <ul class="lista lista-dorosli">
@@ -1894,7 +2082,7 @@ karta mieści się w piórniku. Możesz ją pokazać zamiast mówić.</p>
   <p>Jeśli odpowiada „nie wiem” na wszystkie pytania – nie naciskaj. Można wrócić do nich
   za tydzień albo odpowiedzieć razem, na głos, zaczynając od własnej odpowiedzi dorosłego.</p>
 </div></div><div class="stopka-strony"><span class="ss-znak">·</span><span class="ss-nr">49</span></div></section>
-<section class="strona  lewa" data-nr="50"><div class="zywa-pagina"><span class="zp-l">Mała Filozofia · Spotkanie z Arystotelesem</span><span class="zp-p">Dodatki</span></div><div class="strona-tresc">
+<section class="strona  lewa" data-nr="50"><div class="zywa-pagina"><span class="zp-l"><span class="zp-znak"><svg viewBox="-4 -4 72 72" aria-hidden="true"><use href="#znak-serii"/></svg></span>Mała Filozofia · Spotkanie z Arystotelesem</span><span class="zp-p">Dodatki</span></div><div class="strona-tresc">
 <h2 class="dzial-tytul">Nota o cytatach i źródłach</h2>
 <p class="lead">Uczciwie o tym, co pochodzi wprost od Arystotelesa, a co zostało mu przypisane.</p>
 <div class="nota-grupa">
@@ -1919,13 +2107,27 @@ karta mieści się w piórniku. Możesz ją pokazać zamiast mówić.</p>
   <p class="t">Arystoteles, „Etyka nikomachejska” – księgi I, II, VIII i IX. To w nich znajdziesz
   złoty środek, naukę o nawyku, zdanie o gniewie i cały wykład o przyjaźni.</p>
 </div></div><div class="stopka-strony"><span class="ss-znak">·</span><span class="ss-nr">50</span></div></section>
-<section class="strona  prawa" data-nr="51"><div class="zywa-pagina"><span class="zp-l">Mała Filozofia · Spotkanie z Arystotelesem</span><span class="zp-p">Dodatki</span></div><div class="strona-tresc">
+<section class="strona  prawa" data-nr="51"><div class="zywa-pagina"><span class="zp-l"><span class="zp-znak"><svg viewBox="-4 -4 72 72" aria-hidden="true"><use href="#znak-serii"/></svg></span>Mała Filozofia · Spotkanie z Arystotelesem</span><span class="zp-p">Dodatki</span></div><div class="strona-tresc">
 <h2 class="dzial-tytul">Moje notatki</h2>
 <p class="lead">Miejsce na Twoje zdanie, Twój rysunek albo jedną liczbę od 0 do 10.</p>
 <div class="linie"><span class="linia-do-pisania"></span><span class="linia-do-pisania"></span><span class="linia-do-pisania"></span><span class="linia-do-pisania"></span><span class="linia-do-pisania"></span><span class="linia-do-pisania"></span><span class="linia-do-pisania"></span><span class="linia-do-pisania"></span><span class="linia-do-pisania"></span><span class="linia-do-pisania"></span><span class="linia-do-pisania"></span><span class="linia-do-pisania"></span><span class="linia-do-pisania"></span><span class="linia-do-pisania"></span><span class="linia-do-pisania"></span><span class="linia-do-pisania"></span><span class="linia-do-pisania"></span><span class="linia-do-pisania"></span><span class="linia-do-pisania"></span><span class="linia-do-pisania"></span><span class="linia-do-pisania"></span><span class="linia-do-pisania"></span></div></div><div class="stopka-strony"><span class="ss-znak">·</span><span class="ss-nr">51</span></div></section>
 <section class="strona tyl lewa" data-nr="52">
 <div class="tyl-gora">
-  <p class="tyl-seria">Mała Filozofia · Tom 1</p>
+  <div class="tyl-logo"><svg xmlns="http://www.w3.org/2000/svg" viewBox="-4 -4 203 72" role="img" aria-label="Logo serii Mała Filozofia">
+<g>  <circle cx="32" cy="32" r="27" fill="none" stroke="var(--morze)" stroke-width="4.6"
+          stroke-dasharray="146 23.6" stroke-dashoffset="-139" stroke-linecap="round"/>
+  <path d="M24.5 27.5 C24.5 18.6, 41 18, 41 26.2 C41 32.6, 32 33.6, 32 39.4"
+        fill="none" stroke="var(--morze)" stroke-width="5" stroke-linecap="round"/>
+  <circle cx="32" cy="46.6" r="3.4" fill="var(--szafran)"/>
+  <g fill="var(--oliwka)">
+    <ellipse cx="25.8" cy="5.2" rx="6.4" ry="3" transform="rotate(-20 25.8 5.2)"/>
+    <ellipse cx="38.2" cy="5.2" rx="6.4" ry="3" transform="rotate(20 38.2 5.2)"/>
+    <circle cx="32" cy="8.6" r="2.8"/>
+  </g>
+  <g transform="translate(78 29)" fill="var(--atrament)"><path transform="translate(0.000 0) scale(0.02000 -0.02000)" d="M759 0H616L608 196L590 408H580L452 65H328L216 408H205L185 211L172 0H37L101 645H288L311 551L394 275H404L494 548L520 645H704Z"/><path transform="translate(18.820 0) scale(0.02000 -0.02000)" d="M598 0H433L416 93L407 130L291 132L191 129L183 103L165 0H6L214 645H409ZM376 252 313 497H303L228 252L302 250Z"/><path transform="translate(33.840 0) scale(0.02000 -0.02000)" d="M458 121 447 0H84L93 191L92 228L37 200L22 208L-6 302L90 351L84 645H249L245 430L332 474L347 467L376 374L242 305L240 207L243 133H448Z"/><path transform="translate(45.800 0) scale(0.02000 -0.02000)" d="M598 0H433L416 93L407 130L291 132L191 129L183 103L165 0H6L214 645H409ZM376 252 313 497H303L228 252L302 250Z"/></g>
+  <g transform="translate(78 52)" fill="var(--morze)"><path transform="translate(0.000 0) scale(0.02000 -0.02000)" d="M233 518 230 368H311L423 371L432 359L422 239L299 242H228L227 207L233 0H70L79 191L70 645H474L483 633L472 513L316 519Z"/><path transform="translate(12.120 0) scale(0.02000 -0.02000)" d="M227 207 233 0H70L79 191L70 645H236Z"/><path transform="translate(21.080 0) scale(0.02000 -0.02000)" d="M440 121 429 0H66L75 191L66 645H231L222 207L225 133H430Z"/><path transform="translate(32.700 0) scale(0.02000 -0.02000)" d="M624 338Q624 172 542.0 80.5Q460 -11 311 -11Q174 -11 99.0 73.5Q24 158 24 313Q24 477 105.5 566.0Q187 655 336 655Q474 655 549.0 572.5Q624 490 624 338ZM193 334Q193 249 206.0 200.5Q219 152 247.5 131.0Q276 110 325 110Q373 110 401.0 128.5Q429 147 441.5 189.0Q454 231 454 304Q454 388 441.0 436.0Q428 484 400.0 504.5Q372 525 322 525Q275 525 247.0 506.5Q219 488 206.0 446.5Q193 405 193 334Z"/><path transform="translate(48.440 0) scale(0.02000 -0.02000)" d="M522 529 220 122H414L528 130L534 122L521 -4L362 0H116L29 -5V111L334 523H150L36 514L30 521L42 647L180 645H454L522 646Z"/><path transform="translate(62.380 0) scale(0.02000 -0.02000)" d="M624 338Q624 172 542.0 80.5Q460 -11 311 -11Q174 -11 99.0 73.5Q24 158 24 313Q24 477 105.5 566.0Q187 655 336 655Q474 655 549.0 572.5Q624 490 624 338ZM193 334Q193 249 206.0 200.5Q219 152 247.5 131.0Q276 110 325 110Q373 110 401.0 128.5Q429 147 441.5 189.0Q454 231 454 304Q454 388 441.0 436.0Q428 484 400.0 504.5Q372 525 322 525Q275 525 247.0 506.5Q219 488 206.0 446.5Q193 405 193 334Z"/><path transform="translate(78.120 0) scale(0.02000 -0.02000)" d="M233 518 230 368H311L423 371L432 359L422 239L299 242H228L227 207L233 0H70L79 191L70 645H474L483 633L472 513L316 519Z"/><path transform="translate(90.240 0) scale(0.02000 -0.02000)" d="M227 207 233 0H70L79 191L70 645H236Z"/><path transform="translate(99.200 0) scale(0.02000 -0.02000)" d="M598 0H433L416 93L407 130L291 132L191 129L183 103L165 0H6L214 645H409ZM376 252 313 497H303L228 252L302 250Z"/></g>
+</g>
+</svg></div>
   <h2 class="tyl-tytul">Spotkanie z Arystotelesem</h2>
 </div>
 <div class="tyl-tresc">
@@ -1957,7 +2159,40 @@ karta mieści się w piórniku. Możesz ją pokazać zamiast mówić.</p>
     </svg>
     <p class="tyl-isbn">ISBN · cena</p>
   </div>
-  <p class="tyl-wydawca">Miejsce na logo,<br>nazwę i adres wydawcy</p>
+  <div class="tyl-wydawca"><div class="pctp-znak"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 600"
+     role="img" aria-label="Znak PCTP">
+<g>
+  <defs>
+    <radialGradient id="pctpTlo-7" cx="42%" cy="30%" r="82%">
+      <stop offset="0%" stop-color="#6142A0"/>
+      <stop offset="55%" stop-color="#4E3288"/>
+      <stop offset="100%" stop-color="#3B2270"/>
+    </radialGradient>
+  </defs>
+  <circle cx="300" cy="300" r="298" fill="#3B2270"/>
+  <circle cx="300" cy="300" r="288" fill="#D7CBE8"/>
+  <circle cx="300" cy="300" r="270" fill="#3B2270"/>
+  <circle cx="300" cy="300" r="262" fill="url(#pctpTlo-7)"/>
+
+  <g stroke="#C6A02A" stroke-width="9" fill="none" stroke-linecap="round">
+    <path d="M300 268 V196"/>
+    <path d="M300 268 C284 240, 258 222, 236 210"/>
+    <path d="M300 268 C316 240, 342 222, 364 210"/>
+  </g>
+
+  <g>
+    <ellipse cx="228" cy="184" rx="24" ry="48" transform="rotate(-30 228 184)" fill="#A98FCB"/>
+    <ellipse cx="372" cy="184" rx="24" ry="48" transform="rotate(30 372 184)" fill="#A98FCB"/>
+    <ellipse cx="256" cy="158" rx="25" ry="52" transform="rotate(-16 256 158)" fill="#F0A268"/>
+    <ellipse cx="344" cy="158" rx="25" ry="52" transform="rotate(16 344 158)" fill="#F0A268"/>
+    <ellipse cx="300" cy="142" rx="26" ry="55" fill="#E8722C"/>
+    <circle cx="300" cy="176" r="14" fill="#FFFFFF"/>
+  </g>
+
+  <g transform="translate(129.13 412)" fill="#F5EFE4"><path transform="translate(0.000 0) scale(0.06055 -0.06055)" d="M871 944Q871 1104 811.5 1167.5Q752 1231 602 1231H523V636H606Q745 636 808.0 706.0Q871 776 871 944ZM523 526V100L746 73V0H48V73L207 100V1242L35 1268V1341H626Q911 1341 1052.0 1245.5Q1193 1150 1193 946Q1193 526 703 526Z"/><path transform="translate(81.744 0) scale(0.06055 -0.06055)" d="M815 -20Q478 -20 289.0 159.0Q100 338 100 655Q100 999 280.5 1177.5Q461 1356 814 1356Q1047 1356 1297 1289L1303 967H1213L1185 1161Q1053 1251 878 1251Q646 1251 539.0 1106.5Q432 962 432 658Q432 377 544.0 230.0Q656 83 870 83Q983 83 1067.5 113.0Q1152 143 1200 184L1232 404H1323L1317 64Q1227 29 1083.0 4.5Q939 -20 815 -20Z"/><path transform="translate(177.293 0) scale(0.06055 -0.06055)" d="M310 0V73L523 100V1235H472Q243 1235 150 1215L123 966H32V1341H1335V966H1243L1216 1215Q1133 1233 888 1233H839V100L1052 73V0Z"/><path transform="translate(266.000 0) scale(0.06055 -0.06055)" d="M871 944Q871 1104 811.5 1167.5Q752 1231 602 1231H523V636H606Q745 636 808.0 706.0Q871 776 871 944ZM523 526V100L746 73V0H48V73L207 100V1242L35 1268V1341H626Q911 1341 1052.0 1245.5Q1193 1150 1193 946Q1193 526 703 526Z"/></g>
+</g>
+</svg></div>
+    <p><strong>PCTP</strong><br>miejsce na adres<br>i stronę internetową</p></div>
 </div></section>
 </div>
 </body>

@@ -14,6 +14,7 @@ Arystotelesa, prowadzące przez dwanaście emocji, z pytaniami do samodzielnej p
 | `do-druku.html` | Wersja samodzielna: kroje osadzone w pliku, działa bez internetu. |
 | `Spotkanie-z-Arystotelesem.pdf` | Gotowy plik do druku — A4, 52 strony. |
 | `zrodla/` | Skrypty składu: treść w JSON + arkusz stylów + generator. |
+| `logo/` | Znak wydawcy PCTP i znak serii „Mała Filozofia” — SVG + PNG, opis w `logo/README.md`. |
 
 Ponowne wygenerowanie całości:
 
@@ -79,6 +80,15 @@ rozdziału na drugiej.
 | 10 | Gniew, który ma miarę | gniew | 36 |
 | 11 | Jedna jaskółka | nadzieja | 39 |
 | 12 | Ostatnia droga do Chalkis | smutek i wdzięczność | 42 |
+
+## Znaki
+
+- **PCTP** — znak wydawcy. Okładka (dół), strona tytułowa, strona redakcyjna, tylna okładka.
+  Wersja w repozytorium jest **odrysowaniem** z przesłanego obrazka; przed drukiem
+  podmień `logo/pctp-logo.svg` na oryginał (szczegóły w `logo/README.md`).
+- **Mała Filozofia** — znak serii: pytajnik w otwartym wieńcu oliwnym. Okładka (góra),
+  strona tytułowa, żywa pagina każdej strony rozdziału, tylna okładka. Dostępny
+  w wersji kolorowej i jednokolorowej, poziomej i pionowej; napis zamieniony na krzywe.
 
 ## Skład i typografia
 
