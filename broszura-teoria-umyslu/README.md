@@ -2,7 +2,7 @@
 
 **Seria: Teoria umysłu · część 1 — Ogólna**
 
-*Poradnik nauczyciela — jak prowadzić zajęcia emocjonalno-społeczne z dziećmi i uczniami w spektrum autyzmu.*
+**Poradnik nauczyciela.** *Jak prowadzić zajęcia emocjonalno-społeczne z dziećmi i uczniami w spektrum autyzmu?*
 
 Broszura metodyczna dla nauczycieli, nauczycieli współorganizujących, terapeutów i rodziców.
 Opracowanie: **Mirosława Ewa Jurczyszyn** · kontakt@eduplaner2026.pl
