@@ -308,28 +308,43 @@ svg{display:block; max-width:100%}
 .skala u{text-decoration:none; width:15px;height:15px; border:1.3px solid #B9B2C6; border-radius:4px;
   display:inline-flex; align-items:center; justify-content:center; font-size:7.4pt; font-weight:800; color:var(--ink2); background:#fff}
 
-table.karta{font-size:8.6pt; border-collapse:separate; border-spacing:0}
-table.karta th{font-size:6.8pt; padding:4px 6px; border-bottom:1.5px solid var(--ink2); background:none}
+table.karta{font-size:8.5pt; border-collapse:separate; border-spacing:0; width:100%}
+table.karta th{font-size:6.8pt; padding:4px 6px; border-bottom:1.5px solid var(--ink2); background:none;
+  vertical-align:bottom; letter-spacing:.09em}
 table.karta td{padding:0; border:0; vertical-align:middle}
 table.karta tbody tr{background:none}
-.karta .it td{border-bottom:1px solid #EFE9E1; padding:2px 6px; height:16px}
-.karta .it td:first-child{border-left:3px solid var(--rail); padding-left:9px}
-.karta .grp td{padding:3px 9px; border-bottom:1px solid var(--rail)}
-.karta .grp td:first-child{border-left:3px solid var(--rail)}
-.karta .grp{background:var(--tint)}
-.karta .grp b{font-size:9pt; color:var(--rail); font-family:"Fraunces",serif; font-weight:600}
-.karta .sc{text-align:center; width:8.4mm}
-.box{width:12px;height:12px;border:1.3px solid #B9B2C6;border-radius:4px;display:inline-block;background:#fff}
-.karta .ex{width:36mm}
-.karta .ex i{display:block;border-bottom:1px dotted #CFC8D6;height:9px}
+
+.karta .lp{width:7.5mm; text-align:center; font-variant-numeric:tabular-nums; font-size:7.4pt;
+  font-weight:700; color:var(--muted)}
+.karta .nm{padding:2px 8px 2px 7px}
+.karta .sc{width:8mm; text-align:center; background:rgba(139,132,157,.055)}
+.karta .sc--a{border-left:1px solid #E4DBCF}
+.karta .sc--z{border-right:0}
+.box{width:13px; height:13px; border:1.3px solid #ADA5BB; border-radius:4px; background:#fff;
+  display:inline-block; vertical-align:middle}
+.karta th.och{text-align:center; letter-spacing:.12em; padding-bottom:2px}
+.karta .nt{width:31mm; padding:0 7px; border-left:1px solid #E4DBCF}
+.karta th.nt{padding-left:9px}
+.karta .nt i{display:block; border-bottom:1px dotted #CFC8D6; height:9px; margin-top:5px}
+
+.karta .it td{border-bottom:1px solid #EFE9E1; height:15.5px}
+.karta .it .lp{border-left:3px solid var(--rail)}
+.karta .alt td{background:#FBF7F1}
+.karta .alt .sc{background:rgba(139,132,157,.10)}
+
+.karta .grp td{padding:3px 7px; border-bottom:1px solid var(--rail); background:var(--tint)}
+.karta .grp .lp{border-left:3px solid var(--rail)}
+.karta .grp b{font-size:8.8pt; color:var(--rail); font-family:"Fraunces",serif; font-weight:600}
+.karta .grp .och{font-size:6.6pt; letter-spacing:.1em; text-transform:uppercase; color:var(--ink2);
+  text-align:center; font-weight:800; opacity:.65}
 .g-tue{--rail:var(--tue); --tint:var(--tue-soft)}
 .g-tuk{--rail:var(--tuk); --tint:var(--tuk-soft)}
 .g-tus{--rail:var(--tus); --tint:var(--tus-soft)}
-.suma{display:flex;align-items:center;gap:7px;font-size:8.4pt;color:var(--ink2);white-space:nowrap}
-.suma em{font-style:normal;display:inline-block;width:34px;border-bottom:1.4px solid var(--rail);height:13px}
+.suma{display:flex;align-items:center;gap:6px;font-size:7.8pt;color:var(--ink2);white-space:nowrap;font-weight:700}
+.suma em{font-style:normal;display:inline-block;width:30px;border-bottom:1.4px solid var(--rail);height:12px}
 .linia{border-bottom:1px dotted #C8C1D2; height:12px; margin-top:6px}
 .pole{font-size:7.2pt;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);font-weight:800;margin-top:6px}
-.karta .ex i{margin-top:6px}
+
 .wynik{display:grid; grid-template-columns:repeat(3,1fr) 1.25fr; gap:10px; align-items:stretch}
 .wynik-box{border:1px solid var(--rail); background:var(--tint); border-radius:10px; padding:6px 9px;
   display:flex; flex-direction:column; gap:2px}
@@ -2166,39 +2181,45 @@ table.karta tbody tr{background:none}
 
     <div class="tbl-wrap">
     <table class="karta">
-      <thead><tr>
-        <th colspan="2">Umiejętność — obserwowalne zachowanie</th>
-        <th class="sc">0</th><th class="sc">1</th><th class="sc">2</th><th class="sc">3</th>
-        <th class="ex">Przykład sytuacji / notatka</th>
-      </tr></thead>
+      <thead>
+        <tr>
+          <th class="lp">Lp.</th>
+          <th class="nm">Umiejętność — obserwowalne zachowanie</th>
+          <th class="sc sc--a">0</th><th class="sc">1</th><th class="sc">2</th><th class="sc sc--z">3</th>
+          <th class="nt">Notatka / przykład</th>
+        </tr>
+      </thead>
       <tbody>
-        <tr class="grp g-tue"><td colspan="2"><span class="tag tag--tue">TUE</span> <b>Emocje — co on czuje</b></td>
-          <td colspan="4" class="sc"></td>
-          <td class="ex"><span class="suma">razem <em></em> / 18</span></td></tr>
-        <tr class="it g-tue"><td colspan="2">Nawiązuje kontakt wzrokowy i dzieli uwagę (pokazuje, przynosi, sprawdza twarz dorosłego)</td><td class="sc"><span class="box"></span></td><td class="sc"><span class="box"></span></td><td class="sc"><span class="box"></span></td><td class="sc"><span class="box"></span></td><td class="ex"><i></i></td></tr>
-        <tr class="it g-tue"><td colspan="2">Nazywa 4 emocje podstawowe u siebie</td><td class="sc"><span class="box"></span></td><td class="sc"><span class="box"></span></td><td class="sc"><span class="box"></span></td><td class="sc"><span class="box"></span></td><td class="ex"><i></i></td></tr>
-        <tr class="it g-tue"><td colspan="2">Rozpoznaje emocje na twarzy innej osoby</td><td class="sc"><span class="box"></span></td><td class="sc"><span class="box"></span></td><td class="sc"><span class="box"></span></td><td class="sc"><span class="box"></span></td><td class="ex"><i></i></td></tr>
-        <tr class="it g-tue"><td colspan="2">Wskazuje przyczynę emocji („jest smutny, bo…")</td><td class="sc"><span class="box"></span></td><td class="sc"><span class="box"></span></td><td class="sc"><span class="box"></span></td><td class="sc"><span class="box"></span></td><td class="ex"><i></i></td></tr>
-        <tr class="it g-tue"><td colspan="2">Rozumie, że ktoś może chcieć czegoś innego niż on</td><td class="sc"><span class="box"></span></td><td class="sc"><span class="box"></span></td><td class="sc"><span class="box"></span></td><td class="sc"><span class="box"></span></td><td class="ex"><i></i></td></tr>
-        <tr class="it g-tue"><td colspan="2">Rozumie perspektywę wzrokową („ja widzę, ty nie widzisz")</td><td class="sc"><span class="box"></span></td><td class="sc"><span class="box"></span></td><td class="sc"><span class="box"></span></td><td class="sc"><span class="box"></span></td><td class="ex"><i></i></td></tr>
-        <tr class="grp g-tuk"><td colspan="2"><span class="tag tag--tuk">TUK</span> <b>Przekonania — co on wie i myśli</b></td>
-          <td colspan="4" class="sc"></td>
-          <td class="ex"><span class="suma">razem <em></em> / 18</span></td></tr>
-        <tr class="it g-tuk"><td colspan="2">Odróżnia to, co ktoś myśli, od tego, co mówi</td><td class="sc"><span class="box"></span></td><td class="sc"><span class="box"></span></td><td class="sc"><span class="box"></span></td><td class="sc"><span class="box"></span></td><td class="ex"><i></i></td></tr>
-        <tr class="it g-tuk"><td colspan="2">Rozumie, że kto nie widział, ten nie wie</td><td class="sc"><span class="box"></span></td><td class="sc"><span class="box"></span></td><td class="sc"><span class="box"></span></td><td class="sc"><span class="box"></span></td><td class="ex"><i></i></td></tr>
-        <tr class="it g-tuk"><td colspan="2">Rozwiązuje zadanie fałszywego przekonania I rzędu</td><td class="sc"><span class="box"></span></td><td class="sc"><span class="box"></span></td><td class="sc"><span class="box"></span></td><td class="sc"><span class="box"></span></td><td class="ex"><i></i></td></tr>
-        <tr class="it g-tuk"><td colspan="2">Rozumie emocję ukrytą (czuję jedno, pokazuję drugie)</td><td class="sc"><span class="box"></span></td><td class="sc"><span class="box"></span></td><td class="sc"><span class="box"></span></td><td class="sc"><span class="box"></span></td><td class="ex"><i></i></td></tr>
-        <tr class="it g-tuk"><td colspan="2">Odróżnia zdarzenie przypadkowe od celowego i uzasadnia</td><td class="sc"><span class="box"></span></td><td class="sc"><span class="box"></span></td><td class="sc"><span class="box"></span></td><td class="sc"><span class="box"></span></td><td class="ex"><i></i></td></tr>
-        <tr class="it g-tuk"><td colspan="2">Rozwiązuje zadanie fałszywego przekonania II rzędu</td><td class="sc"><span class="box"></span></td><td class="sc"><span class="box"></span></td><td class="sc"><span class="box"></span></td><td class="sc"><span class="box"></span></td><td class="ex"><i></i></td></tr>
-        <tr class="grp g-tus"><td colspan="2"><span class="tag tag--tus">TUS</span> <b>Działanie — co z tym robi</b></td>
-          <td colspan="4" class="sc"></td>
-          <td class="ex"><span class="suma">razem <em></em> / 18</span></td></tr>
-        <tr class="it g-tus"><td colspan="2">Rozpoznaje gafę i wie, że autor nie chciał sprawić przykrości</td><td class="sc"><span class="box"></span></td><td class="sc"><span class="box"></span></td><td class="sc"><span class="box"></span></td><td class="sc"><span class="box"></span></td><td class="ex"><i></i></td></tr>
-        <tr class="it g-tus"><td colspan="2">Odróżnia żart od dokuczania; stosuje zdanie sprawdzające</td><td class="sc"><span class="box"></span></td><td class="sc"><span class="box"></span></td><td class="sc"><span class="box"></span></td><td class="sc"><span class="box"></span></td><td class="ex"><i></i></td></tr>
-        <tr class="it g-tus"><td colspan="2">Wyjaśnia motywy bohatera lektury bez podpowiedzi</td><td class="sc"><span class="box"></span></td><td class="sc"><span class="box"></span></td><td class="sc"><span class="box"></span></td><td class="sc"><span class="box"></span></td><td class="ex"><i></i></td></tr>
-        <tr class="it g-tus"><td colspan="2">Wchodzi do wspólnej zabawy / pracy grupowej i negocjuje rolę</td><td class="sc"><span class="box"></span></td><td class="sc"><span class="box"></span></td><td class="sc"><span class="box"></span></td><td class="sc"><span class="box"></span></td><td class="ex"><i></i></td></tr>
-        <tr class="it g-tus"><td colspan="2">Prosi o pomoc, gdy jej potrzebuje</td><td class="sc"><span class="box"></span></td><td class="sc"><span class="box"></span></td><td class="sc"><span class="box"></span></td><td class="sc"><span class="box"></span></td><td class="ex"><i></i></td></tr>
-        <tr class="it g-tus"><td colspan="2">Nazywa własne potrzeby i granice wobec dorosłego</td><td class="sc"><span class="box"></span></td><td class="sc"><span class="box"></span></td><td class="sc"><span class="box"></span></td><td class="sc"><span class="box"></span></td><td class="ex"><i></i></td></tr>
+        <tr class="grp g-tue">
+          <td class="lp"></td><td class="nm"><span class="tag tag--tue">TUE</span> <b>Emocje — co on czuje</b></td>
+          <td class="sc sc--a sc--z och" colspan="4">0 – 3</td>
+          <td class="nt"><span class="suma">razem <em></em> / 18</span></td></tr>
+        <tr class="it g-tue"><td class="lp">1</td><td class="nm">Nawiązuje kontakt wzrokowy i dzieli uwagę (pokazuje, przynosi, sprawdza twarz)</td><td class="sc sc--a"><span class="box"></span></td><td class="sc"><span class="box"></span></td><td class="sc"><span class="box"></span></td><td class="sc sc--z"><span class="box"></span></td><td class="nt"><i></i></td></tr>
+        <tr class="it alt g-tue"><td class="lp">2</td><td class="nm">Nazywa 4 emocje podstawowe u siebie</td><td class="sc sc--a"><span class="box"></span></td><td class="sc"><span class="box"></span></td><td class="sc"><span class="box"></span></td><td class="sc sc--z"><span class="box"></span></td><td class="nt"><i></i></td></tr>
+        <tr class="it g-tue"><td class="lp">3</td><td class="nm">Rozpoznaje emocje na twarzy innej osoby</td><td class="sc sc--a"><span class="box"></span></td><td class="sc"><span class="box"></span></td><td class="sc"><span class="box"></span></td><td class="sc sc--z"><span class="box"></span></td><td class="nt"><i></i></td></tr>
+        <tr class="it alt g-tue"><td class="lp">4</td><td class="nm">Wskazuje przyczynę emocji („jest smutny, bo…")</td><td class="sc sc--a"><span class="box"></span></td><td class="sc"><span class="box"></span></td><td class="sc"><span class="box"></span></td><td class="sc sc--z"><span class="box"></span></td><td class="nt"><i></i></td></tr>
+        <tr class="it g-tue"><td class="lp">5</td><td class="nm">Rozumie, że ktoś może chcieć czegoś innego niż on</td><td class="sc sc--a"><span class="box"></span></td><td class="sc"><span class="box"></span></td><td class="sc"><span class="box"></span></td><td class="sc sc--z"><span class="box"></span></td><td class="nt"><i></i></td></tr>
+        <tr class="it alt g-tue"><td class="lp">6</td><td class="nm">Rozumie perspektywę wzrokową („ja widzę, ty nie widzisz")</td><td class="sc sc--a"><span class="box"></span></td><td class="sc"><span class="box"></span></td><td class="sc"><span class="box"></span></td><td class="sc sc--z"><span class="box"></span></td><td class="nt"><i></i></td></tr>
+        <tr class="grp g-tuk">
+          <td class="lp"></td><td class="nm"><span class="tag tag--tuk">TUK</span> <b>Przekonania — co on wie i myśli</b></td>
+          <td class="sc sc--a sc--z och" colspan="4">0 – 3</td>
+          <td class="nt"><span class="suma">razem <em></em> / 18</span></td></tr>
+        <tr class="it g-tuk"><td class="lp">1</td><td class="nm">Odróżnia to, co ktoś myśli, od tego, co mówi</td><td class="sc sc--a"><span class="box"></span></td><td class="sc"><span class="box"></span></td><td class="sc"><span class="box"></span></td><td class="sc sc--z"><span class="box"></span></td><td class="nt"><i></i></td></tr>
+        <tr class="it alt g-tuk"><td class="lp">2</td><td class="nm">Rozumie, że kto nie widział, ten nie wie</td><td class="sc sc--a"><span class="box"></span></td><td class="sc"><span class="box"></span></td><td class="sc"><span class="box"></span></td><td class="sc sc--z"><span class="box"></span></td><td class="nt"><i></i></td></tr>
+        <tr class="it g-tuk"><td class="lp">3</td><td class="nm">Rozwiązuje zadanie fałszywego przekonania I rzędu</td><td class="sc sc--a"><span class="box"></span></td><td class="sc"><span class="box"></span></td><td class="sc"><span class="box"></span></td><td class="sc sc--z"><span class="box"></span></td><td class="nt"><i></i></td></tr>
+        <tr class="it alt g-tuk"><td class="lp">4</td><td class="nm">Rozumie emocję ukrytą (czuję jedno, pokazuję drugie)</td><td class="sc sc--a"><span class="box"></span></td><td class="sc"><span class="box"></span></td><td class="sc"><span class="box"></span></td><td class="sc sc--z"><span class="box"></span></td><td class="nt"><i></i></td></tr>
+        <tr class="it g-tuk"><td class="lp">5</td><td class="nm">Odróżnia zdarzenie przypadkowe od celowego i uzasadnia</td><td class="sc sc--a"><span class="box"></span></td><td class="sc"><span class="box"></span></td><td class="sc"><span class="box"></span></td><td class="sc sc--z"><span class="box"></span></td><td class="nt"><i></i></td></tr>
+        <tr class="it alt g-tuk"><td class="lp">6</td><td class="nm">Rozwiązuje zadanie fałszywego przekonania II rzędu</td><td class="sc sc--a"><span class="box"></span></td><td class="sc"><span class="box"></span></td><td class="sc"><span class="box"></span></td><td class="sc sc--z"><span class="box"></span></td><td class="nt"><i></i></td></tr>
+        <tr class="grp g-tus">
+          <td class="lp"></td><td class="nm"><span class="tag tag--tus">TUS</span> <b>Działanie — co z tym robi</b></td>
+          <td class="sc sc--a sc--z och" colspan="4">0 – 3</td>
+          <td class="nt"><span class="suma">razem <em></em> / 18</span></td></tr>
+        <tr class="it g-tus"><td class="lp">1</td><td class="nm">Rozpoznaje gafę i wie, że autor nie chciał sprawić przykrości</td><td class="sc sc--a"><span class="box"></span></td><td class="sc"><span class="box"></span></td><td class="sc"><span class="box"></span></td><td class="sc sc--z"><span class="box"></span></td><td class="nt"><i></i></td></tr>
+        <tr class="it alt g-tus"><td class="lp">2</td><td class="nm">Odróżnia żart od dokuczania; stosuje zdanie sprawdzające</td><td class="sc sc--a"><span class="box"></span></td><td class="sc"><span class="box"></span></td><td class="sc"><span class="box"></span></td><td class="sc sc--z"><span class="box"></span></td><td class="nt"><i></i></td></tr>
+        <tr class="it g-tus"><td class="lp">3</td><td class="nm">Wyjaśnia motywy bohatera lektury bez podpowiedzi</td><td class="sc sc--a"><span class="box"></span></td><td class="sc"><span class="box"></span></td><td class="sc"><span class="box"></span></td><td class="sc sc--z"><span class="box"></span></td><td class="nt"><i></i></td></tr>
+        <tr class="it alt g-tus"><td class="lp">4</td><td class="nm">Wchodzi do wspólnej zabawy / pracy grupowej i negocjuje rolę</td><td class="sc sc--a"><span class="box"></span></td><td class="sc"><span class="box"></span></td><td class="sc"><span class="box"></span></td><td class="sc sc--z"><span class="box"></span></td><td class="nt"><i></i></td></tr>
+        <tr class="it g-tus"><td class="lp">5</td><td class="nm">Prosi o pomoc, gdy jej potrzebuje</td><td class="sc sc--a"><span class="box"></span></td><td class="sc"><span class="box"></span></td><td class="sc"><span class="box"></span></td><td class="sc sc--z"><span class="box"></span></td><td class="nt"><i></i></td></tr>
+        <tr class="it alt g-tus"><td class="lp">6</td><td class="nm">Nazywa własne potrzeby i granice wobec dorosłego</td><td class="sc sc--a"><span class="box"></span></td><td class="sc"><span class="box"></span></td><td class="sc"><span class="box"></span></td><td class="sc sc--z"><span class="box"></span></td><td class="nt"><i></i></td></tr>
       </tbody>
     </table>
     </div>
