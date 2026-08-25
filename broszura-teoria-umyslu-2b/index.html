@@ -439,17 +439,21 @@ table.karta tbody tr{background:none}
 .narz{border:1.4px solid var(--line); border-radius:12px; background:#FFFDFB; padding:9px 11px;
   display:flex; flex-direction:column; gap:5px}
 .narz h4{font-size:9.6pt}
-.spraw{background:#fff; border:1px solid var(--line); border-radius:11px; overflow:hidden;
-  display:flex; flex-direction:column}
-.spraw__bar{background:var(--tint); border-bottom:1px solid var(--rail); padding:5px 12px;
+.spraw{background:#fff; border:1.6px solid var(--rail); border-radius:11px; overflow:hidden;
+  display:flex; flex-direction:column; box-shadow:0 1px 0 rgba(46,42,59,.05), 0 6px 16px rgba(46,42,59,.07)}
+.spraw__bar{background:var(--rail); border-bottom:0; padding:5px 12px;
   display:flex; justify-content:space-between; align-items:center;
-  font-size:6.9pt; letter-spacing:.13em; text-transform:uppercase; font-weight:800; color:var(--rail)}
-.spraw__body{padding:7px 12px 8px; display:flex; flex-direction:column; gap:3px}
-.sek{display:flex; flex-direction:column; gap:2px}
-.sek>b{font-size:6.9pt; letter-spacing:.09em; text-transform:uppercase; color:var(--muted); font-weight:800}
-.sek .l{border-bottom:1px dotted #C8C1D2; height:11px}
-.sek p{font-size:8.2pt; color:var(--ink2); line-height:1.35}
-.dwie{display:grid; grid-template-columns:1fr 1fr; gap:2px 16px}
+  font-size:7.4pt; letter-spacing:.13em; text-transform:uppercase; font-weight:800; color:#FFFFFF}
+.spraw__body{padding:0; display:flex; flex-direction:column}
+.sek{display:flex; flex-direction:column; gap:1px; padding:3px 12px 4px; border-bottom:1px solid var(--line2)}
+.sek:nth-child(even){background:var(--tint)}
+.sek:last-child{border-bottom:0}
+.sek>b{font-size:8.2pt; letter-spacing:.02em; text-transform:none; color:var(--rail); font-weight:800;
+  font-family:"Fraunces",serif}
+.sek .l{border-bottom:1.2px solid #C4BCCF; height:10px}
+.sek p{font-size:8.3pt; color:var(--ink); line-height:1.32}
+.sek .dwie>div>span{font-weight:700; color:var(--ink2)}
+.dwie{display:grid; grid-template-columns:1fr 1fr; gap:1px 16px}
 .roznice td{vertical-align:top}
 .roznice .rew{background:var(--tuk-soft)}
 .roznice .ppp{background:var(--tus-soft)}
@@ -1566,6 +1570,7 @@ table.karta tbody tr{background:none}
 </section>
 
 
+
 <!-- ============ KOŁO EMOCJI ============ -->
 <section class="page">
   <div class="page__body">
@@ -1580,40 +1585,61 @@ table.karta tbody tr{background:none}
     <div class="grid g2">
       <div class="pole-pracy" style="padding:8px">
 <svg viewBox="0 0 336 402" style="width:100%;height:auto" role="img" aria-label="Koło emocji z dwunastoma polami: radość, spokój, duma, wdzięczność, smutek, tęsknota, zawód, złość, zazdrość, strach, wstyd, zdziwienie">
+<defs>
+<path id="luk0" d="M168.0 35.0 A133 133 0 0 1 234.5 52.8" fill="none"/>
+<path id="luk1" d="M234.5 52.8 A133 133 0 0 1 283.2 101.5" fill="none"/>
+<path id="luk2" d="M283.2 101.5 A133 133 0 0 1 301.0 168.0" fill="none"/>
+<path id="luk3" d="M283.2 234.5 A133 133 0 0 0 301.0 168.0" fill="none"/>
+<path id="luk4" d="M234.5 283.2 A133 133 0 0 0 283.2 234.5" fill="none"/>
+<path id="luk5" d="M168.0 301.0 A133 133 0 0 0 234.5 283.2" fill="none"/>
+<path id="luk6" d="M101.5 283.2 A133 133 0 0 0 168.0 301.0" fill="none"/>
+<path id="luk7" d="M52.8 234.5 A133 133 0 0 0 101.5 283.2" fill="none"/>
+<path id="luk8" d="M35.0 168.0 A133 133 0 0 0 52.8 234.5" fill="none"/>
+<path id="luk9" d="M35.0 168.0 A133 133 0 0 1 52.8 101.5" fill="none"/>
+<path id="luk10" d="M52.8 101.5 A133 133 0 0 1 101.5 52.8" fill="none"/>
+<path id="luk11" d="M101.5 52.8 A133 133 0 0 1 168.0 35.0" fill="none"/>
+</defs>
 <path d="M168 168 L168.0 18.0 A150 150 0 0 1 243.0 38.1 Z" fill="#DDF0EC" stroke="#FFFFFF" stroke-width="2.4"/>
-<svg x="174.8" y="62.1" width="34" height="34"><svg class="buzka" viewBox="0 0 100 100" role="img" aria-label="Twarz: radosc">
-<circle cx="50" cy="50" r="41" fill="#FFFFFF" stroke="#0E8B78" stroke-width="3"/>
-<circle cx="36" cy="43" r="4.2" fill="#0E8B78"/>
-<circle cx="64" cy="43" r="4.2" fill="#0E8B78"/>
-<path d="M31 58 Q50 75 69 58" fill="none" stroke="#0E8B78" stroke-width="3.4" stroke-linecap="round"/>
-</svg></svg>
-<text x="201.1" y="48.4" text-anchor="middle" transform="rotate(-75.0 201.1 44.4)" font-family="Nunito Sans,sans-serif" font-size="11.5" font-weight="800" fill="#0E8B78">Radość</text>
 <path d="M168 168 L243.0 38.1 A150 150 0 0 1 297.9 93.0 Z" fill="#E7F3EF" stroke="#FFFFFF" stroke-width="2.4"/>
-<svg x="216.1" y="85.9" width="34" height="34"><svg class="buzka" viewBox="0 0 100 100" role="img" aria-label="Twarz: radosc">
-<circle cx="50" cy="50" r="41" fill="#FFFFFF" stroke="#0E8B78" stroke-width="3"/>
-<circle cx="36" cy="43" r="4.2" fill="#0E8B78"/>
-<circle cx="64" cy="43" r="4.2" fill="#0E8B78"/>
-<path d="M31 58 Q50 75 69 58" fill="none" stroke="#0E8B78" stroke-width="3.4" stroke-linecap="round"/>
-</svg></svg>
-<text x="258.5" y="81.5" text-anchor="middle" transform="rotate(-45.0 258.5 77.5)" font-family="Nunito Sans,sans-serif" font-size="11.5" font-weight="800" fill="#0E8B78">Spokój</text>
 <path d="M168 168 L297.9 93.0 A150 150 0 0 1 318.0 168.0 Z" fill="#D6EDE6" stroke="#FFFFFF" stroke-width="2.4"/>
-<svg x="239.9" y="127.2" width="34" height="34"><svg class="buzka" viewBox="0 0 100 100" role="img" aria-label="Twarz: radosc">
-<circle cx="50" cy="50" r="41" fill="#FFFFFF" stroke="#0E8B78" stroke-width="3"/>
-<circle cx="36" cy="43" r="4.2" fill="#0E8B78"/>
-<circle cx="64" cy="43" r="4.2" fill="#0E8B78"/>
-<path d="M31 58 Q50 75 69 58" fill="none" stroke="#0E8B78" stroke-width="3.4" stroke-linecap="round"/>
-</svg></svg>
-<text x="291.6" y="138.9" text-anchor="middle" transform="rotate(-15.0 291.6 134.9)" font-family="Nunito Sans,sans-serif" font-size="11.5" font-weight="800" fill="#0E8B78">Duma</text>
 <path d="M168 168 L318.0 168.0 A150 150 0 0 1 297.9 243.0 Z" fill="#E7F3EF" stroke="#FFFFFF" stroke-width="2.4"/>
-<svg x="239.9" y="174.8" width="34" height="34"><svg class="buzka" viewBox="0 0 100 100" role="img" aria-label="Twarz: radosc">
+<path d="M168 168 L297.9 243.0 A150 150 0 0 1 243.0 297.9 Z" fill="#EBE5F8" stroke="#FFFFFF" stroke-width="2.4"/>
+<path d="M168 168 L243.0 297.9 A150 150 0 0 1 168.0 318.0 Z" fill="#F1EDFA" stroke="#FFFFFF" stroke-width="2.4"/>
+<path d="M168 168 L168.0 318.0 A150 150 0 0 1 93.0 297.9 Z" fill="#E4DCF4" stroke="#FFFFFF" stroke-width="2.4"/>
+<path d="M168 168 L93.0 297.9 A150 150 0 0 1 38.1 243.0 Z" fill="#FBE7EE" stroke="#FFFFFF" stroke-width="2.4"/>
+<path d="M168 168 L38.1 243.0 A150 150 0 0 1 18.0 168.0 Z" fill="#F7DDE7" stroke="#FFFFFF" stroke-width="2.4"/>
+<path d="M168 168 L18.0 168.0 A150 150 0 0 1 38.1 93.0 Z" fill="#FBF1D6" stroke="#FFFFFF" stroke-width="2.4"/>
+<path d="M168 168 L38.1 93.0 A150 150 0 0 1 93.0 38.1 Z" fill="#F8EBC8" stroke="#FFFFFF" stroke-width="2.4"/>
+<path d="M168 168 L93.0 38.1 A150 150 0 0 1 168.0 18.0 Z" fill="#FDF6E4" stroke="#FFFFFF" stroke-width="2.4"/>
+<svg x="174.8" y="67.0" width="32" height="32"><svg class="buzka" viewBox="0 0 100 100" role="img" aria-label="Twarz: radosc">
 <circle cx="50" cy="50" r="41" fill="#FFFFFF" stroke="#0E8B78" stroke-width="3"/>
 <circle cx="36" cy="43" r="4.2" fill="#0E8B78"/>
 <circle cx="64" cy="43" r="4.2" fill="#0E8B78"/>
 <path d="M31 58 Q50 75 69 58" fill="none" stroke="#0E8B78" stroke-width="3.4" stroke-linecap="round"/>
 </svg></svg>
-<text x="291.6" y="205.1" text-anchor="middle" transform="rotate(15.0 291.6 201.1)" font-family="Nunito Sans,sans-serif" font-size="11.5" font-weight="800" fill="#0E8B78">Wdzięczność</text>
-<path d="M168 168 L297.9 243.0 A150 150 0 0 1 243.0 297.9 Z" fill="#EBE5F8" stroke="#FFFFFF" stroke-width="2.4"/>
-<svg x="216.1" y="216.1" width="34" height="34"><svg class="buzka" viewBox="0 0 100 100" role="img" aria-label="Twarz: smutek">
+<text font-family="Nunito Sans,sans-serif" font-size="10.5" font-weight="800" fill="#0E8B78"><textPath href="#luk0" startOffset="50%" text-anchor="middle">Radość</textPath></text>
+<svg x="214.2" y="89.8" width="32" height="32"><svg class="buzka" viewBox="0 0 100 100" role="img" aria-label="Twarz: radosc">
+<circle cx="50" cy="50" r="41" fill="#FFFFFF" stroke="#0E8B78" stroke-width="3"/>
+<circle cx="36" cy="43" r="4.2" fill="#0E8B78"/>
+<circle cx="64" cy="43" r="4.2" fill="#0E8B78"/>
+<path d="M31 58 Q50 75 69 58" fill="none" stroke="#0E8B78" stroke-width="3.4" stroke-linecap="round"/>
+</svg></svg>
+<text font-family="Nunito Sans,sans-serif" font-size="10.5" font-weight="800" fill="#0E8B78"><textPath href="#luk1" startOffset="50%" text-anchor="middle">Spokój</textPath></text>
+<svg x="237.0" y="129.2" width="32" height="32"><svg class="buzka" viewBox="0 0 100 100" role="img" aria-label="Twarz: radosc">
+<circle cx="50" cy="50" r="41" fill="#FFFFFF" stroke="#0E8B78" stroke-width="3"/>
+<circle cx="36" cy="43" r="4.2" fill="#0E8B78"/>
+<circle cx="64" cy="43" r="4.2" fill="#0E8B78"/>
+<path d="M31 58 Q50 75 69 58" fill="none" stroke="#0E8B78" stroke-width="3.4" stroke-linecap="round"/>
+</svg></svg>
+<text font-family="Nunito Sans,sans-serif" font-size="10.5" font-weight="800" fill="#0E8B78"><textPath href="#luk2" startOffset="50%" text-anchor="middle">Duma</textPath></text>
+<svg x="237.0" y="174.8" width="32" height="32"><svg class="buzka" viewBox="0 0 100 100" role="img" aria-label="Twarz: radosc">
+<circle cx="50" cy="50" r="41" fill="#FFFFFF" stroke="#0E8B78" stroke-width="3"/>
+<circle cx="36" cy="43" r="4.2" fill="#0E8B78"/>
+<circle cx="64" cy="43" r="4.2" fill="#0E8B78"/>
+<path d="M31 58 Q50 75 69 58" fill="none" stroke="#0E8B78" stroke-width="3.4" stroke-linecap="round"/>
+</svg></svg>
+<text font-family="Nunito Sans,sans-serif" font-size="10.5" font-weight="800" fill="#0E8B78"><textPath href="#luk3" startOffset="50%" text-anchor="middle">Wdzięczność</textPath></text>
+<svg x="214.2" y="214.2" width="32" height="32"><svg class="buzka" viewBox="0 0 100 100" role="img" aria-label="Twarz: smutek">
 <circle cx="50" cy="50" r="41" fill="#FFFFFF" stroke="#6553A8" stroke-width="3"/>
 <circle cx="36" cy="45" r="4.2" fill="#6553A8"/>
 <circle cx="64" cy="45" r="4.2" fill="#6553A8"/>
@@ -1622,9 +1648,8 @@ table.karta tbody tr{background:none}
 <path d="M59 35 Q66 32 72 36" fill="none" stroke="#6553A8" stroke-width="3.4" stroke-linecap="round"/>
 <path d="M36 52 q-3 6 0 8 q3 -2 0 -8" fill="#6553A8" opacity="0.55"/>
 </svg></svg>
-<text x="258.5" y="262.5" text-anchor="middle" transform="rotate(45.0 258.5 258.5)" font-family="Nunito Sans,sans-serif" font-size="11.5" font-weight="800" fill="#6553A8">Smutek</text>
-<path d="M168 168 L243.0 297.9 A150 150 0 0 1 168.0 318.0 Z" fill="#F1EDFA" stroke="#FFFFFF" stroke-width="2.4"/>
-<svg x="174.8" y="239.9" width="34" height="34"><svg class="buzka" viewBox="0 0 100 100" role="img" aria-label="Twarz: smutek">
+<text font-family="Nunito Sans,sans-serif" font-size="10.5" font-weight="800" fill="#6553A8"><textPath href="#luk4" startOffset="50%" text-anchor="middle">Smutek</textPath></text>
+<svg x="174.8" y="237.0" width="32" height="32"><svg class="buzka" viewBox="0 0 100 100" role="img" aria-label="Twarz: smutek">
 <circle cx="50" cy="50" r="41" fill="#FFFFFF" stroke="#6553A8" stroke-width="3"/>
 <circle cx="36" cy="45" r="4.2" fill="#6553A8"/>
 <circle cx="64" cy="45" r="4.2" fill="#6553A8"/>
@@ -1633,9 +1658,8 @@ table.karta tbody tr{background:none}
 <path d="M59 35 Q66 32 72 36" fill="none" stroke="#6553A8" stroke-width="3.4" stroke-linecap="round"/>
 <path d="M36 52 q-3 6 0 8 q3 -2 0 -8" fill="#6553A8" opacity="0.55"/>
 </svg></svg>
-<text x="201.1" y="295.6" text-anchor="middle" transform="rotate(75.0 201.1 291.6)" font-family="Nunito Sans,sans-serif" font-size="11.5" font-weight="800" fill="#6553A8">Tęsknota</text>
-<path d="M168 168 L168.0 318.0 A150 150 0 0 1 93.0 297.9 Z" fill="#E4DCF4" stroke="#FFFFFF" stroke-width="2.4"/>
-<svg x="127.2" y="239.9" width="34" height="34"><svg class="buzka" viewBox="0 0 100 100" role="img" aria-label="Twarz: smutek">
+<text font-family="Nunito Sans,sans-serif" font-size="10.5" font-weight="800" fill="#6553A8"><textPath href="#luk5" startOffset="50%" text-anchor="middle">Tęsknota</textPath></text>
+<svg x="129.2" y="237.0" width="32" height="32"><svg class="buzka" viewBox="0 0 100 100" role="img" aria-label="Twarz: smutek">
 <circle cx="50" cy="50" r="41" fill="#FFFFFF" stroke="#6553A8" stroke-width="3"/>
 <circle cx="36" cy="45" r="4.2" fill="#6553A8"/>
 <circle cx="64" cy="45" r="4.2" fill="#6553A8"/>
@@ -1644,9 +1668,8 @@ table.karta tbody tr{background:none}
 <path d="M59 35 Q66 32 72 36" fill="none" stroke="#6553A8" stroke-width="3.4" stroke-linecap="round"/>
 <path d="M36 52 q-3 6 0 8 q3 -2 0 -8" fill="#6553A8" opacity="0.55"/>
 </svg></svg>
-<text x="134.9" y="295.6" text-anchor="middle" transform="rotate(285.0 134.9 291.6)" font-family="Nunito Sans,sans-serif" font-size="11.5" font-weight="800" fill="#6553A8">Zawód</text>
-<path d="M168 168 L93.0 297.9 A150 150 0 0 1 38.1 243.0 Z" fill="#FBE7EE" stroke="#FFFFFF" stroke-width="2.4"/>
-<svg x="85.9" y="216.1" width="34" height="34"><svg class="buzka" viewBox="0 0 100 100" role="img" aria-label="Twarz: zlosc">
+<text font-family="Nunito Sans,sans-serif" font-size="10.5" font-weight="800" fill="#6553A8"><textPath href="#luk6" startOffset="50%" text-anchor="middle">Zawód</textPath></text>
+<svg x="89.8" y="214.2" width="32" height="32"><svg class="buzka" viewBox="0 0 100 100" role="img" aria-label="Twarz: zlosc">
 <circle cx="50" cy="50" r="41" fill="#FFFFFF" stroke="#C4547A" stroke-width="3"/>
 <circle cx="36" cy="47" r="4.2" fill="#C4547A"/>
 <circle cx="64" cy="47" r="4.2" fill="#C4547A"/>
@@ -1654,9 +1677,8 @@ table.karta tbody tr{background:none}
 <path d="M73 35 L55 43" fill="none" stroke="#C4547A" stroke-width="3.4" stroke-linecap="round"/>
 <path d="M33 68 Q50 60 67 68" fill="none" stroke="#C4547A" stroke-width="3.4" stroke-linecap="round"/>
 </svg></svg>
-<text x="77.5" y="262.5" text-anchor="middle" transform="rotate(315.0 77.5 258.5)" font-family="Nunito Sans,sans-serif" font-size="11.5" font-weight="800" fill="#C4547A">Złość</text>
-<path d="M168 168 L38.1 243.0 A150 150 0 0 1 18.0 168.0 Z" fill="#F7DDE7" stroke="#FFFFFF" stroke-width="2.4"/>
-<svg x="62.1" y="174.8" width="34" height="34"><svg class="buzka" viewBox="0 0 100 100" role="img" aria-label="Twarz: zlosc">
+<text font-family="Nunito Sans,sans-serif" font-size="10.5" font-weight="800" fill="#C4547A"><textPath href="#luk7" startOffset="50%" text-anchor="middle">Złość</textPath></text>
+<svg x="67.0" y="174.8" width="32" height="32"><svg class="buzka" viewBox="0 0 100 100" role="img" aria-label="Twarz: zlosc">
 <circle cx="50" cy="50" r="41" fill="#FFFFFF" stroke="#C4547A" stroke-width="3"/>
 <circle cx="36" cy="47" r="4.2" fill="#C4547A"/>
 <circle cx="64" cy="47" r="4.2" fill="#C4547A"/>
@@ -1664,9 +1686,8 @@ table.karta tbody tr{background:none}
 <path d="M73 35 L55 43" fill="none" stroke="#C4547A" stroke-width="3.4" stroke-linecap="round"/>
 <path d="M33 68 Q50 60 67 68" fill="none" stroke="#C4547A" stroke-width="3.4" stroke-linecap="round"/>
 </svg></svg>
-<text x="44.4" y="205.1" text-anchor="middle" transform="rotate(345.0 44.4 201.1)" font-family="Nunito Sans,sans-serif" font-size="11.5" font-weight="800" fill="#C4547A">Zazdrość</text>
-<path d="M168 168 L18.0 168.0 A150 150 0 0 1 38.1 93.0 Z" fill="#FBF1D6" stroke="#FFFFFF" stroke-width="2.4"/>
-<svg x="62.1" y="127.2" width="34" height="34"><svg class="buzka" viewBox="0 0 100 100" role="img" aria-label="Twarz: strach">
+<text font-family="Nunito Sans,sans-serif" font-size="10.5" font-weight="800" fill="#C4547A"><textPath href="#luk8" startOffset="50%" text-anchor="middle">Zazdrość</textPath></text>
+<svg x="67.0" y="129.2" width="32" height="32"><svg class="buzka" viewBox="0 0 100 100" role="img" aria-label="Twarz: strach">
 <circle cx="50" cy="50" r="41" fill="#FFFFFF" stroke="#A07A0A" stroke-width="3"/>
 <circle cx="36" cy="45" r="6.2" fill="none" stroke="#A07A0A" stroke-width="3"/>
 <circle cx="64" cy="45" r="6.2" fill="none" stroke="#A07A0A" stroke-width="3"/>
@@ -1674,9 +1695,8 @@ table.karta tbody tr{background:none}
 <path d="M56 30 Q65 25 73 31" fill="none" stroke="#A07A0A" stroke-width="3.4" stroke-linecap="round"/>
 <ellipse cx="50" cy="68" rx="9" ry="11" fill="none" stroke="#A07A0A" stroke-width="3.2"/>
 </svg></svg>
-<text x="44.4" y="138.9" text-anchor="middle" transform="rotate(375.0 44.4 134.9)" font-family="Nunito Sans,sans-serif" font-size="11.5" font-weight="800" fill="#A07A0A">Strach</text>
-<path d="M168 168 L38.1 93.0 A150 150 0 0 1 93.0 38.1 Z" fill="#F8EBC8" stroke="#FFFFFF" stroke-width="2.4"/>
-<svg x="85.9" y="85.9" width="34" height="34"><svg class="buzka" viewBox="0 0 100 100" role="img" aria-label="Twarz: strach">
+<text font-family="Nunito Sans,sans-serif" font-size="10.5" font-weight="800" fill="#A07A0A"><textPath href="#luk9" startOffset="50%" text-anchor="middle">Strach</textPath></text>
+<svg x="89.8" y="89.8" width="32" height="32"><svg class="buzka" viewBox="0 0 100 100" role="img" aria-label="Twarz: strach">
 <circle cx="50" cy="50" r="41" fill="#FFFFFF" stroke="#A07A0A" stroke-width="3"/>
 <circle cx="36" cy="45" r="6.2" fill="none" stroke="#A07A0A" stroke-width="3"/>
 <circle cx="64" cy="45" r="6.2" fill="none" stroke="#A07A0A" stroke-width="3"/>
@@ -1684,9 +1704,8 @@ table.karta tbody tr{background:none}
 <path d="M56 30 Q65 25 73 31" fill="none" stroke="#A07A0A" stroke-width="3.4" stroke-linecap="round"/>
 <ellipse cx="50" cy="68" rx="9" ry="11" fill="none" stroke="#A07A0A" stroke-width="3.2"/>
 </svg></svg>
-<text x="77.5" y="81.5" text-anchor="middle" transform="rotate(405.0 77.5 77.5)" font-family="Nunito Sans,sans-serif" font-size="11.5" font-weight="800" fill="#A07A0A">Wstyd</text>
-<path d="M168 168 L93.0 38.1 A150 150 0 0 1 168.0 18.0 Z" fill="#FDF6E4" stroke="#FFFFFF" stroke-width="2.4"/>
-<svg x="127.2" y="62.1" width="34" height="34"><svg class="buzka" viewBox="0 0 100 100" role="img" aria-label="Twarz: zdziwienie">
+<text font-family="Nunito Sans,sans-serif" font-size="10.5" font-weight="800" fill="#A07A0A"><textPath href="#luk10" startOffset="50%" text-anchor="middle">Wstyd</textPath></text>
+<svg x="129.2" y="67.0" width="32" height="32"><svg class="buzka" viewBox="0 0 100 100" role="img" aria-label="Twarz: zdziwienie">
 <circle cx="50" cy="50" r="41" fill="#FFFFFF" stroke="#A07A0A" stroke-width="3"/>
 <circle cx="36" cy="46" r="5.6" fill="#A07A0A"/>
 <circle cx="64" cy="46" r="5.6" fill="#A07A0A"/>
@@ -1694,7 +1713,7 @@ table.karta tbody tr{background:none}
 <path d="M55 29 Q64 24 73 30" fill="none" stroke="#A07A0A" stroke-width="3.4" stroke-linecap="round"/>
 <circle cx="50" cy="69" r="8.5" fill="none" stroke="#A07A0A" stroke-width="3.2"/>
 </svg></svg>
-<text x="134.9" y="48.4" text-anchor="middle" transform="rotate(435.0 134.9 44.4)" font-family="Nunito Sans,sans-serif" font-size="11.5" font-weight="800" fill="#A07A0A">Zdziwienie</text>
+<text font-family="Nunito Sans,sans-serif" font-size="10.5" font-weight="800" fill="#A07A0A"><textPath href="#luk11" startOffset="50%" text-anchor="middle">Zdziwienie</textPath></text>
 <circle cx="168" cy="168" r="150" fill="none" stroke="#57516B" stroke-width="2.6"/>
 <circle cx="168" cy="168" r="34" fill="#FFFFFF" stroke="#57516B" stroke-width="2.6"/>
 <text x="168" y="166" text-anchor="middle" font-family="Fraunces,serif" font-size="13" font-weight="700" fill="#2E2A3B">Jak</text>
@@ -2184,7 +2203,6 @@ table.karta tbody tr{background:none}
   </div>
   <div class="page__foot"><span><b>Narzędzie</b> · karty sytuacji do wycięcia</span><span class="num">16</span></div>
 </section>
-
 <!-- ============ KARTA PRACY 4 ============ -->
 <section class="page">
   <div class="page__body">
@@ -2715,7 +2733,7 @@ table.karta tbody tr{background:none}
     <div class="spraw rew-k">
       <div class="spraw__bar"><span>Zajęcia rewalidacyjne · dziecko z orzeczeniem</span><span>sprawozdanie półroczne</span></div>
       <div class="spraw__body">
-<div class="sek"><b>I. Dane</b><div class="dwie" style="margin-top:2px"><div><span style="font-size:7.6pt;color:var(--muted)">Dziecko / uczeń</span><div class="l"></div></div><div><span style="font-size:7.6pt;color:var(--muted)">Grupa / oddział</span><div class="l"></div></div><div><span style="font-size:7.6pt;color:var(--muted)">Rok szkolny i okres sprawozdawczy</span><div class="l"></div></div><div><span style="font-size:7.6pt;color:var(--muted)">Prowadzący zajęcia</span><div class="l"></div></div></div></div><div class="sek"><b>II. Podstawa prowadzenia zajęć</b><p>Orzeczenie o potrzebie kształcenia specjalnego nr … z dnia … · WOPFU z dnia … · IPET z dnia … · Rozporządzenie MEN z 9 sierpnia 2017 r. (Dz.U. 2017 poz. 1578, ze zm.).</p><div class="l"></div><div class="l"></div></div><div class="sek"><b>III. Wymiar i frekwencja</b><div class="dwie" style="margin-top:2px"><div><span style="font-size:7.6pt;color:var(--muted)">Zaplanowano spotkań</span><div class="l"></div></div><div><span style="font-size:7.6pt;color:var(--muted)">Zrealizowano</span><div class="l"></div></div><div><span style="font-size:7.6pt;color:var(--muted)">Obecność dziecka (%)</span><div class="l"></div></div><div><span style="font-size:7.6pt;color:var(--muted)">Przyczyny nieobecności</span><div class="l"></div></div></div></div><div class="sek"><b>IV. Cele z IPET realizowane w tym okresie</b><p>Przepisz cel dosłownie z IPET, dopisz kryterium i wynik liczbowy. Bez kryterium nie da się ocenić realizacji.</p><div class="l"></div><div class="l"></div><div class="l"></div><div class="l"></div></div><div class="sek"><b>V. Zakres i formy pracy</b><p>Metody, materiały, organizacja zajęć (indywidualnie / w parze), liczba i rodzaj przeprowadzonych ćwiczeń.</p><div class="l"></div><div class="l"></div><div class="l"></div></div><div class="sek"><b>VI. Ocena efektywności</b><p>Które cele osiągnięte, które częściowo, które nieosiągnięte — z uzasadnieniem opartym na wynikach, nie na wrażeniu.</p><div class="l"></div><div class="l"></div><div class="l"></div><div class="l"></div></div><div class="sek"><b>VII. Generalizacja i współpraca</b><p>Czy umiejętność pojawiła się poza salą — gdzie, kiedy, w czyjej obecności. Współpraca z wychowawcą i z rodzicami.</p><div class="l"></div><div class="l"></div><div class="l"></div></div><div class="sek"><b>VIII. Wnioski i zalecenia do dalszej pracy</b><p>Materiał do najbliższej WOPFU: co kontynuować, co zmienić, jakie dostosowania utrzymać na wszystkich zajęciach.</p><div class="l"></div><div class="l"></div><div class="l"></div><div class="l"></div></div><div class="sek"><b>IX. Data i podpisy</b><p>Prowadzący zajęcia · przewodniczący zespołu · zapoznanie rodzica.</p></div>      </div>
+<div class="sek"><b>I. Dane</b><div class="dwie" style="margin-top:2px"><div><span style="font-size:7.8pt;color:var(--ink2);font-weight:700">Dziecko / uczeń</span><div class="l"></div></div><div><span style="font-size:7.8pt;color:var(--ink2);font-weight:700">Grupa / oddział</span><div class="l"></div></div><div><span style="font-size:7.8pt;color:var(--ink2);font-weight:700">Rok szkolny i okres sprawozdawczy</span><div class="l"></div></div><div><span style="font-size:7.8pt;color:var(--ink2);font-weight:700">Prowadzący zajęcia</span><div class="l"></div></div></div></div><div class="sek"><b>II. Podstawa prowadzenia zajęć</b><p>Orzeczenie o potrzebie kształcenia specjalnego nr … z dnia … · WOPFU z dnia … · IPET z dnia … · Rozporządzenie MEN z 9 sierpnia 2017 r. (Dz.U. 2017 poz. 1578, ze zm.).</p><div class="l"></div><div class="l"></div></div><div class="sek"><b>III. Wymiar i frekwencja</b><div class="dwie" style="margin-top:2px"><div><span style="font-size:7.8pt;color:var(--ink2);font-weight:700">Zaplanowano spotkań</span><div class="l"></div></div><div><span style="font-size:7.8pt;color:var(--ink2);font-weight:700">Zrealizowano</span><div class="l"></div></div><div><span style="font-size:7.8pt;color:var(--ink2);font-weight:700">Obecność dziecka (%)</span><div class="l"></div></div><div><span style="font-size:7.8pt;color:var(--ink2);font-weight:700">Przyczyny nieobecności</span><div class="l"></div></div></div></div><div class="sek"><b>IV. Cele z IPET realizowane w tym okresie</b><p>Przepisz cel dosłownie z IPET, dopisz kryterium i wynik liczbowy. Bez kryterium nie da się ocenić realizacji.</p><div class="l"></div><div class="l"></div><div class="l"></div><div class="l"></div></div><div class="sek"><b>V. Zakres i formy pracy</b><p>Metody, materiały, organizacja zajęć (indywidualnie / w parze), liczba i rodzaj przeprowadzonych ćwiczeń.</p><div class="l"></div><div class="l"></div><div class="l"></div></div><div class="sek"><b>VI. Ocena efektywności</b><p>Które cele osiągnięte, które częściowo, które nieosiągnięte — z uzasadnieniem opartym na wynikach, nie na wrażeniu.</p><div class="l"></div><div class="l"></div><div class="l"></div><div class="l"></div></div><div class="sek"><b>VII. Generalizacja i współpraca</b><p>Czy umiejętność pojawiła się poza salą — gdzie, kiedy, w czyjej obecności. Współpraca z wychowawcą i z rodzicami.</p><div class="l"></div><div class="l"></div><div class="l"></div></div><div class="sek"><b>VIII. Wnioski i zalecenia do dalszej pracy</b><p>Materiał do najbliższej WOPFU: co kontynuować, co zmienić, jakie dostosowania utrzymać na wszystkich zajęciach.</p><div class="l"></div><div class="l"></div><div class="l"></div><div class="l"></div></div><div class="sek"><b>IX. Data i podpisy</b><p>Prowadzący zajęcia · przewodniczący zespołu · zapoznanie rodzica.</p></div>      </div>
     </div>
 
     <div class="grid g3">
@@ -2756,9 +2774,9 @@ table.karta tbody tr{background:none}
     </div>
 
     <div class="spraw ppp-k">
-      <div class="spraw__bar"><span>Pomoc psychologiczno-pedagogiczna · zajęcia rozwijające kompetencje emocjonalno-społeczne</span><span>sprawozdanie półroczne</span></div>
+      <div class="spraw__bar"><span>Zajęcia z zakresu PPP · kompetencje emocjonalno-społeczne</span><span>sprawozdanie półroczne</span></div>
       <div class="spraw__body">
-<div class="sek"><b>I. Dane</b><div class="dwie" style="margin-top:2px"><div><span style="font-size:7.6pt;color:var(--muted)">Dziecko / grupa</span><div class="l"></div></div><div><span style="font-size:7.6pt;color:var(--muted)">Forma zajęć</span><div class="l"></div></div><div><span style="font-size:7.6pt;color:var(--muted)">Liczba uczestników</span><div class="l"></div></div><div><span style="font-size:7.6pt;color:var(--muted)">Prowadzący i okres</span><div class="l"></div></div></div></div><div class="sek"><b>II. Podstawa udzielania pomocy</b><p>Rozpoznanie nauczyciela lub specjalisty z dnia … · wniosek złożony przez … · informacja przekazana rodzicom dnia … · Rozporządzenie MEN z 9 sierpnia 2017 r. (Dz.U. 2017 poz. 1591, ze zm.).</p><div class="l"></div><div class="l"></div></div><div class="sek"><b>III. Wymiar i frekwencja</b><div class="dwie" style="margin-top:2px"><div><span style="font-size:7.6pt;color:var(--muted)">Zaplanowano zajęć</span><div class="l"></div></div><div><span style="font-size:7.6pt;color:var(--muted)">Zrealizowano</span><div class="l"></div></div><div><span style="font-size:7.6pt;color:var(--muted)">Frekwencja (%)</span><div class="l"></div></div><div><span style="font-size:7.6pt;color:var(--muted)">Uwagi o organizacji</span><div class="l"></div></div></div></div><div class="sek"><b>IV. Rozpoznane trudności lub potrzeby oraz cele</b><p>Co konkretnie rozpoznano w toku bieżącej pracy i jakie cele z tego wynikły. Tu nie odwołujesz się do orzeczenia.</p><div class="l"></div><div class="l"></div><div class="l"></div><div class="l"></div></div><div class="sek"><b>V. Zrealizowane treści i formy pracy</b><p>Tematy zajęć, metody, materiały, sposób organizacji grupy.</p><div class="l"></div><div class="l"></div><div class="l"></div></div><div class="sek"><b>VI. Ocena efektywności udzielonej pomocy</b><p>Co się zmieniło u dziecka lub w grupie — z odniesieniem do celów z punktu IV.</p><div class="l"></div><div class="l"></div><div class="l"></div><div class="l"></div></div><div class="sek"><b>VII. Wniosek co do dalszej pomocy</b><p>Zaznacz i uzasadnij: kontynuować w tej samej formie · zmienić formę lub wymiar · zakończyć, bo potrzeba ustała · skierować do pogłębionej diagnozy.</p><div class="l"></div><div class="l"></div><div class="l"></div></div><div class="sek"><b>VIII. Współpraca z rodzicami i nauczycielami</b><p>Przekazane zalecenia, ustalenia ze spotkań, zadania do domu i ich realizacja.</p><div class="l"></div><div class="l"></div><div class="l"></div></div><div class="sek"><b>IX. Data i podpisy</b><p>Prowadzący zajęcia · dyrektor lub osoba upoważniona · zapoznanie rodzica.</p></div>      </div>
+<div class="sek"><b>I. Dane</b><div class="dwie" style="margin-top:2px"><div><span style="font-size:7.8pt;color:var(--ink2);font-weight:700">Dziecko / grupa</span><div class="l"></div></div><div><span style="font-size:7.8pt;color:var(--ink2);font-weight:700">Forma zajęć</span><div class="l"></div></div><div><span style="font-size:7.8pt;color:var(--ink2);font-weight:700">Liczba uczestników</span><div class="l"></div></div><div><span style="font-size:7.8pt;color:var(--ink2);font-weight:700">Prowadzący i okres</span><div class="l"></div></div></div></div><div class="sek"><b>II. Podstawa udzielania pomocy</b><p>Rozpoznanie nauczyciela lub specjalisty z dnia … · wniosek złożony przez … · informacja przekazana rodzicom dnia … · Rozporządzenie MEN z 9 sierpnia 2017 r. (Dz.U. 2017 poz. 1591, ze zm.).</p><div class="l"></div><div class="l"></div></div><div class="sek"><b>III. Wymiar i frekwencja</b><div class="dwie" style="margin-top:2px"><div><span style="font-size:7.8pt;color:var(--ink2);font-weight:700">Zaplanowano zajęć</span><div class="l"></div></div><div><span style="font-size:7.8pt;color:var(--ink2);font-weight:700">Zrealizowano</span><div class="l"></div></div><div><span style="font-size:7.8pt;color:var(--ink2);font-weight:700">Frekwencja (%)</span><div class="l"></div></div><div><span style="font-size:7.8pt;color:var(--ink2);font-weight:700">Uwagi o organizacji</span><div class="l"></div></div></div></div><div class="sek"><b>IV. Rozpoznane trudności lub potrzeby oraz cele</b><p>Co konkretnie rozpoznano w toku bieżącej pracy i jakie cele z tego wynikły. Tu nie odwołujesz się do orzeczenia.</p><div class="l"></div><div class="l"></div><div class="l"></div><div class="l"></div></div><div class="sek"><b>V. Zrealizowane treści i formy pracy</b><p>Tematy zajęć, metody, materiały, sposób organizacji grupy.</p><div class="l"></div><div class="l"></div><div class="l"></div></div><div class="sek"><b>VI. Ocena efektywności udzielonej pomocy</b><p>Co się zmieniło u dziecka lub w grupie — z odniesieniem do celów z punktu IV.</p><div class="l"></div><div class="l"></div><div class="l"></div><div class="l"></div></div><div class="sek"><b>VII. Wniosek co do dalszej pomocy</b><p>Zaznacz i uzasadnij: kontynuować w tej samej formie · zmienić formę lub wymiar · zakończyć, bo potrzeba ustała · skierować do pogłębionej diagnozy.</p><div class="l"></div><div class="l"></div><div class="l"></div></div><div class="sek"><b>VIII. Współpraca z rodzicami i nauczycielami</b><p>Przekazane zalecenia, ustalenia ze spotkań, zadania do domu i ich realizacja.</p><div class="l"></div><div class="l"></div><div class="l"></div></div><div class="sek"><b>IX. Data i podpisy</b><p>Prowadzący zajęcia · dyrektor lub osoba upoważniona · zapoznanie rodzica.</p></div>      </div>
     </div>
 
     <div class="grid g3">
