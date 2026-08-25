@@ -261,6 +261,10 @@ svg{display:block; max-width:100%}
     linear-gradient(168deg, #F6F2FC 0%, #FDFBF8 52%, #FCF7F1 100%);
   display:flex; flex-direction:column; gap:var(--s4); position:relative;
 }
+.seria{display:flex; align-items:center; gap:9px; flex-wrap:wrap; position:relative; z-index:1}
+.seria__l{font-size:7.6pt; letter-spacing:.22em; text-transform:uppercase; font-weight:800; color:var(--muted)}
+.seria__p{font-size:7.6pt; letter-spacing:.11em; text-transform:uppercase; font-weight:800; color:#fff;
+  background:var(--tuk); padding:3px 11px; border-radius:999px; white-space:nowrap}
 .cover__art{position:absolute; top:9mm; right:-10mm; width:112mm; height:auto; pointer-events:none; z-index:0}
 .cover__title{font-size:32.00pt; line-height:1.06; font-weight:700; letter-spacing:-.022em}
 .cover__title i{font-style:italic; color:var(--tuk)}
@@ -466,6 +470,10 @@ table.karta tbody tr{background:none}
         <circle cx="50" cy="220" r="5" fill="#8ACFBE" opacity="0.5"/>
       </g>
     </svg>
+    <div class="seria">
+      <span class="seria__l">Seria: Teoria umysłu</span>
+      <span class="seria__p">Część 1 — Ogólna</span>
+    </div>
     <div class="badge-row" style="position:relative;z-index:1">
       <span class="tag tag--tue">TUE · emocje</span>
       <span class="tag tag--tuk">TUK · przekonania</span>
@@ -503,7 +511,7 @@ table.karta tbody tr{background:none}
 <section class="page">
   <div class="page__body">
     <div>
-      <div class="eyebrow">Spis treści</div>
+      <div class="eyebrow">Spis treści · seria Teoria umysłu, część 1 — Ogólna</div>
       <h2 class="h-sec">Co znajdziesz w tej broszurze</h2>
       <p class="lead" style="margin-top:4px">Cztery części, które odpowiadają czterem pytaniom nauczyciela:
       <strong>o co chodzi</strong>, <strong>jak to rozpoznać</strong>, <strong>co mi wolno i co muszę zmienić</strong>
@@ -2454,8 +2462,10 @@ table.karta tbody tr{background:none}
         z dziećmi i uczniami. Karta obserwacji ze s. 22 jest przeznaczona do powielania na użytek własny placówki.</span>
       </div>
       <div style="text-align:right;flex:none">
-        <p style="font-family:Fraunces,serif;font-size:13.00pt;line-height:1.25;color:var(--tuk)">Teoria umysłu<br>a funkcjonowanie<br>dziecka, ucznia<br>z autyzmem</p>
-        <p style="font-size:8.00pt;color:var(--muted);margin-top:6px">wydanie 1 · 23 strony</p>
+        <p style="font-size:7.20pt;letter-spacing:.16em;text-transform:uppercase;font-weight:800;color:var(--muted);margin-bottom:5px">Seria: Teoria umysłu</p>
+        <p style="font-family:Fraunces,serif;font-size:14.44pt;line-height:1.25;color:var(--tuk)">Teoria umysłu<br>a funkcjonowanie<br>dziecka, ucznia<br>z autyzmem</p>
+        <p style="display:inline-block;margin-top:7px;font-size:7.20pt;letter-spacing:.11em;text-transform:uppercase;font-weight:800;color:#fff;background:var(--tuk);padding:3px 10px;border-radius:999px">Część 1 — Ogólna</p>
+        <p style="font-size:8.89pt;color:var(--muted);margin-top:6px">wydanie 1 · 23 strony</p>
       </div>
     </div>
 

@@ -1,5 +1,7 @@
 # Teoria umysłu a funkcjonowanie dziecka, ucznia z autyzmem
 
+**Seria: Teoria umysłu · część 1 — Ogólna**
+
 Broszura metodyczna dla nauczycieli, nauczycieli współorganizujących, terapeutów i rodziców.
 Opracowanie: **Mirosława Ewa Jurczyszyn** · kontakt@eduplaner2026.pl
 
