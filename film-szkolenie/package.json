@@ -1,0 +1,25 @@
+{
+  "name": "film-szkolenie-mosty",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Film szkoleniowy Budowanie mostów społecznych — Remotion",
+  "scripts": {
+    "studio": "remotion studio",
+    "czas": "node scripts/oblicz-czas.mjs",
+    "slajdy1": "bash scripts/renderuj-slajdy.sh ../szkolenie-teoria-umyslu/teoria-umyslu-szkolenie.html public/slajdy/czesc1 25",
+    "slajdy2": "bash scripts/renderuj-slajdy.sh ../szkolenie-teoria-umyslu/teoria-umyslu-szkolenie-cz2-sp1-3.html public/slajdy/czesc2 25",
+    "film1": "npm run czas && remotion render CzescI out/mosty-czesc1-przedszkole.mp4",
+    "film2": "npm run czas && remotion render CzescII out/mosty-czesc2-klasy1-3.mp4"
+  },
+  "dependencies": {
+    "@remotion/cli": "4.0.517",
+    "remotion": "4.0.517",
+    "react": "18.3.1",
+    "react-dom": "18.3.1"
+  },
+  "devDependencies": {
+    "@types/react": "18.3.12",
+    "music-metadata": "^10.7.0",
+    "typescript": "5.6.3"
+  }
+}
