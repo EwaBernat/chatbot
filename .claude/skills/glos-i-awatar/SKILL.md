@@ -94,6 +94,25 @@ materiał do podszycia się pod autorkę. Trzymamy go lokalnie i w paczce `.skil
 
 Gdy dojdzie klon głosu, kolejne części nagrywają się z tekstu — bez czytania.
 
+## Klon głosu w ElevenLabs — jakość klonu = jakość próbki
+
+Autorka ma w ElevenLabs dwa klony: **Ewa1** (`D0Yz6dyyxHOodq3Zqi45`) i **Ewa2**
+(`MxdHRlURUZPVY5h2NiXH`). Oba brzmią zniekształcone i **nie brzmią jak ona** —
+bo powstały z surowego nagrania telefonem: ciemnego, z szumem tła −56 dB i
+zapadniętym pasmem 2–8 kHz. Instant Voice Clone kopiuje to, co dostanie, razem
+z wadami toru nagraniowego.
+
+**Zanim zamówisz syntezę, sprawdź, z czego zrobiony jest klon.** Klon z czystej
+próbki (`assets/probka-glosu.mp3` — po Studio Sound i korekcji barwy) brzmi
+zupełnie inaczej niż klon z pliku prosto z WhatsAppa.
+
+MCP ElevenLabs w tej konfiguracji **nie ma narzędzia do tworzenia klonów** —
+są tylko `creative_generate_speech`, `creative_list_voices`, generowanie obrazu
+i wideo. Nowy klon autorka musi założyć sama w aplikacji; my dostarczamy próbkę.
+
+Koszt syntezy dla porównania: ok. 196 kredytów (≈ 0,03 USD) na 19 sekund mowy,
+czyli ok. 5 tys. kredytów na 10-minutowy film.
+
 ## Awatar w kadrze
 
 **Trzy awatary** — pełna specyfikacja w `assets/awatary.json`, w tym gotowe
