@@ -31,6 +31,7 @@ je escapuje. W ćwiczeniach teorii umysłu `\n` w polu `tresc` oznacza nowy akap
 | `nadtytul` | linia nad tytułem; domyślnie „Adaptacja lektury dla młodzieży ze spektrum autyzmu” |
 | `zrodlo` | informacja o oryginale — tytuł, autor, rok |
 | `okladka_svg` | nazwa funkcji z `svg.py` albo gotowy inline SVG (patrz `ilustracje.md`) |
+| `okladka_obraz` | ścieżka do zdjęcia na okładkę (PNG/JPEG/WebP); ma pierwszeństwo przed `okladka_svg` |
 | `na_okladce` | lista 5–7 haseł na okładkę |
 | `odbiorcy` | dla kogo, np. `"uczniowie 12–19 lat ze spektrum autyzmu, klasy VII–VIII"` |
 | `zastosowanie` | gdzie użyć, np. `"lekcje polskiego, rewalidacja, TUS, świetlica"` |
@@ -69,6 +70,7 @@ je escapuje. W ćwiczeniach teorii umysłu `\n` w polu `tresc` oznacza nowy akap
   "miejsce": "Pustynia Sahara · 5. dzień",
   "ikona": "thorn",
   "ilustracja": null,
+  "obraz": null,
   "mysl": "Kiedy dwie osoby myślą o dwóch różnych sprawach, łatwo o kłótnię.",
 
   "streszczenie": [
@@ -112,6 +114,9 @@ je escapuje. W ćwiczeniach teorii umysłu `\n` w polu `tresc` oznacza nowy akap
   "pytania_trudne": ["Dlaczego Mały Książę tak bardzo się rozzłościł o kolce?"]
 }
 ```
+
+Pole `obraz` (ścieżka do pliku) ma pierwszeństwo przed `ilustracja` (nazwa rysunku wektorowego).
+Ścieżki liczone są od katalogu pliku JSON albo od katalogu z `--grafiki`.
 
 `ocena.odpowiedz` **musi zaczynać się** od `ZIELONE`, `ŻÓŁTE` albo `CZERWONE` — po tym słowie
 dobierany jest kolor i znak bloku. `tom.etap` to liczba 1–5.

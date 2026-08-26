@@ -41,6 +41,8 @@ small{font-weight:400;font-size:.82em;color:var(--szary)}
   height:297mm;overflow:hidden}
 .ok-tlo{position:relative;overflow:hidden}
 .ok-box{position:relative;width:100%;height:0;padding-bottom:40%}
+.ok-box-foto{position:relative;width:100%;height:0;overflow:hidden}
+.ok-box-foto img{position:absolute;left:0;top:0;width:100%;height:100%;object-fit:cover;display:block}
 .ok-box svg{position:absolute;left:0;top:0;width:100%;height:100%;display:block}
 .ok-tlo::after{content:"";position:absolute;inset:auto 0 0 0;height:30mm;z-index:2;
   background:linear-gradient(180deg,rgba(6,40,30,0),var(--z900))}
@@ -172,7 +174,9 @@ small{font-weight:400;font-size:.82em;color:var(--szary)}
 .dzial-h .cd{font-size:.5em;color:var(--z400);font-weight:400}
 .ilu{width:100%;flex:none;margin:0 0 3.5mm;padding:0;border-radius:10px;overflow:hidden;background:var(--z100)}
 .ilu-box{position:relative;width:100%;height:0;overflow:hidden}
-.ilu-box > svg{position:absolute;left:0;top:0;width:100%;height:100%;display:block}
+.ilu-box > svg,.ilu-box > img{position:absolute;left:0;top:0;width:100%;height:100%;display:block}
+.ilu-box > img{object-fit:cover}
+.ilu-foto{background:var(--z200)}
 figcaption{font-size:10.35pt;color:var(--szary);padding:2mm 3mm;background:var(--z050);text-align:center}
 
 /* ---------- POSTACIE ---------- */
@@ -3171,10 +3175,10 @@ figcaption{font-size:10.35pt;color:var(--szary);padding:2mm 3mm;background:var(-
   „a czy były jakieś powody?”.</div>
 <footer class="r-foot"><span class="f-znak"><svg class="mark" viewBox="0 0 200 200" aria-hidden="true"><use href="#pctp-mark"/></svg><b>PCTP</b> · Mały Książę moim bohaterem</span><span class="f-srodek">Pomorskie Centrum Terapii Pedagogicznej</span><span class="f-nr">112</span></footer></section><section class="page" id="zalacznik-karty1"><h2 class="dzial-h"><span class="dzial-litera">G</span>Załącznik 4 · Karty miejsc</h2><p class="lead">Wytnij po liniach przerywanych i naklej na sztywny papier. Karty służą do gry, do powtórki i do ustawiania kolejności podróży.</p><div class="karty-planet"><div class="karta-planeta">
                       <div class="kp-gora"><figure class="ilu"><div class="ilu-box" style="padding-bottom:48.000%"><svg viewBox="0 0 200 96" role="img" aria-label="Planeta na gwiezdzistym niebie">
-<defs><radialGradient id="kp8007" cx="50%" cy="45%" r="62%">
+<defs><radialGradient id="kp50" cx="50%" cy="45%" r="62%">
 <stop offset="0%" stop-color="#14664A"/><stop offset="100%" stop-color="#06281E"/>
 </radialGradient></defs>
-<rect width="200" height="96" fill="url(#kp8007)"/>
+<rect width="200" height="96" fill="url(#kp50)"/>
 <circle cx="20" cy="20" r="1.5" fill="#CFEBDD" opacity=".75"/><circle cx="46" cy="10" r="1.0" fill="#CFEBDD" opacity=".75"/><circle cx="170" cy="18" r="1.4" fill="#CFEBDD" opacity=".75"/><circle cx="186" cy="48" r="1.1" fill="#CFEBDD" opacity=".75"/><circle cx="14" cy="58" r="1.2" fill="#CFEBDD" opacity=".75"/><circle cx="178" cy="76" r="1.3" fill="#CFEBDD" opacity=".75"/><circle cx="32" cy="82" r="1.0" fill="#CFEBDD" opacity=".75"/><circle cx="152" cy="6" r="1.0" fill="#CFEBDD" opacity=".75"/><circle cx="10" cy="38" r="1.0" fill="#CFEBDD" opacity=".75"/><circle cx="194" cy="32" r="1.2" fill="#CFEBDD" opacity=".75"/>
 <ellipse cx="100" cy="48" rx="46" ry="46" fill="#F4D06F" opacity=".10"/>
 <svg x="58" y="6" width="84" height="84" viewBox="0 0 64 64" aria-hidden="true"><circle cx="32" cy="32" r="30" fill="#0B3D2E"/><circle cx="32" cy="34" r="17" fill="#1F8A63"/><ellipse cx="32" cy="34" rx="27" ry="8" fill="none" stroke="#E3B23C" stroke-width="3" transform="rotate(-18 32 34)"/><circle cx="26" cy="30" r="3" fill="#14664A"/></svg>
@@ -3186,10 +3190,10 @@ figcaption{font-size:10.35pt;color:var(--szary);padding:2mm 3mm;background:var(-
                         <p class="kp-pyt">Co trzeba tu robić codziennie, żeby planeta się nie rozpadła?</p>
                       </div></div><div class="karta-planeta">
                       <div class="kp-gora"><figure class="ilu"><div class="ilu-box" style="padding-bottom:48.000%"><svg viewBox="0 0 200 96" role="img" aria-label="Planeta na gwiezdzistym niebie">
-<defs><radialGradient id="kp9432" cx="50%" cy="45%" r="62%">
+<defs><radialGradient id="kp4575" cx="50%" cy="45%" r="62%">
 <stop offset="0%" stop-color="#14664A"/><stop offset="100%" stop-color="#06281E"/>
 </radialGradient></defs>
-<rect width="200" height="96" fill="url(#kp9432)"/>
+<rect width="200" height="96" fill="url(#kp4575)"/>
 <circle cx="20" cy="20" r="1.5" fill="#CFEBDD" opacity=".75"/><circle cx="46" cy="10" r="1.0" fill="#CFEBDD" opacity=".75"/><circle cx="170" cy="18" r="1.4" fill="#CFEBDD" opacity=".75"/><circle cx="186" cy="48" r="1.1" fill="#CFEBDD" opacity=".75"/><circle cx="14" cy="58" r="1.2" fill="#CFEBDD" opacity=".75"/><circle cx="178" cy="76" r="1.3" fill="#CFEBDD" opacity=".75"/><circle cx="32" cy="82" r="1.0" fill="#CFEBDD" opacity=".75"/><circle cx="152" cy="6" r="1.0" fill="#CFEBDD" opacity=".75"/><circle cx="10" cy="38" r="1.0" fill="#CFEBDD" opacity=".75"/><circle cx="194" cy="32" r="1.2" fill="#CFEBDD" opacity=".75"/>
 <ellipse cx="100" cy="48" rx="46" ry="46" fill="#F4D06F" opacity=".10"/>
 <svg x="58" y="6" width="84" height="84" viewBox="0 0 64 64" aria-hidden="true"><circle cx="32" cy="32" r="30" fill="#1F8A63"/><path d="M16 42l-4-18 10 7 10-13 10 13 10-7-4 18z" fill="#E3B23C" stroke="#0B3D2E" stroke-width="2" stroke-linejoin="round"/><rect x="16" y="42" width="32" height="6" rx="3" fill="#0B3D2E"/></svg>
@@ -3201,10 +3205,10 @@ figcaption{font-size:10.35pt;color:var(--szary);padding:2mm 3mm;background:var(-
                         <p class="kp-pyt">Czym różni się prośba od rozkazu?</p>
                       </div></div><div class="karta-planeta">
                       <div class="kp-gora"><figure class="ilu"><div class="ilu-box" style="padding-bottom:48.000%"><svg viewBox="0 0 200 96" role="img" aria-label="Planeta na gwiezdzistym niebie">
-<defs><radialGradient id="kp7160" cx="50%" cy="45%" r="62%">
+<defs><radialGradient id="kp2054" cx="50%" cy="45%" r="62%">
 <stop offset="0%" stop-color="#14664A"/><stop offset="100%" stop-color="#06281E"/>
 </radialGradient></defs>
-<rect width="200" height="96" fill="url(#kp7160)"/>
+<rect width="200" height="96" fill="url(#kp2054)"/>
 <circle cx="20" cy="20" r="1.5" fill="#CFEBDD" opacity=".75"/><circle cx="46" cy="10" r="1.0" fill="#CFEBDD" opacity=".75"/><circle cx="170" cy="18" r="1.4" fill="#CFEBDD" opacity=".75"/><circle cx="186" cy="48" r="1.1" fill="#CFEBDD" opacity=".75"/><circle cx="14" cy="58" r="1.2" fill="#CFEBDD" opacity=".75"/><circle cx="178" cy="76" r="1.3" fill="#CFEBDD" opacity=".75"/><circle cx="32" cy="82" r="1.0" fill="#CFEBDD" opacity=".75"/><circle cx="152" cy="6" r="1.0" fill="#CFEBDD" opacity=".75"/><circle cx="10" cy="38" r="1.0" fill="#CFEBDD" opacity=".75"/><circle cx="194" cy="32" r="1.2" fill="#CFEBDD" opacity=".75"/>
 <ellipse cx="100" cy="48" rx="46" ry="46" fill="#F4D06F" opacity=".10"/>
 <svg x="58" y="6" width="84" height="84" viewBox="0 0 64 64" aria-hidden="true"><circle cx="32" cy="32" r="30" fill="#1F8A63"/><ellipse cx="32" cy="44" rx="24" ry="6" fill="#CFEBDD"/><path d="M20 44V26a12 8 0 0 1 24 0v18z" fill="#14664A"/><path d="M20 34h24" stroke="#E3B23C" stroke-width="4"/></svg>
@@ -3216,10 +3220,10 @@ figcaption{font-size:10.35pt;color:var(--szary);padding:2mm 3mm;background:var(-
                         <p class="kp-pyt">Skąd wiadomo, że ktoś nas nie słucha?</p>
                       </div></div><div class="karta-planeta">
                       <div class="kp-gora"><figure class="ilu"><div class="ilu-box" style="padding-bottom:48.000%"><svg viewBox="0 0 200 96" role="img" aria-label="Planeta na gwiezdzistym niebie">
-<defs><radialGradient id="kp4852" cx="50%" cy="45%" r="62%">
+<defs><radialGradient id="kp3611" cx="50%" cy="45%" r="62%">
 <stop offset="0%" stop-color="#14664A"/><stop offset="100%" stop-color="#06281E"/>
 </radialGradient></defs>
-<rect width="200" height="96" fill="url(#kp4852)"/>
+<rect width="200" height="96" fill="url(#kp3611)"/>
 <circle cx="20" cy="20" r="1.5" fill="#CFEBDD" opacity=".75"/><circle cx="46" cy="10" r="1.0" fill="#CFEBDD" opacity=".75"/><circle cx="170" cy="18" r="1.4" fill="#CFEBDD" opacity=".75"/><circle cx="186" cy="48" r="1.1" fill="#CFEBDD" opacity=".75"/><circle cx="14" cy="58" r="1.2" fill="#CFEBDD" opacity=".75"/><circle cx="178" cy="76" r="1.3" fill="#CFEBDD" opacity=".75"/><circle cx="32" cy="82" r="1.0" fill="#CFEBDD" opacity=".75"/><circle cx="152" cy="6" r="1.0" fill="#CFEBDD" opacity=".75"/><circle cx="10" cy="38" r="1.0" fill="#CFEBDD" opacity=".75"/><circle cx="194" cy="32" r="1.2" fill="#CFEBDD" opacity=".75"/>
 <ellipse cx="100" cy="48" rx="46" ry="46" fill="#F4D06F" opacity=".10"/>
 <svg x="58" y="6" width="84" height="84" viewBox="0 0 64 64" aria-hidden="true"><circle cx="32" cy="32" r="30" fill="#1F8A63"/><path d="M27 16h10v8l6 10v20H21V34l6-10z" fill="#14664A" stroke="#0B3D2E" stroke-width="2"/><rect x="21" y="40" width="22" height="14" fill="#0B3D2E"/><rect x="25" y="12" width="14" height="5" rx="2" fill="#E3B23C"/></svg>
@@ -3231,10 +3235,10 @@ figcaption{font-size:10.35pt;color:var(--szary);padding:2mm 3mm;background:var(-
                         <p class="kp-pyt">W którym miejscu można przerwać to koło i kto powinien pomóc?</p>
                       </div></div></div><footer class="r-foot"><span class="f-znak"><svg class="mark" viewBox="0 0 200 200" aria-hidden="true"><use href="#pctp-mark"/></svg><b>PCTP</b> · Mały Książę moim bohaterem</span><span class="f-srodek">Pomorskie Centrum Terapii Pedagogicznej</span><span class="f-nr">113</span></footer></section><section class="page" id="zalacznik-karty2"><h2 class="dzial-h"><span class="dzial-litera">G</span>Załącznik 4 · Karty miejsc <small class="cd">· ciąg dalszy (2 z 2)</small></h2><div class="karty-planet"><div class="karta-planeta">
                       <div class="kp-gora"><figure class="ilu"><div class="ilu-box" style="padding-bottom:48.000%"><svg viewBox="0 0 200 96" role="img" aria-label="Planeta na gwiezdzistym niebie">
-<defs><radialGradient id="kp7363" cx="50%" cy="45%" r="62%">
+<defs><radialGradient id="kp63" cx="50%" cy="45%" r="62%">
 <stop offset="0%" stop-color="#14664A"/><stop offset="100%" stop-color="#06281E"/>
 </radialGradient></defs>
-<rect width="200" height="96" fill="url(#kp7363)"/>
+<rect width="200" height="96" fill="url(#kp63)"/>
 <circle cx="20" cy="20" r="1.5" fill="#CFEBDD" opacity=".75"/><circle cx="46" cy="10" r="1.0" fill="#CFEBDD" opacity=".75"/><circle cx="170" cy="18" r="1.4" fill="#CFEBDD" opacity=".75"/><circle cx="186" cy="48" r="1.1" fill="#CFEBDD" opacity=".75"/><circle cx="14" cy="58" r="1.2" fill="#CFEBDD" opacity=".75"/><circle cx="178" cy="76" r="1.3" fill="#CFEBDD" opacity=".75"/><circle cx="32" cy="82" r="1.0" fill="#CFEBDD" opacity=".75"/><circle cx="152" cy="6" r="1.0" fill="#CFEBDD" opacity=".75"/><circle cx="10" cy="38" r="1.0" fill="#CFEBDD" opacity=".75"/><circle cx="194" cy="32" r="1.2" fill="#CFEBDD" opacity=".75"/>
 <ellipse cx="100" cy="48" rx="46" ry="46" fill="#F4D06F" opacity=".10"/>
 <svg x="58" y="6" width="84" height="84" viewBox="0 0 64 64" aria-hidden="true"><circle cx="32" cy="32" r="30" fill="#1F8A63"/><ellipse cx="32" cy="44" rx="16" ry="6" fill="#E3B23C"/><ellipse cx="32" cy="36" rx="16" ry="6" fill="#F4D06F"/><ellipse cx="32" cy="28" rx="16" ry="6" fill="#E3B23C"/><ellipse cx="32" cy="20" rx="16" ry="6" fill="#F4D06F"/></svg>
@@ -3246,10 +3250,10 @@ figcaption{font-size:10.35pt;color:var(--szary);padding:2mm 3mm;background:var(-
                         <p class="kp-pyt">Co gwiazdy mają z tego, że należą do Bankiera?</p>
                       </div></div><div class="karta-planeta">
                       <div class="kp-gora"><figure class="ilu"><div class="ilu-box" style="padding-bottom:48.000%"><svg viewBox="0 0 200 96" role="img" aria-label="Planeta na gwiezdzistym niebie">
-<defs><radialGradient id="kp7114" cx="50%" cy="45%" r="62%">
+<defs><radialGradient id="kp3315" cx="50%" cy="45%" r="62%">
 <stop offset="0%" stop-color="#14664A"/><stop offset="100%" stop-color="#06281E"/>
 </radialGradient></defs>
-<rect width="200" height="96" fill="url(#kp7114)"/>
+<rect width="200" height="96" fill="url(#kp3315)"/>
 <circle cx="20" cy="20" r="1.5" fill="#CFEBDD" opacity=".75"/><circle cx="46" cy="10" r="1.0" fill="#CFEBDD" opacity=".75"/><circle cx="170" cy="18" r="1.4" fill="#CFEBDD" opacity=".75"/><circle cx="186" cy="48" r="1.1" fill="#CFEBDD" opacity=".75"/><circle cx="14" cy="58" r="1.2" fill="#CFEBDD" opacity=".75"/><circle cx="178" cy="76" r="1.3" fill="#CFEBDD" opacity=".75"/><circle cx="32" cy="82" r="1.0" fill="#CFEBDD" opacity=".75"/><circle cx="152" cy="6" r="1.0" fill="#CFEBDD" opacity=".75"/><circle cx="10" cy="38" r="1.0" fill="#CFEBDD" opacity=".75"/><circle cx="194" cy="32" r="1.2" fill="#CFEBDD" opacity=".75"/>
 <ellipse cx="100" cy="48" rx="46" ry="46" fill="#F4D06F" opacity=".10"/>
 <svg x="58" y="6" width="84" height="84" viewBox="0 0 64 64" aria-hidden="true"><circle cx="32" cy="32" r="30" fill="#0B3D2E"/><path d="M24 26h16l-3 22H27z" fill="#E3B23C"/><path d="M22 26l10-12 10 12z" fill="#14664A"/><rect x="28" y="48" width="8" height="8" fill="#14664A"/><circle cx="32" cy="34" r="16" fill="#F4D06F" opacity=".22"/></svg>
@@ -3261,10 +3265,10 @@ figcaption{font-size:10.35pt;color:var(--szary);padding:2mm 3mm;background:var(-
                         <p class="kp-pyt">Kiedy warto trzymać się zasady, a kiedy trzeba ją zmienić?</p>
                       </div></div><div class="karta-planeta">
                       <div class="kp-gora"><figure class="ilu"><div class="ilu-box" style="padding-bottom:48.000%"><svg viewBox="0 0 200 96" role="img" aria-label="Planeta na gwiezdzistym niebie">
-<defs><radialGradient id="kp3435" cx="50%" cy="45%" r="62%">
+<defs><radialGradient id="kp1415" cx="50%" cy="45%" r="62%">
 <stop offset="0%" stop-color="#14664A"/><stop offset="100%" stop-color="#06281E"/>
 </radialGradient></defs>
-<rect width="200" height="96" fill="url(#kp3435)"/>
+<rect width="200" height="96" fill="url(#kp1415)"/>
 <circle cx="20" cy="20" r="1.5" fill="#CFEBDD" opacity=".75"/><circle cx="46" cy="10" r="1.0" fill="#CFEBDD" opacity=".75"/><circle cx="170" cy="18" r="1.4" fill="#CFEBDD" opacity=".75"/><circle cx="186" cy="48" r="1.1" fill="#CFEBDD" opacity=".75"/><circle cx="14" cy="58" r="1.2" fill="#CFEBDD" opacity=".75"/><circle cx="178" cy="76" r="1.3" fill="#CFEBDD" opacity=".75"/><circle cx="32" cy="82" r="1.0" fill="#CFEBDD" opacity=".75"/><circle cx="152" cy="6" r="1.0" fill="#CFEBDD" opacity=".75"/><circle cx="10" cy="38" r="1.0" fill="#CFEBDD" opacity=".75"/><circle cx="194" cy="32" r="1.2" fill="#CFEBDD" opacity=".75"/>
 <ellipse cx="100" cy="48" rx="46" ry="46" fill="#F4D06F" opacity=".10"/>
 <svg x="58" y="6" width="84" height="84" viewBox="0 0 64 64" aria-hidden="true"><circle cx="32" cy="32" r="30" fill="#1F8A63"/><path d="M14 20h16a4 4 0 0 1 4 4v24a6 6 0 0 0-6-4H14z" fill="#CFEBDD"/><path d="M50 20H34a4 4 0 0 0-4 4v24a6 6 0 0 1 6-4h14z" fill="#A7DCC4"/><path d="M32 24v24" stroke="#0B3D2E" stroke-width="2"/></svg>
@@ -3276,10 +3280,10 @@ figcaption{font-size:10.35pt;color:var(--szary);padding:2mm 3mm;background:var(-
                         <p class="kp-pyt">Co znaczy, że coś jest efemeryczne?</p>
                       </div></div><div class="karta-planeta">
                       <div class="kp-gora"><figure class="ilu"><div class="ilu-box" style="padding-bottom:48.000%"><svg viewBox="0 0 200 96" role="img" aria-label="Planeta na gwiezdzistym niebie">
-<defs><radialGradient id="kp256" cx="50%" cy="45%" r="62%">
+<defs><radialGradient id="kp6148" cx="50%" cy="45%" r="62%">
 <stop offset="0%" stop-color="#14664A"/><stop offset="100%" stop-color="#06281E"/>
 </radialGradient></defs>
-<rect width="200" height="96" fill="url(#kp256)"/>
+<rect width="200" height="96" fill="url(#kp6148)"/>
 <circle cx="20" cy="20" r="1.5" fill="#CFEBDD" opacity=".75"/><circle cx="46" cy="10" r="1.0" fill="#CFEBDD" opacity=".75"/><circle cx="170" cy="18" r="1.4" fill="#CFEBDD" opacity=".75"/><circle cx="186" cy="48" r="1.1" fill="#CFEBDD" opacity=".75"/><circle cx="14" cy="58" r="1.2" fill="#CFEBDD" opacity=".75"/><circle cx="178" cy="76" r="1.3" fill="#CFEBDD" opacity=".75"/><circle cx="32" cy="82" r="1.0" fill="#CFEBDD" opacity=".75"/><circle cx="152" cy="6" r="1.0" fill="#CFEBDD" opacity=".75"/><circle cx="10" cy="38" r="1.0" fill="#CFEBDD" opacity=".75"/><circle cx="194" cy="32" r="1.2" fill="#CFEBDD" opacity=".75"/>
 <ellipse cx="100" cy="48" rx="46" ry="46" fill="#F4D06F" opacity=".10"/>
 <svg x="58" y="6" width="84" height="84" viewBox="0 0 64 64" aria-hidden="true"><circle cx="32" cy="32" r="30" fill="#14664A"/><circle cx="32" cy="32" r="22" fill="#3FA87C"/><path d="M16 26q10 6 20 0t12 4-10 10-14-2-8-12z" fill="#0B3D2E" opacity=".6"/><ellipse cx="32" cy="32" rx="22" ry="8" fill="none" stroke="#CFEBDD" stroke-width="1.6" opacity=".6"/></svg>

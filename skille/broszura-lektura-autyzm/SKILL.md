@@ -160,6 +160,9 @@ i sposób dopisania własnych: **`references/ilustracje.md`**.
   przy kluczowych scenach — nie przy każdym rozdziale, bo przestają cokolwiek znaczyć)
 - `meta.okladka_svg` — rysunek okładki; do nowej lektury napisz własny i wklej jako
   inline SVG. Kontrakt: `viewBox="0 0 420 300"`, ciemne tło, `preserveAspectRatio="xMidYMax slice"`.
+- `rozdzial.obraz` i `meta.okladka_obraz` — **gotowe zdjęcia** (PNG/JPEG/WebP), ścieżki względem
+  pliku JSON albo katalogu z `--grafiki`. Osadzane w HTML jako `data:` URI, więc broszura zostaje
+  jednym plikiem — ale rośnie o ok. 1⁄3 rozmiaru zdjęć, więc najpierw je zmniejsz (ok. 1600 px).
 
 Wykresy narzędziowe (termometr, schody teorii umysłu, plansza, scena) są niezależne od
 lektury i rysują się same.

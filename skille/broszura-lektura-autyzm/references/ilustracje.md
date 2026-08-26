@@ -40,6 +40,35 @@ przestaje cokolwiek znaczyć i wypycha treść na kolejną stronę.
 `thermometer` (termometr emocji), `tom_ladder` (schody teorii umysłu), `board` (plansza gry
 30 pól), `stage` (scena teatralna), `logo_pctp` (logo wydawcy). Są niezależne od lektury.
 
+## Zdjęcia i grafiki rastrowe
+
+Oprócz rysunków wektorowych można wstawiać gotowe pliki: **PNG, JPEG, WebP, GIF, SVG**.
+
+- `meta.okladka_obraz` — zdjęcie na okładkę (przycinane do pasa u góry strony)
+- `rozdzial.obraz` — zdjęcie zamiast rysunku wektorowego na stronie 1 rozdziału
+
+```json
+"meta":  { "okladka_obraz": "grafiki/okladka.png" },
+"rozdzialy": [ { "nr": 2, "obraz": "grafiki/pustynia.jpg" } ]
+```
+
+Ścieżki są względne wobec katalogu pliku JSON albo wobec katalogu podanego w `--grafiki`.
+Pole `obraz` ma pierwszeństwo przed `ilustracja` — dzięki temu można podmienić pojedynczy
+rysunek na zdjęcie, nie ruszając reszty danych.
+
+Obrazy trafiają do HTML jako `data:` URI, żeby broszura pozostała jednym plikiem. Ma to cenę:
+**plik rośnie o mniej więcej 1⁄3 rozmiaru zdjęcia**. Przy kilkunastu zdjęciach warto je najpierw
+zmniejszyć — do druku A4 wystarcza szerokość około 1600 px, a na okładkę 2000 px.
+
+Proporcje czytane są z nagłówka pliku, bez żadnej biblioteki (`scripts/broszura/obrazy.py`).
+Jeśli formatu nie da się zmierzyć, skład zatrzymuje się z czytelnym błędem — to celowe,
+bo brakująca proporcja rozjeżdża stronę przy druku.
+
+**Prawa do grafik.** Do materiału firmowanego przez placówkę używaj wyłącznie zdjęć własnych,
+z domeny publicznej, na wolnej licencji albo wygenerowanych przez siebie. Rysunki samego
+Saint-Exupéry'ego są w Polsce w domenie publicznej od 2015 roku (70 lat od śmierci autora),
+ale współczesne ilustracje innych artystów już nie.
+
 ## Własny rysunek
 
 Wstaw inline SVG bezpośrednio w pole `ilustracja` albo `okladka_svg`.
