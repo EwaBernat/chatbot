@@ -30,6 +30,9 @@ import urllib.error
 import urllib.request
 from pathlib import Path
 
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+import konfiguracja                                    # noqa: E402
+
 API = "https://api.heygen.com"
 UPLOAD = "https://upload.heygen.com"
 TIMEOUT = 120
@@ -266,10 +269,12 @@ def main() -> int:
     ap.add_argument("--szukaj", help="filtr nazwy przy --awatary / --glosy")
     ap.add_argument("--jezyk", help="filtr jezyka przy --glosy, np. polish")
     ap.add_argument("--status", dest="video_id", help="sprawdz status wczesniejszego renderu")
-    ap.add_argument("--avatar-id", default=os.environ.get("HEYGEN_AVATAR_ID", ""))
+    ap.add_argument("--avatar-id", default=None,
+                    help="domyslnie awatar zapamietany przez skill")
     ap.add_argument("--talking-photo-id", default="",
                     help="uzyj zdjecia mowiacego zamiast awatara")
-    ap.add_argument("--voice-id", default=os.environ.get("HEYGEN_VOICE_ID", ""))
+    ap.add_argument("--voice-id", default=None,
+                    help="domyslnie glos HeyGen zapamietany przez skill")
     ap.add_argument("--audio", type=Path,
                     help="gotowe MP3 (np. z elevenlabs_tts.py) zamiast czytania tekstu")
     ap.add_argument("--styl", default="normal", help="avatar_style: normal / circle / closeUp")
@@ -284,6 +289,9 @@ def main() -> int:
     ap.add_argument("--suchy-bieg", dest="suchy", action="store_true",
                     help="pokaz zapytanie bez wysylania go do API")
     a = ap.parse_args()
+
+    a.avatar_id = konfiguracja.ustal(a.avatar_id, "HEYGEN_AVATAR_ID", "heygen_avatar_id", "")
+    a.voice_id = konfiguracja.ustal(a.voice_id, "HEYGEN_VOICE_ID", "heygen_voice_id", "")
 
     if a.awatary:
         return wypisz_awatary(a.szukaj)

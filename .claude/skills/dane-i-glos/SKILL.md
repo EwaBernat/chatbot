@@ -42,10 +42,30 @@ ustawione i etap przeskakujesz bez pytania.
 
 ## Etap 0 — Głos użytkowniczki (jednorazowo)
 
-Sprawdź, czy jest już sklonowany głos:
+Sprawdź, czy skill ma już zapamiętany głos:
 
 ```bash
-python3 .claude/skills/dane-i-glos/scripts/elevenlabs_klon_glosu.py --moje-glosy
+python3 .claude/skills/dane-i-glos/scripts/skonfiguruj_glos.py --pokaz
+```
+
+Jeśli pamięta — nic więcej nie rób, wszystkie skrypty same go użyją. Jeśli nie,
+jedno polecenie załatwia całość (przyjmuje też film, sam wyciągnie z niego dźwięk):
+
+```bash
+python3 .../skonfiguruj_glos.py nagranie.mp4 --nazwa "Ewa - narracja PL"
+```
+
+Skrypt wyciąga dźwięk, sprawdza próbki, klonuje głos i **zapisuje `voice_id`
+w pamięci skilla** (`~/.config/dane-i-glos/konfiguracja.json`) — poza repozytorium,
+bo do repozytorium trafiać nie powinien. Kluczy API ten plik nie przyjmuje.
+
+`--tylko-sprawdz` sprawdza nagrania bez wysyłania czegokolwiek. `--zapomnij` czyści
+pamięć, nie ruszając ani nagrań, ani głosu na koncie ElevenLabs.
+
+Ręczna droga, gdy potrzebujesz kontroli nad każdym krokiem:
+
+```bash
+python3 .../elevenlabs_klon_glosu.py --moje-glosy
 ```
 
 - **Jest** → zapamiętaj `voice_id`, przejdź dalej. Gotowe głosy premade (Bella, Alice,
@@ -155,7 +175,9 @@ python3 .claude/skills/dane-i-glos/scripts/elevenlabs_tts.py narracja.txt -o rap
 
 Najczęstsze przełączniki:
 
-- `--voice-id <id>` — domyślnie bierze `ELEVENLABS_VOICE_ID`, czyli jej klon z etapu 0
+- `--voice-id <id>` — zwykle zbędne: skrypt bierze głos z pamięci skilla.
+  Kolejność: `--voice-id` > `ELEVENLABS_VOICE_ID` > pamięć skilla > głos zapasowy.
+  Gdy pamięć jest pusta, skrypt **ostrzega**, że mówi cudzym głosem
 - `--glosy` — wypisz wszystkie głosy z konta i ich `voice_id`
 - `--model eleven_multilingual_v2` — domyślny, najlepszy dla polszczyzny
 - `--srt napisy.srt` — napisy z rzeczywistymi znacznikami czasu z ElevenLabs
