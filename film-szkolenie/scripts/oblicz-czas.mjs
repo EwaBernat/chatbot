@@ -67,6 +67,7 @@ const policz = async (nazwa) => {
 const czas = {
   czesc1: await policz('czesc1'),
   czesc2: await policz('czesc2'),
+  rada45: await policz('rada45'),
 };
 
 writeFileSync(join(KATALOG, 'src', 'czas.json'), JSON.stringify(czas, null, 1), 'utf8');
