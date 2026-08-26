@@ -9,16 +9,59 @@ Skill prowadzi jedną drogę: **dane → liczby → scenariusz → głos → (op
 Każdy etap opiera się na poprzednim, więc narracja nigdy nie zawiera liczby, której nie ma
 w pliku źródłowym.
 
+## Ścieżka domyślna
+
+**Klon głosu w ElevenLabs → awatar HeyGen.** Sklonowany głos jest wspólnym punktem obu
+wyjść: to samo MP3 służy za nagranie audio i za ścieżkę dźwiękową awatara. Dlatego przy
+każdym materiale z głosem użytkowniczki idź tą drogą, chyba że poprosi inaczej:
+
+```
+dane → profil liczb → scenariusz → ElevenLabs (jej voice_id) → MP3 + SRT → HeyGen --audio → MP4
+```
+
+Wyjątek: gdy `ELEVENLABS_VOICE_ID` nie jest ustawione i użytkowniczka nie chce teraz
+klonować głosu — wtedy film robi HeyGen własnym głosem z jej konta (etap 4b, wariant A).
+
 ## Kiedy co uruchomić
 
 | Prośba | Etapy |
 |---|---|
-| „Zrób audio z tych danych" | 1 → 2 → 3 → 4a → 5 |
-| „Zrób film z awatarem o tych danych" | 1 → 2 → 3 → 4b → 5 |
-| „Nagraj to moim głosem, z moją twarzą" | 1 → 2 → 3 → 4a → 4b (`--audio`) → 5 |
+| „Nagraj to moim głosem, z moją twarzą" | 0 → 1 → 2 → 3 → 4a → 4b (`--audio`) → 5 **← domyślna** |
+| „Zrób audio z tych danych" | 0 → 1 → 2 → 3 → 4a → 5 |
+| „Zrób film z awatarem o tych danych" | 0 → 1 → 2 → 3 → 4a → 4b (`--audio`) → 5 |
+| „Zrób film, ale bez klonowania głosu" | 1 → 2 → 3 → 4b (wariant A) → 5 |
 | „Napisz scenariusz lektorski, resztę zrobię sama" | 1 → 2 → 3 |
 | „Przeczytaj ten gotowy tekst" | 4a → 5 (pomiń analizę) |
 | „Dodaj napisy do nagrania" | 4a z `--srt` |
+
+Etap 0 robi się **raz**. Przy kolejnych materiałach `ELEVENLABS_VOICE_ID` już jest
+ustawione i etap przeskakujesz bez pytania.
+
+## Etap 0 — Głos użytkowniczki (jednorazowo)
+
+Sprawdź, czy jest już sklonowany głos:
+
+```bash
+python3 .claude/skills/dane-i-glos/scripts/elevenlabs_klon_glosu.py --moje-glosy
+```
+
+- **Jest** → zapamiętaj `voice_id`, przejdź dalej. Gotowe głosy premade (Bella, Alice,
+  Matilda) to **nie** jest jej głos — mówią po polsku z obcym akcentem.
+- **Nie ma** → zaproponuj sklonowanie i wyjaśnij, co to daje: naturalną polszczyznę
+  w audio **oraz** awatara mówiącego jej głosem zamiast cudzego. Potrzeba około
+  3 minut czystego nagrania po polsku, w 3–5 plikach.
+
+```bash
+python3 .../elevenlabs_klon_glosu.py --sprawdz-nagrania probki/*.wav   # nic nie wysyła
+python3 .../elevenlabs_klon_glosu.py "Ewa - narracja PL" probki/*.wav
+export ELEVENLABS_VOICE_ID="<voice_id>"
+```
+
+Zasady nagrywania, wymagania jakościowe i diagnostyka złego brzmienia:
+`references/klon_glosu.md`. Klonuj wyłącznie jej własny głos.
+
+Jeśli nie chce teraz klonować — nie blokuj pracy. Zrób materiał głosem gotowym albo
+głosem z HeyGen i powiedz, czym to się różni.
 
 ## Etap 1 — Wczytaj dane i policz, zanim cokolwiek napiszesz
 
@@ -83,8 +126,8 @@ python3 .claude/skills/dane-i-glos/scripts/elevenlabs_tts.py narracja.txt -o rap
 
 Najczęstsze przełączniki:
 
-- `--glosy` — wypisz głosy z konta i ich `voice_id` (uruchom to jako pierwsze)
-- `--voice-id <id>` — konkretny głos; domyślnie `ELEVENLABS_VOICE_ID` lub Rachel
+- `--voice-id <id>` — domyślnie bierze `ELEVENLABS_VOICE_ID`, czyli jej klon z etapu 0
+- `--glosy` — wypisz wszystkie głosy z konta i ich `voice_id`
 - `--model eleven_multilingual_v2` — domyślny, najlepszy dla polszczyzny
 - `--srt napisy.srt` — napisy z rzeczywistymi znacznikami czasu z ElevenLabs
 - `--stability 0.6 --similarity 0.75 --speed 1.0` — barwa i tempo
@@ -93,8 +136,8 @@ Najczęstsze przełączniki:
 Skrypt sam dzieli długi tekst na fragmenty poniżej limitu znaków, zachowuje ciągłość brzmienia
 (`previous_text`/`next_text`) i skleja wynik w jeden plik MP3.
 
-**Uwaga o polskim brzmieniu**: głosy premade z ElevenLabs mówią po polsku z obcym akcentem.
-Naturalną polszczyznę daje sklonowany głos albo — jeśli Twój klon jest w HeyGen — droga 4b.
+**Uwaga o polskim brzmieniu**: głosy premade mówią po polsku z obcym akcentem. Naturalną
+polszczyznę daje wyłącznie klon z etapu 0 — dlatego to on jest domyślny.
 
 Szczegóły API, modele, limity i kody błędów: `references/elevenlabs.md`.
 
@@ -109,15 +152,19 @@ python3 .claude/skills/dane-i-glos/scripts/heygen_awatar.py --awatary
 python3 .claude/skills/dane-i-glos/scripts/heygen_awatar.py --glosy --jezyk polish
 ```
 
-Dopiero mając `avatar_id` i `voice_id` generuj film. Dwie drogi:
+Dopiero mając `avatar_id` generuj film. Dwie drogi — **domyślna jest B**:
 
 ```bash
-# A. HeyGen sam czyta scenariusz Twoim głosem z konta
-python3 .../heygen_awatar.py narracja.txt --avatar-id <id> --voice-id <id> --czekaj -o film.mp4
-
-# B. HeyGen porusza ustami do gotowego MP3 z etapu 4a (pełna kontrola nad brzmieniem)
+# B (domyślna). Awatar mówi jej klonem głosu: MP3 z etapu 4a steruje ustami
 python3 .../heygen_awatar.py --audio raport.mp3 --avatar-id <id> --czekaj -o film.mp4
+
+# A (zapasowa). HeyGen sam czyta scenariusz głosem z jej konta HeyGen
+python3 .../heygen_awatar.py narracja.txt --avatar-id <id> --voice-id <id> --czekaj -o film.mp4
 ```
+
+Wariant A wybieraj tylko wtedy, gdy nie ma klonu w ElevenLabs, a w HeyGen jest jej głos —
+albo gdy sama o to poprosi. W wariancie B napisy bierz z `--srt` z etapu 4a: są dokładniejsze
+niż wypalane `--napisy` i da się je poprawić.
 
 Przydatne: `--tlo "#2D1B69"` (fiolet PCTP), `--styl circle`, `--szerokosc 1080 --wysokosc 1920`
 (pion pod Reels), `--napisy` (wypala napisy w obrazie), `--suchy-bieg` (podgląd zapytania bez
@@ -143,6 +190,7 @@ zestaw po cichu.
 
 ## Materiały
 
+- `references/klon_glosu.md` — jak nagrać próbki i sklonować głos (etap 0)
 - `references/narracja.md` — zasady pisania pod polskiego lektora, wzorce zdań, przykłady
 - `references/elevenlabs.md` — API, modele, limity, głosy, rozwiązywanie błędów
 - `references/heygen.md` — awatary, klon głosu, kredyty, dwie drogi głosu, kody błędów

@@ -23,7 +23,22 @@ A simple Streamlit app that shows how to build a chatbot using OpenAI's GPT-3.5.
 ## 🎙️ Skill `dane-i-glos` — dane zamienione w nagranie
 
 W `.claude/skills/dane-i-glos/` znajduje się skill, który prowadzi jedną drogę:
-**dane → liczby → scenariusz → głos**.
+**dane → liczby → scenariusz → głos → twarz**.
+
+Ścieżka domyślna: sklonowany głos w ElevenLabs steruje ustami awatara HeyGen, więc to samo
+MP3 jest i nagraniem audio, i ścieżką dźwiękową filmu.
+
+0. **Twój głos** — jednorazowo, potem tylko z niego korzystasz:
+
+   ```bash
+   export ELEVENLABS_API_KEY="..."
+   python3 .claude/skills/dane-i-glos/scripts/elevenlabs_klon_glosu.py --sprawdz-nagrania probki/*.wav
+   python3 .claude/skills/dane-i-glos/scripts/elevenlabs_klon_glosu.py "Ewa - narracja PL" probki/*.wav
+   export ELEVENLABS_VOICE_ID="<voice_id>"
+   ```
+
+   Potrzeba ok. 3 minut czystego nagrania po polsku, w 3–5 plikach. Zasady nagrywania:
+   `references/klon_glosu.md`. `--sprawdz-nagrania` niczego nie wysyła.
 
 1. **Profil danych** — rzetelne liczby z pliku, żeby narracja nic nie zmyśliła:
 
@@ -56,8 +71,9 @@ W `.claude/skills/dane-i-glos/` znajduje się skill, który prowadzi jedną drog
            --avatar-id <id> --tlo "#2D1B69" --czekaj -o film.mp4
    ```
 
-   `--audio` karmi awatara gotowym MP3 z punktu 3 (pełna kontrola nad brzmieniem);
-   zamiast tego `--voice-id` każe HeyGen przeczytać scenariusz głosem z Twojego konta.
+   `--audio` karmi awatara MP3 z punktu 3, więc awatar mówi **Twoim** sklonowanym głosem —
+   to droga domyślna. Zapasowo `--voice-id` każe HeyGen przeczytać scenariusz głosem
+   z konta HeyGen (gdy nie masz jeszcze klonu w ElevenLabs).
 
 ### Złącze ElevenLabs
 
