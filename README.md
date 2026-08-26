@@ -46,6 +46,19 @@ W `.claude/skills/dane-i-glos/` znajduje się skill, który prowadzi jedną drog
 
    `--glosy` wypisuje głosy z konta, `--suchy-bieg` liczy znaki bez zużywania limitu.
 
+4. **Twarz i Twój głos z HeyGen** — film z awatarem:
+
+   ```bash
+   export HEYGEN_API_KEY="..."
+   python3 .claude/skills/dane-i-glos/scripts/heygen_awatar.py --awatary
+   python3 .claude/skills/dane-i-glos/scripts/heygen_awatar.py --glosy --jezyk polish
+   python3 .claude/skills/dane-i-glos/scripts/heygen_awatar.py --audio raport.mp3 \
+           --avatar-id <id> --tlo "#2D1B69" --czekaj -o film.mp4
+   ```
+
+   `--audio` karmi awatara gotowym MP3 z punktu 3 (pełna kontrola nad brzmieniem);
+   zamiast tego `--voice-id` każe HeyGen przeczytać scenariusz głosem z Twojego konta.
+
 ### Złącze ElevenLabs
 
 `.mcp.json` w katalogu głównym podłącza serwer MCP ElevenLabs do sesji Claude Code
@@ -57,6 +70,9 @@ export ELEVENLABS_API_KEY="sk_..."   # elevenlabs.io → profil → API Keys (up
 
 W aplikacji claude.ai to samo złącze włącza się w **Ustawienia → Złącza → ElevenLabs**,
 a potem w panelu złączy danego czatu.
+
+Złącze **HyperFrames by HeyGen** buduje filmy z HTML i **nie sięga po Twoje awatary** —
+do awatara i sklonowanego głosu służy `HEYGEN_API_KEY` oraz `scripts/heygen_awatar.py`.
 
 Klucz API trzymaj wyłącznie w zmiennej środowiskowej — `.gitignore` blokuje `.env`,
 a wygenerowane `*.mp3`, `*.srt` i `narracja*.txt` nie trafiają do repozytorium.
