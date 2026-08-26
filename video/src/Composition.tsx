@@ -1,4 +1,4 @@
-import { AbsoluteFill, Composition, Interactive } from "remotion";
+import { AbsoluteFill, Audio, Composition, Interactive, staticFile } from "remotion";
 
 export const MyComposition = () => {
   return (
@@ -22,6 +22,7 @@ export const MyComponent: React.FC = () => {
         justifyContent: "center",
       }}
     >
+      <Audio name="Narracja" src={staticFile("narracja.mp3")} />
       <Interactive.Div
         name="Greeting card"
         style={{ fontSize: 80, padding: 24 }}
