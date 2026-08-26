@@ -105,7 +105,8 @@ def main():
     ap.add_argument("--pdf", help="dodatkowo wygeneruj PDF pod tą ścieżką")
     ap.add_argument("--dopasuj-linie", dest="dopasuj",
                     help="zapisz tu liczbę linii na notatki dla każdego rozdziału")
-    ap.add_argument("--limit", type=float, default=297.0, help="wysokość strony w mm (domyślnie A4)")
+    ap.add_argument("--limit", type=float, default=292.0,
+                    help="dopuszczalna wysokość sekcji w mm (domyślnie 292 — A4 z zapasem na zaokrąglenia)")
     a = ap.parse_args()
 
     sekcji, errs = sprawdz_html(a.html)
@@ -129,14 +130,32 @@ def main():
         print(f"Wysokość stron: OK — najwyższa {max(h.values()):.1f} mm z {a.limit:.0f} mm")
 
     if a.dopasuj:
+        # Liczymy od stanu faktycznego: ile linii strona ma teraz i ile milimetrów
+        # jej brakuje albo zostaje. Dzięki temu dopasowanie działa niezależnie od tego,
+        # z iloma liniami złożono poprzednią wersję.
+        tresc = open(a.html, encoding="utf-8").read()
+        obecne = {}
+        for sek in tresc.split("<section ")[1:]:
+            m = re.match(r'[^>]*id="r(\d+)c"', sek)
+            if not m:
+                continue
+            lin = re.search(r'<div class="linie">(.*?)</div>', sek, re.S)
+            obecne[m.group(1)] = lin.group(1).count("<i></i>") if lin else 0
         wys = zmierz(chrome, a.html, "section[id$=c]")
-        linie = {}
+        # 282 mm zamiast pełnych 297: silnik druku zaokrągla wysokości i strona
+        # ocierająca się o krawędź arkusza i tak rozlewa się na następny.
+        linie, ODSTEP, ZAPAS = {}, 7.0, 282.0
         for ident, v in wys.items():
             m = re.match(r"r(\d+)c$", ident)
-            if m:
-                linie[m.group(1)] = max(4, min(16, 8 + int(max(0, 287.0 - v) // 7)))
+            if not m:
+                continue
+            teraz = obecne.get(m.group(1), 8)
+            linie[m.group(1)] = max(0, min(16, teraz + int((ZAPAS - v) // ODSTEP)))
         json.dump(linie, open(a.dopasuj, "w", encoding="utf-8"), ensure_ascii=False, indent=1)
+        bez = [k for k, v in linie.items() if v == 0]
         print(f"\nZapisano {a.dopasuj} — złóż broszurę ponownie z --linie {a.dopasuj}")
+        if bez:
+            print(f"   Rozdziały bez miejsca na notatki: {', '.join(sorted(bez, key=int))}")
 
     if a.pdf:
         stron = do_pdf(chrome, a.html, a.pdf)

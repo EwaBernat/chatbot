@@ -12,7 +12,7 @@ import argparse, json, os, re, sys
 
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 from broszura import svg as S
-from broszura.style import CSS
+from broszura.style import CSS, css as css_skala
 from broszura.uklad import Broszura
 
 HEAD_LINKS = (
@@ -39,7 +39,7 @@ def zloz(dane, linie=None):
     czesci = [nawigacja(b), S.logo_symbol(), b.okladka(), b.spis(), b.jak_korzystac(),
               b.narzedzia(), b.postacie()]
     czesci += [b.rozdzial(r) for r in b.R]
-    czesci += [b.cwiczenia(), b.gra(), b.scenariusz(), b.zakonczenie()]
+    czesci += [b.cwiczenia(), b.gra(), b.scenariusz(), b.zalaczniki(), b.zakonczenie()]
     core = "\n".join(x for x in czesci if x)
 
     # stopka na stronach, które nie mają własnej (rozdziały mają)
@@ -75,6 +75,8 @@ def main():
     ap.add_argument("--out", required=True, help="wyjściowy plik HTML")
     ap.add_argument("--fragment", help="dodatkowo wersja bez <html>/<head> (do publikacji jako Artifact)")
     ap.add_argument("--linie", help="JSON z liczbą linii na notatki: {\"1\": 12, ...}")
+    ap.add_argument("--skala", type=float, default=1.0,
+                    help="powiększenie stopnia pisma, np. 1.15 dla druku powiększonego")
     a = ap.parse_args()
 
     dane = json.load(open(a.dane, encoding="utf-8"))
@@ -90,12 +92,12 @@ def main():
                  f'<meta name="viewport" content="width=device-width, initial-scale=1">\n'
                  f'<title>{tytul} — {b.meta.get("haslo","")}</title>\n'
                  f'<meta name="description" content="{opis}">\n{HEAD_LINKS}\n'
-                 f'<style>{CSS}</style>\n</head>\n<body>\n{core}\n</body>\n</html>')
+                 f'<style>{css_skala(a.skala)}</style>\n</head>\n<body>\n{core}\n</body>\n</html>')
     open(a.out, "w", encoding="utf-8").write(html_full)
     print(f"Zapisano {a.out} — {stron} sekcji = {stron} stron A4, {len(html_full)//1024} KB")
 
     if a.fragment:
-        frag = f"<title>{tytul}</title>\n{HEAD_LINKS}\n<style>{CSS}</style>\n{core}"
+        frag = f"<title>{tytul}</title>\n{HEAD_LINKS}\n<style>{css_skala(a.skala)}</style>\n{core}"
         open(a.fragment, "w", encoding="utf-8").write(frag)
         print(f"Zapisano {a.fragment} (wersja do publikacji jako Artifact)")
 

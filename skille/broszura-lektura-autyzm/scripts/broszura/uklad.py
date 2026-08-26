@@ -17,7 +17,7 @@ TOM_NAZWY = {
     4: ("E4", "Co ktoś myśli?"),
     5: ("E5", "Co on myśli, że ja myślę?"),
 }
-CZESCI = ["Historia i słowa", "Emocje i wnioski", "Myślenie i pytania"]
+CZESCI = ["Historia i słowa", "Emocje i wnioski", "Ocena i myślenie"]
 
 
 # ---------------------------------------------------------------- pomocnicze
@@ -229,31 +229,30 @@ class Broszura:
         return f'''
 <section class="page" id="narzedzia">
   <h2 class="dzial-h"><span class="dzial-litera">B</span>Trzy narzędzia do całej broszury</h2>
-  <p class="lead">Te trzy pomoce wracają w każdym rozdziale. Warto wydrukować je osobno i powiesić w klasie.</p>
+  <p class="lead">Te trzy pomoce wracają w każdym rozdziale — warto wydrukować je osobno i powiesić w klasie.</p>
   <div class="narz">
     <div class="narz-box">
       <h3>1 · Termometr emocji</h3>
-      <p>Służy do odpowiedzi na pytanie „jak mocno?”. Emocja nie jest tylko obecna albo nieobecna — ma natężenie.
-      W tabelach emocji w każdym rozdziale zieloną skalą zaznaczono siłę uczucia.</p>
+      <p>Odpowiada na pytanie „jak mocno?”. Emocja nie jest tylko obecna albo nieobecna — ma natężenie.
+      W tabelach emocji zieloną skalą zaznaczono siłę uczucia.</p>
       {fig(S.thermometer())}
     </div>
     <div class="narz-box">
       <h3>2 · Sygnalizator oceny sytuacji</h3>
-      <p>Służy do odpowiedzi na pytanie „czy to było w porządku?”. Uwaga: <b>żółty nie jest gorszą odpowiedzią</b> —
+      <p>Odpowiada na pytanie „czy to było w porządku?”. Uwaga: <b>żółty nie jest gorszą odpowiedzią</b> —
       w większości sytuacji społecznych to właśnie on jest poprawny.</p>
       <div class="sygn-lista">
         <div class="sy zielone"><span class="znak">✔</span><div><b>ZIELONE — w porządku</b><p>Nikomu nie stała się krzywda. Tak można postępować.</p></div></div>
         <div class="sy zolte"><span class="znak">!</span><div><b>ŻÓŁTE — to zależy</b><p>Były dobre powody, ale dało się to zrobić lepiej. Szukamy lepszego sposobu.</p></div></div>
         <div class="sy czerwone"><span class="znak">✖</span><div><b>CZERWONE — tak nie postępujemy</b><p>Ktoś został skrzywdzony albo naraża się na niebezpieczeństwo.</p></div></div>
       </div>
-      <p class="mini">W ćwiczeniu „Sygnalizator sytuacji” (część D) uczniowie używają trzech kolorowych krążków.</p>
     </div>
   </div>
   <h3 class="pod-h">Kiedy sięgnąć po które narzędzie?</h3>
   <div class="kiedy">
-    <div><b>Termometr</b><span>gdy uczeń nie wie, <i>jak mocno</i> coś czuje, albo nazywa wszystkie emocje tak samo</span></div>
-    <div><b>Sygnalizator</b><span>gdy pada pytanie „kto tu zawinił?” albo gdy uczeń widzi tylko dobrze i źle</span></div>
-    <div><b>Drabina</b><span>gdy ćwiczenie okazuje się za trudne i trzeba zejść o etap niżej</span></div>
+    <div><b>Termometr</b><span>gdy uczeń nie wie, <i>jak mocno</i> coś czuje</span></div>
+    <div><b>Sygnalizator</b><span>gdy uczeń widzi tylko dobrze albo źle</span></div>
+    <div><b>Drabina</b><span>gdy ćwiczenie jest za trudne i trzeba zejść niżej</span></div>
   </div>
 </section>
 <section class="page" id="narzedzia2">
@@ -272,10 +271,10 @@ class Broszura:
 </section>'''
 
     # ---- C. postacie ----
-    def postacie(self):
-        k = ""
-        for p in self.d.get("postacie", []):
-            k += f'''<div class="postac">
+    def _karty_postaci(self, lista):
+        karty = ""
+        for p in lista:
+            karty += f'''<div class="postac">
         <div class="p-ico">{S.icon(p.get("ikona","star"), 60)}</div>
         <div class="p-tresc">
           <h3>{E(p["nazwa"])}</h3>
@@ -283,12 +282,22 @@ class Broszura:
           <p><b>Jak się zachowuje:</b> {E(p.get("zachowanie",""))}</p>
           <p><b>Po co jest w książce:</b> {E(p.get("rola",""))}</p>
         </div></div>'''
-        return f'''
-<section class="page" id="postacie">
-  <h2 class="dzial-h"><span class="dzial-litera">C</span>Karty postaci</h2>
-  <p class="lead">Przeczytaj te karty przed rozpoczęciem lektury. Wróć do nich, gdy zapomnisz, kto jest kim.</p>
-  <div class="postacie">{k}</div>
-</section>'''
+        return karty
+
+    def postacie(self):
+        P = self.d.get("postacie", [])
+        grupy = [P[i:i + 4] for i in range(0, len(P), 4)] or [[]]
+        out = []
+        for i, g in enumerate(grupy):
+            naglowek = ('<h2 class="dzial-h"><span class="dzial-litera">C</span>Karty postaci</h2>'
+                        if i == 0 else
+                        f'<h2 class="dzial-h"><span class="dzial-litera">C</span>Karty postaci '
+                        f'<small class="cd">· ciąg dalszy ({i+1} z {len(grupy)})</small></h2>')
+            lead = ('<p class="lead">Przeczytaj te karty przed rozpoczęciem lektury. '
+                    'Wróć do nich, gdy zapomnisz, kto jest kim.</p>' if i == 0 else "")
+            out.append(f'<section class="page" id="postacie{"" if i==0 else i+1}">'
+                       f'{naglowek}{lead}<div class="postacie">{self._karty_postaci(g)}</div></section>')
+        return "".join(out)
 
     # ---- rozdział: trzy strony ----
     def mini_head(self, r, part):
@@ -321,7 +330,11 @@ class Broszura:
         tom_tresc = "".join(f"<p>{E(l)}</p>" for l in r["tom"]["tresc"].split("\n") if l.strip())
         lat = "".join(f"<li>{E(q)}</li>" for q in r["pytania_latwe"])
         tru = "".join(f"<li>{E(q)}</li>" for q in r["pytania_trudne"])
-        linie = "<i></i>" * self.linie.get(str(nr), self.linie.get(nr, 8))
+        ile_linii = self.linie.get(str(nr), self.linie.get(nr, 8))
+        linie = "<i></i>" * ile_linii
+
+        notatki = (f'<div class="notatki"><h3>Miejsce na notatki i własne pytania</h3>'
+                   f'<div class="linie">{linie}</div></div>') if ile_linii else ""
 
         a = f'''
 <section class="page rozdzial" id="r{nr}">
@@ -331,15 +344,15 @@ class Broszura:
     <div class="r-ikona">{S.icon(r.get("ikona","star"), 74)}</div>
   </header>
   <p class="r-mysl">„{E(r["mysl"])}”</p>
+  <div class="blok blok-kto">
+    <span class="kto-etykieta">Kto występuje?</span>
+    <div class="chipy">{chipy}</div>
+  </div>
   <div class="r-grid">
     <div class="kol-a">
       <div class="blok blok-stresz">
         <h3><span class="bi">📖</span>Co się wydarzyło?</h3>
         <ol class="stresz">{stresz}</ol>
-      </div>
-      <div class="blok blok-kto">
-        <h3><span class="bi">👥</span>Kto występuje w tym rozdziale?</h3>
-        <div class="chipy">{chipy}</div>
       </div>
     </div>
     <div class="kol-b">
@@ -370,16 +383,16 @@ class Broszura:
     <h3><span class="bi">🧩</span>Wyciąganie wniosków — przyczyna i skutek</h3>
     <ul class="wnioski">{wn}</ul>
   </div>
-  <div class="blok blok-ocena {kl}">
-    <h3><span class="bi">🚦</span>Ocena sytuacji</h3>
-    <p class="o-pyt">{E(r["ocena"]["pytanie"])}</p>
-    <p class="o-odp"><span class="znak">{znak}</span>{E(r["ocena"]["odpowiedz"])}</p>
-  </div>
   {self.stopka_rozdzialu(nr, 2)}
 </section>
 
 <section class="page rozdzial" id="r{nr}c">
   {self.mini_head(r, 3)}
+  <div class="blok blok-ocena {kl}">
+    <h3><span class="bi">🚦</span>Ocena sytuacji</h3>
+    <p class="o-pyt">{E(r["ocena"]["pytanie"])}</p>
+    <p class="o-odp"><span class="znak">{znak}</span>{E(r["ocena"]["odpowiedz"])}</p>
+  </div>
   <div class="blok blok-tom">
     <h3><span class="etap">{etap}</span>Teoria umysłu — {E(nazwa)}</h3>
     <div class="tom-tresc">
@@ -397,10 +410,7 @@ class Broszura:
       <ol>{tru}</ol>
     </div>
   </div>
-  <div class="notatki">
-    <h3>Miejsce na notatki i własne pytania</h3>
-    <div class="linie">{linie}</div>
-  </div>
+  {notatki}
   {self.stopka_rozdzialu(nr, 3)}
 </section>'''
         return a
@@ -463,12 +473,12 @@ class Broszura:
   <h2 class="dzial-h"><span class="dzial-litera">E</span>Karty zadań do gry</h2>
   <h3 class="pod-h">Talie 1 i 2 <small>— kolor talii = kolor pola na planszy</small></h3>
   <div class="talie">{"".join(tal[:2])}</div>
+  <h3 class="pod-h">Pola specjalne</h3>
+  <div class="specjalne">{spec}</div>
 </section>
 <section class="page" id="gra3">
   <h2 class="dzial-h"><span class="dzial-litera">E</span>Karty zadań <small class="cd">· talie 3 i 4</small></h2>
   <div class="talie">{"".join(tal[2:])}</div>
-  <h3 class="pod-h">Pola specjalne</h3>
-  <div class="specjalne">{spec}</div>
   <div class="gra-uwaga"><b>Dlaczego w tej grze nikt nie przegrywa?</b> Rywalizacja i presja czasu obciążają uczniów
   ze spektrum autyzmu tak mocno, że przestają myśleć o zadaniu, a zaczynają myśleć o porażce. Wspólny wynik klasy
   zamienia grę we współpracę — a ćwiczone umiejętności są społeczne, więc współpraca jest tu również treścią, nie tylko formą.</div>
@@ -517,13 +527,17 @@ class Broszura:
   <h2 class="dzial-h"><span class="dzial-litera">F</span>Program, rekwizyty i plan prób</h2>
   <h3 class="pod-h">Program przedstawienia — {len(SC["sceny"])} scen</h3>
   <ol class="program">{program}</ol>
+</section>
+
+<section class="page" id="scenariusz4">
+  <h2 class="dzial-h"><span class="dzial-litera">F</span>Rekwizyty i plan prób</h2>
   <div class="spekt-2kol">
     <div><h3 class="pod-h">Rekwizyty</h3><ul class="rek">{rek}</ul></div>
     <div><h3 class="pod-h">Plan prób</h3><table class="tab-prob"><tbody>{prob}</tbody></table></div>
   </div>
 </section>''']
         # sceny: pierwsze dwie razem, dalej po jednej - dłuższe sceny nie mieszczą się parami
-        grupy = [[1, 2]] + [[n] for n in range(3, len(SC["sceny"]) + 1)]
+        grupy = [[n] for n in range(1, len(SC["sceny"]) + 1)]
         for idx, grupa in enumerate(grupy):
             sceny = ""
             for sc in SC["sceny"]:
@@ -547,6 +561,79 @@ class Broszura:
                        f'<h2 class="dzial-h"><span class="dzial-litera">F</span>Tekst przedstawienia '
                        f'<small class="cd">· {opis} z {len(SC["sceny"])}</small></h2>'
                        f'<div class="sceny">{sceny}</div>{koncowka}</section>')
+        return "".join(out)
+
+
+    # ---- G. załączniki do wycięcia ----
+    def zalaczniki(self):
+        Z = self.d.get("zalaczniki")
+        if not Z:
+            return ""
+        out = []
+        G = self.d.get("gra", {})
+
+        if Z.get("plansza", True) and G:
+            out.append(f'''
+<section class="page" id="zalaczniki">
+  <h2 class="dzial-h"><span class="dzial-litera">G</span>Załącznik 1 · Plansza do gry</h2>
+  <p class="lead">Wydrukuj tę stronę osobno, najlepiej w formacie A3 i na grubszym papierze.
+  Pionki mogą być guzikami albo nakrętkami — ważne, żeby każdy gracz rozpoznawał swój na pierwszy rzut oka.</p>
+  {fig(S.board(), "plansza-duza")}
+  <p class="mini">Kolor pola mówi, z której talii wziąć kartę zadania. Talie są w części E.
+  Pola ciemne to pola specjalne — ich opisy również znajdziesz w części E.</p>
+</section>''')
+
+        if Z.get("termometr", True):
+            out.append(f'''
+<section class="page" id="zalacznik-termometr">
+  <h2 class="dzial-h"><span class="dzial-litera">G</span>Załącznik 2 · Termometr emocji</h2>
+  <p class="lead">Do powieszenia w klasie albo w kąciku wyciszenia. Uczeń pokazuje palcem albo
+  spinaczem, jak mocno coś czuje — nie musi tego nazywać słowami.</p>
+  {fig(S.thermometer(), "termometr-duzy")}
+  <div class="uwaga jasna"><b>Jak używać?</b> Zapytaj „jak mocno?”, a nie „czy bardzo?”.
+  Pytanie zamknięte daje odpowiedź tak/nie, a termometr ma pokazać stopień. Przy pierwszych
+  próbach wskazuj razem z uczniem — najpierw swoją emocję, potem jego.</div>
+</section>''')
+
+        if Z.get("sygnalizator", True):
+            out.append('''
+<section class="page" id="zalacznik-sygnalizator">
+  <h2 class="dzial-h"><span class="dzial-litera">G</span>Załącznik 3 · Krążki do oceny sytuacji</h2>
+  <p class="lead">Wytnij po jednym komplecie dla każdego ucznia. Krążki służą do ćwiczenia
+  „Sygnalizator sytuacji” z części D, ale przydają się też w codziennych sytuacjach w klasie.</p>
+  <div class="krazki">
+    <div class="krazek zielony"><span class="znak">✔</span><b>ZIELONE</b><p>w porządku</p></div>
+    <div class="krazek zolty"><span class="znak">!</span><b>ŻÓŁTE</b><p>to zależy</p></div>
+    <div class="krazek czerwony"><span class="znak">✖</span><b>CZERWONE</b><p>tak nie postępujemy</p></div>
+  </div>
+  <div class="uwaga jasna"><b>Żółty jest najważniejszy.</b> To on wymaga myślenia i to on jest poprawny
+  w większości sytuacji społecznych. Jeśli uczeń używa tylko zielonego i czerwonego, wracaj do pytania:
+  „a czy były jakieś powody?”.</div>
+</section>''')
+
+        karty = Z.get("karty", [])
+        if karty:
+            grupy = [karty[i:i + 4] for i in range(0, len(karty), 4)]
+            for i, g in enumerate(grupy):
+                nr_z = 3 + (1 if Z.get("plansza", True) else 0) * 0 + 1 + i
+                kk = ""
+                for k in g:
+                    kk += f'''<div class="karta-planeta">
+                      <div class="kp-gora">{fig(S.karta_planety(k.get("ikona","asteroid")))}</div>
+                      <div class="kp-dol">
+                        <h4>{E(k["nazwa"])}</h4>
+                        <p class="kp-kto">{E(k.get("kto",""))}</p>
+                        <p class="kp-opis">{E(k.get("opis",""))}</p>
+                        <p class="kp-pyt">{E(k.get("pytanie",""))}</p>
+                      </div></div>'''
+                dod = "" if i == 0 else f' <small class="cd">· ciąg dalszy ({i+1} z {len(grupy)})</small>'
+                lead = ('<p class="lead">Wytnij po liniach przerywanych i naklej na sztywny papier. '
+                        'Karty służą do gry, do powtórki i do ustawiania kolejności podróży.</p>'
+                        if i == 0 else "")
+                out.append(f'<section class="page" id="zalacznik-karty{i+1}">'
+                           f'<h2 class="dzial-h"><span class="dzial-litera">G</span>'
+                           f'Załącznik 4 · Karty miejsc{dod}</h2>{lead}'
+                           f'<div class="karty-planet">{kk}</div></section>')
         return "".join(out)
 
     # ---- zakończenie + metryczka ----
