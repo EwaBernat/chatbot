@@ -217,10 +217,10 @@ li::marker{color:var(--muted)}
 table{width:100%; border-collapse:collapse; font-size:9.51pt}
 th{
   text-align:left; font-weight:800; font-size:8.12pt; letter-spacing:.08em; text-transform:uppercase;
-  color:var(--ink2); padding:4px 6px; border-bottom:1.5px solid var(--ink2); vertical-align:bottom;
+  color:var(--ink); padding:4px 6px; border-bottom:2px solid var(--ink2); vertical-align:bottom;
 }
-td{padding:3px 6px; border-bottom:1px solid var(--line2); vertical-align:top}
-tbody tr:nth-child(even){background:#FBF9F6}
+td{padding:3px 6px; border-bottom:1px solid #E4DBD0; vertical-align:top}
+tbody tr:nth-child(even){background:#F8F2EA}
 td.age{white-space:nowrap; font-weight:800; color:var(--ink); font-variant-numeric:tabular-nums}
 .tbl-wrap{overflow-x:auto}
 
@@ -231,15 +231,21 @@ td.age{white-space:nowrap; font-weight:800; color:var(--ink); font-variant-numer
 .rule{border:0;border-top:1px solid var(--line); margin:0}
 
 /* ---------- Ćwiczenia ---------- */
-.ex{border:1px solid var(--line); border-radius:12px; overflow:hidden; display:flex; flex-direction:column}
-.ex__head{padding:3px 9px; display:flex; align-items:center; gap:8px; flex-wrap:wrap}
-.ex__head h3{font-size:11.22pt}
-.ex__no{font-family:"Fraunces",serif; font-size:13.75pt; font-weight:700; opacity:.5; line-height:1}
+.ex{border:1.6px solid var(--rail,var(--line)); border-radius:12px; overflow:hidden;
+  display:flex; flex-direction:column;
+  box-shadow:0 1px 0 rgba(46,42,59,.04), 0 4px 11px rgba(46,42,59,.05)}
+.ex__head{padding:4px 10px; display:flex; align-items:center; gap:8px; flex-wrap:wrap;
+  border-bottom:1.4px solid var(--rail,var(--line))}
+.ex__head h3{font-size:12.2pt; color:var(--rail,var(--ink)); letter-spacing:-.008em}
+.ex__no{font-family:"Fraunces",serif; font-size:11pt; font-weight:700; line-height:1; color:#FFFFFF;
+  background:var(--rail); min-width:21px; height:21px; padding:0 5px; border-radius:7px;
+  display:inline-flex; align-items:center; justify-content:center; flex:none}
 .ex__body{padding:6px 9px; display:flex; flex-direction:column; gap:2px; font-size:9.5pt; background:var(--paper); line-height:1.3}
-.ex__body b{font-size:8pt;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);display:block;margin-bottom:1px}
-.ex--tue .ex__head{background:var(--tue-soft)} .ex--tue{border-color:var(--tue-mid)} .ex--tue .ex__no{color:var(--tue)}
-.ex--tuk .ex__head{background:var(--tuk-soft)} .ex--tuk{border-color:var(--tuk-mid)} .ex--tuk .ex__no{color:var(--tuk)}
-.ex--tus .ex__head{background:var(--tus-soft)} .ex--tus{border-color:var(--tus-mid)} .ex--tus .ex__no{color:var(--tus)}
+.ex__body b{font-size:8pt;letter-spacing:.1em;text-transform:uppercase;color:var(--rail,var(--muted));
+  display:block;margin-bottom:1px; opacity:.85}
+.ex--tue{--rail:var(--tue)} .ex--tue .ex__head{background:var(--tue-soft)}
+.ex--tuk{--rail:var(--tuk)} .ex--tuk .ex__head{background:var(--tuk-soft)}
+.ex--tus{--rail:var(--tus)} .ex--tus .ex__head{background:var(--tus-soft)}
 
 /* ---------- Wykresy ---------- */
 figure{margin:0; display:flex; flex-direction:column; gap:5px}
@@ -323,7 +329,7 @@ svg{display:block; max-width:100%}
   display:inline-flex; align-items:center; justify-content:center; font-size:8.58pt; font-weight:800; color:var(--ink2); background:#fff}
 
 table.karta{font-size:9.86pt; border-collapse:separate; border-spacing:0; width:100%}
-table.karta th{font-size:7.89pt; padding:4px 6px; border-bottom:1.5px solid var(--ink2); background:none;
+table.karta th{font-size:7.89pt; padding:4px 6px; border-bottom:2px solid var(--ink2); background:none;
   vertical-align:bottom; letter-spacing:.09em}
 table.karta td{padding:0; border:0; vertical-align:middle}
 table.karta tbody tr{background:none}
@@ -393,13 +399,13 @@ table.karta tbody tr{background:none}
 .blad span{font-family:"Fraunces",serif; font-size:13.2pt; font-weight:700; color:var(--gold); line-height:1}
 
 /* ---------- Spis treści ---------- */
-.spis{display:flex; flex-direction:column; gap:11px}
+.spis{display:flex; flex-direction:column; gap:9px}
 .czesc__h{display:flex; align-items:baseline; gap:9px; padding:0 0 3px; border-bottom:2px solid var(--rail); margin-bottom:4px}
 .czesc__n{font-family:"Fraunces",serif; font-size:13.75pt; font-weight:700; color:var(--rail); line-height:1}
 .czesc__t{font-family:"Fraunces",serif; font-size:12.65pt; font-weight:600; color:var(--ink); line-height:1.1}
 .czesc__s{margin-left:auto; font-size:8.82pt; letter-spacing:.09em; text-transform:uppercase;
   font-weight:800; color:var(--muted); white-space:nowrap}
-.poz{display:flex; align-items:baseline; gap:7px; padding:2.2px 0}
+.poz{display:flex; align-items:baseline; gap:7px; padding:1.8px 0}
 .poz__t{font-size:10.67pt; color:var(--ink); white-space:nowrap; overflow:hidden; text-overflow:ellipsis}
 .poz__t b{font-weight:700}
 .poz__t span{color:var(--ink2); font-size:9.98pt}
@@ -417,9 +423,9 @@ table.karta tbody tr{background:none}
 .pole-pracy span{font-size:8.82pt; font-weight:800; letter-spacing:.1em; text-transform:uppercase; color:var(--muted)}
 .wytnij{border:1.4px dashed var(--tuk-mid); border-radius:10px; padding:7px; background:#FCFAFF}
 .spotk{width:100%; border-collapse:separate; border-spacing:0; font-size:9.2pt}
-.spotk th{font-size:7.89pt; padding:3px 6px; border-bottom:1.5px solid var(--ink2); text-align:left}
-.spotk td{padding:2px 6px; border-bottom:1px solid #EFE9E1; vertical-align:top}
-.spotk tr:nth-child(even) td{background:#FBF7F1}
+.spotk th{font-size:7.89pt; padding:3px 6px; border-bottom:2px solid var(--ink2); text-align:left; color:var(--ink)}
+.spotk td{padding:2px 6px; border-bottom:1px solid #E4DBD0; vertical-align:top}
+.spotk tr:nth-child(even) td{background:#F8F2EA}
 .spotk .nr{width:9mm; text-align:center; font-weight:800; color:var(--rail); font-variant-numeric:tabular-nums}
 .mies{display:flex; align-items:center; gap:10px; padding:5px 12px; border-radius:11px;
   background:var(--tint); border:1px solid var(--rail)}
@@ -428,8 +434,14 @@ table.karta tbody tr{background:none}
 .mies__c{margin-left:auto; text-align:right; font-size:9.05pt; color:var(--ink2); max-width:62mm; line-height:1.3}
 .pyt{background:#FBF9F6; border-left:3px solid var(--tuk); border-radius:0 8px 8px 0; padding:5px 10px; font-size:10.21pt}
 .pyt b{display:block; font-size:8pt; letter-spacing:.1em; text-transform:uppercase; color:var(--muted); margin-bottom:2px}
-.opow{background:#fff; border:1px solid var(--line); border-radius:10px; padding:6px 10px; font-size:10.21pt; line-height:1.35}
-.opow h5{margin:0 0 3px; font-family:"Fraunces",serif; font-size:11.55pt; font-weight:600; color:var(--tuk)}
+.opow{background:var(--tint,#fff); border:1px solid var(--rail,var(--line));
+  border-left:4px solid var(--rail,var(--tuk)); border-radius:10px; padding:6px 10px;
+  font-size:10.21pt; line-height:1.35}
+.opow--tue{--rail:var(--tue); --tint:var(--tue-soft)}
+.opow--tuk{--rail:var(--tuk); --tint:var(--tuk-soft)}
+.opow--tus{--rail:var(--tus); --tint:var(--tus-soft)}
+.opow .pyt{background:#FFFFFF; border-left-color:var(--rail)}
+.opow h5{margin:0 0 3px; font-family:"Fraunces",serif; font-size:11.55pt; font-weight:600; color:var(--rail,var(--tuk))}
 .opow p+p{margin-top:3px}
 .wyprawka{display:grid; grid-template-columns:1fr 1fr; gap:2px 18px; font-size:9.98pt}
 .wyprawka div{display:flex; gap:6px; align-items:flex-start; padding:1.5px 0; border-bottom:1px dotted var(--line2)}
@@ -490,7 +502,13 @@ table.karta tbody tr{background:none}
 .page--zw .callout{padding:5px 9px}
 .page--zw .ex__head{padding:2px 9px}
 .page--zw figure{gap:4px}
-.page--zw .ex__body{padding:5px 9px}
+.page--zw .ex__body{padding:5px 9px; gap:1px}
+.page--zw .ex__head{padding:3px 10px}
+/* ---------- Załączniki: plansze w powiększeniu ---------- */
+.page--zal .page__body{gap:6px}
+.zal-plansza{flex:1; display:flex; align-items:center; justify-content:center;
+  border:1.4px dashed var(--tuk-mid); border-radius:14px; background:#FFFDFB; padding:8px}
+.zal-plansza > svg{width:100%; height:auto; max-height:100%}
 .page--dz table.karta{font-size:8.58pt}
 .page--dz .karta .it td{padding:0.5px 5px; height:auto; line-height:1.24}
 .page--dz .karta .grp td{padding:2px 5px}
@@ -661,6 +679,11 @@ table.karta tbody tr{background:none}
         <div class="poz"><span class="poz__t"><b>Cele SMART do IPET — miesiące 7–12</b> <span>— sześć celów z kryterium</span></span><i></i><span class="poz__p">27</span></div>
         <div class="poz"><span class="poz__t"><b>Karta monitorowania i podsumowanie roku</b> <span>— do druku</span></span><i></i><span class="poz__p">28</span></div>
         <div class="poz"><span class="poz__t"><b>Rodzice, literatura i kontakt</b> <span>— zadania do domu i źródła</span></span><i></i><span class="poz__p">29</span></div>
+      </div>
+          <div style="--rail:var(--gold)">
+        <div class="czesc__h"><span class="czesc__n">V</span><span class="czesc__t">Załączniki</span><span class="czesc__s">plansze A4</span></div>
+        <div class="poz"><span class="poz__t"><b>Koło emocji w rozmiarze A4</b> <span>— do wydrukowania w powiększeniu</span></span><i></i><span class="poz__p">30</span></div>
+        <div class="poz"><span class="poz__t"><b>Ścieżka emocji — plansza w rozmiarze A4</b> <span>— pola na prawdziwe pionki</span></span><i></i><span class="poz__p">31</span></div>
       </div>
     </div>
   </div>
@@ -1790,9 +1813,9 @@ table.karta tbody tr{background:none}
         </tbody>
       </table>
       </div>
-      <p style="font-size:9.86pt;color:var(--ink2)">Odsłanianie pól jest samo w sobie wydarzeniem —
-      zrób z tego mały rytuał. Dziecko, które widzi, że koło rośnie razem z nim, wraca do niego chętniej
-      niż do gotowej planszy z dwunastoma nazwami od pierwszego dnia.</p>
+      <p style="font-size:9.86pt;color:var(--ink2)"><strong>Wersja na całą stronę — załącznik 1, s. 30.</strong> Odsłanianie pól to rytuał: dziecko,
+      które widzi, że koło rośnie razem z nim, wraca do niego chętniej niż do gotowej planszy
+      z dwunastoma nazwami od pierwszego dnia.</p>
     </div>
   </div>
   <div class="page__foot"><span><b>Narzędzie</b> · koło emocji do wycięcia</span><span class="num">15</span></div>
@@ -1806,7 +1829,7 @@ table.karta tbody tr{background:none}
       <h2 class="h-sec">Ścieżka emocji — gra dla dwojga</h2>
       <p class="lead" style="margin-top:4px">Dwadzieścia trzy pola, kostka i dwa pionki. Gra robi to,
       czego nie zrobi żadne ćwiczenie przy stoliku: <strong>zmusza do czekania na swoją kolej</strong>
-      i daje powód, żeby patrzeć na drugiego gracza.</p>
+      i daje powód, żeby patrzeć na drugiego gracza. Wersja na całą stronę — <strong>załącznik 2, s. 31</strong>.</p>
     </div>
 
     <div class="pole-pracy" style="padding:8px">
@@ -2579,7 +2602,7 @@ table.karta tbody tr{background:none}
 
     <div class="grid g2" style="align-items:start">
       <div style="display:flex;flex-direction:column;gap:9px">
-      <div class="opow" style="border-left:3px solid var(--tus)">
+      <div class="opow opow--tus">
         <h5>7. Wieża, którą zbudowałam sama <span style="font-family:'Nunito Sans',sans-serif;font-size:8.58pt;letter-spacing:.09em;text-transform:uppercase;font-weight:800;color:var(--muted)">M7 · duma</span></h5>
         <p>Zosia od dwóch dni próbowała zbudować wieżę z ośmiu klocków. Za każdym razem przewracała się przy siódmym. W środę spróbowała jeszcze raz. Kładła klocek po klocku, bardzo powoli. <strong>[ZATRZYMAJ SIĘ]</strong></p>
   <p>Ósmy klocek stanął. Wieża stała. Zosia wyprostowała się, uniosła głowę i rozejrzała po sali. Szukała wzrokiem pani.</p>
@@ -2589,7 +2612,7 @@ table.karta tbody tr{background:none}
         </div>
         <p style="font-size:9.28pt;color:var(--ink2);margin-top:4px"><strong>Wskazówka:</strong> Czwarte pytanie oddziela dumę od radości — duma wymaga <em>własnego</em> wysiłku. Piąte zadaj tylko wtedy, gdy dziecko odpowiedziało na czwarte; inaczej zostaw je na kolejne spotkanie.</p>
       </div>
-      <div class="opow" style="border-left:3px solid var(--tue)">
+      <div class="opow opow--tue">
         <h5>8. Nowy rower Filipa <span style="font-family:'Nunito Sans',sans-serif;font-size:8.58pt;letter-spacing:.09em;text-transform:uppercase;font-weight:800;color:var(--muted)">M8 · zazdrość</span></h5>
         <p>Filip przyjechał do przedszkola na nowym rowerze. Czerwonym, z dzwonkiem. Wszystkie dzieci go otoczyły. Kuba stał trochę dalej i patrzył. <strong>[ZATRZYMAJ SIĘ]</strong></p>
   <p>Kuba miał ściśnięte usta i ręce w kieszeniach. Kiedy Filip zapytał: „Chcesz zadzwonić?", Kuba powiedział: „Nie chcę" i odszedł.</p>
@@ -2601,7 +2624,7 @@ table.karta tbody tr{background:none}
       </div>
       </div>
       <div style="display:flex;flex-direction:column;gap:9px">
-      <div class="opow" style="border-left:3px solid var(--tuk)">
+      <div class="opow opow--tuk">
         <h5>9. Zbita szklanka <span style="font-family:'Nunito Sans',sans-serif;font-size:8.58pt;letter-spacing:.09em;text-transform:uppercase;font-weight:800;color:var(--muted)">M12 · intencja a skutek</span></h5>
         <p>Ala niosła szklankę do zlewu. Potknęła się o dywan. Szklanka wypadła jej z ręki i rozbiła się na podłodze. Ala od razu powiedziała: „Ojej!" i pobiegła po szmatkę. <strong>[ZATRZYMAJ SIĘ]</strong></p>
   <p>W drugim pokoju Filip wziął szklankę ze stołu, popatrzył na nią, popatrzył na podłogę — i puścił. Szklanka rozbiła się tak samo. Filip roześmiał się.</p>
@@ -2611,7 +2634,7 @@ table.karta tbody tr{background:none}
         </div>
         <p style="font-size:9.28pt;color:var(--ink2);margin-top:4px"><strong>Wskazówka:</strong> Ten tekst działa tylko dlatego, że skutek jest identyczny. Jeśli dziecko odpowiada „oboje chcieli, bo się rozbiło", <strong>wróć do pytania czwartego</strong> — zachowanie po zdarzeniu jest najczytelniejszą wskazówką intencji.</p>
       </div>
-      <div class="opow" style="border-left:3px solid var(--tuk)">
+      <div class="opow opow--tuk">
         <h5>10. Wieża Kuby <span style="font-family:'Nunito Sans',sans-serif;font-size:8.58pt;letter-spacing:.09em;text-transform:uppercase;font-weight:800;color:var(--muted)">M12 · naprawa relacji</span></h5>
         <p>Kuba budował wieżę przez całą zabawę. Zosia biegła do szatni i nie zauważyła wieży. Potrąciła ją łokciem. Klocki się rozsypały. <strong>[ZATRZYMAJ SIĘ]</strong></p>
   <p>Kuba zacisnął pięści. Zosia stanęła i powiedziała szybko: „Przepraszam, przepraszam, przepraszam" — i pobiegła dalej do szatni.</p>
@@ -3245,7 +3268,7 @@ table.karta tbody tr{background:none}
         <p style="font-family:Fraunces,serif;font-size:14.3pt;line-height:1.25;color:var(--tus)">Emocje złożone<br>i zabawa razem</p>
         <p style="font-size:9.05pt;color:var(--ink2);line-height:1.35;margin-top:4px;max-width:50mm;margin-left:auto">Drugie pół roku programu dla przedszkolaka</p>
         <p style="display:inline-block;margin-top:6px;font-size:8.35pt;letter-spacing:.11em;text-transform:uppercase;font-weight:800;color:#fff;background:var(--tus);padding:3px 10px;border-radius:999px">Część 2B</p>
-        <p style="font-size:9.74pt;color:var(--muted);margin-top:5px">wydanie 1 · 29 stron</p>
+        <p style="font-size:9.74pt;color:var(--muted);margin-top:5px">wydanie 3 · 31 stron</p>
       </div>
     </div>
 
@@ -3254,3 +3277,443 @@ table.karta tbody tr{background:none}
   </div>
   <div class="page__foot"><span><b>Rodzice, literatura i kontakt</b></span><span class="num">29</span></div>
 </section>
+
+<!-- ============ ZALACZNIK 1: <svg viewBox="0 0 336 402" style="width:100%;height:auto" role="img" aria-label="Koło emocji z dwunastoma polami: radość, spokój, duma, wdzięczność, smutek, tęsknota, zawód, złość, zazdrość, strach, wstyd, zdziwienie">
+<defs>
+<path id="luk0" d="M168.0 35.0 A133 133 0 0 1 234.5 52.8" fill="none"/>
+<path id="luk1" d="M234.5 52.8 A133 133 0 0 1 283.2 101.5" fill="none"/>
+<path id="luk2" d="M283.2 101.5 A133 133 0 0 1 301.0 168.0" fill="none"/>
+<path id="luk3" d="M283.2 234.5 A133 133 0 0 0 301.0 168.0" fill="none"/>
+<path id="luk4" d="M234.5 283.2 A133 133 0 0 0 283.2 234.5" fill="none"/>
+<path id="luk5" d="M168.0 301.0 A133 133 0 0 0 234.5 283.2" fill="none"/>
+<path id="luk6" d="M101.5 283.2 A133 133 0 0 0 168.0 301.0" fill="none"/>
+<path id="luk7" d="M52.8 234.5 A133 133 0 0 0 101.5 283.2" fill="none"/>
+<path id="luk8" d="M35.0 168.0 A133 133 0 0 0 52.8 234.5" fill="none"/>
+<path id="luk9" d="M35.0 168.0 A133 133 0 0 1 52.8 101.5" fill="none"/>
+<path id="luk10" d="M52.8 101.5 A133 133 0 0 1 101.5 52.8" fill="none"/>
+<path id="luk11" d="M101.5 52.8 A133 133 0 0 1 168.0 35.0" fill="none"/>
+</defs>
+<path d="M168 168 L168.0 18.0 A150 150 0 0 1 243.0 38.1 Z" fill="#DDF0EC" stroke="#FFFFFF" stroke-width="2.4"/>
+<path d="M168 168 L243.0 38.1 A150 150 0 0 1 297.9 93.0 Z" fill="#E7F3EF" stroke="#FFFFFF" stroke-width="2.4"/>
+<path d="M168 168 L297.9 93.0 A150 150 0 0 1 318.0 168.0 Z" fill="#D6EDE6" stroke="#FFFFFF" stroke-width="2.4"/>
+<path d="M168 168 L318.0 168.0 A150 150 0 0 1 297.9 243.0 Z" fill="#E7F3EF" stroke="#FFFFFF" stroke-width="2.4"/>
+<path d="M168 168 L297.9 243.0 A150 150 0 0 1 243.0 297.9 Z" fill="#EBE5F8" stroke="#FFFFFF" stroke-width="2.4"/>
+<path d="M168 168 L243.0 297.9 A150 150 0 0 1 168.0 318.0 Z" fill="#F1EDFA" stroke="#FFFFFF" stroke-width="2.4"/>
+<path d="M168 168 L168.0 318.0 A150 150 0 0 1 93.0 297.9 Z" fill="#E4DCF4" stroke="#FFFFFF" stroke-width="2.4"/>
+<path d="M168 168 L93.0 297.9 A150 150 0 0 1 38.1 243.0 Z" fill="#FBE7EE" stroke="#FFFFFF" stroke-width="2.4"/>
+<path d="M168 168 L38.1 243.0 A150 150 0 0 1 18.0 168.0 Z" fill="#F7DDE7" stroke="#FFFFFF" stroke-width="2.4"/>
+<path d="M168 168 L18.0 168.0 A150 150 0 0 1 38.1 93.0 Z" fill="#FBF1D6" stroke="#FFFFFF" stroke-width="2.4"/>
+<path d="M168 168 L38.1 93.0 A150 150 0 0 1 93.0 38.1 Z" fill="#F8EBC8" stroke="#FFFFFF" stroke-width="2.4"/>
+<path d="M168 168 L93.0 38.1 A150 150 0 0 1 168.0 18.0 Z" fill="#FDF6E4" stroke="#FFFFFF" stroke-width="2.4"/>
+<svg x="174.8" y="67.0" width="32" height="32"><svg class="buzka" viewBox="0 0 100 100" role="img" aria-label="Twarz: radosc">
+<circle cx="50" cy="50" r="41" fill="#FFFFFF" stroke="#0E8B78" stroke-width="3"/>
+<circle cx="36" cy="43" r="4.2" fill="#0E8B78"/>
+<circle cx="64" cy="43" r="4.2" fill="#0E8B78"/>
+<path d="M31 58 Q50 75 69 58" fill="none" stroke="#0E8B78" stroke-width="3.4" stroke-linecap="round"/>
+</svg> EMOCJI XL ============ -->
+<section class="page page--zal">
+  <div class="page__body">
+    <div>
+      <div class="eyebrow">Załącznik 1 · do wydrukowania w powiększeniu</div>
+      <h2 class="h-sec">Koło emocji w rozmiarze A4</h2>
+      <p class="lead" style="margin-top:3px">To samo koło co na s. 15, powiększone na całą stronę.
+      Wydrukuj na sztywnym papierze, wytnij strzałkę i przypnij ją pinezką dokładnie w środku.
+      Opis, kiedy odsłaniać które pole, znajdziesz na s. 15.</p>
+    </div>
+    <div class="zal-plansza">
+<svg viewBox="0 0 336 402" style="width:100%;height:auto" role="img" aria-label="Koło emocji z dwunastoma polami: radość, spokój, duma, wdzięczność, smutek, tęsknota, zawód, złość, zazdrość, strach, wstyd, zdziwienie">
+<defs>
+<path id="zluk0" d="M168.0 35.0 A133 133 0 0 1 234.5 52.8" fill="none"/>
+<path id="zluk1" d="M234.5 52.8 A133 133 0 0 1 283.2 101.5" fill="none"/>
+<path id="zluk2" d="M283.2 101.5 A133 133 0 0 1 301.0 168.0" fill="none"/>
+<path id="zluk3" d="M283.2 234.5 A133 133 0 0 0 301.0 168.0" fill="none"/>
+<path id="zluk4" d="M234.5 283.2 A133 133 0 0 0 283.2 234.5" fill="none"/>
+<path id="zluk5" d="M168.0 301.0 A133 133 0 0 0 234.5 283.2" fill="none"/>
+<path id="zluk6" d="M101.5 283.2 A133 133 0 0 0 168.0 301.0" fill="none"/>
+<path id="zluk7" d="M52.8 234.5 A133 133 0 0 0 101.5 283.2" fill="none"/>
+<path id="zluk8" d="M35.0 168.0 A133 133 0 0 0 52.8 234.5" fill="none"/>
+<path id="zluk9" d="M35.0 168.0 A133 133 0 0 1 52.8 101.5" fill="none"/>
+<path id="zluk10" d="M52.8 101.5 A133 133 0 0 1 101.5 52.8" fill="none"/>
+<path id="zluk11" d="M101.5 52.8 A133 133 0 0 1 168.0 35.0" fill="none"/>
+</defs>
+<path d="M168 168 L168.0 18.0 A150 150 0 0 1 243.0 38.1 Z" fill="#DDF0EC" stroke="#FFFFFF" stroke-width="2.4"/>
+<path d="M168 168 L243.0 38.1 A150 150 0 0 1 297.9 93.0 Z" fill="#E7F3EF" stroke="#FFFFFF" stroke-width="2.4"/>
+<path d="M168 168 L297.9 93.0 A150 150 0 0 1 318.0 168.0 Z" fill="#D6EDE6" stroke="#FFFFFF" stroke-width="2.4"/>
+<path d="M168 168 L318.0 168.0 A150 150 0 0 1 297.9 243.0 Z" fill="#E7F3EF" stroke="#FFFFFF" stroke-width="2.4"/>
+<path d="M168 168 L297.9 243.0 A150 150 0 0 1 243.0 297.9 Z" fill="#EBE5F8" stroke="#FFFFFF" stroke-width="2.4"/>
+<path d="M168 168 L243.0 297.9 A150 150 0 0 1 168.0 318.0 Z" fill="#F1EDFA" stroke="#FFFFFF" stroke-width="2.4"/>
+<path d="M168 168 L168.0 318.0 A150 150 0 0 1 93.0 297.9 Z" fill="#E4DCF4" stroke="#FFFFFF" stroke-width="2.4"/>
+<path d="M168 168 L93.0 297.9 A150 150 0 0 1 38.1 243.0 Z" fill="#FBE7EE" stroke="#FFFFFF" stroke-width="2.4"/>
+<path d="M168 168 L38.1 243.0 A150 150 0 0 1 18.0 168.0 Z" fill="#F7DDE7" stroke="#FFFFFF" stroke-width="2.4"/>
+<path d="M168 168 L18.0 168.0 A150 150 0 0 1 38.1 93.0 Z" fill="#FBF1D6" stroke="#FFFFFF" stroke-width="2.4"/>
+<path d="M168 168 L38.1 93.0 A150 150 0 0 1 93.0 38.1 Z" fill="#F8EBC8" stroke="#FFFFFF" stroke-width="2.4"/>
+<path d="M168 168 L93.0 38.1 A150 150 0 0 1 168.0 18.0 Z" fill="#FDF6E4" stroke="#FFFFFF" stroke-width="2.4"/>
+<svg x="174.8" y="67.0" width="32" height="32"><svg class="buzka" viewBox="0 0 100 100" role="img" aria-label="Twarz: radosc">
+<circle cx="50" cy="50" r="41" fill="#FFFFFF" stroke="#0E8B78" stroke-width="3"/>
+<circle cx="36" cy="43" r="4.2" fill="#0E8B78"/>
+<circle cx="64" cy="43" r="4.2" fill="#0E8B78"/>
+<path d="M31 58 Q50 75 69 58" fill="none" stroke="#0E8B78" stroke-width="3.4" stroke-linecap="round"/>
+</svg></svg>
+<text font-family="Nunito Sans,sans-serif" font-size="10.5" font-weight="800" fill="#0E8B78"><textPath href="#zluk0" startOffset="50%" text-anchor="middle">Radość</textPath></text>
+<svg x="214.2" y="89.8" width="32" height="32"><svg class="buzka" viewBox="0 0 100 100" role="img" aria-label="Twarz: radosc">
+<circle cx="50" cy="50" r="41" fill="#FFFFFF" stroke="#0E8B78" stroke-width="3"/>
+<circle cx="36" cy="43" r="4.2" fill="#0E8B78"/>
+<circle cx="64" cy="43" r="4.2" fill="#0E8B78"/>
+<path d="M31 58 Q50 75 69 58" fill="none" stroke="#0E8B78" stroke-width="3.4" stroke-linecap="round"/>
+</svg></svg>
+<text font-family="Nunito Sans,sans-serif" font-size="10.5" font-weight="800" fill="#0E8B78"><textPath href="#zluk1" startOffset="50%" text-anchor="middle">Spokój</textPath></text>
+<svg x="237.0" y="129.2" width="32" height="32"><svg class="buzka" viewBox="0 0 100 100" role="img" aria-label="Twarz: radosc">
+<circle cx="50" cy="50" r="41" fill="#FFFFFF" stroke="#0E8B78" stroke-width="3"/>
+<circle cx="36" cy="43" r="4.2" fill="#0E8B78"/>
+<circle cx="64" cy="43" r="4.2" fill="#0E8B78"/>
+<path d="M31 58 Q50 75 69 58" fill="none" stroke="#0E8B78" stroke-width="3.4" stroke-linecap="round"/>
+</svg></svg>
+<text font-family="Nunito Sans,sans-serif" font-size="10.5" font-weight="800" fill="#0E8B78"><textPath href="#zluk2" startOffset="50%" text-anchor="middle">Duma</textPath></text>
+<svg x="237.0" y="174.8" width="32" height="32"><svg class="buzka" viewBox="0 0 100 100" role="img" aria-label="Twarz: radosc">
+<circle cx="50" cy="50" r="41" fill="#FFFFFF" stroke="#0E8B78" stroke-width="3"/>
+<circle cx="36" cy="43" r="4.2" fill="#0E8B78"/>
+<circle cx="64" cy="43" r="4.2" fill="#0E8B78"/>
+<path d="M31 58 Q50 75 69 58" fill="none" stroke="#0E8B78" stroke-width="3.4" stroke-linecap="round"/>
+</svg></svg>
+<text font-family="Nunito Sans,sans-serif" font-size="10.5" font-weight="800" fill="#0E8B78"><textPath href="#zluk3" startOffset="50%" text-anchor="middle">Wdzięczność</textPath></text>
+<svg x="214.2" y="214.2" width="32" height="32"><svg class="buzka" viewBox="0 0 100 100" role="img" aria-label="Twarz: smutek">
+<circle cx="50" cy="50" r="41" fill="#FFFFFF" stroke="#6553A8" stroke-width="3"/>
+<circle cx="36" cy="45" r="4.2" fill="#6553A8"/>
+<circle cx="64" cy="45" r="4.2" fill="#6553A8"/>
+<path d="M31 70 Q50 55 69 70" fill="none" stroke="#6553A8" stroke-width="3.4" stroke-linecap="round"/>
+<path d="M28 36 Q34 32 41 35" fill="none" stroke="#6553A8" stroke-width="3.4" stroke-linecap="round"/>
+<path d="M59 35 Q66 32 72 36" fill="none" stroke="#6553A8" stroke-width="3.4" stroke-linecap="round"/>
+<path d="M36 52 q-3 6 0 8 q3 -2 0 -8" fill="#6553A8" opacity="0.55"/>
+</svg></svg>
+<text font-family="Nunito Sans,sans-serif" font-size="10.5" font-weight="800" fill="#6553A8"><textPath href="#zluk4" startOffset="50%" text-anchor="middle">Smutek</textPath></text>
+<svg x="174.8" y="237.0" width="32" height="32"><svg class="buzka" viewBox="0 0 100 100" role="img" aria-label="Twarz: smutek">
+<circle cx="50" cy="50" r="41" fill="#FFFFFF" stroke="#6553A8" stroke-width="3"/>
+<circle cx="36" cy="45" r="4.2" fill="#6553A8"/>
+<circle cx="64" cy="45" r="4.2" fill="#6553A8"/>
+<path d="M31 70 Q50 55 69 70" fill="none" stroke="#6553A8" stroke-width="3.4" stroke-linecap="round"/>
+<path d="M28 36 Q34 32 41 35" fill="none" stroke="#6553A8" stroke-width="3.4" stroke-linecap="round"/>
+<path d="M59 35 Q66 32 72 36" fill="none" stroke="#6553A8" stroke-width="3.4" stroke-linecap="round"/>
+<path d="M36 52 q-3 6 0 8 q3 -2 0 -8" fill="#6553A8" opacity="0.55"/>
+</svg></svg>
+<text font-family="Nunito Sans,sans-serif" font-size="10.5" font-weight="800" fill="#6553A8"><textPath href="#zluk5" startOffset="50%" text-anchor="middle">Tęsknota</textPath></text>
+<svg x="129.2" y="237.0" width="32" height="32"><svg class="buzka" viewBox="0 0 100 100" role="img" aria-label="Twarz: smutek">
+<circle cx="50" cy="50" r="41" fill="#FFFFFF" stroke="#6553A8" stroke-width="3"/>
+<circle cx="36" cy="45" r="4.2" fill="#6553A8"/>
+<circle cx="64" cy="45" r="4.2" fill="#6553A8"/>
+<path d="M31 70 Q50 55 69 70" fill="none" stroke="#6553A8" stroke-width="3.4" stroke-linecap="round"/>
+<path d="M28 36 Q34 32 41 35" fill="none" stroke="#6553A8" stroke-width="3.4" stroke-linecap="round"/>
+<path d="M59 35 Q66 32 72 36" fill="none" stroke="#6553A8" stroke-width="3.4" stroke-linecap="round"/>
+<path d="M36 52 q-3 6 0 8 q3 -2 0 -8" fill="#6553A8" opacity="0.55"/>
+</svg></svg>
+<text font-family="Nunito Sans,sans-serif" font-size="10.5" font-weight="800" fill="#6553A8"><textPath href="#zluk6" startOffset="50%" text-anchor="middle">Zawód</textPath></text>
+<svg x="89.8" y="214.2" width="32" height="32"><svg class="buzka" viewBox="0 0 100 100" role="img" aria-label="Twarz: zlosc">
+<circle cx="50" cy="50" r="41" fill="#FFFFFF" stroke="#C4547A" stroke-width="3"/>
+<circle cx="36" cy="47" r="4.2" fill="#C4547A"/>
+<circle cx="64" cy="47" r="4.2" fill="#C4547A"/>
+<path d="M27 35 L45 43" fill="none" stroke="#C4547A" stroke-width="3.4" stroke-linecap="round"/>
+<path d="M73 35 L55 43" fill="none" stroke="#C4547A" stroke-width="3.4" stroke-linecap="round"/>
+<path d="M33 68 Q50 60 67 68" fill="none" stroke="#C4547A" stroke-width="3.4" stroke-linecap="round"/>
+</svg></svg>
+<text font-family="Nunito Sans,sans-serif" font-size="10.5" font-weight="800" fill="#C4547A"><textPath href="#zluk7" startOffset="50%" text-anchor="middle">Złość</textPath></text>
+<svg x="67.0" y="174.8" width="32" height="32"><svg class="buzka" viewBox="0 0 100 100" role="img" aria-label="Twarz: zlosc">
+<circle cx="50" cy="50" r="41" fill="#FFFFFF" stroke="#C4547A" stroke-width="3"/>
+<circle cx="36" cy="47" r="4.2" fill="#C4547A"/>
+<circle cx="64" cy="47" r="4.2" fill="#C4547A"/>
+<path d="M27 35 L45 43" fill="none" stroke="#C4547A" stroke-width="3.4" stroke-linecap="round"/>
+<path d="M73 35 L55 43" fill="none" stroke="#C4547A" stroke-width="3.4" stroke-linecap="round"/>
+<path d="M33 68 Q50 60 67 68" fill="none" stroke="#C4547A" stroke-width="3.4" stroke-linecap="round"/>
+</svg></svg>
+<text font-family="Nunito Sans,sans-serif" font-size="10.5" font-weight="800" fill="#C4547A"><textPath href="#zluk8" startOffset="50%" text-anchor="middle">Zazdrość</textPath></text>
+<svg x="67.0" y="129.2" width="32" height="32"><svg class="buzka" viewBox="0 0 100 100" role="img" aria-label="Twarz: strach">
+<circle cx="50" cy="50" r="41" fill="#FFFFFF" stroke="#A07A0A" stroke-width="3"/>
+<circle cx="36" cy="45" r="6.2" fill="none" stroke="#A07A0A" stroke-width="3"/>
+<circle cx="64" cy="45" r="6.2" fill="none" stroke="#A07A0A" stroke-width="3"/>
+<path d="M27 31 Q35 25 44 30" fill="none" stroke="#A07A0A" stroke-width="3.4" stroke-linecap="round"/>
+<path d="M56 30 Q65 25 73 31" fill="none" stroke="#A07A0A" stroke-width="3.4" stroke-linecap="round"/>
+<ellipse cx="50" cy="68" rx="9" ry="11" fill="none" stroke="#A07A0A" stroke-width="3.2"/>
+</svg></svg>
+<text font-family="Nunito Sans,sans-serif" font-size="10.5" font-weight="800" fill="#A07A0A"><textPath href="#zluk9" startOffset="50%" text-anchor="middle">Strach</textPath></text>
+<svg x="89.8" y="89.8" width="32" height="32"><svg class="buzka" viewBox="0 0 100 100" role="img" aria-label="Twarz: strach">
+<circle cx="50" cy="50" r="41" fill="#FFFFFF" stroke="#A07A0A" stroke-width="3"/>
+<circle cx="36" cy="45" r="6.2" fill="none" stroke="#A07A0A" stroke-width="3"/>
+<circle cx="64" cy="45" r="6.2" fill="none" stroke="#A07A0A" stroke-width="3"/>
+<path d="M27 31 Q35 25 44 30" fill="none" stroke="#A07A0A" stroke-width="3.4" stroke-linecap="round"/>
+<path d="M56 30 Q65 25 73 31" fill="none" stroke="#A07A0A" stroke-width="3.4" stroke-linecap="round"/>
+<ellipse cx="50" cy="68" rx="9" ry="11" fill="none" stroke="#A07A0A" stroke-width="3.2"/>
+</svg></svg>
+<text font-family="Nunito Sans,sans-serif" font-size="10.5" font-weight="800" fill="#A07A0A"><textPath href="#zluk10" startOffset="50%" text-anchor="middle">Wstyd</textPath></text>
+<svg x="129.2" y="67.0" width="32" height="32"><svg class="buzka" viewBox="0 0 100 100" role="img" aria-label="Twarz: zdziwienie">
+<circle cx="50" cy="50" r="41" fill="#FFFFFF" stroke="#A07A0A" stroke-width="3"/>
+<circle cx="36" cy="46" r="5.6" fill="#A07A0A"/>
+<circle cx="64" cy="46" r="5.6" fill="#A07A0A"/>
+<path d="M27 30 Q36 24 45 29" fill="none" stroke="#A07A0A" stroke-width="3.4" stroke-linecap="round"/>
+<path d="M55 29 Q64 24 73 30" fill="none" stroke="#A07A0A" stroke-width="3.4" stroke-linecap="round"/>
+<circle cx="50" cy="69" r="8.5" fill="none" stroke="#A07A0A" stroke-width="3.2"/>
+</svg></svg>
+<text font-family="Nunito Sans,sans-serif" font-size="10.5" font-weight="800" fill="#A07A0A"><textPath href="#zluk11" startOffset="50%" text-anchor="middle">Zdziwienie</textPath></text>
+<circle cx="168" cy="168" r="150" fill="none" stroke="#57516B" stroke-width="2.6"/>
+<circle cx="168" cy="168" r="34" fill="#FFFFFF" stroke="#57516B" stroke-width="2.6"/>
+<text x="168" y="166" text-anchor="middle" font-family="Fraunces,serif" font-size="13" font-weight="700" fill="#2E2A3B">Jak</text>
+<text x="168" y="181" text-anchor="middle" font-family="Fraunces,serif" font-size="13" font-weight="700" fill="#2E2A3B">się czuję?</text>
+<rect x="26" y="338" width="284" height="52" rx="10" fill="#FCFAFF" stroke="#D3C8EE" stroke-width="1.6" stroke-dasharray="6 5"/>
+<g transform="translate(168,362)">
+<path d="M-96 0 L46 -11 L46 -4 L92 -4 L92 4 L46 4 L46 11 Z" fill="#FFFFFF" stroke="#57516B" stroke-width="2.2" stroke-linejoin="round"/>
+<circle cx="-72" cy="0" r="5.5" fill="none" stroke="#57516B" stroke-width="1.8"/>
+</g>
+<text x="168" y="386" text-anchor="middle" font-family="Nunito Sans,sans-serif" font-size="11" fill="#8B849D">strzałka — wytnij i przypnij pinezką w środku koła</text>
+</svg>
+    </div>
+  </div>
+  <div class="page__foot"><span><b>Załącznik 1</b> · koło emocji w rozmiarze A4</span><span class="num">30</span></div>
+</section>
+
+<!-- ============ ZALACZNIK 2: <svg viewBox="0 0 700 883" style="width:100%;height:auto" role="img" aria-label="Plansza do gry Ścieżka emocji w powiększeniu: dwadzieścia cztery pola">
+<line x1="154" y1="70" x2="202" y2="70" stroke="#CFC6BA" stroke-width="3" stroke-linecap="round"/>
+<path d="M202 70 l-10 -9 M202 70 l-10 9" fill="none" stroke="#CFC6BA" stroke-width="3" stroke-linecap="round"/>
+<line x1="326" y1="70" x2="374" y2="70" stroke="#CFC6BA" stroke-width="3" stroke-linecap="round"/>
+<path d="M374 70 l-10 -9 M374 70 l-10 9" fill="none" stroke="#CFC6BA" stroke-width="3" stroke-linecap="round"/>
+<line x1="498" y1="70" x2="546" y2="70" stroke="#CFC6BA" stroke-width="3" stroke-linecap="round"/>
+<path d="M546 70 l-10 -9 M546 70 l-10 9" fill="none" stroke="#CFC6BA" stroke-width="3" stroke-linecap="round"/>
+<line x1="608" y1="132" x2="608" y2="156" stroke="#CFC6BA" stroke-width="3" stroke-linecap="round"/>
+<path d="M608 156 l-9 -10 M608 156 l9 -10" fill="none" stroke="#CFC6BA" stroke-width="3" stroke-linecap="round"/>
+<line x1="546" y1="218" x2="498" y2="218" stroke="#CFC6BA" stroke-width="3" stroke-linecap="round"/>
+<path d="M498 218 l10 -9 M498 218 l10 9" fill="none" stroke="#CFC6BA" stroke-width="3" stroke-linecap="round"/>
+<line x1="374" y1="218" x2="326" y2="218" stroke="#CFC6BA" stroke-width="3" stroke-linecap="round"/>
+<path d="M326 218 l10 -9 M326 218 l10 9" fill="none" stroke="#CFC6BA" stroke-width="3" stroke-linecap="round"/>
+<line x1="202" y1="218" x2="154" y2="218" stroke="#CFC6BA" stroke-width="3" stroke-linecap="round"/>
+<path d="M154 218 l10 -9 M154 218 l10 9" fill="none" stroke="#CFC6BA" stroke-width="3" stroke-linecap="round"/>
+<line x1="92" y1="280" x2="92" y2="304" stroke="#CFC6BA" stroke-width="3" stroke-linecap="round"/>
+<path d="M92 304 l-9 -10 M92 304 l9 -10" fill="none" stroke="#CFC6BA" stroke-width="3" stroke-linecap="round"/>
+<line x1="154" y1="366" x2="202" y2="366" stroke="#CFC6BA" stroke-width="3" stroke-linecap="round"/>
+<path d="M202 366 l-10 -9 M202 366 l-10 9" fill="none" stroke="#CFC6BA" stroke-width="3" stroke-linecap="round"/>
+<line x1="326" y1="366" x2="374" y2="366" stroke="#CFC6BA" stroke-width="3" stroke-linecap="round"/>
+<path d="M374 366 l-10 -9 M374 366 l-10 9" fill="none" stroke="#CFC6BA" stroke-width="3" stroke-linecap="round"/>
+<line x1="498" y1="366" x2="546" y2="366" stroke="#CFC6BA" stroke-width="3" stroke-linecap="round"/>
+<path d="M546 366 l-10 -9 M546 366 l-10 9" fill="none" stroke="#CFC6BA" stroke-width="3" stroke-linecap="round"/>
+<line x1="608" y1="428" x2="608" y2="452" stroke="#CFC6BA" stroke-width="3" stroke-linecap="round"/>
+<path d="M608 452 l-9 -10 M608 452 l9 -10" fill="none" stroke="#CFC6BA" stroke-width="3" stroke-linecap="round"/>
+<line x1="546" y1="514" x2="498" y2="514" stroke="#CFC6BA" stroke-width="3" stroke-linecap="round"/>
+<path d="M498 514 l10 -9 M498 514 l10 9" fill="none" stroke="#CFC6BA" stroke-width="3" stroke-linecap="round"/>
+<line x1="374" y1="514" x2="326" y2="514" stroke="#CFC6BA" stroke-width="3" stroke-linecap="round"/>
+<path d="M326 514 l10 -9 M326 514 l10 9" fill="none" stroke="#CFC6BA" stroke-width="3" stroke-linecap="round"/>
+<line x1="202" y1="514" x2="154" y2="514" stroke="#CFC6BA" stroke-width="3" stroke-linecap="round"/>
+<path d="M154 514 l10 -9 M154 514 l10 9" fill="none" stroke="#CFC6BA" stroke-width="3" stroke-linecap="round"/>
+<line x1="92" y1="576" x2="92" y2="600" stroke="#CFC6BA" stroke-width="3" stroke-linecap="round"/>
+<path d="M92 600 l-9 -10 M92 600 l9 -10" fill="none" stroke="#CFC6BA" stroke-width="3" stroke-linecap="round"/>
+<line x1="154" y1="662" x2="202" y2="662" stroke="#CFC6BA" stroke-width="3" stroke-linecap="round"/>
+<path d="M202 662 l-10 -9 M202 662 l-10 9" fill="none" stroke="#CFC6BA" stroke-width="3" stroke-linecap="round"/>
+<line x1="326" y1="662" x2="374" y2="662" stroke="#CFC6BA" stroke-width="3" stroke-linecap="round"/>
+<path d="M374 662 l-10 -9 M374 662 l-10 9" fill="none" stroke="#CFC6BA" stroke-width="3" stroke-linecap="round"/>
+<line x1="498" y1="662" x2="546" y2="662" stroke="#CFC6BA" stroke-width="3" stroke-linecap="round"/>
+<path d="M546 662 l-10 -9 M546 662 l-10 9" fill="none" stroke="#CFC6BA" stroke-width="3" stroke-linecap="round"/>
+<line x1="608" y1="724" x2="608" y2="748" stroke="#CFC6BA" stroke-width="3" stroke-linecap="round"/>
+<path d="M608 748 l-9 -10 M608 748 l9 -10" fill="none" stroke="#CFC6BA" stroke-width="3" stroke-linecap="round"/>
+<line x1="546" y1="810" x2="498" y2="810" stroke="#CFC6BA" stroke-width="3" stroke-linecap="round"/>
+<path d="M498 810 l10 -9 M498 810 l10 9" fill="none" stroke="#CFC6BA" stroke-width="3" stroke-linecap="round"/>
+<line x1="374" y1="810" x2="326" y2="810" stroke="#CFC6BA" stroke-width="3" stroke-linecap="round"/>
+<path d="M326 810 l10 -9 M326 810 l10 9" fill="none" stroke="#CFC6BA" stroke-width="3" stroke-linecap="round"/>
+<line x1="202" y1="810" x2="154" y2="810" stroke="#CFC6BA" stroke-width="3" stroke-linecap="round"/>
+<path d="M154 810 l10 -9 M154 810 l10 9" fill="none" stroke="#CFC6BA" stroke-width="3" stroke-linecap="round"/>
+<circle cx="92" cy="70" r="53" fill="#FFFFFF" stroke="#57516B" stroke-width="3.4"/>
+<text x="92" y="77" text-anchor="middle" font-family="Fraunces,serif" font-size="21" font-weight="700" fill="#2E2A3B">START</text>
+<circle cx="264" cy="70" r="53" fill="#FBE7EE" stroke="#C4547A" stroke-width="3.4"/>
+<text x="264" y="85" text-anchor="middle" font-family="Nunito Sans,sans-serif" font-size="42" font-weight="800" fill="#C4547A">♥</text>
+<text x="264" y="43" text-anchor="middle" font-family="Nunito Sans,sans-serif" font-size="13" font-weight="800" fill="#C4547A" opacity=".75">1</text>
+<circle cx="436" cy="70" r="53" fill="#FBF1D6" stroke="#A07A0A" stroke-width="3.4"/>
+<text x="436" y="85" text-anchor="middle" font-family="Nunito Sans,sans-serif" font-size="42" font-weight="800" fill="#A07A0A">☺</text>
+<text x="436" y="43" text-anchor="middle" font-family="Nunito Sans,sans-serif" font-size="13" font-weight="800" fill="#A07A0A" opacity=".75">2</text>
+<circle cx="608" cy="70" r="53" fill="#DDF0EC" stroke="#0E8B78" stroke-width="3.4"/>
+<text x="608" y="85" text-anchor="middle" font-family="Nunito Sans,sans-serif" font-size="42" font-weight="800" fill="#0E8B78">✦</text>
+<text x="608" y="43" text-anchor="middle" font-family="Nunito Sans,sans-serif" font-size="13" font-weight="800" fill="#0E8B78" opacity=".75">3</text>
+<circle cx="608" cy="218" r="53" fill="#FBE7EE" stroke="#C4547A" stroke-width="3.4"/>
+<text x="608" y="233" text-anchor="middle" font-family="Nunito Sans,sans-serif" font-size="42" font-weight="800" fill="#C4547A">♥</text>
+<text x="608" y="191" text-anchor="middle" font-family="Nunito Sans,sans-serif" font-size="13" font-weight="800" fill="#C4547A" opacity=".75">4</text>
+<circle cx="436" cy="218" r="53" fill="#EBE5F8" stroke="#6553A8" stroke-width="3.4"/>
+<text x="436" y="233" text-anchor="middle" font-family="Nunito Sans,sans-serif" font-size="42" font-weight="800" fill="#6553A8">?</text>
+<text x="436" y="191" text-anchor="middle" font-family="Nunito Sans,sans-serif" font-size="13" font-weight="800" fill="#6553A8" opacity=".75">5</text>
+<circle cx="264" cy="218" r="53" fill="#FBE7EE" stroke="#C4547A" stroke-width="3.4"/>
+<text x="264" y="233" text-anchor="middle" font-family="Nunito Sans,sans-serif" font-size="42" font-weight="800" fill="#C4547A">♥</text>
+<text x="264" y="191" text-anchor="middle" font-family="Nunito Sans,sans-serif" font-size="13" font-weight="800" fill="#C4547A" opacity=".75">6</text>
+<circle cx="92" cy="218" r="53" fill="#DDF0EC" stroke="#0E8B78" stroke-width="3.4"/>
+<text x="92" y="233" text-anchor="middle" font-family="Nunito Sans,sans-serif" font-size="42" font-weight="800" fill="#0E8B78">✦</text>
+<text x="92" y="191" text-anchor="middle" font-family="Nunito Sans,sans-serif" font-size="13" font-weight="800" fill="#0E8B78" opacity=".75">7</text>
+<circle cx="92" cy="366" r="53" fill="#FBF1D6" stroke="#A07A0A" stroke-width="3.4"/>
+<text x="92" y="381" text-anchor="middle" font-family="Nunito Sans,sans-serif" font-size="42" font-weight="800" fill="#A07A0A">☺</text>
+<text x="92" y="339" text-anchor="middle" font-family="Nunito Sans,sans-serif" font-size="13" font-weight="800" fill="#A07A0A" opacity=".75">8</text>
+<circle cx="264" cy="366" r="53" fill="#FBE7EE" stroke="#C4547A" stroke-width="3.4"/>
+<text x="264" y="381" text-anchor="middle" font-family="Nunito Sans,sans-serif" font-size="42" font-weight="800" fill="#C4547A">♥</text>
+<text x="264" y="339" text-anchor="middle" font-family="Nunito Sans,sans-serif" font-size="13" font-weight="800" fill="#C4547A" opacity=".75">9</text>
+<circle cx="436" cy="366" r="53" fill="#EBE5F8" stroke="#6553A8" stroke-width="3.4"/>
+<text x="436" y="381" text-anchor="middle" font-family="Nunito Sans,sans-serif" font-size="42" font-weight="800" fill="#6553A8">?</text>
+<text x="436" y="339" text-anchor="middle" font-family="Nunito Sans,sans-serif" font-size="13" font-weight="800" fill="#6553A8" opacity=".75">10</text>
+<circle cx="608" cy="366" r="53" fill="#FBE7EE" stroke="#C4547A" stroke-width="3.4"/>
+<text x="608" y="381" text-anchor="middle" font-family="Nunito Sans,sans-serif" font-size="42" font-weight="800" fill="#C4547A">♥</text>
+<text x="608" y="339" text-anchor="middle" font-family="Nunito Sans,sans-serif" font-size="13" font-weight="800" fill="#C4547A" opacity=".75">11</text>
+<circle cx="608" cy="514" r="53" fill="#DDF0EC" stroke="#0E8B78" stroke-width="3.4"/>
+<text x="608" y="529" text-anchor="middle" font-family="Nunito Sans,sans-serif" font-size="42" font-weight="800" fill="#0E8B78">✦</text>
+<text x="608" y="487" text-anchor="middle" font-family="Nunito Sans,sans-serif" font-size="13" font-weight="800" fill="#0E8B78" opacity=".75">12</text>
+<circle cx="436" cy="514" r="53" fill="#FBF1D6" stroke="#A07A0A" stroke-width="3.4"/>
+<text x="436" y="529" text-anchor="middle" font-family="Nunito Sans,sans-serif" font-size="42" font-weight="800" fill="#A07A0A">☺</text>
+<text x="436" y="487" text-anchor="middle" font-family="Nunito Sans,sans-serif" font-size="13" font-weight="800" fill="#A07A0A" opacity=".75">13</text>
+<circle cx="264" cy="514" r="53" fill="#FBE7EE" stroke="#C4547A" stroke-width="3.4"/>
+<text x="264" y="529" text-anchor="middle" font-family="Nunito Sans,sans-serif" font-size="42" font-weight="800" fill="#C4547A">♥</text>
+<text x="264" y="487" text-anchor="middle" font-family="Nunito Sans,sans-serif" font-size="13" font-weight="800" fill="#C4547A" opacity=".75">14</text>
+<circle cx="92" cy="514" r="53" fill="#EBE5F8" stroke="#6553A8" stroke-width="3.4"/>
+<text x="92" y="529" text-anchor="middle" font-family="Nunito Sans,sans-serif" font-size="42" font-weight="800" fill="#6553A8">?</text>
+<text x="92" y="487" text-anchor="middle" font-family="Nunito Sans,sans-serif" font-size="13" font-weight="800" fill="#6553A8" opacity=".75">15</text>
+<circle cx="92" cy="662" r="53" fill="#FBE7EE" stroke="#C4547A" stroke-width="3.4"/>
+<text x="92" y="677" text-anchor="middle" font-family="Nunito Sans,sans-serif" font-size="42" font-weight="800" fill="#C4547A">♥</text>
+<text x="92" y="635" text-anchor="middle" font-family="Nunito Sans,sans-serif" font-size="13" font-weight="800" fill="#C4547A" opacity=".75">16</text>
+<circle cx="264" cy="662" r="53" fill="#DDF0EC" stroke="#0E8B78" stroke-width="3.4"/>
+<text x="264" y="677" text-anchor="middle" font-family="Nunito Sans,sans-serif" font-size="42" font-weight="800" fill="#0E8B78">✦</text>
+<text x="264" y="635" text-anchor="middle" font-family="Nunito Sans,sans-serif" font-size="13" font-weight="800" fill="#0E8B78" opacity=".75">17</text>
+<circle cx="436" cy="662" r="53" fill="#FBF1D6" stroke="#A07A0A" stroke-width="3.4"/>
+<text x="436" y="677" text-anchor="middle" font-family="Nunito Sans,sans-serif" font-size="42" font-weight="800" fill="#A07A0A">☺</text>
+<text x="436" y="635" text-anchor="middle" font-family="Nunito Sans,sans-serif" font-size="13" font-weight="800" fill="#A07A0A" opacity=".75">18</text>
+<circle cx="608" cy="662" r="53" fill="#FBE7EE" stroke="#C4547A" stroke-width="3.4"/>
+<text x="608" y="677" text-anchor="middle" font-family="Nunito Sans,sans-serif" font-size="42" font-weight="800" fill="#C4547A">♥</text>
+<text x="608" y="635" text-anchor="middle" font-family="Nunito Sans,sans-serif" font-size="13" font-weight="800" fill="#C4547A" opacity=".75">19</text>
+<circle cx="608" cy="810" r="53" fill="#EBE5F8" stroke="#6553A8" stroke-width="3.4"/>
+<text x="608" y="825" text-anchor="middle" font-family="Nunito Sans,sans-serif" font-size="42" font-weight="800" fill="#6553A8">?</text>
+<text x="608" y="783" text-anchor="middle" font-family="Nunito Sans,sans-serif" font-size="13" font-weight="800" fill="#6553A8" opacity=".75">20</text>
+<circle cx="436" cy="810" r="53" fill="#FBE7EE" stroke="#C4547A" stroke-width="3.4"/>
+<text x="436" y="825" text-anchor="middle" font-family="Nunito Sans,sans-serif" font-size="42" font-weight="800" fill="#C4547A">♥</text>
+<text x="436" y="783" text-anchor="middle" font-family="Nunito Sans,sans-serif" font-size="13" font-weight="800" fill="#C4547A" opacity=".75">21</text>
+<circle cx="264" cy="810" r="53" fill="#DDF0EC" stroke="#0E8B78" stroke-width="3.4"/>
+<text x="264" y="825" text-anchor="middle" font-family="Nunito Sans,sans-serif" font-size="42" font-weight="800" fill="#0E8B78">✦</text>
+<text x="264" y="783" text-anchor="middle" font-family="Nunito Sans,sans-serif" font-size="13" font-weight="800" fill="#0E8B78" opacity=".75">22</text>
+<circle cx="92" cy="810" r="53" fill="#FFFFFF" stroke="#57516B" stroke-width="3.4"/>
+<text x="92" y="818" text-anchor="middle" font-family="Fraunces,serif" font-size="23" font-weight="700" fill="#2E2A3B">META</text>
+</svg> XL ============ -->
+<section class="page page--zal">
+  <div class="page__body">
+    <div>
+      <div class="eyebrow">Załącznik 2 · do wydrukowania w powiększeniu</div>
+      <h2 class="h-sec">Ścieżka emocji — plansza w rozmiarze A4</h2>
+      <p class="lead" style="margin-top:3px">Ta sama gra co na s. 16, rozłożona na całą stronę — pola są na tyle duże,
+      że zmieszczą się na nich prawdziwe pionki. Zasady i opis czterech rodzajów pól zostają na s. 16.</p>
+    </div>
+    <div class="zal-plansza">
+<svg viewBox="0 0 700 909" style="width:100%;height:auto" role="img" aria-label="Plansza do gry Ścieżka emocji w powiększeniu: dwadzieścia cztery pola">
+<line x1="156" y1="74" x2="200" y2="74" stroke="#CFC6BA" stroke-width="3" stroke-linecap="round"/>
+<path d="M200 74 l-10 -9 M200 74 l-10 9" fill="none" stroke="#CFC6BA" stroke-width="3" stroke-linecap="round"/>
+<line x1="328" y1="74" x2="372" y2="74" stroke="#CFC6BA" stroke-width="3" stroke-linecap="round"/>
+<path d="M372 74 l-10 -9 M372 74 l-10 9" fill="none" stroke="#CFC6BA" stroke-width="3" stroke-linecap="round"/>
+<line x1="500" y1="74" x2="544" y2="74" stroke="#CFC6BA" stroke-width="3" stroke-linecap="round"/>
+<path d="M544 74 l-10 -9 M544 74 l-10 9" fill="none" stroke="#CFC6BA" stroke-width="3" stroke-linecap="round"/>
+<line x1="608" y1="138" x2="608" y2="162" stroke="#CFC6BA" stroke-width="3" stroke-linecap="round"/>
+<path d="M608 162 l-9 -10 M608 162 l9 -10" fill="none" stroke="#CFC6BA" stroke-width="3" stroke-linecap="round"/>
+<line x1="544" y1="226" x2="500" y2="226" stroke="#CFC6BA" stroke-width="3" stroke-linecap="round"/>
+<path d="M500 226 l10 -9 M500 226 l10 9" fill="none" stroke="#CFC6BA" stroke-width="3" stroke-linecap="round"/>
+<line x1="372" y1="226" x2="328" y2="226" stroke="#CFC6BA" stroke-width="3" stroke-linecap="round"/>
+<path d="M328 226 l10 -9 M328 226 l10 9" fill="none" stroke="#CFC6BA" stroke-width="3" stroke-linecap="round"/>
+<line x1="200" y1="226" x2="156" y2="226" stroke="#CFC6BA" stroke-width="3" stroke-linecap="round"/>
+<path d="M156 226 l10 -9 M156 226 l10 9" fill="none" stroke="#CFC6BA" stroke-width="3" stroke-linecap="round"/>
+<line x1="92" y1="290" x2="92" y2="314" stroke="#CFC6BA" stroke-width="3" stroke-linecap="round"/>
+<path d="M92 314 l-9 -10 M92 314 l9 -10" fill="none" stroke="#CFC6BA" stroke-width="3" stroke-linecap="round"/>
+<line x1="156" y1="378" x2="200" y2="378" stroke="#CFC6BA" stroke-width="3" stroke-linecap="round"/>
+<path d="M200 378 l-10 -9 M200 378 l-10 9" fill="none" stroke="#CFC6BA" stroke-width="3" stroke-linecap="round"/>
+<line x1="328" y1="378" x2="372" y2="378" stroke="#CFC6BA" stroke-width="3" stroke-linecap="round"/>
+<path d="M372 378 l-10 -9 M372 378 l-10 9" fill="none" stroke="#CFC6BA" stroke-width="3" stroke-linecap="round"/>
+<line x1="500" y1="378" x2="544" y2="378" stroke="#CFC6BA" stroke-width="3" stroke-linecap="round"/>
+<path d="M544 378 l-10 -9 M544 378 l-10 9" fill="none" stroke="#CFC6BA" stroke-width="3" stroke-linecap="round"/>
+<line x1="608" y1="442" x2="608" y2="466" stroke="#CFC6BA" stroke-width="3" stroke-linecap="round"/>
+<path d="M608 466 l-9 -10 M608 466 l9 -10" fill="none" stroke="#CFC6BA" stroke-width="3" stroke-linecap="round"/>
+<line x1="544" y1="530" x2="500" y2="530" stroke="#CFC6BA" stroke-width="3" stroke-linecap="round"/>
+<path d="M500 530 l10 -9 M500 530 l10 9" fill="none" stroke="#CFC6BA" stroke-width="3" stroke-linecap="round"/>
+<line x1="372" y1="530" x2="328" y2="530" stroke="#CFC6BA" stroke-width="3" stroke-linecap="round"/>
+<path d="M328 530 l10 -9 M328 530 l10 9" fill="none" stroke="#CFC6BA" stroke-width="3" stroke-linecap="round"/>
+<line x1="200" y1="530" x2="156" y2="530" stroke="#CFC6BA" stroke-width="3" stroke-linecap="round"/>
+<path d="M156 530 l10 -9 M156 530 l10 9" fill="none" stroke="#CFC6BA" stroke-width="3" stroke-linecap="round"/>
+<line x1="92" y1="594" x2="92" y2="618" stroke="#CFC6BA" stroke-width="3" stroke-linecap="round"/>
+<path d="M92 618 l-9 -10 M92 618 l9 -10" fill="none" stroke="#CFC6BA" stroke-width="3" stroke-linecap="round"/>
+<line x1="156" y1="682" x2="200" y2="682" stroke="#CFC6BA" stroke-width="3" stroke-linecap="round"/>
+<path d="M200 682 l-10 -9 M200 682 l-10 9" fill="none" stroke="#CFC6BA" stroke-width="3" stroke-linecap="round"/>
+<line x1="328" y1="682" x2="372" y2="682" stroke="#CFC6BA" stroke-width="3" stroke-linecap="round"/>
+<path d="M372 682 l-10 -9 M372 682 l-10 9" fill="none" stroke="#CFC6BA" stroke-width="3" stroke-linecap="round"/>
+<line x1="500" y1="682" x2="544" y2="682" stroke="#CFC6BA" stroke-width="3" stroke-linecap="round"/>
+<path d="M544 682 l-10 -9 M544 682 l-10 9" fill="none" stroke="#CFC6BA" stroke-width="3" stroke-linecap="round"/>
+<line x1="608" y1="746" x2="608" y2="770" stroke="#CFC6BA" stroke-width="3" stroke-linecap="round"/>
+<path d="M608 770 l-9 -10 M608 770 l9 -10" fill="none" stroke="#CFC6BA" stroke-width="3" stroke-linecap="round"/>
+<line x1="544" y1="834" x2="500" y2="834" stroke="#CFC6BA" stroke-width="3" stroke-linecap="round"/>
+<path d="M500 834 l10 -9 M500 834 l10 9" fill="none" stroke="#CFC6BA" stroke-width="3" stroke-linecap="round"/>
+<line x1="372" y1="834" x2="328" y2="834" stroke="#CFC6BA" stroke-width="3" stroke-linecap="round"/>
+<path d="M328 834 l10 -9 M328 834 l10 9" fill="none" stroke="#CFC6BA" stroke-width="3" stroke-linecap="round"/>
+<line x1="200" y1="834" x2="156" y2="834" stroke="#CFC6BA" stroke-width="3" stroke-linecap="round"/>
+<path d="M156 834 l10 -9 M156 834 l10 9" fill="none" stroke="#CFC6BA" stroke-width="3" stroke-linecap="round"/>
+<circle cx="92" cy="74" r="55" fill="#FFFFFF" stroke="#57516B" stroke-width="3.4"/>
+<text x="92" y="81" text-anchor="middle" font-family="Fraunces,serif" font-size="21" font-weight="700" fill="#2E2A3B">START</text>
+<circle cx="264" cy="74" r="55" fill="#FBE7EE" stroke="#C4547A" stroke-width="3.4"/>
+<text x="264" y="89" text-anchor="middle" font-family="Nunito Sans,sans-serif" font-size="42" font-weight="800" fill="#C4547A">♥</text>
+<text x="264" y="47" text-anchor="middle" font-family="Nunito Sans,sans-serif" font-size="13" font-weight="800" fill="#C4547A" opacity=".75">1</text>
+<circle cx="436" cy="74" r="55" fill="#FBF1D6" stroke="#A07A0A" stroke-width="3.4"/>
+<text x="436" y="89" text-anchor="middle" font-family="Nunito Sans,sans-serif" font-size="42" font-weight="800" fill="#A07A0A">☺</text>
+<text x="436" y="47" text-anchor="middle" font-family="Nunito Sans,sans-serif" font-size="13" font-weight="800" fill="#A07A0A" opacity=".75">2</text>
+<circle cx="608" cy="74" r="55" fill="#DDF0EC" stroke="#0E8B78" stroke-width="3.4"/>
+<text x="608" y="89" text-anchor="middle" font-family="Nunito Sans,sans-serif" font-size="42" font-weight="800" fill="#0E8B78">✦</text>
+<text x="608" y="47" text-anchor="middle" font-family="Nunito Sans,sans-serif" font-size="13" font-weight="800" fill="#0E8B78" opacity=".75">3</text>
+<circle cx="608" cy="226" r="55" fill="#FBE7EE" stroke="#C4547A" stroke-width="3.4"/>
+<text x="608" y="241" text-anchor="middle" font-family="Nunito Sans,sans-serif" font-size="42" font-weight="800" fill="#C4547A">♥</text>
+<text x="608" y="199" text-anchor="middle" font-family="Nunito Sans,sans-serif" font-size="13" font-weight="800" fill="#C4547A" opacity=".75">4</text>
+<circle cx="436" cy="226" r="55" fill="#EBE5F8" stroke="#6553A8" stroke-width="3.4"/>
+<text x="436" y="241" text-anchor="middle" font-family="Nunito Sans,sans-serif" font-size="42" font-weight="800" fill="#6553A8">?</text>
+<text x="436" y="199" text-anchor="middle" font-family="Nunito Sans,sans-serif" font-size="13" font-weight="800" fill="#6553A8" opacity=".75">5</text>
+<circle cx="264" cy="226" r="55" fill="#FBE7EE" stroke="#C4547A" stroke-width="3.4"/>
+<text x="264" y="241" text-anchor="middle" font-family="Nunito Sans,sans-serif" font-size="42" font-weight="800" fill="#C4547A">♥</text>
+<text x="264" y="199" text-anchor="middle" font-family="Nunito Sans,sans-serif" font-size="13" font-weight="800" fill="#C4547A" opacity=".75">6</text>
+<circle cx="92" cy="226" r="55" fill="#DDF0EC" stroke="#0E8B78" stroke-width="3.4"/>
+<text x="92" y="241" text-anchor="middle" font-family="Nunito Sans,sans-serif" font-size="42" font-weight="800" fill="#0E8B78">✦</text>
+<text x="92" y="199" text-anchor="middle" font-family="Nunito Sans,sans-serif" font-size="13" font-weight="800" fill="#0E8B78" opacity=".75">7</text>
+<circle cx="92" cy="378" r="55" fill="#FBF1D6" stroke="#A07A0A" stroke-width="3.4"/>
+<text x="92" y="393" text-anchor="middle" font-family="Nunito Sans,sans-serif" font-size="42" font-weight="800" fill="#A07A0A">☺</text>
+<text x="92" y="351" text-anchor="middle" font-family="Nunito Sans,sans-serif" font-size="13" font-weight="800" fill="#A07A0A" opacity=".75">8</text>
+<circle cx="264" cy="378" r="55" fill="#FBE7EE" stroke="#C4547A" stroke-width="3.4"/>
+<text x="264" y="393" text-anchor="middle" font-family="Nunito Sans,sans-serif" font-size="42" font-weight="800" fill="#C4547A">♥</text>
+<text x="264" y="351" text-anchor="middle" font-family="Nunito Sans,sans-serif" font-size="13" font-weight="800" fill="#C4547A" opacity=".75">9</text>
+<circle cx="436" cy="378" r="55" fill="#EBE5F8" stroke="#6553A8" stroke-width="3.4"/>
+<text x="436" y="393" text-anchor="middle" font-family="Nunito Sans,sans-serif" font-size="42" font-weight="800" fill="#6553A8">?</text>
+<text x="436" y="351" text-anchor="middle" font-family="Nunito Sans,sans-serif" font-size="13" font-weight="800" fill="#6553A8" opacity=".75">10</text>
+<circle cx="608" cy="378" r="55" fill="#FBE7EE" stroke="#C4547A" stroke-width="3.4"/>
+<text x="608" y="393" text-anchor="middle" font-family="Nunito Sans,sans-serif" font-size="42" font-weight="800" fill="#C4547A">♥</text>
+<text x="608" y="351" text-anchor="middle" font-family="Nunito Sans,sans-serif" font-size="13" font-weight="800" fill="#C4547A" opacity=".75">11</text>
+<circle cx="608" cy="530" r="55" fill="#DDF0EC" stroke="#0E8B78" stroke-width="3.4"/>
+<text x="608" y="545" text-anchor="middle" font-family="Nunito Sans,sans-serif" font-size="42" font-weight="800" fill="#0E8B78">✦</text>
+<text x="608" y="503" text-anchor="middle" font-family="Nunito Sans,sans-serif" font-size="13" font-weight="800" fill="#0E8B78" opacity=".75">12</text>
+<circle cx="436" cy="530" r="55" fill="#FBF1D6" stroke="#A07A0A" stroke-width="3.4"/>
+<text x="436" y="545" text-anchor="middle" font-family="Nunito Sans,sans-serif" font-size="42" font-weight="800" fill="#A07A0A">☺</text>
+<text x="436" y="503" text-anchor="middle" font-family="Nunito Sans,sans-serif" font-size="13" font-weight="800" fill="#A07A0A" opacity=".75">13</text>
+<circle cx="264" cy="530" r="55" fill="#FBE7EE" stroke="#C4547A" stroke-width="3.4"/>
+<text x="264" y="545" text-anchor="middle" font-family="Nunito Sans,sans-serif" font-size="42" font-weight="800" fill="#C4547A">♥</text>
+<text x="264" y="503" text-anchor="middle" font-family="Nunito Sans,sans-serif" font-size="13" font-weight="800" fill="#C4547A" opacity=".75">14</text>
+<circle cx="92" cy="530" r="55" fill="#EBE5F8" stroke="#6553A8" stroke-width="3.4"/>
+<text x="92" y="545" text-anchor="middle" font-family="Nunito Sans,sans-serif" font-size="42" font-weight="800" fill="#6553A8">?</text>
+<text x="92" y="503" text-anchor="middle" font-family="Nunito Sans,sans-serif" font-size="13" font-weight="800" fill="#6553A8" opacity=".75">15</text>
+<circle cx="92" cy="682" r="55" fill="#FBE7EE" stroke="#C4547A" stroke-width="3.4"/>
+<text x="92" y="697" text-anchor="middle" font-family="Nunito Sans,sans-serif" font-size="42" font-weight="800" fill="#C4547A">♥</text>
+<text x="92" y="655" text-anchor="middle" font-family="Nunito Sans,sans-serif" font-size="13" font-weight="800" fill="#C4547A" opacity=".75">16</text>
+<circle cx="264" cy="682" r="55" fill="#DDF0EC" stroke="#0E8B78" stroke-width="3.4"/>
+<text x="264" y="697" text-anchor="middle" font-family="Nunito Sans,sans-serif" font-size="42" font-weight="800" fill="#0E8B78">✦</text>
+<text x="264" y="655" text-anchor="middle" font-family="Nunito Sans,sans-serif" font-size="13" font-weight="800" fill="#0E8B78" opacity=".75">17</text>
+<circle cx="436" cy="682" r="55" fill="#FBF1D6" stroke="#A07A0A" stroke-width="3.4"/>
+<text x="436" y="697" text-anchor="middle" font-family="Nunito Sans,sans-serif" font-size="42" font-weight="800" fill="#A07A0A">☺</text>
+<text x="436" y="655" text-anchor="middle" font-family="Nunito Sans,sans-serif" font-size="13" font-weight="800" fill="#A07A0A" opacity=".75">18</text>
+<circle cx="608" cy="682" r="55" fill="#FBE7EE" stroke="#C4547A" stroke-width="3.4"/>
+<text x="608" y="697" text-anchor="middle" font-family="Nunito Sans,sans-serif" font-size="42" font-weight="800" fill="#C4547A">♥</text>
+<text x="608" y="655" text-anchor="middle" font-family="Nunito Sans,sans-serif" font-size="13" font-weight="800" fill="#C4547A" opacity=".75">19</text>
+<circle cx="608" cy="834" r="55" fill="#EBE5F8" stroke="#6553A8" stroke-width="3.4"/>
+<text x="608" y="849" text-anchor="middle" font-family="Nunito Sans,sans-serif" font-size="42" font-weight="800" fill="#6553A8">?</text>
+<text x="608" y="807" text-anchor="middle" font-family="Nunito Sans,sans-serif" font-size="13" font-weight="800" fill="#6553A8" opacity=".75">20</text>
+<circle cx="436" cy="834" r="55" fill="#FBE7EE" stroke="#C4547A" stroke-width="3.4"/>
+<text x="436" y="849" text-anchor="middle" font-family="Nunito Sans,sans-serif" font-size="42" font-weight="800" fill="#C4547A">♥</text>
+<text x="436" y="807" text-anchor="middle" font-family="Nunito Sans,sans-serif" font-size="13" font-weight="800" fill="#C4547A" opacity=".75">21</text>
+<circle cx="264" cy="834" r="55" fill="#DDF0EC" stroke="#0E8B78" stroke-width="3.4"/>
+<text x="264" y="849" text-anchor="middle" font-family="Nunito Sans,sans-serif" font-size="42" font-weight="800" fill="#0E8B78">✦</text>
+<text x="264" y="807" text-anchor="middle" font-family="Nunito Sans,sans-serif" font-size="13" font-weight="800" fill="#0E8B78" opacity=".75">22</text>
+<circle cx="92" cy="834" r="55" fill="#FFFFFF" stroke="#57516B" stroke-width="3.4"/>
+<text x="92" y="842" text-anchor="middle" font-family="Fraunces,serif" font-size="23" font-weight="700" fill="#2E2A3B">META</text>
+</svg>
+    </div>
+  </div>
+  <div class="page__foot"><span><b>Załącznik 2</b> · plansza gry w rozmiarze A4</span><span class="num">31</span></div>
+</section>
+
