@@ -82,3 +82,13 @@ Kryterium jest tu najważniejsze — bez niego ćwiczenie nie da się przełoży
 - Porad bez adresata („warto zadbać o…") — pisz, kto i co robi.
 - Powtarzania treści z innych części serii. Odsyłaj: „szerzej w części 1, s. 12".
 - Obietnic co do kolejnych części, których nie ma w rejestrze `references/seria.md`.
+
+## Stopka autorska — brzmienie obowiązujące
+
+Na okładce i na stronie końcowej, dokładnie w tym brzmieniu:
+
+> **Mirosława Ewa Jurczyszyn**
+> Pedagog specjalny · terapeuta · autorka materiałów do edukacji i terapii
+> kontakt@eduplaner2026.pl
+
+Nie skracaj i nie parafrazuj tej linii — jest podpisem autorskim, nie opisem.

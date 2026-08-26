@@ -184,3 +184,53 @@ Na jasnych polach rampy rysuj twarze kolorem `--ink2`, nie kolorem pola — inac
 Blok z logo PCTP, autorką, adresem, tytułem broszury, nadtytułem serii i plakietką numeru części,
 a pod nim jedno zdanie: „Materiał ma charakter informacyjno-metodyczny. Nie zastępuje diagnozy
 specjalistycznej ani wykładni przepisów prawa oświatowego."
+
+## Strona załącznika (plansza na całą kartkę)
+
+Narzędzie, które dziecko realnie obsługuje — koło ze strzałką, plansza z pionkami,
+karty do trzymania w ręku — dostaje **własną stronę na końcu broszury**, obok wersji
+opisowej w środku. W środku zostaje instrukcja i tabela „kiedy czego używać";
+w załączniku sama plansza, tak duża, jak pozwala arkusz.
+
+```html
+<section class="page page--zal">
+  <div class="page__body">
+    <div>
+      <div class="eyebrow">Załącznik 1 · do wydrukowania w powiększeniu</div>
+      <h2 class="h-sec">Koło emocji w rozmiarze A4</h2>
+      <p class="lead" style="margin-top:3px">To samo koło co na s. 15…</p>
+    </div>
+    <div class="zal-plansza">
+      <!-- SVG planszy -->
+    </div>
+  </div>
+  <div class="page__foot">…<span class="num">30</span></div>
+</section>
+```
+
+```css
+.page--zal .page__body{gap:6px}
+.zal-plansza{flex:1; display:flex; align-items:center; justify-content:center;
+  border:1.4px dashed var(--tuk-mid); border-radius:14px; background:#FFFDFB; padding:8px}
+.zal-plansza > svg{width:100%; height:auto; max-height:100%}
+```
+
+Trzy rzeczy, na których łatwo się przewrócić:
+
+1. **Selektor `>` jest konieczny.** `.zal-plansza svg` łapie także zagnieżdżone `<svg class="buzka">`
+   wewnątrz planszy i rozdmuchuje je do szerokości strony. Rysunek rozpada się w sposób,
+   który na pierwszy rzut oka wygląda jak błąd generatora, a nie jak kolizja CSS.
+2. **Kopiując SVG, zmień identyfikatory.** `href="#luk0"` odsyła zawsze do pierwszego elementu
+   o tym `id` w całym dokumencie — kopia koła bez zmiany `id` pobiera łuki oryginału
+   i podpisy lądują poza tarczą. Prefiksuj: `luk0` → `zluk0`.
+3. **Wycinając SVG z pliku, licz zagnieżdżenia.** Pierwsze `</svg>` po otwarciu tagu zamyka
+   zagnieżdżoną buźkę, nie całą planszę. Szukaj domknięcia przez zliczanie `<svg` i `</svg>`.
+
+Budżet pionowy strony załącznika: pole treści ≈ 1048 px, z tego nagłówek z leadem ≈ 90 px
+i stopka ≈ 34 px. Na samą planszę zostaje **ok. 900 px** — przy pełnej szerokości 703 px
+oznacza to proporcję nie wyższą niż 1,28. Plansza pionowa wyższa niż to nie zmieści się,
+choćby skrypt pomiarowy pokazywał tylko kilkanaście pikseli przepełnienia.
+
+Karty do wycinania w załączniku: siatka `repeat(3,1fr)`, `min-height:55mm` na kartę,
+przerywana ramka w kolorze rodziny emocji, buźka 16 mm, numer 19 pt, tekst 12 pt
+i dwie linie do zapisania odpowiedzi. Dwanaście kart wypełnia wtedy dokładnie jedną stronę.

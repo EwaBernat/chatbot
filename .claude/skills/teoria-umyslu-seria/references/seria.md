@@ -68,7 +68,8 @@ generator buziek SVG w pięciu emocjach.
 **Tytuł:** Emocje złożone i zabawa razem — drugie pół roku
 **Podtytuł:** Poradnik nauczyciela przedszkola. *Co robić, gdy dziecko zna już cztery emocje,
 a wciąż nie umie bawić się z innymi?*
-**Objętość:** 27 stron A4. **Plik:** `broszura-teoria-umyslu-2b/index.html` w repozytorium.
+**Objętość:** 31 stron A4 (wydanie 3 — po podniesieniu stopnia pisma i dodaniu załączników).
+**Plik:** `broszura-teoria-umyslu-2b/index.html` w repozytorium.
 
 Kontynuacja 2A: miesiące 7–12, kolejne 48 spotkań. Zakres: emocje złożone (duma, wstyd, zazdrość,
 zawód, tęsknota), regulacja emocji, zabawa symboliczna, wejście do zabawy z rówieśnikiem, intencja a skutek.
@@ -76,18 +77,31 @@ Nadal **poza zakresem**: fałszywe przekonanie, emocje ukryte, ironia — materi
 
 | Strony | Zawartość |
 |---|---|
-| 3–4 | Próba kontrolna po 2A, mapa miesięcy 7–12 |
-| 5–10 | Sześć modułów miesięcznych z zadaniami dla rodziców i zapisami do IPET |
-| 11–13 | Scenariusze 13–24 |
-| 14–16 | Trzy narzędzia ilustrowane: koło emocji, gra planszowa, karty sytuacji |
-| 17–19 | Karty pracy 4 i 5, opowiadania 7–10 |
-| 20–27 | **Dokumentacja:** różnice rewalidacja/PPP, dwa wzory sprawozdań, 48 wpisów do dziennika, sprawozdanie wypełnione, cele SMART, karta monitorowania, rodzice i literatura |
+| 3–5 | Próba kontrolna po 2A, co zostaje bez zmian i skróty, mapa miesięcy 7–12 |
+| 6–11 | Sześć modułów miesięcznych z zapisami do WOPFU/IPET |
+| 12–14 | Scenariusze 13–24 |
+| 15–17 | Trzy narzędzia ilustrowane: koło emocji, gra planszowa, karty sytuacji |
+| 18–20 | Karty pracy 4 i 5, opowiadania 7–10 |
+| 21–29 | **Dokumentacja:** różnice rewalidacja/PPP, dwa wzory sprawozdań, 48 wpisów do dziennika, zestawienie różnic w papierach, sprawozdanie wypełnione, cele SMART, karta monitorowania, rodzice i literatura |
+| 30–31 | **Załączniki:** koło emocji i plansza gry w rozmiarze A4 |
 
 Nowe komponenty dla kolejnych części: `.narz` (karta narzędzia), `.spraw` (wzór sprawozdania
 z sekcjami do wypełnienia), `.roznice` (tabela porównawcza dwóch trybów), `.page--dz`
-(zagęszczona typografia dla długich tabel), generator koła emocji, planszy do gry i kart sytuacji.
+(zagęszczona typografia dla długich tabel), `.page--zw` (lokalne zagęszczenie odstępów
+bez ruszania pisma), `.fig-card` (karta wykresu), `.opow--tue/tuk/tus` (opowiadanie podświetlone
+kolorem modułu), `.page--zal` + `.zal-plansza` (załącznik z planszą na całą stronę),
+generator koła emocji, planszy do gry i kart sytuacji.
 
-**Ważne merytorycznie:** rozdział rewalidacja / pomoc psychologiczno-pedagogiczna (s. 20) jest
+**Załączniki jako wzorzec.** Narzędzie, które dziecko ma realnie obsługiwać (koło ze strzałką,
+plansza z pionkami), powinno mieć wersję na całą stronę A4 na końcu broszury — w środku zostaje
+wersja opisowa z instrukcją, w załączniku sama plansza. Przy kopiowaniu grafiki SVG na drugą stronę
+**zmień identyfikatory** (`id="luk0"` → `id="zluk0"` i odpowiednio `href`), bo `href="#…"` trafia
+zawsze do pierwszego elementu o tym `id` w dokumencie. Regułę szerokości pisz jako
+`.zal-plansza > svg`, nie `.zal-plansza svg` — inaczej złapie zagnieżdżone buźki i rozsadzi rysunek.
+Strzałka koła emocji jest **granatowa** (`#1B3A6B`) — celowo poza paletą czterech filarów,
+żeby nie czytała się jako element rodziny różowej.
+
+**Ważne merytorycznie:** rozdział rewalidacja / pomoc psychologiczno-pedagogiczna (s. 21) jest
 punktem odniesienia dla całej serii — cele rewalidacyjne wynikają z orzeczenia i IPET, cele PPP
 z bieżącego rozpoznania. Sprawozdania różnią się w sekcjach II, IV, VI i VII.
 

@@ -2,7 +2,7 @@
 name: teoria-umyslu-seria
 description: >-
   Generator kolejnych części serii broszur „Teoria umysłu" autorstwa Mirosławy Ewy Jurczyszyn (PCTP
-  Koszalin) — 23-stronicowe poradniki A4 dla nauczycieli i rodziców dzieci oraz uczniów w spektrum
+  Koszalin) — wielostronicowe poradniki A4 (23–31 stron) dla nauczycieli i rodziców dzieci oraz uczniów w spektrum
   autyzmu. Użyj ZAWSZE, gdy użytkowniczka prosi o: „część 2/3/4 serii teoria umysłu", „kolejną
   broszurę z serii", „broszurę o TUE/TUK/TUS", „poradnik o emocjach/przekonaniach/umiejętnościach
   społecznych", „nową część o teorii umysłu", a także gdy prosi o poprawki, dodanie strony, nowe
@@ -56,6 +56,28 @@ Nigdy nie zastępuj osadzonych fontów linkiem do Google Fonts — złamiesz tę
 Nie zmieniaj wartości w bloku `:root` ani nazw klas. Jeśli czegoś brakuje, dopisz nową regułę
 na końcu arkusza, nadając jej nazwę spoza istniejącej przestrzeni (patrz ostrzeżenie o kolizjach
 klas w `references/system-wizualny.md`).
+
+### 1a. Stopień pisma jest nienaruszalny — zawsze duży
+
+Autorka zgłosiła przy części 2B, że wcześniejszy skład był **za drobny i trudno się go czyta**.
+Szablon niesie już podniesioną skalę (tekst ciągły **11 pt**, tabele 9,5 pt, minimum 7,7 pt)
+i **to jest wartość docelowa dla każdej kolejnej części**.
+
+Zasada, od której nie ma wyjątków:
+
+> Gdy treść nie mieści się na stronie, **dodajesz stronę albo przenosisz blok** —
+> nigdy nie zmniejszasz stopnia pisma.
+
+Kolejność sięgania po miejsce, gdy strona się nie mieści:
+
+1. Usuń powtórzenie — sprawdź, czy tej treści nie ma już w zestawieniu zbiorczym gdzie indziej.
+2. Skróć lead o jedną linijkę albo przeredaguj akapit tak, żeby zszedł o wiersz.
+3. Oznacz stronę klasą `.page--zw` — zagęszcza odstępy i wyściółki, **nie rusza pisma**.
+4. Przenieś blok na sąsiednią stronę z zapasem.
+5. Dodaj nową stronę i rozłóż na niej treść z dwóch przepełnionych.
+
+Zmniejszenie `font-size` nie występuje na tej liście i nie jest dopuszczalnym rozwiązaniem.
+Pełna tabela wielkości: `references/system-wizualny.md`, sekcja „Skala pisma".
 
 ### 2. Pisz treść według zasad redakcyjnych
 
@@ -129,6 +151,10 @@ Na koniec przejrzyj odsyłacze w treści („karta obserwacji ze s. 22") — skr
 Przejdź te punkty — każdy z nich był realnym błędem przy części 1:
 
 - Wszystkie strony mieszczą się na A4 (skrypt nie zgłasza wartości ujemnych).
+- **Stopień pisma nie został nigdzie obniżony, żeby coś zmieścić** — tekst ciągły ma 11 pt,
+  najdrobniejszy tekst w dokumencie nie schodzi poniżej 7,7 pt.
+- Podpisy wewnątrz SVG mają realny rozmiar: `viewBox` odpowiada szerokości renderowania
+  (patrz „Pułapka skali" w `references/system-wizualny.md`).
 - Liczba stron w PDF = liczba sekcji `.page`.
 - Polskie znaki wyświetlają się poprawnie (brak `Ĺ`, `Ă`, `â€`) — plik zaczyna się od `<meta charset="utf-8">`.
 - Tytuły i etykiety w formie pytającej mają znak zapytania.

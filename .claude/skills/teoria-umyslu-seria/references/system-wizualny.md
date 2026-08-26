@@ -33,13 +33,48 @@ różowy → złoty → fioletowy → zielony.
 - Oba kroje są **osadzone w pliku jako base64** (podzbiory latin + latin-ext, ok. 660 KB).
   Dzięki temu broszura drukuje się identycznie bez internetu — w szkole to nie jest luksus.
 
-Wielkości: tekst 9,5 pt / interlinia 1,42; tabele 8,2 pt; karty ćwiczeń 8,3 pt;
-nagłówek strony `h-sec` 16,5 pt; tytuł okładki 32 pt.
+### Skala pisma — obowiązująca od wydania 3 części 2B
+
+Pierwsze wydania serii były składane za drobno; autorka zgłosiła, że **trudno się to czyta**.
+Skala została podniesiona o ok. 16% dla tekstu poniżej 10 pt i o 10% dla 10–14 pt.
+**To jest obecny standard serii — nie wracaj do poprzednich wartości, nawet gdy strona
+nie chce się zmieścić.** Gdy treści jest za dużo, dodaje się stronę, a nie zmniejsza pismo.
+
+| Element | Selektor | Wielkość |
+|---|---|---|
+| tekst ciągły | `body` | **11 pt** / interlinia 1,42 |
+| lead pod nagłówkiem | `.lead` | 11,1 pt |
+| tabele | `table` | 9,5 pt |
+| tabela spotkań | `.spotk` | 9,2 pt |
+| karty ćwiczeń i scenariuszy | `.ex__body` | 9,5 pt |
+| opowiadania | `.opow` | 10,2 pt |
+| etykiety wersalikowe | `.kicker`, `.ex__body b` | 8–9,3 pt |
+| najdrobniejszy dopuszczalny tekst | — | **7,7 pt** (nigdy mniej) |
+| nagłówek strony | `.h-sec` | 17,2 pt |
+| tytuł okładki | `.cover__title` | 33,3 pt |
+
+Miejsce odzyskuje się **na strukturze, nie na piśmie**: `padding` strony 12/12/8 mm,
+odstęp `.page__body` 7 px, `.card` 7px 10px, `.grid` 7 px. Gdy to nie wystarcza,
+oznacz stronę klasą `.page--zw` (zagęszczenie lokalne: mniejsze odstępy i wyściółki,
+bez ruszania stopnia pisma) albo przenieś blok na nową stronę.
+
+## Wzmocnienia wprowadzone w wydaniu 3
+
+- **Tabele.** Nagłówki w `--ink` (nie `--ink2`), kreska pod nagłówkiem 2 px,
+  linie wierszy `#E4DBD0`, pas naprzemienny `#F8F2EA`. Tabela nie dostaje ramki
+  zewnętrznej — stoi w karcie, która już ją ma.
+- **Karty scenariuszy `.ex`.** Ramka 1,6 px w kolorze modułu z delikatnym cieniem,
+  kreska 1,4 px pod nagłówkiem, tytuł 12,2 pt w kolorze modułu, numer w wypełnionym
+  kaflu (biała cyfra na kolorze), etykiety `CEL / MATERIAŁY / PRZEBIEG` w kolorze modułu.
+  Kolor podaje się przez `--rail` w klasach `.ex--tue`, `.ex--tuk`, `.ex--tus`.
+- **Opowiadania `.opow`.** Tło i ramka w kolorze modułu (`.opow--tue/tuk/tus`),
+  lewa krawędź 4 px, tytuł w kolorze modułu, a blok pytań `.pyt` na **białym** tle,
+  żeby odciął się od podświetlonego opowiadania.
 
 ## Siatka strony
 
-`.page` = 210 × 297 mm, `padding: 13mm 13mm 9mm`. Pole treści ≈ 184 × 275 mm.
-`.page__body` to kolumna flex z odstępem 9 px; stopka `.page__foot` przykleja się do dołu.
+`.page` = 210 × 297 mm, `padding: 12mm 12mm 8mm`. Pole treści ≈ 186 × 277 mm.
+`.page__body` to kolumna flex z odstępem 7 px; stopka `.page__foot` przykleja się do dołu.
 
 W druku `.page` dostaje `height: 296.4 mm` i `overflow: hidden` — o 0,6 mm mniej niż arkusz,
 bo równe 297 mm powodowało, że zaokrąglenie subpikselowe wypychało co drugą stronę na pustą
