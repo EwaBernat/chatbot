@@ -1,6 +1,6 @@
 ---
 name: dane-i-glos
-description: Zamienia dane (CSV, XLSX, JSON, tabela w czacie) w gotowe nagranie po polsku — rzetelna analiza liczb, scenariusz narracji, a na końcu głos z ElevenLabs (MP3 + napisy SRT), film z animowanymi wykresami (Remotion) albo film z Twoim awatarem i głosem z HeyGen. Użyj ZAWSZE, gdy użytkowniczka prosi o: „udźwiękowij te dane", „przeczytaj mi ten raport", „zrób lektora do tych wyników", „narracja z tabeli", „audio podsumowanie", „wersja do słuchania", „głos do prezentacji", „film z danych", „wideo z wykresami", „animacja danych", „film z awatarem", „awatar opowiada wyniki", „nagraj to moim głosem". Wyzwalaj przy hasłach: ElevenLabs, HeyGen, Remotion, awatar, TTS, lektor, narracja, voice-over, napisy SRT, klon głosu, mój głos, wykres w filmie. Wyzwalaj też, gdy wgrywa dane i mówi „z głosem", „na głos", „z moją twarzą", albo prosi o dźwięk lub film do materiału EduPlaner. NIE używaj do samej analizy danych bez audio ani do czytania tekstu spoza danych.
+description: Zamienia dane (CSV, XLSX, JSON, tabela w czacie) w gotowe nagranie po polsku — rzetelna analiza liczb, scenariusz narracji, a na końcu głos użytkowniczki z ElevenLabs (MP3 + napisy SRT), film z animowanymi wykresami (Remotion) albo film z jej awatarem HeyGen. NIGDY nie tworzy nagrania cudzym głosem — bez jej zapamiętanego głosu oddaje sam scenariusz i zatrzymuje się. Użyj ZAWSZE, gdy prosi o: „udźwiękowij te dane", „przeczytaj mi ten raport", „zrób lektora do tych wyników", „narracja z tabeli", „audio podsumowanie", „wersja do słuchania", „głos do prezentacji", „film z danych", „wideo z wykresami", „animacja danych", „film z awatarem", „nagraj to moim głosem", a także gdy prosi o sklonowanie albo skonfigurowanie swojego głosu. Wyzwalaj przy hasłach: ElevenLabs, HeyGen, Remotion, awatar, TTS, lektor, narracja, voice-over, napisy SRT, klon głosu, mój głos, wykres w filmie. NIE używaj do samej analizy danych bez audio.
 ---
 
 # Dane i głos
@@ -9,6 +9,28 @@ Skill prowadzi jedną drogę: **dane → liczby → scenariusz → głos → obr
 jest animowany wykres (Remotion), twarz awatara (HeyGen) albo jedno i drugie.
 Każdy etap opiera się na poprzednim, więc narracja nigdy nie zawiera liczby, której nie ma
 w pliku źródłowym.
+
+## Zasada nadrzędna: tylko jej głos
+
+**Nigdy nie twórz nagrania ani filmu cudzym głosem.** Materiał firmowany nazwiskiem
+użytkowniczki ma brzmieć nią — głos zastępczy podważa wiarygodność materiału i nie jest
+tym, o co prosiła.
+
+Gdy skill nie ma zapamiętanego jej głosu:
+
+1. **Zrób wszystko, co nie wymaga głosu** — profil danych, wybór historii, scenariusz
+   narracji. To realna wartość i nie czeka na nic.
+2. **Zatrzymaj się przed generowaniem dźwięku.** Oddaj scenariusz i powiedz wprost,
+   czego brakuje.
+3. **Nie proponuj zastępstwa** „na razie", „do podglądu" ani „żeby zobaczyć, jak działa".
+   Ona odrzuciła tę drogę.
+
+`elevenlabs_tts.py` sam tego pilnuje: bez zapamiętanego głosu **odmawia** i kończy się
+kodem 4. Nie ma głosu domyślnego. Obejście `--obcy-glos` istnieje wyłącznie na jej
+wyraźne, świeże polecenie — nigdy z własnej inicjatywy.
+
+To samo dotyczy filmu: skoro dźwięk nie powstaje, nie renderuj też wideo.
+Film z cudzą narracją to ten sam problem, tylko większy.
 
 ## Ścieżka domyślna
 
@@ -264,7 +286,8 @@ Remotion używa starego trybu headless, którego nowe Chrome nie ma.
 
 Dostarcz użytkowniczce wszystko, co powstało, i wymień to jawnie:
 
-1. **plik audio** (`.mp3`) lub **film** (`.mp4`) — wyślij go, nie tylko wspomnij ścieżkę,
+1. **plik audio** (`.mp3`) lub **film** (`.mp4`) — wyślij go, nie tylko wspomnij ścieżkę.
+   Jeśli powstał bez jej głosu — **nie oddawaj go wcale**, patrz zasada nadrzędna,
 2. **tekst narracji** (`.txt`) — żeby mogła poprawić i przegenerować,
 3. **napisy** (`.srt`) — jeśli materiał pójdzie pod wideo.
 
