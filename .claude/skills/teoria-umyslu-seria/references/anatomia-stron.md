@@ -232,5 +232,9 @@ oznacza to proporcję nie wyższą niż 1,28. Plansza pionowa wyższa niż to ni
 choćby skrypt pomiarowy pokazywał tylko kilkanaście pikseli przepełnienia.
 
 Karty do wycinania w załączniku: siatka `repeat(3,1fr)`, `min-height:55mm` na kartę,
-przerywana ramka w kolorze rodziny emocji, buźka 16 mm, numer 19 pt, tekst 12 pt
-i dwie linie do zapisania odpowiedzi. Dwanaście kart wypełnia wtedy dokładnie jedną stronę.
+buźka 16 mm, numer 19 pt, tekst 12 pt i dwie linie do zapisania odpowiedzi.
+Dwanaście kart wypełnia wtedy dokładnie jedną stronę.
+
+Ramka karty do wycinania jest **grubsza niż ramka karty w środku broszury**: `2.4px dashed`
+w nasyconym kolorze rodziny emocji plus delikatny cień. Przerywana linia ma być linią cięcia,
+a nie ozdobą — przy 1,4 px gubi się przy druku i trudno po niej trafić nożyczkami.
