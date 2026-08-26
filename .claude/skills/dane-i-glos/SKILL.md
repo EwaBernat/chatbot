@@ -176,6 +176,10 @@ zużycia kredytów), `--status <video_id>` (sprawdzenie renderu później).
 Render trwa zwykle 2–6 minut na minutę materiału. Bez `--czekaj` dostajesz sam `video_id`.
 Szczegóły, kredyty i kody błędów: `references/heygen.md`.
 
+Gotowy plik da się jeszcze dopracować bez kodu — zakładka **Apps** na app.heygen.com/apps
+(podbicie do 4K, tłumaczenie z zachowaniem głosu i ust, wycinanie krótkich klipów). Kiedy
+klikać, a kiedy wołać skrypt: `references/heygen.md`.
+
 Klucza API **nigdy** nie wpisuj do pliku w repozytorium ani do treści rozmowy — tylko zmienna
 środowiskowa.
 
@@ -229,6 +233,6 @@ zestaw po cichu.
 - `references/klon_glosu.md` — jak nagrać próbki i sklonować głos (etap 0)
 - `references/narracja.md` — zasady pisania pod polskiego lektora, wzorce zdań, przykłady
 - `references/elevenlabs.md` — API, modele, limity, głosy, rozwiązywanie błędów
-- `references/heygen.md` — awatary, klon głosu, kredyty, dwie drogi głosu, kody błędów
+- `references/heygen.md` — awatary, klon głosu, kredyty, dwie drogi głosu, zakładka Apps, kody błędów
 - `assets/remotion/` — szablon filmu (React + Remotion), z opisem palety i renderu
 - `assets/przyklad_dane.csv` — dane testowe do sprawdzenia całej ścieżki

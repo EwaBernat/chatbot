@@ -12,6 +12,42 @@ dostępu do Twoich awatarów ani do Twojego sklonowanego głosu. Do tego służy
 i skrypt `scripts/heygen_awatar.py`. Dodatkowo `compose` i `render_video` z HyperFrames są
 wyłączone dla agentów działających z terminala, więc nie licz na nie w Claude Code.
 
+## Zakładka Apps (app.heygen.com/apps)
+
+Obok edytora HeyGen ma katalog **Apps** — pojedyncze narzędzia wideo, każde uruchamiane
+w przeglądarce, bez instalacji. To nie są zewnętrzne wtyczki: efekty lądują w tej samej
+przestrzeni roboczej co filmy z edytora i ze skryptu, więc gotowy materiał można
+przepuścić przez apkę i wrócić z nim do projektu.
+
+Kafelki, które mają znaczenie dla tego skilla:
+
+| Apka | Co robi | Kiedy się przydaje |
+|---|---|---|
+| **Avatar IV** | najnowsza generacja awatara mówiącego, najbardziej „korporacyjna" mimika | materiał dla dyrekcji i rodziców, gdzie twarz ma wyglądać poważnie i naturalnie |
+| **Video Translate** | tłumaczy gotowy film na 175+ języków, zachowując głos i ruch ust | ta sama prezentacja EduPlanera po angielsku lub ukraińsku, bez nagrywania od nowa |
+| **Upscale** | podbija obraz do 4K, odszumia, wyostrza, podnosi liczbę klatek | starsze nagranie, które ma pójść na duży ekran |
+| **Highlights** | wycina z długiego nagrania najmocniejsze fragmenty | webinar albo rada pedagogiczna → kilka krótkich klipów |
+| **Face Swap** | wstawia Twoją twarz w jeden z gotowych awatarów | gdy nie chcesz nagrywać własnego Instant Avatara |
+| **UGC Video Generator / Video Agent** | krótkie pionowe filmy w stylu nagrania z telefonu, w wielu wariantach | promocja EduPlanera na Reels, TikToka i Shorts |
+
+### Apps czy skrypt
+
+| Sytuacja | Czym |
+|---|---|
+| film z narracji tego skilla — tło marki, format, ten sam awatar co zawsze | `scripts/heygen_awatar.py` |
+| kilkanaście wariantów jednego materiału (inne dane, ten sam scenariusz) | skrypt w pętli; w Apps to klikanie od nowa |
+| obróbka **gotowego** pliku: upscale, tłumaczenie, highlighty | Apps — skrypt tego nie robi, API pokrywa tylko część tych funkcji |
+| jednorazowy test „zobaczmy, jak to wygląda" | Apps, szybciej niż pisanie wywołania |
+
+Apki zużywają **te same kredyty** co render z API — także wtedy, gdy wynik odrzucisz.
+Zużycie sprawdzisz w ustawieniach konta, w historii generowań.
+
+Dwie uwagi na koniec. Po pierwsze, HeyGen dokłada i wycofuje apki częściej niż zmienia API,
+więc powyższa lista jest punktem wyjścia, a nie spisem z natury — w razie wątpliwości
+otwórz stronę i sprawdź, co masz w swoim planie. Po drugie, nie myl Apps z **App
+Integrations** (Zapier, Make, Canva, Adobe Express, HubSpot, ChatGPT): tamto podłącza HeyGen
+do innych narzędzi i automatyzuje wysyłkę, a nie generuje wideo w przeglądarce.
+
 ## Czego NIE da się przenieść
 
 Klon głosu utworzony w HeyGen **zostaje w HeyGen**. API zwraca `voice_id`, którym awatar
