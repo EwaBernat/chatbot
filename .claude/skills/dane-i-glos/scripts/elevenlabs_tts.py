@@ -28,6 +28,9 @@ import urllib.error
 import urllib.request
 from pathlib import Path
 
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+import konfiguracja                                    # noqa: E402
+
 API = "https://api.elevenlabs.io"
 MODEL_DOMYSLNY = "eleven_multilingual_v2"      # najlepszy dla polszczyzny
 GLOS_DOMYSLNY = "21m00Tcm4TlvDq8ikWAM"          # Rachel — bezpieczny fallback
@@ -260,7 +263,8 @@ def main() -> int:
     ap.add_argument("--glosy", action="store_true", help="wypisz glosy z konta i zakoncz")
     ap.add_argument("--limity", action="store_true",
                     help="wypisz plan, zuzycie znakow i dostepnosc klonowania")
-    ap.add_argument("--voice-id", default=os.environ.get("ELEVENLABS_VOICE_ID", GLOS_DOMYSLNY))
+    ap.add_argument("--voice-id", default=None,
+                    help="domyslnie glos zapamietany przez skill (skonfiguruj_glos.py)")
     ap.add_argument("--model", default=MODEL_DOMYSLNY,
                     help=f"domyslnie {MODEL_DOMYSLNY}; alternatywy: eleven_v3, "
                          "eleven_turbo_v2_5, eleven_flash_v2_5")
@@ -281,6 +285,14 @@ def main() -> int:
         return wypisz_limity()
     if a.glosy:
         return wypisz_glosy()
+
+    # kolejnosc: --voice-id > ELEVENLABS_VOICE_ID > pamiec skilla > glos zapasowy
+    a.voice_id = konfiguracja.ustal(
+        a.voice_id, "ELEVENLABS_VOICE_ID", "elevenlabs_voice_id", GLOS_DOMYSLNY)
+    if a.voice_id == GLOS_DOMYSLNY and not a.suchy:
+        print("Uwaga: skill nie ma zapamietanego glosu, uzywam zapasowego (Rachel, "
+              "akcent angielski).\n  Zapamietaj swoj: python3 skonfiguruj_glos.py "
+              "<nagranie>", file=sys.stderr)
     if not a.tekst:
         ap.error("podaj plik ze scenariuszem albo uzyj --glosy")
 
