@@ -27,6 +27,8 @@ export const RemotionRoot: React.FC = () => {
           intro: INTRO,
           outro: OUTRO,
           audioIntro: 'audio/czesc1/intro.mp3',
+          logo: 'logo/pctp-logo.svg',
+          awatar: '',
         }}
       />
       <Composition
@@ -43,6 +45,8 @@ export const RemotionRoot: React.FC = () => {
           podtytul: 'Mosty społeczne w klasach 1–3',
           intro: INTRO,
           outro: OUTRO,
+          logo: 'logo/pctp-logo.svg',
+          awatar: '',
         }}
       />
     </>

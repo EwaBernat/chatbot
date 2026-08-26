@@ -29,6 +29,10 @@ type Props = {
   outro: number;
   /** Zapowiedź czytana na planszy tytułowej, jeśli została nagrana. */
   audioIntro?: string;
+  /** Znak PCTP na planszach otwierającej i końcowej. */
+  logo?: string;
+  /** Awatar prowadzącej w kółku przy prawej krawędzi slajdu (zdjęcie lub film). */
+  awatar?: string;
 };
 
 const OBRAZ_SZER = 1620;
@@ -65,9 +69,31 @@ const Tor: React.FC<{postep: number; szerokosc: number}> = ({postep, szerokosc})
   </div>
 );
 
+const KolkoAwatara: React.FC<{plik: string; rozmiar?: number}> = ({plik, rozmiar = 232}) => {
+  const klatka = useCurrentFrame();
+  const skala = interpolate(klatka, [0, 16], [0.9, 1], {extrapolateRight: 'clamp'});
+  const film = /\.(mp4|webm|mov|m4v)$/i.test(plik);
+  return (
+    <div
+      style={{
+        position: 'absolute', right: (1920 - OBRAZ_SZER) / 2 + 22, top: 28 + OBRAZ_WYS - rozmiar - 22,
+        width: rozmiar, height: rozmiar, borderRadius: '50%', overflow: 'hidden',
+        border: `5px solid ${MOTYW.zielenJasna}`, boxShadow: '0 22px 50px -16px rgba(0,0,0,.7)',
+        transform: `scale(${skala})`,
+      }}
+    >
+      {film ? (
+        <OffthreadVideo src={staticFile(plik)} muted style={{width: '100%', height: '100%', objectFit: 'cover'}} />
+      ) : (
+        <Img src={staticFile(plik)} style={{width: '100%', height: '100%', objectFit: 'cover'}} />
+      )}
+    </div>
+  );
+};
+
 const Plansza: React.FC<{
-  slajd: Slajd; indeks: number; liczba: number; czesc: string; klatki: number; maAudio: boolean;
-}> = ({slajd, indeks, liczba, czesc, klatki, maAudio}) => {
+  slajd: Slajd; indeks: number; liczba: number; czesc: string; klatki: number; maAudio: boolean; awatar?: string;
+}> = ({slajd, indeks, liczba, czesc, klatki, maAudio, awatar}) => {
   const klatka = useCurrentFrame();
   const {fps} = useVideoConfig();
 
@@ -118,6 +144,8 @@ const Plansza: React.FC<{
         </div>
       </div>
 
+      {awatar ? <KolkoAwatara plik={awatar} /> : null}
+
       <div style={{position: 'absolute', top: 956, left: (1920 - OBRAZ_SZER) / 2}}>
         <Tor postep={postep} szerokosc={OBRAZ_SZER} />
       </div>
@@ -154,11 +182,12 @@ const Karta: React.FC<{dzieci: React.ReactNode}> = ({dzieci}) => {
   );
 };
 
-const Intro: React.FC<{czesc: string; podtytul: string; audioIntro?: string}> = ({czesc, podtytul, audioIntro}) => (
+const Intro: React.FC<{czesc: string; podtytul: string; audioIntro?: string; logo?: string}> = ({czesc, podtytul, audioIntro, logo}) => (
   <Karta
     dzieci={
       <>
         {audioIntro ? <Audio src={staticFile(audioIntro)} /> : null}
+        {logo ? <Img src={staticFile(logo)} style={{width: 122, height: 122, marginBottom: 28}} /> : null}
         <div style={{fontFamily: SANS, fontWeight: 600, fontSize: 20, letterSpacing: 6, textTransform: 'uppercase', color: MOTYW.zielenJasna}}>
           {czesc}
         </div>
@@ -177,10 +206,11 @@ const Intro: React.FC<{czesc: string; podtytul: string; audioIntro?: string}> = 
   />
 );
 
-const Outro: React.FC = () => (
+const Outro: React.FC<{logo?: string}> = ({logo}) => (
   <Karta
     dzieci={
       <>
+        {logo ? <Img src={staticFile(logo)} style={{width: 104, height: 104, marginBottom: 26}} /> : null}
         <div style={{fontFamily: FIGTREE, fontWeight: 800, fontSize: 64, color: '#fff', letterSpacing: -1.4}}>{PROGRAM}</div>
         <div style={{fontFamily: SANS, fontSize: 26, color: MOTYW.zielenJasna, marginTop: 14}}>{PODPROGRAM}</div>
         <div style={{width: 220, height: 2, background: MOTYW.zielen, margin: '44px auto 30px'}} />
@@ -199,14 +229,14 @@ const Outro: React.FC = () => (
   />
 );
 
-export const Film: React.FC<Props> = ({slajdy, odcinki, czesc, podtytul, intro, outro, audioIntro}) => {
+export const Film: React.FC<Props> = ({slajdy, odcinki, czesc, podtytul, intro, outro, audioIntro, logo, awatar}) => {
   zaladujFonty();
   let pozycja = intro;
 
   return (
     <AbsoluteFill style={{background: `radial-gradient(120% 100% at 50% -20%, ${MOTYW.tloJasne} 0%, ${MOTYW.las} 45%, ${MOTYW.tlo} 100%)`}}>
       <Sequence durationInFrames={intro} name="Wstęp">
-        <Intro czesc={czesc} podtytul={podtytul} audioIntro={audioIntro} />
+        <Intro czesc={czesc} podtytul={podtytul} audioIntro={audioIntro} logo={logo} />
       </Sequence>
 
       {slajdy.map((slajd, i) => {
@@ -222,13 +252,14 @@ export const Film: React.FC<Props> = ({slajdy, odcinki, czesc, podtytul, intro, 
               czesc={czesc}
               klatki={odcinek.klatki}
               maAudio={odcinek.maAudio}
+              awatar={awatar}
             />
           </Sequence>
         );
       })}
 
       <Sequence from={pozycja} durationInFrames={outro} name="Napisy końcowe">
-        <Outro />
+        <Outro logo={logo} />
       </Sequence>
     </AbsoluteFill>
   );
