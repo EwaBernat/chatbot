@@ -75,3 +75,44 @@ Zajęte i mające własne style: `page`, `cover`, `card`, `callout`, `ex`, `tag`
   oddech i wrażenie kadru, a nie naklejki.
 - **Pasek serii** — `.seria` z etykietą „Seria: Teoria umysłu" i plakietką numeru części.
 - **Stopka bieżąca** — po lewej temat strony, po prawej numer w kroju Fraunces.
+
+## Wykresy i grafiki SVG — pułapka skali
+
+Tekst w SVG skaluje się razem z grafiką. Jeśli `viewBox` jest szerszy niż miejsce,
+w którym grafika faktycznie ląduje, wszystkie podpisy zmaleją proporcjonalnie —
+`font-size="11"` w `viewBox="0 0 640 …"` renderowanym na szerokości 372 px daje
+realne **6,4 px ≈ 4,8 pt**, czyli tekst nieczytelny w druku.
+
+**Zasada:** projektuj `viewBox` w skali 1:1 ze szerokością renderowania.
+Zmierz ją najpierw w przeglądarce:
+
+```js
+document.querySelector('svg.chart').getBoundingClientRect().width
+```
+
+Typowe szerokości przy marginesie strony 12 mm (obszar treści ≈ 703 px):
+- pełna szerokość strony — ok. 700 px
+- kolumna `g-2-1` (szersza) — ok. 372 px w karcie `.fig-card`
+- kolumna `g2` — ok. 344 px
+
+Przy skali 1:1 stosuj: podpisy wierszy `font-size="12"`, etykiety w słupkach `"11"`,
+opisy pomocnicze `"10"` (≈ 9, 8,3 i 7,5 pt).
+
+## Karta wykresu `.fig-card`
+
+Wykres nigdy nie stoi „goły" na stronie — otacza go karta w tym samym języku,
+co pozostałe bloki:
+
+```css
+.fig-card{background:#fff; border:1.4px solid var(--line); border-radius:14px;
+  padding:9px 13px 10px; gap:7px;
+  box-shadow:0 1px 0 rgba(46,42,59,.04), 0 5px 13px rgba(46,42,59,.05)}
+.fig-card .fig-title{display:block; padding-bottom:6px; border-bottom:1px solid var(--line2)}
+.fig-card figcaption{border-top:1px dashed var(--line); padding-top:6px; margin-top:1px}
+```
+
+Same słupki dostają własną ramkę (tor): zaokrąglony `rect` z `fill="#FCF9F5"`
+i `stroke="#D9CFC2" stroke-width="1.4"`, a segmenty wstawione do środka
+z odstępem 4 px. Przy wykresie skumulowanym do 100% tor jest zasłonięty
+przez segmenty — dlatego liczy się właśnie ten 4-pikselowy margines,
+bo to on tworzy widoczną rameczkę.
