@@ -15,7 +15,7 @@ from pathlib import Path
 
 KAT = Path(__file__).resolve().parent.parent
 CZESC = sys.argv[1] if len(sys.argv) > 1 else 'czesc1'
-ZRODLO = KAT / (sys.argv[2] if len(sys.argv) > 2 else 'nagranie-oryginal.m4a')
+ZRODLO = KAT / (sys.argv[2] if len(sys.argv) > 2 else 'glos/nagranie-studio.m4a')
 
 # zakresy numerów napisów przypadające na kolejne slajdy (od 1 do 25)
 ZAKRESY = {
@@ -66,15 +66,26 @@ def dosun_koniec(t, cisze, luz=1.4):
             break
     return najlepsze
 
-FILTR = ('highpass=f=85,'                      # dudnienie pomieszczenia
-         'afftdn=nf=-25,'                      # szum tła
-         'acompressor=threshold=-21dB:ratio=3:attack=12:release=260:makeup=2,'
-         'loudnorm=I=-16:TP=-1.5:LRA=11')      # równa głośność w całym filmie
+# Źródłem jest nagranie po Descript Studio Sound (szum tła spadł z -56 dB do
+# -75 dB, znikło pogłosowe „pudło” pokoju). Studio Sound nie zmienia jednak
+# barwy — nagranie z telefonu pozostaje ciemne i „zamulone”:
+# pasmo 2–8 kHz, które decyduje o zrozumiałości spółgłosek, leży 13–15 dB
+# niżej niż niskie średnie. Dlatego zamiast mocnego odszumiania (które
+# dodatkowo tłumiło górę) obniżamy mulisty zakres i podnosimy obecność.
+FILTR = ('highpass=f=90,'                        # dudnienie i stukot stołu
+         'equalizer=f=300:t=q:w=1.0:g=-4.5,'     # odmulenie
+         'equalizer=f=1900:t=q:w=0.8:g=5,'       # zrozumiałość
+         'equalizer=f=3400:t=q:w=0.9:g=5,'       # wyrazistość spółgłosek
+         'treble=g=5:f=8000:width_type=q:w=0.7,' # powietrze
+         'deesser=i=0.35,'                       # syczące „s” po podbiciu góry
+         'acompressor=threshold=-20dB:ratio=2.6:attack=15:release=250:makeup=2,'
+         'alimiter=limit=0.94,'
+         'loudnorm=I=-16:TP=-1.5:LRA=9')         # równa głośność w całym filmie
 
 def tnij(od, do, cel):
     subprocess.run(['ffmpeg','-hide_banner','-loglevel','error','-y',
                     '-ss', f'{od:.3f}', '-to', f'{do:.3f}', '-i', str(ZRODLO),
-                    '-af', FILTR, '-ac','1','-ar','48000','-b:a','128k', str(cel)], check=True)
+                    '-af', FILTR, '-ac','1','-ar','48000','-c:a','pcm_s16le', str(cel)], check=True)
 
 def main():
     srt = wczytaj_srt(KAT / 'glos' / f'transkrypcja-{CZESC}.srt')
@@ -86,7 +97,7 @@ def main():
     if CZESC in INTRO:
         a, b = INTRO[CZESC]
         od = dosun_start(srt[a]['od'], cisze); do = dosun_koniec(srt[b]['do'], cisze)
-        tnij(od, do, wyjscie / 'intro.mp3')
+        tnij(od, do, wyjscie / 'intro.wav')
         print(f'intro          {od:7.2f} → {do:7.2f}  ({do-od:5.2f} s)  {srt[a]["tekst"][:40]}')
 
     zakresy = ZAKRESY[CZESC]
@@ -99,7 +110,7 @@ def main():
         # cięcie wypada tuż przed pierwszym słowem następnej kwestii
         if i < len(zakresy):
             do = min(do, starty[i] - 0.05)
-        plik = wyjscie / f'{i:02d}.mp3'
+        plik = wyjscie / f'{i:02d}.wav'
         tnij(od, do, plik)
 
         # napisy scalamy do pełnych zdań — inaczej linia urywa się w środku frazy

@@ -19,20 +19,42 @@
     "www": "eduplaner2026.pl"
   },
   "marka": {
-    "fiolet": "#2D1B69",
-    "pomarancz": "#E8450A",
-    "zielen": "#3E7B4F",
-    "zielen_ciemna": "#243F2C",
+    "_opis": "Paleta marki: lawenda z delikatnym latte, ciepły pomarańcz jako akcent i pastelowe odcienie fioletu. Wszystko pastelowe — nasycone kolory tylko na tekst i drobne akcenty.",
+    "lawenda": "#B7A5D8",
+    "lawenda_jasna": "#EDE7F6",
+    "lawenda_ciemna": "#6E5A9B",
+    "fiolet_pastel": "#CBBCE6",
+    "fiolet_gleboki": "#3E2E63",
+    "latte": "#D8C4AE",
+    "latte_jasne": "#F4EBE0",
+    "latte_ciemne": "#8C7259",
+    "pomarancz": "#E8A263",
+    "pomarancz_mocny": "#D97A2B",
+    "tlo": "#FBF8F4",
+    "tekst": "#33294A",
+    "tekst_jasny": "#6B6180",
     "kroj_dokumenty": "Arial",
     "kroj_produkty": "Figtree + Source Sans 3 + Lora",
-    "uwaga": "fiolet i pomarańcz — ekosystem EduPlaner; zieleń — cykl Budowanie mostów społecznych"
+    "uzycie": {
+      "tlo_slajdu": "tlo lub latte_jasne",
+      "naglowki": "fiolet_gleboki",
+      "plansze_tytulowe": "gradient lawenda → fiolet_pastel, tekst biały",
+      "akcent_wazne": "pomarancz_mocny (linie, liczby, wyróżnienia)",
+      "kafelki_i_ramki": "lawenda_jasna na tle, obrys latte",
+      "cytaty": "latte_jasne z lewą listwą lawenda_ciemna"
+    },
+    "poprzednia_paleta": {
+      "zielen": "#3E7B4F",
+      "zielen_ciemna": "#243F2C",
+      "uwaga": "cykl „Budowanie mostów społecznych” powstał w zieleni; nowe materiały robimy w palecie lawendowej"
+    }
   },
   "podpisy": {
     "kaligraficzny": "assets/podpis-kaligraficzny.svg",
     "odreczny": "assets/podpis-odreczny.svg",
     "lekki": "assets/podpis-lekki.svg",
     "klasyczny": "assets/podpis-klasyczny.svg",
-    "domyslny": "assets/podpis-odreczny.svg"
+    "domyslny": "assets/podpis-klasyczny.svg"
   },
   "logo": {
     "plik": "assets/logo/pctp-logo.svg",

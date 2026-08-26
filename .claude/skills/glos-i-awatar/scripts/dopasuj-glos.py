@@ -27,10 +27,15 @@ import argparse, json, re, subprocess, unicodedata
 from difflib import SequenceMatcher
 from pathlib import Path
 
-FILTR = ('highpass=f=85,'                       # dudnienie pomieszczenia
-         'afftdn=nf=-25,'                       # szum tła
-         'acompressor=threshold=-21dB:ratio=3:attack=12:release=260:makeup=2,'
-         'loudnorm=I=-16:TP=-1.5:LRA=11')       # równa głośność w całym filmie
+FILTR = ('highpass=f=90,'                        # dudnienie i stukot stołu
+         'equalizer=f=300:t=q:w=1.0:g=-4.5,'     # odmulenie
+         'equalizer=f=1900:t=q:w=0.8:g=5,'       # zrozumiałość
+         'equalizer=f=3400:t=q:w=0.9:g=5,'       # wyrazistość spółgłosek
+         'treble=g=5:f=8000:width_type=q:w=0.7,' # powietrze
+         'deesser=i=0.35,'                       # syczące „s” po podbiciu góry
+         'acompressor=threshold=-20dB:ratio=2.6:attack=15:release=250:makeup=2,'
+         'alimiter=limit=0.94,'
+         'loudnorm=I=-16:TP=-1.5:LRA=9')         # równa głośność w całym filmie       # równa głośność w całym filmie
 
 
 def norm(s):
@@ -199,11 +204,11 @@ def main():
         od = starty[i]
         kandydat = konce[i] + 0.25 if konce[i] else nastepny - 0.35
         do = min(dosun_koniec(min(kandydat, nastepny - 0.35), cisze), nastepny - 0.05)
-        plik = wyjscie / f'{s["n"]:02d}.mp3'
+        plik = wyjscie / f'{s["n"]:02d}.wav'
         if not a.bez_ciecia:
             subprocess.run(['ffmpeg', '-hide_banner', '-loglevel', 'error', '-y',
                             '-ss', f'{od:.3f}', '-to', f'{do:.3f}', '-i', str(a.audio),
-                            '-af', FILTR, '-ac', '1', '-ar', '48000', '-b:a', '128k', str(plik)],
+                            '-af', FILTR, '-ac', '1', '-ar', '48000', '-c:a', 'pcm_s16le', str(plik)],
                            check=True)
         s['napisy'] = scal_napisy(cues, od, do)
         if s['napisy']:

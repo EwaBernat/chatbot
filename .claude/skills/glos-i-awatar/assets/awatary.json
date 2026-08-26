@@ -1,0 +1,44 @@
+{
+  "_opis": "Trzy awatary prowadzącej. Każdy ma stałą garderobę i scenografię — dzięki temu widz rozpoznaje rodzaj materiału po pierwszej sekundzie. Pole `plik` wskazuje nagranie/zdjęcie w public/awatar/; dopóki go nie ma, komponent Awatar rysuje monogram w kole.",
+  "awatary": [
+    {
+      "id": "eduplaner",
+      "nazwa": "EduPlaner",
+      "uzycie": "Materiały marki EduPlaner 2026 — kursy, poradniki, filmy produktowe, media społecznościowe.",
+      "garderoba": "Niebieska koszula, gładka, bez wzoru; włosy zebrane; delikatny makijaż.",
+      "scenografia": "Jasne, równomierne światło, tło rozmyte w odcieniu lawendy; kadr do połowy klatki piersiowej.",
+      "uklad_domyslny": "kolko-prawy-dol",
+      "plik": "awatar/eduplaner.mp4",
+      "plik_zapasowy": "awatar/eduplaner.png",
+      "prompt_heygen": "Professional female presenter, mid-50s, warm confident expression, wearing a plain blue button-up shirt, hair pulled back, soft even studio lighting, softly blurred lavender background, framed from mid-chest up, speaking directly to camera, natural gestures, 16:9."
+    },
+    {
+      "id": "rada",
+      "nazwa": "Rada pedagogiczna",
+      "uzycie": "Szkolenia dla rady pedagogicznej, wystąpienia dla dyrekcji, materiały formalne.",
+      "garderoba": "Marynarka lub elegancka bluzka w stonowanym kolorze; strój oficjalny.",
+      "scenografia": "Prowadząca przy biurku — laptop, notes, kubek; regał lub tablica w rozmytym tle; światło z boku.",
+      "uklad_domyslny": "pol-ekranu-prawa",
+      "plik": "awatar/rada.mp4",
+      "plik_zapasowy": "awatar/rada.png",
+      "prompt_heygen": "Professional female educator, mid-50s, seated at a desk with a laptop, notebook and mug, wearing a smart blazer, bookshelf softly blurred behind her, warm side lighting, calm authoritative delivery, framed from waist up, speaking to camera, 16:9."
+    },
+    {
+      "id": "warsztaty",
+      "nazwa": "Warsztaty dla kadry",
+      "uzycie": "Warsztaty, ćwiczenia praktyczne, część druga cyklu, materiały „do roboty”.",
+      "garderoba": "Czerwona bluzka, w dłoni książka lub segregator z materiałami.",
+      "scenografia": "Sala warsztatowa — krzesła w półkolu, flipchart, ciepłe światło; prowadząca stoi.",
+      "uklad_domyslny": "kolko-prawy-gora",
+      "plik": "awatar/warsztaty.mp4",
+      "plik_zapasowy": "awatar/warsztaty.png",
+      "prompt_heygen": "Professional female trainer, mid-50s, standing, wearing a red blouse, holding an open book, workshop room with a flipchart and a semicircle of chairs softly blurred behind her, warm inviting light, energetic teaching delivery, framed from waist up, speaking to camera, 16:9."
+    }
+  ],
+  "uklady": {
+    "kolko-prawy-dol": { "ksztalt": "kolo", "srednica": 232, "margines": 48, "kotwica": "prawy-dol" },
+    "kolko-prawy-gora": { "ksztalt": "kolo", "srednica": 232, "margines": 48, "kotwica": "prawy-gora" },
+    "pol-ekranu-prawa": { "ksztalt": "prostokat", "szerokosc": "50%", "kotwica": "prawa" },
+    "pelny-kadr": { "ksztalt": "pelny", "plakietka": "Mirosława Ewa Jurczyszyn · PCTP Koszalin" }
+  }
+}

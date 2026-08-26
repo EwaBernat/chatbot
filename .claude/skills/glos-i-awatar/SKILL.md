@@ -38,29 +38,87 @@ właściwe slajdy.
    da się naprawić potknięcie bez ponownego nagrywania. Błędy zmieniające sens
    (zła nazwa metody, złe słowo w definicji) wypisz autorce — one wymagają
    dogrania jednej kwestii.
-3. **Cięcie i czyszczenie.**
+3. **Studio Sound.** Zanim cokolwiek potniesz, przepuść całe nagranie przez
+   Descript Studio Sound (MCP: `import_media` → `prompt_project_agent`
+   „apply Studio Sound at 100%, no cuts” → `publish_project` jako Audio).
+   Na nagraniu z telefonu szum tła spada z −56 dB do −75 dB i znika pogłos
+   pokoju. **Zaznacz w promcie, że agent ma niczego nie wycinać** — inaczej
+   sam skróci pauzy i rozjedzie się z transkrypcją. Długość pliku po
+   publikacji musi się zgadzać co do dziesiątej sekundy z oryginałem.
+4. **Cięcie i korekcja barwy.**
    ```bash
    python3 scripts/dopasuj-glos.py \
      --dane src/dane/czesc1.json --srt glos/czesc1.srt \
-     --audio nagranie.m4a --wyjscie public/audio/czesc1
+     --audio glos/nagranie-studio.m4a --wyjscie public/audio/czesc1
    ```
    Skrypt sam znajduje granice kwestii, **pomija nieudane podejścia** (gdy coś
-   zostało nagrane dwa razy, wygrywa ostatnia wersja), dosuwa cięcia do ciszy,
-   czyści dźwięk i wyrównuje głośność do −16 LUFS.
-4. **Przeliczenie i render.** `node scripts/oblicz-czas.mjs` ustawia długość
+   zostało nagrane dwa razy, wygrywa ostatnia wersja), dosuwa cięcia do ciszy
+   i wyrównuje głośność do −16 LUFS. Zapisuje **WAV, nie MP3** — dwa stratne
+   kodowania pod rząd słychać jak „szklaną” górę.
+5. **Przeliczenie i render.** `node scripts/oblicz-czas.mjs` ustawia długość
    każdego slajdu pod nagranie, potem `npx remotion render …`.
 
 Po tym kroku napisy w filmie chodzą w rytm głosu — mają czas wzięty wprost z
 nagrania, a nie wyliczony z długości tekstu.
 
+## Dlaczego sam Studio Sound nie wystarcza
+
+Studio Sound czyści tło, ale **nie zmienia barwy**. Nagranie z telefonu jest
+ciemne: pasmo 2–8 kHz, które niesie spółgłoski, leży 13–15 dB niżej niż niskie
+średnie — i właśnie to słychać jako „niewyraźny, zamulony” głos. Dlatego
+`dopasuj-glos.py` po Studio Sound robi jeszcze korekcję barwy:
+
+| co | po co |
+|---|---|
+| `highpass 90 Hz` | dudnienie, stukot stołu |
+| `−4,5 dB @ 300 Hz` | odmulenie — usuwa „pudło” |
+| `+5 dB @ 1,9 kHz` i `+5 dB @ 3,4 kHz` | zrozumiałość i wyrazistość spółgłosek |
+| `treble +5 dB @ 8 kHz` | powietrze, wrażenie bliskości |
+| `deesser 0,35` | syczące „s”, które budzi się po podbiciu góry |
+| `acompressor 2.6:1` + `alimiter` | równa dynamika bez pompowania |
+| `loudnorm −16 LUFS` | ta sama głośność w całym filmie |
+
+Efekt na tej samej próbce: różnica 500 Hz ↔ 4 kHz spada z 13,6 dB do 5,7 dB.
+
+**Czego nie robić:** mocnego `afftdn` (np. `nf=-25`). Odszumianie zjada górę i
+pogłębia dokładnie ten problem, który próbujesz naprawić. Po Studio Sound
+odszumiacz jest już niepotrzebny.
+
+## Próbka głosu do klonowania
+
+`assets/probka-glosu.mp3` — 98 sekund czystej mowy autorki (cztery kwestie z
+nagrania cz. I, po Studio Sound i korekcji, −18 LUFS). Tyle wystarcza do
+klonowania głosu w ElevenLabs (Instant Voice Clone) albo HeyGen. Plik
+**celowo nie trafia do repozytorium** — publiczna próbka głosu to gotowy
+materiał do podszycia się pod autorkę. Trzymamy go lokalnie i w paczce `.skill`.
+
+Gdy dojdzie klon głosu, kolejne części nagrywają się z tekstu — bez czytania.
+
 ## Awatar w kadrze
 
-Trzy układy, wszystkie w `assets/Awatar.tsx` — skopiuj plik do `src/` projektu:
+**Trzy awatary** — pełna specyfikacja w `assets/awatary.json`, w tym gotowe
+prompty do HeyGen:
 
-- **kółko po prawej** — slajd niesie treść, prowadząca komentuje;
+| awatar | strój i scena | domyślny układ | do czego |
+|---|---|---|---|
+| `eduplaner` | niebieska koszula, tło lawendowe | kółko, prawy dół | materiały marki EduPlaner 2026 |
+| `rada` | marynarka, prowadząca przy biurku | pół ekranu, prawa | szkolenia dla rady pedagogicznej |
+| `warsztaty` | czerwona bluzka, książka w dłoni, flipchart | kółko, prawy góra | warsztaty i ćwiczenia dla kadry |
+
+Stała garderoba to nie kaprys: widz rozpoznaje rodzaj materiału w pierwszej
+sekundzie, zanim przeczyta tytuł.
+
+**Trzy układy kadru** w `assets/Awatar.tsx` — skopiuj plik do `src/` projektu:
+
+- **kółko** (232 px, prawy dolny lub górny narożnik) — slajd niesie treść,
+  prowadząca komentuje;
 - **pół ekranu** — rozmowa, podkast, omawianie czegoś na ekranie;
 - **pełny kadr** — powitanie i zakończenie, z plakietką „Mirosława Ewa
   Jurczyszyn · PCTP Koszalin”.
+
+Dopóki w `public/awatar/` nie ma nagrania, komponent rysuje monogram w kole —
+film renderuje się poprawnie, tylko bez twarzy. Materiał wgrywa się jako
+`public/awatar/<id>.mp4` (pętla 8–15 s, mówienie do kamery) albo `<id>.png`.
 
 Rozmiary, pozycje, jak nagrać materiał i jak zapętlić krótkie ujęcie:
 `references/awatar.md`.
