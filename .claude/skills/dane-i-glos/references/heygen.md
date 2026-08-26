@@ -12,6 +12,22 @@ dostępu do Twoich awatarów ani do Twojego sklonowanego głosu. Do tego służy
 i skrypt `scripts/heygen_awatar.py`. Dodatkowo `compose` i `render_video` z HyperFrames są
 wyłączone dla agentów działających z terminala, więc nie licz na nie w Claude Code.
 
+## Czego NIE da się przenieść
+
+Klon głosu utworzony w HeyGen **zostaje w HeyGen**. API zwraca `voice_id`, którym awatar
+mówi podczas renderu — nie zwraca modelu głosu ani plików, z których powstał. Nie da się go
+pobrać, wyeksportować ani zaimportować do ElevenLabs. To ograniczenie HeyGen, nie tego skilla.
+
+Jeśli chcesz mieć swój głos po obu stronach, są dwie drogi:
+
+1. **Zostaw go w HeyGen** i rób nim filmy z awatarem — etap 4b, wariant A (`--voice-id`).
+2. **Odtwórz go w ElevenLabs** z tych samych nagrań wzorcowych, których użyłaś w HeyGen
+   (albo nowych) — `elevenlabs_klon_glosu.py`. Dopiero wtedy działa ścieżka domyślna,
+   w której jedno MP3 obsługuje i audio, i awatara.
+
+Nagrania wzorcowe trzymaj u siebie na dysku. To jedyny materiał, z którego można odtworzyć
+głos w dowolnej usłudze; klon w chmurze jest zawsze przywiązany do jednej platformy.
+
 ## Klucz
 
 ```bash
