@@ -17,3 +17,46 @@ A simple Streamlit app that shows how to build a chatbot using OpenAI's GPT-3.5.
    ```
    $ streamlit run streamlit_app.py
    ```
+
+---
+
+## 🎙️ Skill `dane-i-glos` — dane zamienione w nagranie
+
+W `.claude/skills/dane-i-glos/` znajduje się skill, który prowadzi jedną drogę:
+**dane → liczby → scenariusz → głos**.
+
+1. **Profil danych** — rzetelne liczby z pliku, żeby narracja nic nie zmyśliła:
+
+   ```bash
+   python3 .claude/skills/dane-i-glos/scripts/dane_do_narracji.py dane.xlsx --grupuj klasa --agreguj wynik
+   ```
+
+   Obsługuje `.csv`, `.tsv`, `.xlsx`, `.json`, `.jsonl`; rozumie polski zapis liczb
+   (`87,5%`, `1 240 zł`) i polskie formaty dat.
+
+2. **Scenariusz lektorski** — Claude pisze go według `references/narracja.md`
+   (tempo 150 słów/min, liczby rozpisane słowami, zdania do 20 słów).
+
+3. **Głos z ElevenLabs**:
+
+   ```bash
+   export ELEVENLABS_API_KEY="..."
+   python3 .claude/skills/dane-i-glos/scripts/elevenlabs_tts.py narracja.txt -o raport.mp3 --srt napisy.srt
+   ```
+
+   `--glosy` wypisuje głosy z konta, `--suchy-bieg` liczy znaki bez zużywania limitu.
+
+### Złącze ElevenLabs
+
+`.mcp.json` w katalogu głównym podłącza serwer MCP ElevenLabs do sesji Claude Code
+w tym repozytorium. Wymaga tylko klucza w środowisku:
+
+```bash
+export ELEVENLABS_API_KEY="sk_..."   # elevenlabs.io → profil → API Keys (uprawnienie text_to_speech)
+```
+
+W aplikacji claude.ai to samo złącze włącza się w **Ustawienia → Złącza → ElevenLabs**,
+a potem w panelu złączy danego czatu.
+
+Klucz API trzymaj wyłącznie w zmiennej środowiskowej — `.gitignore` blokuje `.env`,
+a wygenerowane `*.mp3`, `*.srt` i `narracja*.txt` nie trafiają do repozytorium.
