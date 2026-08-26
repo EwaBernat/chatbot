@@ -1,0 +1,691 @@
+<title>Teoria umysłu w 45 minut</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Figtree:wght@500;700;800&family=Source+Sans+3:ital,wght@0,400;0,600;0,700;1,400&family=Lora:ital,wght@1,400;1,500&display=swap">
+<style>
+/* ===================== TOKENY ===================== */
+:root{
+  --forest:#243F2C;
+  --forest-2:#2F5539;
+  --green:#3E7B4F;
+  --green-2:#63A075;
+  --green-3:#9CC4A6;
+  --sage:#E4EEE1;
+  --sage-2:#EFF4ED;
+  --paper:#F8FAF7;
+  --white:#FFFFFF;
+  --line:#D6E2D2;
+  --line-2:#B7CCB2;
+  --ink:#222D26;
+  --ink-2:#546055;
+  --amber:#E08A2E;
+  --amber-ink:#A65E12;
+  --amber-soft:#FBEEDC;
+  --sky:#E1EDF8;
+  --sky-line:#7FA9CF;
+  --sky-ink:#2E5F8F;
+  --red:#C4453B;
+  --red-soft:#FAEAE8;
+  --s:1;
+  font-synthesis-weight:none;
+}
+*{box-sizing:border-box}
+body{
+  margin:0;overflow:hidden;color:var(--ink);
+  font-family:"Source Sans 3","Segoe UI",system-ui,sans-serif;
+  background:#182A1E;
+  background-image:radial-gradient(120% 100% at 50% -25%, #35573E 0%, #223A29 48%, #14231A 100%);
+  -webkit-font-smoothing:antialiased;
+}
+
+/* ===================== SCENA ===================== */
+#stage{position:fixed;inset:0;display:grid;place-items:center}
+#deck{width:1280px;height:720px;transform:scale(var(--s));transform-origin:center center;position:relative}
+.slide{
+  position:absolute;inset:0;width:1280px;height:720px;
+  background:var(--paper);border-radius:8px;overflow:hidden;
+  padding:46px 60px 54px 86px;display:none;
+  box-shadow:0 40px 90px -30px rgba(0,0,0,.7), 0 0 0 1px rgba(255,255,255,.05);
+}
+.slide.on{display:block;animation:in .32s cubic-bezier(.22,.9,.3,1) both}
+@keyframes in{from{opacity:0;transform:translateY(9px)}to{opacity:1;transform:none}}
+@media (prefers-reduced-motion:reduce){.slide.on{animation:none}}
+
+/* tor kolejowy — lewa krawędź każdego slajdu */
+.slide::before{
+  content:"";position:absolute;left:0;top:0;bottom:0;width:26px;background:var(--forest);
+}
+.slide::after{
+  content:"";position:absolute;left:5px;top:0;bottom:0;width:16px;
+  background:
+    linear-gradient(var(--green-3),var(--green-3)) 1px 0/1.5px 100% repeat-y,
+    linear-gradient(var(--green-3),var(--green-3)) 13px 0/1.5px 100% repeat-y,
+    repeating-linear-gradient(180deg, rgba(156,196,166,.85) 0 2px, transparent 2px 11px);
+  opacity:.65;
+}
+.num{position:absolute;right:26px;bottom:18px;font:700 12px/1 "Source Sans 3",sans-serif;
+  letter-spacing:.18em;color:var(--ink-2);opacity:.7;font-variant-numeric:tabular-nums}
+.tag{position:absolute;left:86px;bottom:20px;font:700 10.5px/1 "Source Sans 3",sans-serif;
+  letter-spacing:.24em;text-transform:uppercase;color:var(--green)}
+
+/* ===================== TYPOGRAFIA ===================== */
+.eyebrow{font:700 11.5px/1 "Source Sans 3",sans-serif;letter-spacing:.26em;text-transform:uppercase;
+  color:var(--green);margin:0 0 13px;display:flex;align-items:center;gap:11px}
+.eyebrow::after{content:"";height:1px;flex:1;background:var(--line-2)}
+h1{font-family:"Figtree",sans-serif;font-weight:800;font-size:70px;line-height:.97;letter-spacing:-.028em;margin:0;text-wrap:balance;color:var(--ink)}
+h2{font-family:"Figtree",sans-serif;font-weight:800;font-size:40px;line-height:1.06;letter-spacing:-.02em;margin:0 0 16px;text-wrap:balance;color:var(--forest)}
+h3{font-family:"Figtree",sans-serif;font-weight:700;font-size:20px;line-height:1.16;margin:0 0 7px;color:var(--forest-2)}
+h4{font-family:"Figtree",sans-serif;font-weight:700;font-size:16px;line-height:1.2;margin:0 0 5px;color:var(--green)}
+p{margin:0 0 11px;font-size:17.5px;line-height:1.48;color:var(--ink-2)}
+p:last-child{margin-bottom:0}
+.lead{font-size:21px;line-height:1.4;color:var(--ink)}
+.small{font-size:14.5px;line-height:1.45}
+strong{color:var(--ink);font-weight:700}
+em.q{font-family:"Lora",Georgia,serif;font-style:italic;color:var(--forest-2)}
+.quote{font-family:"Lora",Georgia,serif;font-style:italic;font-weight:400;font-size:24px;line-height:1.34;color:var(--forest-2)}
+
+/* ===================== SIATKI ===================== */
+.cols{display:grid;gap:24px}
+.c2{grid-template-columns:1fr 1fr}
+.c3{grid-template-columns:repeat(3,1fr)}
+.c4{grid-template-columns:repeat(4,1fr)}
+.c5{grid-template-columns:repeat(5,1fr)}
+.c-73{grid-template-columns:1.4fr 1fr}
+.c-37{grid-template-columns:1fr 1.4fr}
+.stack{display:flex;flex-direction:column;gap:13px}
+.gs{gap:13px}
+
+/* ===================== KOMPONENTY ===================== */
+.card{background:var(--white);border:1px solid var(--line);border-radius:7px;padding:18px 20px}
+.card p{font-size:15.5px;line-height:1.44}
+.card.soft{background:var(--sage-2);border-color:transparent}
+.card.top{border-top:4px solid var(--green)}
+.dark{background:var(--forest);color:#E7F0E6;border-radius:7px;padding:22px 26px}
+.dark p{color:#C3D6C4}
+.dark .lead,.dark strong{color:#fff}
+.dark h3{color:#A8D0B2}
+.dark ul.dots li{color:#C3D6C4}
+.dark ul.dots li::before{background:var(--green-3)}
+.dark .small{color:#B7CDB9}
+
+.chip{display:inline-flex;align-items:center;gap:7px;font:700 11px/1 "Source Sans 3",sans-serif;
+  letter-spacing:.14em;text-transform:uppercase;padding:6px 10px;border-radius:4px;background:var(--sage);color:var(--forest-2)}
+.chip.a{background:var(--amber-soft);color:var(--amber-ink)}
+.chip.s{background:var(--sky);color:var(--sky-ink)}
+.chip.r{background:var(--red-soft);color:var(--red)}
+.pill{display:inline-block;padding:5px 12px;border-radius:99px;background:var(--green);color:#fff;
+  font:700 12px/1.35 "Source Sans 3",sans-serif;letter-spacing:.08em}
+.kicker{font:700 11px/1 "Source Sans 3",sans-serif;letter-spacing:.2em;text-transform:uppercase;color:var(--ink-2)}
+.age{display:inline-flex;flex-direction:column;align-items:center;justify-content:center;
+  min-width:60px;padding:7px 9px;border-radius:7px;background:var(--green);color:#fff;
+  font-family:"Figtree",sans-serif;font-weight:800;font-size:19px;line-height:1;letter-spacing:-.02em}
+.age span{font:600 10px/1.3 "Source Sans 3",sans-serif;letter-spacing:.1em;opacity:.85;margin-top:3px}
+.n{font-family:"Figtree",sans-serif;font-weight:800;font-variant-numeric:tabular-nums;color:var(--green);letter-spacing:-.03em}
+.circ{width:34px;height:34px;border-radius:50%;background:var(--green);color:#fff;display:grid;place-items:center;
+  font:800 16px/1 "Figtree",sans-serif;flex:0 0 auto}
+
+ul.dots,ul.ticks{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:8px}
+ul.dots li{position:relative;padding-left:19px;font-size:16px;line-height:1.4;color:var(--ink-2)}
+ul.dots li::before{content:"";position:absolute;left:2px;top:8px;width:6px;height:6px;border-radius:50%;background:var(--green)}
+ul.ticks li{position:relative;padding-left:28px;font-size:16px;line-height:1.4;color:var(--ink-2)}
+ul.ticks li::before{content:"";position:absolute;left:0;top:2px;width:16px;height:16px;border:1.5px solid var(--line-2);border-radius:3px;background:var(--white)}
+
+.hr{height:1px;background:var(--line);border:0;margin:0}
+.track{height:13px;background:
+  linear-gradient(var(--line-2),var(--line-2)) 0 1px/100% 1.5px repeat-x,
+  linear-gradient(var(--line-2),var(--line-2)) 0 10px/100% 1.5px repeat-x,
+  repeating-linear-gradient(90deg, var(--line-2) 0 2px, transparent 2px 10px);
+  opacity:.8}
+
+/* zamiast → powiedz */
+.swap{display:grid;grid-template-columns:1fr 26px 1.2fr;align-items:center;gap:0 10px;padding:10px 0;border-bottom:1px solid var(--line)}
+.swap:last-child{border-bottom:0}
+.swap .no{color:var(--red);font-size:15.5px;line-height:1.32}
+.swap .yes{color:var(--ink);font-size:15.5px;line-height:1.32;font-weight:600}
+.swap .ar{color:var(--line-2);text-align:center;font-size:16px}
+
+.two{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+.box{padding:16px 18px;border-radius:7px}
+.box.bad{background:var(--red-soft);border:1px solid #F0D4D1}
+.box.good{background:var(--sage);border:1px solid #CFE0CB}
+.box.bad h3{color:var(--red)}
+.box.good h3{color:var(--green)}
+.box.bad li::before{background:var(--red)}
+.box.warn{background:var(--amber-soft);border:1px solid #F0DDBE}
+.box.warn h3{color:var(--amber-ink)}
+
+table.grid{width:100%;border-collapse:collapse;font-size:15px}
+table.grid th{text-align:left;font:700 10.5px/1.3 "Source Sans 3",sans-serif;letter-spacing:.16em;text-transform:uppercase;
+  color:var(--ink-2);padding:0 12px 8px 0;border-bottom:1.5px solid var(--line-2)}
+table.grid td{padding:10px 12px 10px 0;border-bottom:1px solid var(--line);color:var(--ink-2);vertical-align:top;line-height:1.36}
+table.grid tr:last-child td{border-bottom:0}
+table.grid td b{color:var(--ink)}
+
+/* dymki Carol Gray */
+.bub{position:relative;padding:18px 22px;border-radius:22px;font-size:17px;line-height:1.35;color:var(--ink)}
+.bub.say{background:var(--white);border:2px solid var(--forest-2)}
+.bub.think{background:var(--sky);border:2px solid var(--sky-line)}
+.bub .tail{position:absolute;bottom:-14px;left:32px;width:0;height:0;border:9px solid transparent;border-top-color:var(--forest-2)}
+.bub.think .dots{position:absolute;bottom:-26px;left:30px;display:flex;gap:5px;align-items:flex-start}
+.bub.think .dots i{display:block;background:var(--sky);border:2px solid var(--sky-line);border-radius:50%}
+.bub.think .dots i:nth-child(1){width:13px;height:13px}
+.bub.think .dots i:nth-child(2){width:9px;height:9px;margin-top:9px}
+
+/* etapy procedury */
+.steps{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;align-items:stretch}
+.step{background:var(--white);border:1px solid var(--line);border-left:5px solid var(--green);border-radius:7px;padding:15px 16px;position:relative}
+.step .k{display:flex;align-items:center;gap:10px;margin-bottom:9px}
+.step p{font-size:14.5px;line-height:1.4;margin:0}
+
+/* komiks */
+.comic{display:grid;grid-template-columns:repeat(3,1fr);gap:11px}
+.panel{background:var(--white);border:1px solid var(--line);border-radius:6px;overflow:hidden}
+.panel .cap{padding:7px 11px 8px;font-size:13.5px;line-height:1.34;color:var(--ink-2);border-top:1px solid var(--line)}
+.panel .cap b{color:var(--forest-2)}
+
+/* termometr */
+.therm{display:flex;flex-direction:column;gap:5px}
+.therm .lvl{display:flex;align-items:center;gap:12px;padding:9px 13px;border-radius:6px;font-size:15.5px;color:var(--ink)}
+.therm .lvl b{font-family:"Figtree",sans-serif;font-size:16px;min-width:14px}
+
+.slide.big p{font-size:18.5px}
+.slide.big .card p,.slide.big .box p{font-size:16.5px}
+.slide.big .card{padding:22px 24px}
+.slide.big .box{padding:20px 22px}
+.slide.big ul.dots li,.slide.big ul.ticks li{font-size:17.5px;line-height:1.45}
+.slide.big .cols{gap:30px}
+.slide.big table.grid{font-size:16px}
+.slide.big table.grid td{padding:15px 14px 15px 0}
+.slide.big .swap{padding:13px 0}
+
+/* ===================== HUD ===================== */
+#hud{position:fixed;left:0;right:0;bottom:0;height:46px;display:flex;align-items:center;gap:12px;
+  padding:0 16px;z-index:20;color:#AFC9B4;font:600 12px/1 "Source Sans 3",sans-serif;letter-spacing:.1em;
+  background:linear-gradient(to top,rgba(10,20,13,.9),transparent)}
+#hud button{appearance:none;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.15);
+  color:#DAE8DB;border-radius:4px;padding:6px 11px;font:600 12px/1 "Source Sans 3",sans-serif;letter-spacing:.08em;cursor:pointer}
+#hud button:hover{background:rgba(255,255,255,.17)}
+#hud button:focus-visible,#gridview button:focus-visible{outline:2px solid var(--amber);outline-offset:2px}
+#count{margin-left:auto;font-variant-numeric:tabular-nums;letter-spacing:.18em}
+
+/* pasek postępu jako tor z pociągiem */
+#rail{position:fixed;top:0;left:0;right:0;height:16px;z-index:30;background:rgba(0,0,0,.25)}
+#rail .bed{position:absolute;left:0;right:0;top:6px;height:9px;background:
+  linear-gradient(#6F9377,#6F9377) 0 0/100% 1.5px repeat-x,
+  linear-gradient(#6F9377,#6F9377) 0 7.5px/100% 1.5px repeat-x,
+  repeating-linear-gradient(90deg,#4E6E56 0 2px, transparent 2px 11px)}
+#train{position:absolute;top:0;left:0;width:34px;height:16px;transition:left .32s cubic-bezier(.4,0,.2,1)}
+
+#notes{position:fixed;left:0;right:0;bottom:46px;max-height:34vh;overflow:auto;display:none;z-index:19;
+  background:rgba(12,24,15,.97);color:#D3E3D4;border-top:2px solid var(--amber);padding:15px 20px;font-size:15px;line-height:1.5}
+#notes.on{display:block}
+#notes b{color:#fff;font-family:"Figtree",sans-serif}
+#notes .lbl{font:700 10.5px/1 "Source Sans 3",sans-serif;letter-spacing:.24em;text-transform:uppercase;color:var(--amber);display:block;margin-bottom:8px}
+
+#gridview{position:fixed;inset:0;background:rgba(9,18,12,.97);z-index:40;display:none;padding:40px 44px;overflow:auto}
+#gridview.on{display:block}
+#gridview h4{font-family:"Figtree",sans-serif;color:#fff;font-size:23px;margin:0 0 20px;font-weight:800}
+#gridview .gg{display:grid;grid-template-columns:repeat(5,1fr);gap:11px}
+#gridview button{text-align:left;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);border-radius:5px;
+  padding:11px 12px;color:#DFEBE0;cursor:pointer;font-family:"Source Sans 3",sans-serif;display:flex;flex-direction:column;gap:5px;min-height:78px}
+#gridview button:hover{background:rgba(255,255,255,.13);border-color:var(--green-2)}
+#gridview button span.i{font:800 14px/1 "Figtree",sans-serif;color:var(--green-3);font-variant-numeric:tabular-nums}
+#gridview button span.t{font-size:13px;line-height:1.3}
+
+/* ===================== DRUK ===================== */
+@media print{
+  @page{size:A4 landscape;margin:0}
+  body{background:#fff;overflow:visible}
+  #hud,#rail,#notes,#gridview{display:none!important}
+  #stage{position:static;display:block}
+  #deck{width:auto;height:auto;transform:none}
+  .slide{position:relative;display:block!important;inset:auto;transform:scale(.865);transform-origin:top left;
+    box-shadow:none;border-radius:0;break-after:page;page-break-after:always;animation:none!important}
+}
+
+/* --- kadry zdjęciowe (z zapasowym tłem, gdy obrazek się nie wczyta) --- */
+.foto{position:relative;height:250px;border-radius:8px;overflow:hidden;
+  background:linear-gradient(120deg,var(--forest) 0%,var(--green) 58%,var(--green-2) 100%)}
+.foto img{width:100%;height:100%;object-fit:cover;display:block}
+.foto .podpis-foto{position:absolute;left:22px;bottom:16px;color:#fff;font:600 15px/1.35 "Source Sans 3",sans-serif;
+  text-shadow:0 2px 12px rgba(0,0,0,.7);max-width:70%}
+.foto.mini{height:138px;border-radius:6px;margin-bottom:13px}
+</style>
+
+<div id="rail"><div class="bed"></div>
+  <svg id="train" viewBox="0 0 34 16" aria-hidden="true">
+    <rect x="2" y="4" width="20" height="8" rx="2" fill="#9CC4A6"/>
+    <rect x="22" y="1" width="10" height="11" rx="2" fill="#E4EEE1"/>
+    <rect x="24" y="3" width="6" height="4" rx="1" fill="#3E7B4F"/>
+    <circle cx="7" cy="13" r="2.2" fill="#E4EEE1"/><circle cx="16" cy="13" r="2.2" fill="#E4EEE1"/><circle cx="27" cy="13" r="2.2" fill="#9CC4A6"/>
+  </svg>
+</div>
+<div id="stage"><div id="deck">
+
+<style>
+.cover{background:var(--forest);padding:0}
+.cover::before{background:var(--green)}
+.cover::after{opacity:.5}
+.cover .in{position:absolute;inset:0;padding:56px 60px 50px 86px;display:flex;flex-direction:column;justify-content:space-between;z-index:2}
+.cover h1{color:#fff;font-size:78px;max-width:700px}
+.cover .sub{font-size:22px;line-height:1.4;color:#B9D2BE;max-width:600px;margin-top:20px}
+.cover .eyebrow{color:var(--green-3)}
+.cover .eyebrow::after{background:rgba(255,255,255,.22)}
+.cover .foot{display:flex;gap:30px;align-items:baseline;font:600 12.5px/1 "Source Sans 3",sans-serif;letter-spacing:.16em;text-transform:uppercase;color:#8FB098}
+.cover .foot b{color:#fff;font-family:"Figtree",sans-serif;font-size:15px}
+.cover .art{position:absolute;right:-24px;bottom:-6px;width:900px;height:508px;opacity:.95;z-index:1;-webkit-mask-image:linear-gradient(to right,transparent 0,#000 26%);mask-image:linear-gradient(to right,transparent 0,#000 26%)}
+.cover .num{color:#7B9683}
+</style>
+<!-- ========== 01 ========== -->
+<section class="slide cover on" data-t="Tytuł" data-notes="Powitanie i umowa na 45 minut. Powiedz wprost: <b>to spotkanie nie zmieni programu nauczania, zmieni jedno pytanie, które zadajemy sobie w trudnej sytuacji</b> — z „dlaczego on tak robi” na „czego on mógł nie zobaczyć”. Zapowiedz, że każdy wyjdzie z jednym nazwiskiem ucznia i jedną rzeczą do zrobienia w poniedziałek.">
+  <svg class="art" viewBox="0 44 760 316" aria-hidden="true">
+    <defs><radialGradient id="sun3"><stop offset="0" stop-color="#84BE92" stop-opacity=".62"/><stop offset="1" stop-color="#84BE92" stop-opacity="0"/></radialGradient></defs>
+    <circle cx="470" cy="180" r="165" fill="url(#sun3)"/>
+    <g stroke="#9CC4A6" stroke-width="7" fill="none" opacity=".95">
+      <path d="M250 250 A105 95 0 0 1 460 250"/><path d="M140 250 A46 42 0 0 1 232 250"/><path d="M478 250 A46 42 0 0 1 570 250"/>
+    </g>
+    <rect x="90" y="238" width="580" height="13" fill="#E4EEE1"/>
+    <g fill="#9CC4A6" opacity=".9"><rect x="124" y="250" width="12" height="60"/><rect x="236" y="250" width="12" height="60"/><rect x="462" y="250" width="12" height="60"/><rect x="574" y="250" width="12" height="60"/></g>
+    <g><rect x="286" y="206" width="70" height="32" rx="5" fill="#E4EEE1"/><rect x="356" y="196" width="46" height="42" rx="5" fill="#9CC4A6"/>
+      <rect x="364" y="204" width="30" height="16" rx="2" fill="#243F2C"/>
+      <g fill="#243F2C"><rect x="296" y="214" width="16" height="14" rx="2"/><rect x="322" y="214" width="16" height="14" rx="2"/></g>
+      <g fill="#63A075"><circle cx="302" cy="240" r="5"/><circle cx="338" cy="240" r="5"/><circle cx="380" cy="240" r="5"/></g></g>
+  </svg>
+  <div class="in">
+    <div>
+      <p class="eyebrow">Rada pedagogiczna &nbsp;·&nbsp; 45 minut &nbsp;·&nbsp; cała placówka</p>
+      <h1>Teoria umysłu<br>w 45 minut</h1>
+      <p class="sub">Skrót całego cyklu „Budowanie mostów społecznych” — od przedszkola po klasy starsze. Jedno spotkanie, jedno pytanie do zmiany, jeden plan na miesiąc.</p>
+    </div>
+    <div class="foot">
+      <span><b>14</b> slajdów</span><span><b>3</b> narzędzia</span><span><b>30</b> dni wdrożenia</span>
+      <span style="margin-left:auto;letter-spacing:.08em;text-transform:none;font-size:12.5px">Opracowanie: Mirosława Ewa Jurczyszyn · PCTP Koszalin</span>
+    </div>
+  </div>
+  <div class="num">01 / 14</div>
+</section>
+
+<!-- ========== 02 ========== -->
+<section class="slide big" data-t="Po co to spotkanie" data-notes="Przeczytaj trzy sytuacje i zapytaj salę: <b>ile razy w tym tygodniu któraś z nich się u nas wydarzyła?</b> Zwykle podnosi się większość rąk. To otwiera spotkanie lepiej niż jakakolwiek definicja. Zamknij zdaniem z dolnej ramki i zapowiedz, że przez 45 minut szukamy odpowiedzi na jedno pytanie: czego to dziecko mogło nie zobaczyć.">
+  <p class="eyebrow">Po co to spotkanie</p>
+  <h2>Trzy sytuacje, które zna każdy z nas</h2>
+  <div class="cols c3" style="margin-top:24px">
+    <div class="card top"><div class="foto mini"><img src="https://cdn.gamma.app/pvogiv3dfxyqep5/design-anything/JY3IHajoQA9QX26dmMQDW/lMit-74j_oWQVf5PddfU4.jpg" alt="" onerror="this.style.display='none'"></div><span class="chip">Przedszkole</span><h3 style="margin-top:11px">„Zniszczył pracę i nie przeprosił”</h3><p>Przechodząc, potrącił wieżę kolegi. Nie rozumie, dlaczego mamy pretensje — przecież nie chciał.</p></div>
+    <div class="card top"><div class="foto mini"><img src="https://cdn.gamma.app/pvogiv3dfxyqep5/design-anything/ijL4gmXWKYDsOfZzbltZG/tiBERGSOCQ9FgF6IcEtHI.jpg" alt="" onerror="this.style.display='none'"></div><span class="chip">Klasy 1–3</span><h3 style="margin-top:11px">„On się ze mnie śmiał” / „to był żart”</h3><p>Dwóch uczniów, dwie prawdy, konflikt na kwadrans. Żadne nie kłamie.</p></div>
+    <div class="card top"><div class="foto mini"><img src="https://cdn.gamma.app/pvogiv3dfxyqep5/design-anything/egDoWnJ12QN7SwnlsDg4a/qRMmegK80IJWxiY-7nHjK.jpg" alt="" onerror="this.style.display='none'"></div><span class="chip">Klasy 4–8</span><h3 style="margin-top:11px">„Wszyscy są przeciwko mnie”</h3><p>Brak zaproszenia do grupy odczytany jako celowe wykluczenie. Reakcja nieproporcjonalna do zdarzenia.</p></div>
+  </div>
+  <div class="dark" style="margin-top:28px;display:flex;align-items:center;gap:24px">
+    <span class="n" style="font-size:42px;color:var(--green-3)">→</span>
+    <p class="lead" style="margin:0">W każdej z nich pytamy „dlaczego on tak zrobił”. Przez najbliższe 45 minut zamieniamy to pytanie na inne: <strong>czego on mógł nie zobaczyć?</strong></p>
+  </div>
+  <div class="tag">Wprowadzenie</div><div class="num">02 / 14</div>
+</section>
+
+<!-- ========== 03 ========== -->
+<section class="slide big" data-t="Czym jest teoria umysłu" data-notes="Trzy minuty, nie więcej. Kluczowe trzy słowa: <b>niewidzialne, osobne, omylne</b>. Podkreśl, że to nie jest inteligencja ani wychowanie — uczeń może mieć piątki i nie mieć tej umiejętności. I odwrotnie: może mieć trudności w nauce i doskonale czytać ludzi.">
+  <p class="eyebrow">Fundament</p>
+  <div class="cols c-73" style="align-items:start;gap:34px">
+    <div>
+      <h2>Teoria umysłu to zdolność<br>widzenia tego, czego nie widać</h2>
+      <div class="dark">
+        <p class="lead" style="margin-bottom:10px">Zdolność przypisywania sobie i innym <strong>stanów mentalnych</strong> — przekonań, pragnień, zamiarów i emocji — oraz przewidywania na tej podstawie zachowania.</p>
+        <p style="margin:0">Premack i Woodruff, 1978 · Baron-Cohen, Leslie i Frith, 1985.</p>
+      </div>
+      <div class="cols c2 gs" style="margin-top:16px">
+        <div class="card"><h4>To nie jest</h4><p>inteligencja, wychowanie ani dobre maniery</p></div>
+        <div class="card"><h4>To jest</h4><p>oddzielna umiejętność poznawcza, rozwijająca się etapami</p></div>
+      </div>
+    </div>
+    <div class="stack">
+      <div class="card top"><h3>1. Niewidzialne</h3><p>Myśli nie widać. Trzeba je wywnioskować z twarzy, ciała i kontekstu.</p></div>
+      <div class="card top"><h3>2. Osobne</h3><p>Twój umysł ma inną zawartość niż mój. Ty możesz nie wiedzieć tego, co ja wiem.</p></div>
+      <div class="card top"><h3>3. Omylne</h3><p>Umysł może zawierać treść nieprawdziwą — człowiek działa zgodnie z tym, w co <em>wierzy</em>.</p></div>
+    </div>
+  </div>
+  <div class="dark" style="margin-top:26px;display:grid;grid-template-columns:1fr 1fr;gap:30px">
+    <div><p class="kicker" style="color:#8FB098;margin-bottom:6px">Czego to nie tłumaczy</p><p class="lead" style="margin:0">Uczeń może mieć <strong>piątki</strong> i nie mieć tej umiejętności.</p></div>
+    <div><p class="kicker" style="color:#8FB098;margin-bottom:6px">I odwrotnie</p><p class="lead" style="margin:0">Może mieć trudności w nauce i <strong>doskonale czytać ludzi</strong>.</p></div>
+  </div>
+  <div class="tag">Definicja</div><div class="num">03 / 14</div>
+</section>
+
+<!-- ========== 04 ========== -->
+<section class="slide big" data-t="Oś rozwoju" data-notes="Pokaż, że to jedna oś, a nasza placówka siedzi na kilku jej odcinkach naraz. Najważniejsze zdanie: <b>kolejność jest stała, tempo indywidualne</b>. Uczeń, który jest o dwa etapy w tyle, nie jest oporny — on jest gdzie indziej na tej samej trasie. Zapytaj: ile lat różnicy widzicie między najmocniejszym a najsłabszym uczniem w jednej klasie?">
+  <p class="eyebrow">Rozwój</p>
+  <h2>Jedna oś, cała placówka na niej</h2>
+  <p class="small" style="margin-bottom:20px">Kolejność etapów jest stała, tempo indywidualne. W jednej klasie różnica bywa trzyletnia.</p>
+  <div class="cols c5" style="gap:14px">
+    <div class="card top"><span class="age">0–2<span>LATA</span></span><h3 style="margin-top:12px">Wspólne pole uwagi</h3><p>Patrzymy razem na to samo i oboje o tym wiemy.</p></div>
+    <div class="card top"><span class="age">3–4<span>LATA</span></span><h3 style="margin-top:12px">Rozumienie pragnień</h3><p>Inni mogą chcieć czegoś innego niż ja.</p></div>
+    <div class="card top" style="border-top-color:var(--amber)"><span class="age" style="background:var(--amber)">4–6<span>LAT</span></span><h3 style="margin-top:12px">Fałszywe przekonania</h3><p>On będzie szukał tam, gdzie schował — choć tego już tam nie ma.</p></div>
+    <div class="card top" style="border-top-color:var(--amber)"><span class="age" style="background:var(--amber)">6–8<span>LAT</span></span><h3 style="margin-top:12px">Przekonania II rzędu</h3><p>„Ona myśli, że on myśli…” — tajemnica, plotka, żart.</p></div>
+    <div class="card top"><span class="age">9–12+<span>LAT</span></span><h3 style="margin-top:12px">Gafa, ironia, empatia poznawcza</h3><p>Czytanie między wierszami i subtelnych intencji.</p></div>
+  </div>
+  <div class="box good" style="margin-top:26px;display:flex;align-items:center;gap:20px">
+    <span class="pill">Zapamiętaj</span>
+    <p style="margin:0;font-size:17px;color:var(--ink)">Uczeń, który nie rozumie sarkazmu w czwartej klasie, <strong>nie jest oporny</strong> — jest wcześniej na tej samej trasie. Wymaga uczenia wprost, nie tłumaczenia „przecież to oczywiste”.</p>
+  </div>
+  <div class="tag">Etapy</div><div class="num">04 / 14</div>
+</section>
+
+<!-- ========== 05 ========== -->
+<section class="slide big" data-t="Sygnały u nas" data-notes="Rozdaj ten slajd jako wydruk — to najczęściej używany materiał. Poproś, żeby każdy zaznaczył sygnały, które widzi u konkretnego ucznia, i zwrócił uwagę, ile z nich dotyczy <b>przerwy, a nie lekcji</b>. To zwykle przesądza o tym, gdzie zacząć pracę.">
+  <p class="eyebrow">Rozpoznanie</p>
+  <h2>Co widać w naszej placówce — sygnały według etapu</h2>
+  <table class="grid" style="margin-top:20px">
+    <thead><tr><th style="width:17%">Etap</th><th style="width:41%">Sygnały w codziennej pracy</th><th>Sytuacja, w której widać to najmocniej</th></tr></thead>
+    <tbody>
+      <tr><td><b>Przedszkole</b></td><td>Bawi się obok, nie z dziećmi · nie sprawdza, czy ktoś słucha · ocenia po skutku, nie po intencji · nie rozwija zabawy w role</td><td>Konflikt o zabawkę, kolejka do szatni, urodziny w grupie</td></tr>
+      <tr><td><b>Klasy 1–3</b></td><td>Bierze ironię dosłownie · nie odróżnia żartu od dokuczania · wchodzi w słowo · zgłasza każde złamanie zasady</td><td>Przerwa bez struktury, praca w grupie, świetlica po lekcjach</td></tr>
+      <tr><td><b>Klasy 4–8</b></td><td>Nie rozpoznaje gafy · odczytuje neutralne zachowanie jako wrogie · podatny na manipulację · wycofuje się z grupy</td><td>Grupa klasowa w komunikatorze, dobieranie się w zespoły, wf</td></tr>
+    </tbody>
+  </table>
+  <div class="cols c-73" style="margin-top:24px;align-items:center;gap:24px">
+    <div class="box good" style="display:flex;gap:18px;align-items:center"><span class="pill">Jak czytać</span><p style="margin:0;font-size:16.5px;color:var(--ink)">Pojedyncze zachowanie nic nie znaczy. Niepokoi <strong>obraz</strong>: kilka sygnałów naraz, powtarzalnie, przez <strong>3–4 tygodnie</strong>.</p></div>
+    <p class="small" style="margin:0">Zapisujemy <strong>datę, sytuację i cytat</strong> — nie ocenę. „Nie chce współpracować” to opinia. „Odwrócił się plecami i zaczął mówić o pociągach” to obserwacja.</p>
+  </div>
+  <div class="tag">Checklista</div><div class="num">05 / 14</div>
+</section>
+<!-- ========== 06 ========== -->
+<section class="slide" data-t="Trzy mity" data-notes="Najważniejszy slajd dla zmiany postawy zespołu. Rozróżnienie empatii poznawczej i afektywnej tłumaczy paradoks, który zna każdy nauczyciel: dziecko nie zauważa, że kogoś zraniło, a płacze nad rozdeptanym ślimakiem. Zamknij zdaniem z dołu — kara nie ma czego wygaszać, jeśli nie było złej woli.">
+  <p class="eyebrow">Rozpoznanie</p>
+  <h2>Trzy mity, które blokują pomoc</h2>
+  <div class="cols c3" style="margin-top:24px">
+    <div class="stack">
+      <div class="box bad" style="padding:14px 16px"><span class="kicker" style="color:var(--red)">Mit 1</span><p style="margin:6px 0 0;font-size:17px;color:var(--red)"><strong style="color:var(--red)">„To dziecko nie ma empatii.”</strong></p></div>
+      <div class="card"><span class="kicker" style="color:var(--green)">Fakt</span><p style="margin-top:6px">Empatia <strong>afektywna</strong> bywa nienaruszona, a nawet bardzo silna. Osłabiona jest empatia <strong>poznawcza</strong> — odczytanie, <em>co</em> ktoś czuje i dlaczego.</p><p class="small" style="margin-top:9px">Stąd paradoks: nie zauważy, że zranił kolegę, a płacze nad ślimakiem.</p></div>
+    </div>
+    <div class="stack">
+      <div class="box bad" style="padding:14px 16px"><span class="kicker" style="color:var(--red)">Mit 2</span><p style="margin:6px 0 0;font-size:17px;color:var(--red)"><strong style="color:var(--red)">„Przecież doskonale wie, że tak nie wolno.”</strong></p></div>
+      <div class="card"><span class="kicker" style="color:var(--green)">Fakt</span><p style="margin-top:6px">Wiedza o zasadzie i użycie jej w emocjach to dwie różne rzeczy. W napięciu trzeba naraz zahamować impuls, odczytać cudzą intencję i wybrać zachowanie.</p><p class="small" style="margin-top:9px">Wie „przy stoliku”. Nie potrafi „przy konflikcie”.</p></div>
+    </div>
+    <div class="stack">
+      <div class="box bad" style="padding:14px 16px"><span class="kicker" style="color:var(--red)">Mit 3</span><p style="margin:6px 0 0;font-size:17px;color:var(--red)"><strong style="color:var(--red)">„Robi to specjalnie, żeby mnie sprowokować.”</strong></p></div>
+      <div class="card"><span class="kicker" style="color:var(--green)">Fakt</span><p style="margin-top:6px">Prowokacja wymaga modelu cudzego umysłu — trzeba z góry wiedzieć, co kogoś zdenerwuje. Częściej uczeń po prostu <strong>nie przewidział</strong> skutku.</p><p class="small" style="margin-top:9px">Nieporozumienie jest dwustronne: my też nie odczytujemy jego sygnałów.</p></div>
+    </div>
+  </div>
+  <div class="dark" style="margin-top:24px;display:grid;grid-template-columns:auto 1fr;gap:24px;align-items:center">
+    <span class="pill" style="background:var(--green-2)">Co to zmienia</span>
+    <p class="lead" style="margin:0">Jeśli to nie jest zła wola, <strong>kara nie ma czego wygaszać</strong>. Uczy dopiero pokazanie tego, czego uczeń nie zobaczył sam.</p>
+  </div>
+  <div class="tag">Mity i fakty</div><div class="num">06 / 14</div>
+</section>
+
+<!-- ========== 07 ========== -->
+<section class="slide big" data-t="Dwie perspektywy" data-notes="Ćwiczenie na żywo, najmocniejszy moment spotkania: przeczytaj kolumnę „co widzimy”, zapytaj radę, jak zwykle reagujemy, i dopiero potem odsłoń kolumnę „co dzieje się w uczniu”. Zakończ pytaniem: która reakcja uczy go czegokolwiek o cudzym umyśle?">
+  <p class="eyebrow">Zmiana perspektywy</p>
+  <h2>Ta sama sytuacja, dwa różne pociągi</h2>
+  <table class="grid" style="margin-top:20px">
+    <thead><tr><th style="width:18%">Sytuacja</th><th style="width:24%">Co widzimy</th><th style="width:29%">Co dzieje się w dziecku</th><th>Co działa zamiast uwagi</th></tr></thead>
+    <tbody>
+      <tr><td><b>Rozbita praca kolegi</b></td><td>„Zniszczył i nie przeprosił.”</td><td>Nie odczytał, że to <em>czyjaś</em> praca i że ktoś się zdenerwuje. Nie wie, po co się przeprasza.</td><td>Nazwij niewidzialne: „Kuba budował to 20 minut, teraz jest smutny” — i podaj gotowy skrypt naprawy.</td></tr>
+      <tr><td><b>Żart w klasie</b></td><td>„Obraża się o wszystko” albo „śmieje się z kolegi”.</td><td>Nie rozróżnia śmiechu <em>z nim</em> od śmiechu <em>z niego</em> — brakuje odczytania intencji.</td><td>Nazwij intencję wprost i naucz zdania sprawdzającego: „mówisz poważnie czy żartujesz?”</td></tr>
+      <tr><td><b>Przerwa</b></td><td>„Nie chce się integrować, chodzi sam.”</td><td>Chce, ale nie wie, kiedy można dołączyć i czego grupa oczekuje.</td><td>Daj rolę, nie zachętę: „idziesz z Antkiem po piłkę”. Rola zastępuje odczytywanie intencji.</td></tr>
+      <tr><td><b>Uwaga przy klasie</b></td><td>„Przesadnie reaguje na drobiazg.”</td><td>Uwaga publiczna to informacja o tym, <em>co wszyscy teraz o nim myślą</em> — a tego nie umie sprawdzić.</td><td>Uwagi na osobności, zawsze z konkretem naprawczym, nigdy jako ocena osoby.</td></tr>
+    </tbody>
+  </table>
+  <div class="tag">Ćwiczenie</div><div class="num">07 / 14</div>
+</section>
+
+<!-- ========== 08 ========== -->
+<section class="slide big" data-t="Ciało najpierw" data-notes="Zasada numer jeden całego programu: <b>regulacja przed poznaniem, nigdy odwrotnie</b>. Praktyczny wniosek dla rady: rozmowa wychowawcza tuż po zdarzeniu, przy wysokim pobudzeniu, jest stratą czasu dla obu stron. Zaproponuj radzie wspólną zasadę: przy pobudzeniu 4–5 najpierw regulacja, rozmowa po 20 minutach albo następnego dnia.">
+  <p class="eyebrow">Zasada nr 1</p>
+  <div class="cols c-37" style="align-items:start;gap:36px">
+    <div>
+      <h2 style="font-size:36px">Dlaczego rozmowa<br>zaraz po zdarzeniu<br>niczego nie uczy</h2>
+      <p class="lead">Zasoby uwagi są jedne. Hałas, tłok i własne napięcie zjadają je, zanim dziecko pomyśli o cudzym umyśle.</p>
+      <div class="box warn" style="margin-top:16px"><h3 style="color:var(--amber-ink)">Zasada dla całej placówki</h3><p style="margin:0;font-size:16px;color:var(--ink)">Przy pobudzeniu 4–5 <strong>nie prowadzimy rozmowy wychowawczej</strong>. Najpierw ciało, rozmowa po 20 minutach albo następnego dnia. To nie jest odpuszczanie — to warunek, żeby cokolwiek zostało w głowie.</p></div>
+    </div>
+    <div class="stack">
+      <div class="card">
+        <h4 style="margin-bottom:14px">Zasoby dziecka w trudnej sytuacji</h4>
+        <div style="display:flex;flex-direction:column;gap:13px">
+          <div><div style="display:flex;justify-content:space-between;font-size:13px;color:var(--ink-2);margin-bottom:5px"><span>Hałas, tłok, dzwonek, światło</span><span style="color:var(--amber-ink);font-weight:700">obciążenie sensoryczne</span></div>
+            <div style="height:22px;background:var(--sage-2);border-radius:4px;overflow:hidden"><div style="width:60%;height:100%;background:var(--amber)"></div></div></div>
+          <div><div style="display:flex;justify-content:space-between;font-size:13px;color:var(--ink-2);margin-bottom:5px"><span>Wstyd przy grupie, złość, lęk</span><span style="color:var(--red);font-weight:700">obciążenie emocjonalne</span></div>
+            <div style="height:22px;background:var(--sage-2);border-radius:4px;overflow:hidden"><div style="width:28%;height:100%;background:var(--red)"></div></div></div>
+          <div><div style="display:flex;justify-content:space-between;font-size:13px;color:var(--ink-2);margin-bottom:5px"><span>„Co on właściwie chciał zrobić?”</span><span style="color:var(--green);font-weight:700">zostało na myślenie o innych</span></div>
+            <div style="height:22px;background:var(--sage-2);border-radius:4px;overflow:hidden"><div style="width:12%;height:100%;background:var(--green)"></div></div></div>
+        </div>
+        <p class="small" style="margin-top:13px">Obniż obciążenie sensoryczne — pole na myślenie o innych rośnie samo.</p>
+      </div>
+      <div class="dark" style="display:flex;align-items:center;gap:20px"><span class="circ" style="background:var(--green-2)">1</span><p class="lead" style="margin:0">Ciało najpierw — <strong>regulacja przed poznaniem. Nigdy odwrotnie.</strong></p></div>
+    </div>
+  </div>
+  <div style="margin-top:22px">
+    <p class="kicker" style="margin-bottom:11px">Sygnały, że dziecko jest powyżej trójki — zanim powie o tym słowami</p>
+    <div class="cols c5" style="gap:12px">
+      <div class="card soft"><p class="small" style="margin:0"><strong>Ciało</strong><br>napięte ramiona, zaciśnięte pięści</p></div>
+      <div class="card soft"><p class="small" style="margin:0"><strong>Ruch</strong><br>chodzenie w kółko, przyspieszone tempo</p></div>
+      <div class="card soft"><p class="small" style="margin:0"><strong>Zmysły</strong><br>zatykanie uszu, chowanie się</p></div>
+      <div class="card soft"><p class="small" style="margin:0"><strong>Głos</strong><br>ciszej albo znacznie głośniej niż zwykle</p></div>
+      <div class="card soft"><p class="small" style="margin:0"><strong>Kontakt</strong><br>przestaje odpowiadać, patrzy w punkt</p></div>
+    </div>
+  </div>
+  <div class="tag">Podwójne obciążenie</div><div class="num">08 / 14</div>
+</section>
+
+<!-- ========== 09 ========== -->
+<section class="slide big" data-t="Procedura sesji" data-notes="Pokaż, że praca ma stały rytm, i że nie jest to nowy przedmiot, tylko 20–30 minut w ramach zajęć, które już mamy: rewalidacja, zajęcia rozwijające kompetencje emocjonalno-społeczne, godzina wychowawcza. Podkreśl kolejność: pominięcie pierwszego etapu przy wysokim pobudzeniu unieważnia wszystko, co dalej.">
+  <p class="eyebrow">Procedura</p>
+  <h2>Sesja „od ciała do umysłu” — stały rytm czterech etapów</h2>
+  <p class="lead" style="max-width:940px;margin-bottom:22px">Nie nowy przedmiot, tylko <strong>20–30 minut</strong> w zajęciach, które już mamy. Stałość rytuału zwalnia dziecko z przewidywania — cały zasób idzie na myślenie.</p>
+  <div class="steps">
+    <div class="step"><div class="k"><span class="circ">1</span><h3 style="margin:0">Proprioceptywny</h3></div><p>Termometr Emocji. Powyżej trójki — najpierw ciało: docisk, praca ciężka, oddech.</p></div>
+    <div class="step"><div class="k"><span class="circ">2</span><h3 style="margin:0">Transformacja</h3></div><p>Technika Carol Gray: rozdzielamy, co ktoś <em>mówi</em>, od tego, co <em>myśli</em>.</p></div>
+    <div class="step"><div class="k"><span class="circ">3</span><h3 style="margin:0">Trening</h3></div><p>Zadanie dopasowane do etapu i do pasji dziecka: kukiełki, komiks, scenka.</p></div>
+    <div class="step"><div class="k"><span class="circ">4</span><h3 style="margin:0">Ewaluacja</h3></div><p>Wpis o próbie, żeton, jedno zdanie podsumowania. Nagradzamy próbę, nie wynik.</p></div>
+  </div>
+  <div class="cols c-73" style="margin-top:26px;align-items:center;gap:24px">
+    <div class="box good" style="display:flex;align-items:center;gap:18px"><span class="pill">Gdzie to zmieścić</span><p style="margin:0;font-size:16.5px;color:var(--ink)">Zajęcia rewalidacyjne · zajęcia rozwijające kompetencje emocjonalno-społeczne · godzina wychowawcza · 15 minut świetlicy dwa razy w tygodniu.</p></div>
+    <p class="small" style="margin:0">Kolejność jest nienaruszalna. Pominięcie etapu 1 przy wysokim pobudzeniu unieważnia całą resztę.</p>
+  </div>
+  <div class="tag">Jak pracujemy</div><div class="num">09 / 14</div>
+</section>
+
+<!-- ========== 10 ========== -->
+<section class="slide big" data-t="Trzy narzędzia" data-notes="To jest to, co rada ma wynieść ze spotkania. Trzy narzędzia działają na każdym etapie edukacyjnym i nie wymagają ani jednej dodatkowej godziny — są sposobem mówienia, a nie osobnym zajęciem. Poproś, żeby każdy wybrał jedno i zaczął od niego w poniedziałek.">
+  <p class="eyebrow">Narzędzia</p>
+  <h2>Trzy narzędzia, które działają na każdym etapie</h2>
+  <div class="cols c3" style="margin-top:24px;gap:22px;align-items:start">
+    <div class="stack">
+      <div class="card top"><span class="chip">Narzędzie 1</span><h3 style="margin-top:11px">Język mentalny</h3><p>Mów wprost o tym, czego nie widać. Zamiast „przeproś Kubę” — <em class="q">„Kuba myślał, że wieża zostanie. Teraz jest smutny.”</em></p></div>
+      <div class="dark"><p class="small" style="margin:0;color:#C3D6C4">Siedem słów, które budują teorię umysłu:<br><strong style="color:#fff">myśli · wie · nie wie · chce · pamiętał · zapomniał · sądził</strong></p></div>
+    </div>
+    <div class="stack">
+      <div class="card top"><span class="chip">Narzędzie 2</span><h3 style="margin-top:11px">Komiks rozmowy</h3><p>Po konflikcie rysujesz przy dziecku: kto tam był, co każdy <strong>powiedział</strong>, co każdy <strong>pomyślał</strong>, jakim kolorem to czuł.</p></div>
+      <div style="display:flex;gap:12px">
+        <div class="bub say" style="flex:1;padding:11px 13px;font-size:14px;border-radius:14px">Ale z ciebie mistrz!</div>
+        <div class="bub think" style="flex:1;padding:11px 13px;font-size:14px;border-radius:14px">Chcę go rozśmieszyć, bo lubię z nim grać.</div>
+      </div>
+      <p class="small">Biały — słowa. Niebieski — myśli. Patyczaki w zupełności wystarczą.</p>
+    </div>
+    <div class="stack">
+      <div class="card top"><span class="chip">Narzędzie 3</span><h3 style="margin-top:11px">Myśl a fakt</h3><p>Po każdym konflikcie trzy pytania w stałej kolejności — zaczynamy od faktu, bo to jedyna rzecz, co do której się zgadzacie.</p></div>
+      <div class="card soft"><ul class="dots" style="margin:0"><li><strong>Co widziałem?</strong> — „Kuba nie odpowiedział”</li><li><strong>Co pomyślałem?</strong> — „Kuba mnie nie lubi”</li><li><strong>Jak sprawdzę?</strong> — „pytam: słyszałeś mnie?”</li></ul></div>
+    </div>
+  </div>
+  <div class="tag">Do zabrania ze spotkania</div><div class="num">10 / 14</div>
+</section>
+<!-- ========== 11 ========== -->
+<section class="slide big" data-t="Czego unikać" data-notes="Przejdź powoli przez kolumnę „unikaj” — to są odruchy, które wykonujemy w dobrej wierze. Trzy najważniejsze: rozmowa przy wysokim pobudzeniu, omawianie zachowania przy grupie i przeprosiny na rozkaz. Zamknij zdaniem: reagujemy na ciało, nie tylko na słowa.">
+  <p class="eyebrow">Praktyka</p>
+  <h2>Czego unikać, co stosować</h2>
+  <div class="two" style="margin-top:22px">
+    <div class="box bad">
+      <h3>✕ &nbsp;Unikaj</h3>
+      <ul class="dots" style="margin-top:10px">
+        <li><strong>rozmowy wychowawczej przy wysokim pobudzeniu</strong> — najpierw ciało</li>
+        <li><strong>omawiania zachowania przy grupie</strong> — wstyd podnosi pobudzenie</li>
+        <li><strong>przeprosin na rozkaz</strong> — uczą formułki, nie naprawy</li>
+        <li><strong>porównywania z rówieśnikami</strong> — „zobacz, jak siedzi Zosia”</li>
+        <li><strong>ironii i przenośni</strong> w komunikacie do dziecka</li>
+        <li><strong>zakładania złej woli</strong> — „robi to specjalnie”</li>
+      </ul>
+    </div>
+    <div class="box good">
+      <h3>✓ &nbsp;Stosuj</h3>
+      <ul class="dots" style="margin-top:10px">
+        <li><strong>język mentalny</strong>: myśli, wie, nie wiedział, chciał</li>
+        <li><strong>trzy pytania</strong>: co widziałem, co pomyślałem, jak sprawdzę</li>
+        <li><strong>komiks rozmowy</strong> po konflikcie, rysowany przy dziecku</li>
+        <li><strong>rolę zamiast zachęty</strong> na przerwie i w pracy w grupie</li>
+        <li><strong>czas na przetworzenie</strong>: 5–10 sekund ciszy</li>
+        <li><strong>nagradzanie próby</strong>, nie poprawnej odpowiedzi</li>
+      </ul>
+    </div>
+  </div>
+  <div class="box warn" style="margin-top:24px;display:flex;align-items:center;gap:20px">
+    <span class="chip a">Pamiętaj</span>
+    <p style="margin:0;font-size:17px;color:var(--ink)">Podwójne obciążenie sensoryczno-poznawcze to <strong>realne ryzyko</strong>, a nie teoria. Reagujemy na ciało, nie tylko na słowa.</p>
+  </div>
+  <div class="tag">Pułapki</div><div class="num">11 / 14</div>
+</section>
+
+<!-- ========== 12 ========== -->
+<section class="slide" data-t="Co robimy jako zespół" data-notes="Ten slajd jest o decyzjach, które podejmuje rada, a nie pojedynczy nauczyciel. Najczęściej pomijana jest świetlica — a to tam uczeń spędza czas, gdy jego zasoby są już wyczerpane. Drugi trudny punkt: ocena zachowania. Trudność w mentalizacji nie jest przewinieniem, więc obniżona ocena działa jak kara za objaw.">
+  <p class="eyebrow">Zespół</p>
+  <h2>Pięć decyzji, które podejmuje rada, nie pojedynczy nauczyciel</h2>
+  <div class="cols c3" style="margin-top:22px;gap:20px">
+    <div class="card top"><h3>Przerwa</h3><p>Najtrudniejszy moment dnia. Uczeń dostaje <strong>rolę</strong>, nie zachętę, i miejsce, do którego może odejść bez tłumaczenia się.</p></div>
+    <div class="card top"><h3>Świetlica</h3><p>Pierwsze 15 minut bez wymagań społecznych. To koniec dnia dla ucznia, nie początek — zasoby są już wyczerpane.</p></div>
+    <div class="card top"><h3>Ocena zachowania</h3><p>Trudność w mentalizacji nie jest przewinieniem. Oceniamy to, co uczeń kontroluje: próbę, sygnał wyjścia, zdanie naprawcze.</p></div>
+    <div class="card top"><h3>Przepływ informacji</h3><p>Wychowawca, nauczyciele przedmiotów, wf, świetlica, specjaliści — <strong>jedno uzgodnienie</strong>, nie pięć różnych.</p></div>
+    <div class="card top"><h3>Rozmowa z rodzicami</h3><p>Przynosimy <strong>dane, nie wrażenia</strong>: daty, sytuacje, cytaty, częstotliwość. Zaczynamy i kończymy mocną stroną dziecka.</p></div>
+    <div class="card soft"><h3>Dokumentacja</h3><p class="small" style="margin:0">Obserwacja → pomoc psychologiczno-pedagogiczna → poradnia → przy orzeczeniu WOPFU i IPET. Cel w IPET formułujemy mierzalnie.</p></div>
+  </div>
+  <div class="dark" style="margin-top:26px;display:flex;align-items:center;gap:24px">
+    <span class="n" style="font-size:40px;color:var(--green-3)">→</span>
+    <p class="lead" style="margin:0">Uczeń, który ma umówiony sygnał wyjścia u wychowawcy, ale nie ma go w świetlicy, <strong>jest bez wsparcia przez pół dnia</strong>.</p>
+  </div>
+  <div class="tag">Decyzje rady</div><div class="num">12 / 14</div>
+</section>
+
+<!-- ========== 13 ========== -->
+<section class="slide big" data-t="Plan 30 dni" data-notes="Zakończ konkretem: każdy zapisuje teraz jedno nazwisko i jedną rzecz, którą zrobi w poniedziałek. Umów termin powrotu do tego planu za miesiąc — 15 minut na najbliższej radzie wystarczy. Bez tego terminu plan zostanie na papierze.">
+  <p class="eyebrow">Wdrożenie</p>
+  <h2>Plan na 30 dni — dla placówki, nie dla jednego nauczyciela</h2>
+  <div class="cols c4" style="margin-top:22px;gap:16px">
+    <div class="card top"><span class="chip">Tydzień 1</span><h3 style="margin-top:11px">Obserwujemy</h3><ul class="dots" style="margin-top:6px"><li>każdy wybiera jedno dziecko</li><li>3 zapisy w tygodniu: data, sytuacja, cytat</li><li>liczymy, ile dotyczy przerwy</li></ul></div>
+    <div class="card top"><span class="chip">Tydzień 2</span><h3 style="margin-top:11px">Zmieniamy język</h3><ul class="dots" style="margin-top:6px"><li>siedem słów mentalnych codziennie</li><li>trzy pytania po każdym konflikcie</li><li>Termometr Emocji w salach</li></ul></div>
+    <div class="card top"><span class="chip">Tydzień 3</span><h3 style="margin-top:11px">Wprowadzamy narzędzia</h3><ul class="dots" style="margin-top:6px"><li>pierwszy komiks rozmowy</li><li>dwie sesje „od ciała do umysłu”</li><li>jedna historyjka społeczna</li></ul></div>
+    <div class="card top"><span class="chip">Tydzień 4</span><h3 style="margin-top:11px">Włączamy otoczenie</h3><ul class="dots" style="margin-top:6px"><li>uzgodnienie: przerwa i świetlica</li><li>rozmowy z rodzicami na danych</li><li>15 minut podsumowania na radzie</li></ul></div>
+  </div>
+  <div class="box good" style="margin-top:26px;display:flex;align-items:center;gap:20px">
+    <span class="pill">Teraz</span>
+    <p style="margin:0;font-size:17.5px;color:var(--ink)">Zapisz <strong>jedno nazwisko</strong> i <strong>jedną rzecz, którą zrobisz w poniedziałek</strong>. Nie w przyszłym semestrze — w poniedziałek.</p>
+  </div>
+  <div class="tag">Plan</div><div class="num">13 / 14</div>
+</section>
+
+<!-- ========== 14 ========== -->
+<section class="slide" data-t="Zamknięcie" data-notes="Przeczytaj cytat na głos, powoli. Potem powiedz, gdzie szukać pełnych części: Część I dla przedszkola, Część II dla klas 1–3 — obie z notatkami trenera i filmem z narracją. I zapowiedz termin powrotu do planu.">
+  <p class="eyebrow">Zamknięcie</p>
+  <div class="foto" style="margin-bottom:26px">
+    <img src="https://cdn.gamma.app/pvogiv3dfxyqep5/design-anything/YeouRX6ZZWq0d7tVqTfXj/gkKjE-VsHUoRXEvb4ZjDz.jpg" alt="Dwoje dzieci idzie obok siebie szkolnym korytarzem" onerror="this.style.display='none'">
+    <span class="podpis-foto">Każde dziecko jedzie po swoich torach — naszą rolą jest zbudować most</span>
+  </div>
+  <p class="quote" style="font-size:26px;max-width:1080px">„Każde dziecko to osobny pociąg. Twoja rola to nie zmienić jego trasy — lecz pomóc mu zrozumieć, że inne pociągi mają swoje własne tory.”</p>
+  <div class="cols c3" style="margin-top:24px;gap:18px">
+    <div class="card top"><h4>Część I · przedszkole</h4><p class="small" style="margin:0">25 slajdów, notatki trenera, film z narracją. Wspólne pole uwagi, pragnienia, fałszywe przekonania.</p></div>
+    <div class="card top"><h4>Część II · klasy 1–3</h4><p class="small" style="margin:0">25 slajdów. Myśl a fakt, przekonania II rzędu, żart i konflikt rówieśniczy.</p></div>
+    <div class="card soft"><h4>Materiały do wydruku</h4><p class="small" style="margin:0">Checklista obserwacyjna, Termometr Emocji, przekłady na język mentalny, plan 30 dni.</p></div>
+  </div>
+  <p class="small" style="margin-top:20px;font-size:12.5px;color:var(--ink-2)"><strong>Opracowanie: Mirosława Ewa Jurczyszyn · PCTP Koszalin</strong> · na podstawie programu rewalidacji teorii umysłu „Budowanie mostów społecznych” · Premack &amp; Woodruff 1978 · Baron-Cohen, Leslie &amp; Frith 1985 · C. Gray — Comic Strip Conversations</p>
+  <div class="tag">Koniec</div><div class="num">14 / 14</div>
+</section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div></div>
+
+<div id="notes"><span class="lbl">Notatki trenera</span><div id="notesbody"></div></div>
+<div id="gridview"><h4>Wszystkie slajdy</h4><div class="gg" id="gg"></div></div>
+<div id="hud">
+  <button id="prev" aria-label="Poprzedni slajd">← Wstecz</button>
+  <button id="next" aria-label="Następny slajd">Dalej →</button>
+  <button id="ov">Przegląd (O)</button>
+  <button id="nt">Notatki (N)</button>
+  <button id="pr">Drukuj / PDF (P)</button>
+  <span id="count">01 / 25</span>
+</div>
+
+<script>
+(function(){
+  var slides=[].slice.call(document.querySelectorAll('.slide'));
+  var deck=document.getElementById('deck'), notes=document.getElementById('notes');
+  var body=document.getElementById('notesbody'), grid=document.getElementById('gridview');
+  var train=document.getElementById('train'), count=document.getElementById('count');
+  var i=0, notesOn=false;
+
+  function pad(n){return (n<10?'0':'')+n}
+  function fit(){
+    var s=Math.min(window.innerWidth/1280, (window.innerHeight-58)/720)*0.96;
+    document.documentElement.style.setProperty('--s', s);
+  }
+  function show(n){
+    i=Math.max(0,Math.min(slides.length-1,n));
+    slides.forEach(function(s,k){s.classList.toggle('on',k===i)});
+    count.textContent=pad(i+1)+' / '+slides.length;
+    train.style.left='calc('+(i/(slides.length-1))*100+'% - '+(i/(slides.length-1))*34+'px)';
+    body.innerHTML=slides[i].getAttribute('data-notes')||'<i>Brak notatek do tego slajdu.</i>';
+    if(location.hash!=='#s'+(i+1)) history.replaceState(null,'','#s'+(i+1));
+  }
+  function move(d){show(i+d)}
+
+  document.getElementById('prev').onclick=function(){move(-1)};
+  document.getElementById('next').onclick=function(){move(1)};
+  document.getElementById('pr').onclick=function(){window.print()};
+  document.getElementById('nt').onclick=function(){notesOn=!notesOn;notes.classList.toggle('on',notesOn)};
+  document.getElementById('ov').onclick=function(){grid.classList.toggle('on')};
+
+  slides.forEach(function(s,k){
+    var b=document.createElement('button');
+    b.innerHTML='<span class="i">'+pad(k+1)+'</span><span class="t">'+(s.getAttribute('data-t')||'')+'</span>';
+    b.onclick=function(){show(k);grid.classList.remove('on')};
+    document.getElementById('gg').appendChild(b);
+  });
+
+  document.addEventListener('keydown',function(e){
+    var k=e.key;
+    if(k==='ArrowRight'||k==='PageDown'||k===' '){move(1);e.preventDefault()}
+    else if(k==='ArrowLeft'||k==='PageUp'){move(-1);e.preventDefault()}
+    else if(k==='Home'){show(0)}
+    else if(k==='End'){show(slides.length-1)}
+    else if(k==='n'||k==='N'){notesOn=!notesOn;notes.classList.toggle('on',notesOn)}
+    else if(k==='o'||k==='O'){grid.classList.toggle('on')}
+    else if(k==='p'||k==='P'){window.print()}
+    else if(k==='Escape'){grid.classList.remove('on')}
+    else if(k==='f'||k==='F'){if(!document.fullscreenElement){document.documentElement.requestFullscreen&&document.documentElement.requestFullscreen()}else{document.exitFullscreen()}}
+  });
+  deck.addEventListener('click',function(e){ if(!e.target.closest('a')) move(1) });
+
+  var x0=null;
+  deck.addEventListener('touchstart',function(e){x0=e.touches[0].clientX},{passive:true});
+  deck.addEventListener('touchend',function(e){
+    if(x0===null)return; var dx=e.changedTouches[0].clientX-x0;
+    if(Math.abs(dx)>50) move(dx<0?1:-1); x0=null;
+  },{passive:true});
+
+  window.addEventListener('resize',fit);
+  fit();
+  var h=parseInt((location.hash||'').replace('#s',''),10);
+  show(isNaN(h)?0:h-1);
+})();
+</script>
