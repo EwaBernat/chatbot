@@ -174,6 +174,22 @@ bo plansza rysuje się z tej samej palety.
 Sceny 1 i 2 trafiają na wspólną stronę, każda następna dostaje własną — dłuższe sceny nie
 mieszczą się parami na A4.
 
+## zalaczniki
+
+Materiały do wycięcia na końcu broszury. Klucze `plansza`, `termometr`, `sygnalizator`
+przyjmują `true`/`false`; `karty` to lista miejsc z lektury (po 4 na stronę).
+
+```json
+"zalaczniki": {
+  "plansza": true, "termometr": true, "sygnalizator": true,
+  "karty": [
+    { "nazwa": "Planeta Króla", "ikona": "crown", "kto": "Król bez poddanych",
+      "opis": "Król rządzi wszystkim, także gwiazdami. Wydaje tylko takie rozkazy, które i tak by się wykonały.",
+      "pytanie": "Czym różni się prośba od rozkazu?" }
+  ]
+}
+```
+
 ## zakonczenie
 
 ```json
@@ -187,14 +203,15 @@ mieszczą się parami na A4.
 ## Ile stron wyjdzie
 
 ```
-8  strony wstępne (okładka, spis ×2, jak korzystać ×2, narzędzia ×2, postacie)
+7  strony wstępne (okładka, spis ×2, jak korzystać ×2, narzędzia ×2)
 +  3 × liczba rozdziałów
 +  ceil(liczba ćwiczeń / 2)
++  ceil(liczba postaci / 4)   (karty postaci)
 +  3  gra
-+  3  scenariusz: tytuł i obsada, zasady, program i próby
-+  liczba scen − 1        (sceny 1 i 2 dzielą stronę)
++  4  scenariusz: tytuł i obsada, zasady, program, rekwizyty i próby
++  liczba scen           (każda scena na osobnej stronie)
++  załączniki: 1 plansza + 1 termometr + 1 krążki + ceil(karty / 4)
 +  1  zakończenie
 ```
 
-27 rozdziałów, 8 ćwiczeń, 8 scen → **107 stron**.
-5 rozdziałów, 4 ćwiczenia, 3 sceny → **34 strony**.
+27 rozdziałów, 8 ćwiczeń, 8 scen, 8 kart miejsc → **115 stron**.

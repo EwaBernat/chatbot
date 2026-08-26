@@ -24,7 +24,7 @@ small{font-weight:400;font-size:.82em;color:var(--szary)}
 
 /* ---------- STRONA A4 ---------- */
 .page{width:210mm;min-height:297mm;margin:0 auto 9mm;
-  padding:15mm 14mm 13mm;position:relative;box-shadow:0 6px 26px rgba(6,40,30,.13);
+  padding:12mm 12mm 9mm;position:relative;box-shadow:0 6px 26px rgba(6,40,30,.13);
   border-radius:3px;display:flex;flex-direction:column;
   background:linear-gradient(180deg,var(--z600),var(--z400) 45%,var(--gold)) left top/6mm 100% no-repeat,
              var(--pg)}
@@ -33,12 +33,12 @@ small{font-weight:400;font-size:.82em;color:var(--szary)}
 .okladka{padding:0;background:var(--z900);color:#fff;display:flex;flex-direction:column;
   height:297mm;overflow:hidden}
 .ok-tlo{position:relative;overflow:hidden}
-.ok-box{position:relative;width:100%;height:0;padding-bottom:47%}
+.ok-box{position:relative;width:100%;height:0;padding-bottom:40%}
 .ok-box svg{position:absolute;left:0;top:0;width:100%;height:100%;display:block}
 .ok-tlo::after{content:"";position:absolute;inset:auto 0 0 0;height:30mm;z-index:2;
   background:linear-gradient(180deg,rgba(6,40,30,0),var(--z900))}
 .ok-tresc{flex:1;padding:5mm 18mm 0;text-align:center;position:relative;z-index:2}
-.ok-logo{width:23mm;margin:0 auto 3mm}
+.ok-logo{width:21mm;margin:0 auto 2.5mm}
 .ok-logo svg{width:100%;height:auto;display:block;
   filter:drop-shadow(0 3px 10px rgba(0,0,0,.35))}
 .ok-org{font-family:var(--font-h);font-size:10.4pt;font-weight:600;color:#fff;
@@ -127,13 +127,14 @@ small{font-weight:400;font-size:.82em;color:var(--szary)}
 .uwaga b{color:var(--gold2)}
 
 /* ---------- NARZĘDZIA ---------- */
-.kiedy{display:grid;gap:2mm}
-.kiedy div{display:flex;gap:3mm;align-items:baseline;background:var(--z050);
+.kiedy{display:grid;grid-template-columns:repeat(3,1fr);gap:3mm}
+.kiedy div{display:block;background:var(--z050);
   border:1px solid var(--z200);border-left:4px solid var(--gold);border-radius:0 7px 7px 0;padding:2.2mm 3.4mm}
-.kiedy b{flex:none;width:30mm;color:var(--z700);font-family:var(--font-h);font-size:10pt}
+.kiedy b{display:block;margin-bottom:1mm;color:var(--z700);font-family:var(--font-h);font-size:10pt}
 .kiedy span{font-size:9.7pt}
 .narz{display:grid;grid-template-columns:1fr 1fr;gap:5mm;margin-bottom:5mm}
-.narz-box{background:var(--z050);border:1px solid var(--z200);border-radius:10px;padding:4.5mm}
+.narz-box{background:var(--z050);border:1px solid var(--z200);border-radius:10px;padding:4mm}
+.narz-box .ilu{max-width:62mm;margin-left:auto;margin-right:auto}
 .narz-box.szeroki{margin-top:0}
 .narz-box h3{font-size:13pt;color:var(--z700)}
 .narz-box p{font-size:10.2pt}
@@ -158,12 +159,13 @@ small{font-weight:400;font-size:.82em;color:var(--szary)}
 .etapy span{display:block;font-size:8.6pt;color:var(--szary);margin-top:.8mm}
 
 /* ---------- ILUSTRACJE ---------- */
-.ilu.maly{max-width:104mm;margin:0 auto 4mm}
-.ilu.mini{max-width:76mm;margin:0 auto 3mm}
+.ilu.maly{max-width:96mm;margin:0 auto 4mm}
+.ilu.mini{max-width:58mm;margin:0 auto 3mm}
+.kol-b .ilu{max-width:54mm;margin:0 auto 3mm}
 .dzial-h .cd{font-size:.5em;color:var(--z400);font-weight:400}
 .ilu{width:100%;flex:none;margin:0 0 3.5mm;padding:0;border-radius:10px;overflow:hidden;background:var(--z100)}
 .ilu-box{position:relative;width:100%;height:0;overflow:hidden}
-.ilu-box svg{position:absolute;left:0;top:0;width:100%;height:100%;display:block}
+.ilu-box > svg{position:absolute;left:0;top:0;width:100%;height:100%;display:block}
 figcaption{font-size:9pt;color:var(--szary);padding:2mm 3mm;background:var(--z050);text-align:center}
 
 /* ---------- POSTACIE ---------- */
@@ -201,10 +203,10 @@ figcaption{font-size:9pt;color:var(--szary);padding:2mm 3mm;background:var(--z05
   background:linear-gradient(90deg,var(--z100),transparent);
   border-left:4px solid var(--gold);padding:2.6mm 4mm;border-radius:0 6px 6px 0;margin-bottom:4mm}
 
-.r-grid{display:grid;grid-template-columns:1.06fr 1fr;gap:4mm;align-items:start}
+.r-grid{display:grid;grid-template-columns:1.12fr 1fr;gap:4mm;align-items:start}
 .r-grid2{display:grid;grid-template-columns:1fr 1fr;gap:4mm;align-items:start}
 .blok{background:var(--z050);border:1px solid var(--z200);border-radius:9px;
-  padding:3.4mm 4mm;margin-bottom:3.5mm}
+  padding:3mm 3.6mm;margin-bottom:3mm}
 .blok h3{font-size:11.2pt;color:var(--z700);display:flex;align-items:center;gap:2mm;
   margin-bottom:2.2mm;text-transform:uppercase;letter-spacing:.045em;font-size:9.6pt}
 .bi{font-size:11pt;line-height:1}
@@ -212,16 +214,20 @@ figcaption{font-size:9pt;color:var(--szary);padding:2mm 3mm;background:var(--z05
 
 .stresz{counter-reset:st;list-style:none;padding:0;margin:0}
 .stresz li{counter-increment:st;position:relative;padding-left:7mm;font-size:10.1pt;
-  margin-bottom:1.5mm;line-height:1.42}
+  margin-bottom:1.1mm;line-height:1.36}
 .stresz li::before{content:counter(st);position:absolute;left:0;top:.3mm;width:5mm;height:5mm;
   background:var(--z500);color:#fff;border-radius:50%;font-size:7.2pt;font-weight:700;
   font-family:var(--font-h);display:flex;align-items:center;justify-content:center}
 
-.chipy{display:flex;flex-wrap:wrap;gap:2mm}
+.blok-kto{display:flex;align-items:baseline;gap:3mm;flex-wrap:wrap;padding:2.6mm 3.4mm}
+.kto-etykieta{flex:none;font-family:var(--font-h);font-size:9pt;font-weight:700;color:var(--z600);
+  text-transform:uppercase;letter-spacing:.05em}
+.chipy{display:flex;flex-wrap:wrap;gap:2mm;flex:1}
 .chip{background:var(--z600);color:#fff;border-radius:20px;padding:1.2mm 3.4mm;
   font-family:var(--font-h);font-size:9pt;font-weight:600}
 .slownik{margin:0}
-.slowo{margin-bottom:2mm;padding-bottom:1.6mm;border-bottom:1px dotted var(--z300)}
+
+.slowo{margin-bottom:1.5mm;padding-bottom:1.2mm;border-bottom:1px dotted var(--z300)}
 .slowo:last-child{border-bottom:0;margin-bottom:0;padding-bottom:0}
 .slownik dt{font-family:var(--font-h);font-weight:700;color:var(--z800);font-size:9.7pt}
 .slownik dd{margin:.3mm 0 0;font-size:9.5pt;color:var(--tekst);line-height:1.4}
@@ -331,8 +337,32 @@ figcaption{font-size:9pt;color:var(--szary);padding:2mm 3mm;background:var(--z05
   border-radius:8px;padding:3mm}
 .spec b{font-size:9.6pt;display:block;margin-bottom:1mm;color:var(--z700)}
 .spec p{font-size:9.2pt;margin:0;color:var(--szary)}
-.plansza{max-width:146mm;margin-left:auto;margin-right:auto}
+.plansza{max-width:104mm;margin-left:auto;margin-right:auto}
 .plansza figcaption{font-size:8.8pt}
+
+/* ---------- ZAŁĄCZNIKI ---------- */
+.plansza-duza{max-width:100%;margin:2mm 0 4mm}
+.termometr-duzy{max-width:132mm;margin:3mm auto 5mm}
+.krazki{display:grid;grid-template-columns:repeat(2,1fr);gap:7mm;margin:5mm 0 4mm;max-width:158mm}
+.krazek{aspect-ratio:1;border-radius:50%;border:2px dashed rgba(255,255,255,.65);
+  display:flex;flex-direction:column;align-items:center;justify-content:center;gap:1mm;
+  color:#fff;text-align:center;padding:4mm}
+.krazek .znak{font-size:26pt;line-height:1;font-weight:700}
+.krazek b{font-family:var(--font-h);font-size:13pt;color:#fff;letter-spacing:.06em}
+.krazek p{margin:0;font-size:10pt;color:rgba(255,255,255,.9)}
+.krazek.zielony{background:var(--ziel)}
+.krazek.zolty{background:var(--zolt)}
+.krazek.czerwony{background:var(--czerw)}
+.karty-planet{display:grid;grid-template-columns:1fr 1fr;gap:5mm}
+.karta-planeta{border:2px dashed var(--z400);border-radius:12px;overflow:hidden;background:#fff;
+  break-inside:avoid;display:flex;flex-direction:column}
+.kp-gora .ilu{margin:0;border-radius:0;background:none}
+.kp-dol{padding:3.4mm 4mm 4mm;flex:1}
+.kp-dol h4{font-size:13pt;margin:0 0 .8mm;color:var(--z800)}
+.kp-kto{font-size:9.6pt;color:var(--z600);font-family:var(--font-h);margin:0 0 1.6mm}
+.kp-opis{font-size:10pt;margin:0 0 2mm;line-height:1.4}
+.kp-pyt{font-size:9.8pt;margin:0;color:var(--z700);background:var(--z050);
+  border-left:3px solid var(--gold);border-radius:0 5px 5px 0;padding:1.8mm 2.6mm}
 
 /* ---------- SCENARIUSZ ---------- */
 .podtytul-spekt{font-size:16pt;color:var(--z600);text-align:center;font-style:italic;margin:-2mm 0 3mm}
@@ -381,7 +411,7 @@ figcaption{font-size:9pt;color:var(--szary);padding:2mm 3mm;background:var(--z05
 
 /* ---------- KONIEC ---------- */
 .cytat{font-family:var(--font-h);font-size:15pt;font-style:italic;color:var(--z700);
-  text-align:center;margin:4mm 6mm;line-height:1.4;position:relative}
+  text-align:center;margin:3mm 6mm;line-height:1.4;position:relative}
 .cytat cite{display:block;font-size:10pt;font-style:normal;color:var(--szary);margin-top:3mm;
   font-family:var(--font-t)}
 .konc-tresc{max-width:150mm;margin:0 auto 4mm;font-size:10.6pt}
@@ -421,7 +451,7 @@ figcaption{font-size:9pt;color:var(--szary);padding:2mm 3mm;background:var(--z05
   html,body{width:auto}
   .page{margin:0;box-shadow:none;border-radius:0;break-after:page;
     width:auto;max-width:100%;min-height:0;height:auto;display:block;
-    padding:14mm 13mm 9mm;overflow:hidden}
+    padding:12mm 12mm 9mm;overflow:hidden}
   .okladka{height:auto;min-height:0;padding:0}
   .page:last-child{break-after:auto}
   .tab-emo tr,.kwestia,.slowo,.wnioski li,.stresz li,.etapy li,.sy,
@@ -440,3 +470,17 @@ figcaption{font-size:9pt;color:var(--szary);padding:2mm 3mm;background:var(--z05
   .kwestia .kto{width:auto}
 }
 '''
+
+import re as _re
+
+
+def css(skala=1.0):
+    """Zwraca arkusz stylów ze stopniem pisma przeskalowanym o `skala`.
+
+    Powiększony druk (1.10–1.20) bywa potrzebny uczniom z trudnościami wzrokowymi
+    albo młodszym. Skalowane są wyłącznie wartości w punktach — marginesy i siatka
+    zostają w milimetrach, dzięki czemu proporcje strony A4 się nie zmieniają.
+    """
+    if abs(skala - 1.0) < 1e-9:
+        return CSS
+    return _re.sub(r"([\d.]+)pt", lambda m: f"{float(m.group(1)) * skala:.2f}pt", CSS)

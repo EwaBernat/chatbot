@@ -521,3 +521,24 @@ def cover_neutral():
 <path d="M-128 70q128 24 256 0v10q-128 24-256 0z" fill="{C['d3']}"/>
 </g>
 </svg>'''
+
+# ---------- KARTA PLANETY (zalaczniki do wyciecia) ----------
+def karta_planety(ikona):
+    """Gorna czesc karty do wyciecia: gwiazdziste niebo z planeta na srodku."""
+    wnetrze = icon(ikona, 64)
+    wnetrze = wnetrze.replace('<svg viewBox="0 0 64 64" width="64" height="64"',
+                              '<svg x="58" y="6" width="84" height="84" viewBox="0 0 64 64"')
+    gw = "".join(
+        f'<circle cx="{x}" cy="{y}" r="{r}" fill="{C["l2"]}" opacity=".75"/>'
+        for x, y, r in [(20, 20, 1.5), (46, 10, 1.0), (170, 18, 1.4), (186, 48, 1.1),
+                        (14, 58, 1.2), (178, 76, 1.3), (32, 82, 1.0), (152, 6, 1.0),
+                        (10, 38, 1.0), (194, 32, 1.2)])
+    return f'''<svg viewBox="0 0 200 96" role="img" aria-label="Planeta na gwiezdzistym niebie">
+<defs><radialGradient id="kp{abs(hash(ikona))%9973}" cx="50%" cy="45%" r="62%">
+<stop offset="0%" stop-color="{C['d3']}"/><stop offset="100%" stop-color="{C['d1']}"/>
+</radialGradient></defs>
+<rect width="200" height="96" fill="url(#kp{abs(hash(ikona))%9973})"/>
+{gw}
+<ellipse cx="100" cy="48" rx="46" ry="46" fill="{C['gold2']}" opacity=".10"/>
+{wnetrze}
+</svg>'''

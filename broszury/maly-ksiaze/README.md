@@ -14,7 +14,8 @@ z pełnym zestawem fallbacków). Otwórz w przeglądarce.
 ## Druk / PDF
 
 Ctrl+P → format **A4**, marginesy **brak/none**, zaznacz **grafika tła**.
-Dokument jest złożony tak, że **107 sekcji = dokładnie 107 stron A4** — bez pustych stron
+Dokument jest złożony w **druku powiększonym** (stopień pisma +15%: tekst główny 13,1 pt,
+bloki rozdziału 11,4 pt, tabela emocji 10,8 pt) i tak, że **115 sekcji = dokładnie 115 stron A4** — bez pustych stron
 i bez treści urwanej między arkuszami.
 
 **Numeracja stron** jest ciągła (1–107). Okładka liczy się jako strona 1, ale nie ma nadruku.
@@ -31,6 +32,7 @@ po zmianie treści.
 | B. Trzy narzędzia | 2 | termometr emocji, sygnalizator oceny sytuacji, drabina teorii umysłu |
 | C. Karty postaci | 1 | 6 kart |
 | Rozdziały 1–27 | 81 | po 3 strony na rozdział |
+| G. Załączniki do wycięcia | 5 | plansza A3, termometr, krążki oceny, 8 kart miejsc |
 | D. Ćwiczenia końcowe | 4 | 8 zestawów z celem, czasem i dostosowaniem |
 | E. Gra „Podróż Małego Księcia” | 3 | plansza 30 pól, zasady, 32 karty zadań w 4 taliach |
 | F. Scenariusz przedstawienia | 10 | obsada, zasady dostosowania, plan prób, 8 scen |
@@ -40,9 +42,9 @@ po zmianie treści.
 
 1. **Historia i słowa** — streszczenie w krótkich zdaniach, kto występuje, ilustracja, słowniczek trudnych pojęć
 2. **Emocje i wnioski** — tabela emocji (kto · co czuje · po czym poznasz · natężenie 1–5),
-   zależności między postaciami, pary przyczyna ➜ skutek, ocena sytuacji w trzech kolorach
-3. **Myślenie i pytania** — ćwiczenie teorii umysłu z podanym etapem E1–E5,
-   pytania łatwiejsze i trudniejsze, linie na notatki
+   zależności między postaciami, pary przyczyna ➜ skutek
+3. **Ocena i myślenie** — ocena sytuacji w trzech kolorach, ćwiczenie teorii umysłu
+   z podanym etapem E1–E5, pytania łatwiejsze i trudniejsze, linie na notatki
 
 ## Etapy teorii umysłu
 

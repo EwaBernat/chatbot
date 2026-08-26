@@ -38,6 +38,11 @@ python scripts/zloz_broszure.py dane.json --out broszura.html --linie linie.json
        --fragment artifact.html
 ```
 
+`--skala 1.15` daje **druk powiększony** (tekst główny 13,1 pt zamiast 11,4 pt) — przydatny
+uczniom z trudnościami wzrokowymi i młodszym. Skalowane są tylko wartości w punktach; siatka
+i marginesy zostają w milimetrach, więc proporcje A4 się nie zmieniają. Po każdej zmianie skali
+przelicz linie na notatki, bo dopasowanie z poprzedniej skali przestaje pasować.
+
 Trzeci krok (ponowny skład z `linie.json`) dopasowuje liczbę linii na notatki do wolnego
 miejsca na każdej stronie — bez tego dolna jedna trzecia strony bywa pusta.
 
@@ -69,8 +74,8 @@ zawsze jest na drugiej stronie, nie zużywa uwagi na szukanie jej.
 | Strona | Zawiera |
 |---|---|
 | **1 · Historia i słowa** | co się wydarzyło (numerowane zdania) · kto występuje · ilustracja · słowniczek trudnych pojęć |
-| **2 · Emocje i wnioski** | tabela emocji · zależności między postaciami · pary przyczyna ➜ skutek · ocena sytuacji |
-| **3 · Myślenie i pytania** | ćwiczenie teorii umysłu (etap E1–E5) · pytania łatwiejsze i trudniejsze · linie na notatki |
+| **2 · Emocje i wnioski** | tabela emocji · zależności między postaciami · pary przyczyna ➜ skutek |
+| **3 · Ocena i myślenie** | ocena sytuacji · ćwiczenie teorii umysłu (etap E1–E5) · pytania łatwiejsze i trudniejsze · linie na notatki |
 
 ## Pięć etapów teorii umysłu
 
@@ -134,6 +139,12 @@ papieru zamiast instrukcji słownej, trzy karty do wyboru zamiast losowania.
 ocena sytuacji, „co on myśli?”. **Nikt nie odpada, nie ma zadań na czas, wynik liczy się
 wspólnie dla klasy** — rywalizacja przenosi uwagę z zadania na porażkę.
 
+**Załączniki (G)** — materiały do wycięcia i powieszenia: plansza do gry na całą stronę
+(do druku w A3), termometr emocji do kącika wyciszenia, krążki oceny sytuacji oraz karty miejsc
+z lektury (po 4 na stronę, z pytaniem na odwrocie treści). Włącza je klucz `zalaczniki` w danych.
+Karty warto tworzyć dla miejsc albo etapów podróży bohatera — dają się układać w kolejności,
+co samo w sobie jest ćwiczeniem rozumienia fabuły.
+
 **Scenariusz (F)** — 6–10 scen. Kwestie maksymalnie dwuzdaniowe, powtórzenia celowe,
 role bez tekstu (chór, tło, zespół techniczny) wypisane jako pełnoprawne. Do tego zasady
 dostosowania i plan prób. Skalowalność obsady jest wymogiem, nie udogodnieniem: scenariusz
@@ -162,8 +173,9 @@ Te trzy rzeczy psuły skład najczęściej — nie próbuj ich „uprościć”:
    na dwa arkusze. Robi to funkcja `fig()` — używaj jej.
 2. **Breakpoint mobilny musi być `@media screen and (max-width:800px)`.** Bez `screen`
    odpala się przy druku (arkusz A4 to ~793 px), zwija dwie kolumny w jedną i podwaja liczbę stron.
-3. **Sekcja nie może przekroczyć 297 mm.** `sprawdz_sklad.py` to wykryje; skróć treść,
-   zmniejsz ilustrację albo przenieś blok na następną stronę.
+3. **Sekcja nie może przekroczyć 292 mm** (A4 minus zapas na zaokrąglenia silnika druku). `sprawdz_sklad.py` to wykryje; skróć treść,
+   zmniejsz ilustrację albo przenieś blok na następną stronę. Marginesy w druku muszą być
+   identyczne jak na ekranie — inaczej pomiar kłamie.
 
 ## Format danych
 
