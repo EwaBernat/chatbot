@@ -1,11 +1,12 @@
 ---
 name: dane-i-glos
-description: Zamienia dane (CSV, XLSX, JSON, tabela w czacie) w gotowe nagranie po polsku — najpierw rzetelna analiza liczb, potem scenariusz narracji, na końcu głos z ElevenLabs (MP3 + napisy SRT) albo film z Twoim awatarem i Twoim głosem z HeyGen (MP4). Użyj ZAWSZE, gdy użytkowniczka prosi o: „udźwiękowij te dane", „przeczytaj mi ten raport", „zrób lektora do tych wyników", „narracja z tabeli", „audio podsumowanie", „wersja do słuchania", „głos do prezentacji", „scenariusz lektorski z Excela", a także „film z awatarem", „awatar opowiada wyniki", „nagraj to moim głosem", „wideo z danych", „mówiąca głowa do raportu". Wyzwalaj przy hasłach: ElevenLabs, HeyGen, awatar, TTS, lektor, narracja, voice-over, mp3 z danych, napisy SRT, klon głosu, mój głos. Wyzwalaj też, gdy użytkowniczka wgrywa dane i mówi „z głosem", „na głos", „z moją twarzą", albo prosi o dźwięk lub film do materiału EduPlaner. NIE używaj do samej analizy danych bez audio ani do czytania tekstu, który nie pochodzi z danych.
+description: Zamienia dane (CSV, XLSX, JSON, tabela w czacie) w gotowe nagranie po polsku — rzetelna analiza liczb, scenariusz narracji, a na końcu głos z ElevenLabs (MP3 + napisy SRT), film z animowanymi wykresami (Remotion) albo film z Twoim awatarem i głosem z HeyGen. Użyj ZAWSZE, gdy użytkowniczka prosi o: „udźwiękowij te dane", „przeczytaj mi ten raport", „zrób lektora do tych wyników", „narracja z tabeli", „audio podsumowanie", „wersja do słuchania", „głos do prezentacji", „film z danych", „wideo z wykresami", „animacja danych", „film z awatarem", „awatar opowiada wyniki", „nagraj to moim głosem". Wyzwalaj przy hasłach: ElevenLabs, HeyGen, Remotion, awatar, TTS, lektor, narracja, voice-over, napisy SRT, klon głosu, mój głos, wykres w filmie. Wyzwalaj też, gdy wgrywa dane i mówi „z głosem", „na głos", „z moją twarzą", albo prosi o dźwięk lub film do materiału EduPlaner. NIE używaj do samej analizy danych bez audio ani do czytania tekstu spoza danych.
 ---
 
 # Dane i głos
 
-Skill prowadzi jedną drogę: **dane → liczby → scenariusz → głos → (opcjonalnie) twarz**.
+Skill prowadzi jedną drogę: **dane → liczby → scenariusz → głos → obraz**, gdzie obrazem
+jest animowany wykres (Remotion), twarz awatara (HeyGen) albo jedno i drugie.
 Każdy etap opiera się na poprzednim, więc narracja nigdy nie zawiera liczby, której nie ma
 w pliku źródłowym.
 
@@ -30,6 +31,8 @@ klonować głosu — wtedy film robi HeyGen własnym głosem z jej konta (etap 4
 | „Zrób audio z tych danych" | 0 → 1 → 2 → 3 → 4a → 5 |
 | „Zrób film z awatarem o tych danych" | 0 → 1 → 2 → 3 → 4a → 4b (`--audio`) → 5 |
 | „Zrób film, ale bez klonowania głosu" | 1 → 2 → 3 → 4b (wariant A) → 5 |
+| „Zrób film z wykresami, bez awatara" | 1 → 2 → 3 → 4a → 4c → 5 |
+| „Film z wykresami i z awatarem w rogu" | 1 → 2 → 3 → 4a → 4c → 4b → 5 |
 | „Napisz scenariusz lektorski, resztę zrobię sama" | 1 → 2 → 3 |
 | „Przeczytaj ten gotowy tekst" | 4a → 5 (pomiń analizę) |
 | „Dodaj napisy do nagrania" | 4a z `--srt` |
@@ -176,6 +179,39 @@ Szczegóły, kredyty i kody błędów: `references/heygen.md`.
 Klucza API **nigdy** nie wpisuj do pliku w repozytorium ani do treści rozmowy — tylko zmienna
 środowiskowa.
 
+## Etap 4c — Film z danych (Remotion)
+
+Gdy materiał ma pokazywać **liczby**, a nie twarz — animowany wykres niesie więcej niż
+awatar. Remotion sam nie syntezuje mowy: dźwięk bierze z MP3 z etapu 4a, a napisy
+z pliku SRT. Dlatego etap 4a musi być zrobiony pierwszy.
+
+```bash
+python3 .../dane_do_narracji.py dane.csv --grupuj klasa --agreguj frekwencja_proc --json > profil.json
+python3 .../elevenlabs_tts.py narracja.txt -o narracja.mp3 --srt napisy.srt
+python3 .../przygotuj_remotion.py ~/moj-film --profil profil.json --narracja narracja.txt \
+        --audio narracja.mp3 --napisy napisy.srt --tytul "Frekwencja — I półrocze"
+cd ~/moj-film && npm install && npx remotion render RaportWideo out/film.mp4
+```
+
+Skrypt buduje sceny z akapitów narracji i **dosuwa granice scen do końców napisów**,
+więc obraz zmienia się między zdaniami, nie w ich środku. Długość filmu bierze się
+z długości MP3 — poprawiona narracja sama zmienia długość filmu.
+
+Zanim wyrenderujesz, **otwórz `public/film.json` i sprawdź treść scen**: tytuł, główną
+liczbę i podpisy. Skrypt wypełnia je zachowawczo, bo nie zna kontekstu.
+
+Typy scen (`--typy`, po jednym na akapit): `tytul`, `liczba`, `wykres`, `wniosek`.
+Wykres bierze słupki z sekcji `grupy` profilu, więc profiler musi być uruchomiony
+z `--grupuj` i `--agreguj`.
+
+**Kolorów nie zmieniaj bez walidacji.** Paleta w `assets/remotion/src/marka.ts` przeszła
+sześć testów dostępności; ciemny fiolet marki jest tam tekstem, nie wypełnieniem słupka,
+bo jako wypełnienie nie przechodzi. Pomarańcz jest zarezerwowany dla wartości wymagającej
+uwagi i zawsze towarzyszy mu podpis. Szczegóły: `assets/remotion/README.md`.
+
+W kontenerze bez przeglądarki dodaj `--browser-executable` wskazujący `headless_shell` —
+Remotion używa starego trybu headless, którego nowe Chrome nie ma.
+
 ## Etap 5 — Oddaj komplet
 
 Dostarcz użytkowniczce wszystko, co powstało, i wymień to jawnie:
@@ -194,4 +230,5 @@ zestaw po cichu.
 - `references/narracja.md` — zasady pisania pod polskiego lektora, wzorce zdań, przykłady
 - `references/elevenlabs.md` — API, modele, limity, głosy, rozwiązywanie błędów
 - `references/heygen.md` — awatary, klon głosu, kredyty, dwie drogi głosu, kody błędów
+- `assets/remotion/` — szablon filmu (React + Remotion), z opisem palety i renderu
 - `assets/przyklad_dane.csv` — dane testowe do sprawdzenia całej ścieżki
