@@ -7,6 +7,7 @@ konieczność uczenia się strony od nowa przy każdym rozdziale.
 """
 import html, re
 from . import svg as S
+from . import obrazy
 
 E = html.escape
 
@@ -37,6 +38,15 @@ def fig(svgstr, extra="", cap=""):
             f'{svgstr}</div>{caphtml}</figure>')
 
 
+def fig_obraz(uri, w, h, extra="", cap=""):
+    """Figura ze zdjęciem. Proporcje bierzemy z nagłówka pliku — patrz obrazy.py."""
+    pb = h / w * 100
+    caphtml = f"<figcaption>{E(cap)}</figcaption>" if cap else ""
+    kl = ("ilu ilu-foto " + extra).strip()
+    return (f'<figure class="{kl}"><div class="ilu-box" style="padding-bottom:{pb:.3f}%">'
+            f'<img src="{uri}" alt=""></div>{caphtml}</figure>')
+
+
 def rysunek(nazwa):
     """Zamienia nazwę ilustracji na SVG. Przyjmuje też gotowy SVG (zaczyna się od '<svg')."""
     if not nazwa:
@@ -63,13 +73,26 @@ def kolor_oceny(txt):
 
 # ---------------------------------------------------------------- klasa składu
 class Broszura:
-    def __init__(self, dane, linie=None):
+    def __init__(self, dane, linie=None, katalog_grafik=None):
         self.d = dane
+        self.katalog_grafik = katalog_grafik
         self.meta = dane["meta"]
         self.w = dane["wydawca"]
         self.R = dane["rozdzialy"]
         self.linie = linie or {}
         self.tytul_biezacy = f'{self.meta["tytul"]} {self.meta.get("podtytul_okladki","")}'.strip()
+
+    def ilustracja(self, zrodlo, extra="", cap=""):
+        """Buduje figurę z danych. `obraz` (plik) ma pierwszeństwo przed `ilustracja` (wektor)."""
+        if isinstance(zrodlo, dict):
+            plik, wektor = zrodlo.get("obraz"), zrodlo.get("ilustracja")
+        else:
+            plik, wektor = None, zrodlo
+        if plik:
+            uri, w, h = obrazy.osadz(plik, self.katalog_grafik)
+            return fig_obraz(uri, w, h, extra, cap)
+        rys = rysunek(wektor)
+        return fig(rys, extra, cap) if rys else ""
 
     # ---- stopki ----
     def stopka_ogolna(self):
@@ -87,10 +110,17 @@ class Broszura:
     # ---- okładka ----
     def okladka(self):
         m, w = self.meta, self.w
+        if m.get("okladka_obraz"):
+            uri, sz, wy = obrazy.osadz(m["okladka_obraz"], self.katalog_grafik)
+            okladka_grafika = (f'<div class="ok-box ok-box-foto" style="padding-bottom:'
+                               f'{min(wy / sz * 100, 40):.2f}%"><img src="{uri}" alt=""></div>')
+        else:
+            okladka_grafika = ('<div class="ok-box">'
+                               + rysunek(m.get("okladka_svg", "cover_neutral")) + "</div>")
         punkty = "".join(f"<li>{E(x)}</li>" for x in m.get("na_okladce", []))
         return f'''
 <section class="page okladka" id="okladka">
-  <div class="ok-tlo"><div class="ok-box">{rysunek(m.get("okladka_svg","cover_neutral"))}</div></div>
+  <div class="ok-tlo">{okladka_grafika}</div>
   <div class="ok-tresc">
     <div class="ok-logo">{rysunek(w.get("logo_svg","logo_pctp"))}</div>
     <p class="ok-org">{E(w["organizacja"])}</p>
@@ -308,7 +338,7 @@ class Broszura:
 
     def rozdzial(self, r):
         nr = r["nr"]
-        ilu = fig(rysunek(r.get("ilustracja"))) if r.get("ilustracja") else ""
+        ilu = self.ilustracja(r)
         stresz = "".join(f"<li>{E(x)}</li>" for x in r["streszczenie"])
         postaci, chipy = [], ""
         for e in r["emocje"]:

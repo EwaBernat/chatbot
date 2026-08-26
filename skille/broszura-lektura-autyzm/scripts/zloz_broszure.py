@@ -34,8 +34,8 @@ def nawigacja(b):
 SEKCJA = r'<section class="page[^"]*"[^>]*>.*?</section>'
 
 
-def zloz(dane, linie=None):
-    b = Broszura(dane, linie=linie)
+def zloz(dane, linie=None, katalog_grafik=None):
+    b = Broszura(dane, linie=linie, katalog_grafik=katalog_grafik)
     czesci = [nawigacja(b), S.logo_symbol(), b.okladka(), b.spis(), b.jak_korzystac(),
               b.narzedzia(), b.postacie()]
     czesci += [b.rozdzial(r) for r in b.R]
@@ -75,13 +75,14 @@ def main():
     ap.add_argument("--out", required=True, help="wyjściowy plik HTML")
     ap.add_argument("--fragment", help="dodatkowo wersja bez <html>/<head> (do publikacji jako Artifact)")
     ap.add_argument("--linie", help="JSON z liczbą linii na notatki: {\"1\": 12, ...}")
+    ap.add_argument("--grafiki", help="katalog ze zdjęciami, do którego odnoszą się ścieżki w JSON")
     ap.add_argument("--skala", type=float, default=1.0,
                     help="powiększenie stopnia pisma, np. 1.15 dla druku powiększonego")
     a = ap.parse_args()
 
     dane = json.load(open(a.dane, encoding="utf-8"))
     linie = json.load(open(a.linie, encoding="utf-8")) if a.linie and os.path.exists(a.linie) else {}
-    b, core, stron = zloz(dane, linie)
+    b, core, stron = zloz(dane, linie, a.grafiki or os.path.dirname(os.path.abspath(a.dane)))
 
     tytul = b.tytul_biezacy
     opis = (f'Broszura edukacyjna: adaptacja lektury „{b.meta["tytul"]}” dla młodzieży ze spektrum autyzmu. '

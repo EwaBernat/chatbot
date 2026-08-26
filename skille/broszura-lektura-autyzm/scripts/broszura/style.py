@@ -34,6 +34,8 @@ small{font-weight:400;font-size:.82em;color:var(--szary)}
   height:297mm;overflow:hidden}
 .ok-tlo{position:relative;overflow:hidden}
 .ok-box{position:relative;width:100%;height:0;padding-bottom:40%}
+.ok-box-foto{position:relative;width:100%;height:0;overflow:hidden}
+.ok-box-foto img{position:absolute;left:0;top:0;width:100%;height:100%;object-fit:cover;display:block}
 .ok-box svg{position:absolute;left:0;top:0;width:100%;height:100%;display:block}
 .ok-tlo::after{content:"";position:absolute;inset:auto 0 0 0;height:30mm;z-index:2;
   background:linear-gradient(180deg,rgba(6,40,30,0),var(--z900))}
@@ -165,7 +167,9 @@ small{font-weight:400;font-size:.82em;color:var(--szary)}
 .dzial-h .cd{font-size:.5em;color:var(--z400);font-weight:400}
 .ilu{width:100%;flex:none;margin:0 0 3.5mm;padding:0;border-radius:10px;overflow:hidden;background:var(--z100)}
 .ilu-box{position:relative;width:100%;height:0;overflow:hidden}
-.ilu-box > svg{position:absolute;left:0;top:0;width:100%;height:100%;display:block}
+.ilu-box > svg,.ilu-box > img{position:absolute;left:0;top:0;width:100%;height:100%;display:block}
+.ilu-box > img{object-fit:cover}
+.ilu-foto{background:var(--z200)}
 figcaption{font-size:9pt;color:var(--szary);padding:2mm 3mm;background:var(--z050);text-align:center}
 
 /* ---------- POSTACIE ---------- */
