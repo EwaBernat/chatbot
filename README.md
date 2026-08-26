@@ -61,7 +61,21 @@ MP3 jest i nagraniem audio, i ścieżką dźwiękową filmu.
 
    `--glosy` wypisuje głosy z konta, `--suchy-bieg` liczy znaki bez zużywania limitu.
 
-4. **Twarz i Twój głos z HeyGen** — film z awatarem:
+4. **Film z wykresami (Remotion)** — gdy materiał ma pokazywać liczby, nie twarz:
+
+   ```bash
+   python3 .claude/skills/dane-i-glos/scripts/dane_do_narracji.py dane.csv \
+           --grupuj klasa --agreguj frekwencja_proc --json > profil.json
+   python3 .claude/skills/dane-i-glos/scripts/przygotuj_remotion.py ~/moj-film \
+           --profil profil.json --narracja narracja.txt --audio raport.mp3 --napisy napisy.srt
+   cd ~/moj-film && npm install && npx remotion render RaportWideo out/film.mp4
+   ```
+
+   Granice scen są dosuwane do końców napisów, więc obraz zmienia się między zdaniami.
+   Długość filmu bierze się z długości MP3. Paleta przeszła walidator dostępności —
+   szczegóły w `assets/remotion/README.md`.
+
+5. **Twarz i Twój głos z HeyGen** — film z awatarem:
 
    ```bash
    export HEYGEN_API_KEY="..."
