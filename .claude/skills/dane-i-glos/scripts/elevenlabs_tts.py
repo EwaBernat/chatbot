@@ -33,7 +33,8 @@ import konfiguracja                                    # noqa: E402
 
 API = "https://api.elevenlabs.io"
 MODEL_DOMYSLNY = "eleven_multilingual_v2"      # najlepszy dla polszczyzny
-GLOS_DOMYSLNY = "21m00Tcm4TlvDq8ikWAM"          # Rachel — bezpieczny fallback
+# Celowo NIE MA glosu domyslnego. Skill nie podstawia cudzego glosu w miejsce
+# Twojego — brak zapamietanego glosu zatrzymuje prace zamiast ja podmieniac.
 LIMIT_ZNAKOW = 2400                             # z zapasem ponizej limitu modelu
 FORMAT_DOMYSLNY = "mp3_44100_128"
 TIMEOUT = 180
@@ -277,6 +278,8 @@ def main() -> int:
     ap.add_argument("--similarity", type=float, default=0.75)
     ap.add_argument("--style", type=float, default=0.0)
     ap.add_argument("--speed", type=float, default=1.0, help="0.7–1.2")
+    ap.add_argument("--obcy-glos", dest="obcy_glos", action="store_true",
+                    help="swiadomie uzyj cudzego glosu zamiast Twojego (wymaga --voice-id)")
     ap.add_argument("--suchy-bieg", dest="suchy", action="store_true",
                     help="policz znaki i fragmenty bez wywolania API")
     a = ap.parse_args()
@@ -286,13 +289,33 @@ def main() -> int:
     if a.glosy:
         return wypisz_glosy()
 
-    # kolejnosc: --voice-id > ELEVENLABS_VOICE_ID > pamiec skilla > glos zapasowy
+    # kolejnosc: --voice-id > ELEVENLABS_VOICE_ID > pamiec skilla
     a.voice_id = konfiguracja.ustal(
-        a.voice_id, "ELEVENLABS_VOICE_ID", "elevenlabs_voice_id", GLOS_DOMYSLNY)
-    if a.voice_id == GLOS_DOMYSLNY and not a.suchy:
-        print("Uwaga: skill nie ma zapamietanego glosu, uzywam zapasowego (Rachel, "
-              "akcent angielski).\n  Zapamietaj swoj: python3 skonfiguruj_glos.py "
-              "<nagranie>", file=sys.stderr)
+        a.voice_id, "ELEVENLABS_VOICE_ID", "elevenlabs_voice_id", None)
+
+    if not a.voice_id:
+        if not a.obcy_glos:
+            print(
+                "ZATRZYMUJE SIE: skill nie ma zapamietanego Twojego glosu.\n\n"
+                "Nagranie cudzym glosem nie powstanie — to swiadoma zasada tego skilla.\n"
+                "Material podpisany Twoim nazwiskiem ma brzmiec Toba.\n\n"
+                "Zapamietaj swoj glos:\n"
+                "  python3 skonfiguruj_glos.py <nagranie.mp4 albo probka.wav>\n"
+                "Sprawdz, co skill pamieta:\n"
+                "  python3 skonfiguruj_glos.py --pokaz\n\n"
+                "Jesli naprawde chcesz teraz uzyc cudzego glosu, dodaj --obcy-glos\n"
+                "i podaj --voice-id. Nagranie bedzie wtedy wyraznie oznaczone jako\n"
+                "zrobione nie Twoim glosem.",
+                file=sys.stderr)
+            return 4
+        if not a.voice_id:
+            print("Z --obcy-glos trzeba podac takze --voice-id (zobacz --glosy).",
+                  file=sys.stderr)
+            return 4
+
+    if a.obcy_glos:
+        print("UWAGA: nagranie powstaje NIE Twoim glosem (--obcy-glos).",
+              file=sys.stderr)
     if not a.tekst:
         ap.error("podaj plik ze scenariuszem albo uzyj --glosy")
 
