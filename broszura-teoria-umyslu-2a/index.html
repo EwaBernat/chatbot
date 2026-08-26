@@ -148,26 +148,26 @@
   --tuk:#6553A8; --tuk-soft:#EBE5F8; --tuk-mid:#D3C8EE;
   --tus:#0E8B78; --tus-soft:#DDF0EC; --tus-mid:#B5DED6;
   --gold:#A07A0A; --gold-soft:#FBF1D6; --gold-mid:#F0DFA6;
-  --s1:3px; --s2:6px; --s3:9px; --s4:13px; --s5:18px; --s6:26px;
+  --s1:3px; --s2:5px; --s3:7px; --s4:11px; --s5:15px; --s6:22px;
 }
 *{box-sizing:border-box}
 body{
   margin:0; background:var(--ground); color:var(--ink);
   font-family:"Nunito Sans","Segoe UI",system-ui,sans-serif;
-  font-size:9.50pt; line-height:1.42; -webkit-font-smoothing:antialiased;
+  font-size:11.02pt; line-height:1.42; -webkit-font-smoothing:antialiased;
 }
 h1,h2,h3,h4{font-family:"Fraunces",Georgia,"Times New Roman",serif; text-wrap:balance; margin:0; font-weight:600; letter-spacing:-.01em}
 p{margin:0}
 strong{font-weight:700;color:var(--ink)}
 em{font-style:italic}
 ul,ol{margin:0; padding-left:1.05em}
-li{margin-bottom:1.5px}
+li{margin-bottom:1px}
 li::marker{color:var(--muted)}
 
 /* ---------- Arkusz A4 ---------- */
 .page{
   width:210mm; min-height:297mm; background:var(--paper);
-  margin:0 auto 22px; padding:13mm 13mm 9mm; position:relative;
+  margin:0 auto 22px; padding:12mm 12mm 8mm; position:relative;
   display:flex; flex-direction:column; overflow:hidden;
   box-shadow:0 2px 4px rgba(46,42,59,.06), 0 14px 34px rgba(46,42,59,.10);
 }
@@ -175,38 +175,38 @@ li::marker{color:var(--muted)}
 .page__foot{
   margin-top:var(--s3); padding-top:5px; border-top:1px solid var(--line);
   display:flex; justify-content:space-between; align-items:baseline;
-  font-size:7.40pt; color:var(--muted); letter-spacing:.04em;
+  font-size:8.58pt; color:var(--muted); letter-spacing:.04em;
 }
 .page__foot b{font-weight:600;color:var(--ink2)}
-.num{font-family:"Fraunces",serif; font-size:9.50pt; color:var(--ink2)}
+.num{font-family:"Fraunces",serif; font-size:11.02pt; color:var(--ink2)}
 
 /* ---------- Nagłówki sekcji ---------- */
 .eyebrow{
-  font-size:7.10pt; font-weight:800; letter-spacing:.16em; text-transform:uppercase;
+  font-size:8.24pt; font-weight:800; letter-spacing:.16em; text-transform:uppercase;
   color:var(--muted); display:flex; align-items:center; gap:8px;
 }
 .eyebrow::after{content:""; flex:1; height:1px; background:var(--line)}
-.h-sec{font-size:16.50pt; line-height:1.12; margin-top:4px}
-.h-sub{font-size:11.00pt; line-height:1.25; margin-bottom:2px}
-.lead{font-size:9.60pt; color:var(--ink2); line-height:1.4}
-.kicker{font-size:8.00pt;font-weight:800;letter-spacing:.13em;text-transform:uppercase}
+.h-sec{font-size:17.16pt; line-height:1.12; margin-top:4px}
+.h-sub{font-size:12.1pt; line-height:1.25; margin-bottom:2px}
+.lead{font-size:11.14pt; color:var(--ink2); line-height:1.4}
+.kicker{font-size:9.28pt;font-weight:800;letter-spacing:.13em;text-transform:uppercase}
 
 /* ---------- Karty ---------- */
-.grid{display:grid; gap:9px}
+.grid{display:grid; gap:7px}
 .g2{grid-template-columns:1fr 1fr}
 .g3{grid-template-columns:repeat(3,1fr)}
 .g-2-1{grid-template-columns:1.35fr 1fr}
 .g-1-2{grid-template-columns:1fr 1.5fr}
-.card{background:var(--paper); border:1px solid var(--line); border-radius:10px; padding:8px 11px; display:flex; flex-direction:column; gap:4px}
+.card{background:var(--paper); border:1px solid var(--line); border-radius:10px; padding:7px 10px; display:flex; flex-direction:column; gap:3px}
 .card--tue{background:var(--tue-soft); border-color:var(--tue-mid)}
 .card--tuk{background:var(--tuk-soft); border-color:var(--tuk-mid)}
 .card--tus{background:var(--tus-soft); border-color:var(--tus-mid)}
 .card--gold{background:var(--gold-soft); border-color:var(--gold-mid)}
 .card--plain{background:#FBF9F6; border-color:var(--line2)}
-.card h3{font-size:10.6pt}
-.card h4{font-size:9.60pt; font-family:"Nunito Sans",sans-serif; font-weight:800}
+.card h3{font-size:11.66pt}
+.card h4{font-size:11.14pt; font-family:"Nunito Sans",sans-serif; font-weight:800}
 
-.tag{display:inline-block; padding:2px 9px; border-radius:999px; font-size:7.60pt; font-weight:800; letter-spacing:.08em; text-transform:uppercase}
+.tag{display:inline-block; padding:2px 9px; border-radius:999px; font-size:8.82pt; font-weight:800; letter-spacing:.08em; text-transform:uppercase}
 .tag--tue{background:var(--tue);color:#fff}
 .tag--tuk{background:var(--tuk);color:#fff}
 .tag--tus{background:var(--tus);color:#fff}
@@ -214,42 +214,54 @@ li::marker{color:var(--muted)}
 .tag--ghost{background:#fff;color:var(--ink2);border:1px solid var(--line)}
 
 /* ---------- Tabele ---------- */
-table{width:100%; border-collapse:collapse; font-size:8.2pt}
+table{width:100%; border-collapse:collapse; font-size:9.51pt}
 th{
-  text-align:left; font-weight:800; font-size:7.00pt; letter-spacing:.08em; text-transform:uppercase;
-  color:var(--ink2); padding:4px 6px; border-bottom:1.5px solid var(--ink2); vertical-align:bottom;
+  text-align:left; font-weight:800; font-size:8.12pt; letter-spacing:.08em; text-transform:uppercase;
+  color:var(--ink); padding:4px 6px; border-bottom:2px solid var(--ink2); vertical-align:bottom;
 }
-td{padding:3.5px 6px; border-bottom:1px solid var(--line2); vertical-align:top}
-tbody tr:nth-child(even){background:#FBF9F6}
+td{padding:3px 6px; border-bottom:1px solid #E4DBD0; vertical-align:top}
+tbody tr:nth-child(even){background:#F8F2EA}
 td.age{white-space:nowrap; font-weight:800; color:var(--ink); font-variant-numeric:tabular-nums}
 .tbl-wrap{overflow-x:auto}
 
 /* ---------- Callout ---------- */
-.callout{border-radius:10px; padding:8px 11px; display:flex; flex-direction:column; gap:4px}
+.callout{border-radius:10px; padding:7px 10px; display:flex; flex-direction:column; gap:3px}
 .callout--warn{background:var(--gold-soft); border:1px solid var(--gold-mid)}
 .callout--law{background:#F5F2FB; border:1px solid var(--tuk-mid)}
 .rule{border:0;border-top:1px solid var(--line); margin:0}
 
 /* ---------- Ćwiczenia ---------- */
-.ex{border:1px solid var(--line); border-radius:12px; overflow:hidden; display:flex; flex-direction:column}
-.ex__head{padding:5px 9px; display:flex; align-items:center; gap:8px; flex-wrap:wrap}
-.ex__head h3{font-size:10.2pt}
-.ex__no{font-family:"Fraunces",serif; font-size:12.50pt; font-weight:700; opacity:.5; line-height:1}
-.ex__body{padding:8px 9px; display:flex; flex-direction:column; gap:3px; font-size:8.30pt; background:var(--paper); line-height:1.35}
-.ex__body b{font-size:6.90pt;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);display:block;margin-bottom:1px}
-.ex--tue .ex__head{background:var(--tue-soft)} .ex--tue{border-color:var(--tue-mid)} .ex--tue .ex__no{color:var(--tue)}
-.ex--tuk .ex__head{background:var(--tuk-soft)} .ex--tuk{border-color:var(--tuk-mid)} .ex--tuk .ex__no{color:var(--tuk)}
-.ex--tus .ex__head{background:var(--tus-soft)} .ex--tus{border-color:var(--tus-mid)} .ex--tus .ex__no{color:var(--tus)}
+.ex{border:1.6px solid var(--rail,var(--line)); border-radius:12px; overflow:hidden;
+  display:flex; flex-direction:column;
+  box-shadow:0 1px 0 rgba(46,42,59,.04), 0 4px 11px rgba(46,42,59,.05)}
+.ex__head{padding:4px 10px; display:flex; align-items:center; gap:8px; flex-wrap:wrap;
+  border-bottom:1.4px solid var(--rail,var(--line))}
+.ex__head h3{font-size:12.2pt; color:var(--rail,var(--ink)); letter-spacing:-.008em}
+.ex__no{font-family:"Fraunces",serif; font-size:11pt; font-weight:700; line-height:1; color:#FFFFFF;
+  background:var(--rail); min-width:21px; height:21px; padding:0 5px; border-radius:7px;
+  display:inline-flex; align-items:center; justify-content:center; flex:none}
+.ex__body{padding:6px 9px; display:flex; flex-direction:column; gap:2px; font-size:9.5pt; background:var(--paper); line-height:1.3}
+.ex__body b{font-size:8pt;letter-spacing:.1em;text-transform:uppercase;color:var(--rail,var(--muted));
+  display:block;margin-bottom:1px; opacity:.85}
+.ex--tue{--rail:var(--tue)} .ex--tue .ex__head{background:var(--tue-soft)}
+.ex--tuk{--rail:var(--tuk)} .ex--tuk .ex__head{background:var(--tuk-soft)}
+.ex--tus{--rail:var(--tus)} .ex--tus .ex__head{background:var(--tus-soft)}
 
 /* ---------- Wykresy ---------- */
-figure{margin:0; display:flex; flex-direction:column; gap:6px}
-figcaption{font-size:7.80pt; color:var(--muted); line-height:1.4}
-.fig-title{font-size:9.60pt; font-weight:800; color:var(--ink)}
-.legend{display:flex; flex-wrap:wrap; gap:4px 14px; font-size:8.20pt; color:var(--ink2)}
+figure{margin:0; display:flex; flex-direction:column; gap:5px}
+figcaption{font-size:9.05pt; color:var(--muted); line-height:1.4}
+.fig-title{font-size:11.14pt; font-weight:800; color:var(--ink)}
+.legend{display:flex; flex-wrap:wrap; gap:4px 14px; font-size:9.51pt; color:var(--ink2)}
 .legend span{display:flex; align-items:center; gap:5px}
 .sw{width:10px;height:10px;border-radius:3px;display:inline-block}
 svg{display:block; max-width:100%}
 .chart text{font-family:"Nunito Sans",sans-serif; font-variant-numeric:tabular-nums}
+.fig-card{background:#fff; border:1.4px solid var(--line); border-radius:14px;
+  padding:9px 13px 10px; gap:7px;
+  box-shadow:0 1px 0 rgba(46,42,59,.04), 0 5px 13px rgba(46,42,59,.05)}
+.fig-card .fig-title{display:block; padding-bottom:6px; border-bottom:1px solid var(--line2)}
+.fig-card .chart{margin:1px 0 2px}
+.fig-card figcaption{border-top:1px dashed var(--line); padding-top:6px; margin-top:1px}
 
 /* ---------- Okładka ---------- */
 .cover{padding:0; justify-content:stretch}
@@ -262,17 +274,17 @@ svg{display:block; max-width:100%}
   display:flex; flex-direction:column; gap:var(--s4); position:relative;
 }
 .seria{display:flex; align-items:center; gap:9px; flex-wrap:wrap; position:relative; z-index:1}
-.seria__l{font-size:7.6pt; letter-spacing:.22em; text-transform:uppercase; font-weight:800; color:var(--muted)}
-.seria__p{font-size:7.6pt; letter-spacing:.11em; text-transform:uppercase; font-weight:800; color:#fff;
+.seria__l{font-size:8.82pt; letter-spacing:.22em; text-transform:uppercase; font-weight:800; color:var(--muted)}
+.seria__p{font-size:8.82pt; letter-spacing:.11em; text-transform:uppercase; font-weight:800; color:#fff;
   background:var(--tuk); padding:3px 11px; border-radius:999px; white-space:nowrap}
 .cover__art{position:absolute; top:9mm; right:-10mm; width:112mm; height:auto; pointer-events:none; z-index:0}
-.cover__title{font-size:32.00pt; line-height:1.06; font-weight:700; letter-spacing:-.022em}
+.cover__title{font-size:33.28pt; line-height:1.06; font-weight:700; letter-spacing:-.022em}
 .cover__title i{font-style:italic; color:var(--tuk)}
-.cover__eyebrow{font-size:8.4pt; letter-spacing:.2em; text-transform:uppercase; font-weight:800;
+.cover__eyebrow{font-size:9.74pt; letter-spacing:.2em; text-transform:uppercase; font-weight:800;
   color:var(--muted); margin-bottom:-8px}
-.cover__lead{font-family:"Fraunces",Georgia,serif; font-size:14pt; line-height:1.32; font-weight:500;
+.cover__lead{font-family:"Fraunces",Georgia,serif; font-size:15.4pt; line-height:1.32; font-weight:500;
   font-style:italic; color:var(--tuk); max-width:132mm}
-.cover__sub{font-size:13.00pt; color:var(--ink2); max-width:135mm; line-height:1.45}
+.cover__sub{font-size:14.3pt; color:var(--ink2); max-width:135mm; line-height:1.45}
 .cover__rule{display:flex; gap:6px; align-items:center}
 .cover__rule i{height:6px;border-radius:3px;display:block}
 .cover__bottom{
@@ -283,13 +295,13 @@ svg{display:block; max-width:100%}
 .logobox svg{width:100%;height:100%;display:block;filter:drop-shadow(0 3px 8px rgba(75,46,119,.22))}
 .logo-mini{width:11mm;height:11mm;flex:none}
 .author{display:flex; flex-direction:column; gap:2px}
-.author .n{font-family:"Fraunces",serif; font-size:15.00pt; font-weight:600}
-.author .r{font-size:9.20pt; color:var(--ink2)}
-.author .m{font-size:9.20pt; color:var(--tuk); font-weight:700}
+.author .n{font-family:"Fraunces",serif; font-size:15.6pt; font-weight:600}
+.author .r{font-size:10.67pt; color:var(--ink2)}
+.author .m{font-size:10.67pt; color:var(--tuk); font-weight:700}
 .badge-row{display:flex; gap:6px; flex-wrap:wrap}
 
 /* ---------- Spis treści ---------- */
-.toc{display:grid; grid-template-columns:1fr 1fr 1fr; gap:2px 18px; font-size:8.2pt}
+.toc{display:grid; grid-template-columns:1fr 1fr 1fr; gap:2px 18px; font-size:9.51pt}
 .toc a,.toc div{display:flex; gap:6px; align-items:baseline; color:var(--ink2); text-decoration:none; padding:2px 0; border-bottom:1px dotted var(--line)}
 .toc .t{flex:1}
 .toc .p{font-variant-numeric:tabular-nums; font-weight:800; color:var(--tuk)}
@@ -309,20 +321,20 @@ svg{display:block; max-width:100%}
 /* ---------- Karta obserwacji (formularz) ---------- */
 .karta-head{display:grid; grid-template-columns:1.7fr .8fr .9fr 1.3fr; gap:8px}
 .fld{border:1px solid var(--line); border-radius:9px; padding:4px 9px 5px; background:#FCFAF7}
-.fld b{display:block; font-size:6.6pt; letter-spacing:.13em; text-transform:uppercase; color:var(--muted); font-weight:800}
+.fld b{display:block; font-size:7.66pt; letter-spacing:.13em; text-transform:uppercase; color:var(--muted); font-weight:800}
 .fld i{display:block; margin-top:9px; border-bottom:1px dotted #C8C1D2}
-.skala{display:flex; gap:10px; flex-wrap:wrap; align-items:center; font-size:8pt; color:var(--ink2)}
+.skala{display:flex; gap:10px; flex-wrap:wrap; align-items:center; font-size:9.28pt; color:var(--ink2)}
 .skala span{display:flex; align-items:center; gap:4px}
 .skala u{text-decoration:none; width:15px;height:15px; border:1.3px solid #B9B2C6; border-radius:4px;
-  display:inline-flex; align-items:center; justify-content:center; font-size:7.4pt; font-weight:800; color:var(--ink2); background:#fff}
+  display:inline-flex; align-items:center; justify-content:center; font-size:8.58pt; font-weight:800; color:var(--ink2); background:#fff}
 
-table.karta{font-size:8.5pt; border-collapse:separate; border-spacing:0; width:100%}
-table.karta th{font-size:6.8pt; padding:4px 6px; border-bottom:1.5px solid var(--ink2); background:none;
+table.karta{font-size:9.86pt; border-collapse:separate; border-spacing:0; width:100%}
+table.karta th{font-size:7.89pt; padding:4px 6px; border-bottom:2px solid var(--ink2); background:none;
   vertical-align:bottom; letter-spacing:.09em}
 table.karta td{padding:0; border:0; vertical-align:middle}
 table.karta tbody tr{background:none}
 
-.karta .lp{width:7.5mm; text-align:center; font-variant-numeric:tabular-nums; font-size:7.4pt;
+.karta .lp{width:7.5mm; text-align:center; font-variant-numeric:tabular-nums; font-size:8.58pt;
   font-weight:700; color:var(--muted)}
 .karta .nm{padding:2px 8px 2px 7px}
 .karta .sc{width:8mm; text-align:center; background:rgba(139,132,157,.055)}
@@ -342,26 +354,26 @@ table.karta tbody tr{background:none}
 
 .karta .grp td{padding:3px 7px; border-bottom:1px solid var(--rail); background:var(--tint)}
 .karta .grp .lp{border-left:3px solid var(--rail)}
-.karta .grp b{font-size:8.8pt; color:var(--rail); font-family:"Fraunces",serif; font-weight:600}
-.karta .grp .och{font-size:6.6pt; letter-spacing:.1em; text-transform:uppercase; color:var(--ink2);
+.karta .grp b{font-size:10.21pt; color:var(--rail); font-family:"Fraunces",serif; font-weight:600}
+.karta .grp .och{font-size:7.66pt; letter-spacing:.1em; text-transform:uppercase; color:var(--ink2);
   text-align:center; font-weight:800; opacity:.65}
 .g-tue{--rail:var(--tue); --tint:var(--tue-soft)}
 .g-tuk{--rail:var(--tuk); --tint:var(--tuk-soft)}
 .g-tus{--rail:var(--tus); --tint:var(--tus-soft)}
-.suma{display:flex;align-items:center;gap:6px;font-size:7.8pt;color:var(--ink2);white-space:nowrap;font-weight:700}
+.suma{display:flex;align-items:center;gap:6px;font-size:9.05pt;color:var(--ink2);white-space:nowrap;font-weight:700}
 .suma em{font-style:normal;display:inline-block;width:30px;border-bottom:1.4px solid var(--rail);height:12px}
 .linia{border-bottom:1px dotted #C8C1D2; height:12px; margin-top:6px}
-.pole{font-size:7.2pt;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);font-weight:800;margin-top:6px}
+.pole{font-size:8.35pt;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);font-weight:800;margin-top:6px}
 
 .wynik{display:grid; grid-template-columns:repeat(3,1fr) 1.25fr; gap:10px; align-items:stretch}
 .wynik-box{border:1px solid var(--rail); background:var(--tint); border-radius:10px; padding:6px 9px;
   display:flex; flex-direction:column; gap:2px}
-.wynik-box .lab{font-size:7pt;letter-spacing:.12em;text-transform:uppercase;font-weight:800;color:var(--rail)}
-.wynik-box .pkt{display:flex;align-items:baseline;gap:5px;font-family:"Fraunces",serif;font-size:13pt;color:var(--ink)}
+.wynik-box .lab{font-size:8.12pt;letter-spacing:.12em;text-transform:uppercase;font-weight:800;color:var(--rail)}
+.wynik-box .pkt{display:flex;align-items:baseline;gap:5px;font-family:"Fraunces",serif;font-size:14.3pt;color:var(--ink)}
 .wynik-box .pkt u{text-decoration:none;display:inline-block;width:42px;border-bottom:1.6px solid var(--rail)}
-.wynik-box .pkt small{font-size:9pt;color:var(--ink2);font-family:"Nunito Sans",sans-serif}
-.wynik-box p{font-size:7.6pt;color:var(--ink2);line-height:1.3}
-.podpis{display:grid;grid-template-columns:1fr 1fr 1fr;gap:16px;font-size:7.4pt;color:var(--muted);margin-top:0}
+.wynik-box .pkt small{font-size:10.44pt;color:var(--ink2);font-family:"Nunito Sans",sans-serif}
+.wynik-box p{font-size:8.82pt;color:var(--ink2);line-height:1.3}
+.podpis{display:grid;grid-template-columns:1fr 1fr 1fr;gap:16px;font-size:8.58pt;color:var(--muted);margin-top:0}
 .podpis div i{display:block;border-bottom:1px solid #C8C1D2;margin-bottom:2px;height:12px}
 
 /* ---------- Strona zapisu do dokumentacji ---------- */
@@ -369,38 +381,38 @@ table.karta tbody tr{background:none}
   box-shadow:0 1px 0 rgba(46,42,59,.04), 0 8px 18px rgba(46,42,59,.06); display:flex; flex-direction:column}
 .dok__bar{background:var(--tuk-soft); border-bottom:1px solid var(--tuk-mid); padding:5px 13px;
   display:flex; justify-content:space-between; align-items:center;
-  font-size:6.9pt; letter-spacing:.13em; text-transform:uppercase; font-weight:800; color:var(--tuk)}
-.dok__body{padding:10px 14px 12px; display:flex; flex-direction:column; gap:7px; font-size:8.7pt; line-height:1.48}
+  font-size:8pt; letter-spacing:.13em; text-transform:uppercase; font-weight:800; color:var(--tuk)}
+.dok__body{padding:8px 13px 9px; display:flex; flex-direction:column; gap:5px; font-size:10.09pt; line-height:1.48}
 .dok__body>div{border-left:2px solid var(--tuk-mid); padding-left:10px}
 .dok__body b{color:var(--tuk)}
-.dok__note{background:#FBF9F6; border-top:1px dashed var(--line); padding:6px 13px; font-size:7.6pt; color:var(--ink2)}
+.dok__note{background:#FBF9F6; border-top:1px dashed var(--line); padding:5px 13px; font-size:8.82pt; color:var(--ink2)}
 
 .kroki{display:flex; flex-direction:column; gap:0}
 .krok{display:grid; grid-template-columns:26px 1fr; gap:10px; padding:0 0 9px}
 .krok__n{width:24px;height:24px;border-radius:50%; display:flex;align-items:center;justify-content:center;
-  font-family:"Fraunces",serif; font-size:11pt; font-weight:700; color:#fff; background:var(--kolor); flex:none; position:relative}
+  font-family:"Fraunces",serif; font-size:12.1pt; font-weight:700; color:#fff; background:var(--kolor); flex:none; position:relative}
 .krok:not(:last-child) .krok__n::after{content:""; position:absolute; top:26px; left:50%; width:1.5px; height:calc(100% - 4px);
   transform:translateX(-50%); background:var(--line)}
-.krok h5{margin:0; font-size:9.4pt; font-family:"Nunito Sans",sans-serif; font-weight:800; color:var(--ink); line-height:1.25}
-.krok p{font-size:8.5pt; color:var(--ink2); line-height:1.4; margin-top:1px}
-.blad{display:grid; grid-template-columns:20px 1fr; gap:8px; font-size:8.6pt; line-height:1.4}
-.blad span{font-family:"Fraunces",serif; font-size:12pt; font-weight:700; color:var(--gold); line-height:1}
+.krok h5{margin:0; font-size:10.9pt; font-family:"Nunito Sans",sans-serif; font-weight:800; color:var(--ink); line-height:1.25}
+.krok p{font-size:9.86pt; color:var(--ink2); line-height:1.4; margin-top:1px}
+.blad{display:grid; grid-template-columns:20px 1fr; gap:8px; font-size:9.98pt; line-height:1.4}
+.blad span{font-family:"Fraunces",serif; font-size:13.2pt; font-weight:700; color:var(--gold); line-height:1}
 
 /* ---------- Spis treści ---------- */
-.spis{display:flex; flex-direction:column; gap:11px}
+.spis{display:flex; flex-direction:column; gap:8px}
 .czesc__h{display:flex; align-items:baseline; gap:9px; padding:0 0 3px; border-bottom:2px solid var(--rail); margin-bottom:4px}
-.czesc__n{font-family:"Fraunces",serif; font-size:12.5pt; font-weight:700; color:var(--rail); line-height:1}
-.czesc__t{font-family:"Fraunces",serif; font-size:11.5pt; font-weight:600; color:var(--ink); line-height:1.1}
-.czesc__s{margin-left:auto; font-size:7.6pt; letter-spacing:.09em; text-transform:uppercase;
+.czesc__n{font-family:"Fraunces",serif; font-size:13.75pt; font-weight:700; color:var(--rail); line-height:1}
+.czesc__t{font-family:"Fraunces",serif; font-size:12.65pt; font-weight:600; color:var(--ink); line-height:1.1}
+.czesc__s{margin-left:auto; font-size:8.82pt; letter-spacing:.09em; text-transform:uppercase;
   font-weight:800; color:var(--muted); white-space:nowrap}
-.poz{display:flex; align-items:baseline; gap:7px; padding:2.2px 0}
-.poz__t{font-size:9.2pt; color:var(--ink); white-space:nowrap; overflow:hidden; text-overflow:ellipsis}
+.poz{display:flex; align-items:baseline; gap:7px; padding:1.5px 0}
+.poz__t{font-size:10.67pt; color:var(--ink); white-space:nowrap; overflow:hidden; text-overflow:ellipsis}
 .poz__t b{font-weight:700}
-.poz__t span{color:var(--ink2); font-size:8.6pt}
+.poz__t span{color:var(--ink2); font-size:9.98pt}
 .poz i{flex:1; border-bottom:1px dotted #DCD4C9; transform:translateY(-3px); min-width:12px}
-.poz__p{font-family:"Fraunces",serif; font-weight:600; font-size:10pt; color:var(--rail);
+.poz__p{font-family:"Fraunces",serif; font-weight:600; font-size:11pt; color:var(--rail);
   font-variant-numeric:tabular-nums; min-width:15px; text-align:right}
-.skroty{display:grid; grid-template-columns:1fr 1fr; gap:3px 22px; font-size:8.4pt}
+.skroty{display:grid; grid-template-columns:1fr 1fr; gap:3px 22px; font-size:9.74pt}
 .skroty div{display:flex; gap:6px; align-items:baseline}
 .skroty b{color:var(--tuk); font-weight:800; white-space:nowrap; min-width:12mm}
 
@@ -408,24 +420,30 @@ table.karta tbody tr{background:none}
 .buzka{width:100%;height:auto;display:block}
 .pole-pracy{border:1.4px solid var(--line); border-radius:12px; background:#FFFDFB; padding:8px;
   display:flex; flex-direction:column; align-items:center; gap:4px}
-.pole-pracy span{font-size:7.6pt; font-weight:800; letter-spacing:.1em; text-transform:uppercase; color:var(--muted)}
+.pole-pracy span{font-size:8.82pt; font-weight:800; letter-spacing:.1em; text-transform:uppercase; color:var(--muted)}
 .wytnij{border:1.4px dashed var(--tuk-mid); border-radius:10px; padding:7px; background:#FCFAFF}
-.spotk{width:100%; border-collapse:separate; border-spacing:0; font-size:8.2pt}
-.spotk th{font-size:6.8pt; padding:3px 6px; border-bottom:1.5px solid var(--ink2); text-align:left}
-.spotk td{padding:3px 6px; border-bottom:1px solid #EFE9E1; vertical-align:top}
-.spotk tr:nth-child(even) td{background:#FBF7F1}
+.spotk{width:100%; border-collapse:separate; border-spacing:0; font-size:9.2pt}
+.spotk th{font-size:7.89pt; padding:3px 6px; border-bottom:2px solid var(--ink2); text-align:left; color:var(--ink)}
+.spotk td{padding:2px 6px; border-bottom:1px solid #E4DBD0; vertical-align:top}
+.spotk tr:nth-child(even) td{background:#F8F2EA}
 .spotk .nr{width:9mm; text-align:center; font-weight:800; color:var(--rail); font-variant-numeric:tabular-nums}
-.mies{display:flex; align-items:center; gap:10px; padding:7px 12px; border-radius:11px;
+.mies{display:flex; align-items:center; gap:10px; padding:5px 12px; border-radius:11px;
   background:var(--tint); border:1px solid var(--rail)}
-.mies__n{font-family:"Fraunces",serif; font-size:19pt; font-weight:700; color:var(--rail); line-height:1}
-.mies__t{font-family:"Fraunces",serif; font-size:13pt; font-weight:600; color:var(--ink); line-height:1.15}
-.mies__c{margin-left:auto; text-align:right; font-size:7.8pt; color:var(--ink2); max-width:62mm; line-height:1.3}
-.pyt{background:#FBF9F6; border-left:3px solid var(--tuk); border-radius:0 8px 8px 0; padding:6px 10px; font-size:8.8pt}
-.pyt b{display:block; font-size:6.9pt; letter-spacing:.1em; text-transform:uppercase; color:var(--muted); margin-bottom:2px}
-.opow{background:#fff; border:1px solid var(--line); border-radius:10px; padding:9px 12px; font-size:8.8pt; line-height:1.5}
-.opow h5{margin:0 0 3px; font-family:"Fraunces",serif; font-size:10.5pt; font-weight:600; color:var(--tuk)}
+.mies__n{font-family:"Fraunces",serif; font-size:19.76pt; font-weight:700; color:var(--rail); line-height:1}
+.mies__t{font-family:"Fraunces",serif; font-size:14.3pt; font-weight:600; color:var(--ink); line-height:1.15}
+.mies__c{margin-left:auto; text-align:right; font-size:9.05pt; color:var(--ink2); max-width:62mm; line-height:1.3}
+.pyt{background:#FBF9F6; border-left:3px solid var(--tuk); border-radius:0 8px 8px 0; padding:5px 10px; font-size:10.21pt}
+.pyt b{display:block; font-size:8pt; letter-spacing:.1em; text-transform:uppercase; color:var(--muted); margin-bottom:2px}
+.opow{background:var(--tint,#fff); border:1px solid var(--rail,var(--line));
+  border-left:4px solid var(--rail,var(--tuk)); border-radius:10px; padding:6px 10px;
+  font-size:10.21pt; line-height:1.35}
+.opow--tue{--rail:var(--tue); --tint:var(--tue-soft)}
+.opow--tuk{--rail:var(--tuk); --tint:var(--tuk-soft)}
+.opow--tus{--rail:var(--tus); --tint:var(--tus-soft)}
+.opow .pyt{background:#FFFFFF; border-left-color:var(--rail)}
+.opow h5{margin:0 0 3px; font-family:"Fraunces",serif; font-size:11.55pt; font-weight:600; color:var(--rail,var(--tuk))}
 .opow p+p{margin-top:3px}
-.wyprawka{display:grid; grid-template-columns:1fr 1fr; gap:2px 18px; font-size:8.6pt}
+.wyprawka{display:grid; grid-template-columns:1fr 1fr; gap:2px 18px; font-size:9.98pt}
 .wyprawka div{display:flex; gap:6px; align-items:flex-start; padding:1.5px 0; border-bottom:1px dotted var(--line2)}
 .wyprawka i{width:11px;height:11px;border:1.3px solid var(--muted);border-radius:3px;flex:none;margin-top:3px}
 .m1{--rail:var(--tue); --tint:var(--tue-soft)}
@@ -434,6 +452,81 @@ table.karta tbody tr{background:none}
 .m4{--rail:var(--gold); --tint:var(--gold-soft)}
 .m5{--rail:var(--tuk); --tint:var(--tuk-soft)}
 .m6{--rail:var(--tuk); --tint:var(--tuk-soft)}
+
+/* ---------- Część 2B: narzędzia ilustrowane i sprawozdania ---------- */
+.narz{border:1.4px solid var(--line); border-radius:12px; background:#FFFDFB; padding:7px 10px;
+  display:flex; flex-direction:column; gap:4px}
+.narz h4{font-size:11.14pt}
+.spraw{background:#fff; border:1.6px solid var(--rail); border-radius:11px; overflow:hidden;
+  display:flex; flex-direction:column; box-shadow:0 1px 0 rgba(46,42,59,.05), 0 6px 16px rgba(46,42,59,.07)}
+.spraw__bar{background:var(--rail); border-bottom:0; padding:5px 12px;
+  display:flex; justify-content:space-between; align-items:center;
+  font-size:8.58pt; letter-spacing:.13em; text-transform:uppercase; font-weight:800; color:#FFFFFF}
+.spraw__body{padding:0; display:flex; flex-direction:column}
+.sek{display:flex; flex-direction:column; gap:1px; padding:2px 12px 3px; border-bottom:1px solid var(--line2)}
+.sek:nth-child(even){background:var(--tint)}
+.sek:last-child{border-bottom:0}
+.sek>b{font-size:9.51pt; letter-spacing:.02em; text-transform:none; color:var(--rail); font-weight:800;
+  font-family:"Fraunces",serif}
+.sek .l{border-bottom:1.2px solid #C4BCCF; height:9px}
+.sek p{font-size:9.63pt; color:var(--ink); line-height:1.32}
+.sek .dwie>div>span{font-weight:700; color:var(--ink2)}
+.dwie{display:grid; grid-template-columns:1fr 1fr; gap:1px 16px}
+.roznice td{vertical-align:top}
+.roznice .rew{background:var(--tuk-soft)}
+.roznice .ppp{background:var(--tus-soft)}
+.m7{--rail:var(--tue); --tint:var(--tue-soft)}
+.m8{--rail:var(--tue); --tint:var(--tue-soft)}
+.m9{--rail:var(--gold); --tint:var(--gold-soft)}
+.m10{--rail:var(--gold); --tint:var(--gold-soft)}
+.m11{--rail:var(--tus); --tint:var(--tus-soft)}
+.m12{--rail:var(--tuk); --tint:var(--tuk-soft)}
+.rew-k{--rail:var(--tuk); --tint:var(--tuk-soft)}
+.ppp-k{--rail:var(--tus); --tint:var(--tus-soft)}
+.page--zw .page__body{gap:3px}
+.page--zw .grid{gap:4px}
+.page--zw .roznice td{padding:1.5px 6px}
+.page--zw .tbl-wrap table th{padding:3px 6px}
+.page--zw .card h4{line-height:1.2}
+.page--zw .spis{gap:5px}
+.page--zw .poz{padding:1.2px 0}
+.page--zw .czesc__h{padding-bottom:2px; margin-bottom:3px}
+.page--zw .karta .it td{padding:1px 5px}
+.page--zw .karta .grp td{padding:1.5px 5px}
+.page--zw .karta th{padding:2px 6px}
+.page--zw .fld{gap:1px}
+.page--zw li{margin-bottom:0}
+.page--zw .karta-head{padding:2px 0}
+.page--zw .lead{line-height:1.3}
+.page--zw .h-sec{font-size:15.6pt}
+.page--zw .dok__body{padding:6px 12px 7px}
+.page--zw .page__foot{margin-top:4px}
+.page--zw .card{padding:6px 9px}
+.page--zw .narz{padding:6px 9px}
+.page--zw table td{padding:2px 6px}
+.page--zw .lead{line-height:1.32}
+.page--zw .h-sec{font-size:16pt}
+.page--zw .opow h5{margin-bottom:2px}
+.page--zw .spotk td{padding:1.5px 6px}
+.page--zw .tbl-wrap table td{padding:1.5px 6px}
+.page--zw .sek{padding:2px 12px 2px}
+.page--zw .opow{padding:5px 10px; line-height:1.31}
+.page--zw .callout{padding:5px 9px}
+.page--zw .ex__head{padding:2px 9px}
+.page--zw figure{gap:4px}
+.page--zw .ex__body{padding:5px 9px; gap:1px}
+.page--zw .ex__head{padding:3px 10px}
+/* ---------- Załączniki: plansze w powiększeniu ---------- */
+.page--zal .page__body{gap:6px}
+.zal-plansza{flex:1; display:flex; align-items:center; justify-content:center;
+  border:1.4px dashed var(--tuk-mid); border-radius:14px; background:#FFFDFB; padding:8px}
+.zal-plansza > svg{width:100%; height:auto; max-height:100%}
+.page--dz table.karta{font-size:8.58pt}
+.page--dz .karta .it td{padding:0.5px 5px; height:auto; line-height:1.24}
+.page--dz .karta .grp td{padding:2px 5px}
+.page--dz .karta .grp b{font-size:9.51pt}
+.page--dz .karta .lp{width:6.5mm; font-size:8pt}
+.page--dz .karta th{font-size:7.66pt; padding:3px 5px}
 
 @media print{
   body{background:#fff}
@@ -449,7 +542,7 @@ table.karta tbody tr{background:none}
   .g2,.g3,.g-2-1,.g-1-2,.toc{grid-template-columns:1fr}
   .cover__top{padding:28px 18px}
   .cover__bottom{padding:18px; flex-direction:column; align-items:flex-start}
-  .cover__title{font-size:26pt}
+  .cover__title{font-size:27.04pt}
 }
 @media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
 </style>
@@ -537,7 +630,7 @@ table.karta tbody tr{background:none}
     <div class="author">
       <span class="kicker" style="color:var(--muted)">Opracowanie</span>
       <span class="n">Mirosława Ewa Jurczyszyn</span>
-      <span class="r">Pedagog specjalny · terapeuta · autorka materiałów dla oświaty</span>
+      <span class="r">Pedagog specjalny · terapeuta · autorka materiałów do edukacji i terapii</span>
       <span class="m">kontakt@eduplaner2026.pl</span>
     </div>
     <div class="logobox">
@@ -547,7 +640,7 @@ table.karta tbody tr{background:none}
 </section>
 
 <!-- ============ 2. SPIS TREŚCI ============ -->
-<section class="page">
+<section class="page page--zw">
   <div class="page__body">
     <div>
       <div class="eyebrow">Spis treści · seria Teoria umysłu, część 2A</div>
@@ -594,27 +687,11 @@ table.karta tbody tr{background:none}
         <div class="poz"><span class="poz__t"><b>Karta monitorowania — do druku</b> <span>— ocena efektywności co miesiąc</span></span><i></i><span class="poz__p">26</span></div>
         <div class="poz"><span class="poz__t"><b>Rodzice, literatura i kontakt</b> <span>— sześć zadań do domu i źródła</span></span><i></i><span class="poz__p">27</span></div>
       </div>
-    </div>
-
-    <div class="grid g-2-1">
-      <div class="card card--plain">
-        <h4>Skróty używane w broszurze</h4>
-        <div class="skroty" style="margin-top:3px">
-          <div><b>ToM</b><span>teoria umysłu (<em>theory of mind</em>)</span></div>
-          <div><b>TUE</b><span>teoria umysłu emocjonalna</span></div>
-          <div><b>TUK</b><span>teoria umysłu kognitywna</span></div>
-          <div><b>WOPFU</b><span>wielospecjalistyczna ocena poziomu funkcjonowania ucznia</span></div>
-          <div><b>IPET</b><span>indywidualny program edukacyjno-terapeutyczny</span></div>
-          <div><b>AAC</b><span>komunikacja wspomagająca i alternatywna</span></div>
-        </div>
-      </div>
-      <div class="card card--gold">
-        <h4 style="color:var(--gold)">Jak korzystać z tej części?</h4>
-        <ul style="font-size:8.8pt">
-          <li><strong>Zacznij od diagnozy wstępnej ze s. 5.</strong> Bez niej nie wiesz, od którego miesiąca zacząć.</li>
-          <li><strong>Wydrukuj karty pracy</strong> zanim ruszysz — całość mieści się na trzech kartkach.</li>
-          <li><strong>Cele ze s. 23 przepisz wprost do IPET.</strong> Mają kryterium, więc nadają się do oceny efektywności.</li>
-        </ul>
+          <div style="--rail:var(--gold)">
+        <div class="czesc__h"><span class="czesc__n">V</span><span class="czesc__t">Załączniki</span><span class="czesc__s">materiały do zabawy i terapii</span></div>
+        <div class="poz"><span class="poz__t"><b>Termometr emocji w rozmiarze A4</b> <span>— do powieszenia w sali</span></span><i></i><span class="poz__p">28</span></div>
+        <div class="poz"><span class="poz__t"><b>Pięć twarzy do zabawy i terapii</b> <span>— duże karty do wycięcia</span></span><i></i><span class="poz__p">29</span></div>
+        <div class="poz"><span class="poz__t"><b>Dwanaście kart „czuje się… bo…"</b> <span>— materiał do modułu 3</span></span><i></i><span class="poz__p">30</span></div>
       </div>
     </div>
   </div>
@@ -704,6 +781,28 @@ table.karta tbody tr{background:none}
         <p style="font-size:8.9pt">Program działa w <strong>grupie do 4 dzieci</strong> — przepisy dopuszczają
         do 10, ale przy teorii umysłu każde dziecko musi zdążyć odpowiedzieć. Powyżej czterech osób
         połowa grupy tylko patrzy, a patrzenie tej umiejętności nie ćwiczy.</p>
+      </div>
+    </div>
+
+    <div class="grid g-2-1">
+      <div class="card card--plain">
+        <h4>Skróty używane w broszurze</h4>
+        <div class="skroty" style="margin-top:3px">
+          <div><b>ToM</b><span>teoria umysłu (<em>theory of mind</em>)</span></div>
+          <div><b>TUE</b><span>teoria umysłu emocjonalna</span></div>
+          <div><b>TUK</b><span>teoria umysłu kognitywna</span></div>
+          <div><b>WOPFU</b><span>wielospecjalistyczna ocena poziomu funkcjonowania ucznia</span></div>
+          <div><b>IPET</b><span>indywidualny program edukacyjno-terapeutyczny</span></div>
+          <div><b>AAC</b><span>komunikacja wspomagająca i alternatywna</span></div>
+        </div>
+      </div>
+      <div class="card card--gold">
+        <h4 style="color:var(--gold)">Jak korzystać z tej części?</h4>
+        <ul style="font-size:8.8pt">
+          <li><strong>Zacznij od diagnozy wstępnej ze s. 5.</strong> Bez niej nie wiesz, od którego miesiąca zacząć.</li>
+          <li><strong>Wydrukuj karty pracy</strong> zanim ruszysz — całość mieści się na trzech kartkach.</li>
+          <li><strong>Cele ze s. 23 przepisz wprost do IPET.</strong> Mają kryterium, więc nadają się do oceny efektywności.</li>
+        </ul>
       </div>
     </div>
   </div>
@@ -799,7 +898,7 @@ table.karta tbody tr{background:none}
 </section>
 
 <!-- ============ 5. DIAGNOZA WSTĘPNA ============ -->
-<section class="page">
+<section class="page page--zw">
   <div class="page__body">
     <div>
       <div class="eyebrow">Przygotowanie · narzędzie do druku</div>
@@ -910,8 +1009,8 @@ table.karta tbody tr{background:none}
               <li><strong>Nie poprawiaj</strong> w trakcie. Notujesz, co jest, nie czego uczysz.</li>
             </ul>
             <ul style="font-size:8.8pt">
-              <li><strong>„Z pomocą"</strong> zaznacz, gdy dziecko odpowiada dopiero po podpowiedzi słownej lub wskazaniu.</li>
-              <li><strong>Rób to na początku dnia</strong>, gdy dziecko jest wypoczęte — zmęczenie obniża wynik o cały poziom.</li>
+              <li><strong>„Z pomocą"</strong> zaznacz, gdy dziecko odpowiada po podpowiedzi słownej lub wskazaniu.</li>
+              <li><strong>Rób to na początku dnia</strong> — zmęczenie obniża wynik o cały poziom.</li>
               <li><strong>Zapisz cytaty</strong>, nie oceny: „powiedziała: bo bum" zamiast „nie rozumie".</li>
             </ul>
           </div>
@@ -972,29 +1071,31 @@ table.karta tbody tr{background:none}
     </div>
 
     <div class="grid g-2-1">
-      <figure>
+      <figure class="fig-card">
         <span class="fig-title">Jak zmienia się rozkład pracy w kolejnych miesiącach?</span>
-        <svg class="chart" viewBox="0 0 640 148" role="img" aria-label="Wykres słupkowy skumulowany">
-<text x="94" y="34.5" text-anchor="end" font-size="10.5" font-weight="700" fill="#57516B">Miesiąc 1–2</text>
-<rect x="104" y="16" width="466.0" height="30" rx="5" fill="#C4547A"/>
-<text x="337.0" y="34.5" text-anchor="middle" font-size="10" font-weight="800" fill="#FFFFFF">90%</text>
-<rect x="572.0" y="16" width="50.0" height="30" rx="5" fill="#6553A8"/>
-<text x="597.0" y="34.5" text-anchor="middle" font-size="10" font-weight="800" fill="#FFFFFF">10%</text>
-<rect x="624.0" y="16" width="1.0" height="30" rx="5" fill="#0E8B78"/>
-<text x="94" y="78.5" text-anchor="end" font-size="10.5" font-weight="700" fill="#57516B">Miesiąc 3–4</text>
-<rect x="104" y="60" width="388.0" height="30" rx="5" fill="#C4547A"/>
-<text x="298.0" y="78.5" text-anchor="middle" font-size="10" font-weight="800" fill="#FFFFFF">75%</text>
-<rect x="494.0" y="60" width="76.0" height="30" rx="5" fill="#6553A8"/>
-<text x="532.0" y="78.5" text-anchor="middle" font-size="10" font-weight="800" fill="#FFFFFF">15%</text>
-<rect x="572.0" y="60" width="50.0" height="30" rx="5" fill="#0E8B78"/>
-<text x="597.0" y="78.5" text-anchor="middle" font-size="10" font-weight="800" fill="#FFFFFF">10%</text>
-<text x="94" y="122.5" text-anchor="end" font-size="10.5" font-weight="700" fill="#57516B">Miesiąc 5–6</text>
-<rect x="104" y="104" width="258.0" height="30" rx="5" fill="#C4547A"/>
-<text x="233.0" y="122.5" text-anchor="middle" font-size="10" font-weight="800" fill="#FFFFFF">50%</text>
-<rect x="364.0" y="104" width="180.0" height="30" rx="5" fill="#6553A8"/>
-<text x="454.0" y="122.5" text-anchor="middle" font-size="10" font-weight="800" fill="#FFFFFF">35%</text>
-<rect x="546.0" y="104" width="76.0" height="30" rx="5" fill="#0E8B78"/>
-<text x="584.0" y="122.5" text-anchor="middle" font-size="10" font-weight="800" fill="#FFFFFF">15%</text>
+        <svg class="chart" viewBox="0 0 372 169" role="img" aria-label="Wykres słupkowy skumulowany: udział TUE, TUK i TUS w kolejnych parach miesięcy">
+<text x="1" y="11" font-family="Nunito Sans,sans-serif" font-size="12" font-weight="700" fill="#57516B">Miesiąc 1–2</text>
+<rect x="0.7" y="17.7" width="370.6" height="30" rx="10" fill="#FCF9F5" stroke="#D9CFC2" stroke-width="1.4"/>
+<rect x="4.0" y="21" width="324.0" height="22" rx="6" fill="#C4547A"/>
+<text x="166.0" y="35.8" text-anchor="middle" font-family="Nunito Sans,sans-serif" font-size="11" font-weight="800" fill="#FFFFFF">90%</text>
+<rect x="332.0" y="21" width="36.0" height="22" rx="6" fill="#6553A8"/>
+<text x="350.0" y="35.8" text-anchor="middle" font-family="Nunito Sans,sans-serif" font-size="11" font-weight="800" fill="#FFFFFF">10%</text>
+<text x="1" y="71" font-family="Nunito Sans,sans-serif" font-size="12" font-weight="700" fill="#57516B">Miesiąc 3–4</text>
+<rect x="0.7" y="77.7" width="370.6" height="30" rx="10" fill="#FCF9F5" stroke="#D9CFC2" stroke-width="1.4"/>
+<rect x="4.0" y="81" width="267.0" height="22" rx="6" fill="#C4547A"/>
+<text x="137.5" y="95.8" text-anchor="middle" font-family="Nunito Sans,sans-serif" font-size="11" font-weight="800" fill="#FFFFFF">75%</text>
+<rect x="275.0" y="81" width="53.4" height="22" rx="6" fill="#6553A8"/>
+<text x="301.7" y="95.8" text-anchor="middle" font-family="Nunito Sans,sans-serif" font-size="11" font-weight="800" fill="#FFFFFF">15%</text>
+<rect x="332.4" y="81" width="35.6" height="22" rx="6" fill="#0E8B78"/>
+<text x="350.2" y="95.8" text-anchor="middle" font-family="Nunito Sans,sans-serif" font-size="11" font-weight="800" fill="#FFFFFF">10%</text>
+<text x="1" y="131" font-family="Nunito Sans,sans-serif" font-size="12" font-weight="700" fill="#57516B">Miesiąc 5–6</text>
+<rect x="0.7" y="137.7" width="370.6" height="30" rx="10" fill="#FCF9F5" stroke="#D9CFC2" stroke-width="1.4"/>
+<rect x="4.0" y="141" width="178.0" height="22" rx="6" fill="#C4547A"/>
+<text x="93.0" y="155.8" text-anchor="middle" font-family="Nunito Sans,sans-serif" font-size="11" font-weight="800" fill="#FFFFFF">50%</text>
+<rect x="186.0" y="141" width="124.6" height="22" rx="6" fill="#6553A8"/>
+<text x="248.3" y="155.8" text-anchor="middle" font-family="Nunito Sans,sans-serif" font-size="11" font-weight="800" fill="#FFFFFF">35%</text>
+<rect x="314.6" y="141" width="53.4" height="22" rx="6" fill="#0E8B78"/>
+<text x="341.3" y="155.8" text-anchor="middle" font-family="Nunito Sans,sans-serif" font-size="11" font-weight="800" fill="#FFFFFF">15%</text>
 </svg>
 
         <div class="legend">
@@ -1992,7 +2093,7 @@ table.karta tbody tr{background:none}
     <div>
       <div class="eyebrow">Karta pracy 1 · do wydrukowania i wycięcia</div>
       <h2 class="h-sec">Cztery twarze</h2>
-      <p class="lead" style="margin-top:4px">Do modułu 2 i 3. Wydrukuj na sztywniejszym papierze.
+      <p class="lead" style="margin-top:4px">Do modułu 2 i 3. Wydrukuj na sztywniejszym papierze. <strong>Wersja w większym rozmiarze — załącznik 2, s. 29.</strong>
       Dziecko wycina cztery twarze wzdłuż przerywanej linii, a potem przykleja właściwą twarz
       przy każdej sytuacji i kończy zdanie „bo…".</p>
     </div>
@@ -2002,12 +2103,12 @@ table.karta tbody tr{background:none}
       <div class="grid" style="grid-template-columns:repeat(4,1fr);gap:10px">
       <div class="pole-pracy wytnij">
         <svg class="buzka" viewBox="0 0 100 100" role="img" aria-label="Twarz: radosc">
-<circle cx="50" cy="50" r="41" fill="#FFFFFF" stroke="#C4547A" stroke-width="3"/>
-<circle cx="36" cy="43" r="4.2" fill="#C4547A"/>
-<circle cx="64" cy="43" r="4.2" fill="#C4547A"/>
-<path d="M31 58 Q50 75 69 58" fill="none" stroke="#C4547A" stroke-width="3.4" stroke-linecap="round"/>
+<circle cx="50" cy="50" r="41" fill="#FFFFFF" stroke="#0E8B78" stroke-width="3"/>
+<circle cx="36" cy="43" r="4.2" fill="#0E8B78"/>
+<circle cx="64" cy="43" r="4.2" fill="#0E8B78"/>
+<path d="M31 58 Q50 75 69 58" fill="none" stroke="#0E8B78" stroke-width="3.4" stroke-linecap="round"/>
 </svg>
-        <span style="color:#C4547A">Wesoły</span>
+        <span style="color:#0E8B78">Wesoły</span>
         <div style="width:100%;border-bottom:1px dotted #C8C1D2;height:11px;margin-top:2px"></div>
       </div>
       <div class="pole-pracy wytnij">
@@ -2025,26 +2126,26 @@ table.karta tbody tr{background:none}
       </div>
       <div class="pole-pracy wytnij">
         <svg class="buzka" viewBox="0 0 100 100" role="img" aria-label="Twarz: zlosc">
-<circle cx="50" cy="50" r="41" fill="#FFFFFF" stroke="#A07A0A" stroke-width="3"/>
-<circle cx="36" cy="47" r="4.2" fill="#A07A0A"/>
-<circle cx="64" cy="47" r="4.2" fill="#A07A0A"/>
-<path d="M27 35 L45 43" fill="none" stroke="#A07A0A" stroke-width="3.4" stroke-linecap="round"/>
-<path d="M73 35 L55 43" fill="none" stroke="#A07A0A" stroke-width="3.4" stroke-linecap="round"/>
-<path d="M33 68 Q50 60 67 68" fill="none" stroke="#A07A0A" stroke-width="3.4" stroke-linecap="round"/>
+<circle cx="50" cy="50" r="41" fill="#FFFFFF" stroke="#C4547A" stroke-width="3"/>
+<circle cx="36" cy="47" r="4.2" fill="#C4547A"/>
+<circle cx="64" cy="47" r="4.2" fill="#C4547A"/>
+<path d="M27 35 L45 43" fill="none" stroke="#C4547A" stroke-width="3.4" stroke-linecap="round"/>
+<path d="M73 35 L55 43" fill="none" stroke="#C4547A" stroke-width="3.4" stroke-linecap="round"/>
+<path d="M33 68 Q50 60 67 68" fill="none" stroke="#C4547A" stroke-width="3.4" stroke-linecap="round"/>
 </svg>
-        <span style="color:#A07A0A">Zły</span>
+        <span style="color:#C4547A">Zły</span>
         <div style="width:100%;border-bottom:1px dotted #C8C1D2;height:11px;margin-top:2px"></div>
       </div>
       <div class="pole-pracy wytnij">
         <svg class="buzka" viewBox="0 0 100 100" role="img" aria-label="Twarz: strach">
-<circle cx="50" cy="50" r="41" fill="#FFFFFF" stroke="#0E8B78" stroke-width="3"/>
-<circle cx="36" cy="45" r="6.2" fill="none" stroke="#0E8B78" stroke-width="3"/>
-<circle cx="64" cy="45" r="6.2" fill="none" stroke="#0E8B78" stroke-width="3"/>
-<path d="M27 31 Q35 25 44 30" fill="none" stroke="#0E8B78" stroke-width="3.4" stroke-linecap="round"/>
-<path d="M56 30 Q65 25 73 31" fill="none" stroke="#0E8B78" stroke-width="3.4" stroke-linecap="round"/>
-<ellipse cx="50" cy="68" rx="9" ry="11" fill="none" stroke="#0E8B78" stroke-width="3.2"/>
+<circle cx="50" cy="50" r="41" fill="#FFFFFF" stroke="#A07A0A" stroke-width="3"/>
+<circle cx="36" cy="45" r="6.2" fill="none" stroke="#A07A0A" stroke-width="3"/>
+<circle cx="64" cy="45" r="6.2" fill="none" stroke="#A07A0A" stroke-width="3"/>
+<path d="M27 31 Q35 25 44 30" fill="none" stroke="#A07A0A" stroke-width="3.4" stroke-linecap="round"/>
+<path d="M56 30 Q65 25 73 31" fill="none" stroke="#A07A0A" stroke-width="3.4" stroke-linecap="round"/>
+<ellipse cx="50" cy="68" rx="9" ry="11" fill="none" stroke="#A07A0A" stroke-width="3.2"/>
 </svg>
-        <span style="color:#0E8B78">Przestraszony</span>
+        <span style="color:#A07A0A">Przestraszony</span>
         <div style="width:100%;border-bottom:1px dotted #C8C1D2;height:11px;margin-top:2px"></div>
       </div>
       </div>
@@ -2056,7 +2157,7 @@ table.karta tbody tr{background:none}
       <div class="card card--plain" style="gap:5px">
         <p style="font-size:9pt;min-height:24px">Kuba dostał na urodziny wymarzone autko.</p>
         <div style="display:flex;gap:8px;align-items:center">
-          <div style="width:22mm;height:22mm;border:1.4px dashed #C4547A;border-radius:8px;background:#FCFAF7;flex:none"></div>
+          <div style="width:22mm;height:22mm;border:1.4px dashed #0E8B78;border-radius:8px;background:#FCFAF7;flex:none"></div>
           <div style="flex:1">
             <p style="font-size:7pt;letter-spacing:.1em;text-transform:uppercase;font-weight:800;color:var(--muted)">Bo…</p>
             <div style="border-bottom:1px dotted #C8C1D2;height:13px;margin-top:6px"></div>
@@ -2067,7 +2168,7 @@ table.karta tbody tr{background:none}
       <div class="card card--plain" style="gap:5px">
         <p style="font-size:9pt;min-height:24px">Ali rozsypały się wszystkie kredki, a zaraz dzwonek.</p>
         <div style="display:flex;gap:8px;align-items:center">
-          <div style="width:22mm;height:22mm;border:1.4px dashed #A07A0A;border-radius:8px;background:#FCFAF7;flex:none"></div>
+          <div style="width:22mm;height:22mm;border:1.4px dashed #C4547A;border-radius:8px;background:#FCFAF7;flex:none"></div>
           <div style="flex:1">
             <p style="font-size:7pt;letter-spacing:.1em;text-transform:uppercase;font-weight:800;color:var(--muted)">Bo…</p>
             <div style="border-bottom:1px dotted #C8C1D2;height:13px;margin-top:6px"></div>
@@ -2089,7 +2190,7 @@ table.karta tbody tr{background:none}
       <div class="card card--plain" style="gap:5px">
         <p style="font-size:9pt;min-height:24px">W sali nagle zawyła syrena — bardzo głośno.</p>
         <div style="display:flex;gap:8px;align-items:center">
-          <div style="width:22mm;height:22mm;border:1.4px dashed #0E8B78;border-radius:8px;background:#FCFAF7;flex:none"></div>
+          <div style="width:22mm;height:22mm;border:1.4px dashed #A07A0A;border-radius:8px;background:#FCFAF7;flex:none"></div>
           <div style="flex:1">
             <p style="font-size:7pt;letter-spacing:.1em;text-transform:uppercase;font-weight:800;color:var(--muted)">Bo…</p>
             <div style="border-bottom:1px dotted #C8C1D2;height:13px;margin-top:6px"></div>
@@ -2112,12 +2213,12 @@ table.karta tbody tr{background:none}
       <div style="display:flex;gap:14px;align-items:center">
         <div class="pole-pracy wytnij" style="width:30mm;flex:none">
           <svg class="buzka" viewBox="0 0 100 100" role="img" aria-label="Twarz: zdziwienie">
-<circle cx="50" cy="50" r="41" fill="#FFFFFF" stroke="#6553A8" stroke-width="3"/>
-<circle cx="36" cy="46" r="5.6" fill="#6553A8"/>
-<circle cx="64" cy="46" r="5.6" fill="#6553A8"/>
-<path d="M27 30 Q36 24 45 29" fill="none" stroke="#6553A8" stroke-width="3.4" stroke-linecap="round"/>
-<path d="M55 29 Q64 24 73 30" fill="none" stroke="#6553A8" stroke-width="3.4" stroke-linecap="round"/>
-<circle cx="50" cy="69" r="8.5" fill="none" stroke="#6553A8" stroke-width="3.2"/>
+<circle cx="50" cy="50" r="41" fill="#FFFFFF" stroke="#A07A0A" stroke-width="3"/>
+<circle cx="36" cy="46" r="5.6" fill="#A07A0A"/>
+<circle cx="64" cy="46" r="5.6" fill="#A07A0A"/>
+<path d="M27 30 Q36 24 45 29" fill="none" stroke="#A07A0A" stroke-width="3.4" stroke-linecap="round"/>
+<path d="M55 29 Q64 24 73 30" fill="none" stroke="#A07A0A" stroke-width="3.4" stroke-linecap="round"/>
+<circle cx="50" cy="69" r="8.5" fill="none" stroke="#A07A0A" stroke-width="3.2"/>
 </svg>
           <span style="color:var(--tuk)">Zdziwiony</span>
         </div>
@@ -2152,7 +2253,7 @@ table.karta tbody tr{background:none}
       <div class="eyebrow">Karta pracy 2 · do wydrukowania</div>
       <h2 class="h-sec">Termometr emocji i zdanie z „bo"</h2>
       <p class="lead" style="margin-top:4px">Do modułów 2 i 3. Górna część służy codziennie —
-      dziecko zaznacza swoją emocję na wejściu i na wyjściu ze spotkania. Dolna część to cztery historyjki do dokończenia.</p>
+      dziecko zaznacza swoją emocję na wejściu i na wyjściu ze spotkania. Dolna część to cztery historyjki do dokończenia. <strong>Termometr na całą stronę — załącznik 1, s. 28; karty „bo…" — załącznik 3, s. 30.</strong></p>
     </div>
 
     <div class="grid g-1-2">
@@ -2172,7 +2273,7 @@ table.karta tbody tr{background:none}
 <text x="43" y="194.0" text-anchor="middle" font-family="Fraunces,serif" font-size="17" font-weight="700" fill="#FFFFFF">2</text>
 <rect x="31" y="213.5" width="24" height="45.0" rx="0" fill="#3E9E62"/>
 <text x="43" y="242.0" text-anchor="middle" font-family="Fraunces,serif" font-size="17" font-weight="700" fill="#FFFFFF">1</text>
-<circle cx="43" cy="296" r="26" fill="#C4463F" stroke="#57516B" stroke-width="2.6"/>
+<circle cx="43" cy="296" r="26" fill="#3E9E62" stroke="#57516B" stroke-width="2.6"/>
 <rect x="31" y="248" width="24" height="40" fill="#3E9E62"/>
 <rect x="26" y="14" width="34" height="272" rx="17" fill="none" stroke="#57516B" stroke-width="2.6"/>
 <line x1="63" y1="44.0" x2="86" y2="44.0" stroke="#E0D8CD" stroke-width="1.4"/>
@@ -2629,7 +2730,7 @@ table.karta tbody tr{background:none}
 </section>
 
 <!-- ============ CELE IPET ============ -->
-<section class="page">
+<section class="page page--zw">
   <div class="page__body">
     <div>
       <div class="eyebrow">Dokumentacja · gotowe do IPET</div>
@@ -3010,7 +3111,7 @@ table.karta tbody tr{background:none}
       <div style="flex:1;display:flex;flex-direction:column;gap:3px">
         <span class="kicker" style="color:var(--muted)">Opracowanie i kontakt</span>
         <span style="font-family:Fraunces,serif;font-size:15pt;font-weight:600">Mirosława Ewa Jurczyszyn</span>
-        <span style="font-size:9pt;color:var(--ink2)">Pedagog specjalny · terapeuta · autorka materiałów dla oświaty</span>
+        <span style="font-size:9pt;color:var(--ink2)">Pedagog specjalny · terapeuta · autorka materiałów do edukacji i terapii</span>
         <span style="font-size:10.5pt;color:var(--tuk);font-weight:700">kontakt@eduplaner2026.pl</span>
         <span style="font-size:8.2pt;color:var(--muted);margin-top:3px">Karty pracy, arkusz diagnozy i karta monitorowania
         są przeznaczone do powielania na użytek własny placówki.</span>
@@ -3020,7 +3121,7 @@ table.karta tbody tr{background:none}
         <p style="font-family:Fraunces,serif;font-size:13pt;line-height:1.25;color:var(--tuk)">Teoria umysłu<br>w przedszkolu —<br>gotowe zajęcia</p>
         <p style="font-size:7.8pt;color:var(--ink2);line-height:1.35;margin-top:4px;max-width:50mm;margin-left:auto">Program dla dziecka z autyzmem na sześć miesięcy</p>
         <p style="display:inline-block;margin-top:6px;font-size:7.2pt;letter-spacing:.11em;text-transform:uppercase;font-weight:800;color:#fff;background:var(--tue);padding:3px 10px;border-radius:999px">Część 2A</p>
-        <p style="font-size:8.4pt;color:var(--muted);margin-top:5px">wydanie 1 · 27 stron</p>
+        <p style="font-size:8.4pt;color:var(--muted);margin-top:5px">wydanie 2 · 30 stron</p>
       </div>
     </div>
 
@@ -3029,3 +3130,651 @@ table.karta tbody tr{background:none}
   </div>
   <div class="page__foot"><span><b>Rodzice, literatura i kontakt</b></span><span class="num">27</span></div>
 </section>
+
+<!-- ============ ZALACZNIK 1: <svg viewBox="0 0 384 332" style="width:100%;height:auto" role="img" aria-label="Termometr emocji — pięć poziomów natężenia od 1 wcale do 5 bardzo mocno">
+<rect x="26" y="14" width="34" height="272" rx="17" fill="#FFFFFF" stroke="#57516B" stroke-width="2.6"/>
+<rect x="31" y="21.5" width="24" height="45.0" rx="11" fill="#C4463F"/>
+<text x="43" y="50.0" text-anchor="middle" font-family="Fraunces,serif" font-size="17" font-weight="700" fill="#FFFFFF">5</text>
+<rect x="31" y="69.5" width="24" height="45.0" rx="0" fill="#DC7A2E"/>
+<text x="43" y="98.0" text-anchor="middle" font-family="Fraunces,serif" font-size="17" font-weight="700" fill="#FFFFFF">4</text>
+<rect x="31" y="117.5" width="24" height="45.0" rx="0" fill="#E8BE33"/>
+<text x="43" y="146.0" text-anchor="middle" font-family="Fraunces,serif" font-size="17" font-weight="700" fill="#2E2A3B">3</text>
+<rect x="31" y="165.5" width="24" height="45.0" rx="0" fill="#8CC46F"/>
+<text x="43" y="194.0" text-anchor="middle" font-family="Fraunces,serif" font-size="17" font-weight="700" fill="#FFFFFF">2</text>
+<rect x="31" y="213.5" width="24" height="45.0" rx="0" fill="#3E9E62"/>
+<text x="43" y="242.0" text-anchor="middle" font-family="Fraunces,serif" font-size="17" font-weight="700" fill="#FFFFFF">1</text>
+<circle cx="43" cy="296" r="26" fill="#3E9E62" stroke="#57516B" stroke-width="2.6"/>
+<rect x="31" y="248" width="24" height="40" fill="#3E9E62"/>
+<rect x="26" y="14" width="34" height="272" rx="17" fill="none" stroke="#57516B" stroke-width="2.6"/>
+<line x1="63" y1="44.0" x2="86" y2="44.0" stroke="#E0D8CD" stroke-width="1.4"/>
+<svg x="88" y="25.0" width="38" height="38"><svg viewBox="0 0 100 100" role="img" aria-label="Natężenie 5 z 5">
+<circle cx="50" cy="50" r="41" fill="#FFFFFF" stroke="#C4463F" stroke-width="3"/>
+<circle cx="36" cy="45" r="4.2" fill="#C4463F"/>
+<circle cx="64" cy="45" r="4.2" fill="#C4463F"/>
+<path d="M33 71 Q50 53 67 71" fill="none" stroke="#C4463F" stroke-width="3.4" stroke-linecap="round"/>
+<path d="M27 33 L44 38" fill="none" stroke="#C4463F" stroke-width="3.4" stroke-linecap="round"/>
+<path d="M73 33 L56 38" fill="none" stroke="#C4463F" stroke-width="3.4" stroke-linecap="round"/>
+<path d="M18 44 q-4 5 0 9" fill="none" stroke="#C4463F" stroke-width="3.4" stroke-linecap="round"/>
+<path d="M82 44 q4 5 0 9" fill="none" stroke="#C4463F" stroke-width="3.4" stroke-linecap="round"/>
+<path d="M13 38 q-5 6 0 12" fill="none" stroke="#C4463F" stroke-width="3.4" stroke-linecap="round"/>
+<path d="M87 38 q5 6 0 12" fill="none" stroke="#C4463F" stroke-width="3.4" stroke-linecap="round"/>
+</svg></svg>
+<text x="138" y="43.0" font-family="Nunito Sans,sans-serif" font-size="14" font-weight="800" fill="#2E2A3B">Bardzo mocno</text>
+<text x="138" y="58.0" font-family="Nunito Sans,sans-serif" font-size="11.5" fill="#8B849D">muszę odpocząć</text>
+<rect x="344" y="34.0" width="20" height="20" rx="5" fill="#FFFFFF" stroke="#ADA5BB" stroke-width="1.6"/>
+<line x1="63" y1="92.0" x2="86" y2="92.0" stroke="#E0D8CD" stroke-width="1.4"/>
+<svg x="88" y="73.0" width="38" height="38"><svg viewBox="0 0 100 100" role="img" aria-label="Natężenie 4 z 5">
+<circle cx="50" cy="50" r="41" fill="#FFFFFF" stroke="#C4681F" stroke-width="3"/>
+<circle cx="36" cy="45" r="4.2" fill="#C4681F"/>
+<circle cx="64" cy="45" r="4.2" fill="#C4681F"/>
+<path d="M33 70 Q50 55 67 70" fill="none" stroke="#C4681F" stroke-width="3.4" stroke-linecap="round"/>
+<path d="M27 33 L44 38" fill="none" stroke="#C4681F" stroke-width="3.4" stroke-linecap="round"/>
+<path d="M73 33 L56 38" fill="none" stroke="#C4681F" stroke-width="3.4" stroke-linecap="round"/>
+<path d="M18 44 q-4 5 0 9" fill="none" stroke="#C4681F" stroke-width="3.4" stroke-linecap="round"/>
+<path d="M82 44 q4 5 0 9" fill="none" stroke="#C4681F" stroke-width="3.4" stroke-linecap="round"/>
+</svg></svg>
+<text x="138" y="91.0" font-family="Nunito Sans,sans-serif" font-size="14" font-weight="800" fill="#2E2A3B">Mocno</text>
+<text x="138" y="106.0" font-family="Nunito Sans,sans-serif" font-size="11.5" fill="#8B849D">potrzebuję pomocy</text>
+<rect x="344" y="82.0" width="20" height="20" rx="5" fill="#FFFFFF" stroke="#ADA5BB" stroke-width="1.6"/>
+<line x1="63" y1="140.0" x2="86" y2="140.0" stroke="#E0D8CD" stroke-width="1.4"/>
+<svg x="88" y="121.0" width="38" height="38"><svg viewBox="0 0 100 100" role="img" aria-label="Natężenie 3 z 5">
+<circle cx="50" cy="50" r="41" fill="#FFFFFF" stroke="#A07A0A" stroke-width="3"/>
+<circle cx="36" cy="45" r="4.2" fill="#A07A0A"/>
+<circle cx="64" cy="45" r="4.2" fill="#A07A0A"/>
+<path d="M34 68 Q50 58 66 68" fill="none" stroke="#A07A0A" stroke-width="3.4" stroke-linecap="round"/>
+<path d="M27 33 L44 38" fill="none" stroke="#A07A0A" stroke-width="3.4" stroke-linecap="round"/>
+<path d="M73 33 L56 38" fill="none" stroke="#A07A0A" stroke-width="3.4" stroke-linecap="round"/>
+</svg></svg>
+<text x="138" y="139.0" font-family="Nunito Sans,sans-serif" font-size="14" font-weight="800" fill="#2E2A3B">Średnio</text>
+<text x="138" y="154.0" font-family="Nunito Sans,sans-serif" font-size="11.5" fill="#8B849D">trudno mi</text>
+<rect x="344" y="130.0" width="20" height="20" rx="5" fill="#FFFFFF" stroke="#ADA5BB" stroke-width="1.6"/>
+<line x1="63" y1="188.0" x2="86" y2="188.0" stroke="#E0D8CD" stroke-width="1.4"/>
+<svg x="88" y="169.0" width="38" height="38"><svg viewBox="0 0 100 100" role="img" aria-label="Natężenie 2 z 5">
+<circle cx="50" cy="50" r="41" fill="#FFFFFF" stroke="#4E9E52" stroke-width="3"/>
+<circle cx="36" cy="45" r="4.2" fill="#4E9E52"/>
+<circle cx="64" cy="45" r="4.2" fill="#4E9E52"/>
+<path d="M34 66 Q50 60 66 66" fill="none" stroke="#4E9E52" stroke-width="3.4" stroke-linecap="round"/>
+</svg></svg>
+<text x="138" y="187.0" font-family="Nunito Sans,sans-serif" font-size="14" font-weight="800" fill="#2E2A3B">Trochę</text>
+<text x="138" y="202.0" font-family="Nunito Sans,sans-serif" font-size="11.5" fill="#8B849D">daję radę</text>
+<rect x="344" y="178.0" width="20" height="20" rx="5" fill="#FFFFFF" stroke="#ADA5BB" stroke-width="1.6"/>
+<line x1="63" y1="236.0" x2="86" y2="236.0" stroke="#E0D8CD" stroke-width="1.4"/>
+<svg x="88" y="217.0" width="38" height="38"><svg viewBox="0 0 100 100" role="img" aria-label="Natężenie 1 z 5">
+<circle cx="50" cy="50" r="41" fill="#FFFFFF" stroke="#2E7D52" stroke-width="3"/>
+<circle cx="36" cy="45" r="4.2" fill="#2E7D52"/>
+<circle cx="64" cy="45" r="4.2" fill="#2E7D52"/>
+<path d="M34 63 L66 63" fill="none" stroke="#2E7D52" stroke-width="3.4" stroke-linecap="round"/>
+</svg></svg>
+<text x="138" y="235.0" font-family="Nunito Sans,sans-serif" font-size="14" font-weight="800" fill="#2E2A3B">Wcale</text>
+<text x="138" y="250.0" font-family="Nunito Sans,sans-serif" font-size="11.5" fill="#8B849D">jest spokojnie</text>
+<rect x="344" y="226.0" width="20" height="20" rx="5" fill="#FFFFFF" stroke="#ADA5BB" stroke-width="1.6"/>
+<text x="88" y="322" font-family="Nunito Sans,sans-serif" font-size="11" fill="#8B849D">Pokaż palcem albo zaznacz kratkę.</text>
+</svg>OMETR XL ============ -->
+<section class="page page--zal">
+  <div class="page__body">
+    <div>
+      <div class="eyebrow">Załącznik 1 · do wydrukowania w powiększeniu</div>
+      <h2 class="h-sec">Termometr emocji w rozmiarze A4</h2>
+      <p class="lead" style="margin-top:3px">Ten sam termometr co na karcie pracy 2, powiększony na całą
+      stronę — do powieszenia w sali na wysokości dziecka. Dziecko pokazuje palcem swój poziom,
+      zanim spróbuje cokolwiek powiedzieć. Opis, jak go wprowadzać, zostaje przy karcie pracy 2.</p>
+    </div>
+    <div class="zal-plansza">
+<svg viewBox="0 0 384 332" style="width:100%;height:auto" role="img" aria-label="Termometr emocji — pięć poziomów natężenia od 1 wcale do 5 bardzo mocno">
+<rect x="26" y="14" width="34" height="272" rx="17" fill="#FFFFFF" stroke="#57516B" stroke-width="2.6"/>
+<rect x="31" y="21.5" width="24" height="45.0" rx="11" fill="#C4463F"/>
+<text x="43" y="50.0" text-anchor="middle" font-family="Fraunces,serif" font-size="17" font-weight="700" fill="#FFFFFF">5</text>
+<rect x="31" y="69.5" width="24" height="45.0" rx="0" fill="#DC7A2E"/>
+<text x="43" y="98.0" text-anchor="middle" font-family="Fraunces,serif" font-size="17" font-weight="700" fill="#FFFFFF">4</text>
+<rect x="31" y="117.5" width="24" height="45.0" rx="0" fill="#E8BE33"/>
+<text x="43" y="146.0" text-anchor="middle" font-family="Fraunces,serif" font-size="17" font-weight="700" fill="#2E2A3B">3</text>
+<rect x="31" y="165.5" width="24" height="45.0" rx="0" fill="#8CC46F"/>
+<text x="43" y="194.0" text-anchor="middle" font-family="Fraunces,serif" font-size="17" font-weight="700" fill="#FFFFFF">2</text>
+<rect x="31" y="213.5" width="24" height="45.0" rx="0" fill="#3E9E62"/>
+<text x="43" y="242.0" text-anchor="middle" font-family="Fraunces,serif" font-size="17" font-weight="700" fill="#FFFFFF">1</text>
+<circle cx="43" cy="296" r="26" fill="#3E9E62" stroke="#57516B" stroke-width="2.6"/>
+<rect x="31" y="248" width="24" height="40" fill="#3E9E62"/>
+<rect x="26" y="14" width="34" height="272" rx="17" fill="none" stroke="#57516B" stroke-width="2.6"/>
+<line x1="63" y1="44.0" x2="86" y2="44.0" stroke="#E0D8CD" stroke-width="1.4"/>
+<svg x="88" y="25.0" width="38" height="38"><svg viewBox="0 0 100 100" role="img" aria-label="Natężenie 5 z 5">
+<circle cx="50" cy="50" r="41" fill="#FFFFFF" stroke="#C4463F" stroke-width="3"/>
+<circle cx="36" cy="45" r="4.2" fill="#C4463F"/>
+<circle cx="64" cy="45" r="4.2" fill="#C4463F"/>
+<path d="M33 71 Q50 53 67 71" fill="none" stroke="#C4463F" stroke-width="3.4" stroke-linecap="round"/>
+<path d="M27 33 L44 38" fill="none" stroke="#C4463F" stroke-width="3.4" stroke-linecap="round"/>
+<path d="M73 33 L56 38" fill="none" stroke="#C4463F" stroke-width="3.4" stroke-linecap="round"/>
+<path d="M18 44 q-4 5 0 9" fill="none" stroke="#C4463F" stroke-width="3.4" stroke-linecap="round"/>
+<path d="M82 44 q4 5 0 9" fill="none" stroke="#C4463F" stroke-width="3.4" stroke-linecap="round"/>
+<path d="M13 38 q-5 6 0 12" fill="none" stroke="#C4463F" stroke-width="3.4" stroke-linecap="round"/>
+<path d="M87 38 q5 6 0 12" fill="none" stroke="#C4463F" stroke-width="3.4" stroke-linecap="round"/>
+</svg></svg>
+<text x="138" y="43.0" font-family="Nunito Sans,sans-serif" font-size="14" font-weight="800" fill="#2E2A3B">Bardzo mocno</text>
+<text x="138" y="58.0" font-family="Nunito Sans,sans-serif" font-size="11.5" fill="#8B849D">muszę odpocząć</text>
+<rect x="344" y="34.0" width="20" height="20" rx="5" fill="#FFFFFF" stroke="#ADA5BB" stroke-width="1.6"/>
+<line x1="63" y1="92.0" x2="86" y2="92.0" stroke="#E0D8CD" stroke-width="1.4"/>
+<svg x="88" y="73.0" width="38" height="38"><svg viewBox="0 0 100 100" role="img" aria-label="Natężenie 4 z 5">
+<circle cx="50" cy="50" r="41" fill="#FFFFFF" stroke="#C4681F" stroke-width="3"/>
+<circle cx="36" cy="45" r="4.2" fill="#C4681F"/>
+<circle cx="64" cy="45" r="4.2" fill="#C4681F"/>
+<path d="M33 70 Q50 55 67 70" fill="none" stroke="#C4681F" stroke-width="3.4" stroke-linecap="round"/>
+<path d="M27 33 L44 38" fill="none" stroke="#C4681F" stroke-width="3.4" stroke-linecap="round"/>
+<path d="M73 33 L56 38" fill="none" stroke="#C4681F" stroke-width="3.4" stroke-linecap="round"/>
+<path d="M18 44 q-4 5 0 9" fill="none" stroke="#C4681F" stroke-width="3.4" stroke-linecap="round"/>
+<path d="M82 44 q4 5 0 9" fill="none" stroke="#C4681F" stroke-width="3.4" stroke-linecap="round"/>
+</svg></svg>
+<text x="138" y="91.0" font-family="Nunito Sans,sans-serif" font-size="14" font-weight="800" fill="#2E2A3B">Mocno</text>
+<text x="138" y="106.0" font-family="Nunito Sans,sans-serif" font-size="11.5" fill="#8B849D">potrzebuję pomocy</text>
+<rect x="344" y="82.0" width="20" height="20" rx="5" fill="#FFFFFF" stroke="#ADA5BB" stroke-width="1.6"/>
+<line x1="63" y1="140.0" x2="86" y2="140.0" stroke="#E0D8CD" stroke-width="1.4"/>
+<svg x="88" y="121.0" width="38" height="38"><svg viewBox="0 0 100 100" role="img" aria-label="Natężenie 3 z 5">
+<circle cx="50" cy="50" r="41" fill="#FFFFFF" stroke="#A07A0A" stroke-width="3"/>
+<circle cx="36" cy="45" r="4.2" fill="#A07A0A"/>
+<circle cx="64" cy="45" r="4.2" fill="#A07A0A"/>
+<path d="M34 68 Q50 58 66 68" fill="none" stroke="#A07A0A" stroke-width="3.4" stroke-linecap="round"/>
+<path d="M27 33 L44 38" fill="none" stroke="#A07A0A" stroke-width="3.4" stroke-linecap="round"/>
+<path d="M73 33 L56 38" fill="none" stroke="#A07A0A" stroke-width="3.4" stroke-linecap="round"/>
+</svg></svg>
+<text x="138" y="139.0" font-family="Nunito Sans,sans-serif" font-size="14" font-weight="800" fill="#2E2A3B">Średnio</text>
+<text x="138" y="154.0" font-family="Nunito Sans,sans-serif" font-size="11.5" fill="#8B849D">trudno mi</text>
+<rect x="344" y="130.0" width="20" height="20" rx="5" fill="#FFFFFF" stroke="#ADA5BB" stroke-width="1.6"/>
+<line x1="63" y1="188.0" x2="86" y2="188.0" stroke="#E0D8CD" stroke-width="1.4"/>
+<svg x="88" y="169.0" width="38" height="38"><svg viewBox="0 0 100 100" role="img" aria-label="Natężenie 2 z 5">
+<circle cx="50" cy="50" r="41" fill="#FFFFFF" stroke="#4E9E52" stroke-width="3"/>
+<circle cx="36" cy="45" r="4.2" fill="#4E9E52"/>
+<circle cx="64" cy="45" r="4.2" fill="#4E9E52"/>
+<path d="M34 66 Q50 60 66 66" fill="none" stroke="#4E9E52" stroke-width="3.4" stroke-linecap="round"/>
+</svg></svg>
+<text x="138" y="187.0" font-family="Nunito Sans,sans-serif" font-size="14" font-weight="800" fill="#2E2A3B">Trochę</text>
+<text x="138" y="202.0" font-family="Nunito Sans,sans-serif" font-size="11.5" fill="#8B849D">daję radę</text>
+<rect x="344" y="178.0" width="20" height="20" rx="5" fill="#FFFFFF" stroke="#ADA5BB" stroke-width="1.6"/>
+<line x1="63" y1="236.0" x2="86" y2="236.0" stroke="#E0D8CD" stroke-width="1.4"/>
+<svg x="88" y="217.0" width="38" height="38"><svg viewBox="0 0 100 100" role="img" aria-label="Natężenie 1 z 5">
+<circle cx="50" cy="50" r="41" fill="#FFFFFF" stroke="#2E7D52" stroke-width="3"/>
+<circle cx="36" cy="45" r="4.2" fill="#2E7D52"/>
+<circle cx="64" cy="45" r="4.2" fill="#2E7D52"/>
+<path d="M34 63 L66 63" fill="none" stroke="#2E7D52" stroke-width="3.4" stroke-linecap="round"/>
+</svg></svg>
+<text x="138" y="235.0" font-family="Nunito Sans,sans-serif" font-size="14" font-weight="800" fill="#2E2A3B">Wcale</text>
+<text x="138" y="250.0" font-family="Nunito Sans,sans-serif" font-size="11.5" fill="#8B849D">jest spokojnie</text>
+<rect x="344" y="226.0" width="20" height="20" rx="5" fill="#FFFFFF" stroke="#ADA5BB" stroke-width="1.6"/>
+<text x="88" y="322" font-family="Nunito Sans,sans-serif" font-size="11" fill="#8B849D">Pokaż palcem albo zaznacz kratkę.</text>
+</svg>
+    </div>
+  </div>
+  <div class="page__foot"><span><b>Załącznik 1</b> · termometr emocji na ścianę</span><span class="num">28</span></div>
+</section>
+
+<!-- ============ ZALACZNIK 2: <div class="grid" style="grid-template-columns:repeat(3,1fr);gap:9px">
+      <div style="border:2.4px dashed #0E8B78;border-radius:14px;padding:10px 12px;background:#FFFDFB;
+        box-shadow:0 1px 0 rgba(46,42,59,.05), 0 4px 12px rgba(46,42,59,.07);
+        display:flex;flex-direction:column;align-items:center;gap:9px;min-height:103mm">
+        <div style="width:52mm;height:52mm;flex:none"><svg class="buzka" viewBox="0 0 100 100" role="img" aria-label="Twarz: radosc">
+<circle cx="50" cy="50" r="41" fill="#FFFFFF" stroke="#0E8B78" stroke-width="3"/>
+<circle cx="36" cy="43" r="4.2" fill="#0E8B78"/>
+<circle cx="64" cy="43" r="4.2" fill="#0E8B78"/>
+<path d="M31 58 Q50 75 69 58" fill="none" stroke="#0E8B78" stroke-width="3.4" stroke-linecap="round"/>
+</svg></div>
+        <span style="font-family:Fraunces,serif;font-size:21pt;font-weight:700;color:#0E8B78">Radość</span>
+        <span style="font-size:12pt;color:var(--ink2)">jestem <strong>wesoły</strong></span>
+      </div>
+      <div style="border:2.4px dashed #6553A8;border-radius:14px;padding:10px 12px;background:#FFFDFB;
+        box-shadow:0 1px 0 rgba(46,42,59,.05), 0 4px 12px rgba(46,42,59,.07);
+        display:flex;flex-direction:column;align-items:center;gap:9px;min-height:103mm">
+        <div style="width:52mm;height:52mm;flex:none"><svg class="buzka" viewBox="0 0 100 100" role="img" aria-label="Twarz: smutek">
+<circle cx="50" cy="50" r="41" fill="#FFFFFF" stroke="#6553A8" stroke-width="3"/>
+<circle cx="36" cy="45" r="4.2" fill="#6553A8"/>
+<circle cx="64" cy="45" r="4.2" fill="#6553A8"/>
+<path d="M31 70 Q50 55 69 70" fill="none" stroke="#6553A8" stroke-width="3.4" stroke-linecap="round"/>
+<path d="M28 36 Q34 32 41 35" fill="none" stroke="#6553A8" stroke-width="3.4" stroke-linecap="round"/>
+<path d="M59 35 Q66 32 72 36" fill="none" stroke="#6553A8" stroke-width="3.4" stroke-linecap="round"/>
+<path d="M36 52 q-3 6 0 8 q3 -2 0 -8" fill="#6553A8" opacity="0.55"/>
+</svg></div>
+        <span style="font-family:Fraunces,serif;font-size:21pt;font-weight:700;color:#6553A8">Smutek</span>
+        <span style="font-size:12pt;color:var(--ink2)">jestem <strong>smutny</strong></span>
+      </div>
+      <div style="border:2.4px dashed #C4547A;border-radius:14px;padding:10px 12px;background:#FFFDFB;
+        box-shadow:0 1px 0 rgba(46,42,59,.05), 0 4px 12px rgba(46,42,59,.07);
+        display:flex;flex-direction:column;align-items:center;gap:9px;min-height:103mm">
+        <div style="width:52mm;height:52mm;flex:none"><svg class="buzka" viewBox="0 0 100 100" role="img" aria-label="Twarz: zlosc">
+<circle cx="50" cy="50" r="41" fill="#FFFFFF" stroke="#C4547A" stroke-width="3"/>
+<circle cx="36" cy="47" r="4.2" fill="#C4547A"/>
+<circle cx="64" cy="47" r="4.2" fill="#C4547A"/>
+<path d="M27 35 L45 43" fill="none" stroke="#C4547A" stroke-width="3.4" stroke-linecap="round"/>
+<path d="M73 35 L55 43" fill="none" stroke="#C4547A" stroke-width="3.4" stroke-linecap="round"/>
+<path d="M33 68 Q50 60 67 68" fill="none" stroke="#C4547A" stroke-width="3.4" stroke-linecap="round"/>
+</svg></div>
+        <span style="font-family:Fraunces,serif;font-size:21pt;font-weight:700;color:#C4547A">Złość</span>
+        <span style="font-size:12pt;color:var(--ink2)">jestem <strong>zły</strong></span>
+      </div>
+      <div style="border:2.4px dashed #A07A0A;border-radius:14px;padding:10px 12px;background:#FFFDFB;
+        box-shadow:0 1px 0 rgba(46,42,59,.05), 0 4px 12px rgba(46,42,59,.07);
+        display:flex;flex-direction:column;align-items:center;gap:9px;min-height:103mm">
+        <div style="width:52mm;height:52mm;flex:none"><svg class="buzka" viewBox="0 0 100 100" role="img" aria-label="Twarz: strach">
+<circle cx="50" cy="50" r="41" fill="#FFFFFF" stroke="#A07A0A" stroke-width="3"/>
+<circle cx="36" cy="45" r="6.2" fill="none" stroke="#A07A0A" stroke-width="3"/>
+<circle cx="64" cy="45" r="6.2" fill="none" stroke="#A07A0A" stroke-width="3"/>
+<path d="M27 31 Q35 25 44 30" fill="none" stroke="#A07A0A" stroke-width="3.4" stroke-linecap="round"/>
+<path d="M56 30 Q65 25 73 31" fill="none" stroke="#A07A0A" stroke-width="3.4" stroke-linecap="round"/>
+<ellipse cx="50" cy="68" rx="9" ry="11" fill="none" stroke="#A07A0A" stroke-width="3.2"/>
+</svg></div>
+        <span style="font-family:Fraunces,serif;font-size:21pt;font-weight:700;color:#A07A0A">Strach</span>
+        <span style="font-size:12pt;color:var(--ink2)">jestem <strong>przestraszony</strong></span>
+      </div>
+      <div style="border:2.4px dashed #A07A0A;border-radius:14px;padding:10px 12px;background:#FFFDFB;
+        box-shadow:0 1px 0 rgba(46,42,59,.05), 0 4px 12px rgba(46,42,59,.07);
+        display:flex;flex-direction:column;align-items:center;gap:9px;min-height:103mm">
+        <div style="width:52mm;height:52mm;flex:none"><svg class="buzka" viewBox="0 0 100 100" role="img" aria-label="Twarz: zdziwienie">
+<circle cx="50" cy="50" r="41" fill="#FFFFFF" stroke="#A07A0A" stroke-width="3"/>
+<circle cx="36" cy="46" r="5.6" fill="#A07A0A"/>
+<circle cx="64" cy="46" r="5.6" fill="#A07A0A"/>
+<path d="M27 30 Q36 24 45 29" fill="none" stroke="#A07A0A" stroke-width="3.4" stroke-linecap="round"/>
+<path d="M55 29 Q64 24 73 30" fill="none" stroke="#A07A0A" stroke-width="3.4" stroke-linecap="round"/>
+<circle cx="50" cy="69" r="8.5" fill="none" stroke="#A07A0A" stroke-width="3.2"/>
+</svg></div>
+        <span style="font-family:Fraunces,serif;font-size:21pt;font-weight:700;color:#A07A0A">Zdziwienie</span>
+        <span style="font-size:12pt;color:var(--ink2)">jestem <strong>zdziwiony</strong></span>
+      </div>
+      <div style="border:2.4px dashed #57516B;border-radius:14px;padding:10px 12px;background:#FFFDFB;
+        box-shadow:0 1px 0 rgba(46,42,59,.05), 0 4px 12px rgba(46,42,59,.07);
+        display:flex;flex-direction:column;align-items:center;gap:9px;min-height:103mm">
+        <div style="width:52mm;height:52mm;flex:none;border:1.8px dotted #ADA5BB;border-radius:50%"></div>
+        <span style="font-family:Fraunces,serif;font-size:21pt;font-weight:700;color:#57516B">Moja twarz</span>
+        <span style="font-size:12pt;color:var(--ink2)">narysuj i nazwij</span>
+      </div>
+    </div> DO WYCINANIA ============ -->
+<section class="page page--zal">
+  <div class="page__body">
+    <div>
+      <div class="eyebrow">Załącznik 2 · do wydrukowania i wycięcia</div>
+      <h2 class="h-sec">Pięć twarzy do zabawy i terapii</h2>
+      <p class="lead" style="margin-top:3px">Duże karty do trzymania w ręku, do zabawy w lustro,
+      do układania na termometrze i do pokazywania zamiast mówienia. Cztery pierwsze wprowadzasz
+      w module 2, zdziwienie dopiero w module 6. Ostatnia karta jest pusta — dziecko rysuje swoją.</p>
+    </div>
+<div class="grid" style="grid-template-columns:repeat(3,1fr);gap:9px">
+      <div style="border:2.4px dashed #0E8B78;border-radius:14px;padding:10px 12px;background:#FFFDFB;
+        box-shadow:0 1px 0 rgba(46,42,59,.05), 0 4px 12px rgba(46,42,59,.07);
+        display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;min-height:103mm">
+        <div style="width:52mm;height:52mm;flex:none"><svg class="buzka" viewBox="0 0 100 100" role="img" aria-label="Twarz: radosc">
+<circle cx="50" cy="50" r="41" fill="#FFFFFF" stroke="#0E8B78" stroke-width="3"/>
+<circle cx="36" cy="43" r="4.2" fill="#0E8B78"/>
+<circle cx="64" cy="43" r="4.2" fill="#0E8B78"/>
+<path d="M31 58 Q50 75 69 58" fill="none" stroke="#0E8B78" stroke-width="3.4" stroke-linecap="round"/>
+</svg></div>
+        <span style="font-family:Fraunces,serif;font-size:21pt;font-weight:700;color:#0E8B78">Radość</span>
+        <span style="font-size:12pt;color:var(--ink2)">jestem <strong>wesoły</strong></span>
+      </div>
+      <div style="border:2.4px dashed #6553A8;border-radius:14px;padding:10px 12px;background:#FFFDFB;
+        box-shadow:0 1px 0 rgba(46,42,59,.05), 0 4px 12px rgba(46,42,59,.07);
+        display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;min-height:103mm">
+        <div style="width:52mm;height:52mm;flex:none"><svg class="buzka" viewBox="0 0 100 100" role="img" aria-label="Twarz: smutek">
+<circle cx="50" cy="50" r="41" fill="#FFFFFF" stroke="#6553A8" stroke-width="3"/>
+<circle cx="36" cy="45" r="4.2" fill="#6553A8"/>
+<circle cx="64" cy="45" r="4.2" fill="#6553A8"/>
+<path d="M31 70 Q50 55 69 70" fill="none" stroke="#6553A8" stroke-width="3.4" stroke-linecap="round"/>
+<path d="M28 36 Q34 32 41 35" fill="none" stroke="#6553A8" stroke-width="3.4" stroke-linecap="round"/>
+<path d="M59 35 Q66 32 72 36" fill="none" stroke="#6553A8" stroke-width="3.4" stroke-linecap="round"/>
+<path d="M36 52 q-3 6 0 8 q3 -2 0 -8" fill="#6553A8" opacity="0.55"/>
+</svg></div>
+        <span style="font-family:Fraunces,serif;font-size:21pt;font-weight:700;color:#6553A8">Smutek</span>
+        <span style="font-size:12pt;color:var(--ink2)">jestem <strong>smutny</strong></span>
+      </div>
+      <div style="border:2.4px dashed #C4547A;border-radius:14px;padding:10px 12px;background:#FFFDFB;
+        box-shadow:0 1px 0 rgba(46,42,59,.05), 0 4px 12px rgba(46,42,59,.07);
+        display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;min-height:103mm">
+        <div style="width:52mm;height:52mm;flex:none"><svg class="buzka" viewBox="0 0 100 100" role="img" aria-label="Twarz: zlosc">
+<circle cx="50" cy="50" r="41" fill="#FFFFFF" stroke="#C4547A" stroke-width="3"/>
+<circle cx="36" cy="47" r="4.2" fill="#C4547A"/>
+<circle cx="64" cy="47" r="4.2" fill="#C4547A"/>
+<path d="M27 35 L45 43" fill="none" stroke="#C4547A" stroke-width="3.4" stroke-linecap="round"/>
+<path d="M73 35 L55 43" fill="none" stroke="#C4547A" stroke-width="3.4" stroke-linecap="round"/>
+<path d="M33 68 Q50 60 67 68" fill="none" stroke="#C4547A" stroke-width="3.4" stroke-linecap="round"/>
+</svg></div>
+        <span style="font-family:Fraunces,serif;font-size:21pt;font-weight:700;color:#C4547A">Złość</span>
+        <span style="font-size:12pt;color:var(--ink2)">jestem <strong>zły</strong></span>
+      </div>
+      <div style="border:2.4px dashed #A07A0A;border-radius:14px;padding:10px 12px;background:#FFFDFB;
+        box-shadow:0 1px 0 rgba(46,42,59,.05), 0 4px 12px rgba(46,42,59,.07);
+        display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;min-height:103mm">
+        <div style="width:52mm;height:52mm;flex:none"><svg class="buzka" viewBox="0 0 100 100" role="img" aria-label="Twarz: strach">
+<circle cx="50" cy="50" r="41" fill="#FFFFFF" stroke="#A07A0A" stroke-width="3"/>
+<circle cx="36" cy="45" r="6.2" fill="none" stroke="#A07A0A" stroke-width="3"/>
+<circle cx="64" cy="45" r="6.2" fill="none" stroke="#A07A0A" stroke-width="3"/>
+<path d="M27 31 Q35 25 44 30" fill="none" stroke="#A07A0A" stroke-width="3.4" stroke-linecap="round"/>
+<path d="M56 30 Q65 25 73 31" fill="none" stroke="#A07A0A" stroke-width="3.4" stroke-linecap="round"/>
+<ellipse cx="50" cy="68" rx="9" ry="11" fill="none" stroke="#A07A0A" stroke-width="3.2"/>
+</svg></div>
+        <span style="font-family:Fraunces,serif;font-size:21pt;font-weight:700;color:#A07A0A">Strach</span>
+        <span style="font-size:12pt;color:var(--ink2)">jestem <strong>przestraszony</strong></span>
+      </div>
+      <div style="border:2.4px dashed #A07A0A;border-radius:14px;padding:10px 12px;background:#FFFDFB;
+        box-shadow:0 1px 0 rgba(46,42,59,.05), 0 4px 12px rgba(46,42,59,.07);
+        display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;min-height:103mm">
+        <div style="width:52mm;height:52mm;flex:none"><svg class="buzka" viewBox="0 0 100 100" role="img" aria-label="Twarz: zdziwienie">
+<circle cx="50" cy="50" r="41" fill="#FFFFFF" stroke="#A07A0A" stroke-width="3"/>
+<circle cx="36" cy="46" r="5.6" fill="#A07A0A"/>
+<circle cx="64" cy="46" r="5.6" fill="#A07A0A"/>
+<path d="M27 30 Q36 24 45 29" fill="none" stroke="#A07A0A" stroke-width="3.4" stroke-linecap="round"/>
+<path d="M55 29 Q64 24 73 30" fill="none" stroke="#A07A0A" stroke-width="3.4" stroke-linecap="round"/>
+<circle cx="50" cy="69" r="8.5" fill="none" stroke="#A07A0A" stroke-width="3.2"/>
+</svg></div>
+        <span style="font-family:Fraunces,serif;font-size:21pt;font-weight:700;color:#A07A0A">Zdziwienie</span>
+        <span style="font-size:12pt;color:var(--ink2)">jestem <strong>zdziwiony</strong></span>
+      </div>
+      <div style="border:2.4px dashed #57516B;border-radius:14px;padding:10px 12px;background:#FFFDFB;
+        box-shadow:0 1px 0 rgba(46,42,59,.05), 0 4px 12px rgba(46,42,59,.07);
+        display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;min-height:103mm">
+        <div style="width:52mm;height:52mm;flex:none;border:1.8px dotted #ADA5BB;border-radius:50%"></div>
+        <span style="font-family:Fraunces,serif;font-size:21pt;font-weight:700;color:#57516B">Moja twarz</span>
+        <span style="font-size:12pt;color:var(--ink2)">narysuj i nazwij</span>
+      </div>
+    </div>
+  </div>
+  <div class="page__foot"><span><b>Załącznik 2</b> · karty emocji do wycięcia</span><span class="num">29</span></div>
+</section>
+
+<!-- ============ ZALACZNIK 3: KARTY <div class="grid" style="grid-template-columns:repeat(3,1fr);gap:9px">
+      <div style="border:2.4px dashed #0E8B78;border-radius:12px;padding:9px 11px;background:#FFFDFB;
+        box-shadow:0 1px 0 rgba(46,42,59,.05), 0 4px 12px rgba(46,42,59,.07);
+        display:flex;flex-direction:column;gap:5px;min-height:55mm">
+        <span style="font-family:Fraunces,serif;font-size:19pt;font-weight:700;color:#0E8B78;margin-left:auto">1</span>
+        <p style="font-size:12pt;line-height:1.4">Zosia dostała na urodziny wymarzone auto.</p>
+        <div style="margin-top:auto;display:flex;flex-direction:column;gap:5px">
+          <span style="font-size:9.5pt;letter-spacing:.1em;text-transform:uppercase;font-weight:800;color:#0E8B78">Czuje się…</span>
+          <div style="border-bottom:1px dotted #C8C1D2;height:15px"></div>
+          <span style="font-size:9.5pt;letter-spacing:.1em;text-transform:uppercase;font-weight:800;color:#0E8B78">…bo</span>
+          <div style="border-bottom:1px dotted #C8C1D2;height:15px"></div>
+        </div>
+      </div>
+      <div style="border:2.4px dashed #6553A8;border-radius:12px;padding:9px 11px;background:#FFFDFB;
+        box-shadow:0 1px 0 rgba(46,42,59,.05), 0 4px 12px rgba(46,42,59,.07);
+        display:flex;flex-direction:column;gap:5px;min-height:55mm">
+        <span style="font-family:Fraunces,serif;font-size:19pt;font-weight:700;color:#6553A8;margin-left:auto">2</span>
+        <p style="font-size:12pt;line-height:1.4">Kubie spadły lody na chodnik.</p>
+        <div style="margin-top:auto;display:flex;flex-direction:column;gap:5px">
+          <span style="font-size:9.5pt;letter-spacing:.1em;text-transform:uppercase;font-weight:800;color:#6553A8">Czuje się…</span>
+          <div style="border-bottom:1px dotted #C8C1D2;height:15px"></div>
+          <span style="font-size:9.5pt;letter-spacing:.1em;text-transform:uppercase;font-weight:800;color:#6553A8">…bo</span>
+          <div style="border-bottom:1px dotted #C8C1D2;height:15px"></div>
+        </div>
+      </div>
+      <div style="border:2.4px dashed #C4547A;border-radius:12px;padding:9px 11px;background:#FFFDFB;
+        box-shadow:0 1px 0 rgba(46,42,59,.05), 0 4px 12px rgba(46,42,59,.07);
+        display:flex;flex-direction:column;gap:5px;min-height:55mm">
+        <span style="font-family:Fraunces,serif;font-size:19pt;font-weight:700;color:#C4547A;margin-left:auto">3</span>
+        <p style="font-size:12pt;line-height:1.4">Ktoś przewrócił wieżę, którą Ala budowała cały ranek.</p>
+        <div style="margin-top:auto;display:flex;flex-direction:column;gap:5px">
+          <span style="font-size:9.5pt;letter-spacing:.1em;text-transform:uppercase;font-weight:800;color:#C4547A">Czuje się…</span>
+          <div style="border-bottom:1px dotted #C8C1D2;height:15px"></div>
+          <span style="font-size:9.5pt;letter-spacing:.1em;text-transform:uppercase;font-weight:800;color:#C4547A">…bo</span>
+          <div style="border-bottom:1px dotted #C8C1D2;height:15px"></div>
+        </div>
+      </div>
+      <div style="border:2.4px dashed #A07A0A;border-radius:12px;padding:9px 11px;background:#FFFDFB;
+        box-shadow:0 1px 0 rgba(46,42,59,.05), 0 4px 12px rgba(46,42,59,.07);
+        display:flex;flex-direction:column;gap:5px;min-height:55mm">
+        <span style="font-family:Fraunces,serif;font-size:19pt;font-weight:700;color:#A07A0A;margin-left:auto">4</span>
+        <p style="font-size:12pt;line-height:1.4">W sali nagle zgasło światło.</p>
+        <div style="margin-top:auto;display:flex;flex-direction:column;gap:5px">
+          <span style="font-size:9.5pt;letter-spacing:.1em;text-transform:uppercase;font-weight:800;color:#A07A0A">Czuje się…</span>
+          <div style="border-bottom:1px dotted #C8C1D2;height:15px"></div>
+          <span style="font-size:9.5pt;letter-spacing:.1em;text-transform:uppercase;font-weight:800;color:#A07A0A">…bo</span>
+          <div style="border-bottom:1px dotted #C8C1D2;height:15px"></div>
+        </div>
+      </div>
+      <div style="border:2.4px dashed #0E8B78;border-radius:12px;padding:9px 11px;background:#FFFDFB;
+        box-shadow:0 1px 0 rgba(46,42,59,.05), 0 4px 12px rgba(46,42,59,.07);
+        display:flex;flex-direction:column;gap:5px;min-height:55mm">
+        <span style="font-family:Fraunces,serif;font-size:19pt;font-weight:700;color:#0E8B78;margin-left:auto">5</span>
+        <p style="font-size:12pt;line-height:1.4">Filip pierwszy raz sam zawiązał but.</p>
+        <div style="margin-top:auto;display:flex;flex-direction:column;gap:5px">
+          <span style="font-size:9.5pt;letter-spacing:.1em;text-transform:uppercase;font-weight:800;color:#0E8B78">Czuje się…</span>
+          <div style="border-bottom:1px dotted #C8C1D2;height:15px"></div>
+          <span style="font-size:9.5pt;letter-spacing:.1em;text-transform:uppercase;font-weight:800;color:#0E8B78">…bo</span>
+          <div style="border-bottom:1px dotted #C8C1D2;height:15px"></div>
+        </div>
+      </div>
+      <div style="border:2.4px dashed #6553A8;border-radius:12px;padding:9px 11px;background:#FFFDFB;
+        box-shadow:0 1px 0 rgba(46,42,59,.05), 0 4px 12px rgba(46,42,59,.07);
+        display:flex;flex-direction:column;gap:5px;min-height:55mm">
+        <span style="font-family:Fraunces,serif;font-size:19pt;font-weight:700;color:#6553A8;margin-left:auto">6</span>
+        <p style="font-size:12pt;line-height:1.4">Mama Oli wyjechała na dwa dni.</p>
+        <div style="margin-top:auto;display:flex;flex-direction:column;gap:5px">
+          <span style="font-size:9.5pt;letter-spacing:.1em;text-transform:uppercase;font-weight:800;color:#6553A8">Czuje się…</span>
+          <div style="border-bottom:1px dotted #C8C1D2;height:15px"></div>
+          <span style="font-size:9.5pt;letter-spacing:.1em;text-transform:uppercase;font-weight:800;color:#6553A8">…bo</span>
+          <div style="border-bottom:1px dotted #C8C1D2;height:15px"></div>
+        </div>
+      </div>
+      <div style="border:2.4px dashed #C4547A;border-radius:12px;padding:9px 11px;background:#FFFDFB;
+        box-shadow:0 1px 0 rgba(46,42,59,.05), 0 4px 12px rgba(46,42,59,.07);
+        display:flex;flex-direction:column;gap:5px;min-height:55mm">
+        <span style="font-family:Fraunces,serif;font-size:19pt;font-weight:700;color:#C4547A;margin-left:auto">7</span>
+        <p style="font-size:12pt;line-height:1.4">Kolega zabrał Kubie łopatkę bez pytania.</p>
+        <div style="margin-top:auto;display:flex;flex-direction:column;gap:5px">
+          <span style="font-size:9.5pt;letter-spacing:.1em;text-transform:uppercase;font-weight:800;color:#C4547A">Czuje się…</span>
+          <div style="border-bottom:1px dotted #C8C1D2;height:15px"></div>
+          <span style="font-size:9.5pt;letter-spacing:.1em;text-transform:uppercase;font-weight:800;color:#C4547A">…bo</span>
+          <div style="border-bottom:1px dotted #C8C1D2;height:15px"></div>
+        </div>
+      </div>
+      <div style="border:2.4px dashed #A07A0A;border-radius:12px;padding:9px 11px;background:#FFFDFB;
+        box-shadow:0 1px 0 rgba(46,42,59,.05), 0 4px 12px rgba(46,42,59,.07);
+        display:flex;flex-direction:column;gap:5px;min-height:55mm">
+        <span style="font-family:Fraunces,serif;font-size:19pt;font-weight:700;color:#A07A0A;margin-left:auto">8</span>
+        <p style="font-size:12pt;line-height:1.4">Do sali wszedł duży, obcy pies.</p>
+        <div style="margin-top:auto;display:flex;flex-direction:column;gap:5px">
+          <span style="font-size:9.5pt;letter-spacing:.1em;text-transform:uppercase;font-weight:800;color:#A07A0A">Czuje się…</span>
+          <div style="border-bottom:1px dotted #C8C1D2;height:15px"></div>
+          <span style="font-size:9.5pt;letter-spacing:.1em;text-transform:uppercase;font-weight:800;color:#A07A0A">…bo</span>
+          <div style="border-bottom:1px dotted #C8C1D2;height:15px"></div>
+        </div>
+      </div>
+      <div style="border:2.4px dashed #0E8B78;border-radius:12px;padding:9px 11px;background:#FFFDFB;
+        box-shadow:0 1px 0 rgba(46,42,59,.05), 0 4px 12px rgba(46,42,59,.07);
+        display:flex;flex-direction:column;gap:5px;min-height:55mm">
+        <span style="font-family:Fraunces,serif;font-size:19pt;font-weight:700;color:#0E8B78;margin-left:auto">9</span>
+        <p style="font-size:12pt;line-height:1.4">Pani powiesiła pracę Ali na ścianie.</p>
+        <div style="margin-top:auto;display:flex;flex-direction:column;gap:5px">
+          <span style="font-size:9.5pt;letter-spacing:.1em;text-transform:uppercase;font-weight:800;color:#0E8B78">Czuje się…</span>
+          <div style="border-bottom:1px dotted #C8C1D2;height:15px"></div>
+          <span style="font-size:9.5pt;letter-spacing:.1em;text-transform:uppercase;font-weight:800;color:#0E8B78">…bo</span>
+          <div style="border-bottom:1px dotted #C8C1D2;height:15px"></div>
+        </div>
+      </div>
+      <div style="border:2.4px dashed #6553A8;border-radius:12px;padding:9px 11px;background:#FFFDFB;
+        box-shadow:0 1px 0 rgba(46,42,59,.05), 0 4px 12px rgba(46,42,59,.07);
+        display:flex;flex-direction:column;gap:5px;min-height:55mm">
+        <span style="font-family:Fraunces,serif;font-size:19pt;font-weight:700;color:#6553A8;margin-left:auto">10</span>
+        <p style="font-size:12pt;line-height:1.4">Zosia nie została zaproszona do zabawy.</p>
+        <div style="margin-top:auto;display:flex;flex-direction:column;gap:5px">
+          <span style="font-size:9.5pt;letter-spacing:.1em;text-transform:uppercase;font-weight:800;color:#6553A8">Czuje się…</span>
+          <div style="border-bottom:1px dotted #C8C1D2;height:15px"></div>
+          <span style="font-size:9.5pt;letter-spacing:.1em;text-transform:uppercase;font-weight:800;color:#6553A8">…bo</span>
+          <div style="border-bottom:1px dotted #C8C1D2;height:15px"></div>
+        </div>
+      </div>
+      <div style="border:2.4px dashed #A07A0A;border-radius:12px;padding:9px 11px;background:#FFFDFB;
+        box-shadow:0 1px 0 rgba(46,42,59,.05), 0 4px 12px rgba(46,42,59,.07);
+        display:flex;flex-direction:column;gap:5px;min-height:55mm">
+        <span style="font-family:Fraunces,serif;font-size:19pt;font-weight:700;color:#A07A0A;margin-left:auto">11</span>
+        <p style="font-size:12pt;line-height:1.4">W pudełku po kredkach były cukierki.</p>
+        <div style="margin-top:auto;display:flex;flex-direction:column;gap:5px">
+          <span style="font-size:9.5pt;letter-spacing:.1em;text-transform:uppercase;font-weight:800;color:#A07A0A">Czuje się…</span>
+          <div style="border-bottom:1px dotted #C8C1D2;height:15px"></div>
+          <span style="font-size:9.5pt;letter-spacing:.1em;text-transform:uppercase;font-weight:800;color:#A07A0A">…bo</span>
+          <div style="border-bottom:1px dotted #C8C1D2;height:15px"></div>
+        </div>
+      </div>
+      <div style="border:2.4px dashed #A07A0A;border-radius:12px;padding:9px 11px;background:#FFFDFB;
+        box-shadow:0 1px 0 rgba(46,42,59,.05), 0 4px 12px rgba(46,42,59,.07);
+        display:flex;flex-direction:column;gap:5px;min-height:55mm">
+        <span style="font-family:Fraunces,serif;font-size:19pt;font-weight:700;color:#A07A0A;margin-left:auto">12</span>
+        <p style="font-size:12pt;line-height:1.4">Deszcz spadł, chociaż świeciło słońce.</p>
+        <div style="margin-top:auto;display:flex;flex-direction:column;gap:5px">
+          <span style="font-size:9.5pt;letter-spacing:.1em;text-transform:uppercase;font-weight:800;color:#A07A0A">Czuje się…</span>
+          <div style="border-bottom:1px dotted #C8C1D2;height:15px"></div>
+          <span style="font-size:9.5pt;letter-spacing:.1em;text-transform:uppercase;font-weight:800;color:#A07A0A">…bo</span>
+          <div style="border-bottom:1px dotted #C8C1D2;height:15px"></div>
+        </div>
+      </div>
+    </div> ============ -->
+<section class="page page--zal">
+  <div class="page__body">
+    <div>
+      <div class="eyebrow">Załącznik 3 · do wydrukowania i wycięcia</div>
+      <h2 class="h-sec">Dwanaście kart „czuje się… bo…"</h2>
+      <p class="lead" style="margin-top:3px">Materiał do modułu 3. Losujecie kartę, dziecko dobiera
+      twarz z załącznika 2 i kończy zdanie. Kolor ramki podpowiada rodzinę emocji, ale nie pokazuj go
+      dziecku przed odpowiedzią — służy tobie do szybkiego sprawdzenia, czy trafiło.</p>
+    </div>
+<div class="grid" style="grid-template-columns:repeat(3,1fr);gap:9px">
+      <div style="border:2.4px dashed #0E8B78;border-radius:12px;padding:9px 11px;background:#FFFDFB;
+        box-shadow:0 1px 0 rgba(46,42,59,.05), 0 4px 12px rgba(46,42,59,.07);
+        display:flex;flex-direction:column;gap:5px;min-height:55mm">
+        <span style="font-family:Fraunces,serif;font-size:19pt;font-weight:700;color:#0E8B78;margin-left:auto">1</span>
+        <p style="font-size:12pt;line-height:1.4">Zosia dostała na urodziny wymarzone auto.</p>
+        <div style="margin-top:auto;display:flex;flex-direction:column;gap:5px">
+          <span style="font-size:9.5pt;letter-spacing:.1em;text-transform:uppercase;font-weight:800;color:#0E8B78">Czuje się…</span>
+          <div style="border-bottom:1px dotted #C8C1D2;height:15px"></div>
+          <span style="font-size:9.5pt;letter-spacing:.1em;text-transform:uppercase;font-weight:800;color:#0E8B78">…bo</span>
+          <div style="border-bottom:1px dotted #C8C1D2;height:15px"></div>
+        </div>
+      </div>
+      <div style="border:2.4px dashed #6553A8;border-radius:12px;padding:9px 11px;background:#FFFDFB;
+        box-shadow:0 1px 0 rgba(46,42,59,.05), 0 4px 12px rgba(46,42,59,.07);
+        display:flex;flex-direction:column;gap:5px;min-height:55mm">
+        <span style="font-family:Fraunces,serif;font-size:19pt;font-weight:700;color:#6553A8;margin-left:auto">2</span>
+        <p style="font-size:12pt;line-height:1.4">Kubie spadły lody na chodnik.</p>
+        <div style="margin-top:auto;display:flex;flex-direction:column;gap:5px">
+          <span style="font-size:9.5pt;letter-spacing:.1em;text-transform:uppercase;font-weight:800;color:#6553A8">Czuje się…</span>
+          <div style="border-bottom:1px dotted #C8C1D2;height:15px"></div>
+          <span style="font-size:9.5pt;letter-spacing:.1em;text-transform:uppercase;font-weight:800;color:#6553A8">…bo</span>
+          <div style="border-bottom:1px dotted #C8C1D2;height:15px"></div>
+        </div>
+      </div>
+      <div style="border:2.4px dashed #C4547A;border-radius:12px;padding:9px 11px;background:#FFFDFB;
+        box-shadow:0 1px 0 rgba(46,42,59,.05), 0 4px 12px rgba(46,42,59,.07);
+        display:flex;flex-direction:column;gap:5px;min-height:55mm">
+        <span style="font-family:Fraunces,serif;font-size:19pt;font-weight:700;color:#C4547A;margin-left:auto">3</span>
+        <p style="font-size:12pt;line-height:1.4">Ktoś przewrócił wieżę, którą Ala budowała cały ranek.</p>
+        <div style="margin-top:auto;display:flex;flex-direction:column;gap:5px">
+          <span style="font-size:9.5pt;letter-spacing:.1em;text-transform:uppercase;font-weight:800;color:#C4547A">Czuje się…</span>
+          <div style="border-bottom:1px dotted #C8C1D2;height:15px"></div>
+          <span style="font-size:9.5pt;letter-spacing:.1em;text-transform:uppercase;font-weight:800;color:#C4547A">…bo</span>
+          <div style="border-bottom:1px dotted #C8C1D2;height:15px"></div>
+        </div>
+      </div>
+      <div style="border:2.4px dashed #A07A0A;border-radius:12px;padding:9px 11px;background:#FFFDFB;
+        box-shadow:0 1px 0 rgba(46,42,59,.05), 0 4px 12px rgba(46,42,59,.07);
+        display:flex;flex-direction:column;gap:5px;min-height:55mm">
+        <span style="font-family:Fraunces,serif;font-size:19pt;font-weight:700;color:#A07A0A;margin-left:auto">4</span>
+        <p style="font-size:12pt;line-height:1.4">W sali nagle zgasło światło.</p>
+        <div style="margin-top:auto;display:flex;flex-direction:column;gap:5px">
+          <span style="font-size:9.5pt;letter-spacing:.1em;text-transform:uppercase;font-weight:800;color:#A07A0A">Czuje się…</span>
+          <div style="border-bottom:1px dotted #C8C1D2;height:15px"></div>
+          <span style="font-size:9.5pt;letter-spacing:.1em;text-transform:uppercase;font-weight:800;color:#A07A0A">…bo</span>
+          <div style="border-bottom:1px dotted #C8C1D2;height:15px"></div>
+        </div>
+      </div>
+      <div style="border:2.4px dashed #0E8B78;border-radius:12px;padding:9px 11px;background:#FFFDFB;
+        box-shadow:0 1px 0 rgba(46,42,59,.05), 0 4px 12px rgba(46,42,59,.07);
+        display:flex;flex-direction:column;gap:5px;min-height:55mm">
+        <span style="font-family:Fraunces,serif;font-size:19pt;font-weight:700;color:#0E8B78;margin-left:auto">5</span>
+        <p style="font-size:12pt;line-height:1.4">Filip pierwszy raz sam zawiązał but.</p>
+        <div style="margin-top:auto;display:flex;flex-direction:column;gap:5px">
+          <span style="font-size:9.5pt;letter-spacing:.1em;text-transform:uppercase;font-weight:800;color:#0E8B78">Czuje się…</span>
+          <div style="border-bottom:1px dotted #C8C1D2;height:15px"></div>
+          <span style="font-size:9.5pt;letter-spacing:.1em;text-transform:uppercase;font-weight:800;color:#0E8B78">…bo</span>
+          <div style="border-bottom:1px dotted #C8C1D2;height:15px"></div>
+        </div>
+      </div>
+      <div style="border:2.4px dashed #6553A8;border-radius:12px;padding:9px 11px;background:#FFFDFB;
+        box-shadow:0 1px 0 rgba(46,42,59,.05), 0 4px 12px rgba(46,42,59,.07);
+        display:flex;flex-direction:column;gap:5px;min-height:55mm">
+        <span style="font-family:Fraunces,serif;font-size:19pt;font-weight:700;color:#6553A8;margin-left:auto">6</span>
+        <p style="font-size:12pt;line-height:1.4">Mama Oli wyjechała na dwa dni.</p>
+        <div style="margin-top:auto;display:flex;flex-direction:column;gap:5px">
+          <span style="font-size:9.5pt;letter-spacing:.1em;text-transform:uppercase;font-weight:800;color:#6553A8">Czuje się…</span>
+          <div style="border-bottom:1px dotted #C8C1D2;height:15px"></div>
+          <span style="font-size:9.5pt;letter-spacing:.1em;text-transform:uppercase;font-weight:800;color:#6553A8">…bo</span>
+          <div style="border-bottom:1px dotted #C8C1D2;height:15px"></div>
+        </div>
+      </div>
+      <div style="border:2.4px dashed #C4547A;border-radius:12px;padding:9px 11px;background:#FFFDFB;
+        box-shadow:0 1px 0 rgba(46,42,59,.05), 0 4px 12px rgba(46,42,59,.07);
+        display:flex;flex-direction:column;gap:5px;min-height:55mm">
+        <span style="font-family:Fraunces,serif;font-size:19pt;font-weight:700;color:#C4547A;margin-left:auto">7</span>
+        <p style="font-size:12pt;line-height:1.4">Kolega zabrał Kubie łopatkę bez pytania.</p>
+        <div style="margin-top:auto;display:flex;flex-direction:column;gap:5px">
+          <span style="font-size:9.5pt;letter-spacing:.1em;text-transform:uppercase;font-weight:800;color:#C4547A">Czuje się…</span>
+          <div style="border-bottom:1px dotted #C8C1D2;height:15px"></div>
+          <span style="font-size:9.5pt;letter-spacing:.1em;text-transform:uppercase;font-weight:800;color:#C4547A">…bo</span>
+          <div style="border-bottom:1px dotted #C8C1D2;height:15px"></div>
+        </div>
+      </div>
+      <div style="border:2.4px dashed #A07A0A;border-radius:12px;padding:9px 11px;background:#FFFDFB;
+        box-shadow:0 1px 0 rgba(46,42,59,.05), 0 4px 12px rgba(46,42,59,.07);
+        display:flex;flex-direction:column;gap:5px;min-height:55mm">
+        <span style="font-family:Fraunces,serif;font-size:19pt;font-weight:700;color:#A07A0A;margin-left:auto">8</span>
+        <p style="font-size:12pt;line-height:1.4">Do sali wszedł duży, obcy pies.</p>
+        <div style="margin-top:auto;display:flex;flex-direction:column;gap:5px">
+          <span style="font-size:9.5pt;letter-spacing:.1em;text-transform:uppercase;font-weight:800;color:#A07A0A">Czuje się…</span>
+          <div style="border-bottom:1px dotted #C8C1D2;height:15px"></div>
+          <span style="font-size:9.5pt;letter-spacing:.1em;text-transform:uppercase;font-weight:800;color:#A07A0A">…bo</span>
+          <div style="border-bottom:1px dotted #C8C1D2;height:15px"></div>
+        </div>
+      </div>
+      <div style="border:2.4px dashed #0E8B78;border-radius:12px;padding:9px 11px;background:#FFFDFB;
+        box-shadow:0 1px 0 rgba(46,42,59,.05), 0 4px 12px rgba(46,42,59,.07);
+        display:flex;flex-direction:column;gap:5px;min-height:55mm">
+        <span style="font-family:Fraunces,serif;font-size:19pt;font-weight:700;color:#0E8B78;margin-left:auto">9</span>
+        <p style="font-size:12pt;line-height:1.4">Pani powiesiła pracę Ali na ścianie.</p>
+        <div style="margin-top:auto;display:flex;flex-direction:column;gap:5px">
+          <span style="font-size:9.5pt;letter-spacing:.1em;text-transform:uppercase;font-weight:800;color:#0E8B78">Czuje się…</span>
+          <div style="border-bottom:1px dotted #C8C1D2;height:15px"></div>
+          <span style="font-size:9.5pt;letter-spacing:.1em;text-transform:uppercase;font-weight:800;color:#0E8B78">…bo</span>
+          <div style="border-bottom:1px dotted #C8C1D2;height:15px"></div>
+        </div>
+      </div>
+      <div style="border:2.4px dashed #6553A8;border-radius:12px;padding:9px 11px;background:#FFFDFB;
+        box-shadow:0 1px 0 rgba(46,42,59,.05), 0 4px 12px rgba(46,42,59,.07);
+        display:flex;flex-direction:column;gap:5px;min-height:55mm">
+        <span style="font-family:Fraunces,serif;font-size:19pt;font-weight:700;color:#6553A8;margin-left:auto">10</span>
+        <p style="font-size:12pt;line-height:1.4">Zosia nie została zaproszona do zabawy.</p>
+        <div style="margin-top:auto;display:flex;flex-direction:column;gap:5px">
+          <span style="font-size:9.5pt;letter-spacing:.1em;text-transform:uppercase;font-weight:800;color:#6553A8">Czuje się…</span>
+          <div style="border-bottom:1px dotted #C8C1D2;height:15px"></div>
+          <span style="font-size:9.5pt;letter-spacing:.1em;text-transform:uppercase;font-weight:800;color:#6553A8">…bo</span>
+          <div style="border-bottom:1px dotted #C8C1D2;height:15px"></div>
+        </div>
+      </div>
+      <div style="border:2.4px dashed #A07A0A;border-radius:12px;padding:9px 11px;background:#FFFDFB;
+        box-shadow:0 1px 0 rgba(46,42,59,.05), 0 4px 12px rgba(46,42,59,.07);
+        display:flex;flex-direction:column;gap:5px;min-height:55mm">
+        <span style="font-family:Fraunces,serif;font-size:19pt;font-weight:700;color:#A07A0A;margin-left:auto">11</span>
+        <p style="font-size:12pt;line-height:1.4">W pudełku po kredkach były cukierki.</p>
+        <div style="margin-top:auto;display:flex;flex-direction:column;gap:5px">
+          <span style="font-size:9.5pt;letter-spacing:.1em;text-transform:uppercase;font-weight:800;color:#A07A0A">Czuje się…</span>
+          <div style="border-bottom:1px dotted #C8C1D2;height:15px"></div>
+          <span style="font-size:9.5pt;letter-spacing:.1em;text-transform:uppercase;font-weight:800;color:#A07A0A">…bo</span>
+          <div style="border-bottom:1px dotted #C8C1D2;height:15px"></div>
+        </div>
+      </div>
+      <div style="border:2.4px dashed #A07A0A;border-radius:12px;padding:9px 11px;background:#FFFDFB;
+        box-shadow:0 1px 0 rgba(46,42,59,.05), 0 4px 12px rgba(46,42,59,.07);
+        display:flex;flex-direction:column;gap:5px;min-height:55mm">
+        <span style="font-family:Fraunces,serif;font-size:19pt;font-weight:700;color:#A07A0A;margin-left:auto">12</span>
+        <p style="font-size:12pt;line-height:1.4">Deszcz spadł, chociaż świeciło słońce.</p>
+        <div style="margin-top:auto;display:flex;flex-direction:column;gap:5px">
+          <span style="font-size:9.5pt;letter-spacing:.1em;text-transform:uppercase;font-weight:800;color:#A07A0A">Czuje się…</span>
+          <div style="border-bottom:1px dotted #C8C1D2;height:15px"></div>
+          <span style="font-size:9.5pt;letter-spacing:.1em;text-transform:uppercase;font-weight:800;color:#A07A0A">…bo</span>
+          <div style="border-bottom:1px dotted #C8C1D2;height:15px"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="page__foot"><span><b>Załącznik 3</b> · karty „czuje się… bo…"</span><span class="num">30</span></div>
+</section>
+

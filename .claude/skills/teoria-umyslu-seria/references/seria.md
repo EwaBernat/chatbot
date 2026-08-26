@@ -41,7 +41,7 @@ w głąb jednego obszaru, a do podstaw odsyłać („szerzej w części 1, s. 4"
 **Tytuł:** Teoria umysłu w przedszkolu — gotowe zajęcia
 **Podtytuł:** Program dla dziecka z autyzmem. *Jak przez sześć miesięcy nauczyć przedszkolaka
 rozumieć emocje — swoje i cudze?*
-**Objętość:** 27 stron A4. **Plik:** `broszura-teoria-umyslu-2a/index.html` w repozytorium.
+**Objętość:** 30 stron A4 (wydanie 2 — po podniesieniu stopnia pisma i dodaniu załączników).
 
 Zakres: wyłącznie **TUE i przedszkolne prekursory** — sześć faz rozwoju od wspólnego pola uwagi
 do wiedzy i niewiedzy. Świadomie NIE obejmuje fałszywego przekonania, emocji ukrytych, ironii
@@ -62,6 +62,17 @@ Nowe komponenty wprowadzone w tej części (dostępne dla kolejnych): `.mies` (n
 `.spotk` (tabela spotkań), `.pyt` (ramka pytań kluczowych), `.opow` (blok opowiadania),
 `.wyprawka` (lista z kratkami), `.pole-pracy` i `.wytnij` (elementy kart pracy),
 generator buziek SVG w pięciu emocjach.
+
+**Wydanie 2 (ujednolicenie z częścią 2B):** skala pisma i wzmocnienia komponentów przejęte
+z 2B, wykres przeliczony na szerokość renderowania, trzy załączniki na końcu — termometr emocji
+w rozmiarze A4, pięć twarzy do wycięcia i dwanaście kart „czuje się… bo…".
+
+**Kolory emocji ujednolicone z kołem z części 2B.** Karta pracy 1 miała wcześniej inny przydział
+(radość różowa, złość złota, strach zielony). Obowiązuje podział na rodziny z koła:
+zielony = *jest mi dobrze*, fioletowy = *czegoś mi brakuje*, różowy = *coś mi przeszkadza*,
+złoty = *coś mnie zaskoczyło*. Ta sama emocja nie może mieć dwóch kolorów w dwóch częściach —
+dziecko korzysta z obu materiałów naraz.
+
 
 ## Część 2B — Emocje złożone i zabawa razem (opublikowana)
 
