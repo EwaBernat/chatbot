@@ -26,6 +26,7 @@ export const RemotionRoot: React.FC = () => {
           podtytul: 'Teoria umysłu w przedszkolu',
           intro: INTRO,
           outro: OUTRO,
+          audioIntro: 'audio/czesc1/intro.mp3',
         }}
       />
       <Composition

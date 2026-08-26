@@ -6,12 +6,16 @@ import {
 import {FIGTREE, SANS, zaladujFonty} from './fonty';
 import {AUTOR, INSTYTUCJA, MOTYW, PODPROGRAM, PROGRAM} from './motyw';
 
+export type Napis = {t: string; od: number; do: number};
+
 export type Slajd = {
   n: number;
   tytul: string;
   narracja: string;
   obraz: string;
   audio: string;
+  /** Napisy z prawdziwym czasem, wyliczone z nagrania lektorskiego. */
+  napisy?: Napis[];
 };
 
 export type Odcinek = {klatki: number; maAudio: boolean};
@@ -23,6 +27,8 @@ type Props = {
   podtytul: string;
   intro: number;
   outro: number;
+  /** Zapowiedź czytana na planszy tytułowej, jeśli została nagrana. */
+  audioIntro?: string;
 };
 
 const OBRAZ_SZER = 1620;
@@ -69,19 +75,32 @@ const Plansza: React.FC<{
   const przesuniecie = interpolate(klatka, [0, 18], [22, 0], {extrapolateRight: 'clamp'});
   const zblizenie = interpolate(klatka, [0, klatki], [1, 1.018], {extrapolateRight: 'clamp'});
 
-  const zdania = naZdania(slajd.narracja);
-  const dlugosci = zdania.map((z) => z.length);
-  const suma = dlugosci.reduce((a, b) => a + b, 0) || 1;
-  let granica = 0;
-  let biezace = zdania[0] ?? '';
-  for (let i = 0; i < zdania.length; i++) {
-    const koniec = granica + (dlugosci[i] / suma) * klatki;
-    if (klatka >= granica && klatka < koniec) {
-      biezace = zdania[i];
-      break;
+  let biezace = '';
+  if (slajd.napisy && slajd.napisy.length) {
+    // czas wzięty wprost z nagrania — napis pojawia się dokładnie ze słowem
+    const sekunda = klatka / fps;
+    let ostatni = slajd.napisy[0].t;
+    for (const n of slajd.napisy) {
+      if (sekunda >= n.od - 0.15) ostatni = n.t;
+      if (sekunda >= n.od - 0.15 && sekunda < n.do + 0.45) break;
     }
-    granica = koniec;
-    biezace = zdania[i];
+    biezace = ostatni;
+  } else {
+    // bez nagrania: zdania dzielone proporcjonalnie do długości
+    const zdania = naZdania(slajd.narracja);
+    const dlugosci = zdania.map((z) => z.length);
+    const suma = dlugosci.reduce((a, b) => a + b, 0) || 1;
+    let granica = 0;
+    biezace = zdania[0] ?? '';
+    for (let i = 0; i < zdania.length; i++) {
+      const koniec = granica + (dlugosci[i] / suma) * klatki;
+      if (klatka >= granica && klatka < koniec) {
+        biezace = zdania[i];
+        break;
+      }
+      granica = koniec;
+      biezace = zdania[i];
+    }
   }
 
   const postep = (indeks + Math.min(1, klatka / Math.max(1, klatki))) / liczba;
@@ -135,10 +154,11 @@ const Karta: React.FC<{dzieci: React.ReactNode}> = ({dzieci}) => {
   );
 };
 
-const Intro: React.FC<{czesc: string; podtytul: string}> = ({czesc, podtytul}) => (
+const Intro: React.FC<{czesc: string; podtytul: string; audioIntro?: string}> = ({czesc, podtytul, audioIntro}) => (
   <Karta
     dzieci={
       <>
+        {audioIntro ? <Audio src={staticFile(audioIntro)} /> : null}
         <div style={{fontFamily: SANS, fontWeight: 600, fontSize: 20, letterSpacing: 6, textTransform: 'uppercase', color: MOTYW.zielenJasna}}>
           {czesc}
         </div>
@@ -179,14 +199,14 @@ const Outro: React.FC = () => (
   />
 );
 
-export const Film: React.FC<Props> = ({slajdy, odcinki, czesc, podtytul, intro, outro}) => {
+export const Film: React.FC<Props> = ({slajdy, odcinki, czesc, podtytul, intro, outro, audioIntro}) => {
   zaladujFonty();
   let pozycja = intro;
 
   return (
     <AbsoluteFill style={{background: `radial-gradient(120% 100% at 50% -20%, ${MOTYW.tloJasne} 0%, ${MOTYW.las} 45%, ${MOTYW.tlo} 100%)`}}>
       <Sequence durationInFrames={intro} name="Wstęp">
-        <Intro czesc={czesc} podtytul={podtytul} />
+        <Intro czesc={czesc} podtytul={podtytul} audioIntro={audioIntro} />
       </Sequence>
 
       {slajdy.map((slajd, i) => {
