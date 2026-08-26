@@ -66,6 +66,32 @@ Zasady nagrywania, wymagania jakościowe i diagnostyka złego brzmienia:
 Jeśli nie chce teraz klonować — nie blokuj pracy. Zrób materiał głosem gotowym albo
 głosem z HeyGen i powiedz, czym to się różni.
 
+## Zanim cokolwiek uruchomisz — sprawdź, czy sieć przepuszcza
+
+W środowiskach zdalnych (Claude Code na stronie, kontenery CI) polityka sieciowa często
+blokuje wychodzące połączenia do usług zewnętrznych. Skrypty zwracają wtedy `403`, co
+łatwo pomylić ze złym kluczem API. Sprawdź to jednym poleceniem:
+
+```bash
+curl -sS -o /dev/null -w "%{http_code}\n" --max-time 10 https://api.elevenlabs.io/
+curl -sS -o /dev/null -w "%{http_code}\n" --max-time 10 https://api.heygen.com/
+```
+
+`000` z komunikatem `CONNECT tunnel failed, response 403` oznacza **blokadę sieciową**,
+nie problem z kluczem. Diagnoza wprost: `curl -sS "$HTTPS_PROXY/__agentproxy/status"`
+pokazuje ostatnie odrzucenia z nazwami hostów.
+
+Co wtedy działa, a co nie:
+
+| Droga | Przy zablokowanej sieci |
+|---|---|
+| Złącza MCP w Claude (np. ElevenLabs) | **działają** — wywołania idą spoza kontenera |
+| Skrypty z tego skilla | **nie działają** — łączą się z kontenera |
+| Wszystko na własnym komputerze | **działa** — brak takiej blokady |
+
+Nie powtarzaj wywołań po odmowie polityki — zgłoś ją użytkowniczce i zaproponuj
+uruchomienie skryptów lokalnie albo zmianę polityki sieciowej środowiska.
+
 ## Etap 1 — Wczytaj dane i policz, zanim cokolwiek napiszesz
 
 Nigdy nie opisuj danych z pamięci ani „na oko" z podglądu pliku. Uruchom profiler:
