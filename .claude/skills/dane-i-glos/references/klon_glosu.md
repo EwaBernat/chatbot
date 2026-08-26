@@ -7,6 +7,34 @@ nagranie brzmi Twoim głosem.
 ElevenLabs przy niektórych planach wymaga dodatkowej weryfikacji — nagrania zdania
 potwierdzającego — i skrypt powie Ci o tym po utworzeniu głosu.
 
+## Najpierw sprawdź, co daje Twój plan
+
+```bash
+python3 scripts/elevenlabs_tts.py --limity
+```
+
+Wypisze plan, zużyte i pozostałe znaki, datę odnowienia oraz — najważniejsze — czy konto
+ma **Instant Voice Cloning** i **Professional Voice Cloning**. To odczyt wprost z API,
+bez zgadywania po nazwie planu.
+
+## Dwa rodzaje klonowania
+
+| | Instant (IVC) | Professional (PVC) |
+|---|---|---|
+| Materiał | 1–3 minuty | 30 minut – 3 godziny |
+| Czas oczekiwania | sekundy | kilka godzin |
+| Jakość po polsku | dobra, słychać drobne potknięcia | najbliżej oryginału |
+| Jak uruchomić | `elevenlabs_klon_glosu.py` | aplikacja webowa ElevenLabs |
+| Weryfikacja tożsamości | czasem | zawsze |
+
+**PVC konfiguruje się w aplikacji webowej, nie skryptem** — wymaga weryfikacji tożsamości
+(nagranie zdania potwierdzającego), której nie da się przejść przez API. Skrypt w tym skillu
+obsługuje IVC; gdy PVC już powstanie, jego `voice_id` wpisujesz w to samo miejsce
+(`ELEVENLABS_VOICE_ID`) i cała reszta ścieżki działa bez zmian.
+
+Kiedy warto PVC: materiał ma reprezentować Cię publicznie — reklama, film na stronę,
+seria nagrań dla rodziców. Do roboczych podsumowań danych IVC w zupełności wystarcza.
+
 ## Ile materiału
 
 | Długość łącznie | Efekt |

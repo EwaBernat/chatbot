@@ -9,6 +9,7 @@ Klucz API: zmienna srodowiskowa ELEVENLABS_API_KEY (nigdy w kodzie ani w repo).
 Zaleznosci: tylko biblioteka standardowa.
 
 Przyklady:
+    python3 elevenlabs_tts.py --limity
     python3 elevenlabs_tts.py --glosy
     python3 elevenlabs_tts.py narracja.txt -o raport.mp3
     python3 elevenlabs_tts.py narracja.txt -o raport.mp3 --srt napisy.srt
@@ -77,6 +78,37 @@ def _komunikat_bledu(e: urllib.error.HTTPError) -> str:
     }
     return (f"ElevenLabs odrzucil zapytanie ({e.code} {e.reason}). "
             f"{podpowiedzi.get(e.code, '')}\n{szczegol}").strip()
+
+
+# --- plan i limity ---------------------------------------------------------
+
+def wypisz_limity() -> int:
+    """Odczytuje plan i zuzycie z konta — bez zgadywania, wprost z API."""
+    d = zapytaj("/v1/user/subscription")
+    uzyte = d.get("character_count")
+    limit = d.get("character_limit")
+    print(f"Plan:            {d.get('tier') or '?'}  (status: {d.get('status') or '?'})")
+    if isinstance(uzyte, int) and isinstance(limit, int) and limit:
+        zostalo = max(0, limit - uzyte)
+        sp = lambda n: f"{n:,}".replace(",", " ")        # polski separator tysiecy
+        print(f"Znaki:           {sp(uzyte)} / {sp(limit)}  "
+              f"(zostalo {sp(zostalo)}, ok. {zostalo / 150 / 150:.1f} h narracji)")
+    reset = d.get("next_character_count_reset_unix")
+    if reset:
+        from datetime import datetime, timezone
+        print(f"Odnowienie:      {datetime.fromtimestamp(reset, timezone.utc):%Y-%m-%d}")
+
+    ivc = d.get("can_use_instant_voice_cloning")
+    pvc = d.get("can_use_professional_voice_cloning")
+    print(f"\nKlonowanie glosu:")
+    print(f"  Instant (IVC):      {'TAK' if ivc else 'NIE'}"
+          f"{'' if ivc else '  <- wymaga planu Starter lub wyzszego'}")
+    print(f"  Professional (PVC): {'TAK' if pvc else 'NIE'}"
+          f"{'  <- lepszy dla polskiego, konfiguracja w aplikacji webowej' if pvc else ''}")
+    limit_glosow = d.get("voice_limit")
+    if limit_glosow is not None:
+        print(f"  Miejsc na glosy:    {limit_glosow}")
+    return 0
 
 
 # --- glosy -----------------------------------------------------------------
@@ -226,6 +258,8 @@ def main() -> int:
                     help="plik .txt ze scenariuszem (albo '-' dla stdin)")
     ap.add_argument("-o", "--output", type=Path, default=Path("narracja.mp3"))
     ap.add_argument("--glosy", action="store_true", help="wypisz glosy z konta i zakoncz")
+    ap.add_argument("--limity", action="store_true",
+                    help="wypisz plan, zuzycie znakow i dostepnosc klonowania")
     ap.add_argument("--voice-id", default=os.environ.get("ELEVENLABS_VOICE_ID", GLOS_DOMYSLNY))
     ap.add_argument("--model", default=MODEL_DOMYSLNY,
                     help=f"domyslnie {MODEL_DOMYSLNY}; alternatywy: eleven_v3, "
@@ -243,6 +277,8 @@ def main() -> int:
                     help="policz znaki i fragmenty bez wywolania API")
     a = ap.parse_args()
 
+    if a.limity:
+        return wypisz_limity()
     if a.glosy:
         return wypisz_glosy()
     if not a.tekst:
