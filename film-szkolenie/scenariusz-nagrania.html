@@ -1,0 +1,739 @@
+<title>Scenariusz nagrania lektorskiego</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Figtree:wght@500;700;800&family=Source+Sans+3:ital,wght@0,400;0,600;0,700;1,400&family=Lora:ital,wght@1,400&display=swap">
+<style>
+:root{
+  --forest:#243F2C; --forest-2:#2F5539; --green:#3E7B4F; --green-3:#9CC4A6;
+  --sage:#E4EEE1; --sage-2:#EFF4ED; --paper:#F8FAF7; --white:#fff;
+  --line:#D6E2D2; --line-2:#B7CCB2; --ink:#1F2A22; --ink-2:#54604F;
+  --amber:#E08A2E; --amber-ink:#9C580F; --red:#C4453B;
+}
+*{box-sizing:border-box}
+body{
+  margin:0; background:var(--paper); color:var(--ink);
+  font-family:"Source Sans 3","Segoe UI",system-ui,sans-serif;
+  -webkit-font-smoothing:antialiased;
+}
+.wrap{max-width:940px;margin:0 auto;padding:0 28px 90px}
+
+/* ---------- nagłówek ---------- */
+.hero{background:var(--forest);color:#fff;margin-bottom:44px}
+.hero .in{max-width:940px;margin:0 auto;padding:54px 28px 46px}
+.eyebrow{font:700 12px/1 "Source Sans 3",sans-serif;letter-spacing:.26em;text-transform:uppercase;color:var(--green-3);margin:0 0 16px}
+h1{font-family:"Figtree",sans-serif;font-weight:800;font-size:52px;line-height:1.02;letter-spacing:-.025em;margin:0;text-wrap:balance}
+.hero p{font-size:19px;line-height:1.5;color:#C3D6C4;margin:16px 0 0;max-width:620px}
+.hero .autor{margin-top:26px;padding-top:22px;border-top:1px solid rgba(255,255,255,.16);font-size:15px;color:#8FB098}
+.hero .autor b{color:#fff;font-weight:600}
+.hero .liczby{display:flex;gap:30px;margin-top:22px;font:600 12px/1 "Source Sans 3",sans-serif;letter-spacing:.14em;text-transform:uppercase;color:#8FB098}
+.hero .liczby b{font-family:"Figtree",sans-serif;font-size:16px;color:#fff}
+
+/* ---------- sekcje pomocnicze ---------- */
+h2{font-family:"Figtree",sans-serif;font-weight:800;font-size:29px;letter-spacing:-.018em;color:var(--forest);margin:0 0 6px;text-wrap:balance}
+h2 + .pod{color:var(--ink-2);font-size:16px;margin:0 0 22px}
+.karty{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:44px}
+.karta{background:var(--white);border:1px solid var(--line);border-radius:7px;padding:18px 20px}
+.karta h3{font-family:"Figtree",sans-serif;font-weight:700;font-size:17px;color:var(--forest-2);margin:0 0 6px}
+.karta p{margin:0;font-size:15.5px;line-height:1.5;color:var(--ink-2)}
+.karta b{color:var(--ink)}
+.pasek{background:var(--sage);border-radius:7px;padding:18px 22px;margin-bottom:44px;display:flex;gap:18px;align-items:flex-start}
+.pasek .znak{font-family:"Figtree",sans-serif;font-weight:800;font-size:15px;letter-spacing:.1em;text-transform:uppercase;color:var(--green);white-space:nowrap;padding-top:2px}
+.pasek p{margin:0;font-size:16.5px;line-height:1.5;color:var(--ink)}
+
+/* ---------- podział na części ---------- */
+.czesc{margin:0 0 30px;padding:24px 0 0;border-top:3px solid var(--forest)}
+.czesc .nazwa{font-family:"Figtree",sans-serif;font-weight:800;font-size:34px;letter-spacing:-.02em;color:var(--forest);margin:0}
+.czesc .info{color:var(--ink-2);font-size:16px;margin:8px 0 0}
+
+/* ---------- fragment ---------- */
+.frag{display:grid;grid-template-columns:132px 1fr;gap:26px;padding:22px 0;border-bottom:1px solid var(--line);break-inside:avoid;page-break-inside:avoid}
+.frag:last-child{border-bottom:0}
+.meta .nr{font-family:"Figtree",sans-serif;font-weight:800;font-size:38px;line-height:1;color:var(--green);font-variant-numeric:tabular-nums;letter-spacing:-.03em}
+.meta .czas{margin-top:6px;font:700 14px/1 "Source Sans 3",sans-serif;color:var(--amber-ink);font-variant-numeric:tabular-nums;letter-spacing:.04em}
+.meta .plik{margin-top:8px;font:400 12.5px/1.3 ui-monospace,"SF Mono",Menlo,Consolas,monospace;color:var(--ink-2);word-break:break-all}
+.meta .slajd{margin-top:8px;font-size:13px;line-height:1.35;color:var(--ink-2);border-top:1px solid var(--line);padding-top:8px}
+.rez{margin:0 0 12px;font-family:"Lora",Georgia,serif;font-style:italic;font-size:15.5px;line-height:1.45;color:var(--amber-ink)}
+.kwestia{margin:0;font-size:20.5px;line-height:1.6;color:var(--ink);max-width:62ch}
+
+/* ---------- stopka ---------- */
+.stopka{margin-top:54px;padding-top:26px;border-top:1px solid var(--line);font-size:14.5px;line-height:1.6;color:var(--ink-2)}
+.stopka b{color:var(--ink)}
+
+@media (max-width:760px){
+  h1{font-size:38px}
+  .karty{grid-template-columns:1fr}
+  .frag{grid-template-columns:1fr;gap:10px}
+  .meta{display:flex;align-items:baseline;gap:14px;flex-wrap:wrap}
+  .meta .nr{font-size:26px}
+  .meta .slajd{border:0;padding:0}
+  .kwestia{font-size:19px}
+}
+@media print{
+  @page{size:A4;margin:14mm}
+  body{background:#fff}
+  .hero{background:#fff;color:var(--ink);margin-bottom:24px}
+  .hero .in{padding:0}
+  .hero h1{color:var(--forest);font-size:34px}
+  .hero p,.hero .autor{color:var(--ink-2)}
+  .hero .autor b,.hero .liczby b{color:var(--ink)}
+  .eyebrow{color:var(--green)}
+  .wrap{padding:0}
+  .czesc{break-before:page;page-break-before:always}
+  .czesc:first-of-type{break-before:auto;page-break-before:auto}
+  .kwestia{font-size:15pt}
+}
+</style>
+
+<div class="hero"><div class="in">
+  <p class="eyebrow">Scenariusz nagrania lektorskiego</p>
+  <h1>Głos do filmów<br>„Budowanie mostów społecznych”</h1>
+  <p>Pięćdziesiąt krótkich kwestii — po dwadzieścia pięć na każdą część. Każda kwestia to osobny plik, który film sam wstawi pod właściwy slajd i dopasuje do niego długość ujęcia.</p>
+  <div class="liczby">
+    <span><b>2</b> nagrania</span><span><b>50</b> kwestii</span><span><b>~11</b> minut materiału</span><span><b>60–90</b> minut pracy</span>
+  </div>
+  <p class="autor">Opracowanie i głos: <b>Mirosława Ewa Jurczyszyn</b> · PCTP Koszalin</p>
+</div></div>
+
+<div class="wrap">
+
+  <h2>Zanim wciśniesz nagrywanie</h2>
+  <p class="pod">Sześć rzeczy, które decydują o tym, czy nagranie brzmi profesjonalnie — żadna nie wymaga sprzętu.</p>
+  <div class="karty">
+    <div class="karta"><h3>Pomieszczenie</h3><p>Mały pokój z zasłonami, dywanem, szafą z ubraniami. <b>Unikaj kuchni i łazienki</b> — gładkie ściany dają pogłos, którego potem nie da się usunąć.</p></div>
+    <div class="karta"><h3>Mikrofon</h3><p>Telefon w zupełności wystarczy. Trzymaj go <b>20–30 cm od ust, lekko z boku</b>, nie na wprost — wtedy nie słychać podmuchów przy głoskach p, b, t.</p></div>
+    <div class="karta"><h3>Ustawienie</h3><p>Nagrywaj <b>na stojąco albo siedząc prosto</b>. Głos ma wtedy więcej powietrza i nie opada na końcach zdań. Kartkę trzymaj wysoko, nie na kolanach.</p></div>
+    <div class="karta"><h3>Pliki</h3><p>Jedna kwestia to jeden plik: <b>01, 02, 03…</b> Format dowolny — mp3, m4a, wav. Numer musi zgadzać się z numerem slajdu, resztę zrobi program.</p></div>
+    <div class="karta"><h3>Próba</h3><p>Nagraj kwestię 01, odsłuchaj w słuchawkach i dopiero potem nagrywaj resztę. <b>Pięć minut sprawdzenia</b> oszczędza godzinę powtórek.</p></div>
+    <div class="karta"><h3>Pomyłki</h3><p>Nie zaczynaj pliku od nowa. <b>Zrób pauzę, oddech i powtórz całe zdanie</b> — przy montażu zostaje lepsze podejście, a Ty nie tracisz rytmu.</p></div>
+  </div>
+
+  <h2>Jak czytać</h2>
+  <p class="pod">To nie jest odczyt referatu. Mówisz do nauczycielki, która siedzi naprzeciwko i ma za sobą długi dzień.</p>
+  <div class="karty">
+    <div class="karta"><h3>Wolniej, niż Ci się wydaje</h3><p>Nagranie zawsze brzmi szybciej niż na żywo. Czasy przy każdej kwestii są <b>orientacyjne</b> — jeśli Twoje wyjdą dłuższe, to dobrze, film sam się dopasuje.</p></div>
+    <div class="karta"><h3>Pauza po kropce</h3><p>Policz w myślach „raz” po każdym zdaniu. To daje słuchaczowi czas na zrozumienie i pozwala potem czysto pociąć nagranie.</p></div>
+    <div class="karta"><h3>Uśmiech słychać</h3><p>Przy fragmentach o dzieciach i zabawie uśmiechnij się w trakcie mówienia. To słychać w barwie głosu i to właśnie odróżnia lektora od automatu.</p></div>
+    <div class="karta"><h3>Cudzysłowy mów inaczej</h3><p>Zdania, które nauczyciel ma powiedzieć dziecku, wypowiadaj <b>ciszej i wolniej</b> — jakbyś naprawdę mówiła je dziecku.</p></div>
+  </div>
+
+  <div class="pasek">
+    <span class="znak">Po nagraniu</span>
+    <p>Wrzuć pliki do <b>film-szkolenie/public/audio/czesc1/</b> (i odpowiednio <b>czesc2/</b>), a potem uruchom <b>npm&nbsp;run&nbsp;film1</b>. Program zmierzy każde nagranie, ustawi długość slajdu i złoży film — nie trzeba niczego synchronizować ręcznie. Brakujące kwestie nie blokują renderu; te slajdy przejdą w ciszy.</p>
+  </div>
+
+  <div class="czesc">
+    <p class="nazwa">Nagranie pierwsze — Część I, przedszkole</p>
+    <p class="info">25 kwestii · ok. 5,5 minuty materiału · pliki <b>01.mp3 – 25.mp3</b> do katalogu <b>czesc1</b></p>
+  </div>
+  <article class="frag">
+    <div class="meta">
+      <div class="nr">01</div>
+      <div class="czas">ok. 0:12</div>
+      <div class="plik">czesc1/01.mp3</div>
+      <div class="slajd">slajd 1 — Tytuł</div>
+    </div>
+    <div class="tresc">
+      <p class="rez">Powitanie — ciepło, spokojnie. Nazwisko i instytucję powiedz wyraźnie.</p>
+      <p class="kwestia">Budowanie mostów społecznych. Teoria umysłu w przedszkolu. To szkolenie pokazuje, jak rozpoznać dziecko, które nie odczytuje cudzych myśli, i jak z nim pracować każdego dnia, w sali.</p>
+    </div>
+  </article>
+  <article class="frag">
+    <div class="meta">
+      <div class="nr">02</div>
+      <div class="czas">ok. 0:14</div>
+      <div class="plik">czesc1/02.mp3</div>
+      <div class="slajd">slajd 2 — Mapa szkolenia</div>
+    </div>
+    <div class="tresc">
+      <p class="rez">Zapraszająco. Zdanie o „jednym dziecku” zwolnij o połowę.</p>
+      <p class="kwestia">Szkolenie ma cztery moduły. Pierwsze dwa to rozpoznanie sytuacji, kolejne dwa to gotowe narzędzia i plan wdrożenia. Zanim zaczniemy, pomyśl o jednym dziecku ze swojej grupy — na końcu zbudujemy dla niego plan.</p>
+    </div>
+  </article>
+  <article class="frag">
+    <div class="meta">
+      <div class="nr">03</div>
+      <div class="czas">ok. 0:11</div>
+      <div class="plik">czesc1/03.mp3</div>
+      <div class="slajd">slajd 3 — Czym jest teoria umysłu</div>
+    </div>
+    <div class="tresc">
+      <p class="rez">Rzeczowo. Trzy przymiotniki na końcu — pauza po każdym.</p>
+      <p class="kwestia">Teoria umysłu to zdolność przypisywania sobie i innym stanów mentalnych: przekonań, pragnień, zamiarów i emocji. Zapamiętaj trzy słowa: umysł drugiego człowieka jest niewidzialny, osobny i omylny.</p>
+    </div>
+  </article>
+  <article class="frag">
+    <div class="meta">
+      <div class="nr">04</div>
+      <div class="czas">ok. 0:14</div>
+      <div class="plik">czesc1/04.mp3</div>
+      <div class="slajd">slajd 4 — Dlaczego to fundament</div>
+    </div>
+    <div class="tresc">
+      <p class="rez">Mocno. Ostatnie zdanie to teza całego szkolenia; zwolnij i zostaw je wybrzmieć.</p>
+      <p class="kwestia">Bez teorii umysłu nie działa zabawa w role, nie działa język między słowami, nie działa przyjaźń ani ocena intencji. Dziecko z zaburzoną teorią umysłu nie jest niegrzeczne — ono jedzie po innych torach.</p>
+    </div>
+  </article>
+  <article class="frag">
+    <div class="meta">
+      <div class="nr">05</div>
+      <div class="czas">ok. 0:12</div>
+      <div class="plik">czesc1/05.mp3</div>
+      <div class="slajd">slajd 5 — Kamienie milowe rozwoju</div>
+    </div>
+    <div class="tresc">
+      <p class="rez">Neutralnie, informacyjnie. Nazwy etapów wyraźnie.</p>
+      <p class="kwestia">Rozwój teorii umysłu ma stałą kolejność i indywidualne tempo: od wspólnego pola uwagi, przez rozumienie pragnień, aż po fałszywe przekonania. W przedszkolu pracujemy na trzech pierwszych etapach.</p>
+    </div>
+  </article>
+  <article class="frag">
+    <div class="meta">
+      <div class="nr">06</div>
+      <div class="czas">ok. 0:13</div>
+      <div class="plik">czesc1/06.mp3</div>
+      <div class="slajd">slajd 6 — 0–2 lata: wspólne pole uwagi</div>
+    </div>
+    <div class="tresc">
+      <p class="rez">Spokojnie. „Nie ćwicz dachu” — z uśmiechem w głosie.</p>
+      <p class="kwestia">Zero do dwóch lat: wspólne pole uwagi. Dziecko uczy się śledzić wzrok opiekuna i dzielić zainteresowanie. Jeśli brakuje fundamentu, nie ćwicz dachu — wracamy tutaj niezależnie od metryki dziecka.</p>
+    </div>
+  </article>
+  <article class="frag">
+    <div class="meta">
+      <div class="nr">07</div>
+      <div class="czas">ok. 0:14</div>
+      <div class="plik">czesc1/07.mp3</div>
+      <div class="slajd">slajd 7 — 3–4 lata: rozumienie pragnień</div>
+    </div>
+    <div class="tresc">
+      <p class="rez">Rzeczowo, cieplej przy „na niby”.</p>
+      <p class="kwestia">Trzy do czterech lat: rozumienie pragnień. Inni mogą chcieć czegoś innego niż ja. Zabawa symboliczna jest treningiem trzymania w głowie dwóch rzeczywistości naraz, więc jest ćwiczeniem, a nie przerwą od ćwiczeń.</p>
+    </div>
+  </article>
+  <article class="frag">
+    <div class="meta">
+      <div class="nr">08</div>
+      <div class="czas">ok. 0:13</div>
+      <div class="plik">czesc1/08.mp3</div>
+      <div class="slajd">slajd 8 — 4–6 lat: fałszywe przekonania</div>
+    </div>
+    <div class="tresc">
+      <p class="rez">Narracyjnie, jak opowiadanie scenki. Zdanie o obserwacji — twardo.</p>
+      <p class="kwestia">Cztery do sześciu lat: fałszywe przekonania. Anna chowa zabawkę do pudełka, Basia wychodzi, zabawka zmienia miejsce. Dziecko z ukształtowaną teorią umysłu powie: Basia poszuka w pudełku. To obserwacja, nie diagnoza.</p>
+    </div>
+  </article>
+  <article class="frag">
+    <div class="meta">
+      <div class="nr">09</div>
+      <div class="czas">ok. 0:11</div>
+      <div class="plik">czesc1/09.mp3</div>
+      <div class="slajd">slajd 9 — Checklista obserwacyjna</div>
+    </div>
+    <div class="tresc">
+      <p class="rez">Ostrzegawczo, bez dramatyzmu. „Trzy, cztery tygodnie” — dobitnie.</p>
+      <p class="kwestia">Checklista obserwacyjna — dziesięć sygnałów, które widać w sali. Pojedyncze zachowanie nic nie znaczy. Niepokoi obraz, który utrzymuje się trzy, cztery tygodnie, w różnych sytuacjach.</p>
+    </div>
+  </article>
+  <article class="frag">
+    <div class="meta">
+      <div class="nr">10</div>
+      <div class="czas">ok. 0:10</div>
+      <div class="plik">czesc1/10.mp3</div>
+      <div class="slajd">slajd 10 — Grupy ryzyka</div>
+    </div>
+    <div class="tresc">
+      <p class="rez">Spokojna wyliczanka. „Opisujesz, nie orzekasz” — z naciskiem.</p>
+      <p class="kwestia">Grupy podwyższonego ryzyka to spektrum autyzmu, zaburzenia rozwoju językowego, dzieci niesłyszące, niepełnosprawność intelektualna, zaniedbanie oraz słabe funkcje wykonawcze. Twoja rola: opisujesz, nie orzekasz.</p>
+    </div>
+  </article>
+  <article class="frag">
+    <div class="meta">
+      <div class="nr">11</div>
+      <div class="czas">ok. 0:14</div>
+      <div class="plik">czesc1/11.mp3</div>
+      <div class="slajd">slajd 11 — Trzy mity</div>
+    </div>
+    <div class="tresc">
+      <p class="rez">Z lekkim naciskiem polemicznym — to obalanie mitów.</p>
+      <p class="kwestia">Trzy mity, które blokują pomoc. To dziecko ma empatię — osłabiona jest empatia poznawcza, nie afektywna. Ono wie, ale nie umie użyć wiedzy w emocjach. I najczęściej nie prowokuje, tylko nie przewidziało skutku.</p>
+    </div>
+  </article>
+  <article class="frag">
+    <div class="meta">
+      <div class="nr">12</div>
+      <div class="czas">ok. 0:11</div>
+      <div class="plik">czesc1/12.mp3</div>
+      <div class="slajd">slajd 12 — Dwie perspektywy</div>
+    </div>
+    <div class="tresc">
+      <p class="rez">Refleksyjnie. Pytanie na końcu zostaw wybrzmieć, nie doklejaj następnego zdania.</p>
+      <p class="kwestia">Ta sama sytuacja, dwa różne pociągi: rozbita wieża, kolejka do szatni, urodziny w grupie. Zanim zareagujesz, zapytaj siebie — czego to dziecko mogło nie zobaczyć?</p>
+    </div>
+  </article>
+  <article class="frag">
+    <div class="meta">
+      <div class="nr">13</div>
+      <div class="czas">ok. 0:12</div>
+      <div class="plik">czesc1/13.mp3</div>
+      <div class="slajd">slajd 13 — Podwójne obciążenie</div>
+    </div>
+    <div class="tresc">
+      <p class="rez">Poważnie. Przed „nigdy odwrotnie” zrób pauzę.</p>
+      <p class="kwestia">Zasoby uwagi są jedne. Hałas, tłok i własne napięcie zjadają je, zanim dziecko pomyśli o cudzym umyśle. Zasada numer jeden: ciało najpierw, regulacja przed poznaniem, nigdy odwrotnie.</p>
+    </div>
+  </article>
+  <article class="frag">
+    <div class="meta">
+      <div class="nr">14</div>
+      <div class="czas">ok. 0:10</div>
+      <div class="plik">czesc1/14.mp3</div>
+      <div class="slajd">slajd 14 — Procedura sesji</div>
+    </div>
+    <div class="tresc">
+      <p class="rez">Rzeczowo, instruktażowo. Nazwy czterech etapów oddziel pauzami.</p>
+      <p class="kwestia">Sesja od ciała do umysłu ma cztery etapy: proprioceptywny, transformacja, trening i ewaluacja. W przedszkolu to około dwudziestu minut. Kolejność etapów jest nienaruszalna.</p>
+    </div>
+  </article>
+  <article class="frag">
+    <div class="meta">
+      <div class="nr">15</div>
+      <div class="czas">ok. 0:09</div>
+      <div class="plik">czesc1/15.mp3</div>
+      <div class="slajd">slajd 15 — Etap 1: Termometr Emocji</div>
+    </div>
+    <div class="tresc">
+      <p class="rez">Instruktażowo. „Powąchaj kwiatek, zdmuchnij świeczkę” — miękko, jak do dziecka.</p>
+      <p class="kwestia">Etap pierwszy. Termometr emocji, pięć poziomów. Powyżej trójki najpierw ciało: docisk, praca ciężka, oddech. U przedszkolaka mówimy: powąchaj kwiatek, zdmuchnij świeczkę.</p>
+    </div>
+  </article>
+  <article class="frag">
+    <div class="meta">
+      <div class="nr">16</div>
+      <div class="czas">ok. 0:13</div>
+      <div class="plik">czesc1/16.mp3</div>
+      <div class="slajd">slajd 16 — Etap 2: technika Carol Gray</div>
+    </div>
+    <div class="tresc">
+      <p class="rez">Spokojnie i obrazowo. Kolory dymków wymów wyraźnie.</p>
+      <p class="kwestia">Etap drugi, technika Carol Gray. Dymek biały to to, co ktoś mówi, dymek niebieski to to, co ktoś myśli. Rysuj przy dziecku, zaraz po zdarzeniu — patyczaki w zupełności wystarczą.</p>
+    </div>
+  </article>
+  <article class="frag">
+    <div class="meta">
+      <div class="nr">17</div>
+      <div class="czas">ok. 0:11</div>
+      <div class="plik">czesc1/17.mp3</div>
+      <div class="slajd">slajd 17 — Etap 3: trening</div>
+    </div>
+    <div class="tresc">
+      <p class="rez">Wyliczanka czterech poziomów, pauza między każdym.</p>
+      <p class="kwestia">Etap trzeci, trening. Progresja: widzieć znaczy wiedzieć, niespodziewana zawartość, nieoczekiwane przeniesienie i ukryta emocja. Daj pięć do dziesięciu sekund ciszy i nie poprawiaj natychmiast.</p>
+    </div>
+  </article>
+  <article class="frag">
+    <div class="meta">
+      <div class="nr">18</div>
+      <div class="czas">ok. 0:11</div>
+      <div class="plik">czesc1/18.mp3</div>
+      <div class="slajd">slajd 18 — Etap 4: ewaluacja</div>
+    </div>
+    <div class="tresc">
+      <p class="rez">Dobitnie — to zasada do zapamiętania. Nie przyspieszaj na końcu.</p>
+      <p class="kwestia">Etap czwarty. Nagradzamy próbę poznawczą, nie poprawną odpowiedź — błąd jest częścią nauki. Żeton natychmiast, nagroda tego samego dnia, kontrakt obrazkowy z maksymalnie trzema celami.</p>
+    </div>
+  </article>
+  <article class="frag">
+    <div class="meta">
+      <div class="nr">19</div>
+      <div class="czas">ok. 0:15</div>
+      <div class="plik">czesc1/19.mp3</div>
+      <div class="slajd">slajd 19 — Język mentalny</div>
+    </div>
+    <div class="tresc">
+      <p class="rez">Powoli. Siedem słów wyliczaj z wyraźnymi pauzami, jak paciorki.</p>
+      <p class="kwestia">Mów wprost o tym, czego nie widać. Zamiast: przeproś Kubę — powiedz: Kuba myślał, że wieża zostanie, teraz jest smutny. Siedem słów, które budują teorię umysłu: myśli, wie, nie wie, chce, pamiętał, zapomniał, sądził.</p>
+    </div>
+  </article>
+  <article class="frag">
+    <div class="meta">
+      <div class="nr">20</div>
+      <div class="czas">ok. 0:12</div>
+      <div class="plik">czesc1/20.mp3</div>
+      <div class="slajd">slajd 20 — Zabawa i książka</div>
+    </div>
+    <div class="tresc">
+      <p class="rez">Zachęcająco, lżejszym tonem. Porównanie na końcu — z przekonaniem.</p>
+      <p class="kwestia">Ćwicz w naturalnej sytuacji: zabawa w chowanego z komentarzem, teatrzyk kukiełkowy, wspólne czytanie z pytaniami o myśli bohatera. Dziesięć minut zabawy uczy więcej niż trzydzieści minut karty pracy.</p>
+    </div>
+  </article>
+  <article class="frag">
+    <div class="meta">
+      <div class="nr">21</div>
+      <div class="czas">ok. 0:11</div>
+      <div class="plik">czesc1/21.mp3</div>
+      <div class="slajd">slajd 21 — Niezbędnik nauczyciela</div>
+    </div>
+    <div class="tresc">
+      <p class="rez">Rzeczowo, jak lista rzeczy do przygotowania.</p>
+      <p class="kwestia">Niezbędnik nauczyciela: karty teraz-potem, piktogramy stanów mentalnych, termometr emocji, timer wizualny, kontrakt i system żetonowy. W przedszkolu najważniejsze są autorskie historyjki, pisane pod konkretne dziecko.</p>
+    </div>
+  </article>
+  <article class="frag">
+    <div class="meta">
+      <div class="nr">22</div>
+      <div class="czas">ok. 0:13</div>
+      <div class="plik">czesc1/22.mp3</div>
+      <div class="slajd">slajd 22 — Własna historyjka</div>
+    </div>
+    <div class="tresc">
+      <p class="rez">Ciepło, opowiadając. Tytuł historyjki wymów starannie.</p>
+      <p class="kwestia">Napisz własną historyjkę w czterech częściach: problem, spotkanie, metafora, zmiana. Wzorem jest Peron numer jeden i tajemnica obcych pociągów. Dla przedszkolaka: sześć do ośmiu zdań i jedna ilustracja do każdego.</p>
+    </div>
+  </article>
+  <article class="frag">
+    <div class="meta">
+      <div class="nr">23</div>
+      <div class="czas">ok. 0:12</div>
+      <div class="plik">czesc1/23.mp3</div>
+      <div class="slajd">slajd 23 — Czego unikać</div>
+    </div>
+    <div class="tresc">
+      <p class="rez">Stanowczo przy tym, czego unikać; wyraźnie cieplej przy tym, co stosować.</p>
+      <p class="kwestia">Czego unikać: pracy poznawczej przy wysokim pobudzeniu, porównywania z rówieśnikami, ironii i publicznego omawiania zachowania. Co stosować: termometr emocji, metafory z pasji dziecka, wizualizacje i czas na przetworzenie.</p>
+    </div>
+  </article>
+  <article class="frag">
+    <div class="meta">
+      <div class="nr">24</div>
+      <div class="czas">ok. 0:14</div>
+      <div class="plik">czesc1/24.mp3</div>
+      <div class="slajd">slajd 24 — Rodzice i dokumentacja</div>
+    </div>
+    <div class="tresc">
+      <p class="rez">Profesjonalnie. Skróty czytaj literami: wu-o-pe-ef-u, i-pet.</p>
+      <p class="kwestia">Z rodzicami rozmawiaj danymi, nie wrażeniami. Zdanie: zauważyłam, że w czterech na pięć obserwowanych sytuacji… otwiera rozmowę lepiej niż każda etykieta. Ścieżka: obserwacja, pomoc psychologiczno-pedagogiczna, poradnia, a przy orzeczeniu WOPFU i IPET.</p>
+    </div>
+  </article>
+  <article class="frag">
+    <div class="meta">
+      <div class="nr">25</div>
+      <div class="czas">ok. 0:18</div>
+      <div class="plik">czesc1/25.mp3</div>
+      <div class="slajd">slajd 25 — Plan 30 dni</div>
+    </div>
+    <div class="tresc">
+      <p class="rez">Wolno. Cytat o pociągach — najwolniej w całym nagraniu, z pauzą przed.</p>
+      <p class="kwestia">Plan na trzydzieści dni: tydzień obserwacji, tydzień języka mentalnego, tydzień procedury, tydzień pracy z otoczeniem. I zdanie na koniec: każde dziecko to osobny pociąg. Twoja rola to nie zmienić jego trasy, lecz pomóc mu zrozumieć, że inne pociągi mają swoje własne tory.</p>
+    </div>
+  </article>
+
+  <div class="czesc" style="margin-top:56px">
+    <p class="nazwa">Nagranie drugie — Część II, klasy 1–3</p>
+    <p class="info">25 kwestii · ok. 5,8 minuty materiału · pliki <b>01.mp3 – 25.mp3</b> do katalogu <b>czesc2</b></p>
+  </div>
+  <article class="frag">
+    <div class="meta">
+      <div class="nr">01</div>
+      <div class="czas">ok. 0:09</div>
+      <div class="plik">czesc2/01.mp3</div>
+      <div class="slajd">slajd 1 — Tytuł</div>
+    </div>
+    <div class="tresc">
+      <p class="rez">Powitanie. „Część druga” powiedz wyraźnie — to inne szkolenie niż pierwsze.</p>
+      <p class="kwestia">Mosty społeczne w klasach jeden do trzech. Część druga programu Budowanie mostów społecznych: myśl a fakt, żart, ironia i konflikt rówieśniczy.</p>
+    </div>
+  </article>
+  <article class="frag">
+    <div class="meta">
+      <div class="nr">02</div>
+      <div class="czas">ok. 0:13</div>
+      <div class="plik">czesc2/02.mp3</div>
+      <div class="slajd">slajd 2 — Mapa szkolenia</div>
+    </div>
+    <div class="tresc">
+      <p class="rez">Dwa zdania w kontraście — oddziel je wyraźną pauzą.</p>
+      <p class="kwestia">Część druga nie powtarza pierwszej. W przedszkolu uczyliśmy: on może czegoś nie wiedzieć. W klasach jeden do trzech uczymy: to, co pomyślałem o drugiej osobie, nie musi być prawdą.</p>
+    </div>
+  </article>
+  <article class="frag">
+    <div class="meta">
+      <div class="nr">03</div>
+      <div class="czas">ok. 0:14</div>
+      <div class="plik">czesc2/03.mp3</div>
+      <div class="slajd">slajd 3 — Przypomnienie z Części I</div>
+    </div>
+    <div class="tresc">
+      <p class="rez">Szybciej, to przypomnienie. Ale „nie inteligencja i nie wychowanie” — dobitnie.</p>
+      <p class="kwestia">Krótkie przypomnienie. Teoria umysłu to nie inteligencja i nie wychowanie, tylko oddzielna umiejętność poznawcza. Uczeń pierwszej klasy zwykle ma już fałszywe przekonanie pierwszego rzędu, ale nie radzi sobie z tym, co niedosłowne.</p>
+    </div>
+  </article>
+  <article class="frag">
+    <div class="meta">
+      <div class="nr">04</div>
+      <div class="czas">ok. 0:15</div>
+      <div class="plik">czesc2/04.mp3</div>
+      <div class="slajd">slajd 4 — Co zmienia szkoła</div>
+    </div>
+    <div class="tresc">
+      <p class="rez">Równa wyliczanka sześciu punktów. Puenta o przerwie — wolniej.</p>
+      <p class="kwestia">Szkoła podnosi poprzeczkę w sześciu miejscach naraz: grupa zamiast pary, przerwa bez struktury, język, który nie znaczy tego, co mówi, praca w grupie, ocena i hałas. Przerwa jest obszarem pracy, a nie przerwą od pracy.</p>
+    </div>
+  </article>
+  <article class="frag">
+    <div class="meta">
+      <div class="nr">05</div>
+      <div class="czas">ok. 0:14</div>
+      <div class="plik">czesc2/05.mp3</div>
+      <div class="slajd">slajd 5 — Rozwój 6–12 lat</div>
+    </div>
+    <div class="tresc">
+      <p class="rez">Rzeczowo. „Nie jest oporny” — z naciskiem i pauzą po.</p>
+      <p class="kwestia">Na osi rozwoju klasy jeden do trzech to dwa środkowe pola: przekonania drugiego rzędu oraz ironia i metafory. Ośmiolatek, który nie rozumie sarkazmu, nie jest oporny — jest przed tym etapem.</p>
+    </div>
+  </article>
+  <article class="frag">
+    <div class="meta">
+      <div class="nr">06</div>
+      <div class="czas">ok. 0:14</div>
+      <div class="plik">czesc2/06.mp3</div>
+      <div class="slajd">slajd 6 — Przekonania II rzędu</div>
+    </div>
+    <div class="tresc">
+      <p class="rez">Narracyjnie, jak scenka. Pytanie na końcu zostaw wybrzmieć.</p>
+      <p class="kwestia">Przekonania drugiego rzędu. Pani mówi Oli o wycieczce, Kuba dowiaduje się na korytarzu, a Ola tego nie widzi. Pytanie brzmi: co Ola myśli, że Kuba wie? To warunek rozumienia tajemnicy, plotki i żartu.</p>
+    </div>
+  </article>
+  <article class="frag">
+    <div class="meta">
+      <div class="nr">07</div>
+      <div class="czas">ok. 0:14</div>
+      <div class="plik">czesc2/07.mp3</div>
+      <div class="slajd">slajd 7 — Myśl a fakt</div>
+    </div>
+    <div class="tresc">
+      <p class="rez">Powoli — to serce części drugiej. Trzy pytania wyliczaj z pauzami.</p>
+      <p class="kwestia">Najważniejsze rozróżnienie tego etapu: myśl a fakt. Kuba nie odpowiedział na cześć — to fakt. Kuba mnie nie lubi — to myśl. Po każdym konflikcie trzy pytania: co widziałem, co pomyślałem, jak sprawdzę.</p>
+    </div>
+  </article>
+  <article class="frag">
+    <div class="meta">
+      <div class="nr">08</div>
+      <div class="czas">ok. 0:14</div>
+      <div class="plik">czesc2/08.mp3</div>
+      <div class="slajd">slajd 8 — Ukryta emocja</div>
+    </div>
+    <div class="tresc">
+      <p class="rez">Ciepło, ze zrozumieniem dla obu typów uczniów. Bez oceniania.</p>
+      <p class="kwestia">Ukryta emocja i twarz szkolna. Jedni mówią wprost wszystko, co czują, inni maskują przez sześć godzin i wybuchają dopiero w domu. Pytaj przed trudną sytuacją, nie po niej, i umów sygnał wyjścia.</p>
+    </div>
+  </article>
+  <article class="frag">
+    <div class="meta">
+      <div class="nr">09</div>
+      <div class="czas">ok. 0:14</div>
+      <div class="plik">czesc2/09.mp3</div>
+      <div class="slajd">slajd 9 — Checklista szkolna</div>
+    </div>
+    <div class="tresc">
+      <p class="rez">Rzeczowo. „Przewaga przerwy jest miażdżąca” — z naciskiem.</p>
+      <p class="kwestia">Checklista szkolna, dziesięć sygnałów. Policz, ile z nich dotyczy przerwy, a ile lekcji. U większości uczniów z deficytem teorii umysłu przewaga przerwy jest miażdżąca — i to mówi, gdzie zacząć pracę.</p>
+    </div>
+  </article>
+  <article class="frag">
+    <div class="meta">
+      <div class="nr">10</div>
+      <div class="czas">ok. 0:14</div>
+      <div class="plik">czesc2/10.mp3</div>
+      <div class="slajd">slajd 10 — Mapa dnia szkolnego</div>
+    </div>
+    <div class="tresc">
+      <p class="rez">Spokojnie, jak przewodnik po dniu szkolnym.</p>
+      <p class="kwestia">Mapa dnia szkolnego: przerwa, praca w grupie, żart, świetlica, ocena. Przy każdej sytuacji jedno pytanie — czego ten uczeń mógł nie zobaczyć — i jedna reakcja, która uczy więcej niż uwaga.</p>
+    </div>
+  </article>
+  <article class="frag">
+    <div class="meta">
+      <div class="nr">11</div>
+      <div class="czas">ok. 0:12</div>
+      <div class="plik">czesc2/11.mp3</div>
+      <div class="slajd">slajd 11 — Żart, ironia, przezwisko</div>
+    </div>
+    <div class="tresc">
+      <p class="rez">Z troską. „Śmieją się wszyscy” — wyraźnie, to gotowa zasada dla klasy.</p>
+      <p class="kwestia">Żart, ironia i przezwisko to najostrzejszy zakręt tego etapu. Ucz zdania sprawdzającego: mówisz poważnie czy żartujesz? I zasady dla całej klasy: żart jest wtedy, gdy śmieją się wszyscy.</p>
+    </div>
+  </article>
+  <article class="frag">
+    <div class="meta">
+      <div class="nr">12</div>
+      <div class="czas">ok. 0:13</div>
+      <div class="plik">czesc2/12.mp3</div>
+      <div class="slajd">slajd 12 — Skarżenie i sprawiedliwość</div>
+    </div>
+    <div class="tresc">
+      <p class="rez">Wyjaśniająco, bez oceniania. Ten fragment zdejmuje z ucznia winę.</p>
+      <p class="kwestia">Zgłaszanie to rzadko skarżenie. Ocena po skutku to nie złośliwość. A kłamstwo wymaga wytworzenia w cudzej głowie fałszywego przekonania — dlatego ci uczniowie kłamią nieudolnie i nie utrzymują tajemnic.</p>
+    </div>
+  </article>
+  <article class="frag">
+    <div class="meta">
+      <div class="nr">13</div>
+      <div class="czas">ok. 0:12</div>
+      <div class="plik">czesc2/13.mp3</div>
+      <div class="slajd">slajd 13 — Podwójne obciążenie</div>
+    </div>
+    <div class="tresc">
+      <p class="rez">Poważnie. „Strata czasu dla obu stron” — dobitnie.</p>
+      <p class="kwestia">W szkole obciążenie sensoryczne rośnie. Rozmowa wychowawcza tuż po konflikcie, przy pobudzeniu cztery czy pięć, jest stratą czasu dla obu stron. Najpierw regulacja, rozmowa po dwudziestu minutach.</p>
+    </div>
+  </article>
+  <article class="frag">
+    <div class="meta">
+      <div class="nr">14</div>
+      <div class="czas">ok. 0:12</div>
+      <div class="plik">czesc2/14.mp3</div>
+      <div class="slajd">slajd 14 — Procedura sesji w szkole</div>
+    </div>
+    <div class="tresc">
+      <p class="rez">Instruktażowo, konkretnie o czasie i miejscu w tygodniu.</p>
+      <p class="kwestia">Sesja od ciała do umysłu w szkole: trzydzieści minut, cztery etapy. Zmieścisz ją w zajęciach rewalidacyjnych, w zajęciach rozwijających kompetencje emocjonalno-społeczne albo w godzinie wychowawczej dla całej klasy.</p>
+    </div>
+  </article>
+  <article class="frag">
+    <div class="meta">
+      <div class="nr">15</div>
+      <div class="czas">ok. 0:12</div>
+      <div class="plik">czesc2/15.mp3</div>
+      <div class="slajd">slajd 15 — Etap 1: regulacja w klasie</div>
+    </div>
+    <div class="tresc">
+      <p class="rez">Ciszej, niemal poufnie — cały fragment jest o dyskrecji.</p>
+      <p class="kwestia">Etap pierwszy: regulacja, której nie widzi cała klasa. Termometr w piórniku, praca ciężka, dyskretny docisk, oddech cztery-siedem-osiem. I umówiona karta wyjścia, z której uczeń korzysta bez tłumaczenia się.</p>
+    </div>
+  </article>
+  <article class="frag">
+    <div class="meta">
+      <div class="nr">16</div>
+      <div class="czas">ok. 0:13</div>
+      <div class="plik">czesc2/16.mp3</div>
+      <div class="slajd">slajd 16 — Etap 2: komiks rozmowy</div>
+    </div>
+    <div class="tresc">
+      <p class="rez">Obrazowo. „Ostatni kwadrat” — z naciskiem, to najważniejsze zdanie.</p>
+      <p class="kwestia">Etap drugi: komiks rozmowy. Dymek biały to słowa, niebieski to myśli, do tego kolor emocji. Najważniejszy jest ostatni kwadrat, w którym uczeń sam rysuje, jak mogłoby to wyglądać następnym razem.</p>
+    </div>
+  </article>
+  <article class="frag">
+    <div class="meta">
+      <div class="nr">17</div>
+      <div class="czas">ok. 0:13</div>
+      <div class="plik">czesc2/17.mp3</div>
+      <div class="slajd">slajd 17 — Etap 3: trening</div>
+    </div>
+    <div class="tresc">
+      <p class="rez">Wyliczanka poziomów z pauzami. Ostatnie zdanie — wolniej.</p>
+      <p class="kwestia">Etap trzeci: trening. Fakt czy myśl, trzy wyjaśnienia do jednego faktu, przekonania drugiego rzędu, a na końcu żart i gafa. Materiał bierz z tego, co wydarzyło się w tym tygodniu.</p>
+    </div>
+  </article>
+  <article class="frag">
+    <div class="meta">
+      <div class="nr">18</div>
+      <div class="czas">ok. 0:13</div>
+      <div class="plik">czesc2/18.mp3</div>
+      <div class="slajd">slajd 18 — Historyjki społeczne</div>
+    </div>
+    <div class="tresc">
+      <p class="rez">Rzeczowo. Proporcję „co najmniej dwa” powiedz wyraźnie.</p>
+      <p class="kwestia">Historyjka społeczna ma cztery rodzaje zdań: opisowe, perspektywiczne, dyrektywne i afirmatywne. Na jedno zdanie mówiące, co uczeń ma zrobić, przypadają co najmniej dwa opisujące świat. Czytaj ją, zanim sytuacja nastąpi.</p>
+    </div>
+  </article>
+  <article class="frag">
+    <div class="meta">
+      <div class="nr">19</div>
+      <div class="czas">ok. 0:13</div>
+      <div class="plik">czesc2/19.mp3</div>
+      <div class="slajd">slajd 19 — Etap 4: ewaluacja</div>
+    </div>
+    <div class="tresc">
+      <p class="rez">Dobitnie przy „próbę, nie wynik”. Wpis do dokumentacji — spokojnie.</p>
+      <p class="kwestia">Etap czwarty: nagradzamy próbę, nie wynik. Kontrakt z trzema celami, podpisany przez ucznia. Żeton po cichu, bez ogłaszania klasie. A wpis do dokumentacji w trzech zdaniach: sytuacja, próba, wniosek.</p>
+    </div>
+  </article>
+  <article class="frag">
+    <div class="meta">
+      <div class="nr">20</div>
+      <div class="czas">ok. 0:15</div>
+      <div class="plik">czesc2/20.mp3</div>
+      <div class="slajd">slajd 20 — Język klasy</div>
+    </div>
+    <div class="tresc">
+      <p class="rez">Przykłady czytaj jak dialog — lekko zmień barwę na cytatach.</p>
+      <p class="kwestia">Język klasy. Zamiast: przeproś Antka — powiedz: Antek myślał, że gracie razem, teraz jest mu przykro. A gdy konflikt dzieje się przy dwudziestu świadkach: przerwij, odsuń rozmowę, a potem fakt, myśl, sprawdzenie i naprawa.</p>
+    </div>
+  </article>
+  <article class="frag">
+    <div class="meta">
+      <div class="nr">21</div>
+      <div class="czas">ok. 0:11</div>
+      <div class="plik">czesc2/21.mp3</div>
+      <div class="slajd">slajd 21 — Rówieśnicy i przerwa</div>
+    </div>
+    <div class="tresc">
+      <p class="rez">Energicznie, to praktyczne rozwiązania. „Nigdy jeden stały opiekun” — twardo.</p>
+      <p class="kwestia">Przerwa i grupa rozstrzygają wszystko. Krąg wsparcia z trzech ochotników, plan przerwy z rolą zamiast zachęty i zasady dla całej klasy. Nigdy jeden stały opiekun.</p>
+    </div>
+  </article>
+  <article class="frag">
+    <div class="meta">
+      <div class="nr">22</div>
+      <div class="czas">ok. 0:12</div>
+      <div class="plik">czesc2/22.mp3</div>
+      <div class="slajd">slajd 22 — Historyjka o Adamie</div>
+    </div>
+    <div class="tresc">
+      <p class="rez">Ciepło, narracyjnie. Ostatnie pytanie skieruj wprost do słuchacza.</p>
+      <p class="kwestia">Historyjka o Adamie i dwadzieścia pytań w trzech sekcjach: rozpoznawanie emocji, perspektywa i teoria umysłu, samoregulacja. Ostatnie pytanie personalizuje całość: a jak ty wytłumaczysz brak uśmiechu kolegi?</p>
+    </div>
+  </article>
+  <article class="frag">
+    <div class="meta">
+      <div class="nr">23</div>
+      <div class="czas">ok. 0:12</div>
+      <div class="plik">czesc2/23.mp3</div>
+      <div class="slajd">slajd 23 — Czego unikać</div>
+    </div>
+    <div class="tresc">
+      <p class="rez">Stanowczo przy tym, czego unikać; cieplej przy tym, co stosować.</p>
+      <p class="kwestia">Czego unikać: rozmowy przy wysokim pobudzeniu, omawiania zachowania przy klasie, przeprosin na rozkaz, porównywania i ironii. Co stosować: termometr, trzy pytania, komiks rozmowy i rolę zamiast zachęty.</p>
+    </div>
+  </article>
+  <article class="frag">
+    <div class="meta">
+      <div class="nr">24</div>
+      <div class="czas">ok. 0:14</div>
+      <div class="plik">czesc2/24.mp3</div>
+      <div class="slajd">slajd 24 — Rodzice i dokumentacja</div>
+    </div>
+    <div class="tresc">
+      <p class="rez">Rzeczowo. „Kara za objaw” — z naciskiem i pauzą po.</p>
+      <p class="kwestia">Z rodzicami rozmawiaj danymi. Pamiętaj o świetlicy — najczęściej pomijanej, a trwającej najdłużej. I o ocenie zachowania: trudność w mentalizacji nie jest przewinieniem, więc obniżona ocena działa jak kara za objaw.</p>
+    </div>
+  </article>
+  <article class="frag">
+    <div class="meta">
+      <div class="nr">25</div>
+      <div class="czas">ok. 0:15</div>
+      <div class="plik">czesc2/25.mp3</div>
+      <div class="slajd">slajd 25 — Plan 30 dni</div>
+    </div>
+    <div class="tresc">
+      <p class="rez">Wolno, ciepło. Cytat o pociągach — najwolniej, z pauzą przed.</p>
+      <p class="kwestia">Plan na trzydzieści dni: obserwacja, język, procedura, klasa. I zdanie na koniec: każde dziecko to osobny pociąg. Twoja rola to nie zmienić jego trasy, lecz pomóc mu zrozumieć, że inne pociągi mają swoje własne tory.</p>
+    </div>
+  </article>
+
+  <p class="stopka">
+    <b>Scenariusz nagrania lektorskiego do filmów szkoleniowych „Budowanie mostów społecznych”.</b><br>
+    Opracowanie: Mirosława Ewa Jurczyszyn · PCTP Koszalin · 2026.<br>
+    Ten sam tekst w wersji do wklejenia w generator mowy: <b>tekst-lektorski-czesc1.txt</b> i <b>tekst-lektorski-czesc2.txt</b>.
+  </p>
+</div>
