@@ -82,6 +82,28 @@ class Broszura:
         self.linie = linie or {}
         self.tytul_biezacy = f'{self.meta["tytul"]} {self.meta.get("podtytul_okladki","")}'.strip()
 
+    def logo_css(self):
+        """Logo z pliku wstawiamy raz, jako tło w CSS.
+
+        Znak wraca w stopce każdej strony — gdyby był osobnym `<img>`, ten sam
+        obraz powtórzyłby się w pliku ponad sto razy. Jako tło jest zdefiniowany
+        jeden raz i tylko do niego się odwołujemy.
+        """
+        plik = self.w.get("logo_obraz")
+        if not plik:
+            return ""
+        uri, _, _ = obrazy.osadz(plik, self.katalog_grafik)
+        return ("<style>.logo-foto,.f-znak .mark-foto{background-image:url(" + uri + ")}</style>")
+
+    def znak_stopki(self):
+        return ('<span class="mark-foto"></span>' if self.w.get("logo_obraz")
+                else S.logo_use())
+
+    def logo_duze(self):
+        if self.w.get("logo_obraz"):
+            return '<div class="logo-foto" role="img" aria-label="Logo ' + E(self.w["organizacja"]) + '"></div>'
+        return rysunek(self.w.get("logo_svg", "logo_pctp"))
+
     def ilustracja(self, zrodlo, extra="", cap=""):
         """Buduje figurę z danych. `obraz` (plik) ma pierwszeństwo przed `ilustracja` (wektor)."""
         if isinstance(zrodlo, dict):
@@ -96,13 +118,13 @@ class Broszura:
 
     # ---- stopki ----
     def stopka_ogolna(self):
-        return (f'<footer class="r-foot"><span class="f-znak">{S.logo_use()}'
+        return (f'<footer class="r-foot"><span class="f-znak">{self.znak_stopki()}'
                 f'<b>{E(self.w.get("skrot","")) }</b> · {E(self.tytul_biezacy)}</span>'
                 f'<span class="f-srodek">{E(self.w["organizacja"])}</span>'
                 f'<span class="f-nr"></span></footer>')
 
     def stopka_rozdzialu(self, nr, part):
-        return (f'<footer class="r-foot"><span class="f-znak">{S.logo_use()}'
+        return (f'<footer class="r-foot"><span class="f-znak">{self.znak_stopki()}'
                 f'<b>{E(self.w.get("skrot",""))}</b> · {E(self.tytul_biezacy)}</span>'
                 f'<span class="f-srodek">rozdział {nr}/{len(self.R)} · część {part} z 3</span>'
                 f'<span class="f-nr"></span></footer>')
@@ -122,7 +144,7 @@ class Broszura:
 <section class="page okladka" id="okladka">
   <div class="ok-tlo">{okladka_grafika}</div>
   <div class="ok-tresc">
-    <div class="ok-logo">{rysunek(w.get("logo_svg","logo_pctp"))}</div>
+    <div class="ok-logo">{self.logo_duze()}</div>
     <p class="ok-org">{E(w["organizacja"])}</p>
     <p class="ok-nad">{E(m.get("nadtytul","Adaptacja lektury dla młodzieży ze spektrum autyzmu"))}</p>
     <h1>{E(m["tytul"])}<br><span>{E(m.get("podtytul_okladki",""))}</span></h1>
@@ -683,7 +705,7 @@ class Broszura:
     <div><b>Zastosowanie</b><span>{E(m.get("zastosowanie",""))}</span></div>
   </div>
   <div class="metryczka">
-    <div class="m-logo">{rysunek(w.get("logo_svg","logo_pctp"))}</div>
+    <div class="m-logo">{self.logo_duze()}</div>
     <div class="m-dane">
       <p class="m-org">{E(w["organizacja"])}</p>
       <p class="m-autor">opracowanie: <b>{E(w["autorka"])}</b></p>

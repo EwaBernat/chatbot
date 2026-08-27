@@ -18,10 +18,33 @@ C = {
     "rose2": "#F0A9BE",
     "sand": "#F3E7C9",
     "ink": "#08251C",
+    "szal": "#BFD9EF",
+    "szal2": "#8FBBDD",
+    "wlosy": "#F2C75C",
+    "wlosy2": "#D9A93B",
+    "skora": "#F7E3CE",
+    "fiolet": "#4A3E7A",
+    "fiolet2": "#2E2752",
 }
+
+def _wash(x, y, r, kolor, moc=".22", uid=""):
+    """Miękka plama koloru — imituje lawowanie akwarelowe."""
+    return (f'<circle cx="{x}" cy="{y}" r="{r}" fill="{kolor}" opacity="{moc}" '
+            f'filter="url(#rozmyj{uid})"/>')
+
 
 def _defs(uid):
     return f'''<defs>
+<filter id="rozmyj{uid}" x="-40%" y="-40%" width="180%" height="180%">
+<feGaussianBlur stdDeviation="14"/></filter>
+<filter id="miekko{uid}" x="-25%" y="-25%" width="150%" height="150%">
+<feGaussianBlur stdDeviation="3.2"/></filter>
+<linearGradient id="plaszcz{uid}" x1="0" y1="0" x2="0.3" y2="1">
+<stop offset="0%" stop-color="{C['m2']}"/><stop offset="100%" stop-color="{C['d3']}"/>
+</linearGradient>
+<linearGradient id="wlos{uid}" x1="0" y1="0" x2="0" y2="1">
+<stop offset="0%" stop-color="{C['wlosy']}"/><stop offset="100%" stop-color="{C['wlosy2']}"/>
+</linearGradient>
 <linearGradient id="sky{uid}" x1="0" y1="0" x2="0" y2="1">
 <stop offset="0%" stop-color="{C['d1']}"/><stop offset="60%" stop-color="{C['d2']}"/><stop offset="100%" stop-color="{C['d3']}"/>
 </linearGradient>
@@ -51,51 +74,73 @@ def _sparkle(x, y, s, col=None):
 
 # ---------- 1. OKLADKA ----------
 def cover():
-    return f'''<svg viewBox="0 0 420 300" preserveAspectRatio="xMidYMax slice" role="img" aria-label="Maly Ksiaze na swojej planecie z roza pod kloszem, gwiazdziste niebo">
+    """Maly Ksiaze na swojej planecie: miekkie lawowania, zielony plaszcz, blekitny szal."""
+    return f'''<svg viewBox="0 0 420 300" preserveAspectRatio="xMidYMax slice" role="img" aria-label="Maly Ksiaze na swojej planecie, ze szalem na wietrze i gwiazdka w dloni">
 {_defs("cv")}
 <rect width="420" height="300" fill="url(#skycv)"/>
+{_wash(90, 70, 90, C['fiolet'], '.42', 'cv')}
+{_wash(330, 104, 96, C['fiolet2'], '.36', 'cv')}
+{_wash(210, 36, 110, C['d3'], '.28', 'cv')}
 {stars()}
-{_sparkle(352,58,7)}{_sparkle(58,84,5)}{_sparkle(300,26,4)}
+{_sparkle(352, 58, 7)}{_sparkle(58, 84, 5)}{_sparkle(300, 26, 4)}{_sparkle(140, 46, 4)}
 <circle cx="210" cy="252" r="150" fill="url(#glowcv)"/>
-<!-- planeta -->
-<circle cx="210" cy="268" r="96" fill="url(#plcv)"/>
-<path d="M124 244a96 96 0 0 1 172 0 96 96 0 0 0-172 0Z" fill="{C['m3']}" opacity=".35"/>
-<ellipse cx="156" cy="290" rx="22" ry="10" fill="{C['d3']}" opacity=".4"/>
-<ellipse cx="256" cy="300" rx="16" ry="8" fill="{C['d3']}" opacity=".35"/>
-<!-- wulkany -->
-<path d="M120 262l15-21 15 21z" fill="{C['d2']}"/><path d="M128 244q7-11 14 0z" fill="{C['gold']}" opacity=".75"/>
-<path d="M286 276l12-16 12 16z" fill="{C['d2']}"/>
-<!-- roza pod kloszem -->
-<g transform="translate(268,196)">
-<path d="M0 46V22" stroke="{C['d2']}" stroke-width="3" stroke-linecap="round"/>
-<path d="M0 34c-9-2-13-8-13-8s9-3 13 3z" fill="{C['m1']}"/>
-<circle cx="0" cy="16" r="9" fill="{C['rose']}"/><circle cx="0" cy="16" r="4.5" fill="{C['rose2']}"/>
-<path d="M-17 46a17 30 0 0 1 34 0z" fill="{C['l1']}" opacity=".28"/>
-<path d="M-17 46a17 30 0 0 1 34 0" fill="none" stroke="{C['l2']}" stroke-width="1.6" opacity=".8"/>
-<rect x="-19" y="45" width="38" height="4" rx="2" fill="{C['l2']}" opacity=".8"/>
+
+<circle cx="210" cy="272" r="98" fill="url(#plcv)"/>
+<path d="M112 250a98 98 0 0 1 196 0 98 98 0 0 0-196 0Z" fill="{C['m3']}" opacity=".32"/>
+{_wash(170, 296, 42, C['d3'], '.32', 'cv')}
+<ellipse cx="150" cy="302" rx="26" ry="11" fill="{C['d3']}" opacity=".34"/>
+<ellipse cx="272" cy="310" rx="20" ry="9" fill="{C['d3']}" opacity=".28"/>
+<path d="M118 268l16-22 16 22z" fill="{C['d2']}" opacity=".9"/>
+<path d="M126 250q8-12 16 0z" fill="{C['gold']}" opacity=".75"/>
+<path d="M290 282l13-18 13 18z" fill="{C['d2']}" opacity=".85"/>
+
+<g transform="translate(300,210)">
+<path d="M0 44V22" stroke="{C['d2']}" stroke-width="3" stroke-linecap="round"/>
+<path d="M0 34c-8-2-12-8-12-8s8-3 12 3z" fill="{C['m1']}"/>
+<circle cx="0" cy="16" r="8.5" fill="{C['rose']}"/><circle cx="-1" cy="14" r="4" fill="{C['rose2']}"/>
+<path d="M-16 45a16 30 0 0 1 32 0z" fill="{C['l1']}" opacity=".22"/>
+<path d="M-16 45a16 30 0 0 1 32 0" fill="none" stroke="{C['l2']}" stroke-width="1.5" opacity=".75"/>
+<rect x="-18" y="44" width="36" height="4" rx="2" fill="{C['l2']}" opacity=".8"/>
 </g>
-<!-- maly ksiaze -->
-<g transform="translate(178,140)">
-<!-- szal -->
-<path d="M4 54q-26 2-40 22" stroke="{C['l2']}" stroke-width="7" fill="none" stroke-linecap="round" opacity=".92"/>
+
+<g transform="translate(178,146)">
+<!-- rece: ciemny kontur pod spodem, zeby nie gubily sie na zielonej planecie -->
+<path d="M-16 58q-16 8-24 24" stroke="{C['d1']}" stroke-width="11.5" fill="none" stroke-linecap="round"/>
+<path d="M24 56q17 6 26 22" stroke="{C['d1']}" stroke-width="11.5" fill="none" stroke-linecap="round"/>
+<path d="M-16 58q-16 8-24 24" stroke="{C['m3']}" stroke-width="8" fill="none" stroke-linecap="round"/>
+<path d="M24 56q17 6 26 22" stroke="{C['m3']}" stroke-width="8" fill="none" stroke-linecap="round"/>
+<circle cx="-41" cy="83" r="5" fill="{C['skora']}" stroke="{C['d1']}" stroke-width="1.2"/>
+<circle cx="51" cy="79" r="5" fill="{C['skora']}" stroke="{C['d1']}" stroke-width="1.2"/>
 <!-- plaszcz -->
-<path d="M4 48c-17 0-29 14-31 34h62c-2-20-14-34-31-34z" fill="{C['gold']}" stroke="{C['d2']}" stroke-width="1.6" stroke-linejoin="round"/>
-<path d="M4 48v34" stroke="{C['d2']}" stroke-width="1.4" opacity=".5"/>
-<!-- rece -->
-<path d="M-22 60q-14 6-18 20M30 60q14 6 18 20" stroke="{C['gold2']}" stroke-width="7" fill="none" stroke-linecap="round"/>
+<path d="M4 50c-17 0-29 15-31 36h62c-2-21-14-36-31-36z" fill="url(#plaszczcv)" stroke="{C['d1']}" stroke-width="1.5" stroke-linejoin="round"/>
+<path d="M4 50v36" stroke="{C['d1']}" stroke-width="1.2" opacity=".4"/>
+<circle cx="4" cy="64" r="1.7" fill="{C['gold2']}"/><circle cx="4" cy="74" r="1.7" fill="{C['gold2']}"/>
+<!-- szal: na wierzchu, powiewa w bok i w gore -->
+<path d="M-4 48q-24-10-42-4t-24 10" stroke="{C['szal2']}" stroke-width="10" fill="none" stroke-linecap="round" opacity=".45"/>
+<path d="M-4 47q-23-9-40-3t-22 9" stroke="{C['szal']}" stroke-width="7" fill="none" stroke-linecap="round"/>
+<path d="M-64 52q-9-1-14 4" stroke="{C['szal']}" stroke-width="5" fill="none" stroke-linecap="round" opacity=".85"/>
+<!-- gwiazdka w dloni -->
+<g transform="translate(51,79)">
+<circle cx="0" cy="0" r="12" fill="{C['gold2']}" opacity=".38" filter="url(#miekkocv)"/>
+{_sparkle(0, 0, 7)}
+</g>
 <!-- nogi -->
-<path d="M-6 82v16M14 82v16" stroke="{C['l2']}" stroke-width="6" stroke-linecap="round"/>
-<path d="M-10 98h8M10 98h8" stroke="{C['d2']}" stroke-width="5" stroke-linecap="round"/>
+<path d="M-5 86v16M13 86v16" stroke="{C['l2']}" stroke-width="6" stroke-linecap="round"/>
+<path d="M-9 102h8M9 102h8" stroke="{C['d2']}" stroke-width="5" stroke-linecap="round"/>
 <!-- kolnierz -->
-<rect x="-4" y="42" width="16" height="10" rx="4" fill="{C['l2']}"/>
+<rect x="-4" y="43" width="16" height="9" rx="4" fill="{C['szal']}"/>
 <!-- glowa -->
-<circle cx="4" cy="26" r="20" fill="{C['sand']}"/>
-<path d="M-16 22a20 20 0 0 1 40 0c0-15-9-24-20-24s-20 9-20 24z" fill="{C['gold2']}"/>
-<path d="M-18 21q22-13 44 0" stroke="{C['gold']}" stroke-width="3" fill="none" stroke-linecap="round"/>
-<circle cx="-3" cy="27" r="2.2" fill="{C['ink']}"/><circle cx="11" cy="27" r="2.2" fill="{C['ink']}"/>
-<path d="M-1 35q5 4 10 0" stroke="{C['ink']}" stroke-width="1.8" fill="none" stroke-linecap="round"/>
+<circle cx="4" cy="27" r="19" fill="{C['skora']}"/>
+<path d="M-15 26c-2-18 7-27 19-27s21 9 19 27c1-6-3-10-8-11-6 3-16 4-22 0-5 1-9 5-8 11z" fill="url(#wloscv)"/>
+<path d="M-14 16q6-8 14-9M22 16q-6-8-14-9" stroke="{C['wlosy']}" stroke-width="4" fill="none" stroke-linecap="round" opacity=".9"/>
+<path d="M-13 9q8-8 17-8t17 8" stroke="{C['wlosy2']}" stroke-width="2.4" fill="none" stroke-linecap="round" opacity=".55"/>
+<circle cx="-3" cy="28" r="2.1" fill="{C['ink']}"/><circle cx="11" cy="28" r="2.1" fill="{C['ink']}"/>
+<path d="M-1 36q5 4 10 0" stroke="{C['ink']}" stroke-width="1.7" fill="none" stroke-linecap="round"/>
+<circle cx="-8" cy="33" r="3" fill="{C['rose2']}" opacity=".42"/>
+<circle cx="16" cy="33" r="3" fill="{C['rose2']}" opacity=".42"/>
 </g>
 </svg>'''
+
 
 # ---------- 2. BARANEK W SKRZYNCE ----------
 def sheep_box():
