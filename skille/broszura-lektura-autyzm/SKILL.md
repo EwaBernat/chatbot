@@ -149,6 +149,14 @@ W części G zostają wyłącznie materiały ogólne — termometr, krążki oce
 kilka zdań do czytelnika, duże inicjały autorki i jej nazwisko. Danych wydawcy nie powtarzaj —
 są już w metryczce na stronie 2.
 
+**Broszura sprzedawana musi nieść swoje własne warunki.** Poza metryczką na stronie 2 daj
+osobną **stronę licencji** (strona 3): dwa rodzaje licencji, wypisane wprost „co wolno” i „czego
+nie wolno”, nota o prawach i kropkowana linia „Egzemplarz dla: ………” do wpisania kupującego.
+Nauczyciel nie wraca do regulaminu sklepu — wraca do pliku, który ma pod ręką. Dołóż
+**dyskretny znak wodny** na każdej stronie (`--znak-wodny` na `.page`, jedna reguła CSS) oraz
+przedostatnią **stronę serii** z zapowiedzią kolejnych tomów i notą o autorce: produkt sprzedaje
+wtedy następny produkt.
+
 **Kroje osadzaj w pliku, nigdy nie linkuj do Google Fonts.** PDF powstaje w przeglądarce
 bez dostępu do sieci — zdalny krój podmienia się na zastępnik i cały tekst wygląda na zbyt
 gruby, a proporcje stron przestają się zgadzać z pomiarami. `scripts/pobierz_kroje.py`

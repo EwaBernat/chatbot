@@ -15,7 +15,7 @@ płatnych plików.
 ```
 dystrybucja/
 ├── pelna/                        ← produkt płatny, NIE wystawiaj publicznie
-│   ├── maly-ksiaze-broszura.pdf   9,2 MB · 122 strony A4
+│   ├── maly-ksiaze-broszura.pdf   9,3 MB · 124 strony A4
 │   └── maly-ksiaze-broszura.html  5,9 MB · jeden plik, wszystko w środku
 ├── demo/                         ← darmowy fragment, może leżeć publicznie
 │   ├── maly-ksiaze-demo.pdf       1,6 MB · 14 stron (okładka … rozdział 1)
@@ -34,11 +34,11 @@ dystrybucja/
 
 | | |
 |---|---|
-| Format | A4 pionowo, 122 strony |
+| Format | A4 pionowo, 124 strony |
 | Zawartość | 27 rozdziałów po 3 strony, 8 zestawów ćwiczeń, gra planszowa z instrukcją i 32 kartami zadań, scenariusz przedstawienia (8 scen), 16 kart do wycięcia, termometr emocji, krążki oceny |
 | Odbiorcy | uczniowie 12–19 lat ze spektrum autyzmu; nauczyciele, terapeuci, rodzice |
 | Języki | polski |
-| Numeracja | ciągła 1–122, okładka to strona 1 bez nadruku |
+| Numeracja | ciągła 1–124, okładka to strona 1 bez nadruku |
 
 ## 3. HTML — co musisz wiedzieć
 
@@ -90,6 +90,20 @@ i rozwala układ na dwa arkusze na stronę.
 
 <!-- c) osobna podstrona — najlepsze SEO, plik serwowany jak zwykły HTML -->
 ```
+
+## 3a. Znak wodny i personalizacja egzemplarza
+
+Każda strona ma **dyskretny znak wodny** „PCTP · egzemplarz licencjonowany” — jasna
+przekątna w tle, nie przeszkadza w czytaniu ani w druku. Jest to jedna reguła CSS
+(`--znak-wodny` na `.page`), więc zmiana treści znaku to jedna podmiana w pliku.
+
+**Strona 3 to strona licencji** — wypisane wprost, co wolno i czego nie wolno, oraz
+kropkowana linia **„Egzemplarz dla: ………”**. Jeśli personalizujesz plik przy pobraniu,
+to jest miejsce na dane kupującego: wpisz je tam zamiast dorabiać stopkę.
+
+Najprostsza personalizacja bez przerabiania PDF-a: podmień w HTML tekst znaku wodnego
+i wygeneruj PDF na żądanie. Cięższa, ale pewniejsza: nadruk w gotowym PDF-ie biblioteką
+do PDF w Twoim języku.
 
 ## 4. Zabezpieczenie płatnych plików
 
