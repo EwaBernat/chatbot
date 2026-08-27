@@ -38,13 +38,13 @@ def fig(svgstr, extra="", cap=""):
             f'{svgstr}</div>{caphtml}</figure>')
 
 
-def fig_obraz(uri, w, h, extra="", cap=""):
+def fig_obraz(klasa, w, h, extra="", cap=""):
     """Figura ze zdjęciem. Proporcje bierzemy z nagłówka pliku — patrz obrazy.py."""
     pb = h / w * 100
     caphtml = f"<figcaption>{E(cap)}</figcaption>" if cap else ""
     kl = ("ilu ilu-foto " + extra).strip()
-    return (f'<figure class="{kl}"><div class="ilu-box" style="padding-bottom:{pb:.3f}%">'
-            f'<img src="{uri}" alt=""></div>{caphtml}</figure>')
+    return (f'<figure class="{kl}"><div class="ilu-box foto-tlo {klasa}" '
+            f'style="padding-bottom:{pb:.3f}%"></div>{caphtml}</figure>')
 
 
 def rysunek(nazwa):
@@ -76,11 +76,30 @@ class Broszura:
     def __init__(self, dane, linie=None, katalog_grafik=None):
         self.d = dane
         self.katalog_grafik = katalog_grafik
+        # Ten sam obraz bywa użyty kilka razy (karta planety i ilustracja rozdziału).
+        # Trzymamy go w pliku raz, jako klasę CSS, zamiast powtarzać data URI.
+        self._obrazy = {}
         self.meta = dane["meta"]
         self.w = dane["wydawca"]
         self.R = dane["rozdzialy"]
         self.linie = linie or {}
         self.tytul_biezacy = f'{self.meta["tytul"]} {self.meta.get("podtytul_okladki","")}'.strip()
+
+    def obraz_klasa(self, plik):
+        """Rejestruje obraz i zwraca (nazwa klasy CSS, szerokość, wysokość)."""
+        if plik not in self._obrazy:
+            uri, w, h = obrazy.osadz(plik, self.katalog_grafik)
+            self._obrazy[plik] = (f"foto{len(self._obrazy) + 1}", uri, w, h)
+        kl, _, w, h = self._obrazy[plik]
+        return kl, w, h
+
+    def style_obrazow(self):
+        """Arkusz z wszystkimi obrazami — wywołaj dopiero po złożeniu sekcji."""
+        if not self._obrazy:
+            return ""
+        reguly = "".join(f".{kl}{{background-image:url({uri})}}"
+                         for kl, uri, _, _ in self._obrazy.values())
+        return f"<style>{reguly}</style>"
 
     def logo_css(self):
         """Logo z pliku wstawiamy raz, jako tło w CSS.
@@ -111,8 +130,8 @@ class Broszura:
         else:
             plik, wektor = None, zrodlo
         if plik:
-            uri, w, h = obrazy.osadz(plik, self.katalog_grafik)
-            return fig_obraz(uri, w, h, extra, cap)
+            klasa, w, h = self.obraz_klasa(plik)
+            return fig_obraz(klasa, w, h, extra, cap)
         rys = rysunek(wektor)
         return fig(rys, extra, cap) if rys else ""
 
@@ -133,9 +152,9 @@ class Broszura:
     def okladka(self):
         m, w = self.meta, self.w
         if m.get("okladka_obraz"):
-            uri, sz, wy = obrazy.osadz(m["okladka_obraz"], self.katalog_grafik)
-            okladka_grafika = (f'<div class="ok-box ok-box-foto" style="padding-bottom:'
-                               f'{min(wy / sz * 100, 40):.2f}%"><img src="{uri}" alt=""></div>')
+            klasa, sz, wy = self.obraz_klasa(m["okladka_obraz"])
+            okladka_grafika = (f'<div class="ok-box ok-box-foto foto-tlo {klasa}" '
+                               f'style="padding-bottom:{min(wy / sz * 100, 40):.2f}%"></div>')
         else:
             okladka_grafika = ('<div class="ok-box">'
                                + rysunek(m.get("okladka_svg", "cover_neutral")) + "</div>")
@@ -189,13 +208,13 @@ class Broszura:
       <div class="spis-info">
         <p><b>{len(self.R)} rozdziałów, każdy na trzech stronach.</b> Rytm jest zawsze taki sam, więc uczeń wie, czego się spodziewać:</p>
         <ol class="rytm">
-          <li><b>Strona 1 — Historia i słowa.</b> Co się wydarzyło + trudne pojęcia.</li>
-          <li><b>Strona 2 — Emocje i wnioski.</b> Kto co czuje, zależności, przyczyna ➜ skutek, ocena sytuacji.</li>
-          <li><b>Strona 3 — Myślenie i pytania.</b> Ćwiczenie teorii umysłu, pytania łatwiejsze i trudniejsze, miejsce na notatki.</li>
+          <li><b>Strona 1 — Historia i słowa.</b> Co się wydarzyło? Trudne pojęcia.</li>
+          <li><b>Strona 2 — Emocje i wnioski.</b> Kto co czuje? Zależności między postaciami, przyczyna ➜ skutek.</li>
+          <li><b>Strona 3 — Ocena i myślenie.</b> Czy to było w porządku? Teoria umysłu, pytania, notatki.</li>
         </ol>
         <p class="mini">Siedem stałych elementów rozdziału:</p>
         <ol class="siedem">
-          <li>Co się wydarzyło</li><li>Trudne słowa i pojęcia</li><li>Emocje</li>
+          <li>Co się wydarzyło?</li><li>Trudne słowa i pojęcia</li><li>Emocje</li>
           <li>Zależności między postaciami</li><li>Wyciąganie wniosków</li>
           <li>Ocena sytuacji</li><li>Teoria umysłu + pytania</li>
         </ol>
@@ -284,13 +303,13 @@ class Broszura:
   <p class="lead">Te trzy pomoce wracają w każdym rozdziale — warto wydrukować je osobno i powiesić w klasie.</p>
   <div class="narz">
     <div class="narz-box">
-      <h3>1 · Termometr emocji</h3>
+      <h3>1 · Termometr emocji — jak mocno?</h3>
       <p>Odpowiada na pytanie „jak mocno?”. Emocja nie jest tylko obecna albo nieobecna — ma natężenie.
       W tabelach emocji zieloną skalą zaznaczono siłę uczucia.</p>
       {fig(S.thermometer())}
     </div>
     <div class="narz-box">
-      <h3>2 · Sygnalizator oceny sytuacji</h3>
+      <h3>2 · Sygnalizator — czy to było w porządku?</h3>
       <p>Odpowiada na pytanie „czy to było w porządku?”. Uwaga: <b>żółty nie jest gorszą odpowiedzią</b> —
       w większości sytuacji społecznych to właśnie on jest poprawny.</p>
       <div class="sygn-lista">
@@ -331,8 +350,8 @@ class Broszura:
         <div class="p-tresc">
           <h3>{E(p["nazwa"])}</h3>
           <p class="p-kim">{E(p.get("kim",""))}</p>
-          <p><b>Jak się zachowuje:</b> {E(p.get("zachowanie",""))}</p>
-          <p><b>Po co jest w książce:</b> {E(p.get("rola",""))}</p>
+          <p><b>Jak się zachowuje?</b> {E(p.get("zachowanie",""))}</p>
+          <p><b>Po co jest w książce?</b> {E(p.get("rola",""))}</p>
         </div></div>'''
         return karty
 
@@ -341,7 +360,7 @@ class Broszura:
         grupy = [P[i:i + 4] for i in range(0, len(P), 4)] or [[]]
         out = []
         for i, g in enumerate(grupy):
-            naglowek = ('<h2 class="dzial-h"><span class="dzial-litera">C</span>Karty postaci</h2>'
+            naglowek = ('<h2 class="dzial-h"><span class="dzial-litera">C</span>Kto jest kim? Karty postaci</h2>'
                         if i == 0 else
                         f'<h2 class="dzial-h"><span class="dzial-litera">C</span>Karty postaci '
                         f'<small class="cd">· ciąg dalszy ({i+1} z {len(grupy)})</small></h2>')
@@ -423,7 +442,7 @@ class Broszura:
   <div class="blok blok-emo">
     <h3><span class="bi">💚</span>Emocje — kto, co czuje i po czym to poznasz?</h3>
     <table class="tab-emo">
-      <thead><tr><th>Kto</th><th>Emocja</th><th>Po czym to poznasz?</th><th>Jak mocno?</th></tr></thead>
+      <thead><tr><th>Kto?</th><th>Jaka emocja?</th><th>Po czym to poznasz?</th><th>Jak mocno?</th></tr></thead>
       <tbody>{emo}</tbody>
     </table>
   </div>
@@ -496,7 +515,7 @@ class Broszura:
                     <p class="c-meta">{E(c["cel"])} · {E(c["czas"])} · {E(c["forma"])}</p></div></div>
                   <p class="c-opis">{E(c["opis"])}</p>
                   <ol class="c-kroki">{kroki}</ol>
-                  <p class="c-dost"><b>Dostosowanie:</b> {E(c["dostosowanie"])}</p></div>'''
+                  <p class="c-dost"><b>Dostosowanie</b> — {E(c["dostosowanie"])}</p></div>'''
             out.append(f'<section class="page" id="cwiczenia{"" if i==0 else i+1}">'
                        f'{naglowek}{lead}<div class="cwiczenia">{karty}</div>{ost}</section>')
         return "".join(out)
@@ -519,7 +538,7 @@ class Broszura:
   <h2 class="dzial-h"><span class="dzial-litera">E</span>Gra „{E(G["nazwa"])}”</h2>
   <p class="lead">{E(G.get("wstep",""))}</p>
   {fig(S.board(), "plansza", "Plansza — 30 pól ułożonych wężem. Przerysuj na duży arkusz albo wydrukuj tę stronę w formacie A3.")}
-  <div class="gra-zasady"><h3>Zasady</h3><ol class="dwie-kolumny">{zasady}</ol></div>
+  <div class="gra-zasady"><h3>Jak grać? Zasady</h3><ol class="dwie-kolumny">{zasady}</ol></div>
 </section>
 <section class="page" id="gra2">
   <h2 class="dzial-h"><span class="dzial-litera">E</span>Karty zadań do gry</h2>
@@ -558,7 +577,7 @@ class Broszura:
     <div><span>Próby</span><b>{E(i["proby"])}</b></div>
     <div><span>Muzyka</span><b>{E(i["muzyka"])}</b></div>
   </div>
-  <h3 class="pod-h">Obsada — role skalowalne</h3>
+  <h3 class="pod-h">Kto gra? Obsada skalowalna</h3>
   <table class="tab-role szeroka"><tbody>{role}</tbody></table>
   <p class="mini">{E(SC.get("uwaga_obsada",""))}</p>
 </section>
@@ -566,7 +585,7 @@ class Broszura:
 <section class="page" id="scenariusz2">
   <h2 class="dzial-h"><span class="dzial-litera">F</span>Zasady dostosowania</h2>
   <p class="lead">Przeczytaj tę stronę przed pierwszą próbą. Te zasady decydują o tym, czy uczniowie w ogóle wejdą na scenę.</p>
-  <h3 class="pod-h">Zasady dostosowania</h3>
+  <h3 class="pod-h">Jak dostosować przedstawienie?</h3>
   <ol class="zas-spekt">{zas}</ol>
   <div class="uwaga jasna"><b>Kto nie chce grać, ten też gra.</b> Zespół techniczny, sufler i osoba
   odpowiedzialna za rekwizyty to pełnoprawne role. Wpisz je do programu tak samo dużą czcionką
@@ -602,7 +621,7 @@ class Broszura:
                   <div class="s-head"><span class="s-nr">SCENA {sc["nr"]}</span><h4>{E(sc["tytul"])}</h4></div>
                   <p class="s-meta"><b>Miejsce:</b> {E(sc["miejsce"])} &nbsp;·&nbsp; <b>Osoby:</b> {E(sc["osoby"])}</p>
                   <div class="kwestie">{linie}</div>
-                  <p class="s-wsk"><b>Wskazówka reżyserska:</b> {E(sc["wskazowka"])}</p></div>'''
+                  <p class="s-wsk"><b>Wskazówka reżyserska</b> — {E(sc["wskazowka"])}</p></div>'''
             opis = ("sceny " + " i ".join(map(str, grupa))) if len(grupa) > 1 else f"scena {grupa[0]}"
             koncowka = ('<div class="uwaga"><b>Finał bez niespodzianek.</b> Po ostatnim zdaniu cały zespół — '
                         'łącznie z ekipą techniczną — ustawia się w rzędzie i kłania jednocześnie. Ustalcie to na '
@@ -671,7 +690,7 @@ class Broszura:
                 kk = ""
                 for k in g:
                     kk += f'''<div class="karta-planeta">
-                      <div class="kp-gora">{fig(S.karta_planety(k.get("ikona","asteroid")))}</div>
+                      <div class="kp-gora">{self.ilustracja(k) or fig(S.karta_planety(k.get("ikona","asteroid")))}</div>
                       <div class="kp-dol">
                         <h4>{E(k["nazwa"])}</h4>
                         <p class="kp-kto">{E(k.get("kto",""))}</p>
@@ -695,7 +714,7 @@ class Broszura:
         akapity = "".join(f"<p>{E(a)}</p>" for a in z.get("akapity", []))
         return f'''
 <section class="page konc" id="koniec">
-  {fig(S.stars_laugh(), "mini")}
+  {self.ilustracja({"obraz": z.get("obraz")}, "konc-foto") if z.get("obraz") else fig(S.stars_laugh(), "mini")}
   <h2 class="dzial-h">Na koniec</h2>
   <blockquote class="cytat">„{E(z.get("cytat",""))}”<cite>{E(z.get("cytat_zrodlo",""))}</cite></blockquote>
   <div class="konc-tresc">{akapity}</div>

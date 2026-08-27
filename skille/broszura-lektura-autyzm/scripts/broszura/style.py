@@ -33,14 +33,14 @@ small{font-weight:400;font-size:.82em;color:var(--szary)}
 .okladka{padding:0;background:var(--z900);color:#fff;display:flex;flex-direction:column;
   height:297mm;overflow:hidden}
 .ok-tlo{position:relative;overflow:hidden}
-.ok-box{position:relative;width:100%;height:0;padding-bottom:40%}
+.ok-box{position:relative;width:100%;height:0;padding-bottom:37%}
 .ok-box-foto{position:relative;width:100%;height:0;overflow:hidden}
-.ok-box-foto img{position:absolute;left:0;top:0;width:100%;height:100%;object-fit:cover;display:block}
+
 .ok-box svg{position:absolute;left:0;top:0;width:100%;height:100%;display:block}
-.ok-tlo::after{content:"";position:absolute;inset:auto 0 0 0;height:30mm;z-index:2;
+.ok-tlo::after{content:"";position:absolute;inset:auto 0 0 0;height:26mm;z-index:1;
   background:linear-gradient(180deg,rgba(6,40,30,0),var(--z900))}
-.ok-tresc{flex:1;padding:5mm 18mm 0;text-align:center;position:relative;z-index:2}
-.ok-logo{width:21mm;margin:0 auto 2.5mm}
+.ok-tresc{flex:1;padding:6mm 18mm 0;text-align:center;position:relative;z-index:3}
+.ok-logo{width:22mm;margin:0 auto 3mm;position:relative;z-index:4}
 .ok-logo svg{width:100%;height:auto;display:block;
   filter:drop-shadow(0 3px 10px rgba(0,0,0,.35))}
 .ok-org{font-family:var(--font-h);font-size:10.4pt;font-weight:600;color:#fff;
@@ -51,10 +51,10 @@ small{font-weight:400;font-size:.82em;color:var(--szary)}
 .okladka h1 span{color:var(--gold2);font-weight:600}
 .ok-pod{font-family:var(--font-h);font-size:16pt;color:var(--z300);
   letter-spacing:.16em;text-transform:lowercase;margin-bottom:6mm}
-.ok-linia{width:44mm;height:3px;margin:0 auto 7mm;border-radius:2px;
+.ok-linia{width:44mm;height:3px;margin:0 auto 5mm;border-radius:2px;
   background:linear-gradient(90deg,var(--z500),var(--gold))}
 .ok-lista{list-style:none;padding:0;max-width:132mm;margin:0 auto;text-align:left;
-  display:grid;gap:2.4mm}
+  display:grid;gap:1.9mm}
 .ok-lista li{color:var(--z200);font-size:11pt;padding-left:8mm;position:relative}
 .ok-lista li::before{content:"✦";position:absolute;left:0;color:var(--gold);font-size:11pt}
 .ok-stopka{text-align:center;padding:0 0 9mm;margin:7mm 0 0}
@@ -168,8 +168,9 @@ small{font-weight:400;font-size:.82em;color:var(--szary)}
 .ilu{width:100%;flex:none;margin:0 0 3.5mm;padding:0;border-radius:10px;overflow:hidden;background:var(--z100)}
 .ilu-box{position:relative;width:100%;height:0;overflow:hidden}
 .ilu-box > svg,.ilu-box > img{position:absolute;left:0;top:0;width:100%;height:100%;display:block}
-.ilu-box > img{object-fit:cover}
+.foto-tlo{background-position:center;background-size:cover;background-repeat:no-repeat}
 .ilu-foto{background:var(--z200)}
+.ilu.konc-foto{max-width:92mm;margin:0 auto 3mm}
 figcaption{font-size:9pt;color:var(--szary);padding:2mm 3mm;background:var(--z050);text-align:center}
 
 /* ---------- POSTACIE ---------- */
@@ -364,6 +365,7 @@ figcaption{font-size:9pt;color:var(--szary);padding:2mm 3mm;background:var(--z05
 .karta-planeta{border:2px dashed var(--z400);border-radius:12px;overflow:hidden;background:#fff;
   break-inside:avoid;display:flex;flex-direction:column}
 .kp-gora .ilu{margin:0;border-radius:0;background:none}
+.kp-gora .ilu-box{padding-bottom:46% !important}
 .kp-dol{padding:3.4mm 4mm 4mm;flex:1}
 .kp-dol h4{font-size:13pt;margin:0 0 .8mm;color:var(--z800)}
 .kp-kto{font-size:9.6pt;color:var(--z600);font-family:var(--font-h);margin:0 0 1.6mm}
