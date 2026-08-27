@@ -657,13 +657,15 @@ class Broszura:
         if Z.get("termometr", True):
             out.append(f'''
 <section class="page" id="zalacznik-termometr">
-  <h2 class="dzial-h"><span class="dzial-litera">G</span>Załącznik 2 · Termometr emocji</h2>
-  <p class="lead">Do powieszenia w klasie albo w kąciku wyciszenia. Uczeń pokazuje palcem albo
-  spinaczem, jak mocno coś czuje — nie musi tego nazywać słowami.</p>
-  {fig(S.thermometer(), "termometr-duzy")}
-  <div class="uwaga jasna"><b>Jak używać?</b> Zapytaj „jak mocno?”, a nie „czy bardzo?”.
-  Pytanie zamknięte daje odpowiedź tak/nie, a termometr ma pokazać stopień. Przy pierwszych
-  próbach wskazuj razem z uczniem — najpierw swoją emocję, potem jego.</div>
+  <h2 class="dzial-h"><span class="dzial-litera">G</span>Załącznik 2 · Termometr emocji do wycięcia</h2>
+  <p class="lead">Wytnij po linii przerywanej i naklej na sztywny papier. Wskaźnik „TERAZ”
+  wytnij osobno i przypnij spinaczem z boku — uczeń przesuwa go w górę i w dół.</p>
+  {fig(S.thermometer_cut(), "termometr-wyciecie")}
+  <div class="uwaga jasna"><b>Dla ucznia, który nie czyta?</b> Każdy stopień jest opisany
+  na cztery sposoby naraz: kolorem, wysokością słupka, miną i liczbą kropek — wystarczy jeden z nich.
+  Uczeń może pokazać palcem minę albo policzyć kropki; słowo obok jest wtedy podpowiedzią dla dorosłego.
+  <b>Jak pytać?</b> „Jak mocno?”, a nie „czy bardzo?” — pytanie zamknięte daje odpowiedź tak/nie,
+  a termometr ma pokazać stopień.</div>
 </section>''')
 
         if Z.get("sygnalizator", True):

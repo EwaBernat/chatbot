@@ -32,7 +32,7 @@ po zmianie treści.
 | B. Trzy narzędzia | 2 | termometr emocji, sygnalizator oceny sytuacji, drabina teorii umysłu |
 | C. Karty postaci | 1 | 6 kart |
 | Rozdziały 1–27 | 81 | po 3 strony na rozdział |
-| G. Załączniki do wycięcia | 5 | plansza A3, termometr, krążki oceny, 8 kart miejsc |
+| G. Załączniki do wycięcia | 5 | plansza A3, termometr emocji ze wskaźnikiem, krążki oceny, 8 kart miejsc |
 | D. Ćwiczenia końcowe | 4 | 8 zestawów z celem, czasem i dostosowaniem |
 | E. Gra „Podróż Małego Księcia” | 3 | plansza 30 pól, zasady, 32 karty zadań w 4 taliach |
 | F. Scenariusz przedstawienia | 10 | obsada, zasady dostosowania, plan prób, 8 scen |

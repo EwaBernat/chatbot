@@ -380,22 +380,164 @@ def tom_ladder():
 </svg>"""
 
 # ---------- TERMOMETR EMOCJI ----------
+# Piec poziomow natezenia. Kazdy poziom ma cztery niezalezne sygnaly:
+# kolor, wysokosc slupka, mine i liczbe kropek. Uczen, ktory nie czyta,
+# korzysta z trzech ostatnich - slowo jest wtedy podpowiedzia dla doroslego.
+POZIOMY = [
+    (5, "BARDZO MOCNO", "#B23A48", "trudno mi teraz myśleć"),
+    (4, "MOCNO",        "#D97A45", "czuję to w całym ciele"),
+    (3, "ŚREDNIO",      C["gold"], "czuję to wyraźnie"),
+    (2, "TROCHĘ",       C["m2"],   "czuję to lekko"),
+    (1, "LEDWO CZUJĘ",  C["m3"],   "prawie nic nie czuję"),
+]
+
+
+def _buzka(cx, cy, r, poziom):
+    """Mina rosnaca z natezeniem - od spokojnej do bardzo napietej."""
+    s = r / 34.0
+    ox, oy = 12.4 * s, 5.0 * s
+    ro = (3.4 + poziom * 0.85) * s
+    brew = (poziom - 1) * 1.9 * s        # brwi unosza sie symetrycznie
+    by, bw = (13.0 + poziom * 1.1) * s, 8.6 * s
+    mw = (8.5 + poziom * 2.0) * s
+    mh = (1.3 + (poziom - 1) * 3.6) * s
+    my = 15.0 * s
+    k = C["ink"]
+    g = [f'<circle cx="{cx}" cy="{cy}" r="{r}" fill="#FFFFFF" opacity=".95"/>',
+         f'<circle cx="{cx}" cy="{cy}" r="{r}" fill="none" stroke="{k}" '
+         f'stroke-width="{2.1 * s:.2f}" opacity=".5"/>']
+    for zn in (-1, 1):
+        x = cx + zn * ox
+        g.append(f'<circle cx="{x:.1f}" cy="{cy - oy:.1f}" r="{ro:.2f}" fill="{k}"/>')
+        xw, xz = x + zn * bw, x - zn * bw          # koniec zewnetrzny i wewnetrzny
+        g.append(f'<path d="M{xw:.1f} {cy - by + brew:.1f} L{xz:.1f} {cy - by - brew:.1f}" '
+                 f'stroke="{k}" stroke-width="{2.4 * s:.2f}" stroke-linecap="round" fill="none"/>')
+    g.append(f'<ellipse cx="{cx}" cy="{cy + my:.1f}" rx="{mw:.2f}" ry="{mh:.2f}" fill="{k}"/>')
+    if poziom >= 4:                      # kreski "az mnie rozsadza"
+        for zn in (-1, 1):
+            for dx, dy in ((1.16, -0.62), (1.30, -0.05), (1.16, 0.52)):
+                x1, y1 = cx + zn * dx * r, cy + dy * r
+                x2, y2 = cx + zn * (dx + 0.24) * r, cy + dy * 1.22 * r
+                g.append(f'<path d="M{x1:.1f} {y1:.1f} L{x2:.1f} {y2:.1f}" stroke="{k}" '
+                         f'stroke-width="{2.2 * s:.2f}" stroke-linecap="round" opacity=".5"/>')
+    return "".join(g)
+
+
+def _kropki(x, y, ile, kolor, r=4.2, odstep=13.0):
+    """Tyle kropek, ile stopni - liczenie dziala bez czytania."""
+    out = []
+    for i in range(5):
+        wypelnienie = kolor if i < ile else "none"
+        przezr = "1" if i < ile else ".5"
+        out.append(f'<circle cx="{x + i * odstep:.1f}" cy="{y:.1f}" r="{r}" '
+                   f'fill="{wypelnienie}" stroke="{kolor}" stroke-width="1.6" '
+                   f'opacity="{przezr}"/>')
+    return "".join(out)
+
+
+def _rurka(x, y0, y1, sz, uid):
+    """Szklana rurka z banka i barwnym slupkiem."""
+    r = sz / 2.0
+    banka = r * 1.42
+    cy = y1 + banka * 0.62
+    czesci = [
+        f'<defs><linearGradient id="slup{uid}" x1="0" y1="1" x2="0" y2="0">'
+        f'<stop offset="0" stop-color="{C["m3"]}"/><stop offset=".28" stop-color="{C["m2"]}"/>'
+        f'<stop offset=".52" stop-color="{C["gold"]}"/><stop offset=".76" stop-color="#D97A45"/>'
+        f'<stop offset="1" stop-color="#B23A48"/></linearGradient>'
+        f'<linearGradient id="szklo{uid}" x1="0" y1="0" x2="1" y2="0">'
+        f'<stop offset="0" stop-color="#FFFFFF" stop-opacity=".85"/>'
+        f'<stop offset=".45" stop-color="#FFFFFF" stop-opacity=".12"/>'
+        f'<stop offset="1" stop-color="{C["d3"]}" stop-opacity=".2"/></linearGradient></defs>',
+        f'<circle cx="{x + r:.1f}" cy="{cy:.1f}" r="{banka + 4:.1f}" fill="{C["l2"]}" '
+        f'stroke="{C["d3"]}" stroke-width="2.6"/>',
+        f'<rect x="{x - 3:.1f}" y="{y0 - 3:.1f}" width="{sz + 6:.1f}" height="{y1 - y0 + 10:.1f}" '
+        f'rx="{r + 3:.1f}" fill="{C["l2"]}" stroke="{C["d3"]}" stroke-width="2.6"/>',
+        f'<circle cx="{x + r:.1f}" cy="{cy:.1f}" r="{banka:.1f}" fill="#B23A48"/>',
+        f'<rect x="{x + 2.6:.1f}" y="{y0 + 3:.1f}" width="{sz - 5.2:.1f}" '
+        f'height="{y1 - y0 + banka * 0.6:.1f}" rx="{r - 2.6:.1f}" fill="url(#slup{uid})"/>',
+        f'<rect x="{x - 3:.1f}" y="{y0 - 3:.1f}" width="{sz + 6:.1f}" height="{y1 - y0 + 10:.1f}" '
+        f'rx="{r + 3:.1f}" fill="url(#szklo{uid})"/>',
+        f'<rect x="{x + 4.5:.1f}" y="{y0 + 8:.1f}" width="{max(3.0, sz * 0.16):.1f}" '
+        f'height="{y1 - y0 - 14:.1f}" rx="2" fill="#FFFFFF" opacity=".45"/>',
+    ]
+    return "".join(czesci)
+
+
 def thermometer():
-    rows = [("5","BARDZO MOCNO","#B23A48"),("4","MOCNO","#D97A45"),("3","ŚREDNIO",C['gold']),
-            ("2","TROCHĘ",C['m2']),("1","LEDWO CZUJĘ",C['m3'])]
-    out=[]
-    for i,(n,t,c) in enumerate(rows):
-        y=24+i*50
-        out.append(f'<rect x="96" y="{y}" width="290" height="42" rx="8" fill="{c}"/>')
-        out.append(f'<text x="112" y="{y+28}" font-family="Verdana,sans-serif" font-size="17" font-weight="bold" fill="#fff">{n}</text>')
-        out.append(f'<text x="140" y="{y+27}" font-family="Verdana,sans-serif" font-size="14" fill="#fff">{t}</text>')
-    return f'''<svg viewBox="0 0 420 300" role="img" aria-label="Termometr emocji od 1 do 5">
-<rect width="420" height="300" rx="12" fill="{C['l3']}"/>
-{"".join(out)}
-<rect x="46" y="24" width="30" height="242" rx="15" fill="{C['l2']}" stroke="{C['d3']}" stroke-width="2.5"/>
-<rect x="52" y="120" width="18" height="140" rx="9" fill="#B23A48"/>
-<circle cx="61" cy="264" r="22" fill="#B23A48" stroke="{C['d3']}" stroke-width="2.5"/>
-</svg>'''
+    """Wersja podreczna do czesci B - zwarta, zeby napisy zostaly czytelne w druku."""
+    W, H = 400, 232
+    y0, wys = 8, 43
+    out = [_rurka(24, y0 + 6, y0 + 5 * wys - 40, 34, "t1")]
+    for i, (n, slowo, kol, _cialo) in enumerate(POZIOMY):
+        y = y0 + i * wys
+        cy = y + wys / 2 - 3
+        out.append(f'<path d="M70 {cy:.0f}h14" stroke="{C["d3"]}" stroke-width="2.6" stroke-linecap="round"/>')
+        out.append(f'<rect x="88" y="{y:.0f}" width="{W - 106}" height="{wys - 9}" rx="11" '
+                   f'fill="#FFFFFF" stroke="{C["l1"]}" stroke-width="1.5"/>')
+        out.append(f'<rect x="88" y="{y:.0f}" width="8" height="{wys - 9}" rx="4" fill="{kol}"/>')
+        out.append(f'<circle cx="122" cy="{cy:.0f}" r="17" fill="{kol}" opacity=".18"/>')
+        out.append(_buzka(122, cy, 15, n))
+        out.append(f'<text x="146" y="{cy + 8:.0f}" font-family="Verdana,sans-serif" font-size="23" '
+                   f'font-weight="bold" fill="{kol}">{n}</text>')
+        out.append(f'<text x="172" y="{cy + 6:.0f}" font-family="Verdana,sans-serif" font-size="16" '
+                   f'font-weight="bold" fill="{C["d2"]}">{slowo}</text>')
+        out.append(_kropki(W - 86, cy, n, kol, 4.0, 12.0))
+    return (f'<svg viewBox="0 0 {W} {H}" role="img" '
+            f'aria-label="Termometr emocji: piec poziomow natezenia od 1 do 5">'
+            f'<rect width="{W}" height="{H}" rx="12" fill="{C["l3"]}"/>'
+            f'<rect x="1" y="1" width="{W - 2}" height="{H - 2}" rx="11" fill="none" '
+            f'stroke="{C["l1"]}" stroke-width="2"/>{"".join(out)}</svg>')
+
+
+def thermometer_cut():
+    """Wersja do wyciecia: duza plansza + osobny pasek wskaznikow."""
+    W, KARTA = 430, 500
+    H = KARTA + 112
+    y0, wys = 92, 76
+    out = [
+        f'<rect x="6" y="6" width="{W - 12}" height="{KARTA - 12}" rx="20" fill="#FFFFFF" '
+        f'stroke="{C["d3"]}" stroke-width="2.4" stroke-dasharray="9 7"/>',
+        f'<rect x="16" y="16" width="{W - 32}" height="{KARTA - 32}" rx="14" fill="{C["l3"]}"/>',
+        f'<text x="{W / 2:.0f}" y="52" text-anchor="middle" font-family="Verdana,sans-serif" '
+        f'font-size="23" font-weight="bold" fill="{C["d1"]}">TERMOMETR EMOCJI</text>',
+        f'<text x="{W / 2:.0f}" y="76" text-anchor="middle" font-family="Verdana,sans-serif" '
+        f'font-size="15" fill="{C["d3"]}">Jak mocno to czuję?</text>',
+        f'<path d="M60 88h{W - 120}" stroke="{C["l1"]}" stroke-width="2.4" stroke-linecap="round"/>',
+        _rurka(40, y0 + 6, y0 + 5 * wys - 48, 44, "t2"),
+    ]
+    for i, (n, slowo, kol, cialo) in enumerate(POZIOMY):
+        y = y0 + i * wys
+        cy = y + wys / 2 - 7
+        out.append(f'<path d="M108 {cy:.0f}h16" stroke="{C["d3"]}" stroke-width="3.4" stroke-linecap="round"/>')
+        out.append(f'<rect x="128" y="{y:.0f}" width="{W - 160}" height="{wys - 12}" rx="16" '
+                   f'fill="#FFFFFF" stroke="{kol}" stroke-width="2.2"/>')
+        out.append(f'<circle cx="170" cy="{cy:.0f}" r="25" fill="{kol}" opacity=".16"/>')
+        out.append(_buzka(170, cy, 22, n))
+        out.append(f'<text x="210" y="{cy + 11:.0f}" font-family="Verdana,sans-serif" font-size="33" '
+                   f'font-weight="bold" fill="{kol}">{n}</text>')
+        out.append(f'<text x="248" y="{cy - 7:.0f}" font-family="Verdana,sans-serif" font-size="15" '
+                   f'font-weight="bold" fill="{C["d2"]}">{slowo}</text>')
+        out.append(f'<text x="248" y="{cy + 10:.0f}" font-family="Verdana,sans-serif" font-size="11.5" '
+                   f'fill="{C["d3"]}">{cialo}</text>')
+        out.append(_kropki(249, cy + 25, n, kol, 4.4, 13.5))
+    py = KARTA + 10
+    out.append(f'<rect x="6" y="{py:.0f}" width="{W - 12}" height="96" rx="16" fill="#FFFFFF" '
+               f'stroke="{C["d3"]}" stroke-width="2.4" stroke-dasharray="9 7"/>')
+    out.append(f'<text x="26" y="{py + 26:.0f}" font-family="Verdana,sans-serif" font-size="12.5" '
+               f'font-weight="bold" fill="{C["d2"]}">WSKAŹNIKI — wytnij i przypnij spinaczem</text>')
+    for j, kol in enumerate((C["d3"], C["gold"], "#B23A48")):
+        x, yy = 30 + j * 132, py + 40
+        out.append(f'<path d="M{x} {yy + 18:.0f} L{x + 30} {yy:.0f} L{x + 108} {yy:.0f} '
+                   f'L{x + 108} {yy + 36:.0f} L{x + 30} {yy + 36:.0f} Z" fill="{kol}" '
+                   f'stroke="{C["d1"]}" stroke-width="1.8" stroke-dasharray="6 4"/>')
+        out.append(f'<text x="{x + 72}" y="{yy + 24:.0f}" text-anchor="middle" '
+                   f'font-family="Verdana,sans-serif" font-size="13" font-weight="bold" '
+                   f'fill="#FFFFFF">TERAZ</text>')
+    return (f'<svg viewBox="0 0 {W} {H}" role="img" '
+            f'aria-label="Termometr emocji do wyciecia wraz ze wskaznikami">'
+            f'{"".join(out)}</svg>')
+
 
 # ---------- SYGNALIZATOR OCENY SYTUACJI ----------
 def traffic():

@@ -140,7 +140,7 @@ ocena sytuacji, „co on myśli?”. **Nikt nie odpada, nie ma zadań na czas, w
 wspólnie dla klasy** — rywalizacja przenosi uwagę z zadania na porażkę.
 
 **Załączniki (G)** — materiały do wycięcia i powieszenia: plansza do gry na całą stronę
-(do druku w A3), termometr emocji do kącika wyciszenia, krążki oceny sytuacji oraz karty miejsc
+(do druku w A3), termometr emocji do wycięcia wraz ze wskaźnikiem, krążki oceny sytuacji oraz karty miejsc
 z lektury (po 4 na stronę, z pytaniem na odwrocie treści). Włącza je klucz `zalaczniki` w danych.
 Karty warto tworzyć dla miejsc albo etapów podróży bohatera — dają się układać w kolejności,
 co samo w sobie jest ćwiczeniem rozumienia fabuły.
