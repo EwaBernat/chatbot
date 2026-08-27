@@ -196,7 +196,7 @@
   .toc-naglowek .tyt{font-family:var(--serif);font-size:17.5px;font-weight:700;color:var(--fiolet);flex:1;}
   .toc-naglowek .str{font-family:var(--mono);font-size:13.5px;font-weight:600;color:var(--fiolet);}
   .toc-poz{
-    display:flex;align-items:baseline;gap:8px;padding:2.5px 0 2.5px 37px;font-size:13.5px;
+    display:flex;align-items:flex-end;gap:8px;padding:2.5px 0 2.5px 37px;font-size:13.5px;
   }
   .toc-poz .co{color:var(--tekst);}
   .toc-poz .kropki{flex:1;border-bottom:1.5px dotted var(--linia);transform:translateY(-3px);min-width:20px;}
@@ -343,7 +343,7 @@
   table.stany tr:nth-child(even) td{background:#F7F5FC;}
   .krem table.stany tr:nth-child(even) td{background:#F3EFE6;}
   table.stany td:first-child{font-weight:800;color:var(--fiolet);width:31%;}
-  table.stany td:nth-child(2){width:21%;color:var(--szary);font-family:var(--mono);font-size:11px;}
+  table.stany.etykieta2 td:nth-child(2){width:21%;color:var(--szary);font-family:var(--mono);font-size:11px;}
 
   /* ═════ OŚ CZASU ═════ */
   .os{position:relative;margin:12px 0 0;padding-left:78px;}
@@ -563,6 +563,8 @@
   .ciemna .pctp-name small, .tyl .pctp-name small,
   .cover .pctp-name small, .rozdzial .pctp-name small{color:#C2B4E8;}
   .cover .pctp-mark, .tyl .pctp-mark{width:58px;height:58px;}
+  .toc.dwulamowy{column-count:2;column-gap:26px;}
+  .toc.dwulamowy .toc-grupa{break-inside:avoid;-webkit-column-break-inside:avoid;}
 
   @media print{
     body{background:#fff;padding:0;margin:0;}
@@ -597,7 +599,7 @@
 
 <div class="toolbar">
   <span><b>Echolalia i rozumienie jej funkcji</b> — poradnik edukacyjno-terapeutyczny PCTP</span>
-  <span class="mono">39 stron A4 · gotowe do druku</span>
+  <span class="mono">37 stron A4 · gotowe do druku</span>
 </div>
 
 <div class="page pelna cover">
@@ -764,118 +766,134 @@
     <p><strong>Co mam robić?</strong> → Rozdziały V–VII: ćwiczenia, dostosowania i uzgodnienia dla całego zespołu.</p>
   </div>
 
-  <div class="footer"><span class="pagina">Echolalia — rozumienie funkcji</span><span class="wydawca">PCTP Koszalin</span><span class="pagenum">Strona <b>02</b> z 39</span></div>
+  <div class="footer"><span class="pagina">Echolalia — rozumienie funkcji</span><span class="wydawca">PCTP Koszalin</span><span class="pagenum">Strona <b>02</b> z 37</span></div>
 </div>
 
 <div class="page">
   <div class="kicker">Nawigacja</div>
   <h2 class="section">Spis treści</h2>
 
-  <div class="toc">
+  <div class="toc dwulamowy">
     <div class="toc-grupa">
       <div class="toc-naglowek">
         <span class="nr">I</span>
         <span class="tyt">Punkt wyjścia</span>
-        <span class="str" data-ref="liczby">06</span>
+        <span class="str" data-ref="liczby">05</span>
       </div>
-      <div class="toc-poz"><span class="co">Dwie twarze echa: natychmiastowe i odroczone</span><span class="kropki"></span><span class="str" data-ref="dwie-twarze">07</span></div>
-      <div class="toc-poz"><span class="co">Siedem funkcji echolalii natychmiastowej</span><span class="kropki"></span><span class="str" data-ref="funkcje">08</span></div>
-      <div class="toc-poz"><span class="co">Skąd wiadomo, że to naprawdę funkcje?</span><span class="kropki"></span><span class="str" data-ref="uzasadnienie">09</span></div>
+      <div class="toc-poz"><span class="co">Dwie twarze echa: natychmiastowe i odroczone</span><span class="kropki"></span><span class="str" data-ref="dwie-twarze">06</span></div>
+      <div class="toc-poz"><span class="co">Siedem funkcji echolalii natychmiastowej</span><span class="kropki"></span><span class="str" data-ref="funkcje">07</span></div>
+      <div class="toc-poz"><span class="co">Skąd wiadomo, że to naprawdę funkcje?</span><span class="kropki"></span><span class="str" data-ref="uzasadnienie">08</span></div>
     </div>
 
     <div class="toc-grupa">
       <div class="toc-naglowek">
         <span class="nr">II</span>
         <span class="tyt">Co jest naprawdę udowodnione</span>
-        <span class="str" data-ref="r2">10</span>
+        <span class="str" data-ref="r2">09</span>
       </div>
-      <div class="toc-poz"><span class="co">Skala siły dowodów — jak czytać tę broszurę</span><span class="kropki"></span><span class="str" data-ref="skala">11</span></div>
-      <div class="toc-poz"><span class="co">1 · Obciążenie językowe i trudność w rozumieniu</span><span class="kropki"></span><span class="str" data-ref="m1">11</span></div>
-      <div class="toc-poz"><span class="co">2 · Echolalia pełni funkcje komunikacyjne</span><span class="kropki"></span><span class="str" data-ref="m2">11</span></div>
-      <div class="toc-poz"><span class="co">3 · Przetwarzanie całościowe języka</span><span class="kropki"></span><span class="str" data-ref="m3">12</span></div>
-      <div class="toc-poz"><span class="co">4 · Pamięć dosłowna i długotrwała</span><span class="kropki"></span><span class="str" data-ref="m4">12</span></div>
+      <div class="toc-poz"><span class="co">Skala siły dowodów — jak czytać tę broszurę</span><span class="kropki"></span><span class="str" data-ref="skala">10</span></div>
+      <div class="toc-poz"><span class="co">1 · Obciążenie językowe i trudność w rozumieniu</span><span class="kropki"></span><span class="str" data-ref="m1">10</span></div>
+      <div class="toc-poz"><span class="co">2 · Echolalia pełni funkcje komunikacyjne</span><span class="kropki"></span><span class="str" data-ref="m2">10</span></div>
+      <div class="toc-poz"><span class="co">3 · Przetwarzanie całościowe języka</span><span class="kropki"></span><span class="str" data-ref="m3">11</span></div>
+      <div class="toc-poz"><span class="co">4 · Pamięć dosłowna i długotrwała</span><span class="kropki"></span><span class="str" data-ref="m4">11</span></div>
     </div>
 
     <div class="toc-grupa">
       <div class="toc-naglowek">
         <span class="nr">III</span>
         <span class="tyt">Co dzieje się w mózgu</span>
-        <span class="str" data-ref="r3">13</span>
+        <span class="str" data-ref="r3">12</span>
       </div>
-      <div class="toc-poz"><span class="co">Grzbietowy szlak powtarzania mowy</span><span class="kropki"></span><span class="str" data-ref="szlak">14</span></div>
-      <div class="toc-poz"><span class="co">5 · Powtarzanie jako osobny obwód</span><span class="kropki"></span><span class="str" data-ref="m5">14</span></div>
-      <div class="toc-poz"><span class="co">6 · Osłabione hamowanie automatycznej imitacji</span><span class="kropki"></span><span class="str" data-ref="m6">15</span></div>
-      <div class="toc-poz"><span class="co">7 · Regulacja pobudzenia i napięcia</span><span class="kropki"></span><span class="str" data-ref="m7">15</span></div>
+      <div class="toc-poz"><span class="co">Grzbietowy szlak powtarzania mowy</span><span class="kropki"></span><span class="str" data-ref="szlak">13</span></div>
+      <div class="toc-poz"><span class="co">5 · Powtarzanie jako osobny obwód</span><span class="kropki"></span><span class="str" data-ref="m5">13</span></div>
+      <div class="toc-poz"><span class="co">6 · Osłabione hamowanie automatycznej imitacji</span><span class="kropki"></span><span class="str" data-ref="m6">14</span></div>
+      <div class="toc-poz"><span class="co">7 · Regulacja pobudzenia i napięcia</span><span class="kropki"></span><span class="str" data-ref="m7">14</span></div>
     </div>
 
     <div class="toc-grupa">
       <div class="toc-naglowek">
         <span class="nr">IV</span>
         <span class="tyt">Szerszy obraz</span>
-        <span class="str" data-ref="poza-autyzmem">16</span>
+        <span class="str" data-ref="poza-autyzmem">15</span>
       </div>
-      <div class="toc-poz"><span class="co">Pół wieku badań — oś czasu</span><span class="kropki"></span><span class="str" data-ref="os-czasu">17</span></div>
-      <div class="toc-poz"><span class="co">Czego nauka nie potwierdziła?</span><span class="kropki"></span><span class="str" data-ref="mity">18</span></div>
+      <div class="toc-poz"><span class="co">Pół wieku badań — oś czasu</span><span class="kropki"></span><span class="str" data-ref="os-czasu">16</span></div>
+      <div class="toc-poz"><span class="co">Czego nauka nie potwierdziła?</span><span class="kropki"></span><span class="str" data-ref="mity">17</span></div>
     </div>
 
-  </div>
-
-  <div class="footer"><span class="pagina">Echolalia — rozumienie funkcji</span><span class="wydawca">PCTP Koszalin</span><span class="pagenum">Strona <b>03</b> z 39</span></div>
-</div>
-
-<div class="page">
-  <div class="kicker">Nawigacja</div>
-  <h3 class="sub">Spis treści — ciąg dalszy</h3>
-
-  <div class="toc">
+  
     <div class="toc-grupa">
       <div class="toc-naglowek">
         <span class="nr">V</span>
         <span class="tyt">Praktyka</span>
-        <span class="str" data-ref="praktyka">19</span>
+        <span class="str" data-ref="praktyka">18</span>
       </div>
-      <div class="toc-poz"><span class="co">Pytania, które padają najczęściej</span><span class="kropki"></span><span class="str" data-ref="faq">19</span></div>
+      <div class="toc-poz"><span class="co">Pytania, które padają najczęściej</span><span class="kropki"></span><span class="str" data-ref="faq">18</span></div>
     </div>
 
     <div class="toc-grupa">
       <div class="toc-naglowek">
         <span class="nr">VI</span>
         <span class="tyt">Warsztat: ćwiczenia i dostosowania</span>
-        <span class="str" data-ref="r6">20</span>
+        <span class="str" data-ref="r6">19</span>
       </div>
-      <div class="toc-poz"><span class="co">Czy echolalię należy hamować?</span><span class="kropki"></span><span class="str" data-ref="hamowac">21</span></div>
-      <div class="toc-poz"><span class="co">Kiedy jednak trzeba zainterweniować?</span><span class="kropki"></span><span class="str" data-ref="kiedy">22</span></div>
-      <div class="toc-poz"><span class="co">Zasady postępowania — siedem reguł</span><span class="kropki"></span><span class="str" data-ref="zasady">22</span></div>
-      <div class="toc-poz"><span class="co">Dziesięć ćwiczeń dla terapeuty komunikacji</span><span class="kropki"></span><span class="str" data-ref="cwiczenia">23</span></div>
-      <div class="toc-poz"><span class="co">Dostosowania w klasie dla nauczyciela</span><span class="kropki"></span><span class="str" data-ref="dostosowania">29</span></div>
+      <div class="toc-poz"><span class="co">Czy echolalię należy hamować?</span><span class="kropki"></span><span class="str" data-ref="hamowac">20</span></div>
+      <div class="toc-poz"><span class="co">Kiedy jednak trzeba zainterweniować?</span><span class="kropki"></span><span class="str" data-ref="kiedy">21</span></div>
+      <div class="toc-poz"><span class="co">Zasady postępowania — siedem reguł</span><span class="kropki"></span><span class="str" data-ref="zasady">21</span></div>
+      <div class="toc-poz"><span class="co">Dziesięć ćwiczeń dla terapeuty komunikacji</span><span class="kropki"></span><span class="str" data-ref="cwiczenia">22</span></div>
+      <div class="toc-poz"><span class="co">Plan pierwszych ośmiu tygodni</span><span class="kropki"></span><span class="str" data-ref="plan">26</span></div>
+      <div class="toc-poz"><span class="co">Dostosowania w klasie dla nauczyciela</span><span class="kropki"></span><span class="str" data-ref="dostosowania">27</span></div>
     </div>
 
     <div class="toc-grupa">
       <div class="toc-naglowek">
         <span class="nr">VII</span>
         <span class="tyt">Zespół: zintegrowane działania</span>
-        <span class="str" data-ref="r7">31</span>
+        <span class="str" data-ref="r7">29</span>
       </div>
-      <div class="toc-poz"><span class="co">Dlaczego spójność decyduje?</span><span class="kropki"></span><span class="str" data-ref="spojnosc">32</span></div>
-      <div class="toc-poz"><span class="co">Kto za co odpowiada?</span><span class="kropki"></span><span class="str" data-ref="role">32</span></div>
-      <div class="toc-poz"><span class="co">Wspólny protokół reagowania</span><span class="kropki"></span><span class="str" data-ref="protokol">33</span></div>
-      <div class="toc-poz"><span class="co">Gdzie zespoły najczęściej się rozjeżdżają?</span><span class="kropki"></span><span class="str" data-ref="rozjazdy">34</span></div>
-      <div class="toc-poz"><span class="co">Kalendarz pracy zespołu</span><span class="kropki"></span><span class="str" data-ref="kalendarz">34</span></div>
-      <div class="toc-poz"><span class="co">Karta uzgodnień zespołu</span><span class="kropki"></span><span class="str" data-ref="karta">35</span></div>
+      <div class="toc-poz"><span class="co">Dlaczego spójność decyduje?</span><span class="kropki"></span><span class="str" data-ref="spojnosc">30</span></div>
+      <div class="toc-poz"><span class="co">Kto za co odpowiada?</span><span class="kropki"></span><span class="str" data-ref="role">30</span></div>
+      <div class="toc-poz"><span class="co">Wspólny protokół reagowania</span><span class="kropki"></span><span class="str" data-ref="protokol">31</span></div>
+      <div class="toc-poz"><span class="co">Gdzie zespoły najczęściej się rozjeżdżają?</span><span class="kropki"></span><span class="str" data-ref="rozjazdy">32</span></div>
+      <div class="toc-poz"><span class="co">Kalendarz pracy zespołu</span><span class="kropki"></span><span class="str" data-ref="kalendarz">32</span></div>
+      <div class="toc-poz"><span class="co">Karta uzgodnień zespołu</span><span class="kropki"></span><span class="str" data-ref="karta">33</span></div>
     </div>
 
     <div class="toc-grupa">
       <div class="toc-naglowek">
         <span class="nr">VIII</span>
         <span class="tyt">Materiały</span>
-        <span class="str" data-ref="slownik">36</span>
+        <span class="str" data-ref="slownik">34</span>
       </div>
-      <div class="toc-poz"><span class="co">Bibliografia</span><span class="kropki"></span><span class="str" data-ref="bibliografia">37</span></div>
-      <div class="toc-poz"><span class="co">Szybka ściągawka do powieszenia</span><span class="kropki"></span><span class="str" data-ref="sciagawka">38</span></div>
+      <div class="toc-poz"><span class="co">Bibliografia</span><span class="kropki"></span><span class="str" data-ref="bibliografia">35</span></div>
+      <div class="toc-poz"><span class="co">Szybka ściągawka do powieszenia</span><span class="kropki"></span><span class="str" data-ref="sciagawka">36</span></div>
     </div>
   </div>
 
-  <div class="footer"><span class="pagina">Echolalia — rozumienie funkcji</span><span class="wydawca">PCTP Koszalin</span><span class="pagenum">Strona <b>04</b> z 39</span></div>
+  <h3 class="sub">Jak korzystać z tej broszury?</h3>
+  <div class="kroki">
+    <div class="krok">
+      <div class="nr">R</div>
+      <h4>Rodzic</h4>
+      <p>Zacznij od rozdziału VI: ćwiczenia opisane są zwykłym językiem, z przykładami z codziennego dnia. Potem wróć do rozdziału II, jeśli chcesz wiedzieć, dlaczego działają.</p>
+    </div>
+    <div class="krok">
+      <div class="nr">N</div>
+      <h4>Nauczyciel</h4>
+      <p>Najpierw dostosowania w klasie i rozdział VII o uzgodnieniach zespołu. Kartę uzgodnień można wydrukować i wypełnić na najbliższym spotkaniu.</p>
+    </div>
+    <div class="krok">
+      <div class="nr">T</div>
+      <h4>Terapeuta</h4>
+      <p>Rozdziały II–IV zawierają oceny siły dowodów i pełną bibliografię. Rozdział VI podaje przy każdym ćwiczeniu jego podstawę w literaturze.</p>
+    </div>
+    <div class="krok">
+      <div class="nr">!</div>
+      <h4>Mało czasu</h4>
+      <p>Rozstrzygnięcie „Czy echolalię należy hamować?”, plan pierwszych ośmiu tygodni i ściągawka na końcu — trzy strony, które wystarczą na start.</p>
+    </div>
+  </div>
+
+  <div class="footer"><span class="pagina">Echolalia — rozumienie funkcji</span><span class="wydawca">PCTP Koszalin</span><span class="pagenum">Strona <b>03</b> z 37</span></div>
 </div>
 
 <div class="page">
@@ -965,7 +983,7 @@
     </div>
   </div>
 
-  <div class="footer"><span class="pagina">Wprowadzenie</span><span class="wydawca">PCTP Koszalin</span><span class="pagenum">Strona <b>05</b> z 39</span></div>
+  <div class="footer"><span class="pagina">Wprowadzenie</span><span class="wydawca">PCTP Koszalin</span><span class="pagenum">Strona <b>04</b> z 37</span></div>
 </div>
 
 <div class="page">
@@ -1014,7 +1032,7 @@
     <p>Przez tydzień notuj przy każdym echu trzy rzeczy: <strong>co je poprzedziło</strong>, <strong>jak głośne było</strong> i <strong>czy dziecko patrzyło na kogoś</strong>. Po tygodniu wzorzec zwykle staje się widoczny bez żadnych narzędzi diagnostycznych.</p>
   </div>
 
-  <div class="footer"><span class="pagina">Rozdział I · Punkt wyjścia</span><span class="wydawca">PCTP Koszalin</span><span class="pagenum">Strona <b>06</b> z 39</span></div>
+  <div class="footer"><span class="pagina">Rozdział I · Punkt wyjścia</span><span class="wydawca">PCTP Koszalin</span><span class="pagenum">Strona <b>05</b> z 37</span></div>
 </div>
 
 <div class="page krem">
@@ -1068,8 +1086,27 @@
     <p>Cohn i wsp. <span class="cyt">[9]</span> opisali regułę, którą łatwo sprawdzić w klasie: <strong>echa komunikacyjne są zwykle głośniejsze</strong>. Ciche, mruczane powtarzanie częściej służy samoregulacji; wyraźne, skierowane do kogoś — komunikacji.</p>
   </div>
 
+  <h3 class="sub">Jak rozpoznać, z którą twarzą echa masz do czynienia?</h3>
+  <div class="tabela-wrap">
+    <table class="stany">
+      <thead><tr><th>Co sprawdzasz?</th><th>Natychmiastowa</th><th>Odroczona</th></tr></thead>
+      <tbody>
+        <tr><td>Kiedy padło?</td><td>W ciągu kilku sekund od usłyszenia.</td><td>Nie wiadomo — fraza pojawia się „znikąd”.</td></tr>
+        <tr><td>Skąd pochodzi fraza?</td><td>Od osoby obecnej w pokoju.</td><td>Z bajki, reklamy, dawnej rozmowy.</td></tr>
+        <tr><td>Jak brzmi?</td><td>Podobnie do Twojej wypowiedzi.</td><td>Wierna kopia oryginału, często z obcą intonacją.</td></tr>
+        <tr><td>Co pomaga?</td><td>Uprość zdanie i daj dłuższą pauzę.</td><td>Znajdź źródło i użyj tej frazy w prawdziwej sytuacji.</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="ramka-t praktyka">
+    <div class="glowa">✦ Dwa przykłady z jednego dnia</div>
+    <p><b>Rano.</b> Nauczyciel: „Otwórz zeszyt.” Dziecko: „Otwórz zeszyt.” — echo <b>natychmiastowe</b>. Polecenie było o jedno słowo za długie; wystarczy powiedzieć „Zeszyt.” i poczekać.</p>
+    <p><b>Po południu.</b> Dziecko powtarza w kółko: „Zaraz wracam, obiecuję!” — echo <b>odroczone</b>, kwestia z bajki. Warto sprawdzić, czy nie chodzi o czekanie na rodzica.</p>
+  </div>
+
   
-  <div class="footer"><span class="pagina">Rozdział I · Punkt wyjścia</span><span class="wydawca">PCTP Koszalin</span><span class="pagenum">Strona <b>07</b> z 39</span></div>
+  <div class="footer"><span class="pagina">Rozdział I · Punkt wyjścia</span><span class="wydawca">PCTP Koszalin</span><span class="pagenum">Strona <b>06</b> z 37</span></div>
 </div>
 
 <div class="page krem">
@@ -1164,7 +1201,7 @@
 
   <p>Prizant i Duchan nagrali wypowiedzi dzieci autystycznych w naturalnych sytuacjach i zestawili każde echo z <strong>trzema rzeczami naraz</strong>: co je poprzedziło, jak zostało wypowiedziane i co dziecko zrobiło zaraz potem <span class="cyt">[1]</span>. Dopiero taki układ pozwala odróżnić funkcję od formy — dwie identycznie brzmiące wypowiedzi mogą pełnić zupełnie różne role.</p>
 
-  <div class="footer"><span class="pagina">Rozdział I · Punkt wyjścia</span><span class="wydawca">PCTP Koszalin</span><span class="pagenum">Strona <b>08</b> z 39</span></div>
+  <div class="footer"><span class="pagina">Rozdział I · Punkt wyjścia</span><span class="wydawca">PCTP Koszalin</span><span class="pagenum">Strona <b>07</b> z 37</span></div>
 </div>
 
 <div class="page">
@@ -1223,7 +1260,7 @@
     <p>Funkcje <strong>nie są przypisane dziecku na stałe</strong>. To samo dziecko używa echa raz jako prośby, raz jako kotwicy w napięciu. Dlatego mapę funkcji robi się dla <em style="font-style:italic;">sytuacji</em>, a nie dla ucznia — i odświeża się ją, gdy zmienia się klasa, nauczyciel albo plan dnia.</p>
   </div>
 
-  <div class="footer"><span class="pagina">Rozdział I · Punkt wyjścia</span><span class="wydawca">PCTP Koszalin</span><span class="pagenum">Strona <b>09</b> z 39</span></div>
+  <div class="footer"><span class="pagina">Rozdział I · Punkt wyjścia</span><span class="wydawca">PCTP Koszalin</span><span class="pagenum">Strona <b>08</b> z 37</span></div>
 </div>
 
 <div class="page rozdzial">
@@ -1236,7 +1273,7 @@
     <span>Cztery mechanizmy</span>
     <span>Ostrzeżenie o modelu NLA</span>
   </div>
-  <div class="footer"><span class="pagina">Rozdział II</span><span class="wydawca">PCTP Koszalin</span><span class="pagenum">Strona <b>10</b> z 39</span></div>
+  <div class="footer"><span class="pagina">Rozdział II</span><span class="wydawca">PCTP Koszalin</span><span class="pagenum">Strona <b>09</b> z 37</span></div>
 </div>
 
 <div class="page">
@@ -1298,7 +1335,7 @@
     <p>„Wysoko sterujące” nie znaczy „surowe”. Ciepło zadane pytanie testujące obciąża przetwarzanie tak samo jak suche polecenie — liczy się <strong>struktura wypowiedzi</strong>, nie ton głosu.</p>
   </div>
 
-  <div class="footer"><span class="pagina">Rozdział II · Co jest udowodnione</span><span class="wydawca">PCTP Koszalin</span><span class="pagenum">Strona <b>11</b> z 39</span></div>
+  <div class="footer"><span class="pagina">Rozdział II · Co jest udowodnione</span><span class="wydawca">PCTP Koszalin</span><span class="pagenum">Strona <b>10</b> z 37</span></div>
 </div>
 
 <div class="page">
@@ -1345,7 +1382,7 @@
     <p>Rozbijanie brył jest procesem stopniowym: najpierw pojawia się jeden wymienny element („czas na <strong>obiad</strong>”), potem kolejne. Właśnie dlatego pierwszym sygnałem postępu bywa nie zanik echa, lecz <strong>drobna zmiana wewnątrz powtarzanej frazy</strong>.</p>
   </div>
 
-  <div class="footer"><span class="pagina">Rozdział II · Co jest udowodnione</span><span class="wydawca">PCTP Koszalin</span><span class="pagenum">Strona <b>12</b> z 39</span></div>
+  <div class="footer"><span class="pagina">Rozdział II · Co jest udowodnione</span><span class="wydawca">PCTP Koszalin</span><span class="pagenum">Strona <b>11</b> z 37</span></div>
 </div>
 
 <div class="page rozdzial">
@@ -1358,7 +1395,7 @@
     <span>Hamowanie imitacji</span>
     <span>Regulacja napięcia</span>
   </div>
-  <div class="footer"><span class="pagina">Rozdział III</span><span class="wydawca">PCTP Koszalin</span><span class="pagenum">Strona <b>13</b> z 39</span></div>
+  <div class="footer"><span class="pagina">Rozdział III</span><span class="wydawca">PCTP Koszalin</span><span class="pagenum">Strona <b>12</b> z 37</span></div>
 </div>
 
 <div class="page">
@@ -1435,7 +1472,7 @@
     <p>Bywa zachowane powtarzanie przy zniesionym rozumieniu, ale zdarza się też odwrotnie. Gdyby to była jedna droga, taka podwójna dysocjacja nie byłaby możliwa.</p>
   </div>
 
-  <div class="footer"><span class="pagina">Rozdział III · Co dzieje się w mózgu?</span><span class="wydawca">PCTP Koszalin</span><span class="pagenum">Strona <b>14</b> z 39</span></div>
+  <div class="footer"><span class="pagina">Rozdział III · Co dzieje się w mózgu?</span><span class="wydawca">PCTP Koszalin</span><span class="pagenum">Strona <b>13</b> z 37</span></div>
 </div>
 
 <div class="page">
@@ -1483,7 +1520,7 @@
   <p style="font-size:12.4px;margin-bottom:2px;">Zestawienie sytuacji powtarzalnie opisywanych w literaturze <span class="cyt">[1][2][9]</span> — z mechanizmem, który za nimi stoi.</p>
 
   <div class="tabela-wrap">
-    <table class="stany">
+    <table class="stany etykieta2">
       <thead>
         <tr><th>Sytuacja</th><th>Mechanizm</th><th>Co pomaga?</th></tr>
       </thead>
@@ -1498,7 +1535,7 @@
     </table>
   </div>
 
-  <div class="footer"><span class="pagina">Rozdział III · Co dzieje się w mózgu?</span><span class="wydawca">PCTP Koszalin</span><span class="pagenum">Strona <b>15</b> z 39</span></div>
+  <div class="footer"><span class="pagina">Rozdział III · Co dzieje się w mózgu?</span><span class="wydawca">PCTP Koszalin</span><span class="pagenum">Strona <b>14</b> z 37</span></div>
 </div>
 
 <div class="page krem">
@@ -1507,7 +1544,7 @@
   <p class="lead">Echo pojawia się w bardzo różnych stanach — i właśnie to jest najlepszym dowodem, że mamy do czynienia z działaniem pewnej sieci, a nie z objawem jednej diagnozy.</p>
 
   <div class="tabela-wrap">
-    <table class="stany">
+    <table class="stany etykieta2">
       <thead>
         <tr><th>Kiedy występuje?</th><th>Wiek / kontekst</th><th>Czego to dowodzi?</th></tr>
       </thead>
@@ -1556,7 +1593,7 @@
     <p>Różnica u dzieci autystycznych nie polega więc na tym, <em style="font-style:italic;">że</em> powtarzają, lecz na tym, <strong>jak długo</strong> powtarzanie pozostaje głównym narzędziem i jak duże bryły języka obejmuje.</p>
   </div>
 
-  <div class="footer"><span class="pagina">Rozdział IV · Szerszy obraz</span><span class="wydawca">PCTP Koszalin</span><span class="pagenum">Strona <b>16</b> z 39</span></div>
+  <div class="footer"><span class="pagina">Rozdział IV · Szerszy obraz</span><span class="wydawca">PCTP Koszalin</span><span class="pagenum">Strona <b>15</b> z 37</span></div>
 </div>
 
 <div class="page">
@@ -1627,7 +1664,7 @@
     <p>Nie wiemy, dlaczego u jednych dzieci echolalia ustępuje mowie własnej, a u innych zostaje. Brakuje też rozstrzygających badań porównujących metody terapeutyczne <span class="cyt">[15][16]</span>.</p>
   </div>
 
-  <div class="footer"><span class="pagina">Rozdział IV · Szerszy obraz</span><span class="wydawca">PCTP Koszalin</span><span class="pagenum">Strona <b>17</b> z 39</span></div>
+  <div class="footer"><span class="pagina">Rozdział IV · Szerszy obraz</span><span class="wydawca">PCTP Koszalin</span><span class="pagenum">Strona <b>16</b> z 37</span></div>
 </div>
 
 <div class="page krem">
@@ -1660,7 +1697,7 @@
     <p>Nauka nie zna <em style="font-style:italic;">jednej</em> przyczyny echolalii i prawdopodobnie nigdy nie znajdzie — bo echolalia nie jest chorobą, tylko zachowaniem o wielu funkcjach. Najlepiej potwierdzone jest natomiast to, co ma bezpośrednie przełożenie na praktykę: <strong>echolalia komunikuje, a jej ilość zależy od tego, jak mówimy do dziecka</strong>.</p>
   </div>
 
-  <div class="footer"><span class="pagina">Rozdział IV · Szerszy obraz</span><span class="wydawca">PCTP Koszalin</span><span class="pagenum">Strona <b>18</b> z 39</span></div>
+  <div class="footer"><span class="pagina">Rozdział IV · Szerszy obraz</span><span class="wydawca">PCTP Koszalin</span><span class="pagenum">Strona <b>17</b> z 37</span></div>
 </div>
 
 <div class="page">
@@ -1717,7 +1754,7 @@
     <p>U części dzieci maleje w miarę rozwoju mowy własnej, u części zostaje jako jeden ze sposobów mówienia — także w dorosłości. Realistyczny cel nie brzmi „zero echa”, tylko <strong>„więcej sposobów na powiedzenie tego, co chcę”</strong>.</p>
   </div>
 
-  <div class="footer"><span class="pagina">Rozdział V · Praktyka</span><span class="wydawca">PCTP Koszalin</span><span class="pagenum">Strona <b>19</b> z 39</span></div>
+  <div class="footer"><span class="pagina">Rozdział V · Praktyka</span><span class="wydawca">PCTP Koszalin</span><span class="pagenum">Strona <b>18</b> z 37</span></div>
 </div>
 
 <div class="page rozdzial">
@@ -1730,7 +1767,7 @@
     <span>10 ćwiczeń</span>
     <span>Dostosowania dla nauczyciela</span>
   </div>
-  <div class="footer"><span class="pagina">Rozdział VI</span><span class="wydawca">PCTP Koszalin</span><span class="pagenum">Strona <b>20</b> z 39</span></div>
+  <div class="footer"><span class="pagina">Rozdział VI</span><span class="wydawca">PCTP Koszalin</span><span class="pagenum">Strona <b>19</b> z 37</span></div>
 </div>
 
 <div class="page">
@@ -1797,7 +1834,7 @@
     <p><em style="font-style:italic;">„Ale dziecko musi się w końcu nauczyć mówić samodzielnie.”</em> — Zgoda, i właśnie dlatego nie wygaszamy echa. Mowa własna nie powstaje w miejscu usuniętego powtarzania, tylko <strong>wyrasta z niego</strong>: przez rozbijanie brył, modelowanie i poszerzanie repertuaru. Usunięcie echa nie przyspiesza tej drogi — odbiera dziecku materiał, z którego miała powstać.</p>
   </div>
 
-  <div class="footer"><span class="pagina">Rozdział VI · Warsztat</span><span class="wydawca">PCTP Koszalin</span><span class="pagenum">Strona <b>21</b> z 39</span></div>
+  <div class="footer"><span class="pagina">Rozdział VI · Warsztat</span><span class="wydawca">PCTP Koszalin</span><span class="pagenum">Strona <b>20</b> z 37</span></div>
 </div>
 
 <div class="page krem">
@@ -1846,7 +1883,7 @@
     <li><b>Zapisuj, nie tylko obserwuj.</b> Wzorzec funkcji ujawnia się po tygodniu notatek, nie po jednym dniu wrażeń.</li>
   </ol>
 
-  <div class="footer"><span class="pagina">Rozdział VI · Warsztat</span><span class="wydawca">PCTP Koszalin</span><span class="pagenum">Strona <b>22</b> z 39</span></div>
+  <div class="footer"><span class="pagina">Rozdział VI · Warsztat</span><span class="wydawca">PCTP Koszalin</span><span class="pagenum">Strona <b>21</b> z 37</span></div>
 </div>
 
 <div class="page">
@@ -1877,7 +1914,21 @@
       <dt>Skąd wiemy</dt><dd>Metoda opisana przez McMorrowa i wsp. <span class="cyt">[11]</span>.</dd>
       <dt>Poznasz po tym</dt><dd>Dziecko samo się zatrzymuje, zanim powtórzy pytanie.</dd>
     </dl>
-  </div><div class="footer"><span class="pagina">Rozdział VI · Warsztat</span><span class="wydawca">PCTP Koszalin</span><span class="pagenum">Strona <b>23</b> z 39</span></div>
+  </div><div class="cwiczenie">
+    <div class="cw-glowa"><span class="cw-nr">02</span><h4>Mów tak, jak dziecko ma powiedzieć</h4></div>
+    <dl class="cw-tresc">
+      <dt>Po co</dt><dd>Dziecko zapamiętuje zdanie dokładnie w tej postaci, w jakiej je usłyszy — razem z każdym dodatkowym słowem. Jeśli usłyszy „Powiedz: chcę sok”, zapamięta całe „Powiedz: chcę sok”.</dd>
+      <dt>Jak</dt><dd><b>Dorosły wypowiada zdanie za dziecko</b> — tak, jakby mówił jego głosem. Krótko, zawsze tak samo, bez słowa „powiedz” i bez zamiany w pytanie. To nie jest polecenie dla dziecka; to gotowy wzór, który dziecko może przejąć.</dd>
+      <dt>Przykład</dt><dd class="przyklad"><b>Sytuacja:</b> dziecko ciągnie Cię za rękę przy lodówce.<br>
+      ✗ <b>DOROSŁY:</b> „Powiedz: chcę sok.” → dziecko odbije całość razem z „powiedz”.<br>
+      ✗ <b>DOROSŁY:</b> „Chcesz sok?” → dziecko odbije pytanie.<br>
+      ✓ <b>DOROSŁY:</b> „Chcę sok.” → i od razu podaje sok.<br>
+      Po kilku tygodniach <b>DZIECKO</b> mówi to samo.</dd>
+      <dt>Uwaga</dt><dd>Brzmi dziwnie, bo dorosły mówi „chcę sok”, choć sam nie chce — i o to chodzi.</dd>
+      <dt>Skąd wiemy</dt><dd>Z tego, jak dzieci uczą się języka całymi zdaniami <span class="cyt">[6]</span>.</dd>
+      <dt>Poznasz po tym</dt><dd>Dziecko używa zdania samo, bez podpowiedzi.</dd>
+    </dl>
+  </div><div class="footer"><span class="pagina">Rozdział VI · Warsztat</span><span class="wydawca">PCTP Koszalin</span><span class="pagenum">Strona <b>22</b> z 37</span></div>
 </div>
 
 <div class="page">
@@ -1888,20 +1939,6 @@
   
 
   <div class="cwiczenie">
-    <div class="cw-glowa"><span class="cw-nr">02</span><h4>Mów tak, jak dziecko ma powiedzieć</h4></div>
-    <dl class="cw-tresc">
-      <dt>Po co</dt><dd>Dziecko zapamiętuje zdanie dokładnie w tej postaci, w jakiej je usłyszy — razem z każdym dodatkowym słowem. Jeśli usłyszy „Powiedz: chcę sok”, zapamięta całe „Powiedz: chcę sok”.</dd>
-      <dt>Jak</dt><dd><b>Dorosły wypowiada zdanie za dziecko</b> — tak, jakby mówił jego głosem. Krótko, zawsze tak samo, bez słowa „powiedz” i bez zamiany w pytanie. To nie jest polecenie dla dziecka; to gotowy wzór, który dziecko może przejąć.</dd>
-      <dt>Przykład</dt><dd class="przyklad"><b>Sytuacja:</b> dziecko stoi przy lodówce i ciągnie Cię za rękę.<br><br>
-      ✗ <b>DOROSŁY:</b> „Powiedz: chcę sok.” → dziecko odbije całość: „Powiedz: chcę sok.”<br>
-      ✗ <b>DOROSŁY:</b> „Chcesz sok?” → dziecko odbije pytanie: „Chcesz sok?”<br>
-      ✓ <b>DOROSŁY:</b> „Chcę sok.” → i od razu podaje sok.<br><br>
-      Po kilku tygodniach <b>DZIECKO</b> samo powie: „Chcę sok.”</dd>
-      <dt>Uwaga</dt><dd>Brzmi to dziwnie, bo dorosły mówi „chcę sok”, choć sam nie chce. I o to chodzi — dziecko dostaje zdanie w tej formie, w jakiej ma go używać.</dd>
-      <dt>Skąd wiemy</dt><dd>Z tego, jak dzieci uczą się języka całymi zdaniami <span class="cyt">[6]</span>.</dd>
-      <dt>Poznasz po tym</dt><dd>Dziecko używa zdania samo, bez podpowiedzi.</dd>
-    </dl>
-  </div><div class="cwiczenie">
     <div class="cw-glowa"><span class="cw-nr">03</span><h4>Karteczka, która się skraca</h4></div>
     <dl class="cw-tresc">
       <dt>Po co</dt><dd>Żeby dziecko samo zaczynało rozmowę, a nie tylko odpowiadało, gdy ktoś je zagadnie.</dd>
@@ -1910,15 +1947,7 @@
       <dt>Skąd wiemy</dt><dd>Krantz i McClannahan <span class="cyt">[13]</span>; wsparcie obrazkowe — Ganz i wsp. <span class="cyt">[12]</span>.</dd>
       <dt>Poznasz po tym</dt><dd>Dziecko zaczepia kogoś bez paska w ręce.</dd>
     </dl>
-  </div><div class="footer"><span class="pagina">Rozdział VI · Warsztat</span><span class="wydawca">PCTP Koszalin</span><span class="pagenum">Strona <b>24</b> z 39</span></div>
-</div>
-
-<div class="page">
-  
-
-  
-
-  <div class="cwiczenie">
+  </div><div class="cwiczenie">
     <div class="cw-glowa"><span class="cw-nr">04</span><h4>Opowiadaj, zamiast pytać</h4></div>
     <dl class="cw-tresc">
       <dt>Po co</dt><dd>Pytania są dla dziecka znacznie trudniejsze niż zwykłe zdania. Im więcej pytań, tym więcej powtarzania. To jedyna rzecz, o której na pewno wiadomo, że zmienia ilość echa — i zależy wyłącznie od dorosłego.</dd>
@@ -1940,7 +1969,17 @@
       <dt>Skąd wiemy</dt><dd>Z opisu uczenia się języka całymi frazami — Prizant <span class="cyt">[6]</span>.</dd>
       <dt>Poznasz po tym</dt><dd>Dziecko samo podmienia słowo w znanym zdaniu. To pierwszy sygnał postępu — ważniejszy niż spadek liczby powtórzeń.</dd>
     </dl>
-  </div><div class="cwiczenie">
+  </div><div class="footer"><span class="pagina">Rozdział VI · Warsztat</span><span class="wydawca">PCTP Koszalin</span><span class="pagenum">Strona <b>23</b> z 37</span></div>
+</div>
+
+<div class="page">
+  
+
+  
+
+  
+
+  <div class="cwiczenie">
     <div class="cw-glowa"><span class="cw-nr">06</span><h4>Zeszyt obserwacji</h4></div>
     <dl class="cw-tresc">
       <dt>Po co</dt><dd>Żeby wiedzieć, <strong>po co</strong> dziecko powtarza. Bez tego wszystkie pozostałe ćwiczenia są zgadywaniem.</dd>
@@ -1949,7 +1988,27 @@
       <dt>Skąd wiemy</dt><dd>Podział na funkcje — Prizant i Duchan <span class="cyt">[1]</span>; głośność jako wskazówka — Cohn i wsp. <span class="cyt">[9]</span>.</dd>
       <dt>Poznasz po tym</dt><dd>Po tygodniu widać dwa–trzy powtarzające się układy. To one stają się celami pracy.</dd>
     </dl>
-  </div><div class="footer"><span class="pagina">Rozdział VI · Warsztat</span><span class="wydawca">PCTP Koszalin</span><span class="pagenum">Strona <b>25</b> z 39</span></div>
+  </div><h3 class="sub">Arkusz obserwacji echa — do ćwiczenia 06</h3><div class="tabela-wrap">
+    <table class="stany">
+      <thead><tr><th>Co zapisać?</th><th>Możliwe wartości</th></tr></thead>
+      <tbody>
+        <tr><td>Co poprzedziło</td><td>polecenie · pytanie testujące · komentarz · zmiana · hałas · nic</td></tr>
+        <tr><td>Głośność</td><td>ciche / mruczane &nbsp;·&nbsp; zwykłe &nbsp;·&nbsp; głośniejsze niż zwykle</td></tr>
+        <tr><td>Skierowanie</td><td>do osoby (kontakt, gest) &nbsp;·&nbsp; do siebie</td></tr>
+        <tr><td>Co nastąpiło potem</td><td>dziecko dostało to, o co chodziło · powtórzyło ponownie · odeszło · uspokoiło się</td></tr>
+        <tr><td>Przypisana funkcja</td><td>jedna z siedmiu z tabeli na stronie 06</td></tr>
+      </tbody>
+    </table>
+  </div><div class="cwiczenie">
+    <div class="cw-glowa"><span class="cw-nr">07</span><h4>Licz w myślach do dziesięciu</h4></div>
+    <dl class="cw-tresc">
+      <dt>Po co</dt><dd>Zrozumienie zdania zajmuje dziecku więcej czasu, niż nam się wydaje. Powtórzenie przychodzi szybciej niż odpowiedź — bo idzie krótszą drogą.</dd>
+      <dt>Jak</dt><dd>Po każdym pytaniu policz w myślach do dziesięciu. Nie powtarzaj pytania, nie zmieniaj go, nie podpowiadaj. Po prostu czekaj.</dd>
+      <dt>Przykład</dt><dd class="przyklad">Nagraj rozmowę telefonem i posłuchaj. Większość dorosłych wytrzymuje dwie sekundy i sama nie ma o tym pojęcia.</dd>
+      <dt>Skąd wiemy</dt><dd>Z tego, że powtarzanie i rozumienie biegną w mózgu dwiema różnymi drogami — o różnej szybkości.</dd>
+      <dt>Poznasz po tym</dt><dd>Własna odpowiedź dziecka pojawia się w czwartej–ósmej sekundzie ciszy.</dd>
+    </dl>
+  </div><div class="footer"><span class="pagina">Rozdział VI · Warsztat</span><span class="wydawca">PCTP Koszalin</span><span class="pagenum">Strona <b>24</b> z 37</span></div><div class="footer"><span class="pagina">Rozdział VI · Warsztat</span><span class="wydawca">PCTP Koszalin</span><span class="pagenum">Strona <b>25</b> z 38</span></div>
 </div>
 
 <div class="page">
@@ -1962,15 +2021,6 @@
   
 
   <div class="cwiczenie">
-    <div class="cw-glowa"><span class="cw-nr">07</span><h4>Licz w myślach do dziesięciu</h4></div>
-    <dl class="cw-tresc">
-      <dt>Po co</dt><dd>Zrozumienie zdania zajmuje dziecku więcej czasu, niż nam się wydaje. Powtórzenie przychodzi szybciej niż odpowiedź — bo idzie krótszą drogą.</dd>
-      <dt>Jak</dt><dd>Po każdym pytaniu policz w myślach do dziesięciu. Nie powtarzaj pytania, nie zmieniaj go, nie podpowiadaj. Po prostu czekaj.</dd>
-      <dt>Przykład</dt><dd class="przyklad">Nagraj rozmowę telefonem i posłuchaj. Większość dorosłych wytrzymuje dwie sekundy i sama nie ma o tym pojęcia.</dd>
-      <dt>Skąd wiemy</dt><dd>Z tego, że powtarzanie i rozumienie biegną w mózgu dwiema różnymi drogami — o różnej szybkości.</dd>
-      <dt>Poznasz po tym</dt><dd>Własna odpowiedź dziecka pojawia się w czwartej–ósmej sekundzie ciszy.</dd>
-    </dl>
-  </div><div class="cwiczenie">
     <div class="cw-glowa"><span class="cw-nr">08</span><h4>Powtórz i dołóż jedno słowo</h4></div>
     <dl class="cw-tresc">
       <dt>Po co</dt><dd>Żeby dziecko usłyszało swoje zdanie w odrobinę bogatszej wersji — i to bez poprawiania go.</dd>
@@ -1992,10 +2042,7 @@
       <dt>Skąd wiemy</dt><dd>Opis funkcji powtórzeń odroczonych — Prizant i Rydell <span class="cyt">[3]</span>; Vicker <span class="cyt">[18]</span>.</dd>
       <dt>Poznasz po tym</dt><dd>Dziecko używa frazy pasująco do sytuacji, a nie tylko odtwarzając scenę z bajki.</dd>
     </dl>
-  </div><div class="footer"><span class="pagina">Rozdział VI · Warsztat</span><span class="wydawca">PCTP Koszalin</span><span class="pagenum">Strona <b>26</b> z 39</span></div>
-</div>
-
-<div class="page"><div class="cwiczenie">
+  </div><div class="cwiczenie">
     <div class="cw-glowa"><span class="cw-nr">10</span><h4>Obrazki obok mówienia</h4></div>
     <dl class="cw-tresc">
       <dt>Po co</dt><dd>Gdy mówienie robi się za trudne, dziecko musi mieć drugi sposób, żeby coś przekazać. Inaczej zostaje mu tylko powtarzanie.</dd>
@@ -2004,30 +2051,45 @@
       <dt>Skąd wiemy</dt><dd>Ganz i wsp. <span class="cyt">[12]</span>.</dd>
       <dt>Poznasz po tym</dt><dd>W trudnym momencie dziecko pokazuje obrazek, zamiast wpadać w pętlę powtarzania.</dd>
     </dl>
-  </div><div class="ramka-t praktyka">
+  </div><div class="footer"><span class="pagina">Rozdział VI · Warsztat</span><span class="wydawca">PCTP Koszalin</span><span class="pagenum">Strona <b>25</b> z 37</span></div>
+</div>
+
+<div class="page krem">
+  <div class="kicker">Wdrożenie</div>
+  <h2 class="section" data-toc="plan">Plan pierwszych ośmiu tygodni</h2>
+  <p class="lead">Nie wprowadza się dziesięciu ćwiczeń naraz. Ten harmonogram sprawdza się w większości placówek.</p>
+
+  <div class="ramka-t praktyka">
     <div class="glowa">✦ Od czego zacząć?</div>
     <p>Nie wprowadzaj więcej niż <strong>dwóch ćwiczeń naraz</strong> i daj każdemu co najmniej trzy–cztery tygodnie. Zacznij zawsze od <strong>04</strong> i <strong>06</strong> — od zmiany sposobu mówienia dorosłego i od zeszytu obserwacji. Reszta opiera się na tych dwóch.</p>
-  </div><div class="ramka-t uwaga">
-    <div class="glowa">▲ Najczęstszy błąd</div>
-    <p>Dorosły robi wszystko poprawnie, ale <strong>zbyt krótko</strong> — po tygodniu bez widocznego efektu wraca do dawnego sposobu mówienia. Zmiana w mowie dziecka pojawia się zwykle dopiero w trzecim–szóstym tygodniu. To normalne i nie znaczy, że ćwiczenie nie działa.</p>
-  </div><div class="footer"><span class="pagina">Rozdział VI · Warsztat</span><span class="wydawca">PCTP Koszalin</span><span class="pagenum">Strona <b>27</b> z 39</span></div></div>
+  </div>
 
-<div class="page">
-  <h3 class="sub">Arkusz obserwacji echa — do ćwiczenia 06</h3>
   <div class="tabela-wrap">
     <table class="stany">
-      <thead><tr><th>Co zapisać?</th><th>Możliwe wartości</th></tr></thead>
+      <thead><tr><th>Tydzień</th><th>Co robimy?</th></tr></thead>
       <tbody>
-        <tr><td>Co poprzedziło</td><td>polecenie · pytanie testujące · komentarz · zmiana · hałas · nic</td></tr>
-        <tr><td>Głośność</td><td>ciche / mruczane &nbsp;·&nbsp; zwykłe &nbsp;·&nbsp; głośniejsze niż zwykle</td></tr>
-        <tr><td>Skierowanie</td><td>do osoby (kontakt, gest) &nbsp;·&nbsp; do siebie</td></tr>
-        <tr><td>Co nastąpiło potem</td><td>dziecko dostało to, o co chodziło · powtórzyło ponownie · odeszło · uspokoiło się</td></tr>
-        <tr><td>Przypisana funkcja</td><td>jedna z siedmiu z tabeli na stronie 06</td></tr>
+        <tr><td>1–2</td><td>Tylko <b>ćwiczenie 06</b> — zeszyt obserwacji. Nic nie zmieniamy, najpierw patrzymy.</td></tr>
+        <tr><td>3</td><td>Spotkanie zespołu: ustalamy funkcje echa i wypełniamy kartę uzgodnień.</td></tr>
+        <tr><td>3–6</td><td><b>Ćwiczenie 04</b> — komentarz zamiast pytania. Stosują je wszyscy dorośli, wszędzie.</td></tr>
+        <tr><td>5–8</td><td>Dokładamy <b>ćwiczenie 07</b> — pauzę do dziesięciu. Nadal bez nowych ćwiczeń.</td></tr>
+        <tr><td>od 8</td><td>Dopiero teraz kolejne ćwiczenie, dobrane do rozpoznanych funkcji.</td></tr>
       </tbody>
     </table>
   </div>
 
-  <div class="footer"><span class="pagina">Rozdział VI · Warsztat</span><span class="wydawca">PCTP Koszalin</span><span class="pagenum">Strona <b>28</b> z 39</span></div>
+  <div class="ramka-t uwaga">
+    <div class="glowa">▲ Najczęstszy błąd</div>
+    <p>Dorosły robi wszystko poprawnie, ale <strong>zbyt krótko</strong> — po tygodniu bez efektu wraca do dawnego sposobu mówienia. Zmiana w mowie dziecka przychodzi zwykle dopiero w trzecim–szóstym tygodniu.</p>
+  </div>
+
+  <div class="ramka-t nauka">
+    <div class="glowa">◈ Po czym poznać, że to działa?</div>
+    <p>Nie po tym, że echa jest mniej. Szukaj czterech sygnałów:</p>
+    <p><b>1.</b> Dziecko zmienia słowo w znanej frazie. &nbsp; <b>2.</b> Odpowiada w 4.–8. sekundzie ciszy.<br>
+    <b>3.</b> Samo zaczyna kontakt. &nbsp; <b>4.</b> W trudnym momencie sięga po obrazek zamiast wpadać w pętlę powtarzania.</p>
+  </div>
+
+  <div class="footer"><span class="pagina">Rozdział VI · Warsztat</span><span class="wydawca">PCTP Koszalin</span><span class="pagenum">Strona <b>26</b> z 37</span></div>
 </div>
 
 <div class="page krem">
@@ -2063,7 +2125,7 @@
     </table>
   </div>
 
-  <div class="footer"><span class="pagina">Rozdział VI · Warsztat</span><span class="wydawca">PCTP Koszalin</span><span class="pagenum">Strona <b>29</b> z 39</span></div>
+  <div class="footer"><span class="pagina">Rozdział VI · Warsztat</span><span class="wydawca">PCTP Koszalin</span><span class="pagenum">Strona <b>27</b> z 37</span></div>
 </div>
 
 <div class="page">
@@ -2099,7 +2161,7 @@
     <p>„Uczeń komunikuje się z wykorzystaniem echolalii, która pełni funkcje komunikacyjne i samoregulacyjne. <strong>Nie stosuje się oddziaływań ukierunkowanych na wygaszanie echolalii.</strong> Oddziaływania koncentrują się na poszerzaniu repertuaru komunikacyjnego: modelowaniu fraz funkcjonalnych, wydłużonym czasie oczekiwania na odpowiedź, przewadze wypowiedzi opisowych nad pytaniami testującymi oraz równoległym wsparciu wizualnym.”</p>
   </div>
 
-  <div class="footer"><span class="pagina">Rozdział VI · Warsztat</span><span class="wydawca">PCTP Koszalin</span><span class="pagenum">Strona <b>30</b> z 39</span></div>
+  <div class="footer"><span class="pagina">Rozdział VI · Warsztat</span><span class="wydawca">PCTP Koszalin</span><span class="pagenum">Strona <b>28</b> z 37</span></div>
 </div>
 
 <div class="page rozdzial">
@@ -2112,24 +2174,26 @@
     <span>Wspólny protokół</span>
     <span>Karta uzgodnień</span>
   </div>
-  <div class="footer"><span class="pagina">Rozdział VII</span><span class="wydawca">PCTP Koszalin</span><span class="pagenum">Strona <b>31</b> z 39</span></div>
+  <div class="footer"><span class="pagina">Rozdział VII</span><span class="wydawca">PCTP Koszalin</span><span class="pagenum">Strona <b>29</b> z 37</span></div>
 </div>
 
 <div class="page">
-  <div class="kicker">Punkt wyjścia</div>
-  <h2 class="section" data-toc="spojnosc">Dlaczego spójność decyduje?</h2>
+  
+  
 
-  <p>Dziecko z echolalią uczy się języka <strong>całymi zdaniami, przez powtarzalność</strong> — zapisuje nie tylko frazę, ale i sytuację razem z reakcją dorosłego. Gdy ta reakcja jest za każdym razem inna, zdanie się nie utrwala.</p>
+  
 
-  <div class="ramka-t uwaga">
+  
+
+  
+  
+
+  
+
+  <div class="kicker">Punkt wyjścia</div><h2 class="section" data-toc="spojnosc">Dlaczego spójność decyduje?</h2><p>Dziecko z echolalią uczy się języka <strong>całymi zdaniami, przez powtarzalność</strong> — zapisuje nie tylko frazę, ale i sytuację razem z reakcją dorosłego. Gdy ta reakcja jest za każdym razem inna, zdanie się nie utrwala.</p><div class="ramka-t uwaga">
     <div class="glowa">▲ Arytmetyka niespójności</div>
     <p>Terapeuta pracuje z dzieckiem <strong>dwie godziny w tygodniu</strong>. Nauczyciele, świetlica i dom to około <strong>czterdziestu godzin</strong>. Jeśli te czterdzieści działa inaczej niż te dwie, wynikiem nie jest połowiczny efekt — jest brak efektu.</p>
-  </div>
-
-  <h3 class="sub" data-toc="role">Kto za co odpowiada?</h3>
-  <p style="font-size:14px;margin-bottom:2px;">Ustalany na pierwszym spotkaniu. Każda rola ma jeden konkretny produkt — coś, co da się pokazać.</p>
-
-  <div class="tabela-wrap">
+  </div><h3 class="sub" data-toc="role">Kto za co odpowiada?</h3><p style="font-size:14px;margin-bottom:2px;">Ustalany na pierwszym spotkaniu. Każda rola ma jeden konkretny produkt — coś, co da się pokazać.</p><div class="tabela-wrap">
     <table class="stany">
       <thead><tr><th>Rola</th><th>Odpowiada za</th><th>Produkt</th></tr></thead>
       <tbody>
@@ -2143,50 +2207,72 @@
         <tr><td>Dyrektor</td><td>Czas na spotkania zespołu i obieg informacji.</td><td>Stały termin przeglądu</td></tr>
       </tbody>
     </table>
-  </div>
-
-  <div class="footer"><span class="pagina">Rozdział VII · Zespół</span><span class="wydawca">PCTP Koszalin</span><span class="pagenum">Strona <b>32</b> z 39</span></div>
+  </div><div class="footer"><span class="pagina">Rozdział VII · Zespół</span><span class="wydawca">PCTP Koszalin</span><span class="pagenum">Strona <b>30</b> z 37</span></div>
 </div>
 
 <div class="page krem">
-  <div class="kicker">Jedna reakcja dla wszystkich</div>
-  <h2 class="section" data-toc="protokol">Wspólny protokół reagowania</h2>
-  <p class="lead">Pięć kroków, które wykonuje każdy dorosły — nauczyciel matematyki tak samo jak pani ze świetlicy.</p>
+  
+  
+  
 
-  <div class="krok-protokol">
+  
+  
+  
+  
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  <div class="kicker">Jedna reakcja dla wszystkich</div><h2 class="section" data-toc="protokol">Wspólny protokół reagowania</h2><p class="lead">Pięć kroków, które wykonuje każdy dorosły — nauczyciel matematyki tak samo jak pani ze świetlicy.</p><div class="krok-protokol">
     <span class="pk">1</span>
     <div><h4>Zatrzymaj się</h4><p>Nie komentuj formy. Żadnego „nie powtarzaj”, „powiedz normalnie”, „słuchaj mnie”. Pierwsza sekunda decyduje o tym, czy napięcie wzrośnie.</p></div>
-  </div>
-  <div class="krok-protokol">
+  </div><div class="krok-protokol">
     <span class="pk">2</span>
     <div><h4>Odczytaj funkcję</h4><p>Zadaj sobie jedno pytanie: <strong>po co?</strong> Prośba, potwierdzenie, podtrzymanie kontaktu czy samouspokojenie. Wskazówka: echo głośniejsze i skierowane do kogoś to zwykle komunikacja.</p></div>
-  </div>
-  <div class="krok-protokol">
+  </div><div class="krok-protokol">
     <span class="pk">3</span>
     <div><h4>Odpowiedz na funkcję</h4><p>Potwierdź treść i domodeluj frazę w formie, której dziecko może użyć. „Czas na spacer” → <strong>„Tak, idziemy na spacer.”</strong> Nigdy nie żądaj powtórzenia.</p></div>
-  </div>
-  <div class="krok-protokol">
+  </div><div class="krok-protokol">
     <span class="pk">4</span>
     <div><h4>Daj pauzę</h4><p>Odlicz w myślach do dziesięciu. Nie powtarzaj pytania, nie parafrazuj, nie podpowiadaj. To najtrudniejszy krok dla dorosłych i najważniejszy dla dziecka.</p></div>
-  </div>
-  <div class="krok-protokol">
+  </div><div class="krok-protokol">
     <span class="pk">5</span>
     <div><h4>Zapisz jedną kreską</h4><p>W arkuszu obserwacji: co poprzedziło, głośność, do kogo. Pięć sekund pracy, a po tygodniu zespół ma dane zamiast wrażeń.</p></div>
-  </div>
-
-  <div class="ramka-t uwaga" style="margin-top:13px;">
+  </div><div class="ramka-t uwaga" style="margin-top:13px;">
     <div class="glowa">▲ Gdy echa gwałtownie przybywa</div>
     <p>Wszyscy reagują tak samo i w tej kolejności: <strong>obniż wymagania językowe</strong> → <strong>zmień miejsce lub zmniejsz bodźce</strong> → <strong>zaproponuj przerwę</strong>. Nigdy odwrotnie: podnoszenie wymagań i egzekwowanie odpowiedzi nasila echo, bo działa na mechanizm samoregulacji.</p>
-  </div>
-
-  <div class="footer"><span class="pagina">Rozdział VII · Zespół</span><span class="wydawca">PCTP Koszalin</span><span class="pagenum">Strona <b>33</b> z 39</span></div>
+  </div><h3 class="sub">Ten sam protokół w praktyce</h3><p style="font-size:14px;margin-bottom:2px;">Ta sama sytuacja, przeprowadzona przez pięć kroków. Tak samo zareagowałby każdy dorosły z zespołu.</p><div class="ramka-t definicja">
+    <div class="glowa">◆ Scenka: lekcja matematyki, dziesiąta minuta</div>
+    <p><b>NAUCZYCIEL:</b> „Otwórz podręcznik na stronie dwudziestej i przeczytaj pierwsze zadanie.”<br>
+    <b>UCZEŃ:</b> „Przeczytaj pierwsze zadanie. Przeczytaj pierwsze zadanie.”</p>
+    <p><b>1. Zatrzymanie</b> — nauczyciel nie mówi „nie powtarzaj”, nie ponawia polecenia.<br>
+    <b>2. Funkcja</b> — echo ciche, bez kontaktu wzrokowego, po długim poleceniu. To nie prośba: to przeciążenie.<br>
+    <b>3. Odpowiedź na funkcję</b> — nauczyciel skraca: <b>„Podręcznik.”</b> Czeka. Potem: <b>„Strona dwadzieścia.”</b><br>
+    <b>4. Pauza</b> — dziesięć sekund ciszy po każdym z tych zdań.<br>
+    <b>5. Zapis</b> — po lekcji jedna kreska w arkuszu: „długie polecenie · cicho · do siebie · uprościłem”.</p>
+    <p>Cała reakcja trwa krócej niż powtórzenie polecenia trzeci raz — i nie kosztuje ucznia napięcia.</p>
+  </div><div class="footer"><span class="pagina">Rozdział VII · Zespół</span><span class="wydawca">PCTP Koszalin</span><span class="pagenum">Strona <b>31</b> z 37</span></div>
 </div>
 
 <div class="page">
-  <h3 class="sub" data-toc="rozjazdy">Gdzie zespoły najczęściej się rozjeżdżają?</h3>
-  <p style="font-size:14px;margin-bottom:2px;">Sześć sytuacji, w których uzgodnienia znikają — i zabezpieczenie dla każdej z nich.</p>
+  
+  
 
-  <div class="tabela-wrap">
+  
+
+  
+  
+
+  
+
+  <h3 class="sub" data-toc="rozjazdy">Gdzie zespoły najczęściej się rozjeżdżają?</h3><p style="font-size:14px;margin-bottom:2px;">Sześć sytuacji, w których uzgodnienia znikają — i zabezpieczenie dla każdej z nich.</p><div class="tabela-wrap">
     <table class="stany">
       <thead><tr><th>Sytuacja</th><th>Co się psuje?</th><th>Zabezpieczenie</th></tr></thead>
       <tbody>
@@ -2198,10 +2284,7 @@
         <tr><td>Powrót po feriach</td><td>Dorośli wracają do starych nawyków szybciej niż dziecko.</td><td>Przypomnienie protokołu na pierwszej radzie po przerwie.</td></tr>
       </tbody>
     </table>
-  </div>
-
-  <h3 class="sub" data-toc="kalendarz">Kalendarz pracy zespołu</h3>
-  <div class="tabela-wrap">
+  </div><h3 class="sub" data-toc="kalendarz">Kalendarz pracy zespołu</h3><div class="tabela-wrap">
     <table class="stany">
       <thead><tr><th>Kiedy?</th><th>Co robi zespół?</th></tr></thead>
       <tbody>
@@ -2215,19 +2298,24 @@
   </div>
 
   <div class="ramka-t nauka">
-    <div class="glowa">◈ Czego nie mierzyć?</div>
-    <p>Nie stawiajcie celu „mniej echolalii”. Ilość echa zależy od obciążenia dnia i może wzrosnąć akurat wtedy, gdy dziecko robi postępy. Sensowne cele to: <strong>liczba wypowiedzi własnych</strong>, <strong>zmiany wewnątrz powtarzanej frazy</strong> i <strong>sytuacje, w których dziecko samo zaczyna kontakt</strong>.</p>
+    <div class="glowa">◈ A jeśli dwoje dorosłych widzi inną funkcję?</div>
+    <p>To normalne i nie trzeba tego rozstrzygać na miejscu. Obie osoby zapisują swoją obserwację w arkuszu, a funkcję ustala się <strong>na przeglądzie zespołu, na podstawie tygodnia zapisów</strong> — nie na podstawie jednego zdarzenia. Do tego czasu obowiązuje reakcja łagodniejsza: odpowiedz na treść i zmniejsz wymagania językowe.</p>
   </div>
 
-  <div class="footer"><span class="pagina">Rozdział VII · Zespół</span><span class="wydawca">PCTP Koszalin</span><span class="pagenum">Strona <b>34</b> z 39</span></div>
+  <div class="ramka-t nauka">
+    <div class="glowa">◈ Czego nie mierzyć?</div>
+    <p>Nie stawiajcie celu „mniej echolalii”. Ilość echa zależy od obciążenia dnia i może wzrosnąć akurat wtedy, gdy dziecko robi postępy. Sensowne cele to: <strong>liczba wypowiedzi własnych</strong>, <strong>zmiany wewnątrz powtarzanej frazy</strong> i <strong>sytuacje, w których dziecko samo zaczyna kontakt</strong>.</p>
+  </div><div class="footer"><span class="pagina">Rozdział VII · Zespół</span><span class="wydawca">PCTP Koszalin</span><span class="pagenum">Strona <b>32</b> z 37</span></div>
 </div>
 
 <div class="page krem">
-  <div class="kicker">Do wydrukowania i wypełnienia</div>
-  <h2 class="section" data-toc="karta">Karta uzgodnień zespołu</h2>
-  <p class="lead">Jedna strona, którą podpisują wszyscy dorośli pracujący z dzieckiem. Kopia trafia do teczki zastępstw i do świetlicy.</p>
+  
+  
+  
 
-  <div class="karta">
+  
+
+  <div class="kicker">Do wydrukowania i wypełnienia</div><h2 class="section" data-toc="karta">Karta uzgodnień zespołu</h2><p class="lead">Jedna strona, którą podpisują wszyscy dorośli pracujący z dzieckiem. Kopia trafia do teczki zastępstw i do świetlicy.</p><div class="karta">
     <div class="karta-rzad">
       <label>Uczeń</label><span class="pole"></span>
       <label>Klasa</label><span class="pole waskie"></span>
@@ -2283,9 +2371,7 @@
       Kolejny przegląd zespołu: <span class="pole waskie"></span> &nbsp;·&nbsp;
       Karta obowiązuje do najbliższej ewaluacji IPET &nbsp;·&nbsp; PCTP Koszalin
     </div>
-  </div>
-
-  <div class="footer"><span class="pagina">Rozdział VII · Zespół</span><span class="wydawca">PCTP Koszalin</span><span class="pagenum">Strona <b>35</b> z 39</span></div>
+  </div><div class="footer"><span class="pagina">Rozdział VII · Zespół</span><span class="wydawca">PCTP Koszalin</span><span class="pagenum">Strona <b>33</b> z 37</span></div>
 </div>
 
 <div class="page">
@@ -2363,7 +2449,7 @@
     </div>
   </dl>
 
-  <div class="footer"><span class="pagina">Materiały</span><span class="wydawca">PCTP Koszalin</span><span class="pagenum">Strona <b>36</b> z 39</span></div>
+  <div class="footer"><span class="pagina">Materiały</span><span class="wydawca">PCTP Koszalin</span><span class="pagenum">Strona <b>34</b> z 37</span></div>
 </div>
 
 <div class="page">
@@ -2401,7 +2487,7 @@
     Cytujemy wyłącznie prace z recenzowanych czasopism naukowych oraz przeglądy systematyczne. Tam, gdzie popularny model nie ma potwierdzenia empirycznego, mówimy o tym wprost — nawet jeśli jest szeroko stosowany. Pozycja [4] jest materiałem informacyjnym instytucji medycznej, nie badaniem naukowym — cytujemy ją wyłącznie jako przykład tego, jak hipotezy neuroprzekaźnikowe funkcjonują w obiegu popularnym. Pozycja [7] to publikacja komercyjna; jej ocenę empiryczną zawiera pozycja [8].
   </div>
 
-  <div class="footer"><span class="pagina">Materiały</span><span class="wydawca">PCTP Koszalin</span><span class="pagenum">Strona <b>37</b> z 39</span></div>
+  <div class="footer"><span class="pagina">Materiały</span><span class="wydawca">PCTP Koszalin</span><span class="pagenum">Strona <b>35</b> z 37</span></div>
 </div>
 
 <div class="page krem">
@@ -2486,7 +2572,7 @@
     <p>Jeżeli zapamiętasz tylko jedno: <strong>zanim zapytasz, jak zatrzymać powtarzanie, zapytaj, po co ono jest</strong>. Odpowiedź prawie zawsze podpowiada, co zrobić dalej.</p>
   </div>
 
-  <div class="footer"><span class="pagina">Materiały</span><span class="wydawca">PCTP Koszalin</span><span class="pagenum">Strona <b>38</b> z 39</span></div>
+  <div class="footer"><span class="pagina">Materiały</span><span class="wydawca">PCTP Koszalin</span><span class="pagenum">Strona <b>36</b> z 37</span></div>
 </div>
 
 <div class="page tyl">
@@ -2566,7 +2652,7 @@
     </div>
     <div class="meta">
       Echolalia i rozumienie jej funkcji<br>
-      Wydanie I · 2026 · 39 stron<br>
+      Wydanie I · 2026 · 37 stron<br>
       EduPlaner2026-MJ-PCTP
     </div>
   </div>
