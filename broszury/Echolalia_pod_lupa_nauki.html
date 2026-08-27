@@ -1,0 +1,1607 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Broszura o echolalii w autyzmie: siedem mechanizmów opisanych w literaturze naukowej, każdy z oceną siły dowodów.">
+<style>@page{size:A4;margin:0;}</style>
+<title>Echolalia pod lupą nauki — broszura edukacyjno-terapeutyczna PCTP</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;0,9..144,700;0,9..144,900;1,9..144,400&family=Mulish:wght@400;600;700;800&family=IBM+Plex+Mono:wght@400;500;600&display=swap">
+
+<style>
+  :root{
+    --fiolet:#2D1B69;
+    --fiolet-jasny:#4B3489;
+    --pomarancz:#E8450A;
+    --pomarancz-jasny:#FF7A45;
+    --atrament:#170E2E;
+    --ametyst:#6D4BC7;
+    --ametyst-mgla:#EFEAFB;
+    --bursztyn:#F2A20C;
+    --bursztyn-ciemny:#B8770A;
+    --bursztyn-mgla:#FDF3E0;
+    --morski:#0E8078;
+    --morski-mgla:#E6F2F1;
+    --roz:#F26D85;
+    --krem:#FAF6EE;
+    --papier:#FFFFFF;
+    --tekst:#231A3B;
+    --szary:#6B6478;
+    --szary-jasny:#9A93AB;
+    --linia:#E6E0F0;
+    --biurko:#D8D0C4;
+
+    --serif:'Fraunces', Georgia, 'Times New Roman', serif;
+    --sans:'Mulish', 'Segoe UI', Arial, sans-serif;
+    --mono:'IBM Plex Mono', ui-monospace, 'Courier New', monospace;
+  }
+
+  *{box-sizing:border-box;}
+
+  body{
+    background:var(--biurko);
+    color:var(--tekst);
+    font-family:var(--sans);
+    margin:0;padding:26px 0 60px;
+    -webkit-font-smoothing:antialiased;
+  }
+
+  .toolbar{
+    width:210mm;max-width:calc(100% - 24px);margin:0 auto 20px;
+    padding:13px 20px;background:var(--atrament);color:var(--krem);
+    border-radius:12px;font-size:13px;line-height:1.5;
+    display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap;
+  }
+  .toolbar b{color:var(--pomarancz-jasny);font-weight:700;}
+  .toolbar .mono{font-family:var(--mono);font-size:11px;letter-spacing:.06em;color:#B9AEDD;text-transform:uppercase;}
+
+  /* ═════ KARTKA A4 ═════ */
+  .page{
+    width:210mm;min-height:297mm;background:var(--papier);
+    margin:0 auto 16px;padding:18mm 17mm 16mm;
+    position:relative;overflow:hidden;
+    box-shadow:0 6px 26px rgba(23,14,46,.3);
+  }
+  .page.krem{background:var(--krem);}
+  .page.ciemna{background:var(--atrament);color:var(--krem);}
+  .page.pelna{padding:0;}
+
+  .footer{
+    position:absolute;bottom:9mm;left:17mm;right:17mm;
+    display:flex;justify-content:space-between;align-items:baseline;
+    font-family:var(--mono);font-size:8.5px;letter-spacing:.11em;text-transform:uppercase;
+    color:var(--szary-jasny);border-top:1px solid var(--linia);padding-top:4mm;
+  }
+  .ciemna .footer{border-top-color:rgba(255,255,255,.18);color:#9C8FC9;}
+  .pagenum{font-weight:600;color:var(--pomarancz);font-size:11.5px;letter-spacing:0;
+    font-family:var(--mono);font-variant-numeric:tabular-nums;}
+  .ciemna .pagenum{color:var(--pomarancz-jasny);}
+
+  /* ═════ TYPOGRAFIA ═════ */
+  h1,h2,h3,h4{font-family:var(--serif);text-wrap:balance;margin:0;}
+
+  .kicker{
+    font-family:var(--mono);font-size:9.5px;letter-spacing:.17em;text-transform:uppercase;
+    color:var(--pomarancz);font-weight:600;margin-bottom:8px;
+  }
+  .ciemna .kicker{color:var(--pomarancz-jasny);}
+
+  h2.section{
+    font-size:29px;font-weight:700;color:var(--fiolet);line-height:1.12;
+    margin-bottom:10px;letter-spacing:-.015em;
+  }
+  h2.section::after{
+    content:"";display:block;width:64px;height:5px;border-radius:3px;
+    background:linear-gradient(90deg,var(--pomarancz),var(--bursztyn));margin-top:11px;
+  }
+  h3.sub{font-size:18px;font-weight:700;color:var(--fiolet);margin:20px 0 9px;letter-spacing:-.01em;}
+  h3.sub:first-child{margin-top:0;}
+  p{font-size:13.2px;line-height:1.66;margin:0 0 11px;}
+  .lead{
+    font-family:var(--serif);font-size:16.5px;font-weight:400;line-height:1.5;
+    color:var(--fiolet-jasny);margin:0 0 18px;max-width:62ch;
+  }
+  .ciemna .lead{color:#D6CBF5;}
+  strong{font-weight:800;color:var(--fiolet);}
+  .ciemna strong{color:var(--pomarancz-jasny);}
+  em.termin{font-style:normal;font-weight:700;color:var(--morski);}
+  .cyt{font-family:var(--mono);font-size:8.5px;font-weight:600;color:var(--pomarancz);
+    vertical-align:super;letter-spacing:.02em;white-space:nowrap;}
+
+  /* ═════ OKŁADKA ═════ */
+  .cover{
+    background:
+      radial-gradient(900px 620px at 78% 8%, rgba(232,69,10,.55), transparent 62%),
+      radial-gradient(720px 620px at 8% 62%, rgba(109,75,199,.75), transparent 66%),
+      radial-gradient(620px 520px at 92% 92%, rgba(14,128,120,.5), transparent 66%),
+      linear-gradient(158deg, #2A1660 0%, #1B1040 52%, #12092A 100%);
+    color:var(--krem);display:flex;flex-direction:column;justify-content:space-between;
+  }
+  .cover-gora{padding:16mm 16mm 0;display:flex;justify-content:space-between;align-items:flex-start;gap:16px;}
+  .cover-znak{
+    display:flex;align-items:center;gap:10px;
+    font-family:var(--mono);font-size:9.5px;letter-spacing:.16em;text-transform:uppercase;color:#CFC3F2;
+  }
+  .cover-znak .sygnet{
+    width:34px;height:34px;border-radius:10px;flex-shrink:0;
+    background:linear-gradient(140deg,var(--pomarancz),var(--bursztyn));
+    display:flex;align-items:center;justify-content:center;
+    font-family:var(--serif);font-size:16px;font-weight:900;color:#1B1040;
+  }
+  .cover-plakietka{
+    border:1px solid rgba(255,255,255,.32);border-radius:30px;padding:6px 15px;
+    font-family:var(--mono);font-size:9px;letter-spacing:.14em;text-transform:uppercase;color:#EFE9FF;
+    background:rgba(255,255,255,.07);white-space:nowrap;
+  }
+  .cover-srodek{padding:0 16mm;position:relative;z-index:2;flex:1;
+    display:flex;flex-direction:column;justify-content:center;}
+  .cover h1{
+    font-size:66px;font-weight:900;line-height:.98;letter-spacing:-.035em;margin:0 0 4px;
+  }
+  .cover h1 .akcent{
+    background:linear-gradient(96deg,var(--pomarancz-jasny) 8%,var(--bursztyn) 92%);
+    -webkit-background-clip:text;background-clip:text;color:transparent;
+  }
+  .cover .podtytul{
+    font-family:var(--serif);font-size:21px;font-style:italic;font-weight:400;
+    color:#C9BCF0;line-height:1.42;margin-top:20px;max-width:26ch;
+  }
+  .cover-ilustracja{
+    position:absolute;right:9mm;top:50%;transform:translateY(-48%);
+    width:76mm;opacity:.95;pointer-events:none;
+  }
+  .cover-dol{
+    background:rgba(0,0,0,.28);backdrop-filter:blur(2px);
+    padding:9mm 16mm;display:flex;justify-content:space-between;align-items:flex-end;gap:20px;
+    border-top:1px solid rgba(255,255,255,.12);
+  }
+  .cover-dol .kto{font-size:12.5px;line-height:1.5;color:#E7E0F8;}
+  .cover-dol .kto b{display:block;font-family:var(--serif);font-size:16px;font-weight:700;color:#fff;margin-bottom:3px;}
+  .cover-dol .wyd{
+    font-family:var(--mono);font-size:9px;letter-spacing:.12em;text-transform:uppercase;
+    color:#A697D9;text-align:right;line-height:1.8;
+  }
+
+  /* ═════ METRYKA ═════ */
+  .metryka{display:grid;grid-template-columns:auto 1fr;gap:9px 20px;margin:14px 0 0;font-size:12.3px;line-height:1.6;}
+  .metryka dt{font-family:var(--mono);font-size:8.5px;letter-spacing:.12em;text-transform:uppercase;
+    color:var(--pomarancz);font-weight:600;padding-top:3px;white-space:nowrap;}
+  .metryka dd{margin:0;}
+
+  /* ═════ SPIS TREŚCI ═════ */
+  .toc{margin-top:14px;}
+  .toc-grupa{margin-bottom:16px;}
+  .toc-naglowek{
+    display:flex;align-items:baseline;gap:11px;margin-bottom:9px;
+    padding-bottom:7px;border-bottom:2px solid var(--linia);
+  }
+  .toc-naglowek .nr{
+    font-family:var(--serif);font-size:26px;font-weight:900;line-height:1;
+    color:var(--pomarancz);letter-spacing:-.03em;
+  }
+  .toc-naglowek .tyt{font-family:var(--serif);font-size:17px;font-weight:700;color:var(--fiolet);flex:1;}
+  .toc-naglowek .str{font-family:var(--mono);font-size:12px;font-weight:600;color:var(--fiolet);}
+  .toc-poz{
+    display:flex;align-items:baseline;gap:8px;padding:4px 0 4px 37px;font-size:12.4px;
+  }
+  .toc-poz .co{color:var(--tekst);}
+  .toc-poz .kropki{flex:1;border-bottom:1.5px dotted var(--linia);transform:translateY(-3px);min-width:20px;}
+  .toc-poz .str{font-family:var(--mono);font-size:11px;color:var(--szary);font-variant-numeric:tabular-nums;}
+
+  /* ═════ KARTA ROZDZIAŁU ═════ */
+  .rozdzial{
+    display:flex;flex-direction:column;justify-content:center;
+    background:
+      radial-gradient(680px 480px at 88% 12%, rgba(232,69,10,.42), transparent 64%),
+      radial-gradient(560px 520px at 6% 88%, rgba(109,75,199,.6), transparent 66%),
+      linear-gradient(150deg,#2A1660,#160D36);
+    color:var(--krem);
+  }
+  .rozdzial .duzy-nr{
+    font-family:var(--serif);font-size:150px;font-weight:900;line-height:.8;
+    color:rgba(255,255,255,.14);letter-spacing:-.05em;margin-bottom:18px;
+  }
+  .rozdzial h1{font-size:44px;font-weight:900;line-height:1.04;letter-spacing:-.028em;color:#fff;margin-bottom:14px;}
+  .rozdzial .lead{font-size:17px;max-width:34ch;color:#E0D8FA;}
+  .rozdzial .w-srodku{
+    margin-top:24px;padding-top:16px;border-top:1px solid rgba(255,255,255,.18);
+    display:flex;gap:22px;flex-wrap:wrap;
+  }
+  .rozdzial .w-srodku span{
+    font-family:var(--mono);font-size:9.5px;letter-spacing:.1em;text-transform:uppercase;color:#B7A9E4;
+    display:flex;align-items:center;gap:7px;
+  }
+  .rozdzial .w-srodku span::before{
+    content:"";width:6px;height:6px;border-radius:50%;background:var(--bursztyn);flex-shrink:0;
+  }
+
+  /* ═════ ILUSTRACJE / RAMKI OBRAZKÓW ═════ */
+  .figura{margin:14px 0 16px;}
+  .figura .ramka{
+    border-radius:18px;overflow:hidden;padding:18px 20px;
+    background:linear-gradient(150deg,#241553,#160D36);
+    border:1px solid rgba(255,255,255,.08);
+  }
+  .figura .ramka.jasna{
+    background:linear-gradient(150deg,var(--ametyst-mgla),#FBF8FF);
+    border:1px solid var(--linia);
+  }
+  .figura svg{width:100%;height:auto;display:block;}
+  .figura figcaption{
+    font-family:var(--mono);font-size:9px;letter-spacing:.09em;text-transform:uppercase;
+    color:var(--szary);margin-top:9px;display:flex;gap:8px;align-items:baseline;line-height:1.5;
+  }
+  .figura figcaption b{color:var(--pomarancz);font-weight:600;flex-shrink:0;}
+
+  /* ═════ RAMKI TREŚCIOWE ═════ */
+  .ramka-t{border-radius:15px;padding:14px 17px;margin:13px 0;font-size:12.4px;line-height:1.6;}
+  .ramka-t .glowa{
+    font-family:var(--mono);font-size:9px;letter-spacing:.13em;text-transform:uppercase;
+    font-weight:600;margin-bottom:7px;display:flex;align-items:center;gap:8px;
+  }
+  .ramka-t p{font-size:12.4px;line-height:1.6;margin:0 0 8px;}
+  .ramka-t p:last-child{margin-bottom:0;}
+
+  .ramka-t.definicja{background:var(--ametyst-mgla);border-left:6px solid var(--ametyst);}
+  .ramka-t.definicja .glowa{color:var(--ametyst);}
+  .ramka-t.nauka{background:var(--morski-mgla);border-left:6px solid var(--morski);}
+  .ramka-t.nauka .glowa{color:var(--morski);}
+  .ramka-t.uwaga{background:#FFF0E8;border:1.5px solid #F6C3A8;}
+  .ramka-t.uwaga .glowa{color:var(--pomarancz);}
+  .ramka-t.praktyka{background:var(--bursztyn-mgla);border-left:6px solid var(--bursztyn);}
+  .ramka-t.praktyka .glowa{color:var(--bursztyn-ciemny);}
+  .ramka-t.cytat{
+    background:transparent;border:none;border-left:4px solid var(--pomarancz);
+    padding:4px 0 4px 18px;font-family:var(--serif);font-size:16px;font-style:italic;
+    color:var(--fiolet-jasny);line-height:1.5;
+  }
+  .ramka-t.cytat .autor{
+    display:block;font-family:var(--mono);font-style:normal;font-size:9px;
+    letter-spacing:.11em;text-transform:uppercase;color:var(--szary);margin-top:9px;
+  }
+
+  /* ═════ KAFLE Z LICZBAMI ═════ */
+  .liczby{display:grid;grid-template-columns:1fr 1fr;gap:13px;margin:16px 0 0;}
+  .liczba{border-radius:16px;padding:17px 18px 16px;border:1px solid var(--linia);background:var(--papier);}
+  .liczba .duza{font-family:var(--serif);font-size:44px;font-weight:900;line-height:1;
+    letter-spacing:-.035em;font-variant-numeric:tabular-nums;}
+  .liczba .jednostka{font-size:17px;font-weight:700;margin-left:2px;}
+  .liczba .opis{font-size:11.8px;line-height:1.52;margin-top:8px;}
+  .liczba .zrodlo{font-family:var(--mono);font-size:8px;letter-spacing:.08em;text-transform:uppercase;
+    color:var(--szary-jasny);margin-top:8px;}
+  .liczba.v1{background:var(--ametyst-mgla);border-color:#D9CEF6;}
+  .liczba.v1 .duza{color:var(--fiolet);}
+  .liczba.v2{background:#FFF0E8;border-color:#F9D3C0;}
+  .liczba.v2 .duza{color:var(--pomarancz);}
+  .liczba.v3{background:var(--morski-mgla);border-color:#C4E1DE;}
+  .liczba.v3 .duza{color:var(--morski);}
+  .liczba.v4{background:var(--bursztyn-mgla);border-color:#F5DFB2;}
+  .liczba.v4 .duza{color:var(--bursztyn-ciemny);}
+
+  /* ═════ SKALA DOWODÓW ═════ */
+  .skala{display:grid;grid-template-columns:repeat(3,1fr);gap:11px;margin:14px 0 6px;}
+  .stopien{border-radius:13px;padding:13px 14px;background:var(--papier);border:1px solid var(--linia);}
+  .kropki{display:flex;gap:4px;margin-bottom:8px;}
+  .kropki i{width:9px;height:9px;border-radius:50%;background:var(--linia);display:block;}
+  .stopien.s3 .kropki i.on{background:var(--morski);}
+  .stopien.s2 .kropki i.on{background:var(--bursztyn);}
+  .stopien.s1 .kropki i.on{background:var(--szary-jasny);}
+  .stopien .nazwa{font-family:var(--mono);font-size:9px;letter-spacing:.11em;text-transform:uppercase;
+    font-weight:600;margin-bottom:5px;}
+  .stopien.s3 .nazwa{color:var(--morski);}
+  .stopien.s2 .nazwa{color:var(--bursztyn-ciemny);}
+  .stopien.s1 .nazwa{color:var(--szary);}
+  .stopien .co{font-size:11px;line-height:1.45;}
+
+  /* ═════ KARTA PRZYCZYNY ═════ */
+  .przyczyna{
+    border-radius:15px;padding:15px 17px 14px;margin:0 0 12px;
+    background:var(--papier);border:1px solid var(--linia);border-left:6px solid var(--linia);
+  }
+  .przyczyna .glowa{display:flex;justify-content:space-between;align-items:flex-start;gap:14px;margin-bottom:8px;}
+  .przyczyna h4{font-size:15.5px;font-weight:700;line-height:1.25;letter-spacing:-.012em;color:var(--fiolet);flex:1;}
+  .przyczyna .waga{display:flex;flex-direction:column;align-items:flex-end;gap:4px;flex-shrink:0;padding-top:3px;}
+  .przyczyna .waga .etykieta{font-family:var(--mono);font-size:7.5px;letter-spacing:.12em;
+    text-transform:uppercase;font-weight:600;}
+  .przyczyna p{font-size:12.3px;line-height:1.58;margin:0 0 7px;}
+  .przyczyna p:last-of-type{margin-bottom:0;}
+  .przyczyna .wniosek{font-size:11.5px;line-height:1.5;margin-top:9px;padding-top:9px;
+    border-top:1px dashed rgba(0,0,0,.13);color:var(--szary);}
+  .przyczyna .wniosek b{font-family:var(--mono);font-size:8.5px;letter-spacing:.1em;text-transform:uppercase;}
+  .przyczyna.mocne{border-left-color:var(--morski);background:var(--morski-mgla);}
+  .przyczyna.mocne .waga .etykieta,.przyczyna.mocne .wniosek b{color:var(--morski);}
+  .przyczyna.mocne .kropki i.on{background:var(--morski);}
+  .przyczyna.srednie{border-left-color:var(--bursztyn);background:var(--bursztyn-mgla);}
+  .przyczyna.srednie .waga .etykieta,.przyczyna.srednie .wniosek b{color:var(--bursztyn-ciemny);}
+  .przyczyna.srednie .kropki i.on{background:var(--bursztyn);}
+  .przyczyna.hipoteza{border-left-color:var(--szary-jasny);background:#F4F2F7;}
+  .przyczyna.hipoteza .waga .etykieta,.przyczyna.hipoteza .wniosek b{color:var(--szary);}
+  .przyczyna.hipoteza .kropki i.on{background:var(--szary-jasny);}
+
+  /* ═════ TABELA ═════ */
+  .tabela-wrap{overflow-x:auto;margin:12px 0 10px;}
+  table.stany{width:100%;border-collapse:collapse;font-size:11.3px;}
+  table.stany th{background:var(--fiolet);color:var(--krem);text-align:left;padding:9px 10px;
+    font-family:var(--mono);font-size:8px;letter-spacing:.12em;text-transform:uppercase;font-weight:600;}
+  table.stany th:first-child{border-radius:9px 0 0 0;}
+  table.stany th:last-child{border-radius:0 9px 0 0;}
+  table.stany td{padding:9px 10px;border-bottom:1px solid var(--linia);vertical-align:top;line-height:1.5;}
+  table.stany tr:nth-child(even) td{background:#F7F5FC;}
+  .krem table.stany tr:nth-child(even) td{background:#F3EFE6;}
+  table.stany td:first-child{font-weight:800;color:var(--fiolet);width:31%;}
+  table.stany td:nth-child(2){width:21%;color:var(--szary);font-family:var(--mono);font-size:9.5px;}
+
+  /* ═════ OŚ CZASU ═════ */
+  .os{position:relative;margin:16px 0 0;padding-left:78px;}
+  .os::before{content:"";position:absolute;left:60px;top:6px;bottom:6px;width:2px;
+    background:linear-gradient(180deg,var(--ametyst),var(--pomarancz),var(--bursztyn));}
+  .wpis{position:relative;margin-bottom:13px;}
+  .wpis .rok{position:absolute;left:-78px;top:-1px;width:46px;text-align:right;
+    font-family:var(--mono);font-size:12px;font-weight:600;color:var(--fiolet);font-variant-numeric:tabular-nums;}
+  .wpis::before{content:"";position:absolute;left:-20px;top:5px;width:9px;height:9px;border-radius:50%;
+    background:var(--krem);border:2.5px solid var(--ametyst);}
+  .wpis.kluczowy::before{background:var(--pomarancz);border-color:var(--pomarancz);
+    box-shadow:0 0 0 4px rgba(232,69,10,.16);}
+  .wpis h4{font-size:13px;font-weight:700;color:var(--fiolet);margin-bottom:3px;line-height:1.3;}
+  .wpis p{font-size:11.5px;line-height:1.5;margin:0;}
+
+  /* ═════ MITY ═════ */
+  .mit{margin-bottom:11px;border-radius:13px;overflow:hidden;border:1px solid var(--linia);}
+  .mit .falsz{background:#F0EDF6;padding:11px 15px;font-family:var(--serif);font-size:14.5px;
+    font-style:italic;color:var(--szary);line-height:1.4;}
+  .mit .falsz::before{content:"MIT";font-family:var(--mono);font-style:normal;font-size:7.5px;
+    letter-spacing:.16em;color:var(--szary-jasny);display:block;margin-bottom:4px;font-weight:600;}
+  .mit .prawda{background:var(--papier);padding:12px 15px;font-size:12.2px;line-height:1.56;
+    border-top:2px solid var(--morski);}
+  .mit .prawda::before{content:"CO MÓWIĄ BADANIA";font-family:var(--mono);font-size:7.5px;
+    letter-spacing:.16em;color:var(--morski);display:block;margin-bottom:5px;font-weight:600;}
+
+  /* ═════ KROKI ═════ */
+  .kroki{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:14px 0 0;}
+  .krok{background:var(--papier);border:1px solid var(--linia);border-radius:14px;padding:14px 15px;position:relative;}
+  .krok .nr{font-family:var(--serif);font-size:32px;font-weight:900;line-height:1;
+    color:var(--pomarancz);opacity:.26;position:absolute;right:13px;top:8px;}
+  .krok h4{font-size:13.5px;font-weight:700;color:var(--fiolet);margin-bottom:6px;padding-right:34px;line-height:1.25;}
+  .krok p{font-size:11.6px;line-height:1.52;margin:0;}
+  .krok .bo{font-family:var(--mono);font-size:8px;letter-spacing:.1em;text-transform:uppercase;
+    color:var(--morski);margin-top:8px;display:block;}
+
+  /* ═════ SŁOWNICZEK ═════ */
+  .slownik{display:grid;grid-template-columns:1fr 1fr;gap:11px;margin-top:14px;}
+  .haslo{background:var(--papier);border:1px solid var(--linia);border-radius:13px;padding:12px 14px;}
+  .krem .haslo{background:var(--papier);}
+  .haslo dt{font-family:var(--serif);font-size:14px;font-weight:700;color:var(--fiolet);margin-bottom:5px;line-height:1.25;}
+  .haslo dd{margin:0;font-size:11.4px;line-height:1.52;color:var(--tekst);}
+
+  /* ═════ BIBLIOGRAFIA ═════ */
+  ol.zrodla{margin:12px 0 0;padding-left:0;list-style:none;}
+  ol.zrodla li{font-size:10.8px;line-height:1.55;margin-bottom:7px;padding-left:32px;position:relative;}
+  ol.zrodla li .n{position:absolute;left:0;top:1px;font-family:var(--mono);font-size:9.5px;
+    font-weight:600;color:var(--pomarancz);}
+  ol.zrodla li i{color:var(--fiolet-jasny);}
+
+  .nota{background:var(--ametyst-mgla);border-radius:13px;padding:13px 15px;margin-top:14px;
+    font-size:11.4px;line-height:1.58;color:var(--fiolet);}
+  .nota b{font-family:var(--mono);font-size:8.5px;letter-spacing:.12em;text-transform:uppercase;
+    display:block;margin-bottom:5px;color:var(--ametyst);}
+
+  /* ═════ ŚCIĄGAWKA ═════ */
+  .sciagawka{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:14px;}
+  .sc-karta{border-radius:15px;padding:14px 16px;border:1px solid var(--linia);background:var(--papier);}
+  .sc-karta .tyt{font-family:var(--serif);font-size:14.5px;font-weight:700;margin-bottom:9px;line-height:1.25;}
+  .sc-karta ul{margin:0;padding-left:17px;}
+  .sc-karta li{font-size:11.5px;line-height:1.52;margin-bottom:6px;}
+  .sc-karta li:last-child{margin-bottom:0;}
+  .sc-karta.tak{border-left:6px solid var(--morski);}
+  .sc-karta.tak .tyt{color:var(--morski);}
+  .sc-karta.nie{border-left:6px solid var(--pomarancz);}
+  .sc-karta.nie .tyt{color:var(--pomarancz);}
+  .sc-karta.gdy{border-left:6px solid var(--ametyst);}
+  .sc-karta.gdy .tyt{color:var(--ametyst);}
+  .sc-karta.pamietaj{border-left:6px solid var(--bursztyn);}
+  .sc-karta.pamietaj .tyt{color:var(--bursztyn-ciemny);}
+
+  /* ═════ TYLNA OKŁADKA ═════ */
+  .page.tyl{
+    background:
+      radial-gradient(700px 560px at 20% 12%, rgba(109,75,199,.6), transparent 64%),
+      radial-gradient(620px 520px at 88% 84%, rgba(232,69,10,.45), transparent 64%),
+      linear-gradient(200deg,#1E1146,#12092A);
+    color:var(--krem);display:flex;flex-direction:column;justify-content:space-between;padding:20mm 16mm 14mm;
+  }
+  .tyl .haslo-koncowe{
+    font-family:var(--serif);font-size:33px;font-weight:700;line-height:1.22;letter-spacing:-.02em;
+    color:#fff;max-width:20ch;
+  }
+  .tyl .haslo-koncowe .akcent{
+    background:linear-gradient(96deg,var(--pomarancz-jasny),var(--bursztyn));
+    -webkit-background-clip:text;background-clip:text;color:transparent;
+  }
+  .tyl .podpis{font-size:13px;line-height:1.65;color:#C6B9EC;margin-top:16px;max-width:44ch;}
+  .tyl-srodek{display:flex;align-items:center;gap:34px;padding:0 4mm;}
+  .tyl-znak{width:52mm;flex-shrink:0;}
+  .tyl-lista{display:flex;flex-direction:column;gap:13px;}
+  .tyl-poz{display:flex;align-items:baseline;gap:14px;font-size:13px;color:#D3C9F0;line-height:1.4;}
+  .tyl-poz .l{
+    font-family:var(--serif);font-size:30px;font-weight:900;color:var(--bursztyn);
+    min-width:44px;text-align:right;font-variant-numeric:tabular-nums;letter-spacing:-.03em;
+  }
+  .page.tyl .tyl-stopka{border-top:1px solid rgba(255,255,255,.16);padding-top:9mm;
+    display:flex;justify-content:space-between;align-items:flex-end;gap:20px;flex-wrap:wrap;}
+  .tyl-stopka .org b{display:block;font-family:var(--serif);font-size:17px;font-weight:700;color:#fff;margin-bottom:4px;}
+  .tyl-stopka .org{font-size:12px;line-height:1.6;color:#DCD3F3;}
+  .tyl-stopka .meta{font-family:var(--mono);font-size:8.5px;letter-spacing:.12em;text-transform:uppercase;
+    color:#9C8FC9;text-align:right;line-height:1.9;}
+
+  @media print{
+    body{background:#fff;padding:0;margin:0;}
+    .toolbar{display:none;}
+    .page{
+      box-shadow:none;margin:0;width:210mm;height:296.5mm;min-height:0;
+      overflow:hidden;break-after:page;page-break-after:always;
+    }
+    .page:last-child{break-after:auto;page-break-after:auto;}
+  }
+  @media (max-width:230mm){
+    .page{width:auto;max-width:100%;min-height:0;padding:24px 20px 62px;margin:0 12px 16px;}
+    .page.pelna{padding:0;}
+    .footer{left:20px;right:20px;bottom:22px;}
+    .cover h1{font-size:40px;}
+    .cover-ilustracja{position:static;width:60%;margin:18px 0 -6px auto;}
+    .rozdzial{padding:34px 20px 62px;}
+    .rozdzial .duzy-nr{font-size:96px;}
+    .rozdzial h1{font-size:32px;}
+    .liczby,.kroki,.skala,.slownik,.sciagawka{grid-template-columns:1fr;}
+    .os{padding-left:0;}
+    .os::before{left:4px;}
+    .wpis{padding-left:26px;}
+    .wpis .rok{position:static;text-align:left;display:block;margin-bottom:2px;width:auto;}
+    .wpis::before{left:0;top:6px;}
+    .cover-dol,.tyl-stopka{flex-direction:column;align-items:flex-start;}
+    .cover-dol .wyd,.tyl-stopka .meta{text-align:left;}
+  }
+</style>
+</head>
+<body>
+
+<div class="toolbar">
+  <span><b>Echolalia pod lupą nauki</b> — broszura edukacyjno-terapeutyczna</span>
+  <span class="mono">19 stron A4 · gotowe do druku</span>
+</div>
+
+<!-- ═══════════════ 01 · OKŁADKA ═══════════════ -->
+<div class="page pelna cover">
+  <div class="cover-gora">
+    <div class="cover-znak">
+      <span class="sygnet">E</span>
+      <span>Poradnik<br>edukacyjno-terapeutyczny</span>
+    </div>
+    <span class="cover-plakietka">Wydanie oparte na badaniach</span>
+  </div>
+
+  <div class="cover-srodek">
+    <svg class="cover-ilustracja" viewBox="0 0 300 300" role="img" aria-label="Motyw graficzny: zagnieżdżone dymki mowy jako echo">
+      <defs>
+        <linearGradient id="oklGrad1" x1="0" y1="0" x2="1" y2="1">
+          <stop offset="0%" stop-color="#FF7A45"/><stop offset="100%" stop-color="#F2A20C"/>
+        </linearGradient>
+        <linearGradient id="oklGrad2" x1="0" y1="1" x2="1" y2="0">
+          <stop offset="0%" stop-color="#6D4BC7"/><stop offset="100%" stop-color="#0E8078"/>
+        </linearGradient>
+      </defs>
+      <path d="M60 236 C18 236 6 210 6 176 L6 74 C6 40 18 22 60 22 L216 22 C258 22 270 40 270 74 L270 176 C270 210 258 236 216 236 L110 236 L66 282 Z"
+            fill="none" stroke="url(#oklGrad2)" stroke-width="2" opacity=".38"/>
+      <path d="M84 210 C50 210 40 190 40 162 L40 82 C40 54 50 40 84 40 L206 40 C240 40 250 54 250 82 L250 162 C250 190 240 210 206 210 L124 210 L90 244 Z"
+            fill="none" stroke="url(#oklGrad2)" stroke-width="2.5" opacity=".62"/>
+      <path d="M108 186 C82 186 74 170 74 148 L74 92 C74 70 82 58 108 58 L196 58 C222 58 230 70 230 92 L230 148 C230 170 222 186 196 186 L138 186 L112 212 Z"
+            fill="none" stroke="url(#oklGrad1)" stroke-width="3.5"/>
+      <circle cx="128" cy="121" r="9" fill="url(#oklGrad1)"/>
+      <circle cx="156" cy="121" r="9" fill="url(#oklGrad1)" opacity=".66"/>
+      <circle cx="184" cy="121" r="9" fill="url(#oklGrad1)" opacity=".34"/>
+    </svg>
+
+    <div class="kicker">Echolalia w autyzmie</div>
+    <h1>Echolalia<br>pod lupą<br><span class="akcent">nauki</span></h1>
+    <p class="podtytul">Co naprawdę wiemy o przyczynach powtarzania — i co z tego wynika w klasie i w domu.</p>
+  </div>
+
+  <div class="cover-dol">
+    <div class="kto">
+      <b>Dla rodziców, nauczycieli i terapeutów</b>
+      Siedem mechanizmów opisanych w literaturze — każdy z uczciwą oceną siły dowodów.
+    </div>
+    <div class="wyd">
+      Pomorskie Centrum<br>Terapii Pedagogicznej<br>Wydanie I
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════ 02 · METRYKA ═══════════════ -->
+<div class="page krem">
+  <div class="kicker">Strona redakcyjna</div>
+  <h2 class="section">O tej broszurze</h2>
+
+  <p class="lead">Materiał powstał, żeby oddzielić to, co o echolalii <em style="font-style:italic;">wiadomo</em>, od tego, co się o niej powtarza bez pokrycia.</p>
+
+  <p>W literaturze popularnej echolalia bywa opisywana albo jako objaw do wygaszenia, albo jako w pełni zrozumiany etap rozwoju o ustalonych fazach. Żadne z tych ujęć nie jest wierne stanowi badań. Ta broszura porządkuje temat inaczej: przy każdym mechanizmie podajemy <strong>siłę dowodów</strong> — od ustaleń powtórzonych w niezależnych badaniach po hipotezy, które dopiero czekają na weryfikację.</p>
+
+  <div class="ramka-t definicja">
+    <div class="glowa">◆ Dla kogo</div>
+    <p>Dla rodziców dzieci autystycznych, nauczycieli edukacji wczesnoszkolnej i specjalnej, pedagogów specjalnych, logopedów i terapeutów. Nie zakładamy przygotowania medycznego — terminy fachowe wyjaśniamy w słowniczku na stronie 17.</p>
+  </div>
+
+  <dl class="metryka">
+    <dt>Tytuł</dt><dd>Echolalia pod lupą nauki. Co naprawdę wiemy o przyczynach powtarzania</dd>
+    <dt>Seria</dt><dd>Poradniki edukacyjno-terapeutyczne PCTP</dd>
+    <dt>Wydanie</dt><dd>Pierwsze</dd>
+    <dt>Objętość</dt><dd>19 stron A4, 17 pozycji bibliograficznych</dd>
+    <dt>Format</dt><dd>Do druku dwustronnego oraz do dystrybucji cyfrowej (PDF)</dd>
+    <dt>Ilustracje</dt><dd>Autorskie grafiki wektorowe wykonane na potrzeby tego wydania</dd>
+  </dl>
+
+  <div class="ramka-t uwaga">
+    <div class="glowa">▲ Zastrzeżenie</div>
+    <p>Broszura ma charakter <strong>edukacyjny</strong>. Nie zastępuje diagnozy ani indywidualnej konsultacji ze specjalistą. Opisane strategie są wsparciem, a nie protokołem terapeutycznym — decyzje dotyczące konkretnego dziecka zawsze podejmuje zespół pracujący z nim na co dzień, wspólnie z rodziną.</p>
+  </div>
+
+  <div class="ramka-t nauka">
+    <div class="glowa">◈ Zasada doboru źródeł</div>
+    <p>Cytujemy wyłącznie prace opublikowane w recenzowanych czasopismach naukowych oraz przeglądy systematyczne. Tam, gdzie popularny model nie ma potwierdzenia empirycznego, mówimy o tym wprost — nawet jeśli jest szeroko stosowany.</p>
+  </div>
+
+  <div class="ramka-t praktyka">
+    <div class="glowa">✦ Trzy pytania, na które ta broszura odpowiada</div>
+    <p><strong>Dlaczego moje dziecko powtarza?</strong> → Rozdziały II i III: siedem mechanizmów, każdy z oceną siły dowodów.</p>
+    <p><strong>Czy to znaczy, że coś jest nie tak?</strong> → Rozdział IV: echolalia występuje także w rozwoju typowym i nie jest objawem diagnostycznym.</p>
+    <p><strong>Co mogę zrobić jutro?</strong> → Rozdział V: cztery konkretne zachowania dorosłego i strona do powieszenia w klasie.</p>
+  </div>
+
+  <div class="footer"><span>Echolalia pod lupą nauki</span><span class="pagenum">02</span></div>
+</div>
+
+<!-- ═══════════════ 03 · SPIS TREŚCI ═══════════════ -->
+<div class="page">
+  <div class="kicker">Nawigacja</div>
+  <h2 class="section">Spis treści</h2>
+
+  <div class="toc">
+    <div class="toc-grupa">
+      <div class="toc-naglowek">
+        <span class="nr">I</span>
+        <span class="tyt">Punkt wyjścia</span>
+        <span class="str">05</span>
+      </div>
+      <div class="toc-poz"><span class="co">Echolalia w liczbach</span><span class="kropki"></span><span class="str">05</span></div>
+      <div class="toc-poz"><span class="co">Dwie twarze echa: natychmiastowe i odroczone</span><span class="kropki"></span><span class="str">06</span></div>
+      <div class="toc-poz"><span class="co">Siedem funkcji echolalii natychmiastowej</span><span class="kropki"></span><span class="str">06</span></div>
+    </div>
+
+    <div class="toc-grupa">
+      <div class="toc-naglowek">
+        <span class="nr">II</span>
+        <span class="tyt">Co jest naprawdę udowodnione</span>
+        <span class="str">07</span>
+      </div>
+      <div class="toc-poz"><span class="co">Skala siły dowodów — jak czytać tę broszurę</span><span class="kropki"></span><span class="str">08</span></div>
+      <div class="toc-poz"><span class="co">1 · Obciążenie językowe i trudność w rozumieniu</span><span class="kropki"></span><span class="str">08</span></div>
+      <div class="toc-poz"><span class="co">2 · Echolalia pełni funkcje komunikacyjne</span><span class="kropki"></span><span class="str">08</span></div>
+      <div class="toc-poz"><span class="co">3 · Przetwarzanie całościowe języka</span><span class="kropki"></span><span class="str">09</span></div>
+      <div class="toc-poz"><span class="co">4 · Pamięć dosłowna i długotrwała</span><span class="kropki"></span><span class="str">09</span></div>
+    </div>
+
+    <div class="toc-grupa">
+      <div class="toc-naglowek">
+        <span class="nr">III</span>
+        <span class="tyt">Co dzieje się w mózgu</span>
+        <span class="str">10</span>
+      </div>
+      <div class="toc-poz"><span class="co">Grzbietowy szlak powtarzania mowy</span><span class="kropki"></span><span class="str">11</span></div>
+      <div class="toc-poz"><span class="co">5 · Powtarzanie jako osobny obwód</span><span class="kropki"></span><span class="str">11</span></div>
+      <div class="toc-poz"><span class="co">6 · Osłabione hamowanie automatycznej imitacji</span><span class="kropki"></span><span class="str">12</span></div>
+      <div class="toc-poz"><span class="co">7 · Regulacja pobudzenia i napięcia</span><span class="kropki"></span><span class="str">12</span></div>
+    </div>
+
+    <div class="toc-grupa">
+      <div class="toc-naglowek">
+        <span class="nr">IV</span>
+        <span class="tyt">Szerszy obraz</span>
+        <span class="str">13</span>
+      </div>
+      <div class="toc-poz"><span class="co">Echolalia nie należy do autyzmu</span><span class="kropki"></span><span class="str">13</span></div>
+      <div class="toc-poz"><span class="co">Pół wieku badań — oś czasu</span><span class="kropki"></span><span class="str">14</span></div>
+      <div class="toc-poz"><span class="co">Czego nauka nie potwierdziła</span><span class="kropki"></span><span class="str">15</span></div>
+    </div>
+
+    <div class="toc-grupa">
+      <div class="toc-naglowek">
+        <span class="nr">V</span>
+        <span class="tyt">Praktyka i materiały</span>
+        <span class="str">16</span>
+      </div>
+      <div class="toc-poz"><span class="co">Cztery rzeczy, które z tego wynikają</span><span class="kropki"></span><span class="str">16</span></div>
+      <div class="toc-poz"><span class="co">Słowniczek pojęć</span><span class="kropki"></span><span class="str">17</span></div>
+      <div class="toc-poz"><span class="co">Bibliografia</span><span class="kropki"></span><span class="str">18</span></div>
+      <div class="toc-poz"><span class="co">Szybka ściągawka do powieszenia</span><span class="kropki"></span><span class="str">19</span></div>
+    </div>
+  </div>
+
+  <div class="footer"><span>Echolalia pod lupą nauki</span><span class="pagenum">03</span></div>
+</div>
+
+<!-- ═══════════════ 04 · WPROWADZENIE ═══════════════ -->
+<div class="page">
+  <div class="kicker">Wprowadzenie</div>
+  <h2 class="section">Pytanie, które zmieniło wszystko</h2>
+
+  <figure class="figura">
+    <div class="ramka">
+      <svg viewBox="0 0 620 200" role="img" aria-label="Ilustracja: dorosły i dziecko, fraza wraca jako echo w zmienionej formie">
+        <defs>
+          <linearGradient id="wpGrad" x1="0" y1="0" x2="1" y2="0">
+            <stop offset="0%" stop-color="#6D4BC7"/><stop offset="100%" stop-color="#FF7A45"/>
+          </linearGradient>
+        </defs>
+        <defs>
+          <marker id="wpGrotP" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+            <path d="M0 0 L10 5 L0 10 z" fill="#FF7A45"/>
+          </marker>
+          <marker id="wpGrotF" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+            <path d="M0 0 L10 5 L0 10 z" fill="#6D4BC7"/>
+          </marker>
+        </defs>
+        <!-- dorosły mówi → dziecko słyszy -->
+        <g fill="none" stroke-linecap="round">
+          <path d="M192 84 C 250 46, 374 46, 428 84" stroke="#6D4BC7" stroke-width="3.5" marker-end="url(#wpGrotF)"/>
+          <path d="M198 96 C 252 68, 368 68, 422 96" stroke="#6D4BC7" stroke-width="2" opacity=".45"/>
+          <!-- dziecko oddaje → dorosły słyszy -->
+          <path d="M428 116 C 374 154, 250 154, 192 116" stroke="#FF7A45" stroke-width="3.5" marker-end="url(#wpGrotP)"/>
+          <path d="M422 104 C 368 132, 252 132, 198 104" stroke="#FF7A45" stroke-width="2" opacity=".45"/>
+        </g>
+        <!-- postać dorosła -->
+        <g>
+          <circle cx="118" cy="66" r="24" fill="#6D4BC7"/>
+          <path d="M118 96 C 84 96, 70 118, 70 158 L 166 158 C 166 118, 152 96, 118 96 Z" fill="#4B3489"/>
+          <rect x="72" y="166" width="92" height="6" rx="3" fill="#2D1B69" opacity=".5"/>
+        </g>
+        <!-- postać dziecka -->
+        <g>
+          <circle cx="500" cy="82" r="19" fill="#FF7A45"/>
+          <path d="M500 106 C 474 106, 464 124, 464 158 L 536 158 C 536 124, 526 106, 500 106 Z" fill="#E8450A"/>
+          <rect x="466" y="166" width="68" height="6" rx="3" fill="#B33507" opacity=".5"/>
+        </g>
+        <!-- punkty -->
+        <circle cx="188" cy="100" r="7" fill="#6D4BC7"/>
+        <circle cx="432" cy="100" r="7" fill="#FF7A45"/>
+        <text x="310" y="34" text-anchor="middle" font-family="Mulish,sans-serif" font-size="13" font-weight="800" fill="#F2A20C">SŁYSZY</text>
+        <text x="310" y="188" text-anchor="middle" font-family="Mulish,sans-serif" font-size="13" font-weight="800" fill="#FF7A45">ODDAJE — W SWOIM CELU</text>
+      </svg>
+    </div>
+    <figcaption><b>Ryc. 1</b> Echo nie jest kopią. Fraza wraca zmieniona funkcją, jaką nadaje jej dziecko.</figcaption>
+  </figure>
+
+  <p>Przez dziesięciolecia badacze pytali o echolalię tak, jak pyta się o objaw: <em style="font-style:italic;">jak ją wygasić?</em> W 1981 roku Barry Prizant i Judith Duchan postawili pytanie inaczej — <strong>po co dziecko powtarza?</strong> — i to przeformułowanie zmieniło całą dziedzinę <span class="cyt">[1]</span>.</p>
+
+  <p>Okazało się, że echolalia nie jest pustym dźwiękiem. Bywa prośbą, zgodą, protestem, sposobem na utrzymanie rozmowy, próbą zrozumienia zdania przez wypowiedzenie go na głos albo kotwicą, która pozwala przetrwać zbyt głośne popołudnie. Kiedy patrzy się na formę, widać powtarzanie. Kiedy patrzy się na funkcję — widać komunikację.</p>
+
+  <div class="ramka-t cytat">
+    Echolalia to nie zakłócenie na drodze do mowy. To bardzo często sama droga.
+    <span class="autor">Synteza ustaleń Prizanta i Duchan, 1981–1984</span>
+  </div>
+
+  <p>Ta broszura prowadzi przez siedem mechanizmów, którymi nauka tłumaczy powstawanie echolalii. Nie wszystkie są równie pewne — i właśnie dlatego przy każdym z nich znajdziesz ocenę siły dowodów. Uczciwość wobec tego, czego jeszcze nie wiemy, jest tu równie ważna jak to, co udało się ustalić.</p>
+
+  <h3 class="sub">Co ta broszura robi inaczej</h3>
+  <p style="font-size:12.4px;margin-bottom:2px;">Masz mało czasu? Przeczytaj stronę 16 i powieś ściągawkę ze strony 19 — reszta wyjaśnia, <strong>dlaczego</strong> to działa.</p>
+
+  <div class="kroki">
+    <div class="krok">
+      <div class="nr">1</div>
+      <h4>Podaje siłę dowodów</h4>
+      <p>Przy każdym mechanizmie widać, czy wynik został powtórzony w niezależnych badaniach, czy jest dopiero hipotezą. Nic nie udaje pewności, której nie ma.</p>
+    </div>
+    <div class="krok">
+      <div class="nr">2</div>
+      <h4>Nazywa to, co niepotwierdzone</h4>
+      <p>Także wtedy, gdy dotyczy to modelu szeroko stosowanego w praktyce i sprzedawanego na szkoleniach.</p>
+    </div>
+    <div class="krok">
+      <div class="nr">3</div>
+      <h4>Kończy na konkretach</h4>
+      <p>Każde ustalenie prowadzi do jednego zdania, które da się powiedzieć dziecku jutro rano.</p>
+    </div>
+    <div class="krok">
+      <div class="nr">✦</div>
+      <h4>Czego tu nie ma</h4>
+      <p>Gotowego protokołu terapeutycznego i obietnicy, że jedna metoda zadziała u każdego dziecka. Badania nie dają podstaw ani do jednego, ani do drugiego.</p>
+    </div>
+  </div>
+
+  <div class="footer"><span>Wprowadzenie</span><span class="pagenum">04</span></div>
+</div>
+
+<!-- ═══════════════ 05 · LICZBY ═══════════════ -->
+<div class="page">
+  <div class="kicker">Rozdział I · Punkt wyjścia</div>
+  <h2 class="section">Echolalia w liczbach</h2>
+  <p class="lead">Cztery liczby, które porządkują skalę zjawiska — i pokazują, jak dawno zaczęto je badać.</p>
+
+  <div class="liczby">
+    <div class="liczba v1">
+      <div class="duza">75<span class="jednostka">%</span></div>
+      <div class="opis">Szacunkowy odsetek mówiących osób autystycznych, u których echolalia pojawia się na którymś etapie rozwoju mowy. To zjawisko typowe, nie marginalne.</div>
+      <div class="zrodlo">Prizant, 1983 <span class="cyt">[6]</span></div>
+    </div>
+
+    <div class="liczba v2">
+      <div class="duza">30<span class="jednostka">mies.</span></div>
+      <div class="opis">Do mniej więcej tego wieku echolalia jest normalnym etapem rozwoju mowy u każdego dziecka. Powtarzanie to naturalny sposób wchodzenia w język.</div>
+      <div class="zrodlo">Rozwój typowy · literatura przeglądowa</div>
+    </div>
+
+    <div class="liczba v3">
+      <div class="duza">7 <span style="font-size:26px;opacity:.45;">+</span> 14</div>
+      <div class="opis">Tyle odrębnych <em class="termin">funkcji</em> echolalii opisano w klasycznych badaniach: siedem dla echolalii natychmiastowej i czternaście dla odroczonej.</div>
+      <div class="zrodlo">Prizant i Duchan, 1981 <span class="cyt">[1]</span> · Prizant i Rydell, 1984 <span class="cyt">[3]</span></div>
+    </div>
+
+    <div class="liczba v4">
+      <div class="duza">2555</div>
+      <div class="opis">Liczba uczestników największej analizy zgłoszeń echolalii. Potwierdziła jej dwoistą naturę: bywa jednocześnie komunikacją i zachowaniem powtarzalnym.</div>
+      <div class="zrodlo">McAllister i wsp., 2025 <span class="cyt">[5]</span></div>
+    </div>
+  </div>
+
+  <div class="ramka-t uwaga">
+    <div class="glowa">▲ Piąta liczba: 1968</div>
+    <p>Rok pierwszego kontrolowanego badania odpowiedzi echowych <span class="cyt">[17]</span>. Echolalia jest przedmiotem systematycznych badań od ponad pół wieku — ale przełom nie polegał na znalezieniu „przyczyny”. Polegał na zmianie pytania.</p>
+  </div>
+
+  <div class="ramka-t definicja">
+    <div class="glowa">◆ Definicja robocza</div>
+    <p><strong>Echolalia</strong> to powtarzanie usłyszanych wypowiedzi — cudzych lub własnych — w formie identycznej albo lekko zmienionej. Powtórzenie może nastąpić natychmiast albo po godzinach, dniach, a nawet miesiącach od usłyszenia.</p>
+  </div>
+
+  <div class="ramka-t praktyka">
+    <div class="glowa">✦ Co z tym zrobić jutro</div>
+    <p>Przez tydzień notuj przy każdym echu trzy rzeczy: <strong>co je poprzedziło</strong>, <strong>jak głośne było</strong> i <strong>czy dziecko patrzyło na kogoś</strong>. Po tygodniu wzorzec zwykle staje się widoczny bez żadnych narzędzi diagnostycznych.</p>
+  </div>
+
+  <div class="footer"><span>Rozdział I · Punkt wyjścia</span><span class="pagenum">05</span></div>
+</div>
+
+<!-- ═══════════════ 06 · DWA RODZAJE ═══════════════ -->
+<div class="page krem">
+  <h3 class="sub">Dwie twarze echa</h3>
+  <p>Podział na echolalię natychmiastową i odroczoną nie jest formalnością. Za każdą stoi inny mechanizm pamięciowy i inna praktyczna wskazówka.</p>
+
+  <figure class="figura">
+    <div class="ramka jasna">
+      <svg viewBox="0 0 620 260" role="img" aria-label="Infografika porównująca echolalię natychmiastową i odroczoną">
+        <!-- lewa kolumna -->
+        <rect x="8" y="8" width="290" height="244" rx="18" fill="#FFF" stroke="#E6E0F0"/>
+        <rect x="8" y="8" width="290" height="6" rx="3" fill="#E8450A"/>
+        <circle cx="58" cy="62" r="22" fill="#FFF0E8"/>
+        <path d="M58 50 L58 62 L67 68" stroke="#E8450A" stroke-width="3" fill="none" stroke-linecap="round"/>
+        <circle cx="58" cy="62" r="14" fill="none" stroke="#E8450A" stroke-width="2.5"/>
+        <text x="94" y="58" font-family="Mulish,sans-serif" font-size="17" font-weight="800" fill="#2D1B69">Natychmiastowa</text>
+        <text x="94" y="78" font-family="'IBM Plex Mono',monospace" font-size="11" fill="#E8450A">w ciągu sekund</text>
+
+        <text x="30" y="118" font-family="Mulish,sans-serif" font-size="12.5" fill="#231A3B">Powtórzenie tego, co właśnie</text>
+        <text x="30" y="136" font-family="Mulish,sans-serif" font-size="12.5" fill="#231A3B">padło. Opiera się na pamięci</text>
+        <text x="30" y="154" font-family="Mulish,sans-serif" font-size="12.5" fill="#231A3B">krótkotrwałej i przetwarzaniu</text>
+        <text x="30" y="172" font-family="Mulish,sans-serif" font-size="12.5" fill="#231A3B">„powierzchownym”.</text>
+
+        <rect x="30" y="192" width="246" height="42" rx="10" fill="#FFF0E8"/>
+        <text x="44" y="211" font-family="'IBM Plex Mono',monospace" font-size="9" letter-spacing="1.4" fill="#E8450A">SYGNAŁ</text>
+        <text x="44" y="227" font-family="Mulish,sans-serif" font-size="12" font-weight="700" fill="#231A3B">Zdanie było za trudne — uprość</text>
+
+        <!-- prawa kolumna -->
+        <rect x="322" y="8" width="290" height="244" rx="18" fill="#FFF" stroke="#E6E0F0"/>
+        <rect x="322" y="8" width="290" height="6" rx="3" fill="#6D4BC7"/>
+        <circle cx="372" cy="62" r="22" fill="#EFEAFB"/>
+        <path d="M362 62 C 366 50, 378 50, 382 62 C 386 74, 374 76, 372 68" stroke="#6D4BC7" stroke-width="2.8" fill="none" stroke-linecap="round"/>
+        <text x="408" y="58" font-family="Mulish,sans-serif" font-size="17" font-weight="800" fill="#2D1B69">Odroczona</text>
+        <text x="408" y="78" font-family="'IBM Plex Mono',monospace" font-size="11" fill="#6D4BC7">godziny, dni, miesiące</text>
+
+        <text x="344" y="118" font-family="Mulish,sans-serif" font-size="12.5" fill="#231A3B">Fraza z bajki, reklamy, dawnej</text>
+        <text x="344" y="136" font-family="Mulish,sans-serif" font-size="12.5" fill="#231A3B">rozmowy — często z zachowaną</text>
+        <text x="344" y="154" font-family="Mulish,sans-serif" font-size="12.5" fill="#231A3B">intonacją. Angażuje pamięć</text>
+        <text x="344" y="172" font-family="Mulish,sans-serif" font-size="12.5" fill="#231A3B">długotrwałą.</text>
+
+        <rect x="344" y="192" width="246" height="42" rx="10" fill="#EFEAFB"/>
+        <text x="358" y="211" font-family="'IBM Plex Mono',monospace" font-size="9" letter-spacing="1.4" fill="#6D4BC7">SYGNAŁ</text>
+        <text x="358" y="227" font-family="Mulish,sans-serif" font-size="12" font-weight="700" fill="#231A3B">Poszukaj źródła — tam jest sens</text>
+      </svg>
+    </div>
+    <figcaption><b>Ryc. 2</b> Różny mechanizm pamięciowy, różna wskazówka dla dorosłego.</figcaption>
+  </figure>
+
+  <div class="ramka-t nauka">
+    <div class="glowa">◈ Praktyczny sygnał z badań</div>
+    <p>Cohn i współpracownicy <span class="cyt">[9]</span> zauważyli prostą regułę, którą łatwo sprawdzić w klasie: <strong>echa komunikacyjne są zwykle głośniejsze</strong> od niekomunikacyjnych. Ciche, mruczane powtarzanie częściej służy samoregulacji; wyraźne, skierowane do kogoś — komunikacji.</p>
+  </div>
+
+  <h3 class="sub">Siedem funkcji echolalii natychmiastowej</h3>
+  <p style="font-size:12.4px;margin-bottom:2px;">Klasyfikacja Prizanta i Duchan <span class="cyt">[1]</span> — do dziś podstawa większości narzędzi obserwacyjnych.</p>
+
+  <div class="tabela-wrap">
+    <table class="stany">
+      <thead>
+        <tr><th>Funkcja</th><th>Skierowana do</th><th>Jak to wygląda</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Podtrzymanie wymiany</td><td>rozmówcy</td><td>Dziecko wypełnia swoją kolej w rozmowie, choć nie ma jeszcze własnych słów.</td></tr>
+        <tr><td>Potwierdzenie</td><td>rozmówcy</td><td>Powtórzenie zamiast „tak”: „Chcesz sok?” → „Chcesz sok.”</td></tr>
+        <tr><td>Prośba</td><td>rozmówcy</td><td>Powtórzenie frazy, po której zwykle coś następowało.</td></tr>
+        <tr><td>Deklaracja</td><td>rozmówcy</td><td>Nazwanie tego, co dziecko właśnie widzi lub robi.</td></tr>
+        <tr><td>Ćwiczenie</td><td>siebie</td><td>Powtórzenie „na próbę”, zanim padnie właściwa odpowiedź.</td></tr>
+        <tr><td>Samoregulacja</td><td>siebie</td><td>Fraza steruje własnym działaniem albo obniża napięcie.</td></tr>
+        <tr><td>Niezogniskowana</td><td>—</td><td>Bez czytelnej intencji, często przy wysokim pobudzeniu lub zmęczeniu.</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="footer"><span>Rozdział I · Punkt wyjścia</span><span class="pagenum">06</span></div>
+</div>
+
+<!-- ═══════════════ 07 · ROZDZIAŁ II — KARTA ═══════════════ -->
+<div class="page rozdzial">
+  <div class="duzy-nr">II</div>
+  <div class="kicker">Rozdział drugi</div>
+  <h1>Co jest naprawdę udowodnione</h1>
+  <p class="lead">Nie istnieje jedna „przyczyna echolalii”. Istnieje kilka mechanizmów o bardzo różnej sile dowodów — i to rozróżnienie jest praktycznie najważniejsze w całej broszurze.</p>
+  <div class="w-srodku">
+    <span>Skala siły dowodów</span>
+    <span>Cztery mechanizmy</span>
+    <span>Ostrzeżenie o modelu NLA</span>
+  </div>
+  <div class="footer"><span>Rozdział II</span><span class="pagenum">07</span></div>
+</div>
+
+<!-- ═══════════════ 08 · SKALA + PRZYCZYNY 1–2 ═══════════════ -->
+<div class="page">
+  <h3 class="sub">Jak czytać oceny w tej broszurze</h3>
+  <p style="margin-bottom:4px;">Każdy mechanizm dostaje jedną z trzech ocen. Kolor karty powtarza tę ocenę, więc widać ją, zanim zacznie się czytać.</p>
+
+  <div class="skala">
+    <div class="stopien s3">
+      <div class="kropki"><i class="on"></i><i class="on"></i><i class="on"></i></div>
+      <div class="nazwa">Udokumentowane</div>
+      <div class="co">Wynik powtórzony w niezależnych badaniach, spójny w różnych grupach.</div>
+    </div>
+    <div class="stopien s2">
+      <div class="kropki"><i class="on"></i><i class="on"></i><i></i></div>
+      <div class="nazwa">Prawdopodobne</div>
+      <div class="co">Wsparte danymi, ale na małych próbach lub bez replikacji u dzieci autystycznych.</div>
+    </div>
+    <div class="stopien s1">
+      <div class="kropki"><i class="on"></i><i></i><i></i></div>
+      <div class="nazwa">Hipoteza</div>
+      <div class="co">Model teoretyczny lub pojedyncze doniesienia. Wymaga weryfikacji.</div>
+    </div>
+  </div>
+
+  <div class="przyczyna mocne" style="margin-top:17px;">
+    <div class="glowa">
+      <h4>1 · Obciążenie językowe i trudność w rozumieniu</h4>
+      <div class="waga">
+        <div class="kropki"><i class="on"></i><i class="on"></i><i class="on"></i></div>
+        <div class="etykieta">Udokumentowane</div>
+      </div>
+    </div>
+    <p>Najlepiej potwierdzony mechanizm bezpośredni. Rydell i Mirenda <span class="cyt">[2]</span> wykazali eksperymentalnie, że echolalia <strong>rośnie</strong> po wypowiedziach wysoko sterujących — poleceniach i pytaniach testujących — a <strong>maleje</strong> na rzecz mowy własnej dziecka po wypowiedziach nisko sterujących, czyli zwykłych komentarzach.</p>
+    <p>Innymi słowy: im większe obciążenie przetwarzaniem języka, tym więcej echa. Powtarzanie pojawia się tam, gdzie kończy się zasób potrzebny do samodzielnego złożenia zdania.</p>
+    <div class="wniosek"><b>Dla praktyki:</b> zamień „Jak się nazywa ten kolor?” na „O, niebieski klocek”. Zmniejszasz obciążenie i otwierasz miejsce na mowę własną.</div>
+  </div>
+
+  <div class="przyczyna mocne">
+    <div class="glowa">
+      <h4>2 · Echolalia pełni funkcje komunikacyjne</h4>
+      <div class="waga">
+        <div class="kropki"><i class="on"></i><i class="on"></i><i class="on"></i></div>
+        <div class="etykieta">Udokumentowane</div>
+      </div>
+    </div>
+    <p>Prizant i Duchan <span class="cyt">[1]</span> wyodrębnili siedem funkcji echolalii natychmiastowej — m.in. podtrzymanie wymiany, potwierdzenie, prośbę, „ćwiczenie” zdania przed jego zrozumieniem i <em class="termin">samoregulację</em>. Trzy lata później opisano czternaście kategorii echolalii odroczonej <span class="cyt">[3]</span>.</p>
+    <p>Ustalenie powtórzono wielokrotnie — m.in. Cohn i wsp. <span class="cyt">[9]</span> oraz Xie i wsp. <span class="cyt">[10]</span>, którzy analizowali echolalię jako pełnoprawne działanie językowe.</p>
+    <div class="wniosek"><b>Dla praktyki:</b> zanim zareagujesz, zadaj sobie pytanie „po co?”, a nie „jak to zatrzymać?”.</div>
+  </div>
+
+  <div class="ramka-t nauka">
+    <div class="glowa">◈ Jak to sprawdzono</div>
+    <p>Badanie Rydell i Mirendy <span class="cyt">[2]</span> jest przykładem projektu, który daje mocny wniosek przyczynowy. Tym samym dzieciom przedstawiano naprzemiennie dwa rodzaje wypowiedzi dorosłego — wysoko i nisko sterujące — a następnie liczono echa i wypowiedzi własne w każdym z warunków.</p>
+    <p>Ponieważ zmieniał się <strong>wyłącznie sposób mówienia dorosłego</strong>, a dziecko pozostawało to samo, różnicy w liczbie ech nie da się przypisać dziecku. To dlatego mechanizm 1 ma najwyższą ocenę, mimo że próba nie była duża.</p>
+  </div>
+
+  <div class="ramka-t uwaga">
+    <div class="glowa">▲ Częste nieporozumienie</div>
+    <p>„Wysoko sterujące” nie znaczy „surowe”. Ciepło zadane pytanie testujące („No powiedz mamie, co to jest?”) obciąża przetwarzanie dokładnie tak samo jak suche polecenie. Liczy się <strong>struktura wypowiedzi</strong>, nie ton głosu.</p>
+  </div>
+
+  <div class="footer"><span>Rozdział II · Co jest udowodnione</span><span class="pagenum">08</span></div>
+</div>
+
+<!-- ═══════════════ 09 · PRZYCZYNY 3–4 ═══════════════ -->
+<div class="page">
+  <div class="przyczyna mocne">
+    <div class="glowa">
+      <h4>3 · Przetwarzanie całościowe języka</h4>
+      <div class="waga">
+        <div class="kropki"><i class="on"></i><i class="on"></i><i class="on"></i></div>
+        <div class="etykieta">Udokumentowane</div>
+      </div>
+    </div>
+    <p>Prizant <span class="cyt">[6]</span> opisał, że część dzieci przyswaja język <strong>całymi bryłami</strong>: zapamiętuje i odtwarza gotowe fragmenty, zanim nauczy się rozbijać je na słowa i składać na nowo. Echolalia jest wtedy nie błędem, lecz <em class="termin">etapem</em> — surowcem, z którego dopiero powstanie mowa własna.</p>
+    <p>Samo zjawisko przetwarzania całościowego jest dobrze opisane w lingwistyce rozwojowej i w obserwacjach klinicznych. Ale tu potrzebne jest ważne rozróżnienie.</p>
+    <div class="wniosek"><b>Dla praktyki:</b> słuchaj, skąd pochodzi fraza. Źródło zwykle zdradza znaczenie, jakie dziecko jej nadało.</div>
+  </div>
+
+  <div class="ramka-t uwaga">
+    <div class="glowa">▲ Zjawisko to nie to samo, co protokół terapeutyczny</div>
+    <p>Popularny model <strong>NLA</strong> (Natural Language Acquisition, Blanc, 2012 <span class="cyt">[7]</span>) z sześcioma etapami rozwoju bywa przedstawiany jako fakt naukowy. Krytyczna analiza Hutchins, Knox i Fletcher <span class="cyt">[8]</span> wykazała, że <strong>nie ma badań weryfikujących</strong> ani samych etapów, ani skuteczności opartej na nich terapii.</p>
+    <p>Przetwarzanie całościowe jako zjawisko — tak. Sześć etapów jako udowodniona ścieżka rozwoju — nie. To rozróżnienie warto znać, zanim zainwestuje się w komercyjne szkolenie.</p>
+  </div>
+
+  <div class="przyczyna srednie">
+    <div class="glowa">
+      <h4>4 · Pamięć dosłowna i długotrwała</h4>
+      <div class="waga">
+        <div class="kropki"><i class="on"></i><i class="on"></i><i></i></div>
+        <div class="etykieta">Prawdopodobne</div>
+      </div>
+    </div>
+    <p>Echolalia odroczona wymaga zapisania i odtworzenia długich fragmentów — całych scen z bajki, zdań usłyszanych tygodnie wcześniej, z zachowaną intonacją. Wskazuje to na relatywnie <strong>zachowaną pamięć werbalną „słowo w słowo”</strong> przy jednoczesnych trudnościach z przetwarzaniem znaczenia.</p>
+    <p>Echolalia natychmiastowa opiera się natomiast na pamięci krótkotrwałej i na materiale, który nie zdążył zostać zrozumiany <span class="cyt">[2][3][17]</span>.</p>
+    <div class="wniosek"><b>Dla praktyki:</b> ta sama mocna pamięć, która produkuje echo, jest zasobem — na niej opierają się skrypty i historyjki społeczne.</div>
+  </div>
+
+  <div class="ramka-t cytat">
+    Dziecko, które powtarza całą scenę z bajki z zachowaną intonacją, nie ma problemu z pamięcią. Ma problem z rozbiciem tej sceny na części, którymi dałoby się rozporządzać.
+    <span class="autor">Synteza mechanizmu 3 i 4</span>
+  </div>
+
+  <div class="ramka-t nauka">
+    <div class="glowa">◈ Jak wygląda „bryła” języka</div>
+    <p>Dziecko mówi <em style="font-style:italic;">„a-teraz-czas-na-śniadanie”</em> jak jedno długie słowo, zawsze z tą samą melodią i zawsze w całości. Nie powie „czas na obiad” ani „teraz śniadanie”, bo fraza nie została jeszcze rozłożona na wymienne części.</p>
+    <p>Rozbijanie brył jest procesem stopniowym: najpierw pojawia się jeden wymienny element („czas na <strong>obiad</strong>”), potem kolejne. Właśnie dlatego pierwszym sygnałem postępu bywa nie zanik echa, lecz <strong>drobna zmiana wewnątrz powtarzanej frazy</strong>.</p>
+  </div>
+
+  <div class="footer"><span>Rozdział II · Co jest udowodnione</span><span class="pagenum">09</span></div>
+</div>
+
+<!-- ═══════════════ 10 · ROZDZIAŁ III — KARTA ═══════════════ -->
+<div class="page rozdzial">
+  <div class="duzy-nr">III</div>
+  <div class="kicker">Rozdział trzeci</div>
+  <h1>Co dzieje się<br>w mózgu</h1>
+  <p class="lead">Tu dowody pochodzą głównie z neurologii dorosłych. Są mocne — ale przeniesienie ich wprost na autyzm pozostaje ostrożną hipotezą, i tak je przedstawiamy.</p>
+  <div class="w-srodku">
+    <span>Szlak powtarzania</span>
+    <span>Hamowanie imitacji</span>
+    <span>Regulacja napięcia</span>
+  </div>
+  <div class="footer"><span>Rozdział III</span><span class="pagenum">10</span></div>
+</div>
+
+<!-- ═══════════════ 11 · MÓZG ═══════════════ -->
+<div class="page">
+  <h3 class="sub">Grzbietowy szlak powtarzania mowy</h3>
+  <p>Powtarzanie i rozumienie to w mózgu dwie różne drogi. Pierwsza jest szybka i automatyczna, druga wolniejsza i łatwiejsza do przeciążenia.</p>
+
+  <figure class="figura">
+    <div class="ramka">
+      <svg viewBox="0 0 620 250" role="img" aria-label="Schemat: droga powtarzania mowy prowadzi z kory słuchowej wprost do okolic ruchowych mowy, natomiast droga przez znaczenie jest wolniejsza i łatwiejsza do przeciążenia">
+        <defs>
+          <linearGradient id="luk" x1="0" y1="0" x2="1" y2="0">
+            <stop offset="0%" stop-color="#F2A20C"/><stop offset="100%" stop-color="#E8450A"/>
+          </linearGradient>
+          <marker id="grot" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="4.6" markerHeight="4.6" orient="auto-start-reverse">
+            <path d="M0 0 L10 5 L0 10 z" fill="#E8450A"/>
+          </marker>
+          <marker id="grotSzary" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="5.5" markerHeight="5.5" orient="auto-start-reverse">
+            <path d="M0 0 L10 5 L0 10 z" fill="#8A7CBE"/>
+          </marker>
+        </defs>
+
+        <!-- DROGA SZYBKA: łuk górny -->
+        <path d="M114 98 C 190 48, 432 48, 506 98" fill="none" stroke="url(#luk)" stroke-width="7"
+              stroke-linecap="round" marker-end="url(#grot)"/>
+        <text x="310" y="20" text-anchor="middle" font-family="Mulish,sans-serif" font-size="13" fill="#F2A20C" font-weight="800" letter-spacing="1">PĘCZEK ŁUKOWATY</text>
+        <text x="310" y="37" text-anchor="middle" font-family="Mulish,sans-serif" font-size="11.5" fill="#CFC5EC">droga powtarzania — szybka, automatyczna</text>
+
+        <!-- DROGA WOLNA: przez znaczenie -->
+        <path d="M112 132 C 168 190, 250 196, 296 178" fill="none" stroke="#8A7CBE" stroke-width="3.5"
+              stroke-linecap="round" stroke-dasharray="8 7"/>
+        <path d="M324 178 C 372 196, 452 190, 508 132" fill="none" stroke="#8A7CBE" stroke-width="3.5"
+              stroke-linecap="round" stroke-dasharray="8 7" marker-end="url(#grotSzary)"/>
+
+        <!-- WĘZEŁ 1 -->
+        <circle cx="94" cy="112" r="26" fill="#0E8078"/>
+        <text x="94" y="119" text-anchor="middle" font-family="'IBM Plex Mono',monospace" font-size="17" fill="#fff" font-weight="600">1</text>
+        <text x="94" y="164" text-anchor="middle" font-family="Mulish,sans-serif" font-size="12.5" fill="#EDE7FC" font-weight="800">Kora słuchowa</text>
+        <text x="94" y="182" text-anchor="middle" font-family="Mulish,sans-serif" font-size="11" fill="#9C8FC9">słyszę frazę</text>
+
+        <!-- WĘZEŁ 3 -->
+        <circle cx="310" cy="178" r="22" fill="none" stroke="#8A7CBE" stroke-width="2.5" stroke-dasharray="6 5"/>
+        <text x="310" y="184" text-anchor="middle" font-family="'IBM Plex Mono',monospace" font-size="15" fill="#B9ADE0" font-weight="600">3</text>
+        <text x="310" y="224" text-anchor="middle" font-family="Mulish,sans-serif" font-size="12.5" fill="#C7BCEA" font-weight="800">Znaczenie</text>
+        <text x="310" y="242" text-anchor="middle" font-family="Mulish,sans-serif" font-size="11" fill="#9C8FC9">rozumiem, co to znaczy — wolniej</text>
+
+        <!-- WĘZEŁ 2 -->
+        <circle cx="526" cy="112" r="26" fill="#E8450A"/>
+        <text x="526" y="119" text-anchor="middle" font-family="'IBM Plex Mono',monospace" font-size="17" fill="#fff" font-weight="600">2</text>
+        <text x="526" y="164" text-anchor="middle" font-family="Mulish,sans-serif" font-size="12.5" fill="#EDE7FC" font-weight="800">Okolice ruchowe mowy</text>
+        <text x="526" y="182" text-anchor="middle" font-family="Mulish,sans-serif" font-size="11" fill="#9C8FC9">wypowiadam ją</text>
+      </svg>
+    </div>
+    <figcaption><b>Ryc. 3</b> Droga 1→2 działa niezależnie od drogi do znaczenia (3). Gdy ta druga jest przeciążona, pierwsza odpowiada sama.</figcaption>
+  </figure>
+
+  <div class="przyczyna srednie">
+    <div class="glowa">
+      <h4>5 · Powtarzanie to osobny obwód — może działać bez rozumienia</h4>
+      <div class="waga">
+        <div class="kropki"><i class="on"></i><i class="on"></i><i></i></div>
+        <div class="etykieta">Prawdopodobne</div>
+      </div>
+    </div>
+    <p>Najmocniejszy dowód przychodzi z neurologii dorosłych. W <em class="termin">afazji transkorowej czuciowej</em> uszkodzenie odcina okolice odpowiedzialne za znaczenie, ale nienaruszony pozostaje grzbietowy szlak słuchowo-ruchowy. Efekt jest uderzający: pacjent <strong>bezbłędnie powtarza</strong> zdania, których nie rozumie. Pojawia się echolalia.</p>
+    <p>To dowodzi, że powtarzanie mowy jest odrębnym obwodem, zdolnym działać niezależnie od rozumienia.</p>
+    <div class="wniosek"><b>Ostrożnie:</b> to model wyjaśniający, nie dowód na uszkodzenie mózgu u dziecka autystycznego. Mechanizm ten sam — przyczyna inna.</div>
+  </div>
+
+  <div class="ramka-t praktyka">
+    <div class="glowa">✦ Dlaczego to ma znaczenie przy stole i w ławce</div>
+    <p>Jeśli droga powtarzania jest szybsza od drogi do znaczenia, to <strong>echo pojawia się zanim dziecko zdąży zrozumieć zdanie</strong>. Nie jest więc odmową ani ignorowaniem polecenia — jest tym, co zdążyło się wydarzyć pierwsze.</p>
+    <p>Praktyczny wniosek jest prosty i mierzalny: <strong>daj drodze do znaczenia więcej czasu</strong>. Pauza po zdaniu, krótsze polecenie, jedna informacja naraz. To nie jest ustępstwo — to wyrównanie szans między dwiema drogami.</p>
+  </div>
+
+  <div class="ramka-t definicja">
+    <div class="glowa">◆ Skąd wiadomo, że to dwie różne drogi</div>
+    <p>Z rozdzielenia obserwowanego u pacjentów neurologicznych: bywa zachowane powtarzanie przy zniesionym rozumieniu, ale zdarza się też odwrotnie — zachowane rozumienie przy niemożności powtórzenia. Gdyby to była jedna droga, taka podwójna dysocjacja nie byłaby możliwa.</p>
+  </div>
+
+  <div class="footer"><span>Rozdział III · Co dzieje się w mózgu</span><span class="pagenum">11</span></div>
+</div>
+
+<!-- ═══════════════ 12 · PRZYCZYNY 6–7 + HIPOTEZA ═══════════════ -->
+<div class="page">
+  <div class="przyczyna srednie">
+    <div class="glowa">
+      <h4>6 · Osłabione hamowanie automatycznej imitacji</h4>
+      <div class="waga">
+        <div class="kropki"><i class="on"></i><i class="on"></i><i></i></div>
+        <div class="etykieta">Prawdopodobne</div>
+      </div>
+    </div>
+    <p>Każdy mózg nieustannie i automatycznie „przymierza” to, co widzi i słyszy, do własnego aparatu ruchowego. Zwykle ta gotowość zostaje wyhamowana, zanim zamieni się w ruch albo dźwięk. <em class="termin">Echozjawiska</em> — echolalia i echopraksja — opisuje się jako <strong>odhamowanie</strong> tego naturalnego mechanizmu, powiązane z kontrolą czołową <span class="cyt">[19]</span>.</p>
+    <div class="wniosek"><b>Dla praktyki:</b> to dlatego echo nasila się przy zmęczeniu — hamowanie kosztuje zasoby, które właśnie się skończyły.</div>
+  </div>
+
+  <div class="przyczyna srednie">
+    <div class="glowa">
+      <h4>7 · Regulacja pobudzenia i napięcia</h4>
+      <div class="waga">
+        <div class="kropki"><i class="on"></i><i class="on"></i><i></i></div>
+        <div class="etykieta">Prawdopodobne</div>
+      </div>
+    </div>
+    <p>Funkcja samoregulacyjna była w opisie echolalii od samego początku <span class="cyt">[1]</span>. Znana, przewidywalna fraza działa jak kotwica: nie zmienia sytuacji, ale przywraca poczucie kontroli. Stąd powtarzalna obserwacja, że echolalia nasila się przy <strong>przeciążeniu sensorycznym, zmianie rutyny i silnych emocjach</strong> <span class="cyt">[9]</span>.</p>
+    <div class="wniosek"><b>Dla praktyki:</b> nagły wzrost echolalii to informacja o środowisku, nie o dziecku.</div>
+  </div>
+
+  <div class="przyczyna hipoteza">
+    <div class="glowa">
+      <h4>Na marginesie: modele neuroprzekaźnikowe</h4>
+      <div class="waga">
+        <div class="kropki"><i class="on"></i><i></i><i></i></div>
+        <div class="etykieta">Hipoteza</div>
+      </div>
+    </div>
+    <p>W materiałach popularnych pojawiają się wyjaśnienia odwołujące się do funkcjonowania płatów czołowych i regulacji dopaminy <span class="cyt">[4]</span>. Warto je znać, ale trzeba uczciwie powiedzieć: <strong>brak badań rozstrzygających</strong> u dzieci autystycznych. To kierunek poszukiwań, nie ustalenie.</p>
+  </div>
+
+  <div class="ramka-t nauka">
+    <div class="glowa">◈ Podsumowanie rozdziału III</div>
+    <p>Trzy mechanizmy z tego rozdziału łączy jedno: opisują <strong>warunki</strong>, w których echo się pojawia, a nie „defekt”, który je powoduje. Przeciążona droga do znaczenia, wyczerpane hamowanie, wysokie napięcie — każdy z tych stanów zdarza się także dorosłym, tyle że rzadziej i z mniejszym skutkiem.</p>
+  </div>
+
+  <h3 class="sub">Kiedy echolalia zwykle rośnie</h3>
+  <p style="font-size:12.4px;margin-bottom:2px;">Zestawienie sytuacji powtarzalnie opisywanych w literaturze <span class="cyt">[1][2][9]</span> — z mechanizmem, który za nimi stoi.</p>
+
+  <div class="tabela-wrap">
+    <table class="stany">
+      <thead>
+        <tr><th>Sytuacja</th><th>Mechanizm</th><th>Co pomaga</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Seria pytań i poleceń</td><td>1 · obciążenie</td><td>Przejdź na komentarze, jedna informacja naraz.</td></tr>
+        <tr><td>Hałas, tłum, ostre światło</td><td>7 · pobudzenie</td><td>Zmień miejsce, zanim zmienisz wymagania.</td></tr>
+        <tr><td>Zmiana planu dnia</td><td>7 · pobudzenie</td><td>Uprzedź, pokaż plan wizualnie, zostaw czas.</td></tr>
+        <tr><td>Koniec dnia, po lekcjach</td><td>6 · hamowanie</td><td>Obniż wymagania językowe — zasoby są wyczerpane.</td></tr>
+        <tr><td>Nowe, nieznane zadanie</td><td>1 · obciążenie</td><td>Rozłóż na kroki, dodaj wsparcie wizualne.</td></tr>
+        <tr><td>Silne emocje, także radość</td><td>7 · pobudzenie</td><td>Nie komentuj echa — poczekaj, aż napięcie opadnie.</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="footer"><span>Rozdział III · Co dzieje się w mózgu</span><span class="pagenum">12</span></div>
+</div>
+
+<!-- ═══════════════ 13 · POZA AUTYZMEM ═══════════════ -->
+<div class="page krem">
+  <div class="kicker">Rozdział IV · Szerszy obraz</div>
+  <h2 class="section">Echolalia nie należy do autyzmu</h2>
+  <p class="lead">Echo pojawia się w bardzo różnych stanach — i właśnie to jest najlepszym dowodem, że mamy do czynienia z działaniem pewnej sieci, a nie z objawem jednej diagnozy.</p>
+
+  <div class="tabela-wrap">
+    <table class="stany">
+      <thead>
+        <tr><th>Kiedy występuje</th><th>Wiek / kontekst</th><th>Czego to dowodzi</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Rozwój typowy</td><td>ok. 8–30 mies.</td>
+          <td>Powtarzanie to normalny, powszechny sposób wchodzenia w mowę.</td>
+        </tr>
+        <tr>
+          <td>Afazja transkorowa czuciowa</td><td>po udarze</td>
+          <td>Sieć powtarzania działa nawet wtedy, gdy dostęp do znaczenia jest odcięty.</td>
+        </tr>
+        <tr>
+          <td>Otępienie czołowo-skroniowe</td><td>dorosłość</td>
+          <td>Echo wraca, gdy słabnie czołowa kontrola hamująca.</td>
+        </tr>
+        <tr>
+          <td>Zespół Tourette’a</td><td>dzieciństwo / dorosłość</td>
+          <td>Echolalia jako złożony tik — odhamowanie automatycznej imitacji <span class="cyt">[19]</span>.</td>
+        </tr>
+        <tr>
+          <td>Katatonia</td><td>epizodycznie</td>
+          <td>Echo jako element zaburzeń napędu i inicjowania działania.</td>
+        </tr>
+        <tr>
+          <td>Inne stany rozwojowe</td><td>różny</td>
+          <td>M.in. zespół Landaua-Kleffnera, niepełnosprawność intelektualna, ślepota wrodzona.</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="nota">
+    <b>Wniosek dla rodzica i nauczyciela</b>
+    Echolalia sama w sobie <strong>nie jest</strong> objawem diagnostycznym autyzmu i nie przesądza o niczym. Jest wyrazem działania sieci powtarzania mowy, która może ujawnić się z wielu powodów. Diagnozy nie stawia się na podstawie echa — i odwrotnie: obecność echolalii u dziecka bez diagnozy nie jest sama w sobie powodem do niepokoju przed trzecim rokiem życia.
+  </div>
+
+  <div class="ramka-t definicja">
+    <div class="glowa">◆ Kiedy jednak warto skonsultować</div>
+    <p>Gdy echolalia utrzymuje się jako <strong>dominująca forma wypowiedzi po 3. roku życia</strong>, gdy pojawia się nagle u dziecka, które wcześniej mówiło swobodnie, albo gdy towarzyszy jej regres innych umiejętności. To wskazania do konsultacji — nie do niepokoju.</p>
+  </div>
+
+  <div class="ramka-t nauka">
+    <div class="glowa">◈ Echo w rozwoju typowym — dla porównania</div>
+    <p>Około pierwszego roku życia powtarzanie sylab i słów jest głównym narzędziem nauki mowy. Między 18. a 30. miesiącem dzieci neurotypowe powtarzają nadal, ale coraz częściej <strong>przerabiają</strong> usłyszaną frazę zamiast oddawać ją w całości. Po trzecim roku echo zwykle schodzi na margines.</p>
+    <p>Różnica u dzieci autystycznych nie polega więc na tym, <em style="font-style:italic;">że</em> powtarzają, lecz na tym, <strong>jak długo</strong> powtarzanie pozostaje głównym narzędziem i jak duże bryły języka obejmuje.</p>
+  </div>
+
+  <div class="footer"><span>Rozdział IV · Szerszy obraz</span><span class="pagenum">13</span></div>
+</div>
+
+<!-- ═══════════════ 14 · OŚ CZASU ═══════════════ -->
+<div class="page">
+  <div class="kicker">Chronologia</div>
+  <h2 class="section">Pół wieku badań</h2>
+  <p class="lead">Kolejność ma tu znaczenie: widać, jak pytanie „jak to wygasić?” przesuwało się w stronę „po co dziecko powtarza?”.</p>
+
+  <div class="os">
+    <div class="wpis">
+      <div class="rok">1968</div>
+      <h4>Pierwsza kontrolowana analiza</h4>
+      <p>Fay i Butler badają odpowiedzi echowe metodą eksperymentalną <span class="cyt">[17]</span>.</p>
+    </div>
+    <div class="wpis kluczowy">
+      <div class="rok">1981</div>
+      <h4>Przełom: echolalia ma funkcje</h4>
+      <p>Prizant i Duchan opisują siedem funkcji echolalii natychmiastowej. Zmiana perspektywy, z której wyrasta cała późniejsza praktyka <span class="cyt">[1]</span>.</p>
+    </div>
+    <div class="wpis">
+      <div class="rok">1983</div>
+      <h4>Przetwarzanie całościowe — i korzyść z echa</h4>
+      <p>Prizant opisuje gestaltowe przyswajanie języka <span class="cyt">[6]</span>. W tym samym roku Charlop wykazuje, że echolalia <strong>sprzyja</strong> uczeniu się i generalizowaniu nazw <span class="cyt">[14]</span>.</p>
+    </div>
+    <div class="wpis">
+      <div class="rok">1984</div>
+      <h4>Czternaście kategorii echolalii odroczonej</h4>
+      <p>Prizant i Rydell rozszerzają analizę funkcji na echa odroczone <span class="cyt">[3]</span>.</p>
+    </div>
+    <div class="wpis">
+      <div class="rok">1987</div>
+      <h4>Pierwsze ustrukturyzowane metody</h4>
+      <p>McMorrow i wsp. opisują procedurę <em class="termin">cues–pause–point</em> <span class="cyt">[11]</span>.</p>
+    </div>
+    <div class="wpis kluczowy">
+      <div class="rok">1994</div>
+      <h4>Dowód, że to my sterujemy ilością echa</h4>
+      <p>Rydell i Mirenda: wypowiedzi wysoko sterujące zwiększają echolalię, komentarze — mowę własną <span class="cyt">[2]</span>.</p>
+    </div>
+    <div class="wpis">
+      <div class="rok">2016</div>
+      <h4>Pierwszy duży przegląd interwencji</h4>
+      <p>Systematyczna ocena metod stosowanych wobec echolalii <span class="cyt">[16]</span>.</p>
+    </div>
+    <div class="wpis">
+      <div class="rok">2022</div>
+      <h4>Echolalia jako celowe działanie</h4>
+      <p>Cohn i wsp. analizują echo z perspektywy osób autystycznych; głośność okazuje się sygnałem funkcji <span class="cyt">[9]</span>.</p>
+    </div>
+    <div class="wpis">
+      <div class="rok">2024</div>
+      <h4>Weryfikacja popularnego modelu</h4>
+      <p>Hutchins i wsp. wykazują brak podstaw empirycznych dla etapów NLA <span class="cyt">[8]</span>.</p>
+    </div>
+    <div class="wpis kluczowy">
+      <div class="rok">2025</div>
+      <h4>Dwoista natura echolalii</h4>
+      <p>Analiza n=2555: echolalia bywa jednocześnie komunikacją i zachowaniem powtarzalnym — i to nie jest sprzeczność <span class="cyt">[5]</span>.</p>
+    </div>
+  </div>
+
+  <div class="ramka-t definicja">
+    <div class="glowa">◆ Co się przez te pięćdziesiąt lat zmieniło</div>
+    <p>Punktem zwrotnym nie było żadne odkrycie biologiczne, tylko <strong>zmiana jednostki opisu</strong>: z formy echa na jego funkcję. Wszystko, co ma dziś najwyższą ocenę dowodową, pochodzi z badań, które pytały „po co”, a nie „jak często”.</p>
+  </div>
+
+  <div class="ramka-t uwaga">
+    <div class="glowa">▲ Co pozostaje otwarte</div>
+    <p>Nie wiemy, dlaczego u jednych dzieci echolalia ustępuje mowie własnej, a u innych zostaje na stałe. Nie mamy też rozstrzygających badań porównujących skuteczność poszczególnych metod terapeutycznych <span class="cyt">[15][16]</span>. To dwa najpoważniejsze braki w tej dziedzinie.</p>
+  </div>
+
+  <div class="footer"><span>Rozdział IV · Szerszy obraz</span><span class="pagenum">14</span></div>
+</div>
+
+<!-- ═══════════════ 15 · MITY ═══════════════ -->
+<div class="page krem">
+  <div class="kicker">Weryfikacja</div>
+  <h2 class="section">Czego nauka nie potwierdziła</h2>
+  <p class="lead">Cztery zdania, które słyszy się najczęściej — i to, co na ich temat mówią badania.</p>
+
+  <div class="mit">
+    <div class="falsz">„Echolalia to zły nawyk, który trzeba wygasić.”</div>
+    <div class="prawda">Odwrotnie. Charlop <span class="cyt">[14]</span> wykazała, że echolalia <strong>ułatwia</strong> nabywanie i generalizowanie nazw. Wygaszanie echa usuwa narzędzie, którym dziecko właśnie się uczy.</div>
+  </div>
+
+  <div class="mit">
+    <div class="falsz">„Echolalia oznacza, że dziecko nie rozumie i się nie komunikuje.”</div>
+    <div class="prawda">Dwadzieścia jeden opisanych funkcji <span class="cyt">[1][3]</span> mówi coś przeciwnego. Echo bywa prośbą, zgodą, protestem, podtrzymaniem rozmowy albo sposobem na uspokojenie się.</div>
+  </div>
+
+  <div class="mit">
+    <div class="falsz">„Sześć etapów NLA to udowodniona ścieżka rozwoju mowy.”</div>
+    <div class="prawda">Krytyczna analiza <span class="cyt">[8]</span> nie znalazła badań weryfikujących ani etapów, ani skuteczności opartej na nich terapii. Przetwarzanie całościowe jest opisanym zjawiskiem — konkretny protokół komercyjny to co innego.</div>
+  </div>
+
+  <div class="mit">
+    <div class="falsz">„Jeśli echolalię ignorować, sama zniknie.”</div>
+    <div class="prawda">Brak dowodów. Przeglądy systematyczne <span class="cyt">[15][16]</span> wskazują natomiast, że jakość badań nad wieloma popularnymi metodami jest niska — co jest argumentem za ostrożnością, a nie za bezczynnością.</div>
+  </div>
+
+  <div class="ramka-t uwaga">
+    <div class="glowa">▲ Uczciwa konkluzja</div>
+    <p>Nauka nie zna <em style="font-style:italic;">jednej</em> przyczyny echolalii i prawdopodobnie nigdy nie znajdzie — bo echolalia nie jest chorobą, tylko zachowaniem o wielu funkcjach. Najlepiej potwierdzone jest natomiast to, co ma bezpośrednie przełożenie na praktykę: <strong>echolalia komunikuje, a jej ilość zależy od tego, jak mówimy do dziecka</strong>.</p>
+  </div>
+
+  <div class="footer"><span>Rozdział IV · Szerszy obraz</span><span class="pagenum">15</span></div>
+</div>
+
+<!-- ═══════════════ 16 · PRAKTYKA ═══════════════ -->
+<div class="page">
+  <div class="kicker">Rozdział V · Praktyka</div>
+  <h2 class="section">Cztery rzeczy, które z tego wynikają</h2>
+  <p class="lead">Każdy z tych punktów opiera się na ustaleniu z poziomu „udokumentowane”. Nic tu nie jest domysłem.</p>
+
+  <div class="kroki">
+    <div class="krok">
+      <div class="nr">1</div>
+      <h4>Komentuj zamiast odpytywać</h4>
+      <p>Mniej poleceń i pytań testujących, więcej opisu tego, co się właśnie dzieje. To jedyna zmienna po Twojej stronie, która ma potwierdzony wpływ na ilość echolalii.</p>
+      <span class="bo">Rydell i Mirenda, 1994</span>
+    </div>
+    <div class="krok">
+      <div class="nr">2</div>
+      <h4>Pytaj „po co”, nie „jak to zatrzymać”</h4>
+      <p>Zanim zareagujesz, ustal funkcję echa: prośba, potwierdzenie, podtrzymanie kontaktu czy samouspokojenie. Reakcja na funkcję działa — reakcja na formę nie.</p>
+      <span class="bo">Prizant i Duchan, 1981</span>
+    </div>
+    <div class="krok">
+      <div class="nr">3</div>
+      <h4>Traktuj wzrost echolalii jako pomiar</h4>
+      <p>Nagłe nasilenie mówi o przeciążeniu, zmianie albo zmęczeniu. To informacja o sytuacji, nie o regresie dziecka.</p>
+      <span class="bo">Cohn i wsp., 2022</span>
+    </div>
+    <div class="krok">
+      <div class="nr">4</div>
+      <h4>Nie wygaszaj — przekierowuj</h4>
+      <p>Echo jest materiałem do budowania mowy własnej. Skrypty, modelowanie i stopniowe wycofywanie podpowiedzi korzystają z tej samej pamięci, która produkuje echa.</p>
+      <span class="bo">Charlop, 1983 · Krantz i McClannahan, 1993</span>
+    </div>
+  </div>
+
+  <div class="ramka-t cytat" style="margin-top:18px;">
+    Najskuteczniejsza zmiana w pracy z echolalią nie dotyczy dziecka. Dotyczy tego, jak mówi do niego dorosły.
+    <span class="autor">Wniosek z badania Rydell i Mirenda, 1994</span>
+  </div>
+
+  <h3 class="sub">Pytania, które padają najczęściej</h3>
+
+  <div class="ramka-t definicja">
+    <div class="glowa">◆ Mam odpowiadać na echo, nawet gdy nie wiem, o co chodzi?</div>
+    <p>Tak. Odpowiedz na najbardziej prawdopodobną intencję i obserwuj reakcję. Błędne odgadnięcie kosztuje mniej niż brak odpowiedzi — dziecko dostaje sygnał, że <strong>powtarzanie coś zmienia</strong>, a to podstawa całej dalszej komunikacji.</p>
+  </div>
+
+  <div class="ramka-t definicja">
+    <div class="glowa">◆ Czy da się dać za długą pauzę?</div>
+    <p>W praktyce błąd niemal zawsze idzie w drugą stronę. Dorośli przerywają ciszę znacznie szybciej, niż potrzebuje jej dziecko, u którego droga do znaczenia działa wolniej.</p>
+  </div>
+
+  <div class="ramka-t definicja">
+    <div class="glowa">◆ Czy echolalia w końcu zniknie?</div>
+    <p>U części dzieci maleje w miarę rozwoju mowy własnej, u części zostaje jako jeden ze sposobów mówienia — także w dorosłości. Realistyczny cel nie brzmi „zero echa”, tylko <strong>„więcej sposobów na powiedzenie tego, co chcę”</strong>.</p>
+  </div>
+
+  <div class="footer"><span>Rozdział V · Praktyka</span><span class="pagenum">16</span></div>
+</div>
+
+<!-- ═══════════════ 17 · SŁOWNICZEK ═══════════════ -->
+<div class="page">
+  <div class="kicker">Materiały</div>
+  <h2 class="section">Słowniczek pojęć</h2>
+  <p class="lead">Terminy, które pojawiają się w tej broszurze i w dokumentacji terapeutycznej.</p>
+
+  <dl class="slownik">
+    <div class="haslo">
+      <dt>Echolalia natychmiastowa</dt>
+      <dd>Powtórzenie wypowiedzi w ciągu sekund od jej usłyszenia. Opiera się na pamięci krótkotrwałej.</dd>
+    </div>
+    <div class="haslo">
+      <dt>Echolalia odroczona</dt>
+      <dd>Powtórzenie po godzinach, dniach lub miesiącach — często z zachowaną intonacją oryginału.</dd>
+    </div>
+    <div class="haslo">
+      <dt>Echolalia interaktywna</dt>
+      <dd>Echo skierowane do rozmówcy, pełniące funkcję komunikacyjną. Zwykle głośniejsze.</dd>
+    </div>
+    <div class="haslo">
+      <dt>Echolalia nieinteraktywna</dt>
+      <dd>Echo skierowane „do siebie”: samoregulacja, porządkowanie myśli, przetwarzanie sytuacji.</dd>
+    </div>
+    <div class="haslo">
+      <dt>Przetwarzanie całościowe (gestalt)</dt>
+      <dd>Przyswajanie języka gotowymi „bryłami”, które dopiero później zostają rozłożone na elementy.</dd>
+    </div>
+    <div class="haslo">
+      <dt>Echozjawiska</dt>
+      <dd>Wspólna nazwa dla echolalii (powtarzanie mowy) i echopraksji (powtarzanie ruchów).</dd>
+    </div>
+    <div class="haslo">
+      <dt>Pęczek łukowaty</dt>
+      <dd>Wiązka włókien łącząca okolice słuchowe z ruchowymi mowy. Anatomiczna podstawa powtarzania.</dd>
+    </div>
+    <div class="haslo">
+      <dt>Afazja transkorowa czuciowa</dt>
+      <dd>Zaburzenie, w którym powtarzanie jest zachowane, a rozumienie zaburzone. Klasyczne źródło echolalii u dorosłych.</dd>
+    </div>
+    <div class="haslo">
+      <dt>Wypowiedź wysoko sterująca</dt>
+      <dd>Polecenie lub pytanie testujące, które wymusza określoną odpowiedź. Zwiększa ilość echolalii.</dd>
+    </div>
+    <div class="haslo">
+      <dt>Wypowiedź nisko sterująca</dt>
+      <dd>Komentarz opisujący sytuację, nie wymagający odpowiedzi. Sprzyja mowie własnej dziecka.</dd>
+    </div>
+    <div class="haslo">
+      <dt>Skrypt (script-fading)</dt>
+      <dd>Gotowa fraza wprowadzana celowo, a następnie stopniowo wycofywana, by dziecko przejęło inicjatywę.</dd>
+    </div>
+    <div class="haslo">
+      <dt>Cues–pause–point</dt>
+      <dd>Procedura: wskazówka → pauza → wskazanie. Uczy zatrzymania się przed automatycznym powtórzeniem.</dd>
+    </div>
+    <div class="haslo">
+      <dt>Echopraksja</dt>
+      <dd>Odpowiednik echolalii w ruchu: automatyczne powtórzenie zaobserwowanego gestu lub czynności.</dd>
+    </div>
+    <div class="haslo">
+      <dt>Palilalia</dt>
+      <dd>Powtarzanie własnych słów lub sylab — zjawisko pokrewne echolalii, ale dotyczące mowy własnej.</dd>
+    </div>
+    <div class="haslo">
+      <dt>Modelowanie</dt>
+      <dd>Wypowiedzenie gotowej frazy w formie, w jakiej dziecko mogłoby jej użyć — bez żądania powtórzenia.</dd>
+    </div>
+    <div class="haslo">
+      <dt>Podwójna dysocjacja</dt>
+      <dd>Sytuacja, w której dwie funkcje zawodzą niezależnie od siebie. Dowód, że opierają się na osobnych mechanizmach.</dd>
+    </div>
+  </dl>
+
+  <div class="footer"><span>Materiały</span><span class="pagenum">17</span></div>
+</div>
+
+<!-- ═══════════════ 18 · BIBLIOGRAFIA ═══════════════ -->
+<div class="page">
+  <div class="kicker">Materiały</div>
+  <h2 class="section">Bibliografia</h2>
+  <p style="font-size:11.8px;color:var(--szary);margin-bottom:2px;">Numeracja odpowiada odsyłaczom w tekście. Wszystkie pozycje pochodzą z recenzowanych czasopism naukowych lub przeglądów systematycznych.</p>
+
+  <ol class="zrodla">
+    <li><span class="n">[1]</span> Prizant, B.M., Duchan, J.F. (1981). The functions of immediate echolalia in autistic children. <i>Journal of Speech and Hearing Disorders</i>, 46(3), 241–249.</li>
+    <li><span class="n">[2]</span> Rydell, P.J., Mirenda, P. (1994). Effects of high and low constraint utterances on the production of immediate and delayed echolalia in young children with autism. <i>Journal of Autism and Developmental Disorders</i>, 24(6), 719–735.</li>
+    <li><span class="n">[3]</span> Prizant, B.M., Rydell, P.J. (1984). Analysis of functions of delayed echolalia in autistic children. <i>Journal of Speech and Hearing Research</i>, 27(2), 183–192.</li>
+    <li><span class="n">[4]</span> Cleveland Clinic (2025). <i>Echolalia: What It Is, Causes, Types &amp; Treatment.</i> Materiał informacyjny — cytowany jako źródło popularne, nie badanie.</li>
+    <li><span class="n">[5]</span> McAllister, K. i wsp. (2025). Reports of echolalia — Simons Simplex Collection. <i>Autism Research</i>.</li>
+    <li><span class="n">[6]</span> Prizant, B.M. (1983). Language acquisition and communicative behavior in autism: toward an understanding of the „whole” of it. <i>Journal of Speech and Hearing Disorders</i>, 48(3), 296–307.</li>
+    <li><span class="n">[7]</span> Blanc, M. (2012). <i>Natural Language Acquisition on the Autism Spectrum.</i> Communication Development Center.</li>
+    <li><span class="n">[8]</span> Hutchins, T.L., Knox, S.E., Fletcher, E.C. (2024). Natural language acquisition and gestalt language processing: a critical analysis. <i>Autism &amp; Developmental Language Impairments</i>, 9.</li>
+    <li><span class="n">[9]</span> Cohn, E.G., McVilly, K.R., Harrison, M.J., Stiegler, L.N. (2022). Repeating purposefully: empowering educators with functional communication models of echolalia. <i>Autism &amp; Developmental Language Impairments</i>, 7.</li>
+    <li><span class="n">[10]</span> Xie, F., Pascual, E., Oakley, T. (2023). Functional echolalia in autism speech. <i>Frontiers in Psychology</i>, 14.</li>
+    <li><span class="n">[11]</span> McMorrow, M.J., Foxx, R.M., Faw, G.D., Bittle, R.G. (1987). Cues-pause-point language training. <i>Journal of Applied Behavior Analysis</i>, 20, 11–22.</li>
+    <li><span class="n">[12]</span> Ganz, J.B., Kaylor, M., Bourgeois, B., Hadden, K. (2008). The impact of social scripts and visual cues on verbal communication. <i>Focus on Autism and Other Developmental Disabilities</i>.</li>
+    <li><span class="n">[13]</span> Krantz, P.J., McClannahan, L.E. (1993). Teaching children with autism to initiate to peers: script-fading. <i>Journal of Applied Behavior Analysis</i>, 26(1), 121–132.</li>
+    <li><span class="n">[14]</span> Charlop, M.H. (1983). The effects of echolalia on acquisition and generalization of receptive labeling. <i>Journal of Applied Behavior Analysis</i>, 16(1), 111–126.</li>
+    <li><span class="n">[15]</span> Blackburn, C. i wsp. (2023). A systematic review of interventions for echolalia in autistic children. <i>International Journal of Language &amp; Communication Disorders</i>.</li>
+    <li><span class="n">[16]</span> Neely, L. i wsp. (2016). Treatment of echolalia in individuals with ASD: a systematic review. <i>Review Journal of Autism and Developmental Disorders</i>.</li>
+    <li><span class="n">[17]</span> Fay, W.H., Butler, B.V. (1968). Echoic responses in autistic and comparable mentally retarded children. <i>Journal of Speech and Hearing Research</i>.</li>
+    <li><span class="n">[18]</span> Vicker, B. (1999). <i>Functional categories of delayed echolalia.</i> Indiana Resource Center for Autism.</li>
+    <li><span class="n">[19]</span> Ganos, C., Ogrzal, T., Schnitzler, A., Münchau, A. (2012). The pathophysiology of echopraxia/echolalia: relevance to Gilles de la Tourette syndrome. <i>Movement Disorders</i>, 27(10), 1222–1229.</li>
+  </ol>
+
+  <div class="nota">
+    <b>Nota o cytowaniu</b>
+    Pozycja [4] jest materiałem informacyjnym instytucji medycznej, nie badaniem naukowym — cytujemy ją wyłącznie jako przykład tego, jak hipotezy neuroprzekaźnikowe funkcjonują w obiegu popularnym. Pozycja [7] to publikacja komercyjna; jej ocenę empiryczną zawiera pozycja [8].
+  </div>
+
+  <div class="footer"><span>Materiały</span><span class="pagenum">18</span></div>
+</div>
+
+<!-- ═══════════════ 19 · ŚCIĄGAWKA ═══════════════ -->
+<div class="page krem">
+  <div class="kicker">Do wycięcia i powieszenia</div>
+  <h2 class="section">Szybka ściągawka</h2>
+  <p class="lead">Jedna strona, którą warto mieć w klasie, w gabinecie albo na lodówce.</p>
+
+  <div class="sciagawka">
+    <div class="sc-karta tak">
+      <div class="tyt">Rób to</div>
+      <ul>
+        <li>Komentuj, co widzisz, zamiast odpytywać.</li>
+        <li>Zostaw pauzę — dłuższą, niż wydaje się potrzebna.</li>
+        <li>Odpowiadaj na <b>funkcję</b> echa, nie na jego formę.</li>
+        <li>Modeluj gotową frazę zamiast żądać powtórzenia.</li>
+        <li>Szukaj źródła powtarzanej frazy — tam jest znaczenie.</li>
+      </ul>
+    </div>
+
+    <div class="sc-karta nie">
+      <div class="tyt">Unikaj tego</div>
+      <ul>
+        <li>„Nie powtarzaj”, „Powiedz normalnie”.</li>
+        <li>Serii pytań testujących pod rząd.</li>
+        <li>Wygaszania echa bez zrozumienia jego funkcji.</li>
+        <li>Przerywania w połowie powtarzanej frazy.</li>
+        <li>Traktowania wzrostu echolalii jako regresu.</li>
+      </ul>
+    </div>
+
+    <div class="sc-karta gdy">
+      <div class="tyt">Gdy echolalia nagle rośnie</div>
+      <ul>
+        <li>Sprawdź hałas, światło, tłum, zapach.</li>
+        <li>Sprawdź, co się zmieniło w planie dnia.</li>
+        <li>Sprawdź, czy zadanie nie jest za trudne.</li>
+        <li>Sprawdź porę dnia i poziom zmęczenia.</li>
+        <li>Zmniejsz wymagania językowe, nie podnoś ich.</li>
+      </ul>
+    </div>
+
+    <div class="sc-karta pamietaj">
+      <div class="tyt">Zapamiętaj</div>
+      <ul>
+        <li>Echolalia to <b>komunikacja</b>, nie zakłócenie.</li>
+        <li>To etap drogi do mowy własnej, nie ślepy zaułek.</li>
+        <li>Głośniejsze echo częściej znaczy: „mówię do ciebie”.</li>
+        <li>Ilość echa zależy od tego, jak mówi dorosły.</li>
+        <li>Echolalia nie jest wyłączna dla autyzmu.</li>
+      </ul>
+    </div>
+  </div>
+
+  <h3 class="sub">Trzy zamiany do wypróbowania jutro</h3>
+  <div class="tabela-wrap">
+    <table class="stany">
+      <thead>
+        <tr><th>Sytuacja</th><th>Zamiast</th><th>Spróbuj</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Chcesz, żeby dziecko o coś poprosiło</td>
+          <td>„Powiedz: chcę sok.”</td>
+          <td>„Sok. Chcę sok.” — modelujesz frazę, nie żądasz jej powtórzenia.</td>
+        </tr>
+        <tr>
+          <td>Chcesz nazwać przedmiot</td>
+          <td>„Co to jest? No co to jest?”</td>
+          <td>„O, duży czerwony samochód.” — komentarz zamiast pytania testującego.</td>
+        </tr>
+        <tr>
+          <td>Dziecko powtarza w kółko jedną frazę</td>
+          <td>„Nie powtarzaj.”</td>
+          <td>Ustal, skąd fraza pochodzi, i odpowiedz na to, czego dotyczy.</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="ramka-t definicja" style="margin-top:12px;">
+    <div class="glowa">◆ Jedno zdanie na koniec</div>
+    <p>Jeżeli zapamiętasz z tej broszury tylko jedną rzecz, niech to będzie ta: <strong>zanim zapytasz, jak zatrzymać powtarzanie, zapytaj, po co ono jest</strong>. Odpowiedź na to pytanie prawie zawsze podpowiada, co zrobić dalej.</p>
+  </div>
+
+  <div class="footer"><span>Materiały</span><span class="pagenum">19</span></div>
+</div>
+
+<!-- ═══════════════ 20 · TYLNA OKŁADKA ═══════════════ -->
+<div class="page tyl">
+  <div>
+    <svg width="46" height="46" viewBox="0 0 100 100" role="img" aria-label="Sygnet serii" style="margin-bottom:22px;">
+      <defs>
+        <linearGradient id="tylGrad" x1="0" y1="0" x2="1" y2="1">
+          <stop offset="0%" stop-color="#FF7A45"/><stop offset="100%" stop-color="#F2A20C"/>
+        </linearGradient>
+      </defs>
+      <rect x="2" y="2" width="96" height="96" rx="26" fill="url(#tylGrad)"/>
+      <text x="50" y="68" text-anchor="middle" font-family="Fraunces,Georgia,serif" font-size="52" font-weight="900" fill="#1B1040">E</text>
+    </svg>
+
+    <p class="haslo-koncowe">Zanim zapytasz, jak zatrzymać powtarzanie — zapytaj, <span class="akcent">po co ono jest</span>.</p>
+    <p class="podpis">To pytanie zmieniło całą dziedzinę w 1981 roku. W codziennej pracy z dzieckiem zmienia zwykle znacznie więcej niż jakakolwiek technika.</p>
+  </div>
+
+  <div class="tyl-srodek">
+    <svg viewBox="0 0 300 300" role="img" aria-label="Motyw graficzny serii: zagnieżdżone dymki mowy" class="tyl-znak">
+      <path d="M60 236 C18 236 6 210 6 176 L6 74 C6 40 18 22 60 22 L216 22 C258 22 270 40 270 74 L270 176 C270 210 258 236 216 236 L110 236 L66 282 Z"
+            fill="none" stroke="#8A7CBE" stroke-width="2" opacity=".3"/>
+      <path d="M84 210 C50 210 40 190 40 162 L40 82 C40 54 50 40 84 40 L206 40 C240 40 250 54 250 82 L250 162 C250 190 240 210 206 210 L124 210 L90 244 Z"
+            fill="none" stroke="#8A7CBE" stroke-width="2.5" opacity=".5"/>
+      <path d="M108 186 C82 186 74 170 74 148 L74 92 C74 70 82 58 108 58 L196 58 C222 58 230 70 230 92 L230 148 C230 170 222 186 196 186 L138 186 L112 212 Z"
+            fill="none" stroke="#F2A20C" stroke-width="3.5" opacity=".8"/>
+      <circle cx="128" cy="121" r="9" fill="#FF7A45"/>
+      <circle cx="156" cy="121" r="9" fill="#FF7A45" opacity=".6"/>
+      <circle cx="184" cy="121" r="9" fill="#FF7A45" opacity=".3"/>
+    </svg>
+
+    <div class="tyl-lista">
+      <div class="tyl-poz"><span class="l">7</span> mechanizmów z oceną siły dowodów</div>
+      <div class="tyl-poz"><span class="l">4</span> zweryfikowane mity</div>
+      <div class="tyl-poz"><span class="l">19</span> pozycji z recenzowanych czasopism</div>
+      <div class="tyl-poz"><span class="l">1</span> ściągawka do powieszenia w klasie</div>
+    </div>
+  </div>
+
+  <div class="tyl-stopka">
+    <div class="org">
+      <b>Pomorskie Centrum Terapii Pedagogicznej</b>
+      Poradniki edukacyjno-terapeutyczne<br>
+      Materiał do bezpłatnej dystrybucji w placówkach oświatowych
+    </div>
+    <div class="meta">
+      Echolalia pod lupą nauki<br>
+      Wydanie I · 19 stron<br>
+      19 pozycji bibliograficznych
+    </div>
+  </div>
+</div>
+
+</body>
+</html>
