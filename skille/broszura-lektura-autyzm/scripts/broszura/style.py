@@ -501,14 +501,17 @@ figcaption{font-size:9pt;color:var(--szary);padding:2mm 3mm;background:var(--z05
 
 /* ---------- DRUK ---------- */
 @media print{
-  @page{size:A4;margin:0}
+  @page{size:210mm 297mm;margin:0}
   body{background:#fff}
   .topbar{display:none}
   html,body{width:auto}
+  /* Strona MUSI mieć pełną wysokość arkusza, inaczej lewy zielony pasek —
+     rysowany jako tło o wysokości elementu — urywa się w połowie kartki.
+     297 mm minus 0,5 mm zapasu na zaokrąglenia, żeby nie wypchnąć drugiego arkusza. */
   .page{margin:0;box-shadow:none;border-radius:0;break-after:page;
-    width:auto;max-width:100%;min-height:0;height:auto;display:block;
+    width:auto;max-width:100%;min-height:296.5mm;height:auto;display:block;
     padding:12mm 12mm 9mm;overflow:hidden}
-  .okladka{height:auto;min-height:0;padding:0}
+  .okladka{height:auto;min-height:296.5mm;padding:0}
   .page:last-child{break-after:auto}
   .tab-emo tr,.kwestia,.slowo,.wnioski li,.stresz li,.etapy li,.sy,
   .c-head,.s-head,.program li,.spis-lista li{break-inside:avoid}

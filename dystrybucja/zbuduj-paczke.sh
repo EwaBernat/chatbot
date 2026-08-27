@@ -43,6 +43,19 @@ PY
 "$CHROME" --headless --no-sandbox --disable-gpu --no-pdf-header-footer \
   --print-to-pdf="$CEL/demo/maly-ksiaze-demo.pdf" "$CEL/demo/maly-ksiaze-demo.html" 2>/dev/null
 
+echo "→ dokładny format A4"
+# Chromium zapisuje arkusz jako 209,89 × 297,01 mm — swoje zaokrąglenie do pikseli.
+# Nadpisujemy /MediaBox na dokładne A4 (595,2756 × 841,8898 pt). Podmiana ma tę samą
+# długość w bajtach, więc tablica xref pozostaje poprawna.
+python3 - "$CEL/pelna/maly-ksiaze-broszura.pdf" "$CEL/demo/maly-ksiaze-demo.pdf" <<'A4'
+import sys
+for sciezka in sys.argv[1:]:
+    d = open(sciezka, "rb").read()
+    n = d.count(b"594.95996 841.91998")
+    open(sciezka, "wb").write(d.replace(b"594.95996 841.91998", b"595.27560 841.88980"))
+    print(f"   {sciezka}: poprawiono {n} stron")
+A4
+
 echo "→ sumy kontrolne"
 ( cd "$CEL" && find pelna demo podglad -type f | sort | xargs sha256sum > sumy-kontrolne.txt )
 
