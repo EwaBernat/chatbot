@@ -48,14 +48,14 @@ SEKCJA = r'<section class="page[^"]*"[^>]*>.*?</section>'
 
 def zloz(dane, linie=None, katalog_grafik=None):
     b = Broszura(dane, linie=linie, katalog_grafik=katalog_grafik)
-    czesci = [nawigacja(b), S.logo_symbol(), b.okladka(), b.metryczka_wydawcy(), b.spis(), b.jak_korzystac(),
+    czesci = [nawigacja(b), S.logo_symbol(), b.okladka(), b.metryczka_wydawcy(), b.licencja(), b.spis(), b.jak_korzystac(),
               b.narzedzia(), b.postacie()]
     czesci += [b.rozdzial(r) for r in b.R]
-    czesci += [b.cwiczenia(), b.gra(), b.scenariusz(), b.zalaczniki(), b.zakonczenie()]
+    czesci += [b.cwiczenia(), b.gra(), b.scenariusz(), b.zalaczniki(), b.seria(), b.zakonczenie()]
     # Style obrazów dopisujemy po złożeniu sekcji — dopiero wtedy wiadomo,
     # które pliki są w użyciu.
     core = "\n".join(x for x in czesci if x)
-    core = b.logo_css() + b.style_obrazow() + core
+    core = b.znak_wodny_css() + b.logo_css() + b.style_obrazow() + core
 
     # stopka na stronach, które nie mają własnej (rozdziały mają)
     def dodaj_stopke(m):

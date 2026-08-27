@@ -104,6 +104,40 @@ small{font-weight:400;font-size:.82em;color:var(--szary)}
 .poz-org{font-size:8.8pt;letter-spacing:.05em;color:var(--z500);margin:0}
 .poz-znak{width:13mm;margin:0 auto 2.4mm}
 
+/* ---------- STRONA LICENCJI I SERII ---------- */
+.specjalne.dwa{grid-template-columns:1fr 1fr;margin-bottom:5mm}
+.lic-2kol{display:grid;grid-template-columns:1fr 1fr;gap:5mm;margin-bottom:5mm}
+.lic-tak,.lic-nie{border-radius:12px;padding:4mm 5mm 4.5mm;border:1px solid var(--z200)}
+.lic-tak{background:var(--z050);border-left:5px solid var(--ziel)}
+.lic-nie{background:#FDF4F3;border-left:5px solid var(--czerw)}
+.lic-tak h3,.lic-nie h3{font-size:12.5pt;margin:0 0 2.5mm}
+.lic-tak h3{color:var(--z800)}
+.lic-nie h3{color:var(--czerw)}
+.lic-tak ul,.lic-nie ul{margin:0;padding-left:5mm}
+.lic-tak li,.lic-nie li{font-size:10pt;margin-bottom:1.6mm}
+.lic-tak li::marker{color:var(--ziel)}
+.lic-nie li::marker{color:var(--czerw)}
+.lic-egz{display:flex;align-items:baseline;gap:3mm;margin-top:4mm;padding:3.5mm 5mm;
+  border:1px dashed var(--z300);border-radius:10px;background:#fff}
+.lic-egz span{font-family:var(--font-h);font-size:9.6pt;letter-spacing:.1em;
+  text-transform:uppercase;color:var(--z600);white-space:nowrap}
+.lic-egz i{flex:1;border-bottom:1.4px dotted var(--z300);height:0;display:block}
+.tab-seria td{vertical-align:middle}
+.tab-seria .ser-nr{width:10mm;font-family:var(--font-h);font-size:15pt;font-weight:700;
+  color:var(--z300);text-align:center}
+.tab-seria b{display:block;font-size:11.4pt;color:var(--z800)}
+.tab-seria span{display:block;font-size:9pt;color:var(--szary)}
+.tab-seria .ser-stan{width:40mm;white-space:nowrap;text-align:right;font-family:var(--font-h);font-size:9pt;
+  letter-spacing:.06em;color:var(--szary)}
+.tab-seria .ser-stan.ten{color:var(--z600);font-weight:700}
+
+/* ---------- ZNAK WODNY ---------- */
+.page::before{content:var(--znak-wodny,"");position:absolute;left:50%;top:50%;
+  transform:translate(-50%,-50%) rotate(-30deg);white-space:nowrap;pointer-events:none;
+  font-family:var(--font-h);font-size:30pt;font-weight:700;letter-spacing:.16em;
+  color:var(--z900);opacity:.05;z-index:6}
+.okladka::before{content:none}
+
 /* ---------- NAGŁÓWKI DZIAŁÓW ---------- */
 .dzial-h{font-size:23pt;color:var(--z800);display:flex;align-items:center;gap:5mm;
   padding-bottom:3mm;margin-bottom:5mm;border-bottom:3px solid var(--z200)}

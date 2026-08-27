@@ -111,6 +111,11 @@ class Broszura:
                          for kl, uri, _, _ in self._obrazy.values())
         return f"<style>{reguly}</style>"
 
+    def znak_wodny_css(self):
+        """Znak wodny na każdej stronie — jedna reguła zamiast 120 elementów w treści."""
+        znak = self.w.get("znak_wodny")
+        return f'<style>.page{{--znak-wodny:"{E(znak)}"}}</style>' if znak else ""
+
     def logo_css(self):
         """Logo z pliku wstawiamy raz, jako tło w CSS.
 
@@ -231,6 +236,56 @@ class Broszura:
   <div class="uwaga jasna"><b>Ilustracje</b><br>{E(m.get("ilustracje_nota", ""))}</div>
   <div class="uwaga"><b>Prawa i wykorzystanie</b><br>{E(m.get("prawa", ""))}</div>
   <div class="gra-zasady"><h3>Jak wydrukować broszurę?</h3><ol class="dwie-kolumny">{kroki}</ol></div>
+</section>'''
+
+    # ---- strona licencji (zaraz po metryczce) ----
+    def licencja(self):
+        """Zasady korzystania wypisane wprost w produkcie, nie tylko w regulaminie sklepu."""
+        L = self.meta.get("licencja")
+        if not L:
+            return ""
+        rodz = "".join(f'<div class="spec"><b>{E(r["nazwa"])}</b><p>{E(r["opis"])}</p></div>'
+                       for r in L.get("rodzaje", []))
+        wolno = "".join(f"<li>{E(x)}</li>" for x in L.get("wolno", []))
+        nie = "".join(f"<li>{E(x)}</li>" for x in L.get("nie_wolno", []))
+        return f'''
+<section class="page" id="licencja">
+  <h2 class="dzial-h">{E(L.get("naglowek", "Licencja"))}</h2>
+  <p class="lead">{E(L.get("wstep", ""))}</p>
+  <div class="specjalne dwa">{rodz}</div>
+  <div class="lic-2kol">
+    <div class="lic-tak"><h3>Co wolno?</h3><ul>{wolno}</ul></div>
+    <div class="lic-nie"><h3>Czego nie wolno?</h3><ul>{nie}</ul></div>
+  </div>
+  <div class="uwaga">{E(L.get("nota", ""))}</div>
+  <div class="lic-egz"><span>{E(L.get("egzemplarz", "Egzemplarz dla:"))}</span><i></i></div>
+</section>'''
+
+    # ---- zapowiedz serii (przed zakonczeniem) ----
+    def seria(self):
+        S_ = self.meta.get("seria_opis")
+        if not S_:
+            return ""
+        wiersze = "".join(
+            f'<tr><td class="ser-nr">{t["nr"]}</td><td><b>{E(t["tytul"])}</b>'
+            f'<span>{E(t.get("autor",""))}</span></td>'
+            f'<td class="ser-stan{" ten" if t.get("stan") == "ten tom" else ""}">{E(t.get("stan",""))}</td></tr>'
+            for t in S_.get("tomy", []))
+        w = self.w
+        return f'''
+<section class="page" id="seria">
+  <h2 class="dzial-h">Seria „{E(self.meta.get("seria", ""))}”</h2>
+  <p class="lead">{E(S_.get("wstep", ""))}</p>
+  <p>{E(S_.get("rytm", ""))}</p>
+  <table class="tab-role szeroka tab-seria"><tbody>{wiersze}</tbody></table>
+  <div class="metryczka">
+    <div class="m-logo">{self.logo_duze()}</div>
+    <div class="m-dane">
+      <p class="m-org">{E(w["organizacja"])}</p>
+      <p class="m-autor">{E(w.get("o_autorce", ""))}</p>
+      <p class="m-mail"><span>kontakt</span> {E(w["mail"])}</p>
+    </div>
+  </div>
 </section>'''
 
     def spis(self):
