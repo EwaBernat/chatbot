@@ -57,7 +57,8 @@ Zdjęcie wyraźnie wyższe (`h > 1,05·w`) albo wyraźnie szersze (`w > 2,6·h`)
 silnik pokazuje w całości, na tle karty — kadrowanie zjadłoby z niego zbyt wiele.
 
 Gdy strona rozdziału jest pełna, `"ilustracja_waska": true` zwęża zdjęcie do 46 mm,
-a scenę do 54 mm.
+a scenę do 54 mm. Odwrotnie: `"ilustracja_szeroka": true` daje 124 mm — dla schematów
+z drobnymi etykietami, których uczeń inaczej nie odczyta.
 
 ## Sceny — rysunek zamiast zdjęcia
 

@@ -83,4 +83,6 @@ i na karcie kupca na „PIGUŁKI NA PRAGNIENIE".
 
 W `r02-baranek.jpg` poprawiono dymek: w oryginale było „narysuj mi mi baranka”.
 
-Wciąż bez zdjęcia: **rozdział 7 — Kłótnia o kolce** (jest tam rysunek `kolce_scena`).
+Rozdział 7 dostał `r07-kolce.jpg` (`akwarela-11.jpg`) — schemat dwóch perspektyw. Usunięto z niego zbłąkany podpis „PERSPEKTYWA NARRATORA” w lewym dolnym rogu: stał pod obrazkami Małego Księcia i przeczył temu, co jest nad nim. Obrazek jest szerszy od pozostałych (`"ilustracja_szeroka": true`), bo ma drobne etykiety.
+
+**Każdy z 27 rozdziałów ma teraz akwarelę.**

@@ -207,6 +207,7 @@ small{font-weight:400;font-size:.82em;color:var(--szary)}
 .kol-b .ilu-foto{max-width:64mm}
 .kol-b .ilu.scena{max-width:80mm}
 .kol-b .ilu.waska{max-width:46mm}
+.kol-b .ilu.szeroka{max-width:124mm}
 .dzial-h .cd{font-size:.5em;color:var(--z400);font-weight:400}
 .ilu{width:100%;flex:none;margin:0 0 3.5mm;padding:0;border-radius:10px;overflow:hidden;background:var(--z100)}
 .ilu-box{position:relative;width:100%;height:0;overflow:hidden}
