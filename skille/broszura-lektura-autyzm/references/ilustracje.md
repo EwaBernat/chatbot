@@ -46,6 +46,14 @@ Termometr opisuje każdy stopień na cztery niezależne sposoby: kolorem, wysoko
 miną i liczbą kropek. Uczeń, który nie czyta, korzysta z trzech ostatnich — słowo jest wtedy
 podpowiedzią dla dorosłego. Nie usuwaj żadnego z tych czterech kanałów.
 
+## Sceny na karty do wycięcia
+
+`geograf_scena`, `ziemia_scena`, `studnia_scena`, `gora_echo_scena`, `sklep_pigulki_scena`
+— rysowane w proporcji paska karty (viewBox 200×96), płaskim rysunkiem, nie akwarelą.
+Używaj ich dla kart, dla których nie ma zdjęcia: karta z samą ikoną na tle planety wygląda
+przy fotografiach jak brak, a nie jak wybór. Postacie rysuj z profilu (`_postac_profil`)
+— przy tej wielkości twarz na wprost robi się nieczytelna.
+
 ## Zdjęcia i grafiki rastrowe
 
 Oprócz rysunków wektorowych można wstawiać gotowe pliki: **PNG, JPEG, WebP, GIF, SVG**.
