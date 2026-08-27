@@ -296,7 +296,10 @@ figcaption{font-size:9pt;color:var(--szary);padding:2mm 3mm;background:var(--z05
   font-size:8pt;color:var(--z400);border-top:1px solid var(--z200);
   font-family:var(--font-h);letter-spacing:.05em}
 .f-znak{display:flex;align-items:center;gap:2mm}
-.f-znak svg.mark{width:5mm;height:5mm;display:block;flex:none}
+.f-znak svg.mark,.f-znak .mark-foto{width:5mm;height:5mm;display:block;flex:none;
+  background-position:center;background-size:contain;background-repeat:no-repeat}
+.logo-foto{width:100%;aspect-ratio:1;background-position:center;background-size:contain;
+  background-repeat:no-repeat}
 .f-znak b{color:var(--z600);letter-spacing:.08em}
 .f-srodek{margin:0 auto;text-align:center}
 .f-nr{font-family:var(--font-h);font-size:11.5pt;font-weight:700;color:var(--z600);
