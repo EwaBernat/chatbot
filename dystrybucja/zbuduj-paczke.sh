@@ -59,5 +59,19 @@ A4
 echo "→ sumy kontrolne"
 ( cd "$CEL" && find pelna demo podglad -type f | sort | xargs sha256sum > sumy-kontrolne.txt )
 
+echo "→ jedno archiwum dla programisty"
+python3 - <<'ZIP'
+import zipfile, os
+cel = "dystrybucja/maly-ksiaze-paczka.zip"
+if os.path.exists(cel): os.remove(cel)
+with zipfile.ZipFile(cel, "w", zipfile.ZIP_DEFLATED) as z:
+    for d, _, fs in os.walk("dystrybucja"):
+        for f in sorted(fs):
+            p = os.path.join(d, f)
+            if p.endswith(".zip"): continue
+            z.write(p, os.path.relpath(p, "dystrybucja"))
+print(f"   {cel}: {round(os.path.getsize(cel)/1024/1024,1)} MB")
+ZIP
+
 echo "Gotowe:"
 du -h "$CEL"/pelna/* "$CEL"/demo/*

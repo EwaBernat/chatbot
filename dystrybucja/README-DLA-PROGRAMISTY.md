@@ -23,9 +23,11 @@ dystrybucja/
 ├── podglad/                      ← obrazy na kartę produktu (JPG, 1000 px)
 │   ├── miniatura.jpg              600 px — okładka do listy produktów
 │   └── 01-okladka … 10-koniec     10 stron przekrojowych
-├── metadane.json                 ← tytuł, opis, słowa kluczowe, ceny, pliki
+├── LICENCJE-I-CENY.md            ← licencje, ceny, plan serii
+├── metadane.json                 ← tytuł, opis, słowa kluczowe, licencje, seria
 ├── sumy-kontrolne.txt            ← SHA-256 wszystkich plików
-└── zbuduj-paczke.sh              ← regeneracja paczki po zmianach w treści
+├── zbuduj-paczke.sh              ← regeneracja paczki po zmianach w treści
+└── maly-ksiaze-paczka.zip        ← to wszystko w jednym archiwum (16 MB)
 ```
 
 ## 2. Czym jest ta broszura
@@ -159,6 +161,18 @@ Sugerowana struktura sprzedaży:
 2. **Wersja PDF** — plik do druku, główny produkt.
 3. **Wersja HTML** — dla szkół, które czytają na tablicy albo na tablecie;
    można sprzedawać razem z PDF-em jako jeden pakiet.
+
+## 5a. Licencje i ceny
+
+Osobny plik: **`LICENCJE-I-CENY.md`** — trzy licencje (nauczycielska 79 zł, placówki
+249 zł, darmowy fragment), cena wprowadzająca, gotowy tekst do regulaminu, plan
+sześciotomowej serii „Lektura bez domysłów” i przedpłata na całą serię. Te same dane
+w polach `licencje`, `przedplata_seria` i `seria` w `metadane.json`.
+
+Z tego wynikają trzy rzeczy dla sklepu: pole **NIP** obowiązkowe przy licencji
+placówki (kupują z budżetu, faktura jest warunkiem), mechanizm **kodów rabatowych**
+(rady pedagogiczne kupują grupowo) i **dopłata różnicy** do przedpłaty serii przez
+30 dni od zakupu pojedynczego tomu.
 
 ## 6. Prawa
 
