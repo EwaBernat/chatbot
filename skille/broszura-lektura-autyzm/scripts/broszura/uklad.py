@@ -11,6 +11,7 @@ from . import obrazy
 
 E = html.escape
 
+C_ZG = "#1F8A63"
 TOM_NAZWY = {
     1: ("E1", "Co widzę — a co widzi ktoś inny?"),
     2: ("E2", "Co ktoś czuje?"),
@@ -651,6 +652,14 @@ class Broszura:
   <div class="gra-uwaga"><b>Dlaczego w tej grze nikt nie przegrywa?</b> Rywalizacja i presja czasu obciążają uczniów
   ze spektrum autyzmu tak mocno, że przestają myśleć o zadaniu, a zaczynają myśleć o porażce. Wspólny wynik klasy
   zamienia grę we współpracę — a ćwiczone umiejętności są społeczne, więc współpraca jest tu również treścią, nie tylko formą.</div>
+</section>
+<section class="page" id="gra-plansza">
+  <h2 class="dzial-h"><span class="dzial-litera">E</span>Plansza do wydruku</h2>
+  <p class="lead">Wydrukuj tę stronę osobno, najlepiej w formacie A3 i na grubszym papierze.
+  Pionki mogą być guzikami albo nakrętkami — ważne, żeby każdy gracz rozpoznawał swój na pierwszy rzut oka.</p>
+  {fig(S.board(), "plansza-duza")}
+  <p class="mini">Kolor pola mówi, z której talii wziąć kartę zadania. Pola ciemne to pola specjalne —
+  ich opisy znajdziesz dwie strony wcześniej.</p>
 </section>'''
 
     # ---- F. scenariusz ----
@@ -661,6 +670,20 @@ class Broszura:
         i = SC["info"]
         role = "".join(f'<tr><td><b>{E(x["rola"])}</b></td><td>{E(x["opis"])}</td></tr>' for x in SC["obsada"])
         zas = "".join(f"<li>{E(z)}</li>" for z in SC["zasady"])
+        grupy = []
+        nr = 0
+        for g in SC.get("zasady_grupy", []):
+            karty = ""
+            for z in g["zasady"]:
+                nr += 1
+                karty += (f'<div class="zas-karta"><span class="zk-nr">{nr}</span>'
+                          f'<b>{E(z["tytul"])}</b><p>{E(z["opis"])}</p></div>')
+            grupy.append(f'<div class="zas-grupa" style="--zg:{g.get("kolor", C_ZG)}">'
+                         f'<h3><span class="zg-ikona">{S.icon(g.get("ikona", "star"), 30)}</span>'
+                         f'{E(g["nazwa"])}</h3><div class="zas-karty">{karty}</div></div>')
+        # pierwsza grupa na stronie F-2, reszta na F-2b — komplet nie mieści się na jednym arkuszu
+        grupy_zas_a = "".join(grupy[:2])
+        grupy_zas_b = "".join(grupy[2:])
         rek = "".join(f"<li>{E(z)}</li>" for z in SC["rekwizyty"])
         prob = "".join(f'<tr><td><b>{E(p["nazwa"])}</b></td><td>{E(p["opis"])}</td></tr>' for p in SC["proby"])
         program = "".join(f'<li><b>{E(s["tytul"])}</b><span>{E(s["osoby"])}</span></li>' for s in SC["sceny"])
@@ -683,8 +706,13 @@ class Broszura:
 <section class="page" id="scenariusz2">
   <h2 class="dzial-h"><span class="dzial-litera">F</span>Zasady dostosowania</h2>
   <p class="lead">Przeczytaj tę stronę przed pierwszą próbą. Te zasady decydują o tym, czy uczniowie w ogóle wejdą na scenę.</p>
-  <h3 class="pod-h">Jak dostosować przedstawienie?</h3>
-  <ol class="zas-spekt">{zas}</ol>
+  {f'<div class="zas-grupy">{grupy_zas_a}</div>' if grupy_zas_a
+    else f'<h3 class="pod-h">Jak dostosować przedstawienie?</h3><ol class="zas-spekt">{zas}</ol>'}
+</section>
+
+<section class="page" id="scenariusz2b">
+  <h2 class="dzial-h"><span class="dzial-litera">F</span>Zasady dostosowania <small class="cd">· ciąg dalszy</small></h2>
+  <div class="zas-grupy">{grupy_zas_b}</div>
   <div class="uwaga jasna"><b>Kto nie chce grać, ten też gra.</b> Zespół techniczny, sufler i osoba
   odpowiedzialna za rekwizyty to pełnoprawne role. Wpisz je do programu tak samo dużą czcionką
   jak role sceniczne — to nie jest gest kurtuazji, tylko warunek, żeby nikt nie został poza projektem.</div>
@@ -741,21 +769,10 @@ class Broszura:
         out = []
         G = self.d.get("gra", {})
 
-        if Z.get("plansza", True) and G:
-            out.append(f'''
-<section class="page" id="zalaczniki">
-  <h2 class="dzial-h"><span class="dzial-litera">G</span>Załącznik 1 · Plansza do gry</h2>
-  <p class="lead">Wydrukuj tę stronę osobno, najlepiej w formacie A3 i na grubszym papierze.
-  Pionki mogą być guzikami albo nakrętkami — ważne, żeby każdy gracz rozpoznawał swój na pierwszy rzut oka.</p>
-  {fig(S.board(), "plansza-duza")}
-  <p class="mini">Kolor pola mówi, z której talii wziąć kartę zadania. Talie są w części E.
-  Pola ciemne to pola specjalne — ich opisy również znajdziesz w części E.</p>
-</section>''')
-
         if Z.get("termometr", True):
             out.append(f'''
-<section class="page" id="zalacznik-termometr">
-  <h2 class="dzial-h"><span class="dzial-litera">G</span>Załącznik 2 · Termometr emocji do wycięcia</h2>
+<section class="page" id="zalaczniki" data-stary="zalacznik-termometr">
+  <h2 class="dzial-h"><span class="dzial-litera">G</span>Załącznik 1 · Termometr emocji do wycięcia</h2>
   <p class="lead">Wytnij po linii przerywanej i naklej na sztywny papier. Wskaźnik „TERAZ”
   wytnij osobno i przypnij spinaczem z boku — uczeń przesuwa go w górę i w dół.</p>
   {fig(S.thermometer_cut(), "termometr-wyciecie")}
@@ -769,7 +786,7 @@ class Broszura:
         if Z.get("sygnalizator", True):
             out.append('''
 <section class="page" id="zalacznik-sygnalizator">
-  <h2 class="dzial-h"><span class="dzial-litera">G</span>Załącznik 3 · Krążki do oceny sytuacji</h2>
+  <h2 class="dzial-h"><span class="dzial-litera">G</span>Załącznik 2 · Krążki do oceny sytuacji</h2>
   <p class="lead">Wytnij po jednym komplecie dla każdego ucznia. Krążki służą do ćwiczenia
   „Sygnalizator sytuacji” z części D, ale przydają się też w codziennych sytuacjach w klasie.</p>
   <div class="krazki">
@@ -803,7 +820,7 @@ class Broszura:
                         if i == 0 else "")
                 out.append(f'<section class="page" id="zalacznik-karty{i+1}">'
                            f'<h2 class="dzial-h"><span class="dzial-litera">G</span>'
-                           f'Załącznik 4 · Karty miejsc i spotkań{dod}</h2>{lead}'
+                           f'Załącznik 3 · Karty miejsc i spotkań{dod}</h2>{lead}'
                            f'<div class="karty-planet">{kk}</div></section>')
         return "".join(out)
 
@@ -812,23 +829,22 @@ class Broszura:
         z = self.d.get("zakonczenie", {})
         m, w = self.meta, self.w
         akapity = "".join(f"<p>{E(a)}</p>" for a in z.get("akapity", []))
+        inicjaly = w.get("inicjaly") or ".".join(x[0] for x in w["autorka"].split() if x) + "."
+        pozegnanie = ""
+        if z.get("pozegnanie"):
+            pozegnanie = (
+                f'<div class="pozegnanie">'
+                f'<div class="poz-znak">{self.logo_duze()}</div>'
+                f'<h3>{E(z.get("pozegnanie_naglowek", "Na pożegnanie"))}</h3>'
+                f'<p class="poz-tekst">{E(z["pozegnanie"])}</p>'
+                f'<p class="poz-inicjaly">{E(inicjaly)}</p>'
+                f'<p class="poz-imie">{E(w["autorka"])}</p>'
+                f'<p class="poz-org">{E(w["organizacja"])} · {E(w["mail"])}</p></div>')
         return f'''
 <section class="page konc" id="koniec">
   {self.ilustracja({"obraz": z.get("obraz")}, "konc-foto") if z.get("obraz") else fig(S.stars_laugh(), "mini")}
   <h2 class="dzial-h">Na koniec</h2>
   <blockquote class="cytat">„{E(z.get("cytat",""))}”<cite>{E(z.get("cytat_zrodlo",""))}</cite></blockquote>
   <div class="konc-tresc">{akapity}</div>
-  <div class="konc-info">
-    <div><b>Format</b><span>A4, druk dwustronny lub PDF cyfrowy</span></div>
-    <div><b>Odbiorcy</b><span>{E(m.get("odbiorcy",""))}</span></div>
-    <div><b>Zastosowanie</b><span>{E(m.get("zastosowanie",""))}</span></div>
-  </div>
-  <div class="metryczka">
-    <div class="m-logo">{self.logo_duze()}</div>
-    <div class="m-dane">
-      <p class="m-org">{E(w["organizacja"])}</p>
-      <p class="m-autor">opracowanie: <b>{E(w["autorka"])}</b></p>
-      <p class="m-mail"><span>kontakt</span> {E(w["mail"])}</p>
-    </div>
-  </div>
+  {pozegnanie}
 </section>'''

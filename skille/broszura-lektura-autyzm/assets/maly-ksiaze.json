@@ -2646,7 +2646,7 @@
    "tytul": "Studnia — woda, która jest darem",
    "miejsce": "Studnia na pustyni · 8. dzień, świt",
    "ikona": "well",
-   "ilustracja": "studnia_scena",
+   "ilustracja": null,
    "mysl": "To samo, co dla jednego jest zwykłe, dla drugiego może być darem.",
    "streszczenie": [
     "Studnia wygląda jak studnia we wsi, a nie jak dziura w piasku.",
@@ -2760,7 +2760,8 @@
     "Dlaczego ta woda smakowała inaczej niż zwykła woda?",
     "Wyjaśnij zdanie: „Najpiękniejsze jest to, czego nie widać”. Podaj własny przykład.",
     "Dlaczego narrator zaczął się niepokoić pod koniec rozdziału?"
-   ]
+   ],
+   "obraz": "grafiki/r25-studnia.jpg"
   },
   {
    "nr": 26,
@@ -3809,6 +3810,73 @@
     ],
     "wskazowka": "Finał. Lampki zapalają się pojedynczo, nie wszystkie naraz. Ostatnie zdanie mówi cały zespół — łącznie z ekipą techniczną, która wychodzi na scenę."
    }
+  ],
+  "zasady_grupy": [
+   {
+    "nazwa": "Rola i tekst",
+    "ikona": "letter",
+    "kolor": "#1F8A63",
+    "zasady": [
+     {
+      "tytul": "Każdy ma rolę",
+      "opis": "Nikt nie musi mówić. Role bez tekstu wypisz w programie tak samo dużą czcionką jak sceniczne."
+     },
+     {
+      "tytul": "Krótkie kwestie",
+      "opis": "Najwyżej dwa zdania naraz."
+     },
+     {
+      "tytul": "Refreny są celowe",
+      "opis": "Powtarzające się zdania łatwiej zapamiętać i dają poczucie bezpieczeństwa."
+     },
+     {
+      "tytul": "Narrator jako wsparcie",
+      "opis": "Może przeczytać kwestię za kogoś, kto akurat nie chce mówić. Ustalcie to wcześniej jako normalną opcję, nie jako ratunek."
+     },
+     {
+      "tytul": "Karta-podpowiedź",
+      "opis": "Każdy aktor ma własne zdanie zapisane dużą czcionką — w kieszeni albo w dłoni."
+     }
+    ]
+   },
+   {
+    "nazwa": "Przestrzeń i przebieg",
+    "ikona": "walk",
+    "kolor": "#E3B23C",
+    "zasady": [
+     {
+      "tytul": "Oznaczone miejsca",
+      "opis": "Zielone kropki z taśmy na scenie. Każdy wie dokładnie, gdzie stanąć."
+     },
+     {
+      "tytul": "Próba generalna jak spektakl",
+      "opis": "Pełne oświetlenie, bez publiczności, ta sama kolejność scen."
+     },
+     {
+      "tytul": "Plan wizualny",
+      "opis": "Osiem obrazków = osiem scen. Uczeń przez cały czas widzi, ile jeszcze zostało."
+     }
+    ]
+   },
+   {
+    "nazwa": "Bodźce i publiczność",
+    "ikona": "lamp",
+    "kolor": "#D96D8B",
+    "zasady": [
+     {
+      "tytul": "Bez nagłych efektów",
+      "opis": "Żadnego stroboskopu, głośnych dźwięków ani zaskakującego gaszenia świateł. Zmiany światła płynne."
+     },
+     {
+      "tytul": "Oklaski uzgodnione",
+      "opis": "Widownia wie wcześniej: ciche machanie rękami albo zwykłe brawa. Decyduje zespół."
+     },
+     {
+      "tytul": "Kącik wyciszenia",
+      "opis": "W bocznej części sali. Wyjście w trakcie jest dozwolone i nie przerywa przedstawienia."
+     }
+    ]
+   }
   ]
  },
  "zakonczenie": {
@@ -3819,7 +3887,9 @@
    "Niczego tu nie uproszczono kosztem treści. Zmieniono sposób podania: krótsze zdania, stała struktura, nazwane wprost emocje, wypisane przyczyny i skutki, dwa znaczenia każdej przenośni.",
    "Jeśli po tej lekturze uczeń powie o kimś: „on chyba tak myśli, bo…” — cel został osiągnięty."
   ],
-  "obraz": "grafiki/zakonczenie.jpg"
+  "obraz": "grafiki/zakonczenie.jpg",
+  "pozegnanie": "Życzę Wam — uczniom, nauczycielom i rodzicom — żeby ta podróż była spokojna, a każde trudne pytanie miało obok siebie kogoś, kto zaczeka na odpowiedź. Niech Wam się dobrze widzi. Sercem.",
+  "pozegnanie_naglowek": "Na pożegnanie"
  },
  "zalaczniki": {
   "plansza": true,
@@ -3959,7 +4029,8 @@
     "kto": "Mały Książę i pilot",
     "opis": "Po ośmiu dniach bez wody znajdują studnię. Woda smakuje inaczej, bo była szukana razem i wyciągnięta pod gwiazdami.",
     "pytanie": "Dlaczego ta woda smakowała inaczej niż zwykła?",
-    "ilustracja": "studnia_scena"
+    "obraz": "grafiki/r25-studnia.jpg",
+    "kadr": "center 45%"
    }
   ]
  }
