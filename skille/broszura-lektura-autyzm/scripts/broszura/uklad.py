@@ -207,7 +207,7 @@ class Broszura:
     def metryczka_wydawcy(self):
         """Stopka wydawnicza. Zawsze druga strona — przed spisem treści."""
         m, w = self.meta, self.w
-        karta = [
+        karta = ([("Seria", f'{m["seria"]} · {m.get("tom", "")}'.strip(" ·"))] if m.get("seria") else []) + [
             ("Tytuł", f'{m["tytul"]} {m.get("podtytul_okladki", "")} — {m.get("haslo", "")}'.strip()),
             ("Na podstawie", m.get("zrodlo", "")),
             ("Odbiorcy", m.get("odbiorcy", "")),

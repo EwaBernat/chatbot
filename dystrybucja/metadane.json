@@ -126,10 +126,85 @@
       "podglad/10-koniec.jpg"
     ]
   },
-  "cena_pln": {
-    "pdf": null,
-    "html": null,
-    "pakiet": null,
-    "uwaga": "Do ustalenia przez wydawcę — pola zostawione puste celowo."
-  }
+  "seria": {
+    "nazwa": "Lektura bez domysłów",
+    "tom": 1,
+    "planowane": [
+      {
+        "tom": 2,
+        "lektura": "Opowieść wigilijna",
+        "autor": "Charles Dickens"
+      },
+      {
+        "tom": 3,
+        "lektura": "Zemsta",
+        "autor": "Aleksander Fredro"
+      },
+      {
+        "tom": 4,
+        "lektura": "Balladyna",
+        "autor": "Juliusz Słowacki"
+      },
+      {
+        "tom": 5,
+        "lektura": "Antygona",
+        "autor": "Sofokles"
+      },
+      {
+        "tom": 6,
+        "lektura": "Katarynka i Latarnik",
+        "autor": "Prus, Sienkiewicz"
+      }
+    ]
+  },
+  "licencje": [
+    {
+      "kod": "nauczycielska",
+      "nazwa": "Licencja nauczycielska",
+      "cena_brutto_pln": 79,
+      "cena_wprowadzajaca_pln": 59,
+      "dni_promocji": 30,
+      "zakres": "jedna osoba, ze swoimi uczniami",
+      "zawiera": [
+        "pdf",
+        "html"
+      ]
+    },
+    {
+      "kod": "placowki",
+      "nazwa": "Licencja placówki",
+      "cena_brutto_pln": 249,
+      "zakres": "wszyscy nauczyciele jednej szkoły, poradni lub gabinetu",
+      "zawiera": [
+        "pdf",
+        "html"
+      ],
+      "wymaga_nip": true
+    },
+    {
+      "kod": "fragment",
+      "nazwa": "Darmowy fragment",
+      "cena_brutto_pln": 0,
+      "zakres": "14 stron, bez ograniczeń",
+      "zawiera": [
+        "demo_pdf",
+        "demo_html"
+      ]
+    }
+  ],
+  "przedplata_seria": [
+    {
+      "kod": "seria-nauczycielska",
+      "nazwa": "Cała seria (6 tomów), licencja nauczycielska",
+      "cena_brutto_pln": 399,
+      "zamiast_pln": 474
+    },
+    {
+      "kod": "seria-placowki",
+      "nazwa": "Cała seria (6 tomów), licencja placówki",
+      "cena_brutto_pln": 1190,
+      "zamiast_pln": 1494
+    }
+  ],
+  "podatek": "Ceny brutto. Stawkę VAT dla publikacji elektronicznej potwierdzić z księgowością — zależy od charakteru materiału i formy sprzedaży."
 }
