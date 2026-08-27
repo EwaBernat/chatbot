@@ -68,7 +68,9 @@ wróci do 54 mm.
 
 Sceny rozdziałowe: `boa_kapelusz_scena` (rysunek nr 1 i nr 2), `samolot_scena` (awaria
 na pustyni), `asteroida_scena` (planeta i liczby), `kwiat3_scena` (kwiat o trzech płatkach),
-`noc_pustynia_scena` (nocna wędrówka), `gwiazdy_smiech_scena` (gwiazdy, które się śmieją).
+`noc_pustynia_scena` (nocna wędrówka), `gwiazdy_smiech_scena` (gwiazdy, które się śmieją),
+`baranek_scena` (skrzynka z dziurkami), `zachody_scena` (mała planeta i kilka zachodów),
+`kolce_scena` (róża z kolcami i chłopiec odwrócony plecami).
 
 Sceny na karty (działają też w rozdziałach): `geograf_scena`, `ziemia_scena`,
 `studnia_scena`, `gora_echo_scena`, `sklep_pigulki_scena`.
