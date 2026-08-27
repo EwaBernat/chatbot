@@ -15,10 +15,10 @@ z pełnym zestawem fallbacków). Otwórz w przeglądarce.
 
 Ctrl+P → format **A4**, marginesy **brak/none**, zaznacz **grafika tła**.
 Dokument jest złożony w **druku powiększonym** (stopień pisma +15%: tekst główny 13,1 pt,
-bloki rozdziału 11,4 pt, tabela emocji 10,8 pt) i tak, że **115 sekcji = dokładnie 115 stron A4** — bez pustych stron
+bloki rozdziału 11,4 pt, tabela emocji 10,8 pt) i tak, że **117 sekcji = dokładnie 117 stron A4** — bez pustych stron
 i bez treści urwanej między arkuszami.
 
-**Numeracja stron** jest ciągła (1–107). Okładka liczy się jako strona 1, ale nie ma nadruku.
+**Numeracja stron** jest ciągła (1–117). Okładka liczy się jako strona 1, ale nie ma nadruku.
 Numery w spisie treści są wyliczane automatycznie przy składaniu, więc nie rozjadą się
 po zmianie treści.
 
@@ -32,7 +32,7 @@ po zmianie treści.
 | B. Trzy narzędzia | 2 | termometr emocji, sygnalizator oceny sytuacji, drabina teorii umysłu |
 | C. Karty postaci | 1 | 6 kart |
 | Rozdziały 1–27 | 81 | po 3 strony na rozdział |
-| G. Załączniki do wycięcia | 5 | plansza A3, termometr emocji ze wskaźnikiem, krążki oceny, 8 kart miejsc |
+| G. Załączniki do wycięcia | 7 | plansza A3, termometr emocji ze wskaźnikiem, krążki oceny, 16 kart miejsc i spotkań |
 | D. Ćwiczenia końcowe | 4 | 8 zestawów z celem, czasem i dostosowaniem |
 | E. Gra „Podróż Małego Księcia” | 3 | plansza 30 pól, zasady, 32 karty zadań w 4 taliach |
 | F. Scenariusz przedstawienia | 10 | obsada, zasady dostosowania, plan prób, 8 scen |

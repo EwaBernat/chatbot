@@ -705,7 +705,7 @@ class Broszura:
                         if i == 0 else "")
                 out.append(f'<section class="page" id="zalacznik-karty{i+1}">'
                            f'<h2 class="dzial-h"><span class="dzial-litera">G</span>'
-                           f'Załącznik 4 · Karty miejsc{dod}</h2>{lead}'
+                           f'Załącznik 4 · Karty miejsc i spotkań{dod}</h2>{lead}'
                            f'<div class="karty-planet">{kk}</div></section>')
         return "".join(out)
 
