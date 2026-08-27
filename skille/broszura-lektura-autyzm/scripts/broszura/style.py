@@ -165,6 +165,7 @@ small{font-weight:400;font-size:.82em;color:var(--szary)}
 .ilu.mini{max-width:58mm;margin:0 auto 3mm}
 .kol-b .ilu{max-width:54mm;margin:0 auto 3mm}
 .kol-b .ilu-foto{max-width:64mm}
+.kol-b .ilu.scena{max-width:80mm}
 .dzial-h .cd{font-size:.5em;color:var(--z400);font-weight:400}
 .ilu{width:100%;flex:none;margin:0 0 3.5mm;padding:0;border-radius:10px;overflow:hidden;background:var(--z100)}
 .ilu-box{position:relative;width:100%;height:0;overflow:hidden}

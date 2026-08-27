@@ -743,6 +743,185 @@ def sklep_pigulki_scena():
 </svg>'''
 
 
+def boa_kapelusz_scena():
+    """Rysunek nr 1 i nr 2: to samo, co dorosli biora za kapelusz."""
+    ksztalt = "M8 62c0-22 16-34 34-34s34 12 34 34z"
+    return f'''<svg viewBox="0 0 200 96" role="img" aria-label="Rysunek kapelusza i ten sam rysunek z wezem boa, ktory polknal slonia">
+{_defs("bk")}
+<rect width="200" height="96" fill="{C['sand']}"/>
+{_wash(50, 30, 40, C['gold'], ".20", "bk")}
+{_wash(152, 40, 42, C['m3'], ".20", "bk")}
+<g transform="translate(6,6)">
+  <path d="{ksztalt}" fill="{C['gold2']}" stroke="{C['d1']}" stroke-width="2" stroke-linejoin="round"/>
+  <path d="M8 62h68" stroke="{C['d1']}" stroke-width="2"/>
+  <text x="42" y="80" text-anchor="middle" font-family="Verdana,sans-serif" font-size="12"
+        font-weight="bold" fill="{C['d2']}">RYSUNEK 1</text>
+</g>
+<path d="M100 20v56" stroke="{C['d3']}" stroke-width="1.6" stroke-dasharray="5 5" opacity=".6"/>
+<g transform="translate(112,6)">
+  <path d="{ksztalt}" fill="{C['l2']}" stroke="{C['d1']}" stroke-width="2" stroke-linejoin="round"/>
+  <path d="M8 62h68" stroke="{C['d1']}" stroke-width="2"/>
+  <g stroke="{C['d2']}" stroke-width="1.6" fill="{C['m2']}" stroke-linejoin="round">
+    <ellipse cx="50" cy="47" rx="20" ry="13"/>
+    <rect x="36" y="54" width="8" height="8" rx="2"/>
+    <rect x="56" y="54" width="8" height="8" rx="2"/>
+    <circle cx="28" cy="45" r="11"/>
+    <ellipse cx="31" cy="41" rx="6" ry="8" fill="{C['m1']}"/>
+    <path d="M19 48c-4 4-5 9-3 14 1 3 5 3 6 0 1-4-1-7 1-10z" fill="{C['m2']}"/>
+    <path d="M69 42c5-2 8 0 9 3" fill="none"/>
+  </g>
+  <circle cx="25" cy="43" r="1.6" fill="{C['d1']}"/>
+  <text x="42" y="80" text-anchor="middle" font-family="Verdana,sans-serif" font-size="12"
+        font-weight="bold" fill="{C['d2']}">RYSUNEK 2</text>
+</g>
+</svg>'''
+
+
+def samolot_scena():
+    """Awaria na pustyni: pilot przy silniku, chlopiec i pytania bez odpowiedzi."""
+    pyt = "".join(
+        f'<text x="{x}" y="{y}" font-family="Verdana,sans-serif" font-size="{s}" '
+        f'font-weight="bold" fill="{C["d3"]}" opacity="{o}">?</text>'
+        for x, y, s, o in [(96, 22, 15, ".9"), (110, 14, 11, ".7"), (86, 12, 9, ".55")])
+    return f'''<svg viewBox="0 0 200 96" role="img" aria-label="Rozbity samolot na pustyni, pilot i chlopiec">
+{_defs("sa")}
+<defs><linearGradient id="niebosa" x1="0" y1="0" x2="0" y2="1">
+<stop offset="0" stop-color="{C['l3']}"/><stop offset="1" stop-color="{C['gold2']}"/></linearGradient></defs>
+<rect width="200" height="96" fill="url(#niebosa)"/>
+{_wash(44, 24, 38, C['gold'], ".28", "sa")}
+{_wash(170, 34, 36, C['m3'], ".22", "sa")}
+<circle cx="168" cy="26" r="12" fill="{C['gold']}" opacity=".55"/>
+<path d="M0 68c28-8 48-2 72 3s48 3 68-3 40-2 60 4v24H0z" fill="{C['sand']}"/>
+<path d="M0 78c30-6 52 0 76 4s46 1 64-3 40-1 60 3v14H0z" fill="{C['gold2']}" opacity=".5"/>
+<g>
+  <path d="M120 66c0-5 6-8 18-8h34c8 0 14 2 16 6l-4 8h-56z" fill="{C['l1']}"
+        stroke="{C['d1']}" stroke-width="1.4" stroke-linejoin="round"/>
+  <path d="M188 64l12-12 3 3-9 11z" fill="{C['l2']}" stroke="{C['d1']}" stroke-width="1.3" stroke-linejoin="round"/>
+  <path d="M140 58l10-14h9l-5 14z" fill="{C['l2']}" stroke="{C['d1']}" stroke-width="1.3" stroke-linejoin="round"/>
+  <circle cx="150" cy="63" r="4" fill="{C['d3']}" opacity=".8"/>
+  <path d="M120 54v24" stroke="{C['d1']}" stroke-width="2.4" stroke-linecap="round"/>
+  <circle cx="120" cy="66" r="3" fill="{C['gold']}" stroke="{C['d1']}" stroke-width="1"/>
+</g>
+{pyt}
+{_postac_profil(72, 74, 1.05, C['d3'], C['wlosy2'])}
+{_postac_profil(46, 78, .82, C['m1'], C['wlosy'])}
+<path d="M51 68c6 1 9 3 10 5" stroke="{C['szal']}" stroke-width="1.7" fill="none" stroke-linecap="round"/>
+</svg>'''
+
+
+def asteroida_scena():
+    """Planeta wielkosci domu i dorosli, ktorzy pytaja o numer."""
+    gw = "".join(
+        f'<circle cx="{x}" cy="{y}" r="{r}" fill="{C["l2"]}" opacity=".85"/>'
+        for x, y, r in [(18, 18, 1.2), (52, 10, .9), (36, 44, 1.0), (168, 16, 1.2),
+                        (186, 44, .9), (146, 8, 1.0), (14, 66, 1.0), (192, 70, 1.1)])
+    liczby = "".join(
+        f'<text x="{x}" y="{y}" font-family="Verdana,sans-serif" font-size="{s}" '
+        f'fill="{C["gold2"]}" opacity="{o}">{t}</text>'
+        for x, y, s, t, o in [(24, 34, 11, "612", ".85"), (156, 62, 10, "3251", ".7"),
+                              (40, 82, 9, "1909", ".6"), (168, 32, 9, "B", ".7")])
+    return f'''<svg viewBox="0 0 200 96" role="img" aria-label="Mala asteroida wsrod gwiazd i liczby dokola">
+{_defs("as")}
+<defs><radialGradient id="nieboas" cx="50%" cy="40%" r="76%">
+<stop offset="0" stop-color="{C['d3']}"/><stop offset="1" stop-color="{C['d1']}"/></radialGradient>
+<radialGradient id="skalaas" cx="34%" cy="30%" r="74%">
+<stop offset="0" stop-color="{C['m2']}"/><stop offset="1" stop-color="{C['d2']}"/></radialGradient></defs>
+<rect width="200" height="96" fill="url(#nieboas)"/>
+{_wash(100, 44, 46, C['m2'], ".18", "as")}
+{gw}{liczby}
+<ellipse cx="100" cy="54" rx="34" ry="9" fill="none" stroke="{C['l1']}" stroke-width="1.2" opacity=".5"/>
+<g>
+  <circle cx="100" cy="50" r="21" fill="url(#skalaas)" stroke="{C['l1']}" stroke-width="1.2"/>
+  <path d="M86 44c5-2 9-1 11 2M104 58c5 1 8 0 10-2" stroke="{C['d1']}" stroke-width="1.4"
+        fill="none" opacity=".5" stroke-linecap="round"/>
+  <path d="M92 36l4-8 4 8z" fill="{C['d2']}" stroke="{C['d1']}" stroke-width="1"/>
+  <path d="M104 34l3-6 4 7z" fill="{C['d2']}" stroke="{C['d1']}" stroke-width="1"/>
+  <path d="M96 30c1-3 3-5 4-5" stroke="{C['l2']}" stroke-width="1.4" fill="none" opacity=".8"/>
+</g>
+{_postac_profil(112, 34, .62, C['m1'], C['wlosy'])}
+</svg>'''
+
+
+def kwiat3_scena():
+    """Kwiat o trzech platkach: caly swiat widzial z jednego miejsca."""
+    return f'''<svg viewBox="0 0 200 96" role="img" aria-label="Samotny kwiat o trzech platkach na pustyni">
+{_defs("k3")}
+<defs><linearGradient id="niebok3" x1="0" y1="0" x2="0" y2="1">
+<stop offset="0" stop-color="{C['l3']}"/><stop offset="1" stop-color="{C['sand']}"/></linearGradient></defs>
+<rect width="200" height="96" fill="url(#niebok3)"/>
+{_wash(150, 26, 42, C['gold'], ".26", "k3")}
+{_wash(38, 34, 36, C['m3'], ".20", "k3")}
+<path d="M0 70c30-10 54-4 80 2s46 4 66-2 34-2 54 3v23H0z" fill="{C['sand']}"/>
+<path d="M0 80c34-6 56 0 82 4s44 0 62-4 34-1 56 3v13H0z" fill="{C['gold2']}" opacity=".55"/>
+<g transform="translate(100,80)">
+  <path d="M0 0v-40" stroke="{C['m1']}" stroke-width="3.4" stroke-linecap="round"/>
+  <path d="M0 -14c-11-1-17-7-18-13 8-1 15 3 18 9M0 -24c11-3 17-8 18-14-8-1-15 4-18 10"
+        fill="{C['m2']}" stroke="{C['m1']}" stroke-width="1.2"/>
+  <g stroke="{C['d2']}" stroke-width="1.4">
+    <ellipse cx="0" cy="-56" rx="9" ry="13" fill="{C['rose2']}"/>
+    <ellipse cx="-13" cy="-44" rx="12" ry="8.4" fill="{C['rose']}" transform="rotate(-26 -13 -44)"/>
+    <ellipse cx="13" cy="-44" rx="12" ry="8.4" fill="{C['rose']}" transform="rotate(26 13 -44)"/>
+  </g>
+  <circle cx="0" cy="-46" r="5.4" fill="{C['gold2']}" stroke="{C['d2']}" stroke-width="1.2"/>
+</g>
+<path d="M150 72c2-8 5-12 8-12s6 4 8 12z" fill="{C['m3']}" opacity=".7"/>
+<path d="M36 74c2-6 4-9 6-9s5 3 6 9z" fill="{C['m3']}" opacity=".6"/>
+</svg>'''
+
+
+def noc_pustynia_scena():
+    """Osmy dzien: ida razem, w nocy, szukajac studni."""
+    gw = "".join(
+        f'<circle cx="{x}" cy="{y}" r="{r}" fill="{C["l2"]}" opacity=".85"/>'
+        for x, y, r in [(16, 12, 1.2), (46, 24, .9), (74, 10, 1.1), (104, 22, .9),
+                        (134, 12, 1.2), (166, 26, 1.0), (186, 10, .9), (28, 40, .9),
+                        (192, 46, 1.0), (60, 42, .8)])
+    return f'''<svg viewBox="0 0 200 96" role="img" aria-label="Dwie postacie ida noca przez pustynie pod gwiazdami">
+{_defs("np")}
+<defs><linearGradient id="niebonp" x1="0" y1="0" x2="0" y2="1">
+<stop offset="0" stop-color="{C['d1']}"/><stop offset="1" stop-color="{C['fiolet']}"/></linearGradient></defs>
+<rect width="200" height="96" fill="url(#niebonp)"/>
+{_wash(60, 22, 40, C['fiolet2'], ".38", "np")}
+{_wash(160, 30, 36, C['m2'], ".16", "np")}
+{gw}
+<path d="M170 18a10 10 0 1 0 7 17 12 12 0 0 1-7-17z" fill="{C['gold2']}" opacity=".9"/>
+<path d="M0 58c24-10 42-4 62 2s42 6 60 0 46-6 78 4v32H0z" fill="{C['d3']}" opacity=".85"/>
+<path d="M0 70c28-8 48-2 72 4s46 2 64-2 40-2 64 3v21H0z" fill="{C['sand']}" opacity=".9"/>
+<path d="M0 82c32-6 54 0 78 4s44 0 62-4 36-1 60 3v11H0z" fill="{C['gold2']}" opacity=".45"/>
+{_postac_profil(78, 84, 1.15, C['d3'], C['wlosy2'])}
+{_postac_profil(104, 86, .9, C['m1'], C['wlosy'])}
+<path d="M109 76c6 1 10 3 11 5" stroke="{C['szal']}" stroke-width="1.8" fill="none" stroke-linecap="round"/>
+<ellipse cx="90" cy="90" rx="26" ry="3.4" fill="{C['d1']}" opacity=".3"/>
+</svg>'''
+
+
+def gwiazdy_smiech_scena():
+    """Piecset milionow dzwoneczkow: gwiazdy, ktore sie smieja."""
+    gw = "".join(
+        f'<circle cx="{x}" cy="{y}" r="{r}" fill="{C["l2"]}" opacity=".8"/>'
+        for x, y, r in [(20, 16, 1.2), (56, 12, .9), (86, 26, 1.0), (118, 12, .9),
+                        (152, 24, 1.1), (182, 14, 1.0), (34, 40, .9), (196, 44, .9),
+                        (12, 54, 1.0), (70, 44, .8), (166, 52, .9)])
+    GWIAZDA = ("M0 -13 3.6 -4.4 12.8 -4 5.7 2 8 11 0 6 -8 11 -5.7 2 -12.8 -4 -3.6 -4.4Z")
+    buzki = "".join(
+        f'<g transform="translate({x},{y}) scale({s})">'
+        f'<path d="{GWIAZDA}" fill="{C["gold2"]}" stroke="{C["gold"]}" stroke-width="1"/>'
+        f'<circle cx="-2.8" cy="-2" r="1.2" fill="{C["d1"]}"/>'
+        f'<circle cx="2.8" cy="-2" r="1.2" fill="{C["d1"]}"/>'
+        f'<path d="M-3.4 1.6a4 4 0 0 0 6.8 0z" fill="{C["d1"]}"/></g>'
+        for x, y, s in [(46, 32, 1.25), (100, 20, 1.0), (152, 40, 1.1)])
+    return f'''<svg viewBox="0 0 200 96" role="img" aria-label="Nocne niebo z gwiazdami, ktore sie smieja, nad pusta pustynia">
+{_defs("gs")}
+<defs><radialGradient id="niebogs" cx="50%" cy="30%" r="82%">
+<stop offset="0" stop-color="{C['d3']}"/><stop offset="1" stop-color="{C['d1']}"/></radialGradient></defs>
+<rect width="200" height="96" fill="url(#niebogs)"/>
+{_wash(100, 26, 48, C['m2'], ".16", "gs")}
+{gw}{buzki}
+<path d="M0 74c30-8 52-2 76 3s46 3 64-2 38-2 60 3v18H0z" fill="{C['sand']}" opacity=".92"/>
+<path d="M0 84c32-6 54 0 78 4s44 0 62-4 36-1 60 3v9H0z" fill="{C['gold2']}" opacity=".45"/>
+</svg>'''
+
+
 # ---------- PLANSZA DO GRY ----------
 def board():
     cols = 6

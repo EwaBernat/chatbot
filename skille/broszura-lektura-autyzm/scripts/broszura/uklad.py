@@ -128,14 +128,20 @@ class Broszura:
 
     def ilustracja(self, zrodlo, extra="", cap=""):
         """Buduje figurę z danych. `obraz` (plik) ma pierwszeństwo przed `ilustracja` (wektor)."""
+        waska = False
         if isinstance(zrodlo, dict):
             plik, wektor = zrodlo.get("obraz"), zrodlo.get("ilustracja")
+            waska = bool(zrodlo.get("ilustracja_waska"))
         else:
             plik, wektor = None, zrodlo
         if plik:
             klasa, w, h = self.obraz_klasa(plik)
             return fig_obraz(klasa, w, h, extra, cap)
         rys = rysunek(wektor)
+        if rys and not waska and isinstance(wektor, str) and wektor.endswith("_scena"):
+            # Sceny są szerokie (200×96), więc znoszą większą szerokość niż
+            # rysunki kwadratowe — inaczej gubią się na stronie.
+            extra = (extra + " scena").strip()
         return fig(rys, extra, cap) if rys else ""
 
     # ---- stopki ----
