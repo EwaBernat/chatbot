@@ -15,11 +15,23 @@ from broszura import svg as S
 from broszura.style import CSS, css as css_skala
 from broszura.uklad import Broszura
 
-HEAD_LINKS = (
-    '<link rel="preconnect" href="https://fonts.googleapis.com">'
-    '<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>'
-    '<link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,600;0,700;1,600'
-    '&family=Lato:ital,wght@0,400;0,700;1,400&display=swap&subset=latin,latin-ext" rel="stylesheet">')
+KROJE = os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "assets", "kroje.css")
+
+
+def kroje():
+    """Arkusz z osadzonymi krojami.
+
+    Kroje MUSZĄ być w pliku, a nie pod adresem Google Fonts: PDF powstaje
+    w przeglądarce bez dostępu do sieci, więc zdalne kroje podmieniają się na
+    zastępniki i cały tekst wygląda na zbyt gruby. Odśwież je przez
+    `python scripts/pobierz_kroje.py --out assets/kroje.css`.
+    """
+    if os.path.exists(KROJE):
+        return "<style>" + open(KROJE, encoding="utf-8").read() + "</style>"
+    sys.stderr.write("UWAGA: brak assets/kroje.css — druk wyjdzie zastępczymi krojami.\n")
+    return ('<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>'
+            '<link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,600;0,700;1,600'
+            '&family=Lato:ital,wght@0,400;0,700;1,400&display=swap&subset=latin,latin-ext" rel="stylesheet">')
 
 
 def nawigacja(b):
@@ -95,13 +107,13 @@ def main():
     html_full = (f'<!doctype html>\n<html lang="pl">\n<head>\n<meta charset="utf-8">\n'
                  f'<meta name="viewport" content="width=device-width, initial-scale=1">\n'
                  f'<title>{tytul} — {b.meta.get("haslo","")}</title>\n'
-                 f'<meta name="description" content="{opis}">\n{HEAD_LINKS}\n'
+                 f'<meta name="description" content="{opis}">\n{kroje()}\n'
                  f'<style>{css_skala(a.skala)}</style>\n</head>\n<body>\n{core}\n</body>\n</html>')
     open(a.out, "w", encoding="utf-8").write(html_full)
     print(f"Zapisano {a.out} — {stron} sekcji = {stron} stron A4, {len(html_full)//1024} KB")
 
     if a.fragment:
-        frag = f"<title>{tytul}</title>\n{HEAD_LINKS}\n<style>{css_skala(a.skala)}</style>\n{core}"
+        frag = f"<title>{tytul}</title>\n{kroje()}\n<style>{css_skala(a.skala)}</style>\n{core}"
         open(a.fragment, "w", encoding="utf-8").write(frag)
         print(f"Zapisano {a.fragment} (wersja do publikacji jako Artifact)")
 

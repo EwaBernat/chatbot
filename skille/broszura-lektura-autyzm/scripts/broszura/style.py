@@ -95,8 +95,9 @@ small{font-weight:400;font-size:.82em;color:var(--szary)}
   border-top:4px solid var(--gold)}
 .pozegnanie h3{font-size:11pt;letter-spacing:.2em;text-transform:uppercase;color:var(--z500);
   margin:0 0 3mm;font-weight:600}
-.poz-tekst{font-size:11.2pt;line-height:1.5;color:var(--z900);max-width:136mm;margin:0 auto 3mm;
+.poz-tekst{font-size:11.2pt;line-height:1.5;color:var(--z900);max-width:136mm;margin:0 auto 2mm;
   font-style:italic}
+.poz-serce{width:9mm;margin:0 auto 2.5mm;display:block}
 .poz-inicjaly{font-family:var(--font-h);font-size:26pt;font-weight:700;font-style:italic;
   color:var(--gold);line-height:1;letter-spacing:.06em;margin:0 0 1.5mm}
 .poz-imie{font-family:var(--font-h);font-size:10pt;font-weight:600;letter-spacing:.06em;color:var(--z700);margin:0 0 .8mm}
@@ -176,7 +177,7 @@ small{font-weight:400;font-size:.82em;color:var(--szary)}
 .kiedy span{font-size:9.7pt}
 .narz{display:grid;grid-template-columns:1fr 1fr;gap:5mm;margin-bottom:5mm}
 .narz-box{background:var(--z050);border:1px solid var(--z200);border-radius:10px;padding:4mm}
-.narz-box .ilu{max-width:76mm;margin-left:auto;margin-right:auto}
+.narz-box .ilu{max-width:92mm;margin-left:auto;margin-right:auto}
 .narz-box.szeroki{margin-top:0}
 .narz-box h3{font-size:13pt;color:var(--z700)}
 .narz-box p{font-size:10.2pt}
@@ -396,7 +397,7 @@ figcaption{font-size:9pt;color:var(--szary);padding:2mm 3mm;background:var(--z05
 .plansza-duza{max-width:100%;margin:2mm 0 4mm}
 .termometr-duzy{max-width:132mm;margin:3mm auto 5mm}
 .termometr-wyciecie{max-width:96mm;margin:2mm auto 4mm}
-.krazki{display:grid;grid-template-columns:repeat(2,1fr);gap:7mm;margin:5mm 0 4mm;max-width:158mm}
+.krazki{display:grid;grid-template-columns:repeat(2,1fr);gap:6mm;margin:4mm 0 4mm;max-width:146mm}
 .krazek{aspect-ratio:1;border-radius:50%;border:2px dashed rgba(255,255,255,.65);
   display:flex;flex-direction:column;align-items:center;justify-content:center;gap:1mm;
   color:#fff;text-align:center;padding:4mm}
@@ -503,20 +504,30 @@ figcaption{font-size:9pt;color:var(--szary);padding:2mm 3mm;background:var(--z05
 @media print{
   @page{size:210mm 297mm;margin:0}
   body{background:#fff}
+  /* Tła i ramki mają wyjść w druku bez proszenia użytkownika o „Grafikę tła”. */
+  *{-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  p,li,dd,td{orphans:2;widows:2}
   .topbar{display:none}
   html,body{width:auto}
   /* Strona MUSI mieć pełną wysokość arkusza, inaczej lewy zielony pasek —
      rysowany jako tło o wysokości elementu — urywa się w połowie kartki.
      297 mm minus 0,5 mm zapasu na zaokrąglenia, żeby nie wypchnąć drugiego arkusza. */
+  /* Kolumna flex musi zostać także w druku — inaczej `margin-top:auto` w stopce
+     przestaje działać i stopka ląduje tuż pod treścią, a nie przy dolnym marginesie. */
   .page{margin:0;box-shadow:none;border-radius:0;break-after:page;
-    width:auto;max-width:100%;min-height:296.5mm;height:auto;display:block;
+    width:auto;max-width:100%;min-height:296.5mm;height:auto;
+    display:flex;flex-direction:column;
     padding:12mm 12mm 9mm;overflow:hidden}
   .okladka{height:auto;min-height:296.5mm;padding:0}
   .page:last-child{break-after:auto}
   .tab-emo tr,.kwestia,.slowo,.wnioski li,.stresz li,.etapy li,.sy,
   .c-head,.s-head,.program li,.spis-lista li{break-inside:avoid}
   .r-head,.dzial-h,.pod-h{break-after:avoid}
-  .r-foot{margin-top:4mm}
+  .r-foot{margin-top:auto;padding-top:3mm}
+  /* Strony rozdziałów rozkładają wolne miejsce równo między bloki, zamiast
+     zbierać je w jedną dziurę nad stopką. Reszta stron zostaje wyrównana do góry. */
+  .page[id^="r"]{justify-content:space-between}
+  .page[id^="r"] .r-foot{margin-top:0}
   a{color:inherit;text-decoration:none}
 }
 @media screen and (max-width:800px){

@@ -149,6 +149,20 @@ W części G zostają wyłącznie materiały ogólne — termometr, krążki oce
 kilka zdań do czytelnika, duże inicjały autorki i jej nazwisko. Danych wydawcy nie powtarzaj —
 są już w metryczce na stronie 2.
 
+**Kroje osadzaj w pliku, nigdy nie linkuj do Google Fonts.** PDF powstaje w przeglądarce
+bez dostępu do sieci — zdalny krój podmienia się na zastępnik i cały tekst wygląda na zbyt
+gruby, a proporcje stron przestają się zgadzać z pomiarami. `scripts/pobierz_kroje.py`
+pobiera odmiany i zapisuje je jako `@font-face` z `data:` URI. To także jedyny sposób, żeby
+plik działał offline i przechodził restrykcyjne CSP.
+
+**Trzy reguły druku, bez których arkusz wygląda amatorsko:** `.page` musi zostać kolumną
+flex (`display:flex;flex-direction:column`), bo tylko wtedy `margin-top:auto` przy stopce
+trzyma ją przy dolnym marginesie zamiast tuż pod treścią; `min-height` ustaw na 296,5 mm,
+żeby tło strony sięgało dołu kartki; dodaj `print-color-adjust:exact`, żeby kolorowe pola
+wyszły bez proszenia użytkownika o „Grafikę tła”. Strony rozdziałów dostają
+`justify-content:space-between` — wolne miejsce rozkłada się wtedy równo między bloki
+zamiast zbierać w jedną dziurę nad stopką.
+
 **Metryczka wydawnicza** to zawsze **druga strona**, zaraz po okładce, a spis treści idzie
 po niej. Zawiera dane wydawcy, kartę broszury (tytuł, źródło, odbiorcy, zastosowanie, format,
 objętość, wydanie), notę o ilustracjach, prawa i instrukcję druku. Nauczyciel, który dostaje

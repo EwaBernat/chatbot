@@ -1047,6 +1047,16 @@ def kolce_scena():
 </svg>'''
 
 
+def serce():
+    """Czerwone serce pod pozegnaniem autorki."""
+    return '''<svg viewBox="0 0 32 29" role="img" aria-label="Serce">
+<path d="M16 28C16 28 2 19.6 2 10.4 2 5.2 6 1.5 10.5 1.5c2.5 0 4.6 1.2 5.5 3.1.9-1.9 3-3.1 5.5-3.1
+C26 1.5 30 5.2 30 10.4 30 19.6 16 28 16 28z" fill="#D6453F" stroke="#A32F2B" stroke-width="1.6"
+stroke-linejoin="round"/>
+<path d="M9 8c-1.2 1-1.8 2.3-1.8 3.7" stroke="#F2A6A2" stroke-width="1.8" fill="none" stroke-linecap="round"/>
+</svg>'''
+
+
 # ---------- PLANSZA DO GRY ----------
 def board():
     cols = 6

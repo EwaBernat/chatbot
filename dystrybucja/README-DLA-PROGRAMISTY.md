@@ -44,16 +44,18 @@ dystrybucja/
 w pliku jako `data:` URI, a rysunki wektorowe jako inline SVG. Nie ma folderu
 `assets/`, nie ma nic do zgubienia przy wgrywaniu.
 
-**Jedyne odwołanie na zewnątrz to Google Fonts** — Poppins i Lato:
+**Zero odwołań na zewnątrz.** Kroje Poppins i Lato są osadzone w pliku jako
+`@font-face` z `data:` URI (14 odmian, ~190 KB). Nie ma zapytań do Google Fonts, więc
+plik działa offline, nie wymaga wpisu w polityce prywatności i przechodzi restrykcyjne CSP.
 
-```html
-<link href="https://fonts.googleapis.com/css2?family=Poppins:...&family=Lato:..." rel="stylesheet">
-```
+To nie jest kosmetyka: PDF powstaje w przeglądarce bez dostępu do sieci. Dopóki kroje
+wisiały pod adresem Google, w druku podstawiały się zastępniki (DejaVu Sans) i cały tekst
+wyglądał na zbyt gruby. Odświeżenie krojów:
+`python3 skille/broszura-lektura-autyzm/scripts/pobierz_kroje.py --out .../assets/kroje.css`.
 
-Jeśli chcesz zero zapytań na zewnątrz (RODO, praca offline, CSP bez
-`font-src`), pobierz oba kroje, umieść u siebie i podmień ten `<link>` na
-własny `@font-face`. Bez tego strona nadal działa — przeglądarka użyje
-zapasowych krojów z `font-family`, tylko odstępy będą minimalnie inne.
+**Tła drukują się bez pytania.** W `@media print` jest `print-color-adjust: exact`, więc
+kolorowe pola i ramki wychodzą nawet wtedy, gdy użytkownik nie zaznaczy „Grafiki tła”.
+Instrukcja w broszurze zostaje na wypadek przeglądarek, które tę własność ignorują.
 
 **Arkusz ma dokładnie 210 × 297 mm.** Chromium zapisuje A4 jako 209,89 × 297,01 mm —
 własne zaokrąglenie do siatki pikseli. `zbuduj-paczke.sh` nadpisuje `/MediaBox` na dokładne
