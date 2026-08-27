@@ -842,6 +842,7 @@ class Broszura:
                 f'<div class="poz-znak">{self.logo_duze()}</div>'
                 f'<h3>{E(z.get("pozegnanie_naglowek", "Na pożegnanie"))}</h3>'
                 f'<p class="poz-tekst">{E(z["pozegnanie"])}</p>'
+                f'<div class="poz-serce">{S.serce()}</div>'
                 f'<p class="poz-inicjaly">{E(inicjaly)}</p>'
                 f'<p class="poz-imie">{E(w["autorka"])}</p>'
                 f'<p class="poz-org">{E(w["organizacja"])} · {E(w["mail"])}</p></div>')
