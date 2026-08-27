@@ -139,6 +139,17 @@ papieru zamiast instrukcji słownej, trzy karty do wyboru zamiast losowania.
 ocena sytuacji, „co on myśli?”. **Nikt nie odpada, nie ma zadań na czas, wynik liczy się
 wspólnie dla klasy** — rywalizacja przenosi uwagę z zadania na porażkę.
 
+**Metryczka wydawnicza** to zawsze **druga strona**, zaraz po okładce, a spis treści idzie
+po niej. Zawiera dane wydawcy, kartę broszury (tytuł, źródło, odbiorcy, zastosowanie, format,
+objętość, wydanie), notę o ilustracjach, prawa i instrukcję druku. Nauczyciel, który dostaje
+plik bez kontekstu, musi w dwóch sekundach wiedzieć, co trzyma i od kogo.
+
+**Gra (E)** wymaga instrukcji, nie samych zasad. Poza planszą i taliami opisz: co przygotować,
+jak rozłożyć stół, przebieg jednej kolejki krok po kroku, co znaczy każdy kolor pola i jak przy
+nim odpowiadać, co robi dorosły, co zrobić, gdy uczeń nie umie odpowiedzieć, oraz warianty
+(krótszy, jeden na jeden, cała klasa, bez kostki). Same zasady zostawiają prowadzącego
+z pytaniem „to jak w to właściwie grać?" — a to jego niepewność przenosi się na uczniów.
+
 **Załączniki (G)** — materiały do wycięcia i powieszenia: plansza do gry na całą stronę
 (do druku w A3), termometr emocji do wycięcia wraz ze wskaźnikiem, krążki oceny sytuacji oraz karty miejsc
 z lektury (po 4 na stronę, z pytaniem na odwrocie treści). Włącza je klucz `zalaczniki` w danych.
