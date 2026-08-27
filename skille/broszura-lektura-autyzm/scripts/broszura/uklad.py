@@ -197,6 +197,36 @@ class Broszura:
 </section>'''
 
     # ---- spis treści ----
+    # ---- metryczka wydawcy (zawsze strona 2) ----
+    def metryczka_wydawcy(self):
+        """Stopka wydawnicza. Zawsze druga strona — przed spisem treści."""
+        m, w = self.meta, self.w
+        karta = [
+            ("Tytuł", f'{m["tytul"]} {m.get("podtytul_okladki", "")} — {m.get("haslo", "")}'.strip()),
+            ("Na podstawie", m.get("zrodlo", "")),
+            ("Odbiorcy", m.get("odbiorcy", "")),
+            ("Zastosowanie", m.get("zastosowanie", "")),
+            ("Format", "A4, {{STR:koniec}} stron; plik HTML i PDF, " + m.get("wydanie", "")),
+        ]
+        wiersze = "".join(f"<tr><td><b>{E(k)}</b></td><td>{E(v)}</td></tr>" for k, v in karta)
+        kroki = "".join(f"<li>{E(x)}</li>" for x in m.get("druk", []))
+        return f'''
+<section class="page" id="metryczka">
+  <h2 class="dzial-h">Metryczka wydawnicza</h2>
+  <div class="metryczka duza">
+    <div class="m-logo">{self.logo_duze()}</div>
+    <div class="m-dane">
+      <p class="m-org">{E(w["organizacja"])}</p>
+      <p class="m-autor">opracowanie i redakcja: <b>{E(w["autorka"])}</b></p>
+      <p class="m-mail"><span>kontakt</span> {E(w["mail"])}</p>
+    </div>
+  </div>
+  <table class="tab-role szeroka metr-tab"><tbody>{wiersze}</tbody></table>
+  <div class="uwaga jasna"><b>Ilustracje</b><br>{E(m.get("ilustracje_nota", ""))}</div>
+  <div class="uwaga"><b>Prawa i wykorzystanie</b><br>{E(m.get("prawa", ""))}</div>
+  <div class="gra-zasady"><h3>Jak wydrukować broszurę?</h3><ol class="dwie-kolumny">{kroki}</ol></div>
+</section>'''
+
     def spis(self):
         wiersze = ""
         for r in self.R:
@@ -209,6 +239,7 @@ class Broszura:
             f'<li><a href="#{i}"><span class="s-nr">{z}</span><span class="s-tyt">{t}</span>'
             f'<span class="s-str">{{{{STR:{i}}}}}</span></a></li>'
             for i, z, t in [
+                ("metryczka", "·", "Metryczka wydawnicza i instrukcja druku"),
                 ("jak-korzystac", "A", "Jak korzystać z broszury? Wskazówki dla nauczyciela i rodzica"),
                 ("narzedzia", "B", "Trzy narzędzia: termometr, sygnalizator, drabina"),
                 ("postacie", "C", "Karty postaci"),
@@ -539,6 +570,54 @@ class Broszura:
         return "".join(out)
 
     # ---- E. gra ----
+    def gra_instrukcja(self, G):
+        """Osobna strona: co przygotować, jak przebiega kolejka, co robi nauczyciel."""
+        I = G.get("instrukcja")
+        if not I:
+            return ""
+        przyg = "".join(f"<li>{E(x)}</li>" for x in I.get("co_przygotowac", []))
+        kroki = "".join(f"<li>{E(x)}</li>" for x in I.get("przygotowanie", []))
+        kolej = "".join(f"<li>{E(x)}</li>" for x in I.get("kolejka", []))
+        kol = "".join(
+            f'<tr><td><span class="kropka" style="background:{k["kolor"]}"></span>'
+            f'<b>{E(k["talia"])}</b></td><td>{E(k["co_cwiczy"])}</td><td>{E(k["jak"])}</td></tr>'
+            for k in I.get("kolory", []))
+        naucz = "".join(f"<li>{E(x)}</li>" for x in I.get("rola_nauczyciela", []))
+        trud = "".join(f"<li>{E(x)}</li>" for x in I.get("gdy_trudno", []))
+        war = "".join(f'<div class="spec"><b>{E(x["nazwa"])}</b><p>{E(x["opis"])}</p></div>'
+                      for x in I.get("warianty", []))
+        return f'''
+<section class="page" id="gra-instrukcja">
+  <h2 class="dzial-h"><span class="dzial-litera">E</span>Jak przeprowadzić grę? Krok po kroku</h2>
+  <div class="spekt-info">
+    <div><span>Ile osób?</span><b>{E(I.get("ile_osob",""))}</b></div>
+    <div><span>Ile czasu?</span><b>{E(I.get("ile_czasu",""))}</b></div>
+  </div>
+  <div class="kol-2">
+    <div class="gra-zasady"><h3>Co przygotować?</h3><ul>{przyg}</ul></div>
+    <div class="gra-zasady"><h3>Przygotowanie stołu</h3><ol>{kroki}</ol></div>
+  </div>
+</section>
+<section class="page" id="gra-instrukcja2">
+  <h2 class="dzial-h"><span class="dzial-litera">E</span>Przebieg kolejki i kolory pól</h2>
+  <div class="gra-zasady"><h3>Przebieg jednej kolejki</h3><ol>{kolej}</ol></div>
+  <h3 class="pod-h">Co oznacza kolor pola?</h3>
+  <table class="tab-role szeroka tab-kolory"><thead><tr><th>Talia</th><th>Co ćwiczy?</th><th>Jak odpowiadać?</th></tr></thead>
+  <tbody>{kol}</tbody></table>
+</section>
+<section class="page" id="gra-instrukcja3">
+  <h2 class="dzial-h"><span class="dzial-litera">E</span>Rola dorosłego i warianty gry</h2>
+  <div class="kol-2">
+    <div class="gra-zasady"><h3>Co robi nauczyciel?</h3><ul>{naucz}</ul></div>
+    <div class="gra-zasady"><h3>Gdy uczeń nie umie odpowiedzieć</h3><ul>{trud}</ul></div>
+  </div>
+  <h3 class="pod-h">Warianty gry</h3>
+  <div class="specjalne">{war}</div>
+  <div class="uwaga jasna"><b>Po co ta gra?</b> Każde pole to jedno z czterech pytań całej broszury:
+  co czuje?, dlaczego tak się stało?, czy to było w porządku?, co on myśli? Uczeń odpowiada na nie
+  kilkanaście razy w pół godziny — za każdym razem bez ryzyka, że przegra.</div>
+</section>'''
+
     def gra(self):
         G = self.d.get("gra")
         if not G:
@@ -558,6 +637,7 @@ class Broszura:
   {fig(S.board(), "plansza", "Plansza — 30 pól ułożonych wężem. Przerysuj na duży arkusz albo wydrukuj tę stronę w formacie A3.")}
   <div class="gra-zasady"><h3>Jak grać? Zasady</h3><ol class="dwie-kolumny">{zasady}</ol></div>
 </section>
+{self.gra_instrukcja(G)}
 <section class="page" id="gra2">
   <h2 class="dzial-h"><span class="dzial-litera">E</span>Karty zadań do gry</h2>
   <h3 class="pod-h">Talie 1 i 2 <small>— kolor talii = kolor pola na planszy</small></h3>

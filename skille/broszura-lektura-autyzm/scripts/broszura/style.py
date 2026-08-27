@@ -63,6 +63,14 @@ small{font-weight:400;font-size:.82em;color:var(--szary)}
 .ok-mail{color:var(--gold2);font-size:10pt;font-family:var(--font-h);letter-spacing:.03em;margin:0 0 4mm}
 .ok-zrodlo{color:var(--z400);font-size:8.6pt;margin:0}
 
+.metryczka.duza{margin:0 0 5mm}
+.metryczka.duza .m-logo{width:26mm}
+.metr-tab td:first-child{white-space:nowrap;width:32mm}
+.tab-kolory td:first-child{white-space:nowrap}
+.tab-kolory .kropka{margin-right:1.6mm}
+.kol-2{display:grid;grid-template-columns:1fr 1fr;gap:5mm;margin-bottom:4mm}
+.kol-2 .gra-zasady{margin:0}
+
 /* ---------- NAGŁÓWKI DZIAŁÓW ---------- */
 .dzial-h{font-size:23pt;color:var(--z800);display:flex;align-items:center;gap:5mm;
   padding-bottom:3mm;margin-bottom:5mm;border-bottom:3px solid var(--z200)}
