@@ -48,3 +48,27 @@ Arkusz z pięcioma scenami został pocięty na osobne pliki i przypisany do rozd
 | `ogrod-roz.jpg` | 20 · Ogród pięciu tysięcy róż |
 | `lis-i-ksiaze.jpg` | 21 · Lis i sekret oswajania |
 | `zwrotniczy.jpg` | 22 · Zwrotniczy — pociągi, które gdzieś pędzą |
+
+## Akwarele rozdziałów (arkusze `akwarela-5/6/7.jpg`)
+
+| plik | rozdział / karta |
+|---|---|
+| `r01-boa.jpg` | 1 · Rysunek, którego nikt nie rozumiał |
+| `r03-samolot.jpg` | 3 · Pytania bez odpowiedzi |
+| `r04-asteroida.jpg` | 4 · Planeta B-612 |
+| `r05-baobaby.jpg` | 5 · Baobaby |
+| `r15-geograf.jpg` | 15 · Planeta Geografa |
+| `r16-ziemia.jpg` | 16 · Ziemia — planeta pełna ludzi |
+| `r18-kwiat.jpg` | 18 · Kwiat o trzech płatkach |
+| `r19-echo.jpg` | 19 · Góra i echo + karta „Góra i echo" |
+| `r23-sklep.jpg` | 23 · Kupiec i pigułki |
+| `r24-noc.jpg` | 24 · Ósmy dzień |
+| `r26-pozegnanie.jpg` | 26 · Pożegnanie i gwiazdy |
+| `r27-szesc-lat.jpg` | 27 · Sześć lat później |
+| `karta-geograf.jpg` | karta „Planeta Geografa" |
+| `karta-ziemia.jpg` | karta „Ziemia" |
+| `karta-kupiec.jpg` | karta „Sklep z pigułkami" |
+
+Cztery kadry poprawiono: z rozdziału 1 usunięto angielski podpis, w rozdziale 19
+„Yeloo!" zmieniono na „Halo!", a szyldy „THIRST QUENCHING PILLS" w rozdziale 23
+i na karcie kupca na „PIGUŁKI NA PRAGNIENIE".
