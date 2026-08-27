@@ -15,10 +15,10 @@ z pełnym zestawem fallbacków). Otwórz w przeglądarce.
 
 Ctrl+P → format **A4**, marginesy **brak/none**, zaznacz **grafika tła**.
 Dokument jest złożony w **druku powiększonym** (stopień pisma +15%: tekst główny 13,1 pt,
-bloki rozdziału 11,4 pt, tabela emocji 10,8 pt) i tak, że **121 sekcji = dokładnie 121 stron A4** — bez pustych stron
+bloki rozdziału 11,4 pt, tabela emocji 10,8 pt) i tak, że **122 sekcje = dokładnie 122 strony A4** — bez pustych stron
 i bez treści urwanej między arkuszami.
 
-**Numeracja stron** jest ciągła (1–121). Okładka liczy się jako strona 1, ale nie ma nadruku.
+**Numeracja stron** jest ciągła (1–122). Okładka liczy się jako strona 1, ale nie ma nadruku.
 Numery w spisie treści są wyliczane automatycznie przy składaniu, więc nie rozjadą się
 po zmianie treści.
 
@@ -33,10 +33,10 @@ po zmianie treści.
 | B. Trzy narzędzia | 2 | termometr emocji, sygnalizator oceny sytuacji, drabina teorii umysłu |
 | C. Karty postaci | 1 | 6 kart |
 | Rozdziały 1–27 | 81 | po 3 strony na rozdział |
-| G. Załączniki do wycięcia | 7 | plansza A3, termometr emocji ze wskaźnikiem, krążki oceny, 16 kart miejsc i spotkań |
 | D. Ćwiczenia końcowe | 4 | 8 zestawów z celem, czasem i dostosowaniem |
-| E. Gra „Podróż Małego Księcia” | 6 | plansza 30 pól, zasady, instrukcja krok po kroku (przygotowanie, przebieg kolejki, kolory pól, rola dorosłego, warianty), 32 karty zadań w 4 taliach |
-| F. Scenariusz przedstawienia | 10 | obsada, zasady dostosowania, plan prób, 8 scen |
+| E. Gra „Podróż Małego Księcia” | 7 | plansza 30 pól, zasady, instrukcja krok po kroku (przygotowanie, przebieg kolejki, kolory pól, rola dorosłego, warianty), 32 karty zadań w 4 taliach, plansza do wydruku w A3 |
+| F. Scenariusz przedstawienia | 13 | obsada, zasady dostosowania, plan prób, 8 scen |
+| G. Załączniki do wycięcia | 6 | termometr emocji ze wskaźnikiem, krążki oceny, 16 kart miejsc i spotkań |
 | Zakończenie | 1 | — |
 
 ## Stały rytm rozdziału (3 strony)

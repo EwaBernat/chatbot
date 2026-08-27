@@ -71,6 +71,38 @@ small{font-weight:400;font-size:.82em;color:var(--szary)}
 .kol-2{display:grid;grid-template-columns:1fr 1fr;gap:5mm;margin-bottom:4mm}
 .kol-2 .gra-zasady{margin:0}
 
+/* ---------- ZASADY DOSTOSOWANIA (F) ---------- */
+.zas-grupy{display:grid;gap:4.5mm;margin:1mm 0 4mm}
+.zas-grupa{border-radius:12px;background:var(--z050);
+  border:1px solid var(--z200);border-left:5px solid var(--zg);padding:3.5mm 4mm 4mm}
+.zas-grupa h3{display:flex;align-items:center;gap:3mm;font-size:13.5pt;color:var(--z800);
+  margin:0 0 3mm;letter-spacing:.01em}
+.zg-ikona{display:inline-flex;width:9mm;height:9mm;align-items:center;justify-content:center;
+  border-radius:50%;background:#fff;border:1.5px solid var(--zg);flex:none}
+.zg-ikona svg{width:6mm;height:6mm;display:block}
+.zas-karty{display:grid;grid-template-columns:1fr 1fr;gap:2.6mm}
+.zas-karta{position:relative;background:#fff;border:1px solid var(--z200);border-radius:9px;
+  padding:2.4mm 3mm 2.6mm 10mm;break-inside:avoid}
+.zk-nr{position:absolute;left:2.6mm;top:2.4mm;width:5.6mm;height:5.6mm;border-radius:50%;
+  background:var(--zg);color:#fff;font-family:var(--font-h);font-size:8.6pt;font-weight:700;
+  display:flex;align-items:center;justify-content:center;line-height:1}
+.zas-karta b{display:block;font-family:var(--font-h);font-size:10.4pt;color:var(--z800);margin-bottom:.6mm}
+.zas-karta p{font-size:9.2pt;color:var(--z900);margin:0;line-height:1.35}
+
+/* ---------- POŻEGNANIE ---------- */
+.pozegnanie{margin:4mm 0 2mm;padding:4mm 6mm 4.5mm;border-radius:14px;text-align:center;
+  background:linear-gradient(180deg,var(--z050),#fff);border:1px solid var(--z200);
+  border-top:4px solid var(--gold)}
+.pozegnanie h3{font-size:11pt;letter-spacing:.2em;text-transform:uppercase;color:var(--z500);
+  margin:0 0 3mm;font-weight:600}
+.poz-tekst{font-size:11.2pt;line-height:1.5;color:var(--z900);max-width:136mm;margin:0 auto 3mm;
+  font-style:italic}
+.poz-inicjaly{font-family:var(--font-h);font-size:26pt;font-weight:700;font-style:italic;
+  color:var(--gold);line-height:1;letter-spacing:.06em;margin:0 0 1.5mm}
+.poz-imie{font-family:var(--font-h);font-size:10pt;font-weight:600;letter-spacing:.06em;color:var(--z700);margin:0 0 .8mm}
+.poz-org{font-size:8.8pt;letter-spacing:.05em;color:var(--z500);margin:0}
+.poz-znak{width:13mm;margin:0 auto 2.4mm}
+
 /* ---------- NAGŁÓWKI DZIAŁÓW ---------- */
 .dzial-h{font-size:23pt;color:var(--z800);display:flex;align-items:center;gap:5mm;
   padding-bottom:3mm;margin-bottom:5mm;border-bottom:3px solid var(--z200)}
@@ -181,7 +213,7 @@ small{font-weight:400;font-size:.82em;color:var(--szary)}
 .ilu-box > svg,.ilu-box > img{position:absolute;left:0;top:0;width:100%;height:100%;display:block}
 .foto-tlo{background-position:center;background-size:cover;background-repeat:no-repeat}
 .ilu-foto{background:var(--z200)}
-.ilu.konc-foto{max-width:92mm;margin:0 auto 3mm}
+.ilu.konc-foto{max-width:64mm;margin:0 auto 2.5mm}
 figcaption{font-size:9pt;color:var(--szary);padding:2mm 3mm;background:var(--z050);text-align:center}
 
 /* ---------- POSTACIE ---------- */
@@ -486,6 +518,7 @@ figcaption{font-size:9pt;color:var(--szary);padding:2mm 3mm;background:var(--z05
 @media screen and (max-width:800px){
   .page{width:100%;padding:6mm 4mm}
   .r-grid,.r-grid2,.pytania,.spis-grid,.dwie-kolumny,.zas-spekt{column-count:1}
+  .zas-karty{grid-template-columns:1fr}
   .r-grid,.r-grid2,.pytania,.spis-grid,.narz,.drabina,.karty3,.zalozenia,.postacie,
   .gra-glowna,.talie,.specjalne,.spekt-2kol,.konc-info,.spekt-info{grid-template-columns:1fr}
   .okladka h1{font-size:28pt}

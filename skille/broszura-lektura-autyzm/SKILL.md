@@ -139,6 +139,16 @@ papieru zamiast instrukcji słownej, trzy karty do wyboru zamiast losowania.
 ocena sytuacji, „co on myśli?”. **Nikt nie odpada, nie ma zadań na czas, wynik liczy się
 wspólnie dla klasy** — rywalizacja przenosi uwagę z zadania na porażkę.
 
+**Kolejność części trzyma tematy razem.** Wszystko o grze (zasady, instrukcja, talie kart,
+plansza do wydruku) idzie jednym ciągiem w części E; wszystko o przedstawieniu (obsada, zasady
+dostosowania, program, rekwizyty, sceny) — jednym ciągiem w części F. Nie wynoś planszy do
+załączników tylko dlatego, że jest do wycięcia: prowadzący szuka jej tam, gdzie czytał o grze.
+W części G zostają wyłącznie materiały ogólne — termometr, krążki oceny, karty miejsc.
+
+**Zakończenie podpisuje autorka.** Po cytacie i akapitach idzie blok pożegnania: znak wydawcy,
+kilka zdań do czytelnika, duże inicjały autorki i jej nazwisko. Danych wydawcy nie powtarzaj —
+są już w metryczce na stronie 2.
+
 **Metryczka wydawnicza** to zawsze **druga strona**, zaraz po okładce, a spis treści idzie
 po niej. Zawiera dane wydawcy, kartę broszury (tytuł, źródło, odbiorcy, zastosowanie, format,
 objętość, wydanie), notę o ilustracjach, prawa i instrukcję druku. Nauczyciel, który dostaje
