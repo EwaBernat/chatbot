@@ -3,12 +3,13 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="description" content="Broszura o echolalii w autyzmie: siedem mechanizmów opisanych w literaturze naukowej, każdy z oceną siły dowodów.">
+<meta name="author" content="mgr Mirosława Jurczyszyn — PCTP Koszalin">
+<meta name="description" content="Broszura o echolalii w autyzmie: siedem mechanizmów z oceną siły dowodów, dziesięć ćwiczeń dla terapeuty komunikacji i dostosowania dla nauczycieli.">
 <style>@page{size:A4;margin:0;}</style>
-<title>Echolalia pod lupą nauki — broszura edukacyjno-terapeutyczna PCTP</title>
+<title>Echolalia pod lupą nauki — broszura PCTP Koszalin</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;0,9..144,700;0,9..144,900;1,9..144,400&family=Mulish:wght@400;600;700;800&family=IBM+Plex+Mono:wght@400;500;600&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;0,9..144,700;0,9..144,900;1,9..144,400&family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,700&family=JetBrains+Mono:wght@400;500;700&display=swap">
 
 <style>
   :root{
@@ -18,24 +19,24 @@
     --pomarancz-jasny:#FF7A45;
     --atrament:#170E2E;
     --ametyst:#6D4BC7;
-    --ametyst-mgla:#EFEAFB;
-    --bursztyn:#F2A20C;
-    --bursztyn-ciemny:#B8770A;
+    --ametyst-mgla:#F3F1FB;
+    --bursztyn:#E0930C;
+    --bursztyn-ciemny:#C47A10;
     --bursztyn-mgla:#FDF3E0;
-    --morski:#0E8078;
-    --morski-mgla:#E6F2F1;
-    --roz:#F26D85;
-    --krem:#FAF6EE;
+    --morski:#0D7D5C;
+    --morski-mgla:#E6F3EE;
+    --czerwien:#B8350D;
+    --krem:#FBF9F4;
     --papier:#FFFFFF;
-    --tekst:#231A3B;
-    --szary:#6B6478;
+    --tekst:#1A1530;
+    --szary:#6B6378;
     --szary-jasny:#9A93AB;
-    --linia:#E6E0F0;
+    --linia:#E2DCEE;
     --biurko:#D8D0C4;
 
     --serif:'Fraunces', Georgia, 'Times New Roman', serif;
-    --sans:'Mulish', 'Segoe UI', Arial, sans-serif;
-    --mono:'IBM Plex Mono', ui-monospace, 'Courier New', monospace;
+    --sans:'DM Sans', 'Segoe UI', Arial, sans-serif;
+    --mono:'JetBrains Mono', ui-monospace, 'Courier New', monospace;
   }
 
   *{box-sizing:border-box;}
@@ -60,7 +61,7 @@
   /* ═════ KARTKA A4 ═════ */
   .page{
     width:210mm;min-height:297mm;background:var(--papier);
-    margin:0 auto 16px;padding:18mm 17mm 16mm;
+    margin:0 auto 16px;padding:14mm 15mm 13mm;
     position:relative;overflow:hidden;
     box-shadow:0 6px 26px rgba(23,14,46,.3);
   }
@@ -69,45 +70,50 @@
   .page.pelna{padding:0;}
 
   .footer{
-    position:absolute;bottom:9mm;left:17mm;right:17mm;
-    display:flex;justify-content:space-between;align-items:baseline;
-    font-family:var(--mono);font-size:8.5px;letter-spacing:.11em;text-transform:uppercase;
-    color:var(--szary-jasny);border-top:1px solid var(--linia);padding-top:4mm;
+    position:absolute;bottom:6.5mm;left:15mm;right:15mm;
+    display:flex;justify-content:space-between;align-items:baseline;gap:14px;
+    font-family:var(--mono);font-size:9.5px;letter-spacing:.11em;text-transform:uppercase;
+    color:var(--szary-jasny);border-top:1px solid var(--linia);padding-top:3mm;
   }
   .ciemna .footer{border-top-color:rgba(255,255,255,.18);color:#9C8FC9;}
-  .pagenum{font-weight:600;color:var(--pomarancz);font-size:11.5px;letter-spacing:0;
-    font-family:var(--mono);font-variant-numeric:tabular-nums;}
+  .pagenum{font-weight:500;color:var(--szary-jasny);font-size:10px;letter-spacing:.06em;
+    font-family:var(--mono);font-variant-numeric:tabular-nums;white-space:nowrap;}
+  .pagenum b{color:var(--pomarancz);font-weight:700;font-size:12.5px;letter-spacing:0;}
+  .ciemna .pagenum b{color:var(--pomarancz-jasny);}
+  .footer .wydawca{color:var(--szary-jasny);opacity:.85;white-space:nowrap;}
+  .ciemna .footer .wydawca{color:#9C8FC9;}
+  .footer .pagina{overflow:hidden;text-overflow:ellipsis;white-space:nowrap;}
   .ciemna .pagenum{color:var(--pomarancz-jasny);}
 
   /* ═════ TYPOGRAFIA ═════ */
   h1,h2,h3,h4{font-family:var(--serif);text-wrap:balance;margin:0;}
 
   .kicker{
-    font-family:var(--mono);font-size:9.5px;letter-spacing:.17em;text-transform:uppercase;
-    color:var(--pomarancz);font-weight:600;margin-bottom:8px;
+    font-family:var(--mono);font-size:10.5px;letter-spacing:.17em;text-transform:uppercase;
+    color:var(--pomarancz);font-weight:600;margin-bottom:6px;
   }
   .ciemna .kicker{color:var(--pomarancz-jasny);}
 
   h2.section{
-    font-size:29px;font-weight:700;color:var(--fiolet);line-height:1.12;
-    margin-bottom:10px;letter-spacing:-.015em;
+    font-size:32px;font-weight:700;color:var(--fiolet);line-height:1.12;
+    margin-bottom:8px;letter-spacing:-.015em;
   }
   h2.section::after{
     content:"";display:block;width:64px;height:5px;border-radius:3px;
-    background:linear-gradient(90deg,var(--pomarancz),var(--bursztyn));margin-top:11px;
+    background:linear-gradient(90deg,var(--pomarancz),var(--bursztyn));margin-top:9px;
   }
-  h3.sub{font-size:18px;font-weight:700;color:var(--fiolet);margin:20px 0 9px;letter-spacing:-.01em;}
+  h3.sub{font-size:20.5px;font-weight:700;color:var(--fiolet);margin:15px 0 8px;letter-spacing:-.01em;}
   h3.sub:first-child{margin-top:0;}
-  p{font-size:13.2px;line-height:1.66;margin:0 0 11px;}
+  p{font-size:15px;line-height:1.62;margin:0 0 10px;}
   .lead{
-    font-family:var(--serif);font-size:16.5px;font-weight:400;line-height:1.5;
-    color:var(--fiolet-jasny);margin:0 0 18px;max-width:62ch;
+    font-family:var(--serif);font-size:19px;font-weight:400;line-height:1.5;
+    color:var(--fiolet-jasny);margin:0 0 14px;max-width:56ch;
   }
   .ciemna .lead{color:#D6CBF5;}
   strong{font-weight:800;color:var(--fiolet);}
   .ciemna strong{color:var(--pomarancz-jasny);}
   em.termin{font-style:normal;font-weight:700;color:var(--morski);}
-  .cyt{font-family:var(--mono);font-size:8.5px;font-weight:600;color:var(--pomarancz);
+  .cyt{font-family:var(--mono);font-size:9.5px;font-weight:600;color:var(--pomarancz);
     vertical-align:super;letter-spacing:.02em;white-space:nowrap;}
 
   /* ═════ OKŁADKA ═════ */
@@ -120,16 +126,21 @@
     color:var(--krem);display:flex;flex-direction:column;justify-content:space-between;
   }
   .cover-gora{padding:16mm 16mm 0;display:flex;justify-content:space-between;align-items:flex-start;gap:16px;}
-  .cover-znak{
-    display:flex;align-items:center;gap:10px;
-    font-family:var(--mono);font-size:9.5px;letter-spacing:.16em;text-transform:uppercase;color:#CFC3F2;
+  .cover-znak{display:flex;align-items:center;gap:12px;}
+  .cover-znak .sygnet{width:44px;height:44px;flex-shrink:0;}
+  .cover-znak .nazwa{
+    font-family:var(--serif);font-size:15px;font-weight:700;color:#fff;line-height:1.15;letter-spacing:-.01em;
   }
-  .cover-znak .sygnet{
-    width:34px;height:34px;border-radius:10px;flex-shrink:0;
-    background:linear-gradient(140deg,var(--pomarancz),var(--bursztyn));
-    display:flex;align-items:center;justify-content:center;
-    font-family:var(--serif);font-size:16px;font-weight:900;color:#1B1040;
+  .cover-znak .rola{
+    font-family:var(--mono);font-size:8.5px;letter-spacing:.16em;text-transform:uppercase;
+    color:#B5A6E2;margin-top:4px;
   }
+  /* znak firmowy w wersji na jasnym tle */
+  .znak{display:flex;align-items:center;gap:11px;}
+  .znak .sygnet{width:40px;height:40px;flex-shrink:0;}
+  .znak .nazwa{font-family:var(--serif);font-size:14.5px;font-weight:700;color:var(--fiolet);line-height:1.15;}
+  .znak .rola{font-family:var(--mono);font-size:8.5px;letter-spacing:.15em;text-transform:uppercase;
+    color:var(--pomarancz);margin-top:4px;}
   .cover-plakietka{
     border:1px solid rgba(255,255,255,.32);border-radius:30px;padding:6px 15px;
     font-family:var(--mono);font-size:9px;letter-spacing:.14em;text-transform:uppercase;color:#EFE9FF;
@@ -160,35 +171,36 @@
   .cover-dol .kto{font-size:12.5px;line-height:1.5;color:#E7E0F8;}
   .cover-dol .kto b{display:block;font-family:var(--serif);font-size:16px;font-weight:700;color:#fff;margin-bottom:3px;}
   .cover-dol .wyd{
-    font-family:var(--mono);font-size:9px;letter-spacing:.12em;text-transform:uppercase;
-    color:#A697D9;text-align:right;line-height:1.8;
+    font-family:var(--mono);font-size:8.5px;letter-spacing:.05em;text-transform:uppercase;
+    color:#A697D9;text-align:right;line-height:1.9;white-space:nowrap;flex-shrink:0;
   }
+  .cover-dol .kto{max-width:62%;}
 
   /* ═════ METRYKA ═════ */
-  .metryka{display:grid;grid-template-columns:auto 1fr;gap:9px 20px;margin:14px 0 0;font-size:12.3px;line-height:1.6;}
-  .metryka dt{font-family:var(--mono);font-size:8.5px;letter-spacing:.12em;text-transform:uppercase;
+  .metryka{display:grid;grid-template-columns:auto 1fr;gap:8px 20px;margin:11px 0 0;font-size:14px;line-height:1.55;}
+  .metryka dt{font-family:var(--mono);font-size:9.5px;letter-spacing:.12em;text-transform:uppercase;
     color:var(--pomarancz);font-weight:600;padding-top:3px;white-space:nowrap;}
   .metryka dd{margin:0;}
 
   /* ═════ SPIS TREŚCI ═════ */
-  .toc{margin-top:14px;}
-  .toc-grupa{margin-bottom:16px;}
+  .toc{margin-top:8px;}
+  .toc-grupa{margin-bottom:9px;}
   .toc-naglowek{
-    display:flex;align-items:baseline;gap:11px;margin-bottom:9px;
-    padding-bottom:7px;border-bottom:2px solid var(--linia);
+    display:flex;align-items:baseline;gap:11px;margin-bottom:6px;
+    padding-bottom:5px;border-bottom:2px solid var(--linia);
   }
   .toc-naglowek .nr{
-    font-family:var(--serif);font-size:26px;font-weight:900;line-height:1;
+    font-family:var(--serif);font-size:23px;font-weight:900;line-height:1;
     color:var(--pomarancz);letter-spacing:-.03em;
   }
-  .toc-naglowek .tyt{font-family:var(--serif);font-size:17px;font-weight:700;color:var(--fiolet);flex:1;}
-  .toc-naglowek .str{font-family:var(--mono);font-size:12px;font-weight:600;color:var(--fiolet);}
+  .toc-naglowek .tyt{font-family:var(--serif);font-size:17.5px;font-weight:700;color:var(--fiolet);flex:1;}
+  .toc-naglowek .str{font-family:var(--mono);font-size:13.5px;font-weight:600;color:var(--fiolet);}
   .toc-poz{
-    display:flex;align-items:baseline;gap:8px;padding:4px 0 4px 37px;font-size:12.4px;
+    display:flex;align-items:baseline;gap:8px;padding:2.5px 0 2.5px 37px;font-size:13.5px;
   }
   .toc-poz .co{color:var(--tekst);}
   .toc-poz .kropki{flex:1;border-bottom:1.5px dotted var(--linia);transform:translateY(-3px);min-width:20px;}
-  .toc-poz .str{font-family:var(--mono);font-size:11px;color:var(--szary);font-variant-numeric:tabular-nums;}
+  .toc-poz .str{font-family:var(--mono);font-size:12.5px;color:var(--szary);font-variant-numeric:tabular-nums;}
 
   /* ═════ KARTA ROZDZIAŁU ═════ */
   .rozdzial{
@@ -204,13 +216,13 @@
     color:rgba(255,255,255,.14);letter-spacing:-.05em;margin-bottom:18px;
   }
   .rozdzial h1{font-size:44px;font-weight:900;line-height:1.04;letter-spacing:-.028em;color:#fff;margin-bottom:14px;}
-  .rozdzial .lead{font-size:17px;max-width:34ch;color:#E0D8FA;}
+  .rozdzial .lead{font-size:19.5px;max-width:32ch;color:#E0D8FA;}
   .rozdzial .w-srodku{
     margin-top:24px;padding-top:16px;border-top:1px solid rgba(255,255,255,.18);
     display:flex;gap:22px;flex-wrap:wrap;
   }
   .rozdzial .w-srodku span{
-    font-family:var(--mono);font-size:9.5px;letter-spacing:.1em;text-transform:uppercase;color:#B7A9E4;
+    font-family:var(--mono);font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;color:#B7A9E4;
     display:flex;align-items:center;gap:7px;
   }
   .rozdzial .w-srodku span::before{
@@ -218,9 +230,9 @@
   }
 
   /* ═════ ILUSTRACJE / RAMKI OBRAZKÓW ═════ */
-  .figura{margin:14px 0 16px;}
+  .figura{margin:11px 0 12px;}
   .figura .ramka{
-    border-radius:18px;overflow:hidden;padding:18px 20px;
+    border-radius:18px;overflow:hidden;padding:14px 16px;
     background:linear-gradient(150deg,#241553,#160D36);
     border:1px solid rgba(255,255,255,.08);
   }
@@ -230,18 +242,18 @@
   }
   .figura svg{width:100%;height:auto;display:block;}
   .figura figcaption{
-    font-family:var(--mono);font-size:9px;letter-spacing:.09em;text-transform:uppercase;
-    color:var(--szary);margin-top:9px;display:flex;gap:8px;align-items:baseline;line-height:1.5;
+    font-family:var(--mono);font-size:10px;letter-spacing:.09em;text-transform:uppercase;
+    color:var(--szary);margin-top:8px;display:flex;gap:8px;align-items:baseline;line-height:1.45;
   }
   .figura figcaption b{color:var(--pomarancz);font-weight:600;flex-shrink:0;}
 
   /* ═════ RAMKI TREŚCIOWE ═════ */
-  .ramka-t{border-radius:15px;padding:14px 17px;margin:13px 0;font-size:12.4px;line-height:1.6;}
+  .ramka-t{border-radius:15px;padding:13px 16px;margin:11px 0;font-size:14px;line-height:1.58;}
   .ramka-t .glowa{
-    font-family:var(--mono);font-size:9px;letter-spacing:.13em;text-transform:uppercase;
-    font-weight:600;margin-bottom:7px;display:flex;align-items:center;gap:8px;
+    font-family:var(--mono);font-size:10px;letter-spacing:.13em;text-transform:uppercase;
+    font-weight:600;margin-bottom:6px;display:flex;align-items:center;gap:8px;
   }
-  .ramka-t p{font-size:12.4px;line-height:1.6;margin:0 0 8px;}
+  .ramka-t p{font-size:14px;line-height:1.58;margin:0 0 7px;}
   .ramka-t p:last-child{margin-bottom:0;}
 
   .ramka-t.definicja{background:var(--ametyst-mgla);border-left:6px solid var(--ametyst);}
@@ -254,22 +266,22 @@
   .ramka-t.praktyka .glowa{color:var(--bursztyn-ciemny);}
   .ramka-t.cytat{
     background:transparent;border:none;border-left:4px solid var(--pomarancz);
-    padding:4px 0 4px 18px;font-family:var(--serif);font-size:16px;font-style:italic;
+    padding:4px 0 4px 18px;font-family:var(--serif);font-size:18.5px;font-style:italic;
     color:var(--fiolet-jasny);line-height:1.5;
   }
   .ramka-t.cytat .autor{
-    display:block;font-family:var(--mono);font-style:normal;font-size:9px;
+    display:block;font-family:var(--mono);font-style:normal;font-size:10px;
     letter-spacing:.11em;text-transform:uppercase;color:var(--szary);margin-top:9px;
   }
 
   /* ═════ KAFLE Z LICZBAMI ═════ */
-  .liczby{display:grid;grid-template-columns:1fr 1fr;gap:13px;margin:16px 0 0;}
-  .liczba{border-radius:16px;padding:17px 18px 16px;border:1px solid var(--linia);background:var(--papier);}
-  .liczba .duza{font-family:var(--serif);font-size:44px;font-weight:900;line-height:1;
-    letter-spacing:-.035em;font-variant-numeric:tabular-nums;}
-  .liczba .jednostka{font-size:17px;font-weight:700;margin-left:2px;}
-  .liczba .opis{font-size:11.8px;line-height:1.52;margin-top:8px;}
-  .liczba .zrodlo{font-family:var(--mono);font-size:8px;letter-spacing:.08em;text-transform:uppercase;
+  .liczby{display:grid;grid-template-columns:1fr 1fr;gap:11px;margin:12px 0 0;}
+  .liczba{border-radius:16px;padding:14px 16px 13px;border:1px solid var(--linia);background:var(--papier);}
+  .liczba .duza{font-family:var(--serif);font-size:31px;font-weight:700;line-height:1.05;
+    letter-spacing:-.02em;font-variant-numeric:tabular-nums;}
+  .liczba .jednostka{font-size:14px;font-weight:700;margin-left:2px;}
+  .liczba .opis{font-size:13.2px;line-height:1.52;margin-top:9px;}
+  .liczba .zrodlo{font-family:var(--mono);font-size:9px;letter-spacing:.08em;text-transform:uppercase;
     color:var(--szary-jasny);margin-top:8px;}
   .liczba.v1{background:var(--ametyst-mgla);border-color:#D9CEF6;}
   .liczba.v1 .duza{color:var(--fiolet);}
@@ -281,35 +293,35 @@
   .liczba.v4 .duza{color:var(--bursztyn-ciemny);}
 
   /* ═════ SKALA DOWODÓW ═════ */
-  .skala{display:grid;grid-template-columns:repeat(3,1fr);gap:11px;margin:14px 0 6px;}
-  .stopien{border-radius:13px;padding:13px 14px;background:var(--papier);border:1px solid var(--linia);}
+  .skala{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin:11px 0 5px;}
+  .stopien{border-radius:13px;padding:11px 13px;background:var(--papier);border:1px solid var(--linia);}
   .kropki{display:flex;gap:4px;margin-bottom:8px;}
   .kropki i{width:9px;height:9px;border-radius:50%;background:var(--linia);display:block;}
   .stopien.s3 .kropki i.on{background:var(--morski);}
   .stopien.s2 .kropki i.on{background:var(--bursztyn);}
   .stopien.s1 .kropki i.on{background:var(--szary-jasny);}
-  .stopien .nazwa{font-family:var(--mono);font-size:9px;letter-spacing:.11em;text-transform:uppercase;
+  .stopien .nazwa{font-family:var(--mono);font-size:10px;letter-spacing:.11em;text-transform:uppercase;
     font-weight:600;margin-bottom:5px;}
   .stopien.s3 .nazwa{color:var(--morski);}
   .stopien.s2 .nazwa{color:var(--bursztyn-ciemny);}
   .stopien.s1 .nazwa{color:var(--szary);}
-  .stopien .co{font-size:11px;line-height:1.45;}
+  .stopien .co{font-size:12.5px;line-height:1.46;}
 
   /* ═════ KARTA PRZYCZYNY ═════ */
   .przyczyna{
-    border-radius:15px;padding:15px 17px 14px;margin:0 0 12px;
+    border-radius:15px;padding:13px 16px 12px;margin:0 0 10px;
     background:var(--papier);border:1px solid var(--linia);border-left:6px solid var(--linia);
   }
-  .przyczyna .glowa{display:flex;justify-content:space-between;align-items:flex-start;gap:14px;margin-bottom:8px;}
-  .przyczyna h4{font-size:15.5px;font-weight:700;line-height:1.25;letter-spacing:-.012em;color:var(--fiolet);flex:1;}
+  .przyczyna .glowa{display:flex;justify-content:space-between;align-items:flex-start;gap:14px;margin-bottom:7px;}
+  .przyczyna h4{font-size:17.5px;font-weight:700;line-height:1.25;letter-spacing:-.012em;color:var(--fiolet);flex:1;}
   .przyczyna .waga{display:flex;flex-direction:column;align-items:flex-end;gap:4px;flex-shrink:0;padding-top:3px;}
-  .przyczyna .waga .etykieta{font-family:var(--mono);font-size:7.5px;letter-spacing:.12em;
+  .przyczyna .waga .etykieta{font-family:var(--mono);font-size:8.5px;letter-spacing:.12em;
     text-transform:uppercase;font-weight:600;}
-  .przyczyna p{font-size:12.3px;line-height:1.58;margin:0 0 7px;}
+  .przyczyna p{font-size:14px;line-height:1.56;margin:0 0 7px;}
   .przyczyna p:last-of-type{margin-bottom:0;}
-  .przyczyna .wniosek{font-size:11.5px;line-height:1.5;margin-top:9px;padding-top:9px;
+  .przyczyna .wniosek{font-size:13px;line-height:1.5;margin-top:8px;padding-top:8px;
     border-top:1px dashed rgba(0,0,0,.13);color:var(--szary);}
-  .przyczyna .wniosek b{font-family:var(--mono);font-size:8.5px;letter-spacing:.1em;text-transform:uppercase;}
+  .przyczyna .wniosek b{font-family:var(--mono);font-size:9.5px;letter-spacing:.1em;text-transform:uppercase;}
   .przyczyna.mocne{border-left-color:var(--morski);background:var(--morski-mgla);}
   .przyczyna.mocne .waga .etykieta,.przyczyna.mocne .wniosek b{color:var(--morski);}
   .przyczyna.mocne .kropki i.on{background:var(--morski);}
@@ -321,78 +333,78 @@
   .przyczyna.hipoteza .kropki i.on{background:var(--szary-jasny);}
 
   /* ═════ TABELA ═════ */
-  .tabela-wrap{overflow-x:auto;margin:12px 0 10px;}
-  table.stany{width:100%;border-collapse:collapse;font-size:11.3px;}
-  table.stany th{background:var(--fiolet);color:var(--krem);text-align:left;padding:9px 10px;
-    font-family:var(--mono);font-size:8px;letter-spacing:.12em;text-transform:uppercase;font-weight:600;}
+  .tabela-wrap{overflow-x:auto;margin:10px 0 8px;}
+  table.stany{width:100%;border-collapse:collapse;font-size:13px;}
+  table.stany th{background:var(--fiolet);color:var(--krem);text-align:left;padding:8px 10px;
+    font-family:var(--mono);font-size:9px;letter-spacing:.12em;text-transform:uppercase;font-weight:600;}
   table.stany th:first-child{border-radius:9px 0 0 0;}
   table.stany th:last-child{border-radius:0 9px 0 0;}
-  table.stany td{padding:9px 10px;border-bottom:1px solid var(--linia);vertical-align:top;line-height:1.5;}
+  table.stany td{padding:7.5px 10px;border-bottom:1px solid var(--linia);vertical-align:top;line-height:1.45;}
   table.stany tr:nth-child(even) td{background:#F7F5FC;}
   .krem table.stany tr:nth-child(even) td{background:#F3EFE6;}
   table.stany td:first-child{font-weight:800;color:var(--fiolet);width:31%;}
-  table.stany td:nth-child(2){width:21%;color:var(--szary);font-family:var(--mono);font-size:9.5px;}
+  table.stany td:nth-child(2){width:21%;color:var(--szary);font-family:var(--mono);font-size:11px;}
 
   /* ═════ OŚ CZASU ═════ */
-  .os{position:relative;margin:16px 0 0;padding-left:78px;}
+  .os{position:relative;margin:12px 0 0;padding-left:78px;}
   .os::before{content:"";position:absolute;left:60px;top:6px;bottom:6px;width:2px;
     background:linear-gradient(180deg,var(--ametyst),var(--pomarancz),var(--bursztyn));}
-  .wpis{position:relative;margin-bottom:13px;}
+  .wpis{position:relative;margin-bottom:10px;}
   .wpis .rok{position:absolute;left:-78px;top:-1px;width:46px;text-align:right;
-    font-family:var(--mono);font-size:12px;font-weight:600;color:var(--fiolet);font-variant-numeric:tabular-nums;}
+    font-family:var(--mono);font-size:13.5px;font-weight:600;color:var(--fiolet);font-variant-numeric:tabular-nums;}
   .wpis::before{content:"";position:absolute;left:-20px;top:5px;width:9px;height:9px;border-radius:50%;
     background:var(--krem);border:2.5px solid var(--ametyst);}
   .wpis.kluczowy::before{background:var(--pomarancz);border-color:var(--pomarancz);
     box-shadow:0 0 0 4px rgba(232,69,10,.16);}
-  .wpis h4{font-size:13px;font-weight:700;color:var(--fiolet);margin-bottom:3px;line-height:1.3;}
-  .wpis p{font-size:11.5px;line-height:1.5;margin:0;}
+  .wpis h4{font-size:14.5px;font-weight:700;color:var(--fiolet);margin-bottom:4px;line-height:1.3;}
+  .wpis p{font-size:13px;line-height:1.52;margin:0;}
 
   /* ═════ MITY ═════ */
-  .mit{margin-bottom:11px;border-radius:13px;overflow:hidden;border:1px solid var(--linia);}
-  .mit .falsz{background:#F0EDF6;padding:11px 15px;font-family:var(--serif);font-size:14.5px;
+  .mit{margin-bottom:9px;border-radius:13px;overflow:hidden;border:1px solid var(--linia);}
+  .mit .falsz{background:#F0EDF6;padding:11px 15px;font-family:var(--serif);font-size:16.5px;
     font-style:italic;color:var(--szary);line-height:1.4;}
   .mit .falsz::before{content:"MIT";font-family:var(--mono);font-style:normal;font-size:7.5px;
     letter-spacing:.16em;color:var(--szary-jasny);display:block;margin-bottom:4px;font-weight:600;}
-  .mit .prawda{background:var(--papier);padding:12px 15px;font-size:12.2px;line-height:1.56;
+  .mit .prawda{background:var(--papier);padding:11px 15px;font-size:14px;line-height:1.55;
     border-top:2px solid var(--morski);}
   .mit .prawda::before{content:"CO MÓWIĄ BADANIA";font-family:var(--mono);font-size:7.5px;
     letter-spacing:.16em;color:var(--morski);display:block;margin-bottom:5px;font-weight:600;}
 
   /* ═════ KROKI ═════ */
-  .kroki{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:14px 0 0;}
-  .krok{background:var(--papier);border:1px solid var(--linia);border-radius:14px;padding:14px 15px;position:relative;}
+  .kroki{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:11px 0 0;}
+  .krok{background:var(--papier);border:1px solid var(--linia);border-radius:14px;padding:12px 14px;position:relative;}
   .krok .nr{font-family:var(--serif);font-size:32px;font-weight:900;line-height:1;
     color:var(--pomarancz);opacity:.26;position:absolute;right:13px;top:8px;}
-  .krok h4{font-size:13.5px;font-weight:700;color:var(--fiolet);margin-bottom:6px;padding-right:34px;line-height:1.25;}
-  .krok p{font-size:11.6px;line-height:1.52;margin:0;}
-  .krok .bo{font-family:var(--mono);font-size:8px;letter-spacing:.1em;text-transform:uppercase;
+  .krok h4{font-size:15px;font-weight:700;color:var(--fiolet);margin-bottom:6px;padding-right:34px;line-height:1.25;}
+  .krok p{font-size:13.2px;line-height:1.54;margin:0;}
+  .krok .bo{font-family:var(--mono);font-size:9px;letter-spacing:.1em;text-transform:uppercase;
     color:var(--morski);margin-top:8px;display:block;}
 
   /* ═════ SŁOWNICZEK ═════ */
-  .slownik{display:grid;grid-template-columns:1fr 1fr;gap:11px;margin-top:14px;}
-  .haslo{background:var(--papier);border:1px solid var(--linia);border-radius:13px;padding:12px 14px;}
+  .slownik{display:grid;grid-template-columns:1fr 1fr;gap:9px;margin-top:11px;}
+  .haslo{background:var(--papier);border:1px solid var(--linia);border-radius:13px;padding:10px 13px;}
   .krem .haslo{background:var(--papier);}
-  .haslo dt{font-family:var(--serif);font-size:14px;font-weight:700;color:var(--fiolet);margin-bottom:5px;line-height:1.25;}
-  .haslo dd{margin:0;font-size:11.4px;line-height:1.52;color:var(--tekst);}
+  .haslo dt{font-family:var(--serif);font-size:15.5px;font-weight:700;color:var(--fiolet);margin-bottom:5px;line-height:1.25;}
+  .haslo dd{margin:0;font-size:13px;line-height:1.54;color:var(--tekst);}
 
   /* ═════ BIBLIOGRAFIA ═════ */
   ol.zrodla{margin:12px 0 0;padding-left:0;list-style:none;}
-  ol.zrodla li{font-size:10.8px;line-height:1.55;margin-bottom:7px;padding-left:32px;position:relative;}
-  ol.zrodla li .n{position:absolute;left:0;top:1px;font-family:var(--mono);font-size:9.5px;
+  ol.zrodla li{font-size:12.3px;line-height:1.5;margin-bottom:6px;padding-left:32px;position:relative;}
+  ol.zrodla li .n{position:absolute;left:0;top:1px;font-family:var(--mono);font-size:11px;
     font-weight:600;color:var(--pomarancz);}
   ol.zrodla li i{color:var(--fiolet-jasny);}
 
-  .nota{background:var(--ametyst-mgla);border-radius:13px;padding:13px 15px;margin-top:14px;
-    font-size:11.4px;line-height:1.58;color:var(--fiolet);}
-  .nota b{font-family:var(--mono);font-size:8.5px;letter-spacing:.12em;text-transform:uppercase;
+  .nota{background:var(--ametyst-mgla);border-radius:13px;padding:12px 15px;margin-top:11px;
+    font-size:13px;line-height:1.58;color:var(--fiolet);}
+  .nota b{font-family:var(--mono);font-size:9.5px;letter-spacing:.12em;text-transform:uppercase;
     display:block;margin-bottom:5px;color:var(--ametyst);}
 
   /* ═════ ŚCIĄGAWKA ═════ */
-  .sciagawka{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:14px;}
-  .sc-karta{border-radius:15px;padding:14px 16px;border:1px solid var(--linia);background:var(--papier);}
-  .sc-karta .tyt{font-family:var(--serif);font-size:14.5px;font-weight:700;margin-bottom:9px;line-height:1.25;}
+  .sciagawka{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:11px;}
+  .sc-karta{border-radius:15px;padding:12px 15px;border:1px solid var(--linia);background:var(--papier);}
+  .sc-karta .tyt{font-family:var(--serif);font-size:16.5px;font-weight:700;margin-bottom:9px;line-height:1.25;}
   .sc-karta ul{margin:0;padding-left:17px;}
-  .sc-karta li{font-size:11.5px;line-height:1.52;margin-bottom:6px;}
+  .sc-karta li{font-size:13.2px;line-height:1.54;margin-bottom:7px;}
   .sc-karta li:last-child{margin-bottom:0;}
   .sc-karta.tak{border-left:6px solid var(--morski);}
   .sc-karta.tak .tyt{color:var(--morski);}
@@ -432,8 +444,67 @@
     display:flex;justify-content:space-between;align-items:flex-end;gap:20px;flex-wrap:wrap;}
   .tyl-stopka .org b{display:block;font-family:var(--serif);font-size:17px;font-weight:700;color:#fff;margin-bottom:4px;}
   .tyl-stopka .org{font-size:12px;line-height:1.6;color:#DCD3F3;}
-  .tyl-stopka .meta{font-family:var(--mono);font-size:8.5px;letter-spacing:.12em;text-transform:uppercase;
-    color:#9C8FC9;text-align:right;line-height:1.9;}
+  .tyl-stopka .meta{font-family:var(--mono);font-size:8.5px;letter-spacing:.05em;text-transform:uppercase;
+    color:#9C8FC9;text-align:right;line-height:1.9;white-space:nowrap;flex-shrink:0;}
+
+  /* ═════ WERDYKT ═════ */
+  .werdykt{
+    display:flex;gap:16px;align-items:stretch;margin:12px 0 6px;
+    background:var(--morski-mgla);border:1px solid #C3E0D4;border-radius:16px;padding:15px 17px;
+  }
+  .werdykt-nie{
+    font-family:var(--serif);font-size:46px;font-weight:700;line-height:1;letter-spacing:-.03em;
+    color:var(--morski);display:flex;align-items:center;padding-right:16px;
+    border-right:2px solid #C3E0D4;flex-shrink:0;
+  }
+  .werdykt-tresc p{font-size:14px;line-height:1.55;margin:0 0 7px;}
+  .werdykt-tresc .zasada{
+    font-family:var(--mono);font-size:11.5px;letter-spacing:.04em;color:var(--morski);margin:0;
+  }
+  .werdykt-tresc .zasada b{font-weight:700;text-transform:uppercase;letter-spacing:.1em;}
+
+  /* ═════ POWODY ═════ */
+  .powod{display:flex;gap:13px;align-items:flex-start;margin-bottom:11px;}
+  .powod .nr{
+    font-family:var(--mono);font-size:12px;font-weight:700;color:var(--pomarancz);
+    background:#FEF0E8;border-radius:9px;width:27px;height:27px;flex-shrink:0;
+    display:flex;align-items:center;justify-content:center;margin-top:1px;
+  }
+  .powod h4{font-size:15px;font-weight:700;color:var(--fiolet);margin-bottom:3px;line-height:1.25;}
+  .powod p{font-size:13.4px;line-height:1.54;margin:0;}
+
+  /* ═════ REGUŁY ═════ */
+  ol.reguly{margin:10px 0 0;padding-left:0;list-style:none;counter-reset:reg;}
+  ol.reguly li{
+    counter-increment:reg;position:relative;padding-left:34px;margin-bottom:9px;
+    font-size:13.4px;line-height:1.54;
+  }
+  ol.reguly li::before{
+    content:counter(reg);position:absolute;left:0;top:1px;
+    font-family:var(--mono);font-size:11px;font-weight:700;color:var(--fiolet);
+    background:var(--ametyst-mgla);border-radius:8px;width:24px;height:24px;
+    display:flex;align-items:center;justify-content:center;
+  }
+  ol.reguly li b{color:var(--fiolet);font-weight:700;}
+
+  /* ═════ ĆWICZENIA ═════ */
+  .cwiczenie{
+    border:1px solid var(--linia);border-left:6px solid var(--ametyst);
+    border-radius:15px;padding:13px 16px;margin-bottom:11px;background:var(--papier);
+  }
+  .krem .cwiczenie{background:var(--papier);}
+  .cw-glowa{display:flex;align-items:baseline;gap:11px;margin-bottom:8px;}
+  .cw-nr{
+    font-family:var(--mono);font-size:12.5px;font-weight:700;color:var(--pomarancz);
+    letter-spacing:.04em;flex-shrink:0;
+  }
+  .cw-glowa h4{font-size:16.5px;font-weight:700;color:var(--fiolet);line-height:1.2;letter-spacing:-.01em;}
+  dl.cw-tresc{display:grid;grid-template-columns:auto 1fr;gap:6px 14px;margin:0;}
+  dl.cw-tresc dt{
+    font-family:var(--mono);font-size:8.5px;letter-spacing:.13em;text-transform:uppercase;
+    font-weight:700;color:var(--ametyst);padding-top:3px;white-space:nowrap;
+  }
+  dl.cw-tresc dd{margin:0;font-size:13.4px;line-height:1.54;}
 
   @media print{
     body{background:#fff;padding:0;margin:0;}
@@ -468,15 +539,28 @@
 
 <div class="toolbar">
   <span><b>Echolalia pod lupą nauki</b> — broszura edukacyjno-terapeutyczna</span>
-  <span class="mono">19 stron A4 · gotowe do druku</span>
+  <span class="mono">28 stron A4 · gotowe do druku</span>
 </div>
 
-<!-- ═══════════════ 01 · OKŁADKA ═══════════════ -->
 <div class="page pelna cover">
   <div class="cover-gora">
     <div class="cover-znak">
-      <span class="sygnet">E</span>
-      <span>Poradnik<br>edukacyjno-terapeutyczny</span>
+      <svg class="sygnet" viewBox="0 0 64 64" role="img" aria-label="Znak PCTP — Pomorskie Centrum Terapii Pedagogicznej">
+        <defs>
+          <linearGradient id="sygGradA" x1="0" y1="0" x2="1" y2="1">
+            <stop offset="0%" stop-color="#3B2585"></stop><stop offset="100%" stop-color="#2D1B69"></stop>
+          </linearGradient>
+        </defs>
+        <rect width="64" height="64" rx="17" fill="url(#sygGradA)"></rect>
+        <path d="M17 44 C 17 44, 13 38, 13 32 C 13 21, 21 14, 32 14" fill="none" stroke="#E8450A" stroke-width="4.5" stroke-linecap="round"></path>
+        <path d="M25 42 C 22 39, 21 36, 21 32 C 21 26, 26 22, 32 22" fill="none" stroke="#E0930C" stroke-width="4" stroke-linecap="round" opacity=".9"></path>
+        <circle cx="41" cy="32" r="5" fill="#FBF9F4"></circle>
+        <circle cx="41" cy="32" r="11.5" fill="none" stroke="#FBF9F4" stroke-width="2.5" opacity=".45"></circle>
+      </svg>
+      <div>
+        <div class="nazwa">Pomorskie Centrum<br>Terapii Pedagogicznej</div>
+        <div class="rola">Koszalin · Poradniki edukacyjno-terapeutyczne</div>
+      </div>
     </div>
     <span class="cover-plakietka">Wydanie oparte na badaniach</span>
   </div>
@@ -485,21 +569,18 @@
     <svg class="cover-ilustracja" viewBox="0 0 300 300" role="img" aria-label="Motyw graficzny: zagnieżdżone dymki mowy jako echo">
       <defs>
         <linearGradient id="oklGrad1" x1="0" y1="0" x2="1" y2="1">
-          <stop offset="0%" stop-color="#FF7A45"/><stop offset="100%" stop-color="#F2A20C"/>
+          <stop offset="0%" stop-color="#FF7A45"></stop><stop offset="100%" stop-color="#E0930C"></stop>
         </linearGradient>
         <linearGradient id="oklGrad2" x1="0" y1="1" x2="1" y2="0">
-          <stop offset="0%" stop-color="#6D4BC7"/><stop offset="100%" stop-color="#0E8078"/>
+          <stop offset="0%" stop-color="#6D4BC7"></stop><stop offset="100%" stop-color="#0E8078"></stop>
         </linearGradient>
       </defs>
-      <path d="M60 236 C18 236 6 210 6 176 L6 74 C6 40 18 22 60 22 L216 22 C258 22 270 40 270 74 L270 176 C270 210 258 236 216 236 L110 236 L66 282 Z"
-            fill="none" stroke="url(#oklGrad2)" stroke-width="2" opacity=".38"/>
-      <path d="M84 210 C50 210 40 190 40 162 L40 82 C40 54 50 40 84 40 L206 40 C240 40 250 54 250 82 L250 162 C250 190 240 210 206 210 L124 210 L90 244 Z"
-            fill="none" stroke="url(#oklGrad2)" stroke-width="2.5" opacity=".62"/>
-      <path d="M108 186 C82 186 74 170 74 148 L74 92 C74 70 82 58 108 58 L196 58 C222 58 230 70 230 92 L230 148 C230 170 222 186 196 186 L138 186 L112 212 Z"
-            fill="none" stroke="url(#oklGrad1)" stroke-width="3.5"/>
-      <circle cx="128" cy="121" r="9" fill="url(#oklGrad1)"/>
-      <circle cx="156" cy="121" r="9" fill="url(#oklGrad1)" opacity=".66"/>
-      <circle cx="184" cy="121" r="9" fill="url(#oklGrad1)" opacity=".34"/>
+      <path d="M60 236 C18 236 6 210 6 176 L6 74 C6 40 18 22 60 22 L216 22 C258 22 270 40 270 74 L270 176 C270 210 258 236 216 236 L110 236 L66 282 Z" fill="none" stroke="url(#oklGrad2)" stroke-width="2" opacity=".38"></path>
+      <path d="M84 210 C50 210 40 190 40 162 L40 82 C40 54 50 40 84 40 L206 40 C240 40 250 54 250 82 L250 162 C250 190 240 210 206 210 L124 210 L90 244 Z" fill="none" stroke="url(#oklGrad2)" stroke-width="2.5" opacity=".62"></path>
+      <path d="M108 186 C82 186 74 170 74 148 L74 92 C74 70 82 58 108 58 L196 58 C222 58 230 70 230 92 L230 148 C230 170 222 186 196 186 L138 186 L112 212 Z" fill="none" stroke="url(#oklGrad1)" stroke-width="3.5"></path>
+      <circle cx="128" cy="121" r="9" fill="url(#oklGrad1)"></circle>
+      <circle cx="156" cy="121" r="9" fill="url(#oklGrad1)" opacity=".66"></circle>
+      <circle cx="184" cy="121" r="9" fill="url(#oklGrad1)" opacity=".34"></circle>
     </svg>
 
     <div class="kicker">Echolalia w autyzmie</div>
@@ -509,23 +590,39 @@
 
   <div class="cover-dol">
     <div class="kto">
-      <b>Dla rodziców, nauczycieli i terapeutów</b>
-      Siedem mechanizmów opisanych w literaturze — każdy z uczciwą oceną siły dowodów.
+      <b>mgr Mirosława Jurczyszyn</b>
+      Poradnik dla rodziców, nauczycieli i terapeutów. Siedem mechanizmów opisanych
+      w literaturze — każdy z uczciwą oceną siły dowodów.
     </div>
     <div class="wyd">
-      Pomorskie Centrum<br>Terapii Pedagogicznej<br>Wydanie I
+      PCTP Koszalin<br>Wydanie I · 2026<br>EduPlaner2026-MJ-PCTP
     </div>
   </div>
 </div>
 
-<!-- ═══════════════ 02 · METRYKA ═══════════════ -->
 <div class="page krem">
+  <div class="znak" style="margin-bottom:14px;">
+    <svg class="sygnet" viewBox="0 0 64 64" role="img" aria-label="Znak PCTP">
+      <defs><linearGradient id="sygGradB" x1="0" y1="0" x2="1" y2="1">
+        <stop offset="0%" stop-color="#3B2585"></stop><stop offset="100%" stop-color="#2D1B69"></stop></linearGradient></defs>
+      <rect width="64" height="64" rx="17" fill="url(#sygGradB)"></rect>
+      <path d="M17 44 C 17 44, 13 38, 13 32 C 13 21, 21 14, 32 14" fill="none" stroke="#E8450A" stroke-width="4.5" stroke-linecap="round"></path>
+      <path d="M25 42 C 22 39, 21 36, 21 32 C 21 26, 26 22, 32 22" fill="none" stroke="#E0930C" stroke-width="4" stroke-linecap="round" opacity=".9"></path>
+      <circle cx="41" cy="32" r="5" fill="#FBF9F4"></circle>
+      <circle cx="41" cy="32" r="11.5" fill="none" stroke="#FBF9F4" stroke-width="2.5" opacity=".45"></circle>
+    </svg>
+    <div>
+      <div class="nazwa">Pomorskie Centrum Terapii Pedagogicznej</div>
+      <div class="rola">Koszalin · Poradniki edukacyjno-terapeutyczne</div>
+    </div>
+  </div>
+
   <div class="kicker">Strona redakcyjna</div>
-  <h2 class="section">O tej broszurze</h2>
+  <h2 class="section" data-toc="redakcyjna">O tej broszurze</h2>
 
   <p class="lead">Materiał powstał, żeby oddzielić to, co o echolalii <em style="font-style:italic;">wiadomo</em>, od tego, co się o niej powtarza bez pokrycia.</p>
 
-  <p>W literaturze popularnej echolalia bywa opisywana albo jako objaw do wygaszenia, albo jako w pełni zrozumiany etap rozwoju o ustalonych fazach. Żadne z tych ujęć nie jest wierne stanowi badań. Ta broszura porządkuje temat inaczej: przy każdym mechanizmie podajemy <strong>siłę dowodów</strong> — od ustaleń powtórzonych w niezależnych badaniach po hipotezy, które dopiero czekają na weryfikację.</p>
+  <p>Echolalia bywa opisywana albo jako objaw do wygaszenia, albo jako w pełni zrozumiany etap rozwoju o ustalonych fazach. Żadne z tych ujęć nie jest wierne stanowi badań. Dlatego przy każdym mechanizmie podajemy <strong>siłę dowodów</strong> — od ustaleń powtórzonych w niezależnych badaniach po hipotezy czekające na weryfikację.</p>
 
   <div class="ramka-t definicja">
     <div class="glowa">◆ Dla kogo</div>
@@ -534,21 +631,17 @@
 
   <dl class="metryka">
     <dt>Tytuł</dt><dd>Echolalia pod lupą nauki. Co naprawdę wiemy o przyczynach powtarzania</dd>
+    <dt>Autorka</dt><dd><strong>mgr Mirosława Jurczyszyn</strong> — pedagog specjalny, PCTP Koszalin</dd>
+    <dt>Wydawca</dt><dd>Pomorskie Centrum Terapii Pedagogicznej, Koszalin</dd>
     <dt>Seria</dt><dd>Poradniki edukacyjno-terapeutyczne PCTP</dd>
-    <dt>Wydanie</dt><dd>Pierwsze</dd>
-    <dt>Objętość</dt><dd>19 stron A4, 17 pozycji bibliograficznych</dd>
+    <dt>Wydanie</dt><dd>Pierwsze, 2026 · 28 stron A4 · 19 pozycji bibliograficznych</dd>
+    <dt>Identyfikator</dt><dd>EduPlaner2026-MJ-PCTP</dd>
     <dt>Format</dt><dd>Do druku dwustronnego oraz do dystrybucji cyfrowej (PDF)</dd>
-    <dt>Ilustracje</dt><dd>Autorskie grafiki wektorowe wykonane na potrzeby tego wydania</dd>
   </dl>
 
   <div class="ramka-t uwaga">
     <div class="glowa">▲ Zastrzeżenie</div>
     <p>Broszura ma charakter <strong>edukacyjny</strong>. Nie zastępuje diagnozy ani indywidualnej konsultacji ze specjalistą. Opisane strategie są wsparciem, a nie protokołem terapeutycznym — decyzje dotyczące konkretnego dziecka zawsze podejmuje zespół pracujący z nim na co dzień, wspólnie z rodziną.</p>
-  </div>
-
-  <div class="ramka-t nauka">
-    <div class="glowa">◈ Zasada doboru źródeł</div>
-    <p>Cytujemy wyłącznie prace opublikowane w recenzowanych czasopismach naukowych oraz przeglądy systematyczne. Tam, gdzie popularny model nie ma potwierdzenia empirycznego, mówimy o tym wprost — nawet jeśli jest szeroko stosowany.</p>
   </div>
 
   <div class="ramka-t praktyka">
@@ -558,10 +651,9 @@
     <p><strong>Co mogę zrobić jutro?</strong> → Rozdział V: cztery konkretne zachowania dorosłego i strona do powieszenia w klasie.</p>
   </div>
 
-  <div class="footer"><span>Echolalia pod lupą nauki</span><span class="pagenum">02</span></div>
+  <div class="footer"><span class="pagina">Echolalia pod lupą nauki</span><span class="wydawca">PCTP Koszalin</span><span class="pagenum">Strona <b>02</b> z 28</span></div>
 </div>
 
-<!-- ═══════════════ 03 · SPIS TREŚCI ═══════════════ -->
 <div class="page">
   <div class="kicker">Nawigacja</div>
   <h2 class="section">Spis treści</h2>
@@ -571,111 +663,128 @@
       <div class="toc-naglowek">
         <span class="nr">I</span>
         <span class="tyt">Punkt wyjścia</span>
-        <span class="str">05</span>
+        <span class="str" data-ref="liczby">05</span>
       </div>
-      <div class="toc-poz"><span class="co">Echolalia w liczbach</span><span class="kropki"></span><span class="str">05</span></div>
-      <div class="toc-poz"><span class="co">Dwie twarze echa: natychmiastowe i odroczone</span><span class="kropki"></span><span class="str">06</span></div>
-      <div class="toc-poz"><span class="co">Siedem funkcji echolalii natychmiastowej</span><span class="kropki"></span><span class="str">06</span></div>
+      <div class="toc-poz"><span class="co">Dwie twarze echa: natychmiastowe i odroczone</span><span class="kropki"></span><span class="str" data-ref="dwie-twarze">06</span></div>
+      <div class="toc-poz"><span class="co">Siedem funkcji echolalii natychmiastowej</span><span class="kropki"></span><span class="str" data-ref="funkcje">06</span></div>
     </div>
 
     <div class="toc-grupa">
       <div class="toc-naglowek">
         <span class="nr">II</span>
         <span class="tyt">Co jest naprawdę udowodnione</span>
-        <span class="str">07</span>
+        <span class="str" data-ref="r2">07</span>
       </div>
-      <div class="toc-poz"><span class="co">Skala siły dowodów — jak czytać tę broszurę</span><span class="kropki"></span><span class="str">08</span></div>
-      <div class="toc-poz"><span class="co">1 · Obciążenie językowe i trudność w rozumieniu</span><span class="kropki"></span><span class="str">08</span></div>
-      <div class="toc-poz"><span class="co">2 · Echolalia pełni funkcje komunikacyjne</span><span class="kropki"></span><span class="str">08</span></div>
-      <div class="toc-poz"><span class="co">3 · Przetwarzanie całościowe języka</span><span class="kropki"></span><span class="str">09</span></div>
-      <div class="toc-poz"><span class="co">4 · Pamięć dosłowna i długotrwała</span><span class="kropki"></span><span class="str">09</span></div>
+      <div class="toc-poz"><span class="co">Skala siły dowodów — jak czytać tę broszurę</span><span class="kropki"></span><span class="str" data-ref="skala">08</span></div>
+      <div class="toc-poz"><span class="co">1 · Obciążenie językowe i trudność w rozumieniu</span><span class="kropki"></span><span class="str" data-ref="m1">08</span></div>
+      <div class="toc-poz"><span class="co">2 · Echolalia pełni funkcje komunikacyjne</span><span class="kropki"></span><span class="str" data-ref="m2">08</span></div>
+      <div class="toc-poz"><span class="co">3 · Przetwarzanie całościowe języka</span><span class="kropki"></span><span class="str" data-ref="m3">09</span></div>
+      <div class="toc-poz"><span class="co">4 · Pamięć dosłowna i długotrwała</span><span class="kropki"></span><span class="str" data-ref="m4">09</span></div>
     </div>
 
     <div class="toc-grupa">
       <div class="toc-naglowek">
         <span class="nr">III</span>
         <span class="tyt">Co dzieje się w mózgu</span>
-        <span class="str">10</span>
+        <span class="str" data-ref="r3">10</span>
       </div>
-      <div class="toc-poz"><span class="co">Grzbietowy szlak powtarzania mowy</span><span class="kropki"></span><span class="str">11</span></div>
-      <div class="toc-poz"><span class="co">5 · Powtarzanie jako osobny obwód</span><span class="kropki"></span><span class="str">11</span></div>
-      <div class="toc-poz"><span class="co">6 · Osłabione hamowanie automatycznej imitacji</span><span class="kropki"></span><span class="str">12</span></div>
-      <div class="toc-poz"><span class="co">7 · Regulacja pobudzenia i napięcia</span><span class="kropki"></span><span class="str">12</span></div>
+      <div class="toc-poz"><span class="co">Grzbietowy szlak powtarzania mowy</span><span class="kropki"></span><span class="str" data-ref="szlak">11</span></div>
+      <div class="toc-poz"><span class="co">5 · Powtarzanie jako osobny obwód</span><span class="kropki"></span><span class="str" data-ref="m5">11</span></div>
+      <div class="toc-poz"><span class="co">6 · Osłabione hamowanie automatycznej imitacji</span><span class="kropki"></span><span class="str" data-ref="m6">12</span></div>
+      <div class="toc-poz"><span class="co">7 · Regulacja pobudzenia i napięcia</span><span class="kropki"></span><span class="str" data-ref="m7">12</span></div>
     </div>
 
     <div class="toc-grupa">
       <div class="toc-naglowek">
         <span class="nr">IV</span>
         <span class="tyt">Szerszy obraz</span>
-        <span class="str">13</span>
+        <span class="str" data-ref="poza-autyzmem">13</span>
       </div>
-      <div class="toc-poz"><span class="co">Echolalia nie należy do autyzmu</span><span class="kropki"></span><span class="str">13</span></div>
-      <div class="toc-poz"><span class="co">Pół wieku badań — oś czasu</span><span class="kropki"></span><span class="str">14</span></div>
-      <div class="toc-poz"><span class="co">Czego nauka nie potwierdziła</span><span class="kropki"></span><span class="str">15</span></div>
+      <div class="toc-poz"><span class="co">Pół wieku badań — oś czasu</span><span class="kropki"></span><span class="str" data-ref="os-czasu">14</span></div>
+      <div class="toc-poz"><span class="co">Czego nauka nie potwierdziła?</span><span class="kropki"></span><span class="str" data-ref="mity">15</span></div>
     </div>
 
     <div class="toc-grupa">
       <div class="toc-naglowek">
         <span class="nr">V</span>
-        <span class="tyt">Praktyka i materiały</span>
-        <span class="str">16</span>
+        <span class="tyt">Praktyka</span>
+        <span class="str" data-ref="praktyka">16</span>
       </div>
-      <div class="toc-poz"><span class="co">Cztery rzeczy, które z tego wynikają</span><span class="kropki"></span><span class="str">16</span></div>
-      <div class="toc-poz"><span class="co">Słowniczek pojęć</span><span class="kropki"></span><span class="str">17</span></div>
-      <div class="toc-poz"><span class="co">Bibliografia</span><span class="kropki"></span><span class="str">18</span></div>
-      <div class="toc-poz"><span class="co">Szybka ściągawka do powieszenia</span><span class="kropki"></span><span class="str">19</span></div>
+      <div class="toc-poz"><span class="co">Pytania, które padają najczęściej</span><span class="kropki"></span><span class="str" data-ref="faq">16</span></div>
+    </div>
+
+    <div class="toc-grupa">
+      <div class="toc-naglowek">
+        <span class="nr">VI</span>
+        <span class="tyt">Warsztat: ćwiczenia i dostosowania</span>
+        <span class="str" data-ref="r6">17</span>
+      </div>
+      <div class="toc-poz"><span class="co">Czy echolalię należy hamować?</span><span class="kropki"></span><span class="str" data-ref="hamowac">18</span></div>
+      <div class="toc-poz"><span class="co">Kiedy jednak trzeba zainterweniować?</span><span class="kropki"></span><span class="str" data-ref="kiedy">19</span></div>
+      <div class="toc-poz"><span class="co">Zasady postępowania — siedem reguł</span><span class="kropki"></span><span class="str" data-ref="zasady">19</span></div>
+      <div class="toc-poz"><span class="co">Dziesięć ćwiczeń dla terapeuty komunikacji</span><span class="kropki"></span><span class="str" data-ref="cwiczenia">20</span></div>
+      <div class="toc-poz"><span class="co">Dostosowania w klasie dla nauczyciela</span><span class="kropki"></span><span class="str" data-ref="dostosowania">23</span></div>
+    </div>
+
+    <div class="toc-grupa">
+      <div class="toc-naglowek">
+        <span class="nr">VII</span>
+        <span class="tyt">Materiały</span>
+        <span class="str" data-ref="slownik">25</span>
+      </div>
+      <div class="toc-poz"><span class="co">Bibliografia</span><span class="kropki"></span><span class="str" data-ref="bibliografia">26</span></div>
+      <div class="toc-poz"><span class="co">Szybka ściągawka do powieszenia</span><span class="kropki"></span><span class="str" data-ref="sciagawka">27</span></div>
     </div>
   </div>
 
-  <div class="footer"><span>Echolalia pod lupą nauki</span><span class="pagenum">03</span></div>
+  <div class="footer"><span class="pagina">Echolalia pod lupą nauki</span><span class="wydawca">PCTP Koszalin</span><span class="pagenum">Strona <b>03</b> z 28</span></div>
 </div>
 
-<!-- ═══════════════ 04 · WPROWADZENIE ═══════════════ -->
 <div class="page">
   <div class="kicker">Wprowadzenie</div>
-  <h2 class="section">Pytanie, które zmieniło wszystko</h2>
+  <h2 class="section" data-toc="wprowadzenie">Pytanie, które zmieniło wszystko</h2>
 
   <figure class="figura">
     <div class="ramka">
       <svg viewBox="0 0 620 200" role="img" aria-label="Ilustracja: dorosły i dziecko, fraza wraca jako echo w zmienionej formie">
         <defs>
           <linearGradient id="wpGrad" x1="0" y1="0" x2="1" y2="0">
-            <stop offset="0%" stop-color="#6D4BC7"/><stop offset="100%" stop-color="#FF7A45"/>
+            <stop offset="0%" stop-color="#6D4BC7"></stop><stop offset="100%" stop-color="#FF7A45"></stop>
           </linearGradient>
         </defs>
         <defs>
           <marker id="wpGrotP" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
-            <path d="M0 0 L10 5 L0 10 z" fill="#FF7A45"/>
+            <path d="M0 0 L10 5 L0 10 z" fill="#FF7A45"></path>
           </marker>
           <marker id="wpGrotF" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
-            <path d="M0 0 L10 5 L0 10 z" fill="#6D4BC7"/>
+            <path d="M0 0 L10 5 L0 10 z" fill="#6D4BC7"></path>
           </marker>
         </defs>
         <!-- dorosły mówi → dziecko słyszy -->
         <g fill="none" stroke-linecap="round">
-          <path d="M192 84 C 250 46, 374 46, 428 84" stroke="#6D4BC7" stroke-width="3.5" marker-end="url(#wpGrotF)"/>
-          <path d="M198 96 C 252 68, 368 68, 422 96" stroke="#6D4BC7" stroke-width="2" opacity=".45"/>
+          <path d="M192 84 C 250 46, 374 46, 428 84" stroke="#6D4BC7" stroke-width="3.5" marker-end="url(#wpGrotF)"></path>
+          <path d="M198 96 C 252 68, 368 68, 422 96" stroke="#6D4BC7" stroke-width="2" opacity=".45"></path>
           <!-- dziecko oddaje → dorosły słyszy -->
-          <path d="M428 116 C 374 154, 250 154, 192 116" stroke="#FF7A45" stroke-width="3.5" marker-end="url(#wpGrotP)"/>
-          <path d="M422 104 C 368 132, 252 132, 198 104" stroke="#FF7A45" stroke-width="2" opacity=".45"/>
+          <path d="M428 116 C 374 154, 250 154, 192 116" stroke="#FF7A45" stroke-width="3.5" marker-end="url(#wpGrotP)"></path>
+          <path d="M422 104 C 368 132, 252 132, 198 104" stroke="#FF7A45" stroke-width="2" opacity=".45"></path>
         </g>
         <!-- postać dorosła -->
         <g>
-          <circle cx="118" cy="66" r="24" fill="#6D4BC7"/>
-          <path d="M118 96 C 84 96, 70 118, 70 158 L 166 158 C 166 118, 152 96, 118 96 Z" fill="#4B3489"/>
-          <rect x="72" y="166" width="92" height="6" rx="3" fill="#2D1B69" opacity=".5"/>
+          <circle cx="118" cy="66" r="24" fill="#6D4BC7"></circle>
+          <path d="M118 96 C 84 96, 70 118, 70 158 L 166 158 C 166 118, 152 96, 118 96 Z" fill="#4B3489"></path>
+          <rect x="72" y="166" width="92" height="6" rx="3" fill="#2D1B69" opacity=".5"></rect>
         </g>
         <!-- postać dziecka -->
         <g>
-          <circle cx="500" cy="82" r="19" fill="#FF7A45"/>
-          <path d="M500 106 C 474 106, 464 124, 464 158 L 536 158 C 536 124, 526 106, 500 106 Z" fill="#E8450A"/>
-          <rect x="466" y="166" width="68" height="6" rx="3" fill="#B33507" opacity=".5"/>
+          <circle cx="500" cy="82" r="19" fill="#FF7A45"></circle>
+          <path d="M500 106 C 474 106, 464 124, 464 158 L 536 158 C 536 124, 526 106, 500 106 Z" fill="#E8450A"></path>
+          <rect x="466" y="166" width="68" height="6" rx="3" fill="#B33507" opacity=".5"></rect>
         </g>
         <!-- punkty -->
-        <circle cx="188" cy="100" r="7" fill="#6D4BC7"/>
-        <circle cx="432" cy="100" r="7" fill="#FF7A45"/>
-        <text x="310" y="34" text-anchor="middle" font-family="Mulish,sans-serif" font-size="13" font-weight="800" fill="#F2A20C">SŁYSZY</text>
-        <text x="310" y="188" text-anchor="middle" font-family="Mulish,sans-serif" font-size="13" font-weight="800" fill="#FF7A45">ODDAJE — W SWOIM CELU</text>
+        <circle cx="188" cy="100" r="7" fill="#6D4BC7"></circle>
+        <circle cx="432" cy="100" r="7" fill="#FF7A45"></circle>
+        <text x="310" y="34" text-anchor="middle" font-family="DM Sans,sans-serif" font-size="13" font-weight="700" fill="#E0930C">SŁYSZY</text>
+        <text x="310" y="188" text-anchor="middle" font-family="DM Sans,sans-serif" font-size="13" font-weight="700" fill="#FF7A45">ODDAJE — W SWOIM CELU</text>
       </svg>
     </div>
     <figcaption><b>Ryc. 1</b> Echo nie jest kopią. Fraza wraca zmieniona funkcją, jaką nadaje jej dziecko.</figcaption>
@@ -683,16 +792,16 @@
 
   <p>Przez dziesięciolecia badacze pytali o echolalię tak, jak pyta się o objaw: <em style="font-style:italic;">jak ją wygasić?</em> W 1981 roku Barry Prizant i Judith Duchan postawili pytanie inaczej — <strong>po co dziecko powtarza?</strong> — i to przeformułowanie zmieniło całą dziedzinę <span class="cyt">[1]</span>.</p>
 
-  <p>Okazało się, że echolalia nie jest pustym dźwiękiem. Bywa prośbą, zgodą, protestem, sposobem na utrzymanie rozmowy, próbą zrozumienia zdania przez wypowiedzenie go na głos albo kotwicą, która pozwala przetrwać zbyt głośne popołudnie. Kiedy patrzy się na formę, widać powtarzanie. Kiedy patrzy się na funkcję — widać komunikację.</p>
+  <p>Okazało się, że echolalia nie jest pustym dźwiękiem. Bywa prośbą, zgodą, protestem, sposobem na utrzymanie rozmowy albo kotwicą, która pozwala przetrwać zbyt głośne popołudnie. Kiedy patrzy się na formę, widać powtarzanie. Kiedy patrzy się na funkcję — widać komunikację.</p>
 
   <div class="ramka-t cytat">
     Echolalia to nie zakłócenie na drodze do mowy. To bardzo często sama droga.
     <span class="autor">Synteza ustaleń Prizanta i Duchan, 1981–1984</span>
   </div>
 
-  <p>Ta broszura prowadzi przez siedem mechanizmów, którymi nauka tłumaczy powstawanie echolalii. Nie wszystkie są równie pewne — i właśnie dlatego przy każdym z nich znajdziesz ocenę siły dowodów. Uczciwość wobec tego, czego jeszcze nie wiemy, jest tu równie ważna jak to, co udało się ustalić.</p>
+  <p>Ta broszura prowadzi przez siedem mechanizmów, którymi nauka tłumaczy powstawanie echolalii. Nie wszystkie są równie pewne — dlatego przy każdym znajdziesz ocenę siły dowodów.</p>
 
-  <h3 class="sub">Co ta broszura robi inaczej</h3>
+  <h3 class="sub">Co ta broszura robi inaczej?</h3>
   <p style="font-size:12.4px;margin-bottom:2px;">Masz mało czasu? Przeczytaj stronę 16 i powieś ściągawkę ze strony 19 — reszta wyjaśnia, <strong>dlaczego</strong> to działa.</p>
 
   <div class="kroki">
@@ -713,18 +822,17 @@
     </div>
     <div class="krok">
       <div class="nr">✦</div>
-      <h4>Czego tu nie ma</h4>
+      <h4>Czego tu nie ma?</h4>
       <p>Gotowego protokołu terapeutycznego i obietnicy, że jedna metoda zadziała u każdego dziecka. Badania nie dają podstaw ani do jednego, ani do drugiego.</p>
     </div>
   </div>
 
-  <div class="footer"><span>Wprowadzenie</span><span class="pagenum">04</span></div>
+  <div class="footer"><span class="pagina">Wprowadzenie</span><span class="wydawca">PCTP Koszalin</span><span class="pagenum">Strona <b>04</b> z 28</span></div>
 </div>
 
-<!-- ═══════════════ 05 · LICZBY ═══════════════ -->
 <div class="page">
   <div class="kicker">Rozdział I · Punkt wyjścia</div>
-  <h2 class="section">Echolalia w liczbach</h2>
+  <h2 class="section" data-toc="liczby">Echolalia w liczbach</h2>
   <p class="lead">Cztery liczby, które porządkują skalę zjawiska — i pokazują, jak dawno zaczęto je badać.</p>
 
   <div class="liczby">
@@ -741,7 +849,7 @@
     </div>
 
     <div class="liczba v3">
-      <div class="duza">7 <span style="font-size:26px;opacity:.45;">+</span> 14</div>
+      <div class="duza">7 <span style="font-size:19px;opacity:.45;">+</span> 14</div>
       <div class="opis">Tyle odrębnych <em class="termin">funkcji</em> echolalii opisano w klasycznych badaniach: siedem dla echolalii natychmiastowej i czternaście dla odroczonej.</div>
       <div class="zrodlo">Prizant i Duchan, 1981 <span class="cyt">[1]</span> · Prizant i Rydell, 1984 <span class="cyt">[3]</span></div>
     </div>
@@ -764,55 +872,54 @@
   </div>
 
   <div class="ramka-t praktyka">
-    <div class="glowa">✦ Co z tym zrobić jutro</div>
+    <div class="glowa">✦ Co z tym zrobić jutro?</div>
     <p>Przez tydzień notuj przy każdym echu trzy rzeczy: <strong>co je poprzedziło</strong>, <strong>jak głośne było</strong> i <strong>czy dziecko patrzyło na kogoś</strong>. Po tygodniu wzorzec zwykle staje się widoczny bez żadnych narzędzi diagnostycznych.</p>
   </div>
 
-  <div class="footer"><span>Rozdział I · Punkt wyjścia</span><span class="pagenum">05</span></div>
+  <div class="footer"><span class="pagina">Rozdział I · Punkt wyjścia</span><span class="wydawca">PCTP Koszalin</span><span class="pagenum">Strona <b>05</b> z 28</span></div>
 </div>
 
-<!-- ═══════════════ 06 · DWA RODZAJE ═══════════════ -->
 <div class="page krem">
-  <h3 class="sub">Dwie twarze echa</h3>
-  <p>Podział na echolalię natychmiastową i odroczoną nie jest formalnością. Za każdą stoi inny mechanizm pamięciowy i inna praktyczna wskazówka.</p>
+  <h3 class="sub" data-toc="dwie-twarze">Dwie twarze echa</h3>
+  <p>Podział na echolalię natychmiastową i odroczoną nie jest formalnością — za każdą stoi inny mechanizm pamięciowy i inna wskazówka dla dorosłego.</p>
 
   <figure class="figura">
-    <div class="ramka jasna">
+    <div class="ramka jasna" style="padding:10px 13px;">
       <svg viewBox="0 0 620 260" role="img" aria-label="Infografika porównująca echolalię natychmiastową i odroczoną">
         <!-- lewa kolumna -->
-        <rect x="8" y="8" width="290" height="244" rx="18" fill="#FFF" stroke="#E6E0F0"/>
-        <rect x="8" y="8" width="290" height="6" rx="3" fill="#E8450A"/>
-        <circle cx="58" cy="62" r="22" fill="#FFF0E8"/>
-        <path d="M58 50 L58 62 L67 68" stroke="#E8450A" stroke-width="3" fill="none" stroke-linecap="round"/>
-        <circle cx="58" cy="62" r="14" fill="none" stroke="#E8450A" stroke-width="2.5"/>
-        <text x="94" y="58" font-family="Mulish,sans-serif" font-size="17" font-weight="800" fill="#2D1B69">Natychmiastowa</text>
-        <text x="94" y="78" font-family="'IBM Plex Mono',monospace" font-size="11" fill="#E8450A">w ciągu sekund</text>
+        <rect x="8" y="8" width="290" height="244" rx="18" fill="#FFF" stroke="#E6E0F0"></rect>
+        <rect x="8" y="8" width="290" height="6" rx="3" fill="#E8450A"></rect>
+        <circle cx="58" cy="62" r="22" fill="#FFF0E8"></circle>
+        <path d="M58 50 L58 62 L67 68" stroke="#E8450A" stroke-width="3" fill="none" stroke-linecap="round"></path>
+        <circle cx="58" cy="62" r="14" fill="none" stroke="#E8450A" stroke-width="2.5"></circle>
+        <text x="94" y="58" font-family="DM Sans,sans-serif" font-size="17" font-weight="700" fill="#2D1B69">Natychmiastowa</text>
+        <text x="94" y="78" font-family="'JetBrains Mono',monospace" font-size="11" fill="#E8450A">w ciągu sekund</text>
 
-        <text x="30" y="118" font-family="Mulish,sans-serif" font-size="12.5" fill="#231A3B">Powtórzenie tego, co właśnie</text>
-        <text x="30" y="136" font-family="Mulish,sans-serif" font-size="12.5" fill="#231A3B">padło. Opiera się na pamięci</text>
-        <text x="30" y="154" font-family="Mulish,sans-serif" font-size="12.5" fill="#231A3B">krótkotrwałej i przetwarzaniu</text>
-        <text x="30" y="172" font-family="Mulish,sans-serif" font-size="12.5" fill="#231A3B">„powierzchownym”.</text>
+        <text x="30" y="118" font-family="DM Sans,sans-serif" font-size="12.5" fill="#231A3B">Powtórzenie tego, co właśnie</text>
+        <text x="30" y="136" font-family="DM Sans,sans-serif" font-size="12.5" fill="#231A3B">padło. Opiera się na pamięci</text>
+        <text x="30" y="154" font-family="DM Sans,sans-serif" font-size="12.5" fill="#231A3B">krótkotrwałej i przetwarzaniu</text>
+        <text x="30" y="172" font-family="DM Sans,sans-serif" font-size="12.5" fill="#231A3B">„powierzchownym”.</text>
 
-        <rect x="30" y="192" width="246" height="42" rx="10" fill="#FFF0E8"/>
-        <text x="44" y="211" font-family="'IBM Plex Mono',monospace" font-size="9" letter-spacing="1.4" fill="#E8450A">SYGNAŁ</text>
-        <text x="44" y="227" font-family="Mulish,sans-serif" font-size="12" font-weight="700" fill="#231A3B">Zdanie było za trudne — uprość</text>
+        <rect x="30" y="192" width="246" height="42" rx="10" fill="#FFF0E8"></rect>
+        <text x="44" y="211" font-family="'JetBrains Mono',monospace" font-size="9" letter-spacing="1.4" fill="#E8450A">SYGNAŁ</text>
+        <text x="44" y="227" font-family="DM Sans,sans-serif" font-size="12" font-weight="700" fill="#231A3B">Zdanie było za trudne — uprość</text>
 
         <!-- prawa kolumna -->
-        <rect x="322" y="8" width="290" height="244" rx="18" fill="#FFF" stroke="#E6E0F0"/>
-        <rect x="322" y="8" width="290" height="6" rx="3" fill="#6D4BC7"/>
-        <circle cx="372" cy="62" r="22" fill="#EFEAFB"/>
-        <path d="M362 62 C 366 50, 378 50, 382 62 C 386 74, 374 76, 372 68" stroke="#6D4BC7" stroke-width="2.8" fill="none" stroke-linecap="round"/>
-        <text x="408" y="58" font-family="Mulish,sans-serif" font-size="17" font-weight="800" fill="#2D1B69">Odroczona</text>
-        <text x="408" y="78" font-family="'IBM Plex Mono',monospace" font-size="11" fill="#6D4BC7">godziny, dni, miesiące</text>
+        <rect x="322" y="8" width="290" height="244" rx="18" fill="#FFF" stroke="#E6E0F0"></rect>
+        <rect x="322" y="8" width="290" height="6" rx="3" fill="#6D4BC7"></rect>
+        <circle cx="372" cy="62" r="22" fill="#EFEAFB"></circle>
+        <path d="M362 62 C 366 50, 378 50, 382 62 C 386 74, 374 76, 372 68" stroke="#6D4BC7" stroke-width="2.8" fill="none" stroke-linecap="round"></path>
+        <text x="408" y="58" font-family="DM Sans,sans-serif" font-size="17" font-weight="700" fill="#2D1B69">Odroczona</text>
+        <text x="408" y="78" font-family="'JetBrains Mono',monospace" font-size="11" fill="#6D4BC7">godziny, dni, miesiące</text>
 
-        <text x="344" y="118" font-family="Mulish,sans-serif" font-size="12.5" fill="#231A3B">Fraza z bajki, reklamy, dawnej</text>
-        <text x="344" y="136" font-family="Mulish,sans-serif" font-size="12.5" fill="#231A3B">rozmowy — często z zachowaną</text>
-        <text x="344" y="154" font-family="Mulish,sans-serif" font-size="12.5" fill="#231A3B">intonacją. Angażuje pamięć</text>
-        <text x="344" y="172" font-family="Mulish,sans-serif" font-size="12.5" fill="#231A3B">długotrwałą.</text>
+        <text x="344" y="118" font-family="DM Sans,sans-serif" font-size="12.5" fill="#231A3B">Fraza z bajki, reklamy, dawnej</text>
+        <text x="344" y="136" font-family="DM Sans,sans-serif" font-size="12.5" fill="#231A3B">rozmowy — często z zachowaną</text>
+        <text x="344" y="154" font-family="DM Sans,sans-serif" font-size="12.5" fill="#231A3B">intonacją. Angażuje pamięć</text>
+        <text x="344" y="172" font-family="DM Sans,sans-serif" font-size="12.5" fill="#231A3B">długotrwałą.</text>
 
-        <rect x="344" y="192" width="246" height="42" rx="10" fill="#EFEAFB"/>
-        <text x="358" y="211" font-family="'IBM Plex Mono',monospace" font-size="9" letter-spacing="1.4" fill="#6D4BC7">SYGNAŁ</text>
-        <text x="358" y="227" font-family="Mulish,sans-serif" font-size="12" font-weight="700" fill="#231A3B">Poszukaj źródła — tam jest sens</text>
+        <rect x="344" y="192" width="246" height="42" rx="10" fill="#EFEAFB"></rect>
+        <text x="358" y="211" font-family="'JetBrains Mono',monospace" font-size="9" letter-spacing="1.4" fill="#6D4BC7">SYGNAŁ</text>
+        <text x="358" y="227" font-family="DM Sans,sans-serif" font-size="12" font-weight="700" fill="#231A3B">Poszukaj źródła — tam jest sens</text>
       </svg>
     </div>
     <figcaption><b>Ryc. 2</b> Różny mechanizm pamięciowy, różna wskazówka dla dorosłego.</figcaption>
@@ -820,10 +927,10 @@
 
   <div class="ramka-t nauka">
     <div class="glowa">◈ Praktyczny sygnał z badań</div>
-    <p>Cohn i współpracownicy <span class="cyt">[9]</span> zauważyli prostą regułę, którą łatwo sprawdzić w klasie: <strong>echa komunikacyjne są zwykle głośniejsze</strong> od niekomunikacyjnych. Ciche, mruczane powtarzanie częściej służy samoregulacji; wyraźne, skierowane do kogoś — komunikacji.</p>
+    <p>Cohn i wsp. <span class="cyt">[9]</span> opisali regułę, którą łatwo sprawdzić w klasie: <strong>echa komunikacyjne są zwykle głośniejsze</strong>. Ciche, mruczane powtarzanie częściej służy samoregulacji; wyraźne, skierowane do kogoś — komunikacji.</p>
   </div>
 
-  <h3 class="sub">Siedem funkcji echolalii natychmiastowej</h3>
+  <h3 class="sub" data-toc="funkcje">Siedem funkcji echolalii natychmiastowej</h3>
   <p style="font-size:12.4px;margin-bottom:2px;">Klasyfikacja Prizanta i Duchan <span class="cyt">[1]</span> — do dziś podstawa większości narzędzi obserwacyjnych.</p>
 
   <div class="tabela-wrap">
@@ -843,26 +950,24 @@
     </table>
   </div>
 
-  <div class="footer"><span>Rozdział I · Punkt wyjścia</span><span class="pagenum">06</span></div>
+  <div class="footer"><span class="pagina">Rozdział I · Punkt wyjścia</span><span class="wydawca">PCTP Koszalin</span><span class="pagenum">Strona <b>06</b> z 28</span></div>
 </div>
 
-<!-- ═══════════════ 07 · ROZDZIAŁ II — KARTA ═══════════════ -->
 <div class="page rozdzial">
-  <div class="duzy-nr">II</div>
+  <div class="duzy-nr" data-toc="r2">II</div>
   <div class="kicker">Rozdział drugi</div>
-  <h1>Co jest naprawdę udowodnione</h1>
+  <h1>Co jest naprawdę udowodnione?</h1>
   <p class="lead">Nie istnieje jedna „przyczyna echolalii”. Istnieje kilka mechanizmów o bardzo różnej sile dowodów — i to rozróżnienie jest praktycznie najważniejsze w całej broszurze.</p>
   <div class="w-srodku">
     <span>Skala siły dowodów</span>
     <span>Cztery mechanizmy</span>
     <span>Ostrzeżenie o modelu NLA</span>
   </div>
-  <div class="footer"><span>Rozdział II</span><span class="pagenum">07</span></div>
+  <div class="footer"><span class="pagina">Rozdział II</span><span class="wydawca">PCTP Koszalin</span><span class="pagenum">Strona <b>07</b> z 28</span></div>
 </div>
 
-<!-- ═══════════════ 08 · SKALA + PRZYCZYNY 1–2 ═══════════════ -->
 <div class="page">
-  <h3 class="sub">Jak czytać oceny w tej broszurze</h3>
+  <h3 class="sub" data-toc="skala">Jak czytać oceny w tej broszurze?</h3>
   <p style="margin-bottom:4px;">Każdy mechanizm dostaje jedną z trzech ocen. Kolor karty powtarza tę ocenę, więc widać ją, zanim zacznie się czytać.</p>
 
   <div class="skala">
@@ -885,7 +990,7 @@
 
   <div class="przyczyna mocne" style="margin-top:17px;">
     <div class="glowa">
-      <h4>1 · Obciążenie językowe i trudność w rozumieniu</h4>
+      <h4 data-toc="m1">1 · Obciążenie językowe i trudność w rozumieniu</h4>
       <div class="waga">
         <div class="kropki"><i class="on"></i><i class="on"></i><i class="on"></i></div>
         <div class="etykieta">Udokumentowane</div>
@@ -898,7 +1003,7 @@
 
   <div class="przyczyna mocne">
     <div class="glowa">
-      <h4>2 · Echolalia pełni funkcje komunikacyjne</h4>
+      <h4 data-toc="m2">2 · Echolalia pełni funkcje komunikacyjne</h4>
       <div class="waga">
         <div class="kropki"><i class="on"></i><i class="on"></i><i class="on"></i></div>
         <div class="etykieta">Udokumentowane</div>
@@ -910,24 +1015,23 @@
   </div>
 
   <div class="ramka-t nauka">
-    <div class="glowa">◈ Jak to sprawdzono</div>
-    <p>Badanie Rydell i Mirendy <span class="cyt">[2]</span> jest przykładem projektu, który daje mocny wniosek przyczynowy. Tym samym dzieciom przedstawiano naprzemiennie dwa rodzaje wypowiedzi dorosłego — wysoko i nisko sterujące — a następnie liczono echa i wypowiedzi własne w każdym z warunków.</p>
-    <p>Ponieważ zmieniał się <strong>wyłącznie sposób mówienia dorosłego</strong>, a dziecko pozostawało to samo, różnicy w liczbie ech nie da się przypisać dziecku. To dlatego mechanizm 1 ma najwyższą ocenę, mimo że próba nie była duża.</p>
+    <div class="glowa">◈ Jak to sprawdzono?</div>
+    <p>Tym samym dzieciom przedstawiano naprzemiennie dwa rodzaje wypowiedzi dorosłego — wysoko i nisko sterujące — a potem liczono echa i wypowiedzi własne w każdym z warunków.</p>
+    <p>Ponieważ zmieniał się <strong>wyłącznie sposób mówienia dorosłego</strong>, różnicy w liczbie ech nie da się przypisać dziecku. Dlatego mechanizm 1 ma najwyższą ocenę mimo niedużej próby.</p>
   </div>
 
   <div class="ramka-t uwaga">
     <div class="glowa">▲ Częste nieporozumienie</div>
-    <p>„Wysoko sterujące” nie znaczy „surowe”. Ciepło zadane pytanie testujące („No powiedz mamie, co to jest?”) obciąża przetwarzanie dokładnie tak samo jak suche polecenie. Liczy się <strong>struktura wypowiedzi</strong>, nie ton głosu.</p>
+    <p>„Wysoko sterujące” nie znaczy „surowe”. Ciepło zadane pytanie testujące obciąża przetwarzanie tak samo jak suche polecenie — liczy się <strong>struktura wypowiedzi</strong>, nie ton głosu.</p>
   </div>
 
-  <div class="footer"><span>Rozdział II · Co jest udowodnione</span><span class="pagenum">08</span></div>
+  <div class="footer"><span class="pagina">Rozdział II · Co jest udowodnione</span><span class="wydawca">PCTP Koszalin</span><span class="pagenum">Strona <b>08</b> z 28</span></div>
 </div>
 
-<!-- ═══════════════ 09 · PRZYCZYNY 3–4 ═══════════════ -->
 <div class="page">
   <div class="przyczyna mocne">
     <div class="glowa">
-      <h4>3 · Przetwarzanie całościowe języka</h4>
+      <h4 data-toc="m3">3 · Przetwarzanie całościowe języka</h4>
       <div class="waga">
         <div class="kropki"><i class="on"></i><i class="on"></i><i class="on"></i></div>
         <div class="etykieta">Udokumentowane</div>
@@ -946,7 +1050,7 @@
 
   <div class="przyczyna srednie">
     <div class="glowa">
-      <h4>4 · Pamięć dosłowna i długotrwała</h4>
+      <h4 data-toc="m4">4 · Pamięć dosłowna i długotrwała</h4>
       <div class="waga">
         <div class="kropki"><i class="on"></i><i class="on"></i><i></i></div>
         <div class="etykieta">Prawdopodobne</div>
@@ -963,31 +1067,29 @@
   </div>
 
   <div class="ramka-t nauka">
-    <div class="glowa">◈ Jak wygląda „bryła” języka</div>
+    <div class="glowa">◈ Jak wygląda „bryła” języka?</div>
     <p>Dziecko mówi <em style="font-style:italic;">„a-teraz-czas-na-śniadanie”</em> jak jedno długie słowo, zawsze z tą samą melodią i zawsze w całości. Nie powie „czas na obiad” ani „teraz śniadanie”, bo fraza nie została jeszcze rozłożona na wymienne części.</p>
     <p>Rozbijanie brył jest procesem stopniowym: najpierw pojawia się jeden wymienny element („czas na <strong>obiad</strong>”), potem kolejne. Właśnie dlatego pierwszym sygnałem postępu bywa nie zanik echa, lecz <strong>drobna zmiana wewnątrz powtarzanej frazy</strong>.</p>
   </div>
 
-  <div class="footer"><span>Rozdział II · Co jest udowodnione</span><span class="pagenum">09</span></div>
+  <div class="footer"><span class="pagina">Rozdział II · Co jest udowodnione</span><span class="wydawca">PCTP Koszalin</span><span class="pagenum">Strona <b>09</b> z 28</span></div>
 </div>
 
-<!-- ═══════════════ 10 · ROZDZIAŁ III — KARTA ═══════════════ -->
 <div class="page rozdzial">
-  <div class="duzy-nr">III</div>
+  <div class="duzy-nr" data-toc="r3">III</div>
   <div class="kicker">Rozdział trzeci</div>
-  <h1>Co dzieje się<br>w mózgu</h1>
+  <h1>Co dzieje się<br>w mózgu?</h1>
   <p class="lead">Tu dowody pochodzą głównie z neurologii dorosłych. Są mocne — ale przeniesienie ich wprost na autyzm pozostaje ostrożną hipotezą, i tak je przedstawiamy.</p>
   <div class="w-srodku">
     <span>Szlak powtarzania</span>
     <span>Hamowanie imitacji</span>
     <span>Regulacja napięcia</span>
   </div>
-  <div class="footer"><span>Rozdział III</span><span class="pagenum">10</span></div>
+  <div class="footer"><span class="pagina">Rozdział III</span><span class="wydawca">PCTP Koszalin</span><span class="pagenum">Strona <b>10</b> z 28</span></div>
 </div>
 
-<!-- ═══════════════ 11 · MÓZG ═══════════════ -->
 <div class="page">
-  <h3 class="sub">Grzbietowy szlak powtarzania mowy</h3>
+  <h3 class="sub" data-toc="szlak">Grzbietowy szlak powtarzania mowy</h3>
   <p>Powtarzanie i rozumienie to w mózgu dwie różne drogi. Pierwsza jest szybka i automatyczna, druga wolniejsza i łatwiejsza do przeciążenia.</p>
 
   <figure class="figura">
@@ -995,45 +1097,42 @@
       <svg viewBox="0 0 620 250" role="img" aria-label="Schemat: droga powtarzania mowy prowadzi z kory słuchowej wprost do okolic ruchowych mowy, natomiast droga przez znaczenie jest wolniejsza i łatwiejsza do przeciążenia">
         <defs>
           <linearGradient id="luk" x1="0" y1="0" x2="1" y2="0">
-            <stop offset="0%" stop-color="#F2A20C"/><stop offset="100%" stop-color="#E8450A"/>
+            <stop offset="0%" stop-color="#E0930C"></stop><stop offset="100%" stop-color="#E8450A"></stop>
           </linearGradient>
           <marker id="grot" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="4.6" markerHeight="4.6" orient="auto-start-reverse">
-            <path d="M0 0 L10 5 L0 10 z" fill="#E8450A"/>
+            <path d="M0 0 L10 5 L0 10 z" fill="#E8450A"></path>
           </marker>
           <marker id="grotSzary" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="5.5" markerHeight="5.5" orient="auto-start-reverse">
-            <path d="M0 0 L10 5 L0 10 z" fill="#8A7CBE"/>
+            <path d="M0 0 L10 5 L0 10 z" fill="#8A7CBE"></path>
           </marker>
         </defs>
 
         <!-- DROGA SZYBKA: łuk górny -->
-        <path d="M114 98 C 190 48, 432 48, 506 98" fill="none" stroke="url(#luk)" stroke-width="7"
-              stroke-linecap="round" marker-end="url(#grot)"/>
-        <text x="310" y="20" text-anchor="middle" font-family="Mulish,sans-serif" font-size="13" fill="#F2A20C" font-weight="800" letter-spacing="1">PĘCZEK ŁUKOWATY</text>
-        <text x="310" y="37" text-anchor="middle" font-family="Mulish,sans-serif" font-size="11.5" fill="#CFC5EC">droga powtarzania — szybka, automatyczna</text>
+        <path d="M114 98 C 190 48, 432 48, 506 98" fill="none" stroke="url(#luk)" stroke-width="7" stroke-linecap="round" marker-end="url(#grot)"></path>
+        <text x="310" y="20" text-anchor="middle" font-family="DM Sans,sans-serif" font-size="13" fill="#E0930C" font-weight="700" letter-spacing="1">PĘCZEK ŁUKOWATY</text>
+        <text x="310" y="37" text-anchor="middle" font-family="DM Sans,sans-serif" font-size="11.5" fill="#CFC5EC">droga powtarzania — szybka, automatyczna</text>
 
         <!-- DROGA WOLNA: przez znaczenie -->
-        <path d="M112 132 C 168 190, 250 196, 296 178" fill="none" stroke="#8A7CBE" stroke-width="3.5"
-              stroke-linecap="round" stroke-dasharray="8 7"/>
-        <path d="M324 178 C 372 196, 452 190, 508 132" fill="none" stroke="#8A7CBE" stroke-width="3.5"
-              stroke-linecap="round" stroke-dasharray="8 7" marker-end="url(#grotSzary)"/>
+        <path d="M112 132 C 168 190, 250 196, 296 178" fill="none" stroke="#8A7CBE" stroke-width="3.5" stroke-linecap="round" stroke-dasharray="8 7"></path>
+        <path d="M324 178 C 372 196, 452 190, 508 132" fill="none" stroke="#8A7CBE" stroke-width="3.5" stroke-linecap="round" stroke-dasharray="8 7" marker-end="url(#grotSzary)"></path>
 
         <!-- WĘZEŁ 1 -->
-        <circle cx="94" cy="112" r="26" fill="#0E8078"/>
-        <text x="94" y="119" text-anchor="middle" font-family="'IBM Plex Mono',monospace" font-size="17" fill="#fff" font-weight="600">1</text>
-        <text x="94" y="164" text-anchor="middle" font-family="Mulish,sans-serif" font-size="12.5" fill="#EDE7FC" font-weight="800">Kora słuchowa</text>
-        <text x="94" y="182" text-anchor="middle" font-family="Mulish,sans-serif" font-size="11" fill="#9C8FC9">słyszę frazę</text>
+        <circle cx="94" cy="112" r="26" fill="#0D7D5C"></circle>
+        <text x="94" y="119" text-anchor="middle" font-family="'JetBrains Mono',monospace" font-size="17" fill="#fff" font-weight="600">1</text>
+        <text x="94" y="164" text-anchor="middle" font-family="DM Sans,sans-serif" font-size="12.5" fill="#EDE7FC" font-weight="700">Kora słuchowa</text>
+        <text x="94" y="182" text-anchor="middle" font-family="DM Sans,sans-serif" font-size="11" fill="#9C8FC9">słyszę frazę</text>
 
         <!-- WĘZEŁ 3 -->
-        <circle cx="310" cy="178" r="22" fill="none" stroke="#8A7CBE" stroke-width="2.5" stroke-dasharray="6 5"/>
-        <text x="310" y="184" text-anchor="middle" font-family="'IBM Plex Mono',monospace" font-size="15" fill="#B9ADE0" font-weight="600">3</text>
-        <text x="310" y="224" text-anchor="middle" font-family="Mulish,sans-serif" font-size="12.5" fill="#C7BCEA" font-weight="800">Znaczenie</text>
-        <text x="310" y="242" text-anchor="middle" font-family="Mulish,sans-serif" font-size="11" fill="#9C8FC9">rozumiem, co to znaczy — wolniej</text>
+        <circle cx="310" cy="178" r="22" fill="none" stroke="#8A7CBE" stroke-width="2.5" stroke-dasharray="6 5"></circle>
+        <text x="310" y="184" text-anchor="middle" font-family="'JetBrains Mono',monospace" font-size="15" fill="#B9ADE0" font-weight="600">3</text>
+        <text x="310" y="224" text-anchor="middle" font-family="DM Sans,sans-serif" font-size="12.5" fill="#C7BCEA" font-weight="700">Znaczenie</text>
+        <text x="310" y="242" text-anchor="middle" font-family="DM Sans,sans-serif" font-size="11" fill="#9C8FC9">rozumiem, co to znaczy — wolniej</text>
 
         <!-- WĘZEŁ 2 -->
-        <circle cx="526" cy="112" r="26" fill="#E8450A"/>
-        <text x="526" y="119" text-anchor="middle" font-family="'IBM Plex Mono',monospace" font-size="17" fill="#fff" font-weight="600">2</text>
-        <text x="526" y="164" text-anchor="middle" font-family="Mulish,sans-serif" font-size="12.5" fill="#EDE7FC" font-weight="800">Okolice ruchowe mowy</text>
-        <text x="526" y="182" text-anchor="middle" font-family="Mulish,sans-serif" font-size="11" fill="#9C8FC9">wypowiadam ją</text>
+        <circle cx="526" cy="112" r="26" fill="#E8450A"></circle>
+        <text x="526" y="119" text-anchor="middle" font-family="'JetBrains Mono',monospace" font-size="17" fill="#fff" font-weight="600">2</text>
+        <text x="526" y="164" text-anchor="middle" font-family="DM Sans,sans-serif" font-size="12.5" fill="#EDE7FC" font-weight="700">Okolice ruchowe mowy</text>
+        <text x="526" y="182" text-anchor="middle" font-family="DM Sans,sans-serif" font-size="11" fill="#9C8FC9">wypowiadam ją</text>
       </svg>
     </div>
     <figcaption><b>Ryc. 3</b> Droga 1→2 działa niezależnie od drogi do znaczenia (3). Gdy ta druga jest przeciążona, pierwsza odpowiada sama.</figcaption>
@@ -1041,7 +1140,7 @@
 
   <div class="przyczyna srednie">
     <div class="glowa">
-      <h4>5 · Powtarzanie to osobny obwód — może działać bez rozumienia</h4>
+      <h4 data-toc="m5">5 · Powtarzanie to osobny obwód — może działać bez rozumienia</h4>
       <div class="waga">
         <div class="kropki"><i class="on"></i><i class="on"></i><i></i></div>
         <div class="etykieta">Prawdopodobne</div>
@@ -1053,24 +1152,23 @@
   </div>
 
   <div class="ramka-t praktyka">
-    <div class="glowa">✦ Dlaczego to ma znaczenie przy stole i w ławce</div>
+    <div class="glowa">✦ Dlaczego to ma znaczenie przy stole i w ławce?</div>
     <p>Jeśli droga powtarzania jest szybsza od drogi do znaczenia, to <strong>echo pojawia się zanim dziecko zdąży zrozumieć zdanie</strong>. Nie jest więc odmową ani ignorowaniem polecenia — jest tym, co zdążyło się wydarzyć pierwsze.</p>
-    <p>Praktyczny wniosek jest prosty i mierzalny: <strong>daj drodze do znaczenia więcej czasu</strong>. Pauza po zdaniu, krótsze polecenie, jedna informacja naraz. To nie jest ustępstwo — to wyrównanie szans między dwiema drogami.</p>
+    <p>Wniosek jest prosty: <strong>daj drodze do znaczenia więcej czasu</strong>. Pauza po zdaniu, krótsze polecenie, jedna informacja naraz.</p>
   </div>
 
   <div class="ramka-t definicja">
-    <div class="glowa">◆ Skąd wiadomo, że to dwie różne drogi</div>
-    <p>Z rozdzielenia obserwowanego u pacjentów neurologicznych: bywa zachowane powtarzanie przy zniesionym rozumieniu, ale zdarza się też odwrotnie — zachowane rozumienie przy niemożności powtórzenia. Gdyby to była jedna droga, taka podwójna dysocjacja nie byłaby możliwa.</p>
+    <div class="glowa">◆ Skąd wiadomo, że to dwie różne drogi?</div>
+    <p>Bywa zachowane powtarzanie przy zniesionym rozumieniu, ale zdarza się też odwrotnie. Gdyby to była jedna droga, taka podwójna dysocjacja nie byłaby możliwa.</p>
   </div>
 
-  <div class="footer"><span>Rozdział III · Co dzieje się w mózgu</span><span class="pagenum">11</span></div>
+  <div class="footer"><span class="pagina">Rozdział III · Co dzieje się w mózgu?</span><span class="wydawca">PCTP Koszalin</span><span class="pagenum">Strona <b>11</b> z 28</span></div>
 </div>
 
-<!-- ═══════════════ 12 · PRZYCZYNY 6–7 + HIPOTEZA ═══════════════ -->
 <div class="page">
   <div class="przyczyna srednie">
     <div class="glowa">
-      <h4>6 · Osłabione hamowanie automatycznej imitacji</h4>
+      <h4 data-toc="m6">6 · Osłabione hamowanie automatycznej imitacji</h4>
       <div class="waga">
         <div class="kropki"><i class="on"></i><i class="on"></i><i></i></div>
         <div class="etykieta">Prawdopodobne</div>
@@ -1082,7 +1180,7 @@
 
   <div class="przyczyna srednie">
     <div class="glowa">
-      <h4>7 · Regulacja pobudzenia i napięcia</h4>
+      <h4 data-toc="m7">7 · Regulacja pobudzenia i napięcia</h4>
       <div class="waga">
         <div class="kropki"><i class="on"></i><i class="on"></i><i></i></div>
         <div class="etykieta">Prawdopodobne</div>
@@ -1108,7 +1206,7 @@
     <p>Trzy mechanizmy z tego rozdziału łączy jedno: opisują <strong>warunki</strong>, w których echo się pojawia, a nie „defekt”, który je powoduje. Przeciążona droga do znaczenia, wyczerpane hamowanie, wysokie napięcie — każdy z tych stanów zdarza się także dorosłym, tyle że rzadziej i z mniejszym skutkiem.</p>
   </div>
 
-  <h3 class="sub">Kiedy echolalia zwykle rośnie</h3>
+  <h3 class="sub" data-toc="nasilenie">Kiedy echolalia zwykle rośnie?</h3>
   <p style="font-size:12.4px;margin-bottom:2px;">Zestawienie sytuacji powtarzalnie opisywanych w literaturze <span class="cyt">[1][2][9]</span> — z mechanizmem, który za nimi stoi.</p>
 
   <div class="tabela-wrap">
@@ -1127,13 +1225,12 @@
     </table>
   </div>
 
-  <div class="footer"><span>Rozdział III · Co dzieje się w mózgu</span><span class="pagenum">12</span></div>
+  <div class="footer"><span class="pagina">Rozdział III · Co dzieje się w mózgu?</span><span class="wydawca">PCTP Koszalin</span><span class="pagenum">Strona <b>12</b> z 28</span></div>
 </div>
 
-<!-- ═══════════════ 13 · POZA AUTYZMEM ═══════════════ -->
 <div class="page krem">
   <div class="kicker">Rozdział IV · Szerszy obraz</div>
-  <h2 class="section">Echolalia nie należy do autyzmu</h2>
+  <h2 class="section" data-toc="poza-autyzmem">Echolalia nie należy do autyzmu</h2>
   <p class="lead">Echo pojawia się w bardzo różnych stanach — i właśnie to jest najlepszym dowodem, że mamy do czynienia z działaniem pewnej sieci, a nie z objawem jednej diagnozy.</p>
 
   <div class="tabela-wrap">
@@ -1176,7 +1273,7 @@
   </div>
 
   <div class="ramka-t definicja">
-    <div class="glowa">◆ Kiedy jednak warto skonsultować</div>
+    <div class="glowa">◆ Kiedy jednak warto skonsultować?</div>
     <p>Gdy echolalia utrzymuje się jako <strong>dominująca forma wypowiedzi po 3. roku życia</strong>, gdy pojawia się nagle u dziecka, które wcześniej mówiło swobodnie, albo gdy towarzyszy jej regres innych umiejętności. To wskazania do konsultacji — nie do niepokoju.</p>
   </div>
 
@@ -1186,13 +1283,12 @@
     <p>Różnica u dzieci autystycznych nie polega więc na tym, <em style="font-style:italic;">że</em> powtarzają, lecz na tym, <strong>jak długo</strong> powtarzanie pozostaje głównym narzędziem i jak duże bryły języka obejmuje.</p>
   </div>
 
-  <div class="footer"><span>Rozdział IV · Szerszy obraz</span><span class="pagenum">13</span></div>
+  <div class="footer"><span class="pagina">Rozdział IV · Szerszy obraz</span><span class="wydawca">PCTP Koszalin</span><span class="pagenum">Strona <b>13</b> z 28</span></div>
 </div>
 
-<!-- ═══════════════ 14 · OŚ CZASU ═══════════════ -->
 <div class="page">
   <div class="kicker">Chronologia</div>
-  <h2 class="section">Pół wieku badań</h2>
+  <h2 class="section" data-toc="os-czasu">Pół wieku badań</h2>
   <p class="lead">Kolejność ma tu znaczenie: widać, jak pytanie „jak to wygasić?” przesuwało się w stronę „po co dziecko powtarza?”.</p>
 
   <div class="os">
@@ -1249,22 +1345,21 @@
   </div>
 
   <div class="ramka-t definicja">
-    <div class="glowa">◆ Co się przez te pięćdziesiąt lat zmieniło</div>
+    <div class="glowa">◆ Co się przez te pięćdziesiąt lat zmieniło?</div>
     <p>Punktem zwrotnym nie było żadne odkrycie biologiczne, tylko <strong>zmiana jednostki opisu</strong>: z formy echa na jego funkcję. Wszystko, co ma dziś najwyższą ocenę dowodową, pochodzi z badań, które pytały „po co”, a nie „jak często”.</p>
   </div>
 
   <div class="ramka-t uwaga">
-    <div class="glowa">▲ Co pozostaje otwarte</div>
-    <p>Nie wiemy, dlaczego u jednych dzieci echolalia ustępuje mowie własnej, a u innych zostaje na stałe. Nie mamy też rozstrzygających badań porównujących skuteczność poszczególnych metod terapeutycznych <span class="cyt">[15][16]</span>. To dwa najpoważniejsze braki w tej dziedzinie.</p>
+    <div class="glowa">▲ Co pozostaje otwarte?</div>
+    <p>Nie wiemy, dlaczego u jednych dzieci echolalia ustępuje mowie własnej, a u innych zostaje. Brakuje też rozstrzygających badań porównujących metody terapeutyczne <span class="cyt">[15][16]</span>.</p>
   </div>
 
-  <div class="footer"><span>Rozdział IV · Szerszy obraz</span><span class="pagenum">14</span></div>
+  <div class="footer"><span class="pagina">Rozdział IV · Szerszy obraz</span><span class="wydawca">PCTP Koszalin</span><span class="pagenum">Strona <b>14</b> z 28</span></div>
 </div>
 
-<!-- ═══════════════ 15 · MITY ═══════════════ -->
 <div class="page krem">
   <div class="kicker">Weryfikacja</div>
-  <h2 class="section">Czego nauka nie potwierdziła</h2>
+  <h2 class="section" data-toc="mity">Czego nauka nie potwierdziła?</h2>
   <p class="lead">Cztery zdania, które słyszy się najczęściej — i to, co na ich temat mówią badania.</p>
 
   <div class="mit">
@@ -1292,13 +1387,12 @@
     <p>Nauka nie zna <em style="font-style:italic;">jednej</em> przyczyny echolalii i prawdopodobnie nigdy nie znajdzie — bo echolalia nie jest chorobą, tylko zachowaniem o wielu funkcjach. Najlepiej potwierdzone jest natomiast to, co ma bezpośrednie przełożenie na praktykę: <strong>echolalia komunikuje, a jej ilość zależy od tego, jak mówimy do dziecka</strong>.</p>
   </div>
 
-  <div class="footer"><span>Rozdział IV · Szerszy obraz</span><span class="pagenum">15</span></div>
+  <div class="footer"><span class="pagina">Rozdział IV · Szerszy obraz</span><span class="wydawca">PCTP Koszalin</span><span class="pagenum">Strona <b>15</b> z 28</span></div>
 </div>
 
-<!-- ═══════════════ 16 · PRAKTYKA ═══════════════ -->
 <div class="page">
   <div class="kicker">Rozdział V · Praktyka</div>
-  <h2 class="section">Cztery rzeczy, które z tego wynikają</h2>
+  <h2 class="section" data-toc="praktyka">Cztery rzeczy, które z tego wynikają</h2>
   <p class="lead">Każdy z tych punktów opiera się na ustaleniu z poziomu „udokumentowane”. Nic tu nie jest domysłem.</p>
 
   <div class="kroki">
@@ -1333,7 +1427,7 @@
     <span class="autor">Wniosek z badania Rydell i Mirenda, 1994</span>
   </div>
 
-  <h3 class="sub">Pytania, które padają najczęściej</h3>
+  <h3 class="sub" data-toc="faq">Pytania, które padają najczęściej</h3>
 
   <div class="ramka-t definicja">
     <div class="glowa">◆ Mam odpowiadać na echo, nawet gdy nie wiem, o co chodzi?</div>
@@ -1350,13 +1444,358 @@
     <p>U części dzieci maleje w miarę rozwoju mowy własnej, u części zostaje jako jeden ze sposobów mówienia — także w dorosłości. Realistyczny cel nie brzmi „zero echa”, tylko <strong>„więcej sposobów na powiedzenie tego, co chcę”</strong>.</p>
   </div>
 
-  <div class="footer"><span>Rozdział V · Praktyka</span><span class="pagenum">16</span></div>
+  <div class="footer"><span class="pagina">Rozdział V · Praktyka</span><span class="wydawca">PCTP Koszalin</span><span class="pagenum">Strona <b>16</b> z 28</span></div>
 </div>
 
-<!-- ═══════════════ 17 · SŁOWNICZEK ═══════════════ -->
+<div class="page rozdzial">
+  <div class="duzy-nr" data-toc="r6">VI</div>
+  <div class="kicker">Rozdział szósty</div>
+  <h1>Warsztat:<br>ćwiczenia<br>i dostosowania</h1>
+  <p class="lead">Najpierw rozstrzygnięcie, które przesądza o całej reszcie: czy echolalię należy hamować. Potem dziesięć ćwiczeń i szczegółowe dostosowania do zapisania w IPET.</p>
+  <div class="w-srodku">
+    <span>Hamować czy nie</span>
+    <span>10 ćwiczeń</span>
+    <span>Dostosowania dla nauczyciela</span>
+  </div>
+  <div class="footer"><span class="pagina">Rozdział VI</span><span class="wydawca">PCTP Koszalin</span><span class="pagenum">Strona <b>17</b> z 28</span></div>
+</div>
+
+<div class="page">
+  <div class="kicker">Rozstrzygnięcie</div>
+  <h2 class="section" data-toc="hamowac">Czy echolalię należy hamować?</h2>
+
+  <div class="werdykt">
+    <div class="werdykt-nie">NIE</div>
+    <div class="werdykt-tresc">
+      <p><strong>Nie hamujemy echolalii jako formy wypowiedzi.</strong> Celem nigdy nie jest cisza w miejscu echa, tylko <strong>poszerzenie repertuaru</strong> — żeby dziecko miało więcej sposobów powiedzenia tego, co już próbuje powiedzieć.</p>
+      <p class="zasada">Zasada nadrzędna: <b>zastępuj, nie usuwaj.</b></p>
+    </div>
+  </div>
+
+  <h3 class="sub">Pięć powodów, dla których wygaszanie szkodzi</h3>
+
+  <div class="powod">
+    <span class="nr">1</span>
+    <div>
+      <h4>Usuwa narzędzie uczenia się</h4>
+      <p>Charlop <span class="cyt">[14]</span> wykazała, że echolalia <strong>ułatwia</strong> nabywanie i generalizowanie nazw. Wygaszając echo, zabieramy dziecku mechanizm, którym właśnie przyswaja język.</p>
+    </div>
+  </div>
+
+  <div class="powod">
+    <span class="nr">2</span>
+    <div>
+      <h4>Zabiera kanał komunikacji, nie zaspokajając potrzeby</h4>
+      <p>Echo pełni 21 opisanych funkcji <span class="cyt">[1][3]</span>. Potrzeba, która za nim stoi — prośba, protest, potrzeba kontaktu — nie znika razem z formą. Znajdzie ujście gdzie indziej, często w zachowaniu trudniejszym do odczytania.</p>
+    </div>
+  </div>
+
+  <div class="powod">
+    <span class="nr">3</span>
+    <div>
+      <h4>Adresuje objaw zamiast warunku</h4>
+      <p>Ilość echa zależy od tego, jak mówi dorosły <span class="cyt">[2]</span>. Hamowanie działa na dziecko, choć zmienna, która realnie steruje zjawiskiem, leży po stronie otoczenia.</p>
+    </div>
+  </div>
+
+  <div class="powod">
+    <span class="nr">4</span>
+    <div>
+      <h4>Podnosi napięcie, a napięcie nasila echo</h4>
+      <p>Echolalia pełni funkcję samoregulacyjną <span class="cyt">[1]</span> i rośnie przy pobudzeniu <span class="cyt">[9]</span>. Korygowanie („nie powtarzaj”) zwiększa napięcie, więc uruchamia dokładnie ten mechanizm, który miało wyłączyć.</p>
+    </div>
+  </div>
+
+  <div class="powod">
+    <span class="nr">5</span>
+    <div>
+      <h4>Nie ma dowodów, że działa trwale</h4>
+      <p>Przeglądy systematyczne <span class="cyt">[15][16]</span> wskazują, że baza dowodowa dla interwencji wobec echolalii jest wąska, a jakość badań niska. Nie ma podstaw, by ryzykować szkodę dla efektu, którego nie potwierdzono.</p>
+    </div>
+  </div>
+
+  <div class="ramka-t nauka">
+    <div class="glowa">◈ Co mówią o tym same osoby autystyczne?</div>
+    <p>Cohn i współpracownicy <span class="cyt">[9]</span> zbudowali swój model, sięgając po relacje osób autystycznych. Wynika z nich obraz spójny z danymi eksperymentalnymi: echo bywa <strong>celowe i przemyślane</strong>, a próby jego tłumienia odbierane są jako odmowa uznania tego, co dana osoba właśnie powiedziała.</p>
+  </div>
+
+  <div class="ramka-t uwaga">
+    <div class="glowa">▲ Najczęstszy kontrargument</div>
+    <p><em style="font-style:italic;">„Ale dziecko musi się w końcu nauczyć mówić samodzielnie.”</em> — Zgoda, i właśnie dlatego nie wygaszamy echa. Mowa własna nie powstaje w miejscu usuniętego powtarzania, tylko <strong>wyrasta z niego</strong>: przez rozbijanie brył, modelowanie i poszerzanie repertuaru. Usunięcie echa nie przyspiesza tej drogi — odbiera dziecku materiał, z którego miała powstać.</p>
+  </div>
+
+  <div class="footer"><span class="pagina">Rozdział VI · Warsztat</span><span class="wydawca">PCTP Koszalin</span><span class="pagenum">Strona <b>18</b> z 28</span></div>
+</div>
+
+<div class="page krem">
+  <h3 class="sub" data-toc="kiedy">Kiedy jednak trzeba zainterweniować?</h3>
+  <p>Są sytuacje, w których bierność nie jest opcją. Uwaga: interwencja oznacza wtedy <strong>nauczenie skuteczniejszej formy dla tej samej funkcji</strong> — nigdy karanie, wygaszanie ani ignorowanie.</p>
+
+  <div class="tabela-wrap">
+    <table class="stany">
+      <thead>
+        <tr><th>Sytuacja</th><th>Dlaczego reagujemy</th><th>Co robimy zamiast hamowania</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Echo blokuje dostęp do czegoś ważnego</td>
+          <td>Dziecko powtarza pytanie zamiast odpowiedzieć i traci to, o co mu chodzi.</td>
+          <td>Modelujemy gotową odpowiedź w formie, której dziecko może użyć, i dajemy dostęp.</td>
+        </tr>
+        <tr>
+          <td>Fraza naraża dziecko</td>
+          <td>Powtarzana kwestia jest wulgarna lub ośmiesza dziecko wobec rówieśników.</td>
+          <td>Uczymy frazy zamiennej o tej samej funkcji i usuwamy źródło z otoczenia.</td>
+        </tr>
+        <tr>
+          <td>Dziecko samo okazuje frustrację</td>
+          <td>Widać, że chce powiedzieć co innego i nie może wyjść z pętli.</td>
+          <td>Podpowiadamy pierwszy element frazy, dajemy pauzę, oferujemy wsparcie obrazkowe lub AAC.</td>
+        </tr>
+        <tr>
+          <td>Echo zajmuje całą przestrzeń wypowiedzi</td>
+          <td>Po 3. roku życia pozostaje jedyną formą i nie pojawiają się modyfikacje.</td>
+          <td>Kierujemy na diagnozę logopedyczną i planujemy pracę nad rozbijaniem brył.</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3 class="sub" data-toc="zasady">Zasady postępowania — siedem reguł</h3>
+
+  <ol class="reguly">
+    <li><b>Najpierw funkcja, potem forma.</b> Zanim zareagujesz, ustal, po co dziecko powtarza. Reakcja na niewłaściwie odczytaną funkcję nie zadziała, choćby technika była poprawna.</li>
+    <li><b>Odpowiadaj tak, jakby to była wypowiedź.</b> Bo nią jest. Milczenie w odpowiedzi na echo uczy, że mówienie nic nie zmienia.</li>
+    <li><b>Modeluj, nie żądaj powtórzenia.</b> „Chcę sok” zamiast „Powiedz: chcę sok”. Drugie zdanie dziecko odbije w całości, razem z poleceniem.</li>
+    <li><b>Zmniejszaj sterowanie, gdy echa przybywa.</b> Więcej komentarzy, mniej pytań testujących — to jedyna dźwignia o potwierdzonym działaniu <span class="cyt">[2]</span>.</li>
+    <li><b>Dawaj pauzę dłuższą, niż wydaje się potrzebna.</b> Pięć do dziesięciu sekund. Droga do znaczenia jest wolniejsza niż droga powtarzania.</li>
+    <li><b>Nigdy nie koryguj samej formy.</b> „Nie powtarzaj”, „powiedz normalnie”, „popatrz na mnie” — każde z tych zdań podnosi napięcie i nasila echo.</li>
+    <li><b>Zapisuj, nie tylko obserwuj.</b> Wzorzec funkcji ujawnia się po tygodniu notatek, nie po jednym dniu wrażeń.</li>
+  </ol>
+
+  <div class="footer"><span class="pagina">Rozdział VI · Warsztat</span><span class="wydawca">PCTP Koszalin</span><span class="pagenum">Strona <b>19</b> z 28</span></div>
+</div>
+
+<div class="page">
+  <div class="kicker">Warsztat terapeuty komunikacji</div>
+  <h2 class="section" data-toc="cwiczenia">Dziesięć ćwiczeń</h2>
+  <p class="lead">Każde ćwiczenie ma cel, przebieg, podstawę w literaturze i sygnał, po którym poznasz postęp.</p>
+
+  <div class="cwiczenie">
+    <div class="cw-glowa"><span class="cw-nr">01</span><h4>Wskazówka — pauza — wskazanie</h4></div>
+    <dl class="cw-tresc">
+      <dt>Cel</dt><dd>Przerwać automatyzm powtórzenia i wstawić w to miejsce odpowiedź własną.</dd>
+      <dt>Przebieg</dt><dd>Zadaj pytanie. Zamiast czekać na echo, natychmiast <strong>przyłóż palec do ust</strong> (sygnał pauzy), odczekaj 3–5 sekund, a potem <strong>wskaż</strong> właściwy obiekt lub obrazek. Dopiero wtedy dziecko odpowiada. Z czasem wycofuj najpierw wskazanie, potem sygnał pauzy.</dd>
+      <dt>Podstawa</dt><dd>Procedura <em class="termin">cues–pause–point</em>, McMorrow i wsp. <span class="cyt">[11]</span>.</dd>
+      <dt>Postęp</dt><dd>Dziecko zatrzymuje się samo, zanim padnie echo.</dd>
+    </dl>
+  </div>
+
+  <div class="cwiczenie">
+    <div class="cw-glowa"><span class="cw-nr">02</span><h4>Modelowanie z perspektywy dziecka</h4></div>
+    <dl class="cw-tresc">
+      <dt>Cel</dt><dd>Dać dziecku frazę w formie, której może użyć bez przerabiania.</dd>
+      <dt>Przebieg</dt><dd>Mów tak, jak dziecko miałoby powiedzieć: <strong>„Chcę sok”</strong>, nie „Powiedz: chcę sok”, nie „Czy chcesz sok?”. Fraza ma być krótka, stała i zawsze taka sama w tej samej sytuacji.</dd>
+      <dt>Podstawa</dt><dd>Wynika wprost z mechanizmu 3 — dziecko zapisuje bryłę w takiej postaci, w jakiej ją usłyszy.</dd>
+      <dt>Postęp</dt><dd>Dziecko używa frazy samodzielnie, bez podpowiedzi.</dd>
+    </dl>
+  </div>
+
+  <div class="cwiczenie">
+    <div class="cw-glowa"><span class="cw-nr">03</span><h4>Skrypt i jego wycofywanie</h4></div>
+    <dl class="cw-tresc">
+      <dt>Cel</dt><dd>Zbudować inicjatywę komunikacyjną tam, gdzie dziecko dotąd tylko odpowiadało.</dd>
+      <dt>Przebieg</dt><dd>Zapisz krótką frazę na pasku (np. „Zagrasz ze mną?”), naucz jej w stałej sytuacji, a potem <strong>usuwaj po jednym wyrazie od końca</strong> co kilka dni, aż zostanie pusty pasek, a na końcu nic.</dd>
+      <dt>Podstawa</dt><dd><em class="termin">Script-fading</em>, Krantz i McClannahan <span class="cyt">[13]</span>; wsparcie wizualne — Ganz i wsp. <span class="cyt">[12]</span>.</dd>
+      <dt>Postęp</dt><dd>Dziecko zaczepia rówieśnika bez paska.</dd>
+    </dl>
+  </div>
+
+  <div class="ramka-t praktyka">
+    <div class="glowa">✦ Zanim zaczniesz</div>
+    <p>Nie wprowadzaj więcej niż <strong>dwóch ćwiczeń naraz</strong> i daj każdemu minimum trzy–cztery tygodnie. Zacznij zawsze od ćwiczeń 04 i 06 — zmiana sposobu mówienia dorosłego i mapa funkcji są podstawą, na której opierają się wszystkie pozostałe.</p>
+  </div>
+
+  <div class="footer"><span class="pagina">Rozdział VI · Warsztat</span><span class="wydawca">PCTP Koszalin</span><span class="pagenum">Strona <b>20</b> z 28</span></div>
+</div>
+
+<div class="page">
+  <div class="cwiczenie">
+    <div class="cw-glowa"><span class="cw-nr">04</span><h4>Komentarz zamiast pytania</h4></div>
+    <dl class="cw-tresc">
+      <dt>Cel</dt><dd>Obniżyć obciążenie językowe i zrobić miejsce na mowę własną.</dd>
+      <dt>Przebieg</dt><dd>Przez całą sesję <strong>nie zadawaj pytań testujących</strong>. Opisuj: „Budujesz wieżę”, „Czerwony klocek na górze”. Policz w nagraniu stosunek komentarzy do pytań — celuj w 4 : 1.</dd>
+      <dt>Podstawa</dt><dd>Rydell i Mirenda <span class="cyt">[2]</span> — mechanizm o najwyższej ocenie dowodowej.</dd>
+      <dt>Postęp</dt><dd>Rośnie liczba wypowiedzi własnych przy tej samej liczbie ech.</dd>
+    </dl>
+  </div>
+
+  <div class="cwiczenie">
+    <div class="cw-glowa"><span class="cw-nr">05</span><h4>Rozbijanie bryły</h4></div>
+    <dl class="cw-tresc">
+      <dt>Cel</dt><dd>Zamienić sztywną całość w konstrukcję z wymiennym elementem.</dd>
+      <dt>Przebieg</dt><dd>Weź frazę, której dziecko używa („czas na śniadanie”), i podstawiaj <strong>jeden</strong> element: „czas na obiad”, „czas na spacer”. Zmieniaj zawsze to samo miejsce, dopóki dziecko nie zacznie zmieniać go samo. Dopiero potem otwieraj kolejne.</dd>
+      <dt>Podstawa</dt><dd>Przetwarzanie całościowe — Prizant <span class="cyt">[6]</span>.</dd>
+      <dt>Postęp</dt><dd>Pojawia się <em class="termin">echolalia złagodzona</em>: dziecko samo modyfikuje fragment frazy.</dd>
+    </dl>
+  </div>
+
+  <div class="cwiczenie">
+    <div class="cw-glowa"><span class="cw-nr">06</span><h4>Mapa funkcji echa</h4></div>
+    <dl class="cw-tresc">
+      <dt>Cel</dt><dd>Zamienić wrażenie „dużo powtarza” w dane, na których da się planować.</dd>
+      <dt>Przebieg</dt><dd>Przez 5 dni notuj przy każdym echu cztery rzeczy: <strong>co je poprzedziło</strong>, <strong>głośność</strong>, <strong>czy było skierowane do kogoś</strong>, <strong>co nastąpiło potem</strong>. Przypisz funkcję z tabeli siedmiu funkcji.</dd>
+      <dt>Podstawa</dt><dd>Prizant i Duchan <span class="cyt">[1]</span>; głośność jako wskaźnik — Cohn i wsp. <span class="cyt">[9]</span>.</dd>
+      <dt>Postęp</dt><dd>Dwie–trzy funkcje wyjaśniają większość zdarzeń. To one stają się celami w IPET.</dd>
+    </dl>
+  </div>
+
+  <div class="cwiczenie">
+    <div class="cw-glowa"><span class="cw-nr">07</span><h4>Czas oczekiwania</h4></div>
+    <dl class="cw-tresc">
+      <dt>Cel</dt><dd>Wyrównać szanse między szybką drogą powtarzania a wolniejszą drogą do znaczenia.</dd>
+      <dt>Przebieg</dt><dd>Po każdym pytaniu odlicz w myślach <strong>do dziesięciu</strong>, zanim cokolwiek dodasz. Nie powtarzaj pytania, nie parafrazuj, nie podpowiadaj. Nagraj sesję — większość dorosłych przerywa po 2 sekundach.</dd>
+      <dt>Podstawa</dt><dd>Mechanizm 5 — rozdzielenie dróg powtarzania i rozumienia.</dd>
+      <dt>Postęp</dt><dd>Odpowiedzi własne pojawiają się w 4.–8. sekundzie ciszy.</dd>
+    </dl>
+  </div>
+
+  <div class="ramka-t uwaga">
+    <div class="glowa">▲ Najczęstszy błąd w tych ćwiczeniach</div>
+    <p>Dorosły wykonuje technikę poprawnie, ale <strong>zbyt krótko</strong> — po tygodniu bez widocznego efektu wraca do starego sposobu mówienia. Tymczasem zmiana w mowie własnej dziecka pojawia się zwykle dopiero w trzecim–szóstym tygodniu konsekwentnej pracy. Nagrywaj sesje: to jedyny sposób, by sprawdzić, czy naprawdę robisz to, co Ci się wydaje.</p>
+  </div>
+
+  <div class="footer"><span class="pagina">Rozdział VI · Warsztat</span><span class="wydawca">PCTP Koszalin</span><span class="pagenum">Strona <b>21</b> z 28</span></div>
+</div>
+
+<div class="page">
+  <div class="cwiczenie">
+    <div class="cw-glowa"><span class="cw-nr">08</span><h4>Przeformułowanie i rozszerzenie</h4></div>
+    <dl class="cw-tresc">
+      <dt>Cel</dt><dd>Oddać dziecku jego własną wypowiedź w formie o krok bogatszej.</dd>
+      <dt>Przebieg</dt><dd>Dziecko: „Czas na spacer”. Ty: <strong>„Tak, idziemy na spacer. Bierzemy kurtkę.”</strong> Potwierdzasz znaczenie, dokładasz jeden element i nie żądasz powtórzenia. Nigdy nie poprawiaj formy.</dd>
+      <dt>Podstawa</dt><dd>Standardowa technika wspierania rozwoju mowy, spójna z mechanizmami 1 i 3.</dd>
+      <dt>Postęp</dt><dd>Dziecko przejmuje dołożony element w kolejnych wypowiedziach.</dd>
+    </dl>
+  </div>
+
+  <div class="cwiczenie">
+    <div class="cw-glowa"><span class="cw-nr">09</span><h4>Praca ze źródłem frazy</h4></div>
+    <dl class="cw-tresc">
+      <dt>Cel</dt><dd>Wykorzystać echolalię odroczoną jako gotowy materiał do rozmowy.</dd>
+      <dt>Przebieg</dt><dd>Ustal, skąd pochodzi powtarzana kwestia — bajka, reklama, dawna rozmowa. Obejrzyj to razem z dzieckiem i <strong>użyj tej samej frazy w nowej, prawdziwej sytuacji</strong>. Fraza dostaje wtedy drugie, własne znaczenie.</dd>
+      <dt>Podstawa</dt><dd>Funkcje echolalii odroczonej — Prizant i Rydell <span class="cyt">[3]</span>; Vicker <span class="cyt">[18]</span>.</dd>
+      <dt>Postęp</dt><dd>Dziecko używa frazy adekwatnie do sytuacji, nie tylko w odtworzeniu sceny.</dd>
+    </dl>
+  </div>
+
+  <div class="cwiczenie">
+    <div class="cw-glowa"><span class="cw-nr">10</span><h4>Równoległy kanał wizualny lub AAC</h4></div>
+    <dl class="cw-tresc">
+      <dt>Cel</dt><dd>Dać drugą drogę wypowiedzi na czas, gdy droga mówiona jest przeciążona.</dd>
+      <dt>Przebieg</dt><dd>Wprowadź obrazki, tablicę wyboru lub aplikację AAC <strong>równolegle z mową, nie zamiast niej</strong>. Sam także z nich korzystaj, wskazując symbol w trakcie mówienia.</dd>
+      <dt>Podstawa</dt><dd>Wsparcie wizualne w komunikacji — Ganz i wsp. <span class="cyt">[12]</span>.</dd>
+      <dt>Postęp</dt><dd>W sytuacjach przeciążenia dziecko sięga po symbol zamiast wpadać w pętlę echa.</dd>
+    </dl>
+  </div>
+
+  <div class="ramka-t uwaga">
+    <div class="glowa">▲ Warunek wspólny dla wszystkich dziesięciu</div>
+    <p>Żadne z tych ćwiczeń nie działa doraźnie. Wszystkie zakładają <strong>stałość</strong>: tę samą frazę, tę samą pauzę i tę samą reakcję przez kilka tygodni, u wszystkich dorosłych wokół dziecka. Największą przeszkodą nie bywa technika, tylko brak uzgodnienia między domem, szkołą i gabinetem.</p>
+  </div>
+
+  <h3 class="sub">Arkusz obserwacji echa — do ćwiczenia 06</h3>
+  <div class="tabela-wrap">
+    <table class="stany">
+      <thead><tr><th>Co zapisać</th><th>Możliwe wartości</th></tr></thead>
+      <tbody>
+        <tr><td>Co poprzedziło</td><td>polecenie · pytanie testujące · komentarz · zmiana · hałas · nic</td></tr>
+        <tr><td>Głośność</td><td>ciche / mruczane &nbsp;·&nbsp; zwykłe &nbsp;·&nbsp; głośniejsze niż zwykle</td></tr>
+        <tr><td>Skierowanie</td><td>do osoby (kontakt, gest) &nbsp;·&nbsp; do siebie</td></tr>
+        <tr><td>Co nastąpiło potem</td><td>dziecko dostało to, o co chodziło · powtórzyło ponownie · odeszło · uspokoiło się</td></tr>
+        <tr><td>Przypisana funkcja</td><td>jedna z siedmiu z tabeli na stronie 06</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="footer"><span class="pagina">Rozdział VI · Warsztat</span><span class="wydawca">PCTP Koszalin</span><span class="pagenum">Strona <b>22</b> z 28</span></div>
+</div>
+
+<div class="page krem">
+  <div class="kicker">Dla nauczyciela</div>
+  <h2 class="section" data-toc="dostosowania">Dostosowania w klasie</h2>
+  <p class="lead">Zapisy gotowe do przeniesienia do IPET. Uporządkowane według obszarów, z których korzysta arkusz dostosowań.</p>
+
+  <h3 class="sub">Komunikacja i sposób formułowania poleceń</h3>
+  <div class="tabela-wrap">
+    <table class="stany">
+      <thead><tr><th>Dostosowanie</th><th>Jak to wygląda w praktyce</th></tr></thead>
+      <tbody>
+        <tr><td>Polecenia pojedyncze</td><td>Jedna instrukcja naraz, w kolejności wykonania. Zamiast „Otwórz książkę na 20 i przeczytaj pierwszy akapit” — dwa osobne polecenia z pauzą.</td></tr>
+        <tr><td>Przewaga komentarza nad pytaniem</td><td>Nauczyciel opisuje sytuację zamiast odpytywać. Pytania testujące ograniczone do sytuacji, w których naprawdę sprawdzamy wiedzę.</td></tr>
+        <tr><td>Wydłużony czas na odpowiedź</td><td>Minimum 10 sekund ciszy po pytaniu, bez ponawiania i parafrazowania.</td></tr>
+        <tr><td>Zakaz korygowania formy wypowiedzi</td><td>Nie stosuje się zwrotów „nie powtarzaj”, „powiedz normalnie”, „powiedz to swoimi słowami”.</td></tr>
+        <tr><td>Uprzedzanie o zmianie tematu</td><td>Krótki sygnał („Kończymy matematykę, zaczynamy przyrodę”) przed przejściem do nowej aktywności.</td></tr>
+        <tr><td>Stałe frazy organizacyjne</td><td>Te same, niezmienne zwroty przy rozpoczęciu i zakończeniu zajęć — stają się dla dziecka punktami orientacyjnymi.</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3 class="sub">Sprawdzanie wiedzy i odpowiedzi ustne</h3>
+  <div class="tabela-wrap">
+    <table class="stany">
+      <thead><tr><th>Dostosowanie</th><th>Jak to wygląda w praktyce</th></tr></thead>
+      <tbody>
+        <tr><td>Pierwszeństwo formy pisemnej</td><td>Możliwość zastąpienia odpowiedzi ustnej pisemną, wskazaniem lub odpowiedzią przez AAC.</td></tr>
+        <tr><td>Pytania zamknięte i z wyborem</td><td>Zamiast „Opowiedz o cyklu wody” — wybór z trzech opisów lub uporządkowanie obrazków.</td></tr>
+        <tr><td>Zapowiedziane odpytywanie</td><td>Dziecko wie z wyprzedzeniem, o co i kiedy zostanie zapytane.</td></tr>
+        <tr><td>Echo nie jest liczone jako błąd</td><td>Powtórzenie polecenia lub pytania nie obniża oceny i nie jest traktowane jako brak odpowiedzi.</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="footer"><span class="pagina">Rozdział VI · Warsztat</span><span class="wydawca">PCTP Koszalin</span><span class="pagenum">Strona <b>23</b> z 28</span></div>
+</div>
+
+<div class="page">
+  <h3 class="sub">Organizacja przestrzeni i czasu</h3>
+  <div class="tabela-wrap">
+    <table class="stany">
+      <thead><tr><th>Dostosowanie</th><th>Jak to wygląda w praktyce</th></tr></thead>
+      <tbody>
+        <tr><td>Miejsce o niższym obciążeniu</td><td>Ławka z dala od okna, drzwi i głośnych rówieśników; dostęp do słuchawek wygłuszających.</td></tr>
+        <tr><td>Wizualny plan dnia</td><td>Stały, widoczny plan z zaznaczeniem zmian. Nasilenie echa po zmianie planu traktuje się jako sygnał, nie jako złe zachowanie.</td></tr>
+        <tr><td>Przerwa regulacyjna na żądanie</td><td>Uzgodniony sygnał (karta, gest), po którym dziecko może wyjść do wyciszenia bez tłumaczenia się.</td></tr>
+        <tr><td>Trudniejsze zadania wcześniej</td><td>Materiał wymagający przetwarzania językowego planowany na pierwsze godziny, nie na koniec dnia.</td></tr>
+        <tr><td>Skrócone bloki pracy</td><td>Krótsze odcinki zadaniowe z przerwami, zamiast jednej długiej aktywności.</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3 class="sub">Klasa, rówieśnicy i sytuacje trudne</h3>
+  <div class="tabela-wrap">
+    <table class="stany">
+      <thead><tr><th>Dostosowanie</th><th>Jak to wygląda w praktyce</th></tr></thead>
+      <tbody>
+        <tr><td>Wyjaśnienie klasie</td><td>Krótka, rzeczowa informacja: „Adam czasem powtarza to, co usłyszy. Tak mu się łatwiej myśli i mówi”. Bez litości i bez wyjątkowego traktowania.</td></tr>
+        <tr><td>Reakcja przy echu na forum</td><td>Nauczyciel odpowiada na treść, nie komentuje formy, i płynnie prowadzi lekcję dalej.</td></tr>
+        <tr><td>Postępowanie przy przeciążeniu</td><td>Gwałtowny wzrost echa → obniżenie wymagań językowych, zmiana miejsca, przerwa. Nigdy podnoszenie wymagań ani egzekwowanie odpowiedzi.</td></tr>
+        <tr><td>Jednolitość dorosłych</td><td>Wszyscy nauczyciele uczący dziecko stosują te same zasady — rozbieżność kasuje efekt pracy terapeutycznej.</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="ramka-t praktyka">
+    <div class="glowa">✦ Gotowy zapis do IPET</div>
+    <p>„Uczeń komunikuje się z wykorzystaniem echolalii, która pełni funkcje komunikacyjne i samoregulacyjne. <strong>Nie stosuje się oddziaływań ukierunkowanych na wygaszanie echolalii.</strong> Oddziaływania koncentrują się na poszerzaniu repertuaru komunikacyjnego: modelowaniu fraz funkcjonalnych, wydłużonym czasie oczekiwania na odpowiedź, przewadze wypowiedzi opisowych nad pytaniami testującymi oraz równoległym wsparciu wizualnym.”</p>
+  </div>
+
+  <div class="footer"><span class="pagina">Rozdział VI · Warsztat</span><span class="wydawca">PCTP Koszalin</span><span class="pagenum">Strona <b>24</b> z 28</span></div>
+</div>
+
 <div class="page">
   <div class="kicker">Materiały</div>
-  <h2 class="section">Słowniczek pojęć</h2>
+  <h2 class="section" data-toc="slownik">Słowniczek pojęć</h2>
   <p class="lead">Terminy, które pojawiają się w tej broszurze i w dokumentacji terapeutycznej.</p>
 
   <dl class="slownik">
@@ -1392,6 +1831,9 @@
       <dt>Afazja transkorowa czuciowa</dt>
       <dd>Zaburzenie, w którym powtarzanie jest zachowane, a rozumienie zaburzone. Klasyczne źródło echolalii u dorosłych.</dd>
     </div>
+  </dl>
+
+  <dl class="slownik" style="margin-top:9px;">
     <div class="haslo">
       <dt>Wypowiedź wysoko sterująca</dt>
       <dd>Polecenie lub pytanie testujące, które wymusza określoną odpowiedź. Zwiększa ilość echolalii.</dd>
@@ -1426,13 +1868,12 @@
     </div>
   </dl>
 
-  <div class="footer"><span>Materiały</span><span class="pagenum">17</span></div>
+  <div class="footer"><span class="pagina">Materiały</span><span class="wydawca">PCTP Koszalin</span><span class="pagenum">Strona <b>25</b> z 28</span></div>
 </div>
 
-<!-- ═══════════════ 18 · BIBLIOGRAFIA ═══════════════ -->
 <div class="page">
   <div class="kicker">Materiały</div>
-  <h2 class="section">Bibliografia</h2>
+  <h2 class="section" data-toc="bibliografia">Bibliografia</h2>
   <p style="font-size:11.8px;color:var(--szary);margin-bottom:2px;">Numeracja odpowiada odsyłaczom w tekście. Wszystkie pozycje pochodzą z recenzowanych czasopism naukowych lub przeglądów systematycznych.</p>
 
   <ol class="zrodla">
@@ -1446,6 +1887,9 @@
     <li><span class="n">[8]</span> Hutchins, T.L., Knox, S.E., Fletcher, E.C. (2024). Natural language acquisition and gestalt language processing: a critical analysis. <i>Autism &amp; Developmental Language Impairments</i>, 9.</li>
     <li><span class="n">[9]</span> Cohn, E.G., McVilly, K.R., Harrison, M.J., Stiegler, L.N. (2022). Repeating purposefully: empowering educators with functional communication models of echolalia. <i>Autism &amp; Developmental Language Impairments</i>, 7.</li>
     <li><span class="n">[10]</span> Xie, F., Pascual, E., Oakley, T. (2023). Functional echolalia in autism speech. <i>Frontiers in Psychology</i>, 14.</li>
+  </ol>
+
+  <ol class="zrodla" style="margin-top:0;">
     <li><span class="n">[11]</span> McMorrow, M.J., Foxx, R.M., Faw, G.D., Bittle, R.G. (1987). Cues-pause-point language training. <i>Journal of Applied Behavior Analysis</i>, 20, 11–22.</li>
     <li><span class="n">[12]</span> Ganz, J.B., Kaylor, M., Bourgeois, B., Hadden, K. (2008). The impact of social scripts and visual cues on verbal communication. <i>Focus on Autism and Other Developmental Disabilities</i>.</li>
     <li><span class="n">[13]</span> Krantz, P.J., McClannahan, L.E. (1993). Teaching children with autism to initiate to peers: script-fading. <i>Journal of Applied Behavior Analysis</i>, 26(1), 121–132.</li>
@@ -1459,16 +1903,15 @@
 
   <div class="nota">
     <b>Nota o cytowaniu</b>
-    Pozycja [4] jest materiałem informacyjnym instytucji medycznej, nie badaniem naukowym — cytujemy ją wyłącznie jako przykład tego, jak hipotezy neuroprzekaźnikowe funkcjonują w obiegu popularnym. Pozycja [7] to publikacja komercyjna; jej ocenę empiryczną zawiera pozycja [8].
+    Cytujemy wyłącznie prace z recenzowanych czasopism naukowych oraz przeglądy systematyczne. Tam, gdzie popularny model nie ma potwierdzenia empirycznego, mówimy o tym wprost — nawet jeśli jest szeroko stosowany. Pozycja [4] jest materiałem informacyjnym instytucji medycznej, nie badaniem naukowym — cytujemy ją wyłącznie jako przykład tego, jak hipotezy neuroprzekaźnikowe funkcjonują w obiegu popularnym. Pozycja [7] to publikacja komercyjna; jej ocenę empiryczną zawiera pozycja [8].
   </div>
 
-  <div class="footer"><span>Materiały</span><span class="pagenum">18</span></div>
+  <div class="footer"><span class="pagina">Materiały</span><span class="wydawca">PCTP Koszalin</span><span class="pagenum">Strona <b>26</b> z 28</span></div>
 </div>
 
-<!-- ═══════════════ 19 · ŚCIĄGAWKA ═══════════════ -->
 <div class="page krem">
   <div class="kicker">Do wycięcia i powieszenia</div>
-  <h2 class="section">Szybka ściągawka</h2>
+  <h2 class="section" data-toc="sciagawka">Szybka ściągawka</h2>
   <p class="lead">Jedna strona, którą warto mieć w klasie, w gabinecie albo na lodówce.</p>
 
   <div class="sciagawka">
@@ -1545,23 +1988,20 @@
 
   <div class="ramka-t definicja" style="margin-top:12px;">
     <div class="glowa">◆ Jedno zdanie na koniec</div>
-    <p>Jeżeli zapamiętasz z tej broszury tylko jedną rzecz, niech to będzie ta: <strong>zanim zapytasz, jak zatrzymać powtarzanie, zapytaj, po co ono jest</strong>. Odpowiedź na to pytanie prawie zawsze podpowiada, co zrobić dalej.</p>
+    <p>Jeżeli zapamiętasz tylko jedno: <strong>zanim zapytasz, jak zatrzymać powtarzanie, zapytaj, po co ono jest</strong>. Odpowiedź prawie zawsze podpowiada, co zrobić dalej.</p>
   </div>
 
-  <div class="footer"><span>Materiały</span><span class="pagenum">19</span></div>
+  <div class="footer"><span class="pagina">Materiały</span><span class="wydawca">PCTP Koszalin</span><span class="pagenum">Strona <b>27</b> z 28</span></div>
 </div>
 
-<!-- ═══════════════ 20 · TYLNA OKŁADKA ═══════════════ -->
 <div class="page tyl">
   <div>
-    <svg width="46" height="46" viewBox="0 0 100 100" role="img" aria-label="Sygnet serii" style="margin-bottom:22px;">
-      <defs>
-        <linearGradient id="tylGrad" x1="0" y1="0" x2="1" y2="1">
-          <stop offset="0%" stop-color="#FF7A45"/><stop offset="100%" stop-color="#F2A20C"/>
-        </linearGradient>
-      </defs>
-      <rect x="2" y="2" width="96" height="96" rx="26" fill="url(#tylGrad)"/>
-      <text x="50" y="68" text-anchor="middle" font-family="Fraunces,Georgia,serif" font-size="52" font-weight="900" fill="#1B1040">E</text>
+    <svg width="52" height="52" viewBox="0 0 64 64" role="img" aria-label="Znak PCTP" style="margin-bottom:22px;">
+      <rect width="64" height="64" rx="17" fill="rgba(255,255,255,.10)" stroke="rgba(255,255,255,.28)"></rect>
+      <path d="M17 44 C 17 44, 13 38, 13 32 C 13 21, 21 14, 32 14" fill="none" stroke="#FF7A45" stroke-width="4.5" stroke-linecap="round"></path>
+      <path d="M25 42 C 22 39, 21 36, 21 32 C 21 26, 26 22, 32 22" fill="none" stroke="#E0930C" stroke-width="4" stroke-linecap="round" opacity=".9"></path>
+      <circle cx="41" cy="32" r="5" fill="#FBF9F4"></circle>
+      <circle cx="41" cy="32" r="11.5" fill="none" stroke="#FBF9F4" stroke-width="2.5" opacity=".45"></circle>
     </svg>
 
     <p class="haslo-koncowe">Zanim zapytasz, jak zatrzymać powtarzanie — zapytaj, <span class="akcent">po co ono jest</span>.</p>
@@ -1570,15 +2010,12 @@
 
   <div class="tyl-srodek">
     <svg viewBox="0 0 300 300" role="img" aria-label="Motyw graficzny serii: zagnieżdżone dymki mowy" class="tyl-znak">
-      <path d="M60 236 C18 236 6 210 6 176 L6 74 C6 40 18 22 60 22 L216 22 C258 22 270 40 270 74 L270 176 C270 210 258 236 216 236 L110 236 L66 282 Z"
-            fill="none" stroke="#8A7CBE" stroke-width="2" opacity=".3"/>
-      <path d="M84 210 C50 210 40 190 40 162 L40 82 C40 54 50 40 84 40 L206 40 C240 40 250 54 250 82 L250 162 C250 190 240 210 206 210 L124 210 L90 244 Z"
-            fill="none" stroke="#8A7CBE" stroke-width="2.5" opacity=".5"/>
-      <path d="M108 186 C82 186 74 170 74 148 L74 92 C74 70 82 58 108 58 L196 58 C222 58 230 70 230 92 L230 148 C230 170 222 186 196 186 L138 186 L112 212 Z"
-            fill="none" stroke="#F2A20C" stroke-width="3.5" opacity=".8"/>
-      <circle cx="128" cy="121" r="9" fill="#FF7A45"/>
-      <circle cx="156" cy="121" r="9" fill="#FF7A45" opacity=".6"/>
-      <circle cx="184" cy="121" r="9" fill="#FF7A45" opacity=".3"/>
+      <path d="M60 236 C18 236 6 210 6 176 L6 74 C6 40 18 22 60 22 L216 22 C258 22 270 40 270 74 L270 176 C270 210 258 236 216 236 L110 236 L66 282 Z" fill="none" stroke="#8A7CBE" stroke-width="2" opacity=".3"></path>
+      <path d="M84 210 C50 210 40 190 40 162 L40 82 C40 54 50 40 84 40 L206 40 C240 40 250 54 250 82 L250 162 C250 190 240 210 206 210 L124 210 L90 244 Z" fill="none" stroke="#8A7CBE" stroke-width="2.5" opacity=".5"></path>
+      <path d="M108 186 C82 186 74 170 74 148 L74 92 C74 70 82 58 108 58 L196 58 C222 58 230 70 230 92 L230 148 C230 170 222 186 196 186 L138 186 L112 212 Z" fill="none" stroke="#E0930C" stroke-width="3.5" opacity=".8"></path>
+      <circle cx="128" cy="121" r="9" fill="#FF7A45"></circle>
+      <circle cx="156" cy="121" r="9" fill="#FF7A45" opacity=".6"></circle>
+      <circle cx="184" cy="121" r="9" fill="#FF7A45" opacity=".3"></circle>
     </svg>
 
     <div class="tyl-lista">
@@ -1591,14 +2028,14 @@
 
   <div class="tyl-stopka">
     <div class="org">
-      <b>Pomorskie Centrum Terapii Pedagogicznej</b>
-      Poradniki edukacyjno-terapeutyczne<br>
+      <b>mgr Mirosława Jurczyszyn</b>
+      Pomorskie Centrum Terapii Pedagogicznej · Koszalin<br>
       Materiał do bezpłatnej dystrybucji w placówkach oświatowych
     </div>
     <div class="meta">
       Echolalia pod lupą nauki<br>
-      Wydanie I · 19 stron<br>
-      19 pozycji bibliograficznych
+      Wydanie I · 2026 · 28 stron<br>
+      EduPlaner2026-MJ-PCTP
     </div>
   </div>
 </div>
