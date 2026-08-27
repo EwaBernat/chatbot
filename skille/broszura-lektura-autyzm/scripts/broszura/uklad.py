@@ -135,10 +135,11 @@ class Broszura:
 
     def ilustracja(self, zrodlo, extra="", cap=""):
         """Buduje figurę z danych. `obraz` (plik) ma pierwszeństwo przed `ilustracja` (wektor)."""
-        waska, kadr = False, ""
+        waska, szeroka, kadr = False, False, ""
         if isinstance(zrodlo, dict):
             plik, wektor = zrodlo.get("obraz"), zrodlo.get("ilustracja")
             waska = bool(zrodlo.get("ilustracja_waska"))
+            szeroka = bool(zrodlo.get("ilustracja_szeroka"))
             kadr = zrodlo.get("kadr", "")
         else:
             plik, wektor = None, zrodlo
@@ -146,6 +147,10 @@ class Broszura:
             klasa, w, h = self.obraz_klasa(plik)
             if waska:
                 extra = (extra + " waska").strip()
+            elif szeroka:
+                # rysunki z drobnymi podpisami (np. dwie perspektywy) muszą być większe,
+                # inaczej uczeń nie odczyta etykiet
+                extra = (extra + " szeroka").strip()
             return fig_obraz(klasa, w, h, extra, cap, kadr)
         rys = rysunek(wektor)
         if rys and not waska and isinstance(wektor, str) and wektor.endswith("_scena"):
