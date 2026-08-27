@@ -46,6 +46,19 @@ Termometr opisuje każdy stopień na cztery niezależne sposoby: kolorem, wysoko
 miną i liczbą kropek. Uczeń, który nie czyta, korzysta z trzech ostatnich — słowo jest wtedy
 podpowiedzią dla dorosłego. Nie usuwaj żadnego z tych czterech kanałów.
 
+## Kadrowanie zdjęć na kartach
+
+Karta przycina zdjęcie do paska o proporcji 46%. Środek kadru bardzo często ucina
+to, co najważniejsze — latarnię latarnika, koronę króla, dymek geografa. Ustaw wtedy
+`"kadr": "center 15%"` (albo `"center top"`, `"center 62%"`) przy tym obrazie w danych.
+Wartość trafia wprost do `background-position`: 0% to góra zdjęcia, 100% to dół.
+
+Zdjęcie wyraźnie wyższe (`h > 1,05·w`) albo wyraźnie szersze (`w > 2,6·h`) od paska
+silnik pokazuje w całości, na tle karty — kadrowanie zjadłoby z niego zbyt wiele.
+
+Gdy strona rozdziału jest pełna, `"ilustracja_waska": true` zwęża zdjęcie do 46 mm,
+a scenę do 54 mm.
+
 ## Sceny — rysunek zamiast zdjęcia
 
 Nazwy kończące się na `_scena` to płaskie rysunki w proporcji 200×96. Silnik nadaje im

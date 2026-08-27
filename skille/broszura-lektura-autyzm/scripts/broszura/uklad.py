@@ -38,16 +38,22 @@ def fig(svgstr, extra="", cap=""):
             f'{svgstr}</div>{caphtml}</figure>')
 
 
-def fig_obraz(klasa, w, h, extra="", cap=""):
+def fig_obraz(klasa, w, h, extra="", cap="", kadr=""):
     """Figura ze zdjęciem. Proporcje bierzemy z nagłówka pliku — patrz obrazy.py."""
     pb = h / w * 100
     caphtml = f"<figcaption>{E(cap)}</figcaption>" if cap else ""
     kl = ("ilu ilu-foto " + extra).strip()
     # Zdjęcie w pionie nie może być kadrowane do wąskiego paska karty — obcięłoby
     # to, co na nim najważniejsze. Oznaczamy je, a arkusz stylów pokazuje je w całości.
-    pion = " foto-pion" if h > w * 1.05 else ""
+    # Zdjęcie znacznie wyższe albo znacznie szersze od paska karty pokazujemy
+    # w całości — kadrowanie „na wypełnienie" zjadłoby z niego to, co istotne.
+    pion = " foto-pion" if h > w * 1.05 else (" foto-pas" if w > h * 2.6 else "")
+    # `kadr` decyduje, która część zdjęcia zostaje widoczna, gdy karta przycina
+    # je do wąskiego paska. Bez tego środek kadru ucina to, co najważniejsze —
+    # latarnię latarnika, koronę króla, kapelusz próżnego.
+    poz = f";background-position:{kadr}" if kadr else ""
     return (f'<figure class="{kl}"><div class="ilu-box foto-tlo{pion} {klasa}" '
-            f'style="padding-bottom:{pb:.3f}%"></div>{caphtml}</figure>')
+            f'style="padding-bottom:{pb:.3f}%{poz}"></div>{caphtml}</figure>')
 
 
 def rysunek(nazwa):
@@ -128,15 +134,18 @@ class Broszura:
 
     def ilustracja(self, zrodlo, extra="", cap=""):
         """Buduje figurę z danych. `obraz` (plik) ma pierwszeństwo przed `ilustracja` (wektor)."""
-        waska = False
+        waska, kadr = False, ""
         if isinstance(zrodlo, dict):
             plik, wektor = zrodlo.get("obraz"), zrodlo.get("ilustracja")
             waska = bool(zrodlo.get("ilustracja_waska"))
+            kadr = zrodlo.get("kadr", "")
         else:
             plik, wektor = None, zrodlo
         if plik:
             klasa, w, h = self.obraz_klasa(plik)
-            return fig_obraz(klasa, w, h, extra, cap)
+            if waska:
+                extra = (extra + " waska").strip()
+            return fig_obraz(klasa, w, h, extra, cap, kadr)
         rys = rysunek(wektor)
         if rys and not waska and isinstance(wektor, str) and wektor.endswith("_scena"):
             # Sceny są szerokie (200×96), więc znoszą większą szerokość niż
