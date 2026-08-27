@@ -557,6 +557,192 @@ def traffic():
 </g>
 </svg>'''
 
+# ---------- SCENY NA KARTY BEZ ZDJEC ----------
+# Rysowane w proporcji paska karty (200x96). Postacie z profilu - sylwetka
+# z boku czyta sie czytelniej niz twarz na front przy tej wielkosci.
+
+def _postac_profil(x, y, s=1.0, plaszcz=None, wlosy=None, pochylona=False):
+    """Sylwetka z profilu. Nos i czupryna wystarcza, zeby profil byl czytelny."""
+    plaszcz = plaszcz or C["d3"]
+    wlosy = wlosy or C["wlosy"]
+    kat = "rotate(10)" if pochylona else ""
+    return f'''<g transform="translate({x},{y}) scale({s}) {kat}">
+<path d="M-7 0c0-11 3-17 7-17s7 6 7 17z" fill="{plaszcz}" stroke="{C['d1']}" stroke-width="1"/>
+<circle cx="0" cy="-21" r="5.4" fill="{C['skora']}" stroke="{C['d1']}" stroke-width=".9"/>
+<path d="M5.2 -21.6l2.2 1.6-2.2 1.4z" fill="{C['skora']}" stroke="{C['d1']}" stroke-width=".7" stroke-linejoin="round"/>
+<path d="M-5.6 -22.6c.6-5.4 9-5.4 10.2-1-3-2.6-7.4-3-10.2 1z" fill="{wlosy}"/>
+</g>'''
+
+
+def geograf_scena():
+    """Geograf przy biurku: ksiegi, globus, lupa - i kwiat, ktorego nie zapisuje."""
+    L = 72                                   # linia blatu
+    return f'''<svg viewBox="0 0 200 96" role="img" aria-label="Geograf przy biurku pelnym ksiag i globusie">
+{_defs("gg")}
+<rect width="200" height="96" fill="{C['sand']}"/>
+{_wash(52, 24, 44, C['gold'], ".22", "gg")}
+{_wash(166, 36, 40, C['m3'], ".20", "gg")}
+<g>
+  <circle cx="162" cy="42" r="22" fill="{C['m1']}" stroke="{C['d1']}" stroke-width="1.4"/>
+  <path d="M144 34c11 4 25 4 36 0M144 50c11-4 25-4 36 0" stroke="{C['l2']}" stroke-width="1.1" fill="none" opacity=".8"/>
+  <path d="M162 20v44" stroke="{C['l2']}" stroke-width="1.1" opacity=".6"/>
+  <path d="M151 28c-5 10-5 19 0 24 6-10 6-16 0-24z" fill="{C['l1']}" opacity=".65"/>
+  <path d="M170 36c4 4 4 11 1 15-3-5-3-11-1-15z" fill="{C['l1']}" opacity=".5"/>
+  <path d="M162 64v6h-9v2h18v-2h-9z" fill="{C['d1']}"/>
+</g>
+{_postac_profil(74, L, 1.9, C['d3'], C['wlosy2'], True)}
+<path d="M84 {L - 22}c12 2 20 8 24 14" stroke="{C['d3']}" stroke-width="7"
+      stroke-linecap="round" fill="none"/>
+<circle cx="110" cy="{L - 7}" r="3.4" fill="{C['skora']}" stroke="{C['d1']}" stroke-width=".8"/>
+<path d="M0 {L}h200v{96 - L}H0z" fill="{C['d2']}"/>
+<path d="M0 {L - 2}h200v4H0z" fill="{C['d1']}"/>
+<g>
+  <path d="M112 {L - 1}c9-7 18-7 24 0 6-7 15-7 24 0-9 4-15 4-24 1-9 3-15 3-24-1z"
+        fill="#FFFFFF" stroke="{C['d1']}" stroke-width="1.2" stroke-linejoin="round"/>
+  <path d="M136 {L - 1}v-7" stroke="{C['d1']}" stroke-width="1.1"/>
+  <path d="M118 {L - 6}h13M141 {L - 6}h13" stroke="{C['d3']}" stroke-width=".8" opacity=".6"/>
+</g>
+<g>
+  <path d="M14 {L}V{L - 10}h28v10z" fill="{C['l1']}" stroke="{C['d1']}" stroke-width="1.1"/>
+  <path d="M18 {L - 10}v-8h28v8z" fill="{C['gold2']}" stroke="{C['d1']}" stroke-width="1.1"/>
+  <path d="M22 {L - 18}v-7h26v7z" fill="{C['rose2']}" stroke="{C['d1']}" stroke-width="1.1"/>
+</g>
+<g>
+  <path d="M190 {L}V{L - 12}" stroke="{C['m1']}" stroke-width="1.6"/>
+  <circle cx="190" cy="{L - 15}" r="4.4" fill="{C['rose']}"/>
+  <path d="M184 {L - 7}c4-4 8-4 12 0" stroke="{C['m1']}" stroke-width="1.4" fill="none"/>
+</g>
+</svg>'''
+
+
+def ziemia_scena():
+    """Ziemia z kosmosu i maly punkt na pustyni: siodma planeta, a jednak samotnie."""
+    gw = "".join(
+        f'<circle cx="{x}" cy="{y}" r="{r}" fill="{C["l2"]}" opacity=".8"/>'
+        for x, y, r in [(14, 14, 1.2), (34, 30, .9), (58, 10, 1.1), (86, 24, .8),
+                        (172, 12, 1.3), (188, 34, 1.0), (152, 30, .9), (24, 46, 1.0),
+                        (196, 62, .9), (8, 62, 1.1), (120, 8, 1.0), (104, 34, .8)])
+    return f'''<svg viewBox="0 0 200 96" role="img" aria-label="Ziemia widziana z kosmosu i maly punkt na pustyni">
+{_defs("zz")}
+<defs><radialGradient id="niebozz" cx="50%" cy="34%" r="78%">
+<stop offset="0%" stop-color="{C['d3']}"/><stop offset="100%" stop-color="{C['d1']}"/></radialGradient>
+<radialGradient id="kulazz" cx="36%" cy="32%" r="72%">
+<stop offset="0%" stop-color="{C['m2']}"/><stop offset="70%" stop-color="{C['m1']}"/>
+<stop offset="100%" stop-color="{C['d2']}"/></radialGradient></defs>
+<rect width="200" height="96" fill="url(#niebozz)"/>
+{_wash(150, 26, 40, C['m2'], ".18", "zz")}
+{_wash(40, 20, 34, C['fiolet'], ".22", "zz")}
+{gw}
+<g>
+  <circle cx="136" cy="38" r="30" fill="{C['l1']}" opacity=".14"/>
+  <circle cx="136" cy="38" r="25" fill="url(#kulazz)" stroke="{C['l1']}" stroke-width="1.2"/>
+  <path d="M121 25c7-2 12 1 11 5-1 5-9 4-12 8-3 4 2 7 7 6 6-1 10 3 8 7"
+        fill="none" stroke="{C['l2']}" stroke-width="2.4" stroke-linecap="round" opacity=".85"/>
+  <path d="M145 29c6 0 9 3 8 7-1 4-7 4-8 8" fill="none" stroke="{C['l2']}"
+        stroke-width="2.2" stroke-linecap="round" opacity=".7"/>
+  <path d="M130 54c5 3 12 3 17-1" fill="none" stroke="{C['l2']}" stroke-width="2"
+        stroke-linecap="round" opacity=".6"/>
+  <ellipse cx="127" cy="29" rx="9" ry="5" fill="#FFFFFF" opacity=".22"/>
+</g>
+<path d="M0 76c22-9 40-4 58 1s38 7 56 1 52-6 86 4v14H0z" fill="{C['sand']}" opacity=".95"/>
+<path d="M0 84c26-6 44 0 66 4s44 2 68-2 44-2 66 3v7H0z" fill="{C['gold2']}" opacity=".5"/>
+{_postac_profil(40, 84, .78, C['m1'], C['wlosy'])}
+<path d="M45 74c6 1 9 3 10 5" stroke="{C['szal']}" stroke-width="1.8" fill="none" stroke-linecap="round"/>
+</svg>'''
+
+
+def studnia_scena():
+    """Studnia na pustyni: kamienny krag, kolowrot, dwie sylwetki pod gwiazdami."""
+    gw = "".join(
+        f'<circle cx="{x}" cy="{y}" r="{r}" fill="{C["l2"]}" opacity=".8"/>'
+        for x, y, r in [(16, 16, 1.1), (44, 8, .9), (70, 20, 1.2), (176, 14, 1.2),
+                        (192, 40, .9), (150, 10, 1.0), (30, 38, .9), (110, 12, .9)])
+    return f'''<svg viewBox="0 0 200 96" role="img" aria-label="Studnia na pustyni pod gwiazdami">
+{_defs("sw")}
+<defs><linearGradient id="niebosw" x1="0" y1="0" x2="0" y2="1">
+<stop offset="0" stop-color="{C['d1']}"/><stop offset="1" stop-color="{C['d3']}"/></linearGradient></defs>
+<rect width="200" height="96" fill="url(#niebosw)"/>
+{_wash(150, 24, 38, C['fiolet'], ".26", "sw")}
+{_wash(48, 30, 34, C['m2'], ".16", "sw")}
+{gw}
+<path d="M150 22a11 11 0 1 0 8 18 13 13 0 0 1-8-18z" fill="{C['gold2']}" opacity=".9"/>
+<path d="M0 62c26-8 46-2 68 3s46 4 70-2 42-3 62 4v29H0z" fill="{C['sand']}" opacity=".92"/>
+<path d="M0 74c30-7 50 0 74 4s48 1 66-3 42-1 60 4v17H0z" fill="{C['gold2']}" opacity=".45"/>
+<g>
+  <path d="M78 62h44l-4 26H82z" fill="{C['l1']}" stroke="{C['d1']}" stroke-width="1.3"/>
+  <path d="M82 70h36M84 78h32" stroke="{C['d2']}" stroke-width=".9" opacity=".6"/>
+  <ellipse cx="100" cy="62" rx="22" ry="5.4" fill="{C['d2']}" stroke="{C['d1']}" stroke-width="1.3"/>
+  <ellipse cx="100" cy="62" rx="16" ry="3.4" fill="{C['d1']}"/>
+  <path d="M82 60V42M118 60V42" stroke="{C['d2']}" stroke-width="2.4" stroke-linecap="round"/>
+  <path d="M76 42h48l-24-13z" fill="{C['d3']}" stroke="{C['d1']}" stroke-width="1.2" stroke-linejoin="round"/>
+  <path d="M86 47h28" stroke="{C['gold']}" stroke-width="2.2" stroke-linecap="round"/>
+  <path d="M100 47v11" stroke="{C['l2']}" stroke-width="1.1"/>
+  <path d="M96 58h8v5h-8z" fill="{C['gold']}" stroke="{C['d1']}" stroke-width="1"/>
+</g>
+{_postac_profil(44, 84, .95, C['m1'], C['wlosy'])}
+{_postac_profil(150, 86, 1.15, C['d3'], C['wlosy2'])}
+<path d="M49 74c6 1 9 3 10 5" stroke="{C['szal']}" stroke-width="1.8" fill="none" stroke-linecap="round"/>
+</svg>'''
+
+
+def gora_echo_scena():
+    """Gora i echo: trzy grzbiety, sylwetka na szczycie, fale glosu."""
+    fale = "".join(
+        f'<path d="M{72 + i * 11} {24 - i * 5}a{9 + i * 5} {9 + i * 5} 0 0 1 0 {18 + i * 10}" '
+        f'fill="none" stroke="{C["l3"]}" stroke-width="{3.0 - i * 0.5:.1f}" '
+        f'stroke-linecap="round" opacity="{0.95 - i * 0.18:.2f}"/>' for i in range(3))
+    return f'''<svg viewBox="0 0 200 96" role="img" aria-label="Chlopiec wola ze szczytu gory, echo wraca">
+{_defs("ge")}
+<defs><linearGradient id="nieboge" x1="0" y1="0" x2="0" y2="1">
+<stop offset="0" stop-color="{C['l3']}"/><stop offset="1" stop-color="{C['l1']}"/></linearGradient></defs>
+<rect width="200" height="96" fill="url(#nieboge)"/>
+{_wash(40, 20, 36, C['gold2'], ".35", "ge")}
+{_wash(168, 30, 40, C['m3'], ".28", "ge")}
+<circle cx="44" cy="24" r="10" fill="{C['gold2']}" opacity=".85"/>
+<path d="M120 96 168 34l46 62z" fill="{C['m3']}" opacity=".55"/>
+<path d="M96 96 148 30l52 66z" fill="{C['m2']}" opacity=".7"/>
+<path d="M-8 96 58 18l70 78z" fill="{C['m1']}" stroke="{C['d2']}" stroke-width="1.2"/>
+<path d="M58 18 44 34c6 2 12 2 18 0l6 8c5-2 9-2 13 0z" fill="{C['l3']}" opacity=".9"/>
+<path d="M148 30l-10 12c5 2 10 2 15 0z" fill="{C['l3']}" opacity=".75"/>
+{fale}
+{_postac_profil(58, 20, .62, C['d3'], C['wlosy'])}
+<path d="M61 12c5 0 8 2 9 4" stroke="{C['szal']}" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+</svg>'''
+
+
+def sklep_pigulki_scena():
+    """Kupiec i pigulki na pragnienie: lada, sloje, zegar z zaoszczedzonym czasem."""
+    sloje = "".join(
+        f'<g><rect x="{18 + i * 26}" y="{26 - (i % 2) * 4}" width="18" height="22" rx="4" '
+        f'fill="{[C["l2"], C["gold2"], C["rose2"], C["l1"]][i % 4]}" stroke="{C["d1"]}" stroke-width="1.1"/>'
+        f'<rect x="{16 + i * 26}" y="{22 - (i % 2) * 4}" width="22" height="5" rx="2.4" '
+        f'fill="{C["d3"]}"/></g>' for i in range(4))
+    return f'''<svg viewBox="0 0 200 96" role="img" aria-label="Kupiec za lada ze slojami pigulek i zegar">
+{_defs("sp")}
+<rect width="200" height="96" fill="{C['l3']}"/>
+{_wash(40, 26, 38, C['m3'], ".22", "sp")}
+{_wash(166, 40, 36, C['gold'], ".22", "sp")}
+<path d="M0 50h108v3H0z" fill="{C['d3']}"/>
+{sloje}
+<g>
+  <circle cx="168" cy="30" r="15" fill="#FFFFFF" stroke="{C['d1']}" stroke-width="1.6"/>
+  <path d="M168 30V20M168 30l7 5" stroke="{C['d1']}" stroke-width="1.8" stroke-linecap="round"/>
+  <path d="M168 15v-4M183 30h4M168 45v4M153 30h-4" stroke="{C['d2']}" stroke-width="1.4" stroke-linecap="round"/>
+</g>
+{_postac_profil(120, 70, 1.35, C['d3'], C['wlosy2'])}
+<path d="M0 70h200v26H0z" fill="{C['d2']}"/>
+<path d="M0 68h200v4H0z" fill="{C['gold']}"/>
+<path d="M0 82h200v2H0z" fill="{C['d1']}" opacity=".5"/>
+<g>
+  <rect x="26" y="74" width="30" height="12" rx="6" fill="#FFFFFF" stroke="{C['d1']}" stroke-width="1.2"/>
+  <path d="M41 74v12" stroke="{C['d1']}" stroke-width="1.1"/>
+  <path d="M26 80a6 6 0 0 1 6-6h9v12h-9a6 6 0 0 1-6-6z" fill="{C['gold2']}"/>
+  <rect x="62" y="76" width="22" height="9" rx="4.5" fill="#FFFFFF" stroke="{C['d1']}" stroke-width="1.1"/>
+  <path d="M62 80.5a4.5 4.5 0 0 1 4.5-4.5H73v9h-6.5a4.5 4.5 0 0 1-4.5-4.5z" fill="{C['rose2']}"/>
+</g>
+</svg>'''
+
+
 # ---------- PLANSZA DO GRY ----------
 def board():
     cols = 6
