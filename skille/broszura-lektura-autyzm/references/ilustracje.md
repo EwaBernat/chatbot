@@ -46,6 +46,20 @@ Termometr opisuje każdy stopień na cztery niezależne sposoby: kolorem, wysoko
 miną i liczbą kropek. Uczeń, który nie czyta, korzysta z trzech ostatnich — słowo jest wtedy
 podpowiedzią dla dorosłego. Nie usuwaj żadnego z tych czterech kanałów.
 
+## Sceny — rysunek zamiast zdjęcia
+
+Nazwy kończące się na `_scena` to płaskie rysunki w proporcji 200×96. Silnik nadaje im
+klasę `scena` i szerokość 80 mm (zamiast 54 mm dla rysunków kwadratowych) — inaczej gubią się
+na stronie. Gdy strona jest pełna, ustaw w rozdziale `"ilustracja_waska": true`, a scena
+wróci do 54 mm.
+
+Sceny rozdziałowe: `boa_kapelusz_scena` (rysunek nr 1 i nr 2), `samolot_scena` (awaria
+na pustyni), `asteroida_scena` (planeta i liczby), `kwiat3_scena` (kwiat o trzech płatkach),
+`noc_pustynia_scena` (nocna wędrówka), `gwiazdy_smiech_scena` (gwiazdy, które się śmieją).
+
+Sceny na karty (działają też w rozdziałach): `geograf_scena`, `ziemia_scena`,
+`studnia_scena`, `gora_echo_scena`, `sklep_pigulki_scena`.
+
 ## Sceny na karty do wycięcia
 
 `geograf_scena`, `ziemia_scena`, `studnia_scena`, `gora_echo_scena`, `sklep_pigulki_scena`
