@@ -43,7 +43,10 @@ def fig_obraz(klasa, w, h, extra="", cap=""):
     pb = h / w * 100
     caphtml = f"<figcaption>{E(cap)}</figcaption>" if cap else ""
     kl = ("ilu ilu-foto " + extra).strip()
-    return (f'<figure class="{kl}"><div class="ilu-box foto-tlo {klasa}" '
+    # Zdjęcie w pionie nie może być kadrowane do wąskiego paska karty — obcięłoby
+    # to, co na nim najważniejsze. Oznaczamy je, a arkusz stylów pokazuje je w całości.
+    pion = " foto-pion" if h > w * 1.05 else ""
+    return (f'<figure class="{kl}"><div class="ilu-box foto-tlo{pion} {klasa}" '
             f'style="padding-bottom:{pb:.3f}%"></div>{caphtml}</figure>')
 
 

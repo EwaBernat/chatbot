@@ -368,6 +368,7 @@ figcaption{font-size:9pt;color:var(--szary);padding:2mm 3mm;background:var(--z05
   break-inside:avoid;display:flex;flex-direction:column}
 .kp-gora .ilu{margin:0;border-radius:0;background:none}
 .kp-gora .ilu-box{padding-bottom:46% !important}
+.kp-gora .foto-pion{background-size:contain;background-color:var(--z900)}
 .kp-dol{padding:3.4mm 4mm 4mm;flex:1}
 .kp-dol h4{font-size:13pt;margin:0 0 .8mm;color:var(--z800)}
 .kp-kto{font-size:9.6pt;color:var(--z600);font-family:var(--font-h);margin:0 0 1.6mm}
