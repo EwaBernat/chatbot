@@ -55,6 +55,16 @@ Jeśli chcesz zero zapytań na zewnątrz (RODO, praca offline, CSP bez
 własny `@font-face`. Bez tego strona nadal działa — przeglądarka użyje
 zapasowych krojów z `font-family`, tylko odstępy będą minimalnie inne.
 
+**Arkusz ma dokładnie 210 × 297 mm.** Chromium zapisuje A4 jako 209,89 × 297,01 mm —
+własne zaokrąglenie do siatki pikseli. `zbuduj-paczke.sh` nadpisuje `/MediaBox` na dokładne
+wartości A4 (595,2756 × 841,8898 pt); podmiana ma tę samą długość w bajtach, więc tablica
+xref zostaje poprawna. Jeśli budujesz PDF innym narzędziem, sprawdź ten wymiar.
+
+**Każda strona wypełnia cały arkusz** dzięki `min-height:296.5mm` w `@media print`. Bez tego
+strona kończyła się na wysokości swojej treści, a lewy zielony pasek — rysowany jako tło
+o wysokości elementu — urywał się w połowie kartki. Pół milimetra zapasu chroni przed
+wypchnięciem drugiego, pustego arkusza przez zaokrąglenia.
+
 **Druk.** Plik ma `@page { size: A4; margin: 0 }` i sekcje o stałej wysokości.
 Użytkownik drukuje przez Ctrl+P: papier A4, marginesy „brak”, skala 100%,
 **zaznaczona „Grafika tła”**. Ta ostatnia opcja jest kluczowa — bez niej znikają
