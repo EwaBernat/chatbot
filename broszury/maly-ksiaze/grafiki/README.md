@@ -72,3 +72,15 @@ Arkusz z pięcioma scenami został pocięty na osobne pliki i przypisany do rozd
 Cztery kadry poprawiono: z rozdziału 1 usunięto angielski podpis, w rozdziale 19
 „Yeloo!" zmieniono na „Halo!", a szyldy „THIRST QUENCHING PILLS" w rozdziale 23
 i na karcie kupca na „PIGUŁKI NA PRAGNIENIE".
+
+## Akwarele dosłane później (`akwarela-8/9/10.jpg`)
+
+| plik | rozdział / karta |
+|---|---|
+| `r25-studnia.jpg` | 25 · Studnia + karta „Studnia na pustyni" |
+| `r02-baranek.jpg` | 2 · Awaria na pustyni i dziwna prośba |
+| `r06-zachody.jpg` | 6 · Czterdzieści cztery zachody słońca |
+
+W `r02-baranek.jpg` poprawiono dymek: w oryginale było „narysuj mi mi baranka”.
+
+Wciąż bez zdjęcia: **rozdział 7 — Kłótnia o kolce** (jest tam rysunek `kolce_scena`).
