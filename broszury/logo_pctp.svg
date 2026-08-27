@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 600" role="img" aria-label="Logo PCTP — Pomorskie Centrum Terapii Pedagogicznej">
+  <defs>
+    <radialGradient id="pctpTlo" cx="38%" cy="30%" r="78%">
+      <stop offset="0%" stop-color="#6E4FA6"/>
+      <stop offset="55%" stop-color="#5B3D8E"/>
+      <stop offset="100%" stop-color="#432B6E"/>
+    </radialGradient>
+  </defs>
+
+  <circle cx="300" cy="300" r="298" fill="#4A3475"/>
+  <circle cx="300" cy="300" r="288" fill="#CFC2E2"/>
+  <circle cx="300" cy="300" r="272" fill="#6B4E9E"/>
+  <circle cx="300" cy="300" r="272" fill="url(#pctpTlo)"/>
+
+  <!-- kwiat: pięć płatków na wspólnych łodygach -->
+  <g>
+    <g transform="rotate(-46 300 268)">
+      <path d="M300 268 L300 214" stroke="#C9A227" stroke-width="7" stroke-linecap="round"/>
+      <ellipse cx="300" cy="168" rx="25" ry="50" fill="#A78FC9"/>
+    </g>
+    <g transform="rotate(46 300 268)">
+      <path d="M300 268 L300 214" stroke="#C9A227" stroke-width="7" stroke-linecap="round"/>
+      <ellipse cx="300" cy="168" rx="25" ry="50" fill="#A78FC9"/>
+    </g>
+    <g transform="rotate(-23 300 268)">
+      <path d="M300 268 L300 210" stroke="#C9A227" stroke-width="7" stroke-linecap="round"/>
+      <ellipse cx="300" cy="160" rx="26" ry="52" fill="#F2A97A"/>
+    </g>
+    <g transform="rotate(23 300 268)">
+      <path d="M300 268 L300 210" stroke="#C9A227" stroke-width="7" stroke-linecap="round"/>
+      <ellipse cx="300" cy="160" rx="26" ry="52" fill="#F2A97A"/>
+    </g>
+    <g>
+      <path d="M300 268 L300 206" stroke="#C9A227" stroke-width="7" stroke-linecap="round"/>
+      <ellipse cx="300" cy="152" rx="27" ry="54" fill="#E8763C"/>
+    </g>
+    <circle cx="300" cy="196" r="13" fill="#FFFFFF"/>
+  </g>
+
+  <text x="300" y="432" text-anchor="middle"
+        font-family="Georgia, 'Times New Roman', serif" font-size="132" font-weight="700"
+        letter-spacing="6" fill="#F7F3EA">PCTP</text>
+</svg>
