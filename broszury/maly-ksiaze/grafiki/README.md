@@ -36,3 +36,15 @@ python3 skille/broszura-lektura-autyzm/scripts/zloz_broszure.py \
 Grafiki są wklejane do środka pliku HTML, żeby broszura pozostała jednym dokumentem.
 Plik rośnie o mniej więcej jedną trzecią rozmiaru zdjęć — przed wgraniem warto je zmniejszyć
 do szerokości ok. 1600 px (okładka 2000 px).
+
+## Akwarele scen (arkusz `akwarela-4.jpg`)
+
+Arkusz z pięcioma scenami został pocięty na osobne pliki i przypisany do rozdziałów:
+
+| plik | rozdział |
+|---|---|
+| `roza-pod-kloszem.jpg` | 9 · Pożegnanie, które przyszło za późno |
+| `waz-na-pustyni.jpg` | 17 · Wąż — pierwsze spotkanie |
+| `ogrod-roz.jpg` | 20 · Ogród pięciu tysięcy róż |
+| `lis-i-ksiaze.jpg` | 21 · Lis i sekret oswajania |
+| `zwrotniczy.jpg` | 22 · Zwrotniczy — pociągi, które gdzieś pędzą |

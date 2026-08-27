@@ -136,7 +136,7 @@ small{font-weight:400;font-size:.82em;color:var(--szary)}
 .kiedy span{font-size:9.7pt}
 .narz{display:grid;grid-template-columns:1fr 1fr;gap:5mm;margin-bottom:5mm}
 .narz-box{background:var(--z050);border:1px solid var(--z200);border-radius:10px;padding:4mm}
-.narz-box .ilu{max-width:62mm;margin-left:auto;margin-right:auto}
+.narz-box .ilu{max-width:76mm;margin-left:auto;margin-right:auto}
 .narz-box.szeroki{margin-top:0}
 .narz-box h3{font-size:13pt;color:var(--z700)}
 .narz-box p{font-size:10.2pt}
@@ -164,6 +164,7 @@ small{font-weight:400;font-size:.82em;color:var(--szary)}
 .ilu.maly{max-width:96mm;margin:0 auto 4mm}
 .ilu.mini{max-width:58mm;margin:0 auto 3mm}
 .kol-b .ilu{max-width:54mm;margin:0 auto 3mm}
+.kol-b .ilu-foto{max-width:64mm}
 .dzial-h .cd{font-size:.5em;color:var(--z400);font-weight:400}
 .ilu{width:100%;flex:none;margin:0 0 3.5mm;padding:0;border-radius:10px;overflow:hidden;background:var(--z100)}
 .ilu-box{position:relative;width:100%;height:0;overflow:hidden}
@@ -351,6 +352,7 @@ figcaption{font-size:9pt;color:var(--szary);padding:2mm 3mm;background:var(--z05
 /* ---------- ZAŁĄCZNIKI ---------- */
 .plansza-duza{max-width:100%;margin:2mm 0 4mm}
 .termometr-duzy{max-width:132mm;margin:3mm auto 5mm}
+.termometr-wyciecie{max-width:96mm;margin:2mm auto 4mm}
 .krazki{display:grid;grid-template-columns:repeat(2,1fr);gap:7mm;margin:5mm 0 4mm;max-width:158mm}
 .krazek{aspect-ratio:1;border-radius:50%;border:2px dashed rgba(255,255,255,.65);
   display:flex;flex-direction:column;align-items:center;justify-content:center;gap:1mm;

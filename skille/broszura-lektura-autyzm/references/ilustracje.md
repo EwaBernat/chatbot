@@ -37,8 +37,14 @@ przestaje cokolwiek znaczyć i wypycha treść na kolejną stronę.
 
 ## Grafiki narzędziowe — rysują się same
 
-`thermometer` (termometr emocji), `tom_ladder` (schody teorii umysłu), `board` (plansza gry
-30 pól), `stage` (scena teatralna), `logo_pctp` (logo wydawcy). Są niezależne od lektury.
+`thermometer` (termometr emocji — wersja zwarta do części B), `thermometer_cut` (ten sam
+termometr do wycięcia, z osobnym paskiem wskaźników), `tom_ladder` (schody teorii umysłu),
+`board` (plansza gry 30 pól), `stage` (scena teatralna), `logo_pctp` (logo wydawcy).
+Są niezależne od lektury.
+
+Termometr opisuje każdy stopień na cztery niezależne sposoby: kolorem, wysokością słupka,
+miną i liczbą kropek. Uczeń, który nie czyta, korzysta z trzech ostatnich — słowo jest wtedy
+podpowiedzią dla dorosłego. Nie usuwaj żadnego z tych czterech kanałów.
 
 ## Zdjęcia i grafiki rastrowe
 
