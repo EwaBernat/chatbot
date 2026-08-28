@@ -29,7 +29,10 @@ Seria `EduPlaner2026-MJ-PCTP` · kontakt@eduplaner2026.pl · [usunięto].
 | 40–47 | **Szary — Lęk** |
 | 48 | moja paleta emocji |
 | 49–52 | **gra „Ścieżka Kolorów”** — zasady, plansza, dwa arkusze kart do wycięcia |
-| 53–56 | plan na trudny dzień, gdy jest bardzo trudno, dyplom, strona wydawcy |
+| 53 | **karty emocji** — twarze do wycięcia |
+| 54–56 | plan na trudny dzień, gdy jest bardzo trudno, dyplom |
+| 57 | **zapowiedź części 2** — sześć nowych kolorów |
+| 58 | strona wydawcy |
 
 Spis treści na stronie 2 wylicza się sam — numery biorą się z faktycznego
 składu, więc nie rozjadą się po dopisaniu albo usunięciu stron.
@@ -81,6 +84,28 @@ albo nakleić na karton — będą dłużej służyć.
 
 Plik jest samowystarczalny: kroje pisma i wszystkie zdjęcia są w nim osadzone.
 Działa bez internetu i można go wysłać jednym załącznikiem.
+
+## Karty emocji (strona 53)
+
+Pięć kart z twarzami Rajmunda — po jednej na każdą emocję z tego zeszytu —
+plus szósta karta „Nie wiem jeszcze”. Służą jako pomoc komunikacyjna: gdy
+trudno powiedzieć słowami, nastolatek pokazuje kartę.
+
+## Zapowiedź części 2 (strona 57)
+
+Sześć kolorów zapowiadających kolejny zeszyt, każdy z twarzą i krótkim opisem:
+
+| Kolor | Emocja |
+|---|---|
+| zielony | spokój |
+| pomarańczowy | ekscytacja |
+| fioletowy | duma |
+| biały | ulga |
+| brązowy | znudzenie |
+| czarny | samotność |
+
+To propozycja przypisania emocji do kolorów — zmienia się ją w `tresc.py`
+w liście `CZESC_2` (nazwa emocji, kolor HEX, opis i nazwa pliku ze zdjęciem).
 
 ## Zdjęcia
 

@@ -732,3 +732,32 @@ GRA_KARTY = [
     ("Opowiedz", "Opowiedz o czymś, czego bałeś się rok temu, a dziś już nie."),
     ("Opowiedz", "Powiedz jednej osobie przy stole coś miłego."),
 ]
+
+
+# ── Karty emocji do wycięcia (twarze z tego zeszytu) ─────────────────────────
+KARTY_TWARZE_LEAD = ("Wytnij karty i trzymaj je pod ręką. Kiedy trudno powiedzieć "
+                     "słowami, jak się czujesz — pokaż kartę. To wystarczy.")
+
+KARTA_NIE_WIEM = {
+    "emocja": "Nie wiem jeszcze",
+    "opis": "Coś czuję, ale nie umiem tego nazwać. Potrzebuję chwili.",
+}
+
+# ── Zapowiedź: Świat Kolorów, część 2 ────────────────────────────────────────
+CZESC_2_LEAD = ("Sześć nowych kolorów. Sześć emocji, które też warto umieć nazwać. "
+                "Ten sam Rajmund, ta sama droga przez osiem stron.")
+
+CZESC_2 = [
+    {"plik": "c2-zielony", "kolor": "Zielony", "hex": "#3F8F5B", "txt": "#FFFFFF",
+     "emocja": "Spokój", "opis": "Kiedy nic nie goni i można oddychać wolniej."},
+    {"plik": "c2-pomaranczowy", "kolor": "Pomarańczowy", "hex": "#E8721C", "txt": "#2B1400",
+     "emocja": "Ekscytacja", "opis": "Kiedy nie możesz się doczekać i aż Cię nosi."},
+    {"plik": "c2-fioletowy", "kolor": "Fioletowy", "hex": "#6B4BA8", "txt": "#FFFFFF",
+     "emocja": "Duma", "opis": "Kiedy udało się coś, co wymagało odwagi."},
+    {"plik": "c2-bialy", "kolor": "Biały", "hex": "#F1EEE8", "txt": "#2B2B2E",
+     "emocja": "Ulga", "opis": "Kiedy coś trudnego wreszcie się skończyło."},
+    {"plik": "c2-brazowy", "kolor": "Brązowy", "hex": "#7A5A3A", "txt": "#FFFFFF",
+     "emocja": "Znudzenie", "opis": "Kiedy czas się dłuży i nic nie wciąga."},
+    {"plik": "c2-czarny", "kolor": "Czarny", "hex": "#2B2B2E", "txt": "#FFFFFF",
+     "emocja": "Samotność", "opis": "Kiedy jesteś wśród ludzi, a i tak czujesz się osobno."},
+]

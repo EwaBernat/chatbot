@@ -356,12 +356,12 @@ def spis_tresci():
     ]
     koniec = [
         ("Moja paleta emocji", "kon-paleta"),
-        ("Gra „Ścieżka Kolorów” — zasady", "gra-zasady"),
-        ("Gra — plansza", "gra-plansza"),
-        ("Gra — karty do wycięcia", "gra-karty1"),
+        ("Gra „Ścieżka Kolorów” — zasady, plansza i karty", "gra-zasady"),
+        ("Karty emocji — twarze do wycięcia", "kon-twarze"),
         ("Mój plan na trudny dzień", "kon-plan"),
         ("Gdy jest bardzo trudno", "kon-pomoc"),
         ("Dyplom", "kon-dyplom"),
+        ("Wkrótce: Świat Kolorów, część 2", "kon-zapowiedz"),
         ("O wydawcy", "kon-wydawca"),
     ]
 
@@ -782,6 +782,63 @@ def gra_karty(od, do, numer_arkusza):
                   pid=f"gra-karty{numer_arkusza}")
 
 
+def karty_twarze():
+    """Karty z twarzami do wycięcia — pięć emocji z tego zeszytu plus „nie wiem”."""
+    karty = ""
+    for r in tresc.ROZDZIALY:
+        zdj = wczytaj(r["nr"] + "-cialo")
+        obraz = (f'<img src="{zdj}" alt="{e(r["emocja"])}" loading="lazy">'
+                 if zdj else '<span class="tw-brak">twarz</span>')
+        karty += (
+            f'<div class="twarz" style="--c:{r["hex"]};--txt:{r["txt"]}">'
+            f'<div class="tw-foto">{obraz}</div>'
+            f'<div class="tw-pas"><b>{e(r["emocja"])}</b>'
+            f'<i>{e(r["kolor"].lower())}</i></div></div>'
+        )
+    paski = "".join(
+        f'<i style="background:{r["hex"]}"></i>' for r in tresc.ROZDZIALY
+    )
+    karty += (
+        '<div class="twarz twarz-pusta">'
+        f'<div class="tw-foto tw-tecza">{paski}</div>'
+        f'<div class="tw-pas"><b>{e(tresc.KARTA_NIE_WIEM["emocja"])}</b>'
+        f'<i>{e(tresc.KARTA_NIE_WIEM["opis"])}</i></div></div>'
+    )
+    tresc_ = (
+        '<span class="eyebrow">Karty emocji — do wycięcia</span>'
+        '<h2 class="h-big">Pokaż, jak się czujesz</h2>'
+        f'<p class="lead">{e(tresc.KARTY_TWARZE_LEAD)}</p>'
+        f'<div class="twarze">{karty}</div>'
+    )
+    return strona(tresc_, klasa="strona-twarze", pid="kon-twarze")
+
+
+def zapowiedz():
+    """Zapowiedź drugiej części serii — sześć nowych kolorów i emocji."""
+    kafle = ""
+    for k in tresc.CZESC_2:
+        zdj = wczytaj(k["plik"])
+        obraz = (f'<img src="{zdj}" alt="{e(k["emocja"])}" loading="lazy">'
+                 if zdj else '<span class="tw-brak">twarz</span>')
+        kafle += (
+            f'<div class="zap-kafel" style="--c:{k["hex"]};--txt:{k["txt"]}">'
+            f'<div class="tw-foto">{obraz}</div>'
+            f'<div class="tw-pas"><b>{e(k["emocja"])}</b>'
+            f'<i>{e(k["kolor"].lower())}</i></div>'
+            f'<p class="zap-opis">{e(k["opis"])}</p></div>'
+        )
+    tresc_ = (
+        '<span class="eyebrow">Wkrótce</span>'
+        f'<h2 class="h-big">{e(tresc.SERIA)} — część 2</h2>'
+        f'<p class="lead">{e(tresc.CZESC_2_LEAD)}</p>'
+        f'<div class="zapowiedz">{kafle}</div>'
+        + karta("Który kolor chcesz poznać najbardziej?",
+                '<p class="p">Zakreśl go powyżej. Potem pokaż tę stronę osobie, '
+                'z którą pracujesz — to podpowiedź, od czego zacząć.</p>', "wide")
+    )
+    return strona(tresc_, klasa="strona-zapowiedz", pid="kon-zapowiedz")
+
+
 # ── STRONY KOŃCOWE ───────────────────────────────────────────────────────────
 
 def paleta_koncowa():
@@ -1015,7 +1072,7 @@ p{margin:0}
   letter-spacing:.15em;text-transform:uppercase;color:var(--grzbiet);
   margin:0;padding-bottom:1.4mm;border-bottom:2px solid var(--grzbiet-jasny)}
 .spis{list-style:none;margin:0;padding:0;display:flex;flex-direction:column}
-.sp-w{display:flex;align-items:baseline;gap:2.5mm;padding:1mm 0;
+.sp-w{display:flex;align-items:baseline;gap:2.5mm;padding:.8mm 0;
   border-bottom:.6px solid var(--wlos)}
 .sp-w:last-child{border-bottom:0}
 .sp-t{font-size:10.4pt;line-height:1.3}
@@ -1292,6 +1349,30 @@ ol.numer::marker{font-weight:700}
   display:block;flex:0 0 auto}
 .strona-karty .page-body{gap:4mm}
 
+/* ── karty z twarzami i zapowiedź ───────────────────── */
+.twarze{display:grid;grid-template-columns:repeat(3,1fr);gap:0}
+.twarz{border:1.1px dashed var(--atrament-3);margin:-0.55px 0 0 -0.55px;
+  display:flex;flex-direction:column;background:#fff;overflow:hidden}
+.tw-foto{height:62mm;background:var(--tint2,#EEE);overflow:hidden;display:block}
+.tw-foto img{width:100%;height:100%;object-fit:cover;display:block}
+.tw-brak{display:grid;place-items:center;height:100%;font-size:9pt;
+  letter-spacing:.14em;text-transform:uppercase;color:var(--atrament-3)}
+.tw-pas{background:var(--c);color:var(--txt);padding:2.6mm 4mm;
+  display:flex;flex-direction:column;gap:.4mm;flex:1}
+.tw-pas b{font-family:var(--font-h);font-weight:900;font-size:12.5pt;line-height:1.1}
+.tw-pas i{font-style:normal;font-size:8.4pt;letter-spacing:.1em;opacity:.85}
+.twarz-pusta{--c:#EFEBF8;--txt:#241553}
+.tw-tecza{display:grid;grid-template-columns:repeat(5,1fr)}
+.tw-tecza i{display:block;height:100%}
+.twarz-pusta .tw-pas i{letter-spacing:0;font-size:9pt;line-height:1.35;opacity:1}
+
+.zapowiedz{display:grid;grid-template-columns:repeat(3,1fr);gap:4mm}
+.zap-kafel{display:flex;flex-direction:column;border:1px solid var(--wlos)}
+.zap-kafel .tw-foto{height:44mm}
+.zap-kafel .tw-pas{flex:0 0 auto;padding:2.2mm 3.4mm}
+.zap-kafel .tw-pas b{font-size:11.5pt}
+.zap-opis{font-size:9.2pt;line-height:1.45;padding:2.4mm 3.4mm;flex:1}
+
 /* ── dyplom ─────────────────────────────────────────── */
 .dyplom{padding:15mm;display:flex}
 .dyp-ramka{flex:1;border:2.5px solid var(--grzbiet);display:flex;flex-direction:column}
@@ -1330,7 +1411,7 @@ ol.numer::marker{font-weight:700}
   .photo,.draw,.term-p,.chipcard-tab,.mysl,.krok-nr,.cover,.rot-plama,
   .pal-chip,.dyp-chipy span,.cover-chip,.pole,.leg-poz i,.dyp-pasek span,
   .logo,.logo circle,.logo ellipse,.logo path,.sp-chip,.chipcard-body,
-  .karta-head,.karta{
+  .karta-head,.karta,.tw-pas,.tw-tecza i,.zap-kafel{
     -webkit-print-color-adjust:exact;print-color-adjust:exact}
 }
 @media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
@@ -1364,9 +1445,11 @@ def _zloz():
         gra_plansza(),
         gra_karty(0, 12, 1),
         gra_karty(12, 24, 2),
+        karty_twarze(),
         plan_trudny_dzien(),
         gdy_bardzo_trudno(),
         dyplom(),
+        zapowiedz(),
         stopka_wydawcy(),
     ]
 
