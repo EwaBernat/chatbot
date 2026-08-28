@@ -197,7 +197,7 @@ def strona_tytulowa():
             "Dla każdego, komu trudno nazwać to, co czuje.",
             "Do pracy samodzielnej, z rodzicem albo z terapeutą.",
         ]))
-        + karta("Co znajdziesz w środku", lista([
+        + karta("Co znajdziesz w środku?", lista([
             "Pięć rozdziałów — każdy o jednej emocji i jej kolorze.",
             "Opis emocji prostymi zdaniami.",
             "Mapę ciała: po czym poznasz emocję u siebie i u innych.",
@@ -206,10 +206,10 @@ def strona_tytulowa():
             "Własną stronę na rysunek, notatkę i zdjęcie.",
         ]))
         + '<div class="two">'
-        + karta("Ile to zajmuje", '<p class="p">Jeden rozdział to osiem stron. '
+        + karta("Ile to zajmuje?", '<p class="p">Jeden rozdział to osiem stron. '
                 'Możesz przejść je w jeden dzień albo rozłożyć na tydzień. '
                 'Nie ma limitu czasu. Nie ma ocen.</p>')
-        + karta("Czego tu nie ma", '<p class="p">Nie ma dobrych i złych odpowiedzi. '
+        + karta("Czego tu nie ma?", '<p class="p">Nie ma dobrych i złych odpowiedzi. '
                 'Nie ma emocji zakazanych. Nie ma sprawdzianu na końcu.</p>')
         + '</div>'
         + zdjecie("Zdjęcie: zeszyt otwarty na kolorowej stronie, obok kredki albo pisaki "
@@ -236,7 +236,7 @@ def jak_korzystac_ty():
     )
     tresc_ = (
         '<span class="eyebrow">Instrukcja</span>'
-        '<h2 class="h-big">Jak korzystać z zeszytu</h2>'
+        '<h2 class="h-big">Jak korzystać z zeszytu?</h2>'
         '<p class="lead">Siedem kroków. Zawsze takich samych, w każdym rozdziale.</p>'
         f'<ol class="kroki">{kroki}</ol>'
         + karta("Zasady", lista([
@@ -255,7 +255,7 @@ def jak_korzystac_ty():
 def jak_korzystac_doroslego():
     tresc_ = (
         '<span class="eyebrow">Dla rodzica, nauczyciela i terapeuty</span>'
-        '<h2 class="h-big">Jak towarzyszyć</h2>'
+        '<h2 class="h-big">Jak towarzyszyć?</h2>'
         '<p class="lead">Ten zeszyt działa najlepiej wtedy, gdy dorosły jest obok, '
         'ale nie ocenia.</p>'
         '<div class="two">'
@@ -274,7 +274,7 @@ def jak_korzystac_doroslego():
             "Traktowania zeszytu jak sprawdzianu.",
         ], "cross"))
         + '</div>'
-        + karta("Kiedy szukać wsparcia specjalisty", lista([
+        + karta("Kiedy szukać wsparcia specjalisty?", lista([
             "Gdy jedna emocja utrzymuje się przez wiele tygodni.",
             "Gdy nastolatek unika większości sytuacji społecznych.",
             "Gdy pojawia się samookaleczanie albo myśli o śmierci.",
@@ -297,8 +297,8 @@ def spis_tresci():
 
     wstep = [
         ("O tym zeszycie", "wstep-tytulowa"),
-        ("Jak korzystać z zeszytu", "wstep-korzystac"),
-        ("Jak towarzyszyć — dla dorosłego", "wstep-doroslego"),
+        ("Jak korzystać z zeszytu?", "wstep-korzystac"),
+        ("Jak towarzyszyć? (dla dorosłego)", "wstep-doroslego"),
         ("Poznaj Rajmunda", "wstep-poznaj"),
         ("Pięć kolorów", "wstep-mapa"),
         ("Słowniczek trudnych słów", "wstep-slowniczek"),
@@ -336,7 +336,7 @@ def spis_tresci():
 
     tresc_ = (
         '<span class="eyebrow">Spis treści</span>'
-        '<h2 class="h-big">Co jest w środku</h2>'
+        '<h2 class="h-big">Co jest w środku?</h2>'
         '<p class="lead">Nie musisz iść po kolei — otwórz ten kolor, '
         'który pasuje do dzisiaj.</p>'
         '<div class="sp-grupa"><h3 class="sp-naglowek">Zanim zaczniesz</h3>'
@@ -368,7 +368,7 @@ def poznaj_bohaterow():
         + karta("A Ty?",
                 linie(1, "Mam na imię:")
                 + linie(1, "Najbardziej lubię:")
-                + linie(1, "Po czym poznasz, że jest mi dobrze:"), "wide")
+                + linie(1, "Po czym poznasz, że jest mi dobrze?"), "wide")
     )
     return strona(tresc_, pid="wstep-poznaj")
 
@@ -392,9 +392,9 @@ def mapa_kolorow():
         f'<div class="mapa">{wiersze}</div>'
         + karta("Ten sam porządek w każdym rozdziale", lista([
             "1. Kolor — otwarcie rozdziału",
-            "2. Co to za emocja",
-            "3. Jak wygląda w ciele",
-            "4. Kiedy to czuję",
+            "2. Co to za emocja?",
+            "3. Jak wygląda w ciele?",
+            "4. Kiedy to czuję?",
             "5. Opowiadanie o Rajmundzie",
             "6. Pytania do opowiadania",
             "7. Zadania dla Ciebie",
@@ -477,7 +477,7 @@ def r_cialo(r):
     )
     tresc_ = (
         '<span class="eyebrow">Krok 3 — mapa ciała</span>'
-        f'<h2 class="h-big">Jak wygląda {e(r["emocja"].lower())}</h2>'
+        f'<h2 class="h-big">Jak wygląda {e(r["emocja"].lower())}?</h2>'
         '<p class="lead">Emocję widać. U siebie i u innych. '
         'Oto trzy miejsca, w których jej szukać.</p>'
         f'<div class="trzy">{kol}</div>'
@@ -498,7 +498,7 @@ def r_kiedy(r):
     )
     tresc_ = (
         '<span class="eyebrow">Krok 4 — moje sytuacje</span>'
-        f'<h2 class="h-big">Kiedy czuję {e(r["emocja"].lower())}</h2>'
+        f'<h2 class="h-big">Kiedy czuję {e(r["emocja"].lower())}?</h2>'
         '<p class="lead">Zaznacz kwadracik przy każdej sytuacji, która zdarza się Tobie.</p>'
         f'<ul class="kiedy">{poz}</ul>'
         + zdjecie(r["zdjecia"]["kiedy"], "42mm", "MIEJSCE NA 4 MAŁE ZDJĘCIA",
@@ -592,7 +592,7 @@ def r_moja_strona(r):
                 f'<div class="term">{skala}</div>', "wide")
         + '<div class="two">'
         + karta(r["pomaga_tytul"], f'<ol class="numer">{poz}</ol>')
-        + karta("Co pomaga mnie", '<p class="p">Wpisz swoje sposoby:</p>' + linie(4))
+        + karta("Co mi pomaga?", '<p class="p">Wpisz swoje sposoby:</p>' + linie(4))
         + '</div>'
         + '<div class="two">'
         + ramka_rysunek(
@@ -617,7 +617,7 @@ def gra_zasady():
         f'<h2 class="h-big">{e(tresc.GRA_TYTUL)}</h2>'
         f'<p class="lead">{e(tresc.GRA_PODTYTUL)}. Przejdźcie razem przez pięć kolorów '
         'i porozmawiajcie o tym, co każdy z nich znaczy u Was.</p>'
-        + karta("Co jest potrzebne", f'<ul class="tick">{potrzebne}</ul>', "wide")
+        + karta("Co jest potrzebne?", f'<ul class="tick">{potrzebne}</ul>', "wide")
         + f'<ol class="kroki">{kroki}</ol>'
         + '<blockquote class="mysl mysl-grzbiet">'
         f'{e(tresc.GRA_ZASADA_STOP)}</blockquote>'
@@ -820,7 +820,7 @@ def stopka_wydawcy():
         '<h2 class="h-big">Kolory zostają</h2>'
         '<p class="lead">Zeszyt się skończył, ale emocje przychodzą dalej. '
         'Teraz masz dla nich nazwy i kolory. To wystarczy, żeby zacząć.</p>'
-        + karta("Co dalej", lista([
+        + karta("Co dalej?", lista([
             "Wróć do rozdziału, który był najtrudniejszy.",
             "Powieś „Plan na trudny dzień” w widocznym miejscu.",
             "Raz w tygodniu zaznacz na palecie, który kolor był największy.",

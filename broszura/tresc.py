@@ -117,7 +117,7 @@ ROZDZIALY = [
             "Napisz krótkie opowiadanie o kimś, kto znajduje radość w drobnej rzeczy.",
             "Powiedz jednej osobie, co Cię dzisiaj ucieszyło. Zapisz, jak zareagowała.",
         ],
-        "pomaga_tytul": "Jak zatrzymać radość na dłużej",
+        "pomaga_tytul": "Jak zatrzymać radość na dłużej?",
         "pomaga": [
             "Nazwij ją: powiedz w myślach „to jest radość”.",
             "Zatrzymaj ją: zrób zdjęcie albo zapisz jedno zdanie.",
@@ -240,7 +240,7 @@ ROZDZIALY = [
             "Namaluj obraz „mój smutek” tylko w odcieniach niebieskiego.",
             "Powiedz jednej zaufanej osobie: „Dzisiaj jest mi smutno”. Zapisz, co się potem stało.",
         ],
-        "pomaga_tytul": "Co robić, gdy jest ciężko",
+        "pomaga_tytul": "Co robić, gdy jest ciężko?",
         "pomaga": [
             "Nazwij to: „To jest smutek. Czuję go teraz”.",
             "Zwolnij: usiądź, napij się wody, oddychaj wolniej.",
@@ -483,7 +483,7 @@ ROZDZIALY = [
             "Opowiedz zaufanej osobie o jednej wstydliwej sytuacji. Zapisz, jak zareagowała.",
             "Zrób coś, czego trochę się wstydzisz, ale chcesz: zgłoś się, zapytaj, zaproś.",
         ],
-        "pomaga_tytul": "Co robić, gdy robi się gorąco na twarzy",
+        "pomaga_tytul": "Co robić, gdy robi się gorąco na twarzy?",
         "pomaga": [
             "Oddychaj: wdech nosem, długi wydech ustami. Pięć razy.",
             "Powiedz w myślach: „Zawstydziłem się. To minie”.",
@@ -608,7 +608,7 @@ ROZDZIALY = [
             "Zaplanuj krok po kroku nową sytuację, której się boisz. Rozpisz ją na godziny.",
             "Zrób pierwszy mały krok w kierunku tego, czego się boisz. Zapisz, jak poszło.",
         ],
-        "pomaga_tytul": "Co robić, gdy lęk rośnie",
+        "pomaga_tytul": "Co robić, gdy lęk rośnie?",
         "pomaga": [
             "5–4–3–2–1: wymień 5 rzeczy widzianych, 4 słyszane, 3 dotykane, 2 zapachy, 1 smak.",
             "Oddychaj wolniej: wdech na 4, wydech na 6. Powtórz sześć razy.",
