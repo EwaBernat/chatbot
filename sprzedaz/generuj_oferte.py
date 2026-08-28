@@ -456,10 +456,11 @@ def sekcja_autorka():
   <span class="eyebrow">Kto to napisał</span>
   <h2>{e(FIRMA["nazwa"])}</h2>
   <p class="autor-podpis">{e(FIRMA["autorka"])} — {e(FIRMA["funkcja"])}</p>
-  <p class="lead">Zeszyt wyrósł z codziennej pracy terapeutycznej
-    w {e(FIRMA["miasto"])}ie — z pytania, jak rozmawiać o emocjach
-    z nastolatkiem, dla którego słowa bywają za trudne, a kolory już nie.
-    Autorka prowadzi też ekosystem dokumentów EduPlaner 2026.</p>
+  <p class="lead">Zeszyt wyrósł z codziennej pracy edukacyjnej
+    i terapeutycznej z osobami ze spektrum — z pytania, jak rozmawiać
+    o emocjach z nastolatkiem, dla którego słowa bywają za trudne,
+    a kolory już nie. Autorka prowadzi też ekosystem dokumentów
+    EduPlaner 2026.</p>
 </div>
 </div></div></section>"""
 
