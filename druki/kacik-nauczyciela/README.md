@@ -4,9 +4,17 @@ Wzory opinii o **dziecku w wieku przedszkolnym**, w tym samym stylu co druk
 sprawozdania z pomocy psychologiczno-pedagogicznej (marka PCTP: fiolet
 `#2D1B69`, pomarańcz `#E8450A`, Arial, A4).
 
-- `Kacik_Nauczyciela_Wzory_Opinii_PCTP.html` / `.pdf` — wzory opinii, 12 stron A4
-- `Kacik_Nauczyciela_Checklista_Wychowawcy_PCTP.html` / `.pdf` — checklista obowiązków
-  nauczyciela wychowawcy grupy, 5 stron A4
+| Plik | Zawartość | Stron |
+|---|---|---|
+| `Kacik_Nauczyciela_Wzory_Opinii_PCTP` | O-1…O-5 — obserwacja i opinie | 12 |
+| `Kacik_Nauczyciela_Checklista_Wychowawcy_PCTP` | K-1 — obowiązki wychowawcy | 5 |
+| `Kacik_Nauczyciela_Pomoc_PP_PCTP` | P-1…P-3 — procedura pomocy p-p | 6 |
+| `Kacik_Nauczyciela_Planowanie_PCTP` | R-1…R-4 — planowanie i realizacja | 7 |
+| `Kacik_Nauczyciela_Rodzice_PCTP` | W-1…W-3 — współpraca z rodzicami | 6 |
+| `Kacik_Nauczyciela_Bezpieczenstwo_PCTP` | B-1…B-4 — bezpieczeństwo i sytuacje szczególne | 8 |
+
+Każdy plik występuje w wersji `.html` (panel aplikacji + druki) oraz `.pdf`
+(sam druk, gotowy do wydruku).
 
 Panel informacyjny na górze pliku HTML widoczny jest tylko na ekranie
 (`@media print { display:none }`) — na wydruk trafiają wyłącznie druki.
@@ -80,6 +88,30 @@ Pozostałe podstawy: rozp. MEN z 9.08.2017 r. o pomocy p-p (Dz.U. 2017 poz. 1591
 t.j. Dz.U. 2023 poz. 1798), Prawo oświatowe (t.j. Dz.U. 2024 poz. 737, z późn. zm.),
 ustawa z 9.06.2022 r. o wspieraniu i resocjalizacji nieletnich (Dz.U. 2022
 poz. 1700), RODO (UE) 2016/679.
+
+## Pozostałe pakiety
+
+**P — pomoc psychologiczno-pedagogiczna:** P-1 wniosek nauczyciela o objęcie
+dziecka pomocą (z blokiem decyzji dyrektora i informacji dla rodziców), P-2 plan
+działań wspierających dla dziecka **bez orzeczenia** (dla dziecka z orzeczeniem
+obowiązuje IPET), P-3 protokół spotkania zespołu — WOPFU co najmniej dwa razy
+w roku szkolnym.
+
+**R — planowanie i realizacja:** R-1 plan pracy grupy wg czterech obszarów
+podstawy programowej, R-2 konspekt zajęć z dostosowaniami, R-3 karta realizacji
+zajęć specjalistycznych (uzupełnia dziennik zajęć, nie zastępuje go),
+R-4 sprawozdanie z pracy grupy.
+
+**W — współpraca z rodzicami:** W-1 rejestr kontaktów z podpisem rodzica,
+W-2 informacja o postępach dziecka dla wszystkich dzieci dwa razy w roku
+(nie mylić z MEN-I/74), W-3 zgody i upoważnienia z klauzulą RODO — przed
+wydrukowaniem porównaj zakres zgód ze statutem placówki.
+
+**B — bezpieczeństwo i sytuacje szczególne:** B-1 karta wycieczki i wyjścia
+(zgodę wyraża dyrektor, zatwierdzając kartę — rozp. MEN z 25.05.2018 r.,
+Dz.U. 2018 poz. 1055), B-2 karta zdarzenia / notatka służbowa (nie zastępuje
+protokołu powypadkowego), B-3 karta adaptacji dziecka, B-4 karta zachowań
+trudnych z analizą funkcji i planem pozytywnych oddziaływań.
 
 ## Logo
 
