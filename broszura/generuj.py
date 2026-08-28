@@ -29,7 +29,7 @@ FIRMA = {
     "funkcja": "pedagog specjalny",
     "email": "kontakt@eduplaner2026.pl",
     "telefon": "[usunięto]",
-    "www": "",                      # adres strony — wpisz, gdy będzie gotowy
+    "www": "eduplaner20262026.pl",
     "wydanie": "Pierwsze · 2026",
     "ekosystem": "EduPlaner2026-MJ-PCTP",
 }
