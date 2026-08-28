@@ -13,10 +13,15 @@ Panel informacyjny na górze pliku HTML widoczny jest tylko na ekranie
 
 | Sygn. | Druk | Strony |
 |---|---|---|
-| **O-1** | Arkusz obserwacji pedagogicznej ucznia (plan obserwacji + zapisy ABC + wnioski) | 1–2 |
+| **O-1** | Arkusz obserwacji ucznia — cel, harmonogram, zapisy ABC, wnioski | 1–2 |
 | **O-2** | Opinia o funkcjonowaniu dziecka/ucznia dla poradni psychologiczno-pedagogicznej | 3–6 |
-| **O-3** | Opinia nauczyciela dla zespołu orzekającego | 7–8 |
-| **O-4** | Opinia wychowawcy o uczniu dla instytucji zewnętrznej (sąd, OPS, kurator) | 9–10 |
+| **O-3** | Opinia dla zespołu orzekającego (kształcenie specjalne, nauczanie indywidualne) | 7–8 |
+| **O-4** | Opinia wychowawcy o uczniu dla instytucji zewnętrznej (sąd, kurator, OPS) | 9–10 |
+
+Każdy druk otwiera się stroną tytułową w układzie sprawozdania z pomocy p-p:
+wstęga, duży tytuł, podtytuł i linia z sygnaturą druku, dalej sekcje z rzymskim
+numerem w kwadraciku, pola z kropkowanymi linijkami i tabele z fioletowym
+nagłówkiem.
 
 ## Stan prawny — ocena funkcjonalna od 1 września 2026 r.
 
