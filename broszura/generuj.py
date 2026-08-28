@@ -29,6 +29,8 @@ FIRMA = {
     "funkcja": "pedagog specjalny",
     "email": "kontakt@eduplaner2026.pl",
     "telefon": "[usunięto]",
+    "www": "",                      # adres strony — wpisz, gdy będzie gotowy
+    "wydanie": "Pierwsze · 2026",
     "ekosystem": "EduPlaner2026-MJ-PCTP",
 }
 
@@ -73,6 +75,13 @@ LOGO_DUZE = (
     '<stop offset="1" stop-color="#42296B"/></radialGradient></defs></svg>'
     + _znak("url(#pctp-tarcza)", "logo logo-duze")
 )
+
+
+def _pole(wartosc, zastepnik):
+    """Wypisuje wartość albo wyraźny znacznik do uzupełnienia."""
+    if wartosc:
+        return f"<b>{e(wartosc)}</b>"
+    return f'<b class="uzup">{e(zastepnik)}</b>'
 
 
 def stopka_marki(nr=None):
@@ -907,7 +916,7 @@ def stopka_wydawcy():
             "Pokaż komuś zaufanemu swoją stronę z rysunkiem.",
         ]), "wide")
         + zdjecie("Zdjęcie zamykające: pięć kolorowych plam farby zlewających się w tęczę "
-                  "albo paleta malarska z pięcioma kolorami broszury.", "18mm",
+                  "albo paleta malarska z pięcioma kolorami broszury.", "16mm",
                   plik="koniec")
         + '<div class="wydawca">'
         + LOGO_DUZE
@@ -923,16 +932,16 @@ def stopka_wydawcy():
         f'<b>{e(FIRMA["nazwa"])}, {e(FIRMA["miasto"])}</b></div>'
         f'<div class="kol-poz"><span class="kol-lab">Seria</span>'
         f'<b>{e(tresc.SERIA)} · {e(tresc.CZESC).lower()}</b></div>'
-        f'<div class="kol-poz"><span class="kol-lab">Ekosystem</span>'
-        f'<b>{e(FIRMA["ekosystem"])}</b></div>'
         + f'<div class="kol-poz"><span class="kol-lab">E-mail</span>'
         f'<b>{e(FIRMA["email"])}</b></div>'
         f'<div class="kol-poz"><span class="kol-lab">Telefon</span>'
         f'<b>{e(FIRMA["telefon"])}</b></div>'
+        + f'<div class="kol-poz"><span class="kol-lab">Strona internetowa</span>'
+        f'{_pole(FIRMA["www"], "[ adres strony ]")}</div>'
         + '<div class="kol-poz"><span class="kol-lab">Adres</span>'
         '<b class="uzup">[ ulica, kod pocztowy ]</b></div>'
         '<div class="kol-poz"><span class="kol-lab">Wydanie</span>'
-        '<b class="uzup">[ pierwsze · rok ]</b></div>'
+        f'<b>{e(FIRMA["wydanie"])}</b></div>'
         '<div class="kol-poz"><span class="kol-lab">ISBN</span>'
         '<b class="uzup">[ numer, jeśli będzie ]</b></div>'
         '</div>'
