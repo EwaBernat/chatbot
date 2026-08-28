@@ -1,8 +1,14 @@
 # Kolorowy Świat Emocji
 
-Zeszyt ćwiczeń dla nastolatka — 56 numerowanych stron A4 plus okładka.
-Pięć emocji, pięć kolorów, gra planszowa do wycięcia.
-Materiał gotowy do druku i do sprzedaży.
+**Seria „Świat Kolorów" · część 1**
+
+Zeszyt do zajęć rozwijających kompetencje emocjonalne i społeczne,
+dostosowany do potrzeb młodzieży ze spektrum autyzmu. Sprawdzi się
+na zajęciach rewalidacyjnych, w pomocy psychologiczno-pedagogicznej,
+w terapii indywidualnej i w małej grupie, a także w pracy w domu.
+
+56 numerowanych stron A4 plus okładka. Pięć emocji, pięć kolorów,
+gra planszowa do wycięcia. Materiał gotowy do druku i do sprzedaży.
 
 Wydawca: **Pomorskie Centrum Terapii Pedagogicznej (PCTP), Koszalin**.
 Autorka: Mirosława Ewa Jurczyszyn, pedagog specjalny.
@@ -149,7 +155,9 @@ Oba kroje są osadzone w pliku HTML — nie trzeba ich instalować.
 
 ## Przed sprzedażą — do uzupełnienia
 
-Nazwa wydawcy, autorka i seria są już wpisane (stała `FIRMA` w `generuj.py`).
+Nazwa wydawcy i autorka są w stałej `FIRMA` w `generuj.py`, a oznaczenie
+serii — `SERIA`, `CZESC`, `PRZEZNACZENIE`, `DOSTOSOWANIE` i `GDZIE_WYKORZYSTAC`
+— w `tresc.py`. Kolejna część serii wymaga zmiany `CZESC` i tytułu.
 W nawiasach kwadratowych zostały pola, których skill nie zawiera: kontakt,
 adres, wydanie i ISBN. Uzupełnij je w `generuj.py` w funkcji
 `stopka_wydawcy()` albo bezpośrednio w gotowym HTML.

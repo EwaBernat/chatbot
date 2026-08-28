@@ -11,6 +11,20 @@ TYTUL = "Kolorowy Świat Emocji"
 PODTYTUL = "Zeszyt ćwiczeń dla nastolatka"
 OPIS_OKLADKA = "Pięć kolorów. Pięć emocji. Jeden Ty."
 
+# ── seria i przeznaczenie ────────────────────────────────────────────────────
+SERIA = "Świat Kolorów"
+CZESC = "Część 1"
+PRZEZNACZENIE = ("Zeszyt do zajęć rozwijających kompetencje emocjonalne "
+                 "i społeczne")
+DOSTOSOWANIE = "Dostosowany do potrzeb młodzieży ze spektrum autyzmu"
+
+GDZIE_WYKORZYSTAC = [
+    "Na zajęciach rewalidacyjnych.",
+    "Na zajęciach z pomocy psychologiczno-pedagogicznej.",
+    "W terapii indywidualnej i w pracy w małej grupie.",
+    "W domu — razem z rodzicem albo samodzielnie.",
+]
+
 # ── Kolory rozdziałów ────────────────────────────────────────────────────────
 # hex      – pełny kolor emocji (duże plamy, okładki rozdziałów)
 # ink      – ten sam kolor przyciemniony, bezpieczny dla tekstu na bieli

@@ -205,9 +205,11 @@ def okladka():
     return (
         '<article class="page cover">'
         '<div class="cover-top">'
-        '<span class="cover-eyebrow">Zeszyt terapeutyczny dla nastolatka</span>'
+        f'<span class="cover-seria">{e(tresc.SERIA)}<i>{e(tresc.CZESC)}</i></span>'
         f'<h1 class="cover-title">{e(tresc.TYTUL)}</h1>'
         f'<p class="cover-sub">{e(tresc.OPIS_OKLADKA)}</p>'
+        f'<p class="cover-przezn">{e(tresc.PRZEZNACZENIE)}.<br>'
+        f'{e(tresc.DOSTOSOWANIE)}.</p>'
         '</div>'
         f'<div class="cover-chips">{chipy}</div>'
         + zdjecie(
@@ -228,20 +230,22 @@ def strona_tytulowa():
     tresc_ = (
         '<span class="eyebrow">O tym zeszycie</span>'
         f'<h2 class="h-big">{e(tresc.TYTUL)}</h2>'
-        f'<p class="lead">{e(tresc.PODTYTUL)}. Pięć emocji, pięć kolorów, '
-        'ta sama droga za każdym razem.</p>'
-        + karta("Dla kogo", lista([
+        f'<p class="lead">{e(tresc.PRZEZNACZENIE)}, dostosowany do potrzeb '
+        'młodzieży ze spektrum autyzmu.</p>'
+        + '<div class="two">'
+        + karta("Gdzie się sprawdzi?", lista(tresc.GDZIE_WYKORZYSTAC))
+        + karta("Dla kogo?", lista([
             "Dla nastolatka w spektrum autyzmu.",
             "Dla każdego, komu trudno nazwać to, co czuje.",
-            "Do pracy samodzielnej, z rodzicem albo z terapeutą.",
+            "Dla nauczyciela, terapeuty i rodzica — gotowy materiał na zajęcia.",
         ]))
+        + '</div>' 
         + karta("Co znajdziesz w środku?", lista([
             "Pięć rozdziałów — każdy o jednej emocji i jej kolorze.",
-            "Opis emocji prostymi zdaniami.",
             "Mapę ciała: po czym poznasz emocję u siebie i u innych.",
-            "Opowiadanie o Rajmundzie i pytania do niego.",
+            "Opowiadanie o Rajmundzie i osiem pytań do pracy.",
             "Zadania na trzech poziomach trudności.",
-            "Własną stronę na rysunek, notatkę i zdjęcie.",
+            "Grę planszową do wycięcia.",
         ]))
         + '<div class="two">'
         + karta("Ile to zajmuje?", '<p class="p">Jeden rozdział to osiem stron. '
@@ -251,7 +255,7 @@ def strona_tytulowa():
                 'Nie ma emocji zakazanych. Nie ma sprawdzianu na końcu.</p>')
         + '</div>'
         + zdjecie("Zdjęcie: zeszyt otwarty na kolorowej stronie, obok kredki albo pisaki "
-                  "w pięciu kolorach broszury. Ujęcie z góry, jasne tło.", "48mm",
+                  "w pięciu kolorach broszury. Ujęcie z góry, jasne tło.", "30mm",
                   plik="wstep-tytulowa")
     )
     return strona(tresc_, pid="wstep-tytulowa")
@@ -903,7 +907,7 @@ def stopka_wydawcy():
             "Pokaż komuś zaufanemu swoją stronę z rysunkiem.",
         ]), "wide")
         + zdjecie("Zdjęcie zamykające: pięć kolorowych plam farby zlewających się w tęczę "
-                  "albo paleta malarska z pięcioma kolorami broszury.", "22mm",
+                  "albo paleta malarska z pięcioma kolorami broszury.", "18mm",
                   plik="koniec")
         + '<div class="wydawca">'
         + LOGO_DUZE
@@ -911,13 +915,15 @@ def stopka_wydawcy():
         f'{e(FIRMA["skrot"])} {e(FIRMA["miasto"])}</b>'
         f'<span>{e(FIRMA["nazwa"])}</span></div></div>'
         + '<div class="kolofon">'
-        '<div class="kol-poz"><span class="kol-lab">Tytuł</span>'
-        '<b>Kolorowy Świat Emocji — zeszyt ćwiczeń dla nastolatka</b></div>'
+        + f'<div class="kol-poz"><span class="kol-lab">Tytuł</span>'
+        f'<b>{e(tresc.TYTUL)} — {e(tresc.PRZEZNACZENIE.lower())}</b></div>'
         + f'<div class="kol-poz"><span class="kol-lab">Autorka</span>'
         f'<b>{e(FIRMA["autorka"])}, {e(FIRMA["funkcja"])}</b></div>'
         f'<div class="kol-poz"><span class="kol-lab">Wydawca</span>'
         f'<b>{e(FIRMA["nazwa"])}, {e(FIRMA["miasto"])}</b></div>'
         f'<div class="kol-poz"><span class="kol-lab">Seria</span>'
+        f'<b>{e(tresc.SERIA)} · {e(tresc.CZESC).lower()}</b></div>'
+        f'<div class="kol-poz"><span class="kol-lab">Ekosystem</span>'
         f'<b>{e(FIRMA["ekosystem"])}</b></div>'
         + f'<div class="kol-poz"><span class="kol-lab">E-mail</span>'
         f'<b>{e(FIRMA["email"])}</b></div>'
@@ -1168,8 +1174,13 @@ ol.numer::marker{font-weight:700}
 /* ── okładka ────────────────────────────────────────── */
 .cover{background:var(--grzbiet);color:#fff;padding:18mm 16mm 14mm;
   display:flex;flex-direction:column;gap:7mm}
-.cover-eyebrow{font-family:var(--font-h);font-weight:800;font-size:10pt;
-  letter-spacing:.2em;text-transform:uppercase;color:#C9B6F2}
+.cover-seria{display:inline-flex;align-items:center;gap:3mm;align-self:flex-start;
+  font-family:var(--font-h);font-weight:900;font-size:9.4pt;letter-spacing:.2em;
+  text-transform:uppercase;color:#fff;border:1.6px solid #8B6FD0;padding:1.8mm 4mm}
+.cover-seria i{font-style:normal;font-weight:800;color:#1B1030;background:#F0A97A;
+  padding:.6mm 2.4mm;letter-spacing:.14em}
+.cover-przezn{font-size:10.6pt;line-height:1.5;color:#C9B6F2;margin-top:4mm;
+  max-width:132mm}
 .cover-title{font-family:var(--font-h);font-weight:900;font-size:52pt;line-height:.98;
   margin:3mm 0 0;letter-spacing:-.02em;text-wrap:balance}
 .cover-sub{font-size:15pt;line-height:1.45;color:#DCD0F7;margin-top:4mm;max-width:130mm}
@@ -1294,8 +1305,8 @@ ol.numer::marker{font-weight:700}
 .dyp-nr{position:absolute;left:15mm;bottom:9mm}
 
 /* ── kolofon ────────────────────────────────────────── */
-.kolofon{display:grid;grid-template-columns:1fr 1fr;gap:1.8mm 6mm;
-  border-top:2px solid var(--wlos);border-bottom:2px solid var(--wlos);padding:2.6mm 0}
+.kolofon{display:grid;grid-template-columns:1fr 1fr;gap:1.5mm 6mm;
+  border-top:2px solid var(--wlos);border-bottom:2px solid var(--wlos);padding:2.2mm 0}
 .kol-lab{display:block;font-size:8.6pt;letter-spacing:.14em;text-transform:uppercase;
   color:var(--atrament-3)}
 .kol-poz b{font-family:var(--font-h);font-weight:800;font-size:11pt}
