@@ -523,6 +523,38 @@ td b{font-weight:900}
 .alert h3{font-size:1.1rem;color:var(--flame);margin-bottom:.3em}
 .alert p{font-size:.97rem}
 
+/* ============ KONTAKT (tył broszury) ============ */
+.contact{
+  margin:64px -24px 0;
+  padding:48px 24px 44px;
+  background:
+    radial-gradient(110% 120% at 92% 110%, color-mix(in srgb, var(--flame) 22%, transparent), transparent 60%),
+    linear-gradient(150deg, var(--brand-dark) 0%, #2D1B69 62%, #1F1148 100%);
+  color:#F5F1FF;
+}
+.contact-inner{max-width:952px;margin:0 auto}
+.contact .eyebrow{color:#FFB48C}
+.contact h2{
+  font-size:clamp(1.9rem,4vw,2.7rem);color:#fff;margin:.3em 0 .34em;
+}
+.contact-lead{color:#CFC4EE;max-width:52ch;font-size:1.03rem;line-height:1.55}
+.contact-grid{
+  display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));
+  gap:26px 34px;margin-top:34px;padding-top:30px;
+  border-top:1px solid rgba(255,255,255,.22);
+}
+.contact-key{
+  font-family:var(--f-display);font-weight:700;font-size:.71rem;letter-spacing:.17em;
+  text-transform:uppercase;color:#FFB48C;display:block;margin-bottom:7px;
+}
+.contact-val{font-size:1.06rem;line-height:1.4;color:#fff;font-weight:700}
+.contact-val a{color:#fff;text-decoration:none;border-bottom:1px solid rgba(255,180,140,.6)}
+.contact-val a:hover,.contact-val a:focus-visible{border-bottom-color:#FFB48C;color:#FFD9C4}
+.contact-val a:focus-visible{outline:2px solid #FFB48C;outline-offset:3px;border-radius:2px}
+.contact-sub{display:block;font-weight:400;font-size:.88rem;color:#C3B7E6;margin-top:3px}
+.contact-tel{font-family:var(--f-mono);font-size:1.14rem;letter-spacing:.02em}
+.contact-tel .contact-sub{font-family:var(--f-body);letter-spacing:0}
+
 /* ============ STOPKA ============ */
 .footer{
   margin-top:64px;padding-top:24px;border-top:2px solid var(--brand);
@@ -563,6 +595,8 @@ td b{font-weight:900}
     page-break-inside:avoid;break-inside:avoid;
   }
   .section-break{page-break-before:always;break-before:page}
+  .contact{margin:0;padding:22mm 12mm 16mm;page-break-before:always;break-before:page}
+  .contact h2{font-size:26pt}
   *{-webkit-print-color-adjust:exact;print-color-adjust:exact}
 }
 </style>
@@ -608,6 +642,11 @@ td b{font-weight:900}
           <span class="byline-key">Sygnatura</span>
           <span class="byline-val"><b>SMART‑P1</b>
           <span>materiał szkoleniowy · zał. do IPET</span></span>
+        </div>
+        <div class="byline-item">
+          <span class="byline-key">Kontakt</span>
+          <span class="byline-val"><b>www.eduplaner2026.pl</b>
+          <span>tel. [usunięto]</span></span>
         </div>
       </div>
     </div>
@@ -1179,12 +1218,47 @@ td b{font-weight:900}
     </div>
   </section>
 
+  <!-- ══════════ KONTAKT · tył broszury ══════════ -->
+  <section class="contact">
+    <div class="contact-inner">
+      <p class="eyebrow">Kontakt · EduPlaner 2026</p>
+      <h2>Masz pytanie o cel, którego nie umiesz zapisać?</h2>
+      <p class="contact-lead">Napisz albo zadzwoń — najtrudniejsze cele rozpisujemy razem.
+      Pełny ekosystem dokumentów (WOPF, IPET, Raport Ucznia, Baza Uczniów) oraz kolejne materiały
+      szkoleniowe znajdziesz na stronie EduPlanera.</p>
+
+      <div class="contact-grid">
+        <div>
+          <span class="contact-key">Strona</span>
+          <span class="contact-val"><a href="https://www.eduplaner2026.pl">www.eduplaner2026.pl</a>
+          <span class="contact-sub">materiały, wzory i aktualizacje</span></span>
+        </div>
+        <div>
+          <span class="contact-key">Telefon</span>
+          <span class="contact-val contact-tel"><a href="tel:+48[usunięto]">[usunięto]</a>
+          <span class="contact-sub">Mniej dokumentów. Więcej edukacji.</span></span>
+        </div>
+        <div>
+          <span class="contact-key">Opracowanie</span>
+          <span class="contact-val">mgr Mirosława Ewa Jurczyszyn
+          <span class="contact-sub">pedagog specjalny · koordynator zespołu</span></span>
+        </div>
+        <div>
+          <span class="contact-key">Placówka</span>
+          <span class="contact-val">PCTP Koszalin
+          <span class="contact-sub">Pomorskie Centrum Terapii Pedagogicznej</span></span>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <footer class="footer">
     <div class="footer-brand">
       <b>EduPlaner 2026 · PCTP Koszalin</b>
       <span>Pomorskie Centrum Terapii Pedagogicznej</span>
       <span>Skrypt dla nauczyciela przedszkola · Cele SMART · załącznik do IPET</span>
       <span class="footer-sig">Sygnatura: SMART‑P1 · ekosystem EduPlaner2026‑MJ‑PCTP</span>
+      <span>www.eduplaner2026.pl · tel. [usunięto]</span>
     </div>
     <div class="footer-meta">
       <div>
