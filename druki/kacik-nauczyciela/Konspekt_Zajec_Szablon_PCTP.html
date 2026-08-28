@@ -267,10 +267,10 @@
   .kons-pod{display:flex; align-items:center; justify-content:center; gap:3mm; margin:1.6mm 18mm 2.6mm}
   .kons-pod .kreska{flex:1; height:1px; background:var(--pomarancz)}
   .kons-pod .linia-op{flex:2.6; border-bottom:1.2px dotted var(--kropki); height:3mm}
-  .chipsy{display:flex; gap:2mm; margin-bottom:2.6mm}
+  .chipsy{display:flex; gap:2mm; margin-bottom:2mm}
   .chip{
     flex:1; border:1px solid var(--ramka-2); border-radius:999px; background:#fff;
-    padding:1.2mm 2mm; text-align:center; font-size:5.8pt; font-weight:bold;
+    padding:1mm 2mm; text-align:center; font-size:5.8pt; font-weight:bold;
     color:var(--fiolet); letter-spacing:.6px; text-transform:uppercase;
   }
   .chip i{display:block; font-style:normal; font-weight:normal; letter-spacing:0; text-transform:none;
@@ -295,20 +295,36 @@
   .cel-cialo .mini{font-size:5.6pt; font-weight:bold; color:var(--fiolet); letter-spacing:1px; text-transform:uppercase}
   .cel-cialo .mini.pom{color:var(--pomarancz)}
   .cel-cialo .linijki div{border-bottom:1.2px dotted var(--kropki); height:4.6mm}
-  .smart{display:flex; gap:1.4mm; margin:2.4mm 0 2mm; flex-wrap:nowrap}
-  .smart span{display:flex; align-items:center; gap:.9mm; font-size:5.2pt; color:var(--fiolet-2); white-space:nowrap}
-  .smart b{
-    width:3.4mm; height:3.4mm; border-radius:50%; background:var(--fiolet); color:#fff; flex:none;
-    display:flex; align-items:center; justify-content:center; font-size:4.6pt;
+  /* klamra przy celach — wg wzoru konspektu */
+  .klamra-blok{display:flex; align-items:stretch; gap:1.6mm; margin:1.4mm 0 1.2mm}
+  .klamra{flex:none; width:3.4mm; align-self:stretch; color:var(--fiolet); display:block}
+  .klamra svg{width:100%; height:100%; display:block}
+  .cel.terap .klamra{color:var(--pomarancz)}
+  .smart-wiersze{flex:1; display:flex; flex-direction:column; justify-content:space-between; gap:.2mm}
+  .smart-w{display:flex; align-items:center; gap:1.4mm}
+  .smart-w b{
+    width:3.2mm; flex:none; text-align:center; font-size:7pt; font-weight:bold; color:var(--fiolet);
   }
-  .cel.terap .smart b{background:var(--pomarancz)}
+  .cel.terap .smart-w b{color:var(--pomarancz)}
+  .smart-w i{
+    flex:none; width:14mm; font-style:normal; font-size:5.4pt; color:var(--szary); letter-spacing:.2px;
+  }
+  .smart-w .lin{flex:1; border-bottom:1.2px dotted var(--kropki); height:3.1mm}
+  .kryt{
+    background:#EFEAF9; border:1px solid var(--ramka-2); border-radius:2mm;
+    padding:1.2mm 2.4mm; display:flex; align-items:center; gap:1.6mm; margin-top:auto;
+  }
+  .cel.terap .kryt{background:#FDECE4; border-color:#F3B79C}
+  .kryt b{font-size:5.8pt; color:var(--fiolet); white-space:nowrap; letter-spacing:.3px}
+  .cel.terap .kryt b{color:var(--pomarancz)}
+  .kryt .lin{flex:1; border-bottom:1.2px dotted var(--kropki); height:3.4mm}
   .cel .rozdziel{border-top:1px solid var(--ramka); margin:1.6mm 0 2mm}
 
   /* ——— dwie kolumny sekcji ——— */
   .duo{display:flex; gap:3.4mm; align-items:stretch; margin-bottom:1mm}
   .duo > div{flex:1 1 0; display:flex; flex-direction:column}
   .duo .pole{flex:1}
-  .karta-mod{flex:1; border-radius:2.4mm; padding:2.4mm 3mm}
+  .karta-mod{flex:1; border-radius:2.4mm; padding:2mm 2.8mm}
   .karta-mod .glowa{display:flex; align-items:center; gap:2mm; margin-bottom:1.4mm}
   .karta-mod .glowa .rz{
     width:4.4mm; height:4.4mm; border-radius:1mm; display:flex; align-items:center; justify-content:center;
@@ -323,19 +339,24 @@
 
   .wsk{
     display:flex; align-items:center; gap:2mm; margin-top:2.4mm;
-    background:var(--pole); border:1px solid var(--ramka); border-radius:2.4mm; padding:1.8mm 3mm;
+    background:var(--pole); border:1px solid var(--ramka); border-radius:2.4mm; padding:1.4mm 3mm;
   }
-  .wsk b{font-size:6.4pt; color:var(--fiolet); white-space:nowrap}
+  .wsk b{font-size:6.2pt; color:var(--fiolet); white-space:nowrap}
   .wsk .dopisz{flex:1; border-bottom:1.2px dotted var(--kropki); height:3.4mm}
 
   /* kompaktowe odstępy w konspekcie jednostronicowym */
-  .page{padding:8mm 10mm 6mm}
+  .page{padding:7mm 10mm 4mm}
+  .page .stopka{padding-top:1.6mm}
+  .page .metryczka{margin-bottom:2.6mm}
+  .page .duo{margin-bottom:0}
+  .page .karta-mod p{font-size:6.1pt}
+  .page .wsk{margin-top:1.8mm}
   .page .metryczka .box{min-height:8mm; padding:1.6mm 3mm}
   .page .smart{margin:1.8mm 0 1.4mm}
-  .page .cel-cialo{padding:2.2mm 3mm 2.4mm}
-  .page .kons-tytul{height:7mm}
-  .page .sekcja{margin:3.4mm 0 2mm}
-  .page td{height:7mm}
+  .page .cel-cialo{padding:2mm 3mm 2mm}
+  .page .kons-tytul{height:5mm}
+  .page .sekcja{margin:2.2mm 0 1.4mm}
+  .page .tab-mala td{height:5.6mm}
   .page .wstep{margin-bottom:1.2mm}
 
   @media print{
@@ -431,13 +452,18 @@
       </div>
       <div class="cel-cialo">
         <span class="mini">Treść celu — kto, co, w jakich warunkach, jak często, do kiedy</span>
-        <div class="linijki"><div></div><div></div><div></div></div>
-        <div class="smart">
-          <span><b>S</b>konkretny</span><span><b>M</b>mierzalny</span><span><b>A</b>osiągalny</span><span><b>R</b>istotny</span><span><b>T</b>w czasie</span>
+        <div class="linijki"><div></div><div></div></div>
+        <div class="klamra-blok">
+          <span class="klamra"><svg viewBox="0 0 10 100" preserveAspectRatio="none" aria-hidden="true"><path d="M9 1 C5 1 6 6 6 12 L6 44 C6 48 4 50 1 50 C4 50 6 52 6 56 L6 88 C6 94 5 99 9 99" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" vector-effect="non-scaling-stroke"/></svg></span>
+          <div class="smart-wiersze">
+          <div class="smart-w"><b>S</b><i>konkretny</i><span class="lin"></span></div>
+          <div class="smart-w"><b>M</b><i>mierzalny</i><span class="lin"></span></div>
+          <div class="smart-w"><b>A</b><i>osiągalny</i><span class="lin"></span></div>
+          <div class="smart-w"><b>R</b><i>istotny</i><span class="lin"></span></div>
+          <div class="smart-w"><b>T</b><i>w czasie</i><span class="lin"></span></div>
+          </div>
         </div>
-        <div class="rozdziel"></div>
-        <span class="mini">Kryterium osiągnięcia celu — czym zmierzę efekt</span>
-        <div class="linijki"><div></div></div>
+        <div class="kryt"><b>Kryterium osiągnięcia celu:</b><span class="lin"></span></div>
       </div>
     </div>
     <div class="cel terap">
@@ -448,13 +474,18 @@
       </div>
       <div class="cel-cialo">
         <span class="mini pom">Treść celu — kto, co, w jakich warunkach, jak często, do kiedy</span>
-        <div class="linijki"><div></div><div></div><div></div></div>
-        <div class="smart">
-          <span><b>S</b>konkretny</span><span><b>M</b>mierzalny</span><span><b>A</b>osiągalny</span><span><b>R</b>istotny</span><span><b>T</b>w czasie</span>
+        <div class="linijki"><div></div><div></div></div>
+        <div class="klamra-blok">
+          <span class="klamra"><svg viewBox="0 0 10 100" preserveAspectRatio="none" aria-hidden="true"><path d="M9 1 C5 1 6 6 6 12 L6 44 C6 48 4 50 1 50 C4 50 6 52 6 56 L6 88 C6 94 5 99 9 99" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" vector-effect="non-scaling-stroke"/></svg></span>
+          <div class="smart-wiersze">
+          <div class="smart-w"><b>S</b><i>konkretny</i><span class="lin"></span></div>
+          <div class="smart-w"><b>M</b><i>mierzalny</i><span class="lin"></span></div>
+          <div class="smart-w"><b>A</b><i>osiągalny</i><span class="lin"></span></div>
+          <div class="smart-w"><b>R</b><i>istotny</i><span class="lin"></span></div>
+          <div class="smart-w"><b>T</b><i>w czasie</i><span class="lin"></span></div>
+          </div>
         </div>
-        <div class="rozdziel"></div>
-        <span class="mini pom">Kryterium osiągnięcia celu — czym zmierzę efekt</span>
-        <div class="linijki"><div></div></div>
+        <div class="kryt"><b>Kryterium osiągnięcia celu:</b><span class="lin"></span></div>
       </div>
     </div>
   </div>

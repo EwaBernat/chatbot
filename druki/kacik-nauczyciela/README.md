@@ -120,8 +120,9 @@ trudnych z analizą funkcji i planem pozytywnych oddziaływań.
 załącznika do IPET. Sekcja I ma **dwie symetryczne kolumny na tej samej
 wysokości**: po lewej **cel edukacyjny** (fioletowy, odniesienie do podstawy
 programowej), po prawej **cel terapeutyczny** (pomarańczowy, odniesienie do
-IPET lub planu wsparcia) — oba w formule SMART, z legendą S · M · A · R · T
-i polem na kryterium osiągnięcia celu.
+IPET lub planu wsparcia) — oba w formule SMART. Przy każdym celu stoi **klamra** obejmująca pięć
+wierszy S · M · A · R · T (jak we wzorze konspektu), a pod nią pasek
+z kryterium osiągnięcia celu.
 
 Dalej: pomoce dydaktyczne i metody w dwóch kolumnach, sposób realizacji jako
 pary N — U (czynność nauczyciela obok oczekiwanej reakcji dziecka), gotowy
