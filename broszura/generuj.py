@@ -29,7 +29,7 @@ FIRMA = {
     "funkcja": "pedagog specjalny",
     "email": "kontakt@eduplaner2026.pl",
     "telefon": "[usunięto]",
-    "www": "eduplaner20262026.pl",
+    "www": "www.eduplaner2026.pl",
     "wydanie": "Pierwsze · 2026",
     "ekosystem": "EduPlaner2026-MJ-PCTP",
 }
@@ -973,7 +973,7 @@ def stopka_wydawcy():
             "Pokaż komuś zaufanemu swoją stronę z rysunkiem.",
         ]), "wide")
         + zdjecie("Zdjęcie zamykające: pięć kolorowych plam farby zlewających się w tęczę "
-                  "albo paleta malarska z pięcioma kolorami broszury.", "16mm",
+                  "albo paleta malarska z pięcioma kolorami broszury.", "31mm",
                   plik="koniec")
         + '<div class="wydawca">'
         + LOGO_DUZE
@@ -995,12 +995,8 @@ def stopka_wydawcy():
         f'<b>{e(FIRMA["telefon"])}</b></div>'
         + f'<div class="kol-poz"><span class="kol-lab">Strona internetowa</span>'
         f'{_pole(FIRMA["www"], "[ adres strony ]")}</div>'
-        + '<div class="kol-poz"><span class="kol-lab">Adres</span>'
-        '<b class="uzup">[ ulica, kod pocztowy ]</b></div>'
-        '<div class="kol-poz"><span class="kol-lab">Wydanie</span>'
+        + f'<div class="kol-poz"><span class="kol-lab">Wydanie</span>'
         f'<b>{e(FIRMA["wydanie"])}</b></div>'
-        '<div class="kol-poz"><span class="kol-lab">ISBN</span>'
-        '<b class="uzup">[ numer, jeśli będzie ]</b></div>'
         '</div>'
         '<p class="mini">Wszelkie prawa zastrzeżone. Kopiowanie i rozpowszechnianie '
         'całości lub fragmentów bez zgody wydawcy jest zabronione. '

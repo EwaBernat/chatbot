@@ -12,7 +12,7 @@ gra planszowa do wycięcia. Materiał gotowy do druku i do sprzedaży.
 
 Wydawca: **Pomorskie Centrum Terapii Pedagogicznej (PCTP), Koszalin**.
 Autorka: Mirosława Ewa Jurczyszyn, pedagog specjalny.
-Seria `EduPlaner2026-MJ-PCTP` · kontakt@eduplaner2026.pl · [usunięto].
+kontakt@eduplaner2026.pl · [usunięto] · www.eduplaner2026.pl
 
 ## Co jest w środku
 
@@ -178,14 +178,18 @@ się poprawna odmiana: „Mój smutek”, ale „Moja radość”.
 
 Oba kroje są osadzone w pliku HTML — nie trzeba ich instalować.
 
-## Przed sprzedażą — do uzupełnienia
+## Dane wydawcy
 
-Nazwa wydawcy i autorka są w stałej `FIRMA` w `generuj.py`, a oznaczenie
-serii — `SERIA`, `CZESC`, `PRZEZNACZENIE`, `DOSTOSOWANIE` i `GDZIE_WYKORZYSTAC`
-— w `tresc.py`. Kolejna część serii wymaga zmiany `CZESC` i tytułu.
-W nawiasach kwadratowych zostały pola, których skill nie zawiera: kontakt,
-adres, wydanie i ISBN. Uzupełnij je w `generuj.py` w funkcji
-`stopka_wydawcy()` albo bezpośrednio w gotowym HTML.
+Stopka redakcyjna jest kompletna — nie ma w niej pól do uzupełnienia.
+Wszystkie dane siedzą w stałej `FIRMA` w `generuj.py`: nazwa, miasto,
+autorka, e-mail, telefon, adres strony i oznaczenie wydania.
+Oznaczenie serii — `SERIA`, `CZESC`, `PRZEZNACZENIE`, `DOSTOSOWANIE`
+i `GDZIE_WYKORZYSTAC` — jest w `tresc.py`. Kolejna część serii wymaga
+zmiany `CZESC` i tytułu.
+
+Gdybyś kiedyś chciała dodać ISBN albo adres pocztowy, dopisz wiersz
+w funkcji `stopka_wydawcy()`; funkcja `_pole()` sama pokaże znacznik
+do uzupełnienia, dopóki wartość jest pusta.
 
 Logo PCTP — okrągła tarcza z kwiatem i napisem PCTP — jest odrysowane jako
 wektor w funkcji `_znak()` w `generuj.py`. Dzięki temu jest ostre w każdym
