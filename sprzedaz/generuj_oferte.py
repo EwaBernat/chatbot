@@ -311,6 +311,8 @@ h2{font-weight:900;font-size:clamp(28px,4vw,40px);line-height:1.12;
 /* ── autorka i zapowiedź ──────────────────────────── */
 .autorka{display:grid;grid-template-columns:280px 1fr;gap:36px;align-items:center}
 .autorka img{border:1px solid var(--wlos)}
+.autor-podpis{font-family:var(--font-h);font-weight:800;font-size:17px;
+  color:var(--pomarancz);margin-top:10px;letter-spacing:.01em}
 .zapowiedz{background:var(--fiolet);color:#fff}
 .zapowiedz .eyebrow{color:var(--pomarancz-cieply)}
 .zapowiedz .lead{color:#C9B6F2}
@@ -452,12 +454,12 @@ def sekcja_autorka():
 <div>{foto("koniec", "Paleta pięciu kolorów emocji")}</div>
 <div>
   <span class="eyebrow">Kto to napisał</span>
-  <h2>{e(FIRMA["autorka"])}</h2>
-  <p class="lead">{e(FIRMA["funkcja"].capitalize())}, autorka ekosystemu
-    dokumentów EduPlaner 2026. Zeszyt wyrósł z codziennej pracy
-    w {e(FIRMA["nazwa"])} w {e(FIRMA["miasto"])}u — z pytania, jak rozmawiać
-    o emocjach z nastolatkiem, dla którego słowa bywają za trudne,
-    a kolory już nie.</p>
+  <h2>{e(FIRMA["nazwa"])}</h2>
+  <p class="autor-podpis">{e(FIRMA["autorka"])} — {e(FIRMA["funkcja"])}</p>
+  <p class="lead">Zeszyt wyrósł z codziennej pracy terapeutycznej
+    w {e(FIRMA["miasto"])}ie — z pytania, jak rozmawiać o emocjach
+    z nastolatkiem, dla którego słowa bywają za trudne, a kolory już nie.
+    Autorka prowadzi też ekosystem dokumentów EduPlaner 2026.</p>
 </div>
 </div></div></section>"""
 
