@@ -98,7 +98,7 @@ obowiązuje IPET), P-3 protokół spotkania zespołu — WOPFU co najmniej dwa r
 w roku szkolnym.
 
 **R — planowanie i realizacja:** R-1 plan pracy grupy wg czterech obszarów
-podstawy programowej, R-2 konspekt zajęć z dostosowaniami, R-3 karta realizacji
+podstawy programowej, R-2 karta zajęć — konspekt wg wzoru karty zajęć z Dziennika Wsparcia, R-3 karta realizacji
 zajęć specjalistycznych (uzupełnia dziennik zajęć, nie zastępuje go),
 R-4 sprawozdanie z pracy grupy.
 
