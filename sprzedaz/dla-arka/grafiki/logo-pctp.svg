@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 600" width="600" height="600" role="img" aria-label="PCTP">
+  <title>PCTP — logo</title>
+  <defs>
+    <radialGradient id="pctp-tarcza" cx="38%" cy="30%" r="78%">
+      <stop offset="0" stop-color="#6B4E9E"/>
+      <stop offset="1" stop-color="#42296B"/>
+    </radialGradient>
+  </defs>
+  <circle cx="300" cy="300" r="298" fill="#3E2664"/>
+  <circle cx="300" cy="300" r="288" fill="#CFC4E4"/>
+  <circle cx="300" cy="300" r="274" fill="#3E2664"/>
+  <circle cx="300" cy="300" r="268" fill="url(#pctp-tarcza)"/>
+  <g stroke="#C8A02A" stroke-width="10" stroke-linecap="round" fill="none">
+    <path d="M300 276 L300 234"/>
+    <path d="M300 272 C286 246 264 232 240 220"/>
+    <path d="M300 272 C314 246 336 232 360 220"/>
+  </g>
+  <ellipse cx="300" cy="166" rx="22" ry="47" fill="#A292CE" transform="rotate(-46 300 250)"/>
+  <ellipse cx="300" cy="166" rx="22" ry="47" fill="#A292CE" transform="rotate(46 300 250)"/>
+  <ellipse cx="300" cy="158" rx="23" ry="51" fill="#F0A97A" transform="rotate(-21 300 250)"/>
+  <ellipse cx="300" cy="158" rx="23" ry="51" fill="#F0A97A" transform="rotate(21 300 250)"/>
+  <ellipse cx="300" cy="150" rx="24" ry="55" fill="#E8722E"/>
+  <circle cx="300" cy="178" r="13" fill="#FFFFFF"/>
+  <text x="300" y="410" text-anchor="middle" fill="#F6F1E7"
+        font-family="Georgia,'Times New Roman',serif" font-weight="700"
+        font-size="128" letter-spacing="6">PCTP</text>
+</svg>

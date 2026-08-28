@@ -150,7 +150,7 @@ def zdjecie(opis, wysokosc="52mm", etykieta="MIEJSCE NA ZDJĘCIE", plik=None):
     if dane:
         return (
             f'<figure class="photo photo-ma" style="--ph-h:{wysokosc}">'
-            f'<img src="{dane}" alt="{e(opis)}" loading="lazy"></figure>'
+            f'<img src="{dane}" alt="{e(opis)}" decoding="async"></figure>'
         )
     return (
         f'<figure class="photo" style="--ph-h:{wysokosc}">'
@@ -787,7 +787,7 @@ def karty_twarze():
     karty = ""
     for r in tresc.ROZDZIALY:
         zdj = wczytaj(r["nr"] + "-cialo")
-        obraz = (f'<img src="{zdj}" alt="{e(r["emocja"])}" loading="lazy">'
+        obraz = (f'<img src="{zdj}" alt="{e(r["emocja"])}" decoding="async">'
                  if zdj else '<span class="tw-brak">twarz</span>')
         karty += (
             f'<div class="twarz" style="--c:{r["hex"]};--txt:{r["txt"]}">'
@@ -818,7 +818,7 @@ def zapowiedz():
     kafle = ""
     for k in tresc.CZESC_2:
         zdj = wczytaj(k["plik"])
-        obraz = (f'<img src="{zdj}" alt="{e(k["emocja"])}" loading="lazy">'
+        obraz = (f'<img src="{zdj}" alt="{e(k["emocja"])}" decoding="async">'
                  if zdj else '<span class="tw-brak">twarz</span>')
         kafle += (
             f'<div class="zap-kafel" style="--c:{k["hex"]};--txt:{k["txt"]}">'
