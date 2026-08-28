@@ -1,0 +1,762 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+<meta charset="utf-8">
+<title>Kącik nauczyciela · Planowanie i realizacja pracy z grupą · EduPlaner 2026</title>
+<style>
+  :root{
+    --fiolet:#2D1B69;
+    --fiolet-2:#4D3D80;
+    --pomarancz:#E8450A;
+    --pole:#F6F3FB;
+    --ramka:#D9CFEE;
+    --ramka-2:#CABCE8;
+    --kropki:#B3A1D8;
+    --wiersz:#FAF7F2;
+    --zazn:#FDECE4;
+    --szary:#6B6B7B;
+    --szary-2:#9A94A8;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{
+    font-family:Arial,"Helvetica Neue",Helvetica,sans-serif;
+    font-size:7.6pt; line-height:1.32; color:#221a3d; background:#e9e7ee;
+    -webkit-print-color-adjust:exact; print-color-adjust:exact;
+  }
+  .page{
+    position:relative; width:210mm; min-height:297mm; margin:0 auto 8mm;
+    padding:11mm 10mm 13mm; background:#fff; display:flex; flex-direction:column;
+    box-shadow:0 2px 10px rgba(45,27,105,.18);
+  }
+
+  /* ——— nagłówek ——— */
+  .naglowek{display:flex; align-items:flex-start; justify-content:space-between; gap:6mm}
+  .marka{display:flex; align-items:center; gap:3.2mm}
+  .logo{width:11.4mm; height:11.4mm; flex:none; display:block}
+  .logo svg{width:100%; height:100%; display:block}
+  .marka-nazwa{font-size:12.5pt; font-weight:bold; color:var(--fiolet); letter-spacing:-.2px; line-height:1.05}
+  .marka-opis{font-size:5.6pt; font-weight:bold; color:var(--szary); letter-spacing:1.1px; text-transform:uppercase; margin-top:1mm; max-width:52mm}
+  .naglowek-prawy{text-align:right; padding-top:.6mm}
+  .plakietka{
+    display:inline-block; background:var(--pomarancz); color:#fff; border-radius:999px;
+    padding:1.3mm 3.4mm; font-size:6.2pt; font-weight:bold; letter-spacing:.7px; text-transform:uppercase;
+  }
+  .naglowek-podpis{font-size:5.6pt; font-weight:bold; color:var(--szary-2); letter-spacing:1.1px; margin-top:1.6mm; text-transform:uppercase}
+  .belka{height:1.1mm; margin:2.6mm 0 3mm; background:linear-gradient(90deg,var(--fiolet) 0 55%,var(--pomarancz) 55% 100%)}
+
+  /* ——— pasek metryczki ——— */
+  .metryczka{display:flex; gap:2.4mm; margin-bottom:3.4mm}
+  .metryczka .box{
+    border:1px solid var(--ramka); border-radius:2.4mm; background:#FDFCFE;
+    padding:2mm 3mm; display:flex; align-items:baseline; gap:2mm; min-height:9mm;
+  }
+  .metryczka .box:nth-child(1){flex:2.2}
+  .metryczka .box:nth-child(2){flex:1.5}
+  .metryczka .box:nth-child(3){flex:1.3}
+  .metryczka .etykieta{font-size:5.8pt; font-weight:bold; color:var(--fiolet); letter-spacing:1px; text-transform:uppercase; white-space:nowrap}
+  .metryczka .wypelnij{flex:1; border-bottom:1.2px dotted var(--kropki); height:3.4mm}
+  .metryczka .wartosc{font-size:8.5pt; color:var(--fiolet); font-weight:normal}
+
+  /* ——— tytuł dokumentu ——— */
+  .wstega{text-align:center; margin:1mm 0 3mm}
+  .wstega span{
+    display:inline-block; background:var(--pomarancz); color:#fff; border-radius:999px;
+    padding:1.4mm 4mm; font-size:6.2pt; font-weight:bold; letter-spacing:1.1px; text-transform:uppercase;
+  }
+  .tytul{text-align:center; font-size:19pt; font-weight:bold; color:var(--fiolet); letter-spacing:.3px}
+  .podtytul{text-align:center; font-size:10pt; font-weight:bold; color:var(--pomarancz); margin-top:1.4mm}
+  .kody{display:flex; align-items:center; justify-content:center; gap:3mm; margin:3mm 0 5mm}
+  .kody .kreska{width:22mm; height:1px; background:var(--pomarancz)}
+  .kody .tresc{font-size:7.4pt; font-weight:bold; color:var(--fiolet); letter-spacing:2.6px}
+
+  /* ——— sekcje ——— */
+  .sekcja{display:flex; align-items:center; gap:2.6mm; margin:4.5mm 0 2.4mm}
+  .sekcja:first-of-type{margin-top:1mm}
+  .numer{
+    width:5.2mm; height:5.2mm; border-radius:1.2mm; background:var(--fiolet); color:#fff;
+    display:flex; align-items:center; justify-content:center; font-size:6.2pt; font-weight:bold; flex:none;
+  }
+  .numer.pom{background:var(--pomarancz)}
+  .sekcja h2{font-size:9.6pt; font-weight:bold; color:var(--fiolet); letter-spacing:.4px; text-transform:uppercase; white-space:nowrap}
+  .sekcja .linia{flex:1; height:1px; background:#E6DFF4}
+  .sekcja .tag{
+    background:#F3EDFB; border:1px solid var(--ramka-2); color:var(--fiolet);
+    border-radius:999px; padding:.7mm 2.4mm; font-size:6pt; font-weight:bold; letter-spacing:.5px;
+  }
+  .wstep{font-size:7pt; color:var(--fiolet-2); margin:0 0 2.6mm 8mm; line-height:1.4}
+
+  /* ——— pola do wypełnienia ——— */
+  .pole{
+    background:var(--pole); border:1px solid var(--ramka); border-radius:2.4mm;
+    padding:1.8mm 3mm 2.2mm; margin-bottom:2mm;
+  }
+  .pole > label,.pole .etykieta{
+    display:block; font-size:5.8pt; font-weight:bold; color:var(--fiolet);
+    letter-spacing:1.1px; text-transform:uppercase;
+  }
+  .pole .tresc{font-size:7.6pt; color:#221a3d; margin-top:1.2mm}
+  .linijki{margin-top:1.4mm}
+  .linijki div{border-bottom:1.2px dotted var(--kropki); height:4.6mm}
+  .linijki.w1 div:last-child,.linijki div:last-child{border-bottom:1.2px dotted var(--kropki)}
+  .siatka2{display:flex; gap:2.4mm}
+  .siatka2 > *{flex:1}
+  .siatka3{display:flex; gap:2.4mm}
+  .siatka3 > *{flex:1}
+
+  /* ——— tabele ——— */
+  table{width:100%; border-collapse:collapse; margin-bottom:2mm}
+  th{
+    background:var(--fiolet); color:#fff; font-size:6.2pt; font-weight:bold; letter-spacing:.7px;
+    text-transform:uppercase; text-align:left; padding:2mm 2.2mm; border:1px solid var(--fiolet);
+  }
+  td{border:1px solid var(--ramka); padding:2mm 2.2mm; vertical-align:top; font-size:7.2pt; height:8mm}
+  tbody tr:nth-child(even) td{background:var(--wiersz)}
+  td.klucz{font-weight:bold; color:var(--fiolet)}
+  td.puste{color:var(--kropki)}
+  td.puste::after{content:"................"; letter-spacing:.4px}
+  td.lp{text-align:center; font-weight:bold; color:var(--pomarancz); width:7mm}
+  .tab-mala td{height:6.4mm}
+
+  /* ——— pola wyboru ——— */
+  .wybor-tytul{display:flex; align-items:center; gap:2mm; margin:3.4mm 0 1.8mm}
+  .wybor-tytul .kropka{width:2.2mm; height:2.2mm; border-radius:.6mm; background:var(--pomarancz); flex:none}
+  .wybor-tytul span{font-size:6.4pt; font-weight:bold; color:var(--fiolet); letter-spacing:.8px; text-transform:uppercase}
+  .wybory{display:flex; flex-wrap:wrap; gap:2mm}
+  .wybor{
+    flex:1 1 calc(50% - 1mm); display:flex; align-items:center; gap:2.4mm;
+    border:1px solid var(--ramka); border-radius:2.4mm; padding:2.2mm 3mm; background:#fff; font-size:7.4pt;
+  }
+  .wybor.w3{flex:1 1 calc(33.33% - 1.4mm)}
+  .wybor.pelny{flex:1 1 100%}
+  .kwadrat{
+    width:3.4mm; height:3.4mm; border:1.2px solid var(--kropki); border-radius:.8mm; flex:none;
+    display:flex; align-items:center; justify-content:center; font-size:6.4pt; color:transparent;
+  }
+  .wybor.zazn{background:var(--zazn); border-color:var(--pomarancz)}
+  .wybor.zazn .kwadrat{background:var(--pomarancz); border-color:var(--pomarancz); color:#fff}
+  .wybor .dopisz{flex:1; border-bottom:1.2px dotted var(--kropki); height:3.4mm; margin-left:1mm}
+
+  /* ——— karty skali ——— */
+  .karty{display:flex; gap:2.4mm; margin:2.4mm 0}
+  .karta{flex:1; border-radius:2.4mm; padding:2.6mm; text-align:center}
+  .karta .duza{font-size:11pt; font-weight:bold}
+  .karta .opis{font-size:5.8pt; font-weight:bold; letter-spacing:.9px; text-transform:uppercase; margin-top:1mm}
+  .karta.czerwona{background:#FDECE4; border:1px solid #F3B79C; color:var(--pomarancz)}
+  .karta.zolta{background:#FDF6E3; border:1px solid #EDD9A8; color:#B07A12}
+  .karta.zielona{background:#E7F5EE; border:1px solid #A9D9C1; color:#177A4E}
+
+  /* ——— blok dyrektora ——— */
+  .blok-dyr{
+    border:1.4px solid var(--pomarancz); border-radius:2.8mm; background:#FFFBF8;
+    padding:3mm 3.4mm; margin-top:2.6mm;
+  }
+  .blok-dyr .naglowek-bloku{display:flex; align-items:center; gap:2.4mm; margin-bottom:2.4mm}
+  .blok-dyr .naglowek-bloku .znak{
+    width:5.2mm; height:5.2mm; border-radius:1.2mm; background:var(--pomarancz); color:#fff;
+    display:flex; align-items:center; justify-content:center; font-size:6.6pt; font-weight:bold;
+  }
+  .blok-dyr h3{font-size:8.6pt; font-weight:bold; color:var(--pomarancz); letter-spacing:.5px; text-transform:uppercase}
+  .blok-dyr .pole{background:#fff; border-color:#F3D5C6}
+  .blok-dyr .wybor{border-color:#F3D5C6}
+
+  /* ——— informacje / wskazówki ——— */
+  .info{
+    background:#F3EDFB; border-left:1.6mm solid var(--fiolet); border-radius:1.6mm;
+    padding:2.4mm 3mm; font-size:7pt; color:var(--fiolet-2); margin-bottom:2.4mm; line-height:1.42;
+  }
+  .info b{color:var(--fiolet)}
+  .kafle{display:flex; gap:2.4mm; margin-bottom:2.6mm}
+  .kafel{flex:1; border:1px solid var(--ramka); border-radius:2.4mm; background:var(--pole); padding:2.6mm 3mm}
+  .kafel .naglowek-kafla{font-size:5.8pt; font-weight:bold; color:var(--pomarancz); letter-spacing:1px; text-transform:uppercase}
+  .kafel .tresc-kafla{font-size:7.2pt; color:var(--fiolet); margin-top:1.2mm; font-weight:bold}
+  .kafel .uwaga{font-size:6.4pt; color:var(--szary); margin-top:.8mm}
+
+  /* ——— podstawa prawna ——— */
+  .prawna{background:var(--pole); border:1px solid var(--ramka); border-radius:2.4mm; padding:2.6mm 3mm}
+  .prawna p{font-size:6.1pt; line-height:1.45; color:#3a3357; text-align:justify}
+  .prawna b{color:var(--fiolet)}
+
+  /* ——— podpisy ——— */
+  .podpisy{display:flex; gap:8mm; margin-top:6mm}
+  .podpis{flex:1; text-align:center}
+  .podpis .kreska{border-top:1px solid var(--fiolet-2); margin-bottom:1.6mm}
+  .podpis .opis{font-size:6.4pt; color:var(--szary)}
+
+  /* ——— stopka ——— */
+  .stopka{
+    margin-top:auto; padding-top:2.6mm; border-top:1px solid #EBEBED;
+    display:flex; justify-content:space-between; font-size:5.8pt; color:var(--szary-2);
+  }
+  .stopka b{color:var(--fiolet)}
+
+
+  /* ——— panel aplikacji (nie drukuje się) ——— */
+  .panel{
+    width:210mm; margin:0 auto 8mm; background:#fff; border-radius:3mm; overflow:hidden;
+    box-shadow:0 2px 10px rgba(45,27,105,.18);
+  }
+  .panel-glowa{background:linear-gradient(120deg,#2D1B69 0%,#4D3D80 62%,#E8450A 165%); color:#fff; padding:6mm 7mm}
+  .panel-glowa .etykieta-app{font-size:6pt; font-weight:bold; letter-spacing:2px; text-transform:uppercase; opacity:.82}
+  .panel-glowa h1{font-size:15pt; font-weight:bold; margin-top:1.6mm}
+  .panel-glowa p{font-size:8pt; margin-top:1.6mm; opacity:.9; max-width:150mm; line-height:1.45}
+  .panel-cialo{padding:6mm 7mm 7mm}
+  .panel-sekcja{margin-bottom:5mm}
+  .panel-sekcja > h2{
+    font-size:9.4pt; font-weight:bold; color:var(--fiolet); text-transform:uppercase; letter-spacing:.5px;
+    display:flex; align-items:center; gap:2.4mm; margin-bottom:2.4mm;
+  }
+  .panel-sekcja > h2::before{content:""; width:2.6mm; height:2.6mm; border-radius:.7mm; background:var(--pomarancz)}
+  .panel-lista{list-style:none; display:flex; flex-wrap:wrap; gap:2mm}
+  .panel-lista li{
+    flex:1 1 calc(50% - 1mm); background:var(--pole); border:1px solid var(--ramka); border-radius:2.4mm;
+    padding:2.4mm 3mm; font-size:7.6pt; display:flex; gap:2.4mm; align-items:flex-start;
+  }
+  .panel-lista li .nr{
+    width:4.6mm; height:4.6mm; border-radius:50%; background:var(--fiolet); color:#fff; flex:none;
+    display:flex; align-items:center; justify-content:center; font-size:5.8pt; font-weight:bold;
+  }
+  .panel-role{display:flex; flex-direction:column; gap:2mm}
+  .panel-role .rola{
+    border:1px solid var(--ramka); border-left:1.6mm solid var(--pomarancz); border-radius:2.4mm;
+    padding:2.6mm 3.4mm; background:#fff;
+  }
+  .panel-role .rola b{color:var(--fiolet); font-size:8pt}
+  .panel-role .rola span{display:block; font-size:7.4pt; color:var(--fiolet-2); margin-top:1mm; line-height:1.45}
+  .panel-role .rola em{font-style:normal; color:var(--pomarancz); font-weight:bold}
+  .panel-akcje{display:flex; align-items:center; gap:4mm; border-top:1px solid #EBEBED; padding-top:4mm; margin-top:1mm}
+  .btn-druk{
+    background:var(--pomarancz); color:#fff; border:none; border-radius:999px; cursor:pointer;
+    padding:3mm 7mm; font-size:8.4pt; font-weight:bold; letter-spacing:.5px; font-family:inherit;
+  }
+  .panel-akcje .uwaga-druk{font-size:7.2pt; color:var(--szary)}
+
+
+  /* ——— elementy kącika nauczyciela ——— */
+  td.ocena{text-align:center; letter-spacing:2.4px; color:var(--kropki); font-size:8pt}
+  td.kratka{text-align:center; vertical-align:middle}
+  td.kratka span{
+    display:inline-block; width:3.4mm; height:3.4mm; border:1.2px solid var(--kropki);
+    border-radius:.8mm; background:#fff;
+  }
+  td.podstawa{font-size:6.2pt; font-weight:bold; color:var(--pomarancz); letter-spacing:.3px}
+  td.termin{font-size:6.6pt; color:var(--fiolet); font-weight:bold}
+  .legenda{background:var(--pole); border:1px solid var(--ramka); border-radius:2.4mm; padding:2.6mm 3mm; margin-bottom:2mm}
+  .legenda p{font-size:6.1pt; line-height:1.5; color:#3a3357}
+  .legenda b{color:var(--fiolet)}
+
+  @media print{
+    body{background:#fff}
+    .panel{display:none !important}
+    .page{margin:0; box-shadow:none; page-break-after:always}
+    .page:last-child{page-break-after:auto}
+    @page{size:A4; margin:0}
+  }
+</style>
+</head>
+<body>
+
+<!-- ======= PANEL APLIKACJI · nie drukuje się ======= -->
+<div class="panel">
+  <div class="panel-glowa">
+    <div class="etykieta-app">EduPlaner 2026 · Kącik nauczyciela · przedszkole · panel informacyjny</div>
+    <h1>Planowanie i realizacja pracy z grupą</h1>
+    <p>Cztery druki obejmujące cykl: zaplanuj — przeprowadź — udokumentuj — rozlicz. Ta część wyświetla się wyłącznie w aplikacji i nie drukuje się.</p>
+  </div>
+  <div class="panel-cialo">
+
+    <div class="panel-sekcja">
+      <h2>Jak te druki się łączą</h2>
+      <div class="panel-role">
+        <div class="rola">
+          <b>R-1 · Plan pracy grupy</b>
+          <span>Miesięczne planowanie wg <em>czterech obszarów podstawy programowej</em> — fizycznego, emocjonalnego, społecznego i poznawczego — z harmonogramem tygodni i tabelą dostosowań dla dzieci ze specjalnymi potrzebami. Zatwierdza dyrektor.</span>
+        </div>
+        <div class="rola">
+          <b>R-2 · Konspekt zajęć</b>
+          <span>Pojedyncze zajęcia: cele operacyjne, przebieg etapami, a osobno <em>dostosowania dla konkretnego dziecka</em> i rozwiązania uniwersalne korzystne dla całej grupy. Na końcu refleksja po zajęciach.</span>
+        </div>
+        <div class="rola">
+          <b>R-3 · Karta realizacji zajęć specjalistycznych</b>
+          <span>Dziennik przebiegu zajęć z pomocy p-p plus karta monitorowania postępów w skali 1–5 po okresach. <em>Uzupełnia dziennik zajęć, nie zastępuje go</em> — dziennik pozostaje dokumentem wymaganym rozporządzeniem o dokumentacji.</span>
+        </div>
+        <div class="rola">
+          <b>R-4 · Sprawozdanie z pracy grupy</b>
+          <span>Rozliczenie okresu przed dyrektorem: realizacja podstawy programowej w czterech obszarach, frekwencja, wydarzenia, efekty i wnioski na kolejny okres. Checklista K-1 wskazuje termin czerwcowy.</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="panel-sekcja">
+      <h2>Druki w tym pliku</h2>
+      <ul class="panel-lista">
+        <li><span class="nr">1</span><span><b>R-1 · Plan pracy grupy</b> — cele wg obszarów, harmonogram tygodni, dostosowania, ewaluacja (str. 1–2)</span></li>
+        <li><span class="nr">2</span><span><b>R-2 · Konspekt zajęć</b> — cele operacyjne, przebieg, dostosowania indywidualne i uniwersalne (str. 3–4)</span></li>
+        <li><span class="nr">3</span><span><b>R-3 · Karta realizacji zajęć specjalistycznych</b> — dziennik i monitorowanie postępów (str. 5–6)</span></li>
+        <li><span class="nr">4</span><span><b>R-4 · Sprawozdanie z pracy grupy</b> — realizacja podstawy programowej, efekty, wnioski (str. 7)</span></li>
+      </ul>
+    </div>
+
+    <div class="panel-akcje">
+      <button class="btn-druk" onclick="window.print()">Drukuj druki planowania (7 stron A4)</button>
+      <span class="uwaga-druk">Drukują się wyłącznie formularze — ten panel zostaje w aplikacji. Ustawienia: A4, marginesy „brak”, grafika tła włączona.</span>
+    </div>
+
+  </div>
+</div>
+
+<!-- === STRONA 1 · R-1 === -->
+<section class="page">
+  <div class="naglowek">
+    <div class="marka">
+      <div class="logo"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" role="img" aria-label="Logo PCTP"> <defs> <radialGradient id="pctpTlo" cx="36%" cy="28%" r="82%"> <stop offset="0%" stop-color="#6A4C9E"/> <stop offset="55%" stop-color="#4A2E86"/> <stop offset="100%" stop-color="#331E63"/> </radialGradient> </defs> <circle cx="50" cy="50" r="49.2" fill="#3B2472"/> <circle cx="50" cy="50" r="46.4" fill="#D3C8EC"/> <circle cx="50" cy="50" r="43.6" fill="url(#pctpTlo)"/> <g stroke="#C79A2C" stroke-width="2.1" stroke-linecap="round" fill="none"> <path d="M50 60 C50 50 50 42 50 34"/> <path d="M50 60 C46 52 42 46 38 40"/> <path d="M50 60 C54 52 58 46 62 40"/> <path d="M50 59 C44 53 38 48 32 44"/> <path d="M50 59 C56 53 62 48 68 44"/> </g> <g> <ellipse cx="33" cy="41" rx="4.6" ry="10.4" fill="#A192D2" transform="rotate(-32 33 41)"/> <ellipse cx="67" cy="41" rx="4.6" ry="10.4" fill="#A192D2" transform="rotate(32 67 41)"/> <ellipse cx="39.5" cy="34" rx="5" ry="11.6" fill="#EFA275" transform="rotate(-16 39.5 34)"/> <ellipse cx="60.5" cy="34" rx="5" ry="11.6" fill="#EFA275" transform="rotate(16 60.5 34)"/> <ellipse cx="50" cy="30.5" rx="5.4" ry="12.4" fill="#E8712F"/> </g> <circle cx="50" cy="38.5" r="3.4" fill="#FBF6EC"/> <text x="50" y="76" text-anchor="middle" font-family="Georgia,'Times New Roman',serif" font-weight="bold" font-size="25" letter-spacing="1.2" fill="#F7F2E6">PCTP</text> </svg></div>
+      <div>
+        <div class="marka-nazwa">EduPlaner 2026</div>
+        <div class="marka-opis">Kącik nauczyciela ·<br>plan pracy grupy</div>
+      </div>
+    </div>
+    <div class="naglowek-prawy">
+      <span class="plakietka">nauczyciel · plan pracy</span>
+      <div class="naglowek-podpis">Dokument wsparcia · 2026</div>
+    </div>
+  </div>
+  <div class="belka"></div>
+
+  <div class="metryczka">
+    <div class="box"><span class="etykieta">Nauczyciel wychowawca</span><span class="wypelnij"></span></div>
+    <div class="box"><span class="etykieta">Grupa przedszkolna</span><span class="wypelnij"></span></div>
+    <div class="box"><span class="etykieta">Rok szkolny</span><span class="wartosc">2026 / 2027</span></div>
+  </div>
+  <div class="wstega"><span>Kącik nauczyciela · przedszkole · druk R-1 · planowanie miesięczne</span></div>
+  <div class="tytul">PLAN PRACY GRUPY</div>
+  <div class="podtytul">wychowawczo-dydaktycznej — obszary podstawy programowej</div>
+  <div class="kody">
+    <span class="kreska"></span>
+    <span class="tresc">DRUK R-1 · CELE · TEMATY · DOSTOSOWANIA</span>
+    <span class="kreska"></span>
+  </div>
+  <div class="prawna">
+    <p><b>PODSTAWA PRAWNA.</b> Rozporządzenie MEN z dnia 14 lutego 2017 r. w sprawie podstawy programowej wychowania przedszkolnego oraz kształcenia ogólnego (Dz.U. z 2017 r. poz. 356, z późn. zm.) — cztery obszary rozwoju: <b>fizyczny, emocjonalny, społeczny i poznawczy</b>; nauczyciel planuje pracę z zachowaniem <b>proporcji zagospodarowania czasu</b>: zabawa swobodna, pobyt na świeżym powietrzu, zajęcia kierowane oraz czynności opiekuńcze, samoobsługowe i organizacyjne. Ustawa z dnia 26 stycznia 1982 r. Karta Nauczyciela (z późn. zm.) — art. 6: rzetelna realizacja zadań i wspieranie każdego dziecka w rozwoju. Praca prowadzona według programu wychowania przedszkolnego dopuszczonego przez dyrektora — ustawa z dnia 14 grudnia 2016 r. Prawo oświatowe (t.j. Dz.U. z 2024 r. poz. 737, z późn. zm.).</p>
+  </div>
+  <div class="sekcja"><span class="numer pom">I</span><h2>Dane planu</h2><span class="linia"></span></div>
+  <div class="siatka2">
+    <div class="pole"><span class="etykieta">Grupa · wiek dzieci · liczba dzieci</span><div class="linijki"><div></div></div></div>
+    <div class="pole"><span class="etykieta">Nauczyciele prowadzący grupę</span><div class="linijki"><div></div></div></div>
+  </div>
+  <div class="siatka2">
+    <div class="pole"><span class="etykieta">Miesiąc / okres realizacji</span><div class="linijki"><div></div></div></div>
+    <div class="pole"><span class="etykieta">Program wychowania przedszkolnego (nazwa, autor, numer dopuszczenia)</span><div class="linijki"><div></div></div></div>
+  </div>
+  <div class="pole"><span class="etykieta">Tematy kompleksowe (tygodnie)</span><div class="tresc" style="color:#6B6B7B; font-size:6.4pt">np. tydzień 1: „Jesień w sadzie”, tydzień 2: „Nasze zmysły”</div><div class="linijki"><div></div><div></div><div></div></div></div></div>
+  <div class="sekcja"><span class="numer">II</span><h2>Cele wg obszarów podstawy programowej</h2><span class="linia"></span></div>
+  <table class="tab-mala">
+    <thead>
+      <tr><th style="width:24%">Obszar rozwoju</th><th style="width:40%">Cele — czego dziecko się nauczy</th><th>Zaplanowane aktywności i sytuacje edukacyjne</th></tr>
+    </thead>
+    <tbody>
+      <tr><td class="klucz">I · Fizyczny</td><td class="puste"></td><td class="puste"></td></tr>
+      <tr><td class="klucz">II · Emocjonalny</td><td class="puste"></td><td class="puste"></td></tr>
+      <tr><td class="klucz">III · Społeczny</td><td class="puste"></td><td class="puste"></td></tr>
+      <tr><td class="klucz">IV · Poznawczy</td><td class="puste"></td><td class="puste"></td></tr>
+    </tbody>
+  </table>
+  <div class="pole"><span class="etykieta">Zamierzenia wychowawcze i zadania dla całej grupy w tym okresie</span><div class="linijki"><div></div><div></div><div></div></div></div>
+  <div class="stopka">
+    <span>EduPlaner 2026 · PCTP · pedagog specjalny</span>
+    <span><b>Strona 1 z 7</b> · Kącik nauczyciela · plan pracy R-1 · cele i obszary</span>
+  </div>
+</section>
+
+<!-- === STRONA 2 · R-1 === -->
+<section class="page">
+  <div class="naglowek">
+    <div class="marka">
+      <div class="logo"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" role="img" aria-label="Logo PCTP"> <defs> <radialGradient id="pctpTlo" cx="36%" cy="28%" r="82%"> <stop offset="0%" stop-color="#6A4C9E"/> <stop offset="55%" stop-color="#4A2E86"/> <stop offset="100%" stop-color="#331E63"/> </radialGradient> </defs> <circle cx="50" cy="50" r="49.2" fill="#3B2472"/> <circle cx="50" cy="50" r="46.4" fill="#D3C8EC"/> <circle cx="50" cy="50" r="43.6" fill="url(#pctpTlo)"/> <g stroke="#C79A2C" stroke-width="2.1" stroke-linecap="round" fill="none"> <path d="M50 60 C50 50 50 42 50 34"/> <path d="M50 60 C46 52 42 46 38 40"/> <path d="M50 60 C54 52 58 46 62 40"/> <path d="M50 59 C44 53 38 48 32 44"/> <path d="M50 59 C56 53 62 48 68 44"/> </g> <g> <ellipse cx="33" cy="41" rx="4.6" ry="10.4" fill="#A192D2" transform="rotate(-32 33 41)"/> <ellipse cx="67" cy="41" rx="4.6" ry="10.4" fill="#A192D2" transform="rotate(32 67 41)"/> <ellipse cx="39.5" cy="34" rx="5" ry="11.6" fill="#EFA275" transform="rotate(-16 39.5 34)"/> <ellipse cx="60.5" cy="34" rx="5" ry="11.6" fill="#EFA275" transform="rotate(16 60.5 34)"/> <ellipse cx="50" cy="30.5" rx="5.4" ry="12.4" fill="#E8712F"/> </g> <circle cx="50" cy="38.5" r="3.4" fill="#FBF6EC"/> <text x="50" y="76" text-anchor="middle" font-family="Georgia,'Times New Roman',serif" font-weight="bold" font-size="25" letter-spacing="1.2" fill="#F7F2E6">PCTP</text> </svg></div>
+      <div>
+        <div class="marka-nazwa">EduPlaner 2026</div>
+        <div class="marka-opis">Kącik nauczyciela ·<br>plan pracy grupy</div>
+      </div>
+    </div>
+    <div class="naglowek-prawy">
+      <span class="plakietka">nauczyciel · realizacja</span>
+      <div class="naglowek-podpis">Dokument wsparcia · 2026</div>
+    </div>
+  </div>
+  <div class="belka"></div>
+
+  <div class="metryczka">
+    <div class="box"><span class="etykieta">Nauczyciel wychowawca</span><span class="wypelnij"></span></div>
+    <div class="box"><span class="etykieta">Grupa przedszkolna</span><span class="wypelnij"></span></div>
+    <div class="box"><span class="etykieta">Rok szkolny</span><span class="wartosc">2026 / 2027</span></div>
+  </div>
+  <div class="sekcja"><span class="numer pom">III</span><h2>Harmonogram tygodniowy</h2><span class="linia"></span></div>
+  <table class="tab-mala">
+    <thead>
+      <tr><th style="width:12%">Tydzień</th><th style="width:26%">Temat kompleksowy</th><th style="width:30%">Główne zamierzenia</th><th>Uroczystości, wyjścia, goście</th></tr>
+    </thead>
+    <tbody>
+      <tr><td class="puste"></td><td class="puste"></td><td class="puste"></td><td class="puste"></td></tr>
+      <tr><td class="puste"></td><td class="puste"></td><td class="puste"></td><td class="puste"></td></tr>
+      <tr><td class="puste"></td><td class="puste"></td><td class="puste"></td><td class="puste"></td></tr>
+      <tr><td class="puste"></td><td class="puste"></td><td class="puste"></td><td class="puste"></td></tr>
+          <tr><td class="puste"></td><td class="puste"></td><td class="puste"></td><td class="puste"></td></tr>
+</tbody>
+  </table>
+  <div class="sekcja"><span class="numer">IV</span><h2>Dostosowania dla dzieci ze specjalnymi potrzebami</h2><span class="linia"></span></div>
+  <p class="wstep">Wypełnij dla dzieci objętych pomocą p-p, z orzeczeniem lub opinią oraz dla dzieci szczególnie uzdolnionych. Dane dzieci wpisuj inicjałami.</p>
+  <table class="tab-mala">
+    <thead>
+      <tr><th style="width:16%">Dziecko (inicjały)</th><th style="width:26%">Potrzeba</th><th style="width:34%">Dostosowanie w planowanych zajęciach</th><th>Kto realizuje</th></tr>
+    </thead>
+    <tbody>
+      <tr><td class="puste"></td><td class="puste"></td><td class="puste"></td><td class="puste"></td></tr>
+      <tr><td class="puste"></td><td class="puste"></td><td class="puste"></td><td class="puste"></td></tr>
+      <tr><td class="puste"></td><td class="puste"></td><td class="puste"></td><td class="puste"></td></tr>
+      <tr><td class="puste"></td><td class="puste"></td><td class="puste"></td><td class="puste"></td></tr>
+      <tr><td class="puste"></td><td class="puste"></td><td class="puste"></td><td class="puste"></td></tr>
+          <tr><td class="puste"></td><td class="puste"></td><td class="puste"></td><td class="puste"></td></tr>
+      <tr><td class="puste"></td><td class="puste"></td><td class="puste"></td><td class="puste"></td></tr>
+</tbody>
+  </table>
+  <div class="sekcja"><span class="numer">V</span><h2>Współpraca i ewaluacja</h2><span class="linia"></span></div>
+  <div class="siatka2">
+    <div class="pole"><span class="etykieta">Współpraca z rodzicami w tym okresie</span><div class="linijki"><div></div></div></div>
+    <div class="pole"><span class="etykieta">Współpraca ze specjalistami i instytucjami</span><div class="linijki"><div></div></div></div>
+  </div>
+  <div class="pole"><span class="etykieta">Ewaluacja — co się udało, czego nie zrealizowano i dlaczego, wnioski na kolejny okres</span><div class="linijki"><div></div><div></div><div></div><div></div></div></div></div>
+  <div class="podpisy" style="margin-top:3mm">
+    <div class="podpis"><div class="kreska"></div><div class="opis">Data i podpisy nauczycieli prowadzących grupę</div></div>
+    <div class="podpis"><div class="kreska"></div><div class="opis">Podpis dyrektora — zatwierdzenie planu</div></div>
+  </div>
+  <div class="stopka">
+    <span>EduPlaner 2026 · PCTP · pedagog specjalny</span>
+    <span><b>Strona 2 z 7</b> · Kącik nauczyciela · plan pracy R-1 · harmonogram i ewaluacja</span>
+  </div>
+</section>
+
+<!-- === STRONA 3 · R-2 === -->
+<section class="page">
+  <div class="naglowek">
+    <div class="marka">
+      <div class="logo"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" role="img" aria-label="Logo PCTP"> <defs> <radialGradient id="pctpTlo" cx="36%" cy="28%" r="82%"> <stop offset="0%" stop-color="#6A4C9E"/> <stop offset="55%" stop-color="#4A2E86"/> <stop offset="100%" stop-color="#331E63"/> </radialGradient> </defs> <circle cx="50" cy="50" r="49.2" fill="#3B2472"/> <circle cx="50" cy="50" r="46.4" fill="#D3C8EC"/> <circle cx="50" cy="50" r="43.6" fill="url(#pctpTlo)"/> <g stroke="#C79A2C" stroke-width="2.1" stroke-linecap="round" fill="none"> <path d="M50 60 C50 50 50 42 50 34"/> <path d="M50 60 C46 52 42 46 38 40"/> <path d="M50 60 C54 52 58 46 62 40"/> <path d="M50 59 C44 53 38 48 32 44"/> <path d="M50 59 C56 53 62 48 68 44"/> </g> <g> <ellipse cx="33" cy="41" rx="4.6" ry="10.4" fill="#A192D2" transform="rotate(-32 33 41)"/> <ellipse cx="67" cy="41" rx="4.6" ry="10.4" fill="#A192D2" transform="rotate(32 67 41)"/> <ellipse cx="39.5" cy="34" rx="5" ry="11.6" fill="#EFA275" transform="rotate(-16 39.5 34)"/> <ellipse cx="60.5" cy="34" rx="5" ry="11.6" fill="#EFA275" transform="rotate(16 60.5 34)"/> <ellipse cx="50" cy="30.5" rx="5.4" ry="12.4" fill="#E8712F"/> </g> <circle cx="50" cy="38.5" r="3.4" fill="#FBF6EC"/> <text x="50" y="76" text-anchor="middle" font-family="Georgia,'Times New Roman',serif" font-weight="bold" font-size="25" letter-spacing="1.2" fill="#F7F2E6">PCTP</text> </svg></div>
+      <div>
+        <div class="marka-nazwa">EduPlaner 2026</div>
+        <div class="marka-opis">Kącik nauczyciela ·<br>konspekt zajęć</div>
+      </div>
+    </div>
+    <div class="naglowek-prawy">
+      <span class="plakietka">nauczyciel · konspekt</span>
+      <div class="naglowek-podpis">Dokument wsparcia · 2026</div>
+    </div>
+  </div>
+  <div class="belka"></div>
+
+  <div class="metryczka">
+    <div class="box"><span class="etykieta">Nauczyciel wychowawca</span><span class="wypelnij"></span></div>
+    <div class="box"><span class="etykieta">Grupa przedszkolna</span><span class="wypelnij"></span></div>
+    <div class="box"><span class="etykieta">Rok szkolny</span><span class="wartosc">2026 / 2027</span></div>
+  </div>
+  <div class="wstega"><span>Kącik nauczyciela · przedszkole · druk R-2 · scenariusz zajęć</span></div>
+  <div class="tytul">KONSPEKT ZAJĘĆ</div>
+  <div class="podtytul">z dostosowaniami dla dziecka ze specjalnymi potrzebami edukacyjnymi</div>
+  <div class="kody">
+    <span class="kreska"></span>
+    <span class="tresc">DRUK R-2 · CELE · PRZEBIEG · DOSTOSOWANIA</span>
+    <span class="kreska"></span>
+  </div>
+  <div class="sekcja"><span class="numer">I</span><h2>Metryczka zajęć</h2><span class="linia"></span></div>
+  <div class="siatka2">
+    <div class="pole"><span class="etykieta">Grupa · wiek dzieci · liczba dzieci</span><div class="linijki"><div></div></div></div>
+    <div class="pole"><span class="etykieta">Data i godzina · miejsce</span><div class="linijki"><div></div></div></div>
+  </div>
+  <div class="siatka2">
+    <div class="pole"><span class="etykieta">Prowadzący</span><div class="linijki"><div></div></div></div>
+    <div class="pole"><span class="etykieta">Temat kompleksowy</span><div class="linijki"><div></div></div></div>
+  </div>
+  <div class="pole"><span class="etykieta">Temat zajęć</span><div class="linijki"><div></div></div></div>
+  <div class="sekcja"><span class="numer pom">II</span><h2>Cele i podstawa programowa</h2><span class="linia"></span></div>
+  <div class="siatka2">
+    <div class="pole"><span class="etykieta">Obszar podstawy programowej i punkt</span><div class="linijki"><div></div></div></div>
+    <div class="pole"><span class="etykieta">Forma pracy (grupowa, zespołowa, indywidualna)</span><div class="linijki"><div></div></div></div>
+  </div>
+  <div class="pole"><span class="etykieta">Cele ogólne</span><div class="linijki"><div></div></div></div>
+  <div class="pole"><span class="etykieta">Cele operacyjne — dziecko: potrafi, wie, rozumie, próbuje</span><div class="linijki"><div></div><div></div><div></div><div></div></div></div></div>
+  <div class="sekcja"><span class="numer">III</span><h2>Metody, formy i środki</h2><span class="linia"></span></div>
+  <div class="siatka2">
+    <div class="pole"><span class="etykieta">Metody pracy</span><div class="linijki"><div></div></div></div>
+    <div class="pole"><span class="etykieta">Środki dydaktyczne i pomoce</span><div class="linijki"><div></div></div></div>
+  </div>
+  <div class="pole"><span class="etykieta">Przewidywane osiągnięcia dzieci — po czym poznam, że cel został osiągnięty</span><div class="linijki"><div></div><div></div><div></div></div></div>
+  <div class="stopka">
+    <span>EduPlaner 2026 · PCTP · pedagog specjalny</span>
+    <span><b>Strona 3 z 7</b> · Kącik nauczyciela · konspekt R-2 · metryczka i cele</span>
+  </div>
+</section>
+
+<!-- === STRONA 4 · R-2 === -->
+<section class="page">
+  <div class="naglowek">
+    <div class="marka">
+      <div class="logo"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" role="img" aria-label="Logo PCTP"> <defs> <radialGradient id="pctpTlo" cx="36%" cy="28%" r="82%"> <stop offset="0%" stop-color="#6A4C9E"/> <stop offset="55%" stop-color="#4A2E86"/> <stop offset="100%" stop-color="#331E63"/> </radialGradient> </defs> <circle cx="50" cy="50" r="49.2" fill="#3B2472"/> <circle cx="50" cy="50" r="46.4" fill="#D3C8EC"/> <circle cx="50" cy="50" r="43.6" fill="url(#pctpTlo)"/> <g stroke="#C79A2C" stroke-width="2.1" stroke-linecap="round" fill="none"> <path d="M50 60 C50 50 50 42 50 34"/> <path d="M50 60 C46 52 42 46 38 40"/> <path d="M50 60 C54 52 58 46 62 40"/> <path d="M50 59 C44 53 38 48 32 44"/> <path d="M50 59 C56 53 62 48 68 44"/> </g> <g> <ellipse cx="33" cy="41" rx="4.6" ry="10.4" fill="#A192D2" transform="rotate(-32 33 41)"/> <ellipse cx="67" cy="41" rx="4.6" ry="10.4" fill="#A192D2" transform="rotate(32 67 41)"/> <ellipse cx="39.5" cy="34" rx="5" ry="11.6" fill="#EFA275" transform="rotate(-16 39.5 34)"/> <ellipse cx="60.5" cy="34" rx="5" ry="11.6" fill="#EFA275" transform="rotate(16 60.5 34)"/> <ellipse cx="50" cy="30.5" rx="5.4" ry="12.4" fill="#E8712F"/> </g> <circle cx="50" cy="38.5" r="3.4" fill="#FBF6EC"/> <text x="50" y="76" text-anchor="middle" font-family="Georgia,'Times New Roman',serif" font-weight="bold" font-size="25" letter-spacing="1.2" fill="#F7F2E6">PCTP</text> </svg></div>
+      <div>
+        <div class="marka-nazwa">EduPlaner 2026</div>
+        <div class="marka-opis">Kącik nauczyciela ·<br>konspekt zajęć</div>
+      </div>
+    </div>
+    <div class="naglowek-prawy">
+      <span class="plakietka">nauczyciel · przebieg</span>
+      <div class="naglowek-podpis">Dokument wsparcia · 2026</div>
+    </div>
+  </div>
+  <div class="belka"></div>
+
+  <div class="metryczka">
+    <div class="box"><span class="etykieta">Nauczyciel wychowawca</span><span class="wypelnij"></span></div>
+    <div class="box"><span class="etykieta">Grupa przedszkolna</span><span class="wypelnij"></span></div>
+    <div class="box"><span class="etykieta">Rok szkolny</span><span class="wartosc">2026 / 2027</span></div>
+  </div>
+  <div class="sekcja"><span class="numer pom">IV</span><h2>Przebieg zajęć</h2><span class="linia"></span></div>
+  <table class="tab-mala">
+    <thead>
+      <tr><th style="width:16%">Etap</th><th style="width:9%">Czas</th><th style="width:45%">Przebieg — czynności nauczyciela i dzieci</th><th>Uwagi i wskaźniki osiągnięcia celu</th></tr>
+    </thead>
+    <tbody>
+      <tr><td class="klucz">Powitanie i wprowadzenie</td><td class="puste"></td><td class="puste"></td><td class="puste"></td></tr>
+      <tr><td class="klucz">Część główna — zadanie 1</td><td class="puste"></td><td class="puste"></td><td class="puste"></td></tr>
+      <tr><td class="klucz">Część główna — zadanie 2</td><td class="puste"></td><td class="puste"></td><td class="puste"></td></tr>
+      <tr><td class="klucz">Aktywność ruchowa</td><td class="puste"></td><td class="puste"></td><td class="puste"></td></tr>
+      <tr><td class="klucz">Podsumowanie i ewaluacja z dziećmi</td><td class="puste"></td><td class="puste"></td><td class="puste"></td></tr>
+    </tbody>
+  </table>
+  <div class="sekcja"><span class="numer">V</span><h2>Dostosowania dla dziecka ze specjalnymi potrzebami</h2><span class="linia"></span></div>
+  <p class="wstep">Wypełnij osobno dla każdego dziecka wymagającego dostosowań; dane wpisuj inicjałami. Dostosowanie ma dotyczyć <b>tych konkretnych zajęć</b>, nie ogólnych zasad.</p>
+  <table class="tab-mala">
+    <thead>
+      <tr><th style="width:14%">Dziecko (inicjały)</th><th style="width:28%">Co utrudnia udział w tych zajęciach</th><th style="width:36%">Dostosowanie zadania, materiału lub warunków</th><th>Kto wspiera</th></tr>
+    </thead>
+    <tbody>
+      <tr><td class="puste"></td><td class="puste"></td><td class="puste"></td><td class="puste"></td></tr>
+      <tr><td class="puste"></td><td class="puste"></td><td class="puste"></td><td class="puste"></td></tr>
+      <tr><td class="puste"></td><td class="puste"></td><td class="puste"></td><td class="puste"></td></tr>
+      <tr><td class="puste"></td><td class="puste"></td><td class="puste"></td><td class="puste"></td></tr>
+          <tr><td class="puste"></td><td class="puste"></td><td class="puste"></td><td class="puste"></td></tr>
+</tbody>
+  </table>
+  <div class="pole"><span class="etykieta">Uniwersalne rozwiązania korzystne dla całej grupy</span><div class="tresc" style="color:#6B6B7B; font-size:6.4pt">np. polecenie słowne poparte obrazkiem, wybór formy odpowiedzi, praca w parach, krótsze zadanie z możliwością kontynuacji</div><div class="linijki"><div></div><div></div></div></div>
+  <div class="sekcja"><span class="numer">VI</span><h2>Refleksja po zajęciach</h2><span class="linia"></span></div>
+  <div class="pole"><span class="etykieta">Co zadziałało, co zmienię następnym razem; które dzieci wymagają dodatkowego wsparcia</span><div class="linijki"><div></div><div></div><div></div><div></div></div></div></div>
+  <div class="podpisy" style="margin-top:3mm">
+    <div class="podpis"><div class="kreska"></div><div class="opis">Data i podpis prowadzącego</div></div>
+    <div class="podpis"><div class="kreska"></div><div class="opis">Podpis osoby obserwującej zajęcia (jeśli dotyczy)</div></div>
+  </div>
+  <div class="stopka">
+    <span>EduPlaner 2026 · PCTP · pedagog specjalny</span>
+    <span><b>Strona 4 z 7</b> · Kącik nauczyciela · konspekt R-2 · przebieg i dostosowania</span>
+  </div>
+</section>
+
+<!-- === STRONA 5 · R-3 === -->
+<section class="page">
+  <div class="naglowek">
+    <div class="marka">
+      <div class="logo"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" role="img" aria-label="Logo PCTP"> <defs> <radialGradient id="pctpTlo" cx="36%" cy="28%" r="82%"> <stop offset="0%" stop-color="#6A4C9E"/> <stop offset="55%" stop-color="#4A2E86"/> <stop offset="100%" stop-color="#331E63"/> </radialGradient> </defs> <circle cx="50" cy="50" r="49.2" fill="#3B2472"/> <circle cx="50" cy="50" r="46.4" fill="#D3C8EC"/> <circle cx="50" cy="50" r="43.6" fill="url(#pctpTlo)"/> <g stroke="#C79A2C" stroke-width="2.1" stroke-linecap="round" fill="none"> <path d="M50 60 C50 50 50 42 50 34"/> <path d="M50 60 C46 52 42 46 38 40"/> <path d="M50 60 C54 52 58 46 62 40"/> <path d="M50 59 C44 53 38 48 32 44"/> <path d="M50 59 C56 53 62 48 68 44"/> </g> <g> <ellipse cx="33" cy="41" rx="4.6" ry="10.4" fill="#A192D2" transform="rotate(-32 33 41)"/> <ellipse cx="67" cy="41" rx="4.6" ry="10.4" fill="#A192D2" transform="rotate(32 67 41)"/> <ellipse cx="39.5" cy="34" rx="5" ry="11.6" fill="#EFA275" transform="rotate(-16 39.5 34)"/> <ellipse cx="60.5" cy="34" rx="5" ry="11.6" fill="#EFA275" transform="rotate(16 60.5 34)"/> <ellipse cx="50" cy="30.5" rx="5.4" ry="12.4" fill="#E8712F"/> </g> <circle cx="50" cy="38.5" r="3.4" fill="#FBF6EC"/> <text x="50" y="76" text-anchor="middle" font-family="Georgia,'Times New Roman',serif" font-weight="bold" font-size="25" letter-spacing="1.2" fill="#F7F2E6">PCTP</text> </svg></div>
+      <div>
+        <div class="marka-nazwa">EduPlaner 2026</div>
+        <div class="marka-opis">Kącik nauczyciela ·<br>karta realizacji zajęć</div>
+      </div>
+    </div>
+    <div class="naglowek-prawy">
+      <span class="plakietka">nauczyciel · realizacja zajęć</span>
+      <div class="naglowek-podpis">Dokument wsparcia · 2026</div>
+    </div>
+  </div>
+  <div class="belka"></div>
+
+  <div class="metryczka">
+    <div class="box"><span class="etykieta">Dotyczy dziecka</span><span class="wypelnij"></span></div>
+    <div class="box"><span class="etykieta">Grupa przedszkolna</span><span class="wypelnij"></span></div>
+    <div class="box"><span class="etykieta">Rok szkolny</span><span class="wartosc">2026 / 2027</span></div>
+  </div>
+  <div class="wstega"><span>Kącik nauczyciela · przedszkole · druk R-3 · zajęcia specjalistyczne</span></div>
+  <div class="tytul">KARTA REALIZACJI ZAJĘĆ</div>
+  <div class="podtytul">specjalistycznych w ramach pomocy psychologiczno-pedagogicznej</div>
+  <div class="kody">
+    <span class="kreska"></span>
+    <span class="tresc">DRUK R-3 · PLAN · DZIENNIK · MONITOROWANIE</span>
+    <span class="kreska"></span>
+  </div>
+  <div class="prawna">
+    <p><b>PODSTAWA PRAWNA.</b> Rozporządzenie MEN z dnia 25 sierpnia 2017 r. w sprawie sposobu prowadzenia przez publiczne przedszkola, szkoły i placówki dokumentacji przebiegu nauczania, działalności wychowawczej i opiekuńczej (Dz.U. z 2017 r. poz. 1646, z późn. zm.) — dla zajęć z zakresu pomocy psychologiczno-pedagogicznej prowadzi się <b>dziennik zajęć</b> zawierający m.in. dane dzieci, tematy przeprowadzonych zajęć, obecność i podpisy prowadzącego. Rozporządzenie MEN z dnia 9 sierpnia 2017 r. o pomocy psychologiczno-pedagogicznej (Dz.U. z 2017 r. poz. 1591, t.j. Dz.U. z 2023 r. poz. 1798, z późn. zm.) — ocena efektywności udzielanej pomocy. Niniejsza karta stanowi <b>uzupełnienie dziennika</b> o dane potrzebne do oceny efektywności i nie zastępuje go.</p>
+  </div>
+  <div class="sekcja"><span class="numer pom">I</span><h2>Dane zajęć</h2><span class="linia"></span></div>
+  <div class="siatka2">
+    <div class="pole"><span class="etykieta">Imię i nazwisko dziecka</span><div class="linijki"><div></div></div></div>
+    <div class="pole"><span class="etykieta">Grupa · nauczyciel prowadzący grupę</span><div class="linijki"><div></div></div></div>
+  </div>
+  <div class="siatka2">
+    <div class="pole"><span class="etykieta">Rodzaj zajęć</span><div class="linijki"><div></div></div></div>
+    <div class="pole"><span class="etykieta">Prowadzący zajęcia (imię, nazwisko, kwalifikacje)</span><div class="linijki"><div></div></div></div>
+  </div>
+  <div class="siatka3">
+    <div class="pole"><span class="etykieta">Wymiar tygodniowy</span><div class="linijki"><div></div></div></div>
+    <div class="pole"><span class="etykieta">Okres realizacji</span><div class="linijki"><div></div></div></div>
+    <div class="pole"><span class="etykieta">Numer dziennika zajęć</span><div class="linijki"><div></div></div></div>
+  </div>
+  <div class="pole"><span class="etykieta">Cel zajęć (przepisz z planu P-2 albo z IPET)</span><div class="linijki"><div></div><div></div></div></div>
+  <div class="sekcja"><span class="numer">II</span><h2>Plan zajęć w tygodniu</h2><span class="linia"></span></div>
+  <table class="tab-mala">
+    <thead>
+      <tr><th style="width:30%">Dzień tygodnia</th><th style="width:30%">Godzina</th><th>Sala / miejsce</th></tr>
+    </thead>
+    <tbody>
+      <tr><td class="puste"></td><td class="puste"></td><td class="puste"></td></tr>
+      <tr><td class="puste"></td><td class="puste"></td><td class="puste"></td></tr>
+          <tr><td class="puste"></td><td class="puste"></td><td class="puste"></td></tr>
+</tbody>
+  </table>
+  <div class="pole"><span class="etykieta">Mocne strony dziecka i bariery, na które napotyka</span><div class="linijki"><div></div><div></div></div></div>
+  <div class="pole"><span class="etykieta">Metody, formy pracy i pomoce dydaktyczne wykorzystywane na zajęciach</span><div class="linijki"><div></div><div></div></div></div>
+  <div class="stopka">
+    <span>EduPlaner 2026 · PCTP · pedagog specjalny</span>
+    <span><b>Strona 5 z 7</b> · Kącik nauczyciela · karta realizacji R-3 · dane i plan</span>
+  </div>
+</section>
+
+<!-- === STRONA 6 · R-3 === -->
+<section class="page">
+  <div class="naglowek">
+    <div class="marka">
+      <div class="logo"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" role="img" aria-label="Logo PCTP"> <defs> <radialGradient id="pctpTlo" cx="36%" cy="28%" r="82%"> <stop offset="0%" stop-color="#6A4C9E"/> <stop offset="55%" stop-color="#4A2E86"/> <stop offset="100%" stop-color="#331E63"/> </radialGradient> </defs> <circle cx="50" cy="50" r="49.2" fill="#3B2472"/> <circle cx="50" cy="50" r="46.4" fill="#D3C8EC"/> <circle cx="50" cy="50" r="43.6" fill="url(#pctpTlo)"/> <g stroke="#C79A2C" stroke-width="2.1" stroke-linecap="round" fill="none"> <path d="M50 60 C50 50 50 42 50 34"/> <path d="M50 60 C46 52 42 46 38 40"/> <path d="M50 60 C54 52 58 46 62 40"/> <path d="M50 59 C44 53 38 48 32 44"/> <path d="M50 59 C56 53 62 48 68 44"/> </g> <g> <ellipse cx="33" cy="41" rx="4.6" ry="10.4" fill="#A192D2" transform="rotate(-32 33 41)"/> <ellipse cx="67" cy="41" rx="4.6" ry="10.4" fill="#A192D2" transform="rotate(32 67 41)"/> <ellipse cx="39.5" cy="34" rx="5" ry="11.6" fill="#EFA275" transform="rotate(-16 39.5 34)"/> <ellipse cx="60.5" cy="34" rx="5" ry="11.6" fill="#EFA275" transform="rotate(16 60.5 34)"/> <ellipse cx="50" cy="30.5" rx="5.4" ry="12.4" fill="#E8712F"/> </g> <circle cx="50" cy="38.5" r="3.4" fill="#FBF6EC"/> <text x="50" y="76" text-anchor="middle" font-family="Georgia,'Times New Roman',serif" font-weight="bold" font-size="25" letter-spacing="1.2" fill="#F7F2E6">PCTP</text> </svg></div>
+      <div>
+        <div class="marka-nazwa">EduPlaner 2026</div>
+        <div class="marka-opis">Kącik nauczyciela ·<br>karta realizacji zajęć</div>
+      </div>
+    </div>
+    <div class="naglowek-prawy">
+      <span class="plakietka">nauczyciel · dziennik i monitoring</span>
+      <div class="naglowek-podpis">Dokument wsparcia · 2026</div>
+    </div>
+  </div>
+  <div class="belka"></div>
+
+  <div class="metryczka">
+    <div class="box"><span class="etykieta">Dotyczy dziecka</span><span class="wypelnij"></span></div>
+    <div class="box"><span class="etykieta">Grupa przedszkolna</span><span class="wypelnij"></span></div>
+    <div class="box"><span class="etykieta">Rok szkolny</span><span class="wartosc">2026 / 2027</span></div>
+  </div>
+  <div class="sekcja"><span class="numer pom">III</span><h2>Dziennik realizacji zajęć</h2><span class="linia"></span></div>
+  <table class="tab-mala">
+    <thead>
+      <tr><th style="width:5%">Lp.</th><th style="width:11%">Data</th><th style="width:32%">Zrealizowany temat i zakres</th><th style="width:36%">Obserwacja funkcjonowania i poziom realizacji celu</th><th>Podpis</th></tr>
+    </thead>
+    <tbody>
+      <tr><td class="lp">1</td><td class="puste"></td><td class="puste"></td><td class="puste"></td><td class="puste"></td></tr>
+      <tr><td class="lp">2</td><td class="puste"></td><td class="puste"></td><td class="puste"></td><td class="puste"></td></tr>
+      <tr><td class="lp">3</td><td class="puste"></td><td class="puste"></td><td class="puste"></td><td class="puste"></td></tr>
+      <tr><td class="lp">4</td><td class="puste"></td><td class="puste"></td><td class="puste"></td><td class="puste"></td></tr>
+      <tr><td class="lp">5</td><td class="puste"></td><td class="puste"></td><td class="puste"></td><td class="puste"></td></tr>
+      <tr><td class="lp">6</td><td class="puste"></td><td class="puste"></td><td class="puste"></td><td class="puste"></td></tr>
+      <tr><td class="lp">7</td><td class="puste"></td><td class="puste"></td><td class="puste"></td><td class="puste"></td></tr>
+      <tr><td class="lp">8</td><td class="puste"></td><td class="puste"></td><td class="puste"></td><td class="puste"></td></tr>
+      <tr><td class="lp">9</td><td class="puste"></td><td class="puste"></td><td class="puste"></td><td class="puste"></td></tr>
+      <tr><td class="lp">10</td><td class="puste"></td><td class="puste"></td><td class="puste"></td><td class="puste"></td></tr>
+          <tr><td class="lp">11</td><td class="puste"></td><td class="puste"></td><td class="puste"></td><td class="puste"></td></tr>
+      <tr><td class="lp">12</td><td class="puste"></td><td class="puste"></td><td class="puste"></td><td class="puste"></td></tr>
+</tbody>
+  </table>
+  <div class="sekcja"><span class="numer">IV</span><h2>Monitorowanie postępów</h2><span class="linia"></span></div>
+  <p class="wstep">Skala poziomu realizacji celu w danym okresie: 1 — nie podjęto · 2 — z pełnym wsparciem · 3 — z częściowym wsparciem · 4 — samodzielnie w większości sytuacji · 5 — samodzielnie, cel osiągnięty.</p>
+  <table class="tab-mala">
+    <thead>
+      <tr><th style="width:40%">Cel / umiejętność</th><th style="width:12%">IX–X</th><th style="width:12%">XI–XII</th><th style="width:12%">I–II</th><th style="width:12%">III–IV</th><th>V–VI</th></tr>
+    </thead>
+    <tbody>
+      <tr><td class="puste"></td><td class="puste"></td><td class="puste"></td><td class="puste"></td><td class="puste"></td><td class="puste"></td></tr>
+      <tr><td class="puste"></td><td class="puste"></td><td class="puste"></td><td class="puste"></td><td class="puste"></td><td class="puste"></td></tr>
+      <tr><td class="puste"></td><td class="puste"></td><td class="puste"></td><td class="puste"></td><td class="puste"></td><td class="puste"></td></tr>
+      <tr><td class="puste"></td><td class="puste"></td><td class="puste"></td><td class="puste"></td><td class="puste"></td><td class="puste"></td></tr>
+    </tbody>
+  </table>
+  <div class="karty">
+    <div class="karta czerwona"><div class="duza">1–2</div><div class="opis">Wymaga pełnego wsparcia</div></div>
+    <div class="karta zolta"><div class="duza">3</div><div class="opis">Wsparcie częściowe</div></div>
+    <div class="karta zielona"><div class="duza">4–5</div><div class="opis">Samodzielność</div></div>
+  </div>
+  <div class="podpisy" style="margin-top:3mm">
+    <div class="podpis"><div class="kreska"></div><div class="opis">Data i podpis prowadzącego zajęcia</div></div>
+    <div class="podpis"><div class="kreska"></div><div class="opis">Podpis koordynatora pomocy p-p</div></div>
+  </div>
+  <div class="stopka">
+    <span>EduPlaner 2026 · PCTP · pedagog specjalny</span>
+    <span><b>Strona 6 z 7</b> · Kącik nauczyciela · karta realizacji R-3 · dziennik i monitoring</span>
+  </div>
+</section>
+
+<!-- === STRONA 7 · R-4 === -->
+<section class="page">
+  <div class="naglowek">
+    <div class="marka">
+      <div class="logo"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" role="img" aria-label="Logo PCTP"> <defs> <radialGradient id="pctpTlo" cx="36%" cy="28%" r="82%"> <stop offset="0%" stop-color="#6A4C9E"/> <stop offset="55%" stop-color="#4A2E86"/> <stop offset="100%" stop-color="#331E63"/> </radialGradient> </defs> <circle cx="50" cy="50" r="49.2" fill="#3B2472"/> <circle cx="50" cy="50" r="46.4" fill="#D3C8EC"/> <circle cx="50" cy="50" r="43.6" fill="url(#pctpTlo)"/> <g stroke="#C79A2C" stroke-width="2.1" stroke-linecap="round" fill="none"> <path d="M50 60 C50 50 50 42 50 34"/> <path d="M50 60 C46 52 42 46 38 40"/> <path d="M50 60 C54 52 58 46 62 40"/> <path d="M50 59 C44 53 38 48 32 44"/> <path d="M50 59 C56 53 62 48 68 44"/> </g> <g> <ellipse cx="33" cy="41" rx="4.6" ry="10.4" fill="#A192D2" transform="rotate(-32 33 41)"/> <ellipse cx="67" cy="41" rx="4.6" ry="10.4" fill="#A192D2" transform="rotate(32 67 41)"/> <ellipse cx="39.5" cy="34" rx="5" ry="11.6" fill="#EFA275" transform="rotate(-16 39.5 34)"/> <ellipse cx="60.5" cy="34" rx="5" ry="11.6" fill="#EFA275" transform="rotate(16 60.5 34)"/> <ellipse cx="50" cy="30.5" rx="5.4" ry="12.4" fill="#E8712F"/> </g> <circle cx="50" cy="38.5" r="3.4" fill="#FBF6EC"/> <text x="50" y="76" text-anchor="middle" font-family="Georgia,'Times New Roman',serif" font-weight="bold" font-size="25" letter-spacing="1.2" fill="#F7F2E6">PCTP</text> </svg></div>
+      <div>
+        <div class="marka-nazwa">EduPlaner 2026</div>
+        <div class="marka-opis">Kącik nauczyciela ·<br>sprawozdanie z pracy grupy</div>
+      </div>
+    </div>
+    <div class="naglowek-prawy">
+      <span class="plakietka">nauczyciel · sprawozdanie</span>
+      <div class="naglowek-podpis">Dokument wsparcia · 2026</div>
+    </div>
+  </div>
+  <div class="belka"></div>
+
+  <div class="metryczka">
+    <div class="box"><span class="etykieta">Nauczyciel wychowawca</span><span class="wypelnij"></span></div>
+    <div class="box"><span class="etykieta">Grupa przedszkolna</span><span class="wypelnij"></span></div>
+    <div class="box"><span class="etykieta">Rok szkolny</span><span class="wartosc">2026 / 2027</span></div>
+  </div>
+  <div class="wstega"><span>Kącik nauczyciela · przedszkole · druk R-4 · dla dyrektora</span></div>
+  <div class="tytul">SPRAWOZDANIE Z PRACY GRUPY</div>
+  <div class="podtytul">wychowawczo-dydaktycznej za semestr lub rok szkolny</div>
+  <div class="kody">
+    <span class="kreska"></span>
+    <span class="tresc">DRUK R-4 · REALIZACJA · EFEKTY · WNIOSKI</span>
+    <span class="kreska"></span>
+  </div>
+  <div class="sekcja"><span class="numer">I</span><h2>Dane sprawozdania</h2><span class="linia"></span></div>
+  <div class="siatka2">
+    <div class="pole"><span class="etykieta">Grupa · wiek · liczba dzieci (w tym objętych pomocą p-p)</span><div class="linijki"><div></div></div></div>
+    <div class="pole"><span class="etykieta">Nauczyciele prowadzący · okres sprawozdawczy</span><div class="linijki"><div></div></div></div>
+  </div>
+  <div class="sekcja"><span class="numer pom">II</span><h2>Realizacja podstawy programowej</h2><span class="linia"></span></div>
+  <table class="tab-mala">
+    <thead>
+      <tr><th style="width:24%">Obszar rozwoju</th><th style="width:44%">Zrealizowane treści i osiągnięcia grupy</th><th>Treści niezrealizowane i przyczyna</th></tr>
+    </thead>
+    <tbody>
+      <tr><td class="klucz">I · Fizyczny</td><td class="puste"></td><td class="puste"></td></tr>
+      <tr><td class="klucz">II · Emocjonalny</td><td class="puste"></td><td class="puste"></td></tr>
+      <tr><td class="klucz">III · Społeczny</td><td class="puste"></td><td class="puste"></td></tr>
+      <tr><td class="klucz">IV · Poznawczy</td><td class="puste"></td><td class="puste"></td></tr>
+    </tbody>
+  </table>
+  <div class="sekcja"><span class="numer">III</span><h2>Efekty, wydarzenia i wnioski</h2><span class="linia"></span></div>
+  <div class="siatka3">
+    <div class="pole"><span class="etykieta">Frekwencja średnia grupy (%)</span><div class="linijki"><div></div></div></div>
+    <div class="pole"><span class="etykieta">Liczba dzieci objętych pomocą p-p</span><div class="linijki"><div></div></div></div>
+    <div class="pole"><span class="etykieta">Liczba spotkań z rodzicami</span><div class="linijki"><div></div></div></div>
+  </div>
+  <div class="pole"><span class="etykieta">Uroczystości, wycieczki, konkursy i projekty zrealizowane w grupie</span><div class="linijki"><div></div><div></div></div></div>
+  <div class="pole"><span class="etykieta">Efekty pracy — co dzieci opanowały; obszary wymagające dalszej pracy</span><div class="linijki"><div></div><div></div></div></div>
+  <div class="pole"><span class="etykieta">Trudności w realizacji planu i podjęte działania</span><div class="linijki"><div></div></div></div>
+  <div class="pole"><span class="etykieta">Wnioski do pracy na kolejny okres</span><div class="linijki"><div></div><div></div></div></div>
+  <div class="podpisy" style="margin-top:3mm">
+    <div class="podpis"><div class="kreska"></div><div class="opis">Data i podpisy nauczycieli</div></div>
+    <div class="podpis"><div class="kreska"></div><div class="opis">Podpis dyrektora — przyjęcie sprawozdania</div></div>
+  </div>
+  <div class="stopka">
+    <span>EduPlaner 2026 · PCTP · pedagog specjalny</span>
+    <span><b>Strona 7 z 7</b> · Kącik nauczyciela · sprawozdanie R-4 · realizacja i wnioski</span>
+  </div>
+</section>
+
+</body>
+</html>
