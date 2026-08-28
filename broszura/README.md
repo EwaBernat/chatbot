@@ -5,7 +5,8 @@ Pięć emocji, pięć kolorów, gra planszowa do wycięcia.
 Materiał gotowy do druku i do sprzedaży.
 
 Wydawca: **Pomorskie Centrum Terapii Pedagogicznej (PCTP), Koszalin**.
-Autorka: mgr Mirosława Ewa Jurczyszyn. Seria `EduPlaner2026-MJ-PCTP`.
+Autorka: Mirosława Ewa Jurczyszyn, pedagog specjalny.
+Seria `EduPlaner2026-MJ-PCTP` · kontakt@eduplaner2026.pl · [usunięto].
 
 ## Co jest w środku
 
@@ -47,8 +48,10 @@ Planszówka dla 2–4 osób na stronach 49–52. Potrzebne: kostka, pionki
 
 Gracze idą po 30 polach w pięciu kolorach. Na każdym polu mówi się jedno
 zdanie o emocji w tym kolorze; sześć pól z gwiazdką każe wziąć kartę.
-Karty są trzech rodzajów: **Sytuacja** (nazwij kolor), **Pokaż** (odegraj
-emocję mimiką), **Opowiedz** (podziel się swoim doświadczeniem).
+Karty są trzech rodzajów, każdy w swoim kolorze i z własną ikoną:
+**Sytuacja** (fiolet — nazwij kolor), **Pokaż** (pomarańcz — odegraj emocję
+mimiką), **Opowiedz** (złoto — podziel się swoim doświadczeniem).
+Rodzaje są przemieszane, więc na obu arkuszach są wszystkie trzy.
 
 Obowiązuje zasada „pas”: każdy może nie odpowiadać, bez tłumaczenia się.
 Na stronie z planszą są też wersja łatwiejsza i trudniejsza.
@@ -151,8 +154,15 @@ W nawiasach kwadratowych zostały pola, których skill nie zawiera: kontakt,
 adres, wydanie i ISBN. Uzupełnij je w `generuj.py` w funkcji
 `stopka_wydawcy()` albo bezpośrednio w gotowym HTML.
 
-Logo PCTP jest narysowane w kodzie jako SVG (stała `LOGO` w `generuj.py`).
-Jeśli masz własny plik logo, podmień tę stałą na `<img src="data:...">`.
+Logo PCTP — okrągła tarcza z kwiatem i napisem PCTP — jest odrysowane jako
+wektor w funkcji `_znak()` w `generuj.py`. Dzięki temu jest ostre w każdym
+rozmiarze i nie obciąża pliku. Dwa warianty: `LOGO` (mała tarcza bez napisu,
+do stopki i okładki) oraz `LOGO_DUZE` (z gradientem i napisem, na stronie
+wydawcy). Jeśli wolisz wstawić oryginalny plik, podmień `LOGO` na
+`<img src="data:image/png;base64,...">`.
+
+Dane wydawcy siedzą w stałej `FIRMA` w `generuj.py` — nazwa, miasto, autorka,
+e-mail, telefon i nazwa serii.
 
 Na stronie „Gdy jest bardzo trudno” nie ma numerów telefonów — są tam puste
 pola, które nastolatek wypełnia sam razem z dorosłym. Jeśli chcesz podać

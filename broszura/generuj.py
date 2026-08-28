@@ -24,18 +24,54 @@ FIRMA = {
     "skrot": "PCTP",
     "nazwa": "Pomorskie Centrum Terapii Pedagogicznej",
     "miasto": "Koszalin",
-    "autorka": "mgr Mirosława Ewa Jurczyszyn",
+    "marka": "EduPlaner 2026",
+    "autorka": "Mirosława Ewa Jurczyszyn",
+    "funkcja": "pedagog specjalny",
+    "email": "kontakt@eduplaner2026.pl",
+    "telefon": "[usunięto]",
     "ekosystem": "EduPlaner2026-MJ-PCTP",
 }
 
-LOGO = (
-    '<svg class="logo" viewBox="0 0 24 24" role="img" aria-label="PCTP">'
-    '<rect width="24" height="24" fill="#2D1B69"/>'
-    '<rect x="5" y="6" width="14" height="2.6" fill="#FFFFFF"/>'
-    '<rect x="5" y="10.7" width="10" height="2.6" fill="#FFFFFF"/>'
-    '<rect x="5" y="15.4" width="6" height="2.6" fill="#FFFFFF"/>'
-    '<circle cx="17.4" cy="16.7" r="2.4" fill="#E8450A"/>'
-    "</svg>"
+def _znak(tlo, klasa="logo", napis=True):
+    """Znak PCTP: kwiat w okrągłej tarczy. `tlo` to wypełnienie tarczy."""
+    tekst = (
+        '<text x="300" y="410" text-anchor="middle" fill="#F6F1E7" '
+        'font-family="Georgia,\'Times New Roman\',serif" font-weight="700" '
+        'font-size="128" letter-spacing="6">PCTP</text>'
+    ) if napis else ""
+    return (
+        f'<svg class="{klasa}" viewBox="0 0 600 600" role="img" aria-label="PCTP">'
+        '<circle cx="300" cy="300" r="298" fill="#3E2664"/>'
+        '<circle cx="300" cy="300" r="288" fill="#CFC4E4"/>'
+        '<circle cx="300" cy="300" r="274" fill="#3E2664"/>'
+        f'<circle cx="300" cy="300" r="268" fill="{tlo}"/>'
+        '<g stroke="#C8A02A" stroke-width="10" stroke-linecap="round" fill="none">'
+        '<path d="M300 276 L300 234"/>'
+        '<path d="M300 272 C286 246 264 232 240 220"/>'
+        '<path d="M300 272 C314 246 336 232 360 220"/></g>'
+        '<ellipse cx="300" cy="166" rx="22" ry="47" fill="#A292CE" '
+        'transform="rotate(-46 300 250)"/>'
+        '<ellipse cx="300" cy="166" rx="22" ry="47" fill="#A292CE" '
+        'transform="rotate(46 300 250)"/>'
+        '<ellipse cx="300" cy="158" rx="23" ry="51" fill="#F0A97A" '
+        'transform="rotate(-21 300 250)"/>'
+        '<ellipse cx="300" cy="158" rx="23" ry="51" fill="#F0A97A" '
+        'transform="rotate(21 300 250)"/>'
+        '<ellipse cx="300" cy="150" rx="24" ry="55" fill="#E8722E"/>'
+        '<circle cx="300" cy="178" r="13" fill="#FFFFFF"/>'
+        f"{tekst}</svg>"
+    )
+
+
+# mały znak w stopce — płaski fiolet, bo gradient i tak nie byłby widoczny
+LOGO = _znak("#4B3079", napis=False)
+# duży znak na stronie wydawcy — z gradientem i napisem
+LOGO_DUZE = (
+    '<svg width="0" height="0" style="position:absolute" aria-hidden="true">'
+    '<defs><radialGradient id="pctp-tarcza" cx="38%" cy="30%" r="78%">'
+    '<stop offset="0" stop-color="#6B4E9E"/>'
+    '<stop offset="1" stop-color="#42296B"/></radialGradient></defs></svg>'
+    + _znak("url(#pctp-tarcza)", "logo logo-duze")
 )
 
 
@@ -180,8 +216,10 @@ def okladka():
             "Bez twarzy — kolor jest bohaterem okładki.",
             "78mm", "ZDJĘCIE OKŁADKOWE", plik="okladka")
         + '<div class="cover-foot">'
-        '<span>Rozpoznawanie emocji · Ćwiczenia · Opowiadania</span>'
-        '<span class="cover-imie">Ten zeszyt należy do: <i class="dot"></i></span>'
+        + LOGO
+        + f'<span class="cover-wyd"><b>{e(FIRMA["skrot"])}</b> '
+        f'{e(FIRMA["nazwa"])}</span>'
+        + '<span class="cover-imie">Ten zeszyt należy do: <i class="dot"></i></span>'
         '</div></article>'
     )
 
@@ -675,13 +713,51 @@ def gra_plansza():
     return strona(tresc_, klasa="strona-plansza", pid="gra-plansza")
 
 
+IKONY_KART = {
+    "Sytuacja": '<svg viewBox="0 0 24 24" class="karta-ikona"><circle cx="12" cy="12" '
+                'r="9.2"/><path d="M9.4 9.4a2.6 2.6 0 1 1 2.9 2.6v1.6"/>'
+                '<circle cx="12.3" cy="17.2" r=".9" class="pelna"/></svg>',
+    "Pokaż":    '<svg viewBox="0 0 24 24" class="karta-ikona"><circle cx="12" cy="12" '
+                'r="9.2"/><circle cx="9.1" cy="10.2" r="1" class="pelna"/>'
+                '<circle cx="14.9" cy="10.2" r="1" class="pelna"/>'
+                '<path d="M8.4 14.4a4.4 4.4 0 0 0 7.2 0"/></svg>',
+    "Opowiedz": '<svg viewBox="0 0 24 24" class="karta-ikona">'
+                '<path d="M4.4 5.6h15.2v10.3h-8.6l-4.1 3.6v-3.6H4.4z"/>'
+                '<path d="M8.2 9.2h7.6M8.2 12.2h5"/></svg>',
+}
+KOLORY_KART = {
+    "Sytuacja": ("#2D1B69", "#EFEBF8"),
+    "Pokaż":    ("#C2380B", "#FCEDE6"),
+    "Opowiedz": ("#8A6A0E", "#FAF3DE"),
+}
+
+
+def _talia():
+    """Układa karty tak, by na każdym arkuszu były wszystkie trzy rodzaje."""
+    wg_rodzaju = {}
+    for rodzaj, tekst in tresc.GRA_KARTY:
+        wg_rodzaju.setdefault(rodzaj, []).append(tekst)
+    ulozone = []
+    while any(wg_rodzaju.values()):
+        for rodzaj, ile in (("Sytuacja", 2), ("Pokaż", 1), ("Opowiedz", 1)):
+            for _ in range(ile):
+                if wg_rodzaju.get(rodzaj):
+                    ulozone.append((rodzaj, wg_rodzaju[rodzaj].pop(0)))
+    return ulozone
+
+
 def gra_karty(od, do, numer_arkusza):
-    karty = "".join(
-        f'<div class="karta"><span class="karta-typ">{e(rodzaj)}</span>'
-        f'<p class="karta-tresc">{e(tekst)}</p>'
-        f'<span class="karta-stopka">{e(tresc.GRA_TYTUL)}</span></div>'
-        for rodzaj, tekst in tresc.GRA_KARTY[od:do]
-    )
+    karty = ""
+    for rodzaj, tekst in _talia()[od:do]:
+        kolor, tint = KOLORY_KART[rodzaj]
+        karty += (
+            f'<div class="karta" style="--k:{kolor};--kt:{tint}">'
+            f'<header class="karta-head">{IKONY_KART[rodzaj]}'
+            f'<span class="karta-typ">{e(rodzaj)}</span></header>'
+            f'<p class="karta-tresc">{e(tekst)}</p>'
+            '<footer class="karta-stopka"><i class="karta-kropka"></i>'
+            f'<span>{e(tresc.GRA_TYTUL)}</span></footer></div>'
+        )
     tresc_ = (
         f'<span class="eyebrow">Gra — karty {numer_arkusza} z 2</span>'
         '<h2 class="h-big">Karty do wycięcia</h2>'
@@ -827,25 +903,27 @@ def stopka_wydawcy():
             "Pokaż komuś zaufanemu swoją stronę z rysunkiem.",
         ]), "wide")
         + zdjecie("Zdjęcie zamykające: pięć kolorowych plam farby zlewających się w tęczę "
-                  "albo paleta malarska z pięcioma kolorami broszury.", "30mm",
+                  "albo paleta malarska z pięcioma kolorami broszury.", "22mm",
                   plik="koniec")
         + '<div class="wydawca">'
-        + LOGO
-        + f'<div class="wyd-txt"><b>{e(FIRMA["skrot"])}</b>'
-        f'<span>{e(FIRMA["nazwa"])}</span>'
-        f'<span>{e(FIRMA["miasto"])}</span></div></div>'
+        + LOGO_DUZE
+        + f'<div class="wyd-txt"><b>{e(FIRMA["marka"])} · '
+        f'{e(FIRMA["skrot"])} {e(FIRMA["miasto"])}</b>'
+        f'<span>{e(FIRMA["nazwa"])}</span></div></div>'
         + '<div class="kolofon">'
         '<div class="kol-poz"><span class="kol-lab">Tytuł</span>'
         '<b>Kolorowy Świat Emocji — zeszyt ćwiczeń dla nastolatka</b></div>'
         + f'<div class="kol-poz"><span class="kol-lab">Autorka</span>'
-        f'<b>{e(FIRMA["autorka"])}</b></div>'
+        f'<b>{e(FIRMA["autorka"])}, {e(FIRMA["funkcja"])}</b></div>'
         f'<div class="kol-poz"><span class="kol-lab">Wydawca</span>'
         f'<b>{e(FIRMA["nazwa"])}, {e(FIRMA["miasto"])}</b></div>'
         f'<div class="kol-poz"><span class="kol-lab">Seria</span>'
         f'<b>{e(FIRMA["ekosystem"])}</b></div>'
-        + '<div class="kol-poz"><span class="kol-lab">Kontakt</span>'
-        '<b class="uzup">[ e-mail · telefon · strona www ]</b></div>'
-        '<div class="kol-poz"><span class="kol-lab">Adres</span>'
+        + f'<div class="kol-poz"><span class="kol-lab">E-mail</span>'
+        f'<b>{e(FIRMA["email"])}</b></div>'
+        f'<div class="kol-poz"><span class="kol-lab">Telefon</span>'
+        f'<b>{e(FIRMA["telefon"])}</b></div>'
+        + '<div class="kol-poz"><span class="kol-lab">Adres</span>'
         '<b class="uzup">[ ulica, kod pocztowy ]</b></div>'
         '<div class="kol-poz"><span class="kol-lab">Wydanie</span>'
         '<b class="uzup">[ pierwsze · rok ]</b></div>'
@@ -901,7 +979,7 @@ p{margin:0}
 .page-stopka{display:flex;align-items:center;gap:2.6mm;margin-top:3.4mm;
   padding-top:2mm;border-top:.8px solid var(--wlos);
   font-size:7.8pt;letter-spacing:.03em;color:var(--atrament-3)}
-.logo{width:4.8mm;height:4.8mm;flex:0 0 auto;display:block}
+.logo{width:6mm;height:6mm;flex:0 0 auto;display:block}
 .st-nazwa{flex:1;min-width:0}
 .page-stopka{align-items:center}
 .st-nazwa b{font-family:var(--font-h);font-weight:900;color:var(--grzbiet);
@@ -943,11 +1021,11 @@ p{margin:0}
 .strona-spis .lead{font-size:11.4pt}
 
 /* ── blok wydawcy ───────────────────────────────────── */
-.wydawca{display:flex;align-items:center;gap:4mm}
-.wydawca .logo{width:14mm;height:14mm}
+.wydawca{display:flex;align-items:center;gap:3.4mm}
+.wydawca .logo{width:13mm;height:13mm}
 .wyd-txt{display:flex;flex-direction:column;line-height:1.35}
-.wyd-txt b{font-family:var(--font-h);font-weight:900;font-size:15pt;
-  color:var(--grzbiet);letter-spacing:.08em}
+.wyd-txt b{font-family:var(--font-h);font-weight:800;font-size:11.5pt;
+  color:var(--grzbiet);letter-spacing:.13em;text-transform:uppercase}
 .wyd-txt span{font-size:9.6pt;color:var(--atrament-2)}
 
 /* ── typografia ─────────────────────────────────────── */
@@ -1106,8 +1184,12 @@ ol.numer::marker{font-weight:700}
 .cover .ph-ikona{stroke:#C9B6F2}
 .cover .ph-etykieta{color:#C9B6F2}
 .cover .ph-opis{color:#CFC1EE}
-.cover-foot{display:flex;justify-content:space-between;align-items:flex-end;
-  gap:6mm;border-top:1.5px solid #6B4FB0;padding-top:4mm;font-size:10pt;color:#DCD0F7}
+.cover-foot{display:flex;justify-content:space-between;align-items:center;
+  gap:5mm;border-top:1.5px solid #6B4FB0;padding-top:4mm;font-size:9.4pt;color:#DCD0F7}
+.cover-foot .logo{width:9mm;height:9mm}
+.cover-wyd{flex:1;min-width:0;line-height:1.3;font-size:8.8pt}
+.cover-wyd b{font-family:var(--font-h);font-weight:900;letter-spacing:.08em;
+  color:#fff;margin-right:1.2mm}
 .cover-imie{display:flex;align-items:baseline;gap:3mm;white-space:nowrap}
 .cover-imie .dot{display:block;width:48mm;border-bottom:1.5px dotted #A18BDE}
 
@@ -1172,13 +1254,22 @@ ol.numer::marker{font-weight:700}
 .leg-gwiazdka{display:grid!important;place-items:center;background:var(--atrament);
   color:#fff;font-size:7pt}
 .karty{display:grid;grid-template-columns:repeat(3,1fr);gap:0}
-.karta{border:1.2px dashed var(--atrament-3);padding:5mm 4.5mm;min-height:44mm;
-  display:flex;flex-direction:column;gap:2.5mm;margin:-0.6px 0 0 -0.6px}
-.karta-typ{font-family:var(--font-h);font-weight:900;font-size:8pt;
-  letter-spacing:.16em;text-transform:uppercase;color:var(--grzbiet)}
-.karta-tresc{font-size:10.6pt;line-height:1.5;flex:1}
-.karta-stopka{font-size:7.4pt;letter-spacing:.1em;text-transform:uppercase;
+.karta{border:1.1px dashed var(--atrament-3);padding:0 0 3.4mm;min-height:46mm;
+  display:flex;flex-direction:column;margin:-0.55px 0 0 -0.55px;
+  background:#fff;overflow:hidden}
+.karta-head{display:flex;align-items:center;gap:2.2mm;background:var(--kt);
+  border-bottom:1.6px solid var(--k);padding:2.4mm 4mm;margin-bottom:3.4mm}
+.karta-ikona{width:5.2mm;height:5.2mm;flex:0 0 auto;fill:none;stroke:var(--k);
+  stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round}
+.karta-ikona .pelna{fill:var(--k);stroke:none}
+.karta-typ{font-family:var(--font-h);font-weight:900;font-size:8.2pt;
+  letter-spacing:.16em;text-transform:uppercase;color:var(--k)}
+.karta-tresc{font-size:10.6pt;line-height:1.5;flex:1;padding:0 4mm}
+.karta-stopka{display:flex;align-items:center;gap:1.8mm;padding:0 4mm;
+  font-size:7.2pt;letter-spacing:.09em;text-transform:uppercase;
   color:var(--atrament-3)}
+.karta-kropka{width:2.4mm;height:2.4mm;border-radius:50%;background:var(--k);
+  display:block;flex:0 0 auto}
 .strona-karty .page-body{gap:4mm}
 
 /* ── dyplom ─────────────────────────────────────────── */
@@ -1203,8 +1294,8 @@ ol.numer::marker{font-weight:700}
 .dyp-nr{position:absolute;left:15mm;bottom:9mm}
 
 /* ── kolofon ────────────────────────────────────────── */
-.kolofon{display:grid;grid-template-columns:1fr 1fr;gap:2.2mm 6mm;
-  border-top:2px solid var(--wlos);border-bottom:2px solid var(--wlos);padding:3mm 0}
+.kolofon{display:grid;grid-template-columns:1fr 1fr;gap:1.8mm 6mm;
+  border-top:2px solid var(--wlos);border-bottom:2px solid var(--wlos);padding:2.6mm 0}
 .kol-lab{display:block;font-size:8.6pt;letter-spacing:.14em;text-transform:uppercase;
   color:var(--atrament-3)}
 .kol-poz b{font-family:var(--font-h);font-weight:800;font-size:11pt}
@@ -1218,7 +1309,8 @@ ol.numer::marker{font-weight:700}
   .page:last-child{break-after:auto;page-break-after:auto}
   .photo,.draw,.term-p,.chipcard-tab,.mysl,.krok-nr,.cover,.rot-plama,
   .pal-chip,.dyp-chipy span,.cover-chip,.pole,.leg-poz i,.dyp-pasek span,
-  .logo,.logo rect,.logo circle,.sp-chip,.chipcard-body{
+  .logo,.logo circle,.logo ellipse,.logo path,.sp-chip,.chipcard-body,
+  .karta-head,.karta{
     -webkit-print-color-adjust:exact;print-color-adjust:exact}
 }
 @media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
