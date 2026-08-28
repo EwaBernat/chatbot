@@ -1,23 +1,32 @@
 # Kolorowy Świat Emocji
 
-Zeszyt ćwiczeń dla nastolatka — 56 stron A4, pięć emocji, pięć kolorów,
-plus gra planszowa do wycięcia.
+Zeszyt ćwiczeń dla nastolatka — 56 numerowanych stron A4 plus okładka.
+Pięć emocji, pięć kolorów, gra planszowa do wycięcia.
 Materiał gotowy do druku i do sprzedaży.
+
+Wydawca: **Pomorskie Centrum Terapii Pedagogicznej (PCTP), Koszalin**.
+Autorka: mgr Mirosława Ewa Jurczyszyn. Seria `EduPlaner2026-MJ-PCTP`.
 
 ## Co jest w środku
 
 | Strony | Zawartość |
 |---|---|
 | okładka | tytuł, pasek pięciu kolorów, miejsce na imię |
-| 1–6 | o zeszycie, instrukcja dla nastolatka, instrukcja dla dorosłego, bohaterowie, mapa kolorów, słowniczek |
-| 7–14 | **Żółty — Radość** |
-| 15–22 | **Niebieski — Smutek** |
-| 23–30 | **Czerwony — Złość** |
-| 31–38 | **Różowy — Wstyd** |
-| 39–46 | **Szary — Lęk** |
-| 47 | moja paleta emocji |
-| 48–51 | **gra „Ścieżka Kolorów”** — zasady, plansza, dwa arkusze kart do wycięcia |
-| 52–55 | plan na trudny dzień, gdy jest bardzo trudno, dyplom, strona wydawcy |
+| 1 | o tym zeszycie |
+| 2 | **spis treści** |
+| 3–7 | instrukcja dla nastolatka, instrukcja dla dorosłego, bohaterowie, mapa kolorów, słowniczek |
+| 8–15 | **Żółty — Radość** |
+| 16–23 | **Niebieski — Smutek** |
+| 24–31 | **Czerwony — Złość** |
+| 32–39 | **Różowy — Wstyd** |
+| 40–47 | **Szary — Lęk** |
+| 48 | moja paleta emocji |
+| 49–52 | **gra „Ścieżka Kolorów”** — zasady, plansza, dwa arkusze kart do wycięcia |
+| 53–56 | plan na trudny dzień, gdy jest bardzo trudno, dyplom, strona wydawcy |
+
+Spis treści na stronie 2 wylicza się sam — numery biorą się z faktycznego
+składu, więc nie rozjadą się po dopisaniu albo usunięciu stron.
+Na każdej stronie w stopce jest logo PCTP, nazwa firmy i numer strony.
 
 Każdy rozdział ma **zawsze ten sam układ ośmiu stron** — przewidywalność jest
 tu elementem terapeutycznym, nie ozdobnikiem:
@@ -33,8 +42,8 @@ tu elementem terapeutycznym, nie ozdobnikiem:
 
 ## Gra „Ścieżka Kolorów”
 
-Planszówka dla 2–4 osób na stronach 48–51. Potrzebne: kostka, pionki
-(wystarczą guziki) i talia 24 kart wyciętych ze stron 50–51.
+Planszówka dla 2–4 osób na stronach 49–52. Potrzebne: kostka, pionki
+(wystarczą guziki) i talia 24 kart wyciętych ze stron 51–52.
 
 Gracze idą po 30 polach w pięciu kolorach. Na każdym polu mówi się jedno
 zdanie o emocji w tym kolorze; sześć pól z gwiazdką każe wziąć kartę.
@@ -58,7 +67,7 @@ Treść kart i zasad zmienia się w `tresc.py` — zmienne `GRA_KARTY`,
    - skala **100 %**.
 4. Aby zrobić PDF, wybierz „Zapisz jako PDF” zamiast drukarki.
 
-Arkusze kart (strony 50–51) warto wydrukować na grubszym papierze
+Arkusze kart (strony 51–52) warto wydrukować na grubszym papierze
 albo nakleić na karton — będą dłużej służyć.
 
 Plik jest samowystarczalny: kroje pisma i wszystkie zdjęcia są w nim osadzone.
@@ -119,7 +128,11 @@ Kolory rozdziałów też są w `tresc.py`:
 | 04 | różowy | wstyd | `#E0619B` |
 | 05 | szary | lęk | `#6E7681` |
 
-Kolor grzbietu (okładka, dyplom): fiolet `#4A2E86`.
+Kolory marki PCTP: fiolet `#2D1B69` (okładka, dyplom, stopka, logo)
+i pomarańcz `#E8450A` (akcent w logo).
+
+Nazwy emocji mają w `tresc.py` pole `rodzaj` — `"m"` albo `"ż"`. Stąd bierze
+się poprawna odmiana: „Mój smutek”, ale „Moja radość”.
 
 ## Typografia
 
@@ -133,9 +146,13 @@ Oba kroje są osadzone w pliku HTML — nie trzeba ich instalować.
 
 ## Przed sprzedażą — do uzupełnienia
 
-Na ostatniej stronie zostały pola w nawiasach kwadratowych: autorka, wydawca,
-kontakt, wydanie, ISBN. Wpisz je w `generuj.py` w funkcji `stopka_wydawcy()`
-albo bezpośrednio w gotowym HTML.
+Nazwa wydawcy, autorka i seria są już wpisane (stała `FIRMA` w `generuj.py`).
+W nawiasach kwadratowych zostały pola, których skill nie zawiera: kontakt,
+adres, wydanie i ISBN. Uzupełnij je w `generuj.py` w funkcji
+`stopka_wydawcy()` albo bezpośrednio w gotowym HTML.
+
+Logo PCTP jest narysowane w kodzie jako SVG (stała `LOGO` w `generuj.py`).
+Jeśli masz własny plik logo, podmień tę stałą na `<img src="data:...">`.
 
 Na stronie „Gdy jest bardzo trudno” nie ma numerów telefonów — są tam puste
 pola, które nastolatek wypełnia sam razem z dorosłym. Jeśli chcesz podać

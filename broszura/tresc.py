@@ -17,6 +17,7 @@ OPIS_OKLADKA = "Pięć kolorów. Pięć emocji. Jeden Ty."
 # tint     – bardzo jasne tło pod ramki i callouty
 # tint2    – nieco mocniejszy odcień pod paski i chipy
 # txt      – kolor napisu kładzionego wprost na pełnym kolorze emocji
+# rodzaj   – rodzaj gramatyczny nazwy emocji: "m" (mój smutek) albo "ż" (moja radość)
 
 ROZDZIALY = [
     # ═══════════════════════════════════════════════════════════════════════
@@ -24,6 +25,7 @@ ROZDZIALY = [
         "nr": "01",
         "kolor": "Żółty",
         "emocja": "Radość",
+        "rodzaj": "ż",
         "hex": "#F2B21A",
         "txt": "#3D2800",
         "ink": "#8A5D00",
@@ -142,6 +144,7 @@ ROZDZIALY = [
         "nr": "02",
         "kolor": "Niebieski",
         "emocja": "Smutek",
+        "rodzaj": "m",
         "hex": "#2E6FB7",
         "txt": "#FFFFFF",
         "ink": "#1B4A7E",
@@ -263,6 +266,7 @@ ROZDZIALY = [
         "nr": "03",
         "kolor": "Czerwony",
         "emocja": "Złość",
+        "rodzaj": "ż",
         "hex": "#D33B2C",
         "txt": "#FFFFFF",
         "ink": "#992418",
@@ -384,6 +388,7 @@ ROZDZIALY = [
         "nr": "04",
         "kolor": "Różowy",
         "emocja": "Wstyd",
+        "rodzaj": "m",
         "hex": "#E0619B",
         "txt": "#3F0B25",
         "ink": "#A62D68",
@@ -505,6 +510,7 @@ ROZDZIALY = [
         "nr": "05",
         "kolor": "Szary",
         "emocja": "Lęk",
+        "rodzaj": "m",
         "hex": "#6E7681",
         "txt": "#FFFFFF",
         "ink": "#454B54",

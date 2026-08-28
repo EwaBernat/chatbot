@@ -19,8 +19,39 @@ try:
 except ImportError:  # brak osadzonych krojów — uruchom pobierz_fonty.py
     CSS_FONTY = ""
 
+# ── dane wydawcy (marka PCTP) ────────────────────────────────────────────────
+FIRMA = {
+    "skrot": "PCTP",
+    "nazwa": "Pomorskie Centrum Terapii Pedagogicznej",
+    "miasto": "Koszalin",
+    "autorka": "mgr Mirosława Ewa Jurczyszyn",
+    "ekosystem": "EduPlaner2026-MJ-PCTP",
+}
+
+LOGO = (
+    '<svg class="logo" viewBox="0 0 24 24" role="img" aria-label="PCTP">'
+    '<rect width="24" height="24" fill="#2D1B69"/>'
+    '<rect x="5" y="6" width="14" height="2.6" fill="#FFFFFF"/>'
+    '<rect x="5" y="10.7" width="10" height="2.6" fill="#FFFFFF"/>'
+    '<rect x="5" y="15.4" width="6" height="2.6" fill="#FFFFFF"/>'
+    '<circle cx="17.4" cy="16.7" r="2.4" fill="#E8450A"/>'
+    "</svg>"
+)
+
+
+def stopka_marki(nr=None):
+    numer = f'<span class="st-nr">{nr}</span>' if nr is not None else ""
+    return (
+        '<footer class="page-stopka">'
+        f'{LOGO}<span class="st-nazwa"><b>{e(FIRMA["skrot"])}</b> '
+        f'{e(FIRMA["nazwa"])} · {e(FIRMA["miasto"])}</span>'
+        f'<span class="st-kropki"></span>{numer}</footer>'
+    )
+
+
 # ── licznik stron ────────────────────────────────────────────────────────────
 _stan = {"nr": 0}
+_numery = {}          # id strony → numer, potrzebne do spisu treści
 
 
 def _numer():
@@ -30,6 +61,17 @@ def _numer():
 
 def e(t):
     return html.escape(str(t), quote=False)
+
+
+def odmien(r, forma):
+    """Dopasowuje zaimek do rodzaju nazwy emocji: mój smutek, ale moja radość."""
+    formy = {
+        "moj":   ("Mój", "Moja"),
+        "swoj":  ("swój", "swoją"),
+        "jego":  ("go", "jej"),
+    }
+    meski, zenski = formy[forma]
+    return meski if r["rodzaj"] == "m" else zenski
 
 
 # ── elementy powtarzalne ─────────────────────────────────────────────────────
@@ -98,8 +140,10 @@ def lista(pozycje, klasa="tick"):
     return f'<ul class="{klasa}">{li}</ul>'
 
 
-def strona(zawartosc, r=None, klasa="", naglowek=True):
+def strona(zawartosc, r=None, klasa="", naglowek=True, pid=None):
     nr = _numer()
+    if pid:
+        _numery[pid] = nr
     if r:
         styl = (f'style="--c:{r["hex"]};--ink:{r["ink"]};--txt:{r["txt"]};'
                 f'--tint:{r["tint"]};--tint2:{r["tint2"]}"')
@@ -108,10 +152,10 @@ def strona(zawartosc, r=None, klasa="", naglowek=True):
         styl = ""
         eyebrow = "KOLOROWY ŚWIAT EMOCJI"
     head = (
-        f'<header class="page-head"><span class="ph-ch">{e(eyebrow)}</span>'
-        f'<span class="ph-nr">{nr}</span></header>'
+        f'<header class="page-head"><span class="ph-ch">{e(eyebrow)}</span></header>'
     ) if naglowek else ""
-    return f'<article class="page {klasa}" {styl}>{head}<div class="page-body">{zawartosc}</div></article>'
+    return (f'<article class="page {klasa}" {styl}>{head}'
+            f'<div class="page-body">{zawartosc}</div>{stopka_marki(nr)}</article>')
 
 
 # ── STRONY WSTĘPNE ───────────────────────────────────────────────────────────
@@ -172,7 +216,7 @@ def strona_tytulowa():
                   "w pięciu kolorach broszury. Ujęcie z góry, jasne tło.", "48mm",
                   plik="wstep-tytulowa")
     )
-    return strona(tresc_)
+    return strona(tresc_, pid="wstep-tytulowa")
 
 
 def jak_korzystac_ty():
@@ -205,7 +249,7 @@ def jak_korzystac_ty():
                   "kolorowe zakładki. Bez twarzy, ciepłe światło.", "40mm",
                   plik="wstep-korzystac")
     )
-    return strona(tresc_)
+    return strona(tresc_, pid="wstep-korzystac")
 
 
 def jak_korzystac_doroslego():
@@ -244,7 +288,65 @@ def jak_korzystac_doroslego():
         + '<p class="mini">Ten zeszyt jest materiałem edukacyjnym i pomocą w pracy '
           'nad rozpoznawaniem emocji. Nie zastępuje diagnozy ani terapii.</p>'
     )
-    return strona(tresc_)
+    return strona(tresc_, pid="wstep-doroslego")
+
+
+def spis_tresci():
+    def nr(pid):
+        return _numery.get(pid, "")
+
+    wstep = [
+        ("O tym zeszycie", "wstep-tytulowa"),
+        ("Jak korzystać z zeszytu", "wstep-korzystac"),
+        ("Jak towarzyszyć — dla dorosłego", "wstep-doroslego"),
+        ("Poznaj Rajmunda", "wstep-poznaj"),
+        ("Pięć kolorów", "wstep-mapa"),
+        ("Słowniczek trudnych słów", "wstep-slowniczek"),
+    ]
+    koniec = [
+        ("Moja paleta emocji", "kon-paleta"),
+        ("Gra „Ścieżka Kolorów” — zasady", "gra-zasady"),
+        ("Gra — plansza", "gra-plansza"),
+        ("Gra — karty do wycięcia", "gra-karty1"),
+        ("Mój plan na trudny dzień", "kon-plan"),
+        ("Gdy jest bardzo trudno", "kon-pomoc"),
+        ("Dyplom", "kon-dyplom"),
+        ("O wydawcy", "kon-wydawca"),
+    ]
+
+    def wiersze(pozycje):
+        return "".join(
+            f'<li class="sp-w"><span class="sp-t">{e(t)}</span>'
+            '<span class="sp-kropki"></span>'
+            f'<span class="sp-nr">{nr(pid)}</span></li>'
+            for t, pid in pozycje
+        )
+
+    rozdzialy = ""
+    for r in tresc.ROZDZIALY:
+        rozdzialy += (
+            f'<li class="sp-w sp-roz" style="--c:{r["hex"]};--ink:{r["ink"]}">'
+            '<span class="sp-chip"></span>'
+            f'<span class="sp-t"><b>{e(r["nr"])} · {e(r["emocja"])}</b>'
+            f'<i>kolor {e(r["kolor"].lower())} · opowiadanie na str. '
+            f'{nr("r" + r["nr"] + "-opowiadanie")}</i></span>'
+            '<span class="sp-kropki"></span>'
+            f'<span class="sp-nr">{nr("r" + r["nr"] + "-otwarcie")}</span></li>'
+        )
+
+    tresc_ = (
+        '<span class="eyebrow">Spis treści</span>'
+        '<h2 class="h-big">Co jest w środku</h2>'
+        '<p class="lead">Nie musisz iść po kolei — otwórz ten kolor, '
+        'który pasuje do dzisiaj.</p>'
+        '<div class="sp-grupa"><h3 class="sp-naglowek">Zanim zaczniesz</h3>'
+        f'<ol class="spis">{wiersze(wstep)}</ol></div>'
+        '<div class="sp-grupa"><h3 class="sp-naglowek">Pięć kolorów emocji</h3>'
+        f'<ol class="spis">{rozdzialy}</ol></div>'
+        '<div class="sp-grupa"><h3 class="sp-naglowek">Na koniec</h3>'
+        f'<ol class="spis">{wiersze(koniec)}</ol></div>'
+    )
+    return strona(tresc_, klasa="strona-spis")
 
 
 def poznaj_bohaterow():
@@ -268,7 +370,7 @@ def poznaj_bohaterow():
                 + linie(1, "Najbardziej lubię:")
                 + linie(1, "Po czym poznasz, że jest mi dobrze:"), "wide")
     )
-    return strona(tresc_)
+    return strona(tresc_, pid="wstep-poznaj")
 
 
 def mapa_kolorow():
@@ -278,7 +380,8 @@ def mapa_kolorow():
         f'<div class="mapa-txt"><b>{e(r["emocja"])}</b>'
         f'<span class="mapa-kolor">{e(r["kolor"])}</span>'
         f'<p class="p">{e(r["haslo"])}</p></div>'
-        f'<span class="mapa-str">str. {r["_str"]}</span></div>'
+        f'<span class="mapa-str">str. '
+        f'{_numery.get("r" + r["nr"] + "-otwarcie", "")}</span></div>'
         for r in tresc.ROZDZIALY
     )
     tresc_ = (
@@ -298,7 +401,7 @@ def mapa_kolorow():
             "8. Moja strona",
         ], "plain"), "wide")
     )
-    return strona(tresc_)
+    return strona(tresc_, pid="wstep-mapa")
 
 
 def slowniczek():
@@ -318,13 +421,14 @@ def slowniczek():
         + zdjecie("Zdjęcie: otwarty słownik albo notes z zakreślonymi słowami, "
                   "ujęcie z góry, spokojne światło.", "28mm", plik="wstep-slowniczek")
     )
-    return strona(tresc_)
+    return strona(tresc_, pid="wstep-slowniczek")
 
 
 # ── STRONY ROZDZIAŁU ─────────────────────────────────────────────────────────
 
 def r_otwarcie(r):
     nr = _numer()
+    _numery["r" + r["nr"] + "-otwarcie"] = nr
     return (
         f'<article class="page rozdzial-otw" '
         f'style="--c:{r["hex"]};--ink:{r["ink"]};--txt:{r["txt"]};'
@@ -339,9 +443,8 @@ def r_otwarcie(r):
         f'<p class="rot-lead">{e(r["otwarcie"])}</p>'
         + zdjecie(r["zdjecia"]["otwarcie"], "58mm", plik=f'{r["nr"]}-otwarcie')
         + '<div class="rot-stopka">'
-        f'<span class="ph-nr">{nr}</span>'
         f'<span class="rot-hex">{e(r["hex"])}</span>'
-        '</div></div></article>'
+        '</div>' + stopka_marki(nr) + '</div></article>'
     )
 
 
@@ -409,8 +512,8 @@ def r_kiedy(r):
 def r_opowiadanie(r):
     akapity = "".join(f'<p class="op-p">{e(a)}</p>' for a in r["opowiadanie"])
     waga = sum(len(a) for a in r["opowiadanie"]) + 90 * len(r["opowiadanie"])
-    dlugie = waga > 2100
-    sredni = 1750 < waga <= 2100
+    dlugie = waga > 1900
+    sredni = 1500 < waga <= 1900
     wys = "33mm" if (dlugie or sredni) else "44mm"
     gesto = " op-gesty" if dlugie else ""
     tresc_ = (
@@ -424,7 +527,7 @@ def r_opowiadanie(r):
             '<p class="p">Zaznacz ołówkiem zdanie, które najbardziej Cię poruszyło. '
             'Potem zapisz, dlaczego właśnie to.</p>' + linie(1 if sredni else 2), "wide"))
     )
-    return strona(tresc_, r, "strona-opow")
+    return strona(tresc_, r, "strona-opow", pid=f'r{r["nr"]}-opowiadanie')
 
 
 def r_pytania(r):
@@ -466,9 +569,9 @@ def r_zadania(r):
         + blok("Śmiały krok", "dłużej niż jeden dzień", r["zadania_smiale"], 3)
         + '<div class="two">'
         + karta("Wybieram zadanie numer", linie(1) + '<p class="p">Zrobię je do:</p>' + linie(1))
-        + zdjecie(f'Zdjęcie do rozdziału: przedmiot albo scena w kolorze {r["kolor"].lower()}m, '
-                  'związana z jednym z zadań powyżej.'.replace("ym m", "ym "), "44mm",
-                  plik=f'{r["nr"]}-zadania')
+        + zdjecie(f'Zdjęcie do rozdziału: przedmiot albo scena w kolorze '
+                  f'{r["kolor"].lower()[:-1]}ym, związana z jednym z zadań powyżej.',
+                  "44mm", plik=f'{r["nr"]}-zadania')
         + '</div>'
         + karta("Zrobiłem dzisiaj", linie(2), "wide")
     )
@@ -483,8 +586,8 @@ def r_moja_strona(r):
     poz = "".join(f'<li>{e(p)}</li>' for p in r["pomaga"])
     tresc_ = (
         '<span class="eyebrow">Krok 8 — tylko Twoja strona</span>'
-        f'<h2 class="h-big">Moja {e(r["emocja"].lower())}</h2>'
-        + karta("Ile jej dzisiaj było?",
+        f'<h2 class="h-big">{odmien(r, "moj")} {e(r["emocja"].lower())}</h2>'
+        + karta(f'Ile {odmien(r, "jego")} dzisiaj było?',
                 '<p class="p">Zakreśl liczbę. 1 — prawie wcale. 5 — bardzo dużo.</p>'
                 f'<div class="term">{skala}</div>', "wide")
         + '<div class="two">'
@@ -492,7 +595,8 @@ def r_moja_strona(r):
         + karta("Co pomaga mnie", '<p class="p">Wpisz swoje sposoby:</p>' + linie(4))
         + '</div>'
         + '<div class="two">'
-        + ramka_rysunek(f'Narysuj tutaj swoją {r["emocja"].lower()}', "58mm")
+        + ramka_rysunek(
+            f'Narysuj tutaj {odmien(r, "swoj")} {r["emocja"].lower()}', "58mm")
         + zdjecie(r["zdjecia"]["moja_strona"], "58mm", "WKLEJ SWOJE ZDJĘCIE")
         + '</div>'
     )
@@ -518,7 +622,7 @@ def gra_zasady():
         + '<blockquote class="mysl mysl-grzbiet">'
         f'{e(tresc.GRA_ZASADA_STOP)}</blockquote>'
     )
-    return strona(tresc_, klasa="strona-gra")
+    return strona(tresc_, klasa="strona-gra", pid="gra-zasady")
 
 
 def gra_plansza():
@@ -568,7 +672,7 @@ def gra_plansza():
                 'tę emocję — co robi twarz, ciało, głos.</p>')
         + '</div>'
     )
-    return strona(tresc_, klasa="strona-plansza")
+    return strona(tresc_, klasa="strona-plansza", pid="gra-plansza")
 
 
 def gra_karty(od, do, numer_arkusza):
@@ -585,7 +689,8 @@ def gra_karty(od, do, numer_arkusza):
         'napisem do dołu.</p>'
         f'<div class="karty">{karty}</div>'
     )
-    return strona(tresc_, klasa="strona-karty")
+    return strona(tresc_, klasa="strona-karty",
+                  pid=f"gra-karty{numer_arkusza}")
 
 
 # ── STRONY KOŃCOWE ───────────────────────────────────────────────────────────
@@ -607,7 +712,7 @@ def paleta_koncowa():
         f'<div class="paleta">{wiersze}</div>'
         + karta("Który kolor był najtrudniejszy?", linie(2), "wide")
     )
-    return strona(tresc_)
+    return strona(tresc_, pid="kon-paleta")
 
 
 def plan_trudny_dzien():
@@ -642,7 +747,7 @@ def plan_trudny_dzien():
                 '<p class="p">Gdzie idę, gdy muszę wyjść z sytuacji?</p>' + linie(2))
         + '</div>'
     )
-    return strona(tresc_)
+    return strona(tresc_, pid="kon-plan")
 
 
 def gdy_bardzo_trudno():
@@ -675,7 +780,13 @@ def gdy_bardzo_trudno():
                 'w trudnej chwili. Na przykład: „Potrzebuję pomocy. Nie daję rady sam”.</p>'
                 + linie(2), "wide")
     )
-    return strona(tresc_)
+    return strona(tresc_, pid="kon-pomoc")
+
+
+def _dyplom_nr():
+    nr = _numer()
+    _numery["kon-dyplom"] = nr
+    return nr
 
 
 def dyplom():
@@ -699,7 +810,7 @@ def dyplom():
         '<div class="dyp-pole"><div class="dyp-linia mini-l"></div>'
         '<span class="dyp-lab">podpis</span></div>'
         '</div></div></div>'
-        f'<span class="ph-nr dyp-nr">{_numer()}</span></article>'
+        + stopka_marki(_dyplom_nr()) + '</article>'
     )
 
 
@@ -716,17 +827,26 @@ def stopka_wydawcy():
             "Pokaż komuś zaufanemu swoją stronę z rysunkiem.",
         ]), "wide")
         + zdjecie("Zdjęcie zamykające: pięć kolorowych plam farby zlewających się w tęczę "
-                  "albo paleta malarska z pięcioma kolorami broszury.", "42mm",
+                  "albo paleta malarska z pięcioma kolorami broszury.", "30mm",
                   plik="koniec")
+        + '<div class="wydawca">'
+        + LOGO
+        + f'<div class="wyd-txt"><b>{e(FIRMA["skrot"])}</b>'
+        f'<span>{e(FIRMA["nazwa"])}</span>'
+        f'<span>{e(FIRMA["miasto"])}</span></div></div>'
         + '<div class="kolofon">'
         '<div class="kol-poz"><span class="kol-lab">Tytuł</span>'
         '<b>Kolorowy Świat Emocji — zeszyt ćwiczeń dla nastolatka</b></div>'
-        '<div class="kol-poz"><span class="kol-lab">Autorka</span>'
-        '<b class="uzup">[ imię i nazwisko ]</b></div>'
-        '<div class="kol-poz"><span class="kol-lab">Wydawca</span>'
-        '<b class="uzup">[ nazwa · adres ]</b></div>'
-        '<div class="kol-poz"><span class="kol-lab">Kontakt</span>'
+        + f'<div class="kol-poz"><span class="kol-lab">Autorka</span>'
+        f'<b>{e(FIRMA["autorka"])}</b></div>'
+        f'<div class="kol-poz"><span class="kol-lab">Wydawca</span>'
+        f'<b>{e(FIRMA["nazwa"])}, {e(FIRMA["miasto"])}</b></div>'
+        f'<div class="kol-poz"><span class="kol-lab">Seria</span>'
+        f'<b>{e(FIRMA["ekosystem"])}</b></div>'
+        + '<div class="kol-poz"><span class="kol-lab">Kontakt</span>'
         '<b class="uzup">[ e-mail · telefon · strona www ]</b></div>'
+        '<div class="kol-poz"><span class="kol-lab">Adres</span>'
+        '<b class="uzup">[ ulica, kod pocztowy ]</b></div>'
         '<div class="kol-poz"><span class="kol-lab">Wydanie</span>'
         '<b class="uzup">[ pierwsze · rok ]</b></div>'
         '<div class="kol-poz"><span class="kol-lab">ISBN</span>'
@@ -738,7 +858,7 @@ def stopka_wydawcy():
         '<p class="mini">Materiał edukacyjny i pomocniczy. '
         'Nie zastępuje diagnozy ani terapii prowadzonej przez specjalistę.</p>'
     )
-    return strona(tresc_)
+    return strona(tresc_, pid="kon-wydawca")
 
 
 # ── CSS ──────────────────────────────────────────────────────────────────────
@@ -752,9 +872,10 @@ CSS = """
   --atrament-3:#8B8399;
   --wlos:#E5E0EA;
   --linia:#BDB4CC;
-  --grzbiet:#4A2E86;
-  --grzbiet-jasny:#F0EAFB;
-  --c:#4A2E86; --ink:#3A2268; --txt:#FFFFFF; --tint:#F0EAFB; --tint2:#DACEF3;
+  --grzbiet:#2D1B69;
+  --grzbiet-jasny:#EFEBF8;
+  --akcent:#E8450A;
+  --c:#2D1B69; --ink:#241553; --txt:#FFFFFF; --tint:#EFEBF8; --tint2:#D3C9EC;
   --font-h:"Nunito","Trebuchet MS",sans-serif;
   --font-t:"Atkinson Hyperlegible","Verdana",sans-serif;
 }
@@ -766,15 +887,68 @@ p{margin:0}
 
 /* ── strona ─────────────────────────────────────────── */
 .page{position:relative;width:210mm;height:297mm;background:var(--papier);
-  margin:0 auto 8mm;padding:14mm 16mm 13mm;overflow:hidden;
+  margin:0 auto 8mm;padding:13mm 16mm 9mm;overflow:hidden;
   display:flex;flex-direction:column;
   box-shadow:0 2px 24px rgba(36,31,46,.16)}
-.page-body{flex:1;display:flex;flex-direction:column;gap:5mm;min-height:0}
+.page-body{flex:1;display:flex;flex-direction:column;gap:4.4mm;min-height:0}
 .page-head{display:flex;justify-content:space-between;align-items:baseline;
-  padding-bottom:2.5mm;margin-bottom:5mm;border-bottom:1.5px solid var(--tint2)}
+  padding-bottom:2.5mm;margin-bottom:4.6mm;border-bottom:1.5px solid var(--tint2)}
 .ph-ch{font-family:var(--font-h);font-weight:800;font-size:8.4pt;
   letter-spacing:.13em;color:var(--ink)}
 .ph-nr{font-family:var(--font-h);font-weight:900;font-size:12pt;color:var(--c)}
+
+/* ── stopka z marką ─────────────────────────────────── */
+.page-stopka{display:flex;align-items:center;gap:2.6mm;margin-top:3.4mm;
+  padding-top:2mm;border-top:.8px solid var(--wlos);
+  font-size:7.8pt;letter-spacing:.03em;color:var(--atrament-3)}
+.logo{width:4.8mm;height:4.8mm;flex:0 0 auto;display:block}
+.st-nazwa{flex:1;min-width:0}
+.page-stopka{align-items:center}
+.st-nazwa b{font-family:var(--font-h);font-weight:900;color:var(--grzbiet);
+  letter-spacing:.06em;margin-right:1.5mm}
+.st-kropki{flex:0 0 auto;width:8mm}
+.st-nr{font-family:var(--font-h);font-weight:900;font-size:12pt;
+  color:var(--grzbiet);font-variant-numeric:tabular-nums;
+  min-width:8mm;text-align:right}
+.rozdzial-otw .st-nr{color:var(--ink)}
+.rozdzial-otw .page-stopka{margin-top:3mm;border-top-color:var(--tint2)}
+.dyplom .page-stopka{position:absolute;left:15mm;right:15mm;bottom:5mm;
+  margin:0;border:0}
+.dyp-nr{display:none}
+
+/* ── spis treści ────────────────────────────────────── */
+.sp-grupa{display:flex;flex-direction:column;gap:1.4mm}
+.sp-naglowek{font-family:var(--font-h);font-weight:800;font-size:9pt;
+  letter-spacing:.15em;text-transform:uppercase;color:var(--grzbiet);
+  margin:0;padding-bottom:1.4mm;border-bottom:2px solid var(--grzbiet-jasny)}
+.spis{list-style:none;margin:0;padding:0;display:flex;flex-direction:column}
+.sp-w{display:flex;align-items:baseline;gap:2.5mm;padding:1mm 0;
+  border-bottom:.6px solid var(--wlos)}
+.sp-w:last-child{border-bottom:0}
+.sp-t{font-size:10.4pt;line-height:1.3}
+.sp-kropki{flex:1;border-bottom:1px dotted var(--atrament-3);
+  transform:translateY(-1mm);min-width:6mm}
+.sp-nr{font-family:var(--font-h);font-weight:900;font-size:11pt;
+  color:var(--grzbiet);font-variant-numeric:tabular-nums;min-width:7mm;
+  text-align:right}
+.sp-roz{align-items:center;padding:1.5mm 0}
+.sp-chip{width:5mm;height:5mm;background:var(--c);flex:0 0 auto;
+  box-shadow:inset 0 0 0 .8px rgba(0,0,0,.12)}
+.sp-roz .sp-t{display:flex;flex-direction:column;gap:.4mm}
+.sp-roz .sp-t b{font-family:var(--font-h);font-weight:900;font-size:12.4pt;
+  color:var(--ink)}
+.sp-roz .sp-t i{font-style:normal;font-size:8.8pt;color:var(--atrament-3)}
+.sp-roz .sp-nr{color:var(--ink)}
+.strona-spis .page-body{gap:2.6mm}
+.strona-spis .lead{font-size:11.4pt}
+
+/* ── blok wydawcy ───────────────────────────────────── */
+.wydawca{display:flex;align-items:center;gap:4mm}
+.wydawca .logo{width:14mm;height:14mm}
+.wyd-txt{display:flex;flex-direction:column;line-height:1.35}
+.wyd-txt b{font-family:var(--font-h);font-weight:900;font-size:15pt;
+  color:var(--grzbiet);letter-spacing:.08em}
+.wyd-txt span{font-size:9.6pt;color:var(--atrament-2)}
 
 /* ── typografia ─────────────────────────────────────── */
 .eyebrow{font-family:var(--font-h);font-weight:800;font-size:8.6pt;
@@ -792,8 +966,10 @@ p{margin:0}
 .chipcard-tab{font-family:var(--font-h);font-weight:800;font-size:9.6pt;
   letter-spacing:.06em;text-transform:uppercase;color:#fff;background:var(--ink);
   margin:0;padding:1.6mm 5mm 1.4mm}
-.chipcard-body{width:100%;background:var(--tint);border:1.5px solid var(--tint2);
-  padding:4mm 5mm;display:flex;flex-direction:column;gap:2.5mm}
+.chipcard-body{width:100%;background:var(--tint);
+  border:.6px solid color-mix(in srgb,var(--ink) 45%,transparent);
+  box-shadow:inset 0 0 0 1.2px #fff,inset 0 0 0 1.9px var(--tint2);
+  padding:4.4mm 5.4mm;display:flex;flex-direction:column;gap:2.5mm}
 .two{display:grid;grid-template-columns:1fr 1fr;gap:5mm;align-items:stretch}
 .trzy{display:grid;grid-template-columns:repeat(3,1fr);gap:4mm;align-items:stretch}
 .wide{width:100%}
@@ -819,6 +995,7 @@ ol.numer::marker{font-weight:700}
   font-weight:900;font-size:10pt;align-self:flex-start}
 
 .mysl{margin:0;padding:4mm 6mm;background:var(--ink);color:#fff;
+  box-shadow:inset 0 0 0 1px rgba(255,255,255,.28),inset 0 0 0 2.4px var(--ink);
   font-family:var(--font-h);font-weight:800;font-size:13pt;line-height:1.42;
   text-wrap:balance}
 
@@ -901,7 +1078,7 @@ ol.numer::marker{font-weight:700}
 .rot-kolor{font-family:var(--font-h);font-weight:700;font-size:14pt;opacity:.9}
 .rot-dol{flex:1;padding:9mm 16mm 11mm;display:flex;flex-direction:column;gap:5mm;
   min-height:0}
-.rot-stopka{display:flex;justify-content:space-between;align-items:baseline;
+.rot-stopka{display:flex;justify-content:flex-end;align-items:baseline;
   border-top:1.5px solid var(--tint2);padding-top:3mm;margin-top:auto}
 .rot-dol .photo,.rot-dol .photo-ma{flex:1 1 auto;height:auto;min-height:58mm}
 .rot-haslo{font-family:var(--font-h);font-weight:900;font-size:19pt;line-height:1.25;
@@ -1026,8 +1203,8 @@ ol.numer::marker{font-weight:700}
 .dyp-nr{position:absolute;left:15mm;bottom:9mm}
 
 /* ── kolofon ────────────────────────────────────────── */
-.kolofon{display:grid;grid-template-columns:1fr 1fr;gap:3mm 6mm;
-  border-top:2px solid var(--wlos);border-bottom:2px solid var(--wlos);padding:4mm 0}
+.kolofon{display:grid;grid-template-columns:1fr 1fr;gap:2.2mm 6mm;
+  border-top:2px solid var(--wlos);border-bottom:2px solid var(--wlos);padding:3mm 0}
 .kol-lab{display:block;font-size:8.6pt;letter-spacing:.14em;text-transform:uppercase;
   color:var(--atrament-3)}
 .kol-poz b{font-family:var(--font-h);font-weight:800;font-size:11pt}
@@ -1040,7 +1217,8 @@ ol.numer::marker{font-weight:700}
   .page{margin:0;box-shadow:none;break-after:page;page-break-after:always}
   .page:last-child{break-after:auto;page-break-after:auto}
   .photo,.draw,.term-p,.chipcard-tab,.mysl,.krok-nr,.cover,.rot-plama,
-  .pal-chip,.dyp-chipy span,.cover-chip,.pole,.leg-poz i,.dyp-pasek span{
+  .pal-chip,.dyp-chipy span,.cover-chip,.pole,.leg-poz i,.dyp-pasek span,
+  .logo,.logo rect,.logo circle,.sp-chip,.chipcard-body{
     -webkit-print-color-adjust:exact;print-color-adjust:exact}
 }
 @media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
@@ -1049,16 +1227,14 @@ ol.numer::marker{font-weight:700}
 
 # ── składanie dokumentu ──────────────────────────────────────────────────────
 
-def zbuduj():
-    # najpierw policz, na której stronie zaczyna się każdy rozdział
-    start = 7  # okładka nienumerowana + 6 stron wstępnych
-    for r in tresc.ROZDZIALY:
-        r["_str"] = start
-        start += 8
-
+def _zloz():
+    """Składa wszystkie strony. Wołane dwa razy: pierwszy przebieg zbiera
+    numery stron, drugi wstawia je do spisu treści i mapy kolorów."""
+    _stan["nr"] = 0
     strony = [
         okladka(),
         strona_tytulowa(),
+        spis_tresci(),
         jak_korzystac_ty(),
         jak_korzystac_doroslego(),
         poznaj_bohaterow(),
@@ -1082,6 +1258,14 @@ def zbuduj():
         stopka_wydawcy(),
     ]
 
+    return strony
+
+
+def zbuduj():
+    _zloz()             # przebieg 1: zbiera numery stron
+    strony = _zloz()    # przebieg 2: spis treści i mapa mają już numery
+
+    # kroje pobierane z sieci tylko wtedy, gdy nie ma osadzonych
     zapas = (
         '<link rel="preconnect" href="https://fonts.googleapis.com">\n'
         '<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>\n'
@@ -1089,6 +1273,7 @@ def zbuduj():
         'family=Atkinson+Hyperlegible:wght@400;700&'
         'family=Nunito:wght@700;800;900&display=swap">\n'
     ) if not CSS_FONTY else ""
+
     glowa = (
         f"<title>{e(tresc.TYTUL)}</title>\n"
         f"{zapas}"
