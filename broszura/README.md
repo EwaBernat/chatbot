@@ -1,6 +1,7 @@
 # Kolorowy Świat Emocji
 
-Zeszyt ćwiczeń dla nastolatka — 52 strony A4, pięć emocji, pięć kolorów.
+Zeszyt ćwiczeń dla nastolatka — 56 stron A4, pięć emocji, pięć kolorów,
+plus gra planszowa do wycięcia.
 Materiał gotowy do druku i do sprzedaży.
 
 ## Co jest w środku
@@ -14,7 +15,9 @@ Materiał gotowy do druku i do sprzedaży.
 | 23–30 | **Czerwony — Złość** |
 | 31–38 | **Różowy — Wstyd** |
 | 39–46 | **Szary — Lęk** |
-| 47–51 | moja paleta emocji, plan na trudny dzień, gdy jest bardzo trudno, dyplom, strona wydawcy |
+| 47 | moja paleta emocji |
+| 48–51 | **gra „Ścieżka Kolorów”** — zasady, plansza, dwa arkusze kart do wycięcia |
+| 52–55 | plan na trudny dzień, gdy jest bardzo trudno, dyplom, strona wydawcy |
 
 Każdy rozdział ma **zawsze ten sam układ ośmiu stron** — przewidywalność jest
 tu elementem terapeutycznym, nie ozdobnikiem:
@@ -28,6 +31,22 @@ tu elementem terapeutycznym, nie ozdobnikiem:
 7. Zadania na trzech poziomach trudności
 8. Moja strona (termometr emocji, rysunek, własne zdjęcie)
 
+## Gra „Ścieżka Kolorów”
+
+Planszówka dla 2–4 osób na stronach 48–51. Potrzebne: kostka, pionki
+(wystarczą guziki) i talia 24 kart wyciętych ze stron 50–51.
+
+Gracze idą po 30 polach w pięciu kolorach. Na każdym polu mówi się jedno
+zdanie o emocji w tym kolorze; sześć pól z gwiazdką każe wziąć kartę.
+Karty są trzech rodzajów: **Sytuacja** (nazwij kolor), **Pokaż** (odegraj
+emocję mimiką), **Opowiedz** (podziel się swoim doświadczeniem).
+
+Obowiązuje zasada „pas”: każdy może nie odpowiadać, bez tłumaczenia się.
+Na stronie z planszą są też wersja łatwiejsza i trudniejsza.
+
+Treść kart i zasad zmienia się w `tresc.py` — zmienne `GRA_KARTY`,
+`GRA_ZASADY`, `GRA_POTRZEBNE`.
+
 ## Jak otworzyć i wydrukować
 
 1. Otwórz `kolorowy-swiat-emocji.html` w przeglądarce (dwuklik).
@@ -38,6 +57,9 @@ tu elementem terapeutycznym, nie ozdobnikiem:
    - **zaznacz** „Grafika tła” / „Background graphics” — bez tego znikną kolory,
    - skala **100 %**.
 4. Aby zrobić PDF, wybierz „Zapisz jako PDF” zamiast drukarki.
+
+Arkusze kart (strony 50–51) warto wydrukować na grubszym papierze
+albo nakleić na karton — będą dłużej służyć.
 
 Plik jest samowystarczalny: kroje pisma i wszystkie zdjęcia są w nim osadzone.
 Działa bez internetu i można go wysłać jednym załącznikiem.
@@ -114,6 +136,11 @@ Oba kroje są osadzone w pliku HTML — nie trzeba ich instalować.
 Na ostatniej stronie zostały pola w nawiasach kwadratowych: autorka, wydawca,
 kontakt, wydanie, ISBN. Wpisz je w `generuj.py` w funkcji `stopka_wydawcy()`
 albo bezpośrednio w gotowym HTML.
+
+Na stronie „Gdy jest bardzo trudno” nie ma numerów telefonów — są tam puste
+pola, które nastolatek wypełnia sam razem z dorosłym. Jeśli chcesz podać
+konkretne numery wsparcia, dopisz je w `generuj.py` w funkcji
+`gdy_bardzo_trudno()`.
 
 ## Pliki
 

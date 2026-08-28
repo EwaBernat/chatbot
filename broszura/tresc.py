@@ -649,3 +649,66 @@ POSTACIE = [
     ("Kuzyn Franek", "7 lat", "Bywa u Rajmunda w czwartki. Czasem coś zepsuje. Nie robi tego złośliwie."),
     ("Pani Zofia", "nauczycielka", "Uczy Rajmunda. Uprzedza o zmianach w planie, bo wie, że to ważne."),
 ]
+
+
+# ── Gra: Ścieżka Kolorów ─────────────────────────────────────────────────────
+GRA_TYTUL = "Ścieżka Kolorów"
+GRA_PODTYTUL = "Gra o emocjach dla 2–4 osób"
+
+GRA_POTRZEBNE = [
+    "Plansza z następnej strony.",
+    "Talia kart — wytnij ją z dwóch kolejnych stron.",
+    "Jedna kostka do gry.",
+    "Pionek dla każdego gracza. Może być guzik albo moneta.",
+]
+
+GRA_ZASADY = [
+    ("Ustawcie pionki na polu START",
+     "Zaczyna ten, kto ostatni się dziś roześmiał."),
+    ("Rzuć kostką i przesuń pionek",
+     "Idziesz po kolei, zgodnie z numerami pól."),
+    ("Sprawdź kolor pola",
+     "Powiedz jednym zdaniem, kiedy ostatnio czułeś tę emocję. "
+     "Żółty to radość, niebieski smutek, czerwony złość, "
+     "różowy wstyd, szary lęk."),
+    ("Pole z gwiazdką? Weź kartę",
+     "Przeczytaj ją na głos i zrób to, co na niej napisano."),
+    ("Kolejka przechodzi dalej",
+     "Nikt nie ocenia odpowiedzi. Nie ma dobrych i złych."),
+    ("Gra kończy się, gdy wszyscy dojdą do METY",
+     "Pierwszy na mecie wygrywa, ale gramy do końca — "
+     "bo chodzi o rozmowę, nie o wyścig."),
+]
+
+GRA_ZASADA_STOP = (
+    "Zawsze możesz powiedzieć „pas”. Wtedy nie odpowiadasz i przesuwasz się "
+    "dalej. Nie musisz tego tłumaczyć. Nikt nie pyta dlaczego."
+)
+
+# karty: (rodzaj, treść)
+GRA_KARTY = [
+    ("Sytuacja", "Ktoś zabrał Twoją rzecz bez pytania. Jaki to kolor?"),
+    ("Sytuacja", "Dostałeś ocenę lepszą, niż się spodziewałeś. Jaki to kolor?"),
+    ("Sytuacja", "Jutro jedziesz w miejsce, którego nie znasz. Jaki to kolor?"),
+    ("Sytuacja", "Pomyliłeś się przy całej klasie. Jaki to kolor?"),
+    ("Sytuacja", "Twój przyjaciel się wyprowadza. Jaki to kolor?"),
+    ("Sytuacja", "Coś nie działa mimo dziesiątej próby. Jaki to kolor?"),
+    ("Sytuacja", "Ktoś powiedział, że dobrze Ci poszło. Jaki to kolor?"),
+    ("Sytuacja", "Plan dnia zmienił się bez uprzedzenia. Jaki to kolor?"),
+    ("Sytuacja", "Ktoś nagrał Cię telefonem bez pytania. Jaki to kolor?"),
+    ("Sytuacja", "Wracasz do domu po dobrym dniu. Jaki to kolor?"),
+    ("Sytuacja", "W stołówce jest bardzo głośno i tłoczno. Jaki to kolor?"),
+    ("Sytuacja", "Nikt nie usiadł obok Ciebie w autobusie. Jaki to kolor?"),
+    ("Pokaż", "Pokaż samą twarzą radość. Inni zgadują, co to za emocja."),
+    ("Pokaż", "Pokaż złość — ale bez słów i bez dotykania nikogo."),
+    ("Pokaż", "Pokaż lęk. Zwróć uwagę na ramiona i dłonie."),
+    ("Pokaż", "Pokaż smutek. Zwróć uwagę na plecy i wzrok."),
+    ("Pokaż", "Pokaż wstyd. Co robi Twoja głowa?"),
+    ("Pokaż", "Pokaż emocję, którą sam wybierzesz. Inni zgadują."),
+    ("Opowiedz", "Opowiedz o czymś, co ostatnio Cię ucieszyło."),
+    ("Opowiedz", "Opowiedz, co Cię uspokaja, gdy jest za dużo bodźców."),
+    ("Opowiedz", "Opowiedz o kimś, kto potrafi Cię wysłuchać."),
+    ("Opowiedz", "Opowiedz, po czym poznajesz, że ktoś obok jest smutny."),
+    ("Opowiedz", "Opowiedz o czymś, czego bałeś się rok temu, a dziś już nie."),
+    ("Opowiedz", "Powiedz jednej osobie przy stole coś miłego."),
+]

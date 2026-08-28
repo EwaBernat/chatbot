@@ -499,6 +499,95 @@ def r_moja_strona(r):
     return strona(tresc_, r, "strona-moja")
 
 
+# ── GRA: ŚCIEŻKA KOLORÓW ─────────────────────────────────────────────────────
+
+def gra_zasady():
+    potrzebne = "".join(f"<li>{e(x)}</li>" for x in tresc.GRA_POTRZEBNE)
+    kroki = "".join(
+        f'<li class="krok"><span class="krok-nr">{i}</span>'
+        f'<div><b>{e(t)}</b><p class="p">{e(o)}</p></div></li>'
+        for i, (t, o) in enumerate(tresc.GRA_ZASADY, start=1)
+    )
+    tresc_ = (
+        '<span class="eyebrow">Gra</span>'
+        f'<h2 class="h-big">{e(tresc.GRA_TYTUL)}</h2>'
+        f'<p class="lead">{e(tresc.GRA_PODTYTUL)}. Przejdźcie razem przez pięć kolorów '
+        'i porozmawiajcie o tym, co każdy z nich znaczy u Was.</p>'
+        + karta("Co jest potrzebne", f'<ul class="tick">{potrzebne}</ul>', "wide")
+        + f'<ol class="kroki">{kroki}</ol>'
+        + '<blockquote class="mysl mysl-grzbiet">'
+        f'{e(tresc.GRA_ZASADA_STOP)}</blockquote>'
+    )
+    return strona(tresc_, klasa="strona-gra")
+
+
+def gra_plansza():
+    """Plansza: 30 pól ułożonych wężem, sześć pól z gwiazdką."""
+    # gwiazdki rozłożone tak, by wypadły na każdym z pięciu kolorów
+    Z_GWIAZDKA = {6, 10, 12, 18, 21, 24}
+    kolory = [(r["hex"], r["ink"], r["txt"], r["emocja"]) for r in tresc.ROZDZIALY]
+    pola = []
+    for nr in range(1, 31):
+        hexc, ink, txt, emocja = kolory[(nr - 1) % 5]
+        gwiazdka = nr in Z_GWIAZDKA
+        etykieta = "START" if nr == 1 else ("META" if nr == 30 else str(nr))
+        klasa = "pole" + (" pole-krancowe" if nr in (1, 30) else "")
+        pola.append(
+            f'<div class="{klasa}" style="--c:{hexc};--txt:{txt}" '
+            f'aria-label="pole {nr}, {emocja}">'
+            f'<span class="pole-nr">{etykieta}</span>'
+            + ('<span class="pole-gwiazdka">\u2605</span>' if gwiazdka else "")
+            + "</div>"
+        )
+    # wąż: co drugi rząd odwrócony
+    rzedy = []
+    for i in range(0, 30, 6):
+        wiersz = pola[i:i + 6]
+        if (i // 6) % 2 == 1:
+            wiersz = list(reversed(wiersz))
+        rzedy.append('<div class="plansza-rzad">' + "".join(wiersz) + "</div>")
+
+    legenda = "".join(
+        f'<span class="leg-poz"><i style="background:{r["hex"]}"></i>{e(r["emocja"])}</span>'
+        for r in tresc.ROZDZIALY
+    )
+    tresc_ = (
+        '<span class="eyebrow">Gra — plansza</span>'
+        f'<h2 class="h-big">{e(tresc.GRA_TYTUL)}</h2>'
+        '<p class="lead">Idźcie po numerach. Na każdym polu powiedzcie jedno zdanie '
+        'o emocji w tym kolorze.</p>'
+        f'<div class="plansza">{"".join(rzedy)}</div>'
+        f'<div class="legenda">{legenda}'
+        '<span class="leg-poz"><i class="leg-gwiazdka">\u2605</i>weź kartę</span></div>'
+        + '<div class="two">'
+        + karta("Wersja łatwiejsza",
+                '<p class="p">Zamiast opowiadać, wystarczy nazwać kolor i emocję. '
+                'Karty odkładacie na bok.</p>')
+        + karta("Wersja trudniejsza",
+                '<p class="p">Na każdym polu dodajcie, po czym inni poznaliby po Was '
+                'tę emocję — co robi twarz, ciało, głos.</p>')
+        + '</div>'
+    )
+    return strona(tresc_, klasa="strona-plansza")
+
+
+def gra_karty(od, do, numer_arkusza):
+    karty = "".join(
+        f'<div class="karta"><span class="karta-typ">{e(rodzaj)}</span>'
+        f'<p class="karta-tresc">{e(tekst)}</p>'
+        f'<span class="karta-stopka">{e(tresc.GRA_TYTUL)}</span></div>'
+        for rodzaj, tekst in tresc.GRA_KARTY[od:do]
+    )
+    tresc_ = (
+        f'<span class="eyebrow">Gra — karty {numer_arkusza} z 2</span>'
+        '<h2 class="h-big">Karty do wycięcia</h2>'
+        '<p class="lead">Wytnij wzdłuż linii. Potasuj i połóż obok planszy '
+        'napisem do dołu.</p>'
+        f'<div class="karty">{karty}</div>'
+    )
+    return strona(tresc_, klasa="strona-karty")
+
+
 # ── STRONY KOŃCOWE ───────────────────────────────────────────────────────────
 
 def paleta_koncowa():
@@ -568,16 +657,19 @@ def gdy_bardzo_trudno():
             "myślisz o zrobieniu sobie krzywdy,",
             "nie chce Ci się już nic, co wcześniej lubiłeś.",
         ]), "wide")
-        + '<div class="pomoc">'
-        '<div class="pomoc-poz"><b>116 111</b>'
-        '<span>Telefon zaufania dla dzieci i młodzieży. Czynny całą dobę. Bezpłatny.</span></div>'
-        '<div class="pomoc-poz"><b>800 70 2222</b>'
-        '<span>Centrum wsparcia dla osób w kryzysie psychicznym. Całą dobę. Bezpłatny.</span></div>'
-        '<div class="pomoc-poz"><b>112</b>'
-        '<span>Numer alarmowy, gdy życie lub zdrowie jest zagrożone.</span></div>'
-        '</div>'
-        '<p class="mini">Numery obowiązują w Polsce. Wpisz też numer do swojego '
-        'terapeuty lub pedagoga szkolnego:</p>' + linie(1)
+        + karta("Moje kontakty na trudny czas",
+                '<p class="p">Wpisz je teraz, kiedy jest spokojnie. '
+                'W trudnej chwili nie będzie czasu szukać.</p>'
+                '<div class="kontakty">'
+                f'<div><span class="os-lab">Osoba dorosła, której ufam</span>{linie(1)}'
+                f'<span class="os-lab">Telefon</span>{linie(1)}</div>'
+                f'<div><span class="os-lab">Pedagog albo psycholog szkolny</span>{linie(1)}'
+                f'<span class="os-lab">Telefon</span>{linie(1)}</div>'
+                f'<div><span class="os-lab">Mój terapeuta</span>{linie(1)}'
+                f'<span class="os-lab">Telefon</span>{linie(1)}</div>'
+                f'<div><span class="os-lab">Telefon zaufania w moim kraju</span>{linie(1)}'
+                f'<span class="os-lab">Numer</span>{linie(1)}</div>'
+                '</div>', "wide")
         + karta("Zdanie, którym mogę poprosić o pomoc",
                 '<p class="p">Ułóż je teraz, na spokojnie. Wtedy łatwiej będzie je powiedzieć '
                 'w trudnej chwili. Na przykład: „Potrzebuję pomocy. Nie daję rady sam”.</p>'
@@ -885,12 +977,32 @@ ol.numer::marker{font-weight:700}
 .osoby-3{display:grid;grid-template-columns:repeat(3,1fr);gap:5mm}
 .os-lab{display:block;font-size:9pt;letter-spacing:.08em;text-transform:uppercase;
   color:var(--atrament-3);margin-top:1.5mm}
-.pomoc{display:flex;flex-direction:column;gap:3mm}
-.pomoc-poz{display:flex;gap:6mm;align-items:baseline;border:2px solid var(--grzbiet);
-  padding:3.5mm 5mm;background:var(--grzbiet-jasny)}
-.pomoc-poz b{font-family:var(--font-h);font-weight:900;font-size:19pt;color:var(--grzbiet);
-  white-space:nowrap;font-variant-numeric:tabular-nums}
-.pomoc-poz span{font-size:10.4pt;line-height:1.5}
+.kontakty{display:grid;grid-template-columns:1fr 1fr;gap:2mm 8mm}
+
+/* ── gra: plansza i karty ───────────────────────────── */
+.mysl-grzbiet{background:var(--grzbiet)}
+.plansza{display:flex;flex-direction:column;gap:2.5mm}
+.plansza-rzad{display:grid;grid-template-columns:repeat(6,1fr);gap:2.5mm}
+.pole{position:relative;aspect-ratio:1;background:var(--c);color:var(--txt);
+  display:grid;place-items:center}
+.pole-nr{font-family:var(--font-h);font-weight:900;font-size:15pt}
+.pole-krancowe .pole-nr{font-size:9.5pt;letter-spacing:.08em}
+.pole-gwiazdka{position:absolute;right:1.6mm;bottom:1mm;font-size:9pt;opacity:.9}
+.legenda{display:flex;flex-wrap:wrap;gap:2.5mm 6mm;align-items:center;
+  border-top:1.5px solid var(--wlos);padding-top:3mm}
+.leg-poz{display:inline-flex;align-items:center;gap:2mm;font-size:10pt}
+.leg-poz i{width:5mm;height:5mm;display:block;font-style:normal}
+.leg-gwiazdka{display:grid!important;place-items:center;background:var(--atrament);
+  color:#fff;font-size:7pt}
+.karty{display:grid;grid-template-columns:repeat(3,1fr);gap:0}
+.karta{border:1.2px dashed var(--atrament-3);padding:5mm 4.5mm;min-height:44mm;
+  display:flex;flex-direction:column;gap:2.5mm;margin:-0.6px 0 0 -0.6px}
+.karta-typ{font-family:var(--font-h);font-weight:900;font-size:8pt;
+  letter-spacing:.16em;text-transform:uppercase;color:var(--grzbiet)}
+.karta-tresc{font-size:10.6pt;line-height:1.5;flex:1}
+.karta-stopka{font-size:7.4pt;letter-spacing:.1em;text-transform:uppercase;
+  color:var(--atrament-3)}
+.strona-karty .page-body{gap:4mm}
 
 /* ── dyplom ─────────────────────────────────────────── */
 .dyplom{padding:15mm;display:flex}
@@ -928,7 +1040,7 @@ ol.numer::marker{font-weight:700}
   .page{margin:0;box-shadow:none;break-after:page;page-break-after:always}
   .page:last-child{break-after:auto;page-break-after:auto}
   .photo,.draw,.term-p,.chipcard-tab,.mysl,.krok-nr,.cover,.rot-plama,
-  .pal-chip,.dyp-chipy span,.cover-chip{
+  .pal-chip,.dyp-chipy span,.cover-chip,.pole,.leg-poz i,.dyp-pasek span{
     -webkit-print-color-adjust:exact;print-color-adjust:exact}
 }
 @media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
@@ -960,6 +1072,10 @@ def zbuduj():
         ]
     strony += [
         paleta_koncowa(),
+        gra_zasady(),
+        gra_plansza(),
+        gra_karty(0, 12, 1),
+        gra_karty(12, 24, 2),
         plan_trudny_dzien(),
         gdy_bardzo_trudno(),
         dyplom(),
