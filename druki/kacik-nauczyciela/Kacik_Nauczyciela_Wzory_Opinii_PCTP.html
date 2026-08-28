@@ -1,0 +1,915 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+<meta charset="utf-8">
+<title>Kącik nauczyciela · Wzory opinii o uczniu · EduPlaner 2026</title>
+<style>
+  :root{
+    --fiolet:#2D1B69;
+    --fiolet-2:#4D3D80;
+    --pomarancz:#E8450A;
+    --pole:#F6F3FB;
+    --ramka:#D9CFEE;
+    --ramka-2:#CABCE8;
+    --kropki:#B3A1D8;
+    --wiersz:#FAF7F2;
+    --zazn:#FDECE4;
+    --szary:#6B6B7B;
+    --szary-2:#9A94A8;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{
+    font-family:Arial,"Helvetica Neue",Helvetica,sans-serif;
+    font-size:7.6pt; line-height:1.32; color:#221a3d; background:#e9e7ee;
+    -webkit-print-color-adjust:exact; print-color-adjust:exact;
+  }
+  .page{
+    position:relative; width:210mm; min-height:297mm; margin:0 auto 8mm;
+    padding:11mm 10mm 13mm; background:#fff; display:flex; flex-direction:column;
+    box-shadow:0 2px 10px rgba(45,27,105,.18);
+  }
+
+  /* ——— nagłówek ——— */
+  .naglowek{display:flex; align-items:flex-start; justify-content:space-between; gap:6mm}
+  .marka{display:flex; align-items:center; gap:3.2mm}
+  .logo{width:11.4mm; height:11.4mm; flex:none; display:block}
+  .logo svg{width:100%; height:100%; display:block}
+  .marka-nazwa{font-size:12.5pt; font-weight:bold; color:var(--fiolet); letter-spacing:-.2px; line-height:1.05}
+  .marka-opis{font-size:5.6pt; font-weight:bold; color:var(--szary); letter-spacing:1.1px; text-transform:uppercase; margin-top:1mm; max-width:52mm}
+  .naglowek-prawy{text-align:right; padding-top:.6mm}
+  .plakietka{
+    display:inline-block; background:var(--pomarancz); color:#fff; border-radius:999px;
+    padding:1.3mm 3.4mm; font-size:6.2pt; font-weight:bold; letter-spacing:.7px; text-transform:uppercase;
+  }
+  .naglowek-podpis{font-size:5.6pt; font-weight:bold; color:var(--szary-2); letter-spacing:1.1px; margin-top:1.6mm; text-transform:uppercase}
+  .belka{height:1.1mm; margin:2.6mm 0 3mm; background:linear-gradient(90deg,var(--fiolet) 0 55%,var(--pomarancz) 55% 100%)}
+
+  /* ——— pasek metryczki ——— */
+  .metryczka{display:flex; gap:2.4mm; margin-bottom:3.4mm}
+  .metryczka .box{
+    border:1px solid var(--ramka); border-radius:2.4mm; background:#FDFCFE;
+    padding:2mm 3mm; display:flex; align-items:baseline; gap:2mm; min-height:9mm;
+  }
+  .metryczka .box:nth-child(1){flex:2.2}
+  .metryczka .box:nth-child(2){flex:1.5}
+  .metryczka .box:nth-child(3){flex:1.3}
+  .metryczka .etykieta{font-size:5.8pt; font-weight:bold; color:var(--fiolet); letter-spacing:1px; text-transform:uppercase; white-space:nowrap}
+  .metryczka .wypelnij{flex:1; border-bottom:1.2px dotted var(--kropki); height:3.4mm}
+  .metryczka .wartosc{font-size:8.5pt; color:var(--fiolet); font-weight:normal}
+
+  /* ——— tytuł dokumentu ——— */
+  .wstega{text-align:center; margin:1mm 0 3mm}
+  .wstega span{
+    display:inline-block; background:var(--pomarancz); color:#fff; border-radius:999px;
+    padding:1.4mm 4mm; font-size:6.2pt; font-weight:bold; letter-spacing:1.1px; text-transform:uppercase;
+  }
+  .tytul{text-align:center; font-size:19pt; font-weight:bold; color:var(--fiolet); letter-spacing:.3px}
+  .podtytul{text-align:center; font-size:10pt; font-weight:bold; color:var(--pomarancz); margin-top:1.4mm}
+  .kody{display:flex; align-items:center; justify-content:center; gap:3mm; margin:3mm 0 5mm}
+  .kody .kreska{width:22mm; height:1px; background:var(--pomarancz)}
+  .kody .tresc{font-size:7.4pt; font-weight:bold; color:var(--fiolet); letter-spacing:2.6px}
+
+  /* ——— sekcje ——— */
+  .sekcja{display:flex; align-items:center; gap:2.6mm; margin:4.5mm 0 2.4mm}
+  .sekcja:first-of-type{margin-top:1mm}
+  .numer{
+    width:5.2mm; height:5.2mm; border-radius:1.2mm; background:var(--fiolet); color:#fff;
+    display:flex; align-items:center; justify-content:center; font-size:6.2pt; font-weight:bold; flex:none;
+  }
+  .numer.pom{background:var(--pomarancz)}
+  .sekcja h2{font-size:9.6pt; font-weight:bold; color:var(--fiolet); letter-spacing:.4px; text-transform:uppercase; white-space:nowrap}
+  .sekcja .linia{flex:1; height:1px; background:#E6DFF4}
+  .sekcja .tag{
+    background:#F3EDFB; border:1px solid var(--ramka-2); color:var(--fiolet);
+    border-radius:999px; padding:.7mm 2.4mm; font-size:6pt; font-weight:bold; letter-spacing:.5px;
+  }
+  .wstep{font-size:7pt; color:var(--fiolet-2); margin:0 0 2.6mm 8mm; line-height:1.4}
+
+  /* ——— pola do wypełnienia ——— */
+  .pole{
+    background:var(--pole); border:1px solid var(--ramka); border-radius:2.4mm;
+    padding:1.8mm 3mm 2.2mm; margin-bottom:2mm;
+  }
+  .pole > label,.pole .etykieta{
+    display:block; font-size:5.8pt; font-weight:bold; color:var(--fiolet);
+    letter-spacing:1.1px; text-transform:uppercase;
+  }
+  .pole .tresc{font-size:7.6pt; color:#221a3d; margin-top:1.2mm}
+  .linijki{margin-top:1.4mm}
+  .linijki div{border-bottom:1.2px dotted var(--kropki); height:4.6mm}
+  .linijki.w1 div:last-child,.linijki div:last-child{border-bottom:1.2px dotted var(--kropki)}
+  .siatka2{display:flex; gap:2.4mm}
+  .siatka2 > *{flex:1}
+  .siatka3{display:flex; gap:2.4mm}
+  .siatka3 > *{flex:1}
+
+  /* ——— tabele ——— */
+  table{width:100%; border-collapse:collapse; margin-bottom:2mm}
+  th{
+    background:var(--fiolet); color:#fff; font-size:6.2pt; font-weight:bold; letter-spacing:.7px;
+    text-transform:uppercase; text-align:left; padding:2mm 2.2mm; border:1px solid var(--fiolet);
+  }
+  td{border:1px solid var(--ramka); padding:2mm 2.2mm; vertical-align:top; font-size:7.2pt; height:8mm}
+  tbody tr:nth-child(even) td{background:var(--wiersz)}
+  td.klucz{font-weight:bold; color:var(--fiolet)}
+  td.puste{color:var(--kropki)}
+  td.puste::after{content:"................"; letter-spacing:.4px}
+  td.lp{text-align:center; font-weight:bold; color:var(--pomarancz); width:7mm}
+  .tab-mala td{height:6.4mm}
+
+  /* ——— pola wyboru ——— */
+  .wybor-tytul{display:flex; align-items:center; gap:2mm; margin:3.4mm 0 1.8mm}
+  .wybor-tytul .kropka{width:2.2mm; height:2.2mm; border-radius:.6mm; background:var(--pomarancz); flex:none}
+  .wybor-tytul span{font-size:6.4pt; font-weight:bold; color:var(--fiolet); letter-spacing:.8px; text-transform:uppercase}
+  .wybory{display:flex; flex-wrap:wrap; gap:2mm}
+  .wybor{
+    flex:1 1 calc(50% - 1mm); display:flex; align-items:center; gap:2.4mm;
+    border:1px solid var(--ramka); border-radius:2.4mm; padding:2.2mm 3mm; background:#fff; font-size:7.4pt;
+  }
+  .wybor.w3{flex:1 1 calc(33.33% - 1.4mm)}
+  .wybor.pelny{flex:1 1 100%}
+  .kwadrat{
+    width:3.4mm; height:3.4mm; border:1.2px solid var(--kropki); border-radius:.8mm; flex:none;
+    display:flex; align-items:center; justify-content:center; font-size:6.4pt; color:transparent;
+  }
+  .wybor.zazn{background:var(--zazn); border-color:var(--pomarancz)}
+  .wybor.zazn .kwadrat{background:var(--pomarancz); border-color:var(--pomarancz); color:#fff}
+  .wybor .dopisz{flex:1; border-bottom:1.2px dotted var(--kropki); height:3.4mm; margin-left:1mm}
+
+  /* ——— karty skali ——— */
+  .karty{display:flex; gap:2.4mm; margin:2.4mm 0}
+  .karta{flex:1; border-radius:2.4mm; padding:2.6mm; text-align:center}
+  .karta .duza{font-size:11pt; font-weight:bold}
+  .karta .opis{font-size:5.8pt; font-weight:bold; letter-spacing:.9px; text-transform:uppercase; margin-top:1mm}
+  .karta.czerwona{background:#FDECE4; border:1px solid #F3B79C; color:var(--pomarancz)}
+  .karta.zolta{background:#FDF6E3; border:1px solid #EDD9A8; color:#B07A12}
+  .karta.zielona{background:#E7F5EE; border:1px solid #A9D9C1; color:#177A4E}
+
+  /* ——— blok dyrektora ——— */
+  .blok-dyr{
+    border:1.4px solid var(--pomarancz); border-radius:2.8mm; background:#FFFBF8;
+    padding:3mm 3.4mm; margin-top:2.6mm;
+  }
+  .blok-dyr .naglowek-bloku{display:flex; align-items:center; gap:2.4mm; margin-bottom:2.4mm}
+  .blok-dyr .naglowek-bloku .znak{
+    width:5.2mm; height:5.2mm; border-radius:1.2mm; background:var(--pomarancz); color:#fff;
+    display:flex; align-items:center; justify-content:center; font-size:6.6pt; font-weight:bold;
+  }
+  .blok-dyr h3{font-size:8.6pt; font-weight:bold; color:var(--pomarancz); letter-spacing:.5px; text-transform:uppercase}
+  .blok-dyr .pole{background:#fff; border-color:#F3D5C6}
+  .blok-dyr .wybor{border-color:#F3D5C6}
+
+  /* ——— informacje / wskazówki ——— */
+  .info{
+    background:#F3EDFB; border-left:1.6mm solid var(--fiolet); border-radius:1.6mm;
+    padding:2.4mm 3mm; font-size:7pt; color:var(--fiolet-2); margin-bottom:2.4mm; line-height:1.42;
+  }
+  .info b{color:var(--fiolet)}
+  .kafle{display:flex; gap:2.4mm; margin-bottom:2.6mm}
+  .kafel{flex:1; border:1px solid var(--ramka); border-radius:2.4mm; background:var(--pole); padding:2.6mm 3mm}
+  .kafel .naglowek-kafla{font-size:5.8pt; font-weight:bold; color:var(--pomarancz); letter-spacing:1px; text-transform:uppercase}
+  .kafel .tresc-kafla{font-size:7.2pt; color:var(--fiolet); margin-top:1.2mm; font-weight:bold}
+  .kafel .uwaga{font-size:6.4pt; color:var(--szary); margin-top:.8mm}
+
+  /* ——— podstawa prawna ——— */
+  .prawna{background:var(--pole); border:1px solid var(--ramka); border-radius:2.4mm; padding:2.6mm 3mm}
+  .prawna p{font-size:6.1pt; line-height:1.45; color:#3a3357; text-align:justify}
+  .prawna b{color:var(--fiolet)}
+
+  /* ——— podpisy ——— */
+  .podpisy{display:flex; gap:8mm; margin-top:6mm}
+  .podpis{flex:1; text-align:center}
+  .podpis .kreska{border-top:1px solid var(--fiolet-2); margin-bottom:1.6mm}
+  .podpis .opis{font-size:6.4pt; color:var(--szary)}
+
+  /* ——— stopka ——— */
+  .stopka{
+    margin-top:auto; padding-top:2.6mm; border-top:1px solid #EBEBED;
+    display:flex; justify-content:space-between; font-size:5.8pt; color:var(--szary-2);
+  }
+  .stopka b{color:var(--fiolet)}
+
+
+  /* ——— panel aplikacji (nie drukuje się) ——— */
+  .panel{
+    width:210mm; margin:0 auto 8mm; background:#fff; border-radius:3mm; overflow:hidden;
+    box-shadow:0 2px 10px rgba(45,27,105,.18);
+  }
+  .panel-glowa{background:linear-gradient(120deg,#2D1B69 0%,#4D3D80 62%,#E8450A 165%); color:#fff; padding:6mm 7mm}
+  .panel-glowa .etykieta-app{font-size:6pt; font-weight:bold; letter-spacing:2px; text-transform:uppercase; opacity:.82}
+  .panel-glowa h1{font-size:15pt; font-weight:bold; margin-top:1.6mm}
+  .panel-glowa p{font-size:8pt; margin-top:1.6mm; opacity:.9; max-width:150mm; line-height:1.45}
+  .panel-cialo{padding:6mm 7mm 7mm}
+  .panel-sekcja{margin-bottom:5mm}
+  .panel-sekcja > h2{
+    font-size:9.4pt; font-weight:bold; color:var(--fiolet); text-transform:uppercase; letter-spacing:.5px;
+    display:flex; align-items:center; gap:2.4mm; margin-bottom:2.4mm;
+  }
+  .panel-sekcja > h2::before{content:""; width:2.6mm; height:2.6mm; border-radius:.7mm; background:var(--pomarancz)}
+  .panel-lista{list-style:none; display:flex; flex-wrap:wrap; gap:2mm}
+  .panel-lista li{
+    flex:1 1 calc(50% - 1mm); background:var(--pole); border:1px solid var(--ramka); border-radius:2.4mm;
+    padding:2.4mm 3mm; font-size:7.6pt; display:flex; gap:2.4mm; align-items:flex-start;
+  }
+  .panel-lista li .nr{
+    width:4.6mm; height:4.6mm; border-radius:50%; background:var(--fiolet); color:#fff; flex:none;
+    display:flex; align-items:center; justify-content:center; font-size:5.8pt; font-weight:bold;
+  }
+  .panel-role{display:flex; flex-direction:column; gap:2mm}
+  .panel-role .rola{
+    border:1px solid var(--ramka); border-left:1.6mm solid var(--pomarancz); border-radius:2.4mm;
+    padding:2.6mm 3.4mm; background:#fff;
+  }
+  .panel-role .rola b{color:var(--fiolet); font-size:8pt}
+  .panel-role .rola span{display:block; font-size:7.4pt; color:var(--fiolet-2); margin-top:1mm; line-height:1.45}
+  .panel-role .rola em{font-style:normal; color:var(--pomarancz); font-weight:bold}
+  .panel-akcje{display:flex; align-items:center; gap:4mm; border-top:1px solid #EBEBED; padding-top:4mm; margin-top:1mm}
+  .btn-druk{
+    background:var(--pomarancz); color:#fff; border:none; border-radius:999px; cursor:pointer;
+    padding:3mm 7mm; font-size:8.4pt; font-weight:bold; letter-spacing:.5px; font-family:inherit;
+  }
+  .panel-akcje .uwaga-druk{font-size:7.2pt; color:var(--szary)}
+
+
+  /* ——— elementy kącika nauczyciela ——— */
+  .druk-nag{
+    display:flex; align-items:center; gap:3mm; background:var(--fiolet); color:#fff;
+    border-radius:2.4mm; padding:2.6mm 3.4mm; margin:1mm 0 3mm;
+  }
+  .druk-nag .sygn{
+    background:var(--pomarancz); border-radius:1.4mm; padding:1mm 2.6mm;
+    font-size:7.4pt; font-weight:bold; letter-spacing:.6px;
+  }
+  .druk-nag .nazwa{font-size:9.6pt; font-weight:bold; letter-spacing:.4px; text-transform:uppercase}
+  .druk-nag .pod{font-size:6.4pt; opacity:.85; margin-top:.6mm}
+  .skala-obs{
+    display:flex; gap:2mm; margin:1mm 0 2.4mm; font-size:6.4pt; color:var(--fiolet-2);
+    background:var(--pole); border:1px solid var(--ramka); border-radius:2mm; padding:2mm 3mm;
+  }
+  .skala-obs b{color:var(--fiolet)}
+  td.ocena{text-align:center; letter-spacing:2px; color:var(--kropki); font-size:8pt}
+
+  @media print{
+    body{background:#fff}
+    .panel{display:none !important}
+    .page{margin:0; box-shadow:none; page-break-after:always}
+    .page:last-child{page-break-after:auto}
+    @page{size:A4; margin:0}
+  }
+</style>
+</head>
+<body>
+
+<!-- ======= PANEL APLIKACJI · nie drukuje się ======= -->
+<div class="panel">
+  <div class="panel-glowa">
+    <div class="etykieta-app">EduPlaner 2026 · Kącik nauczyciela · panel informacyjny</div>
+    <h1>Wzory opinii o uczniu — na podstawie obserwacji</h1>
+    <p>Cztery druki w jednym pliku. Ta część wyświetla się wyłącznie w aplikacji — nie drukuje się. Od 1 września 2026 r. opinia o funkcjonowaniu ucznia dla poradni jest obowiązkiem szkoły, a jej podstawą jest obserwacja prowadzona przez nauczycieli.</p>
+  </div>
+  <div class="panel-cialo">
+
+    <div class="panel-sekcja">
+      <h2>Co się zmieniło od 1 września 2026 r.</h2>
+      <div class="info">
+        <b>Rozporządzenie Ministra Edukacji z dnia 2 marca 2026 r. w sprawie orzeczeń i opinii wydawanych przez zespoły orzekające działające w publicznych poradniach psychologiczno-pedagogicznych (Dz.U. z 2026 r. poz. 428)</b> — zastąpiło rozporządzenie MEN z 7 września 2017 r. Przed wydaniem orzeczenia lub opinii zespół orzekający w poradni przeprowadza <b>ocenę funkcjonalną</b> dziecka lub ucznia. Przepisy dotyczące oceny funkcjonowania weszły w życie <b>1 września 2026 r.</b>
+      </div>
+      <div class="panel-role">
+        <div class="rola">
+          <b>Szkoła nie sporządza „oceny funkcjonalnej”</b>
+          <span>Ocenę funkcjonalną przygotowuje <em>zespół w poradni</em>. Przedszkole, szkoła i placówka przygotowuje i przekazuje do poradni <em>opinię o funkcjonowaniu dziecka lub ucznia</em>, która jest elementem tej oceny. To jest druk <em>O-2</em> w tym pliku.</span>
+        </div>
+        <div class="rola">
+          <b>Termin: 10 dni</b>
+          <span>Opinię o funkcjonowaniu przygotowuje się w terminie <em>10 dni od dnia otrzymania przez dyrektora wniosku</em> o jej wydanie. Kopię opinii przekazuje się <em>rodzicom lub pełnoletniemu uczniowi</em>.</span>
+        </div>
+        <div class="rola">
+          <b>Zakres opinii</b>
+          <span>Opinia opisuje <em>aktywność i uczestniczenie</em> dziecka lub ucznia zgodnie z obszarami <em>Międzynarodowej Klasyfikacji Funkcjonowania, Niepełnosprawności i Zdrowia (ICF)</em>, odpowiednio do wieku i poziomu rozwoju psychofizycznego, w tym <em>zakres i rodzaj trudności w realizacji</em> programu wychowania przedszkolnego lub programów nauczania w oddziale, do którego uczeń uczęszcza.</span>
+        </div>
+        <div class="rola">
+          <b>Rola obserwacji nauczyciela</b>
+          <span>Zadaniem nauczycieli jest <em>obserwacja dziecka w codziennych sytuacjach</em> szkolnych i przedszkolnych oraz opis jego aktywności, mocnych stron, trudności i efektów udzielanego wsparcia. Ocena może opierać się także na <em>obserwacji dokonanej przez specjalistów poradni</em> w środowisku przedszkolnym lub szkolnym, jeżeli jest to konieczne. Dlatego druk <em>O-1</em> (arkusz obserwacji) wypełnia się przed opinią — jest jej udokumentowaną podstawą.</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="panel-sekcja">
+      <h2>Druki w tym pliku</h2>
+      <ul class="panel-lista">
+        <li><span class="nr">1</span><span><b>O-1 · Arkusz obserwacji pedagogicznej ucznia</b> — narzędzie źródłowe: co, kiedy i w jakich sytuacjach obserwowano (str. 1–2)</span></li>
+        <li><span class="nr">2</span><span><b>O-2 · Opinia o funkcjonowaniu ucznia dla poradni</b> — główny wzór wg rozp. z 2.03.2026 r., obszary ICF (str. 3–6)</span></li>
+        <li><span class="nr">3</span><span><b>O-3 · Opinia nauczyciela dla zespołu orzekającego</b> — kształcenie specjalne, nauczanie indywidualne (str. 7–8)</span></li>
+        <li><span class="nr">4</span><span><b>O-4 · Opinia wychowawcy dla instytucji</b> — sąd, OPS, kurator, policja (str. 9–10)</span></li>
+      </ul>
+    </div>
+
+    <div class="panel-sekcja">
+      <h2>Zasady pisania opinii</h2>
+      <div class="info">
+        <b>Opisuj, nie oceniaj.</b> Zamiast „uczeń leniwy, niegrzeczny” → <i>„po 10 minutach pracy odkłada długopis i odwraca się do okna; po przypomnieniu wraca do zadania na ok. 5 minut”</i>. <b>Podawaj kontekst i częstotliwość</b> — kiedy, jak często, w jakiej sytuacji, przy jakim wsparciu. <b>Nie stawiaj diagnoz</b> — nie używaj nazw jednostek chorobowych ani określeń typu „autystyczny”, „dyslektyk”; diagnozę stawia poradnia. <b>Nie przepisuj dokumentacji medycznej.</b> <b>Pisz o mocnych stronach</b> — poradnia planuje wsparcie w oparciu o zasoby ucznia. <b>Podpieraj się dowodami</b> — arkusz obserwacji, wytwory pracy, karta monitorowania, dziennik zajęć. <b>RODO</b> — opinia zawiera dane osobowe; przekazuje się ją poradni za pośrednictwem dyrektora, kopia trafia do rodziców.
+      </div>
+    </div>
+
+    <div class="panel-akcje">
+      <button class="btn-druk" onclick="window.print()">Drukuj wzory opinii (10 stron A4)</button>
+      <span class="uwaga-druk">Drukują się wyłącznie formularze — ten panel zostaje w aplikacji. Ustawienia: A4, marginesy „brak”, grafika tła włączona.</span>
+    </div>
+
+  </div>
+</div>
+
+<!-- === STRONA 1 === -->
+<section class="page">
+  <div class="naglowek">
+    <div class="marka">
+      <div class="logo"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" role="img" aria-label="Logo PCTP"> <defs> <radialGradient id="pctpTlo" cx="36%" cy="28%" r="82%"> <stop offset="0%" stop-color="#6A4C9E"/> <stop offset="55%" stop-color="#4A2E86"/> <stop offset="100%" stop-color="#331E63"/> </radialGradient> </defs> <circle cx="50" cy="50" r="49.2" fill="#3B2472"/> <circle cx="50" cy="50" r="46.4" fill="#D3C8EC"/> <circle cx="50" cy="50" r="43.6" fill="url(#pctpTlo)"/> <g stroke="#C79A2C" stroke-width="2.1" stroke-linecap="round" fill="none"> <path d="M50 60 C50 50 50 42 50 34"/> <path d="M50 60 C46 52 42 46 38 40"/> <path d="M50 60 C54 52 58 46 62 40"/> <path d="M50 59 C44 53 38 48 32 44"/> <path d="M50 59 C56 53 62 48 68 44"/> </g> <g> <ellipse cx="33" cy="41" rx="4.6" ry="10.4" fill="#A192D2" transform="rotate(-32 33 41)"/> <ellipse cx="67" cy="41" rx="4.6" ry="10.4" fill="#A192D2" transform="rotate(32 67 41)"/> <ellipse cx="39.5" cy="34" rx="5" ry="11.6" fill="#EFA275" transform="rotate(-16 39.5 34)"/> <ellipse cx="60.5" cy="34" rx="5" ry="11.6" fill="#EFA275" transform="rotate(16 60.5 34)"/> <ellipse cx="50" cy="30.5" rx="5.4" ry="12.4" fill="#E8712F"/> </g> <circle cx="50" cy="38.5" r="3.4" fill="#FBF6EC"/> <text x="50" y="76" text-anchor="middle" font-family="Georgia,'Times New Roman',serif" font-weight="bold" font-size="25" letter-spacing="1.2" fill="#F7F2E6">PCTP</text> </svg></div>
+      <div>
+        <div class="marka-nazwa">EduPlaner 2026</div>
+        <div class="marka-opis">Kącik nauczyciela ·<br>arkusz obserwacji O-1</div>
+      </div>
+    </div>
+    <div class="naglowek-prawy">
+      <span class="plakietka">nauczyciel · obserwacja</span>
+      <div class="naglowek-podpis">Kącik nauczyciela · 2026</div>
+    </div>
+  </div>
+  <div class="belka"></div>
+
+  <div class="metryczka">
+    <div class="box"><span class="etykieta">Dotyczy ucznia</span><span class="wypelnij"></span></div>
+    <div class="box"><span class="etykieta">Klasa / grupa</span><span class="wypelnij"></span></div>
+    <div class="box"><span class="etykieta">Rok szkolny</span><span class="wartosc">2026 / 2027</span></div>
+  </div>
+  <div class="druk-nag">
+    <span class="sygn">O-1</span>
+    <div><div class="nazwa">Arkusz obserwacji pedagogicznej ucznia</div><div class="pod">Dokument źródłowy do opinii o funkcjonowaniu · część 1: plan i przebieg obserwacji</div></div>
+  </div>
+  <div class="sekcja"><span class="numer">I</span><h2>Dane i cel obserwacji</h2><span class="linia"></span></div>
+  <div class="siatka2">
+    <div class="pole"><span class="etykieta">Imię i nazwisko ucznia</span><div class="linijki"><div></div></div></div>
+    <div class="pole"><span class="etykieta">Data urodzenia / wiek</span><div class="linijki"><div></div></div></div>
+  </div>
+  <div class="siatka2">
+    <div class="pole"><span class="etykieta">Klasa / grupa · wychowawca</span><div class="linijki"><div></div></div></div>
+    <div class="pole"><span class="etykieta">Osoba prowadząca obserwację (imię, nazwisko, stanowisko)</span><div class="linijki"><div></div></div></div>
+  </div>
+  <div class="wybor-tytul"><span class="kropka"></span><span>Cel obserwacji (zaznacz właściwe)</span></div>
+  <div class="wybory">
+    <div class="wybor w3"><span class="kwadrat">✓</span><span>Rozpoznanie trudności w uczeniu się</span></div>
+    <div class="wybor w3"><span class="kwadrat">✓</span><span>Rozpoznanie uzdolnień i mocnych stron</span></div>
+    <div class="wybor w3"><span class="kwadrat">✓</span><span>Podstawa do opinii o funkcjonowaniu (druk O-2)</span></div>
+    <div class="wybor w3"><span class="kwadrat">✓</span><span>Wniosek rodzica o pomoc p-p</span></div>
+    <div class="wybor w3"><span class="kwadrat">✓</span><span>Ocena efektywności udzielanej pomocy</span></div>
+    <div class="wybor w3"><span class="kwadrat">✓</span><span>Ryzyko specyficznych trudności (kl. I–III)</span></div>
+    <div class="wybor w3"><span class="kwadrat">✓</span><span>Trudności w zachowaniu i relacjach</span></div>
+    <div class="wybor w3"><span class="kwadrat">✓</span><span>Wniosek o diagnozę do poradni</span></div>
+    <div class="wybor w3"><span class="kwadrat">✓</span><span>Inny cel:<span class="dopisz"></span></span></div>
+  </div>
+  <div class="pole"><span class="etykieta">Pytanie obserwacyjne — co konkretnie chcę ustalić</span><div class="tresc" style="color:#6B6B7B; font-size:6.4pt">np. w jakich sytuacjach uczeń przerywa pracę i co poprzedza to przerwanie</div><div class="linijki"><div></div><div></div></div></div>
+  <div class="sekcja"><span class="numer pom">II</span><h2>Harmonogram i warunki obserwacji</h2><span class="linia"></span></div>
+  <p class="wstep">Obserwacja jest wiarygodna, gdy obejmuje różne sytuacje i pory dnia. Zalecane minimum: 5 sytuacji w co najmniej 2 tygodniach.</p>
+  <table class="tab-mala">
+    <thead>
+      <tr><th style="width:6%">Lp.</th><th style="width:12%">Data</th><th style="width:13%">Godz. / lekcja</th><th>Sytuacja i miejsce (lekcja, przerwa, praca w grupie, zajęcia specjalistyczne)</th><th style="width:12%">Czas trwania</th></tr>
+    </thead>
+    <tbody>
+      <tr><td class="lp">1</td><td class="puste"></td><td class="puste"></td><td class="puste"></td><td class="puste"></td></tr>
+      <tr><td class="lp">2</td><td class="puste"></td><td class="puste"></td><td class="puste"></td><td class="puste"></td></tr>
+      <tr><td class="lp">3</td><td class="puste"></td><td class="puste"></td><td class="puste"></td><td class="puste"></td></tr>
+      <tr><td class="lp">4</td><td class="puste"></td><td class="puste"></td><td class="puste"></td><td class="puste"></td></tr>
+      <tr><td class="lp">5</td><td class="puste"></td><td class="puste"></td><td class="puste"></td><td class="puste"></td></tr>
+      <tr><td class="lp">6</td><td class="puste"></td><td class="puste"></td><td class="puste"></td><td class="puste"></td></tr>
+    </tbody>
+  </table>
+  <div class="pole"><span class="etykieta">Warunki i ograniczenia obserwacji (obecność innych osób, zmiany w planie, nieobecności ucznia)</span><div class="linijki"><div></div></div></div>
+  <div class="stopka">
+    <span>EduPlaner 2026 · PCTP · pedagog specjalny</span>
+    <span><b>Strona 1 z 10</b> · Kącik nauczyciela · arkusz obserwacji O-1 · plan</span>
+  </div>
+</section>
+
+<!-- === STRONA 2 === -->
+<section class="page">
+  <div class="naglowek">
+    <div class="marka">
+      <div class="logo"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" role="img" aria-label="Logo PCTP"> <defs> <radialGradient id="pctpTlo" cx="36%" cy="28%" r="82%"> <stop offset="0%" stop-color="#6A4C9E"/> <stop offset="55%" stop-color="#4A2E86"/> <stop offset="100%" stop-color="#331E63"/> </radialGradient> </defs> <circle cx="50" cy="50" r="49.2" fill="#3B2472"/> <circle cx="50" cy="50" r="46.4" fill="#D3C8EC"/> <circle cx="50" cy="50" r="43.6" fill="url(#pctpTlo)"/> <g stroke="#C79A2C" stroke-width="2.1" stroke-linecap="round" fill="none"> <path d="M50 60 C50 50 50 42 50 34"/> <path d="M50 60 C46 52 42 46 38 40"/> <path d="M50 60 C54 52 58 46 62 40"/> <path d="M50 59 C44 53 38 48 32 44"/> <path d="M50 59 C56 53 62 48 68 44"/> </g> <g> <ellipse cx="33" cy="41" rx="4.6" ry="10.4" fill="#A192D2" transform="rotate(-32 33 41)"/> <ellipse cx="67" cy="41" rx="4.6" ry="10.4" fill="#A192D2" transform="rotate(32 67 41)"/> <ellipse cx="39.5" cy="34" rx="5" ry="11.6" fill="#EFA275" transform="rotate(-16 39.5 34)"/> <ellipse cx="60.5" cy="34" rx="5" ry="11.6" fill="#EFA275" transform="rotate(16 60.5 34)"/> <ellipse cx="50" cy="30.5" rx="5.4" ry="12.4" fill="#E8712F"/> </g> <circle cx="50" cy="38.5" r="3.4" fill="#FBF6EC"/> <text x="50" y="76" text-anchor="middle" font-family="Georgia,'Times New Roman',serif" font-weight="bold" font-size="25" letter-spacing="1.2" fill="#F7F2E6">PCTP</text> </svg></div>
+      <div>
+        <div class="marka-nazwa">EduPlaner 2026</div>
+        <div class="marka-opis">Kącik nauczyciela ·<br>arkusz obserwacji O-1</div>
+      </div>
+    </div>
+    <div class="naglowek-prawy">
+      <span class="plakietka">nauczyciel · obserwacja</span>
+      <div class="naglowek-podpis">Kącik nauczyciela · 2026</div>
+    </div>
+  </div>
+  <div class="belka"></div>
+
+  <div class="metryczka">
+    <div class="box"><span class="etykieta">Dotyczy ucznia</span><span class="wypelnij"></span></div>
+    <div class="box"><span class="etykieta">Klasa / grupa</span><span class="wypelnij"></span></div>
+    <div class="box"><span class="etykieta">Rok szkolny</span><span class="wartosc">2026 / 2027</span></div>
+  </div>
+  <div class="druk-nag">
+    <span class="sygn">O-1</span>
+    <div><div class="nazwa">Arkusz obserwacji pedagogicznej ucznia</div><div class="pod">Część 2: zapisy obserwacyjne w modelu ABC i wnioski</div></div>
+  </div>
+  <div class="sekcja"><span class="numer pom">III</span><h2>Zapisy obserwacyjne — model ABC</h2><span class="linia"></span></div>
+  <div class="info">
+    <b>Jak zapisywać.</b> <b>A — poprzednik:</b> co działo się bezpośrednio przed zachowaniem (polecenie, zmiana zadania, hałas). <b>B — zachowanie:</b> co uczeń zrobił — opis widocznego zachowania, bez interpretacji i bez ocen. <b>C — następstwo:</b> co stało się po zachowaniu (reakcja nauczyciela, rówieśników, zakończenie zadania). Zapisuj fakty, nie przypuszczenia; podawaj czas trwania i częstotliwość.
+  </div>
+  <table class="tab-mala">
+    <thead>
+      <tr><th style="width:11%">Data</th><th style="width:24%">A — sytuacja poprzedzająca</th><th style="width:30%">B — obserwowane zachowanie ucznia</th><th style="width:23%">C — następstwa i reakcja otoczenia</th><th>Wsparcie, które pomogło</th></tr>
+    </thead>
+    <tbody>
+      <tr><td class="puste"></td><td class="puste"></td><td class="puste"></td><td class="puste"></td><td class="puste"></td></tr>
+      <tr><td class="puste"></td><td class="puste"></td><td class="puste"></td><td class="puste"></td><td class="puste"></td></tr>
+      <tr><td class="puste"></td><td class="puste"></td><td class="puste"></td><td class="puste"></td><td class="puste"></td></tr>
+      <tr><td class="puste"></td><td class="puste"></td><td class="puste"></td><td class="puste"></td><td class="puste"></td></tr>
+      <tr><td class="puste"></td><td class="puste"></td><td class="puste"></td><td class="puste"></td><td class="puste"></td></tr>
+      <tr><td class="puste"></td><td class="puste"></td><td class="puste"></td><td class="puste"></td><td class="puste"></td></tr>
+      <tr><td class="puste"></td><td class="puste"></td><td class="puste"></td><td class="puste"></td><td class="puste"></td></tr>
+    </tbody>
+  </table>
+  <div class="sekcja"><span class="numer">IV</span><h2>Wnioski z obserwacji</h2><span class="linia"></span></div>
+  <div class="pole"><span class="etykieta">Mocne strony, zasoby i zainteresowania ujawnione w obserwacji</span><div class="linijki"><div></div><div></div></div></div>
+  <div class="pole"><span class="etykieta">Powtarzające się trudności — w jakich sytuacjach i jak często</span><div class="linijki"><div></div><div></div></div></div>
+  <div class="pole"><span class="etykieta">Wsparcie skuteczne (co obniża trudność) i nieskuteczne</span><div class="linijki"><div></div><div></div></div></div>
+  <div class="pole"><span class="etykieta">Rekomendacje do dalszych działań (dostosowania, formy pomocy, potrzeba diagnozy w poradni)</span><div class="linijki"><div></div><div></div></div></div>
+  <div class="podpisy" style="margin-top:4mm">
+    <div class="podpis"><div class="kreska"></div><div class="opis">Data i podpis osoby prowadzącej obserwację</div></div>
+    <div class="podpis"><div class="kreska"></div><div class="opis">Podpis wychowawcy klasy</div></div>
+  </div>
+  <div class="stopka">
+    <span>EduPlaner 2026 · PCTP · pedagog specjalny</span>
+    <span><b>Strona 2 z 10</b> · Kącik nauczyciela · arkusz obserwacji O-1 · zapisy i wnioski</span>
+  </div>
+</section>
+
+<!-- === STRONA 3 === -->
+<section class="page">
+  <div class="naglowek">
+    <div class="marka">
+      <div class="logo"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" role="img" aria-label="Logo PCTP"> <defs> <radialGradient id="pctpTlo" cx="36%" cy="28%" r="82%"> <stop offset="0%" stop-color="#6A4C9E"/> <stop offset="55%" stop-color="#4A2E86"/> <stop offset="100%" stop-color="#331E63"/> </radialGradient> </defs> <circle cx="50" cy="50" r="49.2" fill="#3B2472"/> <circle cx="50" cy="50" r="46.4" fill="#D3C8EC"/> <circle cx="50" cy="50" r="43.6" fill="url(#pctpTlo)"/> <g stroke="#C79A2C" stroke-width="2.1" stroke-linecap="round" fill="none"> <path d="M50 60 C50 50 50 42 50 34"/> <path d="M50 60 C46 52 42 46 38 40"/> <path d="M50 60 C54 52 58 46 62 40"/> <path d="M50 59 C44 53 38 48 32 44"/> <path d="M50 59 C56 53 62 48 68 44"/> </g> <g> <ellipse cx="33" cy="41" rx="4.6" ry="10.4" fill="#A192D2" transform="rotate(-32 33 41)"/> <ellipse cx="67" cy="41" rx="4.6" ry="10.4" fill="#A192D2" transform="rotate(32 67 41)"/> <ellipse cx="39.5" cy="34" rx="5" ry="11.6" fill="#EFA275" transform="rotate(-16 39.5 34)"/> <ellipse cx="60.5" cy="34" rx="5" ry="11.6" fill="#EFA275" transform="rotate(16 60.5 34)"/> <ellipse cx="50" cy="30.5" rx="5.4" ry="12.4" fill="#E8712F"/> </g> <circle cx="50" cy="38.5" r="3.4" fill="#FBF6EC"/> <text x="50" y="76" text-anchor="middle" font-family="Georgia,'Times New Roman',serif" font-weight="bold" font-size="25" letter-spacing="1.2" fill="#F7F2E6">PCTP</text> </svg></div>
+      <div>
+        <div class="marka-nazwa">EduPlaner 2026</div>
+        <div class="marka-opis">Kącik nauczyciela ·<br>opinia o funkcjonowaniu O-2</div>
+      </div>
+    </div>
+    <div class="naglowek-prawy">
+      <span class="plakietka">nauczyciel · opinia do poradni</span>
+      <div class="naglowek-podpis">Kącik nauczyciela · 2026</div>
+    </div>
+  </div>
+  <div class="belka"></div>
+
+  <div class="metryczka">
+    <div class="box"><span class="etykieta">Dotyczy ucznia</span><span class="wypelnij"></span></div>
+    <div class="box"><span class="etykieta">Klasa / grupa</span><span class="wypelnij"></span></div>
+    <div class="box"><span class="etykieta">Rok szkolny</span><span class="wartosc">2026 / 2027</span></div>
+  </div>
+  <div class="druk-nag">
+    <span class="sygn">O-2</span>
+    <div><div class="nazwa">Opinia o funkcjonowaniu dziecka / ucznia</div><div class="pod">Dla publicznej poradni psychologiczno-pedagogicznej · element oceny funkcjonalnej · rozp. ME z 2.03.2026 r.</div></div>
+  </div>
+  <div class="sekcja"><span class="numer">§</span><h2>Podstawa prawna i tryb wydania</h2><span class="linia"></span></div>
+  <div class="prawna">
+    <p><b>Rozporządzenie Ministra Edukacji z dnia 2 marca 2026 r. w sprawie orzeczeń i opinii wydawanych przez zespoły orzekające działające w publicznych poradniach psychologiczno-pedagogicznych (Dz.U. z 2026 r. poz. 428)</b> — zastąpiło rozporządzenie MEN z dnia 7 września 2017 r.; przed wydaniem orzeczenia lub opinii zespół orzekający w poradni przeprowadza <b>ocenę funkcjonalną</b> dziecka lub ucznia. Przepisy dotyczące oceny funkcjonowania obowiązują od <b>1 września 2026 r.</b> Przedszkole, szkoła i placówka <b>nie sporządza oceny funkcjonalnej</b> — przygotowuje i przekazuje poradni <b>opinię o funkcjonowaniu dziecka lub ucznia</b>, stanowiącą element tej oceny. Opinię przygotowuje się w terminie <b>10 dni od dnia otrzymania przez dyrektora wniosku</b> o jej wydanie, a jej <b>kopię przekazuje się rodzicom albo pełnoletniemu uczniowi</b>. Opinia opisuje <b>aktywność i uczestniczenie</b> dziecka lub ucznia zgodnie z obszarami <b>Międzynarodowej Klasyfikacji Funkcjonowania, Niepełnosprawności i Zdrowia (ICF)</b>, odpowiednio do wieku i poziomu rozwoju psychofizycznego, w tym <b>zakres i rodzaj trudności w realizacji</b> programu wychowania przedszkolnego lub programów nauczania w oddziale, do którego uczeń uczęszcza. Podstawą opisu jest <b>obserwacja</b> dziecka w codziennych sytuacjach przedszkolnych i szkolnych; ocena może opierać się także na obserwacji dokonanej przez specjalistów poradni w środowisku przedszkolnym lub szkolnym, jeżeli jest to konieczne. Ponadto: ustawa z dnia 14 grudnia 2016 r. — Prawo oświatowe (t.j. Dz.U. z 2024 r. poz. 737, z późn. zm.); rozporządzenie MEN z dnia 9 sierpnia 2017 r. w sprawie zasad organizacji i udzielania pomocy psychologiczno-pedagogicznej (Dz.U. z 2017 r. poz. 1591, t.j. Dz.U. z 2023 r. poz. 1798, z późn. zm.) — obserwacja pedagogiczna jako narzędzie rozpoznawania potrzeb ucznia. <b>RODO</b> — Rozporządzenie Parlamentu Europejskiego i Rady (UE) 2016/679 z dnia 27 kwietnia 2016 r.</p>
+  </div>
+  <div class="sekcja"><span class="numer pom">I</span><h2>Dane i tryb sporządzenia opinii</h2><span class="linia"></span></div>
+  <div class="siatka2">
+    <div class="pole"><span class="etykieta">Imię i nazwisko dziecka / ucznia</span><div class="linijki"><div></div></div></div>
+    <div class="pole"><span class="etykieta">Data i miejsce urodzenia · PESEL</span><div class="linijki"><div></div></div></div>
+  </div>
+  <div class="siatka2">
+    <div class="pole"><span class="etykieta">Przedszkole / szkoła (nazwa, adres) · oddział</span><div class="linijki"><div></div></div></div>
+    <div class="pole"><span class="etykieta">Poradnia, do której kierowana jest opinia</span><div class="linijki"><div></div></div></div>
+  </div>
+  <div class="siatka3">
+    <div class="pole"><span class="etykieta">Data wpływu wniosku do dyrektora</span><div class="linijki"><div></div></div></div>
+    <div class="pole"><span class="etykieta">Termin wydania (10 dni)</span><div class="linijki"><div></div></div></div>
+    <div class="pole"><span class="etykieta">Data sporządzenia opinii</span><div class="linijki"><div></div></div></div>
+  </div>
+  <div class="pole"><span class="etykieta">Osoby sporządzające opinię (imię, nazwisko, stanowisko — wychowawca, nauczyciele, specjaliści)</span><div class="linijki"><div></div></div></div>
+  <div class="pole"><span class="etykieta">Źródła informacji wykorzystane w opinii</span><div class="tresc" style="color:#6B6B7B; font-size:6.4pt">arkusz obserwacji O-1 (daty), dziennik zajęć, wytwory pracy ucznia, karta monitorowania postępów, rozmowa z rodzicami, WOPFU / IPET, dotychczasowe opinie i orzeczenia</div><div class="linijki"><div></div><div></div></div></div>
+  <div class="sekcja"><span class="numer">II</span><h2>Informacje ogólne o funkcjonowaniu w placówce</h2><span class="linia"></span></div>
+  <div class="siatka3">
+    <div class="pole"><span class="etykieta">Okres uczęszczania do placówki</span><div class="linijki"><div></div></div></div>
+    <div class="pole"><span class="etykieta">Frekwencja w bieżącym roku (%)</span><div class="linijki"><div></div></div></div>
+    <div class="pole"><span class="etykieta">Liczebność oddziału</span><div class="linijki"><div></div></div></div>
+  </div>
+  <div class="pole"><span class="etykieta">Dotychczasowe opinie i orzeczenia (rodzaj, numer, data, poradnia)</span><div class="linijki"><div></div></div></div>
+  <div class="pole"><span class="etykieta">Historia pomocy psychologiczno-pedagogicznej udzielanej w placówce</span><div class="tresc" style="color:#6B6B7B; font-size:6.4pt">formy zajęć, okres, wymiar godzin — szczegóły w sekcji VI</div><div class="linijki"><div></div></div></div>
+  <div class="stopka">
+    <span>EduPlaner 2026 · PCTP · pedagog specjalny</span>
+    <span><b>Strona 3 z 10</b> · Kącik nauczyciela · opinia o funkcjonowaniu O-2 · podstawa i dane</span>
+  </div>
+</section>
+
+<!-- === STRONA 4 === -->
+<section class="page">
+  <div class="naglowek">
+    <div class="marka">
+      <div class="logo"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" role="img" aria-label="Logo PCTP"> <defs> <radialGradient id="pctpTlo" cx="36%" cy="28%" r="82%"> <stop offset="0%" stop-color="#6A4C9E"/> <stop offset="55%" stop-color="#4A2E86"/> <stop offset="100%" stop-color="#331E63"/> </radialGradient> </defs> <circle cx="50" cy="50" r="49.2" fill="#3B2472"/> <circle cx="50" cy="50" r="46.4" fill="#D3C8EC"/> <circle cx="50" cy="50" r="43.6" fill="url(#pctpTlo)"/> <g stroke="#C79A2C" stroke-width="2.1" stroke-linecap="round" fill="none"> <path d="M50 60 C50 50 50 42 50 34"/> <path d="M50 60 C46 52 42 46 38 40"/> <path d="M50 60 C54 52 58 46 62 40"/> <path d="M50 59 C44 53 38 48 32 44"/> <path d="M50 59 C56 53 62 48 68 44"/> </g> <g> <ellipse cx="33" cy="41" rx="4.6" ry="10.4" fill="#A192D2" transform="rotate(-32 33 41)"/> <ellipse cx="67" cy="41" rx="4.6" ry="10.4" fill="#A192D2" transform="rotate(32 67 41)"/> <ellipse cx="39.5" cy="34" rx="5" ry="11.6" fill="#EFA275" transform="rotate(-16 39.5 34)"/> <ellipse cx="60.5" cy="34" rx="5" ry="11.6" fill="#EFA275" transform="rotate(16 60.5 34)"/> <ellipse cx="50" cy="30.5" rx="5.4" ry="12.4" fill="#E8712F"/> </g> <circle cx="50" cy="38.5" r="3.4" fill="#FBF6EC"/> <text x="50" y="76" text-anchor="middle" font-family="Georgia,'Times New Roman',serif" font-weight="bold" font-size="25" letter-spacing="1.2" fill="#F7F2E6">PCTP</text> </svg></div>
+      <div>
+        <div class="marka-nazwa">EduPlaner 2026</div>
+        <div class="marka-opis">Kącik nauczyciela ·<br>opinia o funkcjonowaniu O-2</div>
+      </div>
+    </div>
+    <div class="naglowek-prawy">
+      <span class="plakietka">nauczyciel · obszary ICF</span>
+      <div class="naglowek-podpis">Kącik nauczyciela · 2026</div>
+    </div>
+  </div>
+  <div class="belka"></div>
+
+  <div class="metryczka">
+    <div class="box"><span class="etykieta">Dotyczy ucznia</span><span class="wypelnij"></span></div>
+    <div class="box"><span class="etykieta">Klasa / grupa</span><span class="wypelnij"></span></div>
+    <div class="box"><span class="etykieta">Rok szkolny</span><span class="wartosc">2026 / 2027</span></div>
+  </div>
+  <div class="sekcja"><span class="numer pom">III</span><h2>Aktywność i uczestniczenie — obszary ICF</h2><span class="linia"></span></div>
+  <p class="wstep">Dla każdego obszaru zakreśl poziom trudności i opisz, <b>co uczeń robi samodzielnie</b>, a <b>przy jakim wsparciu</b> — na podstawie obserwacji z druku O-1. Obszary nieadekwatne do wieku pomiń.</p>
+  <div class="skala-obs">
+    <span><b>Skala trudności (kwalifikator ICF):</b></span>
+    <span><b>0</b> — brak trudności</span><span><b>1</b> — niewielkie</span><span><b>2</b> — umiarkowane</span><span><b>3</b> — znaczne</span><span><b>4</b> — całkowite</span>
+  </div>
+  <table class="tab-mala">
+    <thead>
+      <tr><th style="width:30%">Obszar ICF</th><th style="width:13%">Poziom</th><th>Opis funkcjonowania — co uczeń robi samodzielnie, a co przy wsparciu</th></tr>
+    </thead>
+    <tbody>
+      <tr><td class="klucz">d1 · Uczenie się i stosowanie wiedzy</td><td class="ocena">0 1 2 3 4</td><td class="puste"></td></tr>
+      <tr><td class="klucz">d2 · Ogólne zadania i obowiązki</td><td class="ocena">0 1 2 3 4</td><td class="puste"></td></tr>
+      <tr><td class="klucz">d3 · Porozumiewanie się</td><td class="ocena">0 1 2 3 4</td><td class="puste"></td></tr>
+      <tr><td class="klucz">d4 · Poruszanie się i sprawność ruchowa</td><td class="ocena">0 1 2 3 4</td><td class="puste"></td></tr>
+      <tr><td class="klucz">d5 · Dbanie o siebie (samoobsługa)</td><td class="ocena">0 1 2 3 4</td><td class="puste"></td></tr>
+      <tr><td class="klucz">d6 · Życie domowe i obowiązki</td><td class="ocena">0 1 2 3 4</td><td class="puste"></td></tr>
+      <tr><td class="klucz">d7 · Kontakty i relacje międzyludzkie</td><td class="ocena">0 1 2 3 4</td><td class="puste"></td></tr>
+      <tr><td class="klucz">d8 · Główne obszary życia — edukacja</td><td class="ocena">0 1 2 3 4</td><td class="puste"></td></tr>
+      <tr><td class="klucz">d9 · Życie społeczne i aktywność w grupie</td><td class="ocena">0 1 2 3 4</td><td class="puste"></td></tr>
+    </tbody>
+  </table>
+  <div class="sekcja"><span class="numer">IV</span><h2>Funkcjonowanie w wymiarach szczegółowych</h2><span class="linia"></span></div>
+  <div class="pole"><span class="etykieta">Funkcjonowanie poznawcze (uwaga, pamięć, tempo pracy, rozumienie poleceń, myślenie przyczynowo-skutkowe)</span><div class="linijki"><div></div><div></div></div></div>
+  <div class="pole"><span class="etykieta">Funkcjonowanie ruchowe (motoryka duża i mała, grafomotoryka, koordynacja, orientacja w przestrzeni)</span><div class="linijki"><div></div><div></div></div></div>
+  <div class="pole"><span class="etykieta">Funkcjonowanie komunikacyjne (mowa, rozumienie, komunikacja alternatywna, inicjowanie rozmowy)</span><div class="linijki"><div></div><div></div></div></div>
+  <div class="pole"><span class="etykieta">Funkcjonowanie emocjonalno-społeczne (regulacja emocji, reakcja na zmianę i porażkę, relacje z rówieśnikami i dorosłymi)</span><div class="linijki"><div></div><div></div></div></div>
+  <div class="pole"><span class="etykieta">Zachowania trudne — opis, częstotliwość, sytuacje wyzwalające i sposób ich wygaszania</span><div class="linijki"><div></div></div></div>
+  <div class="stopka">
+    <span>EduPlaner 2026 · PCTP · pedagog specjalny</span>
+    <span><b>Strona 4 z 10</b> · Kącik nauczyciela · opinia o funkcjonowaniu O-2 · obszary ICF</span>
+  </div>
+</section>
+
+<!-- === STRONA 5 === -->
+<section class="page">
+  <div class="naglowek">
+    <div class="marka">
+      <div class="logo"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" role="img" aria-label="Logo PCTP"> <defs> <radialGradient id="pctpTlo" cx="36%" cy="28%" r="82%"> <stop offset="0%" stop-color="#6A4C9E"/> <stop offset="55%" stop-color="#4A2E86"/> <stop offset="100%" stop-color="#331E63"/> </radialGradient> </defs> <circle cx="50" cy="50" r="49.2" fill="#3B2472"/> <circle cx="50" cy="50" r="46.4" fill="#D3C8EC"/> <circle cx="50" cy="50" r="43.6" fill="url(#pctpTlo)"/> <g stroke="#C79A2C" stroke-width="2.1" stroke-linecap="round" fill="none"> <path d="M50 60 C50 50 50 42 50 34"/> <path d="M50 60 C46 52 42 46 38 40"/> <path d="M50 60 C54 52 58 46 62 40"/> <path d="M50 59 C44 53 38 48 32 44"/> <path d="M50 59 C56 53 62 48 68 44"/> </g> <g> <ellipse cx="33" cy="41" rx="4.6" ry="10.4" fill="#A192D2" transform="rotate(-32 33 41)"/> <ellipse cx="67" cy="41" rx="4.6" ry="10.4" fill="#A192D2" transform="rotate(32 67 41)"/> <ellipse cx="39.5" cy="34" rx="5" ry="11.6" fill="#EFA275" transform="rotate(-16 39.5 34)"/> <ellipse cx="60.5" cy="34" rx="5" ry="11.6" fill="#EFA275" transform="rotate(16 60.5 34)"/> <ellipse cx="50" cy="30.5" rx="5.4" ry="12.4" fill="#E8712F"/> </g> <circle cx="50" cy="38.5" r="3.4" fill="#FBF6EC"/> <text x="50" y="76" text-anchor="middle" font-family="Georgia,'Times New Roman',serif" font-weight="bold" font-size="25" letter-spacing="1.2" fill="#F7F2E6">PCTP</text> </svg></div>
+      <div>
+        <div class="marka-nazwa">EduPlaner 2026</div>
+        <div class="marka-opis">Kącik nauczyciela ·<br>opinia o funkcjonowaniu O-2</div>
+      </div>
+    </div>
+    <div class="naglowek-prawy">
+      <span class="plakietka">nauczyciel · trudności</span>
+      <div class="naglowek-podpis">Kącik nauczyciela · 2026</div>
+    </div>
+  </div>
+  <div class="belka"></div>
+
+  <div class="metryczka">
+    <div class="box"><span class="etykieta">Dotyczy ucznia</span><span class="wypelnij"></span></div>
+    <div class="box"><span class="etykieta">Klasa / grupa</span><span class="wypelnij"></span></div>
+    <div class="box"><span class="etykieta">Rok szkolny</span><span class="wartosc">2026 / 2027</span></div>
+  </div>
+  <div class="sekcja"><span class="numer pom">V</span><h2>Zakres i rodzaj trudności w realizacji programów nauczania</h2><span class="linia"></span></div>
+  <p class="wstep">Wymóg wynikający wprost z rozporządzenia: opinia wskazuje zakres i rodzaj trudności w realizacji programów nauczania <b>w oddziale, do którego uczeń uczęszcza</b>. Wypełnij dla przedmiotów, w których trudności występują.</p>
+  <table class="tab-mala">
+    <thead>
+      <tr><th style="width:24%">Przedmiot / obszar edukacyjny</th><th style="width:30%">Wymagania, których uczeń nie realizuje</th><th style="width:24%">Rodzaj trudności</th><th>Poziom osiągnięć w stosunku do oddziału</th></tr>
+    </thead>
+    <tbody>
+      <tr><td class="puste"></td><td class="puste"></td><td class="puste"></td><td class="puste"></td></tr>
+      <tr><td class="puste"></td><td class="puste"></td><td class="puste"></td><td class="puste"></td></tr>
+      <tr><td class="puste"></td><td class="puste"></td><td class="puste"></td><td class="puste"></td></tr>
+      <tr><td class="puste"></td><td class="puste"></td><td class="puste"></td><td class="puste"></td></tr>
+      <tr><td class="puste"></td><td class="puste"></td><td class="puste"></td><td class="puste"></td></tr>
+      <tr><td class="puste"></td><td class="puste"></td><td class="puste"></td><td class="puste"></td></tr>
+    </tbody>
+  </table>
+  <div class="pole"><span class="etykieta">Trudności o charakterze ponadprzedmiotowym (czytanie, pisanie, liczenie, organizacja pracy, tempo, samodzielność)</span><div class="linijki"><div></div><div></div></div></div>
+  <div class="sekcja"><span class="numer">VI</span><h2>Udzielona pomoc i jej efektywność</h2><span class="linia"></span></div>
+  <table class="tab-mala">
+    <thead>
+      <tr><th style="width:26%">Forma pomocy / zajęcia</th><th style="width:16%">Okres i wymiar</th><th style="width:30%">Zastosowane metody i dostosowania</th><th>Efekt — co się zmieniło</th></tr>
+    </thead>
+    <tbody>
+      <tr><td class="puste"></td><td class="puste"></td><td class="puste"></td><td class="puste"></td></tr>
+      <tr><td class="puste"></td><td class="puste"></td><td class="puste"></td><td class="puste"></td></tr>
+      <tr><td class="puste"></td><td class="puste"></td><td class="puste"></td><td class="puste"></td></tr>
+      <tr><td class="puste"></td><td class="puste"></td><td class="puste"></td><td class="puste"></td></tr>
+      <tr><td class="puste"></td><td class="puste"></td><td class="puste"></td><td class="puste"></td></tr>
+    </tbody>
+  </table>
+  <div class="pole"><span class="etykieta">Zastosowane dostosowania warunków i wymagań, które okazały się skuteczne</span><div class="tresc" style="color:#6B6B7B; font-size:6.4pt">np. wydłużony czas pracy, polecenia dzielone na etapy, plan wizualny, miejsce w sali, przerwy regulacyjne, karta „prośba o przerwę”, ograniczenie bodźców, alternatywna forma odpowiedzi</div><div class="linijki"><div></div><div></div></div></div>
+  <div class="pole"><span class="etykieta">Wsparcie, które nie przyniosło oczekiwanego efektu — z krótkim uzasadnieniem</span><div class="linijki"><div></div></div></div>
+  <div class="stopka">
+    <span>EduPlaner 2026 · PCTP · pedagog specjalny</span>
+    <span><b>Strona 5 z 10</b> · Kącik nauczyciela · opinia o funkcjonowaniu O-2 · trudności i pomoc</span>
+  </div>
+</section>
+
+<!-- === STRONA 6 === -->
+<section class="page">
+  <div class="naglowek">
+    <div class="marka">
+      <div class="logo"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" role="img" aria-label="Logo PCTP"> <defs> <radialGradient id="pctpTlo" cx="36%" cy="28%" r="82%"> <stop offset="0%" stop-color="#6A4C9E"/> <stop offset="55%" stop-color="#4A2E86"/> <stop offset="100%" stop-color="#331E63"/> </radialGradient> </defs> <circle cx="50" cy="50" r="49.2" fill="#3B2472"/> <circle cx="50" cy="50" r="46.4" fill="#D3C8EC"/> <circle cx="50" cy="50" r="43.6" fill="url(#pctpTlo)"/> <g stroke="#C79A2C" stroke-width="2.1" stroke-linecap="round" fill="none"> <path d="M50 60 C50 50 50 42 50 34"/> <path d="M50 60 C46 52 42 46 38 40"/> <path d="M50 60 C54 52 58 46 62 40"/> <path d="M50 59 C44 53 38 48 32 44"/> <path d="M50 59 C56 53 62 48 68 44"/> </g> <g> <ellipse cx="33" cy="41" rx="4.6" ry="10.4" fill="#A192D2" transform="rotate(-32 33 41)"/> <ellipse cx="67" cy="41" rx="4.6" ry="10.4" fill="#A192D2" transform="rotate(32 67 41)"/> <ellipse cx="39.5" cy="34" rx="5" ry="11.6" fill="#EFA275" transform="rotate(-16 39.5 34)"/> <ellipse cx="60.5" cy="34" rx="5" ry="11.6" fill="#EFA275" transform="rotate(16 60.5 34)"/> <ellipse cx="50" cy="30.5" rx="5.4" ry="12.4" fill="#E8712F"/> </g> <circle cx="50" cy="38.5" r="3.4" fill="#FBF6EC"/> <text x="50" y="76" text-anchor="middle" font-family="Georgia,'Times New Roman',serif" font-weight="bold" font-size="25" letter-spacing="1.2" fill="#F7F2E6">PCTP</text> </svg></div>
+      <div>
+        <div class="marka-nazwa">EduPlaner 2026</div>
+        <div class="marka-opis">Kącik nauczyciela ·<br>opinia o funkcjonowaniu O-2</div>
+      </div>
+    </div>
+    <div class="naglowek-prawy">
+      <span class="plakietka">nauczyciel · wnioski</span>
+      <div class="naglowek-podpis">Kącik nauczyciela · 2026</div>
+    </div>
+  </div>
+  <div class="belka"></div>
+
+  <div class="metryczka">
+    <div class="box"><span class="etykieta">Dotyczy ucznia</span><span class="wypelnij"></span></div>
+    <div class="box"><span class="etykieta">Klasa / grupa</span><span class="wypelnij"></span></div>
+    <div class="box"><span class="etykieta">Rok szkolny</span><span class="wartosc">2026 / 2027</span></div>
+  </div>
+  <div class="sekcja"><span class="numer pom">VII</span><h2>Mocne strony, zasoby i zainteresowania</h2><span class="linia"></span></div>
+  <div class="pole"><span class="etykieta">Mocne strony ucznia — umiejętności, w których radzi sobie dobrze</span><div class="linijki"><div></div><div></div></div></div>
+  <div class="pole"><span class="etykieta">Zainteresowania, uzdolnienia i sytuacje, w których uczeń jest najbardziej zaangażowany</span><div class="linijki"><div></div><div></div></div></div>
+  <div class="sekcja"><span class="numer">VIII</span><h2>Czynniki środowiskowe (ICF — komponent e)</h2><span class="linia"></span></div>
+  <table class="tab-mala">
+    <thead>
+      <tr><th style="width:30%">Czynnik</th><th style="width:16%">Ułatwienie</th><th style="width:14%">Bariera</th><th>Opis wpływu na funkcjonowanie ucznia</th></tr>
+    </thead>
+    <tbody>
+      <tr><td class="klucz">Rodzina i wsparcie w domu</td><td class="puste"></td><td class="puste"></td><td class="puste"></td></tr>
+      <tr><td class="klucz">Rówieśnicy i klimat oddziału</td><td class="puste"></td><td class="puste"></td><td class="puste"></td></tr>
+      <tr><td class="klucz">Postawy nauczycieli i organizacja pracy szkoły</td><td class="puste"></td><td class="puste"></td><td class="puste"></td></tr>
+      <tr><td class="klucz">Warunki lokalowe i wyposażenie</td><td class="puste"></td><td class="puste"></td><td class="puste"></td></tr>
+      <tr><td class="klucz">Technologie i pomoce wspomagające</td><td class="puste"></td><td class="puste"></td><td class="puste"></td></tr>
+      <tr><td class="klucz">Wsparcie instytucji zewnętrznych</td><td class="puste"></td><td class="puste"></td><td class="puste"></td></tr>
+    </tbody>
+  </table>
+  <div class="sekcja"><span class="numer">IX</span><h2>Wnioski i informacje dla poradni</h2><span class="linia"></span></div>
+  <div class="pole"><span class="etykieta">Podsumowanie funkcjonowania ucznia w środowisku szkolnym</span><div class="linijki"><div></div><div></div></div></div>
+  <div class="pole"><span class="etykieta">Zagadnienia, które placówka prosi wyjaśnić w toku oceny funkcjonalnej</span><div class="linijki"><div></div><div></div></div></div>
+  <div class="pole"><span class="etykieta">Potrzeby, których szkoła nie jest w stanie zaspokoić własnymi zasobami</span><div class="linijki"><div></div></div></div>
+  <div class="sekcja"><span class="numer">X</span><h2>Zatwierdzenie i przekazanie opinii</h2><span class="linia"></span></div>
+  <div class="siatka2">
+    <div class="pole"><span class="etykieta">Data przekazania kopii rodzicom / pełnoletniemu uczniowi</span><div class="linijki"><div></div></div></div>
+    <div class="pole"><span class="etykieta">Podpis rodzica potwierdzający odbiór kopii</span><div class="linijki"><div></div></div></div>
+  </div>
+  <div class="podpisy" style="margin-top:4mm">
+    <div class="podpis"><div class="kreska"></div><div class="opis">Data i podpisy osób sporządzających opinię</div></div>
+    <div class="podpis"><div class="kreska"></div><div class="opis">Pieczęć i podpis dyrektora przedszkola / szkoły</div></div>
+  </div>
+  <div class="stopka">
+    <span>EduPlaner 2026 · PCTP · pedagog specjalny</span>
+    <span><b>Strona 6 z 10</b> · Kącik nauczyciela · opinia o funkcjonowaniu O-2 · wnioski i podpisy</span>
+  </div>
+</section>
+
+<!-- === STRONA 7 === -->
+<section class="page">
+  <div class="naglowek">
+    <div class="marka">
+      <div class="logo"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" role="img" aria-label="Logo PCTP"> <defs> <radialGradient id="pctpTlo" cx="36%" cy="28%" r="82%"> <stop offset="0%" stop-color="#6A4C9E"/> <stop offset="55%" stop-color="#4A2E86"/> <stop offset="100%" stop-color="#331E63"/> </radialGradient> </defs> <circle cx="50" cy="50" r="49.2" fill="#3B2472"/> <circle cx="50" cy="50" r="46.4" fill="#D3C8EC"/> <circle cx="50" cy="50" r="43.6" fill="url(#pctpTlo)"/> <g stroke="#C79A2C" stroke-width="2.1" stroke-linecap="round" fill="none"> <path d="M50 60 C50 50 50 42 50 34"/> <path d="M50 60 C46 52 42 46 38 40"/> <path d="M50 60 C54 52 58 46 62 40"/> <path d="M50 59 C44 53 38 48 32 44"/> <path d="M50 59 C56 53 62 48 68 44"/> </g> <g> <ellipse cx="33" cy="41" rx="4.6" ry="10.4" fill="#A192D2" transform="rotate(-32 33 41)"/> <ellipse cx="67" cy="41" rx="4.6" ry="10.4" fill="#A192D2" transform="rotate(32 67 41)"/> <ellipse cx="39.5" cy="34" rx="5" ry="11.6" fill="#EFA275" transform="rotate(-16 39.5 34)"/> <ellipse cx="60.5" cy="34" rx="5" ry="11.6" fill="#EFA275" transform="rotate(16 60.5 34)"/> <ellipse cx="50" cy="30.5" rx="5.4" ry="12.4" fill="#E8712F"/> </g> <circle cx="50" cy="38.5" r="3.4" fill="#FBF6EC"/> <text x="50" y="76" text-anchor="middle" font-family="Georgia,'Times New Roman',serif" font-weight="bold" font-size="25" letter-spacing="1.2" fill="#F7F2E6">PCTP</text> </svg></div>
+      <div>
+        <div class="marka-nazwa">EduPlaner 2026</div>
+        <div class="marka-opis">Kącik nauczyciela ·<br>opinia dla zespołu orzekającego O-3</div>
+      </div>
+    </div>
+    <div class="naglowek-prawy">
+      <span class="plakietka">nauczyciel · orzeczenie</span>
+      <div class="naglowek-podpis">Kącik nauczyciela · 2026</div>
+    </div>
+  </div>
+  <div class="belka"></div>
+
+  <div class="metryczka">
+    <div class="box"><span class="etykieta">Dotyczy ucznia</span><span class="wypelnij"></span></div>
+    <div class="box"><span class="etykieta">Klasa / grupa</span><span class="wypelnij"></span></div>
+    <div class="box"><span class="etykieta">Rok szkolny</span><span class="wartosc">2026 / 2027</span></div>
+  </div>
+  <div class="druk-nag">
+    <span class="sygn">O-3</span>
+    <div><div class="nazwa">Opinia nauczyciela dla zespołu orzekającego</div><div class="pod">Kształcenie specjalne · nauczanie indywidualne · zajęcia rewalidacyjno-wychowawcze · część 1</div></div>
+  </div>
+  <div class="prawna">
+    <p><b>PODSTAWA PRAWNA.</b> Ustawa z dnia 14 grudnia 2016 r. — Prawo oświatowe (t.j. Dz.U. z 2024 r. poz. 737, z późn. zm.) — art. 127. Rozporządzenie Ministra Edukacji z dnia 2 marca 2026 r. w sprawie orzeczeń i opinii wydawanych przez zespoły orzekające działające w publicznych poradniach psychologiczno-pedagogicznych (Dz.U. z 2026 r. poz. 428) — zespół orzekający przeprowadza ocenę funkcjonalną przed wydaniem orzeczenia, a informacja placówki o funkcjonowaniu ucznia stanowi jej element. Niniejszy druk uzupełnia opinię o funkcjonowaniu (O-2) o informacje istotne dla rodzaju wnioskowanego rozstrzygnięcia. Dane osobowe przetwarzane zgodnie z RODO (UE) 2016/679.</p>
+  </div>
+  <div class="sekcja"><span class="numer">I</span><h2>Dane i przedmiot wniosku</h2><span class="linia"></span></div>
+  <div class="siatka2">
+    <div class="pole"><span class="etykieta">Imię i nazwisko ucznia · data urodzenia</span><div class="linijki"><div></div></div></div>
+    <div class="pole"><span class="etykieta">Szkoła, oddział, wychowawca</span><div class="linijki"><div></div></div></div>
+  </div>
+  <div class="wybor-tytul"><span class="kropka"></span><span>Czego dotyczy wniosek (zaznacz)</span></div>
+  <div class="wybory">
+    <div class="wybor w3"><span class="kwadrat">✓</span><span>Orzeczenie o potrzebie kształcenia specjalnego</span></div>
+    <div class="wybor w3"><span class="kwadrat">✓</span><span>Orzeczenie o potrzebie indywidualnego nauczania</span></div>
+    <div class="wybor w3"><span class="kwadrat">✓</span><span>Orzeczenie o potrzebie zajęć rewalidacyjno-wychowawczych</span></div>
+    <div class="wybor w3"><span class="kwadrat">✓</span><span>Opinia o potrzebie wczesnego wspomagania rozwoju</span></div>
+    <div class="wybor w3"><span class="kwadrat">✓</span><span>Przedłużenie / zmiana dotychczasowego orzeczenia</span></div>
+    <div class="wybor w3"><span class="kwadrat">✓</span><span>Inny przedmiot wniosku:<span class="dopisz"></span></span></div>
+  </div>
+  <div class="pole"><span class="etykieta">Kto złożył wniosek i z jakiego powodu (opis sytuacji, która skłoniła do wystąpienia do poradni)</span><div class="linijki"><div></div><div></div></div></div>
+  <div class="sekcja"><span class="numer pom">II</span><h2>Dotychczasowa historia wsparcia</h2><span class="linia"></span></div>
+  <table class="tab-mala">
+    <thead>
+      <tr><th style="width:13%">Rok szkolny</th><th style="width:28%">Forma pomocy / zajęcia</th><th style="width:12%">Wymiar</th><th>Efekt udzielonego wsparcia</th></tr>
+    </thead>
+    <tbody>
+      <tr><td class="puste"></td><td class="puste"></td><td class="puste"></td><td class="puste"></td></tr>
+      <tr><td class="puste"></td><td class="puste"></td><td class="puste"></td><td class="puste"></td></tr>
+      <tr><td class="puste"></td><td class="puste"></td><td class="puste"></td><td class="puste"></td></tr>
+      <tr><td class="puste"></td><td class="puste"></td><td class="puste"></td><td class="puste"></td></tr>
+      <tr><td class="puste"></td><td class="puste"></td><td class="puste"></td><td class="puste"></td></tr>
+    </tbody>
+  </table>
+  <div class="pole"><span class="etykieta">Dotychczasowe orzeczenia i opinie (numer, data, poradnia) oraz stopień realizacji zawartych w nich zaleceń</span><div class="linijki"><div></div><div></div></div></div>
+  <div class="stopka">
+    <span>EduPlaner 2026 · PCTP · pedagog specjalny</span>
+    <span><b>Strona 7 z 10</b> · Kącik nauczyciela · opinia dla zespołu orzekającego O-3 · wniosek i historia</span>
+  </div>
+</section>
+
+<!-- === STRONA 8 === -->
+<section class="page">
+  <div class="naglowek">
+    <div class="marka">
+      <div class="logo"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" role="img" aria-label="Logo PCTP"> <defs> <radialGradient id="pctpTlo" cx="36%" cy="28%" r="82%"> <stop offset="0%" stop-color="#6A4C9E"/> <stop offset="55%" stop-color="#4A2E86"/> <stop offset="100%" stop-color="#331E63"/> </radialGradient> </defs> <circle cx="50" cy="50" r="49.2" fill="#3B2472"/> <circle cx="50" cy="50" r="46.4" fill="#D3C8EC"/> <circle cx="50" cy="50" r="43.6" fill="url(#pctpTlo)"/> <g stroke="#C79A2C" stroke-width="2.1" stroke-linecap="round" fill="none"> <path d="M50 60 C50 50 50 42 50 34"/> <path d="M50 60 C46 52 42 46 38 40"/> <path d="M50 60 C54 52 58 46 62 40"/> <path d="M50 59 C44 53 38 48 32 44"/> <path d="M50 59 C56 53 62 48 68 44"/> </g> <g> <ellipse cx="33" cy="41" rx="4.6" ry="10.4" fill="#A192D2" transform="rotate(-32 33 41)"/> <ellipse cx="67" cy="41" rx="4.6" ry="10.4" fill="#A192D2" transform="rotate(32 67 41)"/> <ellipse cx="39.5" cy="34" rx="5" ry="11.6" fill="#EFA275" transform="rotate(-16 39.5 34)"/> <ellipse cx="60.5" cy="34" rx="5" ry="11.6" fill="#EFA275" transform="rotate(16 60.5 34)"/> <ellipse cx="50" cy="30.5" rx="5.4" ry="12.4" fill="#E8712F"/> </g> <circle cx="50" cy="38.5" r="3.4" fill="#FBF6EC"/> <text x="50" y="76" text-anchor="middle" font-family="Georgia,'Times New Roman',serif" font-weight="bold" font-size="25" letter-spacing="1.2" fill="#F7F2E6">PCTP</text> </svg></div>
+      <div>
+        <div class="marka-nazwa">EduPlaner 2026</div>
+        <div class="marka-opis">Kącik nauczyciela ·<br>opinia dla zespołu orzekającego O-3</div>
+      </div>
+    </div>
+    <div class="naglowek-prawy">
+      <span class="plakietka">nauczyciel · uzasadnienie</span>
+      <div class="naglowek-podpis">Kącik nauczyciela · 2026</div>
+    </div>
+  </div>
+  <div class="belka"></div>
+
+  <div class="metryczka">
+    <div class="box"><span class="etykieta">Dotyczy ucznia</span><span class="wypelnij"></span></div>
+    <div class="box"><span class="etykieta">Klasa / grupa</span><span class="wypelnij"></span></div>
+    <div class="box"><span class="etykieta">Rok szkolny</span><span class="wartosc">2026 / 2027</span></div>
+  </div>
+  <div class="sekcja"><span class="numer pom">III</span><h2>Funkcjonowanie ucznia w warunkach szkolnych</h2><span class="linia"></span></div>
+  <div class="pole"><span class="etykieta">Możliwości psychofizyczne a wymagania oddziału — na czym polega rozbieżność</span><div class="linijki"><div></div><div></div></div></div>
+  <div class="pole"><span class="etykieta">Sytuacje, w których uczeń nie jest w stanie uczestniczyć w zajęciach na zasadach ogólnych</span><div class="linijki"><div></div><div></div></div></div>
+  <div class="pole"><span class="etykieta">Bezpieczeństwo własne i innych uczniów — zdarzenia, ich częstotliwość i podjęte działania</span><div class="linijki"><div></div><div></div></div></div>
+  <div class="pole"><span class="etykieta">Wpływ stanu zdrowia na udział w zajęciach (na podstawie informacji od rodziców, bez rozstrzygania o diagnozie medycznej)</span><div class="linijki"><div></div><div></div></div></div>
+  <div class="sekcja"><span class="numer">IV</span><h2>Uzasadnienie i zalecenia placówki</h2><span class="linia"></span></div>
+  <div class="pole"><span class="etykieta">Uzasadnienie potrzeby wnioskowanej formy kształcenia lub wsparcia</span><div class="linijki"><div></div><div></div><div></div></div></div>
+  <div class="wybor-tytul"><span class="kropka"></span><span>Formy wsparcia rekomendowane przez placówkę</span></div>
+  <div class="wybory">
+    <div class="wybor w3"><span class="kwadrat">✓</span><span>Zajęcia rewalidacyjne</span></div>
+    <div class="wybor w3"><span class="kwadrat">✓</span><span>Nauczyciel współorganizujący kształcenie</span></div>
+    <div class="wybor w3"><span class="kwadrat">✓</span><span>Zajęcia specjalistyczne (jakie)</span></div>
+    <div class="wybor w3"><span class="kwadrat">✓</span><span>Nauczanie indywidualne — część zajęć</span></div>
+    <div class="wybor w3"><span class="kwadrat">✓</span><span>Zmniejszona liczebność grupy</span></div>
+    <div class="wybor w3"><span class="kwadrat">✓</span><span>Wsparcie w komunikacji (AAC)</span></div>
+    <div class="wybor w3"><span class="kwadrat">✓</span><span>Dostosowanie warunków egzaminacyjnych</span></div>
+    <div class="wybor w3"><span class="kwadrat">✓</span><span>Transport i opieka w drodze</span></div>
+    <div class="wybor w3"><span class="kwadrat">✓</span><span>Inne zalecenia:<span class="dopisz"></span></span></div>
+  </div>
+  <div class="pole"><span class="etykieta">Zasoby, którymi placówka dysponuje na wypadek wydania orzeczenia (kadra, sale, wyposażenie)</span><div class="linijki"><div></div><div></div></div></div>
+  <div class="podpisy" style="margin-top:4mm">
+    <div class="podpis"><div class="kreska"></div><div class="opis">Data i podpisy nauczycieli oraz specjalistów</div></div>
+    <div class="podpis"><div class="kreska"></div><div class="opis">Pieczęć i podpis dyrektora szkoły</div></div>
+  </div>
+  <div class="stopka">
+    <span>EduPlaner 2026 · PCTP · pedagog specjalny</span>
+    <span><b>Strona 8 z 10</b> · Kącik nauczyciela · opinia dla zespołu orzekającego O-3 · uzasadnienie</span>
+  </div>
+</section>
+
+<!-- === STRONA 9 === -->
+<section class="page">
+  <div class="naglowek">
+    <div class="marka">
+      <div class="logo"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" role="img" aria-label="Logo PCTP"> <defs> <radialGradient id="pctpTlo" cx="36%" cy="28%" r="82%"> <stop offset="0%" stop-color="#6A4C9E"/> <stop offset="55%" stop-color="#4A2E86"/> <stop offset="100%" stop-color="#331E63"/> </radialGradient> </defs> <circle cx="50" cy="50" r="49.2" fill="#3B2472"/> <circle cx="50" cy="50" r="46.4" fill="#D3C8EC"/> <circle cx="50" cy="50" r="43.6" fill="url(#pctpTlo)"/> <g stroke="#C79A2C" stroke-width="2.1" stroke-linecap="round" fill="none"> <path d="M50 60 C50 50 50 42 50 34"/> <path d="M50 60 C46 52 42 46 38 40"/> <path d="M50 60 C54 52 58 46 62 40"/> <path d="M50 59 C44 53 38 48 32 44"/> <path d="M50 59 C56 53 62 48 68 44"/> </g> <g> <ellipse cx="33" cy="41" rx="4.6" ry="10.4" fill="#A192D2" transform="rotate(-32 33 41)"/> <ellipse cx="67" cy="41" rx="4.6" ry="10.4" fill="#A192D2" transform="rotate(32 67 41)"/> <ellipse cx="39.5" cy="34" rx="5" ry="11.6" fill="#EFA275" transform="rotate(-16 39.5 34)"/> <ellipse cx="60.5" cy="34" rx="5" ry="11.6" fill="#EFA275" transform="rotate(16 60.5 34)"/> <ellipse cx="50" cy="30.5" rx="5.4" ry="12.4" fill="#E8712F"/> </g> <circle cx="50" cy="38.5" r="3.4" fill="#FBF6EC"/> <text x="50" y="76" text-anchor="middle" font-family="Georgia,'Times New Roman',serif" font-weight="bold" font-size="25" letter-spacing="1.2" fill="#F7F2E6">PCTP</text> </svg></div>
+      <div>
+        <div class="marka-nazwa">EduPlaner 2026</div>
+        <div class="marka-opis">Kącik nauczyciela ·<br>opinia dla instytucji O-4</div>
+      </div>
+    </div>
+    <div class="naglowek-prawy">
+      <span class="plakietka">nauczyciel · instytucje</span>
+      <div class="naglowek-podpis">Kącik nauczyciela · 2026</div>
+    </div>
+  </div>
+  <div class="belka"></div>
+
+  <div class="metryczka">
+    <div class="box"><span class="etykieta">Dotyczy ucznia</span><span class="wypelnij"></span></div>
+    <div class="box"><span class="etykieta">Klasa / grupa</span><span class="wypelnij"></span></div>
+    <div class="box"><span class="etykieta">Rok szkolny</span><span class="wartosc">2026 / 2027</span></div>
+  </div>
+  <div class="druk-nag">
+    <span class="sygn">O-4</span>
+    <div><div class="nazwa">Opinia wychowawcy o uczniu dla instytucji zewnętrznej</div><div class="pod">Sąd rodzinny · kurator · ośrodek pomocy społecznej · zespół interdyscyplinarny · część 1</div></div>
+  </div>
+  <div class="prawna">
+    <p><b>PODSTAWA PRAWNA I ZASADY.</b> Opinię sporządza się <b>wyłącznie na pisemny wniosek uprawnionego organu</b> albo za zgodą rodziców. Podstawy najczęstsze: ustawa z dnia 9 czerwca 2022 r. o wspieraniu i resocjalizacji nieletnich (Dz.U. z 2022 r. poz. 1700, z późn. zm.) — wystąpienia sądu rodzinnego i kuratora; ustawa z dnia 17 listopada 1964 r. — Kodeks postępowania cywilnego (z późn. zm.) — obowiązek przedstawienia dokumentu na żądanie sądu; ustawa z dnia 12 marca 2004 r. o pomocy społecznej (z późn. zm.); ustawa z dnia 29 lipca 2005 r. o przeciwdziałaniu przemocy domowej (z późn. zm.) — procedura „Niebieskie Karty”; ustawa z dnia 14 grudnia 2016 r. — Prawo oświatowe (t.j. Dz.U. z 2024 r. poz. 737, z późn. zm.). <b>Zakres danych:</b> przekazuje się wyłącznie informacje niezbędne dla celu wskazanego we wniosku (zasada minimalizacji danych — RODO (UE) 2016/679). Opinia zawiera <b>fakty i obserwacje</b>, nie zawiera diagnoz medycznych ani ocen moralnych rodziny. Dokument podpisuje wychowawca i zatwierdza dyrektor; kopię pozostawia się w dokumentacji szkoły.</p>
+  </div>
+  <div class="sekcja"><span class="numer">I</span><h2>Adresat i podstawa wystąpienia</h2><span class="linia"></span></div>
+  <div class="siatka2">
+    <div class="pole"><span class="etykieta">Instytucja wnioskująca (nazwa, adres, sygnatura sprawy)</span><div class="linijki"><div></div></div></div>
+    <div class="pole"><span class="etykieta">Data i numer wniosku · data sporządzenia opinii</span><div class="linijki"><div></div></div></div>
+  </div>
+  <div class="pole"><span class="etykieta">Cel i zakres informacji wskazany we wniosku</span><div class="linijki"><div></div></div></div>
+  <div class="sekcja"><span class="numer pom">II</span><h2>Dane ucznia i realizacja obowiązku szkolnego</h2><span class="linia"></span></div>
+  <div class="siatka2">
+    <div class="pole"><span class="etykieta">Imię i nazwisko ucznia · data urodzenia</span><div class="linijki"><div></div></div></div>
+    <div class="pole"><span class="etykieta">Oddział · okres uczęszczania do szkoły</span><div class="linijki"><div></div></div></div>
+  </div>
+  <table class="tab-mala">
+    <thead>
+      <tr><th style="width:40%">Wskaźnik</th><th style="width:26%">Bieżący rok szkolny</th><th>Rok poprzedni</th></tr>
+    </thead>
+    <tbody>
+      <tr><td class="klucz">Frekwencja (%)</td><td class="puste"></td><td class="puste"></td></tr>
+      <tr><td class="klucz">Liczba godzin nieusprawiedliwionych</td><td class="puste"></td><td class="puste"></td></tr>
+      <tr><td class="klucz">Oceny — średnia / poziom osiągnięć</td><td class="puste"></td><td class="puste"></td></tr>
+      <tr><td class="klucz">Ocena zachowania</td><td class="puste"></td><td class="puste"></td></tr>
+      <tr><td class="klucz">Realizacja obowiązku szkolnego (bez zastrzeżeń / zagrożona)</td><td class="puste"></td><td class="puste"></td></tr>
+    </tbody>
+  </table>
+  <div class="pole"><span class="etykieta">Sytuacje szczególne w bieżącym roku (spóźnienia, ucieczki, zwolnienia, długotrwałe nieobecności)</span><div class="linijki"><div></div><div></div></div></div>
+  <div class="stopka">
+    <span>EduPlaner 2026 · PCTP · pedagog specjalny</span>
+    <span><b>Strona 9 z 10</b> · Kącik nauczyciela · opinia dla instytucji O-4 · adresat i obowiązek szkolny</span>
+  </div>
+</section>
+
+<!-- === STRONA 10 === -->
+<section class="page">
+  <div class="naglowek">
+    <div class="marka">
+      <div class="logo"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" role="img" aria-label="Logo PCTP"> <defs> <radialGradient id="pctpTlo" cx="36%" cy="28%" r="82%"> <stop offset="0%" stop-color="#6A4C9E"/> <stop offset="55%" stop-color="#4A2E86"/> <stop offset="100%" stop-color="#331E63"/> </radialGradient> </defs> <circle cx="50" cy="50" r="49.2" fill="#3B2472"/> <circle cx="50" cy="50" r="46.4" fill="#D3C8EC"/> <circle cx="50" cy="50" r="43.6" fill="url(#pctpTlo)"/> <g stroke="#C79A2C" stroke-width="2.1" stroke-linecap="round" fill="none"> <path d="M50 60 C50 50 50 42 50 34"/> <path d="M50 60 C46 52 42 46 38 40"/> <path d="M50 60 C54 52 58 46 62 40"/> <path d="M50 59 C44 53 38 48 32 44"/> <path d="M50 59 C56 53 62 48 68 44"/> </g> <g> <ellipse cx="33" cy="41" rx="4.6" ry="10.4" fill="#A192D2" transform="rotate(-32 33 41)"/> <ellipse cx="67" cy="41" rx="4.6" ry="10.4" fill="#A192D2" transform="rotate(32 67 41)"/> <ellipse cx="39.5" cy="34" rx="5" ry="11.6" fill="#EFA275" transform="rotate(-16 39.5 34)"/> <ellipse cx="60.5" cy="34" rx="5" ry="11.6" fill="#EFA275" transform="rotate(16 60.5 34)"/> <ellipse cx="50" cy="30.5" rx="5.4" ry="12.4" fill="#E8712F"/> </g> <circle cx="50" cy="38.5" r="3.4" fill="#FBF6EC"/> <text x="50" y="76" text-anchor="middle" font-family="Georgia,'Times New Roman',serif" font-weight="bold" font-size="25" letter-spacing="1.2" fill="#F7F2E6">PCTP</text> </svg></div>
+      <div>
+        <div class="marka-nazwa">EduPlaner 2026</div>
+        <div class="marka-opis">Kącik nauczyciela ·<br>opinia dla instytucji O-4</div>
+      </div>
+    </div>
+    <div class="naglowek-prawy">
+      <span class="plakietka">nauczyciel · wnioski</span>
+      <div class="naglowek-podpis">Kącik nauczyciela · 2026</div>
+    </div>
+  </div>
+  <div class="belka"></div>
+
+  <div class="metryczka">
+    <div class="box"><span class="etykieta">Dotyczy ucznia</span><span class="wypelnij"></span></div>
+    <div class="box"><span class="etykieta">Klasa / grupa</span><span class="wypelnij"></span></div>
+    <div class="box"><span class="etykieta">Rok szkolny</span><span class="wartosc">2026 / 2027</span></div>
+  </div>
+  <div class="sekcja"><span class="numer pom">III</span><h2>Funkcjonowanie ucznia w szkole</h2><span class="linia"></span></div>
+  <div class="pole"><span class="etykieta">Funkcjonowanie w nauce — mocne strony, trudności, stosunek do obowiązków</span><div class="linijki"><div></div><div></div></div></div>
+  <div class="pole"><span class="etykieta">Funkcjonowanie społeczne — relacje z rówieśnikami i dorosłymi, przestrzeganie norm</span><div class="linijki"><div></div><div></div></div></div>
+  <div class="pole"><span class="etykieta">Zachowania budzące niepokój — opis faktów, częstotliwość, okoliczności (bez interpretacji i etykiet)</span><div class="linijki"><div></div><div></div></div></div>
+  <div class="pole"><span class="etykieta">Zaobserwowane potrzeby ucznia niezaspokojone w środowisku domowym (fakty, np. brak przyborów, posiłków, ubioru na porę roku)</span><div class="linijki"><div></div><div></div></div></div>
+  <div class="sekcja"><span class="numer">IV</span><h2>Współpraca z rodziną i działania szkoły</h2><span class="linia"></span></div>
+  <table class="tab-mala">
+    <thead>
+      <tr><th style="width:13%">Data</th><th style="width:26%">Forma kontaktu z rodzicami</th><th style="width:32%">Temat i ustalenia</th><th>Realizacja ustaleń</th></tr>
+    </thead>
+    <tbody>
+      <tr><td class="puste"></td><td class="puste"></td><td class="puste"></td><td class="puste"></td></tr>
+      <tr><td class="puste"></td><td class="puste"></td><td class="puste"></td><td class="puste"></td></tr>
+      <tr><td class="puste"></td><td class="puste"></td><td class="puste"></td><td class="puste"></td></tr>
+      <tr><td class="puste"></td><td class="puste"></td><td class="puste"></td><td class="puste"></td></tr>
+    </tbody>
+  </table>
+  <div class="pole"><span class="etykieta">Działania podjęte przez szkołę wobec ucznia i rodziny (pomoc p-p, wsparcie materialne, zgłoszenia, procedura „Niebieskie Karty”)</span><div class="linijki"><div></div><div></div></div></div>
+  <div class="sekcja"><span class="numer">V</span><h2>Wnioski i klauzula</h2><span class="linia"></span></div>
+  <div class="pole"><span class="etykieta">Wnioski wychowawcy — czego uczeń potrzebuje w ocenie szkoły</span><div class="linijki"><div></div><div></div></div></div>
+  <div class="info" style="margin-top:2mm">
+    <b>Klauzula.</b> Opinię sporządzono wyłącznie na wniosek wskazanej instytucji i w zakresie w nim określonym. Zawiera informacje oparte na dokumentacji szkolnej i obserwacji pracowników szkoły. Nie stanowi diagnozy psychologicznej ani medycznej. Kopia pozostaje w dokumentacji szkoły.
+  </div>
+  <div class="podpisy" style="margin-top:4mm">
+    <div class="podpis"><div class="kreska"></div><div class="opis">Data i podpis wychowawcy klasy</div></div>
+    <div class="podpis"><div class="kreska"></div><div class="opis">Pieczęć i podpis dyrektora szkoły</div></div>
+  </div>
+  <div class="stopka">
+    <span>EduPlaner 2026 · PCTP · pedagog specjalny</span>
+    <span><b>Strona 10 z 10</b> · Kącik nauczyciela · opinia dla instytucji O-4 · wnioski i podpisy</span>
+  </div>
+</section>
+
+</body>
+</html>
