@@ -372,6 +372,18 @@
   .smart-opis .w .tresc strong{color:var(--fiolet)}
   .smart-opis .w .tresc em{display:block; font-style:normal; font-size:6.2pt; color:var(--pomarancz); margin-top:.4mm}
 
+
+  /* ——— karty uzasadnienia ——— */
+  .argumenty{display:flex; flex-wrap:wrap; gap:2.4mm; margin-bottom:2.4mm}
+  .arg{
+    flex:1 1 calc(50% - 1.2mm); border:1px solid var(--ramka); border-left:1.6mm solid var(--pomarancz);
+    border-radius:2.4mm; background:#fff; padding:2.4mm 3mm;
+  }
+  .arg.fiolet{border-left-color:var(--fiolet)}
+  .arg b{display:block; font-size:7.4pt; color:var(--fiolet); margin-bottom:1mm}
+  .arg p{font-size:6.8pt; line-height:1.5; color:#3a3357}
+  .arg p em{font-style:normal; color:var(--pomarancz); font-weight:bold}
+
   @media print{
     body{background:#fff}
     .panel{display:none !important}
@@ -388,20 +400,21 @@
   <div class="panel-glowa">
     <div class="etykieta-app">EduPlaner 2026 · Kącik nauczyciela · panel informacyjny</div>
     <h1>Jak pisać cele SMART — instrukcja dla nauczycieli</h1>
-    <p>Trzy strony A4 do powieszenia w pokoju nauczycielskim albo wpięcia do teczki. Instrukcja prowadzi od zasady, przez formułę zdania, po bank czasowników, przykłady i listę kontrolną. Ta część wyświetla się wyłącznie w aplikacji i nie drukuje się.</p>
+    <p>Cztery strony A4 do powieszenia w pokoju nauczycielskim albo wpięcia do teczki. Instrukcja prowadzi od zasady, przez formułę zdania, po bank czasowników, przykłady i listę kontrolną. Ta część wyświetla się wyłącznie w aplikacji i nie drukuje się.</p>
   </div>
   <div class="panel-cialo">
     <div class="panel-sekcja">
       <h2>Co znajdziesz w druku</h2>
       <ul class="panel-lista">
-        <li><span class="nr">I</span><span>Zasada nadrzędna — cel opisuje <b>zachowanie dziecka</b>, nie pracę nauczyciela (str. 1)</span></li>
-        <li><span class="nr">II</span><span>Pięć liter SMART z pytaniem kontrolnym przy każdej (str. 1)</span></li>
-        <li><span class="nr">III</span><span>Formuła zdania w pięciu członach — kto, co zrobi, w jakich warunkach, jak często, do kiedy (str. 1)</span></li>
-        <li><span class="nr">IV</span><span>Cel edukacyjny a terapeutyczny — czym się różnią, z przykładem każdego (str. 2)</span></li>
-        <li><span class="nr">V</span><span>Bank czasowników obserwowalnych wg czterech obszarów + lista słów zakazanych (str. 2)</span></li>
-        <li><span class="nr">VI</span><span>Trzy pary przykładów: źle obok dobrze (str. 2)</span></li>
-        <li><span class="nr">VII</span><span>Kryterium osiągnięcia celu — sposoby pomiaru i źródła dowodu (str. 3)</span></li>
-        <li><span class="nr">VIII</span><span>Lista kontrolna przed wpisaniem celu do IPET, najczęstsze błędy i miejsce na własne cele (str. 3)</span></li>
+        <li><span class="nr">I</span><span><b>Uzasadnienie</b> — sześć powodów, dla których cel musi być mierzalny (str. 1)</span></li>
+        <li><span class="nr">II</span><span>Zasada nadrzędna — cel opisuje <b>zachowanie dziecka</b>, nie pracę nauczyciela (str. 2)</span></li>
+        <li><span class="nr">III</span><span>Pięć liter SMART z pytaniem kontrolnym przy każdej (str. 2)</span></li>
+        <li><span class="nr">IV</span><span>Formuła zdania w pięciu członach — kto, co zrobi, w jakich warunkach, jak często, do kiedy (str. 2)</span></li>
+        <li><span class="nr">V</span><span>Cel edukacyjny a terapeutyczny — czym się różnią, z przykładem każdego (str. 3)</span></li>
+        <li><span class="nr">VI</span><span>Bank czasowników obserwowalnych wg czterech obszarów + lista słów zakazanych (str. 3)</span></li>
+        <li><span class="nr">VII</span><span>Trzy pary przykładów: źle obok dobrze (str. 3)</span></li>
+        <li><span class="nr">VIII</span><span>Kryterium osiągnięcia celu — sposoby pomiaru i źródła dowodu (str. 4)</span></li>
+        <li><span class="nr">IX</span><span>Lista kontrolna przed wpisaniem celu do IPET, najczęstsze błędy i miejsce na własne cele (str. 4)</span></li>
       </ul>
     </div>
     <div class="panel-sekcja">
@@ -422,7 +435,7 @@
       </div>
     </div>
     <div class="panel-akcje">
-      <button class="btn-druk" onclick="window.print()">Drukuj instrukcję (3 strony A4)</button>
+      <button class="btn-druk" onclick="window.print()">Drukuj instrukcję (4 strony A4)</button>
       <span class="uwaga-druk">Ustawienia: A4, marginesy „brak”, grafika tła włączona.</span>
     </div>
   </div>
@@ -439,7 +452,7 @@
       </div>
     </div>
     <div class="naglowek-prawy">
-      <span class="plakietka">nauczyciel · instrukcja</span>
+      <span class="plakietka">nauczyciel · uzasadnienie</span>
       <div class="naglowek-podpis">Dokument wsparcia · 2026</div>
     </div>
   </div>
@@ -455,10 +468,49 @@
   <div class="podtytul">instrukcja dla nauczycieli — cele edukacyjne i terapeutyczne</div>
   <div class="kody">
     <span class="kreska"></span>
-    <span class="tresc">DRUK I-1 · ZASADA · FORMUŁA · PRZYKŁADY</span>
+    <span class="tresc">DRUK I-1 · UZASADNIENIE · ZASADY · PRZYKŁADY</span>
     <span class="kreska"></span>
   </div>
-  <div class="sekcja"><span class="numer">I</span><h2>Zasada nadrzędna</h2><span class="linia"></span></div>
+  <div class="sekcja"><span class="numer">I</span><h2>Dlaczego piszemy cele w formule SMART</h2><span class="linia"></span></div>
+  <p class="wstep">Formuła SMART nie jest wymysłem formalnym ani modą. To sposób zapisu, który sprawia, że cel <b>da się sprawdzić</b> — a od tego zależy, czy wsparcie zostanie w porę poprawione.</p>
+  <div class="argumenty">
+    <div class="arg fiolet"><b>1. Bo prawo wymaga oceny efektywności</b><p>Nauczyciele i specjaliści mają obowiązek <em>oceniać efektywność udzielanej pomocy</em> i formułować wnioski do dalszych działań. Dla dziecka z orzeczeniem zespół co najmniej dwa razy w roku dokonuje <em>okresowej wielospecjalistycznej oceny (WOPFU)</em>. Nie da się ocenić efektywności celu, którego nikt nie umie zmierzyć — ocena zamienia się wtedy w zdanie „widać postęp”.</p></div>
+    <div class="arg"><b>2. Bo chroni dziecko przed straconym rokiem</b><p>Cel ogólny („będzie spokojniejsze”) można uznawać za realizowany przez cały rok i nigdy nie zauważyć, że wsparcie nie działa. Cel mierzalny wymusza reakcję: gdy po sześciu tygodniach nie ma 3 na 5 prób, <em>modyfikujesz metodę teraz</em>, a nie w czerwcu.</p></div>
+    <div class="arg fiolet"><b>3. Bo zespół i rodzic rozumieją to samo</b><p>To samo zdanie czyta nauczyciel, specjalista, rodzic i poradnia. „Poprawi koncentrację” każdy zrozumie inaczej; „wykona zadanie przez 8 minut bez odchodzenia, przy jednym przypomnieniu” znaczy dla wszystkich <em>dokładnie to samo</em>.</p></div>
+    <div class="arg"><b>4. Bo daje dziecku doświadczenie sukcesu</b><p>Mały, policzalny krok da się osiągnąć i pochwalić. Cel bez granicy nigdy się nie kończy powodzeniem — dziecko wciąż jest „w trakcie poprawy”. <em>Sukces buduje motywację</em>, a ta jest warunkiem dalszej pracy.</p></div>
+    <div class="arg fiolet"><b>5. Bo to dowód twojej pracy</b><p>Mierzalny cel z kryterium to gotowy materiał do sprawozdania z pomocy p-p, do opinii o funkcjonowaniu dla poradni i do rozmowy z rodzicem. W nadzorze pedagogicznym <em>broni cię zapis, nie pamięć</em>.</p></div>
+    <div class="arg"><b>6. Bo od 2026 roku opisujesz efektywność wsparcia</b><p>Opinia o funkcjonowaniu dziecka, którą przedszkole przekazuje poradni w ramach oceny funkcjonalnej, obejmuje <em>efekty dotychczas udzielanego wsparcia</em>. Bez mierzalnych celów nie ma czego w niej opisać poza wrażeniami.</p></div>
+  </div>
+  <div class="info"><b>Podstawa prawna.</b> Rozporządzenie MEN z dnia 9 sierpnia 2017 r. w sprawie zasad organizacji i udzielania pomocy psychologiczno-pedagogicznej (Dz.U. z 2017 r. poz. 1591, t.j. Dz.U. z 2023 r. poz. 1798, z późn. zm.) — ocena efektywności udzielanej pomocy i wnioski do dalszych działań. Rozporządzenie MEN z dnia 9 sierpnia 2017 r. w sprawie warunków organizowania kształcenia dzieci niepełnosprawnych (Dz.U. z 2017 r. poz. 1578, t.j. Dz.U. z 2020 r. poz. 1309, z późn. zm.) — IPET oraz okresowa wielospecjalistyczna ocena poziomu funkcjonowania co najmniej dwa razy w roku szkolnym. Rozporządzenie Ministra Edukacji z dnia 2 marca 2026 r. (Dz.U. z 2026 r. poz. 428) — ocena funkcjonalna od 1 września 2026 r. i opinia placówki o funkcjonowaniu dziecka.</div>
+  <div class="stopka">
+    <span>EduPlaner 2026 · PCTP · pedagog specjalny</span>
+    <span><b>Strona 1 z 4</b> · Kącik nauczyciela · instrukcja I-1 · uzasadnienie</span>
+  </div>
+</section>
+
+<!-- === STRONA 1 === -->
+<section class="page">
+  <div class="naglowek">
+    <div class="marka">
+      <div class="logo"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" role="img" aria-label="Logo PCTP"> <defs> <radialGradient id="pctpTlo" cx="36%" cy="28%" r="82%"> <stop offset="0%" stop-color="#6A4C9E"/> <stop offset="55%" stop-color="#4A2E86"/> <stop offset="100%" stop-color="#331E63"/> </radialGradient> </defs> <circle cx="50" cy="50" r="49.2" fill="#3B2472"/> <circle cx="50" cy="50" r="46.4" fill="#D3C8EC"/> <circle cx="50" cy="50" r="43.6" fill="url(#pctpTlo)"/> <g stroke="#C79A2C" stroke-width="2.1" stroke-linecap="round" fill="none"> <path d="M50 60 C50 50 50 42 50 34"/> <path d="M50 60 C46 52 42 46 38 40"/> <path d="M50 60 C54 52 58 46 62 40"/> <path d="M50 59 C44 53 38 48 32 44"/> <path d="M50 59 C56 53 62 48 68 44"/> </g> <g> <ellipse cx="33" cy="41" rx="4.6" ry="10.4" fill="#A192D2" transform="rotate(-32 33 41)"/> <ellipse cx="67" cy="41" rx="4.6" ry="10.4" fill="#A192D2" transform="rotate(32 67 41)"/> <ellipse cx="39.5" cy="34" rx="5" ry="11.6" fill="#EFA275" transform="rotate(-16 39.5 34)"/> <ellipse cx="60.5" cy="34" rx="5" ry="11.6" fill="#EFA275" transform="rotate(16 60.5 34)"/> <ellipse cx="50" cy="30.5" rx="5.4" ry="12.4" fill="#E8712F"/> </g> <circle cx="50" cy="38.5" r="3.4" fill="#FBF6EC"/> <text x="50" y="76" text-anchor="middle" font-family="Georgia,'Times New Roman',serif" font-weight="bold" font-size="25" letter-spacing="1.2" fill="#F7F2E6">PCTP</text> </svg></div>
+      <div>
+        <div class="marka-nazwa">EduPlaner 2026</div>
+        <div class="marka-opis">Kącik nauczyciela ·<br>instrukcja pisania celów</div>
+      </div>
+    </div>
+    <div class="naglowek-prawy">
+      <span class="plakietka">nauczyciel · zasady</span>
+      <div class="naglowek-podpis">Dokument wsparcia · 2026</div>
+    </div>
+  </div>
+  <div class="belka"></div>
+
+  <div class="metryczka">
+    <div class="box"><span class="etykieta">Nauczyciel wychowawca</span><span class="wypelnij"></span></div>
+    <div class="box"><span class="etykieta">Grupa przedszkolna</span><span class="wypelnij"></span></div>
+    <div class="box"><span class="etykieta">Rok szkolny</span><span class="wartosc">2026 / 2027</span></div>
+  </div>
+  <div class="sekcja"><span class="numer">II</span><h2>Zasada nadrzędna</h2><span class="linia"></span></div>
   <div class="zle-dobrze">
     <div class="zle"><span class="etyk">Tak nie piszemy — to opis pracy nauczyciela</span>
       „Kształtowanie umiejętności skupiania uwagi”, „Usprawnianie motoryki małej”, „Wdrażanie do samodzielności”.</div>
@@ -466,7 +518,7 @@
       „Dziecko wykona zadanie przy stoliku przez 8 minut bez odchodzenia, przy jednym przypomnieniu słownym.”</div>
   </div>
   <div class="info"><b>Cel opisuje dziecko, nie nauczyciela.</b> Zaczynaj zdanie od słowa <b>„Dziecko…”</b> i dopiero potem wpisuj czasownik, który da się zobaczyć albo policzyć. Jeśli w zdaniu pojawia się „kształtowanie”, „usprawnianie”, „wdrażanie” — to jest zadanie dla ciebie, a nie cel dla dziecka.</div>
-  <div class="sekcja"><span class="numer pom">II</span><h2>Pięć liter — co znaczy każda</h2><span class="linia"></span></div>
+  <div class="sekcja"><span class="numer pom">III</span><h2>Pięć liter — co znaczy każda</h2><span class="linia"></span></div>
   <div class="klamra-blok" style="margin:2mm 0 2.4mm">
     <span class="klamra"><svg viewBox="0 0 10 100" preserveAspectRatio="none" aria-hidden="true"><path d="M9 1 C5 1 6 6 6 12 L6 44 C6 48 4 50 1 50 C4 50 6 52 6 56 L6 88 C6 94 5 99 9 99" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" vector-effect="non-scaling-stroke"/></svg></span>
     <div class="smart-opis">
@@ -477,7 +529,7 @@
       <div class="w"><b>T</b><div class="tresc"><strong>Określony w czasie.</strong> Podaj <strong>termin</strong> i moment sprawdzenia. Przy dłuższych celach zaplanuj punkt pośredni, żeby nie czekać do czerwca z korektą.<em>Sprawdź: kiedy sprawdzę efekt i na jakiej podstawie?</em></div></div>
     </div>
   </div>
-  <div class="sekcja"><span class="numer">III</span><h2>Formuła zdania</h2><span class="linia"></span></div>
+  <div class="sekcja"><span class="numer">IV</span><h2>Formuła zdania</h2><span class="linia"></span></div>
   <div class="formula">
     <div class="czlon" style="background:#2D1B69"><b>Kto</b><i>Dziecko…</i></div>
     <div class="czlon" style="background:#4A2E86"><b>Co zrobi</b><i>czasownik, który widać</i></div>
@@ -487,7 +539,7 @@
   </div>
   <div class="stopka">
     <span>EduPlaner 2026 · PCTP · pedagog specjalny</span>
-    <span><b>Strona 1 z 3</b> · Kącik nauczyciela · instrukcja I-1 · zasada, litery i formuła</span>
+    <span><b>Strona 2 z 4</b> · Kącik nauczyciela · instrukcja I-1 · zasada, litery i formuła</span>
   </div>
 </section>
 
@@ -513,7 +565,7 @@
     <div class="box"><span class="etykieta">Grupa przedszkolna</span><span class="wypelnij"></span></div>
     <div class="box"><span class="etykieta">Rok szkolny</span><span class="wartosc">2026 / 2027</span></div>
   </div>
-  <div class="sekcja"><span class="numer pom">IV</span><h2>Cel edukacyjny a cel terapeutyczny</h2><span class="linia"></span></div>
+  <div class="sekcja"><span class="numer pom">V</span><h2>Cel edukacyjny a cel terapeutyczny</h2><span class="linia"></span></div>
   <p class="wstep">W konspekcie i w planie wsparcia wpisujesz oba — po lewej edukacyjny, po prawej terapeutyczny. Oba w formule SMART, oba z kryterium osiągnięcia.</p>
   <div class="cele">
     <div class="cel">
@@ -537,7 +589,7 @@
       </div>
     </div>
   </div>
-  <div class="sekcja"><span class="numer">V</span><h2>Czasowniki, których używamy</h2><span class="linia"></span></div>
+  <div class="sekcja"><span class="numer">VI</span><h2>Czasowniki, których używamy</h2><span class="linia"></span></div>
   <table class="tab-mala">
     <thead><tr><th style="width:22%">Obszar</th><th>Czasowniki obserwowalne — tych używaj</th></tr></thead>
     <tbody>
@@ -548,7 +600,7 @@
       <tr><td class="klucz" style="color:var(--pomarancz)">Nie używaj</td><td>rozumie · wie · zna · potrafi (bez wskaźnika) · będzie spokojniejsze · poprawi się · wykazuje zainteresowanie · jest zmotywowane · usprawnia · kształtuje</td></tr>
     </tbody>
   </table>
-  <div class="sekcja"><span class="numer pom">VI</span><h2>Przykłady — z lewej źle, z prawej dobrze</h2><span class="linia"></span></div>
+  <div class="sekcja"><span class="numer pom">VII</span><h2>Przykłady — z lewej źle, z prawej dobrze</h2><span class="linia"></span></div>
   <div class="zle-dobrze">
     <div class="zle"><span class="etyk">Źle</span>Dziecko poprawi koncentrację na zajęciach.</div>
     <div class="dobrze"><span class="etyk">Dobrze</span>Dziecko wykona zadanie przy stoliku przez 8 minut bez odchodzenia, przy jednym przypomnieniu słownym, w 4 na 5 zajęć, do końca stycznia.</div>
@@ -563,7 +615,7 @@
   </div>
   <div class="stopka">
     <span>EduPlaner 2026 · PCTP · pedagog specjalny</span>
-    <span><b>Strona 2 z 3</b> · Kącik nauczyciela · instrukcja I-1 · dwa cele, czasowniki i przykłady</span>
+    <span><b>Strona 3 z 4</b> · Kącik nauczyciela · instrukcja I-1 · dwa cele, czasowniki i przykłady</span>
   </div>
 </section>
 
@@ -589,7 +641,7 @@
     <div class="box"><span class="etykieta">Grupa przedszkolna</span><span class="wypelnij"></span></div>
     <div class="box"><span class="etykieta">Rok szkolny</span><span class="wartosc">2026 / 2027</span></div>
   </div>
-  <div class="sekcja"><span class="numer pom">VII</span><h2>Kryterium osiągnięcia celu — czym mierzysz</h2><span class="linia"></span></div>
+  <div class="sekcja"><span class="numer pom">VIII</span><h2>Kryterium osiągnięcia celu — czym mierzysz</h2><span class="linia"></span></div>
   <p class="wstep">Kryterium to zdanie, które pozwala jednoznacznie powiedzieć „osiągnięty” albo „nieosiągnięty”. Zapisz w nim <b>sposób pomiaru</b>, <b>źródło dowodu</b> i <b>termin sprawdzenia</b>.</p>
   <div class="duo" style="margin-bottom:2.4mm">
     <div class="pole"><span class="etykieta">Sposoby pomiaru</span>
@@ -600,7 +652,7 @@
     </div>
   </div>
   <div class="info"><b>Przykład dobrego kryterium.</b> „Karta prób wypełniana po każdych zajęciach (2 razy w tygodniu); cel uznaje się za osiągnięty przy 4 udanych próbach na 5 w dwóch kolejnych tygodniach; podsumowanie na spotkaniu zespołu po 6 tygodniach.”</div>
-  <div class="sekcja"><span class="numer">VIII</span><h2>Zanim wpiszesz cel do IPET lub planu wsparcia</h2><span class="linia"></span></div>
+  <div class="sekcja"><span class="numer">IX</span><h2>Zanim wpiszesz cel do IPET lub planu wsparcia</h2><span class="linia"></span></div>
   <div class="wybory">
     <div class="wybor w3"><span class="kwadrat">✓</span><span>Zdanie zaczyna się od słowa „Dziecko”</span></div>
     <div class="wybor w3"><span class="kwadrat">✓</span><span>Czasownik da się zobaczyć albo policzyć</span></div>
@@ -625,7 +677,7 @@
   <div class="pole" style="margin-top:3mm"><span class="etykieta">Miejsce na własne cele — przećwicz na swoim dziecku</span><div class="linijki"><div></div><div></div><div></div><div></div></div></div>
   <div class="stopka">
     <span>EduPlaner 2026 · PCTP · pedagog specjalny</span>
-    <span><b>Strona 3 z 3</b> · Kącik nauczyciela · instrukcja I-1 · kryterium, lista kontrolna i błędy</span>
+    <span><b>Strona 4 z 4</b> · Kącik nauczyciela · instrukcja I-1 · kryterium, lista kontrolna i błędy</span>
   </div>
 </section>
 
