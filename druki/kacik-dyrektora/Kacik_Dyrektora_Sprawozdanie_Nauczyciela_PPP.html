@@ -193,8 +193,50 @@
   }
   .stopka b{color:var(--fiolet)}
 
+
+  /* ——— panel aplikacji (nie drukuje się) ——— */
+  .panel{
+    width:210mm; margin:0 auto 8mm; background:#fff; border-radius:3mm; overflow:hidden;
+    box-shadow:0 2px 10px rgba(45,27,105,.18);
+  }
+  .panel-glowa{background:linear-gradient(120deg,#2D1B69 0%,#4D3D80 62%,#E8450A 165%); color:#fff; padding:6mm 7mm}
+  .panel-glowa .etykieta-app{font-size:6pt; font-weight:bold; letter-spacing:2px; text-transform:uppercase; opacity:.82}
+  .panel-glowa h1{font-size:15pt; font-weight:bold; margin-top:1.6mm}
+  .panel-glowa p{font-size:8pt; margin-top:1.6mm; opacity:.9; max-width:150mm; line-height:1.45}
+  .panel-cialo{padding:6mm 7mm 7mm}
+  .panel-sekcja{margin-bottom:5mm}
+  .panel-sekcja > h2{
+    font-size:9.4pt; font-weight:bold; color:var(--fiolet); text-transform:uppercase; letter-spacing:.5px;
+    display:flex; align-items:center; gap:2.4mm; margin-bottom:2.4mm;
+  }
+  .panel-sekcja > h2::before{content:""; width:2.6mm; height:2.6mm; border-radius:.7mm; background:var(--pomarancz)}
+  .panel-lista{list-style:none; display:flex; flex-wrap:wrap; gap:2mm}
+  .panel-lista li{
+    flex:1 1 calc(50% - 1mm); background:var(--pole); border:1px solid var(--ramka); border-radius:2.4mm;
+    padding:2.4mm 3mm; font-size:7.6pt; display:flex; gap:2.4mm; align-items:flex-start;
+  }
+  .panel-lista li .nr{
+    width:4.6mm; height:4.6mm; border-radius:50%; background:var(--fiolet); color:#fff; flex:none;
+    display:flex; align-items:center; justify-content:center; font-size:5.8pt; font-weight:bold;
+  }
+  .panel-role{display:flex; flex-direction:column; gap:2mm}
+  .panel-role .rola{
+    border:1px solid var(--ramka); border-left:1.6mm solid var(--pomarancz); border-radius:2.4mm;
+    padding:2.6mm 3.4mm; background:#fff;
+  }
+  .panel-role .rola b{color:var(--fiolet); font-size:8pt}
+  .panel-role .rola span{display:block; font-size:7.4pt; color:var(--fiolet-2); margin-top:1mm; line-height:1.45}
+  .panel-role .rola em{font-style:normal; color:var(--pomarancz); font-weight:bold}
+  .panel-akcje{display:flex; align-items:center; gap:4mm; border-top:1px solid #EBEBED; padding-top:4mm; margin-top:1mm}
+  .btn-druk{
+    background:var(--pomarancz); color:#fff; border:none; border-radius:999px; cursor:pointer;
+    padding:3mm 7mm; font-size:8.4pt; font-weight:bold; letter-spacing:.5px; font-family:inherit;
+  }
+  .panel-akcje .uwaga-druk{font-size:7.2pt; color:var(--szary)}
+
   @media print{
     body{background:#fff}
+    .panel{display:none !important}
     .page{margin:0; box-shadow:none; page-break-after:always}
     .page:last-child{page-break-after:auto}
     @page{size:A4; margin:0}
@@ -202,6 +244,89 @@
 </style>
 </head>
 <body>
+
+<!-- ======= PANEL APLIKACJI · nie drukuje się ======= -->
+<div class="panel">
+  <div class="panel-glowa">
+    <div class="etykieta-app">EduPlaner 2026 · Kącik dyrektora · panel informacyjny</div>
+    <h1>Sprawozdanie nauczyciela z pomocy psychologiczno-pedagogicznej</h1>
+    <p>Ta część wyświetla się wyłącznie w aplikacji — jest instrukcją dla nauczyciela i dyrektora. Nie znajdzie się na wydruku ani w pliku Word; drukowany jest tylko sam formularz sprawozdania (druk D-1).</p>
+  </div>
+  <div class="panel-cialo">
+
+    <div class="panel-sekcja">
+      <h2>Kto składa sprawozdanie</h2>
+      <div class="panel-role">
+        <div class="rola">
+          <b>Nauczyciel lub specjalista prowadzący zajęcia</b>
+          <span>Podstawowy autor druku. Sprawozdanie składa <em>każda osoba prowadząca z uczniem zajęcia w ramach pomocy p-p</em>: nauczyciel prowadzący zajęcia dydaktyczno-wyrównawcze i rozwijające uzdolnienia, pedagog specjalny, psycholog, pedagog, logopeda, terapeuta pedagogiczny, doradca zawodowy, nauczyciel prowadzący zajęcia rewalidacyjne oraz nauczyciel współorganizujący kształcenie. Każdy odpowiada za ocenę efektywności <em>własnych</em> zajęć.</span>
+        </div>
+        <div class="rola">
+          <b>Wychowawca klasy (lub wychowawca grupy wychowawczej)</b>
+          <span>Składa sprawozdanie <em>zbiorcze dla swojej klasy</em> — koordynuje udzielanie pomocy p-p uczniom klasy, zestawia informacje od nauczycieli i specjalistów oraz odpowiada za współpracę z rodzicami. W druku zaznacza rolę „wychowawca klasy” i wypełnia zestawienie dla wszystkich uczniów klasy objętych pomocą.</span>
+        </div>
+        <div class="rola">
+          <b>Zespół nauczycieli i specjalistów (uczeń z orzeczeniem)</b>
+          <span>Dla ucznia z orzeczeniem o potrzebie kształcenia specjalnego ocena efektywności następuje w ramach <em>okresowej wielospecjalistycznej oceny poziomu funkcjonowania (WOPFU)</em> — co najmniej dwa razy w roku szkolnym. Sprawozdania poszczególnych osób są materiałem wyjściowym do tej oceny i do modyfikacji IPET.</span>
+        </div>
+        <div class="rola">
+          <b>Dyrektor szkoły lub placówki</b>
+          <span>Nie pisze sprawozdania — <em>przyjmuje je i ocenia</em> w ramach nadzoru pedagogicznego (sekcje XV–XVI druku), podejmuje decyzje organizacyjne i przenosi wnioski do planu nadzoru oraz arkusza organizacyjnego.</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="panel-sekcja">
+      <h2>Co musi zawierać sprawozdanie</h2>
+      <ul class="panel-lista">
+        <li><span class="nr">1</span><span>Dane autora, rola w udzielaniu pomocy, kwalifikacje i formy zajęć (sekcja I)</span></li>
+        <li><span class="nr">2</span><span>Podstawa objęcia uczniów pomocą — orzeczenia, opinie, rozpoznanie nauczyciela (II)</span></li>
+        <li><span class="nr">3</span><span>Realizacja zaleceń z orzeczenia i opinii — co wdrożono i w jakim stopniu (III)</span></li>
+        <li><span class="nr">4</span><span>Imienne zestawienie uczniów, wymiar godzin i frekwencja (IV)</span></li>
+        <li><span class="nr">5</span><span>Bilans godzin planowanych i zrealizowanych z przyczynami odstępstw (V)</span></li>
+        <li><span class="nr">6</span><span>Cele SMART z IPET lub planu wsparcia i stopień ich realizacji (VI)</span></li>
+        <li><span class="nr">7</span><span>Metody, formy pracy, pomoce dydaktyczne i zastosowane dostosowania (VII)</span></li>
+        <li><span class="nr">8</span><span>Efekty pomocy — postępy uczniów i ocena efektywności z uzasadnieniem (VIII)</span></li>
+        <li><span class="nr">9</span><span>Trudności, bariery i podjęte działania zaradcze (IX)</span></li>
+        <li><span class="nr">10</span><span>Współpraca z rodzicami, nauczycielami, specjalistami i poradnią (X)</span></li>
+        <li><span class="nr">11</span><span>Doskonalenie zawodowe i autoewaluacja własnej pracy (XI)</span></li>
+        <li><span class="nr">12</span><span>Wnioski i rekomendacje do dalszej pracy dla dyrektora (XII)</span></li>
+        <li><span class="nr">13</span><span>Załączniki, informacja o zapoznaniu rodziców i podpisy (XIII–XIV)</span></li>
+        <li><span class="nr">14</span><span>Miejsce na ocenę i decyzję dyrektora — wypełnia dyrektor (XV–XVI)</span></li>
+      </ul>
+    </div>
+
+    <div class="panel-sekcja">
+      <h2>Terminy i tryb złożenia</h2>
+      <div class="kafle">
+        <div class="kafel">
+          <div class="naglowek-kafla">Sprawozdanie śródroczne</div>
+          <div class="tresc-kafla">do 31 stycznia</div>
+          <div class="uwaga">Podstawa do korekty organizacji pomocy na II semestr.</div>
+        </div>
+        <div class="kafel">
+          <div class="naglowek-kafla">Sprawozdanie roczne</div>
+          <div class="tresc-kafla">do 20 czerwca</div>
+          <div class="uwaga">Podstawa do arkusza organizacyjnego i WOPFU na kolejny rok.</div>
+        </div>
+        <div class="kafel">
+          <div class="naglowek-kafla">Sprawozdanie doraźne</div>
+          <div class="tresc-kafla">7 dni od zdarzenia</div>
+          <div class="uwaga">Zakończenie formy pomocy, zmiana orzeczenia, wniosek rodzica.</div>
+        </div>
+      </div>
+      <div class="info">
+        <b>Jak pisać.</b> Opisy formułuj rzeczowo i weryfikowalnie — zamiast „uczeń robi postępy” podaj wskaźnik: <i>„liczba samodzielnie ukończonych zadań 2-etapowych wzrosła z 1 na 5 prób (IX) do 4 na 5 prób (I)”</i>. Każde stwierdzenie o efektach musi mieć oparcie w dzienniku zajęć, karcie monitorowania postępów lub wytworze pracy ucznia. Nie przenoś do sprawozdania diagnoz medycznych — opisuj funkcjonowanie, nie jednostkę chorobową. Formy pomocy oceniaj wobec celów zapisanych w IPET lub planie wsparcia, a nie wobec średniej klasy.
+      </div>
+    </div>
+
+    <div class="panel-akcje">
+      <button class="btn-druk" onclick="window.print()">Drukuj sprawozdanie (9 stron A4)</button>
+      <span class="uwaga-druk">Drukuje się wyłącznie formularz — ten panel zostaje w aplikacji. Ustawienia: A4, marginesy „brak”, grafika tła włączona.</span>
+    </div>
+
+  </div>
+</div>
 
 <!-- ================= STRONA 1 ================= -->
 <section class="page">
@@ -221,36 +346,54 @@
   <div class="belka"></div>
 
   <div class="metryczka">
-    <div class="box"><span class="etykieta">Nauczyciel / specjalista</span><span class="wypelnij"></span></div>
+    <div class="box"><span class="etykieta">Składający sprawozdanie</span><span class="wypelnij"></span></div>
     <div class="box"><span class="etykieta">Okres sprawozdawczy</span><span class="wypelnij"></span></div>
     <div class="box"><span class="etykieta">Rok szkolny</span><span class="wartosc">2026 / 2027</span></div>
   </div>
 
-  <div class="wstega"><span>Kącik dyrektora · nadzór pedagogiczny nad pomocą psychologiczno-pedagogiczną</span></div>
+  <div class="wstega"><span>Kącik dyrektora · druk D-1 · ocena efektywności pomocy</span></div>
   <div class="tytul">SPRAWOZDANIE NAUCZYCIELA</div>
   <div class="podtytul">z realizacji pomocy psychologiczno-pedagogicznej udzielanej uczniom</div>
-  <div class="kody">
-    <span class="kreska"></span>
-    <span class="tresc">DRUK D-1 · OCENA EFEKTYWNOŚCI POMOCY</span>
-    <span class="kreska"></span>
+
+  <div class="sekcja"><span class="numer">I</span><h2>Osoba składająca sprawozdanie i dane</h2><span class="linia"></span></div>
+
+  <div class="wybor-tytul"><span class="kropka"></span><span>Rola w udzielaniu pomocy psychologiczno-pedagogicznej (zaznacz właściwą)</span></div>
+  <div class="wybory">
+    <div class="wybor w3"><span class="kwadrat">✓</span><span>Nauczyciel prowadzący zajęcia</span></div>
+    <div class="wybor w3"><span class="kwadrat">✓</span><span>Wychowawca klasy / grupy wychowawczej</span></div>
+    <div class="wybor w3"><span class="kwadrat">✓</span><span>Pedagog specjalny</span></div>
+    <div class="wybor w3"><span class="kwadrat">✓</span><span>Psycholog</span></div>
+    <div class="wybor w3"><span class="kwadrat">✓</span><span>Pedagog szkolny</span></div>
+    <div class="wybor w3"><span class="kwadrat">✓</span><span>Logopeda / neurologopeda</span></div>
+    <div class="wybor w3"><span class="kwadrat">✓</span><span>Terapeuta pedagogiczny</span></div>
+    <div class="wybor w3"><span class="kwadrat">✓</span><span>Nauczyciel współorganizujący kształcenie</span></div>
+    <div class="wybor w3"><span class="kwadrat">✓</span><span>Inna rola:<span class="dopisz"></span></span></div>
   </div>
 
-  <div class="sekcja"><span class="numer">I</span><h2>Dane sprawozdania</h2><span class="linia"></span></div>
+  <div class="siatka2" style="margin-top:2.4mm">
+    <div class="pole"><span class="etykieta">Szkoła / placówka (nazwa i adres)</span><div class="linijki"><div></div></div></div>
+    <div class="pole"><span class="etykieta">Klasa / klasy objęte sprawozdaniem</span><div class="linijki"><div></div></div></div>
+  </div>
 
   <div class="siatka2">
-    <div class="pole"><span class="etykieta">Imię i nazwisko nauczyciela / specjalisty</span><div class="linijki"><div></div></div></div>
+    <div class="pole"><span class="etykieta">Imię i nazwisko składającego sprawozdanie</span><div class="linijki"><div></div></div></div>
     <div class="pole"><span class="etykieta">Stanowisko i kwalifikacje (kierunkowe, podyplomowe, kursy)</span><div class="linijki"><div></div></div></div>
   </div>
 
   <div class="pole"><span class="etykieta">Formy pomocy psychologiczno-pedagogicznej objęte sprawozdaniem</span>
-    <div class="tresc" style="color:#6B6B7B; font-size:6.6pt">np. zajęcia korekcyjno-kompensacyjne, rewalidacyjne, dydaktyczno-wyrównawcze, rozwijające uzdolnienia, rozwijające kompetencje emocjonalno-społeczne, logopedyczne, terapia psychologiczna, TUS, zajęcia o charakterze terapeutycznym, porady i konsultacje, bieżąca praca z uczniem.</div>
+    <div class="tresc" style="color:#6B6B7B; font-size:6.4pt">np. zajęcia korekcyjno-kompensacyjne, rewalidacyjne, dydaktyczno-wyrównawcze, rozwijające uzdolnienia, rozwijające kompetencje emocjonalno-społeczne, logopedyczne, terapia psychologiczna, TUS, zajęcia o charakterze terapeutycznym, doradztwo zawodowe, porady i konsultacje, bieżąca praca z uczniem.</div>
     <div class="linijki"><div></div><div></div></div>
   </div>
 
-  <div class="siatka2">
+  <div class="siatka3">
     <div class="pole"><span class="etykieta">Liczba uczniów objętych pomocą</span><div class="linijki"><div></div></div></div>
     <div class="pole"><span class="etykieta">Liczba grup / zajęć indywidualnych</span><div class="linijki"><div></div></div></div>
     <div class="pole"><span class="etykieta">Data sporządzenia sprawozdania</span><div class="linijki"><div></div></div></div>
+  </div>
+
+  <div class="siatka2">
+    <div class="pole"><span class="etykieta">Sposób dokumentowania zajęć (dziennik elektroniczny / papierowy, numer dziennika)</span><div class="linijki"><div></div></div></div>
+    <div class="pole"><span class="etykieta">Tygodniowy wymiar godzin pomocy p-p wg arkusza organizacyjnego</span><div class="linijki"><div></div></div></div>
   </div>
 
   <div class="wybor-tytul"><span class="kropka"></span><span>Okres, którego dotyczy sprawozdanie (zaznacz właściwe)</span></div>
@@ -259,18 +402,13 @@
     <div class="wybor w3"><span class="kwadrat">✓</span><span>II semestr (luty – czerwiec)</span></div>
     <div class="wybor w3"><span class="kwadrat">✓</span><span>Cały rok szkolny</span></div>
     <div class="wybor w3"><span class="kwadrat">✓</span><span>Sprawozdanie końcowe (zakończenie formy pomocy)</span></div>
-    <div class="wybor w3"><span class="kwadrat">✓</span><span>Sprawozdanie na potrzeby WOPFU / IPET</span></div>
+    <div class="wybor w3"><span class="kwadrat">✓</span><span>Na potrzeby WOPFU / modyfikacji IPET</span></div>
     <div class="wybor w3"><span class="kwadrat">✓</span><span>Inny okres:<span class="dopisz"></span></span></div>
-  </div>
-
-  <div class="sekcja"><span class="numer">§</span><h2>Podstawa prawna</h2><span class="linia"></span></div>
-  <div class="prawna">
-    <p><b>PODSTAWA PRAWNA I CEL SPRAWOZDANIA.</b> Ustawa z dnia 14 grudnia 2016 r. — Prawo oświatowe (t.j. Dz.U. z 2024 r. poz. 737, z późn. zm.) — art. 68 ust. 1 pkt 2 i pkt 6: dyrektor sprawuje nadzór pedagogiczny oraz odpowiada za organizację pomocy psychologiczno-pedagogicznej w szkole. Rozporządzenie Ministra Edukacji Narodowej z dnia 9 sierpnia 2017 r. w sprawie zasad organizacji i udzielania pomocy psychologiczno-pedagogicznej w publicznych przedszkolach, szkołach i placówkach (Dz.U. z 2017 r. poz. 1591, tekst jednolity: Dz.U. z 2023 r. poz. 1798, z późn. zm.) — nakłada na nauczycieli, wychowawców i specjalistów obowiązek <b>oceny efektywności udzielanej pomocy</b> oraz formułowania wniosków dotyczących dalszych działań mających na celu poprawę funkcjonowania ucznia; niniejsze sprawozdanie jest formą udokumentowania tej oceny wobec dyrektora. Rozporządzenie Ministra Edukacji Narodowej z dnia 25 sierpnia 2017 r. w sprawie sposobu prowadzenia przez publiczne przedszkola, szkoły i placówki dokumentacji przebiegu nauczania, działalności wychowawczej i opiekuńczej (Dz.U. z 2017 r. poz. 1646, z późn. zm.) — dziennik zajęć stanowi źródło danych liczbowych przenoszonych do sprawozdania. Rozporządzenie Ministra Edukacji Narodowej z dnia 25 sierpnia 2017 r. w sprawie nadzoru pedagogicznego (t.j. Dz.U. z 2020 r. poz. 1551, z późn. zm.). Rozporządzenie Ministra Edukacji z dnia 2 marca 2026 r. w sprawie orzeczeń i opinii wydawanych przez zespoły orzekające działające w publicznych poradniach psychologiczno-pedagogicznych (Dz.U. z 2026 r. poz. 428) — wprowadza obowiązkową <b>ocenę funkcjonalną</b> ucznia, obowiązującą od 1 września 2026 r.; wnioski z niniejszego sprawozdania stanowią materiał do tej oceny oraz do wielospecjalistycznej oceny poziomu funkcjonowania ucznia (WOPFU). <b>DANE OSOBOWE.</b> Sprawozdanie zawiera dane osobowe uczniów; przetwarzane są wyłącznie na potrzeby realizacji i nadzoru nad pomocą psychologiczno-pedagogiczną, zgodnie z RODO (Rozporządzenie Parlamentu Europejskiego i Rady (UE) 2016/679 z dnia 27 kwietnia 2016 r.). Dokument przechowuje się w dokumentacji szkoły; w zestawieniach zbiorczych dopuszcza się stosowanie inicjałów lub numerów porządkowych uczniów.</p>
   </div>
 
   <div class="stopka">
     <span>EduPlaner 2026 · PCTP · pedagog specjalny</span>
-    <span><b>Strona 1 z 8</b> · Kącik dyrektora · strona tytułowa</span>
+    <span><b>Strona 1 z 9</b> · Kącik dyrektora · osoba składająca i dane</span>
   </div>
 </section>
 
@@ -281,63 +419,29 @@
       <div class="logo">PCTP</div>
       <div>
         <div class="marka-nazwa">EduPlaner 2026</div>
-        <div class="marka-opis">Wskazówki dyrektora ·<br>zakres i tryb sprawozdania</div>
+        <div class="marka-opis">Podstawa prawna ·<br>realizacja zaleceń</div>
       </div>
     </div>
     <div class="naglowek-prawy">
-      <span class="plakietka">dyrektor · wskazówki</span>
+      <span class="plakietka">dyrektor · podstawa</span>
       <div class="naglowek-podpis">Dokument nadzoru · 2026</div>
     </div>
   </div>
   <div class="belka"></div>
 
   <div class="metryczka">
-    <div class="box"><span class="etykieta">Nauczyciel / specjalista</span><span class="wypelnij"></span></div>
+    <div class="box"><span class="etykieta">Składający sprawozdanie</span><span class="wypelnij"></span></div>
     <div class="box"><span class="etykieta">Okres sprawozdawczy</span><span class="wypelnij"></span></div>
     <div class="box"><span class="etykieta">Rok szkolny</span><span class="wartosc">2026 / 2027</span></div>
   </div>
 
-  <div class="sekcja"><span class="numer pom">II</span><h2>Co musi zawierać sprawozdanie — lista kontrolna</h2><span class="linia"></span></div>
-  <p class="wstep">Nauczyciel zaznacza pozycje, które uzupełnił. Dyrektor przyjmuje sprawozdanie po sprawdzeniu kompletności listy. Pozycje 1–10 są obowiązkowe, 11–12 wypełnia się, jeżeli dotyczą.</p>
-  <div class="wybory">
-    <div class="wybor"><span class="kwadrat">✓</span><span>1. Dane nauczyciela, kwalifikacje i formy pomocy (sekcja I)</span></div>
-    <div class="wybor"><span class="kwadrat">✓</span><span>2. Podstawa objęcia uczniów pomocą — orzeczenia, opinie, rozpoznanie (IV)</span></div>
-    <div class="wybor"><span class="kwadrat">✓</span><span>3. Imienne zestawienie uczniów, wymiar godzin i frekwencja (V)</span></div>
-    <div class="wybor"><span class="kwadrat">✓</span><span>4. Bilans godzin planowanych i zrealizowanych z przyczynami odstępstw (VI)</span></div>
-    <div class="wybor"><span class="kwadrat">✓</span><span>5. Cele SMART z IPET / planu wsparcia i stopień ich realizacji (VII)</span></div>
-    <div class="wybor"><span class="kwadrat">✓</span><span>6. Metody, formy pracy, pomoce dydaktyczne i dostosowania (VIII)</span></div>
-    <div class="wybor"><span class="kwadrat">✓</span><span>7. Efekty pomocy — postępy uczniów i ocena efektywności (IX)</span></div>
-    <div class="wybor"><span class="kwadrat">✓</span><span>8. Trudności, bariery i podjęte działania zaradcze (X)</span></div>
-    <div class="wybor"><span class="kwadrat">✓</span><span>9. Współpraca z rodzicami, nauczycielami, specjalistami i poradnią (XI)</span></div>
-    <div class="wybor"><span class="kwadrat">✓</span><span>10. Wnioski i rekomendacje do dalszej pracy dla dyrektora (XIII)</span></div>
-    <div class="wybor"><span class="kwadrat">✓</span><span>11. Doskonalenie zawodowe wykorzystane w pracy z uczniem (XII)</span></div>
-    <div class="wybor"><span class="kwadrat">✓</span><span>12. Załączniki i podpisy (XIV–XV)</span></div>
+  <div class="sekcja"><span class="numer">§</span><h2>Podstawa prawna</h2><span class="linia"></span></div>
+  <div class="prawna">
+    <p><b>OBOWIĄZEK SPRAWOZDAWCZY.</b> Ustawa z dnia 14 grudnia 2016 r. — Prawo oświatowe (t.j. Dz.U. z 2024 r. poz. 737, z późn. zm.) — art. 68 ust. 1 pkt 2 i 6: dyrektor sprawuje nadzór pedagogiczny i odpowiada za organizację pomocy psychologiczno-pedagogicznej. <b>Rozporządzenie Ministra Edukacji Narodowej z dnia 9 sierpnia 2017 r. w sprawie zasad organizacji i udzielania pomocy psychologiczno-pedagogicznej w publicznych przedszkolach, szkołach i placówkach</b> (Dz.U. z 2017 r. poz. 1591, tekst jednolity: Dz.U. z 2023 r. poz. 1798, z późn. zm.) — nauczyciele, wychowawcy grup wychowawczych i specjaliści udzielający pomocy <b>oceniają efektywność udzielonej pomocy i formułują wnioski dotyczące dalszych działań</b> mających na celu poprawę funkcjonowania ucznia; wychowawca klasy koordynuje udzielanie pomocy uczniom swojej klasy. <b>Rozporządzenie Ministra Edukacji Narodowej z dnia 9 sierpnia 2017 r. w sprawie warunków organizowania kształcenia, wychowania i opieki dla dzieci i młodzieży niepełnosprawnych, niedostosowanych społecznie i zagrożonych niedostosowaniem społecznym</b> (Dz.U. z 2017 r. poz. 1578, tekst jednolity: Dz.U. z 2020 r. poz. 1309, z późn. zm.) — zespół co najmniej dwa razy w roku szkolnym dokonuje <b>okresowej wielospecjalistycznej oceny poziomu funkcjonowania ucznia (WOPFU)</b> i w miarę potrzeb modyfikuje IPET; niniejsze sprawozdanie stanowi materiał do tej oceny. Rozporządzenie MEN z dnia 25 sierpnia 2017 r. w sprawie sposobu prowadzenia przez publiczne przedszkola, szkoły i placówki dokumentacji przebiegu nauczania, działalności wychowawczej i opiekuńczej (Dz.U. z 2017 r. poz. 1646, z późn. zm.) — dziennik zajęć jest źródłem danych liczbowych sprawozdania. Rozporządzenie MEN z dnia 25 sierpnia 2017 r. w sprawie nadzoru pedagogicznego (t.j. Dz.U. z 2020 r. poz. 1551, z późn. zm.). Rozporządzenie Ministra Edukacji z dnia 2 marca 2026 r. w sprawie orzeczeń i opinii wydawanych przez zespoły orzekające działające w publicznych poradniach psychologiczno-pedagogicznych (Dz.U. z 2026 r. poz. 428) — wprowadza obowiązkową <b>ocenę funkcjonalną</b> ucznia, obowiązującą od 1 września 2026 r. <b>DANE OSOBOWE.</b> Sprawozdanie zawiera dane osobowe uczniów, przetwarzane wyłącznie na potrzeby realizacji i nadzoru nad pomocą psychologiczno-pedagogiczną, zgodnie z RODO (Rozporządzenie Parlamentu Europejskiego i Rady (UE) 2016/679 z dnia 27 kwietnia 2016 r.). W zestawieniach zbiorczych dopuszcza się stosowanie inicjałów lub numerów porządkowych uczniów.</p>
   </div>
 
-  <div class="sekcja"><span class="numer">III</span><h2>Terminy i tryb złożenia</h2><span class="linia"></span></div>
-  <div class="kafle">
-    <div class="kafel">
-      <div class="naglowek-kafla">Sprawozdanie śródroczne</div>
-      <div class="tresc-kafla">do 31 stycznia</div>
-      <div class="uwaga">Podstawa do korekty organizacji pomocy na II semestr.</div>
-    </div>
-    <div class="kafel">
-      <div class="naglowek-kafla">Sprawozdanie roczne</div>
-      <div class="tresc-kafla">do 20 czerwca</div>
-      <div class="uwaga">Podstawa do arkusza organizacyjnego i WOPFU na kolejny rok.</div>
-    </div>
-    <div class="kafel">
-      <div class="naglowek-kafla">Sprawozdanie doraźne</div>
-      <div class="tresc-kafla">7 dni od zdarzenia</div>
-      <div class="uwaga">Zakończenie formy pomocy, zmiana orzeczenia, wniosek rodzica.</div>
-    </div>
-  </div>
-  <div class="info">
-    <b>Jak pisać.</b> Opisy formułuj rzeczowo i weryfikowalnie — zamiast „uczeń robi postępy” podaj wskaźnik: <i>„liczba samodzielnie ukończonych zadań 2-etapowych wzrosła z 1 na 5 prób (IX) do 4 na 5 prób (I)”</i>. Każde stwierdzenie o efektach musi mieć oparcie w dzienniku zajęć, karcie monitorowania postępów lub wytworze pracy ucznia. Nie przenoś do sprawozdania diagnoz medycznych — opisuj funkcjonowanie, nie jednostkę chorobową. Formy pomocy oceniaj wobec celów zapisanych w IPET lub planie wsparcia, a nie wobec średniej klasy.
-  </div>
-
-  <div class="sekcja"><span class="numer">IV</span><h2>Podstawa objęcia uczniów pomocą</h2><span class="linia"></span></div>
-  <table>
+  <div class="sekcja"><span class="numer pom">II</span><h2>Podstawa objęcia uczniów pomocą</h2><span class="linia"></span></div>
+  <table class="tab-mala">
     <thead>
       <tr><th style="width:52%">Podstawa udzielania pomocy</th><th style="width:14%">Liczba uczniów</th><th>Numery / daty dokumentów, uwagi</th></tr>
     </thead>
@@ -355,7 +459,7 @@
 
   <div class="stopka">
     <span>EduPlaner 2026 · PCTP · pedagog specjalny</span>
-    <span><b>Strona 2 z 8</b> · Kącik dyrektora · wskazówki i podstawa pomocy</span>
+    <span><b>Strona 2 z 9</b> · Kącik dyrektora · podstawa prawna i podstawa pomocy</span>
   </div>
 </section>
 
@@ -366,36 +470,48 @@
       <div class="logo">PCTP</div>
       <div>
         <div class="marka-nazwa">EduPlaner 2026</div>
-        <div class="marka-opis">Zestawienie uczniów ·<br>bilans godzin</div>
+        <div class="marka-opis">Realizacja zaleceń ·<br>zestawienie uczniów</div>
       </div>
     </div>
     <div class="naglowek-prawy">
-      <span class="plakietka">dyrektor · zestawienie</span>
+      <span class="plakietka">dyrektor · zalecenia</span>
       <div class="naglowek-podpis">Dokument nadzoru · 2026</div>
     </div>
   </div>
   <div class="belka"></div>
 
   <div class="metryczka">
-    <div class="box"><span class="etykieta">Nauczyciel / specjalista</span><span class="wypelnij"></span></div>
+    <div class="box"><span class="etykieta">Składający sprawozdanie</span><span class="wypelnij"></span></div>
     <div class="box"><span class="etykieta">Okres sprawozdawczy</span><span class="wypelnij"></span></div>
     <div class="box"><span class="etykieta">Rok szkolny</span><span class="wartosc">2026 / 2027</span></div>
   </div>
 
-  <div class="sekcja"><span class="numer pom">V</span><h2>Zestawienie uczniów objętych pomocą</h2><span class="linia"></span></div>
+  <div class="sekcja"><span class="numer pom">III</span><h2>Realizacja zaleceń z orzeczenia i opinii</h2><span class="linia"></span></div>
+  <p class="wstep">Każde zalecenie z orzeczenia lub opinii wpisz osobno. Kolumna „stopień realizacji”: <b>Z</b> — zrealizowane, <b>C</b> — częściowo, <b>N</b> — niezrealizowane (z podaniem przyczyny).</p>
+  <table class="tab-mala">
+    <thead>
+      <tr><th style="width:6%">Lp.</th><th style="width:34%">Treść zalecenia</th><th style="width:32%">Sposób realizacji w praktyce szkolnej</th><th style="width:11%">Stopień</th><th>Uwagi / przyczyna</th></tr>
+    </thead>
+    <tbody>
+      <tr><td class="lp">1</td><td class="puste"></td><td class="puste"></td><td class="puste"></td><td class="puste"></td></tr>
+      <tr><td class="lp">2</td><td class="puste"></td><td class="puste"></td><td class="puste"></td><td class="puste"></td></tr>
+      <tr><td class="lp">3</td><td class="puste"></td><td class="puste"></td><td class="puste"></td><td class="puste"></td></tr>
+      <tr><td class="lp">4</td><td class="puste"></td><td class="puste"></td><td class="puste"></td><td class="puste"></td></tr>
+      <tr><td class="lp">5</td><td class="puste"></td><td class="puste"></td><td class="puste"></td><td class="puste"></td></tr>
+      <tr><td class="lp">6</td><td class="puste"></td><td class="puste"></td><td class="puste"></td><td class="puste"></td></tr>
+    </tbody>
+  </table>
+
+  <div class="siatka2">
+    <div class="pole"><span class="etykieta">Terminy okresowej wielospecjalistycznej oceny (WOPFU) w okresie sprawozdawczym</span><div class="linijki"><div></div></div></div>
+    <div class="pole"><span class="etykieta">Data ostatniej modyfikacji IPET / planu wsparcia</span><div class="linijki"><div></div></div></div>
+  </div>
+
+  <div class="sekcja"><span class="numer pom">IV</span><h2>Zestawienie uczniów objętych pomocą</h2><span class="linia"></span></div>
   <p class="wstep">Dane przenosi się z dzienników zajęć. W kolumnie „podstawa” wpisz: <b>ORZ</b> — orzeczenie, <b>OP</b> — opinia, <b>ROZP</b> — rozpoznanie nauczyciela. Frekwencja jako procent obecności ucznia na zajęciach zrealizowanych.</p>
   <table class="tab-mala">
     <thead>
-      <tr>
-        <th style="width:6%">Lp.</th>
-        <th style="width:22%">Uczeń (imię i nazwisko / inicjały)</th>
-        <th style="width:9%">Klasa</th>
-        <th style="width:10%">Podstawa</th>
-        <th style="width:21%">Forma pomocy</th>
-        <th style="width:11%">Wymiar tyg.</th>
-        <th style="width:11%">Godz. zrealiz.</th>
-        <th>Frekwencja</th>
-      </tr>
+      <tr><th style="width:6%">Lp.</th><th style="width:22%">Uczeń (imię i nazwisko / inicjały)</th><th style="width:9%">Klasa</th><th style="width:10%">Podstawa</th><th style="width:21%">Forma pomocy</th><th style="width:11%">Wymiar tyg.</th><th style="width:11%">Godz. zrealiz.</th><th>Frekwencja</th></tr>
     </thead>
     <tbody>
       <tr><td class="lp">1</td><td class="puste"></td><td class="puste"></td><td class="puste"></td><td class="puste"></td><td class="puste"></td><td class="puste"></td><td class="puste"></td></tr>
@@ -412,19 +528,40 @@
       <tr><td class="lp">12</td><td class="puste"></td><td class="puste"></td><td class="puste"></td><td class="puste"></td><td class="puste"></td><td class="puste"></td><td class="puste"></td></tr>
     </tbody>
   </table>
+  <div class="stopka">
+    <span>EduPlaner 2026 · PCTP · pedagog specjalny</span>
+    <span><b>Strona 3 z 9</b> · Kącik dyrektora · realizacja zaleceń i zestawienie uczniów</span>
+  </div>
+</section>
 
-  <div class="sekcja"><span class="numer pom">VI</span><h2>Bilans realizacji godzin</h2><span class="linia"></span></div>
+<!-- ================= STRONA 4 ================= -->
+<section class="page">
+  <div class="naglowek">
+    <div class="marka">
+      <div class="logo">PCTP</div>
+      <div>
+        <div class="marka-nazwa">EduPlaner 2026</div>
+        <div class="marka-opis">Bilans godzin ·<br>cele i stopień realizacji</div>
+      </div>
+    </div>
+    <div class="naglowek-prawy">
+      <span class="plakietka">dyrektor · bilans i cele</span>
+      <div class="naglowek-podpis">Dokument nadzoru · 2026</div>
+    </div>
+  </div>
+  <div class="belka"></div>
+
+  <div class="metryczka">
+    <div class="box"><span class="etykieta">Składający sprawozdanie</span><span class="wypelnij"></span></div>
+    <div class="box"><span class="etykieta">Okres sprawozdawczy</span><span class="wypelnij"></span></div>
+    <div class="box"><span class="etykieta">Rok szkolny</span><span class="wartosc">2026 / 2027</span></div>
+  </div>
+
+  <div class="sekcja"><span class="numer pom">V</span><h2>Bilans realizacji godzin</h2><span class="linia"></span></div>
   <p class="wstep">Zestawienie musi być zgodne z arkuszem organizacyjnym oraz zapisami w dziennikach. Godziny niezrealizowane wymagają podania przyczyny i sposobu odpracowania.</p>
   <table class="tab-mala">
     <thead>
-      <tr>
-        <th style="width:26%">Forma zajęć</th>
-        <th style="width:12%">Godz. planowane</th>
-        <th style="width:12%">Godz. zrealizowane</th>
-        <th style="width:12%">Niezrealizowane</th>
-        <th style="width:10%">% realizacji</th>
-        <th>Przyczyna i sposób odpracowania</th>
-      </tr>
+      <tr><th style="width:26%">Forma zajęć</th><th style="width:12%">Godz. planowane</th><th style="width:12%">Godz. zrealizowane</th><th style="width:12%">Niezrealizowane</th><th style="width:10%">% realizacji</th><th>Przyczyna i sposób odpracowania</th></tr>
     </thead>
     <tbody>
       <tr><td class="puste"></td><td class="puste"></td><td class="puste"></td><td class="puste"></td><td class="puste"></td><td class="puste"></td></tr>
@@ -436,52 +573,15 @@
       <tr><td class="klucz">RAZEM</td><td class="puste"></td><td class="puste"></td><td class="puste"></td><td class="puste"></td><td class="puste"></td></tr>
     </tbody>
   </table>
-
   <div class="pole"><span class="etykieta">Uwagi do frekwencji uczniów (nieobecności utrudniające realizację celów, podjęte działania)</span>
     <div class="linijki"><div></div><div></div></div>
   </div>
 
-  <div class="stopka">
-    <span>EduPlaner 2026 · PCTP · pedagog specjalny</span>
-    <span><b>Strona 3 z 8</b> · Kącik dyrektora · zestawienie i bilans godzin</span>
-  </div>
-</section>
-
-<!-- ================= STRONA 4 ================= -->
-<section class="page">
-  <div class="naglowek">
-    <div class="marka">
-      <div class="logo">PCTP</div>
-      <div>
-        <div class="marka-nazwa">EduPlaner 2026</div>
-        <div class="marka-opis">Cele i stopień realizacji ·<br>metody pracy</div>
-      </div>
-    </div>
-    <div class="naglowek-prawy">
-      <span class="plakietka">dyrektor · cele</span>
-      <div class="naglowek-podpis">Dokument nadzoru · 2026</div>
-    </div>
-  </div>
-  <div class="belka"></div>
-
-  <div class="metryczka">
-    <div class="box"><span class="etykieta">Nauczyciel / specjalista</span><span class="wypelnij"></span></div>
-    <div class="box"><span class="etykieta">Okres sprawozdawczy</span><span class="wypelnij"></span></div>
-    <div class="box"><span class="etykieta">Rok szkolny</span><span class="wartosc">2026 / 2027</span></div>
-  </div>
-
-  <div class="sekcja"><span class="numer pom">VII</span><h2>Cele i stopień ich realizacji</h2><span class="linia"></span></div>
-  <p class="wstep">Cele przepisz dosłownie z IPET lub planu wsparcia. Wskaźnik osiągnięcia to obserwowalne zachowanie ucznia; poziom realizacji oceń w skali 1–5 (legenda pod tabelą), a w kolumnie „dowód” wskaż źródło: dziennik zajęć, karta monitorowania, wytwór pracy, obserwacja, arkusz KSzOF.</p>
+  <div class="sekcja"><span class="numer pom">VI</span><h2>Cele i stopień ich realizacji</h2><span class="linia"></span></div>
+  <p class="wstep">Cele przepisz dosłownie z IPET lub planu wsparcia. Wskaźnik osiągnięcia to obserwowalne zachowanie ucznia; poziom realizacji oceń w skali 1–5, a w kolumnie „dowód” wskaż źródło: dziennik zajęć, karta monitorowania, wytwór pracy, obserwacja, arkusz KSzOF.</p>
   <table class="tab-mala">
     <thead>
-      <tr>
-        <th style="width:6%">Lp.</th>
-        <th style="width:32%">Cel SMART (z IPET / planu wsparcia)</th>
-        <th style="width:12%">Obszar / kod ICF</th>
-        <th style="width:22%">Wskaźnik osiągnięcia celu</th>
-        <th style="width:8%">Poziom 1–5</th>
-        <th>Dowód realizacji</th>
-      </tr>
+      <tr><th style="width:6%">Lp.</th><th style="width:32%">Cel SMART (z IPET / planu wsparcia)</th><th style="width:12%">Obszar / kod ICF</th><th style="width:22%">Wskaźnik osiągnięcia celu</th><th style="width:8%">Poziom 1–5</th><th>Dowód realizacji</th></tr>
     </thead>
     <tbody>
       <tr><td class="lp">1</td><td class="puste"></td><td class="puste"></td><td class="puste"></td><td class="puste"></td><td class="puste"></td></tr>
@@ -489,6 +589,7 @@
       <tr><td class="lp">3</td><td class="puste"></td><td class="puste"></td><td class="puste"></td><td class="puste"></td><td class="puste"></td></tr>
       <tr><td class="lp">4</td><td class="puste"></td><td class="puste"></td><td class="puste"></td><td class="puste"></td><td class="puste"></td></tr>
       <tr><td class="lp">5</td><td class="puste"></td><td class="puste"></td><td class="puste"></td><td class="puste"></td><td class="puste"></td></tr>
+      <tr><td class="lp">6</td><td class="puste"></td><td class="puste"></td><td class="puste"></td><td class="puste"></td><td class="puste"></td></tr>
     </tbody>
   </table>
   <p class="wstep" style="margin-left:0">Skala oceny poziomu realizacji celu: 1 — nie podjęto · 2 — z pełnym wsparciem · 3 — z częściowym wsparciem · 4 — samodzielnie w większości sytuacji · 5 — samodzielnie, cel osiągnięty.</p>
@@ -497,8 +598,36 @@
     <div class="karta zolta"><div class="duza">3</div><div class="opis">Wsparcie częściowe</div></div>
     <div class="karta zielona"><div class="duza">4–5</div><div class="opis">Samodzielność</div></div>
   </div>
+  <div class="stopka">
+    <span>EduPlaner 2026 · PCTP · pedagog specjalny</span>
+    <span><b>Strona 4 z 9</b> · Kącik dyrektora · bilans godzin i cele SMART</span>
+  </div>
+</section>
 
-  <div class="sekcja"><span class="numer pom">VIII</span><h2>Metody, formy pracy i dostosowania</h2><span class="linia"></span></div>
+<!-- ================= STRONA 5 ================= -->
+<section class="page">
+  <div class="naglowek">
+    <div class="marka">
+      <div class="logo">PCTP</div>
+      <div>
+        <div class="marka-nazwa">EduPlaner 2026</div>
+        <div class="marka-opis">Metody i formy pracy ·<br>warunki i dostosowania</div>
+      </div>
+    </div>
+    <div class="naglowek-prawy">
+      <span class="plakietka">dyrektor · metody</span>
+      <div class="naglowek-podpis">Dokument nadzoru · 2026</div>
+    </div>
+  </div>
+  <div class="belka"></div>
+
+  <div class="metryczka">
+    <div class="box"><span class="etykieta">Składający sprawozdanie</span><span class="wypelnij"></span></div>
+    <div class="box"><span class="etykieta">Okres sprawozdawczy</span><span class="wypelnij"></span></div>
+    <div class="box"><span class="etykieta">Rok szkolny</span><span class="wartosc">2026 / 2027</span></div>
+  </div>
+
+  <div class="sekcja"><span class="numer pom">VII</span><h2>Metody, formy pracy i dostosowania</h2><span class="linia"></span></div>
 
   <div class="wybor-tytul"><span class="kropka"></span><span>Zastosowane metody i formy pracy (zaznacz stosowane)</span></div>
   <div class="wybory">
@@ -520,29 +649,34 @@
     <div class="wybor pelny"><span class="kwadrat">✓</span><span>Inne:<span class="dopisz"></span></span></div>
   </div>
 
-  <div class="siatka2" style="margin-top:2.6mm">
-    <div class="pole"><span class="etykieta">Forma pracy</span>
-      <div class="linijki"><div></div></div>
-      <div class="tresc" style="color:#6B6B7B; font-size:6.4pt">indywidualna · grupowa · mieszana · liczebność grupy</div>
-    </div>
-    <div class="pole"><span class="etykieta">Pomoce dydaktyczne i sprzęt specjalistyczny</span>
-      <div class="linijki"><div></div></div>
-      <div class="tresc" style="color:#6B6B7B; font-size:6.4pt">karty pracy, programy, sprzęt sensoryczny, TIK</div>
-    </div>
-  </div>
+  <div class="wybor-tytul"><span class="kropka"></span><span>Warunki prowadzenia zajęć</span></div>
+  <table class="tab-mala">
+    <thead>
+      <tr><th style="width:28%">Forma zajęć</th><th style="width:18%">Miejsce / sala</th><th style="width:14%">Liczebność grupy</th><th>Wyposażenie i pomoce wykorzystane na zajęciach</th></tr>
+    </thead>
+    <tbody>
+      <tr><td class="puste"></td><td class="puste"></td><td class="puste"></td><td class="puste"></td></tr>
+      <tr><td class="puste"></td><td class="puste"></td><td class="puste"></td><td class="puste"></td></tr>
+      <tr><td class="puste"></td><td class="puste"></td><td class="puste"></td><td class="puste"></td></tr>
+      <tr><td class="puste"></td><td class="puste"></td><td class="puste"></td><td class="puste"></td></tr>
+    </tbody>
+  </table>
 
-  <div class="pole"><span class="etykieta">Zastosowane dostosowania wymagań, warunków i organizacji zajęć</span>
-    <div class="tresc" style="color:#6B6B7B; font-size:6.4pt">np. wydłużenie czasu pracy, dzielenie poleceń na etapy, miejsce w sali, przerwy regulacyjne, kącik wyciszenia, karta „prośba o przerwę”, ograniczenie bodźców, dostosowanie formy sprawdzianu, alternatywne sposoby odpowiedzi.</div>
+  <div class="pole"><span class="etykieta">Materiały własne opracowane dla ucznia (karty pracy, plany, pomoce wykonane samodzielnie)</span>
     <div class="linijki"><div></div><div></div></div>
   </div>
 
+  <div class="pole"><span class="etykieta">Zastosowane dostosowania wymagań, warunków i organizacji zajęć</span>
+    <div class="tresc" style="color:#6B6B7B; font-size:6.4pt">np. wydłużenie czasu pracy, dzielenie poleceń na etapy, miejsce w sali, przerwy regulacyjne, kącik wyciszenia, karta „prośba o przerwę”, ograniczenie bodźców, dostosowanie formy sprawdzianu, alternatywne sposoby odpowiedzi, technologie wspomagające.</div>
+    <div class="linijki"><div></div><div></div><div></div></div>
+  </div>
   <div class="stopka">
     <span>EduPlaner 2026 · PCTP · pedagog specjalny</span>
-    <span><b>Strona 4 z 8</b> · Kącik dyrektora · cele, metody i dostosowania</span>
+    <span><b>Strona 5 z 9</b> · Kącik dyrektora · metody, warunki i dostosowania</span>
   </div>
 </section>
 
-<!-- ================= STRONA 5 ================= -->
+<!-- ================= STRONA 6 ================= -->
 <section class="page">
   <div class="naglowek">
     <div class="marka">
@@ -560,26 +694,18 @@
   <div class="belka"></div>
 
   <div class="metryczka">
-    <div class="box"><span class="etykieta">Nauczyciel / specjalista</span><span class="wypelnij"></span></div>
+    <div class="box"><span class="etykieta">Składający sprawozdanie</span><span class="wypelnij"></span></div>
     <div class="box"><span class="etykieta">Okres sprawozdawczy</span><span class="wypelnij"></span></div>
     <div class="box"><span class="etykieta">Rok szkolny</span><span class="wartosc">2026 / 2027</span></div>
   </div>
 
-  <div class="sekcja"><span class="numer pom">IX</span><h2>Efekty udzielanej pomocy</h2><span class="linia"></span></div>
-  <p class="wstep">Opis ma być mierzalny i odnosić się do celów z sekcji VII. Podawaj stan wyjściowy i stan na koniec okresu.</p>
+  <div class="sekcja"><span class="numer pom">VIII</span><h2>Efekty udzielanej pomocy</h2><span class="linia"></span></div>
+  <p class="wstep">Opis ma być mierzalny i odnosić się do celów z sekcji VI. Podawaj stan wyjściowy i stan na koniec okresu.</p>
 
-  <div class="pole"><span class="etykieta">Osiągnięte postępy i mocne strony uczniów (z podaniem wskaźników)</span>
-    <div class="linijki"><div></div><div></div><div></div></div>
-  </div>
-  <div class="pole"><span class="etykieta">Umiejętności utrwalone i przeniesione na sytuacje szkolne (generalizacja)</span>
-    <div class="linijki"><div></div><div></div></div>
-  </div>
-  <div class="pole"><span class="etykieta">Obszary, w których nie odnotowano postępu — z uzasadnieniem</span>
-    <div class="linijki"><div></div><div></div><div></div></div>
-  </div>
-  <div class="pole"><span class="etykieta">Wpływ pomocy na funkcjonowanie ucznia w klasie i w grupie rówieśniczej</span>
-    <div class="linijki"><div></div><div></div><div></div></div>
-  </div>
+  <div class="pole"><span class="etykieta">Osiągnięte postępy i mocne strony uczniów (z podaniem wskaźników)</span><div class="linijki"><div></div><div></div><div></div></div></div>
+  <div class="pole"><span class="etykieta">Umiejętności utrwalone i przeniesione na sytuacje szkolne (generalizacja)</span><div class="linijki"><div></div><div></div></div></div>
+  <div class="pole"><span class="etykieta">Obszary, w których nie odnotowano postępu — z uzasadnieniem</span><div class="linijki"><div></div><div></div></div></div>
+  <div class="pole"><span class="etykieta">Wpływ pomocy na funkcjonowanie ucznia w klasie i w grupie rówieśniczej</span><div class="linijki"><div></div><div></div></div></div>
 
   <div class="wybor-tytul"><span class="kropka"></span><span>Ogólna ocena efektywności udzielanej pomocy (zaznacz jedną)</span></div>
   <div class="wybory">
@@ -587,23 +713,14 @@
     <div class="wybor w3"><span class="kwadrat">✓</span><span>Zadowalająca — cele częściowo osiągnięte</span></div>
     <div class="wybor w3"><span class="kwadrat">✓</span><span>Niska — cele nieosiągnięte, konieczna modyfikacja</span></div>
   </div>
-  <div class="pole" style="margin-top:2mm"><span class="etykieta">Uzasadnienie oceny efektywności</span>
-    <div class="linijki"><div></div><div></div></div>
-  </div>
+  <div class="pole" style="margin-top:2mm"><span class="etykieta">Uzasadnienie oceny efektywności</span><div class="linijki"><div></div><div></div></div></div>
 
-  <div class="sekcja"><span class="numer pom">X</span><h2>Trudności, bariery i działania zaradcze</h2><span class="linia"></span></div>
+  <div class="sekcja"><span class="numer pom">IX</span><h2>Trudności, bariery i działania zaradcze</h2><span class="linia"></span></div>
   <table class="tab-mala">
     <thead>
-      <tr>
-        <th style="width:30%">Trudność / bariera</th>
-        <th style="width:20%">Charakter</th>
-        <th style="width:26%">Podjęte działania zaradcze</th>
-        <th>Efekt działań</th>
-      </tr>
+      <tr><th style="width:30%">Trudność / bariera</th><th style="width:20%">Charakter</th><th style="width:26%">Podjęte działania zaradcze</th><th>Efekt działań</th></tr>
     </thead>
     <tbody>
-      <tr><td class="puste"></td><td class="puste"></td><td class="puste"></td><td class="puste"></td></tr>
-      <tr><td class="puste"></td><td class="puste"></td><td class="puste"></td><td class="puste"></td></tr>
       <tr><td class="puste"></td><td class="puste"></td><td class="puste"></td><td class="puste"></td></tr>
       <tr><td class="puste"></td><td class="puste"></td><td class="puste"></td><td class="puste"></td></tr>
       <tr><td class="puste"></td><td class="puste"></td><td class="puste"></td><td class="puste"></td></tr>
@@ -611,14 +728,13 @@
     </tbody>
   </table>
   <p class="wstep" style="margin-left:0">Charakter bariery: <b>organizacyjna</b> (plan lekcji, sala, liczebność grupy) · <b>kadrowa</b> (brak specjalisty, brak nauczyciela wspomagającego) · <b>materialna</b> (brak pomocy, sprzętu) · <b>środowiskowa</b> (współpraca z rodziną, absencja) · <b>zdrowotna</b> · <b>inna</b>.</p>
-
   <div class="stopka">
     <span>EduPlaner 2026 · PCTP · pedagog specjalny</span>
-    <span><b>Strona 5 z 8</b> · Kącik dyrektora · efekty i bariery</span>
+    <span><b>Strona 6 z 9</b> · Kącik dyrektora · efekty pomocy i bariery</span>
   </div>
 </section>
 
-<!-- ================= STRONA 6 ================= -->
+<!-- ================= STRONA 7 ================= -->
 <section class="page">
   <div class="naglowek">
     <div class="marka">
@@ -636,21 +752,16 @@
   <div class="belka"></div>
 
   <div class="metryczka">
-    <div class="box"><span class="etykieta">Nauczyciel / specjalista</span><span class="wypelnij"></span></div>
+    <div class="box"><span class="etykieta">Składający sprawozdanie</span><span class="wypelnij"></span></div>
     <div class="box"><span class="etykieta">Okres sprawozdawczy</span><span class="wypelnij"></span></div>
     <div class="box"><span class="etykieta">Rok szkolny</span><span class="wartosc">2026 / 2027</span></div>
   </div>
 
-  <div class="sekcja"><span class="numer pom">XI</span><h2>Współpraca w realizacji pomocy</h2><span class="linia"></span></div>
+  <div class="sekcja"><span class="numer pom">X</span><h2>Współpraca w realizacji pomocy</h2><span class="linia"></span></div>
   <p class="wstep">Wpisz liczbę udokumentowanych kontaktów w okresie sprawozdawczym oraz ich rezultat dla ucznia.</p>
   <table class="tab-mala">
     <thead>
-      <tr>
-        <th style="width:26%">Podmiot współpracy</th>
-        <th style="width:30%">Forma współpracy</th>
-        <th style="width:12%">Liczba kontaktów</th>
-        <th>Ustalenia i efekt dla ucznia</th>
-      </tr>
+      <tr><th style="width:26%">Podmiot współpracy</th><th style="width:30%">Forma współpracy</th><th style="width:12%">Liczba kontaktów</th><th>Ustalenia i efekt dla ucznia</th></tr>
     </thead>
     <tbody>
       <tr><td class="klucz">Rodzice / opiekunowie prawni</td><td class="puste"></td><td class="puste"></td><td class="puste"></td></tr>
@@ -663,25 +774,14 @@
       <tr><td class="klucz">Inne (jakie)</td><td class="puste"></td><td class="puste"></td><td class="puste"></td></tr>
     </tbody>
   </table>
+  <div class="pole"><span class="etykieta">Zintegrowane działania nauczycieli i specjalistów — wspólne ustalenia wdrożone w pracy z uczniem</span><div class="linijki"><div></div><div></div></div></div>
+  <div class="pole"><span class="etykieta">Formy wsparcia udzielonego rodzicom (porady, konsultacje, warsztaty, wskazówki do pracy w domu)</span><div class="linijki"><div></div><div></div></div></div>
+  <div class="pole"><span class="etykieta">Wsparcie i konsultacje udzielone nauczycielom (wskazówki do pracy z uczniem na lekcjach)</span><div class="linijki"><div></div><div></div></div></div>
 
-  <div class="pole"><span class="etykieta">Zintegrowane działania nauczycieli i specjalistów — wspólne ustalenia wdrożone w pracy z uczniem</span>
-    <div class="linijki"><div></div><div></div></div>
-  </div>
-  <div class="pole"><span class="etykieta">Formy wsparcia udzielonego rodzicom (porady, konsultacje, warsztaty, wskazówki do pracy w domu)</span>
-    <div class="linijki"><div></div><div></div></div>
-  </div>
-  <div class="pole"><span class="etykieta">Wsparcie i konsultacje udzielone nauczycielom (wskazówki do pracy z uczniem na lekcjach)</span>
-    <div class="linijki"><div></div><div></div></div>
-  </div>
-
-  <div class="sekcja"><span class="numer pom">XII</span><h2>Doskonalenie zawodowe i ewaluacja własnej pracy</h2><span class="linia"></span></div>
+  <div class="sekcja"><span class="numer pom">XI</span><h2>Doskonalenie zawodowe i ewaluacja własnej pracy</h2><span class="linia"></span></div>
   <table class="tab-mala">
     <thead>
-      <tr>
-        <th style="width:44%">Forma doskonalenia (szkolenie, kurs, superwizja, samokształcenie)</th>
-        <th style="width:16%">Termin</th>
-        <th>Wykorzystanie w pracy z uczniem</th>
-      </tr>
+      <tr><th style="width:44%">Forma doskonalenia (szkolenie, kurs, superwizja, samokształcenie)</th><th style="width:16%">Termin</th><th>Wykorzystanie w pracy z uczniem</th></tr>
     </thead>
     <tbody>
       <tr><td class="puste"></td><td class="puste"></td><td class="puste"></td></tr>
@@ -689,17 +789,14 @@
       <tr><td class="puste"></td><td class="puste"></td><td class="puste"></td></tr>
     </tbody>
   </table>
-  <div class="pole"><span class="etykieta">Autoewaluacja — co zmienię w swojej pracy w kolejnym okresie</span>
-    <div class="linijki"><div></div><div></div><div></div></div>
-  </div>
-
+  <div class="pole"><span class="etykieta">Autoewaluacja — co zmienię w swojej pracy w kolejnym okresie</span><div class="linijki"><div></div><div></div></div></div>
   <div class="stopka">
     <span>EduPlaner 2026 · PCTP · pedagog specjalny</span>
-    <span><b>Strona 6 z 8</b> · Kącik dyrektora · współpraca i doskonalenie</span>
+    <span><b>Strona 7 z 9</b> · Kącik dyrektora · współpraca i doskonalenie</span>
   </div>
 </section>
 
-<!-- ================= STRONA 7 ================= -->
+<!-- ================= STRONA 8 ================= -->
 <section class="page">
   <div class="naglowek">
     <div class="marka">
@@ -717,12 +814,12 @@
   <div class="belka"></div>
 
   <div class="metryczka">
-    <div class="box"><span class="etykieta">Nauczyciel / specjalista</span><span class="wypelnij"></span></div>
+    <div class="box"><span class="etykieta">Składający sprawozdanie</span><span class="wypelnij"></span></div>
     <div class="box"><span class="etykieta">Okres sprawozdawczy</span><span class="wypelnij"></span></div>
     <div class="box"><span class="etykieta">Rok szkolny</span><span class="wartosc">2026 / 2027</span></div>
   </div>
 
-  <div class="sekcja"><span class="numer pom">XIII</span><h2>Wnioski i rekomendacje do dalszej pracy</h2><span class="linia"></span></div>
+  <div class="sekcja"><span class="numer pom">XII</span><h2>Wnioski i rekomendacje do dalszej pracy</h2><span class="linia"></span></div>
   <div class="wybor-tytul"><span class="kropka"></span><span>Rekomendacja dotycząca formy pomocy (zaznacz)</span></div>
   <div class="wybory">
     <div class="wybor w3"><span class="kwadrat">✓</span><span>Kontynuacja w dotychczasowym wymiarze</span></div>
@@ -735,21 +832,11 @@
     <div class="wybor w3"><span class="kwadrat">✓</span><span>Wniosek o modyfikację IPET / WOPFU</span></div>
     <div class="wybor w3"><span class="kwadrat">✓</span><span>Inna:<span class="dopisz"></span></span></div>
   </div>
+  <div class="pole" style="margin-top:2.4mm"><span class="etykieta">Wnioski do dalszej pracy — kierunki oddziaływań na kolejny okres</span><div class="linijki"><div></div><div></div><div></div></div></div>
+  <div class="pole"><span class="etykieta">Propozycje celów SMART na kolejny okres (do wpisania w IPET / planie wsparcia)</span><div class="linijki"><div></div><div></div></div></div>
+  <div class="pole"><span class="etykieta">Potrzeby zgłaszane dyrektorowi (kadrowe, organizacyjne, sprzętowe, szkoleniowe)</span><div class="linijki"><div></div><div></div></div></div>
 
-  <div class="pole" style="margin-top:2.4mm"><span class="etykieta">Wnioski do dalszej pracy — kierunki oddziaływań na kolejny okres</span>
-    <div class="linijki"><div></div><div></div><div></div><div></div></div>
-  </div>
-  <div class="pole"><span class="etykieta">Propozycje celów SMART na kolejny okres (do wpisania w IPET / planie wsparcia)</span>
-    <div class="linijki"><div></div><div></div><div></div></div>
-  </div>
-  <div class="pole"><span class="etykieta">Rekomendacje przekazane rodzicom — kierunki pracy w domu</span>
-    <div class="linijki"><div></div><div></div></div>
-  </div>
-  <div class="pole"><span class="etykieta">Potrzeby zgłaszane dyrektorowi (kadrowe, organizacyjne, sprzętowe, szkoleniowe)</span>
-    <div class="linijki"><div></div><div></div></div>
-  </div>
-
-  <div class="sekcja"><span class="numer">XIV</span><h2>Załączniki do sprawozdania</h2><span class="linia"></span></div>
+  <div class="sekcja"><span class="numer">XIII</span><h2>Załączniki do sprawozdania</h2><span class="linia"></span></div>
   <div class="wybory">
     <div class="wybor w3"><span class="kwadrat">✓</span><span>Dziennik zajęć (wydruk / wgląd)</span></div>
     <div class="wybor w3"><span class="kwadrat">✓</span><span>Karta monitorowania postępów</span></div>
@@ -762,20 +849,23 @@
     <div class="wybor w3"><span class="kwadrat">✓</span><span>Inne:<span class="dopisz"></span></span></div>
   </div>
 
-  <div class="sekcja"><span class="numer">XV</span><h2>Oświadczenie i podpisy</h2><span class="linia"></span></div>
+  <div class="sekcja"><span class="numer">XIV</span><h2>Zapoznanie rodziców, oświadczenie i podpisy</h2><span class="linia"></span></div>
+  <div class="siatka2">
+    <div class="pole"><span class="etykieta">Data i forma zapoznania rodziców z oceną efektywności pomocy</span><div class="linijki"><div></div></div></div>
+    <div class="pole"><span class="etykieta">Uwagi rodziców zgłoszone do sprawozdania</span><div class="linijki"><div></div></div></div>
+  </div>
   <p class="wstep" style="margin-left:0">Oświadczam, że dane zawarte w sprawozdaniu są zgodne z dokumentacją przebiegu zajęć prowadzoną w roku szkolnym 2026/2027, a opisane efekty mają potwierdzenie we wskazanych dowodach realizacji.</p>
-  <div class="podpisy" style="margin-top:5mm">
-    <div class="podpis"><div class="kreska"></div><div class="opis">Data i podpis nauczyciela / specjalisty prowadzącego</div></div>
+  <div class="podpisy" style="margin-top:4mm">
+    <div class="podpis"><div class="kreska"></div><div class="opis">Data i podpis składającego sprawozdanie</div></div>
     <div class="podpis"><div class="kreska"></div><div class="opis">Podpis koordynatora pomocy psychologiczno-pedagogicznej</div></div>
   </div>
-
   <div class="stopka">
     <span>EduPlaner 2026 · PCTP · pedagog specjalny</span>
-    <span><b>Strona 7 z 8</b> · Kącik dyrektora · wnioski, załączniki i podpisy</span>
+    <span><b>Strona 8 z 9</b> · Kącik dyrektora · wnioski, załączniki i podpisy</span>
   </div>
 </section>
 
-<!-- ================= STRONA 8 ================= -->
+<!-- ================= STRONA 9 ================= -->
 <section class="page">
   <div class="naglowek">
     <div class="marka">
@@ -793,13 +883,13 @@
   <div class="belka"></div>
 
   <div class="metryczka">
-    <div class="box"><span class="etykieta">Nauczyciel / specjalista</span><span class="wypelnij"></span></div>
+    <div class="box"><span class="etykieta">Składający sprawozdanie</span><span class="wypelnij"></span></div>
     <div class="box"><span class="etykieta">Okres sprawozdawczy</span><span class="wypelnij"></span></div>
     <div class="box"><span class="etykieta">Rok szkolny</span><span class="wartosc">2026 / 2027</span></div>
   </div>
 
-  <div class="sekcja"><span class="numer pom">XVI</span><h2>Ocena sprawozdania przez dyrektora</h2><span class="linia"></span></div>
-  <p class="wstep">Wypełnia dyrektor szkoły lub placówki w ramach sprawowanego nadzoru pedagogicznego. Karta pozostaje w dokumentacji placówki łącznie ze sprawozdaniem nauczyciela.</p>
+  <div class="sekcja"><span class="numer pom">XV</span><h2>Ocena sprawozdania przez dyrektora</h2><span class="linia"></span></div>
+  <p class="wstep">Wypełnia dyrektor szkoły lub placówki w ramach sprawowanego nadzoru pedagogicznego. Karta pozostaje w dokumentacji placówki łącznie ze sprawozdaniem.</p>
   <table class="tab-mala">
     <thead>
       <tr><th style="width:52%">Kryterium oceny sprawozdania</th><th style="width:10%">Tak</th><th style="width:12%">Częściowo</th><th style="width:10%">Nie</th><th>Uwagi</th></tr>
@@ -807,6 +897,7 @@
     <tbody>
       <tr><td class="klucz">Kompletność — wypełnione wszystkie wymagane sekcje</td><td></td><td></td><td></td><td class="puste"></td></tr>
       <tr><td class="klucz">Zgodność danych liczbowych z dziennikami zajęć</td><td></td><td></td><td></td><td class="puste"></td></tr>
+      <tr><td class="klucz">Realizacja zaleceń z orzeczeń i opinii</td><td></td><td></td><td></td><td class="puste"></td></tr>
       <tr><td class="klucz">Mierzalność opisanych efektów (wskaźniki i dowody)</td><td></td><td></td><td></td><td class="puste"></td></tr>
       <tr><td class="klucz">Odniesienie do celów z IPET / planu wsparcia</td><td></td><td></td><td></td><td class="puste"></td></tr>
       <tr><td class="klucz">Adekwatność wniosków i rekomendacji</td><td></td><td></td><td></td><td class="puste"></td></tr>
@@ -822,18 +913,12 @@
       <div class="wybor w3"><span class="kwadrat">✓</span><span>Zwracam do uzupełnienia</span></div>
     </div>
     <div class="wybory" style="margin-top:2mm">
-      <div class="wybor w3"><span class="kwadrat">✓</span><span>Rekomendację nauczyciela zatwierdzam</span></div>
+      <div class="wybor w3"><span class="kwadrat">✓</span><span>Rekomendację zatwierdzam</span></div>
       <div class="wybor w3"><span class="kwadrat">✓</span><span>Zatwierdzam z modyfikacją</span></div>
       <div class="wybor w3"><span class="kwadrat">✓</span><span>Kieruję do zespołu ds. pomocy p-p</span></div>
     </div>
-
-    <div class="pole" style="margin-top:2.4mm"><span class="etykieta">Uwagi dyrektora do treści sprawozdania</span>
-      <div class="linijki"><div></div><div></div></div>
-    </div>
-    <div class="pole"><span class="etykieta">Zalecenia i decyzje organizacyjne (wymiar godzin, kadra, warunki, termin ponownej oceny)</span>
-      <div class="linijki"><div></div><div></div></div>
-    </div>
-
+    <div class="pole" style="margin-top:2.4mm"><span class="etykieta">Uwagi dyrektora do treści sprawozdania</span><div class="linijki"><div></div><div></div></div></div>
+    <div class="pole"><span class="etykieta">Zalecenia i decyzje organizacyjne (wymiar godzin, kadra, warunki, termin ponownej oceny)</span><div class="linijki"><div></div></div></div>
     <div class="podpisy" style="margin-top:4mm">
       <div class="podpis"><div class="kreska"></div><div class="opis">Data przyjęcia sprawozdania</div></div>
       <div class="podpis"><div class="kreska"></div><div class="opis">Pieczęć i podpis dyrektora szkoły / placówki</div></div>
@@ -842,14 +927,9 @@
 
   <div class="sekcja"><span class="numer">XVII</span><h2>Wnioski dyrektora do organizacji pomocy</h2><span class="linia"></span></div>
   <div class="siatka2">
-    <div class="pole"><span class="etykieta">Wnioski do planu nadzoru pedagogicznego</span>
-      <div class="linijki"><div></div></div>
-    </div>
-    <div class="pole"><span class="etykieta">Skutki organizacyjne (godziny, kadra, wyposażenie, szkolenia)</span>
-      <div class="linijki"><div></div></div>
-    </div>
+    <div class="pole"><span class="etykieta">Wnioski do planu nadzoru pedagogicznego</span><div class="linijki"><div></div></div></div>
+    <div class="pole"><span class="etykieta">Skutki organizacyjne (godziny, kadra, wyposażenie, szkolenia)</span><div class="linijki"><div></div></div></div>
   </div>
-
   <table class="tab-mala" style="margin-top:1mm">
     <thead>
       <tr><th style="width:34%">Ustalenie dyrektora</th><th style="width:18%">Termin realizacji</th><th style="width:22%">Osoba odpowiedzialna</th><th>Sposób weryfikacji</th></tr>
@@ -859,14 +939,12 @@
       <tr><td class="klucz">Termin kolejnej oceny efektywności pomocy</td><td class="puste"></td><td class="puste"></td><td class="puste"></td></tr>
     </tbody>
   </table>
-
   <div class="info" style="margin-top:2.6mm">
-    <b>Obieg dokumentu.</b> Sprawozdanie wraz z niniejszą kartą oceny przechowuje się w dokumentacji pomocy psychologiczno-pedagogicznej przez okres wskazany w instrukcji kancelaryjnej placówki. Kopię wniosków przekazuje się koordynatorowi pomocy p-p oraz zespołowi opracowującemu WOPFU i IPET danego ucznia. Dane osobowe uczniów udostępnia się wyłącznie osobom uprawnionym, zgodnie z RODO.
+    <b>Obieg dokumentu.</b> Sprawozdanie wraz z niniejszą kartą oceny przechowuje się w dokumentacji pomocy psychologiczno-pedagogicznej przez okres wskazany w instrukcji kancelaryjnej placówki. Kopię wniosków przekazuje się koordynatorowi pomocy p-p oraz zespołowi opracowującemu WOPFU i IPET ucznia.
   </div>
-
   <div class="stopka">
     <span>EduPlaner 2026 · PCTP · pedagog specjalny</span>
-    <span><b>Strona 8 z 8</b> · Kącik dyrektora · ocena i decyzja dyrektora</span>
+    <span><b>Strona 9 z 9</b> · Kącik dyrektora · ocena i decyzja dyrektora</span>
   </div>
 </section>
 
