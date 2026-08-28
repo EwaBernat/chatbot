@@ -12,6 +12,7 @@ sprawozdania z pomocy psychologiczno-pedagogicznej (marka PCTP: fiolet
 | `Kacik_Nauczyciela_Planowanie_PCTP` | R-1…R-4 — planowanie i realizacja | 7 |
 | `Kacik_Nauczyciela_Rodzice_PCTP` | W-1…W-3 — współpraca z rodzicami | 6 |
 | `Kacik_Nauczyciela_Bezpieczenstwo_PCTP` | B-1…B-4 — bezpieczeństwo i sytuacje szczególne | 8 |
+| `Konspekt_Zajec_Szablon_PCTP` | szablon konspektu — cele edukacyjne i terapeutyczne obok siebie | 1 |
 
 Każdy plik występuje w wersji `.html` (panel aplikacji + druki) oraz `.pdf`
 (sam druk, gotowy do wydruku).
@@ -112,6 +113,20 @@ wydrukowaniem porównaj zakres zgód ze statutem placówki.
 Dz.U. 2018 poz. 1055), B-2 karta zdarzenia / notatka służbowa (nie zastępuje
 protokołu powypadkowego), B-3 karta adaptacji dziecka, B-4 karta zachowań
 trudnych z analizą funkcji i planem pozytywnych oddziaływań.
+
+## Szablon konspektu (1 strona)
+
+`Konspekt_Zajec_Szablon_PCTP` — pusty wzór konspektu zajęć w układzie
+załącznika do IPET. Sekcja I ma **dwie symetryczne kolumny na tej samej
+wysokości**: po lewej **cel edukacyjny** (fioletowy, odniesienie do podstawy
+programowej), po prawej **cel terapeutyczny** (pomarańczowy, odniesienie do
+IPET lub planu wsparcia) — oba w formule SMART, z legendą S · M · A · R · T
+i polem na kryterium osiągnięcia celu.
+
+Dalej: pomoce dydaktyczne i metody w dwóch kolumnach, sposób realizacji jako
+pary N — U (czynność nauczyciela obok oczekiwanej reakcji dziecka), gotowy
+schemat modyfikacji przy ocenie żółtej i czerwonej oraz wskazówka dla
+prowadzącego. Całość mieści się na jednej stronie A4.
 
 ## Logo
 
