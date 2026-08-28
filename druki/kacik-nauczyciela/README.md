@@ -4,8 +4,9 @@ Wzory opinii o **dziecku w wieku przedszkolnym**, w tym samym stylu co druk
 sprawozdania z pomocy psychologiczno-pedagogicznej (marka PCTP: fiolet
 `#2D1B69`, pomarańcz `#E8450A`, Arial, A4).
 
-- `Kacik_Nauczyciela_Wzory_Opinii_PCTP.html` — źródło (panel aplikacji + druki)
-- `Kacik_Nauczyciela_Wzory_Opinii_PCTP.pdf` — 12 stron A4 do druku
+- `Kacik_Nauczyciela_Wzory_Opinii_PCTP.html` / `.pdf` — wzory opinii, 12 stron A4
+- `Kacik_Nauczyciela_Checklista_Wychowawcy_PCTP.html` / `.pdf` — checklista obowiązków
+  nauczyciela wychowawcy grupy, 5 stron A4
 
 Panel informacyjny na górze pliku HTML widoczny jest tylko na ekranie
 (`@media print { display:none }`) — na wydruk trafiają wyłącznie druki.
@@ -19,6 +20,27 @@ Panel informacyjny na górze pliku HTML widoczny jest tylko na ekranie
 | **O-3** | Opinia dla zespołu orzekającego — kształcenie specjalne, WWR, zajęcia rew.-wych. | 7–8 |
 | **O-4** | Opinia nauczyciela o dziecku dla instytucji zewnętrznej (sąd, kurator, OPS) | 9–10 |
 | **O-5** | Analiza gotowości szkolnej — materiał roboczy do wzoru MEN-I/74 | 11–12 |
+
+## Checklista K-1 — obowiązki nauczyciela wychowawcy
+
+Osobny plik, 5 stron A4. Każde zadanie ma **podstawę prawną**, **termin**, kratkę
+do odhaczenia i miejsce na datę wykonania.
+
+| Sekcja | Zakres | Str. |
+|---|---|---|
+| I | Początek roku szkolnego — dokumentacja dzieci, zgody, plan pracy, zebranie | 1 |
+| II | Dokumentacja prowadzona na bieżąco — dziennik, obserwacje, kontakty, wyjścia | 2 |
+| III | Obserwacja pedagogiczna i diagnoza przedszkolna, informacja MEN-I/74 | 2 |
+| IV | Pomoc psychologiczno-pedagogiczna — rozpoznanie, WOPFU, IPET, efektywność | 3 |
+| V | Współpraca z rodzicami | 3 |
+| VI | Bezpieczeństwo i opieka — nadzór, wydawanie dziecka, wycieczki, „Niebieskie Karty” | 4 |
+| VII | Realizacja podstawy programowej i rozwój zawodowy | 4 |
+| VIII | Zakończenie roku — sprawozdania, wnioski, rozliczenie dokumentacji | 5 |
+| IX | Kalendarz najważniejszych terminów | 5 |
+
+Skróty podstaw prawnych rozwinięte w legendzie na stronie 1 (KN, PO, PP, PPP, KS,
+OF, DOK, ŚW, BHP, WYC, NK, OM, ST). Terminy oznaczone gwiazdką ustala dyrektor
+w planie nadzoru pedagogicznego lub statucie.
 
 Każdy druk otwiera się stroną tytułową w układzie sprawozdania: wstęga, duży
 tytuł, podtytuł i linia z sygnaturą, dalej sekcje z rzymskim numerem
