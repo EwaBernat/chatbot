@@ -7,6 +7,8 @@ LOGO_URI = "data:image/jpeg;base64," + base64.b64encode(open(_LOGO_PATH, "rb").r
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 import dane_34, dane_5, dane_6
 from konspekty_34_d7 import KONSPEKTY
+from konspekty_34_d1 import KONSPEKTY_D1
+KONSPEKTY = {**KONSPEKTY_D1, **KONSPEKTY}
 
 WERSJE = [dane_34, dane_5, dane_6]
 
@@ -703,7 +705,7 @@ def render_konspekty_modale():
       <span class="mark" role="img" aria-label="Logo PCTP"></span>
       <div>
         <div class="kw">EduPlaner 2026</div>
-        <div class="ks">Konspekt · obszar VII · {esc(wers['etykieta'])} · wersja {wk} · twierdzenie {nr}</div>
+        <div class="ks">Konspekt · {esc(K['sfera'].split('·')[0].strip())} · {esc(wers['etykieta'])} · wersja {wk} · twierdzenie {nr}</div>
       </div>
       <span class="kpill">Konspekt {esc(K['nr'])}</span>
     </div>

@@ -16,8 +16,10 @@ do wykorzystania w IPET i PEWS.
 | `Bank_celow_SMART_KPOF.pdf` | wersja do druku (39 stron A4 **poziomo**: bank KC-1 + konspekt KC-2) |
 | `src/dane_34.py`, `src/dane_5.py`, `src/dane_6.py` | bank celów jako dane (obszary, twierdzenia, cele, miary) |
 | `Konspekty_KC3_ObszarVII_3-4lata.pdf` | 5 konspektów KC-3 dla obszaru VII (3–4 lata), A4 pionowo |
+| `Konspekty_KC3_ObszarI_3-4lata.pdf` | 5 konspektów KC-3 dla obszaru I (3–4 lata), A4 pionowo |
 | `src/build.py` | generator druku KC-1 (HTML) |
 | `src/konspekty_34_d7.py` | dane konspektów KC-3: obszar VII, wersja A |
+| `src/konspekty_34_d1.py` | dane konspektów KC-3: obszar I, wersja A |
 | `src/build_karty.py.bak` | poprzedni generator w układzie kart |
 
 ## Generowanie
@@ -100,3 +102,6 @@ Konspekt drukuje się osobno na A4 pionowo przyciskiem w oknie.
 
 Konspekty obszaru VII · 3–4 lata: Latarnia uwagi (29) · Podaj misia (30) ·
 Mostek do przedszkola (31) · Lusterko emocji (32) · Czarodziejskie słowo POMOC (33).
+
+Konspekty obszaru I · 3–4 lata: Czarodziejski woreczek (1) · Małpka robi to,
+co ja (2) · Klepsydra skarbów (3) · Kolorowe domki (4) · Pudełko z niespodzianką (5).
