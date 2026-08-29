@@ -1,0 +1,23 @@
+{
+  "name": "szkolenie-cele-smart",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Szkolenie wideo dla nauczycieli przedszkola — Cele SMART (PCTP Koszalin, EduPlaner 2026)",
+  "scripts": {
+    "studio": "remotion studio",
+    "build": "remotion render Szkolenie out/szkolenie-cele-smart.mp4",
+    "still": "remotion still Szkolenie out/klatka.png"
+  },
+  "dependencies": {
+    "@remotion/cli": "4.0.518",
+    "@remotion/google-fonts": "4.0.518",
+    "@remotion/media-utils": "4.0.518",
+    "remotion": "4.0.518",
+    "react": "18.3.1",
+    "react-dom": "18.3.1"
+  },
+  "devDependencies": {
+    "@types/react": "18.3.12",
+    "typescript": "5.6.3"
+  }
+}
