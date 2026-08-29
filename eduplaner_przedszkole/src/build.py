@@ -4,6 +4,7 @@ w stylu Kącika Dyrektora (EduPlaner 2026 · PCTP)."""
 import html, os, sys, datetime
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 import dane_34, dane_5, dane_6
+from konspekty_34_d7 import KONSPEKTY
 
 WERSJE = [dane_34, dane_5, dane_6]
 
@@ -126,13 +127,13 @@ td.tw .miara{border-top:1px solid var(--line-2); padding-top:6px}
 tbody tr:nth-child(even) td{background:var(--paper)}
 tbody tr:hover td.tw{background:var(--soft)}
 
-.c-lp{width:38px} .c-tw{width:23%} .c-code{width:82px} .c-goal{width:18.5%}
+.c-lp{width:38px} .c-tw{width:24%} .c-code{width:52px} .c-goal{width:19.5%}
 td.lp{text-align:center; font-weight:700; color:var(--ink); background:var(--paper) !important; font-size:14px; padding-top:11px}
 td.tw{font-weight:500; color:var(--ink)}
 td.tw .miara{display:block; margin-top:8px; font-family:"JetBrains Mono",monospace; font-size:9.5px; color:var(--muted); line-height:1.4}
 td.tw .miara b{color:var(--violet); font-family:"DM Sans",Arial,sans-serif; letter-spacing:.1em; text-transform:uppercase; font-size:9px}
-td.icf{font-family:"JetBrains Mono",monospace; font-weight:700; font-size:11px; color:var(--icf); background:var(--paper) !important; white-space:nowrap}
-td.pp{font-family:"JetBrains Mono",monospace; font-weight:700; font-size:11px; color:var(--pp); background:var(--paper) !important; white-space:nowrap}
+td.icf{font-family:"JetBrains Mono",monospace; font-weight:700; font-size:10px; color:var(--icf); background:var(--paper) !important; word-break:break-all; line-height:1.35}
+td.pp{font-family:"JetBrains Mono",monospace; font-weight:700; font-size:10px; color:var(--pp); background:var(--paper) !important; word-break:break-word; line-height:1.35}
 td.g{font-size:12px}
 th.h-p3,th.h-p2,th.h-p1,th.h-icf,th.h-pp{background:var(--strong); color:var(--on-strong)}
 th.h-p3{box-shadow:inset 0 -3px 0 var(--p3)} th.h-p2{box-shadow:inset 0 -3px 0 var(--p2)}
@@ -206,6 +207,66 @@ input[type="search"]:focus,.tab:focus-visible,.chipbtn:focus-visible,.navlink:fo
 .opt{display:inline-flex; align-items:center; gap:6px; border:1px solid var(--line); border-radius:6px;
   padding:4px 8px; font-size:11.5px; background:var(--paper); white-space:nowrap}
 .opt i{width:11px; height:11px; border:1.5px solid var(--violet); border-radius:3px; display:block; flex:none}
+td.g.haskon{cursor:pointer; position:relative}
+td.g.haskon .cel::after{content:"▸ konspekt"; display:block; margin-top:7px; font:700 9.5px/1 "DM Sans",Arial,sans-serif;
+  letter-spacing:.12em; text-transform:uppercase; color:var(--accent)}
+td.g.haskon:hover{background:var(--soft) !important}
+td.g.haskon:focus-visible{outline:2px solid var(--accent); outline-offset:-2px}
+
+/* ---------- modal konspektu (wg wzoru Termometr uwagi) ---------- */
+.kmodal{position:fixed; inset:0; z-index:50; display:none; background:rgba(31,26,62,.55); overflow:auto; padding:26px 14px}
+.kmodal.open{display:block}
+.kcard{max-width:900px; margin:0 auto; background:var(--paper); border-radius:12px; box-shadow:0 22px 70px rgba(20,12,50,.45); padding:26px 30px 30px}
+.khead{display:flex; align-items:center; gap:12px; border-bottom:2px solid var(--ink); padding-bottom:12px; position:relative}
+.khead .mark{width:38px; height:38px; font-size:8.5px}
+.khead .kw{font:700 18px/1 "DM Sans",Arial,sans-serif; color:var(--ink)}
+.khead .ks{font-size:8.5px; letter-spacing:.17em; text-transform:uppercase; color:var(--violet); font-weight:700; margin-top:4px}
+.khead .kpill{margin-left:auto; background:var(--ink); color:#fff; border-radius:999px; padding:7px 15px; font:700 11px/1 "DM Sans",Arial,sans-serif}
+.kclose{position:absolute; right:0; top:-8px; transform:translateY(-100%); background:none; border:none; color:#fff; font:700 13px/1 "DM Sans",Arial,sans-serif; cursor:pointer; letter-spacing:.08em}
+.ktitle{text-align:center; margin:16px 0 6px}
+.ktitle .kp{display:inline-block; background:var(--accent); color:var(--on-accent); border-radius:999px; padding:5px 13px;
+  font:700 9.5px/1 "DM Sans",Arial,sans-serif; letter-spacing:.13em; text-transform:uppercase}
+.ktitle .ksfera{font:700 10px/1.4 "DM Sans",Arial,sans-serif; letter-spacing:.1em; text-transform:uppercase; color:var(--indigo); margin-top:9px}
+.ktitle h3{font:700 26px/1.1 "DM Sans",Arial,sans-serif; color:var(--ink); margin:7px 0 0}
+.ktitle .kpod{font:700 10.5px/1.4 "DM Sans",Arial,sans-serif; letter-spacing:.14em; text-transform:uppercase; color:var(--muted); margin-top:6px}
+.kmeta{display:grid; grid-template-columns:repeat(4,1fr); gap:8px; margin:14px 0 4px}
+.kmeta .field{min-height:38px; padding:8px 12px}
+.kmeta .field .lvl{margin-left:auto; width:24px; height:24px; border-radius:50%; display:grid; place-items:center;
+  font:700 11px/1 "DM Sans",Arial,sans-serif; color:#fff}
+.kmeta .field .lvl.p3{background:var(--p3)} .kmeta .field .lvl.p2{background:var(--p2)} .kmeta .field .lvl.p1{background:var(--p1)}
+.ksec{display:flex; align-items:center; gap:9px; margin:18px 0 9px}
+.ksec .sq{width:22px; height:22px; font-size:10px}
+.ksec h4{font:700 12.5px/1.2 "DM Sans",Arial,sans-serif; letter-spacing:.1em; text-transform:uppercase; color:var(--ink); margin:0}
+.ksec .line{flex:1; height:1px; background:var(--line)}
+.kcele{display:grid; grid-template-columns:1fr 1fr; gap:12px}
+.kcel{border:1px solid var(--line); border-radius:8px; overflow:hidden}
+.kcel .kchead{color:#fff; text-align:center; font:700 11px/1 "DM Sans",Arial,sans-serif; letter-spacing:.08em; padding:8px}
+.kcel.edu .kchead{background:var(--ink)} .kcel.ter .kchead{background:var(--accent); color:var(--on-accent)}
+.kcel .ktresc{padding:11px 13px; font-size:12.5px; font-weight:600; color:var(--ink); border-bottom:1px solid var(--line-2)}
+.kcel ul.ksmart{list-style:none; margin:0; padding:9px 13px; display:grid; gap:5px}
+.kcel ul.ksmart li{display:flex; gap:9px; font-size:11.5px; line-height:1.45}
+.kcel ul.ksmart b{color:var(--accent); font-family:"JetBrains Mono",monospace; flex:none}
+.kcel .kkryt{background:var(--field); padding:8px 13px; font-size:11px; border-top:1px solid var(--line-2)}
+.kcel .kkryt b{color:var(--violet); font-size:9.5px; letter-spacing:.12em; text-transform:uppercase}
+.kvar{display:none} .kvar.on{display:block}
+.kdwie{display:grid; grid-template-columns:1fr 1fr; gap:16px}
+ul.klista{list-style:none; margin:0; padding:0; display:grid; gap:5px}
+ul.klista li{display:flex; gap:8px; font-size:12px; line-height:1.45}
+ul.klista li::before{content:"●"; color:var(--accent); font-size:8px; line-height:1.9; flex:none}
+table.ktab{min-width:0}
+table.ktab th{padding:8px 11px}
+table.ktab td{padding:8px 11px; font-size:11.5px}
+table.ktab td.lp{font-size:12px}
+.kmods{display:grid; grid-template-columns:1fr 1fr; gap:12px}
+.kmod{border:1px solid; border-radius:8px; padding:11px 14px; font-size:11.5px}
+.kmod.m2{border-color:var(--p2-br); background:var(--p2-bg)} .kmod.m3{border-color:var(--p3-br); background:var(--p3-bg)}
+.kmod b{display:block; margin-bottom:6px; font:700 11px/1 "DM Sans",Arial,sans-serif}
+.kmod.m2 b{color:var(--p2)} .kmod.m3 b{color:var(--p3)}
+.kwsk{margin-top:12px; border-left:4px solid var(--accent); background:var(--soft); border-radius:0 8px 8px 0; padding:10px 14px; font-size:11.5px}
+.kwsk b{color:var(--accent)}
+.kfoot{display:flex; gap:9px; justify-content:flex-end; margin-top:18px}
+@media (max-width:760px){ .kcele,.kdwie,.kmods,.kmeta{grid-template-columns:1fr} .kcard{padding:18px 14px} }
+
 .podpisy{display:grid; grid-template-columns:repeat(3,1fr); gap:16px; margin-top:18px}
 .podpis{border:1px solid var(--line); border-radius:8px; background:var(--field); padding:13px 15px 26px}
 .podpis b{font:700 9.5px/1 "DM Sans",Arial,sans-serif; letter-spacing:.14em; text-transform:uppercase; color:var(--violet); display:block; margin-bottom:22px}
@@ -236,6 +297,14 @@ tr.tbanner .bsep{color:var(--accent); padding:0 5px}
   .vers{display:block !important}
   .vers + .vers{break-before:page; page-break-before:always}
   #konspekt{break-before:page; page-break-before:always}
+  .kmodal{display:none !important}
+  td.g.haskon .cel::after{display:none}
+  html.print-konspekt .sheet,html.print-konspekt .toolbar{display:none !important}
+  html.print-konspekt .kmodal.open{display:block !important; position:static; background:none; padding:0; overflow:visible}
+  html.print-konspekt .kcard{box-shadow:none; max-width:none; padding:0; border-radius:0}
+  html.print-konspekt .kclose,html.print-konspekt .kfoot{display:none}
+  html.print-konspekt{--void:0}
+  html.print-konspekt .kvar{display:none} html.print-konspekt .kvar.on{display:block}
   .podpisy{break-inside:avoid}
   tr.tbanner{display:table-row}
   table{min-width:0; font-size:8.4pt}
@@ -296,12 +365,43 @@ function filtruj(){
 }
 szukaj.addEventListener('input',filtruj);
 document.getElementById('drukuj').addEventListener('click',()=>window.print());
+
+const LVLROM={p3:'III',p2:'II',p1:'I'};
+function otworzKonspekt(id,lvl){
+  const m=document.getElementById(id); if(!m) return;
+  m.querySelectorAll('.kvar').forEach(v=>v.classList.toggle('on',v.dataset.lvl===lvl));
+  const b=m.querySelector('[data-lvlbadge]');
+  b.className='lvl '+lvl; b.textContent=LVLROM[lvl];
+  m.classList.add('open'); document.body.style.overflow='hidden';
+  m.querySelector('.kclose').focus();
+}
+function zamknijKonspekty(){
+  document.querySelectorAll('.kmodal.open').forEach(m=>m.classList.remove('open'));
+  document.body.style.overflow='';
+}
+document.querySelectorAll('td.haskon').forEach(td=>{
+  const go=()=>otworzKonspekt(td.dataset.kon,td.dataset.lvl2);
+  td.addEventListener('click',go);
+  td.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();go();}});
+});
+document.querySelectorAll('[data-close]').forEach(b=>b.addEventListener('click',zamknijKonspekty));
+document.querySelectorAll('.kmodal').forEach(m=>m.addEventListener('click',e=>{if(e.target===m)zamknijKonspekty();}));
+document.addEventListener('keydown',e=>{if(e.key==='Escape')zamknijKonspekty();});
+document.querySelectorAll('[data-printkon]').forEach(b=>b.addEventListener('click',()=>{
+  document.documentElement.classList.add('print-konspekt');
+  const done=()=>{document.documentElement.classList.remove('print-konspekt'); window.removeEventListener('afterprint',done);};
+  window.addEventListener('afterprint',done);
+  window.print();
+}));
 """
 
 def esc(s): return html.escape(str(s), quote=False)
 
 def wiersz(it, w):
     pp = it["pp"][3:] if it["pp"].startswith("PP ") else it["pp"]
+    kid = f"kon-{w['kod']}-{it['n']}" if (w["kod"], it["n"]) in KONSPEKTY else ""
+    kattr = lambda lvl: (f' class="g {lvl} col-{lvl} haskon" tabindex="0" role="button" data-kon="{kid}" data-lvl2="{lvl}"'
+                         if kid else f' class="g {lvl} col-{lvl}"')
     szukaj = " ".join([it["t"], it["g3"], it["g2"], it["g1"], it["icf"], it["pp"],
                        w["etykieta"], "wersja " + w["kod"]]).lower()
     return f"""        <tr data-szukaj="{esc(szukaj)}">
@@ -309,9 +409,9 @@ def wiersz(it, w):
           <td class="tw">{esc(it['t'])}<span class="miara"><b>Miara:</b> {esc(it['m'])}</span></td>
           <td class="icf"><span class="kod">{esc(it['icf'])}</span></td>
           <td class="pp"><span class="kod">{esc(pp)}</span></td>
-          <td class="g p3 col-p3"><span class="cel">{esc(it['g3'])}</span></td>
-          <td class="g p2 col-p2"><span class="cel">{esc(it['g2'])}</span></td>
-          <td class="g p1 col-p1"><span class="cel">{esc(it['g1'])}</span></td>
+          <td{kattr('p3')}><span class="cel">{esc(it['g3'])}</span></td>
+          <td{kattr('p2')}><span class="cel">{esc(it['g2'])}</span></td>
+          <td{kattr('p1')}><span class="cel">{esc(it['g1'])}</span></td>
         </tr>"""
 
 def sekcja(a, w):
@@ -331,8 +431,8 @@ def sekcja(a, w):
         <tr>
           <th class="c-lp">Lp.</th>
           <th class="c-tw">Twierdzenie KPOF · obserwowane zachowanie</th>
-          <th class="c-code h-icf"><span class="kropka"></span>ICF</th>
-          <th class="c-code h-pp"><span class="kropka"></span>Podstawa</th>
+          <th class="c-code h-icf">ICF</th>
+          <th class="c-code h-pp">Podst.</th>
           <th class="c-goal h-p3 col-p3"><span class="kropka"></span>Poziom III<span class="hz">ewaluacja 4 tyg.</span></th>
           <th class="c-goal h-p2 col-p2"><span class="kropka"></span>Poziom II<span class="hz">ewaluacja 8 tyg.</span></th>
           <th class="c-goal h-p1 col-p1"><span class="kropka"></span>Poziom I<span class="hz">ewaluacja 12 tyg.</span></th>
@@ -488,8 +588,8 @@ def konspekt():
   <div class="tablewrap"><table>
     <thead><tr>
       <th class="c-lp">Lp.</th><th class="c-tw">Cel z banku · miara</th>
-      <th class="c-code h-icf"><span class="kropka"></span>ICF</th>
-      <th class="c-code h-pp"><span class="kropka"></span>Podstawa</th>
+      <th class="c-code h-icf">ICF</th>
+      <th class="c-code h-pp">Podst.</th>
       <th>Poziom wsparcia i treść celu SMART</th>
     </tr></thead>
     <tbody>
@@ -546,6 +646,124 @@ def konspekt():
     <div class="podpis"><b>Data i podpis koordynatora</b><span class="dots"></span></div>
   </div>
 </section>"""
+
+
+
+def render_konspekty_modale():
+    """Modale konspektów wg wzoru Termometr uwagi; warianty celu edukacyjnego per poziom."""
+    def smart_edu(it, poz_kod):
+        meta = next(p for p in POZIOMY if p[0] == poz_kod)
+        cel = {"p3": it["g3"], "p2": it["g2"], "p1": it["g1"]}[poz_kod]
+        m = cel.rsplit("— w ", 1)
+        miern = ("w " + m[1]) if len(m) == 2 else it["m"]
+        return [
+            ("S", it["t"] + "."),
+            ("M", miern.rstrip('.') + '.'),
+            ("A", meta[5].capitalize() + "."),
+            ("R", f"ICF {it['icf']} · PP {it['pp'].replace('PP ','')} — spójne z KPOF, WOPF i IPET."),
+            ("T", f"Ewaluacja po {meta[4].replace('tyg.','tygodniach')} ({meta[1]})."),
+        ], cel, meta
+    out = []
+    for (wk, nr), K in KONSPEKTY.items():
+        mod = {"A": dane_34, "B": dane_5, "C": dane_6}[wk]
+        it = next(i for a in mod.AREAS for i in a["items"] if i["n"] == nr)
+        wers = mod.WERSJA
+        warianty = []
+        for poz_kod in ("p3", "p2", "p1"):
+            sm, cel, meta = smart_edu(it, poz_kod)
+            sm_li = "\n".join(f'              <li><b>{L}</b><span>{esc(t)}</span></li>' for L, t in sm)
+            warianty.append(f"""        <div class="kvar" data-lvl="{poz_kod}">
+          <div class="ktresc">{esc(cel)}</div>
+          <ul class="ksmart">
+{sm_li}
+          </ul>
+          <div class="kkryt"><b>Kryterium:</b> {esc(it['m'])} · horyzont {esc(meta[4])}</div>
+        </div>""")
+        ter_li = "\n".join(f'              <li><b>{L}</b><span>{esc(t)}</span></li>' for L, t in K["ter_smart"])
+        pom_li = "\n".join(f'        <li>{esc(x)}</li>' for x in K["pomoce"])
+        met_li = "\n".join(f'        <li>{esc(x)}</li>' for x in K["metody"])
+        prz = "\n".join(f"""        <tr><td class="lp">{i}</td><td>{esc(n)}</td><td>{esc(d)}</td></tr>"""
+                        for i, (n, d) in enumerate(K["przebieg"], 1))
+        m2 = "\n".join(f'          <li>{esc(x)}</li>' for x in K["mod2"])
+        m3 = "\n".join(f'          <li>{esc(x)}</li>' for x in K["mod3"])
+        kid = f"kon-{wk}-{nr}"
+        out.append(f"""<div class="kmodal" id="{kid}" role="dialog" aria-modal="true" aria-label="Konspekt: {esc(K['tytul'])}">
+  <div class="kcard">
+    <div class="khead">
+      <span class="mark">PCTP</span>
+      <div>
+        <div class="kw">EduPlaner 2026</div>
+        <div class="ks">Konspekt · obszar VII · {esc(wers['etykieta'])} · wersja {wk} · twierdzenie {nr}</div>
+      </div>
+      <span class="kpill">Konspekt {esc(K['nr'])}</span>
+      <button class="kclose" data-close="{kid}">✕ zamknij</button>
+    </div>
+    <div class="ktitle">
+      <span class="kp">Konspekt zajęć · druk KC-3</span>
+      <div class="ksfera">{esc(K['sfera'])}</div>
+      <h3>{esc(K['tytul'])}</h3>
+      <div class="kpod">{esc(K['podtytul'])}</div>
+    </div>
+    <div class="kmeta">
+      <div class="field"><b>Czas</b><span class="val">{esc(K['czas'])}</span></div>
+      <div class="field"><b>Forma</b><span class="val">{esc(K['forma'])}</span></div>
+      <div class="field"><b>Cykl</b><span class="val">{esc(K['cykl'])}</span></div>
+      <div class="field"><b>Poziom wsparcia</b><span class="lvl p2" data-lvlbadge>II</span></div>
+    </div>
+    <div class="ksec"><span class="sq">I</span><h4>Cel SMART</h4><span class="line"></span></div>
+    <div class="kcele">
+      <div class="kcel edu"><div class="kchead">Cel edukacyjny — z banku KC-1, wg klikniętego poziomu</div>
+{chr(10).join(warianty)}
+      </div>
+      <div class="kcel ter"><div class="kchead">Cel terapeutyczny</div>
+        <div class="ktresc">{esc(K['ter'])}</div>
+        <ul class="ksmart">
+{ter_li}
+        </ul>
+        <div class="kkryt"><b>Kryterium:</b> {esc(K['ter_kryt'])}</div>
+      </div>
+    </div>
+    <div class="kdwie">
+      <div>
+        <div class="ksec"><span class="sq">II</span><h4>Pomoce dydaktyczne</h4><span class="line"></span></div>
+        <ul class="klista">
+{pom_li}
+        </ul>
+      </div>
+      <div>
+        <div class="ksec"><span class="sq">III</span><h4>Metody i formy działań</h4><span class="line"></span></div>
+        <ul class="klista">
+{met_li}
+        </ul>
+      </div>
+    </div>
+    <div class="ksec"><span class="sq">IV</span><h4>Sposób realizacji</h4><span class="line"></span>
+      <span class="meta">{esc(K['rodzaj'])}</span></div>
+    <div class="tablewrap"><table class="ktab">
+      <thead><tr><th class="c-lp">Lp.</th><th style="width:47%">Czynności nauczyciela (N)</th>
+        <th>Oczekiwane reakcje i umiejętności dziecka (D)</th></tr></thead>
+      <tbody>
+{prz}
+      </tbody>
+    </table></div>
+    <div class="ksec"><span class="sq">V</span><h4>Modyfikacja przy braku postępu</h4><span class="line"></span>
+      <span class="meta">brak progresu w 2 kolejnych sesjach</span></div>
+    <div class="kmods">
+      <div class="kmod m2"><b>Poziom II · żółta</b><ul class="klista">
+{m2}
+      </ul></div>
+      <div class="kmod m3"><b>Poziom III · czerwona</b><ul class="klista">
+{m3}
+      </ul></div>
+    </div>
+    <div class="kwsk"><b>Wskazówka dla prowadzącego:</b> {esc(K['wskazowka'])}</div>
+    <div class="kfoot">
+      <button class="chipbtn zamknij" data-close="{kid}">Zamknij</button>
+      <button class="chipbtn" style="background:var(--strong); border-color:var(--strong); color:var(--on-strong)" data-printkon="{kid}">Drukuj konspekt A4</button>
+    </div>
+  </div>
+</div>""")
+    return "\n".join(out)
 
 
 def build():
@@ -697,6 +915,7 @@ def build():
 </div>
 
 </div>
+{render_konspekty_modale()}
 <script>{JS}</script>
 """
 

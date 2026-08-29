@@ -15,7 +15,9 @@ do wykorzystania w IPET i PEWS.
 | `Bank_celow_SMART_KPOF.html` | druk KC-1: układ tabelaryczny (styl Kącika Dyrektora), zakładki wersji, filtr kolumn, wyszukiwarka |
 | `Bank_celow_SMART_KPOF.pdf` | wersja do druku (39 stron A4 **poziomo**: bank KC-1 + konspekt KC-2) |
 | `src/dane_34.py`, `src/dane_5.py`, `src/dane_6.py` | bank celów jako dane (obszary, twierdzenia, cele, miary) |
+| `Konspekty_KC3_ObszarVII_3-4lata.pdf` | 5 konspektów KC-3 dla obszaru VII (3–4 lata), A4 pionowo |
 | `src/build.py` | generator druku KC-1 (HTML) |
+| `src/konspekty_34_d7.py` | dane konspektów KC-3: obszar VII, wersja A |
 | `src/build_karty.py.bak` | poprzedni generator w układzie kart |
 
 ## Generowanie
@@ -86,3 +88,15 @@ w dzienniku, w IPET i w arkuszu KPOF mówi tym samym kodem. Sekcje druku:
 
 W repozytorium konspekt jest wzorem wypełnionym (zabawa „Wieża po kolei",
 wersja B, 5-latki) — pola nadpisuje się własną treścią.
+
+## Druk KC-3 — konspekty klikane z banku
+
+W tabeli banku cele obszaru VII (wersja A) są klikalne — znacznik „▸ konspekt".
+Kliknięcie celu wybranego poziomu otwiera konspekt w układzie wzoru
+„Termometr uwagi": cel edukacyjny cytowany z banku dla klikniętego poziomu
+(z automatycznym rozbiciem S/M/A/R/T z danych), cel terapeutyczny, pomoce,
+metody, tabela czynności N/D, modyfikacje przy braku postępu, wskazówka.
+Konspekt drukuje się osobno na A4 pionowo przyciskiem w oknie.
+
+Konspekty obszaru VII · 3–4 lata: Latarnia uwagi (29) · Podaj misia (30) ·
+Mostek do przedszkola (31) · Lusterko emocji (32) · Czarodziejskie słowo POMOC (33).

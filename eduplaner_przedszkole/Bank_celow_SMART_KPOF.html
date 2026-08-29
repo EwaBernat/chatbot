@@ -112,13 +112,13 @@ td.tw .miara{border-top:1px solid var(--line-2); padding-top:6px}
 tbody tr:nth-child(even) td{background:var(--paper)}
 tbody tr:hover td.tw{background:var(--soft)}
 
-.c-lp{width:38px} .c-tw{width:23%} .c-code{width:82px} .c-goal{width:18.5%}
+.c-lp{width:38px} .c-tw{width:24%} .c-code{width:52px} .c-goal{width:19.5%}
 td.lp{text-align:center; font-weight:700; color:var(--ink); background:var(--paper) !important; font-size:14px; padding-top:11px}
 td.tw{font-weight:500; color:var(--ink)}
 td.tw .miara{display:block; margin-top:8px; font-family:"JetBrains Mono",monospace; font-size:9.5px; color:var(--muted); line-height:1.4}
 td.tw .miara b{color:var(--violet); font-family:"DM Sans",Arial,sans-serif; letter-spacing:.1em; text-transform:uppercase; font-size:9px}
-td.icf{font-family:"JetBrains Mono",monospace; font-weight:700; font-size:11px; color:var(--icf); background:var(--paper) !important; white-space:nowrap}
-td.pp{font-family:"JetBrains Mono",monospace; font-weight:700; font-size:11px; color:var(--pp); background:var(--paper) !important; white-space:nowrap}
+td.icf{font-family:"JetBrains Mono",monospace; font-weight:700; font-size:10px; color:var(--icf); background:var(--paper) !important; word-break:break-all; line-height:1.35}
+td.pp{font-family:"JetBrains Mono",monospace; font-weight:700; font-size:10px; color:var(--pp); background:var(--paper) !important; word-break:break-word; line-height:1.35}
 td.g{font-size:12px}
 th.h-p3,th.h-p2,th.h-p1,th.h-icf,th.h-pp{background:var(--strong); color:var(--on-strong)}
 th.h-p3{box-shadow:inset 0 -3px 0 var(--p3)} th.h-p2{box-shadow:inset 0 -3px 0 var(--p2)}
@@ -192,6 +192,66 @@ input[type="search"]:focus,.tab:focus-visible,.chipbtn:focus-visible,.navlink:fo
 .opt{display:inline-flex; align-items:center; gap:6px; border:1px solid var(--line); border-radius:6px;
   padding:4px 8px; font-size:11.5px; background:var(--paper); white-space:nowrap}
 .opt i{width:11px; height:11px; border:1.5px solid var(--violet); border-radius:3px; display:block; flex:none}
+td.g.haskon{cursor:pointer; position:relative}
+td.g.haskon .cel::after{content:"▸ konspekt"; display:block; margin-top:7px; font:700 9.5px/1 "DM Sans",Arial,sans-serif;
+  letter-spacing:.12em; text-transform:uppercase; color:var(--accent)}
+td.g.haskon:hover{background:var(--soft) !important}
+td.g.haskon:focus-visible{outline:2px solid var(--accent); outline-offset:-2px}
+
+/* ---------- modal konspektu (wg wzoru Termometr uwagi) ---------- */
+.kmodal{position:fixed; inset:0; z-index:50; display:none; background:rgba(31,26,62,.55); overflow:auto; padding:26px 14px}
+.kmodal.open{display:block}
+.kcard{max-width:900px; margin:0 auto; background:var(--paper); border-radius:12px; box-shadow:0 22px 70px rgba(20,12,50,.45); padding:26px 30px 30px}
+.khead{display:flex; align-items:center; gap:12px; border-bottom:2px solid var(--ink); padding-bottom:12px; position:relative}
+.khead .mark{width:38px; height:38px; font-size:8.5px}
+.khead .kw{font:700 18px/1 "DM Sans",Arial,sans-serif; color:var(--ink)}
+.khead .ks{font-size:8.5px; letter-spacing:.17em; text-transform:uppercase; color:var(--violet); font-weight:700; margin-top:4px}
+.khead .kpill{margin-left:auto; background:var(--ink); color:#fff; border-radius:999px; padding:7px 15px; font:700 11px/1 "DM Sans",Arial,sans-serif}
+.kclose{position:absolute; right:0; top:-8px; transform:translateY(-100%); background:none; border:none; color:#fff; font:700 13px/1 "DM Sans",Arial,sans-serif; cursor:pointer; letter-spacing:.08em}
+.ktitle{text-align:center; margin:16px 0 6px}
+.ktitle .kp{display:inline-block; background:var(--accent); color:var(--on-accent); border-radius:999px; padding:5px 13px;
+  font:700 9.5px/1 "DM Sans",Arial,sans-serif; letter-spacing:.13em; text-transform:uppercase}
+.ktitle .ksfera{font:700 10px/1.4 "DM Sans",Arial,sans-serif; letter-spacing:.1em; text-transform:uppercase; color:var(--indigo); margin-top:9px}
+.ktitle h3{font:700 26px/1.1 "DM Sans",Arial,sans-serif; color:var(--ink); margin:7px 0 0}
+.ktitle .kpod{font:700 10.5px/1.4 "DM Sans",Arial,sans-serif; letter-spacing:.14em; text-transform:uppercase; color:var(--muted); margin-top:6px}
+.kmeta{display:grid; grid-template-columns:repeat(4,1fr); gap:8px; margin:14px 0 4px}
+.kmeta .field{min-height:38px; padding:8px 12px}
+.kmeta .field .lvl{margin-left:auto; width:24px; height:24px; border-radius:50%; display:grid; place-items:center;
+  font:700 11px/1 "DM Sans",Arial,sans-serif; color:#fff}
+.kmeta .field .lvl.p3{background:var(--p3)} .kmeta .field .lvl.p2{background:var(--p2)} .kmeta .field .lvl.p1{background:var(--p1)}
+.ksec{display:flex; align-items:center; gap:9px; margin:18px 0 9px}
+.ksec .sq{width:22px; height:22px; font-size:10px}
+.ksec h4{font:700 12.5px/1.2 "DM Sans",Arial,sans-serif; letter-spacing:.1em; text-transform:uppercase; color:var(--ink); margin:0}
+.ksec .line{flex:1; height:1px; background:var(--line)}
+.kcele{display:grid; grid-template-columns:1fr 1fr; gap:12px}
+.kcel{border:1px solid var(--line); border-radius:8px; overflow:hidden}
+.kcel .kchead{color:#fff; text-align:center; font:700 11px/1 "DM Sans",Arial,sans-serif; letter-spacing:.08em; padding:8px}
+.kcel.edu .kchead{background:var(--ink)} .kcel.ter .kchead{background:var(--accent); color:var(--on-accent)}
+.kcel .ktresc{padding:11px 13px; font-size:12.5px; font-weight:600; color:var(--ink); border-bottom:1px solid var(--line-2)}
+.kcel ul.ksmart{list-style:none; margin:0; padding:9px 13px; display:grid; gap:5px}
+.kcel ul.ksmart li{display:flex; gap:9px; font-size:11.5px; line-height:1.45}
+.kcel ul.ksmart b{color:var(--accent); font-family:"JetBrains Mono",monospace; flex:none}
+.kcel .kkryt{background:var(--field); padding:8px 13px; font-size:11px; border-top:1px solid var(--line-2)}
+.kcel .kkryt b{color:var(--violet); font-size:9.5px; letter-spacing:.12em; text-transform:uppercase}
+.kvar{display:none} .kvar.on{display:block}
+.kdwie{display:grid; grid-template-columns:1fr 1fr; gap:16px}
+ul.klista{list-style:none; margin:0; padding:0; display:grid; gap:5px}
+ul.klista li{display:flex; gap:8px; font-size:12px; line-height:1.45}
+ul.klista li::before{content:"●"; color:var(--accent); font-size:8px; line-height:1.9; flex:none}
+table.ktab{min-width:0}
+table.ktab th{padding:8px 11px}
+table.ktab td{padding:8px 11px; font-size:11.5px}
+table.ktab td.lp{font-size:12px}
+.kmods{display:grid; grid-template-columns:1fr 1fr; gap:12px}
+.kmod{border:1px solid; border-radius:8px; padding:11px 14px; font-size:11.5px}
+.kmod.m2{border-color:var(--p2-br); background:var(--p2-bg)} .kmod.m3{border-color:var(--p3-br); background:var(--p3-bg)}
+.kmod b{display:block; margin-bottom:6px; font:700 11px/1 "DM Sans",Arial,sans-serif}
+.kmod.m2 b{color:var(--p2)} .kmod.m3 b{color:var(--p3)}
+.kwsk{margin-top:12px; border-left:4px solid var(--accent); background:var(--soft); border-radius:0 8px 8px 0; padding:10px 14px; font-size:11.5px}
+.kwsk b{color:var(--accent)}
+.kfoot{display:flex; gap:9px; justify-content:flex-end; margin-top:18px}
+@media (max-width:760px){ .kcele,.kdwie,.kmods,.kmeta{grid-template-columns:1fr} .kcard{padding:18px 14px} }
+
 .podpisy{display:grid; grid-template-columns:repeat(3,1fr); gap:16px; margin-top:18px}
 .podpis{border:1px solid var(--line); border-radius:8px; background:var(--field); padding:13px 15px 26px}
 .podpis b{font:700 9.5px/1 "DM Sans",Arial,sans-serif; letter-spacing:.14em; text-transform:uppercase; color:var(--violet); display:block; margin-bottom:22px}
@@ -222,6 +282,14 @@ tr.tbanner .bsep{color:var(--accent); padding:0 5px}
   .vers{display:block !important}
   .vers + .vers{break-before:page; page-break-before:always}
   #konspekt{break-before:page; page-break-before:always}
+  .kmodal{display:none !important}
+  td.g.haskon .cel::after{display:none}
+  html.print-konspekt .sheet,html.print-konspekt .toolbar{display:none !important}
+  html.print-konspekt .kmodal.open{display:block !important; position:static; background:none; padding:0; overflow:visible}
+  html.print-konspekt .kcard{box-shadow:none; max-width:none; padding:0; border-radius:0}
+  html.print-konspekt .kclose,html.print-konspekt .kfoot{display:none}
+  html.print-konspekt{--void:0}
+  html.print-konspekt .kvar{display:none} html.print-konspekt .kvar.on{display:block}
   .podpisy{break-inside:avoid}
   tr.tbanner{display:table-row}
   table{min-width:0; font-size:8.4pt}
@@ -433,8 +501,8 @@ tr.tbanner .bsep{color:var(--accent); padding:0 5px}
         <tr>
           <th class="c-lp">Lp.</th>
           <th class="c-tw">Twierdzenie KPOF · obserwowane zachowanie</th>
-          <th class="c-code h-icf"><span class="kropka"></span>ICF</th>
-          <th class="c-code h-pp"><span class="kropka"></span>Podstawa</th>
+          <th class="c-code h-icf">ICF</th>
+          <th class="c-code h-pp">Podst.</th>
           <th class="c-goal h-p3 col-p3"><span class="kropka"></span>Poziom III<span class="hz">ewaluacja 4 tyg.</span></th>
           <th class="c-goal h-p2 col-p2"><span class="kropka"></span>Poziom II<span class="hz">ewaluacja 8 tyg.</span></th>
           <th class="c-goal h-p1 col-p1"><span class="kropka"></span>Poziom I<span class="hz">ewaluacja 12 tyg.</span></th>
@@ -505,8 +573,8 @@ tr.tbanner .bsep{color:var(--accent); padding:0 5px}
         <tr>
           <th class="c-lp">Lp.</th>
           <th class="c-tw">Twierdzenie KPOF · obserwowane zachowanie</th>
-          <th class="c-code h-icf"><span class="kropka"></span>ICF</th>
-          <th class="c-code h-pp"><span class="kropka"></span>Podstawa</th>
+          <th class="c-code h-icf">ICF</th>
+          <th class="c-code h-pp">Podst.</th>
           <th class="c-goal h-p3 col-p3"><span class="kropka"></span>Poziom III<span class="hz">ewaluacja 4 tyg.</span></th>
           <th class="c-goal h-p2 col-p2"><span class="kropka"></span>Poziom II<span class="hz">ewaluacja 8 tyg.</span></th>
           <th class="c-goal h-p1 col-p1"><span class="kropka"></span>Poziom I<span class="hz">ewaluacja 12 tyg.</span></th>
@@ -577,8 +645,8 @@ tr.tbanner .bsep{color:var(--accent); padding:0 5px}
         <tr>
           <th class="c-lp">Lp.</th>
           <th class="c-tw">Twierdzenie KPOF · obserwowane zachowanie</th>
-          <th class="c-code h-icf"><span class="kropka"></span>ICF</th>
-          <th class="c-code h-pp"><span class="kropka"></span>Podstawa</th>
+          <th class="c-code h-icf">ICF</th>
+          <th class="c-code h-pp">Podst.</th>
           <th class="c-goal h-p3 col-p3"><span class="kropka"></span>Poziom III<span class="hz">ewaluacja 4 tyg.</span></th>
           <th class="c-goal h-p2 col-p2"><span class="kropka"></span>Poziom II<span class="hz">ewaluacja 8 tyg.</span></th>
           <th class="c-goal h-p1 col-p1"><span class="kropka"></span>Poziom I<span class="hz">ewaluacja 12 tyg.</span></th>
@@ -649,8 +717,8 @@ tr.tbanner .bsep{color:var(--accent); padding:0 5px}
         <tr>
           <th class="c-lp">Lp.</th>
           <th class="c-tw">Twierdzenie KPOF · obserwowane zachowanie</th>
-          <th class="c-code h-icf"><span class="kropka"></span>ICF</th>
-          <th class="c-code h-pp"><span class="kropka"></span>Podstawa</th>
+          <th class="c-code h-icf">ICF</th>
+          <th class="c-code h-pp">Podst.</th>
           <th class="c-goal h-p3 col-p3"><span class="kropka"></span>Poziom III<span class="hz">ewaluacja 4 tyg.</span></th>
           <th class="c-goal h-p2 col-p2"><span class="kropka"></span>Poziom II<span class="hz">ewaluacja 8 tyg.</span></th>
           <th class="c-goal h-p1 col-p1"><span class="kropka"></span>Poziom I<span class="hz">ewaluacja 12 tyg.</span></th>
@@ -721,8 +789,8 @@ tr.tbanner .bsep{color:var(--accent); padding:0 5px}
         <tr>
           <th class="c-lp">Lp.</th>
           <th class="c-tw">Twierdzenie KPOF · obserwowane zachowanie</th>
-          <th class="c-code h-icf"><span class="kropka"></span>ICF</th>
-          <th class="c-code h-pp"><span class="kropka"></span>Podstawa</th>
+          <th class="c-code h-icf">ICF</th>
+          <th class="c-code h-pp">Podst.</th>
           <th class="c-goal h-p3 col-p3"><span class="kropka"></span>Poziom III<span class="hz">ewaluacja 4 tyg.</span></th>
           <th class="c-goal h-p2 col-p2"><span class="kropka"></span>Poziom II<span class="hz">ewaluacja 8 tyg.</span></th>
           <th class="c-goal h-p1 col-p1"><span class="kropka"></span>Poziom I<span class="hz">ewaluacja 12 tyg.</span></th>
@@ -793,8 +861,8 @@ tr.tbanner .bsep{color:var(--accent); padding:0 5px}
         <tr>
           <th class="c-lp">Lp.</th>
           <th class="c-tw">Twierdzenie KPOF · obserwowane zachowanie</th>
-          <th class="c-code h-icf"><span class="kropka"></span>ICF</th>
-          <th class="c-code h-pp"><span class="kropka"></span>Podstawa</th>
+          <th class="c-code h-icf">ICF</th>
+          <th class="c-code h-pp">Podst.</th>
           <th class="c-goal h-p3 col-p3"><span class="kropka"></span>Poziom III<span class="hz">ewaluacja 4 tyg.</span></th>
           <th class="c-goal h-p2 col-p2"><span class="kropka"></span>Poziom II<span class="hz">ewaluacja 8 tyg.</span></th>
           <th class="c-goal h-p1 col-p1"><span class="kropka"></span>Poziom I<span class="hz">ewaluacja 12 tyg.</span></th>
@@ -847,8 +915,8 @@ tr.tbanner .bsep{color:var(--accent); padding:0 5px}
         <tr>
           <th class="c-lp">Lp.</th>
           <th class="c-tw">Twierdzenie KPOF · obserwowane zachowanie</th>
-          <th class="c-code h-icf"><span class="kropka"></span>ICF</th>
-          <th class="c-code h-pp"><span class="kropka"></span>Podstawa</th>
+          <th class="c-code h-icf">ICF</th>
+          <th class="c-code h-pp">Podst.</th>
           <th class="c-goal h-p3 col-p3"><span class="kropka"></span>Poziom III<span class="hz">ewaluacja 4 tyg.</span></th>
           <th class="c-goal h-p2 col-p2"><span class="kropka"></span>Poziom II<span class="hz">ewaluacja 8 tyg.</span></th>
           <th class="c-goal h-p1 col-p1"><span class="kropka"></span>Poziom I<span class="hz">ewaluacja 12 tyg.</span></th>
@@ -860,45 +928,45 @@ tr.tbanner .bsep{color:var(--accent); padding:0 5px}
           <td class="tw">Obdarza uwagą inne dzieci i osoby dorosłe<span class="miara"><b>Miara:</b> obserwacja kręgu porannego · 5 spotkań</span></td>
           <td class="icf"><span class="kod">d710</span></td>
           <td class="pp"><span class="kod">3.5</span></td>
-          <td class="g p3 col-p3"><span class="cel">Skieruje spojrzenie na dziecko, które wypowiada jego imię, po dodatkowym sygnale dotykowym — w 3 z 5 prób.</span></td>
-          <td class="g p2 col-p2"><span class="cel">Zwróci się twarzą do mówiącego rówieśnika i wytrzyma kontakt przez całą krótką wypowiedź — w 3 z 5 sytuacji.</span></td>
-          <td class="g p1 col-p1"><span class="cel">Wysłucha wypowiedzi rówieśnika w kręgu i odniesie się do niej gestem lub słowem — w 4 z 5 spotkań w kręgu.</span></td>
+          <td class="g p3 col-p3 haskon" tabindex="0" role="button" data-kon="kon-A-29" data-lvl2="p3"><span class="cel">Skieruje spojrzenie na dziecko, które wypowiada jego imię, po dodatkowym sygnale dotykowym — w 3 z 5 prób.</span></td>
+          <td class="g p2 col-p2 haskon" tabindex="0" role="button" data-kon="kon-A-29" data-lvl2="p2"><span class="cel">Zwróci się twarzą do mówiącego rówieśnika i wytrzyma kontakt przez całą krótką wypowiedź — w 3 z 5 sytuacji.</span></td>
+          <td class="g p1 col-p1 haskon" tabindex="0" role="button" data-kon="kon-A-29" data-lvl2="p1"><span class="cel">Wysłucha wypowiedzi rówieśnika w kręgu i odniesie się do niej gestem lub słowem — w 4 z 5 spotkań w kręgu.</span></td>
         </tr>
         <tr data-szukaj="podejmuje krótkie interakcje z rówieśnikami (podanie zabawki, wspólny śmiech) poda zabawkę wskazanemu dziecku w zabawie zaaranżowanej przez dorosłego, przy jego obecności — w 3 z 5 prób. podejmie wymianę zabawki z rówieśnikiem w zabawie równoległej, po jednorazowej podpowiedzi — w 3 z 5 sytuacji. samodzielnie zainicjuje krótką zabawę z wybranym kolegą i utrzyma ją przez 5 minut — w 4 z 5 dni. d710 pp 1.2 3–4 lata wersja a">
           <td class="lp">30</td>
           <td class="tw">Podejmuje krótkie interakcje z rówieśnikami (podanie zabawki, wspólny śmiech)<span class="miara"><b>Miara:</b> socjogram zabawy · obserwacja 15-minutowa</span></td>
           <td class="icf"><span class="kod">d710</span></td>
           <td class="pp"><span class="kod">1.2</span></td>
-          <td class="g p3 col-p3"><span class="cel">Poda zabawkę wskazanemu dziecku w zabawie zaaranżowanej przez dorosłego, przy jego obecności — w 3 z 5 prób.</span></td>
-          <td class="g p2 col-p2"><span class="cel">Podejmie wymianę zabawki z rówieśnikiem w zabawie równoległej, po jednorazowej podpowiedzi — w 3 z 5 sytuacji.</span></td>
-          <td class="g p1 col-p1"><span class="cel">Samodzielnie zainicjuje krótką zabawę z wybranym kolegą i utrzyma ją przez 5 minut — w 4 z 5 dni.</span></td>
+          <td class="g p3 col-p3 haskon" tabindex="0" role="button" data-kon="kon-A-30" data-lvl2="p3"><span class="cel">Poda zabawkę wskazanemu dziecku w zabawie zaaranżowanej przez dorosłego, przy jego obecności — w 3 z 5 prób.</span></td>
+          <td class="g p2 col-p2 haskon" tabindex="0" role="button" data-kon="kon-A-30" data-lvl2="p2"><span class="cel">Podejmie wymianę zabawki z rówieśnikiem w zabawie równoległej, po jednorazowej podpowiedzi — w 3 z 5 sytuacji.</span></td>
+          <td class="g p1 col-p1 haskon" tabindex="0" role="button" data-kon="kon-A-30" data-lvl2="p1"><span class="cel">Samodzielnie zainicjuje krótką zabawę z wybranym kolegą i utrzyma ją przez 5 minut — w 4 z 5 dni.</span></td>
         </tr>
         <tr data-szukaj="rozstaje się z rodzicami bez nasilonego lęku, czuje się w grupie bezpiecznie przejdzie z rodzica do nauczyciela z przedmiotem przejściowym z domu i wyciszy się w ciągu 10 minut — w 3 z 5 poranków. rozstanie się z rodzicem po ustalonym rytuale pożegnania i włączy się w aktywność w ciągu 5 minut — w 3 z 5 poranków. samodzielnie wejdzie do sali, pożegna rodzica i podejmie zabawę w ciągu 2 minut — w 4 z 5 poranków. d760 pp zad.2 3–4 lata wersja a">
           <td class="lp">31</td>
           <td class="tw">Rozstaje się z rodzicami bez nasilonego lęku, czuje się w grupie bezpiecznie<span class="miara"><b>Miara:</b> karta adaptacji · czas wyciszenia po rozstaniu</span></td>
           <td class="icf"><span class="kod">d760</span></td>
           <td class="pp"><span class="kod">Zad.2</span></td>
-          <td class="g p3 col-p3"><span class="cel">Przejdzie z rodzica do nauczyciela z przedmiotem przejściowym z domu i wyciszy się w ciągu 10 minut — w 3 z 5 poranków.</span></td>
-          <td class="g p2 col-p2"><span class="cel">Rozstanie się z rodzicem po ustalonym rytuale pożegnania i włączy się w aktywność w ciągu 5 minut — w 3 z 5 poranków.</span></td>
-          <td class="g p1 col-p1"><span class="cel">Samodzielnie wejdzie do sali, pożegna rodzica i podejmie zabawę w ciągu 2 minut — w 4 z 5 poranków.</span></td>
+          <td class="g p3 col-p3 haskon" tabindex="0" role="button" data-kon="kon-A-31" data-lvl2="p3"><span class="cel">Przejdzie z rodzica do nauczyciela z przedmiotem przejściowym z domu i wyciszy się w ciągu 10 minut — w 3 z 5 poranków.</span></td>
+          <td class="g p2 col-p2 haskon" tabindex="0" role="button" data-kon="kon-A-31" data-lvl2="p2"><span class="cel">Rozstanie się z rodzicem po ustalonym rytuale pożegnania i włączy się w aktywność w ciągu 5 minut — w 3 z 5 poranków.</span></td>
+          <td class="g p1 col-p1 haskon" tabindex="0" role="button" data-kon="kon-A-31" data-lvl2="p1"><span class="cel">Samodzielnie wejdzie do sali, pożegna rodzica i podejmie zabawę w ciągu 2 minut — w 4 z 5 poranków.</span></td>
         </tr>
         <tr data-szukaj="okazuje podstawowe emocje w sposób czytelny i adekwatny do sytuacji wskaże symbol emocji (radość, złość) opisujący jego stan, gdy dorosły poda tablicę i nazwie obie możliwości — w 3 z 5 sytuacji. nazwie swoją emocję jednym słowem po pytaniu dorosłego „co czujesz?” — w 3 z 5 sytuacji. samodzielnie nazwie emocję swoją i kolegi w sytuacji zabawy oraz poda jej przyczynę — w 4 z 5 sytuacji. d710 pp 2.9 3–4 lata wersja a">
           <td class="lp">32</td>
           <td class="tw">Okazuje podstawowe emocje w sposób czytelny i adekwatny do sytuacji<span class="miara"><b>Miara:</b> koło emocji · rejestr nazwań</span></td>
           <td class="icf"><span class="kod">d710</span></td>
           <td class="pp"><span class="kod">2.9</span></td>
-          <td class="g p3 col-p3"><span class="cel">Wskaże symbol emocji (radość, złość) opisujący jego stan, gdy dorosły poda tablicę i nazwie obie możliwości — w 3 z 5 sytuacji.</span></td>
-          <td class="g p2 col-p2"><span class="cel">Nazwie swoją emocję jednym słowem po pytaniu dorosłego „co czujesz?” — w 3 z 5 sytuacji.</span></td>
-          <td class="g p1 col-p1"><span class="cel">Samodzielnie nazwie emocję swoją i kolegi w sytuacji zabawy oraz poda jej przyczynę — w 4 z 5 sytuacji.</span></td>
+          <td class="g p3 col-p3 haskon" tabindex="0" role="button" data-kon="kon-A-32" data-lvl2="p3"><span class="cel">Wskaże symbol emocji (radość, złość) opisujący jego stan, gdy dorosły poda tablicę i nazwie obie możliwości — w 3 z 5 sytuacji.</span></td>
+          <td class="g p2 col-p2 haskon" tabindex="0" role="button" data-kon="kon-A-32" data-lvl2="p2"><span class="cel">Nazwie swoją emocję jednym słowem po pytaniu dorosłego „co czujesz?” — w 3 z 5 sytuacji.</span></td>
+          <td class="g p1 col-p1 haskon" tabindex="0" role="button" data-kon="kon-A-32" data-lvl2="p1"><span class="cel">Samodzielnie nazwie emocję swoją i kolegi w sytuacji zabawy oraz poda jej przyczynę — w 4 z 5 sytuacji.</span></td>
         </tr>
         <tr data-szukaj="zwraca się o pomoc do znanego dorosłego podejdzie do nauczyciela i pociągnie za rękę lub poda przedmiot w sytuacji trudności, po przypomnieniu zasady — w 3 z 5 sytuacji. poprosi o pomoc słowem lub symbolem, kierując komunikat do konkretnej osoby dorosłej — w 3 z 5 sytuacji. poprosi o pomoc, nazywając problem („nie mogę otworzyć”), także w sytuacji poza salą — w 4 z 5 sytuacji. d710 pp 2.11 3–4 lata wersja a">
           <td class="lp">33</td>
           <td class="tw">Zwraca się o pomoc do znanego dorosłego<span class="miara"><b>Miara:</b> próby zaaranżowane · rejestr próśb o pomoc</span></td>
           <td class="icf"><span class="kod">d710</span></td>
           <td class="pp"><span class="kod">2.11</span></td>
-          <td class="g p3 col-p3"><span class="cel">Podejdzie do nauczyciela i pociągnie za rękę lub poda przedmiot w sytuacji trudności, po przypomnieniu zasady — w 3 z 5 sytuacji.</span></td>
-          <td class="g p2 col-p2"><span class="cel">Poprosi o pomoc słowem lub symbolem, kierując komunikat do konkretnej osoby dorosłej — w 3 z 5 sytuacji.</span></td>
-          <td class="g p1 col-p1"><span class="cel">Poprosi o pomoc, nazywając problem („nie mogę otworzyć”), także w sytuacji poza salą — w 4 z 5 sytuacji.</span></td>
+          <td class="g p3 col-p3 haskon" tabindex="0" role="button" data-kon="kon-A-33" data-lvl2="p3"><span class="cel">Podejdzie do nauczyciela i pociągnie za rękę lub poda przedmiot w sytuacji trudności, po przypomnieniu zasady — w 3 z 5 sytuacji.</span></td>
+          <td class="g p2 col-p2 haskon" tabindex="0" role="button" data-kon="kon-A-33" data-lvl2="p2"><span class="cel">Poprosi o pomoc słowem lub symbolem, kierując komunikat do konkretnej osoby dorosłej — w 3 z 5 sytuacji.</span></td>
+          <td class="g p1 col-p1 haskon" tabindex="0" role="button" data-kon="kon-A-33" data-lvl2="p1"><span class="cel">Poprosi o pomoc, nazywając problem („nie mogę otworzyć”), także w sytuacji poza salą — w 4 z 5 sytuacji.</span></td>
         </tr>
       </tbody>
     </table>
@@ -919,8 +987,8 @@ tr.tbanner .bsep{color:var(--accent); padding:0 5px}
         <tr>
           <th class="c-lp">Lp.</th>
           <th class="c-tw">Twierdzenie KPOF · obserwowane zachowanie</th>
-          <th class="c-code h-icf"><span class="kropka"></span>ICF</th>
-          <th class="c-code h-pp"><span class="kropka"></span>Podstawa</th>
+          <th class="c-code h-icf">ICF</th>
+          <th class="c-code h-pp">Podst.</th>
           <th class="c-goal h-p3 col-p3"><span class="kropka"></span>Poziom III<span class="hz">ewaluacja 4 tyg.</span></th>
           <th class="c-goal h-p2 col-p2"><span class="kropka"></span>Poziom II<span class="hz">ewaluacja 8 tyg.</span></th>
           <th class="c-goal h-p1 col-p1"><span class="kropka"></span>Poziom I<span class="hz">ewaluacja 12 tyg.</span></th>
@@ -991,8 +1059,8 @@ tr.tbanner .bsep{color:var(--accent); padding:0 5px}
         <tr>
           <th class="c-lp">Lp.</th>
           <th class="c-tw">Twierdzenie KPOF · obserwowane zachowanie</th>
-          <th class="c-code h-icf"><span class="kropka"></span>ICF</th>
-          <th class="c-code h-pp"><span class="kropka"></span>Podstawa</th>
+          <th class="c-code h-icf">ICF</th>
+          <th class="c-code h-pp">Podst.</th>
           <th class="c-goal h-p3 col-p3"><span class="kropka"></span>Poziom III<span class="hz">ewaluacja 4 tyg.</span></th>
           <th class="c-goal h-p2 col-p2"><span class="kropka"></span>Poziom II<span class="hz">ewaluacja 8 tyg.</span></th>
           <th class="c-goal h-p1 col-p1"><span class="kropka"></span>Poziom I<span class="hz">ewaluacja 12 tyg.</span></th>
@@ -1079,8 +1147,8 @@ tr.tbanner .bsep{color:var(--accent); padding:0 5px}
         <tr>
           <th class="c-lp">Lp.</th>
           <th class="c-tw">Twierdzenie KPOF · obserwowane zachowanie</th>
-          <th class="c-code h-icf"><span class="kropka"></span>ICF</th>
-          <th class="c-code h-pp"><span class="kropka"></span>Podstawa</th>
+          <th class="c-code h-icf">ICF</th>
+          <th class="c-code h-pp">Podst.</th>
           <th class="c-goal h-p3 col-p3"><span class="kropka"></span>Poziom III<span class="hz">ewaluacja 4 tyg.</span></th>
           <th class="c-goal h-p2 col-p2"><span class="kropka"></span>Poziom II<span class="hz">ewaluacja 8 tyg.</span></th>
           <th class="c-goal h-p1 col-p1"><span class="kropka"></span>Poziom I<span class="hz">ewaluacja 12 tyg.</span></th>
@@ -1151,8 +1219,8 @@ tr.tbanner .bsep{color:var(--accent); padding:0 5px}
         <tr>
           <th class="c-lp">Lp.</th>
           <th class="c-tw">Twierdzenie KPOF · obserwowane zachowanie</th>
-          <th class="c-code h-icf"><span class="kropka"></span>ICF</th>
-          <th class="c-code h-pp"><span class="kropka"></span>Podstawa</th>
+          <th class="c-code h-icf">ICF</th>
+          <th class="c-code h-pp">Podst.</th>
           <th class="c-goal h-p3 col-p3"><span class="kropka"></span>Poziom III<span class="hz">ewaluacja 4 tyg.</span></th>
           <th class="c-goal h-p2 col-p2"><span class="kropka"></span>Poziom II<span class="hz">ewaluacja 8 tyg.</span></th>
           <th class="c-goal h-p1 col-p1"><span class="kropka"></span>Poziom I<span class="hz">ewaluacja 12 tyg.</span></th>
@@ -1223,8 +1291,8 @@ tr.tbanner .bsep{color:var(--accent); padding:0 5px}
         <tr>
           <th class="c-lp">Lp.</th>
           <th class="c-tw">Twierdzenie KPOF · obserwowane zachowanie</th>
-          <th class="c-code h-icf"><span class="kropka"></span>ICF</th>
-          <th class="c-code h-pp"><span class="kropka"></span>Podstawa</th>
+          <th class="c-code h-icf">ICF</th>
+          <th class="c-code h-pp">Podst.</th>
           <th class="c-goal h-p3 col-p3"><span class="kropka"></span>Poziom III<span class="hz">ewaluacja 4 tyg.</span></th>
           <th class="c-goal h-p2 col-p2"><span class="kropka"></span>Poziom II<span class="hz">ewaluacja 8 tyg.</span></th>
           <th class="c-goal h-p1 col-p1"><span class="kropka"></span>Poziom I<span class="hz">ewaluacja 12 tyg.</span></th>
@@ -1295,8 +1363,8 @@ tr.tbanner .bsep{color:var(--accent); padding:0 5px}
         <tr>
           <th class="c-lp">Lp.</th>
           <th class="c-tw">Twierdzenie KPOF · obserwowane zachowanie</th>
-          <th class="c-code h-icf"><span class="kropka"></span>ICF</th>
-          <th class="c-code h-pp"><span class="kropka"></span>Podstawa</th>
+          <th class="c-code h-icf">ICF</th>
+          <th class="c-code h-pp">Podst.</th>
           <th class="c-goal h-p3 col-p3"><span class="kropka"></span>Poziom III<span class="hz">ewaluacja 4 tyg.</span></th>
           <th class="c-goal h-p2 col-p2"><span class="kropka"></span>Poziom II<span class="hz">ewaluacja 8 tyg.</span></th>
           <th class="c-goal h-p1 col-p1"><span class="kropka"></span>Poziom I<span class="hz">ewaluacja 12 tyg.</span></th>
@@ -1367,8 +1435,8 @@ tr.tbanner .bsep{color:var(--accent); padding:0 5px}
         <tr>
           <th class="c-lp">Lp.</th>
           <th class="c-tw">Twierdzenie KPOF · obserwowane zachowanie</th>
-          <th class="c-code h-icf"><span class="kropka"></span>ICF</th>
-          <th class="c-code h-pp"><span class="kropka"></span>Podstawa</th>
+          <th class="c-code h-icf">ICF</th>
+          <th class="c-code h-pp">Podst.</th>
           <th class="c-goal h-p3 col-p3"><span class="kropka"></span>Poziom III<span class="hz">ewaluacja 4 tyg.</span></th>
           <th class="c-goal h-p2 col-p2"><span class="kropka"></span>Poziom II<span class="hz">ewaluacja 8 tyg.</span></th>
           <th class="c-goal h-p1 col-p1"><span class="kropka"></span>Poziom I<span class="hz">ewaluacja 12 tyg.</span></th>
@@ -1439,8 +1507,8 @@ tr.tbanner .bsep{color:var(--accent); padding:0 5px}
         <tr>
           <th class="c-lp">Lp.</th>
           <th class="c-tw">Twierdzenie KPOF · obserwowane zachowanie</th>
-          <th class="c-code h-icf"><span class="kropka"></span>ICF</th>
-          <th class="c-code h-pp"><span class="kropka"></span>Podstawa</th>
+          <th class="c-code h-icf">ICF</th>
+          <th class="c-code h-pp">Podst.</th>
           <th class="c-goal h-p3 col-p3"><span class="kropka"></span>Poziom III<span class="hz">ewaluacja 4 tyg.</span></th>
           <th class="c-goal h-p2 col-p2"><span class="kropka"></span>Poziom II<span class="hz">ewaluacja 8 tyg.</span></th>
           <th class="c-goal h-p1 col-p1"><span class="kropka"></span>Poziom I<span class="hz">ewaluacja 12 tyg.</span></th>
@@ -1502,8 +1570,8 @@ tr.tbanner .bsep{color:var(--accent); padding:0 5px}
         <tr>
           <th class="c-lp">Lp.</th>
           <th class="c-tw">Twierdzenie KPOF · obserwowane zachowanie</th>
-          <th class="c-code h-icf"><span class="kropka"></span>ICF</th>
-          <th class="c-code h-pp"><span class="kropka"></span>Podstawa</th>
+          <th class="c-code h-icf">ICF</th>
+          <th class="c-code h-pp">Podst.</th>
           <th class="c-goal h-p3 col-p3"><span class="kropka"></span>Poziom III<span class="hz">ewaluacja 4 tyg.</span></th>
           <th class="c-goal h-p2 col-p2"><span class="kropka"></span>Poziom II<span class="hz">ewaluacja 8 tyg.</span></th>
           <th class="c-goal h-p1 col-p1"><span class="kropka"></span>Poziom I<span class="hz">ewaluacja 12 tyg.</span></th>
@@ -1574,8 +1642,8 @@ tr.tbanner .bsep{color:var(--accent); padding:0 5px}
         <tr>
           <th class="c-lp">Lp.</th>
           <th class="c-tw">Twierdzenie KPOF · obserwowane zachowanie</th>
-          <th class="c-code h-icf"><span class="kropka"></span>ICF</th>
-          <th class="c-code h-pp"><span class="kropka"></span>Podstawa</th>
+          <th class="c-code h-icf">ICF</th>
+          <th class="c-code h-pp">Podst.</th>
           <th class="c-goal h-p3 col-p3"><span class="kropka"></span>Poziom III<span class="hz">ewaluacja 4 tyg.</span></th>
           <th class="c-goal h-p2 col-p2"><span class="kropka"></span>Poziom II<span class="hz">ewaluacja 8 tyg.</span></th>
           <th class="c-goal h-p1 col-p1"><span class="kropka"></span>Poziom I<span class="hz">ewaluacja 12 tyg.</span></th>
@@ -1646,8 +1714,8 @@ tr.tbanner .bsep{color:var(--accent); padding:0 5px}
         <tr>
           <th class="c-lp">Lp.</th>
           <th class="c-tw">Twierdzenie KPOF · obserwowane zachowanie</th>
-          <th class="c-code h-icf"><span class="kropka"></span>ICF</th>
-          <th class="c-code h-pp"><span class="kropka"></span>Podstawa</th>
+          <th class="c-code h-icf">ICF</th>
+          <th class="c-code h-pp">Podst.</th>
           <th class="c-goal h-p3 col-p3"><span class="kropka"></span>Poziom III<span class="hz">ewaluacja 4 tyg.</span></th>
           <th class="c-goal h-p2 col-p2"><span class="kropka"></span>Poziom II<span class="hz">ewaluacja 8 tyg.</span></th>
           <th class="c-goal h-p1 col-p1"><span class="kropka"></span>Poziom I<span class="hz">ewaluacja 12 tyg.</span></th>
@@ -1743,8 +1811,8 @@ tr.tbanner .bsep{color:var(--accent); padding:0 5px}
         <tr>
           <th class="c-lp">Lp.</th>
           <th class="c-tw">Twierdzenie KPOF · obserwowane zachowanie</th>
-          <th class="c-code h-icf"><span class="kropka"></span>ICF</th>
-          <th class="c-code h-pp"><span class="kropka"></span>Podstawa</th>
+          <th class="c-code h-icf">ICF</th>
+          <th class="c-code h-pp">Podst.</th>
           <th class="c-goal h-p3 col-p3"><span class="kropka"></span>Poziom III<span class="hz">ewaluacja 4 tyg.</span></th>
           <th class="c-goal h-p2 col-p2"><span class="kropka"></span>Poziom II<span class="hz">ewaluacja 8 tyg.</span></th>
           <th class="c-goal h-p1 col-p1"><span class="kropka"></span>Poziom I<span class="hz">ewaluacja 12 tyg.</span></th>
@@ -1815,8 +1883,8 @@ tr.tbanner .bsep{color:var(--accent); padding:0 5px}
         <tr>
           <th class="c-lp">Lp.</th>
           <th class="c-tw">Twierdzenie KPOF · obserwowane zachowanie</th>
-          <th class="c-code h-icf"><span class="kropka"></span>ICF</th>
-          <th class="c-code h-pp"><span class="kropka"></span>Podstawa</th>
+          <th class="c-code h-icf">ICF</th>
+          <th class="c-code h-pp">Podst.</th>
           <th class="c-goal h-p3 col-p3"><span class="kropka"></span>Poziom III<span class="hz">ewaluacja 4 tyg.</span></th>
           <th class="c-goal h-p2 col-p2"><span class="kropka"></span>Poziom II<span class="hz">ewaluacja 8 tyg.</span></th>
           <th class="c-goal h-p1 col-p1"><span class="kropka"></span>Poziom I<span class="hz">ewaluacja 12 tyg.</span></th>
@@ -1887,8 +1955,8 @@ tr.tbanner .bsep{color:var(--accent); padding:0 5px}
         <tr>
           <th class="c-lp">Lp.</th>
           <th class="c-tw">Twierdzenie KPOF · obserwowane zachowanie</th>
-          <th class="c-code h-icf"><span class="kropka"></span>ICF</th>
-          <th class="c-code h-pp"><span class="kropka"></span>Podstawa</th>
+          <th class="c-code h-icf">ICF</th>
+          <th class="c-code h-pp">Podst.</th>
           <th class="c-goal h-p3 col-p3"><span class="kropka"></span>Poziom III<span class="hz">ewaluacja 4 tyg.</span></th>
           <th class="c-goal h-p2 col-p2"><span class="kropka"></span>Poziom II<span class="hz">ewaluacja 8 tyg.</span></th>
           <th class="c-goal h-p1 col-p1"><span class="kropka"></span>Poziom I<span class="hz">ewaluacja 12 tyg.</span></th>
@@ -1959,8 +2027,8 @@ tr.tbanner .bsep{color:var(--accent); padding:0 5px}
         <tr>
           <th class="c-lp">Lp.</th>
           <th class="c-tw">Twierdzenie KPOF · obserwowane zachowanie</th>
-          <th class="c-code h-icf"><span class="kropka"></span>ICF</th>
-          <th class="c-code h-pp"><span class="kropka"></span>Podstawa</th>
+          <th class="c-code h-icf">ICF</th>
+          <th class="c-code h-pp">Podst.</th>
           <th class="c-goal h-p3 col-p3"><span class="kropka"></span>Poziom III<span class="hz">ewaluacja 4 tyg.</span></th>
           <th class="c-goal h-p2 col-p2"><span class="kropka"></span>Poziom II<span class="hz">ewaluacja 8 tyg.</span></th>
           <th class="c-goal h-p1 col-p1"><span class="kropka"></span>Poziom I<span class="hz">ewaluacja 12 tyg.</span></th>
@@ -2031,8 +2099,8 @@ tr.tbanner .bsep{color:var(--accent); padding:0 5px}
         <tr>
           <th class="c-lp">Lp.</th>
           <th class="c-tw">Twierdzenie KPOF · obserwowane zachowanie</th>
-          <th class="c-code h-icf"><span class="kropka"></span>ICF</th>
-          <th class="c-code h-pp"><span class="kropka"></span>Podstawa</th>
+          <th class="c-code h-icf">ICF</th>
+          <th class="c-code h-pp">Podst.</th>
           <th class="c-goal h-p3 col-p3"><span class="kropka"></span>Poziom III<span class="hz">ewaluacja 4 tyg.</span></th>
           <th class="c-goal h-p2 col-p2"><span class="kropka"></span>Poziom II<span class="hz">ewaluacja 8 tyg.</span></th>
           <th class="c-goal h-p1 col-p1"><span class="kropka"></span>Poziom I<span class="hz">ewaluacja 12 tyg.</span></th>
@@ -2103,8 +2171,8 @@ tr.tbanner .bsep{color:var(--accent); padding:0 5px}
         <tr>
           <th class="c-lp">Lp.</th>
           <th class="c-tw">Twierdzenie KPOF · obserwowane zachowanie</th>
-          <th class="c-code h-icf"><span class="kropka"></span>ICF</th>
-          <th class="c-code h-pp"><span class="kropka"></span>Podstawa</th>
+          <th class="c-code h-icf">ICF</th>
+          <th class="c-code h-pp">Podst.</th>
           <th class="c-goal h-p3 col-p3"><span class="kropka"></span>Poziom III<span class="hz">ewaluacja 4 tyg.</span></th>
           <th class="c-goal h-p2 col-p2"><span class="kropka"></span>Poziom II<span class="hz">ewaluacja 8 tyg.</span></th>
           <th class="c-goal h-p1 col-p1"><span class="kropka"></span>Poziom I<span class="hz">ewaluacja 12 tyg.</span></th>
@@ -2166,8 +2234,8 @@ tr.tbanner .bsep{color:var(--accent); padding:0 5px}
         <tr>
           <th class="c-lp">Lp.</th>
           <th class="c-tw">Twierdzenie KPOF · obserwowane zachowanie</th>
-          <th class="c-code h-icf"><span class="kropka"></span>ICF</th>
-          <th class="c-code h-pp"><span class="kropka"></span>Podstawa</th>
+          <th class="c-code h-icf">ICF</th>
+          <th class="c-code h-pp">Podst.</th>
           <th class="c-goal h-p3 col-p3"><span class="kropka"></span>Poziom III<span class="hz">ewaluacja 4 tyg.</span></th>
           <th class="c-goal h-p2 col-p2"><span class="kropka"></span>Poziom II<span class="hz">ewaluacja 8 tyg.</span></th>
           <th class="c-goal h-p1 col-p1"><span class="kropka"></span>Poziom I<span class="hz">ewaluacja 12 tyg.</span></th>
@@ -2238,8 +2306,8 @@ tr.tbanner .bsep{color:var(--accent); padding:0 5px}
         <tr>
           <th class="c-lp">Lp.</th>
           <th class="c-tw">Twierdzenie KPOF · obserwowane zachowanie</th>
-          <th class="c-code h-icf"><span class="kropka"></span>ICF</th>
-          <th class="c-code h-pp"><span class="kropka"></span>Podstawa</th>
+          <th class="c-code h-icf">ICF</th>
+          <th class="c-code h-pp">Podst.</th>
           <th class="c-goal h-p3 col-p3"><span class="kropka"></span>Poziom III<span class="hz">ewaluacja 4 tyg.</span></th>
           <th class="c-goal h-p2 col-p2"><span class="kropka"></span>Poziom II<span class="hz">ewaluacja 8 tyg.</span></th>
           <th class="c-goal h-p1 col-p1"><span class="kropka"></span>Poziom I<span class="hz">ewaluacja 12 tyg.</span></th>
@@ -2310,8 +2378,8 @@ tr.tbanner .bsep{color:var(--accent); padding:0 5px}
         <tr>
           <th class="c-lp">Lp.</th>
           <th class="c-tw">Twierdzenie KPOF · obserwowane zachowanie</th>
-          <th class="c-code h-icf"><span class="kropka"></span>ICF</th>
-          <th class="c-code h-pp"><span class="kropka"></span>Podstawa</th>
+          <th class="c-code h-icf">ICF</th>
+          <th class="c-code h-pp">Podst.</th>
           <th class="c-goal h-p3 col-p3"><span class="kropka"></span>Poziom III<span class="hz">ewaluacja 4 tyg.</span></th>
           <th class="c-goal h-p2 col-p2"><span class="kropka"></span>Poziom II<span class="hz">ewaluacja 8 tyg.</span></th>
           <th class="c-goal h-p1 col-p1"><span class="kropka"></span>Poziom I<span class="hz">ewaluacja 12 tyg.</span></th>
@@ -2397,8 +2465,8 @@ tr.tbanner .bsep{color:var(--accent); padding:0 5px}
   <div class="tablewrap"><table>
     <thead><tr>
       <th class="c-lp">Lp.</th><th class="c-tw">Cel z banku · miara</th>
-      <th class="c-code h-icf"><span class="kropka"></span>ICF</th>
-      <th class="c-code h-pp"><span class="kropka"></span>Podstawa</th>
+      <th class="c-code h-icf">ICF</th>
+      <th class="c-code h-pp">Podst.</th>
       <th>Poziom wsparcia i treść celu SMART</th>
     </tr></thead>
     <tbody>
@@ -2553,6 +2621,642 @@ tr.tbanner .bsep{color:var(--accent); padding:0 5px}
 </div>
 
 </div>
+<div class="kmodal" id="kon-A-29" role="dialog" aria-modal="true" aria-label="Konspekt: Latarnia uwagi">
+  <div class="kcard">
+    <div class="khead">
+      <span class="mark">PCTP</span>
+      <div>
+        <div class="kw">EduPlaner 2026</div>
+        <div class="ks">Konspekt · obszar VII · 3–4 lata · wersja A · twierdzenie 29</div>
+      </div>
+      <span class="kpill">Konspekt D7-29</span>
+      <button class="kclose" data-close="kon-A-29">✕ zamknij</button>
+    </div>
+    <div class="ktitle">
+      <span class="kp">Konspekt zajęć · druk KC-3</span>
+      <div class="ksfera">VII WZAJEMNE KONTAKTY · Obdarzanie uwagą (ICF d710 · PP 3.5)</div>
+      <h3>Latarnia uwagi</h3>
+      <div class="kpod">Kierowanie wzroku i uwagi na osobę, która mówi</div>
+    </div>
+    <div class="kmeta">
+      <div class="field"><b>Czas</b><span class="val">15 min</span></div>
+      <div class="field"><b>Forma</b><span class="val">mała grupa (3–4 dzieci)</span></div>
+      <div class="field"><b>Cykl</b><span class="val">3× w tygodniu</span></div>
+      <div class="field"><b>Poziom wsparcia</b><span class="lvl p2" data-lvlbadge>II</span></div>
+    </div>
+    <div class="ksec"><span class="sq">I</span><h4>Cel SMART</h4><span class="line"></span></div>
+    <div class="kcele">
+      <div class="kcel edu"><div class="kchead">Cel edukacyjny — z banku KC-1, wg klikniętego poziomu</div>
+        <div class="kvar" data-lvl="p3">
+          <div class="ktresc">Skieruje spojrzenie na dziecko, które wypowiada jego imię, po dodatkowym sygnale dotykowym — w 3 z 5 prób.</div>
+          <ul class="ksmart">
+              <li><b>S</b><span>Obdarza uwagą inne dzieci i osoby dorosłe.</span></li>
+              <li><b>M</b><span>w 3 z 5 prób.</span></li>
+              <li><b>A</b><span>Pełne wsparcie, modelowanie, warunki uproszczone.</span></li>
+              <li><b>R</b><span>ICF d710 · PP 3.5 — spójne z KPOF, WOPF i IPET.</span></li>
+              <li><b>T</b><span>Ewaluacja po 4 tygodniach (Poziom III).</span></li>
+          </ul>
+          <div class="kkryt"><b>Kryterium:</b> obserwacja kręgu porannego · 5 spotkań · horyzont 4 tyg.</div>
+        </div>
+        <div class="kvar" data-lvl="p2">
+          <div class="ktresc">Zwróci się twarzą do mówiącego rówieśnika i wytrzyma kontakt przez całą krótką wypowiedź — w 3 z 5 sytuacji.</div>
+          <ul class="ksmart">
+              <li><b>S</b><span>Obdarza uwagą inne dzieci i osoby dorosłe.</span></li>
+              <li><b>M</b><span>w 3 z 5 sytuacji.</span></li>
+              <li><b>A</b><span>Wsparcie częściowe: plan obrazkowy, podpowiedź, przypomnienie.</span></li>
+              <li><b>R</b><span>ICF d710 · PP 3.5 — spójne z KPOF, WOPF i IPET.</span></li>
+              <li><b>T</b><span>Ewaluacja po 8 tygodniach (Poziom II).</span></li>
+          </ul>
+          <div class="kkryt"><b>Kryterium:</b> obserwacja kręgu porannego · 5 spotkań · horyzont 8 tyg.</div>
+        </div>
+        <div class="kvar" data-lvl="p1">
+          <div class="ktresc">Wysłucha wypowiedzi rówieśnika w kręgu i odniesie się do niej gestem lub słowem — w 4 z 5 spotkań w kręgu.</div>
+          <ul class="ksmart">
+              <li><b>S</b><span>Obdarza uwagą inne dzieci i osoby dorosłe.</span></li>
+              <li><b>M</b><span>w 4 z 5 spotkań w kręgu.</span></li>
+              <li><b>A</b><span>Samodzielność i przeniesienie na nową sytuację.</span></li>
+              <li><b>R</b><span>ICF d710 · PP 3.5 — spójne z KPOF, WOPF i IPET.</span></li>
+              <li><b>T</b><span>Ewaluacja po 12 tygodniach (Poziom I).</span></li>
+          </ul>
+          <div class="kkryt"><b>Kryterium:</b> obserwacja kręgu porannego · 5 spotkań · horyzont 12 tyg.</div>
+        </div>
+      </div>
+      <div class="kcel ter"><div class="kchead">Cel terapeutyczny</div>
+        <div class="ktresc">Dziecko w kręgu skieruje wzrok na osobę trzymającą „latarnię” (lampion) w ciągu 3 sekund od sygnału, w 4 z 5 rund zabawy, w ciągu 4 tygodni.</div>
+        <ul class="ksmart">
+              <li><b>S</b><span>Kieruje wzrok na dziecko lub dorosłego trzymającego lampion.</span></li>
+              <li><b>M</b><span>4 z 5 rund w sesji; min. 2 sesje z rzędu.</span></li>
+              <li><b>A</b><span>Sygnał świetlny i dźwiękowy podpowiada, na kogo patrzeć.</span></li>
+              <li><b>R</b><span>Warunkuje udział w kręgu i rozumienie komunikatów grupowych.</span></li>
+              <li><b>T</b><span>Weryfikacja po 4 tygodniach.</span></li>
+        </ul>
+        <div class="kkryt"><b>Kryterium:</b> Karta rund po każdej sesji (3×/tydzień); podsumowanie po 4 tyg.</div>
+      </div>
+    </div>
+    <div class="kdwie">
+      <div>
+        <div class="ksec"><span class="sq">II</span><h4>Pomoce dydaktyczne</h4><span class="line"></span></div>
+        <ul class="klista">
+        <li>lampion-latarnia (bezpieczna lampka)</li>
+        <li>poduszki do kręgu</li>
+        <li>dzwonek sygnałowy</li>
+        <li>karta rund z uśmieszkami</li>
+        </ul>
+      </div>
+      <div>
+        <div class="ksec"><span class="sq">III</span><h4>Metody i formy działań</h4><span class="line"></span></div>
+        <ul class="klista">
+        <li>zabawa z regułą w kręgu</li>
+        <li>modelowanie „patrzę na ciebie”</li>
+        <li>wzmocnienie pozytywne</li>
+        <li>krótkie tury (do 20 sekund)</li>
+        </ul>
+      </div>
+    </div>
+    <div class="ksec"><span class="sq">IV</span><h4>Sposób realizacji</h4><span class="line"></span>
+      <span class="meta">Zajęcia wspierające kompetencje społeczne / pomoc p-p</span></div>
+    <div class="tablewrap"><table class="ktab">
+      <thead><tr><th class="c-lp">Lp.</th><th style="width:47%">Czynności nauczyciela (N)</th>
+        <th>Oczekiwane reakcje i umiejętności dziecka (D)</th></tr></thead>
+      <tbody>
+        <tr><td class="lp">1</td><td>N — zapala lampion i mówi: „kto ma światełko, ten mówi”.</td><td>D — patrzy na lampion i na twarz nauczyciela.</td></tr>
+        <tr><td class="lp">2</td><td>N — podaje lampion dziecku, dzwonkiem daje sygnał zmiany.</td><td>D — kieruje wzrok na dziecko ze światełkiem.</td></tr>
+        <tr><td class="lp">3</td><td>N — modeluje: „patrzę na Olę, Ola mówi”.</td><td>D — powtarza gest wskazania na mówiącego.</td></tr>
+        <tr><td class="lp">4</td><td>N — wydłuża tury, gasi podpowiedź dźwiękową.</td><td>D — sam odnajduje wzrokiem mówiącego.</td></tr>
+        <tr><td class="lp">5</td><td>N — kończy rundą „komu błysnęła latarnia?”.</td><td>D — wskazuje, kto mówił, przybija piątkę.</td></tr>
+      </tbody>
+    </table></div>
+    <div class="ksec"><span class="sq">V</span><h4>Modyfikacja przy braku postępu</h4><span class="line"></span>
+      <span class="meta">brak progresu w 2 kolejnych sesjach</span></div>
+    <div class="kmods">
+      <div class="kmod m2"><b>Poziom II · żółta</b><ul class="klista">
+          <li>krąg zmniejszony do 3 osób</li>
+          <li>tura skrócona do 10 sekund</li>
+          <li>dzwonek przy każdej zmianie</li>
+          <li>dziecko siedzi obok nauczyciela</li>
+      </ul></div>
+      <div class="kmod m3"><b>Poziom III · czerwona</b><ul class="klista">
+          <li>zabawa w parze z dorosłym</li>
+          <li>fizyczne ukierunkowanie (dotyk ramienia)</li>
+          <li>lampion podawany do rąk dziecka</li>
+          <li>powrót do kręgu po 2 tygodniach</li>
+      </ul></div>
+    </div>
+    <div class="kwsk"><b>Wskazówka dla prowadzącego:</b> Światełko zawsze wędruje razem z głosem — nie dopuszczaj, by mówiło dziecko bez lampionu, bo sygnał przestaje być czytelny.</div>
+    <div class="kfoot">
+      <button class="chipbtn zamknij" data-close="kon-A-29">Zamknij</button>
+      <button class="chipbtn" style="background:var(--strong); border-color:var(--strong); color:var(--on-strong)" data-printkon="kon-A-29">Drukuj konspekt A4</button>
+    </div>
+  </div>
+</div>
+<div class="kmodal" id="kon-A-30" role="dialog" aria-modal="true" aria-label="Konspekt: Podaj misia">
+  <div class="kcard">
+    <div class="khead">
+      <span class="mark">PCTP</span>
+      <div>
+        <div class="kw">EduPlaner 2026</div>
+        <div class="ks">Konspekt · obszar VII · 3–4 lata · wersja A · twierdzenie 30</div>
+      </div>
+      <span class="kpill">Konspekt D7-30</span>
+      <button class="kclose" data-close="kon-A-30">✕ zamknij</button>
+    </div>
+    <div class="ktitle">
+      <span class="kp">Konspekt zajęć · druk KC-3</span>
+      <div class="ksfera">VII WZAJEMNE KONTAKTY · Interakcje rówieśnicze (ICF d710 · PP 1.2)</div>
+      <h3>Podaj misia</h3>
+      <div class="kpod">Krótkie wymiany z rówieśnikiem: podanie, odebranie, wspólna radość</div>
+    </div>
+    <div class="kmeta">
+      <div class="field"><b>Czas</b><span class="val">15 min</span></div>
+      <div class="field"><b>Forma</b><span class="val">para dzieci + dorosły</span></div>
+      <div class="field"><b>Cykl</b><span class="val">3× w tygodniu</span></div>
+      <div class="field"><b>Poziom wsparcia</b><span class="lvl p2" data-lvlbadge>II</span></div>
+    </div>
+    <div class="ksec"><span class="sq">I</span><h4>Cel SMART</h4><span class="line"></span></div>
+    <div class="kcele">
+      <div class="kcel edu"><div class="kchead">Cel edukacyjny — z banku KC-1, wg klikniętego poziomu</div>
+        <div class="kvar" data-lvl="p3">
+          <div class="ktresc">Poda zabawkę wskazanemu dziecku w zabawie zaaranżowanej przez dorosłego, przy jego obecności — w 3 z 5 prób.</div>
+          <ul class="ksmart">
+              <li><b>S</b><span>Podejmuje krótkie interakcje z rówieśnikami (podanie zabawki, wspólny śmiech).</span></li>
+              <li><b>M</b><span>w 3 z 5 prób.</span></li>
+              <li><b>A</b><span>Pełne wsparcie, modelowanie, warunki uproszczone.</span></li>
+              <li><b>R</b><span>ICF d710 · PP 1.2 — spójne z KPOF, WOPF i IPET.</span></li>
+              <li><b>T</b><span>Ewaluacja po 4 tygodniach (Poziom III).</span></li>
+          </ul>
+          <div class="kkryt"><b>Kryterium:</b> socjogram zabawy · obserwacja 15-minutowa · horyzont 4 tyg.</div>
+        </div>
+        <div class="kvar" data-lvl="p2">
+          <div class="ktresc">Podejmie wymianę zabawki z rówieśnikiem w zabawie równoległej, po jednorazowej podpowiedzi — w 3 z 5 sytuacji.</div>
+          <ul class="ksmart">
+              <li><b>S</b><span>Podejmuje krótkie interakcje z rówieśnikami (podanie zabawki, wspólny śmiech).</span></li>
+              <li><b>M</b><span>w 3 z 5 sytuacji.</span></li>
+              <li><b>A</b><span>Wsparcie częściowe: plan obrazkowy, podpowiedź, przypomnienie.</span></li>
+              <li><b>R</b><span>ICF d710 · PP 1.2 — spójne z KPOF, WOPF i IPET.</span></li>
+              <li><b>T</b><span>Ewaluacja po 8 tygodniach (Poziom II).</span></li>
+          </ul>
+          <div class="kkryt"><b>Kryterium:</b> socjogram zabawy · obserwacja 15-minutowa · horyzont 8 tyg.</div>
+        </div>
+        <div class="kvar" data-lvl="p1">
+          <div class="ktresc">Samodzielnie zainicjuje krótką zabawę z wybranym kolegą i utrzyma ją przez 5 minut — w 4 z 5 dni.</div>
+          <ul class="ksmart">
+              <li><b>S</b><span>Podejmuje krótkie interakcje z rówieśnikami (podanie zabawki, wspólny śmiech).</span></li>
+              <li><b>M</b><span>w 4 z 5 dni.</span></li>
+              <li><b>A</b><span>Samodzielność i przeniesienie na nową sytuację.</span></li>
+              <li><b>R</b><span>ICF d710 · PP 1.2 — spójne z KPOF, WOPF i IPET.</span></li>
+              <li><b>T</b><span>Ewaluacja po 12 tygodniach (Poziom I).</span></li>
+          </ul>
+          <div class="kkryt"><b>Kryterium:</b> socjogram zabawy · obserwacja 15-minutowa · horyzont 12 tyg.</div>
+        </div>
+      </div>
+      <div class="kcel ter"><div class="kchead">Cel terapeutyczny</div>
+        <div class="ktresc">Dziecko poda i odbierze zabawkę od rówieśnika, utrzymując wymianę przez 4 podania, w 3 z 5 prób sesji, w ciągu 6 tygodni.</div>
+        <ul class="ksmart">
+              <li><b>S</b><span>Podaje misia koledze i czeka na jego ruch.</span></li>
+              <li><b>M</b><span>4 podania bez przerwania; 3 z 5 prób w sesji.</span></li>
+              <li><b>A</b><span>Dorosły siedzi za dzieckiem i podpowiada gestem.</span></li>
+              <li><b>R</b><span>Otwiera drogę do zabawy równoległej i wspólnej.</span></li>
+              <li><b>T</b><span>Weryfikacja po 6 tygodniach.</span></li>
+        </ul>
+        <div class="kkryt"><b>Kryterium:</b> Tablica podań (magnesy) po każdej sesji; zapis 3×/tydzień.</div>
+      </div>
+    </div>
+    <div class="kdwie">
+      <div>
+        <div class="ksec"><span class="sq">II</span><h4>Pomoce dydaktyczne</h4><span class="line"></span></div>
+        <ul class="klista">
+        <li>miś lub ulubiona maskotka</li>
+        <li>koc wyznaczający pole zabawy</li>
+        <li>tablica podań z magnesami</li>
+        <li>piosenka „podaj dalej”</li>
+        </ul>
+      </div>
+      <div>
+        <div class="ksec"><span class="sq">III</span><h4>Metody i formy działań</h4><span class="line"></span></div>
+        <ul class="klista">
+        <li>zabawa naprzemienna „raz ja – raz ty”</li>
+        <li>modelowanie z drugim dorosłym</li>
+        <li>łańcuszek wymian ze wzmocnieniem</li>
+        <li>śpiewanka rytmiczna</li>
+        </ul>
+      </div>
+    </div>
+    <div class="ksec"><span class="sq">IV</span><h4>Sposób realizacji</h4><span class="line"></span>
+      <span class="meta">Zajęcia wspierające kompetencje społeczne / pomoc p-p</span></div>
+    <div class="tablewrap"><table class="ktab">
+      <thead><tr><th class="c-lp">Lp.</th><th style="width:47%">Czynności nauczyciela (N)</th>
+        <th>Oczekiwane reakcje i umiejętności dziecka (D)</th></tr></thead>
+      <tbody>
+        <tr><td class="lp">1</td><td>N — sadza dzieci naprzeciw siebie na kocu, pokazuje wymianę z drugim dorosłym.</td><td>D — obserwuje pełny cykl: podaję – czekam – odbieram.</td></tr>
+        <tr><td class="lp">2</td><td>N — wręcza misia i śpiewa „podaj dalej misia już”.</td><td>D — podaje misia koledze w rytm piosenki.</td></tr>
+        <tr><td class="lp">3</td><td>N — zatrzymuje piosenkę, gdy miś utknie; czeka.</td><td>D — dokańcza podanie, by piosenka wróciła.</td></tr>
+        <tr><td class="lp">4</td><td>N — dokłada drugi krąg wymian bez śpiewu.</td><td>D — utrzymuje wymianę na sam gest kolegi.</td></tr>
+        <tr><td class="lp">5</td><td>N — kończy wspólnym „hura” i magnesem na tablicy.</td><td>D — przybija piątkę z kolegą, wskazuje swój magnes.</td></tr>
+      </tbody>
+    </table></div>
+    <div class="ksec"><span class="sq">V</span><h4>Modyfikacja przy braku postępu</h4><span class="line"></span>
+      <span class="meta">brak progresu w 2 kolejnych sesjach</span></div>
+    <div class="kmods">
+      <div class="kmod m2"><b>Poziom II · żółta</b><ul class="klista">
+          <li>wymiana skrócona do 2 podań</li>
+          <li>dorosły podtrzymuje rytm piosenką przez całą sesję</li>
+          <li>większa, łatwa do chwycenia maskotka</li>
+      </ul></div>
+      <div class="kmod m3"><b>Poziom III · czerwona</b><ul class="klista">
+          <li>wymiana dziecko–dorosły zamiast dziecko–dziecko</li>
+          <li>prowadzenie rąk przy podaniu</li>
+          <li>nagroda sensoryczna po każdym podaniu</li>
+          <li>rówieśnik dołącza po 2 tygodniach</li>
+      </ul></div>
+    </div>
+    <div class="kwsk"><b>Wskazówka dla prowadzącego:</b> Przerwana piosenka działa lepiej niż polecenie „podaj” — cisza jest sygnałem, że ruch należy do dziecka.</div>
+    <div class="kfoot">
+      <button class="chipbtn zamknij" data-close="kon-A-30">Zamknij</button>
+      <button class="chipbtn" style="background:var(--strong); border-color:var(--strong); color:var(--on-strong)" data-printkon="kon-A-30">Drukuj konspekt A4</button>
+    </div>
+  </div>
+</div>
+<div class="kmodal" id="kon-A-31" role="dialog" aria-modal="true" aria-label="Konspekt: Mostek do przedszkola">
+  <div class="kcard">
+    <div class="khead">
+      <span class="mark">PCTP</span>
+      <div>
+        <div class="kw">EduPlaner 2026</div>
+        <div class="ks">Konspekt · obszar VII · 3–4 lata · wersja A · twierdzenie 31</div>
+      </div>
+      <span class="kpill">Konspekt D7-31</span>
+      <button class="kclose" data-close="kon-A-31">✕ zamknij</button>
+    </div>
+    <div class="ktitle">
+      <span class="kp">Konspekt zajęć · druk KC-3</span>
+      <div class="ksfera">VII WZAJEMNE KONTAKTY · Separacja od rodzica (ICF d760 · PP Zad.2)</div>
+      <h3>Mostek do przedszkola</h3>
+      <div class="kpod">Rytuał pożegnania i bezpieczne wejście w dzień przedszkolny</div>
+    </div>
+    <div class="kmeta">
+      <div class="field"><b>Czas</b><span class="val">10 min (poranek)</span></div>
+      <div class="field"><b>Forma</b><span class="val">indywidualnie</span></div>
+      <div class="field"><b>Cykl</b><span class="val">codziennie</span></div>
+      <div class="field"><b>Poziom wsparcia</b><span class="lvl p2" data-lvlbadge>II</span></div>
+    </div>
+    <div class="ksec"><span class="sq">I</span><h4>Cel SMART</h4><span class="line"></span></div>
+    <div class="kcele">
+      <div class="kcel edu"><div class="kchead">Cel edukacyjny — z banku KC-1, wg klikniętego poziomu</div>
+        <div class="kvar" data-lvl="p3">
+          <div class="ktresc">Przejdzie z rodzica do nauczyciela z przedmiotem przejściowym z domu i wyciszy się w ciągu 10 minut — w 3 z 5 poranków.</div>
+          <ul class="ksmart">
+              <li><b>S</b><span>Rozstaje się z rodzicami bez nasilonego lęku, czuje się w grupie bezpiecznie.</span></li>
+              <li><b>M</b><span>w 3 z 5 poranków.</span></li>
+              <li><b>A</b><span>Pełne wsparcie, modelowanie, warunki uproszczone.</span></li>
+              <li><b>R</b><span>ICF d760 · PP Zad.2 — spójne z KPOF, WOPF i IPET.</span></li>
+              <li><b>T</b><span>Ewaluacja po 4 tygodniach (Poziom III).</span></li>
+          </ul>
+          <div class="kkryt"><b>Kryterium:</b> karta adaptacji · czas wyciszenia po rozstaniu · horyzont 4 tyg.</div>
+        </div>
+        <div class="kvar" data-lvl="p2">
+          <div class="ktresc">Rozstanie się z rodzicem po ustalonym rytuale pożegnania i włączy się w aktywność w ciągu 5 minut — w 3 z 5 poranków.</div>
+          <ul class="ksmart">
+              <li><b>S</b><span>Rozstaje się z rodzicami bez nasilonego lęku, czuje się w grupie bezpiecznie.</span></li>
+              <li><b>M</b><span>w 3 z 5 poranków.</span></li>
+              <li><b>A</b><span>Wsparcie częściowe: plan obrazkowy, podpowiedź, przypomnienie.</span></li>
+              <li><b>R</b><span>ICF d760 · PP Zad.2 — spójne z KPOF, WOPF i IPET.</span></li>
+              <li><b>T</b><span>Ewaluacja po 8 tygodniach (Poziom II).</span></li>
+          </ul>
+          <div class="kkryt"><b>Kryterium:</b> karta adaptacji · czas wyciszenia po rozstaniu · horyzont 8 tyg.</div>
+        </div>
+        <div class="kvar" data-lvl="p1">
+          <div class="ktresc">Samodzielnie wejdzie do sali, pożegna rodzica i podejmie zabawę w ciągu 2 minut — w 4 z 5 poranków.</div>
+          <ul class="ksmart">
+              <li><b>S</b><span>Rozstaje się z rodzicami bez nasilonego lęku, czuje się w grupie bezpiecznie.</span></li>
+              <li><b>M</b><span>w 4 z 5 poranków.</span></li>
+              <li><b>A</b><span>Samodzielność i przeniesienie na nową sytuację.</span></li>
+              <li><b>R</b><span>ICF d760 · PP Zad.2 — spójne z KPOF, WOPF i IPET.</span></li>
+              <li><b>T</b><span>Ewaluacja po 12 tygodniach (Poziom I).</span></li>
+          </ul>
+          <div class="kkryt"><b>Kryterium:</b> karta adaptacji · czas wyciszenia po rozstaniu · horyzont 12 tyg.</div>
+        </div>
+      </div>
+      <div class="kcel ter"><div class="kchead">Cel terapeutyczny</div>
+        <div class="ktresc">Dziecko przejdzie rytuał pożegnania (przytulenie – machanie z okienka – pierwsza zabawa) i wyciszy się w ciągu 5 minut od wyjścia rodzica, w 4 z 5 poranków, w ciągu 6 tygodni.</div>
+        <ul class="ksmart">
+              <li><b>S</b><span>Wykonuje 3 stałe kroki rytuału pożegnania.</span></li>
+              <li><b>M</b><span>Wyciszenie do 5 minut; 4 z 5 poranków.</span></li>
+              <li><b>A</b><span>Plan obrazkowy rytuału i przedmiot przejściowy z domu.</span></li>
+              <li><b>R</b><span>Warunkuje udział we wszystkich aktywnościach dnia.</span></li>
+              <li><b>T</b><span>Weryfikacja po 6 tygodniach.</span></li>
+        </ul>
+        <div class="kkryt"><b>Kryterium:</b> Karta adaptacji: czas wyciszenia mierzony codziennie przez rodzica i nauczyciela.</div>
+      </div>
+    </div>
+    <div class="kdwie">
+      <div>
+        <div class="ksec"><span class="sq">II</span><h4>Pomoce dydaktyczne</h4><span class="line"></span></div>
+        <ul class="klista">
+        <li>plan obrazkowy rytuału (3 kroki)</li>
+        <li>przedmiot przejściowy z domu</li>
+        <li>zdjęcie rodziny w szatni</li>
+        <li>koszyk „pierwsza zabawa” przy drzwiach</li>
+        </ul>
+      </div>
+      <div>
+        <div class="ksec"><span class="sq">III</span><h4>Metody i formy działań</h4><span class="line"></span></div>
+        <ul class="klista">
+        <li>stały rytuał 3 kroków</li>
+        <li>przedmiot przejściowy</li>
+        <li>natychmiastowe zajęcie rąk (zabawa startowa)</li>
+        <li>współpraca z rodzicem (ten sam scenariusz)</li>
+        </ul>
+      </div>
+    </div>
+    <div class="ksec"><span class="sq">IV</span><h4>Sposób realizacji</h4><span class="line"></span>
+      <span class="meta">Wsparcie adaptacyjne / pomoc p-p</span></div>
+    <div class="tablewrap"><table class="ktab">
+      <thead><tr><th class="c-lp">Lp.</th><th style="width:47%">Czynności nauczyciela (N)</th>
+        <th>Oczekiwane reakcje i umiejętności dziecka (D)</th></tr></thead>
+      <tbody>
+        <tr><td class="lp">1</td><td>N — wita dziecko przy drzwiach, pokazuje plan: przytulas – okienko – zabawa.</td><td>D — wskazuje palcem kolejny krok na planie.</td></tr>
+        <tr><td class="lp">2</td><td>N — odlicza z rodzicem „jeden przytulas i machamy”.</td><td>D — przytula rodzica jeden raz i idzie do okienka.</td></tr>
+        <tr><td class="lp">3</td><td>N — stoi z dzieckiem w okienku, macha razem z nim.</td><td>D — macha rodzicowi, trzymając swój przedmiot z domu.</td></tr>
+        <tr><td class="lp">4</td><td>N — podaje koszyk „pierwsza zabawa” od razu po machaniu.</td><td>D — wybiera zabawkę i siada przy stoliku startowym.</td></tr>
+        <tr><td class="lp">5</td><td>N — po 5 minutach nazywa sukces: „poradziłeś sobie”.</td><td>D — odkłada przedmiot przejściowy na swoją półkę.</td></tr>
+      </tbody>
+    </table></div>
+    <div class="ksec"><span class="sq">V</span><h4>Modyfikacja przy braku postępu</h4><span class="line"></span>
+      <span class="meta">brak progresu w 2 kolejnych sesjach</span></div>
+    <div class="kmods">
+      <div class="kmod m2"><b>Poziom II · żółta</b><ul class="klista">
+          <li>rodzic odprowadza do progu sali, nie do szatni</li>
+          <li>podwójne machanie (okienko + drzwi)</li>
+          <li>zabawa startowa wybierana poprzedniego dnia</li>
+      </ul></div>
+      <div class="kmod m3"><b>Poziom III · czerwona</b><ul class="klista">
+          <li>rodzic zostaje 10 minut w sali na starcie tygodnia</li>
+          <li>skrócony pobyt uzgodniony z rodzicami</li>
+          <li>stały dorosły przejmujący dziecko z rąk rodzica</li>
+          <li>konsultacja zespołu ze specjalistą</li>
+      </ul></div>
+    </div>
+    <div class="kwsk"><b>Wskazówka dla prowadzącego:</b> Rytuał chroni tylko wtedy, gdy jest identyczny każdego dnia — wydłużanie przytulania „na prośbę” wydłuża płacz, nie skraca go.</div>
+    <div class="kfoot">
+      <button class="chipbtn zamknij" data-close="kon-A-31">Zamknij</button>
+      <button class="chipbtn" style="background:var(--strong); border-color:var(--strong); color:var(--on-strong)" data-printkon="kon-A-31">Drukuj konspekt A4</button>
+    </div>
+  </div>
+</div>
+<div class="kmodal" id="kon-A-32" role="dialog" aria-modal="true" aria-label="Konspekt: Lusterko emocji">
+  <div class="kcard">
+    <div class="khead">
+      <span class="mark">PCTP</span>
+      <div>
+        <div class="kw">EduPlaner 2026</div>
+        <div class="ks">Konspekt · obszar VII · 3–4 lata · wersja A · twierdzenie 32</div>
+      </div>
+      <span class="kpill">Konspekt D7-32</span>
+      <button class="kclose" data-close="kon-A-32">✕ zamknij</button>
+    </div>
+    <div class="ktitle">
+      <span class="kp">Konspekt zajęć · druk KC-3</span>
+      <div class="ksfera">VII WZAJEMNE KONTAKTY · Okazywanie emocji (ICF d710 · PP 2.9)</div>
+      <h3>Lusterko emocji</h3>
+      <div class="kpod">Czytelne pokazywanie radości i złości — mimika, gest, słowo</div>
+    </div>
+    <div class="kmeta">
+      <div class="field"><b>Czas</b><span class="val">15 min</span></div>
+      <div class="field"><b>Forma</b><span class="val">mała grupa (3–4 dzieci)</span></div>
+      <div class="field"><b>Cykl</b><span class="val">2× w tygodniu</span></div>
+      <div class="field"><b>Poziom wsparcia</b><span class="lvl p2" data-lvlbadge>II</span></div>
+    </div>
+    <div class="ksec"><span class="sq">I</span><h4>Cel SMART</h4><span class="line"></span></div>
+    <div class="kcele">
+      <div class="kcel edu"><div class="kchead">Cel edukacyjny — z banku KC-1, wg klikniętego poziomu</div>
+        <div class="kvar" data-lvl="p3">
+          <div class="ktresc">Wskaże symbol emocji (radość, złość) opisujący jego stan, gdy dorosły poda tablicę i nazwie obie możliwości — w 3 z 5 sytuacji.</div>
+          <ul class="ksmart">
+              <li><b>S</b><span>Okazuje podstawowe emocje w sposób czytelny i adekwatny do sytuacji.</span></li>
+              <li><b>M</b><span>w 3 z 5 sytuacji.</span></li>
+              <li><b>A</b><span>Pełne wsparcie, modelowanie, warunki uproszczone.</span></li>
+              <li><b>R</b><span>ICF d710 · PP 2.9 — spójne z KPOF, WOPF i IPET.</span></li>
+              <li><b>T</b><span>Ewaluacja po 4 tygodniach (Poziom III).</span></li>
+          </ul>
+          <div class="kkryt"><b>Kryterium:</b> koło emocji · rejestr nazwań · horyzont 4 tyg.</div>
+        </div>
+        <div class="kvar" data-lvl="p2">
+          <div class="ktresc">Nazwie swoją emocję jednym słowem po pytaniu dorosłego „co czujesz?” — w 3 z 5 sytuacji.</div>
+          <ul class="ksmart">
+              <li><b>S</b><span>Okazuje podstawowe emocje w sposób czytelny i adekwatny do sytuacji.</span></li>
+              <li><b>M</b><span>w 3 z 5 sytuacji.</span></li>
+              <li><b>A</b><span>Wsparcie częściowe: plan obrazkowy, podpowiedź, przypomnienie.</span></li>
+              <li><b>R</b><span>ICF d710 · PP 2.9 — spójne z KPOF, WOPF i IPET.</span></li>
+              <li><b>T</b><span>Ewaluacja po 8 tygodniach (Poziom II).</span></li>
+          </ul>
+          <div class="kkryt"><b>Kryterium:</b> koło emocji · rejestr nazwań · horyzont 8 tyg.</div>
+        </div>
+        <div class="kvar" data-lvl="p1">
+          <div class="ktresc">Samodzielnie nazwie emocję swoją i kolegi w sytuacji zabawy oraz poda jej przyczynę — w 4 z 5 sytuacji.</div>
+          <ul class="ksmart">
+              <li><b>S</b><span>Okazuje podstawowe emocje w sposób czytelny i adekwatny do sytuacji.</span></li>
+              <li><b>M</b><span>w 4 z 5 sytuacji.</span></li>
+              <li><b>A</b><span>Samodzielność i przeniesienie na nową sytuację.</span></li>
+              <li><b>R</b><span>ICF d710 · PP 2.9 — spójne z KPOF, WOPF i IPET.</span></li>
+              <li><b>T</b><span>Ewaluacja po 12 tygodniach (Poziom I).</span></li>
+          </ul>
+          <div class="kkryt"><b>Kryterium:</b> koło emocji · rejestr nazwań · horyzont 12 tyg.</div>
+        </div>
+      </div>
+      <div class="kcel ter"><div class="kchead">Cel terapeutyczny</div>
+        <div class="ktresc">Dziecko pokaże na twarzy i nazwie (słowem lub symbolem) radość i złość w zabawie z lusterkiem, w 3 z 5 prób sesji, w ciągu 6 tygodni.</div>
+        <ul class="ksmart">
+              <li><b>S</b><span>Pokazuje minę i wskazuje symbol pasujący do emocji.</span></li>
+              <li><b>M</b><span>2 emocje × 3 z 5 prób; min. 2 sesje z rzędu.</span></li>
+              <li><b>A</b><span>Lustro i karty emocji podpowiadają wzorzec mimiki.</span></li>
+              <li><b>R</b><span>Zmniejsza zachowania trudne wynikające z nieczytelnych sygnałów.</span></li>
+              <li><b>T</b><span>Weryfikacja po 6 tygodniach.</span></li>
+        </ul>
+        <div class="kkryt"><b>Kryterium:</b> Karta emocji po sesji (2×/tydzień); zapis nazwań w sytuacjach naturalnych.</div>
+      </div>
+    </div>
+    <div class="kdwie">
+      <div>
+        <div class="ksec"><span class="sq">II</span><h4>Pomoce dydaktyczne</h4><span class="line"></span></div>
+        <ul class="klista">
+        <li>lusterko dziecięce</li>
+        <li>karty emocji: radość i złość</li>
+        <li>pacynka „Zły-Wesoły Zajączek”</li>
+        <li>naklejki z buźkami</li>
+        </ul>
+      </div>
+      <div>
+        <div class="ksec"><span class="sq">III</span><h4>Metody i formy działań</h4><span class="line"></span></div>
+        <ul class="klista">
+        <li>zabawa przed lustrem</li>
+        <li>modelowanie mimiki pacynką</li>
+        <li>łączenie miny z symbolem</li>
+        <li>nazywanie emocji w sytuacjach naturalnych</li>
+        </ul>
+      </div>
+    </div>
+    <div class="ksec"><span class="sq">IV</span><h4>Sposób realizacji</h4><span class="line"></span>
+      <span class="meta">Zajęcia wspierające rozwój emocjonalny / pomoc p-p</span></div>
+    <div class="tablewrap"><table class="ktab">
+      <thead><tr><th class="c-lp">Lp.</th><th style="width:47%">Czynności nauczyciela (N)</th>
+        <th>Oczekiwane reakcje i umiejętności dziecka (D)</th></tr></thead>
+      <tbody>
+        <tr><td class="lp">1</td><td>N — pacynką pokazuje wielką radość: „zajączek się cieszy!”.</td><td>D — patrzy w lusterko i robi wesołą minę.</td></tr>
+        <tr><td class="lp">2</td><td>N — pokazuje złość pacynki: tupie, marszczy brwi.</td><td>D — naśladuje minę złości przed lusterkiem.</td></tr>
+        <tr><td class="lp">3</td><td>N — rozkłada 2 karty i pyta: „która to ta mina?”.</td><td>D — dopasowuje swoją minę do karty emocji.</td></tr>
+        <tr><td class="lp">4</td><td>N — opowiada mini-scenkę (zabrana zabawka).</td><td>D — pokazuje i nazywa emocję bohatera scenki.</td></tr>
+        <tr><td class="lp">5</td><td>N — w ciągu dnia wraca: „pokaż, co teraz czujesz”.</td><td>D — pokazuje minę lub kartę w sytuacji naturalnej.</td></tr>
+      </tbody>
+    </table></div>
+    <div class="ksec"><span class="sq">V</span><h4>Modyfikacja przy braku postępu</h4><span class="line"></span>
+      <span class="meta">brak progresu w 2 kolejnych sesjach</span></div>
+    <div class="kmods">
+      <div class="kmod m2"><b>Poziom II · żółta</b><ul class="klista">
+          <li>jedna emocja na sesję (najpierw radość)</li>
+          <li>mina razem z nauczycielem w jednym lustrze</li>
+          <li>karta emocji stale przy dziecku (brelok)</li>
+      </ul></div>
+      <div class="kmod m3"><b>Poziom III · czerwona</b><ul class="klista">
+          <li>odczytywanie emocji z twarzy dorosłego zamiast pokazywania</li>
+          <li>fotografie dziecka zamiast rysunków</li>
+          <li>wsparcie logopedy przy nazywaniu</li>
+          <li>monitoring ABC zachowań trudnych</li>
+      </ul></div>
+    </div>
+    <div class="kwsk"><b>Wskazówka dla prowadzącego:</b> Nazywaj emocję dopiero, gdy mina już jest — słowo doklejone do własnej twarzy dziecka utrwala się szybciej niż słowo z karty.</div>
+    <div class="kfoot">
+      <button class="chipbtn zamknij" data-close="kon-A-32">Zamknij</button>
+      <button class="chipbtn" style="background:var(--strong); border-color:var(--strong); color:var(--on-strong)" data-printkon="kon-A-32">Drukuj konspekt A4</button>
+    </div>
+  </div>
+</div>
+<div class="kmodal" id="kon-A-33" role="dialog" aria-modal="true" aria-label="Konspekt: Czarodziejskie słowo POMOC">
+  <div class="kcard">
+    <div class="khead">
+      <span class="mark">PCTP</span>
+      <div>
+        <div class="kw">EduPlaner 2026</div>
+        <div class="ks">Konspekt · obszar VII · 3–4 lata · wersja A · twierdzenie 33</div>
+      </div>
+      <span class="kpill">Konspekt D7-33</span>
+      <button class="kclose" data-close="kon-A-33">✕ zamknij</button>
+    </div>
+    <div class="ktitle">
+      <span class="kp">Konspekt zajęć · druk KC-3</span>
+      <div class="ksfera">VII WZAJEMNE KONTAKTY · Proszenie o pomoc (ICF d710 · PP 2.11)</div>
+      <h3>Czarodziejskie słowo POMOC</h3>
+      <div class="kpod">Proszenie znanego dorosłego o pomoc zamiast rezygnacji lub krzyku</div>
+    </div>
+    <div class="kmeta">
+      <div class="field"><b>Czas</b><span class="val">10 min + sytuacje naturalne</span></div>
+      <div class="field"><b>Forma</b><span class="val">indywidualnie</span></div>
+      <div class="field"><b>Cykl</b><span class="val">codziennie (2 próby)</span></div>
+      <div class="field"><b>Poziom wsparcia</b><span class="lvl p2" data-lvlbadge>II</span></div>
+    </div>
+    <div class="ksec"><span class="sq">I</span><h4>Cel SMART</h4><span class="line"></span></div>
+    <div class="kcele">
+      <div class="kcel edu"><div class="kchead">Cel edukacyjny — z banku KC-1, wg klikniętego poziomu</div>
+        <div class="kvar" data-lvl="p3">
+          <div class="ktresc">Podejdzie do nauczyciela i pociągnie za rękę lub poda przedmiot w sytuacji trudności, po przypomnieniu zasady — w 3 z 5 sytuacji.</div>
+          <ul class="ksmart">
+              <li><b>S</b><span>Zwraca się o pomoc do znanego dorosłego.</span></li>
+              <li><b>M</b><span>w 3 z 5 sytuacji.</span></li>
+              <li><b>A</b><span>Pełne wsparcie, modelowanie, warunki uproszczone.</span></li>
+              <li><b>R</b><span>ICF d710 · PP 2.11 — spójne z KPOF, WOPF i IPET.</span></li>
+              <li><b>T</b><span>Ewaluacja po 4 tygodniach (Poziom III).</span></li>
+          </ul>
+          <div class="kkryt"><b>Kryterium:</b> próby zaaranżowane · rejestr próśb o pomoc · horyzont 4 tyg.</div>
+        </div>
+        <div class="kvar" data-lvl="p2">
+          <div class="ktresc">Poprosi o pomoc słowem lub symbolem, kierując komunikat do konkretnej osoby dorosłej — w 3 z 5 sytuacji.</div>
+          <ul class="ksmart">
+              <li><b>S</b><span>Zwraca się o pomoc do znanego dorosłego.</span></li>
+              <li><b>M</b><span>w 3 z 5 sytuacji.</span></li>
+              <li><b>A</b><span>Wsparcie częściowe: plan obrazkowy, podpowiedź, przypomnienie.</span></li>
+              <li><b>R</b><span>ICF d710 · PP 2.11 — spójne z KPOF, WOPF i IPET.</span></li>
+              <li><b>T</b><span>Ewaluacja po 8 tygodniach (Poziom II).</span></li>
+          </ul>
+          <div class="kkryt"><b>Kryterium:</b> próby zaaranżowane · rejestr próśb o pomoc · horyzont 8 tyg.</div>
+        </div>
+        <div class="kvar" data-lvl="p1">
+          <div class="ktresc">Poprosi o pomoc, nazywając problem („nie mogę otworzyć”), także w sytuacji poza salą — w 4 z 5 sytuacji.</div>
+          <ul class="ksmart">
+              <li><b>S</b><span>Zwraca się o pomoc do znanego dorosłego.</span></li>
+              <li><b>M</b><span>w 4 z 5 sytuacji.</span></li>
+              <li><b>A</b><span>Samodzielność i przeniesienie na nową sytuację.</span></li>
+              <li><b>R</b><span>ICF d710 · PP 2.11 — spójne z KPOF, WOPF i IPET.</span></li>
+              <li><b>T</b><span>Ewaluacja po 12 tygodniach (Poziom I).</span></li>
+          </ul>
+          <div class="kkryt"><b>Kryterium:</b> próby zaaranżowane · rejestr próśb o pomoc · horyzont 12 tyg.</div>
+        </div>
+      </div>
+      <div class="kcel ter"><div class="kchead">Cel terapeutyczny</div>
+        <div class="ktresc">Dziecko w sytuacji trudności podejdzie do dorosłego i zasygnalizuje „pomoc” (słowem, gestem lub kartą), zanim pojawi się płacz lub rezygnacja, w 3 z 5 sytuacji, w ciągu 6 tygodni.</div>
+        <ul class="ksmart">
+              <li><b>S</b><span>Podchodzi i sygnalizuje „pomoc” słowem, gestem lub kartą.</span></li>
+              <li><b>M</b><span>3 z 5 zaaranżowanych sytuacji dziennie po 2 próby.</span></li>
+              <li><b>A</b><span>Karta POMOC w zasięgu ręki; dorosły reaguje natychmiast.</span></li>
+              <li><b>R</b><span>Zastępuje płacz i wycofanie skuteczną komunikacją.</span></li>
+              <li><b>T</b><span>Weryfikacja po 6 tygodniach.</span></li>
+        </ul>
+        <div class="kkryt"><b>Kryterium:</b> Rejestr próśb o pomoc (zaaranżowane i naturalne); zapis codzienny.</div>
+      </div>
+    </div>
+    <div class="kdwie">
+      <div>
+        <div class="ksec"><span class="sq">II</span><h4>Pomoce dydaktyczne</h4><span class="line"></span></div>
+        <ul class="klista">
+        <li>karta POMOC (symbol dłoni)</li>
+        <li>pudełko z trudnym zamknięciem</li>
+        <li>zakręcona butelka z ulubioną naklejką w środku</li>
+        <li>gest „pomoc” (dłoń na dłoni)</li>
+        </ul>
+      </div>
+      <div>
+        <div class="ksec"><span class="sq">III</span><h4>Metody i formy działań</h4><span class="line"></span></div>
+        <ul class="klista">
+        <li>próby zaaranżowane (przerwana rutyna)</li>
+        <li>modelowanie gestu i słowa</li>
+        <li>natychmiastowe wzmocnienie prośby</li>
+        <li>stopniowe oddalanie dorosłego</li>
+        </ul>
+      </div>
+    </div>
+    <div class="ksec"><span class="sq">IV</span><h4>Sposób realizacji</h4><span class="line"></span>
+      <span class="meta">Zajęcia wspierające komunikację / pomoc p-p</span></div>
+    <div class="tablewrap"><table class="ktab">
+      <thead><tr><th class="c-lp">Lp.</th><th style="width:47%">Czynności nauczyciela (N)</th>
+        <th>Oczekiwane reakcje i umiejętności dziecka (D)</th></tr></thead>
+      <tbody>
+        <tr><td class="lp">1</td><td>N — podaje pudełko z naklejką, którego nie da się otworzyć.</td><td>D — próbuje otworzyć, napotyka trudność.</td></tr>
+        <tr><td class="lp">2</td><td>N — modeluje: dłoń na dłoni i słowo „pomoc”.</td><td>D — powtarza gest lub słowo za nauczycielem.</td></tr>
+        <tr><td class="lp">3</td><td>N — natychmiast otwiera pudełko po sygnale.</td><td>D — dostaje naklejkę — prośba zadziałała.</td></tr>
+        <tr><td class="lp">4</td><td>N — powtarza próbę z innym przedmiotem, stoi dalej.</td><td>D — podchodzi do dorosłego i sygnalizuje „pomoc”.</td></tr>
+        <tr><td class="lp">5</td><td>N — wzmacnia prośby w sytuacjach naturalnych dnia.</td><td>D — używa gestu/karty przy realnej trudności.</td></tr>
+      </tbody>
+    </table></div>
+    <div class="ksec"><span class="sq">V</span><h4>Modyfikacja przy braku postępu</h4><span class="line"></span>
+      <span class="meta">brak progresu w 2 kolejnych sesjach</span></div>
+    <div class="kmods">
+      <div class="kmod m2"><b>Poziom II · żółta</b><ul class="klista">
+          <li>karta POMOC przyklejona do stolika dziecka</li>
+          <li>dorosły w odległości wyciągniętej ręki</li>
+          <li>jedna próba zaaranżowana dziennie</li>
+      </ul></div>
+      <div class="kmod m3"><b>Poziom III · czerwona</b><ul class="klista">
+          <li>prowadzenie ręki do gestu „pomoc”</li>
+          <li>natychmiastowa pomoc przy pierwszym sygnale niepokoju</li>
+          <li>współpraca z rodzicami — ten sam gest w domu</li>
+          <li>konsultacja z poradnią przy braku postępu</li>
+      </ul></div>
+    </div>
+    <div class="kwsk"><b>Wskazówka dla prowadzącego:</b> Prośba musi być tańsza niż płacz: reaguj na sygnał „pomoc” szybciej i cieplej niż na jakikolwiek inny sposób wołania.</div>
+    <div class="kfoot">
+      <button class="chipbtn zamknij" data-close="kon-A-33">Zamknij</button>
+      <button class="chipbtn" style="background:var(--strong); border-color:var(--strong); color:var(--on-strong)" data-printkon="kon-A-33">Drukuj konspekt A4</button>
+    </div>
+  </div>
+</div>
 <script>
 const tabs=[...document.querySelectorAll('.tab')];
 const vers=[...document.querySelectorAll('.vers')];
@@ -2594,4 +3298,32 @@ function filtruj(){
 }
 szukaj.addEventListener('input',filtruj);
 document.getElementById('drukuj').addEventListener('click',()=>window.print());
+
+const LVLROM={p3:'III',p2:'II',p1:'I'};
+function otworzKonspekt(id,lvl){
+  const m=document.getElementById(id); if(!m) return;
+  m.querySelectorAll('.kvar').forEach(v=>v.classList.toggle('on',v.dataset.lvl===lvl));
+  const b=m.querySelector('[data-lvlbadge]');
+  b.className='lvl '+lvl; b.textContent=LVLROM[lvl];
+  m.classList.add('open'); document.body.style.overflow='hidden';
+  m.querySelector('.kclose').focus();
+}
+function zamknijKonspekty(){
+  document.querySelectorAll('.kmodal.open').forEach(m=>m.classList.remove('open'));
+  document.body.style.overflow='';
+}
+document.querySelectorAll('td.haskon').forEach(td=>{
+  const go=()=>otworzKonspekt(td.dataset.kon,td.dataset.lvl2);
+  td.addEventListener('click',go);
+  td.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();go();}});
+});
+document.querySelectorAll('[data-close]').forEach(b=>b.addEventListener('click',zamknijKonspekty));
+document.querySelectorAll('.kmodal').forEach(m=>m.addEventListener('click',e=>{if(e.target===m)zamknijKonspekty();}));
+document.addEventListener('keydown',e=>{if(e.key==='Escape')zamknijKonspekty();});
+document.querySelectorAll('[data-printkon]').forEach(b=>b.addEventListener('click',()=>{
+  document.documentElement.classList.add('print-konspekt');
+  const done=()=>{document.documentElement.classList.remove('print-konspekt'); window.removeEventListener('afterprint',done);};
+  window.addEventListener('afterprint',done);
+  window.print();
+}));
 </script>
