@@ -333,7 +333,7 @@ strong{font-weight:900}
   font-family:var(--f-display);font-weight:700;font-size:.68rem;letter-spacing:.14em;
   text-transform:uppercase;color:var(--flame);white-space:nowrap;
 }
-@media (max-width:820px){
+@media screen and (max-width:820px){
   .toc-row{grid-template-columns:44px minmax(0,1fr);gap:0 14px}
   .toc-tag{display:none}
 }
@@ -380,7 +380,7 @@ strong{font-weight:900}
 .footer-meta{display:flex;flex-wrap:wrap;gap:6px 28px;justify-content:flex-end;text-align:right}
 .footer-meta div{min-width:150px}
 .footer-sig{
-  font-family:var(--f-mono);font-size:.78rem;color:var(--flame);
+  font-family:var(--f-mono);font-size:.78rem;color:#FFB48C;
   letter-spacing:.04em;
 }
 
@@ -532,7 +532,10 @@ strong{font-weight:900}
 .fix b{font-family:var(--f-display);letter-spacing:.1em;text-transform:uppercase;font-size:.72rem;color:var(--ink-2);display:block;margin-bottom:5px}
 
 /* ============ PRZYKŁAD + TERMOMETR ============ */
-.example{display:grid;grid-template-columns:minmax(0,1fr) 236px;gap:28px;align-items:start}
+.example{display:grid;grid-template-columns:minmax(0,1fr) 236px;gap:0 28px;align-items:start}
+.example > .card-cel{grid-column:1;grid-row:1}
+.example > .decomp{grid-column:1;grid-row:2;margin-top:18px}
+.example-rail{grid-column:2;grid-row:1/span 2;display:flex;flex-direction:column;gap:18px}
 .thermo-wrap{
   background:var(--surface);border:1px solid var(--rule);border-radius:14px;
   padding:18px 16px;box-shadow:var(--shadow);
@@ -649,17 +652,19 @@ td b{font-weight:900}
 
 /* ============ STOPKA ============ */
 .footer{
-  margin-top:64px;padding-top:24px;border-top:2px solid var(--brand);
+  margin-top:38px;padding-top:22px;border-top:1px solid rgba(255,255,255,.24);
+  color:#B7A9DC;
   display:flex;flex-wrap:wrap;gap:14px 32px;justify-content:space-between;align-items:baseline;
-  font-size:.87rem;color:var(--ink-2);
+  font-size:.87rem;
 }
-.footer b{font-family:var(--f-display);font-weight:900;letter-spacing:.04em;color:var(--brand);font-size:1rem}
+.footer b{font-family:var(--f-display);font-weight:900;letter-spacing:.04em;color:#FFB48C;font-size:1rem}
+.footer strong{color:#F1EBFF}
 
 /* ============ RESPONSYWNOŚĆ ============ */
-@media (max-width:900px){
+@media screen and (max-width:900px){
   .cover-main{grid-template-columns:1fr;gap:34px}
 }
-@media (max-width:820px){
+@media screen and (max-width:820px){
   .logo-badge{width:58px;height:58px}
   .logo-name{font-size:1.2rem}
   .section{grid-template-columns:1fr;gap:0}
@@ -667,7 +672,8 @@ td b{font-weight:900}
   .rail-mark{font-size:1.8rem}
   .rail-label{margin-top:0}
   .example{grid-template-columns:1fr}
-  .thermo-wrap{max-width:260px}
+  .example > *{grid-column:1;grid-row:auto}
+  .example-rail{max-width:280px;order:2}
   .letter{grid-template-columns:58px minmax(0,1fr);gap:0 16px}
   .letter-glyph{font-size:2.3rem}
   .letter-body{padding:16px 18px 18px 0}
@@ -682,22 +688,118 @@ td b{font-weight:900}
     --rule:#C9C0DC;--rule-soft:#E2DCEE;--brand:#2D1B69;--brand-dark:#1F1148;--brand-soft:#EAE4F8;
     --flame:#E8450A;--flame-soft:#FDF1EC;--ok:#0D7D5C;--warn:#C47A10;--bad:#B8350D;--shadow:none;
   }
-  @page{size:A4;margin:14mm 13mm}
-  body{background:#fff;font-size:10.5pt;line-height:1.48}
-  .doc{max-width:none;padding:0}
-  .cover{margin:0;padding:26mm 12mm 16mm;-webkit-print-color-adjust:exact;print-color-adjust:exact}
-  .cover h1{font-size:40pt}
-  .cover-main{gap:26px}
-  .toc{page-break-before:always;break-before:page;padding-top:0}
-  .toc-row{break-inside:avoid}
-  .section{page-break-inside:auto;break-inside:auto;margin-top:26px;padding-top:26px}
-  .card,.letter,.step,.light,.vs-box,.formula,.filled,.alert,.thermo-wrap{
-    page-break-inside:avoid;break-inside:avoid;
-  }
-  .section-break{page-break-before:always;break-before:page}
-  .contact{margin:0;padding:22mm 12mm 16mm;page-break-before:always;break-before:page}
-  .contact h2{font-size:26pt}
   *{-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  @page{size:A4;margin:15mm 14mm 19mm}
+  @page pelna{size:A4;margin:0}
+  body{background:#fff;font-size:10pt;line-height:1.44}
+  .doc{max-width:none;padding:0}
+
+  /* ── OKŁADKA: dokładnie jedna pełna strona, na spad ── */
+  .cover{
+    page:pelna;margin:0;padding:20mm 20mm;
+    height:297mm;overflow:hidden;display:flex;flex-direction:column;justify-content:center;
+    break-after:page;page-break-after:always;
+  }
+  .cover-inner{max-width:none}
+  .cover-top{margin-bottom:9mm}
+  .cover h1{font-size:33pt}
+  .cover-lead{font-size:10.6pt;max-width:40ch}
+  .cover-main{gap:14mm;align-items:start}
+  .cover-rule{margin:5mm 0 4mm}
+  .chips{margin-top:5mm;gap:5px}
+  .chip{font-size:8pt;padding:4px 10px}
+  .art-card{padding:4mm 5mm}
+  .art-line{font-size:10pt}
+  .art-after{margin-top:4mm}
+  .cover-note{margin-top:7mm;padding-top:4mm;font-size:8.2pt;max-width:none}
+  .byline{margin-top:6mm;padding-top:4.5mm;gap:5mm 12mm}
+  .byline-val{font-size:9pt}
+  .byline-val span{font-size:8pt}
+  .logo-badge{width:18mm;height:18mm}
+
+  /* ── SPIS TREŚCI: własna strona ── */
+  .toc{padding-top:0;break-after:page;page-break-after:always}
+  .toc-row{break-inside:avoid;padding:3.4mm 2mm}
+  .toc-row:hover{background:none}
+
+  /* ── SEKCJE ── */
+  .section{
+    margin-top:0;padding-top:0;border-top:none;
+    grid-template-columns:1fr;gap:0;      /* numer sekcji nad tytułem, tekst na pełną szerokość */
+  }
+  .rail{display:flex;align-items:baseline;gap:4mm;margin-bottom:3mm}
+  .rail-mark{font-size:1.7rem}
+  .rail-label{margin-top:0}
+  .example-rail{max-width:none}
+  .thermo-wrap{max-width:none}
+  .toc-row{grid-template-columns:62px minmax(0,1fr) auto}
+  .toc-tag{display:block}
+  .section.section-break{break-before:page;page-break-before:always}
+  .rail{break-after:avoid}
+  .section h2{break-after:avoid}
+  .section h2 + .lead{break-after:avoid}
+  .card,.letter,.step,.light,.vs-box,.formula,.filled,.alert,.thermo-wrap,
+  .decomp-row,.check,.slot,.fix,.toc-row{break-inside:avoid;page-break-inside:avoid}
+  h3{break-after:avoid}
+
+  /* ── §6: termometr jako oblewana kolumna, żeby nie został sam na stronie ── */
+  /* narzędzia (termometr + karta) jako pozioma plansza pod rozbiorem celu —
+     w kolumnie obok nie mieszczą się i wypychały je na osobną stronę */
+  .example{display:block}
+  .example > .decomp{margin-top:5mm}
+  .example-rail{
+    float:none;width:auto;margin-top:4mm;
+    display:flex;flex-direction:row;gap:7mm;align-items:stretch;
+    break-inside:avoid;page-break-inside:avoid;
+  }
+  .example-rail .thermo-wrap{width:52mm;flex:none;margin:0;padding:3mm 3mm 2mm}
+  .example-rail .thermo-wrap svg{max-height:44mm;margin:0 auto}
+  .example-rail .thermo-cap{margin-bottom:2mm;font-size:.68rem}
+  .example-rail .card{flex:1;margin-top:0}
+  .decomp{margin-top:6mm}
+
+  /* ── TABELE: nagłówek powtarzany na każdej stronie ── */
+  .table-wrap{overflow:visible;border-radius:0}
+  thead{display:table-header-group}
+  tfoot{display:table-footer-group}
+  tr{break-inside:avoid;page-break-inside:avoid}
+  th,td{padding:2.6mm 3.4mm}
+
+  /* ── TYŁ BROSZURY: panel na spad, metryczka pod nim na tej samej stronie ── */
+  .contact{
+    page:pelna;margin:0;padding:24mm 22mm 20mm;
+    height:297mm;overflow:hidden;
+    display:flex;flex-direction:column;justify-content:center;
+    break-before:page;page-break-before:always;
+  }
+  .contact h2{font-size:24pt}
+  .contact-inner{max-width:none;width:100%}
+  .footer{margin-top:12mm;padding-top:6mm;font-size:8.4pt}
+
+  /* ── zagęszczenie składu, żeby sekcje mieściły się na swoich stronach ── */
+  .section h2{margin-bottom:2.5mm}
+  .section h2 + .lead{font-size:10.4pt;margin-bottom:6mm}
+  .letter{border-radius:10px}
+  .letter-glyph{font-size:2.4rem}
+  .letter-body{padding:3.6mm 4.5mm 4mm 0}
+  .letter-body h3{font-size:1.16rem}
+  .letter-sub{margin-bottom:2.2mm;font-size:.76rem}
+  .qa{gap:1mm 3.2mm;font-size:9.6pt}
+  .smart{gap:3mm}
+  .card,.formula,.vs-box,.light{padding:4mm 5mm}
+  .step{padding:3.4mm 0}
+  .decomp-row{padding:2.6mm 0}
+  .check{padding:2.2mm 0}
+  th,td{padding:1.6mm 2.6mm;font-size:8.9pt;line-height:1.38}
+  .akt{font-size:9.4pt;margin-bottom:1mm}
+  .sygn{font-size:7.8pt}
+  .table-wrap + .alert,.alert{margin-top:5mm}
+  .alert-in{padding:4mm 5mm 4mm 0}
+  .filled{padding:4.5mm 5mm}
+  .filled p{font-size:10.6pt}
+
+  a{color:inherit;text-decoration:none}
+  .contact-val a{border-bottom:1px solid rgba(255,180,140,.6)}
 }
 </style>
 
@@ -1163,44 +1265,81 @@ td b{font-weight:900}
       i sposobem zbierania danych. To najbardziej ekonomiczne rozwiązanie, jakie możesz sobie zafundować.</p>
 
       <div class="example">
-        <div>
+        <div class="card card-cel">
+          <h3 style="color:var(--flame);font-size:1.08rem;letter-spacing:.02em">Cel</h3>
+          <p style="font-size:1.08rem;line-height:1.5;margin-top:6px">„Dziecko rozpozna narastające napięcie
+          i samodzielnie zastosuje wybraną strategię wyciszenia (np. oddech 4‑4‑4) w 4 na 5 sytuacji trudnych,
+          do końca semestru.”</p>
+        </div>
+          </div>
+        </div>
+        <div class="decomp">
+          <div class="decomp-row">
+            <div class="decomp-l">S</div>
+            <div class="decomp-t"><b>Skonkretyzowany</b>Dwie obserwowalne czynności: <strong>rozpozna</strong> (wskazuje poziom na termometrze)
+            i <strong>zastosuje</strong> (wykonuje oddech 4‑4‑4). Obie widać z drugiego końca sali.</div>
+          </div>
+          <div class="decomp-row">
+            <div class="decomp-l">M</div>
+            <div class="decomp-t"><b>Mierzalny</b><strong>4 na 5 sytuacji trudnych</strong>, liczone w karcie obserwacji.
+            Jedna kreska = jedna sytuacja. Podsumowanie ilościowe na koniec semestru.</div>
+          </div>
+          <div class="decomp-row">
+            <div class="decomp-l">A</div>
+            <div class="decomp-t"><b>Osiągalny</b>Cel opisany dla <strong>poziomu I (bazowego)</strong> z gotową modyfikacją dla poziomu II i III.
+            Skala 1–6 jest w zasięgu przedszkolaka, bo opiera się na kolorze i sygnale z ciała, a nie na nazywaniu emocji.</div>
+          </div>
+          <div class="decomp-row">
+            <div class="decomp-l">R</div>
+            <div class="decomp-t"><b>Istotny</b>Sfera integracji społeczno‑emocjonalnej i samoregulacji (ICF b1521).
+            Wychwycenie <strong>strefy żółtej</strong> to moment, w którym strategia jeszcze działa — czyli realna
+            różnica między trudną chwilą a wybuchem.</div>
+          </div>
+          <div class="decomp-row">
+            <div class="decomp-l">T</div>
+            <div class="decomp-t"><b>Określony w czasie</b><strong>Do końca semestru</strong>, przy pracy ciągłej w ciągu dnia.
+            Termometr wraca w realnych sytuacjach, a nie tylko na zajęciach — dlatego dane zbierają się same.</div>
+          </div>
+        <div class="example-rail">
+          <aside class="thermo-wrap">
+            <div class="thermo-cap">Termometr napięcia 1–6</div>
+            <svg viewBox="0 0 190 330" role="img" aria-label="Termometr napięcia: skala od 1 do 6, od zielonego spokoju do czerwonej strefy wybuchu">
+              <defs>
+                <clipPath id="tube"><rect x="18" y="8" width="42" height="252" rx="21"/></clipPath>
+              </defs>
+              <g clip-path="url(#tube)">
+                <rect x="18" y="8"   width="42" height="42" fill="#B8350D"/>
+                <rect x="18" y="50"  width="42" height="42" fill="#D3552A"/>
+                <rect x="18" y="92"  width="42" height="42" fill="#D98324"/>
+                <rect x="18" y="134" width="42" height="42" fill="#C9A227"/>
+                <rect x="18" y="176" width="42" height="42" fill="#4E9A3E"/>
+                <rect x="18" y="218" width="42" height="42" fill="#0D7D5C"/>
+              </g>
+              <rect x="18" y="8" width="42" height="252" rx="21" fill="none" stroke="currentColor" stroke-opacity=".22" stroke-width="2"/>
+              <circle cx="39" cy="288" r="30" fill="#0D7D5C"/>
+              <circle cx="39" cy="288" r="30" fill="none" stroke="currentColor" stroke-opacity=".22" stroke-width="2"/>
+
+              <g font-family="IBM Plex Mono, monospace" font-size="17" font-weight="600" fill="#fff" text-anchor="middle">
+                <text x="39" y="35">6</text><text x="39" y="77">5</text><text x="39" y="119">4</text>
+                <text x="39" y="161">3</text><text x="39" y="203">2</text><text x="39" y="245">1</text>
+              </g>
+
+              <g font-family="Sofia Sans Condensed, sans-serif" font-weight="800" font-size="14" fill="currentColor">
+                <text x="72" y="26" fill="#B8350D">CZERWONA</text>
+                <text x="72" y="42" font-size="11.5" font-weight="500" opacity=".75">za późno na naukę —</text>
+                <text x="72" y="56" font-size="11.5" font-weight="500" opacity=".75">tylko bezpieczeństwo</text>
+
+                <text x="72" y="110" fill="#C47A10">ŻÓŁTA</text>
+                <text x="72" y="126" font-size="11.5" font-weight="500" opacity=".75">tu działa strategia —</text>
+                <text x="72" y="140" font-size="11.5" font-weight="500" opacity=".75">to jest Twój moment</text>
+
+                <text x="72" y="194" fill="#0D7D5C">ZIELONA</text>
+                <text x="72" y="210" font-size="11.5" font-weight="500" opacity=".75">spokój, gotowość</text>
+                <text x="72" y="224" font-size="11.5" font-weight="500" opacity=".75">do uczenia się</text>
+              </g>
+            </svg>
+          </aside>
           <div class="card">
-            <h3 style="color:var(--flame);font-size:1.08rem;letter-spacing:.02em">Cel</h3>
-            <p style="font-size:1.08rem;line-height:1.5;margin-top:6px">„Dziecko rozpozna narastające napięcie
-            i samodzielnie zastosuje wybraną strategię wyciszenia (np. oddech 4‑4‑4) w 4 na 5 sytuacji trudnych,
-            do końca semestru.”</p>
-          </div>
-
-          <div class="decomp">
-            <div class="decomp-row">
-              <div class="decomp-l">S</div>
-              <div class="decomp-t"><b>Skonkretyzowany</b>Dwie obserwowalne czynności: <strong>rozpozna</strong> (wskazuje poziom na termometrze)
-              i <strong>zastosuje</strong> (wykonuje oddech 4‑4‑4). Obie widać z drugiego końca sali.</div>
-            </div>
-            <div class="decomp-row">
-              <div class="decomp-l">M</div>
-              <div class="decomp-t"><b>Mierzalny</b><strong>4 na 5 sytuacji trudnych</strong>, liczone w karcie obserwacji.
-              Jedna kreska = jedna sytuacja. Podsumowanie ilościowe na koniec semestru.</div>
-            </div>
-            <div class="decomp-row">
-              <div class="decomp-l">A</div>
-              <div class="decomp-t"><b>Osiągalny</b>Cel opisany dla <strong>poziomu I (bazowego)</strong> z gotową modyfikacją dla poziomu II i III.
-              Skala 1–6 jest w zasięgu przedszkolaka, bo opiera się na kolorze i sygnale z ciała, a nie na nazywaniu emocji.</div>
-            </div>
-            <div class="decomp-row">
-              <div class="decomp-l">R</div>
-              <div class="decomp-t"><b>Istotny</b>Sfera integracji społeczno‑emocjonalnej i samoregulacji (ICF b1521).
-              Wychwycenie <strong>strefy żółtej</strong> to moment, w którym strategia jeszcze działa — czyli realna
-              różnica między trudną chwilą a wybuchem.</div>
-            </div>
-            <div class="decomp-row">
-              <div class="decomp-l">T</div>
-              <div class="decomp-t"><b>Określony w czasie</b><strong>Do końca semestru</strong>, przy pracy ciągłej w ciągu dnia.
-              Termometr wraca w realnych sytuacjach, a nie tylko na zajęciach — dlatego dane zbierają się same.</div>
-            </div>
-          </div>
-
-          <div class="card" style="margin-top:20px">
             <h3 style="font-size:1.08rem">Karta obserwacji — tak wygląda „4 na 5”</h3>
             <p class="muted" style="font-size:.94rem;margin-top:4px">Pięć kolejnych sytuacji trudnych w tygodniu.
             Zaznaczasz tylko jedno: czy dziecko samodzielnie rozpoznało poziom i użyło strategii.</p>
@@ -1212,49 +1351,8 @@ td b{font-weight:900}
               <span class="tally-box hit">✓</span>
               <span class="tally-sum">4 / 5 → kryterium spełnione</span>
             </div>
-          </div>
         </div>
-
-        <aside class="thermo-wrap">
-          <div class="thermo-cap">Termometr napięcia 1–6</div>
-          <svg viewBox="0 0 190 330" role="img" aria-label="Termometr napięcia: skala od 1 do 6, od zielonego spokoju do czerwonej strefy wybuchu">
-            <defs>
-              <clipPath id="tube"><rect x="18" y="8" width="42" height="252" rx="21"/></clipPath>
-            </defs>
-            <g clip-path="url(#tube)">
-              <rect x="18" y="8"   width="42" height="42" fill="#B8350D"/>
-              <rect x="18" y="50"  width="42" height="42" fill="#D3552A"/>
-              <rect x="18" y="92"  width="42" height="42" fill="#D98324"/>
-              <rect x="18" y="134" width="42" height="42" fill="#C9A227"/>
-              <rect x="18" y="176" width="42" height="42" fill="#4E9A3E"/>
-              <rect x="18" y="218" width="42" height="42" fill="#0D7D5C"/>
-            </g>
-            <rect x="18" y="8" width="42" height="252" rx="21" fill="none" stroke="currentColor" stroke-opacity=".22" stroke-width="2"/>
-            <circle cx="39" cy="288" r="30" fill="#0D7D5C"/>
-            <circle cx="39" cy="288" r="30" fill="none" stroke="currentColor" stroke-opacity=".22" stroke-width="2"/>
-
-            <g font-family="IBM Plex Mono, monospace" font-size="17" font-weight="600" fill="#fff" text-anchor="middle">
-              <text x="39" y="35">6</text><text x="39" y="77">5</text><text x="39" y="119">4</text>
-              <text x="39" y="161">3</text><text x="39" y="203">2</text><text x="39" y="245">1</text>
-            </g>
-
-            <g font-family="Sofia Sans Condensed, sans-serif" font-weight="800" font-size="14" fill="currentColor">
-              <text x="72" y="26" fill="#B8350D">CZERWONA</text>
-              <text x="72" y="42" font-size="11.5" font-weight="500" opacity=".75">za późno na naukę —</text>
-              <text x="72" y="56" font-size="11.5" font-weight="500" opacity=".75">tylko bezpieczeństwo</text>
-
-              <text x="72" y="110" fill="#C47A10">ŻÓŁTA</text>
-              <text x="72" y="126" font-size="11.5" font-weight="500" opacity=".75">tu działa strategia —</text>
-              <text x="72" y="140" font-size="11.5" font-weight="500" opacity=".75">to jest Twój moment</text>
-
-              <text x="72" y="194" fill="#0D7D5C">ZIELONA</text>
-              <text x="72" y="210" font-size="11.5" font-weight="500" opacity=".75">spokój, gotowość</text>
-              <text x="72" y="224" font-size="11.5" font-weight="500" opacity=".75">do uczenia się</text>
-            </g>
-          </svg>
-        </aside>
       </div>
-    </div>
   </section>
 
   <!-- ══════════ § 7 ══════════ -->
@@ -1489,26 +1587,26 @@ td b{font-weight:900}
           <span class="contact-sub">Pomorskie Centrum Terapii Pedagogicznej</span></span>
         </div>
       </div>
+
+    <footer class="footer">
+      <div class="footer-brand">
+        <b>EduPlaner 2026 · PCTP Koszalin</b>
+        <span>Pomorskie Centrum Terapii Pedagogicznej</span>
+        <span>Skrypt dla nauczyciela przedszkola · Cele SMART · załącznik do IPET</span>
+        <span class="footer-sig">Sygnatura: SMART‑P1 · ekosystem EduPlaner2026‑MJ‑PCTP</span>
+        </div>
+      <div class="footer-meta">
+        <div>
+          Opracowanie: <strong>pedagog specjalny<br>mgr Mirosława Ewa Jurczyszyn</strong>
+        </div>
+        <div>
+          Przykład przewodni: konspekt TUE‑1 „Termometr napięcia” · ICF b1521<br>
+          Stan prawny: 28 sierpnia 2026 r.
+        </div>
+      </div>
+    </footer>
     </div>
   </section>
 
-  <footer class="footer">
-    <div class="footer-brand">
-      <b>EduPlaner 2026 · PCTP Koszalin</b>
-      <span>Pomorskie Centrum Terapii Pedagogicznej</span>
-      <span>Skrypt dla nauczyciela przedszkola · Cele SMART · załącznik do IPET</span>
-      <span class="footer-sig">Sygnatura: SMART‑P1 · ekosystem EduPlaner2026‑MJ‑PCTP</span>
-      <span>www.eduplaner2026.pl · kontakt@eduplaner2026.pl · tel. [usunięto]</span>
-    </div>
-    <div class="footer-meta">
-      <div>
-        Opracowanie: <strong>pedagog specjalny<br>mgr Mirosława Ewa Jurczyszyn</strong>
-      </div>
-      <div>
-        Przykład przewodni: konspekt TUE‑1 „Termometr napięcia” · ICF b1521<br>
-        Stan prawny: 28 sierpnia 2026 r.
-      </div>
-    </div>
-  </footer>
 
 </div>
