@@ -20,6 +20,7 @@ CSS = """
   --ink:#2D1B69; --ink-soft:#4A3A8C; --accent:#E8450A; --accent-soft:#FDEDE6;
   --p3:#B8350D; --p3-bg:#FBEAE5; --p2:#C47A10; --p2-bg:#FBF2E1; --p1:#0D7D5C; --p1-bg:#E5F3ED;
   --zas:#2B6E6E; --zas-bg:#E6F0F0;
+  --icf:#C1121F; --icf-bg:#FCEAEA; --pp:#12408A; --pp-bg:#E7EEFA;
   --paper:#FAF9FC; --card:#FFFFFF; --line:#E3DFEE; --line-soft:#EFECF6;
   --text:#241C3D; --muted:#6C6489; --band:#F3F0FA;
   --shadow:0 1px 2px rgba(45,27,105,.06), 0 8px 24px -18px rgba(45,27,105,.35);
@@ -29,6 +30,7 @@ CSS = """
     --ink:#C9BCF5; --ink-soft:#A99BE0; --accent:#FF7A45; --accent-soft:#3A2216;
     --p3:#FF9A7A; --p3-bg:#3A211A; --p2:#F0BC63; --p2-bg:#382C15; --p1:#5FD3A8; --p1-bg:#16332A;
     --zas:#7FCFCF; --zas-bg:#153030;
+    --icf:#FF8F8F; --icf-bg:#3B1D1D; --pp:#8FBEFF; --pp-bg:#132840;
     --paper:#15121F; --card:#1D1830; --line:#332B4D; --line-soft:#272040;
     --text:#EDE9F8; --muted:#A79FC2; --band:#231D3A;
     --shadow:0 1px 2px rgba(0,0,0,.4), 0 10px 28px -20px rgba(0,0,0,.9);
@@ -38,6 +40,7 @@ CSS = """
   --ink:#C9BCF5; --ink-soft:#A99BE0; --accent:#FF7A45; --accent-soft:#3A2216;
   --p3:#FF9A7A; --p3-bg:#3A211A; --p2:#F0BC63; --p2-bg:#382C15; --p1:#5FD3A8; --p1-bg:#16332A;
   --zas:#7FCFCF; --zas-bg:#153030;
+  --icf:#FF8F8F; --icf-bg:#3B1D1D; --pp:#8FBEFF; --pp-bg:#132840;
   --paper:#15121F; --card:#1D1830; --line:#332B4D; --line-soft:#272040;
   --text:#EDE9F8; --muted:#A79FC2; --band:#231D3A;
   --shadow:0 1px 2px rgba(0,0,0,.4), 0 10px 28px -20px rgba(0,0,0,.9);
@@ -80,12 +83,34 @@ h1{font-size:clamp(34px,5.2vw,54px); font-weight:600; line-height:1.04; letter-s
 .smartgrid .lbl{font-size:11px; letter-spacing:.14em; text-transform:uppercase; color:var(--ink-soft); font-weight:700; margin:8px 0 6px}
 .smartgrid p{margin:0; font-size:13px; color:var(--muted); line-height:1.5}
 
-table.progi{width:100%; border-collapse:collapse; font-size:13.5px}
-table.progi th{text-align:left; font-size:10.5px; letter-spacing:.14em; text-transform:uppercase; color:#fff;
-  background:var(--ink); padding:10px 14px; font-weight:700}
-table.progi td{padding:12px 14px; border-bottom:1px solid var(--line-soft); vertical-align:top}
-table.progi td.mono{white-space:nowrap}
-table.progi tr:last-child td{border-bottom:none}
+table.progi{width:100%; border-collapse:separate; border-spacing:0; font-size:13.5px; min-width:720px}
+table.progi th{text-align:left; font-size:10px; letter-spacing:.16em; text-transform:uppercase; color:#fff;
+  background:var(--ink); padding:11px 14px; font-weight:700; white-space:nowrap}
+table.progi th:first-child{padding-left:20px}
+table.progi td{padding:14px; border-bottom:1px solid var(--line-soft); vertical-align:middle}
+table.progi td.mono{white-space:nowrap; font-size:12.5px}
+table.progi td:first-child{padding-left:16px; border-left:4px solid transparent}
+table.progi tbody tr:nth-child(odd) td{background:var(--band)}
+table.progi tbody tr:last-child td{border-bottom:none}
+table.progi tr.r-zas td:first-child{border-left-color:var(--zas)}
+table.progi tr.r-p1 td:first-child{border-left-color:var(--p1)}
+table.progi tr.r-p2 td:first-child{border-left-color:var(--p2)}
+table.progi tr.r-p3 td:first-child{border-left-color:var(--p3)}
+.pill{display:inline-flex; align-items:center; gap:7px; padding:6px 11px; border-radius:999px; font:700 12.5px/1 "DM Sans",Arial,sans-serif; white-space:nowrap}
+.pill.zas{color:var(--zas); background:var(--zas-bg)}
+.pill.p1{color:var(--p1); background:var(--p1-bg)}
+.pill.p2{color:var(--p2); background:var(--p2-bg)}
+.pill.p3{color:var(--p3); background:var(--p3-bg)}
+.hz-cell{font-family:"JetBrains Mono",monospace; font-size:12px; color:var(--ink-soft); background:var(--accent-soft);
+  padding:5px 9px; border-radius:2px; display:inline-block; white-space:nowrap}
+
+/* legenda kolorów kodów */
+.legend{display:flex; flex-wrap:wrap; gap:10px 22px; padding:14px 22px; border-top:1px solid var(--line-soft); background:var(--band)}
+.legend span{display:inline-flex; align-items:center; gap:8px; font-size:12px; color:var(--muted)}
+.legend i{width:22px; height:11px; border-radius:2px; display:inline-block; font-style:normal}
+.legend .l-icf{background:var(--icf-bg); border-left:3px solid var(--icf)}
+.legend .l-pp{background:var(--pp-bg); border-left:3px solid var(--pp)}
+.legend .l-wiek{background:var(--accent)}
 .lvltag{display:inline-flex; align-items:center; gap:7px; font-weight:700; font-size:12.5px; white-space:nowrap}
 .dot{width:9px; height:9px; border-radius:50%; flex:none}
 .n-p3{color:var(--p3)} .d-p3{background:var(--p3)}
@@ -132,7 +157,13 @@ input[type="search"]:focus, .tab:focus-visible, .chipbtn:focus-visible, .navlink
 .area-h{display:flex; align-items:center; gap:14px; background:var(--ink); color:#fff; padding:13px 18px; border-radius:2px}
 .rom{background:var(--accent); color:#fff; font:700 13px/1 "DM Sans",Arial,sans-serif; padding:7px 9px; border-radius:2px; min-width:38px; text-align:center}
 .area-h h3{font-size:17px; font-weight:600; letter-spacing:.01em; flex:1}
-.area-h .code{font-family:"JetBrains Mono",monospace; font-size:11.5px; opacity:.75; white-space:nowrap}
+.area-h .code{font-family:"JetBrains Mono",monospace; font-size:11.5px; opacity:.8; white-space:nowrap;
+  border-left:1px solid rgba(255,255,255,.28); padding-left:14px}
+.wiek{display:inline-flex; align-items:center; gap:6px; font:700 10px/1 "DM Sans",Arial,sans-serif;
+  letter-spacing:.15em; text-transform:uppercase; color:#fff; background:var(--accent); padding:6px 9px;
+  border-radius:2px; white-space:nowrap}
+.wiek .w-kod{font-family:"JetBrains Mono",monospace; letter-spacing:.04em; opacity:.85}
+.wiek.ghost{background:transparent; color:var(--accent); border:1px solid var(--accent); padding:4px 7px; font-size:9.5px}
 .zasob{display:flex; gap:12px; margin-top:10px; padding:13px 18px; background:var(--zas-bg); border-left:4px solid var(--zas);
   font-size:13px; color:var(--text)}
 .zasob b{color:var(--zas); font-size:10.5px; letter-spacing:.14em; text-transform:uppercase; display:block; margin-bottom:3px}
@@ -143,9 +174,15 @@ input[type="search"]:focus, .tab:focus-visible, .chipbtn:focus-visible, .navlink
 .item-h{display:flex; gap:14px; align-items:flex-start; padding:14px 18px; background:var(--band); border-bottom:1px solid var(--line-soft)}
 .nr{font-family:Fraunces,Georgia,serif; font-size:22px; font-weight:600; color:var(--accent); line-height:1.1; min-width:30px}
 .stmt{flex:1; font-size:14.5px; font-weight:500; color:var(--ink); line-height:1.4}
-.stmt .src{display:block; font-size:10px; letter-spacing:.14em; text-transform:uppercase; color:var(--muted); font-weight:700; margin-bottom:4px}
-.codes{font-family:"JetBrains Mono",monospace; font-size:11px; color:var(--ink-soft); background:var(--accent-soft);
-  padding:6px 9px; border-radius:2px; white-space:nowrap; align-self:center}
+.stmt .src{display:flex; flex-wrap:wrap; align-items:center; gap:8px; font-size:10px; letter-spacing:.14em;
+  text-transform:uppercase; color:var(--muted); font-weight:700; margin-bottom:6px}
+.codeblock{display:flex; flex-direction:column; gap:5px; align-items:stretch; align-self:center; flex:none}
+.code-icf,.code-pp{font-family:"JetBrains Mono",monospace; font-size:11.5px; font-weight:700; padding:6px 10px;
+  border-radius:2px; white-space:nowrap; display:flex; align-items:baseline; gap:8px; justify-content:space-between}
+.code-icf{color:var(--icf); background:var(--icf-bg); border-left:3px solid var(--icf)}
+.code-pp{color:var(--pp); background:var(--pp-bg); border-left:3px solid var(--pp)}
+.code-icf em,.code-pp em{font-family:"DM Sans",Arial,sans-serif; font-style:normal; font-size:9px;
+  letter-spacing:.14em; text-transform:uppercase; opacity:.75; font-weight:700}
 .goal{display:grid; grid-template-columns:120px 1fr; gap:0; border-bottom:1px solid var(--line-soft)}
 .goal:last-of-type{border-bottom:none}
 .goal .side{padding:14px 16px; border-right:3px solid transparent}
@@ -173,6 +210,8 @@ footer .sig{margin-top:24px; padding-top:16px; border-top:1px solid var(--line);
   .goal.p3 .side{border-left-color:var(--p3)} .goal.p2 .side{border-left-color:var(--p2)} .goal.p1 .side{border-left-color:var(--p1)}
   .goal .side .hz{margin-top:0}
   .counts{margin-left:0}
+  .item-h{flex-wrap:wrap}
+  .codeblock{flex-direction:row; width:100%}
   .filters{margin-left:0; flex-wrap:wrap}
 }
 @media (prefers-reduced-motion:reduce){*{animation:none !important; transition:none !important}}
@@ -241,7 +280,7 @@ document.getElementById('drukuj').addEventListener('click',()=>window.print());
 
 def esc(s): return html.escape(str(s), quote=False)
 
-def render_item(it):
+def render_item(it, w):
     goals = [("p3", it["g3"]), ("p2", it["g2"]), ("p1", it["g1"])]
     rows = []
     for kod, tekst in goals:
@@ -250,24 +289,33 @@ def render_item(it):
         <div class="side"><span class="lv">{esc(meta[2])}</span><span class="hz">ewaluacja: {esc(meta[5])}</span></div>
         <div class="body">{esc(tekst)}</div>
       </div>""")
-    szukaj = " ".join([it["t"], it["g3"], it["g2"], it["g1"], it["icf"], it["pp"]]).lower()
+    pp = it["pp"][3:] if it["pp"].startswith("PP ") else it["pp"]
+    szukaj = " ".join([it["t"], it["g3"], it["g2"], it["g1"], it["icf"], it["pp"],
+                       w["etykieta"], "wersja " + w["kod"]]).lower()
     return f"""    <article class="item" data-szukaj="{esc(szukaj)}">
       <div class="item-h">
         <div class="nr">{it['n']}</div>
-        <div class="stmt"><span class="src">Twierdzenie KPOF nr {it['n']}</span>{esc(it['t'])}</div>
-        <div class="codes">{esc(it['icf'])} · {esc(it['pp'])}</div>
+        <div class="stmt">
+          <span class="src">Twierdzenie KPOF nr {it['n']}<span class="wiek ghost">{esc(w['etykieta'])} · wersja {w['kod']}</span></span>
+          {esc(it['t'])}
+        </div>
+        <div class="codeblock">
+          <span class="code-icf"><em>ICF</em>{esc(it['icf'])}</span>
+          <span class="code-pp"><em>Podstawa</em>{esc(pp)}</span>
+        </div>
       </div>
 {chr(10).join(rows)}
       <div class="miara"><b>Miara / narzędzie:</b> {esc(it['m'])}</div>
     </article>"""
 
-def render_area(a):
-    items = "\n".join(render_item(i) for i in a["items"])
-    aid = f"{a['icf']}-{a['rom']}"
+def render_area(a, w):
+    items = "\n".join(render_item(i, w) for i in a["items"])
+    aid = f"{w['kod']}-{a['icf']}-{a['rom']}"
     return f"""  <section class="area" id="{aid}">
     <div class="area-h">
       <span class="rom">{a['rom']}</span>
       <h3>{esc(a['name'])}</h3>
+      <span class="wiek">{esc(w['etykieta'])}<span class="w-kod">wersja {w['kod']}</span></span>
       <span class="code">{a['icf']} · Σ {a['pts']} pkt</span>
     </div>
     <div class="zasob"><div><b>Zasób 4,0–5,0 · dźwignia</b>{esc(a['zasob'])}</div></div>
@@ -277,9 +325,9 @@ def render_area(a):
 def render_wersja(mod, aktywna):
     w = mod.WERSJA
     n_tw = sum(len(a["items"]) for a in mod.AREAS)
-    areas = "\n".join(render_area(a) for a in mod.AREAS)
+    areas = "\n".join(render_area(a, w) for a in mod.AREAS)
     nav = "\n".join(
-        f'      <a class="navlink" href="#{a["icf"]}-{a["rom"]}">{a["rom"]} · {esc(a["name"].split(" (")[0])}</a>'
+        f'      <a class="navlink" href="#{w["kod"]}-{a["icf"]}-{a["rom"]}">{a["rom"]} · {esc(a["name"].split(" (")[0])}</a>'
         for a in mod.AREAS)
     cls = "vers" if aktywna else "vers hidden"
     return f"""<div class="{cls}" data-v="{w['kod']}">
@@ -320,20 +368,20 @@ def build():
          'Nie piszemy celu naprawczego. Zasób staje się dźwignią: dziecko dostaje rolę w grupie, '
          'która wykorzystuje tę umiejętność do pracy nad obszarem słabszym.', '—'),
     ]
-    rows = [f"""      <tr>
-        <td><span class="lvltag n-{k}"><span class="dot d-{k}"></span>{esc(nazwa)}</span></td>
+    rows = [f"""      <tr class="r-{k}">
+        <td><span class="pill {k}"><span class="dot d-{k}"></span>{esc(nazwa)}</span></td>
         <td class="mono">{esc(prog)}</td>
         <td>{esc(opis)}</td>
         <td>{esc(dzial)}</td>
-        <td class="mono">{esc(hor)}</td>
+        <td><span class="hz-cell">{esc(hor)}</span></td>
       </tr>""" for k, nazwa, prog, opis, dzial, hor in progi_rows]
     for kod, rz, nazwa, prog, opis, hor, dzial in POZIOMY[::-1]:
-        rows.append(f"""      <tr>
-        <td><span class="lvltag n-{kod}"><span class="dot d-{kod}"></span>{esc(nazwa)}</span></td>
+        rows.append(f"""      <tr class="r-{kod}">
+        <td><span class="pill {kod}"><span class="dot d-{kod}"></span>{esc(nazwa)}</span></td>
         <td class="mono">{esc(prog)}</td>
         <td>{esc(opis)}</td>
         <td>{esc(dzial)}</td>
-        <td class="mono">{esc(hor)}</td>
+        <td><span class="hz-cell">{esc(hor)}</span></td>
       </tr>""")
     wersje_html = "\n".join(render_wersja(m, i == 0) for i, m in enumerate(WERSJE))
     tabs = "\n".join(
@@ -374,6 +422,11 @@ def build():
   <div class="panel-h"><h2>Anatomia celu</h2><span>jak czytać każdy wiersz</span></div>
   <div class="smartgrid">
 {smart_html}
+  </div>
+  <div class="legend">
+    <span><i class="l-icf"></i>Kod <b style="color:var(--icf)">ICF</b> — czerwony (d1–d9, klasyfikacja WHO)</span>
+    <span><i class="l-pp"></i>Punkt <b style="color:var(--pp)">podstawy programowej</b> — niebieski</span>
+    <span><i class="l-wiek"></i>Wersja wiekowa arkusza — pomarańczowy znacznik przy każdym obszarze i twierdzeniu</span>
   </div>
 </section>
 
