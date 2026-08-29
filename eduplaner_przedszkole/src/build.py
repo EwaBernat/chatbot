@@ -24,7 +24,7 @@ CSS = """
   --icf:#C1121F; --icf-bg:#FFFFFF; --pp:#4F3AA8; --pp-bg:#FFFFFF;
   --p3-br:#EFCBBB; --p2-br:#E8D6AC; --p1-br:#BEDFD1; --icf-br:#EEC4C4; --pp-br:#CFC6EE;
   --paper:#FFFFFF; --field:#EFEAF9; --soft:#F6F3FC; --row:#FEFDFF; --row-alt:#F4F0FD;
-  --line:#E3DCF5; --line-2:#EDE8F8; --text:#2F2A3E; --muted:#8A8498;
+  --line:#E3DCF5; --line-2:#EDE8F8; --rowline:#D3CAEB; --text:#2F2A3E; --muted:#8A8498;
   --strong:#2D1B69; --on-strong:#FFFFFF;
   --h-p3:#4F3AA8; --h-p3-t:#FFFFFF; --h-p2:#4F3AA8; --h-p2-t:#FFFFFF; --h-p1:#4F3AA8; --h-p1-t:#FFFFFF;
   --h-icf:#4F3AA8; --h-icf-t:#FFFFFF; --h-pp:#4F3AA8; --h-pp-t:#FFFFFF;
@@ -37,7 +37,7 @@ CSS = """
     --icf:#FF8F8F; --icf-bg:#301C1C; --pp:#A794E8; --pp-bg:#241D42;
     --p3-br:#4A3228; --p2-br:#463A20; --p1-br:#22463A; --icf-br:#472A2A; --pp-br:#3A3167;
     --paper:#15121E; --field:#221C36; --soft:#1E1930; --row:#1A1628; --row-alt:#221C36;
-    --line:#332B4D; --line-2:#2A2340; --text:#ECE8F7; --muted:#A79FC2;
+    --line:#332B4D; --line-2:#2A2340; --rowline:#453B68; --text:#ECE8F7; --muted:#A79FC2;
     --strong:#2E2650; --on-strong:#EDE9FA;
     --h-p3:#2E2650; --h-p3-t:#EDE9FA; --h-p2:#2E2650; --h-p2-t:#EDE9FA; --h-p1:#2E2650; --h-p1-t:#EDE9FA;
     --h-icf:#2E2650; --h-icf-t:#EDE9FA; --h-pp:#2E2650; --h-pp-t:#EDE9FA;
@@ -50,7 +50,7 @@ CSS = """
   --icf:#FF8F8F; --icf-bg:#301C1C; --pp:#A794E8; --pp-bg:#241D42;
     --p3-br:#4A3228; --p2-br:#463A20; --p1-br:#22463A; --icf-br:#472A2A; --pp-br:#3A3167;
   --paper:#15121E; --field:#221C36; --soft:#1E1930; --row:#1A1628; --row-alt:#221C36;
-  --line:#332B4D; --line-2:#2A2340; --text:#ECE8F7; --muted:#A79FC2;
+  --line:#332B4D; --line-2:#2A2340; --rowline:#453B68; --text:#ECE8F7; --muted:#A79FC2;
   --strong:#2E2650; --on-strong:#EDE9FA;
   --h-p3:#2E2650; --h-p3-t:#EDE9FA; --h-p2:#2E2650; --h-p2-t:#EDE9FA; --h-p1:#2E2650; --h-p1-t:#EDE9FA;
   --h-icf:#2E2650; --h-icf-t:#EDE9FA; --h-pp:#2E2650; --h-pp-t:#EDE9FA;
@@ -115,10 +115,10 @@ th{background:var(--strong); color:var(--on-strong); text-align:left; padding:10
   border-right:1px solid rgba(255,255,255,.14)}
 th:last-child{border-right:none}
 th .hz{display:block; font-family:"JetBrains Mono",monospace; letter-spacing:.02em; font-size:9px; opacity:.72; margin-top:3px}
-td{padding:9px 10px; border-bottom:1px solid var(--line-2); border-right:1px solid var(--line-2);
+td{padding:9px 10px; border-bottom:1px solid var(--rowline); border-right:1px solid var(--line-2);
   vertical-align:top; font-size:12.5px; line-height:1.45}
 td:last-child{border-right:none}
-tbody tr:last-child td{border-bottom:none}
+
 td.g{border-right:1px solid var(--line)}
 td.g .cel{display:block}
 td.icf .kod,td.pp .kod{display:inline-block}
