@@ -260,10 +260,12 @@ table.ktab td.lp{font-size:12px}
 .kmod.aktywny{outline:2px solid var(--ink); outline-offset:1px}
 .kmod.aktywny::after{content:"WYBRANY POZIOM"; position:absolute; top:-9px; right:10px; background:var(--ink);
   color:#fff; font:700 8px/1 "DM Sans",Arial,sans-serif; letter-spacing:.14em; padding:4px 8px; border-radius:999px}
+.krodzaj{border:1px solid var(--line); border-radius:7px; background:var(--paper); padding:9px 13px; font-size:12px; min-height:38px; display:flex; align-items:center}
+.kkurs{font-style:italic; font-size:11px; color:var(--muted); margin:8px 0 6px}
 .kwsk{margin-top:12px; border-left:4px solid var(--accent); background:var(--soft); border-radius:0 8px 8px 0; padding:10px 14px; font-size:11.5px}
 .kwsk b{color:var(--accent)}
 .kfoot{display:flex; gap:9px; justify-content:flex-end; margin-top:18px}
-@media (max-width:860px){ .kcele,.kdwie,.kmods,.kmeta{grid-template-columns:1fr} .kcard{padding:18px 14px} }
+@media screen and (max-width:860px){ .kcele,.kdwie,.kmods,.kmeta{grid-template-columns:1fr} .kcard{padding:18px 14px} }
 
 .podpisy{display:grid; grid-template-columns:repeat(3,1fr); gap:16px; margin-top:18px}
 .podpis{border:1px solid var(--line); border-radius:8px; background:var(--field); padding:13px 15px 26px}
@@ -302,7 +304,54 @@ tr.tbanner .bsep{color:var(--accent); padding:0 5px}
   html.print-konspekt .kcard{box-shadow:none; max-width:none; padding:0; border-radius:0}
   html.print-konspekt .kclose,html.print-konspekt .kfoot,html.print-konspekt .kesc{display:none}
   html.print-konspekt{--void:0}
-  html.print-konspekt .kvar{display:none} html.print-konspekt .kvar.on{display:block}
+  html.print-konspekt .kvar{display:none} html.print-konspekt .kvar.on{display:flex}
+  html.print-konspekt .kcele,html.print-konspekt .kdwie{grid-template-columns:1fr 1fr !important}
+  html.print-konspekt .kmods{grid-template-columns:1fr 1fr 1fr !important}
+  html.print-konspekt .kmeta{grid-template-columns:repeat(4,1fr) !important}
+  html.print-konspekt .kmeta.kdziecko{grid-template-columns:1.5fr 1fr 1fr !important}
+  html.print-konspekt body{font-size:8.5pt}
+  html.print-konspekt .kcard{padding:0}
+  html.print-konspekt .khead{padding-bottom:6pt}
+  html.print-konspekt .khead .kw{font-size:13pt}
+  html.print-konspekt .ktitle{margin:8pt 0 2pt}
+  html.print-konspekt .ktitle h3{font-size:17pt; margin-top:3pt}
+  html.print-konspekt .ktitle .kpod{font-size:7pt; margin-top:3pt}
+  html.print-konspekt .ktitle .ksfera{font-size:7pt; margin-top:5pt}
+  html.print-konspekt .kmeta{margin:7pt 0 2pt; gap:5pt}
+  html.print-konspekt .kmeta .field{min-height:24pt; padding:4pt 8pt}
+  html.print-konspekt .ksec{margin:8pt 0 5pt}
+  html.print-konspekt .ksec h4{font-size:8.5pt}
+  html.print-konspekt .ksec .sq{width:14pt; height:14pt; font-size:7pt}
+  html.print-konspekt .kcele{gap:7pt}
+  html.print-konspekt .kcel .ktresc{padding:6pt 8pt; font-size:8pt}
+  html.print-konspekt .kcel .kchead{padding:4pt; font-size:7.5pt}
+  html.print-konspekt .kcel ul.ksmart{padding:5pt 8pt; gap:2pt}
+  html.print-konspekt .kcel ul.ksmart li{font-size:7.6pt; line-height:1.35}
+  html.print-konspekt .kcel .kkryt{padding:4pt 8pt; font-size:7.2pt}
+  html.print-konspekt ul.klista li{font-size:7.8pt; line-height:1.35}
+  html.print-konspekt ul.klista{gap:2pt}
+  html.print-konspekt .kdwie{gap:9pt}
+  html.print-konspekt .krodzaj{padding:4pt 8pt; font-size:7.8pt; min-height:20pt}
+  html.print-konspekt .kkurs{font-size:7pt; margin:4pt 0 3pt}
+  html.print-konspekt table.ktab th{padding:4pt 6pt; font-size:6.4pt}
+  html.print-konspekt table.ktab td{padding:3.5pt 6pt; font-size:7.8pt}
+  html.print-konspekt .kmods{gap:7pt}
+  html.print-konspekt .kmod{padding:6pt 8pt; font-size:7.6pt}
+  html.print-konspekt .kmod b{font-size:7.4pt; margin-bottom:3pt}
+  html.print-konspekt .kwsk{margin-top:5pt; padding:4pt 8pt; font-size:7.4pt}
+  html.print-konspekt .ksec{margin:6pt 0 4pt}
+  html.print-konspekt .ktitle{margin:6pt 0 2pt}
+  html.print-konspekt .ktitle h3{font-size:16pt}
+  html.print-konspekt .kmeta{margin:6pt 0 2pt}
+  html.print-konspekt .kmeta .field{min-height:21pt; padding:3pt 8pt}
+  html.print-konspekt .kcel .ktresc{padding:5pt 8pt}
+  html.print-konspekt .kcel ul.ksmart{padding:4pt 8pt}
+  html.print-konspekt .kmod{padding:5pt 8pt}
+  html.print-konspekt table.ktab td{padding:3pt 6pt}
+  html.print-konspekt .kkurs{margin:3pt 0 2pt}
+  html.print-konspekt .kmod.aktywny::after{font-size:5.5pt; top:-6pt}
+  html.print-konspekt .kcard,html.print-konspekt .kcele,html.print-konspekt .kmods,
+  html.print-konspekt table.ktab tr{break-inside:avoid; page-break-inside:avoid}
   .podpisy{break-inside:avoid}
   tr.tbanner{display:table-row}
   table{min-width:0; font-size:8.4pt}
@@ -2645,6 +2694,11 @@ tr.tbanner .bsep{color:var(--accent); padding:0 5px}
       </div>
       <span class="kpill">Konspekt D1-01</span>
     </div>
+    <div class="kmeta kdziecko" style="grid-template-columns:1.5fr 1fr 1fr; margin:12px 0 0">
+      <div class="field"><b>Dotyczy dziecka</b><span class="dots"></span></div>
+      <div class="field"><b>Grupa</b><span class="dots"></span></div>
+      <div class="field"><b>Data</b><span class="dots"></span></div>
+    </div>
     <div class="ktitle">
       <span class="kp">Konspekt zajęć · druk KC-3</span>
       <div class="ksfera">I UCZENIE SIĘ I STOSOWANIE WIEDZY · Uwaga na pokazie (ICF d110–d115 · PP 3.5)</div>
@@ -2726,8 +2780,17 @@ tr.tbanner .bsep{color:var(--accent); padding:0 5px}
         </ul>
       </div>
     </div>
-    <div class="ksec"><span class="sq">IV</span><h4>Sposób realizacji</h4><span class="line"></span>
-      <span class="meta">Zajęcia wspierające funkcje poznawcze / pomoc p-p</span></div>
+    <div class="kdwie" style="align-items:end">
+      <div>
+        <div class="ksec"><span class="sq">IV</span><h4>Sposób realizacji</h4><span class="line"></span></div>
+        <div class="krodzaj" style="font-style:italic">Tabela poniżej ↓</div>
+      </div>
+      <div>
+        <div class="ksec"><span class="sq">V</span><h4>Rodzaj zajęć</h4><span class="line"></span></div>
+        <div class="krodzaj">Zajęcia wspierające funkcje poznawcze / pomoc p-p</div>
+      </div>
+    </div>
+    <p class="kkurs">Konkretne czynności nauczyciela (N) i odpowiadające im oczekiwane reakcje i umiejętności dziecka (D).</p>
     <div class="tablewrap"><table class="ktab">
       <thead><tr><th class="c-lp">Lp.</th><th style="width:47%">Czynności nauczyciela (N)</th>
         <th>Oczekiwane reakcje i umiejętności dziecka (D)</th></tr></thead>
@@ -2739,21 +2802,21 @@ tr.tbanner .bsep{color:var(--accent); padding:0 5px}
         <tr><td class="lp">5</td><td>N — kończy przeliczeniem „czarów”, chwali patrzenie.</td><td>D — wskazuje woreczek, gdy chce powtórki.</td></tr>
       </tbody>
     </table></div>
-    <div class="ksec"><span class="sq">V</span><h4>Realizacja według poziomu wsparcia</h4><span class="line"></span>
-      <span class="meta">ta sama zabawa · trzy progi wymagań · kliknięty poziom wyróżniony</span></div>
+    <div class="ksec"><span class="sq">VI</span><h4>Modyfikacja przy ocenie żółtej / czerwonej</h4><span class="line"></span></div>
+    <p class="kkurs">Modyfikację stosuje się, gdy brak progresu w dwóch kolejnych sesjach. Zielona — rozszerzenie przy pełnym sukcesie. Kliknięty poziom wyróżniony.</p>
     <div class="kmods">
-      <div class="kmod m3" data-mod="p3"><b>Poziom III · czerwona — pełne wsparcie</b><ul class="klista">
+      <div class="kmod m2" data-mod="p2"><b>Poziom II · Żółta</b><ul class="klista">
+          <li>prezentacja skrócona do 15 sekund</li>
+          <li>jeden przedmiot na sesję więcej dopiero po sukcesie</li>
+          <li>dziecko siedzi na wprost nauczyciela</li>
+      </ul></div>
+      <div class="kmod m3" data-mod="p3"><b>Poziom III · Czerwona</b><ul class="klista">
           <li>pokaz w parze z dorosłym, bez grupy</li>
           <li>przedmiot prowadzony w polu widzenia dziecka</li>
           <li>sygnał dotykowy przed każdym pokazem</li>
           <li>konsultacja z terapeutą SI przy braku fiksacji wzroku</li>
       </ul></div>
-      <div class="kmod m2" data-mod="p2"><b>Poziom II · żółta — wsparcie częściowe</b><ul class="klista">
-          <li>prezentacja skrócona do 15 sekund</li>
-          <li>jeden przedmiot na sesję więcej dopiero po sukcesie</li>
-          <li>dziecko siedzi na wprost nauczyciela</li>
-      </ul></div>
-      <div class="kmod m1" data-mod="p1"><b>Poziom I · zielona — samodzielność</b><ul class="klista">
+      <div class="kmod m1" data-mod="p1"><b>Poziom I · Zielona</b><ul class="klista">
           <li>dziecko zostaje pokazywaczem i prowadzi „czary” dla grupy</li>
           <li>prezentacje wydłużone do 1 minuty</li>
           <li>pokaz przed całą grupą na dywanie</li>
@@ -2778,6 +2841,11 @@ tr.tbanner .bsep{color:var(--accent); padding:0 5px}
         <div class="ks">Konspekt · I UCZENIE SIĘ I STOSOWANIE WIEDZY · 3–4 lata · wersja A · twierdzenie 2</div>
       </div>
       <span class="kpill">Konspekt D1-02</span>
+    </div>
+    <div class="kmeta kdziecko" style="grid-template-columns:1.5fr 1fr 1fr; margin:12px 0 0">
+      <div class="field"><b>Dotyczy dziecka</b><span class="dots"></span></div>
+      <div class="field"><b>Grupa</b><span class="dots"></span></div>
+      <div class="field"><b>Data</b><span class="dots"></span></div>
     </div>
     <div class="ktitle">
       <span class="kp">Konspekt zajęć · druk KC-3</span>
@@ -2860,8 +2928,17 @@ tr.tbanner .bsep{color:var(--accent); padding:0 5px}
         </ul>
       </div>
     </div>
-    <div class="ksec"><span class="sq">IV</span><h4>Sposób realizacji</h4><span class="line"></span>
-      <span class="meta">Zajęcia wspierające funkcje poznawcze / pomoc p-p</span></div>
+    <div class="kdwie" style="align-items:end">
+      <div>
+        <div class="ksec"><span class="sq">IV</span><h4>Sposób realizacji</h4><span class="line"></span></div>
+        <div class="krodzaj" style="font-style:italic">Tabela poniżej ↓</div>
+      </div>
+      <div>
+        <div class="ksec"><span class="sq">V</span><h4>Rodzaj zajęć</h4><span class="line"></span></div>
+        <div class="krodzaj">Zajęcia wspierające funkcje poznawcze / pomoc p-p</div>
+      </div>
+    </div>
+    <p class="kkurs">Konkretne czynności nauczyciela (N) i odpowiadające im oczekiwane reakcje i umiejętności dziecka (D).</p>
     <div class="tablewrap"><table class="ktab">
       <thead><tr><th class="c-lp">Lp.</th><th style="width:47%">Czynności nauczyciela (N)</th>
         <th>Oczekiwane reakcje i umiejętności dziecka (D)</th></tr></thead>
@@ -2873,21 +2950,21 @@ tr.tbanner .bsep{color:var(--accent); padding:0 5px}
         <tr><td class="lp">5</td><td>N — kończy „tańcem małpki” z sekwencją 2 ruchów.</td><td>D — odtwarza sekwencję i przybija łapkę małpce.</td></tr>
       </tbody>
     </table></div>
-    <div class="ksec"><span class="sq">V</span><h4>Realizacja według poziomu wsparcia</h4><span class="line"></span>
-      <span class="meta">ta sama zabawa · trzy progi wymagań · kliknięty poziom wyróżniony</span></div>
+    <div class="ksec"><span class="sq">VI</span><h4>Modyfikacja przy ocenie żółtej / czerwonej</h4><span class="line"></span></div>
+    <p class="kkurs">Modyfikację stosuje się, gdy brak progresu w dwóch kolejnych sesjach. Zielona — rozszerzenie przy pełnym sukcesie. Kliknięty poziom wyróżniony.</p>
     <div class="kmods">
-      <div class="kmod m3" data-mod="p3"><b>Poziom III · czerwona — pełne wsparcie</b><ul class="klista">
+      <div class="kmod m2" data-mod="p2"><b>Poziom II · Żółta</b><ul class="klista">
+          <li>jeden ruch na próbę, bez sekwencji</li>
+          <li>pokaz powtórzony dwa razy przed próbą</li>
+          <li>dziecko naprzeciw nauczyciela, blisko</li>
+      </ul></div>
+      <div class="kmod m3" data-mod="p3"><b>Poziom III · Czerwona</b><ul class="klista">
           <li>prowadzenie rąk dziecka przy pierwszych próbach</li>
           <li>naśladowanie na materiale (odkładanie klocka jak dorosły)</li>
           <li>sesja indywidualna przed grupową</li>
           <li>monitoring postępu co tydzień</li>
       </ul></div>
-      <div class="kmod m2" data-mod="p2"><b>Poziom II · żółta — wsparcie częściowe</b><ul class="klista">
-          <li>jeden ruch na próbę, bez sekwencji</li>
-          <li>pokaz powtórzony dwa razy przed próbą</li>
-          <li>dziecko naprzeciw nauczyciela, blisko</li>
-      </ul></div>
-      <div class="kmod m1" data-mod="p1"><b>Poziom I · zielona — samodzielność</b><ul class="klista">
+      <div class="kmod m1" data-mod="p1"><b>Poziom I · Zielona</b><ul class="klista">
           <li>sekwencje 3 ruchów pokazane jeden raz</li>
           <li>dziecko prowadzi zabawę jako małpka</li>
           <li>naśladowanie odroczone: „zrób to, co małpka robiła przed chwilą”</li>
@@ -2912,6 +2989,11 @@ tr.tbanner .bsep{color:var(--accent); padding:0 5px}
         <div class="ks">Konspekt · I UCZENIE SIĘ I STOSOWANIE WIEDZY · 3–4 lata · wersja A · twierdzenie 3</div>
       </div>
       <span class="kpill">Konspekt D1-03</span>
+    </div>
+    <div class="kmeta kdziecko" style="grid-template-columns:1.5fr 1fr 1fr; margin:12px 0 0">
+      <div class="field"><b>Dotyczy dziecka</b><span class="dots"></span></div>
+      <div class="field"><b>Grupa</b><span class="dots"></span></div>
+      <div class="field"><b>Data</b><span class="dots"></span></div>
     </div>
     <div class="ktitle">
       <span class="kp">Konspekt zajęć · druk KC-3</span>
@@ -2994,8 +3076,17 @@ tr.tbanner .bsep{color:var(--accent); padding:0 5px}
         </ul>
       </div>
     </div>
-    <div class="ksec"><span class="sq">IV</span><h4>Sposób realizacji</h4><span class="line"></span>
-      <span class="meta">Zajęcia wspierające funkcje poznawcze / pomoc p-p</span></div>
+    <div class="kdwie" style="align-items:end">
+      <div>
+        <div class="ksec"><span class="sq">IV</span><h4>Sposób realizacji</h4><span class="line"></span></div>
+        <div class="krodzaj" style="font-style:italic">Tabela poniżej ↓</div>
+      </div>
+      <div>
+        <div class="ksec"><span class="sq">V</span><h4>Rodzaj zajęć</h4><span class="line"></span></div>
+        <div class="krodzaj">Zajęcia wspierające funkcje poznawcze / pomoc p-p</div>
+      </div>
+    </div>
+    <p class="kkurs">Konkretne czynności nauczyciela (N) i odpowiadające im oczekiwane reakcje i umiejętności dziecka (D).</p>
     <div class="tablewrap"><table class="ktab">
       <thead><tr><th class="c-lp">Lp.</th><th style="width:47%">Czynności nauczyciela (N)</th>
         <th>Oczekiwane reakcje i umiejętności dziecka (D)</th></tr></thead>
@@ -3007,21 +3098,21 @@ tr.tbanner .bsep{color:var(--accent); padding:0 5px}
         <tr><td class="lp">5</td><td>N — proponuje drugą turę z nowym skarbem.</td><td>D — decyduje: jeszcze raz albo koniec na dziś.</td></tr>
       </tbody>
     </table></div>
-    <div class="ksec"><span class="sq">V</span><h4>Realizacja według poziomu wsparcia</h4><span class="line"></span>
-      <span class="meta">ta sama zabawa · trzy progi wymagań · kliknięty poziom wyróżniony</span></div>
+    <div class="ksec"><span class="sq">VI</span><h4>Modyfikacja przy ocenie żółtej / czerwonej</h4><span class="line"></span></div>
+    <p class="kkurs">Modyfikację stosuje się, gdy brak progresu w dwóch kolejnych sesjach. Zielona — rozszerzenie przy pełnym sukcesie. Kliknięty poziom wyróżniony.</p>
     <div class="kmods">
-      <div class="kmod m3" data-mod="p3"><b>Poziom III · czerwona — pełne wsparcie</b><ul class="klista">
+      <div class="kmod m2" data-mod="p2"><b>Poziom II · Żółta</b><ul class="klista">
+          <li>klepsydra 1-minutowa na start</li>
+          <li>dorosły siedzi obok przez całą próbę</li>
+          <li>skarb wybierany z dwóch, nie z pudełka</li>
+      </ul></div>
+      <div class="kmod m3" data-mod="p3"><b>Poziom III · Czerwona</b><ul class="klista">
           <li>zabawa współdzielona z dorosłym (naprzemienne ruchy)</li>
           <li>czas liczony od 30 sekund</li>
           <li>przerwa ruchowa między próbami</li>
           <li>obserwacja pod kątem przyczyn sensorycznych</li>
       </ul></div>
-      <div class="kmod m2" data-mod="p2"><b>Poziom II · żółta — wsparcie częściowe</b><ul class="klista">
-          <li>klepsydra 1-minutowa na start</li>
-          <li>dorosły siedzi obok przez całą próbę</li>
-          <li>skarb wybierany z dwóch, nie z pudełka</li>
-      </ul></div>
-      <div class="kmod m1" data-mod="p1"><b>Poziom I · zielona — samodzielność</b><ul class="klista">
+      <div class="kmod m1" data-mod="p1"><b>Poziom I · Zielona</b><ul class="klista">
           <li>klepsydra 4-minutowa i zadanie 2-etapowe</li>
           <li>samodzielny wybór zadania i sprzątnięcie po skończeniu</li>
           <li>praca obok innego dziecka, bez parawanu</li>
@@ -3046,6 +3137,11 @@ tr.tbanner .bsep{color:var(--accent); padding:0 5px}
         <div class="ks">Konspekt · I UCZENIE SIĘ I STOSOWANIE WIEDZY · 3–4 lata · wersja A · twierdzenie 4</div>
       </div>
       <span class="kpill">Konspekt D1-04</span>
+    </div>
+    <div class="kmeta kdziecko" style="grid-template-columns:1.5fr 1fr 1fr; margin:12px 0 0">
+      <div class="field"><b>Dotyczy dziecka</b><span class="dots"></span></div>
+      <div class="field"><b>Grupa</b><span class="dots"></span></div>
+      <div class="field"><b>Data</b><span class="dots"></span></div>
     </div>
     <div class="ktitle">
       <span class="kp">Konspekt zajęć · druk KC-3</span>
@@ -3128,8 +3224,17 @@ tr.tbanner .bsep{color:var(--accent); padding:0 5px}
         </ul>
       </div>
     </div>
-    <div class="ksec"><span class="sq">IV</span><h4>Sposób realizacji</h4><span class="line"></span>
-      <span class="meta">Zajęcia wspierające funkcje poznawcze / pomoc p-p</span></div>
+    <div class="kdwie" style="align-items:end">
+      <div>
+        <div class="ksec"><span class="sq">IV</span><h4>Sposób realizacji</h4><span class="line"></span></div>
+        <div class="krodzaj" style="font-style:italic">Tabela poniżej ↓</div>
+      </div>
+      <div>
+        <div class="ksec"><span class="sq">V</span><h4>Rodzaj zajęć</h4><span class="line"></span></div>
+        <div class="krodzaj">Zajęcia wspierające funkcje poznawcze / pomoc p-p</div>
+      </div>
+    </div>
+    <p class="kkurs">Konkretne czynności nauczyciela (N) i odpowiadające im oczekiwane reakcje i umiejętności dziecka (D).</p>
     <div class="tablewrap"><table class="ktab">
       <thead><tr><th class="c-lp">Lp.</th><th style="width:47%">Czynności nauczyciela (N)</th>
         <th>Oczekiwane reakcje i umiejętności dziecka (D)</th></tr></thead>
@@ -3141,21 +3246,21 @@ tr.tbanner .bsep{color:var(--accent); padding:0 5px}
         <tr><td class="lp">5</td><td>N — kończy przeliczeniem mieszkańców obu domków.</td><td>D — liczy z nauczycielem i przybija piątkę.</td></tr>
       </tbody>
     </table></div>
-    <div class="ksec"><span class="sq">V</span><h4>Realizacja według poziomu wsparcia</h4><span class="line"></span>
-      <span class="meta">ta sama zabawa · trzy progi wymagań · kliknięty poziom wyróżniony</span></div>
+    <div class="ksec"><span class="sq">VI</span><h4>Modyfikacja przy ocenie żółtej / czerwonej</h4><span class="line"></span></div>
+    <p class="kkurs">Modyfikację stosuje się, gdy brak progresu w dwóch kolejnych sesjach. Zielona — rozszerzenie przy pełnym sukcesie. Kliknięty poziom wyróżniony.</p>
     <div class="kmods">
-      <div class="kmod m3" data-mod="p3"><b>Poziom III · czerwona — pełne wsparcie</b><ul class="klista">
+      <div class="kmod m2" data-mod="p2"><b>Poziom II · Żółta</b><ul class="klista">
+          <li>przedmioty identyczne, różne tylko kolorem</li>
+          <li>po każdej próbie potwierdzenie: „tak, czerwony”</li>
+          <li>4 elementy zamiast 6</li>
+      </ul></div>
+      <div class="kmod m3" data-mod="p3"><b>Poziom III · Czerwona</b><ul class="klista">
           <li>dopasowywanie 1:1 do wzorca zamiast sortowania</li>
           <li>prowadzenie ręki przy pierwszych 2 próbach</li>
           <li>kolory silnie kontrastowe (czerwony–niebieski)</li>
           <li>wydłużenie etapu przed wprowadzeniem drugiej cechy</li>
       </ul></div>
-      <div class="kmod m2" data-mod="p2"><b>Poziom II · żółta — wsparcie częściowe</b><ul class="klista">
-          <li>przedmioty identyczne, różne tylko kolorem</li>
-          <li>po każdej próbie potwierdzenie: „tak, czerwony”</li>
-          <li>4 elementy zamiast 6</li>
-      </ul></div>
-      <div class="kmod m1" data-mod="p1"><b>Poziom I · zielona — samodzielność</b><ul class="klista">
+      <div class="kmod m1" data-mod="p1"><b>Poziom I · Zielona</b><ul class="klista">
           <li>trzeci kolor albo druga cecha: wielkość</li>
           <li>dziecko nazywa kryterium: „bo są czerwone”</li>
           <li>samodzielne wymyślenie własnego podziału zabawek</li>
@@ -3180,6 +3285,11 @@ tr.tbanner .bsep{color:var(--accent); padding:0 5px}
         <div class="ks">Konspekt · I UCZENIE SIĘ I STOSOWANIE WIEDZY · 3–4 lata · wersja A · twierdzenie 5</div>
       </div>
       <span class="kpill">Konspekt D1-05</span>
+    </div>
+    <div class="kmeta kdziecko" style="grid-template-columns:1.5fr 1fr 1fr; margin:12px 0 0">
+      <div class="field"><b>Dotyczy dziecka</b><span class="dots"></span></div>
+      <div class="field"><b>Grupa</b><span class="dots"></span></div>
+      <div class="field"><b>Data</b><span class="dots"></span></div>
     </div>
     <div class="ktitle">
       <span class="kp">Konspekt zajęć · druk KC-3</span>
@@ -3262,8 +3372,17 @@ tr.tbanner .bsep{color:var(--accent); padding:0 5px}
         </ul>
       </div>
     </div>
-    <div class="ksec"><span class="sq">IV</span><h4>Sposób realizacji</h4><span class="line"></span>
-      <span class="meta">Zajęcia wspierające funkcje poznawcze / pomoc p-p</span></div>
+    <div class="kdwie" style="align-items:end">
+      <div>
+        <div class="ksec"><span class="sq">IV</span><h4>Sposób realizacji</h4><span class="line"></span></div>
+        <div class="krodzaj" style="font-style:italic">Tabela poniżej ↓</div>
+      </div>
+      <div>
+        <div class="ksec"><span class="sq">V</span><h4>Rodzaj zajęć</h4><span class="line"></span></div>
+        <div class="krodzaj">Zajęcia wspierające funkcje poznawcze / pomoc p-p</div>
+      </div>
+    </div>
+    <p class="kkurs">Konkretne czynności nauczyciela (N) i odpowiadające im oczekiwane reakcje i umiejętności dziecka (D).</p>
     <div class="tablewrap"><table class="ktab">
       <thead><tr><th class="c-lp">Lp.</th><th style="width:47%">Czynności nauczyciela (N)</th>
         <th>Oczekiwane reakcje i umiejętności dziecka (D)</th></tr></thead>
@@ -3275,21 +3394,21 @@ tr.tbanner .bsep{color:var(--accent); padding:0 5px}
         <tr><td class="lp">5</td><td>N — przy realnej trudności dnia wskazuje kartę „próbowałem sam”.</td><td>D — najpierw próbuje, potem sygnalizuje „pomoc”.</td></tr>
       </tbody>
     </table></div>
-    <div class="ksec"><span class="sq">V</span><h4>Realizacja według poziomu wsparcia</h4><span class="line"></span>
-      <span class="meta">ta sama zabawa · trzy progi wymagań · kliknięty poziom wyróżniony</span></div>
+    <div class="ksec"><span class="sq">VI</span><h4>Modyfikacja przy ocenie żółtej / czerwonej</h4><span class="line"></span></div>
+    <p class="kkurs">Modyfikację stosuje się, gdy brak progresu w dwóch kolejnych sesjach. Zielona — rozszerzenie przy pełnym sukcesie. Kliknięty poziom wyróżniony.</p>
     <div class="kmods">
-      <div class="kmod m3" data-mod="p3"><b>Poziom III · czerwona — pełne wsparcie</b><ul class="klista">
+      <div class="kmod m2" data-mod="p2"><b>Poziom II · Żółta</b><ul class="klista">
+          <li>jedno zamknięcie na sesję</li>
+          <li>pokaz rozwiązania na bliźniaczym pudełku</li>
+          <li>odczekanie skrócone do 5 sekund</li>
+      </ul></div>
+      <div class="kmod m3" data-mod="p3"><b>Poziom III · Czerwona</b><ul class="klista">
           <li>wspólne ręce na pudełku — dorosły zaczyna ruch, dziecko kończy</li>
           <li>niespodzianka widoczna przez przezroczyste wieczko</li>
           <li>wzmocnienie każdej, nawet nieskutecznej próby</li>
           <li>powiązanie z konspektem D7-33 (proszenie o pomoc)</li>
       </ul></div>
-      <div class="kmod m2" data-mod="p2"><b>Poziom II · żółta — wsparcie częściowe</b><ul class="klista">
-          <li>jedno zamknięcie na sesję</li>
-          <li>pokaz rozwiązania na bliźniaczym pudełku</li>
-          <li>odczekanie skrócone do 5 sekund</li>
-      </ul></div>
-      <div class="kmod m1" data-mod="p1"><b>Poziom I · zielona — samodzielność</b><ul class="klista">
+      <div class="kmod m1" data-mod="p1"><b>Poziom I · Zielona</b><ul class="klista">
           <li>dwie różne strategie wypróbowane z rzędu</li>
           <li>opowiedzenie po sukcesie: „jak to zrobiłem”</li>
           <li>zamknięcia codzienne: kurtka, zamek, kran, pudełko śniadaniowe</li>
@@ -3314,6 +3433,11 @@ tr.tbanner .bsep{color:var(--accent); padding:0 5px}
         <div class="ks">Konspekt · VII WZAJEMNE KONTAKTY · 3–4 lata · wersja A · twierdzenie 29</div>
       </div>
       <span class="kpill">Konspekt D7-29</span>
+    </div>
+    <div class="kmeta kdziecko" style="grid-template-columns:1.5fr 1fr 1fr; margin:12px 0 0">
+      <div class="field"><b>Dotyczy dziecka</b><span class="dots"></span></div>
+      <div class="field"><b>Grupa</b><span class="dots"></span></div>
+      <div class="field"><b>Data</b><span class="dots"></span></div>
     </div>
     <div class="ktitle">
       <span class="kp">Konspekt zajęć · druk KC-3</span>
@@ -3396,8 +3520,17 @@ tr.tbanner .bsep{color:var(--accent); padding:0 5px}
         </ul>
       </div>
     </div>
-    <div class="ksec"><span class="sq">IV</span><h4>Sposób realizacji</h4><span class="line"></span>
-      <span class="meta">Zajęcia wspierające kompetencje społeczne / pomoc p-p</span></div>
+    <div class="kdwie" style="align-items:end">
+      <div>
+        <div class="ksec"><span class="sq">IV</span><h4>Sposób realizacji</h4><span class="line"></span></div>
+        <div class="krodzaj" style="font-style:italic">Tabela poniżej ↓</div>
+      </div>
+      <div>
+        <div class="ksec"><span class="sq">V</span><h4>Rodzaj zajęć</h4><span class="line"></span></div>
+        <div class="krodzaj">Zajęcia wspierające kompetencje społeczne / pomoc p-p</div>
+      </div>
+    </div>
+    <p class="kkurs">Konkretne czynności nauczyciela (N) i odpowiadające im oczekiwane reakcje i umiejętności dziecka (D).</p>
     <div class="tablewrap"><table class="ktab">
       <thead><tr><th class="c-lp">Lp.</th><th style="width:47%">Czynności nauczyciela (N)</th>
         <th>Oczekiwane reakcje i umiejętności dziecka (D)</th></tr></thead>
@@ -3409,22 +3542,22 @@ tr.tbanner .bsep{color:var(--accent); padding:0 5px}
         <tr><td class="lp">5</td><td>N — kończy rundą „komu błysnęła latarnia?”.</td><td>D — wskazuje, kto mówił, przybija piątkę.</td></tr>
       </tbody>
     </table></div>
-    <div class="ksec"><span class="sq">V</span><h4>Realizacja według poziomu wsparcia</h4><span class="line"></span>
-      <span class="meta">ta sama zabawa · trzy progi wymagań · kliknięty poziom wyróżniony</span></div>
+    <div class="ksec"><span class="sq">VI</span><h4>Modyfikacja przy ocenie żółtej / czerwonej</h4><span class="line"></span></div>
+    <p class="kkurs">Modyfikację stosuje się, gdy brak progresu w dwóch kolejnych sesjach. Zielona — rozszerzenie przy pełnym sukcesie. Kliknięty poziom wyróżniony.</p>
     <div class="kmods">
-      <div class="kmod m3" data-mod="p3"><b>Poziom III · czerwona — pełne wsparcie</b><ul class="klista">
-          <li>zabawa w parze z dorosłym</li>
-          <li>fizyczne ukierunkowanie (dotyk ramienia)</li>
-          <li>lampion podawany do rąk dziecka</li>
-          <li>powrót do kręgu po 2 tygodniach</li>
-      </ul></div>
-      <div class="kmod m2" data-mod="p2"><b>Poziom II · żółta — wsparcie częściowe</b><ul class="klista">
+      <div class="kmod m2" data-mod="p2"><b>Poziom II · Żółta</b><ul class="klista">
           <li>krąg zmniejszony do 3 osób</li>
           <li>tura skrócona do 10 sekund</li>
           <li>dzwonek przy każdej zmianie</li>
           <li>dziecko siedzi obok nauczyciela</li>
       </ul></div>
-      <div class="kmod m1" data-mod="p1"><b>Poziom I · zielona — samodzielność</b><ul class="klista">
+      <div class="kmod m3" data-mod="p3"><b>Poziom III · Czerwona</b><ul class="klista">
+          <li>zabawa w parze z dorosłym</li>
+          <li>fizyczne ukierunkowanie (dotyk ramienia)</li>
+          <li>lampion podawany do rąk dziecka</li>
+          <li>powrót do kręgu po 2 tygodniach</li>
+      </ul></div>
+      <div class="kmod m1" data-mod="p1"><b>Poziom I · Zielona</b><ul class="klista">
           <li>dziecko prowadzi zabawę jako „latarnik” i podaje lampion</li>
           <li>tury wydłużone do 45 sekund</li>
           <li>zabawa w pełnym kręgu całej grupy</li>
@@ -3449,6 +3582,11 @@ tr.tbanner .bsep{color:var(--accent); padding:0 5px}
         <div class="ks">Konspekt · VII WZAJEMNE KONTAKTY · 3–4 lata · wersja A · twierdzenie 30</div>
       </div>
       <span class="kpill">Konspekt D7-30</span>
+    </div>
+    <div class="kmeta kdziecko" style="grid-template-columns:1.5fr 1fr 1fr; margin:12px 0 0">
+      <div class="field"><b>Dotyczy dziecka</b><span class="dots"></span></div>
+      <div class="field"><b>Grupa</b><span class="dots"></span></div>
+      <div class="field"><b>Data</b><span class="dots"></span></div>
     </div>
     <div class="ktitle">
       <span class="kp">Konspekt zajęć · druk KC-3</span>
@@ -3531,8 +3669,17 @@ tr.tbanner .bsep{color:var(--accent); padding:0 5px}
         </ul>
       </div>
     </div>
-    <div class="ksec"><span class="sq">IV</span><h4>Sposób realizacji</h4><span class="line"></span>
-      <span class="meta">Zajęcia wspierające kompetencje społeczne / pomoc p-p</span></div>
+    <div class="kdwie" style="align-items:end">
+      <div>
+        <div class="ksec"><span class="sq">IV</span><h4>Sposób realizacji</h4><span class="line"></span></div>
+        <div class="krodzaj" style="font-style:italic">Tabela poniżej ↓</div>
+      </div>
+      <div>
+        <div class="ksec"><span class="sq">V</span><h4>Rodzaj zajęć</h4><span class="line"></span></div>
+        <div class="krodzaj">Zajęcia wspierające kompetencje społeczne / pomoc p-p</div>
+      </div>
+    </div>
+    <p class="kkurs">Konkretne czynności nauczyciela (N) i odpowiadające im oczekiwane reakcje i umiejętności dziecka (D).</p>
     <div class="tablewrap"><table class="ktab">
       <thead><tr><th class="c-lp">Lp.</th><th style="width:47%">Czynności nauczyciela (N)</th>
         <th>Oczekiwane reakcje i umiejętności dziecka (D)</th></tr></thead>
@@ -3544,21 +3691,21 @@ tr.tbanner .bsep{color:var(--accent); padding:0 5px}
         <tr><td class="lp">5</td><td>N — kończy wspólnym „hura” i magnesem na tablicy.</td><td>D — przybija piątkę z kolegą, wskazuje swój magnes.</td></tr>
       </tbody>
     </table></div>
-    <div class="ksec"><span class="sq">V</span><h4>Realizacja według poziomu wsparcia</h4><span class="line"></span>
-      <span class="meta">ta sama zabawa · trzy progi wymagań · kliknięty poziom wyróżniony</span></div>
+    <div class="ksec"><span class="sq">VI</span><h4>Modyfikacja przy ocenie żółtej / czerwonej</h4><span class="line"></span></div>
+    <p class="kkurs">Modyfikację stosuje się, gdy brak progresu w dwóch kolejnych sesjach. Zielona — rozszerzenie przy pełnym sukcesie. Kliknięty poziom wyróżniony.</p>
     <div class="kmods">
-      <div class="kmod m3" data-mod="p3"><b>Poziom III · czerwona — pełne wsparcie</b><ul class="klista">
+      <div class="kmod m2" data-mod="p2"><b>Poziom II · Żółta</b><ul class="klista">
+          <li>wymiana skrócona do 2 podań</li>
+          <li>dorosły podtrzymuje rytm piosenką przez całą sesję</li>
+          <li>większa, łatwa do chwycenia maskotka</li>
+      </ul></div>
+      <div class="kmod m3" data-mod="p3"><b>Poziom III · Czerwona</b><ul class="klista">
           <li>wymiana dziecko–dorosły zamiast dziecko–dziecko</li>
           <li>prowadzenie rąk przy podaniu</li>
           <li>nagroda sensoryczna po każdym podaniu</li>
           <li>rówieśnik dołącza po 2 tygodniach</li>
       </ul></div>
-      <div class="kmod m2" data-mod="p2"><b>Poziom II · żółta — wsparcie częściowe</b><ul class="klista">
-          <li>wymiana skrócona do 2 podań</li>
-          <li>dorosły podtrzymuje rytm piosenką przez całą sesję</li>
-          <li>większa, łatwa do chwycenia maskotka</li>
-      </ul></div>
-      <div class="kmod m1" data-mod="p1"><b>Poziom I · zielona — samodzielność</b><ul class="klista">
+      <div class="kmod m1" data-mod="p1"><b>Poziom I · Zielona</b><ul class="klista">
           <li>wymiana w trójce z regułą kolejności</li>
           <li>dziecko samo zaprasza kolegę do zabawy</li>
           <li>wymiany w sytuacjach naturalnych: rozdawanie kredek, kubków</li>
@@ -3583,6 +3730,11 @@ tr.tbanner .bsep{color:var(--accent); padding:0 5px}
         <div class="ks">Konspekt · VII WZAJEMNE KONTAKTY · 3–4 lata · wersja A · twierdzenie 31</div>
       </div>
       <span class="kpill">Konspekt D7-31</span>
+    </div>
+    <div class="kmeta kdziecko" style="grid-template-columns:1.5fr 1fr 1fr; margin:12px 0 0">
+      <div class="field"><b>Dotyczy dziecka</b><span class="dots"></span></div>
+      <div class="field"><b>Grupa</b><span class="dots"></span></div>
+      <div class="field"><b>Data</b><span class="dots"></span></div>
     </div>
     <div class="ktitle">
       <span class="kp">Konspekt zajęć · druk KC-3</span>
@@ -3665,8 +3817,17 @@ tr.tbanner .bsep{color:var(--accent); padding:0 5px}
         </ul>
       </div>
     </div>
-    <div class="ksec"><span class="sq">IV</span><h4>Sposób realizacji</h4><span class="line"></span>
-      <span class="meta">Wsparcie adaptacyjne / pomoc p-p</span></div>
+    <div class="kdwie" style="align-items:end">
+      <div>
+        <div class="ksec"><span class="sq">IV</span><h4>Sposób realizacji</h4><span class="line"></span></div>
+        <div class="krodzaj" style="font-style:italic">Tabela poniżej ↓</div>
+      </div>
+      <div>
+        <div class="ksec"><span class="sq">V</span><h4>Rodzaj zajęć</h4><span class="line"></span></div>
+        <div class="krodzaj">Wsparcie adaptacyjne / pomoc p-p</div>
+      </div>
+    </div>
+    <p class="kkurs">Konkretne czynności nauczyciela (N) i odpowiadające im oczekiwane reakcje i umiejętności dziecka (D).</p>
     <div class="tablewrap"><table class="ktab">
       <thead><tr><th class="c-lp">Lp.</th><th style="width:47%">Czynności nauczyciela (N)</th>
         <th>Oczekiwane reakcje i umiejętności dziecka (D)</th></tr></thead>
@@ -3678,21 +3839,21 @@ tr.tbanner .bsep{color:var(--accent); padding:0 5px}
         <tr><td class="lp">5</td><td>N — po 5 minutach nazywa sukces: „poradziłeś sobie”.</td><td>D — odkłada przedmiot przejściowy na swoją półkę.</td></tr>
       </tbody>
     </table></div>
-    <div class="ksec"><span class="sq">V</span><h4>Realizacja według poziomu wsparcia</h4><span class="line"></span>
-      <span class="meta">ta sama zabawa · trzy progi wymagań · kliknięty poziom wyróżniony</span></div>
+    <div class="ksec"><span class="sq">VI</span><h4>Modyfikacja przy ocenie żółtej / czerwonej</h4><span class="line"></span></div>
+    <p class="kkurs">Modyfikację stosuje się, gdy brak progresu w dwóch kolejnych sesjach. Zielona — rozszerzenie przy pełnym sukcesie. Kliknięty poziom wyróżniony.</p>
     <div class="kmods">
-      <div class="kmod m3" data-mod="p3"><b>Poziom III · czerwona — pełne wsparcie</b><ul class="klista">
+      <div class="kmod m2" data-mod="p2"><b>Poziom II · Żółta</b><ul class="klista">
+          <li>rodzic odprowadza do progu sali, nie do szatni</li>
+          <li>podwójne machanie (okienko + drzwi)</li>
+          <li>zabawa startowa wybierana poprzedniego dnia</li>
+      </ul></div>
+      <div class="kmod m3" data-mod="p3"><b>Poziom III · Czerwona</b><ul class="klista">
           <li>rodzic zostaje 10 minut w sali na starcie tygodnia</li>
           <li>skrócony pobyt uzgodniony z rodzicami</li>
           <li>stały dorosły przejmujący dziecko z rąk rodzica</li>
           <li>konsultacja zespołu ze specjalistą</li>
       </ul></div>
-      <div class="kmod m2" data-mod="p2"><b>Poziom II · żółta — wsparcie częściowe</b><ul class="klista">
-          <li>rodzic odprowadza do progu sali, nie do szatni</li>
-          <li>podwójne machanie (okienko + drzwi)</li>
-          <li>zabawa startowa wybierana poprzedniego dnia</li>
-      </ul></div>
-      <div class="kmod m1" data-mod="p1"><b>Poziom I · zielona — samodzielność</b><ul class="klista">
+      <div class="kmod m1" data-mod="p1"><b>Poziom I · Zielona</b><ul class="klista">
           <li>dziecko samo prowadzi swój rytuał, dorosły tylko obserwuje</li>
           <li>rola „witacza”: wita młodsze dziecko przy drzwiach</li>
           <li>rytuał skracany do samego machania z okienka</li>
@@ -3717,6 +3878,11 @@ tr.tbanner .bsep{color:var(--accent); padding:0 5px}
         <div class="ks">Konspekt · VII WZAJEMNE KONTAKTY · 3–4 lata · wersja A · twierdzenie 32</div>
       </div>
       <span class="kpill">Konspekt D7-32</span>
+    </div>
+    <div class="kmeta kdziecko" style="grid-template-columns:1.5fr 1fr 1fr; margin:12px 0 0">
+      <div class="field"><b>Dotyczy dziecka</b><span class="dots"></span></div>
+      <div class="field"><b>Grupa</b><span class="dots"></span></div>
+      <div class="field"><b>Data</b><span class="dots"></span></div>
     </div>
     <div class="ktitle">
       <span class="kp">Konspekt zajęć · druk KC-3</span>
@@ -3799,8 +3965,17 @@ tr.tbanner .bsep{color:var(--accent); padding:0 5px}
         </ul>
       </div>
     </div>
-    <div class="ksec"><span class="sq">IV</span><h4>Sposób realizacji</h4><span class="line"></span>
-      <span class="meta">Zajęcia wspierające rozwój emocjonalny / pomoc p-p</span></div>
+    <div class="kdwie" style="align-items:end">
+      <div>
+        <div class="ksec"><span class="sq">IV</span><h4>Sposób realizacji</h4><span class="line"></span></div>
+        <div class="krodzaj" style="font-style:italic">Tabela poniżej ↓</div>
+      </div>
+      <div>
+        <div class="ksec"><span class="sq">V</span><h4>Rodzaj zajęć</h4><span class="line"></span></div>
+        <div class="krodzaj">Zajęcia wspierające rozwój emocjonalny / pomoc p-p</div>
+      </div>
+    </div>
+    <p class="kkurs">Konkretne czynności nauczyciela (N) i odpowiadające im oczekiwane reakcje i umiejętności dziecka (D).</p>
     <div class="tablewrap"><table class="ktab">
       <thead><tr><th class="c-lp">Lp.</th><th style="width:47%">Czynności nauczyciela (N)</th>
         <th>Oczekiwane reakcje i umiejętności dziecka (D)</th></tr></thead>
@@ -3812,21 +3987,21 @@ tr.tbanner .bsep{color:var(--accent); padding:0 5px}
         <tr><td class="lp">5</td><td>N — w ciągu dnia wraca: „pokaż, co teraz czujesz”.</td><td>D — pokazuje minę lub kartę w sytuacji naturalnej.</td></tr>
       </tbody>
     </table></div>
-    <div class="ksec"><span class="sq">V</span><h4>Realizacja według poziomu wsparcia</h4><span class="line"></span>
-      <span class="meta">ta sama zabawa · trzy progi wymagań · kliknięty poziom wyróżniony</span></div>
+    <div class="ksec"><span class="sq">VI</span><h4>Modyfikacja przy ocenie żółtej / czerwonej</h4><span class="line"></span></div>
+    <p class="kkurs">Modyfikację stosuje się, gdy brak progresu w dwóch kolejnych sesjach. Zielona — rozszerzenie przy pełnym sukcesie. Kliknięty poziom wyróżniony.</p>
     <div class="kmods">
-      <div class="kmod m3" data-mod="p3"><b>Poziom III · czerwona — pełne wsparcie</b><ul class="klista">
+      <div class="kmod m2" data-mod="p2"><b>Poziom II · Żółta</b><ul class="klista">
+          <li>jedna emocja na sesję (najpierw radość)</li>
+          <li>mina razem z nauczycielem w jednym lustrze</li>
+          <li>karta emocji stale przy dziecku (brelok)</li>
+      </ul></div>
+      <div class="kmod m3" data-mod="p3"><b>Poziom III · Czerwona</b><ul class="klista">
           <li>odczytywanie emocji z twarzy dorosłego zamiast pokazywania</li>
           <li>fotografie dziecka zamiast rysunków</li>
           <li>wsparcie logopedy przy nazywaniu</li>
           <li>monitoring ABC zachowań trudnych</li>
       </ul></div>
-      <div class="kmod m2" data-mod="p2"><b>Poziom II · żółta — wsparcie częściowe</b><ul class="klista">
-          <li>jedna emocja na sesję (najpierw radość)</li>
-          <li>mina razem z nauczycielem w jednym lustrze</li>
-          <li>karta emocji stale przy dziecku (brelok)</li>
-      </ul></div>
-      <div class="kmod m1" data-mod="p1"><b>Poziom I · zielona — samodzielność</b><ul class="klista">
+      <div class="kmod m1" data-mod="p1"><b>Poziom I · Zielona</b><ul class="klista">
           <li>rozszerzenie o smutek i strach</li>
           <li>nazywanie emocji kolegi w sytuacji realnej i proponowanie pomocy</li>
           <li>dziecko samo prowadzi scenkę z pacynką dla grupy</li>
@@ -3851,6 +4026,11 @@ tr.tbanner .bsep{color:var(--accent); padding:0 5px}
         <div class="ks">Konspekt · VII WZAJEMNE KONTAKTY · 3–4 lata · wersja A · twierdzenie 33</div>
       </div>
       <span class="kpill">Konspekt D7-33</span>
+    </div>
+    <div class="kmeta kdziecko" style="grid-template-columns:1.5fr 1fr 1fr; margin:12px 0 0">
+      <div class="field"><b>Dotyczy dziecka</b><span class="dots"></span></div>
+      <div class="field"><b>Grupa</b><span class="dots"></span></div>
+      <div class="field"><b>Data</b><span class="dots"></span></div>
     </div>
     <div class="ktitle">
       <span class="kp">Konspekt zajęć · druk KC-3</span>
@@ -3933,8 +4113,17 @@ tr.tbanner .bsep{color:var(--accent); padding:0 5px}
         </ul>
       </div>
     </div>
-    <div class="ksec"><span class="sq">IV</span><h4>Sposób realizacji</h4><span class="line"></span>
-      <span class="meta">Zajęcia wspierające komunikację / pomoc p-p</span></div>
+    <div class="kdwie" style="align-items:end">
+      <div>
+        <div class="ksec"><span class="sq">IV</span><h4>Sposób realizacji</h4><span class="line"></span></div>
+        <div class="krodzaj" style="font-style:italic">Tabela poniżej ↓</div>
+      </div>
+      <div>
+        <div class="ksec"><span class="sq">V</span><h4>Rodzaj zajęć</h4><span class="line"></span></div>
+        <div class="krodzaj">Zajęcia wspierające komunikację / pomoc p-p</div>
+      </div>
+    </div>
+    <p class="kkurs">Konkretne czynności nauczyciela (N) i odpowiadające im oczekiwane reakcje i umiejętności dziecka (D).</p>
     <div class="tablewrap"><table class="ktab">
       <thead><tr><th class="c-lp">Lp.</th><th style="width:47%">Czynności nauczyciela (N)</th>
         <th>Oczekiwane reakcje i umiejętności dziecka (D)</th></tr></thead>
@@ -3946,21 +4135,21 @@ tr.tbanner .bsep{color:var(--accent); padding:0 5px}
         <tr><td class="lp">5</td><td>N — wzmacnia prośby w sytuacjach naturalnych dnia.</td><td>D — używa gestu/karty przy realnej trudności.</td></tr>
       </tbody>
     </table></div>
-    <div class="ksec"><span class="sq">V</span><h4>Realizacja według poziomu wsparcia</h4><span class="line"></span>
-      <span class="meta">ta sama zabawa · trzy progi wymagań · kliknięty poziom wyróżniony</span></div>
+    <div class="ksec"><span class="sq">VI</span><h4>Modyfikacja przy ocenie żółtej / czerwonej</h4><span class="line"></span></div>
+    <p class="kkurs">Modyfikację stosuje się, gdy brak progresu w dwóch kolejnych sesjach. Zielona — rozszerzenie przy pełnym sukcesie. Kliknięty poziom wyróżniony.</p>
     <div class="kmods">
-      <div class="kmod m3" data-mod="p3"><b>Poziom III · czerwona — pełne wsparcie</b><ul class="klista">
+      <div class="kmod m2" data-mod="p2"><b>Poziom II · Żółta</b><ul class="klista">
+          <li>karta POMOC przyklejona do stolika dziecka</li>
+          <li>dorosły w odległości wyciągniętej ręki</li>
+          <li>jedna próba zaaranżowana dziennie</li>
+      </ul></div>
+      <div class="kmod m3" data-mod="p3"><b>Poziom III · Czerwona</b><ul class="klista">
           <li>prowadzenie ręki do gestu „pomoc”</li>
           <li>natychmiastowa pomoc przy pierwszym sygnale niepokoju</li>
           <li>współpraca z rodzicami — ten sam gest w domu</li>
           <li>konsultacja z poradnią przy braku postępu</li>
       </ul></div>
-      <div class="kmod m2" data-mod="p2"><b>Poziom II · żółta — wsparcie częściowe</b><ul class="klista">
-          <li>karta POMOC przyklejona do stolika dziecka</li>
-          <li>dorosły w odległości wyciągniętej ręki</li>
-          <li>jedna próba zaaranżowana dziennie</li>
-      </ul></div>
-      <div class="kmod m1" data-mod="p1"><b>Poziom I · zielona — samodzielność</b><ul class="klista">
+      <div class="kmod m1" data-mod="p1"><b>Poziom I · Zielona</b><ul class="klista">
           <li>prośba kierowana do różnych dorosłych, także mniej znanych</li>
           <li>nazwanie problemu słowami: „nie mogę otworzyć”</li>
           <li>prośba o pomoc do rówieśnika przed dorosłym</li>

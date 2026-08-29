@@ -278,10 +278,12 @@ table.ktab td.lp{font-size:12px}
 .kmod.aktywny{outline:2px solid var(--ink); outline-offset:1px}
 .kmod.aktywny::after{content:"WYBRANY POZIOM"; position:absolute; top:-9px; right:10px; background:var(--ink);
   color:#fff; font:700 8px/1 "DM Sans",Arial,sans-serif; letter-spacing:.14em; padding:4px 8px; border-radius:999px}
+.krodzaj{border:1px solid var(--line); border-radius:7px; background:var(--paper); padding:9px 13px; font-size:12px; min-height:38px; display:flex; align-items:center}
+.kkurs{font-style:italic; font-size:11px; color:var(--muted); margin:8px 0 6px}
 .kwsk{margin-top:12px; border-left:4px solid var(--accent); background:var(--soft); border-radius:0 8px 8px 0; padding:10px 14px; font-size:11.5px}
 .kwsk b{color:var(--accent)}
 .kfoot{display:flex; gap:9px; justify-content:flex-end; margin-top:18px}
-@media (max-width:860px){ .kcele,.kdwie,.kmods,.kmeta{grid-template-columns:1fr} .kcard{padding:18px 14px} }
+@media screen and (max-width:860px){ .kcele,.kdwie,.kmods,.kmeta{grid-template-columns:1fr} .kcard{padding:18px 14px} }
 
 .podpisy{display:grid; grid-template-columns:repeat(3,1fr); gap:16px; margin-top:18px}
 .podpis{border:1px solid var(--line); border-radius:8px; background:var(--field); padding:13px 15px 26px}
@@ -320,7 +322,54 @@ tr.tbanner .bsep{color:var(--accent); padding:0 5px}
   html.print-konspekt .kcard{box-shadow:none; max-width:none; padding:0; border-radius:0}
   html.print-konspekt .kclose,html.print-konspekt .kfoot,html.print-konspekt .kesc{display:none}
   html.print-konspekt{--void:0}
-  html.print-konspekt .kvar{display:none} html.print-konspekt .kvar.on{display:block}
+  html.print-konspekt .kvar{display:none} html.print-konspekt .kvar.on{display:flex}
+  html.print-konspekt .kcele,html.print-konspekt .kdwie{grid-template-columns:1fr 1fr !important}
+  html.print-konspekt .kmods{grid-template-columns:1fr 1fr 1fr !important}
+  html.print-konspekt .kmeta{grid-template-columns:repeat(4,1fr) !important}
+  html.print-konspekt .kmeta.kdziecko{grid-template-columns:1.5fr 1fr 1fr !important}
+  html.print-konspekt body{font-size:8.5pt}
+  html.print-konspekt .kcard{padding:0}
+  html.print-konspekt .khead{padding-bottom:6pt}
+  html.print-konspekt .khead .kw{font-size:13pt}
+  html.print-konspekt .ktitle{margin:8pt 0 2pt}
+  html.print-konspekt .ktitle h3{font-size:17pt; margin-top:3pt}
+  html.print-konspekt .ktitle .kpod{font-size:7pt; margin-top:3pt}
+  html.print-konspekt .ktitle .ksfera{font-size:7pt; margin-top:5pt}
+  html.print-konspekt .kmeta{margin:7pt 0 2pt; gap:5pt}
+  html.print-konspekt .kmeta .field{min-height:24pt; padding:4pt 8pt}
+  html.print-konspekt .ksec{margin:8pt 0 5pt}
+  html.print-konspekt .ksec h4{font-size:8.5pt}
+  html.print-konspekt .ksec .sq{width:14pt; height:14pt; font-size:7pt}
+  html.print-konspekt .kcele{gap:7pt}
+  html.print-konspekt .kcel .ktresc{padding:6pt 8pt; font-size:8pt}
+  html.print-konspekt .kcel .kchead{padding:4pt; font-size:7.5pt}
+  html.print-konspekt .kcel ul.ksmart{padding:5pt 8pt; gap:2pt}
+  html.print-konspekt .kcel ul.ksmart li{font-size:7.6pt; line-height:1.35}
+  html.print-konspekt .kcel .kkryt{padding:4pt 8pt; font-size:7.2pt}
+  html.print-konspekt ul.klista li{font-size:7.8pt; line-height:1.35}
+  html.print-konspekt ul.klista{gap:2pt}
+  html.print-konspekt .kdwie{gap:9pt}
+  html.print-konspekt .krodzaj{padding:4pt 8pt; font-size:7.8pt; min-height:20pt}
+  html.print-konspekt .kkurs{font-size:7pt; margin:4pt 0 3pt}
+  html.print-konspekt table.ktab th{padding:4pt 6pt; font-size:6.4pt}
+  html.print-konspekt table.ktab td{padding:3.5pt 6pt; font-size:7.8pt}
+  html.print-konspekt .kmods{gap:7pt}
+  html.print-konspekt .kmod{padding:6pt 8pt; font-size:7.6pt}
+  html.print-konspekt .kmod b{font-size:7.4pt; margin-bottom:3pt}
+  html.print-konspekt .kwsk{margin-top:5pt; padding:4pt 8pt; font-size:7.4pt}
+  html.print-konspekt .ksec{margin:6pt 0 4pt}
+  html.print-konspekt .ktitle{margin:6pt 0 2pt}
+  html.print-konspekt .ktitle h3{font-size:16pt}
+  html.print-konspekt .kmeta{margin:6pt 0 2pt}
+  html.print-konspekt .kmeta .field{min-height:21pt; padding:3pt 8pt}
+  html.print-konspekt .kcel .ktresc{padding:5pt 8pt}
+  html.print-konspekt .kcel ul.ksmart{padding:4pt 8pt}
+  html.print-konspekt .kmod{padding:5pt 8pt}
+  html.print-konspekt table.ktab td{padding:3pt 6pt}
+  html.print-konspekt .kkurs{margin:3pt 0 2pt}
+  html.print-konspekt .kmod.aktywny::after{font-size:5.5pt; top:-6pt}
+  html.print-konspekt .kcard,html.print-konspekt .kcele,html.print-konspekt .kmods,
+  html.print-konspekt table.ktab tr{break-inside:avoid; page-break-inside:avoid}
   .podpisy{break-inside:avoid}
   tr.tbanner{display:table-row}
   table{min-width:0; font-size:8.4pt}
@@ -716,6 +765,11 @@ def render_konspekty_modale():
       </div>
       <span class="kpill">Konspekt {esc(K['nr'])}</span>
     </div>
+    <div class="kmeta kdziecko" style="grid-template-columns:1.5fr 1fr 1fr; margin:12px 0 0">
+      <div class="field"><b>Dotyczy dziecka</b><span class="dots"></span></div>
+      <div class="field"><b>Grupa</b><span class="dots"></span></div>
+      <div class="field"><b>Data</b><span class="dots"></span></div>
+    </div>
     <div class="ktitle">
       <span class="kp">Konspekt zajęć · druk KC-3</span>
       <div class="ksfera">{esc(K['sfera'])}</div>
@@ -755,8 +809,17 @@ def render_konspekty_modale():
         </ul>
       </div>
     </div>
-    <div class="ksec"><span class="sq">IV</span><h4>Sposób realizacji</h4><span class="line"></span>
-      <span class="meta">{esc(K['rodzaj'])}</span></div>
+    <div class="kdwie" style="align-items:end">
+      <div>
+        <div class="ksec"><span class="sq">IV</span><h4>Sposób realizacji</h4><span class="line"></span></div>
+        <div class="krodzaj" style="font-style:italic">Tabela poniżej ↓</div>
+      </div>
+      <div>
+        <div class="ksec"><span class="sq">V</span><h4>Rodzaj zajęć</h4><span class="line"></span></div>
+        <div class="krodzaj">{esc(K['rodzaj'])}</div>
+      </div>
+    </div>
+    <p class="kkurs">Konkretne czynności nauczyciela (N) i odpowiadające im oczekiwane reakcje i umiejętności dziecka (D).</p>
     <div class="tablewrap"><table class="ktab">
       <thead><tr><th class="c-lp">Lp.</th><th style="width:47%">Czynności nauczyciela (N)</th>
         <th>Oczekiwane reakcje i umiejętności dziecka (D)</th></tr></thead>
@@ -764,16 +827,16 @@ def render_konspekty_modale():
 {prz}
       </tbody>
     </table></div>
-    <div class="ksec"><span class="sq">V</span><h4>Realizacja według poziomu wsparcia</h4><span class="line"></span>
-      <span class="meta">ta sama zabawa · trzy progi wymagań · kliknięty poziom wyróżniony</span></div>
+    <div class="ksec"><span class="sq">VI</span><h4>Modyfikacja przy ocenie żółtej / czerwonej</h4><span class="line"></span></div>
+    <p class="kkurs">Modyfikację stosuje się, gdy brak progresu w dwóch kolejnych sesjach. Zielona — rozszerzenie przy pełnym sukcesie. Kliknięty poziom wyróżniony.</p>
     <div class="kmods">
-      <div class="kmod m3" data-mod="p3"><b>Poziom III · czerwona — pełne wsparcie</b><ul class="klista">
-{m3}
-      </ul></div>
-      <div class="kmod m2" data-mod="p2"><b>Poziom II · żółta — wsparcie częściowe</b><ul class="klista">
+      <div class="kmod m2" data-mod="p2"><b>Poziom II · Żółta</b><ul class="klista">
 {m2}
       </ul></div>
-      <div class="kmod m1" data-mod="p1"><b>Poziom I · zielona — samodzielność</b><ul class="klista">
+      <div class="kmod m3" data-mod="p3"><b>Poziom III · Czerwona</b><ul class="klista">
+{m3}
+      </ul></div>
+      <div class="kmod m1" data-mod="p1"><b>Poziom I · Zielona</b><ul class="klista">
 {m1}
       </ul></div>
     </div>
