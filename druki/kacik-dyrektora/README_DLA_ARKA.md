@@ -1,6 +1,6 @@
 # Kącik dyrektora — przedszkole · paczka do EduPlaner 2026
 
-**Wersja 2.1.0 · rok szkolny 2026/2027 · 31 druków w 11 plikach · 85 stron A4 + 9-stronicowy spis**
+**Wersja 2.2.0 · rok szkolny 2026/2027 · 32 druki w 12 plikach · 91 stron A4 + 9-stronicowy spis**
 
 Komplet dokumentacji dyrektora przedszkola, zbudowany na tej samej zasadzie co
 kącik nauczyciela: strona startowa ze spisem, potem druk po druku, każdy osobno.
@@ -25,6 +25,7 @@ Wszystko po polsku, format A4, marka PCTP (fiolet `#2D1B69`, pomarańcz
 | `Kacik_Dyrektora_Rada_Pedagogiczna_PCTP` | RP-1, RP-2, RP-3, RP-4 | 10 |
 | `Kacik_Dyrektora_Zmiany_2026_PCTP` | DZ-1, DZ-2, DZ-3 | 6 |
 | `Kacik_Dyrektora_Rekrutacja_Ewaluacja_PCTP` | RE-1, EW-1, ZD-1 | 8 |
+| `Kacik_Dyrektora_Program_Wychowawczy_PCTP` | PW-1 *(fakultatywny)* | 6 |
 
 Każdy druk występuje w dwóch postaciach: **`.html`** (do podglądu w aplikacji)
 i **`.pdf`** (gotowy wydruk). Pełne mapowanie sygnatura → plik → zakres stron

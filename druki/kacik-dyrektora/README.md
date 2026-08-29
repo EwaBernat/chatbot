@@ -1,7 +1,7 @@
 # Kącik dyrektora · przedszkole · EduPlaner 2026 · PCTP
 
-Komplet dokumentacji **dyrektora przedszkola** — 31 druków w 11 plikach,
-**85 stron A4**, w tym samym stylu co kącik nauczyciela i Dziennik Wsparcia
+Komplet dokumentacji **dyrektora przedszkola** — 32 druki w 12 plikach,
+**91 stron A4**, w tym samym stylu co kącik nauczyciela i Dziennik Wsparcia
 (marka PCTP: fiolet `#2D1B69`, pomarańcz `#E8450A`, Arial, A4, pola z
 kropkowanymi linijkami, tabele z fioletowym nagłówkiem, plakietka i belka
 w nagłówku, stopka z numeracją stron).
@@ -22,6 +22,7 @@ kalendarz terminów, matryca sytuacji, lista druków.
 | `Kacik_Dyrektora_Rada_Pedagogiczna_PCTP` | RP-1…RP-4 — rada pedagogiczna | 10 |
 | `Kacik_Dyrektora_Zmiany_2026_PCTP` | DZ-1…DZ-3 — zmiany prawne 2026/2027 | 6 |
 | `Kacik_Dyrektora_Rekrutacja_Ewaluacja_PCTP` | RE-1, EW-1, ZD-1 — rekrutacja, ewaluacja, zarządzenia | 8 |
+| `Kacik_Dyrektora_Program_Wychowawczy_PCTP` | PW-1 — program wychowawczo-profilaktyczny *(fakultatywny)* | 6 |
 
 Każdy plik występuje w wersji `.html` (panel aplikacji + druki) oraz `.pdf`
 (sam druk, gotowy do wydruku). Panel informacyjny na górze pliku HTML widoczny
@@ -62,6 +63,7 @@ jest tylko na ekranie (`@media print { display:none }`).
 | **RE-1** | Rekrutacja do przedszkola — komisja, kryteria, protokół, listy, tryb odwoławczy | 1–4 |
 | **EW-1** | Raport z ewaluacji wewnętrznej — przedmiot, metody, wyniki, wnioski | 5–6 |
 | **ZD-1** | Zarządzenie dyrektora — wzór, rejestr, zarządzenia typowe dla roku | 7–8 |
+| **PW-1** | Program wychowawczo-profilaktyczny — **dokument fakultatywny**, art. 26 PO nie dotyczy przedszkoli | 1–6 |
 
 ## Terminy wpisane w druki
 
@@ -126,3 +128,30 @@ maszynowo w polu `druki_powiazane_kacik_nauczyciela`.
 
 Żeby linki działały, oba katalogi muszą leżeć obok siebie. Do tego służy paczka
 `EduPlaner2026_Przedszkole_Komplet.zip`, która zawiera oba kąciki.
+
+## Program wychowawczo-profilaktyczny — dlaczego jest oznaczony jako fakultatywny
+
+**Art. 26 ust. 1 Prawa oświatowego** nakłada obowiązek realizowania programu
+wychowawczo-profilaktycznego na **szkoły i placówki**. Przepisów tych **nie
+stosuje się do przedszkoli** — obok szkół dla dorosłych, branżowych szkół II
+stopnia, szkół policealnych i policealnych szkół artystycznych. Przedszkole nie
+ma więc ustawowego obowiązku uchwalania takiego programu, a tryb z art. 26
+ust. 2 — uchwalenie przez **radę rodziców w porozumieniu z radą pedagogiczną
+w terminie 30 dni** od rozpoczęcia roku szkolnego — przedszkola nie dotyczy.
+
+Co obowiązuje zamiast:
+
+- **wychowanie i profilaktyka jako zadania podstawy programowej** — rozp. ME
+  z 11 marca 2026 r. (Dz.U. 2026 poz. 378, zm. poz. 958);
+- **standardy ochrony małoletnich** — ustawa z 13 maja 2016 r. (t.j. Dz.U. 2024
+  poz. 560), zmieniona ustawą z 5 sierpnia 2025 r., aktualizacja do 15 sierpnia
+  2026 r. (druk **DB-3**);
+- **kierunki 2, 3 i 7** polityki oświatowej państwa 2026/2027 — odporność
+  społeczna, edukacja zdrowotna, profilaktyka uzależnień behawioralnych
+  i przeciwdziałanie przemocy rówieśniczej.
+
+Jeżeli przedszkole przyjmuje program **dobrowolnie**, zatwierdza go **rada
+pedagogiczna jako plan pracy** — art. 70 ust. 1 pkt 1 — uchwałą wpisaną do
+rejestru (druk **RP-3**). Alternatywa: ująć wychowanie i profilaktykę w sekcji IV
+planu pracy **DW-1**; sekcja I druku PW-1 pozwala zaznaczyć, które rozwiązanie
+placówka wybrała.

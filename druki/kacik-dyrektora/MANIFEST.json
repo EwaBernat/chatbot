@@ -3,7 +3,7 @@
   "aplikacja": "EduPlaner 2026",
   "wydawca": "PCTP",
   "rok_szkolny": "2026/2027",
-  "wersja": "2.1.0",
+  "wersja": "2.2.0",
   "etap": "przedszkole",
   "indeks": "INDEKS_Kacik_Dyrektora.html",
   "logo": "../assets/logo-pctp.svg",
@@ -22,6 +22,7 @@
   "podstawa_prawna": [
     "Ustawa z 14.12.2016 r. — Prawo oświatowe (t.j. Dz.U. 2024 poz. 737) — art. 55, 60 ust. 3 pkt 1, 68–73, 102, 154–158",
     "Ustawa z 14.12.2016 r. — Prawo oświatowe, art. 131, 154, 157, 158 — rekrutacja do przedszkola",
+    "Ustawa z 14.12.2016 r. — Prawo oświatowe, art. 26 — program wychowawczo-profilaktyczny; przepisów tych NIE stosuje się do przedszkoli",
     "Ustawa z 3.07.2026 r. o zmianie ustawy — Prawo oświatowe (Dz.U. 2026 poz. 1036) — zakaz urządzeń elektronicznych od 1.09.2026, statuty do 31.12.2026",
     "Ustawa z 26.01.1982 r. — Karta Nauczyciela",
     "Ustawa z 13.05.2016 r. o ochronie małoletnich (t.j. Dz.U. 2024 poz. 560), zm. ustawą z 5.08.2025 r. — standardy do 15.08.2026",
@@ -118,6 +119,13 @@
       "stron": 8,
       "panel_aplikacji": true,
       "sha256_pdf": "47d582275e4dbb81"
+    },
+    "Kacik_Dyrektora_Program_Wychowawczy_PCTP": {
+      "html": "Kacik_Dyrektora_Program_Wychowawczy_PCTP.html",
+      "pdf": "Kacik_Dyrektora_Program_Wychowawczy_PCTP.pdf",
+      "stron": 6,
+      "panel_aplikacji": true,
+      "sha256_pdf": "dc30b186e8163869"
     }
   },
   "druki": [
@@ -368,6 +376,16 @@
       "strona_od": 7,
       "strona_do": 8,
       "kategoria": "organizacja"
+    },
+    {
+      "sygnatura": "PW-1",
+      "nazwa": "Program wychowawczo-profilaktyczny przedszkola (dokument fakultatywny)",
+      "plik": "Kacik_Dyrektora_Program_Wychowawczy_PCTP",
+      "strona_od": 1,
+      "strona_do": 6,
+      "kategoria": "wychowanie",
+      "status": "fakultatywny",
+      "uwaga": "art. 26 Prawa oświatowego nie ma zastosowania do przedszkoli; przy dobrowolnym przyjęciu zatwierdza rada pedagogiczna na podstawie art. 70 ust. 1 pkt 1"
     }
   ],
   "kategorie": {
@@ -381,7 +399,8 @@
     "rodzice": "Współpraca z rodzicami",
     "rada": "Rada pedagogiczna",
     "zmiany": "Zmiany prawne 2026/2027",
-    "rekrutacja": "Rekrutacja do przedszkola"
+    "rekrutacja": "Rekrutacja do przedszkola",
+    "wychowanie": "Wychowanie i profilaktyka"
   },
   "powiazania": {
     "kacik_nauczyciela": [
@@ -404,9 +423,9 @@
     ]
   },
   "statystyki": {
-    "druki": 31,
-    "pliki": 11,
-    "strony_a4": 85,
+    "druki": 32,
+    "pliki": 12,
+    "strony_a4": 91,
     "druki_powiazane": 9
   },
   "kierunki_polityki_oswiatowej_2026_2027": [
