@@ -1,6 +1,6 @@
 # Kącik dyrektora — przedszkole · paczka do EduPlaner 2026
 
-**Wersja 2.2.0 · rok szkolny 2026/2027 · 32 druki w 12 plikach · 91 stron A4 + 9-stronicowy spis**
+**Wersja 3.0.0 · rok szkolny 2026/2027 · 32 druki w 12 plikach · 91 stron A4 + 9-stronicowy spis · druki interaktywne**
 
 Komplet dokumentacji dyrektora przedszkola, zbudowany na tej samej zasadzie co
 kącik nauczyciela: strona startowa ze spisem, potem druk po druku, każdy osobno.
@@ -67,6 +67,69 @@ Bez włączonej grafiki tła znikną kolorowe nagłówki tabel i karty.
 ### Pliki są samowystarczalne
 Zero zależności zewnętrznych: brak CDN, brak fontów z sieci, logo osadzone
 jako inline SVG.
+
+---
+
+## 2a. Druki są interaktywne — co to znaczy dla integracji
+
+Każdy plik `.html` z drukiem (spis nie, to nawigacja) ma na końcu, tuż przed
+`</body>`, wstrzykniętą **warstwę interaktywną**: jeden blok `<style>`, jeden
+`<div class="pasek">` i jeden `<script>`. Blok jest **identyczny we wszystkich
+plikach** — przy zmianie podmieniasz go wszędzie jednym przebiegiem.
+
+### Co staje się wypełnialne
+
+| Element w druku | Zachowanie |
+|---|---|
+| `.linijki div` — kropkowane linijki w polach | `contenteditable`, wpisujesz tekst |
+| `td.puste` — puste komórki tabel | `contenteditable`; kropki znikają po wpisaniu (klasa `wpisane`) |
+| `.metryczka .wypelnij` — pola w nagłówku strony | `contenteditable` |
+| `.wybor .dopisz` — dopiski po „(jakie):” | `contenteditable` |
+| `.kwadrat`, `td.kratka span` — kwadraty i kratki | klik przełącza klasę `zazn` (pomarańczowe wypełnienie) |
+| `td.ocena` — skale `0 1 2 3 4`, `TAK NIE`, `M Ś D` | każdy token opakowany w `<b>`; klik wybiera jeden, klik ponowny odznacza |
+| `.podpis .kreska` — linia podpisu | **celowo nieedytowalna**, podpis odręczny |
+
+W całym kąciku: **2818 pól do wpisywania, 292 kratki, 293 skale** — razem **3403**
+aktywne pola. Rozbicie na pliki jest w `MANIFEST.json` w polu
+`pliki.<plik>.pola_interaktywne`.
+
+### Autozapis
+
+`localStorage`, klucz `"pctp:" + document.title`, zapis **0,7 s po ostatniej
+zmianie**. Struktura wartości:
+
+```jsonc
+{ "p": { "p12": "Przedszkole nr 7" },   // pola tekstowe wg data-pctp
+  "k": [ "k3", "k7" ],                   // zaznaczone kratki
+  "o": { "o5": "3" } }                   // wybrane wartości skal
+```
+
+Identyfikatory `data-pctp` nadawane są **kolejnością w DOM przy starcie**, więc
+są stabilne dopóki nie zmienisz struktury druku. Po zmianie treści druku stare
+zapisy mogą trafić w inne pola — przy istotnej zmianie warto podbić `document.title`
+albo wyczyścić klucz.
+
+Jeżeli w aplikacji chcesz **własny backend zamiast localStorage**, podmień dwie
+funkcje w skrypcie: `zapisz()` i `wczytaj()`. Reszta zostaje bez zmian —
+`zbierz()` zwraca gotowy obiekt do wysłania.
+
+### Wydruk
+
+Wpisana treść **drukuje się normalnie**. W `@media print` ukrywane są: pasek
+narzędzi (`.pasek`) i podświetlenie aktywnego pola. Warstwa **nie zmienia
+wysokości stron** — zweryfikowane porównaniem wysokości wszystkich sekcji
+`.page` przed i po wstrzyknięciu (każda 1122,52 px = A4).
+
+### Pasek narzędzi
+
+Stała pozycja w prawym dolnym rogu: status z godziną zapisu, **Wyczyść**
+(z potwierdzeniem, kasuje też klucz w localStorage) i **Drukuj**
+(`window.print()`).
+
+### Zero zależności
+
+Bez bibliotek, bez CDN, bez fontów z sieci. Czysty ES5 w IIFE, działa
+z pliku lokalnego (`file://`) i z serwera statycznego.
 
 ---
 

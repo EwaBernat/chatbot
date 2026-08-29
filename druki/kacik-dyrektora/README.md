@@ -155,3 +155,20 @@ pedagogiczna jako plan pracy** — art. 70 ust. 1 pkt 1 — uchwałą wpisaną d
 rejestru (druk **RP-3**). Alternatywa: ująć wychowanie i profilaktykę w sekcji IV
 planu pracy **DW-1**; sekcja I druku PW-1 pozwala zaznaczyć, które rozwiązanie
 placówka wybrała.
+
+## Druki interaktywne
+
+Wszystkie 12 plików z drukami jest **wypełnialnych w przeglądarce**. Kropkowane
+pola i puste komórki tabel przyjmują tekst, kratki i kwadraty przełącza się
+kliknięciem, skale ocen (0–4, TAK / NIE, M / Ś / D) wybiera się klikając
+wartość. Razem **3403 aktywne pola**.
+
+Wpisy zapisują się same w przeglądarce (`localStorage`) i wracają po zamknięciu
+karty. Pasek w prawym dolnym rogu pokazuje godzinę zapisu oraz przyciski
+**Wyczyść** i **Drukuj**.
+
+Wypełniony druk **drukuje się z treścią** — pasek narzędzi i podświetlenie
+aktywnego pola nie trafiają na papier. Linia podpisu została celowo
+nieedytowalna: podpis składa się odręcznie.
+
+Szczegóły techniczne dla integracji z aplikacją: `README_DLA_ARKA.md`, sekcja 2a.
