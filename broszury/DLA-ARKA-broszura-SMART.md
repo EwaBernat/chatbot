@@ -10,16 +10,16 @@ zdecydować Mirka (oznaczone **DO DECYZJI**).
 
 | Plik | Do czego |
 |---|---|
-| `Cele_SMART_w_przedszkolu_PCTP.pdf` | **produkt** — 14 stron A4, gotowe do druku i do czytania na ekranie |
+| `Cele_SMART_w_przedszkolu_PCTP.pdf` | **produkt** — 17 stron A4, gotowe do druku i do czytania na ekranie |
 | `cele-smart-przedszkole.html` | wersja przeglądarkowa, gdyby sklep oferował też format online |
 | `sklep/Cele_SMART_podglad.pdf` | **darmowy podgląd** — 3 strony ze stopką „PODGLĄD", do pobrania przed zakupem |
 | `sklep/okladka.png` | miniatura okładki na kartę produktu (200 dpi) |
-| `sklep/podglad-1-spis-tresci.png`<br>`sklep/podglad-2-formula-zdania.png`<br>`sklep/podglad-3-termometr.png` | zrzuty do galerii produktu |
+| `sklep/podglad-1-spis-tresci.png`<br>`sklep/podglad-2-formula-zdania.png`<br>`sklep/podglad-3-bank-celow.png` | zrzuty do galerii produktu |
 | `build_pdf.py` | skrypt, który składa PDF z HTML‑a — potrzebny tylko przy aktualizacji treści |
 
 ## 2. Specyfikacja techniczna
 
-- **Format:** A4 pionowo, 14 stron, kolor
+- **Format:** A4 pionowo, 17 stron, kolor
 - **Skład:** okładka i tył broszury na spad (kolor do krawędzi), środek z żywą paginą i numeracją stron
 - **Czcionki:** osadzone w pliku — PDF i HTML wyglądają tak samo na każdym komputerze, także bez internetu
 - **Druk:** wychodzi poprawnie na zwykłej drukarce biurowej; przy druku offsetowym poproś drukarnię o spady 3 mm
@@ -50,15 +50,18 @@ jak napisać cel w poniedziałek rano, mając pod ręką kartę obserwacji i pi�
 - **Formułę zdania** — siedem pól do wypełnienia i ta sama formuła wypełniona przykładem
 - **Bank czasowników** — te, przy których postawisz kreskę na karcie obserwacji, i te do wymiany
 - **Rozbiór celu wzorcowego** na przykładzie konspektu „Termometr napięcia"
+- **Bank celów na dziewięć obszarów nowej podstawy** — gotowy cel do każdego obszaru,
+  z punktem wyjścia i narzędziem pomiaru
 - **Ewaluację zielony / żółty / czerwony** — co zrobić z celem, który nie działa
 - **Checklistę dziesięciu pytań** przed wpisaniem celu do dokumentu
 - **Pięć par „źle → dobrze"** do bezpośredniego przepisania
 - **Podstawę prawną** — pięć aktów i to, co z każdego wynika dla zapisu celu
 
-Materiał uwzględnia **nową podstawę programową wychowania przedszkolnego
-(Dz.U. 2026 poz. 378), obowiązującą od 1 września 2026 r.**
+Materiał jest zbudowany na **nowej podstawie programowej wychowania przedszkolnego
+(Dz.U. 2026 poz. 378), obowiązującej od 1 września 2026 r.** — z bankiem gotowych celów
+do wszystkich dziewięciu obszarów, które zastąpiły dotychczasowe cztery.
 
-14 stron A4 w kolorze. Do wydruku i do czytania na ekranie.
+17 stron A4 w kolorze. Do wydruku i do czytania na ekranie.
 
 ### Dla kogo
 Nauczyciele wychowania przedszkolnego, pedagodzy specjalni, logopedzi i terapeuci
@@ -66,7 +69,7 @@ pracujący w przedszkolach; dyrektorzy przedszkoli przygotowujący radę pedagog
 albo wewnętrzne szkolenie zespołu.
 
 ### Słowa kluczowe
-cele SMART, IPET, pomoc psychologiczno‑pedagogiczna, przedszkole, WOPF, dokumentacja
+cele SMART, IPET, dziewięć obszarów, pomoc psychologiczno‑pedagogiczna, przedszkole, WOPF, dokumentacja
 nauczyciela, ewaluacja, karta obserwacji, podstawa programowa 2026, pedagogika specjalna
 
 ### Autor

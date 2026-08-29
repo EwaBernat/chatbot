@@ -569,6 +569,31 @@ strong{font-weight:900}
 .tally-box.miss{background:var(--bad-bg);border-color:color-mix(in srgb,var(--bad) 40%,transparent);color:var(--bad)}
 .tally-sum{margin-left:8px;font-family:var(--f-display);font-weight:800;font-size:1.05rem;color:var(--ok)}
 
+/* ============ BANK CELÓW WG OBSZARÓW ============ */
+.goals{display:flex;flex-direction:column;gap:14px}
+.goal{
+  background:var(--surface);border:1px solid var(--rule);border-radius:14px;
+  padding:18px 22px;box-shadow:var(--shadow);
+}
+.goal-head{display:flex;align-items:baseline;gap:10px;flex-wrap:wrap;margin-bottom:12px}
+.goal-dot{width:11px;height:11px;border-radius:50%;background:var(--flame);flex:none;align-self:center}
+.goal-head h3{font-size:1.22rem}
+.goal-scope{
+  font-family:var(--f-display);font-weight:700;font-size:.72rem;letter-spacing:.1em;
+  text-transform:uppercase;color:var(--ink-2);
+}
+.goal-row{display:grid;grid-template-columns:92px minmax(0,1fr);gap:5px 14px;align-items:baseline;font-size:.97rem}
+.goal-row dt{
+  font-family:var(--f-display);font-weight:800;font-size:.72rem;letter-spacing:.12em;
+  text-transform:uppercase;color:var(--ink-2);padding-top:.3em;
+}
+.goal-row dd{margin:0}
+.goal-cel{
+  background:var(--brand-soft);border-left:3px solid var(--brand);border-radius:0 9px 9px 0;
+  padding:11px 14px;margin:10px 0;font-size:1.02rem;line-height:1.45;font-weight:700;color:var(--ink);
+}
+.goal-cel b{color:var(--flame);font-weight:900}
+
 /* ============ ŚWIATŁA / EWALUACJA ============ */
 .lights{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:16px}
 .light{border-radius:14px;padding:20px 22px;border:1px solid transparent}
@@ -739,7 +764,14 @@ td b{font-weight:900}
   .section h2{break-after:avoid}
   .section h2 + .lead{break-after:avoid}
   .card,.letter,.step,.light,.vs-box,.formula,.filled,.alert,.thermo-wrap,
-  .decomp-row,.check,.slot,.fix,.toc-row{break-inside:avoid;page-break-inside:avoid}
+  .decomp-row,.check,.slot,.fix,.toc-row,.goal{break-inside:avoid;page-break-inside:avoid}
+  .goal{padding:2.8mm 4mm;border-radius:9px}
+  .goals{gap:2mm}
+  .goal-head{margin-bottom:1.4mm;gap:7px}
+  .goal-head h3{font-size:1.08rem}
+  .goal-scope{font-size:.66rem}
+  .goal-cel{padding:2mm 3mm;margin:1.8mm 0;font-size:9.5pt;line-height:1.38}
+  .goal-row{grid-template-columns:80px minmax(0,1fr);gap:0.4mm 2.6mm;font-size:9pt}
   h3{break-after:avoid}
 
   /* ── §6: termometr jako oblewana kolumna, żeby nie został sam na stronie ── */
@@ -866,6 +898,7 @@ td b{font-weight:900}
             <span class="chip">6 kroków</span>
             <span class="chip">1 formuła zdania</span>
             <span class="chip">Bank czasowników</span>
+            <span class="chip">9 obszarów podstawy</span>
             <span class="chip">Podstawa prawna</span>
           </div>
         </div>
@@ -924,7 +957,7 @@ td b{font-weight:900}
   <nav class="toc" aria-label="Spis treści">
     <div class="toc-head">
       <h2>Spis treści</h2>
-      <span class="toc-count">9 sekcji · ok. 25 minut czytania</span>
+      <span class="toc-count">10 sekcji · ok. 30 minut czytania</span>
     </div>
     <p class="toc-lead">Broszurę można czytać od początku albo wejść od razu tam, gdzie utknęłaś.
     Jeśli masz napisać cel <em>dziś</em> — zacznij od <strong>§4 Formuła zdania</strong> i wróć po resztę.</p>
@@ -961,16 +994,21 @@ td b{font-weight:900}
         </a>
         <a class="toc-row" href="#s7">
           <span class="toc-mark">§7</span>
-          <span class="toc-title">Zielony, żółty, czerwony<span class="toc-desc">Co zrobić z celem po punkcie kontrolnym — i jak zapisać ewaluację.</span></span>
-          <span class="toc-tag">Ewaluacja</span>
+          <span class="toc-title">Dziewięć obszarów nowej podstawy<span class="toc-desc">Gotowy cel na każdy obszar, z punktem wyjścia i narzędziem pomiaru.</span></span>
+          <span class="toc-tag">Bank celów</span>
         </a>
         <a class="toc-row" href="#s8">
           <span class="toc-mark">§8</span>
-          <span class="toc-title">Checklista przed wpisaniem celu<span class="toc-desc">Dziesięć pytań plus pięć par „źle → dobrze” do przepisania.</span></span>
-          <span class="toc-tag">Kontrola</span>
+          <span class="toc-title">Zielony, żółty, czerwony<span class="toc-desc">Co zrobić z celem po punkcie kontrolnym — i jak zapisać ewaluację.</span></span>
+          <span class="toc-tag">Ewaluacja</span>
         </a>
         <a class="toc-row" href="#s9">
           <span class="toc-mark">§9</span>
+          <span class="toc-title">Checklista przed wpisaniem celu<span class="toc-desc">Dziesięć pytań plus pięć par „źle → dobrze” do przepisania.</span></span>
+          <span class="toc-tag">Kontrola</span>
+        </a>
+        <a class="toc-row" href="#s10">
+          <span class="toc-mark">§10</span>
           <span class="toc-title">Podstawa prawna<span class="toc-desc">Pięć aktów i to, co z każdego wynika dla Twojego zapisu celu.</span></span>
           <span class="toc-tag">Prawo</span>
         </a>
@@ -1358,7 +1396,159 @@ td b{font-weight:900}
 
   <!-- ══════════ § 7 ══════════ -->
   <section class="section section-break" id="s7">
-    <div class="rail"><div class="rail-mark">§7</div><div class="rail-label">Ewaluacja</div></div>
+    <div class="rail"><div class="rail-mark">§7</div><div class="rail-label">Bank celów</div></div>
+    <div class="body">
+      <h2>Dziewięć obszarów nowej podstawy — gotowe cele</h2>
+      <p class="lead">Od 1 września 2026 r. osiągnięcia dziecka opisuje się w <strong>dziewięciu obszarach</strong>
+      zamiast dotychczasowych czterech. Poniżej po jednym gotowym celu na każdy obszar — z punktem wyjścia
+      i narzędziem pomiaru, bo bez nich cel jest tylko ładnym zdaniem. Podmień imię, miarę i termin,
+      i zapis jest gotowy.</p>
+
+      <div class="goals">
+        <article class="goal">
+          <div class="goal-head">
+            <span class="goal-dot"></span>
+            <h3>Obszar społeczny</h3>
+            <span class="goal-scope">relacje rówieśnicze · współpraca · przynależność</span>
+          </div>
+          <dl class="goal-row">
+            <dt>Punkt wyjścia</dt><dd>Wchodzi do zabawy, zabierając zabawkę; o pozwolenie pyta w 1 na 5 sytuacji.</dd>
+          </dl>
+          <p class="goal-cel">„Dziecko dołączy do zabawy rówieśników, używając umówionego zwrotu („Mogę się z wami bawić?”), samodzielnie, w <b>4 na 5</b> obserwowanych sytuacji zabawy swobodnej, <b>do końca I semestru</b>.”</p>
+          <dl class="goal-row">
+            <dt>Czym mierzysz</dt><dd>Karta obserwacji zabawy swobodnej — pięć sytuacji w tygodniu.</dd>
+          </dl>
+        </article>
+        <article class="goal">
+          <div class="goal-head">
+            <span class="goal-dot"></span>
+            <h3>Obszar osobisty</h3>
+            <span class="goal-scope">tożsamość · emocje · granice · porażka</span>
+          </div>
+          <dl class="goal-row">
+            <dt>Punkt wyjścia</dt><dd>Po przegranej wychodzi z zabawy albo płacze — w 4 na 5 gier.</dd>
+          </dl>
+          <p class="goal-cel">„Dziecko po przegranej w grze planszowej zostanie przy stole i dokończy rundę, po jednej podpowiedzi słownej, w <b>3 na 5</b> gier, <b>do 15 grudnia</b>.”</p>
+          <dl class="goal-row">
+            <dt>Czym mierzysz</dt><dd>Wpis w dzienniku po każdej grze; przegląd po 8 tygodniach.</dd>
+          </dl>
+        </article>
+        <article class="goal">
+          <div class="goal-head">
+            <span class="goal-dot"></span>
+            <h3>Obszar językowy</h3>
+            <span class="goal-scope">mowa · komunikacja · droga do czytania</span>
+          </div>
+          <dl class="goal-row">
+            <dt>Punkt wyjścia</dt><dd>Opowiada zdaniami dwu‑ i trzywyrazowymi, gubi kolejność zdarzeń.</dd>
+          </dl>
+          <p class="goal-cel">„Dziecko opowie treść historyjki z trzech obrazków, zachowując kolejność zdarzeń, samodzielnie, w <b>4 na 5</b> prób, <b>do końca semestru</b>.”</p>
+          <dl class="goal-row">
+            <dt>Czym mierzysz</dt><dd>Arkusz zliczeń — jedna historyjka tygodniowo.</dd>
+          </dl>
+        </article>
+        <article class="goal">
+          <div class="goal-head">
+            <span class="goal-dot"></span>
+            <h3>Obszar matematyczny</h3>
+            <span class="goal-scope">orientacja · rytmy · intuicja matematyczna</span>
+          </div>
+          <dl class="goal-row">
+            <dt>Punkt wyjścia</dt><dd>Kontynuuje rytm dwuelementowy, ale tylko z podpowiedzią.</dd>
+          </dl>
+          <p class="goal-cel">„Dziecko ułoży dalszy ciąg rytmu trzyelementowego (np. czerwony–niebieski–żółty) samodzielnie, w <b>8 na 10</b> prób, <b>do końca lutego</b>.”</p>
+          <dl class="goal-row">
+            <dt>Czym mierzysz</dt><dd>Karta zliczeń prób przy kąciku matematycznym.</dd>
+          </dl>
+        </article>
+        <article class="goal">
+          <div class="goal-head">
+            <span class="goal-dot"></span>
+            <h3>Obszar przyrodniczy</h3>
+            <span class="goal-scope">obserwacja · przyroda z bliska · ekologia</span>
+          </div>
+          <dl class="goal-row">
+            <dt>Punkt wyjścia</dt><dd>Nazywa dwa zwierzęta spotykane w ogrodzie przedszkolnym.</dd>
+          </dl>
+          <p class="goal-cel">„Dziecko wskaże i nazwie trzy oznaki zmiany pory roku zaobserwowane w ogrodzie, samodzielnie, w <b>4 na 5</b> wyjść, <b>do końca listopada</b>.”</p>
+          <dl class="goal-row">
+            <dt>Czym mierzysz</dt><dd>Kalendarz obserwacji przyrodniczych prowadzony po każdym wyjściu.</dd>
+          </dl>
+        </article>
+        <article class="goal">
+          <div class="goal-head">
+            <span class="goal-dot"></span>
+            <h3>Obszar techniczny</h3>
+            <span class="goal-scope">praca rąk · narzędzia · konstruowanie</span>
+          </div>
+          <dl class="goal-row">
+            <dt>Punkt wyjścia</dt><dd>Łączy elementy tylko wtedy, gdy dorosły przytrzyma materiał.</dd>
+          </dl>
+          <p class="goal-cel">„Dziecko połączy dwa elementy konstrukcji, samodzielnie wybierając sposób łączenia (taśma, sznurek, klej), bez pomocy fizycznej dorosłego, w <b>4 na 5</b> zajęć majsterkowania, <b>do końca semestru</b>.”</p>
+          <dl class="goal-row">
+            <dt>Czym mierzysz</dt><dd>Karta obserwacji kącika majsterkowania.</dd>
+          </dl>
+        </article>
+        <article class="goal">
+          <div class="goal-head">
+            <span class="goal-dot"></span>
+            <h3>Obszar cyfrowy</h3>
+            <span class="goal-scope">rozumienie techniki · higiena cyfrowa</span>
+          </div>
+          <dl class="goal-row">
+            <dt>Punkt wyjścia</dt><dd>Rozpoznaje telefon i tablet, nie potrafi powiedzieć, do czego służą.</dd>
+          </dl>
+          <p class="goal-cel">„Dziecko wskaże na obrazkach trzy urządzenia i powie własnymi słowami, do czego każde służy (np. telefon — do rozmowy), samodzielnie, w <b>4 na 5</b> prób, <b>do końca marca</b>.”</p>
+          <dl class="goal-row">
+            <dt>Czym mierzysz</dt><dd>Arkusz zliczeń; zestaw obrazków urządzeń.</dd>
+          </dl>
+        </article>
+        <article class="goal">
+          <div class="goal-head">
+            <span class="goal-dot"></span>
+            <h3>Obszar artystyczny</h3>
+            <span class="goal-scope">proces twórczy · ekspresja emocji</span>
+          </div>
+          <dl class="goal-row">
+            <dt>Punkt wyjścia</dt><dd>Przerywa pracę plastyczną w połowie; nie komentuje tego, co zrobiło.</dd>
+          </dl>
+          <p class="goal-cel">„Dziecko dokończy pracę plastyczną i powie, co przedstawia oraz jaki nastrój chciało pokazać, samodzielnie, w <b>4 na 5</b> zajęć, <b>do końca semestru</b>.”</p>
+          <dl class="goal-row">
+            <dt>Czym mierzysz</dt><dd>Teczka prac z krótką notatką nauczyciela przy każdej.</dd>
+          </dl>
+        </article>
+        <article class="goal">
+          <div class="goal-head">
+            <span class="goal-dot"></span>
+            <h3>Obszar ruchowy</h3>
+            <span class="goal-scope">motoryka · postawa · bezpieczeństwo</span>
+          </div>
+          <dl class="goal-row">
+            <dt>Punkt wyjścia</dt><dd>Utrzymuje równowagę na jednej nodze przez ok. 2 sekundy.</dd>
+          </dl>
+          <p class="goal-cel">„Dziecko utrzyma równowagę, stojąc na jednej nodze przez <b>5 sekund</b>, samodzielnie, w <b>4 na 5</b> prób, <b>do końca kwietnia</b>.”</p>
+          <dl class="goal-row">
+            <dt>Czym mierzysz</dt><dd>Pomiar stoperem raz w tygodniu, zapis w karcie.</dd>
+          </dl>
+        </article>
+      </div>
+
+      <div class="alert">
+        <div class="alert-in">
+          <h3>Zanim wpiszesz cel do dokumentu</h3>
+          <p>Te cele są przypisane do <strong>obszarów</strong> nowej podstawy. W dokumentacji dopisz jeszcze
+          <strong>konkretne osiągnięcie</strong>, do którego cel się odnosi — z załącznika nr 1 do rozporządzenia
+          (Dz.U. 2026 poz. 378) — razem z jego numerem. Obszar mówi, <em>gdzie</em> pracujesz;
+          numer osiągnięcia mówi, <em>co dokładnie</em> realizujesz, i to on obroni cel przed zespołem
+          i organem nadzoru.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════ § 7 ══════════ -->
+  <section class="section section-break" id="s8">
+    <div class="rail"><div class="rail-mark">§8</div><div class="rail-label">Ewaluacja</div></div>
     <div class="body">
       <h2>Zielony, żółty, czerwony — co zrobić z celem</h2>
       <p class="lead">Sprawdzasz cel po punkcie kontrolnym. Ta sama logika, którą stosujesz wobec dziecka na zajęciach,
@@ -1405,8 +1595,8 @@ td b{font-weight:900}
   </section>
 
   <!-- ══════════ § 8 ══════════ -->
-  <section class="section section-break" id="s8">
-    <div class="rail"><div class="rail-mark">§8</div><div class="rail-label">Kontrola</div></div>
+  <section class="section section-break" id="s9">
+    <div class="rail"><div class="rail-mark">§9</div><div class="rail-label">Kontrola</div></div>
     <div class="body">
       <h2>Checklista przed wpisaniem celu do dokumentu</h2>
       <p class="lead">Dziesięć pytań. Jeśli na któreś odpowiadasz „nie” — wróć do odpowiedniego kroku ze §3.</p>
@@ -1458,8 +1648,8 @@ td b{font-weight:900}
   </section>
 
   <!-- ══════════ § 9 ══════════ -->
-  <section class="section section-break" id="s9">
-    <div class="rail"><div class="rail-mark">§9</div><div class="rail-label">Prawo</div></div>
+  <section class="section section-break" id="s10">
+    <div class="rail"><div class="rail-mark">§10</div><div class="rail-label">Prawo</div></div>
     <div class="body">
       <h2>Podstawa prawna</h2>
       <p class="lead">Cel SMART nie jest wymysłem metodyków — jest praktyczną odpowiedzią na to,
@@ -1523,10 +1713,12 @@ td b{font-weight:900}
                 wychowania przedszkolnego oraz podstawy programowej kształcenia ogólnego dla szkoły podstawowej…</span>
                 <span class="sygn">Dz.U. z 2026 r. poz. 378 — obowiązuje od 1 września 2026 r.</span>
               </td>
-              <td>Wyznacza <b>obszary rozwoju dziecka</b>, do których musi odnosić się każdy cel — w tym rozwój
-              emocjonalny i społeczny. Cel indywidualny nie jest bytem osobnym: <b>jest uszczegółowieniem
-              wybranego wymagania z podstawy</b>. Uwaga: od roku szkolnego 2026/2027 zastępuje dotychczasowe
-              rozporządzenie z 14 lutego 2017 r. (Dz.U. poz. 356) — <b>przy planowaniu na nowy rok odwołuj się do nowej podstawy</b>.</td>
+              <td>Porządkuje osiągnięcia dziecka w <b>dziewięciu obszarach</b> — społecznym, osobistym, językowym,
+              matematycznym, przyrodniczym, technicznym, cyfrowym, artystycznym i ruchowym — w miejsce
+              dotychczasowych czterech. Każdy cel indywidualny musi wskazywać obszar i konkretne osiągnięcie:
+              <b>cel jest uszczegółowieniem wymagania z podstawy</b>, nie bytem osobnym (gotowe cele na każdy
+              obszar znajdziesz w §7). Zastępuje rozporządzenie z 14 lutego 2017 r. (Dz.U. poz. 356) —
+              <b>przy planowaniu na rok 2026/2027 odwołuj się już do nowej podstawy</b>.</td>
             </tr>
           </tbody>
         </table>
