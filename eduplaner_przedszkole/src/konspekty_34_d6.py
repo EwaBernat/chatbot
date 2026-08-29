@@ -1,0 +1,88 @@
+# -*- coding: utf-8 -*-
+"""Konspekty zajęć — obszar VI (życie domowe, czynności użyteczne), wersja A (3–4 lata)."""
+
+KONSPEKTY_D6 = {
+ ("A", 26): dict(
+  nr="D6-26", tytul="Sprzątanie z piosenką",
+  podtytul="Sprzątanie zabawek po skończonej zabawie przy wsparciu dorosłego",
+  sfera="VI ŻYCIE DOMOWE · Porządkowanie (ICF d650 · PP 2.5·WSR)",
+  czas="5 min po zabawie", forma="cała grupa", cykl="codziennie",
+  ter="Dziecko posprząta swój obszar zabawy po sygnale i pokazaniu zdjęcia „jak ma wyglądać kącik”, bez pomocy dorosłego przy odkładaniu, w 3 z 5 dni, w ciągu 6 tygodni.",
+  ter_smart=[
+    ("S","Odkłada zabawki, którymi się bawiło, do właściwych pojemników."),
+    ("M","Cały swój obszar zabawy; 3 z 5 dni."),
+    ("A","Zdjęcie wzorcowe kącika i piosenka wyznaczają czas sprzątania."),
+    ("R","Porządek po sobie buduje sprawczość i szacunek do wspólnych rzeczy."),
+    ("T","Weryfikacja po 6 tygodniach."),
+  ],
+  ter_kryt="Zdjęcie wzorcowe kącika · zapis dzienny wykonania.",
+  pomoce=["zdjęcia wzorcowe kącików (jak ma wyglądać)","pojemniki z obrazkami zawartości","piosenka „sprzątanie” (2 minuty)","koszyk do zbierania „zgubków”"],
+  metody=["sygnał muzyczny wyznaczający czas","wzorzec wizualny zamiast instrukcji","sprzątanie jako zabawa (koszyk zgubków)","wzmocnienie grupowe po skończeniu"],
+  rodzaj="Kształtowanie samodzielności / pomoc p-p",
+  przebieg=[
+    ("N — włącza piosenkę i pokazuje zdjęcie kącika.","D — patrzy na zdjęcie i zaczyna odkładać zabawki."),
+    ("N — wskazuje obrazek na pojemniku: „klocki mieszkają tu”.","D — dopasowuje zabawkę do pojemnika z obrazkiem."),
+    ("N — chodzi z koszykiem zgubków, nie zbiera za dzieci.","D — wrzuca do koszyka zabawki znalezione na podłodze."),
+    ("N — przy końcu piosenki porównuje kącik ze zdjęciem.","D — dokłada brakujące elementy, sprawdza zgodność."),
+    ("N — kończy wspólnym „gotowe!” i oklaskami.","D — pokazuje posprzątany kącik, przybija piątkę.")],
+  mod2=["sprzątanie 3 wskazanych zabawek","dorosły podaje kolejne przedmioty do odłożenia","dłuższa piosenka"],
+  mod3=["dziecko odkłada 1 zabawkę, resztę dorosły","pojemnik przyniesiony bezpośrednio do dziecka","sprzątanie razem, ręka w rękę","wzmocnienie po każdym odłożonym przedmiocie"],
+  mod1=["sprzątanie bez sygnału, z własnej inicjatywy","sprawdzenie kącika według zdjęcia i domknięcie porządku","pomoc koledze, który nie zdążył","rola „szefa sprzątania” dla całej grupy"],
+  wskazowka="Zdjęcie posprzątanego kącika działa lepiej niż polecenie — trzylatek nie wie, co znaczy „porządek”, ale potrafi porównać widok ze wzorem."),
+
+ ("A", 27): dict(
+  nr="D6-27", tytul="Każda rzecz ma swój dom",
+  podtytul="Odkładanie swoich rzeczy na wyznaczone miejsce",
+  sfera="VI ŻYCIE DOMOWE · Rzeczy osobiste (ICF d650 · PP 2.5)",
+  czas="5 min (szatnia)", forma="indywidualnie", cykl="codziennie",
+  ter="Dziecko odłoży dwie swoje rzeczy na miejsca oznaczone własnym znakiem rozpoznawczym po przypomnieniu grupowym, w 3 z 5 dni, w ciągu 6 tygodni.",
+  ter_smart=[
+    ("S","Odkłada kapcie i kubek na miejsca ze swoim znaczkiem."),
+    ("M","2 rzeczy · 1 przypomnienie grupowe; 3 z 5 dni."),
+    ("A","Znaczek dziecka powtórzony na półce, wieszaku i kubku."),
+    ("R","Samodzielność w szatni skraca poranek i buduje niezależność."),
+    ("T","Weryfikacja po 6 tygodniach."),
+  ],
+  ter_kryt="Lista kontrolna szatni · zapis dzienny.",
+  pomoce=["znaczki rozpoznawcze dzieci (ten sam symbol wszędzie)","zdjęcie „tak wygląda moja półka”","niska półka na kapcie","tabliczka z 3 obrazkami: kapcie – kubek – worek"],
+  metody=["jeden znaczek na wszystkich miejscach dziecka","stała kolejność czynności w szatni","tabliczka obrazkowa jako plan","przypomnienie gestem, nie słowem"],
+  rodzaj="Kształtowanie samodzielności / pomoc p-p",
+  przebieg=[
+    ("N — pokazuje znaczek dziecka: „to twój znak, szukaj go”.","D — odnajduje swój znaczek na półce."),
+    ("N — wskazuje tabliczkę z kolejnością czynności.","D — odkłada kapcie na swoją półkę."),
+    ("N — stoi z boku, wskazuje gestem kolejny obrazek.","D — odkłada kubek na miejsce ze znaczkiem."),
+    ("N — porównuje półkę ze zdjęciem wzorcowym.","D — poprawia ułożenie, jeśli coś nie pasuje."),
+    ("N — kończy: „wszystko w swoim domu!”.","D — pokazuje swoją uporządkowaną półkę.")],
+  mod2=["jedna rzecz zamiast dwóch","dorosły idzie z dzieckiem do półki","znaczek dodatkowo powiększony"],
+  mod3=["podanie rzeczy do ręki i wskazanie miejsca","prowadzenie ręki przy odkładaniu","tylko kapcie, przez pierwsze 2 tygodnie","współpraca z rodzicem: ten sam znaczek w domu"],
+  mod1=["wszystkie rzeczy bez przypomnienia, po przyjściu i przed wyjściem","pomoc młodszemu dziecku w znalezieniu jego znaczka","porządkowanie półki na koniec tygodnia","zauważanie i zgłaszanie nieporządku w szatni"],
+  wskazowka="Ten sam znaczek na półce, wieszaku i kubku jest kluczem — jeśli miejsca oznaczone są różnie, dziecko uczy się trzech rzeczy zamiast jednej."),
+
+ ("A", 28): dict(
+  nr="D6-28", tytul="Mali pomocnicy",
+  podtytul="Pomaganie w prostych czynnościach porządkowych w sali",
+  sfera="VI ŻYCIE DOMOWE · Dyżury i pomoc (ICF d640 · PP WSR·Zad.7)",
+  czas="8 min", forma="para dzieci (dyżurni)", cykl="codziennie",
+  ter="Dziecko wykona dwuetapową czynność dyżurnego (rozdanie serwetek i zebranie kubków) z dorosłym obok, bez wyręczania, w 3 z 5 dyżurów, w ciągu 6 tygodni.",
+  ter_smart=[
+    ("S","Rozdaje serwetki wszystkim i zbiera kubki na tacę."),
+    ("M","2 etapy dyżuru; 3 z 5 dyżurów."),
+    ("A","Grafik ze zdjęciami dyżurnych i plan obrazkowy czynności."),
+    ("R","Dyżur daje realną rolę w grupie i poczucie bycia potrzebnym."),
+    ("T","Weryfikacja po 6 tygodniach."),
+  ],
+  ter_kryt="Grafik dyżurów · potwierdzenie wykonania po każdym dyżurze.",
+  pomoce=["grafik dyżurów ze zdjęciami dzieci","fartuszki dyżurnego","taca z uchwytami","plan obrazkowy: serwetki → kubki"],
+  metody=["realna, potrzebna czynność (nie ćwiczenie)","para dyżurnych: podział zadań","plan obrazkowy dwóch etapów","publiczne podziękowanie od grupy"],
+  rodzaj="Kształtowanie samodzielności / pomoc p-p",
+  przebieg=[
+    ("N — wskazuje grafik: „dzisiaj dyżur ma…” i podaje fartuszek.","D — zakłada fartuszek, patrzy na swoje zdjęcie."),
+    ("N — pokazuje plan: najpierw serwetki, potem kubki.","D — bierze serwetki i rozdaje po jednej na miejsce."),
+    ("N — stoi obok, nie wyręcza, wskazuje pominięte miejsca.","D — dokłada serwetki tam, gdzie brakuje."),
+    ("N — podaje tacę i wskazuje drugi obrazek planu.","D — zbiera kubki na tacę i odnosi na wózek."),
+    ("N — prosi grupę o podziękowanie dyżurnym.","D — odkłada fartuszek, słucha podziękowania.")],
+  mod2=["jeden etap dyżuru zamiast dwóch","dyżur przy jednym stoliku, nie przy wszystkich","dorosły niesie tacę razem z dzieckiem"],
+  mod3=["jedna czynność: przyniesienie ściereczki","polecenie indywidualne z gestem","dyżur w parze z dzieckiem sprawnym","wzmocnienie natychmiast po czynności"],
+  mod1=["dyżur samodzielny według planu, zgłoszenie zakończenia","planowanie kolejności czynności","wprowadzenie nowego dyżurnego w zadanie","dyżur tygodniowy z rozliczeniem na kręgu"],
+  wskazowka="Dyżur musi być naprawdę potrzebny — dzieci natychmiast wyczuwają zadanie pozorne i tracą motywację, gdy dorosły poprawia wszystko po nich."),
+}

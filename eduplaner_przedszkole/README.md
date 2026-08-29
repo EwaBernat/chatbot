@@ -17,9 +17,17 @@ do wykorzystania w IPET i PEWS.
 | `src/dane_34.py`, `src/dane_5.py`, `src/dane_6.py` | bank celów jako dane (obszary, twierdzenia, cele, miary) |
 | `Konspekty_KC3_ObszarVII_3-4lata.pdf` | 5 konspektów KC-3 dla obszaru VII (3–4 lata), A4 pionowo |
 | `Konspekty_KC3_ObszarI_3-4lata.pdf` | 5 konspektów KC-3 dla obszaru I (3–4 lata), A4 pionowo |
+| `Konspekty_KC3_ObszarII_3-4lata.pdf` | 5 konspektów KC-3 dla obszaru II (3–4 lata) |
+| `Konspekty_KC3_ObszarIV_3-4lata.pdf` | 5 konspektów KC-3 dla obszaru IV (3–4 lata) |
+| `Konspekty_KC3_ObszarVI_3-4lata.pdf` | 3 konspekty KC-3 dla obszaru VI (3–4 lata) |
+| `Konspekty_KC3_ObszarVIII_3-4lata.pdf` | 5 konspektów KC-3 dla obszaru VIII (3–4 lata) |
 | `src/build.py` | generator druku KC-1 (HTML) |
 | `src/konspekty_34_d7.py` | dane konspektów KC-3: obszar VII, wersja A |
 | `src/konspekty_34_d1.py` | dane konspektów KC-3: obszar I, wersja A |
+| `src/konspekty_34_d2.py` | dane konspektów KC-3: obszar II, wersja A |
+| `src/konspekty_34_d4.py` | dane konspektów KC-3: obszar IV, wersja A |
+| `src/konspekty_34_d6.py` | dane konspektów KC-3: obszar VI, wersja A |
+| `src/konspekty_34_d8.py` | dane konspektów KC-3: obszar VIII, wersja A |
 | `src/build_karty.py.bak` | poprzedni generator w układzie kart |
 
 ## Generowanie
@@ -105,3 +113,16 @@ Mostek do przedszkola (31) · Lusterko emocji (32) · Czarodziejskie słowo POMO
 
 Konspekty obszaru I · 3–4 lata: Czarodziejski woreczek (1) · Małpka robi to,
 co ja (2) · Klepsydra skarbów (3) · Kolorowe domki (4) · Pudełko z niespodzianką (5).
+
+### Pokrycie konspektami — wersja A (3–4 lata)
+
+| Obszar | Konspekty |
+|---|---|
+| I Uczenie się | Czarodziejski woreczek · Małpka robi to, co ja · Klepsydra skarbów · Kolorowe domki · Pudełko z niespodzianką |
+| II Ogólne zadania | Zaproszenie od misia · Dwa kroki do końca · Pociąg dnia · Nasze trzy zasady · Wyspa spokoju |
+| IV Poruszanie się | Ścieżka leśnych zwierząt · Schodki do chmurki · Piłka wędrowniczka · Wieża i korale · Muzyczne pociągi |
+| VI Życie domowe | Sprzątanie z piosenką · Każda rzecz ma swój dom · Mali pomocnicy |
+| VII Wzajemne kontakty | Latarnia uwagi · Podaj misia · Mostek do przedszkola · Lusterko emocji · Czarodziejskie słowo POMOC |
+| VIII Główne obszary życia | Moje miejsce w grupie · Kącik lalek i garaż · Dywanik zajęć · Budowniczowie · Bawimy się razem |
+
+Razem 28 konspektów pod 84 klikalnymi celami. Pozostają obszary III, V i IX.

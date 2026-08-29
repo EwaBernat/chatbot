@@ -8,7 +8,11 @@ sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 import dane_34, dane_5, dane_6
 from konspekty_34_d7 import KONSPEKTY
 from konspekty_34_d1 import KONSPEKTY_D1
-KONSPEKTY = {**KONSPEKTY_D1, **KONSPEKTY}
+from konspekty_34_d2 import KONSPEKTY_D2
+from konspekty_34_d4 import KONSPEKTY_D4
+from konspekty_34_d6 import KONSPEKTY_D6
+from konspekty_34_d8 import KONSPEKTY_D8
+KONSPEKTY = {**KONSPEKTY_D1, **KONSPEKTY_D2, **KONSPEKTY_D4, **KONSPEKTY_D6, **KONSPEKTY_D8, **KONSPEKTY}
 
 WERSJE = [dane_34, dane_5, dane_6]
 
