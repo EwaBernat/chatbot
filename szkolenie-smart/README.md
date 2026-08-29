@@ -55,6 +55,37 @@ npx remotion render Szkolenie out/szkolenie-cele-smart.mp4 \
   --browser-executable=/opt/pw-browsers/chromium_headless_shell-1194/chrome-linux/headless_shell
 ```
 
+## Awatar z HeyGen
+
+`avatar_id` awatara prowadzącej: **`e4a9d389aba342708a6b5db8b425743f`**
+
+Lewa kolumna kadru ma 660 × 1080 px, czyli proporcje bliskie pionowi 9:16 —
+dlatego awatara renderuj pionowo, a nie poziomo. Film wchodzi do panelu przez
+`object-fit: cover`, więc kadr poziomy zostałby przycięty po bokach.
+
+HeyGen nie jest osiągalny z sesji Claude Code na stronie (proxy odrzuca
+`api.heygen.com`), więc to polecenie uruchamia się **na własnym komputerze**,
+z kluczem API w zmiennej środowiskowej:
+
+```bash
+export HEYGEN_API_KEY="..."          # app.heygen.com → Settings → API
+
+# Awatar mówi Twoim głosem: gotowe MP3 steruje ustami
+python3 .claude/skills/dane-i-glos/scripts/heygen_awatar.py \
+  --audio szkolenie-smart/public/narracja.mp3 \
+  --avatar-id e4a9d389aba342708a6b5db8b425743f \
+  --szerokosc 1080 --wysokosc 1920 \
+  --tlo "#2D1B69" \
+  --czekaj -o szkolenie-smart/public/awatar.mp4
+```
+
+Sprawdź najpierw `--suchy-bieg`: pokaże zapytanie bez zużycia kredytów.
+Bez `--czekaj` dostajesz sam `video_id`, a status sprawdzasz później przez
+`--status <video_id>`.
+
+Napisów w HeyGen nie wypalaj (`--napisy`) — film ma własne, składane z narracji,
+i te da się jeszcze poprawić.
+
 ## Kolory
 
 Paleta i role kolorów są opisane w `src/marka.ts`. Ciemny fiolet `#2D1B69`
