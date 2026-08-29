@@ -9,6 +9,7 @@ sprawozdania z pomocy psychologiczno-pedagogicznej (marka PCTP: fiolet
 | `Kacik_Nauczyciela_Wzory_Opinii_PCTP` | O-1…O-5 — obserwacja i opinie | 12 |
 | `Kacik_Nauczyciela_Checklista_Wychowawcy_PCTP` | K-1 — obowiązki wychowawcy | 5 |
 | `Kacik_Nauczyciela_Pomoc_PP_PCTP` | P-1…P-3 — procedura pomocy p-p | 6 |
+| `Kacik_Nauczyciela_Rewalidacja_Dziennik_PCTP` | Z-1…Z-3 — rewalidacja i dziennik zajęć | 8 |
 | `Kacik_Nauczyciela_Planowanie_PCTP` | R-1…R-4 — planowanie i realizacja | 7 |
 | `Kacik_Nauczyciela_Rodzice_PCTP` | W-1…W-3 — współpraca z rodzicami | 6 |
 | `Kacik_Nauczyciela_Bezpieczenstwo_PCTP` | B-1…B-4 — bezpieczeństwo i sytuacje szczególne | 8 |
@@ -113,6 +114,27 @@ wydrukowaniem porównaj zakres zgód ze statutem placówki.
 Dz.U. 2018 poz. 1055), B-2 karta zdarzenia / notatka służbowa (nie zastępuje
 protokołu powypadkowego), B-3 karta adaptacji dziecka, B-4 karta zachowań
 trudnych z analizą funkcji i planem pozytywnych oddziaływań.
+
+## Zajęcia rewalidacyjne i dokumentacja zajęć (Z-1…Z-3)
+
+Osobny plik, 8 stron A4. Pokrywa w całości wymagania **§ 11 rozporządzenia MEN
+z 25 sierpnia 2017 r. o dokumentacji przebiegu nauczania** (Dz.U. 2017 poz. 1646)
+dla zajęć rewalidacyjnych i zajęć z zakresu pomocy psychologiczno-pedagogicznej.
+
+| Sygn. | Druk | Strony |
+|---|---|---|
+| **Z-1** | Karta organizacji zajęć rewalidacyjnych — zalecenia orzeczenia, zakres, wymiar, prowadzący, cele | 1–2 |
+| **Z-2** | Dziennik zajęć — metryka, dane dzieci i rodziców, program pracy, tygodniowy rozkład, zapis zajęć, obecność, rozliczenie godzin | 3–6 |
+| **Z-3** | Ocena postępów i wnioski dotyczące dalszej pracy — realizacja celów 0–4, obszary, skuteczność metod, wnioski | 7–8 |
+
+Z-2 **jest dziennikiem** w rozumieniu przepisu, a nie materiałem pomocniczym.
+Z-3 wypełnia obowiązek wpisania do dziennika „oceny postępów i wniosków
+dotyczących dalszej pracy” — co najmniej dwa razy w roku, a dla dziecka
+z orzeczeniem także przed każdą modyfikacją IPET.
+
+Godzina zajęć trwa **60 minut**; w uzasadnionych przypadkach dopuszcza się czas
+krótszy, przy zachowaniu ustalonego dla dziecka łącznego tygodniowego czasu tych
+zajęć. Przeprowadzenie zajęć potwierdza się **podpisem** przy każdym wpisie.
 
 ## Szablon konspektu (1 strona)
 

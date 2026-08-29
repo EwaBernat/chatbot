@@ -3,7 +3,7 @@
   "aplikacja": "EduPlaner 2026",
   "wydawca": "PCTP",
   "rok_szkolny": "2026/2027",
-  "wersja": "1.0.0",
+  "wersja": "1.1.0",
   "etap": "przedszkole",
   "indeks": "INDEKS_Kacik_Nauczyciela.html",
   "logo": "../assets/logo-pctp.svg",
@@ -94,6 +94,13 @@
       "stron": 4,
       "sha256_pdf": "ffdb72ae3cf750da",
       "panel_aplikacji": true
+    },
+    "Kacik_Nauczyciela_Rewalidacja_Dziennik_PCTP": {
+      "html": "Kacik_Nauczyciela_Rewalidacja_Dziennik_PCTP.html",
+      "pdf": "Kacik_Nauczyciela_Rewalidacja_Dziennik_PCTP.pdf",
+      "stron": 8,
+      "sha256_pdf": "16f120f8cec5417a",
+      "panel_aplikacji": true
     }
   },
   "druki": [
@@ -176,6 +183,30 @@
       "strona_od": 5,
       "strona_do": 6,
       "kategoria": "pomoc-pp"
+    },
+    {
+      "sygnatura": "Z-1",
+      "nazwa": "Karta organizacji zajęć rewalidacyjnych",
+      "plik": "Kacik_Nauczyciela_Rewalidacja_Dziennik_PCTP",
+      "strona_od": 1,
+      "strona_do": 2,
+      "kategoria": "rewalidacja"
+    },
+    {
+      "sygnatura": "Z-2",
+      "nazwa": "Dziennik zajęć rewalidacyjnych i pomocy p-p (§ 11)",
+      "plik": "Kacik_Nauczyciela_Rewalidacja_Dziennik_PCTP",
+      "strona_od": 3,
+      "strona_do": 6,
+      "kategoria": "rewalidacja"
+    },
+    {
+      "sygnatura": "Z-3",
+      "nazwa": "Ocena postępów i wnioski dotyczące dalszej pracy",
+      "plik": "Kacik_Nauczyciela_Rewalidacja_Dziennik_PCTP",
+      "strona_od": 7,
+      "strona_do": 8,
+      "kategoria": "rewalidacja"
     },
     {
       "sygnatura": "R-1",
@@ -293,11 +324,12 @@
     "sprawozdania": "Sprawozdania",
     "rodzice": "Współpraca z rodzicami",
     "bezpieczenstwo": "Bezpieczeństwo i sytuacje szczególne",
-    "instrukcje": "Materiały instruktażowe"
+    "instrukcje": "Materiały instruktażowe",
+    "rewalidacja": "Zajęcia rewalidacyjne i dokumentacja zajęć"
   },
   "statystyki": {
-    "druki": 23,
-    "pliki": 9,
-    "strony_a4": 53
+    "druki": 26,
+    "pliki": 10,
+    "strony_a4": 61
   }
 }

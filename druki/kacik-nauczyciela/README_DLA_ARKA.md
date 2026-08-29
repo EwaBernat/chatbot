@@ -1,6 +1,6 @@
 # Kącik nauczyciela — przedszkole · paczka do EduPlaner 2026
 
-**Wersja 1.0.0 · rok szkolny 2026/2027 · 23 druki w 9 plikach · 53 strony A4**
+**Wersja 1.1.0 · rok szkolny 2026/2027 · 26 druków w 10 plikach · 61 stron A4**
 
 Komplet dokumentacji nauczyciela wychowawcy grupy przedszkolnej. Wszystko po
 polsku, format A4, marka PCTP (fiolet `#2D1B69`, pomarańcz `#E8450A`, Arial).
@@ -16,6 +16,7 @@ polsku, format A4, marka PCTP (fiolet `#2D1B69`, pomarańcz `#E8450A`, Arial).
 | `Kacik_Nauczyciela_Dostosowania_PCTP` | DS-1 | 3 |
 | `Kacik_Nauczyciela_Wzory_Opinii_PCTP` | O-1, O-2, O-3, O-4, O-5 | 12 |
 | `Kacik_Nauczyciela_Pomoc_PP_PCTP` | P-1, P-2, P-3 | 6 |
+| `Kacik_Nauczyciela_Rewalidacja_Dziennik_PCTP` | Z-1, Z-2, Z-3 | 8 |
 | `Kacik_Nauczyciela_Planowanie_PCTP` | R-1, R-2, R-3, R-4 | 8 |
 | `Kacik_Nauczyciela_Rodzice_PCTP` | W-1, W-2, W-3 | 6 |
 | `Kacik_Nauczyciela_Bezpieczenstwo_PCTP` | B-1, B-2, B-3, B-4 | 8 |
@@ -99,6 +100,16 @@ Zestaw jest zgodny z dwiema zmianami obowiązującymi **od 1 września 2026 r.**
   Przedszkole wydaje **opinię o funkcjonowaniu dziecka** w terminie **10 dni**
   od wniosku, z kopią dla rodziców — to druk **O-2**.
 
+Dokumentacja zajęć rewalidacyjnych i zajęć z zakresu pomocy
+psychologiczno-pedagogicznej opiera się na **§ 11 rozp. MEN z 25 sierpnia
+2017 r.** (Dz.U. 2017 poz. 1646). Przepis wymienia wprost, co musi zawierać
+dziennik tych zajęć: imiona i nazwiska dzieci, oddział, **adresy i telefony
+rodziców**, indywidualny program pracy z dzieckiem (przy zajęciach grupowych —
+program pracy grupy), **tygodniowy rozkład zajęć**, daty, czas trwania i tematy
+przeprowadzonych zajęć, **ocenę postępów i wnioski dotyczące dalszej pracy**
+oraz obecność dzieci; przeprowadzenie zajęć potwierdza się podpisem. Druki
+**Z-1 → Z-2 → Z-3** pokrywają ten wymóg w całości.
+
 Pełna lista podstaw prawnych: sekcja 4 indeksu oraz pole `podstawa_prawna`
 w `MANIFEST.json`.
 
@@ -114,7 +125,10 @@ adaptacji:
 - **B-2** nie zastępuje **protokołu powypadkowego** sporządzanego przez zespół
   powypadkowy.
 - **R-3** nie zastępuje **dziennika zajęć** wymaganego rozporządzeniem
-  o dokumentacji — tylko go uzupełnia.
+  o dokumentacji — tylko go uzupełnia. Dziennikiem w rozumieniu § 11 jest
+  druk **Z-2**.
+- **Z-1** nie zastępuje **IPET** ani **WOPFU** — przenosi z nich zalecenia
+  i dostarcza materiału do ich modyfikacji.
 
 Dodatkowo **W-3** (zgody i upoważnienia) wymaga porównania zakresu zgód ze
 statutem i procedurami konkretnej placówki przed wdrożeniem.
