@@ -43,15 +43,25 @@ EXTRA_CSS = """
 .lvl-strip .ls .lsn{font-family:'Quicksand';font-weight:700;font-size:8pt;letter-spacing:.08em;opacity:.9;}
 .lvl-strip .ls .lst{font-family:'Quicksand';font-weight:700;font-size:10.4pt;line-height:1.15;margin-top:.8mm;}
 .lvl-strip .ls .lsd{font-family:'Nunito';font-weight:600;font-size:7.6pt;line-height:1.3;margin-top:1.4mm;opacity:.95;}
-.bg-l1{background:var(--mint-deep);} .bg-l2{background:var(--sun-deep);} .bg-l3{background:var(--purple-deep);}
-.sf-l1{background:var(--mint-soft);} .sf-l2{background:var(--sun-soft);} .sf-l3{background:var(--purple-soft);}
-.tx-l1{color:var(--mint-deep);} .tx-l2{color:var(--sun-deep);} .tx-l3{color:var(--purple-deep);}
+.bg-l1{background:var(--mint-deep);} .bg-l2{background:var(--sun-fill);color:var(--sun-ink);}
+.bg-l3{background:var(--red-deep);}
+.lvl-strip .ls.bg-l2, .pyr-row.bg-l2, .tl-col .tlb.bg-l2{color:var(--sun-ink);}
+.lvl-strip .ls.bg-l2 .lsn, .lvl-strip .ls.bg-l2 .lsd{opacity:.88;}
+.sf-l1{background:var(--mint-soft);} .sf-l2{background:var(--sun-soft);} .sf-l3{background:var(--red-soft);}
+.tx-l1{color:var(--mint-deep);} .tx-l2{color:var(--sun-deep);} .tx-l3{color:var(--red-deep);}
+.kicker.t-red{background:var(--red-soft);color:var(--red-deep);}
+.u-red{background:var(--red-deep);}
+.deco-red{background:var(--red);opacity:.34;}
+ul.nice.c-red li::before{background:var(--red-deep);}
+.box-red{background:var(--red-soft);border-color:#F5D2C8;} .box-red .ib-title{color:var(--red-deep);}
+.zone-num.z-red{background:var(--red-deep);}
+table.grid .c3{background:var(--red-soft);}
 .kicker.t-sun{background:var(--sun-soft);color:var(--sun-deep);}
-.u-sun{background:var(--sun-deep);}
+.u-sun{background:var(--sun-fill);}
 .deco-sun{background:var(--sun);opacity:.42;}
 ul.nice.c-sun li::before{background:var(--sun-deep);}
-.box-sun{background:var(--sun-soft);} .box-sun .ib-title{color:var(--sun-deep);}
-.zone-num.z-sun{background:var(--sun-deep);}
+.box-sun{background:var(--sun-soft);border-color:#F0DCAC;} .box-sun .ib-title{color:var(--sun-deep);}
+.zone-num.z-sun{background:var(--sun-fill);color:var(--sun-ink);}
 
 .pyramid{display:flex;flex-direction:column;align-items:center;gap:2mm;margin:2mm 0 3mm;}
 .pyr-row{border-radius:3mm;color:#fff;display:flex;align-items:center;justify-content:space-between;
@@ -61,22 +71,24 @@ ul.nice.c-sun li::before{background:var(--sun-deep);}
 .big-num{font-family:'Quicksand';font-weight:700;font-size:30pt;line-height:1;color:#fff;
   width:22mm;height:22mm;border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0;}
 
-.info-box{border-radius:4.5mm;padding:3.8mm 4.6mm;margin-bottom:3.2mm;}
+.info-box{border-radius:4.5mm;padding:3.8mm 4.6mm;margin-bottom:3.2mm;border:.8pt solid transparent;}
 .info-box .ib-title{font-family:'Quicksand';font-weight:700;font-size:10.6pt;margin:0 0 2mm;}
 .info-box p, .info-box li{font-family:'Nunito';font-size:9.5pt;line-height:1.42;margin:0;}
-.box-mint{background:var(--mint-soft);} .box-mint .ib-title{color:var(--mint-deep);}
-.box-pink{background:var(--pink-soft);} .box-pink .ib-title{color:var(--pink-deep);}
-.box-purple{background:var(--purple-soft);} .box-purple .ib-title{color:var(--purple-deep);}
+.box-mint{background:var(--mint-soft);border-color:#C3E6DB;} .box-mint .ib-title{color:var(--mint-deep);}
+.box-pink{background:var(--pink-soft);border-color:#F3D2E0;} .box-pink .ib-title{color:var(--pink-deep);}
+.box-purple{background:var(--purple-soft);border-color:#DDCEF3;} .box-purple .ib-title{color:var(--purple-deep);}
 .info-box ul{list-style:none;margin:0;padding:0;}
 .info-box ul li{position:relative;padding-left:5mm;margin-bottom:1.7mm;}
 .info-box ul li::before{content:'';position:absolute;left:0;top:1.9mm;width:2.4mm;height:2.4mm;border-radius:50%;background:currentColor;opacity:.55;}
 
-.warn-box{border-left:2.4pt solid var(--pink-deep);background:var(--pink-soft);border-radius:0 4mm 4mm 0;
-  padding:3.4mm 4.4mm;font-family:'Nunito';font-size:9.2pt;line-height:1.4;}
+.warn-box{border:.8pt solid #F3D2E0;border-left:2.4pt solid var(--pink-deep);background:var(--pink-soft);
+  border-radius:0 4mm 4mm 0;padding:3.4mm 4.4mm;font-family:'Nunito';font-size:9.2pt;line-height:1.4;}
 .warn-box strong{color:var(--pink-deep);font-weight:800;}
 
 .three-lvl{display:grid;grid-template-columns:1fr 1fr 1fr;gap:2.6mm;margin:1mm 0 2.5mm;}
-.tl-col{border-radius:4mm;padding:3.2mm 3.4mm;display:flex;flex-direction:column;gap:1.8mm;}
+.tl-col{border-radius:4mm;padding:3.2mm 3.4mm;display:flex;flex-direction:column;gap:1.8mm;
+  border:.8pt solid transparent;}
+.tl-col.sf-l1{border-color:#C3E6DB;} .tl-col.sf-l2{border-color:#F0DCAC;} .tl-col.sf-l3{border-color:#F5D2C8;}
 .tl-col .tlh{display:flex;align-items:center;gap:1.8mm;}
 .tl-col .tlb{width:6.4mm;height:6.4mm;border-radius:50%;color:#fff;font-family:'Quicksand';font-weight:700;
   font-size:8pt;display:flex;align-items:center;justify-content:center;flex-shrink:0;}
@@ -132,12 +144,52 @@ table.sheet td.note{background:#FCFAFF;}
 """
 
 # ---------- szkielet strony ----------
-FIRMA = ("Pomorskie Centrum Terapii Pedagogicznej w Koszalinie · "
-         "kontakt@pctp-koszalin.pl · 94 340 12 56")
-FIRMA_STOPKA = "Pomorskie Centrum Terapii Pedagogicznej w Koszalinie · kontakt@pctp-koszalin.pl"
+MARKA = "EduPlaner 2026"
+WYDAWCA = "PCTP Koszalin — Pomorskie Centrum Terapii Pedagogicznej"
+MAIL = "kontakt@eduplaner2026.pl"
+TEL = "[usunięto]"
+AUTORKA = "Mirosława Ewa Jurczyszyn"
+AUTORKA_TYT = "pedagog specjalny"
+FIRMA = "%s · %s · %s · %s" % (MARKA, WYDAWCA, MAIL, TEL)
+FIRMA_STOPKA = "%s · PCTP Koszalin · %s · %s" % (MARKA, MAIL, TEL)
+
+
+def logo_mark(size="7mm", dark="#2D1B69", accent="#E8450A", light="#FFFFFF"):
+    """Znak graficzny EduPlaner 2026 — „cyfrowa szafa”."""
+    return (
+      '<svg viewBox="0 0 100 100" style="width:%s;height:%s;display:block;flex-shrink:0;" '
+      'role="img" aria-label="Logo EduPlaner 2026">'
+      '<rect x="2" y="2" width="96" height="96" rx="24" fill="%s"/>'
+      '<rect x="22" y="20" width="56" height="60" rx="9" fill="none" stroke="%s" stroke-width="5"/>'
+      '<line x1="22" y1="40" x2="78" y2="40" stroke="%s" stroke-width="4.4"/>'
+      '<line x1="22" y1="60" x2="78" y2="60" stroke="%s" stroke-width="4.4"/>'
+      '<rect x="30" y="26" width="11" height="10" rx="2.6" fill="%s"/>'
+      '<rect x="45" y="26" width="11" height="10" rx="2.6" fill="%s" opacity=".55"/>'
+      '<rect x="30" y="46" width="11" height="10" rx="2.6" fill="%s" opacity=".55"/>'
+      '<rect x="45" y="46" width="26" height="10" rx="2.6" fill="%s"/>'
+      '<rect x="30" y="66" width="26" height="10" rx="2.6" fill="%s" opacity=".55"/>'
+      '</svg>' % (size, size, dark, light, light, light, accent, light, light, accent, light))
+
+
+def logo_lockup(scale=1.0, on_dark=False):
+    """Znak + nazwa marki i wydawcy."""
+    txt = "#FFFFFF" if on_dark else "#2D1B69"
+    sub = "rgba(255,255,255,.85)" if on_dark else "var(--ink-soft)"
+    mark = (logo_mark("%.1fmm" % (11 * scale), dark="rgba(255,255,255,.16)", light="#FFFFFF", accent="#F4CE6A")
+            if on_dark else logo_mark("%.1fmm" % (11 * scale)))
+    return ('<div style="display:flex;align-items:center;gap:%.1fmm;">%s<div>'
+            '<div style="font-family:Quicksand;font-weight:700;font-size:%.1fpt;line-height:1.05;color:%s;">'
+            'EduPlaner<span style="color:%s;"> 2026</span></div>'
+            '<div style="font-family:Nunito;font-weight:700;font-size:%.1fpt;line-height:1.2;color:%s;'
+            'margin-top:.6mm;">PCTP Koszalin · Pomorskie Centrum Terapii Pedagogicznej</div>'
+            '</div></div>'
+            % (2.8 * scale, mark, 13 * scale, txt,
+               "#F4CE6A" if on_dark else "#E8450A", 7.2 * scale, sub))
+
 
 def footer(n, total):
-    return ('<div class="footer"><span class="fbrand">%s</span>'
+    return ('<div class="footer"><span class="flogo">' + logo_mark("4.6mm") + '</span>'
+            '<span class="fbrand">%s</span>'
             '<span class="fcompany">%s</span>'
             '<span class="pagenum">%02d / %d</span></div>' % (BRAND, FIRMA_STOPKA, n, total))
 
@@ -303,11 +355,20 @@ def p_cover(n, total):
         '<div class="cov-chip"><span class="cc-dot" style="background:%s"></span>'
         '<span class="cc-n">POZIOM %s</span><span class="cc-t">%s</span></div>' % c
         for c in [("#7FD8C0", "1", "Projektowanie uniwersalne"),
-                  ("#F4CE6A", "2", "Dostosowania ukierunkowane"),
-                  ("#C9B0F0", "3", "Wsparcie indywidualne")])
-    return ('<div class="cov-photo-bg"><img src="%s" alt="Sala przedszkolna ze strefami aktywności"></div>'
+                  ("#F2B705", "2", "Dostosowania ukierunkowane"),
+                  ("#EE8C7A", "3", "Wsparcie indywidualne")])
+    meta = "".join('<div class="cov-meta-l"><span class="cm-big">%s</span>'
+                   '<span class="cm-s">%s</span></div>' % m
+                   for m in [(str(total), "stron<br>formatu A4"),
+                             ("10", "grup potrzeb<br>i deficytów"),
+                             ("4", "narzędzia<br>do kopiowania")])
+    firma = ('<div class="cov-firma"><b>Autorka:</b> %s · %s<br>%s · %s<br>%s · tel. %s</div>'
+             % (AUTORKA, AUTORKA_TYT, MARKA, WYDAWCA, MAIL, TEL))
+    return ('<div class="cov-photo-bg"><img src="' + img("hero") +
+            '" alt="Sala przedszkolna ze strefami aktywności"></div>'
             '<div class="cov-scrim"></div>'
             '<div class="cov-inner">'
+            '<div class="cov-logo">' + logo_lockup(1.0, on_dark=True) + '</div>'
             '<span class="eyebrow">Przewodnik dla nauczycieli, specjalistów i dyrektorów przedszkoli</span>'
             '<h1>Sala,<br>która uczy<br><span class="cov-accent">każde dziecko</span></h1>'
             '<div class="cov-rule"></div>'
@@ -315,17 +376,12 @@ def p_cover(n, total):
             'i jednocześnie zapewnić <b>dostępność</b> dzieciom z różnymi deficytami — '
             'pięć stref, trzy poziomy wsparcia, projektowanie uniwersalne '
             'i gotowe arkusze monitoringu sali.</p>'
-            '<div class="cov-chips">%s</div>'
-            '<div class="cov-meta">'
-            '<div class="cov-meta-l"><span class="cm-big">%d</span><span class="cm-s">stron<br>formatu A4</span></div>'
-            '<div class="cov-meta-l"><span class="cm-big">10</span><span class="cm-s">grup potrzeb<br>i deficytów</span></div>'
-            '<div class="cov-meta-l"><span class="cm-big">4</span><span class="cm-s">narzędzia<br>do kopiowania</span></div>'
-            '</div>'
-            '<div class="cov-bottom">'
-            '<div class="cov-firma">%s</div>'
+            '<div class="cov-chips">' + chips + '</div>'
+            '<div class="cov-meta">' + meta + '</div>'
+            '<div class="cov-bottom">' + firma +
             '<div class="cov-pills"><span class="pill">Wydanie 2026</span>'
             '<span class="pill">Gotowe do druku</span></div></div>'
-            '</div>' % (img("hero"), chips, total, FIRMA))
+            '</div>')
 
 # ---------- SPIS TREŚCI ----------
 def toc_page(part, n, total):
@@ -827,6 +883,11 @@ P("Poziom 1 — uniwersalne projektowanie zajęć", "mint", lambda n, t:
   'wyciągany na zewnątrz i „dostosowywany” osobno.</p>' +
   warn("„Zrobiłam dodatkowe zajęcia dla Zosi” — jeśli Zosia musi wychodzić z sali za każdym razem, "
        "gdy grupa robi coś ciekawego, to nie jest wsparcie, tylko wykluczenie z lepszą nazwą.") +
+  info_box("Jak sprawdzić zajęcia w 30 sekund", [
+      "Czy da się je wykonać bez mówienia?",
+      "Czy da się je wykonać siedząc na wózku?",
+      "Czy da się je wykonać, nie rozumiejąc długiego polecenia?",
+      "Trzy razy „tak” — zajęcia są zaprojektowane uniwersalnie"], "purple") +
   '</div><div style="flex:.85;">' +
   wide_photo("n03", "Plan dnia w piktogramach i oznaczenia obrazkowe pojemników",
              "Ta sama informacja w obrazku i w słowie — działa dla całej grupy", "height:58mm;") +
@@ -892,13 +953,17 @@ P("Poziom 2 w praktyce — organizacja i wyposażenie", "sun", lambda n, t:
       "Parawan lub przenośna przegroda",
       "Poduszka sensoryczna do siedzenia",
       "Gniotki i chwytki do rąk"], "mint") +
+  info_box("Zasada trzech tygodni", [], "sun",
+           "Każde dostosowanie wprowadzasz na próbę i zapisujesz datę. Po trzech tygodniach "
+           "sprawdzasz w zespole: <b>zostaje, zmieniamy czy odchodzi</b>. Bez tej daty "
+           "pomoce zostają w sali na zawsze, także wtedy, gdy nie działają.") +
   '</div></div>' +
   wide_photo("n09", "Pomoce wspierające motorykę małą",
              "Nakładki, pogrubione kredki, mata antypoślizgowa — tanie rozwiązania poziomu 2",
              "height:56mm;"))
 
-P("Poziom 3 — dla jakich dzieci", "purple", lambda n, t:
-  head("POZIOM 3", "purple", "Wsparcie zindywidualizowane — dla jakich dzieci",
+P("Poziom 3 — dla jakich dzieci", "red", lambda n, t:
+  head("POZIOM 3", "red", "Wsparcie zindywidualizowane — dla jakich dzieci",
        "Dzieci z orzeczeniem o potrzebie kształcenia specjalnego. Podstawą działania jest "
        "WOPFU i IPET, a nie sama diagnoza medyczna.") +
   '<div class="two-col"><div class="col-text">' +
@@ -912,7 +977,12 @@ P("Poziom 3 — dla jakich dzieci", "purple", lambda n, t:
       "Dzieci zagrożone niedostosowaniem społecznym"], "purple") +
   '<div class="body-text" style="margin-top:1mm;"><p>Na tym poziomie dostosowanie przestrzeni '
   '<strong>przestaje być decyzją nauczyciela, a staje się zapisem w dokumencie</strong>. '
-  'To, co ustalisz w IPET, musi mieć odzwierciedlenie w wyglądzie sali.</p></div>'
+  'To, co ustalisz w IPET, musi mieć odzwierciedlenie w wyglądzie sali.</p></div>' +
+  info_box("Co zapisać w IPET w części o warunkach", [
+      "Miejsce dziecka w sali i w każdej strefie",
+      "Sprzęt specjalistyczny i miejsce jego przechowywania",
+      "Sposób komunikowania się z dzieckiem",
+      "Zakres i momenty wsparcia osoby dorosłej"], "red") +
   '</div><div class="col-text">' +
   '<div class="flow-steps">'
   '<div class="flow-step"><div class="fs-n">1</div><div class="fs-t">'
@@ -929,10 +999,14 @@ P("Poziom 3 — dla jakich dzieci", "purple", lambda n, t:
   '</div>' +
   warn("IPET opisuje dziecko, ale nie opisuje przestrzeni. Zapis „zapewnić spokojne miejsce pracy” "
        "bez wskazania, gdzie ono jest w tej konkretnej sali, nie zmienia niczego.") +
+  info_box("Poziom 3 nie znosi poziomu 1 i 2", [], "mint",
+           "Dziecko z orzeczeniem korzysta z <b>wszystkich trzech poziomów naraz</b>: "
+           "z piktogramów dla całej grupy, ze słuchawek dostępnych dla każdego i z własnego, "
+           "zapisanego w IPET stanowiska pracy. Poziom 3 dokłada — nie zastępuje.") +
   '</div></div>')
 
-P("Poziom 3 w praktyce — sala, sprzęt, organizacja", "purple", lambda n, t:
-  head("POZIOM 3 · PRAKTYKA", "purple", "Jak zorganizować poziom 3 w sali") +
+P("Poziom 3 w praktyce — sala, sprzęt, organizacja", "red", lambda n, t:
+  head("POZIOM 3 · PRAKTYKA", "red", "Jak zorganizować poziom 3 w sali") +
   '<div class="two-col"><div class="col-text" style="flex:1.15;">' +
   info_box("Co zwykle trzeba zmienić w przestrzeni", [
       "Stałe, oznaczone miejsce pracy indywidualnej — w sali, nie na korytarzu",
@@ -946,12 +1020,25 @@ P("Poziom 3 w praktyce — sala, sprzęt, organizacja", "purple", lambda n, t:
       "Powiększalnik, materiały w druku powiększonym, oznaczenia dotykowe",
       "Krzesło z podparciem, stolik z wycięciem, pas stabilizujący",
       "Sprzęt do terapii SI uzgodniony z terapeutą"], "mint") +
+  info_box("Trzy pytania kontrolne do zapisów z IPET", [
+      "Czy każdy zapis wskazuje <b>konkretne miejsce</b> w tej sali?",
+      "Czy dziecko korzysta z tego rozwiązania <b>codziennie</b>, nie od święta?",
+      "Czy rozwiązanie <b>łączy</b> dziecko z grupą, zamiast je odgradzać?"], "purple") +
   '</div><div class="col-text" style="flex:.85;">' +
   wide_photo("n11", "Miejsce pracy indywidualnej w sali przedszkolnej",
              "Miejsce pracy 1:1 — w sali, obok grupy, nie za drzwiami", "height:52mm;") +
   '<div style="height:3mm;"></div>' +
   warn("Wyprowadzanie dziecka z sali „dla świętego spokoju grupy”. Poziom 3 ma umożliwić "
        "uczestnictwo w zajęciach grupy — nie zastąpić go osobnym trybem dnia.") +
+  info_box("Kto odpowiada za co", [
+      "<b>Nauczyciel grupy</b> — codzienna organizacja sali zgodna z IPET",
+      "<b>Pedagog specjalny</b> — dobór i wdrożenie dostosowań",
+      "<b>Dyrektor</b> — zakup sprzętu i warunki lokalowe",
+      "<b>Zespół</b> — ewaluacja i korekta zapisów"], "purple") +
+  info_box("Zanim kupisz sprzęt specjalistyczny", [], "mint",
+           "Sprawdź, czy poziom 1 i 2 są już w sali. Sprzęt, który nie ma stałego miejsca "
+           "i pory użycia w planie dnia, po miesiącu trafia do szafy — a dziecko zostaje "
+           "z tą samą barierą.") +
   '</div></div>')
 
 P("Matryca: strefa × poziom wsparcia", "mint", lambda n, t:
@@ -960,7 +1047,7 @@ P("Matryca: strefa × poziom wsparcia", "mint", lambda n, t:
   '<table class="grid" style="font-size:7.6pt;"><thead><tr>'
   '<th style="width:19%">Strefa</th><th style="width:27%">Poziom 1 — dla wszystkich</th>'
   '<th style="width:27%">Poziom 2 — ukierunkowany</th><th>Poziom 3 — indywidualny</th></tr></thead><tbody>' +
-  "".join('<tr><td class="k">%s</td><td class="c1">%s</td><td class="c2">%s</td><td>%s</td></tr>' % r for r in [
+  "".join('<tr><td class="k">%s</td><td class="c1">%s</td><td class="c2">%s</td><td class="c3">%s</td></tr>' % r for r in [
       ("Czytelnictwa", "Książki obrazkowe i dotykowe, niski regał, oznaczenia obrazkowe",
        "Duży druk, mniej książek naraz, miejsce z dala od hałasu",
        "Książki brajlowskie, wersje AAC, mówiące książki, podpórka do czytania"),
@@ -1015,6 +1102,11 @@ P("Ścieżka decyzyjna — który poziom wybrać", "purple", lambda n, t:
   info_box("Reguła 4 tygodni", [], "mint",
            "Każde dostosowanie sprawdzasz przez około cztery tygodnie. Jeśli nie widać zmiany w "
            "funkcjonowaniu dziecka — nie dokładaj kolejnego sprzętu, tylko zmień hipotezę.") +
+  info_box("Najczęstsze pomyłki w tej ścieżce", [
+      "Przeskok od razu na poziom 3 — z pominięciem układu sali",
+      "Trzy dostosowania naraz — nie wiadomo, które zadziałało",
+      "Rozwiązanie tylko dla jednego dziecka, gdy trudność ma pół grupy",
+      "Brak zapisu — po miesiącu nikt nie pamięta, co próbowano"], "pink") +
   '</div><div class="col-photo">' +
   photo("n12", "Widok sali z góry z wyraźnymi ciągami komunikacyjnymi",
         "Zanim zmienisz dziecko — sprawdź, czy da się zmienić przestrzeń") + '</div></div>')
@@ -1372,17 +1464,21 @@ EXTRA_CSS2 = """
 .cov-meta-l{display:flex;align-items:center;gap:2.4mm;}
 .cov-meta-l .cm-big{font-family:'Quicksand';font-weight:700;font-size:21pt;line-height:1;color:#F4CE6A;}
 .cov-meta-l .cm-s{font-family:'Nunito';font-weight:700;font-size:7.8pt;line-height:1.2;opacity:.92;}
+.cov-logo{margin-bottom:5mm;}
 .cov-bottom{border-top:1pt solid rgba(255,255,255,.35);padding-top:4mm;display:flex;
   align-items:center;justify-content:space-between;gap:5mm;}
-.cov-firma{font-family:'Nunito';font-weight:700;font-size:8pt;line-height:1.35;max-width:96mm;opacity:.95;}
-.cov-pills{display:flex;gap:2.6mm;}
+.cov-firma{font-family:'Nunito';font-weight:600;font-size:7.8pt;line-height:1.45;max-width:104mm;opacity:.95;}
+.cov-firma b{font-weight:800;color:#F4CE6A;}
+.cov-pills{display:flex;gap:2.6mm;flex-shrink:0;}
+.cov-pills .pill{white-space:nowrap;}
 .footer{gap:5mm;}
+.footer .flogo{display:flex;align-items:center;}
 .footer .fcompany{flex:1;text-align:right;font-size:6.3pt;letter-spacing:-.005em;color:var(--ink-soft);
   white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
 .footer{gap:4mm;}
 .footer .fbrand{white-space:nowrap;}
-.adapt-mini-wide{margin-top:0;padding-top:0;border-top:none;background:var(--purple-soft);
-  border-radius:4.5mm;padding:3.4mm 4mm;}
+.adapt-mini-wide{margin-top:0;padding-top:0;background:var(--purple-soft);
+  border:.8pt solid #DDCEF3;border-radius:4.5mm;padding:3.4mm 4mm;}
 .adapt-mini-wide .am-title{font-size:10.2pt;margin-bottom:2.4mm;}
 .adapt-mini-grid-3{grid-template-columns:1fr 1fr 1fr;gap:2.6mm 4mm;}
 .adapt-mini-grid-1{grid-template-columns:1fr;gap:2.4mm;}
@@ -1403,11 +1499,12 @@ EXTRA_CSS2 = """
 .form-row .fl{font-family:'Nunito';font-weight:800;font-size:8pt;color:var(--purple-deep);white-space:nowrap;}
 .form-row .fv{flex:1;border-bottom:.9pt dashed var(--line);height:5.2mm;}
 .obs-grid{display:grid;grid-template-columns:1fr 1fr;gap:2.6mm;}
-.obs-card{border:1.2pt solid var(--line);border-radius:4mm;padding:2.8mm 3.2mm;}
+.obs-card{border:.9pt solid #DDCEF3;background:#FDFBFF;border-radius:4mm;padding:2.8mm 3.2mm;}
 .obs-card .oc-t{font-family:'Quicksand';font-weight:700;font-size:9.6pt;color:var(--purple-deep);margin:0 0 2mm;}
 .obs-card .oc-l{border-bottom:.8pt dashed var(--line);height:6mm;margin-bottom:1.8mm;}
 .kpi-row{display:flex;gap:2.6mm;margin:1mm 0 3mm;}
-.kpi{flex:1;border-radius:4mm;padding:2.8mm 3mm;text-align:center;}
+.kpi{flex:1;border-radius:4mm;padding:2.8mm 3mm;text-align:center;border:.8pt solid transparent;}
+.kpi.sf-l1{border-color:#C3E6DB;} .kpi.sf-l2{border-color:#F0DCAC;} .kpi.sf-l3{border-color:#F5D2C8;}
 .kpi .kv{font-family:'Quicksand';font-weight:700;font-size:15pt;line-height:1;}
 .kpi .kl{font-family:'Nunito';font-weight:700;font-size:7.2pt;line-height:1.25;margin-top:1.4mm;color:var(--ink);}
 """
@@ -1442,6 +1539,10 @@ P("Monitoring sali — po co i jak często", "purple", lambda n, t:
       "Specjalista — psycholog, pedagog specjalny lub logopeda",
       "Dyrektor — w ramach nadzoru pedagogicznego",
       "Dzieci — ich zachowanie jest najlepszym wskaźnikiem"], "mint") +
+  info_box("Dwie minuty dziennie", [], "sun",
+           "Codzienny mini-przegląd to trzy spojrzenia: <b>czy przejścia są wolne</b>, "
+           "<b>czy strefa wyciszenia jest dostępna</b> i <b>czy materiały wróciły na wysokość "
+           "dziecka</b>. Te trzy rzeczy psują się najszybciej.") +
   '</div><div style="flex:.9;">' +
   wide_photo("n10", "Nauczycielka obserwuje i notuje funkcjonowanie dzieci w strefach",
              "Monitoring to obserwacja dzieci w strefach — nie przegląd mebli", "height:62mm;") +
@@ -1539,19 +1640,29 @@ P("Wskaźniki — kiedy sala naprawdę działa", "mint", lambda n, t:
   '<div class="two-col"><div class="col-text">' +
   info_box("Wskaźniki obserwowalne — zaznacz, co widzisz", [
       "Dzieci wchodzą do stref bez pytania o zgodę",
-      "Dziecko z orzeczeniem bawi się <b>razem</b> z grupą, nie tylko obok",
+      "Dziecko z orzeczeniem bawi się <b>razem</b> z grupą, nie obok",
       "Strefa wyciszenia jest używana także przez dzieci bez diagnozy",
       "Dzieci odkładają materiały na miejsce, bo wiedzą, gdzie ono jest",
-      "Konflikty o miejsce i materiały są rzadsze niż na początku roku",
-      "Nauczyciel rzadziej powtarza te same polecenia organizacyjne"], "mint") +
+      "Konflikty o miejsce są rzadsze niż na początku roku"], "mint") +
   '</div><div class="col-text">' +
   info_box("Sygnały ostrzegawcze — czas na zmianę", [
       "Jedna strefa jest zawsze pusta — sprawdź dostęp, nie dzieci",
       "Do jednej strefy ustawia się kolejka i wybuchają konflikty",
       "Dziecko krąży po sali i nie zatrzymuje się nigdzie",
-      "Strefa wyciszenia służy jako miejsce odsyłania „na uspokojenie”",
-      "Sprzęt specjalistyczny leży nieużywany dłużej niż dwa tygodnie",
-      "Materiały wracają za wysoko — bo tak wygodniej dorosłym"], "pink") +
+      "Strefa wyciszenia służy do odsyłania „na uspokojenie”",
+      "Sprzęt specjalistyczny leży nieużywany od dwóch tygodni"], "pink") +
+  '</div></div>' +
+  '<div class="two-col" style="flex:none;margin-top:1mm;"><div class="col-text">' +
+  info_box("Jak zmierzyć — bez skomplikowanych narzędzi", [
+      "<b>Mapa ruchu</b> — przez 15 minut zaznaczaj na planie, gdzie idą dzieci",
+      "<b>Licznik próśb</b> — ile razy dziecko musi poprosić dorosłego o materiał",
+      "<b>Czas w strefie</b> — jak długo trwa jedna aktywność, zanim dziecko odchodzi",
+      "<b>Zdjęcie sali</b> — to samo ujęcie raz w miesiącu pokazuje zmianę"], "purple") +
+  '</div><div class="col-text">' +
+  info_box("Kiedy wskaźnik kłamie", [], "sun",
+           "Sala sprawdzana w piątek po sprzątaniu zawsze wypada dobrze. Obserwuj ją w środku dnia, "
+           "przy pełnej grupie i po zajęciach plastycznych — dopiero wtedy widać, "
+           "czy rozwiązania działają naprawdę.") +
   '</div></div>' +
   '<div class="legal-note">Jeden wskaźnik nie oznacza problemu. Trzy sygnały ostrzegawcze naraz '
   'oznaczają, że sala wróciła do układu sprzed zmiany — i warto zacząć od Arkusza A.</div>')
@@ -1629,6 +1740,15 @@ P("Plan wdrożenia krok po kroku", "mint", lambda n, t:
 
 # ---------- STRONA KOŃCOWA ----------
 def p_final(n, total):
+    kontakt = ('<div style="background:rgba(255,255,255,.16);border:.9pt solid rgba(255,255,255,.34);'
+               'border-radius:4.5mm;padding:4mm 4.6mm;margin-bottom:3.5mm;display:flex;'
+               'align-items:center;justify-content:space-between;gap:6mm;">'
+               + logo_lockup(0.98, on_dark=True) +
+               '<div style="font-family:Nunito;font-size:8.6pt;line-height:1.55;text-align:right;'
+               'white-space:nowrap;flex-shrink:0;">'
+               '<div><b style="color:#F4CE6A;">Autorka:</b> %s · %s</div>'
+               '<div>✉ %s &nbsp;·&nbsp; ☎ %s</div></div></div>'
+               % (AUTORKA, AUTORKA_TYT, MAIL, TEL))
     return ('<div class="deco deco-mint deco-tr"></div><div class="deco deco-mint deco-bl"></div><div>'
             '<span class="eyebrow" style="background:rgba(255,255,255,.2);display:inline-block;'
             'padding:2mm 5mm;border-radius:20mm;font-family:Nunito;font-weight:800;letter-spacing:.14em;'
@@ -1643,21 +1763,18 @@ def p_final(n, total):
             '<div style="flex:1;min-height:0;border-radius:5mm;overflow:hidden;'
             'border:1.6pt solid rgba(255,255,255,.85);margin:4mm 0;display:flex;align-items:center;'
             'justify-content:center;background:rgba(255,255,255,.08);">'
-            '<img src="%s" alt="Sala przedszkolna ze wszystkimi pięcioma strefami" '
-            'style="width:100%%;height:100%%;object-fit:cover;display:block;">'
+            '<img src="' + img("hero") + '" alt="Sala przedszkolna ze wszystkimi pięcioma strefami" '
+            'style="width:100%;height:100%;object-fit:cover;display:block;">'
             '</div>'
             '<div style="font-family:Nunito;font-size:8.8pt;line-height:1.5;background:rgba(255,255,255,.16);'
+            'border:.9pt solid rgba(255,255,255,.3);'
             'border-radius:4mm;padding:3mm 4mm;margin-bottom:3mm;">'
             '<b>Jak korzystać z przewodnika:</b> strony 04–19 — organizacja sali według nowej podstawy · '
             'strony 20–29 — trzy poziomy wsparcia i projektowanie uniwersalne · strony 30–40 — dostosowania '
             'według deficytów · strony 41–48 — monitoring sali, arkusze i plan wdrożenia.</div>'
-            '<div style="font-family:Nunito;font-size:9pt;line-height:1.6;display:flex;gap:6mm;'
-            'flex-wrap:wrap;margin-bottom:3mm;">'
-            '<span>🏫 Pomorskie Centrum Terapii Pedagogicznej w Koszalinie</span>'
-            '<span>📞 94&nbsp;340&nbsp;12&nbsp;56</span>'
-            '<span>✉️ kontakt@pctp-koszalin.pl</span></div>'
+            + kontakt +
             '<div class="cov-footer"><span class="pill">Podstawa programowa 2026 · dostępność · '
-            'monitoring sali</span><span class="pill">Przewodnik 2026 · %d stron</span></div>' % (img("hero"), total))
+            'monitoring sali</span><span class="pill">Przewodnik 2026 · ' + str(total) + ' stron</span></div>')
 
 # ---------- SKŁADANIE ----------
 def build():
