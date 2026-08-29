@@ -5,13 +5,13 @@
 <style>
 :root{
   --ink:#2D1B69; --indigo:#4F3AA8; --violet:#6C4CC4; --accent:#E8450A; --on-accent:#FFFFFF;
-  --p3:#C2410C; --p3-bg:#FDF1EC; --p2:#9A6B08; --p2-bg:#FBF4E7; --p1:#0F7B5A; --p1-bg:#ECF6F1;
+  --p3:#C2410C; --p3-bg:#FEF9F6; --p2:#9A6B08; --p2-bg:#FDFAF2; --p1:#0F7B5A; --p1-bg:#F5FAF8;
   --zas:#2B6E6E; --zas-bg:#EAF3F3;
-  --icf:#C1121F; --icf-bg:#FCEFEF; --pp:#4F3AA8; --pp-bg:#EDEAFA;
+  --icf:#C1121F; --icf-bg:#FFFFFF; --pp:#4F3AA8; --pp-bg:#FFFFFF;
   --p3-br:#EFCBBB; --p2-br:#E8D6AC; --p1-br:#BEDFD1; --icf-br:#EEC4C4; --pp-br:#CFC6EE;
   --paper:#FFFFFF; --field:#EFEAF9; --soft:#F6F3FC; --row:#FEFDFF; --row-alt:#F4F0FD;
   --line:#E3DCF5; --line-2:#EDE8F8; --text:#2F2A3E; --muted:#8A8498;
-  --strong:#4F3AA8; --on-strong:#FFFFFF;
+  --strong:#2D1B69; --on-strong:#FFFFFF;
   --h-p3:#4F3AA8; --h-p3-t:#FFFFFF; --h-p2:#4F3AA8; --h-p2-t:#FFFFFF; --h-p1:#4F3AA8; --h-p1-t:#FFFFFF;
   --h-icf:#4F3AA8; --h-icf-t:#FFFFFF; --h-pp:#4F3AA8; --h-pp-t:#FFFFFF;
 }
@@ -106,21 +106,19 @@ td{padding:9px 10px; border-bottom:1px solid var(--line-2); border-right:1px sol
 td:last-child{border-right:none}
 tbody tr:last-child td{border-bottom:none}
 td.g{border-right:1px solid var(--line)}
-td.g .cel{background:var(--paper); border:1px solid var(--line); border-radius:7px; padding:9px 11px; display:block}
-td.p3 .cel{border-color:var(--p3-br)} td.p2 .cel{border-color:var(--p2-br)} td.p1 .cel{border-color:var(--p1-br)}
-td.icf .kod,td.pp .kod{background:var(--paper); border:1px solid var(--icf-br); border-radius:6px; padding:5px 8px; display:inline-block}
-td.pp .kod{border-color:var(--pp-br)}
+td.g .cel{display:block}
+td.icf .kod,td.pp .kod{display:inline-block}
 td.tw .miara{border-top:1px solid var(--line-2); padding-top:6px}
-tbody tr:nth-child(even) td{background:var(--row-alt)}
-tbody tr:hover td{background:var(--field)}
+tbody tr:nth-child(even) td{background:var(--paper)}
+tbody tr:hover td.tw{background:var(--soft)}
 
 .c-lp{width:38px} .c-tw{width:23%} .c-code{width:82px} .c-goal{width:18.5%}
-td.lp{text-align:center; font-weight:700; color:var(--ink); background:var(--field) !important; font-size:14px; padding-top:11px}
+td.lp{text-align:center; font-weight:700; color:var(--ink); background:var(--paper) !important; font-size:14px; padding-top:11px}
 td.tw{font-weight:500; color:var(--ink)}
 td.tw .miara{display:block; margin-top:8px; font-family:"JetBrains Mono",monospace; font-size:9.5px; color:var(--muted); line-height:1.4}
 td.tw .miara b{color:var(--violet); font-family:"DM Sans",Arial,sans-serif; letter-spacing:.1em; text-transform:uppercase; font-size:9px}
-td.icf{font-family:"JetBrains Mono",monospace; font-weight:700; font-size:11px; color:var(--icf); background:var(--icf-bg) !important; white-space:nowrap}
-td.pp{font-family:"JetBrains Mono",monospace; font-weight:700; font-size:11px; color:var(--pp); background:var(--pp-bg) !important; white-space:nowrap}
+td.icf{font-family:"JetBrains Mono",monospace; font-weight:700; font-size:11px; color:var(--icf); background:var(--paper) !important; white-space:nowrap}
+td.pp{font-family:"JetBrains Mono",monospace; font-weight:700; font-size:11px; color:var(--pp); background:var(--paper) !important; white-space:nowrap}
 td.g{font-size:12px}
 th.h-p3,th.h-p2,th.h-p1,th.h-icf,th.h-pp{background:var(--strong); color:var(--on-strong)}
 th.h-p3{box-shadow:inset 0 -3px 0 var(--p3)} th.h-p2{box-shadow:inset 0 -3px 0 var(--p2)}
@@ -129,8 +127,9 @@ th.h-pp{box-shadow:inset 0 -3px 0 var(--pp)}
 th .kropka{display:inline-block; width:7px; height:7px; border-radius:50%; margin-right:6px; vertical-align:baseline}
 th.h-p3 .kropka{background:var(--p3)} th.h-p2 .kropka{background:var(--p2)} th.h-p1 .kropka{background:var(--p1)}
 th.h-icf .kropka{background:var(--icf)} th.h-pp .kropka{background:var(--pp)}
-tbody tr td.p3{background:var(--p3-bg) !important} tbody tr td.p2{background:var(--p2-bg) !important}
-tbody tr td.p1{background:var(--p1-bg) !important}
+tbody tr td.p3{background:var(--p3-bg) !important; box-shadow:inset 3px 0 0 var(--p3-br)}
+tbody tr td.p2{background:var(--p2-bg) !important; box-shadow:inset 3px 0 0 var(--p2-br)}
+tbody tr td.p1{background:var(--p1-bg) !important; box-shadow:inset 3px 0 0 var(--p1-br)}
 
 /* ---------- callout / zasób ---------- */
 .callout{margin-top:12px; background:var(--soft); border-left:4px solid var(--violet); padding:13px 17px; font-size:12.5px; border-radius:0 8px 8px 0}
@@ -202,7 +201,7 @@ input[type="search"]:focus,.tab:focus-visible,.chipbtn:focus-visible,.navlink:fo
 .nores{padding:30px 0; text-align:center; color:var(--muted)}
 .printhead,.printfoot{display:none}
 tr.tbanner{display:none}
-tr.tbanner th{background:var(--ink); color:#FFFFFF; font:700 6.4pt/1.3 "DM Sans",Arial,sans-serif;
+tr.tbanner th{background:var(--indigo); color:#FFFFFF; font:700 6.4pt/1.3 "DM Sans",Arial,sans-serif;
   letter-spacing:.13em; text-transform:uppercase; padding:4pt 6pt; border-bottom:2px solid var(--accent)}
 tr.tbanner .bsep{color:var(--accent); padding:0 5px}
 
@@ -228,8 +227,6 @@ tr.tbanner .bsep{color:var(--accent); padding:0 5px}
   table{min-width:0; font-size:8.4pt}
   th{padding:5pt 6pt; font-size:6.6pt; letter-spacing:.1em}
   td{padding:4pt 5pt; font-size:8.2pt; line-height:1.35}
-  td.g .cel{padding:5pt 6pt; border-radius:5px}
-  td.icf .kod,td.pp .kod{padding:3pt 5pt}
   td.tw .miara{font-size:6.4pt}
   td.icf,td.pp{font-size:7.6pt}
   .tablewrap{overflow:visible; border-radius:0}
