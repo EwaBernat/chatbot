@@ -244,6 +244,8 @@
   .legenda p{font-size:6.1pt; line-height:1.5; color:#3a3357}
   .legenda b{color:var(--fiolet)}
 
+  .page .tab-mala td{height:6mm}
+
   @media print{
     body{background:#fff}
     .panel{display:none !important}
@@ -269,7 +271,7 @@
       <div class="panel-role">
         <div class="rola">
           <b>R-1 · Plan pracy grupy</b>
-          <span>Miesięczne planowanie wg <em>czterech obszarów podstawy programowej</em> — fizycznego, emocjonalnego, społecznego i poznawczego — z harmonogramem tygodni i tabelą dostosowań dla dzieci ze specjalnymi potrzebami. Zatwierdza dyrektor.</span>
+          <span>Miesięczne planowanie wg <em>dziewięciu obszarów podstawy programowej</em> — fizycznego, emocjonalnego, społecznego i poznawczego — z harmonogramem tygodni i tabelą dostosowań dla dzieci ze specjalnymi potrzebami. Zatwierdza dyrektor.</span>
         </div>
         <div class="rola">
           <b>R-2 · Karta zajęć — konspekt</b>
@@ -281,7 +283,7 @@
         </div>
         <div class="rola">
           <b>R-4 · Sprawozdanie z pracy grupy</b>
-          <span>Rozliczenie okresu przed dyrektorem: realizacja podstawy programowej w czterech obszarach, frekwencja, wydarzenia, efekty i wnioski na kolejny okres. Checklista K-1 wskazuje termin czerwcowy.</span>
+          <span>Rozliczenie okresu przed dyrektorem: realizacja podstawy programowej w dziewięciu obszarach, frekwencja, wydarzenia, efekty i wnioski na kolejny okres. Checklista K-1 wskazuje termin czerwcowy.</span>
         </div>
       </div>
     </div>
@@ -292,12 +294,12 @@
         <li><span class="nr">1</span><span><b>R-1 · Plan pracy grupy</b> — cele wg obszarów, harmonogram tygodni, dostosowania, ewaluacja (str. 1–2)</span></li>
         <li><span class="nr">2</span><span><b>R-2 · Karta zajęć — konspekt</b> — wg wzoru karty zajęć: pola konspektu, wykaz metod, plan zajęć, dziennik realizacji (str. 3–4)</span></li>
         <li><span class="nr">3</span><span><b>R-3 · Karta realizacji zajęć specjalistycznych</b> — dziennik i monitorowanie postępów (str. 5–6)</span></li>
-        <li><span class="nr">4</span><span><b>R-4 · Sprawozdanie z pracy grupy</b> — realizacja podstawy programowej, efekty, wnioski (str. 7)</span></li>
+        <li><span class="nr">4</span><span><b>R-4 · Sprawozdanie z pracy grupy</b> — realizacja podstawy programowej, efekty, wnioski (str. 7–8)</span></li>
       </ul>
     </div>
 
     <div class="panel-akcje">
-      <button class="btn-druk" onclick="window.print()">Drukuj druki planowania (7 stron A4)</button>
+      <button class="btn-druk" onclick="window.print()">Drukuj druki planowania (8 stron A4)</button>
       <span class="uwaga-druk">Drukują się wyłącznie formularze — ten panel zostaje w aplikacji. Ustawienia: A4, marginesy „brak”, grafika tła włączona.</span>
     </div>
 
@@ -335,7 +337,7 @@
     <span class="kreska"></span>
   </div>
   <div class="prawna">
-    <p><b>PODSTAWA PRAWNA.</b> Rozporządzenie MEN z dnia 14 lutego 2017 r. w sprawie podstawy programowej wychowania przedszkolnego oraz kształcenia ogólnego (Dz.U. z 2017 r. poz. 356, z późn. zm.) — cztery obszary rozwoju: <b>fizyczny, emocjonalny, społeczny i poznawczy</b>; nauczyciel planuje pracę z zachowaniem <b>proporcji zagospodarowania czasu</b>: zabawa swobodna, pobyt na świeżym powietrzu, zajęcia kierowane oraz czynności opiekuńcze, samoobsługowe i organizacyjne. Ustawa z dnia 26 stycznia 1982 r. Karta Nauczyciela (z późn. zm.) — art. 6: rzetelna realizacja zadań i wspieranie każdego dziecka w rozwoju. Praca prowadzona według programu wychowania przedszkolnego dopuszczonego przez dyrektora — ustawa z dnia 14 grudnia 2016 r. Prawo oświatowe (t.j. Dz.U. z 2024 r. poz. 737, z późn. zm.).</p>
+    <p><b>PODSTAWA PRAWNA.</b> Rozporządzenie Ministra Edukacji z dnia 11 marca 2026 r. w sprawie podstawy programowej wychowania przedszkolnego (Dz.U. z 2026 r. poz. 378, zm. Dz.U. z 2026 r. poz. 958) — cztery obszary rozwoju: <b>fizyczny, emocjonalny, społeczny i poznawczy</b>; nauczyciel planuje pracę z zachowaniem <b>proporcji zagospodarowania czasu</b>: zabawa swobodna, pobyt na świeżym powietrzu, zajęcia kierowane oraz czynności opiekuńcze, samoobsługowe i organizacyjne. Ustawa z dnia 26 stycznia 1982 r. Karta Nauczyciela (z późn. zm.) — art. 6: rzetelna realizacja zadań i wspieranie każdego dziecka w rozwoju. Praca prowadzona według programu wychowania przedszkolnego dopuszczonego przez dyrektora — ustawa z dnia 14 grudnia 2016 r. Prawo oświatowe (t.j. Dz.U. z 2024 r. poz. 737, z późn. zm.).</p>
   </div>
   <div class="sekcja"><span class="numer pom">I</span><h2>Dane planu</h2><span class="linia"></span></div>
   <div class="siatka2">
@@ -346,23 +348,27 @@
     <div class="pole"><span class="etykieta">Miesiąc / okres realizacji</span><div class="linijki"><div></div></div></div>
     <div class="pole"><span class="etykieta">Program wychowania przedszkolnego (nazwa, autor, numer dopuszczenia)</span><div class="linijki"><div></div></div></div>
   </div>
-  <div class="pole"><span class="etykieta">Tematy kompleksowe (tygodnie)</span><div class="tresc" style="color:#6B6B7B; font-size:6.4pt">np. tydzień 1: „Jesień w sadzie”, tydzień 2: „Nasze zmysły”</div><div class="linijki"><div></div><div></div><div></div></div></div></div>
-  <div class="sekcja"><span class="numer">II</span><h2>Cele wg obszarów podstawy programowej</h2><span class="linia"></span></div>
+  <div class="pole"><span class="etykieta">Tematy kompleksowe (tygodnie)</span><div class="tresc" style="color:#6B6B7B; font-size:6.4pt">np. tydzień 1: „Jesień w sadzie”, tydzień 2: „Nasze zmysły”</div><div class="linijki"><div></div></div></div></div>
+  <div class="sekcja"><span class="numer">II</span><h2>Cele wg dziewięciu obszarów podstawy programowej</h2><span class="linia"></span></div>
   <table class="tab-mala">
     <thead>
-      <tr><th style="width:24%">Obszar rozwoju</th><th style="width:40%">Cele — czego dziecko się nauczy</th><th>Zaplanowane aktywności i sytuacje edukacyjne</th></tr>
+      <tr><th style="width:24%">Obszar podstawy programowej</th><th style="width:40%">Cele — czego dziecko się nauczy</th><th>Zaplanowane aktywności i sytuacje edukacyjne</th></tr>
     </thead>
     <tbody>
-      <tr><td class="klucz">I · Fizyczny</td><td class="puste"></td><td class="puste"></td></tr>
-      <tr><td class="klucz">II · Emocjonalny</td><td class="puste"></td><td class="puste"></td></tr>
-      <tr><td class="klucz">III · Społeczny</td><td class="puste"></td><td class="puste"></td></tr>
-      <tr><td class="klucz">IV · Poznawczy</td><td class="puste"></td><td class="puste"></td></tr>
+      <tr><td class="klucz">1. Społeczny</td><td class="puste"></td><td class="puste"></td></tr>
+      <tr><td class="klucz">2. Osobisty</td><td class="puste"></td><td class="puste"></td></tr>
+      <tr><td class="klucz">3. Językowy</td><td class="puste"></td><td class="puste"></td></tr>
+      <tr><td class="klucz">4. Matematyczny</td><td class="puste"></td><td class="puste"></td></tr>
+      <tr><td class="klucz">5. Przyrodniczy</td><td class="puste"></td><td class="puste"></td></tr>
+      <tr><td class="klucz">6. Techniczny</td><td class="puste"></td><td class="puste"></td></tr>
+      <tr><td class="klucz">7. Cyfrowy · higiena cyfrowa</td><td class="puste"></td><td class="puste"></td></tr>
+      <tr><td class="klucz">8. Artystyczny</td><td class="puste"></td><td class="puste"></td></tr>
+      <tr><td class="klucz">9. Ruchowy</td><td class="puste"></td><td class="puste"></td></tr>
     </tbody>
   </table>
-  <div class="pole"><span class="etykieta">Zamierzenia wychowawcze i zadania dla całej grupy w tym okresie</span><div class="linijki"><div></div><div></div><div></div></div></div>
   <div class="stopka">
     <span>EduPlaner 2026 · PCTP · pedagog specjalny</span>
-    <span><b>Strona 1 z 7</b> · Kącik nauczyciela · plan pracy R-1 · cele i obszary</span>
+    <span><b>Strona 1 z 8</b> · Kącik nauczyciela · plan pracy R-1 · cele i obszary</span>
   </div>
 </section>
 
@@ -429,7 +435,7 @@
   </div>
   <div class="stopka">
     <span>EduPlaner 2026 · PCTP · pedagog specjalny</span>
-    <span><b>Strona 2 z 7</b> · Kącik nauczyciela · plan pracy R-1 · harmonogram i ewaluacja</span>
+    <span><b>Strona 2 z 8</b> · Kącik nauczyciela · plan pracy R-1 · harmonogram i ewaluacja</span>
   </div>
 </section>
 
@@ -479,7 +485,7 @@
   <div class="pole"><span class="etykieta">Zintegrowane działania nauczycieli w realizacji zajęć</span><div class="linijki"><div></div></div></div>
   <div class="stopka">
     <span>EduPlaner 2026 · PCTP · pedagog specjalny</span>
-    <span><b>Strona 3 z 7</b> · Kącik nauczyciela · karta zajęć R-2 · konspekt</span>
+    <span><b>Strona 3 z 8</b> · Kącik nauczyciela · karta zajęć R-2 · konspekt</span>
   </div>
 </section>
 
@@ -553,7 +559,7 @@
   </div>
   <div class="stopka">
     <span>EduPlaner 2026 · PCTP · pedagog specjalny</span>
-    <span><b>Strona 4 z 7</b> · Kącik nauczyciela · karta zajęć R-2 · metody, plan i dziennik</span>
+    <span><b>Strona 4 z 8</b> · Kącik nauczyciela · karta zajęć R-2 · metody, plan i dziennik</span>
   </div>
 </section>
 
@@ -620,7 +626,7 @@
   <div class="pole"><span class="etykieta">Metody, formy pracy i pomoce dydaktyczne wykorzystywane na zajęciach</span><div class="linijki"><div></div><div></div></div></div>
   <div class="stopka">
     <span>EduPlaner 2026 · PCTP · pedagog specjalny</span>
-    <span><b>Strona 5 z 7</b> · Kącik nauczyciela · karta realizacji R-3 · dane i plan</span>
+    <span><b>Strona 5 z 8</b> · Kącik nauczyciela · karta realizacji R-3 · dane i plan</span>
   </div>
 </section>
 
@@ -690,7 +696,7 @@
   </div>
   <div class="stopka">
     <span>EduPlaner 2026 · PCTP · pedagog specjalny</span>
-    <span><b>Strona 6 z 7</b> · Kącik nauczyciela · karta realizacji R-3 · dziennik i monitoring</span>
+    <span><b>Strona 6 z 8</b> · Kącik nauczyciela · karta realizacji R-3 · dziennik i monitoring</span>
   </div>
 </section>
 
@@ -729,35 +735,76 @@
     <div class="pole"><span class="etykieta">Grupa · wiek · liczba dzieci (w tym objętych pomocą p-p)</span><div class="linijki"><div></div></div></div>
     <div class="pole"><span class="etykieta">Nauczyciele prowadzący · okres sprawozdawczy</span><div class="linijki"><div></div></div></div>
   </div>
-  <div class="sekcja"><span class="numer pom">II</span><h2>Realizacja podstawy programowej</h2><span class="linia"></span></div>
+  <div class="sekcja"><span class="numer pom">II</span><h2>Realizacja podstawy programowej — dziewięć obszarów</h2><span class="linia"></span></div>
   <table class="tab-mala">
     <thead>
-      <tr><th style="width:24%">Obszar rozwoju</th><th style="width:44%">Zrealizowane treści i osiągnięcia grupy</th><th>Treści niezrealizowane i przyczyna</th></tr>
+      <tr><th style="width:24%">Obszar podstawy programowej</th><th style="width:44%">Zrealizowane treści i osiągnięcia grupy</th><th>Treści niezrealizowane i przyczyna</th></tr>
     </thead>
     <tbody>
-      <tr><td class="klucz">I · Fizyczny</td><td class="puste"></td><td class="puste"></td></tr>
-      <tr><td class="klucz">II · Emocjonalny</td><td class="puste"></td><td class="puste"></td></tr>
-      <tr><td class="klucz">III · Społeczny</td><td class="puste"></td><td class="puste"></td></tr>
-      <tr><td class="klucz">IV · Poznawczy</td><td class="puste"></td><td class="puste"></td></tr>
+      <tr><td class="klucz">1. Społeczny</td><td class="puste"></td><td class="puste"></td></tr>
+      <tr><td class="klucz">2. Osobisty</td><td class="puste"></td><td class="puste"></td></tr>
+      <tr><td class="klucz">3. Językowy</td><td class="puste"></td><td class="puste"></td></tr>
+      <tr><td class="klucz">4. Matematyczny</td><td class="puste"></td><td class="puste"></td></tr>
+      <tr><td class="klucz">5. Przyrodniczy</td><td class="puste"></td><td class="puste"></td></tr>
+      <tr><td class="klucz">6. Techniczny</td><td class="puste"></td><td class="puste"></td></tr>
+      <tr><td class="klucz">7. Cyfrowy · higiena cyfrowa</td><td class="puste"></td><td class="puste"></td></tr>
+      <tr><td class="klucz">8. Artystyczny</td><td class="puste"></td><td class="puste"></td></tr>
+      <tr><td class="klucz">9. Ruchowy</td><td class="puste"></td><td class="puste"></td></tr>
     </tbody>
   </table>
+  <div class="stopka">
+    <span>EduPlaner 2026 · PCTP · pedagog specjalny</span>
+    <span><b>Strona 7 z 8</b> · Kącik nauczyciela · sprawozdanie R-4 · realizacja podstawy</span>
+  </div>
+</section>
+
+<!-- === STRONA 8 · R-4 === -->
+<section class="page">
+  <div class="naglowek">
+    <div class="marka">
+      <div class="logo"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" role="img" aria-label="Logo PCTP"> <defs> <radialGradient id="pctpTlo" cx="36%" cy="28%" r="82%"> <stop offset="0%" stop-color="#6A4C9E"/> <stop offset="55%" stop-color="#4A2E86"/> <stop offset="100%" stop-color="#331E63"/> </radialGradient> </defs> <circle cx="50" cy="50" r="49.2" fill="#3B2472"/> <circle cx="50" cy="50" r="46.4" fill="#D3C8EC"/> <circle cx="50" cy="50" r="43.6" fill="url(#pctpTlo)"/> <g stroke="#C79A2C" stroke-width="2.1" stroke-linecap="round" fill="none"> <path d="M50 60 C50 50 50 42 50 34"/> <path d="M50 60 C46 52 42 46 38 40"/> <path d="M50 60 C54 52 58 46 62 40"/> <path d="M50 59 C44 53 38 48 32 44"/> <path d="M50 59 C56 53 62 48 68 44"/> </g> <g> <ellipse cx="33" cy="41" rx="4.6" ry="10.4" fill="#A192D2" transform="rotate(-32 33 41)"/> <ellipse cx="67" cy="41" rx="4.6" ry="10.4" fill="#A192D2" transform="rotate(32 67 41)"/> <ellipse cx="39.5" cy="34" rx="5" ry="11.6" fill="#EFA275" transform="rotate(-16 39.5 34)"/> <ellipse cx="60.5" cy="34" rx="5" ry="11.6" fill="#EFA275" transform="rotate(16 60.5 34)"/> <ellipse cx="50" cy="30.5" rx="5.4" ry="12.4" fill="#E8712F"/> </g> <circle cx="50" cy="38.5" r="3.4" fill="#FBF6EC"/> <text x="50" y="76" text-anchor="middle" font-family="Georgia,'Times New Roman',serif" font-weight="bold" font-size="25" letter-spacing="1.2" fill="#F7F2E6">PCTP</text> </svg></div>
+      <div>
+        <div class="marka-nazwa">EduPlaner 2026</div>
+        <div class="marka-opis">Kącik nauczyciela ·<br>sprawozdanie z pracy grupy</div>
+      </div>
+    </div>
+    <div class="naglowek-prawy">
+      <span class="plakietka">nauczyciel · sprawozdanie</span>
+      <div class="naglowek-podpis">Dokument wsparcia · 2026</div>
+    </div>
+  </div>
+  <div class="belka"></div>
+
+  <div class="metryczka">
+    <div class="box"><span class="etykieta">Nauczyciel wychowawca</span><span class="wypelnij"></span></div>
+    <div class="box"><span class="etykieta">Grupa przedszkolna</span><span class="wypelnij"></span></div>
+    <div class="box"><span class="etykieta">Rok szkolny</span><span class="wartosc">2026 / 2027</span></div>
+  </div>
+  <div class="wstega"><span>Kącik nauczyciela · przedszkole · druk R-4 · dla dyrektora</span></div>
+  <div class="tytul">SPRAWOZDANIE Z PRACY GRUPY</div>
+  <div class="podtytul">wychowawczo-dydaktycznej za semestr lub rok szkolny</div>
+  <div class="kody">
+    <span class="kreska"></span>
+    <span class="tresc">DRUK R-4 · REALIZACJA · EFEKTY · WNIOSKI</span>
+    <span class="kreska"></span>
+  </div>
   <div class="sekcja"><span class="numer">III</span><h2>Efekty, wydarzenia i wnioski</h2><span class="linia"></span></div>
   <div class="siatka3">
     <div class="pole"><span class="etykieta">Frekwencja średnia grupy (%)</span><div class="linijki"><div></div></div></div>
     <div class="pole"><span class="etykieta">Liczba dzieci objętych pomocą p-p</span><div class="linijki"><div></div></div></div>
     <div class="pole"><span class="etykieta">Liczba spotkań z rodzicami</span><div class="linijki"><div></div></div></div>
   </div>
-  <div class="pole"><span class="etykieta">Uroczystości, wycieczki, konkursy i projekty zrealizowane w grupie</span><div class="linijki"><div></div><div></div></div></div>
-  <div class="pole"><span class="etykieta">Efekty pracy — co dzieci opanowały; obszary wymagające dalszej pracy</span><div class="linijki"><div></div><div></div></div></div>
+  <div class="pole"><span class="etykieta">Uroczystości, wycieczki, konkursy i projekty zrealizowane w grupie</span><div class="linijki"><div></div></div></div>
+  <div class="pole"><span class="etykieta">Efekty pracy — co dzieci opanowały; obszary wymagające dalszej pracy</span><div class="linijki"><div></div></div></div>
   <div class="pole"><span class="etykieta">Trudności w realizacji planu i podjęte działania</span><div class="linijki"><div></div></div></div>
-  <div class="pole"><span class="etykieta">Wnioski do pracy na kolejny okres</span><div class="linijki"><div></div><div></div></div></div>
+  <div class="pole"><span class="etykieta">Wnioski do pracy na kolejny okres</span><div class="linijki"><div></div></div></div>
   <div class="podpisy" style="margin-top:3mm">
     <div class="podpis"><div class="kreska"></div><div class="opis">Data i podpisy nauczycieli</div></div>
     <div class="podpis"><div class="kreska"></div><div class="opis">Podpis dyrektora — przyjęcie sprawozdania</div></div>
   </div>
   <div class="stopka">
     <span>EduPlaner 2026 · PCTP · pedagog specjalny</span>
-    <span><b>Strona 7 z 7</b> · Kącik nauczyciela · sprawozdanie R-4 · realizacja i wnioski</span>
+    <span><b>Strona 8 z 8</b> · Kącik nauczyciela · sprawozdanie R-4 · efekty i wnioski</span>
   </div>
 </section>
 
