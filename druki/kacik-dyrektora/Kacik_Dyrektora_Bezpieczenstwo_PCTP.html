@@ -1,0 +1,854 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+<meta charset="utf-8">
+<title>Bezpieczeństwo · kącik dyrektora · EduPlaner 2026</title>
+<style>
+  :root{
+    --fiolet:#2D1B69;
+    --fiolet-2:#4D3D80;
+    --pomarancz:#E8450A;
+    --pole:#F6F3FB;
+    --ramka:#D9CFEE;
+    --ramka-2:#CABCE8;
+    --kropki:#B3A1D8;
+    --wiersz:#FAF7F2;
+    --zazn:#FDECE4;
+    --szary:#6B6B7B;
+    --szary-2:#9A94A8;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{
+    font-family:Arial,"Helvetica Neue",Helvetica,sans-serif;
+    font-size:7.6pt; line-height:1.32; color:#221a3d; background:#e9e7ee;
+    -webkit-print-color-adjust:exact; print-color-adjust:exact;
+  }
+  .page{
+    position:relative; width:210mm; min-height:297mm; margin:0 auto 8mm;
+    padding:11mm 10mm 13mm; background:#fff; display:flex; flex-direction:column;
+    box-shadow:0 2px 10px rgba(45,27,105,.18);
+  }
+
+  /* ——— nagłówek ——— */
+  .naglowek{display:flex; align-items:flex-start; justify-content:space-between; gap:6mm}
+  .marka{display:flex; align-items:center; gap:3.2mm}
+  .logo{width:11.4mm; height:11.4mm; flex:none; display:block}
+  .logo svg{width:100%; height:100%; display:block}
+  .marka-nazwa{font-size:12.5pt; font-weight:bold; color:var(--fiolet); letter-spacing:-.2px; line-height:1.05}
+  .marka-opis{font-size:5.6pt; font-weight:bold; color:var(--szary); letter-spacing:1.1px; text-transform:uppercase; margin-top:1mm; max-width:52mm}
+  .naglowek-prawy{text-align:right; padding-top:.6mm}
+  .plakietka{
+    display:inline-block; background:var(--pomarancz); color:#fff; border-radius:999px;
+    padding:1.3mm 3.4mm; font-size:6.2pt; font-weight:bold; letter-spacing:.7px; text-transform:uppercase;
+  }
+  .naglowek-podpis{font-size:5.6pt; font-weight:bold; color:var(--szary-2); letter-spacing:1.1px; margin-top:1.6mm; text-transform:uppercase}
+  .belka{height:1.1mm; margin:2.6mm 0 3mm; background:linear-gradient(90deg,var(--fiolet) 0 55%,var(--pomarancz) 55% 100%)}
+
+  /* ——— pasek metryczki ——— */
+  .metryczka{display:flex; gap:2.4mm; margin-bottom:3.4mm}
+  .metryczka .box{
+    border:1px solid var(--ramka); border-radius:2.4mm; background:#FDFCFE;
+    padding:2mm 3mm; display:flex; align-items:baseline; gap:2mm; min-height:9mm;
+  }
+  .metryczka .box:nth-child(1){flex:2.2}
+  .metryczka .box:nth-child(2){flex:1.5}
+  .metryczka .box:nth-child(3){flex:1.3}
+  .metryczka .etykieta{font-size:5.8pt; font-weight:bold; color:var(--fiolet); letter-spacing:1px; text-transform:uppercase; white-space:nowrap}
+  .metryczka .wypelnij{flex:1; border-bottom:1.2px dotted var(--kropki); height:3.4mm}
+  .metryczka .wartosc{font-size:8.5pt; color:var(--fiolet); font-weight:normal}
+
+  /* ——— tytuł dokumentu ——— */
+  .wstega{text-align:center; margin:1mm 0 3mm}
+  .wstega span{
+    display:inline-block; background:var(--pomarancz); color:#fff; border-radius:999px;
+    padding:1.4mm 4mm; font-size:6.2pt; font-weight:bold; letter-spacing:1.1px; text-transform:uppercase;
+  }
+  .tytul{text-align:center; font-size:19pt; font-weight:bold; color:var(--fiolet); letter-spacing:.3px}
+  .podtytul{text-align:center; font-size:10pt; font-weight:bold; color:var(--pomarancz); margin-top:1.4mm}
+  .kody{display:flex; align-items:center; justify-content:center; gap:3mm; margin:3mm 0 5mm}
+  .kody .kreska{width:22mm; height:1px; background:var(--pomarancz)}
+  .kody .tresc{font-size:7.4pt; font-weight:bold; color:var(--fiolet); letter-spacing:2.6px}
+
+  /* ——— sekcje ——— */
+  .sekcja{display:flex; align-items:center; gap:2.6mm; margin:4.5mm 0 2.4mm}
+  .sekcja:first-of-type{margin-top:1mm}
+  .numer{
+    width:5.2mm; height:5.2mm; border-radius:1.2mm; background:var(--fiolet); color:#fff;
+    display:flex; align-items:center; justify-content:center; font-size:6.2pt; font-weight:bold; flex:none;
+  }
+  .numer.pom{background:var(--pomarancz)}
+  .sekcja h2{font-size:9.6pt; font-weight:bold; color:var(--fiolet); letter-spacing:.4px; text-transform:uppercase; white-space:nowrap}
+  .sekcja .linia{flex:1; height:1px; background:#E6DFF4}
+  .sekcja .tag{
+    background:#F3EDFB; border:1px solid var(--ramka-2); color:var(--fiolet);
+    border-radius:999px; padding:.7mm 2.4mm; font-size:6pt; font-weight:bold; letter-spacing:.5px;
+  }
+  .wstep{font-size:7pt; color:var(--fiolet-2); margin:0 0 2.6mm 8mm; line-height:1.4}
+
+  /* ——— pola do wypełnienia ——— */
+  .pole{
+    background:var(--pole); border:1px solid var(--ramka); border-radius:2.4mm;
+    padding:1.8mm 3mm 2.2mm; margin-bottom:2mm;
+  }
+  .pole > label,.pole .etykieta{
+    display:block; font-size:5.8pt; font-weight:bold; color:var(--fiolet);
+    letter-spacing:1.1px; text-transform:uppercase;
+  }
+  .pole .tresc{font-size:7.6pt; color:#221a3d; margin-top:1.2mm}
+  .linijki{margin-top:1.4mm}
+  .linijki div{border-bottom:1.2px dotted var(--kropki); height:4.6mm}
+  .linijki.w1 div:last-child,.linijki div:last-child{border-bottom:1.2px dotted var(--kropki)}
+  .siatka2{display:flex; gap:2.4mm}
+  .siatka2 > *{flex:1}
+  .siatka3{display:flex; gap:2.4mm}
+  .siatka3 > *{flex:1}
+
+  /* ——— tabele ——— */
+  table{width:100%; border-collapse:collapse; margin-bottom:2mm}
+  th{
+    background:var(--fiolet); color:#fff; font-size:6.2pt; font-weight:bold; letter-spacing:.7px;
+    text-transform:uppercase; text-align:left; padding:2mm 2.2mm; border:1px solid var(--fiolet);
+  }
+  td{border:1px solid var(--ramka); padding:2mm 2.2mm; vertical-align:top; font-size:7.2pt; height:8mm}
+  tbody tr:nth-child(even) td{background:var(--wiersz)}
+  td.klucz{font-weight:bold; color:var(--fiolet)}
+  td.puste{color:var(--kropki)}
+  td.puste::after{content:"................"; letter-spacing:.4px}
+  td.lp{text-align:center; font-weight:bold; color:var(--pomarancz); width:7mm}
+  .tab-mala td{height:6.4mm}
+
+  /* ——— pola wyboru ——— */
+  .wybor-tytul{display:flex; align-items:center; gap:2mm; margin:3.4mm 0 1.8mm}
+  .wybor-tytul .kropka{width:2.2mm; height:2.2mm; border-radius:.6mm; background:var(--pomarancz); flex:none}
+  .wybor-tytul span{font-size:6.4pt; font-weight:bold; color:var(--fiolet); letter-spacing:.8px; text-transform:uppercase}
+  .wybory{display:flex; flex-wrap:wrap; gap:2mm}
+  .wybor{
+    flex:1 1 calc(50% - 1mm); display:flex; align-items:center; gap:2.4mm;
+    border:1px solid var(--ramka); border-radius:2.4mm; padding:2.2mm 3mm; background:#fff; font-size:7.4pt;
+  }
+  .wybor.w3{flex:1 1 calc(33.33% - 1.4mm)}
+  .wybor.pelny{flex:1 1 100%}
+  .kwadrat{
+    width:3.4mm; height:3.4mm; border:1.2px solid var(--kropki); border-radius:.8mm; flex:none;
+    display:flex; align-items:center; justify-content:center; font-size:6.4pt; color:transparent;
+  }
+  .wybor.zazn{background:var(--zazn); border-color:var(--pomarancz)}
+  .wybor.zazn .kwadrat{background:var(--pomarancz); border-color:var(--pomarancz); color:#fff}
+  .wybor .dopisz{flex:1; border-bottom:1.2px dotted var(--kropki); height:3.4mm; margin-left:1mm}
+
+  /* ——— karty skali ——— */
+  .karty{display:flex; gap:2.4mm; margin:2.4mm 0}
+  .karta{flex:1; border-radius:2.4mm; padding:2.6mm; text-align:center}
+  .karta .duza{font-size:11pt; font-weight:bold}
+  .karta .opis{font-size:5.8pt; font-weight:bold; letter-spacing:.9px; text-transform:uppercase; margin-top:1mm}
+  .karta.czerwona{background:#FDECE4; border:1px solid #F3B79C; color:var(--pomarancz)}
+  .karta.zolta{background:#FDF6E3; border:1px solid #EDD9A8; color:#B07A12}
+  .karta.zielona{background:#E7F5EE; border:1px solid #A9D9C1; color:#177A4E}
+
+  /* ——— blok dyrektora ——— */
+  .blok-dyr{
+    border:1.4px solid var(--pomarancz); border-radius:2.8mm; background:#FFFBF8;
+    padding:3mm 3.4mm; margin-top:2.6mm;
+  }
+  .blok-dyr .naglowek-bloku{display:flex; align-items:center; gap:2.4mm; margin-bottom:2.4mm}
+  .blok-dyr .naglowek-bloku .znak{
+    width:5.2mm; height:5.2mm; border-radius:1.2mm; background:var(--pomarancz); color:#fff;
+    display:flex; align-items:center; justify-content:center; font-size:6.6pt; font-weight:bold;
+  }
+  .blok-dyr h3{font-size:8.6pt; font-weight:bold; color:var(--pomarancz); letter-spacing:.5px; text-transform:uppercase}
+  .blok-dyr .pole{background:#fff; border-color:#F3D5C6}
+  .blok-dyr .wybor{border-color:#F3D5C6}
+
+  /* ——— informacje / wskazówki ——— */
+  .info{
+    background:#F3EDFB; border-left:1.6mm solid var(--fiolet); border-radius:1.6mm;
+    padding:2.4mm 3mm; font-size:7pt; color:var(--fiolet-2); margin-bottom:2.4mm; line-height:1.42;
+  }
+  .info b{color:var(--fiolet)}
+  .kafle{display:flex; gap:2.4mm; margin-bottom:2.6mm}
+  .kafel{flex:1; border:1px solid var(--ramka); border-radius:2.4mm; background:var(--pole); padding:2.6mm 3mm}
+  .kafel .naglowek-kafla{font-size:5.8pt; font-weight:bold; color:var(--pomarancz); letter-spacing:1px; text-transform:uppercase}
+  .kafel .tresc-kafla{font-size:7.2pt; color:var(--fiolet); margin-top:1.2mm; font-weight:bold}
+  .kafel .uwaga{font-size:6.4pt; color:var(--szary); margin-top:.8mm}
+
+  /* ——— podstawa prawna ——— */
+  .prawna{background:var(--pole); border:1px solid var(--ramka); border-radius:2.4mm; padding:2.6mm 3mm}
+  .prawna p{font-size:6.1pt; line-height:1.45; color:#3a3357; text-align:justify}
+  .prawna b{color:var(--fiolet)}
+
+  /* ——— podpisy ——— */
+  .podpisy{display:flex; gap:8mm; margin-top:6mm}
+  .podpis{flex:1; text-align:center}
+  .podpis .kreska{border-top:1px solid var(--fiolet-2); margin-bottom:1.6mm}
+  .podpis .opis{font-size:6.4pt; color:var(--szary)}
+
+  /* ——— stopka ——— */
+  .stopka{
+    margin-top:auto; padding-top:2.6mm; border-top:1px solid #EBEBED;
+    display:flex; justify-content:space-between; font-size:5.8pt; color:var(--szary-2);
+  }
+  .stopka b{color:var(--fiolet)}
+
+
+  /* ——— panel aplikacji (nie drukuje się) ——— */
+  .panel{
+    width:210mm; margin:0 auto 8mm; background:#fff; border-radius:3mm; overflow:hidden;
+    box-shadow:0 2px 10px rgba(45,27,105,.18);
+  }
+  .panel-glowa{background:linear-gradient(120deg,#2D1B69 0%,#4D3D80 62%,#E8450A 165%); color:#fff; padding:6mm 7mm}
+  .panel-glowa .etykieta-app{font-size:6pt; font-weight:bold; letter-spacing:2px; text-transform:uppercase; opacity:.82}
+  .panel-glowa h1{font-size:15pt; font-weight:bold; margin-top:1.6mm}
+  .panel-glowa p{font-size:8pt; margin-top:1.6mm; opacity:.9; max-width:150mm; line-height:1.45}
+  .panel-cialo{padding:6mm 7mm 7mm}
+  .panel-sekcja{margin-bottom:5mm}
+  .panel-sekcja > h2{
+    font-size:9.4pt; font-weight:bold; color:var(--fiolet); text-transform:uppercase; letter-spacing:.5px;
+    display:flex; align-items:center; gap:2.4mm; margin-bottom:2.4mm;
+  }
+  .panel-sekcja > h2::before{content:""; width:2.6mm; height:2.6mm; border-radius:.7mm; background:var(--pomarancz)}
+  .panel-lista{list-style:none; display:flex; flex-wrap:wrap; gap:2mm}
+  .panel-lista li{
+    flex:1 1 calc(50% - 1mm); background:var(--pole); border:1px solid var(--ramka); border-radius:2.4mm;
+    padding:2.4mm 3mm; font-size:7.6pt; display:flex; gap:2.4mm; align-items:flex-start;
+  }
+  .panel-lista li .nr{
+    width:4.6mm; height:4.6mm; border-radius:50%; background:var(--fiolet); color:#fff; flex:none;
+    display:flex; align-items:center; justify-content:center; font-size:5.8pt; font-weight:bold;
+  }
+  .panel-role{display:flex; flex-direction:column; gap:2mm}
+  .panel-role .rola{
+    border:1px solid var(--ramka); border-left:1.6mm solid var(--pomarancz); border-radius:2.4mm;
+    padding:2.6mm 3.4mm; background:#fff;
+  }
+  .panel-role .rola b{color:var(--fiolet); font-size:8pt}
+  .panel-role .rola span{display:block; font-size:7.4pt; color:var(--fiolet-2); margin-top:1mm; line-height:1.45}
+  .panel-role .rola em{font-style:normal; color:var(--pomarancz); font-weight:bold}
+  .panel-akcje{display:flex; align-items:center; gap:4mm; border-top:1px solid #EBEBED; padding-top:4mm; margin-top:1mm}
+  .btn-druk{
+    background:var(--pomarancz); color:#fff; border:none; border-radius:999px; cursor:pointer;
+    padding:3mm 7mm; font-size:8.4pt; font-weight:bold; letter-spacing:.5px; font-family:inherit;
+  }
+  .panel-akcje .uwaga-druk{font-size:7.2pt; color:var(--szary)}
+
+
+  /* ——— elementy kącika nauczyciela ——— */
+  td.ocena{text-align:center; letter-spacing:2.4px; color:var(--kropki); font-size:8pt}
+  td.kratka{text-align:center; vertical-align:middle}
+  td.kratka span{
+    display:inline-block; width:3.4mm; height:3.4mm; border:1.2px solid var(--kropki);
+    border-radius:.8mm; background:#fff;
+  }
+  td.podstawa{font-size:6.2pt; font-weight:bold; color:var(--pomarancz); letter-spacing:.3px}
+  td.termin{font-size:6.6pt; color:var(--fiolet); font-weight:bold}
+  .legenda{background:var(--pole); border:1px solid var(--ramka); border-radius:2.4mm; padding:2.6mm 3mm; margin-bottom:2mm}
+  .legenda p{font-size:6.1pt; line-height:1.5; color:#3a3357}
+  .legenda b{color:var(--fiolet)}
+
+
+  /* ——— konspekt: blok tytułowy zajęć ——— */
+  .kons-wstega{text-align:center; margin:1.4mm 0 2mm}
+  .kons-wstega span{
+    display:inline-block; background:var(--pomarancz); color:#fff; border-radius:999px;
+    padding:1.4mm 4.4mm; font-size:6.6pt; font-weight:bold; letter-spacing:1.4px; text-transform:uppercase;
+  }
+  .kons-sfera{text-align:center; margin-bottom:2mm}
+  .kons-sfera span{
+    display:inline-block; background:#F3EDFB; border:1px solid var(--ramka-2); color:var(--fiolet);
+    border-radius:999px; padding:1.2mm 4mm; font-size:6.2pt; font-weight:bold; letter-spacing:.9px; text-transform:uppercase;
+  }
+  .kons-etyk{
+    text-align:center; font-size:5.6pt; font-weight:bold; color:var(--szary);
+    letter-spacing:1.4px; text-transform:uppercase; margin-bottom:.6mm;
+  }
+  .kons-tytul{
+    text-align:center; font-size:15pt; font-weight:bold; color:var(--fiolet); letter-spacing:.2px;
+    border-bottom:1.4px dotted var(--kropki); padding-bottom:.6mm; margin:0 18mm; height:8mm;
+  }
+  .kons-pod{display:flex; align-items:center; justify-content:center; gap:3mm; margin:1.6mm 18mm 2.6mm}
+  .kons-pod .kreska{flex:1; height:1px; background:var(--pomarancz)}
+  .kons-pod .linia-op{flex:2.6; border-bottom:1.2px dotted var(--kropki); height:3mm}
+  .chipsy{display:flex; gap:2mm; margin-bottom:2mm}
+  .chip{
+    flex:1; border:1px solid var(--ramka-2); border-radius:999px; background:#fff;
+    padding:1mm 2mm; text-align:center; font-size:5.8pt; font-weight:bold;
+    color:var(--fiolet); letter-spacing:.6px; text-transform:uppercase;
+  }
+  .chip i{display:block; font-style:normal; font-weight:normal; letter-spacing:0; text-transform:none;
+    border-bottom:1.2px dotted var(--kropki); height:3.2mm; margin-top:1mm}
+
+  /* ——— dwie symetryczne kolumny celów ——— */
+  .cele{display:flex; gap:3.4mm; align-items:stretch; margin-bottom:3.4mm}
+  .cel{flex:1 1 0; display:flex; flex-direction:column; border:1px solid var(--ramka);
+       border-radius:2.8mm; overflow:hidden; background:var(--pole)}
+  .cel-glowa{display:flex; align-items:center; gap:2.2mm; padding:2.2mm 3mm; background:var(--fiolet); color:#fff}
+  .cel.terap .cel-glowa{background:var(--pomarancz)}
+  .cel-glowa .znak{
+    width:5mm; height:5mm; border-radius:1.2mm; background:rgba(255,255,255,.2); flex:none;
+    display:flex; align-items:center; justify-content:center; font-size:6.2pt; font-weight:bold;
+  }
+  .cel-glowa h3{font-size:8.4pt; font-weight:bold; letter-spacing:.6px; text-transform:uppercase}
+  .cel-glowa .pig{
+    margin-left:auto; background:rgba(255,255,255,.18); border-radius:999px;
+    padding:.8mm 2.4mm; font-size:5.4pt; font-weight:bold; letter-spacing:.7px; text-transform:uppercase;
+  }
+  .cel-cialo{flex:1; display:flex; flex-direction:column; padding:2.6mm 3mm 2.8mm}
+  .cel-cialo .mini{font-size:5.6pt; font-weight:bold; color:var(--fiolet); letter-spacing:1px; text-transform:uppercase}
+  .cel-cialo .mini.pom{color:var(--pomarancz)}
+  .cel-cialo .linijki div{border-bottom:1.2px dotted var(--kropki); height:4.6mm}
+  /* klamra przy celach — wg wzoru konspektu */
+  .klamra-blok{display:flex; align-items:stretch; gap:1.6mm; margin:1.4mm 0 1.2mm}
+  .klamra{flex:none; width:3.4mm; align-self:stretch; color:var(--fiolet); display:block}
+  .klamra svg{width:100%; height:100%; display:block}
+  .cel.terap .klamra{color:var(--pomarancz)}
+  .smart-wiersze{flex:1; display:flex; flex-direction:column; justify-content:space-between; gap:.2mm}
+  .smart-w{display:flex; align-items:center; gap:1.4mm}
+  .smart-w b{
+    width:3.2mm; flex:none; text-align:center; font-size:7pt; font-weight:bold; color:var(--fiolet);
+  }
+  .cel.terap .smart-w b{color:var(--pomarancz)}
+  .smart-w i{
+    flex:none; width:14mm; font-style:normal; font-size:5.4pt; color:var(--szary); letter-spacing:.2px;
+  }
+  .smart-w .lin{flex:1; border-bottom:1.2px dotted var(--kropki); height:3.1mm}
+  .kryt{
+    background:#EFEAF9; border:1px solid var(--ramka-2); border-radius:2mm;
+    padding:1.2mm 2.4mm; display:flex; align-items:center; gap:1.6mm; margin-top:auto;
+  }
+  .cel.terap .kryt{background:#FDECE4; border-color:#F3B79C}
+  .kryt b{font-size:5.8pt; color:var(--fiolet); white-space:nowrap; letter-spacing:.3px}
+  .cel.terap .kryt b{color:var(--pomarancz)}
+  .kryt .lin{flex:1; border-bottom:1.2px dotted var(--kropki); height:3.4mm}
+  .cel .rozdziel{border-top:1px solid var(--ramka); margin:1.6mm 0 2mm}
+
+  /* ——— dwie kolumny sekcji ——— */
+  .duo{display:flex; gap:3.4mm; align-items:stretch; margin-bottom:1mm}
+  .duo > div{flex:1 1 0; display:flex; flex-direction:column}
+  .duo .pole{flex:1}
+  .karta-mod{flex:1; border-radius:2.4mm; padding:2mm 2.8mm}
+  .karta-mod .glowa{display:flex; align-items:center; gap:2mm; margin-bottom:1.4mm}
+  .karta-mod .glowa .rz{
+    width:4.4mm; height:4.4mm; border-radius:1mm; display:flex; align-items:center; justify-content:center;
+    font-size:5.6pt; font-weight:bold; color:#fff;
+  }
+  .karta-mod .glowa b{font-size:6.4pt; letter-spacing:.8px; text-transform:uppercase}
+  .karta-mod p{font-size:6.4pt; line-height:1.45}
+  .mod-z{background:#FDF6E3; border:1px solid #EDD9A8}
+  .mod-z .rz{background:#C9992A} .mod-z .glowa b{color:#8A6510} .mod-z p{color:#6B5220}
+  .mod-c{background:#FDECE4; border:1px solid #F3B79C}
+  .mod-c .rz{background:var(--pomarancz)} .mod-c .glowa b{color:#B8350D} .mod-c p{color:#7E3A22}
+
+  .wsk{
+    display:flex; align-items:center; gap:2mm; margin-top:2.4mm;
+    background:var(--pole); border:1px solid var(--ramka); border-radius:2.4mm; padding:1.4mm 3mm;
+  }
+  .wsk b{font-size:6.2pt; color:var(--fiolet); white-space:nowrap}
+  .wsk .dopisz{flex:1; border-bottom:1.2px dotted var(--kropki); height:3.4mm}
+
+
+  /* ——— elementy instrukcji ——— */
+  .formula{display:flex; gap:1.6mm; margin:1mm 0 2.4mm}
+  .formula .czlon{
+    flex:1; border-radius:2.2mm; padding:2mm 2.2mm; text-align:center; color:#fff;
+  }
+  .formula .czlon b{display:block; font-size:6.4pt; letter-spacing:.6px; text-transform:uppercase}
+  .formula .czlon i{display:block; font-style:normal; font-size:5.6pt; opacity:.9; margin-top:.6mm; line-height:1.35}
+  .formula .plus{align-self:center; color:var(--kropki); font-size:9pt; font-weight:bold}
+  .zle-dobrze{display:flex; gap:2.4mm; margin-bottom:2mm; align-items:stretch}
+  .zle-dobrze > div{flex:1; border-radius:2.2mm; padding:2mm 2.6mm; font-size:6.8pt; line-height:1.4}
+  .zle{background:#FDECE4; border:1px solid #F3B79C; color:#7E3A22}
+  .dobrze{background:#E7F5EE; border:1px solid #A9D9C1; color:#17553C}
+  .zle-dobrze .etyk{
+    display:block; font-size:5.6pt; font-weight:bold; letter-spacing:1px;
+    text-transform:uppercase; margin-bottom:1mm;
+  }
+  .zle .etyk{color:var(--pomarancz)} .dobrze .etyk{color:#177A4E}
+  .smart-opis{flex:1; display:flex; flex-direction:column; gap:1.2mm}
+  .smart-opis .w{display:flex; gap:2.4mm; align-items:flex-start}
+  .smart-opis .w b{
+    width:5.2mm; height:5.2mm; border-radius:1.2mm; background:var(--fiolet); color:#fff; flex:none;
+    display:flex; align-items:center; justify-content:center; font-size:7pt; margin-top:.3mm;
+  }
+  .smart-opis .w .tresc{flex:1; font-size:7pt; line-height:1.4}
+  .smart-opis .w .tresc strong{color:var(--fiolet)}
+  .smart-opis .w .tresc em{display:block; font-style:normal; font-size:6.2pt; color:var(--pomarancz); margin-top:.4mm}
+
+
+  /* ——— karty uzasadnienia ——— */
+  .argumenty{display:flex; flex-wrap:wrap; gap:2.4mm; margin-bottom:2.4mm}
+  .arg{
+    flex:1 1 calc(50% - 1.2mm); border:1px solid var(--ramka); border-left:1.6mm solid var(--pomarancz);
+    border-radius:2.4mm; background:#fff; padding:2.4mm 3mm;
+  }
+  .arg.fiolet{border-left-color:var(--fiolet)}
+  .arg b{display:block; font-size:7.4pt; color:var(--fiolet); margin-bottom:1mm}
+  .arg p{font-size:6.8pt; line-height:1.5; color:#3a3357}
+  .arg p em{font-style:normal; color:var(--pomarancz); font-weight:bold}
+
+  @media print{
+    body{background:#fff}
+    .panel{display:none !important}
+    .page{margin:0; box-shadow:none; page-break-after:always}
+    .page:last-child{page-break-after:auto}
+    @page{size:A4; margin:0}
+  }
+</style>
+</head>
+<body>
+
+<!-- ======= PANEL APLIKACJI · nie drukuje się ======= -->
+<div class="panel">
+  <div class="panel-glowa">
+    <div class="etykieta-app">EduPlaner 2026 · Kącik dyrektora · przedszkole · panel informacyjny</div>
+    <h1>Bezpieczeństwo — kontrola obiektu, wypadki, procedury</h1>
+    <p>Trzy druki na sześciu stronach A4: roczna kontrola obiektu i terenu z kierunkami poprawy, karta wypadku z powiadomieniami i wpisem do rejestru oraz przegląd procedur z oceną ryzyka. Ta część wyświetla się wyłącznie w aplikacji i nie drukuje się.</p>
+  </div>
+  <div class="panel-cialo">
+    <div class="panel-sekcja">
+      <h2>Obowiązki dyrektora, które wynikają wprost z przepisu</h2>
+      <div class="panel-role">
+        <div class="rola">
+          <b>Kontrola obiektu co najmniej raz w roku</b>
+          <span>Dyrektor <em>co najmniej raz w roku</em> dokonuje kontroli zapewniania bezpiecznych i higienicznych warunków korzystania z obiektów należących do placówki i <em>określa kierunki ich poprawy</em>. Z kontroli sporządza się <b>protokół</b> — druk <b>DB-1</b>.</span>
+        </div>
+        <div class="rola">
+          <b>Kopia protokołu idzie do organu prowadzącego</b>
+          <span>To nie jest opcja. Sekcja IV druku DB-1 ma osobne pole na datę i sposób przekazania kopii. Zadania przekraczające możliwości placówki wpisz jako wniosek do organu prowadzącego i zachowaj potwierdzenie.</span>
+        </div>
+        <div class="rola">
+          <b>Rejestr wypadków prowadzi dyrektor</b>
+          <span>Druk <b>DB-2</b> zbiera pierwsze czynności: zdarzenie w faktach, udzieloną pomoc, komplet powiadomień z datą i godziną, numer w rejestrze. <em>Nie zastępuje protokołu powypadkowego</em> — ten sporządza zespół powypadkowy według wzoru z załącznika do rozporządzenia.</span>
+        </div>
+        <div class="rola">
+          <b>Zabezpieczenie miejsca i zawiadomienia</b>
+          <span>Do czasu rozpoczęcia pracy przez zespół powypadkowy dyrektor zabezpiecza miejsce wypadku. O wypadku zawiadamia niezwłocznie rodziców, organ prowadzący, pracownika służby BHP i społecznego inspektora pracy, a przy wypadku ciężkim lub śmiertelnym — także prokuratora i policję.</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="panel-sekcja">
+      <h2>Rzecz, którą procedury najczęściej pomijają</h2>
+      <div class="panel-role">
+        <div class="rola">
+          <b>Dziecko z niepełnosprawnością w procedurze ewakuacji</b>
+          <span>Sprawdź, czy procedury ewakuacji, pierwszej pomocy i postępowania przy zachowaniach trudnych <em>imiennie uwzględniają dzieci z niepełnosprawnością</em>: kto je wyprowadza, jak się z nimi komunikuje, jakie mają ograniczenia zdrowotne. Ogólna procedura bez tego zapisu w praktyce nie działa. Druk <b>DB-3</b> pyta o to wprost.</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="panel-akcje">
+      <button class="btn-druk" onclick="window.print()">Drukuj komplet (6 stron A4)</button>
+      <span class="uwaga-druk">Ustawienia: A4, marginesy „brak”, grafika tła włączona.</span>
+    </div>
+  </div>
+</div>
+<!-- === STRONA 1 === -->
+<section class="page">
+  <div class="naglowek">
+    <div class="marka">
+      <div class="logo"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" role="img" aria-label="Logo PCTP"> <defs> <radialGradient id="pctpTlo" cx="36%" cy="28%" r="82%"> <stop offset="0%" stop-color="#6A4C9E"/> <stop offset="55%" stop-color="#4A2E86"/> <stop offset="100%" stop-color="#331E63"/> </radialGradient> </defs> <circle cx="50" cy="50" r="49.2" fill="#3B2472"/> <circle cx="50" cy="50" r="46.4" fill="#D3C8EC"/> <circle cx="50" cy="50" r="43.6" fill="url(#pctpTlo)"/> <g stroke="#C79A2C" stroke-width="2.1" stroke-linecap="round" fill="none"> <path d="M50 60 C50 50 50 42 50 34"/> <path d="M50 60 C46 52 42 46 38 40"/> <path d="M50 60 C54 52 58 46 62 40"/> <path d="M50 59 C44 53 38 48 32 44"/> <path d="M50 59 C56 53 62 48 68 44"/> </g> <g> <ellipse cx="33" cy="41" rx="4.6" ry="10.4" fill="#A192D2" transform="rotate(-32 33 41)"/> <ellipse cx="67" cy="41" rx="4.6" ry="10.4" fill="#A192D2" transform="rotate(32 67 41)"/> <ellipse cx="39.5" cy="34" rx="5" ry="11.6" fill="#EFA275" transform="rotate(-16 39.5 34)"/> <ellipse cx="60.5" cy="34" rx="5" ry="11.6" fill="#EFA275" transform="rotate(16 60.5 34)"/> <ellipse cx="50" cy="30.5" rx="5.4" ry="12.4" fill="#E8712F"/> </g> <circle cx="50" cy="38.5" r="3.4" fill="#FBF6EC"/> <text x="50" y="76" text-anchor="middle" font-family="Georgia,'Times New Roman',serif" font-weight="bold" font-size="25" letter-spacing="1.2" fill="#F7F2E6">PCTP</text> </svg></div>
+      <div>
+        <div class="marka-nazwa">EduPlaner 2026</div>
+        <div class="marka-opis">Kącik dyrektora ·<br>kontrola obiektu</div>
+      </div>
+    </div>
+    <div class="naglowek-prawy">
+      <span class="plakietka">dyrektor · obiekt i teren</span>
+      <div class="naglowek-podpis">Dokument wsparcia · 2026</div>
+    </div>
+  </div>
+  <div class="belka"></div>
+
+  <div class="metryczka">
+    <div class="box"><span class="etykieta">Przedszkole</span><span class="wypelnij"></span></div><div class="box"><span class="etykieta">Dyrektor</span><span class="wypelnij"></span></div>
+    <div class="box"><span class="etykieta">Rok szkolny</span><span class="wartosc">2026 / 2027</span></div>
+  </div>
+  <div class="wstega"><span>Kącik dyrektora · przedszkole · druk DB-1 · co najmniej raz w roku</span></div>
+  <div class="tytul">PROTOKÓŁ KONTROLI OBIEKTU</div>
+  <div class="podtytul">bezpieczne i higieniczne warunki korzystania z obiektu i terenu przedszkola</div>
+  <div class="kody">
+    <span class="kreska"></span>
+    <span class="tresc">DRUK DB-1 · OBIEKT · TEREN · KIERUNKI POPRAWY</span>
+    <span class="kreska"></span>
+  </div>
+  <div class="prawna">
+    <p><b>PODSTAWA PRAWNA.</b> <b>Rozporządzenie MENiS z dnia 31 grudnia 2002 r. w sprawie bezpieczeństwa i higieny w publicznych i niepublicznych szkołach i placówkach</b> (t.j. Dz.U. z 2020 r. poz. 1604, z późn. zm.) — dyrektor <b>co najmniej raz w roku</b> dokonuje <b>kontroli zapewniania bezpiecznych i higienicznych warunków</b> korzystania z obiektów należących do placówki, w tym bezpiecznych i higienicznych warunków nauki, i <b>określa kierunki ich poprawy</b>; z kontroli sporządza się <b>protokół</b>, którego kopię przekazuje się <b>organowi prowadzącemu</b>. Dyrektor prowadzi <b>rejestr wypadków</b>, zabezpiecza miejsce wypadku do czasu rozpoczęcia pracy przez <b>zespół powypadkowy</b>, a o wypadku zawiadamia niezwłocznie <b>rodziców</b>, organ prowadzący i inne uprawnione podmioty; zespół powypadkowy sporządza <b>protokół powypadkowy</b> według wzoru stanowiącego załącznik do rozporządzenia. Ustawa — Prawo oświatowe (t.j. Dz.U. z 2024 r. poz. 737, z późn. zm.) — art. 68 ust. 1 pkt 6. Dane osobowe zgodnie z RODO (UE) 2016/679.</p>
+  </div>
+  <div class="sekcja"><span class="numer pom">I</span><h2>Dane kontroli i skład komisji</h2><span class="linia"></span></div>
+  <div class="siatka2">
+    <div class="pole"><span class="etykieta">Data kontroli</span><div class="linijki"><div></div></div></div>
+    <div class="pole"><span class="etykieta">Podstawa (kontrola roczna / po przerwie / doraźna)</span><div class="linijki"><div></div></div></div>
+  </div>
+  <table class="tab-mala">
+    <thead>
+      <tr><th style="width:6mm">Lp</th><th style="width:56mm">Imię i nazwisko</th><th style="width:56mm">Funkcja w kontroli</th><th>Podpis</th></tr>
+    </thead>
+    <tbody>
+      <tr><td class="lp">1</td><td class="puste"></td><td class="puste"></td><td class="puste"></td></tr>
+      <tr><td class="lp">2</td><td class="puste"></td><td class="puste"></td><td class="puste"></td></tr>
+      <tr><td class="lp">3</td><td class="puste"></td><td class="puste"></td><td class="puste"></td></tr>
+    </tbody>
+  </table>
+  <div class="sekcja"><span class="numer">II</span><h2>Stan obiektu — pomieszczenia</h2><span class="linia"></span></div>
+  <table class="tab-mala">
+    <thead>
+      <tr><th style="width:62mm">Element podlegający kontroli</th><th style="width:26mm">Stan</th><th>Uwagi i stwierdzone usterki</th></tr>
+    </thead>
+    <tbody>
+      <tr><td class="klucz">Sale zajęć — podłogi, ściany, oświetlenie</td><td class="ocena">DOBRY ZŁY</td><td class="puste"></td></tr>
+      <tr><td class="klucz">Meble i wyposażenie dostosowane do wzrostu dzieci</td><td class="ocena">DOBRY ZŁY</td><td class="puste"></td></tr>
+      <tr><td class="klucz">Szatnie i ciągi komunikacyjne</td><td class="ocena">DOBRY ZŁY</td><td class="puste"></td></tr>
+      <tr><td class="klucz">Sanitariaty — stan i dostępność</td><td class="ocena">DOBRY ZŁY</td><td class="puste"></td></tr>
+      <tr><td class="klucz">Kuchnia i miejsce wydawania posiłków</td><td class="ocena">DOBRY ZŁY</td><td class="puste"></td></tr>
+      <tr><td class="klucz">Instalacja elektryczna i gniazda zabezpieczone</td><td class="ocena">DOBRY ZŁY</td><td class="puste"></td></tr>
+      <tr><td class="klucz">Drzwi, okna i zabezpieczenia przed wypadnięciem</td><td class="ocena">DOBRY ZŁY</td><td class="puste"></td></tr>
+      <tr><td class="klucz">Oznakowanie dróg ewakuacyjnych i gaśnice</td><td class="ocena">DOBRY ZŁY</td><td class="puste"></td></tr>
+    </tbody>
+  </table>
+  <div class="stopka">
+    <span>EduPlaner 2026 · PCTP · pedagog specjalny</span>
+    <span><b>Strona 1 z 6</b> · Kącik dyrektora · druk DB-1 · komisja i stan pomieszczeń</span>
+  </div>
+</section>
+<!-- === STRONA 2 === -->
+<section class="page">
+  <div class="naglowek">
+    <div class="marka">
+      <div class="logo"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" role="img" aria-label="Logo PCTP"> <defs> <radialGradient id="pctpTlo" cx="36%" cy="28%" r="82%"> <stop offset="0%" stop-color="#6A4C9E"/> <stop offset="55%" stop-color="#4A2E86"/> <stop offset="100%" stop-color="#331E63"/> </radialGradient> </defs> <circle cx="50" cy="50" r="49.2" fill="#3B2472"/> <circle cx="50" cy="50" r="46.4" fill="#D3C8EC"/> <circle cx="50" cy="50" r="43.6" fill="url(#pctpTlo)"/> <g stroke="#C79A2C" stroke-width="2.1" stroke-linecap="round" fill="none"> <path d="M50 60 C50 50 50 42 50 34"/> <path d="M50 60 C46 52 42 46 38 40"/> <path d="M50 60 C54 52 58 46 62 40"/> <path d="M50 59 C44 53 38 48 32 44"/> <path d="M50 59 C56 53 62 48 68 44"/> </g> <g> <ellipse cx="33" cy="41" rx="4.6" ry="10.4" fill="#A192D2" transform="rotate(-32 33 41)"/> <ellipse cx="67" cy="41" rx="4.6" ry="10.4" fill="#A192D2" transform="rotate(32 67 41)"/> <ellipse cx="39.5" cy="34" rx="5" ry="11.6" fill="#EFA275" transform="rotate(-16 39.5 34)"/> <ellipse cx="60.5" cy="34" rx="5" ry="11.6" fill="#EFA275" transform="rotate(16 60.5 34)"/> <ellipse cx="50" cy="30.5" rx="5.4" ry="12.4" fill="#E8712F"/> </g> <circle cx="50" cy="38.5" r="3.4" fill="#FBF6EC"/> <text x="50" y="76" text-anchor="middle" font-family="Georgia,'Times New Roman',serif" font-weight="bold" font-size="25" letter-spacing="1.2" fill="#F7F2E6">PCTP</text> </svg></div>
+      <div>
+        <div class="marka-nazwa">EduPlaner 2026</div>
+        <div class="marka-opis">Kącik dyrektora ·<br>kontrola obiektu</div>
+      </div>
+    </div>
+    <div class="naglowek-prawy">
+      <span class="plakietka">dyrektor · obiekt i teren</span>
+      <div class="naglowek-podpis">Dokument wsparcia · 2026</div>
+    </div>
+  </div>
+  <div class="belka"></div>
+
+  <div class="metryczka">
+    <div class="box"><span class="etykieta">Przedszkole</span><span class="wypelnij"></span></div><div class="box"><span class="etykieta">Dyrektor</span><span class="wypelnij"></span></div>
+    <div class="box"><span class="etykieta">Rok szkolny</span><span class="wartosc">2026 / 2027</span></div>
+  </div>
+  <div class="sekcja"><span class="numer pom">III</span><h2>Teren i plac zabaw</h2><span class="linia"></span></div>
+  <table class="tab-mala">
+    <thead>
+      <tr><th style="width:62mm">Element podlegający kontroli</th><th style="width:26mm">Stan</th><th>Uwagi i stwierdzone usterki</th></tr>
+    </thead>
+    <tbody>
+      <tr><td class="klucz">Ogrodzenie i furtki — zamknięcie od strony ulicy</td><td class="ocena">DOBRY ZŁY</td><td class="puste"></td></tr>
+      <tr><td class="klucz">Nawierzchnia bezpieczna pod urządzeniami</td><td class="ocena">DOBRY ZŁY</td><td class="puste"></td></tr>
+      <tr><td class="klucz">Urządzenia zabawowe — mocowania i stan techniczny</td><td class="ocena">DOBRY ZŁY</td><td class="puste"></td></tr>
+      <tr><td class="klucz">Piaskownica — zabezpieczenie i wymiana piasku</td><td class="ocena">DOBRY ZŁY</td><td class="puste"></td></tr>
+      <tr><td class="klucz">Zieleń — gałęzie, krzewy trujące, alergeny</td><td class="ocena">DOBRY ZŁY</td><td class="puste"></td></tr>
+      <tr><td class="klucz">Oświetlenie terenu i widoczność</td><td class="ocena">DOBRY ZŁY</td><td class="puste"></td></tr>
+      <tr><td class="klucz">Miejsce zbiórki na wypadek ewakuacji</td><td class="ocena">DOBRY ZŁY</td><td class="puste"></td></tr>
+    </tbody>
+  </table>
+  <div class="sekcja"><span class="numer">IV</span><h2>Kierunki poprawy i zadania</h2><span class="linia"></span></div>
+  <table class="tab-mala">
+    <thead>
+      <tr><th style="width:6mm">Lp</th><th style="width:66mm">Zadanie do wykonania</th><th style="width:26mm">Termin</th><th>Odpowiedzialny</th></tr>
+    </thead>
+    <tbody>
+      <tr><td class="lp">1</td><td class="puste"></td><td class="puste"></td><td class="puste"></td></tr>
+      <tr><td class="lp">2</td><td class="puste"></td><td class="puste"></td><td class="puste"></td></tr>
+      <tr><td class="lp">3</td><td class="puste"></td><td class="puste"></td><td class="puste"></td></tr>
+      <tr><td class="lp">4</td><td class="puste"></td><td class="puste"></td><td class="puste"></td></tr>
+    </tbody>
+  </table>
+  <div class="info"><b>Kopia dla organu prowadzącego.</b> Kopię protokołu kontroli dyrektor <b>przekazuje organowi prowadzącemu</b> — to nie jest opcja, lecz obowiązek. Zadania przekraczające możliwości placówki wpisz jako <b>wniosek do organu prowadzącego</b> i zachowaj potwierdzenie przekazania.</div>
+  <div class="siatka2">
+    <div class="pole"><span class="etykieta">Data przekazania kopii organowi prowadzącemu</span><div class="linijki"><div></div></div></div>
+    <div class="pole"><span class="etykieta">Sposób przekazania i potwierdzenie</span><div class="linijki"><div></div></div></div>
+  </div>
+  <div class="podpisy" style="margin-top:3mm">
+    <div class="podpis"><div class="kreska"></div><div class="opis">data i podpis dyrektora przedszkola</div></div>
+    <div class="podpis"><div class="kreska"></div><div class="opis">podpisy członków komisji</div></div>
+  </div>
+  <div class="stopka">
+    <span>EduPlaner 2026 · PCTP · pedagog specjalny</span>
+    <span><b>Strona 2 z 6</b> · Kącik dyrektora · druk DB-1 · teren, kierunki poprawy i przekazanie</span>
+  </div>
+</section>
+<!-- === STRONA 3 === -->
+<section class="page">
+  <div class="naglowek">
+    <div class="marka">
+      <div class="logo"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" role="img" aria-label="Logo PCTP"> <defs> <radialGradient id="pctpTlo" cx="36%" cy="28%" r="82%"> <stop offset="0%" stop-color="#6A4C9E"/> <stop offset="55%" stop-color="#4A2E86"/> <stop offset="100%" stop-color="#331E63"/> </radialGradient> </defs> <circle cx="50" cy="50" r="49.2" fill="#3B2472"/> <circle cx="50" cy="50" r="46.4" fill="#D3C8EC"/> <circle cx="50" cy="50" r="43.6" fill="url(#pctpTlo)"/> <g stroke="#C79A2C" stroke-width="2.1" stroke-linecap="round" fill="none"> <path d="M50 60 C50 50 50 42 50 34"/> <path d="M50 60 C46 52 42 46 38 40"/> <path d="M50 60 C54 52 58 46 62 40"/> <path d="M50 59 C44 53 38 48 32 44"/> <path d="M50 59 C56 53 62 48 68 44"/> </g> <g> <ellipse cx="33" cy="41" rx="4.6" ry="10.4" fill="#A192D2" transform="rotate(-32 33 41)"/> <ellipse cx="67" cy="41" rx="4.6" ry="10.4" fill="#A192D2" transform="rotate(32 67 41)"/> <ellipse cx="39.5" cy="34" rx="5" ry="11.6" fill="#EFA275" transform="rotate(-16 39.5 34)"/> <ellipse cx="60.5" cy="34" rx="5" ry="11.6" fill="#EFA275" transform="rotate(16 60.5 34)"/> <ellipse cx="50" cy="30.5" rx="5.4" ry="12.4" fill="#E8712F"/> </g> <circle cx="50" cy="38.5" r="3.4" fill="#FBF6EC"/> <text x="50" y="76" text-anchor="middle" font-family="Georgia,'Times New Roman',serif" font-weight="bold" font-size="25" letter-spacing="1.2" fill="#F7F2E6">PCTP</text> </svg></div>
+      <div>
+        <div class="marka-nazwa">EduPlaner 2026</div>
+        <div class="marka-opis">Kącik dyrektora ·<br>wypadki</div>
+      </div>
+    </div>
+    <div class="naglowek-prawy">
+      <span class="plakietka">dyrektor · rejestr wypadków</span>
+      <div class="naglowek-podpis">Dokument wsparcia · 2026</div>
+    </div>
+  </div>
+  <div class="belka"></div>
+
+  <div class="metryczka">
+    <div class="box"><span class="etykieta">Przedszkole</span><span class="wypelnij"></span></div><div class="box"><span class="etykieta">Dyrektor</span><span class="wypelnij"></span></div>
+    <div class="box"><span class="etykieta">Rok szkolny</span><span class="wartosc">2026 / 2027</span></div>
+  </div>
+  <div class="wstega"><span>Kącik dyrektora · przedszkole · druk DB-2 · rejestr i zgłoszenie</span></div>
+  <div class="tytul">WYPADEK DZIECKA</div>
+  <div class="podtytul">karta zgłoszenia, powiadomienia i wpis do rejestru wypadków</div>
+  <div class="kody">
+    <span class="kreska"></span>
+    <span class="tresc">DRUK DB-2 · ZGŁOSZENIE · POWIADOMIENIA · REJESTR</span>
+    <span class="kreska"></span>
+  </div>
+  <div class="info"><b>Co ten druk jest, a czym nie jest.</b> To karta pierwszych czynności i wpisu do rejestru. <b>Nie zastępuje protokołu powypadkowego</b>, który sporządza <b>zespół powypadkowy</b> według wzoru stanowiącego załącznik do rozporządzenia MENiS z 31 grudnia 2002 r.</div>
+  <div class="sekcja"><span class="numer pom">I</span><h2>Zdarzenie</h2><span class="linia"></span></div>
+  <div class="siatka3">
+    <div class="pole"><span class="etykieta">Dziecko (imię i nazwisko)</span><div class="linijki"><div></div></div></div>
+    <div class="pole"><span class="etykieta">Grupa · wiek</span><div class="linijki"><div></div></div></div>
+    <div class="pole"><span class="etykieta">Data i godzina zdarzenia</span><div class="linijki"><div></div></div></div>
+  </div>
+  <div class="siatka3">
+    <div class="pole"><span class="etykieta">Miejsce zdarzenia</span><div class="linijki"><div></div></div></div>
+    <div class="pole"><span class="etykieta">Rodzaj zajęć w trakcie zdarzenia</span><div class="linijki"><div></div></div></div>
+    <div class="pole"><span class="etykieta">Nauczyciel sprawujący opiekę</span><div class="linijki"><div></div></div></div>
+  </div>
+  <div class="pole"><span class="etykieta">Przebieg zdarzenia — wyłącznie fakty, w kolejności, bez ocen i domysłów</span><div class="linijki"><div></div><div></div></div></div>
+  <div class="siatka2">
+    <div class="pole"><span class="etykieta">Rodzaj i umiejscowienie urazu</span><div class="linijki"><div></div></div></div>
+    <div class="pole"><span class="etykieta">Stan dziecka przy przekazaniu rodzicowi</span><div class="linijki"><div></div></div></div>
+  </div>
+  <div class="sekcja"><span class="numer">II</span><h2>Udzielona pomoc</h2><span class="linia"></span></div>
+  <div class="wybor-tytul"><span class="kropka"></span><span>Zaznacz podjęte działania</span></div>
+  <div class="wybory">
+    <div class="wybor"><span class="kwadrat">✓</span><span>pierwsza pomoc przedmedyczna udzielona w przedszkolu</span></div>
+    <div class="wybor"><span class="kwadrat">✓</span><span>wezwano pogotowie ratunkowe — godzina:<span class="dopisz"></span></span></div>
+    <div class="wybor"><span class="kwadrat">✓</span><span>dziecko przewiezione do placówki medycznej</span></div>
+    <div class="wybor"><span class="kwadrat">✓</span><span>dziecko odebrane przez rodzica</span></div>
+    <div class="wybor"><span class="kwadrat">✓</span><span>nie było potrzeby pomocy medycznej</span></div>
+    <div class="wybor"><span class="kwadrat">✓</span><span>inne działania:<span class="dopisz"></span></span></div>
+  </div>
+  <div class="sekcja"><span class="numer">III</span><h2>Świadkowie zdarzenia</h2><span class="linia"></span></div>
+  <table class="tab-mala">
+    <thead>
+      <tr><th style="width:6mm">Lp</th><th style="width:50mm">Imię i nazwisko</th><th style="width:38mm">Kim jest (pracownik, rodzic)</th><th>Co widział — krótko</th></tr>
+    </thead>
+    <tbody>
+      <tr><td class="lp">1</td><td class="puste"></td><td class="puste"></td><td class="puste"></td></tr>
+      <tr><td class="lp">2</td><td class="puste"></td><td class="puste"></td><td class="puste"></td></tr>
+      <tr><td class="lp">3</td><td class="puste"></td><td class="puste"></td><td class="puste"></td></tr>
+    </tbody>
+  </table>
+  <div class="stopka">
+    <span>EduPlaner 2026 · PCTP · pedagog specjalny</span>
+    <span><b>Strona 3 z 6</b> · Kącik dyrektora · druk DB-2 · zdarzenie, pomoc i świadkowie</span>
+  </div>
+</section>
+<!-- === STRONA 4 === -->
+<section class="page">
+  <div class="naglowek">
+    <div class="marka">
+      <div class="logo"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" role="img" aria-label="Logo PCTP"> <defs> <radialGradient id="pctpTlo" cx="36%" cy="28%" r="82%"> <stop offset="0%" stop-color="#6A4C9E"/> <stop offset="55%" stop-color="#4A2E86"/> <stop offset="100%" stop-color="#331E63"/> </radialGradient> </defs> <circle cx="50" cy="50" r="49.2" fill="#3B2472"/> <circle cx="50" cy="50" r="46.4" fill="#D3C8EC"/> <circle cx="50" cy="50" r="43.6" fill="url(#pctpTlo)"/> <g stroke="#C79A2C" stroke-width="2.1" stroke-linecap="round" fill="none"> <path d="M50 60 C50 50 50 42 50 34"/> <path d="M50 60 C46 52 42 46 38 40"/> <path d="M50 60 C54 52 58 46 62 40"/> <path d="M50 59 C44 53 38 48 32 44"/> <path d="M50 59 C56 53 62 48 68 44"/> </g> <g> <ellipse cx="33" cy="41" rx="4.6" ry="10.4" fill="#A192D2" transform="rotate(-32 33 41)"/> <ellipse cx="67" cy="41" rx="4.6" ry="10.4" fill="#A192D2" transform="rotate(32 67 41)"/> <ellipse cx="39.5" cy="34" rx="5" ry="11.6" fill="#EFA275" transform="rotate(-16 39.5 34)"/> <ellipse cx="60.5" cy="34" rx="5" ry="11.6" fill="#EFA275" transform="rotate(16 60.5 34)"/> <ellipse cx="50" cy="30.5" rx="5.4" ry="12.4" fill="#E8712F"/> </g> <circle cx="50" cy="38.5" r="3.4" fill="#FBF6EC"/> <text x="50" y="76" text-anchor="middle" font-family="Georgia,'Times New Roman',serif" font-weight="bold" font-size="25" letter-spacing="1.2" fill="#F7F2E6">PCTP</text> </svg></div>
+      <div>
+        <div class="marka-nazwa">EduPlaner 2026</div>
+        <div class="marka-opis">Kącik dyrektora ·<br>wypadki</div>
+      </div>
+    </div>
+    <div class="naglowek-prawy">
+      <span class="plakietka">dyrektor · rejestr wypadków</span>
+      <div class="naglowek-podpis">Dokument wsparcia · 2026</div>
+    </div>
+  </div>
+  <div class="belka"></div>
+
+  <div class="metryczka">
+    <div class="box"><span class="etykieta">Przedszkole</span><span class="wypelnij"></span></div><div class="box"><span class="etykieta">Dyrektor</span><span class="wypelnij"></span></div>
+    <div class="box"><span class="etykieta">Rok szkolny</span><span class="wartosc">2026 / 2027</span></div>
+  </div>
+  <div class="sekcja"><span class="numer pom">IV</span><h2>Powiadomienia</h2><span class="linia"></span></div>
+  <table class="tab-mala">
+    <thead>
+      <tr><th style="width:56mm">Kogo powiadomiono</th><th style="width:26mm">Data i godzina</th><th style="width:30mm">Kto powiadomił</th><th>Sposób / potwierdzenie</th></tr>
+    </thead>
+    <tbody>
+      <tr><td class="klucz">Rodzice dziecka</td><td class="puste"></td><td class="puste"></td><td class="puste"></td></tr>
+      <tr><td class="klucz">Dyrektor przedszkola</td><td class="puste"></td><td class="puste"></td><td class="puste"></td></tr>
+      <tr><td class="klucz">Organ prowadzący</td><td class="puste"></td><td class="puste"></td><td class="puste"></td></tr>
+      <tr><td class="klucz">Pracownik służby BHP</td><td class="puste"></td><td class="puste"></td><td class="puste"></td></tr>
+      <tr><td class="klucz">Społeczny inspektor pracy</td><td class="puste"></td><td class="puste"></td><td class="puste"></td></tr>
+      <tr><td class="klucz">Inspektor sanitarny (jeżeli dotyczy)</td><td class="puste"></td><td class="puste"></td><td class="puste"></td></tr>
+      <tr><td class="klucz">Prokurator i policja (wypadek ciężki lub śmiertelny)</td><td class="puste"></td><td class="puste"></td><td class="puste"></td></tr>
+    </tbody>
+  </table>
+  <div class="sekcja"><span class="numer">V</span><h2>Zespół powypadkowy i protokół</h2><span class="linia"></span></div>
+  <div class="siatka2">
+    <div class="pole"><span class="etykieta">Skład zespołu powypadkowego</span><div class="linijki"><div></div></div></div>
+    <div class="pole"><span class="etykieta">Data sporządzenia protokołu</span><div class="linijki"><div></div></div></div>
+  </div>
+  <div class="siatka3">
+    <div class="pole"><span class="etykieta">Numer protokołu</span><div class="linijki"><div></div></div></div>
+    <div class="pole"><span class="etykieta">Data doręczenia protokołu rodzicom</span><div class="linijki"><div></div></div></div>
+    <div class="pole"><span class="etykieta">Numer w rejestrze wypadków</span><div class="linijki"><div></div></div></div>
+  </div>
+  <div class="sekcja"><span class="numer">VI</span><h2>Działania zapobiegawcze</h2><span class="linia"></span></div>
+  <div class="pole"><span class="etykieta">Co zostało zmienione, żeby zdarzenie się nie powtórzyło</span><div class="linijki"><div></div><div></div></div></div>
+  <div class="siatka2">
+    <div class="pole"><span class="etykieta">Omówienie okoliczności z pracownikami — data</span><div class="linijki"><div></div></div></div>
+    <div class="pole"><span class="etykieta">Odpowiedzialny za wdrożenie</span><div class="linijki"><div></div></div></div>
+  </div>
+  <div class="sekcja"><span class="numer">VII</span><h2>Rejestr wypadków — wpisy z roku szkolnego</h2><span class="linia"></span></div>
+  <table class="tab-mala">
+    <thead>
+      <tr><th style="width:6mm">Nr</th><th style="width:24mm">Data</th><th style="width:40mm">Dziecko</th><th style="width:44mm">Rodzaj urazu</th><th>Numer protokołu</th></tr>
+    </thead>
+    <tbody>
+      <tr><td class="lp">1</td><td class="puste"></td><td class="puste"></td><td class="puste"></td><td class="puste"></td></tr>
+      <tr><td class="lp">2</td><td class="puste"></td><td class="puste"></td><td class="puste"></td><td class="puste"></td></tr>
+      <tr><td class="lp">3</td><td class="puste"></td><td class="puste"></td><td class="puste"></td><td class="puste"></td></tr>
+      <tr><td class="lp">4</td><td class="puste"></td><td class="puste"></td><td class="puste"></td><td class="puste"></td></tr>
+      <tr><td class="lp">5</td><td class="puste"></td><td class="puste"></td><td class="puste"></td><td class="puste"></td></tr>
+    </tbody>
+  </table>
+  <div class="podpisy" style="margin-top:3mm">
+    <div class="podpis"><div class="kreska"></div><div class="opis">data i podpis dyrektora przedszkola</div></div>
+    <div class="podpis"><div class="kreska"></div><div class="opis">podpis nauczyciela sprawującego opiekę</div></div>
+  </div>
+  <div class="stopka">
+    <span>EduPlaner 2026 · PCTP · pedagog specjalny</span>
+    <span><b>Strona 4 z 6</b> · Kącik dyrektora · druk DB-2 · powiadomienia, protokół i zapobieganie</span>
+  </div>
+</section>
+<!-- === STRONA 5 === -->
+<section class="page">
+  <div class="naglowek">
+    <div class="marka">
+      <div class="logo"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" role="img" aria-label="Logo PCTP"> <defs> <radialGradient id="pctpTlo" cx="36%" cy="28%" r="82%"> <stop offset="0%" stop-color="#6A4C9E"/> <stop offset="55%" stop-color="#4A2E86"/> <stop offset="100%" stop-color="#331E63"/> </radialGradient> </defs> <circle cx="50" cy="50" r="49.2" fill="#3B2472"/> <circle cx="50" cy="50" r="46.4" fill="#D3C8EC"/> <circle cx="50" cy="50" r="43.6" fill="url(#pctpTlo)"/> <g stroke="#C79A2C" stroke-width="2.1" stroke-linecap="round" fill="none"> <path d="M50 60 C50 50 50 42 50 34"/> <path d="M50 60 C46 52 42 46 38 40"/> <path d="M50 60 C54 52 58 46 62 40"/> <path d="M50 59 C44 53 38 48 32 44"/> <path d="M50 59 C56 53 62 48 68 44"/> </g> <g> <ellipse cx="33" cy="41" rx="4.6" ry="10.4" fill="#A192D2" transform="rotate(-32 33 41)"/> <ellipse cx="67" cy="41" rx="4.6" ry="10.4" fill="#A192D2" transform="rotate(32 67 41)"/> <ellipse cx="39.5" cy="34" rx="5" ry="11.6" fill="#EFA275" transform="rotate(-16 39.5 34)"/> <ellipse cx="60.5" cy="34" rx="5" ry="11.6" fill="#EFA275" transform="rotate(16 60.5 34)"/> <ellipse cx="50" cy="30.5" rx="5.4" ry="12.4" fill="#E8712F"/> </g> <circle cx="50" cy="38.5" r="3.4" fill="#FBF6EC"/> <text x="50" y="76" text-anchor="middle" font-family="Georgia,'Times New Roman',serif" font-weight="bold" font-size="25" letter-spacing="1.2" fill="#F7F2E6">PCTP</text> </svg></div>
+      <div>
+        <div class="marka-nazwa">EduPlaner 2026</div>
+        <div class="marka-opis">Kącik dyrektora ·<br>ryzyko i procedury</div>
+      </div>
+    </div>
+    <div class="naglowek-prawy">
+      <span class="plakietka">dyrektor · procedury</span>
+      <div class="naglowek-podpis">Dokument wsparcia · 2026</div>
+    </div>
+  </div>
+  <div class="belka"></div>
+
+  <div class="metryczka">
+    <div class="box"><span class="etykieta">Przedszkole</span><span class="wypelnij"></span></div><div class="box"><span class="etykieta">Dyrektor</span><span class="wypelnij"></span></div>
+    <div class="box"><span class="etykieta">Rok szkolny</span><span class="wartosc">2026 / 2027</span></div>
+  </div>
+  <div class="wstega"><span>Kącik dyrektora · przedszkole · druk DB-3 · procedury</span></div>
+  <div class="tytul">PROCEDURY BEZPIECZEŃSTWA</div>
+  <div class="podtytul">przegląd procedur, ocena ryzyka i przygotowanie zespołu</div>
+  <div class="kody">
+    <span class="kreska"></span>
+    <span class="tresc">DRUK DB-3 · PROCEDURY · RYZYKO · SZKOLENIA</span>
+    <span class="kreska"></span>
+  </div>
+  <div class="prawna">
+    <p><b>PODSTAWA PRAWNA.</b> Rozporządzenie MENiS z dnia 31 grudnia 2002 r. o bezpieczeństwie i higienie (t.j. Dz.U. z 2020 r. poz. 1604, z późn. zm.). <b>Ustawa z dnia 13 maja 2016 r. o przeciwdziałaniu zagrożeniom przestępczością na tle seksualnym i ochronie małoletnich</b> (t.j. Dz.U. z 2024 r. poz. 560, z późn. zm.) — placówka pracująca z dziećmi wprowadza <b>standardy ochrony małoletnich</b> i weryfikuje osoby dopuszczane do pracy z dziećmi w <b>Rejestrze Sprawców Przestępstw na Tle Seksualnym</b>. Ustawa z dnia 29 lipca 2005 r. o przeciwdziałaniu przemocy domowej (t.j. Dz.U. z 2024 r. poz. 424, z późn. zm.) oraz rozporządzenie Rady Ministrów z dnia 6 września 2023 r. w sprawie procedury <b>Niebieskie Karty</b> (Dz.U. z 2023 r. poz. 1870) — <b>przedstawiciel oświaty</b> wszczyna procedurę w razie podejrzenia przemocy domowej wobec dziecka. Ustawa — Prawo oświatowe (t.j. Dz.U. z 2024 r. poz. 737) — art. 68 ust. 1 pkt 6. Dane osobowe zgodnie z RODO (UE) 2016/679.</p>
+  </div>
+  <div class="sekcja"><span class="numer pom">I</span><h2>Procedury obowiązujące w przedszkolu</h2><span class="linia"></span></div>
+  <table class="tab-mala">
+    <thead>
+      <tr><th style="width:62mm">Procedura</th><th style="width:24mm">Obowiązuje</th><th style="width:26mm">Data aktualizacji</th><th>Zespół zapoznany — data</th></tr>
+    </thead>
+    <tbody>
+      <tr><td class="klucz">Przyprowadzanie i odbieranie dziecka</td><td class="ocena">TAK NIE</td><td class="puste"></td><td class="puste"></td></tr>
+      <tr><td class="klucz">Postępowanie w razie wypadku</td><td class="ocena">TAK NIE</td><td class="puste"></td><td class="puste"></td></tr>
+      <tr><td class="klucz">Ewakuacja i alarm</td><td class="ocena">TAK NIE</td><td class="puste"></td><td class="puste"></td></tr>
+      <tr><td class="klucz">Postępowanie z dzieckiem chorym i podawanie leków</td><td class="ocena">TAK NIE</td><td class="puste"></td><td class="puste"></td></tr>
+      <tr><td class="klucz">Wyjścia poza teren i wycieczki</td><td class="ocena">TAK NIE</td><td class="puste"></td><td class="puste"></td></tr>
+      <tr><td class="klucz">Postępowanie w sytuacji podejrzenia krzywdzenia dziecka</td><td class="ocena">TAK NIE</td><td class="puste"></td><td class="puste"></td></tr>
+      <tr><td class="klucz">Standardy ochrony małoletnich</td><td class="ocena">TAK NIE</td><td class="puste"></td><td class="puste"></td></tr>
+      <tr><td class="klucz">Kontakt z osobami z zewnątrz i ochrona danych</td><td class="ocena">TAK NIE</td><td class="puste"></td><td class="puste"></td></tr>
+      <tr><td class="klucz">Postępowanie przy zachowaniach trudnych i agresywnych</td><td class="ocena">TAK NIE</td><td class="puste"></td><td class="puste"></td></tr>
+    </tbody>
+  </table>
+  <div class="sekcja"><span class="numer">II</span><h2>Standardy ochrony małoletnich</h2><span class="linia"></span></div>
+  <div class="wybor-tytul"><span class="kropka"></span><span>Sprawdź stan wdrożenia</span></div>
+  <div class="wybory">
+    <div class="wybor"><span class="kwadrat">✓</span><span>standardy wprowadzone i udostępnione</span></div>
+    <div class="wybor"><span class="kwadrat">✓</span><span>pracownicy zweryfikowani w Rejestrze Sprawców</span></div>
+    <div class="wybor"><span class="kwadrat">✓</span><span>wyznaczona osoba odpowiedzialna za standardy</span></div>
+    <div class="wybor"><span class="kwadrat">✓</span><span>zasady bezpiecznych relacji z dzieckiem opisane</span></div>
+    <div class="wybor"><span class="kwadrat">✓</span><span>zasady korzystania z urządzeń i internetu</span></div>
+    <div class="wybor"><span class="kwadrat">✓</span><span>ścieżka zgłaszania krzywdzenia znana zespołowi</span></div>
+  </div>
+  <div class="siatka3">
+    <div class="pole"><span class="etykieta">Data wprowadzenia standardów</span><div class="linijki"><div></div></div></div>
+    <div class="pole"><span class="etykieta">Data ostatniego przeglądu standardów</span><div class="linijki"><div></div></div></div>
+    <div class="pole"><span class="etykieta">Osoba odpowiedzialna</span><div class="linijki"><div></div></div></div>
+  </div>
+  <div class="stopka">
+    <span>EduPlaner 2026 · PCTP · pedagog specjalny</span>
+    <span><b>Strona 5 z 6</b> · Kącik dyrektora · druk DB-3 · przegląd procedur i standardy</span>
+  </div>
+</section>
+<!-- === STRONA 6 === -->
+<section class="page">
+  <div class="naglowek">
+    <div class="marka">
+      <div class="logo"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" role="img" aria-label="Logo PCTP"> <defs> <radialGradient id="pctpTlo" cx="36%" cy="28%" r="82%"> <stop offset="0%" stop-color="#6A4C9E"/> <stop offset="55%" stop-color="#4A2E86"/> <stop offset="100%" stop-color="#331E63"/> </radialGradient> </defs> <circle cx="50" cy="50" r="49.2" fill="#3B2472"/> <circle cx="50" cy="50" r="46.4" fill="#D3C8EC"/> <circle cx="50" cy="50" r="43.6" fill="url(#pctpTlo)"/> <g stroke="#C79A2C" stroke-width="2.1" stroke-linecap="round" fill="none"> <path d="M50 60 C50 50 50 42 50 34"/> <path d="M50 60 C46 52 42 46 38 40"/> <path d="M50 60 C54 52 58 46 62 40"/> <path d="M50 59 C44 53 38 48 32 44"/> <path d="M50 59 C56 53 62 48 68 44"/> </g> <g> <ellipse cx="33" cy="41" rx="4.6" ry="10.4" fill="#A192D2" transform="rotate(-32 33 41)"/> <ellipse cx="67" cy="41" rx="4.6" ry="10.4" fill="#A192D2" transform="rotate(32 67 41)"/> <ellipse cx="39.5" cy="34" rx="5" ry="11.6" fill="#EFA275" transform="rotate(-16 39.5 34)"/> <ellipse cx="60.5" cy="34" rx="5" ry="11.6" fill="#EFA275" transform="rotate(16 60.5 34)"/> <ellipse cx="50" cy="30.5" rx="5.4" ry="12.4" fill="#E8712F"/> </g> <circle cx="50" cy="38.5" r="3.4" fill="#FBF6EC"/> <text x="50" y="76" text-anchor="middle" font-family="Georgia,'Times New Roman',serif" font-weight="bold" font-size="25" letter-spacing="1.2" fill="#F7F2E6">PCTP</text> </svg></div>
+      <div>
+        <div class="marka-nazwa">EduPlaner 2026</div>
+        <div class="marka-opis">Kącik dyrektora ·<br>ryzyko i procedury</div>
+      </div>
+    </div>
+    <div class="naglowek-prawy">
+      <span class="plakietka">dyrektor · procedury</span>
+      <div class="naglowek-podpis">Dokument wsparcia · 2026</div>
+    </div>
+  </div>
+  <div class="belka"></div>
+
+  <div class="metryczka">
+    <div class="box"><span class="etykieta">Przedszkole</span><span class="wypelnij"></span></div><div class="box"><span class="etykieta">Dyrektor</span><span class="wypelnij"></span></div>
+    <div class="box"><span class="etykieta">Rok szkolny</span><span class="wartosc">2026 / 2027</span></div>
+  </div>
+  <div class="sekcja"><span class="numer pom">III</span><h2>Ocena ryzyka — miejsca i sytuacje</h2><span class="linia"></span></div>
+  <table class="tab-mala">
+    <thead>
+      <tr><th style="width:6mm">Lp</th><th style="width:48mm">Miejsce lub sytuacja</th><th style="width:44mm">Zagrożenie</th><th style="width:22mm">Ryzyko</th><th>Środek zaradczy</th></tr>
+    </thead>
+    <tbody>
+      <tr><td class="lp">1</td><td class="puste"></td><td class="puste"></td><td class="ocena">M Ś D</td><td class="puste"></td></tr>
+      <tr><td class="lp">2</td><td class="puste"></td><td class="puste"></td><td class="ocena">M Ś D</td><td class="puste"></td></tr>
+      <tr><td class="lp">3</td><td class="puste"></td><td class="puste"></td><td class="ocena">M Ś D</td><td class="puste"></td></tr>
+      <tr><td class="lp">4</td><td class="puste"></td><td class="puste"></td><td class="ocena">M Ś D</td><td class="puste"></td></tr>
+      <tr><td class="lp">5</td><td class="puste"></td><td class="puste"></td><td class="ocena">M Ś D</td><td class="puste"></td></tr>
+      <tr><td class="lp">6</td><td class="puste"></td><td class="puste"></td><td class="ocena">M Ś D</td><td class="puste"></td></tr>
+    </tbody>
+  </table>
+  <p class="wstep">Skala ryzyka: <b>M</b> — małe · <b>Ś</b> — średnie · <b>D</b> — duże. Ryzyko duże wymaga działania <b>przed</b> kolejnymi zajęciami w tym miejscu.</p>
+  <div class="sekcja"><span class="numer">IV</span><h2>Przygotowanie zespołu</h2><span class="linia"></span></div>
+  <table class="tab-mala">
+    <thead>
+      <tr><th style="width:62mm">Szkolenie / ćwiczenie</th><th style="width:26mm">Data</th><th style="width:26mm">Liczba osób</th><th>Uwagi</th></tr>
+    </thead>
+    <tbody>
+      <tr><td class="klucz">Szkolenie BHP okresowe</td><td class="puste"></td><td class="puste"></td><td class="puste"></td></tr>
+      <tr><td class="klucz">Pierwsza pomoc przedmedyczna</td><td class="puste"></td><td class="puste"></td><td class="puste"></td></tr>
+      <tr><td class="klucz">Próbna ewakuacja</td><td class="puste"></td><td class="puste"></td><td class="puste"></td></tr>
+      <tr><td class="klucz">Ochrona danych osobowych</td><td class="puste"></td><td class="puste"></td><td class="puste"></td></tr>
+    </tbody>
+  </table>
+  <div class="info"><b>Dziecko ze specjalnymi potrzebami w procedurach.</b> Sprawdź, czy procedury ewakuacji, pierwszej pomocy i postępowania przy zachowaniach trudnych <b>uwzględniają dzieci z niepełnosprawnością</b> — kto je wyprowadza, jak się z nimi komunikuje, jakie mają ograniczenia zdrowotne. Ogólna procedura bez tego zapisu w praktyce nie działa.</div>
+  <div class="sekcja"><span class="numer">V</span><h2>Wnioski z przeglądu</h2><span class="linia"></span></div>
+  <div class="siatka2">
+    <div class="pole"><span class="etykieta">Procedury do aktualizacji i termin</span><div class="linijki"><div></div></div></div>
+    <div class="pole"><span class="etykieta">Szkolenia do zaplanowania na kolejny okres</span><div class="linijki"><div></div></div></div>
+  </div>
+  <div class="podpisy" style="margin-top:3mm">
+    <div class="podpis"><div class="kreska"></div><div class="opis">data i podpis dyrektora przedszkola</div></div>
+    <div class="podpis"><div class="kreska"></div><div class="opis">podpis osoby odpowiedzialnej za BHP</div></div>
+  </div>
+  <div class="stopka">
+    <span>EduPlaner 2026 · PCTP · pedagog specjalny</span>
+    <span><b>Strona 6 z 6</b> · Kącik dyrektora · druk DB-3 · ocena ryzyka i szkolenia</span>
+  </div>
+</section>
+
+</body>
+</html>
