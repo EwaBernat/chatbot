@@ -2,465 +2,697 @@
 <html lang="pl">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Kącik nauczyciela · przedszkole · EduPlaner 2026</title>
+<title>Kącik nauczyciela · przedszkole · spis druków · EduPlaner 2026</title>
 <style>
   :root{
-    --fiolet:#2D1B69; --fiolet-2:#4D3D80; --pomarancz:#E8450A;
-    --pole:#F6F3FB; --ramka:#D9CFEE; --ramka-2:#CABCE8; --kropki:#B3A1D8;
-    --wiersz:#FAF7F2; --zazn:#FDECE4; --szary:#6B6B7B; --szary-2:#9A94A8;
+    --fiolet:#2D1B69;
+    --fiolet-2:#4D3D80;
+    --pomarancz:#E8450A;
+    --pole:#F6F3FB;
+    --ramka:#D9CFEE;
+    --ramka-2:#CABCE8;
+    --kropki:#B3A1D8;
+    --wiersz:#FAF7F2;
+    --zazn:#FDECE4;
+    --szary:#6B6B7B;
+    --szary-2:#9A94A8;
   }
-  *{box-sizing:border-box; margin:0; padding:0}
-  body{font-family:Arial,"Helvetica Neue",Helvetica,sans-serif; font-size:14px; line-height:1.5;
-       color:#221a3d; background:#EEECF3; -webkit-print-color-adjust:exact; print-color-adjust:exact}
-  .wrap{max-width:1120px; margin:0 auto; padding:24px 20px 60px}
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{
+    font-family:Arial,"Helvetica Neue",Helvetica,sans-serif;
+    font-size:7.6pt; line-height:1.32; color:#221a3d; background:#e9e7ee;
+    -webkit-print-color-adjust:exact; print-color-adjust:exact;
+  }
+  .page{
+    position:relative; width:210mm; min-height:297mm; margin:0 auto 8mm;
+    padding:11mm 10mm 13mm; background:#fff; display:flex; flex-direction:column;
+    box-shadow:0 2px 10px rgba(45,27,105,.18);
+  }
 
-  .hero{background:linear-gradient(120deg,#2D1B69 0%,#4A2E86 58%,#E8450A 150%); color:#fff;
-        border-radius:18px; padding:30px 34px; display:flex; gap:22px; align-items:center; margin-bottom:22px}
-  .hero .logo{width:78px; height:78px; flex:none}
-  .hero .logo svg{width:100%; height:100%; display:block}
-  .hero .etyk{font-size:11px; font-weight:bold; letter-spacing:2.4px; text-transform:uppercase; opacity:.82}
-  .hero h1{font-size:29px; margin-top:6px; letter-spacing:-.2px}
-  .hero p{font-size:14px; opacity:.92; margin-top:8px; max-width:760px}
-  .hero .liczby{display:flex; gap:10px; margin-top:14px; flex-wrap:wrap}
-  .hero .liczby span{background:rgba(255,255,255,.16); border-radius:999px; padding:5px 13px; font-size:12px; font-weight:bold}
+  /* ——— nagłówek ——— */
+  .naglowek{display:flex; align-items:flex-start; justify-content:space-between; gap:6mm}
+  .marka{display:flex; align-items:center; gap:3.2mm}
+  .logo{width:11.4mm; height:11.4mm; flex:none; display:block}
+  .logo svg{width:100%; height:100%; display:block}
+  .marka-nazwa{font-size:12.5pt; font-weight:bold; color:var(--fiolet); letter-spacing:-.2px; line-height:1.05}
+  .marka-opis{font-size:5.6pt; font-weight:bold; color:var(--szary); letter-spacing:1.1px; text-transform:uppercase; margin-top:1mm; max-width:52mm}
+  .naglowek-prawy{text-align:right; padding-top:.6mm}
+  .plakietka{
+    display:inline-block; background:var(--pomarancz); color:#fff; border-radius:999px;
+    padding:1.3mm 3.4mm; font-size:6.2pt; font-weight:bold; letter-spacing:.7px; text-transform:uppercase;
+  }
+  .naglowek-podpis{font-size:5.6pt; font-weight:bold; color:var(--szary-2); letter-spacing:1.1px; margin-top:1.6mm; text-transform:uppercase}
+  .belka{height:1.1mm; margin:2.6mm 0 3mm; background:linear-gradient(90deg,var(--fiolet) 0 55%,var(--pomarancz) 55% 100%)}
 
-  h2.dzial{display:flex; align-items:center; gap:12px; font-size:19px; color:var(--fiolet);
-           text-transform:uppercase; letter-spacing:.6px; margin:30px 0 14px}
-  h2.dzial .nr{width:30px; height:30px; border-radius:8px; background:var(--fiolet); color:#fff; flex:none;
-               display:flex; align-items:center; justify-content:center; font-size:14px}
-  h2.dzial .nr.pom{background:var(--pomarancz)}
-  h2.dzial .linia{flex:1; height:1px; background:var(--ramka)}
+  /* ——— pasek metryczki ——— */
+  .metryczka{display:flex; gap:2.4mm; margin-bottom:3.4mm}
+  .metryczka .box{
+    border:1px solid var(--ramka); border-radius:2.4mm; background:#FDFCFE;
+    padding:2mm 3mm; display:flex; align-items:baseline; gap:2mm; min-height:9mm;
+  }
+  .metryczka .box:nth-child(1){flex:2.2}
+  .metryczka .box:nth-child(2){flex:1.5}
+  .metryczka .box:nth-child(3){flex:1.3}
+  .metryczka .etykieta{font-size:5.8pt; font-weight:bold; color:var(--fiolet); letter-spacing:1px; text-transform:uppercase; white-space:nowrap}
+  .metryczka .wypelnij{flex:1; border-bottom:1.2px dotted var(--kropki); height:3.4mm}
+  .metryczka .wartosc{font-size:8.5pt; color:var(--fiolet); font-weight:normal}
 
-  .karta{background:#fff; border:1px solid var(--ramka); border-radius:14px; padding:20px 22px; margin-bottom:14px}
-  .wstepny{font-size:14px; color:var(--fiolet-2); margin-bottom:14px; max-width:860px}
+  /* ——— tytuł dokumentu ——— */
+  .wstega{text-align:center; margin:1mm 0 3mm}
+  .wstega span{
+    display:inline-block; background:var(--pomarancz); color:#fff; border-radius:999px;
+    padding:1.4mm 4mm; font-size:6.2pt; font-weight:bold; letter-spacing:1.1px; text-transform:uppercase;
+  }
+  .tytul{text-align:center; font-size:19pt; font-weight:bold; color:var(--fiolet); letter-spacing:.3px}
+  .podtytul{text-align:center; font-size:10pt; font-weight:bold; color:var(--pomarancz); margin-top:1.4mm}
+  .kody{display:flex; align-items:center; justify-content:center; gap:3mm; margin:3mm 0 5mm}
+  .kody .kreska{width:22mm; height:1px; background:var(--pomarancz)}
+  .kody .tresc{font-size:7.4pt; font-weight:bold; color:var(--fiolet); letter-spacing:2.6px}
 
-  /* checklista */
-  .miesiace{display:grid; grid-template-columns:repeat(auto-fit,minmax(250px,1fr)); gap:12px}
-  .mies{background:#fff; border:1px solid var(--ramka); border-left:5px solid var(--pomarancz); border-radius:12px; padding:15px 17px}
-  .mies h3{font-size:13px; color:var(--pomarancz); text-transform:uppercase; letter-spacing:1.2px; margin-bottom:4px}
-  .mies .termin{font-size:16px; font-weight:bold; color:var(--fiolet); margin-bottom:8px}
-  .mies ul{list-style:none}
-  .mies li{font-size:12.5px; color:#3a3357; padding-left:17px; position:relative; margin-bottom:5px; line-height:1.45}
-  .mies li::before{content:"☐"; position:absolute; left:0; color:var(--kropki); font-size:13px}
-  .mies li b{color:var(--fiolet)}
+  /* ——— sekcje ——— */
+  .sekcja{display:flex; align-items:center; gap:2.6mm; margin:4.5mm 0 2.4mm}
+  .sekcja:first-of-type{margin-top:1mm}
+  .numer{
+    width:5.2mm; height:5.2mm; border-radius:1.2mm; background:var(--fiolet); color:#fff;
+    display:flex; align-items:center; justify-content:center; font-size:6.2pt; font-weight:bold; flex:none;
+  }
+  .numer.pom{background:var(--pomarancz)}
+  .sekcja h2{font-size:9.6pt; font-weight:bold; color:var(--fiolet); letter-spacing:.4px; text-transform:uppercase; white-space:nowrap}
+  .sekcja .linia{flex:1; height:1px; background:#E6DFF4}
+  .sekcja .tag{
+    background:#F3EDFB; border:1px solid var(--ramka-2); color:var(--fiolet);
+    border-radius:999px; padding:.7mm 2.4mm; font-size:6pt; font-weight:bold; letter-spacing:.5px;
+  }
+  .wstep{font-size:7pt; color:var(--fiolet-2); margin:0 0 2.6mm 8mm; line-height:1.4}
 
-  /* matryca dokumentów */
-  table{width:100%; border-collapse:collapse; background:#fff; border-radius:12px; overflow:hidden}
-  th{background:var(--fiolet); color:#fff; font-size:11.5px; letter-spacing:.8px; text-transform:uppercase;
-     text-align:left; padding:11px 13px}
-  td{border-bottom:1px solid var(--ramka); padding:11px 13px; font-size:13px; vertical-align:top}
-  tr:last-child td{border-bottom:none}
-  tr:nth-child(even) td{background:var(--wiersz)}
-  td.syt{font-weight:bold; color:var(--fiolet); width:34%}
-  .tag-druk{display:inline-block; background:var(--zazn); color:var(--pomarancz); border:1px solid #F3B79C;
-            border-radius:999px; padding:2px 9px; font-size:11px; font-weight:bold; margin:2px 3px 2px 0; white-space:nowrap}
-  .tag-druk.f{background:#F3EDFB; color:var(--fiolet); border-color:var(--ramka-2)}
+  /* ——— pola do wypełnienia ——— */
+  .pole{
+    background:var(--pole); border:1px solid var(--ramka); border-radius:2.4mm;
+    padding:1.8mm 3mm 2.2mm; margin-bottom:2mm;
+  }
+  .pole > label,.pole .etykieta{
+    display:block; font-size:5.8pt; font-weight:bold; color:var(--fiolet);
+    letter-spacing:1.1px; text-transform:uppercase;
+  }
+  .pole .tresc{font-size:7.6pt; color:#221a3d; margin-top:1.2mm}
+  .linijki{margin-top:1.4mm}
+  .linijki div{border-bottom:1.2px dotted var(--kropki); height:4.6mm}
+  .linijki.w1 div:last-child,.linijki div:last-child{border-bottom:1.2px dotted var(--kropki)}
+  .siatka2{display:flex; gap:2.4mm}
+  .siatka2 > *{flex:1}
+  .siatka3{display:flex; gap:2.4mm}
+  .siatka3 > *{flex:1}
 
-  /* lista druków */
-  .druki{display:grid; grid-template-columns:repeat(auto-fit,minmax(330px,1fr)); gap:14px}
-  .druk{background:#fff; border:1px solid var(--ramka); border-radius:14px; overflow:hidden; display:flex; flex-direction:column}
-  .druk .glowa{background:var(--fiolet); color:#fff; padding:12px 16px; display:flex; align-items:center; gap:10px}
-  .druk.pom .glowa{background:var(--pomarancz)}
-  .druk .sygn{background:rgba(255,255,255,.2); border-radius:6px; padding:3px 9px; font-size:12px; font-weight:bold; letter-spacing:.5px}
-  .druk .glowa h3{font-size:14px; letter-spacing:.2px}
-  .druk .glowa .strony{margin-left:auto; font-size:11px; opacity:.86; white-space:nowrap}
-  .druk .cialo{padding:14px 16px; flex:1}
-  .druk .cialo p{font-size:12.8px; color:#3a3357; line-height:1.5}
-  .druk .cialo .kiedy{font-size:11.5px; color:var(--pomarancz); font-weight:bold; margin-top:9px}
-  .druk .cialo .sekcje{font-size:11.5px; color:var(--szary); margin-top:7px; line-height:1.45}
-  .druk .stopka{border-top:1px solid var(--ramka); padding:11px 16px; display:flex; gap:8px; background:var(--pole)}
-  .btn{flex:1; text-align:center; text-decoration:none; border-radius:8px; padding:8px 10px;
-       font-size:12px; font-weight:bold; letter-spacing:.4px}
-  .btn.pdf{background:var(--fiolet); color:#fff}
-  .btn.html{background:#fff; color:var(--fiolet); border:1px solid var(--ramka-2)}
-  .btn:hover{opacity:.88}
+  /* ——— tabele ——— */
+  table{width:100%; border-collapse:collapse; margin-bottom:2mm}
+  th{
+    background:var(--fiolet); color:#fff; font-size:6.2pt; font-weight:bold; letter-spacing:.7px;
+    text-transform:uppercase; text-align:left; padding:2mm 2.2mm; border:1px solid var(--fiolet);
+  }
+  td{border:1px solid var(--ramka); padding:2mm 2.2mm; vertical-align:top; font-size:7.2pt; height:8mm}
+  tbody tr:nth-child(even) td{background:var(--wiersz)}
+  td.klucz{font-weight:bold; color:var(--fiolet)}
+  td.puste{color:var(--kropki)}
+  td.puste::after{content:"................"; letter-spacing:.4px}
+  td.lp{text-align:center; font-weight:bold; color:var(--pomarancz); width:7mm}
+  .tab-mala td{height:6.4mm}
 
-  .nota{background:#F3EDFB; border-left:5px solid var(--fiolet); border-radius:10px; padding:15px 18px;
-        font-size:13px; color:var(--fiolet-2); line-height:1.55; margin-bottom:14px}
-  .nota b{color:var(--fiolet)}
-  .stopka-str{margin-top:34px; padding-top:16px; border-top:1px solid var(--ramka);
-              display:flex; justify-content:space-between; font-size:11.5px; color:var(--szary-2); flex-wrap:wrap; gap:8px}
-  .stopka-str b{color:var(--fiolet)}
-  @media print{ body{background:#fff} .druk .stopka{display:none} }
+  /* ——— pola wyboru ——— */
+  .wybor-tytul{display:flex; align-items:center; gap:2mm; margin:3.4mm 0 1.8mm}
+  .wybor-tytul .kropka{width:2.2mm; height:2.2mm; border-radius:.6mm; background:var(--pomarancz); flex:none}
+  .wybor-tytul span{font-size:6.4pt; font-weight:bold; color:var(--fiolet); letter-spacing:.8px; text-transform:uppercase}
+  .wybory{display:flex; flex-wrap:wrap; gap:2mm}
+  .wybor{
+    flex:1 1 calc(50% - 1mm); display:flex; align-items:center; gap:2.4mm;
+    border:1px solid var(--ramka); border-radius:2.4mm; padding:2.2mm 3mm; background:#fff; font-size:7.4pt;
+  }
+  .wybor.w3{flex:1 1 calc(33.33% - 1.4mm)}
+  .wybor.pelny{flex:1 1 100%}
+  .kwadrat{
+    width:3.4mm; height:3.4mm; border:1.2px solid var(--kropki); border-radius:.8mm; flex:none;
+    display:flex; align-items:center; justify-content:center; font-size:6.4pt; color:transparent;
+  }
+  .wybor.zazn{background:var(--zazn); border-color:var(--pomarancz)}
+  .wybor.zazn .kwadrat{background:var(--pomarancz); border-color:var(--pomarancz); color:#fff}
+  .wybor .dopisz{flex:1; border-bottom:1.2px dotted var(--kropki); height:3.4mm; margin-left:1mm}
+
+  /* ——— karty skali ——— */
+  .karty{display:flex; gap:2.4mm; margin:2.4mm 0}
+  .karta{flex:1; border-radius:2.4mm; padding:2.6mm; text-align:center}
+  .karta .duza{font-size:11pt; font-weight:bold}
+  .karta .opis{font-size:5.8pt; font-weight:bold; letter-spacing:.9px; text-transform:uppercase; margin-top:1mm}
+  .karta.czerwona{background:#FDECE4; border:1px solid #F3B79C; color:var(--pomarancz)}
+  .karta.zolta{background:#FDF6E3; border:1px solid #EDD9A8; color:#B07A12}
+  .karta.zielona{background:#E7F5EE; border:1px solid #A9D9C1; color:#177A4E}
+
+  /* ——— blok dyrektora ——— */
+  .blok-dyr{
+    border:1.4px solid var(--pomarancz); border-radius:2.8mm; background:#FFFBF8;
+    padding:3mm 3.4mm; margin-top:2.6mm;
+  }
+  .blok-dyr .naglowek-bloku{display:flex; align-items:center; gap:2.4mm; margin-bottom:2.4mm}
+  .blok-dyr .naglowek-bloku .znak{
+    width:5.2mm; height:5.2mm; border-radius:1.2mm; background:var(--pomarancz); color:#fff;
+    display:flex; align-items:center; justify-content:center; font-size:6.6pt; font-weight:bold;
+  }
+  .blok-dyr h3{font-size:8.6pt; font-weight:bold; color:var(--pomarancz); letter-spacing:.5px; text-transform:uppercase}
+  .blok-dyr .pole{background:#fff; border-color:#F3D5C6}
+  .blok-dyr .wybor{border-color:#F3D5C6}
+
+  /* ——— informacje / wskazówki ——— */
+  .info{
+    background:#F3EDFB; border-left:1.6mm solid var(--fiolet); border-radius:1.6mm;
+    padding:2.4mm 3mm; font-size:7pt; color:var(--fiolet-2); margin-bottom:2.4mm; line-height:1.42;
+  }
+  .info b{color:var(--fiolet)}
+  .kafle{display:flex; gap:2.4mm; margin-bottom:2.6mm}
+  .kafel{flex:1; border:1px solid var(--ramka); border-radius:2.4mm; background:var(--pole); padding:2.6mm 3mm}
+  .kafel .naglowek-kafla{font-size:5.8pt; font-weight:bold; color:var(--pomarancz); letter-spacing:1px; text-transform:uppercase}
+  .kafel .tresc-kafla{font-size:7.2pt; color:var(--fiolet); margin-top:1.2mm; font-weight:bold}
+  .kafel .uwaga{font-size:6.4pt; color:var(--szary); margin-top:.8mm}
+
+  /* ——— podstawa prawna ——— */
+  .prawna{background:var(--pole); border:1px solid var(--ramka); border-radius:2.4mm; padding:2.6mm 3mm}
+  .prawna p{font-size:6.1pt; line-height:1.45; color:#3a3357; text-align:justify}
+  .prawna b{color:var(--fiolet)}
+
+  /* ——— podpisy ——— */
+  .podpisy{display:flex; gap:8mm; margin-top:6mm}
+  .podpis{flex:1; text-align:center}
+  .podpis .kreska{border-top:1px solid var(--fiolet-2); margin-bottom:1.6mm}
+  .podpis .opis{font-size:6.4pt; color:var(--szary)}
+
+  /* ——— stopka ——— */
+  .stopka{
+    margin-top:auto; padding-top:2.6mm; border-top:1px solid #EBEBED;
+    display:flex; justify-content:space-between; font-size:5.8pt; color:var(--szary-2);
+  }
+  .stopka b{color:var(--fiolet)}
+
+
+  /* ——— panel aplikacji (nie drukuje się) ——— */
+  .panel{
+    width:210mm; margin:0 auto 8mm; background:#fff; border-radius:3mm; overflow:hidden;
+    box-shadow:0 2px 10px rgba(45,27,105,.18);
+  }
+  .panel-glowa{background:linear-gradient(120deg,#2D1B69 0%,#4D3D80 62%,#E8450A 165%); color:#fff; padding:6mm 7mm}
+  .panel-glowa .etykieta-app{font-size:6pt; font-weight:bold; letter-spacing:2px; text-transform:uppercase; opacity:.82}
+  .panel-glowa h1{font-size:15pt; font-weight:bold; margin-top:1.6mm}
+  .panel-glowa p{font-size:8pt; margin-top:1.6mm; opacity:.9; max-width:150mm; line-height:1.45}
+  .panel-cialo{padding:6mm 7mm 7mm}
+  .panel-sekcja{margin-bottom:5mm}
+  .panel-sekcja > h2{
+    font-size:9.4pt; font-weight:bold; color:var(--fiolet); text-transform:uppercase; letter-spacing:.5px;
+    display:flex; align-items:center; gap:2.4mm; margin-bottom:2.4mm;
+  }
+  .panel-sekcja > h2::before{content:""; width:2.6mm; height:2.6mm; border-radius:.7mm; background:var(--pomarancz)}
+  .panel-lista{list-style:none; display:flex; flex-wrap:wrap; gap:2mm}
+  .panel-lista li{
+    flex:1 1 calc(50% - 1mm); background:var(--pole); border:1px solid var(--ramka); border-radius:2.4mm;
+    padding:2.4mm 3mm; font-size:7.6pt; display:flex; gap:2.4mm; align-items:flex-start;
+  }
+  .panel-lista li .nr{
+    width:4.6mm; height:4.6mm; border-radius:50%; background:var(--fiolet); color:#fff; flex:none;
+    display:flex; align-items:center; justify-content:center; font-size:5.8pt; font-weight:bold;
+  }
+  .panel-role{display:flex; flex-direction:column; gap:2mm}
+  .panel-role .rola{
+    border:1px solid var(--ramka); border-left:1.6mm solid var(--pomarancz); border-radius:2.4mm;
+    padding:2.6mm 3.4mm; background:#fff;
+  }
+  .panel-role .rola b{color:var(--fiolet); font-size:8pt}
+  .panel-role .rola span{display:block; font-size:7.4pt; color:var(--fiolet-2); margin-top:1mm; line-height:1.45}
+  .panel-role .rola em{font-style:normal; color:var(--pomarancz); font-weight:bold}
+  .panel-akcje{display:flex; align-items:center; gap:4mm; border-top:1px solid #EBEBED; padding-top:4mm; margin-top:1mm}
+  .btn-druk{
+    background:var(--pomarancz); color:#fff; border:none; border-radius:999px; cursor:pointer;
+    padding:3mm 7mm; font-size:8.4pt; font-weight:bold; letter-spacing:.5px; font-family:inherit;
+  }
+  .panel-akcje .uwaga-druk{font-size:7.2pt; color:var(--szary)}
+
+
+  /* ——— elementy kącika nauczyciela ——— */
+  td.ocena{text-align:center; letter-spacing:2.4px; color:var(--kropki); font-size:8pt}
+  td.kratka{text-align:center; vertical-align:middle}
+  td.kratka span{
+    display:inline-block; width:3.4mm; height:3.4mm; border:1.2px solid var(--kropki);
+    border-radius:.8mm; background:#fff;
+  }
+  td.podstawa{font-size:6.2pt; font-weight:bold; color:var(--pomarancz); letter-spacing:.3px}
+  td.termin{font-size:6.6pt; color:var(--fiolet); font-weight:bold}
+  .legenda{background:var(--pole); border:1px solid var(--ramka); border-radius:2.4mm; padding:2.6mm 3mm; margin-bottom:2mm}
+  .legenda p{font-size:6.1pt; line-height:1.5; color:#3a3357}
+  .legenda b{color:var(--fiolet)}
+
+
+  /* ——— konspekt: blok tytułowy zajęć ——— */
+  .kons-wstega{text-align:center; margin:1.4mm 0 2mm}
+  .kons-wstega span{
+    display:inline-block; background:var(--pomarancz); color:#fff; border-radius:999px;
+    padding:1.4mm 4.4mm; font-size:6.6pt; font-weight:bold; letter-spacing:1.4px; text-transform:uppercase;
+  }
+  .kons-sfera{text-align:center; margin-bottom:2mm}
+  .kons-sfera span{
+    display:inline-block; background:#F3EDFB; border:1px solid var(--ramka-2); color:var(--fiolet);
+    border-radius:999px; padding:1.2mm 4mm; font-size:6.2pt; font-weight:bold; letter-spacing:.9px; text-transform:uppercase;
+  }
+  .kons-etyk{
+    text-align:center; font-size:5.6pt; font-weight:bold; color:var(--szary);
+    letter-spacing:1.4px; text-transform:uppercase; margin-bottom:.6mm;
+  }
+  .kons-tytul{
+    text-align:center; font-size:15pt; font-weight:bold; color:var(--fiolet); letter-spacing:.2px;
+    border-bottom:1.4px dotted var(--kropki); padding-bottom:.6mm; margin:0 18mm; height:8mm;
+  }
+  .kons-pod{display:flex; align-items:center; justify-content:center; gap:3mm; margin:1.6mm 18mm 2.6mm}
+  .kons-pod .kreska{flex:1; height:1px; background:var(--pomarancz)}
+  .kons-pod .linia-op{flex:2.6; border-bottom:1.2px dotted var(--kropki); height:3mm}
+  .chipsy{display:flex; gap:2mm; margin-bottom:2mm}
+  .chip{
+    flex:1; border:1px solid var(--ramka-2); border-radius:999px; background:#fff;
+    padding:1mm 2mm; text-align:center; font-size:5.8pt; font-weight:bold;
+    color:var(--fiolet); letter-spacing:.6px; text-transform:uppercase;
+  }
+  .chip i{display:block; font-style:normal; font-weight:normal; letter-spacing:0; text-transform:none;
+    border-bottom:1.2px dotted var(--kropki); height:3.2mm; margin-top:1mm}
+
+  /* ——— dwie symetryczne kolumny celów ——— */
+  .cele{display:flex; gap:3.4mm; align-items:stretch; margin-bottom:3.4mm}
+  .cel{flex:1 1 0; display:flex; flex-direction:column; border:1px solid var(--ramka);
+       border-radius:2.8mm; overflow:hidden; background:var(--pole)}
+  .cel-glowa{display:flex; align-items:center; gap:2.2mm; padding:2.2mm 3mm; background:var(--fiolet); color:#fff}
+  .cel.terap .cel-glowa{background:var(--pomarancz)}
+  .cel-glowa .znak{
+    width:5mm; height:5mm; border-radius:1.2mm; background:rgba(255,255,255,.2); flex:none;
+    display:flex; align-items:center; justify-content:center; font-size:6.2pt; font-weight:bold;
+  }
+  .cel-glowa h3{font-size:8.4pt; font-weight:bold; letter-spacing:.6px; text-transform:uppercase}
+  .cel-glowa .pig{
+    margin-left:auto; background:rgba(255,255,255,.18); border-radius:999px;
+    padding:.8mm 2.4mm; font-size:5.4pt; font-weight:bold; letter-spacing:.7px; text-transform:uppercase;
+  }
+  .cel-cialo{flex:1; display:flex; flex-direction:column; padding:2.6mm 3mm 2.8mm}
+  .cel-cialo .mini{font-size:5.6pt; font-weight:bold; color:var(--fiolet); letter-spacing:1px; text-transform:uppercase}
+  .cel-cialo .mini.pom{color:var(--pomarancz)}
+  .cel-cialo .linijki div{border-bottom:1.2px dotted var(--kropki); height:4.6mm}
+  /* klamra przy celach — wg wzoru konspektu */
+  .klamra-blok{display:flex; align-items:stretch; gap:1.6mm; margin:1.4mm 0 1.2mm}
+  .klamra{flex:none; width:3.4mm; align-self:stretch; color:var(--fiolet); display:block}
+  .klamra svg{width:100%; height:100%; display:block}
+  .cel.terap .klamra{color:var(--pomarancz)}
+  .smart-wiersze{flex:1; display:flex; flex-direction:column; justify-content:space-between; gap:.2mm}
+  .smart-w{display:flex; align-items:center; gap:1.4mm}
+  .smart-w b{
+    width:3.2mm; flex:none; text-align:center; font-size:7pt; font-weight:bold; color:var(--fiolet);
+  }
+  .cel.terap .smart-w b{color:var(--pomarancz)}
+  .smart-w i{
+    flex:none; width:14mm; font-style:normal; font-size:5.4pt; color:var(--szary); letter-spacing:.2px;
+  }
+  .smart-w .lin{flex:1; border-bottom:1.2px dotted var(--kropki); height:3.1mm}
+  .kryt{
+    background:#EFEAF9; border:1px solid var(--ramka-2); border-radius:2mm;
+    padding:1.2mm 2.4mm; display:flex; align-items:center; gap:1.6mm; margin-top:auto;
+  }
+  .cel.terap .kryt{background:#FDECE4; border-color:#F3B79C}
+  .kryt b{font-size:5.8pt; color:var(--fiolet); white-space:nowrap; letter-spacing:.3px}
+  .cel.terap .kryt b{color:var(--pomarancz)}
+  .kryt .lin{flex:1; border-bottom:1.2px dotted var(--kropki); height:3.4mm}
+  .cel .rozdziel{border-top:1px solid var(--ramka); margin:1.6mm 0 2mm}
+
+  /* ——— dwie kolumny sekcji ——— */
+  .duo{display:flex; gap:3.4mm; align-items:stretch; margin-bottom:1mm}
+  .duo > div{flex:1 1 0; display:flex; flex-direction:column}
+  .duo .pole{flex:1}
+  .karta-mod{flex:1; border-radius:2.4mm; padding:2mm 2.8mm}
+  .karta-mod .glowa{display:flex; align-items:center; gap:2mm; margin-bottom:1.4mm}
+  .karta-mod .glowa .rz{
+    width:4.4mm; height:4.4mm; border-radius:1mm; display:flex; align-items:center; justify-content:center;
+    font-size:5.6pt; font-weight:bold; color:#fff;
+  }
+  .karta-mod .glowa b{font-size:6.4pt; letter-spacing:.8px; text-transform:uppercase}
+  .karta-mod p{font-size:6.4pt; line-height:1.45}
+  .mod-z{background:#FDF6E3; border:1px solid #EDD9A8}
+  .mod-z .rz{background:#C9992A} .mod-z .glowa b{color:#8A6510} .mod-z p{color:#6B5220}
+  .mod-c{background:#FDECE4; border:1px solid #F3B79C}
+  .mod-c .rz{background:var(--pomarancz)} .mod-c .glowa b{color:#B8350D} .mod-c p{color:#7E3A22}
+
+  .wsk{
+    display:flex; align-items:center; gap:2mm; margin-top:2.4mm;
+    background:var(--pole); border:1px solid var(--ramka); border-radius:2.4mm; padding:1.4mm 3mm;
+  }
+  .wsk b{font-size:6.2pt; color:var(--fiolet); white-space:nowrap}
+  .wsk .dopisz{flex:1; border-bottom:1.2px dotted var(--kropki); height:3.4mm}
+
+
+  /* ——— elementy instrukcji ——— */
+  .formula{display:flex; gap:1.6mm; margin:1mm 0 2.4mm}
+  .formula .czlon{
+    flex:1; border-radius:2.2mm; padding:2mm 2.2mm; text-align:center; color:#fff;
+  }
+  .formula .czlon b{display:block; font-size:6.4pt; letter-spacing:.6px; text-transform:uppercase}
+  .formula .czlon i{display:block; font-style:normal; font-size:5.6pt; opacity:.9; margin-top:.6mm; line-height:1.35}
+  .formula .plus{align-self:center; color:var(--kropki); font-size:9pt; font-weight:bold}
+  .zle-dobrze{display:flex; gap:2.4mm; margin-bottom:2mm; align-items:stretch}
+  .zle-dobrze > div{flex:1; border-radius:2.2mm; padding:2mm 2.6mm; font-size:6.8pt; line-height:1.4}
+  .zle{background:#FDECE4; border:1px solid #F3B79C; color:#7E3A22}
+  .dobrze{background:#E7F5EE; border:1px solid #A9D9C1; color:#17553C}
+  .zle-dobrze .etyk{
+    display:block; font-size:5.6pt; font-weight:bold; letter-spacing:1px;
+    text-transform:uppercase; margin-bottom:1mm;
+  }
+  .zle .etyk{color:var(--pomarancz)} .dobrze .etyk{color:#177A4E}
+  .smart-opis{flex:1; display:flex; flex-direction:column; gap:1.2mm}
+  .smart-opis .w{display:flex; gap:2.4mm; align-items:flex-start}
+  .smart-opis .w b{
+    width:5.2mm; height:5.2mm; border-radius:1.2mm; background:var(--fiolet); color:#fff; flex:none;
+    display:flex; align-items:center; justify-content:center; font-size:7pt; margin-top:.3mm;
+  }
+  .smart-opis .w .tresc{flex:1; font-size:7pt; line-height:1.4}
+  .smart-opis .w .tresc strong{color:var(--fiolet)}
+  .smart-opis .w .tresc em{display:block; font-style:normal; font-size:6.2pt; color:var(--pomarancz); margin-top:.4mm}
+
+
+  /* ——— karty uzasadnienia ——— */
+  .argumenty{display:flex; flex-wrap:wrap; gap:2.4mm; margin-bottom:2.4mm}
+  .arg{
+    flex:1 1 calc(50% - 1.2mm); border:1px solid var(--ramka); border-left:1.6mm solid var(--pomarancz);
+    border-radius:2.4mm; background:#fff; padding:2.4mm 3mm;
+  }
+  .arg.fiolet{border-left-color:var(--fiolet)}
+  .arg b{display:block; font-size:7.4pt; color:var(--fiolet); margin-bottom:1mm}
+  .arg p{font-size:6.8pt; line-height:1.5; color:#3a3357}
+  .arg p em{font-style:normal; color:var(--pomarancz); font-weight:bold}
+
+
+  /* ——— spis druków ——— */
+  a{color:inherit; text-decoration:none}
+  td .sygn{
+    display:inline-block; background:var(--fiolet); color:#fff; border-radius:1.2mm;
+    padding:.7mm 2.2mm; font-size:6.4pt; font-weight:bold; letter-spacing:.5px;
+  }
+  td .sygn.pom{background:var(--pomarancz)}
+  td .nazwa{font-weight:bold; color:var(--fiolet); font-size:7.2pt}
+  td .kiedy{color:var(--pomarancz); font-size:6.4pt; font-weight:bold; display:block; margin-top:.6mm}
+  td .plik{font-size:6.2pt; color:var(--szary); display:block; margin-top:.6mm}
+  a.otw{
+    display:inline-block; background:var(--pole); border:1px solid var(--ramka-2); color:var(--fiolet);
+    border-radius:1.6mm; padding:.8mm 2.2mm; font-size:6.2pt; font-weight:bold; white-space:nowrap;
+  }
+  a.otw:hover{background:var(--zazn); border-color:var(--pomarancz); color:var(--pomarancz)}
+  .blok-mies{
+    border:1px solid var(--ramka); border-left:1.6mm solid var(--pomarancz); border-radius:2.4mm;
+    background:#fff; padding:2.4mm 3mm; flex:1 1 calc(50% - 1.2mm);
+  }
+  .blok-mies h4{font-size:6.2pt; color:var(--pomarancz); letter-spacing:1.1px; text-transform:uppercase}
+  .blok-mies .termin{font-size:8.4pt; font-weight:bold; color:var(--fiolet); margin:.6mm 0 1.4mm}
+  .blok-mies ul{list-style:none}
+  .blok-mies li{font-size:6.6pt; color:#3a3357; padding-left:3.6mm; position:relative; margin-bottom:.8mm; line-height:1.42}
+  .blok-mies li::before{content:"☐"; position:absolute; left:0; color:var(--kropki); font-size:6.6pt}
+  .blok-mies li b{color:var(--fiolet)}
+  .miesiace{display:flex; flex-wrap:wrap; gap:2.4mm; margin-bottom:2mm}
+
+  .page .tab-mala td{height:auto; padding:1.6mm 2.2mm}
+  .page .sekcja{margin:3.4mm 0 1.8mm}
+
+  @media print{
+    body{background:#fff}
+    .panel{display:none !important}
+    .page{margin:0; box-shadow:none; page-break-after:always}
+    .page:last-child{page-break-after:auto}
+    @page{size:A4; margin:0}
+  }
 </style>
 </head>
 <body>
-<div class="wrap">
-  <div class="hero">
-    <div class="logo"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" role="img" aria-label="Logo PCTP"> <defs> <radialGradient id="pctpTlo" cx="36%" cy="28%" r="82%"> <stop offset="0%" stop-color="#6A4C9E"/> <stop offset="55%" stop-color="#4A2E86"/> <stop offset="100%" stop-color="#331E63"/> </radialGradient> </defs> <circle cx="50" cy="50" r="49.2" fill="#3B2472"/> <circle cx="50" cy="50" r="46.4" fill="#D3C8EC"/> <circle cx="50" cy="50" r="43.6" fill="url(#pctpTlo)"/> <g stroke="#C79A2C" stroke-width="2.1" stroke-linecap="round" fill="none"> <path d="M50 60 C50 50 50 42 50 34"/> <path d="M50 60 C46 52 42 46 38 40"/> <path d="M50 60 C54 52 58 46 62 40"/> <path d="M50 59 C44 53 38 48 32 44"/> <path d="M50 59 C56 53 62 48 68 44"/> </g> <g> <ellipse cx="33" cy="41" rx="4.6" ry="10.4" fill="#A192D2" transform="rotate(-32 33 41)"/> <ellipse cx="67" cy="41" rx="4.6" ry="10.4" fill="#A192D2" transform="rotate(32 67 41)"/> <ellipse cx="39.5" cy="34" rx="5" ry="11.6" fill="#EFA275" transform="rotate(-16 39.5 34)"/> <ellipse cx="60.5" cy="34" rx="5" ry="11.6" fill="#EFA275" transform="rotate(16 60.5 34)"/> <ellipse cx="50" cy="30.5" rx="5.4" ry="12.4" fill="#E8712F"/> </g> <circle cx="50" cy="38.5" r="3.4" fill="#FBF6EC"/> <text x="50" y="76" text-anchor="middle" font-family="Georgia,'Times New Roman',serif" font-weight="bold" font-size="25" letter-spacing="1.2" fill="#F7F2E6">PCTP</text> </svg></div>
-    <div>
-      <div class="etyk">EduPlaner 2026 · PCTP · rok szkolny 2026/2027</div>
-      <h1>Kącik nauczyciela — przedszkole</h1>
-      <p>Komplet dokumentacji nauczyciela wychowawcy grupy przedszkolnej. Wszystkie druki zaktualizowane do <b>nowej podstawy programowej z 11 marca 2026 r.</b> (dziewięć obszarów) oraz do <b>oceny funkcjonalnej obowiązującej od 1 września 2026 r.</b></p>
-      <div class="liczby"><span>23 druki</span><span>9 plików</span><span>53 strony A4</span><span>Format A4 · marka PCTP</span></div>
+
+<!-- ======= PANEL APLIKACJI · nie drukuje się ======= -->
+<div class="panel">
+  <div class="panel-glowa">
+    <div class="etykieta-app">EduPlaner 2026 · Kącik nauczyciela · przedszkole</div>
+    <h1>Spis druków — strona startowa kącika</h1>
+    <p>Cztery strony A4: czego nauczyciel musi pilnować, jaki dokument w jakiej sytuacji i pełna lista 23 druków z odnośnikami do podglądu. Ten panel wyświetla się wyłącznie w aplikacji i nie drukuje się.</p>
+  </div>
+  <div class="panel-cialo">
+    <div class="panel-sekcja">
+      <h2>Jak czytać ten spis</h2>
+      <div class="panel-role">
+        <div class="rola">
+          <b>Strona 1 — rytm roku</b>
+          <span>Sześć bloków: wrzesień, cały rok, pomoc p-p, styczeń i czerwiec, marzec i kwiecień, koniec roku. Do odhaczania. Pełna wersja z podstawą prawną przy każdym zadaniu — druk <em>K-1</em>.</span>
+        </div>
+        <div class="rola">
+          <b>Strona 2 — od sytuacji do dokumentu</b>
+          <span>Czternaście sytuacji z życia grupy, a przy każdej sygnatury druków, które wtedy wypełniasz. Nie trzeba pamiętać nazw — wystarczy rozpoznać sytuację.</span>
+        </div>
+        <div class="rola">
+          <b>Strony 3–4 — lista druków</b>
+          <span>Każdy druk osobno: nazwa, zawartość, kiedy się go używa i gdzie leży w pliku. Odnośnik <em>PDF</em> otwiera wydruk od razu na właściwej stronie, <em>podgląd HTML</em> — wersję z panelem dla nauczyciela.</span>
+        </div>
+        <div class="rola">
+          <b>Odnośniki działają lokalnie</b>
+          <span>Ścieżki są względne, więc wszystkie pliki muszą leżeć w jednym katalogu. Przy innej strukturze podmień ścieżki albo zbuduj listę z <em>MANIFEST.json</em>.</span>
+        </div>
+      </div>
+    </div>
+    <div class="panel-akcje">
+      <button class="btn-druk" onclick="window.print()">Drukuj spis (4 strony A4)</button>
+      <span class="uwaga-druk">Ustawienia: A4, marginesy „brak”, grafika tła włączona.</span>
     </div>
   </div>
-  <h2 class="dzial"><span class="nr pom">1</span>Czego nauczyciel musi pilnować<span class="linia"></span></h2>
-  <p class="wstepny">Rytm roku w sześciu blokach. Pełna wersja z podstawą prawną przy każdym zadaniu i miejscem na datę wykonania — w druku <b>K-1</b> poniżej.</p>
+</div>
+
+<!-- === STRONA 1 === -->
+<section class="page">
+  <div class="naglowek">
+    <div class="marka">
+      <div class="logo"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" role="img" aria-label="Logo PCTP"> <defs> <radialGradient id="pctpTlo" cx="36%" cy="28%" r="82%"> <stop offset="0%" stop-color="#6A4C9E"/> <stop offset="55%" stop-color="#4A2E86"/> <stop offset="100%" stop-color="#331E63"/> </radialGradient> </defs> <circle cx="50" cy="50" r="49.2" fill="#3B2472"/> <circle cx="50" cy="50" r="46.4" fill="#D3C8EC"/> <circle cx="50" cy="50" r="43.6" fill="url(#pctpTlo)"/> <g stroke="#C79A2C" stroke-width="2.1" stroke-linecap="round" fill="none"> <path d="M50 60 C50 50 50 42 50 34"/> <path d="M50 60 C46 52 42 46 38 40"/> <path d="M50 60 C54 52 58 46 62 40"/> <path d="M50 59 C44 53 38 48 32 44"/> <path d="M50 59 C56 53 62 48 68 44"/> </g> <g> <ellipse cx="33" cy="41" rx="4.6" ry="10.4" fill="#A192D2" transform="rotate(-32 33 41)"/> <ellipse cx="67" cy="41" rx="4.6" ry="10.4" fill="#A192D2" transform="rotate(32 67 41)"/> <ellipse cx="39.5" cy="34" rx="5" ry="11.6" fill="#EFA275" transform="rotate(-16 39.5 34)"/> <ellipse cx="60.5" cy="34" rx="5" ry="11.6" fill="#EFA275" transform="rotate(16 60.5 34)"/> <ellipse cx="50" cy="30.5" rx="5.4" ry="12.4" fill="#E8712F"/> </g> <circle cx="50" cy="38.5" r="3.4" fill="#FBF6EC"/> <text x="50" y="76" text-anchor="middle" font-family="Georgia,'Times New Roman',serif" font-weight="bold" font-size="25" letter-spacing="1.2" fill="#F7F2E6">PCTP</text> </svg></div>
+      <div>
+        <div class="marka-nazwa">EduPlaner 2026</div>
+        <div class="marka-opis">Kącik nauczyciela ·<br>spis druków</div>
+      </div>
+    </div>
+    <div class="naglowek-prawy">
+      <span class="plakietka">spis · przedszkole</span>
+      <div class="naglowek-podpis">Dokument wsparcia · 2026</div>
+    </div>
+  </div>
+  <div class="belka"></div>
+
+  <div class="metryczka">
+    <div class="box"><span class="etykieta">Etap</span><span class="wartosc">Przedszkole</span></div>
+    <div class="box"><span class="etykieta">Rok szkolny</span><span class="wartosc">2026 / 2027</span></div>
+    <div class="box"><span class="etykieta">Wersja zestawu</span><span class="wartosc">1.0</span></div>
+  </div>
+  <div class="wstega"><span>EduPlaner 2026 · PCTP · komplet dokumentacji nauczyciela</span></div>
+  <div class="tytul">KĄCIK NAUCZYCIELA</div>
+  <div class="podtytul">przedszkole — 23 druki dla nauczyciela wychowawcy grupy</div>
+  <div class="kody">
+    <span class="kreska"></span>
+    <span class="tresc">23 DRUKI · 9 PLIKÓW · 53 STRONY A4</span>
+    <span class="kreska"></span>
+  </div>
+  <div class="sekcja"><span class="numer">I</span><h2>Czego nauczyciel musi pilnować</h2><span class="linia"></span></div>
+  <p class="wstep">Rytm roku w sześciu blokach. Pełna wersja z podstawą prawną przy każdym zadaniu i miejscem na datę wykonania — w druku <b>K-1</b>.</p>
   <div class="miesiace">
-    <div class="mies"><h3>Wrzesień</h3><div class="termin">do 15 i 30 września</div><ul>
+    <div class="blok-mies"><h4>Wrzesień</h4><div class="termin">do 15 i 30 września</div><ul>
       <li>Zapoznanie z <b>dokumentacją dzieci</b> — orzeczenia, opinie, alergie, diety</li>
-      <li>Zebranie <b>zgód i upoważnień</b> od rodziców — druk W-3</li>
-      <li><b>Plan pracy grupy</b> wg dziewięciu obszarów — druk R-1</li>
+      <li>Zebranie <b>zgód i upoważnień</b> od rodziców — <b>W-3</b></li>
+      <li><b>Plan pracy grupy</b> wg dziewięciu obszarów — <b>R-1</b></li>
       <li>Zebranie z rodzicami do 30 września</li>
-      <li>Start <b>obserwacji</b> i diagnozy wstępnej — druk O-1</li>
-      <li>Karta <b>adaptacji</b> dla dzieci nowo przyjętych — druk B-3</li>
+      <li>Start <b>obserwacji</b> i diagnozy wstępnej — <b>O-1</b></li>
+      <li>Karta <b>adaptacji</b> dla dzieci nowo przyjętych — <b>B-3</b></li>
       <li>Kontrola sali i sprzętu pod kątem bezpieczeństwa</li>
     </ul></div>
-    <div class="mies"><h3>Cały rok</h3><div class="termin">na bieżąco</div><ul>
+    <div class="blok-mies"><h4>Cały rok</h4><div class="termin">na bieżąco</div><ul>
       <li><b>Dziennik zajęć</b> — tematy, obecność, realizacja podstawy</li>
-      <li>Dokumentowanie <b>obserwacji pedagogicznych</b> — druk O-1</li>
-      <li><b>Rejestr kontaktów</b> z rodzicami — druk W-1</li>
-      <li>Karta realizacji <b>zajęć specjalistycznych</b> — druk R-3</li>
-      <li><b>Karta wycieczki</b> przed każdym wyjściem — druk B-1</li>
-      <li><b>Notatka służbowa</b> tego samego dnia — druk B-2</li>
+      <li>Dokumentowanie <b>obserwacji pedagogicznych</b> — <b>O-1</b></li>
+      <li><b>Rejestr kontaktów</b> z rodzicami — <b>W-1</b></li>
+      <li>Karta realizacji <b>zajęć specjalistycznych</b> — <b>R-3</b></li>
+      <li><b>Karta wycieczki</b> przed każdym wyjściem — <b>B-1</b></li>
+      <li><b>Notatka służbowa</b> tego samego dnia — <b>B-2</b></li>
       <li>Realizacja <b>zaleceń</b> z orzeczeń i opinii</li>
     </ul></div>
-    <div class="mies"><h3>Pomoc p-p</h3><div class="termin">niezwłocznie po rozpoznaniu</div><ul>
-      <li>Zgłoszenie dyrektorowi — druk <b>P-1</b></li>
+    <div class="blok-mies"><h4>Pomoc psychologiczno-pedagogiczna</h4><div class="termin">niezwłocznie po rozpoznaniu</div><ul>
+      <li>Zgłoszenie dyrektorowi — <b>P-1</b></li>
       <li>Pisemna informacja dla rodziców o formach i wymiarze</li>
-      <li><b>Plan działań wspierających</b> P-2 (dziecko bez orzeczenia)</li>
-      <li><b>IPET</b> i karta dostosowań DS-1 (dziecko z orzeczeniem)</li>
-      <li><b>WOPFU</b> — min. 2 razy w roku, protokół P-3</li>
-      <li>Opinia dla poradni w <b>10 dni</b> od wniosku — druk O-2</li>
+      <li><b>Plan działań wspierających</b> — <b>P-2</b> (dziecko bez orzeczenia)</li>
+      <li>IPET i <b>karta dostosowań DS-1</b> (dziecko z orzeczeniem)</li>
+      <li><b>WOPFU</b> — min. dwa razy w roku, protokół <b>P-3</b></li>
+      <li>Opinia dla poradni w <b>10 dni</b> od wniosku — <b>O-2</b></li>
     </ul></div>
-    <div class="mies"><h3>Styczeń i czerwiec</h3><div class="termin">do 31 stycznia i 20 czerwca</div><ul>
+    <div class="blok-mies"><h4>Styczeń i czerwiec</h4><div class="termin">do 31 stycznia i 20 czerwca</div><ul>
       <li><b>Ocena efektywności</b> udzielanej pomocy</li>
-      <li><b>Sprawozdanie</b> z pomocy p-p — druk D-1 (kącik dyrektora)</li>
-      <li>Sprawozdanie z pracy grupy — druk <b>R-4</b></li>
-      <li><b>Informacja o postępach</b> dla rodziców — druk W-2</li>
+      <li><b>Sprawozdanie z pomocy p-p</b> — druk D-1 z kącika dyrektora</li>
+      <li>Sprawozdanie z pracy grupy — <b>R-4</b></li>
+      <li><b>Informacja o postępach</b> dla rodziców — <b>W-2</b></li>
       <li>Wnioski do pracy na kolejny okres</li>
     </ul></div>
-    <div class="mies"><h3>Marzec i kwiecień</h3><div class="termin">do 30 kwietnia</div><ul>
-      <li><b>Diagnoza końcowa</b> i analiza gotowości szkolnej — druk O-5</li>
+    <div class="blok-mies"><h4>Marzec i kwiecień</h4><div class="termin">do 30 kwietnia</div><ul>
+      <li><b>Diagnoza końcowa</b> i analiza gotowości szkolnej — <b>O-5</b></li>
       <li>Informacja o gotowości na wzorze <b>MEN-I/74</b> — do końca kwietnia</li>
-      <li>Dla 6-latka — na wniosek rodziców złożony do 30 września</li>
+      <li>Dla dziecka 6-letniego — na wniosek rodziców złożony do 30 września</li>
       <li>Podsumowanie obserwacji z całego roku</li>
     </ul></div>
-    <div class="mies"><h3>Czerwiec</h3><div class="termin">koniec roku</div><ul>
+    <div class="blok-mies"><h4>Czerwiec</h4><div class="termin">koniec roku szkolnego</div><ul>
       <li>Zamknięcie i rozliczenie <b>dziennika zajęć</b></li>
       <li>Przekazanie dokumentacji dziecka dalej</li>
       <li>Wnioski do pracy na kolejny rok</li>
       <li>Zgłoszenie potrzeb remontowych i sprzętowych</li>
     </ul></div>
   </div>
-  <h2 class="dzial"><span class="nr">2</span>Jaki dokument w jakiej sytuacji<span class="linia"></span></h2>
-  <p class="wstepny">Zaczynasz od sytuacji, nie od nazwy druku. Sygnatury odsyłają do listy poniżej.</p>
-  <table>
-    <thead><tr><th>Sytuacja</th><th style="width:22%">Druki</th><th>Co robisz</th></tr></thead>
+  <div class="stopka">
+    <span>EduPlaner 2026 · PCTP · pedagog specjalny</span>
+    <span><b>Strona 1 z 4</b> · Kącik nauczyciela · spis · czego pilnować</span>
+  </div>
+</section>
+
+<!-- === STRONA 2 === -->
+<section class="page">
+  <div class="naglowek">
+    <div class="marka">
+      <div class="logo"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" role="img" aria-label="Logo PCTP"> <defs> <radialGradient id="pctpTlo" cx="36%" cy="28%" r="82%"> <stop offset="0%" stop-color="#6A4C9E"/> <stop offset="55%" stop-color="#4A2E86"/> <stop offset="100%" stop-color="#331E63"/> </radialGradient> </defs> <circle cx="50" cy="50" r="49.2" fill="#3B2472"/> <circle cx="50" cy="50" r="46.4" fill="#D3C8EC"/> <circle cx="50" cy="50" r="43.6" fill="url(#pctpTlo)"/> <g stroke="#C79A2C" stroke-width="2.1" stroke-linecap="round" fill="none"> <path d="M50 60 C50 50 50 42 50 34"/> <path d="M50 60 C46 52 42 46 38 40"/> <path d="M50 60 C54 52 58 46 62 40"/> <path d="M50 59 C44 53 38 48 32 44"/> <path d="M50 59 C56 53 62 48 68 44"/> </g> <g> <ellipse cx="33" cy="41" rx="4.6" ry="10.4" fill="#A192D2" transform="rotate(-32 33 41)"/> <ellipse cx="67" cy="41" rx="4.6" ry="10.4" fill="#A192D2" transform="rotate(32 67 41)"/> <ellipse cx="39.5" cy="34" rx="5" ry="11.6" fill="#EFA275" transform="rotate(-16 39.5 34)"/> <ellipse cx="60.5" cy="34" rx="5" ry="11.6" fill="#EFA275" transform="rotate(16 60.5 34)"/> <ellipse cx="50" cy="30.5" rx="5.4" ry="12.4" fill="#E8712F"/> </g> <circle cx="50" cy="38.5" r="3.4" fill="#FBF6EC"/> <text x="50" y="76" text-anchor="middle" font-family="Georgia,'Times New Roman',serif" font-weight="bold" font-size="25" letter-spacing="1.2" fill="#F7F2E6">PCTP</text> </svg></div>
+      <div>
+        <div class="marka-nazwa">EduPlaner 2026</div>
+        <div class="marka-opis">Kącik nauczyciela ·<br>spis druków</div>
+      </div>
+    </div>
+    <div class="naglowek-prawy">
+      <span class="plakietka">spis · sytuacje</span>
+      <div class="naglowek-podpis">Dokument wsparcia · 2026</div>
+    </div>
+  </div>
+  <div class="belka"></div>
+
+  <div class="metryczka">
+    <div class="box"><span class="etykieta">Etap</span><span class="wartosc">Przedszkole</span></div>
+    <div class="box"><span class="etykieta">Rok szkolny</span><span class="wartosc">2026 / 2027</span></div>
+    <div class="box"><span class="etykieta">Wersja zestawu</span><span class="wartosc">1.0</span></div>
+  </div>
+  <div class="sekcja"><span class="numer pom">II</span><h2>Jaki dokument w jakiej sytuacji</h2><span class="linia"></span></div>
+  <p class="wstep">Zaczynasz od sytuacji, nie od nazwy druku. Sygnatury odsyłają do listy na kolejnych stronach.</p>
+  <table class="tab-mala">
+    <thead><tr><th style="width:30%">Sytuacja</th><th style="width:22%">Druki</th><th>Co robisz</th></tr></thead>
     <tbody>
-      <tr><td class="syt">Nowe dziecko w grupie</td><td><span class="tag-druk f">W-3</span><span class="tag-druk f">B-3</span></td><td>Zgody i upoważnienia, karta adaptacji, obserwacja pierwszych tygodni.</td></tr>
-      <tr><td class="syt">Widzę trudność u dziecka</td><td><span class="tag-druk f">O-1</span><span class="tag-druk ">P-1</span><span class="tag-druk ">P-2</span></td><td>Obserwacja → zgłoszenie dyrektorowi → plan działań wspierających.</td></tr>
-      <tr><td class="syt">Dziecko z orzeczeniem</td><td><span class="tag-druk ">DS-1</span><span class="tag-druk f">P-3</span><span class="tag-druk f">R-3</span></td><td>Karta dostosowań, IPET i WOPFU w zespole, karta realizacji zajęć.</td></tr>
-      <tr><td class="syt">Poradnia prosi o opinię</td><td><span class="tag-druk ">O-2</span><span class="tag-druk f">O-1</span></td><td>Opinia o funkcjonowaniu w 10 dni, oparta na udokumentowanej obserwacji.</td></tr>
-      <tr><td class="syt">Wniosek o orzeczenie</td><td><span class="tag-druk ">O-3</span><span class="tag-druk f">O-2</span></td><td>Opinia dla zespołu orzekającego jako uzupełnienie opinii o funkcjonowaniu.</td></tr>
-      <tr><td class="syt">Sąd, kurator lub OPS pyta o dziecko</td><td><span class="tag-druk ">O-4</span></td><td>Wyłącznie na pisemny wniosek, zasada minimalizacji danych.</td></tr>
-      <tr><td class="syt">Dziecko idzie do szkoły</td><td><span class="tag-druk f">O-5</span></td><td>Analiza gotowości szkolnej, potem urzędowy wzór MEN-I/74 do końca kwietnia.</td></tr>
-      <tr><td class="syt">Planuję zajęcia</td><td><span class="tag-druk f">R-1</span><span class="tag-druk f">R-2</span><span class="tag-druk ">KON</span></td><td>Plan pracy grupy, karta zajęć i szablon konspektu z celami SMART.</td></tr>
-      <tr><td class="syt">Piszę cele do IPET lub planu</td><td><span class="tag-druk ">I-1</span><span class="tag-druk f">KON</span></td><td>Instrukcja pisania celów SMART i konspekt z dwiema kolumnami celów.</td></tr>
-      <tr><td class="syt">Zachowanie trudne</td><td><span class="tag-druk ">B-4</span><span class="tag-druk f">O-1</span></td><td>Analiza ABC, funkcja zachowania i plan pozytywnych oddziaływań.</td></tr>
-      <tr><td class="syt">Wyjście poza teren</td><td><span class="tag-druk f">B-1</span></td><td>Karta wycieczki zatwierdzana przez dyrektora przed wyjściem.</td></tr>
-      <tr><td class="syt">Wypadek lub zdarzenie</td><td><span class="tag-druk ">B-2</span></td><td>Notatka służbowa tego samego dnia; wypadek ma odrębny protokół.</td></tr>
-      <tr><td class="syt">Rozmowa z rodzicem</td><td><span class="tag-druk f">W-1</span><span class="tag-druk f">W-2</span></td><td>Rejestr kontaktów z podpisem i półroczna informacja o postępach.</td></tr>
-      <tr><td class="syt">Koniec semestru lub roku</td><td><span class="tag-druk f">R-4</span><span class="tag-druk ">D-1</span></td><td>Sprawozdanie z pracy grupy i sprawozdanie z pomocy p-p dla dyrektora.</td></tr>
+      <tr><td class="klucz">Nowe dziecko w grupie</td><td><span class="sygn">W-3</span> <span class="sygn">B-3</span></td><td>Zgody i upoważnienia, karta adaptacji, obserwacja pierwszych tygodni.</td></tr>
+      <tr><td class="klucz">Widzę trudność u dziecka</td><td><span class="sygn">O-1</span> <span class="sygn pom">P-1</span> <span class="sygn pom">P-2</span></td><td>Obserwacja → zgłoszenie dyrektorowi → plan działań wspierających.</td></tr>
+      <tr><td class="klucz">Dziecko z orzeczeniem</td><td><span class="sygn pom">DS-1</span> <span class="sygn">P-3</span> <span class="sygn">R-3</span></td><td>Karta dostosowań, IPET i WOPFU w zespole, karta realizacji zajęć.</td></tr>
+      <tr><td class="klucz">Poradnia prosi o opinię</td><td><span class="sygn pom">O-2</span> <span class="sygn">O-1</span></td><td>Opinia o funkcjonowaniu w 10 dni, oparta na udokumentowanej obserwacji.</td></tr>
+      <tr><td class="klucz">Wniosek o orzeczenie lub WWR</td><td><span class="sygn pom">O-3</span> <span class="sygn pom">O-2</span></td><td>Opinia dla zespołu orzekającego jako uzupełnienie opinii o funkcjonowaniu.</td></tr>
+      <tr><td class="klucz">Sąd, kurator lub OPS pyta o dziecko</td><td><span class="sygn pom">O-4</span></td><td>Wyłącznie na pisemny wniosek, zasada minimalizacji danych.</td></tr>
+      <tr><td class="klucz">Dziecko idzie do szkoły</td><td><span class="sygn">O-5</span></td><td>Analiza gotowości szkolnej, potem urzędowy wzór MEN-I/74 do końca kwietnia.</td></tr>
+      <tr><td class="klucz">Planuję zajęcia</td><td><span class="sygn">R-1</span> <span class="sygn">R-2</span> <span class="sygn pom">KON</span></td><td>Plan pracy grupy, karta zajęć i szablon konspektu z celami SMART.</td></tr>
+      <tr><td class="klucz">Piszę cele do IPET lub planu</td><td><span class="sygn pom">I-1</span> <span class="sygn pom">KON</span></td><td>Instrukcja pisania celów SMART i konspekt z dwiema kolumnami celów.</td></tr>
+      <tr><td class="klucz">Zachowanie trudne</td><td><span class="sygn pom">B-4</span> <span class="sygn">O-1</span></td><td>Analiza ABC, funkcja zachowania i plan pozytywnych oddziaływań.</td></tr>
+      <tr><td class="klucz">Wyjście poza teren</td><td><span class="sygn">B-1</span></td><td>Karta wycieczki zatwierdzana przez dyrektora przed wyjściem.</td></tr>
+      <tr><td class="klucz">Wypadek lub zdarzenie</td><td><span class="sygn pom">B-2</span></td><td>Notatka służbowa tego samego dnia; wypadek ma odrębny protokół.</td></tr>
+      <tr><td class="klucz">Rozmowa z rodzicem</td><td><span class="sygn">W-1</span> <span class="sygn">W-2</span></td><td>Rejestr kontaktów z podpisem i półroczna informacja o postępach.</td></tr>
+      <tr><td class="klucz">Koniec semestru lub roku</td><td><span class="sygn">R-4</span> <span class="sygn pom">D-1</span></td><td>Sprawozdanie z pracy grupy i sprawozdanie z pomocy p-p dla dyrektora.</td></tr>
     </tbody>
   </table>
-  <h2 class="dzial"><span class="nr pom">3</span>Lista druków — druk po druku<span class="linia"></span></h2>
-  <p class="wstepny">Każdy druk osobno: co zawiera, kiedy się go używa i gdzie leży w pliku. Przycisk <b>PDF</b> otwiera gotowy wydruk, <b>HTML</b> — wersję z panelem informacyjnym dla nauczyciela.</p>
-  <div class="druki">
-    <div class="druk">
-      <div class="glowa"><span class="sygn">K-1</span><h3>Checklista obowiązków wychowawcy</h3><span class="strony">5 str.</span></div>
-      <div class="cialo">
-        <p>Wszystkie zadania nauczyciela w układzie rocznym — każde z podstawą prawną, terminem i kratką do odhaczenia.</p>
-        <div class="kiedy">Kiedy: Wydrukuj raz we wrześniu i odhaczaj przez cały rok.</div>
-        <div class="sekcje">I początek roku · II dokumentacja · III obserwacja i diagnoza · IV pomoc p-p · V rodzice · VI bezpieczeństwo · VII rozwój zawodowy · VIII koniec roku · IX kalendarz terminów</div>
-      </div>
-      <div class="stopka">
-        <a class="btn pdf" href="Kacik_Nauczyciela_Checklista_Wychowawcy_PCTP.pdf" target="_blank">Otwórz PDF</a>
-        <a class="btn html" href="Kacik_Nauczyciela_Checklista_Wychowawcy_PCTP.html" target="_blank">Podgląd HTML</a>
-      </div>
-    </div>
-    <div class="druk pom">
-      <div class="glowa"><span class="sygn">DS-1</span><h3>Zakres dostosowań — nowa podstawa 2026</h3><span class="strony">3 str.</span></div>
-      <div class="cialo">
-        <p>Karta racjonalnych usprawnień i projektowania uniwersalnego dla dziecka, wg rozporządzenia z 11 marca 2026 r. Katalog dostosowań w pięciu wymiarach i tabela dziewięciu obszarów z kolumną docelowej autonomii.</p>
-        <div class="kiedy">Kiedy: Dla każdego dziecka objętego wsparciem; aktualizuj po ocenie skuteczności.</div>
-        <div class="sekcje">§ podstawa i zasada · I dane · II katalog w pięciu wymiarach · III dziewięć obszarów · IV ocena skuteczności</div>
-      </div>
-      <div class="stopka">
-        <a class="btn pdf" href="Kacik_Nauczyciela_Dostosowania_PCTP.pdf" target="_blank">Otwórz PDF</a>
-        <a class="btn html" href="Kacik_Nauczyciela_Dostosowania_PCTP.html" target="_blank">Podgląd HTML</a>
-      </div>
-    </div>
-    <div class="druk">
-      <div class="glowa"><span class="sygn">O-1</span><h3>Arkusz obserwacji dziecka</h3><span class="strony">2 str.</span></div>
-      <div class="cialo">
-        <p>Plan obserwacji, metoda, zapisy w modelu ABC i wnioski. Dokument źródłowy dla wszystkich opinii.</p>
-        <div class="kiedy">Kiedy: Zawsze przed napisaniem opinii i przed zgłoszeniem do pomocy p-p.</div>
-        <div class="sekcje">Strony 1–2 pliku „Wzory opinii”</div>
-      </div>
-      <div class="stopka">
-        <a class="btn pdf" href="Kacik_Nauczyciela_Wzory_Opinii_PCTP.pdf" target="_blank">Otwórz PDF</a>
-        <a class="btn html" href="Kacik_Nauczyciela_Wzory_Opinii_PCTP.html" target="_blank">Podgląd HTML</a>
-      </div>
-    </div>
-    <div class="druk pom">
-      <div class="glowa"><span class="sygn">O-2</span><h3>Opinia o funkcjonowaniu dziecka</h3><span class="strony">4 str.</span></div>
-      <div class="cialo">
-        <p>Opinia dla poradni psychologiczno-pedagogicznej — element oceny funkcjonalnej. Obszary ICF z kwalifikatorem 0–4, trudności w realizacji programu, efektywność wsparcia.</p>
-        <div class="kiedy">Kiedy: W terminie 10 dni od otrzymania wniosku przez dyrektora; kopia dla rodziców.</div>
-        <div class="sekcje">Strony 3–6 pliku „Wzory opinii”</div>
-      </div>
-      <div class="stopka">
-        <a class="btn pdf" href="Kacik_Nauczyciela_Wzory_Opinii_PCTP.pdf" target="_blank">Otwórz PDF</a>
-        <a class="btn html" href="Kacik_Nauczyciela_Wzory_Opinii_PCTP.html" target="_blank">Podgląd HTML</a>
-      </div>
-    </div>
-    <div class="druk">
-      <div class="glowa"><span class="sygn">O-3</span><h3>Opinia dla zespołu orzekającego</h3><span class="strony">2 str.</span></div>
-      <div class="cialo">
-        <p>Uzupełnienie opinii o funkcjonowaniu przy wniosku o orzeczenie, WWR lub zajęcia rewalidacyjno-wychowawcze.</p>
-        <div class="kiedy">Kiedy: Przy wystąpieniu do poradni o orzeczenie lub opinię.</div>
-        <div class="sekcje">Strony 7–8 pliku „Wzory opinii”</div>
-      </div>
-      <div class="stopka">
-        <a class="btn pdf" href="Kacik_Nauczyciela_Wzory_Opinii_PCTP.pdf" target="_blank">Otwórz PDF</a>
-        <a class="btn html" href="Kacik_Nauczyciela_Wzory_Opinii_PCTP.html" target="_blank">Podgląd HTML</a>
-      </div>
-    </div>
-    <div class="druk">
-      <div class="glowa"><span class="sygn">O-4</span><h3>Opinia dla instytucji zewnętrznej</h3><span class="strony">2 str.</span></div>
-      <div class="cialo">
-        <p>Dla sądu rodzinnego, kuratora i ośrodka pomocy społecznej. Fakty i obserwacje, zasada minimalizacji danych.</p>
-        <div class="kiedy">Kiedy: Wyłącznie na pisemny wniosek uprawnionego organu albo za zgodą rodziców.</div>
-        <div class="sekcje">Strony 9–10 pliku „Wzory opinii”</div>
-      </div>
-      <div class="stopka">
-        <a class="btn pdf" href="Kacik_Nauczyciela_Wzory_Opinii_PCTP.pdf" target="_blank">Otwórz PDF</a>
-        <a class="btn html" href="Kacik_Nauczyciela_Wzory_Opinii_PCTP.html" target="_blank">Podgląd HTML</a>
-      </div>
-    </div>
-    <div class="druk pom">
-      <div class="glowa"><span class="sygn">O-5</span><h3>Analiza gotowości szkolnej</h3><span class="strony">2 str.</span></div>
-      <div class="cialo">
-        <p>Materiał roboczy do informacji o gotowości dziecka do podjęcia nauki w szkole. Nie zastępuje urzędowego wzoru MEN-I/74.</p>
-        <div class="kiedy">Kiedy: Diagnoza końcowa marzec–kwiecień; informacja dla rodziców do końca kwietnia.</div>
-        <div class="sekcje">Strony 11–12 pliku „Wzory opinii”</div>
-      </div>
-      <div class="stopka">
-        <a class="btn pdf" href="Kacik_Nauczyciela_Wzory_Opinii_PCTP.pdf" target="_blank">Otwórz PDF</a>
-        <a class="btn html" href="Kacik_Nauczyciela_Wzory_Opinii_PCTP.html" target="_blank">Podgląd HTML</a>
-      </div>
-    </div>
-    <div class="druk">
-      <div class="glowa"><span class="sygn">P-1</span><h3>Wniosek o objęcie pomocą p-p</h3><span class="strony">2 str.</span></div>
-      <div class="cialo">
-        <p>Zgłoszenie nauczyciela do dyrektora wraz z blokiem decyzji dyrektora i pisemnej informacji dla rodziców.</p>
-        <div class="kiedy">Kiedy: Niezwłocznie po rozpoznaniu potrzeby wsparcia.</div>
-        <div class="sekcje">Strony 1–2 pliku „Pomoc p-p”</div>
-      </div>
-      <div class="stopka">
-        <a class="btn pdf" href="Kacik_Nauczyciela_Pomoc_PP_PCTP.pdf" target="_blank">Otwórz PDF</a>
-        <a class="btn html" href="Kacik_Nauczyciela_Pomoc_PP_PCTP.html" target="_blank">Podgląd HTML</a>
-      </div>
-    </div>
-    <div class="druk pom">
-      <div class="glowa"><span class="sygn">P-2</span><h3>Plan działań wspierających</h3><span class="strony">2 str.</span></div>
-      <div class="cialo">
-        <p>Indywidualny plan dla dziecka objętego pomocą <b>bez orzeczenia</b>. Cele SMART, dostosowania, zadania dla rodziców, ewaluacja.</p>
-        <div class="kiedy">Kiedy: Po decyzji dyrektora o objęciu pomocą; dla dziecka z orzeczeniem obowiązuje IPET.</div>
-        <div class="sekcje">Strony 3–4 pliku „Pomoc p-p”</div>
-      </div>
-      <div class="stopka">
-        <a class="btn pdf" href="Kacik_Nauczyciela_Pomoc_PP_PCTP.pdf" target="_blank">Otwórz PDF</a>
-        <a class="btn html" href="Kacik_Nauczyciela_Pomoc_PP_PCTP.html" target="_blank">Podgląd HTML</a>
-      </div>
-    </div>
-    <div class="druk">
-      <div class="glowa"><span class="sygn">P-3</span><h3>Protokół spotkania zespołu</h3><span class="strony">2 str.</span></div>
-      <div class="cialo">
-        <p>WOPFU, opracowanie i modyfikacja IPET, ocena efektywności. Lista obecności, ustalenia i zadania z terminami.</p>
-        <div class="kiedy">Kiedy: WOPFU co najmniej dwa razy w roku szkolnym.</div>
-        <div class="sekcje">Strony 5–6 pliku „Pomoc p-p”</div>
-      </div>
-      <div class="stopka">
-        <a class="btn pdf" href="Kacik_Nauczyciela_Pomoc_PP_PCTP.pdf" target="_blank">Otwórz PDF</a>
-        <a class="btn html" href="Kacik_Nauczyciela_Pomoc_PP_PCTP.html" target="_blank">Podgląd HTML</a>
-      </div>
-    </div>
-    <div class="druk">
-      <div class="glowa"><span class="sygn">R-1</span><h3>Plan pracy grupy</h3><span class="strony">2 str.</span></div>
-      <div class="cialo">
-        <p>Planowanie miesięczne wg dziewięciu obszarów nowej podstawy, harmonogram tygodni, tabela dostosowań, ewaluacja.</p>
-        <div class="kiedy">Kiedy: Na początek każdego miesiąca; zatwierdza dyrektor.</div>
-        <div class="sekcje">Strony 1–2 pliku „Planowanie”</div>
-      </div>
-      <div class="stopka">
-        <a class="btn pdf" href="Kacik_Nauczyciela_Planowanie_PCTP.pdf" target="_blank">Otwórz PDF</a>
-        <a class="btn html" href="Kacik_Nauczyciela_Planowanie_PCTP.html" target="_blank">Podgląd HTML</a>
-      </div>
-    </div>
-    <div class="druk pom">
-      <div class="glowa"><span class="sygn">R-2</span><h3>Karta zajęć — konspekt</h3><span class="strony">2 str.</span></div>
-      <div class="cialo">
-        <p>Konspekt wg wzoru karty zajęć: temat, dostosowania, cel SMART, mocne strony, bariery, pomoce, metody, plan zajęć i dziennik realizacji.</p>
-        <div class="kiedy">Kiedy: Do zajęć specjalistycznych i zajęć obserwowanych.</div>
-        <div class="sekcje">Strony 3–4 pliku „Planowanie”</div>
-      </div>
-      <div class="stopka">
-        <a class="btn pdf" href="Kacik_Nauczyciela_Planowanie_PCTP.pdf" target="_blank">Otwórz PDF</a>
-        <a class="btn html" href="Kacik_Nauczyciela_Planowanie_PCTP.html" target="_blank">Podgląd HTML</a>
-      </div>
-    </div>
-    <div class="druk">
-      <div class="glowa"><span class="sygn">R-3</span><h3>Karta realizacji zajęć specjalistycznych</h3><span class="strony">2 str.</span></div>
-      <div class="cialo">
-        <p>Dziennik przebiegu zajęć i karta monitorowania postępów w skali 1–5. Uzupełnia dziennik zajęć, nie zastępuje go.</p>
-        <div class="kiedy">Kiedy: Każde zajęcia specjalistyczne; monitoring po okresach.</div>
-        <div class="sekcje">Strony 5–6 pliku „Planowanie”</div>
-      </div>
-      <div class="stopka">
-        <a class="btn pdf" href="Kacik_Nauczyciela_Planowanie_PCTP.pdf" target="_blank">Otwórz PDF</a>
-        <a class="btn html" href="Kacik_Nauczyciela_Planowanie_PCTP.html" target="_blank">Podgląd HTML</a>
-      </div>
-    </div>
-    <div class="druk">
-      <div class="glowa"><span class="sygn">R-4</span><h3>Sprawozdanie z pracy grupy</h3><span class="strony">2 str.</span></div>
-      <div class="cialo">
-        <p>Rozliczenie okresu przed dyrektorem: realizacja dziewięciu obszarów, frekwencja, wydarzenia, efekty i wnioski.</p>
-        <div class="kiedy">Kiedy: Koniec semestru i koniec roku szkolnego.</div>
-        <div class="sekcje">Strony 7–8 pliku „Planowanie”</div>
-      </div>
-      <div class="stopka">
-        <a class="btn pdf" href="Kacik_Nauczyciela_Planowanie_PCTP.pdf" target="_blank">Otwórz PDF</a>
-        <a class="btn html" href="Kacik_Nauczyciela_Planowanie_PCTP.html" target="_blank">Podgląd HTML</a>
-      </div>
-    </div>
-    <div class="druk">
-      <div class="glowa"><span class="sygn">W-1</span><h3>Rejestr kontaktów z rodzicami</h3><span class="strony">2 str.</span></div>
-      <div class="cialo">
-        <p>Jedna karta na dziecko na cały rok — data, forma, temat, ustalenia i podpis rodzica. Dowód współpracy w nadzorze.</p>
-        <div class="kiedy">Kiedy: Każdy kontakt dotyczący dziecka.</div>
-        <div class="sekcje">Strony 1–2 pliku „Rodzice”</div>
-      </div>
-      <div class="stopka">
-        <a class="btn pdf" href="Kacik_Nauczyciela_Rodzice_PCTP.pdf" target="_blank">Otwórz PDF</a>
-        <a class="btn html" href="Kacik_Nauczyciela_Rodzice_PCTP.html" target="_blank">Podgląd HTML</a>
-      </div>
-    </div>
-    <div class="druk pom">
-      <div class="glowa"><span class="sygn">W-2</span><h3>Informacja o postępach dziecka</h3><span class="strony">2 str.</span></div>
-      <div class="cialo">
-        <p>Dla każdego dziecka, dwa razy w roku. Umiejętności w obszarach rozwoju, skala S / Z / P / N i wskazówki do pracy w domu.</p>
-        <div class="kiedy">Kiedy: Dwa razy w roku; to nie jest informacja o gotowości szkolnej.</div>
-        <div class="sekcje">Strony 3–4 pliku „Rodzice”</div>
-      </div>
-      <div class="stopka">
-        <a class="btn pdf" href="Kacik_Nauczyciela_Rodzice_PCTP.pdf" target="_blank">Otwórz PDF</a>
-        <a class="btn html" href="Kacik_Nauczyciela_Rodzice_PCTP.html" target="_blank">Podgląd HTML</a>
-      </div>
-    </div>
-    <div class="druk">
-      <div class="glowa"><span class="sygn">W-3</span><h3>Zgody i upoważnienia</h3><span class="strony">2 str.</span></div>
-      <div class="cialo">
-        <p>Odbiór dziecka, dziewięć zgód rozdzielonych na „wyrażam / nie wyrażam”, alergie i leki, klauzula informacyjna RODO.</p>
-        <div class="kiedy">Kiedy: Początek roku szkolnego; porównaj zakres zgód ze statutem placówki.</div>
-        <div class="sekcje">Strony 5–6 pliku „Rodzice”</div>
-      </div>
-      <div class="stopka">
-        <a class="btn pdf" href="Kacik_Nauczyciela_Rodzice_PCTP.pdf" target="_blank">Otwórz PDF</a>
-        <a class="btn html" href="Kacik_Nauczyciela_Rodzice_PCTP.html" target="_blank">Podgląd HTML</a>
-      </div>
-    </div>
-    <div class="druk">
-      <div class="glowa"><span class="sygn">B-1</span><h3>Karta wycieczki i wyjścia</h3><span class="strony">2 str.</span></div>
-      <div class="cialo">
-        <p>Organizacja, opiekunowie z liczbą dzieci pod opieką, lista uczestników ze zgodami i lista kontrolna przed wyjściem.</p>
-        <div class="kiedy">Kiedy: Przed każdym wyjściem poza teren; zatwierdza dyrektor.</div>
-        <div class="sekcje">Strony 1–2 pliku „Bezpieczeństwo”</div>
-      </div>
-      <div class="stopka">
-        <a class="btn pdf" href="Kacik_Nauczyciela_Bezpieczenstwo_PCTP.pdf" target="_blank">Otwórz PDF</a>
-        <a class="btn html" href="Kacik_Nauczyciela_Bezpieczenstwo_PCTP.html" target="_blank">Podgląd HTML</a>
-      </div>
-    </div>
-    <div class="druk pom">
-      <div class="glowa"><span class="sygn">B-2</span><h3>Karta zdarzenia — notatka służbowa</h3><span class="strony">2 str.</span></div>
-      <div class="cialo">
-        <p>Rodzaj zdarzenia, przebieg w faktach, powiadomienia i dalsze postępowanie. Nie zastępuje protokołu powypadkowego.</p>
-        <div class="kiedy">Kiedy: Tego samego dnia, w którym zdarzenie miało miejsce.</div>
-        <div class="sekcje">Strony 3–4 pliku „Bezpieczeństwo”</div>
-      </div>
-      <div class="stopka">
-        <a class="btn pdf" href="Kacik_Nauczyciela_Bezpieczenstwo_PCTP.pdf" target="_blank">Otwórz PDF</a>
-        <a class="btn html" href="Kacik_Nauczyciela_Bezpieczenstwo_PCTP.html" target="_blank">Podgląd HTML</a>
-      </div>
-    </div>
-    <div class="druk">
-      <div class="glowa"><span class="sygn">B-3</span><h3>Karta adaptacji dziecka</h3><span class="strony">2 str.</span></div>
-      <div class="cialo">
-        <p>Osiem obszarów adaptacji obserwowanych w trzech terminach, przebieg tydzień po tygodniu i wnioski.</p>
-        <div class="kiedy">Kiedy: Wrzesień i październik, dla dzieci nowo przyjętych.</div>
-        <div class="sekcje">Strony 5–6 pliku „Bezpieczeństwo”</div>
-      </div>
-      <div class="stopka">
-        <a class="btn pdf" href="Kacik_Nauczyciela_Bezpieczenstwo_PCTP.pdf" target="_blank">Otwórz PDF</a>
-        <a class="btn html" href="Kacik_Nauczyciela_Bezpieczenstwo_PCTP.html" target="_blank">Podgląd HTML</a>
-      </div>
-    </div>
-    <div class="druk pom">
-      <div class="glowa"><span class="sygn">B-4</span><h3>Karta zachowań trudnych</h3><span class="strony">2 str.</span></div>
-      <div class="cialo">
-        <p>Opis mierzalny, analiza ABC, funkcja zachowania i plan pozytywnych oddziaływań z oceną skuteczności.</p>
-        <div class="kiedy">Kiedy: Gdy zachowanie powtarza się i utrudnia funkcjonowanie dziecka lub grupy.</div>
-        <div class="sekcje">Strony 7–8 pliku „Bezpieczeństwo”</div>
-      </div>
-      <div class="stopka">
-        <a class="btn pdf" href="Kacik_Nauczyciela_Bezpieczenstwo_PCTP.pdf" target="_blank">Otwórz PDF</a>
-        <a class="btn html" href="Kacik_Nauczyciela_Bezpieczenstwo_PCTP.html" target="_blank">Podgląd HTML</a>
-      </div>
-    </div>
-    <div class="druk pom">
-      <div class="glowa"><span class="sygn">KON</span><h3>Szablon konspektu zajęć</h3><span class="strony">1 str.</span></div>
-      <div class="cialo">
-        <p>Jedna strona: cel edukacyjny po lewej i terapeutyczny po prawej, oba w klamrze SMART, sposób realizacji w parach N — U, modyfikacja żółta i czerwona.</p>
-        <div class="kiedy">Kiedy: Do każdych zajęć planowanych i obserwowanych.</div>
-        <div class="sekcje">Cały plik — 1 strona A4</div>
-      </div>
-      <div class="stopka">
-        <a class="btn pdf" href="Konspekt_Zajec_Szablon_PCTP.pdf" target="_blank">Otwórz PDF</a>
-        <a class="btn html" href="Konspekt_Zajec_Szablon_PCTP.html" target="_blank">Podgląd HTML</a>
-      </div>
-    </div>
-    <div class="druk">
-      <div class="glowa"><span class="sygn">I-1</span><h3>Instrukcja pisania celów SMART</h3><span class="strony">4 str.</span></div>
-      <div class="cialo">
-        <p>Materiał szkoleniowy: uzasadnienie, zasada, pięć liter w klamrze, formuła zdania, bank czasowników, przykłady źle i dobrze, lista kontrolna.</p>
-        <div class="kiedy">Kiedy: Przed pisaniem celów do IPET, planu wsparcia i konspektu.</div>
-        <div class="sekcje">I uzasadnienie · II zasada · III litery · IV formuła · V dwa cele · VI czasowniki · VII przykłady · VIII kryterium · IX lista kontrolna</div>
-      </div>
-      <div class="stopka">
-        <a class="btn pdf" href="Instrukcja_Cele_SMART_PCTP.pdf" target="_blank">Otwórz PDF</a>
-        <a class="btn html" href="Instrukcja_Cele_SMART_PCTP.html" target="_blank">Podgląd HTML</a>
-      </div>
-    </div>
+  <div class="info"><b>Druk D-1</b> — sprawozdanie z realizacji pomocy psychologiczno-pedagogicznej — znajduje się w <b>kąciku dyrektora</b>. Nauczyciel wypełnia je i składa dyrektorowi po każdym okresie; wnioski bierze z ewaluacji planu <b>P-2</b> oraz z protokołu zespołu <b>P-3</b>.</div>
+  <div class="stopka">
+    <span>EduPlaner 2026 · PCTP · pedagog specjalny</span>
+    <span><b>Strona 2 z 4</b> · Kącik nauczyciela · spis · matryca sytuacji</span>
   </div>
-  <h2 class="dzial"><span class="nr">4</span>Podstawa prawna zestawu<span class="linia"></span></h2>
-  <div class="nota">
-    <b>Nowa podstawa programowa.</b> Rozporządzenie Ministra Edukacji z dnia 11 marca 2026 r. w sprawie podstawy programowej wychowania przedszkolnego oraz podstawy programowej kształcenia ogólnego dla szkoły podstawowej, w tym dla uczniów z niepełnosprawnością intelektualną w stopniu umiarkowanym lub znacznym (Dz.U. z 2026 r. poz. 378, zm. Dz.U. z 2026 r. poz. 958) — obowiązuje od 1 września 2026 r. Dziewięć obszarów, racjonalne usprawnienia i projektowanie uniwersalne, autonomia dziecka jako cel nadrzędny.
-  </div>
-  <div class="nota">
-    <b>Ocena funkcjonalna.</b> Rozporządzenie Ministra Edukacji z dnia 2 marca 2026 r. w sprawie orzeczeń i opinii wydawanych przez zespoły orzekające działające w publicznych poradniach psychologiczno-pedagogicznych (Dz.U. z 2026 r. poz. 428) — od 1 września 2026 r. przedszkole wydaje <b>opinię o funkcjonowaniu dziecka</b> w terminie 10 dni od wniosku, z kopią dla rodziców.
-  </div>
-  <div class="nota">
-    <b>Pozostałe.</b> Prawo oświatowe (t.j. Dz.U. z 2024 r. poz. 737, z późn. zm.) · rozp. MEN z 9.08.2017 r. o pomocy psychologiczno-pedagogicznej (Dz.U. 2017 poz. 1591, t.j. Dz.U. 2023 poz. 1798) · rozp. MEN z 9.08.2017 r. o kształceniu specjalnym (Dz.U. 2017 poz. 1578, t.j. Dz.U. 2020 poz. 1309) · rozp. MEN z 25.08.2017 r. o dokumentacji (Dz.U. 2017 poz. 1646) · rozp. MEN z 27.08.2019 r. o świadectwach (Dz.U. 2019 poz. 1700) — wzór MEN-I/74 · rozp. MENiS z 31.12.2002 r. o bezpieczeństwie (t.j. Dz.U. 2020 poz. 1604) · rozp. MEN z 25.05.2018 r. o krajoznawstwie (Dz.U. 2018 poz. 1055) · rozp. RM z 6.09.2023 r. „Niebieskie Karty” (Dz.U. 2023 poz. 1870) · RODO (UE) 2016/679.
-  </div>
+</section>
 
-  <div class="stopka-str">
-    <span>EduPlaner 2026 · PCTP · kącik nauczyciela · przedszkole</span>
-    <span><b>Rok szkolny 2026/2027</b> · wszystkie druki w formacie A4</span>
+<!-- === STRONA 3 === -->
+<section class="page">
+  <div class="naglowek">
+    <div class="marka">
+      <div class="logo"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" role="img" aria-label="Logo PCTP"> <defs> <radialGradient id="pctpTlo" cx="36%" cy="28%" r="82%"> <stop offset="0%" stop-color="#6A4C9E"/> <stop offset="55%" stop-color="#4A2E86"/> <stop offset="100%" stop-color="#331E63"/> </radialGradient> </defs> <circle cx="50" cy="50" r="49.2" fill="#3B2472"/> <circle cx="50" cy="50" r="46.4" fill="#D3C8EC"/> <circle cx="50" cy="50" r="43.6" fill="url(#pctpTlo)"/> <g stroke="#C79A2C" stroke-width="2.1" stroke-linecap="round" fill="none"> <path d="M50 60 C50 50 50 42 50 34"/> <path d="M50 60 C46 52 42 46 38 40"/> <path d="M50 60 C54 52 58 46 62 40"/> <path d="M50 59 C44 53 38 48 32 44"/> <path d="M50 59 C56 53 62 48 68 44"/> </g> <g> <ellipse cx="33" cy="41" rx="4.6" ry="10.4" fill="#A192D2" transform="rotate(-32 33 41)"/> <ellipse cx="67" cy="41" rx="4.6" ry="10.4" fill="#A192D2" transform="rotate(32 67 41)"/> <ellipse cx="39.5" cy="34" rx="5" ry="11.6" fill="#EFA275" transform="rotate(-16 39.5 34)"/> <ellipse cx="60.5" cy="34" rx="5" ry="11.6" fill="#EFA275" transform="rotate(16 60.5 34)"/> <ellipse cx="50" cy="30.5" rx="5.4" ry="12.4" fill="#E8712F"/> </g> <circle cx="50" cy="38.5" r="3.4" fill="#FBF6EC"/> <text x="50" y="76" text-anchor="middle" font-family="Georgia,'Times New Roman',serif" font-weight="bold" font-size="25" letter-spacing="1.2" fill="#F7F2E6">PCTP</text> </svg></div>
+      <div>
+        <div class="marka-nazwa">EduPlaner 2026</div>
+        <div class="marka-opis">Kącik nauczyciela ·<br>spis druków</div>
+      </div>
+    </div>
+    <div class="naglowek-prawy">
+      <span class="plakietka">spis · lista druków</span>
+      <div class="naglowek-podpis">Dokument wsparcia · 2026</div>
+    </div>
   </div>
-</div>
+  <div class="belka"></div>
+
+  <div class="metryczka">
+    <div class="box"><span class="etykieta">Etap</span><span class="wartosc">Przedszkole</span></div>
+    <div class="box"><span class="etykieta">Rok szkolny</span><span class="wartosc">2026 / 2027</span></div>
+    <div class="box"><span class="etykieta">Wersja zestawu</span><span class="wartosc">1.0</span></div>
+  </div>
+  <div class="sekcja"><span class="numer">III</span><h2>Lista druków — część pierwsza</h2><span class="linia"></span></div>
+  <p class="wstep">Każdy druk osobno: co zawiera, kiedy się go używa i gdzie leży w pliku. <b>PDF</b> otwiera gotowy wydruk na właściwej stronie, <b>podgląd HTML</b> — wersję z panelem informacyjnym dla nauczyciela.</p>
+  <table class="tab-mala">
+    <thead><tr><th style="width:9%">Druk</th><th style="width:46%">Nazwa i zawartość</th><th style="width:24%">Kiedy używasz</th><th>Plik</th></tr></thead>
+    <tbody>
+      <tr><td><span class="sygn">K-1</span></td><td><span class="nazwa">Checklista obowiązków wychowawcy</span><br>Wszystkie zadania w układzie rocznym — każde z podstawą prawną, terminem i kratką do odhaczenia.</td><td>Wydrukuj we wrześniu, odhaczaj cały rok</td><td><a class="otw" href="Kacik_Nauczyciela_Checklista_Wychowawcy_PCTP.pdf#page=1">PDF · str. 1–5</a><span class="plik"><a href="Kacik_Nauczyciela_Checklista_Wychowawcy_PCTP.html">podgląd HTML</a></span></td></tr>
+      <tr><td><span class="sygn pom">DS-1</span></td><td><span class="nazwa">Zakres dostosowań — nowa podstawa 2026</span><br>Racjonalne usprawnienia i projektowanie uniwersalne. Katalog w pięciu wymiarach, dziewięć obszarów, docelowa autonomia dziecka.</td><td>Dla każdego dziecka objętego wsparciem</td><td><a class="otw" href="Kacik_Nauczyciela_Dostosowania_PCTP.pdf#page=1">PDF · str. 1–3</a><span class="plik"><a href="Kacik_Nauczyciela_Dostosowania_PCTP.html">podgląd HTML</a></span></td></tr>
+      <tr><td><span class="sygn">O-1</span></td><td><span class="nazwa">Arkusz obserwacji dziecka</span><br>Plan obserwacji, metoda, zapisy ABC i wnioski. Dokument źródłowy dla wszystkich opinii.</td><td>Przed każdą opinią i przed zgłoszeniem P-1</td><td><a class="otw" href="Kacik_Nauczyciela_Wzory_Opinii_PCTP.pdf#page=1">PDF · str. 1–2</a><span class="plik"><a href="Kacik_Nauczyciela_Wzory_Opinii_PCTP.html">podgląd HTML</a></span></td></tr>
+      <tr><td><span class="sygn pom">O-2</span></td><td><span class="nazwa">Opinia o funkcjonowaniu dziecka</span><br>Dla poradni — element oceny funkcjonalnej. Obszary ICF 0–4, trudności w realizacji programu, efektywność wsparcia.</td><td>10 dni od wniosku, kopia dla rodziców</td><td><a class="otw" href="Kacik_Nauczyciela_Wzory_Opinii_PCTP.pdf#page=3">PDF · str. 3–6</a><span class="plik"><a href="Kacik_Nauczyciela_Wzory_Opinii_PCTP.html">podgląd HTML</a></span></td></tr>
+      <tr><td><span class="sygn">O-3</span></td><td><span class="nazwa">Opinia dla zespołu orzekającego</span><br>Uzupełnienie opinii o funkcjonowaniu przy wniosku o orzeczenie, WWR lub zajęcia rewalidacyjno-wychowawcze.</td><td>Przy wystąpieniu do poradni</td><td><a class="otw" href="Kacik_Nauczyciela_Wzory_Opinii_PCTP.pdf#page=7">PDF · str. 7–8</a><span class="plik"><a href="Kacik_Nauczyciela_Wzory_Opinii_PCTP.html">podgląd HTML</a></span></td></tr>
+      <tr><td><span class="sygn">O-4</span></td><td><span class="nazwa">Opinia dla instytucji zewnętrznej</span><br>Sąd rodzinny, kurator, ośrodek pomocy społecznej. Fakty i obserwacje, minimalizacja danych.</td><td>Tylko na pisemny wniosek organu</td><td><a class="otw" href="Kacik_Nauczyciela_Wzory_Opinii_PCTP.pdf#page=9">PDF · str. 9–10</a><span class="plik"><a href="Kacik_Nauczyciela_Wzory_Opinii_PCTP.html">podgląd HTML</a></span></td></tr>
+      <tr><td><span class="sygn pom">O-5</span></td><td><span class="nazwa">Analiza gotowości szkolnej</span><br>Materiał roboczy do informacji o gotowości. Nie zastępuje urzędowego wzoru MEN-I/74.</td><td>Marzec–kwiecień, informacja do 30 kwietnia</td><td><a class="otw" href="Kacik_Nauczyciela_Wzory_Opinii_PCTP.pdf#page=11">PDF · str. 11–12</a><span class="plik"><a href="Kacik_Nauczyciela_Wzory_Opinii_PCTP.html">podgląd HTML</a></span></td></tr>
+      <tr><td><span class="sygn">P-1</span></td><td><span class="nazwa">Wniosek o objęcie pomocą p-p</span><br>Zgłoszenie do dyrektora z blokiem jego decyzji i pisemnej informacji dla rodziców.</td><td>Niezwłocznie po rozpoznaniu potrzeby</td><td><a class="otw" href="Kacik_Nauczyciela_Pomoc_PP_PCTP.pdf#page=1">PDF · str. 1–2</a><span class="plik"><a href="Kacik_Nauczyciela_Pomoc_PP_PCTP.html">podgląd HTML</a></span></td></tr>
+      <tr><td><span class="sygn pom">P-2</span></td><td><span class="nazwa">Plan działań wspierających</span><br>Dla dziecka <b>bez orzeczenia</b>. Cele SMART, dostosowania, zadania dla rodziców, ewaluacja.</td><td>Po decyzji dyrektora o objęciu pomocą</td><td><a class="otw" href="Kacik_Nauczyciela_Pomoc_PP_PCTP.pdf#page=3">PDF · str. 3–4</a><span class="plik"><a href="Kacik_Nauczyciela_Pomoc_PP_PCTP.html">podgląd HTML</a></span></td></tr>
+      <tr><td><span class="sygn">P-3</span></td><td><span class="nazwa">Protokół spotkania zespołu</span><br>WOPFU, opracowanie i modyfikacja IPET, ocena efektywności. Lista obecności i zadania z terminami.</td><td>WOPFU min. dwa razy w roku</td><td><a class="otw" href="Kacik_Nauczyciela_Pomoc_PP_PCTP.pdf#page=5">PDF · str. 5–6</a><span class="plik"><a href="Kacik_Nauczyciela_Pomoc_PP_PCTP.html">podgląd HTML</a></span></td></tr>
+      <tr><td><span class="sygn">R-1</span></td><td><span class="nazwa">Plan pracy grupy</span><br>Planowanie miesięczne wg dziewięciu obszarów, harmonogram tygodni, tabela dostosowań, ewaluacja.</td><td>Na początek każdego miesiąca</td><td><a class="otw" href="Kacik_Nauczyciela_Planowanie_PCTP.pdf#page=1">PDF · str. 1–2</a><span class="plik"><a href="Kacik_Nauczyciela_Planowanie_PCTP.html">podgląd HTML</a></span></td></tr>
+      <tr><td><span class="sygn pom">R-2</span></td><td><span class="nazwa">Karta zajęć — konspekt</span><br>Temat, dostosowania, cel SMART, mocne strony, bariery, pomoce, metody, plan zajęć i dziennik realizacji.</td><td>Zajęcia specjalistyczne i obserwowane</td><td><a class="otw" href="Kacik_Nauczyciela_Planowanie_PCTP.pdf#page=3">PDF · str. 3–4</a><span class="plik"><a href="Kacik_Nauczyciela_Planowanie_PCTP.html">podgląd HTML</a></span></td></tr>
+      <tr><td><span class="sygn">R-3</span></td><td><span class="nazwa">Karta realizacji zajęć specjalistycznych</span><br>Dziennik przebiegu i monitorowanie postępów w skali 1–5. Uzupełnia dziennik zajęć, nie zastępuje go.</td><td>Każde zajęcia specjalistyczne</td><td><a class="otw" href="Kacik_Nauczyciela_Planowanie_PCTP.pdf#page=5">PDF · str. 5–6</a><span class="plik"><a href="Kacik_Nauczyciela_Planowanie_PCTP.html">podgląd HTML</a></span></td></tr>
+    </tbody>
+  </table>
+  <div class="stopka">
+    <span>EduPlaner 2026 · PCTP · pedagog specjalny</span>
+    <span><b>Strona 3 z 4</b> · Kącik nauczyciela · spis · lista druków 1/2</span>
+  </div>
+</section>
+
+<!-- === STRONA 4 === -->
+<section class="page">
+  <div class="naglowek">
+    <div class="marka">
+      <div class="logo"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" role="img" aria-label="Logo PCTP"> <defs> <radialGradient id="pctpTlo" cx="36%" cy="28%" r="82%"> <stop offset="0%" stop-color="#6A4C9E"/> <stop offset="55%" stop-color="#4A2E86"/> <stop offset="100%" stop-color="#331E63"/> </radialGradient> </defs> <circle cx="50" cy="50" r="49.2" fill="#3B2472"/> <circle cx="50" cy="50" r="46.4" fill="#D3C8EC"/> <circle cx="50" cy="50" r="43.6" fill="url(#pctpTlo)"/> <g stroke="#C79A2C" stroke-width="2.1" stroke-linecap="round" fill="none"> <path d="M50 60 C50 50 50 42 50 34"/> <path d="M50 60 C46 52 42 46 38 40"/> <path d="M50 60 C54 52 58 46 62 40"/> <path d="M50 59 C44 53 38 48 32 44"/> <path d="M50 59 C56 53 62 48 68 44"/> </g> <g> <ellipse cx="33" cy="41" rx="4.6" ry="10.4" fill="#A192D2" transform="rotate(-32 33 41)"/> <ellipse cx="67" cy="41" rx="4.6" ry="10.4" fill="#A192D2" transform="rotate(32 67 41)"/> <ellipse cx="39.5" cy="34" rx="5" ry="11.6" fill="#EFA275" transform="rotate(-16 39.5 34)"/> <ellipse cx="60.5" cy="34" rx="5" ry="11.6" fill="#EFA275" transform="rotate(16 60.5 34)"/> <ellipse cx="50" cy="30.5" rx="5.4" ry="12.4" fill="#E8712F"/> </g> <circle cx="50" cy="38.5" r="3.4" fill="#FBF6EC"/> <text x="50" y="76" text-anchor="middle" font-family="Georgia,'Times New Roman',serif" font-weight="bold" font-size="25" letter-spacing="1.2" fill="#F7F2E6">PCTP</text> </svg></div>
+      <div>
+        <div class="marka-nazwa">EduPlaner 2026</div>
+        <div class="marka-opis">Kącik nauczyciela ·<br>spis druków</div>
+      </div>
+    </div>
+    <div class="naglowek-prawy">
+      <span class="plakietka">spis · lista i podstawa</span>
+      <div class="naglowek-podpis">Dokument wsparcia · 2026</div>
+    </div>
+  </div>
+  <div class="belka"></div>
+
+  <div class="metryczka">
+    <div class="box"><span class="etykieta">Etap</span><span class="wartosc">Przedszkole</span></div>
+    <div class="box"><span class="etykieta">Rok szkolny</span><span class="wartosc">2026 / 2027</span></div>
+    <div class="box"><span class="etykieta">Wersja zestawu</span><span class="wartosc">1.0</span></div>
+  </div>
+  <div class="sekcja"><span class="numer pom">III</span><h2>Lista druków — część druga</h2><span class="linia"></span></div>
+  <table class="tab-mala">
+    <thead><tr><th style="width:9%">Druk</th><th style="width:46%">Nazwa i zawartość</th><th style="width:24%">Kiedy używasz</th><th>Plik</th></tr></thead>
+    <tbody>
+      <tr><td><span class="sygn">R-4</span></td><td><span class="nazwa">Sprawozdanie z pracy grupy</span><br>Realizacja dziewięciu obszarów, frekwencja, wydarzenia, efekty i wnioski dla dyrektora.</td><td>Koniec semestru i koniec roku</td><td><a class="otw" href="Kacik_Nauczyciela_Planowanie_PCTP.pdf#page=7">PDF · str. 7–8</a><span class="plik"><a href="Kacik_Nauczyciela_Planowanie_PCTP.html">podgląd HTML</a></span></td></tr>
+      <tr><td><span class="sygn">W-1</span></td><td><span class="nazwa">Rejestr kontaktów z rodzicami</span><br>Jedna karta na dziecko na cały rok — data, forma, temat, ustalenia i podpis rodzica.</td><td>Każdy kontakt dotyczący dziecka</td><td><a class="otw" href="Kacik_Nauczyciela_Rodzice_PCTP.pdf#page=1">PDF · str. 1–2</a><span class="plik"><a href="Kacik_Nauczyciela_Rodzice_PCTP.html">podgląd HTML</a></span></td></tr>
+      <tr><td><span class="sygn pom">W-2</span></td><td><span class="nazwa">Informacja o postępach dziecka</span><br>Dla każdego dziecka, dwa razy w roku. Umiejętności w obszarach, skala S / Z / P / N, wskazówki do domu.</td><td>Dwa razy w roku — to nie MEN-I/74</td><td><a class="otw" href="Kacik_Nauczyciela_Rodzice_PCTP.pdf#page=3">PDF · str. 3–4</a><span class="plik"><a href="Kacik_Nauczyciela_Rodzice_PCTP.html">podgląd HTML</a></span></td></tr>
+      <tr><td><span class="sygn">W-3</span></td><td><span class="nazwa">Zgody i upoważnienia</span><br>Odbiór dziecka, dziewięć zgód, alergie i leki, klauzula informacyjna RODO.</td><td>Wrzesień; porównaj zakres ze statutem</td><td><a class="otw" href="Kacik_Nauczyciela_Rodzice_PCTP.pdf#page=5">PDF · str. 5–6</a><span class="plik"><a href="Kacik_Nauczyciela_Rodzice_PCTP.html">podgląd HTML</a></span></td></tr>
+      <tr><td><span class="sygn">B-1</span></td><td><span class="nazwa">Karta wycieczki i wyjścia</span><br>Organizacja, opiekunowie, lista uczestników ze zgodami i lista kontrolna przed wyjściem.</td><td>Przed każdym wyjściem poza teren</td><td><a class="otw" href="Kacik_Nauczyciela_Bezpieczenstwo_PCTP.pdf#page=1">PDF · str. 1–2</a><span class="plik"><a href="Kacik_Nauczyciela_Bezpieczenstwo_PCTP.html">podgląd HTML</a></span></td></tr>
+      <tr><td><span class="sygn pom">B-2</span></td><td><span class="nazwa">Karta zdarzenia — notatka służbowa</span><br>Rodzaj zdarzenia, przebieg w faktach, powiadomienia, dalsze postępowanie. Nie zastępuje protokołu powypadkowego.</td><td>Tego samego dnia co zdarzenie</td><td><a class="otw" href="Kacik_Nauczyciela_Bezpieczenstwo_PCTP.pdf#page=3">PDF · str. 3–4</a><span class="plik"><a href="Kacik_Nauczyciela_Bezpieczenstwo_PCTP.html">podgląd HTML</a></span></td></tr>
+      <tr><td><span class="sygn">B-3</span></td><td><span class="nazwa">Karta adaptacji dziecka</span><br>Osiem obszarów adaptacji w trzech terminach, przebieg tydzień po tygodniu, wnioski.</td><td>Wrzesień i październik, dzieci nowe</td><td><a class="otw" href="Kacik_Nauczyciela_Bezpieczenstwo_PCTP.pdf#page=5">PDF · str. 5–6</a><span class="plik"><a href="Kacik_Nauczyciela_Bezpieczenstwo_PCTP.html">podgląd HTML</a></span></td></tr>
+      <tr><td><span class="sygn pom">B-4</span></td><td><span class="nazwa">Karta zachowań trudnych</span><br>Opis mierzalny, analiza ABC, funkcja zachowania, plan pozytywnych oddziaływań i ocena skuteczności.</td><td>Gdy zachowanie się powtarza</td><td><a class="otw" href="Kacik_Nauczyciela_Bezpieczenstwo_PCTP.pdf#page=7">PDF · str. 7–8</a><span class="plik"><a href="Kacik_Nauczyciela_Bezpieczenstwo_PCTP.html">podgląd HTML</a></span></td></tr>
+      <tr><td><span class="sygn pom">KON</span></td><td><span class="nazwa">Szablon konspektu zajęć</span><br>Jedna strona: cel edukacyjny i terapeutyczny w klamrach SMART, realizacja w parach N — U, modyfikacja żółta i czerwona.</td><td>Do każdych zajęć planowanych</td><td><a class="otw" href="Konspekt_Zajec_Szablon_PCTP.pdf#page=1">PDF · str. 1</a><span class="plik"><a href="Konspekt_Zajec_Szablon_PCTP.html">podgląd HTML</a></span></td></tr>
+      <tr><td><span class="sygn">I-1</span></td><td><span class="nazwa">Instrukcja pisania celów SMART</span><br>Uzasadnienie, zasada, pięć liter w klamrze, formuła zdania, bank czasowników, przykłady, lista kontrolna.</td><td>Przed pisaniem celów do IPET i planu</td><td><a class="otw" href="Instrukcja_Cele_SMART_PCTP.pdf#page=1">PDF · str. 1–4</a><span class="plik"><a href="Instrukcja_Cele_SMART_PCTP.html">podgląd HTML</a></span></td></tr>
+    </tbody>
+  </table>
+  <div class="sekcja"><span class="numer">IV</span><h2>Podstawa prawna zestawu</h2><span class="linia"></span></div>
+  <div class="prawna">
+    <p><b>NOWA PODSTAWA PROGRAMOWA.</b> Rozporządzenie Ministra Edukacji z dnia 11 marca 2026 r. w sprawie podstawy programowej wychowania przedszkolnego oraz podstawy programowej kształcenia ogólnego dla szkoły podstawowej, w tym dla uczniów z niepełnosprawnością intelektualną w stopniu umiarkowanym lub znacznym (<b>Dz.U. z 2026 r. poz. 378</b>, zm. Dz.U. z 2026 r. poz. 958) — obowiązuje od <b>1 września 2026 r.</b>; dziewięć obszarów, racjonalne usprawnienia i projektowanie uniwersalne, autonomia dziecka jako cel nadrzędny. <b>OCENA FUNKCJONALNA.</b> Rozporządzenie Ministra Edukacji z dnia 2 marca 2026 r. w sprawie orzeczeń i opinii wydawanych przez zespoły orzekające działające w publicznych poradniach psychologiczno-pedagogicznych (<b>Dz.U. z 2026 r. poz. 428</b>) — przedszkole wydaje opinię o funkcjonowaniu dziecka w terminie 10 dni od wniosku, z kopią dla rodziców. <b>POZOSTAŁE.</b> Prawo oświatowe (t.j. Dz.U. z 2024 r. poz. 737, z późn. zm.) · rozp. MEN z 9.08.2017 r. o pomocy psychologiczno-pedagogicznej (Dz.U. 2017 poz. 1591, t.j. Dz.U. 2023 poz. 1798) · rozp. MEN z 9.08.2017 r. o kształceniu specjalnym (Dz.U. 2017 poz. 1578, t.j. Dz.U. 2020 poz. 1309) · rozp. MEN z 25.08.2017 r. o dokumentacji (Dz.U. 2017 poz. 1646) · rozp. MEN z 27.08.2019 r. o świadectwach (Dz.U. 2019 poz. 1700) — wzór MEN-I/74 · rozp. MENiS z 31.12.2002 r. o bezpieczeństwie (t.j. Dz.U. 2020 poz. 1604) · rozp. MEN z 25.05.2018 r. o krajoznawstwie (Dz.U. 2018 poz. 1055) · rozp. RM z 6.09.2023 r. „Niebieskie Karty” (Dz.U. 2023 poz. 1870) · RODO (UE) 2016/679.</p>
+  </div>
+  <div class="info"><b>Czego zestaw nie zastępuje.</b> <b>O-5</b> nie zastępuje urzędowego wzoru MEN-I/74 · <b>B-2</b> nie zastępuje protokołu powypadkowego · <b>R-3</b> nie zastępuje dziennika zajęć · <b>W-3</b> wymaga porównania zakresu zgód ze statutem placówki.</div>
+  <div class="stopka">
+    <span>EduPlaner 2026 · PCTP · pedagog specjalny</span>
+    <span><b>Strona 4 z 4</b> · Kącik nauczyciela · spis · lista druków 2/2 i podstawa prawna</span>
+  </div>
+</section>
+
 </body>
 </html>
