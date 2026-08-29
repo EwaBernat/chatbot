@@ -5,7 +5,7 @@ import base64, os, re
 HERE = os.path.dirname(os.path.abspath(__file__))
 BASE_CSS = open(os.path.join(HERE, "base_css.txt"), encoding="utf-8").read()
 
-BRAND = "SALA, KTÓRA UCZY KAŻDE DZIECKO · przestrzeń i dostępność w nowej podstawie"
+BRAND = "SALA, KTÓRA UCZY KAŻDE DZIECKO"
 
 _cache = {}
 def img(name):
@@ -43,9 +43,15 @@ EXTRA_CSS = """
 .lvl-strip .ls .lsn{font-family:'Quicksand';font-weight:700;font-size:8pt;letter-spacing:.08em;opacity:.9;}
 .lvl-strip .ls .lst{font-family:'Quicksand';font-weight:700;font-size:10.4pt;line-height:1.15;margin-top:.8mm;}
 .lvl-strip .ls .lsd{font-family:'Nunito';font-weight:600;font-size:7.6pt;line-height:1.3;margin-top:1.4mm;opacity:.95;}
-.bg-l1{background:var(--mint-deep);} .bg-l2{background:var(--pink-deep);} .bg-l3{background:var(--purple-deep);}
-.sf-l1{background:var(--mint-soft);} .sf-l2{background:var(--pink-soft);} .sf-l3{background:var(--purple-soft);}
-.tx-l1{color:var(--mint-deep);} .tx-l2{color:var(--pink-deep);} .tx-l3{color:var(--purple-deep);}
+.bg-l1{background:var(--mint-deep);} .bg-l2{background:var(--sun-deep);} .bg-l3{background:var(--purple-deep);}
+.sf-l1{background:var(--mint-soft);} .sf-l2{background:var(--sun-soft);} .sf-l3{background:var(--purple-soft);}
+.tx-l1{color:var(--mint-deep);} .tx-l2{color:var(--sun-deep);} .tx-l3{color:var(--purple-deep);}
+.kicker.t-sun{background:var(--sun-soft);color:var(--sun-deep);}
+.u-sun{background:var(--sun-deep);}
+.deco-sun{background:var(--sun);opacity:.42;}
+ul.nice.c-sun li::before{background:var(--sun-deep);}
+.box-sun{background:var(--sun-soft);} .box-sun .ib-title{color:var(--sun-deep);}
+.zone-num.z-sun{background:var(--sun-deep);}
 
 .pyramid{display:flex;flex-direction:column;align-items:center;gap:2mm;margin:2mm 0 3mm;}
 .pyr-row{border-radius:3mm;color:#fff;display:flex;align-items:center;justify-content:space-between;
@@ -101,11 +107,11 @@ table.grid th{background:var(--purple-deep);color:#fff;text-align:left;padding:2
 table.grid td{padding:2.9mm 3.2mm;border-bottom:.7pt solid var(--line);vertical-align:top;line-height:1.34;}
 table.grid tr:nth-child(even) td{background:var(--purple-soft);}
 table.grid td.k{font-weight:800;color:var(--purple-deep);}
-table.grid .c1{background:var(--mint-soft);} table.grid .c2{background:var(--pink-soft);}
+table.grid .c1{background:var(--mint-soft);} table.grid .c2{background:var(--sun-soft);}
 
 table.sheet{width:100%;border-collapse:collapse;font-family:'Nunito';font-size:9pt;}
 table.sheet th{background:var(--purple-deep);color:#fff;text-align:left;padding:2.8mm 3.2mm;font-weight:700;font-size:8.6pt;}
-table.sheet td{padding:3.5mm 3.2mm;border:.7pt solid var(--line);vertical-align:middle;line-height:1.34;}
+table.sheet td{padding:2.9mm 3.2mm;border:.7pt solid var(--line);vertical-align:middle;line-height:1.34;}
 table.sheet td.q{width:60%;}
 table.sheet td.tick{text-align:center;color:var(--ink-soft);font-size:11pt;letter-spacing:1.6mm;}
 table.sheet td.note{background:#FCFAFF;}
@@ -126,9 +132,14 @@ table.sheet td.note{background:#FCFAFF;}
 """
 
 # ---------- szkielet strony ----------
+FIRMA = ("Pomorskie Centrum Terapii Pedagogicznej w Koszalinie · "
+         "kontakt@pctp-koszalin.pl · 94 340 12 56")
+FIRMA_STOPKA = "Pomorskie Centrum Terapii Pedagogicznej w Koszalinie · kontakt@pctp-koszalin.pl"
+
 def footer(n, total):
     return ('<div class="footer"><span class="fbrand">%s</span>'
-            '<span class="pagenum">%02d / %d</span></div>' % (BRAND, n, total))
+            '<span class="fcompany">%s</span>'
+            '<span class="pagenum">%02d / %d</span></div>' % (BRAND, FIRMA_STOPKA, n, total))
 
 def page(n, total, inner, cls="", panel_style="padding-top:5mm;", panel_cls="panel"):
     return ('<section class="pdf-page %s" id="page-%d">\n'
@@ -193,24 +204,94 @@ def check_box(title, items):
 def nice_list(items, tone="purple"):
     return '<ul class="nice c-%s">%s</ul>' % (tone, "".join("<li>%s</li>" % i for i in items))
 
-def adapt_mini(rows, title="Dostosowania w tej strefie"):
+def adapt_mini(rows, title="Dostosowania w tej strefie", wide=False, col=False):
     tones = {"mint": "var(--mint-deep)", "pink": "var(--pink-deep)", "purple": "var(--purple-deep)"}
-    out = '<div class="adapt-mini"><p class="am-title">%s</p><div class="adapt-mini-grid">' % title
+    cls = "adapt-mini adapt-mini-wide" if (wide or col) else "adapt-mini"
+    grid = "adapt-mini-grid adapt-mini-grid-1" if col else (
+           "adapt-mini-grid adapt-mini-grid-3" if wide else "adapt-mini-grid")
+    out = '<div class="%s"><p class="am-title">%s</p><div class="%s">' % (cls, title, grid)
     for ic, tone, name, desc in rows:
         out += ('<div class="adapt-mini-row"><div class="am-icon" style="background:%s;color:#fff;">%s</div>'
                 '<div class="am-text"><strong>%s</strong>%s</div></div>' % (tones[tone], IC[ic], name, desc))
     return out + "</div></div>"
 
 def zone_page(num, tone, title, intro, has_list, adapts, photo_name, photo_alt, photo_cap, extra_kicker=""):
-    return ('%s<div class="zone-badge"><div class="zone-num z-%s">%02d</div><div>'
+    return ('%s<div class="zone-badge" style="margin-bottom:4mm;">'
+            '<div class="zone-num z-%s">%02d</div><div>'
             '<span class="kicker t-%s" style="margin:0 0 1.5mm;">STREFA STAŁA</span>%s'
             '<h2 class="page-title" style="margin-top:1mm;font-size:20pt;">%s</h2></div></div>'
-            '<div class="two-col"><div class="col-text" style="flex:1.45;">'
-            '<div class="body-text"><p>%s</p></div>%s%s</div>'
-            '<div class="col-photo" style="flex:1;align-items:flex-start;">%s</div></div>'
+            '<div class="two-col" style="flex:none;margin-bottom:4mm;">'
+            '<div class="col-text"><div class="body-text"><p>%s</p></div>%s</div>'
+            '<div class="col-text">%s</div></div>%s'
             % (deco(tone), tone, num, tone, extra_kicker, title, intro,
                check_box("Co warto mieć w tej strefie", has_list),
-               adapt_mini(adapts), photo(photo_name, photo_alt, photo_cap)))
+               adapt_mini(adapts, col=True),
+               wide_photo(photo_name, photo_alt, photo_cap, "flex:1;min-height:38mm;")))
+
+
+def sala_svg(height="100%"):
+    """Schemat sali przedszkolnej z pięcioma strefami — grafika wektorowa."""
+    Z = [(60, 74, 250, 180, "var(--purple-deep)", "var(--purple-soft)", "1", "STREFA", "CZYTELNICTWA"),
+         (60, 336, 250, 186, "var(--mint-deep)", "var(--mint-soft)", "2", "STREFA BUDOWANIA", "I KONSTRUOWANIA"),
+         (690, 74, 250, 180, "var(--pink-deep)", "var(--pink-soft)", "3", "STREFA DZIAŁAŃ", "ARTYSTYCZNYCH"),
+         (690, 336, 250, 186, "var(--purple-deep)", "var(--purple-soft)", "4", "STREFA UMIEJĘTNOŚCI", "ODPOCZYWANIA"),
+         (392, 74, 216, 150, "var(--mint-deep)", "var(--mint-soft)", "5", "STREFA ODKRYWANIA", "NAUKI I PRZYRODY")]
+    zones = ""
+    for x, y, w, h, col, soft, num, l1, l2 in Z:
+        cx = x + w / 2
+        zones += (
+          '<rect x="%d" y="%d" width="%d" height="%d" rx="16" fill="%s" stroke="%s" stroke-width="2.6"/>'
+          '<circle cx="%d" cy="%d" r="19" fill="%s"/>'
+          '<text x="%d" y="%d" text-anchor="middle" font-family="Quicksand" font-weight="700" '
+          'font-size="21" fill="#fff">%s</text>'
+          '<text x="%.0f" y="%d" text-anchor="middle" font-family="Nunito" font-weight="800" '
+          'font-size="15.5" fill="%s">%s</text>'
+          '<text x="%.0f" y="%d" text-anchor="middle" font-family="Nunito" font-weight="800" '
+          'font-size="15.5" fill="%s">%s</text>'
+          % (x, y, w, h, soft, col, x + 30, y + 30, col, x + 30, y + 37, num,
+             cx, y + h - 42, col, l1, cx, y + h - 22, col, l2))
+    svg_open = (
+      '<svg viewBox="0 0 1000 600" style="width:100%%;height:%s;display:block;" '
+      'preserveAspectRatio="xMidYMid meet" role="img" '
+      'aria-label="Schemat sali przedszkolnej z pięcioma strefami i ciągami komunikacyjnymi">' % height)
+    return (
+      svg_open +
+      '<rect x="0" y="0" width="1000" height="600" rx="18" fill="#FFFEFC"/>'
+      '<rect x="330" y="40" width="52" height="520" fill="#F3EEFA"/>'
+      '<rect x="618" y="40" width="52" height="520" fill="#F3EEFA"/>'
+      '<rect x="40" y="272" width="920" height="52" fill="#F3EEFA"/>'
+      '<rect x="30" y="30" width="940" height="540" rx="14" fill="none" '
+      'stroke="var(--purple-deep)" stroke-width="4"/>'
+      '<rect x="150" y="24" width="180" height="12" rx="6" fill="var(--mint)"/>'
+      '<rect x="430" y="24" width="180" height="12" rx="6" fill="var(--mint)"/>'
+      '<rect x="700" y="24" width="180" height="12" rx="6" fill="var(--mint)"/>'
+      '<rect x="120" y="564" width="120" height="12" rx="6" fill="var(--pink-deep)"/>'
+      '<text x="180" y="592" text-anchor="middle" font-family="Nunito" font-weight="800" '
+      'font-size="14" fill="var(--pink-deep)">WEJŚCIE</text>'
+      + zones +
+      '<rect x="392" y="360" width="216" height="162" rx="16" fill="#FFFEFC" '
+      'stroke="var(--sun-deep)" stroke-width="2.6" stroke-dasharray="10 7"/>'
+      '<text x="500" y="428" text-anchor="middle" font-family="Nunito" font-weight="800" '
+      'font-size="15.5" fill="var(--sun-deep)">STREFA CZASOWA</text>'
+      '<text x="500" y="450" text-anchor="middle" font-family="Nunito" font-weight="600" '
+      'font-size="13.5" fill="var(--sun-deep)">rozkładana na czas zajęć</text>'
+      '<line x1="330" y1="240" x2="382" y2="240" stroke="var(--purple-deep)" stroke-width="2.2"/>'
+      '<line x1="330" y1="232" x2="330" y2="248" stroke="var(--purple-deep)" stroke-width="2.2"/>'
+      '<line x1="382" y1="232" x2="382" y2="248" stroke="var(--purple-deep)" stroke-width="2.2"/>'
+      '<text x="356" y="228" text-anchor="middle" font-family="Nunito" font-weight="800" '
+      'font-size="13.5" fill="var(--purple-deep)">min. 90 cm</text>'
+      '<text x="500" y="308" text-anchor="middle" font-family="Nunito" font-weight="800" '
+      'font-size="13.5" fill="#9B8DB8">CIĄGI KOMUNIKACYJNE — WOLNE PRZEZ CAŁY DZIEŃ</text>'
+      '</svg>')
+
+
+def split_page(head_html, left_html, right_html, photo_name, photo_alt, photo_cap, tail=""):
+    """Dwie kolumny tekstu u góry, szerokie zdjęcie wypełniające dół strony."""
+    return (head_html +
+            '<div class="two-col" style="flex:none;margin-bottom:4mm;">'
+            '<div class="col-text">%s</div><div class="col-text">%s</div></div>' % (left_html, right_html) +
+            wide_photo(photo_name, photo_alt, photo_cap, "flex:1;min-height:34mm;") + tail)
+
 
 PAGES = []
 def P(toc, color, fn):
@@ -218,15 +299,33 @@ def P(toc, color, fn):
 
 # ---------- 01 OKŁADKA ----------
 def p_cover(n, total):
-    return ('<span class="eyebrow">PRZEWODNIK DLA NAUCZYCIELI, SPECJALISTÓW I DYREKTORÓW PRZEDSZKOLI</span>'
-            '<h1>Sala, która uczy<br>każde dziecko</h1>'
-            '<p class="cov-sub">Jak urządzić salę przedszkolną zgodnie z nową podstawą programową '
-            'i jednocześnie zapewnić dostępność dzieciom z różnymi deficytami — pięć stref, '
-            'trzy poziomy wsparcia, projektowanie uniwersalne i gotowe arkusze monitoringu sali.</p>'
-            '<div class="cov-photo cov-photo-has-img" style="height:142mm;"><div class="photo-filled cov-photo-filled" style="height:142mm;">'
-            '<img src="%s" alt="Sala przedszkolna ze strefami aktywności"></div></div>'
-            '<div class="cov-footer"><span class="pill">Wydanie 2026 · podstawa programowa + dostępność</span>'
-            '<span class="pill">Format A4 · %d stron · gotowe do druku</span></div>' % (img("01"), total))
+    chips = "".join(
+        '<div class="cov-chip"><span class="cc-dot" style="background:%s"></span>'
+        '<span class="cc-n">POZIOM %s</span><span class="cc-t">%s</span></div>' % c
+        for c in [("#7FD8C0", "1", "Projektowanie uniwersalne"),
+                  ("#F4CE6A", "2", "Dostosowania ukierunkowane"),
+                  ("#C9B0F0", "3", "Wsparcie indywidualne")])
+    return ('<div class="cov-photo-bg"><img src="%s" alt="Sala przedszkolna ze strefami aktywności"></div>'
+            '<div class="cov-scrim"></div>'
+            '<div class="cov-inner">'
+            '<span class="eyebrow">Przewodnik dla nauczycieli, specjalistów i dyrektorów przedszkoli</span>'
+            '<h1>Sala,<br>która uczy<br><span class="cov-accent">każde dziecko</span></h1>'
+            '<div class="cov-rule"></div>'
+            '<p class="cov-sub">Jak urządzić salę zgodnie z <b>nową podstawą programową</b> '
+            'i jednocześnie zapewnić <b>dostępność</b> dzieciom z różnymi deficytami — '
+            'pięć stref, trzy poziomy wsparcia, projektowanie uniwersalne '
+            'i gotowe arkusze monitoringu sali.</p>'
+            '<div class="cov-chips">%s</div>'
+            '<div class="cov-meta">'
+            '<div class="cov-meta-l"><span class="cm-big">%d</span><span class="cm-s">stron<br>formatu A4</span></div>'
+            '<div class="cov-meta-l"><span class="cm-big">10</span><span class="cm-s">grup potrzeb<br>i deficytów</span></div>'
+            '<div class="cov-meta-l"><span class="cm-big">4</span><span class="cm-s">narzędzia<br>do kopiowania</span></div>'
+            '</div>'
+            '<div class="cov-bottom">'
+            '<div class="cov-firma">%s</div>'
+            '<div class="cov-pills"><span class="pill">Wydanie 2026</span>'
+            '<span class="pill">Gotowe do druku</span></div></div>'
+            '</div>' % (img("hero"), chips, total, FIRMA))
 
 # ---------- SPIS TREŚCI ----------
 def toc_page(part, n, total):
@@ -278,36 +377,37 @@ def toc_page(part, n, total):
             % (deco("purple"), part, rows, extra))
 
 # ---------- CZĘŚĆ I ----------
-P("Wstęp — przestrzeń jako trzeci nauczyciel", "purple", lambda n, t:
+P("Wstęp — przestrzeń jako trzeci nauczyciel", "purple", lambda n, t: split_page(
   head("WPROWADZENIE", "purple", "Przestrzeń jako trzeci nauczyciel",
-       "Zanim dziecko usłyszy instrukcję, już „czyta” salę, w której się znalazło.") +
-  '<div class="two-col"><div class="col-text body-text">'
+       "Zanim dziecko usłyszy instrukcję, już „czyta” salę, w której się znalazło."),
+  '<div class="body-text">'
   '<p>Sposób, w jaki urządzona jest sala, decyduje o tym, co dziecko może zrobić samodzielnie — '
   'bez pytania dorosłego o zgodę. Nowa podstawa programowa wychowania przedszkolnego stawia tę '
   'zależność wprost: sprawczość i samodzielność dziecka to nie dodatek do zajęć, tylko efekt '
   'codziennej organizacji przestrzeni.</p>'
   '<p>Ta sama przestrzeń decyduje też o tym, <strong>które dziecko może dołączyć do zabawy, '
   'a które zostaje z boku</strong>. Dlatego w tym przewodniku organizacja stref i dostępność '
-  'to nie dwa osobne tematy, tylko jedna decyzja projektowa.</p>' +
+  'to nie dwa osobne tematy, tylko jedna decyzja projektowa.</p></div>',
   info_box("Przewodnik prowadzi Cię przez cztery kroki", [
       "Pięć stref stałych wymaganych w nowej podstawie programowej",
       "Trzy poziomy wsparcia — od projektowania uniwersalnego po IPET",
       "Dostosowania sali według konkretnych deficytów",
-      "Monitoring sali — arkusze do wypełnienia i plan naprawczy"], "purple") +
-  '</div><div class="col-photo">' +
-  photo("02", "Sala ze strefami: bloki, strefa ciszy, twórczość",
-        "Sala ze strefami: bloki, strefa ciszy, twórczość") + '</div></div>')
+      "Monitoring sali — arkusze do wypełnienia i plan naprawczy"], "purple"),
+  "02", "Sala przedszkolna ze strefami aktywności",
+  "Sala ze strefami: budowanie, czytanie, wyciszenie i twórczość — wszystko w zasięgu dziecka"))
 
 P("Nowa podstawa programowa w pigułce", "mint", lambda n, t:
-  head("PODSTAWA PRAWNA · 1", "mint", "Nowe przepisy w pigułce") +
-  '<div class="two-col" style="display:block;"><div class="col-text body-text">'
+  head("PODSTAWA PRAWNA · 1", "mint", "Nowe przepisy w pigułce",
+       "Co dokładnie zmienia się w organizacji sali od 1 września 2026 roku.") +
+  '<div class="two-col" style="flex:none;margin-bottom:4mm;"><div class="col-text body-text">'
   '<p><strong>Rozporządzenie Ministra Edukacji z 11 marca 2026 r.</strong> w sprawie podstawy '
   'programowej wychowania przedszkolnego (Dz.U. 2026 poz. 378) wchodzi w życie '
   '<strong>1 września 2026 r.</strong> i obowiązuje wszystkie przedszkola, oddziały przedszkolne '
   'w szkołach podstawowych oraz inne formy wychowania przedszkolnego.</p>'
   '<p>Najważniejsza zmiana dla organizacji sali: dotychczasowe „stałe i czasowe kąciki '
   'zainteresowań” zastępuje pojęcie <strong>„stałych i czasowych stref”</strong> — szersze, '
-  'bo obejmujące także przestrzeń poza budynkiem przedszkola.</p>' +
+  'bo obejmujące także przestrzeń poza budynkiem przedszkola.</p></div>'
+  '<div class="col-text">' +
   check_box("Co realnie się zmienia", [
       "Nowe nazewnictwo: „strefa” zamiast „kącika”",
       "Zupełnie nowa, piąta strefa — umiejętności odpoczywania",
@@ -316,19 +416,35 @@ P("Nowa podstawa programowa w pigułce", "mint", lambda n, t:
       "Elastyczność — dopasowanie do metrażu, nie odwrotnie",
       "Codzienny pobyt na świeżym powietrzu jako element planu dnia"]) +
   '</div></div>' +
+  '<div class="two-col" style="flex:1;min-height:0;"><div class="col-text">' +
+  info_box("Było — kąciki zainteresowań", [
+      "Cztery kąciki: czytelniczy, konstrukcyjny, artystyczny, przyrodniczy",
+      "Kącik rozumiany jako wydzielony fragment sali",
+      "Brak wyodrębnionego miejsca na odpoczynek",
+      "Organizacja skupiona na wyposażeniu"], "pink") +
+  '</div><div class="col-text">' +
+  info_box("Jest — strefy stałe i czasowe", [
+      "Pięć stref, w tym strefa umiejętności odpoczywania",
+      "Strefa może obejmować przestrzeń poza salą i poza budynkiem",
+      "Odpoczynek jako prawo dziecka, nie przerwa w zajęciach",
+      "Organizacja skupiona na tym, co dziecko może zrobić samo"], "mint") +
+  '</div></div>' +
   '<div class="legal-note">Materiał ma charakter poglądowy i pomocniczy. Podstawą prawną pozostaje '
   'pełny tekst rozporządzenia oraz jego oficjalne komentarze publikowane przez Ministerstwo Edukacji '
   'i Ośrodek Rozwoju Edukacji.</div>')
 
-P("Dostępność — druga podstawa prawna sali", "purple", lambda n, t:
+P("Dostępność — druga podstawa prawna sali", "purple", lambda n, t: split_page(
   head("PODSTAWA PRAWNA · 2", "purple", "Dostępność — to też obowiązek, nie dobra wola",
        "Nowa podstawa programowa mówi, <b>co</b> ma być w sali. Przepisy o dostępności mówią, "
-       "<b>dla kogo</b> to ma działać.") +
-  '<div class="two-col"><div class="col-text">'
+       "<b>dla kogo</b> to ma działać."),
   '<div class="body-text"><p>Przedszkole jest podmiotem publicznym, a to znaczy, że ma obowiązek '
   'zapewnić dostępność <strong>architektoniczną, informacyjno-komunikacyjną i cyfrową</strong>. '
-  'Dla sali przedszkolnej oznacza to trzy bardzo konkretne pytania: czy dziecko tam dojedzie, '
+  'Dla sali przedszkolnej oznacza to trzy konkretne pytania: czy dziecko tam dojedzie, '
   'czy zrozumie, gdzie jest co, i czy dostanie informację w formie, którą odbiera.</p></div>' +
+  info_box("Trzy obszary dostępności w praktyce sali", [
+      "<b>Architektoniczna</b> — przejścia, progi, wysokości półek, miejsce na wózek",
+      "<b>Informacyjno-komunikacyjna</b> — piktogramy, AAC, komunikat w kilku kanałach",
+      "<b>Cyfrowa</b> — materiały i strona placówki czytelne dla rodzica z niepełnosprawnością"], "mint"),
   '<ul class="legal-list nice c-purple">'
   '<li><strong>Ustawa z 19 lipca 2019 r.</strong> o zapewnianiu dostępności osobom ze szczególnymi '
   'potrzebami — minimalne wymagania w trzech obszarach dostępności.</li>'
@@ -339,46 +455,50 @@ P("Dostępność — druga podstawa prawna sali", "purple", lambda n, t:
   '<li><strong>Rozporządzenie MEN z 9 sierpnia 2017 r.</strong> o pomocy psychologiczno-pedagogicznej — '
   'wsparcie bez orzeczenia, na podstawie rozpoznania nauczyciela.</li>'
   '<li><strong>Przepisy techniczno-budowlane i BHP</strong> — szerokości przejść, progi, '
-  'oznaczenia, bezpieczne wyposażenie.</li></ul>' +
-  '</div><div class="col-photo">' +
-  photo("13", "Dziecko samodzielnie korzystające ze strefy przyrody",
-        "Dostępność zaczyna się od układu mebli, nie od sprzętu") + '</div></div>' +
+  'oznaczenia, bezpieczne wyposażenie.</li></ul>',
+  "13", "Dziecko samodzielnie korzystające ze strefy przyrody",
+  "Dostępność zaczyna się od układu mebli i wysokości półek, nie od zakupu sprzętu",
   '<div class="legal-note">Dostępności nie „załatwia się” jednym zakupem. To sposób planowania sali: '
-  'najpierw rozwiązania działające dla wszystkich, potem dostosowania dla konkretnych dzieci.</div>')
+  'najpierw rozwiązania działające dla wszystkich, potem dostosowania dla konkretnych dzieci.</div>'))
 
-P("Filozofia — dziecko jako aktywny twórca", "pink", lambda n, t:
-  head("FILOZOFIA", "pink", "Dziecko jako aktywny twórca, nie odbiorca") +
-  '<div class="two-col"><div class="col-text body-text">'
+P("Filozofia — dziecko jako aktywny twórca", "pink", lambda n, t: split_page(
+  head("FILOZOFIA", "pink", "Dziecko jako aktywny twórca, nie odbiorca",
+       "Mniej kart pracy, więcej uczenia się przez doświadczenie i samodzielne działanie."),
+  '<div class="body-text">'
   '<p>Nowa podstawa programowa zakłada, że dziecko jest aktywnym uczestnikiem własnego procesu '
-  'uczenia się — nie odbiorcą gotowych ćwiczeń. To mniej kart pracy, a więcej uczenia się przez '
-  'doświadczenie i samodzielne działanie.</p>'
-  '<p>Dobrze zaprojektowana sala wspiera cztery filary tej filozofii:</p>' +
+  'uczenia się — nie odbiorcą gotowych ćwiczeń.</p>'
+  '<p>Dobrze zaprojektowana sala wspiera cztery filary tej filozofii:</p></div>' +
   nice_list(["<strong>Samodzielność</strong> — dziecko sięga po materiały bez pomocy dorosłego",
              "<strong>Sprawczość</strong> — dziecko samo wybiera aktywność",
              "<strong>Doświadczenie</strong> — uczenie się przez działanie, nie instrukcję",
-             "<strong>Dobrostan</strong> — prawo do odpoczynku jest tak samo ważne jak prawo do zabawy"], "pink") +
-  '<div class="warn-box" style="margin-top:1mm;"><strong>Uwaga na pułapkę:</strong> sprawczość, '
-  'która działa tylko dla dzieci sprawnych ruchowo, mówiących i bez trudności poznawczych, '
-  'nie jest sprawczością — jest przywilejem części grupy.</div>' +
-  '</div><div class="col-photo">' +
-  photo("03", "Różnorodne aktywności wybierane samodzielnie",
-        "Różnorodne aktywności wybierane samodzielnie") + '</div></div>')
+             "<strong>Dobrostan</strong> — prawo do odpoczynku jest tak samo ważne jak prawo do zabawy"], "pink"),
+  info_box("Uwaga na pułapkę", [], "purple",
+           "Sprawczość, która działa tylko dla dzieci sprawnych ruchowo, mówiących i bez trudności "
+           "poznawczych, nie jest sprawczością — jest przywilejem części grupy. Dlatego każdą "
+           "decyzję o urządzeniu sali warto sprawdzić pytaniem: <b>czy to zadziała także dla "
+           "dziecka, które nie chodzi, nie mówi albo nie rozumie polecenia?</b>") +
+  info_box("Co znika z sali", [
+      "Stosy kart pracy wydawanych całej grupie naraz",
+      "Materiały dostępne wyłącznie z rąk nauczyciela",
+      "Jedna aktywność narzucona wszystkim w tym samym czasie"], "pink"),
+  "03", "Różnorodne aktywności wybierane samodzielnie",
+  "Cztery dzieci, cztery różne aktywności wybrane w tym samym czasie"))
 
-P("5 pytań, zanim przestawisz pierwszy mebel", "purple", lambda n, t:
+P("5 pytań, zanim przestawisz pierwszy mebel", "purple", lambda n, t: split_page(
   head("ZANIM ZACZNIESZ", "purple", "5 pytań, zanim przestawisz pierwszy mebel",
-       "Krótka lista kontrolna, która pomaga spojrzeć na salę oczami dziecka, nie kamery.") +
-  '<div style="display:flex;gap:7mm;flex:1;min-height:0;"><div style="flex:1.05;" class="body-text">' +
+       "Krótka lista kontrolna, która pomaga spojrzeć na salę oczami dziecka, nie kamery."),
   nice_list([
       "<strong>Czy materiały są na wysokości dziecka?</strong> — jeśli trzeba prosić dorosłego o podanie, strefa nie działa samodzielnie.",
       "<strong>Czy każde dziecko dojedzie i dosięgnie?</strong> — sprawdź przejścia i dostęp z pozycji siedzącej.",
       "<strong>Czy dziecko wie, co gdzie jest, bez czytania?</strong> — oznaczenia obrazkowe zamiast napisów.",
+  ], "purple"),
+  nice_list([
       "<strong>Czy strefa wspiera działanie, czy tylko dobrze wygląda na zdjęciu?</strong> — estetyka jest dodatkiem, nie celem.",
-      "<strong>Czy wszystko musi być w jednej sali?</strong> — część stref może być wspólna dla kilku grup albo poza salą.",
-  ], "purple") +
-  '</div><div style="flex:.95;align-self:flex-start;border-radius:5mm;overflow:hidden;'
-  'border:1.6pt solid var(--purple-deep);box-shadow:0 3px 12px rgba(107,75,161,.15);">'
-  '<img src="%s" alt="Sala przedszkolna ze wszystkimi strefami" style="width:100%%;height:auto;display:block;">'
-  '</div></div>' % img("04"))
+      "<strong>Czy wszystko musi być w jednej sali?</strong> — część stref może być wspólna dla kilku grup albo zorganizowana poza salą.",
+      "<strong>Czy sala wytrzyma cały dzień?</strong> — sprawdź ją po południu, gdy wszystko jest już rozłożone.",
+  ], "purple"),
+  "04", "Sala przedszkolna ze wszystkimi strefami",
+  "Test praktyczny: przejdź salę na kolanach — zobaczysz ją z wysokości dziecka"))
 
 # ---------- PIĘĆ STREF ----------
 P("Strefa 1 — czytelnictwa", "purple", lambda n, t: zone_page(
@@ -465,96 +585,141 @@ P("Strefa 5 — odkrywania świata nauki i przyrody", "mint", lambda n, t: zone_
      ("jezyk", "mint", "Bariera językowa", " — nazwy przedmiotów z obrazkiem")],
     "09", "Obserwacja próbek przyrodniczych przez lupę", "Obserwacja przez lupę"))
 
-P("Wszystkie strefy razem — mapa sali", "mint", lambda n, t:
-  head("SPOJRZENIE Z GÓRY", "mint", "Wszystkie strefy razem",
-       "Pięć stref stałych i strefy czasowe w jednym widoku — jak elementy łączą się w spójną przestrzeń.") +
-  '<div style="flex:1;min-height:0;border-radius:5mm;overflow:hidden;border:1.6pt solid var(--mint-deep);'
-  'box-shadow:0 3px 12px rgba(46,142,116,.15);display:flex;align-items:flex-start;justify-content:center;'
-  'background:var(--mint-soft);"><img src="%s" alt="Mapa mentalna wszystkich stref sali przedszkolnej" '
-  'style="width:100%%;height:auto;display:block;"></div>' % img("10"))
+P("Wszystkie strefy razem — schemat sali", "mint", lambda n, t:
+  head("SPOJRZENIE Z GÓRY", "mint", "Wszystkie strefy razem — schemat sali",
+       "Pięć stref stałych, strefa czasowa i wolne ciągi komunikacyjne w jednym widoku.") +
+  '<div style="flex:none;border-radius:5mm;border:1.6pt solid var(--mint-deep);'
+  'box-shadow:0 3px 12px rgba(46,142,116,.15);padding:3mm;background:#FFFEFC;'
+  'aspect-ratio:1000/600;display:flex;margin-bottom:3.5mm;">' + sala_svg() + '</div>' +
+  '<div style="display:flex;gap:4.5mm;flex-wrap:wrap;margin-bottom:3.5mm;">' +
+  "".join('<div style="display:flex;align-items:center;gap:1.8mm;">'
+          '<span style="width:3.6mm;height:3.6mm;border-radius:1.1mm;background:%s;display:inline-block;"></span>'
+          '<span style="font-family:Nunito;font-weight:700;font-size:8pt;">%s</span></div>' % (c, l)
+          for c, l in [("var(--purple-deep)", "Strefy stałe 1 i 4"),
+                       ("var(--mint-deep)", "Strefy stałe 2 i 5"),
+                       ("var(--pink-deep)", "Strefa stała 3 · wejście"),
+                       ("var(--sun-deep)", "Strefa czasowa"),
+                       ("#E4DBF3", "Ciągi komunikacyjne min. 90 cm")]) + '</div>' +
+  '<div class="two-col" style="flex:1;min-height:0;"><div class="col-text">' +
+  info_box("Co ten schemat pokazuje", [
+      "Strefy przy ścianach — środek sali zostaje wolny na ruch i zabawę",
+      "Regały tworzą granice stref, ale nie zasłaniają widoku nauczycielowi",
+      "Strefa wyciszenia w rogu, najdalej od wejścia i od strefy budowania",
+      "Ciągi komunikacyjne krzyżują się w środku i są wolne przez cały dzień"], "mint") +
+  '</div><div class="col-text">' +
+  info_box("Czego na schemacie nie widać", [
+      "Wysokości półek — sprawdzasz je z pozycji dziecka, nie z góry",
+      "Poziomu hałasu — najgłośniejsza strefa nie może sąsiadować z wyciszeniem",
+      "Światła — strefa czytelnictwa i artystyczna potrzebują okna",
+      "Gniazdek i przewodów — planuj je razem z układem stref"], "purple") +
+  '</div></div>' +
+  '<div class="legal-note" style="margin-top:0;">Schemat jest przykładowy. Liczbę i wielkość stref '
+  'dopasowuje się do metrażu sali i liczby dzieci — strefa czasowa powstaje na czas zajęć, '
+  'a wybrane strefy mogą działać poza salą lub być wspólne dla kilku grup.</div>')
 
-P("Strefy stałe i czasowe — sala, która oddycha", "pink", lambda n, t:
-  head("STREFY W RUCHU", "pink", "Strefy stałe i czasowe — sala, która oddycha") +
-  '<div class="two-col"><div class="col-text body-text">'
-  '<p>Nie wszystkie pięć stref musi istnieć jednocześnie, przez cały dzień. Część może mieć charakter '
-  '<strong>czasowy</strong> — powstawać na potrzeby działania i być rozkładana po jego zakończeniu.</p>'
+P("Strefy stałe i czasowe — sala, która oddycha", "pink", lambda n, t: split_page(
+  head("STREFY W RUCHU", "pink", "Strefy stałe i czasowe — sala, która oddycha",
+       "Nie wszystkie strefy muszą istnieć jednocześnie przez cały dzień."),
+  '<div class="body-text">'
+  '<p>Część stref może mieć charakter <strong>czasowy</strong> — powstawać na potrzeby działania '
+  'i być rozkładana po jego zakończeniu.</p>'
   '<p>Strefy mogą być też <strong>wspólne dla kilku grup</strong> albo zorganizowane poza salą. '
-  'Wielkość i liczbę stref dopasowujemy do metrażu i liczby dzieci — nie odwrotnie.</p>' +
+  'Wielkość i liczbę stref dopasowujemy do metrażu i liczby dzieci — nie odwrotnie.</p></div>' +
   nice_list(["Strefa czasowa może pojawić się na środku sali tylko na czas zajęć",
              "Kilka grup może dzielić jedną strefę konstrukcyjną",
-             "Strefa czytelnicza może działać w holu lub bibliotece"], "pink") +
+             "Strefa czytelnicza może działać w holu lub bibliotece"], "pink"),
+  info_box("O czym pamiętać przy zmianach", [
+      "Zapowiedz zmianę układu dzień wcześniej i pokaż nowe miejsce",
+      "Zostaw stałe punkty orientacyjne — wejście, strefa ciszy, szafki",
+      "Po złożeniu strefy czasowej przywróć wolne ciągi komunikacyjne",
+      "Nie przenoś strefy wyciszenia — to jedyne miejsce, które musi być pewne"], "purple") +
   '<div class="warn-box"><strong>Częsty błąd:</strong> codzienne przestawianie mebli. '
   'Dla dziecka ze spektrum autyzmu, z niepełnosprawnością intelektualną lub słabowidzącego '
-  'zmiana układu sali to utrata mapy — jeśli zmieniasz, uprzedź i pokaż nowy układ.</div>'
-  '</div><div class="col-photo">' +
-  photo("11", "Strefa czytelnicza zorganizowana w holu przedszkola",
-        "Strefa czytelnicza w holu przedszkola") + '</div></div>')
+  'zmiana układu sali to utrata mapy.</div>',
+  "11", "Strefa czytelnicza zorganizowana w holu przedszkola",
+  "Strefa czytelnicza w holu — przestrzeń poza salą też liczy się jako strefa"))
 
-P("Ogród, taras, spacer — też są salą", "mint", lambda n, t:
-  head("NA ZEWNĄTRZ", "mint", "Ogród, taras, spacer — też są salą") +
-  '<div class="two-col"><div class="col-text body-text">'
+P("Ogród, taras, spacer — też są salą", "mint", lambda n, t: split_page(
+  head("NA ZEWNĄTRZ", "mint", "Ogród, taras, spacer — też są salą",
+       "Codzienne zajęcia na świeżym powietrzu to element planu dnia, nie okazjonalny spacer."),
+  '<div class="body-text">'
   '<p>Nowa podstawa wprost wymaga <strong>codziennych zajęć na świeżym powietrzu</strong> oraz '
-  'co najmniej <strong>raz w tygodniu pobytu poza budynkiem dłużej niż godzinę</strong>. '
-  'To stały element planu dnia, nie okazjonalny spacer.</p>'
-  '<p>Nawet niewielki teren zielony można wykorzystać jako naturalne przedłużenie strefy przyrodniczej — '
-  'do obserwacji i swobodnej zabawy ruchowej.</p>' +
+  'co najmniej <strong>raz w tygodniu pobytu poza budynkiem dłużej niż godzinę</strong>.</p>'
+  '<p>Nawet niewielki teren zielony można wykorzystać jako naturalne przedłużenie strefy '
+  'przyrodniczej — do obserwacji i swobodnej zabawy ruchowej.</p></div>' +
   check_box("Co warto zaplanować", [
       "Kącik ogrodowy do obserwacji przyrody",
       "Utwardzone dojście dla wózka i dziecka niepewnego ruchowo",
       "Miejsce zacienione — dla dzieci z chorobami skóry i przewlekłymi",
-      "Cotygodniowy, dłuższy pobyt poza budynkiem"]) +
-  '</div><div class="col-photo">' +
-  photo("12", "Kącik ogrodowy — obserwacja i badanie przyrody",
-        "Kącik ogrodowy — obserwacja przyrody") + '</div></div>')
+      "Cotygodniowy, dłuższy pobyt poza budynkiem"]),
+  info_box("Dostępność na zewnątrz — o czym się zapomina", [
+      "Podjazd i próg przy wyjściu na taras — najczęstsza bariera w placówkach",
+      "Stół ogrodowy z wolną przestrzenią pod blatem",
+      "Podwyższone rabaty — dostępne z pozycji siedzącej",
+      "Miejsce do odpoczynku dla dziecka szybko męczącego się"], "purple"),
+  "12", "Kącik ogrodowy — obserwacja i badanie przyrody",
+  "Podwyższone rabaty i utwardzone dojście — ogród dostępny dla każdego dziecka"))
 
-P("Bezpieczeństwo w strefach aktywności", "pink", lambda n, t:
-  head("BEZPIECZEŃSTWO", "pink", "Wolność działania w bezpiecznych granicach") +
-  '<div class="two-col"><div class="col-text body-text">'
-  '<p>Samodzielność nie oznacza braku zasad. Szczególnie w strefie konstrukcyjnej i artystycznej '
-  'ważne są jasne reguły korzystania z narzędzi — najlepiej ustalone <strong>razem z dziećmi</strong>, '
-  'nie tylko im narzucone.</p>' +
+P("Bezpieczeństwo w strefach aktywności", "pink", lambda n, t: split_page(
+  head("BEZPIECZEŃSTWO", "pink", "Wolność działania w bezpiecznych granicach",
+       "Samodzielność nie oznacza braku zasad — oznacza zasady ustalone wspólnie."),
+  '<div class="body-text">'
+  '<p>Szczególnie w strefie konstrukcyjnej i artystycznej ważne są jasne reguły korzystania '
+  'z narzędzi — najlepiej ustalone <strong>razem z dziećmi</strong>, nie tylko im narzucone.</p>'
+  '<p>Zasadę, którą dziecko współtworzyło, łatwiej mu zapamiętać i przypomnieć innym.</p></div>' +
   check_box("Krótka checklista bezpieczeństwa", [
       "Zasady narzędzi ustalone wspólnie z dziećmi",
       "Regularny przegląd stanu wyposażenia",
       "Oznaczenia „praca w toku” zamiast pospiesznego sprzątania",
-      "Drobne elementy poza zasięgiem najmłodszych grup",
-      "Meble stabilne i przymocowane do ściany",
-      "Wolna droga ewakuacyjna również przy zmianie układu stref"]) +
-  '</div><div class="col-photo">' +
-  photo("14", "Praca z narzędziami według wspólnie ustalonych zasad",
-        "Praca z narzędziami według wspólnych zasad") + '</div></div>')
+      "Drobne elementy poza zasięgiem najmłodszych grup"]),
+  info_box("Bezpieczeństwo a dostępność — bez sprzeczności", [
+      "Meble stabilne i przytwierdzone do ściany, także te niskie",
+      "Wolna droga ewakuacyjna również po rozłożeniu strefy czasowej",
+      "Zasady w wersji obrazkowej — dla dzieci, które nie czytają",
+      "Plan ewakuacji uwzględniający dziecko na wózku i dziecko niesłyszące"], "purple"),
+  "14", "Praca z narzędziami według wspólnie ustalonych zasad",
+  "Zasady ustalane razem z dziećmi działają lepiej niż zakazy na ścianie"))
 
-P("Higiena cyfrowa — ekrany z umiarem", "mint", lambda n, t:
-  head("EKRANY Z UMIAREM", "mint", "Miejsce dla technologii — z umiarem") +
-  '<div class="two-col"><div class="col-text body-text">'
+P("Higiena cyfrowa — ekrany z umiarem", "mint", lambda n, t: split_page(
+  head("EKRANY Z UMIAREM", "mint", "Miejsce dla technologii — z umiarem",
+       "Ekran dydaktyczny i sprzęt wspomagający dziecko to dwie zupełnie różne sprawy."),
+  '<div class="body-text">'
   '<p>Nowa podstawa programowa ogranicza kontakt dzieci z narzędziami ekranowymi niemal wyłącznie '
-  'do sytuacji prowadzonych przez nauczyciela, w celach dydaktycznych. Priorytetem pozostaje higiena '
-  'cyfrowa wspierająca prawidłowy rozwój dziecka.</p>'
-  '<p>Wyjątkiem są <strong>technologie wspomagające</strong>: komunikator AAC, powiększalnik, system FM '
-  'dla dziecka z aparatem słuchowym. To nie są „ekrany dla rozrywki” — to proteza komunikacji '
-  'lub zmysłu i dziecko musi mieć do nich dostęp stały, nie regulowany limitem czasu.</p>' +
+  'do sytuacji prowadzonych przez nauczyciela, w celach dydaktycznych. Priorytetem pozostaje '
+  'higiena cyfrowa wspierająca prawidłowy rozwój dziecka.</p>'
+  '<p>Wyjątkiem są <strong>technologie wspomagające</strong>: komunikator AAC, powiększalnik, '
+  'system FM dla dziecka z aparatem słuchowym.</p></div>' +
   info_box("Zasada rozdzielenia", [], "purple",
            "Sprzęt dydaktyczny trzymamy poza strefami swobodnej zabawy, w miejscu kontrolowanym "
-           "przez nauczyciela. Sprzęt wspomagający dziecko trzyma przy sobie — zawsze.") +
-  '</div><div class="col-photo">' +
-  photo("15", "Praca z tabletem prowadzona przez nauczycielkę",
-        "Praca z tabletem prowadzona przez nauczycielkę") + '</div></div>')
+           "przez nauczyciela. Sprzęt wspomagający dziecko jest przy dziecku — zawsze, bez limitu czasu."),
+  info_box("Ekran dydaktyczny — kiedy ma sens", [
+      "Krótko, w małej grupie i z jasnym celem zajęć",
+      "Jako uzupełnienie doświadczenia, nie jego zamiennik",
+      "Nigdy jako nagroda ani sposób na zajęcie dziecka",
+      "Nigdy jako stała opcja w strefie swobodnej zabawy"], "mint"),
+  "15", "Praca z tabletem prowadzona przez nauczycielkę",
+  "Tablet w rękach nauczyciela, krótko i w małej grupie — a nie w strefie zabawy"))
 
-P("Rytm dnia i celebrowanie posiłków", "pink", lambda n, t:
-  head("RYTM DNIA", "pink", "Spokojny czas przy stole") +
-  '<div class="two-col"><div class="col-text body-text">'
-  '<p>W planie dnia warto uwzględnić realny czas na spokojne spożywanie posiłków, połączone z nauką '
-  'samodzielnego posługiwania się łyżką, widelcem i nożem. To integralna część rytmu dnia, '
-  'a nie przerwa między zajęciami.</p>' +
+P("Rytm dnia i celebrowanie posiłków", "pink", lambda n, t: split_page(
+  head("RYTM DNIA", "pink", "Spokojny czas przy stole",
+       "Posiłek to integralna część rytmu dnia, a nie przerwa między zajęciami."),
+  '<div class="body-text">'
+  '<p>W planie dnia warto uwzględnić realny czas na spokojne spożywanie posiłków, połączone '
+  'z nauką samodzielnego posługiwania się łyżką, widelcem i nożem.</p>'
+  '<p>Miejsce jadalne można zaprojektować jako osobną, stałą strefę albo jako część sali '
+  'czasowo przekształcaną na porę posiłku.</p></div>' +
   nice_list(["Stoły dostosowane do wzrostu dzieci i do wózka",
-             "Sztućce z pogrubioną rączką, talerz z podwyższonym brzegiem, mata antypoślizgowa",
-             "Spokojna, wyciszona atmosfera — mniej hałasu, mniej odmów jedzenia",
-             "Miejsce na samodzielne nakrycie i sprzątnięcie po sobie"], "pink") +
+             "Spokojna, wyciszona atmosfera podczas posiłku",
+             "Miejsce na samodzielne nakrycie i sprzątnięcie po sobie"], "pink"),
+  info_box("Dostosowania przy stole", [
+      "Sztućce z pogrubioną rączką, talerz z podwyższonym brzegiem, mata antypoślizgowa",
+      "Cichsze miejsce dla dziecka z nadwrażliwością słuchową lub zapachową",
+      "Wybiórczość pokarmowa — bez wymuszania próbowania",
+      "Widoczna informacja o alergiach i diecie eliminacyjnej"], "purple") +
   '<div class="warn-box"><strong>Pamiętaj:</strong> wybiórczość pokarmowa u dziecka ze spektrum '
-  'autyzmu lub z zaburzeniami sensorycznymi to nie kaprys. Zapewnij dziecku możliwość jedzenia '
-  'w spokojniejszym miejscu i nie wymuszaj próbowania.</div>'
-  '</div><div class="col-photo">' +
-  photo("16", "Wspólny, spokojny posiłek grupy", "Wspólny, spokojny posiłek grupy") + '</div></div>')
+  'autyzmu lub z zaburzeniami sensorycznymi to nie kaprys.</div>',
+  "16", "Wspólny, spokojny posiłek grupy",
+  "Prawdziwe naczynia, własne nakrycie i czas bez pośpiechu"))
 
 # ---------- CZĘŚĆ II — TRZY POZIOMY ----------
 P("Trzy poziomy wsparcia — mapa systemu", "purple", lambda n, t:
@@ -667,8 +832,8 @@ P("Poziom 1 — uniwersalne projektowanie zajęć", "mint", lambda n, t:
              "Ta sama informacja w obrazku i w słowie — działa dla całej grupy", "height:58mm;") +
   '</div></div>')
 
-P("Poziom 2 — dla jakich dzieci", "pink", lambda n, t:
-  head("POZIOM 2", "pink", "Dostosowania ukierunkowane — dla jakich dzieci",
+P("Poziom 2 — dla jakich dzieci", "sun", lambda n, t:
+  head("POZIOM 2", "sun", "Dostosowania ukierunkowane — dla jakich dzieci",
        "Wsparcie dla dziecka, które ma rozpoznaną trudność, ale <b>nie ma orzeczenia</b> "
        "o potrzebie kształcenia specjalnego.") +
   '<div class="two-col"><div class="col-text">'
@@ -694,18 +859,17 @@ P("Poziom 2 — dla jakich dzieci", "pink", lambda n, t:
       "Dokumentujesz, co zadziałało — to podstawa ewentualnego wniosku o orzeczenie"], "purple") +
   warn("Czekanie na „papier”. Dziecko, które od pół roku zatyka uszy przy każdym hałasie, "
        "nie potrzebuje najpierw diagnozy — potrzebuje słuchawek wygłuszających dzisiaj.") +
-  info_box("Kiedy poziom 2 nie wystarcza", [
-      "Trudność utrzymuje się mimo trzech różnych dostosowań i trzech miesięcy pracy",
-      "Dziecko nie uczestniczy w większości aktywności grupy",
-      "Potrzebne są pomoce specjalistyczne lub stałe wsparcie osoby dorosłej",
-      "Wtedy zespół rozmawia z rodzicami o wniosku do poradni — z dokumentacją tego, co już próbowaliście"], "mint") +
+  info_box("Kiedy poziom 2 nie wystarcza", [], "mint",
+           "Gdy trudność utrzymuje się mimo trzech różnych dostosowań, a dziecko nie uczestniczy "
+           "w większości aktywności grupy — zespół rozmawia z rodzicami o wniosku do poradni, "
+           "z dokumentacją tego, co już próbowaliście.") +
   '</div></div>' +
   '<div class="legal-note">Pomoc psychologiczno-pedagogiczna w przedszkolu jest udzielana '
   'z inicjatywy m.in. nauczyciela, rodzica lub specjalisty — nie wymaga orzeczenia o potrzebie '
   'kształcenia specjalnego.</div>')
 
-P("Poziom 2 w praktyce — organizacja i wyposażenie", "pink", lambda n, t:
-  head("POZIOM 2 · PRAKTYKA", "pink", "Jak zorganizować poziom 2 w sali") +
+P("Poziom 2 w praktyce — organizacja i wyposażenie", "sun", lambda n, t:
+  head("POZIOM 2 · PRAKTYKA", "sun", "Jak zorganizować poziom 2 w sali") +
   '<div class="two-col"><div class="col-text" style="flex:1.2;">' +
   '<table class="grid"><thead><tr><th style="width:38%">Trudność dziecka</th>'
   '<th>Konkretne rozwiązanie w sali</th></tr></thead><tbody>' +
@@ -1180,6 +1344,56 @@ P("Ściągawka — deficyt i pierwsza zmiana w sali", "pink", lambda n, t:
   'i w układzie sali, zwykle po miesiącu ląduje w szafie.</div>')
 
 EXTRA_CSS2 = """
+.cover .panel{background:#392B4D;border-color:#fff;color:#fff;padding:0;overflow:hidden;}
+.cover .panel > .cov-photo-bg{position:absolute;inset:0;z-index:0;}
+.cover .panel > .cov-scrim{position:absolute;inset:0;z-index:1;}
+.cov-photo-bg{position:absolute;inset:0;z-index:0;}
+.cov-photo-bg img{width:100%;height:100%;object-fit:cover;display:block;}
+.cov-scrim{position:absolute;inset:0;z-index:1;
+  background:linear-gradient(180deg,rgba(41,27,60,.90) 0%,rgba(45,30,66,.74) 22%,
+  rgba(48,32,70,.24) 42%,rgba(48,32,70,.20) 52%,rgba(52,34,76,.62) 70%,
+  rgba(74,45,112,.93) 86%,rgba(84,50,124,.97) 100%);}
+.cov-inner{position:relative;z-index:2;padding:12mm 13mm 11mm;display:flex;flex-direction:column;height:100%;}
+.cover .eyebrow{font-size:8.4pt;letter-spacing:.16em;background:rgba(255,255,255,.22);
+  backdrop-filter:blur(2px);}
+.cover h1{font-family:'Quicksand';font-weight:700;font-size:32pt;line-height:1.06;
+  margin:6mm 0 0;text-shadow:0 3px 16px rgba(30,15,50,.35);}
+.cov-accent{color:#BFEAE0;}
+.cov-rule{width:32mm;height:2.4mm;border-radius:2mm;background:#F4CE6A;margin:5mm 0 4.5mm;}
+.cover .cov-sub{font-family:'Nunito';font-weight:600;font-size:10.6pt;max-width:130mm;
+  line-height:1.55;margin:0;text-shadow:0 2px 10px rgba(30,15,50,.35);}
+.cov-chips{display:flex;flex-direction:column;gap:2.2mm;margin-top:auto;}
+.cov-chip{display:flex;align-items:center;gap:3mm;background:rgba(255,255,255,.16);
+  border:.9pt solid rgba(255,255,255,.32);border-radius:20mm;padding:2mm 4.6mm;width:fit-content;}
+.cov-chip .cc-dot{width:4mm;height:4mm;border-radius:50%;flex-shrink:0;}
+.cov-chip .cc-n{font-family:'Quicksand';font-weight:700;font-size:8.4pt;letter-spacing:.08em;opacity:.95;}
+.cov-chip .cc-t{font-family:'Nunito';font-weight:700;font-size:10pt;}
+.cov-meta{display:flex;gap:8mm;margin:5.5mm 0 5mm;}
+.cov-meta-l{display:flex;align-items:center;gap:2.4mm;}
+.cov-meta-l .cm-big{font-family:'Quicksand';font-weight:700;font-size:21pt;line-height:1;color:#F4CE6A;}
+.cov-meta-l .cm-s{font-family:'Nunito';font-weight:700;font-size:7.8pt;line-height:1.2;opacity:.92;}
+.cov-bottom{border-top:1pt solid rgba(255,255,255,.35);padding-top:4mm;display:flex;
+  align-items:center;justify-content:space-between;gap:5mm;}
+.cov-firma{font-family:'Nunito';font-weight:700;font-size:8pt;line-height:1.35;max-width:96mm;opacity:.95;}
+.cov-pills{display:flex;gap:2.6mm;}
+.footer{gap:5mm;}
+.footer .fcompany{flex:1;text-align:right;font-size:6.3pt;letter-spacing:-.005em;color:var(--ink-soft);
+  white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+.footer{gap:4mm;}
+.footer .fbrand{white-space:nowrap;}
+.adapt-mini-wide{margin-top:0;padding-top:0;border-top:none;background:var(--purple-soft);
+  border-radius:4.5mm;padding:3.4mm 4mm;}
+.adapt-mini-wide .am-title{font-size:10.2pt;margin-bottom:2.4mm;}
+.adapt-mini-grid-3{grid-template-columns:1fr 1fr 1fr;gap:2.6mm 4mm;}
+.adapt-mini-grid-1{grid-template-columns:1fr;gap:2.4mm;}
+.adapt-mini-grid-1 .am-text{font-size:8.7pt;line-height:1.3;}
+.adapt-mini-grid-1 .am-text strong{font-size:8.9pt;display:inline;}
+.adapt-mini-grid-1 .am-icon{width:6.2mm;height:6.2mm;}
+.adapt-mini-grid-1 .am-icon svg{width:3.5mm;height:3.5mm;}
+.adapt-mini-grid-3 .am-text{font-size:8.6pt;line-height:1.3;}
+.adapt-mini-grid-3 .am-text strong{font-size:8.8pt;}
+.adapt-mini-grid-3 .am-icon{width:6mm;height:6mm;}
+.adapt-mini-grid-3 .am-icon svg{width:3.4mm;height:3.4mm;}
 .cbx{display:inline-block;width:3.6mm;height:3.6mm;border:1pt solid var(--purple-deep);
   border-radius:1mm;background:#fff;vertical-align:-.4mm;}
 .cbx+.cbx{margin-left:2.4mm;}
@@ -1373,20 +1587,19 @@ P("Naszkicuj plan swojej sali", "purple", lambda n, t:
        "Poniżej przykładowy plan jako inspiracja.") +
   '<div style="display:flex;gap:6mm;margin-bottom:3mm;flex-wrap:wrap;">' +
   "".join('<div style="display:flex;align-items:center;gap:2mm;">'
-          '<span style="width:4mm;height:4mm;border-radius:50%%;background:var(--%s-deep);display:inline-block;"></span>'
+          '<span style="width:4mm;height:4mm;border-radius:50%%;background:%s;display:inline-block;"></span>'
           '<span style="font-family:Nunito;font-weight:700;font-size:8.6pt;">%s</span></div>' % (c, l)
-          for c, l in [("purple", "1. Czytelnictwa"), ("mint", "2. Konstruowania"), ("pink", "3. Sztuki"),
-                       ("purple", "4. Odpoczywania"), ("mint", "5. Przyrody"),
-                       ("pink", "Ciągi komunikacyjne 90 cm")]) + '</div>' +
-  '<div style="border-radius:5mm;overflow:hidden;border:1.6pt solid var(--purple-deep);'
-  'box-shadow:0 3px 12px rgba(107,75,161,.15);margin-bottom:4mm;">'
-  '<img src="%s" alt="Przykładowy plan sali z oznaczonymi strefami" '
-  'style="width:100%%;height:auto;display:block;"></div>'
+          for c, l in [("var(--purple-deep)", "1. Czytelnictwa"), ("var(--mint-deep)", "2. Konstruowania"),
+                       ("var(--pink-deep)", "3. Sztuki"), ("var(--purple-deep)", "4. Odpoczywania"),
+                       ("var(--mint-deep)", "5. Przyrody"), ("var(--sun-deep)", "Strefa czasowa"),
+                       ("#E4DBF3", "Ciągi komunikacyjne min. 90 cm")]) + '</div>' +
+  '<div style="border-radius:5mm;border:1.6pt solid var(--purple-deep);padding:2.5mm;'
+  'box-shadow:0 3px 12px rgba(107,75,161,.15);margin-bottom:4mm;background:#FFFEFC;'
+  'height:84mm;display:flex;">' + sala_svg() + '</div>'
   '<p class="mini-head">Twój szkic — zaznacz strefy i ciągi komunikacyjne</p>'
   '<div style="flex:1;min-height:0;border:1.4pt dashed var(--purple-deep);border-radius:5mm;'
   'background:repeating-linear-gradient(0deg,transparent,transparent 7.4mm,#EFE9F7 7.4mm,#EFE9F7 7.5mm),'
-  'repeating-linear-gradient(90deg,transparent,transparent 7.4mm,#EFE9F7 7.4mm,#EFE9F7 7.5mm);"></div>'
-  % img("17"))
+  'repeating-linear-gradient(90deg,transparent,transparent 7.4mm,#EFE9F7 7.4mm,#EFE9F7 7.5mm);"></div>')
 
 P("Plan wdrożenia krok po kroku", "mint", lambda n, t:
   head("WDROŻENIE", "mint", "Od kącika do strefy — plan wdrożenia",
@@ -1431,7 +1644,7 @@ def p_final(n, total):
             'border:1.6pt solid rgba(255,255,255,.85);margin:4mm 0;display:flex;align-items:center;'
             'justify-content:center;background:rgba(255,255,255,.08);">'
             '<img src="%s" alt="Sala przedszkolna ze wszystkimi pięcioma strefami" '
-            'style="width:100%%;height:100%%;object-fit:cover;object-position:center 60%%;display:block;">'
+            'style="width:100%%;height:100%%;object-fit:cover;display:block;">'
             '</div>'
             '<div style="font-family:Nunito;font-size:8.8pt;line-height:1.5;background:rgba(255,255,255,.16);'
             'border-radius:4mm;padding:3mm 4mm;margin-bottom:3mm;">'
@@ -1444,7 +1657,7 @@ def p_final(n, total):
             '<span>📞 94&nbsp;340&nbsp;12&nbsp;56</span>'
             '<span>✉️ kontakt@pctp-koszalin.pl</span></div>'
             '<div class="cov-footer"><span class="pill">Podstawa programowa 2026 · dostępność · '
-            'monitoring sali</span><span class="pill">Przewodnik 2026 · %d stron</span></div>' % (img("18"), total))
+            'monitoring sali</span><span class="pill">Przewodnik 2026 · %d stron</span></div>' % (img("hero"), total))
 
 # ---------- SKŁADANIE ----------
 def build():
