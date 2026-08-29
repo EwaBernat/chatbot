@@ -34,7 +34,7 @@ PLANSZE = [
         "rozdzial": "Wstęp",
         "naglowek": "Cele SMART\nw przedszkolu",
         "podtytul": "Jak napisać cel, który da się zobaczyć, policzyć i obronić przed zespołem, rodzicem i kuratorium.",
-        "autor": "mgr Mirosława Ewa Jurczyszyn · pedagog specjalny · PCTP Koszalin · sygn. SMART-P1",
+        "autor": "Skrypt dla nauczyciela przedszkola · EduPlaner 2026 · sygn. SMART-P1",
         "odznaki": ["5 liter", "6 kroków", "1 formuła zdania"],
     },
     {
