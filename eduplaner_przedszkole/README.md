@@ -133,3 +133,32 @@ co ja (2) · Klepsydra skarbów (3) · Kolorowe domki (4) · Pudełko z niespodz
 
 Razem **42 konspekty pod 126 klikalnymi celami** — komplet dla wersji A (3–4 lata):
 każde twierdzenie kwestionariusza ma własny konspekt zajęć.
+
+## Wersja B (5 lat) — komplet konspektów
+
+44 konspekty, wszystkie dziewięć obszarów:
+
+| Obszar | Konspekty |
+|---|---|
+| I Uczenie się | Detektywi opowieści · Fabryka rytmów · Sklep pod piątką · Kwadrans badacza · Polowanie na litery |
+| II Ogólne zadania | Instrukcja mistrza budowy · Most między zajęciami · Kolejka po skarb · Moje stanowisko pracy · Najpierw próbuję, potem proszę |
+| III Porozumiewanie się | Radio Przedszkole · Kronika dnia · Rozmowa przy stoliku · Rymowana kuchnia · Teatr bez słów |
+| IV Poruszanie się | Olimpiada czterech ruchów · Linoskoczkowie · Pracownia nożyczek · Szlaczki na ścianie · Laboratorium przelewania |
+| V Dbanie o siebie | Detektyw czystych rąk · Wyścig z suwakiem · Restauracja pod dobrą łyżką · Strażnicy bezpieczeństwa · Barometr energii |
+| VI Życie domowe | Zdjęcie przed i po · Dyżurni tygodnia · Umowa o zabawki · Pakowanie na wyprawę |
+| VII Wzajemne kontakty | Zaproszenie do zabawy · Zespół z pomysłem · Słowa, które pomagają · Mapa uczuć · Trzy kroki zgody |
+| VIII Główne obszary życia | Mój pomysł na zajęcia · Miasto z podziałem ról · Pracownia ulepszeń · Orkiestra przedszkolna · Polecenie dla całej grupy |
+| IX Życie społeczne | Herb naszej grupy · Nasze przedstawienie · Wyprawa czterech pór roku · Widzowie i krytycy · To ja — imię i nazwisko |
+
+Razem z wersją A: **86 konspektów pod 258 klikalnymi celami**.
+
+## Monitoring podstawy programowej
+
+Sekcja `#monitoring` zestawia wszystkie punkty PP, do których odwołują się twierdzenia KPOF:
+punkt · obszar podstawy · wersje wiekowe · obszary ICF · czy istnieje konspekt.
+
+**Stan prawny:** numeracja pochodzi z arkuszy KPOF opartych na podstawie programowej
+z rozporządzenia MEN z 14 lutego 2017 r. Nowa podstawa — rozporządzenie Ministra Edukacji
+z 11 marca 2026 r. (Dz. U. 2026 poz. 378), obowiązująca od 1 września 2026 r. — wprowadza
+nowy podział obszarów. Przemapowanie wymaga aktualizacji kolumny `pp` w plikach `dane_*.py`;
+monitoring, cele i konspekty przeliczą się automatycznie.

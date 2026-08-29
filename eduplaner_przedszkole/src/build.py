@@ -12,11 +12,23 @@ from konspekty_34_d2 import KONSPEKTY_D2
 from konspekty_34_d3 import KONSPEKTY_D3
 from konspekty_34_d5 import KONSPEKTY_D5
 from konspekty_34_d9 import KONSPEKTY_D9
+from konspekty_5_d1 import KONSPEKTY_5_D1
+from konspekty_5_d2 import KONSPEKTY_5_D2
+from konspekty_5_d3 import KONSPEKTY_5_D3
+from konspekty_5_d4 import KONSPEKTY_5_D4
+from konspekty_5_d5 import KONSPEKTY_5_D5
+from konspekty_5_d6 import KONSPEKTY_5_D6
+from konspekty_5_d7 import KONSPEKTY_5_D7
+from konspekty_5_d8 import KONSPEKTY_5_D8
+from konspekty_5_d9 import KONSPEKTY_5_D9
 from konspekty_34_d4 import KONSPEKTY_D4
 from konspekty_34_d6 import KONSPEKTY_D6
 from konspekty_34_d8 import KONSPEKTY_D8
 KONSPEKTY = {**KONSPEKTY_D1, **KONSPEKTY_D2, **KONSPEKTY_D3, **KONSPEKTY_D4, **KONSPEKTY_D5,
-             **KONSPEKTY_D6, **KONSPEKTY_D8, **KONSPEKTY_D9, **KONSPEKTY}
+             **KONSPEKTY_D6, **KONSPEKTY_D8, **KONSPEKTY_D9,
+             **KONSPEKTY_5_D1, **KONSPEKTY_5_D2, **KONSPEKTY_5_D3, **KONSPEKTY_5_D4,
+             **KONSPEKTY_5_D5, **KONSPEKTY_5_D6, **KONSPEKTY_5_D7, **KONSPEKTY_5_D8,
+             **KONSPEKTY_5_D9, **KONSPEKTY}
 
 WERSJE = [dane_34, dane_5, dane_6]
 
@@ -322,7 +334,7 @@ tr.tbanner .bsep{color:var(--accent); padding:0 5px}
   .toolbar,.areanav,.printhead{display:none !important}
   .vers{display:block !important}
   .vers + .vers{break-before:page; page-break-before:always}
-  #konspekt{break-before:page; page-break-before:always}
+  #konspekt,#monitoring{break-before:page; page-break-before:always}
   .kmodal{display:none !important}
   td.g.haskon .cel::after{display:none}
   html.print-konspekt .sheet,html.print-konspekt .toolbar{display:none !important}
@@ -859,6 +871,109 @@ def render_konspekty_modale():
     return "\n".join(out)
 
 
+
+def monitoring_podstawy():
+    """Monitoring realizacji podstawy programowej — punkty PP pokryte przez cele i konspekty."""
+    OBSZARY_PP = {
+        "1": "Fizyczny obszar rozwoju — samoobsługa, sprawność, bezpieczeństwo ciała",
+        "2": "Emocjonalny obszar rozwoju — rozpoznawanie i regulacja emocji",
+        "3": "Społeczny obszar rozwoju — relacje, zasady, przynależność",
+        "4": "Poznawczy obszar rozwoju — mowa, myślenie, matematyka, przyroda, technika, sztuka",
+    }
+    OBSZAR_PP_NAZWY = {
+        "1": "społeczny", "2": "osobisty", "3": "językowy", "4": "matematyczny",
+        "5": "przyrodniczy", "6": "techniczny", "7": "cyfrowy", "8": "artystyczny", "9": "ruchowy",
+    }
+    # zbiór punktów PP z twierdzeń, z informacją gdzie występują
+    rejestr = {}
+    for mod in WERSJE:
+        w = mod.WERSJA
+        for a in mod.AREAS:
+            for it in a["items"]:
+                pp = it["pp"][3:] if it["pp"].startswith("PP ") else it["pp"]
+                for punkt in pp.replace("·", " ").split():
+                    rej = rejestr.setdefault(punkt, {"wersje": set(), "obszary": set(), "kon": 0})
+                    rej["wersje"].add(w["kod"])
+                    rej["obszary"].add(a["rom"])
+                    if (w["kod"], it["n"]) in KONSPEKTY:
+                        rej["kon"] += 1
+    def sort_key(p):
+        czesci = p.split(".")
+        try:
+            return (0, int(czesci[0]), int(czesci[1]) if len(czesci) > 1 else 0)
+        except ValueError:
+            return (1, 0, 0)
+    wiersze = []
+    for i, punkt in enumerate(sorted(rejestr, key=sort_key), 1):
+        r = rejestr[punkt]
+        grupa = punkt.split(".")[0]
+        nazwa = OBSZAR_PP_NAZWY.get(grupa, "zapis szczególny")
+        wersje = " · ".join(sorted(r["wersje"]))
+        obszary = ", ".join(sorted(r["obszary"], key=lambda x: ["I","II","III","IV","V","VI","VII","VIII","IX"].index(x)))
+        stan = "konspekt" if r["kon"] else "cel SMART"
+        klasa = "p1" if r["kon"] else "p2"
+        wiersze.append(f"""        <tr>
+          <td class="lp">{i}</td>
+          <td class="pp"><span class="kod">{esc(punkt)}</span></td>
+          <td class="tw">{esc(nazwa.capitalize())}</td>
+          <td class="mono" style="white-space:nowrap">{esc(wersje)}</td>
+          <td>{esc(obszary)}</td>
+          <td class="g {klasa}"><span class="cel">{esc(stan)}</span></td>
+        </tr>""")
+    n_pkt = len(rejestr)
+    n_kon = sum(1 for r in rejestr.values() if r["kon"])
+    obszary_html = "\n".join(
+        f'      <li><b>{k}</b> — {esc(v)}</li>' for k, v in OBSZARY_PP.items())
+    return f"""<section class="sec" id="monitoring">
+  <div class="vband">
+    <span class="vlet">PP</span>
+    <h2>Monitoring realizacji podstawy programowej</h2>
+    <div class="vmeta">
+      <span><b>Punkty PP</b>{n_pkt}</span>
+      <span><b>Z konspektem</b>{n_kon}</span>
+      <span><b>Wersje</b>A · B · C</span>
+      <span><b>Numeracja</b>wg arkuszy KPOF</span>
+    </div>
+  </div>
+  <p class="vdesc">Zestawienie wszystkich punktów podstawy programowej wychowania przedszkolnego, do których
+  odwołują się twierdzenia KPOF i cele z tego banku. Kolumna „Realizacja” pokazuje, czy punkt jest pokryty samym
+  celem SMART, czy dodatkowo gotowym konspektem zajęć. Tabela służy do wykazania realizacji podstawy
+  w dokumentacji nadzoru pedagogicznego.</p>
+  <div class="callout rule"><span class="cap">Uwaga · stan prawny</span>
+  Tabela odwzorowuje numerację punktów <b>zapisaną w arkuszach KPOF</b>, opartą na podstawie programowej
+  z rozporządzenia MEN z 14 lutego 2017 r. <b>Nie jest to jeszcze numeracja nowej podstawy programowej</b>
+  wprowadzonej rozporządzeniem Ministra Edukacji z 11 marca 2026 r. (Dz. U. 2026 poz. 378), która obowiązuje
+  od 1 września 2026 r. i wprowadza nowy podział obszarów. Przemapowanie wymaga aktualizacji kolumny
+  „Podstawa” w arkuszach KPOF, a następnie automatycznie przeniesie się do celów, konspektów i tej tabeli.
+  </div>
+  <div class="callout"><span class="cap" style="color:var(--violet)">Cztery obszary rozwoju w podstawie</span>
+  <ul class="klista" style="margin-top:6px">
+{obszary_html}
+  </ul></div>
+  <div class="tablewrap"><table>
+    <thead>
+      <tr class="tbanner"><th colspan="6">EduPlaner 2026 · druk KC-1 · monitoring podstawy programowej<span class="bsep">·</span>Wszystkie wersje wiekowe<span class="bsep">·</span>Zapis obszar.punkt</th></tr>
+      <tr>
+        <th class="c-lp">Lp.</th>
+        <th class="c-code h-pp">Punkt</th>
+        <th class="c-tw">Obszar podstawy</th>
+        <th class="c-code">Wersje</th>
+        <th>Obszary ICF, w których punkt występuje</th>
+        <th class="c-goal">Realizacja</th>
+      </tr>
+    </thead>
+    <tbody>
+{chr(10).join(wiersze)}
+    </tbody>
+  </table></div>
+  <div class="callout rule"><span class="cap">Jak korzystać</span>Punkty oznaczone jako <b>konspekt</b> mają gotowy
+  scenariusz zajęć dostępny po kliknięciu celu w tabeli banku. Punkty oznaczone jako <b>cel SMART</b> są pokryte
+  celem, do którego konspekt powstanie w kolejnych wersjach druku. Zapis <i>obszar.punkt</i> odpowiada numeracji
+  podstawy programowej; <b>DE-R</b> oznacza doświadczenie edukacyjne realizowane co najmniej raz w roku,
+  <b>WSR</b> warunki i sposób realizacji, <b>Zad.</b> zadanie przedszkola.</div>
+</section>"""
+
+
 def build():
     dzis = datetime.date.today().strftime("%d.%m.%Y")
     razem = sum(sum(len(a["items"]) for a in m.AREAS) for m in WERSJE)
@@ -1000,6 +1115,8 @@ def build():
 </div>
 
 {wersje_html}
+
+{monitoring_podstawy()}
 
 {konspekt()}
 
