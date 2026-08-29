@@ -94,3 +94,26 @@ a pomarańcz `#E8450A` jest zarezerwowany dla tego, co wymaga uwagi: pułapek,
 błędnych zapisów i strefy czerwonej. Zielony i żółty pojawiają się tylko tam,
 gdzie kolor jest treścią (termometr, sygnalizacja) i zawsze mają podpis słowny,
 więc plansze czyta się także w skali szarości.
+
+## Materiał na klon głosu z gotowych filmów
+
+Żeby nie nagrywać próbek od nowa przy każdym szkoleniu, zbuduj klon raz —
+z filmów, które już istnieją:
+
+```bash
+pip install imageio-ffmpeg      # tylko jeśli w systemie nie ma ffmpeg
+python3 skrypty/przygotuj_probki_glosu.py \
+    webinar.mp4 zajecia.mp4 klip.mp4 -o probki-glosu/
+```
+
+Skrypt wyciąga dźwięk, wycina ciszę, tnie mowę na fragmenty i zapisuje je jako
+WAV 44,1 kHz mono — bez normalizacji i kompresji, bo ElevenLabs woli materiał
+surowy. Na koniec podaje, ile czystej mowy się uzbierało i czy to wystarczy.
+
+Progi, według których czyta wynik: poniżej minuty klon brzmi płasko, trzy minuty
+to cel dla Instant Voice Cloning, trzydzieści minut i więcej otwiera Professional
+Voice Cloning.
+
+**Nie klonuj z filmów, w których mówi już syntezator.** Klon zrobiony z nagrania
+awatara odtworzy wady tamtego głosu, a nie Twój głos. Do klonu bierz wyłącznie
+materiał, w którym mówisz naprawdę Ty.
