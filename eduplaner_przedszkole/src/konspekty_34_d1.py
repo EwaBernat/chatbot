@@ -27,6 +27,7 @@ KONSPEKTY_D1 = {
     ("N — kończy przeliczeniem „czarów”, chwali patrzenie.","D — wskazuje woreczek, gdy chce powtórki.")],
   mod2=["prezentacja skrócona do 15 sekund","jeden przedmiot na sesję więcej dopiero po sukcesie","dziecko siedzi na wprost nauczyciela"],
   mod3=["pokaz w parze z dorosłym, bez grupy","przedmiot prowadzony w polu widzenia dziecka","sygnał dotykowy przed każdym pokazem","konsultacja z terapeutą SI przy braku fiksacji wzroku"],
+  mod1=["dziecko zostaje pokazywaczem i prowadzi „czary” dla grupy","prezentacje wydłużone do 1 minuty","pokaz przed całą grupą na dywanie","opowiadanie po pokazie: co było w woreczku i po kolei"],
   wskazowka="Cisza działa mocniej niż zachęta — zawieś głos i odczekaj, aż spojrzenia same wrócą do woreczka, zamiast wołać dzieci po imieniu."),
 
  ("A", 2): dict(
@@ -54,6 +55,7 @@ KONSPEKTY_D1 = {
     ("N — kończy „tańcem małpki” z sekwencją 2 ruchów.","D — odtwarza sekwencję i przybija łapkę małpce.")],
   mod2=["jeden ruch na próbę, bez sekwencji","pokaz powtórzony dwa razy przed próbą","dziecko naprzeciw nauczyciela, blisko"],
   mod3=["prowadzenie rąk dziecka przy pierwszych próbach","naśladowanie na materiale (odkładanie klocka jak dorosły)","sesja indywidualna przed grupową","monitoring postępu co tydzień"],
+  mod1=["sekwencje 3 ruchów pokazane jeden raz","dziecko prowadzi zabawę jako małpka","naśladowanie odroczone: „zrób to, co małpka robiła przed chwilą”","ruchy łączone z rymowanką (ruch + słowo)"],
   wskazowka="Pokazuj ruch całym ciałem i z przesadą — dziecko 3-letnie naśladuje to, co widoczne i zabawne, nie to, co poprawne."),
 
  ("A", 3): dict(
@@ -81,6 +83,7 @@ KONSPEKTY_D1 = {
     ("N — proponuje drugą turę z nowym skarbem.","D — decyduje: jeszcze raz albo koniec na dziś.")],
   mod2=["klepsydra 1-minutowa na start","dorosły siedzi obok przez całą próbę","skarb wybierany z dwóch, nie z pudełka"],
   mod3=["zabawa współdzielona z dorosłym (naprzemienne ruchy)","czas liczony od 30 sekund","przerwa ruchowa między próbami","obserwacja pod kątem przyczyn sensorycznych"],
+  mod1=["klepsydra 4-minutowa i zadanie 2-etapowe","samodzielny wybór zadania i sprzątnięcie po skończeniu","praca obok innego dziecka, bez parawanu","kącik zadań dostępny w zabawie swobodnej"],
   wskazowka="Klepsydra jest sędzią, nie nauczyciel — pokazuj ją palcem zamiast upominać, a spór o „jeszcze chwilę” zniknie sam."),
 
  ("A", 4): dict(
@@ -108,6 +111,7 @@ KONSPEKTY_D1 = {
     ("N — kończy przeliczeniem mieszkańców obu domków.","D — liczy z nauczycielem i przybija piątkę.")],
   mod2=["przedmioty identyczne, różne tylko kolorem","po każdej próbie potwierdzenie: „tak, czerwony”","4 elementy zamiast 6"],
   mod3=["dopasowywanie 1:1 do wzorca zamiast sortowania","prowadzenie ręki przy pierwszych 2 próbach","kolory silnie kontrastowe (czerwony–niebieski)","wydłużenie etapu przed wprowadzeniem drugiej cechy"],
+  mod1=["trzeci kolor albo druga cecha: wielkość","dziecko nazywa kryterium: „bo są czerwone”","samodzielne wymyślenie własnego podziału zabawek","sortowanie użytkowe: sprzątanie klocków do właściwych pojemników"],
   wskazowka="Jedna cecha naraz: jeśli dziecko sortuje po kolorze, wszystkie przedmioty powinny mieć ten sam kształt — inaczej zadanie sprawdza dwie rzeczy jednocześnie."),
 
  ("A", 5): dict(
@@ -135,5 +139,6 @@ KONSPEKTY_D1 = {
     ("N — przy realnej trudności dnia wskazuje kartę „próbowałem sam”.","D — najpierw próbuje, potem sygnalizuje „pomoc”.")],
   mod2=["jedno zamknięcie na sesję","pokaz rozwiązania na bliźniaczym pudełku","odczekanie skrócone do 5 sekund"],
   mod3=["wspólne ręce na pudełku — dorosły zaczyna ruch, dziecko kończy","niespodzianka widoczna przez przezroczyste wieczko","wzmocnienie każdej, nawet nieskutecznej próby","powiązanie z konspektem D7-33 (proszenie o pomoc)"],
+  mod1=["dwie różne strategie wypróbowane z rzędu","opowiedzenie po sukcesie: „jak to zrobiłem”","zamknięcia codzienne: kurtka, zamek, kran, pudełko śniadaniowe","dziecko pomaga koledze, podpowiadając ruch zamiast wyręczania"],
   wskazowka="Najtrudniejsze dla dorosłego jest milczenie: każda podpowiedź w pierwszych 10 sekundach zabiera dziecku okazję do odkrycia własnej strategii."),
 }

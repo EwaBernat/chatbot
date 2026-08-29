@@ -29,6 +29,7 @@ KONSPEKTY = {
     ("N — kończy rundą „komu błysnęła latarnia?”.","D — wskazuje, kto mówił, przybija piątkę.")],
   mod2=["krąg zmniejszony do 3 osób","tura skrócona do 10 sekund","dzwonek przy każdej zmianie","dziecko siedzi obok nauczyciela"],
   mod3=["zabawa w parze z dorosłym","fizyczne ukierunkowanie (dotyk ramienia)","lampion podawany do rąk dziecka","powrót do kręgu po 2 tygodniach"],
+  mod1=["dziecko prowadzi zabawę jako „latarnik” i podaje lampion","tury wydłużone do 45 sekund","zabawa w pełnym kręgu całej grupy","przeniesienie na krąg poranny: patrzymy na osobę, która mówi"],
   wskazowka="Światełko zawsze wędruje razem z głosem — nie dopuszczaj, by mówiło dziecko bez lampionu, bo sygnał przestaje być czytelny."),
 
  ("A", 30): dict(
@@ -56,6 +57,7 @@ KONSPEKTY = {
     ("N — kończy wspólnym „hura” i magnesem na tablicy.","D — przybija piątkę z kolegą, wskazuje swój magnes.")],
   mod2=["wymiana skrócona do 2 podań","dorosły podtrzymuje rytm piosenką przez całą sesję","większa, łatwa do chwycenia maskotka"],
   mod3=["wymiana dziecko–dorosły zamiast dziecko–dziecko","prowadzenie rąk przy podaniu","nagroda sensoryczna po każdym podaniu","rówieśnik dołącza po 2 tygodniach"],
+  mod1=["wymiana w trójce z regułą kolejności","dziecko samo zaprasza kolegę do zabawy","wymiany w sytuacjach naturalnych: rozdawanie kredek, kubków","zabawa rozwijana o wspólny cel (wieża z podawanych klocków)"],
   wskazowka="Przerwana piosenka działa lepiej niż polecenie „podaj” — cisza jest sygnałem, że ruch należy do dziecka."),
 
  ("A", 31): dict(
@@ -83,6 +85,7 @@ KONSPEKTY = {
     ("N — po 5 minutach nazywa sukces: „poradziłeś sobie”.","D — odkłada przedmiot przejściowy na swoją półkę.")],
   mod2=["rodzic odprowadza do progu sali, nie do szatni","podwójne machanie (okienko + drzwi)","zabawa startowa wybierana poprzedniego dnia"],
   mod3=["rodzic zostaje 10 minut w sali na starcie tygodnia","skrócony pobyt uzgodniony z rodzicami","stały dorosły przejmujący dziecko z rąk rodzica","konsultacja zespołu ze specjalistą"],
+  mod1=["dziecko samo prowadzi swój rytuał, dorosły tylko obserwuje","rola „witacza”: wita młodsze dziecko przy drzwiach","rytuał skracany do samego machania z okienka","próba generalizacji: inne wejście, zastępstwo nauczyciela"],
   wskazowka="Rytuał chroni tylko wtedy, gdy jest identyczny każdego dnia — wydłużanie przytulania „na prośbę” wydłuża płacz, nie skraca go."),
 
  ("A", 32): dict(
@@ -110,6 +113,7 @@ KONSPEKTY = {
     ("N — w ciągu dnia wraca: „pokaż, co teraz czujesz”.","D — pokazuje minę lub kartę w sytuacji naturalnej.")],
   mod2=["jedna emocja na sesję (najpierw radość)","mina razem z nauczycielem w jednym lustrze","karta emocji stale przy dziecku (brelok)"],
   mod3=["odczytywanie emocji z twarzy dorosłego zamiast pokazywania","fotografie dziecka zamiast rysunków","wsparcie logopedy przy nazywaniu","monitoring ABC zachowań trudnych"],
+  mod1=["rozszerzenie o smutek i strach","nazywanie emocji kolegi w sytuacji realnej i proponowanie pomocy","dziecko samo prowadzi scenkę z pacynką dla grupy","koło emocji w kąciku dostępne do samodzielnego użycia"],
   wskazowka="Nazywaj emocję dopiero, gdy mina już jest — słowo doklejone do własnej twarzy dziecka utrwala się szybciej niż słowo z karty."),
 
  ("A", 33): dict(
@@ -137,5 +141,6 @@ KONSPEKTY = {
     ("N — wzmacnia prośby w sytuacjach naturalnych dnia.","D — używa gestu/karty przy realnej trudności.")],
   mod2=["karta POMOC przyklejona do stolika dziecka","dorosły w odległości wyciągniętej ręki","jedna próba zaaranżowana dziennie"],
   mod3=["prowadzenie ręki do gestu „pomoc”","natychmiastowa pomoc przy pierwszym sygnale niepokoju","współpraca z rodzicami — ten sam gest w domu","konsultacja z poradnią przy braku postępu"],
+  mod1=["prośba kierowana do różnych dorosłych, także mniej znanych","nazwanie problemu słowami: „nie mogę otworzyć”","prośba o pomoc do rówieśnika przed dorosłym","przeniesienie na plac zabaw i do domu (karta dla rodziców)"],
   wskazowka="Prośba musi być tańsza niż płacz: reaguj na sygnał „pomoc” szybciej i cieplej niż na jakikolwiek inny sposób wołania."),
 }

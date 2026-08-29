@@ -268,15 +268,20 @@ table.ktab{min-width:0}
 table.ktab th{padding:8px 11px}
 table.ktab td{padding:8px 11px; font-size:11.5px}
 table.ktab td.lp{font-size:12px}
-.kmods{display:grid; grid-template-columns:1fr 1fr; gap:12px}
+.kmods{display:grid; grid-template-columns:1fr 1fr 1fr; gap:12px}
 .kmod{border:1px solid; border-radius:8px; padding:11px 14px; font-size:11.5px}
 .kmod.m2{border-color:var(--p2-br); background:var(--p2-bg)} .kmod.m3{border-color:var(--p3-br); background:var(--p3-bg)}
+.kmod.m1{border-color:var(--p1-br); background:var(--p1-bg)}
 .kmod b{display:block; margin-bottom:6px; font:700 11px/1 "DM Sans",Arial,sans-serif}
-.kmod.m2 b{color:var(--p2)} .kmod.m3 b{color:var(--p3)}
+.kmod.m2 b{color:var(--p2)} .kmod.m3 b{color:var(--p3)} .kmod.m1 b{color:var(--p1)}
+.kmod{position:relative}
+.kmod.aktywny{outline:2px solid var(--ink); outline-offset:1px}
+.kmod.aktywny::after{content:"WYBRANY POZIOM"; position:absolute; top:-9px; right:10px; background:var(--ink);
+  color:#fff; font:700 8px/1 "DM Sans",Arial,sans-serif; letter-spacing:.14em; padding:4px 8px; border-radius:999px}
 .kwsk{margin-top:12px; border-left:4px solid var(--accent); background:var(--soft); border-radius:0 8px 8px 0; padding:10px 14px; font-size:11.5px}
 .kwsk b{color:var(--accent)}
 .kfoot{display:flex; gap:9px; justify-content:flex-end; margin-top:18px}
-@media (max-width:760px){ .kcele,.kdwie,.kmods,.kmeta{grid-template-columns:1fr} .kcard{padding:18px 14px} }
+@media (max-width:860px){ .kcele,.kdwie,.kmods,.kmeta{grid-template-columns:1fr} .kcard{padding:18px 14px} }
 
 .podpisy{display:grid; grid-template-columns:repeat(3,1fr); gap:16px; margin-top:18px}
 .podpis{border:1px solid var(--line); border-radius:8px; background:var(--field); padding:13px 15px 26px}
@@ -383,6 +388,7 @@ function otworzKonspekt(id,lvl){
   m.querySelectorAll('.kvar').forEach(v=>v.classList.toggle('on',v.dataset.lvl===lvl));
   const b=m.querySelector('[data-lvlbadge]');
   b.className='lvl '+lvl; b.textContent=LVLROM[lvl];
+  m.querySelectorAll('.kmod').forEach(x=>x.classList.toggle('aktywny',x.dataset.mod===lvl));
   m.classList.add('open'); document.body.style.overflow='hidden';
   m.querySelector('.kclose').focus();
 }
@@ -697,6 +703,7 @@ def render_konspekty_modale():
                         for i, (n, d) in enumerate(K["przebieg"], 1))
         m2 = "\n".join(f'          <li>{esc(x)}</li>' for x in K["mod2"])
         m3 = "\n".join(f'          <li>{esc(x)}</li>' for x in K["mod3"])
+        m1 = "\n".join(f'          <li>{esc(x)}</li>' for x in K.get("mod1", []))
         kid = f"kon-{wk}-{nr}"
         out.append(f"""<div class="kmodal" id="{kid}" role="dialog" aria-modal="true" aria-label="Konspekt: {esc(K['tytul'])}">
   <div class="kcard">
@@ -757,14 +764,17 @@ def render_konspekty_modale():
 {prz}
       </tbody>
     </table></div>
-    <div class="ksec"><span class="sq">V</span><h4>Modyfikacja przy braku postępu</h4><span class="line"></span>
-      <span class="meta">brak progresu w 2 kolejnych sesjach</span></div>
+    <div class="ksec"><span class="sq">V</span><h4>Realizacja według poziomu wsparcia</h4><span class="line"></span>
+      <span class="meta">ta sama zabawa · trzy progi wymagań · kliknięty poziom wyróżniony</span></div>
     <div class="kmods">
-      <div class="kmod m2"><b>Poziom II · żółta</b><ul class="klista">
+      <div class="kmod m3" data-mod="p3"><b>Poziom III · czerwona — pełne wsparcie</b><ul class="klista">
+{m3}
+      </ul></div>
+      <div class="kmod m2" data-mod="p2"><b>Poziom II · żółta — wsparcie częściowe</b><ul class="klista">
 {m2}
       </ul></div>
-      <div class="kmod m3"><b>Poziom III · czerwona</b><ul class="klista">
-{m3}
+      <div class="kmod m1" data-mod="p1"><b>Poziom I · zielona — samodzielność</b><ul class="klista">
+{m1}
       </ul></div>
     </div>
     <div class="kwsk"><b>Wskazówka dla prowadzącego:</b> {esc(K['wskazowka'])}</div>
