@@ -18,16 +18,22 @@ do wykorzystania w IPET i PEWS.
 | `Konspekty_KC3_ObszarVII_3-4lata.pdf` | 5 konspektów KC-3 dla obszaru VII (3–4 lata), A4 pionowo |
 | `Konspekty_KC3_ObszarI_3-4lata.pdf` | 5 konspektów KC-3 dla obszaru I (3–4 lata), A4 pionowo |
 | `Konspekty_KC3_ObszarII_3-4lata.pdf` | 5 konspektów KC-3 dla obszaru II (3–4 lata) |
+| `Konspekty_KC3_ObszarIII_3-4lata.pdf` | 5 konspektów KC-3 dla obszaru III (3–4 lata) |
 | `Konspekty_KC3_ObszarIV_3-4lata.pdf` | 5 konspektów KC-3 dla obszaru IV (3–4 lata) |
+| `Konspekty_KC3_ObszarV_3-4lata.pdf` | 5 konspektów KC-3 dla obszaru V (3–4 lata) |
 | `Konspekty_KC3_ObszarVI_3-4lata.pdf` | 3 konspekty KC-3 dla obszaru VI (3–4 lata) |
 | `Konspekty_KC3_ObszarVIII_3-4lata.pdf` | 5 konspektów KC-3 dla obszaru VIII (3–4 lata) |
+| `Konspekty_KC3_ObszarIX_3-4lata.pdf` | 4 konspekty KC-3 dla obszaru IX (3–4 lata) |
 | `src/build.py` | generator druku KC-1 (HTML) |
 | `src/konspekty_34_d7.py` | dane konspektów KC-3: obszar VII, wersja A |
 | `src/konspekty_34_d1.py` | dane konspektów KC-3: obszar I, wersja A |
 | `src/konspekty_34_d2.py` | dane konspektów KC-3: obszar II, wersja A |
+| `src/konspekty_34_d3.py` | dane konspektów KC-3: obszar III, wersja A |
 | `src/konspekty_34_d4.py` | dane konspektów KC-3: obszar IV, wersja A |
+| `src/konspekty_34_d5.py` | dane konspektów KC-3: obszar V, wersja A |
 | `src/konspekty_34_d6.py` | dane konspektów KC-3: obszar VI, wersja A |
 | `src/konspekty_34_d8.py` | dane konspektów KC-3: obszar VIII, wersja A |
+| `src/konspekty_34_d9.py` | dane konspektów KC-3: obszar IX, wersja A |
 | `src/build_karty.py.bak` | poprzedni generator w układzie kart |
 
 ## Generowanie
@@ -125,4 +131,5 @@ co ja (2) · Klepsydra skarbów (3) · Kolorowe domki (4) · Pudełko z niespodz
 | VII Wzajemne kontakty | Latarnia uwagi · Podaj misia · Mostek do przedszkola · Lusterko emocji · Czarodziejskie słowo POMOC |
 | VIII Główne obszary życia | Moje miejsce w grupie · Kącik lalek i garaż · Dywanik zajęć · Budowniczowie · Bawimy się razem |
 
-Razem 28 konspektów pod 84 klikalnymi celami. Pozostają obszary III, V i IX.
+Razem **42 konspekty pod 126 klikalnymi celami** — komplet dla wersji A (3–4 lata):
+każde twierdzenie kwestionariusza ma własny konspekt zajęć.

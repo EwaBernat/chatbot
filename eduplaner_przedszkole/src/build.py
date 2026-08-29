@@ -9,10 +9,14 @@ import dane_34, dane_5, dane_6
 from konspekty_34_d7 import KONSPEKTY
 from konspekty_34_d1 import KONSPEKTY_D1
 from konspekty_34_d2 import KONSPEKTY_D2
+from konspekty_34_d3 import KONSPEKTY_D3
+from konspekty_34_d5 import KONSPEKTY_D5
+from konspekty_34_d9 import KONSPEKTY_D9
 from konspekty_34_d4 import KONSPEKTY_D4
 from konspekty_34_d6 import KONSPEKTY_D6
 from konspekty_34_d8 import KONSPEKTY_D8
-KONSPEKTY = {**KONSPEKTY_D1, **KONSPEKTY_D2, **KONSPEKTY_D4, **KONSPEKTY_D6, **KONSPEKTY_D8, **KONSPEKTY}
+KONSPEKTY = {**KONSPEKTY_D1, **KONSPEKTY_D2, **KONSPEKTY_D3, **KONSPEKTY_D4, **KONSPEKTY_D5,
+             **KONSPEKTY_D6, **KONSPEKTY_D8, **KONSPEKTY_D9, **KONSPEKTY}
 
 WERSJE = [dane_34, dane_5, dane_6]
 
