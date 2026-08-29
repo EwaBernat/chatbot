@@ -154,37 +154,60 @@ FIRMA = "%s · %s · %s · %s" % (MARKA, WYDAWCA, MAIL, TEL)
 FIRMA_STOPKA = "%s · PCTP Koszalin · %s · %s" % (MARKA, MAIL, TEL)
 
 
-def logo_mark(size="7mm", dark="#2D1B69", accent="#E8450A", light="#FFFFFF"):
-    """Znak graficzny EduPlaner 2026 — „cyfrowa szafa”."""
+def logo_mark(size="7mm", dark=None, accent=None, light=None, halo=False):
+    """Logo PCTP — Pomorskie Centrum Terapii Pedagogicznej (odwzorowanie wektorowe)."""
+    ring = ('<circle cx="100" cy="100" r="99.2" fill="#FFFFFF" opacity=".9"/>' if halo else "")
+    head_svg = (
+      '<svg viewBox="0 0 200 200" style="width:%s;height:%s;display:block;flex-shrink:0;" '
+      'role="img" aria-label="Logo PCTP — Pomorskie Centrum Terapii Pedagogicznej">' % (size, size))
     return (
-      '<svg viewBox="0 0 100 100" style="width:%s;height:%s;display:block;flex-shrink:0;" '
-      'role="img" aria-label="Logo EduPlaner 2026">'
-      '<rect x="2" y="2" width="96" height="96" rx="24" fill="%s"/>'
-      '<rect x="22" y="20" width="56" height="60" rx="9" fill="none" stroke="%s" stroke-width="5"/>'
-      '<line x1="22" y1="40" x2="78" y2="40" stroke="%s" stroke-width="4.4"/>'
-      '<line x1="22" y1="60" x2="78" y2="60" stroke="%s" stroke-width="4.4"/>'
-      '<rect x="30" y="26" width="11" height="10" rx="2.6" fill="%s"/>'
-      '<rect x="45" y="26" width="11" height="10" rx="2.6" fill="%s" opacity=".55"/>'
-      '<rect x="30" y="46" width="11" height="10" rx="2.6" fill="%s" opacity=".55"/>'
-      '<rect x="45" y="46" width="26" height="10" rx="2.6" fill="%s"/>'
-      '<rect x="30" y="66" width="26" height="10" rx="2.6" fill="%s" opacity=".55"/>'
-      '</svg>' % (size, size, dark, light, light, light, accent, light, light, accent, light))
+      head_svg +
+      '<defs><radialGradient id="pctpBg" cx="38%" cy="30%" r="78%">'
+      '<stop offset="0%" stop-color="#5E3C93"/><stop offset="60%" stop-color="#4B2C7C"/>'
+      '<stop offset="100%" stop-color="#3A2062"/></radialGradient></defs>'
+      + ring +
+      '<circle cx="100" cy="100" r="97" fill="#4B2C7C"/>'
+      '<circle cx="100" cy="100" r="94" fill="#D6C9EE"/>'
+      '<circle cx="100" cy="100" r="87.5" fill="url(#pctpBg)"/>'
+      # łodygi
+      '<path d="M100 146 C100 126 84 110 71 98" fill="none" stroke="#C89B2C" '
+      'stroke-width="5.4" stroke-linecap="round"/>'
+      '<path d="M100 146 C100 126 116 110 129 98" fill="none" stroke="#C89B2C" '
+      'stroke-width="5.4" stroke-linecap="round"/>'
+      '<path d="M100 146 L100 100" fill="none" stroke="#C89B2C" '
+      'stroke-width="5.4" stroke-linecap="round"/>'
+      # płatki zewnętrzne
+      '<ellipse cx="70" cy="86" rx="11.5" ry="23" fill="#9C86CC" '
+      'transform="rotate(-24 70 86)"/>'
+      '<ellipse cx="130" cy="86" rx="11.5" ry="23" fill="#9C86CC" '
+      'transform="rotate(24 130 86)"/>'
+      # płatki wewnętrzne
+      '<ellipse cx="80" cy="71" rx="11.8" ry="27" fill="#EFA96D" '
+      'transform="rotate(-10 80 71)"/>'
+      '<ellipse cx="120" cy="71" rx="11.8" ry="27" fill="#EFA96D" '
+      'transform="rotate(10 120 71)"/>'
+      # płatek środkowy
+      '<ellipse cx="100" cy="64" rx="12.2" ry="30" fill="#E4713A"/>'
+      '<circle cx="100" cy="92" r="7.5" fill="#FFFFFF"/>'
+      # napis
+      '<text x="100" y="166" text-anchor="middle" font-family="Georgia,\'Times New Roman\',serif" '
+      'font-weight="700" font-size="45" letter-spacing="1" fill="#FBF7EF">PCTP</text>'
+      '</svg>')
 
 
 def logo_lockup(scale=1.0, on_dark=False):
-    """Znak + nazwa marki i wydawcy."""
+    """Logo PCTP z nazwą marki i wydawcy."""
     txt = "#FFFFFF" if on_dark else "#2D1B69"
     sub = "rgba(255,255,255,.85)" if on_dark else "var(--ink-soft)"
-    mark = (logo_mark("%.1fmm" % (11 * scale), dark="rgba(255,255,255,.16)", light="#FFFFFF", accent="#F4CE6A")
-            if on_dark else logo_mark("%.1fmm" % (11 * scale)))
+    akc = "#F4CE6A" if on_dark else "#E8450A"
     return ('<div style="display:flex;align-items:center;gap:%.1fmm;">%s<div>'
             '<div style="font-family:Quicksand;font-weight:700;font-size:%.1fpt;line-height:1.05;color:%s;">'
             'EduPlaner<span style="color:%s;"> 2026</span></div>'
             '<div style="font-family:Nunito;font-weight:700;font-size:%.1fpt;line-height:1.2;color:%s;'
             'margin-top:.6mm;">PCTP Koszalin · Pomorskie Centrum Terapii Pedagogicznej</div>'
             '</div></div>'
-            % (2.8 * scale, mark, 13 * scale, txt,
-               "#F4CE6A" if on_dark else "#E8450A", 7.2 * scale, sub))
+            % (2.8 * scale, logo_mark("%.1fmm" % (12.5 * scale), halo=on_dark),
+               13 * scale, txt, akc, 7.2 * scale, sub))
 
 
 def footer(n, total):
@@ -276,7 +299,7 @@ def zone_page(num, tone, title, intro, has_list, adapts, photo_name, photo_alt, 
             '<div class="col-text"><div class="body-text"><p>%s</p></div>%s</div>'
             '<div class="col-text">%s</div></div>%s'
             % (deco(tone), tone, num, tone, extra_kicker, title, intro,
-               check_box("Co warto mieć w tej strefie", has_list),
+               check_box("Co warto mieć w tej strefie?", has_list),
                adapt_mini(adapts, col=True),
                wide_photo(photo_name, photo_alt, photo_cap, "flex:1;min-height:38mm;")))
 
@@ -396,7 +419,7 @@ def toc_page(part, n, total):
     if part == 2:
         extra = ('<div class="two-col" style="flex:none;margin-top:5mm;gap:5mm;">'
                  '<div class="col-text">' +
-                 info_box("Jak korzystać z przewodnika", [
+                 info_box("Jak korzystać z przewodnika?", [
                      "<b>Strony 04–19</b> — organizacja sali według nowej podstawy programowej",
                      "<b>Strony 20–29</b> — trzy poziomy wsparcia i projektowanie uniwersalne",
                      "<b>Strony 30–40</b> — dostosowania według konkretnych deficytów",
@@ -410,13 +433,13 @@ def toc_page(part, n, total):
                  '</div></div>')
     if part == 1:
         extra = ('<div class="two-col" style="flex:none;margin-top:5mm;gap:5mm;"><div class="col-text">' +
-                 info_box("Dla kogo jest ten przewodnik", [
+                 info_box("Dla kogo jest ten przewodnik?", [
                      "Nauczycieli wychowania przedszkolnego urządzających salę od nowa",
                      "Pedagogów specjalnych i nauczycieli wspomagających",
                      "Dyrektorów planujących zakupy i nadzór pedagogiczny",
                      "Zespołów opracowujących WOPFU i IPET"], "mint") +
                  '</div><div class="col-text">' +
-                 info_box("Czego tu nie znajdziesz", [
+                 info_box("Czego tu nie znajdziesz?", [
                      "Gotowej listy zakupów bez odniesienia do potrzeb dzieci",
                      "Jednego „poprawnego” wyglądu sali dla wszystkich placówek",
                      "Zaleceń medycznych ani diagnostycznych",
@@ -428,7 +451,7 @@ def toc_page(part, n, total):
                  'Materiał ma charakter praktyczny i poglądowy — nie zastępuje lektury pełnych tekstów '
                  'aktów prawnych ani indywidualnych zaleceń poradni psychologiczno-pedagogicznej.</div>')
     return ('%s<span class="kicker t-purple">SPIS TREŚCI %d / 2</span>'
-            '<h2 class="page-title">Co znajdziesz w tym przewodniku</h2>'
+            '<h2 class="page-title">Co znajdziesz w tym przewodniku?</h2>'
             '<span class="underline u-purple"></span><div class="toc-list">%s</div>%s'
             % (deco("purple"), part, rows, extra))
 
@@ -454,7 +477,7 @@ P("Wstęp — przestrzeń jako trzeci nauczyciel", "purple", lambda n, t: split_
 
 P("Nowa podstawa programowa w pigułce", "mint", lambda n, t:
   head("PODSTAWA PRAWNA · 1", "mint", "Nowe przepisy w pigułce",
-       "Co dokładnie zmienia się w organizacji sali od 1 września 2026 roku.") +
+       "Co dokładnie zmienia się w organizacji sali od 1 września 2026 roku?") +
   '<div class="two-col" style="flex:none;margin-bottom:4mm;"><div class="col-text body-text">'
   '<p><strong>Rozporządzenie Ministra Edukacji z 11 marca 2026 r.</strong> w sprawie podstawy '
   'programowej wychowania przedszkolnego (Dz.U. 2026 poz. 378) wchodzi w życie '
@@ -464,7 +487,7 @@ P("Nowa podstawa programowa w pigułce", "mint", lambda n, t:
   'zainteresowań” zastępuje pojęcie <strong>„stałych i czasowych stref”</strong> — szersze, '
   'bo obejmujące także przestrzeń poza budynkiem przedszkola.</p></div>'
   '<div class="col-text">' +
-  check_box("Co realnie się zmienia", [
+  check_box("Co realnie się zmienia?", [
       "Nowe nazewnictwo: „strefa” zamiast „kącika”",
       "Zupełnie nowa, piąta strefa — umiejętności odpoczywania",
       "Strefy mogą działać poza salą i być wspólne dla kilku grup",
@@ -533,7 +556,7 @@ P("Filozofia — dziecko jako aktywny twórca", "pink", lambda n, t: split_page(
            "poznawczych, nie jest sprawczością — jest przywilejem części grupy. Dlatego każdą "
            "decyzję o urządzeniu sali warto sprawdzić pytaniem: <b>czy to zadziała także dla "
            "dziecka, które nie chodzi, nie mówi albo nie rozumie polecenia?</b>") +
-  info_box("Co znika z sali", [
+  info_box("Co znika z sali?", [
       "Stosy kart pracy wydawanych całej grupie naraz",
       "Materiały dostępne wyłącznie z rąk nauczyciela",
       "Jedna aktywność narzucona wszystkim w tym samym czasie"], "pink"),
@@ -657,13 +680,13 @@ P("Wszystkie strefy razem — schemat sali", "mint", lambda n, t:
                        ("var(--sun-deep)", "Strefa czasowa"),
                        ("#E4DBF3", "Ciągi komunikacyjne min. 90 cm")]) + '</div>' +
   '<div class="two-col" style="flex:1;min-height:0;"><div class="col-text">' +
-  info_box("Co ten schemat pokazuje", [
+  info_box("Co ten schemat pokazuje?", [
       "Strefy przy ścianach — środek sali zostaje wolny na ruch i zabawę",
       "Regały tworzą granice stref, ale nie zasłaniają widoku nauczycielowi",
       "Strefa wyciszenia w rogu, najdalej od wejścia i od strefy budowania",
       "Ciągi komunikacyjne krzyżują się w środku i są wolne przez cały dzień"], "mint") +
   '</div><div class="col-text">' +
-  info_box("Czego na schemacie nie widać", [
+  info_box("Czego na schemacie nie widać?", [
       "Wysokości półek — sprawdzasz je z pozycji dziecka, nie z góry",
       "Poziomu hałasu — najgłośniejsza strefa nie może sąsiadować z wyciszeniem",
       "Światła — strefa czytelnictwa i artystyczna potrzebują okna",
@@ -703,7 +726,7 @@ P("Ogród, taras, spacer — też są salą", "mint", lambda n, t: split_page(
   'co najmniej <strong>raz w tygodniu pobytu poza budynkiem dłużej niż godzinę</strong>.</p>'
   '<p>Nawet niewielki teren zielony można wykorzystać jako naturalne przedłużenie strefy '
   'przyrodniczej — do obserwacji i swobodnej zabawy ruchowej.</p></div>' +
-  check_box("Co warto zaplanować", [
+  check_box("Co warto zaplanować?", [
       "Kącik ogrodowy do obserwacji przyrody",
       "Utwardzone dojście dla wózka i dziecka niepewnego ruchowo",
       "Miejsce zacienione — dla dzieci z chorobami skóry i przewlekłymi",
@@ -804,7 +827,7 @@ P("Trzy poziomy wsparcia — mapa systemu", "purple", lambda n, t:
   '</div></div>')
 
 P("Poziom 1 — projektowanie uniwersalne", "mint", lambda n, t:
-  head("POZIOM 1", "mint", "Projektowanie uniwersalne — na czym polega",
+  head("POZIOM 1", "mint", "Projektowanie uniwersalne — na czym polega?",
        "„Projektowanie produktów, środowiska, programów i usług w taki sposób, by były użyteczne "
        "dla wszystkich, w możliwie największym stopniu, bez potrzeby adaptacji" +
        " lub specjalistycznego projektowania” — Konwencja ONZ, art. 2.") +
@@ -813,7 +836,7 @@ P("Poziom 1 — projektowanie uniwersalne", "mint", lambda n, t:
   'zanim takie dziecko trafi do grupy. Dostosowanie robione „po fakcie” zawsze wyróżnia dziecko; '
   'projektowanie uniwersalne nie wyróżnia nikogo.</p></div>' +
   '<table class="grid" style="margin-top:1mm;"><thead><tr><th style="width:34%">7 zasad projektowania uniwersalnego</th>'
-  '<th>Jak to wygląda w sali przedszkolnej</th></tr></thead><tbody>' +
+  '<th>Jak to wygląda w sali przedszkolnej?</th></tr></thead><tbody>' +
   "".join('<tr><td class="k">%s</td><td>%s</td></tr>' % (a, b) for a, b in [
       ("1. Równość w użyciu", "Ta sama półka i ten sam stół działa dla dziecka chodzącego i jeżdżącego na wózku"),
       ("2. Elastyczność", "Można pracować przy stole, na podłodze i na stojąco — dziecko wybiera pozycję"),
@@ -832,7 +855,7 @@ P("Poziom 1 — projektowanie uniwersalne", "mint", lambda n, t:
   'potrzebuje ich mniej, żeby uczestniczyć na równi z grupą.</div>')
 
 P("Poziom 1 w praktyce — jak to zorganizować", "mint", lambda n, t:
-  head("POZIOM 1 · PRAKTYKA", "mint", "Jak zorganizować projektowanie uniwersalne w sali",
+  head("POZIOM 1 · PRAKTYKA", "mint", "Jak zorganizować projektowanie uniwersalne w sali?",
        "Dwanaście rozwiązań, które nie wymagają orzeczenia, wniosku ani zgody organu prowadzącego.") +
   '<div class="two-col"><div class="col-text">' +
   info_box("Przestrzeń i meble", [
@@ -883,7 +906,7 @@ P("Poziom 1 — uniwersalne projektowanie zajęć", "mint", lambda n, t:
   'wyciągany na zewnątrz i „dostosowywany” osobno.</p>' +
   warn("„Zrobiłam dodatkowe zajęcia dla Zosi” — jeśli Zosia musi wychodzić z sali za każdym razem, "
        "gdy grupa robi coś ciekawego, to nie jest wsparcie, tylko wykluczenie z lepszą nazwą.") +
-  info_box("Jak sprawdzić zajęcia w 30 sekund", [
+  info_box("Jak sprawdzić zajęcia w 30 sekund?", [
       "Czy da się je wykonać bez mówienia?",
       "Czy da się je wykonać siedząc na wózku?",
       "Czy da się je wykonać, nie rozumiejąc długiego polecenia?",
@@ -893,15 +916,15 @@ P("Poziom 1 — uniwersalne projektowanie zajęć", "mint", lambda n, t:
              "Ta sama informacja w obrazku i w słowie — działa dla całej grupy", "height:58mm;") +
   '</div></div>')
 
-P("Poziom 2 — dla jakich dzieci", "sun", lambda n, t:
-  head("POZIOM 2", "sun", "Dostosowania ukierunkowane — dla jakich dzieci",
+P("Poziom 2 — dla jakich dzieci?", "sun", lambda n, t:
+  head("POZIOM 2", "sun", "Dostosowania ukierunkowane — dla jakich dzieci?",
        "Wsparcie dla dziecka, które ma rozpoznaną trudność, ale <b>nie ma orzeczenia</b> "
        "o potrzebie kształcenia specjalnego.") +
   '<div class="two-col"><div class="col-text">'
   '<div class="body-text"><p>Poziom 2 to obszar pomocy psychologiczno-pedagogicznej. '
   'Uruchamia go <strong>rozpoznanie nauczyciela</strong> albo opinia poradni — nie orzeczenie. '
   'Nie potrzebujesz dokumentu, żeby zacząć: potrzebujesz obserwacji i decyzji.</p></div>' +
-  info_box("Dla kogo — konkretnie", [
+  info_box("Dla kogo konkretnie?", [
       "Dzieci z opinią poradni psychologiczno-pedagogicznej",
       "Dzieci z rozpoznaną trudnością rozwojową bez orzeczenia (mowa, motoryka, uwaga)",
       "Dzieci z zaburzeniami przetwarzania sensorycznego",
@@ -911,7 +934,7 @@ P("Poziom 2 — dla jakich dzieci", "sun", lambda n, t:
       "Dzieci nieśmiałe, wycofane, z mutyzmem wybiórczym",
       "Dzieci ze szczególnymi uzdolnieniami, którym w grupie jest za wolno"], "pink") +
   '</div><div class="col-text">' +
-  info_box("Co robisz na tym poziomie", [
+  info_box("Co robisz na tym poziomie?", [
       "Dostosowujesz <b>miejsce</b> dziecka w sali — bliżej nauczyciela, dalej od hałasu",
       "Dajesz <b>dodatkowy sygnał</b> — uprzedzenie o zmianie, minutnik, obrazek",
       "Zmniejszasz obciążenie — mniej elementów, krótsze zadanie, przerwa ruchowa",
@@ -920,7 +943,7 @@ P("Poziom 2 — dla jakich dzieci", "sun", lambda n, t:
       "Dokumentujesz, co zadziałało — to podstawa ewentualnego wniosku o orzeczenie"], "purple") +
   warn("Czekanie na „papier”. Dziecko, które od pół roku zatyka uszy przy każdym hałasie, "
        "nie potrzebuje najpierw diagnozy — potrzebuje słuchawek wygłuszających dzisiaj.") +
-  info_box("Kiedy poziom 2 nie wystarcza", [], "mint",
+  info_box("Kiedy poziom 2 nie wystarcza?", [], "mint",
            "Gdy trudność utrzymuje się mimo trzech różnych dostosowań, a dziecko nie uczestniczy "
            "w większości aktywności grupy — zespół rozmawia z rodzicami o wniosku do poradni, "
            "z dokumentacją tego, co już próbowaliście.") +
@@ -930,7 +953,7 @@ P("Poziom 2 — dla jakich dzieci", "sun", lambda n, t:
   'kształcenia specjalnego.</div>')
 
 P("Poziom 2 w praktyce — organizacja i wyposażenie", "sun", lambda n, t:
-  head("POZIOM 2 · PRAKTYKA", "sun", "Jak zorganizować poziom 2 w sali") +
+  head("POZIOM 2 · PRAKTYKA", "sun", "Jak zorganizować poziom 2 w sali?") +
   '<div class="two-col"><div class="col-text" style="flex:1.2;">' +
   '<table class="grid"><thead><tr><th style="width:38%">Trudność dziecka</th>'
   '<th>Konkretne rozwiązanie w sali</th></tr></thead><tbody>' +
@@ -962,12 +985,12 @@ P("Poziom 2 w praktyce — organizacja i wyposażenie", "sun", lambda n, t:
              "Nakładki, pogrubione kredki, mata antypoślizgowa — tanie rozwiązania poziomu 2",
              "height:56mm;"))
 
-P("Poziom 3 — dla jakich dzieci", "red", lambda n, t:
-  head("POZIOM 3", "red", "Wsparcie zindywidualizowane — dla jakich dzieci",
+P("Poziom 3 — dla jakich dzieci?", "red", lambda n, t:
+  head("POZIOM 3", "red", "Wsparcie zindywidualizowane — dla jakich dzieci?",
        "Dzieci z orzeczeniem o potrzebie kształcenia specjalnego. Podstawą działania jest "
        "WOPFU i IPET, a nie sama diagnoza medyczna.") +
   '<div class="two-col"><div class="col-text">' +
-  info_box("Dla kogo", [
+  info_box("Dla kogo?", [
       "Dzieci niesłyszące i słabosłyszące",
       "Dzieci niewidome i słabowidzące",
       "Dzieci z niepełnosprawnością ruchową, w tym z afazją",
@@ -978,7 +1001,7 @@ P("Poziom 3 — dla jakich dzieci", "red", lambda n, t:
   '<div class="body-text" style="margin-top:1mm;"><p>Na tym poziomie dostosowanie przestrzeni '
   '<strong>przestaje być decyzją nauczyciela, a staje się zapisem w dokumencie</strong>. '
   'To, co ustalisz w IPET, musi mieć odzwierciedlenie w wyglądzie sali.</p></div>' +
-  info_box("Co zapisać w IPET w części o warunkach", [
+  info_box("Co zapisać w IPET w części o warunkach?", [
       "Miejsce dziecka w sali i w każdej strefie",
       "Sprzęt specjalistyczny i miejsce jego przechowywania",
       "Sposób komunikowania się z dzieckiem",
@@ -1006,9 +1029,9 @@ P("Poziom 3 — dla jakich dzieci", "red", lambda n, t:
   '</div></div>')
 
 P("Poziom 3 w praktyce — sala, sprzęt, organizacja", "red", lambda n, t:
-  head("POZIOM 3 · PRAKTYKA", "red", "Jak zorganizować poziom 3 w sali") +
+  head("POZIOM 3 · PRAKTYKA", "red", "Jak zorganizować poziom 3 w sali?") +
   '<div class="two-col"><div class="col-text" style="flex:1.15;">' +
-  info_box("Co zwykle trzeba zmienić w przestrzeni", [
+  info_box("Co zwykle trzeba zmienić w przestrzeni?", [
       "Stałe, oznaczone miejsce pracy indywidualnej — w sali, nie na korytarzu",
       "Miejsce na sprzęt: wózek, pionizator, komunikator, powiększalnik",
       "Poszerzone dojście do jednej lub dwóch stref (min. 120 cm dla manewru wózkiem)",
@@ -1030,7 +1053,7 @@ P("Poziom 3 w praktyce — sala, sprzęt, organizacja", "red", lambda n, t:
   '<div style="height:3mm;"></div>' +
   warn("Wyprowadzanie dziecka z sali „dla świętego spokoju grupy”. Poziom 3 ma umożliwić "
        "uczestnictwo w zajęciach grupy — nie zastąpić go osobnym trybem dnia.") +
-  info_box("Kto odpowiada za co", [
+  info_box("Kto odpowiada za co?", [
       "<b>Nauczyciel grupy</b> — codzienna organizacja sali zgodna z IPET",
       "<b>Pedagog specjalny</b> — dobór i wdrożenie dostosowań",
       "<b>Dyrektor</b> — zakup sprzętu i warunki lokalowe",
@@ -1070,7 +1093,7 @@ P("Matryca: strefa × poziom wsparcia", "mint", lambda n, t:
        "Sztućce z pogrubioną rączką, mata antypoślizgowa, cichsze miejsce",
        "Krzesło z podparciem, karmienie zgodnie z zaleceniem, dieta eliminacyjna"),
   ]) + '</tbody></table>' +
-  info_box("Jak używać matrycy w zespole", [
+  info_box("Jak używać matrycy w zespole?", [
       "Wydrukuj tabelę i zaznacz kolorem to, co już jest w Twojej sali",
       "Puste pola w kolumnie „poziom 1” to zawsze pierwszy priorytet zespołu",
       "Do kolumny „poziom 3” wpisz imiona dzieci, których zapisy z IPET dotyczą",
@@ -1079,8 +1102,8 @@ P("Matryca: strefa × poziom wsparcia", "mint", lambda n, t:
   'od lewej kolumny. Kolumnę „poziom 3” wypełniasz dopiero wtedy, gdy poziom 1 i 2 są już w sali — '
   'inaczej sprzęt specjalistyczny zastępuje organizację, zamiast ją uzupełniać.</div>')
 
-P("Ścieżka decyzyjna — który poziom wybrać", "purple", lambda n, t:
-  head("DECYZJA", "purple", "Który poziom wsparcia wybrać — ścieżka decyzyjna",
+P("Ścieżka decyzyjna — który poziom wybrać?", "purple", lambda n, t:
+  head("DECYZJA", "purple", "Ścieżka decyzyjna — który poziom wsparcia wybrać?",
        "Pięć pytań, które prowadzą od obserwacji dziecka do konkretnej zmiany w sali.") +
   '<div class="two-col"><div class="col-text">'
   '<div class="flow-steps">'
@@ -1122,7 +1145,7 @@ def deficit_page(icon, tone, title, subtitle, intro, barriers, l1, l2, l3, gear,
             '<div class="col-text" style="flex:1.35;"><div class="body-text" style="font-size:9.6pt;">'
             '<p>%s</p></div>%s</div>'
             '<div style="flex:.75;">%s</div></div>' % (
-                intro, info_box("Co utrudnia funkcjonowanie w sali", barriers, tone),
+                intro, info_box("Co utrudnia funkcjonowanie w sali?", barriers, tone),
                 wide_photo(photo_name, photo_alt, photo_cap, "height:64mm;")) +
             three_lvl(l1, l2, l3) +
             info_box("Wyposażenie i pomoce", gear, "mint") +
@@ -1411,7 +1434,7 @@ P("Dostępność językowa — dzieci z doświadczeniem migracji", "mint", lambd
     "Kącik powitalny: obraz, mapa i karty zamiast tłumaczenia słów"))
 
 P("Ściągawka — deficyt i pierwsza zmiana w sali", "pink", lambda n, t:
-  head("SZYBKA ŚCIĄGAWKA", "pink", "Od czego zacząć przy każdym deficycie",
+  head("SZYBKA ŚCIĄGAWKA", "pink", "Od czego zacząć przy każdym deficycie?",
        "Jedna zmiana, którą warto wprowadzić najpierw — zanim kupisz cokolwiek.") +
   '<table class="grid" style="font-size:7.9pt;"><thead><tr><th style="width:24%">Potrzeba dziecka</th>'
   '<th style="width:30%">Pierwsza zmiana — dziś, za zero złotych</th>'
@@ -1512,7 +1535,7 @@ EXTRA_CSS2 = """
 def tick3():
     return '<td class="tick"><span class="cbx"></span><span class="cbx"></span><span class="cbx"></span></td>'
 
-def sheet(rows, first_col="Co sprawdzasz"):
+def sheet(rows, first_col="Co sprawdzasz?"):
     out = ('<table class="sheet"><thead><tr><th class="q">%s</th>'
            '<th style="width:26%%;text-align:center;">TAK · CZĘŚCIOWO · NIE</th>'
            '<th style="width:22%%;">Uwagi / co poprawić</th></tr></thead><tbody>' % first_col)
@@ -1521,7 +1544,7 @@ def sheet(rows, first_col="Co sprawdzasz"):
     return out + "</tbody></table>"
 
 # ---------- CZĘŚĆ IV — MONITORING ----------
-P("Monitoring sali — po co i jak często", "purple", lambda n, t:
+P("Monitoring sali — po co i jak często?", "purple", lambda n, t:
   head("MONITORING SALI", "purple", "Sala nie jest projektem — jest procesem",
        "Monitoring to nie kontrola nauczyciela. To sprawdzenie, czy przestrzeń nadal robi to, "
        "do czego została zaprojektowana.") +
@@ -1534,7 +1557,7 @@ P("Monitoring sali — po co i jak często", "purple", lambda n, t:
       "<b>Co miesiąc (15 minut)</b> — Arkusz A: pięć stref",
       "<b>Raz na semestr (45 minut)</b> — Arkusz B: dostępność i trzy poziomy",
       "<b>Po każdej zmianie w grupie</b> — nowe dziecko, nowe orzeczenie, nowy sprzęt"], "purple") +
-  info_box("Kto monitoruje", [
+  info_box("Kto monitoruje?", [
       "Nauczyciele obu zmian pracujący w tej sali",
       "Specjalista — psycholog, pedagog specjalny lub logopeda",
       "Dyrektor — w ramach nadzoru pedagogicznego",
@@ -1625,8 +1648,8 @@ P("Karta obserwacji dziecka w przestrzeni", "pink", lambda n, t:
   'najlepiej po trzech obserwacjach w różnych porach dnia. Wnioski przenosi się do WOPFU, IPET '
   'lub do planu pomocy psychologiczno-pedagogicznej.</div>')
 
-P("Wskaźniki — kiedy sala naprawdę działa", "mint", lambda n, t:
-  head("WSKAŹNIKI", "mint", "Po czym poznasz, że sala działa",
+P("Wskaźniki — kiedy sala naprawdę działa?", "mint", lambda n, t:
+  head("WSKAŹNIKI", "mint", "Po czym poznasz, że sala działa?",
        "Nie po tym, jak wygląda na zdjęciu — po tym, co robią w niej dzieci.") +
   '<div class="kpi-row">'
   '<div class="kpi sf-l1"><div class="kv tx-l1">5 / 5</div><div class="kl">stref stałych '
@@ -1653,13 +1676,13 @@ P("Wskaźniki — kiedy sala naprawdę działa", "mint", lambda n, t:
       "Sprzęt specjalistyczny leży nieużywany od dwóch tygodni"], "pink") +
   '</div></div>' +
   '<div class="two-col" style="flex:none;margin-top:1mm;"><div class="col-text">' +
-  info_box("Jak zmierzyć — bez skomplikowanych narzędzi", [
+  info_box("Jak to zmierzyć bez skomplikowanych narzędzi?", [
       "<b>Mapa ruchu</b> — przez 15 minut zaznaczaj na planie, gdzie idą dzieci",
       "<b>Licznik próśb</b> — ile razy dziecko musi poprosić dorosłego o materiał",
       "<b>Czas w strefie</b> — jak długo trwa jedna aktywność, zanim dziecko odchodzi",
       "<b>Zdjęcie sali</b> — to samo ujęcie raz w miesiącu pokazuje zmianę"], "purple") +
   '</div><div class="col-text">' +
-  info_box("Kiedy wskaźnik kłamie", [], "sun",
+  info_box("Kiedy wskaźnik kłamie?", [], "sun",
            "Sala sprawdzana w piątek po sprzątaniu zawsze wypada dobrze. Obserwuj ją w środku dnia, "
            "przy pełnej grupie i po zajęciach plastycznych — dopiero wtedy widać, "
            "czy rozwiązania działają naprawdę.") +
@@ -1670,8 +1693,8 @@ P("Wskaźniki — kiedy sala naprawdę działa", "mint", lambda n, t:
 P("Plan naprawczy — od wniosku do zmiany", "purple", lambda n, t:
   head("PLAN NAPRAWCZY", "purple", "Od wniosku z monitoringu do zmiany w sali",
        "Każde „NIE” z arkusza zamienia się w jeden wiersz tej tabeli.") +
-  '<table class="sheet"><thead><tr><th style="width:26%">Co nie działa</th>'
-  '<th style="width:30%">Co zmieniamy</th><th style="width:12%">Poziom</th>'
+  '<table class="sheet"><thead><tr><th style="width:26%">Co nie działa?</th>'
+  '<th style="width:30%">Co zmieniamy?</th><th style="width:12%">Poziom</th>'
   '<th style="width:16%">Kto</th><th>Termin</th></tr></thead><tbody>' +
   ('<tr><td>Przykład: strefa wyciszenia zastawiona pudełkami</td>'
    '<td>Przenosimy magazyn do szafy, wracają pufy i kołdra</td>'
@@ -1685,7 +1708,7 @@ P("Plan naprawczy — od wniosku do zmiany", "purple", lambda n, t:
       "Najpierw zmiany bezkosztowe, potem zakupy",
       "Efekt sprawdzasz po czterech tygodniach, tym samym arkuszem"], "purple") +
   '</div><div class="col-text">' +
-  info_box("Co zrobić z wnioskami", [
+  info_box("Co zrobić z wnioskami?", [
       "Wnioski z Arkusza A → plan pracy zespołu na kolejny miesiąc",
       "Wnioski z Arkusza B → ewaluacja IPET i plan pomocy p-p",
       "Wnioski powtarzalne → wniosek do dyrektora o zakup lub remont",
@@ -1715,7 +1738,7 @@ P("Naszkicuj plan swojej sali", "purple", lambda n, t:
 P("Plan wdrożenia krok po kroku", "mint", lambda n, t:
   head("WDROŻENIE", "mint", "Od kącika do strefy — plan wdrożenia",
        "Przykładowy harmonogram przygotowania sali do 1 września 2026 r. — dopasuj do własnego kalendarza.") +
-  '<table class="plan" style="font-size:8.4pt;"><thead><tr><th>Krok</th><th>Co zrobić</th>'
+  '<table class="plan" style="font-size:8.4pt;"><thead><tr><th>Krok</th><th>Co zrobić?</th>'
   '<th>Szczegóły</th><th>Termin</th></tr></thead><tbody>' +
   "".join('<tr><td style="font-family:Quicksand;font-weight:700;color:var(--purple-deep);">%s</td>'
           '<td><strong>%s</strong></td><td>%s</td><td>%s</td></tr>' % r for r in [
