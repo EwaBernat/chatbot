@@ -10,7 +10,7 @@ zdecydować Mirka (oznaczone **DO DECYZJI**).
 
 | Plik | Do czego |
 |---|---|
-| `Cele_SMART_w_przedszkolu_PCTP.pdf` | **produkt** — 17 stron A4, gotowe do druku i do czytania na ekranie |
+| `Cele_SMART_w_przedszkolu_PCTP.pdf` | **produkt** — 16 stron A4, gotowe do druku i do czytania na ekranie |
 | `cele-smart-przedszkole.html` | wersja przeglądarkowa, gdyby sklep oferował też format online |
 | `sklep/Cele_SMART_podglad.pdf` | **darmowy podgląd** — 3 strony ze stopką „PODGLĄD", do pobrania przed zakupem |
 | `sklep/okladka.png` | miniatura okładki na kartę produktu (200 dpi) |
@@ -61,7 +61,7 @@ Materiał jest zbudowany na **nowej podstawie programowej wychowania przedszkoln
 (Dz.U. 2026 poz. 378), obowiązującej od 1 września 2026 r.** — z bankiem gotowych celów
 do wszystkich dziewięciu obszarów, które zastąpiły dotychczasowe cztery.
 
-17 stron A4 w kolorze. Do wydruku i do czytania na ekranie.
+16 stron A4 w kolorze. Do wydruku i do czytania na ekranie.
 
 ### Dla kogo
 Nauczyciele wychowania przedszkolnego, pedagodzy specjalni, logopedzi i terapeuci

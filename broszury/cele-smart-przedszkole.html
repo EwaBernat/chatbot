@@ -570,27 +570,39 @@ strong{font-weight:900}
 .tally-sum{margin-left:8px;font-family:var(--f-display);font-weight:800;font-size:1.05rem;color:var(--ok)}
 
 /* ============ BANK CELÓW WG OBSZARÓW ============ */
-.goals{display:flex;flex-direction:column;gap:14px}
+.goals{display:grid;grid-template-columns:repeat(auto-fit,minmax(330px,1fr));gap:16px}
 .goal{
-  background:var(--surface);border:1px solid var(--rule);border-radius:14px;
-  padding:18px 22px;box-shadow:var(--shadow);
+  background:var(--surface);border:1px solid var(--rule);border-radius:15px;
+  overflow:hidden;box-shadow:var(--shadow);display:flex;flex-direction:column;
 }
-.goal-head{display:flex;align-items:baseline;gap:10px;flex-wrap:wrap;margin-bottom:12px}
-.goal-dot{width:11px;height:11px;border-radius:50%;background:var(--flame);flex:none;align-self:center}
-.goal-head h3{font-size:1.22rem}
+.goal-head{
+  display:flex;align-items:center;gap:12px;
+  padding:13px 18px;background:var(--brand);color:#fff;
+}
+:root[data-theme="dark"] .goal-head,
+:root:not([data-theme="light"]) .goal-head{color:#160E2A}
+@media (prefers-color-scheme: light){:root:not([data-theme="dark"]) .goal-head{color:#fff}}
+.goal-ikona{
+  width:34px;height:34px;flex:none;border-radius:9px;
+  background:rgba(255,255,255,.14);display:flex;align-items:center;justify-content:center;
+}
+.goal-ikona svg{width:21px;height:21px;stroke:#FFB48C;fill:none;stroke-width:1.7;
+  stroke-linecap:round;stroke-linejoin:round}
+.goal-tytul{min-width:0}
+.goal-tytul h3{font-size:1.14rem;line-height:1.15;color:inherit}
 .goal-scope{
-  font-family:var(--f-display);font-weight:700;font-size:.72rem;letter-spacing:.1em;
-  text-transform:uppercase;color:var(--ink-2);
+  display:block;font-family:var(--f-display);font-weight:700;font-size:.66rem;
+  letter-spacing:.13em;text-transform:uppercase;opacity:.72;margin-top:3px;
 }
-.goal-row{display:grid;grid-template-columns:92px minmax(0,1fr);gap:5px 14px;align-items:baseline;font-size:.97rem}
-.goal-row dt{
-  font-family:var(--f-display);font-weight:800;font-size:.72rem;letter-spacing:.12em;
-  text-transform:uppercase;color:var(--ink-2);padding-top:.3em;
+.goal-body{padding:15px 18px 17px;display:flex;flex-direction:column;gap:11px;flex:1}
+.goal-meta{display:grid;grid-template-columns:auto minmax(0,1fr);gap:9px;align-items:start;font-size:.93rem;line-height:1.42}
+.goal-meta b{
+  font-family:var(--f-display);font-weight:800;font-size:.65rem;letter-spacing:.13em;
+  text-transform:uppercase;color:var(--ink-2);white-space:nowrap;padding-top:.28em;
 }
-.goal-row dd{margin:0}
 .goal-cel{
-  background:var(--brand-soft);border-left:3px solid var(--brand);border-radius:0 9px 9px 0;
-  padding:11px 14px;margin:10px 0;font-size:1.02rem;line-height:1.45;font-weight:700;color:var(--ink);
+  background:var(--brand-soft);border-left:3px solid var(--flame);border-radius:0 10px 10px 0;
+  padding:12px 15px;font-size:1.01rem;line-height:1.46;font-weight:700;color:var(--ink);
 }
 .goal-cel b{color:var(--flame);font-weight:900}
 
@@ -765,13 +777,17 @@ td b{font-weight:900}
   .section h2 + .lead{break-after:avoid}
   .card,.letter,.step,.light,.vs-box,.formula,.filled,.alert,.thermo-wrap,
   .decomp-row,.check,.slot,.fix,.toc-row,.goal{break-inside:avoid;page-break-inside:avoid}
-  .goal{padding:2.8mm 4mm;border-radius:9px}
-  .goals{gap:2mm}
-  .goal-head{margin-bottom:1.4mm;gap:7px}
-  .goal-head h3{font-size:1.08rem}
-  .goal-scope{font-size:.66rem}
-  .goal-cel{padding:2mm 3mm;margin:1.8mm 0;font-size:9.5pt;line-height:1.38}
-  .goal-row{grid-template-columns:80px minmax(0,1fr);gap:0.4mm 2.6mm;font-size:9pt}
+  .goals{grid-template-columns:1fr 1fr;gap:3mm}
+  .goal{border-radius:9px}
+  .goal-head{padding:2.2mm 3.4mm;gap:2.6mm}
+  .goal-ikona{width:8mm;height:8mm;border-radius:2mm}
+  .goal-ikona svg{width:5mm;height:5mm}
+  .goal-tytul h3{font-size:1rem}
+  .goal-scope{font-size:.6rem;letter-spacing:.1em}
+  .goal-body{padding:2.8mm 3.4mm 3.2mm;gap:2.2mm}
+  .goal-meta{font-size:8.6pt;gap:2mm}
+  .goal-meta b{font-size:.58rem}
+  .goal-cel{padding:2.2mm 3mm;font-size:9.1pt;line-height:1.36}
   h3{break-after:avoid}
 
   /* ── §6: termometr jako oblewana kolumna, żeby nie został sam na stronie ── */
@@ -1406,130 +1422,148 @@ td b{font-weight:900}
 
       <div class="goals">
         <article class="goal">
-          <div class="goal-head">
-            <span class="goal-dot"></span>
-            <h3>Obszar społeczny</h3>
-            <span class="goal-scope">relacje rówieśnicze · współpraca · przynależność</span>
+          <header class="goal-head">
+            <span class="goal-ikona" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><circle cx="9" cy="8.6" r="3"/><circle cx="16.4" cy="10.2" r="2.3"/><path d="M3.6 19.4c0-3 2.4-5.2 5.4-5.2s5.4 2.2 5.4 5.2"/><path d="M15.4 14.1c2.6.2 4.6 2.3 4.6 5"/></svg>
+            </span>
+            <span class="goal-tytul">
+              <h3>Obszar społeczny</h3>
+              <span class="goal-scope">relacje · współpraca · przynależność</span>
+            </span>
+          </header>
+          <div class="goal-body">
+            <p class="goal-meta"><b>Punkt wyjścia</b><span>Wchodzi do zabawy, zabierając zabawkę; o pozwolenie pyta w 1 na 5 sytuacji.</span></p>
+            <p class="goal-cel">„Dziecko dołączy do zabawy rówieśników, używając umówionego zwrotu („Mogę się z wami bawić?”), samodzielnie, w <b>4 na 5</b> obserwowanych sytuacji zabawy swobodnej, <b>do końca I semestru</b>.”</p>
+            <p class="goal-meta"><b>Czym mierzysz</b><span>Karta obserwacji zabawy swobodnej — pięć sytuacji w tygodniu.</span></p>
           </div>
-          <dl class="goal-row">
-            <dt>Punkt wyjścia</dt><dd>Wchodzi do zabawy, zabierając zabawkę; o pozwolenie pyta w 1 na 5 sytuacji.</dd>
-          </dl>
-          <p class="goal-cel">„Dziecko dołączy do zabawy rówieśników, używając umówionego zwrotu („Mogę się z wami bawić?”), samodzielnie, w <b>4 na 5</b> obserwowanych sytuacji zabawy swobodnej, <b>do końca I semestru</b>.”</p>
-          <dl class="goal-row">
-            <dt>Czym mierzysz</dt><dd>Karta obserwacji zabawy swobodnej — pięć sytuacji w tygodniu.</dd>
-          </dl>
         </article>
         <article class="goal">
-          <div class="goal-head">
-            <span class="goal-dot"></span>
-            <h3>Obszar osobisty</h3>
-            <span class="goal-scope">tożsamość · emocje · granice · porażka</span>
+          <header class="goal-head">
+            <span class="goal-ikona" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><path d="M12 20.2s-6.8-4.3-6.8-8.8a3.7 3.7 0 0 1 6.8-2.1 3.7 3.7 0 0 1 6.8 2.1c0 4.5-6.8 8.8-6.8 8.8z"/></svg>
+            </span>
+            <span class="goal-tytul">
+              <h3>Obszar osobisty</h3>
+              <span class="goal-scope">tożsamość · emocje · granice</span>
+            </span>
+          </header>
+          <div class="goal-body">
+            <p class="goal-meta"><b>Punkt wyjścia</b><span>Po przegranej wychodzi z zabawy albo płacze — w 4 na 5 gier.</span></p>
+            <p class="goal-cel">„Dziecko po przegranej w grze planszowej zostanie przy stole i dokończy rundę, po jednej podpowiedzi słownej, w <b>3 na 5</b> gier, <b>do 15 grudnia</b>.”</p>
+            <p class="goal-meta"><b>Czym mierzysz</b><span>Wpis w dzienniku po każdej grze; przegląd po 8 tygodniach.</span></p>
           </div>
-          <dl class="goal-row">
-            <dt>Punkt wyjścia</dt><dd>Po przegranej wychodzi z zabawy albo płacze — w 4 na 5 gier.</dd>
-          </dl>
-          <p class="goal-cel">„Dziecko po przegranej w grze planszowej zostanie przy stole i dokończy rundę, po jednej podpowiedzi słownej, w <b>3 na 5</b> gier, <b>do 15 grudnia</b>.”</p>
-          <dl class="goal-row">
-            <dt>Czym mierzysz</dt><dd>Wpis w dzienniku po każdej grze; przegląd po 8 tygodniach.</dd>
-          </dl>
         </article>
         <article class="goal">
-          <div class="goal-head">
-            <span class="goal-dot"></span>
-            <h3>Obszar językowy</h3>
-            <span class="goal-scope">mowa · komunikacja · droga do czytania</span>
+          <header class="goal-head">
+            <span class="goal-ikona" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><path d="M20.2 12.3c0 3.5-3.7 6.4-8.2 6.4-1 0-2-.15-2.9-.42L4.4 19.9l1.5-3.3c-1-1.2-1.6-2.7-1.6-4.3C4.3 8.8 8 5.9 12.4 5.9s7.8 2.9 7.8 6.4z"/><path d="M8.6 11.4h7.2M8.6 14.2h4.4"/></svg>
+            </span>
+            <span class="goal-tytul">
+              <h3>Obszar językowy</h3>
+              <span class="goal-scope">mowa · komunikacja · droga do czytania</span>
+            </span>
+          </header>
+          <div class="goal-body">
+            <p class="goal-meta"><b>Punkt wyjścia</b><span>Opowiada zdaniami dwu‑ i trzywyrazowymi, gubi kolejność zdarzeń.</span></p>
+            <p class="goal-cel">„Dziecko opowie treść historyjki z trzech obrazków, zachowując kolejność zdarzeń, samodzielnie, w <b>4 na 5</b> prób, <b>do końca semestru</b>.”</p>
+            <p class="goal-meta"><b>Czym mierzysz</b><span>Arkusz zliczeń — jedna historyjka tygodniowo.</span></p>
           </div>
-          <dl class="goal-row">
-            <dt>Punkt wyjścia</dt><dd>Opowiada zdaniami dwu‑ i trzywyrazowymi, gubi kolejność zdarzeń.</dd>
-          </dl>
-          <p class="goal-cel">„Dziecko opowie treść historyjki z trzech obrazków, zachowując kolejność zdarzeń, samodzielnie, w <b>4 na 5</b> prób, <b>do końca semestru</b>.”</p>
-          <dl class="goal-row">
-            <dt>Czym mierzysz</dt><dd>Arkusz zliczeń — jedna historyjka tygodniowo.</dd>
-          </dl>
         </article>
         <article class="goal">
-          <div class="goal-head">
-            <span class="goal-dot"></span>
-            <h3>Obszar matematyczny</h3>
-            <span class="goal-scope">orientacja · rytmy · intuicja matematyczna</span>
+          <header class="goal-head">
+            <span class="goal-ikona" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><circle cx="5.6" cy="12" r="2.5"/><rect x="9.6" y="9.5" width="5" height="5" rx="1"/><path d="M19 9.2l2.7 5.6h-5.4z"/></svg>
+            </span>
+            <span class="goal-tytul">
+              <h3>Obszar matematyczny</h3>
+              <span class="goal-scope">orientacja · rytmy · intuicja</span>
+            </span>
+          </header>
+          <div class="goal-body">
+            <p class="goal-meta"><b>Punkt wyjścia</b><span>Kontynuuje rytm dwuelementowy, ale tylko z podpowiedzią.</span></p>
+            <p class="goal-cel">„Dziecko ułoży dalszy ciąg rytmu trzyelementowego (np. czerwony–niebieski–żółty) samodzielnie, w <b>8 na 10</b> prób, <b>do końca lutego</b>.”</p>
+            <p class="goal-meta"><b>Czym mierzysz</b><span>Karta zliczeń prób przy kąciku matematycznym.</span></p>
           </div>
-          <dl class="goal-row">
-            <dt>Punkt wyjścia</dt><dd>Kontynuuje rytm dwuelementowy, ale tylko z podpowiedzią.</dd>
-          </dl>
-          <p class="goal-cel">„Dziecko ułoży dalszy ciąg rytmu trzyelementowego (np. czerwony–niebieski–żółty) samodzielnie, w <b>8 na 10</b> prób, <b>do końca lutego</b>.”</p>
-          <dl class="goal-row">
-            <dt>Czym mierzysz</dt><dd>Karta zliczeń prób przy kąciku matematycznym.</dd>
-          </dl>
         </article>
         <article class="goal">
-          <div class="goal-head">
-            <span class="goal-dot"></span>
-            <h3>Obszar przyrodniczy</h3>
-            <span class="goal-scope">obserwacja · przyroda z bliska · ekologia</span>
+          <header class="goal-head">
+            <span class="goal-ikona" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><path d="M19.4 4.8c.6 8.3-4.5 12-9.6 12-2.6 0-4.4-1.5-4.4-3.9 0-5 6.3-8.1 14-8.1z"/><path d="M15.6 8.4C11.8 11 9.2 14.8 7.6 19.6"/></svg>
+            </span>
+            <span class="goal-tytul">
+              <h3>Obszar przyrodniczy</h3>
+              <span class="goal-scope">obserwacja · przyroda z bliska</span>
+            </span>
+          </header>
+          <div class="goal-body">
+            <p class="goal-meta"><b>Punkt wyjścia</b><span>Nazywa dwa zwierzęta spotykane w ogrodzie przedszkolnym.</span></p>
+            <p class="goal-cel">„Dziecko wskaże i nazwie trzy oznaki zmiany pory roku zaobserwowane w ogrodzie, samodzielnie, w <b>4 na 5</b> wyjść, <b>do końca listopada</b>.”</p>
+            <p class="goal-meta"><b>Czym mierzysz</b><span>Kalendarz obserwacji prowadzony po każdym wyjściu.</span></p>
           </div>
-          <dl class="goal-row">
-            <dt>Punkt wyjścia</dt><dd>Nazywa dwa zwierzęta spotykane w ogrodzie przedszkolnym.</dd>
-          </dl>
-          <p class="goal-cel">„Dziecko wskaże i nazwie trzy oznaki zmiany pory roku zaobserwowane w ogrodzie, samodzielnie, w <b>4 na 5</b> wyjść, <b>do końca listopada</b>.”</p>
-          <dl class="goal-row">
-            <dt>Czym mierzysz</dt><dd>Kalendarz obserwacji przyrodniczych prowadzony po każdym wyjściu.</dd>
-          </dl>
         </article>
         <article class="goal">
-          <div class="goal-head">
-            <span class="goal-dot"></span>
-            <h3>Obszar techniczny</h3>
-            <span class="goal-scope">praca rąk · narzędzia · konstruowanie</span>
+          <header class="goal-head">
+            <span class="goal-ikona" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><path d="M17.8 4.4a4.6 4.6 0 0 0-6 5.8L5.1 16.9a1.9 1.9 0 0 0 2.6 2.6l6.7-6.7a4.6 4.6 0 0 0 5.8-6l-2.6 2.6-2.3-.6-.6-2.3 2.6-2.6z"/></svg>
+            </span>
+            <span class="goal-tytul">
+              <h3>Obszar techniczny</h3>
+              <span class="goal-scope">praca rąk · narzędzia · konstruowanie</span>
+            </span>
+          </header>
+          <div class="goal-body">
+            <p class="goal-meta"><b>Punkt wyjścia</b><span>Łączy elementy tylko wtedy, gdy dorosły przytrzyma materiał.</span></p>
+            <p class="goal-cel">„Dziecko połączy dwa elementy konstrukcji, samodzielnie wybierając sposób łączenia (taśma, sznurek, klej), bez pomocy fizycznej dorosłego, w <b>4 na 5</b> zajęć majsterkowania, <b>do końca semestru</b>.”</p>
+            <p class="goal-meta"><b>Czym mierzysz</b><span>Karta obserwacji kącika majsterkowania.</span></p>
           </div>
-          <dl class="goal-row">
-            <dt>Punkt wyjścia</dt><dd>Łączy elementy tylko wtedy, gdy dorosły przytrzyma materiał.</dd>
-          </dl>
-          <p class="goal-cel">„Dziecko połączy dwa elementy konstrukcji, samodzielnie wybierając sposób łączenia (taśma, sznurek, klej), bez pomocy fizycznej dorosłego, w <b>4 na 5</b> zajęć majsterkowania, <b>do końca semestru</b>.”</p>
-          <dl class="goal-row">
-            <dt>Czym mierzysz</dt><dd>Karta obserwacji kącika majsterkowania.</dd>
-          </dl>
         </article>
         <article class="goal">
-          <div class="goal-head">
-            <span class="goal-dot"></span>
-            <h3>Obszar cyfrowy</h3>
-            <span class="goal-scope">rozumienie techniki · higiena cyfrowa</span>
+          <header class="goal-head">
+            <span class="goal-ikona" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><rect x="7" y="3.4" width="10" height="17.2" rx="2.2"/><path d="M10.4 17.6h3.2"/></svg>
+            </span>
+            <span class="goal-tytul">
+              <h3>Obszar cyfrowy</h3>
+              <span class="goal-scope">rozumienie techniki · higiena cyfrowa</span>
+            </span>
+          </header>
+          <div class="goal-body">
+            <p class="goal-meta"><b>Punkt wyjścia</b><span>Rozpoznaje telefon i tablet, nie potrafi powiedzieć, do czego służą.</span></p>
+            <p class="goal-cel">„Dziecko wskaże na obrazkach trzy urządzenia i powie własnymi słowami, do czego każde służy (np. telefon — do rozmowy), samodzielnie, w <b>4 na 5</b> prób, <b>do końca marca</b>.”</p>
+            <p class="goal-meta"><b>Czym mierzysz</b><span>Arkusz zliczeń; zestaw obrazków urządzeń.</span></p>
           </div>
-          <dl class="goal-row">
-            <dt>Punkt wyjścia</dt><dd>Rozpoznaje telefon i tablet, nie potrafi powiedzieć, do czego służą.</dd>
-          </dl>
-          <p class="goal-cel">„Dziecko wskaże na obrazkach trzy urządzenia i powie własnymi słowami, do czego każde służy (np. telefon — do rozmowy), samodzielnie, w <b>4 na 5</b> prób, <b>do końca marca</b>.”</p>
-          <dl class="goal-row">
-            <dt>Czym mierzysz</dt><dd>Arkusz zliczeń; zestaw obrazków urządzeń.</dd>
-          </dl>
         </article>
         <article class="goal">
-          <div class="goal-head">
-            <span class="goal-dot"></span>
-            <h3>Obszar artystyczny</h3>
-            <span class="goal-scope">proces twórczy · ekspresja emocji</span>
+          <header class="goal-head">
+            <span class="goal-ikona" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><path d="M12 4.2c4.4 0 8 3.2 8 7.1 0 2.2-1.8 3.4-3.4 3.4h-1.3c-1.1 0-1.9.8-1.9 1.9 0 .5.2.9.5 1.2.3.3.4.6.4 1 0 1-.9 1.6-1.9 1.6-4.4 0-8-3.6-8-8s3.2-8.2 7.6-8.2z"/><circle cx="8.4" cy="10.2" r="1"/><circle cx="12" cy="7.9" r="1"/><circle cx="15.6" cy="9.8" r="1"/></svg>
+            </span>
+            <span class="goal-tytul">
+              <h3>Obszar artystyczny</h3>
+              <span class="goal-scope">proces twórczy · ekspresja emocji</span>
+            </span>
+          </header>
+          <div class="goal-body">
+            <p class="goal-meta"><b>Punkt wyjścia</b><span>Przerywa pracę plastyczną w połowie; nie komentuje tego, co zrobiło.</span></p>
+            <p class="goal-cel">„Dziecko dokończy pracę plastyczną i powie, co przedstawia oraz jaki nastrój chciało pokazać, samodzielnie, w <b>4 na 5</b> zajęć, <b>do końca semestru</b>.”</p>
+            <p class="goal-meta"><b>Czym mierzysz</b><span>Teczka prac z krótką notatką przy każdej.</span></p>
           </div>
-          <dl class="goal-row">
-            <dt>Punkt wyjścia</dt><dd>Przerywa pracę plastyczną w połowie; nie komentuje tego, co zrobiło.</dd>
-          </dl>
-          <p class="goal-cel">„Dziecko dokończy pracę plastyczną i powie, co przedstawia oraz jaki nastrój chciało pokazać, samodzielnie, w <b>4 na 5</b> zajęć, <b>do końca semestru</b>.”</p>
-          <dl class="goal-row">
-            <dt>Czym mierzysz</dt><dd>Teczka prac z krótką notatką nauczyciela przy każdej.</dd>
-          </dl>
         </article>
         <article class="goal">
-          <div class="goal-head">
-            <span class="goal-dot"></span>
-            <h3>Obszar ruchowy</h3>
-            <span class="goal-scope">motoryka · postawa · bezpieczeństwo</span>
+          <header class="goal-head">
+            <span class="goal-ikona" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><circle cx="14.8" cy="5.4" r="1.9"/><path d="M7.6 20.4l3.2-4.8 3 1.6 1.6 3.2"/><path d="M10.8 15.6L9.2 10.8l3.6-2.1 2.6 2.6 2.6.7"/></svg>
+            </span>
+            <span class="goal-tytul">
+              <h3>Obszar ruchowy</h3>
+              <span class="goal-scope">motoryka · postawa · bezpieczeństwo</span>
+            </span>
+          </header>
+          <div class="goal-body">
+            <p class="goal-meta"><b>Punkt wyjścia</b><span>Utrzymuje równowagę na jednej nodze przez ok. 2 sekundy.</span></p>
+            <p class="goal-cel">„Dziecko utrzyma równowagę, stojąc na jednej nodze przez <b>5 sekund</b>, samodzielnie, w <b>4 na 5</b> prób, <b>do końca kwietnia</b>.”</p>
+            <p class="goal-meta"><b>Czym mierzysz</b><span>Pomiar stoperem raz w tygodniu, zapis w karcie.</span></p>
           </div>
-          <dl class="goal-row">
-            <dt>Punkt wyjścia</dt><dd>Utrzymuje równowagę na jednej nodze przez ok. 2 sekundy.</dd>
-          </dl>
-          <p class="goal-cel">„Dziecko utrzyma równowagę, stojąc na jednej nodze przez <b>5 sekund</b>, samodzielnie, w <b>4 na 5</b> prób, <b>do końca kwietnia</b>.”</p>
-          <dl class="goal-row">
-            <dt>Czym mierzysz</dt><dd>Pomiar stoperem raz w tygodniu, zapis w karcie.</dd>
-          </dl>
         </article>
       </div>
 
