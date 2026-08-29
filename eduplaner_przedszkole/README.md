@@ -12,10 +12,11 @@ do wykorzystania w IPET i PEWS.
 
 | Plik | Opis |
 |---|---|
-| `Bank_celow_SMART_KPOF.html` | dokument roboczy: zakładki wersji, filtr poziomów, wyszukiwarka, druk A4 |
-| `Bank_celow_SMART_KPOF.pdf` | wersja do druku (77 stron A4, wszystkie trzy wersje wiekowe) |
+| `Bank_celow_SMART_KPOF.html` | druk KC-1: układ tabelaryczny (styl Kącika Dyrektora), zakładki wersji, filtr kolumn, wyszukiwarka |
+| `Bank_celow_SMART_KPOF.pdf` | wersja do druku (31 stron A4 **poziomo**, wszystkie trzy wersje wiekowe) |
 | `src/dane_34.py`, `src/dane_5.py`, `src/dane_6.py` | bank celów jako dane (obszary, twierdzenia, cele, miary) |
-| `src/build.py` | generator dokumentu HTML |
+| `src/build.py` | generator druku KC-1 (HTML) |
+| `src/build_karty.py.bak` | poprzedni generator w układzie kart |
 
 ## Generowanie
 
@@ -36,3 +37,14 @@ Reguła nadrzędna: twierdzenie ocenione na 1 lub 2 bierze cel z wiersza **Pozio
 niezależnie od średniej całego obszaru.
 
 Marka: EduPlaner2026-MJ-PCTP · pedagog specjalny mgr Mirosława Ewa Jurczyszyn
+
+## Układ druku KC-1
+
+Jedna tabela na obszar ICF, kolumny:
+
+`Lp.` · `Twierdzenie KPOF + miara` · `ICF` (czerwony) · `Podstawa` (niebieski) ·
+`Poziom III` · `Poziom II` · `Poziom I`
+
+Trzy poziomy stoją obok siebie, więc widać progresję wymagań w jednym rzucie oka.
+Nad każdą tabelą — w druku na każdej stronie — powtarza się pasek identyfikacyjny
+z wersją wiekową i nazwą obszaru. Druk: A4 poziomo.
