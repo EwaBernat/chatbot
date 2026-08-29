@@ -172,3 +172,19 @@ aktywnego pola nie trafiają na papier. Linia podpisu została celowo
 nieedytowalna: podpis składa się odręcznie.
 
 Szczegóły techniczne dla integracji z aplikacją: `README_DLA_ARKA.md`, sekcja 2a.
+
+## Wersja Word (.docx)
+
+Podkatalog **`word/`** zawiera odpowiednik każdego pliku z drukami w formacie
+`.docx` — dla osób, które wolą wypełniać i edytować w Wordzie zamiast
+w przeglądarce.
+
+Zachowane zostały: marka PCTP (fiolet `#2D1B69`, pomarańcz `#E8450A`, Arial,
+A4, marginesy 15 mm), tabele z fioletowym wierszem nagłówkowym powtarzanym przy
+podziale między strony, naprzemienne cieniowanie wierszy, szerokości kolumn
+przeniesione z oryginału, numeracja sekcji w kolorowym kwadracie, bloki
+podstawy prawnej z pionowym paskiem, kropkowane pola do wypełnienia, kratki `☐`,
+żywa pagina i stopka `Strona X z Y`. Podział na strony odpowiada wersji PDF.
+
+Wersja Word nie ma warstwy interaktywnej z autozapisem ani panelu informacyjnego
+— to funkcje wersji HTML.

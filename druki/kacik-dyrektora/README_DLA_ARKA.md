@@ -1,6 +1,7 @@
 # Kącik dyrektora — przedszkole · paczka do EduPlaner 2026
 
-**Wersja 3.0.0 · rok szkolny 2026/2027 · 32 druki w 12 plikach · 91 stron A4 + 9-stronicowy spis · druki interaktywne**
+**Wersja 3.1.0 · rok szkolny 2026/2027 · 32 druki w 12 plikach · 91 stron A4 + 9-stronicowy spis**
+**Trzy formaty: HTML interaktywny · PDF do druku · DOCX do edycji w Wordzie**
 
 Komplet dokumentacji dyrektora przedszkola, zbudowany na tej samej zasadzie co
 kącik nauczyciela: strona startowa ze spisem, potem druk po druku, każdy osobno.
@@ -130,6 +131,64 @@ Stała pozycja w prawym dolnym rogu: status z godziną zapisu, **Wyczyść**
 
 Bez bibliotek, bez CDN, bez fontów z sieci. Czysty ES5 w IIFE, działa
 z pliku lokalnego (`file://`) i z serwera statycznego.
+
+---
+
+## 2b. Wersja Word (.docx) — podkatalog `word/`
+
+Każdy plik z drukami ma odpowiednik `.docx` w podkatalogu **`word/`**, o tej
+samej nazwie. Dwanaście plików, 336 KB razem.
+
+| Format | Do czego | Gdzie |
+|---|---|---|
+| `.html` | podgląd w aplikacji **i wypełnianie w przeglądarce** z autozapisem | katalog główny |
+| `.pdf` | gotowy wydruk, czysty blankiet A4 | katalog główny |
+| `.docx` | **edycja i wypełnianie w Wordzie**, gdy ktoś woli edytor niż przeglądarkę | `word/` |
+
+### Jak powstają
+
+Jeden parser czyta HTML druku i zamienia go na strukturę pośrednią, jeden
+generator (`docx` npm) buduje z niej dokument. Dzięki temu wszystkie dwanaście
+plików wygląda tak samo i każda zmiana w HTML da się przenieść do Worda jednym
+przebiegiem — nie ma ręcznie składanych dokumentów.
+
+### Co zostało zachowane
+
+- **marka**: fiolet `#2D1B69`, pomarańcz `#E8450A`, Arial, A4, marginesy 15 mm;
+- **tabele**: wiersz nagłówkowy fioletowy z białym tekstem, oznaczony jako
+  nagłówek (powtarza się przy podziale tabeli między strony), naprzemienne
+  cieniowanie wierszy `#FAF7F2`, ramki `#D9CFEE`, **szerokości kolumn przeniesione
+  z HTML** (podane w DXA na tabeli i na każdej komórce);
+- **numeracja sekcji** w kolorowym kwadracie, pomarańczowym przy sekcjach
+  oznaczonych `pom`;
+- **bloki podstawy prawnej** jako ramka z pionowym paskiem w kolorze marki;
+- **pola do wypełnienia** jako kropkowane linie — wpisuje się bezpośrednio
+  w Wordzie;
+- **kratki** jako znak `☐`, skale ocen jako tekst do obrysowania lub pogrubienia;
+- **żywa pagina**: nagłówek z nazwą kącika, stopka `Strona X z Y`;
+- **podział na strony** odpowiada wersji HTML i PDF — twardy podział w tych
+  samych miejscach.
+
+### Czego wersja Word nie ma
+
+Nie ma warstwy interaktywnej z autozapisem — to funkcja przeglądarki. W Wordzie
+wypełnia się bezpośrednio i zapisuje plik. Nie ma też panelu informacyjnego
+z instrukcją; ta zostaje w wersji HTML.
+
+### Regeneracja
+
+```bash
+python3 parsuj.py 'kacik-dyrektora/*.html'   # HTML -> druki.json
+node gen.js word/                            # druki.json -> 12 plików .docx
+```
+
+### Weryfikacja, która przeszła
+
+- walidacja XSD wszystkich dwunastu plików — bez błędów;
+- kontrola kompletności treści wobec HTML: tytuły druków, nazwy sekcji,
+  nagłówki kolumn, wiersze kluczowe, opcje wyboru i etykiety pól — **0 braków**;
+- zgodność liczby podziałów stron z wersją HTML — zgodna we wszystkich plikach;
+- szerokości kolumn każdej tabeli sumują się do szerokości kolumny tekstu.
 
 ---
 
