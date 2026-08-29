@@ -48,3 +48,27 @@ Jedna tabela na obszar ICF, kolumny:
 Trzy poziomy stoją obok siebie, więc widać progresję wymagań w jednym rzucie oka.
 Nad każdą tabelą — w druku na każdej stronie — powtarza się pasek identyfikacyjny
 z wersją wiekową i nazwą obszaru. Druk: A4 poziomo.
+
+## Paleta EduPlaner 2026 (odczytana z druku WOPF przedszkolnego)
+
+| Rola | Hex |
+|---|---|
+| Głęboki fiolet — tytuły, pasek identyfikacyjny, koło PCTP | `#2D1B69` |
+| Indygo — pasek nagłówka tabeli, pas wersji | `#4F3AA8` |
+| Fiolet akcentowy — etykiety uppercase, ikony, obwódki | `#6C4CC4` |
+| Pomarańcz — pastylki, kwadraty sekcji, wyróżnienia | `#E8450A` |
+| Tło pól i kart | `#EFEAF9` |
+| Tło callout / legendy | `#F6F3FC` |
+| Wiersz parzysty tabeli | `#F4F0FD` |
+| Wiersz nieparzysty | `#FEFDFF` |
+| Linia / ramka | `#E3DCF5` |
+| Tekst treści | `#2F2A3E` |
+| Tekst drugorzędny, stopka | `#8A8498` |
+
+Kolory funkcyjne (poziomy wsparcia i kody) — używane oszczędnie, jako kropka
+i 3-pikselowe podkreślenie w nagłówku kolumny oraz bardzo jasne tło kolumny:
+`Poziom III #C2410C` · `Poziom II #9A6B08` · `Poziom I #0F7B5A` ·
+`ICF #C1121F` · `Podstawa #1B3FA0` · `Zasób #2B6E6E`.
+
+Typografia: DM Sans (całość) + JetBrains Mono (kody ICF, podstawa, miary).
+Zaokrąglenia 7–9 px, jak w drukach WOPF i KPOF.

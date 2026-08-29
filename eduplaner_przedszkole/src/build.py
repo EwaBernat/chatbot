@@ -18,39 +18,39 @@ POZIOMY = [
 
 CSS = """
 :root{
-  --ink:#2D1B69; --ink-2:#4A3A8C; --accent:#E8450A;
-  --p3:#B8350D; --p3-bg:#FBEDE8; --p2:#B07408; --p2-bg:#FCF4E3; --p1:#0D7D5C; --p1-bg:#E7F4EE;
-  --zas:#2B6E6E; --zas-bg:#E8F1F1;
-  --icf:#C1121F; --icf-bg:#FBE9E9; --pp:#12408A; --pp-bg:#E8EFFA;
-  --paper:#FFFFFF; --field:#F2F0F9; --row:#FAF9FD; --band:#F3F1FA;
-  --line:#DCD7EC; --line-2:#EAE6F4; --text:#1F1A33; --muted:#6C6489;
-  --strong:#2D1B69; --on-strong:#FFFFFF; --on-accent:#FFFFFF;
-  --h-p3:#B8350D; --h-p3-t:#FFFFFF; --h-p2:#B07408; --h-p2-t:#FFFFFF; --h-p1:#0D7D5C; --h-p1-t:#FFFFFF;
-  --h-icf:#C1121F; --h-icf-t:#FFFFFF; --h-pp:#12408A; --h-pp-t:#FFFFFF;
+  --ink:#2D1B69; --indigo:#4F3AA8; --violet:#6C4CC4; --accent:#E8450A; --on-accent:#FFFFFF;
+  --p3:#C2410C; --p3-bg:#FDF1EC; --p2:#9A6B08; --p2-bg:#FBF4E7; --p1:#0F7B5A; --p1-bg:#ECF6F1;
+  --zas:#2B6E6E; --zas-bg:#EAF3F3;
+  --icf:#C1121F; --icf-bg:#FCEFEF; --pp:#1B3FA0; --pp-bg:#EAEFFB;
+  --paper:#FFFFFF; --field:#EFEAF9; --soft:#F6F3FC; --row:#FEFDFF; --row-alt:#F4F0FD;
+  --line:#E3DCF5; --line-2:#EDE8F8; --text:#2F2A3E; --muted:#8A8498;
+  --strong:#4F3AA8; --on-strong:#FFFFFF;
+  --h-p3:#4F3AA8; --h-p3-t:#FFFFFF; --h-p2:#4F3AA8; --h-p2-t:#FFFFFF; --h-p1:#4F3AA8; --h-p1-t:#FFFFFF;
+  --h-icf:#4F3AA8; --h-icf-t:#FFFFFF; --h-pp:#4F3AA8; --h-pp-t:#FFFFFF;
 }
 @media (prefers-color-scheme: dark){
   :root:not([data-theme="light"]){
-    --ink:#BFAFF2; --ink-2:#A395DC; --accent:#FF7A45;
-    --p3:#FF9E80; --p3-bg:#33201A; --p2:#EDBC63; --p2-bg:#322814; --p1:#5FD3A8; --p1-bg:#152F27;
+    --ink:#C6B8F5; --indigo:#7C68D8; --violet:#A794E8; --accent:#FF7A45; --on-accent:#2A1207;
+    --p3:#FFA07F; --p3-bg:#2F211C; --p2:#E7BB6B; --p2-bg:#2C2617; --p1:#63D3AA; --p1-bg:#16302A;
     --zas:#7FCFCF; --zas-bg:#152C2C;
-    --icf:#FF8F8F; --icf-bg:#341C1C; --pp:#8FBEFF; --pp-bg:#12253C;
-    --paper:#16131F; --field:#221C36; --row:#1B1729; --band:#221C36;
+    --icf:#FF8F8F; --icf-bg:#301C1C; --pp:#8FB4FF; --pp-bg:#182444;
+    --paper:#15121E; --field:#221C36; --soft:#1E1930; --row:#1A1628; --row-alt:#221C36;
     --line:#332B4D; --line-2:#2A2340; --text:#ECE8F7; --muted:#A79FC2;
-    --strong:#2A2340; --on-strong:#ECE8F7; --on-accent:#2A1207;
-    --h-p3:#3A211A; --h-p3-t:#FF9E80; --h-p2:#352A15; --h-p2-t:#EDBC63; --h-p1:#16332A; --h-p1-t:#5FD3A8;
-    --h-icf:#3A1D1D; --h-icf-t:#FF8F8F; --h-pp:#132840; --h-pp-t:#8FBEFF;
+    --strong:#2E2650; --on-strong:#EDE9FA;
+    --h-p3:#2E2650; --h-p3-t:#EDE9FA; --h-p2:#2E2650; --h-p2-t:#EDE9FA; --h-p1:#2E2650; --h-p1-t:#EDE9FA;
+    --h-icf:#2E2650; --h-icf-t:#EDE9FA; --h-pp:#2E2650; --h-pp-t:#EDE9FA;
   }
 }
 :root[data-theme="dark"]{
-  --ink:#BFAFF2; --ink-2:#A395DC; --accent:#FF7A45;
-  --p3:#FF9E80; --p3-bg:#33201A; --p2:#EDBC63; --p2-bg:#322814; --p1:#5FD3A8; --p1-bg:#152F27;
+  --ink:#C6B8F5; --indigo:#7C68D8; --violet:#A794E8; --accent:#FF7A45; --on-accent:#2A1207;
+  --p3:#FFA07F; --p3-bg:#2F211C; --p2:#E7BB6B; --p2-bg:#2C2617; --p1:#63D3AA; --p1-bg:#16302A;
   --zas:#7FCFCF; --zas-bg:#152C2C;
-  --icf:#FF8F8F; --icf-bg:#341C1C; --pp:#8FBEFF; --pp-bg:#12253C;
-  --paper:#16131F; --field:#221C36; --row:#1B1729; --band:#221C36;
+  --icf:#FF8F8F; --icf-bg:#301C1C; --pp:#8FB4FF; --pp-bg:#182444;
+  --paper:#15121E; --field:#221C36; --soft:#1E1930; --row:#1A1628; --row-alt:#221C36;
   --line:#332B4D; --line-2:#2A2340; --text:#ECE8F7; --muted:#A79FC2;
-  --strong:#2A2340; --on-strong:#ECE8F7; --on-accent:#2A1207;
-  --h-p3:#3A211A; --h-p3-t:#FF9E80; --h-p2:#352A15; --h-p2-t:#EDBC63; --h-p1:#16332A; --h-p1-t:#5FD3A8;
-  --h-icf:#3A1D1D; --h-icf-t:#FF8F8F; --h-pp:#132840; --h-pp-t:#8FBEFF;
+  --strong:#2E2650; --on-strong:#EDE9FA;
+  --h-p3:#2E2650; --h-p3-t:#EDE9FA; --h-p2:#2E2650; --h-p2-t:#EDE9FA; --h-p1:#2E2650; --h-p1-t:#EDE9FA;
+  --h-icf:#2E2650; --h-icf-t:#EDE9FA; --h-pp:#2E2650; --h-pp-t:#EDE9FA;
 }
 *{box-sizing:border-box}
 body{margin:0; background:var(--paper); color:var(--text);
@@ -62,23 +62,23 @@ body{margin:0; background:var(--paper); color:var(--text);
 .dochead{display:flex; align-items:flex-start; gap:16px; padding:26px 0 14px}
 .mark{width:46px; height:46px; border-radius:50%; background:var(--strong); color:var(--on-strong); display:grid; place-items:center;
   font:700 10px/1 "DM Sans",Arial,sans-serif; letter-spacing:.06em; flex:none}
-.wordmark{font-family:Fraunces,Georgia,serif; font-size:24px; font-weight:600; color:var(--ink); line-height:1}
-.wordsub{font-size:9.5px; letter-spacing:.2em; text-transform:uppercase; color:var(--muted); font-weight:700; margin-top:6px; line-height:1.5}
+.wordmark{font:700 24px/1 "DM Sans",Arial,sans-serif; letter-spacing:-.01em; color:var(--ink)}
+.wordsub{font-size:9.5px; letter-spacing:.2em; text-transform:uppercase; color:var(--violet); font-weight:700; margin-top:6px; line-height:1.5}
 .dochead .right{margin-left:auto; text-align:right}
 .badge{display:inline-block; background:var(--accent); color:var(--on-accent); padding:7px 15px; border-radius:999px;
   font:700 10.5px/1 "DM Sans",Arial,sans-serif; letter-spacing:.14em; text-transform:uppercase}
 .badge-sub{font-size:9.5px; letter-spacing:.18em; text-transform:uppercase; color:var(--muted); font-weight:700; margin-top:7px}
-.twotone{height:7px; display:flex; margin-bottom:16px}
+.twotone{height:3px; display:flex; margin-bottom:20px; border-radius:2px; overflow:hidden}
 .twotone i{display:block; height:100%}
-.twotone i:first-child{width:56%; background:var(--ink)}
+.twotone i:first-child{width:62%; background:var(--indigo)}
 .twotone i:last-child{width:44%; background:var(--accent)}
 
 /* ---------- pola do wypełnienia ---------- */
 .fields{display:grid; grid-template-columns:1.45fr 1.2fr 1fr .9fr; gap:12px; margin-bottom:26px}
-.field{background:var(--field); border:1px solid var(--line-2); border-radius:5px; padding:11px 15px; display:flex;
+.field{background:var(--field); border:1px solid var(--line-2); border-radius:8px; padding:11px 15px; display:flex;
   align-items:baseline; gap:10px; min-height:44px}
-.field b{font:700 9.5px/1 "DM Sans",Arial,sans-serif; letter-spacing:.16em; text-transform:uppercase; color:var(--ink-2); white-space:nowrap}
-.field .dots{flex:1; border-bottom:1px dotted var(--ink-2); opacity:.55; height:12px}
+.field b{font:700 9.5px/1 "DM Sans",Arial,sans-serif; letter-spacing:.16em; text-transform:uppercase; color:var(--violet); white-space:nowrap}
+.field .dots{flex:1; border-bottom:1px dotted var(--violet); opacity:.5; height:12px}
 .field .val{font-weight:600; color:var(--ink)}
 
 /* ---------- tytuł druku ---------- */
@@ -86,11 +86,11 @@ body{margin:0; background:var(--paper); color:var(--text);
 .pillrow{display:flex; justify-content:center; margin-bottom:16px}
 .pill-title{background:var(--accent); color:var(--on-accent); padding:8px 20px; border-radius:999px;
   font:700 10.5px/1 "DM Sans",Arial,sans-serif; letter-spacing:.13em; text-transform:uppercase}
-.titleblock h1{font:700 clamp(26px,3.6vw,38px)/1.1 "DM Sans",Arial,sans-serif; letter-spacing:.02em;
-  text-transform:uppercase; color:var(--ink); margin:0}
+.titleblock h1{font:700 clamp(27px,3.6vw,40px)/1.14 "DM Sans",Arial,sans-serif; letter-spacing:-.01em;
+  color:var(--ink); margin:0}
 .titleblock .sub{color:var(--accent); font-weight:700; font-size:15px; margin-top:10px}
-.dashrow{display:flex; align-items:center; gap:16px; justify-content:center; margin-top:16px; color:var(--ink-2)}
-.dashrow i{height:1px; background:var(--line); width:70px; display:block}
+.dashrow{display:flex; align-items:center; gap:16px; justify-content:center; margin-top:18px; color:var(--ink)}
+.dashrow i{height:2px; width:74px; display:block; background:repeating-linear-gradient(90deg,var(--accent) 0 4px,transparent 4px 8px); opacity:.85}
 .dashrow span{font:700 10.5px/1 "DM Sans",Arial,sans-serif; letter-spacing:.22em; text-transform:uppercase}
 
 /* ---------- sekcja ---------- */
@@ -98,13 +98,13 @@ body{margin:0; background:var(--paper); color:var(--text);
 .sec-h{display:flex; align-items:center; gap:12px; margin-bottom:12px}
 .sq{background:var(--accent); color:var(--on-accent); width:26px; height:26px; border-radius:4px; display:grid; place-items:center;
   font:700 11px/1 "DM Sans",Arial,sans-serif; flex:none}
-.sq.sq-ink{background:var(--strong); color:var(--on-strong)}
-.sec-h h2{font:700 15.5px/1.2 "DM Sans",Arial,sans-serif; letter-spacing:.09em; text-transform:uppercase; color:var(--ink); margin:0}
+.sq.sq-ink{background:var(--ink); color:#FFFFFF}
+.sec-h h2{font:700 15.5px/1.2 "DM Sans",Arial,sans-serif; letter-spacing:.08em; text-transform:uppercase; color:var(--ink); margin:0}
 .sec-h .meta{font-family:"JetBrains Mono",monospace; font-size:10.5px; color:var(--muted); white-space:nowrap}
 .sec-h .line{flex:1; height:1px; background:var(--line)}
 
 /* ---------- tabela ---------- */
-.tablewrap{overflow-x:auto; border:1px solid var(--line); border-radius:6px}
+.tablewrap{overflow-x:auto; border:1px solid var(--line); border-radius:9px}
 table{width:100%; border-collapse:collapse; min-width:1080px}
 thead{display:table-header-group}
 th{background:var(--strong); color:var(--on-strong); text-align:left; padding:10px 12px; vertical-align:middle;
@@ -115,58 +115,68 @@ th .hz{display:block; font-family:"JetBrains Mono",monospace; letter-spacing:.02
 td{padding:10px 12px; border-bottom:1px solid var(--line-2); border-right:1px solid var(--line-2); vertical-align:top; font-size:12.5px; line-height:1.45}
 td:last-child{border-right:none}
 tbody tr:last-child td{border-bottom:none}
-tbody tr:nth-child(even) td{background:var(--row)}
-tbody tr:hover td{background:var(--band)}
+tbody tr:nth-child(even) td{background:var(--row-alt)}
+tbody tr:hover td{background:var(--field)}
 
 .c-lp{width:38px} .c-tw{width:23%} .c-code{width:82px} .c-goal{width:18.5%}
-td.lp{text-align:center; font-weight:700; color:var(--accent); background:var(--field) !important; font-size:14px; padding-top:11px}
+td.lp{text-align:center; font-weight:700; color:var(--ink); background:var(--field) !important; font-size:14px; padding-top:11px}
 td.tw{font-weight:500; color:var(--ink)}
 td.tw .miara{display:block; margin-top:7px; font-family:"JetBrains Mono",monospace; font-size:9.5px; color:var(--muted); line-height:1.4}
-td.tw .miara b{color:var(--ink-2); font-family:"DM Sans",Arial,sans-serif; letter-spacing:.1em; text-transform:uppercase; font-size:9px}
+td.tw .miara b{color:var(--violet); font-family:"DM Sans",Arial,sans-serif; letter-spacing:.1em; text-transform:uppercase; font-size:9px}
 td.icf{font-family:"JetBrains Mono",monospace; font-weight:700; font-size:11px; color:var(--icf); background:var(--icf-bg) !important; white-space:nowrap}
 td.pp{font-family:"JetBrains Mono",monospace; font-weight:700; font-size:11px; color:var(--pp); background:var(--pp-bg) !important; white-space:nowrap}
 td.g{font-size:12px}
-th.h-p3{background:var(--h-p3); color:var(--h-p3-t)} th.h-p2{background:var(--h-p2); color:var(--h-p2-t)}
-th.h-p1{background:var(--h-p1); color:var(--h-p1-t)}
-th.h-icf{background:var(--h-icf); color:var(--h-icf-t)} th.h-pp{background:var(--h-pp); color:var(--h-pp-t)}
+th.h-p3,th.h-p2,th.h-p1,th.h-icf,th.h-pp{background:var(--strong); color:var(--on-strong)}
+th.h-p3{box-shadow:inset 0 -3px 0 var(--p3)} th.h-p2{box-shadow:inset 0 -3px 0 var(--p2)}
+th.h-p1{box-shadow:inset 0 -3px 0 var(--p1)} th.h-icf{box-shadow:inset 0 -3px 0 var(--icf)}
+th.h-pp{box-shadow:inset 0 -3px 0 var(--pp)}
+th .kropka{display:inline-block; width:7px; height:7px; border-radius:50%; margin-right:6px; vertical-align:baseline}
+th.h-p3 .kropka{background:var(--p3)} th.h-p2 .kropka{background:var(--p2)} th.h-p1 .kropka{background:var(--p1)}
+th.h-icf .kropka{background:var(--icf)} th.h-pp .kropka{background:var(--pp)}
 tbody tr td.p3{background:var(--p3-bg) !important} tbody tr td.p2{background:var(--p2-bg) !important}
 tbody tr td.p1{background:var(--p1-bg) !important}
 
 /* ---------- callout / zasób ---------- */
-.callout{margin-top:12px; background:var(--band); border-left:4px solid var(--ink); padding:13px 17px; font-size:12.5px; border-radius:0 4px 4px 0}
+.callout{margin-top:12px; background:var(--soft); border-left:4px solid var(--violet); padding:13px 17px; font-size:12.5px; border-radius:0 8px 8px 0}
 .callout.zas{background:var(--zas-bg); border-left-color:var(--zas)}
 .callout .cap{font:700 9.5px/1 "DM Sans",Arial,sans-serif; letter-spacing:.14em; text-transform:uppercase; color:var(--zas); display:block; margin-bottom:5px}
-.callout.rule{background:var(--p2-bg); border-left-color:var(--accent)}
+.callout.rule{background:#FFF7F2; border-left-color:var(--accent)}
 .callout.rule .cap{color:var(--accent)}
 
 /* ---------- legenda ---------- */
-.legendbox{background:var(--field); border:1px solid var(--line-2); border-radius:6px; padding:16px 20px; font-size:12.5px; line-height:1.65}
+.legendbox{background:var(--soft); border:1px solid var(--line-2); border-radius:9px; padding:16px 20px; font-size:12.5px; line-height:1.65}
 .legendbox .k{font-weight:700; color:var(--ink)}
+.legendbox .kk{font:700 9.5px/1 "DM Sans",Arial,sans-serif; letter-spacing:.14em; text-transform:uppercase; color:var(--violet); display:block; margin-bottom:7px}
 .legendbox .k-icf{color:var(--icf); font-family:"JetBrains Mono",monospace; font-weight:700}
 .legendbox .k-pp{color:var(--pp); font-family:"JetBrains Mono",monospace; font-weight:700}
 
 /* ---------- pasek narzędzi (tylko ekran) ---------- */
 .toolbar{position:sticky; top:0; z-index:20; background:var(--paper); border-bottom:1px solid var(--line);
   padding:11px 0; margin-top:30px; display:flex; flex-wrap:wrap; gap:9px 16px; align-items:center}
-.tab{border:1px solid var(--line); background:var(--paper); color:var(--ink); padding:8px 14px; border-radius:4px;
+.tab{border:1px solid var(--line); background:var(--paper); color:var(--ink); padding:8px 14px; border-radius:7px;
   font:700 12px/1 "DM Sans",Arial,sans-serif; cursor:pointer; display:flex; gap:7px; align-items:center}
 .tab .kod{font-family:"JetBrains Mono",monospace; font-size:10px; opacity:.65}
 .tab[aria-selected="true"]{background:var(--strong); color:var(--on-strong); border-color:var(--strong)}
 .tools{margin-left:auto; display:flex; gap:7px; align-items:center; flex-wrap:wrap}
 .tools .lab{font:700 9.5px/1 "DM Sans",Arial,sans-serif; letter-spacing:.14em; text-transform:uppercase; color:var(--muted)}
-.chipbtn{border:1px solid var(--line); background:var(--paper); color:var(--muted); padding:7px 10px; border-radius:4px;
+.chipbtn{border:1px solid var(--line); background:var(--paper); color:var(--violet); padding:7px 10px; border-radius:7px;
   font:700 11px/1 "DM Sans",Arial,sans-serif; cursor:pointer; letter-spacing:.05em}
-.chipbtn[aria-pressed="true"].b-p3{background:var(--h-p3); border-color:var(--h-p3); color:var(--h-p3-t)}
-.chipbtn[aria-pressed="true"].b-p2{background:var(--h-p2); border-color:var(--h-p2); color:var(--h-p2-t)}
-.chipbtn[aria-pressed="true"].b-p1{background:var(--h-p1); border-color:var(--h-p1); color:var(--h-p1-t)}
+.chipbtn[data-lvl]{display:inline-flex; align-items:center; gap:7px}
+.chipbtn[data-lvl]::before{content:""; width:7px; height:7px; border-radius:50%}
+.chipbtn.b-p3::before{background:var(--p3)} .chipbtn.b-p2::before{background:var(--p2)} .chipbtn.b-p1::before{background:var(--p1)}
+.chipbtn[data-lvl][aria-pressed="true"]{background:var(--strong); border-color:var(--strong); color:var(--on-strong)}
+.chipbtn.b-p3[aria-pressed="true"]{box-shadow:inset 0 -3px 0 var(--p3)}
+.chipbtn.b-p2[aria-pressed="true"]{box-shadow:inset 0 -3px 0 var(--p2)}
+.chipbtn.b-p1[aria-pressed="true"]{box-shadow:inset 0 -3px 0 var(--p1)}
+.chipbtn[data-lvl][aria-pressed="false"]{opacity:.55}
 #drukuj{background:var(--strong); border-color:var(--strong); color:var(--on-strong)}
 input[type="search"]{border:1px solid var(--line); background:var(--paper); color:var(--text); padding:8px 10px;
-  border-radius:4px; font:400 12.5px/1.2 "DM Sans",Arial,sans-serif; width:180px}
+  border-radius:7px; font:400 12.5px/1.2 "DM Sans",Arial,sans-serif; width:180px}
 input[type="search"]:focus,.tab:focus-visible,.chipbtn:focus-visible,.navlink:focus-visible{outline:2px solid var(--accent); outline-offset:2px}
 
 /* ---------- nagłówek wersji ---------- */
 .vband{display:flex; flex-wrap:wrap; align-items:center; gap:14px; background:var(--strong); color:var(--on-strong);
-  padding:14px 20px; border-radius:6px; margin-top:30px}
+  padding:14px 20px; border-radius:9px; margin-top:30px}
 .vband .vlet{background:var(--accent); color:var(--on-accent); width:34px; height:34px; border-radius:5px; display:grid; place-items:center;
   font:700 15px/1 "DM Sans",Arial,sans-serif}
 .vband h2{font:700 16px/1.2 "DM Sans",Arial,sans-serif; letter-spacing:.09em; text-transform:uppercase; margin:0}
@@ -175,7 +185,7 @@ input[type="search"]:focus,.tab:focus-visible,.chipbtn:focus-visible,.navlink:fo
   text-transform:uppercase; opacity:.7; font-weight:700; margin-bottom:2px}
 .vdesc{font-size:12.5px; color:var(--muted); margin:10px 0 0; max-width:100ch}
 .areanav{display:flex; flex-wrap:wrap; gap:5px; margin-top:12px}
-.navlink{text-decoration:none; border:1px solid var(--line); color:var(--ink-2); padding:5px 9px; border-radius:4px;
+.navlink{text-decoration:none; border:1px solid var(--line); color:var(--violet); padding:5px 9px; border-radius:6px;
   font:700 10.5px/1 "DM Sans",Arial,sans-serif}
 .navlink:hover{border-color:var(--accent); color:var(--accent)}
 
@@ -186,7 +196,7 @@ input[type="search"]:focus,.tab:focus-visible,.chipbtn:focus-visible,.navlink:fo
 .nores{padding:30px 0; text-align:center; color:var(--muted)}
 .printhead,.printfoot{display:none}
 tr.tbanner{display:none}
-tr.tbanner th{background:var(--strong); color:var(--on-strong); font:700 6.4pt/1.3 "DM Sans",Arial,sans-serif;
+tr.tbanner th{background:var(--ink); color:#FFFFFF; font:700 6.4pt/1.3 "DM Sans",Arial,sans-serif;
   letter-spacing:.13em; text-transform:uppercase; padding:4pt 6pt; border-bottom:2px solid var(--accent)}
 tr.tbanner .bsep{color:var(--accent); padding:0 5px}
 
@@ -300,11 +310,11 @@ def sekcja(a, w):
         <tr>
           <th class="c-lp">Lp.</th>
           <th class="c-tw">Twierdzenie KPOF · obserwowane zachowanie</th>
-          <th class="c-code h-icf">ICF</th>
-          <th class="c-code h-pp">Podstawa</th>
-          <th class="c-goal h-p3 col-p3">Poziom III<span class="hz">ewaluacja 4 tyg.</span></th>
-          <th class="c-goal h-p2 col-p2">Poziom II<span class="hz">ewaluacja 8 tyg.</span></th>
-          <th class="c-goal h-p1 col-p1">Poziom I<span class="hz">ewaluacja 12 tyg.</span></th>
+          <th class="c-code h-icf"><span class="kropka"></span>ICF</th>
+          <th class="c-code h-pp"><span class="kropka"></span>Podstawa</th>
+          <th class="c-goal h-p3 col-p3"><span class="kropka"></span>Poziom III<span class="hz">ewaluacja 4 tyg.</span></th>
+          <th class="c-goal h-p2 col-p2"><span class="kropka"></span>Poziom II<span class="hz">ewaluacja 8 tyg.</span></th>
+          <th class="c-goal h-p1 col-p1"><span class="kropka"></span>Poziom I<span class="hz">ewaluacja 12 tyg.</span></th>
         </tr>
       </thead>
       <tbody>
@@ -356,7 +366,7 @@ def build():
           <td class="mono" style="white-space:nowrap; font-weight:700">{esc(prog)}</td>
           <td>{esc(znacz)}</td>
           <td>{esc(dzial)}</td>
-          <td class="mono" style="white-space:nowrap; font-weight:700; color:var(--ink-2)">{esc(hor)}</td>
+          <td class="mono" style="white-space:nowrap; font-weight:700; color:var(--violet)">{esc(hor)}</td>
         </tr>""" for k, nazwa, prog, znacz, dzial, hor in progi)
 
     smart_rows = "\n".join(f"""        <tr>
@@ -380,7 +390,7 @@ def build():
     return f"""<title>Bank Celów SMART KPOF</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,700&family=Fraunces:opsz,wght@9..144,600&family=JetBrains+Mono:wght@400;700&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,700&family=JetBrains+Mono:wght@400;700&display=swap">
 <style>{CSS}</style>
 
 <div class="sheet">
