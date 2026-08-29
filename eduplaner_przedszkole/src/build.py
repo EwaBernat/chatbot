@@ -1,7 +1,9 @@
 # -*- coding: utf-8 -*-
 """Generator druku KC-1: Bank celów SMART do KPOF — układ tabelaryczny
 w stylu Kącika Dyrektora (EduPlaner 2026 · PCTP)."""
-import html, os, sys, datetime
+import html, os, sys, datetime, base64
+_LOGO_PATH = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), "assets", "logo_pctp.jpg")
+LOGO_URI = "data:image/jpeg;base64," + base64.b64encode(open(_LOGO_PATH, "rb").read()).decode()
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 import dane_34, dane_5, dane_6
 from konspekty_34_d7 import KONSPEKTY
@@ -20,10 +22,10 @@ POZIOMY = [
 CSS = """
 :root{
   --ink:#2D1B69; --indigo:#4F3AA8; --violet:#6C4CC4; --accent:#E8450A; --on-accent:#FFFFFF;
-  --p3:#C2410C; --p3-bg:#FEF9F6; --p2:#9A6B08; --p2-bg:#FDFAF2; --p1:#0F7B5A; --p1-bg:#F5FAF8;
+  --p3:#C42430; --p3-bg:#FDF4F4; --p2:#C29B00; --p2-bg:#FEFAE4; --p1:#0F7B5A; --p1-bg:#F5FAF8;
   --zas:#2B6E6E; --zas-bg:#EAF3F3;
   --icf:#C1121F; --icf-bg:#FFFFFF; --pp:#4F3AA8; --pp-bg:#FFFFFF;
-  --p3-br:#EFCBBB; --p2-br:#E8D6AC; --p1-br:#BEDFD1; --icf-br:#EEC4C4; --pp-br:#CFC6EE;
+  --p3-br:#F0C3C6; --p2-br:#EEDF9A; --p1-br:#BEDFD1; --icf-br:#EEC4C4; --pp-br:#CFC6EE;
   --paper:#FFFFFF; --field:#EFEAF9; --soft:#F6F3FC; --row:#FEFDFF; --row-alt:#F4F0FD;
   --line:#E3DCF5; --line-2:#EDE8F8; --rowline:#D3CAEB; --text:#2F2A3E; --muted:#8A8498;
   --strong:#2D1B69; --on-strong:#FFFFFF;
@@ -33,10 +35,10 @@ CSS = """
 @media (prefers-color-scheme: dark){
   :root:not([data-theme="light"]){
     --ink:#C6B8F5; --indigo:#7C68D8; --violet:#A794E8; --accent:#FF7A45; --on-accent:#2A1207;
-    --p3:#FFA07F; --p3-bg:#2F211C; --p2:#E7BB6B; --p2-bg:#2C2617; --p1:#63D3AA; --p1-bg:#16302A;
+    --p3:#FF9297; --p3-bg:#331D1F; --p2:#EDD35E; --p2-bg:#302B13; --p1:#63D3AA; --p1-bg:#16302A;
     --zas:#7FCFCF; --zas-bg:#152C2C;
     --icf:#FF8F8F; --icf-bg:#301C1C; --pp:#A794E8; --pp-bg:#241D42;
-    --p3-br:#4A3228; --p2-br:#463A20; --p1-br:#22463A; --icf-br:#472A2A; --pp-br:#3A3167;
+    --p3-br:#4E2A2D; --p2-br:#4C4318; --p1-br:#22463A; --icf-br:#472A2A; --pp-br:#3A3167;
     --paper:#15121E; --field:#221C36; --soft:#1E1930; --row:#1A1628; --row-alt:#221C36;
     --line:#332B4D; --line-2:#2A2340; --rowline:#453B68; --text:#ECE8F7; --muted:#A79FC2;
     --strong:#2E2650; --on-strong:#EDE9FA;
@@ -46,10 +48,10 @@ CSS = """
 }
 :root[data-theme="dark"]{
   --ink:#C6B8F5; --indigo:#7C68D8; --violet:#A794E8; --accent:#FF7A45; --on-accent:#2A1207;
-  --p3:#FFA07F; --p3-bg:#2F211C; --p2:#E7BB6B; --p2-bg:#2C2617; --p1:#63D3AA; --p1-bg:#16302A;
+  --p3:#FF9297; --p3-bg:#331D1F; --p2:#EDD35E; --p2-bg:#302B13; --p1:#63D3AA; --p1-bg:#16302A;
   --zas:#7FCFCF; --zas-bg:#152C2C;
   --icf:#FF8F8F; --icf-bg:#301C1C; --pp:#A794E8; --pp-bg:#241D42;
-    --p3-br:#4A3228; --p2-br:#463A20; --p1-br:#22463A; --icf-br:#472A2A; --pp-br:#3A3167;
+    --p3-br:#4E2A2D; --p2-br:#4C4318; --p1-br:#22463A; --icf-br:#472A2A; --pp-br:#3A3167;
   --paper:#15121E; --field:#221C36; --soft:#1E1930; --row:#1A1628; --row-alt:#221C36;
   --line:#332B4D; --line-2:#2A2340; --rowline:#453B68; --text:#ECE8F7; --muted:#A79FC2;
   --strong:#2E2650; --on-strong:#EDE9FA;
@@ -64,8 +66,7 @@ body{margin:0; background:var(--paper); color:var(--text);
 
 /* ---------- nagłówek dokumentu (jak w Kąciku Dyrektora) ---------- */
 .dochead{display:flex; align-items:flex-start; gap:16px; padding:26px 0 14px}
-.mark{width:46px; height:46px; border-radius:50%; background:var(--strong); color:var(--on-strong); display:grid; place-items:center;
-  font:700 10px/1 "DM Sans",Arial,sans-serif; letter-spacing:.06em; flex:none}
+.mark{width:46px; height:46px; border-radius:50%; flex:none; background:center/cover no-repeat; background-image:var(--logo)}
 .wordmark{font:700 24px/1 "DM Sans",Arial,sans-serif; letter-spacing:-.01em; color:var(--ink)}
 .wordsub{font-size:9.5px; letter-spacing:.2em; text-transform:uppercase; color:var(--violet); font-weight:700; margin-top:6px; line-height:1.5}
 .dochead .right{margin-left:auto; text-align:right}
@@ -218,7 +219,7 @@ td.g.haskon:focus-visible{outline:2px solid var(--accent); outline-offset:-2px}
 .kmodal.open{display:block}
 .kcard{max-width:900px; margin:0 auto; background:var(--paper); border-radius:12px; box-shadow:0 22px 70px rgba(20,12,50,.45); padding:26px 30px 30px}
 .khead{display:flex; align-items:center; gap:12px; border-bottom:2px solid var(--ink); padding-bottom:12px; position:relative}
-.khead .mark{width:38px; height:38px; font-size:8.5px}
+.khead .mark{width:40px; height:40px}
 .khead .kw{font:700 18px/1 "DM Sans",Arial,sans-serif; color:var(--ink)}
 .khead .ks{font-size:8.5px; letter-spacing:.17em; text-transform:uppercase; color:var(--violet); font-weight:700; margin-top:4px}
 .khead .kpill{margin-left:auto; background:var(--ink); color:#fff; border-radius:999px; padding:7px 15px; font:700 11px/1 "DM Sans",Arial,sans-serif}
@@ -247,16 +248,16 @@ td.g.haskon:focus-visible{outline:2px solid var(--accent); outline-offset:-2px}
 .ksec h4{font:700 12.5px/1.2 "DM Sans",Arial,sans-serif; letter-spacing:.1em; text-transform:uppercase; color:var(--ink); margin:0}
 .ksec .line{flex:1; height:1px; background:var(--line)}
 .kcele{display:grid; grid-template-columns:1fr 1fr; gap:12px}
-.kcel{border:1px solid var(--line); border-radius:8px; overflow:hidden}
+.kcel{border:1px solid var(--line); border-radius:8px; overflow:hidden; display:flex; flex-direction:column}
 .kcel .kchead{color:#fff; text-align:center; font:700 11px/1 "DM Sans",Arial,sans-serif; letter-spacing:.08em; padding:8px}
 .kcel.edu .kchead{background:var(--ink)} .kcel.ter .kchead{background:var(--accent); color:var(--on-accent)}
 .kcel .ktresc{padding:11px 13px; font-size:12.5px; font-weight:600; color:var(--ink); border-bottom:1px solid var(--line-2)}
-.kcel ul.ksmart{list-style:none; margin:0; padding:9px 13px; display:grid; gap:5px}
+.kcel ul.ksmart{list-style:none; margin:0; padding:9px 13px; display:grid; gap:5px; align-content:start}
 .kcel ul.ksmart li{display:flex; gap:9px; font-size:11.5px; line-height:1.45}
 .kcel ul.ksmart b{color:var(--accent); font-family:"JetBrains Mono",monospace; flex:none}
-.kcel .kkryt{background:var(--field); padding:8px 13px; font-size:11px; border-top:1px solid var(--line-2)}
+.kcel .kkryt{background:var(--field); padding:8px 13px; font-size:11px; border-top:1px solid var(--line-2); margin-top:auto}
 .kcel .kkryt b{color:var(--violet); font-size:9.5px; letter-spacing:.12em; text-transform:uppercase}
-.kvar{display:none} .kvar.on{display:block}
+.kvar{display:none} .kvar.on{display:flex; flex-direction:column; flex:1}
 .kdwie{display:grid; grid-template-columns:1fr 1fr; gap:16px}
 ul.klista{list-style:none; margin:0; padding:0; display:grid; gap:5px}
 ul.klista li{display:flex; gap:8px; font-size:12px; line-height:1.45}
@@ -699,7 +700,7 @@ def render_konspekty_modale():
   <div class="kcard">
     <button class="kclose" data-close="{kid}" aria-label="Zamknij konspekt" title="Zamknij (Esc)">✕</button>
     <div class="khead">
-      <span class="mark">PCTP</span>
+      <span class="mark" role="img" aria-label="Logo PCTP"></span>
       <div>
         <div class="kw">EduPlaner 2026</div>
         <div class="ks">Konspekt · obszar VII · {esc(wers['etykieta'])} · wersja {wk} · twierdzenie {nr}</div>
@@ -815,12 +816,13 @@ def build():
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,700&family=JetBrains+Mono:wght@400;700&display=swap">
-<style>{CSS}</style>
+<style>:root{{--logo:url({LOGO_URI})}}
+{CSS}</style>
 
 <div class="sheet">
 
 <div class="dochead">
-  <span class="mark">PCTP</span>
+  <span class="mark" role="img" aria-label="Logo PCTP"></span>
   <div>
     <div class="wordmark">EduPlaner 2026</div>
     <div class="wordsub">Bank celów SMART ·<br>Przedszkolna Ocena Funkcjonalna</div>
