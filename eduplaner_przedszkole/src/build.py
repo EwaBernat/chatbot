@@ -222,7 +222,15 @@ td.g.haskon:focus-visible{outline:2px solid var(--accent); outline-offset:-2px}
 .khead .kw{font:700 18px/1 "DM Sans",Arial,sans-serif; color:var(--ink)}
 .khead .ks{font-size:8.5px; letter-spacing:.17em; text-transform:uppercase; color:var(--violet); font-weight:700; margin-top:4px}
 .khead .kpill{margin-left:auto; background:var(--ink); color:#fff; border-radius:999px; padding:7px 15px; font:700 11px/1 "DM Sans",Arial,sans-serif}
-.kclose{position:absolute; right:0; top:-8px; transform:translateY(-100%); background:none; border:none; color:#fff; font:700 13px/1 "DM Sans",Arial,sans-serif; cursor:pointer; letter-spacing:.08em}
+.kclose{position:sticky; top:0; float:right; margin:-10px -14px 0 12px; z-index:5;
+  width:40px; height:40px; border-radius:50%; border:2px solid var(--accent);
+  background:var(--accent); color:var(--on-accent); font:700 17px/1 "DM Sans",Arial,sans-serif;
+  cursor:pointer; display:grid; place-items:center; box-shadow:0 4px 14px rgba(20,12,50,.35)}
+.kclose:hover{background:var(--paper); color:var(--accent)}
+.kclose:focus-visible{outline:2px solid var(--ink); outline-offset:2px}
+.kesc{clear:both; text-align:center; font-size:10.5px; color:var(--muted); margin-top:8px;
+  letter-spacing:.08em}
+.kesc b{color:var(--violet)}
 .ktitle{text-align:center; margin:16px 0 6px}
 .ktitle .kp{display:inline-block; background:var(--accent); color:var(--on-accent); border-radius:999px; padding:5px 13px;
   font:700 9.5px/1 "DM Sans",Arial,sans-serif; letter-spacing:.13em; text-transform:uppercase}
@@ -302,7 +310,7 @@ tr.tbanner .bsep{color:var(--accent); padding:0 5px}
   html.print-konspekt .sheet,html.print-konspekt .toolbar{display:none !important}
   html.print-konspekt .kmodal.open{display:block !important; position:static; background:none; padding:0; overflow:visible}
   html.print-konspekt .kcard{box-shadow:none; max-width:none; padding:0; border-radius:0}
-  html.print-konspekt .kclose,html.print-konspekt .kfoot{display:none}
+  html.print-konspekt .kclose,html.print-konspekt .kfoot,html.print-konspekt .kesc{display:none}
   html.print-konspekt{--void:0}
   html.print-konspekt .kvar{display:none} html.print-konspekt .kvar.on{display:block}
   .podpisy{break-inside:avoid}
@@ -689,6 +697,7 @@ def render_konspekty_modale():
         kid = f"kon-{wk}-{nr}"
         out.append(f"""<div class="kmodal" id="{kid}" role="dialog" aria-modal="true" aria-label="Konspekt: {esc(K['tytul'])}">
   <div class="kcard">
+    <button class="kclose" data-close="{kid}" aria-label="Zamknij konspekt" title="Zamknij (Esc)">✕</button>
     <div class="khead">
       <span class="mark">PCTP</span>
       <div>
@@ -696,7 +705,6 @@ def render_konspekty_modale():
         <div class="ks">Konspekt · obszar VII · {esc(wers['etykieta'])} · wersja {wk} · twierdzenie {nr}</div>
       </div>
       <span class="kpill">Konspekt {esc(K['nr'])}</span>
-      <button class="kclose" data-close="{kid}">✕ zamknij</button>
     </div>
     <div class="ktitle">
       <span class="kp">Konspekt zajęć · druk KC-3</span>
@@ -758,9 +766,10 @@ def render_konspekty_modale():
     </div>
     <div class="kwsk"><b>Wskazówka dla prowadzącego:</b> {esc(K['wskazowka'])}</div>
     <div class="kfoot">
-      <button class="chipbtn zamknij" data-close="{kid}">Zamknij</button>
+      <button class="chipbtn zamknij" data-close="{kid}">✕ Zamknij i wróć do tabeli</button>
       <button class="chipbtn" style="background:var(--strong); border-color:var(--strong); color:var(--on-strong)" data-printkon="{kid}">Drukuj konspekt A4</button>
     </div>
+    <p class="kesc">zamkniesz też klawiszem <b>Esc</b> lub kliknięciem w ciemne tło poza kartą</p>
   </div>
 </div>""")
     return "\n".join(out)
