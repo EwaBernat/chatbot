@@ -1,0 +1,1377 @@
+<title>Kolorowy Świat Emocji</title>
+
+<style>
+/*  Kolorowy Świat Emocji — broszura sprzedażowa
+    PCTP Koszalin · seria „Świat Kolorów", część 1
+    Źródło do budowy: zbuduj.py (podstawia grafiki i kroje pisma)     */
+
+{{FONTS}}
+
+:root{
+  /* marka PCTP */
+  --fiolet:#2D1B69;
+  --fiolet-ciemny:#1E1147;
+  --fiolet-jasny:#4B3494;
+  --pomarancz:#E8450A;
+  --brzoskwinia:#F5B98E;
+  --papier:#FBF8F3;
+  --papier-cien:#F1ECE3;
+  --atrament:#241C33;
+  --szeptem:#6E6880;
+  --kreska:#E3DDD2;
+
+  /* pięć kolorów emocji — prosto z zeszytu */
+  --zolty:#F2B21A;   --zolty-ciemny:#8A6203;
+  --niebieski:#2E6FB7; --niebieski-ciemny:#1B4574;
+  --czerwony:#D33B2C; --czerwony-ciemny:#8A2118;
+  --rozowy:#E0619B;  --rozowy-ciemny:#8F2E5C;
+  --szary:#6E7681;   --szary-ciemny:#3D434B;
+
+  --naglowek:'Baloo 2','Trebuchet MS',system-ui,sans-serif;
+  --tekst:'Atkinson Hyperlegible','Verdana',system-ui,sans-serif;
+}
+
+*{box-sizing:border-box;}
+
+body{
+  margin:0;
+  background:var(--papier-cien);
+  color:var(--atrament);
+  font-family:var(--tekst);
+  font-size:10.2px;
+  line-height:1.55;
+  -webkit-font-smoothing:antialiased;
+}
+
+/* ——— arkusz A4 ——————————————————————————————————————————— */
+#broszura{padding:26px 12px 60px;}
+.arkusze{width:794px;margin:0 auto;transform-origin:top center;}
+
+.page{
+  position:relative;
+  width:794px;height:1123px;
+  background:var(--papier);
+  overflow:hidden;
+  margin:0 auto 26px;
+  box-shadow:0 1px 2px rgba(36,28,51,.10),0 18px 44px -12px rgba(36,28,51,.30);
+  border-radius:3px;
+  display:flex;flex-direction:column;
+}
+.page.ciemna{background:var(--fiolet);color:#fff;}
+
+/* wnętrze strony */
+.tresc{flex:1;padding:44px 58px 0;display:flex;flex-direction:column;min-height:0;}
+.tresc.waska{padding-left:74px;padding-right:74px;}
+
+/* pasek górny */
+.zywa{
+  display:flex;align-items:center;justify-content:space-between;
+  font-size:8.4px;letter-spacing:.20em;text-transform:uppercase;font-weight:700;
+  color:var(--szeptem);padding-bottom:9px;border-bottom:1.5px solid var(--kreska);
+  margin-bottom:26px;flex:none;
+}
+.ciemna .zywa{color:rgba(255,255,255,.62);border-bottom-color:rgba(255,255,255,.20);}
+.zywa .marka{color:var(--fiolet);}
+.ciemna .zywa .marka{color:var(--brzoskwinia);}
+
+/* stopka */
+.stopka{
+  flex:none;display:flex;align-items:center;justify-content:space-between;
+  margin:0 58px;padding:11px 0 22px;border-top:1.5px solid var(--kreska);
+  font-size:8.2px;color:var(--szeptem);letter-spacing:.06em;
+}
+.ciemna .stopka{border-top-color:rgba(255,255,255,.20);color:rgba(255,255,255,.60);}
+.stopka b{color:var(--fiolet);letter-spacing:.14em;}
+.ciemna .stopka b{color:var(--brzoskwinia);}
+.nr{font-family:var(--naglowek);font-weight:700;font-size:13px;color:var(--fiolet);}
+.ciemna .nr{color:#fff;}
+
+/* ——— typografia ——————————————————————————————————————————— */
+h1,h2,h3,h4{font-family:var(--naglowek);margin:0;line-height:1.08;font-weight:700;}
+h2{font-size:38px;letter-spacing:-.015em;color:var(--fiolet);}
+.ciemna h2{color:#fff;}
+h3{font-size:19px;color:var(--fiolet);letter-spacing:-.01em;}
+.ciemna h3{color:#fff;}
+h4{font-size:13.5px;color:var(--fiolet);}
+
+.nadtytul{
+  font-family:var(--naglowek);font-weight:700;font-size:9.6px;
+  letter-spacing:.26em;text-transform:uppercase;color:var(--pomarancz);
+  margin-bottom:10px;
+}
+.ciemna .nadtytul{color:var(--brzoskwinia);}
+
+.lead{font-size:13.4px;line-height:1.5;color:#453D5A;max-width:60ch;margin:12px 0 0;}
+.ciemna .lead{color:rgba(255,255,255,.84);}
+p{margin:0 0 9px;}
+strong{font-weight:700;color:var(--fiolet);}
+.ciemna strong{color:#fff;}
+
+.kreska-ozdobna{width:52px;height:4px;border-radius:2px;background:var(--pomarancz);margin:16px 0 0;}
+
+/* ——— siatki ——————————————————————————————————————————————— */
+.siatka{display:grid;gap:16px;}
+.k2{grid-template-columns:1fr 1fr;}
+.k3{grid-template-columns:repeat(3,1fr);}
+.k4{grid-template-columns:repeat(4,1fr);}
+.rosnij{flex:1;min-height:0;}
+
+/* ——— karty ————————————————————————————————————————————————— */
+.karta{
+  background:#fff;border:1.5px solid var(--kreska);border-radius:9px;
+  padding:15px 16px;
+}
+.karta.plaska{background:var(--papier-cien);border-color:transparent;}
+.karta h4{margin-bottom:5px;}
+.karta p{font-size:9.6px;line-height:1.5;color:#4A4358;margin:0;}
+.karta .etykieta{
+  font-size:8px;letter-spacing:.18em;text-transform:uppercase;font-weight:700;
+  color:var(--szeptem);display:block;margin-bottom:6px;
+}
+
+/* liczby */
+.liczba{font-family:var(--naglowek);font-weight:800;color:var(--pomarancz);line-height:1;}
+.stat .liczba{font-size:40px;}
+.stat .opis{font-size:9.4px;color:#4A4358;margin-top:5px;line-height:1.4;}
+.ciemna .stat .opis{color:rgba(255,255,255,.75);}
+.ciemna .stat .liczba{color:var(--brzoskwinia);}
+
+/* zdjęcia */
+img{display:block;max-width:100%;}
+.foto{border-radius:8px;overflow:hidden;background:var(--papier-cien);}
+.foto img{width:100%;height:100%;object-fit:cover;}
+.podpis{font-size:8.2px;color:var(--szeptem);margin-top:6px;letter-spacing:.04em;}
+.ciemna .podpis{color:rgba(255,255,255,.6);}
+
+/* miniatura strony zeszytu — „zdjęcie kącika" */
+.strona-zeszytu{
+  background:#fff;border-radius:5px;overflow:hidden;
+  box-shadow:0 1px 2px rgba(36,28,51,.14),0 10px 22px -8px rgba(36,28,51,.34);
+  border:1px solid rgba(36,28,51,.08);
+}
+.strona-zeszytu img{width:100%;}
+
+/* ——— okładka ——————————————————————————————————————————————— */
+.okladka{background:var(--fiolet);color:#fff;padding:0;}
+.okladka .gora{padding:56px 58px 0;flex:none;}
+.okladka .znaczek{
+  display:inline-flex;align-items:center;gap:9px;
+  border:1.6px solid rgba(255,255,255,.45);border-radius:4px;
+  padding:6px 12px;font-family:var(--naglowek);font-weight:700;
+  font-size:9.4px;letter-spacing:.24em;text-transform:uppercase;
+}
+.okladka .znaczek em{
+  font-style:normal;background:var(--brzoskwinia);color:var(--fiolet-ciemny);
+  padding:2px 8px;border-radius:2px;letter-spacing:.16em;
+}
+.okladka h1{
+  font-size:66px;line-height:.98;letter-spacing:-.025em;margin:26px 0 0;font-weight:800;
+}
+.okladka .haslo{font-family:var(--naglowek);font-size:20px;font-weight:600;color:var(--brzoskwinia);margin-top:14px;}
+.okladka .pod{font-size:12.4px;color:rgba(255,255,255,.82);margin-top:12px;max-width:52ch;line-height:1.5;}
+
+.pasy{display:grid;grid-template-columns:repeat(5,1fr);gap:5px;margin:26px 0 0;}
+.pas{border-radius:4px;padding:11px 9px 12px;text-align:center;}
+.pas .nazwa{font-family:var(--naglowek);font-weight:700;font-size:13px;line-height:1;}
+.pas .kolor{font-size:8.4px;margin-top:4px;opacity:.78;letter-spacing:.08em;}
+
+.okladka .zdjecie{margin:30px 0 0;flex:1;min-height:0;overflow:hidden;}
+.okladka .zdjecie img{width:100%;height:100%;object-fit:cover;}
+.okladka .dol{
+  flex:none;padding:16px 0 0;display:flex;align-items:center;justify-content:space-between;
+  border-top:1.5px solid rgba(255,255,255,.22);margin:20px 58px 30px;
+  font-size:9.4px;color:rgba(255,255,255,.78);
+}
+.okladka .dol b{color:var(--brzoskwinia);letter-spacing:.14em;font-size:10px;}
+
+/* ——— strefa koloru ————————————————————————————————————————— */
+.strefa{padding:0;position:relative;}
+.strefa .naglowek-strefy{position:relative;height:368px;flex:none;overflow:hidden;}
+.strefa .naglowek-strefy img{width:100%;height:100%;object-fit:cover;}
+.strefa .zaslona{
+  position:absolute;inset:0;
+  background:linear-gradient(180deg,rgba(0,0,0,.42) 0%,rgba(0,0,0,.05) 42%,rgba(0,0,0,.55) 100%);
+}
+.strefa .napis{position:absolute;left:58px;right:58px;bottom:26px;color:#fff;}
+.strefa .napis .numer{
+  font-family:var(--naglowek);font-weight:800;font-size:11px;letter-spacing:.32em;
+  opacity:.9;
+}
+.strefa .napis h2{color:#fff;font-size:52px;letter-spacing:-.02em;margin-top:2px;}
+.strefa .napis .mowi{font-family:var(--naglowek);font-weight:600;font-size:17px;margin-top:6px;}
+.strefa .plakietka{
+  position:absolute;top:26px;right:58px;
+  font-family:var(--naglowek);font-weight:700;font-size:9.6px;letter-spacing:.2em;
+  padding:6px 12px;border-radius:3px;color:#fff;
+}
+.strefa .cialo{padding:24px 58px 0;flex:1;min-height:0;display:flex;flex-direction:column;}
+
+.pasek-kolor{height:7px;width:100%;flex:none;}
+
+/* listy */
+ul.lista{list-style:none;margin:0;padding:0;}
+ul.lista li{
+  position:relative;padding-left:16px;font-size:9.8px;line-height:1.5;
+  margin-bottom:5px;color:#4A4358;
+}
+ul.lista li::before{
+  content:"";position:absolute;left:0;top:6px;width:6px;height:6px;border-radius:2px;
+  background:var(--pomarancz);
+}
+.ciemna ul.lista li{color:rgba(255,255,255,.82);}
+ul.lista.ptaszki li::before{
+  content:"✓";background:none;width:auto;height:auto;top:0;
+  color:var(--pomarancz);font-weight:700;font-size:10px;
+}
+
+/* kroki 1-8 */
+.krok{display:flex;gap:11px;align-items:flex-start;}
+.krok .cyfra{
+  flex:none;width:22px;height:22px;border-radius:6px;background:var(--fiolet);color:#fff;
+  font-family:var(--naglowek);font-weight:700;font-size:11.5px;
+  display:flex;align-items:center;justify-content:center;
+}
+.krok .tytul{font-family:var(--naglowek);font-weight:700;font-size:11.6px;color:var(--fiolet);line-height:1.2;}
+.krok .opis{font-size:9.3px;color:#4A4358;line-height:1.45;margin-top:2px;}
+
+/* tabela */
+table{width:100%;border-collapse:collapse;font-size:9.4px;}
+th{
+  text-align:left;font-family:var(--naglowek);font-weight:700;font-size:8.6px;
+  letter-spacing:.16em;text-transform:uppercase;color:var(--szeptem);
+  padding:0 10px 7px;border-bottom:1.5px solid var(--kreska);
+}
+td{padding:9px 10px;border-bottom:1px solid var(--kreska);vertical-align:top;color:#4A4358;}
+td:first-child,th:first-child{padding-left:0;}
+td b{color:var(--fiolet);}
+
+/* cytat */
+.cytat{
+  border-left:4px solid var(--pomarancz);padding:4px 0 4px 16px;
+  font-family:var(--naglowek);font-weight:600;font-size:16px;line-height:1.35;color:var(--fiolet);
+}
+.ciemna .cytat{color:#fff;border-left-color:var(--brzoskwinia);}
+.cytat .autor{
+  display:block;font-family:var(--tekst);font-weight:400;font-size:9px;
+  color:var(--szeptem);margin-top:8px;letter-spacing:.06em;
+}
+.ciemna .cytat .autor{color:rgba(255,255,255,.65);}
+
+/* dostosowania */
+.dost{
+  background:#fff;border:1.5px solid var(--kreska);border-radius:9px;
+  padding:13px 14px;display:flex;flex-direction:column;gap:7px;
+  border-top:4px solid var(--fiolet-jasny);
+}
+.dost .grupa{font-family:var(--naglowek);font-weight:700;font-size:12.4px;color:var(--fiolet);line-height:1.15;}
+.dost .wiersz{font-size:9.1px;line-height:1.42;color:#4A4358;}
+.dost .wiersz b.etyk{
+  display:block;font-family:var(--naglowek);font-size:7.8px;letter-spacing:.16em;
+  text-transform:uppercase;color:var(--pomarancz);margin-bottom:1px;font-weight:700;
+}
+.dost .strony{
+  margin-top:auto;font-size:8.2px;color:var(--szeptem);letter-spacing:.04em;
+  border-top:1px dashed var(--kreska);padding-top:6px;
+}
+
+/* cennik */
+.licencja{
+  border:1.5px solid var(--kreska);border-radius:10px;background:#fff;
+  padding:20px 18px;display:flex;flex-direction:column;
+}
+.licencja.polecana{border:2px solid var(--pomarancz);box-shadow:0 12px 30px -14px rgba(232,69,10,.5);}
+.licencja .wstazka{
+  align-self:flex-start;background:var(--pomarancz);color:#fff;border-radius:3px;
+  font-family:var(--naglowek);font-weight:700;font-size:8.2px;letter-spacing:.18em;
+  padding:3px 9px;margin-bottom:10px;text-transform:uppercase;
+}
+.licencja .puste-miejsce{height:19px;}
+.licencja .nazwa{font-family:var(--naglowek);font-weight:700;font-size:17px;color:var(--fiolet);line-height:1.1;}
+.licencja .komu{font-size:9.2px;color:var(--szeptem);margin:5px 0 12px;min-height:26px;}
+.licencja .cena{
+  font-family:var(--naglowek);font-weight:800;font-size:26px;color:var(--pomarancz);
+  border-top:1.5px solid var(--kreska);border-bottom:1.5px solid var(--kreska);
+  padding:11px 0;margin-bottom:12px;
+}
+.licencja .cena small{display:block;font-family:var(--tekst);font-weight:400;font-size:8.4px;color:var(--szeptem);letter-spacing:.1em;margin-top:3px;}
+.licencja .sku{margin-top:auto;padding-top:10px;font-size:8.2px;letter-spacing:.14em;color:var(--szeptem);}
+
+/* wezwanie */
+.cta{
+  background:var(--pomarancz);color:#fff;border-radius:10px;padding:22px 26px;
+  display:flex;align-items:center;justify-content:space-between;gap:24px;
+}
+.cta h3{color:#fff;font-size:22px;}
+.cta p{font-size:10.4px;color:rgba(255,255,255,.92);margin:6px 0 0;max-width:46ch;}
+.cta .guzik{
+  flex:none;background:#fff;color:var(--pomarancz);border-radius:6px;
+  font-family:var(--naglowek);font-weight:700;font-size:13px;padding:13px 22px;
+  text-align:center;line-height:1.2;
+}
+.cta .guzik small{display:block;font-family:var(--tekst);font-weight:400;font-size:8.4px;color:#B03408;margin-top:2px;}
+
+/* wizytówka */
+.wizytowka{display:grid;grid-template-columns:1fr 1fr;gap:12px 30px;font-size:10px;}
+.wizytowka .pole b{
+  display:block;font-family:var(--naglowek);font-size:8.2px;letter-spacing:.2em;
+  text-transform:uppercase;color:var(--brzoskwinia);margin-bottom:2px;font-weight:700;
+}
+.wizytowka .pole span{color:rgba(255,255,255,.9);}
+
+.znak-wodny{
+  position:absolute;right:-60px;bottom:-90px;width:340px;height:340px;border-radius:50%;
+  background:rgba(255,255,255,.05);
+}
+
+/* ——— skalowanie na małych ekranach ——————————————————————— */
+@media (max-width:840px){
+  #broszura{padding:12px 0 40px;}
+}
+
+/* ——— druk ——————————————————————————————————————————————— */
+@media print{
+  @page{size:A4;margin:0;}
+  body{background:#fff;}
+  #broszura{padding:0;}
+  .arkusze{transform:none !important;width:auto;}
+  .page{
+    margin:0;box-shadow:none;border-radius:0;
+    break-after:page;page-break-after:always;
+    width:210mm;height:297mm;
+  }
+  .page:last-child{break-after:auto;page-break-after:auto;}
+  *{-webkit-print-color-adjust:exact;print-color-adjust:exact;}
+}
+</style>
+
+<div id="broszura"><div class="arkusze">
+
+<!-- ═══════════════ 1 · OKŁADKA ═══════════════ -->
+<section class="page okladka">
+  <div class="gora">
+    <div class="znaczek">Świat Kolorów <em>Część 1</em></div>
+    <h1>Kolorowy<br>Świat Emocji</h1>
+    <div class="haslo">Pięć kolorów. Pięć emocji. Jeden Ty.</div>
+    <p class="pod">Zeszyt do zajęć rozwijających kompetencje emocjonalne i społeczne.
+       Dostosowany do potrzeb młodzieży ze spektrum autyzmu — i otwarty na każde dziecko,
+       któremu trudno nazwać to, co czuje.</p>
+    <div class="pasy">
+      <div class="pas" style="background:var(--zolty);color:var(--zolty-ciemny)"><div class="nazwa">Radość</div><div class="kolor">Żółty</div></div>
+      <div class="pas" style="background:var(--niebieski);color:#fff"><div class="nazwa">Smutek</div><div class="kolor">Niebieski</div></div>
+      <div class="pas" style="background:var(--czerwony);color:#fff"><div class="nazwa">Złość</div><div class="kolor">Czerwony</div></div>
+      <div class="pas" style="background:var(--rozowy);color:#fff"><div class="nazwa">Wstyd</div><div class="kolor">Różowy</div></div>
+      <div class="pas" style="background:var(--szary);color:#fff"><div class="nazwa">Lęk</div><div class="kolor">Szary</div></div>
+    </div>
+  </div>
+  <div class="zdjecie">{{IMG:swatche|Pięć kolorów farby — motyw przewodni zeszytu}}</div>
+  <div class="dol">
+    <div><b>PCTP</b> &nbsp;Pomorskie Centrum Terapii Pedagogicznej · Koszalin</div>
+    <div>58 stron A4 · PDF do druku · wydanie pierwsze 2026</div>
+  </div>
+</section>
+
+<!-- ═══════════════ 2 · CO TO JEST ═══════════════ -->
+<section class="page">
+  <div class="tresc">
+    <div class="zywa"><span class="marka">Kolorowy Świat Emocji</span><span>Czym jest ten zeszyt</span></div>
+
+    <div class="nadtytul">Gotowy materiał na zajęcia</div>
+    <h2>Emocja, którą widać.<br>I którą można nazwać.</h2>
+    <p class="lead">Nastolatek ze spektrum autyzmu często czuje wszystko bardzo mocno — i nie ma na to
+      słowa. Ten zeszyt daje mu jedno narzędzie: <strong>kolor</strong>. Radość jest żółta, smutek niebieski,
+      złość czerwona, wstyd różowy, lęk szary. Kolor da się pokazać, gdy słowa nie przychodzą.</p>
+    <div class="kreska-ozdobna"></div>
+
+    <div class="siatka k4" style="margin:26px 0 24px">
+      <div class="stat"><div class="liczba">58</div><div class="opis">stron A4 w pełnym kolorze, gotowych do wydruku</div></div>
+      <div class="stat"><div class="liczba">5</div><div class="opis">rozdziałów — pięć emocji, pięć kolorów</div></div>
+      <div class="stat"><div class="liczba">8</div><div class="opis">stron w każdym rozdziale, zawsze w tej samej kolejności</div></div>
+      <div class="stat"><div class="liczba">24</div><div class="opis">karty do gry planszowej plus karty emocji do wycięcia</div></div>
+    </div>
+
+    <div class="siatka k2 rosnij" style="gap:22px">
+      <div>
+        <div class="foto" style="height:214px;margin-bottom:16px">{{IMG:o-zeszycie|Zeszyt otwarty na blacie}}</div>
+        <h3 style="margin-bottom:8px">Dla kogo</h3>
+        <ul class="lista">
+          <li>Dla nastolatka w spektrum autyzmu.</li>
+          <li>Dla każdego, komu trudno nazwać to, co czuje.</li>
+          <li>Dla nauczyciela, terapeuty i rodzica — jako gotowy materiał, bez przygotowania.</li>
+        </ul>
+        <h3 style="margin:16px 0 8px">Gdzie się sprawdzi</h3>
+        <ul class="lista">
+          <li>Zajęcia rewalidacyjne.</li>
+          <li>Pomoc psychologiczno-pedagogiczna.</li>
+          <li>Terapia indywidualna i praca w małej grupie.</li>
+          <li>W domu — razem z rodzicem albo samodzielnie.</li>
+        </ul>
+      </div>
+      <div>
+        <div class="karta" style="background:var(--fiolet);border-color:var(--fiolet);margin-bottom:14px">
+          <span class="etykieta" style="color:var(--brzoskwinia)">Zasada zeszytu</span>
+          <div class="cytat" style="border-left-color:var(--brzoskwinia);color:#fff;font-size:15px">
+            Przewidywalność jest tu elementem terapeutycznym, nie ozdobnikiem.
+            <span class="autor" style="color:rgba(255,255,255,.7)">Każdy rozdział ma ten sam układ ośmiu stron. Nastolatek wie, co będzie na następnej stronie.</span>
+          </div>
+        </div>
+        <h3 style="margin-bottom:8px">Czego tu nie ma</h3>
+        <ul class="lista">
+          <li>Nie ma dobrych i złych odpowiedzi.</li>
+          <li>Nie ma emocji zakazanych.</li>
+          <li>Nie ma sprawdzianu na końcu i nie ma ocen.</li>
+          <li>Nie ma limitu czasu — rozdział można zrobić w dzień albo rozłożyć na tydzień.</li>
+        </ul>
+        <h3 style="margin:16px 0 8px">Jak jest zrobiony</h3>
+        <ul class="lista ptaszki">
+          <li>Krój pisma <strong>Atkinson Hyperlegible</strong> — zaprojektowany pod czytelność; litery łatwe do pomylenia różnią się kształtem.</li>
+          <li>Krótkie zdania, szeroka interlinia, tekst niejustowany.</li>
+          <li>Zdjęcia i kroje osadzone w pliku — otworzy się i wydrukuje identycznie wszędzie.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="siatka k3" style="margin-top:20px;gap:14px;padding-top:16px;border-top:1.5px solid var(--kreska)">
+      <div><span class="etykieta">Co dostajesz</span><p style="font-size:9.6px;color:#4A4358">Jeden plik PDF, 7,5 MB — do pobrania od razu po opłaceniu zamówienia. Bez wysyłki i bez czekania.</p></div>
+      <div><span class="etykieta">Ile razy możesz wydrukować</span><p style="font-size:9.6px;color:#4A4358">Tyle egzemplarzy, ilu masz uczniów — w zakresie wybranej licencji. Bez limitu kopii i bez dopłat.</p></div>
+      <div><span class="etykieta">Jak długo masz dostęp</span><p style="font-size:9.6px;color:#4A4358">Dożywotnio do zakupionego wydania. Plik zostaje u Ciebie na dysku.</p></div>
+    </div>
+  </div>
+  <div class="stopka"><div><b>PCTP</b> · Kolorowy Świat Emocji</div><div class="nr">02</div></div>
+</section>
+
+<!-- ═══════════════ 3 · MAPA ZESZYTU ═══════════════ -->
+<section class="page ciemna">
+  <div class="tresc">
+    <div class="zywa"><span class="marka">Kolorowy Świat Emocji</span><span>Mapa zeszytu</span></div>
+    <div class="nadtytul">Wszystkie strefy na jednej stronie</div>
+    <h2>Trzy strefy, pięć kolorów,<br>osiem kącików w każdym.</h2>
+    <p class="lead">Zeszyt dzieli się na trzy części, które robią trzy różne rzeczy.
+       Nie trzeba iść po kolei — otwiera się ten kolor, który pasuje do dzisiaj.</p>
+
+    <div class="siatka k3" style="margin-top:26px">
+      <div class="karta" style="background:rgba(255,255,255,.07);border-color:rgba(255,255,255,.18)">
+        <span class="etykieta" style="color:var(--brzoskwinia)">Strefa I · str. 1–7</span>
+        <h4 style="color:#fff">Zanim zaczniesz</h4>
+        <p style="color:rgba(255,255,255,.8)">Instrukcja w siedmiu krokach, strona dla dorosłego, bohaterowie i słowniczek ośmiu trudnych słów. Wszystko, co trzeba wiedzieć przed pierwszym rozdziałem.</p>
+      </div>
+      <div class="karta" style="background:rgba(255,255,255,.07);border-color:rgba(255,255,255,.18)">
+        <span class="etykieta" style="color:var(--brzoskwinia)">Strefa II · str. 8–47</span>
+        <h4 style="color:#fff">Pięć kolorów emocji</h4>
+        <p style="color:rgba(255,255,255,.8)">Serce zeszytu. Pięć rozdziałów po osiem stron: radość, smutek, złość, wstyd, lęk. Każdy prowadzony tą samą ścieżką ośmiu kroków.</p>
+      </div>
+      <div class="karta" style="background:rgba(255,255,255,.07);border-color:rgba(255,255,255,.18)">
+        <span class="etykieta" style="color:var(--brzoskwinia)">Strefa III · str. 48–58</span>
+        <h4 style="color:#fff">Narzędzia i gra</h4>
+        <p style="color:rgba(255,255,255,.8)">Paleta emocji, gra planszowa „Ścieżka Kolorów”, karty emocji, plan na trudny dzień, strona bezpieczeństwa i dyplom.</p>
+      </div>
+    </div>
+
+    <div class="siatka k4 rosnij" style="margin-top:26px;gap:14px;align-content:start">
+      <div><div class="strona-zeszytu">{{IMG:str-spis|Spis treści}}</div><div class="podpis">Spis treści · str. 2</div></div>
+      <div><div class="strona-zeszytu">{{IMG:str-instrukcja|Instrukcja}}</div><div class="podpis">Jak korzystać · str. 3</div></div>
+      <div><div class="strona-zeszytu">{{IMG:str-dla-doroslego|Strona dla dorosłego}}</div><div class="podpis">Jak towarzyszyć · str. 4</div></div>
+      <div><div class="strona-zeszytu">{{IMG:str-rajmund|Bohaterowie}}</div><div class="podpis">Poznaj Rajmunda · str. 5</div></div>
+      <div><div class="strona-zeszytu">{{IMG:str-piec-kolorow|Pięć kolorów}}</div><div class="podpis">Pięć kolorów · str. 6</div></div>
+      <div><div class="strona-zeszytu">{{IMG:str-slowniczek|Słowniczek}}</div><div class="podpis">Słowniczek · str. 7</div></div>
+      <div><div class="strona-zeszytu">{{IMG:str-paleta|Paleta emocji}}</div><div class="podpis">Moja paleta · str. 48</div></div>
+      <div><div class="strona-zeszytu">{{IMG:str-dyplom|Dyplom}}</div><div class="podpis">Dyplom · str. 56</div></div>
+    </div>
+
+    <div class="cytat" style="margin-top:22px;font-size:17px">
+      Nie musisz iść po kolei — otwórz ten kolor, który pasuje do dzisiaj.
+      <span class="autor">Zdanie ze spisu treści zeszytu. Kolejność należy do ucznia, nie do prowadzącego.</span>
+    </div>
+  </div>
+  <div class="stopka"><div><b>PCTP</b> · Kolorowy Świat Emocji</div><div class="nr">03</div></div>
+</section>
+
+<!-- ═══════════════ 4 · OSIEM KĄCIKÓW ═══════════════ -->
+<section class="page">
+  <div class="tresc">
+    <div class="zywa"><span class="marka">Kolorowy Świat Emocji</span><span>Osiem kącików rozdziału</span></div>
+    <div class="nadtytul">Ta sama droga za każdym razem</div>
+    <h2>Osiem kącików.<br>W każdym z pięciu kolorów.</h2>
+    <p class="lead">Rozdział to nie osiem przypadkowych ćwiczeń, tylko osiem stałych kącików w stałej kolejności.
+      Poniżej — cały rozdział żółty, strona po stronie. Cztery pozostałe kolory wyglądają dokładnie tak samo.</p>
+
+    <div class="siatka k4" style="margin-top:22px;gap:13px">
+      <div><div class="strona-zeszytu">{{IMG:str-moja-zolta|Kącik 1 — próg koloru}}</div><div class="podpis"><b style="color:var(--fiolet)">1 · Próg koloru</b><br>Wejście w emocję: jedno zdanie i zdjęcie.</div></div>
+      <div><div class="strona-zeszytu">{{IMG:str-zolta-opis|Kącik 2 — poznaj emocję}}</div><div class="podpis"><b style="color:var(--fiolet)">2 · Poznaj emocję</b><br>Sześć krótkich zdań. Można czytać po jednym.</div></div>
+      <div><div class="strona-zeszytu">{{IMG:str-zolta-cialo|Kącik 3 — mapa ciała}}</div><div class="podpis"><b style="color:var(--fiolet)">3 · Mapa ciała</b><br>Twarz, ciało, w środku — po czym ją poznać.</div></div>
+      <div><div class="strona-zeszytu">{{IMG:str-zolta-sytuacje|Kącik 4 — moje sytuacje}}</div><div class="podpis"><b style="color:var(--fiolet)">4 · Moje sytuacje</b><br>Lista do zaznaczenia: kiedy to przychodzi.</div></div>
+      <div><div class="strona-zeszytu">{{IMG:str-zolta-opowiadanie|Kącik 5 — opowiadanie}}</div><div class="podpis"><b style="color:var(--fiolet)">5 · Opowiadanie</b><br>Rajmund przeżywa tę emocję zamiast czytelnika.</div></div>
+      <div><div class="strona-zeszytu">{{IMG:str-zolta-pytania|Kącik 6 — pytania do pracy}}</div><div class="podpis"><b style="color:var(--fiolet)">6 · Pytania do pracy</b><br>Osiem pytań. Jedno zdanie wystarczy.</div></div>
+      <div><div class="strona-zeszytu">{{IMG:str-zolta-zadania|Kącik 7 — zadania}}</div><div class="podpis"><b style="color:var(--fiolet)">7 · Zadania</b><br>Dziewięć zadań na trzech poziomach trudności.</div></div>
+      <div><div class="strona-zeszytu">{{IMG:str-zolta-strona|Kącik 8 — tylko Twoja strona}}</div><div class="podpis"><b style="color:var(--fiolet)">8 · Tylko Twoja strona</b><br>Termometr emocji, miejsce na rysunek i zdjęcie.</div></div>
+    </div>
+
+    <div class="siatka k3 rosnij" style="margin-top:24px;align-content:end;padding-bottom:6px">
+      <div class="karta plaska">
+        <span class="etykieta">Poziom 1 · 5 minut</span>
+        <h4>Na rozgrzewkę</h4>
+        <p>Zadanie, które da się zrobić od ręki. „Znajdź w domu trzy żółte przedmioty. Ustaw je obok siebie.”</p>
+      </div>
+      <div class="karta plaska">
+        <span class="etykieta">Poziom 2 · 20 minut</span>
+        <h4>Na spokojnie</h4>
+        <p>Wymaga skupienia i namysłu. „Ułóż playlistę żółtą — pięć utworów, przy których jest Ci dobrze.”</p>
+      </div>
+      <div class="karta plaska">
+        <span class="etykieta">Poziom 3 · dłużej niż dzień</span>
+        <h4>Śmiały krok</h4>
+        <p>Zadanie z elementem społecznym. „Powiedz jednej osobie, co Cię dzisiaj ucieszyło. Zapisz, jak zareagowała.”</p>
+      </div>
+    </div>
+  </div>
+  <div class="stopka"><div><b>PCTP</b> · Kolorowy Świat Emocji</div><div class="nr">04</div></div>
+</section>
+
+<!-- ═══════════════ 5 · STREFA RADOŚĆ ═══════════════ -->
+<section class="page strefa">
+  <div class="naglowek-strefy">
+    {{IMG:zolty-hero|Radość — zdjęcie otwierające rozdział}}
+    <div class="zaslona"></div>
+    <div class="plakietka" style="background:var(--zolty);color:var(--zolty-ciemny)">#F2B21A</div>
+    <div class="napis">
+      <div class="numer">01 · KOLOR ŻÓŁTY · STR. 8–15</div>
+      <h2>Radość</h2>
+      <div class="mowi">Żółty mówi: dobrze mi.</div>
+    </div>
+  </div>
+  <div class="pasek-kolor" style="background:var(--zolty)"></div>
+
+  <div class="cialo" style="flex:1;display:flex;flex-direction:column">
+    <p class="lead" style="margin-top:0;font-size:12.6px">Radość to uczucie, że jest dobrze. Ma kolor słońca. Bywa cicha albo głośna — obie są prawdziwe. Dzielona z kimś rośnie.</p>
+
+    <div class="siatka" style="grid-template-columns:1.55fr 1fr;gap:24px;margin-top:20px;flex:1;min-height:0">
+      <div>
+        <h3 style="margin-bottom:4px">Mapa ciała — kącik 3</h3>
+        <p style="font-size:9.6px;color:var(--szeptem);margin-bottom:12px">Trzy miejsca, w których widać tę emocję — u siebie i u innych. Nastolatek podkreśla ołówkiem znaki, które zna u siebie, i liczy, ile ich wyszło.</p>
+        <div class="siatka k3" style="gap:13px">
+          <div>
+            <span class="etykieta">Twarz</span>
+            <ul class="lista" style="margin-top:2px"><li>Kąciki ust idą do góry.</li><li>Oczy robią się węższe i błyszczą.</li><li>Policzki unoszą się.</li></ul>
+          </div>
+          <div>
+            <span class="etykieta">Ciało</span>
+            <ul class="lista" style="margin-top:2px"><li>Ramiona opadają swobodnie.</li><li>Ruchy są szybsze i lżejsze.</li><li>Chce Ci się skakać, klaskać, tańczyć.</li></ul>
+          </div>
+          <div>
+            <span class="etykieta">W środku</span>
+            <ul class="lista" style="margin-top:2px"><li>W klatce piersiowej robi się ciepło.</li><li>Oddech jest spokojny.</li><li>Głos brzmi wyżej i głośniej.</li></ul>
+          </div>
+        </div>
+
+        <div class="karta plaska" style="margin-top:18px;border-left:4px solid var(--zolty)">
+          <span class="etykieta">Kącik 5 · opowiadanie</span>
+          <h4 style="margin-bottom:5px">„Żółty piknik”</h4>
+          <p>Rajmund i Maja rozkładają koc w parku. Leci piosenka, którą oboje znają na pamięć. „Dobrze mi teraz” — mówi Rajmund głośno i sam się dziwi, że to powiedział.</p>
+          <p style="margin-top:8px;font-size:9.1px;color:var(--szeptem)">Po opowiadaniu — osiem pytań do pracy i dziewięć zadań na trzech poziomach trudności.</p>
+        </div>
+        <div class="karta plaska" style="margin-top:14px">
+          <span class="etykieta">Kącik 4 · moje sytuacje</span>
+          <p style="margin-bottom:7px">Lista sytuacji z kwadracikiem do zaznaczenia — uczeń zaznacza tylko te, które zdarzają się jemu. Na przykład:</p>
+          <ul class="lista" style="margin-top:0"><li>Kiedy ktoś bliski się do Ciebie uśmiecha.</li><li>Kiedy udało Ci się coś trudnego.</li><li>Kiedy robisz to, co lubisz: rysujesz, grasz, czytasz.</li></ul>
+        </div>
+      </div>
+
+      <div style="display:flex;flex-direction:column">
+        <div class="karta" style="border-top:4px solid var(--zolty)">
+          <span class="etykieta">Kącik 8 · tylko Twoja strona</span>
+          <h4 style="margin-bottom:9px">Jak zatrzymać radość na dłużej?</h4>
+          <div class="krok" style="margin-bottom:9px"><div class="cyfra" style="background:var(--zolty);color:var(--zolty-ciemny)">1</div><div><div class="opis" style="margin-top:3px">Nazwij ją — powiedz w myślach: „to jest radość”.</div></div></div><div class="krok" style="margin-bottom:9px"><div class="cyfra" style="background:var(--zolty);color:var(--zolty-ciemny)">2</div><div><div class="opis" style="margin-top:3px">Zatrzymaj ją — zrób zdjęcie albo zapisz jedno zdanie.</div></div></div><div class="krok" style="margin-bottom:9px"><div class="cyfra" style="background:var(--zolty);color:var(--zolty-ciemny)">3</div><div><div class="opis" style="margin-top:3px">Podziel się nią — powiedz komuś, co się stało.</div></div></div><div class="krok" style="margin-bottom:9px"><div class="cyfra" style="background:var(--zolty);color:var(--zolty-ciemny)">4</div><div><div class="opis" style="margin-top:3px">Wróć do niej wieczorem, przed snem.</div></div></div>
+        </div>
+        <div style="margin-top:14px">
+          <div class="strona-zeszytu">{{IMG:str-moja-zolta|Tylko Twoja strona — radość}}</div>
+          <div class="podpis">Kącik 8 · str. 8–15 · termometr emocji 1–5, miejsce na rysunek i własne zdjęcie</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="stopka"><div><b>PCTP</b> · Strefa 01 — radość</div><div class="nr">05</div></div>
+</section>
+
+<!-- ═══════════════ 6 · STREFA SMUTEK ═══════════════ -->
+<section class="page strefa">
+  <div class="naglowek-strefy">
+    {{IMG:niebieski-hero|Smutek — zdjęcie otwierające rozdział}}
+    <div class="zaslona"></div>
+    <div class="plakietka" style="background:var(--niebieski);color:#fff">#2E6FB7</div>
+    <div class="napis">
+      <div class="numer">02 · KOLOR NIEBIESKI · STR. 16–23</div>
+      <h2>Smutek</h2>
+      <div class="mowi">Niebieski mówi: coś mnie boli w środku.</div>
+    </div>
+  </div>
+  <div class="pasek-kolor" style="background:var(--niebieski)"></div>
+
+  <div class="cialo" style="flex:1;display:flex;flex-direction:column">
+    <p class="lead" style="margin-top:0;font-size:12.6px">Smutek to uczucie, że czegoś brakuje. Jest ciężki i wolny. Nie jest błędem — mówi Ci, co było dla Ciebie ważne. I zawsze mija.</p>
+
+    <div class="siatka" style="grid-template-columns:1.55fr 1fr;gap:24px;margin-top:20px;flex:1;min-height:0">
+      <div>
+        <h3 style="margin-bottom:4px">Mapa ciała — kącik 3</h3>
+        <p style="font-size:9.6px;color:var(--szeptem);margin-bottom:12px">Trzy miejsca, w których widać tę emocję — u siebie i u innych. Nastolatek podkreśla ołówkiem znaki, które zna u siebie, i liczy, ile ich wyszło.</p>
+        <div class="siatka k3" style="gap:13px">
+          <div>
+            <span class="etykieta">Twarz</span>
+            <ul class="lista" style="margin-top:2px"><li>Kąciki ust opadają w dół.</li><li>Powieki są cięższe, oczy patrzą w dół.</li><li>Twarz jest mniej ruchliwa.</li></ul>
+          </div>
+          <div>
+            <span class="etykieta">Ciało</span>
+            <ul class="lista" style="margin-top:2px"><li>Ramiona i plecy się garbią.</li><li>Ruchy są wolniejsze.</li><li>Trudniej patrzeć komuś w oczy.</li></ul>
+          </div>
+          <div>
+            <span class="etykieta">W środku</span>
+            <ul class="lista" style="margin-top:2px"><li>W klatce piersiowej robi się ciężko.</li><li>Gardło się ściska.</li><li>Masz mniej siły i ochoty.</li></ul>
+          </div>
+        </div>
+
+        <div class="karta plaska" style="margin-top:18px;border-left:4px solid var(--niebieski)">
+          <span class="etykieta">Kącik 5 · opowiadanie</span>
+          <h4 style="margin-bottom:5px">„Niebieska koszulka”</h4>
+          <p>Deszczowa środa, nikt nie zagadał. Rajmund rysuje w parku dużą niebieską chmurę. Maja siada obok i o nic nie pyta. Ciężar nie znika — ale robi się mniejszy.</p>
+          <p style="margin-top:8px;font-size:9.1px;color:var(--szeptem)">Po opowiadaniu — osiem pytań do pracy i dziewięć zadań na trzech poziomach trudności.</p>
+        </div>
+        <div class="karta plaska" style="margin-top:14px">
+          <span class="etykieta">Kącik 4 · moje sytuacje</span>
+          <p style="margin-bottom:7px">Lista sytuacji z kwadracikiem do zaznaczenia — uczeń zaznacza tylko te, które zdarzają się jemu. Na przykład:</p>
+          <ul class="lista" style="margin-top:0"><li>Kiedy koledzy bawią się razem, a Ty stoisz obok.</li><li>Kiedy ktoś bliski wyjeżdża albo choruje.</li><li>Kiedy dostajesz gorszą ocenę, niż się starałeś.</li></ul>
+        </div>
+      </div>
+
+      <div style="display:flex;flex-direction:column">
+        <div class="karta" style="border-top:4px solid var(--niebieski)">
+          <span class="etykieta">Kącik 8 · tylko Twoja strona</span>
+          <h4 style="margin-bottom:9px">Co robić, gdy jest ciężko?</h4>
+          <div class="krok" style="margin-bottom:9px"><div class="cyfra" style="background:var(--niebieski);color:#fff">1</div><div><div class="opis" style="margin-top:3px">Nazwij to: „To jest smutek. Czuję go teraz”.</div></div></div><div class="krok" style="margin-bottom:9px"><div class="cyfra" style="background:var(--niebieski);color:#fff">2</div><div><div class="opis" style="margin-top:3px">Zwolnij — usiądź, napij się wody, oddychaj wolniej.</div></div></div><div class="krok" style="margin-bottom:9px"><div class="cyfra" style="background:var(--niebieski);color:#fff">3</div><div><div class="opis" style="margin-top:3px">Wypuść to — narysuj, napisz, posłuchaj muzyki.</div></div></div><div class="krok" style="margin-bottom:9px"><div class="cyfra" style="background:var(--niebieski);color:#fff">4</div><div><div class="opis" style="margin-top:3px">Nie zostawaj sam — napisz jednej osobie.</div></div></div>
+        </div>
+        <div style="margin-top:14px">
+          <div class="strona-zeszytu">{{IMG:str-moja-niebieska|Tylko Twoja strona — smutek}}</div>
+          <div class="podpis">Kącik 8 · str. 16–23 · termometr emocji 1–5, miejsce na rysunek i własne zdjęcie</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="stopka"><div><b>PCTP</b> · Strefa 02 — smutek</div><div class="nr">06</div></div>
+</section>
+
+<!-- ═══════════════ 7 · STREFA ZŁOŚĆ ═══════════════ -->
+<section class="page strefa">
+  <div class="naglowek-strefy">
+    {{IMG:czerwony-hero|Złość — zdjęcie otwierające rozdział}}
+    <div class="zaslona"></div>
+    <div class="plakietka" style="background:var(--czerwony);color:#fff">#D33B2C</div>
+    <div class="napis">
+      <div class="numer">03 · KOLOR CZERWONY · STR. 24–31</div>
+      <h2>Złość</h2>
+      <div class="mowi">Czerwony mówi: coś jest nie w porządku.</div>
+    </div>
+  </div>
+  <div class="pasek-kolor" style="background:var(--czerwony)"></div>
+
+  <div class="cialo" style="flex:1;display:flex;flex-direction:column">
+    <p class="lead" style="margin-top:0;font-size:12.6px">Złość to sygnał, że ktoś przekroczył Twoją granicę. Przychodzi szybko i daje energię. Złość wolno czuć — krzywdzić nie wolno.</p>
+
+    <div class="siatka" style="grid-template-columns:1.55fr 1fr;gap:24px;margin-top:20px;flex:1;min-height:0">
+      <div>
+        <h3 style="margin-bottom:4px">Mapa ciała — kącik 3</h3>
+        <p style="font-size:9.6px;color:var(--szeptem);margin-bottom:12px">Trzy miejsca, w których widać tę emocję — u siebie i u innych. Nastolatek podkreśla ołówkiem znaki, które zna u siebie, i liczy, ile ich wyszło.</p>
+        <div class="siatka k3" style="gap:13px">
+          <div>
+            <span class="etykieta">Twarz</span>
+            <ul class="lista" style="margin-top:2px"><li>Brwi ściągają się w dół i do środka.</li><li>Twarz i uszy robią się czerwone.</li><li>Wzrok wbija się w jeden punkt.</li></ul>
+          </div>
+          <div>
+            <span class="etykieta">Ciało</span>
+            <ul class="lista" style="margin-top:2px"><li>Dłonie zaciskają się w pięści.</li><li>Ramiona i szczęka się napinają.</li><li>Ruchy są gwałtowne.</li></ul>
+          </div>
+          <div>
+            <span class="etykieta">W środku</span>
+            <ul class="lista" style="margin-top:2px"><li>Serce bije szybciej.</li><li>Robi się gorąco, zwłaszcza na twarzy.</li><li>Trudniej myśleć spokojnie.</li></ul>
+          </div>
+        </div>
+
+        <div class="karta plaska" style="margin-top:18px;border-left:4px solid var(--czerwony)">
+          <span class="etykieta">Kącik 5 · opowiadanie</span>
+          <h4 style="margin-bottom:5px">„Czerwone światło”</h4>
+          <p>Model budowany trzy tygodnie leży rozbity na podłodze. Rajmund robi cztery rzeczy zamiast krzyku. Złość była tak samo duża jak zawsze — ale pierwszy raz nikt przez nią nie ucierpiał.</p>
+          <p style="margin-top:8px;font-size:9.1px;color:var(--szeptem)">Po opowiadaniu — osiem pytań do pracy i dziewięć zadań na trzech poziomach trudności.</p>
+        </div>
+        <div class="karta plaska" style="margin-top:14px">
+          <span class="etykieta">Kącik 4 · moje sytuacje</span>
+          <p style="margin-bottom:7px">Lista sytuacji z kwadracikiem do zaznaczenia — uczeń zaznacza tylko te, które zdarzają się jemu. Na przykład:</p>
+          <ul class="lista" style="margin-top:0"><li>Kiedy ktoś zabiera Twoją rzecz bez pytania.</li><li>Kiedy plan zmienia się nagle i nikt Cię nie uprzedził.</li><li>Kiedy jest za głośno, za jasno, za tłoczno.</li></ul>
+        </div>
+      </div>
+
+      <div style="display:flex;flex-direction:column">
+        <div class="karta" style="border-top:4px solid var(--czerwony)">
+          <span class="etykieta">Kącik 8 · tylko Twoja strona</span>
+          <h4 style="margin-bottom:9px">Cztery kroki, gdy robi się gorąco</h4>
+          <div class="krok" style="margin-bottom:9px"><div class="cyfra" style="background:var(--czerwony);color:#fff">1</div><div><div class="opis" style="margin-top:3px">STOP — powiedz to słowo w myślach.</div></div></div><div class="krok" style="margin-bottom:9px"><div class="cyfra" style="background:var(--czerwony);color:#fff">2</div><div><div class="opis" style="margin-top:3px">ODDECH — wdech na 4, wydech na 6. Trzy razy.</div></div></div><div class="krok" style="margin-bottom:9px"><div class="cyfra" style="background:var(--czerwony);color:#fff">3</div><div><div class="opis" style="margin-top:3px">ODEJDŹ — dwie minuty w umówione miejsce.</div></div></div><div class="krok" style="margin-bottom:9px"><div class="cyfra" style="background:var(--czerwony);color:#fff">4</div><div><div class="opis" style="margin-top:3px">POWIEDZ — przygotowanym zdaniem, bez wyzwisk.</div></div></div>
+        </div>
+        <div style="margin-top:14px">
+          <div class="strona-zeszytu">{{IMG:str-moja-czerwona|Tylko Twoja strona — złość}}</div>
+          <div class="podpis">Kącik 8 · str. 24–31 · termometr emocji 1–5, miejsce na rysunek i własne zdjęcie</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="stopka"><div><b>PCTP</b> · Strefa 03 — złość</div><div class="nr">07</div></div>
+</section>
+
+<!-- ═══════════════ 8 · STREFA WSTYD ═══════════════ -->
+<section class="page strefa">
+  <div class="naglowek-strefy">
+    {{IMG:rozowy-hero|Wstyd — zdjęcie otwierające rozdział}}
+    <div class="zaslona"></div>
+    <div class="plakietka" style="background:var(--rozowy);color:#fff">#E0619B</div>
+    <div class="napis">
+      <div class="numer">04 · KOLOR RÓŻOWY · STR. 32–39</div>
+      <h2>Wstyd</h2>
+      <div class="mowi">Różowy mówi: chcę się schować.</div>
+    </div>
+  </div>
+  <div class="pasek-kolor" style="background:var(--rozowy)"></div>
+
+  <div class="cialo" style="flex:1;display:flex;flex-direction:column">
+    <p class="lead" style="margin-top:0;font-size:12.6px">Wstyd to uczucie, że ktoś zobaczył mnie z gorszej strony. Gorące i ciasne. Nie znaczy, że jesteś zły — znaczy, że zależy Ci na tym, co inni pomyślą.</p>
+
+    <div class="siatka" style="grid-template-columns:1.55fr 1fr;gap:24px;margin-top:20px;flex:1;min-height:0">
+      <div>
+        <h3 style="margin-bottom:4px">Mapa ciała — kącik 3</h3>
+        <p style="font-size:9.6px;color:var(--szeptem);margin-bottom:12px">Trzy miejsca, w których widać tę emocję — u siebie i u innych. Nastolatek podkreśla ołówkiem znaki, które zna u siebie, i liczy, ile ich wyszło.</p>
+        <div class="siatka k3" style="gap:13px">
+          <div>
+            <span class="etykieta">Twarz</span>
+            <ul class="lista" style="margin-top:2px"><li>Policzki i uszy robią się różowe.</li><li>Wzrok ucieka w dół lub w bok.</li><li>Głowa się pochyla.</li></ul>
+          </div>
+          <div>
+            <span class="etykieta">Ciało</span>
+            <ul class="lista" style="margin-top:2px"><li>Ramiona podnoszą się do uszu.</li><li>Ręce zasłaniają twarz.</li><li>Robisz się mniejszy, cofasz się o krok.</li></ul>
+          </div>
+          <div>
+            <span class="etykieta">W środku</span>
+            <ul class="lista" style="margin-top:2px"><li>Na twarzy robi się gorąco.</li><li>Głos robi się cichszy albo drży.</li><li>W brzuchu ściska.</li></ul>
+          </div>
+        </div>
+
+        <div class="karta plaska" style="margin-top:18px;border-left:4px solid var(--rozowy)">
+          <span class="etykieta">Kącik 5 · opowiadanie</span>
+          <h4 style="margin-bottom:5px">„Różowe uszy”</h4>
+          <p>Pomyłka przy tablicy i czyjś śmiech z tyłu klasy. „Potem był piątek. I nikt już o tym nie pamiętał” — mówi Maja. W czwartek Rajmund podnosi rękę jeszcze raz.</p>
+          <p style="margin-top:8px;font-size:9.1px;color:var(--szeptem)">Po opowiadaniu — osiem pytań do pracy i dziewięć zadań na trzech poziomach trudności.</p>
+        </div>
+        <div class="karta plaska" style="margin-top:14px">
+          <span class="etykieta">Kącik 4 · moje sytuacje</span>
+          <p style="margin-bottom:7px">Lista sytuacji z kwadracikiem do zaznaczenia — uczeń zaznacza tylko te, które zdarzają się jemu. Na przykład:</p>
+          <ul class="lista" style="margin-top:0"><li>Kiedy pomylisz się przy całej klasie.</li><li>Kiedy ktoś skomentuje Twój wygląd albo ubranie.</li><li>Kiedy potkniesz się na korytarzu.</li></ul>
+        </div>
+      </div>
+
+      <div style="display:flex;flex-direction:column">
+        <div class="karta" style="border-top:4px solid var(--rozowy)">
+          <span class="etykieta">Kącik 8 · tylko Twoja strona</span>
+          <h4 style="margin-bottom:9px">Co robić, gdy robi się gorąco na twarzy?</h4>
+          <div class="krok" style="margin-bottom:9px"><div class="cyfra" style="background:var(--rozowy);color:#fff">1</div><div><div class="opis" style="margin-top:3px">Oddychaj — wdech nosem, długi wydech ustami.</div></div></div><div class="krok" style="margin-bottom:9px"><div class="cyfra" style="background:var(--rozowy);color:#fff">2</div><div><div class="opis" style="margin-top:3px">Powiedz w myślach: „To minie”.</div></div></div><div class="krok" style="margin-bottom:9px"><div class="cyfra" style="background:var(--rozowy);color:#fff">3</div><div><div class="opis" style="margin-top:3px">Sprawdź fakty — czy naprawdę wszyscy patrzą?</div></div></div><div class="krok" style="margin-bottom:9px"><div class="cyfra" style="background:var(--rozowy);color:#fff">4</div><div><div class="opis" style="margin-top:3px">Powiedz o tym jednej zaufanej osobie.</div></div></div>
+        </div>
+        <div style="margin-top:14px">
+          <div class="strona-zeszytu">{{IMG:str-moja-rozowa|Tylko Twoja strona — wstyd}}</div>
+          <div class="podpis">Kącik 8 · str. 32–39 · termometr emocji 1–5, miejsce na rysunek i własne zdjęcie</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="stopka"><div><b>PCTP</b> · Strefa 04 — wstyd</div><div class="nr">08</div></div>
+</section>
+
+<!-- ═══════════════ 9 · STREFA LĘK ═══════════════ -->
+<section class="page strefa">
+  <div class="naglowek-strefy">
+    {{IMG:szary-hero|Lęk — zdjęcie otwierające rozdział}}
+    <div class="zaslona"></div>
+    <div class="plakietka" style="background:var(--szary);color:#fff">#6E7681</div>
+    <div class="napis">
+      <div class="numer">05 · KOLOR SZARY · STR. 40–47</div>
+      <h2>Lęk</h2>
+      <div class="mowi">Szary mówi: boję się tego, co będzie.</div>
+    </div>
+  </div>
+  <div class="pasek-kolor" style="background:var(--szary)"></div>
+
+  <div class="cialo" style="flex:1;display:flex;flex-direction:column">
+    <p class="lead" style="margin-top:0;font-size:12.6px">Lęk dotyczy przyszłości — tego, co dopiero będzie. Chce Cię chronić, czasem ostrzega za mocno. Rośnie, gdy nie wiesz, co się wydarzy. Maleje, gdy dostaniesz konkret i plan.</p>
+
+    <div class="siatka" style="grid-template-columns:1.55fr 1fr;gap:24px;margin-top:20px;flex:1;min-height:0">
+      <div>
+        <h3 style="margin-bottom:4px">Mapa ciała — kącik 3</h3>
+        <p style="font-size:9.6px;color:var(--szeptem);margin-bottom:12px">Trzy miejsca, w których widać tę emocję — u siebie i u innych. Nastolatek podkreśla ołówkiem znaki, które zna u siebie, i liczy, ile ich wyszło.</p>
+        <div class="siatka k3" style="gap:13px">
+          <div>
+            <span class="etykieta">Twarz</span>
+            <ul class="lista" style="margin-top:2px"><li>Oczy szeroko otwarte, wzrok skacze.</li><li>Brwi unoszą się i ściągają.</li><li>Trudno utrzymać kontakt wzrokowy.</li></ul>
+          </div>
+          <div>
+            <span class="etykieta">Ciało</span>
+            <ul class="lista" style="margin-top:2px"><li>Ramiona podnoszą się i sztywnieją.</li><li>Nogi chcą uciekać.</li><li>Ręce drżą albo się pocą.</li></ul>
+          </div>
+          <div>
+            <span class="etykieta">W środku</span>
+            <ul class="lista" style="margin-top:2px"><li>Serce bije szybko i mocno.</li><li>W brzuchu ściska.</li><li>Oddech jest płytki i szybki.</li></ul>
+          </div>
+        </div>
+
+        <div class="karta plaska" style="margin-top:18px;border-left:4px solid var(--szary)">
+          <span class="etykieta">Kącik 5 · opowiadanie</span>
+          <h4 style="margin-bottom:5px">„Szara mgła”</h4>
+          <p>Noc przed wycieczką, pytanie za pytaniem. Rajmund robi ćwiczenie 5–4–3–2–1 i dzieli kartkę na dwie kolumny: „czego się boję” i „co mogę z tym zrobić”. Mgła robi się cieńsza.</p>
+          <p style="margin-top:8px;font-size:9.1px;color:var(--szeptem)">Po opowiadaniu — osiem pytań do pracy i dziewięć zadań na trzech poziomach trudności.</p>
+        </div>
+        <div class="karta plaska" style="margin-top:14px">
+          <span class="etykieta">Kącik 4 · moje sytuacje</span>
+          <p style="margin-bottom:7px">Lista sytuacji z kwadracikiem do zaznaczenia — uczeń zaznacza tylko te, które zdarzają się jemu. Na przykład:</p>
+          <ul class="lista" style="margin-top:0"><li>Kiedy jutro jest klasówka albo wystąpienie.</li><li>Kiedy masz iść w nowe miejsce, którego nie znasz.</li><li>Kiedy plan dnia się zmienia bez uprzedzenia.</li></ul>
+        </div>
+      </div>
+
+      <div style="display:flex;flex-direction:column">
+        <div class="karta" style="border-top:4px solid var(--szary)">
+          <span class="etykieta">Kącik 8 · tylko Twoja strona</span>
+          <h4 style="margin-bottom:9px">Co robić, gdy lęk rośnie?</h4>
+          <div class="krok" style="margin-bottom:9px"><div class="cyfra" style="background:var(--szary);color:#fff">1</div><div><div class="opis" style="margin-top:3px">5–4–3–2–1 — pięć rzeczy widzianych, cztery słyszane…</div></div></div><div class="krok" style="margin-bottom:9px"><div class="cyfra" style="background:var(--szary);color:#fff">2</div><div><div class="opis" style="margin-top:3px">Oddychaj wolniej — wdech na 4, wydech na 6.</div></div></div><div class="krok" style="margin-bottom:9px"><div class="cyfra" style="background:var(--szary);color:#fff">3</div><div><div class="opis" style="margin-top:3px">Zdobądź informację — co dokładnie i o której.</div></div></div><div class="krok" style="margin-bottom:9px"><div class="cyfra" style="background:var(--szary);color:#fff">4</div><div><div class="opis" style="margin-top:3px">Zrób plan — jedna rzecz do przygotowania dziś.</div></div></div>
+        </div>
+        <div style="margin-top:14px">
+          <div class="strona-zeszytu">{{IMG:str-moja-szara|Tylko Twoja strona — lęk}}</div>
+          <div class="podpis">Kącik 8 · str. 40–47 · termometr emocji 1–5, miejsce na rysunek i własne zdjęcie</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="stopka"><div><b>PCTP</b> · Strefa 05 — lęk</div><div class="nr">09</div></div>
+</section>
+<!-- ═══════════════ 10 · STREFA GRY ═══════════════ -->
+<section class="page">
+  <div class="tresc">
+    <div class="zywa"><span class="marka">Kolorowy Świat Emocji</span><span>Strefa gry · str. 49–52</span></div>
+    <div class="nadtytul">Gra planszowa do wycięcia</div>
+    <h2>Ścieżka Kolorów</h2>
+    <p class="lead">Gra o emocjach dla <strong>2–4 osób</strong>. Plansza, zasady i talia kart — wszystko w zeszycie,
+      do wycięcia i użycia od razu. Potrzebna jest tylko kostka i pionek: może być guzik albo moneta.</p>
+
+    <div class="siatka" style="grid-template-columns:1fr 1fr;gap:22px;margin-top:22px">
+      <div><div class="strona-zeszytu">{{IMG:str-gra-plansza|Plansza Ścieżka Kolorów}}</div><div class="podpis">Plansza · str. 50 — pola w pięciu kolorach, pola z gwiazdką i meta</div></div>
+      <div><div class="strona-zeszytu">{{IMG:str-gra-karty|Karty do wycięcia}}</div><div class="podpis">Karty · str. 51–52 — 24 karty w trzech typach: sytuacja, pokaż, opowiedz</div></div>
+    </div>
+
+    <div class="siatka rosnij" style="grid-template-columns:1.25fr 1fr;gap:24px;margin-top:24px;align-content:start">
+      <div>
+        <h3 style="margin-bottom:10px">Jak się gra</h3>
+        <div class="krok" style="margin-bottom:9px"><div class="cyfra">1</div><div><div class="tytul">Pionki na pole START</div><div class="opis">Zaczyna ten, kto ostatni się dziś roześmiał.</div></div></div>
+        <div class="krok" style="margin-bottom:9px"><div class="cyfra">2</div><div><div class="tytul">Rzuć kostką i sprawdź kolor pola</div><div class="opis">Powiedz jednym zdaniem, kiedy ostatnio czułeś tę emocję.</div></div></div>
+        <div class="krok" style="margin-bottom:9px"><div class="cyfra">3</div><div><div class="tytul">Pole z gwiazdką? Weź kartę</div><div class="opis">Przeczytaj ją na głos i zrób to, co na niej napisano.</div></div></div>
+        <div class="krok" style="margin-bottom:9px"><div class="cyfra">4</div><div><div class="tytul">Nikt nie ocenia odpowiedzi</div><div class="opis">Nie ma dobrych i złych. Kolejka po prostu idzie dalej.</div></div></div>
+        <div class="krok"><div class="cyfra">5</div><div><div class="tytul">Gramy do końca, nie do wygranej</div><div class="opis">Pierwszy na mecie wygrywa, ale gra kończy się, gdy dojdą wszyscy — bo chodzi o rozmowę, nie o wyścig.</div></div></div>
+      </div>
+      <div>
+        <div class="karta" style="background:var(--fiolet);border-color:var(--fiolet);margin-bottom:14px">
+          <span class="etykieta" style="color:var(--brzoskwinia)">Zasada „pas”</span>
+          <div class="cytat" style="border-left-color:var(--brzoskwinia);color:#fff;font-size:14px">
+            Zawsze możesz powiedzieć „pas”. Wtedy nie odpowiadasz i przesuwasz się dalej.
+            Nie musisz tego tłumaczyć. Nikt nie pyta dlaczego.
+            <span class="autor" style="color:rgba(255,255,255,.72)">To jedna z najważniejszych zasad zeszytu — daje dziecku wyjście, którego nie musi negocjować.</span>
+          </div>
+        </div>
+        <div class="karta plaska">
+          <span class="etykieta">Dwie wersje trudności</span>
+          <h4 style="margin-bottom:5px">Łatwiejsza</h4>
+          <p style="margin-bottom:9px">Zamiast opowiadać, wystarczy nazwać kolor i emocję. Karty odkładacie na bok.</p>
+          <h4 style="margin-bottom:5px">Trudniejsza</h4>
+          <p>Na każdym polu dodajcie, po czym inni poznaliby po Was tę emocję — co robi wtedy ciało.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="stopka"><div><b>PCTP</b> · Ścieżka Kolorów</div><div class="nr">10</div></div>
+</section>
+
+<!-- ═══════════════ 11 · STREFA NARZĘDZI ═══════════════ -->
+<section class="page">
+  <div class="tresc">
+    <div class="zywa"><span class="marka">Kolorowy Świat Emocji</span><span>Strefa narzędzi · str. 53–56</span></div>
+    <div class="nadtytul">To, co zostaje po zajęciach</div>
+    <h2>Cztery narzędzia,<br>które wychodzą z zeszytu.</h2>
+    <p class="lead">Te strony nie są do wypełnienia i odłożenia. Są do wycięcia, powieszenia i noszenia przy sobie —
+      działają wtedy, gdy zajęcia już się skończyły.</p>
+
+    <div class="siatka k4" style="margin-top:22px;gap:14px">
+      <div><div class="strona-zeszytu">{{IMG:str-karty-emocji|Karty emocji}}</div></div>
+      <div><div class="strona-zeszytu">{{IMG:str-plan-trudny-dzien|Plan na trudny dzień}}</div></div>
+      <div><div class="strona-zeszytu">{{IMG:str-gdy-trudno|Gdy jest bardzo trudno}}</div></div>
+      <div><div class="strona-zeszytu">{{IMG:str-dyplom|Dyplom ukończenia}}</div></div>
+    </div>
+
+    <div class="siatka k4" style="margin-top:16px;gap:14px">
+      <div class="karta" style="border-top:4px solid var(--rozowy)">
+        <span class="etykieta">str. 53 · do wycięcia</span>
+        <h4>Karty emocji</h4>
+        <p>Sześć kart z twarzami — pomoc komunikacyjna na chwile, gdy trudno powiedzieć słowami. Wśród nich karta <strong>„Nie wiem jeszcze”</strong>: „coś czuję, ale nie umiem tego nazwać. Potrzebuję chwili”.</p>
+      </div>
+      <div class="karta" style="border-top:4px solid var(--zolty)">
+        <span class="etykieta">str. 54 · do powieszenia</span>
+        <h4>Plan na trudny dzień</h4>
+        <p>Pięć kroków zawsze w tej samej kolejności: zatrzymaj się, nazwij kolor, oddychaj, zrób jedną rzecz z listy, powiedz komuś. Plus trzy telefony, umówiony sygnał przerwy i miejsce na ochłonięcie.</p>
+      </div>
+      <div class="karta" style="border-top:4px solid var(--czerwony)">
+        <span class="etykieta">str. 55 · bezpieczeństwo</span>
+        <h4>Gdy jest bardzo trudno</h4>
+        <p>Kiedy powiedzieć dorosłemu, wpisane kontakty na trudny czas i gotowe zdanie, którym można poprosić o pomoc — ułożone wcześniej, na spokojnie.</p>
+      </div>
+      <div class="karta" style="border-top:4px solid var(--niebieski)">
+        <span class="etykieta">str. 56 · na koniec</span>
+        <h4>Dyplom ukończenia</h4>
+        <p>Za przejście przez pięć kolorów, za odwagę w nazywaniu tego, co czuje, i za wytrwałość. Miejsce na imię, datę i podpis prowadzącego.</p>
+      </div>
+    </div>
+
+    <div class="siatka rosnij" style="grid-template-columns:1fr 1.05fr;gap:24px;margin-top:24px">
+      <div>
+        <h3 style="margin-bottom:10px">Podsumowanie i ciąg dalszy</h3>
+        <ul class="lista">
+          <li><strong>Moja paleta emocji</strong> (str. 48) — pięć kolorów zebranych na jednej stronie; przy każdym jeden własny znak, po którym dziecko je rozpoznaje.</li>
+          <li><strong>Zapowiedź części 2</strong> (str. 57) — sześć nowych kolorów: spokój, ekscytacja, duma, ulga, znudzenie, samotność. Dziecko zakreśla ten, który chce poznać najbardziej — to gotowa podpowiedź, od czego zacząć następnym razem.</li>
+          <li><strong>Kolory zostają</strong> (str. 58) — co robić po zeszycie, plus pełna metryka wydania.</li>
+        </ul>
+      </div>
+      <div>
+        <div class="foto" style="height:238px">{{IMG:koniec|Zakończenie zeszytu}}</div>
+        <div class="podpis">„Zeszyt się skończył, ale emocje przychodzą dalej. Teraz masz dla nich nazwy i kolory.”</div>
+      </div>
+    </div>
+  </div>
+  <div class="stopka"><div><b>PCTP</b> · Narzędzia i materiały do wycięcia</div><div class="nr">11</div></div>
+</section>
+
+<!-- ═══════════════ 12 · STREFA DOROSŁEGO ═══════════════ -->
+<section class="page ciemna">
+  <div class="tresc">
+    <div class="zywa"><span class="marka">Kolorowy Świat Emocji</span><span>Strefa dorosłego · str. 3–7</span></div>
+    <div class="nadtytul">Zeszyt prowadzi też prowadzącego</div>
+    <h2>Nie musisz się<br>przygotowywać.</h2>
+    <p class="lead">Materiał ma wbudowaną instrukcję dla dorosłego: co robić, czego unikać i kiedy skierować dalej.
+      Można wziąć go na zajęcia bez czytania wcześniej.</p>
+
+    <div class="siatka k2" style="gap:22px;margin-top:24px">
+      <div class="karta" style="background:rgba(255,255,255,.07);border-color:rgba(255,255,255,.18)">
+        <span class="etykieta" style="color:#8FE3A6">Rób</span>
+        <ul class="lista ptaszki" style="margin-top:2px">
+          <li>Czytaj razem na głos, jeśli o to poprosi.</li>
+          <li>Zostaw czas na ciszę po pytaniu.</li>
+          <li>Przyjmij każdą odpowiedź bez poprawiania.</li>
+          <li>Zapowiadaj z góry, ile dzisiaj zrobicie.</li>
+          <li>Wracaj do rozdziału, który był trudny.</li>
+        </ul>
+      </div>
+      <div class="karta" style="background:rgba(255,255,255,.07);border-color:rgba(255,255,255,.18)">
+        <span class="etykieta" style="color:var(--brzoskwinia)">Unikaj</span>
+        <ul class="lista" style="margin-top:2px">
+          <li>Poprawiania nazwy emocji („to nie złość, tylko…”).</li>
+          <li>Zmuszania do wypełnienia całej strony.</li>
+          <li>Porównywania z rówieśnikami.</li>
+          <li>Zaskakiwania zmianą planu.</li>
+          <li>Traktowania zeszytu jak sprawdzianu.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="siatka" style="grid-template-columns:1fr 1fr;gap:22px;margin-top:22px">
+      <div class="karta" style="background:rgba(255,255,255,.07);border-color:rgba(255,255,255,.18)">
+        <span class="etykieta" style="color:var(--brzoskwinia)">Trzy pytania na dobry początek</span>
+        <p style="color:rgba(255,255,255,.85);font-size:9.6px">Zadaj je przed pierwszym rozdziałem i zapisz odpowiedzi:</p>
+        <ol style="margin:8px 0 0;padding-left:16px;font-size:9.8px;color:rgba(255,255,255,.88);line-height:1.6">
+          <li>Który kolor lubisz najbardziej i dlaczego?</li>
+          <li>Po czym poznam, że masz dzisiaj gorszy dzień?</li>
+          <li>Co Ci pomaga, gdy jest za dużo bodźców?</li>
+        </ol>
+      </div>
+      <div class="karta" style="background:rgba(255,255,255,.07);border-color:rgba(255,255,255,.18)">
+        <span class="etykieta" style="color:var(--brzoskwinia)">Kiedy szukać wsparcia specjalisty</span>
+        <ul class="lista" style="margin-top:2px">
+          <li>Gdy jedna emocja utrzymuje się przez wiele tygodni.</li>
+          <li>Gdy nastolatek unika większości sytuacji społecznych.</li>
+          <li>Gdy pojawia się samookaleczanie albo myśli o śmierci.</li>
+          <li>Gdy lęk uniemożliwia chodzenie do szkoły.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="siatka k3 rosnij" style="gap:16px;margin-top:22px;align-content:start">
+      <div><div class="strona-zeszytu">{{IMG:str-instrukcja|Instrukcja w siedmiu krokach}}</div><div class="podpis">Siedem kroków korzystania z zeszytu · str. 3</div></div>
+      <div><div class="strona-zeszytu">{{IMG:str-rajmund|Bohaterowie}}</div><div class="podpis">Rajmund (17 lat), Maja i pozostali bohaterowie · str. 5</div></div>
+      <div><div class="strona-zeszytu">{{IMG:str-slowniczek|Słowniczek}}</div><div class="podpis">Osiem trudnych słów wyjaśnionych prostym językiem · str. 7</div></div>
+    </div>
+
+    <p style="font-size:9.2px;color:rgba(255,255,255,.62);margin-top:16px;border-top:1px solid rgba(255,255,255,.2);padding-top:10px">
+      Zeszyt jest materiałem edukacyjnym i pomocą w pracy nad rozpoznawaniem emocji. Nie zastępuje diagnozy ani terapii.</p>
+  </div>
+  <div class="stopka"><div><b>PCTP</b> · Dla rodzica, nauczyciela i terapeuty</div><div class="nr">12</div></div>
+</section>
+
+<!-- ═══════════════ 13 · DOSTOSOWANIA — WPROWADZENIE ═══════════════ -->
+<section class="page">
+  <div class="tresc">
+    <div class="zywa"><span class="marka">Kolorowy Świat Emocji</span><span>Dostosowania · 1 z 3</span></div>
+    <div class="nadtytul">Jeden zeszyt, piętnaście dróg</div>
+    <h2>Dostosowania dla dzieci<br>z różnymi deficytami.</h2>
+    <p class="lead">Zeszyt powstał dla młodzieży w spektrum autyzmu, ale zbudowany jest według zasad
+      <strong>projektowania uniwersalnego</strong>: to, co jest konieczne dla jednego ucznia, pomaga wszystkim pozostałym.
+      Na trzech kolejnych stronach — piętnaście grup uczniów i konkretne dostosowanie dla każdej,
+      ze wskazaniem stron, na których się je robi.</p>
+
+    <h3 style="margin:24px 0 12px">Sześć rzeczy dostosowanych z góry — bez Twojej pracy</h3>
+    <div class="siatka k3" style="gap:14px">
+      <div class="karta plaska"><span class="etykieta">Typografia</span><h4>Atkinson Hyperlegible</h4><p>Krój zaprojektowany pod czytelność. Litery łatwe do pomylenia — b, d, p, q, I, l, 1 — mają wyraźnie różne kształty.</p></div>
+      <div class="karta plaska"><span class="etykieta">Skład</span><h4>Tekst niejustowany</h4><p>Szeroka interlinia, równy odstęp między wyrazami, krótkie zdania — jedno zdanie to jedna myśl.</p></div>
+      <div class="karta plaska"><span class="etykieta">Struktura</span><h4>Ten sam układ ośmiu stron</h4><p>Pięć razy ta sama sekwencja kroków. Uczeń wie, co będzie na następnej stronie, zanim ją odwróci.</p></div>
+      <div class="karta plaska"><span class="etykieta">Stopniowanie</span><h4>Trzy poziomy zadań</h4><p>5 minut, 20 minut, dłużej niż dzień. Poziom wybiera uczeń, a nie prowadzący — w każdym rozdziale, dziewięć zadań do wyboru.</p></div>
+      <div class="karta plaska"><span class="etykieta">Komunikacja</span><h4>Warstwa obrazkowa</h4><p>Kolor, twarz na karcie, termometr 1–5 do zakreślenia. Da się pracować bez czytania i bez mówienia.</p></div>
+      <div class="karta plaska"><span class="etykieta">Bezpieczeństwo</span><h4>Zasada „pas” i brak ocen</h4><p>Zawsze wolno nie odpowiedzieć, bez tłumaczenia. Nie ma dobrych i złych odpowiedzi ani sprawdzianu na końcu.</p></div>
+    </div>
+
+    <h3 style="margin:24px 0 12px">Grupy 1–3</h3>
+    <div class="siatka k3 rosnij" style="gap:14px">
+      <div class="dost" style="border-top-color:var(--fiolet-jasny)">
+        <div class="grupa">Spektrum autyzmu</div>
+        <div class="wiersz"><b class="etyk">Co bywa trudne</b>Emocja jest odczuwana mocno, ale brakuje na nią słowa. Zmiana planu i niedopowiedzenie podnoszą napięcie. Odczytywanie emocji z twarzy innych bywa nieczytelne.</div>
+        <div class="wiersz"><b class="etyk">Co robi zeszyt</b>Cały zeszyt jest pod to zbudowany: ten sam układ ośmiu stron w każdym rozdziale, kolor jako etykieta emocji zamiast abstrakcyjnego pojęcia, mapa ciała rozbita na konkretne, obserwowalne znaki.</div>
+        <div class="wiersz"><b class="etyk">Twoje dostosowanie</b>Pokaż spis treści przed zajęciami i zapowiedz, ile stron zrobicie. Zawsze trzymaj tę samą kolejność kroków. Karty emocji trzymaj pod ręką od pierwszych zajęć, nie dopiero na końcu.</div>
+        <div class="strony">◆ cały zeszyt · kącik 3 (mapa ciała) · str. 53</div>
+      </div>
+      <div class="dost" style="border-top-color:var(--czerwony)">
+        <div class="grupa">ADHD i trudności z koncentracją</div>
+        <div class="wiersz"><b class="etyk">Co bywa trudne</b>Osiem stron pod rząd to za dużo. Uwaga ucieka w połowie ćwiczenia, a niedokończona strona daje poczucie porażki.</div>
+        <div class="wiersz"><b class="etyk">Co robi zeszyt</b>Rozdział jest podzielony na osiem samodzielnych kącików — każdy zamyka się na jednej stronie. Zadania mają jawnie podany czas: 5 minut, 20 minut, dłużej niż dzień. Nie ma obowiązku zrobienia wszystkiego.</div>
+        <div class="wiersz"><b class="etyk">Twoje dostosowanie</b>Umów jeden kącik na jedno spotkanie i powiedz to na głos na starcie. Zacznij od poziomu „na rozgrzewkę”. Pole „ZROBIŁEM DZISIAJ” zaznaczajcie razem — to domknięcie, którego uczeń potrzebuje.</div>
+        <div class="strony">◆ kącik 7 (trzy poziomy) · str. 15, 23, 31, 39, 47</div>
+      </div>
+      <div class="dost" style="border-top-color:var(--niebieski)">
+        <div class="grupa">Niepełnosprawność intelektualna — stopień lekki</div>
+        <div class="wiersz"><b class="etyk">Co bywa trudne</b>Pojęcia abstrakcyjne („wstyd”, „lęk”) nie mają oparcia w doświadczeniu. Długie polecenie gubi się w połowie.</div>
+        <div class="wiersz"><b class="etyk">Co robi zeszyt</b>Definicje mają po jednym zdaniu i sześć punktów zamiast akapitu. Słowniczek objaśnia osiem trudnych słów prostym językiem. Opowiadanie pokazuje emocję na konkretnej sytuacji, nie na definicji.</div>
+        <div class="wiersz"><b class="etyk">Twoje dostosowanie</b>Zacznij od opowiadania (kącik 5), dopiero potem wróć do definicji (kącik 2). Pracuj na dwóch kolorach naraz, nie na pięciu. Pytania z kącika 6 zadawaj ustnie, zapisuj za ucznia.</div>
+        <div class="strony">◆ kącik 2 i 5 · słowniczek str. 7</div>
+      </div>
+    </div>
+  </div>
+  <div class="stopka"><div><b>PCTP</b> · Dostosowania — projektowanie uniwersalne</div><div class="nr">13</div></div>
+</section>
+
+<!-- ═══════════════ 14 · DOSTOSOWANIA 2 ═══════════════ -->
+<section class="page">
+  <div class="tresc">
+    <div class="zywa"><span class="marka">Kolorowy Świat Emocji</span><span>Dostosowania · 2 z 3</span></div>
+    <div class="nadtytul">Grupy 4–9</div>
+    <h2>Poznanie, czytanie,<br>widzenie, słyszenie, mowa.</h2>
+    <p class="lead" style="margin-bottom:20px">Dla każdej grupy: co bywa trudne, co zeszyt rozwiązuje sam
+      i co dokładnie robisz Ty — z numerami stron.</p>
+    <div class="siatka k3 rosnij" style="gap:14px">
+      <div class="dost" style="border-top-color:var(--niebieski)">
+        <div class="grupa">Niepełnosprawność intelektualna — stopień umiarkowany</div>
+        <div class="wiersz"><b class="etyk">Co bywa trudne</b>Tekst pisany jest poza zasięgiem. Odpowiedź na pytanie otwarte nie powstanie.</div>
+        <div class="wiersz"><b class="etyk">Co robi zeszyt</b>Warstwa obrazkowa działa bez czytania: pięć kolorów, karty emocji z twarzami, plansza gry, termometr 1–5 do zakreślenia.</div>
+        <div class="wiersz"><b class="etyk">Twoje dostosowanie</b>Użyj zeszytu jako materiału obrazkowego. Praca na kartach emocji i kolorze pola na planszy — bez czytania. Termometr emocji zakreślajcie codziennie, jako stały rytuał.</div>
+        <div class="strony">◆ str. 53 (karty) · str. 50 (plansza) · kącik 8</div>
+      </div>
+      <div class="dost" style="border-top-color:var(--zolty)">
+        <div class="grupa">Dysleksja i trudności w czytaniu</div>
+        <div class="wiersz"><b class="etyk">Co bywa trudne</b>Gęsty, justowany tekst rozsypuje się w oczach. Litery b/d/p/q i podobne kształty mylą się przy dłuższym czytaniu.</div>
+        <div class="wiersz"><b class="etyk">Co robi zeszyt</b>Zeszyt jest złożony krojem <strong>Atkinson Hyperlegible</strong>, zaprojektowanym pod czytelność — litery łatwe do pomylenia mają różne kształty. Tekst jest niejustowany, ze szeroką interlinią i krótkimi zdaniami.</div>
+        <div class="wiersz"><b class="etyk">Twoje dostosowanie</b>Czytajcie na głos na zmianę, zdanie za zdaniem. Opowiadania są krótkie — jedna strona. Odpowiedzi mogą być jednym słowem albo rysunkiem; w zeszycie nie ma za to oceny.</div>
+        <div class="strony">◆ cały zeszyt · kącik 5 i 6</div>
+      </div>
+      <div class="dost" style="border-top-color:var(--zolty)">
+        <div class="grupa">Słabowzroczność</div>
+        <div class="wiersz"><b class="etyk">Co bywa trudne</b>Standardowy druk 10–11 pkt jest nieczytelny. Niski kontrast tekstu na tle grafiki wyklucza stronę z pracy.</div>
+        <div class="wiersz"><b class="etyk">Co robi zeszyt</b>PDF do samodzielnego wydruku — skala jest po Twojej stronie. Zdjęcia i kroje są osadzone w pliku, więc powiększenie nie rozsypuje układu. Bloki treści są oddzielone, nie nałożone na zdjęcia.</div>
+        <div class="wiersz"><b class="etyk">Twoje dostosowanie</b>Drukuj rozdział z A4 na A3 — układ się nie łamie. Do pracy na ekranie powiększaj plik bez utraty jakości. Karty emocji wytnij z wydruku A3: będą większe i sztywniejsze.</div>
+        <div class="strony">◆ cały zeszyt · wydruk A3</div>
+      </div>
+      <div class="dost" style="border-top-color:var(--szary)">
+        <div class="grupa">Niedosłuch i uczniowie niesłyszący</div>
+        <div class="wiersz"><b class="etyk">Co bywa trudne</b>Instrukcja podana głosem przepada. Ćwiczenia oparte na tonie głosu i dźwięku są niedostępne.</div>
+        <div class="wiersz"><b class="etyk">Co robi zeszyt</b>Każda instrukcja jest zapisana na stronie, nie tylko wypowiadana. Mapa ciała opiera się na sygnałach wzrokowych: twarz, postawa, ruch. Gra ma zapisane zasady na osobnej stronie.</div>
+        <div class="wiersz"><b class="etyk">Twoje dostosowanie</b>Zostaw uczniowi otwartą stronę z zasadami podczas gry. Przy mapie ciała pomiń pozycje o głosie („głos brzmi wyżej”), zostaw resztę. Karty emocji sprawdzają się jako komunikat wizualny w grupie.</div>
+        <div class="strony">◆ str. 49 (zasady) · kącik 3 · str. 53</div>
+      </div>
+      <div class="dost" style="border-top-color:var(--rozowy)">
+        <div class="grupa">Mutyzm wybiórczy</div>
+        <div class="wiersz"><b class="etyk">Co bywa trudne</b>Odpowiedź ustna w szkole jest niemożliwa. Pytanie wprost zwiększa napięcie zamiast je zmniejszać.</div>
+        <div class="wiersz"><b class="etyk">Co robi zeszyt</b>Zeszyt nie wymaga mówienia. Odpowiedzi są pisane, rysowane albo zaznaczane. Gra ma wpisaną zasadę <strong>„pas”</strong> — bez tłumaczenia się i bez pytania „dlaczego”.</div>
+        <div class="wiersz"><b class="etyk">Twoje dostosowanie</b>Przez pierwsze tygodnie pracujcie wyłącznie pisemnie. Karty emocji zastępują odpowiedź ustną w klasie. Nigdy nie proś o przeczytanie odpowiedzi na głos przy innych.</div>
+        <div class="strony">◆ str. 49 (zasada „pas”) · str. 53</div>
+      </div>
+      <div class="dost" style="border-top-color:var(--rozowy)">
+        <div class="grupa">Uczeń niemówiący — komunikacja AAC</div>
+        <div class="wiersz"><b class="etyk">Co bywa trudne</b>Brak mowy czynnej. Emocja narasta, bo nie ma jak jej zasygnalizować, zanim urośnie.</div>
+        <div class="wiersz"><b class="etyk">Co robi zeszyt</b>Sześć kart emocji z twarzami do wycięcia — gotowa pomoc komunikacyjna. Wśród nich karta <strong>„Nie wiem jeszcze”</strong>: „coś czuję, ale nie umiem tego nazwać. Potrzebuję chwili”.</div>
+        <div class="wiersz"><b class="etyk">Twoje dostosowanie</b>Zalaminuj karty i wepnij do istniejącej książki komunikacyjnej albo tablicy AAC. Kolory zeszytu ustaw jako etykiety emocji w programie komunikacyjnym ucznia — będą spójne z materiałem papierowym.</div>
+        <div class="strony">◆ str. 53 · pięć kolorów str. 6</div>
+      </div>
+    </div>
+  </div>
+  <div class="stopka"><div><b>PCTP</b> · Dostosowania dla poszczególnych deficytów</div><div class="nr">14</div></div>
+</section>
+
+<!-- ═══════════════ 15 · DOSTOSOWANIA 3 ═══════════════ -->
+<section class="page">
+  <div class="tresc">
+    <div class="zywa"><span class="marka">Kolorowy Świat Emocji</span><span>Dostosowania · 3 z 3</span></div>
+    <div class="nadtytul">Grupy 10–15</div>
+    <h2>Emocje, sensoryka,<br>ruch, zachowanie, uwaga.</h2>
+    <p class="lead" style="margin-bottom:20px">Dostosowanie nie oznacza innego materiału.
+      Oznacza inną drogę przez ten sam materiał — i wszystkie te drogi są już w zeszycie.</p>
+    <div class="siatka k3" style="gap:14px;align-content:start">
+      <div class="dost" style="border-top-color:var(--rozowy)">
+        <div class="grupa">Afazja i zaburzenia mowy</div>
+        <div class="wiersz"><b class="etyk">Co bywa trudne</b>Słowo jest w głowie, ale nie wychodzi. Presja czasu blokuje wypowiedź całkowicie.</div>
+        <div class="wiersz"><b class="etyk">Co robi zeszyt</b>Nie ma limitu czasu i nie ma sprawdzianu. Instrukcja dla dorosłego mówi wprost: „zostaw czas na ciszę po pytaniu”, „przyjmij każdą odpowiedź bez poprawiania”.</div>
+        <div class="wiersz"><b class="etyk">Twoje dostosowanie</b>Pytania z kącika 6 zamień na wybór z dwóch odpowiedzi. Pozwól odpowiadać kartą, gestem albo wskazaniem koloru. Nie dokańczaj zdania za ucznia.</div>
+        <div class="strony">◆ str. 4 (jak towarzyszyć) · kącik 6</div>
+      </div>
+      <div class="dost" style="border-top-color:var(--szary)">
+        <div class="grupa">Zaburzenia lękowe i obniżony nastrój</div>
+        <div class="wiersz"><b class="etyk">Co bywa trudne</b>Nowe zadanie to nowe zagrożenie. Ocena i porównanie z klasą nasilają objawy.</div>
+        <div class="wiersz"><b class="etyk">Co robi zeszyt</b>Rozdział o lęku (str. 40–47) uczy konkretnych technik: 5–4–3–2–1, oddech 4/6, rozdzielenie obaw i planu na dwie kolumny. Strona „Gdy jest bardzo trudno” zawiera wpisane kontakty i gotowe zdanie o pomoc.</div>
+        <div class="wiersz"><b class="etyk">Twoje dostosowanie</b>Zapowiadaj przebieg spotkania co do kroku. Zacznij od rozdziału żółtego, nie od szarego. Stronę 55 wypełnijcie razem <strong>na spokojnie</strong>, zanim będzie potrzebna.</div>
+        <div class="strony">◆ str. 40–47 · str. 54 i 55</div>
+      </div>
+      <div class="dost" style="border-top-color:var(--zolty)">
+        <div class="grupa">Zaburzenia przetwarzania sensorycznego</div>
+        <div class="wiersz"><b class="etyk">Co bywa trudne</b>Hałas, światło i tłok przeciążają wcześniej niż emocja. Uczeń wychodzi z sytuacji, zanim zdąży cokolwiek nazwać.</div>
+        <div class="wiersz"><b class="etyk">Co robi zeszyt</b>Zeszyt nazywa przeciążenie wprost: „kiedy jest za głośno, za jasno, za tłoczno” to jedna z sytuacji na liście złości. Plan na trudny dzień ma pola na <strong>umówiony sygnał przerwy</strong> i <strong>miejsce na ochłonięcie</strong>.</div>
+        <div class="wiersz"><b class="etyk">Twoje dostosowanie</b>Pole „mój sygnał, że potrzebuję przerwy” wypełnij na pierwszych zajęciach — i uszanuj ten sygnał bez negocjacji. Trzecie pytanie startowe („co Ci pomaga, gdy jest za dużo bodźców?”) potraktuj jako część diagnozy.</div>
+        <div class="strony">◆ str. 54 · str. 4 · kącik 4 (str. 28)</div>
+      </div>
+      <div class="dost" style="border-top-color:var(--niebieski)">
+        <div class="grupa">Niepełnosprawność ruchowa i trudności grafomotoryczne</div>
+        <div class="wiersz"><b class="etyk">Co bywa trudne</b>Pisanie jest wolne i męczące. Wypełnienie strony zajmuje całe zajęcia i nie zostaje czasu na rozmowę.</div>
+        <div class="wiersz"><b class="etyk">Co robi zeszyt</b>Duża część odpowiedzi to zaznaczenie kwadratu, zakreślenie liczby na termometrze albo podkreślenie gotowego zdania — bez pisania od zera. Zadania mają alternatywy: zdjęcie, kolaż, playlista.</div>
+        <div class="wiersz"><b class="etyk">Twoje dostosowanie</b>Wybieraj zadania fotograficzne i wypowiadane zamiast pisemnych. Ty zapisuj, uczeń dyktuje. Karty do gry wytnij wcześniej albo wydrukuj na grubszym papierze.</div>
+        <div class="strony">◆ kącik 4 i 8 · kącik 7</div>
+      </div>
+      <div class="dost" style="border-top-color:var(--czerwony)">
+        <div class="grupa">Zaburzenia zachowania i reakcje opozycyjne</div>
+        <div class="wiersz"><b class="etyk">Co bywa trudne</b>Polecenie odbierane jest jako przymus. Wybuch złości kończy zajęcia, zanim się zaczną.</div>
+        <div class="wiersz"><b class="etyk">Co robi zeszyt</b>Rozdział o złości nie każe jej tłumić: „złość wolno czuć, nie wolno nią krzywdzić”. Daje cztery kroki — STOP, ODDECH, ODEJDŹ, POWIEDZ — i uczy przygotować własne zdanie na trudny moment.</div>
+        <div class="wiersz"><b class="etyk">Twoje dostosowanie</b>Zeszyt daje wybór na każdym kroku: który kolor, które zadanie, jaki poziom. Korzystaj z tego — wybór rozbraja opór. Zdanie z kroku „POWIEDZ” ułóżcie i zapiszcie zawczasu.</div>
+        <div class="strony">◆ str. 24–31 · str. 31 (cztery kroki)</div>
+      </div>
+      <div class="dost" style="border-top-color:var(--szary)">
+        <div class="grupa">FASD i osłabione funkcje wykonawcze</div>
+        <div class="wiersz"><b class="etyk">Co bywa trudne</b>Trudność z planowaniem i utrzymaniem sekwencji. Wiedza z jednych zajęć nie przenosi się na kolejne.</div>
+        <div class="wiersz"><b class="etyk">Co robi zeszyt</b>Ta sama sekwencja ośmiu kroków wraca pięć razy — powtarzalność jest tu wpisana w konstrukcję. Plan na trudny dzień to pięć kroków zawsze w tej samej kolejności, do powieszenia na ścianie.</div>
+        <div class="wiersz"><b class="etyk">Twoje dostosowanie</b>Nie zmieniaj kolejności kroków ani miejsca pracy. Powieś plan ze strony 54 w widocznym miejscu i wracaj do niego przy każdej trudnej sytuacji, nie tylko na zajęciach.</div>
+        <div class="strony">◆ cały zeszyt · str. 54</div>
+      </div>
+    </div>
+    <div class="karta" style="margin-top:16px;background:var(--fiolet);border-color:var(--fiolet)">
+      <div class="siatka" style="grid-template-columns:1fr 1fr;gap:26px">
+        <div>
+          <span class="etykieta" style="color:var(--brzoskwinia)">Do dokumentacji</span>
+          <h4 style="color:#fff;font-size:15px;margin-bottom:6px">Gotowe zapisy do IPET-u i WOPF-u</h4>
+          <p style="color:rgba(255,255,255,.85);font-size:9.5px;line-height:1.5">Każde dostosowanie z tych trzech stron jest sformułowane tak, żeby dało się je przenieść wprost do dokumentacji ucznia — jako metoda pracy, forma odpowiedzi albo warunek organizacyjny zajęć. Numery stron wskazują materiał, na którym dostosowanie jest realizowane.</p>
+        </div>
+        <div>
+          <span class="etykieta" style="color:var(--brzoskwinia)">Jak sprawdzić efekt</span>
+          <h4 style="color:#fff;font-size:15px;margin-bottom:6px">„Moja paleta emocji”, str. 48</h4>
+          <p style="color:rgba(255,255,255,.85);font-size:9.5px;line-height:1.5">Pięć emocji na jednej stronie, przy każdej jeden własny znak rozpoznawczy ucznia. Wypełniona na starcie i po pięciu rozdziałach daje czytelny, porównywalny obraz postępu — bez testu i bez oceny.</p>
+        </div>
+      </div>
+    </div>
+  <div class="stopka"><div><b>PCTP</b> · Dostosowania dla poszczególnych deficytów</div><div class="nr">15</div></div>
+</section>
+
+<!-- ═══════════════ 16 · LICENCJE ═══════════════ -->
+<section class="page">
+  <div class="tresc">
+    <div class="zywa"><span class="marka">Kolorowy Świat Emocji</span><span>Licencje i zakup</span></div>
+    <div class="nadtytul">Kupujesz raz, drukujesz tyle, ilu masz uczniów</div>
+    <h2>Trzy licencje.<br>Wybierz swoją.</h2>
+    <p class="lead">Produkt to jeden plik PDF: 59 stron A4, 7,5 MB. Zdjęcia i kroje pisma są w nim osadzone —
+      otworzy się identycznie na każdym komputerze i wydrukuje bez dociągania czegokolwiek z sieci.
+      Dostęp do zakupionego wydania jest dożywotni.</p>
+
+    <div class="siatka k3" style="margin-top:24px;gap:16px;align-items:stretch">
+      <div class="licencja">
+        <div class="puste-miejsce"></div>
+        <div class="nazwa">Licencja<br>indywidualna</div>
+        <div class="komu">Dla jednego specjalisty — nauczyciela, terapeuty, pedagoga, psychologa lub rodzica.</div>
+        <div class="cena">[ cena ]<small>PLN · brutto</small></div>
+        <ul class="lista ptaszki">
+          <li>Plik PDF do pobrania.</li>
+          <li>Wydruk dla własnych uczniów bez limitu kopii.</li>
+          <li>Praca indywidualna i w małej grupie.</li>
+          <li>Dożywotni dostęp do zakupionego wydania.</li>
+        </ul>
+        <div class="sku">INDEKS · KSE-1-IND</div>
+      </div>
+
+      <div class="licencja polecana">
+        <div class="wstazka">Najczęściej wybierana</div>
+        <div class="nazwa">Licencja<br>placówkowa</div>
+        <div class="komu">Dla całej szkoły, przedszkola, poradni lub ośrodka.</div>
+        <div class="cena">[ cena ]<small>PLN · brutto</small></div>
+        <ul class="lista ptaszki">
+          <li>Wszystko z licencji indywidualnej.</li>
+          <li>Korzystanie przez <strong>wszystkich specjalistów</strong> w placówce.</li>
+          <li>Wydruki dla wszystkich uczniów placówki.</li>
+          <li>Plik w wewnętrznej sieci placówki.</li>
+        </ul>
+        <div class="sku">INDEKS · KSE-1-PLAC</div>
+      </div>
+
+      <div class="licencja">
+        <div class="puste-miejsce"></div>
+        <div class="nazwa">Licencja<br>szkoleniowa</div>
+        <div class="komu">Dla prowadzących szkolenia, warsztaty i webinary.</div>
+        <div class="cena">[ cena ]<small>PLN · brutto</small></div>
+        <ul class="lista ptaszki">
+          <li>Wszystko z licencji placówkowej.</li>
+          <li>Prezentowanie stron podczas szkoleń i webinarów.</li>
+          <li>Materiały ćwiczeniowe dla uczestników.</li>
+          <li>Wymagane podanie autorki i wydawcy.</li>
+        </ul>
+        <div class="sku">INDEKS · KSE-1-SZKOL</div>
+      </div>
+    </div>
+
+    <div class="siatka rosnij" style="grid-template-columns:1.3fr 1fr;gap:26px;margin-top:26px;align-content:start">
+      <div>
+        <h3 style="margin-bottom:10px">Dane techniczne</h3>
+        <table>
+          <tr><td style="width:38%"><b>Typ</b></td><td>plik cyfrowy do pobrania</td></tr>
+          <tr><td><b>Format pliku</b></td><td>PDF · 7,5 MB</td></tr>
+          <tr><td><b>Liczba stron</b></td><td>59 (okładka + 58 numerowanych)</td></tr>
+          <tr><td><b>Format strony</b></td><td>A4 pionowo, 210 × 297 mm</td></tr>
+          <tr><td><b>Kolor</b></td><td>pełny kolor, zdjęcia osadzone</td></tr>
+          <tr><td><b>Wymagania</b></td><td>dowolna przeglądarka PDF; do wydruku drukarka A4</td></tr>
+          <tr><td><b>Wydanie</b></td><td>pierwsze, 2026 · seria „Świat Kolorów”, część 1</td></tr>
+        </table>
+      </div>
+      <div>
+        <div class="karta plaska" style="border-left:4px solid var(--pomarancz)">
+          <span class="etykieta">Wolno / nie wolno — w skrócie</span>
+          <p style="margin-bottom:7px"><strong>Wolno:</strong> drukować dowolną liczbę egzemplarzy w zakresie swojej licencji, wypełniać, kopiować pojedyncze strony i karty, wycinać karty do gry, pokazywać zeszyt rodzicom uczniów, z którymi pracujesz.</p>
+          <p><strong>Nie wolno:</strong> odsprzedawać zeszytu ani jego fragmentów, udostępniać pliku poza swoją licencją, publikować stron w internecie i mediach społecznościowych, usuwać oznaczeń autorki i wydawcy.</p>
+          <p style="margin-top:8px;font-size:8.6px;color:var(--szeptem)">Pełna treść licencji jest dostępna przed zakupem, na osobnej podstronie sklepu.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="cta" style="margin-top:22px;padding:18px 24px">
+      <div>
+        <h3 style="font-size:19px">Zamawiasz dla placówki?</h3>
+        <p>Licencja placówkowa obejmuje wszystkich specjalistów i wszystkich uczniów jednej szkoły, przedszkola lub poradni — łącznie z umieszczeniem pliku w jej wewnętrznej sieci. Fakturę wystawiamy na placówkę.</p>
+      </div>
+      <div class="guzik" style="font-size:12px">kontakt@eduplaner2026.pl<small>[usunięto]</small></div>
+    </div>
+  </div>
+  <div class="stopka"><div><b>PCTP</b> · Licencje i zakup</div><div class="nr">16</div></div>
+</section>
+
+<!-- ═══════════════ 17 · KONTAKT ═══════════════ -->
+<section class="page ciemna">
+  <div class="znak-wodny"></div>
+  <div class="tresc" style="padding-top:52px">
+    <div class="zywa"><span class="marka">Świat Kolorów · część 1</span><span>Kontakt i zamówienia</span></div>
+
+    <div class="nadtytul">Zamów dla siebie albo dla całej placówki</div>
+    <h2 style="font-size:44px">Pięć kolorów.<br>Pięć emocji.<br>Jeden Ty.</h2>
+    <div class="kreska-ozdobna" style="background:var(--brzoskwinia)"></div>
+
+    <div class="cta" style="margin-top:28px">
+      <div>
+        <h3>Zamów „Kolorowy Świat Emocji”</h3>
+        <p>Plik PDF trafia do Ciebie od razu po opłaceniu zamówienia. Drukujesz tyle egzemplarzy, ilu masz uczniów — w zakresie wybranej licencji.</p>
+      </div>
+      <div class="guzik">www.eduplaner2026.pl<small>sklep · kolorowy-swiat-emocji</small></div>
+    </div>
+
+    <div class="siatka" style="grid-template-columns:1fr 1fr;gap:30px;margin-top:30px">
+      <div>
+        <h3 style="margin-bottom:12px">Kontakt</h3>
+        <div class="wizytowka" style="grid-template-columns:1fr">
+          <div class="pole"><b>Autorka</b><span>Mirosława Ewa Jurczyszyn — pedagog specjalny</span></div>
+          <div class="pole"><b>Wydawca</b><span>Pomorskie Centrum Terapii Pedagogicznej, Koszalin</span></div>
+          <div class="pole"><b>E-mail</b><span>kontakt@eduplaner2026.pl</span></div>
+          <div class="pole"><b>Telefon</b><span>[usunięto]</span></div>
+          <div class="pole"><b>Strona</b><span>www.eduplaner2026.pl</span></div>
+        </div>
+      </div>
+      <div>
+        <h3 style="margin-bottom:12px">Wkrótce — część 2</h3>
+        <p style="font-size:10px;color:rgba(255,255,255,.82);margin-bottom:12px">Sześć nowych kolorów. Ten sam Rajmund, ta sama droga przez osiem stron.</p>
+        <div class="siatka k3" style="gap:8px">
+          <div class="pas" style="background:#3F9D5A;color:#fff"><div class="nazwa" style="font-size:11px">Spokój</div><div class="kolor">zielony</div></div>
+          <div class="pas" style="background:#E5761F;color:#fff"><div class="nazwa" style="font-size:11px">Ekscytacja</div><div class="kolor">pomarańczowy</div></div>
+          <div class="pas" style="background:#7A4BC4;color:#fff"><div class="nazwa" style="font-size:11px">Duma</div><div class="kolor">fioletowy</div></div>
+          <div class="pas" style="background:#F3F0E8;color:#3A3350"><div class="nazwa" style="font-size:11px">Ulga</div><div class="kolor">biały</div></div>
+          <div class="pas" style="background:#8A6244;color:#fff"><div class="nazwa" style="font-size:11px">Znudzenie</div><div class="kolor">brązowy</div></div>
+          <div class="pas" style="background:#26222E;color:#fff"><div class="nazwa" style="font-size:11px">Samotność</div><div class="kolor">czarny</div></div>
+        </div>
+      </div>
+    </div>
+
+    <div style="margin:26px 0 8px">
+      <span class="etykieta" style="color:var(--brzoskwinia)">Pięć stref koloru w środku</span>
+      <div class="siatka" style="grid-template-columns:repeat(5,1fr);gap:8px;margin-top:8px">
+        <div class="foto" style="height:96px">{{IMG:mini-zolty|Radość}}</div>
+        <div class="foto" style="height:96px">{{IMG:mini-niebieski|Smutek}}</div>
+        <div class="foto" style="height:96px">{{IMG:mini-czerwony|Złość}}</div>
+        <div class="foto" style="height:96px">{{IMG:mini-rozowy|Wstyd}}</div>
+        <div class="foto" style="height:96px">{{IMG:mini-szary|Lęk}}</div>
+      </div>
+    </div>
+
+    <div class="rosnij" style="display:flex;align-items:flex-end">
+      <div style="width:100%">
+        <div class="foto" style="height:150px">{{IMG:bohaterowie|Rajmund i Maja — bohaterowie zeszytu}}</div>
+        <p style="font-size:9px;color:rgba(255,255,255,.6);margin-top:14px;border-top:1px solid rgba(255,255,255,.2);padding-top:11px">
+          Materiał edukacyjny i pomocniczy. Nie zastępuje diagnozy ani terapii prowadzonej przez specjalistę.
+          Wszelkie prawa zastrzeżone · Pomorskie Centrum Terapii Pedagogicznej, Koszalin · wydanie pierwsze 2026.</p>
+      </div>
+    </div>
+  </div>
+  <div class="stopka"><div><b>EDUPLANER 2026</b> · PCTP KOSZALIN</div><div class="nr">17</div></div>
+</section>
+
+</div></div>
+
+<script>
+/* dopasowanie arkusza A4 do wąskiego ekranu — bez wpływu na wydruk */
+(function () {
+  var arkusze = document.querySelector('#broszura .arkusze');
+  if (!arkusze) return;
+  var SZEROKOSC = 794;
+  function dopasuj() {
+    var dostepne = document.getElementById('broszura').clientWidth;
+    var skala = Math.min(1, dostepne / SZEROKOSC);
+    if (skala === 1) {
+      arkusze.style.transform = '';
+      arkusze.style.height = '';
+      arkusze.style.marginBottom = '';
+    } else {
+      arkusze.style.transform = 'scale(' + skala + ')';
+      arkusze.style.height = (arkusze.scrollHeight * skala) + 'px';
+    }
+  }
+  dopasuj();
+  window.addEventListener('resize', dopasuj);
+  window.addEventListener('load', dopasuj);
+})();
+</script>
