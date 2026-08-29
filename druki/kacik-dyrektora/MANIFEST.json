@@ -3,7 +3,7 @@
   "aplikacja": "EduPlaner 2026",
   "wydawca": "PCTP",
   "rok_szkolny": "2026/2027",
-  "wersja": "2.0.0",
+  "wersja": "2.1.0",
   "etap": "przedszkole",
   "indeks": "INDEKS_Kacik_Dyrektora.html",
   "logo": "../assets/logo-pctp.svg",
@@ -21,6 +21,7 @@
   },
   "podstawa_prawna": [
     "Ustawa z 14.12.2016 r. — Prawo oświatowe (t.j. Dz.U. 2024 poz. 737) — art. 55, 60 ust. 3 pkt 1, 68–73, 102, 154–158",
+    "Ustawa z 14.12.2016 r. — Prawo oświatowe, art. 131, 154, 157, 158 — rekrutacja do przedszkola",
     "Ustawa z 3.07.2026 r. o zmianie ustawy — Prawo oświatowe (Dz.U. 2026 poz. 1036) — zakaz urządzeń elektronicznych od 1.09.2026, statuty do 31.12.2026",
     "Ustawa z 26.01.1982 r. — Karta Nauczyciela",
     "Ustawa z 13.05.2016 r. o ochronie małoletnich (t.j. Dz.U. 2024 poz. 560), zm. ustawą z 5.08.2025 r. — standardy do 15.08.2026",
@@ -59,7 +60,7 @@
       "html": "Kacik_Dyrektora_Nadzor_PCTP.html",
       "pdf": "Kacik_Dyrektora_Nadzor_PCTP.pdf",
       "stron": 14,
-      "sha256_pdf": "92fe2199f0691021",
+      "sha256_pdf": "901769af302cad86",
       "panel_aplikacji": true
     },
     "Kacik_Dyrektora_Sprawozdanie_Nauczyciela_PPP": {
@@ -73,35 +74,35 @@
       "html": "Kacik_Dyrektora_Pomoc_PP_PCTP.html",
       "pdf": "Kacik_Dyrektora_Pomoc_PP_PCTP.pdf",
       "stron": 8,
-      "sha256_pdf": "60908d42da181c2f",
+      "sha256_pdf": "383a7ebf004689cd",
       "panel_aplikacji": true
     },
     "Kacik_Dyrektora_Organizacja_PCTP": {
       "html": "Kacik_Dyrektora_Organizacja_PCTP.html",
       "pdf": "Kacik_Dyrektora_Organizacja_PCTP.pdf",
       "stron": 6,
-      "sha256_pdf": "8a395625faf7b41e",
+      "sha256_pdf": "22f3fc94bea83607",
       "panel_aplikacji": true
     },
     "Kacik_Dyrektora_Bezpieczenstwo_PCTP": {
       "html": "Kacik_Dyrektora_Bezpieczenstwo_PCTP.html",
       "pdf": "Kacik_Dyrektora_Bezpieczenstwo_PCTP.pdf",
       "stron": 6,
-      "sha256_pdf": "6f1605b558bbaf5a",
+      "sha256_pdf": "bd98636faa873c0d",
       "panel_aplikacji": true
     },
     "Kacik_Dyrektora_Poradnia_Rodzice_PCTP": {
       "html": "Kacik_Dyrektora_Poradnia_Rodzice_PCTP.html",
       "pdf": "Kacik_Dyrektora_Poradnia_Rodzice_PCTP.pdf",
       "stron": 6,
-      "sha256_pdf": "fb72950a58864aaf",
+      "sha256_pdf": "622390d588afd826",
       "panel_aplikacji": true
     },
     "Kacik_Dyrektora_Rada_Pedagogiczna_PCTP": {
       "html": "Kacik_Dyrektora_Rada_Pedagogiczna_PCTP.html",
       "pdf": "Kacik_Dyrektora_Rada_Pedagogiczna_PCTP.pdf",
-      "stron": 8,
-      "sha256_pdf": "e76076f444913896",
+      "stron": 10,
+      "sha256_pdf": "ba9cfb38226e29ce",
       "panel_aplikacji": true
     },
     "Kacik_Dyrektora_Zmiany_2026_PCTP": {
@@ -110,6 +111,13 @@
       "stron": 6,
       "sha256_pdf": "14b18edeb78fbc24",
       "panel_aplikacji": true
+    },
+    "Kacik_Dyrektora_Rekrutacja_Ewaluacja_PCTP": {
+      "html": "Kacik_Dyrektora_Rekrutacja_Ewaluacja_PCTP.html",
+      "pdf": "Kacik_Dyrektora_Rekrutacja_Ewaluacja_PCTP.pdf",
+      "stron": 8,
+      "panel_aplikacji": true,
+      "sha256_pdf": "47d582275e4dbb81"
     }
   },
   "druki": [
@@ -328,6 +336,38 @@
       "strona_od": 5,
       "strona_do": 6,
       "kategoria": "zmiany"
+    },
+    {
+      "sygnatura": "RP-4",
+      "nazwa": "Regulamin rady pedagogicznej — wzór",
+      "plik": "Kacik_Dyrektora_Rada_Pedagogiczna_PCTP",
+      "strona_od": 9,
+      "strona_do": 10,
+      "kategoria": "rada"
+    },
+    {
+      "sygnatura": "RE-1",
+      "nazwa": "Rekrutacja do przedszkola — komisja, kryteria, listy, odwołania",
+      "plik": "Kacik_Dyrektora_Rekrutacja_Ewaluacja_PCTP",
+      "strona_od": 1,
+      "strona_do": 4,
+      "kategoria": "rekrutacja"
+    },
+    {
+      "sygnatura": "EW-1",
+      "nazwa": "Raport z ewaluacji wewnętrznej",
+      "plik": "Kacik_Dyrektora_Rekrutacja_Ewaluacja_PCTP",
+      "strona_od": 5,
+      "strona_do": 6,
+      "kategoria": "nadzor"
+    },
+    {
+      "sygnatura": "ZD-1",
+      "nazwa": "Zarządzenie dyrektora — wzór i rejestr",
+      "plik": "Kacik_Dyrektora_Rekrutacja_Ewaluacja_PCTP",
+      "strona_od": 7,
+      "strona_do": 8,
+      "kategoria": "organizacja"
     }
   ],
   "kategorie": {
@@ -340,7 +380,8 @@
     "poradnia": "Współpraca z poradnią",
     "rodzice": "Współpraca z rodzicami",
     "rada": "Rada pedagogiczna",
-    "zmiany": "Zmiany prawne 2026/2027"
+    "zmiany": "Zmiany prawne 2026/2027",
+    "rekrutacja": "Rekrutacja do przedszkola"
   },
   "powiazania": {
     "kacik_nauczyciela": [
@@ -363,9 +404,10 @@
     ]
   },
   "statystyki": {
-    "druki": 27,
-    "pliki": 10,
-    "strony_a4": 75
+    "druki": 31,
+    "pliki": 11,
+    "strony_a4": 85,
+    "druki_powiazane": 9
   },
   "kierunki_polityki_oswiatowej_2026_2027": [
     "Wspieranie przedszkoli i szkół we wdrażaniu zmian wynikających z Reformy26. Kompas Jutra",
@@ -407,6 +449,71 @@
       "termin": "31.08.2027",
       "obowiazek": "Wyniki i wnioski ze sprawowanego nadzoru",
       "druk": "DN-5"
+    }
+  ],
+  "druki_powiazane_kacik_nauczyciela": [
+    {
+      "sygnatura": "K-1",
+      "plik": "../kacik-nauczyciela/Kacik_Nauczyciela_Checklista_Wychowawcy_PCTP",
+      "strona_od": 1,
+      "strona_do": 5,
+      "po_co": "ten sam układ co kalendarz DK-1"
+    },
+    {
+      "sygnatura": "O-1",
+      "plik": "../kacik-nauczyciela/Kacik_Nauczyciela_Wzory_Opinii_PCTP",
+      "strona_od": 1,
+      "strona_do": 2,
+      "po_co": "materiał źródłowy do opinii wydawanej wg DR-1"
+    },
+    {
+      "sygnatura": "O-2",
+      "plik": "../kacik-nauczyciela/Kacik_Nauczyciela_Wzory_Opinii_PCTP",
+      "strona_od": 3,
+      "strona_do": 6,
+      "po_co": "właściwa opinia o funkcjonowaniu — DR-1 pilnuje terminu"
+    },
+    {
+      "sygnatura": "DS-1",
+      "plik": "../kacik-nauczyciela/Kacik_Nauczyciela_Dostosowania_PCTP",
+      "strona_od": 1,
+      "strona_do": 3,
+      "po_co": "sprawdzany na obserwacji DN-2 i przy wdrożeniu DZ-2"
+    },
+    {
+      "sygnatura": "R-1",
+      "plik": "../kacik-nauczyciela/Kacik_Nauczyciela_Planowanie_PCTP",
+      "strona_od": 1,
+      "strona_do": 2,
+      "po_co": "rozwinięcie planu pracy DW-1 na poziom oddziału"
+    },
+    {
+      "sygnatura": "R-4",
+      "plik": "../kacik-nauczyciela/Kacik_Nauczyciela_Planowanie_PCTP",
+      "strona_od": 7,
+      "strona_do": 8,
+      "po_co": "materiał do sprawozdań DN-4 i DN-5"
+    },
+    {
+      "sygnatura": "Z-1",
+      "plik": "../kacik-nauczyciela/Kacik_Nauczyciela_Rewalidacja_Dziennik_PCTP",
+      "strona_od": 1,
+      "strona_do": 2,
+      "po_co": "podkładka pod kontrolę zaleceń DO-3"
+    },
+    {
+      "sygnatura": "Z-2",
+      "plik": "../kacik-nauczyciela/Kacik_Nauczyciela_Rewalidacja_Dziennik_PCTP",
+      "strona_od": 3,
+      "strona_do": 6,
+      "po_co": "dziennik kontrolowany drukiem DO-2 (§ 11)"
+    },
+    {
+      "sygnatura": "Z-3",
+      "plik": "../kacik-nauczyciela/Kacik_Nauczyciela_Rewalidacja_Dziennik_PCTP",
+      "strona_od": 7,
+      "strona_do": 8,
+      "po_co": "źródło danych do zbiorczej oceny DP-4"
     }
   ]
 }

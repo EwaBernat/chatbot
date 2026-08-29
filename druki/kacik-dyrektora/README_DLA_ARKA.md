@@ -1,6 +1,6 @@
 # Kącik dyrektora — przedszkole · paczka do EduPlaner 2026
 
-**Wersja 2.0.0 · rok szkolny 2026/2027 · 27 druków w 10 plikach · 75 stron A4 + 8-stronicowy spis**
+**Wersja 2.1.0 · rok szkolny 2026/2027 · 31 druków w 11 plikach · 85 stron A4 + 9-stronicowy spis**
 
 Komplet dokumentacji dyrektora przedszkola, zbudowany na tej samej zasadzie co
 kącik nauczyciela: strona startowa ze spisem, potem druk po druku, każdy osobno.
@@ -13,7 +13,7 @@ Wszystko po polsku, format A4, marka PCTP (fiolet `#2D1B69`, pomarańcz
 
 | Plik | Druki | Stron |
 |---|---|---|
-| `INDEKS_Kacik_Dyrektora.html` | strona startowa kącika (czego pilnować + kalendarz terminów + matryca + lista druków) | 8 |
+| `INDEKS_Kacik_Dyrektora.html` | strona startowa kącika (czego pilnować + kalendarz + matryca + lista druków + druki powiązane) | 9 |
 | `Kacik_Dyrektora_Kalendarz_PCTP` | DK-1 — kalendarz roku z podziałem miesięcznym | 6 |
 | `Kacik_Dyrektora_Plan_Pracy_PCTP` | DW-1 — plan pracy z wariantami placówek | 6 |
 | `Kacik_Dyrektora_Nadzor_PCTP` | DN-1, DN-2, DN-3, DN-4, DN-5 | 14 |
@@ -22,8 +22,9 @@ Wszystko po polsku, format A4, marka PCTP (fiolet `#2D1B69`, pomarańcz
 | `Kacik_Dyrektora_Organizacja_PCTP` | DO-1, DO-2, DO-3 | 6 |
 | `Kacik_Dyrektora_Bezpieczenstwo_PCTP` | DB-1, DB-2, DB-3 | 6 |
 | `Kacik_Dyrektora_Poradnia_Rodzice_PCTP` | DR-1, DR-2, DR-3 | 6 |
-| `Kacik_Dyrektora_Rada_Pedagogiczna_PCTP` | RP-1, RP-2, RP-3 | 8 |
+| `Kacik_Dyrektora_Rada_Pedagogiczna_PCTP` | RP-1, RP-2, RP-3, RP-4 | 10 |
 | `Kacik_Dyrektora_Zmiany_2026_PCTP` | DZ-1, DZ-2, DZ-3 | 6 |
+| `Kacik_Dyrektora_Rekrutacja_Ewaluacja_PCTP` | RE-1, EW-1, ZD-1 | 8 |
 
 Każdy druk występuje w dwóch postaciach: **`.html`** (do podglądu w aplikacji)
 i **`.pdf`** (gotowy wydruk). Pełne mapowanie sygnatura → plik → zakres stron
@@ -41,6 +42,7 @@ sekcje w kolejności, którą zamówiła autorka:
 2. **Kalendarz roku** — terminy z przepisu, każdy z sygnaturą druku
 3. **Jaki dokument w jakiej sytuacji** — matryca sytuacja → sygnatury (2 strony)
 4. **Lista druków** — karta na każdy druk z przyciskami *Otwórz PDF* / *Podgląd HTML* (4 strony)
+5. **Druki z kącika nauczyciela, których potrzebuje dyrektor** — 9 pozycji z linkami do sąsiedniego katalogu, plus podstawa prawna zestawu
 
 Linki w kartach są **względne** (`nazwa_pliku.pdf`), więc działają, jeśli
 wszystkie pliki leżą w jednym katalogu. Przy innej strukturze podmień ścieżki

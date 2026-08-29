@@ -1,12 +1,12 @@
 # Kącik dyrektora · przedszkole · EduPlaner 2026 · PCTP
 
-Komplet dokumentacji **dyrektora przedszkola** — 27 druków w 10 plikach,
-**75 stron A4**, w tym samym stylu co kącik nauczyciela i Dziennik Wsparcia
+Komplet dokumentacji **dyrektora przedszkola** — 31 druków w 11 plikach,
+**85 stron A4**, w tym samym stylu co kącik nauczyciela i Dziennik Wsparcia
 (marka PCTP: fiolet `#2D1B69`, pomarańcz `#E8450A`, Arial, A4, pola z
 kropkowanymi linijkami, tabele z fioletowym nagłówkiem, plakietka i belka
 w nagłówku, stopka z numeracją stron).
 
-Strona startowa: **`INDEKS_Kacik_Dyrektora.html`** (8 stron) — czego pilnować,
+Strona startowa: **`INDEKS_Kacik_Dyrektora.html`** (9 stron) — czego pilnować,
 kalendarz terminów, matryca sytuacji, lista druków.
 
 | Plik | Zawartość | Stron |
@@ -19,8 +19,9 @@ kalendarz terminów, matryca sytuacji, lista druków.
 | `Kacik_Dyrektora_Organizacja_PCTP` | DO-1…DO-3 — organizacja pracy i dokumentacja | 6 |
 | `Kacik_Dyrektora_Bezpieczenstwo_PCTP` | DB-1…DB-3 — bezpieczeństwo | 6 |
 | `Kacik_Dyrektora_Poradnia_Rodzice_PCTP` | DR-1…DR-3 — poradnia i rodzice | 6 |
-| `Kacik_Dyrektora_Rada_Pedagogiczna_PCTP` | RP-1…RP-3 — rada pedagogiczna | 8 |
+| `Kacik_Dyrektora_Rada_Pedagogiczna_PCTP` | RP-1…RP-4 — rada pedagogiczna | 10 |
 | `Kacik_Dyrektora_Zmiany_2026_PCTP` | DZ-1…DZ-3 — zmiany prawne 2026/2027 | 6 |
+| `Kacik_Dyrektora_Rekrutacja_Ewaluacja_PCTP` | RE-1, EW-1, ZD-1 — rekrutacja, ewaluacja, zarządzenia | 8 |
 
 Każdy plik występuje w wersji `.html` (panel aplikacji + druki) oraz `.pdf`
 (sam druk, gotowy do wydruku). Panel informacyjny na górze pliku HTML widoczny
@@ -57,6 +58,10 @@ jest tylko na ekranie (`@media print { display:none }`).
 | **DZ-1** | Zmiany w statucie 2026/2027 — siedem zmian obowiązkowych z terminem | 1–2 |
 | **DZ-2** | Wdrożenie nowej podstawy programowej — plan i kontrola | 3–4 |
 | **DZ-3** | Kierunki polityki oświatowej 2026/2027 — przypisanie do druków, kalendarz zmian | 5–6 |
+| **RP-4** | Regulamin rady pedagogicznej — 12 postanowień obowiązkowych z podstawą prawną | 9–10 |
+| **RE-1** | Rekrutacja do przedszkola — komisja, kryteria, protokół, listy, tryb odwoławczy | 1–4 |
+| **EW-1** | Raport z ewaluacji wewnętrznej — przedmiot, metody, wyniki, wnioski | 5–6 |
+| **ZD-1** | Zarządzenie dyrektora — wzór, rejestr, zarządzenia typowe dla roku | 7–8 |
 
 ## Terminy wpisane w druki
 
@@ -100,3 +105,24 @@ Pełna lista w sekcji V indeksu oraz w polu `podstawa_prawna` pliku
 `MANIFEST.json`. Zestaw uwzględnia zmiany obowiązujące od 1 września 2026 r.:
 nową podstawę programową (Dz.U. 2026 poz. 378, zm. poz. 958) i ocenę
 funkcjonalną (Dz.U. 2026 poz. 428).
+
+## Druki z kącika nauczyciela, których potrzebuje dyrektor
+
+Te druki **nie leżą w kąciku dyrektora** — powstają po stronie nauczyciela, ale
+dyrektor ich wymaga, kontroluje albo z nich korzysta. Sekcja V indeksu linkuje
+do nich względną ścieżką `../kacik-nauczyciela/`; `MANIFEST.json` ma je
+maszynowo w polu `druki_powiazane_kacik_nauczyciela`.
+
+| Druk | Do czego dyrektorowi |
+|---|---|
+| **K-1** | ten sam układ co kalendarz **DK-1** — porównanie zadań dyrektora i nauczyciela |
+| **O-1** | materiał źródłowy do opinii wydawanej na wniosek poradni (**DR-1**) |
+| **O-2** | właściwa opinia o funkcjonowaniu dziecka; **DR-1** pilnuje terminu i obiegu |
+| **DS-1** | sprawdzany na obserwacji zajęć (**DN-2**) i przy wdrożeniu podstawy (**DZ-2**) |
+| **R-1**, **R-4** | rozwinięcie planu pracy **DW-1** na oddział; materiał do **DN-4** i **DN-5** |
+| **Z-1** | podkładka pod kontrolę realizacji zaleceń orzeczenia (**DO-3**) |
+| **Z-2** | dziennik kontrolowany drukiem **DO-2**; wymóg § 11 rozp. o dokumentacji |
+| **Z-3** | źródło danych do zbiorczej oceny efektywności pomocy (**DP-4**) |
+
+Żeby linki działały, oba katalogi muszą leżeć obok siebie. Do tego służy paczka
+`EduPlaner2026_Przedszkole_Komplet.zip`, która zawiera oba kąciki.
