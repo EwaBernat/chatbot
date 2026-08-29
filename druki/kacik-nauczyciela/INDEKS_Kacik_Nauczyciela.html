@@ -412,8 +412,39 @@
   .blok-mies li b{color:var(--fiolet)}
   .miesiace{display:flex; flex-wrap:wrap; gap:2.4mm; margin-bottom:2mm}
 
-  .page .tab-mala td{height:auto; padding:1.6mm 2.2mm}
+  .page .tab-mala td{height:auto; padding:1.8mm 2.4mm}
   .page .sekcja{margin:3.4mm 0 1.8mm}
+
+  /* ——— POWIĘKSZONA TYPOGRAFIA SPISU ——— */
+  body{font-size:9.2pt; line-height:1.42}
+  .marka-nazwa{font-size:14.5pt}
+  .marka-opis{font-size:6.8pt; letter-spacing:1px; max-width:60mm}
+  .plakietka{font-size:7.4pt; padding:1.6mm 3.8mm}
+  .naglowek-podpis{font-size:6.6pt}
+  .metryczka .etykieta{font-size:7pt}
+  .metryczka .wartosc{font-size:10.5pt; font-weight:bold}
+  .metryczka .box{min-height:11mm}
+  .wstega span{font-size:7.4pt; padding:1.6mm 4.4mm}
+  .tytul{font-size:23pt}
+  .podtytul{font-size:11.6pt}
+  .kody .tresc{font-size:8.6pt; letter-spacing:2.2px}
+  .sekcja h2{font-size:11.6pt}
+  .sekcja .numer{width:6.2mm; height:6.2mm; font-size:7.4pt}
+  .wstep{font-size:8.4pt; line-height:1.45}
+  th{font-size:7.6pt; padding:2.4mm 2.4mm}
+  td{font-size:8.6pt; line-height:1.42}
+  td .nazwa{font-size:8.8pt}
+  td .kiedy{font-size:7.6pt}
+  td .plik{font-size:7.2pt}
+  td .sygn{font-size:7.8pt; padding:1mm 2.6mm}
+  a.otw{font-size:7.4pt; padding:1.1mm 2.6mm}
+  .blok-mies h4{font-size:7.4pt}
+  .blok-mies .termin{font-size:10.4pt}
+  .blok-mies li{font-size:8.2pt; padding-left:4.4mm; line-height:1.4}
+  .blok-mies li::before{font-size:8pt}
+  .prawna p{font-size:7.4pt; line-height:1.5}
+  .info{font-size:8.2pt; line-height:1.5}
+  .stopka{font-size:7pt}
 
   @media print{
     body{background:#fff}
@@ -431,7 +462,7 @@
   <div class="panel-glowa">
     <div class="etykieta-app">EduPlaner 2026 · Kącik nauczyciela · przedszkole</div>
     <h1>Spis druków — strona startowa kącika</h1>
-    <p>Cztery strony A4: czego nauczyciel musi pilnować, jaki dokument w jakiej sytuacji i pełna lista 23 druków z odnośnikami do podglądu. Ten panel wyświetla się wyłącznie w aplikacji i nie drukuje się.</p>
+    <p>Pięć stron A4: czego nauczyciel musi pilnować, jaki dokument w jakiej sytuacji i pełna lista 23 druków z odnośnikami do podglądu. Ten panel wyświetla się wyłącznie w aplikacji i nie drukuje się.</p>
   </div>
   <div class="panel-cialo">
     <div class="panel-sekcja">
@@ -446,7 +477,7 @@
           <span>Czternaście sytuacji z życia grupy, a przy każdej sygnatury druków, które wtedy wypełniasz. Nie trzeba pamiętać nazw — wystarczy rozpoznać sytuację.</span>
         </div>
         <div class="rola">
-          <b>Strony 3–4 — lista druków</b>
+          <b>Strony 3–5 — lista druków</b>
           <span>Każdy druk osobno: nazwa, zawartość, kiedy się go używa i gdzie leży w pliku. Odnośnik <em>PDF</em> otwiera wydruk od razu na właściwej stronie, <em>podgląd HTML</em> — wersję z panelem dla nauczyciela.</span>
         </div>
         <div class="rola">
@@ -456,7 +487,7 @@
       </div>
     </div>
     <div class="panel-akcje">
-      <button class="btn-druk" onclick="window.print()">Drukuj spis (4 strony A4)</button>
+      <button class="btn-druk" onclick="window.print()">Drukuj spis (5 stron A4)</button>
       <span class="uwaga-druk">Ustawienia: A4, marginesy „brak”, grafika tła włączona.</span>
     </div>
   </div>
@@ -543,7 +574,7 @@
   </div>
   <div class="stopka">
     <span>EduPlaner 2026 · PCTP · pedagog specjalny</span>
-    <span><b>Strona 1 z 4</b> · Kącik nauczyciela · spis · czego pilnować</span>
+    <span><b>Strona 1 z 5</b> · Kącik nauczyciela · spis · czego pilnować</span>
   </div>
 </section>
 
@@ -593,7 +624,7 @@
   <div class="info"><b>Druk D-1</b> — sprawozdanie z realizacji pomocy psychologiczno-pedagogicznej — znajduje się w <b>kąciku dyrektora</b>. Nauczyciel wypełnia je i składa dyrektorowi po każdym okresie; wnioski bierze z ewaluacji planu <b>P-2</b> oraz z protokołu zespołu <b>P-3</b>.</div>
   <div class="stopka">
     <span>EduPlaner 2026 · PCTP · pedagog specjalny</span>
-    <span><b>Strona 2 z 4</b> · Kącik nauczyciela · spis · matryca sytuacji</span>
+    <span><b>Strona 2 z 5</b> · Kącik nauczyciela · spis · matryca sytuacji</span>
   </div>
 </section>
 
@@ -617,16 +648,16 @@
   <div class="metryczka">
     <div class="box"><span class="etykieta">Etap</span><span class="wartosc">Przedszkole</span></div>
     <div class="box"><span class="etykieta">Rok szkolny</span><span class="wartosc">2026 / 2027</span></div>
-    <div class="box"><span class="etykieta">Wersja zestawu</span><span class="wartosc">1.0</span></div>
+    <div class="box"><span class="etykieta">Wersja</span><span class="wartosc">1.0</span></div>
   </div>
   <div class="sekcja"><span class="numer">III</span><h2>Lista druków — część pierwsza</h2><span class="linia"></span></div>
   <p class="wstep">Każdy druk osobno: co zawiera, kiedy się go używa i gdzie leży w pliku. <b>PDF</b> otwiera gotowy wydruk na właściwej stronie, <b>podgląd HTML</b> — wersję z panelem informacyjnym dla nauczyciela.</p>
   <table class="tab-mala">
-    <thead><tr><th style="width:9%">Druk</th><th style="width:46%">Nazwa i zawartość</th><th style="width:24%">Kiedy używasz</th><th>Plik</th></tr></thead>
+    <thead><tr><th style="width:9%">Druk</th><th style="width:45%">Nazwa i zawartość</th><th style="width:24%">Kiedy używasz</th><th>Plik</th></tr></thead>
     <tbody>
-      <tr><td><span class="sygn">K-1</span></td><td><span class="nazwa">Checklista obowiązków wychowawcy</span><br>Wszystkie zadania w układzie rocznym — każde z podstawą prawną, terminem i kratką do odhaczenia.</td><td>Wydrukuj we wrześniu, odhaczaj cały rok</td><td><a class="otw" href="Kacik_Nauczyciela_Checklista_Wychowawcy_PCTP.pdf#page=1">PDF · str. 1–5</a><span class="plik"><a href="Kacik_Nauczyciela_Checklista_Wychowawcy_PCTP.html">podgląd HTML</a></span></td></tr>
-      <tr><td><span class="sygn pom">DS-1</span></td><td><span class="nazwa">Zakres dostosowań — nowa podstawa 2026</span><br>Racjonalne usprawnienia i projektowanie uniwersalne. Katalog w pięciu wymiarach, dziewięć obszarów, docelowa autonomia dziecka.</td><td>Dla każdego dziecka objętego wsparciem</td><td><a class="otw" href="Kacik_Nauczyciela_Dostosowania_PCTP.pdf#page=1">PDF · str. 1–3</a><span class="plik"><a href="Kacik_Nauczyciela_Dostosowania_PCTP.html">podgląd HTML</a></span></td></tr>
-      <tr><td><span class="sygn">O-1</span></td><td><span class="nazwa">Arkusz obserwacji dziecka</span><br>Plan obserwacji, metoda, zapisy ABC i wnioski. Dokument źródłowy dla wszystkich opinii.</td><td>Przed każdą opinią i przed zgłoszeniem P-1</td><td><a class="otw" href="Kacik_Nauczyciela_Wzory_Opinii_PCTP.pdf#page=1">PDF · str. 1–2</a><span class="plik"><a href="Kacik_Nauczyciela_Wzory_Opinii_PCTP.html">podgląd HTML</a></span></td></tr>
+      <tr><td><span class="sygn">K-1</span></td><td><span class="nazwa">Checklista obowiązków wychowawcy</span><br>Wszystkie zadania w układzie rocznym — z podstawą prawną, terminem i kratką do odhaczenia.</td><td>Wydrukuj we wrześniu, odhaczaj cały rok</td><td><a class="otw" href="Kacik_Nauczyciela_Checklista_Wychowawcy_PCTP.pdf#page=1">PDF · str. 1–5</a><span class="plik"><a href="Kacik_Nauczyciela_Checklista_Wychowawcy_PCTP.html">podgląd HTML</a></span></td></tr>
+      <tr><td><span class="sygn pom">DS-1</span></td><td><span class="nazwa">Zakres dostosowań — nowa podstawa 2026</span><br>Racjonalne usprawnienia i projektowanie uniwersalne. Katalog w pięciu wymiarach, dziewięć obszarów, docelowa autonomia.</td><td>Dla każdego dziecka objętego wsparciem</td><td><a class="otw" href="Kacik_Nauczyciela_Dostosowania_PCTP.pdf#page=1">PDF · str. 1–3</a><span class="plik"><a href="Kacik_Nauczyciela_Dostosowania_PCTP.html">podgląd HTML</a></span></td></tr>
+      <tr><td><span class="sygn">O-1</span></td><td><span class="nazwa">Arkusz obserwacji dziecka</span><br>Plan obserwacji, metoda, zapisy ABC i wnioski. Dokument źródłowy dla wszystkich opinii.</td><td>Przed każdą opinią i zgłoszeniem P-1</td><td><a class="otw" href="Kacik_Nauczyciela_Wzory_Opinii_PCTP.pdf#page=1">PDF · str. 1–2</a><span class="plik"><a href="Kacik_Nauczyciela_Wzory_Opinii_PCTP.html">podgląd HTML</a></span></td></tr>
       <tr><td><span class="sygn pom">O-2</span></td><td><span class="nazwa">Opinia o funkcjonowaniu dziecka</span><br>Dla poradni — element oceny funkcjonalnej. Obszary ICF 0–4, trudności w realizacji programu, efektywność wsparcia.</td><td>10 dni od wniosku, kopia dla rodziców</td><td><a class="otw" href="Kacik_Nauczyciela_Wzory_Opinii_PCTP.pdf#page=3">PDF · str. 3–6</a><span class="plik"><a href="Kacik_Nauczyciela_Wzory_Opinii_PCTP.html">podgląd HTML</a></span></td></tr>
       <tr><td><span class="sygn">O-3</span></td><td><span class="nazwa">Opinia dla zespołu orzekającego</span><br>Uzupełnienie opinii o funkcjonowaniu przy wniosku o orzeczenie, WWR lub zajęcia rewalidacyjno-wychowawcze.</td><td>Przy wystąpieniu do poradni</td><td><a class="otw" href="Kacik_Nauczyciela_Wzory_Opinii_PCTP.pdf#page=7">PDF · str. 7–8</a><span class="plik"><a href="Kacik_Nauczyciela_Wzory_Opinii_PCTP.html">podgląd HTML</a></span></td></tr>
       <tr><td><span class="sygn">O-4</span></td><td><span class="nazwa">Opinia dla instytucji zewnętrznej</span><br>Sąd rodzinny, kurator, ośrodek pomocy społecznej. Fakty i obserwacje, minimalizacja danych.</td><td>Tylko na pisemny wniosek organu</td><td><a class="otw" href="Kacik_Nauczyciela_Wzory_Opinii_PCTP.pdf#page=9">PDF · str. 9–10</a><span class="plik"><a href="Kacik_Nauczyciela_Wzory_Opinii_PCTP.html">podgląd HTML</a></span></td></tr>
@@ -634,14 +665,11 @@
       <tr><td><span class="sygn">P-1</span></td><td><span class="nazwa">Wniosek o objęcie pomocą p-p</span><br>Zgłoszenie do dyrektora z blokiem jego decyzji i pisemnej informacji dla rodziców.</td><td>Niezwłocznie po rozpoznaniu potrzeby</td><td><a class="otw" href="Kacik_Nauczyciela_Pomoc_PP_PCTP.pdf#page=1">PDF · str. 1–2</a><span class="plik"><a href="Kacik_Nauczyciela_Pomoc_PP_PCTP.html">podgląd HTML</a></span></td></tr>
       <tr><td><span class="sygn pom">P-2</span></td><td><span class="nazwa">Plan działań wspierających</span><br>Dla dziecka <b>bez orzeczenia</b>. Cele SMART, dostosowania, zadania dla rodziców, ewaluacja.</td><td>Po decyzji dyrektora o objęciu pomocą</td><td><a class="otw" href="Kacik_Nauczyciela_Pomoc_PP_PCTP.pdf#page=3">PDF · str. 3–4</a><span class="plik"><a href="Kacik_Nauczyciela_Pomoc_PP_PCTP.html">podgląd HTML</a></span></td></tr>
       <tr><td><span class="sygn">P-3</span></td><td><span class="nazwa">Protokół spotkania zespołu</span><br>WOPFU, opracowanie i modyfikacja IPET, ocena efektywności. Lista obecności i zadania z terminami.</td><td>WOPFU min. dwa razy w roku</td><td><a class="otw" href="Kacik_Nauczyciela_Pomoc_PP_PCTP.pdf#page=5">PDF · str. 5–6</a><span class="plik"><a href="Kacik_Nauczyciela_Pomoc_PP_PCTP.html">podgląd HTML</a></span></td></tr>
-      <tr><td><span class="sygn">R-1</span></td><td><span class="nazwa">Plan pracy grupy</span><br>Planowanie miesięczne wg dziewięciu obszarów, harmonogram tygodni, tabela dostosowań, ewaluacja.</td><td>Na początek każdego miesiąca</td><td><a class="otw" href="Kacik_Nauczyciela_Planowanie_PCTP.pdf#page=1">PDF · str. 1–2</a><span class="plik"><a href="Kacik_Nauczyciela_Planowanie_PCTP.html">podgląd HTML</a></span></td></tr>
-      <tr><td><span class="sygn pom">R-2</span></td><td><span class="nazwa">Karta zajęć — konspekt</span><br>Temat, dostosowania, cel SMART, mocne strony, bariery, pomoce, metody, plan zajęć i dziennik realizacji.</td><td>Zajęcia specjalistyczne i obserwowane</td><td><a class="otw" href="Kacik_Nauczyciela_Planowanie_PCTP.pdf#page=3">PDF · str. 3–4</a><span class="plik"><a href="Kacik_Nauczyciela_Planowanie_PCTP.html">podgląd HTML</a></span></td></tr>
-      <tr><td><span class="sygn">R-3</span></td><td><span class="nazwa">Karta realizacji zajęć specjalistycznych</span><br>Dziennik przebiegu i monitorowanie postępów w skali 1–5. Uzupełnia dziennik zajęć, nie zastępuje go.</td><td>Każde zajęcia specjalistyczne</td><td><a class="otw" href="Kacik_Nauczyciela_Planowanie_PCTP.pdf#page=5">PDF · str. 5–6</a><span class="plik"><a href="Kacik_Nauczyciela_Planowanie_PCTP.html">podgląd HTML</a></span></td></tr>
     </tbody>
   </table>
   <div class="stopka">
     <span>EduPlaner 2026 · PCTP · pedagog specjalny</span>
-    <span><b>Strona 3 z 4</b> · Kącik nauczyciela · spis · lista druków 1/2</span>
+    <span><b>Strona 3 z 5</b> · Kącik nauczyciela · lista druków 1/3</span>
   </div>
 </section>
 
@@ -656,7 +684,7 @@
       </div>
     </div>
     <div class="naglowek-prawy">
-      <span class="plakietka">spis · lista i podstawa</span>
+      <span class="plakietka">spis · lista druków</span>
       <div class="naglowek-podpis">Dokument wsparcia · 2026</div>
     </div>
   </div>
@@ -665,18 +693,55 @@
   <div class="metryczka">
     <div class="box"><span class="etykieta">Etap</span><span class="wartosc">Przedszkole</span></div>
     <div class="box"><span class="etykieta">Rok szkolny</span><span class="wartosc">2026 / 2027</span></div>
-    <div class="box"><span class="etykieta">Wersja zestawu</span><span class="wartosc">1.0</span></div>
+    <div class="box"><span class="etykieta">Wersja</span><span class="wartosc">1.0</span></div>
   </div>
   <div class="sekcja"><span class="numer pom">III</span><h2>Lista druków — część druga</h2><span class="linia"></span></div>
   <table class="tab-mala">
-    <thead><tr><th style="width:9%">Druk</th><th style="width:46%">Nazwa i zawartość</th><th style="width:24%">Kiedy używasz</th><th>Plik</th></tr></thead>
+    <thead><tr><th style="width:9%">Druk</th><th style="width:45%">Nazwa i zawartość</th><th style="width:24%">Kiedy używasz</th><th>Plik</th></tr></thead>
     <tbody>
+      <tr><td><span class="sygn">R-1</span></td><td><span class="nazwa">Plan pracy grupy</span><br>Planowanie miesięczne wg dziewięciu obszarów, harmonogram tygodni, tabela dostosowań, ewaluacja.</td><td>Na początek każdego miesiąca</td><td><a class="otw" href="Kacik_Nauczyciela_Planowanie_PCTP.pdf#page=1">PDF · str. 1–2</a><span class="plik"><a href="Kacik_Nauczyciela_Planowanie_PCTP.html">podgląd HTML</a></span></td></tr>
+      <tr><td><span class="sygn pom">R-2</span></td><td><span class="nazwa">Karta zajęć — konspekt</span><br>Temat, dostosowania, cel SMART, mocne strony, bariery, pomoce, metody, plan zajęć i dziennik realizacji.</td><td>Zajęcia specjalistyczne i obserwowane</td><td><a class="otw" href="Kacik_Nauczyciela_Planowanie_PCTP.pdf#page=3">PDF · str. 3–4</a><span class="plik"><a href="Kacik_Nauczyciela_Planowanie_PCTP.html">podgląd HTML</a></span></td></tr>
+      <tr><td><span class="sygn">R-3</span></td><td><span class="nazwa">Karta realizacji zajęć specjalistycznych</span><br>Dziennik przebiegu i monitorowanie postępów w skali 1–5. Uzupełnia dziennik zajęć, nie zastępuje go.</td><td>Każde zajęcia specjalistyczne</td><td><a class="otw" href="Kacik_Nauczyciela_Planowanie_PCTP.pdf#page=5">PDF · str. 5–6</a><span class="plik"><a href="Kacik_Nauczyciela_Planowanie_PCTP.html">podgląd HTML</a></span></td></tr>
       <tr><td><span class="sygn">R-4</span></td><td><span class="nazwa">Sprawozdanie z pracy grupy</span><br>Realizacja dziewięciu obszarów, frekwencja, wydarzenia, efekty i wnioski dla dyrektora.</td><td>Koniec semestru i koniec roku</td><td><a class="otw" href="Kacik_Nauczyciela_Planowanie_PCTP.pdf#page=7">PDF · str. 7–8</a><span class="plik"><a href="Kacik_Nauczyciela_Planowanie_PCTP.html">podgląd HTML</a></span></td></tr>
       <tr><td><span class="sygn">W-1</span></td><td><span class="nazwa">Rejestr kontaktów z rodzicami</span><br>Jedna karta na dziecko na cały rok — data, forma, temat, ustalenia i podpis rodzica.</td><td>Każdy kontakt dotyczący dziecka</td><td><a class="otw" href="Kacik_Nauczyciela_Rodzice_PCTP.pdf#page=1">PDF · str. 1–2</a><span class="plik"><a href="Kacik_Nauczyciela_Rodzice_PCTP.html">podgląd HTML</a></span></td></tr>
       <tr><td><span class="sygn pom">W-2</span></td><td><span class="nazwa">Informacja o postępach dziecka</span><br>Dla każdego dziecka, dwa razy w roku. Umiejętności w obszarach, skala S / Z / P / N, wskazówki do domu.</td><td>Dwa razy w roku — to nie MEN-I/74</td><td><a class="otw" href="Kacik_Nauczyciela_Rodzice_PCTP.pdf#page=3">PDF · str. 3–4</a><span class="plik"><a href="Kacik_Nauczyciela_Rodzice_PCTP.html">podgląd HTML</a></span></td></tr>
       <tr><td><span class="sygn">W-3</span></td><td><span class="nazwa">Zgody i upoważnienia</span><br>Odbiór dziecka, dziewięć zgód, alergie i leki, klauzula informacyjna RODO.</td><td>Wrzesień; porównaj zakres ze statutem</td><td><a class="otw" href="Kacik_Nauczyciela_Rodzice_PCTP.pdf#page=5">PDF · str. 5–6</a><span class="plik"><a href="Kacik_Nauczyciela_Rodzice_PCTP.html">podgląd HTML</a></span></td></tr>
       <tr><td><span class="sygn">B-1</span></td><td><span class="nazwa">Karta wycieczki i wyjścia</span><br>Organizacja, opiekunowie, lista uczestników ze zgodami i lista kontrolna przed wyjściem.</td><td>Przed każdym wyjściem poza teren</td><td><a class="otw" href="Kacik_Nauczyciela_Bezpieczenstwo_PCTP.pdf#page=1">PDF · str. 1–2</a><span class="plik"><a href="Kacik_Nauczyciela_Bezpieczenstwo_PCTP.html">podgląd HTML</a></span></td></tr>
       <tr><td><span class="sygn pom">B-2</span></td><td><span class="nazwa">Karta zdarzenia — notatka służbowa</span><br>Rodzaj zdarzenia, przebieg w faktach, powiadomienia, dalsze postępowanie. Nie zastępuje protokołu powypadkowego.</td><td>Tego samego dnia co zdarzenie</td><td><a class="otw" href="Kacik_Nauczyciela_Bezpieczenstwo_PCTP.pdf#page=3">PDF · str. 3–4</a><span class="plik"><a href="Kacik_Nauczyciela_Bezpieczenstwo_PCTP.html">podgląd HTML</a></span></td></tr>
+    </tbody>
+  </table>
+  <div class="stopka">
+    <span>EduPlaner 2026 · PCTP · pedagog specjalny</span>
+    <span><b>Strona 4 z 5</b> · Kącik nauczyciela · lista druków 2/3</span>
+  </div>
+</section>
+
+<!-- === STRONA 5 === -->
+<section class="page">
+  <div class="naglowek">
+    <div class="marka">
+      <div class="logo"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" role="img" aria-label="Logo PCTP"> <defs> <radialGradient id="pctpTlo" cx="36%" cy="28%" r="82%"> <stop offset="0%" stop-color="#6A4C9E"/> <stop offset="55%" stop-color="#4A2E86"/> <stop offset="100%" stop-color="#331E63"/> </radialGradient> </defs> <circle cx="50" cy="50" r="49.2" fill="#3B2472"/> <circle cx="50" cy="50" r="46.4" fill="#D3C8EC"/> <circle cx="50" cy="50" r="43.6" fill="url(#pctpTlo)"/> <g stroke="#C79A2C" stroke-width="2.1" stroke-linecap="round" fill="none"> <path d="M50 60 C50 50 50 42 50 34"/> <path d="M50 60 C46 52 42 46 38 40"/> <path d="M50 60 C54 52 58 46 62 40"/> <path d="M50 59 C44 53 38 48 32 44"/> <path d="M50 59 C56 53 62 48 68 44"/> </g> <g> <ellipse cx="33" cy="41" rx="4.6" ry="10.4" fill="#A192D2" transform="rotate(-32 33 41)"/> <ellipse cx="67" cy="41" rx="4.6" ry="10.4" fill="#A192D2" transform="rotate(32 67 41)"/> <ellipse cx="39.5" cy="34" rx="5" ry="11.6" fill="#EFA275" transform="rotate(-16 39.5 34)"/> <ellipse cx="60.5" cy="34" rx="5" ry="11.6" fill="#EFA275" transform="rotate(16 60.5 34)"/> <ellipse cx="50" cy="30.5" rx="5.4" ry="12.4" fill="#E8712F"/> </g> <circle cx="50" cy="38.5" r="3.4" fill="#FBF6EC"/> <text x="50" y="76" text-anchor="middle" font-family="Georgia,'Times New Roman',serif" font-weight="bold" font-size="25" letter-spacing="1.2" fill="#F7F2E6">PCTP</text> </svg></div>
+      <div>
+        <div class="marka-nazwa">EduPlaner 2026</div>
+        <div class="marka-opis">Kącik nauczyciela ·<br>spis druków</div>
+      </div>
+    </div>
+    <div class="naglowek-prawy">
+      <span class="plakietka">spis · lista druków</span>
+      <div class="naglowek-podpis">Dokument wsparcia · 2026</div>
+    </div>
+  </div>
+  <div class="belka"></div>
+
+  <div class="metryczka">
+    <div class="box"><span class="etykieta">Etap</span><span class="wartosc">Przedszkole</span></div>
+    <div class="box"><span class="etykieta">Rok szkolny</span><span class="wartosc">2026 / 2027</span></div>
+    <div class="box"><span class="etykieta">Wersja</span><span class="wartosc">1.0</span></div>
+  </div>
+  <div class="sekcja"><span class="numer">III</span><h2>Lista druków — część trzecia</h2><span class="linia"></span></div>
+  <table class="tab-mala">
+    <thead><tr><th style="width:9%">Druk</th><th style="width:45%">Nazwa i zawartość</th><th style="width:24%">Kiedy używasz</th><th>Plik</th></tr></thead>
+    <tbody>
       <tr><td><span class="sygn">B-3</span></td><td><span class="nazwa">Karta adaptacji dziecka</span><br>Osiem obszarów adaptacji w trzech terminach, przebieg tydzień po tygodniu, wnioski.</td><td>Wrzesień i październik, dzieci nowe</td><td><a class="otw" href="Kacik_Nauczyciela_Bezpieczenstwo_PCTP.pdf#page=5">PDF · str. 5–6</a><span class="plik"><a href="Kacik_Nauczyciela_Bezpieczenstwo_PCTP.html">podgląd HTML</a></span></td></tr>
       <tr><td><span class="sygn pom">B-4</span></td><td><span class="nazwa">Karta zachowań trudnych</span><br>Opis mierzalny, analiza ABC, funkcja zachowania, plan pozytywnych oddziaływań i ocena skuteczności.</td><td>Gdy zachowanie się powtarza</td><td><a class="otw" href="Kacik_Nauczyciela_Bezpieczenstwo_PCTP.pdf#page=7">PDF · str. 7–8</a><span class="plik"><a href="Kacik_Nauczyciela_Bezpieczenstwo_PCTP.html">podgląd HTML</a></span></td></tr>
       <tr><td><span class="sygn pom">KON</span></td><td><span class="nazwa">Szablon konspektu zajęć</span><br>Jedna strona: cel edukacyjny i terapeutyczny w klamrach SMART, realizacja w parach N — U, modyfikacja żółta i czerwona.</td><td>Do każdych zajęć planowanych</td><td><a class="otw" href="Konspekt_Zajec_Szablon_PCTP.pdf#page=1">PDF · str. 1</a><span class="plik"><a href="Konspekt_Zajec_Szablon_PCTP.html">podgląd HTML</a></span></td></tr>
@@ -685,12 +750,12 @@
   </table>
   <div class="sekcja"><span class="numer">IV</span><h2>Podstawa prawna zestawu</h2><span class="linia"></span></div>
   <div class="prawna">
-    <p><b>NOWA PODSTAWA PROGRAMOWA.</b> Rozporządzenie Ministra Edukacji z dnia 11 marca 2026 r. w sprawie podstawy programowej wychowania przedszkolnego oraz podstawy programowej kształcenia ogólnego dla szkoły podstawowej, w tym dla uczniów z niepełnosprawnością intelektualną w stopniu umiarkowanym lub znacznym (<b>Dz.U. z 2026 r. poz. 378</b>, zm. Dz.U. z 2026 r. poz. 958) — obowiązuje od <b>1 września 2026 r.</b>; dziewięć obszarów, racjonalne usprawnienia i projektowanie uniwersalne, autonomia dziecka jako cel nadrzędny. <b>OCENA FUNKCJONALNA.</b> Rozporządzenie Ministra Edukacji z dnia 2 marca 2026 r. w sprawie orzeczeń i opinii wydawanych przez zespoły orzekające działające w publicznych poradniach psychologiczno-pedagogicznych (<b>Dz.U. z 2026 r. poz. 428</b>) — przedszkole wydaje opinię o funkcjonowaniu dziecka w terminie 10 dni od wniosku, z kopią dla rodziców. <b>POZOSTAŁE.</b> Prawo oświatowe (t.j. Dz.U. z 2024 r. poz. 737, z późn. zm.) · rozp. MEN z 9.08.2017 r. o pomocy psychologiczno-pedagogicznej (Dz.U. 2017 poz. 1591, t.j. Dz.U. 2023 poz. 1798) · rozp. MEN z 9.08.2017 r. o kształceniu specjalnym (Dz.U. 2017 poz. 1578, t.j. Dz.U. 2020 poz. 1309) · rozp. MEN z 25.08.2017 r. o dokumentacji (Dz.U. 2017 poz. 1646) · rozp. MEN z 27.08.2019 r. o świadectwach (Dz.U. 2019 poz. 1700) — wzór MEN-I/74 · rozp. MENiS z 31.12.2002 r. o bezpieczeństwie (t.j. Dz.U. 2020 poz. 1604) · rozp. MEN z 25.05.2018 r. o krajoznawstwie (Dz.U. 2018 poz. 1055) · rozp. RM z 6.09.2023 r. „Niebieskie Karty” (Dz.U. 2023 poz. 1870) · RODO (UE) 2016/679.</p>
+    <p><b>NOWA PODSTAWA PROGRAMOWA.</b> Rozporządzenie Ministra Edukacji z dnia 11 marca 2026 r. w sprawie podstawy programowej wychowania przedszkolnego oraz podstawy programowej kształcenia ogólnego dla szkoły podstawowej (<b>Dz.U. z 2026 r. poz. 378</b>, zm. poz. 958) — od <b>1 września 2026 r.</b>: dziewięć obszarów, racjonalne usprawnienia i projektowanie uniwersalne, autonomia dziecka jako cel nadrzędny. <b>OCENA FUNKCJONALNA.</b> Rozporządzenie Ministra Edukacji z dnia 2 marca 2026 r. w sprawie orzeczeń i opinii poradni psychologiczno-pedagogicznych (<b>Dz.U. z 2026 r. poz. 428</b>) — przedszkole wydaje opinię o funkcjonowaniu dziecka w terminie 10 dni od wniosku, z kopią dla rodziców. <b>POZOSTAŁE.</b> Prawo oświatowe (t.j. Dz.U. 2024 poz. 737) · rozp. MEN z 9.08.2017 r. o pomocy p-p (Dz.U. 2017 poz. 1591, t.j. Dz.U. 2023 poz. 1798) · o kształceniu specjalnym (Dz.U. 2017 poz. 1578, t.j. Dz.U. 2020 poz. 1309) · rozp. MEN z 25.08.2017 r. o dokumentacji (Dz.U. 2017 poz. 1646) · rozp. MEN z 27.08.2019 r. o świadectwach (Dz.U. 2019 poz. 1700) — wzór MEN-I/74 · rozp. MENiS z 31.12.2002 r. o bezpieczeństwie (t.j. Dz.U. 2020 poz. 1604) · rozp. MEN z 25.05.2018 r. o krajoznawstwie (Dz.U. 2018 poz. 1055) · rozp. RM z 6.09.2023 r. „Niebieskie Karty” (Dz.U. 2023 poz. 1870) · RODO (UE) 2016/679.</p>
   </div>
-  <div class="info"><b>Czego zestaw nie zastępuje.</b> <b>O-5</b> nie zastępuje urzędowego wzoru MEN-I/74 · <b>B-2</b> nie zastępuje protokołu powypadkowego · <b>R-3</b> nie zastępuje dziennika zajęć · <b>W-3</b> wymaga porównania zakresu zgód ze statutem placówki.</div>
+  <div class="info"><b>Czego zestaw nie zastępuje.</b> <b>O-5</b> nie zastępuje wzoru MEN-I/74 · <b>B-2</b> nie zastępuje protokołu powypadkowego · <b>R-3</b> nie zastępuje dziennika zajęć · <b>W-3</b> wymaga porównania zakresu zgód ze statutem placówki.</div>
   <div class="stopka">
     <span>EduPlaner 2026 · PCTP · pedagog specjalny</span>
-    <span><b>Strona 4 z 4</b> · Kącik nauczyciela · spis · lista druków 2/2 i podstawa prawna</span>
+    <span><b>Strona 5 z 5</b> · Kącik nauczyciela · lista druków 3/3 i podstawa prawna</span>
   </div>
 </section>
 
