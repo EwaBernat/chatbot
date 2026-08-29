@@ -21,7 +21,8 @@ CSS = """
   --ink:#2D1B69; --indigo:#4F3AA8; --violet:#6C4CC4; --accent:#E8450A; --on-accent:#FFFFFF;
   --p3:#C2410C; --p3-bg:#FDF1EC; --p2:#9A6B08; --p2-bg:#FBF4E7; --p1:#0F7B5A; --p1-bg:#ECF6F1;
   --zas:#2B6E6E; --zas-bg:#EAF3F3;
-  --icf:#C1121F; --icf-bg:#FCEFEF; --pp:#1B3FA0; --pp-bg:#EAEFFB;
+  --icf:#C1121F; --icf-bg:#FCEFEF; --pp:#4F3AA8; --pp-bg:#EDEAFA;
+  --p3-br:#EFCBBB; --p2-br:#E8D6AC; --p1-br:#BEDFD1; --icf-br:#EEC4C4; --pp-br:#CFC6EE;
   --paper:#FFFFFF; --field:#EFEAF9; --soft:#F6F3FC; --row:#FEFDFF; --row-alt:#F4F0FD;
   --line:#E3DCF5; --line-2:#EDE8F8; --text:#2F2A3E; --muted:#8A8498;
   --strong:#4F3AA8; --on-strong:#FFFFFF;
@@ -33,7 +34,8 @@ CSS = """
     --ink:#C6B8F5; --indigo:#7C68D8; --violet:#A794E8; --accent:#FF7A45; --on-accent:#2A1207;
     --p3:#FFA07F; --p3-bg:#2F211C; --p2:#E7BB6B; --p2-bg:#2C2617; --p1:#63D3AA; --p1-bg:#16302A;
     --zas:#7FCFCF; --zas-bg:#152C2C;
-    --icf:#FF8F8F; --icf-bg:#301C1C; --pp:#8FB4FF; --pp-bg:#182444;
+    --icf:#FF8F8F; --icf-bg:#301C1C; --pp:#A794E8; --pp-bg:#241D42;
+    --p3-br:#4A3228; --p2-br:#463A20; --p1-br:#22463A; --icf-br:#472A2A; --pp-br:#3A3167;
     --paper:#15121E; --field:#221C36; --soft:#1E1930; --row:#1A1628; --row-alt:#221C36;
     --line:#332B4D; --line-2:#2A2340; --text:#ECE8F7; --muted:#A79FC2;
     --strong:#2E2650; --on-strong:#EDE9FA;
@@ -45,7 +47,8 @@ CSS = """
   --ink:#C6B8F5; --indigo:#7C68D8; --violet:#A794E8; --accent:#FF7A45; --on-accent:#2A1207;
   --p3:#FFA07F; --p3-bg:#2F211C; --p2:#E7BB6B; --p2-bg:#2C2617; --p1:#63D3AA; --p1-bg:#16302A;
   --zas:#7FCFCF; --zas-bg:#152C2C;
-  --icf:#FF8F8F; --icf-bg:#301C1C; --pp:#8FB4FF; --pp-bg:#182444;
+  --icf:#FF8F8F; --icf-bg:#301C1C; --pp:#A794E8; --pp-bg:#241D42;
+    --p3-br:#4A3228; --p2-br:#463A20; --p1-br:#22463A; --icf-br:#472A2A; --pp-br:#3A3167;
   --paper:#15121E; --field:#221C36; --soft:#1E1930; --row:#1A1628; --row-alt:#221C36;
   --line:#332B4D; --line-2:#2A2340; --text:#ECE8F7; --muted:#A79FC2;
   --strong:#2E2650; --on-strong:#EDE9FA;
@@ -112,16 +115,23 @@ th{background:var(--strong); color:var(--on-strong); text-align:left; padding:10
   border-right:1px solid rgba(255,255,255,.14)}
 th:last-child{border-right:none}
 th .hz{display:block; font-family:"JetBrains Mono",monospace; letter-spacing:.02em; font-size:9px; opacity:.72; margin-top:3px}
-td{padding:10px 12px; border-bottom:1px solid var(--line-2); border-right:1px solid var(--line-2); vertical-align:top; font-size:12.5px; line-height:1.45}
+td{padding:9px 10px; border-bottom:1px solid var(--line-2); border-right:1px solid var(--line-2);
+  vertical-align:top; font-size:12.5px; line-height:1.45}
 td:last-child{border-right:none}
 tbody tr:last-child td{border-bottom:none}
+td.g{border-right:1px solid var(--line)}
+td.g .cel{background:var(--paper); border:1px solid var(--line); border-radius:7px; padding:9px 11px; display:block}
+td.p3 .cel{border-color:var(--p3-br)} td.p2 .cel{border-color:var(--p2-br)} td.p1 .cel{border-color:var(--p1-br)}
+td.icf .kod,td.pp .kod{background:var(--paper); border:1px solid var(--icf-br); border-radius:6px; padding:5px 8px; display:inline-block}
+td.pp .kod{border-color:var(--pp-br)}
+td.tw .miara{border-top:1px solid var(--line-2); padding-top:6px}
 tbody tr:nth-child(even) td{background:var(--row-alt)}
 tbody tr:hover td{background:var(--field)}
 
 .c-lp{width:38px} .c-tw{width:23%} .c-code{width:82px} .c-goal{width:18.5%}
 td.lp{text-align:center; font-weight:700; color:var(--ink); background:var(--field) !important; font-size:14px; padding-top:11px}
 td.tw{font-weight:500; color:var(--ink)}
-td.tw .miara{display:block; margin-top:7px; font-family:"JetBrains Mono",monospace; font-size:9.5px; color:var(--muted); line-height:1.4}
+td.tw .miara{display:block; margin-top:8px; font-family:"JetBrains Mono",monospace; font-size:9.5px; color:var(--muted); line-height:1.4}
 td.tw .miara b{color:var(--violet); font-family:"DM Sans",Arial,sans-serif; letter-spacing:.1em; text-transform:uppercase; font-size:9px}
 td.icf{font-family:"JetBrains Mono",monospace; font-weight:700; font-size:11px; color:var(--icf); background:var(--icf-bg) !important; white-space:nowrap}
 td.pp{font-family:"JetBrains Mono",monospace; font-weight:700; font-size:11px; color:var(--pp); background:var(--pp-bg) !important; white-space:nowrap}
@@ -177,8 +187,9 @@ input[type="search"]:focus,.tab:focus-visible,.chipbtn:focus-visible,.navlink:fo
 /* ---------- nagłówek wersji ---------- */
 .vband{display:flex; flex-wrap:wrap; align-items:center; gap:14px; background:var(--strong); color:var(--on-strong);
   padding:14px 20px; border-radius:9px; margin-top:30px}
-.vband .vlet{background:var(--accent); color:var(--on-accent); width:34px; height:34px; border-radius:5px; display:grid; place-items:center;
-  font:700 15px/1 "DM Sans",Arial,sans-serif}
+.vband .vlet{background:var(--accent); color:var(--on-accent); min-width:34px; height:34px; border-radius:6px;
+  display:inline-flex; align-items:center; justify-content:center; padding:0 9px; white-space:nowrap;
+  font:700 15px/1 "DM Sans",Arial,sans-serif; letter-spacing:.02em}
 .vband h2{font:700 16px/1.2 "DM Sans",Arial,sans-serif; letter-spacing:.09em; text-transform:uppercase; margin:0}
 .vband .vmeta{margin-left:auto; display:flex; gap:22px; font-family:"JetBrains Mono",monospace; font-size:11px}
 .vband .vmeta b{display:block; font-family:"DM Sans",Arial,sans-serif; font-size:9px; letter-spacing:.14em;
@@ -192,6 +203,15 @@ input[type="search"]:focus,.tab:focus-visible,.chipbtn:focus-visible,.navlink:fo
 /* ---------- stopka ---------- */
 .docfoot{margin-top:46px; padding-top:14px; border-top:1px solid var(--line); display:flex; flex-wrap:wrap;
   gap:8px 20px; justify-content:space-between; font-size:11px; color:var(--muted)}
+.opts{display:flex; flex-wrap:wrap; gap:6px}
+.opt{display:inline-flex; align-items:center; gap:6px; border:1px solid var(--line); border-radius:6px;
+  padding:4px 8px; font-size:11.5px; background:var(--paper); white-space:nowrap}
+.opt i{width:11px; height:11px; border:1.5px solid var(--violet); border-radius:3px; display:block; flex:none}
+.podpisy{display:grid; grid-template-columns:repeat(3,1fr); gap:16px; margin-top:18px}
+.podpis{border:1px solid var(--line); border-radius:8px; background:var(--field); padding:13px 15px 26px}
+.podpis b{font:700 9.5px/1 "DM Sans",Arial,sans-serif; letter-spacing:.14em; text-transform:uppercase; color:var(--violet); display:block; margin-bottom:22px}
+.podpis .dots{display:block; border-bottom:1px dotted var(--violet); opacity:.5}
+.notatka{border:1px dashed var(--line); border-radius:8px; background:var(--paper); min-height:54px; margin-top:10px}
 .hidden{display:none !important}
 .nores{padding:30px 0; text-align:center; color:var(--muted)}
 .printhead,.printfoot{display:none}
@@ -216,10 +236,14 @@ tr.tbanner .bsep{color:var(--accent); padding:0 5px}
   .toolbar,.areanav,.printhead{display:none !important}
   .vers{display:block !important}
   .vers + .vers{break-before:page; page-break-before:always}
+  #konspekt{break-before:page; page-break-before:always}
+  .podpisy{break-inside:avoid}
   tr.tbanner{display:table-row}
   table{min-width:0; font-size:8.4pt}
   th{padding:5pt 6pt; font-size:6.6pt; letter-spacing:.1em}
-  td{padding:5pt 6pt; font-size:8.2pt; line-height:1.35}
+  td{padding:4pt 5pt; font-size:8.2pt; line-height:1.35}
+  td.g .cel{padding:5pt 6pt; border-radius:5px}
+  td.icf .kod,td.pp .kod{padding:3pt 5pt}
   td.tw .miara{font-size:6.4pt}
   td.icf,td.pp{font-size:7.6pt}
   .tablewrap{overflow:visible; border-radius:0}
@@ -286,11 +310,11 @@ def wiersz(it, w):
     return f"""        <tr data-szukaj="{esc(szukaj)}">
           <td class="lp">{it['n']}</td>
           <td class="tw">{esc(it['t'])}<span class="miara"><b>Miara:</b> {esc(it['m'])}</span></td>
-          <td class="icf">{esc(it['icf'])}</td>
-          <td class="pp">{esc(pp)}</td>
-          <td class="g p3 col-p3">{esc(it['g3'])}</td>
-          <td class="g p2 col-p2">{esc(it['g2'])}</td>
-          <td class="g p1 col-p1">{esc(it['g1'])}</td>
+          <td class="icf"><span class="kod">{esc(it['icf'])}</span></td>
+          <td class="pp"><span class="kod">{esc(pp)}</span></td>
+          <td class="g p3 col-p3"><span class="cel">{esc(it['g3'])}</span></td>
+          <td class="g p2 col-p2"><span class="cel">{esc(it['g2'])}</span></td>
+          <td class="g p1 col-p1"><span class="cel">{esc(it['g1'])}</span></td>
         </tr>"""
 
 def sekcja(a, w):
@@ -350,6 +374,182 @@ def wersja(mod, aktywna):
   <p class="nores hidden">Brak twierdzeń pasujących do wyszukiwania.</p>
 {secs}
 </div>"""
+
+
+def konspekt():
+    """Druk KC-2 — konspekt zajęć spięty z bankiem celów KC-1 (przykład wypełniony)."""
+    cele = [
+        ("KC-1 / B / 8", "d240", "2.9·2.12", "p2", "Poziom II",
+         "Poczeka na swoją kolej 2 minuty w zabawie z regułą, korzystając z wizualnej kolejki — w 3 z 5 sytuacji.",
+         "zabawa z regułą · rejestr zachowań w kolejce"),
+        ("KC-1 / B / 31", "d720", "1.2·1.3", "p2", "Poziom II",
+         "Zgłosi 1 własny pomysł w pracy w parze i uzgodni podział materiału — w 3 z 5 zadań.",
+         "karta pracy zespołowej · obserwacja"),
+        ("KC-1 / B / 19", "d440", "9.6", "p1", "Poziom I",
+         "Utrzyma prawidłowy chwyt przez całą pracę i zamaluje pole bez przedzierania kartki — w 3 z 5 prac.",
+         "obserwacja chwytu · karta prac graficznych"),
+    ]
+    cele_rows = "\n".join(f"""        <tr>
+          <td class="lp">{i}</td>
+          <td class="tw"><b>{esc(nr)}</b><span class="miara"><b>Miara:</b> {esc(miara)}</span></td>
+          <td class="icf"><span class="kod">{esc(icf)}</span></td>
+          <td class="pp"><span class="kod">{esc(pp)}</span></td>
+          <td class="g {kl}"><span class="cel"><b style="color:var(--{kl})">{esc(poz)}</b> — {esc(tresc)}</span></td>
+        </tr>""" for i, (nr, icf, pp, kl, poz, tresc, miara) in enumerate(cele, 1))
+
+    przebieg = [
+        ("Powitanie", "5 min",
+         "Krąg powitalny; pokazuje tablicę zasad i kartę „czekam na swoją kolej”; nazywa cel zajęć słowami dziecka.",
+         "Siadają w kręgu, witają się imieniem sąsiada, wskazują swoje zdjęcie na karcie kolejki.",
+         "tablica zasad · karty ze zdjęciami dzieci"),
+        ("Część wstępna — rozgrzewka", "6 min",
+         "Prowadzi zabawę ruchową „raz, dwa, trzy — buduje ten, kogo widzisz”; modeluje zatrzymanie na sygnał.",
+         "Poruszają się po sali, zatrzymują na sygnał bębenka, sprawdzają, kto jest następny w kolejce.",
+         "bębenek · klepsydra 2-minutowa"),
+        ("Część główna — zadanie zespołowe", "14 min",
+         "Dzieli dzieci na trójki, rozdaje po jednym zestawie klocków na zespół (celowy niedobór materiału); "
+         "ustawia klepsydrę; wspiera uzgadnianie kolejności, nie rozstrzyga za dzieci.",
+         "Budują wspólną wieżę: każde dokłada jeden klocek w swojej kolejce, w czasie oczekiwania trzyma "
+         "kartę kolejki; uzgadniają, kto zaczyna i co budują.",
+         "klocki (1 zestaw na 3 dzieci) · karty kolejki · klepsydra"),
+        ("Prezentacja i nazwanie", "7 min",
+         "Zaprasza zespoły do pokazania budowli; pyta: „co było trudne, gdy trzeba było poczekać?”; "
+         "nazywa emocję czekania i strategię, której dziecko użyło.",
+         "Pokazują wieżę, mówią jednym zdaniem, czyj był pomysł; nazywają, co czuły, czekając.",
+         "koło emocji · zdjęcia budowli"),
+        ("Podsumowanie i ewaluacja", "3 min",
+         "Podsumowuje zasadę dnia; zaznacza w rejestrze, ile razy dziecko doczekało swojej kolei.",
+         "Przyklejają żeton na tablicy „udało mi się poczekać”.",
+         "rejestr obserwacji · żetony"),
+    ]
+    przebieg_rows = "\n".join(f"""        <tr>
+          <td class="lp">{i}</td>
+          <td class="tw"><b>{esc(etap)}</b><span class="miara"><b>Czas:</b> {esc(czas)}</span></td>
+          <td class="g"><span class="cel">{esc(naucz)}</span></td>
+          <td class="g"><span class="cel">{esc(dziec)}</span></td>
+          <td>{esc(pomoce)}</td>
+        </tr>""" for i, (etap, czas, naucz, dziec, pomoce) in enumerate(przebieg, 1))
+
+    dost = [
+        ("p3", "Poziom III",
+         "Dziecko buduje w parze z dorosłym; kolejka skrócona do 2 osób, czas oczekiwania 30 sekund; "
+         "dorosły podaje kartę kolejki do ręki i towarzyszy fizycznie.",
+         "przedmiot do trzymania w czasie czekania · skrócona klepsydra 30 s"),
+        ("p2", "Poziom II",
+         "Zespół 3-osobowy, kolejka wizualna na stole, uprzedzenie „za chwilę Twoja kolej”; "
+         "dorosły obok, wkracza tylko przy narastaniu napięcia.",
+         "karta kolejki · klepsydra 2 min · umówiony gest wsparcia"),
+        ("p1", "Poziom I",
+         "Zespół sam ustala kolejność i zasadę podziału klocków; dziecko może pełnić rolę „strażnika kolejki” "
+         "i przypominać zasadę innym w akceptowalnej formie.",
+         "rola strażnika kolejki · samoocena na skali obrazkowej"),
+    ]
+    dost_rows = "\n".join(f"""        <tr>
+          <td class="lp {kl}">{poz.split()[1]}</td>
+          <td class="tw"><b style="color:var(--{kl})">{esc(poz)}</b></td>
+          <td class="g {kl}"><span class="cel">{esc(opis)}</span></td>
+          <td>{esc(pomoc)}</td>
+        </tr>""" for kl, poz, opis, pomoc in dost)
+
+    ewal = [
+        ("KC-1 / B / 8", "Liczba sytuacji, w których dziecko doczekało swojej kolei bez reakcji zakłócającej", "3 z 5"),
+        ("KC-1 / B / 31", "Zgłoszenie własnego pomysłu w zespole i uzgodnienie podziału materiału", "3 z 5"),
+        ("KC-1 / B / 19", "Utrzymanie prawidłowego chwytu przez całą pracę graficzną", "3 z 5"),
+    ]
+    ewal_rows = "\n".join(f"""        <tr>
+          <td class="lp">{i}</td>
+          <td class="tw"><b>{esc(nr)}</b></td>
+          <td>{esc(kryt)}</td>
+          <td class="pp"><span class="kod">{esc(prog)}</span></td>
+          <td><span class="opts"><span class="opt"><i></i>osiągnięty</span><span class="opt"><i></i>częściowo</span><span class="opt"><i></i>niezrealizowany</span></span></td>
+        </tr>""" for i, (nr, kryt, prog) in enumerate(ewal, 1))
+
+    return f"""<section class="sec" id="konspekt">
+  <div class="vband">
+    <span class="vlet">KC-2</span>
+    <h2>Konspekt zajęć · druk KC-2</h2>
+    <div class="vmeta">
+      <span><b>Powiązanie</b>cele z druku KC-1</span>
+      <span><b>Wersja KPOF</b>B · 5 lat</span>
+      <span><b>Czas</b>35 minut</span>
+      <span><b>Status</b>wzór wypełniony</span>
+    </div>
+  </div>
+  <p class="vdesc">Konspekt nie powiela celów — cytuje je z banku po numerze twierdzenia, razem z kodem ICF
+  i punktem podstawy programowej. Dzięki temu zapis w dzienniku, w IPET i w arkuszu KPOF mówi tym samym kodem.
+  Poniżej wzór wypełniony; pola nadpisuje się własną treścią.</p>
+
+  <div class="fields" style="grid-template-columns:1.6fr 1fr 1fr 1fr">
+    <div class="field"><b>Temat</b><span class="val">„Wieża po kolei” — budowanie w zespole z regułą kolejki</span></div>
+    <div class="field"><b>Grupa</b><span class="val">Biedronki · 5-latki</span></div>
+    <div class="field"><b>Data</b><span class="dots"></span></div>
+    <div class="field"><b>Prowadzący</b><span class="dots"></span></div>
+  </div>
+
+  <div class="sec-h" style="margin-top:24px"><span class="sq">1</span><h2>Cele z banku KC-1</h2><span class="line"></span>
+    <span class="meta">numer twierdzenia · ICF · podstawa · poziom</span></div>
+  <div class="tablewrap"><table>
+    <thead><tr>
+      <th class="c-lp">Lp.</th><th class="c-tw">Cel z banku · miara</th>
+      <th class="c-code h-icf"><span class="kropka"></span>ICF</th>
+      <th class="c-code h-pp"><span class="kropka"></span>Podstawa</th>
+      <th>Poziom wsparcia i treść celu SMART</th>
+    </tr></thead>
+    <tbody>
+{cele_rows}
+    </tbody>
+  </table></div>
+
+  <div class="sec-h" style="margin-top:24px"><span class="sq">2</span><h2>Przebieg zajęć</h2><span class="line"></span>
+    <span class="meta">5 etapów · 35 minut</span></div>
+  <div class="tablewrap"><table>
+    <thead><tr>
+      <th class="c-lp">Lp.</th><th class="c-tw">Etap · czas</th>
+      <th style="width:29%">Czynności nauczyciela</th>
+      <th style="width:29%">Czynności dzieci</th>
+      <th style="width:17%">Pomoce</th>
+    </tr></thead>
+    <tbody>
+{przebieg_rows}
+    </tbody>
+  </table></div>
+  <div class="callout"><span class="cap" style="color:var(--violet)">Metody i formy</span>
+  <b>Metody:</b> zabawa z regułą · modelowanie · zadanie z celowym niedoborem materiału · wzmocnienie pozytywne ·
+  nazywanie emocji. &nbsp;<b>Formy:</b> praca z całą grupą (krąg) · zespoły 3-osobowe · praca indywidualna przy stoliku.</div>
+
+  <div class="sec-h" style="margin-top:24px"><span class="sq">3</span><h2>Dostosowania wg poziomu wsparcia</h2><span class="line"></span>
+    <span class="meta">ta sama aktywność · trzy progi wymagań</span></div>
+  <div class="tablewrap"><table>
+    <thead><tr>
+      <th class="c-lp">Poz.</th><th class="c-tw">Poziom</th>
+      <th style="width:48%">Jak zmieniamy warunki zadania</th><th style="width:26%">Pomoce dodatkowe</th>
+    </tr></thead>
+    <tbody>
+{dost_rows}
+    </tbody>
+  </table></div>
+
+  <div class="sec-h" style="margin-top:24px"><span class="sq">4</span><h2>Ewaluacja zajęć</h2><span class="line"></span>
+    <span class="meta">kryterium sukcesu → wynik</span></div>
+  <div class="tablewrap"><table>
+    <thead><tr>
+      <th class="c-lp">Lp.</th><th class="c-tw">Cel</th><th style="width:38%">Kryterium sukcesu</th>
+      <th class="c-code h-pp"><span class="kropka"></span>Próg</th><th style="width:27%">Wynik — zaznacz</th>
+    </tr></thead>
+    <tbody>
+{ewal_rows}
+    </tbody>
+  </table></div>
+  <div class="callout rule"><span class="cap">Uwagi zespołu · wnioski do kolejnych zajęć</span>
+  <div class="notatka"></div></div>
+
+  <div class="podpisy">
+    <div class="podpis"><b>Prowadzący zajęcia</b><span class="dots"></span></div>
+    <div class="podpis"><b>Specjalista wspierający</b><span class="dots"></span></div>
+    <div class="podpis"><b>Data i podpis koordynatora</b><span class="dots"></span></div>
+  </div>
+</section>"""
+
 
 def build():
     dzis = datetime.date.today().strftime("%d.%m.%Y")
@@ -491,6 +691,8 @@ def build():
 </div>
 
 {wersje_html}
+
+{konspekt()}
 
 <div class="docfoot">
   <span>EduPlaner 2026 · PCTP · pedagog specjalny mgr Mirosława Ewa Jurczyszyn</span>

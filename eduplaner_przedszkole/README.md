@@ -13,7 +13,7 @@ do wykorzystania w IPET i PEWS.
 | Plik | Opis |
 |---|---|
 | `Bank_celow_SMART_KPOF.html` | druk KC-1: układ tabelaryczny (styl Kącika Dyrektora), zakładki wersji, filtr kolumn, wyszukiwarka |
-| `Bank_celow_SMART_KPOF.pdf` | wersja do druku (31 stron A4 **poziomo**, wszystkie trzy wersje wiekowe) |
+| `Bank_celow_SMART_KPOF.pdf` | wersja do druku (39 stron A4 **poziomo**: bank KC-1 + konspekt KC-2) |
 | `src/dane_34.py`, `src/dane_5.py`, `src/dane_6.py` | bank celów jako dane (obszary, twierdzenia, cele, miary) |
 | `src/build.py` | generator druku KC-1 (HTML) |
 | `src/build_karty.py.bak` | poprzedni generator w układzie kart |
@@ -68,7 +68,21 @@ z wersją wiekową i nazwą obszaru. Druk: A4 poziomo.
 Kolory funkcyjne (poziomy wsparcia i kody) — używane oszczędnie, jako kropka
 i 3-pikselowe podkreślenie w nagłówku kolumny oraz bardzo jasne tło kolumny:
 `Poziom III #C2410C` · `Poziom II #9A6B08` · `Poziom I #0F7B5A` ·
-`ICF #C1121F` · `Podstawa #1B3FA0` · `Zasób #2B6E6E`.
+`ICF #C1121F` · `Podstawa #4F3AA8` (indygo marki — w drukach EduPlanera nie ma czystego błękitu) · `Zasób #2B6E6E`.
 
 Typografia: DM Sans (całość) + JetBrains Mono (kody ICF, podstawa, miary).
 Zaokrąglenia 7–9 px, jak w drukach WOPF i KPOF.
+
+## Druk KC-2 — konspekt zajęć
+
+Konspekt nie powiela celów: cytuje je z banku po numerze twierdzenia
+(`KC-1 / B / 8`) wraz z kodem ICF i punktem podstawy programowej, więc zapis
+w dzienniku, w IPET i w arkuszu KPOF mówi tym samym kodem. Sekcje druku:
+
+1. **Cele z banku KC-1** — numer, ICF, podstawa, poziom wsparcia, treść, miara
+2. **Przebieg zajęć** — etap · czas · czynności nauczyciela · czynności dzieci · pomoce
+3. **Dostosowania wg poziomu wsparcia** — ta sama aktywność na trzech progach wymagań
+4. **Ewaluacja** — kryterium sukcesu, próg, wynik do zaznaczenia, uwagi zespołu, podpisy
+
+W repozytorium konspekt jest wzorem wypełnionym (zabawa „Wieża po kolei",
+wersja B, 5-latki) — pola nadpisuje się własną treścią.
