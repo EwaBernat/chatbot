@@ -342,21 +342,25 @@ Zdjęcia są **ilustracjami poglądowymi**, nie fotografiami konkretnych produkt
 Model `gemini-2.5-flash-image`, jednolita reżyseria: widok z góry na jasnym
 blacie, miękkie światło z okna, paleta pastelowa, bez tekstu i bez ludzi.
 
-### Dlaczego pomoce są w osobnych plikach
+### Gdzie są karty
 
-Karty niosą zdjęcie i nagranie, więc to one ważą. Wszystkie razem z bankiem
-dawały dokument na 15 MB. Rozdzielone:
+W konspekcie — sekcja VII modalu, przycisk „Pokaż pomoc i posłuchaj polecenia”
+odsłania kartę, drugi przycisk drukuje ją na A4. Tam ich szuka nauczyciel
+przygotowując zajęcia i tam mają zostać.
 
-| dokument | rozmiar | zawiera |
+Zeszyty `Pomoce_dydaktyczne_3-4_lata.html` i `Pomoce_dydaktyczne_5_lat.html`
+(oraz ich PDF-y) to **druga droga**: cały komplet kart dla grupy wiekowej
+w jednym miejscu, do wydrukowania naraz. Nie zastępują kart w konspektach.
+
+Karty były przez chwilę wyjęte z banku, żeby go odchudzić — to była pomyłka.
+Pomiar pokazał, że bank z wszystkimi 86 kartami (12,3 MB) rysuje się w 348 ms,
+a wcześniejsze kilkanaście sekund brało się z blokującego arkusza fontów.
+
+| dokument | rozmiar | pierwsze rysowanie |
 |---|---|---|
-| `Bank_celow_SMART_KPOF.html` | 3,6 MB | bank, konspekty, monitoring — bez kart |
-| `Pomoce_dydaktyczne_3-4_lata.html` | 3,8 MB | 42 karty wersji A |
-| `Pomoce_dydaktyczne_5_lat.html` | 4,5 MB | 44 karty wersji B |
-
-Sekcja VII konspektu w banku wskazuje kartę i linkuje do niej
-(`Pomoce_dydaktyczne_5_lat.html#pom-b3_13`) — odnośnik działa, gdy pliki leżą
-w jednym folderze. Każdy zeszyt jest samowystarczalny: media siedzą w środku,
-więc działa bez internetu i bez folderu z plikami obok.
+| `Bank_celow_SMART_KPOF.html` | 12,3 MB | 348 ms |
+| `Pomoce_dydaktyczne_3-4_lata.html` | 3,9 MB | ~250 ms |
+| `Pomoce_dydaktyczne_5_lat.html` | 4,6 MB | ~250 ms |
 
 ### Płynność
 

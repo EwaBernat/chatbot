@@ -96,12 +96,17 @@ Miejsce w kodzie: `OBSZAR_PP_NAZWY` w `monitoring_podstawy()`
 wersja U z 48 celami uzupełniającymi domykającymi podstawę do 113/113,
 130 konspektów, pomoce dydaktyczne. Szczegóły: `eduplaner_przedszkole/README.md`.
 
-**Pomoce dydaktyczne mieszkają w osobnych dokumentach**, nie w banku:
-`Pomoce_dydaktyczne_3-4_lata.html` (42 karty) i `Pomoce_dydaktyczne_5_lat.html`
-(44 karty). Karty niosą zdjęcie i nagranie, więc razem z bankiem dawały plik na
-15 MB, który długo się otwierał. Bank waży teraz 3,6 MB i tylko wskazuje kartę.
+**Pomoce dydaktyczne siedzą w konspektach** — sekcja VII modalu, przycisk
+„Pokaż pomoc i posłuchaj polecenia”. Tam ich szuka nauczyciel i tam mają być.
+Osobne zeszyty (`Pomoce_dydaktyczne_3-4_lata.html`, `..._5_lat.html` i ich PDF-y)
+są **dodatkową drogą do druku** całego kompletu naraz, nie zamiennikiem.
+
+Nie wyjmuj kart z banku dla rozmiaru. Sprawdzone pomiarem: bank z wszystkimi
+86 kartami waży 12,3 MB i rysuje się w 348 ms. Wolne otwieranie brało się
+z blokującego arkusza fontów, nie z wagi pliku.
+
 Treść kart: `src/pomoce_a.py`, `src/pomoce_b.py`; układ i osadzanie mediów:
-`src/pomoce_karta.py`; generator zeszytów: `src/build_pomoce.py`.
+`src/pomoce_karta.py`; generator zeszytów do druku: `src/build_pomoce.py`.
 
 Arkusz fontów w każdym dokumencie ładujemy **nieblokująco**
 (`media="print" onload="this.media='all'"`) — inaczej przy niedostępnym CDN

@@ -33,7 +33,7 @@ from konspekty_6_d9 import KONSPEKTY_6_D9
 from zalacznik_c1 import zalaczniki_c1
 import pomoce_a          # noqa: F401 — rejestruje zestaw pomocy 3–4 lata
 import pomoce_b          # noqa: F401 — rejestruje zestaw pomocy 5 lat
-from pomoce_karta import wskaz_pomoc
+from pomoce_karta import pomoce_dla, wskaz_pomoc, style_pomocy, audio_pomocy
 from konspekty_34_d4 import KONSPEKTY_D4
 from konspekty_34_d6 import KONSPEKTY_D6
 from konspekty_34_d8 import KONSPEKTY_D8
@@ -975,13 +975,16 @@ def render_konspekty_modale():
         if wsk:
             pkod, ptytul, pwiek, pplik = wsk
             zal = f"""    <div class="ksec"><span class="sq">VII</span><h4>Pomoc dydaktyczna</h4><span class="line"></span>
-      <span class="meta">karta A4 · zdjęcie poglądowe · polecenie głosem nauczycielki</span></div>
-    <p class="kkurs">Do tego konspektu jest gotowa karta pomocy: „{esc(ptytul)}” — jak ma wyglądać,
-    co przygotować i jak jej użyć w trzech krokach. Karty wydaliśmy osobno, w zeszycie
-    <b>Pomoce dydaktyczne · {esc(pwiek)}</b>, żeby bank celów otwierał się od razu.</p>
+      <span class="meta">zdjęcie poglądowe · polecenie głosem nauczycielki</span></div>
+    <p class="kkurs">Jak ma wyglądać pomoc, co przygotować i jak jej użyć w trzech krokach.
+    Karta jest gotowa do wydruku A4. Ten sam komplet kart dla całej grupy wiekowej
+    zebrany jest w zeszycie <b>Pomoce dydaktyczne · {esc(pwiek)}</b>.</p>
     <div class="zal-akcje">
-      <a class="zal-link" href="{pplik}#pom-{pkod}" target="_blank"
-         rel="noopener">Otwórz kartę „{esc(ptytul)}”</a>
+      <button class="zal-link zal-pokaz" data-pokazzal="{kid}" aria-expanded="false">Pokaż pomoc i posłuchaj polecenia</button>
+      <button class="zal-link" data-printzal="{kid}">Drukuj kartę pomocy (A4)</button>
+    </div>
+    <div class="zal-strefa" style="display:none">
+{pomoce_dla(K["nr"], esc)}
     </div>
 """
         if K["nr"] == "C1-01":
@@ -1434,6 +1437,7 @@ def build():
 </div>
 
 </div>
+{style_pomocy()}{audio_pomocy()}
 {render_konspekty_modale()}
 <script>{JS}</script>
 """
