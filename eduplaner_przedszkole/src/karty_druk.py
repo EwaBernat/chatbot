@@ -418,12 +418,13 @@ ARKUSZE = {
              ("", "#C9A0C0"), ("", "#E0A05C"), ("", "#8FA9B7"), ("", "#D2B48C")]),
   dict(
    tytul="Plan zajęcia z trzech obrazków",
-   kp="Wydrukuj i narysuj sama",
-   wstep="Trzy puste pola na jedno zajęcie: co robimy najpierw, potem i na końcu. "
-         "Narysuj w nich prosty szkic przy dziecku, zanim zaczniecie — rysowanie na oczach "
-         "dziecka działa lepiej niż gotowy obrazek, bo dziecko widzi, jak plan powstaje.",
-   rodzaj="pola",
-   pola=[("Najpierw", 110), ("Potem", 110), ("Na końcu", 110)]),
+   kp="Wydrukuj i powieś przy dywaniku",
+   wstep="Trzy gotowe obrazki na jedno zajęcie: siadamy w kole, pracujemy przy stoliku, "
+         "bawimy się. Powieś je przy dywaniku i przejdźcie po nich palcem, zanim usiądziecie. "
+         "Trzylatek, który wie, że po pracy jest zabawa, siada na dywanik bez wyprowadzania "
+         "za rękę.",
+   rodzaj="pasek",
+   symbole=["dzien_powitanie", "dzien_zajecia", "dzien_zabawa"]),
  ],
 
  "D8-37": [dict(
@@ -438,13 +439,13 @@ ARKUSZE = {
  # ——— obszar IX ————————————————————————————————————————————————————
  "D9-39": [dict(
    tytul="Plan uroczystości w obrazkach",
-   kp="Wydrukuj i narysuj sama",
-   wstep="Cztery puste pola do wypełnienia pod konkretne święto. Pokaż dziecku plan dzień "
-         "wcześniej i przejdźcie po nim palcem — dla trzylatka uroczystość jest przede "
-         "wszystkim dniem, w którym wszystko wygląda inaczej, i to właśnie ta zmiana, "
-         "a nie hałas, najczęściej go przeciąża.",
-   rodzaj="pola",
-   pola=[("Najpierw", 100), ("Potem", 100), ("Potem", 100), ("Na końcu", 100)]),
+   kp="Wydrukuj i powieś dzień wcześniej",
+   wstep="Trzy obrazki w kolejności z konspektu: piosenka, laurka, poczęstunek. Pokaż "
+         "dziecku plan dzień wcześniej i przejdźcie po nim palcem — dla trzylatka "
+         "uroczystość jest przede wszystkim dniem, w którym wszystko wygląda inaczej, "
+         "i to ta zmiana, a nie hałas, najczęściej go przeciąża.",
+   rodzaj="pasek",
+   symbole=["swieto_wystep", "zabawa_rysowanie", "dzien_podwieczorek"]),
  ],
 
  "D9-40": [dict(
@@ -575,6 +576,89 @@ ARKUSZE = {
          "większość zderzeń.",
    rodzaj="tablica", kolumny=3,
    symbole=["plac_schodki", "gest_czekam", "plac_zjezdzalnia"]),
+ ],
+ "D1-02": [dict(
+   tytul="Naklejki-łapki małpki",
+   wstep="Łapki do wycięcia i naklejenia tam, gdzie dziecko ma stanąć albo położyć rękę. "
+         "Trzylatek naśladuje ruch łatwiej, gdy widzi, dokąd ma trafić — łapka na podłodze "
+         "robi za polecenie, którego nie trzeba powtarzać. Wydrukuj kilka arkuszy, bo "
+         "naklejone na podłodze zużywają się w tydzień.",
+   rodzaj="karty", kolumny=3,
+   symbole=["slad_lapka", "slad_stopa_lewa", "slad_stopa_prawa"]),
+ ],
+
+ "D1-03": [dict(
+   tytul="Żetony-diamenty",
+   wstep="Diament za każdą minutę wytrzymaną przy klepsydrze. Wytnij i naklejaj na kartę "
+         "dziecka od razu, przy nim — żeton wręczony po zajęciach nie łączy się już "
+         "z tym, co dziecko zrobiło. Wydrukuj dwa arkusze na tydzień.",
+   rodzaj="karty", kolumny=4,
+   symbole=["zeton_diament"]),
+  dict(
+   tytul="Karta skarbów dziecka",
+   kp="Wydrukuj na tydzień",
+   wstep="Miejsce na naklejane diamenty, jedna karta na dziecko. Kolumna „ile minut” jest "
+         "ważniejsza od liczby żetonów — to z niej widać, czy czas czekania rośnie, "
+         "czy stoi w miejscu.",
+   rodzaj="tabela",
+   naglowki=["Dzień", "Ile minut", "Diamenty", "Co pomogło"],
+   wiersze=["poniedziałek", "wtorek", "środa", "czwartek", "piątek"]),
+ ],
+
+ "D4-16": [dict(
+   tytul="Zwierzęta na ścieżkę",
+   wstep="Cztery zwierzęta, cztery sposoby poruszania się: zając skacze, lis biegnie, "
+         "niedźwiedź idzie na czworakach, żaba skacze z przysiadu. Połóż karty wzdłuż "
+         "ścieżki — dziecko zmienia ruch przy każdej karcie i nie musi pamiętać instrukcji.",
+   rodzaj="karty", kolumny=4,
+   symbole=["zwierze_zajac", "zwierze_lis", "zwierze_niedzwiedz", "zwierze_zaba"]),
+  dict(
+   tytul="Ślady na podłogę",
+   wstep="Łapki i stopy do wycięcia i rozłożenia jako ścieżka. Rozstaw je na tyle blisko, "
+         "żeby dziecko trafiało bez wysiłku — ścieżka, z której się spada, przestaje "
+         "zachęcać po dwóch próbach. Odległość zwiększaj dopiero, gdy przechodzi ją "
+         "bez patrzenia pod nogi.",
+   rodzaj="karty", kolumny=3,
+   symbole=["slad_lapka", "slad_stopa_lewa", "slad_stopa_prawa"]),
+ ],
+
+ "D4-17": [dict(
+   tytul="Stópki na schodki",
+   wstep="Lewa i prawa stopa do naklejenia na kolejne stopnie, na przemian. Dziecko stawia "
+         "wtedy nogi naprzemiennie, zamiast dostawiać drugą do pierwszej — i o to chodzi "
+         "w tym konspekcie. Wydrukuj tyle par, ile macie stopni, i naklej blisko krawędzi, "
+         "żeby dziecko widziało je patrząc w dół.",
+   rodzaj="karty", kolumny=2,
+   symbole=["slad_stopa_lewa", "slad_stopa_prawa"]),
+ ],
+
+ "D8-35": [dict(
+   tytul="Zdjęcia ról na ścianę kącika",
+   kp="Wydrukuj i powieś w kąciku",
+   wstep="Cztery role do powieszenia tam, gdzie się je odgrywa: kucharz przy kuchence, "
+         "kierowca przy garażu. Obrazek na ścianie podpowiada rolę dziecku, które nie "
+         "wymyśli jej samo, a reszcie mówi, kim ono teraz jest — bez tego zabawa "
+         "w role rozpada się po minucie.",
+   rodzaj="tablica", kolumny=4,
+   symbole=["zawod_kucharz", "zawod_kierowca", "zabawa_lalki", "zabawa_auta"]),
+ ],
+
+ "D8-38": [dict(
+   tytul="Obrazek zasady zabawy",
+   kp="Wydrukuj i połóż na środku koła",
+   wstep="Trzy obrazki na środek chusty: czekam na swoją kolej, słucham sygnału, "
+         "bawimy się razem. Połóż je tam, gdzie wszyscy je widzą, i wskazuj zamiast "
+         "przerywać zabawę słowami.",
+   rodzaj="tablica", kolumny=3,
+   symbole=["gest_czekam", "gest_slucham", "dzien_zabawa"]),
+  dict(
+   tytul="Znaczniki miejsc w kole",
+   wstep="Kolorowe krążki pod stopy, żeby każde dziecko wiedziało, gdzie usiąść. "
+         "Ten sam kolor co znaczek dziecka w szatni — wtedy nie trzeba tłumaczyć, "
+         "które miejsce jest czyje.",
+   rodzaj="etykiety", kolumny=4,
+   etykiety=[("", "#E8695A"), ("", "#7FA8C9"), ("", "#8FB79A"), ("", "#F0C862"),
+             ("", "#C9A0C0"), ("", "#E0A05C"), ("", "#8FA9B7"), ("", "#D2B48C")]),
  ],
 }
 

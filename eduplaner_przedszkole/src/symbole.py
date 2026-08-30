@@ -150,6 +150,21 @@ SYMBOLE = {
  "zawod_ogrodnik":   ("Ogrodnik", "a gardener with a watering can"),
  "zawod_kierowca":   ("Kierowca", "a bus driver at a steering wheel"),
 
+ # ——— ślady, żetony, znaczniki na podłogę ——————————————————————
+ "slad_stopa_lewa":  ("Lewa stopa", "outline of a bare left foot seen from above"),
+ "slad_stopa_prawa": ("Prawa stopa", "outline of a bare right foot seen from above"),
+ "slad_lapka":       ("Łapka", "an animal paw print, one pad with four toe pads"),
+ "zeton_diament":    ("Diament", "a simple cut diamond gem seen from the front"),
+
+ # ——— zwierzęta leśne ——————————————————————————————————————————
+ "zwierze_zajac":      ("Zając", "a friendly hare sitting upright, long ears"),
+ "zwierze_lis":        ("Lis", "a friendly fox standing, bushy tail"),
+ "zwierze_niedzwiedz": ("Niedźwiedź", "a friendly brown bear on all fours"),
+ "zwierze_zaba":       ("Żaba", "a friendly green frog sitting"),
+
+ # ——— uroczystości —————————————————————————————————————————————
+ "swieto_wystep": ("Występ", "three children singing on a small stage under bunting"),
+
  # ——— przedmioty dyżurów i szatni ——————————————————————————————
  "przedmiot_kapcie":   ("Kapcie", "a pair of small soft indoor slippers"),
  "przedmiot_kubek":    ("Kubek", "a single child's mug with a handle"),
