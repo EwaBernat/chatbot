@@ -978,8 +978,12 @@ def konspekt():
 
 
 
-def render_konspekty_modale():
-    """Modale konspektów wg wzoru Termometr uwagi; warianty celu edukacyjnego per poziom."""
+def render_konspekty_modale(tylko_wersja=None):
+    """Modale konspektów wg wzoru Termometr uwagi; warianty celu edukacyjnego per poziom.
+
+    `tylko_wersja` zawęża wynik do jednej wersji wiekowej — korzysta z tego
+    `build_konspekty.py`, żeby wydać konspekty jednej grupy jako osobny zeszyt.
+    """
     def smart_edu(it, poz_kod):
         meta = next(p for p in POZIOMY if p[0] == poz_kod)
         cel = {"p3": it["g3"], "p2": it["g2"], "p1": it["g1"]}[poz_kod]
@@ -994,6 +998,8 @@ def render_konspekty_modale():
         ], cel, meta
     out = []
     for (wk, nr), K in KONSPEKTY.items():
+        if tylko_wersja and wk != tylko_wersja:
+            continue
         mod = {m.WERSJA["kod"]: m for m in WERSJE}[wk]
         it = next(i for a in mod.AREAS for i in a["items"] if i["n"] == nr)
         wers = mod.WERSJA

@@ -88,14 +88,27 @@ class Zestaw:
 </section>'''
 
 
-def style_pomocy():
-    """Zdjęcia wszystkich zestawów, osadzone raz, w klasach CSS."""
-    regu = "\n".join(z.style() for z in ZESTAWY if z.pomoce)
-    return f"<style>{regu}</style>"
+def _wybor(wieki):
+    """Zestawy do osadzenia. `None` — wszystkie (bank celów); lista grup
+    wiekowych — tylko one; lista pusta — żadnych.
+
+    Zeszyt konspektów dla 3–4 lat nie ma po co nieść zdjęć i nagrań z wersji
+    dla 5-latków, a zeszyt dla wersji bez pomocy — żadnych. Bez tego rozróżnienia
+    każdy zeszyt ważył tyle samo, niezależnie od tego, co faktycznie pokazuje.
+    """
+    if wieki is None:
+        return [z for z in ZESTAWY if z.pomoce]
+    return [z for z in ZESTAWY if z.pomoce and z.wiek in wieki]
 
 
-def audio_pomocy():
-    return "".join(z.audio_tagi() for z in ZESTAWY)
+def style_pomocy(wieki=None):
+    """Zdjęcia osadzone raz, w klasach CSS."""
+    regu = "\n".join(z.style() for z in _wybor(wieki))
+    return f"<style>{regu}</style>" if regu else ""
+
+
+def audio_pomocy(wieki=None):
+    return "".join(z.audio_tagi() for z in _wybor(wieki))
 
 
 def pomoce_dla(nr, esc):

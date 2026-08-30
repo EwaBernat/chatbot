@@ -187,6 +187,25 @@ input[type="search"]:focus,.tab:focus-visible,.chipbtn:focus-visible,.navlink:fo
   font:700 10.5px/1 "DM Sans",Arial,sans-serif}
 .navlink:hover{border-color:var(--accent); color:var(--accent)}
 
+/* ---------- spis konspektów ---------- */
+.kspis{margin:18px 0 4px; border:1px solid var(--line); border-radius:14px; background:#FFF; overflow:hidden}
+.kspis > summary{cursor:pointer; list-style:none; padding:13px 18px; display:flex; align-items:center; gap:10px;
+  font:700 12.5px/1 "DM Sans",Arial,sans-serif; color:var(--ink); background:var(--soft)}
+.kspis > summary::-webkit-details-marker{display:none}
+.kspis > summary::before{content:"▸"; color:var(--accent); font-size:13px}
+.kspis[open] > summary::before{content:"▾"}
+.kspis > summary .ile{margin-left:auto; font-weight:400; color:var(--muted); font-size:11.5px}
+.kspis-tresc{padding:6px 18px 16px}
+.kspis-obszar{margin:13px 0 7px; font:700 9.5px/1 "DM Sans",Arial,sans-serif;
+  letter-spacing:.14em; text-transform:uppercase; color:var(--violet)}
+.kspis-lista{display:flex; flex-wrap:wrap; gap:6px}
+.kbtn{border:1px solid var(--line); background:#FFF; border-radius:999px; padding:7px 13px; cursor:pointer;
+  font:500 11.5px/1.25 "DM Sans",Arial,sans-serif; color:var(--ink); text-align:left}
+.kbtn:hover{border-color:var(--accent); color:var(--accent)}
+.kbtn b{font-weight:700; color:var(--violet); margin-right:5px}
+.kbtn:hover b{color:var(--accent)}
+.kbtn .pom{margin-left:6px; color:var(--accent); font-weight:700}
+
 /* ---------- stopka ---------- */
 .docfoot{margin-top:46px; padding-top:14px; border-top:1px solid var(--line); display:flex; flex-wrap:wrap;
   gap:8px 20px; justify-content:space-between; font-size:11px; color:var(--muted)}
@@ -389,7 +408,7 @@ tr.tbanner .bsep{color:var(--accent); padding:0 5px}
   body{background:#fff; font-size:8.6pt; color:#1F1A33}
   *{-webkit-print-color-adjust:exact; print-color-adjust:exact}
   .sheet{max-width:none; padding:0}
-  .toolbar,.areanav,.printhead{display:none !important}
+  .toolbar,.areanav,.printhead,.kspis{display:none !important}
   .vers{display:block !important}
   .vers + .vers{break-before:page; page-break-before:always}
   #konspekt,#monitoring{break-before:page; page-break-before:always}
