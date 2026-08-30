@@ -342,6 +342,16 @@ Zdjęcia są **ilustracjami poglądowymi**, nie fotografiami konkretnych produkt
 Model `gemini-2.5-flash-image`, jednolita reżyseria: widok z góry na jasnym
 blacie, miękkie światło z okna, paleta pastelowa, bez tekstu i bez ludzi.
 
+### Spis konspektów
+
+Każda wersja zaczyna się rozwiniętym spisem: obszar po obszarze, numer
+i tytuł konspektu, kliknięcie otwiera go wprost. Kropka **●** przy pozycji
+oznacza konspekt z pomocą dydaktyczną. Bez spisu trzeba było wiedzieć, że
+konspekt otwiera się kliknięciem komórki z celem w tabeli (podpis
+„▸ konspekt”) — działało, ale nie dało się tego znaleźć.
+
+Spis nie idzie na wydruk.
+
 ### Gdzie są karty
 
 W konspekcie — sekcja VII modalu, przycisk „Pokaż pomoc i posłuchaj polecenia”

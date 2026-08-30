@@ -96,6 +96,10 @@ Miejsce w kodzie: `OBSZAR_PP_NAZWY` w `monitoring_podstawy()`
 wersja U z 48 celami uzupełniającymi domykającymi podstawę do 113/113,
 130 konspektów, pomoce dydaktyczne. Szczegóły: `eduplaner_przedszkole/README.md`.
 
+**Konspekty otwiera się ze spisu** na górze każdej wersji (numer, tytuł,
+kropka = ma pomoc) albo kliknięciem komórki z celem w tabeli. Spis dodany,
+bo bez niego konspektów nie dało się znaleźć.
+
 **Pomoce dydaktyczne siedzą w konspektach** — sekcja VII modalu, przycisk
 „Pokaż pomoc i posłuchaj polecenia”. Tam ich szuka nauczyciel i tam mają być.
 Osobne zeszyty (`Pomoce_dydaktyczne_3-4_lata.html`, `..._5_lat.html` i ich PDF-y)
