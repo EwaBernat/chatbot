@@ -32,8 +32,8 @@ from PIL import Image
 KORZEN = Path(__file__).resolve().parent.parent
 FFMPEG = imageio_ffmpeg.get_ffmpeg_exe()
 
-KATALOGI_AUDIO = ["assets/audio_a", "assets/audio_c1"]
-KATALOGI_FOTO = ["assets/pomoce_a"]
+KATALOGI_AUDIO = ["assets/audio_a", "assets/audio_b", "assets/audio_c1"]
+KATALOGI_FOTO = ["assets/pomoce_a", "assets/pomoce_b"]
 KATALOGI_WIDEO = ["assets/wideo"]
 
 SZEROKOSC_FOTO = 900

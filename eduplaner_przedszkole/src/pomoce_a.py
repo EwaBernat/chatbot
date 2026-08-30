@@ -8,28 +8,12 @@ konspekt tego potrzebuje — nagrane polecenie dla dziecka głosem nauczycielki.
 Zdjęcia są ilustracjami poglądowymi, nie fotografiami konkretnych produktów:
 pokazują układ i charakter pomocy, żeby nauczyciel wiedział, co skompletować.
 
-Osadzanie: obrazy jako JPEG w klasach CSS (każdy raz), nagrania jako <audio>
-z data-URI. Rejestr POMOCE_A jest kluczowany numerem konspektu, a build.py
+Ten moduł trzyma tylko treść; układ karty i osadzanie mediów są w
+`pomoce_karta`. Rejestr POMOCE jest kluczowany numerem konspektu, a build.py
 dołącza kartę do modalu tego konspektu.
 """
 
-import base64
-from pathlib import Path
-
-_KORZEN = Path(__file__).resolve().parent.parent
-_FOTO = _KORZEN / "assets" / "pomoce_a"
-_AUDIO = _KORZEN / "assets" / "audio_a"
-
-
-def _foto(kod):
-    dane = base64.b64encode((_FOTO / f"k_{kod}.jpg").read_bytes()).decode()
-    return f"data:image/jpeg;base64,{dane}"
-
-
-def _dzwiek(kod):
-    dane = base64.b64encode((_AUDIO / f"{kod}.mp3").read_bytes()).decode()
-    return f"data:audio/mpeg;base64,{dane}"
-
+from pomoce_karta import Zestaw
 
 # kod → (nr konspektu, tytuł pomocy, [co przygotować], [trzy kroki], tekst nagrania, wskazówka)
 POMOCE = {
@@ -507,62 +491,4 @@ POMOCE = {
 }
 
 
-def style_pomocy():
-    """Zdjęcia osadzone raz, w klasach CSS — karta może się powtarzać."""
-    regu = "\n".join(f'.pf-{k}{{background-image:url({_foto(k)})}}' for k in POMOCE)
-    return f"<style>{regu}</style>"
-
-
-def audio_pomocy():
-    return "".join(f'<audio id="pa-{k}" preload="none" src="{_dzwiek(k)}"></audio>'
-                   for k in POMOCE)
-
-
-def karta(kod, esc):
-    nr, tytul, przygotuj, kroki, tekst, wskaz = POMOCE[kod]
-    lista = "\n".join(f'      <li>{esc(x)}</li>' for x in przygotuj)
-    krok = "\n".join(f'      <li><span class="pk-n">{i}</span>{esc(x)}</li>'
-                     for i, x in enumerate(kroki, 1))
-    return f'''<section class="zal pomoc" data-poziom="p1">
-  <header class="zal-head">
-    <span class="mark" role="img" aria-label="Logo PCTP"></span>
-    <div>
-      <div class="zal-w">EduPlaner 2026</div>
-      <div class="zal-s">Pomoc dydaktyczna · konspekt {esc(nr)} · 3–4 lata</div>
-    </div>
-    <span class="zal-pill p1">druk KC-4</span>
-  </header>
-  <div class="zal-tytul">
-    <span class="zal-kp">Tak ma wyglądać ta pomoc</span>
-    <h3>{esc(tytul)}</h3>
-  </div>
-  <div class="pf pf-{kod}" role="img" aria-label="Zdjęcie poglądowe pomocy: {esc(tytul)}"></div>
-  <div class="pomoc-dwie">
-    <div><h4 class="pomoc-h">Co przygotować</h4>
-    <ul class="klista pomoc-lista">
-{lista}
-    </ul></div>
-    <div><h4 class="pomoc-h">Jak użyć — trzy kroki</h4>
-    <ol class="pomoc-kroki">
-{krok}
-    </ol></div>
-  </div>
-  <div class="pomoc-glos">
-    <button type="button" class="au-btn" data-au="pa-{kod}"
-      aria-label="Posłuchaj polecenia"><span aria-hidden="true">▶</span> Posłuchaj polecenia</button>
-    <p class="pomoc-tekst">„{esc(tekst)}"</p>
-  </div>
-  <div class="callout rule pomoc-wsk"><span class="cap">Wskazówka</span>{esc(wskaz)}</div>
-  <div class="zal-stopka">
-    <span><b>Konspekt {esc(nr)}</b> · pomoc dydaktyczna</span>
-    <span class="mono">EduPlaner 2026 · PCTP · druk KC-4</span>
-  </div>
-</section>'''
-
-
-def pomoce_dla(nr, esc):
-    """Zwraca kartę pomocy dla konspektu o tym numerze albo pusty string."""
-    for kod, dane in POMOCE.items():
-        if dane[0] == nr:
-            return karta(kod, esc)
-    return ""
+ZESTAW = Zestaw(POMOCE, "pomoce_a", "audio_a", "3–4 lata")

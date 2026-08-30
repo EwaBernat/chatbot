@@ -31,7 +31,9 @@ from konspekty_6_d7 import KONSPEKTY_6_D7
 from konspekty_6_d8 import KONSPEKTY_6_D8
 from konspekty_6_d9 import KONSPEKTY_6_D9
 from zalacznik_c1 import zalaczniki_c1
-from pomoce_a import pomoce_dla, style_pomocy, audio_pomocy
+import pomoce_a          # noqa: F401 — rejestruje zestaw pomocy 3–4 lata
+import pomoce_b          # noqa: F401 — rejestruje zestaw pomocy 5 lat
+from pomoce_karta import pomoce_dla, style_pomocy, audio_pomocy
 from konspekty_34_d4 import KONSPEKTY_D4
 from konspekty_34_d6 import KONSPEKTY_D6
 from konspekty_34_d8 import KONSPEKTY_D8
