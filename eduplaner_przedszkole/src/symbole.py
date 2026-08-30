@@ -150,6 +150,16 @@ SYMBOLE = {
  "zawod_ogrodnik":   ("Ogrodnik", "a gardener with a watering can"),
  "zawod_kierowca":   ("Kierowca", "a bus driver at a steering wheel"),
 
+ # ——— przedmioty dyżurów i szatni ——————————————————————————————
+ "przedmiot_kapcie":   ("Kapcie", "a pair of small soft indoor slippers"),
+ "przedmiot_kubek":    ("Kubek", "a single child's mug with a handle"),
+ "przedmiot_worek":    ("Worek", "a drawstring cloth bag for gym kit"),
+ "przedmiot_serwetka": ("Serwetki", "a small stack of folded paper napkins"),
+
+ # ——— zasady placu zabaw ——————————————————————————————————————————
+ "plac_schodki":     ("Wchodzę po schodkach", "a child climbing the steps of a slide, holding the rail"),
+ "plac_zjezdzalnia": ("Zjeżdżam nogami w dół", "a child sitting upright on a slide, feet pointing down the slope"),
+
  # ——— pytania —————————————————————————————————————————————————————
  "pytanie_kto":      ("Kto?", "a question mark next to the silhouette of a person's head"),
  "pytanie_co":       ("Co się stało?", "a question mark next to a spilled cup"),

@@ -466,6 +466,58 @@ ARKUSZE = {
    rodzaj="karty", kolumny=2,
    symbole=["emocja_radosc", "emocja_smutek"]),
  ],
+ "D5-24": [dict(
+   tytul="Kolejność ubierania",
+   kp="Wydrukuj i powieś w szatni",
+   wstep="Siedem kroków w kolejności, która wybacza błędy: najpierw to, co idzie od dołu. "
+         "Dziecko, które zaczyna od butów, nie założy już spodni — a przy takim planie "
+         "nie musi tego odkrywać co dzień od nowa. Wytnij tylko te części, które dziecko "
+         "faktycznie zakłada danego dnia, i ułóż je od lewej.",
+   rodzaj="pasek",
+   symbole=["ubior_majtki", "ubior_skarpetki", "ubior_spodnie", "ubior_koszulka",
+            "ubior_sweter", "ubior_kurtka", "ubior_buty"]),
+  dict(
+   tytul="Części garderoby do wycięcia",
+   wstep="Te same siedem obrazków w wersji do rozcięcia. Dziecko układa z nich kolejność "
+         "samo, zanim zacznie się ubierać — układanie planu jest osobnym ćwiczeniem "
+         "i warto dać mu chwilę, zamiast robić to w biegu przy wyjściu na dwór.",
+   rodzaj="karty", kolumny=4,
+   symbole=["ubior_majtki", "ubior_skarpetki", "ubior_spodnie", "ubior_koszulka",
+            "ubior_sweter", "ubior_kurtka", "ubior_buty"]),
+ ],
+
+ "D2-09": [dict(
+   tytul="Nasze trzy zasady",
+   kp="Wydrukuj i powieś nisko",
+   wstep="Trzy zasady, wszystkie powiedziane wprost, co robimy — nie czego nie wolno. "
+         "„Nie krzyczymy” nie mówi trzylatkowi, co ma zrobić zamiast; „mówimy spokojnie” "
+         "mówi. Powieś na wysokości oczu dziecka i wskazuj obrazek zamiast przypominać "
+         "słowami.",
+   rodzaj="tablica", kolumny=3,
+   symbole=["gest_mowie", "dzien_zabawa", "dzien_sprzatanie"]),
+ ],
+
+ "D7-30": [dict(
+   tytul="Tablica podań",
+   kp="Wydrukuj na tydzień",
+   wstep="Zapis, komu dziecko podało misia i ile razy. Wypełniaj po zajęciach — chodzi "
+         "o to, żeby zobaczyć, czy krąg dzieci, do których dziecko podaje, się poszerza. "
+         "Jeśli przez tydzień jest to wciąż ta sama jedna osoba, posadź obok kogoś nowego, "
+         "zamiast zachęcać słowami.",
+   rodzaj="tabela",
+   naglowki=["Dzień", "Komu podał", "Ile razy", "Czy patrzył w oczy"],
+   wiersze=["poniedziałek", "wtorek", "środa", "czwartek", "piątek"]),
+ ],
+ "D4-20": [dict(
+   tytul="Karty-obrazki ruchów",
+   wstep="Sześć ruchów do losowania przy muzyce. Karta zastępuje polecenie słowne, więc "
+         "dziecko, które nie nadąża za instrukcją, i tak wie, co robić. Zaczynajcie od "
+         "trzech kart; przy sześciu trzylatek przestaje wybierać, a zaczyna powtarzać "
+         "ostatnią.",
+   rodzaj="karty", kolumny=3,
+   symbole=["ruch_bieg", "ruch_skok", "ruch_czworaki",
+            "ruch_wspinanie", "ruch_rzut", "ruch_rownowaga"]),
+ ],
 }
 
 
