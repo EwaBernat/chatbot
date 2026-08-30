@@ -522,7 +522,26 @@ body{background:var(--paper)}
   .au-btn{display:none !important}
 }
 </style>
-
+<style>
+.kd-pasek{display:flex;gap:10px;flex-wrap:wrap;margin:14px 0 4px}
+.kd-pasek .kafel{flex:1 1 150px;max-width:200px;position:relative}
+.kd-krok{position:absolute;top:6px;left:6px;width:24px;height:24px;border-radius:50%;
+ background:#2E5E8E;color:#FFF;font:700 13px/24px system-ui,sans-serif;text-align:center}
+.kd-tablica{border:2px solid #2E5E8E;border-radius:12px;padding:14px;margin:14px 0 4px;
+ background:#FFF;display:grid;gap:12px}
+.kd-tab{width:100%;min-width:0;table-layout:fixed;border-collapse:collapse;margin:14px 0 4px;font-size:13px}
+.kd-tab th,.kd-tab td{border:1px solid #9BB7CE;padding:9px 8px;text-align:left;vertical-align:top}
+.kd-tab th{background:#EAF2F8;font-weight:700;color:#1F4468}
+.kd-tab td.pusto{height:34px}
+.kd-tab tr td:first-child{font-weight:600;color:#1F4468}
+.kd-tab th:first-child{width:26%}
+.kd-tab th,.kd-tab td{word-wrap:break-word}
+.kd-pola{display:grid;gap:12px;margin:14px 0 4px}
+.kd-pole{border:1.5px solid #9BB7CE;border-radius:10px;padding:8px 10px;background:#FFF}
+.kd-pole b{display:block;font-size:12px;color:#1F4468;letter-spacing:.02em}
+.kd-linie{background-image:repeating-linear-gradient(#FFF 0 25px,#DCE7F0 25px 26px)}
+@media print{.kd-tab th{background:#EAF2F8 !important;-webkit-print-color-adjust:exact}}
+</style>
 
 <div class="zeszyt">
 <div class="dochead">

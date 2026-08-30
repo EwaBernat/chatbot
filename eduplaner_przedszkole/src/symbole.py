@@ -1,0 +1,169 @@
+# -*- coding: utf-8 -*-
+"""Biblioteka symboli obrazkowych — wspólna dla wszystkich wersji i konspektów.
+
+Konspekty proszą o materiał do wydruku 243 razy, ale nie o 243 różne komplety.
+„Mycie rąk", „plan dnia", „proszę o pomoc", „radość" wracają w wersji A, B, C
+i U. Rysowanie ich osobno dla każdego konspektu byłoby nie tylko marnotrawstwem
+miejsca — byłoby błędem merytorycznym. Dziecko korzystające z komunikacji
+obrazkowej musi widzieć TEN SAM symbol pomocy na tablicy AAC, w planie dnia
+i na breloku; symbol, który zmienia wygląd między materiałami, przestaje być
+słowem.
+
+Dlatego symbol powstaje raz, leży tutaj pod swoim kodem, a arkusze w
+`karty_druk.py` tylko się do niego odwołują. Plik obrazu:
+`assets/symbole/k_<kod>.jpg` (skadrowany przez `kompresuj_media.py`).
+
+Symbol jeszcze nienarysowany po prostu nie ma pliku — `karty_druk.py` pomija
+wtedy arkusz, więc dokumenty budują się poprawnie na każdym etapie pracy.
+Podpis jest tym, co dziecko i nauczyciel widzą pod obrazkiem; `opis` to
+instrukcja dla modelu rysującego i nie trafia do dokumentu.
+"""
+
+from pathlib import Path
+
+KATALOG = Path(__file__).resolve().parent.parent / "assets" / "symbole"
+
+# kod → (podpis na karcie, opis dla modelu rysującego)
+SYMBOLE = {
+ # ——— zabawy i kąciki ———————————————————————————————————————————————
+ "zabawa_klocki":    ("Klocki", "a stack of wooden building blocks"),
+ "zabawa_ukladanka": ("Układanka", "four jigsaw puzzle pieces"),
+ "zabawa_rysowanie": ("Rysowanie", "a child's drawing of a sun with crayons beside it"),
+ "zabawa_lalki":     ("Kącik lalek", "a rag doll standing next to a toy pram"),
+ "zabawa_auta":      ("Samochody", "two toy cars on a small ramp"),
+ "zabawa_ksiazki":   ("Książeczki", "an open picture book and a closed book"),
+
+ # ——— plan dnia ————————————————————————————————————————————————————
+ "dzien_przyjscie":   ("Przychodzę", "a child waving goodbye at a nursery door, hanging up a coat"),
+ "dzien_powitanie":   ("Powitanie w kole", "three children sitting in a circle on a rug, waving"),
+ "dzien_sniadanie":   ("Śniadanie", "a bowl of porridge, a slice of bread and a mug on a table"),
+ "dzien_zajecia":     ("Zajęcia", "a child at a table with paper and crayons, a teacher pointing"),
+ "dzien_zabawa":      ("Zabawa dowolna", "two children playing with blocks and a toy car on a rug"),
+ "dzien_sprzatanie":  ("Sprzątanie", "a child putting toys into a storage box"),
+ "dzien_spacer":      ("Spacer", "two children in jackets walking outdoors holding hands"),
+ "dzien_obiad":       ("Obiad", "a plate of soup with a spoon and a glass of water"),
+ "dzien_lezakowanie": ("Leżakowanie", "a child asleep on a small cot under a blanket"),
+ "dzien_podwieczorek":("Podwieczorek", "an apple, a yoghurt cup and a mug of tea"),
+ "dzien_powrot":      ("Idę do domu", "a child holding a parent's hand walking out of a door"),
+
+ # ——— emocje ———————————————————————————————————————————————————————
+ "emocja_radosc":     ("Radość", "a child's face, broad happy smile, bright eyes"),
+ "emocja_zlosc":      ("Złość", "a child's face, angry, furrowed brows, mouth turned down"),
+ "emocja_smutek":     ("Smutek", "a child's face, sad, one tear on the cheek"),
+ "emocja_strach":     ("Strach", "a child's face, frightened, wide eyes, hands near the cheeks"),
+ "emocja_spokoj":     ("Spokój", "a child's face, calm and relaxed, eyes gently closed, faint smile"),
+ "emocja_zdziwienie": ("Zdziwienie", "a child's face, surprised, raised eyebrows, round open mouth"),
+ "emocja_duma":       ("Duma", "a child's face smiling with the chin lifted, hands on hips"),
+ "emocja_zmeczenie":  ("Zmęczenie", "a child's face yawning, one hand rubbing an eye"),
+
+ # ——— prośby (tablica AAC) —————————————————————————————————————————
+ "prosze_pic":        ("Chcę pić", "a mug of water with a drinking straw"),
+ "prosze_jesc":       ("Chcę jeść", "a plate with a fork and a spoon beside it"),
+ "prosze_toaleta":    ("Toaleta", "a toilet bowl with the lid open"),
+ "prosze_pomoc":      ("Pomocy", "an open raised hand of an adult next to a smaller child's hand"),
+ "prosze_odpoczynek": ("Odpoczynek", "a cushion and a folded blanket on the floor"),
+ "prosze_boli":       ("Boli mnie", "a child pointing at a plaster on the knee"),
+ "prosze_ruch":       ("Chcę pobiegać", "a child running with arms swinging"),
+ "prosze_cisza":      ("Chcę być sam", "a child sitting alone in a quiet reading corner"),
+
+ # ——— gesty i polecenia —————————————————————————————————————————————
+ "gest_stop":         ("Stop", "an open palm held up facing forward, stop gesture"),
+ "gest_chodz":        ("Chodź", "a hand beckoning with the index finger, come here gesture"),
+ "gest_slucham":      ("Słucham", "a child cupping a hand behind the ear, listening"),
+ "gest_mowie":        ("Mówię", "a child speaking with a small speech bubble by the mouth"),
+ "gest_czekam":       ("Czekam", "a child sitting with hands folded in the lap, waiting"),
+ "gest_brawo":        ("Brawo", "two hands clapping together"),
+ "polecenie_wez":     ("Weź", "a hand picking up a small red cube from a table"),
+ "polecenie_poloz":   ("Połóż", "a hand placing a red cube down onto a table"),
+ "polecenie_daj":     ("Daj mi", "a hand passing a red cube to another open hand"),
+ "polecenie_otworz":  ("Otwórz", "a hand opening the lid of a box"),
+ "polecenie_zamknij": ("Zamknij", "a hand closing the lid of a box"),
+
+ # ——— mycie rąk, toaleta, ubieranie ————————————————————————————————
+ "myje_woda":      ("Odkręcam wodę", "a hand turning a tap on, water running into a basin"),
+ "myje_mydlo":     ("Biorę mydło", "a hand under a soap dispenser, a drop of soap falling"),
+ "myje_pocieram":  ("Pocieram ręce", "two soapy hands rubbing together with foam"),
+ "myje_splukuje":  ("Spłukuję", "two hands under running water from a tap"),
+ "myje_wycieram":  ("Wycieram ręce", "two hands drying on a hanging towel"),
+ "toaleta_siusiu": ("Siusiam", "a toilet bowl with a small step stool in front of it"),
+ "toaleta_spluczka":("Spuszczam wodę", "a hand pressing the flush button on a cistern"),
+ "toaleta_rece":   ("Myję ręce", "two hands under running water at a low basin"),
+ "ubior_majtki":   ("Majtki", "a pair of children's underpants"),
+ "ubior_spodnie":  ("Spodnie", "a pair of children's trousers"),
+ "ubior_skarpetki":("Skarpetki", "a pair of children's socks"),
+ "ubior_koszulka": ("Koszulka", "a child's short-sleeved t-shirt"),
+ "ubior_sweter":   ("Sweter", "a child's knitted jumper"),
+ "ubior_kurtka":   ("Kurtka", "a child's zip-up jacket"),
+ "ubior_buty":     ("Buty", "a pair of children's shoes with laces"),
+
+ # ——— strategie radzenia sobie —————————————————————————————————————
+ "strategia_oddech":  ("Oddycham", "a child smelling a flower held in one hand, cheeks relaxed"),
+ "strategia_przerwa": ("Robię przerwę", "a child sitting in a quiet corner with a cushion"),
+ "strategia_pomoc":   ("Proszę o pomoc", "a child raising a hand towards a teacher"),
+ "strategia_czesci":  ("Dzielę na części", "a large task card split into three smaller numbered cards"),
+ "strategia_woda":    ("Piję wodę", "a child drinking from a mug"),
+ "strategia_ruch":    ("Rozruszam się", "a child jumping with arms raised"),
+
+ # ——— pogoda ———————————————————————————————————————————————————————
+ "pogoda_slonce": ("Słonecznie", "a bright sun with rays"),
+ "pogoda_chmury": ("Pochmurno", "two grey and white clouds"),
+ "pogoda_deszcz": ("Deszcz", "a cloud with raindrops falling"),
+ "pogoda_snieg":  ("Śnieg", "a cloud with snowflakes falling"),
+ "pogoda_wiatr":  ("Wietrznie", "a bare tree bending with curved wind lines"),
+ "pogoda_mroz":   ("Mróz", "a thermometer showing a low temperature next to a snowflake"),
+
+ # ——— ruch —————————————————————————————————————————————————————————
+ "ruch_bieg":       ("Biegnę", "a child running"),
+ "ruch_skok":       ("Skaczę", "a child jumping with both feet off the ground"),
+ "ruch_czworaki":   ("Czworakuję", "a child crawling on hands and knees"),
+ "ruch_wspinanie":  ("Wspinam się", "a child climbing a small ladder"),
+ "ruch_rzut":       ("Rzucam", "a child throwing a ball"),
+ "ruch_rownowaga":  ("Idę po linii", "a child walking along a low balance beam with arms out"),
+
+ # ——— techniki plastyczne ——————————————————————————————————————————
+ "technika_wydzieranka": ("Wydzieranka", "torn coloured paper pieces glued into a shape"),
+ "technika_stempel":     ("Stempel", "a potato stamp printing a shape onto paper"),
+ "technika_kolaz":       ("Kolaż", "paper, fabric and buttons glued onto a sheet"),
+ "technika_malowanie":   ("Malowanie", "a paintbrush and a palette of paints"),
+ "technika_lepienie":    ("Lepienie", "hands shaping a ball of modelling clay"),
+
+ # ——— instytucje i zawody ——————————————————————————————————————————
+ "miejsce_przedszkole": ("Przedszkole", "a small nursery building with a playground"),
+ "miejsce_przychodnia": ("Przychodnia", "a clinic building with a cross sign"),
+ "miejsce_poczta":      ("Poczta", "a post office building with a letter box"),
+ "miejsce_straz":       ("Straż pożarna", "a fire station with a fire engine"),
+ "miejsce_biblioteka":  ("Biblioteka", "a library building with shelves of books seen through a window"),
+ "miejsce_sklep":       ("Sklep", "a small grocery shop with fruit crates outside"),
+ "zawod_lekarz":     ("Lekarz", "a doctor holding a stethoscope"),
+ "zawod_strazak":    ("Strażak", "a firefighter in a helmet holding a hose"),
+ "zawod_kucharz":    ("Kucharz", "a cook in a white hat stirring a pot"),
+ "zawod_nauczyciel": ("Nauczyciel", "a teacher pointing at a board"),
+ "zawod_listonosz":  ("Listonosz", "a postal worker with a bag of letters"),
+ "zawod_budowlaniec":("Budowlaniec", "a builder in a hard hat with a trowel"),
+ "zawod_ogrodnik":   ("Ogrodnik", "a gardener with a watering can"),
+ "zawod_kierowca":   ("Kierowca", "a bus driver at a steering wheel"),
+
+ # ——— pytania —————————————————————————————————————————————————————
+ "pytanie_kto":      ("Kto?", "a question mark next to the silhouette of a person's head"),
+ "pytanie_co":       ("Co się stało?", "a question mark next to a spilled cup"),
+ "pytanie_gdzie":    ("Gdzie?", "a question mark next to a map location pin"),
+ "pytanie_kiedy":    ("Kiedy?", "a question mark next to a clock face"),
+ "pytanie_dlaczego": ("Dlaczego?", "a large question mark with a thinking child beside it"),
+}
+
+
+def podpis(kod):
+    return SYMBOLE[kod][0]
+
+
+def opis(kod):
+    return SYMBOLE[kod][1]
+
+
+def jest(kod):
+    """Czy symbol jest już narysowany i skadrowany."""
+    return (KATALOG / f"k_{kod}.jpg").exists()
+
+
+def brakujace():
+    return [k for k in SYMBOLE if not jest(k)]

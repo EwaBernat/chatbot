@@ -41,7 +41,7 @@ KATALOGI_AUDIO = ["assets/audio_a", "assets/audio_b", "assets/audio_c1"]
 KATALOGI_FOTO = ["assets/pomoce_a", "assets/pomoce_b"]
 # Obrazki na karty do wycinania: model rysuje na białym tle w kadrze 16:9,
 # więc kadrujemy do samego rysunku i domykamy do kwadratu.
-KATALOGI_KARTY = ["assets/karty_a", "assets/karty_b"]
+KATALOGI_KARTY = ["assets/symbole"]
 BOK_KARTY = 520
 JAKOSC_KARTY = 80
 PROG_BIELI = 245        # ciemniej niż to = rysunek, nie tło

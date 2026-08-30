@@ -119,6 +119,22 @@ przeglądarka trzyma biały ekran kilkanaście sekund.
 Twierdzenia z arkuszy KPOF i cele uzupełniające trzymamy **osobno** — wymyślonych
 celów nie dopisujemy do jej kwestionariuszy.
 
+**Materiały do wydruku** (`src/karty_druk.py`) składamy z **biblioteki symboli**
+(`src/symbole.py`, obrazy w `assets/symbole/`), nie z rysunków robionych pod jeden
+konspekt. Konspekty proszą o materiał 243 razy, ale to wciąż ten sam słownik: plan
+dnia, mycie rąk, emocje, prośby AAC wracają w wersji A, B, C i U. Dziecko korzystające
+z komunikacji obrazkowej musi widzieć **ten sam** symbol pomocy na tablicy AAC,
+w planie dnia i na breloku — symbol, który zmienia wygląd między materiałami,
+przestaje być słowem. Symbol nienarysowany nie ma pliku, a arkusz go używający jest
+pomijany, więc dokumenty budują się poprawnie na każdym etapie.
+
+Pięć rodzajów arkusza: `karty` (do wycięcia), `pasek` (sekwencja z numerami),
+`tablica` (bez rozcinania), `tabela` (do wypełniania), `pola` (puste pola
+z etykietami). Trzy ostatnie nie potrzebują rysunków i są w konspektach większością.
+
+Arkusz `tabela` musi mieć `min-width:0` — tabela banku celów ma `min-width:1080px`
+i bez tego wyjątku arkusz ucieka poza krawędź strony.
+
 Ilustracje do konspektów generujemy modelem `gemini-2.5-flash-image`
 (`creative_generate_image`) — spójny styl książeczkowy, pastelowa paleta,
 ta sama bohaterka w całej historyjce.
