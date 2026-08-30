@@ -31,6 +31,7 @@ from konspekty_6_d7 import KONSPEKTY_6_D7
 from konspekty_6_d8 import KONSPEKTY_6_D8
 from konspekty_6_d9 import KONSPEKTY_6_D9
 from zalacznik_c1 import zalaczniki_c1
+from zalaczniki_hist import zalaczniki_dla
 import pomoce_a          # noqa: F401 — rejestruje zestaw pomocy 3–4 lata
 import pomoce_b          # noqa: F401 — rejestruje zestaw pomocy 5 lat
 import pomoce_a, pomoce_b, pomoce_c, pomoce_u  # noqa: F401 — rejestrują zestawy w pomoce_karta
@@ -1093,7 +1094,7 @@ def render_konspekty_modale(tylko_wersja=None):
         # Historyjki obrazkowe C1-01 dokładamy do strefy załączników, a nie zamiast
         # niej: ten konspekt ma też własną kartę pomocy i arkusz do wycięcia, a osobna
         # gałąź nadpisywała całą sekcję VII i jedno i drugie z niej znikało.
-        extra = zalaczniki_c1() if K["nr"] == "C1-01" else ""
+        extra = zalaczniki_c1() if K["nr"] == "C1-01" else zalaczniki_dla(K["nr"])
         if not wsk and ma_karty(K["nr"]):
             # Konspekt bez fotograficznej karty pomocy, ale z materiałem do wydruku.
             # Bez tej gałęzi arkusze wersji C i U znikały bez śladu — sekcja VII

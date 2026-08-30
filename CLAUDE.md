@@ -174,3 +174,11 @@ projekcie.
 Ilustracje do konspektów generujemy modelem `gemini-2.5-flash-image`
 (`creative_generate_image`) — spójny styl książeczkowy, pastelowa paleta,
 ta sama bohaterka w całej historyjce.
+
+**Historyjki obrazkowe** mają trzy konspekty: C1-01 „Jak rośnie kwiatek”
+(`src/zalacznik_c1.py`), B1-01 „Zgubiony klucz” i C7-32 „Wieża Zosi”
+(`src/zalaczniki_hist.py`). Każda to pięć scen, trzy karty A4 w gradacji
+3 · 4 · 5 obrazków i narracja jej głosem — wstęp, pięć scen, pytania otwarte.
+Sceny i nagrania **muszą mieć prefiks** (`.b1s1`, `b1au0`): w banku wszystkie
+historyjki siedzą w jednym dokumencie i bez prefiksu druga podmieniałaby
+obrazki pierwszej.
