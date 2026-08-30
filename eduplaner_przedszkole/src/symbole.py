@@ -17,6 +17,13 @@ Symbol jeszcze nienarysowany po prostu nie ma pliku — `karty_druk.py` pomija
 wtedy arkusz, więc dokumenty budują się poprawnie na każdym etapie pracy.
 Podpis jest tym, co dziecko i nauczyciel widzą pod obrazkiem; `opis` to
 instrukcja dla modelu rysującego i nie trafia do dokumentu.
+
+Karty emocji rysujemy z jawnym zastrzeżeniem: **to samo dziecko na każdej
+karcie** (krótkie jasne włosy, brzoskwiniowa skóra, zielona koszulka) i **skóra
+nigdy nie przyjmuje koloru emocji**. Pierwsze podejście dało czerwoną twarz przy
+złości i zieloną przy zdziwieniu — na karcie emocji kolor twarzy staje się wtedy
+wskazówką zamiast miny, a kart nie da się ze sobą porównać. Dziecko zestawia te
+twarze między sobą, więc różnić je ma wyłącznie wyraz.
 """
 
 from pathlib import Path

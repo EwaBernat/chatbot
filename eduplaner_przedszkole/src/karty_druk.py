@@ -129,6 +129,45 @@ ARKUSZE = {
    naglowki=["Pytanie tygodnia", "Odpowiedź 1", "Odpowiedź 2", "Odpowiedź 3"],
    wiersze=["", "", "", "", "", "", ""]),
  ],
+ "D7-32": [dict(
+   tytul="Lusterko emocji — karty",
+   wstep="Zacznij od dwóch: radości i złości. Reszta czeka, aż te dwie będą rozpoznawane "
+         "bez wahania — komplet ośmiu min na starcie sprawia, że dziecko zgaduje zamiast "
+         "rozpoznawać. Wytnij, naklej na karton i trzymaj przy lustrze; dziecko wybiera "
+         "kartę, robi tę minę do lustra i porównuje.",
+   rodzaj="karty", kolumny=4,
+   symbole=["emocja_radosc", "emocja_zlosc", "emocja_smutek", "emocja_spokoj"]),
+ ],
+
+ "B3-15": [dict(
+   tytul="Karty pantomimy — emocje",
+   wstep="Osiem min do pokazania bez słowa. Dziecko losuje kartę, pokazuje miną i postawą, "
+         "reszta zgaduje. Karty trzymaj obrazkiem do dołu — podglądanie zamienia zabawę "
+         "w czytanie podpisu. Osiem to komplet na całą grupę; do pierwszych prób wybierz cztery.",
+   rodzaj="karty", kolumny=4,
+   symbole=["emocja_radosc", "emocja_zlosc", "emocja_smutek", "emocja_strach",
+            "emocja_spokoj", "emocja_zdziwienie", "emocja_duma", "emocja_zmeczenie"]),
+ ],
+
+ "U3-11": [dict(
+   tytul="Karty emocji do odpowiedzi po angielsku",
+   kp="Wydrukuj i powieś przy drzwiach",
+   wstep="Cztery odpowiedzi na pytanie „how are you?”. Dziecko pokazuje kartę i mówi słowo — "
+         "wskazanie wystarczy, słowo dochodzi później. Podpisz karty po angielsku ręcznie "
+         "przy dziecku; własnoręczny podpis wiąże obrazek ze słowem mocniej niż druk.",
+   rodzaj="tablica", kolumny=4,
+   symbole=["emocja_radosc", "emocja_smutek", "emocja_zmeczenie", "emocja_spokoj"]),
+ ],
+
+ "U8-45": [dict(
+   tytul="Karty nastrojów do muzyki",
+   wstep="Dziecko słucha fragmentu i kładzie kartę, która pasuje do nastroju. Nie ma tu "
+         "odpowiedzi błędnych — jeśli dwoje dzieci wybierze inne karty do tego samego "
+         "utworu, to jest właśnie materiał na rozmowę, a nie pomyłka do poprawienia.",
+   rodzaj="karty", kolumny=3,
+   symbole=["emocja_radosc", "emocja_smutek", "emocja_spokoj",
+            "emocja_zlosc", "emocja_zdziwienie", "emocja_zmeczenie"]),
+ ],
 }
 
 
