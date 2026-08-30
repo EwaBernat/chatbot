@@ -21,9 +21,9 @@ _AUDIO = Path(__file__).resolve().parent.parent / "assets" / "audio_c1"
 # Narracja nagrana głosem nauczycielki (klon PL). Klucz 0 to wprowadzenie,
 # 1-5 to sceny, 6 to zakończenie z pytaniami otwartymi do dziecka.
 NARRACJA = {
-    0: ("naracja_00_wstep.mp3", "Usiądź sobie wygodnie… Opowiem ci historię o pewnej "
-        "dziewczynce i o malutkim nasionku. A kiedy skończę — ułożysz obrazki po kolei "
-        "i opowiesz mi ją swoimi słowami. Dobrze?"),
+    0: ("naracja_00_wstep.mp3", "Posłuchaj uważnie. Opowiem ci historię o dziewczynce, "
+        "która miała małe nasionko. Kiedy skończę, ułożysz obrazki po kolei i opowiesz "
+        "mi tę historię swoimi słowami."),
     1: ("naracja_01.mp3", "Ola dostała malutkie, brązowe nasionko. Wsypała do doniczki "
         "ziemię i ostrożniutko włożyła nasionko do środka. Przykryła je ziemią i "
         "szepnęła: rośnij."),
@@ -84,7 +84,7 @@ SCENY = {
 }
 
 # Czas trwania nagrań w sekundach (z generatora mowy) — do etykiety na pasku.
-CZASY = {0: 16.4, 1: 18.2, 2: 14.0, 3: 20.6, 4: 13.7, 5: 15.1, 6: 17.1}
+CZASY = {0: 13.9, 1: 18.2, 2: 14.0, 3: 20.6, 4: 13.7, 5: 15.1, 6: 17.1}
 
 PODPISY_P3 = {1: "Sadzę nasionko", 2: "Rośnie zielony pęd", 5: "Wyrósł piękny kwiat"}
 PODPISY_P2 = {1: "Sadzę nasionko", 2: "Wyrósł mały pęd",
