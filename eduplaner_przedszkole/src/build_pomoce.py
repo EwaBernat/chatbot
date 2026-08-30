@@ -21,6 +21,7 @@ from build import CSS, LOGO_URI, esc          # ten sam arkusz stylów co bank
 import pomoce_a                               # noqa: F401 — rejestruje zestaw 3–4 lata
 import pomoce_b                               # noqa: F401 — rejestruje zestaw 5 lat
 import pomoce_c                               # noqa: F401 — rejestruje zestaw 6 lat
+import pomoce_u                               # noqa: F401 — rejestruje zestaw uzupełnień
 from pomoce_karta import ZESTAWY
 
 KORZEN = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -30,6 +31,8 @@ DOKUMENTY = {
     "3–4 lata": ("Pomoce_dydaktyczne_3-4_lata.html", "konspekty_34_d%d"),
     "5 lat":    ("Pomoce_dydaktyczne_5_lat.html",    "konspekty_5_d%d"),
     "6 lat":    ("Pomoce_dydaktyczne_6_lat.html",    "konspekty_6_d%d"),
+    "uzupełnienia": ("Pomoce_dydaktyczne_uzupelnienia.html",
+                     ["konspekty_u_o123", "konspekty_u_o45", "konspekty_u_o6789"]),
 }
 
 # Karta jest portretowa (A4 pionowo) — bank drukuje się poziomo, więc
@@ -79,10 +82,16 @@ JS_DOK = """
 
 
 def obszary_konspektow(wzor):
-    """nr konspektu → nazwa obszaru, wzięta wprost z pola `sfera` konspektu."""
+    """nr konspektu → nazwa obszaru, wzięta wprost z pola `sfera` konspektu.
+
+    Wersje wiekowe trzymają konspekty w dziewięciu modułach po obszarze, ale
+    uzupełnienia grupują je inaczej (`konspekty_u_o123` i tak dalej), więc
+    zamiast wzoru można podać wprost listę nazw modułów.
+    """
     mapa = {}
-    for i in range(1, 10):
-        modul = importlib.import_module(wzor % i)
+    nazwy = wzor if isinstance(wzor, (list, tuple)) else [wzor % i for i in range(1, 10)]
+    for nazwa in nazwy:
+        modul = importlib.import_module(nazwa)
         for klucz, wartosc in vars(modul).items():
             if not (klucz.startswith("KONSPEKTY") and isinstance(wartosc, dict)):
                 continue

@@ -27,7 +27,7 @@ PLIKI = {"A": "Konspekty_3-4_lata.html", "B": "Konspekty_5_lat.html",
 
 # Wersje, które mają pomoce dydaktyczne — tylko ich media osadzamy w zeszycie.
 # Wersje spoza słownika dostają pustą listę, czyli żadnych mediów pomocy.
-WIEK_POMOCY = {"A": ["3–4 lata"], "B": ["5 lat"], "C": ["6 lat"]}
+WIEK_POMOCY = {"A": ["3–4 lata"], "B": ["5 lat"], "C": ["6 lat"], "U": ["uzupełnienia"]}
 
 # Modale konspektów pokazujemy statycznie, jeden pod drugim. Te same reguły
 # stosuje bank przy druku (html.print-konspekt) — tutaj obowiązują na stałe.

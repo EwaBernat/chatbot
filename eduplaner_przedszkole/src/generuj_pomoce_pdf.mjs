@@ -19,6 +19,7 @@ const ZESZYTY = [
   ['Pomoce_dydaktyczne_3-4_lata.html', 'Pomoce_dydaktyczne_3-4_lata.pdf'],
   ['Pomoce_dydaktyczne_5_lat.html',    'Pomoce_dydaktyczne_5_lat.pdf'],
   ['Pomoce_dydaktyczne_6_lat.html',    'Pomoce_dydaktyczne_6_lat.pdf'],
+  ['Pomoce_dydaktyczne_uzupelnienia.html', 'Pomoce_dydaktyczne_uzupelnienia.pdf'],
 ];
 
 const b = await chromium.launch({ executablePath: '/opt/pw-browsers/chromium' });

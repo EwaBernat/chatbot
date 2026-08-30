@@ -37,8 +37,8 @@ KORZEN = Path(__file__).resolve().parent.parent
 PRZELICZ = "--przelicz" in sys.argv
 FFMPEG = imageio_ffmpeg.get_ffmpeg_exe()
 
-KATALOGI_AUDIO = ["assets/audio_a", "assets/audio_b", "assets/audio_c", "assets/audio_c1"]
-KATALOGI_FOTO = ["assets/pomoce_a", "assets/pomoce_b", "assets/pomoce_c"]
+KATALOGI_AUDIO = ["assets/audio_a", "assets/audio_b", "assets/audio_c", "assets/audio_u", "assets/audio_c1"]
+KATALOGI_FOTO = ["assets/pomoce_a", "assets/pomoce_b", "assets/pomoce_c", "assets/pomoce_u"]
 # Obrazki na karty do wycinania: model rysuje na białym tle w kadrze 16:9,
 # więc kadrujemy do samego rysunku i domykamy do kwadratu.
 KATALOGI_KARTY = ["assets/symbole"]

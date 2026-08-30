@@ -112,7 +112,11 @@ z blokującego arkusza fontów, nie z wagi pliku.
 Treść kart: `src/pomoce_a.py`, `src/pomoce_b.py`, `src/pomoce_c.py`; układ i osadzanie
 mediów: `src/pomoce_karta.py`; generator zeszytów do druku: `src/build_pomoce.py`.
 
-Trzy zestawy są **kompletne**: 42 + 44 + 44 = 130 kart, każda ze zdjęciem poglądowym
+Obszar **techniczny (U6)** i **cyfrowy (U7)** mają własne karty pomocy w `src/pomoce_u.py`
+— 14 kart ze zdjęciem i poleceniem jej głosem. Reszta wersji U (obszary 1–5, 8, 9)
+ma na razie same arkusze do wydruku.
+
+Cztery zestawy: 42 + 44 + 44 + 14 = 144 karty, każda ze zdjęciem poglądowym
 (`assets/pomoce_<x>/k_<kod>.jpg`) i nagranym poleceniem jej głosem
 (`assets/audio_<x>/<kod>.mp3`). Karta bez zdjęcia albo bez nagrania nie psuje budowania —
 `Zestaw.braki()` pokazuje, czego brakuje, a karta dostaje pole zastępcze.
