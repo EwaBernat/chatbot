@@ -168,6 +168,56 @@ ARKUSZE = {
    symbole=["emocja_radosc", "emocja_smutek", "emocja_spokoj",
             "emocja_zlosc", "emocja_zdziwienie", "emocja_zmeczenie"]),
  ],
+ "D5-22": [dict(
+   tytul="Kroki mycia rąk",
+   kp="Wydrukuj i powieś nad umywalką",
+   wstep="Konspekt liczy cztery kroki, tutaj są pokazane jako pięć: spłukiwanie i wycieranie "
+         "rozdzielono, bo to właśnie na przejściu między nimi dziecko najczęściej odchodzi "
+         "od umywalki z mokrymi rękami. Jeśli w Waszej łazience te dwie czynności zlewają "
+         "się w jedną, wytnij ostatnie dwa kafle i sklej obok siebie jako jeden krok. "
+         "Powieś na wysokości oczu dziecka, nie dorosłego.",
+   rodzaj="pasek",
+   symbole=["myje_woda", "myje_mydlo", "myje_pocieram", "myje_splukuje", "myje_wycieram"]),
+ ],
+
+ "B5-21": [dict(
+   tytul="Instrukcja mycia rąk nad umywalką",
+   kp="Wydrukuj i powieś nad umywalką",
+   wstep="Ta sama pięciostopniowa instrukcja co w młodszej grupie, w jednej ramce do "
+         "powieszenia bez rozcinania. Symbole są te same celowo — dziecko, które przeszło "
+         "z grupy młodszej, rozpoznaje je bez uczenia się od nowa.",
+   rodzaj="tablica", kolumny=5,
+   symbole=["myje_woda", "myje_mydlo", "myje_pocieram", "myje_splukuje", "myje_wycieram"]),
+ ],
+
+ "D5-21": [dict(
+   tytul="Plan toalety — trzy kroki",
+   kp="Wydrukuj i powieś w toalecie",
+   wstep="Trzy kroki, ani jednego więcej. Pełna sekwencja z rozbieraniem i ubieraniem "
+         "przytłacza dziecko, które dopiero uczy się sygnału na czas; te trzy obrazki "
+         "domykają to, o co dziecko najczęściej się potyka — wyjście z toalety bez "
+         "spłukania i bez umycia rąk.",
+   rodzaj="pasek",
+   symbole=["toaleta_siusiu", "toaleta_spluczka", "toaleta_rece"]),
+  dict(
+   tytul="Symbol toalety na brelok",
+   wstep="Ten sam obrazek co pierwszy kafel planu, do wycięcia i przypięcia przy dziecku. "
+         "Dziecko pokazuje go, zanim zdąży powiedzieć — i o to chodzi: sygnał ma wyprzedzić "
+         "słowo. Wydrukuj dwa, jeden zawsze ginie.",
+   rodzaj="karty", kolumny=3,
+   symbole=["toaleta_siusiu"]),
+ ],
+
+ "C5-23": [dict(
+   tytul="Piktogramy rutyn higienicznych",
+   kp="Wydrukuj i powieś w łazience",
+   wstep="Komplet ośmiu obrazków: pięć kroków mycia rąk i trzy kroki toalety. Sześciolatek "
+         "zna już te czynności — tablica nie uczy ich od nowa, tylko daje punkt odniesienia "
+         "przy rozmowie o tym, co się pomija, kiedy się śpieszy.",
+   rodzaj="tablica", kolumny=4,
+   symbole=["myje_woda", "myje_mydlo", "myje_pocieram", "myje_splukuje",
+            "myje_wycieram", "toaleta_siusiu", "toaleta_spluczka", "toaleta_rece"]),
+ ],
 }
 
 
@@ -211,6 +261,9 @@ UKLAD = """
  background:#2E5E8E;color:#FFF;font:700 13px/24px system-ui,sans-serif;text-align:center}
 .kd-tablica{border:2px solid #2E5E8E;border-radius:12px;padding:14px;margin:14px 0 4px;
  background:#FFF;display:grid;gap:12px}
+/* Tablicy się nie rozcina, więc kafle nie mogą nosić przerywanej linii cięcia —
+   inaczej arkusz sam sobie przeczy. */
+.kd-tablica .kafel{border:1.5px solid #DCE7F0}
 .kd-tab{width:100%;min-width:0;table-layout:fixed;border-collapse:collapse;margin:14px 0 4px;font-size:13px}
 .kd-tab th,.kd-tab td{border:1px solid #9BB7CE;padding:9px 8px;text-align:left;vertical-align:top}
 .kd-tab th{background:#EAF2F8;font-weight:700;color:#1F4468}

@@ -760,7 +760,14 @@ def spis_konspektow(mod, w):
             if not K:
                 continue
             ile += 1
-            znak = ' <span class="pom" title="ma pomoc dydaktyczną">●</span>' if wskaz_pomoc(K["nr"]) else ""
+            # kropka znaczy „konspekt ma gotowy materiał" — kartę pomocy albo arkusz
+            # do wydruku. Wersje C i U nie mają kart pomocy, ale mają arkusze.
+            tytul_znaku = ("ma pomoc dydaktyczną i materiał do wydruku"
+                           if wskaz_pomoc(K["nr"]) and ma_karty(K["nr"])
+                           else "ma pomoc dydaktyczną" if wskaz_pomoc(K["nr"])
+                           else "ma materiał do wydruku")
+            znak = (f' <span class="pom" title="{tytul_znaku}">●</span>'
+                    if wskaz_pomoc(K["nr"]) or ma_karty(K["nr"]) else "")
             w_obszarze.append(
                 f'      <button class="kbtn" type="button" data-kon="kon-{w["kod"]}-{it["n"]}" data-lvl2="p2">'
                 f'<b>{esc(K["nr"])}</b>{esc(K["tytul"])}{znak}</button>')
@@ -1029,6 +1036,23 @@ def render_konspekty_modale(tylko_wersja=None):
         kid = f"kon-{wk}-{nr}"
         zal = ""
         wsk = wskaz_pomoc(K["nr"])
+        if not wsk and ma_karty(K["nr"]):
+            # Konspekt bez fotograficznej karty pomocy, ale z materiałem do wydruku.
+            # Bez tej gałęzi arkusze wersji C i U znikały bez śladu — sekcja VII
+            # renderowała się wyłącznie przy istniejącej karcie pomocy.
+            zal = f"""    <div class="ksec"><span class="sq">VII</span><h4>Materiały do wydruku</h4><span class="line"></span>
+      <span class="meta">arkusze A4 gotowe do wydrukowania</span></div>
+    <p class="kkurs">Konspekt wymaga materiału, którego nie da się zastąpić opisem — kart do
+    wycięcia, planszy albo arkusza do wypełniania. Wszystko, czego potrzeba, jest poniżej,
+    w formacie A4. Każdy arkusz zaczyna przy druku nową stronę.</p>
+    <div class="zal-akcje">
+      <button class="zal-link zal-pokaz" data-pokazzal="{kid}" aria-expanded="false">Pokaż materiały do wydruku</button>
+      <button class="zal-link" data-printzal="{kid}">Drukuj arkusze (A4)</button>
+    </div>
+    <div class="zal-strefa" style="display:none">
+{karty_dla(K["nr"], esc)}
+    </div>
+"""
         if wsk:
             pkod, ptytul, pwiek, pplik = wsk
             zal = f"""    <div class="ksec"><span class="sq">VII</span><h4>Pomoc dydaktyczna</h4><span class="line"></span>
