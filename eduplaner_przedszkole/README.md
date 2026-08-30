@@ -309,5 +309,17 @@ kod ICF zostaje przy każdym celu, bo wiąże go z WOPF i IPET.
 | VIII artystyczny | 4 | łączenie tworzyw, instrumenty, cechy dźwięku, pojęcia sztuki |
 | IX ruchowy | 2 | schemat ciała i zmysły, wydarzenie prozdrowotne |
 
-Konspektów do tych celów jeszcze nie ma — kliknięcie w komórkę poziomu otwiera
-konspekt tylko tam, gdzie para `(wersja, numer)` jest w `KONSPEKTY`.
+### Konspekty do wersji U
+
+`src/konspekty_u_o123.py`, `konspekty_u_o45.py`, `konspekty_u_o6789.py` —
+**48 konspektów, po jednym na każdy cel uzupełniający**, w tym samym wzorcu co
+pozostałe: cel SMART, kryterium, pomoce, metody, pięciokrokowy przebieg N/D,
+modyfikacje na trzy poziomy wsparcia i wskazówka dla prowadzącego.
+
+Każdy konspekt cytuje w polu `sfera` punkt podstawy swojego celu — sprawdzane
+programowo, tak samo jak komplet 18 pól i po pięć pozycji w `przebieg`
+oraz `ter_smart`.
+
+Konspekty do doświadczeń edukacyjnych (`DE-R`, `DE-P`) mają kryteria roczne
+albo „raz w edukacji przedszkolnej" zamiast „3 z 5" — bo taka jest ich natura
+w rozporządzeniu.

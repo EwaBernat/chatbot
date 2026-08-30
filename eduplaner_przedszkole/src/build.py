@@ -34,6 +34,9 @@ from zalacznik_c1 import zalaczniki_c1
 from konspekty_34_d4 import KONSPEKTY_D4
 from konspekty_34_d6 import KONSPEKTY_D6
 from konspekty_34_d8 import KONSPEKTY_D8
+from konspekty_u_o123 import KONSPEKTY_U_O123
+from konspekty_u_o45 import KONSPEKTY_U_O45
+from konspekty_u_o6789 import KONSPEKTY_U_O6789
 KONSPEKTY = {**KONSPEKTY_D1, **KONSPEKTY_D2, **KONSPEKTY_D3, **KONSPEKTY_D4, **KONSPEKTY_D5,
              **KONSPEKTY_D6, **KONSPEKTY_D8, **KONSPEKTY_D9,
              **KONSPEKTY_5_D1, **KONSPEKTY_5_D2, **KONSPEKTY_5_D3, **KONSPEKTY_5_D4,
@@ -41,7 +44,9 @@ KONSPEKTY = {**KONSPEKTY_D1, **KONSPEKTY_D2, **KONSPEKTY_D3, **KONSPEKTY_D4, **K
              **KONSPEKTY_5_D9,
              **KONSPEKTY_6_D1, **KONSPEKTY_6_D2, **KONSPEKTY_6_D3, **KONSPEKTY_6_D4,
              **KONSPEKTY_6_D5, **KONSPEKTY_6_D6, **KONSPEKTY_6_D7, **KONSPEKTY_6_D8,
-             **KONSPEKTY_6_D9, **KONSPEKTY}
+             **KONSPEKTY_6_D9,
+             **KONSPEKTY_U_O123, **KONSPEKTY_U_O45, **KONSPEKTY_U_O6789,
+             **KONSPEKTY}
 
 WERSJE = [dane_34, dane_5, dane_6, dane_uzup]
 
@@ -917,7 +922,7 @@ def render_konspekty_modale():
         ], cel, meta
     out = []
     for (wk, nr), K in KONSPEKTY.items():
-        mod = {"A": dane_34, "B": dane_5, "C": dane_6}[wk]
+        mod = {m.WERSJA["kod"]: m for m in WERSJE}[wk]
         it = next(i for a in mod.AREAS for i in a["items"] if i["n"] == nr)
         wers = mod.WERSJA
         warianty = []
