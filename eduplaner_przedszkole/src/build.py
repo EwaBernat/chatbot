@@ -816,11 +816,12 @@ def spis_konspektow(mod, w):
                            f'    <div class="kspis-lista">\n' + "\n".join(w_obszarze) + "\n    </div>")
     if not pozycje:
         return ""
-    # Zwinięty domyślnie: pod spisem stoi tabela celów, a rozwinięty spis
-    # 44 pozycji spychał ją o cały ekran w dół.
-    return (f'  <details class="kspis">\n'
+    # Otwarty domyślnie. Spis powstał dlatego, że bez niego konspektów nie dało
+    # się znaleźć — zwinięty przywracał dokładnie ten problem. Tabela celów jest
+    # o ekran niżej i to jest akceptowalny koszt.
+    return (f'  <details class="kspis" open>\n'
             f'    <summary>Spis konspektów<span class="ile">{ile} konspektów · '
-            f'● oznacza konspekt z pomocą dydaktyczną · kliknij, aby rozwinąć</span></summary>\n'
+            f'● oznacza konspekt z pomocą dydaktyczną · kliknij, aby zwinąć</span></summary>\n'
             f'    <div class="kspis-tresc">\n' + "\n".join(pozycje) + "\n    </div>\n  </details>")
 
 
