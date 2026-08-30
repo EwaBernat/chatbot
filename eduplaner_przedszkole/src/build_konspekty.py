@@ -54,21 +54,38 @@ body{background:var(--paper)}
 .zal-strefa{display:block !important}
 .zal-akcje{display:none !important}
 .kmodal + .kmodal{break-before:page; page-break-before:always}
-.spis{display:flex; flex-wrap:wrap; gap:7px; margin:18px 0 6px}
-.spis a{text-decoration:none; border:1px solid var(--line); border-radius:999px; padding:6px 13px;
+.spis{margin:18px 0 6px}
+.spis-obszar{display:flex; align-items:center; gap:10px; margin:16px 0 8px;
+  font:700 9.5px/1 "DM Sans",Arial,sans-serif; letter-spacing:.14em;
+  text-transform:uppercase; color:var(--violet)}
+.spis-obszar::after{content:""; flex:1; height:1px; background:var(--line)}
+.spis-obszar:first-child{margin-top:2px}
+.spis-siatka{display:grid; grid-template-columns:repeat(auto-fill,minmax(232px,1fr)); gap:7px}
+.spis a{display:flex; align-items:center; gap:9px; min-height:42px;
+  text-decoration:none; border:1px solid var(--line); border-radius:10px; padding:8px 11px;
   color:var(--ink); background:#FFF; font:700 11px/1 "DM Sans",Arial,sans-serif}
 .spis a:hover{border-color:var(--accent); color:var(--accent)}
-.spis a b{color:var(--violet); margin-right:5px}
+.spis a b{flex:0 0 42px; color:var(--violet);
+  font:700 10.5px/1 "JetBrains Mono",ui-monospace,"Courier New",monospace}
+.spis a .tyt{flex:1 1 auto}
 .spis a:hover b{color:var(--accent)}
-.spis a .ma{color:var(--accent); font-size:9px; vertical-align:2px; margin-left:5px}
+.spis a .ma{flex:0 0 auto; color:var(--accent); font-size:10px; margin-left:4px}
 .spis-legenda{font-size:12px; color:var(--muted); margin:2px 0 0}
 .spis-legenda i{color:var(--accent); font-style:normal; font-size:9px; vertical-align:2px}
 .wstep{max-width:62ch; color:var(--muted); font-size:13px; line-height:1.65; margin:10px 0 0}
 @media print{
-  .spis,.wstep,.dochead,.twotone{display:none !important}
+  .spis,.spis-obszar,.spis-siatka,.wstep,.dochead,.twotone{display:none !important}
   .zeszyt{max-width:none; padding:0}
   .kcard{border:none; margin:0}
   .au-btn{display:none !important}
+  /* Bank chowa przy druku wszystkie modale — konspekt drukuje się tam osobno,
+     po kliknięciu. W zeszycie modale SĄ dokumentem, więc reguła banku musi
+     zostać cofnięta; bez tego cały zeszyt wychodził z drukarki jako jedna
+     pusta strona. Ta sama przyczyna ukrywała arkusze do wydruku. */
+  .kmodal{display:block !important; position:static !important; background:none !important;
+    padding:0 !important; overflow:visible !important; inset:auto !important}
+  .zal-strefa{display:block !important}
+  .zal{break-inside:avoid; page-break-inside:avoid}
 }
 """
 
@@ -102,7 +119,11 @@ def dokument(mod):
 
     nry = {K["nr"] for (wk, _), K in KONSPEKTY.items() if wk == w["kod"]}
     spis, ile = [], 0
+    # Spis idzie obszarami, a w obszarze — równą siatką. Wcześniej było to
+    # czterdzieści kilka pigułek jedna za drugą, każda innej szerokości; rzędy
+    # nie trzymały pionu i spis czytało się gorzej niż listę bez formatowania.
     for a in mod.AREAS:
+        w_obszarze = []
         for it in a["items"]:
             K = KONSPEKTY.get((w["kod"], it["n"]))
             if not K:
@@ -111,9 +132,12 @@ def dokument(mod):
             # kropka w spisie: konspekt niesie materiał do wydruku. Bez niej
             # nauczyciel musi otwierać kolejne konspekty, żeby sprawdzić, gdzie
             # coś jest — a to była pierwsza rzecz, o którą pytano po dodaniu arkuszy.
-            znak = ' <span class="ma" title="ma materiał do wydruku">●</span>' if ma_karty(K["nr"]) else ""
-            spis.append(f'  <a href="#kon-{w["kod"]}-{it["n"]}">'
-                        f'<b>{esc(K["nr"])}</b>{esc(K["tytul"])}{znak}</a>')
+            znak = '<span class="ma" title="ma materiał do wydruku">●</span>' if ma_karty(K["nr"]) else ""
+            w_obszarze.append(f'    <a href="#kon-{w["kod"]}-{it["n"]}">'
+                              f'<b>{esc(K["nr"])}</b><span class="tyt">{esc(K["tytul"])}</span>{znak}</a>')
+        if w_obszarze:
+            spis.append(f'  <div class="spis-obszar">{a["rom"]} · {esc(a["name"].split(" (")[0])}</div>\n'
+                        f'  <div class="spis-siatka">\n' + "\n".join(w_obszarze) + "\n  </div>")
 
     z_materialem = sum(1 for (wk, _), K in KONSPEKTY.items()
                        if wk == w["kod"] and ma_karty(K["nr"]))

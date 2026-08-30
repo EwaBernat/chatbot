@@ -255,22 +255,33 @@ input[type="search"]:focus,.tab:focus-visible,.chipbtn:focus-visible,.navlink:fo
 .kspis[open] > summary::before{content:"▾"}
 .kspis > summary .ile{margin-left:auto; font-weight:400; color:var(--muted); font-size:11.5px}
 .kspis-tresc{padding:6px 18px 16px}
-.kspis-obszar{margin:13px 0 7px; font:700 9.5px/1 "DM Sans",Arial,sans-serif;
+.kspis-obszar{display:flex; align-items:center; gap:10px; margin:15px 0 8px;
+  font:700 9.5px/1 "DM Sans",Arial,sans-serif;
   letter-spacing:.14em; text-transform:uppercase; color:var(--violet)}
-.kspis-lista{display:flex; flex-wrap:wrap; gap:6px}
-.kbtn{border:1px solid var(--line); background:#FFF; border-radius:999px; padding:7px 13px; cursor:pointer;
-  font:500 11.5px/1.25 "DM Sans",Arial,sans-serif; color:var(--ink); text-align:left}
-.kbtn:hover{border-color:var(--accent); color:var(--accent)}
-.kbtn b{font-weight:700; color:var(--violet); margin-right:5px}
+.kspis-obszar::after{content:""; flex:1; height:1px; background:var(--line)}
+.kspis-obszar:first-child{margin-top:4px}
+/* Spis w równej siatce, nie w rzędzie pigułek: pigułki miały szerokość swojego
+   tytułu, więc kolumny nie trzymały się pionu i 44 pozycje wyglądały jak sypnięte
+   na ekran. W siatce numer stoi zawsze w tym samym miejscu, a wzrok schodzi
+   kolumną — po to jest spis. */
+.kspis-lista{display:grid; grid-template-columns:repeat(auto-fill,minmax(232px,1fr)); gap:7px}
+.kbtn{display:flex; align-items:center; gap:9px; min-height:42px;
+  border:1px solid var(--line); background:#FFF; border-radius:10px; padding:8px 11px; cursor:pointer;
+  font:500 11.5px/1.3 "DM Sans",Arial,sans-serif; color:var(--ink); text-align:left;
+  transition:border-color .12s, box-shadow .12s}
+.kbtn:hover{border-color:var(--accent); color:var(--accent); box-shadow:0 1px 6px rgba(232,69,10,.10)}
+.kbtn b{flex:0 0 42px; font:700 10.5px/1 "JetBrains Mono",ui-monospace,"Courier New",monospace;
+  color:var(--violet); letter-spacing:.02em}
 .kbtn:hover b{color:var(--accent)}
-.kbtn .pom{margin-left:6px; color:var(--accent); font-weight:700}
+.kbtn .tyt{flex:1 1 auto}
+.kbtn .pom{flex:0 0 auto; margin-left:4px; color:var(--accent); font-weight:700; font-size:10px}
 
 /* ---------- stopka ---------- */
 .docfoot{margin-top:46px; padding-top:14px; border-top:1px solid var(--line); display:flex; flex-wrap:wrap;
   gap:8px 20px; justify-content:space-between; font-size:11px; color:var(--muted)}
 /* ---------- załączniki: pomoce dydaktyczne ---------- */
 .zal{background:#FFF; border:1px solid var(--line); border-radius:14px; padding:22px 24px 18px; margin-top:18px;
-  break-inside:avoid; page-break-inside:avoid}
+  break-inside:avoid; page-break-inside:avoid; page:arkusz}
 .zal + .zal{break-before:page; page-break-before:always}
 .zal-head{display:flex; align-items:center; gap:12px; border-bottom:2px solid var(--ink); padding-bottom:10px}
 .zal-w{font:700 17px/1 "DM Sans",Arial,sans-serif; color:var(--ink)}
@@ -462,8 +473,13 @@ tr.tbanner .bsep{color:var(--accent); padding:0 5px}
 }
 @media (prefers-reduced-motion:reduce){*{transition:none !important; animation:none !important}}
 
-/* ---------- druk A4 poziomo ---------- */
+/* ---------- druk: tabela poziomo, materiały pionowo ----------
+   Bank celów drukuje się w poziomie, bo tabela ma trzy poziomy wsparcia obok
+   siebie. Karty pomocy i arkusze do wycięcia to jednak druki A4 pionowo —
+   dziedziczona orientacja pozioma kładła kartę na boku i zostawiała pół strony
+   pustej. Nazwana strona `arkusz` obraca tylko te sekcje. */
 @page{size:A4 landscape; margin:11mm 9mm 13mm}
+@page arkusz{size:A4 portrait; margin:10mm}
 @media print{
   body{background:#fff; font-size:8.6pt; color:#1F1A33}
   *{-webkit-print-color-adjust:exact; print-color-adjust:exact}
@@ -767,19 +783,21 @@ def spis_konspektow(mod, w):
                            if wskaz_pomoc(K["nr"]) and ma_karty(K["nr"])
                            else "ma pomoc dydaktyczną" if wskaz_pomoc(K["nr"])
                            else "ma materiał do wydruku")
-            znak = (f' <span class="pom" title="{tytul_znaku}">●</span>'
+            znak = (f'<span class="pom" title="{tytul_znaku}">●</span>'
                     if wskaz_pomoc(K["nr"]) or ma_karty(K["nr"]) else "")
             w_obszarze.append(
                 f'      <button class="kbtn" type="button" data-kon="kon-{w["kod"]}-{it["n"]}" data-lvl2="p2">'
-                f'<b>{esc(K["nr"])}</b>{esc(K["tytul"])}{znak}</button>')
+                f'<b>{esc(K["nr"])}</b><span class="tyt">{esc(K["tytul"])}</span>{znak}</button>')
         if w_obszarze:
             pozycje.append(f'    <div class="kspis-obszar">{a["rom"]} · {esc(a["name"].split(" (")[0])}</div>\n'
                            f'    <div class="kspis-lista">\n' + "\n".join(w_obszarze) + "\n    </div>")
     if not pozycje:
         return ""
-    return (f'  <details class="kspis" open>\n'
+    # Zwinięty domyślnie: pod spisem stoi tabela celów, a rozwinięty spis
+    # 44 pozycji spychał ją o cały ekran w dół.
+    return (f'  <details class="kspis">\n'
             f'    <summary>Spis konspektów<span class="ile">{ile} konspektów · '
-            f'● oznacza konspekt z pomocą dydaktyczną</span></summary>\n'
+            f'● oznacza konspekt z pomocą dydaktyczną · kliknij, aby rozwinąć</span></summary>\n'
             f'    <div class="kspis-tresc">\n' + "\n".join(pozycje) + "\n    </div>\n  </details>")
 
 

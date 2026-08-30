@@ -138,12 +138,30 @@ w planie dnia i na breloku — symbol, który zmienia wygląd między materiała
 przestaje być słowem. Symbol nienarysowany nie ma pliku, a arkusz go używający jest
 pomijany, więc dokumenty budują się poprawnie na każdym etapie.
 
-Pięć rodzajów arkusza: `karty` (do wycięcia), `pasek` (sekwencja z numerami),
+Siedem rodzajów arkusza: `karty` (do wycięcia), `pasek` (sekwencja z numerami),
 `tablica` (bez rozcinania), `tabela` (do wypełniania), `pola` (puste pola
-z etykietami). Trzy ostatnie nie potrzebują rysunków i są w konspektach większością.
+z etykietami), `etykiety` (karteczki z polem koloru), `sciezki` (pasy do przecięcia
+albo szlaczki do obrysowania, rysowane wzorem SVG). Cztery ostatnie nie potrzebują
+rysunków i są w konspektach większością.
+
+**Każdy ze 178 konspektów ma materiał do wydruku** — 204 arkusze. Wszystkie mieszczą
+się na jednej stronie A4 pionowo; pilnują tego `_kolumny()` (dokłada kolumn, gdy
+kafle nie wchodzą) i `_rozciag()` (rozciąga pola, gdy zostaje pusta kartka).
+Budżet strony: szerokość druku 726 px, na siatkę zostaje 745 px po nagłówku arkusza.
+Po zmianie układu arkusza sprawdź pomiarem, czy nic nie wyszło poza stronę.
 
 Arkusz `tabela` musi mieć `min-width:0` — tabela banku celów ma `min-width:1080px`
 i bez tego wyjątku arkusz ucieka poza krawędź strony.
+
+Bank drukuje się **poziomo** (tabela z trzema poziomami obok siebie), ale arkusze
+i karty pomocy mają własną stronę pionową: `@page arkusz{size:A4 portrait}` plus
+`.zal{page:arkusz}`. Zeszyty konspektów muszą cofać u siebie regułę banku
+`@media print{.kmodal{display:none}}` — bez tego cały zeszyt wychodził z drukarki
+jako jedna pusta strona.
+
+**Spis konspektów** układamy siatką `minmax(232px,1fr)` z podziałem na obszary,
+nie rzędem pigułek — pigułka miała szerokość swojego tytułu, więc kolumny nie
+trzymały pionu. W banku spis jest domyślnie zwinięty, bo pod nim stoi tabela celów.
 
 Ilustracje do konspektów generujemy modelem `gemini-2.5-flash-image`
 (`creative_generate_image`) — spójny styl książeczkowy, pastelowa paleta,
