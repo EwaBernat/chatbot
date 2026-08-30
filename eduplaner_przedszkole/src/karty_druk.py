@@ -518,6 +518,64 @@ ARKUSZE = {
    symbole=["ruch_bieg", "ruch_skok", "ruch_czworaki",
             "ruch_wspinanie", "ruch_rzut", "ruch_rownowaga"]),
  ],
+ "D3-14": [dict(
+   tytul="Ściany kostki pytań",
+   wstep="Trzy pytania, po dwie ściany każde — wydrukuj dwa egzemplarze arkusza i naklej "
+         "na sześcian z kartonu, tak żeby każde pytanie wypadało dwa razy. Przy trzech "
+         "pytaniach na sześciu ścianach dziecko trafia w znajomy symbol za każdym rzutem "
+         "i nie zniechęca się do zabawy.",
+   rodzaj="karty", kolumny=3,
+   symbole=["pytanie_kto", "pytanie_co", "pytanie_gdzie"]),
+  dict(
+   tytul="Ilustracje sytuacyjne do pytań",
+   wstep="Sześć scen, w których widać osobę, czynność i miejsce naraz — o to chodzi, żeby "
+         "na każde z trzech pytań dało się odpowiedzieć z tego samego obrazka. Kładź jeden "
+         "obrazek i rzucajcie kostką kilka razy pod rząd; zmiana obrazka przy każdym rzucie "
+         "gubi to, czego konspekt uczy.",
+   rodzaj="karty", kolumny=3,
+   symbole=["dzien_sniadanie", "dzien_zabawa", "dzien_spacer",
+            "dzien_sprzatanie", "dzien_zajecia", "dzien_powitanie"]),
+ ],
+
+ "D6-27": [dict(
+   tytul="Tabliczka szatni — kapcie, kubek, worek",
+   kp="Wydrukuj i powieś w szatni",
+   wstep="Trzy rzeczy, które dziecko ma znaleźć i odłożyć samo. Ten sam obrazek powtórz "
+         "na półce, na haczyku i na kubku — dziecko dopasowuje wtedy obrazek do obrazka "
+         "i nie musi pamiętać miejsca. To jest cała mechanika tego konspektu.",
+   rodzaj="tablica", kolumny=3,
+   symbole=["przedmiot_kapcie", "przedmiot_kubek", "przedmiot_worek"]),
+  dict(
+   tytul="Znaczki rozpoznawcze dzieci",
+   wstep="Jeden kolor na dziecko, ten sam przez cały rok i w każdym miejscu: półka, "
+         "haczyk, kubek, poduszka. Znaczek, który się zmienia albo jest inny w szatni "
+         "niż w sali, przestaje znaczyć „moje”. Dopisz imiona ręcznie.",
+   rodzaj="etykiety", kolumny=4,
+   etykiety=[("", "#E8695A"), ("", "#7FA8C9"), ("", "#8FB79A"), ("", "#F0C862"),
+             ("", "#C9A0C0"), ("", "#E0A05C"), ("", "#8FA9B7"), ("", "#D2B48C")]),
+ ],
+
+ "D6-28": [dict(
+   tytul="Plan dyżuru: serwetki, potem kubki",
+   kp="Wydrukuj i powieś przy stolikach",
+   wstep="Dwa kroki w stałej kolejności. Serwetki idą pierwsze, bo są lekkie i płaskie — "
+         "kubek postawiony na gołym stole trzeba potem podnieść, żeby wsunąć serwetkę, "
+         "a to dla trzylatka jeden ruch za dużo. Trzeci krok dokładaj dopiero po dwóch "
+         "tygodniach bez przypominania.",
+   rodzaj="pasek",
+   symbole=["przedmiot_serwetka", "przedmiot_kubek"]),
+ ],
+
+ "D9-41": [dict(
+   tytul="Zasady placu zabaw",
+   kp="Wydrukuj i powieś przy wyjściu",
+   wstep="Trzy zasady pokazane jako czynności, nie zakazy. Przejdźcie po tablicy przed "
+         "każdym wyjściem — przypomnienie przy drzwiach działa, przypomnienie krzyczane "
+         "z drugiego końca placu już nie. Zasady dotyczą zjeżdżalni, bo tam dzieje się "
+         "większość zderzeń.",
+   rodzaj="tablica", kolumny=3,
+   symbole=["plac_schodki", "gest_czekam", "plac_zjezdzalnia"]),
+ ],
 }
 
 
