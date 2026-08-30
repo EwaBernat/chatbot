@@ -284,3 +284,30 @@ pomoce dydaktyczne** → przycisk **„Pokaż załączniki i posłuchaj narracji
 
 Sąsiedni przycisk **„Drukuj załączniki Z1–Z3 (A4)"** drukuje same karty,
 bez pasków odsłuchu.
+
+## Wersja U — uzupełnienia do podstawy 2026
+
+`src/dane_uzup.py` — **48 celów SMART**, które domykają pokrycie podstawy ze 71
+do **113 ze 113 punktów osiągnięć**, plus brakujące doświadczenia edukacyjne.
+
+To **nie są twierdzenia z arkuszy KPOF**, tylko propozycje — dlatego mają własną
+zakładkę, kolumnę „Cel uzupełniający" zamiast „Twierdzenie KPOF" i druk `KC-1u`.
+Po akceptacji można je przenieść do właściwej wersji wiekowej.
+
+Obszary odpowiadają tu obszarom podstawy (I–IX = 1–9), a nie obszarom ICF —
+kod ICF zostaje przy każdym celu, bo wiąże go z WOPF i IPET.
+
+| obszar | celów | co domykał brak |
+|---|---|---|
+| I społeczny | 4 | oszczędzanie, instytucje, dziedzictwo regionu, działanie na rzecz innych |
+| II osobisty | 1 | mocne strony i zainteresowania |
+| III językowy | 7 | wiarygodność informacji, symbole, język obcy |
+| IV matematyczny | 7 | rozwiązywanie problemów, działania, figury, zakupy |
+| V przyrodniczy | 9 | rozpoznawanie przyrody, obserwacje, mapa, Ziemia, ekosystemy |
+| VI techniczny | 10 | materiały, maszyny proste, obwody, transport, zabawki z odzysku, makieta |
+| VII cyfrowy | 4 | urządzenia, higiena cyfrowa, zagrożenia w sieci, reklamy |
+| VIII artystyczny | 4 | łączenie tworzyw, instrumenty, cechy dźwięku, pojęcia sztuki |
+| IX ruchowy | 2 | schemat ciała i zmysły, wydarzenie prozdrowotne |
+
+Konspektów do tych celów jeszcze nie ma — kliknięcie w komórkę poziomu otwiera
+konspekt tylko tam, gdzie para `(wersja, numer)` jest w `KONSPEKTY`.

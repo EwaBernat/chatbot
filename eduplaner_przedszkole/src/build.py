@@ -5,7 +5,7 @@ import html, os, sys, datetime, base64
 _LOGO_PATH = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), "assets", "logo_pctp.jpg")
 LOGO_URI = "data:image/jpeg;base64," + base64.b64encode(open(_LOGO_PATH, "rb").read()).decode()
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
-import dane_34, dane_5, dane_6
+import dane_34, dane_5, dane_6, dane_uzup
 from konspekty_34_d7 import KONSPEKTY
 from konspekty_34_d1 import KONSPEKTY_D1
 from konspekty_34_d2 import KONSPEKTY_D2
@@ -43,7 +43,7 @@ KONSPEKTY = {**KONSPEKTY_D1, **KONSPEKTY_D2, **KONSPEKTY_D3, **KONSPEKTY_D4, **K
              **KONSPEKTY_6_D5, **KONSPEKTY_6_D6, **KONSPEKTY_6_D7, **KONSPEKTY_6_D8,
              **KONSPEKTY_6_D9, **KONSPEKTY}
 
-WERSJE = [dane_34, dane_5, dane_6]
+WERSJE = [dane_34, dane_5, dane_6, dane_uzup]
 
 POZIOMY = [
     ("p3", "Poziom III", "poniżej 2,0", "nasilona trudność", "4 tyg.",
@@ -664,6 +664,11 @@ def wiersz(it, w):
 def sekcja(a, w):
     rows = "\n".join(wiersz(i, w) for i in a["items"])
     aid = f"{w['kod']}-{a['icf']}-{a['rom']}"
+    # Wersja U nie pochodzi z arkuszy KPOF — nazwa kolumny i druku musi to mówić.
+    uzup = w["kod"] == "U"
+    naglowek_tw = ("Cel uzupełniający · obserwowane zachowanie" if uzup
+                   else "Twierdzenie KPOF · obserwowane zachowanie")
+    druk = "KC-1u" if uzup else "KC-1"
     return f"""  <section class="sec" id="{aid}">
     <div class="sec-h">
       <span class="sq">{a['rom']}</span>
@@ -674,10 +679,10 @@ def sekcja(a, w):
     <div class="tablewrap">
     <table>
       <thead>
-        <tr class="tbanner"><th colspan="7">EduPlaner 2026 · druk KC-1 · bank celów SMART<span class="bsep">·</span>Wersja {w['kod']} · {esc(w['etykieta'])}<span class="bsep">·</span>Obszar {a['rom']} · {esc(a['name'])}<span class="bsep">·</span>ICF {a['icf']}</th></tr>
+        <tr class="tbanner"><th colspan="7">EduPlaner 2026 · druk {druk} · bank celów SMART<span class="bsep">·</span>Wersja {w['kod']} · {esc(w['etykieta'])}<span class="bsep">·</span>Obszar {a['rom']} · {esc(a['name'])}<span class="bsep">·</span>ICF {a['icf']}</th></tr>
         <tr>
           <th class="c-lp">Lp.</th>
-          <th class="c-tw">Twierdzenie KPOF · obserwowane zachowanie</th>
+          <th class="c-tw">{naglowek_tw}</th>
           <th class="c-code h-icf">ICF</th>
           <th class="c-code h-pp">Podst.</th>
           <th class="c-goal h-p3 col-p3"><span class="kropka"></span>Poziom III<span class="hz">ewaluacja 4 tyg.</span></th>
@@ -1060,7 +1065,8 @@ def monitoring_podstawy():
         "5": "przyrodniczy", "6": "techniczny", "7": "cyfrowy", "8": "artystyczny", "9": "ruchowy",
     }
     OBSZARY_PP = {
-        "DE-R": "doświadczenie edukacyjne — raz w roku",
+        "DE-R": "doświadczenie edukacyjne — raz w roku szkolnym",
+        "DE-P": "doświadczenie — raz w trakcie edukacji przedszkolnej",
         "WSR": "warunki i sposób realizacji",
         "Zad.": "zadanie przedszkola",
     }
@@ -1076,7 +1082,7 @@ def monitoring_podstawy():
     # 7 pozycji „co najmniej raz w roku szkolnym” (kody DE-R) i 4 pozycje
     # „przynajmniej raz w trakcie edukacji przedszkolnej”, których arkusze
     # KPOF jeszcze nie kodują.
-    PP_2026_POZA = {"Zad.": 16, "WSR": 11, "DE-R": 7}
+    PP_2026_POZA = {"Zad.": 16, "WSR": 11, "DE-R": 7, "DE-P": 4}
     DE_R_TRESC = {
         "DE-R.1": "jest odbiorcą sztuki — koncert, teatr, muzeum",
         "DE-R.2": "prowadzi i ilustruje obserwacje przyrody",
@@ -1134,6 +1140,7 @@ def monitoring_podstawy():
     n_pkt = len(rejestr)
     n_odw = sum(r["kon"] for r in rejestr.values())
     n_osiag = sum(1 for p in rejestr if p.split(".")[0] in PP_2026_PUNKTY)
+    wersje_kody = " · ".join(m.WERSJA["kod"] for m in WERSJE)
     # Obszary pokryte słabiej niż w połowie — tam bank ma realne luki.
     cienkie = []
     for k, nazwa in OBSZAR_PP_NAZWY.items():
@@ -1168,9 +1175,11 @@ def monitoring_podstawy():
         luki.append('Z siedmiu doświadczeń edukacyjnych „co najmniej raz w roku szkolnym” bank '
                     'nie obejmuje: ' + ", ".join(f'<b>{esc(k)}</b> — {esc(DE_R_TRESC[k])}'
                                                  for k in brak_der) + '.')
-    luki.append('Załącznik ma też drugą listę — <b>„przynajmniej raz w trakcie edukacji '
-                'przedszkolnej”</b> (4 pozycje: ' + "; ".join(esc(t) for t in DE_P_TRESC)
-                + '). Arkusze KPOF jeszcze jej nie kodują.')
+    brak_dep = [i for i in range(1, 5) if f"DE-P.{i}" not in rejestr]
+    if brak_dep:
+        luki.append('Z czterech doświadczeń „przynajmniej raz w trakcie edukacji przedszkolnej” '
+                    'bank nie obejmuje: '
+                    + "; ".join(esc(DE_P_TRESC[i - 1]) for i in brak_dep) + '.')
     luki_html = ("" if not luki else
         '  <div class="callout rule"><span class="cap">Do uzupełnienia</span>'
         + " ".join(f"<p style=\"margin:0 0 6px\">{t}</p>" for t in luki) + '</div>')
@@ -1181,7 +1190,7 @@ def monitoring_podstawy():
     <div class="vmeta">
       <span><b>Pokrycie osiągnięć</b>{n_osiag} z {PP_2026_RAZEM}</span>
       <span><b>Odwołań z konspektów</b>{n_odw}</span>
-      <span><b>Wersje</b>A · B · C</span>
+      <span><b>Wersje</b>{wersje_kody}</span>
       <span><b>Podstawa</b>Dz.U. 2026 poz. 378</span>
     </div>
   </div>

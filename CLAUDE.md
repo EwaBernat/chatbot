@@ -92,8 +92,12 @@ Miejsce w kodzie: `OBSZAR_PP_NAZWY` w `monitoring_podstawy()`
 
 ## Materiały przedszkolne
 
-`eduplaner_przedszkole/` — bank celów SMART KPOF, 130 konspektów, pomoce
-dydaktyczne. Szczegóły: `eduplaner_przedszkole/README.md`.
+`eduplaner_przedszkole/` — bank celów SMART KPOF (130 twierdzeń, wersje A/B/C),
+wersja U z 48 celami uzupełniającymi domykającymi podstawę do 113/113,
+130 konspektów, pomoce dydaktyczne. Szczegóły: `eduplaner_przedszkole/README.md`.
+
+Twierdzenia z arkuszy KPOF i cele uzupełniające trzymamy **osobno** — wymyślonych
+celów nie dopisujemy do jej kwestionariuszy.
 
 Ilustracje do konspektów generujemy modelem `gemini-2.5-flash-image`
 (`creative_generate_image`) — spójny styl książeczkowy, pastelowa paleta,
