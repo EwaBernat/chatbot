@@ -492,12 +492,35 @@ tr.tbanner .bsep{color:var(--accent); padding:0 5px}
   td.g.haskon .cel::after{display:none}
   html.print-konspekt .sheet,html.print-konspekt .toolbar{display:none !important}
   html.print-konspekt .kmodal.open{display:block !important; position:static; background:none; padding:0; overflow:visible}
-  html.print-konspekt .kcard{box-shadow:none; max-width:none; padding:0; border-radius:0}
+  /* Konspekt to dokument pionowy jak arkusze — poziomo dziedziczone po tabeli
+     banku kładło go na boku i rozciągało kolumny celów na całą szerokość. */
+  html.print-konspekt .kcard{box-shadow:none; max-width:none; padding:0; border-radius:0; page:arkusz}
   html.print-konspekt .kclose,html.print-konspekt .kfoot,html.print-konspekt .kesc{display:none}
+  /* Sekcja VII bez treści zostawiała nagłówek i pustą stronę. Wydruk konspektu
+     niesie więc komplet do zajęć: scenariusz, kartę pomocy i arkusze — każde
+     na własnej stronie A4 pionowo. Przyciski ekranowe znikają. */
+  html.print-konspekt .zal-strefa{display:block !important}
+  html.print-konspekt .zal-akcje,html.print-konspekt .zal-link{display:none !important}
+  /* Wskazówka dla prowadzącego rozcinała się między stronami w pół zdania. */
+  html.print-konspekt .callout,html.print-zal .callout{break-inside:avoid; page-break-inside:avoid}
+  /* Gdy nikt nie wybrał poziomu (konspekt otwarty ze spisu), drukujemy wszystkie
+     trzy zamiast pustej ramki po celu edukacyjnym. */
+  /* Konspekt otwarty ze spisu nie ma wybranego poziomu. Zamiast pustej ramki po
+     celu edukacyjnym drukujemy wszystkie trzy — w układzie zeszytu: cel
+     terapeutyczny na całą szerokość u góry, poziomy w rzędzie pod nim. Bez tego
+     trzy poziomy wciskały się w jedną kolumnę na 90 px. */
+  html.print-konspekt .kcel.edu:not(:has(.kvar.on)) .kvar{display:flex !important; flex-direction:column}
+  html.print-konspekt .kcele:not(:has(.kvar.on)){grid-template-columns:1fr !important; gap:12px}
+  html.print-konspekt .kcele:not(:has(.kvar.on)) .kcel.ter{order:-1}
+  html.print-konspekt .kcele:not(:has(.kvar.on)) .kcel.edu{display:grid !important;
+    grid-template-columns:repeat(3,1fr); gap:10px; align-items:start}
+  html.print-konspekt .kcele:not(:has(.kvar.on)) .kcel.edu .kchead{grid-column:1/-1}
+  html.print-konspekt .kcele:not(:has(.kvar.on)) .kcel.edu .kvar{border:1px solid var(--line);
+    border-radius:10px; padding:2px 0 0}
   html.print-zal .sheet,html.print-zal .toolbar{display:none !important}
   html.print-zal .kmodal:not(.open){display:none !important}
   html.print-zal .kmodal.open{display:block !important; position:static; background:none; padding:0; overflow:visible}
-  html.print-zal .kcard{padding:0; box-shadow:none; max-width:none; border-radius:0}
+  html.print-zal .kcard{padding:0; box-shadow:none; max-width:none; border-radius:0; page:arkusz}
   html.print-zal .kcard > *{display:none !important}
   html.print-zal .kcard > .zal-strefa{display:block !important}
   html.print-zal .zal-link,html.print-zal .zal-akcje{display:none !important}
