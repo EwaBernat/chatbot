@@ -1071,10 +1071,27 @@ def monitoring_podstawy():
     PP_2026_PUNKTY = {"1": 20, "2": 12, "3": 21, "4": 15, "5": 12,
                       "6": 9, "7": 5, "8": 8, "9": 11}
     PP_2026_RAZEM = sum(PP_2026_PUNKTY.values())
-    # Załącznik ma 16 zadań przedszkola i 11 pozycji warunków realizacji;
-    # nie ma natomiast sekcji „doświadczenia edukacyjne”, więc kody DE-R
-    # w arkuszach KPOF nie mają odpowiednika w rozporządzeniu.
-    PP_2026_POZA = {"Zad.": 16, "WSR": 11}
+    # Poza punktami osiągnięć załącznik ma: 16 zadań przedszkola, 11 pozycji
+    # warunków realizacji oraz doświadczenia edukacyjne w dwóch listach —
+    # 7 pozycji „co najmniej raz w roku szkolnym” (kody DE-R) i 4 pozycje
+    # „przynajmniej raz w trakcie edukacji przedszkolnej”, których arkusze
+    # KPOF jeszcze nie kodują.
+    PP_2026_POZA = {"Zad.": 16, "WSR": 11, "DE-R": 7}
+    DE_R_TRESC = {
+        "DE-R.1": "jest odbiorcą sztuki — koncert, teatr, muzeum",
+        "DE-R.2": "prowadzi i ilustruje obserwacje przyrody",
+        "DE-R.3": "w grupie wysiewa i uprawia warzywa, zioła lub kwiaty",
+        "DE-R.4": "w grupie przygotowuje wspólne wyjście i bierze w nim udział",
+        "DE-R.5": "odgrywa uzgodnioną rolę w występie lub spotkaniu społeczności",
+        "DE-R.6": "uczestniczy w wydarzeniu promującym zdrowy styl życia",
+        "DE-R.7": "w grupie prezentuje wiedzę lub efekty wspólnych działań",
+    }
+    DE_P_TRESC = [
+        "przez minimum 10 kolejnych dni tworzy własne zabawki z materiałów, w tym z odzysku",
+        "w grupie przygotowuje makietę wybranej przestrzeni",
+        "w grupie planuje i podejmuje działanie na rzecz innych",
+        "planuje i robi w grupie zakupy w sklepie",
+    ]
     # zbiór punktów PP z twierdzeń, z informacją gdzie występują
     rejestr = {}
     for mod in WERSJE:
@@ -1123,7 +1140,7 @@ def monitoring_podstawy():
         ile = sum(1 for p in rejestr if p.split(".")[0] == k)
         if ile * 2 < PP_2026_PUNKTY[k]:
             cienkie.append(f'<b>{k}</b> {nazwa} ({ile} z {PP_2026_PUNKTY[k]})')
-    de_r = sorted(p for p in rejestr if p.startswith("DE-R"))
+    brak_der = [k for k in DE_R_TRESC if k not in rejestr]
     # Legenda z liczba punktow w kazdej grupie — od razu widac, gdzie jest ich duzo.
     liczba_w_grupie = {}
     for punkt in rejestr:
@@ -1147,12 +1164,13 @@ def monitoring_podstawy():
         luki.append('Poniżej połowy punktów pokrywają obszary: ' + ", ".join(cienkie)
                     + '. To brak w twierdzeniach KPOF, z których wyrasta ten bank, '
                       'nie w podstawie — te obszary warto uzupełnić w kolejnej wersji arkuszy.')
-    if de_r:
-        luki.append('Kody <b>' + ", ".join(esc(k) for k in de_r) + '</b> nie mają odpowiednika '
-                    'w rozporządzeniu: załącznik nr 1 ma cele wychowania, kompetencje '
-                    'fundamentalne i przekrojowe, sprawczość, 16 zadań przedszkola, osiągnięcia '
-                    'dziecka i 11 pozycji warunków realizacji — <b>nie ma sekcji „doświadczenia '
-                    'edukacyjne”</b>. Te twierdzenia trzeba przypisać do konkretnych punktów.')
+    if brak_der:
+        luki.append('Z siedmiu doświadczeń edukacyjnych „co najmniej raz w roku szkolnym” bank '
+                    'nie obejmuje: ' + ", ".join(f'<b>{esc(k)}</b> — {esc(DE_R_TRESC[k])}'
+                                                 for k in brak_der) + '.')
+    luki.append('Załącznik ma też drugą listę — <b>„przynajmniej raz w trakcie edukacji '
+                'przedszkolnej”</b> (4 pozycje: ' + "; ".join(esc(t) for t in DE_P_TRESC)
+                + '). Arkusze KPOF jeszcze jej nie kodują.')
     luki_html = ("" if not luki else
         '  <div class="callout rule"><span class="cap">Do uzupełnienia</span>'
         + " ".join(f"<p style=\"margin:0 0 6px\">{t}</p>" for t in luki) + '</div>')

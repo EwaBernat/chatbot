@@ -65,13 +65,18 @@ Struktura załącznika nr 1 (zweryfikowana w oryginale
 `eduplaner_przedszkole/podstawa_2026/podsawa.pdf`): cele wychowania przedszkolnego ·
 I. Kompetencje fundamentalne · II. Kompetencje przekrojowe · III. Sprawczość ·
 **IV. Zadania przedszkola** (16 pozycji) · **Osiągnięcia dziecka** (9 obszarów,
-**113 punktów**) · **Warunki i sposób realizacji** (11 pozycji).
+**113 punktów**) · **doświadczenia edukacyjne** (dwie listy) ·
+**Warunki i sposób realizacji** (11 pozycji).
 
 Liczba punktów w obszarach: 1 — 20, 2 — 12, 3 — 21, 4 — 15, 5 — 12, 6 — 9, 7 — 5,
 8 — 8, 9 — 11.
 
-**Nie ma sekcji „doświadczenia edukacyjne".** Kody `DE-R` w arkuszach KPOF nie mają
-odpowiednika w rozporządzeniu i czekają na przypisanie do konkretnych punktów.
+**Doświadczenia edukacyjne** leżą zaraz za obszarem ruchowym, wprowadzone akapitem,
+nie nagłówkiem — łatwo je przeoczyć i wciągnąć do obszaru 9 przy parsowaniu:
+
+* „Dziecko **co najmniej raz w roku szkolnym**" — 7 pozycji, kody `DE-R.1`–`DE-R.7`
+* „Dziecko **przynajmniej raz w trakcie edukacji przedszkolnej**" — 4 pozycje,
+  arkusze KPOF jeszcze ich nie kodują
 
 Punkt ciężkości przesunięty z tego, co dziecko ma umieć, na to, jak działa
 i funkcjonuje — kompetencje fundamentalne i przekrojowe, sprawczość, dobrostan.
