@@ -181,6 +181,95 @@ SYMBOLE = {
  "pytanie_gdzie":    ("Gdzie?", "a question mark next to a map location pin"),
  "pytanie_kiedy":    ("Kiedy?", "a question mark next to a clock face"),
  "pytanie_dlaczego": ("Dlaczego?", "a large question mark with a thinking child beside it"),
+
+ # ——— pogoda i pory roku (kalendarz pogody, wyprawy sezonowe) ————————
+ "pogoda_slonce":    ("Słonecznie", "a bright smiling sun in a clear sky"),
+ "pogoda_chmury":    ("Pochmurno", "two soft grey clouds, no rain"),
+ "pogoda_deszcz":    ("Deszcz", "a cloud with blue raindrops falling"),
+ "pogoda_snieg":     ("Śnieg", "a cloud with white snowflakes falling"),
+ "pogoda_wiatr":     ("Wiatr", "a bending tree with curved wind lines"),
+ "pogoda_burza":     ("Burza", "a dark cloud with a yellow lightning bolt"),
+ "pora_wiosna":      ("Wiosna", "a tree with fresh green leaves and small blossoms"),
+ "pora_lato":        ("Lato", "a tree in full green leaf under a bright sun"),
+ "pora_jesien":      ("Jesień", "a tree with orange leaves, some falling"),
+ "pora_zima":        ("Zima", "a bare tree with snow on its branches"),
+
+ # ——— instytucje w okolicy —————————————————————————————————————————
+ "miejsce_przedszkole": ("Przedszkole", "a friendly low building with a playground slide beside it"),
+ "miejsce_przychodnia": ("Przychodnia", "a building with a medical cross sign above the door"),
+ "miejsce_poczta":      ("Poczta", "a building with a post box and an envelope sign"),
+ "miejsce_straz":       ("Straż pożarna", "a fire station building with a red fire engine in front"),
+ "miejsce_biblioteka":  ("Biblioteka", "a building with a large open book sign above the door"),
+ "miejsce_sklep":       ("Sklep", "a small shop building with an awning and a shopping basket"),
+
+ # ——— zawody (kącik zawodów, spotkania z rodzicami) ————————————————
+ "zawod_lekarz":     ("Lekarz", "a doctor in a white coat with a stethoscope"),
+ "zawod_budowlaniec":("Budowlaniec", "a builder in a yellow hard hat holding a trowel"),
+ "zawod_nauczyciel": ("Nauczyciel", "a teacher standing beside a board, holding a book"),
+ "zawod_strazak":    ("Strażak", "a firefighter in a helmet holding a hose"),
+ "zawod_ogrodnik":   ("Ogrodnik", "a gardener with a watering can beside a potted plant"),
+
+ # ——— urządzenia cyfrowe (obszar cyfrowy) —————————————————————————
+ "cyfrowe_telefon":  ("Telefon", "a simple mobile phone with a blank screen"),
+ "cyfrowe_aparat":   ("Aparat", "a compact photo camera with a lens"),
+ "cyfrowe_tablet":   ("Tablet", "a tablet with a blank screen lying flat"),
+ "cyfrowe_radio":    ("Radio", "a small portable radio with a speaker grille and antenna"),
+
+ # ——— segregacja odpadów ———————————————————————————————————————————
+ "odpad_papier":     ("Papier", "a blue bin with folded newspaper and cardboard beside it"),
+ "odpad_plastik":    ("Plastik", "a yellow bin with a plastic bottle beside it"),
+ "odpad_szklo":      ("Szkło", "a green bin with a glass jar beside it"),
+ "odpad_bio":        ("Bio", "a brown bin with an apple core and leaves beside it"),
+
+ # ——— instrumenty (orkiestra przedszkolna) ————————————————————————
+ "instrument_beben": ("Bębenek", "a small hand drum with two wooden beaters"),
+ "instrument_grzechotka": ("Grzechotka", "a wooden maraca shaker"),
+ "instrument_dzwonki":("Dzwonki", "a set of small hand bells on a wooden handle"),
+ "instrument_trojkat":("Trójkąt", "a metal triangle with its striker"),
+
+ # ——— zakupy i sklepik ——————————————————————————————————————————————
+ "zakupy_chleb":     ("Chleb", "a loaf of bread"),
+ "zakupy_mleko":     ("Mleko", "a carton of milk"),
+ "zakupy_jablko":    ("Jabłko", "a red apple with a green leaf"),
+ "zakupy_marchewka": ("Marchewka", "an orange carrot with green top"),
+ "zakupy_ser":       ("Ser", "a wedge of yellow cheese"),
+ "zakupy_woda":      ("Woda", "a bottle of water"),
+
+ # ——— etapy budowy domu ————————————————————————————————————————————
+ "budowa_fundament": ("Fundamenty", "a rectangular concrete foundation dug into the ground"),
+ "budowa_mury":      ("Mury", "brick walls of a house being built, no roof yet"),
+ "budowa_dach":      ("Dach", "a house with its roof beams and tiles going on"),
+ "budowa_gotowy":    ("Gotowy dom", "a finished small house with windows, door and roof"),
+
+ # ——— narzędzia w warsztacie ————————————————————————————————————————
+ "narzedzie_mlotek": ("Młotek", "a small hammer"),
+ "narzedzie_srubokret":("Śrubokręt", "a screwdriver"),
+ "narzedzie_nozyczki":("Nożyczki", "a pair of child safety scissors"),
+ "narzedzie_klej":   ("Klej", "a glue stick with its cap off"),
+
+ # ——— komunikacja i droga ——————————————————————————————————————————
+ "droga_przejscie":  ("Przejście dla pieszych", "a zebra crossing on a road, seen from the side"),
+ "droga_sygnalizacja":("Sygnalizacja", "a pedestrian traffic light showing red and green"),
+ "droga_przystanek": ("Przystanek", "a bus stop sign with a small shelter"),
+ "droga_autobus":    ("Autobus", "a city bus seen from the side"),
+
+ # ——— przyroda: łańcuch zależności i środowiska ————————————————————
+ "przyroda_roslina": ("Roślina", "a green plant with leaves growing from soil"),
+ "przyroda_owad":    ("Owad", "a ladybird on a leaf"),
+ "przyroda_ptak":    ("Ptak", "a small brown bird perched on a branch"),
+ "przyroda_ryba":    ("Ryba", "a fish swimming, seen from the side"),
+ "srodowisko_las":   ("Las", "a group of green trees with a forest floor"),
+ "srodowisko_pustynia":("Pustynia", "sand dunes with a cactus under a hot sun"),
+ "srodowisko_lod":   ("Kraina lodu", "an ice floe with snow under a pale sky"),
+
+ # ——— postawa i czynności ———————————————————————————————————————————
+ "postawa_stolik":   ("Prosto przy stoliku",
+                      "a child sitting correctly at a table: feet flat on the floor, "
+                      "straight back, both hands on the table top, seen from the side"),
+ "umiem_ukladam":    ("Układam", "a child completing a jigsaw puzzle at a table"),
+ "umiem_spiewam":    ("Śpiewam", "a child singing with an open mouth and music notes"),
+ "umiem_biegam":     ("Biegam", "a child running happily"),
+ "umiem_pomagam":    ("Pomagam", "a child handing a toy to another child"),
 }
 
 

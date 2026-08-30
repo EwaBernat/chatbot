@@ -148,7 +148,8 @@ z etykietami), `etykiety` (karteczki z polem koloru), `sciezki` (pasy do przeci�
 albo szlaczki do obrysowania, rysowane wzorem SVG). Cztery ostatnie nie potrzebują
 rysunków i są w konspektach większością.
 
-**Każdy ze 178 konspektów ma materiał do wydruku** — 204 arkusze. Wszystkie mieszczą
+**Każdy ze 178 konspektów ma materiał do wydruku** — 226 arkuszy, wszystkie narysowane
+(biblioteka symboli ma 163 pozycje i żadna nie czeka już na rysunek). Wszystkie mieszczą
 się na jednej stronie A4 pionowo; pilnują tego `_kolumny()` (dokłada kolumn, gdy
 kafle nie wchodzą) i `_rozciag()` (rozciąga pola, gdy zostaje pusta kartka).
 Budżet strony: szerokość druku 726 px, na siatkę zostaje 745 px po nagłówku arkusza.

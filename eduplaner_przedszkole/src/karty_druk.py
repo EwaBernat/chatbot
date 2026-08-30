@@ -99,6 +99,14 @@ ARKUSZE = {
  ],
 
  "B6-27": [dict(
+   tytul="Plany obrazkowe dyżurów",
+   kp="Wydrukuj, wytnij i powieś przy grafiku",
+   wstep="Cztery dyżury w obrazkach: stołowy, przyrodniczy, biblioteczny i porządkowy. "
+         "Dyżurny bierze swoją kartę i nosi ją przy sobie — karta mówi mu, co robić, "
+         "zamiast Pani przypominającej co pięć minut.",
+   rodzaj="karty", kolumny=2,
+   symbole=["przedmiot_kubek", "przyroda_roslina", "zabawa_ksiazki", "dzien_sprzatanie"]),
+  dict(
    tytul="Karta dyżurnego z samooceną",
    kp="Wydrukuj na tydzień",
    wstep="Dyżurny sam zaznacza uśmiech, kreskę albo smutną minę przy swoim zadaniu. "
@@ -761,6 +769,14 @@ ARKUSZE = {
  ],
 
  "C9-43": [dict(
+   tytul="Karty segregacji odpadów",
+   kp="Wydrukuj, wytnij i naklej na pojemniki",
+   wstep="Cztery frakcje z pojemnikiem i przykładem odpadu na jednej karcie. Naklejamy je na "
+         "prawdziwe pojemniki, nie na tablicę — dziecko decyduje w chwili, gdy trzyma odpad "
+         "w ręku, i wtedy musi mieć obrazek przed oczami.",
+   rodzaj="karty", kolumny=2,
+   symbole=["odpad_papier", "odpad_plastik", "odpad_szklo", "odpad_bio"]),
+  dict(
    tytul="Etykiety na pojemniki do segregacji",
    kp="Wydrukuj i naklej na pojemniki",
    wstep="Kolory frakcji zgodne z systemem krajowym — ten sam, który dziecko widzi w domu "
@@ -870,6 +886,15 @@ ARKUSZE = {
  ],
 
  "C3-13": [dict(
+   tytul="Kostki opowieści — symbole do naklejenia",
+   kp="Wydrukuj, wytnij i naklej na kostki",
+   wstep="Sześć symboli na dwie kostki: bohater i miejsce. Dziecko rzuca i opowiada z tego, "
+         "co wypadło — także wtedy, gdy zestawienie jest niedorzeczne. Niedorzeczność jest "
+         "tu paliwem opowieści, nie błędem do poprawienia.",
+   rodzaj="karty", kolumny=3,
+   symbole=["zwierze_lis", "zwierze_zajac", "zwierze_niedzwiedz",
+            "srodowisko_las", "miejsce_sklep", "miejsce_biblioteka"]),
+  dict(
    tytul="Mapa bajki — cztery pola",
    kp="Wydrukuj w formacie A3",
    wstep="Cztery pola na cztery zdania opowieści. Dziecko rysuje albo dyktuje po jednym "
@@ -903,6 +928,14 @@ ARKUSZE = {
  ],
 
  "C4-17": [dict(
+   tytul="Piktogram prawidłowej pozycji",
+   kp="Wydrukuj i powieś nad stolikami",
+   wstep="Jeden obrazek zamiast upominania. Kiedy dziecko siedzi krzywo, wskazujemy tablicę "
+         "i milczymy — sprawdzenie własnej pozycji jest tym, czego się uczy; komentarz słowny "
+         "zabiera mu tę pracę.",
+   rodzaj="tablica", kolumny=1,
+   symbole=["postawa_stolik"]),
+  dict(
    tytul="Trzy rzeczy przy stoliku",
    kp="Wydrukuj i powieś nad stolikami",
    wstep="Trzy hasła zamiast upominania. Kiedy dziecko siedzi krzywo, wskazujemy tablicę "
@@ -979,6 +1012,15 @@ ARKUSZE = {
  ],
 
  "C5-25": [dict(
+   tytul="Skala napięcia w obrazkach",
+   kp="Wydrukuj i powieś przy kąciku wyciszenia",
+   wstep="Pięć twarzy od spokoju do wybuchu, w kolejności. To ta sama seria twarzy co na "
+         "kartach emocji — dziecko, które zna te miny z kręgu, rozpoznaje je tu bez uczenia "
+         "się nowego zestawu.",
+   rodzaj="pasek",
+   symbole=["emocja_spokoj", "emocja_zmeczenie", "emocja_zdziwienie",
+            "emocja_zlosc", "emocja_strach"]),
+  dict(
    tytul="Skala pięciu poziomów",
    kp="Wydrukuj i powieś przy kąciku wyciszenia",
    wstep="Pięć stopni od spokoju do wybuchu, z miejscem na własne słowa dziecka przy każdym. "
@@ -1066,6 +1108,15 @@ ARKUSZE = {
  ],
 
  "C7-34": [dict(
+   tytul="Karty zachowań do posortowania — obrazki",
+   kp="Wydrukuj, wytnij i wymieszaj",
+   wstep="Sześć obrazków do rozdzielenia na dwie kupki: pomocne i raniące. Po posortowaniu "
+         "wracamy do kupki raniącej i przy każdej karcie pytamy, jak to naprawić — bez tego "
+         "kroku ćwiczenie zostawia poczucie winy i nic poza tym.",
+   rodzaj="karty", kolumny=3,
+   symbole=["umiem_pomagam", "gest_brawo", "prosze_pomoc",
+            "gest_stop", "emocja_zlosc", "emocja_smutek"]),
+  dict(
    tytul="Karty zachowań do posortowania",
    kp="Wydrukuj, wytnij i wymieszaj",
    wstep="Sześć kart do rozdzielenia na dwie kupki. Po posortowaniu wracamy do kupki "
@@ -1155,6 +1206,15 @@ ARKUSZE = {
  ],
 
  "C9-44": [dict(
+   tytul="Karty zawodów",
+   kp="Wydrukuj, wytnij i połóż w kąciku zawodów",
+   wstep="Sześć zawodów, które dziecko widuje naprawdę: w przedszkolu, w przychodni, na ulicy. "
+         "Kartę dokładamy do stroju i narzędzi z kącika — sam obrazek zostaje obrazkiem, "
+         "dopiero przymierzony fartuch robi z niego rolę.",
+   rodzaj="karty", kolumny=3,
+   symbole=["zawod_kucharz", "zawod_lekarz", "zawod_strazak",
+            "zawod_kierowca", "zawod_budowlaniec", "zawod_ogrodnik"]),
+  dict(
    tytul="Karta zawodu",
    kp="Wydrukuj po jednej na gościa",
    wstep="Wypełniana po wizycie rodzica, nie przed. Ostatnia kolumna — co ten zawód robi "
@@ -1229,6 +1289,15 @@ ARKUSZE = {
  ],
 
  "B2-09": [dict(
+   tytul="Karty materiałów na stanowisko",
+   kp="Wydrukuj, wytnij i włóż do pojemników",
+   wstep="Sześć rzeczy, które dziecko przynosi na swoje stanowisko przed pracą. Karta wraca "
+         "do pojemnika razem z rzeczą — odkładanie po obrazku jest tu tą częścią, której "
+         "dziecko się uczy, nie samo przyniesienie.",
+   rodzaj="karty", kolumny=3,
+   symbole=["narzedzie_nozyczki", "narzedzie_klej", "zabawa_rysowanie",
+            "przedmiot_kubek", "przedmiot_serwetka", "zabawa_ukladanka"]),
+  dict(
    tytul="Karta samooceny porządku",
    kp="Wydrukuj po jednej na dziecko",
    wstep="Pięć rzeczy do sprawdzenia po pracy, zaznaczanych przez dziecko po porównaniu "
@@ -1280,6 +1349,15 @@ ARKUSZE = {
  ],
 
  "B3-14": [dict(
+   tytul="Składniki do rymowanej kuchni",
+   kp="Wydrukuj, wytnij i wrzuć do garnka",
+   wstep="Sześć składników do wrzucania do garnka. Dziecko wyciąga obrazek, nazywa go i szuka "
+         "rymu — najpierw byle jakiego, potem takiego, który da się wstawić do wersu. "
+         "Rym wymyślony przez dziecko jest wart więcej niż podpowiedziany.",
+   rodzaj="karty", kolumny=3,
+   symbole=["zakupy_chleb", "zakupy_mleko", "zakupy_jablko",
+            "zakupy_marchewka", "zakupy_ser", "zakupy_woda"]),
+  dict(
    tytul="Karta par rymów",
    kp="Wydrukuj i powieś w kuchni rymów",
    wstep="Pierwsza kolumna wypełniona, drugą uzupełnia dziecko. Rym wymyślony przez dziecko, "
@@ -1414,6 +1492,15 @@ ARKUSZE = {
  ],
 
  "B6-29": [dict(
+   tytul="Pogoda i sprzęt na wyprawę",
+   kp="Wydrukuj, wytnij i powieś w szatni",
+   wstep="Cztery rodzaje pogody i cztery rzeczy do zabrania. Dziecko patrzy w okno, wybiera "
+         "kartę pogody i dobiera do niej sprzęt — dopiero to dopasowanie uczy przewidywania, "
+         "a nie pakowanie na dyktando.",
+   rodzaj="karty", kolumny=4,
+   symbole=["pogoda_slonce", "pogoda_deszcz", "pogoda_snieg", "pogoda_wiatr",
+            "ubior_kurtka", "ubior_buty", "przedmiot_worek", "zakupy_woda"]),
+  dict(
    tytul="Lista na wyprawę",
    kp="Wydrukuj przed wyjściem",
    wstep="Dziecko zaznacza sprzęt samo, po sprawdzeniu pogody za oknem. Lista podana gotowa "
@@ -1515,6 +1602,15 @@ ARKUSZE = {
  ],
 
  "B8-38": [dict(
+   tytul="Karty instrumentów",
+   kp="Wydrukuj, wytnij i połóż przy instrumentach",
+   wstep="Cztery instrumenty do dopasowania do prawdziwych. Kartę kładziemy przy instrumencie, "
+         "a nie zamiast niego — dziecko czyta z tablicy, kiedy jego instrument gra, i sprawdza "
+         "obrazkiem, czy trzyma ten właściwy.",
+   rodzaj="karty", kolumny=2,
+   symbole=["instrument_beben", "instrument_grzechotka",
+            "instrument_dzwonki", "instrument_trojkat"]),
+  dict(
    tytul="Instrumenty w trzech kolorach",
    kp="Wydrukuj i powieś przy orkiestrze",
    wstep="Kolor przypisany do instrumentu na cały rok. Zmiana koloru w połowie roku kosztuje "
@@ -1564,6 +1660,15 @@ ARKUSZE = {
  ],
 
  "B9-42": [dict(
+   tytul="Cztery pory roku — karty",
+   kp="Wydrukuj, wytnij i powieś przy kalendarzu",
+   wstep="Cztery pory roku i cztery rodzaje pogody. Kartę pory roku wieszamy na cały sezon, "
+         "kartę pogody dziecko zmienia codziennie — z tego zestawienia po kilku tygodniach "
+         "samo widać, że pogoda zmienia się w rytmie pory roku.",
+   rodzaj="karty", kolumny=4,
+   symbole=["pora_wiosna", "pora_lato", "pora_jesien", "pora_zima",
+            "pogoda_slonce", "pogoda_deszcz", "pogoda_snieg", "pogoda_wiatr"]),
+  dict(
    tytul="Sprzęt na cztery pory roku",
    kp="Wydrukuj i powieś przy szatni",
    wstep="Cztery wiersze wypełniane w ciągu roku, nie naraz. Ostatnia kolumna zapełnia się "
@@ -1640,6 +1745,15 @@ ARKUSZE = {
  ],
 
  "U1-02": [dict(
+   tytul="Karty instytucji w okolicy",
+   kp="Wydrukuj, wytnij i rozłóż na dywanie",
+   wstep="Pięć miejsc, do których idzie się z konkretną sprawą. Dziecko dobiera kartę sytuacji "
+         "do miejsca — dopiero to dopasowanie pokazuje, po co te instytucje istnieją; sama "
+         "nazwa zostaje słowem.",
+   rodzaj="karty", kolumny=3,
+   symbole=["miejsce_przedszkole", "miejsce_przychodnia", "miejsce_poczta",
+            "miejsce_straz", "miejsce_biblioteka", "miejsce_sklep"]),
+  dict(
    tytul="Karty instytucji",
    kp="Wydrukuj, wytnij i rozłóż na dywanie",
    wstep="Pięć miejsc, do których idzie się z konkretną sprawą. Dziecko dobiera kartę sytuacji "
@@ -1682,6 +1796,15 @@ ARKUSZE = {
  ],
 
  "U2-05": [dict(
+   tytul="Karty „w czym jestem dobry”",
+   kp="Wydrukuj, wytnij i rozłóż przed dzieckiem",
+   wstep="Sześć czynności do wybrania przez dziecko. Wybiera samo, także wtedy, gdy Pani "
+         "widzi inaczej — karta ma pokazać, w czym dziecko czuje się dobre, a nie w czym "
+         "jest dobre zdaniem dorosłego.",
+   rodzaj="karty", kolumny=3,
+   symbole=["umiem_ukladam", "umiem_spiewam", "umiem_biegam",
+            "umiem_pomagam", "zabawa_rysowanie", "zabawa_klocki"]),
+  dict(
    tytul="Karta „w czym jestem dobry”",
    kp="Wydrukuj po jednej na dziecko",
    wstep="Trzy pola wypełniane przez dziecko, nie o dziecku. Wpisujemy to, co powie, nawet "
@@ -1738,6 +1861,15 @@ ARKUSZE = {
  ],
 
  "U3-10": [dict(
+   tytul="Karty przedmiotów do English corner",
+   kp="Wydrukuj, wytnij i włóż do worka niespodzianki",
+   wstep="Sześć rzeczy z sali, które dziecko wyciąga z worka i nazywa po angielsku. Karta jest "
+         "podpowiedzią dla Pani; dziecku pokazujemy prawdziwy przedmiot, bo to jego ma szukać "
+         "wzrokiem, gdy usłyszy angielskie słowo.",
+   rodzaj="karty", kolumny=3,
+   symbole=["przedmiot_kubek", "zabawa_klocki", "zabawa_ksiazki",
+            "ubior_buty", "zakupy_jablko", "narzedzie_nozyczki"]),
+  dict(
    tytul="Naklejki z nazwami po angielsku",
    kp="Wydrukuj, wytnij i naklej na przedmioty",
    wstep="Osiem nazw rzeczy, które są w sali naprawdę. Naklejamy na przedmiot, nie na obrazek "
@@ -1783,6 +1915,15 @@ ARKUSZE = {
  ],
 
  "U4-15": [dict(
+   tytul="Karty do sklepiku z liczmanami",
+   kp="Wydrukuj, wytnij i połóż w sklepiku",
+   wstep="Sześć towarów do liczenia i kupowania. Dziecko odlicza liczmany do ceny — kasztany, "
+         "nakrętki, klocki — i za każdym razem inny materiał: to pokazuje, że trzy zostaje "
+         "trzy niezależnie od tego, co się liczy.",
+   rodzaj="karty", kolumny=3,
+   symbole=["zakupy_chleb", "zakupy_mleko", "zakupy_jablko",
+            "zakupy_marchewka", "zakupy_ser", "zakupy_woda"]),
+  dict(
    tytul="Karty działań na liczmanach",
    kp="Wydrukuj, wytnij i podawaj po jednej",
    wstep="Sześć działań do wykonania na kasztanach, nakrętkach i klockach — tych samych "
@@ -1814,6 +1955,15 @@ ARKUSZE = {
  ],
 
  "U4-19": [dict(
+   tytul="Lista zakupów w obrazkach",
+   kp="Wydrukuj, wytnij i zabierz do sklepu",
+   wstep="Sześć kart do wyboru przed wyjściem. Dziecko układa z nich swoją listę, a w sklepie "
+         "odkłada kartę po włożeniu towaru do koszyka — odkładanie jest tu sprawdzaniem, "
+         "czy niczego nie brakuje.",
+   rodzaj="karty", kolumny=3,
+   symbole=["zakupy_chleb", "zakupy_mleko", "zakupy_jablko",
+            "zakupy_marchewka", "zakupy_ser", "zakupy_woda"]),
+  dict(
    tytul="Lista zakupów i rozliczenie",
    kp="Wydrukuj przed wyjściem do sklepu",
    wstep="Lista wypełniana w sali, rozliczenie przy kasie. Ostatni wiersz — ile zostało — "
@@ -1836,6 +1986,14 @@ ARKUSZE = {
  ],
 
  "U5-21": [dict(
+   tytul="Piktogramy pogodowe",
+   kp="Wydrukuj, wytnij i powieś przy kalendarzu",
+   wstep="Sześć rodzajów pogody do codziennego wieszania. Kartę wybiera dziecko po spojrzeniu "
+         "w okno, nie po prognozie — obserwacja własna jest w tym konspekcie całą treścią.",
+   rodzaj="karty", kolumny=3,
+   symbole=["pogoda_slonce", "pogoda_chmury", "pogoda_deszcz",
+            "pogoda_snieg", "pogoda_wiatr", "pogoda_burza"]),
+  dict(
    tytul="Kalendarz pogody — siatka tygodnia",
    kp="Wydrukuj na każdy tydzień",
    wstep="Pięć dni, cztery kolumny. Ostatnia — „co się zmieniło” — wypełniana jest w piątek, "
@@ -1899,6 +2057,15 @@ ARKUSZE = {
  ],
 
  "U5-26": [dict(
+   tytul="Ogniwa łańcucha — karty",
+   kp="Wydrukuj, wytnij i połącz sznurkiem",
+   wstep="Sześć ogniw do ułożenia w łańcuch. Zaczynamy od rośliny i pytamy „kto to zje” — "
+         "łańcuch układany od drapieżnika w dół dzieci składają poprawnie i nie rozumieją "
+         "z niego nic.",
+   rodzaj="karty", kolumny=3,
+   symbole=["przyroda_roslina", "przyroda_owad", "przyroda_ptak",
+            "zwierze_zaba", "zwierze_lis", "przyroda_ryba"]),
+  dict(
    tytul="Tablica łańcucha zależności",
    kp="Wydrukuj w formacie A3",
    wstep="Cztery ogniwa łączone sznurkiem. Zaczynamy od rośliny i pytamy „kto to zje” — "
@@ -1910,6 +2077,14 @@ ARKUSZE = {
  ],
 
  "U5-27": [dict(
+   tytul="Trzy środowiska — tablica",
+   kp="Wydrukuj i powieś nad matą",
+   wstep="Trzy środowiska, do których dziecko dokłada karty zwierząt. Tablicy nie rozcinamy — "
+         "wisi nad matą przez cały cykl zajęć, żeby dopasowania dało się porównać między "
+         "jednym a drugim dniem.",
+   rodzaj="tablica", kolumny=3,
+   symbole=["srodowisko_las", "srodowisko_pustynia", "srodowisko_lod"]),
+  dict(
    tytul="Karta trzech środowisk",
    kp="Wydrukuj w formacie A3",
    wstep="Trzy kolumny na zwierzęta i rośliny, uzupełniane po dotknięciu próbek: futra, piasku, "
@@ -1944,6 +2119,14 @@ ARKUSZE = {
  ],
 
  "U6-30": [dict(
+   tytul="Jak powstaje dom — historyjka",
+   kp="Wydrukuj, wytnij i rozsyp",
+   wstep="Cztery etapy budowy do ułożenia w kolejności. Dziecko układa najpierw z pamięci, "
+         "potem porównujecie ze zdjęciami z prawdziwej budowy w okolicy — to porównanie "
+         "jest ważniejsze niż sama poprawna kolejność.",
+   rodzaj="pasek",
+   symbole=["budowa_fundament", "budowa_mury", "budowa_dach", "budowa_gotowy"]),
+  dict(
    tytul="Historyjka budowy domu",
    kp="Wydrukuj, wytnij i rozsyp",
    wstep="Cztery etapy do ułożenia w kolejności. Dziecko układa najpierw z pamięci, potem "
@@ -1987,6 +2170,15 @@ ARKUSZE = {
  ],
 
  "U6-34": [dict(
+   tytul="Narzędzia i znak stop",
+   kp="Wydrukuj, wytnij i powieś nad stołem",
+   wstep="Cztery narzędzia, których dziecko używa w warsztacie, i znak stop przy tym, czego "
+         "dotyka tylko z dorosłym. Kontroler bezpieczeństwa sprawdza stanowiska po tych "
+         "kartach — i to dziecko, nie Pani, ma je czytać.",
+   rodzaj="karty", kolumny=3,
+   symbole=["narzedzie_mlotek", "narzedzie_srubokret", "narzedzie_nozyczki",
+            "narzedzie_klej", "gest_stop", "gest_czekam"]),
+  dict(
    tytul="Regulamin warsztatu",
    kp="Wydrukuj i powieś przy narzędziach",
    wstep="Pięć zasad ustalonych z dziećmi przed pierwszą pracą i podpisanych ich znakami. "
@@ -2009,6 +2201,14 @@ ARKUSZE = {
  ],
 
  "U6-36": [dict(
+   tytul="Karty spaceru komunikacyjnego",
+   kp="Wydrukuj, wytnij i zabierz na spacer",
+   wstep="Cztery rzeczy do wypatrzenia po drodze. Dziecko trzyma karty w ręku i odkłada tę, "
+         "którą już zobaczyło — wypełnianie w trakcie, nie po powrocie, bo w sali dziecko "
+         "zaznacza to, co wie, a nie to, co dziś widziało.",
+   rodzaj="karty", kolumny=2,
+   symbole=["droga_przejscie", "droga_sygnalizacja", "droga_przystanek", "droga_autobus"]),
+  dict(
    tytul="Karta spaceru komunikacyjnego",
    kp="Wydrukuj przed wyjściem",
    wstep="Cztery rzeczy do wypatrzenia po drodze, zaznaczane w trakcie, nie po powrocie. "
@@ -2043,6 +2243,14 @@ ARKUSZE = {
  ],
 
  "U7-39": [dict(
+   tytul="Karty urządzeń cyfrowych",
+   kp="Wydrukuj, wytnij i połóż przy urządzeniach",
+   wstep="Cztery urządzenia do dopasowania do prawdziwych, choćby niedziałających. Kartę "
+         "kładziemy przy przedmiocie — dziecko, które trzyma aparat w ręku, rozumie, do czego "
+         "służy; dziecko oglądające sam obrazek uczy się obrazka.",
+   rodzaj="karty", kolumny=2,
+   symbole=["cyfrowe_telefon", "cyfrowe_aparat", "cyfrowe_tablet", "cyfrowe_radio"]),
+  dict(
    tytul="Tablica dopasowań: urządzenie i zadanie",
    kp="Wydrukuj i powieś przy kąciku",
    wstep="Cztery urządzenia i cztery zadania do połączenia. Urządzenia mają być prawdziwe, "
@@ -2098,6 +2306,15 @@ ARKUSZE = {
  ],
 
  "U8-44": [dict(
+   tytul="Karty instrumentów do partytury",
+   kp="Wydrukuj, wytnij i naklej na partyturę",
+   wstep="Cztery instrumenty do naklejenia w taktach partytury. Instrumenty dzieci robią same "
+         "z odzysku, ale karta ma pokazywać ten sam rodzaj dźwięku — grzechotka z ryżem "
+         "i grzechotka z obrazka to dla dziecka ta sama rzecz.",
+   rodzaj="karty", kolumny=2,
+   symbole=["instrument_grzechotka", "instrument_beben",
+            "instrument_dzwonki", "instrument_trojkat"]),
+  dict(
    tytul="Partytura orkiestry z odzysku",
    kp="Wydrukuj w formacie A3",
    wstep="Osiem taktów i trzy grupy instrumentów zrobionych przez dzieci. Partyturę układa "
