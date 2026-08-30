@@ -18,30 +18,29 @@ from pathlib import Path
 _KADRY = Path(__file__).resolve().parent.parent / "assets" / "hist_c1"
 _AUDIO = Path(__file__).resolve().parent.parent / "assets" / "audio_c1"
 
-# Narracja nagrana głosem nauczycielki (klon PL). Klucz 0 to wprowadzenie,
-# 1-5 to sceny, 6 to zakończenie z pytaniami otwartymi do dziecka.
+# Narracja nagrana głosem nauczycielki (klon PL, model eleven_v3). Klucz 0 to
+# wprowadzenie, 1-5 to sceny, 6 to zakończenie z pytaniami otwartymi do dziecka.
+# Wszystkie ścieżki w jednym rejestrze — spokojna, ciepła proza opowiadana dziecku,
+# bez sylabizowania i wtrąceń; wskazówki aktorskie opisuje README.
 NARRACJA = {
     0: ("naracja_00_wstep.mp3", "Posłuchaj uważnie. Opowiem ci historię o dziewczynce, "
         "która miała małe nasionko. Kiedy skończę, ułożysz obrazki po kolei i opowiesz "
         "mi tę historię swoimi słowami."),
-    1: ("naracja_01.mp3", "Ola dostała malutkie, brązowe nasionko. Wsypała do doniczki "
-        "ziemię i ostrożniutko włożyła nasionko do środka. Przykryła je ziemią i "
-        "szepnęła: rośnij."),
-    2: ("naracja_02.mp3", "Minęło kilka dni. Pewnego ranka Ola zajrzała do doniczki — "
-        "i aż pisnęła z radości! Z ziemi wyrósł mały, zielonutki pęd. A na nim dwa "
-        "malutkie listki."),
-    3: ("naracja_03.mp3", "Ale potem Ola bawiła się cały dzień i zupełnie zapomniała "
-        "podlać roślinkę. Następnego ranka listki zwiesiły się smutno w dół. Ziemia "
-        "była całkiem sucha. I Oli zrobiło się bardzo przykro."),
-    4: ("naracja_04.mp3", "Ale Ola się nie poddała! Wzięła konewkę, nalała wody i "
-        "powolutku podlała roślinkę. A potem przesunęła doniczkę tam, gdzie najmocniej "
-        "świeciło słonko."),
-    5: ("naracja_05.mp3", "I wiesz co? Już następnego dnia roślinka podniosła listki "
-        "do góry. A po tygodniu rozwinął się na niej duży, różowy kwiat! Ola skakała "
-        "z radości, a nad kwiatkiem fruwał kolorowy motyl."),
-    6: ("naracja_06_pytania.mp3", "A teraz twoja kolej. Ułóż obrazki po kolei i opowiedz "
-        "mi, co się wydarzyło. Powiedz — co się stało, kiedy Ola zapomniała podlać "
-        "roślinkę? I jak myślisz… dlaczego roślinka znowu odżyła?"),
+    1: ("naracja_01.mp3", "Ola dostała małe, brązowe nasionko. Wsypała do doniczki ziemię "
+        "i ostrożnie włożyła nasionko do środka. Przykryła je ziemią i szepnęła: rośnij."),
+    2: ("naracja_02.mp3", "Minęło kilka dni. Pewnego ranka Ola zajrzała do doniczki i aż "
+        "pisnęła z radości. Z ziemi wyrósł mały, zielony pęd z dwoma listkami."),
+    3: ("naracja_03.mp3", "Ale potem Ola bawiła się cały dzień i zapomniała podlać "
+        "roślinkę. Następnego ranka listki zwiesiły się smutno w dół, a ziemia w doniczce "
+        "była całkiem sucha. Oli zrobiło się bardzo przykro."),
+    4: ("naracja_04.mp3", "Ola się nie poddała. Wzięła konewkę, nalała wody i powoli "
+        "podlała roślinkę. Potem przesunęła doniczkę tam, gdzie mocno świeciło słońce."),
+    5: ("naracja_05.mp3", "Już następnego dnia roślinka podniosła listki do góry. A po "
+        "tygodniu rozwinął się na niej duży, różowy kwiat. Ola skakała z radości, a nad "
+        "kwiatkiem fruwał kolorowy motyl."),
+    6: ("naracja_06_pytania.mp3", "A teraz twoja kolej. Ułóż obrazki po kolei i opowiedz, "
+        "co się wydarzyło. Powiedz mi, co się stało, kiedy Ola zapomniała podlać roślinkę. "
+        "I jak myślisz, dlaczego roślinka znowu odżyła?"),
 }
 
 
@@ -84,7 +83,7 @@ SCENY = {
 }
 
 # Czas trwania nagrań w sekundach (z generatora mowy) — do etykiety na pasku.
-CZASY = {0: 13.9, 1: 18.2, 2: 14.0, 3: 20.6, 4: 13.7, 5: 15.1, 6: 17.1}
+CZASY = {0: 13.9, 1: 12.9, 2: 11.1, 3: 14.7, 4: 11.5, 5: 15.0, 6: 16.1}
 
 PODPISY_P3 = {1: "Sadzę nasionko", 2: "Rośnie zielony pęd", 5: "Wyrósł piękny kwiat"}
 PODPISY_P2 = {1: "Sadzę nasionko", 2: "Wyrósł mały pęd",

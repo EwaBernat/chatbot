@@ -236,6 +236,21 @@ sklonowanym głosem nauczycielki (ElevenLabs, głos `Ewa-głos_do skils`,
 model `eleven_v3` — przyjmuje wskazówki aktorskie w nawiasach kwadratowych,
 dzięki czemu ton jest bajkowy, a nie lektorski).
 
+### Wzorzec rejestru — obowiązuje dla wszystkich nagrań
+
+Ten sam zestaw wskazówek w każdej ścieżce, wypracowany i zaakceptowany
+na wprowadzeniu do C1-01:
+
+* otwarcie — `[warmly, smiling, telling a story to a small child]`
+* rozwinięcie — `[gently]`
+* domknięcie — `[with a smile]`
+* scena smutna zamienia dwie ostatnie na `[gently, a little sad]` i `[softly]`
+
+Tekst mówiony ma być czystą prozą: pełne zdania, bez wielokropków, bez
+sylabizowania („po-wo-lut-ku"), bez wtrąceń typu „o tak". Efekt ciepła daje
+wskazówka aktorska, nie interpunkcja — nagrania robione „na wielokropkach"
+brzmią sztucznie. Przy nowych konspektach trzymamy ten sam wzorzec.
+
 Siedem ścieżek w `assets/audio_c1/`: wprowadzenie, pięć scen, zakończenie
 z pytaniami otwartymi. Teksty i czasy trwania trzyma słownik `NARRACJA`
 w `src/zalacznik_c1.py` — to jedyne miejsce do edycji, jeśli nagrania
