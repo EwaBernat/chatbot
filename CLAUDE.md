@@ -61,15 +61,26 @@ Zapis punktu: `obszar.punkt` (np. `3.5`). Poza tym występują kody `DE-R`
 (doświadczenie edukacyjne realizowane co najmniej raz w roku), `WSR` (warunki
 i sposób realizacji) oraz `Zad.` (zadanie przedszkola).
 
+Struktura załącznika nr 1 (zweryfikowana w oryginale
+`eduplaner_przedszkole/podstawa_2026/podsawa.pdf`): cele wychowania przedszkolnego ·
+I. Kompetencje fundamentalne · II. Kompetencje przekrojowe · III. Sprawczość ·
+**IV. Zadania przedszkola** (16 pozycji) · **Osiągnięcia dziecka** (9 obszarów,
+**113 punktów**) · **Warunki i sposób realizacji** (11 pozycji).
+
+Liczba punktów w obszarach: 1 — 20, 2 — 12, 3 — 21, 4 — 15, 5 — 12, 6 — 9, 7 — 5,
+8 — 8, 9 — 11.
+
+**Nie ma sekcji „doświadczenia edukacyjne".** Kody `DE-R` w arkuszach KPOF nie mają
+odpowiednika w rozporządzeniu i czekają na przypisanie do konkretnych punktów.
+
 Punkt ciężkości przesunięty z tego, co dziecko ma umieć, na to, jak działa
 i funkcjonuje — kompetencje fundamentalne i przekrojowe, sprawczość, dobrostan.
 Dziewięć obszarów to mapa do planowania, nie plan zajęć: jedna dobrze
 zaprojektowana sytuacja edukacyjna uruchamia zwykle kilka naraz.
 
 **To jest obowiązująca podstawa — nie odwołuj się do rozporządzenia z 14 lutego
-2017 r.** Nazwy obszarów potwierdzone z opracowań branżowych; dziennikustaw.gov.pl
-i gov.pl są zablokowane przez proxy, więc numeracji punktów co do jednego nie
-zweryfikowano — przy rozbieżności pyta się o załącznik do rozporządzenia.
+2017 r.** Oryginał leży w repozytorium (`podstawa_2026/podsawa.pdf`, 365 stron,
+tekst wyciągalny) — sprawdzaj w nim, zamiast zgadywać.
 
 Miejsce w kodzie: `OBSZAR_PP_NAZWY` w `monitoring_podstawy()`
 (`eduplaner_przedszkole/src/build.py`) — jedno źródło dla legendy i kolumny tabeli.

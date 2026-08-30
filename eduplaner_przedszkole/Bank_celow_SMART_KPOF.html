@@ -301,6 +301,7 @@ ul.klista{list-style:none; margin:0; padding:0; display:grid; gap:5px}
 ul.klista-2{grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); gap:5px 24px}
 /* Kody i liczniki nie mogą się łamać — „DE-R” pękało na myślniku. */
 ul.klista-2 b,ul.klista-2 .mono{white-space:nowrap}
+ul.klista-2 li.slaby .mono{color:var(--p3); font-weight:700}
 
 /* Monitoring podstawy — 79 wierszy rozwijanych dopiero na życzenie. */
 details.rozwin{margin-top:16px}
@@ -2589,7 +2590,7 @@ tr.tbanner .bsep{color:var(--accent); padding:0 5px}
     <span class="vlet">PP</span>
     <h2>Monitoring realizacji podstawy programowej</h2>
     <div class="vmeta">
-      <span><b>Punkty w banku</b>79</span>
+      <span><b>Pokrycie osiągnięć</b>71 z 113</span>
       <span><b>Odwołań z konspektów</b>197</span>
       <span><b>Wersje</b>A · B · C</span>
       <span><b>Podstawa</b>Dz.U. 2026 poz. 378</span>
@@ -2609,23 +2610,23 @@ tr.tbanner .bsep{color:var(--accent); padding:0 5px}
   </div>
   <div class="callout"><span class="cap" style="color:var(--violet)">Grupy punktów w zapisie <i>obszar.punkt</i></span>
   <ul class="klista klista-2" style="margin-top:6px">
-      <li><b>1</b> — obszar społeczny <span class="mono">(17 pkt)</span></li>
-      <li><b>2</b> — obszar osobisty <span class="mono">(11 pkt)</span></li>
-      <li><b>3</b> — obszar językowy <span class="mono">(14 pkt)</span></li>
-      <li><b>4</b> — obszar matematyczny <span class="mono">(9 pkt)</span></li>
-      <li><b>5</b> — obszar przyrodniczy <span class="mono">(4 pkt)</span></li>
-      <li><b>6</b> — obszar techniczny <span class="mono">(1 pkt)</span></li>
-      <li><b>7</b> — obszar cyfrowy <span class="mono">(1 pkt)</span></li>
-      <li><b>8</b> — obszar artystyczny <span class="mono">(4 pkt)</span></li>
-      <li><b>9</b> — obszar ruchowy <span class="mono">(10 pkt)</span></li>
-      <li><b>DE-R</b> — doświadczenie edukacyjne — raz w roku <span class="mono">(5 pkt)</span></li>
-      <li><b>WSR</b> — warunki i sposób realizacji <span class="mono">(1 pkt)</span></li>
-      <li><b>Zad.</b> — zadanie przedszkola <span class="mono">(2 pkt)</span></li>
+      <li><b>1</b> — obszar społeczny <span class="mono">(17 z 20 pkt)</span></li>
+      <li><b>2</b> — obszar osobisty <span class="mono">(11 z 12 pkt)</span></li>
+      <li><b>3</b> — obszar językowy <span class="mono">(14 z 21 pkt)</span></li>
+      <li><b>4</b> — obszar matematyczny <span class="mono">(9 z 15 pkt)</span></li>
+      <li class="slaby"><b>5</b> — obszar przyrodniczy <span class="mono">(4 z 12 pkt)</span></li>
+      <li class="slaby"><b>6</b> — obszar techniczny <span class="mono">(1 z 9 pkt)</span></li>
+      <li class="slaby"><b>7</b> — obszar cyfrowy <span class="mono">(1 z 5 pkt)</span></li>
+      <li><b>8</b> — obszar artystyczny <span class="mono">(4 z 8 pkt)</span></li>
+      <li><b>9</b> — obszar ruchowy <span class="mono">(10 z 11 pkt)</span></li>
+      <li><b>DE-R</b> — doświadczenie edukacyjne — raz w roku <span class="mono">(5 — poza numeracją)</span></li>
+      <li><b>WSR</b> — warunki i sposób realizacji <span class="mono">(1 z 11)</span></li>
+      <li><b>Zad.</b> — zadanie przedszkola <span class="mono">(2 z 16)</span></li>
   </ul></div>
-  <div class="callout rule"><span class="cap">Luki w pokryciu</span>Bank dotyka na razie pojedynczych punktów w obszarach: <b>6</b> techniczny, <b>7</b> cyfrowy. To nie brak w podstawie, tylko w twierdzeniach KPOF, z których wyrasta ten bank — te obszary warto uzupełnić w kolejnej wersji arkuszy.</div>
+  <div class="callout rule"><span class="cap">Do uzupełnienia</span><p style="margin:0 0 6px">Poniżej połowy punktów pokrywają obszary: <b>5</b> przyrodniczy (4 z 12), <b>6</b> techniczny (1 z 9), <b>7</b> cyfrowy (1 z 5). To brak w twierdzeniach KPOF, z których wyrasta ten bank, nie w podstawie — te obszary warto uzupełnić w kolejnej wersji arkuszy.</p> <p style="margin:0 0 6px">Kody <b>DE-R.1, DE-R.3, DE-R.4, DE-R.5, DE-R.7</b> nie mają odpowiednika w rozporządzeniu: załącznik nr 1 ma cele wychowania, kompetencje fundamentalne i przekrojowe, sprawczość, 16 zadań przedszkola, osiągnięcia dziecka i 11 pozycji warunków realizacji — <b>nie ma sekcji „doświadczenia edukacyjne”</b>. Te twierdzenia trzeba przypisać do konkretnych punktów.</p></div>
   <details class="rozwin">
   <summary><span class="rozwin-tyt">Pokaż pełną tabelę monitoringu</span>
-    <span class="rozwin-info">79 punktów · 197 odwołań z konspektów</span>
+    <span class="rozwin-info">79 wierszy · 71 z 113 punktów osiągnięć</span>
     <span class="rozwin-strzalka" aria-hidden="true">▾</span></summary>
   <div class="tablewrap"><table>
     <thead>

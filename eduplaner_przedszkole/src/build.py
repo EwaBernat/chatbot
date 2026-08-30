@@ -352,6 +352,7 @@ ul.klista{list-style:none; margin:0; padding:0; display:grid; gap:5px}
 ul.klista-2{grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); gap:5px 24px}
 /* Kody i liczniki nie mogą się łamać — „DE-R” pękało na myślniku. */
 ul.klista-2 b,ul.klista-2 .mono{white-space:nowrap}
+ul.klista-2 li.slaby .mono{color:var(--p3); font-weight:700}
 
 /* Monitoring podstawy — 79 wierszy rozwijanych dopiero na życzenie. */
 details.rozwin{margin-top:16px}
@@ -1063,6 +1064,17 @@ def monitoring_podstawy():
         "WSR": "warunki i sposób realizacji",
         "Zad.": "zadanie przedszkola",
     }
+    # Liczba punktów w każdym obszarze — policzona z załącznika nr 1 do
+    # rozporządzenia (podstawa_2026/podsawa.pdf), razem 113 punktów osiągnięć.
+    # Dzięki temu monitoring pokazuje pokrycie „17 z 20”, a nie samą liczbę
+    # punktów, których bank przypadkiem dotyka.
+    PP_2026_PUNKTY = {"1": 20, "2": 12, "3": 21, "4": 15, "5": 12,
+                      "6": 9, "7": 5, "8": 8, "9": 11}
+    PP_2026_RAZEM = sum(PP_2026_PUNKTY.values())
+    # Załącznik ma 16 zadań przedszkola i 11 pozycji warunków realizacji;
+    # nie ma natomiast sekcji „doświadczenia edukacyjne”, więc kody DE-R
+    # w arkuszach KPOF nie mają odpowiednika w rozporządzeniu.
+    PP_2026_POZA = {"Zad.": 16, "WSR": 11}
     # zbiór punktów PP z twierdzeń, z informacją gdzie występują
     rejestr = {}
     for mod in WERSJE:
@@ -1104,37 +1116,52 @@ def monitoring_podstawy():
         </tr>""")
     n_pkt = len(rejestr)
     n_odw = sum(r["kon"] for r in rejestr.values())
-    # Obszary pokryte szczatkowo — sygnal, ze bank ich jeszcze nie dotyka.
-    cienkie = [f'<b>{k}</b> {OBSZAR_PP_NAZWY[k]}'
-               for k in OBSZAR_PP_NAZWY
-               if 0 < sum(1 for p in rejestr if p.split(".")[0] == k) <= 2]
+    n_osiag = sum(1 for p in rejestr if p.split(".")[0] in PP_2026_PUNKTY)
+    # Obszary pokryte słabiej niż w połowie — tam bank ma realne luki.
+    cienkie = []
+    for k, nazwa in OBSZAR_PP_NAZWY.items():
+        ile = sum(1 for p in rejestr if p.split(".")[0] == k)
+        if ile * 2 < PP_2026_PUNKTY[k]:
+            cienkie.append(f'<b>{k}</b> {nazwa} ({ile} z {PP_2026_PUNKTY[k]})')
+    de_r = sorted(p for p in rejestr if p.startswith("DE-R"))
     # Legenda z liczba punktow w kazdej grupie — od razu widac, gdzie jest ich duzo.
     liczba_w_grupie = {}
     for punkt in rejestr:
         liczba_w_grupie[punkt.split(".")[0]] = liczba_w_grupie.get(punkt.split(".")[0], 0) + 1
     poz = []
     for kod, nazwa in OBSZAR_PP_NAZWY.items():
-        ile = liczba_w_grupie.get(kod, 0)
-        if ile:
-            poz.append(f'      <li><b>{kod}</b> — obszar {esc(nazwa)} '
-                       f'<span class="mono">({ile} pkt)</span></li>')
+        ile, wszystkich = liczba_w_grupie.get(kod, 0), PP_2026_PUNKTY[kod]
+        slaby = ' class="slaby"' if ile * 2 < wszystkich else ""
+        poz.append(f'      <li{slaby}><b>{kod}</b> — obszar {esc(nazwa)} '
+                   f'<span class="mono">({ile} z {wszystkich} pkt)</span></li>')
     for kod, opis in OBSZARY_PP.items():
         ile = liczba_w_grupie.get(kod.rstrip("."), 0)
         if ile:
+            z_ilu = PP_2026_POZA.get(kod)
+            licznik = f"({ile} z {z_ilu})" if z_ilu else f"({ile} — poza numeracją)"
             poz.append(f'      <li><b>{esc(kod)}</b> — {esc(opis)} '
-                       f'<span class="mono">({ile} pkt)</span></li>')
+                       f'<span class="mono">{licznik}</span></li>')
     obszary_html = "\n".join(poz)
-    luki_html = ("" if not cienkie else
-        '  <div class="callout rule"><span class="cap">Luki w pokryciu</span>Bank dotyka na razie '
-        'pojedynczych punktów w obszarach: ' + ", ".join(cienkie) + '. To nie brak w podstawie, '
-        'tylko w twierdzeniach KPOF, z których wyrasta ten bank — te obszary warto uzupełnić '
-        'w kolejnej wersji arkuszy.</div>')
+    luki = []
+    if cienkie:
+        luki.append('Poniżej połowy punktów pokrywają obszary: ' + ", ".join(cienkie)
+                    + '. To brak w twierdzeniach KPOF, z których wyrasta ten bank, '
+                      'nie w podstawie — te obszary warto uzupełnić w kolejnej wersji arkuszy.')
+    if de_r:
+        luki.append('Kody <b>' + ", ".join(esc(k) for k in de_r) + '</b> nie mają odpowiednika '
+                    'w rozporządzeniu: załącznik nr 1 ma cele wychowania, kompetencje '
+                    'fundamentalne i przekrojowe, sprawczość, 16 zadań przedszkola, osiągnięcia '
+                    'dziecka i 11 pozycji warunków realizacji — <b>nie ma sekcji „doświadczenia '
+                    'edukacyjne”</b>. Te twierdzenia trzeba przypisać do konkretnych punktów.')
+    luki_html = ("" if not luki else
+        '  <div class="callout rule"><span class="cap">Do uzupełnienia</span>'
+        + " ".join(f"<p style=\"margin:0 0 6px\">{t}</p>" for t in luki) + '</div>')
     return f"""<section class="sec" id="monitoring">
   <div class="vband">
     <span class="vlet">PP</span>
     <h2>Monitoring realizacji podstawy programowej</h2>
     <div class="vmeta">
-      <span><b>Punkty w banku</b>{n_pkt}</span>
+      <span><b>Pokrycie osiągnięć</b>{n_osiag} z {PP_2026_RAZEM}</span>
       <span><b>Odwołań z konspektów</b>{n_odw}</span>
       <span><b>Wersje</b>A · B · C</span>
       <span><b>Podstawa</b>Dz.U. 2026 poz. 378</span>
@@ -1159,7 +1186,7 @@ def monitoring_podstawy():
 {luki_html}
   <details class="rozwin">
   <summary><span class="rozwin-tyt">Pokaż pełną tabelę monitoringu</span>
-    <span class="rozwin-info">{n_pkt} punktów · {n_odw} odwołań z konspektów</span>
+    <span class="rozwin-info">{n_pkt} wierszy · {n_osiag} z {PP_2026_RAZEM} punktów osiągnięć</span>
     <span class="rozwin-strzalka" aria-hidden="true">▾</span></summary>
   <div class="tablewrap"><table>
     <thead>
