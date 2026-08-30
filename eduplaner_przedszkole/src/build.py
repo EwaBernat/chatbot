@@ -263,6 +263,22 @@ input[type="search"]:focus,.tab:focus-visible,.chipbtn:focus-visible,.navlink:fo
   background-color:#FFF; background-position:center; background-size:contain; background-repeat:no-repeat;
   print-color-adjust:exact; -webkit-print-color-adjust:exact}
 .kafel figcaption{margin-top:8px; font:600 12px/1.35 "DM Sans",Arial,sans-serif; color:var(--ink)}
+/* Odsłuch narracji — tylko na ekranie; w druku karta ma być czysta do wycięcia. */
+.au-pasek{display:flex; flex-wrap:wrap; align-items:center; gap:10px; margin:0 0 14px;
+  background:var(--soft); border:1px solid var(--line); border-radius:12px; padding:9px 12px}
+.au-all,.au-stop,.au-btn{font:700 12px/1 "DM Sans",Arial,sans-serif; border-radius:999px;
+  cursor:pointer; border:1px solid transparent; transition:background .15s,color .15s}
+.au-all{background:var(--accent); color:var(--on-accent); padding:9px 16px}
+.au-all:hover{filter:brightness(1.07)}
+.au-stop{background:transparent; color:var(--muted); border-color:var(--line); padding:9px 14px}
+.au-stop:hover{color:var(--ink); border-color:var(--rowline)}
+.au-info{margin-left:auto; font-size:10.5px; letter-spacing:.1em; text-transform:uppercase;
+  color:var(--violet); font-weight:700}
+.au-btn{display:inline-flex; align-items:center; gap:5px; margin-top:7px; padding:6px 12px;
+  background:#FFF; color:var(--indigo); border-color:var(--line)}
+.au-btn:hover{background:var(--field)}
+.au-btn.gra,.au-all.gra{background:var(--indigo); color:#FFF; border-color:var(--indigo)}
+.kafel.gra{border-color:var(--accent)}
 .kafel .numer{position:absolute; top:-11px; left:-11px; width:30px; height:30px; border-radius:50%;
   background:var(--accent); color:#fff; display:grid; place-items:center;
   font:700 14px/1 "DM Sans",Arial,sans-serif; box-shadow:0 2px 6px rgba(20,12,50,.2)}
@@ -396,6 +412,7 @@ tr.tbanner .bsep{color:var(--accent); padding:0 5px}
   html.print-zal .kcard > .zal-strefa{display:block !important}
   html.print-zal .zal-link{display:none !important}
   .zal{break-inside:avoid; page-break-inside:avoid}
+  .au-pasek,.au-btn{display:none !important}
   html.print-konspekt{--void:0}
   html.print-konspekt .kvar{display:none} html.print-konspekt .kvar.on{display:flex}
   html.print-konspekt .kcele,html.print-konspekt .kdwie{grid-template-columns:1fr 1fr !important}
@@ -528,6 +545,48 @@ document.querySelectorAll('td.haskon').forEach(td=>{
 document.querySelectorAll('[data-close]').forEach(b=>b.addEventListener('click',zamknijKonspekty));
 document.querySelectorAll('.kmodal').forEach(m=>m.addEventListener('click',e=>{if(e.target===m)zamknijKonspekty();}));
 document.addEventListener('keydown',e=>{if(e.key==='Escape')zamknijKonspekty();});
+/* Odtwarzanie narracji do historyjki obrazkowej.
+   Jedna ścieżka naraz; sekwencja przechodzi do kolejnego nagrania po zakończeniu
+   poprzedniego, a kafelek aktualnie czytanej sceny dostaje obwódkę. */
+(function(){
+  let kolejka=[], krok=0, biezacy=null, zrodlo=null;
+  const podswietl=(id,wl)=>{
+    document.querySelectorAll(`.au-btn[data-au="${id}"]`).forEach(b=>{
+      b.classList.toggle('gra',wl); b.closest('.kafel')?.classList.toggle('gra',wl);
+    });
+  };
+  function stop(){
+    if(biezacy){biezacy.pause(); biezacy.currentTime=0; podswietl(biezacy.id,false);}
+    document.querySelectorAll('.au-all.gra').forEach(b=>b.classList.remove('gra'));
+    biezacy=null; zrodlo=null; kolejka=[]; krok=0;
+  }
+  function graj(id){
+    const a=document.getElementById(id); if(!a) return;
+    if(biezacy&&biezacy!==a){biezacy.pause(); biezacy.currentTime=0; podswietl(biezacy.id,false);}
+    biezacy=a; podswietl(id,true); a.currentTime=0;
+    a.play().catch(()=>{});
+    a.onended=()=>{
+      podswietl(id,false);
+      if(krok<kolejka.length){graj(kolejka[krok++]);}
+      else{zrodlo?.classList.remove('gra'); zrodlo=null; biezacy=null;}
+    };
+  }
+  document.querySelectorAll('.au-btn').forEach(b=>b.addEventListener('click',()=>{
+    const id=b.dataset.au;
+    if(biezacy&&biezacy.id===id&&!biezacy.paused){stop(); return;}
+    stop(); graj(id);
+  }));
+  document.querySelectorAll('.au-all').forEach(b=>b.addEventListener('click',()=>{
+    if(zrodlo===b){stop(); return;}
+    stop(); zrodlo=b; b.classList.add('gra');
+    kolejka=b.dataset.auSeq.split(','); krok=1; graj(kolejka[0]);
+  }));
+  document.querySelectorAll('.au-stop').forEach(b=>b.addEventListener('click',stop));
+  /* Druk i zamknięcie konspektu wyciszają narrację. */
+  window.addEventListener('beforeprint',stop);
+  document.addEventListener('keydown',e=>{if(e.key==='Escape') stop();});
+})();
+
 document.querySelectorAll('[data-printzal]').forEach(b=>b.addEventListener('click',()=>{
   const strefa=document.getElementById(b.dataset.printzal).querySelector('.zal-strefa');
   strefa.style.display='block';

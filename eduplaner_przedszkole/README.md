@@ -228,3 +228,21 @@ Poziom I — 1–5 (pełny łuk: problem → działanie → rozwiązanie).
 
 Ponowne wygenerowanie PDF-u z załącznikami: `node src/generuj_zalaczniki_pdf.mjs`
 (wymaga zainstalowanego pakietu `playwright`).
+
+## Narracja (dubbing PL)
+
+Historyjka „Jak rośnie kwiatek" ma pełną narrację po polsku, nagraną
+sklonowanym głosem nauczycielki (ElevenLabs, głos `Ewa-głos_do skils`,
+model `eleven_v3` — przyjmuje wskazówki aktorskie w nawiasach kwadratowych,
+dzięki czemu ton jest bajkowy, a nie lektorski).
+
+Siedem ścieżek w `assets/audio_c1/`: wprowadzenie, pięć scen, zakończenie
+z pytaniami otwartymi. Teksty i czasy trwania trzyma słownik `NARRACJA`
+w `src/zalacznik_c1.py` — to jedyne miejsce do edycji, jeśli nagrania
+zostaną wymienione.
+
+W HTML nagrania są osadzone jako `<audio>` z data-URI, po jednym elemencie
+na ścieżkę (wspólne dla trzech kart). Każdy kafelek ma przycisk „Posłuchaj",
+a pasek nad siatką odtwarza sceny danej karty po kolei — z wprowadzeniem
+na początku i pytaniami na końcu — podświetlając obrazek aktualnie czytany.
+Wydruk i klawisz Esc wyciszają narrację; w druku przyciski są ukryte.
