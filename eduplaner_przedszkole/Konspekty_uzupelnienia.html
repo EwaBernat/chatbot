@@ -514,6 +514,9 @@ body{background:var(--paper)}
 .spis a:hover{border-color:var(--accent); color:var(--accent)}
 .spis a b{color:var(--violet); margin-right:5px}
 .spis a:hover b{color:var(--accent)}
+.spis a .ma{color:var(--accent); font-size:9px; vertical-align:2px; margin-left:5px}
+.spis-legenda{font-size:12px; color:var(--muted); margin:2px 0 0}
+.spis-legenda i{color:var(--accent); font-style:normal; font-size:9px; vertical-align:2px}
 .wstep{max-width:62ch; color:var(--muted); font-size:13px; line-height:1.65; margin:10px 0 0}
 @media print{
   .spis,.wstep,.dochead,.twotone{display:none !important}
@@ -571,9 +574,8 @@ body{background:var(--paper)}
 <div class="twotone"><i></i><i></i></div>
 
 <p class="wstep">48 konspektów — komplet dla tej grupy wiekowej, w kolejności obszarów.
-Każdy pokazuje wszystkie trzy poziomy wsparcia naraz, a w sekcji VII ma kartę pomocy
-dydaktycznej ze zdjęciem i poleceniem nagranym głosem nauczycielki. Przy druku każdy
-konspekt zaczyna nową stronę A4.</p>
+Każdy pokazuje wszystkie trzy poziomy wsparcia naraz. Konspekty z kropką w spisie mają w sekcji VII gotowy materiał do wydruku.
+Przy druku każdy konspekt zaczyna nową stronę A4.</p>
 
 <nav class="spis" aria-label="Spis konspektów">
   <a href="#kon-U-1"><b>U1-01</b>Skarbonka naszej grupy</a>
@@ -586,12 +588,12 @@ konspekt zaczyna nową stronę A4.</p>
   <a href="#kon-U-8"><b>U3-08</b>Co by było, gdyby</a>
   <a href="#kon-U-9"><b>U3-09</b>Znaki, które mówią</a>
   <a href="#kon-U-10"><b>U3-10</b>English corner — nasze przedmioty</a>
-  <a href="#kon-U-11"><b>U3-11</b>Hello, how are you?</a>
+  <a href="#kon-U-11"><b>U3-11</b>Hello, how are you? <span class="ma" title="ma materiał do wydruku">●</span></a>
   <a href="#kon-U-12"><b>U3-12</b>Śpiewamy po angielsku</a>
   <a href="#kon-U-13"><b>U4-13</b>Detektywi kłopotów</a>
   <a href="#kon-U-14"><b>U4-14</b>Próba i poprawka</a>
   <a href="#kon-U-15"><b>U4-15</b>Liczmany w akcji</a>
-  <a href="#kon-U-16"><b>U4-16</b>Ile nas jest — wykres grupy</a>
+  <a href="#kon-U-16"><b>U4-16</b>Ile nas jest — wykres grupy <span class="ma" title="ma materiał do wydruku">●</span></a>
   <a href="#kon-U-17"><b>U4-17</b>Prowadzę cię słowem</a>
   <a href="#kon-U-18"><b>U4-18</b>Figury wokół nas</a>
   <a href="#kon-U-19"><b>U4-19</b>Idziemy na zakupy</a>
@@ -620,11 +622,13 @@ konspekt zaczyna nową stronę A4.</p>
   <a href="#kon-U-42"><b>U7-42</b>Reklama a prawda</a>
   <a href="#kon-U-43"><b>U8-43</b>Nieoczywiste połączenia</a>
   <a href="#kon-U-44"><b>U8-44</b>Orkiestra z odzysku</a>
-  <a href="#kon-U-45"><b>U8-45</b>Głośno, cicho, wesoło, smutno</a>
+  <a href="#kon-U-45"><b>U8-45</b>Głośno, cicho, wesoło, smutno <span class="ma" title="ma materiał do wydruku">●</span></a>
   <a href="#kon-U-46"><b>U8-46</b>Słowniczek sztuki</a>
   <a href="#kon-U-47"><b>U9-47</b>Tor zmysłów</a>
   <a href="#kon-U-48"><b>U9-48</b>Nasze zawody sportowe</a>
 </nav>
+<p class="spis-legenda"><i>●</i> — konspekt ma w sekcji VII gotowy materiał do wydruku
+(3 z 48).</p>
 
 <div class="kmodal" id="kon-U-1" role="dialog" aria-modal="true" aria-label="Konspekt: Skarbonka naszej grupy">
   <div class="kcard">

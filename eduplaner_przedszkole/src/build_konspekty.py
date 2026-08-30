@@ -18,7 +18,7 @@ import os
 
 from build import (CSS, LOGO_URI, KONSPEKTY, WERSJE, esc,
                    render_konspekty_modale, style_pomocy, audio_pomocy)
-from karty_druk import style_kart
+from karty_druk import ma_karty, style_kart
 
 KORZEN = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
@@ -48,6 +48,9 @@ body{background:var(--paper)}
 .spis a:hover{border-color:var(--accent); color:var(--accent)}
 .spis a b{color:var(--violet); margin-right:5px}
 .spis a:hover b{color:var(--accent)}
+.spis a .ma{color:var(--accent); font-size:9px; vertical-align:2px; margin-left:5px}
+.spis-legenda{font-size:12px; color:var(--muted); margin:2px 0 0}
+.spis-legenda i{color:var(--accent); font-style:normal; font-size:9px; vertical-align:2px}
 .wstep{max-width:62ch; color:var(--muted); font-size:13px; line-height:1.65; margin:10px 0 0}
 @media print{
   .spis,.wstep,.dochead,.twotone{display:none !important}
@@ -93,8 +96,21 @@ def dokument(mod):
             if not K:
                 continue
             ile += 1
+            # kropka w spisie: konspekt niesie materiał do wydruku. Bez niej
+            # nauczyciel musi otwierać kolejne konspekty, żeby sprawdzić, gdzie
+            # coś jest — a to była pierwsza rzecz, o którą pytano po dodaniu arkuszy.
+            znak = ' <span class="ma" title="ma materiał do wydruku">●</span>' if ma_karty(K["nr"]) else ""
             spis.append(f'  <a href="#kon-{w["kod"]}-{it["n"]}">'
-                        f'<b>{esc(K["nr"])}</b>{esc(K["tytul"])}</a>')
+                        f'<b>{esc(K["nr"])}</b>{esc(K["tytul"])}{znak}</a>')
+
+    z_materialem = sum(1 for (wk, _), K in KONSPEKTY.items()
+                       if wk == w["kod"] and ma_karty(K["nr"]))
+    zdanie_o_pomocach = (
+        "W sekcji VII znajdziesz kartę pomocy dydaktycznej ze zdjęciem i poleceniem "
+        "nagranym głosem nauczycielki, a przy części konspektów także arkusze "
+        "do wydrukowania i wycięcia."
+        if WIEK_POMOCY.get(w["kod"]) else
+        "Konspekty z kropką w spisie mają w sekcji VII gotowy materiał do wydruku.")
 
     # W banku konspekt pokazuje jeden poziom — ten, który nauczyciel kliknął
     # w tabeli. Zeszyt pokazuje wszystkie trzy naraz, więc nagłówek o „klikniętym
@@ -129,13 +145,14 @@ def dokument(mod):
 <div class="twotone"><i></i><i></i></div>
 
 <p class="wstep">{ile} konspektów — komplet dla tej grupy wiekowej, w kolejności obszarów.
-Każdy pokazuje wszystkie trzy poziomy wsparcia naraz, a w sekcji VII ma kartę pomocy
-dydaktycznej ze zdjęciem i poleceniem nagranym głosem nauczycielki. Przy druku każdy
-konspekt zaczyna nową stronę A4.</p>
+Każdy pokazuje wszystkie trzy poziomy wsparcia naraz. {zdanie_o_pomocach}
+Przy druku każdy konspekt zaczyna nową stronę A4.</p>
 
 <nav class="spis" aria-label="Spis konspektów">
 {chr(10).join(spis)}
 </nav>
+<p class="spis-legenda"><i>●</i> — konspekt ma w sekcji VII gotowy materiał do wydruku
+({z_materialem} z {ile}).</p>
 
 {tresc}
 

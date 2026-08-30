@@ -514,6 +514,9 @@ body{background:var(--paper)}
 .spis a:hover{border-color:var(--accent); color:var(--accent)}
 .spis a b{color:var(--violet); margin-right:5px}
 .spis a:hover b{color:var(--accent)}
+.spis a .ma{color:var(--accent); font-size:9px; vertical-align:2px; margin-left:5px}
+.spis-legenda{font-size:12px; color:var(--muted); margin:2px 0 0}
+.spis-legenda i{color:var(--accent); font-style:normal; font-size:9px; vertical-align:2px}
 .wstep{max-width:62ch; color:var(--muted); font-size:13px; line-height:1.65; margin:10px 0 0}
 @media print{
   .spis,.wstep,.dochead,.twotone{display:none !important}
@@ -636,38 +639,37 @@ body{background:var(--paper)}
 <div class="twotone"><i></i><i></i></div>
 
 <p class="wstep">44 konspektów — komplet dla tej grupy wiekowej, w kolejności obszarów.
-Każdy pokazuje wszystkie trzy poziomy wsparcia naraz, a w sekcji VII ma kartę pomocy
-dydaktycznej ze zdjęciem i poleceniem nagranym głosem nauczycielki. Przy druku każdy
-konspekt zaczyna nową stronę A4.</p>
+Każdy pokazuje wszystkie trzy poziomy wsparcia naraz. W sekcji VII znajdziesz kartę pomocy dydaktycznej ze zdjęciem i poleceniem nagranym głosem nauczycielki, a przy części konspektów także arkusze do wydrukowania i wycięcia.
+Przy druku każdy konspekt zaczyna nową stronę A4.</p>
 
 <nav class="spis" aria-label="Spis konspektów">
   <a href="#kon-B-1"><b>B1-01</b>Detektywi opowieści</a>
   <a href="#kon-B-2"><b>B1-02</b>Fabryka rytmów</a>
   <a href="#kon-B-3"><b>B1-03</b>Sklep pod piątką</a>
-  <a href="#kon-B-4"><b>B1-04</b>Kwadrans badacza</a>
+  <a href="#kon-B-4"><b>B1-04</b>Kwadrans badacza <span class="ma" title="ma materiał do wydruku">●</span></a>
   <a href="#kon-B-5"><b>B1-05</b>Polowanie na litery</a>
   <a href="#kon-B-6"><b>B2-06</b>Instrukcja mistrza budowy</a>
-  <a href="#kon-B-7"><b>B2-07</b>Most między zajęciami</a>
-  <a href="#kon-B-8"><b>B2-08</b>Kolejka po skarb</a>
+  <a href="#kon-B-7"><b>B2-07</b>Most między zajęciami <span class="ma" title="ma materiał do wydruku">●</span></a>
+  <a href="#kon-B-8"><b>B2-08</b>Kolejka po skarb <span class="ma" title="ma materiał do wydruku">●</span></a>
   <a href="#kon-B-9"><b>B2-09</b>Moje stanowisko pracy</a>
   <a href="#kon-B-10"><b>B2-10</b>Najpierw próbuję, potem proszę</a>
   <a href="#kon-B-11"><b>B3-11</b>Radio Przedszkole</a>
   <a href="#kon-B-12"><b>B3-12</b>Kronika dnia</a>
-  <a href="#kon-B-13"><b>B3-13</b>Rozmowa przy stoliku</a>
+  <a href="#kon-B-13"><b>B3-13</b>Rozmowa przy stoliku <span class="ma" title="ma materiał do wydruku">●</span></a>
   <a href="#kon-B-14"><b>B3-14</b>Rymowana kuchnia</a>
-  <a href="#kon-B-15"><b>B3-15</b>Teatr bez słów</a>
+  <a href="#kon-B-15"><b>B3-15</b>Teatr bez słów <span class="ma" title="ma materiał do wydruku">●</span></a>
   <a href="#kon-B-16"><b>B4-16</b>Olimpiada czterech ruchów</a>
   <a href="#kon-B-17"><b>B4-17</b>Linoskoczkowie</a>
   <a href="#kon-B-18"><b>B4-18</b>Pracownia nożyczek</a>
   <a href="#kon-B-19"><b>B4-19</b>Szlaczki na ścianie</a>
   <a href="#kon-B-20"><b>B4-20</b>Laboratorium przelewania</a>
-  <a href="#kon-B-21"><b>B5-21</b>Detektyw czystych rąk</a>
+  <a href="#kon-B-21"><b>B5-21</b>Detektyw czystych rąk <span class="ma" title="ma materiał do wydruku">●</span></a>
   <a href="#kon-B-22"><b>B5-22</b>Wyścig z suwakiem</a>
   <a href="#kon-B-23"><b>B5-23</b>Restauracja pod dobrą łyżką</a>
   <a href="#kon-B-24"><b>B5-24</b>Strażnicy bezpieczeństwa</a>
   <a href="#kon-B-25"><b>B5-25</b>Barometr energii</a>
   <a href="#kon-B-26"><b>B6-26</b>Zdjęcie przed i po</a>
-  <a href="#kon-B-27"><b>B6-27</b>Dyżurni tygodnia</a>
+  <a href="#kon-B-27"><b>B6-27</b>Dyżurni tygodnia <span class="ma" title="ma materiał do wydruku">●</span></a>
   <a href="#kon-B-28"><b>B6-28</b>Umowa o zabawki</a>
   <a href="#kon-B-29"><b>B6-29</b>Pakowanie na wyprawę</a>
   <a href="#kon-B-30"><b>B7-30</b>Zaproszenie do zabawy</a>
@@ -686,6 +688,8 @@ konspekt zaczyna nową stronę A4.</p>
   <a href="#kon-B-43"><b>B9-43</b>Widzowie i krytycy</a>
   <a href="#kon-B-44"><b>B9-44</b>To ja — imię i nazwisko</a>
 </nav>
+<p class="spis-legenda"><i>●</i> — konspekt ma w sekcji VII gotowy materiał do wydruku
+(7 z 44).</p>
 
 <div class="kmodal" id="kon-B-1" role="dialog" aria-modal="true" aria-label="Konspekt: Detektywi opowieści">
   <div class="kcard">
