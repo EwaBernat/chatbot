@@ -660,6 +660,124 @@ ARKUSZE = {
    etykiety=[("", "#E8695A"), ("", "#7FA8C9"), ("", "#8FB79A"), ("", "#F0C862"),
              ("", "#C9A0C0"), ("", "#E0A05C"), ("", "#8FA9B7"), ("", "#D2B48C")]),
  ],
+ "C1-01": [dict(
+   tytul="Kartoniki łączników",
+   kp="Wydrukuj i wytnij",
+   wstep="Cztery słowa, które zamieniają wyliczankę zdarzeń w opowieść. Dziecko kładzie "
+         "kartonik przed każdym zdaniem i mówi od niego. Czwarty — „dlatego” — dokładaj "
+         "dopiero wtedy, gdy trzy pierwsze wchodzą bez przypominania; to on jest tu "
+         "właściwym celem.",
+   rodzaj="etykiety", kolumny=4,
+   etykiety=[("NAJPIERW", "#8FB79A"), ("POTEM", "#7FA8C9"),
+             ("NA KOŃCU", "#F0C862"), ("DLATEGO", "#E8695A")]),
+ ],
+
+ "C1-04": [dict(
+   tytul="Karty cyfr 1–10",
+   kp="Wydrukuj i wytnij",
+   wstep="Cyfry do dokładania po przeliczeniu, nie zamiast niego. Dziecko najpierw odlicza "
+         "żetony, dopiero potem kładzie kartę z cyfrą — w tej kolejności cyfra opisuje "
+         "czynność, a nie ją zastępuje.",
+   rodzaj="etykiety", kolumny=5,
+   etykiety=[("1", "#8FB79A"), ("2", "#7FA8C9"), ("3", "#F0C862"), ("4", "#E8695A"),
+             ("5", "#C9A0C0"), ("6", "#8FB79A"), ("7", "#7FA8C9"), ("8", "#F0C862"),
+             ("9", "#E8695A"), ("10", "#C9A0C0")]),
+ ],
+
+ "C2-06": [dict(
+   tytul="Tablica planu — trzy pola",
+   kp="Wydrukuj w formacie A3",
+   wstep="Trzy pola na etapy zadania i miejsce na klips przy każdym. Dziecko układa plan "
+         "przed rozpoczęciem pracy i odhacza etapy samo. Nie wpisuj etapów za dziecko — "
+         "wtedy plan wraca do Pani głowy, a miał zostać w jego.",
+   rodzaj="pola",
+   pola=[("Krok 1 — najpierw", 120), ("Krok 2 — potem", 120), ("Krok 3 — na końcu", 120)]),
+ ],
+
+ "C2-09": [dict(
+   tytul="Karty dni tygodnia",
+   kp="Wydrukuj i powieś przy kalendarzu",
+   wstep="Siedem kart w stałych kolorach — ten sam kolor dnia przez cały rok. Sześciolatek "
+         "zapamiętuje kolejność szybciej po kolorze niż po nazwie, a nazwa dochodzi sama "
+         "przy codziennym wskazywaniu.",
+   rodzaj="etykiety", kolumny=4,
+   etykiety=[("PONIEDZIAŁEK", "#E8695A"), ("WTOREK", "#E0A05C"), ("ŚRODA", "#F0C862"),
+             ("CZWARTEK", "#8FB79A"), ("PIĄTEK", "#7FA8C9"), ("SOBOTA", "#C9A0C0"),
+             ("NIEDZIELA", "#8FA9B7")]),
+  dict(
+   tytul="Oś czasu — wczoraj, dziś, jutro",
+   wstep="Trzy pola do wypełniania codziennie: zdjęcie z wczoraj, plan na dziś, zapowiedź "
+         "na jutro. Bez zdjęcia z wczoraj „wczoraj” zostaje dla dziecka słowem, a nie "
+         "wspomnieniem — to pole jest tu najważniejsze.",
+   rodzaj="pola",
+   pola=[("Wczoraj", 110), ("Dziś", 110), ("Jutro", 110)]),
+ ],
+
+ "C3-14": [dict(
+   tytul="Tabliczki do głosowania",
+   kp="Wydrukuj po jednej na dziecko",
+   wstep="Tak i nie na jednym kartoniku, po obu stronach — dziecko obraca tabliczkę zamiast "
+         "wybierać z dwóch. Głosowanie odbywa się przed rozmową, a nie po niej: chodzi "
+         "o zdanie własne, nie o powtórzenie po koledze.",
+   rodzaj="etykiety", kolumny=2,
+   etykiety=[("TAK", "#8FB79A"), ("NIE", "#E8695A")]),
+  dict(
+   tytul="Tablica argumentów",
+   kp="Wydrukuj w formacie A3",
+   wstep="Dwie kolumny na argumenty za i przeciw, zapisywane przez Panią w trakcie debaty. "
+         "Przeczytajcie je na koniec w całości — sześciolatek wtedy słyszy, że obie strony "
+         "miały powody, i to jest cała nauka z tego konspektu.",
+   rodzaj="tabela",
+   naglowki=["Temat debaty", "Argumenty za", "Argumenty przeciw"],
+   wiersze=["", "", "", "", "", ""]),
+ ],
+
+ "C7-33": [dict(
+   tytul="Karty sposobów pomagania",
+   wstep="Trzy sposoby do wyboru: podpowiem, podam, pocieszę. Dziecko wybiera kartę, zanim "
+         "zacznie pomagać — sam wybór jest tu ćwiczeniem, bo bez niego sześciolatek pomaga "
+         "przez zrobienie za kolegę.",
+   rodzaj="karty", kolumny=3,
+   symbole=["gest_mowie", "polecenie_daj", "prosze_pomoc"]),
+ ],
+
+ "C8-37": [dict(
+   tytul="Tablica reguł w obrazkach",
+   kp="Wydrukuj i powieś przy stole do gry",
+   wstep="Trzy reguły, do których odwołuje się sędzia-dziecko: czekam na kolej, słucham "
+         "rozstrzygnięcia, gratuluję. Wskazywanie tablicy zamiast własnego zdania jest "
+         "warunkiem, żeby dziecko-sędzia było w ogóle słuchane.",
+   rodzaj="tablica", kolumny=3,
+   symbole=["gest_czekam", "gest_slucham", "gest_brawo"]),
+  dict(
+   tytul="Tabela turniejowa",
+   kp="Wydrukuj na turniej",
+   wstep="Kolumna „fair play” jest tu ważniejsza od kolumny z wynikiem i tak ją traktujcie "
+         "przy podsumowaniu. Medale przyznają dzieci, nie Pani.",
+   rodzaj="tabela",
+   naglowki=["Zespół", "Gra", "Wynik", "Fair play"],
+   wiersze=["", "", "", "", "", ""]),
+ ],
+
+ "C9-43": [dict(
+   tytul="Etykiety na pojemniki do segregacji",
+   kp="Wydrukuj i naklej na pojemniki",
+   wstep="Kolory frakcji zgodne z systemem krajowym — ten sam, który dziecko widzi w domu "
+         "i na ulicy. Etykieta w przedszkolu w innym kolorze niż w domu uczy dwóch "
+         "sprzecznych rzeczy naraz.",
+   rodzaj="etykiety", kolumny=4,
+   etykiety=[("PAPIER", "#7FA8C9"), ("SZKŁO", "#8FB79A"),
+             ("METALE I TWORZYWA", "#F0C862"), ("BIO", "#8B6B4A")]),
+  dict(
+   tytul="Karta zużycia wody",
+   kp="Wydrukuj na tydzień",
+   wstep="Zapis odczytów z licznika przy umywalce. Liczba robi tu całą robotę — rozmowa "
+         "o oszczędzaniu bez odczytu jest dla sześciolatka apelem, a z odczytem staje się "
+         "obserwacją.",
+   rodzaj="tabela",
+   naglowki=["Dzień", "Odczyt rano", "Odczyt po południu", "Co zmieniliśmy"],
+   wiersze=["poniedziałek", "wtorek", "środa", "czwartek", "piątek"]),
+ ],
 }
 
 
