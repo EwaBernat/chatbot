@@ -258,7 +258,10 @@ input[type="search"]:focus,.tab:focus-visible,.chipbtn:focus-visible,.navlink:fo
 .zal-siatka.k2{grid-template-columns:1fr 1fr}
 .zal-siatka.k3{grid-template-columns:1fr 1fr 1fr}
 .kafel{position:relative; margin:0; background:#FFF; border:2px dashed #E4B9D2; border-radius:16px; padding:10px 10px 8px; text-align:center}
-.kafel svg{width:100%; height:auto; border-radius:11px; display:block}
+/* Bez skrótu `background` — zresetowałby background-image ustawiany przez klasy .sc1–.sc5. */
+.kafel .obraz{display:block; width:100%; aspect-ratio:5/4; border-radius:11px;
+  background-color:#FFF; background-position:center; background-size:contain; background-repeat:no-repeat;
+  print-color-adjust:exact; -webkit-print-color-adjust:exact}
 .kafel figcaption{margin-top:8px; font:600 12px/1.35 "DM Sans",Arial,sans-serif; color:var(--ink)}
 .kafel .numer{position:absolute; top:-11px; left:-11px; width:30px; height:30px; border-radius:50%;
   background:var(--accent); color:#fff; display:grid; place-items:center;

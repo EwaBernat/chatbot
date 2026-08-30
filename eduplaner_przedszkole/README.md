@@ -208,3 +208,23 @@ Rysunki są wektorowe (SVG generowane w `src/zalacznik_c1.py`), więc drukują s
 ostro w każdej skali. Każda historyjka zajmuje jedną stronę A4; obrazki mają
 numery, podpisy i przerywane ramki do wycięcia. W konspekcie C1-01 doszła
 sekcja VII „Załączniki” z przyciskiem **Drukuj załączniki Z1–Z3 (A4)**.
+
+## Pomoce dydaktyczne — ilustracje
+
+Sceny historyjki obrazkowej „Jak rośnie kwiatek" (załączniki Z1–Z3 do konspektu
+C1-01, wersja C · 6 lat) powstały w generatorze obrazów (model
+`gemini-2.5-flash-image`) w jednym, spójnym stylu: ta sama bohaterka, ta sama
+pastelowa paleta, białe tło wokół zaokrąglonej sceny.
+
+* źródła 1344×768 px — `assets/hist_c1/hist_01..05.png`
+* kadry do druku 640 px, paleta 96 kolorów — `assets/hist_c1/kadr_01..05.png`
+
+Kadry są osadzane w HTML jako data-URI w klasach CSS `.sc1`–`.sc5`
+(`src/zalacznik_c1.py`), dzięki czemu każdy obrazek trafia do pliku dokładnie
+raz, mimo że powtarza się na trzech kartach.
+
+Sekwencje: Poziom III — sceny 1, 2, 5 · Poziom II — 1, 2, 4, 5 ·
+Poziom I — 1–5 (pełny łuk: problem → działanie → rozwiązanie).
+
+Ponowne wygenerowanie PDF-u z załącznikami: `node src/generuj_zalaczniki_pdf.mjs`
+(wymaga zainstalowanego pakietu `playwright`).
