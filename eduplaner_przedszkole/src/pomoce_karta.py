@@ -22,8 +22,9 @@ ZESTAWY = []
 class Zestaw:
     """Jeden rejestr pomocy: treść + katalogi mediów + etykieta wieku."""
 
-    def __init__(self, pomoce, katalog_foto, katalog_audio, wiek):
+    def __init__(self, pomoce, katalog_foto, katalog_audio, wiek, dokument=""):
         self.pomoce = pomoce
+        self.dokument = dokument        # plik, w którym karty tego zestawu są wydane
         self.foto = _KORZEN / "assets" / katalog_foto
         self.audio = _KORZEN / "assets" / katalog_audio
         self.wiek = wiek
@@ -50,7 +51,7 @@ class Zestaw:
         lista = "\n".join(f'      <li>{esc(x)}</li>' for x in przygotuj)
         krok = "\n".join(f'      <li><span class="pk-n">{i}</span>{esc(x)}</li>'
                          for i, x in enumerate(kroki, 1))
-        return f'''<section class="zal pomoc" data-poziom="p1">
+        return f'''<section class="zal pomoc" id="pom-{kod}" data-poziom="p1">
   <header class="zal-head">
     <span class="mark" role="img" aria-label="Logo PCTP"></span>
     <div>
@@ -104,3 +105,17 @@ def pomoce_dla(nr, esc):
             if dane[0] == nr:
                 return z.karta(kod, esc)
     return ""
+
+
+def wskaz_pomoc(nr):
+    """Gdzie szukać pomocy do konspektu: (kod, tytuł, wiek, plik) albo None.
+
+    Bank celów sam kart nie nosi — ważą tyle, że dokument przestawał się
+    otwierać płynnie. Zamiast tego konspekt wskazuje kartę w zeszycie pomocy
+    dla swojej grupy wiekowej.
+    """
+    for z in ZESTAWY:
+        for kod, dane in z.pomoce.items():
+            if dane[0] == nr:
+                return kod, dane[1], z.wiek, z.dokument
+    return None

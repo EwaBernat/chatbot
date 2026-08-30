@@ -33,7 +33,7 @@ from konspekty_6_d9 import KONSPEKTY_6_D9
 from zalacznik_c1 import zalaczniki_c1
 import pomoce_a          # noqa: F401 — rejestruje zestaw pomocy 3–4 lata
 import pomoce_b          # noqa: F401 — rejestruje zestaw pomocy 5 lat
-from pomoce_karta import pomoce_dla, style_pomocy, audio_pomocy
+from pomoce_karta import wskaz_pomoc
 from konspekty_34_d4 import KONSPEKTY_D4
 from konspekty_34_d6 import KONSPEKTY_D6
 from konspekty_34_d8 import KONSPEKTY_D8
@@ -971,18 +971,17 @@ def render_konspekty_modale():
         m1 = "\n".join(f'          <li>{esc(x)}</li>' for x in K.get("mod1", []))
         kid = f"kon-{wk}-{nr}"
         zal = ""
-        pomoc = pomoce_dla(K["nr"], esc)
-        if pomoc:
+        wsk = wskaz_pomoc(K["nr"])
+        if wsk:
+            pkod, ptytul, pwiek, pplik = wsk
             zal = f"""    <div class="ksec"><span class="sq">VII</span><h4>Pomoc dydaktyczna</h4><span class="line"></span>
-      <span class="meta">zdjęcie poglądowe · polecenie głosem nauczycielki</span></div>
-    <p class="kkurs">Jak ma wyglądać pomoc, co przygotować i jak jej użyć w trzech krokach.
-    Karta jest gotowa do wydruku A4.</p>
+      <span class="meta">karta A4 · zdjęcie poglądowe · polecenie głosem nauczycielki</span></div>
+    <p class="kkurs">Do tego konspektu jest gotowa karta pomocy: „{esc(ptytul)}” — jak ma wyglądać,
+    co przygotować i jak jej użyć w trzech krokach. Karty wydaliśmy osobno, w zeszycie
+    <b>Pomoce dydaktyczne · {esc(pwiek)}</b>, żeby bank celów otwierał się od razu.</p>
     <div class="zal-akcje">
-      <button class="zal-link zal-pokaz" data-pokazzal="{kid}" aria-expanded="false">Pokaż pomoc i posłuchaj polecenia</button>
-      <button class="zal-link" data-printzal="{kid}">Drukuj kartę pomocy (A4)</button>
-    </div>
-    <div class="zal-strefa" style="display:none">
-{pomoc}
+      <a class="zal-link" href="{pplik}#pom-{pkod}" target="_blank"
+         rel="noopener">Otwórz kartę „{esc(ptytul)}”</a>
     </div>
 """
         if K["nr"] == "C1-01":
@@ -1320,7 +1319,9 @@ def build():
     return f"""<title>Bank Celów SMART KPOF</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,700&family=JetBrains+Mono:wght@400;700&display=swap">
+<link rel="stylesheet" media="print" onload="this.media='all'"
+      href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,700&family=JetBrains+Mono:wght@400;700&display=swap">
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,700&family=JetBrains+Mono:wght@400;700&display=swap"></noscript>
 <style>:root{{--logo:url({LOGO_URI})}}
 {CSS}</style>
 
@@ -1433,7 +1434,6 @@ def build():
 </div>
 
 </div>
-{style_pomocy()}{audio_pomocy()}
 {render_konspekty_modale()}
 <script>{JS}</script>
 """

@@ -177,3 +177,8 @@ konfiguracja.json
 # oryginaly nagran przed kompresja — w repozytorium trzymamy wersje 48 kbps
 assets/audio_*/*.orig.mp3
 eduplaner_przedszkole/assets/audio_*/*.orig.mp3
+
+# zrodlowe PNG-i pomocy — w repozytorium trzymamy tylko wersje k_*.jpg,
+# ktore wchodza do dokumentow; oryginaly zostaja lokalnie do ewentualnego
+# przeliczenia (python3 src/kompresuj_media.py --przelicz)
+eduplaner_przedszkole/assets/pomoce_*/*.png

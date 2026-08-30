@@ -96,6 +96,17 @@ Miejsce w kodzie: `OBSZAR_PP_NAZWY` w `monitoring_podstawy()`
 wersja U z 48 celami uzupełniającymi domykającymi podstawę do 113/113,
 130 konspektów, pomoce dydaktyczne. Szczegóły: `eduplaner_przedszkole/README.md`.
 
+**Pomoce dydaktyczne mieszkają w osobnych dokumentach**, nie w banku:
+`Pomoce_dydaktyczne_3-4_lata.html` (42 karty) i `Pomoce_dydaktyczne_5_lat.html`
+(44 karty). Karty niosą zdjęcie i nagranie, więc razem z bankiem dawały plik na
+15 MB, który długo się otwierał. Bank waży teraz 3,6 MB i tylko wskazuje kartę.
+Treść kart: `src/pomoce_a.py`, `src/pomoce_b.py`; układ i osadzanie mediów:
+`src/pomoce_karta.py`; generator zeszytów: `src/build_pomoce.py`.
+
+Arkusz fontów w każdym dokumencie ładujemy **nieblokująco**
+(`media="print" onload="this.media='all'"`) — inaczej przy niedostępnym CDN
+przeglądarka trzyma biały ekran kilkanaście sekund.
+
 Twierdzenia z arkuszy KPOF i cele uzupełniające trzymamy **osobno** — wymyślonych
 celów nie dopisujemy do jej kwestionariuszy.
 

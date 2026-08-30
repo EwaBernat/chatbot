@@ -14,6 +14,8 @@ do wykorzystania w IPET i PEWS.
 |---|---|
 | `Bank_celow_SMART_KPOF.html` | druk KC-1: układ tabelaryczny (styl Kącika Dyrektora), zakładki wersji, filtr kolumn, wyszukiwarka |
 | `Bank_celow_SMART_KPOF.pdf` | wersja do druku (39 stron A4 **poziomo**: bank KC-1 + konspekt KC-2) |
+| `Pomoce_dydaktyczne_3-4_lata.html` | druk KC-4: 42 karty pomocy dla wersji A, po jednej na konspekt |
+| `Pomoce_dydaktyczne_5_lat.html` | druk KC-4: 44 karty pomocy dla wersji B |
 | `src/dane_34.py`, `src/dane_5.py`, `src/dane_6.py` | bank celów jako dane (obszary, twierdzenia, cele, miary) |
 | `Konspekty_KC3_ObszarVII_3-4lata.pdf` | 5 konspektów KC-3 dla obszaru VII (3–4 lata), A4 pionowo |
 | `Konspekty_KC3_ObszarI_3-4lata.pdf` | 5 konspektów KC-3 dla obszaru I (3–4 lata), A4 pionowo |
@@ -324,27 +326,63 @@ Konspekty do doświadczeń edukacyjnych (`DE-R`, `DE-P`) mają kryteria roczne
 albo „raz w edukacji przedszkolnej" zamiast „3 z 5" — bo taka jest ich natura
 w rozporządzeniu.
 
-## Pomoce dydaktyczne dla 3–4 latków (druk KC-4)
+## Pomoce dydaktyczne (druk KC-4)
 
-`src/pomoce_a.py` — karty A4 dla nauczyciela, po jednej na konspekt wersji A.
-Każda zawiera: zdjęcie poglądowe „tak ma wyglądać ta pomoc", listę rzeczy do
-przygotowania, trzy kroki użycia, nagrane polecenie dla dziecka (głos
-nauczycielki) i wskazówkę.
+`src/pomoce_a.py` (3–4 lata, 42 karty) i `src/pomoce_b.py` (5 lat, 44 karty) —
+po jednej karcie A4 na każdy konspekt. Każda zawiera: zdjęcie poglądowe „tak ma
+wyglądać ta pomoc", listę rzeczy do przygotowania, trzy kroki użycia, nagrane
+polecenie dla dziecka (głos nauczycielki) i wskazówkę metodyczną.
+
+Moduły trzymają **samą treść**; układ karty i osadzanie mediów są w
+`src/pomoce_karta.py`. Dołożenie kolejnej wersji wiekowej to nowy moduł z
+rejestrem `POMOCE` i jedna linijka `Zestaw(...)` — bez zmian w generatorach.
 
 Zdjęcia są **ilustracjami poglądowymi**, nie fotografiami konkretnych produktów
 — pokazują układ i charakter pomocy, żeby wiadomo było, co skompletować.
 Model `gemini-2.5-flash-image`, jednolita reżyseria: widok z góry na jasnym
 blacie, miękkie światło z okna, paleta pastelowa, bez tekstu i bez ludzi.
 
-Zdjęcia trzymamy w `assets/pomoce_a/` — oryginał `d*.png` i kadr `k_*.jpg`
-(900 px, JPEG q82). To fotografie, więc JPEG: pięć zdjęć waży 161 kB zamiast
-2,4 MB w PNG. Nagrania w `assets/audio_a/`.
+### Dlaczego pomoce są w osobnych plikach
 
-Dołączanie do konspektu przez rejestr `POMOCE` kluczowany numerem konspektu —
-`build.py` sam wstawia sekcję VII w modalu. Dodanie kolejnego obszaru to wpis
-w rejestrze plus pliki, bez zmian w generatorze.
+Karty niosą zdjęcie i nagranie, więc to one ważą. Wszystkie razem z bankiem
+dawały dokument na 15 MB. Rozdzielone:
 
-PDF: `node src/generuj_pomoce_pdf.mjs`, potem sklejenie stron pypdf.
+| dokument | rozmiar | zawiera |
+|---|---|---|
+| `Bank_celow_SMART_KPOF.html` | 3,6 MB | bank, konspekty, monitoring — bez kart |
+| `Pomoce_dydaktyczne_3-4_lata.html` | 3,8 MB | 42 karty wersji A |
+| `Pomoce_dydaktyczne_5_lat.html` | 4,5 MB | 44 karty wersji B |
+
+Sekcja VII konspektu w banku wskazuje kartę i linkuje do niej
+(`Pomoce_dydaktyczne_5_lat.html#pom-b3_13`) — odnośnik działa, gdy pliki leżą
+w jednym folderze. Każdy zeszyt jest samowystarczalny: media siedzą w środku,
+więc działa bez internetu i bez folderu z plikami obok.
+
+### Płynność
+
+Arkusz fontów z Google Fonts ładuje się **nieblokująco**
+(`media="print" onload="this.media='all'"`). Bez tego przeglądarka czeka
+z narysowaniem czegokolwiek, aż CDN odpowie — przy niedostępnej sieci było to
+ponad 12 sekund białego ekranu. Teraz dokument jest widoczny po ~0,2 s
+w Arialu z listy zapasowej i przechodzi na DM Sans, gdy font dojdzie.
+
+### Media
+
+Zdjęcia w `assets/pomoce_a/` i `assets/pomoce_b/`: oryginał `*.png` (lokalnie,
+poza repozytorium) i kadr `k_*.jpg` — 760 px, JPEG q76. Nagrania w
+`assets/audio_a/` i `assets/audio_b/`: 40 kbps mono 24 kHz, oryginał obok jako
+`*.orig.mp3`. Do repozytorium trafiają tylko kadry `k_*.jpg`; nagrania są
+z niego wyłączone jako dane biometryczne i docierają do odbiorcy osadzone
+w gotowym dokumencie.
+
+Po każdej partii: `python3 src/kompresuj_media.py`.
+Po zmianie ustawień kompresji: `python3 src/kompresuj_media.py --przelicz`
+(przelicza wszystko od nowa z oryginałów).
+
+Budowanie zeszytów: `python3 src/build_pomoce.py`.
+
+PDF: wydrukuj zeszyt do PDF z przeglądarki — karty wychodzą po jednej
+na stronę A4 pionowo (44 karty = 44 strony), przycisk odsłuchu znika.
 
 | gotowe | konspekty |
 |---|---|
