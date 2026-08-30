@@ -17,6 +17,7 @@ Pięć rodzajów arkusza pokrywa wszystko, o co proszą konspekty:
   tablica  komplet symboli w jednej ramce, do powieszenia bez rozcinania
   tabela   arkusz do wypełniania — dyżury, samoocena, rozliczenie tygodnia
   pola     puste pola z etykietami — karta projektu, umowa, karta próby
+  etykiety karteczki z polem koloru i podpisem — pojemniki, znaczki dzieci
 
 Trzy ostatnie nie potrzebują rysunków wcale i są w konspektach większością.
 
@@ -290,6 +291,181 @@ ARKUSZE = {
    rodzaj="karty", kolumny=3,
    symbole=["gest_czekam", "emocja_spokoj", "gest_brawo"]),
  ],
+ # ——— obszar I ————————————————————————————————————————————————————
+ "D1-04": [dict(
+   tytul="Dachy do kolorowych domków",
+   wstep="Wytnij i naklej na pudełka — czerwony dach na jedno, niebieski na drugie. "
+         "Kolor ma być duży i jednolity; drobny znaczek w rogu pudełka trzylatek gubi "
+         "z odległości wyciągniętej ręki. Zacznij od dwóch kolorów, trzeci dokładaj "
+         "dopiero wtedy, gdy te dwa idą bezbłędnie.",
+   rodzaj="etykiety", kolumny=2,
+   etykiety=[("Czerwony domek", "#E8695A"), ("Niebieski domek", "#7FA8C9"),
+             ("Żółty domek", "#F0C862"), ("Zielony domek", "#8FB79A")]),
+ ],
+
+ "D1-05": [dict(
+   tytul="Karta „próbowałem sam”",
+   kp="Wydrukuj na tydzień",
+   wstep="Jedna karta na dziecko. Liczy się próba, nie powodzenie — dziecko stawia znak "
+         "za samo sięgnięcie po pudełko, nawet jeśli go nie otworzyło. Kolumna „co pomogło” "
+         "jest dla Pani, nie dla dziecka: po tygodniu widać z niej, które wsparcie można "
+         "już wycofać.",
+   rodzaj="tabela",
+   naglowki=["Dzień", "Próbowałem sam", "Poprosiłem o pomoc", "Co pomogło"],
+   wiersze=["poniedziałek", "wtorek", "środa", "czwartek", "piątek"]),
+ ],
+
+ # ——— obszar II (uzupełnienie) ————————————————————————————————————
+ "D2-07": [dict(
+   tytul="Pasek „najpierw — potem”",
+   kp="Wydrukuj i powieś przy stoliku",
+   wstep="Dwa kroki, nigdy więcej. Na lewym polu to, co trzeba zrobić, na prawym to, "
+         "co będzie potem. Trzylatek nie wytrzyma trzeciego pola — a dwa pola wystarczą, "
+         "żeby „potem” przestało być groźbą i stało się obietnicą, którą widać.",
+   rodzaj="pasek",
+   symbole=["dzien_zajecia", "dzien_zabawa"]),
+  dict(
+   tytul="Pasek trzech kroków",
+   wstep="Wersja dla dziecka, które radzi sobie z dwoma polami. Dokładaj trzecie dopiero "
+         "wtedy, gdy dwa kroki idą bez przypominania przez cały tydzień.",
+   rodzaj="pasek",
+   symbole=["dzien_zajecia", "dzien_sprzatanie", "dzien_zabawa"]),
+ ],
+
+ "D2-10": [dict(
+   tytul="Karta „idę na wyspę”",
+   wstep="Karta, którą dziecko bierze samo, idąc w kąt wyciszenia. Nie odsyłaj dziecka "
+         "z tą kartą — wtedy wyspa staje się karą i przestaje działać. Ma być wybierana, "
+         "nie przydzielana. Wydrukuj dwie: jedną przy dziecku, jedną na wyspie.",
+   rodzaj="karty", kolumny=2,
+   symbole=["prosze_cisza", "emocja_spokoj"]),
+ ],
+
+ # ——— obszar III (uzupełnienie) ———————————————————————————————————
+ "D3-13": [dict(
+   tytul="Duże obrazki z jedną czynnością",
+   wstep="Sześć obrazków, na każdym jedna czynność i nic poza nią. Dziecko mówi, co widzi — "
+         "od jednego słowa („pije”) do zdania („chłopiec pije wodę”). Nie podpowiadaj "
+         "zdania; podnoś poprzeczkę dopiero, gdy samo doda drugie słowo.",
+   rodzaj="karty", kolumny=3,
+   symbole=["prosze_pic", "myje_pocieram", "dzien_sprzatanie",
+            "dzien_spacer", "dzien_lezakowanie", "dzien_zabawa"]),
+ ],
+
+ # ——— obszar IV ————————————————————————————————————————————————————
+ "D4-18": [dict(
+   tytul="Znaczniki odległości",
+   wstep="Wytnij i połóż na podłodze jako kolejne przystanki dla piłki. Zaczynajcie od "
+         "zielonego, blisko; czerwony dokładaj dopiero, gdy zielony wychodzi za każdym "
+         "razem. Odległość rośnie kolorami, nie centymetrami — dziecko widzi wtedy postęp, "
+         "zamiast go tylko słyszeć.",
+   rodzaj="etykiety", kolumny=4,
+   etykiety=[("Blisko", "#8FB79A"), ("Dalej", "#F0C862"),
+             ("Jeszcze dalej", "#E0A05C"), ("Najdalej", "#E8695A")]),
+ ],
+
+ # ——— obszar VI ————————————————————————————————————————————————————
+ "D6-26": [dict(
+   tytul="Etykiety na pojemniki",
+   wstep="Ten sam obrazek na pojemniku i na półce, na której pojemnik stoi. Dziecko odkłada "
+         "wtedy zabawkę bez pytania, bo dopasowuje obrazek do obrazka, a nie zapamiętuje "
+         "miejsce. Wydrukuj po dwa egzemplarze każdej — jeden na pojemnik, drugi na półkę.",
+   rodzaj="karty", kolumny=3,
+   symbole=["zabawa_klocki", "zabawa_ukladanka", "zabawa_lalki",
+            "zabawa_auta", "zabawa_ksiazki", "zabawa_rysowanie"]),
+ ],
+
+ # ——— obszar VII ———————————————————————————————————————————————————
+ "D7-29": [dict(
+   tytul="Karta rund",
+   kp="Wydrukuj na tydzień",
+   wstep="Zapis, ile rund dziecko wytrzymało w zabawie z podawaniem. Zaznaczaj po zajęciach, "
+         "nie w ich trakcie — notowanie przy dziecku przerywa dokładnie to, co mierzysz. "
+         "Trzy rundy pod rząd przez tydzień to sygnał, żeby wydłużyć zabawę.",
+   rodzaj="tabela",
+   naglowki=["Dzień", "Ile rund", "Kto był obok", "Co przerwało"],
+   wiersze=["poniedziałek", "wtorek", "środa", "czwartek", "piątek"]),
+ ],
+
+ "D7-31": [dict(
+   tytul="Mostek do przedszkola — trzy kroki",
+   kp="Wydrukuj i powieś przy szatni",
+   wstep="Ten sam rytuał każdego ranka, w tej samej kolejności. Powieś go w szatni, "
+         "na wysokości oczu dziecka, i przechodźcie po nim palcem, zanim rodzic wyjdzie. "
+         "Rytuał działa dlatego, że się nie zmienia — nie skracaj go w dni, kiedy się śpieszy.",
+   rodzaj="pasek",
+   symbole=["dzien_przyjscie", "dzien_powitanie", "dzien_zabawa"]),
+ ],
+
+ "D7-33": [dict(
+   tytul="Karta POMOC",
+   wstep="Jedna karta, jedno słowo. Dziecko podaje ją Pani zamiast płaczu albo szarpania "
+         "za rękaw. Przez pierwsze dni reaguj na nią natychmiast i bez warunków — karta, "
+         "po której trzeba jeszcze poczekać, przestaje być używana. Wydrukuj kilka: jedna "
+         "przy dziecku, jedna w szatni, jedna w łazience.",
+   rodzaj="karty", kolumny=2,
+   symbole=["prosze_pomoc", "gest_stop"]),
+ ],
+
+ # ——— obszar VIII (uzupełnienie) ——————————————————————————————————
+ "D8-36": [dict(
+   tytul="Znaczki dzieci na poduszki",
+   wstep="Każde dziecko dostaje swój kolor i trzyma go przez cały rok — ten sam znaczek "
+         "na poduszce, w szatni i na kubku. Znaczek, który się zmienia, przestaje znaczyć "
+         "„moje miejsce”. Dopisz imiona ręcznie przy dziecku.",
+   rodzaj="etykiety", kolumny=4,
+   etykiety=[("", "#E8695A"), ("", "#7FA8C9"), ("", "#8FB79A"), ("", "#F0C862"),
+             ("", "#C9A0C0"), ("", "#E0A05C"), ("", "#8FA9B7"), ("", "#D2B48C")]),
+  dict(
+   tytul="Plan zajęcia z trzech obrazków",
+   kp="Wydrukuj i narysuj sama",
+   wstep="Trzy puste pola na jedno zajęcie: co robimy najpierw, potem i na końcu. "
+         "Narysuj w nich prosty szkic przy dziecku, zanim zaczniecie — rysowanie na oczach "
+         "dziecka działa lepiej niż gotowy obrazek, bo dziecko widzi, jak plan powstaje.",
+   rodzaj="pola",
+   pola=[("Najpierw", 110), ("Potem", 110), ("Na końcu", 110)]),
+ ],
+
+ "D8-37": [dict(
+   tytul="Tabliczki do podpisania budowli",
+   wstep="Dziecko dyktuje, Pani pisze — i to jest cała rzecz: dziecko widzi, że jego słowo "
+         "zostaje. Postaw tabliczkę przy budowli i zostaw ją do końca dnia, żeby rodzic "
+         "przeczytał ją przy dziecku.",
+   rodzaj="pola",
+   pola=[("To zbudował", 60), ("To jest", 60), ("Opowiedział o tym tak", 90)]),
+ ],
+
+ # ——— obszar IX ————————————————————————————————————————————————————
+ "D9-39": [dict(
+   tytul="Plan uroczystości w obrazkach",
+   kp="Wydrukuj i narysuj sama",
+   wstep="Cztery puste pola do wypełnienia pod konkretne święto. Pokaż dziecku plan dzień "
+         "wcześniej i przejdźcie po nim palcem — dla trzylatka uroczystość jest przede "
+         "wszystkim dniem, w którym wszystko wygląda inaczej, i to właśnie ta zmiana, "
+         "a nie hałas, najczęściej go przeciąża.",
+   rodzaj="pola",
+   pola=[("Najpierw", 100), ("Potem", 100), ("Potem", 100), ("Na końcu", 100)]),
+ ],
+
+ "D9-40": [dict(
+   tytul="Karta par na spacer",
+   kp="Wydrukuj przed wyjściem",
+   wstep="Pary ustalone przed wyjściem, nie w drzwiach. Dziecko, które wie, z kim idzie, "
+         "nie musi tego wywalczyć na schodach. Kolumna „zmiana” jest po to, żeby zapisać, "
+         "kto z kim nie może iść — i żeby nie trzeba było tego odkrywać dwa razy.",
+   rodzaj="tabela",
+   naglowki=["Para", "Kto", "Z kim", "Zmiana"],
+   wiersze=["1", "2", "3", "4", "5", "6"]),
+ ],
+
+ "D9-42": [dict(
+   tytul="Dwa obrazki do wyboru po czytaniu",
+   wstep="Po przeczytaniu dziecko wskazuje jedną z dwóch kart. To pierwsza forma opinii, "
+         "na jaką trzylatka stać — i pełnoprawna. Nie dopytuj „dlaczego”, dopóki dziecko "
+         "samo nie zacznie dodawać słowa; pytanie o powód zamyka wskazywanie.",
+   rodzaj="karty", kolumny=2,
+   symbole=["emocja_radosc", "emocja_smutek"]),
+ ],
 }
 
 
@@ -343,6 +519,11 @@ UKLAD = """
 .kd-tab tr td:first-child{font-weight:600;color:#1F4468}
 .kd-tab th:first-child{width:26%}
 .kd-tab th,.kd-tab td{word-wrap:break-word}
+.kd-etyk{display:grid;gap:12px;margin:14px 0 4px}
+.kd-etyk .et{border:2px dashed #E4B9D2;border-radius:14px;overflow:hidden;background:#FFF}
+.kd-etyk .et .pas{display:block;height:52px}
+.kd-etyk .et b{display:block;padding:9px 8px;text-align:center;font-size:14px;color:#1F4468}
+@media print{.kd-etyk .et .pas{-webkit-print-color-adjust:exact;print-color-adjust:exact}}
 .kd-pola{display:grid;gap:12px;margin:14px 0 4px}
 .kd-pole{border:1.5px solid #9BB7CE;border-radius:10px;padding:8px 10px;background:#FFF}
 .kd-pole b{display:block;font-size:12px;color:#1F4468;letter-spacing:.02em}
@@ -387,6 +568,13 @@ def _tresc(a, esc):
             + '<td class="pusto"></td>' * puste + "</tr>"
             for w in a["wiersze"])
         return f'<table class="kd-tab"><thead><tr>{glowa}</tr></thead><tbody>{wiersze}</tbody></table>'
+    if rodzaj == "etykiety":
+        kol = a.get("kolumny", 3)
+        karty = "".join(
+            f'<div class="et"><span class="pas" style="background:{barwa}"></span>'
+            f"<b>{esc(tekst)}</b></div>" for tekst, barwa in a["etykiety"])
+        return (f'<div class="kd-etyk" style="grid-template-columns:repeat({kol},1fr)">'
+                f"{karty}</div>")
     if rodzaj == "pola":
         pola = "".join(
             f'<div class="kd-pole kd-linie" style="min-height:{wys}px">'
