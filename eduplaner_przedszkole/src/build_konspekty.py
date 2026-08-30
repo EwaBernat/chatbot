@@ -18,6 +18,7 @@ import os
 
 from build import (CSS, LOGO_URI, KONSPEKTY, WERSJE, esc,
                    render_konspekty_modale, style_pomocy, audio_pomocy)
+from karty_druk import style_kart
 
 KORZEN = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
@@ -84,6 +85,7 @@ def dokument(mod):
     w = mod.WERSJA
     dzis = datetime.date.today().strftime("%d.%m.%Y")
 
+    nry = {K["nr"] for (wk, _), K in KONSPEKTY.items() if wk == w["kod"]}
     spis, ile = [], 0
     for a in mod.AREAS:
         for it in a["items"]:
@@ -110,7 +112,7 @@ def dokument(mod):
 <style>:root{{--logo:url({LOGO_URI})}}
 {CSS}
 {CSS_DOK}</style>
-{style_pomocy(WIEK_POMOCY.get(w['kod'], []))}{audio_pomocy(WIEK_POMOCY.get(w['kod'], []))}
+{style_pomocy(WIEK_POMOCY.get(w['kod'], []))}{audio_pomocy(WIEK_POMOCY.get(w['kod'], []))}{style_kart(nry)}
 
 <div class="zeszyt">
 <div class="dochead">

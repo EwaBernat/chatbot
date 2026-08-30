@@ -39,11 +39,64 @@ FFMPEG = imageio_ffmpeg.get_ffmpeg_exe()
 
 KATALOGI_AUDIO = ["assets/audio_a", "assets/audio_b", "assets/audio_c1"]
 KATALOGI_FOTO = ["assets/pomoce_a", "assets/pomoce_b"]
+# Obrazki na karty do wycinania: model rysuje na białym tle w kadrze 16:9,
+# więc kadrujemy do samego rysunku i domykamy do kwadratu.
+KATALOGI_KARTY = ["assets/karty_a", "assets/karty_b"]
+BOK_KARTY = 520
+JAKOSC_KARTY = 80
+PROG_BIELI = 245        # ciemniej niż to = rysunek, nie tło
+MARGINES_KARTY = 0.08   # oddech dookoła rysunku, w ułamku jego boku
 KATALOGI_WIDEO = ["assets/wideo"]
 
 SZEROKOSC_FOTO = 760
 JAKOSC_FOTO = 76
 BITRATE_AUDIO = "40k"
+
+
+def przytnij_do_karty(obraz: Image.Image) -> Image.Image:
+    """Kadruje rysunek na środku białego kwadratu.
+
+    Model rysuje na białym tle w kadrze 1344×768 — sam rysunek zajmuje środek,
+    a po bokach zostaje pusto. Bez kadrowania na karcie do wycięcia symbol jest
+    mały i zgubiony. Szukamy więc obrysu rysunku, dokładamy margines i domykamy
+    do kwadratu; brakujące pola dopełniamy bielą, żeby po wycięciu nożyczkami
+    krawędź karty była czysta.
+    """
+    szary = obraz.convert("L")
+    rysunek = szary.point(lambda x: 255 if x < PROG_BIELI else 0).getbbox()
+    if not rysunek:
+        rysunek = (0, 0, *obraz.size)
+    x1, y1, x2, y2 = rysunek
+    bok = max(x2 - x1, y2 - y1)
+    bok = round(bok * (1 + 2 * MARGINES_KARTY))
+    sx = (x1 + x2 - bok) // 2
+    sy = (y1 + y2 - bok) // 2
+    plansza = Image.new("RGB", (bok, bok), "white")
+    wycinek = obraz.crop((max(sx, 0), max(sy, 0),
+                          min(sx + bok, obraz.size[0]), min(sy + bok, obraz.size[1])))
+    plansza.paste(wycinek, (max(-sx, 0), max(-sy, 0)))
+    return plansza
+
+
+def kompresuj_karty() -> tuple[int, float, float]:
+    ile = przed = po = 0
+    for katalog in KATALOGI_KARTY:
+        sciezka = KORZEN / katalog
+        if not sciezka.exists():
+            continue
+        for plik in sorted(sciezka.glob("*.png")):
+            if plik.name.startswith("k_"):
+                continue
+            kadr = plik.with_name("k_" + plik.stem + ".jpg")
+            if kadr.exists() and not PRZELICZ:
+                continue
+            obraz = przytnij_do_karty(Image.open(plik).convert("RGB"))
+            obraz = obraz.resize((BOK_KARTY, BOK_KARTY), Image.LANCZOS)
+            obraz.save(kadr, "JPEG", quality=JAKOSC_KARTY, optimize=True, progressive=True)
+            ile += 1
+            przed += kb(plik)
+            po += kb(kadr)
+    return ile, przed, po
 
 
 def kb(sciezka: Path) -> float:
@@ -117,6 +170,7 @@ def main() -> int:
     razem_przed = razem_po = 0.0
     for nazwa, funkcja in (("nagrań", kompresuj_audio),
                            ("zdjęć", kompresuj_foto),
+                           ("kart", kompresuj_karty),
                            ("filmów", kompresuj_wideo)):
         ile, przed, po = funkcja()
         razem_przed += przed

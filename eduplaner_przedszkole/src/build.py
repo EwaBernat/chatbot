@@ -34,6 +34,7 @@ from zalacznik_c1 import zalaczniki_c1
 import pomoce_a          # noqa: F401 — rejestruje zestaw pomocy 3–4 lata
 import pomoce_b          # noqa: F401 — rejestruje zestaw pomocy 5 lat
 from pomoce_karta import pomoce_dla, wskaz_pomoc, style_pomocy, audio_pomocy
+from karty_druk import karty_dla, ma_karty, style_kart
 from konspekty_34_d4 import KONSPEKTY_D4
 from konspekty_34_d6 import KONSPEKTY_D6
 from konspekty_34_d8 import KONSPEKTY_D8
@@ -289,6 +290,7 @@ input[type="search"]:focus,.tab:focus-visible,.chipbtn:focus-visible,.navlink:fo
 .kafel .obraz{display:block; width:100%; aspect-ratio:5/4; border-radius:11px;
   background-color:#FFF; background-position:center; background-size:contain; background-repeat:no-repeat;
   print-color-adjust:exact; -webkit-print-color-adjust:exact}
+.kafel.kwadrat .obraz{aspect-ratio:1/1; background-color:#FFF}
 .kafel figcaption{margin-top:8px; font:600 12px/1.35 "DM Sans",Arial,sans-serif; color:var(--ink)}
 /* Odsłuch narracji — tylko na ekranie; w druku karta ma być czysta do wycięcia. */
 .au-pasek{display:flex; flex-wrap:wrap; align-items:center; gap:10px; margin:0 0 14px;
@@ -1033,13 +1035,16 @@ def render_konspekty_modale(tylko_wersja=None):
       <span class="meta">zdjęcie poglądowe · polecenie głosem nauczycielki</span></div>
     <p class="kkurs">Jak ma wyglądać pomoc, co przygotować i jak jej użyć w trzech krokach.
     Karta jest gotowa do wydruku A4. Ten sam komplet kart dla całej grupy wiekowej
-    zebrany jest w zeszycie <b>Pomoce dydaktyczne · {esc(pwiek)}</b>.</p>
+    zebrany jest w zeszycie <b>Pomoce dydaktyczne · {esc(pwiek)}</b>.{
+    " Konspekt ma też gotowy materiał do wydrukowania i wycięcia — arkusze poniżej."
+    if ma_karty(K["nr"]) else ""}</p>
     <div class="zal-akcje">
       <button class="zal-link zal-pokaz" data-pokazzal="{kid}" aria-expanded="false">Pokaż pomoc i posłuchaj polecenia</button>
       <button class="zal-link" data-printzal="{kid}">Drukuj kartę pomocy (A4)</button>
     </div>
     <div class="zal-strefa" style="display:none">
 {pomoce_dla(K["nr"], esc)}
+{karty_dla(K["nr"], esc)}
     </div>
 """
         if K["nr"] == "C1-01":
@@ -1492,7 +1497,7 @@ def build():
 </div>
 
 </div>
-{style_pomocy()}{audio_pomocy()}
+{style_pomocy()}{audio_pomocy()}{style_kart()}
 {render_konspekty_modale()}
 <script>{JS}</script>
 """
