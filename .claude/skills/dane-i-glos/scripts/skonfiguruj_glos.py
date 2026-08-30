@@ -12,6 +12,7 @@ Przyklady:
     python3 skonfiguruj_glos.py nagranie.mp4
     python3 skonfiguruj_glos.py probka1.wav probka2.wav --nazwa "Ewa - narracja PL"
     python3 skonfiguruj_glos.py --pokaz
+    python3 skonfiguruj_glos.py --voice-id abc123 --nazwa "Ewa - narracja PL"
 """
 
 from __future__ import annotations
@@ -113,6 +114,9 @@ def main() -> int:
                     help="usun zapamietany glos z konfiguracji")
     ap.add_argument("--tylko-sprawdz", action="store_true",
                     help="sprawdz nagrania i zakoncz — nic nie zostanie wyslane")
+    ap.add_argument("--voice-id",
+                    help="zapamietaj glos juz sklonowany na koncie ElevenLabs, "
+                         "bez wysylania nagran (voice_id z panelu albo z --glosy)")
     a = ap.parse_args()
 
     if a.pokaz:
@@ -127,8 +131,24 @@ def main() -> int:
                                         encoding="utf-8")
         print("Zapomniane. Nagrania na dysku i glos na koncie ElevenLabs zostaja nietkniete.")
         return 0
+    if a.voice_id:
+        # Glos jest juz na koncie — zapamietujemy sam identyfikator. Zadne nagrania
+        # nie wychodza z komputera i nie powstaje drugi klon tego samego glosu.
+        if a.nagrania:
+            ap.error("--voice-id i nagrania wykluczaja sie: albo klonujemy, albo "
+                     "zapamietujemy gotowy glos")
+        sciezka = konfiguracja.zapisz(
+            elevenlabs_voice_id=a.voice_id.strip(),
+            elevenlabs_voice_name=a.nazwa,
+            utworzono=str(date.today()),
+        )
+        print(f"Skill pamieta juz Twoj glos.\n"
+              f"  nazwa:    {a.nazwa}\n"
+              f"  voice_id: {a.voice_id.strip()}\n"
+              f"  zapisane: {sciezka}")
+        return 0
     if not a.nagrania:
-        ap.error("podaj pliki z nagraniami (albo --pokaz / --zapomnij)")
+        ap.error("podaj pliki z nagraniami (albo --voice-id / --pokaz / --zapomnij)")
 
     with tempfile.TemporaryDirectory() as tymczasowy:
         katalog = Path(tymczasowy)

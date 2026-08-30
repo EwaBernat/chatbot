@@ -25,6 +25,21 @@ SCIEZKA = Path(
 
 KLUCZE_ZABRONIONE = ("api_key", "apikey", "klucz", "secret", "token")
 
+# Pamiec trwala — ostatnia deska ratunku, gdy pliku konfiguracyjnego nie ma.
+#
+# Plik lezy w katalogu domowym, a ten znika razem z kontenerem w sesjach
+# zdalnych. Bez tego zapisu skill zapominalby glos przy kazdym nowym
+# uruchomieniu i za kazdym razem odmawialby nagrania. Identyfikator glosu nie
+# jest tajemnica (klucz API jest — i tego tu nie ma), wiec moze lezec w
+# repozytorium razem ze skillem.
+#
+# Zmiana glosu: `skonfiguruj_glos.py --voice-id ...` zapisze nowy do pliku,
+# ktory ma pierwszenstwo przed tym slownikiem.
+PAMIEC_TRWALA = {
+    "elevenlabs_voice_id": "jq4ZUryuBeDqmtkKtBZ4",
+    "elevenlabs_voice_name": "Ewa - narracja PL (PCTP)",
+}
+
 
 def wczytaj() -> dict:
     try:
@@ -66,11 +81,18 @@ def ustal(z_wiersza, zmienna: str, klucz: str, domyslna=None):
     z_pliku = wczytaj().get(klucz)
     if z_pliku:
         return z_pliku
+    trwale = PAMIEC_TRWALA.get(klucz)
+    if trwale:
+        return trwale
     return domyslna
 
 
 def opisz() -> str:
     dane = wczytaj()
+    if not dane and PAMIEC_TRWALA:
+        linie = ["Glos zapamietany trwale w skillu (brak pliku konfiguracyjnego):"]
+        linie += [f"  {k:<24} {w}" for k, w in PAMIEC_TRWALA.items()]
+        return "\n".join(linie)
     if not dane:
         return (f"Skill nie ma jeszcze zapamietanego glosu.\n"
                 f"  (spodziewany plik: {SCIEZKA})\n"

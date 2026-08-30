@@ -70,8 +70,20 @@ Sprawdź, czy skill ma już zapamiętany głos:
 python3 .claude/skills/dane-i-glos/scripts/skonfiguruj_glos.py --pokaz
 ```
 
-Jeśli pamięta — nic więcej nie rób, wszystkie skrypty same go użyją. Jeśli nie,
-jedno polecenie załatwia całość (przyjmuje też film, sam wyciągnie z niego dźwięk):
+Jeśli pamięta — nic więcej nie rób, wszystkie skrypty same go użyją.
+
+**Głos już sklonowany na koncie ElevenLabs** (najczęstszy przypadek — wystarczy,
+że skill ma poznać identyfikator; nagrania nie opuszczają komputera i nie powstaje
+drugi klon tego samego głosu):
+
+```bash
+python3 .../skonfiguruj_glos.py --voice-id <voice_id> --nazwa "Ewa - narracja PL"
+```
+
+Identyfikator wypisze `elevenlabs_tts.py --glosy` albo panel ElevenLabs.
+
+**Głosu jeszcze nie ma** — jedno polecenie załatwia całość (przyjmuje też film,
+sam wyciągnie z niego dźwięk):
 
 ```bash
 python3 .../skonfiguruj_glos.py nagranie.mp4 --nazwa "Ewa - narracja PL"
@@ -80,6 +92,12 @@ python3 .../skonfiguruj_glos.py nagranie.mp4 --nazwa "Ewa - narracja PL"
 Skrypt wyciąga dźwięk, sprawdza próbki, klonuje głos i **zapisuje `voice_id`
 w pamięci skilla** (`~/.config/dane-i-glos/konfiguracja.json`) — poza repozytorium,
 bo do repozytorium trafiać nie powinien. Kluczy API ten plik nie przyjmuje.
+
+Ten plik leży w katalogu domowym, a ten w sesjach zdalnych znika razem
+z kontenerem. Dlatego `scripts/konfiguracja.py` ma słownik `PAMIEC_TRWALA`
+z identyfikatorem głosu wpisanym na stałe — ostatnia deska ratunku, gdy pliku
+nie ma. Plik konfiguracyjny ma pierwszeństwo, więc zmiana głosu tam działa
+normalnie.
 
 `--tylko-sprawdz` sprawdza nagrania bez wysyłania czegokolwiek. `--zapomnij` czyści
 pamięć, nie ruszając ani nagrań, ani głosu na koncie ElevenLabs.

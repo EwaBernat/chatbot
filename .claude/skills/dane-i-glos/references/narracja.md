@@ -94,3 +94,41 @@ jednej pauzy na akapit — nagromadzone brzmią sztucznie.
 
 Przeczytaj scenariusz na głos w myślach. Jeśli gdziekolwiek zabraknie ci oddechu
 albo potkniesz się na liczbie — popraw tekst, nie ustawienia głosu.
+
+## Rejestr dla materiałów dla dzieci — wzorzec zaakceptowany
+
+Wypracowany przy historyjce obrazkowej „Jak rośnie kwiatek" (konspekt C1-01,
+6 lat) i przyjęty jako obowiązujący dla wszystkich nagrań dla dzieci.
+
+Model: **`eleven_v3`**. `eleven_multilingual_v2` czyta te teksty lektorsko —
+poprawnie, ale bez ciepła; do dzieci się nie nadaje.
+
+Wskazówki aktorskie w nawiasach kwadratowych, ten sam zestaw w każdej ścieżce:
+
+| miejsce w ścieżce | wskazówka |
+|---|---|
+| otwarcie | `[warmly, smiling, telling a story to a small child]` |
+| rozwinięcie | `[gently]` |
+| domknięcie | `[with a smile]` |
+| fragment smutny | zamiast dwóch ostatnich: `[gently, a little sad]`, `[softly]` |
+
+### Czysta proza — najważniejsza zasada
+
+Tekst mówiony to pełne zdania. **Bez** wielokropków, **bez** sylabizowania
+(„po-wo-lut-ku"), **bez** wtrąceń typu „o tak". Pierwsza wersja nagrań powstała
+właśnie tak — z ciepłem wymuszanym interpunkcją — i została odrzucona jako
+sztuczna. Ciepło daje wskazówka aktorska, nie zapis.
+
+```
+✗ Wsypała ziemię i ostrożniutko... o tak... włożyła nasionko.
+✓ Wsypała do doniczki ziemię i ostrożnie włożyła nasionko do środka.
+```
+
+### Struktura nagrania do historyjki obrazkowej
+
+Osobna ścieżka na każdy element, nie jedno długie nagranie — nauczycielka
+odtwarza sceny pojedynczo albo w sekwencji:
+
+1. wprowadzenie — zaproszenie do słuchania i zapowiedź zadania
+2. po jednej ścieżce na scenę (2–3 zdania, 11–15 s)
+3. zakończenie — pytania otwarte sprawdzające rozumienie przyczyny i skutku
