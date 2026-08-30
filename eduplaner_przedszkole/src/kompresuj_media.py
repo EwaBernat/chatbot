@@ -78,8 +78,24 @@ def przytnij_do_karty(obraz: Image.Image) -> Image.Image:
     return plansza
 
 
+def tlo_niebiale(obraz: Image.Image) -> bool:
+    """Czy któryś róg kadru nie jest biały.
+
+    Model potrafi wstawić rysunek na kolorowym prostokącie albo zamknąć go
+    w kole na czarnym tle, mimo wyraźnego zakazu w poleceniu. Na wydrukowanej
+    karcie widać wtedy obcy prostokąt, a po wycięciu nożyczkami ciemną krawędź.
+    Dwa symbole przeszły tak niezauważone, zanim powstała ta kontrola.
+    """
+    szary = obraz.convert("L")
+    w, h = szary.size
+    rogi = [szary.getpixel((2, 2)), szary.getpixel((w - 3, 2)),
+            szary.getpixel((2, h - 3)), szary.getpixel((w - 3, h - 3))]
+    return min(rogi) < PROG_BIELI
+
+
 def kompresuj_karty() -> tuple[int, float, float]:
     ile = przed = po = 0
+    podejrzane = []
     for katalog in KATALOGI_KARTY:
         sciezka = KORZEN / katalog
         if not sciezka.exists():
@@ -90,12 +106,18 @@ def kompresuj_karty() -> tuple[int, float, float]:
             kadr = plik.with_name("k_" + plik.stem + ".jpg")
             if kadr.exists() and not PRZELICZ:
                 continue
-            obraz = przytnij_do_karty(Image.open(plik).convert("RGB"))
+            zrodlo = Image.open(plik).convert("RGB")
+            if tlo_niebiale(zrodlo):
+                podejrzane.append(plik.stem)
+            obraz = przytnij_do_karty(zrodlo)
             obraz = obraz.resize((BOK_KARTY, BOK_KARTY), Image.LANCZOS)
             obraz.save(kadr, "JPEG", quality=JAKOSC_KARTY, optimize=True, progressive=True)
             ile += 1
             przed += kb(plik)
             po += kb(kadr)
+    if podejrzane:
+        print("  UWAGA: tło nie jest białe — obejrzyj przed użyciem: "
+              + ", ".join(podejrzane))
     return ile, przed, po
 
 

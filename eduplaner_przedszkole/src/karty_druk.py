@@ -218,6 +218,78 @@ ARKUSZE = {
    symbole=["myje_woda", "myje_mydlo", "myje_pocieram", "myje_splukuje",
             "myje_wycieram", "toaleta_siusiu", "toaleta_spluczka", "toaleta_rece"]),
  ],
+ "D3-12": [dict(
+   tytul="Tablica AAC — cztery pola",
+   kp="Wydrukuj i powieś przy dziecku",
+   wstep="Cztery prośby, od których zaczyna się komunikacja obrazkowa: pić, jeść, toaleta, "
+         "pomoc. Cztery, nie osiem — tablica rozbudowuje się dopiero wtedy, gdy dziecko "
+         "korzysta ze wszystkich czterech pól z własnej inicjatywy. Powieś tam, gdzie "
+         "dziecko realnie przebywa, nie na drzwiach sali.",
+   rodzaj="tablica", kolumny=4,
+   symbole=["prosze_pic", "prosze_jesc", "prosze_toaleta", "prosze_pomoc"]),
+  dict(
+   tytul="Symbole na brelok",
+   wstep="Te same cztery symbole do wycięcia i wpięcia na kółko przy dziecku. Tablica wisi "
+         "w jednym miejscu, brelok idzie na spacer i do ogrodu — a prośba o pomoc najczęściej "
+         "przychodzi właśnie tam, gdzie tablicy nie ma. Wydrukuj dwa komplety.",
+   rodzaj="karty", kolumny=4,
+   symbole=["prosze_pic", "prosze_jesc", "prosze_toaleta", "prosze_pomoc"]),
+ ],
+
+ "D5-25": [dict(
+   tytul="Termometr samopoczucia — tablica sygnałów",
+   kp="Wydrukuj i powieś nisko",
+   wstep="Cztery stany, które dziecko najczęściej odczuwa, zanim potrafi je nazwać: "
+         "zmęczenie, głód, ból i potrzeba ruchu. Wskazanie karty jest pełnoprawną "
+         "odpowiedzią — nie domagaj się słowa, bo dziecko wtedy przestaje wskazywać.",
+   rodzaj="tablica", kolumny=4,
+   symbole=["emocja_zmeczenie", "prosze_jesc", "prosze_boli", "prosze_ruch"]),
+  dict(
+   tytul="Symbol „odpoczynek” na brelok",
+   wstep="Karta, którą dziecko pokazuje, kiedy ma dość. Uszanuj ją bez negocjacji przez "
+         "pierwsze tygodnie — symbol, po którym i tak trzeba zostać w kole, przestaje "
+         "być używany po trzech razach.",
+   rodzaj="karty", kolumny=3,
+   symbole=["prosze_odpoczynek", "prosze_cisza"]),
+ ],
+
+ "D3-11": [dict(
+   tytul="Obrazki czynności — weź, połóż, daj",
+   wstep="Trzy polecenia w jednym przedmiocie: ta sama czerwona kostka na wszystkich "
+         "trzech kartach. Zmienia się tylko czynność, więc dziecko nie zgaduje po obrazku, "
+         "co ma zrobić — musi odczytać samo działanie. Do zabawy weź prawdziwą kostkę "
+         "w tym samym kolorze.",
+   rodzaj="karty", kolumny=3,
+   symbole=["polecenie_wez", "polecenie_poloz", "polecenie_daj"]),
+ ],
+
+ "D3-15": [dict(
+   tytul="Gesty na kartach — stop i chodź",
+   wstep="Dwa gesty, które dziecko musi odczytać z ręki dorosłego, zanim zrozumie polecenie "
+         "słowne. Pokaż gest, potem kartę — nigdy odwrotnie; karta ma potwierdzać to, "
+         "co dziecko właśnie zobaczyło na Twojej dłoni.",
+   rodzaj="karty", kolumny=2,
+   symbole=["gest_stop", "gest_chodz"]),
+ ],
+
+ "B3-13": [dict(
+   tytul="Piktogram „słucham — mówię”",
+   kp="Wydrukuj i połóż na stoliku",
+   wstep="Dwie karty kładzione na środku stolika. Kto mówi, ma przed sobą kartę „mówię”; "
+         "reszta ma „słucham”. Karty wędrują między dziećmi po każdej wypowiedzi — samo "
+         "ich przekładanie uczy zmiany ról lepiej niż przypominanie.",
+   rodzaj="karty", kolumny=2,
+   symbole=["gest_mowie", "gest_slucham"]),
+ ],
+
+ "B2-08": [dict(
+   tytul="Karty strategii czekania",
+   wstep="Trzy rzeczy, które można robić, czekając na swoją kolej: czekać spokojnie, "
+         "oddychać, klaskać koledze. Czekanie jest tu czynnością, a nie brakiem czynności "
+         "— i to jest cała różnica dla dziecka, które czekać nie umie.",
+   rodzaj="karty", kolumny=3,
+   symbole=["gest_czekam", "emocja_spokoj", "gest_brawo"]),
+ ],
 }
 
 
