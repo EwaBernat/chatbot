@@ -762,7 +762,7 @@ def spis_konspektow(mod, w):
                 continue
             ile += 1
             # kropka znaczy „konspekt ma gotowy materiał" — kartę pomocy albo arkusz
-            # do wydruku. Wersje C i U nie mają kart pomocy, ale mają arkusze.
+            # do wydruku. Wersja U nie ma kart pomocy, ale ma arkusze.
             tytul_znaku = ("ma pomoc dydaktyczną i materiał do wydruku"
                            if wskaz_pomoc(K["nr"]) and ma_karty(K["nr"])
                            else "ma pomoc dydaktyczną" if wskaz_pomoc(K["nr"])
@@ -1037,6 +1037,10 @@ def render_konspekty_modale(tylko_wersja=None):
         kid = f"kon-{wk}-{nr}"
         zal = ""
         wsk = wskaz_pomoc(K["nr"])
+        # Historyjki obrazkowe C1-01 dokładamy do strefy załączników, a nie zamiast
+        # niej: ten konspekt ma też własną kartę pomocy i arkusz do wycięcia, a osobna
+        # gałąź nadpisywała całą sekcję VII i jedno i drugie z niej znikało.
+        extra = zalaczniki_c1() if K["nr"] == "C1-01" else ""
         if not wsk and ma_karty(K["nr"]):
             # Konspekt bez fotograficznej karty pomocy, ale z materiałem do wydruku.
             # Bez tej gałęzi arkusze wersji C i U znikały bez śladu — sekcja VII
@@ -1052,6 +1056,7 @@ def render_konspekty_modale(tylko_wersja=None):
     </div>
     <div class="zal-strefa" style="display:none">
 {karty_dla(K["nr"], esc)}
+{extra}
     </div>
 """
         if wsk:
@@ -1062,7 +1067,9 @@ def render_konspekty_modale(tylko_wersja=None):
     Karta jest gotowa do wydruku A4. Ten sam komplet kart dla całej grupy wiekowej
     zebrany jest w zeszycie <b>Pomoce dydaktyczne · {esc(pwiek)}</b>.{
     " Konspekt ma też gotowy materiał do wydrukowania i wycięcia — arkusze poniżej."
-    if ma_karty(K["nr"]) else ""}</p>
+    if ma_karty(K["nr"]) else ""}{
+    " Poniżej także trzy historyjki obrazkowe w gradacji trudności, po jednej na poziom wsparcia."
+    if extra else ""}</p>
     <div class="zal-akcje">
       <button class="zal-link zal-pokaz" data-pokazzal="{kid}" aria-expanded="false">Pokaż pomoc i posłuchaj polecenia</button>
       <button class="zal-link" data-printzal="{kid}">Drukuj kartę pomocy (A4)</button>
@@ -1070,19 +1077,7 @@ def render_konspekty_modale(tylko_wersja=None):
     <div class="zal-strefa" style="display:none">
 {pomoce_dla(K["nr"], esc)}
 {karty_dla(K["nr"], esc)}
-    </div>
-"""
-        if K["nr"] == "C1-01":
-            zal = f"""    <div class="ksec"><span class="sq">VII</span><h4>Załączniki · pomoce dydaktyczne</h4><span class="line"></span>
-      <span class="meta">historyjki obrazkowe do wydruku A4</span></div>
-    <p class="kkurs">Trzy gotowe historyjki w gradacji trudności — po jednej na każdy poziom wsparcia.
-    Wydrukuj, wytnij wzdłuż linii i rozsyp obrazki przed dzieckiem.</p>
-    <div class="zal-akcje">
-      <button class="zal-link zal-pokaz" data-pokazzal="{kid}" aria-expanded="false">Pokaż załączniki i posłuchaj narracji</button>
-      <button class="zal-link" data-printzal="{kid}">Drukuj załączniki Z1–Z3 (A4)</button>
-    </div>
-    <div class="zal-strefa" style="display:none">
-{zalaczniki_c1()}
+{extra}
     </div>
 """
         out.append(f"""<div class="kmodal" id="{kid}" role="dialog" aria-modal="true" aria-label="Konspekt: {esc(K['tytul'])}">
