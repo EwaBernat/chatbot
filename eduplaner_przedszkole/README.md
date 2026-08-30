@@ -323,3 +323,29 @@ oraz `ter_smart`.
 Konspekty do doświadczeń edukacyjnych (`DE-R`, `DE-P`) mają kryteria roczne
 albo „raz w edukacji przedszkolnej" zamiast „3 z 5" — bo taka jest ich natura
 w rozporządzeniu.
+
+## Pomoce dydaktyczne dla 3–4 latków (druk KC-4)
+
+`src/pomoce_a.py` — karty A4 dla nauczyciela, po jednej na konspekt wersji A.
+Każda zawiera: zdjęcie poglądowe „tak ma wyglądać ta pomoc", listę rzeczy do
+przygotowania, trzy kroki użycia, nagrane polecenie dla dziecka (głos
+nauczycielki) i wskazówkę.
+
+Zdjęcia są **ilustracjami poglądowymi**, nie fotografiami konkretnych produktów
+— pokazują układ i charakter pomocy, żeby wiadomo było, co skompletować.
+Model `gemini-2.5-flash-image`, jednolita reżyseria: widok z góry na jasnym
+blacie, miękkie światło z okna, paleta pastelowa, bez tekstu i bez ludzi.
+
+Zdjęcia trzymamy w `assets/pomoce_a/` — oryginał `d*.png` i kadr `k_*.jpg`
+(900 px, JPEG q82). To fotografie, więc JPEG: pięć zdjęć waży 161 kB zamiast
+2,4 MB w PNG. Nagrania w `assets/audio_a/`.
+
+Dołączanie do konspektu przez rejestr `POMOCE` kluczowany numerem konspektu —
+`build.py` sam wstawia sekcję VII w modalu. Dodanie kolejnego obszaru to wpis
+w rejestrze plus pliki, bez zmian w generatorze.
+
+PDF: `node src/generuj_pomoce_pdf.mjs`, potem sklejenie stron pypdf.
+
+| gotowe | konspekty |
+|---|---|
+| obszar I · uczenie się | D1-01 … D1-05 |

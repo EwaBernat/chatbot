@@ -1,0 +1,151 @@
+# -*- coding: utf-8 -*-
+"""Pomoce dydaktyczne do konspektów wersji A (3–4 lata).
+
+Każda pomoc to jedna karta A4 dla nauczyciela: zdjęcie poglądowe „tak ma to
+wyglądać", lista rzeczy do przygotowania, trzy kroki użycia i — tam, gdzie
+konspekt tego potrzebuje — nagrane polecenie dla dziecka głosem nauczycielki.
+
+Zdjęcia są ilustracjami poglądowymi, nie fotografiami konkretnych produktów:
+pokazują układ i charakter pomocy, żeby nauczyciel wiedział, co skompletować.
+
+Osadzanie: obrazy jako JPEG w klasach CSS (każdy raz), nagrania jako <audio>
+z data-URI. Rejestr POMOCE_A jest kluczowany numerem konspektu, a build.py
+dołącza kartę do modalu tego konspektu.
+"""
+
+import base64
+from pathlib import Path
+
+_KORZEN = Path(__file__).resolve().parent.parent
+_FOTO = _KORZEN / "assets" / "pomoce_a"
+_AUDIO = _KORZEN / "assets" / "audio_a"
+
+
+def _foto(kod):
+    dane = base64.b64encode((_FOTO / f"k_{kod}.jpg").read_bytes()).decode()
+    return f"data:image/jpeg;base64,{dane}"
+
+
+def _dzwiek(kod):
+    dane = base64.b64encode((_AUDIO / f"{kod}.mp3").read_bytes()).decode()
+    return f"data:audio/mpeg;base64,{dane}"
+
+
+# kod → (nr konspektu, tytuł pomocy, [co przygotować], [trzy kroki], tekst nagrania, wskazówka)
+POMOCE = {
+ "d1_01": ("D1-01", "Czarodziejski woreczek",
+   ["błyszczący woreczek ze sznurkiem ściągającym, nieprzezroczysty",
+    "5 drobiazgów o wyraźnie różnej fakturze: szyszka, pompon, gładki koralik, tektura falista, muszla",
+    "mały dzwoneczek — sygnał otwarcia woreczka",
+    "płaska taca, na której leżą przedmioty przed schowaniem"],
+   ["Pokaż dziecku wszystkie przedmioty na tacy i nazwij każdy razem z nim.",
+    "Schowaj jeden do woreczka przy dziecku, zadzwoń dzwoneczkiem.",
+    "Dziecko wkłada rączkę i zgaduje po dotyku, zanim zajrzy."],
+   "Mam tu czarodziejski woreczek. Włóż do niego rączkę i poszukaj czegoś w środku. Nie zaglądaj — najpierw sprawdź paluszkami, co to jest.",
+   "Faktury muszą się wyraźnie różnić. Dwa gładkie przedmioty w jednym woreczku to dla trzylatka zagadka nie do rozwiązania."),
+
+ "d1_02": ("D1-02", "Małpka robi to, co ja",
+   ["pacynka-małpka na rękę, z wyraźną buzią",
+    "bębenek albo tamburyn do wystukiwania rytmu",
+    "arkusz naklejek z łapką małpki — do oznaczania udanych prób",
+    "lustro w sali, żeby dziecko widziało swój ruch"],
+   ["Załóż pacynkę i wykonaj nią jeden prosty ruch: klaśnięcie, tupnięcie.",
+    "Poproś dziecko, żeby zrobiło to samo — najpierw razem z tobą.",
+    "Za każdą udaną próbę dziecko przykleja sobie łapkę małpki."],
+   "To jest małpka. Małpka bardzo lubi, kiedy ktoś robi tak samo jak ona. Popatrz na nią uważnie i zrób to samo.",
+   "Pacynka działa lepiej niż polecenie wprost — dziecko naśladuje zabawkę chętniej niż dorosłego i nie czuje się oceniane."),
+
+ "d1_03": ("D1-03", "Klepsydra skarbów",
+   ["klepsydra dwuminutowa, najlepiej z kolorowym piaskiem",
+    "drewniane pudełko na „skarb dnia” z zamykaną pokrywką",
+    "żetony w kształcie diamentów — po jednym za każde przeczekane odwrócenie",
+    "parawan albo kącik za regałem, gdzie skarb czeka niewidoczny"],
+   ["Pokaż skarb, schowaj go do pudełka i odwróć klepsydrę.",
+    "Bawcie się czymś innym, dopóki piasek się nie przesypie.",
+    "Po przesypaniu otwórzcie pudełko razem i dodajcie żeton."],
+   "Odwracam klepsydrę. Kiedy piasek przesypie się na dół, otworzymy pudełko ze skarbem. A my w tym czasie się pobawimy.",
+   "Klepsydra musi być widoczna przez cały czas. Czekanie z sygnałem, który widać, jest dla trzylatka zupełnie inną sytuacją niż czekanie w ciemno."),
+
+ "d1_04": ("D1-04", "Kolorowe domki",
+   ["dwa kartonowe domki z wyraźnie różnymi dachami — żółtym i zielonym",
+    "klocki dokładnie w tych dwóch kolorach, po 4–5 sztuk",
+    "dwa pluszaki w tych samych kolorach — mieszkańcy domków",
+    "lniany woreczek do losowania klocków"],
+   ["Przedstaw mieszkańców: żółtego i zielonego misia w swoich domkach.",
+    "Dziecko losuje klocek z woreczka i niesie go do właściwego domku.",
+    "Na koniec razem sprawdźcie, czy każdy klocek trafił do siebie."],
+   "Zobacz, mamy dwa domki. W żółtym domku mieszkają żółte rzeczy, a w zielonym zielone. Zanieś klocek do jego domku.",
+   "Zacznij od dwóch kolorów, nie od czterech. Trzeci kolor dodaj dopiero wtedy, gdy sortowanie na dwa idzie bez zastanowienia."),
+
+ "d1_05": ("D1-05", "Pudełko z niespodzianką",
+   ["cztery pojemniki o różnych zamknięciach: pokrywka, zamek błyskawiczny, zakrętka, kokardka",
+    "drobne niespodzianki do środka — po jednej na pojemnik",
+    "karta „próbowałem sam” z czterema polami na naklejki",
+    "mata antypoślizgowa, żeby pojemnik nie uciekał"],
+   ["Ustaw pojemniki w rzędzie, od najłatwiejszego do najtrudniejszego.",
+    "Dziecko otwiera po kolei — pomagaj dopiero po jego trzeciej próbie.",
+    "Za każdy otwarty samodzielnie pojemnik naklejka na kartę."],
+   "W każdym pudełku czeka niespodzianka. Ale każde otwiera się inaczej. Spróbuj sam, a ja poczekam.",
+   "Odczekaj trzy próby, zanim pomożesz. To najtrudniejsza część tych zajęć — dla dorosłego, nie dla dziecka."),
+}
+
+
+def style_pomocy():
+    """Zdjęcia osadzone raz, w klasach CSS — karta może się powtarzać."""
+    regu = "\n".join(f'.pf-{k}{{background-image:url({_foto(k)})}}' for k in POMOCE)
+    return f"<style>{regu}</style>"
+
+
+def audio_pomocy():
+    return "".join(f'<audio id="pa-{k}" preload="none" src="{_dzwiek(k)}"></audio>'
+                   for k in POMOCE)
+
+
+def karta(kod, esc):
+    nr, tytul, przygotuj, kroki, tekst, wskaz = POMOCE[kod]
+    lista = "\n".join(f'      <li>{esc(x)}</li>' for x in przygotuj)
+    krok = "\n".join(f'      <li><span class="pk-n">{i}</span>{esc(x)}</li>'
+                     for i, x in enumerate(kroki, 1))
+    return f'''<section class="zal pomoc" data-poziom="p1">
+  <header class="zal-head">
+    <span class="mark" role="img" aria-label="Logo PCTP"></span>
+    <div>
+      <div class="zal-w">EduPlaner 2026</div>
+      <div class="zal-s">Pomoc dydaktyczna · konspekt {esc(nr)} · 3–4 lata</div>
+    </div>
+    <span class="zal-pill p1">druk KC-4</span>
+  </header>
+  <div class="zal-tytul">
+    <span class="zal-kp">Tak ma wyglądać ta pomoc</span>
+    <h3>{esc(tytul)}</h3>
+  </div>
+  <div class="pf pf-{kod}" role="img" aria-label="Zdjęcie poglądowe pomocy: {esc(tytul)}"></div>
+  <div class="pomoc-dwie">
+    <div><h4 class="pomoc-h">Co przygotować</h4>
+    <ul class="klista pomoc-lista">
+{lista}
+    </ul></div>
+    <div><h4 class="pomoc-h">Jak użyć — trzy kroki</h4>
+    <ol class="pomoc-kroki">
+{krok}
+    </ol></div>
+  </div>
+  <div class="pomoc-glos">
+    <button type="button" class="au-btn" data-au="pa-{kod}"
+      aria-label="Posłuchaj polecenia"><span aria-hidden="true">▶</span> Posłuchaj polecenia</button>
+    <p class="pomoc-tekst">„{esc(tekst)}"</p>
+  </div>
+  <div class="callout rule pomoc-wsk"><span class="cap">Wskazówka</span>{esc(wskaz)}</div>
+  <div class="zal-stopka">
+    <span><b>Konspekt {esc(nr)}</b> · pomoc dydaktyczna</span>
+    <span class="mono">EduPlaner 2026 · PCTP · druk KC-4</span>
+  </div>
+</section>'''
+
+
+def pomoce_dla(nr, esc):
+    """Zwraca kartę pomocy dla konspektu o tym numerze albo pusty string."""
+    for kod, dane in POMOCE.items():
+        if dane[0] == nr:
+            return karta(kod, esc)
+    return ""

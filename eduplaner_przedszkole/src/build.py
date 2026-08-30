@@ -31,6 +31,7 @@ from konspekty_6_d7 import KONSPEKTY_6_D7
 from konspekty_6_d8 import KONSPEKTY_6_D8
 from konspekty_6_d9 import KONSPEKTY_6_D9
 from zalacznik_c1 import zalaczniki_c1
+from pomoce_a import pomoce_dla, style_pomocy, audio_pomocy
 from konspekty_34_d4 import KONSPEKTY_D4
 from konspekty_34_d6 import KONSPEKTY_D6
 from konspekty_34_d8 import KONSPEKTY_D8
@@ -283,6 +284,26 @@ input[type="search"]:focus,.tab:focus-visible,.chipbtn:focus-visible,.navlink:fo
   background:#FFF; color:var(--indigo); border-color:var(--line)}
 .au-btn:hover{background:var(--field)}
 .au-btn.gra,.au-all.gra{background:var(--indigo); color:#FFF; border-color:var(--indigo)}
+/* Karta pomocy dydaktycznej — zdjęcie poglądowe i dwie kolumny opisu. */
+.pf{display:block; width:100%; aspect-ratio:16/9; border-radius:14px; margin:4px 0 16px;
+  background-color:var(--soft); background-position:center; background-size:cover;
+  background-repeat:no-repeat; border:1px solid var(--line);
+  print-color-adjust:exact; -webkit-print-color-adjust:exact}
+.pomoc-dwie{display:grid; grid-template-columns:1fr 1fr; gap:14px 22px; margin-bottom:14px}
+.pomoc-h{font:700 11px/1 "DM Sans",Arial,sans-serif; letter-spacing:.14em; text-transform:uppercase;
+  color:var(--violet); margin:0 0 8px}
+.pomoc-lista li{font-size:12.5px; line-height:1.5}
+.pomoc-kroki{list-style:none; margin:0; padding:0; display:grid; gap:8px}
+.pomoc-kroki li{display:grid; grid-template-columns:22px 1fr; gap:9px; align-items:start;
+  font-size:12.5px; line-height:1.5}
+.pk-n{width:20px; height:20px; border-radius:50%; background:var(--accent); color:#fff;
+  display:grid; place-items:center; font:700 11px/1 "DM Sans",Arial,sans-serif; margin-top:1px}
+.pomoc-glos{display:flex; align-items:center; gap:14px; background:var(--soft);
+  border:1px solid var(--line); border-radius:12px; padding:11px 14px; margin-bottom:12px}
+.pomoc-glos .au-btn{margin-top:0; flex:none}
+.pomoc-tekst{margin:0; font-size:12.5px; line-height:1.5; color:var(--ink); font-style:italic}
+.pomoc-wsk{margin-bottom:12px}
+@media screen and (max-width:860px){ .pomoc-dwie{grid-template-columns:1fr} }
 .kafel.gra{border-color:var(--accent)}
 .kafel .numer{position:absolute; top:-11px; left:-11px; width:30px; height:30px; border-radius:50%;
   background:var(--accent); color:#fff; display:grid; place-items:center;
@@ -948,6 +969,20 @@ def render_konspekty_modale():
         m1 = "\n".join(f'          <li>{esc(x)}</li>' for x in K.get("mod1", []))
         kid = f"kon-{wk}-{nr}"
         zal = ""
+        pomoc = pomoce_dla(K["nr"], esc)
+        if pomoc:
+            zal = f"""    <div class="ksec"><span class="sq">VII</span><h4>Pomoc dydaktyczna</h4><span class="line"></span>
+      <span class="meta">zdjęcie poglądowe · polecenie głosem nauczycielki</span></div>
+    <p class="kkurs">Jak ma wyglądać pomoc, co przygotować i jak jej użyć w trzech krokach.
+    Karta jest gotowa do wydruku A4.</p>
+    <div class="zal-akcje">
+      <button class="zal-link zal-pokaz" data-pokazzal="{kid}" aria-expanded="false">Pokaż pomoc i posłuchaj polecenia</button>
+      <button class="zal-link" data-printzal="{kid}">Drukuj kartę pomocy (A4)</button>
+    </div>
+    <div class="zal-strefa" style="display:none">
+{pomoc}
+    </div>
+"""
         if K["nr"] == "C1-01":
             zal = f"""    <div class="ksec"><span class="sq">VII</span><h4>Załączniki · pomoce dydaktyczne</h4><span class="line"></span>
       <span class="meta">historyjki obrazkowe do wydruku A4</span></div>
@@ -1396,6 +1431,7 @@ def build():
 </div>
 
 </div>
+{style_pomocy()}{audio_pomocy()}
 {render_konspekty_modale()}
 <script>{JS}</script>
 """
