@@ -163,9 +163,12 @@ i karty pomocy mają własną stronę pionową: `@page arkusz{size:A4 portrait}`
 `@media print{.kmodal{display:none}}` — bez tego cały zeszyt wychodził z drukarki
 jako jedna pusta strona.
 
-**Spis konspektów** układamy siatką `minmax(232px,1fr)` z podziałem na obszary,
+**Wykaz konspektów** układamy siatką `minmax(232px,1fr)` z podziałem na obszary,
 nie rzędem pigułek — pigułka miała szerokość swojego tytułu, więc kolumny nie
-trzymały pionu. W banku spis jest domyślnie zwinięty, bo pod nim stoi tabela celów.
+trzymały pionu. Rozwija się kliknięciem (i w banku, i w zeszytach), a pasek
+rozwijania jest w kolorze akcentu `--accent`; nagłówki obszarów też. Wykaz
+schowany pod szarą belką nauczyciel przeoczy — to już raz zdarzyło się w tym
+projekcie.
 
 Ilustracje do konspektów generujemy modelem `gemini-2.5-flash-image`
 (`creative_generate_image`) — spójny styl książeczkowy, pastelowa paleta,

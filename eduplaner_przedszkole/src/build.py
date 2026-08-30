@@ -248,17 +248,28 @@ input[type="search"]:focus,.tab:focus-visible,.chipbtn:focus-visible,.navlink:fo
 
 /* ---------- spis konspektów ---------- */
 .kspis{margin:18px 0 4px; border:1px solid var(--line); border-radius:14px; background:#FFF; overflow:hidden}
-.kspis > summary{cursor:pointer; list-style:none; padding:13px 18px; display:flex; align-items:center; gap:10px;
-  font:700 12.5px/1 "DM Sans",Arial,sans-serif; color:var(--ink); background:var(--soft)}
+.kspis{border-color:var(--accent)}
+.kspis > summary{cursor:pointer; list-style:none; padding:14px 18px; display:flex; align-items:center; gap:10px;
+  font:700 13px/1 "DM Sans",Arial,sans-serif; color:var(--on-accent); background:var(--accent);
+  letter-spacing:.01em}
+.kspis > summary:hover{filter:brightness(1.07)}
+.kspis > summary .ile{color:var(--on-accent) !important; opacity:.86}
+.kspis > summary .zwin{display:none}
+.kspis[open] > summary .zwin{display:inline}
+.kspis[open] > summary .rozwin{display:none}
 .kspis > summary::-webkit-details-marker{display:none}
-.kspis > summary::before{content:"▸"; color:var(--accent); font-size:13px}
+.kspis > summary::before{content:"▸"; color:var(--on-accent); font-size:14px}
 .kspis[open] > summary::before{content:"▾"}
 .kspis > summary .ile{margin-left:auto; font-weight:400; color:var(--muted); font-size:11.5px}
 .kspis-tresc{padding:6px 18px 16px}
-.kspis-obszar{display:flex; align-items:center; gap:10px; margin:15px 0 8px;
-  font:700 9.5px/1 "DM Sans",Arial,sans-serif;
-  letter-spacing:.14em; text-transform:uppercase; color:var(--violet)}
-.kspis-obszar::after{content:""; flex:1; height:1px; background:var(--line)}
+/* Obszary w kolorze akcentu, nie w fiolecie tekstu: w spisie na 44 pozycje
+   nagłówek musi być pierwszą rzeczą, którą widać, inaczej pozycje zlewają się
+   w jedną listę. */
+.kspis-obszar{display:flex; align-items:center; gap:10px; margin:16px 0 8px;
+  font:700 10.5px/1 "DM Sans",Arial,sans-serif;
+  letter-spacing:.14em; text-transform:uppercase; color:var(--accent)}
+.kspis-obszar::after{content:""; flex:1; height:2px; border-radius:2px;
+  background:color-mix(in srgb, var(--accent) 28%, transparent)}
 .kspis-obszar:first-child{margin-top:4px}
 /* Spis w równej siatce, nie w rzędzie pigułek: pigułki miały szerokość swojego
    tytułu, więc kolumny nie trzymały się pionu i 44 pozycje wyglądały jak sypnięte
@@ -816,12 +827,12 @@ def spis_konspektow(mod, w):
                            f'    <div class="kspis-lista">\n' + "\n".join(w_obszarze) + "\n    </div>")
     if not pozycje:
         return ""
-    # Otwarty domyślnie. Spis powstał dlatego, że bez niego konspektów nie dało
-    # się znaleźć — zwinięty przywracał dokładnie ten problem. Tabela celów jest
-    # o ekran niżej i to jest akceptowalny koszt.
-    return (f'  <details class="kspis" open>\n'
-            f'    <summary>Spis konspektów<span class="ile">{ile} konspektów · '
-            f'● oznacza konspekt z pomocą dydaktyczną · kliknij, aby zwinąć</span></summary>\n'
+    # Zwinięty, ale pasek jest w kolorze akcentu i mówi wprost, co się pod nim
+    # kryje — spis chowany w szarej belce był wcześniej nie do znalezienia.
+    return (f'  <details class="kspis">\n'
+            f'    <summary>Wykaz konspektów<span class="rozwin"> — kliknij, aby rozwinąć</span>'
+            f'<span class="zwin"> — kliknij, aby zwinąć</span>'
+            f'<span class="ile">{ile} konspektów · ● z pomocą dydaktyczną</span></summary>\n'
             f'    <div class="kspis-tresc">\n' + "\n".join(pozycje) + "\n    </div>\n  </details>")
 
 

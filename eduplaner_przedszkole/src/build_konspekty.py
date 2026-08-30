@@ -56,9 +56,24 @@ body{background:var(--paper)}
 .kmodal + .kmodal{break-before:page; page-break-before:always}
 .spis{margin:18px 0 6px}
 .spis-obszar{display:flex; align-items:center; gap:10px; margin:16px 0 8px;
-  font:700 9.5px/1 "DM Sans",Arial,sans-serif; letter-spacing:.14em;
-  text-transform:uppercase; color:var(--violet)}
-.spis-obszar::after{content:""; flex:1; height:1px; background:var(--line)}
+  font:700 10.5px/1 "DM Sans",Arial,sans-serif; letter-spacing:.14em;
+  text-transform:uppercase; color:var(--accent)}
+.spis-obszar::after{content:""; flex:1; height:2px; border-radius:2px;
+  background:color-mix(in srgb, var(--accent) 28%, transparent)}
+/* Wykaz rozwijany kliknięciem, tak samo jak w banku. Pasek w kolorze akcentu —
+   zwinięty wykaz w szarej belce nauczyciel przeoczy. */
+details.spis{border:1px solid var(--accent); border-radius:14px; overflow:hidden; background:#FFF}
+details.spis > summary{cursor:pointer; list-style:none; display:flex; align-items:center; gap:10px;
+  padding:14px 18px; background:var(--accent); color:var(--on-accent);
+  font:700 13px/1 "DM Sans",Arial,sans-serif}
+details.spis > summary::-webkit-details-marker{display:none}
+details.spis > summary::before{content:"▸"; font-size:14px}
+details.spis[open] > summary::before{content:"▾"}
+details.spis > summary .ile{margin-left:auto; font-weight:400; opacity:.86; font-size:11.5px}
+details.spis > summary .zwin{display:none}
+details.spis[open] > summary .zwin{display:inline}
+details.spis[open] > summary .rozwin{display:none}
+.spis-tresc{padding:6px 18px 16px}
 .spis-obszar:first-child{margin-top:2px}
 .spis-siatka{display:grid; grid-template-columns:repeat(auto-fill,minmax(232px,1fr)); gap:7px}
 .spis a{display:flex; align-items:center; gap:9px; min-height:42px;
@@ -74,7 +89,7 @@ body{background:var(--paper)}
 .spis-legenda i{color:var(--accent); font-style:normal; font-size:9px; vertical-align:2px}
 .wstep{max-width:62ch; color:var(--muted); font-size:13px; line-height:1.65; margin:10px 0 0}
 @media print{
-  .spis,.spis-obszar,.spis-siatka,.wstep,.dochead,.twotone{display:none !important}
+  .spis,details.spis,.spis-obszar,.spis-siatka,.spis-tresc,.wstep,.dochead,.twotone{display:none !important}
   .zeszyt{max-width:none; padding:0}
   .kcard{border:none; margin:0}
   .au-btn{display:none !important}
@@ -184,9 +199,12 @@ def dokument(mod):
 Każdy pokazuje wszystkie trzy poziomy wsparcia naraz. {zdanie_o_pomocach}
 Przy druku każdy konspekt zaczyna nową stronę A4.</p>
 
-<nav class="spis" aria-label="Spis konspektów">
+<details class="spis">
+  <summary>Wykaz konspektów<span class="rozwin"> — kliknij, aby rozwinąć</span><span class="zwin"> — kliknij, aby zwinąć</span><span class="ile">{ile} konspektów · ● z materiałem do wydruku</span></summary>
+  <div class="spis-tresc">
 {chr(10).join(spis)}
-</nav>
+  </div>
+</details>
 <p class="spis-legenda"><i>●</i> — konspekt ma w sekcji VII gotowy materiał do wydruku
 ({z_materialem} z {ile}).</p>
 
