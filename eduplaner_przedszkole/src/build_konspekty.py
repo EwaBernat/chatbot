@@ -38,7 +38,19 @@ body{background:var(--paper)}
 .kmodal{position:static; display:block; background:none; padding:0; overflow:visible; inset:auto}
 .kcard{box-shadow:none; max-width:none; margin:0 0 30px; border:1px solid var(--line)}
 .kclose,.kfoot,.kesc{display:none !important}
-.kvar{display:flex !important; flex-direction:column}          /* wszystkie trzy poziomy wsparcia */
+/* Trzy poziomy wsparcia naraz — inaczej niż w banku, gdzie widać jeden,
+   ten kliknięty. Przy dwóch kolumnach obok siebie kolumna z celem
+   edukacyjnym rosła trzykrotnie, a kolumna z celem terapeutycznym
+   zostawała z jednym blokiem i pustką na pół strony. Dlatego w zeszycie
+   cel terapeutyczny idzie na górę na całą szerokość, a trzy poziomy
+   ustawiają się pod nim w rzędzie. */
+.kvar{display:flex !important; flex-direction:column}
+.kcele{grid-template-columns:1fr !important; gap:12px}
+.kcel.ter{order:-1}
+.kcel.edu{display:grid !important; grid-template-columns:repeat(3,1fr);
+  gap:10px; align-items:start}
+.kcel.edu .kchead{grid-column:1/-1}
+.kcel.edu .kvar{border-radius:10px; border:1px solid var(--line); padding:2px 0 0}
 .zal-strefa{display:block !important}
 .zal-akcje{display:none !important}
 .kmodal + .kmodal{break-before:page; page-break-before:always}
