@@ -261,3 +261,13 @@ na ścieżkę (wspólne dla trzech kart). Każdy kafelek ma przycisk „Posłuch
 a pasek nad siatką odtwarza sceny danej karty po kolei — z wprowadzeniem
 na początku i pytaniami na końcu — podświetlając obrazek aktualnie czytany.
 Wydruk i klawisz Esc wyciszają narrację; w druku przyciski są ukryte.
+
+### Gdzie w aplikacji jest narracja
+
+Zakładka **6 lat (wersja C)** → obszar **I · Uczenie się i stosowanie wiedzy** →
+twierdzenie **1** → kliknięcie w komórkę wybranego poziomu wsparcia otwiera
+konspekt **C1-01 Warsztat historyjek** → na dole sekcja **VII · Załączniki ·
+pomoce dydaktyczne** → przycisk **„Pokaż załączniki i posłuchaj narracji"**.
+
+Sąsiedni przycisk **„Drukuj załączniki Z1–Z3 (A4)"** drukuje same karty,
+bez pasków odsłuchu.

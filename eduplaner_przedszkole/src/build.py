@@ -289,6 +289,10 @@ input[type="search"]:focus,.tab:focus-visible,.chipbtn:focus-visible,.navlink:fo
   background:#FFF7F2; border-radius:8px; padding:8px 12px; font:700 11.5px/1 "DM Sans",Arial,sans-serif;
   cursor:pointer; margin-top:10px}
 .zal-link:hover{background:var(--accent); color:var(--on-accent)}
+.zal-akcje{display:flex; flex-wrap:wrap; gap:10px}
+.zal-pokaz{border-color:var(--indigo); color:var(--indigo)}
+.zal-pokaz:hover{background:var(--indigo); color:#FFF}
+.zal-pokaz[aria-expanded="true"]{background:var(--indigo); color:#FFF}
 .opts{display:flex; flex-wrap:wrap; gap:6px}
 .opt{display:inline-flex; align-items:center; gap:6px; border:1px solid var(--line); border-radius:6px;
   padding:4px 8px; font-size:11.5px; background:var(--paper); white-space:nowrap}
@@ -410,7 +414,7 @@ tr.tbanner .bsep{color:var(--accent); padding:0 5px}
   html.print-zal .kcard{padding:0; box-shadow:none; max-width:none; border-radius:0}
   html.print-zal .kcard > *{display:none !important}
   html.print-zal .kcard > .zal-strefa{display:block !important}
-  html.print-zal .zal-link{display:none !important}
+  html.print-zal .zal-link,html.print-zal .zal-akcje{display:none !important}
   .zal{break-inside:avoid; page-break-inside:avoid}
   .au-pasek,.au-btn{display:none !important}
   html.print-konspekt{--void:0}
@@ -586,6 +590,18 @@ document.addEventListener('keydown',e=>{if(e.key==='Escape')zamknijKonspekty();}
   window.addEventListener('beforeprint',stop);
   document.addEventListener('keydown',e=>{if(e.key==='Escape') stop();});
 })();
+
+/* Podgląd załączników na ekranie — bez tego karty (i przyciski odsłuchu)
+   byłyby widoczne wyłącznie w chwili drukowania. */
+document.querySelectorAll('[data-pokazzal]').forEach(b=>b.addEventListener('click',()=>{
+  const strefa=document.getElementById(b.dataset.pokazzal).querySelector('.zal-strefa');
+  if(!strefa) return;
+  const widac=strefa.style.display==='block';
+  strefa.style.display=widac?'none':'block';
+  b.setAttribute('aria-expanded',String(!widac));
+  b.textContent=widac?'Pokaż załączniki i posłuchaj narracji':'Ukryj załączniki';
+  if(!widac) strefa.scrollIntoView({behavior:'smooth',block:'start'});
+}));
 
 document.querySelectorAll('[data-printzal]').forEach(b=>b.addEventListener('click',()=>{
   const strefa=document.getElementById(b.dataset.printzal).querySelector('.zal-strefa');
@@ -898,18 +914,21 @@ def render_konspekty_modale():
         m2 = "\n".join(f'          <li>{esc(x)}</li>' for x in K["mod2"])
         m3 = "\n".join(f'          <li>{esc(x)}</li>' for x in K["mod3"])
         m1 = "\n".join(f'          <li>{esc(x)}</li>' for x in K.get("mod1", []))
+        kid = f"kon-{wk}-{nr}"
         zal = ""
         if K["nr"] == "C1-01":
             zal = f"""    <div class="ksec"><span class="sq">VII</span><h4>Załączniki · pomoce dydaktyczne</h4><span class="line"></span>
       <span class="meta">historyjki obrazkowe do wydruku A4</span></div>
     <p class="kkurs">Trzy gotowe historyjki w gradacji trudności — po jednej na każdy poziom wsparcia.
     Wydrukuj, wytnij wzdłuż linii i rozsyp obrazki przed dzieckiem.</p>
-    <button class="zal-link" data-printzal="{kid}">Drukuj załączniki Z1–Z3 (A4)</button>
+    <div class="zal-akcje">
+      <button class="zal-link zal-pokaz" data-pokazzal="{kid}" aria-expanded="false">Pokaż załączniki i posłuchaj narracji</button>
+      <button class="zal-link" data-printzal="{kid}">Drukuj załączniki Z1–Z3 (A4)</button>
+    </div>
     <div class="zal-strefa" style="display:none">
 {zalaczniki_c1()}
     </div>
 """
-        kid = f"kon-{wk}-{nr}"
         out.append(f"""<div class="kmodal" id="{kid}" role="dialog" aria-modal="true" aria-label="Konspekt: {esc(K['tytul'])}">
   <div class="kcard">
     <button class="kclose" data-close="{kid}" aria-label="Zamknij konspekt" title="Zamknij (Esc)">✕</button>
