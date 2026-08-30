@@ -20,6 +20,7 @@ import os
 from build import CSS, LOGO_URI, esc          # ten sam arkusz stylów co bank
 import pomoce_a                               # noqa: F401 — rejestruje zestaw 3–4 lata
 import pomoce_b                               # noqa: F401 — rejestruje zestaw 5 lat
+import pomoce_c                               # noqa: F401 — rejestruje zestaw 6 lat
 from pomoce_karta import ZESTAWY
 
 KORZEN = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -28,6 +29,7 @@ KORZEN = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 DOKUMENTY = {
     "3–4 lata": ("Pomoce_dydaktyczne_3-4_lata.html", "konspekty_34_d%d"),
     "5 lat":    ("Pomoce_dydaktyczne_5_lat.html",    "konspekty_5_d%d"),
+    "6 lat":    ("Pomoce_dydaktyczne_6_lat.html",    "konspekty_6_d%d"),
 }
 
 # Karta jest portretowa (A4 pionowo) — bank drukuje się poziomo, więc

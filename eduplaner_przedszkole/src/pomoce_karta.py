@@ -30,6 +30,16 @@ class Zestaw:
         self.wiek = wiek
         ZESTAWY.append(self)
 
+    # Zdjęcie i nagranie mogą jeszcze nie istnieć — zestaw powstaje w całości
+    # jako tekst, a media dochodzą partiami. Karta bez zdjęcia pokazuje wtedy
+    # neutralne pole, karta bez nagrania nie pokazuje przycisku odtwarzania.
+    # Bez tego cały dokument przestawał się budować przez jeden brakujący plik.
+    def ma_foto(self, kod):
+        return (self.foto / f"k_{kod}.jpg").exists()
+
+    def ma_dzwiek(self, kod):
+        return (self.audio / f"{kod}.mp3").exists()
+
     def _foto(self, kod):
         dane = base64.b64encode((self.foto / f"k_{kod}.jpg").read_bytes()).decode()
         return f"data:image/jpeg;base64,{dane}"
@@ -40,17 +50,27 @@ class Zestaw:
 
     def style(self):
         return "\n".join(f'.pf-{k}{{background-image:url({self._foto(k)})}}'
-                         for k in self.pomoce)
+                         for k in self.pomoce if self.ma_foto(k))
 
     def audio_tagi(self):
         return "".join(f'<audio id="pa-{k}" preload="none" src="{self._dzwiek(k)}"></audio>'
-                       for k in self.pomoce)
+                       for k in self.pomoce if self.ma_dzwiek(k))
+
+    def braki(self):
+        """(bez zdjęcia, bez nagrania) — do raportu po przebudowie."""
+        return ([k for k in self.pomoce if not self.ma_foto(k)],
+                [k for k in self.pomoce if not self.ma_dzwiek(k)])
 
     def karta(self, kod, esc):
         nr, tytul, przygotuj, kroki, tekst, wskaz = self.pomoce[kod]
         lista = "\n".join(f'      <li>{esc(x)}</li>' for x in przygotuj)
         krok = "\n".join(f'      <li><span class="pk-n">{i}</span>{esc(x)}</li>'
                          for i, x in enumerate(kroki, 1))
+        przycisk = (f'<button type="button" class="au-btn" data-au="pa-{kod}"'
+                    f' aria-label="Posłuchaj polecenia">'
+                    f'<span aria-hidden="true">▶</span> Posłuchaj polecenia</button>'
+                    if self.ma_dzwiek(kod) else
+                    '<span class="au-brak">Polecenie do przeczytania dziecku</span>')
         return f'''<section class="zal pomoc" id="pom-{kod}" data-poziom="p1">
   <header class="zal-head">
     <span class="mark" role="img" aria-label="Logo PCTP"></span>
@@ -64,7 +84,8 @@ class Zestaw:
     <span class="zal-kp">Tak ma wyglądać ta pomoc</span>
     <h3>{esc(tytul)}</h3>
   </div>
-  <div class="pf pf-{kod}" role="img" aria-label="Zdjęcie poglądowe pomocy: {esc(tytul)}"></div>
+  <div class="pf {"pf-" + kod if self.ma_foto(kod) else "pf-brak"}" role="img"
+    aria-label="Zdjęcie poglądowe pomocy: {esc(tytul)}"></div>
   <div class="pomoc-dwie">
     <div><h4 class="pomoc-h">Co przygotować</h4>
     <ul class="klista pomoc-lista">
@@ -76,8 +97,7 @@ class Zestaw:
     </ol></div>
   </div>
   <div class="pomoc-glos">
-    <button type="button" class="au-btn" data-au="pa-{kod}"
-      aria-label="Posłuchaj polecenia"><span aria-hidden="true">▶</span> Posłuchaj polecenia</button>
+    {przycisk}
     <p class="pomoc-tekst">„{esc(tekst)}"</p>
   </div>
   <div class="callout rule pomoc-wsk"><span class="cap">Wskazówka</span>{esc(wskaz)}</div>
@@ -86,6 +106,15 @@ class Zestaw:
     <span class="mono">EduPlaner 2026 · PCTP · druk KC-4</span>
   </div>
 </section>'''
+
+
+# Styl pól zastępczych — karta bez zdjęcia albo bez nagrania nadal ma się
+# drukować sensownie, a nie zostawiać dziury w układzie.
+UKLAD_BRAKI = """
+.pf-brak{background:repeating-linear-gradient(135deg,#F4F1F7 0 12px,#EDE9F2 12px 24px)}
+.au-brak{display:inline-block;padding:7px 13px;border:1px dashed #B9A9CE;border-radius:999px;
+ font:700 11px/1 "DM Sans",Arial,sans-serif;color:#6B5B8A;letter-spacing:.02em}
+"""
 
 
 def _wybor(wieki):
@@ -104,7 +133,7 @@ def _wybor(wieki):
 def style_pomocy(wieki=None):
     """Zdjęcia osadzone raz, w klasach CSS."""
     regu = "\n".join(z.style() for z in _wybor(wieki))
-    return f"<style>{regu}</style>" if regu else ""
+    return f"<style>{UKLAD_BRAKI}{regu}</style>"
 
 
 def audio_pomocy(wieki=None):

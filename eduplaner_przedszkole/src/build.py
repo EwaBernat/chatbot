@@ -33,6 +33,7 @@ from konspekty_6_d9 import KONSPEKTY_6_D9
 from zalacznik_c1 import zalaczniki_c1
 import pomoce_a          # noqa: F401 — rejestruje zestaw pomocy 3–4 lata
 import pomoce_b          # noqa: F401 — rejestruje zestaw pomocy 5 lat
+import pomoce_a, pomoce_b, pomoce_c  # noqa: F401 — rejestrują zestawy w pomoce_karta
 from pomoce_karta import pomoce_dla, wskaz_pomoc, style_pomocy, audio_pomocy
 from karty_druk import karty_dla, ma_karty, style_kart
 from konspekty_34_d4 import KONSPEKTY_D4
