@@ -1103,7 +1103,11 @@ def monitoring_podstawy():
           <td class="g {klasa}"><span class="cel">{esc(stan)}</span></td>
         </tr>""")
     n_pkt = len(rejestr)
-    n_kon = sum(1 for r in rejestr.values() if r["kon"])
+    n_odw = sum(r["kon"] for r in rejestr.values())
+    # Obszary pokryte szczatkowo — sygnal, ze bank ich jeszcze nie dotyka.
+    cienkie = [f'<b>{k}</b> {OBSZAR_PP_NAZWY[k]}'
+               for k in OBSZAR_PP_NAZWY
+               if 0 < sum(1 for p in rejestr if p.split(".")[0] == k) <= 2]
     # Legenda z liczba punktow w kazdej grupie — od razu widac, gdzie jest ich duzo.
     liczba_w_grupie = {}
     for punkt in rejestr:
@@ -1120,13 +1124,18 @@ def monitoring_podstawy():
             poz.append(f'      <li><b>{esc(kod)}</b> — {esc(opis)} '
                        f'<span class="mono">({ile} pkt)</span></li>')
     obszary_html = "\n".join(poz)
+    luki_html = ("" if not cienkie else
+        '  <div class="callout rule"><span class="cap">Luki w pokryciu</span>Bank dotyka na razie '
+        'pojedynczych punktów w obszarach: ' + ", ".join(cienkie) + '. To nie brak w podstawie, '
+        'tylko w twierdzeniach KPOF, z których wyrasta ten bank — te obszary warto uzupełnić '
+        'w kolejnej wersji arkuszy.</div>')
     return f"""<section class="sec" id="monitoring">
   <div class="vband">
     <span class="vlet">PP</span>
     <h2>Monitoring realizacji podstawy programowej</h2>
     <div class="vmeta">
-      <span><b>Punkty PP</b>{n_pkt}</span>
-      <span><b>Z konspektem</b>{n_kon}</span>
+      <span><b>Punkty w banku</b>{n_pkt}</span>
+      <span><b>Odwołań z konspektów</b>{n_odw}</span>
       <span><b>Wersje</b>A · B · C</span>
       <span><b>Podstawa</b>Dz.U. 2026 poz. 378</span>
     </div>
@@ -1147,9 +1156,10 @@ def monitoring_podstawy():
   <ul class="klista klista-2" style="margin-top:6px">
 {obszary_html}
   </ul></div>
+{luki_html}
   <details class="rozwin">
   <summary><span class="rozwin-tyt">Pokaż pełną tabelę monitoringu</span>
-    <span class="rozwin-info">{n_pkt} punktów podstawy · {n_kon} z konspektem</span>
+    <span class="rozwin-info">{n_pkt} punktów · {n_odw} odwołań z konspektów</span>
     <span class="rozwin-strzalka" aria-hidden="true">▾</span></summary>
   <div class="tablewrap"><table>
     <thead>
