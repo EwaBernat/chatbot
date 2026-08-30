@@ -162,3 +162,30 @@ z rozporządzenia MEN z 14 lutego 2017 r. Nowa podstawa — rozporządzenie Mini
 z 11 marca 2026 r. (Dz. U. 2026 poz. 378), obowiązująca od 1 września 2026 r. — wprowadza
 nowy podział obszarów. Przemapowanie wymaga aktualizacji kolumny `pp` w plikach `dane_*.py`;
 monitoring, cele i konspekty przeliczą się automatycznie.
+
+## Wersja C (6 lat) — komplet konspektów
+
+44 konspekty podporządkowane gotowości szkolnej:
+
+| Obszar | Konspekty |
+|---|---|
+| I Uczenie się | Warsztat historyjek · Sylabowa czytelnia · Litery w liniaturze · Kantorek liczb · Laboratorium hipotez |
+| II Ogólne zadania | Plan w trzech krokach · Cicha godzina pracy · Klub dobrych przegranych · Wczoraj, dziś, jutro · Skrzynka strategii |
+| III Porozumiewanie się | Wyraźnie i płynnie · Dźwiękowe puzzle · Bajkopisarze · Debata przedszkolna · English corner |
+| IV Poruszanie się | Skrzyżowane ścieżki · Prosty kręgosłup przy stoliku · Mistrzowie ołówka · Szkoła zapinania · Ruch, który opowiada |
+| V Dbanie o siebie | Gotowi w pięć minut · Sam nakładam, sam sprzątam · Zdrowie na talerzu · Bezpieczna droga · Moje granice |
+| VI Życie domowe | Restauracja dyżurnych · Dyżury z rozliczeniem · Porządek w mojej przestrzeni · Ogrodnicy z kącika przyrody |
+| VII Wzajemne kontakty | Rada grupy · Kodeks naszej grupy · Konsekwencje moich wyborów · Pogotowie pomocne · Przyjaźń i słowa, które ranią |
+| VIII Główne obszary życia | Zespół projektowy · Skończone i pokazane · Turniej gier z regułami · Sklep z prawdziwą kasą · Mali badacze świata |
+| IX Życie społeczne | Kręgi przynależności · Polska na mapie · Moje dane, moje bezpieczeństwo · Strażnicy planety · Kim będę, kim jestem |
+
+## Stan całości
+
+**130 konspektów pod 390 klikalnymi celami** — każde twierdzenie KPOF we wszystkich
+trzech wersjach wiekowych ma własny scenariusz zajęć z wariantami dla trzech poziomów wsparcia.
+
+| Wersja | Twierdzenia | Konspekty |
+|---|---|---|
+| A · 3–4 lata | 42 | 42 |
+| B · 5 lat | 44 | 44 |
+| C · 6 lat | 44 | 44 |

@@ -21,6 +21,15 @@ from konspekty_5_d6 import KONSPEKTY_5_D6
 from konspekty_5_d7 import KONSPEKTY_5_D7
 from konspekty_5_d8 import KONSPEKTY_5_D8
 from konspekty_5_d9 import KONSPEKTY_5_D9
+from konspekty_6_d1 import KONSPEKTY_6_D1
+from konspekty_6_d2 import KONSPEKTY_6_D2
+from konspekty_6_d3 import KONSPEKTY_6_D3
+from konspekty_6_d4 import KONSPEKTY_6_D4
+from konspekty_6_d5 import KONSPEKTY_6_D5
+from konspekty_6_d6 import KONSPEKTY_6_D6
+from konspekty_6_d7 import KONSPEKTY_6_D7
+from konspekty_6_d8 import KONSPEKTY_6_D8
+from konspekty_6_d9 import KONSPEKTY_6_D9
 from konspekty_34_d4 import KONSPEKTY_D4
 from konspekty_34_d6 import KONSPEKTY_D6
 from konspekty_34_d8 import KONSPEKTY_D8
@@ -28,7 +37,10 @@ KONSPEKTY = {**KONSPEKTY_D1, **KONSPEKTY_D2, **KONSPEKTY_D3, **KONSPEKTY_D4, **K
              **KONSPEKTY_D6, **KONSPEKTY_D8, **KONSPEKTY_D9,
              **KONSPEKTY_5_D1, **KONSPEKTY_5_D2, **KONSPEKTY_5_D3, **KONSPEKTY_5_D4,
              **KONSPEKTY_5_D5, **KONSPEKTY_5_D6, **KONSPEKTY_5_D7, **KONSPEKTY_5_D8,
-             **KONSPEKTY_5_D9, **KONSPEKTY}
+             **KONSPEKTY_5_D9,
+             **KONSPEKTY_6_D1, **KONSPEKTY_6_D2, **KONSPEKTY_6_D3, **KONSPEKTY_6_D4,
+             **KONSPEKTY_6_D5, **KONSPEKTY_6_D6, **KONSPEKTY_6_D7, **KONSPEKTY_6_D8,
+             **KONSPEKTY_6_D9, **KONSPEKTY}
 
 WERSJE = [dane_34, dane_5, dane_6]
 
