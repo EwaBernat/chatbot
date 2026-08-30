@@ -155,13 +155,26 @@ Razem z wersją A: **86 konspektów pod 258 klikalnymi celami**.
 ## Monitoring podstawy programowej
 
 Sekcja `#monitoring` zestawia wszystkie punkty PP, do których odwołują się twierdzenia KPOF:
-punkt · obszar podstawy · wersje wiekowe · obszary ICF · czy istnieje konspekt.
+punkt · obszar podstawy · wersje wiekowe · obszary ICF · ile konspektów pokrywa punkt.
 
-**Stan prawny:** numeracja pochodzi z arkuszy KPOF opartych na podstawie programowej
-z rozporządzenia MEN z 14 lutego 2017 r. Nowa podstawa — rozporządzenie Ministra Edukacji
-z 11 marca 2026 r. (Dz. U. 2026 poz. 378), obowiązująca od 1 września 2026 r. — wprowadza
-nowy podział obszarów. Przemapowanie wymaga aktualizacji kolumny `pp` w plikach `dane_*.py`;
-monitoring, cele i konspekty przeliczą się automatycznie.
+Tabela liczy 79 wierszy, więc jest **zwinięta** i rozwija się kliknięciem w pasek
+„Pokaż pełną tabelę monitoringu". Do wydruku trafia zawsze, niezależnie od stanu na ekranie
+(reguła w bloku `@media print`).
+
+**Podstawa prawna:** rozporządzenie Ministra Edukacji z 11 marca 2026 r.
+(Dz. U. 2026 poz. 378), obowiązujące od 1 września 2026 r. Zastąpiło cztery dotychczasowe
+obszary rozwoju dziewięcioma obszarami osiągnięć dziecka:
+
+| nr | obszar | nr | obszar | nr | obszar |
+|---|---|---|---|---|---|
+| 1 | społeczny | 4 | matematyczny | 7 | cyfrowy |
+| 2 | osobisty | 5 | przyrodniczy | 8 | artystyczny |
+| 3 | językowy | 6 | techniczny | 9 | ruchowy |
+
+Poza numeracją `obszar.punkt` w kolumnie `pp` występują `DE-R` (doświadczenie edukacyjne
+realizowane co najmniej raz w roku), `WSR` (warunki i sposób realizacji) i `Zad.`
+(zadanie przedszkola). Nazwy obszarów trzyma słownik `OBSZAR_PP_NAZWY`
+w `monitoring_podstawy()` — jedno źródło dla legendy i dla kolumny tabeli.
 
 ## Wersja C (6 lat) — komplet konspektów
 

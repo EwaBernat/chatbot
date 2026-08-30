@@ -298,6 +298,25 @@ td.g.haskon:focus-visible{outline:2px solid var(--accent); outline-offset:-2px}
 .kvar{display:none} .kvar.on{display:flex; flex-direction:column; flex:1}
 .kdwie{display:grid; grid-template-columns:1fr 1fr; gap:16px}
 ul.klista{list-style:none; margin:0; padding:0; display:grid; gap:5px}
+ul.klista-2{grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); gap:5px 24px}
+/* Kody i liczniki nie mogą się łamać — „DE-R” pękało na myślniku. */
+ul.klista-2 b,ul.klista-2 .mono{white-space:nowrap}
+
+/* Monitoring podstawy — 79 wierszy rozwijanych dopiero na życzenie. */
+details.rozwin{margin-top:16px}
+details.rozwin > summary{list-style:none; cursor:pointer; display:flex; align-items:center;
+  gap:12px; padding:12px 16px; border:1px solid var(--line); border-radius:12px;
+  background:var(--soft); transition:border-color .15s,background .15s}
+details.rozwin > summary::-webkit-details-marker{display:none}
+details.rozwin > summary:hover{border-color:var(--indigo); background:var(--field)}
+.rozwin-tyt{font:700 13.5px/1 "DM Sans",Arial,sans-serif; color:var(--ink)}
+.rozwin-info{font-size:10.5px; letter-spacing:.1em; text-transform:uppercase;
+  color:var(--violet); font-weight:700}
+.rozwin-strzalka{margin-left:auto; color:var(--indigo); font-size:15px; transition:transform .15s}
+details.rozwin[open] > summary{border-color:var(--indigo); background:var(--field);
+  border-bottom-left-radius:0; border-bottom-right-radius:0}
+details.rozwin[open] .rozwin-strzalka{transform:rotate(180deg)}
+details.rozwin[open] .tablewrap{border-top-left-radius:0; border-top-right-radius:0}
 ul.klista li{display:flex; gap:8px; font-size:12px; line-height:1.45}
 ul.klista li::before{content:"●"; color:var(--accent); font-size:8px; line-height:1.9; flex:none}
 table.ktab{min-width:0}
@@ -364,6 +383,8 @@ tr.tbanner .bsep{color:var(--accent); padding:0 5px}
   html.print-zal .kcard > *{display:none !important}
   html.print-zal .kcard > .zal-strefa{display:block !important}
   html.print-zal .zal-link,html.print-zal .zal-akcje{display:none !important}
+  details.rozwin > summary{display:none}
+  details.rozwin > *:not(summary){display:block !important}
   .zal{break-inside:avoid; page-break-inside:avoid}
   .au-pasek,.au-btn{display:none !important}
   html.print-konspekt{--void:0}
@@ -2571,27 +2592,40 @@ tr.tbanner .bsep{color:var(--accent); padding:0 5px}
       <span><b>Punkty PP</b>79</span>
       <span><b>Z konspektem</b>79</span>
       <span><b>Wersje</b>A · B · C</span>
-      <span><b>Numeracja</b>wg arkuszy KPOF</span>
+      <span><b>Podstawa</b>Dz.U. 2026 poz. 378</span>
     </div>
   </div>
   <p class="vdesc">Zestawienie wszystkich punktów podstawy programowej wychowania przedszkolnego, do których
-  odwołują się twierdzenia KPOF i cele z tego banku. Kolumna „Realizacja” pokazuje, czy punkt jest pokryty samym
-  celem SMART, czy dodatkowo gotowym konspektem zajęć. Tabela służy do wykazania realizacji podstawy
-  w dokumentacji nadzoru pedagogicznego.</p>
-  <div class="callout rule"><span class="cap">Uwaga · stan prawny</span>
-  Tabela odwzorowuje numerację punktów <b>zapisaną w arkuszach KPOF</b>, opartą na podstawie programowej
-  z rozporządzenia MEN z 14 lutego 2017 r. <b>Nie jest to jeszcze numeracja nowej podstawy programowej</b>
-  wprowadzonej rozporządzeniem Ministra Edukacji z 11 marca 2026 r. (Dz. U. 2026 poz. 378), która obowiązuje
-  od 1 września 2026 r. i wprowadza nowy podział obszarów. Przemapowanie wymaga aktualizacji kolumny
-  „Podstawa” w arkuszach KPOF, a następnie automatycznie przeniesie się do celów, konspektów i tej tabeli.
+  odwołują się twierdzenia KPOF i cele z tego banku. Kolumna „Realizacja” pokazuje, iloma konspektami zajęć
+  punkt jest pokryty — łącznie we wszystkich trzech wersjach wiekowych. Tabela służy do wykazania realizacji
+  podstawy w dokumentacji nadzoru pedagogicznego.</p>
+  <div class="callout rule"><span class="cap">Podstawa prawna</span>
+  Tabela odwzorowuje <b>nową podstawę programową wychowania przedszkolnego</b> — rozporządzenie Ministra
+  Edukacji z 11 marca 2026 r. (Dz. U. 2026 poz. 378), obowiązujące od 1 września 2026 r. Zastąpiła ona
+  dotychczasowe cztery obszary rozwoju (fizyczny, emocjonalny, społeczny, poznawczy) <b>dziewięcioma
+  obszarami osiągnięć dziecka</b>: społecznym, osobistym, językowym, matematycznym, przyrodniczym,
+  technicznym, cyfrowym, artystycznym i ruchowym. Zapis <i>obszar.punkt</i> w kolumnie „Punkt” odpowiada
+  tej numeracji i jest ten sam w arkuszach KPOF, w celach SMART i w konspektach.
   </div>
-  <div class="callout"><span class="cap" style="color:var(--violet)">Cztery obszary rozwoju w podstawie</span>
-  <ul class="klista" style="margin-top:6px">
-      <li><b>1</b> — Fizyczny obszar rozwoju — samoobsługa, sprawność, bezpieczeństwo ciała</li>
-      <li><b>2</b> — Emocjonalny obszar rozwoju — rozpoznawanie i regulacja emocji</li>
-      <li><b>3</b> — Społeczny obszar rozwoju — relacje, zasady, przynależność</li>
-      <li><b>4</b> — Poznawczy obszar rozwoju — mowa, myślenie, matematyka, przyroda, technika, sztuka</li>
+  <div class="callout"><span class="cap" style="color:var(--violet)">Grupy punktów w zapisie <i>obszar.punkt</i></span>
+  <ul class="klista klista-2" style="margin-top:6px">
+      <li><b>1</b> — obszar społeczny <span class="mono">(17 pkt)</span></li>
+      <li><b>2</b> — obszar osobisty <span class="mono">(11 pkt)</span></li>
+      <li><b>3</b> — obszar językowy <span class="mono">(14 pkt)</span></li>
+      <li><b>4</b> — obszar matematyczny <span class="mono">(9 pkt)</span></li>
+      <li><b>5</b> — obszar przyrodniczy <span class="mono">(4 pkt)</span></li>
+      <li><b>6</b> — obszar techniczny <span class="mono">(1 pkt)</span></li>
+      <li><b>7</b> — obszar cyfrowy <span class="mono">(1 pkt)</span></li>
+      <li><b>8</b> — obszar artystyczny <span class="mono">(4 pkt)</span></li>
+      <li><b>9</b> — obszar ruchowy <span class="mono">(10 pkt)</span></li>
+      <li><b>DE-R</b> — doświadczenie edukacyjne — raz w roku <span class="mono">(5 pkt)</span></li>
+      <li><b>WSR</b> — warunki i sposób realizacji <span class="mono">(1 pkt)</span></li>
+      <li><b>Zad.</b> — zadanie przedszkola <span class="mono">(2 pkt)</span></li>
   </ul></div>
+  <details class="rozwin">
+  <summary><span class="rozwin-tyt">Pokaż pełną tabelę monitoringu</span>
+    <span class="rozwin-info">79 punktów podstawy · 79 z konspektem</span>
+    <span class="rozwin-strzalka" aria-hidden="true">▾</span></summary>
   <div class="tablewrap"><table>
     <thead>
       <tr class="tbanner"><th colspan="6">EduPlaner 2026 · druk KC-1 · monitoring podstawy programowej<span class="bsep">·</span>Wszystkie wersje wiekowe<span class="bsep">·</span>Zapis obszar.punkt</th></tr>
@@ -2611,7 +2645,7 @@ tr.tbanner .bsep{color:var(--accent); padding:0 5px}
           <td class="tw">Społeczny</td>
           <td class="mono" style="white-space:nowrap">B · C</td>
           <td>IX</td>
-          <td class="g p1"><span class="cel">konspekt</span></td>
+          <td class="g p1"><span class="cel">2 konspekty</span></td>
         </tr>
         <tr>
           <td class="lp">2</td>
@@ -2619,7 +2653,7 @@ tr.tbanner .bsep{color:var(--accent); padding:0 5px}
           <td class="tw">Społeczny</td>
           <td class="mono" style="white-space:nowrap">A · B · C</td>
           <td>II, VII, VIII</td>
-          <td class="g p1"><span class="cel">konspekt</span></td>
+          <td class="g p1"><span class="cel">8 konspektów</span></td>
         </tr>
         <tr>
           <td class="lp">3</td>
@@ -2627,7 +2661,7 @@ tr.tbanner .bsep{color:var(--accent); padding:0 5px}
           <td class="tw">Społeczny</td>
           <td class="mono" style="white-space:nowrap">B · C</td>
           <td>VI, VII</td>
-          <td class="g p1"><span class="cel">konspekt</span></td>
+          <td class="g p1"><span class="cel">3 konspekty</span></td>
         </tr>
         <tr>
           <td class="lp">4</td>
@@ -2635,7 +2669,7 @@ tr.tbanner .bsep{color:var(--accent); padding:0 5px}
           <td class="tw">Społeczny</td>
           <td class="mono" style="white-space:nowrap">C</td>
           <td>VII</td>
-          <td class="g p1"><span class="cel">konspekt</span></td>
+          <td class="g p1"><span class="cel">1 konspekt</span></td>
         </tr>
         <tr>
           <td class="lp">5</td>
@@ -2643,7 +2677,7 @@ tr.tbanner .bsep{color:var(--accent); padding:0 5px}
           <td class="tw">Społeczny</td>
           <td class="mono" style="white-space:nowrap">B · C</td>
           <td>VII</td>
-          <td class="g p1"><span class="cel">konspekt</span></td>
+          <td class="g p1"><span class="cel">2 konspekty</span></td>
         </tr>
         <tr>
           <td class="lp">6</td>
@@ -2651,7 +2685,7 @@ tr.tbanner .bsep{color:var(--accent); padding:0 5px}
           <td class="tw">Społeczny</td>
           <td class="mono" style="white-space:nowrap">A · B · C</td>
           <td>II, V, VII, VIII, IX</td>
-          <td class="g p1"><span class="cel">konspekt</span></td>
+          <td class="g p1"><span class="cel">6 konspektów</span></td>
         </tr>
         <tr>
           <td class="lp">7</td>
@@ -2659,7 +2693,7 @@ tr.tbanner .bsep{color:var(--accent); padding:0 5px}
           <td class="tw">Społeczny</td>
           <td class="mono" style="white-space:nowrap">B</td>
           <td>VII</td>
-          <td class="g p1"><span class="cel">konspekt</span></td>
+          <td class="g p1"><span class="cel">1 konspekt</span></td>
         </tr>
         <tr>
           <td class="lp">8</td>
@@ -2667,7 +2701,7 @@ tr.tbanner .bsep{color:var(--accent); padding:0 5px}
           <td class="tw">Społeczny</td>
           <td class="mono" style="white-space:nowrap">B · C</td>
           <td>VII</td>
-          <td class="g p1"><span class="cel">konspekt</span></td>
+          <td class="g p1"><span class="cel">3 konspekty</span></td>
         </tr>
         <tr>
           <td class="lp">9</td>
@@ -2675,7 +2709,7 @@ tr.tbanner .bsep{color:var(--accent); padding:0 5px}
           <td class="tw">Społeczny</td>
           <td class="mono" style="white-space:nowrap">B</td>
           <td>VII</td>
-          <td class="g p1"><span class="cel">konspekt</span></td>
+          <td class="g p1"><span class="cel">1 konspekt</span></td>
         </tr>
         <tr>
           <td class="lp">10</td>
@@ -2683,7 +2717,7 @@ tr.tbanner .bsep{color:var(--accent); padding:0 5px}
           <td class="tw">Społeczny</td>
           <td class="mono" style="white-space:nowrap">B · C</td>
           <td>VI, VII</td>
-          <td class="g p1"><span class="cel">konspekt</span></td>
+          <td class="g p1"><span class="cel">3 konspekty</span></td>
         </tr>
         <tr>
           <td class="lp">11</td>
@@ -2691,7 +2725,7 @@ tr.tbanner .bsep{color:var(--accent); padding:0 5px}
           <td class="tw">Społeczny</td>
           <td class="mono" style="white-space:nowrap">B · C</td>
           <td>VII</td>
-          <td class="g p1"><span class="cel">konspekt</span></td>
+          <td class="g p1"><span class="cel">2 konspekty</span></td>
         </tr>
         <tr>
           <td class="lp">12</td>
@@ -2699,7 +2733,7 @@ tr.tbanner .bsep{color:var(--accent); padding:0 5px}
           <td class="tw">Społeczny</td>
           <td class="mono" style="white-space:nowrap">A · B · C</td>
           <td>VIII, IX</td>
-          <td class="g p1"><span class="cel">konspekt</span></td>
+          <td class="g p1"><span class="cel">3 konspekty</span></td>
         </tr>
         <tr>
           <td class="lp">13</td>
@@ -2707,7 +2741,7 @@ tr.tbanner .bsep{color:var(--accent); padding:0 5px}
           <td class="tw">Społeczny</td>
           <td class="mono" style="white-space:nowrap">C</td>
           <td>IX</td>
-          <td class="g p1"><span class="cel">konspekt</span></td>
+          <td class="g p1"><span class="cel">1 konspekt</span></td>
         </tr>
         <tr>
           <td class="lp">14</td>
@@ -2715,7 +2749,7 @@ tr.tbanner .bsep{color:var(--accent); padding:0 5px}
           <td class="tw">Społeczny</td>
           <td class="mono" style="white-space:nowrap">C</td>
           <td>VIII</td>
-          <td class="g p1"><span class="cel">konspekt</span></td>
+          <td class="g p1"><span class="cel">1 konspekt</span></td>
         </tr>
         <tr>
           <td class="lp">15</td>
@@ -2723,7 +2757,7 @@ tr.tbanner .bsep{color:var(--accent); padding:0 5px}
           <td class="tw">Społeczny</td>
           <td class="mono" style="white-space:nowrap">A · B · C</td>
           <td>VIII, IX</td>
-          <td class="g p1"><span class="cel">konspekt</span></td>
+          <td class="g p1"><span class="cel">4 konspekty</span></td>
         </tr>
         <tr>
           <td class="lp">16</td>
@@ -2731,7 +2765,7 @@ tr.tbanner .bsep{color:var(--accent); padding:0 5px}
           <td class="tw">Społeczny</td>
           <td class="mono" style="white-space:nowrap">C</td>
           <td>IX</td>
-          <td class="g p1"><span class="cel">konspekt</span></td>
+          <td class="g p1"><span class="cel">1 konspekt</span></td>
         </tr>
         <tr>
           <td class="lp">17</td>
@@ -2739,7 +2773,7 @@ tr.tbanner .bsep{color:var(--accent); padding:0 5px}
           <td class="tw">Społeczny</td>
           <td class="mono" style="white-space:nowrap">C</td>
           <td>IX</td>
-          <td class="g p1"><span class="cel">konspekt</span></td>
+          <td class="g p1"><span class="cel">1 konspekt</span></td>
         </tr>
         <tr>
           <td class="lp">18</td>
@@ -2747,7 +2781,7 @@ tr.tbanner .bsep{color:var(--accent); padding:0 5px}
           <td class="tw">Osobisty</td>
           <td class="mono" style="white-space:nowrap">B · C</td>
           <td>VIII</td>
-          <td class="g p1"><span class="cel">konspekt</span></td>
+          <td class="g p1"><span class="cel">2 konspekty</span></td>
         </tr>
         <tr>
           <td class="lp">19</td>
@@ -2755,7 +2789,7 @@ tr.tbanner .bsep{color:var(--accent); padding:0 5px}
           <td class="tw">Osobisty</td>
           <td class="mono" style="white-space:nowrap">C</td>
           <td>II</td>
-          <td class="g p1"><span class="cel">konspekt</span></td>
+          <td class="g p1"><span class="cel">1 konspekt</span></td>
         </tr>
         <tr>
           <td class="lp">20</td>
@@ -2763,7 +2797,7 @@ tr.tbanner .bsep{color:var(--accent); padding:0 5px}
           <td class="tw">Osobisty</td>
           <td class="mono" style="white-space:nowrap">C</td>
           <td>VII</td>
-          <td class="g p1"><span class="cel">konspekt</span></td>
+          <td class="g p1"><span class="cel">1 konspekt</span></td>
         </tr>
         <tr>
           <td class="lp">21</td>
@@ -2771,7 +2805,7 @@ tr.tbanner .bsep{color:var(--accent); padding:0 5px}
           <td class="tw">Osobisty</td>
           <td class="mono" style="white-space:nowrap">A · B · C</td>
           <td>II, VI</td>
-          <td class="g p1"><span class="cel">konspekt</span></td>
+          <td class="g p1"><span class="cel">7 konspektów</span></td>
         </tr>
         <tr>
           <td class="lp">22</td>
@@ -2779,7 +2813,7 @@ tr.tbanner .bsep{color:var(--accent); padding:0 5px}
           <td class="tw">Osobisty</td>
           <td class="mono" style="white-space:nowrap">A · B · C</td>
           <td>I, II, VIII</td>
-          <td class="g p1"><span class="cel">konspekt</span></td>
+          <td class="g p1"><span class="cel">6 konspektów</span></td>
         </tr>
         <tr>
           <td class="lp">23</td>
@@ -2787,7 +2821,7 @@ tr.tbanner .bsep{color:var(--accent); padding:0 5px}
           <td class="tw">Osobisty</td>
           <td class="mono" style="white-space:nowrap">C</td>
           <td>VIII</td>
-          <td class="g p1"><span class="cel">konspekt</span></td>
+          <td class="g p1"><span class="cel">1 konspekt</span></td>
         </tr>
         <tr>
           <td class="lp">24</td>
@@ -2795,7 +2829,7 @@ tr.tbanner .bsep{color:var(--accent); padding:0 5px}
           <td class="tw">Osobisty</td>
           <td class="mono" style="white-space:nowrap">C</td>
           <td>II</td>
-          <td class="g p1"><span class="cel">konspekt</span></td>
+          <td class="g p1"><span class="cel">1 konspekt</span></td>
         </tr>
         <tr>
           <td class="lp">25</td>
@@ -2803,7 +2837,7 @@ tr.tbanner .bsep{color:var(--accent); padding:0 5px}
           <td class="tw">Osobisty</td>
           <td class="mono" style="white-space:nowrap">A · B</td>
           <td>II, VII</td>
-          <td class="g p1"><span class="cel">konspekt</span></td>
+          <td class="g p1"><span class="cel">2 konspekty</span></td>
         </tr>
         <tr>
           <td class="lp">26</td>
@@ -2811,7 +2845,7 @@ tr.tbanner .bsep{color:var(--accent); padding:0 5px}
           <td class="tw">Osobisty</td>
           <td class="mono" style="white-space:nowrap">A</td>
           <td>III</td>
-          <td class="g p1"><span class="cel">konspekt</span></td>
+          <td class="g p1"><span class="cel">1 konspekt</span></td>
         </tr>
         <tr>
           <td class="lp">27</td>
@@ -2819,7 +2853,7 @@ tr.tbanner .bsep{color:var(--accent); padding:0 5px}
           <td class="tw">Osobisty</td>
           <td class="mono" style="white-space:nowrap">A · B</td>
           <td>II, VII</td>
-          <td class="g p1"><span class="cel">konspekt</span></td>
+          <td class="g p1"><span class="cel">3 konspekty</span></td>
         </tr>
         <tr>
           <td class="lp">28</td>
@@ -2827,7 +2861,7 @@ tr.tbanner .bsep{color:var(--accent); padding:0 5px}
           <td class="tw">Osobisty</td>
           <td class="mono" style="white-space:nowrap">B · C</td>
           <td>II</td>
-          <td class="g p1"><span class="cel">konspekt</span></td>
+          <td class="g p1"><span class="cel">2 konspekty</span></td>
         </tr>
         <tr>
           <td class="lp">29</td>
@@ -2835,7 +2869,7 @@ tr.tbanner .bsep{color:var(--accent); padding:0 5px}
           <td class="tw">Językowy</td>
           <td class="mono" style="white-space:nowrap">A · B · C</td>
           <td>III</td>
-          <td class="g p1"><span class="cel">konspekt</span></td>
+          <td class="g p1"><span class="cel">3 konspekty</span></td>
         </tr>
         <tr>
           <td class="lp">30</td>
@@ -2843,7 +2877,7 @@ tr.tbanner .bsep{color:var(--accent); padding:0 5px}
           <td class="tw">Językowy</td>
           <td class="mono" style="white-space:nowrap">A · B · C</td>
           <td>III</td>
-          <td class="g p1"><span class="cel">konspekt</span></td>
+          <td class="g p1"><span class="cel">5 konspektów</span></td>
         </tr>
         <tr>
           <td class="lp">31</td>
@@ -2851,7 +2885,7 @@ tr.tbanner .bsep{color:var(--accent); padding:0 5px}
           <td class="tw">Językowy</td>
           <td class="mono" style="white-space:nowrap">A · B</td>
           <td>I, IX</td>
-          <td class="g p1"><span class="cel">konspekt</span></td>
+          <td class="g p1"><span class="cel">2 konspekty</span></td>
         </tr>
         <tr>
           <td class="lp">32</td>
@@ -2859,7 +2893,7 @@ tr.tbanner .bsep{color:var(--accent); padding:0 5px}
           <td class="tw">Językowy</td>
           <td class="mono" style="white-space:nowrap">C</td>
           <td>VIII</td>
-          <td class="g p1"><span class="cel">konspekt</span></td>
+          <td class="g p1"><span class="cel">1 konspekt</span></td>
         </tr>
         <tr>
           <td class="lp">33</td>
@@ -2867,7 +2901,7 @@ tr.tbanner .bsep{color:var(--accent); padding:0 5px}
           <td class="tw">Językowy</td>
           <td class="mono" style="white-space:nowrap">A · B</td>
           <td>I, III, VII, VIII</td>
-          <td class="g p1"><span class="cel">konspekt</span></td>
+          <td class="g p1"><span class="cel">6 konspektów</span></td>
         </tr>
         <tr>
           <td class="lp">34</td>
@@ -2875,7 +2909,7 @@ tr.tbanner .bsep{color:var(--accent); padding:0 5px}
           <td class="tw">Językowy</td>
           <td class="mono" style="white-space:nowrap">C</td>
           <td>III</td>
-          <td class="g p1"><span class="cel">konspekt</span></td>
+          <td class="g p1"><span class="cel">1 konspekt</span></td>
         </tr>
         <tr>
           <td class="lp">35</td>
@@ -2883,7 +2917,7 @@ tr.tbanner .bsep{color:var(--accent); padding:0 5px}
           <td class="tw">Językowy</td>
           <td class="mono" style="white-space:nowrap">B</td>
           <td>III</td>
-          <td class="g p1"><span class="cel">konspekt</span></td>
+          <td class="g p1"><span class="cel">1 konspekt</span></td>
         </tr>
         <tr>
           <td class="lp">36</td>
@@ -2891,7 +2925,7 @@ tr.tbanner .bsep{color:var(--accent); padding:0 5px}
           <td class="tw">Językowy</td>
           <td class="mono" style="white-space:nowrap">B</td>
           <td>III</td>
-          <td class="g p1"><span class="cel">konspekt</span></td>
+          <td class="g p1"><span class="cel">1 konspekt</span></td>
         </tr>
         <tr>
           <td class="lp">37</td>
@@ -2899,7 +2933,7 @@ tr.tbanner .bsep{color:var(--accent); padding:0 5px}
           <td class="tw">Językowy</td>
           <td class="mono" style="white-space:nowrap">B · C</td>
           <td>I, III</td>
-          <td class="g p1"><span class="cel">konspekt</span></td>
+          <td class="g p1"><span class="cel">4 konspekty</span></td>
         </tr>
         <tr>
           <td class="lp">38</td>
@@ -2907,7 +2941,7 @@ tr.tbanner .bsep{color:var(--accent); padding:0 5px}
           <td class="tw">Językowy</td>
           <td class="mono" style="white-space:nowrap">C</td>
           <td>III</td>
-          <td class="g p1"><span class="cel">konspekt</span></td>
+          <td class="g p1"><span class="cel">2 konspekty</span></td>
         </tr>
         <tr>
           <td class="lp">39</td>
@@ -2915,7 +2949,7 @@ tr.tbanner .bsep{color:var(--accent); padding:0 5px}
           <td class="tw">Językowy</td>
           <td class="mono" style="white-space:nowrap">C</td>
           <td>I, IV</td>
-          <td class="g p1"><span class="cel">konspekt</span></td>
+          <td class="g p1"><span class="cel">3 konspekty</span></td>
         </tr>
         <tr>
           <td class="lp">40</td>
@@ -2923,7 +2957,7 @@ tr.tbanner .bsep{color:var(--accent); padding:0 5px}
           <td class="tw">Językowy</td>
           <td class="mono" style="white-space:nowrap">C</td>
           <td>I</td>
-          <td class="g p1"><span class="cel">konspekt</span></td>
+          <td class="g p1"><span class="cel">1 konspekt</span></td>
         </tr>
         <tr>
           <td class="lp">41</td>
@@ -2931,7 +2965,7 @@ tr.tbanner .bsep{color:var(--accent); padding:0 5px}
           <td class="tw">Językowy</td>
           <td class="mono" style="white-space:nowrap">B · C</td>
           <td>I</td>
-          <td class="g p1"><span class="cel">konspekt</span></td>
+          <td class="g p1"><span class="cel">2 konspekty</span></td>
         </tr>
         <tr>
           <td class="lp">42</td>
@@ -2939,7 +2973,7 @@ tr.tbanner .bsep{color:var(--accent); padding:0 5px}
           <td class="tw">Językowy</td>
           <td class="mono" style="white-space:nowrap">C</td>
           <td>III</td>
-          <td class="g p1"><span class="cel">konspekt</span></td>
+          <td class="g p1"><span class="cel">1 konspekt</span></td>
         </tr>
         <tr>
           <td class="lp">43</td>
@@ -2947,7 +2981,7 @@ tr.tbanner .bsep{color:var(--accent); padding:0 5px}
           <td class="tw">Matematyczny</td>
           <td class="mono" style="white-space:nowrap">A</td>
           <td>I</td>
-          <td class="g p1"><span class="cel">konspekt</span></td>
+          <td class="g p1"><span class="cel">1 konspekt</span></td>
         </tr>
         <tr>
           <td class="lp">44</td>
@@ -2955,7 +2989,7 @@ tr.tbanner .bsep{color:var(--accent); padding:0 5px}
           <td class="tw">Matematyczny</td>
           <td class="mono" style="white-space:nowrap">A</td>
           <td>I</td>
-          <td class="g p1"><span class="cel">konspekt</span></td>
+          <td class="g p1"><span class="cel">1 konspekt</span></td>
         </tr>
         <tr>
           <td class="lp">45</td>
@@ -2963,7 +2997,7 @@ tr.tbanner .bsep{color:var(--accent); padding:0 5px}
           <td class="tw">Matematyczny</td>
           <td class="mono" style="white-space:nowrap">B</td>
           <td>I</td>
-          <td class="g p1"><span class="cel">konspekt</span></td>
+          <td class="g p1"><span class="cel">1 konspekt</span></td>
         </tr>
         <tr>
           <td class="lp">46</td>
@@ -2971,7 +3005,7 @@ tr.tbanner .bsep{color:var(--accent); padding:0 5px}
           <td class="tw">Matematyczny</td>
           <td class="mono" style="white-space:nowrap">B · C</td>
           <td>I</td>
-          <td class="g p1"><span class="cel">konspekt</span></td>
+          <td class="g p1"><span class="cel">2 konspekty</span></td>
         </tr>
         <tr>
           <td class="lp">47</td>
@@ -2979,7 +3013,7 @@ tr.tbanner .bsep{color:var(--accent); padding:0 5px}
           <td class="tw">Matematyczny</td>
           <td class="mono" style="white-space:nowrap">C</td>
           <td>I</td>
-          <td class="g p1"><span class="cel">konspekt</span></td>
+          <td class="g p1"><span class="cel">1 konspekt</span></td>
         </tr>
         <tr>
           <td class="lp">48</td>
@@ -2987,7 +3021,7 @@ tr.tbanner .bsep{color:var(--accent); padding:0 5px}
           <td class="tw">Matematyczny</td>
           <td class="mono" style="white-space:nowrap">B · C</td>
           <td>I</td>
-          <td class="g p1"><span class="cel">konspekt</span></td>
+          <td class="g p1"><span class="cel">2 konspekty</span></td>
         </tr>
         <tr>
           <td class="lp">49</td>
@@ -2995,7 +3029,7 @@ tr.tbanner .bsep{color:var(--accent); padding:0 5px}
           <td class="tw">Matematyczny</td>
           <td class="mono" style="white-space:nowrap">C</td>
           <td>II</td>
-          <td class="g p1"><span class="cel">konspekt</span></td>
+          <td class="g p1"><span class="cel">1 konspekt</span></td>
         </tr>
         <tr>
           <td class="lp">50</td>
@@ -3003,7 +3037,7 @@ tr.tbanner .bsep{color:var(--accent); padding:0 5px}
           <td class="tw">Matematyczny</td>
           <td class="mono" style="white-space:nowrap">B</td>
           <td>I</td>
-          <td class="g p1"><span class="cel">konspekt</span></td>
+          <td class="g p1"><span class="cel">1 konspekt</span></td>
         </tr>
         <tr>
           <td class="lp">51</td>
@@ -3011,7 +3045,7 @@ tr.tbanner .bsep{color:var(--accent); padding:0 5px}
           <td class="tw">Matematyczny</td>
           <td class="mono" style="white-space:nowrap">C</td>
           <td>VIII</td>
-          <td class="g p1"><span class="cel">konspekt</span></td>
+          <td class="g p1"><span class="cel">1 konspekt</span></td>
         </tr>
         <tr>
           <td class="lp">52</td>
@@ -3019,7 +3053,7 @@ tr.tbanner .bsep{color:var(--accent); padding:0 5px}
           <td class="tw">Przyrodniczy</td>
           <td class="mono" style="white-space:nowrap">C</td>
           <td>I</td>
-          <td class="g p1"><span class="cel">konspekt</span></td>
+          <td class="g p1"><span class="cel">1 konspekt</span></td>
         </tr>
         <tr>
           <td class="lp">53</td>
@@ -3027,7 +3061,7 @@ tr.tbanner .bsep{color:var(--accent); padding:0 5px}
           <td class="tw">Przyrodniczy</td>
           <td class="mono" style="white-space:nowrap">C</td>
           <td>VI</td>
-          <td class="g p1"><span class="cel">konspekt</span></td>
+          <td class="g p1"><span class="cel">1 konspekt</span></td>
         </tr>
         <tr>
           <td class="lp">54</td>
@@ -3035,7 +3069,7 @@ tr.tbanner .bsep{color:var(--accent); padding:0 5px}
           <td class="tw">Przyrodniczy</td>
           <td class="mono" style="white-space:nowrap">C</td>
           <td>IX</td>
-          <td class="g p1"><span class="cel">konspekt</span></td>
+          <td class="g p1"><span class="cel">1 konspekt</span></td>
         </tr>
         <tr>
           <td class="lp">55</td>
@@ -3043,7 +3077,7 @@ tr.tbanner .bsep{color:var(--accent); padding:0 5px}
           <td class="tw">Przyrodniczy</td>
           <td class="mono" style="white-space:nowrap">C</td>
           <td>IX</td>
-          <td class="g p1"><span class="cel">konspekt</span></td>
+          <td class="g p1"><span class="cel">1 konspekt</span></td>
         </tr>
         <tr>
           <td class="lp">56</td>
@@ -3051,7 +3085,7 @@ tr.tbanner .bsep{color:var(--accent); padding:0 5px}
           <td class="tw">Techniczny</td>
           <td class="mono" style="white-space:nowrap">A · B</td>
           <td>IV, VIII</td>
-          <td class="g p1"><span class="cel">konspekt</span></td>
+          <td class="g p1"><span class="cel">4 konspekty</span></td>
         </tr>
         <tr>
           <td class="lp">57</td>
@@ -3059,7 +3093,7 @@ tr.tbanner .bsep{color:var(--accent); padding:0 5px}
           <td class="tw">Cyfrowy</td>
           <td class="mono" style="white-space:nowrap">B</td>
           <td>II</td>
-          <td class="g p1"><span class="cel">konspekt</span></td>
+          <td class="g p1"><span class="cel">1 konspekt</span></td>
         </tr>
         <tr>
           <td class="lp">58</td>
@@ -3067,7 +3101,7 @@ tr.tbanner .bsep{color:var(--accent); padding:0 5px}
           <td class="tw">Artystyczny</td>
           <td class="mono" style="white-space:nowrap">B</td>
           <td>VIII</td>
-          <td class="g p1"><span class="cel">konspekt</span></td>
+          <td class="g p1"><span class="cel">1 konspekt</span></td>
         </tr>
         <tr>
           <td class="lp">59</td>
@@ -3075,7 +3109,7 @@ tr.tbanner .bsep{color:var(--accent); padding:0 5px}
           <td class="tw">Artystyczny</td>
           <td class="mono" style="white-space:nowrap">B</td>
           <td>IX</td>
-          <td class="g p1"><span class="cel">konspekt</span></td>
+          <td class="g p1"><span class="cel">1 konspekt</span></td>
         </tr>
         <tr>
           <td class="lp">60</td>
@@ -3083,7 +3117,7 @@ tr.tbanner .bsep{color:var(--accent); padding:0 5px}
           <td class="tw">Artystyczny</td>
           <td class="mono" style="white-space:nowrap">A · B · C</td>
           <td>IV, VIII</td>
-          <td class="g p1"><span class="cel">konspekt</span></td>
+          <td class="g p1"><span class="cel">3 konspekty</span></td>
         </tr>
         <tr>
           <td class="lp">61</td>
@@ -3091,7 +3125,7 @@ tr.tbanner .bsep{color:var(--accent); padding:0 5px}
           <td class="tw">Artystyczny</td>
           <td class="mono" style="white-space:nowrap">B</td>
           <td>VIII</td>
-          <td class="g p1"><span class="cel">konspekt</span></td>
+          <td class="g p1"><span class="cel">1 konspekt</span></td>
         </tr>
         <tr>
           <td class="lp">62</td>
@@ -3099,7 +3133,7 @@ tr.tbanner .bsep{color:var(--accent); padding:0 5px}
           <td class="tw">Ruchowy</td>
           <td class="mono" style="white-space:nowrap">A · B</td>
           <td>I, IV, VIII, IX</td>
-          <td class="g p1"><span class="cel">konspekt</span></td>
+          <td class="g p1"><span class="cel">5 konspektów</span></td>
         </tr>
         <tr>
           <td class="lp">63</td>
@@ -3107,7 +3141,7 @@ tr.tbanner .bsep{color:var(--accent); padding:0 5px}
           <td class="tw">Ruchowy</td>
           <td class="mono" style="white-space:nowrap">C</td>
           <td>II, VIII</td>
-          <td class="g p1"><span class="cel">konspekt</span></td>
+          <td class="g p1"><span class="cel">2 konspekty</span></td>
         </tr>
         <tr>
           <td class="lp">64</td>
@@ -3115,7 +3149,7 @@ tr.tbanner .bsep{color:var(--accent); padding:0 5px}
           <td class="tw">Ruchowy</td>
           <td class="mono" style="white-space:nowrap">A · B · C</td>
           <td>IV</td>
-          <td class="g p1"><span class="cel">konspekt</span></td>
+          <td class="g p1"><span class="cel">6 konspektów</span></td>
         </tr>
         <tr>
           <td class="lp">65</td>
@@ -3123,7 +3157,7 @@ tr.tbanner .bsep{color:var(--accent); padding:0 5px}
           <td class="tw">Ruchowy</td>
           <td class="mono" style="white-space:nowrap">A · B · C</td>
           <td>IV</td>
-          <td class="g p1"><span class="cel">konspekt</span></td>
+          <td class="g p1"><span class="cel">5 konspektów</span></td>
         </tr>
         <tr>
           <td class="lp">66</td>
@@ -3131,7 +3165,7 @@ tr.tbanner .bsep{color:var(--accent); padding:0 5px}
           <td class="tw">Ruchowy</td>
           <td class="mono" style="white-space:nowrap">B · C</td>
           <td>IV</td>
-          <td class="g p1"><span class="cel">konspekt</span></td>
+          <td class="g p1"><span class="cel">2 konspekty</span></td>
         </tr>
         <tr>
           <td class="lp">67</td>
@@ -3139,7 +3173,7 @@ tr.tbanner .bsep{color:var(--accent); padding:0 5px}
           <td class="tw">Ruchowy</td>
           <td class="mono" style="white-space:nowrap">A · B · C</td>
           <td>IV, V</td>
-          <td class="g p1"><span class="cel">konspekt</span></td>
+          <td class="g p1"><span class="cel">11 konspektów</span></td>
         </tr>
         <tr>
           <td class="lp">68</td>
@@ -3147,7 +3181,7 @@ tr.tbanner .bsep{color:var(--accent); padding:0 5px}
           <td class="tw">Ruchowy</td>
           <td class="mono" style="white-space:nowrap">C</td>
           <td>IV, V</td>
-          <td class="g p1"><span class="cel">konspekt</span></td>
+          <td class="g p1"><span class="cel">2 konspekty</span></td>
         </tr>
         <tr>
           <td class="lp">69</td>
@@ -3155,7 +3189,7 @@ tr.tbanner .bsep{color:var(--accent); padding:0 5px}
           <td class="tw">Ruchowy</td>
           <td class="mono" style="white-space:nowrap">C</td>
           <td>V</td>
-          <td class="g p1"><span class="cel">konspekt</span></td>
+          <td class="g p1"><span class="cel">1 konspekt</span></td>
         </tr>
         <tr>
           <td class="lp">70</td>
@@ -3163,7 +3197,7 @@ tr.tbanner .bsep{color:var(--accent); padding:0 5px}
           <td class="tw">Ruchowy</td>
           <td class="mono" style="white-space:nowrap">A · B · C</td>
           <td>V</td>
-          <td class="g p1"><span class="cel">konspekt</span></td>
+          <td class="g p1"><span class="cel">3 konspekty</span></td>
         </tr>
         <tr>
           <td class="lp">71</td>
@@ -3171,7 +3205,7 @@ tr.tbanner .bsep{color:var(--accent); padding:0 5px}
           <td class="tw">Ruchowy</td>
           <td class="mono" style="white-space:nowrap">A · B · C</td>
           <td>V, IX</td>
-          <td class="g p1"><span class="cel">konspekt</span></td>
+          <td class="g p1"><span class="cel">3 konspekty</span></td>
         </tr>
         <tr>
           <td class="lp">72</td>
@@ -3179,7 +3213,7 @@ tr.tbanner .bsep{color:var(--accent); padding:0 5px}
           <td class="tw">Zapis szczególny</td>
           <td class="mono" style="white-space:nowrap">A · B · C</td>
           <td>II, V, VI, VIII, IX</td>
-          <td class="g p1"><span class="cel">konspekt</span></td>
+          <td class="g p1"><span class="cel">14 konspektów</span></td>
         </tr>
         <tr>
           <td class="lp">73</td>
@@ -3187,7 +3221,7 @@ tr.tbanner .bsep{color:var(--accent); padding:0 5px}
           <td class="tw">Zapis szczególny</td>
           <td class="mono" style="white-space:nowrap">A · B</td>
           <td>II, VII, VIII</td>
-          <td class="g p1"><span class="cel">konspekt</span></td>
+          <td class="g p1"><span class="cel">4 konspekty</span></td>
         </tr>
         <tr>
           <td class="lp">74</td>
@@ -3195,7 +3229,7 @@ tr.tbanner .bsep{color:var(--accent); padding:0 5px}
           <td class="tw">Zapis szczególny</td>
           <td class="mono" style="white-space:nowrap">A · C</td>
           <td>VI</td>
-          <td class="g p1"><span class="cel">konspekt</span></td>
+          <td class="g p1"><span class="cel">2 konspekty</span></td>
         </tr>
         <tr>
           <td class="lp">75</td>
@@ -3203,7 +3237,7 @@ tr.tbanner .bsep{color:var(--accent); padding:0 5px}
           <td class="tw">Zapis szczególny</td>
           <td class="mono" style="white-space:nowrap">A · B</td>
           <td>IX</td>
-          <td class="g p1"><span class="cel">konspekt</span></td>
+          <td class="g p1"><span class="cel">2 konspekty</span></td>
         </tr>
         <tr>
           <td class="lp">76</td>
@@ -3211,7 +3245,7 @@ tr.tbanner .bsep{color:var(--accent); padding:0 5px}
           <td class="tw">Zapis szczególny</td>
           <td class="mono" style="white-space:nowrap">A · B</td>
           <td>IX</td>
-          <td class="g p1"><span class="cel">konspekt</span></td>
+          <td class="g p1"><span class="cel">2 konspekty</span></td>
         </tr>
         <tr>
           <td class="lp">77</td>
@@ -3219,7 +3253,7 @@ tr.tbanner .bsep{color:var(--accent); padding:0 5px}
           <td class="tw">Zapis szczególny</td>
           <td class="mono" style="white-space:nowrap">A · B</td>
           <td>IX</td>
-          <td class="g p1"><span class="cel">konspekt</span></td>
+          <td class="g p1"><span class="cel">2 konspekty</span></td>
         </tr>
         <tr>
           <td class="lp">78</td>
@@ -3227,7 +3261,7 @@ tr.tbanner .bsep{color:var(--accent); padding:0 5px}
           <td class="tw">Zapis szczególny</td>
           <td class="mono" style="white-space:nowrap">C</td>
           <td>VI</td>
-          <td class="g p1"><span class="cel">konspekt</span></td>
+          <td class="g p1"><span class="cel">1 konspekt</span></td>
         </tr>
         <tr>
           <td class="lp">79</td>
@@ -3235,15 +3269,15 @@ tr.tbanner .bsep{color:var(--accent); padding:0 5px}
           <td class="tw">Zapis szczególny</td>
           <td class="mono" style="white-space:nowrap">C</td>
           <td>VIII</td>
-          <td class="g p1"><span class="cel">konspekt</span></td>
+          <td class="g p1"><span class="cel">1 konspekt</span></td>
         </tr>
     </tbody>
   </table></div>
-  <div class="callout rule"><span class="cap">Jak korzystać</span>Punkty oznaczone jako <b>konspekt</b> mają gotowy
-  scenariusz zajęć dostępny po kliknięciu celu w tabeli banku. Punkty oznaczone jako <b>cel SMART</b> są pokryte
-  celem, do którego konspekt powstanie w kolejnych wersjach druku. Zapis <i>obszar.punkt</i> odpowiada numeracji
-  podstawy programowej; <b>DE-R</b> oznacza doświadczenie edukacyjne realizowane co najmniej raz w roku,
-  <b>WSR</b> warunki i sposób realizacji, <b>Zad.</b> zadanie przedszkola.</div>
+  </details>
+  <div class="callout rule"><span class="cap">Jak korzystać</span>Liczba w kolumnie „Realizacja” mówi, ile
+  konspektów pokrywa dany punkt — każdy z nich otwiera się kliknięciem w komórkę poziomu wsparcia w tabeli banku.
+  Punkt opisany jako <b>sam cel SMART</b> jest pokryty celem, do którego konspekt powstanie w kolejnych wersjach
+  druku. Wydruk zawiera całą tabelę niezależnie od tego, czy jest rozwinięta na ekranie.</div>
 </section>
 
 <section class="sec" id="konspekt">

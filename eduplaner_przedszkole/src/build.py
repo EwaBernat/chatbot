@@ -349,6 +349,25 @@ td.g.haskon:focus-visible{outline:2px solid var(--accent); outline-offset:-2px}
 .kvar{display:none} .kvar.on{display:flex; flex-direction:column; flex:1}
 .kdwie{display:grid; grid-template-columns:1fr 1fr; gap:16px}
 ul.klista{list-style:none; margin:0; padding:0; display:grid; gap:5px}
+ul.klista-2{grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); gap:5px 24px}
+/* Kody i liczniki nie mogą się łamać — „DE-R” pękało na myślniku. */
+ul.klista-2 b,ul.klista-2 .mono{white-space:nowrap}
+
+/* Monitoring podstawy — 79 wierszy rozwijanych dopiero na życzenie. */
+details.rozwin{margin-top:16px}
+details.rozwin > summary{list-style:none; cursor:pointer; display:flex; align-items:center;
+  gap:12px; padding:12px 16px; border:1px solid var(--line); border-radius:12px;
+  background:var(--soft); transition:border-color .15s,background .15s}
+details.rozwin > summary::-webkit-details-marker{display:none}
+details.rozwin > summary:hover{border-color:var(--indigo); background:var(--field)}
+.rozwin-tyt{font:700 13.5px/1 "DM Sans",Arial,sans-serif; color:var(--ink)}
+.rozwin-info{font-size:10.5px; letter-spacing:.1em; text-transform:uppercase;
+  color:var(--violet); font-weight:700}
+.rozwin-strzalka{margin-left:auto; color:var(--indigo); font-size:15px; transition:transform .15s}
+details.rozwin[open] > summary{border-color:var(--indigo); background:var(--field);
+  border-bottom-left-radius:0; border-bottom-right-radius:0}
+details.rozwin[open] .rozwin-strzalka{transform:rotate(180deg)}
+details.rozwin[open] .tablewrap{border-top-left-radius:0; border-top-right-radius:0}
 ul.klista li{display:flex; gap:8px; font-size:12px; line-height:1.45}
 ul.klista li::before{content:"●"; color:var(--accent); font-size:8px; line-height:1.9; flex:none}
 table.ktab{min-width:0}
@@ -415,6 +434,8 @@ tr.tbanner .bsep{color:var(--accent); padding:0 5px}
   html.print-zal .kcard > *{display:none !important}
   html.print-zal .kcard > .zal-strefa{display:block !important}
   html.print-zal .zal-link,html.print-zal .zal-akcje{display:none !important}
+  details.rozwin > summary{display:none}
+  details.rozwin > *:not(summary){display:block !important}
   .zal{break-inside:avoid; page-break-inside:avoid}
   .au-pasek,.au-btn{display:none !important}
   html.print-konspekt{--void:0}
@@ -1030,15 +1051,17 @@ def render_konspekty_modale():
 
 def monitoring_podstawy():
     """Monitoring realizacji podstawy programowej — punkty PP pokryte przez cele i konspekty."""
-    OBSZARY_PP = {
-        "1": "Fizyczny obszar rozwoju — samoobsługa, sprawność, bezpieczeństwo ciała",
-        "2": "Emocjonalny obszar rozwoju — rozpoznawanie i regulacja emocji",
-        "3": "Społeczny obszar rozwoju — relacje, zasady, przynależność",
-        "4": "Poznawczy obszar rozwoju — mowa, myślenie, matematyka, przyroda, technika, sztuka",
-    }
+    # Jedno źródło nazw obszarów — legenda i kolumna tabeli muszą mówić to samo.
+    # Wcześniej legenda opisywała cztery obszary rozwoju, a tabela grupowała punkty
+    # w dziewięć, przez co „1" znaczyło w niej co innego niż w legendzie.
     OBSZAR_PP_NAZWY = {
         "1": "społeczny", "2": "osobisty", "3": "językowy", "4": "matematyczny",
         "5": "przyrodniczy", "6": "techniczny", "7": "cyfrowy", "8": "artystyczny", "9": "ruchowy",
+    }
+    OBSZARY_PP = {
+        "DE-R": "doświadczenie edukacyjne — raz w roku",
+        "WSR": "warunki i sposób realizacji",
+        "Zad.": "zadanie przedszkola",
     }
     # zbiór punktów PP z twierdzeń, z informacją gdzie występują
     rejestr = {}
@@ -1066,7 +1089,10 @@ def monitoring_podstawy():
         nazwa = OBSZAR_PP_NAZWY.get(grupa, "zapis szczególny")
         wersje = " · ".join(sorted(r["wersje"]))
         obszary = ", ".join(sorted(r["obszary"], key=lambda x: ["I","II","III","IV","V","VI","VII","VIII","IX"].index(x)))
-        stan = "konspekt" if r["kon"] else "cel SMART"
+        # Liczba konspektow, nie samo „konspekt": kazdy punkt jakis ma, wiec samo
+        # slowo bylo w kazdym z 79 wierszy takie samo i niczego nie mowilo.
+        stan = (f"{r['kon']} konspekt" + ("" if r["kon"] == 1 else
+                "y" if 2 <= r["kon"] <= 4 else "ów")) if r["kon"] else "sam cel SMART"
         klasa = "p1" if r["kon"] else "p2"
         wiersze.append(f"""        <tr>
           <td class="lp">{i}</td>
@@ -1078,8 +1104,22 @@ def monitoring_podstawy():
         </tr>""")
     n_pkt = len(rejestr)
     n_kon = sum(1 for r in rejestr.values() if r["kon"])
-    obszary_html = "\n".join(
-        f'      <li><b>{k}</b> — {esc(v)}</li>' for k, v in OBSZARY_PP.items())
+    # Legenda z liczba punktow w kazdej grupie — od razu widac, gdzie jest ich duzo.
+    liczba_w_grupie = {}
+    for punkt in rejestr:
+        liczba_w_grupie[punkt.split(".")[0]] = liczba_w_grupie.get(punkt.split(".")[0], 0) + 1
+    poz = []
+    for kod, nazwa in OBSZAR_PP_NAZWY.items():
+        ile = liczba_w_grupie.get(kod, 0)
+        if ile:
+            poz.append(f'      <li><b>{kod}</b> — obszar {esc(nazwa)} '
+                       f'<span class="mono">({ile} pkt)</span></li>')
+    for kod, opis in OBSZARY_PP.items():
+        ile = liczba_w_grupie.get(kod.rstrip("."), 0)
+        if ile:
+            poz.append(f'      <li><b>{esc(kod)}</b> — {esc(opis)} '
+                       f'<span class="mono">({ile} pkt)</span></li>')
+    obszary_html = "\n".join(poz)
     return f"""<section class="sec" id="monitoring">
   <div class="vband">
     <span class="vlet">PP</span>
@@ -1088,24 +1128,29 @@ def monitoring_podstawy():
       <span><b>Punkty PP</b>{n_pkt}</span>
       <span><b>Z konspektem</b>{n_kon}</span>
       <span><b>Wersje</b>A · B · C</span>
-      <span><b>Numeracja</b>wg arkuszy KPOF</span>
+      <span><b>Podstawa</b>Dz.U. 2026 poz. 378</span>
     </div>
   </div>
   <p class="vdesc">Zestawienie wszystkich punktów podstawy programowej wychowania przedszkolnego, do których
-  odwołują się twierdzenia KPOF i cele z tego banku. Kolumna „Realizacja” pokazuje, czy punkt jest pokryty samym
-  celem SMART, czy dodatkowo gotowym konspektem zajęć. Tabela służy do wykazania realizacji podstawy
-  w dokumentacji nadzoru pedagogicznego.</p>
-  <div class="callout rule"><span class="cap">Uwaga · stan prawny</span>
-  Tabela odwzorowuje numerację punktów <b>zapisaną w arkuszach KPOF</b>, opartą na podstawie programowej
-  z rozporządzenia MEN z 14 lutego 2017 r. <b>Nie jest to jeszcze numeracja nowej podstawy programowej</b>
-  wprowadzonej rozporządzeniem Ministra Edukacji z 11 marca 2026 r. (Dz. U. 2026 poz. 378), która obowiązuje
-  od 1 września 2026 r. i wprowadza nowy podział obszarów. Przemapowanie wymaga aktualizacji kolumny
-  „Podstawa” w arkuszach KPOF, a następnie automatycznie przeniesie się do celów, konspektów i tej tabeli.
+  odwołują się twierdzenia KPOF i cele z tego banku. Kolumna „Realizacja” pokazuje, iloma konspektami zajęć
+  punkt jest pokryty — łącznie we wszystkich trzech wersjach wiekowych. Tabela służy do wykazania realizacji
+  podstawy w dokumentacji nadzoru pedagogicznego.</p>
+  <div class="callout rule"><span class="cap">Podstawa prawna</span>
+  Tabela odwzorowuje <b>nową podstawę programową wychowania przedszkolnego</b> — rozporządzenie Ministra
+  Edukacji z 11 marca 2026 r. (Dz. U. 2026 poz. 378), obowiązujące od 1 września 2026 r. Zastąpiła ona
+  dotychczasowe cztery obszary rozwoju (fizyczny, emocjonalny, społeczny, poznawczy) <b>dziewięcioma
+  obszarami osiągnięć dziecka</b>: społecznym, osobistym, językowym, matematycznym, przyrodniczym,
+  technicznym, cyfrowym, artystycznym i ruchowym. Zapis <i>obszar.punkt</i> w kolumnie „Punkt” odpowiada
+  tej numeracji i jest ten sam w arkuszach KPOF, w celach SMART i w konspektach.
   </div>
-  <div class="callout"><span class="cap" style="color:var(--violet)">Cztery obszary rozwoju w podstawie</span>
-  <ul class="klista" style="margin-top:6px">
+  <div class="callout"><span class="cap" style="color:var(--violet)">Grupy punktów w zapisie <i>obszar.punkt</i></span>
+  <ul class="klista klista-2" style="margin-top:6px">
 {obszary_html}
   </ul></div>
+  <details class="rozwin">
+  <summary><span class="rozwin-tyt">Pokaż pełną tabelę monitoringu</span>
+    <span class="rozwin-info">{n_pkt} punktów podstawy · {n_kon} z konspektem</span>
+    <span class="rozwin-strzalka" aria-hidden="true">▾</span></summary>
   <div class="tablewrap"><table>
     <thead>
       <tr class="tbanner"><th colspan="6">EduPlaner 2026 · druk KC-1 · monitoring podstawy programowej<span class="bsep">·</span>Wszystkie wersje wiekowe<span class="bsep">·</span>Zapis obszar.punkt</th></tr>
@@ -1122,11 +1167,11 @@ def monitoring_podstawy():
 {chr(10).join(wiersze)}
     </tbody>
   </table></div>
-  <div class="callout rule"><span class="cap">Jak korzystać</span>Punkty oznaczone jako <b>konspekt</b> mają gotowy
-  scenariusz zajęć dostępny po kliknięciu celu w tabeli banku. Punkty oznaczone jako <b>cel SMART</b> są pokryte
-  celem, do którego konspekt powstanie w kolejnych wersjach druku. Zapis <i>obszar.punkt</i> odpowiada numeracji
-  podstawy programowej; <b>DE-R</b> oznacza doświadczenie edukacyjne realizowane co najmniej raz w roku,
-  <b>WSR</b> warunki i sposób realizacji, <b>Zad.</b> zadanie przedszkola.</div>
+  </details>
+  <div class="callout rule"><span class="cap">Jak korzystać</span>Liczba w kolumnie „Realizacja” mówi, ile
+  konspektów pokrywa dany punkt — każdy z nich otwiera się kliknięciem w komórkę poziomu wsparcia w tabeli banku.
+  Punkt opisany jako <b>sam cel SMART</b> jest pokryty celem, do którego konspekt powstanie w kolejnych wersjach
+  druku. Wydruk zawiera całą tabelę niezależnie od tego, czy jest rozwinięta na ekranie.</div>
 </section>"""
 
 
