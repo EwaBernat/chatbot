@@ -109,8 +109,18 @@ Nie wyjmuj kart z banku dla rozmiaru. Sprawdzone pomiarem: bank z wszystkimi
 86 kartami waży 12,3 MB i rysuje się w 348 ms. Wolne otwieranie brało się
 z blokującego arkusza fontów, nie z wagi pliku.
 
-Treść kart: `src/pomoce_a.py`, `src/pomoce_b.py`; układ i osadzanie mediów:
-`src/pomoce_karta.py`; generator zeszytów do druku: `src/build_pomoce.py`.
+Treść kart: `src/pomoce_a.py`, `src/pomoce_b.py`, `src/pomoce_c.py`; układ i osadzanie
+mediów: `src/pomoce_karta.py`; generator zeszytów do druku: `src/build_pomoce.py`.
+
+Trzy zestawy są **kompletne**: 42 + 44 + 44 = 130 kart, każda ze zdjęciem poglądowym
+(`assets/pomoce_<x>/k_<kod>.jpg`) i nagranym poleceniem jej głosem
+(`assets/audio_<x>/<kod>.mp3`). Karta bez zdjęcia albo bez nagrania nie psuje budowania —
+`Zestaw.braki()` pokazuje, czego brakuje, a karta dostaje pole zastępcze.
+
+Każdy ze 130 konspektów A/B/C ma też arkusz do wydruku (`karty_druk.ARKUSZE`).
+Zeszyty pomocy drukują się do A4 pionowo, po jednej karcie na stronę:
+`node src/generuj_pomoce_pdf.mjs` (playwright leży w `/opt/node22/lib/node_modules` —
+dowiąż go na czas uruchomienia i skasuj dowiązanie, żeby nie trafiło do repozytorium).
 
 Arkusz fontów w każdym dokumencie ładujemy **nieblokująco**
 (`media="print" onload="this.media='all'"`) — inaczej przy niedostępnym CDN

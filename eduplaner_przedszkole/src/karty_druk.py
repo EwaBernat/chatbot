@@ -778,6 +778,391 @@ ARKUSZE = {
    naglowki=["Dzień", "Odczyt rano", "Odczyt po południu", "Co zmieniliśmy"],
    wiersze=["poniedziałek", "wtorek", "środa", "czwartek", "piątek"]),
  ],
+
+ # ——— szóstki: materiał do pozostałych konspektów ————————————————————
+ "C1-02": [dict(
+   tytul="Karta czytania sylabami",
+   kp="Wydrukuj po jednej na dziecko",
+   wstep="Kolumny wypełnia dziecko, nie Pani. Sylaby wpisujemy dopiero po ich odczytaniu, "
+         "a cały wyraz na końcu — w tej kolejności zapis jest zapamiętaniem tego, co "
+         "dziecko właśnie przeczytało, a nie ściągawką, z której czyta.",
+   rodzaj="tabela",
+   naglowki=["Obrazek", "Pierwsza sylaba", "Druga sylaba", "Cały wyraz"],
+   wiersze=["", "", "", "", "", ""]),
+ ],
+
+ "C1-03": [dict(
+   tytul="Karta trzech faktur litery",
+   kp="Wydrukuj po jednej na dziecko",
+   wstep="Ta sama litera trzy razy, za każdym razem inaczej: palcem w piasku, mazakiem po "
+         "folii, ołówkiem w liniaturze. Kolumny odhaczamy dopiero po wykonaniu, a nie "
+         "z góry — dziecko ma widzieć, że droga do liniatury prowadzi przez rękę.",
+   rodzaj="tabela",
+   naglowki=["Litera", "Palcem w piasku", "Po folii", "W liniaturze"],
+   wiersze=["a", "e", "o", "m", "t", "l", "i", "u"]),
+ ],
+
+ "C1-05": [dict(
+   tytul="Karta hipotezy",
+   kp="Wydrukuj po jednej na dziecko",
+   wstep="Kolumnę „jak myślę” wypełniamy przed pomiarem i nie zmieniamy jej potem — to jest "
+         "cała treść tego konspektu. Rozbieżność między przypuszczeniem a wynikiem nie jest "
+         "błędem dziecka, tylko momentem, w którym uczy się sprawdzać.",
+   rodzaj="tabela",
+   naglowki=["Przedmiot", "Jak myślę", "Wynik pomiaru", "Czy się zgadzało"],
+   wiersze=["", "", "", "", ""]),
+ ],
+
+ "C2-07": [dict(
+   tytul="Kartoniki sygnałowe do cichej pracy",
+   kp="Wydrukuj po komplecie na dziecko",
+   wstep="Trzy kartoniki, które dziecko stawia przy sobie zamiast wołać. Zielony znaczy "
+         "„pracuję”, żółty „utknąłem, poczekam”, niebieski „skończyłem”. Warunek działania "
+         "jest jeden: przy żółtym Pani podchodzi, a nie odpowiada z drugiego końca sali.",
+   rodzaj="etykiety", kolumny=3,
+   etykiety=[("PRACUJĘ SAM", "#8FB79A"), ("POTRZEBUJĘ POMOCY", "#F0C862"),
+             ("SKOŃCZYŁEM", "#7FA8C9")]),
+ ],
+
+ "C2-08": [dict(
+   tytul="Karta dobrego gracza",
+   kp="Wydrukuj i powieś przy grach",
+   wstep="Cztery pola do wypełnienia raz, wspólnie, i powieszenia przy półce z grami. "
+         "Ostatnie pole — o tym, co czuję po przegranej — wypełnia każde dziecko samo "
+         "i to ono jest tu materiałem do rozmowy, nie trzy pierwsze.",
+   rodzaj="pola",
+   pola=[("Gram do końca, bo", 70), ("Wygranemu mówię", 70),
+         ("Kiedy przegram, mogę", 70), ("Po przegranej czuję", 80)]),
+ ],
+
+ "C2-10": [dict(
+   tytul="Karty strategii na trudne",
+   kp="Wydrukuj, wytnij i włóż do skrzynki",
+   wstep="Cztery wyjścia z sytuacji „nie umiem”. Dziecko wyciąga kartę samo, kiedy utknie — "
+         "nie podpowiadamy której. Wybór strategii jest tu ćwiczeniem, a nie ozdobą: "
+         "dopiero on zamienia bezradność w decyzję.",
+   rodzaj="etykiety", kolumny=2,
+   etykiety=[("ODETCHNIJ GŁĘBOKO", "#7FA8C9"), ("ZRÓB PRZERWĘ", "#8FB79A"),
+             ("POPROŚ O POMOC", "#F0C862"), ("PODZIEL NA CZĘŚCI", "#C9A0C0")]),
+ ],
+
+ "C3-11": [dict(
+   tytul="Karta obserwacji mowy",
+   kp="Wydrukuj po jednej na dziecko",
+   wstep="Arkusz do prowadzenia przez cały rok, jedna kolumna na etap: głoska sama, "
+         "w wyrazie, w zdaniu. Nie przeskakujemy kolumn — głoska poprawna w izolacji, "
+         "a znikająca w zdaniu, to normalna kolejność, nie regres.",
+   rodzaj="tabela",
+   naglowki=["Głoska", "Sama", "W wyrazie", "W zdaniu"],
+   wiersze=["sz", "ż", "cz", "dż", "r", "l", "s", "z", "c"]),
+ ],
+
+ "C3-12": [dict(
+   tytul="Karta analizy głoskowej",
+   kp="Wydrukuj po jednej na dziecko",
+   wstep="Pod każdym obrazkiem tyle kratek, ile dziecko usłyszy głosek — kładzie w nich "
+         "żetony, zanim cokolwiek zapisze. Liczba żetonów jest odpowiedzią; zapis przychodzi "
+         "później i nie jest tu wcale konieczny.",
+   rodzaj="tabela",
+   naglowki=["Obrazek", "Ile głosek", "Pierwsza", "Ostatnia"],
+   wiersze=["", "", "", "", "", ""]),
+ ],
+
+ "C3-13": [dict(
+   tytul="Mapa bajki — cztery pola",
+   kp="Wydrukuj w formacie A3",
+   wstep="Cztery pola na cztery zdania opowieści. Dziecko rysuje albo dyktuje po jednym "
+         "zdaniu do pola — nie więcej, bo ograniczenie do jednego zdania jest tu całym "
+         "ćwiczeniem. Drugie opowiadanie tej samej bajki idzie na drugi arkusz.",
+   rodzaj="pola",
+   pola=[("Kto i gdzie", 95), ("Co się stało", 95),
+         ("Co zrobił bohater", 95), ("Jak się skończyło", 95)]),
+ ],
+
+ "C3-15": [dict(
+   tytul="Karty poleceń po angielsku",
+   kp="Wydrukuj, wytnij i pokaż maskotce",
+   wstep="Sześć poleceń, które dziecko wykonuje ruchem, nie tłumaczy. Karta jest dla Pani, "
+         "nie dla dziecka — pokazujemy ją maskotce, a dziecko reaguje na usłyszane zdanie. "
+         "Odpowiedzią jest ruch; powtarzanie słów jest dobrowolne.",
+   rodzaj="etykiety", kolumny=3,
+   etykiety=[("STAND UP", "#8FB79A"), ("SIT DOWN", "#7FA8C9"), ("CLAP YOUR HANDS", "#F0C862"),
+             ("JUMP", "#E8695A"), ("TURN AROUND", "#C9A0C0"), ("LISTEN", "#8FA9B7")]),
+ ],
+
+ "C4-16": [dict(
+   tytul="Karty ćwiczeń naprzemiennych",
+   kp="Wydrukuj, wytnij i włóż do woreczka",
+   wstep="Sześć ćwiczeń do losowania. Dziecko wyciąga kartę i wykonuje ruch bez pokazywania "
+         "przez dorosłego — nazwa ma wystarczyć. Do momentu, w którym wystarcza, pokazujemy "
+         "razem, ale nazwę wypowiadamy zawsze pierwszą.",
+   rodzaj="karty", kolumny=3,
+   symbole=["ruch_bieg", "ruch_skok", "ruch_rownowaga",
+            "ruch_czworaki", "ruch_rzut", "ruch_wspinanie"]),
+ ],
+
+ "C4-17": [dict(
+   tytul="Trzy rzeczy przy stoliku",
+   kp="Wydrukuj i powieś nad stolikami",
+   wstep="Trzy hasła zamiast upominania. Kiedy dziecko siedzi krzywo, wskazujemy tablicę "
+         "i milczymy — sprawdzenie własnej pozycji jest tym, czego się uczy. Komentarz "
+         "słowny zabiera mu tę pracę.",
+   rodzaj="etykiety", kolumny=3,
+   etykiety=[("STOPY NA PODŁODZE", "#8FB79A"), ("PLECY PROSTE", "#7FA8C9"),
+             ("OBIE RĘCE NA STOLE", "#F0C862")]),
+ ],
+
+ "C4-18": [dict(
+   tytul="Karta nacisku ołówka",
+   kp="Wydrukuj i podłóż kalkę",
+   wstep="Pod arkusz wkładamy kalkę. Po skończeniu oglądamy odbicie razem z dzieckiem: "
+         "przebite miejsca to za mocno, ledwo widoczne — za słabo. Kalka mówi to lepiej "
+         "niż Pani, bo dziecko widzi ślad własnej ręki, a nie słyszy ocenę.",
+   rodzaj="tabela",
+   naglowki=["Ćwiczenie", "Za mocno", "W sam raz", "Za słabo"],
+   wiersze=["kreski pionowe", "kreski poziome", "fale", "pętelki", "szlaczek", "mój podpis"]),
+ ],
+
+ "C4-19": [dict(
+   tytul="Karty zapięć do ćwiczenia",
+   kp="Wydrukuj, wytnij i powieś przy szatni",
+   wstep="Kolejność ćwiczenia jest tu ważniejsza niż same karty: najpierw na tablicy, "
+         "potem na cudzym bucie, na końcu na własnej kurtce. Karty pokazują, o którą część "
+         "ubrania chodzi — samo zapinanie ćwiczy się na rzeczach, nie na obrazku.",
+   rodzaj="karty", kolumny=3,
+   symbole=["ubior_kurtka", "ubior_buty", "ubior_sweter",
+            "ubior_koszulka", "ubior_spodnie", "ubior_skarpetki"]),
+ ],
+
+ "C4-20": [dict(
+   tytul="Karty nastroju muzyki",
+   kp="Wydrukuj, wytnij i rozłóż na dywanie",
+   wstep="Sześć określeń, którymi dziecko nazywa to, co słyszy, zanim zacznie się ruszać. "
+         "Nie ma tu odpowiedzi poprawnej — jeśli dwoje dzieci wskaże różne karty przy tym "
+         "samym utworze, to jest właśnie to, o co chodzi.",
+   rodzaj="etykiety", kolumny=3,
+   etykiety=[("SZYBKO", "#E8695A"), ("WOLNO", "#7FA8C9"), ("GŁOŚNO", "#E0A05C"),
+             ("CICHO", "#8FA9B7"), ("WESOŁO", "#F0C862"), ("SPOKOJNIE", "#8FB79A")]),
+ ],
+
+ "C5-21": [dict(
+   tytul="Kolejność ubierania — pasek",
+   kp="Wydrukuj i powieś w szatni nisko",
+   wstep="Siedem kroków w stałej kolejności, na wysokości oczu dziecka. Pasek zastępuje "
+         "podpowiedź słowną: zamiast mówić „teraz spodnie”, wskazujemy pasek. Dziecko "
+         "sprawdza kolejny obrazek samo i to jest cała samodzielność, o którą tu chodzi.",
+   rodzaj="pasek",
+   symbole=["ubior_majtki", "ubior_skarpetki", "ubior_koszulka", "ubior_spodnie",
+            "ubior_sweter", "ubior_buty", "ubior_kurtka"]),
+ ],
+
+ "C5-22": [dict(
+   tytul="Tablica przy stole",
+   kp="Wydrukuj i powieś przy półmiskach",
+   wstep="Cztery symbole tego, co dziecko robi przy stole samo. Ten sam obrazek co na "
+         "tablicy AAC i w planie dnia — dziecko korzystające z komunikacji obrazkowej ma "
+         "widzieć wszędzie ten sam znak, inaczej przestaje on być słowem.",
+   rodzaj="tablica", kolumny=4,
+   symbole=["przedmiot_kubek", "przedmiot_serwetka", "prosze_jesc", "prosze_pic"]),
+ ],
+
+ "C5-24": [dict(
+   tytul="Cztery kroki przy przejściu",
+   kp="Wydrukuj i powieś przy drzwiach",
+   wstep="Cztery hasła powtarzane przed każdym wyjściem, zawsze w tej samej kolejności. "
+         "Powtarzamy je razem z dzieckiem także wtedy, gdy zna je na pamięć — automatyzm "
+         "jest tu celem, a nie znudzeniem.",
+   rodzaj="etykiety", kolumny=2,
+   etykiety=[("ZATRZYMAJ SIĘ", "#E8695A"), ("POPATRZ W LEWO", "#F0C862"),
+             ("POPATRZ W PRAWO", "#8FB79A"), ("POSŁUCHAJ", "#7FA8C9")]),
+ ],
+
+ "C5-25": [dict(
+   tytul="Skala pięciu poziomów",
+   kp="Wydrukuj i powieś przy kąciku wyciszenia",
+   wstep="Pięć stopni od spokoju do wybuchu, z miejscem na własne słowa dziecka przy każdym. "
+         "Nazwy z arkusza zamieniamy na te, których dziecko naprawdę używa — skala działa "
+         "wtedy, gdy jest jego, a nie nasza.",
+   rodzaj="etykiety", kolumny=1,
+   etykiety=[("1 · Jest mi spokojnie", "#8FB79A"), ("2 · Coś mnie zaczyna złościć", "#7FA8C9"),
+             ("3 · Jest mi trudno", "#F0C862"), ("4 · Zaraz wybuchnę", "#E0A05C"),
+             ("5 · Nie panuję nad sobą", "#E8695A")]),
+  dict(
+   tytul="Karta „jak mówię nie”",
+   wstep="Trzy zdania odmowy do przećwiczenia na scenkach, wpisane słowami dziecka. "
+         "Ćwiczymy sam ton i postawę, nie treść — dziecko, które umie powiedzieć „nie chcę”, "
+         "ale mówi to szeptem w podłogę, jeszcze nie umie odmówić.",
+   rodzaj="pola",
+   pola=[("Kiedy nie chcę, mówię", 75), ("Kiedy ktoś nie przestaje, mówię", 75),
+         ("Idę wtedy do", 65)]),
+ ],
+
+ "C6-26": [dict(
+   tytul="Karta nakrycia stolika",
+   kp="Wydrukuj po jednej na dyżurnego",
+   wstep="Dyżurny najpierw liczy miejsca, dopiero potem nosi naczynia. Wpisanie liczby "
+         "przed pracą zamienia to zadanie z noszenia w liczenie — po to jest ta karta. "
+         "Sprawdzenie na końcu robi dziecko, nie Pani.",
+   rodzaj="pola",
+   pola=[("Ile jest miejsc przy stoliku", 60), ("Ile talerzy", 60),
+         ("Ile kubków", 60), ("Ile sztućców", 60)]),
+ ],
+
+ "C6-28": [dict(
+   tytul="Karta przeglądu półki",
+   kp="Wydrukuj po jednej na dziecko",
+   wstep="Pięć rzeczy do sprawdzenia samodzielnie, po zdjęciu wzorcowym. Kolumnę zaznacza "
+         "dziecko — także wtedy, gdy Pani widzi inaczej. Rozbieżność jest materiałem do "
+         "rozmowy, a nie powodem do poprawienia zaznaczenia.",
+   rodzaj="tabela",
+   naglowki=["Co sprawdzam", "Już tak", "Jeszcze nie"],
+   wiersze=["rzeczy są na swoim miejscu", "nic nie leży na podłodze",
+            "pudełka są zamknięte", "mój znaczek widać", "półka jest wytarta"]),
+ ],
+
+ "C6-29": [dict(
+   tytul="Dziennik obserwacji rośliny",
+   kp="Wydrukuj na cały miesiąc",
+   wstep="Jedna linijka na dzień, prowadzona przez dziecko. Kolumna z wysokością ma sens "
+         "dopiero po kilku tygodniach — wtedy dziecko samo widzi, że liczby rosną, i to "
+         "jest odkrycie, którego nie da się zastąpić opowiedzeniem.",
+   rodzaj="tabela",
+   naglowki=["Data", "Ile wody", "Wysokość", "Co zauważyłem"],
+   wiersze=["", "", "", "", "", "", "", ""]),
+ ],
+
+ "C7-30": [dict(
+   tytul="Karta propozycji do rady",
+   kp="Wydrukuj po jednej na dziecko",
+   wstep="Dziecko wypełnia kartę przed radą, nie w jej trakcie — inaczej mówi to, co "
+         "usłyszało od poprzednika. Ostatnie pole wypełniamy wspólnie po liczeniu głosów, "
+         "także przy propozycjach, które przepadły.",
+   rodzaj="pola",
+   pola=[("Mój pomysł", 80), ("Dlaczego to dobry pomysł", 80),
+         ("Kto może przy tym pomóc", 60), ("Ile dostał głosów", 50)]),
+ ],
+
+ "C7-31": [dict(
+   tytul="Kodeks naszej grupy",
+   kp="Wydrukuj w formacie A3",
+   wstep="Pięć pustych zasad i miejsce na znak każdego dziecka. Zasady wpisujemy słowami "
+         "dzieci, nawet niezgrabnymi — kodeks przepisany na dorosły język przestaje być ich "
+         "i po tygodniu nikt się na niego nie powołuje.",
+   rodzaj="pola",
+   pola=[("Zasada pierwsza", 60), ("Zasada druga", 60), ("Zasada trzecia", 60),
+         ("Zasada czwarta", 60), ("Zasada piąta", 60),
+         ("Podpisujemy się pod tym", 110)]),
+ ],
+
+ "C7-32": [dict(
+   tytul="Przeprosiny w trzech krokach",
+   kp="Wydrukuj i powieś w kąciku naprawy",
+   wstep="Trzy pola, z których trzecie jest tym właściwym. Przeprosiny bez naprawy dziecko "
+         "szybko odkrywa jako formułkę kończącą sprawę bez kosztu — dlatego pole „jak to "
+         "naprawię” zostawiamy największe i nie odpuszczamy go.",
+   rodzaj="pola",
+   pola=[("Zrobiłem", 70), ("Przez to poczułeś", 70), ("Naprawię to tak", 100)]),
+ ],
+
+ "C7-34": [dict(
+   tytul="Karty zachowań do posortowania",
+   kp="Wydrukuj, wytnij i wymieszaj",
+   wstep="Sześć kart do rozdzielenia na dwie kupki. Po posortowaniu wracamy do kupki "
+         "raniącej i przy każdej karcie pytamy, jak to naprawić — bez tego kroku ćwiczenie "
+         "zostawia dziecku poczucie winy i nic poza tym.",
+   rodzaj="etykiety", kolumny=3,
+   etykiety=[("POMOGŁEM", "#8FB79A"), ("POCIESZYŁEM", "#8FB79A"),
+             ("ZAPROSIŁEM DO ZABAWY", "#8FB79A"), ("WYŚMIAŁEM", "#E8695A"),
+             ("NIE WPUŚCIŁEM DO GRY", "#E8695A"), ("PRZEZWAŁEM", "#E8695A")]),
+ ],
+
+ "C8-35": [dict(
+   tytul="Karta ról w zespole",
+   kp="Wydrukuj po jednej na zespół",
+   wstep="Role rozdzielają dzieci między sobą, przed pracą i na piśmie. Przy sporze "
+         "wskazujemy kartę zamiast rozstrzygać — uzgodnienie jest tu zadaniem, a nie "
+         "przeszkodą przed zadaniem.",
+   rodzaj="pola",
+   pola=[("Kto pilnuje czasu", 60), ("Kto przynosi materiały", 60),
+         ("Kto zapisuje ustalenia", 60), ("Kto opowie o naszej pracy", 60)]),
+ ],
+
+ "C8-36": [dict(
+   tytul="Karta ukończenia pracy",
+   kp="Wydrukuj po jednej na dziecko",
+   wstep="Pierwsze pole wypełniamy przed rozpoczęciem — bez niego „skończone” znaczy "
+         "„znudziło mi się” i nie ma o czym rozmawiać przy samoocenie. Dwa pozostałe "
+         "dziecko wypełnia samo, po odłożeniu pracy.",
+   rodzaj="pola",
+   pola=[("Po czym poznam, że skończone (wpisz przed pracą)", 70),
+         ("Jak mi poszło", 55), ("Z tego fragmentu jestem dumny", 80)]),
+ ],
+
+ "C8-38": [dict(
+   tytul="Metki cenowe do sklepu",
+   kp="Wydrukuj, wytnij i przyczep do towarów",
+   wstep="Ceny do dziesięciu złotych, w kwotach, które da się odliczyć prawdziwymi monetami. "
+         "Nie podnosimy cen powyżej dziesięciu — liczenie przestaje wtedy być liczeniem, "
+         "a zaczyna zgadywaniem.",
+   rodzaj="etykiety", kolumny=4,
+   etykiety=[("1 zł", "#8FB79A"), ("2 zł", "#7FA8C9"), ("3 zł", "#F0C862"),
+             ("4 zł", "#E0A05C"), ("5 zł", "#E8695A"), ("6 zł", "#C9A0C0"),
+             ("7 zł", "#8FA9B7"), ("10 zł", "#8FB79A")]),
+ ],
+
+ "C8-39": [dict(
+   tytul="Karta małego badacza",
+   kp="Wydrukuj po jednej na odkrycie",
+   wstep="Pytanie w pierwszym polu ma pochodzić od dziecka i zostać zapisane wcześniej, "
+         "na tablicy pytań grupy. Ostatnie pole jest tu najważniejsze: odkrycie, po którym "
+         "nie pojawia się nowe pytanie, zwykle nie było szukaniem.",
+   rodzaj="pola",
+   pola=[("Moje pytanie", 70), ("Gdzie szukałem", 60),
+         ("Czego się dowiedziałem", 95), ("Teraz chcę wiedzieć", 70)]),
+ ],
+
+ "C9-40": [dict(
+   tytul="Plansza kręgów przynależności",
+   kp="Wydrukuj w formacie A3",
+   wstep="Cztery pola od siebie na zewnątrz. W pierwsze dziecko wkleja własne zdjęcie, "
+         "w drugie zdjęcie rodziny przyniesione z domu — zdjęcia dostarczone przez "
+         "przedszkole zamieniają osobistą planszę w ćwiczenie z pojęć.",
+   rodzaj="pola",
+   pola=[("Ja", 90), ("Moja rodzina", 90), ("Moja grupa", 90), ("Moja miejscowość", 90)]),
+ ],
+
+ "C9-41": [dict(
+   tytul="Karta poznawania kraju",
+   kp="Wydrukuj i powieś nisko",
+   wstep="Wypełniamy od dołu do góry: najpierw nasza miejscowość, dopiero na końcu symbole "
+         "państwa. Sześciolatek buduje pojęcie kraju z miejsc, które zna; zaczynanie od "
+         "godła daje słowo bez treści.",
+   rodzaj="tabela",
+   naglowki=["Symbol", "Jak wygląda albo brzmi", "Kiedy go widzimy"],
+   wiersze=["nasza miejscowość", "stolica", "flaga", "godło", "hymn"]),
+ ],
+
+ "C9-42": [dict(
+   tytul="Legitymacja przedszkolaka",
+   kp="Wydrukuj po jednej na dziecko",
+   wstep="Dane wpisuje dziecko, na tyle, na ile potrafi. Ostatnie pole jest ważniejsze niż "
+         "trzy pierwsze: dziecko, które umie wyrecytować adres, ale nie ma przećwiczonego "
+         "„nie powiem”, poda go pierwszej osobie, która zapyta pewnym głosem.",
+   rodzaj="pola",
+   pola=[("Imię", 55), ("Nazwisko", 55), ("Miejscowość", 55),
+         ("Dane mogę podać tylko", 80)]),
+ ],
+
+ "C9-44": [dict(
+   tytul="Karta zawodu",
+   kp="Wydrukuj po jednej na gościa",
+   wstep="Wypełniana po wizycie rodzica, nie przed. Ostatnia kolumna — co ten zawód robi "
+         "dla nas — jest tą, która zamienia obrazek w czyjąś pracę; pozostałe trzy da się "
+         "wypełnić z karty obrazkowej i niewiele z tego wynika.",
+   rodzaj="tabela",
+   naglowki=["Zawód", "Czym pracuje", "Gdzie pracuje", "Co robi dla nas"],
+   wiersze=["", "", "", "", "", ""]),
+ ],
 }
 
 
