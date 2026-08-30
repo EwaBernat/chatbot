@@ -187,6 +187,25 @@ input[type="search"]:focus,.tab:focus-visible,.chipbtn:focus-visible,.navlink:fo
   font:700 10.5px/1 "DM Sans",Arial,sans-serif}
 .navlink:hover{border-color:var(--accent); color:var(--accent)}
 
+/* ---------- spis konspektów ---------- */
+.kspis{margin:18px 0 4px; border:1px solid var(--line); border-radius:14px; background:#FFF; overflow:hidden}
+.kspis > summary{cursor:pointer; list-style:none; padding:13px 18px; display:flex; align-items:center; gap:10px;
+  font:700 12.5px/1 "DM Sans",Arial,sans-serif; color:var(--ink); background:var(--soft)}
+.kspis > summary::-webkit-details-marker{display:none}
+.kspis > summary::before{content:"▸"; color:var(--accent); font-size:13px}
+.kspis[open] > summary::before{content:"▾"}
+.kspis > summary .ile{margin-left:auto; font-weight:400; color:var(--muted); font-size:11.5px}
+.kspis-tresc{padding:6px 18px 16px}
+.kspis-obszar{margin:13px 0 7px; font:700 9.5px/1 "DM Sans",Arial,sans-serif;
+  letter-spacing:.14em; text-transform:uppercase; color:var(--violet)}
+.kspis-lista{display:flex; flex-wrap:wrap; gap:6px}
+.kbtn{border:1px solid var(--line); background:#FFF; border-radius:999px; padding:7px 13px; cursor:pointer;
+  font:500 11.5px/1.25 "DM Sans",Arial,sans-serif; color:var(--ink); text-align:left}
+.kbtn:hover{border-color:var(--accent); color:var(--accent)}
+.kbtn b{font-weight:700; color:var(--violet); margin-right:5px}
+.kbtn:hover b{color:var(--accent)}
+.kbtn .pom{margin-left:6px; color:var(--accent); font-weight:700}
+
 /* ---------- stopka ---------- */
 .docfoot{margin-top:46px; padding-top:14px; border-top:1px solid var(--line); display:flex; flex-wrap:wrap;
   gap:8px 20px; justify-content:space-between; font-size:11px; color:var(--muted)}
@@ -389,7 +408,7 @@ tr.tbanner .bsep{color:var(--accent); padding:0 5px}
   body{background:#fff; font-size:8.6pt; color:#1F1A33}
   *{-webkit-print-color-adjust:exact; print-color-adjust:exact}
   .sheet{max-width:none; padding:0}
-  .toolbar,.areanav,.printhead{display:none !important}
+  .toolbar,.areanav,.printhead,.kspis{display:none !important}
   .vers{display:block !important}
   .vers + .vers{break-before:page; page-break-before:always}
   #konspekt,#monitoring{break-before:page; page-break-before:always}
@@ -656,6 +675,80 @@ tr.tbanner .bsep{color:var(--accent); padding:0 5px}
     <a class="navlink" href="#A-d8-VIII">VIII · Główne obszary życia</a>
     <a class="navlink" href="#A-d9-IX">IX · Życie społeczne, lokalne i obywatelskie</a>
   </nav>
+  <details class="kspis" open>
+    <summary>Spis konspektów<span class="ile">42 konspektów · ● oznacza konspekt z pomocą dydaktyczną</span></summary>
+    <div class="kspis-tresc">
+    <div class="kspis-obszar">I · Uczenie się i stosowanie wiedzy</div>
+    <div class="kspis-lista">
+      <button class="kbtn" type="button" data-kon="kon-A-1" data-lvl2="p2"><b>D1-01</b>Czarodziejski woreczek <span class="pom" title="ma pomoc dydaktyczną">●</span></button>
+      <button class="kbtn" type="button" data-kon="kon-A-2" data-lvl2="p2"><b>D1-02</b>Małpka robi to, co ja <span class="pom" title="ma pomoc dydaktyczną">●</span></button>
+      <button class="kbtn" type="button" data-kon="kon-A-3" data-lvl2="p2"><b>D1-03</b>Klepsydra skarbów <span class="pom" title="ma pomoc dydaktyczną">●</span></button>
+      <button class="kbtn" type="button" data-kon="kon-A-4" data-lvl2="p2"><b>D1-04</b>Kolorowe domki <span class="pom" title="ma pomoc dydaktyczną">●</span></button>
+      <button class="kbtn" type="button" data-kon="kon-A-5" data-lvl2="p2"><b>D1-05</b>Pudełko z niespodzianką <span class="pom" title="ma pomoc dydaktyczną">●</span></button>
+    </div>
+    <div class="kspis-obszar">II · Ogólne zadania i wymagania</div>
+    <div class="kspis-lista">
+      <button class="kbtn" type="button" data-kon="kon-A-6" data-lvl2="p2"><b>D2-06</b>Zaproszenie od misia <span class="pom" title="ma pomoc dydaktyczną">●</span></button>
+      <button class="kbtn" type="button" data-kon="kon-A-7" data-lvl2="p2"><b>D2-07</b>Dwa kroki do końca <span class="pom" title="ma pomoc dydaktyczną">●</span></button>
+      <button class="kbtn" type="button" data-kon="kon-A-8" data-lvl2="p2"><b>D2-08</b>Pociąg dnia <span class="pom" title="ma pomoc dydaktyczną">●</span></button>
+      <button class="kbtn" type="button" data-kon="kon-A-9" data-lvl2="p2"><b>D2-09</b>Nasze trzy zasady <span class="pom" title="ma pomoc dydaktyczną">●</span></button>
+      <button class="kbtn" type="button" data-kon="kon-A-10" data-lvl2="p2"><b>D2-10</b>Wyspa spokoju <span class="pom" title="ma pomoc dydaktyczną">●</span></button>
+    </div>
+    <div class="kspis-obszar">III · Porozumiewanie się</div>
+    <div class="kspis-lista">
+      <button class="kbtn" type="button" data-kon="kon-A-11" data-lvl2="p2"><b>D3-11</b>Zrób to, o co proszę <span class="pom" title="ma pomoc dydaktyczną">●</span></button>
+      <button class="kbtn" type="button" data-kon="kon-A-12" data-lvl2="p2"><b>D3-12</b>Powiem, czego chcę <span class="pom" title="ma pomoc dydaktyczną">●</span></button>
+      <button class="kbtn" type="button" data-kon="kon-A-13" data-lvl2="p2"><b>D3-13</b>Zdanie z obrazka <span class="pom" title="ma pomoc dydaktyczną">●</span></button>
+      <button class="kbtn" type="button" data-kon="kon-A-14" data-lvl2="p2"><b>D3-14</b>Kto? Co? Gdzie? <span class="pom" title="ma pomoc dydaktyczną">●</span></button>
+      <button class="kbtn" type="button" data-kon="kon-A-15" data-lvl2="p2"><b>D3-15</b>Twarze i gesty <span class="pom" title="ma pomoc dydaktyczną">●</span></button>
+    </div>
+    <div class="kspis-obszar">IV · Poruszanie się</div>
+    <div class="kspis-lista">
+      <button class="kbtn" type="button" data-kon="kon-A-16" data-lvl2="p2"><b>D4-16</b>Ścieżka leśnych zwierząt <span class="pom" title="ma pomoc dydaktyczną">●</span></button>
+      <button class="kbtn" type="button" data-kon="kon-A-17" data-lvl2="p2"><b>D4-17</b>Schodki do chmurki <span class="pom" title="ma pomoc dydaktyczną">●</span></button>
+      <button class="kbtn" type="button" data-kon="kon-A-18" data-lvl2="p2"><b>D4-18</b>Piłka wędrowniczka <span class="pom" title="ma pomoc dydaktyczną">●</span></button>
+      <button class="kbtn" type="button" data-kon="kon-A-19" data-lvl2="p2"><b>D4-19</b>Wieża i korale <span class="pom" title="ma pomoc dydaktyczną">●</span></button>
+      <button class="kbtn" type="button" data-kon="kon-A-20" data-lvl2="p2"><b>D4-20</b>Muzyczne pociągi <span class="pom" title="ma pomoc dydaktyczną">●</span></button>
+    </div>
+    <div class="kspis-obszar">V · Dbanie o siebie</div>
+    <div class="kspis-lista">
+      <button class="kbtn" type="button" data-kon="kon-A-21" data-lvl2="p2"><b>D5-21</b>Sygnał na czas <span class="pom" title="ma pomoc dydaktyczną">●</span></button>
+      <button class="kbtn" type="button" data-kon="kon-A-22" data-lvl2="p2"><b>D5-22</b>Cztery kroki mycia <span class="pom" title="ma pomoc dydaktyczną">●</span></button>
+      <button class="kbtn" type="button" data-kon="kon-A-23" data-lvl2="p2"><b>D5-23</b>Łyżka i kubek <span class="pom" title="ma pomoc dydaktyczną">●</span></button>
+      <button class="kbtn" type="button" data-kon="kon-A-24" data-lvl2="p2"><b>D5-24</b>Ubieram się sam <span class="pom" title="ma pomoc dydaktyczną">●</span></button>
+      <button class="kbtn" type="button" data-kon="kon-A-25" data-lvl2="p2"><b>D5-25</b>Mój termometr samopoczucia <span class="pom" title="ma pomoc dydaktyczną">●</span></button>
+    </div>
+    <div class="kspis-obszar">VI · Życie domowe</div>
+    <div class="kspis-lista">
+      <button class="kbtn" type="button" data-kon="kon-A-26" data-lvl2="p2"><b>D6-26</b>Sprzątanie z piosenką <span class="pom" title="ma pomoc dydaktyczną">●</span></button>
+      <button class="kbtn" type="button" data-kon="kon-A-27" data-lvl2="p2"><b>D6-27</b>Każda rzecz ma swój dom <span class="pom" title="ma pomoc dydaktyczną">●</span></button>
+      <button class="kbtn" type="button" data-kon="kon-A-28" data-lvl2="p2"><b>D6-28</b>Mali pomocnicy <span class="pom" title="ma pomoc dydaktyczną">●</span></button>
+    </div>
+    <div class="kspis-obszar">VII · Wzajemne kontakty i związki międzyludzkie</div>
+    <div class="kspis-lista">
+      <button class="kbtn" type="button" data-kon="kon-A-29" data-lvl2="p2"><b>D7-29</b>Latarnia uwagi <span class="pom" title="ma pomoc dydaktyczną">●</span></button>
+      <button class="kbtn" type="button" data-kon="kon-A-30" data-lvl2="p2"><b>D7-30</b>Podaj misia <span class="pom" title="ma pomoc dydaktyczną">●</span></button>
+      <button class="kbtn" type="button" data-kon="kon-A-31" data-lvl2="p2"><b>D7-31</b>Mostek do przedszkola <span class="pom" title="ma pomoc dydaktyczną">●</span></button>
+      <button class="kbtn" type="button" data-kon="kon-A-32" data-lvl2="p2"><b>D7-32</b>Lusterko emocji <span class="pom" title="ma pomoc dydaktyczną">●</span></button>
+      <button class="kbtn" type="button" data-kon="kon-A-33" data-lvl2="p2"><b>D7-33</b>Czarodziejskie słowo POMOC <span class="pom" title="ma pomoc dydaktyczną">●</span></button>
+    </div>
+    <div class="kspis-obszar">VIII · Główne obszary życia</div>
+    <div class="kspis-lista">
+      <button class="kbtn" type="button" data-kon="kon-A-34" data-lvl2="p2"><b>D8-34</b>Moje miejsce w grupie <span class="pom" title="ma pomoc dydaktyczną">●</span></button>
+      <button class="kbtn" type="button" data-kon="kon-A-35" data-lvl2="p2"><b>D8-35</b>Kącik lalek i garaż <span class="pom" title="ma pomoc dydaktyczną">●</span></button>
+      <button class="kbtn" type="button" data-kon="kon-A-36" data-lvl2="p2"><b>D8-36</b>Dywanik zajęć <span class="pom" title="ma pomoc dydaktyczną">●</span></button>
+      <button class="kbtn" type="button" data-kon="kon-A-37" data-lvl2="p2"><b>D8-37</b>Budowniczowie <span class="pom" title="ma pomoc dydaktyczną">●</span></button>
+      <button class="kbtn" type="button" data-kon="kon-A-38" data-lvl2="p2"><b>D8-38</b>Bawimy się razem <span class="pom" title="ma pomoc dydaktyczną">●</span></button>
+    </div>
+    <div class="kspis-obszar">IX · Życie społeczne, lokalne i obywatelskie</div>
+    <div class="kspis-lista">
+      <button class="kbtn" type="button" data-kon="kon-A-39" data-lvl2="p2"><b>D9-39</b>Nasze święto <span class="pom" title="ma pomoc dydaktyczną">●</span></button>
+      <button class="kbtn" type="button" data-kon="kon-A-40" data-lvl2="p2"><b>D9-40</b>Idziemy w parze <span class="pom" title="ma pomoc dydaktyczną">●</span></button>
+      <button class="kbtn" type="button" data-kon="kon-A-41" data-lvl2="p2"><b>D9-41</b>Plac zabaw według zasad <span class="pom" title="ma pomoc dydaktyczną">●</span></button>
+      <button class="kbtn" type="button" data-kon="kon-A-42" data-lvl2="p2"><b>D9-42</b>Teatrzyk i książka <span class="pom" title="ma pomoc dydaktyczną">●</span></button>
+    </div>
+    </div>
+  </details>
   <p class="nores hidden">Brak twierdzeń pasujących do wyszukiwania.</p>
   <section class="sec" id="A-d1-I">
     <div class="sec-h">
@@ -1302,6 +1395,82 @@ tr.tbanner .bsep{color:var(--accent); padding:0 5px}
     <a class="navlink" href="#B-d8-VIII">VIII · Główne obszary życia</a>
     <a class="navlink" href="#B-d9-IX">IX · Życie społeczne, lokalne i obywatelskie</a>
   </nav>
+  <details class="kspis" open>
+    <summary>Spis konspektów<span class="ile">44 konspektów · ● oznacza konspekt z pomocą dydaktyczną</span></summary>
+    <div class="kspis-tresc">
+    <div class="kspis-obszar">I · Uczenie się i stosowanie wiedzy</div>
+    <div class="kspis-lista">
+      <button class="kbtn" type="button" data-kon="kon-B-1" data-lvl2="p2"><b>B1-01</b>Detektywi opowieści <span class="pom" title="ma pomoc dydaktyczną">●</span></button>
+      <button class="kbtn" type="button" data-kon="kon-B-2" data-lvl2="p2"><b>B1-02</b>Fabryka rytmów <span class="pom" title="ma pomoc dydaktyczną">●</span></button>
+      <button class="kbtn" type="button" data-kon="kon-B-3" data-lvl2="p2"><b>B1-03</b>Sklep pod piątką <span class="pom" title="ma pomoc dydaktyczną">●</span></button>
+      <button class="kbtn" type="button" data-kon="kon-B-4" data-lvl2="p2"><b>B1-04</b>Kwadrans badacza <span class="pom" title="ma pomoc dydaktyczną">●</span></button>
+      <button class="kbtn" type="button" data-kon="kon-B-5" data-lvl2="p2"><b>B1-05</b>Polowanie na litery <span class="pom" title="ma pomoc dydaktyczną">●</span></button>
+    </div>
+    <div class="kspis-obszar">II · Ogólne zadania i wymagania</div>
+    <div class="kspis-lista">
+      <button class="kbtn" type="button" data-kon="kon-B-6" data-lvl2="p2"><b>B2-06</b>Instrukcja mistrza budowy <span class="pom" title="ma pomoc dydaktyczną">●</span></button>
+      <button class="kbtn" type="button" data-kon="kon-B-7" data-lvl2="p2"><b>B2-07</b>Most między zajęciami <span class="pom" title="ma pomoc dydaktyczną">●</span></button>
+      <button class="kbtn" type="button" data-kon="kon-B-8" data-lvl2="p2"><b>B2-08</b>Kolejka po skarb <span class="pom" title="ma pomoc dydaktyczną">●</span></button>
+      <button class="kbtn" type="button" data-kon="kon-B-9" data-lvl2="p2"><b>B2-09</b>Moje stanowisko pracy <span class="pom" title="ma pomoc dydaktyczną">●</span></button>
+      <button class="kbtn" type="button" data-kon="kon-B-10" data-lvl2="p2"><b>B2-10</b>Najpierw próbuję, potem proszę <span class="pom" title="ma pomoc dydaktyczną">●</span></button>
+    </div>
+    <div class="kspis-obszar">III · Porozumiewanie się</div>
+    <div class="kspis-lista">
+      <button class="kbtn" type="button" data-kon="kon-B-11" data-lvl2="p2"><b>B3-11</b>Radio Przedszkole <span class="pom" title="ma pomoc dydaktyczną">●</span></button>
+      <button class="kbtn" type="button" data-kon="kon-B-12" data-lvl2="p2"><b>B3-12</b>Kronika dnia <span class="pom" title="ma pomoc dydaktyczną">●</span></button>
+      <button class="kbtn" type="button" data-kon="kon-B-13" data-lvl2="p2"><b>B3-13</b>Rozmowa przy stoliku <span class="pom" title="ma pomoc dydaktyczną">●</span></button>
+      <button class="kbtn" type="button" data-kon="kon-B-14" data-lvl2="p2"><b>B3-14</b>Rymowana kuchnia <span class="pom" title="ma pomoc dydaktyczną">●</span></button>
+      <button class="kbtn" type="button" data-kon="kon-B-15" data-lvl2="p2"><b>B3-15</b>Teatr bez słów <span class="pom" title="ma pomoc dydaktyczną">●</span></button>
+    </div>
+    <div class="kspis-obszar">IV · Poruszanie się</div>
+    <div class="kspis-lista">
+      <button class="kbtn" type="button" data-kon="kon-B-16" data-lvl2="p2"><b>B4-16</b>Olimpiada czterech ruchów <span class="pom" title="ma pomoc dydaktyczną">●</span></button>
+      <button class="kbtn" type="button" data-kon="kon-B-17" data-lvl2="p2"><b>B4-17</b>Linoskoczkowie <span class="pom" title="ma pomoc dydaktyczną">●</span></button>
+      <button class="kbtn" type="button" data-kon="kon-B-18" data-lvl2="p2"><b>B4-18</b>Pracownia nożyczek <span class="pom" title="ma pomoc dydaktyczną">●</span></button>
+      <button class="kbtn" type="button" data-kon="kon-B-19" data-lvl2="p2"><b>B4-19</b>Szlaczki na ścianie <span class="pom" title="ma pomoc dydaktyczną">●</span></button>
+      <button class="kbtn" type="button" data-kon="kon-B-20" data-lvl2="p2"><b>B4-20</b>Laboratorium przelewania <span class="pom" title="ma pomoc dydaktyczną">●</span></button>
+    </div>
+    <div class="kspis-obszar">V · Dbanie o siebie</div>
+    <div class="kspis-lista">
+      <button class="kbtn" type="button" data-kon="kon-B-21" data-lvl2="p2"><b>B5-21</b>Detektyw czystych rąk <span class="pom" title="ma pomoc dydaktyczną">●</span></button>
+      <button class="kbtn" type="button" data-kon="kon-B-22" data-lvl2="p2"><b>B5-22</b>Wyścig z suwakiem <span class="pom" title="ma pomoc dydaktyczną">●</span></button>
+      <button class="kbtn" type="button" data-kon="kon-B-23" data-lvl2="p2"><b>B5-23</b>Restauracja pod dobrą łyżką <span class="pom" title="ma pomoc dydaktyczną">●</span></button>
+      <button class="kbtn" type="button" data-kon="kon-B-24" data-lvl2="p2"><b>B5-24</b>Strażnicy bezpieczeństwa <span class="pom" title="ma pomoc dydaktyczną">●</span></button>
+      <button class="kbtn" type="button" data-kon="kon-B-25" data-lvl2="p2"><b>B5-25</b>Barometr energii <span class="pom" title="ma pomoc dydaktyczną">●</span></button>
+    </div>
+    <div class="kspis-obszar">VI · Życie domowe</div>
+    <div class="kspis-lista">
+      <button class="kbtn" type="button" data-kon="kon-B-26" data-lvl2="p2"><b>B6-26</b>Zdjęcie przed i po <span class="pom" title="ma pomoc dydaktyczną">●</span></button>
+      <button class="kbtn" type="button" data-kon="kon-B-27" data-lvl2="p2"><b>B6-27</b>Dyżurni tygodnia <span class="pom" title="ma pomoc dydaktyczną">●</span></button>
+      <button class="kbtn" type="button" data-kon="kon-B-28" data-lvl2="p2"><b>B6-28</b>Umowa o zabawki <span class="pom" title="ma pomoc dydaktyczną">●</span></button>
+      <button class="kbtn" type="button" data-kon="kon-B-29" data-lvl2="p2"><b>B6-29</b>Pakowanie na wyprawę <span class="pom" title="ma pomoc dydaktyczną">●</span></button>
+    </div>
+    <div class="kspis-obszar">VII · Wzajemne kontakty i związki międzyludzkie</div>
+    <div class="kspis-lista">
+      <button class="kbtn" type="button" data-kon="kon-B-30" data-lvl2="p2"><b>B7-30</b>Zaproszenie do zabawy <span class="pom" title="ma pomoc dydaktyczną">●</span></button>
+      <button class="kbtn" type="button" data-kon="kon-B-31" data-lvl2="p2"><b>B7-31</b>Zespół z pomysłem <span class="pom" title="ma pomoc dydaktyczną">●</span></button>
+      <button class="kbtn" type="button" data-kon="kon-B-32" data-lvl2="p2"><b>B7-32</b>Słowa, które pomagają <span class="pom" title="ma pomoc dydaktyczną">●</span></button>
+      <button class="kbtn" type="button" data-kon="kon-B-33" data-lvl2="p2"><b>B7-33</b>Mapa uczuć <span class="pom" title="ma pomoc dydaktyczną">●</span></button>
+      <button class="kbtn" type="button" data-kon="kon-B-34" data-lvl2="p2"><b>B7-34</b>Trzy kroki zgody <span class="pom" title="ma pomoc dydaktyczną">●</span></button>
+    </div>
+    <div class="kspis-obszar">VIII · Główne obszary życia</div>
+    <div class="kspis-lista">
+      <button class="kbtn" type="button" data-kon="kon-B-35" data-lvl2="p2"><b>B8-35</b>Mój pomysł na zajęcia <span class="pom" title="ma pomoc dydaktyczną">●</span></button>
+      <button class="kbtn" type="button" data-kon="kon-B-36" data-lvl2="p2"><b>B8-36</b>Miasto z podziałem ról <span class="pom" title="ma pomoc dydaktyczną">●</span></button>
+      <button class="kbtn" type="button" data-kon="kon-B-37" data-lvl2="p2"><b>B8-37</b>Pracownia ulepszeń <span class="pom" title="ma pomoc dydaktyczną">●</span></button>
+      <button class="kbtn" type="button" data-kon="kon-B-38" data-lvl2="p2"><b>B8-38</b>Orkiestra przedszkolna <span class="pom" title="ma pomoc dydaktyczną">●</span></button>
+      <button class="kbtn" type="button" data-kon="kon-B-39" data-lvl2="p2"><b>B8-39</b>Polecenie dla całej grupy <span class="pom" title="ma pomoc dydaktyczną">●</span></button>
+    </div>
+    <div class="kspis-obszar">IX · Życie społeczne, lokalne i obywatelskie</div>
+    <div class="kspis-lista">
+      <button class="kbtn" type="button" data-kon="kon-B-40" data-lvl2="p2"><b>B9-40</b>Herb naszej grupy <span class="pom" title="ma pomoc dydaktyczną">●</span></button>
+      <button class="kbtn" type="button" data-kon="kon-B-41" data-lvl2="p2"><b>B9-41</b>Nasze przedstawienie <span class="pom" title="ma pomoc dydaktyczną">●</span></button>
+      <button class="kbtn" type="button" data-kon="kon-B-42" data-lvl2="p2"><b>B9-42</b>Wyprawa czterech pór roku <span class="pom" title="ma pomoc dydaktyczną">●</span></button>
+      <button class="kbtn" type="button" data-kon="kon-B-43" data-lvl2="p2"><b>B9-43</b>Widzowie i krytycy <span class="pom" title="ma pomoc dydaktyczną">●</span></button>
+      <button class="kbtn" type="button" data-kon="kon-B-44" data-lvl2="p2"><b>B9-44</b>To ja — imię i nazwisko <span class="pom" title="ma pomoc dydaktyczną">●</span></button>
+    </div>
+    </div>
+  </details>
   <p class="nores hidden">Brak twierdzeń pasujących do wyszukiwania.</p>
   <section class="sec" id="B-d1-I">
     <div class="sec-h">
@@ -1966,6 +2135,82 @@ tr.tbanner .bsep{color:var(--accent); padding:0 5px}
     <a class="navlink" href="#C-d8-VIII">VIII · Główne obszary życia</a>
     <a class="navlink" href="#C-d9-IX">IX · Życie społeczne, lokalne i obywatelskie</a>
   </nav>
+  <details class="kspis" open>
+    <summary>Spis konspektów<span class="ile">44 konspektów · ● oznacza konspekt z pomocą dydaktyczną</span></summary>
+    <div class="kspis-tresc">
+    <div class="kspis-obszar">I · Uczenie się i stosowanie wiedzy</div>
+    <div class="kspis-lista">
+      <button class="kbtn" type="button" data-kon="kon-C-1" data-lvl2="p2"><b>C1-01</b>Warsztat historyjek</button>
+      <button class="kbtn" type="button" data-kon="kon-C-2" data-lvl2="p2"><b>C1-02</b>Sylabowa czytelnia</button>
+      <button class="kbtn" type="button" data-kon="kon-C-3" data-lvl2="p2"><b>C1-03</b>Litery w liniaturze</button>
+      <button class="kbtn" type="button" data-kon="kon-C-4" data-lvl2="p2"><b>C1-04</b>Kantorek liczb</button>
+      <button class="kbtn" type="button" data-kon="kon-C-5" data-lvl2="p2"><b>C1-05</b>Laboratorium hipotez</button>
+    </div>
+    <div class="kspis-obszar">II · Ogólne zadania i wymagania</div>
+    <div class="kspis-lista">
+      <button class="kbtn" type="button" data-kon="kon-C-6" data-lvl2="p2"><b>C2-06</b>Plan w trzech krokach</button>
+      <button class="kbtn" type="button" data-kon="kon-C-7" data-lvl2="p2"><b>C2-07</b>Cicha godzina pracy</button>
+      <button class="kbtn" type="button" data-kon="kon-C-8" data-lvl2="p2"><b>C2-08</b>Klub dobrych przegranych</button>
+      <button class="kbtn" type="button" data-kon="kon-C-9" data-lvl2="p2"><b>C2-09</b>Wczoraj, dziś, jutro</button>
+      <button class="kbtn" type="button" data-kon="kon-C-10" data-lvl2="p2"><b>C2-10</b>Skrzynka strategii</button>
+    </div>
+    <div class="kspis-obszar">III · Porozumiewanie się</div>
+    <div class="kspis-lista">
+      <button class="kbtn" type="button" data-kon="kon-C-11" data-lvl2="p2"><b>C3-11</b>Wyraźnie i płynnie</button>
+      <button class="kbtn" type="button" data-kon="kon-C-12" data-lvl2="p2"><b>C3-12</b>Dźwiękowe puzzle</button>
+      <button class="kbtn" type="button" data-kon="kon-C-13" data-lvl2="p2"><b>C3-13</b>Bajkopisarze</button>
+      <button class="kbtn" type="button" data-kon="kon-C-14" data-lvl2="p2"><b>C3-14</b>Debata przedszkolna</button>
+      <button class="kbtn" type="button" data-kon="kon-C-15" data-lvl2="p2"><b>C3-15</b>English corner</button>
+    </div>
+    <div class="kspis-obszar">IV · Poruszanie się</div>
+    <div class="kspis-lista">
+      <button class="kbtn" type="button" data-kon="kon-C-16" data-lvl2="p2"><b>C4-16</b>Skrzyżowane ścieżki</button>
+      <button class="kbtn" type="button" data-kon="kon-C-17" data-lvl2="p2"><b>C4-17</b>Prosty kręgosłup przy stoliku</button>
+      <button class="kbtn" type="button" data-kon="kon-C-18" data-lvl2="p2"><b>C4-18</b>Mistrzowie ołówka</button>
+      <button class="kbtn" type="button" data-kon="kon-C-19" data-lvl2="p2"><b>C4-19</b>Szkoła zapinania</button>
+      <button class="kbtn" type="button" data-kon="kon-C-20" data-lvl2="p2"><b>C4-20</b>Ruch, który opowiada</button>
+    </div>
+    <div class="kspis-obszar">V · Dbanie o siebie</div>
+    <div class="kspis-lista">
+      <button class="kbtn" type="button" data-kon="kon-C-21" data-lvl2="p2"><b>C5-21</b>Gotowi w pięć minut</button>
+      <button class="kbtn" type="button" data-kon="kon-C-22" data-lvl2="p2"><b>C5-22</b>Sam nakładam, sam sprzątam</button>
+      <button class="kbtn" type="button" data-kon="kon-C-23" data-lvl2="p2"><b>C5-23</b>Zdrowie na talerzu</button>
+      <button class="kbtn" type="button" data-kon="kon-C-24" data-lvl2="p2"><b>C5-24</b>Bezpieczna droga</button>
+      <button class="kbtn" type="button" data-kon="kon-C-25" data-lvl2="p2"><b>C5-25</b>Moje granice</button>
+    </div>
+    <div class="kspis-obszar">VI · Życie domowe</div>
+    <div class="kspis-lista">
+      <button class="kbtn" type="button" data-kon="kon-C-26" data-lvl2="p2"><b>C6-26</b>Restauracja dyżurnych</button>
+      <button class="kbtn" type="button" data-kon="kon-C-27" data-lvl2="p2"><b>C6-27</b>Dyżury z rozliczeniem</button>
+      <button class="kbtn" type="button" data-kon="kon-C-28" data-lvl2="p2"><b>C6-28</b>Porządek w mojej przestrzeni</button>
+      <button class="kbtn" type="button" data-kon="kon-C-29" data-lvl2="p2"><b>C6-29</b>Ogrodnicy z kącika przyrody</button>
+    </div>
+    <div class="kspis-obszar">VII · Wzajemne kontakty i związki międzyludzkie</div>
+    <div class="kspis-lista">
+      <button class="kbtn" type="button" data-kon="kon-C-30" data-lvl2="p2"><b>C7-30</b>Rada grupy</button>
+      <button class="kbtn" type="button" data-kon="kon-C-31" data-lvl2="p2"><b>C7-31</b>Kodeks naszej grupy</button>
+      <button class="kbtn" type="button" data-kon="kon-C-32" data-lvl2="p2"><b>C7-32</b>Konsekwencje moich wyborów</button>
+      <button class="kbtn" type="button" data-kon="kon-C-33" data-lvl2="p2"><b>C7-33</b>Pogotowie pomocne</button>
+      <button class="kbtn" type="button" data-kon="kon-C-34" data-lvl2="p2"><b>C7-34</b>Przyjaźń i słowa, które ranią</button>
+    </div>
+    <div class="kspis-obszar">VIII · Główne obszary życia</div>
+    <div class="kspis-lista">
+      <button class="kbtn" type="button" data-kon="kon-C-35" data-lvl2="p2"><b>C8-35</b>Zespół projektowy</button>
+      <button class="kbtn" type="button" data-kon="kon-C-36" data-lvl2="p2"><b>C8-36</b>Skończone i pokazane</button>
+      <button class="kbtn" type="button" data-kon="kon-C-37" data-lvl2="p2"><b>C8-37</b>Turniej gier z regułami</button>
+      <button class="kbtn" type="button" data-kon="kon-C-38" data-lvl2="p2"><b>C8-38</b>Sklep z prawdziwą kasą</button>
+      <button class="kbtn" type="button" data-kon="kon-C-39" data-lvl2="p2"><b>C8-39</b>Mali badacze świata</button>
+    </div>
+    <div class="kspis-obszar">IX · Życie społeczne, lokalne i obywatelskie</div>
+    <div class="kspis-lista">
+      <button class="kbtn" type="button" data-kon="kon-C-40" data-lvl2="p2"><b>C9-40</b>Kręgi przynależności</button>
+      <button class="kbtn" type="button" data-kon="kon-C-41" data-lvl2="p2"><b>C9-41</b>Polska na mapie</button>
+      <button class="kbtn" type="button" data-kon="kon-C-42" data-lvl2="p2"><b>C9-42</b>Moje dane, moje bezpieczeństwo</button>
+      <button class="kbtn" type="button" data-kon="kon-C-43" data-lvl2="p2"><b>C9-43</b>Strażnicy planety</button>
+      <button class="kbtn" type="button" data-kon="kon-C-44" data-lvl2="p2"><b>C9-44</b>Kim będę, kim jestem</button>
+    </div>
+    </div>
+  </details>
   <p class="nores hidden">Brak twierdzeń pasujących do wyszukiwania.</p>
   <section class="sec" id="C-d1-I">
     <div class="sec-h">
@@ -2630,6 +2875,86 @@ tr.tbanner .bsep{color:var(--accent); padding:0 5px}
     <a class="navlink" href="#U-d1–d9-VIII">VIII · Obszar artystyczny</a>
     <a class="navlink" href="#U-d4–d9-IX">IX · Obszar ruchowy</a>
   </nav>
+  <details class="kspis" open>
+    <summary>Spis konspektów<span class="ile">48 konspektów · ● oznacza konspekt z pomocą dydaktyczną</span></summary>
+    <div class="kspis-tresc">
+    <div class="kspis-obszar">I · Obszar społeczny</div>
+    <div class="kspis-lista">
+      <button class="kbtn" type="button" data-kon="kon-U-1" data-lvl2="p2"><b>U1-01</b>Skarbonka naszej grupy</button>
+      <button class="kbtn" type="button" data-kon="kon-U-2" data-lvl2="p2"><b>U1-02</b>Kto nam pomaga</button>
+      <button class="kbtn" type="button" data-kon="kon-U-3" data-lvl2="p2"><b>U1-03</b>Kącik naszego regionu</button>
+      <button class="kbtn" type="button" data-kon="kon-U-4" data-lvl2="p2"><b>U1-04</b>Zrobimy to dla innych</button>
+    </div>
+    <div class="kspis-obszar">II · Obszar osobisty</div>
+    <div class="kspis-lista">
+      <button class="kbtn" type="button" data-kon="kon-U-5" data-lvl2="p2"><b>U2-05</b>W czym jestem dobry</button>
+    </div>
+    <div class="kspis-obszar">III · Obszar językowy</div>
+    <div class="kspis-lista">
+      <button class="kbtn" type="button" data-kon="kon-U-6" data-lvl2="p2"><b>U3-06</b>Czy to możliwe?</button>
+      <button class="kbtn" type="button" data-kon="kon-U-7" data-lvl2="p2"><b>U3-07</b>Sprawdzam sam</button>
+      <button class="kbtn" type="button" data-kon="kon-U-8" data-lvl2="p2"><b>U3-08</b>Co by było, gdyby</button>
+      <button class="kbtn" type="button" data-kon="kon-U-9" data-lvl2="p2"><b>U3-09</b>Znaki, które mówią</button>
+      <button class="kbtn" type="button" data-kon="kon-U-10" data-lvl2="p2"><b>U3-10</b>English corner — nasze przedmioty</button>
+      <button class="kbtn" type="button" data-kon="kon-U-11" data-lvl2="p2"><b>U3-11</b>Hello, how are you?</button>
+      <button class="kbtn" type="button" data-kon="kon-U-12" data-lvl2="p2"><b>U3-12</b>Śpiewamy po angielsku</button>
+    </div>
+    <div class="kspis-obszar">IV · Obszar matematyczny</div>
+    <div class="kspis-lista">
+      <button class="kbtn" type="button" data-kon="kon-U-13" data-lvl2="p2"><b>U4-13</b>Detektywi kłopotów</button>
+      <button class="kbtn" type="button" data-kon="kon-U-14" data-lvl2="p2"><b>U4-14</b>Próba i poprawka</button>
+      <button class="kbtn" type="button" data-kon="kon-U-15" data-lvl2="p2"><b>U4-15</b>Liczmany w akcji</button>
+      <button class="kbtn" type="button" data-kon="kon-U-16" data-lvl2="p2"><b>U4-16</b>Ile nas jest — wykres grupy</button>
+      <button class="kbtn" type="button" data-kon="kon-U-17" data-lvl2="p2"><b>U4-17</b>Prowadzę cię słowem</button>
+      <button class="kbtn" type="button" data-kon="kon-U-18" data-lvl2="p2"><b>U4-18</b>Figury wokół nas</button>
+      <button class="kbtn" type="button" data-kon="kon-U-19" data-lvl2="p2"><b>U4-19</b>Idziemy na zakupy</button>
+    </div>
+    <div class="kspis-obszar">V · Obszar przyrodniczy</div>
+    <div class="kspis-lista">
+      <button class="kbtn" type="button" data-kon="kon-U-20" data-lvl2="p2"><b>U5-20</b>Atlas naszego ogrodu</button>
+      <button class="kbtn" type="button" data-kon="kon-U-21" data-lvl2="p2"><b>U5-21</b>Kalendarz pogody</button>
+      <button class="kbtn" type="button" data-kon="kon-U-22" data-lvl2="p2"><b>U5-22</b>Dziennik małego badacza</button>
+      <button class="kbtn" type="button" data-kon="kon-U-23" data-lvl2="p2"><b>U5-23</b>Mapa mojej drogi</button>
+      <button class="kbtn" type="button" data-kon="kon-U-24" data-lvl2="p2"><b>U5-24</b>Ziemia i Słońce</button>
+      <button class="kbtn" type="button" data-kon="kon-U-25" data-lvl2="p2"><b>U5-25</b>Dyżur w kąciku przyrody</button>
+      <button class="kbtn" type="button" data-kon="kon-U-26" data-lvl2="p2"><b>U5-26</b>Kto od kogo zależy</button>
+      <button class="kbtn" type="button" data-kon="kon-U-27" data-lvl2="p2"><b>U5-27</b>Gdzie kto mieszka</button>
+      <button class="kbtn" type="button" data-kon="kon-U-28" data-lvl2="p2"><b>U5-28</b>Obserwatorium przyrody</button>
+    </div>
+    <div class="kspis-obszar">VI · Obszar techniczny</div>
+    <div class="kspis-lista">
+      <button class="kbtn" type="button" data-kon="kon-U-29" data-lvl2="p2"><b>U6-29</b>Pudełko materiałów</button>
+      <button class="kbtn" type="button" data-kon="kon-U-30" data-lvl2="p2"><b>U6-30</b>Jak powstaje dom</button>
+      <button class="kbtn" type="button" data-kon="kon-U-31" data-lvl2="p2"><b>U6-31</b>Równia i kołowrót</button>
+      <button class="kbtn" type="button" data-kon="kon-U-32" data-lvl2="p2"><b>U6-32</b>Zapal światło</button>
+      <button class="kbtn" type="button" data-kon="kon-U-33" data-lvl2="p2"><b>U6-33</b>Skąd bierze się energia</button>
+      <button class="kbtn" type="button" data-kon="kon-U-34" data-lvl2="p2"><b>U6-34</b>Regulamin warsztatu</button>
+      <button class="kbtn" type="button" data-kon="kon-U-35" data-lvl2="p2"><b>U6-35</b>Co robi to za nas</button>
+      <button class="kbtn" type="button" data-kon="kon-U-36" data-lvl2="p2"><b>U6-36</b>Spacer komunikacyjny</button>
+      <button class="kbtn" type="button" data-kon="kon-U-37" data-lvl2="p2"><b>U6-37</b>Dziesięć dni z zabawką</button>
+      <button class="kbtn" type="button" data-kon="kon-U-38" data-lvl2="p2"><b>U6-38</b>Makieta naszej okolicy</button>
+    </div>
+    <div class="kspis-obszar">VII · Obszar cyfrowy</div>
+    <div class="kspis-lista">
+      <button class="kbtn" type="button" data-kon="kon-U-39" data-lvl2="p2"><b>U7-39</b>Do czego to służy</button>
+      <button class="kbtn" type="button" data-kon="kon-U-40" data-lvl2="p2"><b>U7-40</b>Umowa ekranowa</button>
+      <button class="kbtn" type="button" data-kon="kon-U-41" data-lvl2="p2"><b>U7-41</b>Nie mówię obcym</button>
+      <button class="kbtn" type="button" data-kon="kon-U-42" data-lvl2="p2"><b>U7-42</b>Reklama a prawda</button>
+    </div>
+    <div class="kspis-obszar">VIII · Obszar artystyczny</div>
+    <div class="kspis-lista">
+      <button class="kbtn" type="button" data-kon="kon-U-43" data-lvl2="p2"><b>U8-43</b>Nieoczywiste połączenia</button>
+      <button class="kbtn" type="button" data-kon="kon-U-44" data-lvl2="p2"><b>U8-44</b>Orkiestra z odzysku</button>
+      <button class="kbtn" type="button" data-kon="kon-U-45" data-lvl2="p2"><b>U8-45</b>Głośno, cicho, wesoło, smutno</button>
+      <button class="kbtn" type="button" data-kon="kon-U-46" data-lvl2="p2"><b>U8-46</b>Słowniczek sztuki</button>
+    </div>
+    <div class="kspis-obszar">IX · Obszar ruchowy</div>
+    <div class="kspis-lista">
+      <button class="kbtn" type="button" data-kon="kon-U-47" data-lvl2="p2"><b>U9-47</b>Tor zmysłów</button>
+      <button class="kbtn" type="button" data-kon="kon-U-48" data-lvl2="p2"><b>U9-48</b>Nasze zawody sportowe</button>
+    </div>
+    </div>
+  </details>
   <p class="nores hidden">Brak twierdzeń pasujących do wyszukiwania.</p>
   <section class="sec" id="U-d8–d9-I">
     <div class="sec-h">
@@ -35952,6 +36277,8 @@ function zamknijKonspekty(){
   document.querySelectorAll('.kmodal.open').forEach(m=>m.classList.remove('open'));
   document.body.style.overflow='';
 }
+document.querySelectorAll('.kbtn[data-kon]').forEach(b=>b.addEventListener('click',
+  ()=>otworzKonspekt(b.dataset.kon, b.dataset.lvl2)));
 document.querySelectorAll('td.haskon').forEach(td=>{
   const go=()=>otworzKonspekt(td.dataset.kon,td.dataset.lvl2);
   td.addEventListener('click',go);

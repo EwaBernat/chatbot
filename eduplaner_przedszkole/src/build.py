@@ -244,6 +244,25 @@ input[type="search"]:focus,.tab:focus-visible,.chipbtn:focus-visible,.navlink:fo
   font:700 10.5px/1 "DM Sans",Arial,sans-serif}
 .navlink:hover{border-color:var(--accent); color:var(--accent)}
 
+/* ---------- spis konspektów ---------- */
+.kspis{margin:18px 0 4px; border:1px solid var(--line); border-radius:14px; background:#FFF; overflow:hidden}
+.kspis > summary{cursor:pointer; list-style:none; padding:13px 18px; display:flex; align-items:center; gap:10px;
+  font:700 12.5px/1 "DM Sans",Arial,sans-serif; color:var(--ink); background:var(--soft)}
+.kspis > summary::-webkit-details-marker{display:none}
+.kspis > summary::before{content:"▸"; color:var(--accent); font-size:13px}
+.kspis[open] > summary::before{content:"▾"}
+.kspis > summary .ile{margin-left:auto; font-weight:400; color:var(--muted); font-size:11.5px}
+.kspis-tresc{padding:6px 18px 16px}
+.kspis-obszar{margin:13px 0 7px; font:700 9.5px/1 "DM Sans",Arial,sans-serif;
+  letter-spacing:.14em; text-transform:uppercase; color:var(--violet)}
+.kspis-lista{display:flex; flex-wrap:wrap; gap:6px}
+.kbtn{border:1px solid var(--line); background:#FFF; border-radius:999px; padding:7px 13px; cursor:pointer;
+  font:500 11.5px/1.25 "DM Sans",Arial,sans-serif; color:var(--ink); text-align:left}
+.kbtn:hover{border-color:var(--accent); color:var(--accent)}
+.kbtn b{font-weight:700; color:var(--violet); margin-right:5px}
+.kbtn:hover b{color:var(--accent)}
+.kbtn .pom{margin-left:6px; color:var(--accent); font-weight:700}
+
 /* ---------- stopka ---------- */
 .docfoot{margin-top:46px; padding-top:14px; border-top:1px solid var(--line); display:flex; flex-wrap:wrap;
   gap:8px 20px; justify-content:space-between; font-size:11px; color:var(--muted)}
@@ -446,7 +465,7 @@ tr.tbanner .bsep{color:var(--accent); padding:0 5px}
   body{background:#fff; font-size:8.6pt; color:#1F1A33}
   *{-webkit-print-color-adjust:exact; print-color-adjust:exact}
   .sheet{max-width:none; padding:0}
-  .toolbar,.areanav,.printhead{display:none !important}
+  .toolbar,.areanav,.printhead,.kspis{display:none !important}
   .vers{display:block !important}
   .vers + .vers{break-before:page; page-break-before:always}
   #konspekt,#monitoring{break-before:page; page-break-before:always}
@@ -591,6 +610,8 @@ function zamknijKonspekty(){
   document.querySelectorAll('.kmodal.open').forEach(m=>m.classList.remove('open'));
   document.body.style.overflow='';
 }
+document.querySelectorAll('.kbtn[data-kon]').forEach(b=>b.addEventListener('click',
+  ()=>otworzKonspekt(b.dataset.kon, b.dataset.lvl2)));
 document.querySelectorAll('td.haskon').forEach(td=>{
   const go=()=>otworzKonspekt(td.dataset.kon,td.dataset.lvl2);
   td.addEventListener('click',go);
@@ -726,6 +747,32 @@ def sekcja(a, w):
     <div class="callout zas"><span class="cap">Zasób 4,0–5,0 · dźwignia</span>{esc(a['zasob'])}</div>
   </section>"""
 
+def spis_konspektow(mod, w):
+    """Spis konspektów wersji — bez niego trzeba wiedzieć, że konspekt otwiera
+    się kliknięciem komórki z celem. Każda pozycja otwiera modal wprost."""
+    pozycje, ile = [], 0
+    for a in mod.AREAS:
+        w_obszarze = []
+        for it in a["items"]:
+            K = KONSPEKTY.get((w["kod"], it["n"]))
+            if not K:
+                continue
+            ile += 1
+            znak = ' <span class="pom" title="ma pomoc dydaktyczną">●</span>' if wskaz_pomoc(K["nr"]) else ""
+            w_obszarze.append(
+                f'      <button class="kbtn" type="button" data-kon="kon-{w["kod"]}-{it["n"]}" data-lvl2="p2">'
+                f'<b>{esc(K["nr"])}</b>{esc(K["tytul"])}{znak}</button>')
+        if w_obszarze:
+            pozycje.append(f'    <div class="kspis-obszar">{a["rom"]} · {esc(a["name"].split(" (")[0])}</div>\n'
+                           f'    <div class="kspis-lista">\n' + "\n".join(w_obszarze) + "\n    </div>")
+    if not pozycje:
+        return ""
+    return (f'  <details class="kspis" open>\n'
+            f'    <summary>Spis konspektów<span class="ile">{ile} konspektów · '
+            f'● oznacza konspekt z pomocą dydaktyczną</span></summary>\n'
+            f'    <div class="kspis-tresc">\n' + "\n".join(pozycje) + "\n    </div>\n  </details>")
+
+
 def wersja(mod, aktywna):
     w = mod.WERSJA
     n = sum(len(a["items"]) for a in mod.AREAS)
@@ -733,6 +780,7 @@ def wersja(mod, aktywna):
     nav = "\n".join(
         f'    <a class="navlink" href="#{w["kod"]}-{a["icf"]}-{a["rom"]}">{a["rom"]} · {esc(a["name"].split(" (")[0])}</a>'
         for a in mod.AREAS)
+    spis = spis_konspektow(mod, w)
     return f"""<div class="vers{'' if aktywna else ' hidden'}" data-v="{w['kod']}">
   <div class="vband">
     <span class="vlet">{w['kod']}</span>
@@ -748,6 +796,7 @@ def wersja(mod, aktywna):
   <nav class="areanav" aria-label="Obszary wersji {w['kod']}">
 {nav}
   </nav>
+{spis}
   <p class="nores hidden">Brak twierdzeń pasujących do wyszukiwania.</p>
 {secs}
 </div>"""
