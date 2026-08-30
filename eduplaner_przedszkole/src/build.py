@@ -30,6 +30,7 @@ from konspekty_6_d6 import KONSPEKTY_6_D6
 from konspekty_6_d7 import KONSPEKTY_6_D7
 from konspekty_6_d8 import KONSPEKTY_6_D8
 from konspekty_6_d9 import KONSPEKTY_6_D9
+from zalacznik_c1 import zalaczniki_c1
 from konspekty_34_d4 import KONSPEKTY_D4
 from konspekty_34_d6 import KONSPEKTY_D6
 from konspekty_34_d8 import KONSPEKTY_D8
@@ -238,6 +239,37 @@ input[type="search"]:focus,.tab:focus-visible,.chipbtn:focus-visible,.navlink:fo
 /* ---------- stopka ---------- */
 .docfoot{margin-top:46px; padding-top:14px; border-top:1px solid var(--line); display:flex; flex-wrap:wrap;
   gap:8px 20px; justify-content:space-between; font-size:11px; color:var(--muted)}
+/* ---------- załączniki: pomoce dydaktyczne ---------- */
+.zal{background:#FFF; border:1px solid var(--line); border-radius:14px; padding:22px 24px 18px; margin-top:18px;
+  break-inside:avoid; page-break-inside:avoid}
+.zal + .zal{break-before:page; page-break-before:always}
+.zal-head{display:flex; align-items:center; gap:12px; border-bottom:2px solid var(--ink); padding-bottom:10px}
+.zal-w{font:700 17px/1 "DM Sans",Arial,sans-serif; color:var(--ink)}
+.zal-s{font-size:8.5px; letter-spacing:.16em; text-transform:uppercase; color:var(--violet); font-weight:700; margin-top:4px}
+.zal-pill{margin-left:auto; border-radius:999px; padding:7px 14px; color:#fff;
+  font:700 11px/1 "DM Sans",Arial,sans-serif; white-space:nowrap}
+.zal-pill.p3{background:var(--p3)} .zal-pill.p2{background:var(--p2)} .zal-pill.p1{background:var(--p1)}
+.zal-tytul{text-align:center; margin:16px 0 14px}
+.zal-kp{display:inline-block; background:var(--accent); color:var(--on-accent); border-radius:999px; padding:5px 14px;
+  font:700 9.5px/1 "DM Sans",Arial,sans-serif; letter-spacing:.13em; text-transform:uppercase}
+.zal-tytul h3{font:700 27px/1.1 "DM Sans",Arial,sans-serif; color:var(--ink); margin:9px 0 0}
+.zal-tytul p{max-width:62ch; margin:8px auto 0; font-size:12px; color:var(--muted); line-height:1.5}
+.zal-siatka{display:grid; gap:14px}
+.zal-siatka.k2{grid-template-columns:1fr 1fr}
+.zal-siatka.k3{grid-template-columns:1fr 1fr 1fr}
+.kafel{position:relative; margin:0; background:#FFF; border:2px dashed #E4B9D2; border-radius:16px; padding:10px 10px 8px; text-align:center}
+.kafel svg{width:100%; height:auto; border-radius:11px; display:block}
+.kafel figcaption{margin-top:8px; font:600 12px/1.35 "DM Sans",Arial,sans-serif; color:var(--ink)}
+.kafel .numer{position:absolute; top:-11px; left:-11px; width:30px; height:30px; border-radius:50%;
+  background:var(--accent); color:#fff; display:grid; place-items:center;
+  font:700 14px/1 "DM Sans",Arial,sans-serif; box-shadow:0 2px 6px rgba(20,12,50,.2)}
+.zal-stopka{display:flex; flex-wrap:wrap; gap:8px 18px; justify-content:space-between; align-items:center;
+  margin-top:16px; padding-top:10px; border-top:1px solid var(--line); font-size:11px; color:var(--muted)}
+.zal-stopka b{color:var(--ink)}
+.zal-link{display:inline-flex; align-items:center; gap:8px; border:1px solid var(--accent); color:var(--accent);
+  background:#FFF7F2; border-radius:8px; padding:8px 12px; font:700 11.5px/1 "DM Sans",Arial,sans-serif;
+  cursor:pointer; margin-top:10px}
+.zal-link:hover{background:var(--accent); color:var(--on-accent)}
 .opts{display:flex; flex-wrap:wrap; gap:6px}
 .opt{display:inline-flex; align-items:center; gap:6px; border:1px solid var(--line); border-radius:6px;
   padding:4px 8px; font-size:11.5px; background:var(--paper); white-space:nowrap}
@@ -353,6 +385,14 @@ tr.tbanner .bsep{color:var(--accent); padding:0 5px}
   html.print-konspekt .kmodal.open{display:block !important; position:static; background:none; padding:0; overflow:visible}
   html.print-konspekt .kcard{box-shadow:none; max-width:none; padding:0; border-radius:0}
   html.print-konspekt .kclose,html.print-konspekt .kfoot,html.print-konspekt .kesc{display:none}
+  html.print-zal .sheet,html.print-zal .toolbar{display:none !important}
+  html.print-zal .kmodal:not(.open){display:none !important}
+  html.print-zal .kmodal.open{display:block !important; position:static; background:none; padding:0; overflow:visible}
+  html.print-zal .kcard{padding:0; box-shadow:none; max-width:none; border-radius:0}
+  html.print-zal .kcard > *{display:none !important}
+  html.print-zal .kcard > .zal-strefa{display:block !important}
+  html.print-zal .zal-link{display:none !important}
+  .zal{break-inside:avoid; page-break-inside:avoid}
   html.print-konspekt{--void:0}
   html.print-konspekt .kvar{display:none} html.print-konspekt .kvar.on{display:flex}
   html.print-konspekt .kcele,html.print-konspekt .kdwie{grid-template-columns:1fr 1fr !important}
@@ -485,6 +525,15 @@ document.querySelectorAll('td.haskon').forEach(td=>{
 document.querySelectorAll('[data-close]').forEach(b=>b.addEventListener('click',zamknijKonspekty));
 document.querySelectorAll('.kmodal').forEach(m=>m.addEventListener('click',e=>{if(e.target===m)zamknijKonspekty();}));
 document.addEventListener('keydown',e=>{if(e.key==='Escape')zamknijKonspekty();});
+document.querySelectorAll('[data-printzal]').forEach(b=>b.addEventListener('click',()=>{
+  const strefa=document.getElementById(b.dataset.printzal).querySelector('.zal-strefa');
+  strefa.style.display='block';
+  document.documentElement.classList.add('print-zal');
+  const done=()=>{document.documentElement.classList.remove('print-zal'); strefa.style.display='none';
+    window.removeEventListener('afterprint',done);};
+  window.addEventListener('afterprint',done);
+  window.print();
+}));
 document.querySelectorAll('[data-printkon]').forEach(b=>b.addEventListener('click',()=>{
   document.documentElement.classList.add('print-konspekt');
   const done=()=>{document.documentElement.classList.remove('print-konspekt'); window.removeEventListener('afterprint',done);};
@@ -779,12 +828,25 @@ def render_konspekty_modale():
         </div>""")
         ter_li = "\n".join(f'              <li><b>{L}</b><span>{esc(t)}</span></li>' for L, t in K["ter_smart"])
         pom_li = "\n".join(f'        <li>{esc(x)}</li>' for x in K["pomoce"])
+        if K["nr"] == "C1-01":
+            pom_li += '\n        <li><b style="color:var(--accent)">Załączniki Z1–Z3 — gotowe historyjki do wydruku (poniżej)</b></li>' 
         met_li = "\n".join(f'        <li>{esc(x)}</li>' for x in K["metody"])
         prz = "\n".join(f"""        <tr><td class="lp">{i}</td><td>{esc(n)}</td><td>{esc(d)}</td></tr>"""
                         for i, (n, d) in enumerate(K["przebieg"], 1))
         m2 = "\n".join(f'          <li>{esc(x)}</li>' for x in K["mod2"])
         m3 = "\n".join(f'          <li>{esc(x)}</li>' for x in K["mod3"])
         m1 = "\n".join(f'          <li>{esc(x)}</li>' for x in K.get("mod1", []))
+        zal = ""
+        if K["nr"] == "C1-01":
+            zal = f"""    <div class="ksec"><span class="sq">VII</span><h4>Załączniki · pomoce dydaktyczne</h4><span class="line"></span>
+      <span class="meta">historyjki obrazkowe do wydruku A4</span></div>
+    <p class="kkurs">Trzy gotowe historyjki w gradacji trudności — po jednej na każdy poziom wsparcia.
+    Wydrukuj, wytnij wzdłuż linii i rozsyp obrazki przed dzieckiem.</p>
+    <button class="zal-link" data-printzal="{kid}">Drukuj załączniki Z1–Z3 (A4)</button>
+    <div class="zal-strefa" style="display:none">
+{zalaczniki_c1()}
+    </div>
+"""
         kid = f"kon-{wk}-{nr}"
         out.append(f"""<div class="kmodal" id="{kid}" role="dialog" aria-modal="true" aria-label="Konspekt: {esc(K['tytul'])}">
   <div class="kcard">
@@ -873,6 +935,7 @@ def render_konspekty_modale():
       </ul></div>
     </div>
     <div class="kwsk"><b>Wskazówka dla prowadzącego:</b> {esc(K['wskazowka'])}</div>
+{zal}
     <div class="kfoot">
       <button class="chipbtn zamknij" data-close="{kid}">✕ Zamknij i wróć do tabeli</button>
       <button class="chipbtn" style="background:var(--strong); border-color:var(--strong); color:var(--on-strong)" data-printkon="{kid}">Drukuj konspekt A4</button>

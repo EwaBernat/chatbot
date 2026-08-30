@@ -188,6 +188,37 @@ input[type="search"]:focus,.tab:focus-visible,.chipbtn:focus-visible,.navlink:fo
 /* ---------- stopka ---------- */
 .docfoot{margin-top:46px; padding-top:14px; border-top:1px solid var(--line); display:flex; flex-wrap:wrap;
   gap:8px 20px; justify-content:space-between; font-size:11px; color:var(--muted)}
+/* ---------- załączniki: pomoce dydaktyczne ---------- */
+.zal{background:#FFF; border:1px solid var(--line); border-radius:14px; padding:22px 24px 18px; margin-top:18px;
+  break-inside:avoid; page-break-inside:avoid}
+.zal + .zal{break-before:page; page-break-before:always}
+.zal-head{display:flex; align-items:center; gap:12px; border-bottom:2px solid var(--ink); padding-bottom:10px}
+.zal-w{font:700 17px/1 "DM Sans",Arial,sans-serif; color:var(--ink)}
+.zal-s{font-size:8.5px; letter-spacing:.16em; text-transform:uppercase; color:var(--violet); font-weight:700; margin-top:4px}
+.zal-pill{margin-left:auto; border-radius:999px; padding:7px 14px; color:#fff;
+  font:700 11px/1 "DM Sans",Arial,sans-serif; white-space:nowrap}
+.zal-pill.p3{background:var(--p3)} .zal-pill.p2{background:var(--p2)} .zal-pill.p1{background:var(--p1)}
+.zal-tytul{text-align:center; margin:16px 0 14px}
+.zal-kp{display:inline-block; background:var(--accent); color:var(--on-accent); border-radius:999px; padding:5px 14px;
+  font:700 9.5px/1 "DM Sans",Arial,sans-serif; letter-spacing:.13em; text-transform:uppercase}
+.zal-tytul h3{font:700 27px/1.1 "DM Sans",Arial,sans-serif; color:var(--ink); margin:9px 0 0}
+.zal-tytul p{max-width:62ch; margin:8px auto 0; font-size:12px; color:var(--muted); line-height:1.5}
+.zal-siatka{display:grid; gap:14px}
+.zal-siatka.k2{grid-template-columns:1fr 1fr}
+.zal-siatka.k3{grid-template-columns:1fr 1fr 1fr}
+.kafel{position:relative; margin:0; background:#FFF; border:2px dashed #E4B9D2; border-radius:16px; padding:10px 10px 8px; text-align:center}
+.kafel svg{width:100%; height:auto; border-radius:11px; display:block}
+.kafel figcaption{margin-top:8px; font:600 12px/1.35 "DM Sans",Arial,sans-serif; color:var(--ink)}
+.kafel .numer{position:absolute; top:-11px; left:-11px; width:30px; height:30px; border-radius:50%;
+  background:var(--accent); color:#fff; display:grid; place-items:center;
+  font:700 14px/1 "DM Sans",Arial,sans-serif; box-shadow:0 2px 6px rgba(20,12,50,.2)}
+.zal-stopka{display:flex; flex-wrap:wrap; gap:8px 18px; justify-content:space-between; align-items:center;
+  margin-top:16px; padding-top:10px; border-top:1px solid var(--line); font-size:11px; color:var(--muted)}
+.zal-stopka b{color:var(--ink)}
+.zal-link{display:inline-flex; align-items:center; gap:8px; border:1px solid var(--accent); color:var(--accent);
+  background:#FFF7F2; border-radius:8px; padding:8px 12px; font:700 11.5px/1 "DM Sans",Arial,sans-serif;
+  cursor:pointer; margin-top:10px}
+.zal-link:hover{background:var(--accent); color:var(--on-accent)}
 .opts{display:flex; flex-wrap:wrap; gap:6px}
 .opt{display:inline-flex; align-items:center; gap:6px; border:1px solid var(--line); border-radius:6px;
   padding:4px 8px; font-size:11.5px; background:var(--paper); white-space:nowrap}
@@ -303,6 +334,14 @@ tr.tbanner .bsep{color:var(--accent); padding:0 5px}
   html.print-konspekt .kmodal.open{display:block !important; position:static; background:none; padding:0; overflow:visible}
   html.print-konspekt .kcard{box-shadow:none; max-width:none; padding:0; border-radius:0}
   html.print-konspekt .kclose,html.print-konspekt .kfoot,html.print-konspekt .kesc{display:none}
+  html.print-zal .sheet,html.print-zal .toolbar{display:none !important}
+  html.print-zal .kmodal:not(.open){display:none !important}
+  html.print-zal .kmodal.open{display:block !important; position:static; background:none; padding:0; overflow:visible}
+  html.print-zal .kcard{padding:0; box-shadow:none; max-width:none; border-radius:0}
+  html.print-zal .kcard > *{display:none !important}
+  html.print-zal .kcard > .zal-strefa{display:block !important}
+  html.print-zal .zal-link{display:none !important}
+  .zal{break-inside:avoid; page-break-inside:avoid}
   html.print-konspekt{--void:0}
   html.print-konspekt .kvar{display:none} html.print-konspekt .kvar.on{display:flex}
   html.print-konspekt .kcele,html.print-konspekt .kdwie{grid-template-columns:1fr 1fr !important}
@@ -3507,6 +3546,7 @@ tr.tbanner .bsep{color:var(--accent); padding:0 5px}
       </ul></div>
     </div>
     <div class="kwsk"><b>Wskazówka dla prowadzącego:</b> Cisza działa mocniej niż zachęta — zawieś głos i odczekaj, aż spojrzenia same wrócą do woreczka, zamiast wołać dzieci po imieniu.</div>
+
     <div class="kfoot">
       <button class="chipbtn zamknij" data-close="kon-A-1">✕ Zamknij i wróć do tabeli</button>
       <button class="chipbtn" style="background:var(--strong); border-color:var(--strong); color:var(--on-strong)" data-printkon="kon-A-1">Drukuj konspekt A4</button>
@@ -3655,6 +3695,7 @@ tr.tbanner .bsep{color:var(--accent); padding:0 5px}
       </ul></div>
     </div>
     <div class="kwsk"><b>Wskazówka dla prowadzącego:</b> Pokazuj ruch całym ciałem i z przesadą — dziecko 3-letnie naśladuje to, co widoczne i zabawne, nie to, co poprawne.</div>
+
     <div class="kfoot">
       <button class="chipbtn zamknij" data-close="kon-A-2">✕ Zamknij i wróć do tabeli</button>
       <button class="chipbtn" style="background:var(--strong); border-color:var(--strong); color:var(--on-strong)" data-printkon="kon-A-2">Drukuj konspekt A4</button>
@@ -3803,6 +3844,7 @@ tr.tbanner .bsep{color:var(--accent); padding:0 5px}
       </ul></div>
     </div>
     <div class="kwsk"><b>Wskazówka dla prowadzącego:</b> Klepsydra jest sędzią, nie nauczyciel — pokazuj ją palcem zamiast upominać, a spór o „jeszcze chwilę” zniknie sam.</div>
+
     <div class="kfoot">
       <button class="chipbtn zamknij" data-close="kon-A-3">✕ Zamknij i wróć do tabeli</button>
       <button class="chipbtn" style="background:var(--strong); border-color:var(--strong); color:var(--on-strong)" data-printkon="kon-A-3">Drukuj konspekt A4</button>
@@ -3951,6 +3993,7 @@ tr.tbanner .bsep{color:var(--accent); padding:0 5px}
       </ul></div>
     </div>
     <div class="kwsk"><b>Wskazówka dla prowadzącego:</b> Jedna cecha naraz: jeśli dziecko sortuje po kolorze, wszystkie przedmioty powinny mieć ten sam kształt — inaczej zadanie sprawdza dwie rzeczy jednocześnie.</div>
+
     <div class="kfoot">
       <button class="chipbtn zamknij" data-close="kon-A-4">✕ Zamknij i wróć do tabeli</button>
       <button class="chipbtn" style="background:var(--strong); border-color:var(--strong); color:var(--on-strong)" data-printkon="kon-A-4">Drukuj konspekt A4</button>
@@ -4099,6 +4142,7 @@ tr.tbanner .bsep{color:var(--accent); padding:0 5px}
       </ul></div>
     </div>
     <div class="kwsk"><b>Wskazówka dla prowadzącego:</b> Najtrudniejsze dla dorosłego jest milczenie: każda podpowiedź w pierwszych 10 sekundach zabiera dziecku okazję do odkrycia własnej strategii.</div>
+
     <div class="kfoot">
       <button class="chipbtn zamknij" data-close="kon-A-5">✕ Zamknij i wróć do tabeli</button>
       <button class="chipbtn" style="background:var(--strong); border-color:var(--strong); color:var(--on-strong)" data-printkon="kon-A-5">Drukuj konspekt A4</button>
@@ -4247,6 +4291,7 @@ tr.tbanner .bsep{color:var(--accent); padding:0 5px}
       </ul></div>
     </div>
     <div class="kwsk"><b>Wskazówka dla prowadzącego:</b> Zaproszenie działa, gdy stanowisko jest już gotowe — jeśli dziecko musi czekać na wyłożenie materiału, motywacja gaśnie, zanim zabawa się zacznie.</div>
+
     <div class="kfoot">
       <button class="chipbtn zamknij" data-close="kon-A-6">✕ Zamknij i wróć do tabeli</button>
       <button class="chipbtn" style="background:var(--strong); border-color:var(--strong); color:var(--on-strong)" data-printkon="kon-A-6">Drukuj konspekt A4</button>
@@ -4395,6 +4440,7 @@ tr.tbanner .bsep{color:var(--accent); padding:0 5px}
       </ul></div>
     </div>
     <div class="kwsk"><b>Wskazówka dla prowadzącego:</b> Wskazuj plan palcem zamiast powtarzać polecenie — dziecko uczy się wtedy korzystać z podpowiedzi wzrokowej, a nie czekać na głos dorosłego.</div>
+
     <div class="kfoot">
       <button class="chipbtn zamknij" data-close="kon-A-7">✕ Zamknij i wróć do tabeli</button>
       <button class="chipbtn" style="background:var(--strong); border-color:var(--strong); color:var(--on-strong)" data-printkon="kon-A-7">Drukuj konspekt A4</button>
@@ -4543,6 +4589,7 @@ tr.tbanner .bsep{color:var(--accent); padding:0 5px}
       </ul></div>
     </div>
     <div class="kwsk"><b>Wskazówka dla prowadzącego:</b> Klepsydra przed sygnałem jest ważniejsza niż sam sygnał — dziecko protestuje nie przeciw zmianie, lecz przeciw jej nagłości.</div>
+
     <div class="kfoot">
       <button class="chipbtn zamknij" data-close="kon-A-8">✕ Zamknij i wróć do tabeli</button>
       <button class="chipbtn" style="background:var(--strong); border-color:var(--strong); color:var(--on-strong)" data-printkon="kon-A-8">Drukuj konspekt A4</button>
@@ -4691,6 +4738,7 @@ tr.tbanner .bsep{color:var(--accent); padding:0 5px}
       </ul></div>
     </div>
     <div class="kwsk"><b>Wskazówka dla prowadzącego:</b> Trzy zasady to maksimum dla trzylatka — czwarta sprawia, że żadna nie zostaje zapamiętana. Formułuj je zawsze pozytywnie: „chodzimy”, nie „nie biegamy”.</div>
+
     <div class="kfoot">
       <button class="chipbtn zamknij" data-close="kon-A-9">✕ Zamknij i wróć do tabeli</button>
       <button class="chipbtn" style="background:var(--strong); border-color:var(--strong); color:var(--on-strong)" data-printkon="kon-A-9">Drukuj konspekt A4</button>
@@ -4839,6 +4887,7 @@ tr.tbanner .bsep{color:var(--accent); padding:0 5px}
       </ul></div>
     </div>
     <div class="kwsk"><b>Wskazówka dla prowadzącego:</b> Wyspa nie może być karą ani „przemyśleniem zachowania” — jeśli raz zadziała jako konsekwencja, dziecko przestanie z niej korzystać dobrowolnie.</div>
+
     <div class="kfoot">
       <button class="chipbtn zamknij" data-close="kon-A-10">✕ Zamknij i wróć do tabeli</button>
       <button class="chipbtn" style="background:var(--strong); border-color:var(--strong); color:var(--on-strong)" data-printkon="kon-A-10">Drukuj konspekt A4</button>
@@ -4987,6 +5036,7 @@ tr.tbanner .bsep{color:var(--accent); padding:0 5px}
       </ul></div>
     </div>
     <div class="kwsk"><b>Wskazówka dla prowadzącego:</b> Wydaj polecenie raz i odczekaj — powtarzanie w kółko uczy dziecko, że pierwsze zdanie nie jest ważne, bo zaraz padnie następne.</div>
+
     <div class="kfoot">
       <button class="chipbtn zamknij" data-close="kon-A-11">✕ Zamknij i wróć do tabeli</button>
       <button class="chipbtn" style="background:var(--strong); border-color:var(--strong); color:var(--on-strong)" data-printkon="kon-A-11">Drukuj konspekt A4</button>
@@ -5135,6 +5185,7 @@ tr.tbanner .bsep{color:var(--accent); padding:0 5px}
       </ul></div>
     </div>
     <div class="kwsk"><b>Wskazówka dla prowadzącego:</b> Każdy komunikat musi zadziałać natychmiast — jeśli wskazanie symbolu nie przynosi kubka od razu, dziecko wraca do płaczu, bo płacz działa szybciej.</div>
+
     <div class="kfoot">
       <button class="chipbtn zamknij" data-close="kon-A-12">✕ Zamknij i wróć do tabeli</button>
       <button class="chipbtn" style="background:var(--strong); border-color:var(--strong); color:var(--on-strong)" data-printkon="kon-A-12">Drukuj konspekt A4</button>
@@ -5283,6 +5334,7 @@ tr.tbanner .bsep{color:var(--accent); padding:0 5px}
       </ul></div>
     </div>
     <div class="kwsk"><b>Wskazówka dla prowadzącego:</b> Nie poprawiaj wprost — powtórz zdanie dziecka w poprawnej formie. Korekta „nie mówi się tak” zamyka usta, a poprawny wzorzec otwiera.</div>
+
     <div class="kfoot">
       <button class="chipbtn zamknij" data-close="kon-A-13">✕ Zamknij i wróć do tabeli</button>
       <button class="chipbtn" style="background:var(--strong); border-color:var(--strong); color:var(--on-strong)" data-printkon="kon-A-13">Drukuj konspekt A4</button>
@@ -5431,6 +5483,7 @@ tr.tbanner .bsep{color:var(--accent); padding:0 5px}
       </ul></div>
     </div>
     <div class="kwsk"><b>Wskazówka dla prowadzącego:</b> Pytaj o to, co dziecko widzi — pytanie o wczorajszy spacer wymaga pamięci i narracji, czyli dwóch umiejętności naraz, a ćwiczymy jedną.</div>
+
     <div class="kfoot">
       <button class="chipbtn zamknij" data-close="kon-A-14">✕ Zamknij i wróć do tabeli</button>
       <button class="chipbtn" style="background:var(--strong); border-color:var(--strong); color:var(--on-strong)" data-printkon="kon-A-14">Drukuj konspekt A4</button>
@@ -5579,6 +5632,7 @@ tr.tbanner .bsep{color:var(--accent); padding:0 5px}
       </ul></div>
     </div>
     <div class="kwsk"><b>Wskazówka dla prowadzącego:</b> Ucz gestu w ruchu, nie przy stoliku — gest „stop” zapamiętuje się wtedy, gdy naprawdę zatrzymuje bieg, a nie gdy jest obrazkiem na karcie.</div>
+
     <div class="kfoot">
       <button class="chipbtn zamknij" data-close="kon-A-15">✕ Zamknij i wróć do tabeli</button>
       <button class="chipbtn" style="background:var(--strong); border-color:var(--strong); color:var(--on-strong)" data-printkon="kon-A-15">Drukuj konspekt A4</button>
@@ -5727,6 +5781,7 @@ tr.tbanner .bsep{color:var(--accent); padding:0 5px}
       </ul></div>
     </div>
     <div class="kwsk"><b>Wskazówka dla prowadzącego:</b> Ślady na podłodze pokazują drogę lepiej niż polecenie „biegnij tam” — trzylatek podąża wzrokiem za znakiem, nie za instrukcją słowną.</div>
+
     <div class="kfoot">
       <button class="chipbtn zamknij" data-close="kon-A-16">✕ Zamknij i wróć do tabeli</button>
       <button class="chipbtn" style="background:var(--strong); border-color:var(--strong); color:var(--on-strong)" data-printkon="kon-A-16">Drukuj konspekt A4</button>
@@ -5875,6 +5930,7 @@ tr.tbanner .bsep{color:var(--accent); padding:0 5px}
       </ul></div>
     </div>
     <div class="kwsk"><b>Wskazówka dla prowadzącego:</b> Schodzenie jest trudniejsze niż wchodzenie — nie wymagaj kroku naprzemiennego w dół, dopóki dziecko nie robi go swobodnie w górę.</div>
+
     <div class="kfoot">
       <button class="chipbtn zamknij" data-close="kon-A-17">✕ Zamknij i wróć do tabeli</button>
       <button class="chipbtn" style="background:var(--strong); border-color:var(--strong); color:var(--on-strong)" data-printkon="kon-A-17">Drukuj konspekt A4</button>
@@ -6023,6 +6079,7 @@ tr.tbanner .bsep{color:var(--accent); padding:0 5px}
       </ul></div>
     </div>
     <div class="kwsk"><b>Wskazówka dla prowadzącego:</b> Łapanie zaczyna się od toczenia — piłka lecąca w powietrzu jest dla trzylatka zbyt szybka, by zdążył ustawić ręce.</div>
+
     <div class="kfoot">
       <button class="chipbtn zamknij" data-close="kon-A-18">✕ Zamknij i wróć do tabeli</button>
       <button class="chipbtn" style="background:var(--strong); border-color:var(--strong); color:var(--on-strong)" data-printkon="kon-A-18">Drukuj konspekt A4</button>
@@ -6172,6 +6229,7 @@ tr.tbanner .bsep{color:var(--accent); padding:0 5px}
       </ul></div>
     </div>
     <div class="kwsk"><b>Wskazówka dla prowadzącego:</b> Podkładka antypoślizgowa robi więcej niż podpowiedź słowna — większość „nieudanych” wież rozpada się przez ślizgający się blat, nie przez brak precyzji.</div>
+
     <div class="kfoot">
       <button class="chipbtn zamknij" data-close="kon-A-19">✕ Zamknij i wróć do tabeli</button>
       <button class="chipbtn" style="background:var(--strong); border-color:var(--strong); color:var(--on-strong)" data-printkon="kon-A-19">Drukuj konspekt A4</button>
@@ -6320,6 +6378,7 @@ tr.tbanner .bsep{color:var(--accent); padding:0 5px}
       </ul></div>
     </div>
     <div class="kwsk"><b>Wskazówka dla prowadzącego:</b> Obręcz wyznaczająca miejsce rozwiązuje większość problemów z rozsypującym się kołem — dziecko widzi swoją przestrzeń, zamiast szukać jej w tłumie.</div>
+
     <div class="kfoot">
       <button class="chipbtn zamknij" data-close="kon-A-20">✕ Zamknij i wróć do tabeli</button>
       <button class="chipbtn" style="background:var(--strong); border-color:var(--strong); color:var(--on-strong)" data-printkon="kon-A-20">Drukuj konspekt A4</button>
@@ -6468,6 +6527,7 @@ tr.tbanner .bsep{color:var(--accent); padding:0 5px}
       </ul></div>
     </div>
     <div class="kwsk"><b>Wskazówka dla prowadzącego:</b> Chwal zgłoszenie, nie sam efekt — dziecko kontroluje moment powiedzenia „chcę”, a nie zawsze kontroluje resztę.</div>
+
     <div class="kfoot">
       <button class="chipbtn zamknij" data-close="kon-A-21">✕ Zamknij i wróć do tabeli</button>
       <button class="chipbtn" style="background:var(--strong); border-color:var(--strong); color:var(--on-strong)" data-printkon="kon-A-21">Drukuj konspekt A4</button>
@@ -6616,6 +6676,7 @@ tr.tbanner .bsep{color:var(--accent); padding:0 5px}
       </ul></div>
     </div>
     <div class="kwsk"><b>Wskazówka dla prowadzącego:</b> Zacznij uczyć od ostatniego kroku — dziecko, które samo wyciera ręce, kończy czynność sukcesem, a to zapamiętuje się najmocniej.</div>
+
     <div class="kfoot">
       <button class="chipbtn zamknij" data-close="kon-A-22">✕ Zamknij i wróć do tabeli</button>
       <button class="chipbtn" style="background:var(--strong); border-color:var(--strong); color:var(--on-strong)" data-printkon="kon-A-22">Drukuj konspekt A4</button>
@@ -6765,6 +6826,7 @@ tr.tbanner .bsep{color:var(--accent); padding:0 5px}
       </ul></div>
     </div>
     <div class="kwsk"><b>Wskazówka dla prowadzącego:</b> Pomagaj tylko przy nabieraniu — droga łyżki do ust to najprzyjemniejsza część, którą dziecko powinno wykonać samo, i właśnie ona utrwala nawyk.</div>
+
     <div class="kfoot">
       <button class="chipbtn zamknij" data-close="kon-A-23">✕ Zamknij i wróć do tabeli</button>
       <button class="chipbtn" style="background:var(--strong); border-color:var(--strong); color:var(--on-strong)" data-printkon="kon-A-23">Drukuj konspekt A4</button>
@@ -6913,6 +6975,7 @@ tr.tbanner .bsep{color:var(--accent); padding:0 5px}
       </ul></div>
     </div>
     <div class="kwsk"><b>Wskazówka dla prowadzącego:</b> Rozłożenie ubrania w kolejności to połowa sukcesu — większość „nieudanego” ubierania zaczyna się od kurtki założonej przed spodniami.</div>
+
     <div class="kfoot">
       <button class="chipbtn zamknij" data-close="kon-A-24">✕ Zamknij i wróć do tabeli</button>
       <button class="chipbtn" style="background:var(--strong); border-color:var(--strong); color:var(--on-strong)" data-printkon="kon-A-24">Drukuj konspekt A4</button>
@@ -7061,6 +7124,7 @@ tr.tbanner .bsep{color:var(--accent); padding:0 5px}
       </ul></div>
     </div>
     <div class="kwsk"><b>Wskazówka dla prowadzącego:</b> Nazywaj stan dziecka na głos, zanim poprosisz o zgłoszenie — najpierw musi usłyszeć słowo od dorosłego, żeby móc go później użyć samo.</div>
+
     <div class="kfoot">
       <button class="chipbtn zamknij" data-close="kon-A-25">✕ Zamknij i wróć do tabeli</button>
       <button class="chipbtn" style="background:var(--strong); border-color:var(--strong); color:var(--on-strong)" data-printkon="kon-A-25">Drukuj konspekt A4</button>
@@ -7209,6 +7273,7 @@ tr.tbanner .bsep{color:var(--accent); padding:0 5px}
       </ul></div>
     </div>
     <div class="kwsk"><b>Wskazówka dla prowadzącego:</b> Zdjęcie posprzątanego kącika działa lepiej niż polecenie — trzylatek nie wie, co znaczy „porządek”, ale potrafi porównać widok ze wzorem.</div>
+
     <div class="kfoot">
       <button class="chipbtn zamknij" data-close="kon-A-26">✕ Zamknij i wróć do tabeli</button>
       <button class="chipbtn" style="background:var(--strong); border-color:var(--strong); color:var(--on-strong)" data-printkon="kon-A-26">Drukuj konspekt A4</button>
@@ -7357,6 +7422,7 @@ tr.tbanner .bsep{color:var(--accent); padding:0 5px}
       </ul></div>
     </div>
     <div class="kwsk"><b>Wskazówka dla prowadzącego:</b> Ten sam znaczek na półce, wieszaku i kubku jest kluczem — jeśli miejsca oznaczone są różnie, dziecko uczy się trzech rzeczy zamiast jednej.</div>
+
     <div class="kfoot">
       <button class="chipbtn zamknij" data-close="kon-A-27">✕ Zamknij i wróć do tabeli</button>
       <button class="chipbtn" style="background:var(--strong); border-color:var(--strong); color:var(--on-strong)" data-printkon="kon-A-27">Drukuj konspekt A4</button>
@@ -7505,6 +7571,7 @@ tr.tbanner .bsep{color:var(--accent); padding:0 5px}
       </ul></div>
     </div>
     <div class="kwsk"><b>Wskazówka dla prowadzącego:</b> Dyżur musi być naprawdę potrzebny — dzieci natychmiast wyczuwają zadanie pozorne i tracą motywację, gdy dorosły poprawia wszystko po nich.</div>
+
     <div class="kfoot">
       <button class="chipbtn zamknij" data-close="kon-A-28">✕ Zamknij i wróć do tabeli</button>
       <button class="chipbtn" style="background:var(--strong); border-color:var(--strong); color:var(--on-strong)" data-printkon="kon-A-28">Drukuj konspekt A4</button>
@@ -7653,6 +7720,7 @@ tr.tbanner .bsep{color:var(--accent); padding:0 5px}
       </ul></div>
     </div>
     <div class="kwsk"><b>Wskazówka dla prowadzącego:</b> Stałe miejsce ze zdjęciem to kotwica — dziecko, które wie, dokąd zawsze może wrócić, szybciej odważa się odejść od tego miejsca.</div>
+
     <div class="kfoot">
       <button class="chipbtn zamknij" data-close="kon-A-34">✕ Zamknij i wróć do tabeli</button>
       <button class="chipbtn" style="background:var(--strong); border-color:var(--strong); color:var(--on-strong)" data-printkon="kon-A-34">Drukuj konspekt A4</button>
@@ -7801,6 +7869,7 @@ tr.tbanner .bsep{color:var(--accent); padding:0 5px}
       </ul></div>
     </div>
     <div class="kwsk"><b>Wskazówka dla prowadzącego:</b> Wejdź do zabawy w roli, a nie obok niej — pytanie „w co się bawisz?” przerywa zabawę, pytanie „mamo, co ugotujemy?” ją rozwija.</div>
+
     <div class="kfoot">
       <button class="chipbtn zamknij" data-close="kon-A-35">✕ Zamknij i wróć do tabeli</button>
       <button class="chipbtn" style="background:var(--strong); border-color:var(--strong); color:var(--on-strong)" data-printkon="kon-A-35">Drukuj konspekt A4</button>
@@ -7949,6 +8018,7 @@ tr.tbanner .bsep{color:var(--accent); padding:0 5px}
       </ul></div>
     </div>
     <div class="kwsk"><b>Wskazówka dla prowadzącego:</b> Materiał w rękach dziecka trzyma je na dywanie skuteczniej niż przypomnienia — puste ręce trzylatka same znajdą sobie zajęcie.</div>
+
     <div class="kfoot">
       <button class="chipbtn zamknij" data-close="kon-A-36">✕ Zamknij i wróć do tabeli</button>
       <button class="chipbtn" style="background:var(--strong); border-color:var(--strong); color:var(--on-strong)" data-printkon="kon-A-36">Drukuj konspekt A4</button>
@@ -8097,6 +8167,7 @@ tr.tbanner .bsep{color:var(--accent); padding:0 5px}
       </ul></div>
     </div>
     <div class="kwsk"><b>Wskazówka dla prowadzącego:</b> Buduj obok dziecka, nie za nie — własna wieża nauczyciela jest zaproszeniem, a poprawiona wieża dziecka bywa końcem zabawy.</div>
+
     <div class="kfoot">
       <button class="chipbtn zamknij" data-close="kon-A-37">✕ Zamknij i wróć do tabeli</button>
       <button class="chipbtn" style="background:var(--strong); border-color:var(--strong); color:var(--on-strong)" data-printkon="kon-A-37">Drukuj konspekt A4</button>
@@ -8245,6 +8316,7 @@ tr.tbanner .bsep{color:var(--accent); padding:0 5px}
       </ul></div>
     </div>
     <div class="kwsk"><b>Wskazówka dla prowadzącego:</b> Krótka kolejka jest warunkiem sukcesu — jeśli dziecko czeka dłużej niż minutę na swoją turę, zabawa grupowa zamienia się w ćwiczenie cierpliwości.</div>
+
     <div class="kfoot">
       <button class="chipbtn zamknij" data-close="kon-A-38">✕ Zamknij i wróć do tabeli</button>
       <button class="chipbtn" style="background:var(--strong); border-color:var(--strong); color:var(--on-strong)" data-printkon="kon-A-38">Drukuj konspekt A4</button>
@@ -8393,6 +8465,7 @@ tr.tbanner .bsep{color:var(--accent); padding:0 5px}
       </ul></div>
     </div>
     <div class="kwsk"><b>Wskazówka dla prowadzącego:</b> Pokaż plan święta dzień wcześniej — dla trzylatka nagła zmiana rytmu dnia jest trudniejsza niż sama uroczystość.</div>
+
     <div class="kfoot">
       <button class="chipbtn zamknij" data-close="kon-A-39">✕ Zamknij i wróć do tabeli</button>
       <button class="chipbtn" style="background:var(--strong); border-color:var(--strong); color:var(--on-strong)" data-printkon="kon-A-39">Drukuj konspekt A4</button>
@@ -8541,6 +8614,7 @@ tr.tbanner .bsep{color:var(--accent); padding:0 5px}
       </ul></div>
     </div>
     <div class="kwsk"><b>Wskazówka dla prowadzącego:</b> Zdjęcia trasy pokazane przed wyjściem zmniejszają lęk skuteczniej niż zapewnienia — dziecko wie wtedy, dokąd idzie i kiedy wróci.</div>
+
     <div class="kfoot">
       <button class="chipbtn zamknij" data-close="kon-A-40">✕ Zamknij i wróć do tabeli</button>
       <button class="chipbtn" style="background:var(--strong); border-color:var(--strong); color:var(--on-strong)" data-printkon="kon-A-40">Drukuj konspekt A4</button>
@@ -8689,6 +8763,7 @@ tr.tbanner .bsep{color:var(--accent); padding:0 5px}
       </ul></div>
     </div>
     <div class="kwsk"><b>Wskazówka dla prowadzącego:</b> Przypominaj zasady przed wyjściem, nie po zdarzeniu — na placu, w hałasie i ruchu, żadna instrukcja słowna nie dociera tak jak ta sprzed drzwi.</div>
+
     <div class="kfoot">
       <button class="chipbtn zamknij" data-close="kon-A-41">✕ Zamknij i wróć do tabeli</button>
       <button class="chipbtn" style="background:var(--strong); border-color:var(--strong); color:var(--on-strong)" data-printkon="kon-A-41">Drukuj konspekt A4</button>
@@ -8838,6 +8913,7 @@ tr.tbanner .bsep{color:var(--accent); padding:0 5px}
       </ul></div>
     </div>
     <div class="kwsk"><b>Wskazówka dla prowadzącego:</b> Refren, który dzieci powtarzają, robi z biernego słuchania udział — trzylatek utrzyma uwagę dłużej, gdy ma w tekście swoją rolę.</div>
+
     <div class="kfoot">
       <button class="chipbtn zamknij" data-close="kon-A-42">✕ Zamknij i wróć do tabeli</button>
       <button class="chipbtn" style="background:var(--strong); border-color:var(--strong); color:var(--on-strong)" data-printkon="kon-A-42">Drukuj konspekt A4</button>
@@ -8987,6 +9063,7 @@ tr.tbanner .bsep{color:var(--accent); padding:0 5px}
       </ul></div>
     </div>
     <div class="kwsk"><b>Wskazówka dla prowadzącego:</b> Zatrzymaj czytanie tuż przed rozwiązaniem akcji — pięciolatek, który sam próbuje zgadnąć zakończenie, słucha reszty opowiadania inaczej niż ten, któremu wszystko podano.</div>
+
     <div class="kfoot">
       <button class="chipbtn zamknij" data-close="kon-B-1">✕ Zamknij i wróć do tabeli</button>
       <button class="chipbtn" style="background:var(--strong); border-color:var(--strong); color:var(--on-strong)" data-printkon="kon-B-1">Drukuj konspekt A4</button>
@@ -9136,6 +9213,7 @@ tr.tbanner .bsep{color:var(--accent); padding:0 5px}
       </ul></div>
     </div>
     <div class="kwsk"><b>Wskazówka dla prowadzącego:</b> Poproś o nazwanie kryterium — dziecko, które powie „bo są okrągłe”, myśli o cesze; dziecko, które tylko układa, może kopiować układ sąsiada.</div>
+
     <div class="kfoot">
       <button class="chipbtn zamknij" data-close="kon-B-2">✕ Zamknij i wróć do tabeli</button>
       <button class="chipbtn" style="background:var(--strong); border-color:var(--strong); color:var(--on-strong)" data-printkon="kon-B-2">Drukuj konspekt A4</button>
@@ -9285,6 +9363,7 @@ tr.tbanner .bsep{color:var(--accent); padding:0 5px}
       </ul></div>
     </div>
     <div class="kwsk"><b>Wskazówka dla prowadzącego:</b> Tacka rozwiązuje najczęstszy błąd — dziecko liczące w kupce wraca do tych samych przedmiotów; przekładanie po jednym wymusza zasadę jeden do jednego.</div>
+
     <div class="kfoot">
       <button class="chipbtn zamknij" data-close="kon-B-3">✕ Zamknij i wróć do tabeli</button>
       <button class="chipbtn" style="background:var(--strong); border-color:var(--strong); color:var(--on-strong)" data-printkon="kon-B-3">Drukuj konspekt A4</button>
@@ -9434,6 +9513,7 @@ tr.tbanner .bsep{color:var(--accent); padding:0 5px}
       </ul></div>
     </div>
     <div class="kwsk"><b>Wskazówka dla prowadzącego:</b> Licznik pokazujący, ile zostało, działa lepiej niż zegar odmierzający czas — pięciolatek nie czuje minut, ale doskonale widzi, że zostały dwa pola.</div>
+
     <div class="kfoot">
       <button class="chipbtn zamknij" data-close="kon-B-4">✕ Zamknij i wróć do tabeli</button>
       <button class="chipbtn" style="background:var(--strong); border-color:var(--strong); color:var(--on-strong)" data-printkon="kon-B-4">Drukuj konspekt A4</button>
@@ -9583,6 +9663,7 @@ tr.tbanner .bsep{color:var(--accent); padding:0 5px}
       </ul></div>
     </div>
     <div class="kwsk"><b>Wskazówka dla prowadzącego:</b> Zacznij od liter imienia — to jedyny napis, który pięciolatek uważa za naprawdę swój, i właśnie przy nim najszybciej odkrywa, że znaki coś znaczą.</div>
+
     <div class="kfoot">
       <button class="chipbtn zamknij" data-close="kon-B-5">✕ Zamknij i wróć do tabeli</button>
       <button class="chipbtn" style="background:var(--strong); border-color:var(--strong); color:var(--on-strong)" data-printkon="kon-B-5">Drukuj konspekt A4</button>
@@ -9731,6 +9812,7 @@ tr.tbanner .bsep{color:var(--accent); padding:0 5px}
       </ul></div>
     </div>
     <div class="kwsk"><b>Wskazówka dla prowadzącego:</b> Wskazuj instrukcję zamiast podpowiadać — celem nie jest ukończone zadanie, lecz nawyk sięgania po instrukcję, który zostanie z dzieckiem w szkole.</div>
+
     <div class="kfoot">
       <button class="chipbtn zamknij" data-close="kon-B-6">✕ Zamknij i wróć do tabeli</button>
       <button class="chipbtn" style="background:var(--strong); border-color:var(--strong); color:var(--on-strong)" data-printkon="kon-B-6">Drukuj konspekt A4</button>
@@ -9879,6 +9961,7 @@ tr.tbanner .bsep{color:var(--accent); padding:0 5px}
       </ul></div>
     </div>
     <div class="kwsk"><b>Wskazówka dla prowadzącego:</b> Zadanie pomostowe likwiduje najtrudniejszy moment — dziecko, które wie, co robić po skończeniu, nie zaczyna nowej zabawy tuż przed przejściem.</div>
+
     <div class="kfoot">
       <button class="chipbtn zamknij" data-close="kon-B-7">✕ Zamknij i wróć do tabeli</button>
       <button class="chipbtn" style="background:var(--strong); border-color:var(--strong); color:var(--on-strong)" data-printkon="kon-B-7">Drukuj konspekt A4</button>
@@ -10028,6 +10111,7 @@ tr.tbanner .bsep{color:var(--accent); padding:0 5px}
       </ul></div>
     </div>
     <div class="kwsk"><b>Wskazówka dla prowadzącego:</b> Daj dziecku zajęcie na czas czekania — kibicowanie koledze zamienia puste oczekiwanie w rolę, a rola jest znośna nawet dla niecierpliwych.</div>
+
     <div class="kfoot">
       <button class="chipbtn zamknij" data-close="kon-B-8">✕ Zamknij i wróć do tabeli</button>
       <button class="chipbtn" style="background:var(--strong); border-color:var(--strong); color:var(--on-strong)" data-printkon="kon-B-8">Drukuj konspekt A4</button>
@@ -10177,6 +10261,7 @@ tr.tbanner .bsep{color:var(--accent); padding:0 5px}
       </ul></div>
     </div>
     <div class="kwsk"><b>Wskazówka dla prowadzącego:</b> Zdjęcie gotowego stanowiska zastępuje ciąg poleceń — dziecko porównuje obraz z rzeczywistością samo, a dorosły przestaje być listą kontrolną.</div>
+
     <div class="kfoot">
       <button class="chipbtn zamknij" data-close="kon-B-9">✕ Zamknij i wróć do tabeli</button>
       <button class="chipbtn" style="background:var(--strong); border-color:var(--strong); color:var(--on-strong)" data-printkon="kon-B-9">Drukuj konspekt A4</button>
@@ -10325,6 +10410,7 @@ tr.tbanner .bsep{color:var(--accent); padding:0 5px}
       </ul></div>
     </div>
     <div class="kwsk"><b>Wskazówka dla prowadzącego:</b> Milcz przez pełne dziesięć sekund — to najtrudniejszy element tych zajęć dla dorosłego i najważniejszy dla dziecka, które właśnie odkrywa własną skuteczność.</div>
+
     <div class="kfoot">
       <button class="chipbtn zamknij" data-close="kon-B-10">✕ Zamknij i wróć do tabeli</button>
       <button class="chipbtn" style="background:var(--strong); border-color:var(--strong); color:var(--on-strong)" data-printkon="kon-B-10">Drukuj konspekt A4</button>
@@ -10474,6 +10560,7 @@ tr.tbanner .bsep{color:var(--accent); padding:0 5px}
       </ul></div>
     </div>
     <div class="kwsk"><b>Wskazówka dla prowadzącego:</b> Odsłuchanie własnego nagrania robi więcej niż dziesięć poprawek — dziecko samo słyszy, czego zabrakło, i następnym razem mówi pełniej.</div>
+
     <div class="kfoot">
       <button class="chipbtn zamknij" data-close="kon-B-11">✕ Zamknij i wróć do tabeli</button>
       <button class="chipbtn" style="background:var(--strong); border-color:var(--strong); color:var(--on-strong)" data-printkon="kon-B-11">Drukuj konspekt A4</button>
@@ -10623,6 +10710,7 @@ tr.tbanner .bsep{color:var(--accent); padding:0 5px}
       </ul></div>
     </div>
     <div class="kwsk"><b>Wskazówka dla prowadzącego:</b> Rób zdjęcia w ciągu dnia — pięciolatek opowiada nieporównanie chętniej o tym, co widzi na ekranie, niż o tym, co ma odtworzyć z pamięci.</div>
+
     <div class="kfoot">
       <button class="chipbtn zamknij" data-close="kon-B-12">✕ Zamknij i wróć do tabeli</button>
       <button class="chipbtn" style="background:var(--strong); border-color:var(--strong); color:var(--on-strong)" data-printkon="kon-B-12">Drukuj konspekt A4</button>
@@ -10772,6 +10860,7 @@ tr.tbanner .bsep{color:var(--accent); padding:0 5px}
       </ul></div>
     </div>
     <div class="kwsk"><b>Wskazówka dla prowadzącego:</b> Kamyk w dłoni działa lepiej niż przypomnienie „nie przerywaj” — reguła staje się widoczna i dziecko samo pilnuje, kto ma teraz głos.</div>
+
     <div class="kfoot">
       <button class="chipbtn zamknij" data-close="kon-B-13">✕ Zamknij i wróć do tabeli</button>
       <button class="chipbtn" style="background:var(--strong); border-color:var(--strong); color:var(--on-strong)" data-printkon="kon-B-13">Drukuj konspekt A4</button>
@@ -10921,6 +11010,7 @@ tr.tbanner .bsep{color:var(--accent); padding:0 5px}
       </ul></div>
     </div>
     <div class="kwsk"><b>Wskazówka dla prowadzącego:</b> Gest przypisany wersowi jest najskuteczniejszą podpowiedzią — gdy zabraknie słowa, ręka sama je przypomina, bez wyręczania przez dorosłego.</div>
+
     <div class="kfoot">
       <button class="chipbtn zamknij" data-close="kon-B-14">✕ Zamknij i wróć do tabeli</button>
       <button class="chipbtn" style="background:var(--strong); border-color:var(--strong); color:var(--on-strong)" data-printkon="kon-B-14">Drukuj konspekt A4</button>
@@ -11070,6 +11160,7 @@ tr.tbanner .bsep{color:var(--accent); padding:0 5px}
       </ul></div>
     </div>
     <div class="kwsk"><b>Wskazówka dla prowadzącego:</b> Publiczność jest tu narzędziem uczenia — dziecko poprawia gest nie na prośbę dorosłego, lecz dlatego, że koledzy nie odgadli, co pokazywało.</div>
+
     <div class="kfoot">
       <button class="chipbtn zamknij" data-close="kon-B-15">✕ Zamknij i wróć do tabeli</button>
       <button class="chipbtn" style="background:var(--strong); border-color:var(--strong); color:var(--on-strong)" data-printkon="kon-B-15">Drukuj konspekt A4</button>
@@ -11219,6 +11310,7 @@ tr.tbanner .bsep{color:var(--accent); padding:0 5px}
       </ul></div>
     </div>
     <div class="kwsk"><b>Wskazówka dla prowadzącego:</b> Symbol na stacji zwalnia nauczyciela z powtarzania poleceń — dziecko odczytuje zadanie z obrazka i całą uwagę kieruje na ruch, nie na słuchanie.</div>
+
     <div class="kfoot">
       <button class="chipbtn zamknij" data-close="kon-B-16">✕ Zamknij i wróć do tabeli</button>
       <button class="chipbtn" style="background:var(--strong); border-color:var(--strong); color:var(--on-strong)" data-printkon="kon-B-16">Drukuj konspekt A4</button>
@@ -11368,6 +11460,7 @@ tr.tbanner .bsep{color:var(--accent); padding:0 5px}
       </ul></div>
     </div>
     <div class="kwsk"><b>Wskazówka dla prowadzącego:</b> Powiedz „patrz na punkt przed sobą”, nie „patrz pod nogi” — wzrok skierowany w dół rozstraja równowagę, którą właśnie ćwiczymy.</div>
+
     <div class="kfoot">
       <button class="chipbtn zamknij" data-close="kon-B-17">✕ Zamknij i wróć do tabeli</button>
       <button class="chipbtn" style="background:var(--strong); border-color:var(--strong); color:var(--on-strong)" data-printkon="kon-B-17">Drukuj konspekt A4</button>
@@ -11517,6 +11610,7 @@ tr.tbanner .bsep{color:var(--accent); padding:0 5px}
       </ul></div>
     </div>
     <div class="kwsk"><b>Wskazówka dla prowadzącego:</b> Rozgrzewka dłoni przed nożyczkami skraca naukę o tygodnie — ugniatanie masy przygotowuje te same mięśnie, które później prowadzą ostrze po linii.</div>
+
     <div class="kfoot">
       <button class="chipbtn zamknij" data-close="kon-B-18">✕ Zamknij i wróć do tabeli</button>
       <button class="chipbtn" style="background:var(--strong); border-color:var(--strong); color:var(--on-strong)" data-printkon="kon-B-18">Drukuj konspekt A4</button>
@@ -11666,6 +11760,7 @@ tr.tbanner .bsep{color:var(--accent); padding:0 5px}
       </ul></div>
     </div>
     <div class="kwsk"><b>Wskazówka dla prowadzącego:</b> Pionowa powierzchnia sama ustawia nadgarstek w wyproście — to najprostszy sposób poprawy chwytu, skuteczniejszy niż jakiekolwiek przypominanie.</div>
+
     <div class="kfoot">
       <button class="chipbtn zamknij" data-close="kon-B-19">✕ Zamknij i wróć do tabeli</button>
       <button class="chipbtn" style="background:var(--strong); border-color:var(--strong); color:var(--on-strong)" data-printkon="kon-B-19">Drukuj konspekt A4</button>
@@ -11815,6 +11910,7 @@ tr.tbanner .bsep{color:var(--accent); padding:0 5px}
       </ul></div>
     </div>
     <div class="kwsk"><b>Wskazówka dla prowadzącego:</b> Ściereczka w zasięgu ręki zmienia rozsypanie w naturalny element pracy — dziecko, które sprząta samo, próbuje dalej zamiast rezygnować ze wstydu.</div>
+
     <div class="kfoot">
       <button class="chipbtn zamknij" data-close="kon-B-20">✕ Zamknij i wróć do tabeli</button>
       <button class="chipbtn" style="background:var(--strong); border-color:var(--strong); color:var(--on-strong)" data-printkon="kon-B-20">Drukuj konspekt A4</button>
@@ -11964,6 +12060,7 @@ tr.tbanner .bsep{color:var(--accent); padding:0 5px}
       </ul></div>
     </div>
     <div class="kwsk"><b>Wskazówka dla prowadzącego:</b> Brokat pokazuje to, czego nie widać — po jednym takim eksperymencie dzieci myją kciuki i przestrzenie między palcami bez żadnego przypominania.</div>
+
     <div class="kfoot">
       <button class="chipbtn zamknij" data-close="kon-B-21">✕ Zamknij i wróć do tabeli</button>
       <button class="chipbtn" style="background:var(--strong); border-color:var(--strong); color:var(--on-strong)" data-printkon="kon-B-21">Drukuj konspekt A4</button>
@@ -12113,6 +12210,7 @@ tr.tbanner .bsep{color:var(--accent); padding:0 5px}
       </ul></div>
     </div>
     <div class="kwsk"><b>Wskazówka dla prowadzącego:</b> Ćwicz suwak poza szatnią — w szatni jest pośpiech, kurtki i piętnaścioro dzieci; tablica manipulacyjna na dywanie daje spokój potrzebny do nauki.</div>
+
     <div class="kfoot">
       <button class="chipbtn zamknij" data-close="kon-B-22">✕ Zamknij i wróć do tabeli</button>
       <button class="chipbtn" style="background:var(--strong); border-color:var(--strong); color:var(--on-strong)" data-printkon="kon-B-22">Drukuj konspekt A4</button>
@@ -12262,6 +12360,7 @@ tr.tbanner .bsep{color:var(--accent); padding:0 5px}
       </ul></div>
     </div>
     <div class="kwsk"><b>Wskazówka dla prowadzącego:</b> Usiądź i zjedz z dziećmi — pięciolatek uczy się kultury stołu z obserwacji dorosłego przy tym samym stole, nie z instrukcji wygłaszanej nad stołem.</div>
+
     <div class="kfoot">
       <button class="chipbtn zamknij" data-close="kon-B-23">✕ Zamknij i wróć do tabeli</button>
       <button class="chipbtn" style="background:var(--strong); border-color:var(--strong); color:var(--on-strong)" data-printkon="kon-B-23">Drukuj konspekt A4</button>
@@ -12411,6 +12510,7 @@ tr.tbanner .bsep{color:var(--accent); padding:0 5px}
       </ul></div>
     </div>
     <div class="kwsk"><b>Wskazówka dla prowadzącego:</b> Zasada wymyślona przez dzieci i zilustrowana ich zdjęciem jest przestrzegana nieporównanie lepiej niż plakat kupiony i powieszony przez dorosłego.</div>
+
     <div class="kfoot">
       <button class="chipbtn zamknij" data-close="kon-B-24">✕ Zamknij i wróć do tabeli</button>
       <button class="chipbtn" style="background:var(--strong); border-color:var(--strong); color:var(--on-strong)" data-printkon="kon-B-24">Drukuj konspekt A4</button>
@@ -12560,6 +12660,7 @@ tr.tbanner .bsep{color:var(--accent); padding:0 5px}
       </ul></div>
     </div>
     <div class="kwsk"><b>Wskazówka dla prowadzącego:</b> Nazwij głośno własny poziom energii — dorosły, który mówi „potrzebuję chwili ciszy”, uczy samoregulacji skuteczniej niż jakikolwiek plakat o emocjach.</div>
+
     <div class="kfoot">
       <button class="chipbtn zamknij" data-close="kon-B-25">✕ Zamknij i wróć do tabeli</button>
       <button class="chipbtn" style="background:var(--strong); border-color:var(--strong); color:var(--on-strong)" data-printkon="kon-B-25">Drukuj konspekt A4</button>
@@ -12709,6 +12810,7 @@ tr.tbanner .bsep{color:var(--accent); padding:0 5px}
       </ul></div>
     </div>
     <div class="kwsk"><b>Wskazówka dla prowadzącego:</b> Zdjęcie zrobione przez dziecko zmienia sprzątanie w zadanie z widocznym efektem — porównanie dwóch obrazów ocenia lepiej niż uwaga dorosłego.</div>
+
     <div class="kfoot">
       <button class="chipbtn zamknij" data-close="kon-B-26">✕ Zamknij i wróć do tabeli</button>
       <button class="chipbtn" style="background:var(--strong); border-color:var(--strong); color:var(--on-strong)" data-printkon="kon-B-26">Drukuj konspekt A4</button>
@@ -12858,6 +12960,7 @@ tr.tbanner .bsep{color:var(--accent); padding:0 5px}
       </ul></div>
     </div>
     <div class="kwsk"><b>Wskazówka dla prowadzącego:</b> Pozwól wybrać dyżur na cały tydzień — powtarzalność buduje mistrzostwo, a wybór buduje odpowiedzialność; codzienna rotacja odbiera jedno i drugie.</div>
+
     <div class="kfoot">
       <button class="chipbtn zamknij" data-close="kon-B-27">✕ Zamknij i wróć do tabeli</button>
       <button class="chipbtn" style="background:var(--strong); border-color:var(--strong); color:var(--on-strong)" data-printkon="kon-B-27">Drukuj konspekt A4</button>
@@ -13007,6 +13110,7 @@ tr.tbanner .bsep{color:var(--accent); padding:0 5px}
       </ul></div>
     </div>
     <div class="kwsk"><b>Wskazówka dla prowadzącego:</b> Nie odbieraj zabawki po sygnale — pozwól dziecku samemu ją przekazać. Umowa dotrzymana własnymi rękami uczy więcej niż umowa wyegzekwowana.</div>
+
     <div class="kfoot">
       <button class="chipbtn zamknij" data-close="kon-B-28">✕ Zamknij i wróć do tabeli</button>
       <button class="chipbtn" style="background:var(--strong); border-color:var(--strong); color:var(--on-strong)" data-printkon="kon-B-28">Drukuj konspekt A4</button>
@@ -13156,6 +13260,7 @@ tr.tbanner .bsep{color:var(--accent); padding:0 5px}
       </ul></div>
     </div>
     <div class="kwsk"><b>Wskazówka dla prowadzącego:</b> Zacznij od wyboru rzeczy potrzebnych i niepotrzebnych — pakowanie bez tego etapu jest przepisywaniem listy, a nie decydowaniem, co naprawdę zabieram.</div>
+
     <div class="kfoot">
       <button class="chipbtn zamknij" data-close="kon-B-29">✕ Zamknij i wróć do tabeli</button>
       <button class="chipbtn" style="background:var(--strong); border-color:var(--strong); color:var(--on-strong)" data-printkon="kon-B-29">Drukuj konspekt A4</button>
@@ -13305,6 +13410,7 @@ tr.tbanner .bsep{color:var(--accent); padding:0 5px}
       </ul></div>
     </div>
     <div class="kwsk"><b>Wskazówka dla prowadzącego:</b> Jeden zestaw zabawek na dwoje dzieci tworzy naturalną potrzebę współpracy — dwa komplety dają zabawę równoległą, którą łatwo pomylić ze wspólną.</div>
+
     <div class="kfoot">
       <button class="chipbtn zamknij" data-close="kon-B-30">✕ Zamknij i wróć do tabeli</button>
       <button class="chipbtn" style="background:var(--strong); border-color:var(--strong); color:var(--on-strong)" data-printkon="kon-B-30">Drukuj konspekt A4</button>
@@ -13454,6 +13560,7 @@ tr.tbanner .bsep{color:var(--accent); padding:0 5px}
       </ul></div>
     </div>
     <div class="kwsk"><b>Wskazówka dla prowadzącego:</b> Jeden komplet materiału na zespół jest całą metodą — bez niego dzieci pracują obok siebie i nigdy nie muszą się umówić.</div>
+
     <div class="kfoot">
       <button class="chipbtn zamknij" data-close="kon-B-31">✕ Zamknij i wróć do tabeli</button>
       <button class="chipbtn" style="background:var(--strong); border-color:var(--strong); color:var(--on-strong)" data-printkon="kon-B-31">Drukuj konspekt A4</button>
@@ -13603,6 +13710,7 @@ tr.tbanner .bsep{color:var(--accent); padding:0 5px}
       </ul></div>
     </div>
     <div class="kwsk"><b>Wskazówka dla prowadzącego:</b> Pokaż scenkę bez zwrotu i ze zwrotem — pięciolatek uczy się grzeczności, gdy zobaczy jej skutek, a nie gdy usłyszy, że „tak się mówi”.</div>
+
     <div class="kfoot">
       <button class="chipbtn zamknij" data-close="kon-B-32">✕ Zamknij i wróć do tabeli</button>
       <button class="chipbtn" style="background:var(--strong); border-color:var(--strong); color:var(--on-strong)" data-printkon="kon-B-32">Drukuj konspekt A4</button>
@@ -13752,6 +13860,7 @@ tr.tbanner .bsep{color:var(--accent); padding:0 5px}
       </ul></div>
     </div>
     <div class="kwsk"><b>Wskazówka dla prowadzącego:</b> Pytanie „co mogłoby mu pomóc” jest ważniejsze niż samo nazwanie emocji — empatia zaczyna działać dopiero wtedy, gdy prowadzi do działania.</div>
+
     <div class="kfoot">
       <button class="chipbtn zamknij" data-close="kon-B-33">✕ Zamknij i wróć do tabeli</button>
       <button class="chipbtn" style="background:var(--strong); border-color:var(--strong); color:var(--on-strong)" data-printkon="kon-B-33">Drukuj konspekt A4</button>
@@ -13901,6 +14010,7 @@ tr.tbanner .bsep{color:var(--accent); padding:0 5px}
       </ul></div>
     </div>
     <div class="kwsk"><b>Wskazówka dla prowadzącego:</b> Prowadź mediację przy stoliku, nie w miejscu zdarzenia — zmiana miejsca sama obniża napięcie i sygnalizuje, że zaczyna się rozmowa, a nie kara.</div>
+
     <div class="kfoot">
       <button class="chipbtn zamknij" data-close="kon-B-34">✕ Zamknij i wróć do tabeli</button>
       <button class="chipbtn" style="background:var(--strong); border-color:var(--strong); color:var(--on-strong)" data-printkon="kon-B-34">Drukuj konspekt A4</button>
@@ -14050,6 +14160,7 @@ tr.tbanner .bsep{color:var(--accent); padding:0 5px}
       </ul></div>
     </div>
     <div class="kwsk"><b>Wskazówka dla prowadzącego:</b> Skrzynka pomysłów naprawdę musi działać — jeśli choć raz zrealizujesz temat wrzucony przez dziecko, aktywność całej grupy zmienia się na stałe.</div>
+
     <div class="kfoot">
       <button class="chipbtn zamknij" data-close="kon-B-35">✕ Zamknij i wróć do tabeli</button>
       <button class="chipbtn" style="background:var(--strong); border-color:var(--strong); color:var(--on-strong)" data-printkon="kon-B-35">Drukuj konspekt A4</button>
@@ -14199,6 +14310,7 @@ tr.tbanner .bsep{color:var(--accent); padding:0 5px}
       </ul></div>
     </div>
     <div class="kwsk"><b>Wskazówka dla prowadzącego:</b> Wejdź w rolę klienta, nie w rolę nauczyciela — pytanie zadane z wnętrza zabawy rozwija fabułę, pytanie z zewnątrz ją kończy.</div>
+
     <div class="kfoot">
       <button class="chipbtn zamknij" data-close="kon-B-36">✕ Zamknij i wróć do tabeli</button>
       <button class="chipbtn" style="background:var(--strong); border-color:var(--strong); color:var(--on-strong)" data-printkon="kon-B-36">Drukuj konspekt A4</button>
@@ -14348,6 +14460,7 @@ tr.tbanner .bsep{color:var(--accent); padding:0 5px}
       </ul></div>
     </div>
     <div class="kwsk"><b>Wskazówka dla prowadzącego:</b> Pytanie „co byś zmienił” zamienia pracę plastyczną w projektowanie — i jest jedyną oceną, która nie odbiera dziecku poczucia autorstwa.</div>
+
     <div class="kfoot">
       <button class="chipbtn zamknij" data-close="kon-B-37">✕ Zamknij i wróć do tabeli</button>
       <button class="chipbtn" style="background:var(--strong); border-color:var(--strong); color:var(--on-strong)" data-printkon="kon-B-37">Drukuj konspekt A4</button>
@@ -14497,6 +14610,7 @@ tr.tbanner .bsep{color:var(--accent); padding:0 5px}
       </ul></div>
     </div>
     <div class="kwsk"><b>Wskazówka dla prowadzącego:</b> Partytura z kolorami zastępuje ciągłe „teraz wy” — dzieci patrzą na planszę zamiast na nauczyciela i po raz pierwszy naprawdę grają razem.</div>
+
     <div class="kfoot">
       <button class="chipbtn zamknij" data-close="kon-B-38">✕ Zamknij i wróć do tabeli</button>
       <button class="chipbtn" style="background:var(--strong); border-color:var(--strong); color:var(--on-strong)" data-printkon="kon-B-38">Drukuj konspekt A4</button>
@@ -14646,6 +14760,7 @@ tr.tbanner .bsep{color:var(--accent); padding:0 5px}
       </ul></div>
     </div>
     <div class="kwsk"><b>Wskazówka dla prowadzącego:</b> Stały sygnał uwagi przed poleceniem jest ważniejszy niż samo polecenie — dziecko nie ignoruje treści, tylko nie wie, że komunikat właśnie się zaczął.</div>
+
     <div class="kfoot">
       <button class="chipbtn zamknij" data-close="kon-B-39">✕ Zamknij i wróć do tabeli</button>
       <button class="chipbtn" style="background:var(--strong); border-color:var(--strong); color:var(--on-strong)" data-printkon="kon-B-39">Drukuj konspekt A4</button>
@@ -14795,6 +14910,7 @@ tr.tbanner .bsep{color:var(--accent); padding:0 5px}
       </ul></div>
     </div>
     <div class="kwsk"><b>Wskazówka dla prowadzącego:</b> Herb tworzony wspólnie działa tylko wtedy, gdy każde dziecko namaluje w nim swój fragment — symbol nadany przez dorosłego pozostaje dekoracją.</div>
+
     <div class="kfoot">
       <button class="chipbtn zamknij" data-close="kon-B-40">✕ Zamknij i wróć do tabeli</button>
       <button class="chipbtn" style="background:var(--strong); border-color:var(--strong); color:var(--on-strong)" data-printkon="kon-B-40">Drukuj konspekt A4</button>
@@ -14944,6 +15060,7 @@ tr.tbanner .bsep{color:var(--accent); padding:0 5px}
       </ul></div>
     </div>
     <div class="kwsk"><b>Wskazówka dla prowadzącego:</b> Nagranie próby jest najlepszym reżyserem — dziecko, które zobaczy siebie, poprawia głos i postawę bez jednej uwagi ze strony dorosłego.</div>
+
     <div class="kfoot">
       <button class="chipbtn zamknij" data-close="kon-B-41">✕ Zamknij i wróć do tabeli</button>
       <button class="chipbtn" style="background:var(--strong); border-color:var(--strong); color:var(--on-strong)" data-printkon="kon-B-41">Drukuj konspekt A4</button>
@@ -15093,6 +15210,7 @@ tr.tbanner .bsep{color:var(--accent); padding:0 5px}
       </ul></div>
     </div>
     <div class="kwsk"><b>Wskazówka dla prowadzącego:</b> Pozwól dzieciom wybrać zabawę z kart przed wyjściem — grupa, która sama zaplanowała wyprawę, wychodzi szybciej i bawi się dłużej.</div>
+
     <div class="kfoot">
       <button class="chipbtn zamknij" data-close="kon-B-42">✕ Zamknij i wróć do tabeli</button>
       <button class="chipbtn" style="background:var(--strong); border-color:var(--strong); color:var(--on-strong)" data-printkon="kon-B-42">Drukuj konspekt A4</button>
@@ -15242,6 +15360,7 @@ tr.tbanner .bsep{color:var(--accent); padding:0 5px}
       </ul></div>
     </div>
     <div class="kwsk"><b>Wskazówka dla prowadzącego:</b> Bilet w dłoni zmienia zachowanie widza — dziecko, które przeszło przez „wejście na widownię”, traktuje przedstawienie inaczej niż zajęcia w sali.</div>
+
     <div class="kfoot">
       <button class="chipbtn zamknij" data-close="kon-B-43">✕ Zamknij i wróć do tabeli</button>
       <button class="chipbtn" style="background:var(--strong); border-color:var(--strong); color:var(--on-strong)" data-printkon="kon-B-43">Drukuj konspekt A4</button>
@@ -15391,6 +15510,7 @@ tr.tbanner .bsep{color:var(--accent); padding:0 5px}
       </ul></div>
     </div>
     <div class="kwsk"><b>Wskazówka dla prowadzącego:</b> Zabawa w biuro daje powód do podawania danych — bez realnego celu pytanie „jak się nazywasz?” brzmi jak sprawdzian, a nie jak rozmowa.</div>
+
     <div class="kfoot">
       <button class="chipbtn zamknij" data-close="kon-B-44">✕ Zamknij i wróć do tabeli</button>
       <button class="chipbtn" style="background:var(--strong); border-color:var(--strong); color:var(--on-strong)" data-printkon="kon-B-44">Drukuj konspekt A4</button>
@@ -15484,6 +15604,7 @@ tr.tbanner .bsep{color:var(--accent); padding:0 5px}
         <li>kartoniki: najpierw, potem, na końcu, dlatego</li>
         <li>dyktafon</li>
         <li>teczka autorskich historyjek</li>
+        <li><b style="color:var(--accent)">Załączniki Z1–Z3 — gotowe historyjki do wydruku (poniżej)</b></li>
         </ul>
       </div>
       <div>
@@ -15540,6 +15661,456 @@ tr.tbanner .bsep{color:var(--accent); padding:0 5px}
       </ul></div>
     </div>
     <div class="kwsk"><b>Wskazówka dla prowadzącego:</b> Kartoniki z łącznikami są ważniejsze niż same obrazki — to one zamieniają wyliczanie scen w opowiadanie z następstwem czasu i przyczyny.</div>
+    <div class="ksec"><span class="sq">VII</span><h4>Załączniki · pomoce dydaktyczne</h4><span class="line"></span>
+      <span class="meta">historyjki obrazkowe do wydruku A4</span></div>
+    <p class="kkurs">Trzy gotowe historyjki w gradacji trudności — po jednej na każdy poziom wsparcia.
+    Wydrukuj, wytnij wzdłuż linii i rozsyp obrazki przed dzieckiem.</p>
+    <button class="zal-link" data-printzal="kon-B-44">Drukuj załączniki Z1–Z3 (A4)</button>
+    <div class="zal-strefa" style="display:none">
+<section class="zal" data-poziom="p3">
+  <header class="zal-head">
+    <span class="mark" role="img" aria-label="Logo PCTP"></span>
+    <div>
+      <div class="zal-w">EduPlaner 2026</div>
+      <div class="zal-s">Załącznik Z1 · konspekt C1-01 · Warsztat historyjek · 6 lat</div>
+    </div>
+    <span class="zal-pill p3">Poziom III · 3 obrazki</span>
+  </header>
+  <div class="zal-tytul">
+    <span class="zal-kp">Pomoc dydaktyczna · historyjka obrazkowa</span>
+    <h3>Jak rośnie kwiatek</h3>
+    <p>Wytnij obrazki wzdłuż linii, rozsyp je na dywanie i poproś dziecko o ułożenie kolejności.
+    Podpisy zostaw przy obrazkach albo odetnij — zależnie od tego, czy dziecko już czyta.</p>
+  </div>
+  <div class="zal-siatka k2">
+      <figure class="kafel">
+        <span class="numer">1</span>
+        <svg viewBox="0 0 300 240" role="img" aria-label="Zasadziłam nasionko">
+  <rect x="0" y="0" width="300" height="240" fill="#DCEEFF"/>
+  <circle cx="254" cy="40" r="24" fill="#FFD86B"/>
+  <circle cx="254" cy="40" r="16" fill="#FFB84D" opacity=".55"/>
+  <path d="M 0 194 q 75.0 -22 150.0 0 q 75.0 22 150.0 0 L 300 240 L 0 240 z" fill="#BFE9C8"/>
+  <path d="M 120.0 130 L 180.0 130 L 172.0 170.0 L 128.0 170.0 z" fill="#F4A26B"/>
+  <rect x="116.0" y="120.0" width="68.0" height="14.0" rx="6.0" fill="#D9793F"/>
+  <ellipse cx="150" cy="126.0" rx="28.0" ry="6.0" fill="#8C6242"/><ellipse cx="150" cy="124" rx="5" ry="4" fill="#8C6242"/>
+  <g>
+    <ellipse cx="60" cy="144.48" rx="18.72" ry="5.04" fill="#000" opacity=".08"/>
+    <rect x="47.04" y="114.24" width="25.919999999999998" height="28.799999999999997" rx="10.08" fill="#F49BC1"/>
+    <rect x="52.08" y="138.72" width="6.4799999999999995" height="8.64" rx="2.88" fill="#FFDCC2"/>
+    <rect x="61.44" y="138.72" width="6.4799999999999995" height="8.64" rx="2.88" fill="#FFDCC2"/>
+    <circle cx="60" cy="96.96000000000001" r="17.28" fill="#FFDCC2"/>
+    <path d="M 42.72 94.08 a 17.28 17.28 0 0 1 34.56 0 q -17.28 -10.08 -34.56 0 z" fill="#8C5A3C"/>
+    <circle cx="53.52" cy="95.52" r="2.304" fill="#4A3B6B"/>
+    <circle cx="66.48" cy="95.52" r="2.304" fill="#4A3B6B"/>
+    <circle cx="48.480000000000004" cy="101.28" r="3.2399999999999998" fill="#FFB3C7" opacity=".65"/>
+    <circle cx="71.52" cy="101.28" r="3.2399999999999998" fill="#FFB3C7" opacity=".65"/>
+    <path d="M 54.96 98.4 q 5.04 5.04 10.08 0" stroke="#4A3B6B" stroke-width="1.728" fill="none" stroke-linecap="round"/>
+  </g><circle cx="88" cy="96" r="6" fill="#8C6242"/>
+        </svg>
+        <figcaption>Zasadziłam nasionko</figcaption>
+        <span class="linia-ciecia" aria-hidden="true"></span>
+      </figure>
+      <figure class="kafel">
+        <span class="numer">2</span>
+        <svg viewBox="0 0 300 240" role="img" aria-label="Podlewam codziennie">
+  <rect x="0" y="0" width="300" height="240" fill="#DCEEFF"/>
+  <circle cx="254" cy="40" r="24" fill="#FFD86B"/>
+  <circle cx="254" cy="40" r="16" fill="#FFB84D" opacity=".55"/>
+  <path d="M 0 194 q 75.0 -22 150.0 0 q 75.0 22 150.0 0 L 300 240 L 0 240 z" fill="#BFE9C8"/>
+  <path d="M 120.0 130 L 180.0 130 L 172.0 170.0 L 128.0 170.0 z" fill="#F4A26B"/>
+  <rect x="116.0" y="120.0" width="68.0" height="14.0" rx="6.0" fill="#D9793F"/>
+  <ellipse cx="150" cy="126.0" rx="28.0" ry="6.0" fill="#8C6242"/>
+  <path d="M 150 126 L 150 100" stroke="#5FBF7A" stroke-width="5" stroke-linecap="round"/>
+  <ellipse cx="139" cy="104" rx="10" ry="6" fill="#77D48C" transform="rotate(-25 139 104)"/>
+  <g>
+    <ellipse cx="62" cy="142.48" rx="18.72" ry="5.04" fill="#000" opacity=".08"/>
+    <rect x="49.04" y="112.24" width="25.919999999999998" height="28.799999999999997" rx="10.08" fill="#F49BC1"/>
+    <rect x="54.08" y="136.72" width="6.4799999999999995" height="8.64" rx="2.88" fill="#FFDCC2"/>
+    <rect x="63.44" y="136.72" width="6.4799999999999995" height="8.64" rx="2.88" fill="#FFDCC2"/>
+    <circle cx="62" cy="94.96000000000001" r="17.28" fill="#FFDCC2"/>
+    <path d="M 44.72 92.08 a 17.28 17.28 0 0 1 34.56 0 q -17.28 -10.08 -34.56 0 z" fill="#8C5A3C"/>
+    <circle cx="55.52" cy="93.52" r="2.304" fill="#4A3B6B"/>
+    <circle cx="68.48" cy="93.52" r="2.304" fill="#4A3B6B"/>
+    <circle cx="50.480000000000004" cy="99.28" r="3.2399999999999998" fill="#FFB3C7" opacity=".65"/>
+    <circle cx="73.52" cy="99.28" r="3.2399999999999998" fill="#FFB3C7" opacity=".65"/>
+    <path d="M 56.96 96.4 q 5.04 5.04 10.08 0" stroke="#4A3B6B" stroke-width="1.728" fill="none" stroke-linecap="round"/>
+  </g>
+  <rect x="97.6" y="92.8" width="32.0" height="27.200000000000003" rx="6.4" fill="#8FD3F4"/>
+  <path d="M 97.6 99.2 L 76.8 107.2 L 80.0 112.0 L 99.2 105.6 z" fill="#5BB6E0"/>
+  <path d="M 115.2 92.8 q 14.4 1.6 11.200000000000001 17.6" stroke="#5BB6E0" stroke-width="4.0" fill="none" stroke-linecap="round"/>
+  
+  <path d="M 78.4 107.2 q -8.0 12.8 -3.2 24.0" stroke="#7FC7F0" stroke-width="3.2" fill="none" stroke-linecap="round" opacity=".85"/>
+  <circle cx="72.0" cy="136.0" r="2.4000000000000004" fill="#7FC7F0"/>
+  <circle cx="76.8" cy="128.0" r="1.92" fill="#7FC7F0"/>
+        </svg>
+        <figcaption>Podlewam codziennie</figcaption>
+        <span class="linia-ciecia" aria-hidden="true"></span>
+      </figure>
+      <figure class="kafel">
+        <span class="numer">3</span>
+        <svg viewBox="0 0 300 240" role="img" aria-label="Wyrósł piękny kwiat">
+  <rect x="0" y="0" width="300" height="240" fill="#DCEEFF"/>
+  <circle cx="254" cy="40" r="24" fill="#FFD86B"/>
+  <circle cx="254" cy="40" r="16" fill="#FFB84D" opacity=".55"/>
+  <path d="M 0 194 q 75.0 -22 150.0 0 q 75.0 22 150.0 0 L 300 240 L 0 240 z" fill="#BFE9C8"/>
+  <path d="M 120.0 142 L 180.0 142 L 172.0 182.0 L 128.0 182.0 z" fill="#F4A26B"/>
+  <rect x="116.0" y="132.0" width="68.0" height="14.0" rx="6.0" fill="#D9793F"/>
+  <ellipse cx="150" cy="138.0" rx="28.0" ry="6.0" fill="#8C6242"/>
+  <path d="M 150 138 L 150 94" stroke="#5FBF7A" stroke-width="6" stroke-linecap="round"/>
+  <ellipse cx="136" cy="110" rx="13" ry="7" fill="#77D48C" transform="rotate(-25 136 110)"/>
+  <ellipse cx="164" cy="118" rx="13" ry="7" fill="#77D48C" transform="rotate(25 164 118)"/>
+  <ellipse cx="150" cy="80" rx="9" ry="16" fill="#FF9FC2" transform="rotate(0 150 80)"/><ellipse cx="150" cy="80" rx="9" ry="16" fill="#FF7BAA" transform="rotate(60 150 80)"/><ellipse cx="150" cy="80" rx="9" ry="16" fill="#FF9FC2" transform="rotate(120 150 80)"/><ellipse cx="150" cy="80" rx="9" ry="16" fill="#FF7BAA" transform="rotate(180 150 80)"/><ellipse cx="150" cy="80" rx="9" ry="16" fill="#FF9FC2" transform="rotate(240 150 80)"/><ellipse cx="150" cy="80" rx="9" ry="16" fill="#FF7BAA" transform="rotate(300 150 80)"/>
+  <circle cx="150" cy="80" r="10" fill="#FFE08A"/>
+  <g>
+    <ellipse cx="58" cy="144.48" rx="18.72" ry="5.04" fill="#000" opacity=".08"/>
+    <rect x="45.04" y="114.24" width="25.919999999999998" height="28.799999999999997" rx="10.08" fill="#F49BC1"/>
+    <rect x="50.08" y="138.72" width="6.4799999999999995" height="8.64" rx="2.88" fill="#FFDCC2"/>
+    <rect x="59.44" y="138.72" width="6.4799999999999995" height="8.64" rx="2.88" fill="#FFDCC2"/>
+    <circle cx="58" cy="96.96000000000001" r="17.28" fill="#FFDCC2"/>
+    <path d="M 40.72 94.08 a 17.28 17.28 0 0 1 34.56 0 q -17.28 -10.08 -34.56 0 z" fill="#8C5A3C"/>
+    <circle cx="51.52" cy="95.52" r="2.304" fill="#4A3B6B"/>
+    <circle cx="64.48" cy="95.52" r="2.304" fill="#4A3B6B"/>
+    <circle cx="46.480000000000004" cy="101.28" r="3.2399999999999998" fill="#FFB3C7" opacity=".65"/>
+    <circle cx="69.52" cy="101.28" r="3.2399999999999998" fill="#FFB3C7" opacity=".65"/>
+    <path d="M 52.96 98.4 q 5.04 5.04 10.08 0" stroke="#4A3B6B" stroke-width="1.728" fill="none" stroke-linecap="round"/>
+  </g><path d="M 228 90.35 C 209.6 75.4 217.65 57.0 228 67.35 C 238.35 57.0 246.4 75.4 228 90.35 Z" fill="#FF8FB1"/>
+        </svg>
+        <figcaption>Wyrósł piękny kwiat</figcaption>
+        <span class="linia-ciecia" aria-hidden="true"></span>
+      </figure>
+  </div>
+  <div class="zal-stopka">
+    <span><b>Polecenie dla dziecka:</b> „Ułóż obrazki po kolei i opowiedz, co się wydarzyło.”</span>
+    <span class="mono">EduPlaner 2026 · PCTP · druk KC-3 · załącznik Z1</span>
+  </div>
+</section><section class="zal" data-poziom="p2">
+  <header class="zal-head">
+    <span class="mark" role="img" aria-label="Logo PCTP"></span>
+    <div>
+      <div class="zal-w">EduPlaner 2026</div>
+      <div class="zal-s">Załącznik Z2 · konspekt C1-01 · Warsztat historyjek · 6 lat</div>
+    </div>
+    <span class="zal-pill p2">Poziom II · 4 obrazki</span>
+  </header>
+  <div class="zal-tytul">
+    <span class="zal-kp">Pomoc dydaktyczna · historyjka obrazkowa</span>
+    <h3>Jak rośnie kwiatek</h3>
+    <p>Wytnij obrazki wzdłuż linii, rozsyp je na dywanie i poproś dziecko o ułożenie kolejności.
+    Podpisy zostaw przy obrazkach albo odetnij — zależnie od tego, czy dziecko już czyta.</p>
+  </div>
+  <div class="zal-siatka k2">
+      <figure class="kafel">
+        <span class="numer">1</span>
+        <svg viewBox="0 0 300 240" role="img" aria-label="Mam nasionko">
+  <rect x="0" y="0" width="300" height="240" fill="#DCEEFF"/>
+  <circle cx="254" cy="40" r="24" fill="#FFD86B"/>
+  <circle cx="254" cy="40" r="16" fill="#FFB84D" opacity=".55"/>
+  <path d="M 0 194 q 75.0 -22 150.0 0 q 75.0 22 150.0 0 L 300 240 L 0 240 z" fill="#BFE9C8"/>
+  <path d="M 120.0 132 L 180.0 132 L 172.0 172.0 L 128.0 172.0 z" fill="#F4A26B"/>
+  <rect x="116.0" y="122.0" width="68.0" height="14.0" rx="6.0" fill="#D9793F"/>
+  <ellipse cx="150" cy="128.0" rx="28.0" ry="6.0" fill="#8C6242"/><ellipse cx="150" cy="126" rx="5" ry="4" fill="#8C6242"/>
+  <g>
+    <ellipse cx="60" cy="143.8" rx="18.2" ry="4.8999999999999995" fill="#000" opacity=".08"/>
+    <rect x="47.4" y="114.4" width="25.2" height="28.0" rx="9.799999999999999" fill="#8FB8F0"/>
+    <rect x="52.3" y="138.2" width="6.3" height="8.399999999999999" rx="2.8" fill="#FFDCC2"/>
+    <rect x="61.4" y="138.2" width="6.3" height="8.399999999999999" rx="2.8" fill="#FFDCC2"/>
+    <circle cx="60" cy="97.6" r="16.799999999999997" fill="#FFDCC2"/>
+    <path d="M 43.2 94.8 a 16.799999999999997 16.799999999999997 0 0 1 33.599999999999994 0 q -16.799999999999997 -9.799999999999999 -33.599999999999994 0 z" fill="#4A3728"/>
+    <circle cx="53.7" cy="96.2" r="2.2399999999999998" fill="#4A3B6B"/>
+    <circle cx="66.3" cy="96.2" r="2.2399999999999998" fill="#4A3B6B"/>
+    <circle cx="48.8" cy="101.8" r="3.15" fill="#FFB3C7" opacity=".65"/>
+    <circle cx="71.2" cy="101.8" r="3.15" fill="#FFB3C7" opacity=".65"/>
+    <path d="M 55.1 99.0 q 4.8999999999999995 4.8999999999999995 9.799999999999999 0" stroke="#4A3B6B" stroke-width="1.68" fill="none" stroke-linecap="round"/>
+  </g>
+        </svg>
+        <figcaption>Mam nasionko</figcaption>
+        <span class="linia-ciecia" aria-hidden="true"></span>
+      </figure>
+      <figure class="kafel">
+        <span class="numer">2</span>
+        <svg viewBox="0 0 300 240" role="img" aria-label="Wykiełkował zielony pęd">
+  <rect x="0" y="0" width="300" height="240" fill="#DCEEFF"/>
+  <circle cx="254" cy="40" r="24" fill="#FFD86B"/>
+  <circle cx="254" cy="40" r="16" fill="#FFB84D" opacity=".55"/>
+  <path d="M 0 194 q 75.0 -22 150.0 0 q 75.0 22 150.0 0 L 300 240 L 0 240 z" fill="#BFE9C8"/>
+  <path d="M 120.0 132 L 180.0 132 L 172.0 172.0 L 128.0 172.0 z" fill="#F4A26B"/>
+  <rect x="116.0" y="122.0" width="68.0" height="14.0" rx="6.0" fill="#D9793F"/>
+  <ellipse cx="150" cy="128.0" rx="28.0" ry="6.0" fill="#8C6242"/>
+  <path d="M 150 128 L 150 102" stroke="#5FBF7A" stroke-width="5" stroke-linecap="round"/>
+  <ellipse cx="139" cy="106" rx="10" ry="6" fill="#77D48C" transform="rotate(-25 139 106)"/>
+  <g>
+    <ellipse cx="60" cy="143.8" rx="18.2" ry="4.8999999999999995" fill="#000" opacity=".08"/>
+    <rect x="47.4" y="114.4" width="25.2" height="28.0" rx="9.799999999999999" fill="#8FB8F0"/>
+    <rect x="52.3" y="138.2" width="6.3" height="8.399999999999999" rx="2.8" fill="#FFDCC2"/>
+    <rect x="61.4" y="138.2" width="6.3" height="8.399999999999999" rx="2.8" fill="#FFDCC2"/>
+    <circle cx="60" cy="97.6" r="16.799999999999997" fill="#FFDCC2"/>
+    <path d="M 43.2 94.8 a 16.799999999999997 16.799999999999997 0 0 1 33.599999999999994 0 q -16.799999999999997 -9.799999999999999 -33.599999999999994 0 z" fill="#4A3728"/>
+    <circle cx="53.7" cy="96.2" r="2.2399999999999998" fill="#4A3B6B"/>
+    <circle cx="66.3" cy="96.2" r="2.2399999999999998" fill="#4A3B6B"/>
+    <circle cx="48.8" cy="101.8" r="3.15" fill="#FFB3C7" opacity=".65"/>
+    <circle cx="71.2" cy="101.8" r="3.15" fill="#FFB3C7" opacity=".65"/>
+    <path d="M 55.1 99.0 q 4.8999999999999995 4.8999999999999995 9.799999999999999 0" stroke="#4A3B6B" stroke-width="1.68" fill="none" stroke-linecap="round"/>
+  </g>
+        </svg>
+        <figcaption>Wykiełkował zielony pęd</figcaption>
+        <span class="linia-ciecia" aria-hidden="true"></span>
+      </figure>
+      <figure class="kafel">
+        <span class="numer">3</span>
+        <svg viewBox="0 0 300 240" role="img" aria-label="Podlewam roślinkę">
+  <rect x="0" y="0" width="300" height="240" fill="#DCEEFF"/>
+  <circle cx="254" cy="40" r="24" fill="#FFD86B"/>
+  <circle cx="254" cy="40" r="16" fill="#FFB84D" opacity=".55"/>
+  <path d="M 0 194 q 75.0 -22 150.0 0 q 75.0 22 150.0 0 L 300 240 L 0 240 z" fill="#BFE9C8"/>
+  <path d="M 120.0 132 L 180.0 132 L 172.0 172.0 L 128.0 172.0 z" fill="#F4A26B"/>
+  <rect x="116.0" y="122.0" width="68.0" height="14.0" rx="6.0" fill="#D9793F"/>
+  <ellipse cx="150" cy="128.0" rx="28.0" ry="6.0" fill="#8C6242"/>
+  <path d="M 150 128 L 150 102" stroke="#5FBF7A" stroke-width="5" stroke-linecap="round"/>
+  <ellipse cx="139" cy="106" rx="10" ry="6" fill="#77D48C" transform="rotate(-25 139 106)"/>
+  <g>
+    <ellipse cx="62" cy="141.8" rx="18.2" ry="4.8999999999999995" fill="#000" opacity=".08"/>
+    <rect x="49.4" y="112.4" width="25.2" height="28.0" rx="9.799999999999999" fill="#8FB8F0"/>
+    <rect x="54.3" y="136.2" width="6.3" height="8.399999999999999" rx="2.8" fill="#FFDCC2"/>
+    <rect x="63.4" y="136.2" width="6.3" height="8.399999999999999" rx="2.8" fill="#FFDCC2"/>
+    <circle cx="62" cy="95.6" r="16.799999999999997" fill="#FFDCC2"/>
+    <path d="M 45.2 92.8 a 16.799999999999997 16.799999999999997 0 0 1 33.599999999999994 0 q -16.799999999999997 -9.799999999999999 -33.599999999999994 0 z" fill="#4A3728"/>
+    <circle cx="55.7" cy="94.2" r="2.2399999999999998" fill="#4A3B6B"/>
+    <circle cx="68.3" cy="94.2" r="2.2399999999999998" fill="#4A3B6B"/>
+    <circle cx="50.8" cy="99.8" r="3.15" fill="#FFB3C7" opacity=".65"/>
+    <circle cx="73.2" cy="99.8" r="3.15" fill="#FFB3C7" opacity=".65"/>
+    <path d="M 57.1 97.0 q 4.8999999999999995 4.8999999999999995 9.799999999999999 0" stroke="#4A3B6B" stroke-width="1.68" fill="none" stroke-linecap="round"/>
+  </g>
+  <rect x="97.96" y="91.08" width="31.200000000000003" height="26.52" rx="6.24" fill="#8FD3F4"/>
+  <path d="M 97.96 97.32 L 77.68 105.12 L 80.8 109.8 L 99.52 103.56 z" fill="#5BB6E0"/>
+  <path d="M 115.12 91.08 q 14.040000000000001 1.56 10.92 17.16" stroke="#5BB6E0" stroke-width="3.9000000000000004" fill="none" stroke-linecap="round"/>
+  
+  <path d="M 79.24000000000001 105.12 q -7.800000000000001 12.48 -3.12 23.400000000000002" stroke="#7FC7F0" stroke-width="3.12" fill="none" stroke-linecap="round" opacity=".85"/>
+  <circle cx="73.0" cy="133.2" r="2.34" fill="#7FC7F0"/>
+  <circle cx="77.68" cy="125.4" r="1.8719999999999999" fill="#7FC7F0"/>
+        </svg>
+        <figcaption>Podlewam roślinkę</figcaption>
+        <span class="linia-ciecia" aria-hidden="true"></span>
+      </figure>
+      <figure class="kafel">
+        <span class="numer">4</span>
+        <svg viewBox="0 0 300 240" role="img" aria-label="Zakwitł kwiat — cieszę się">
+  <rect x="0" y="0" width="300" height="240" fill="#DCEEFF"/>
+  <circle cx="254" cy="40" r="24" fill="#FFD86B"/>
+  <circle cx="254" cy="40" r="16" fill="#FFB84D" opacity=".55"/>
+  <path d="M 0 194 q 75.0 -22 150.0 0 q 75.0 22 150.0 0 L 300 240 L 0 240 z" fill="#BFE9C8"/>
+  <path d="M 120.0 146 L 180.0 146 L 172.0 186.0 L 128.0 186.0 z" fill="#F4A26B"/>
+  <rect x="116.0" y="136.0" width="68.0" height="14.0" rx="6.0" fill="#D9793F"/>
+  <ellipse cx="150" cy="142.0" rx="28.0" ry="6.0" fill="#8C6242"/>
+  <path d="M 150 142 L 150 98" stroke="#5FBF7A" stroke-width="6" stroke-linecap="round"/>
+  <ellipse cx="136" cy="114" rx="13" ry="7" fill="#77D48C" transform="rotate(-25 136 114)"/>
+  <ellipse cx="164" cy="122" rx="13" ry="7" fill="#77D48C" transform="rotate(25 164 122)"/>
+  <ellipse cx="150" cy="84" rx="9" ry="16" fill="#FF9FC2" transform="rotate(0 150 84)"/><ellipse cx="150" cy="84" rx="9" ry="16" fill="#FF7BAA" transform="rotate(60 150 84)"/><ellipse cx="150" cy="84" rx="9" ry="16" fill="#FF9FC2" transform="rotate(120 150 84)"/><ellipse cx="150" cy="84" rx="9" ry="16" fill="#FF7BAA" transform="rotate(180 150 84)"/><ellipse cx="150" cy="84" rx="9" ry="16" fill="#FF9FC2" transform="rotate(240 150 84)"/><ellipse cx="150" cy="84" rx="9" ry="16" fill="#FF7BAA" transform="rotate(300 150 84)"/>
+  <circle cx="150" cy="84" r="10" fill="#FFE08A"/>
+  <g>
+    <ellipse cx="56" cy="145.8" rx="18.2" ry="4.8999999999999995" fill="#000" opacity=".08"/>
+    <rect x="43.4" y="116.4" width="25.2" height="28.0" rx="9.799999999999999" fill="#8FB8F0"/>
+    <rect x="48.3" y="140.2" width="6.3" height="8.399999999999999" rx="2.8" fill="#FFDCC2"/>
+    <rect x="57.4" y="140.2" width="6.3" height="8.399999999999999" rx="2.8" fill="#FFDCC2"/>
+    <circle cx="56" cy="99.6" r="16.799999999999997" fill="#FFDCC2"/>
+    <path d="M 39.2 96.8 a 16.799999999999997 16.799999999999997 0 0 1 33.599999999999994 0 q -16.799999999999997 -9.799999999999999 -33.599999999999994 0 z" fill="#4A3728"/>
+    <circle cx="49.7" cy="98.2" r="2.2399999999999998" fill="#4A3B6B"/>
+    <circle cx="62.3" cy="98.2" r="2.2399999999999998" fill="#4A3B6B"/>
+    <circle cx="44.8" cy="103.8" r="3.15" fill="#FFB3C7" opacity=".65"/>
+    <circle cx="67.2" cy="103.8" r="3.15" fill="#FFB3C7" opacity=".65"/>
+    <path d="M 53.2 102.4 a 2.8 2.8 0 1 0 5.6 0 a 2.8 2.8 0 1 0 -5.6 0" stroke="#4A3B6B" stroke-width="1.68" fill="none" stroke-linecap="round"/>
+  </g><path d="M 228 92.35 C 209.6 77.4 217.65 59.0 228 69.35 C 238.35 59.0 246.4 77.4 228 92.35 Z" fill="#FF8FB1"/>
+        </svg>
+        <figcaption>Zakwitł kwiat — cieszę się</figcaption>
+        <span class="linia-ciecia" aria-hidden="true"></span>
+      </figure>
+  </div>
+  <div class="zal-stopka">
+    <span><b>Polecenie dla dziecka:</b> „Ułóż obrazki po kolei i opowiedz, co się wydarzyło.”</span>
+    <span class="mono">EduPlaner 2026 · PCTP · druk KC-3 · załącznik Z2</span>
+  </div>
+</section><section class="zal" data-poziom="p1">
+  <header class="zal-head">
+    <span class="mark" role="img" aria-label="Logo PCTP"></span>
+    <div>
+      <div class="zal-w">EduPlaner 2026</div>
+      <div class="zal-s">Załącznik Z3 · konspekt C1-01 · Warsztat historyjek · 6 lat</div>
+    </div>
+    <span class="zal-pill p1">Poziom I · 5 obrazki</span>
+  </header>
+  <div class="zal-tytul">
+    <span class="zal-kp">Pomoc dydaktyczna · historyjka obrazkowa</span>
+    <h3>Jak rośnie kwiatek</h3>
+    <p>Wytnij obrazki wzdłuż linii, rozsyp je na dywanie i poproś dziecko o ułożenie kolejności.
+    Podpisy zostaw przy obrazkach albo odetnij — zależnie od tego, czy dziecko już czyta.</p>
+  </div>
+  <div class="zal-siatka k3">
+      <figure class="kafel">
+        <span class="numer">1</span>
+        <svg viewBox="0 0 300 240" role="img" aria-label="Sadzę nasionko w doniczce">
+  <rect x="0" y="0" width="300" height="240" fill="#DCEEFF"/>
+  <circle cx="254" cy="40" r="24" fill="#FFD86B"/>
+  <circle cx="254" cy="40" r="16" fill="#FFB84D" opacity=".55"/>
+  <path d="M 0 194 q 75.0 -22 150.0 0 q 75.0 22 150.0 0 L 300 240 L 0 240 z" fill="#BFE9C8"/>
+  <path d="M 120.0 132 L 180.0 132 L 172.0 172.0 L 128.0 172.0 z" fill="#F4A26B"/>
+  <rect x="116.0" y="122.0" width="68.0" height="14.0" rx="6.0" fill="#D9793F"/>
+  <ellipse cx="150" cy="128.0" rx="28.0" ry="6.0" fill="#8C6242"/><ellipse cx="150" cy="126" rx="5" ry="4" fill="#8C6242"/>
+  <g>
+    <ellipse cx="60" cy="143.8" rx="18.2" ry="4.8999999999999995" fill="#000" opacity=".08"/>
+    <rect x="47.4" y="114.4" width="25.2" height="28.0" rx="9.799999999999999" fill="#F49BC1"/>
+    <rect x="52.3" y="138.2" width="6.3" height="8.399999999999999" rx="2.8" fill="#FFDCC2"/>
+    <rect x="61.4" y="138.2" width="6.3" height="8.399999999999999" rx="2.8" fill="#FFDCC2"/>
+    <circle cx="60" cy="97.6" r="16.799999999999997" fill="#FFDCC2"/>
+    <path d="M 43.2 94.8 a 16.799999999999997 16.799999999999997 0 0 1 33.599999999999994 0 q -16.799999999999997 -9.799999999999999 -33.599999999999994 0 z" fill="#8C5A3C"/>
+    <circle cx="53.7" cy="96.2" r="2.2399999999999998" fill="#4A3B6B"/>
+    <circle cx="66.3" cy="96.2" r="2.2399999999999998" fill="#4A3B6B"/>
+    <circle cx="48.8" cy="101.8" r="3.15" fill="#FFB3C7" opacity=".65"/>
+    <circle cx="71.2" cy="101.8" r="3.15" fill="#FFB3C7" opacity=".65"/>
+    <path d="M 55.1 99.0 q 4.8999999999999995 4.8999999999999995 9.799999999999999 0" stroke="#4A3B6B" stroke-width="1.68" fill="none" stroke-linecap="round"/>
+  </g>
+        </svg>
+        <figcaption>Sadzę nasionko w doniczce</figcaption>
+        <span class="linia-ciecia" aria-hidden="true"></span>
+      </figure>
+      <figure class="kafel">
+        <span class="numer">2</span>
+        <svg viewBox="0 0 300 240" role="img" aria-label="Wyrasta mały pęd">
+  <rect x="0" y="0" width="300" height="240" fill="#DCEEFF"/>
+  <circle cx="254" cy="40" r="24" fill="#FFD86B"/>
+  <circle cx="254" cy="40" r="16" fill="#FFB84D" opacity=".55"/>
+  <path d="M 0 194 q 75.0 -22 150.0 0 q 75.0 22 150.0 0 L 300 240 L 0 240 z" fill="#BFE9C8"/>
+  <path d="M 120.0 132 L 180.0 132 L 172.0 172.0 L 128.0 172.0 z" fill="#F4A26B"/>
+  <rect x="116.0" y="122.0" width="68.0" height="14.0" rx="6.0" fill="#D9793F"/>
+  <ellipse cx="150" cy="128.0" rx="28.0" ry="6.0" fill="#8C6242"/>
+  <path d="M 150 128 L 150 102" stroke="#5FBF7A" stroke-width="5" stroke-linecap="round"/>
+  <ellipse cx="139" cy="106" rx="10" ry="6" fill="#77D48C" transform="rotate(-25 139 106)"/>
+  <g>
+    <ellipse cx="60" cy="143.8" rx="18.2" ry="4.8999999999999995" fill="#000" opacity=".08"/>
+    <rect x="47.4" y="114.4" width="25.2" height="28.0" rx="9.799999999999999" fill="#F49BC1"/>
+    <rect x="52.3" y="138.2" width="6.3" height="8.399999999999999" rx="2.8" fill="#FFDCC2"/>
+    <rect x="61.4" y="138.2" width="6.3" height="8.399999999999999" rx="2.8" fill="#FFDCC2"/>
+    <circle cx="60" cy="97.6" r="16.799999999999997" fill="#FFDCC2"/>
+    <path d="M 43.2 94.8 a 16.799999999999997 16.799999999999997 0 0 1 33.599999999999994 0 q -16.799999999999997 -9.799999999999999 -33.599999999999994 0 z" fill="#8C5A3C"/>
+    <circle cx="53.7" cy="96.2" r="2.2399999999999998" fill="#4A3B6B"/>
+    <circle cx="66.3" cy="96.2" r="2.2399999999999998" fill="#4A3B6B"/>
+    <circle cx="48.8" cy="101.8" r="3.15" fill="#FFB3C7" opacity=".65"/>
+    <circle cx="71.2" cy="101.8" r="3.15" fill="#FFB3C7" opacity=".65"/>
+    <path d="M 55.1 99.0 q 4.8999999999999995 4.8999999999999995 9.799999999999999 0" stroke="#4A3B6B" stroke-width="1.68" fill="none" stroke-linecap="round"/>
+  </g>
+        </svg>
+        <figcaption>Wyrasta mały pęd</figcaption>
+        <span class="linia-ciecia" aria-hidden="true"></span>
+      </figure>
+      <figure class="kafel">
+        <span class="numer">3</span>
+        <svg viewBox="0 0 300 240" role="img" aria-label="Zapomniałam podlać — roślinka zwiędła">
+  <rect x="0" y="0" width="300" height="240" fill="#DCEEFF"/>
+  <circle cx="254" cy="40" r="24" fill="#FFD86B"/>
+  <circle cx="254" cy="40" r="16" fill="#FFB84D" opacity=".55"/>
+  <path d="M 0 194 q 75.0 -22 150.0 0 q 75.0 22 150.0 0 L 300 240 L 0 240 z" fill="#BFE9C8"/>
+  <path d="M 120.0 132 L 180.0 132 L 172.0 172.0 L 128.0 172.0 z" fill="#F4A26B"/>
+  <rect x="116.0" y="122.0" width="68.0" height="14.0" rx="6.0" fill="#D9793F"/>
+  <ellipse cx="150" cy="128.0" rx="28.0" ry="6.0" fill="#8C6242"/>
+  <path d="M 150 128 q 2 -18 -14 -24" stroke="#A8B88A" stroke-width="5" fill="none" stroke-linecap="round"/>
+  <ellipse cx="130" cy="108" rx="12" ry="6" fill="#A8B88A" transform="rotate(55 130 108)"/>
+  <ellipse cx="143" cy="118" rx="10" ry="5" fill="#A8B88A" transform="rotate(70 143 118)"/>
+  <g opacity=".8">
+    <circle cx="214" cy="82" r="17" fill="#FFF" stroke="#5BB6E0" stroke-width="3"/>
+    <path d="M 214 74 q 6 8 0 12 q -6 -4 0 -12 z" fill="#7FC7F0"/>
+    <path d="M 203 71 L 225 93" stroke="#D9534F" stroke-width="3.5" stroke-linecap="round"/>
+  </g>
+  <g>
+    <ellipse cx="60" cy="143.8" rx="18.2" ry="4.8999999999999995" fill="#000" opacity=".08"/>
+    <rect x="47.4" y="114.4" width="25.2" height="28.0" rx="9.799999999999999" fill="#F49BC1"/>
+    <rect x="52.3" y="138.2" width="6.3" height="8.399999999999999" rx="2.8" fill="#FFDCC2"/>
+    <rect x="61.4" y="138.2" width="6.3" height="8.399999999999999" rx="2.8" fill="#FFDCC2"/>
+    <circle cx="60" cy="97.6" r="16.799999999999997" fill="#FFDCC2"/>
+    <path d="M 43.2 94.8 a 16.799999999999997 16.799999999999997 0 0 1 33.599999999999994 0 q -16.799999999999997 -9.799999999999999 -33.599999999999994 0 z" fill="#8C5A3C"/>
+    <circle cx="53.7" cy="96.2" r="2.2399999999999998" fill="#4A3B6B"/>
+    <circle cx="66.3" cy="96.2" r="2.2399999999999998" fill="#4A3B6B"/>
+    <circle cx="48.8" cy="101.8" r="3.15" fill="#FFB3C7" opacity=".65"/>
+    <circle cx="71.2" cy="101.8" r="3.15" fill="#FFB3C7" opacity=".65"/>
+    <path d="M 55.1 102.5 q 4.8999999999999995 -4.8999999999999995 9.799999999999999 0" stroke="#4A3B6B" stroke-width="1.68" fill="none" stroke-linecap="round"/>
+  </g>
+        </svg>
+        <figcaption>Zapomniałam podlać — roślinka zwiędła</figcaption>
+        <span class="linia-ciecia" aria-hidden="true"></span>
+      </figure>
+      <figure class="kafel">
+        <span class="numer">4</span>
+        <svg viewBox="0 0 300 240" role="img" aria-label="Podlewam ją i stawiam w słońcu">
+  <rect x="0" y="0" width="300" height="240" fill="#DCEEFF"/>
+  <circle cx="254" cy="40" r="24" fill="#FFD86B"/>
+  <circle cx="254" cy="40" r="16" fill="#FFB84D" opacity=".55"/>
+  <path d="M 0 194 q 75.0 -22 150.0 0 q 75.0 22 150.0 0 L 300 240 L 0 240 z" fill="#BFE9C8"/>
+  <path d="M 120.0 132 L 180.0 132 L 172.0 172.0 L 128.0 172.0 z" fill="#F4A26B"/>
+  <rect x="116.0" y="122.0" width="68.0" height="14.0" rx="6.0" fill="#D9793F"/>
+  <ellipse cx="150" cy="128.0" rx="28.0" ry="6.0" fill="#8C6242"/>
+  <path d="M 150 128 L 150 102" stroke="#5FBF7A" stroke-width="5" stroke-linecap="round"/>
+  <ellipse cx="139" cy="106" rx="10" ry="6" fill="#77D48C" transform="rotate(-25 139 106)"/>
+  <g>
+    <ellipse cx="62" cy="141.8" rx="18.2" ry="4.8999999999999995" fill="#000" opacity=".08"/>
+    <rect x="49.4" y="112.4" width="25.2" height="28.0" rx="9.799999999999999" fill="#F49BC1"/>
+    <rect x="54.3" y="136.2" width="6.3" height="8.399999999999999" rx="2.8" fill="#FFDCC2"/>
+    <rect x="63.4" y="136.2" width="6.3" height="8.399999999999999" rx="2.8" fill="#FFDCC2"/>
+    <circle cx="62" cy="95.6" r="16.799999999999997" fill="#FFDCC2"/>
+    <path d="M 45.2 92.8 a 16.799999999999997 16.799999999999997 0 0 1 33.599999999999994 0 q -16.799999999999997 -9.799999999999999 -33.599999999999994 0 z" fill="#8C5A3C"/>
+    <circle cx="55.7" cy="94.2" r="2.2399999999999998" fill="#4A3B6B"/>
+    <circle cx="68.3" cy="94.2" r="2.2399999999999998" fill="#4A3B6B"/>
+    <circle cx="50.8" cy="99.8" r="3.15" fill="#FFB3C7" opacity=".65"/>
+    <circle cx="73.2" cy="99.8" r="3.15" fill="#FFB3C7" opacity=".65"/>
+    <path d="M 57.1 97.0 q 4.8999999999999995 4.8999999999999995 9.799999999999999 0" stroke="#4A3B6B" stroke-width="1.68" fill="none" stroke-linecap="round"/>
+  </g>
+  <rect x="97.96" y="91.08" width="31.200000000000003" height="26.52" rx="6.24" fill="#8FD3F4"/>
+  <path d="M 97.96 97.32 L 77.68 105.12 L 80.8 109.8 L 99.52 103.56 z" fill="#5BB6E0"/>
+  <path d="M 115.12 91.08 q 14.040000000000001 1.56 10.92 17.16" stroke="#5BB6E0" stroke-width="3.9000000000000004" fill="none" stroke-linecap="round"/>
+  
+  <path d="M 79.24000000000001 105.12 q -7.800000000000001 12.48 -3.12 23.400000000000002" stroke="#7FC7F0" stroke-width="3.12" fill="none" stroke-linecap="round" opacity=".85"/>
+  <circle cx="73.0" cy="133.2" r="2.34" fill="#7FC7F0"/>
+  <circle cx="77.68" cy="125.4" r="1.8719999999999999" fill="#7FC7F0"/>
+        </svg>
+        <figcaption>Podlewam ją i stawiam w słońcu</figcaption>
+        <span class="linia-ciecia" aria-hidden="true"></span>
+      </figure>
+      <figure class="kafel">
+        <span class="numer">5</span>
+        <svg viewBox="0 0 300 240" role="img" aria-label="Roślinka odżyła i zakwitła">
+  <rect x="0" y="0" width="300" height="240" fill="#DCEEFF"/>
+  <circle cx="254" cy="40" r="24" fill="#FFD86B"/>
+  <circle cx="254" cy="40" r="16" fill="#FFB84D" opacity=".55"/>
+  <path d="M 0 194 q 75.0 -22 150.0 0 q 75.0 22 150.0 0 L 300 240 L 0 240 z" fill="#BFE9C8"/>
+  <path d="M 120.0 146 L 180.0 146 L 172.0 186.0 L 128.0 186.0 z" fill="#F4A26B"/>
+  <rect x="116.0" y="136.0" width="68.0" height="14.0" rx="6.0" fill="#D9793F"/>
+  <ellipse cx="150" cy="142.0" rx="28.0" ry="6.0" fill="#8C6242"/>
+  <path d="M 150 142 L 150 98" stroke="#5FBF7A" stroke-width="6" stroke-linecap="round"/>
+  <ellipse cx="136" cy="114" rx="13" ry="7" fill="#77D48C" transform="rotate(-25 136 114)"/>
+  <ellipse cx="164" cy="122" rx="13" ry="7" fill="#77D48C" transform="rotate(25 164 122)"/>
+  <ellipse cx="150" cy="84" rx="9" ry="16" fill="#FF9FC2" transform="rotate(0 150 84)"/><ellipse cx="150" cy="84" rx="9" ry="16" fill="#FF7BAA" transform="rotate(60 150 84)"/><ellipse cx="150" cy="84" rx="9" ry="16" fill="#FF9FC2" transform="rotate(120 150 84)"/><ellipse cx="150" cy="84" rx="9" ry="16" fill="#FF7BAA" transform="rotate(180 150 84)"/><ellipse cx="150" cy="84" rx="9" ry="16" fill="#FF9FC2" transform="rotate(240 150 84)"/><ellipse cx="150" cy="84" rx="9" ry="16" fill="#FF7BAA" transform="rotate(300 150 84)"/>
+  <circle cx="150" cy="84" r="10" fill="#FFE08A"/>
+  <g>
+    <ellipse cx="56" cy="145.8" rx="18.2" ry="4.8999999999999995" fill="#000" opacity=".08"/>
+    <rect x="43.4" y="116.4" width="25.2" height="28.0" rx="9.799999999999999" fill="#F49BC1"/>
+    <rect x="48.3" y="140.2" width="6.3" height="8.399999999999999" rx="2.8" fill="#FFDCC2"/>
+    <rect x="57.4" y="140.2" width="6.3" height="8.399999999999999" rx="2.8" fill="#FFDCC2"/>
+    <circle cx="56" cy="99.6" r="16.799999999999997" fill="#FFDCC2"/>
+    <path d="M 39.2 96.8 a 16.799999999999997 16.799999999999997 0 0 1 33.599999999999994 0 q -16.799999999999997 -9.799999999999999 -33.599999999999994 0 z" fill="#8C5A3C"/>
+    <circle cx="49.7" cy="98.2" r="2.2399999999999998" fill="#4A3B6B"/>
+    <circle cx="62.3" cy="98.2" r="2.2399999999999998" fill="#4A3B6B"/>
+    <circle cx="44.8" cy="103.8" r="3.15" fill="#FFB3C7" opacity=".65"/>
+    <circle cx="67.2" cy="103.8" r="3.15" fill="#FFB3C7" opacity=".65"/>
+    <path d="M 53.2 102.4 a 2.8 2.8 0 1 0 5.6 0 a 2.8 2.8 0 1 0 -5.6 0" stroke="#4A3B6B" stroke-width="1.68" fill="none" stroke-linecap="round"/>
+  </g><path d="M 228 92.35 C 209.6 77.4 217.65 59.0 228 69.35 C 238.35 59.0 246.4 77.4 228 92.35 Z" fill="#FF8FB1"/>
+        </svg>
+        <figcaption>Roślinka odżyła i zakwitła</figcaption>
+        <span class="linia-ciecia" aria-hidden="true"></span>
+      </figure>
+  </div>
+  <div class="zal-stopka">
+    <span><b>Polecenie dla dziecka:</b> „Ułóż obrazki po kolei i opowiedz, co się wydarzyło.”</span>
+    <span class="mono">EduPlaner 2026 · PCTP · druk KC-3 · załącznik Z3</span>
+  </div>
+</section>
+    </div>
+
     <div class="kfoot">
       <button class="chipbtn zamknij" data-close="kon-C-1">✕ Zamknij i wróć do tabeli</button>
       <button class="chipbtn" style="background:var(--strong); border-color:var(--strong); color:var(--on-strong)" data-printkon="kon-C-1">Drukuj konspekt A4</button>
@@ -15689,6 +16260,7 @@ tr.tbanner .bsep{color:var(--accent); padding:0 5px}
       </ul></div>
     </div>
     <div class="kwsk"><b>Wskazówka dla prowadzącego:</b> Dopasowanie do obrazka jest testem rozumienia — dziecko, które odczyta wyraz, ale nie wskaże obrazka, jeszcze nie czyta, tylko dekoduje.</div>
+
     <div class="kfoot">
       <button class="chipbtn zamknij" data-close="kon-C-2">✕ Zamknij i wróć do tabeli</button>
       <button class="chipbtn" style="background:var(--strong); border-color:var(--strong); color:var(--on-strong)" data-printkon="kon-C-2">Drukuj konspekt A4</button>
@@ -15838,6 +16410,7 @@ tr.tbanner .bsep{color:var(--accent); padding:0 5px}
       </ul></div>
     </div>
     <div class="kwsk"><b>Wskazówka dla prowadzącego:</b> Palec w piasku przed ołówkiem w liniaturze — ruch zapamiętany całym ramieniem przenosi się na papier, a wyuczony od razu na małej kratce zwykle nie.</div>
+
     <div class="kfoot">
       <button class="chipbtn zamknij" data-close="kon-C-3">✕ Zamknij i wróć do tabeli</button>
       <button class="chipbtn" style="background:var(--strong); border-color:var(--strong); color:var(--on-strong)" data-printkon="kon-C-3">Drukuj konspekt A4</button>
@@ -15987,6 +16560,7 @@ tr.tbanner .bsep{color:var(--accent); padding:0 5px}
       </ul></div>
     </div>
     <div class="kwsk"><b>Wskazówka dla prowadzącego:</b> Zapisuj działanie dopiero po wykonaniu go na liczmanach — cyfra ma być podsumowaniem czynności, nie poleceniem do odgadnięcia.</div>
+
     <div class="kfoot">
       <button class="chipbtn zamknij" data-close="kon-C-4">✕ Zamknij i wróć do tabeli</button>
       <button class="chipbtn" style="background:var(--strong); border-color:var(--strong); color:var(--on-strong)" data-printkon="kon-C-4">Drukuj konspekt A4</button>
@@ -16136,6 +16710,7 @@ tr.tbanner .bsep{color:var(--accent); padding:0 5px}
       </ul></div>
     </div>
     <div class="kwsk"><b>Wskazówka dla prowadzącego:</b> Zapisz hipotezę przed pomiarem — bez tego doświadczenie zamienia się w zabawę wagą, a dziecko nigdy nie przeżywa momentu, w którym rzeczywistość zaskakuje.</div>
+
     <div class="kfoot">
       <button class="chipbtn zamknij" data-close="kon-C-5">✕ Zamknij i wróć do tabeli</button>
       <button class="chipbtn" style="background:var(--strong); border-color:var(--strong); color:var(--on-strong)" data-printkon="kon-C-5">Drukuj konspekt A4</button>
@@ -16285,6 +16860,7 @@ tr.tbanner .bsep{color:var(--accent); padding:0 5px}
       </ul></div>
     </div>
     <div class="kwsk"><b>Wskazówka dla prowadzącego:</b> Pytanie „czy wyszło tak, jak planowałeś” zamyka pętlę uczenia — bez porównania efektu z zamiarem plan pozostaje ćwiczeniem układania obrazków.</div>
+
     <div class="kfoot">
       <button class="chipbtn zamknij" data-close="kon-C-6">✕ Zamknij i wróć do tabeli</button>
       <button class="chipbtn" style="background:var(--strong); border-color:var(--strong); color:var(--on-strong)" data-printkon="kon-C-6">Drukuj konspekt A4</button>
@@ -16434,6 +17010,7 @@ tr.tbanner .bsep{color:var(--accent); padding:0 5px}
       </ul></div>
     </div>
     <div class="kwsk"><b>Wskazówka dla prowadzącego:</b> Kartonik pomocy uczy dwóch rzeczy naraz — proszenia o wsparcie i niewyrywania się z krzesła; bez niego dziecko przy każdej trudności wstaje i traci wątek.</div>
+
     <div class="kfoot">
       <button class="chipbtn zamknij" data-close="kon-C-7">✕ Zamknij i wróć do tabeli</button>
       <button class="chipbtn" style="background:var(--strong); border-color:var(--strong); color:var(--on-strong)" data-printkon="kon-C-7">Drukuj konspekt A4</button>
@@ -16583,6 +17160,7 @@ tr.tbanner .bsep{color:var(--accent); padding:0 5px}
       </ul></div>
     </div>
     <div class="kwsk"><b>Wskazówka dla prowadzącego:</b> Zacznij od gier kooperacyjnych, a rywalizację wprowadzaj dopiero po nich — sześciolatek uczy się przegrywać wtedy, gdy najpierw poczuł, że wygrywa się razem.</div>
+
     <div class="kfoot">
       <button class="chipbtn zamknij" data-close="kon-C-8">✕ Zamknij i wróć do tabeli</button>
       <button class="chipbtn" style="background:var(--strong); border-color:var(--strong); color:var(--on-strong)" data-printkon="kon-C-8">Drukuj konspekt A4</button>
@@ -16732,6 +17310,7 @@ tr.tbanner .bsep{color:var(--accent); padding:0 5px}
       </ul></div>
     </div>
     <div class="kwsk"><b>Wskazówka dla prowadzącego:</b> Używaj realnych zdjęć z ostatnich dni — pojęcie „wczoraj” staje się zrozumiałe dopiero wtedy, gdy dziecko widzi siebie na fotografii z konkretnego dnia.</div>
+
     <div class="kfoot">
       <button class="chipbtn zamknij" data-close="kon-C-9">✕ Zamknij i wróć do tabeli</button>
       <button class="chipbtn" style="background:var(--strong); border-color:var(--strong); color:var(--on-strong)" data-printkon="kon-C-9">Drukuj konspekt A4</button>
@@ -16881,6 +17460,7 @@ tr.tbanner .bsep{color:var(--accent); padding:0 5px}
       </ul></div>
     </div>
     <div class="kwsk"><b>Wskazówka dla prowadzącego:</b> Przerwa musi mieć wyznaczony koniec — klepsydra zamienia ucieczkę od zadania w narzędzie powrotu do niego.</div>
+
     <div class="kfoot">
       <button class="chipbtn zamknij" data-close="kon-C-10">✕ Zamknij i wróć do tabeli</button>
       <button class="chipbtn" style="background:var(--strong); border-color:var(--strong); color:var(--on-strong)" data-printkon="kon-C-10">Drukuj konspekt A4</button>
@@ -17030,6 +17610,7 @@ tr.tbanner .bsep{color:var(--accent); padding:0 5px}
       </ul></div>
     </div>
     <div class="kwsk"><b>Wskazówka dla prowadzącego:</b> Nagranie jest najskuteczniejszą autokontrolą — dziecko, które usłyszy siebie, wyłapuje własne błędy szybciej, niż gdy poprawia je dorosły.</div>
+
     <div class="kfoot">
       <button class="chipbtn zamknij" data-close="kon-C-11">✕ Zamknij i wróć do tabeli</button>
       <button class="chipbtn" style="background:var(--strong); border-color:var(--strong); color:var(--on-strong)" data-printkon="kon-C-11">Drukuj konspekt A4</button>
@@ -17179,6 +17760,7 @@ tr.tbanner .bsep{color:var(--accent); padding:0 5px}
       </ul></div>
     </div>
     <div class="kwsk"><b>Wskazówka dla prowadzącego:</b> Zacznij od syntezy, nie od analizy — scalanie głosek w wyraz jest dla sześciolatka łatwiejsze i daje sukces, który otwiera drogę do dzielenia.</div>
+
     <div class="kfoot">
       <button class="chipbtn zamknij" data-close="kon-C-12">✕ Zamknij i wróć do tabeli</button>
       <button class="chipbtn" style="background:var(--strong); border-color:var(--strong); color:var(--on-strong)" data-printkon="kon-C-12">Drukuj konspekt A4</button>
@@ -17328,6 +17910,7 @@ tr.tbanner .bsep{color:var(--accent); padding:0 5px}
       </ul></div>
     </div>
     <div class="kwsk"><b>Wskazówka dla prowadzącego:</b> Mapa bajki z czterema polami zastępuje pytania pomocnicze — dziecko widzi strukturę opowieści i przestaje gubić się w szczegółach.</div>
+
     <div class="kfoot">
       <button class="chipbtn zamknij" data-close="kon-C-13">✕ Zamknij i wróć do tabeli</button>
       <button class="chipbtn" style="background:var(--strong); border-color:var(--strong); color:var(--on-strong)" data-printkon="kon-C-13">Drukuj konspekt A4</button>
@@ -17477,6 +18060,7 @@ tr.tbanner .bsep{color:var(--accent); padding:0 5px}
       </ul></div>
     </div>
     <div class="kwsk"><b>Wskazówka dla prowadzącego:</b> Pytanie „czy ktoś zmienił zdanie” jest sercem debaty — uczy, że słuchanie innych może coś zmienić, a to rzadka i cenna umiejętność.</div>
+
     <div class="kfoot">
       <button class="chipbtn zamknij" data-close="kon-C-14">✕ Zamknij i wróć do tabeli</button>
       <button class="chipbtn" style="background:var(--strong); border-color:var(--strong); color:var(--on-strong)" data-printkon="kon-C-14">Drukuj konspekt A4</button>
@@ -17626,6 +18210,7 @@ tr.tbanner .bsep{color:var(--accent); padding:0 5px}
       </ul></div>
     </div>
     <div class="kwsk"><b>Wskazówka dla prowadzącego:</b> Maskotka, która „nie rozumie po polsku”, robi więcej niż godzina tłumaczenia — daje realny powód, by spróbować powiedzieć coś w obcym języku.</div>
+
     <div class="kfoot">
       <button class="chipbtn zamknij" data-close="kon-C-15">✕ Zamknij i wróć do tabeli</button>
       <button class="chipbtn" style="background:var(--strong); border-color:var(--strong); color:var(--on-strong)" data-printkon="kon-C-15">Drukuj konspekt A4</button>
@@ -17775,6 +18360,7 @@ tr.tbanner .bsep{color:var(--accent); padding:0 5px}
       </ul></div>
     </div>
     <div class="kwsk"><b>Wskazówka dla prowadzącego:</b> Ćwiczenia przekraczające linię środkową ciała są bezpośrednim treningiem dla oka wodzącego po wierszu — to nie rozgrzewka, to przygotowanie do czytania.</div>
+
     <div class="kfoot">
       <button class="chipbtn zamknij" data-close="kon-C-16">✕ Zamknij i wróć do tabeli</button>
       <button class="chipbtn" style="background:var(--strong); border-color:var(--strong); color:var(--on-strong)" data-printkon="kon-C-16">Drukuj konspekt A4</button>
@@ -17924,6 +18510,7 @@ tr.tbanner .bsep{color:var(--accent); padding:0 5px}
       </ul></div>
     </div>
     <div class="kwsk"><b>Wskazówka dla prowadzącego:</b> Sprawdź wysokość krzeseł, zanim zaczniesz przypominać o postawie — dziecko z nogami w powietrzu nie utrzyma prostych pleców przy najlepszych chęciach.</div>
+
     <div class="kfoot">
       <button class="chipbtn zamknij" data-close="kon-C-17">✕ Zamknij i wróć do tabeli</button>
       <button class="chipbtn" style="background:var(--strong); border-color:var(--strong); color:var(--on-strong)" data-printkon="kon-C-17">Drukuj konspekt A4</button>
@@ -18073,6 +18660,7 @@ tr.tbanner .bsep{color:var(--accent); padding:0 5px}
       </ul></div>
     </div>
     <div class="kwsk"><b>Wskazówka dla prowadzącego:</b> Kalka pod kartą pokazuje nacisk, którego nie widać na wierzchu — to jedyny sposób, by dziecko samo zobaczyło, gdzie przyciska za mocno.</div>
+
     <div class="kfoot">
       <button class="chipbtn zamknij" data-close="kon-C-18">✕ Zamknij i wróć do tabeli</button>
       <button class="chipbtn" style="background:var(--strong); border-color:var(--strong); color:var(--on-strong)" data-printkon="kon-C-18">Drukuj konspekt A4</button>
@@ -18221,6 +18809,7 @@ tr.tbanner .bsep{color:var(--accent); padding:0 5px}
       </ul></div>
     </div>
     <div class="kwsk"><b>Wskazówka dla prowadzącego:</b> Sznurowadło w dwóch kolorach rozwiązuje główną trudność wiązania — dziecko przestaje mylić, która końcówka idzie pod którą.</div>
+
     <div class="kfoot">
       <button class="chipbtn zamknij" data-close="kon-C-19">✕ Zamknij i wróć do tabeli</button>
       <button class="chipbtn" style="background:var(--strong); border-color:var(--strong); color:var(--on-strong)" data-printkon="kon-C-19">Drukuj konspekt A4</button>
@@ -18370,6 +18959,7 @@ tr.tbanner .bsep{color:var(--accent); padding:0 5px}
       </ul></div>
     </div>
     <div class="kwsk"><b>Wskazówka dla prowadzącego:</b> Nie pokazuj ruchu przed słuchaniem — pokaz zamienia interpretację w naśladownictwo i odbiera dziecku moment własnego odczytania muzyki.</div>
+
     <div class="kfoot">
       <button class="chipbtn zamknij" data-close="kon-C-20">✕ Zamknij i wróć do tabeli</button>
       <button class="chipbtn" style="background:var(--strong); border-color:var(--strong); color:var(--on-strong)" data-printkon="kon-C-20">Drukuj konspekt A4</button>
@@ -18519,6 +19109,7 @@ tr.tbanner .bsep{color:var(--accent); padding:0 5px}
       </ul></div>
     </div>
     <div class="kwsk"><b>Wskazówka dla prowadzącego:</b> Porównuj czas dziecka z jego własnym wynikiem, nigdy z innymi — rekord pobity samemu motywuje, przegrana z kolegą zniechęca na tygodnie.</div>
+
     <div class="kfoot">
       <button class="chipbtn zamknij" data-close="kon-C-21">✕ Zamknij i wróć do tabeli</button>
       <button class="chipbtn" style="background:var(--strong); border-color:var(--strong); color:var(--on-strong)" data-printkon="kon-C-21">Drukuj konspekt A4</button>
@@ -18668,6 +19259,7 @@ tr.tbanner .bsep{color:var(--accent); padding:0 5px}
       </ul></div>
     </div>
     <div class="kwsk"><b>Wskazówka dla prowadzącego:</b> Półmisek na stole zamiast talerza nałożonego w kuchni — to jedna zmiana organizacyjna, która uczy oceny porcji, planowania i samodzielności naraz.</div>
+
     <div class="kfoot">
       <button class="chipbtn zamknij" data-close="kon-C-22">✕ Zamknij i wróć do tabeli</button>
       <button class="chipbtn" style="background:var(--strong); border-color:var(--strong); color:var(--on-strong)" data-printkon="kon-C-22">Drukuj konspekt A4</button>
@@ -18817,6 +19409,7 @@ tr.tbanner .bsep{color:var(--accent); padding:0 5px}
       </ul></div>
     </div>
     <div class="kwsk"><b>Wskazówka dla prowadzącego:</b> Poproś dziecko, by wytłumaczyło zasadę młodszym — nic nie utrwala wiedzy tak jak konieczność wyjaśnienia jej komuś innemu własnymi słowami.</div>
+
     <div class="kfoot">
       <button class="chipbtn zamknij" data-close="kon-C-23">✕ Zamknij i wróć do tabeli</button>
       <button class="chipbtn" style="background:var(--strong); border-color:var(--strong); color:var(--on-strong)" data-printkon="kon-C-23">Drukuj konspekt A4</button>
@@ -18966,6 +19559,7 @@ tr.tbanner .bsep{color:var(--accent); padding:0 5px}
       </ul></div>
     </div>
     <div class="kwsk"><b>Wskazówka dla prowadzącego:</b> Zbuduj miasteczko ruchu z dziećmi, nie dla dzieci — kładąc taśmę przejścia, dziecko zapamiętuje jego układ lepiej niż z dziesięciu pogadanek.</div>
+
     <div class="kfoot">
       <button class="chipbtn zamknij" data-close="kon-C-24">✕ Zamknij i wróć do tabeli</button>
       <button class="chipbtn" style="background:var(--strong); border-color:var(--strong); color:var(--on-strong)" data-printkon="kon-C-24">Drukuj konspekt A4</button>
@@ -19115,6 +19709,7 @@ tr.tbanner .bsep{color:var(--accent); padding:0 5px}
       </ul></div>
     </div>
     <div class="kwsk"><b>Wskazówka dla prowadzącego:</b> Ucz odmawiania w scenkach, nie w rozmowie — słowo „nie” wypowiedziane głośno w bezpiecznej sytuacji zostaje w ciele i wraca wtedy, gdy jest naprawdę potrzebne.</div>
+
     <div class="kfoot">
       <button class="chipbtn zamknij" data-close="kon-C-25">✕ Zamknij i wróć do tabeli</button>
       <button class="chipbtn" style="background:var(--strong); border-color:var(--strong); color:var(--on-strong)" data-printkon="kon-C-25">Drukuj konspekt A4</button>
@@ -19264,6 +19859,7 @@ tr.tbanner .bsep{color:var(--accent); padding:0 5px}
       </ul></div>
     </div>
     <div class="kwsk"><b>Wskazówka dla prowadzącego:</b> Przeliczanie miejsc przed nakryciem to ukryta matematyka — dyżur staje się wtedy zadaniem liczbowym o realnym celu.</div>
+
     <div class="kfoot">
       <button class="chipbtn zamknij" data-close="kon-C-26">✕ Zamknij i wróć do tabeli</button>
       <button class="chipbtn" style="background:var(--strong); border-color:var(--strong); color:var(--on-strong)" data-printkon="kon-C-26">Drukuj konspekt A4</button>
@@ -19413,6 +20009,7 @@ tr.tbanner .bsep{color:var(--accent); padding:0 5px}
       </ul></div>
     </div>
     <div class="kwsk"><b>Wskazówka dla prowadzącego:</b> Rozliczenie na kręgu w piątek zamyka tydzień odpowiedzialności — bez niego dyżur jest czynnością, z nim staje się zobowiązaniem wobec grupy.</div>
+
     <div class="kfoot">
       <button class="chipbtn zamknij" data-close="kon-C-27">✕ Zamknij i wróć do tabeli</button>
       <button class="chipbtn" style="background:var(--strong); border-color:var(--strong); color:var(--on-strong)" data-printkon="kon-C-27">Drukuj konspekt A4</button>
@@ -19562,6 +20159,7 @@ tr.tbanner .bsep{color:var(--accent); padding:0 5px}
       </ul></div>
     </div>
     <div class="kwsk"><b>Wskazówka dla prowadzącego:</b> Cotygodniowy przegląd rzeczy jest ważniejszy niż codzienne układanie — dziecko uczy się, że porządek to także decydowanie, co zostaje, a co odchodzi.</div>
+
     <div class="kfoot">
       <button class="chipbtn zamknij" data-close="kon-C-28">✕ Zamknij i wróć do tabeli</button>
       <button class="chipbtn" style="background:var(--strong); border-color:var(--strong); color:var(--on-strong)" data-printkon="kon-C-28">Drukuj konspekt A4</button>
@@ -19711,6 +20309,7 @@ tr.tbanner .bsep{color:var(--accent); padding:0 5px}
       </ul></div>
     </div>
     <div class="kwsk"><b>Wskazówka dla prowadzącego:</b> Miarka na konewce ratuje rośliny i uczy odmierzania — bez niej pierwszy tydzień dyżurów kończy się zwykle przelaniem wszystkich doniczek.</div>
+
     <div class="kfoot">
       <button class="chipbtn zamknij" data-close="kon-C-29">✕ Zamknij i wróć do tabeli</button>
       <button class="chipbtn" style="background:var(--strong); border-color:var(--strong); color:var(--on-strong)" data-printkon="kon-C-29">Drukuj konspekt A4</button>
@@ -19860,6 +20459,7 @@ tr.tbanner .bsep{color:var(--accent); padding:0 5px}
       </ul></div>
     </div>
     <div class="kwsk"><b>Wskazówka dla prowadzącego:</b> Zapisuj decyzje w protokole i wracaj do nich — rada grupy działa dopiero wtedy, gdy dzieci widzą, że ich głosowanie naprawdę coś zmieniło.</div>
+
     <div class="kfoot">
       <button class="chipbtn zamknij" data-close="kon-C-30">✕ Zamknij i wróć do tabeli</button>
       <button class="chipbtn" style="background:var(--strong); border-color:var(--strong); color:var(--on-strong)" data-printkon="kon-C-30">Drukuj konspekt A4</button>
@@ -20009,6 +20609,7 @@ tr.tbanner .bsep{color:var(--accent); padding:0 5px}
       </ul></div>
     </div>
     <div class="kwsk"><b>Wskazówka dla prowadzącego:</b> Podpis dziecka pod kodeksem nie jest ozdobą — to moment, w którym zasada przestaje być poleceniem dorosłego, a staje się zobowiązaniem własnym.</div>
+
     <div class="kfoot">
       <button class="chipbtn zamknij" data-close="kon-C-31">✕ Zamknij i wróć do tabeli</button>
       <button class="chipbtn" style="background:var(--strong); border-color:var(--strong); color:var(--on-strong)" data-printkon="kon-C-31">Drukuj konspekt A4</button>
@@ -20158,6 +20759,7 @@ tr.tbanner .bsep{color:var(--accent); padding:0 5px}
       </ul></div>
     </div>
     <div class="kwsk"><b>Wskazówka dla prowadzącego:</b> Pytanie „jak to naprawisz” zmienia przeprosiny w działanie — samo słowo bywa wyuczoną formułką, naprawienie szkody nigdy nią nie jest.</div>
+
     <div class="kfoot">
       <button class="chipbtn zamknij" data-close="kon-C-32">✕ Zamknij i wróć do tabeli</button>
       <button class="chipbtn" style="background:var(--strong); border-color:var(--strong); color:var(--on-strong)" data-printkon="kon-C-32">Drukuj konspekt A4</button>
@@ -20307,6 +20909,7 @@ tr.tbanner .bsep{color:var(--accent); padding:0 5px}
       </ul></div>
     </div>
     <div class="kwsk"><b>Wskazówka dla prowadzącego:</b> Zasada pomagam, nie wyręczam wymaga ćwiczenia — sześciolatek najchętniej zrobi zadanie za kolegę, bo tak jest szybciej i przyjemniej.</div>
+
     <div class="kfoot">
       <button class="chipbtn zamknij" data-close="kon-C-33">✕ Zamknij i wróć do tabeli</button>
       <button class="chipbtn" style="background:var(--strong); border-color:var(--strong); color:var(--on-strong)" data-printkon="kon-C-33">Drukuj konspekt A4</button>
@@ -20456,6 +21059,7 @@ tr.tbanner .bsep{color:var(--accent); padding:0 5px}
       </ul></div>
     </div>
     <div class="kwsk"><b>Wskazówka dla prowadzącego:</b> Zagnieceń na sercu nie da się wyprostować i to jest cała lekcja — obraz zostaje w pamięci dłużej niż każde tłumaczenie o dobrych słowach.</div>
+
     <div class="kfoot">
       <button class="chipbtn zamknij" data-close="kon-C-34">✕ Zamknij i wróć do tabeli</button>
       <button class="chipbtn" style="background:var(--strong); border-color:var(--strong); color:var(--on-strong)" data-printkon="kon-C-34">Drukuj konspekt A4</button>
@@ -20605,6 +21209,7 @@ tr.tbanner .bsep{color:var(--accent); padding:0 5px}
       </ul></div>
     </div>
     <div class="kwsk"><b>Wskazówka dla prowadzącego:</b> Oceniaj współpracę osobno od efektu — zespół z ładną makietą i awanturą przy stole nie osiągnął celu, który tu ćwiczymy.</div>
+
     <div class="kfoot">
       <button class="chipbtn zamknij" data-close="kon-C-35">✕ Zamknij i wróć do tabeli</button>
       <button class="chipbtn" style="background:var(--strong); border-color:var(--strong); color:var(--on-strong)" data-printkon="kon-C-35">Drukuj konspekt A4</button>
@@ -20754,6 +21359,7 @@ tr.tbanner .bsep{color:var(--accent); padding:0 5px}
       </ul></div>
     </div>
     <div class="kwsk"><b>Wskazówka dla prowadzącego:</b> Pytaj, z czego dziecko jest dumne, zamiast chwalić za nie — duma nazwana samodzielnie buduje motywację trwalszą niż każda pochwała dorosłego.</div>
+
     <div class="kfoot">
       <button class="chipbtn zamknij" data-close="kon-C-36">✕ Zamknij i wróć do tabeli</button>
       <button class="chipbtn" style="background:var(--strong); border-color:var(--strong); color:var(--on-strong)" data-printkon="kon-C-36">Drukuj konspekt A4</button>
@@ -20903,6 +21509,7 @@ tr.tbanner .bsep{color:var(--accent); padding:0 5px}
       </ul></div>
     </div>
     <div class="kwsk"><b>Wskazówka dla prowadzącego:</b> Medal za fair play przyznawany przez dzieci zmienia hierarchię turnieju — wygrywa nie ten, kto był pierwszy, lecz ten, kto grał uczciwie.</div>
+
     <div class="kfoot">
       <button class="chipbtn zamknij" data-close="kon-C-37">✕ Zamknij i wróć do tabeli</button>
       <button class="chipbtn" style="background:var(--strong); border-color:var(--strong); color:var(--on-strong)" data-printkon="kon-C-37">Drukuj konspekt A4</button>
@@ -21052,6 +21659,7 @@ tr.tbanner .bsep{color:var(--accent); padding:0 5px}
       </ul></div>
     </div>
     <div class="kwsk"><b>Wskazówka dla prowadzącego:</b> Używaj prawdziwych monet — plastikowe żetony uczą liczenia, ale dopiero prawdziwa moneta uczy, że pieniądz ma wartość poza zabawą.</div>
+
     <div class="kfoot">
       <button class="chipbtn zamknij" data-close="kon-C-38">✕ Zamknij i wróć do tabeli</button>
       <button class="chipbtn" style="background:var(--strong); border-color:var(--strong); color:var(--on-strong)" data-printkon="kon-C-38">Drukuj konspekt A4</button>
@@ -21201,6 +21809,7 @@ tr.tbanner .bsep{color:var(--accent); padding:0 5px}
       </ul></div>
     </div>
     <div class="kwsk"><b>Wskazówka dla prowadzącego:</b> Tablica pytań musi być prowadzona na bieżąco — dziecko szuka odpowiedzi z zapałem tylko wtedy, gdy pytanie jest naprawdę jego, a nie zadane przez dorosłego.</div>
+
     <div class="kfoot">
       <button class="chipbtn zamknij" data-close="kon-C-39">✕ Zamknij i wróć do tabeli</button>
       <button class="chipbtn" style="background:var(--strong); border-color:var(--strong); color:var(--on-strong)" data-printkon="kon-C-39">Drukuj konspekt A4</button>
@@ -21350,6 +21959,7 @@ tr.tbanner .bsep{color:var(--accent); padding:0 5px}
       </ul></div>
     </div>
     <div class="kwsk"><b>Wskazówka dla prowadzącego:</b> Zacznij od zdjęcia dziecka w środku planszy — abstrakcyjne pojęcie przynależności staje się zrozumiałe, gdy dziecko widzi siebie w centrum kręgów.</div>
+
     <div class="kfoot">
       <button class="chipbtn zamknij" data-close="kon-C-40">✕ Zamknij i wróć do tabeli</button>
       <button class="chipbtn" style="background:var(--strong); border-color:var(--strong); color:var(--on-strong)" data-printkon="kon-C-40">Drukuj konspekt A4</button>
@@ -21500,6 +22110,7 @@ tr.tbanner .bsep{color:var(--accent); padding:0 5px}
       </ul></div>
     </div>
     <div class="kwsk"><b>Wskazówka dla prowadzącego:</b> Kącik patriotyczny dostępny codziennie działa lepiej niż akademia raz w roku — symbole poznaje się przez obecność, nie przez uroczystość.</div>
+
     <div class="kfoot">
       <button class="chipbtn zamknij" data-close="kon-C-41">✕ Zamknij i wróć do tabeli</button>
       <button class="chipbtn" style="background:var(--strong); border-color:var(--strong); color:var(--on-strong)" data-printkon="kon-C-41">Drukuj konspekt A4</button>
@@ -21649,6 +22260,7 @@ tr.tbanner .bsep{color:var(--accent); padding:0 5px}
       </ul></div>
     </div>
     <div class="kwsk"><b>Wskazówka dla prowadzącego:</b> Ćwicz odmowę w scenkach, nie w pogadance — dziecko musi usłyszeć własny głos mówiący „nie podam”, zanim znajdzie się w prawdziwej sytuacji.</div>
+
     <div class="kfoot">
       <button class="chipbtn zamknij" data-close="kon-C-42">✕ Zamknij i wróć do tabeli</button>
       <button class="chipbtn" style="background:var(--strong); border-color:var(--strong); color:var(--on-strong)" data-printkon="kon-C-42">Drukuj konspekt A4</button>
@@ -21798,6 +22410,7 @@ tr.tbanner .bsep{color:var(--accent); padding:0 5px}
       </ul></div>
     </div>
     <div class="kwsk"><b>Wskazówka dla prowadzącego:</b> Licznik pokazujący litry zużytej wody robi wrażenie, jakiego nie zrobi żadna pogadanka — abstrakcyjne oszczędzanie staje się konkretną liczbą.</div>
+
     <div class="kfoot">
       <button class="chipbtn zamknij" data-close="kon-C-43">✕ Zamknij i wróć do tabeli</button>
       <button class="chipbtn" style="background:var(--strong); border-color:var(--strong); color:var(--on-strong)" data-printkon="kon-C-43">Drukuj konspekt A4</button>
@@ -21947,6 +22560,7 @@ tr.tbanner .bsep{color:var(--accent); padding:0 5px}
       </ul></div>
     </div>
     <div class="kwsk"><b>Wskazówka dla prowadzącego:</b> Zaproś rodziców do opowiedzenia o swojej pracy — pół godziny z prawdziwym piekarzem czy pielęgniarką zostawia ślad, którego nie zostawi żadna plansza.</div>
+
     <div class="kfoot">
       <button class="chipbtn zamknij" data-close="kon-C-44">✕ Zamknij i wróć do tabeli</button>
       <button class="chipbtn" style="background:var(--strong); border-color:var(--strong); color:var(--on-strong)" data-printkon="kon-C-44">Drukuj konspekt A4</button>
@@ -22096,6 +22710,7 @@ tr.tbanner .bsep{color:var(--accent); padding:0 5px}
       </ul></div>
     </div>
     <div class="kwsk"><b>Wskazówka dla prowadzącego:</b> Światełko zawsze wędruje razem z głosem — nie dopuszczaj, by mówiło dziecko bez lampionu, bo sygnał przestaje być czytelny.</div>
+
     <div class="kfoot">
       <button class="chipbtn zamknij" data-close="kon-A-29">✕ Zamknij i wróć do tabeli</button>
       <button class="chipbtn" style="background:var(--strong); border-color:var(--strong); color:var(--on-strong)" data-printkon="kon-A-29">Drukuj konspekt A4</button>
@@ -22244,6 +22859,7 @@ tr.tbanner .bsep{color:var(--accent); padding:0 5px}
       </ul></div>
     </div>
     <div class="kwsk"><b>Wskazówka dla prowadzącego:</b> Przerwana piosenka działa lepiej niż polecenie „podaj” — cisza jest sygnałem, że ruch należy do dziecka.</div>
+
     <div class="kfoot">
       <button class="chipbtn zamknij" data-close="kon-A-30">✕ Zamknij i wróć do tabeli</button>
       <button class="chipbtn" style="background:var(--strong); border-color:var(--strong); color:var(--on-strong)" data-printkon="kon-A-30">Drukuj konspekt A4</button>
@@ -22392,6 +23008,7 @@ tr.tbanner .bsep{color:var(--accent); padding:0 5px}
       </ul></div>
     </div>
     <div class="kwsk"><b>Wskazówka dla prowadzącego:</b> Rytuał chroni tylko wtedy, gdy jest identyczny każdego dnia — wydłużanie przytulania „na prośbę” wydłuża płacz, nie skraca go.</div>
+
     <div class="kfoot">
       <button class="chipbtn zamknij" data-close="kon-A-31">✕ Zamknij i wróć do tabeli</button>
       <button class="chipbtn" style="background:var(--strong); border-color:var(--strong); color:var(--on-strong)" data-printkon="kon-A-31">Drukuj konspekt A4</button>
@@ -22540,6 +23157,7 @@ tr.tbanner .bsep{color:var(--accent); padding:0 5px}
       </ul></div>
     </div>
     <div class="kwsk"><b>Wskazówka dla prowadzącego:</b> Nazywaj emocję dopiero, gdy mina już jest — słowo doklejone do własnej twarzy dziecka utrwala się szybciej niż słowo z karty.</div>
+
     <div class="kfoot">
       <button class="chipbtn zamknij" data-close="kon-A-32">✕ Zamknij i wróć do tabeli</button>
       <button class="chipbtn" style="background:var(--strong); border-color:var(--strong); color:var(--on-strong)" data-printkon="kon-A-32">Drukuj konspekt A4</button>
@@ -22688,6 +23306,7 @@ tr.tbanner .bsep{color:var(--accent); padding:0 5px}
       </ul></div>
     </div>
     <div class="kwsk"><b>Wskazówka dla prowadzącego:</b> Prośba musi być tańsza niż płacz: reaguj na sygnał „pomoc” szybciej i cieplej niż na jakikolwiek inny sposób wołania.</div>
+
     <div class="kfoot">
       <button class="chipbtn zamknij" data-close="kon-A-33">✕ Zamknij i wróć do tabeli</button>
       <button class="chipbtn" style="background:var(--strong); border-color:var(--strong); color:var(--on-strong)" data-printkon="kon-A-33">Drukuj konspekt A4</button>
@@ -22759,6 +23378,15 @@ document.querySelectorAll('td.haskon').forEach(td=>{
 document.querySelectorAll('[data-close]').forEach(b=>b.addEventListener('click',zamknijKonspekty));
 document.querySelectorAll('.kmodal').forEach(m=>m.addEventListener('click',e=>{if(e.target===m)zamknijKonspekty();}));
 document.addEventListener('keydown',e=>{if(e.key==='Escape')zamknijKonspekty();});
+document.querySelectorAll('[data-printzal]').forEach(b=>b.addEventListener('click',()=>{
+  const strefa=document.getElementById(b.dataset.printzal).querySelector('.zal-strefa');
+  strefa.style.display='block';
+  document.documentElement.classList.add('print-zal');
+  const done=()=>{document.documentElement.classList.remove('print-zal'); strefa.style.display='none';
+    window.removeEventListener('afterprint',done);};
+  window.addEventListener('afterprint',done);
+  window.print();
+}));
 document.querySelectorAll('[data-printkon]').forEach(b=>b.addEventListener('click',()=>{
   document.documentElement.classList.add('print-konspekt');
   const done=()=>{document.documentElement.classList.remove('print-konspekt'); window.removeEventListener('afterprint',done);};

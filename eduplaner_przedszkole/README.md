@@ -189,3 +189,22 @@ trzech wersjach wiekowych ma własny scenariusz zajęć z wariantami dla trzech 
 | A · 3–4 lata | 42 | 42 |
 | B · 5 lat | 44 | 44 |
 | C · 6 lat | 44 | 44 |
+
+## Załączniki — pomoce dydaktyczne
+
+Konspekt może mieć dołączone gotowe pomoce do wydruku. Pierwsza z nich:
+
+`Zalaczniki_KC3_C1-01_Historyjki_6lat.pdf` — trzy historyjki obrazkowe
+**„Jak rośnie kwiatek”** do konspektu C1-01 (Warsztat historyjek, 6 lat),
+w gradacji odpowiadającej poziomom wsparcia:
+
+| Załącznik | Poziom | Obrazki | Fabuła |
+|---|---|---|---|
+| Z1 | Poziom III | 3 | sadzę → podlewam → wyrósł kwiat |
+| Z2 | Poziom II | 4 | nasionko → kiełek → podlewanie → kwitnienie |
+| Z3 | Poziom I | 5 | z problemem: zapomniane podlewanie i naprawa sytuacji |
+
+Rysunki są wektorowe (SVG generowane w `src/zalacznik_c1.py`), więc drukują się
+ostro w każdej skali. Każda historyjka zajmuje jedną stronę A4; obrazki mają
+numery, podpisy i przerywane ramki do wycięcia. W konspekcie C1-01 doszła
+sekcja VII „Załączniki” z przyciskiem **Drukuj załączniki Z1–Z3 (A4)**.
