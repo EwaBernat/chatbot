@@ -6,18 +6,16 @@ dostępu do serwerów HeyGen (szczegóły niżej).
 
 ## Twoja droga — lista kontrolna
 
-Wybrane ustalenia: **Claude Code lokalnie** + **głos sklonowany w ElevenLabs**.
+Ustalenia: **złącze HeyGen (MCP, bez klucza API)** + **głos sklonowany w ElevenLabs**.
 
-- [ ] 1. Klucz HeyGen z `app.heygen.com` → `export HEYGEN_API_KEY` w `~/.zshrc` (krok 1)
-- [ ] 2. Klucz ElevenLabs → `export ELEVENLABS_API_KEY` tamże (krok 1)
-- [ ] 3. Sklonuj to repozytorium u siebie i otwórz w nim Claude Code
-- [ ] 4. Zainstaluj CLI HeyGen, sprawdź `heygen --version` (krok 2)
-- [ ] 5. Nagraj ok. 3 minut próbek po polsku i sklonuj głos w ElevenLabs — IVC teraz, PVC docelowo (krok 3a)
-- [ ] 6. Nagraj krótkie wideo do awatara `digital_twin` (krok 3b)
-- [ ] 7. W Claude Code: „stwórz mój awatar — moja twarz" (krok 3)
-- [ ] 8. Pierwszy film: ElevenLabs robi MP3, HeyGen animuje usta (krok 5)
+- [ ] 1. Dodaj złącze HeyGen w ustawieniach Claude i zaloguj się przez OAuth (krok 1)
+- [ ] 2. **Nie ustawiaj `HEYGEN_API_KEY`** — wyłączyłby złącze (krok 1)
+- [ ] 3. Utwórz awatara ze swojej twarzy + nagraj zgodę na wizerunek (krok 3b)
+- [ ] 4. Wklej `Group ID` do [`AVATAR-EWA.md`](AVATAR-EWA.md) (krok 4)
+- [ ] 5. Pierwszy film: ElevenLabs robi MP3, HeyGen animuje usta (krok 5)
 
-Kroki 5 i 6 możesz robić równolegle.
+Głos masz już sklonowany w ElevenLabs (`Ewa-głos_do skils`) i przetestowany —
+krok 3a możesz pominąć, jest tam na wypadek, gdybyś kiedyś klonowała od nowa.
 
 ## Co jest zainstalowane
 
@@ -34,91 +32,98 @@ Obok stoi Twój wcześniejszy skill `dane-i-glos` — on prowadzi drogę
 **dane → scenariusz → głos ElevenLabs → film**. Nowe skille HeyGen są komplementarne:
 odpowiadają za tożsamość awatara i produkcję wideo.
 
-## ⚠️ Dlaczego nie da się tego dokończyć w sesji webowej
+## Uwaga o sesji webowej
 
-Claude Code na web działa w kontenerze z polityką ruchu wychodzącego, która
-**blokuje wszystkie domeny HeyGen** (403 na poziomie bramy):
+Kontener, w którym działa Claude Code na web, ma politykę ruchu wychodzącego
+blokującą (403) wszystkie domeny HeyGen i ElevenLabs — `api.heygen.com`,
+`static.heygen.ai`, `app.heygen.com`, `api.elevenlabs.io`. Dlatego **droga przez
+CLI i klucz API działa wyłącznie na Twoim komputerze.**
 
-```
-static.heygen.ai   → 403    (instalator CLI)
-api.heygen.com     → 403
-mcp.heygen.com     → 403
-app.heygen.com     → 403
-upload.heygen.com  → 403
-resource.heygen.com→ 403
-api.elevenlabs.io  → 403
-```
+**Złącza (MCP) to omijają.** Nie idą przez kontener, tylko przez infrastrukturę
+Claude — dokładnie tak działa podłączone złącze ElevenLabs, którym nagraliśmy
+Twój głos, mimo że `api.elevenlabs.io` jest zablokowane. Z tego samego powodu
+złącze HeyGen ma szansę zadziałać także tutaj, w sesji webowej.
 
-Nie da się tego obejść z wnętrza sesji — to polityka organizacji, nie błąd.
-Dlatego **awatara tworzysz z Claude Code uruchomionego na własnym komputerze**
-(desktop albo terminal). Repozytorium z tymi skillami wystarczy sklonować.
+## Krok 1 — złącze HeyGen (bez klucza API)
 
-Alternatywa: poprosić administratora o dopuszczenie tych domen dla środowiska
-Claude Code on the web ([ustawienia dostępu](https://claude.ai/admin-settings/claude-tag)).
+To jest droga zalecana przez samego HeyGena i lepsza dla Ciebie z trzech powodów:
+**nie potrzeba klucza**, **nie potrzeba instalować CLI**, a **rozliczenie idzie
+z Twojego obecnego planu HeyGen**, nie z osobnej puli kredytów API.
 
-## Krok 1 — klucze API
+1. W Claude otwórz **Ustawienia → Złącza** (Connectors) → **Dodaj niestandardowe złącze**.
+2. Nazwa: `HeyGen`. Adres serwera MCP:
 
-Potrzebne są dwa: HeyGen (twarz i render) oraz ElevenLabs (głos).
-
-1. **HeyGen:** [panel API HeyGen](https://app.heygen.com/home?from=&nav=API) → kliknij,
-   żeby wygenerować klucz. Klucz pokazuje się **tylko raz** — skopiuj go zanim zamkniesz okno.
-   (To dokładny adres z dokumentacji HeyGen. Przedrostek klucza nie jest wiarygodnym testem —
-   liczy się to, że pochodzi z tego panelu.)
-2. **ElevenLabs:** [elevenlabs.io](https://elevenlabs.io) → profil → **API Keys**.
-3. Wpisz oba do profilu powłoki (`~/.zshrc` albo `~/.bashrc`):
-
-   ```bash
-   export HEYGEN_API_KEY="hg_..."
-   export ELEVENLABS_API_KEY="sk_..."
+   ```
+   https://mcp.heygen.com/mcp/v1/
    ```
 
-4. `source ~/.zshrc` (albo nowe okno terminala) i **restart Claude Code** —
-   agent dziedziczy zmienne z powłoki rodzica, samo `source` w innym oknie nie wystarczy.
+3. Kliknij **Połącz** i zaloguj się do HeyGen. To jednorazowy OAuth.
+4. Gotowe. Twoje awatary i głosy z konta HeyGen są od tej chwili dostępne.
 
-Klucza **nie wklejaj do czatu ani do repozytorium**. `.env` jest w `.gitignore`,
-ale zmienna środowiskowa jest bezpieczniejsza.
+Z dokumentacji HeyGen wprost: złącze działa **na wszystkich planach**, nie kosztuje
+dodatkowo ponad plan, a Twoje własne awatary i głosy są przez nie dostępne.
 
-### Sprawdzenie, czy klucz działa
+### ⛔ Nie ustawiaj `HEYGEN_API_KEY`
 
-Oficjalna szybka weryfikacja z dokumentacji HeyGen — zwraca dane Twojego konta:
+To najważniejsza rzecz na tej stronie. Skille HeyGen wybierają drogę według drabinki:
 
-```bash
-curl -X GET "https://api.heygen.com/v3/users/me" \
-  -H "X-Api-Key: $HEYGEN_API_KEY"
+```
+wtyczka → CLI (gdy jest HEYGEN_API_KEY) → MCP → CLI
 ```
 
-Odpowiedź `200` z danymi konta = klucz ważny. Odpowiedź `401 unauthorized` = zły klucz
-albo zmienna nie dotarła do procesu. Pole `billing_type` (`wallet`, `subscription`
-albo `usage_based`) pokazuje Twój model rozliczeń i saldo.
-
-To jedyny moment, kiedy warto uderzyć w `api.heygen.com` bezpośrednio. **Do awatarów
-i filmów nie używaj curla** — skille chodzą przez CLI albo MCP i tylko przez wersję v3
-API; ręczne wywołania łatwo trafiają w przestarzałe punkty v1/v2.
-
-HeyGen API rozlicza się w kredytach (pay-as-you-go, bez darmowego progu) — Avatar V
-to ok. 6 kredytów za minutę wygenerowanego wideo. Sprawdź stan konta na
-[app.heygen.com/billing](https://app.heygen.com/billing) zanim zaczniesz.
-ElevenLabs liczy znaki tekstu; `elevenlabs_tts.py --limity` pokaże plan i pozostały limit.
-
-## Krok 2 — transport
-
-Skille rozmawiają z HeyGen przez CLI albo przez MCP. Nigdy przez `curl` do `api.heygen.com`.
-
-**CLI (najprostsze):**
+**Ustawiony `HEYGEN_API_KEY` zwiera obwód i wyłącza wykrywanie MCP.** Skill pójdzie
+wtedy przez CLI i zacznie zjadać osobne kredyty API zamiast Twojego planu.
+Jeśli klucz już gdzieś ustawiłaś, usuń go:
 
 ```bash
-curl -fsSL https://static.heygen.ai/cli/install.sh | bash
-heygen auth login          # albo po prostu zostaw HEYGEN_API_KEY w środowisku
-heygen --version           # musi zwrócić 0
+unset HEYGEN_API_KEY
+# i skasuj linijkę z ~/.zshrc, jeśli tam trafiła
 ```
 
-**MCP (alternatywa):** podłącz serwer `https://mcp.heygen.com/mcp/v1/` w ustawieniach
-Claude Code. Uwaga: **ustawiony `HEYGEN_API_KEY` wyłącza wykrywanie MCP** — skill wybiera
-wtedy CLI. Jeśli chcesz rozliczać się kredytami planu (a nie API), nie ustawiaj klucza.
+### Kiedy klucz API mimo wszystko ma sens
 
-> Podłączone w tej sesji złącze **HyperFrames by HeyGen** to *inny* produkt — buduje
-> filmy z kodu HTML i nie ma dostępu do awatarów ani do sklonowanego głosu.
-> Do awatara potrzebne jest CLI albo MCP HeyGen.
+Tylko jeśli chcesz uruchamiać **skrypty z `dane-i-glos`** (`heygen_awatar.py`) —
+one gadają z API bezpośrednio i złącza nie widzą. Wtedy klucz bierzesz z
+[panelu API HeyGen](https://app.heygen.com/home?from=&nav=API), a sprawdzasz tak:
+
+```bash
+curl -X GET "https://api.heygen.com/v3/users/me" -H "X-Api-Key: TWÓJ_KLUCZ"
+```
+
+`200` = klucz ważny; pole `billing_type` (`wallet`, `subscription`, `usage_based`)
+pokaże model rozliczeń. `401` = zły klucz.
+
+**Ale nie da się mieć obu naraz w jednej sesji.** Klucz w środowisku zawsze wygra
+ze złączem. Wybierz jedno: złącze (zalecane) albo klucz do skryptów.
+
+### Klucz ElevenLabs
+
+Ten jest potrzebny tylko lokalnie, do skryptów `dane-i-glos`. W sesji webowej
+głos robi złącze ElevenLabs, które już masz podłączone.
+
+```bash
+export ELEVENLABS_API_KEY="sk_..."    # elevenlabs.io → profil → API Keys
+```
+
+## Krok 2 — co dostajesz przez złącze
+
+Złącze daje agentowi komplet narzędzi HeyGen. Najważniejsze dla Ciebie:
+
+| Narzędzie | Do czego |
+|---|---|
+| `create_avatar` | awatar ze zdjęcia, nagrania (`digital_twin`) albo opisu |
+| `create_avatar_consent` | zwraca link do nagrania zgody na wizerunek — **ważny 24 h** |
+| `create_video` | film z awatara; **przyjmuje gotowe audio do synchronizacji ust** |
+| `create_lipsync` | podmienia ścieżkę dźwiękową w istniejącym filmie |
+| `list_avatar_groups`, `list_avatar_looks` | Twoje awatary i ich warianty |
+| `create_video_translation` | dubbing na inne języki z klonowaniem głosu |
+
+**To pierwsze i trzecie razem oznaczają, że cała Twoja droga da się przejść przez
+złącza, bez instalowania czegokolwiek:** ElevenLabs robi MP3 Twoim głosem,
+`create_video` bierze to MP3 i animuje do niego usta awatara.
+
+Skrypty z `dane-i-glos` i CLI HeyGen zostają jako droga zapasowa — przydadzą się,
+gdy będziesz chciała robić wszystko lokalnie albo automatem, bez rozmowy z agentem.
 
 ## Krok 3 — Twój awatar
 
@@ -249,10 +254,11 @@ heygen avatar list --ownership private
 
 ### To samo bez klikania
 
-Skill `heygen-avatar` przeprowadzi tworzenie z poziomu Claude Code i sam zapisze
-identyfikatory do pliku. Jedyne, czego nie zrobi, to **nagranie zgody na wizerunek** —
-ten krok zawsze przechodzisz w aplikacji HeyGen. Dlatego przy awatarze z własnej
-twarzy prościej jest zrobić go w aplikacji i wkleić `Group ID` ręcznie.
+Ze złączem HeyGen skill `heygen-avatar` zrobi to z poziomu rozmowy i sam zapisze
+identyfikatory do pliku. Nagranie **zgody na wizerunek** i tak przechodzisz sama
+w przeglądarce — ale nawet link do niej agent potrafi wygenerować
+(`create_avatar_consent`). Uwaga: **ten link jest ważny 24 godziny** i tylko na
+jedno udane przesłanie. Jeśli nie nagrasz w tym czasie, poproś o nowy.
 
 ### Pobranie i modyfikacja gotowego awatara
 
