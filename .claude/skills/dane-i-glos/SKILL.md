@@ -19,6 +19,31 @@ description: >-
 Jedno miejsce, z którego biorą się: nazwisko, funkcja, nazwa firmy, kontakt,
 kolory marki, podpis odręczny, logo — i wskazanie na głos.
 
+
+## Głos firmowy
+
+`assets/glos/glos-firmowy.mp3` — **Ewa3, „ciepła wersja 3”**: klon głosu autorki z ElevenLabs
+po korekcji brzmienia. To wzorzec marki. Każdy nowy materiał — spot, szkolenie, podkast —
+ma brzmieć tak samo, więc porównuj z tym plikiem, zanim cokolwiek wypuścisz.
+
+Docelowe parametry: **−14 LUFS**, szczyt −1,2 dBTP, różnica RMS między 500 Hz a 4 kHz
+nie większa niż 8 dB. Montaż zawsze na WAV 48 kHz — MP3 dopiero do wysyłki.
+
+Łańcuch korekcji dla materiału z ElevenLabs:
+
+```
+highpass=f=80,equalizer=f=300:t=q:w=1.0:g=-2.5,equalizer=f=2600:t=q:w=1.0:g=3,
+treble=g=2.5:f=9000:width_type=q:w=0.7,deesser=i=0.3,
+acompressor=threshold=-19dB:ratio=2.4:attack=15:release=250:makeup=1.5,
+alimiter=limit=0.95,loudnorm=I=-14:TP=-1.2:LRA=9
+```
+
+Nagranie z telefonu to inny przypadek — potrzebuje Descript Studio Sound i mocniejszej
+korekcji barwy; ten łańcuch jest w skillu `glos-i-awatar`.
+
+Klony w ElevenLabs: **Ewa1** i **Ewa2** — odrzucone (powstały z surowego nagrania
+telefonem, brzmią zniekształcone). **Ewa3** — obowiązujący.
+
 ## Źródło prawdy
 
 `assets/dane.json`. Wczytaj ten plik i użyj pól; nigdy nie przepisuj adresu

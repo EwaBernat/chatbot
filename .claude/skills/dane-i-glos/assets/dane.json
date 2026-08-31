@@ -66,12 +66,28 @@
     "uzycie": "na jasnym tle wstaw w białym kole o średnicy ok. 1,3× logo — tarcza jest ciemna i sama zlewa się z ciemnym tłem"
   },
   "glos": {
-    "skill": "glos-i-awatar",
-    "probki": {
-      "nagranie_wlasne": "glos-i-awatar/assets/probka-glosu.mp3 — 98 s, z nagrania szkoleniowego po Studio Sound",
-      "ewa3": "glos-i-awatar/assets/probka-glosu-ewa3.mp3 — 67 s, spot EduPlaner, głos ciepła wersja 3"
+    "glos_firmowy": {
+      "plik": "assets/glos/glos-firmowy.mp3",
+      "nazwa": "Ewa3 — ciepła wersja 3",
+      "opis": "Głos marki PCTP i EduPlaner 2026: klon głosu autorki z ElevenLabs, po korekcji brzmienia. To jest wzorzec — każdy nowy materiał ma brzmieć tak samo.",
+      "zrodlo": "ElevenLabs, klon Ewa3; korekcja w ffmpeg wg łańcucha poniżej",
+      "parametry_docelowe": {
+        "glosnosc": "-14 LUFS, szczyt -1,2 dBTP (standard wideo)",
+        "barwa": "różnica RMS 500 Hz ↔ 4 kHz nie większa niż 8 dB",
+        "format_montazowy": "WAV 48 kHz mono; MP3 tylko do wysyłki"
+      },
+      "lancuch_ffmpeg": "highpass=f=80,equalizer=f=300:t=q:w=1.0:g=-2.5,equalizer=f=2600:t=q:w=1.0:g=3,treble=g=2.5:f=9000:width_type=q:w=0.7,deesser=i=0.3,acompressor=threshold=-19dB:ratio=2.4:attack=15:release=250:makeup=1.5,alimiter=limit=0.95,loudnorm=I=-14:TP=-1.2:LRA=9",
+      "uwaga": "Nagranie z telefonu wymaga mocniejszej korekcji — wtedy sięgnij po łańcuch ze skilla glos-i-awatar (po Descript Studio Sound)."
     },
-    "opis": "lektor z jednego długiego nagrania, cięty automatycznie na slajdy; klony w ElevenLabs: Ewa1, Ewa2 (odrzucone), Ewa3"
+    "probki_dodatkowe": {
+      "nagranie_wlasne": "glos-i-awatar/assets/probka-glosu.mp3 — 98 s z nagrania szkoleniowego, do klonowania"
+    },
+    "klony_elevenlabs": {
+      "Ewa1": "odrzucony",
+      "Ewa2": "odrzucony",
+      "Ewa3": "obowiązujący"
+    },
+    "skill_produkcyjny": "glos-i-awatar"
   },
   "formuly": {
     "stopka_krotka": "Opracowanie: Mirosława Ewa Jurczyszyn · PCTP Koszalin",

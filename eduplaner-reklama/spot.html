@@ -13,7 +13,7 @@ body{background:#000;font-family:'DejaVu Sans',system-ui,sans-serif}
  color:#fff}
 .scena:target,.scena.pokaz{display:block}
 .pole{position:absolute;inset:0;padding:104px 120px;display:flex;flex-direction:column;justify-content:center}
-.awatar{position:absolute;right:64px;bottom:64px;width:236px;height:236px;border-radius:50%;
+.awatar{position:absolute;right:72px;bottom:206px;width:236px;height:236px;border-radius:50%;
  object-fit:cover;border:6px solid var(--pastel);box-shadow:0 26px 60px -18px rgba(0,0,0,.75)}
 .marka{display:flex;align-items:center;gap:24px;margin-bottom:44px}
 .logo{width:104px;height:104px;border-radius:50%;background:#fff;padding:0}
@@ -61,6 +61,29 @@ h2.duzy{font-size:88px;line-height:1.08;letter-spacing:-2.4px}
 .trzy{display:flex;flex-direction:column;gap:34px}
 .nie{font-size:70px;font-weight:800;letter-spacing:-1.4px;color:var(--jasna)}
 .nie span{color:var(--pomar);margin-right:22px}
+
+.okno{margin-top:20px;width:1180px;border-radius:16px;overflow:hidden;
+ background:#fff;box-shadow:0 40px 90px -28px rgba(0,0,0,.75);color:#2E2352}
+.pasek{height:46px;background:#F3EFFA;border-bottom:1px solid #E2D9F2;display:flex;align-items:center;
+ padding:0 18px;gap:9px}
+.pasek i{width:12px;height:12px;border-radius:50%;background:#CBBCE6;display:block}
+.pasek b{margin-left:16px;font-size:15px;font-weight:600;color:#6B6180;letter-spacing:.4px}
+.ciało{display:flex;min-height:430px}
+.menu{width:268px;background:#FBF8F4;border-right:1px solid #EDE7F6;padding:22px 0}
+.menu span{display:block;padding:11px 24px;font-size:19px;color:#6B6180}
+.menu span.akt{background:#EDE7F6;color:#2E2352;font-weight:700;
+ box-shadow:inset 4px 0 0 #D97A2B}
+.tresc{flex:1;padding:26px 30px}
+.tresc h4{font-size:26px;font-weight:800;margin-bottom:18px}
+.wiersz{display:flex;align-items:center;gap:16px;padding:13px 0;border-bottom:1px solid #F0EBF7;font-size:19px}
+.wiersz .kropka{width:11px;height:11px;border-radius:50%;background:#A88FD0}
+.wiersz .kropka.ok{background:#7FAE86}.wiersz .kropka.uw{background:#D97A2B}
+.wiersz .imie{flex:1;font-weight:600}
+.wiersz .stan{font-size:16px;color:#6B6180}
+.karty{display:grid;grid-template-columns:1fr 1fr 1fr;gap:14px}
+.karta{border:1px solid #E2D9F2;border-radius:12px;padding:18px 16px;background:#FBF8F4}
+.karta b{display:block;font-size:19px;font-weight:700;margin-bottom:6px}
+.karta i{font-style:normal;font-size:15px;color:#6B6180;line-height:1.35}
 .cta .kontakt,.tytul .kontakt{margin-top:52px;font-size:24px;color:var(--pastel);letter-spacing:1px}
 </style></head><body>
 <section class="scena tytul" id="s1">
@@ -75,12 +98,22 @@ h2.duzy{font-size:88px;line-height:1.08;letter-spacing:-2.4px}
 <section class="scena srodek" id="s2">
   <div class="pole">
    <div class="oko">Cyfrowa szafa</div>
-   <h2>Cała dokumentacja przedszkola i szkoły<br><b>w jednym miejscu</b></h2>
-   <div class="szafa">
-     <div class="polka"><span></span><span></span><span></span></div>
-     <div class="polka"><span></span><span></span><span></span></div>
-     <div class="polka"><span></span><span></span><span></span></div>
-   </div></div>
+   <div class="okno">
+     <div class="pasek"><i></i><i></i><i></i><b>EduPlaner 2026 — Pulpit dyrektora</b></div>
+     <div class="ciało">
+       <div class="menu"><span class="akt">Pulpit dyrektora</span><span>Kartoteka dzieci</span>
+         <span>Metryczka</span><span>WOPF</span><span>Plan wsparcia</span><span>Realizacja</span>
+         <span>Ewaluacja</span><span>Zespół</span><span>Baza wiedzy</span></div>
+       <div class="tresc"><h4>Dzieci · terminy · statusy</h4>
+         <div class="wiersz"><span class="kropka ok"></span><span class="imie">Zuzanna K.</span><span class="stan">IPET — zatwierdzony</span></div>
+         <div class="wiersz"><span class="kropka uw"></span><span class="imie">Jan M.</span><span class="stan">WOPF — termin za 4 dni</span></div>
+         <div class="wiersz"><span class="kropka"></span><span class="imie">Antoni R.</span><span class="stan">Realizacja — 12 zajęć</span></div>
+         <div class="wiersz"><span class="kropka ok"></span><span class="imie">Lena W.</span><span class="stan">Ewaluacja — półrocze</span></div>
+         <div class="wiersz"><span class="kropka"></span><span class="imie">Nadia S.</span><span class="stan">Metryczka — zgody zebrane</span></div>
+       </div>
+     </div>
+   </div>
+  </div>
   <img class="awatar" src="../film-szkolenie/public/awatar/warsztaty.png">
 </section>
 <section class="scena cytat" id="s3">
@@ -113,10 +146,25 @@ h2.duzy{font-size:88px;line-height:1.08;letter-spacing:-2.4px}
 <section class="scena srodek" id="s6">
   <div class="pole">
    <div class="oko">Moduły wspólne</div>
-   <div class="kafle p2">
-     <div class="kafel duzyk"><b>Zespół</b><i>koordynacja pracy specjalistów</i></div>
-     <div class="kafel duzyk"><b>Baza wiedzy</b><i>biblioteka gotowych wzorów i konspektów</i></div>
-   </div></div>
+   <div class="okno">
+     <div class="pasek"><i></i><i></i><i></i><b>EduPlaner 2026 — Zespół i Baza wiedzy</b></div>
+     <div class="ciało">
+       <div class="menu"><span>Pulpit dyrektora</span><span>Kartoteka dzieci</span><span>Metryczka</span>
+         <span>WOPF</span><span>Plan wsparcia</span><span>Realizacja</span><span>Ewaluacja</span>
+         <span>Zespół</span><span class="akt">Baza wiedzy</span></div>
+       <div class="tresc"><h4>Biblioteka gotowych wzorów</h4>
+         <div class="karty">
+           <div class="karta"><b>Kącik dyrektora</b><i>procedury, zarządzenia, harmonogramy</i></div>
+           <div class="karta"><b>Kącik nauczyciela</b><i>obserwacje, karty pracy, arkusze</i></div>
+           <div class="karta"><b>Rewalidacja</b><i>konspekty zajęć</i></div>
+           <div class="karta"><b>Pomoc p-p</b><i>wzory dokumentacji</i></div>
+           <div class="karta"><b>Analiza ABC</b><i>arkusze zachowań</i></div>
+           <div class="karta"><b>Zespół</b><i>koordynacja i terminy</i></div>
+         </div>
+       </div>
+     </div>
+   </div>
+  </div>
   <img class="awatar" src="../film-szkolenie/public/awatar/warsztaty.png">
 </section>
 <section class="scena srodek" id="s7">
