@@ -1,0 +1,649 @@
+{
+  "schemat": 1,
+  "wygenerowano": "2026-08-31",
+  "opis": "Kanoniczna kolejność i podział na kafelki dla kącika dyrektora i kącika nauczyciela. Kolejność: wykaz obowiązków → podział wg terminów → podział wg rodzajów czynności (kafelki) → druki.",
+  "paleta": {
+    "kacik-dyrektora": {
+      "akcent": "#3D2566",
+      "pastel": "#EAE6F3",
+      "ikona": "🏛"
+    },
+    "kacik-nauczyciela": {
+      "akcent": "#1F6F8B",
+      "pastel": "#E4EFF4",
+      "ikona": "🎓"
+    }
+  },
+  "kaciki": [
+    {
+      "klucz": "kacik-dyrektora",
+      "nazwa": "Kącik dyrektora",
+      "etap": "przedszkole",
+      "trasa": "/kacik-dyrektora",
+      "paleta": {
+        "akcent": "#3D2566",
+        "pastel": "#EAE6F3",
+        "ikona": "🏛"
+      },
+      "kolejnosc": [
+        {
+          "krok": 1,
+          "nazwa": "Wykaz obowiązków — lista czynności",
+          "typ": "wykaz",
+          "pozycja": {
+            "plik": "INDEKS_Kacik_Dyrektora",
+            "tytul": "Wykaz obowiązków dyrektora — czego pilnować",
+            "opis": "Osiem bloków obowiązków, matryca sytuacji i pełna lista druków z odesłaniami."
+          }
+        },
+        {
+          "krok": 2,
+          "nazwa": "Podział według terminów",
+          "typ": "terminy",
+          "pozycja": {
+            "plik": "Kacik_Dyrektora_Kalendarz_PCTP",
+            "sygn": [
+              "DK-1"
+            ],
+            "tytul": "Kalendarz roku dyrektora — miesiąc po miesiącu",
+            "opis": "Podział wszystkich czynności według terminów: wrzesień → sierpień, z terminami twardymi."
+          }
+        },
+        {
+          "krok": 3,
+          "nazwa": "Podział według rodzajów czynności",
+          "typ": "kafelki",
+          "pozycja": {
+            "kafelkow": 9
+          }
+        },
+        {
+          "krok": 4,
+          "nazwa": "Załączniki — druki",
+          "typ": "druki",
+          "pozycja": {
+            "drukow": 31
+          }
+        }
+      ],
+      "kafelki": [
+        {
+          "nr": 1,
+          "klucz": "planowanie",
+          "nazwa": "Planowanie pracy przedszkola",
+          "ikona": "🗺",
+          "opis": "Plan pracy na rok szkolny i dokument wychowawczo-profilaktyczny.",
+          "druki": [
+            {
+              "nr": 1,
+              "sygnatura": "DW-1",
+              "plik": "Kacik_Dyrektora_Plan_Pracy_PCTP",
+              "nazwa": "Plan pracy przedszkola — cztery typy placówki"
+            },
+            {
+              "nr": 2,
+              "sygnatura": "PW-1",
+              "plik": "Kacik_Dyrektora_Program_Wychowawczy_PCTP",
+              "nazwa": "Program wychowawczo-profilaktyczny — dokument fakultatywny"
+            }
+          ],
+          "trasa": "/kacik-dyrektora/planowanie"
+        },
+        {
+          "nr": 2,
+          "klucz": "nadzor",
+          "nazwa": "Nadzór pedagogiczny",
+          "ikona": "🔍",
+          "opis": "Plan nadzoru, obserwacje, kontrole, dwa sprawozdania i ewaluacja wewnętrzna.",
+          "druki": [
+            {
+              "nr": 3,
+              "sygnatura": "DN-1",
+              "plik": "Kacik_Dyrektora_Nadzor_PCTP",
+              "nazwa": "Plan nadzoru pedagogicznego — podstawa prawna każdego elementu"
+            },
+            {
+              "nr": 4,
+              "sygnatura": "DN-2",
+              "plik": "Kacik_Dyrektora_Nadzor_PCTP",
+              "nazwa": "Arkusz obserwacji zajęć"
+            },
+            {
+              "nr": 5,
+              "sygnatura": "DN-3",
+              "plik": "Kacik_Dyrektora_Nadzor_PCTP",
+              "nazwa": "Protokół kontroli"
+            },
+            {
+              "nr": 6,
+              "sygnatura": "DN-4",
+              "plik": "Kacik_Dyrektora_Nadzor_PCTP",
+              "nazwa": "Sprawozdanie semestralne z nadzoru"
+            },
+            {
+              "nr": 7,
+              "sygnatura": "DN-5",
+              "plik": "Kacik_Dyrektora_Nadzor_PCTP",
+              "nazwa": "Sprawozdanie roczne z nadzoru — do 31 sierpnia"
+            },
+            {
+              "nr": 8,
+              "sygnatura": "EW-1",
+              "plik": "Kacik_Dyrektora_Rekrutacja_Ewaluacja_PCTP",
+              "nazwa": "Raport z ewaluacji wewnętrznej"
+            }
+          ],
+          "trasa": "/kacik-dyrektora/nadzor"
+        },
+        {
+          "nr": 3,
+          "klucz": "rada",
+          "nazwa": "Rada pedagogiczna",
+          "ikona": "👥",
+          "opis": "Protokoły, harmonogram zebrań, uchwały i regulamin rady.",
+          "druki": [
+            {
+              "nr": 9,
+              "sygnatura": "RP-1",
+              "plik": "Kacik_Dyrektora_Rada_Pedagogiczna_PCTP",
+              "nazwa": "Protokół zebrania rady z listą obecności"
+            },
+            {
+              "nr": 10,
+              "sygnatura": "RP-2",
+              "plik": "Kacik_Dyrektora_Rada_Pedagogiczna_PCTP",
+              "nazwa": "Harmonogram zebrań rady pedagogicznej"
+            },
+            {
+              "nr": 11,
+              "sygnatura": "RP-3",
+              "plik": "Kacik_Dyrektora_Rada_Pedagogiczna_PCTP",
+              "nazwa": "Uchwała rady — wzór i rejestr"
+            },
+            {
+              "nr": 12,
+              "sygnatura": "RP-4",
+              "plik": "Kacik_Dyrektora_Rada_Pedagogiczna_PCTP",
+              "nazwa": "Regulamin rady pedagogicznej — wzór"
+            }
+          ],
+          "trasa": "/kacik-dyrektora/rada"
+        },
+        {
+          "nr": 4,
+          "klucz": "organizacja",
+          "nazwa": "Organizacja pracy",
+          "ikona": "⚙",
+          "opis": "Godziny zajęć specjalistycznych, kontrola dokumentacji, zalecenia orzeczeń i zarządzenia.",
+          "druki": [
+            {
+              "nr": 13,
+              "sygnatura": "DO-1",
+              "plik": "Kacik_Dyrektora_Organizacja_PCTP",
+              "nazwa": "Organizacja zajęć specjalistycznych"
+            },
+            {
+              "nr": 14,
+              "sygnatura": "DO-2",
+              "plik": "Kacik_Dyrektora_Organizacja_PCTP",
+              "nazwa": "Kontrola dokumentacji"
+            },
+            {
+              "nr": 15,
+              "sygnatura": "DO-3",
+              "plik": "Kacik_Dyrektora_Organizacja_PCTP",
+              "nazwa": "Realizacja zaleceń orzeczenia"
+            },
+            {
+              "nr": 16,
+              "sygnatura": "ZD-1",
+              "plik": "Kacik_Dyrektora_Rekrutacja_Ewaluacja_PCTP",
+              "nazwa": "Zarządzenie dyrektora — wzór i rejestr"
+            }
+          ],
+          "trasa": "/kacik-dyrektora/organizacja"
+        },
+        {
+          "nr": 5,
+          "klucz": "pomoc-pp",
+          "nazwa": "Pomoc psychologiczno-pedagogiczna",
+          "ikona": "🤝",
+          "opis": "Ustalenie pomocy, rejestr, zespół i WOPFU, ocena efektywności oraz sprawozdanie nauczyciela.",
+          "druki": [
+            {
+              "nr": 17,
+              "sygnatura": "DP-1",
+              "plik": "Kacik_Dyrektora_Pomoc_PP_PCTP",
+              "nazwa": "Ustalenie pomocy p-p dla dziecka"
+            },
+            {
+              "nr": 18,
+              "sygnatura": "DP-2",
+              "plik": "Kacik_Dyrektora_Pomoc_PP_PCTP",
+              "nazwa": "Rejestr pomocy p-p w przedszkolu"
+            },
+            {
+              "nr": 19,
+              "sygnatura": "DP-3",
+              "plik": "Kacik_Dyrektora_Pomoc_PP_PCTP",
+              "nazwa": "Zespół i harmonogram WOPFU"
+            },
+            {
+              "nr": 20,
+              "sygnatura": "DP-4",
+              "plik": "Kacik_Dyrektora_Pomoc_PP_PCTP",
+              "nazwa": "Zbiorcza ocena efektywności pomocy"
+            },
+            {
+              "nr": 21,
+              "sygnatura": "D-1",
+              "plik": "Kacik_Dyrektora_Sprawozdanie_Nauczyciela_PPP",
+              "nazwa": "Sprawozdanie nauczyciela z pomocy p-p"
+            }
+          ],
+          "trasa": "/kacik-dyrektora/pomoc-pp"
+        },
+        {
+          "nr": 6,
+          "klucz": "poradnia-rodzice",
+          "nazwa": "Poradnia i rodzice",
+          "ikona": "✉",
+          "opis": "Prośba poradni o opinię, obowiązkowe informacje dla rodziców, skargi i wnioski.",
+          "druki": [
+            {
+              "nr": 22,
+              "sygnatura": "DR-1",
+              "plik": "Kacik_Dyrektora_Poradnia_Rodzice_PCTP",
+              "nazwa": "Prośba poradni o opinię — termin 10 dni"
+            },
+            {
+              "nr": 23,
+              "sygnatura": "DR-2",
+              "plik": "Kacik_Dyrektora_Poradnia_Rodzice_PCTP",
+              "nazwa": "Informacje dla rodziców"
+            },
+            {
+              "nr": 24,
+              "sygnatura": "DR-3",
+              "plik": "Kacik_Dyrektora_Poradnia_Rodzice_PCTP",
+              "nazwa": "Skargi, wnioski i sprawy"
+            }
+          ],
+          "trasa": "/kacik-dyrektora/poradnia-rodzice"
+        },
+        {
+          "nr": 7,
+          "klucz": "bezpieczenstwo",
+          "nazwa": "Bezpieczeństwo",
+          "ikona": "🛡",
+          "opis": "Kontrola obiektu, wypadek dziecka i przegląd procedur.",
+          "druki": [
+            {
+              "nr": 25,
+              "sygnatura": "DB-1",
+              "plik": "Kacik_Dyrektora_Bezpieczenstwo_PCTP",
+              "nazwa": "Protokół kontroli obiektu"
+            },
+            {
+              "nr": 26,
+              "sygnatura": "DB-2",
+              "plik": "Kacik_Dyrektora_Bezpieczenstwo_PCTP",
+              "nazwa": "Wypadek dziecka"
+            },
+            {
+              "nr": 27,
+              "sygnatura": "DB-3",
+              "plik": "Kacik_Dyrektora_Bezpieczenstwo_PCTP",
+              "nazwa": "Procedury bezpieczeństwa"
+            }
+          ],
+          "trasa": "/kacik-dyrektora/bezpieczenstwo"
+        },
+        {
+          "nr": 8,
+          "klucz": "rekrutacja",
+          "nazwa": "Rekrutacja",
+          "ikona": "📋",
+          "opis": "Komisja, kryteria, listy i odwołania.",
+          "druki": [
+            {
+              "nr": 28,
+              "sygnatura": "RE-1",
+              "plik": "Kacik_Dyrektora_Rekrutacja_Ewaluacja_PCTP",
+              "nazwa": "Rekrutacja do przedszkola"
+            }
+          ],
+          "trasa": "/kacik-dyrektora/rekrutacja"
+        },
+        {
+          "nr": 9,
+          "klucz": "zmiany",
+          "nazwa": "Zmiany 2026/2027",
+          "ikona": "📌",
+          "opis": "Statut, nowa podstawa programowa i osiem kierunków polityki oświatowej.",
+          "druki": [
+            {
+              "nr": 29,
+              "sygnatura": "DZ-1",
+              "plik": "Kacik_Dyrektora_Zmiany_2026_PCTP",
+              "nazwa": "Zmiany w statucie 2026/2027"
+            },
+            {
+              "nr": 30,
+              "sygnatura": "DZ-2",
+              "plik": "Kacik_Dyrektora_Zmiany_2026_PCTP",
+              "nazwa": "Wdrożenie nowej podstawy programowej"
+            },
+            {
+              "nr": 31,
+              "sygnatura": "DZ-3",
+              "plik": "Kacik_Dyrektora_Zmiany_2026_PCTP",
+              "nazwa": "Kierunki polityki oświatowej 2026/2027"
+            }
+          ],
+          "trasa": "/kacik-dyrektora/zmiany"
+        }
+      ],
+      "drukow": 31
+    },
+    {
+      "klucz": "kacik-nauczyciela",
+      "nazwa": "Kącik nauczyciela",
+      "etap": "przedszkole",
+      "trasa": "/kacik-nauczyciela",
+      "paleta": {
+        "akcent": "#1F6F8B",
+        "pastel": "#E4EFF4",
+        "ikona": "🎓"
+      },
+      "kolejnosc": [
+        {
+          "krok": 1,
+          "nazwa": "Wykaz obowiązków — lista czynności",
+          "typ": "wykaz",
+          "pozycja": {
+            "plik": "Kacik_Nauczyciela_Checklista_Wychowawcy_PCTP",
+            "sygn": [
+              "K-1"
+            ],
+            "tytul": "Wykaz obowiązków nauczyciela wychowawcy",
+            "opis": "Lista czynności w podziale na obszary pracy, z podstawą prawną i terminem przy każdej pozycji.",
+            "indeks": "INDEKS_Kacik_Nauczyciela"
+          }
+        },
+        {
+          "krok": 2,
+          "nazwa": "Podział według terminów",
+          "typ": "terminy",
+          "pozycja": {
+            "plik": "Kacik_Nauczyciela_Checklista_Wychowawcy_PCTP",
+            "sygn": [
+              "K-1"
+            ],
+            "tytul": "Terminarz roku nauczyciela",
+            "opis": "Część K-1 z podziałem czynności według terminów — wrzesień, semestr, koniec roku."
+          }
+        },
+        {
+          "krok": 3,
+          "nazwa": "Podział według rodzajów czynności",
+          "typ": "kafelki",
+          "pozycja": {
+            "kafelkow": 9
+          }
+        },
+        {
+          "krok": 4,
+          "nazwa": "Załączniki — druki",
+          "typ": "druki",
+          "pozycja": {
+            "drukow": 25
+          }
+        }
+      ],
+      "kafelki": [
+        {
+          "nr": 1,
+          "klucz": "obserwacja-diagnoza",
+          "nazwa": "Obserwacja i diagnoza",
+          "ikona": "👁",
+          "opis": "Arkusz obserwacji dziecka oraz analiza gotowości szkolnej.",
+          "druki": [
+            {
+              "nr": 1,
+              "sygnatura": "O-1",
+              "plik": "Kacik_Nauczyciela_Wzory_Opinii_PCTP",
+              "nazwa": "Arkusz obserwacji dziecka"
+            },
+            {
+              "nr": 2,
+              "sygnatura": "O-5",
+              "plik": "Kacik_Nauczyciela_Wzory_Opinii_PCTP",
+              "nazwa": "Analiza gotowości szkolnej"
+            }
+          ],
+          "trasa": "/kacik-nauczyciela/obserwacja-diagnoza"
+        },
+        {
+          "nr": 2,
+          "klucz": "opinie",
+          "nazwa": "Opinie o dziecku",
+          "ikona": "📝",
+          "opis": "Trzy wzory opinii — dla poradni, dla zespołu orzekającego i dla instytucji zewnętrznej.",
+          "druki": [
+            {
+              "nr": 3,
+              "sygnatura": "O-2",
+              "plik": "Kacik_Nauczyciela_Wzory_Opinii_PCTP",
+              "nazwa": "Opinia o funkcjonowaniu dziecka dla poradni — 10 dni od prośby"
+            },
+            {
+              "nr": 4,
+              "sygnatura": "O-3",
+              "plik": "Kacik_Nauczyciela_Wzory_Opinii_PCTP",
+              "nazwa": "Opinia dla zespołu orzekającego"
+            },
+            {
+              "nr": 5,
+              "sygnatura": "O-4",
+              "plik": "Kacik_Nauczyciela_Wzory_Opinii_PCTP",
+              "nazwa": "Opinia dla instytucji zewnętrznej"
+            }
+          ],
+          "trasa": "/kacik-nauczyciela/opinie"
+        },
+        {
+          "nr": 3,
+          "klucz": "pomoc-pp",
+          "nazwa": "Pomoc psychologiczno-pedagogiczna",
+          "ikona": "🤝",
+          "opis": "Wniosek o objęcie pomocą, plan działań wspierających i protokół zespołu.",
+          "druki": [
+            {
+              "nr": 6,
+              "sygnatura": "P-1",
+              "plik": "Kacik_Nauczyciela_Pomoc_PP_PCTP",
+              "nazwa": "Wniosek o objęcie pomocą p-p"
+            },
+            {
+              "nr": 7,
+              "sygnatura": "P-2",
+              "plik": "Kacik_Nauczyciela_Pomoc_PP_PCTP",
+              "nazwa": "Plan działań wspierających — wzór wewnętrzny"
+            },
+            {
+              "nr": 8,
+              "sygnatura": "P-3",
+              "plik": "Kacik_Nauczyciela_Pomoc_PP_PCTP",
+              "nazwa": "Protokół spotkania zespołu"
+            }
+          ],
+          "trasa": "/kacik-nauczyciela/pomoc-pp"
+        },
+        {
+          "nr": 4,
+          "klucz": "dostosowania",
+          "nazwa": "Dostosowania",
+          "ikona": "🧩",
+          "opis": "Zakres dostosowań i racjonalnych usprawnień wobec nowej podstawy programowej.",
+          "druki": [
+            {
+              "nr": 9,
+              "sygnatura": "DS-1",
+              "plik": "Kacik_Nauczyciela_Dostosowania_PCTP",
+              "nazwa": "Zakres dostosowań — nowa podstawa 2026"
+            }
+          ],
+          "trasa": "/kacik-nauczyciela/dostosowania"
+        },
+        {
+          "nr": 5,
+          "klucz": "rewalidacja",
+          "nazwa": "Zajęcia rewalidacyjne i dziennik",
+          "ikona": "🧠",
+          "opis": "Organizacja zajęć, dziennik z § 11 oraz ocena postępów.",
+          "druki": [
+            {
+              "nr": 10,
+              "sygnatura": "Z-1",
+              "plik": "Kacik_Nauczyciela_Rewalidacja_Dziennik_PCTP",
+              "nazwa": "Karta organizacji zajęć rewalidacyjnych"
+            },
+            {
+              "nr": 11,
+              "sygnatura": "Z-2",
+              "plik": "Kacik_Nauczyciela_Rewalidacja_Dziennik_PCTP",
+              "nazwa": "Dziennik zajęć rewalidacyjnych i pomocy p-p"
+            },
+            {
+              "nr": 12,
+              "sygnatura": "Z-3",
+              "plik": "Kacik_Nauczyciela_Rewalidacja_Dziennik_PCTP",
+              "nazwa": "Ocena postępów i wnioski"
+            }
+          ],
+          "trasa": "/kacik-nauczyciela/rewalidacja"
+        },
+        {
+          "nr": 6,
+          "klucz": "planowanie",
+          "nazwa": "Planowanie i realizacja zajęć",
+          "ikona": "📐",
+          "opis": "Plan pracy grupy, konspekty, karta realizacji i sprawozdanie.",
+          "druki": [
+            {
+              "nr": 13,
+              "sygnatura": "R-1",
+              "plik": "Kacik_Nauczyciela_Planowanie_PCTP",
+              "nazwa": "Plan pracy grupy"
+            },
+            {
+              "nr": 14,
+              "sygnatura": "R-2",
+              "plik": "Kacik_Nauczyciela_Planowanie_PCTP",
+              "nazwa": "Karta zajęć — konspekt"
+            },
+            {
+              "nr": 15,
+              "sygnatura": "R-3",
+              "plik": "Kacik_Nauczyciela_Planowanie_PCTP",
+              "nazwa": "Karta realizacji zajęć specjalistycznych"
+            },
+            {
+              "nr": 16,
+              "sygnatura": "R-4",
+              "plik": "Kacik_Nauczyciela_Planowanie_PCTP",
+              "nazwa": "Sprawozdanie z pracy grupy"
+            },
+            {
+              "nr": 17,
+              "sygnatura": "KON",
+              "plik": "Konspekt_Zajec_Szablon_PCTP",
+              "nazwa": "Szablon konspektu zajęć"
+            }
+          ],
+          "trasa": "/kacik-nauczyciela/planowanie"
+        },
+        {
+          "nr": 7,
+          "klucz": "rodzice",
+          "nazwa": "Współpraca z rodzicami",
+          "ikona": "👪",
+          "opis": "Rejestr kontaktów, informacja o postępach oraz zgody i upoważnienia.",
+          "druki": [
+            {
+              "nr": 18,
+              "sygnatura": "W-1",
+              "plik": "Kacik_Nauczyciela_Rodzice_PCTP",
+              "nazwa": "Rejestr kontaktów z rodzicami"
+            },
+            {
+              "nr": 19,
+              "sygnatura": "W-2",
+              "plik": "Kacik_Nauczyciela_Rodzice_PCTP",
+              "nazwa": "Informacja o postępach dziecka"
+            },
+            {
+              "nr": 20,
+              "sygnatura": "W-3",
+              "plik": "Kacik_Nauczyciela_Rodzice_PCTP",
+              "nazwa": "Zgody i upoważnienia"
+            }
+          ],
+          "trasa": "/kacik-nauczyciela/rodzice"
+        },
+        {
+          "nr": 8,
+          "klucz": "bezpieczenstwo",
+          "nazwa": "Bezpieczeństwo i sytuacje szczególne",
+          "ikona": "🛡",
+          "opis": "Wyjścia i wycieczki, zdarzenia, adaptacja oraz zachowania trudne.",
+          "druki": [
+            {
+              "nr": 21,
+              "sygnatura": "B-1",
+              "plik": "Kacik_Nauczyciela_Bezpieczenstwo_PCTP",
+              "nazwa": "Karta wycieczki i wyjścia poza teren"
+            },
+            {
+              "nr": 22,
+              "sygnatura": "B-2",
+              "plik": "Kacik_Nauczyciela_Bezpieczenstwo_PCTP",
+              "nazwa": "Karta zdarzenia — notatka służbowa"
+            },
+            {
+              "nr": 23,
+              "sygnatura": "B-3",
+              "plik": "Kacik_Nauczyciela_Bezpieczenstwo_PCTP",
+              "nazwa": "Karta adaptacji dziecka"
+            },
+            {
+              "nr": 24,
+              "sygnatura": "B-4",
+              "plik": "Kacik_Nauczyciela_Bezpieczenstwo_PCTP",
+              "nazwa": "Karta zachowań trudnych"
+            }
+          ],
+          "trasa": "/kacik-nauczyciela/bezpieczenstwo"
+        },
+        {
+          "nr": 9,
+          "klucz": "instrukcje",
+          "nazwa": "Materiały instruktażowe",
+          "ikona": "💡",
+          "opis": "Jak formułować cele, żeby dało się zmierzyć postęp.",
+          "druki": [
+            {
+              "nr": 25,
+              "sygnatura": "I-1",
+              "plik": "Instrukcja_Cele_SMART_PCTP",
+              "nazwa": "Instrukcja pisania celów SMART"
+            }
+          ],
+          "trasa": "/kacik-nauczyciela/instrukcje"
+        }
+      ],
+      "drukow": 25
+    }
+  ]
+}
