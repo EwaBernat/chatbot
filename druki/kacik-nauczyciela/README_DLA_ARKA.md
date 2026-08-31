@@ -1,11 +1,17 @@
 # Kącik nauczyciela — przedszkole · paczka do EduPlaner 2026
 
-**Wersja 1.2.0 · rok szkolny 2026/2027 · 26 druków w 10 plikach · 61 stron A4**
+**Wersja 1.3.0 · rok szkolny 2026/2027 · 26 druków w 10 plikach · 61 stron A4**
 
 Komplet dokumentacji nauczyciela wychowawcy grupy przedszkolnej. Wszystko po
 polsku, format A4, marka PCTP (fiolet `#2D1B69`, pomarańcz `#E8450A`, Arial).
 
 ---
+
+> **Warstwa interaktywna i Word (wersja 1.3.0).** Wszystkie 11 plików HTML wypełnia się w przeglądarce —
+> 1728 pól z autozapisem w `localStorage` pod kluczem `pctp:<tytuł>`, zero zależności zewnętrznych.
+> Kreski podpisów celowo pozostają nieedytowalne. W `word/` leży 10 plików `.docx` oraz generator
+> (`parsuj.py` + `gen.js`) — ten sam, który obsługuje kącik dyrektora, rozszerzony o osiem układów
+> własnych tego kącika. Wydruk i PDF gaszą warstwę interaktywną oraz niebieskie znaczniki poprawek.
 
 ## 1. Co jest w paczce
 

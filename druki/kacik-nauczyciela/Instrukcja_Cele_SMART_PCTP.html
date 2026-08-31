@@ -700,5 +700,192 @@
   </div>
 </section>
 
+<!-- ======= WARSTWA INTERAKTYWNA · EduPlaner 2026 · PCTP ======= -->
+<style id="pctp-interaktywny">
+  .pole-edyt{ outline:none; -webkit-user-modify:read-write-plaintext-only }
+  .pole-edyt:focus{ background:#FFF7E8; box-shadow:0 0 0 1.2px var(--pomarancz) inset; border-radius:.8mm }
+  .linijki div.pole-edyt{ font-size:7.6pt; color:#17102e; line-height:4.4mm }
+  td.pole-edyt{ color:#17102e }
+  td.puste.wpisane::after{ content:"" }
+  span.lin.pole-edyt{ font-size:7.4pt; color:#17102e; border-bottom-color:var(--kropki);
+    min-height:3.1mm; display:inline-block; text-align:left }
+  .metryczka .wypelnij.pole-edyt,
+  .wybor .dopisz.pole-edyt{ font-size:8pt; color:#17102e; padding:0 1mm; line-height:3.4mm; text-align:left }
+
+  .kwadrat{ cursor:pointer; user-select:none }
+  .kwadrat.zazn{ background:var(--pomarancz); border-color:var(--pomarancz); color:#fff }
+  td.kratka span{ cursor:pointer }
+  td.kratka span.zazn{ background:var(--pomarancz); border-color:var(--pomarancz) }
+  td.kratka span.zazn::after{ content:"✓"; color:#fff; font-size:6.4pt; font-weight:bold; line-height:1 }
+  td.kratka span{ display:inline-flex; align-items:center; justify-content:center }
+
+  td.ocena b{ font-weight:normal; cursor:pointer; border-radius:.6mm }
+  td.ocena b.wybrana{ background:var(--fiolet); color:#fff; font-weight:bold; box-shadow:0 0 0 .7mm var(--fiolet) }
+
+  .pasek{
+    position:fixed; right:6mm; bottom:6mm; z-index:99; display:flex; gap:2mm; align-items:center;
+    background:#fff; border:1px solid var(--ramka); border-radius:3mm; padding:2.4mm 3mm;
+    box-shadow:0 3px 14px rgba(45,27,105,.22); font-size:8pt;
+  }
+  .pasek button{
+    font-family:inherit; font-size:7.8pt; font-weight:bold; letter-spacing:.4px; cursor:pointer;
+    border:1px solid var(--fiolet); background:var(--fiolet); color:#fff; padding:1.8mm 3.4mm; border-radius:2mm;
+  }
+  .pasek button.wtorny{ background:#fff; color:var(--fiolet) }
+  .pasek button.wtorny:hover{ background:var(--zazn); border-color:var(--pomarancz); color:var(--pomarancz) }
+  .pasek .stan{ color:var(--szary); font-size:7.2pt; min-width:26mm }
+  .pasek .stan b{ color:var(--pomarancz) }
+
+  @media print{
+    .pasek{ display:none !important }
+    .pole-edyt:focus{ background:none !important; box-shadow:none !important }
+    .kwadrat{ cursor:auto }
+  }
+</style>
+
+<div class="pasek" role="toolbar" aria-label="Wypełnianie druku">
+  <span class="stan" id="pctp-stan">Druk interaktywny</span>
+  <button class="wtorny" type="button" id="pctp-czysc">Wyczyść</button>
+  <button type="button" id="pctp-drukuj">Drukuj</button>
+</div>
+
+<script>
+(function(){
+  "use strict";
+  var KLUCZ = "pctp:" + (document.title || location.pathname).replace(/\s+/g," ").trim();
+  var stan = document.getElementById("pctp-stan");
+  var zapisTimer = null;
+
+  /* — 1. skale ocen: każdy token staje się klikalny — */
+  Array.prototype.forEach.call(document.querySelectorAll("td.ocena"), function(td){
+    var tekst = td.textContent.trim();
+    if(!tekst) return;
+    td.textContent = "";
+    tekst.split(/\s+/).forEach(function(tok, i){
+      if(i) td.appendChild(document.createTextNode(" "));
+      var b = document.createElement("b");
+      b.textContent = tok;
+      td.appendChild(b);
+    });
+  });
+
+  /* — 2. pola do wpisywania — */
+  var SEL = [
+    ".linijki div",
+    "td.puste",
+    ".metryczka .wypelnij",
+    ".wybor .dopisz",
+    ".lin",
+    ".wsk .dopisz"
+  ].join(",");
+  var pola = Array.prototype.slice.call(document.querySelectorAll(SEL));
+  pola.forEach(function(el, i){
+    el.classList.add("pole-edyt");
+    el.setAttribute("contenteditable", "true");
+    el.setAttribute("data-pctp", "p" + i);
+    el.addEventListener("input", function(){
+      el.classList.toggle("wpisane", el.textContent.trim().length > 0);
+      zaplanujZapis();
+    });
+  });
+
+  /* — 3. kratki i kwadraty do zaznaczania — */
+  var kratki = Array.prototype.slice.call(document.querySelectorAll(".kwadrat, td.kratka span"));
+  kratki.forEach(function(el, i){
+    el.setAttribute("data-pctp", "k" + i);
+    el.setAttribute("role", "checkbox");
+    el.setAttribute("tabindex", "0");
+    el.addEventListener("click", function(){ el.classList.toggle("zazn"); zaplanujZapis(); });
+    el.addEventListener("keydown", function(e){
+      if(e.key === " " || e.key === "Enter"){ e.preventDefault(); el.click(); }
+    });
+  });
+
+  /* — 4. wybór na skali: jedna wartość w wierszu skali — */
+  var oceny = Array.prototype.slice.call(document.querySelectorAll("td.ocena"));
+  oceny.forEach(function(td, i){
+    td.setAttribute("data-pctp", "o" + i);
+    Array.prototype.forEach.call(td.querySelectorAll("b"), function(b){
+      b.addEventListener("click", function(){
+        var byla = b.classList.contains("wybrana");
+        Array.prototype.forEach.call(td.querySelectorAll("b"), function(x){ x.classList.remove("wybrana"); });
+        if(!byla) b.classList.add("wybrana");
+        zaplanujZapis();
+      });
+    });
+  });
+
+  /* — 5. zapis i odczyt — */
+  function zbierz(){
+    var d = { p:{}, k:[], o:{} };
+    pola.forEach(function(el){
+      var t = el.textContent.trim();
+      if(t) d.p[el.getAttribute("data-pctp")] = t;
+    });
+    kratki.forEach(function(el){
+      if(el.classList.contains("zazn")) d.k.push(el.getAttribute("data-pctp"));
+    });
+    oceny.forEach(function(td){
+      var w = td.querySelector("b.wybrana");
+      if(w) d.o[td.getAttribute("data-pctp")] = w.textContent;
+    });
+    return d;
+  }
+  function zapisz(){
+    try{
+      localStorage.setItem(KLUCZ, JSON.stringify(zbierz()));
+      pokaz("Zapisano <b>" + new Date().toLocaleTimeString("pl-PL", {hour:"2-digit", minute:"2-digit"}) + "</b>");
+    }catch(e){
+      pokaz("Zapis niedostępny");
+    }
+  }
+  function zaplanujZapis(){
+    clearTimeout(zapisTimer);
+    zapisTimer = setTimeout(zapisz, 700);
+  }
+  function pokaz(html){ if(stan) stan.innerHTML = html; }
+
+  function wczytaj(){
+    var s = null;
+    try{ s = localStorage.getItem(KLUCZ); }catch(e){ return; }
+    if(!s) return;
+    var d;
+    try{ d = JSON.parse(s); }catch(e){ return; }
+    pola.forEach(function(el){
+      var v = d.p && d.p[el.getAttribute("data-pctp")];
+      if(v){ el.textContent = v; el.classList.add("wpisane"); }
+    });
+    (d.k || []).forEach(function(id){
+      var el = document.querySelector('[data-pctp="' + id + '"]');
+      if(el) el.classList.add("zazn");
+    });
+    Object.keys(d.o || {}).forEach(function(id){
+      var td = document.querySelector('td[data-pctp="' + id + '"]');
+      if(!td) return;
+      Array.prototype.forEach.call(td.querySelectorAll("b"), function(b){
+        if(b.textContent === d.o[id]) b.classList.add("wybrana");
+      });
+    });
+    pokaz("Wczytano zapis");
+  }
+
+  /* — 6. przyciski — */
+  var bC = document.getElementById("pctp-czysc");
+  if(bC) bC.addEventListener("click", function(){
+    if(!confirm("Wyczyścić wszystkie wpisy w tym druku? Tej operacji nie da się cofnąć.")) return;
+    pola.forEach(function(el){ el.textContent = ""; el.classList.remove("wpisane"); });
+    kratki.forEach(function(el){ el.classList.remove("zazn"); });
+    Array.prototype.forEach.call(document.querySelectorAll("td.ocena b"), function(b){ b.classList.remove("wybrana"); });
+    try{ localStorage.removeItem(KLUCZ); }catch(e){}
+    pokaz("Wyczyszczono");
+  });
+  var bD = document.getElementById("pctp-drukuj");
+  if(bD) bD.addEventListener("click", function(){ window.print(); });
+
+  wczytaj();
+})();
+</script>
+
+
 </body>
 </html>

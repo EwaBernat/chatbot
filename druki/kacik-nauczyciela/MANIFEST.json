@@ -3,7 +3,7 @@
   "aplikacja": "EduPlaner 2026",
   "wydawca": "PCTP",
   "rok_szkolny": "2026/2027",
-  "wersja": "1.2.0",
+  "wersja": "1.3.0",
   "etap": "przedszkole",
   "indeks": "INDEKS_Kacik_Nauczyciela.html",
   "logo": "../assets/logo-pctp.svg",
@@ -330,15 +330,77 @@
   "statystyki": {
     "druki": 26,
     "pliki": 10,
-    "strony_a4": 61
+    "strony_a4": 61,
+    "pola_interaktywne": 1728,
+    "pliki_docx": 10
   },
   "zmiany": {
-    "1.2.0": "Przegląd prawny i merytoryczny — 88 poprawek w 11 plikach, oznaczonych na niebiesko (kolor tylko na ekranie). Publikatory: Prawo oświatowe 2024/737 → 2026/820, dokumentacja 2017/1646 → t.j. 2024/50, świadectwa 2019/1700 → 2023/1120, symbol MEN-I/74 → MEiN-I/82. Poza audytem: w panelu O-1 data 14 lutego 2017 r. stała pod numerem 378, czyli sygnaturą rozporządzenia z 11 marca 2026 r. Twierdzenia niezgodne z przepisem: czas zajęć rewalidacyjnych w przedszkolu (nie 60 minut), zakres danych w dzienniku (§ 11 ust. 3 tylko dla pomocy p-p), jedna zgoda na wiele celów wraz ze zgodą na ustawową pomoc p-p, karta wycieczki jako urzędowy wzór, pierwsze czynności po wypadku, termin opinii liczony od prośby a nie od wniosku, obowiązki bez podstawy (Z-3, W-1, W-2, P-2, podpisy dyrektora, SMART). Konspekt zajęć był za długi jeszcze przed przeglądem — skrócony. Oba kąciki mówią teraz to samo o tych samych aktach."
+    "1.2.0": "Przegląd prawny i merytoryczny — 88 poprawek w 11 plikach, oznaczonych na niebiesko (kolor tylko na ekranie). Publikatory: Prawo oświatowe 2024/737 → 2026/820, dokumentacja 2017/1646 → t.j. 2024/50, świadectwa 2019/1700 → 2023/1120, symbol MEN-I/74 → MEiN-I/82. Poza audytem: w panelu O-1 data 14 lutego 2017 r. stała pod numerem 378, czyli sygnaturą rozporządzenia z 11 marca 2026 r. Twierdzenia niezgodne z przepisem: czas zajęć rewalidacyjnych w przedszkolu (nie 60 minut), zakres danych w dzienniku (§ 11 ust. 3 tylko dla pomocy p-p), jedna zgoda na wiele celów wraz ze zgodą na ustawową pomoc p-p, karta wycieczki jako urzędowy wzór, pierwsze czynności po wypadku, termin opinii liczony od prośby a nie od wniosku, obowiązki bez podstawy (Z-3, W-1, W-2, P-2, podpisy dyrektora, SMART). Konspekt zajęć był za długi jeszcze przed przeglądem — skrócony. Oba kąciki mówią teraz to samo o tych samych aktach.",
+    "1.3.0": "Warstwa interaktywna we wszystkich 11 plikach — 1728 pól wypełnianych w przeglądarce z autozapisem, bez żadnych zależności zewnętrznych; selektor rozszerzony o kropkowane linie SMART w konspekcie. Wersja Word: 10 plików .docx. Generator rozbudowany o osiem układów własnych kącika (cele, smart, zle-dobrze, argumenty, formula, chipsy, wsk, duo) — bez nich konspekt tracił w Wordzie osiem z trzynastu bloków, a instrukcja SMART połowę treści. Kontrola: liczby stron zgodne z HTML, zero braków treści, wszystkie strony mieszczą się w A4."
   },
   "podstawa_prawna_zrodlo": {
     "audyt": "Co warto poprawić w materiałach Kącika dyrektora i Kącika nauczyciela — 30.08.2026",
     "rejestr": "Rejestr przepisów do weryfikacji prawnej — stan 21–23.08.2026, źródła ELI",
     "nastepny_przeglad_obowiazkowy": "2026-09-01",
     "nastepny_przeglad_pelny": "2026-11-21"
+  },
+  "interaktywnosc": {
+    "opis": "Druki wypełnia się bezpośrednio w przeglądarce; wpisy zapisują się same w pamięci przeglądarki (localStorage) pod kluczem \"pctp:<tytuł dokumentu>\".",
+    "pola_edytowalne": 1728,
+    "zaleznosci": "brak — czysty HTML, CSS i JavaScript w jednym pliku",
+    "objete": "linie do pisania, komórki tabel, pola metryczki, dopiski przy polach wyboru, kropkowane linie SMART w konspekcie",
+    "poza": "kreski podpisów — podpis składa się odręcznie",
+    "wydruk": "warstwa interaktywna i pasek poprawek gasną w @media print"
+  },
+  "formaty": {
+    "html": "źródło i wersja interaktywna — wypełniana w przeglądarce, z autozapisem",
+    "pdf": "wersja do druku, odtwarzana z HTML",
+    "docx": "wersja edytowalna w Wordzie — te same treści i tabele"
+  },
+  "docx": {
+    "plikow": 10,
+    "generator": "word/parsuj.py (HTML → JSON) + word/gen.js (JSON → .docx, biblioteka docx)",
+    "uklady_wlasne": "cele, smart, zle-dobrze, argumenty, formula, chipsy, wsk, duo — dopisane 31.08.2026 dla konspektu i instrukcji SMART",
+    "kontrola": "zgodność liczby stron z HTML oraz pełna zgodność treści (0 braków)"
+  },
+  "braki_do_decyzji": {
+    "opis": "Druki, do których kącik odsyła, ale których sam nie zawiera. Nie są błędem — są decyzją o zakresie.",
+    "pozycje": [
+      {
+        "czego": "WOPFU — wielospecjalistyczna ocena poziomu funkcjonowania",
+        "wzmianek": 25,
+        "gdzie": "P-3, Z-3, O-2, DS-1",
+        "uwaga": "obowiązek co najmniej dwa razy w roku dla dziecka z orzeczeniem (§ 6 rozp. 9.08.2017); generuje go skill eduplaner-pctp"
+      },
+      {
+        "czego": "IPET",
+        "wzmianek": 49,
+        "gdzie": "DS-1, P-3, Z-1, Z-3",
+        "uwaga": "generuje go skill ipet-raport-pctp; w kąciku występuje tylko jako odesłanie"
+      },
+      {
+        "czego": "D-1 — sprawozdanie nauczyciela z pomocy p-p",
+        "wzmianek": 11,
+        "gdzie": "K-1, P-3",
+        "uwaga": "druk wypełnia nauczyciel, ale leży w kąciku dyrektora"
+      },
+      {
+        "czego": "Ewidencja odbioru dziecka przez osoby upoważnione",
+        "wzmianek": 1,
+        "gdzie": "K-1",
+        "uwaga": "W-3 zbiera upoważnienia, brak dziennego rejestru odbioru"
+      },
+      {
+        "czego": "Procedura nieodebrania dziecka z przedszkola",
+        "wzmianek": 2,
+        "gdzie": "K-1"
+      },
+      {
+        "czego": "Karta zgłoszenia podejrzenia przemocy — Niebieskie Karty",
+        "wzmianek": 9,
+        "gdzie": "K-1, B-4",
+        "uwaga": "formularz A jest urzędowy; brakuje wewnętrznej karty zgłoszenia do dyrektora"
+      }
+    ]
   }
 }
