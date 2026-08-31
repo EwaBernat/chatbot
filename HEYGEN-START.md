@@ -80,6 +80,51 @@ Po połączeniu Twoje awatary i głosy z konta HeyGen są dostępne dla agenta.
 Z dokumentacji HeyGen wprost: złącze działa **na wszystkich planach**, nie kosztuje
 dodatkowo ponad plan, a Twoje własne awatary i głosy są przez nie dostępne.
 
+### Uwierzytelnienie i sprawdzenie (lokalnie)
+
+Przy pierwszym użyciu Claude Code poprosi o autoryzację. Wpisz w nim:
+
+```
+/mcp
+```
+
+i przejdź przez OAuth w przeglądarce. Potem sprawdzasz stan — z terminala:
+
+```bash
+claude mcp list
+```
+
+albo znowu `/mcp` w samym Claude Code. Przy `heygen` ma stać **connected**.
+
+Zanim się zalogujesz, zobaczysz `⏸ Pending approval` — to normalne, oznacza tylko,
+że serwer jest wpisany, ale jeszcze nie zatwierdzony. Tak właśnie wygląda teraz
+u nas w repozytorium:
+
+```
+heygen: https://mcp.heygen.com/mcp/v1/ (HTTP) - ⏸ Pending approval
+elevenlabs: uvx elevenlabs-mcp - ⏸ Pending approval
+```
+
+Czyli plik `.mcp.json` jest poprawny i Claude Code go czyta — brakuje wyłącznie
+Twojego kliknięcia przy pierwszym uruchomieniu.
+
+### Zakres konfiguracji
+
+| Zakres | Flaga | Plik | Widoczność |
+|---|---|---|---|
+| Projektowy (domyślny) | brak | `.mcp.json` w katalogu projektu | tylko to repozytorium |
+| Użytkownika | `-s user` | `~/.claude.json` | wszystkie Twoje projekty |
+
+Ten projekt ma już wariant projektowy. Wariant użytkownika dokładasz, jeśli chcesz
+HeyGena także poza tym repozytorium.
+
+### Skille — już masz, nie pobieraj
+
+Dokumentacja HeyGen radzi prosić agenta, żeby przed pisaniem promptów doczytał
+wytyczne z `github.com/heygen-com/skills`. **U Ciebie to zbędne** — te skille są
+zainstalowane na stałe w `.claude/skills/` (wersja 3.2.0) i ładują się same,
+bez pobierania czegokolwiek z sieci przy każdym filmie.
+
 ### ⛔ Nie ustawiaj `HEYGEN_API_KEY`
 
 To najważniejsza rzecz na tej stronie. Skille HeyGen wybierają drogę według drabinki:
