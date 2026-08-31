@@ -32,6 +32,7 @@ from konspekty_6_d8 import KONSPEKTY_6_D8
 from konspekty_6_d9 import KONSPEKTY_6_D9
 from zalacznik_c1 import zalaczniki_c1
 from zalaczniki_hist import zalaczniki_dla
+import moje_konspekty as MK
 import pomoce_a          # noqa: F401 — rejestruje zestaw pomocy 3–4 lata
 import pomoce_b          # noqa: F401 — rejestruje zestaw pomocy 5 lat
 import pomoce_a, pomoce_b, pomoce_c, pomoce_u  # noqa: F401 — rejestrują zestawy w pomoce_karta
@@ -752,6 +753,12 @@ def wiersz(it, w):
     kid = f"kon-{w['kod']}-{it['n']}" if (w["kod"], it["n"]) in KONSPEKTY else ""
     kattr = lambda lvl: (f' class="g {lvl} col-{lvl} haskon" tabindex="0" role="button" data-kon="{kid}" data-lvl2="{lvl}"'
                          if kid else f' class="g {lvl} col-{lvl}"')
+    # Plus w rogu komórki — jedyna droga do własnego konspektu. Trzymamy go
+    # w źródle zamiast dorabiać skryptem: 1602 komórki to na tym dokumencie
+    # ułamek promila wagi, a przycisk działa od pierwszej klatki po otwarciu.
+    dodaj = ('<button class="mk-add" type="button"'
+             ' title="Dodaj własny konspekt do tego celu"'
+             ' aria-label="Dodaj własny konspekt do tego celu">+</button>')
     szukaj = " ".join([it["t"], it["g3"], it["g2"], it["g1"], it["icf"], it["pp"],
                        w["etykieta"], "wersja " + w["kod"]]).lower()
     return f"""        <tr data-szukaj="{esc(szukaj)}">
@@ -759,9 +766,9 @@ def wiersz(it, w):
           <td class="tw">{esc(it['t'])}<span class="miara"><b>Miara:</b> {esc(it['m'])}</span></td>
           <td class="icf"><span class="kod">{esc(it['icf'])}</span></td>
           <td class="pp"><span class="kod">{esc(pp)}</span></td>
-          <td{kattr('p3')}><span class="cel">{esc(it['g3'])}</span></td>
-          <td{kattr('p2')}><span class="cel">{esc(it['g2'])}</span></td>
-          <td{kattr('p1')}><span class="cel">{esc(it['g1'])}</span></td>
+          <td{kattr('p3')}><span class="cel">{esc(it['g3'])}</span>{dodaj}</td>
+          <td{kattr('p2')}><span class="cel">{esc(it['g2'])}</span>{dodaj}</td>
+          <td{kattr('p1')}><span class="cel">{esc(it['g1'])}</span>{dodaj}</td>
         </tr>"""
 
 def sekcja(a, w):
@@ -861,6 +868,7 @@ def wersja(mod, aktywna):
 {nav}
   </nav>
 {spis}
+{MK.panel(w['kod'])}
   <p class="nores hidden">Brak twierdzeń pasujących do wyszukiwania.</p>
 {secs}
 </div>"""
@@ -1460,7 +1468,8 @@ def build():
       href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,700&family=JetBrains+Mono:wght@400;700&display=swap">
 <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,700&family=JetBrains+Mono:wght@400;700&display=swap"></noscript>
 <style>:root{{--logo:url({LOGO_URI})}}
-{CSS}</style>
+{CSS}
+{MK.STYL}</style>
 
 <div class="sheet">
 
@@ -1573,7 +1582,9 @@ def build():
 </div>
 {style_pomocy()}{audio_pomocy()}{style_kart()}
 {render_konspekty_modale()}
+{MK.SZKIELET}
 <script>{JS}</script>
+<script>{MK.skrypt()}</script>
 """
 
 if __name__ == "__main__":

@@ -100,6 +100,25 @@ wersja U z 48 celami uzupełniającymi domykającymi podstawę do 113/113,
 kropka = ma pomoc) albo kliknięciem komórki z celem w tabeli. Spis dodany,
 bo bez niego konspektów nie dało się znaleźć.
 
+**Własne konspekty** dopisuje się w banku plusem w rogu komórki z celem
+(`src/moje_konspekty.py`). Formularz ma tę samą strukturę co konspekt gotowy,
+a zapisany scenariusz otwiera się i drukuje tak samo — jedna strona A4 pionowo.
+Konspekt siedzi przy celu (wersja + numer twierdzenia + poziom), a cel edukacyjny
+czyta się **na żywo z tabeli**, nie kopiuje do rekordu: po poprawce w banku
+konspekt nie zaczyna żyć własną wersją celu.
+
+Dane leżą w `localStorage` (klucz `eduplaner2026.moje-konspekty.v1`, niezależny
+od nazwy pliku, więc przeżywa przebudowę banku). To jedyne miejsce, jakie ma
+dokument otwierany z dysku — dlatego panel „Moje konspekty" ma **zapis kopii
+do pliku JSON i wczytanie jej z powrotem** i mówi wprost, że bez tego konspekty
+nie przejdą na inny komputer. Gdy przeglądarka blokuje `localStorage`, edytor
+działa dalej w pamięci karty i pokazuje ostrzeżenie.
+
+Plus w komórce łapiemy w **fazie przechwytywania**: komórka z gotowym
+konspektem ma własny nasłuch wpięty wprost w `td`, więc delegacja na `document`
+w fazie bąbelkowania odpalałaby się już po nim — otwierały się dwa konspekty
+naraz i tyle samo wychodziło z drukarki.
+
 **Pomoce dydaktyczne siedzą w konspektach** — sekcja VII modalu, przycisk
 „Pokaż pomoc i posłuchaj polecenia”. Tam ich szuka nauczyciel i tam mają być.
 Osobne zeszyty (`Pomoce_dydaktyczne_3-4_lata.html`, `..._5_lat.html` i ich PDF-y)
