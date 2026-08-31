@@ -12,8 +12,8 @@ Wybrane ustalenia: **Claude Code lokalnie** + **głos sklonowany w ElevenLabs**.
 - [ ] 2. Klucz ElevenLabs → `export ELEVENLABS_API_KEY` tamże (krok 1)
 - [ ] 3. Sklonuj to repozytorium u siebie i otwórz w nim Claude Code
 - [ ] 4. Zainstaluj CLI HeyGen, sprawdź `heygen --version` (krok 2)
-- [ ] 5. Nagraj ok. 3 minut próbek po polsku i sklonuj głos w ElevenLabs (krok 3a)
-- [ ] 6. Przygotuj zdjęcie portretowe albo krótkie nagranie wideo (krok 3b)
+- [ ] 5. Nagraj ok. 3 minut próbek po polsku i sklonuj głos w ElevenLabs — IVC teraz, PVC docelowo (krok 3a)
+- [ ] 6. Nagraj krótkie wideo do awatara `digital_twin` (krok 3b)
 - [ ] 7. W Claude Code: „stwórz mój awatar — moja twarz" (krok 3)
 - [ ] 8. Pierwszy film: ElevenLabs robi MP3, HeyGen animuje usta (krok 5)
 
@@ -120,6 +120,13 @@ Na Twojej drodze awatar dostaje gotowe MP3 i tego głosu nie użyje.
 
 ### Krok 3a — Twój głos w ElevenLabs
 
+> **Rekomendacja.** Do materiałów, które mają Cię reprezentować publicznie —
+> reklama EduPlaner, filmy dla dyrektorów, seria dla rodziców — najlepszy efekt
+> daje **Professional Voice Cloning (PVC)** w ElevenLabs. Zacznij dziś od Instant
+> Voice Cloning (IVC): masz go od ręki, sprawdzisz całą drogę na prawdziwym
+> nagraniu. Kiedy będziesz wiedziała, że to działa, dograj materiał na PVC —
+> `ELEVENLABS_VOICE_ID` podmieniasz na nowe i **nic więcej się nie zmienia**.
+
 Masz do tego gotowe skrypty w skillu `dane-i-glos`. Najpierw sprawdź, co daje Twój plan
 (czy ma Instant Voice Cloning):
 
@@ -137,8 +144,21 @@ python3 .claude/skills/dane-i-glos/scripts/elevenlabs_klon_glosu.py "Ewa - narra
 export ELEVENLABS_VOICE_ID="<voice_id>"
 ```
 
-Szczegóły — ile materiału, jak nagrywać, kiedy warto Professional Voice Cloning zamiast
-Instant — są w `.claude/skills/dane-i-glos/references/klon_glosu.md`.
+|  | Instant (IVC) | Professional (PVC) |
+|---|---|---|
+| Materiał | 1–3 minuty | 30 minut – 3 godziny |
+| Czas oczekiwania | sekundy | kilka godzin |
+| Jakość po polsku | dobra, słychać drobne potknięcia | najbliżej oryginału |
+| Jak uruchomić | skryptem, powyżej | aplikacja webowa ElevenLabs |
+| Weryfikacja tożsamości | czasem | zawsze |
+
+PVC konfiguruje się **w aplikacji webowej**, nie skryptem — wymaga nagrania zdania
+potwierdzającego tożsamość, czego nie da się przejść przez API. Gdy klon PVC już
+powstanie, jego `voice_id` wpisujesz w to samo miejsce (`ELEVENLABS_VOICE_ID`)
+i cała reszta drogi działa bez zmian.
+
+Więcej — jak nagrywać, ile materiału, jakie błędy najbardziej psują klon —
+w `.claude/skills/dane-i-glos/references/klon_glosu.md`.
 
 **Nagrania wzorcowe trzymaj u siebie na dysku.** To jedyny materiał, z którego można
 odtworzyć głos w dowolnej usłudze; klon w chmurze jest zawsze przywiązany do platformy.
@@ -155,10 +175,21 @@ przypadkiem do gita.
 | krótkie nagranie wideo | `digital_twin` | najwierniejszy, oddaje też mimikę |
 | sam opis słowny | `prompt` | postać wygenerowana przez AI (nie Ty) |
 
-Skoro ma być **Twój wygląd**, wybierz `photo` albo `digital_twin`.
-Wymagania dla zdjęcia: JPEG/PNG, minimum 512×512, twarz na wprost, dobre światło.
+> **Rekomendacja.** Skoro ma być **Twój wygląd** i ma wyglądać profesjonalnie —
+> nagraj krótkie wideo i wybierz `digital_twin`. Zdjęcie daje statyczną twarz,
+> nagranie oddaje też Twoją mimikę i sposób trzymania głowy, a to właśnie po tym
+> widz poznaje, że to naprawdę Ty. Różnica jest wyraźnie większa niż przy głosie.
 
-Zdjęcie trzymaj lokalnie — skill wgra je do HeyGen dopiero na Twoją wyraźną prośbę.
+Nagranie: jedna scena, patrzysz w obiektyw, mówisz normalnym tempem, równe światło
+z przodu (okno albo lampa), spokojne jednolite tło, telefon na statywie lub podpórce.
+Kilkadziesiąt sekund wystarczy.
+
+Zdjęcie (`photo`), jeśli wolisz zacząć szybciej: JPEG/PNG, minimum 512×512,
+twarz na wprost, dobre światło, ostra i nieprzycięta.
+
+Materiał trzymaj lokalnie — skill wgra go do HeyGen dopiero na Twoją wyraźną prośbę.
+`.gitignore` wyklucza już `*.wav` i `*.m4a`; nagranie wideo i zdjęcie trzymaj poza
+repozytorium albo dopisz je do `.gitignore`.
 
 ## Krok 4 — pliki awatara
 
