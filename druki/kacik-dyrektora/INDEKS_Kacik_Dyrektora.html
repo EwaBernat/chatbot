@@ -116,6 +116,7 @@
   td.puste::after{content:"................"; letter-spacing:.4px}
   td.lp{text-align:center; font-weight:bold; color:var(--pomarancz); width:7mm}
   .tab-mala td{height:6.4mm}
+  .tab-zw td, .tab-zw th{padding:1.3mm 2.2mm}
   /* ——— poprawka prawna, oznaczona na niebiesko ——— */
   .popr{color:#1152C9; background:#EAF2FE; border-radius:.6mm}
   .popr b{color:#0B3C96}
@@ -621,7 +622,7 @@
     <h4>Poradnia</h4>
     <div class="termin">Opinia o funkcjonowaniu w 10 dni</div>
     <ul>
-      <li><b>DR-1</b> — termin liczony od <b>wpływu wniosku</b> do przedszkola</li>
+      <li><span class="popr"><b>DR-1</b> — termin liczony od <b>otrzymania prośby</b> przez przedszkole</span></li>
       <li>Kopia opinii <b>obowiązkowo dla rodziców</b></li>
       <li>Opinię pisze nauczyciel na druku <b>O-2</b></li>
       <li>Od 1 września 2026 r. — element oceny funkcjonalnej</li>
@@ -687,18 +688,18 @@
   </div>
   <div class="sekcja"><span class="numer pom">II</span><h2>Kalendarz roku — terminy z przepisu</h2><span class="linia"></span></div>
   <p class="wstep">Terminy, których przekroczenie jest uchybieniem samo w sobie, niezależnie od jakości pracy placówki.</p>
-  <table class="tab-mala">
+  <table class="tab-mala tab-zw">
     <thead><tr><th style="width:26%">Termin</th><th style="width:52%">Obowiązek dyrektora</th><th>Druk</th></tr></thead>
     <tbody>
       <tr><td class="klucz">do 15 września</td><td>Przedstawienie radzie pedagogicznej <b>planu nadzoru pedagogicznego</b> — z wnioskami z poprzedniego roku i kierunkami polityki oświatowej państwa</td><td><span class="sygn">DN-1</span></td></tr>
       <tr><td class="klucz">co najmniej raz w roku</td><td><b>Kontrola obiektów</b> pod kątem bezpiecznych i higienicznych warunków, z protokołem i kierunkami poprawy; kopia dla organu prowadzącego</td><td><span class="sygn">DB-1</span></td></tr>
       <tr><td class="klucz">30 dni od złożenia orzeczenia</td><td>Opracowanie <b>IPET</b> przez zespół (dla dziecka przyjętego w trakcie roku)</td><td><span class="sygn">DP-3</span></td></tr>
       <tr><td class="klucz">niezwłocznie po ustaleniu</td><td><b>Pisemna informacja dla rodziców</b> o formach, okresie i wymiarze godzin pomocy p-p</td><td><span class="sygn">DP-1</span></td></tr>
-      <tr><td class="klucz">10 dni od wpływu wniosku</td><td>Wydanie <b>opinii o funkcjonowaniu dziecka</b> na wniosek poradni, z kopią dla rodziców</td><td><span class="sygn">DR-1</span></td></tr>
+      <tr><span class="popr"><td class="klucz">10 dni od prośby</td><td>Wydanie <b>opinii o funkcjonowaniu dziecka</b> na prośbę poradni, z kopią dla rodziców</td></span><td><span class="sygn">DR-1</span></td></tr>
       <tr><td class="klucz">co najmniej dwa razy w roku</td><td><b>WOPFU</b> i ocena efektywności pomocy p-p; w miarę potrzeb modyfikacja IPET</td><td><span class="sygn">DP-3, DP-4</span></td></tr>
       <tr><td class="klucz">do 30 kwietnia</td><td>Przekazanie rodzicom <b>informacji o gotowości szkolnej</b> (urzędowy wzór <span class="popr">MEiN-I/82</span>)</td><td><span class="sygn">DO-2</span></td></tr>
       <tr><td class="klucz">nie później niż w miesiąc</td><td>Załatwienie <b>skargi</b>; przy dłuższym postępowaniu — zawiadomienie o zwłoce i nowym terminie</td><td><span class="sygn">DR-3</span></td></tr>
-      <tr><td class="klucz">niezwłocznie</td><td>Zawiadomienie o <b>wypadku</b>: rodzice, organ prowadzący, służba BHP, społeczny inspektor pracy</td><td><span class="sygn">DB-2</span></td></tr>
+      <tr><td class="klucz">niezwłocznie</td><td><span class="popr">Zawiadomienie o <b>wypadku</b>: rodzice, organ prowadzący, służba BHP, społeczny inspektor pracy, <b>rada rodziców</b>; przy ciężkim, śmiertelnym i zbiorowym — prokurator i organ nadzoru; przy zatruciu — inspektor sanitarny</span></td><td><span class="sygn">DB-2</span></td></tr>
       <tr><td class="klucz">do 31 sierpnia</td><td>Przedstawienie radzie pedagogicznej <b>wyników i wniosków ze sprawowanego nadzoru</b></td><td><span class="sygn">DN-4</span></td></tr>
       <tr><td class="klucz">przed arkuszem organizacji</td><td>Przeniesienie wniosków z oceny efektywności pomocy do <b>organizacji na kolejny rok</b></td><td><span class="sygn">DP-4</span></td></tr>
       <span class="popr"><tr><td class="klucz">cykl 2-letni</td><td>Ocena <b>standardów ochrony małoletnich</b> i pisemne wnioski;</span> od 1 września 2026 r. obowiązują nowa podstawa programowa, zakaz urządzeń elektronicznych i ocena funkcjonalna</td><td><span class="sygn">DZ-1, DZ-2, DZ-3</span></td></tr>
