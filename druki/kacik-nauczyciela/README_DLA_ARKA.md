@@ -1,6 +1,6 @@
 # Kącik nauczyciela — przedszkole · paczka do EduPlaner 2026
 
-**Wersja 1.1.0 · rok szkolny 2026/2027 · 26 druków w 10 plikach · 61 stron A4**
+**Wersja 1.2.0 · rok szkolny 2026/2027 · 26 druków w 10 plikach · 61 stron A4**
 
 Komplet dokumentacji nauczyciela wychowawcy grupy przedszkolnej. Wszystko po
 polsku, format A4, marka PCTP (fiolet `#2D1B69`, pomarańcz `#E8450A`, Arial).

@@ -191,6 +191,19 @@
 
 
   /* ——— panel aplikacji (nie drukuje się) ——— */
+  /* ——— poprawka prawna, oznaczona na niebiesko ——— */
+  .wstega span .popr, .kody .popr{display:inline; padding:0; border-radius:.6mm;
+    background:rgba(255,255,255,.3); color:#fff}
+  .popr{color:#1152C9; background:#EAF2FE; border-radius:.6mm}
+  .popr b{color:#0B3C96}
+  .prawna .popr, .legenda .popr{background:#E4EEFD}
+  /* ——— pasek informacyjny o poprawkach (tylko ekran) ——— */
+  .pasek-popr{width:210mm; margin:0 auto 4mm; background:#EAF2FE; border:1px solid #B9D2F7;
+    border-left:2.6mm solid #1152C9; border-radius:2.4mm; padding:4mm 6mm; color:#123A6B}
+  .pasek-popr h3{font-size:9pt; color:#0B3C96; font-weight:bold; margin-bottom:1.6mm;
+    text-transform:uppercase; letter-spacing:.5px}
+  .pasek-popr p{font-size:8pt; line-height:1.5; color:#1B3A66}
+  .pasek-popr .probka{color:#1152C9; background:#DCE9FC; border-radius:.6mm; font-weight:bold}
   .panel{
     width:210mm; margin:0 auto 8mm; background:#fff; border-radius:3mm; overflow:hidden;
     box-shadow:0 2px 10px rgba(45,27,105,.18);
@@ -449,6 +462,8 @@
   @media print{
     body{background:#fff}
     .panel{display:none !important}
+    .pasek-popr{display:none !important}
+    .popr{color:inherit !important; background:none !important}
     .page{margin:0; box-shadow:none; page-break-after:always}
     .page:last-child{page-break-after:auto}
     @page{size:A4; margin:0}
@@ -458,6 +473,10 @@
 <body>
 
 <!-- ======= PANEL APLIKACJI · nie drukuje się ======= -->
+<div class="pasek-popr">
+  <h3>Poprawki prawne i merytoryczne — 11 miejsc w tym pliku</h3>
+  <p>Fragmenty oznaczone <span class="probka">na niebiesko</span> to poprawki naniesione <b>31 sierpnia 2026 r.</b> na podstawie audytu z 30.08.2026 r. oraz rejestru przepisów (stan sprawdzenia: 21–23 sierpnia 2026 r.). Zmieniono wyłącznie te miejsca, w których zapis rozmijał się z obowiązującym prawem — publikator, adresata obowiązku, termin, jednostkę redakcyjną albo twierdzenie o obowiązku, którego przepis nie ustanawia. Pasek i kolor widać tylko na ekranie — <b>wydruk wychodzi w zwykłej kolorystyce</b>. Wykaz: <b>POPRAWKI_2026-08-31.md</b>.</p>
+</div>
 <div class="panel">
   <div class="panel-glowa">
     <div class="etykieta-app">EduPlaner 2026 · Kącik nauczyciela · przedszkole</div>
@@ -550,7 +569,7 @@
       <li><b>Plan działań wspierających</b> — <b>P-2</b> (dziecko bez orzeczenia)</li>
       <li>IPET i <b>karta dostosowań DS-1</b> (dziecko z orzeczeniem)</li>
       <li><b>WOPFU</b> — min. dwa razy w roku, protokół <b>P-3</b></li>
-      <li>Opinia dla poradni w <b>10 dni</b> od wniosku — <b>O-2</b></li>
+      <li><span class="popr">Opinia dla poradni w <b>10 dni</b> od otrzymania prośby</span> — <b>O-2</b></li>
     </ul></div>
     <div class="blok-mies"><h4>Styczeń i czerwiec</h4><div class="termin">do 31 stycznia i 20 czerwca</div><ul>
       <li><b>Ocena efektywności</b> udzielanej pomocy</li>
@@ -561,7 +580,7 @@
     </ul></div>
     <div class="blok-mies"><h4>Marzec i kwiecień</h4><div class="termin">do 30 kwietnia</div><ul>
       <li><b>Diagnoza końcowa</b> i analiza gotowości szkolnej — <b>O-5</b></li>
-      <li>Informacja o gotowości na wzorze <b>MEN-I/74</b> — do końca kwietnia</li>
+      <li>Informacja o gotowości na wzorze <b><span class="popr">MEiN-I/82</span></b> — do końca kwietnia</li>
       <li>Dla dziecka 6-letniego — na wniosek rodziców złożony do 30 września</li>
       <li>Podsumowanie obserwacji z całego roku</li>
     </ul></div>
@@ -611,7 +630,7 @@
       <tr><td class="klucz">Poradnia prosi o opinię</td><td><span class="sygn pom">O-2</span> <span class="sygn">O-1</span></td><td>Opinia o funkcjonowaniu w 10 dni, oparta na udokumentowanej obserwacji.</td></tr>
       <tr><td class="klucz">Wniosek o orzeczenie lub WWR</td><td><span class="sygn pom">O-3</span> <span class="sygn pom">O-2</span></td><td>Opinia dla zespołu orzekającego jako uzupełnienie opinii o funkcjonowaniu.</td></tr>
       <tr><td class="klucz">Sąd, kurator lub OPS pyta o dziecko</td><td><span class="sygn pom">O-4</span></td><td>Wyłącznie na pisemny wniosek, zasada minimalizacji danych.</td></tr>
-      <tr><td class="klucz">Dziecko idzie do szkoły</td><td><span class="sygn">O-5</span></td><td>Analiza gotowości szkolnej, potem urzędowy wzór MEN-I/74 do końca kwietnia.</td></tr>
+      <tr><td class="klucz">Dziecko idzie do szkoły</td><td><span class="sygn">O-5</span></td><td>Analiza gotowości szkolnej, potem urzędowy wzór <span class="popr">MEiN-I/82</span> do końca kwietnia.</td></tr>
       <tr><td class="klucz">Planuję zajęcia</td><td><span class="sygn">R-1</span> <span class="sygn">R-2</span> <span class="sygn pom">KON</span></td><td>Plan pracy grupy, karta zajęć i szablon konspektu z celami SMART.</td></tr>
       <tr><td class="klucz">Piszę cele do IPET lub planu</td><td><span class="sygn pom">I-1</span> <span class="sygn pom">KON</span></td><td>Instrukcja pisania celów SMART i konspekt z dwiema kolumnami celów.</td></tr>
       <tr><td class="klucz">Zachowanie trudne</td><td><span class="sygn pom">B-4</span> <span class="sygn">O-1</span></td><td>Analiza ABC, funkcja zachowania i plan pozytywnych oddziaływań.</td></tr>
@@ -659,10 +678,10 @@
       <tr><td><span class="sygn">K-1</span></td><td><span class="nazwa">Checklista obowiązków wychowawcy</span><br>Wszystkie zadania w układzie rocznym — z podstawą prawną, terminem i kratką do odhaczenia.</td><td>Wydrukuj we wrześniu, odhaczaj cały rok</td><td><a class="otw" href="Kacik_Nauczyciela_Checklista_Wychowawcy_PCTP.pdf#page=1">PDF · str. 1–5</a><span class="plik"><a href="Kacik_Nauczyciela_Checklista_Wychowawcy_PCTP.html">podgląd HTML</a></span></td></tr>
       <tr><td><span class="sygn pom">DS-1</span></td><td><span class="nazwa">Zakres dostosowań — nowa podstawa 2026</span><br>Racjonalne usprawnienia i projektowanie uniwersalne. Katalog w pięciu wymiarach, dziewięć obszarów, docelowa autonomia.</td><td>Dla każdego dziecka objętego wsparciem</td><td><a class="otw" href="Kacik_Nauczyciela_Dostosowania_PCTP.pdf#page=1">PDF · str. 1–3</a><span class="plik"><a href="Kacik_Nauczyciela_Dostosowania_PCTP.html">podgląd HTML</a></span></td></tr>
       <tr><td><span class="sygn">O-1</span></td><td><span class="nazwa">Arkusz obserwacji dziecka</span><br>Plan obserwacji, metoda, zapisy ABC i wnioski. Dokument źródłowy dla wszystkich opinii.</td><td>Przed każdą opinią i zgłoszeniem P-1</td><td><a class="otw" href="Kacik_Nauczyciela_Wzory_Opinii_PCTP.pdf#page=1">PDF · str. 1–2</a><span class="plik"><a href="Kacik_Nauczyciela_Wzory_Opinii_PCTP.html">podgląd HTML</a></span></td></tr>
-      <tr><td><span class="sygn pom">O-2</span></td><td><span class="nazwa">Opinia o funkcjonowaniu dziecka</span><br>Dla poradni — element oceny funkcjonalnej. Obszary ICF 0–4, trudności w realizacji programu, efektywność wsparcia.</td><td>10 dni od wniosku, kopia dla rodziców</td><td><a class="otw" href="Kacik_Nauczyciela_Wzory_Opinii_PCTP.pdf#page=3">PDF · str. 3–6</a><span class="plik"><a href="Kacik_Nauczyciela_Wzory_Opinii_PCTP.html">podgląd HTML</a></span></td></tr>
+      <tr><td><span class="sygn pom">O-2</span></td><td><span class="nazwa">Opinia o funkcjonowaniu dziecka</span><br>Dla poradni — element oceny funkcjonalnej. Obszary ICF 0–4, trudności w realizacji programu, efektywność wsparcia.</td><span class="popr"><td>10 dni od otrzymania prośby, kopia dla rodziców</td></span><td><a class="otw" href="Kacik_Nauczyciela_Wzory_Opinii_PCTP.pdf#page=3">PDF · str. 3–6</a><span class="plik"><a href="Kacik_Nauczyciela_Wzory_Opinii_PCTP.html">podgląd HTML</a></span></td></tr>
       <tr><td><span class="sygn">O-3</span></td><td><span class="nazwa">Opinia dla zespołu orzekającego</span><br>Uzupełnienie opinii o funkcjonowaniu przy wniosku o orzeczenie, WWR lub zajęcia rewalidacyjno-wychowawcze.</td><td>Przy wystąpieniu do poradni</td><td><a class="otw" href="Kacik_Nauczyciela_Wzory_Opinii_PCTP.pdf#page=7">PDF · str. 7–8</a><span class="plik"><a href="Kacik_Nauczyciela_Wzory_Opinii_PCTP.html">podgląd HTML</a></span></td></tr>
       <tr><td><span class="sygn">O-4</span></td><td><span class="nazwa">Opinia dla instytucji zewnętrznej</span><br>Sąd rodzinny, kurator, ośrodek pomocy społecznej. Fakty i obserwacje, minimalizacja danych.</td><td>Tylko na pisemny wniosek organu</td><td><a class="otw" href="Kacik_Nauczyciela_Wzory_Opinii_PCTP.pdf#page=9">PDF · str. 9–10</a><span class="plik"><a href="Kacik_Nauczyciela_Wzory_Opinii_PCTP.html">podgląd HTML</a></span></td></tr>
-      <tr><td><span class="sygn pom">O-5</span></td><td><span class="nazwa">Analiza gotowości szkolnej</span><br>Materiał roboczy do informacji o gotowości. Nie zastępuje urzędowego wzoru MEN-I/74.</td><td>Marzec–kwiecień, informacja do 30 kwietnia</td><td><a class="otw" href="Kacik_Nauczyciela_Wzory_Opinii_PCTP.pdf#page=11">PDF · str. 11–12</a><span class="plik"><a href="Kacik_Nauczyciela_Wzory_Opinii_PCTP.html">podgląd HTML</a></span></td></tr>
+      <tr><td><span class="sygn pom">O-5</span></td><td><span class="nazwa">Analiza gotowości szkolnej</span><br>Materiał roboczy do informacji o gotowości. Nie zastępuje urzędowego wzoru <span class="popr">MEiN-I/82</span>.</td><td>Marzec–kwiecień, informacja do 30 kwietnia</td><td><a class="otw" href="Kacik_Nauczyciela_Wzory_Opinii_PCTP.pdf#page=11">PDF · str. 11–12</a><span class="plik"><a href="Kacik_Nauczyciela_Wzory_Opinii_PCTP.html">podgląd HTML</a></span></td></tr>
       <tr><td><span class="sygn">P-1</span></td><td><span class="nazwa">Wniosek o objęcie pomocą p-p</span><br>Zgłoszenie do dyrektora z blokiem jego decyzji i pisemnej informacji dla rodziców.</td><td>Niezwłocznie po rozpoznaniu potrzeby</td><td><a class="otw" href="Kacik_Nauczyciela_Pomoc_PP_PCTP.pdf#page=1">PDF · str. 1–2</a><span class="plik"><a href="Kacik_Nauczyciela_Pomoc_PP_PCTP.html">podgląd HTML</a></span></td></tr>
       <tr><td><span class="sygn pom">P-2</span></td><td><span class="nazwa">Plan działań wspierających</span><br>Dla dziecka <b>bez orzeczenia</b>. Cele SMART, dostosowania, zadania dla rodziców, ewaluacja.</td><td>Po decyzji dyrektora o objęciu pomocą</td><td><a class="otw" href="Kacik_Nauczyciela_Pomoc_PP_PCTP.pdf#page=3">PDF · str. 3–4</a><span class="plik"><a href="Kacik_Nauczyciela_Pomoc_PP_PCTP.html">podgląd HTML</a></span></td></tr>
       <tr><td><span class="sygn">P-3</span></td><td><span class="nazwa">Protokół spotkania zespołu</span><br>WOPFU, opracowanie i modyfikacja IPET, ocena efektywności. Lista obecności i zadania z terminami.</td><td>WOPFU min. dwa razy w roku</td><td><a class="otw" href="Kacik_Nauczyciela_Pomoc_PP_PCTP.pdf#page=5">PDF · str. 5–6</a><span class="plik"><a href="Kacik_Nauczyciela_Pomoc_PP_PCTP.html">podgląd HTML</a></span></td></tr>
@@ -708,7 +727,7 @@
       <tr><td><span class="sygn">R-3</span></td><td><span class="nazwa">Karta realizacji zajęć specjalistycznych</span><br>Dziennik przebiegu i monitorowanie postępów w skali 1–5. Uzupełnia dziennik zajęć, nie zastępuje go.</td><td>Każde zajęcia specjalistyczne</td><td><a class="otw" href="Kacik_Nauczyciela_Planowanie_PCTP.pdf#page=5">PDF · str. 5–6</a><span class="plik"><a href="Kacik_Nauczyciela_Planowanie_PCTP.html">podgląd HTML</a></span></td></tr>
       <tr><td><span class="sygn">R-4</span></td><td><span class="nazwa">Sprawozdanie z pracy grupy</span><br>Realizacja dziewięciu obszarów, frekwencja, wydarzenia, efekty i wnioski dla dyrektora.</td><td>Koniec semestru i koniec roku</td><td><a class="otw" href="Kacik_Nauczyciela_Planowanie_PCTP.pdf#page=7">PDF · str. 7–8</a><span class="plik"><a href="Kacik_Nauczyciela_Planowanie_PCTP.html">podgląd HTML</a></span></td></tr>
       <tr><td><span class="sygn">W-1</span></td><td><span class="nazwa">Rejestr kontaktów z rodzicami</span><br>Jedna karta na dziecko na cały rok — data, forma, temat, ustalenia i podpis rodzica.</td><td>Każdy kontakt dotyczący dziecka</td><td><a class="otw" href="Kacik_Nauczyciela_Rodzice_PCTP.pdf#page=1">PDF · str. 1–2</a><span class="plik"><a href="Kacik_Nauczyciela_Rodzice_PCTP.html">podgląd HTML</a></span></td></tr>
-      <tr><td><span class="sygn pom">W-2</span></td><td><span class="nazwa">Informacja o postępach dziecka</span><br>Dla każdego dziecka, dwa razy w roku. Umiejętności w obszarach, skala S / Z / P / N, wskazówki do domu.</td><td>Dwa razy w roku — to nie MEN-I/74</td><td><a class="otw" href="Kacik_Nauczyciela_Rodzice_PCTP.pdf#page=3">PDF · str. 3–4</a><span class="plik"><a href="Kacik_Nauczyciela_Rodzice_PCTP.html">podgląd HTML</a></span></td></tr>
+      <tr><td><span class="sygn pom">W-2</span></td><td><span class="nazwa">Informacja o postępach dziecka</span><br>Dla każdego dziecka, dwa razy w roku. Umiejętności w obszarach, skala S / Z / P / N, wskazówki do domu.</td><td>Dwa razy w roku — to nie <span class="popr">MEiN-I/82</span></td><td><a class="otw" href="Kacik_Nauczyciela_Rodzice_PCTP.pdf#page=3">PDF · str. 3–4</a><span class="plik"><a href="Kacik_Nauczyciela_Rodzice_PCTP.html">podgląd HTML</a></span></td></tr>
       <tr><td><span class="sygn">B-1</span></td><td><span class="nazwa">Karta wycieczki i wyjścia</span><br>Organizacja, opiekunowie, lista uczestników ze zgodami i lista kontrolna przed wyjściem.</td><td>Przed każdym wyjściem poza teren</td><td><a class="otw" href="Kacik_Nauczyciela_Bezpieczenstwo_PCTP.pdf#page=1">PDF · str. 1–2</a><span class="plik"><a href="Kacik_Nauczyciela_Bezpieczenstwo_PCTP.html">podgląd HTML</a></span></td></tr>
       <tr><td><span class="sygn pom">B-2</span></td><td><span class="nazwa">Karta zdarzenia — notatka służbowa</span><br>Rodzaj zdarzenia, przebieg w faktach, powiadomienia, dalsze postępowanie. Nie zastępuje protokołu powypadkowego.</td><td>Tego samego dnia co zdarzenie</td><td><a class="otw" href="Kacik_Nauczyciela_Bezpieczenstwo_PCTP.pdf#page=3">PDF · str. 3–4</a><span class="plik"><a href="Kacik_Nauczyciela_Bezpieczenstwo_PCTP.html">podgląd HTML</a></span></td></tr>
     </tbody>
@@ -754,9 +773,9 @@
   </table>
   <div class="sekcja"><span class="numer">IV</span><h2>Podstawa prawna zestawu</h2><span class="linia"></span></div>
   <div class="prawna">
-    <p><b>NOWA PODSTAWA PROGRAMOWA.</b> Rozporządzenie Ministra Edukacji z dnia 11 marca 2026 r. w sprawie podstawy programowej wychowania przedszkolnego oraz podstawy programowej kształcenia ogólnego dla szkoły podstawowej (<b>Dz.U. z 2026 r. poz. 378</b>, zm. poz. 958) — od <b>1 września 2026 r.</b>: dziewięć obszarów, racjonalne usprawnienia i projektowanie uniwersalne, autonomia dziecka jako cel nadrzędny. <b>OCENA FUNKCJONALNA.</b> Rozporządzenie Ministra Edukacji z dnia 2 marca 2026 r. w sprawie orzeczeń i opinii poradni psychologiczno-pedagogicznych (<b>Dz.U. z 2026 r. poz. 428</b>) — przedszkole wydaje opinię o funkcjonowaniu dziecka w terminie 10 dni od wniosku, z kopią dla rodziców. <b>POZOSTAŁE.</b> Prawo oświatowe (t.j. Dz.U. 2024 poz. 737) · rozp. MEN z 9.08.2017 r. o pomocy p-p (Dz.U. 2017 poz. 1591, t.j. Dz.U. 2023 poz. 1798) · o kształceniu specjalnym (Dz.U. 2017 poz. 1578, t.j. Dz.U. 2020 poz. 1309) · rozp. MEN z 25.08.2017 r. o dokumentacji (Dz.U. 2017 poz. 1646) · rozp. MEN z 27.08.2019 r. o świadectwach (Dz.U. 2019 poz. 1700) — wzór MEN-I/74 · rozp. MENiS z 31.12.2002 r. o bezpieczeństwie (t.j. Dz.U. 2020 poz. 1604) · rozp. MEN z 25.05.2018 r. o krajoznawstwie (Dz.U. 2018 poz. 1055) · rozp. RM z 6.09.2023 r. „Niebieskie Karty” (Dz.U. 2023 poz. 1870) · RODO (UE) 2016/679.</p>
+    <p><b>NOWA PODSTAWA PROGRAMOWA.</b> Rozporządzenie Ministra Edukacji z dnia 11 marca 2026 r. w sprawie podstawy programowej wychowania przedszkolnego oraz podstawy programowej kształcenia ogólnego dla szkoły podstawowej (<b>Dz.U. z 2026 r. poz. 378</b>, zm. poz. 958) — od <b>1 września 2026 r.</b>: dziewięć obszarów, racjonalne usprawnienia i projektowanie uniwersalne, autonomia dziecka jako cel nadrzędny. <b>OCENA FUNKCJONALNA.</b> Rozporządzenie Ministra Edukacji z dnia 2 marca 2026 r. w sprawie orzeczeń i opinii poradni psychologiczno-pedagogicznych (<b>Dz.U. z 2026 r. poz. 428</b>) — przedszkole wydaje opinię o funkcjonowaniu dziecka <span class="popr">w terminie 10 dni od otrzymania prośby, z kopią dla rodziców</span>. <b>POZOSTAŁE.</b> Prawo oświatowe (<span class="popr">t.j. Dz.U. 2026 poz. 820</span>) · rozp. MEN z 9.08.2017 r. o pomocy p-p (Dz.U. 2017 poz. 1591, t.j. Dz.U. 2023 poz. 1798) · o kształceniu specjalnym (Dz.U. 2017 poz. 1578, t.j. Dz.U. 2020 poz. 1309) · rozp. MEN z 25.08.2017 r. o dokumentacji (<span class="popr">t.j. Dz.U. 2024 poz. 50</span>) · <span class="popr">rozp. MEiN z 7.06.2023 r. o świadectwach (Dz.U. 2023 poz. 1120)</span> — wzór <span class="popr">MEiN-I/82</span> · rozp. MENiS z 31.12.2002 r. o bezpieczeństwie (t.j. Dz.U. 2020 poz. 1604) · rozp. MEN z 25.05.2018 r. o krajoznawstwie (Dz.U. 2018 poz. 1055) · rozp. RM z 6.09.2023 r. „Niebieskie Karty” (Dz.U. 2023 poz. 1870) · RODO (UE) 2016/679.</p>
   </div>
-  <div class="info"><b>Czego zestaw nie zastępuje.</b> <b>O-5</b> nie zastępuje wzoru MEN-I/74 · <b>B-2</b> nie zastępuje protokołu powypadkowego · <b>R-3</b> nie zastępuje dziennika zajęć — dziennikiem jest <b>Z-2</b> · <b>W-3</b> wymaga porównania zakresu zgód ze statutem placówki.</div>
+  <div class="info"><b>Czego zestaw nie zastępuje.</b> <b>O-5</b> nie zastępuje wzoru <span class="popr">MEiN-I/82</span> · <b>B-2</b> nie zastępuje protokołu powypadkowego · <b>R-3</b> nie zastępuje dziennika zajęć — dziennikiem jest <b>Z-2</b> · <b>W-3</b> wymaga porównania zakresu zgód ze statutem placówki.</div>
   <div class="stopka">
     <span>EduPlaner 2026 · PCTP · pedagog specjalny</span>
     <span><b>Strona 5 z 5</b> · Kącik nauczyciela · lista druków 3/3 i podstawa prawna</span>

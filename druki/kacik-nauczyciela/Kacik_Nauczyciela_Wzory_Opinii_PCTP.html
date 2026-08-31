@@ -191,6 +191,19 @@
 
 
   /* ——— panel aplikacji (nie drukuje się) ——— */
+  /* ——— poprawka prawna, oznaczona na niebiesko ——— */
+  .wstega span .popr, .kody .popr{display:inline; padding:0; border-radius:.6mm;
+    background:rgba(255,255,255,.3); color:#fff}
+  .popr{color:#1152C9; background:#EAF2FE; border-radius:.6mm}
+  .popr b{color:#0B3C96}
+  .prawna .popr, .legenda .popr{background:#E4EEFD}
+  /* ——— pasek informacyjny o poprawkach (tylko ekran) ——— */
+  .pasek-popr{width:210mm; margin:0 auto 4mm; background:#EAF2FE; border:1px solid #B9D2F7;
+    border-left:2.6mm solid #1152C9; border-radius:2.4mm; padding:4mm 6mm; color:#123A6B}
+  .pasek-popr h3{font-size:9pt; color:#0B3C96; font-weight:bold; margin-bottom:1.6mm;
+    text-transform:uppercase; letter-spacing:.5px}
+  .pasek-popr p{font-size:8pt; line-height:1.5; color:#1B3A66}
+  .pasek-popr .probka{color:#1152C9; background:#DCE9FC; border-radius:.6mm; font-weight:bold}
   .panel{
     width:210mm; margin:0 auto 8mm; background:#fff; border-radius:3mm; overflow:hidden;
     box-shadow:0 2px 10px rgba(45,27,105,.18);
@@ -237,6 +250,8 @@
   @media print{
     body{background:#fff}
     .panel{display:none !important}
+    .pasek-popr{display:none !important}
+    .popr{color:inherit !important; background:none !important}
     .page{margin:0; box-shadow:none; page-break-after:always}
     .page:last-child{page-break-after:auto}
     @page{size:A4; margin:0}
@@ -246,6 +261,10 @@
 <body>
 
 <!-- ======= PANEL APLIKACJI · nie drukuje się ======= -->
+<div class="pasek-popr">
+  <h3>Poprawki prawne i merytoryczne — 19 miejsc w tym pliku</h3>
+  <p>Fragmenty oznaczone <span class="probka">na niebiesko</span> to poprawki naniesione <b>31 sierpnia 2026 r.</b> na podstawie audytu z 30.08.2026 r. oraz rejestru przepisów (stan sprawdzenia: 21–23 sierpnia 2026 r.). Zmieniono wyłącznie te miejsca, w których zapis rozmijał się z obowiązującym prawem — publikator, adresata obowiązku, termin, jednostkę redakcyjną albo twierdzenie o obowiązku, którego przepis nie ustanawia. Pasek i kolor widać tylko na ekranie — <b>wydruk wychodzi w zwykłej kolorystyce</b>. Wykaz: <b>POPRAWKI_2026-08-31.md</b>.</p>
+</div>
 <div class="panel">
   <div class="panel-glowa">
     <div class="etykieta-app">EduPlaner 2026 · Kącik nauczyciela · przedszkole · panel informacyjny</div>
@@ -257,7 +276,7 @@
     <div class="panel-sekcja">
       <h2>Co się zmieniło od 1 września 2026 r.</h2>
       <div class="info">
-        <b>Rozporządzenie Ministra Edukacji z dnia 2 marca 2026 r. w sprawie orzeczeń i opinii wydawanych przez zespoły orzekające działające w publicznych poradniach psychologiczno-pedagogicznych (Dz.U. z 2026 r. poz. 428)</b> — zastąpiło rozporządzenie MEN z 7 września 2017 r. Przed wydaniem orzeczenia lub opinii zespół orzekający w poradni przeprowadza <b>ocenę funkcjonalną</b> dziecka. Przepisy dotyczące oceny funkcjonowania weszły w życie <b>1 września 2026 r.</b>
+        <b>Rozporządzenie Ministra Edukacji z dnia 2 marca 2026 r. w sprawie orzeczeń i opinii wydawanych przez zespoły orzekające działające w publicznych poradniach psychologiczno-pedagogicznych (Dz.U. z 2026 r. poz. 428)</b> — zastąpiło rozporządzenie MEN z 7 września 2017 r. Przed wydaniem orzeczenia lub opinii zespół orzekający w poradni przeprowadza <b>ocenę funkcjonalną</b> dziecka. <span class="popr">Tryb uzyskania opinii z § 7 ust. 2–5 obowiązuje od <b>14 kwietnia 2026 r.</b>, a wymagania dotyczące jej zakresu z § 7 ust. 6–7 stosuje się od <b>1 września 2026 r.</b></span>
       </div>
       <div class="panel-role">
         <div class="rola">
@@ -266,7 +285,7 @@
         </div>
         <div class="rola">
           <b>Termin: 10 dni</b>
-          <span>Opinię o funkcjonowaniu przygotowuje się w terminie <em>10 dni od dnia otrzymania przez dyrektora wniosku</em> o jej wydanie. Kopię opinii przekazuje się <em>rodzicom</em>.</span>
+          <span>Opinię o funkcjonowaniu przygotowuje się w terminie <em><span class="popr">10 dni od dnia otrzymania przez dyrektora prośby</em> o wydanie opinii</span>. Kopię opinii przekazuje się <em>rodzicom</em>.</span>
         </div>
         <div class="rola">
           <b>Zakres opinii</b>
@@ -278,7 +297,7 @@
         </div>
         <div class="rola">
           <b>Obserwacja i diagnoza przedszkolna to obowiązek podstawy programowej</b>
-          <span>Rozporządzenie MEN z 14 lutego 2017 r. (Dz.U. 2017 poz. 378, zm. Dz.U. z 2026 r. poz. 958): nauczyciele <em>prowadzą i dokumentują obserwacje pedagogiczne</em>, a w roku poprzedzającym rozpoczęcie nauki w szkole przeprowadzają <em>analizę gotowości dziecka do podjęcia nauki</em> — druk <em>O-5</em>.</span>
+          <span><span class="popr">Rozporządzenie Ministra Edukacji z 11 marca 2026 r. (Dz.U. 2026 poz. 378, zm. Dz.U. z 2026 r. poz. 958)</span>: nauczyciele <em>prowadzą i dokumentują obserwacje pedagogiczne</em>, a w roku poprzedzającym rozpoczęcie nauki w szkole przeprowadzają <em>analizę gotowości dziecka do podjęcia nauki</em> — druk <em>O-5</em>.</span>
         </div>
       </div>
     </div>
@@ -290,7 +309,7 @@
         <li><span class="nr">2</span><span><b>O-2 · Opinia o funkcjonowaniu dziecka</b> — dla poradni, obszary ICF, obszary podstawy programowej (str. 3–6)</span></li>
         <li><span class="nr">3</span><span><b>O-3 · Opinia dla zespołu orzekającego</b> — kształcenie specjalne, WWR, zajęcia rewalidacyjno-wychowawcze (str. 7–8)</span></li>
         <li><span class="nr">4</span><span><b>O-4 · Opinia nauczyciela o dziecku dla instytucji</b> — sąd rodzinny, kurator, OPS (str. 9–10)</span></li>
-        <li><span class="nr">5</span><span><b>O-5 · Analiza gotowości szkolnej</b> — materiał roboczy do wzoru MEN-I/74 (str. 11–12)</span></li>
+        <li><span class="nr">5</span><span><b>O-5 · Analiza gotowości szkolnej</b> — materiał roboczy do wzoru <span class="popr">MEiN-I/82</span> (str. 11–12)</span></li>
       </ul>
     </div>
 
@@ -299,13 +318,13 @@
       <div class="kafle">
         <div class="kafel">
           <div class="naglowek-kafla">Opinia o funkcjonowaniu (O-2)</div>
-          <div class="tresc-kafla">10 dni od wniosku</div>
-          <div class="uwaga">Liczone od dnia otrzymania wniosku przez dyrektora. Kopia dla rodziców.</div>
+          <div class="tresc-kafla"><span class="popr">10 dni od prośby</span></div>
+          <div class="uwaga"><span class="popr">Liczone od dnia otrzymania prośby przez dyrektora.</span> Kopia dla rodziców.</div>
         </div>
         <div class="kafel">
           <div class="naglowek-kafla">Gotowość szkolna (O-5)</div>
           <div class="tresc-kafla">do końca kwietnia</div>
-          <div class="uwaga">Wzór MEN-I/74. Dla dziecka 6-letniego — na wniosek rodziców złożony do 30 września.</div>
+          <div class="uwaga">Wzór <span class="popr">MEiN-I/82</span>. Dla dziecka 6-letniego — na wniosek rodziców złożony do 30 września.</div>
         </div>
         <div class="kafel">
           <div class="naglowek-kafla">Opinia dla instytucji (O-4)</div>
@@ -492,7 +511,7 @@
   </div>
   <div class="sekcja"><span class="numer">§</span><h2>Podstawa prawna i tryb wydania</h2><span class="linia"></span></div>
   <div class="prawna">
-    <p><b>PODSTAWA PRAWNA I TRYB WYDANIA.</b> <b>Rozporządzenie Ministra Edukacji z dnia 2 marca 2026 r. w sprawie orzeczeń i opinii wydawanych przez zespoły orzekające działające w publicznych poradniach psychologiczno-pedagogicznych (Dz.U. z 2026 r. poz. 428)</b> — zastąpiło rozporządzenie MEN z dnia 7 września 2017 r.; przed wydaniem orzeczenia lub opinii zespół orzekający w poradni przeprowadza <b>ocenę funkcjonalną</b> dziecka lub ucznia. Przepisy dotyczące oceny funkcjonowania obowiązują od <b>1 września 2026 r.</b> <b>Przedszkole nie sporządza oceny funkcjonalnej</b> — przygotowuje i przekazuje poradni <b>opinię o funkcjonowaniu dziecka</b>, stanowiącą element tej oceny. Opinię przygotowuje się w terminie <b>10 dni od dnia otrzymania przez dyrektora wniosku</b> o jej wydanie, a jej <b>kopię przekazuje się rodzicom</b>. Opinia opisuje <b>aktywność i uczestniczenie</b> dziecka zgodnie z obszarami <b>Międzynarodowej Klasyfikacji Funkcjonowania, Niepełnosprawności i Zdrowia (ICF)</b>, odpowiednio do wieku i poziomu rozwoju psychofizycznego, w tym <b>zakres i rodzaj trudności w realizacji programu wychowania przedszkolnego</b> w oddziale, do którego dziecko uczęszcza. Podstawą opisu jest <b>obserwacja</b> dziecka w codziennych sytuacjach przedszkolnych; ocena może opierać się także na obserwacji dokonanej przez specjalistów poradni w środowisku przedszkolnym, jeżeli jest to konieczne. Ponadto: <b>rozporządzenie Ministra Edukacji z dnia 11 marca 2026 r. w sprawie podstawy programowej wychowania przedszkolnego (Dz.U. z 2026 r. poz. 378, zm. Dz.U. z 2026 r. poz. 958)</b> — nauczyciele prowadzą <b>obserwacje pedagogiczne</b> mające na celu poznanie możliwości i potrzeb rozwojowych dzieci oraz dokumentują te obserwacje; rozporządzenie MEN z dnia 9 sierpnia 2017 r. w sprawie zasad organizacji i udzielania pomocy psychologiczno-pedagogicznej w publicznych przedszkolach, szkołach i placówkach (Dz.U. z 2017 r. poz. 1591, t.j. Dz.U. z 2023 r. poz. 1798, z późn. zm.); ustawa z dnia 14 grudnia 2016 r. — Prawo oświatowe (t.j. Dz.U. z 2024 r. poz. 737, z późn. zm.). <b>DANE OSOBOWE</b> przetwarzane zgodnie z RODO (Rozporządzenie Parlamentu Europejskiego i Rady (UE) 2016/679 z dnia 27 kwietnia 2016 r.).</p>
+    <p><b>PODSTAWA PRAWNA I TRYB WYDANIA.</b> <b>Rozporządzenie Ministra Edukacji z dnia 2 marca 2026 r. w sprawie orzeczeń i opinii wydawanych przez zespoły orzekające działające w publicznych poradniach psychologiczno-pedagogicznych (Dz.U. z 2026 r. poz. 428)</b> — zastąpiło rozporządzenie MEN z dnia 7 września 2017 r.; przed wydaniem orzeczenia lub opinii zespół orzekający w poradni przeprowadza <b>ocenę funkcjonalną</b> dziecka lub ucznia. <span class="popr">Tryb uzyskania opinii z § 7 ust. 2–5 obowiązuje od <b>14 kwietnia 2026 r.</b>, a wymagania dotyczące jej zakresu z § 7 ust. 6–7 stosuje się od <b>1 września 2026 r.</b></span> <b>Przedszkole nie sporządza oceny funkcjonalnej</b> — przygotowuje i przekazuje poradni <b>opinię o funkcjonowaniu dziecka</b>, stanowiącą element tej oceny. Opinię przygotowuje się w terminie <b><span class="popr">10 dni od dnia otrzymania przez dyrektora prośby</b> o wydanie opinii</span>, a jej <b>kopię przekazuje się rodzicom</b>. Opinia opisuje <b>aktywność i uczestniczenie</b> dziecka zgodnie z obszarami <b>Międzynarodowej Klasyfikacji Funkcjonowania, Niepełnosprawności i Zdrowia (ICF)</b>, odpowiednio do wieku i poziomu rozwoju psychofizycznego, w tym <b>zakres i rodzaj trudności w realizacji programu wychowania przedszkolnego</b> w oddziale, do którego dziecko uczęszcza. Podstawą opisu jest <b>obserwacja</b> dziecka w codziennych sytuacjach przedszkolnych; ocena może opierać się także na obserwacji dokonanej przez specjalistów poradni w środowisku przedszkolnym, jeżeli jest to konieczne. Ponadto: <b>rozporządzenie Ministra Edukacji z dnia 11 marca 2026 r. w sprawie podstawy programowej wychowania przedszkolnego (Dz.U. z 2026 r. poz. 378, zm. Dz.U. z 2026 r. poz. 958)</b> — nauczyciele prowadzą <b>obserwacje pedagogiczne</b> mające na celu poznanie możliwości i potrzeb rozwojowych dzieci oraz dokumentują te obserwacje; rozporządzenie MEN z dnia 9 sierpnia 2017 r. w sprawie zasad organizacji i udzielania pomocy psychologiczno-pedagogicznej w publicznych przedszkolach, szkołach i placówkach (Dz.U. z 2017 r. poz. 1591, t.j. Dz.U. z 2023 r. poz. 1798, z późn. zm.); ustawa z dnia 14 grudnia 2016 r. — Prawo oświatowe (<span class="popr">t.j. Dz.U. z 2026 r. poz. 820</span>, z późn. zm.). <b>DANE OSOBOWE</b> przetwarzane zgodnie z RODO (Rozporządzenie Parlamentu Europejskiego i Rady (UE) 2016/679 z dnia 27 kwietnia 2016 r.).</p>
   </div>
   <div class="sekcja"><span class="numer pom">I</span><h2>Dane i tryb sporządzenia opinii</h2><span class="linia"></span></div>
   <div class="siatka2">
@@ -562,7 +581,7 @@
       <tr><td class="klucz">d9 · Życie społeczne — uroczystości, wycieczki, nowe sytuacje</td><td class="ocena">0 1 2 3 4</td><td class="puste"></td></tr>
     </tbody>
   </table>
-  <p class="wstep" style="margin-left:0">Skala trudności (kwalifikator ICF): 0 — brak trudności · 1 — niewielkie · 2 — umiarkowane · 3 — znaczne · 4 — całkowite.</p>
+  <p class="wstep" style="margin-left:0"><span class="popr">Pomocnicza skala robocza 0–4 (nie jest wymagana rozporządzeniem):</span> 0 — brak trudności · 1 — niewielkie · 2 — umiarkowane · 3 — znaczne · 4 — całkowite.</p>
   <div class="karty">
     <div class="karta zielona"><div class="duza">0</div><div class="opis">Brak trudności</div></div>
     <div class="karta zolta"><div class="duza">1–2</div><div class="opis">Trudności niewielkie i umiarkowane</div></div>
@@ -730,7 +749,7 @@
   </div>
   <div class="sekcja"><span class="numer">§</span><h2>Podstawa prawna</h2><span class="linia"></span></div>
   <div class="prawna">
-    <p>Ustawa z dnia 14 grudnia 2016 r. — Prawo oświatowe (t.j. Dz.U. z 2024 r. poz. 737, z późn. zm.) — art. 127. <b>Rozporządzenie Ministra Edukacji z dnia 2 marca 2026 r. w sprawie orzeczeń i opinii wydawanych przez zespoły orzekające działające w publicznych poradniach psychologiczno-pedagogicznych (Dz.U. z 2026 r. poz. 428)</b> — zespół orzekający przeprowadza <b>ocenę funkcjonalną</b> przed wydaniem orzeczenia lub opinii, a opinia przedszkola o funkcjonowaniu dziecka stanowi jej element. Niniejszy druk <b>uzupełnia opinię o funkcjonowaniu (O-2)</b> o informacje istotne dla rodzaju wnioskowanego rozstrzygnięcia i jej nie zastępuje. Dane osobowe przetwarzane zgodnie z RODO (UE) 2016/679.</p>
+    <p>Ustawa z dnia 14 grudnia 2016 r. — Prawo oświatowe (<span class="popr">t.j. Dz.U. z 2026 r. poz. 820</span>, z późn. zm.) — art. 127. <b>Rozporządzenie Ministra Edukacji z dnia 2 marca 2026 r. w sprawie orzeczeń i opinii wydawanych przez zespoły orzekające działające w publicznych poradniach psychologiczno-pedagogicznych (Dz.U. z 2026 r. poz. 428)</b> — zespół orzekający przeprowadza <b>ocenę funkcjonalną</b> przed wydaniem orzeczenia lub opinii, a opinia przedszkola o funkcjonowaniu dziecka stanowi jej element. Niniejszy druk <b>uzupełnia opinię o funkcjonowaniu (O-2)</b> o informacje istotne dla rodzaju wnioskowanego rozstrzygnięcia i jej nie zastępuje. Dane osobowe przetwarzane zgodnie z RODO (UE) 2016/679.</p>
   </div>
   <div class="sekcja"><span class="numer pom">I</span><h2>Dane i przedmiot wniosku</h2><span class="linia"></span></div>
   <div class="siatka2">
@@ -851,7 +870,7 @@
   </div>
   <div class="sekcja"><span class="numer">§</span><h2>Podstawa prawna i zasady sporządzenia</h2><span class="linia"></span></div>
   <div class="prawna">
-    <p>Opinię sporządza się <b>wyłącznie na pisemny wniosek uprawnionego organu</b> albo za zgodą rodziców. Podstawy najczęstsze: ustawa z dnia 9 czerwca 2022 r. o wspieraniu i resocjalizacji nieletnich (Dz.U. z 2022 r. poz. 1700, z późn. zm.) — wystąpienia sądu rodzinnego i kuratora, w tym w sprawach o wgląd w sytuację dziecka i o władzę rodzicielską; ustawa z dnia 17 listopada 1964 r. — Kodeks postępowania cywilnego (z późn. zm.) — obowiązek przedstawienia dokumentu na żądanie sądu; ustawa z dnia 12 marca 2004 r. o pomocy społecznej (z późn. zm.); ustawa z dnia 29 lipca 2005 r. o przeciwdziałaniu przemocy domowej (z późn. zm.) — procedura „Niebieskie Karty”; ustawa z dnia 14 grudnia 2016 r. — Prawo oświatowe (t.j. Dz.U. z 2024 r. poz. 737, z późn. zm.). <b>ZAKRES DANYCH.</b> Przekazuje się wyłącznie informacje niezbędne dla celu wskazanego we wniosku — zasada minimalizacji danych, RODO (UE) 2016/679. Opinia zawiera <b>fakty i obserwacje</b>, nie zawiera diagnoz medycznych ani ocen moralnych rodziny. Dokument podpisuje nauczyciel prowadzący grupę i zatwierdza dyrektor; kopię pozostawia się w dokumentacji przedszkola.</p>
+    <p><span class="popr">Przed sporządzeniem opinii <b>zweryfikuj konkretne pisemne żądanie</b> albo inną podstawę prawną właściwą dla tej sprawy; wpisz sygnaturę, cel, zakres, odbiorcę i podstawę udostępnienia danych. Sama ogólna zgoda rodziców ani lista ustaw nie stanowi automatycznej podstawy przekazania dokumentu. Podstawy najczęstsze:</span> ustawa z dnia 9 czerwca 2022 r. o wspieraniu i resocjalizacji nieletnich (Dz.U. z 2022 r. poz. 1700, z późn. zm.) — wystąpienia sądu rodzinnego i kuratora, w tym w sprawach o wgląd w sytuację dziecka i o władzę rodzicielską; ustawa z dnia 17 listopada 1964 r. — Kodeks postępowania cywilnego (z późn. zm.) — obowiązek przedstawienia dokumentu na żądanie sądu; ustawa z dnia 12 marca 2004 r. o pomocy społecznej (z późn. zm.); ustawa z dnia 29 lipca 2005 r. o przeciwdziałaniu przemocy domowej (z późn. zm.) — procedura „Niebieskie Karty”; ustawa z dnia 14 grudnia 2016 r. — Prawo oświatowe (<span class="popr">t.j. Dz.U. z 2026 r. poz. 820</span>, z późn. zm.). <b>ZAKRES DANYCH.</b> Przekazuje się wyłącznie informacje niezbędne dla celu wskazanego we wniosku — zasada minimalizacji danych, RODO (UE) 2016/679. Opinia zawiera <b>fakty i obserwacje</b>, nie zawiera diagnoz medycznych ani ocen moralnych rodziny. Dokument podpisuje nauczyciel prowadzący grupę i zatwierdza dyrektor; kopię pozostawia się w dokumentacji przedszkola.</p>
   </div>
   <div class="sekcja"><span class="numer pom">I</span><h2>Adresat i podstawa wystąpienia</h2><span class="linia"></span></div>
   <div class="siatka2">
@@ -971,12 +990,12 @@
   <div class="podtytul">materiał roboczy do informacji o gotowości dziecka do podjęcia nauki w szkole</div>
   <div class="kody">
     <span class="kreska"></span>
-    <span class="tresc">DRUK O-5 · PODSTAWA DO WZORU MEN-I/74</span>
+    <span class="tresc">DRUK O-5 · PODSTAWA DO WZORU <span class="popr">MEiN-I/82</span></span>
     <span class="kreska"></span>
   </div>
   <div class="sekcja"><span class="numer">§</span><h2>Podstawa prawna i tryb</h2><span class="linia"></span></div>
   <div class="prawna">
-    <p><b>Rozporządzenie Ministra Edukacji z dnia 11 marca 2026 r. w sprawie podstawy programowej wychowania przedszkolnego oraz podstawy programowej kształcenia ogólnego dla szkoły podstawowej (Dz.U. z 2026 r. poz. 378, zm. Dz.U. z 2026 r. poz. 958)</b> — nauczyciele prowadzą <b>obserwacje pedagogiczne</b> mające na celu poznanie możliwości i potrzeb rozwojowych dzieci i dokumentują te obserwacje, a w roku poprzedzającym rozpoczęcie nauki w szkole przeprowadzają <b>analizę gotowości dziecka do podjęcia nauki w szkole (diagnozę przedszkolną)</b>. <b>Rozporządzenie Ministra Edukacji Narodowej z dnia 27 sierpnia 2019 r. w sprawie świadectw, dyplomów państwowych i innych druków (Dz.U. z 2019 r. poz. 1700, z późn. zm.)</b> — § 3 ust. 7: rodzice otrzymują <b>Informację o gotowości dziecka do podjęcia nauki w szkole podstawowej</b> na <b>urzędowym wzorze (MEN-I/74)</b> — <b>do końca kwietnia</b> roku szkolnego poprzedzającego rok, w którym dziecko ma rozpocząć naukę; w przypadku dziecka mogącego rozpocząć naukę w wieku 6 lat — na wniosek rodziców złożony nie później niż do 30 września. <b>UWAGA.</b> Niniejszy druk jest <b>materiałem roboczym</b> — porządkuje obserwacje i wnioski, które nauczyciel przenosi następnie na obowiązujący wzór urzędowy. <b>Nie zastępuje druku MEN-I/74.</b> Dane osobowe przetwarzane zgodnie z RODO (UE) 2016/679.</p>
+    <p><b>Rozporządzenie Ministra Edukacji z dnia 11 marca 2026 r. w sprawie podstawy programowej wychowania przedszkolnego oraz podstawy programowej kształcenia ogólnego dla szkoły podstawowej (Dz.U. z 2026 r. poz. 378, zm. Dz.U. z 2026 r. poz. 958)</b> — nauczyciele prowadzą <b>obserwacje pedagogiczne</b> mające na celu poznanie możliwości i potrzeb rozwojowych dzieci i dokumentują te obserwacje, a w roku poprzedzającym rozpoczęcie nauki w szkole przeprowadzają <b>analizę gotowości dziecka do podjęcia nauki w szkole (diagnozę przedszkolną)</b>. <b>Rozporządzenie Ministra Edukacji Narodo<span class="popr">wej z dnia 7 czerwca 2023 r. w sprawie świadectw, dyplomów państwowych i innych druków (Dz.U. z 2023 r. poz. 1120, z późn. zm.)</span></b> — § 3 ust. 7: rodzice otrzymują <b>Informację o gotowości dziecka do podjęcia nauki w szkole podstawowej</b> na <b>urzędowym wzorze (<span class="popr">MEiN-I/82</span>)</b> — <b>do końca kwietnia</b> roku szkolnego poprzedzającego rok, w którym dziecko ma rozpocząć naukę; w przypadku dziecka mogącego rozpocząć naukę w wieku 6 lat — na wniosek rodziców złożony nie później niż do 30 września. <b>UWAGA.</b> Niniejszy druk jest <b>materiałem roboczym</b> — porządkuje obserwacje i wnioski, które nauczyciel przenosi następnie na obowiązujący wzór urzędowy. <b>Nie zastępuje druku <span class="popr">MEiN-I/82</span>.</b> Dane osobowe przetwarzane zgodnie z RODO (UE) 2016/679.</p>
   </div>
   <div class="sekcja"><span class="numer pom">I</span><h2>Dane i terminy diagnozy</h2><span class="linia"></span></div>
   <div class="siatka2">
@@ -1072,7 +1091,7 @@
   <div class="pole"><span class="etykieta">Umiejętności wymagające wsparcia i dalszego kształtowania</span><div class="linijki"><div></div><div></div></div></div>
   <div class="pole"><span class="etykieta">Zalecane działania — w przedszkolu i w domu</span><div class="linijki"><div></div><div></div></div></div>
   <div class="siatka2">
-    <div class="pole"><span class="etykieta">Data przeniesienia wniosków na wzór MEN-I/74</span><div class="linijki"><div></div></div></div>
+    <div class="pole"><span class="etykieta">Data przeniesienia wniosków na wzór <span class="popr">MEiN-I/82</span></span><div class="linijki"><div></div></div></div>
     <div class="pole"><span class="etykieta">Podpis rodzica potwierdzający odbiór informacji</span><div class="linijki"><div></div></div></div>
   </div>
   <div class="podpisy" style="margin-top:4mm">

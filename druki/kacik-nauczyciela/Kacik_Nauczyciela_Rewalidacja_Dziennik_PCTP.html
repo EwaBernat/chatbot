@@ -191,6 +191,19 @@
 
 
   /* ——— panel aplikacji (nie drukuje się) ——— */
+  /* ——— poprawka prawna, oznaczona na niebiesko ——— */
+  .wstega span .popr, .kody .popr{display:inline; padding:0; border-radius:.6mm;
+    background:rgba(255,255,255,.3); color:#fff}
+  .popr{color:#1152C9; background:#EAF2FE; border-radius:.6mm}
+  .popr b{color:#0B3C96}
+  .prawna .popr, .legenda .popr{background:#E4EEFD}
+  /* ——— pasek informacyjny o poprawkach (tylko ekran) ——— */
+  .pasek-popr{width:210mm; margin:0 auto 4mm; background:#EAF2FE; border:1px solid #B9D2F7;
+    border-left:2.6mm solid #1152C9; border-radius:2.4mm; padding:4mm 6mm; color:#123A6B}
+  .pasek-popr h3{font-size:9pt; color:#0B3C96; font-weight:bold; margin-bottom:1.6mm;
+    text-transform:uppercase; letter-spacing:.5px}
+  .pasek-popr p{font-size:8pt; line-height:1.5; color:#1B3A66}
+  .pasek-popr .probka{color:#1152C9; background:#DCE9FC; border-radius:.6mm; font-weight:bold}
   .panel{
     width:210mm; margin:0 auto 8mm; background:#fff; border-radius:3mm; overflow:hidden;
     box-shadow:0 2px 10px rgba(45,27,105,.18);
@@ -387,6 +400,8 @@
   @media print{
     body{background:#fff}
     .panel{display:none !important}
+    .pasek-popr{display:none !important}
+    .popr{color:inherit !important; background:none !important}
     .page{margin:0; box-shadow:none; page-break-after:always}
     .page:last-child{page-break-after:auto}
     @page{size:A4; margin:0}
@@ -396,6 +411,10 @@
 <body>
 
 <!-- ======= PANEL APLIKACJI · nie drukuje się ======= -->
+<div class="pasek-popr">
+  <h3>Poprawki prawne i merytoryczne — 8 miejsc w tym pliku</h3>
+  <p>Fragmenty oznaczone <span class="probka">na niebiesko</span> to poprawki naniesione <b>31 sierpnia 2026 r.</b> na podstawie audytu z 30.08.2026 r. oraz rejestru przepisów (stan sprawdzenia: 21–23 sierpnia 2026 r.). Zmieniono wyłącznie te miejsca, w których zapis rozmijał się z obowiązującym prawem — publikator, adresata obowiązku, termin, jednostkę redakcyjną albo twierdzenie o obowiązku, którego przepis nie ustanawia. Pasek i kolor widać tylko na ekranie — <b>wydruk wychodzi w zwykłej kolorystyce</b>. Wykaz: <b>POPRAWKI_2026-08-31.md</b>.</p>
+</div>
 <div class="panel">
   <div class="panel-glowa">
     <div class="etykieta-app">EduPlaner 2026 · Kącik nauczyciela · przedszkole · panel informacyjny</div>
@@ -424,11 +443,11 @@
         </div>
         <div class="rola">
           <b>5 · Ocena postępów co najmniej dwa razy w roku</b>
-          <span>Karta Z-3 to wypełnienie obowiązku „ocena postępów i wnioski dotyczące dalszej pracy”. Sporządzasz ją po I półroczu i na koniec roku, a dla dziecka z orzeczeniem także <em>przed każdą modyfikacją IPET</em>. Wnioski przenosisz do WOPFU.</span>
+          <span><span class="popr">Karta Z-3 jest opcjonalnym narzędziem wewnętrznym; obowiązek spełnia wpis oceny postępów i wniosków do właściwego dziennika.</span> Sporządzasz ją po I półroczu i na koniec roku, a dla dziecka z orzeczeniem także <em>przed każdą modyfikacją IPET</em>. Wnioski przenosisz do WOPFU.</span>
         </div>
         <div class="rola">
-          <b>6 · Godzina zajęć to 60 minut</b>
-          <span>Godzina zajęć rewalidacyjnych i zajęć z zakresu pomocy p-p trwa 60 minut. W uzasadnionych przypadkach można prowadzić je krócej, <em>zachowując ustalony dla dziecka łączny tygodniowy czas</em> tych zajęć. Skrócenie zapisz w rozkładzie, a nie tylko w pamięci.</span>
+          <b><span class="popr">6 · Czas zajęć w przedszkolu</span></b>
+          <span><span class="popr">Zajęcia z zakresu pomocy psychologiczno-pedagogicznej trwają co do zasady <em>45 minut</em>. Dzienny czas zajęć rewalidacyjnych w przedszkolu powinien wynosić około <em>15 minut</em> dla dzieci 3–4-letnich i około <em>30 minut</em> dla dzieci 5–6-letnich</span> tych zajęć. Skrócenie zapisz w rozkładzie, a nie tylko w pamięci.</span>
         </div>
       </div>
     </div>
@@ -504,7 +523,7 @@
   </div>
   <div class="sekcja"><span class="numer">§</span><h2>Podstawa prawna</h2><span class="linia"></span></div>
   <div class="prawna">
-    <p><b>PODSTAWA PRAWNA.</b> <b>Rozporządzenie Ministra Edukacji Narodowej z dnia 25 sierpnia 2017 r. w sprawie sposobu prowadzenia przez publiczne przedszkola, szkoły i placówki dokumentacji przebiegu nauczania, działalności wychowawczej i opiekuńczej oraz rodzajów tej dokumentacji (Dz.U. z 2017 r. poz. 1646, z późn. zm.) — § 11</b>: przedszkole prowadzi <b>dzienniki innych zajęć</b> niż zajęcia wpisywane do dziennika zajęć przedszkola, jeżeli jest to uzasadnione koniecznością dokumentowania przebiegu nauczania — w szczególności <b>zajęć z zakresu pomocy psychologiczno-pedagogicznej</b> oraz zajęć rozwijających zainteresowania i uzdolnienia dzieci. Do dziennika wpisuje się: <b>imiona i nazwiska dzieci, oddział, adresy i telefony rodziców, indywidualny program pracy</b> z dzieckiem, a w przypadku zajęć grupowych — <b>program pracy grupy</b>, <b>tygodniowy rozkład zajęć</b>, <b>daty i czas trwania oraz tematy</b> przeprowadzonych zajęć, <b>ocenę postępów i wnioski dotyczące dalszej pracy</b> oraz <b>obecność</b> dzieci. Przeprowadzenie zajęć potwierdza się podpisem. Ponadto: rozporządzenie MEN z dnia 9 sierpnia 2017 r. o kształceniu specjalnym (Dz.U. z 2017 r. poz. 1578, t.j. Dz.U. z 2020 r. poz. 1309, z późn. zm.) — <b>zajęcia rewalidacyjne</b> dla dziecka z orzeczeniem o potrzebie kształcenia specjalnego, ich rodzaj i wymiar określa <b>IPET</b> zgodnie z zaleceniami orzeczenia; rozporządzenie MEN z dnia 9 sierpnia 2017 r. o pomocy psychologiczno-pedagogicznej (Dz.U. z 2017 r. poz. 1591, t.j. Dz.U. z 2023 r. poz. 1798, z późn. zm.). Dane osobowe zgodnie z RODO (UE) 2016/679.</p>
+    <p><b>PODSTAWA PRAWNA.</b> <b>Rozporządzenie Ministra Edukacji Narodowej z dnia 25 sierpnia 2017 r. w sprawie sposobu prowadzenia przez publiczne przedszkola, szkoły i placówki dokumentacji przebiegu nauczania, działalności wychowawczej i opiekuńczej oraz rodzajów tej dokumentacji (<span class="popr">t.j. Dz.U. z 2024 r. poz. 50</span>) — § 11</b>: przedszkole prowadzi <b>dzienniki innych zajęć</b> niż zajęcia wpisywane do dziennika zajęć przedszkola, jeżeli jest to uzasadnione koniecznością dokumentowania przebiegu nauczania — w szczególności <b>zajęć z zakresu pomocy psychologiczno-pedagogicznej</b> oraz zajęć rozwijających zainteresowania i uzdolnienia dzieci. Do dziennika wpisuje się: <b>imiona i nazwiska dzieci, oddział, adresy i telefony rodziców, indywidualny program pracy</b> z dzieckiem, a w przypadku zajęć grupowych — <b>program pracy grupy</b>, <b>tygodniowy rozkład zajęć</b>, <b>daty i czas trwania oraz tematy</b> przeprowadzonych zajęć, <b>ocenę postępów i wnioski dotyczące dalszej pracy</b> oraz <b>obecność</b> dzieci. Przeprowadzenie zajęć potwierdza się podpisem. Ponadto: rozporządzenie MEN z dnia 9 sierpnia 2017 r. o kształceniu specjalnym (Dz.U. z 2017 r. poz. 1578, t.j. Dz.U. z 2020 r. poz. 1309, z późn. zm.) — <b>zajęcia rewalidacyjne</b> dla dziecka z orzeczeniem o potrzebie kształcenia specjalnego, ich rodzaj i wymiar określa <b>IPET</b> zgodnie z zaleceniami orzeczenia; rozporządzenie MEN z dnia 9 sierpnia 2017 r. o pomocy psychologiczno-pedagogicznej (Dz.U. z 2017 r. poz. 1591, t.j. Dz.U. z 2023 r. poz. 1798, z późn. zm.). Dane osobowe zgodnie z RODO (UE) 2016/679.</p>
   </div>
   <div class="sekcja"><span class="numer pom">I</span><h2>Dane dziecka i podstawa organizacji zajęć</h2><span class="linia"></span></div>
   <div class="siatka2">
@@ -565,7 +584,7 @@
     <div class="box"><span class="etykieta">Rok szkolny</span><span class="wartosc">2026 / 2027</span></div>
   </div>
   <div class="sekcja"><span class="numer pom">III</span><h2>Zakres rewalidacji wynikający z zaleceń orzeczenia</h2><span class="linia"></span></div>
-  <p class="wstep">Zaznacz obszary wskazane w orzeczeniu i w IPET. Rodzaj zajęć musi odpowiadać rodzajowi niepełnosprawności dziecka.</p>
+  <p class="wstep"><span class="popr">Zaznacz obszary wynikające z indywidualnych potrzeb, zaleceń orzeczenia, WOPFU i IPET; sama nazwa niepełnosprawności nie przesądza rodzaju zajęć.</span></p>
   <div class="wybory">
     <div class="wybor"><span class="kwadrat">✓</span><span>Rozwijanie komunikacji i mowy</span></div>
     <div class="wybor"><span class="kwadrat">✓</span><span>Komunikacja alternatywna i wspomagająca (AAC)</span></div>
@@ -640,7 +659,7 @@
     <span class="tresc">DRUK Z-2 · DANE · PROGRAM · ROZKŁAD</span>
     <span class="kreska"></span>
   </div>
-  <div class="info"><b>Ten druk jest dziennikiem zajęć w rozumieniu § 11 rozporządzenia o dokumentacji</b> — nie jest materiałem pomocniczym. Wypełniony i podpisany stanowi wymaganą dokumentację przebiegu zajęć. Zawiera wszystkie elementy wskazane w przepisie: dane dzieci i rodziców, program pracy, tygodniowy rozkład, daty, czas trwania i tematy zajęć, obecność, ocenę postępów i wnioski.</div>
+  <div class="info"><span class="popr"><b>Przed użyciem wybierz rodzaj zajęć.</b> § 11 ust. 2 określa dziennik innych zajęć, w tym rewalidacyjnych, a rozszerzony katalog z ust. 3 dotyczy zajęć z zakresu pomocy psychologiczno-pedagogicznej. Pola niewymagane dla wybranego rodzaju pozostaw niewypełnione.</span> Wypełniony i podpisany stanowi wymaganą dokumentację przebiegu zajęć. Zawiera wszystkie elementy wskazane w przepisie: dane dzieci i rodziców, program pracy, tygodniowy rozkład, daty, czas trwania i tematy zajęć, obecność, ocenę postępów i wnioski.</div>
   <div class="sekcja"><span class="numer pom">I</span><h2>Metryka dziennika</h2><span class="linia"></span></div>
   <div class="siatka2">
     <div class="pole"><span class="etykieta">Rodzaj zajęć</span><div class="linijki"><div></div></div></div>
@@ -665,7 +684,7 @@
     <div class="wybor"><span class="kwadrat">✓</span><span>Grupowe</span></div>
   </div>
   <div class="sekcja"><span class="numer">II</span><h2>Dzieci uczęszczające na zajęcia oraz dane rodziców</h2><span class="linia"></span></div>
-  <p class="wstep">Wymóg § 11 — dziennik zawiera imiona i nazwiska dzieci, oddział oraz adresy i telefony rodziców.</p>
+  <p class="wstep"><span class="popr">Dla zajęć pomocy psychologiczno-pedagogicznej wpisz imię i nazwisko dziecka, oddział oraz e-mail i telefon rodziców, jeżeli je posiadają. Nie zbieraj tu nazwisk ani adresów pocztowych rodziców.</span></p>
   <table class="tab-mala">
     <thead>
       <tr><th style="width:5%">Lp.</th><th style="width:24%">Imię i nazwisko dziecka</th><th style="width:9%">Grupa</th><th style="width:24%">Imiona i nazwiska rodziców</th><th style="width:20%">Adres</th><th>Telefon</th></tr>
@@ -794,7 +813,7 @@
       <tr><td class="lp">22</td><td class="puste"></td><td class="puste"></td><td class="puste"></td><td class="puste"></td><td class="puste"></td><td class="puste"></td></tr>
     </tbody>
   </table>
-  <div class="info"><b>Czas trwania.</b> Godzina zajęć rewalidacyjnych oraz zajęć z zakresu pomocy psychologiczno-pedagogicznej w przedszkolu trwa <b>60 minut</b>, przy czym w uzasadnionych przypadkach dopuszcza się prowadzenie zajęć w czasie <b>krótszym niż 60 minut</b>, zachowując ustalony dla dziecka łączny tygodniowy czas tych zajęć. Zajęcia odwołane opisz w kolumnie „Temat” słowem <b>„zajęcia nie odbyły się”</b> wraz z przyczyną — nie zostawiaj pustego wiersza.</div>
+  <div class="info"><b>Czas trwania.</b> Zajęcia z zakresu pomocy psychologiczno-pedagogicznej trwają co do zasady <b>45 minut</b>. Dzienny czas <b>zajęć rewalidacyjnych w przedszkolu</b> powinien wynosić około <b>15 minut</b> dla dzieci 3–4-letnich i około <b>30 minut</b> dla dzieci 5–6-letnich. <span class="popr">Zajęć odwołanych <b>nie wykazuj jako przeprowadzonych</b> i nie wliczaj do zrealizowanego czasu; sposób ich odnotowania ustala procedura dziennika placówki.</span></div>
   <div class="stopka">
     <span>EduPlaner 2026 · PCTP · pedagog specjalny</span>
     <span><b>Strona 5 z 8</b> · Kącik nauczyciela · dziennik Z-2 · zapis zajęć</span>
@@ -904,7 +923,7 @@
     <span class="kreska"></span>
   </div>
   <div class="prawna">
-    <p><b>PODSTAWA PRAWNA.</b> <b>§ 11 rozporządzenia MEN z dnia 25 sierpnia 2017 r. w sprawie sposobu prowadzenia dokumentacji</b> (Dz.U. z 2017 r. poz. 1646, z późn. zm.) — do dziennika zajęć wpisuje się <b>ocenę postępów i wnioski dotyczące dalszej pracy</b> z dzieckiem. Ta karta jest wypełnieniem tego obowiązku i <b>załącznikiem do dziennika Z-2</b>. Dla dziecka z orzeczeniem ustalenia z tej karty przenosi się do <b>wielospecjalistycznej oceny poziomu funkcjonowania dziecka (WOPFU)</b> i — jeżeli to konieczne — do <b>modyfikacji IPET</b>; rozporządzenie MEN z dnia 9 sierpnia 2017 r. o kształceniu specjalnym (Dz.U. z 2017 r. poz. 1578, t.j. Dz.U. z 2020 r. poz. 1309, z późn. zm.). Dla dziecka objętego wyłącznie pomocą p-p — do <b>oceny efektywności udzielanej pomocy</b>; rozporządzenie MEN z dnia 9 sierpnia 2017 r. o pomocy p-p (Dz.U. z 2017 r. poz. 1591, t.j. Dz.U. z 2023 r. poz. 1798, z późn. zm.).</p>
+    <p><b>PODSTAWA PRAWNA.</b> <b>§ 11 rozporządzenia MEN z dnia 25 sierpnia 2017 r. w sprawie sposobu prowadzenia dokumentacji</b> (<span class="popr">t.j. Dz.U. z 2024 r. poz. 50</span>) — do dziennika zajęć wpisuje się <b>ocenę postępów i wnioski dotyczące dalszej pracy</b> z dzieckiem. <span class="popr">Karta Z-3 jest <b>opcjonalnym narzędziem wewnętrznym</b>; obowiązek spełnia wpisanie oceny postępów i wniosków bezpośrednio do właściwego dziennika. Nie ma obowiązku dołączania osobnego załącznika.</span> Dla dziecka z orzeczeniem ustalenia z tej karty przenosi się do <b>wielospecjalistycznej oceny poziomu funkcjonowania dziecka (WOPFU)</b> i — jeżeli to konieczne — do <b>modyfikacji IPET</b>; rozporządzenie MEN z dnia 9 sierpnia 2017 r. o kształceniu specjalnym (Dz.U. z 2017 r. poz. 1578, t.j. Dz.U. z 2020 r. poz. 1309, z późn. zm.). Dla dziecka objętego wyłącznie pomocą p-p — do <b>oceny efektywności udzielanej pomocy</b>; rozporządzenie MEN z dnia 9 sierpnia 2017 r. o pomocy p-p (Dz.U. z 2017 r. poz. 1591, t.j. Dz.U. z 2023 r. poz. 1798, z późn. zm.).</p>
   </div>
   <div class="sekcja"><span class="numer pom">I</span><h2>Okres objęty oceną i frekwencja</h2><span class="linia"></span></div>
   <div class="siatka2">

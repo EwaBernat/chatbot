@@ -191,6 +191,19 @@
 
 
   /* ——— panel aplikacji (nie drukuje się) ——— */
+  /* ——— poprawka prawna, oznaczona na niebiesko ——— */
+  .wstega span .popr, .kody .popr{display:inline; padding:0; border-radius:.6mm;
+    background:rgba(255,255,255,.3); color:#fff}
+  .popr{color:#1152C9; background:#EAF2FE; border-radius:.6mm}
+  .popr b{color:#0B3C96}
+  .prawna .popr, .legenda .popr{background:#E4EEFD}
+  /* ——— pasek informacyjny o poprawkach (tylko ekran) ——— */
+  .pasek-popr{width:210mm; margin:0 auto 4mm; background:#EAF2FE; border:1px solid #B9D2F7;
+    border-left:2.6mm solid #1152C9; border-radius:2.4mm; padding:4mm 6mm; color:#123A6B}
+  .pasek-popr h3{font-size:9pt; color:#0B3C96; font-weight:bold; margin-bottom:1.6mm;
+    text-transform:uppercase; letter-spacing:.5px}
+  .pasek-popr p{font-size:8pt; line-height:1.5; color:#1B3A66}
+  .pasek-popr .probka{color:#1152C9; background:#DCE9FC; border-radius:.6mm; font-weight:bold}
   .panel{
     width:210mm; margin:0 auto 8mm; background:#fff; border-radius:3mm; overflow:hidden;
     box-shadow:0 2px 10px rgba(45,27,105,.18);
@@ -249,6 +262,8 @@
   @media print{
     body{background:#fff}
     .panel{display:none !important}
+    .pasek-popr{display:none !important}
+    .popr{color:inherit !important; background:none !important}
     .page{margin:0; box-shadow:none; page-break-after:always}
     .page:last-child{page-break-after:auto}
     @page{size:A4; margin:0}
@@ -258,6 +273,10 @@
 <body>
 
 <!-- ======= PANEL APLIKACJI · nie drukuje się ======= -->
+<div class="pasek-popr">
+  <h3>Poprawki prawne i merytoryczne — 5 miejsc w tym pliku</h3>
+  <p>Fragmenty oznaczone <span class="probka">na niebiesko</span> to poprawki naniesione <b>31 sierpnia 2026 r.</b> na podstawie audytu z 30.08.2026 r. oraz rejestru przepisów (stan sprawdzenia: 21–23 sierpnia 2026 r.). Zmieniono wyłącznie te miejsca, w których zapis rozmijał się z obowiązującym prawem — publikator, adresata obowiązku, termin, jednostkę redakcyjną albo twierdzenie o obowiązku, którego przepis nie ustanawia. Pasek i kolor widać tylko na ekranie — <b>wydruk wychodzi w zwykłej kolorystyce</b>. Wykaz: <b>POPRAWKI_2026-08-31.md</b>.</p>
+</div>
 <div class="panel">
   <div class="panel-glowa">
     <div class="etykieta-app">EduPlaner 2026 · Kącik nauczyciela · przedszkole · panel informacyjny</div>
@@ -337,7 +356,7 @@
     <span class="kreska"></span>
   </div>
   <div class="prawna">
-    <p><b>PODSTAWA PRAWNA.</b> Rozporządzenie Ministra Edukacji z dnia 11 marca 2026 r. w sprawie podstawy programowej wychowania przedszkolnego (Dz.U. z 2026 r. poz. 378, zm. Dz.U. z 2026 r. poz. 958) — cztery obszary rozwoju: <b>fizyczny, emocjonalny, społeczny i poznawczy</b>; nauczyciel planuje pracę z zachowaniem <b>proporcji zagospodarowania czasu</b>: zabawa swobodna, pobyt na świeżym powietrzu, zajęcia kierowane oraz czynności opiekuńcze, samoobsługowe i organizacyjne. Ustawa z dnia 26 stycznia 1982 r. Karta Nauczyciela (z późn. zm.) — art. 6: rzetelna realizacja zadań i wspieranie każdego dziecka w rozwoju. Praca prowadzona według programu wychowania przedszkolnego dopuszczonego przez dyrektora — ustawa z dnia 14 grudnia 2016 r. Prawo oświatowe (t.j. Dz.U. z 2024 r. poz. 737, z późn. zm.).</p>
+    <p><b>PODSTAWA PRAWNA.</b> Rozporządzenie Ministra Edukacji z dnia 11 marca 2026 r. w sprawie podstawy programowej wychowania przedszkolnego (Dz.U. z 2026 r. poz. 378, zm. Dz.U. z 2026 r. poz. 958) — cztery obszary rozwoju: <b>fizyczny, emocjonalny, społeczny i poznawczy</b>; nauczyciel planuje pracę z zachowaniem <b>proporcji zagospodarowania czasu</b>: zabawa swobodna, pobyt na świeżym powietrzu, zajęcia kierowane oraz czynności opiekuńcze, samoobsługowe i organizacyjne. Ustawa z dnia 26 stycznia 1982 r. Karta Nauczyciela (z późn. zm.) — art. 6: rzetelna realizacja zadań i wspieranie każdego dziecka w rozwoju. Praca prowadzona według programu wychowania przedszkolnego dopuszczonego przez dyrektora — ustawa z dnia 14 grudnia 2016 r. Prawo oświatowe (<span class="popr">t.j. Dz.U. z 2026 r. poz. 820</span>, z późn. zm.).</p>
   </div>
   <div class="sekcja"><span class="numer pom">I</span><h2>Dane planu</h2><span class="linia"></span></div>
   <div class="siatka2">
@@ -431,7 +450,7 @@
   <div class="pole"><span class="etykieta">Ewaluacja — co się udało, czego nie zrealizowano i dlaczego, wnioski na kolejny okres</span><div class="linijki"><div></div><div></div><div></div><div></div></div></div></div>
   <div class="podpisy" style="margin-top:3mm">
     <div class="podpis"><div class="kreska"></div><div class="opis">Data i podpisy nauczycieli prowadzących grupę</div></div>
-    <div class="podpis"><div class="kreska"></div><div class="opis">Podpis dyrektora — zatwierdzenie planu</div></div>
+    <div class="podpis"><div class="kreska"></div><div class="opis"><span class="popr">Potwierdzenie dyrektora — jeżeli przewiduje je procedura placówki</span></div></div>
   </div>
   <div class="stopka">
     <span>EduPlaner 2026 · PCTP · pedagog specjalny</span>
@@ -594,7 +613,7 @@
     <span class="kreska"></span>
   </div>
   <div class="prawna">
-    <p><b>PODSTAWA PRAWNA.</b> Rozporządzenie MEN z dnia 25 sierpnia 2017 r. w sprawie sposobu prowadzenia przez publiczne przedszkola, szkoły i placówki dokumentacji przebiegu nauczania, działalności wychowawczej i opiekuńczej (Dz.U. z 2017 r. poz. 1646, z późn. zm.) — dla zajęć z zakresu pomocy psychologiczno-pedagogicznej prowadzi się <b>dziennik zajęć</b> zawierający m.in. dane dzieci, tematy przeprowadzonych zajęć, obecność i podpisy prowadzącego. Rozporządzenie MEN z dnia 9 sierpnia 2017 r. o pomocy psychologiczno-pedagogicznej (Dz.U. z 2017 r. poz. 1591, t.j. Dz.U. z 2023 r. poz. 1798, z późn. zm.) — ocena efektywności udzielanej pomocy. Niniejsza karta stanowi <b>uzupełnienie dziennika</b> o dane potrzebne do oceny efektywności i nie zastępuje go.</p>
+    <p><b>PODSTAWA PRAWNA.</b> Rozporządzenie MEN z dnia 25 sierpnia 2017 r. w sprawie sposobu prowadzenia przez publiczne przedszkola, szkoły i placówki dokumentacji przebiegu nauczania, działalności wychowawczej i opiekuńczej (<span class="popr">t.j. Dz.U. z 2024 r. poz. 50</span>) — dla zajęć z zakresu pomocy psychologiczno-pedagogicznej prowadzi się <b>dziennik zajęć</b> zawierający m.in. dane dzieci, tematy przeprowadzonych zajęć, obecność i podpisy prowadzącego. Rozporządzenie MEN z dnia 9 sierpnia 2017 r. o pomocy psychologiczno-pedagogicznej (Dz.U. z 2017 r. poz. 1591, t.j. Dz.U. z 2023 r. poz. 1798, z późn. zm.) — ocena efektywności udzielanej pomocy. Niniejsza karta stanowi <b>uzupełnienie dziennika</b> o dane potrzebne do oceny efektywności i nie zastępuje go.</p>
   </div>
   <div class="sekcja"><span class="numer pom">I</span><h2>Dane zajęć</h2><span class="linia"></span></div>
   <div class="siatka2">
@@ -610,7 +629,7 @@
     <div class="pole"><span class="etykieta">Okres realizacji</span><div class="linijki"><div></div></div></div>
     <div class="pole"><span class="etykieta">Numer dziennika zajęć</span><div class="linijki"><div></div></div></div>
   </div>
-  <div class="pole"><span class="etykieta">Cel zajęć (przepisz z planu P-2 albo z IPET)</span><div class="linijki"><div></div><div></div></div></div>
+  <div class="pole"><span class="etykieta"><span class="popr">Cel zajęć — z ustaleń dyrektora, planu pracy albo IPET, zależnie od podstawy wsparcia</span></span><div class="linijki"><div></div><div></div></div></div>
   <div class="sekcja"><span class="numer">II</span><h2>Plan zajęć w tygodniu</h2><span class="linia"></span></div>
   <table class="tab-mala">
     <thead>
@@ -800,7 +819,7 @@
   <div class="pole"><span class="etykieta">Wnioski do pracy na kolejny okres</span><div class="linijki"><div></div></div></div>
   <div class="podpisy" style="margin-top:3mm">
     <div class="podpis"><div class="kreska"></div><div class="opis">Data i podpisy nauczycieli</div></div>
-    <div class="podpis"><div class="kreska"></div><div class="opis">Podpis dyrektora — przyjęcie sprawozdania</div></div>
+    <div class="podpis"><div class="kreska"></div><div class="opis"><span class="popr">Potwierdzenie dyrektora — jeżeli przewiduje je procedura placówki</span></div></div>
   </div>
   <div class="stopka">
     <span>EduPlaner 2026 · PCTP · pedagog specjalny</span>

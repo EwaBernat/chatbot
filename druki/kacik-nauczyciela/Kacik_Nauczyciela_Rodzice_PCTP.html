@@ -191,6 +191,19 @@
 
 
   /* ——— panel aplikacji (nie drukuje się) ——— */
+  /* ——— poprawka prawna, oznaczona na niebiesko ——— */
+  .wstega span .popr, .kody .popr{display:inline; padding:0; border-radius:.6mm;
+    background:rgba(255,255,255,.3); color:#fff}
+  .popr{color:#1152C9; background:#EAF2FE; border-radius:.6mm}
+  .popr b{color:#0B3C96}
+  .prawna .popr, .legenda .popr{background:#E4EEFD}
+  /* ——— pasek informacyjny o poprawkach (tylko ekran) ——— */
+  .pasek-popr{width:210mm; margin:0 auto 4mm; background:#EAF2FE; border:1px solid #B9D2F7;
+    border-left:2.6mm solid #1152C9; border-radius:2.4mm; padding:4mm 6mm; color:#123A6B}
+  .pasek-popr h3{font-size:9pt; color:#0B3C96; font-weight:bold; margin-bottom:1.6mm;
+    text-transform:uppercase; letter-spacing:.5px}
+  .pasek-popr p{font-size:8pt; line-height:1.5; color:#1B3A66}
+  .pasek-popr .probka{color:#1152C9; background:#DCE9FC; border-radius:.6mm; font-weight:bold}
   .panel{
     width:210mm; margin:0 auto 8mm; background:#fff; border-radius:3mm; overflow:hidden;
     box-shadow:0 2px 10px rgba(45,27,105,.18);
@@ -247,6 +260,8 @@
   @media print{
     body{background:#fff}
     .panel{display:none !important}
+    .pasek-popr{display:none !important}
+    .popr{color:inherit !important; background:none !important}
     .page{margin:0; box-shadow:none; page-break-after:always}
     .page:last-child{page-break-after:auto}
     @page{size:A4; margin:0}
@@ -256,6 +271,10 @@
 <body>
 
 <!-- ======= PANEL APLIKACJI · nie drukuje się ======= -->
+<div class="pasek-popr">
+  <h3>Poprawki prawne i merytoryczne — 10 miejsc w tym pliku</h3>
+  <p>Fragmenty oznaczone <span class="probka">na niebiesko</span> to poprawki naniesione <b>31 sierpnia 2026 r.</b> na podstawie audytu z 30.08.2026 r. oraz rejestru przepisów (stan sprawdzenia: 21–23 sierpnia 2026 r.). Zmieniono wyłącznie te miejsca, w których zapis rozmijał się z obowiązującym prawem — publikator, adresata obowiązku, termin, jednostkę redakcyjną albo twierdzenie o obowiązku, którego przepis nie ustanawia. Pasek i kolor widać tylko na ekranie — <b>wydruk wychodzi w zwykłej kolorystyce</b>. Wykaz: <b>POPRAWKI_2026-08-31.md</b>.</p>
+</div>
 <div class="panel">
   <div class="panel-glowa">
     <div class="etykieta-app">EduPlaner 2026 · Kącik nauczyciela · przedszkole · panel informacyjny</div>
@@ -273,7 +292,7 @@
         </div>
         <div class="rola">
           <b>W-2 · Informacja o postępach dziecka</b>
-          <span>Dla <em>każdego dziecka w grupie</em>, dwa razy w roku. Cztery obszary podstawy programowej, skala S / Z / P / N i wskazówki do pracy w domu. <em>Nie mylić z informacją o gotowości szkolnej MEN-I/74</em> — ta dotyczy tylko dzieci idących do szkoły i ma urzędowy wzór (materiał roboczy do niej to druk O-5).</span>
+          <span>Dla <em>każdego dziecka w grupie</em>, dwa razy w roku. Cztery obszary podstawy programowej, skala S / Z / P / N i wskazówki do pracy w domu. <em>Nie mylić z informacją o gotowości szkolnej <span class="popr">MEiN-I/82</span></em> — ta dotyczy tylko dzieci idących do szkoły i ma urzędowy wzór (materiał roboczy do niej to druk O-5).</span>
         </div>
         <div class="rola">
           <b>W-3 · Zgody i upoważnienia</b>
@@ -334,7 +353,7 @@
     <span class="kreska"></span>
   </div>
   <div class="prawna">
-    <p><b>PODSTAWA PRAWNA.</b> Ustawa z dnia 14 grudnia 2016 r. — Prawo oświatowe (t.j. Dz.U. z 2024 r. poz. 737, z późn. zm.) — rodzice mają prawo do informacji o dziecku i do wsparcia ze strony przedszkola. Rozporządzenie MEN z dnia 9 sierpnia 2017 r. o pomocy psychologiczno-pedagogicznej (Dz.U. z 2017 r. poz. 1591, t.j. Dz.U. z 2023 r. poz. 1798, z późn. zm.) — pomoc p-p jest udzielana <b>we współpracy z rodzicami</b>; obejmuje także <b>porady, konsultacje, warsztaty i szkolenia dla rodziców</b>. Rozporządzenie Ministra Edukacji z dnia 11 marca 2026 r. w sprawie podstawy programowej wychowania przedszkolnego (Dz.U. z 2026 r. poz. 378, zm. Dz.U. z 2026 r. poz. 958) — nauczyciel <b>informuje rodziców o postępach dziecka</b> i współdziała z nimi w procesie wychowania. Zapisy w rejestrze stanowią dowód realizacji tego obowiązku w postępowaniu nadzorczym i przed instytucjami. Dane osobowe przetwarzane zgodnie z RODO (UE) 2016/679.</p>
+    <p><b>PODSTAWA PRAWNA.</b> Ustawa z dnia 14 grudnia 2016 r. — Prawo oświatowe (<span class="popr">t.j. Dz.U. z 2026 r. poz. 820</span>, z późn. zm.) — rodzice mają prawo do informacji o dziecku i do wsparcia ze strony przedszkola. Rozporządzenie MEN z dnia 9 sierpnia 2017 r. o pomocy psychologiczno-pedagogicznej (Dz.U. z 2017 r. poz. 1591, t.j. Dz.U. z 2023 r. poz. 1798, z późn. zm.) — pomoc p-p jest udzielana <b>we współpracy z rodzicami</b>; obejmuje także <b>porady, konsultacje, warsztaty i szkolenia dla rodziców</b>. Rozporządzenie Ministra Edukacji z dnia 11 marca 2026 r. w sprawie podstawy programowej wychowania przedszkolnego (Dz.U. z 2026 r. poz. 378, zm. Dz.U. z 2026 r. poz. 958) — nauczyciel <b>informuje rodziców o postępach dziecka</b> i współdziała z nimi w procesie wychowania. <span class="popr">Rejestr W-1 jest <b>opcjonalnym narzędziem wewnętrznym</b> i nie stanowi samodzielnego, wymaganego prawem dowodu realizacji współpracy.</span> Dane osobowe przetwarzane zgodnie z RODO (UE) 2016/679.</p>
   </div>
   <div class="sekcja"><span class="numer pom">I</span><h2>Dane dziecka i rodziców</h2><span class="linia"></span></div>
   <div class="siatka2">
@@ -347,7 +366,7 @@
   </div>
   <div class="pole"><span class="etykieta">Ustalony sposób bieżącego kontaktu (dziennik elektroniczny, telefon, rozmowa przy odbiorze) i preferowane godziny</span><div class="linijki"><div></div></div></div>
   <div class="sekcja"><span class="numer">II</span><h2>Rejestr kontaktów</h2><span class="linia"></span></div>
-  <p class="wstep">Odnotowuj <b>każdy kontakt dotyczący dziecka</b>: rozmowę indywidualną, telefon, konsultację, zebranie, wizytę na wniosek rodzica. Podpis rodzica przy rozmowie indywidualnej.</p>
+  <p class="wstep"><span class="popr">Odnotuj <b>tylko istotne i niezbędne ustalenia</b>, jeżeli przewiduje to procedura placówki. Podpis lub inne potwierdzenie zbieraj wyłącznie wtedy, gdy wymaga tego konkretna procedura albo charakter ustalenia.</span> Podpis rodzica przy rozmowie indywidualnej.</p>
   <table class="tab-mala">
     <thead>
       <tr><th style="width:5%">Lp.</th><th style="width:11%">Data</th><th style="width:14%">Forma</th><th style="width:40%">Temat rozmowy i ustalenia</th><th>Podpis rodzica</th></tr>
@@ -461,7 +480,7 @@
     <span class="tresc">DRUK W-2 · OBSZARY ROZWOJU · WSKAZÓWKI</span>
     <span class="kreska"></span>
   </div>
-  <div class="info"><b>Dla kogo.</b> Ten druk wypełnia się <b>dla każdego dziecka w grupie</b>, dwa razy w roku. Nie należy go mylić z <b>informacją o gotowości szkolnej (MEN-I/74)</b>, która dotyczy wyłącznie dzieci w roku poprzedzającym rozpoczęcie nauki w szkole i ma urzędowy wzór — materiał roboczy do niej to druk O-5.</div>
+  <div class="info"><b>Dla kogo.</b> <span class="popr">W-2 jest <b>opcjonalnym narzędziem</b> przekazania rodzicom uporządkowanej informacji o postępach; stosuj według potrzeb dziecka i zasad komunikacji placówki. Przepisy nie wymagają wypełniania go dla każdego dziecka ani dokładnie dwa razy w roku.</span> Nie należy go mylić z <b>informacją o gotowości szkolnej (<span class="popr">MEiN-I/82</span>)</b>, która dotyczy wyłącznie dzieci w roku poprzedzającym rozpoczęcie nauki w szkole i ma urzędowy wzór — materiał roboczy do niej to druk O-5.</div>
   <div class="sekcja"><span class="numer pom">I</span><h2>Dane</h2><span class="linia"></span></div>
   <div class="siatka2">
     <div class="pole"><span class="etykieta">Imię i nazwisko dziecka · wiek</span><div class="linijki"><div></div></div></div>
@@ -591,7 +610,7 @@
   </div>
   <div class="wstega"><span>Kącik nauczyciela · przedszkole · druk W-3 · wypełnia rodzic</span></div>
   <div class="tytul">ZGODY I UPOWAŻNIENIA</div>
-  <div class="podtytul">oświadczenia rodziców na rok szkolny 2026/2027</div>
+  <div class="podtytul"><span class="popr">kontrola kompletności — nie zastępuje właściwych formularzy i klauzul informacyjnych</span></div>
   <div class="kody">
     <span class="kreska"></span>
     <span class="tresc">DRUK W-3 · ODBIÓR · ZGODY · INFORMACJE</span>
@@ -614,7 +633,7 @@
   <p class="wstep">Upoważniam wymienione niżej osoby pełnoletnie do odbierania mojego dziecka z przedszkola. Biorę odpowiedzialność za bezpieczeństwo dziecka od momentu jego odbioru przez wskazaną osobę.</p>
   <table class="tab-mala">
     <thead>
-      <tr><th style="width:5%">Lp.</th><th style="width:32%">Imię i nazwisko osoby upoważnionej</th><th style="width:20%">Stopień pokrewieństwa</th><th style="width:22%">Numer dokumentu tożsamości</th><th>Telefon</th></tr>
+      <tr><th style="width:5%">Lp.</th><th style="width:32%">Imię i nazwisko osoby upoważnionej</th><th style="width:20%">Stopień pokrewieństwa</th><span class="popr"><th style="width:22%">Uwagi lub ograniczenia odbioru</th></span><th>Telefon</th></tr>
     </thead>
     <tbody>
       <tr><td class="lp">1</td><td class="puste"></td><td class="puste"></td><td class="puste"></td><td class="puste"></td></tr>
@@ -657,7 +676,7 @@
     <div class="box"><span class="etykieta">Rok szkolny</span><span class="wartosc">2026 / 2027</span></div>
   </div>
   <div class="sekcja"><span class="numer pom">III</span><h2>Zgody rodziców</h2><span class="linia"></span></div>
-  <p class="wstep">Przy każdej pozycji zaznacz <b>wyrażam zgodę</b> albo <b>nie wyrażam zgody</b>. Zgoda jest dobrowolna i można ją wycofać w każdej chwili — wycofanie nie wpływa na zgodność z prawem przetwarzania dokonanego wcześniej.</p>
+  <p class="wstep">Przy każdej pozycji zaznacz <b>wyrażam zgodę</b> albo <b>nie wyrażam zgody</b>. <span class="popr">Nie łącz różnych celów w jedną zgodę. Wpisz poniżej wyłącznie fakt posiadania <b>odrębnego, konkretnego formularza</b> z właściwą podstawą, skutkami odmowy i klauzulą informacyjną; wycieczka wymaga zgody odnoszącej się do konkretnego wyjazdu.</span></p>
   <table class="tab-mala">
     <thead>
       <tr><th style="width:56%">Zakres zgody</th><th style="width:15%">Wyrażam zgodę</th><th style="width:13%">Nie wyrażam</th><th>Data i podpis rodzica</th></tr>
@@ -680,7 +699,7 @@
     <div class="pole"><span class="etykieta">Choroby przewlekłe i przyjmowane leki</span><div class="linijki"><div></div></div></div>
   </div>
   <div class="pole"><span class="etykieta">Inne informacje istotne dla opieki nad dzieckiem (lęki, przyzwyczajenia, sposób pocieszania)</span><div class="linijki"><div></div><div></div></div></div>
-  <div class="info"><b>Klauzula informacyjna.</b> Administratorem danych jest przedszkole. Dane przetwarzane są w celu realizacji zadań dydaktycznych, wychowawczych i opiekuńczych oraz zapewnienia bezpieczeństwa dziecka, na podstawie przepisów prawa oświatowego, a w zakresie objętym zgodą — na podstawie tej zgody (RODO, UE 2016/679, art. 6 ust. 1 lit. a i c). Rodzicom przysługuje prawo dostępu do danych, ich sprostowania, ograniczenia przetwarzania oraz wniesienia skargi do organu nadzorczego. Pełna klauzula dostępna jest w sekretariacie przedszkola.</div>
+  <div class="info"><span class="popr"><b>Ochrona danych.</b> Ten rejestr <b>nie jest klauzulą informacyjną</b>. Przed zebraniem danych placówka przekazuje pełną informację z art. 13 RODO i wskazuje odrębnie podstawę każdego celu; dane o zdrowiu wymagają także przesłanki z art. 9 RODO. Administratorem danych jest przedszkole.</span> Dane przetwarzane są w celu realizacji zadań dydaktycznych, wychowawczych i opiekuńczych oraz zapewnienia bezpieczeństwa dziecka, na podstawie przepisów prawa oświatowego, a w zakresie objętym zgodą — na podstawie tej zgody (RODO, UE 2016/679, art. 6 ust. 1 lit. a i c). Rodzicom przysługuje prawo dostępu do danych, ich sprostowania, ograniczenia przetwarzania oraz wniesienia skargi do organu nadzorczego. Pełna klauzula dostępna jest w sekretariacie przedszkola.</div>
   <div class="pole"><span class="etykieta">Oświadczenie rodziców o zapoznaniu się ze statutem i procedurami przedszkola (data)</span><div class="linijki"><div></div></div></div>
   <div class="podpisy" style="margin-top:3mm">
     <div class="podpis"><div class="kreska"></div><div class="opis">Data i podpis matki / opiekuna prawnego</div></div>

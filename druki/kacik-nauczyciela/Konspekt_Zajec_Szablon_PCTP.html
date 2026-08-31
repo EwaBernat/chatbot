@@ -116,6 +116,7 @@
   td.puste::after{content:"................"; letter-spacing:.4px}
   td.lp{text-align:center; font-weight:bold; color:var(--pomarancz); width:7mm}
   .tab-mala td{height:6.4mm}
+  .tab-zw td, .tab-zw th{padding:1.3mm 2.2mm}
 
   /* ——— pola wyboru ——— */
   .wybor-tytul{display:flex; align-items:center; gap:2mm; margin:3.4mm 0 1.8mm}
@@ -375,7 +376,7 @@
   <div class="panel-glowa">
     <div class="etykieta-app">EduPlaner 2026 · Konspekt zajęć · panel informacyjny</div>
     <h1>Szablon konspektu — cele edukacyjne i terapeutyczne obok siebie</h1>
-    <p>Jedna strona A4 do wypełnienia. Cel edukacyjny po lewej, terapeutyczny po prawej — oba w formule SMART, na tej samej wysokości. Ta część wyświetla się wyłącznie w aplikacji i nie drukuje się.</p>
+    <p>Jedna strona A4 do wypełnienia. <span class="popr">Cel edukacyjny — jeżeli dotyczy</span> po lewej, terapeutyczny po prawej — oba w formule SMART, na tej samej wysokości. Ta część wyświetla się wyłącznie w aplikacji i nie drukuje się.</p>
   </div>
   <div class="panel-cialo">
     <div class="panel-sekcja">
@@ -418,7 +419,7 @@
     </div>
     <div class="naglowek-prawy">
       <span class="plakietka">Konspekt · szablon</span>
-      <div class="naglowek-podpis">Załącznik do IPET</div>
+      <div class="naglowek-podpis"><span class="popr">Materiał realizacyjny</span></div>
     </div>
   </div>
   <div class="belka"></div>
@@ -442,12 +443,12 @@
     <div class="chip">Poziom wsparcia<i></i></div>
   </div>
 
-  <div class="sekcja"><span class="numer">I</span><h2>Cele zajęć w formule SMART</h2><span class="linia"></span></div>
+  <div class="sekcja"><span class="numer">I</span><h2><span class="popr">Cele zajęć — SMART jako pomoc w mierzeniu postępu</span></h2><span class="linia"></span></div>
   <div class="cele">
     <div class="cel">
       <div class="cel-glowa">
         <span class="znak">E</span>
-        <h3>Cel edukacyjny</h3>
+        <h3><span class="popr">Cel edukacyjny — jeżeli dotyczy</span></h3>
         <span class="pig">podstawa programowa</span>
       </div>
       <div class="cel-cialo">
@@ -469,7 +470,7 @@
     <div class="cel terap">
       <div class="cel-glowa">
         <span class="znak">T</span>
-        <h3>Cel terapeutyczny</h3>
+        <h3><span class="popr">Cel terapeutyczny — jeżeli dotyczy</span></h3>
         <span class="pig">IPET / plan wsparcia</span>
       </div>
       <div class="cel-cialo">
@@ -503,7 +504,7 @@
 
   <div class="sekcja"><span class="numer pom">IV</span><h2>Sposób realizacji</h2><span class="linia"></span></div>
   <p class="wstep" style="margin-bottom:1.4mm">Czynności nauczyciela (N) i odpowiadające im oczekiwane reakcje dziecka (U) — na tej samej wysokości.</p>
-  <table class="tab-mala">
+  <table class="tab-mala tab-zw">
     <thead>
       <tr><th style="width:5%">Lp.</th><th style="width:47.5%">Czynności nauczyciela (N)</th><th>Oczekiwane reakcje i umiejętności dziecka (U)</th></tr>
     </thead>
@@ -520,11 +521,11 @@
   <div class="duo" style="margin-top:1mm">
     <div class="karta-mod mod-z">
       <div class="glowa"><span class="rz">II</span><b>Żółta — częściowo</b></div>
-      <p>Zmniejsz krok i tempo, dołóż podpowiedź (wzór, gest, początek odpowiedzi), wydłuż czas, powtórz etap z większą liczbą prób, dodaj wzmocnienie.</p>
+      <p>Zmniejsz krok i tempo, dołóż podpowiedź (wzór, gest, początek odpowiedzi), wydłuż czas, powtórz etap, dodaj wzmocnienie.</p>
     </div>
     <div class="karta-mod mod-c">
       <div class="glowa"><span class="rz">III</span><b>Czerwona — słabo / brak</b></div>
-      <p>Cofnij się o etap do poziomu sukcesu, uprość zadanie (mniej elementów, praca 1:1), zmień kanał (obraz lub gest zamiast słowa), zweryfikuj poziom wsparcia i cel SMART.</p>
+      <p>Cofnij się o etap do poziomu sukcesu, uprość zadanie (mniej elementów, praca 1:1), zmień kanał, zweryfikuj poziom wsparcia i cel.</p>
     </div>
   </div>
 
@@ -532,7 +533,7 @@
 
   <div class="stopka">
     <span>EduPlaner 2026 · PCTP</span>
-    <span><b>Strona 1 z 1</b> · Konspekt zajęć · szablon · załącznik do IPET</span>
+    <span><b>Strona 1 z 1</b> · Konspekt zajęć · szablon · materiał realizacyjny</span>
   </div>
 </section>
 
