@@ -171,6 +171,27 @@ Posłuchaj pierwszego MP3 właśnie pod tym kątem:
 Poprawiasz plik tekstowy i generujesz audio od nowa — render wideo robisz dopiero,
 gdy dźwięk jest dobry. Kredyty HeyGen schodzą za render, nie za odsłuch.
 
+## Twoje klony w ElevenLabs — który do czego
+
+Ten sam tekst, ten sam model `eleven_v3`, te same znaczniki:
+
+| Głos | `voice_id` | Długość | Uwaga |
+|---|---|---|---|
+| **Ewa-głos_do skils** | `jq4ZUryuBeDqmtkKtBZ4` | 63,0 · 66,1 · 67,5 · 70,2 s | opisany jako intonacja „do szkoleń i wykładów" — najbliżej briefu spotu |
+| **Ewa2** | `MxdHRlURUZPVY5h2NiXH` | 63,8 s | mieści się w budżecie czasu, wart porównania |
+| **Ewa1** | `D0Yz6dyyxHOodq3Zqi45` | 94,2 s | o połowę wolniejszy — nie na spot, ale dobry na materiał szkoleniowy |
+| **Głos bez tytułu** | `1tw3WuUEU1Wt8m68hw81` | — | **nie działa** |
+
+⚠️ **„Głos bez tytułu" jest zepsuty.** Dwie próby zwróciły `Failed to generate audio`.
+Ma kategorię *professional*, ale nie ma nazwy ani próbki podglądowej — wszystko wskazuje
+na klon PVC, którego trening nie doszedł do końca. Jeśli to miał być Twój głos
+profesjonalny, trzeba go poprawić albo utworzyć od nowa w aplikacji ElevenLabs;
+przez API się tego nie naprawi.
+
+Ta sama treść, ten sam głos i model potrafią dać różnicę 7 sekund między ujęciami.
+Jeśli walczysz o równe 60 s, generuj 2–3 ujęcia i wybierz najkrótsze — to tańsze
+niż skracanie tekstu.
+
 ## Ciepło i tempo — co zadziałało
 
 Pierwsze ujęcia na `eleven_multilingual_v2` wyszły płaskie, „robotyczne".
