@@ -13,7 +13,7 @@ TMP="$(mktemp -d)"; trap 'rm -rf "$TMP"' EXIT
 cp "$SRC" "$TMP/film.html"
 cat >> "$TMP/film.html" <<'PATCH'
 <style>#hud,#rail,#notes,#gridview{display:none!important}
-body{background:#182A1E}
+body{background:#241C3F}
 .slide{border-radius:0!important;box-shadow:none!important}</style>
 <script>
 function dopasujDoFilmu(){var s=Math.min(window.innerWidth/1280,window.innerHeight/720);
