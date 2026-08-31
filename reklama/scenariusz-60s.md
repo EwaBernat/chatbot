@@ -171,12 +171,41 @@ Posłuchaj pierwszego MP3 właśnie pod tym kątem:
 Poprawiasz plik tekstowy i generujesz audio od nowa — render wideo robisz dopiero,
 gdy dźwięk jest dobry. Kredyty HeyGen schodzą za render, nie za odsłuch.
 
-## Tempo i akcenty
+## Ciepło i tempo — co zadziałało
 
-Krótkie zdania w scenie 3 („Nie szukasz. Nie piszesz od zera.") czytaj **wolniej**,
-z wyraźną kropką — one budują rytm całego spotu. Zdanie „a w zamian dostajesz czas"
-zwolnij jeszcze bardziej. Jeśli klon czyta za szybko, użyj `--speed` w `elevenlabs_tts.py`;
-nie rozbijaj tekstu na wielokropki, bo ElevenLabs czyta je jako pauzy w losowych miejscach.
+Pierwsze ujęcia na `eleven_multilingual_v2` wyszły płaskie, „robotyczne".
+Naprawa ma dwie części:
+
+**1. Model `eleven_v3` i znaczniki reżyserii.** Tylko v3 czyta polecenia w nawiasach
+kwadratowych i ich nie wypowiada. Gotowy tekst leży w `reklama/narracja-v3.txt`:
+
+| Znacznik | Gdzie | Po co |
+|---|---|---|
+| `[warmly]` | scena 1 i 4 | ciepłe otwarcie i osobisty ton przy „współautorką" |
+| `[calm]` | scena 2 | żeby wyliczanka modułów nie brzmiała jak lista zakupów |
+| `[sincerely]` | scena 3 | serce spotu, zdania na „nie" |
+| `[slowly]` | „Dla dziecka…", „Mniej dokumentów…" | pointy, które mają wybrzmieć |
+| `[encouraging]` | scena 5 | zaproszenie, nie polecenie |
+
+⚠️ **`narracja.txt` musi zostać czysta.** `eleven_multilingual_v2` przeczytałby
+znaczniki na głos. Do v3 używaj `narracja-v3.txt`, do reszty — `narracja.txt`.
+
+**2. Lokalnie: parametry, których nie ma w tej sesji.** Skrypt `elevenlabs_tts.py`
+przyjmuje suwaki, których zdalne złącze nie udostępnia:
+
+```bash
+python3 .claude/skills/dane-i-glos/scripts/elevenlabs_tts.py \
+        reklama/narracja-v3.txt -o reklama/glos.mp3 --srt reklama/napisy.srt \
+        --model eleven_v3 --stability 0.35 --style 0.45 --speed 0.95
+```
+
+- `--stability 0.35` — **najważniejszy**. Niżej = szerszy zakres emocji.
+  Domyślne 0.5 to właśnie ta płaskość. Poniżej 0.3 głos zaczyna „pływać".
+- `--style 0.45` — wzmacnia charakterystykę Twojego oryginału.
+- `--speed 0.95` — lekkie zwolnienie. Nie schodź poniżej 0.9, robi się ospale.
+
+Nie rozbijaj tekstu na wielokropki dla pauz — ElevenLabs czyta je jako pauzy
+w przypadkowych miejscach. Od tego są znaczniki i kropki.
 
 ## Skąd te treści
 
