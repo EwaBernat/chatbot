@@ -60,8 +60,10 @@ Claude Code on the web ([ustawienia dostępu](https://claude.ai/admin-settings/c
 
 Potrzebne są dwa: HeyGen (twarz i render) oraz ElevenLabs (głos).
 
-1. **HeyGen:** [app.heygen.com/api](https://app.heygen.com/api) → **Settings → API → New Key**.
-   Klucz pokazuje się **tylko raz** — skopiuj go zanim zamkniesz okno.
+1. **HeyGen:** [panel API HeyGen](https://app.heygen.com/home?from=&nav=API) → kliknij,
+   żeby wygenerować klucz. Klucz pokazuje się **tylko raz** — skopiuj go zanim zamkniesz okno.
+   (To dokładny adres z dokumentacji HeyGen. Przedrostek klucza nie jest wiarygodnym testem —
+   liczy się to, że pochodzi z tego panelu.)
 2. **ElevenLabs:** [elevenlabs.io](https://elevenlabs.io) → profil → **API Keys**.
 3. Wpisz oba do profilu powłoki (`~/.zshrc` albo `~/.bashrc`):
 
@@ -75,6 +77,23 @@ Potrzebne są dwa: HeyGen (twarz i render) oraz ElevenLabs (głos).
 
 Klucza **nie wklejaj do czatu ani do repozytorium**. `.env` jest w `.gitignore`,
 ale zmienna środowiskowa jest bezpieczniejsza.
+
+### Sprawdzenie, czy klucz działa
+
+Oficjalna szybka weryfikacja z dokumentacji HeyGen — zwraca dane Twojego konta:
+
+```bash
+curl -X GET "https://api.heygen.com/v3/users/me" \
+  -H "X-Api-Key: $HEYGEN_API_KEY"
+```
+
+Odpowiedź `200` z danymi konta = klucz ważny. Odpowiedź `401 unauthorized` = zły klucz
+albo zmienna nie dotarła do procesu. Pole `billing_type` (`wallet`, `subscription`
+albo `usage_based`) pokazuje Twój model rozliczeń i saldo.
+
+To jedyny moment, kiedy warto uderzyć w `api.heygen.com` bezpośrednio. **Do awatarów
+i filmów nie używaj curla** — skille chodzą przez CLI albo MCP i tylko przez wersję v3
+API; ręczne wywołania łatwo trafiają w przestarzałe punkty v1/v2.
 
 HeyGen API rozlicza się w kredytach (pay-as-you-go, bez darmowego progu) — Avatar V
 to ok. 6 kredytów za minutę wygenerowanego wideo. Sprawdź stan konta na
@@ -203,10 +222,10 @@ czytają ten plik same — dlatego „zrób film ze mną" wystarczy za konfigura
 |---|---|---|
 | **Awatary** — tworzenie ze zdjęcia lub nagrania, podgląd, edycja | [app.heygen.com/avatars](https://app.heygen.com/avatars) | **Group ID** i `look_id` → sekcja `## HeyGen` |
 | **Klonowanie głosu** (gdybyś chciała też w HeyGen) | tamże, zakładka **Voices** | `voice_id` → `Voice ID` |
-| **Klucz API** | [app.heygen.com/api](https://app.heygen.com/api) → Settings → API → New Key | `HEYGEN_API_KEY` → `~/.zshrc` |
+| **Klucz API** | [panel API](https://app.heygen.com/home?from=&nav=API) — tam też podgląd zużycia | `HEYGEN_API_KEY` → `~/.zshrc` |
 | **Kredyty i plan** | [app.heygen.com/billing](https://app.heygen.com/billing) | tylko podgląd — sprawdź przed renderem |
 
-Adresy `app.heygen.com/api` i `/billing` są potwierdzone w dokumentacji HeyGen.
+Adresy panelu API i `/billing` są potwierdzone w dokumentacji HeyGen.
 Ścieżkę do awatarów HeyGen czasem przestawia — jeśli link nie trafi, wejdź na
 [app.heygen.com](https://app.heygen.com) i szukaj **Avatars** w menu bocznym.
 
