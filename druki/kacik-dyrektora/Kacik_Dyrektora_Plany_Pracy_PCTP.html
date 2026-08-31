@@ -1,0 +1,1758 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+<meta charset="utf-8">
+<title>Plany pracy przedszkola — pięć typów placówki · EduPlaner 2026</title>
+<style>
+  :root{
+    --fiolet:#2D1B69;
+    --fiolet-2:#4D3D80;
+    --pomarancz:#E8450A;
+    --pole:#F6F3FB;
+    --ramka:#D9CFEE;
+    --ramka-2:#CABCE8;
+    --kropki:#B3A1D8;
+    --wiersz:#FAF7F2;
+    --zazn:#FDECE4;
+    --szary:#6B6B7B;
+    --szary-2:#9A94A8;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{
+    font-family:Arial,"Helvetica Neue",Helvetica,sans-serif;
+    font-size:7.6pt; line-height:1.32; color:#221a3d; background:#e9e7ee;
+    -webkit-print-color-adjust:exact; print-color-adjust:exact;
+  }
+  .page{
+    position:relative; width:210mm; min-height:297mm; margin:0 auto 8mm;
+    padding:11mm 10mm 13mm; background:#fff; display:flex; flex-direction:column;
+    box-shadow:0 2px 10px rgba(45,27,105,.18);
+  }
+
+  /* ——— nagłówek ——— */
+  .naglowek{display:flex; align-items:flex-start; justify-content:space-between; gap:6mm}
+  .marka{display:flex; align-items:center; gap:3.2mm}
+  .logo{width:11.4mm; height:11.4mm; flex:none; display:block}
+  .logo svg{width:100%; height:100%; display:block}
+  .marka-nazwa{font-size:12.5pt; font-weight:bold; color:var(--fiolet); letter-spacing:-.2px; line-height:1.05}
+  .marka-opis{font-size:5.6pt; font-weight:bold; color:var(--szary); letter-spacing:1.1px; text-transform:uppercase; margin-top:1mm; max-width:52mm}
+  .naglowek-prawy{text-align:right; padding-top:.6mm}
+  .plakietka{
+    display:inline-block; background:var(--pomarancz); color:#fff; border-radius:999px;
+    padding:1.3mm 3.4mm; font-size:6.2pt; font-weight:bold; letter-spacing:.7px; text-transform:uppercase;
+  }
+  .naglowek-podpis{font-size:5.6pt; font-weight:bold; color:var(--szary-2); letter-spacing:1.1px; margin-top:1.6mm; text-transform:uppercase}
+  .belka{height:1.1mm; margin:2.6mm 0 3mm; background:linear-gradient(90deg,var(--fiolet) 0 55%,var(--pomarancz) 55% 100%)}
+
+  /* ——— pasek metryczki ——— */
+  .metryczka{display:flex; gap:2.4mm; margin-bottom:3.4mm}
+  .metryczka .box{
+    border:1px solid var(--ramka); border-radius:2.4mm; background:#FDFCFE;
+    padding:2mm 3mm; display:flex; align-items:baseline; gap:2mm; min-height:9mm;
+  }
+  .metryczka .box:nth-child(1){flex:2.2}
+  .metryczka .box:nth-child(2){flex:1.5}
+  .metryczka .box:nth-child(3){flex:1.3}
+  .metryczka .etykieta{font-size:5.8pt; font-weight:bold; color:var(--fiolet); letter-spacing:1px; text-transform:uppercase; white-space:nowrap}
+  .metryczka .wypelnij{flex:1; border-bottom:1.2px dotted var(--kropki); height:3.4mm}
+  .metryczka .wartosc{font-size:8.5pt; color:var(--fiolet); font-weight:normal}
+
+  /* ——— tytuł dokumentu ——— */
+  .wstega{text-align:center; margin:1mm 0 3mm}
+  .wstega span{
+    display:inline-block; background:var(--pomarancz); color:#fff; border-radius:999px;
+    padding:1.4mm 4mm; font-size:6.2pt; font-weight:bold; letter-spacing:1.1px; text-transform:uppercase;
+  }
+  .tytul{text-align:center; font-size:19pt; font-weight:bold; color:var(--fiolet); letter-spacing:.3px}
+  .podtytul{text-align:center; font-size:10pt; font-weight:bold; color:var(--pomarancz); margin-top:1.4mm}
+  .kody{display:flex; align-items:center; justify-content:center; gap:3mm; margin:3mm 0 5mm}
+  .kody .kreska{width:22mm; height:1px; background:var(--pomarancz)}
+  .kody .tresc{font-size:7.4pt; font-weight:bold; color:var(--fiolet); letter-spacing:2.6px}
+
+  /* ——— sekcje ——— */
+  .sekcja{display:flex; align-items:center; gap:2.6mm; margin:4.5mm 0 2.4mm}
+  .sekcja:first-of-type{margin-top:1mm}
+  .numer{
+    width:5.2mm; height:5.2mm; border-radius:1.2mm; background:var(--fiolet); color:#fff;
+    display:flex; align-items:center; justify-content:center; font-size:6.2pt; font-weight:bold; flex:none;
+  }
+  .numer.pom{background:var(--pomarancz)}
+  .sekcja h2{font-size:9.6pt; font-weight:bold; color:var(--fiolet); letter-spacing:.4px; text-transform:uppercase; white-space:nowrap}
+  .sekcja .linia{flex:1; height:1px; background:#E6DFF4}
+  .sekcja .tag{
+    background:#F3EDFB; border:1px solid var(--ramka-2); color:var(--fiolet);
+    border-radius:999px; padding:.7mm 2.4mm; font-size:6pt; font-weight:bold; letter-spacing:.5px;
+  }
+  .wstep{font-size:7pt; color:var(--fiolet-2); margin:0 0 2.6mm 8mm; line-height:1.4}
+
+  /* ——— pola do wypełnienia ——— */
+  .pole{
+    background:var(--pole); border:1px solid var(--ramka); border-radius:2.4mm;
+    padding:1.8mm 3mm 2.2mm; margin-bottom:2mm;
+  }
+  .pole > label,.pole .etykieta{
+    display:block; font-size:5.8pt; font-weight:bold; color:var(--fiolet);
+    letter-spacing:1.1px; text-transform:uppercase;
+  }
+  .pole .tresc{font-size:7.6pt; color:#221a3d; margin-top:1.2mm}
+  .linijki{margin-top:1.4mm}
+  .linijki div{border-bottom:1.2px dotted var(--kropki); height:4.6mm}
+  .linijki.w1 div:last-child,.linijki div:last-child{border-bottom:1.2px dotted var(--kropki)}
+  .siatka2{display:flex; gap:2.4mm}
+  .siatka2 > *{flex:1}
+  .siatka3{display:flex; gap:2.4mm}
+  .siatka3 > *{flex:1}
+
+  /* ——— tabele ——— */
+  table{width:100%; border-collapse:collapse; margin-bottom:2mm}
+  th{
+    background:var(--fiolet); color:#fff; font-size:6.2pt; font-weight:bold; letter-spacing:.7px;
+    text-transform:uppercase; text-align:left; padding:2mm 2.2mm; border:1px solid var(--fiolet);
+  }
+  td{border:1px solid var(--ramka); padding:2mm 2.2mm; vertical-align:top; font-size:7.2pt; height:8mm}
+  tbody tr:nth-child(even) td{background:var(--wiersz)}
+  td.klucz{font-weight:bold; color:var(--fiolet)}
+  td.puste{color:var(--kropki)}
+  td.puste::after{content:"................"; letter-spacing:.4px}
+  td.lp{text-align:center; font-weight:bold; color:var(--pomarancz); width:7mm}
+  .tab-mala td{height:6.4mm}
+  .tab-zw td, .tab-zw th{padding:1.3mm 2.2mm}
+  /* ——— poprawka prawna, oznaczona na niebiesko ——— */
+  .wstega span .popr, .kody .popr{display:inline; padding:0; border-radius:.6mm;
+    background:rgba(255,255,255,.3); color:#fff}
+  .popr{color:#1152C9; background:#EAF2FE; border-radius:.6mm}
+  .popr b{color:#0B3C96}
+  .prawna .popr, .legenda .popr{background:#E4EEFD}
+
+  /* ——— pola wyboru ——— */
+  .wybor-tytul{display:flex; align-items:center; gap:2mm; margin:3.4mm 0 1.8mm}
+  .wybor-tytul .kropka{width:2.2mm; height:2.2mm; border-radius:.6mm; background:var(--pomarancz); flex:none}
+  .wybor-tytul span{font-size:6.4pt; font-weight:bold; color:var(--fiolet); letter-spacing:.8px; text-transform:uppercase}
+  .wybory{display:flex; flex-wrap:wrap; gap:2mm}
+  .wybor{
+    flex:1 1 calc(50% - 1mm); display:flex; align-items:center; gap:2.4mm;
+    border:1px solid var(--ramka); border-radius:2.4mm; padding:2.2mm 3mm; background:#fff; font-size:7.4pt;
+  }
+  .wybor.w3{flex:1 1 calc(33.33% - 1.4mm)}
+  .wybor.pelny{flex:1 1 100%}
+  .kwadrat{
+    width:3.4mm; height:3.4mm; border:1.2px solid var(--kropki); border-radius:.8mm; flex:none;
+    display:flex; align-items:center; justify-content:center; font-size:6.4pt; color:transparent;
+  }
+  .wybor.zazn{background:var(--zazn); border-color:var(--pomarancz)}
+  .wybor.zazn .kwadrat{background:var(--pomarancz); border-color:var(--pomarancz); color:#fff}
+  .wybor .dopisz{flex:1; border-bottom:1.2px dotted var(--kropki); height:3.4mm; margin-left:1mm}
+
+  /* ——— karty skali ——— */
+  .karty{display:flex; gap:2.4mm; margin:2.4mm 0}
+  .karta{flex:1; border-radius:2.4mm; padding:2.6mm; text-align:center}
+  .karta .duza{font-size:11pt; font-weight:bold}
+  .karta .opis{font-size:5.8pt; font-weight:bold; letter-spacing:.9px; text-transform:uppercase; margin-top:1mm}
+  .karta.czerwona{background:#FDECE4; border:1px solid #F3B79C; color:var(--pomarancz)}
+  .karta.zolta{background:#FDF6E3; border:1px solid #EDD9A8; color:#B07A12}
+  .karta.zielona{background:#E7F5EE; border:1px solid #A9D9C1; color:#177A4E}
+
+  /* ——— blok dyrektora ——— */
+  .blok-dyr{
+    border:1.4px solid var(--pomarancz); border-radius:2.8mm; background:#FFFBF8;
+    padding:3mm 3.4mm; margin-top:2.6mm;
+  }
+  .blok-dyr .naglowek-bloku{display:flex; align-items:center; gap:2.4mm; margin-bottom:2.4mm}
+  .blok-dyr .naglowek-bloku .znak{
+    width:5.2mm; height:5.2mm; border-radius:1.2mm; background:var(--pomarancz); color:#fff;
+    display:flex; align-items:center; justify-content:center; font-size:6.6pt; font-weight:bold;
+  }
+  .blok-dyr h3{font-size:8.6pt; font-weight:bold; color:var(--pomarancz); letter-spacing:.5px; text-transform:uppercase}
+  .blok-dyr .pole{background:#fff; border-color:#F3D5C6}
+  .blok-dyr .wybor{border-color:#F3D5C6}
+
+  /* ——— informacje / wskazówki ——— */
+  .info{
+    background:#F3EDFB; border-left:1.6mm solid var(--fiolet); border-radius:1.6mm;
+    padding:2.4mm 3mm; font-size:7pt; color:var(--fiolet-2); margin-bottom:2.4mm; line-height:1.42;
+  }
+  .info b{color:var(--fiolet)}
+  .kafle{display:flex; gap:2.4mm; margin-bottom:2.6mm}
+  .kafel{flex:1; border:1px solid var(--ramka); border-radius:2.4mm; background:var(--pole); padding:2.6mm 3mm}
+  .kafel .naglowek-kafla{font-size:5.8pt; font-weight:bold; color:var(--pomarancz); letter-spacing:1px; text-transform:uppercase}
+  .kafel .tresc-kafla{font-size:7.2pt; color:var(--fiolet); margin-top:1.2mm; font-weight:bold}
+  .kafel .uwaga{font-size:6.4pt; color:var(--szary); margin-top:.8mm}
+
+  /* ——— podstawa prawna ——— */
+  .prawna{background:var(--pole); border:1px solid var(--ramka); border-radius:2.4mm; padding:2.6mm 3mm}
+  .prawna p{font-size:6.1pt; line-height:1.45; color:#3a3357; text-align:justify}
+  .prawna b{color:var(--fiolet)}
+
+  /* ——— podpisy ——— */
+  .podpisy{display:flex; gap:8mm; margin-top:6mm}
+  .podpis{flex:1; text-align:center}
+  .podpis .kreska{border-top:1px solid var(--fiolet-2); margin-bottom:1.6mm}
+  .podpis .opis{font-size:6.4pt; color:var(--szary)}
+
+  /* ——— stopka ——— */
+  .stopka{
+    margin-top:auto; padding-top:2.6mm; border-top:1px solid #EBEBED;
+    display:flex; justify-content:space-between; font-size:5.8pt; color:var(--szary-2);
+  }
+  .stopka b{color:var(--fiolet)}
+
+
+  /* ——— panel aplikacji (nie drukuje się) ——— */
+  /* ——— pasek informacyjny o poprawkach (tylko ekran) ——— */
+  .pasek-popr{width:210mm; margin:0 auto 4mm; background:#EAF2FE; border:1px solid #B9D2F7;
+    border-left:2.6mm solid #1152C9; border-radius:2.4mm; padding:4mm 6mm; color:#123A6B}
+  .pasek-popr h3{font-size:9pt; color:#0B3C96; font-weight:bold; margin-bottom:1.6mm;
+    text-transform:uppercase; letter-spacing:.5px}
+  .pasek-popr p{font-size:8pt; line-height:1.5; color:#1B3A66}
+  .pasek-popr .probka{color:#1152C9; background:#DCE9FC; border-radius:.6mm; font-weight:bold}
+  .panel{
+    width:210mm; margin:0 auto 8mm; background:#fff; border-radius:3mm; overflow:hidden;
+    box-shadow:0 2px 10px rgba(45,27,105,.18);
+  }
+  .panel-glowa{background:linear-gradient(120deg,#2D1B69 0%,#4D3D80 62%,#E8450A 165%); color:#fff; padding:6mm 7mm}
+  .panel-glowa .etykieta-app{font-size:6pt; font-weight:bold; letter-spacing:2px; text-transform:uppercase; opacity:.82}
+  .panel-glowa h1{font-size:15pt; font-weight:bold; margin-top:1.6mm}
+  .panel-glowa p{font-size:8pt; margin-top:1.6mm; opacity:.9; max-width:150mm; line-height:1.45}
+  .panel-cialo{padding:6mm 7mm 7mm}
+  .panel-sekcja{margin-bottom:5mm}
+  .panel-sekcja > h2{
+    font-size:9.4pt; font-weight:bold; color:var(--fiolet); text-transform:uppercase; letter-spacing:.5px;
+    display:flex; align-items:center; gap:2.4mm; margin-bottom:2.4mm;
+  }
+  .panel-sekcja > h2::before{content:""; width:2.6mm; height:2.6mm; border-radius:.7mm; background:var(--pomarancz)}
+  .panel-lista{list-style:none; display:flex; flex-wrap:wrap; gap:2mm}
+  .panel-lista li{
+    flex:1 1 calc(50% - 1mm); background:var(--pole); border:1px solid var(--ramka); border-radius:2.4mm;
+    padding:2.4mm 3mm; font-size:7.6pt; display:flex; gap:2.4mm; align-items:flex-start;
+  }
+  .panel-lista li .nr{
+    width:4.6mm; height:4.6mm; border-radius:50%; background:var(--fiolet); color:#fff; flex:none;
+    display:flex; align-items:center; justify-content:center; font-size:5.8pt; font-weight:bold;
+  }
+  .panel-role{display:flex; flex-direction:column; gap:2mm}
+  .panel-role .rola{
+    border:1px solid var(--ramka); border-left:1.6mm solid var(--pomarancz); border-radius:2.4mm;
+    padding:2.6mm 3.4mm; background:#fff;
+  }
+  .panel-role .rola b{color:var(--fiolet); font-size:8pt}
+  .panel-role .rola span{display:block; font-size:7.4pt; color:var(--fiolet-2); margin-top:1mm; line-height:1.45}
+  .panel-role .rola em{font-style:normal; color:var(--pomarancz); font-weight:bold}
+  .panel-akcje{display:flex; align-items:center; gap:4mm; border-top:1px solid #EBEBED; padding-top:4mm; margin-top:1mm}
+  .btn-druk{
+    background:var(--pomarancz); color:#fff; border:none; border-radius:999px; cursor:pointer;
+    padding:3mm 7mm; font-size:8.4pt; font-weight:bold; letter-spacing:.5px; font-family:inherit;
+  }
+  .panel-akcje .uwaga-druk{font-size:7.2pt; color:var(--szary)}
+
+
+  /* ——— elementy kącika nauczyciela ——— */
+  td.ocena{text-align:center; letter-spacing:2.4px; color:var(--kropki); font-size:8pt}
+  td.kratka{text-align:center; vertical-align:middle}
+  td.kratka span{
+    display:inline-block; width:3.4mm; height:3.4mm; border:1.2px solid var(--kropki);
+    border-radius:.8mm; background:#fff;
+  }
+  td.podstawa{font-size:6.2pt; font-weight:bold; color:var(--pomarancz); letter-spacing:.3px}
+  td.termin{font-size:6.6pt; color:var(--fiolet); font-weight:bold}
+  .legenda{background:var(--pole); border:1px solid var(--ramka); border-radius:2.4mm; padding:2.6mm 3mm; margin-bottom:2mm}
+  .legenda p{font-size:6.1pt; line-height:1.5; color:#3a3357}
+  .legenda b{color:var(--fiolet)}
+
+
+  /* ——— konspekt: blok tytułowy zajęć ——— */
+  .kons-wstega{text-align:center; margin:1.4mm 0 2mm}
+  .kons-wstega span{
+    display:inline-block; background:var(--pomarancz); color:#fff; border-radius:999px;
+    padding:1.4mm 4.4mm; font-size:6.6pt; font-weight:bold; letter-spacing:1.4px; text-transform:uppercase;
+  }
+  .kons-sfera{text-align:center; margin-bottom:2mm}
+  .kons-sfera span{
+    display:inline-block; background:#F3EDFB; border:1px solid var(--ramka-2); color:var(--fiolet);
+    border-radius:999px; padding:1.2mm 4mm; font-size:6.2pt; font-weight:bold; letter-spacing:.9px; text-transform:uppercase;
+  }
+  .kons-etyk{
+    text-align:center; font-size:5.6pt; font-weight:bold; color:var(--szary);
+    letter-spacing:1.4px; text-transform:uppercase; margin-bottom:.6mm;
+  }
+  .kons-tytul{
+    text-align:center; font-size:15pt; font-weight:bold; color:var(--fiolet); letter-spacing:.2px;
+    border-bottom:1.4px dotted var(--kropki); padding-bottom:.6mm; margin:0 18mm; height:8mm;
+  }
+  .kons-pod{display:flex; align-items:center; justify-content:center; gap:3mm; margin:1.6mm 18mm 2.6mm}
+  .kons-pod .kreska{flex:1; height:1px; background:var(--pomarancz)}
+  .kons-pod .linia-op{flex:2.6; border-bottom:1.2px dotted var(--kropki); height:3mm}
+  .chipsy{display:flex; gap:2mm; margin-bottom:2mm}
+  .chip{
+    flex:1; border:1px solid var(--ramka-2); border-radius:999px; background:#fff;
+    padding:1mm 2mm; text-align:center; font-size:5.8pt; font-weight:bold;
+    color:var(--fiolet); letter-spacing:.6px; text-transform:uppercase;
+  }
+  .chip i{display:block; font-style:normal; font-weight:normal; letter-spacing:0; text-transform:none;
+    border-bottom:1.2px dotted var(--kropki); height:3.2mm; margin-top:1mm}
+
+  /* ——— dwie symetryczne kolumny celów ——— */
+  .cele{display:flex; gap:3.4mm; align-items:stretch; margin-bottom:3.4mm}
+  .cel{flex:1 1 0; display:flex; flex-direction:column; border:1px solid var(--ramka);
+       border-radius:2.8mm; overflow:hidden; background:var(--pole)}
+  .cel-glowa{display:flex; align-items:center; gap:2.2mm; padding:2.2mm 3mm; background:var(--fiolet); color:#fff}
+  .cel.terap .cel-glowa{background:var(--pomarancz)}
+  .cel-glowa .znak{
+    width:5mm; height:5mm; border-radius:1.2mm; background:rgba(255,255,255,.2); flex:none;
+    display:flex; align-items:center; justify-content:center; font-size:6.2pt; font-weight:bold;
+  }
+  .cel-glowa h3{font-size:8.4pt; font-weight:bold; letter-spacing:.6px; text-transform:uppercase}
+  .cel-glowa .pig{
+    margin-left:auto; background:rgba(255,255,255,.18); border-radius:999px;
+    padding:.8mm 2.4mm; font-size:5.4pt; font-weight:bold; letter-spacing:.7px; text-transform:uppercase;
+  }
+  .cel-cialo{flex:1; display:flex; flex-direction:column; padding:2.6mm 3mm 2.8mm}
+  .cel-cialo .mini{font-size:5.6pt; font-weight:bold; color:var(--fiolet); letter-spacing:1px; text-transform:uppercase}
+  .cel-cialo .mini.pom{color:var(--pomarancz)}
+  .cel-cialo .linijki div{border-bottom:1.2px dotted var(--kropki); height:4.6mm}
+  /* klamra przy celach — wg wzoru konspektu */
+  .klamra-blok{display:flex; align-items:stretch; gap:1.6mm; margin:1.4mm 0 1.2mm}
+  .klamra{flex:none; width:3.4mm; align-self:stretch; color:var(--fiolet); display:block}
+  .klamra svg{width:100%; height:100%; display:block}
+  .cel.terap .klamra{color:var(--pomarancz)}
+  .smart-wiersze{flex:1; display:flex; flex-direction:column; justify-content:space-between; gap:.2mm}
+  .smart-w{display:flex; align-items:center; gap:1.4mm}
+  .smart-w b{
+    width:3.2mm; flex:none; text-align:center; font-size:7pt; font-weight:bold; color:var(--fiolet);
+  }
+  .cel.terap .smart-w b{color:var(--pomarancz)}
+  .smart-w i{
+    flex:none; width:14mm; font-style:normal; font-size:5.4pt; color:var(--szary); letter-spacing:.2px;
+  }
+  .smart-w .lin{flex:1; border-bottom:1.2px dotted var(--kropki); height:3.1mm}
+  .kryt{
+    background:#EFEAF9; border:1px solid var(--ramka-2); border-radius:2mm;
+    padding:1.2mm 2.4mm; display:flex; align-items:center; gap:1.6mm; margin-top:auto;
+  }
+  .cel.terap .kryt{background:#FDECE4; border-color:#F3B79C}
+  .kryt b{font-size:5.8pt; color:var(--fiolet); white-space:nowrap; letter-spacing:.3px}
+  .cel.terap .kryt b{color:var(--pomarancz)}
+  .kryt .lin{flex:1; border-bottom:1.2px dotted var(--kropki); height:3.4mm}
+  .cel .rozdziel{border-top:1px solid var(--ramka); margin:1.6mm 0 2mm}
+
+  /* ——— dwie kolumny sekcji ——— */
+  .duo{display:flex; gap:3.4mm; align-items:stretch; margin-bottom:1mm}
+  .duo > div{flex:1 1 0; display:flex; flex-direction:column}
+  .duo .pole{flex:1}
+  .karta-mod{flex:1; border-radius:2.4mm; padding:2mm 2.8mm}
+  .karta-mod .glowa{display:flex; align-items:center; gap:2mm; margin-bottom:1.4mm}
+  .karta-mod .glowa .rz{
+    width:4.4mm; height:4.4mm; border-radius:1mm; display:flex; align-items:center; justify-content:center;
+    font-size:5.6pt; font-weight:bold; color:#fff;
+  }
+  .karta-mod .glowa b{font-size:6.4pt; letter-spacing:.8px; text-transform:uppercase}
+  .karta-mod p{font-size:6.4pt; line-height:1.45}
+  .mod-z{background:#FDF6E3; border:1px solid #EDD9A8}
+  .mod-z .rz{background:#C9992A} .mod-z .glowa b{color:#8A6510} .mod-z p{color:#6B5220}
+  .mod-c{background:#FDECE4; border:1px solid #F3B79C}
+  .mod-c .rz{background:var(--pomarancz)} .mod-c .glowa b{color:#B8350D} .mod-c p{color:#7E3A22}
+
+  .wsk{
+    display:flex; align-items:center; gap:2mm; margin-top:2.4mm;
+    background:var(--pole); border:1px solid var(--ramka); border-radius:2.4mm; padding:1.4mm 3mm;
+  }
+  .wsk b{font-size:6.2pt; color:var(--fiolet); white-space:nowrap}
+  .wsk .dopisz{flex:1; border-bottom:1.2px dotted var(--kropki); height:3.4mm}
+
+
+  /* ——— elementy instrukcji ——— */
+  .formula{display:flex; gap:1.6mm; margin:1mm 0 2.4mm}
+  .formula .czlon{
+    flex:1; border-radius:2.2mm; padding:2mm 2.2mm; text-align:center; color:#fff;
+  }
+  .formula .czlon b{display:block; font-size:6.4pt; letter-spacing:.6px; text-transform:uppercase}
+  .formula .czlon i{display:block; font-style:normal; font-size:5.6pt; opacity:.9; margin-top:.6mm; line-height:1.35}
+  .formula .plus{align-self:center; color:var(--kropki); font-size:9pt; font-weight:bold}
+  .zle-dobrze{display:flex; gap:2.4mm; margin-bottom:2mm; align-items:stretch}
+  .zle-dobrze > div{flex:1; border-radius:2.2mm; padding:2mm 2.6mm; font-size:6.8pt; line-height:1.4}
+  .zle{background:#FDECE4; border:1px solid #F3B79C; color:#7E3A22}
+  .dobrze{background:#E7F5EE; border:1px solid #A9D9C1; color:#17553C}
+  .zle-dobrze .etyk{
+    display:block; font-size:5.6pt; font-weight:bold; letter-spacing:1px;
+    text-transform:uppercase; margin-bottom:1mm;
+  }
+  .zle .etyk{color:var(--pomarancz)} .dobrze .etyk{color:#177A4E}
+  .smart-opis{flex:1; display:flex; flex-direction:column; gap:1.2mm}
+  .smart-opis .w{display:flex; gap:2.4mm; align-items:flex-start}
+  .smart-opis .w b{
+    width:5.2mm; height:5.2mm; border-radius:1.2mm; background:var(--fiolet); color:#fff; flex:none;
+    display:flex; align-items:center; justify-content:center; font-size:7pt; margin-top:.3mm;
+  }
+  .smart-opis .w .tresc{flex:1; font-size:7pt; line-height:1.4}
+  .smart-opis .w .tresc strong{color:var(--fiolet)}
+  .smart-opis .w .tresc em{display:block; font-style:normal; font-size:6.2pt; color:var(--pomarancz); margin-top:.4mm}
+
+
+  /* ——— karty uzasadnienia ——— */
+  .argumenty{display:flex; flex-wrap:wrap; gap:2.4mm; margin-bottom:2.4mm}
+  .arg{
+    flex:1 1 calc(50% - 1.2mm); border:1px solid var(--ramka); border-left:1.6mm solid var(--pomarancz);
+    border-radius:2.4mm; background:#fff; padding:2.4mm 3mm;
+  }
+  .arg.fiolet{border-left-color:var(--fiolet)}
+  .arg b{display:block; font-size:7.4pt; color:var(--fiolet); margin-bottom:1mm}
+  .arg p{font-size:6.8pt; line-height:1.5; color:#3a3357}
+  .arg p em{font-style:normal; color:var(--pomarancz); font-weight:bold}
+
+  @media print{
+    body{background:#fff}
+    .panel{display:none !important}
+    .pasek-popr{display:none !important}
+    .popr{color:inherit !important; background:none !important}
+    .page{margin:0; box-shadow:none; page-break-after:always}
+    .page:last-child{page-break-after:auto}
+    @page{size:A4; margin:0}
+  }
+</style>
+</head>
+<body>
+
+<!-- ======= PANEL APLIKACJI · nie drukuje się ======= -->
+<div class="panel">
+  <div class="panel-glowa">
+    <div class="etykieta-app">EduPlaner 2026 · Kącik dyrektora · przedszkole · panel informacyjny</div>
+    <h1>Plan pracy przedszkola — jeden druk, cztery typy placówki</h1>
+    <p>Plan pracy na rok szkolny 2026/2027 w dziewięciu obszarach nowej podstawy programowej, z osobnymi sekcjami wariantowymi dla przedszkola ogólnodostępnego, z oddziałami integracyjnymi, integracyjnego i specjalnego. Sześć stron A4. Ta część wyświetla się wyłącznie w aplikacji i nie drukuje się.</p>
+  </div>
+  <div class="panel-cialo">
+    <div class="panel-sekcja">
+      <h2>Wariant wybiera się na pierwszej stronie</h2>
+      <div class="panel-role">
+        <div class="rola">
+          <b>Ogólnodostępne — sekcje II–VI</b>
+          <span>Oddział do 25 dzieci. Pomoc psychologiczno-pedagogiczna dla dzieci bez orzeczeń jest częścią zadań zwykłych.</span>
+        </div>
+        <div class="rola">
+          <b>Z oddziałami integracyjnymi i integracyjne — sekcje II–VII</b>
+          <span>Oddział integracyjny liczy <em>do 20 dzieci, w tym do 5 z orzeczeniem</em> o potrzebie kształcenia specjalnego. Sekcja VII dodaje zadania, których nie ma w przedszkolu ogólnodostępnym: zasady współdziałania nauczyciela prowadzącego z nauczycielem współorganizującym, projektowanie uniwersalne dla całego oddziału, praca z rodzicami dzieci pełnosprawnych.</span>
+        </div>
+        <div class="rola">
+          <b>Specjalne i z oddziałami specjalnymi — sekcje II–VIII</b>
+          <span>Liczebność oddziału zależy od <em>rodzaju niepełnosprawności</em> dzieci. Sekcja VIII dodaje zbiorczy plan zajęć rewalidacyjnych dla całej placówki, kwalifikacje kadry pod rodzaje niepełnosprawności, AAC jako standard i przygotowanie przejścia do szkoły.</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="panel-sekcja">
+      <h2>Dwie rzeczy, które zmieniła nowa podstawa i nowa ustawa</h2>
+      <div class="panel-role">
+        <div class="rola">
+          <b>Dziewięć obszarów zamiast czterech</b>
+          <span>Sekcja III rozpisuje zadania w obszarach: społecznym, osobistym, językowym, matematycznym, przyrodniczym, technicznym, cyfrowym, artystycznym i ruchowym (Dz.U. 2026 poz. 378, zm. poz. 958).</span>
+        </div>
+        <div class="rola">
+          <b>Obszar cyfrowy planuje się inaczej niż pozostałe</b>
+          <span>Od 1 września 2026 r. dzieci w przedszkolu <em>nie korzystają samodzielnie</em> z telefonów i innych urządzeń elektronicznych (ustawa z 3 lipca 2026 r., Dz.U. 2026 poz. 1036). Zadania w tym obszarze planuje się jako pracę nauczyciela z narzędziem i jako higienę cyfrową; wyjątkiem jest urządzenie będące <em>racjonalnym usprawnieniem</em> dla dziecka ze specjalnymi potrzebami.</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="panel-sekcja">
+      <h2>Kto plan przyjmuje</h2>
+      <div class="panel-role">
+        <div class="rola">
+          <b>Plan pracy zatwierdza rada pedagogiczna — uchwałą</b>
+          <span>To kompetencja stanowiąca rady, art. 70 ust. 1 pkt 1 Prawa oświatowego. Plan wchodzi w życie <em>uchwałą</em>, nie zarządzeniem dyrektora. Odnotowuje się to w protokole zebrania (druk <b>RP-1</b>) i w rejestrze uchwał (druk <b>RP-3</b>). To odwrotnie niż z planem nadzoru, którego rada <em>nie zatwierdza</em> — dyrektor go tylko przedstawia.</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="panel-akcje">
+      <button class="btn-druk" onclick="window.print()">Drukuj plan pracy (6 stron A4)</button>
+      <span class="uwaga-druk">Ustawienia: A4, marginesy „brak”, grafika tła włączona.</span>
+    </div>
+  </div>
+</div>
+<div class="panel">
+  <div class="panel-glowa">
+    <div class="etykieta-app">EduPlaner 2026 · Kącik dyrektora · przedszkole · panel informacyjny</div>
+    <h1>Plan pracy przedszkola — jeden druk, cztery typy placówki</h1>
+    <p>Plan pracy na rok szkolny 2026/2027 w dziewięciu obszarach nowej podstawy programowej, z osobnymi sekcjami wariantowymi dla przedszkola ogólnodostępnego, z oddziałami integracyjnymi, integracyjnego i specjalnego. Sześć stron A4. Ta część wyświetla się wyłącznie w aplikacji i nie drukuje się.</p>
+  </div>
+  <div class="panel-cialo">
+    <div class="panel-sekcja">
+      <h2>Wariant wybiera się na pierwszej stronie</h2>
+      <div class="panel-role">
+        <div class="rola">
+          <b>Ogólnodostępne — sekcje II–VI</b>
+          <span>Oddział do 25 dzieci. Pomoc psychologiczno-pedagogiczna dla dzieci bez orzeczeń jest częścią zadań zwykłych.</span>
+        </div>
+        <div class="rola">
+          <b>Z oddziałami integracyjnymi i integracyjne — sekcje II–VII</b>
+          <span>Oddział integracyjny liczy <em>do 20 dzieci, w tym do 5 z orzeczeniem</em> o potrzebie kształcenia specjalnego. Sekcja VII dodaje zadania, których nie ma w przedszkolu ogólnodostępnym: zasady współdziałania nauczyciela prowadzącego z nauczycielem współorganizującym, projektowanie uniwersalne dla całego oddziału, praca z rodzicami dzieci pełnosprawnych.</span>
+        </div>
+        <div class="rola">
+          <b>Specjalne i z oddziałami specjalnymi — sekcje II–VIII</b>
+          <span>Liczebność oddziału zależy od <em>rodzaju niepełnosprawności</em> dzieci. Sekcja VIII dodaje zbiorczy plan zajęć rewalidacyjnych dla całej placówki, kwalifikacje kadry pod rodzaje niepełnosprawności, AAC jako standard i przygotowanie przejścia do szkoły.</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="panel-sekcja">
+      <h2>Dwie rzeczy, które zmieniła nowa podstawa i nowa ustawa</h2>
+      <div class="panel-role">
+        <div class="rola">
+          <b>Dziewięć obszarów zamiast czterech</b>
+          <span>Sekcja III rozpisuje zadania w obszarach: społecznym, osobistym, językowym, matematycznym, przyrodniczym, technicznym, cyfrowym, artystycznym i ruchowym (Dz.U. 2026 poz. 378, zm. poz. 958).</span>
+        </div>
+        <div class="rola">
+          <b>Obszar cyfrowy planuje się inaczej niż pozostałe</b>
+          <span>Od 1 września 2026 r. dzieci w przedszkolu <em>nie korzystają samodzielnie</em> z telefonów i innych urządzeń elektronicznych (ustawa z 3 lipca 2026 r., Dz.U. 2026 poz. 1036). Zadania w tym obszarze planuje się jako pracę nauczyciela z narzędziem i jako higienę cyfrową; wyjątkiem jest urządzenie będące <em>racjonalnym usprawnieniem</em> dla dziecka ze specjalnymi potrzebami.</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="panel-sekcja">
+      <h2>Kto plan przyjmuje</h2>
+      <div class="panel-role">
+        <div class="rola">
+          <b>Plan pracy zatwierdza rada pedagogiczna — uchwałą</b>
+          <span>To kompetencja stanowiąca rady, art. 70 ust. 1 pkt 1 Prawa oświatowego. Plan wchodzi w życie <em>uchwałą</em>, nie zarządzeniem dyrektora. Odnotowuje się to w protokole zebrania (druk <b>RP-1</b>) i w rejestrze uchwał (druk <b>RP-3</b>). To odwrotnie niż z planem nadzoru, którego rada <em>nie zatwierdza</em> — dyrektor go tylko przedstawia.</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="panel-akcje">
+      <button class="btn-druk" onclick="window.print()">Drukuj plan pracy (6 stron A4)</button>
+      <span class="uwaga-druk">Ustawienia: A4, marginesy „brak”, grafika tła włączona.</span>
+    </div>
+  </div>
+</div>
+<!-- === STRONA 1 === -->
+<section class="page">
+  <div class="naglowek">
+    <div class="marka">
+      <div class="logo"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" role="img" aria-label="Logo PCTP"> <defs> <radialGradient id="pctpTlo" cx="36%" cy="28%" r="82%"> <stop offset="0%" stop-color="#6A4C9E"/> <stop offset="55%" stop-color="#4A2E86"/> <stop offset="100%" stop-color="#331E63"/> </radialGradient> </defs> <circle cx="50" cy="50" r="49.2" fill="#3B2472"/> <circle cx="50" cy="50" r="46.4" fill="#D3C8EC"/> <circle cx="50" cy="50" r="43.6" fill="url(#pctpTlo)"/> <g stroke="#C79A2C" stroke-width="2.1" stroke-linecap="round" fill="none"> <path d="M50 60 C50 50 50 42 50 34"/> <path d="M50 60 C46 52 42 46 38 40"/> <path d="M50 60 C54 52 58 46 62 40"/> <path d="M50 59 C44 53 38 48 32 44"/> <path d="M50 59 C56 53 62 48 68 44"/> </g> <g> <ellipse cx="33" cy="41" rx="4.6" ry="10.4" fill="#A192D2" transform="rotate(-32 33 41)"/> <ellipse cx="67" cy="41" rx="4.6" ry="10.4" fill="#A192D2" transform="rotate(32 67 41)"/> <ellipse cx="39.5" cy="34" rx="5" ry="11.6" fill="#EFA275" transform="rotate(-16 39.5 34)"/> <ellipse cx="60.5" cy="34" rx="5" ry="11.6" fill="#EFA275" transform="rotate(16 60.5 34)"/> <ellipse cx="50" cy="30.5" rx="5.4" ry="12.4" fill="#E8712F"/> </g> <circle cx="50" cy="38.5" r="3.4" fill="#FBF6EC"/> <text x="50" y="76" text-anchor="middle" font-family="Georgia,'Times New Roman',serif" font-weight="bold" font-size="25" letter-spacing="1.2" fill="#F7F2E6">PCTP</text> </svg></div>
+      <div>
+        <div class="marka-nazwa">EduPlaner 2026</div>
+        <div class="marka-opis">Kącik dyrektora ·<br>ogólnodostępne</div>
+      </div>
+    </div>
+    <div class="naglowek-prawy">
+      <span class="plakietka">dyrektor · plan pracy · ogólnodostępne</span>
+      <div class="naglowek-podpis">Dokument wsparcia · 2026</div>
+    </div>
+  </div>
+  <div class="belka"></div>
+
+  <div class="metryczka">
+    <div class="box"><span class="etykieta">Przedszkole</span><span class="wypelnij"></span></div><div class="box"><span class="etykieta">Dyrektor</span><span class="wypelnij"></span></div>
+    <div class="box"><span class="etykieta">Rok szkolny</span><span class="wartosc">2026 / 2027</span></div>
+  </div>
+  <div class="wstega"><span>Kącik dyrektora · przedszkole · druk DW-1 · zatwierdza rada pedagogiczna</span></div>
+  <div class="tytul">PLAN PRACY PRZEDSZKOLA OGÓLNODOSTĘPNEGO</div>
+  <div class="podtytul">zadania, terminy i osoby odpowiedzialne na rok szkolny 2026/2027</div>
+  <div class="kody">
+    <span class="kreska"></span>
+    <span class="tresc">DRUK DW-1 · ZADANIA · TERMINY · ODPOWIEDZIALNI</span>
+    <span class="kreska"></span>
+  </div>
+  <div class="prawna">
+    <p><b>PODSTAWA PRAWNA.</b> Ustawa z dnia 14 grudnia 2016 r. — Prawo oświatowe (t.j. Dz.U. z 2026 r. poz. 820, z późn. zm.) — <b>art. 70 ust. 1 pkt 1</b>: plan pracy przedszkola <b>zatwierdza rada pedagogiczna</b>; <b>art. 68 ust. 1 pkt 1</b> — dyrektor kieruje działalnością przedszkola. <b>rozporządzenie MEN z dnia 28 lutego 2019 r. w sprawie szczegółowej organizacji publicznych szkół i publicznych przedszkoli (t.j. Dz.U. z 2023 r. poz. 2736, z późn. zm.)</b> — <b>§ 5</b>: liczba dzieci w oddziale przedszkola wynosi <b>nie więcej niż 25</b>. <b>rozporządzenie Ministra Edukacji z dnia 11 marca 2026 r. w sprawie podstawy programowej wychowania przedszkolnego (Dz.U. z 2026 r. poz. 378, zm. Dz.U. z 2026 r. poz. 958)</b> — plan realizuje podstawę programową z zachowaniem proporcji zagospodarowania czasu.</p>
+  </div>
+  <div class="sekcja"><span class="numer pom">I</span><h2>Metryka placówki i rok szkolny</h2><span class="linia"></span></div>
+  <div class="siatka3">
+    <div class="pole"><span class="etykieta">Pełna nazwa przedszkola</span><div class="linijki"><div></div></div></div>
+    <div class="pole"><span class="etykieta">Typ placówki</span><div class="linijki"><div></div></div></div>
+    <div class="pole"><span class="etykieta">Rok szkolny</span><div class="linijki"><div></div></div></div>
+  </div>
+  <div class="siatka3">
+    <div class="pole"><span class="etykieta">Organ prowadzący</span><div class="linijki"><div></div></div></div>
+    <div class="pole"><span class="etykieta">Liczba oddziałów</span><div class="linijki"><div></div></div></div>
+    <div class="pole"><span class="etykieta">Liczba dzieci ogółem</span><div class="linijki"><div></div></div></div>
+  </div>
+  <div class="siatka2">
+    <div class="pole"><span class="etykieta">Data zatwierdzenia planu przez radę pedagogiczną</span><div class="linijki"><div></div></div></div>
+    <div class="pole"><span class="etykieta">Numer uchwały rady</span><div class="linijki"><div></div></div></div>
+  </div>
+  <div class="sekcja"><span class="numer">II</span><h2>Liczebność oddziałów — limity ustawowe</h2><span class="linia"></span></div>
+  <table class="tab-mala tab-zw">
+    <thead><tr><th style="width:80mm">Rodzaj oddziału</th><th style="width:34mm">Limit</th><th style="width:36mm">Podstawa</th><th>Stan faktyczny</th></tr></thead>
+    <tbody>
+      <tr><td class="klucz">Oddział przedszkola ogólnodostępnego</td><td><b>nie więcej niż 25</b></td><td>§ 5 rozp. o organizacji</td><td class="puste"></td></tr>
+    </tbody>
+  </table>
+  <div class="info"><b>Czego ten plan nie obejmuje.</b> Dzieci z orzeczeniem o potrzebie kształcenia specjalnego mogą uczęszczać także do przedszkola ogólnodostępnego — wtedy zadania z ich wsparcia wpisuje się w plan na podstawie <b>IPET</b>, a nie w osobnej sekcji organizacyjnej.</div>
+  <div class="stopka">
+    <span>EduPlaner 2026 · PCTP · pedagog specjalny</span>
+    <span><b>Strona 1 z 20</b> · Kącik dyrektora · druk DW-1 · metryka, podstawa prawna i limity</span>
+  </div>
+</section>
+<!-- === STRONA 2 === -->
+<section class="page">
+  <div class="naglowek">
+    <div class="marka">
+      <div class="logo"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" role="img" aria-label="Logo PCTP"> <defs> <radialGradient id="pctpTlo" cx="36%" cy="28%" r="82%"> <stop offset="0%" stop-color="#6A4C9E"/> <stop offset="55%" stop-color="#4A2E86"/> <stop offset="100%" stop-color="#331E63"/> </radialGradient> </defs> <circle cx="50" cy="50" r="49.2" fill="#3B2472"/> <circle cx="50" cy="50" r="46.4" fill="#D3C8EC"/> <circle cx="50" cy="50" r="43.6" fill="url(#pctpTlo)"/> <g stroke="#C79A2C" stroke-width="2.1" stroke-linecap="round" fill="none"> <path d="M50 60 C50 50 50 42 50 34"/> <path d="M50 60 C46 52 42 46 38 40"/> <path d="M50 60 C54 52 58 46 62 40"/> <path d="M50 59 C44 53 38 48 32 44"/> <path d="M50 59 C56 53 62 48 68 44"/> </g> <g> <ellipse cx="33" cy="41" rx="4.6" ry="10.4" fill="#A192D2" transform="rotate(-32 33 41)"/> <ellipse cx="67" cy="41" rx="4.6" ry="10.4" fill="#A192D2" transform="rotate(32 67 41)"/> <ellipse cx="39.5" cy="34" rx="5" ry="11.6" fill="#EFA275" transform="rotate(-16 39.5 34)"/> <ellipse cx="60.5" cy="34" rx="5" ry="11.6" fill="#EFA275" transform="rotate(16 60.5 34)"/> <ellipse cx="50" cy="30.5" rx="5.4" ry="12.4" fill="#E8712F"/> </g> <circle cx="50" cy="38.5" r="3.4" fill="#FBF6EC"/> <text x="50" y="76" text-anchor="middle" font-family="Georgia,'Times New Roman',serif" font-weight="bold" font-size="25" letter-spacing="1.2" fill="#F7F2E6">PCTP</text> </svg></div>
+      <div>
+        <div class="marka-nazwa">EduPlaner 2026</div>
+        <div class="marka-opis">Kącik dyrektora ·<br>ogólnodostępne</div>
+      </div>
+    </div>
+    <div class="naglowek-prawy">
+      <span class="plakietka">dyrektor · plan pracy · ogólnodostępne</span>
+      <div class="naglowek-podpis">Dokument wsparcia · 2026</div>
+    </div>
+  </div>
+  <div class="belka"></div>
+
+  <div class="metryczka">
+    <div class="box"><span class="etykieta">Przedszkole</span><span class="wypelnij"></span></div><div class="box"><span class="etykieta">Dyrektor</span><span class="wypelnij"></span></div>
+    <div class="box"><span class="etykieta">Rok szkolny</span><span class="wartosc">2026 / 2027</span></div>
+  </div>
+  <div class="sekcja"><span class="numer pom">III</span><h2>Diagnoza — punkt wyjścia na ten rok</h2><span class="linia"></span></div>
+  <div class="legenda" style="margin:1.4mm 0 2.6mm 8mm"><p><b>Podstawa prawna:</b> § 23 ust. 2 rozporządzenia o nadzorze pedagogicznym (t.j. Dz.U. z 2024 r. poz. 15) — plan opracowuje się z uwzględnieniem <b>wniosków z nadzoru za poprzedni rok szkolny</b>. Te same wnioski są punktem wyjścia planu pracy — inaczej oba dokumenty mówiłyby co innego.</p></div>
+  <div class="pole"><span class="etykieta">Wnioski z nadzoru pedagogicznego za poprzedni rok szkolny — co przenosimy do tego planu</span><div class="linijki"><div></div><div></div></div></div>
+  <div class="pole"><span class="etykieta">Mocne strony placówki — na czym budujemy</span><div class="linijki"><div></div><div></div></div></div>
+  <div class="pole"><span class="etykieta">Obszary wymagające poprawy — co wynika z diagnozy</span><div class="linijki"><div></div><div></div></div></div>
+  <div class="sekcja"><span class="numer">IV</span><h2>Cele na rok szkolny</h2><span class="linia"></span></div>
+  <table class="tab-mala">
+    <thead>
+      <tr><th style="width:6">Lp</th><th style="width:66">Cel — obserwowalny efekt, nie czynność</th><th style="width:44">Miernik osiągnięcia</th><th>Termin</th></tr>
+    </thead>
+    <tbody>
+      <tr><td class="lp">1</td><td class="puste"></td><td class="puste"></td><td class="puste"></td></tr>
+      <tr><td class="lp">2</td><td class="puste"></td><td class="puste"></td><td class="puste"></td></tr>
+      <tr><td class="lp">3</td><td class="puste"></td><td class="puste"></td><td class="puste"></td></tr>
+      <tr><td class="lp">4</td><td class="puste"></td><td class="puste"></td><td class="puste"></td></tr>
+      <tr><td class="lp">5</td><td class="puste"></td><td class="puste"></td><td class="puste"></td></tr>
+    </tbody>
+  </table>
+  <div class="stopka">
+    <span>EduPlaner 2026 · PCTP · pedagog specjalny</span>
+    <span><b>Strona 2 z 20</b> · Kącik dyrektora · druk DW-1 · diagnoza i cele roku</span>
+  </div>
+</section>
+<!-- === STRONA 3 === -->
+<section class="page">
+  <div class="naglowek">
+    <div class="marka">
+      <div class="logo"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" role="img" aria-label="Logo PCTP"> <defs> <radialGradient id="pctpTlo" cx="36%" cy="28%" r="82%"> <stop offset="0%" stop-color="#6A4C9E"/> <stop offset="55%" stop-color="#4A2E86"/> <stop offset="100%" stop-color="#331E63"/> </radialGradient> </defs> <circle cx="50" cy="50" r="49.2" fill="#3B2472"/> <circle cx="50" cy="50" r="46.4" fill="#D3C8EC"/> <circle cx="50" cy="50" r="43.6" fill="url(#pctpTlo)"/> <g stroke="#C79A2C" stroke-width="2.1" stroke-linecap="round" fill="none"> <path d="M50 60 C50 50 50 42 50 34"/> <path d="M50 60 C46 52 42 46 38 40"/> <path d="M50 60 C54 52 58 46 62 40"/> <path d="M50 59 C44 53 38 48 32 44"/> <path d="M50 59 C56 53 62 48 68 44"/> </g> <g> <ellipse cx="33" cy="41" rx="4.6" ry="10.4" fill="#A192D2" transform="rotate(-32 33 41)"/> <ellipse cx="67" cy="41" rx="4.6" ry="10.4" fill="#A192D2" transform="rotate(32 67 41)"/> <ellipse cx="39.5" cy="34" rx="5" ry="11.6" fill="#EFA275" transform="rotate(-16 39.5 34)"/> <ellipse cx="60.5" cy="34" rx="5" ry="11.6" fill="#EFA275" transform="rotate(16 60.5 34)"/> <ellipse cx="50" cy="30.5" rx="5.4" ry="12.4" fill="#E8712F"/> </g> <circle cx="50" cy="38.5" r="3.4" fill="#FBF6EC"/> <text x="50" y="76" text-anchor="middle" font-family="Georgia,'Times New Roman',serif" font-weight="bold" font-size="25" letter-spacing="1.2" fill="#F7F2E6">PCTP</text> </svg></div>
+      <div>
+        <div class="marka-nazwa">EduPlaner 2026</div>
+        <div class="marka-opis">Kącik dyrektora ·<br>ogólnodostępne</div>
+      </div>
+    </div>
+    <div class="naglowek-prawy">
+      <span class="plakietka">dyrektor · plan pracy · ogólnodostępne</span>
+      <div class="naglowek-podpis">Dokument wsparcia · 2026</div>
+    </div>
+  </div>
+  <div class="belka"></div>
+
+  <div class="metryczka">
+    <div class="box"><span class="etykieta">Przedszkole</span><span class="wypelnij"></span></div><div class="box"><span class="etykieta">Dyrektor</span><span class="wypelnij"></span></div>
+    <div class="box"><span class="etykieta">Rok szkolny</span><span class="wartosc">2026 / 2027</span></div>
+  </div>
+  <div class="sekcja"><span class="numer pom">V</span><h2>Warunki lokalowe i wyposażenie</h2><span class="linia"></span></div>
+  <div class="pole"><span class="etykieta">Sale zajęć — liczba i powierzchnia</span><div class="linijki"><div></div></div></div>
+  <div class="pole"><span class="etykieta">Plac zabaw — stan i wyposażenie</span><div class="linijki"><div></div></div></div>
+  <div class="pole"><span class="etykieta">Zaplecze — szatnia, sanitariaty, kuchnia</span><div class="linijki"><div></div></div></div>
+  <div class="sekcja"><span class="numer">VI</span><h2>Zadania na rok — kto, co, do kiedy</h2><span class="linia"></span></div>
+  <table class="tab-mala">
+    <thead>
+      <tr><th style="width:6">Lp</th><th style="width:62">Zadanie</th><th style="width:34">Odpowiedzialny</th><th style="width:24">Termin</th><th>Wykonano</th></tr>
+    </thead>
+    <tbody>
+      <tr><td class="lp">1</td><td class="puste"></td><td class="puste"></td><td class="puste"></td><td class="puste"></td></tr>
+      <tr><td class="lp">2</td><td class="puste"></td><td class="puste"></td><td class="puste"></td><td class="puste"></td></tr>
+      <tr><td class="lp">3</td><td class="puste"></td><td class="puste"></td><td class="puste"></td><td class="puste"></td></tr>
+      <tr><td class="lp">4</td><td class="puste"></td><td class="puste"></td><td class="puste"></td><td class="puste"></td></tr>
+      <tr><td class="lp">5</td><td class="puste"></td><td class="puste"></td><td class="puste"></td><td class="puste"></td></tr>
+      <tr><td class="lp">6</td><td class="puste"></td><td class="puste"></td><td class="puste"></td><td class="puste"></td></tr>
+    </tbody>
+  </table>
+  <div class="stopka">
+    <span>EduPlaner 2026 · PCTP · pedagog specjalny</span>
+    <span><b>Strona 3 z 20</b> · Kącik dyrektora · druk DW-1 · organizacja typu placówki i zadania</span>
+  </div>
+</section>
+<!-- === STRONA 4 === -->
+<section class="page">
+  <div class="naglowek">
+    <div class="marka">
+      <div class="logo"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" role="img" aria-label="Logo PCTP"> <defs> <radialGradient id="pctpTlo" cx="36%" cy="28%" r="82%"> <stop offset="0%" stop-color="#6A4C9E"/> <stop offset="55%" stop-color="#4A2E86"/> <stop offset="100%" stop-color="#331E63"/> </radialGradient> </defs> <circle cx="50" cy="50" r="49.2" fill="#3B2472"/> <circle cx="50" cy="50" r="46.4" fill="#D3C8EC"/> <circle cx="50" cy="50" r="43.6" fill="url(#pctpTlo)"/> <g stroke="#C79A2C" stroke-width="2.1" stroke-linecap="round" fill="none"> <path d="M50 60 C50 50 50 42 50 34"/> <path d="M50 60 C46 52 42 46 38 40"/> <path d="M50 60 C54 52 58 46 62 40"/> <path d="M50 59 C44 53 38 48 32 44"/> <path d="M50 59 C56 53 62 48 68 44"/> </g> <g> <ellipse cx="33" cy="41" rx="4.6" ry="10.4" fill="#A192D2" transform="rotate(-32 33 41)"/> <ellipse cx="67" cy="41" rx="4.6" ry="10.4" fill="#A192D2" transform="rotate(32 67 41)"/> <ellipse cx="39.5" cy="34" rx="5" ry="11.6" fill="#EFA275" transform="rotate(-16 39.5 34)"/> <ellipse cx="60.5" cy="34" rx="5" ry="11.6" fill="#EFA275" transform="rotate(16 60.5 34)"/> <ellipse cx="50" cy="30.5" rx="5.4" ry="12.4" fill="#E8712F"/> </g> <circle cx="50" cy="38.5" r="3.4" fill="#FBF6EC"/> <text x="50" y="76" text-anchor="middle" font-family="Georgia,'Times New Roman',serif" font-weight="bold" font-size="25" letter-spacing="1.2" fill="#F7F2E6">PCTP</text> </svg></div>
+      <div>
+        <div class="marka-nazwa">EduPlaner 2026</div>
+        <div class="marka-opis">Kącik dyrektora ·<br>ogólnodostępne</div>
+      </div>
+    </div>
+    <div class="naglowek-prawy">
+      <span class="plakietka">dyrektor · plan pracy · ogólnodostępne</span>
+      <div class="naglowek-podpis">Dokument wsparcia · 2026</div>
+    </div>
+  </div>
+  <div class="belka"></div>
+
+  <div class="metryczka">
+    <div class="box"><span class="etykieta">Przedszkole</span><span class="wypelnij"></span></div><div class="box"><span class="etykieta">Dyrektor</span><span class="wypelnij"></span></div>
+    <div class="box"><span class="etykieta">Rok szkolny</span><span class="wartosc">2026 / 2027</span></div>
+  </div>
+  <div class="sekcja"><span class="numer pom">VII</span><h2>Kalendarz roku — uroczystości, wyjścia, wydarzenia</h2><span class="linia"></span></div>
+  <table class="tab-mala">
+    <thead>
+      <tr><th style="width:24">Miesiąc</th><th style="width:72">Wydarzenie</th><th style="width:36">Odpowiedzialny</th><th>Uwagi</th></tr>
+    </thead>
+    <tbody>
+      <tr><td class="puste"></td><td class="puste"></td><td class="puste"></td><td class="puste"></td></tr>
+      <tr><td class="puste"></td><td class="puste"></td><td class="puste"></td><td class="puste"></td></tr>
+      <tr><td class="puste"></td><td class="puste"></td><td class="puste"></td><td class="puste"></td></tr>
+      <tr><td class="puste"></td><td class="puste"></td><td class="puste"></td><td class="puste"></td></tr>
+      <tr><td class="puste"></td><td class="puste"></td><td class="puste"></td><td class="puste"></td></tr>
+      <tr><td class="puste"></td><td class="puste"></td><td class="puste"></td><td class="puste"></td></tr>
+    </tbody>
+  </table>
+  <div class="sekcja"><span class="numer">VIII</span><h2>Ewaluacja planu</h2><span class="linia"></span></div>
+  <div class="siatka3">
+    <div class="pole"><span class="etykieta">Termin ewaluacji półrocznej</span><div class="linijki"><div></div></div></div>
+    <div class="pole"><span class="etykieta">Termin ewaluacji rocznej</span><div class="linijki"><div></div></div></div>
+    <div class="pole"><span class="etykieta">Kto przeprowadza</span><div class="linijki"><div></div></div></div>
+  </div>
+  <div class="pole"><span class="etykieta">Sposób sprawdzenia, czy cele zostały osiągnięte — źródła danych</span><div class="linijki"><div></div></div></div>
+  <div class="sekcja"><span class="numer">IX</span><h2>Zatwierdzenie przez radę pedagogiczną</h2><span class="linia"></span></div>
+  <div class="legenda" style="margin:1.4mm 0 2.6mm 8mm"><p><b>Podstawa prawna:</b> <b>Art. 70 ust. 1 pkt 1 Prawa oświatowego</b> — zatwierdzanie planów pracy przedszkola należy do <b>kompetencji stanowiących</b> rady pedagogicznej. Rada <b>zatwierdza plan uchwałą</b>; sama informacja o planie nie wystarcza. Protokół i uchwała — druki <b>RA-2</b> i <b>RA-7</b>.</p></div>
+  <div class="siatka3">
+    <div class="pole"><span class="etykieta">Data zebrania rady</span><div class="linijki"><div></div></div></div>
+    <div class="pole"><span class="etykieta">Numer uchwały</span><div class="linijki"><div></div></div></div>
+    <div class="pole"><span class="etykieta">Wynik głosowania (za / przeciw / wstrzym.)</span><div class="linijki"><div></div></div></div>
+  </div>
+  <div class="podpisy" style="margin-top:3mm">
+    <div class="podpis"><div class="kreska"></div><div class="opis">data i podpis dyrektora przedszkola</div></div>
+    <div class="podpis"><div class="kreska"></div><div class="opis">podpis przewodniczącego rady pedagogicznej</div></div>
+  </div>
+  <div class="stopka">
+    <span>EduPlaner 2026 · PCTP · pedagog specjalny</span>
+    <span><b>Strona 4 z 20</b> · Kącik dyrektora · druk DW-1 · kalendarz, ewaluacja i zatwierdzenie</span>
+  </div>
+</section>
+<!-- === STRONA 5 === -->
+<section class="page">
+  <div class="naglowek">
+    <div class="marka">
+      <div class="logo"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" role="img" aria-label="Logo PCTP"> <defs> <radialGradient id="pctpTlo" cx="36%" cy="28%" r="82%"> <stop offset="0%" stop-color="#6A4C9E"/> <stop offset="55%" stop-color="#4A2E86"/> <stop offset="100%" stop-color="#331E63"/> </radialGradient> </defs> <circle cx="50" cy="50" r="49.2" fill="#3B2472"/> <circle cx="50" cy="50" r="46.4" fill="#D3C8EC"/> <circle cx="50" cy="50" r="43.6" fill="url(#pctpTlo)"/> <g stroke="#C79A2C" stroke-width="2.1" stroke-linecap="round" fill="none"> <path d="M50 60 C50 50 50 42 50 34"/> <path d="M50 60 C46 52 42 46 38 40"/> <path d="M50 60 C54 52 58 46 62 40"/> <path d="M50 59 C44 53 38 48 32 44"/> <path d="M50 59 C56 53 62 48 68 44"/> </g> <g> <ellipse cx="33" cy="41" rx="4.6" ry="10.4" fill="#A192D2" transform="rotate(-32 33 41)"/> <ellipse cx="67" cy="41" rx="4.6" ry="10.4" fill="#A192D2" transform="rotate(32 67 41)"/> <ellipse cx="39.5" cy="34" rx="5" ry="11.6" fill="#EFA275" transform="rotate(-16 39.5 34)"/> <ellipse cx="60.5" cy="34" rx="5" ry="11.6" fill="#EFA275" transform="rotate(16 60.5 34)"/> <ellipse cx="50" cy="30.5" rx="5.4" ry="12.4" fill="#E8712F"/> </g> <circle cx="50" cy="38.5" r="3.4" fill="#FBF6EC"/> <text x="50" y="76" text-anchor="middle" font-family="Georgia,'Times New Roman',serif" font-weight="bold" font-size="25" letter-spacing="1.2" fill="#F7F2E6">PCTP</text> </svg></div>
+      <div>
+        <div class="marka-nazwa">EduPlaner 2026</div>
+        <div class="marka-opis">Kącik dyrektora ·<br>integracyjne</div>
+      </div>
+    </div>
+    <div class="naglowek-prawy">
+      <span class="plakietka">dyrektor · plan pracy · integracyjne</span>
+      <div class="naglowek-podpis">Dokument wsparcia · 2026</div>
+    </div>
+  </div>
+  <div class="belka"></div>
+
+  <div class="metryczka">
+    <div class="box"><span class="etykieta">Przedszkole</span><span class="wypelnij"></span></div><div class="box"><span class="etykieta">Dyrektor</span><span class="wypelnij"></span></div>
+    <div class="box"><span class="etykieta">Rok szkolny</span><span class="wartosc">2026 / 2027</span></div>
+  </div>
+  <div class="wstega"><span>Kącik dyrektora · przedszkole · druk DW-2 · zatwierdza rada pedagogiczna</span></div>
+  <div class="tytul">PLAN PRACY PRZEDSZKOLA INTEGRACYJNEGO</div>
+  <div class="podtytul">wszystkie oddziały integracyjne — zadania, kadra wspomagająca, terminy</div>
+  <div class="kody">
+    <span class="kreska"></span>
+    <span class="tresc">DRUK DW-2 · ZADANIA · TERMINY · ODPOWIEDZIALNI</span>
+    <span class="kreska"></span>
+  </div>
+  <div class="prawna">
+    <p><b>PODSTAWA PRAWNA.</b> Ustawa z dnia 14 grudnia 2016 r. — Prawo oświatowe (t.j. Dz.U. z 2026 r. poz. 820, z późn. zm.) — <b>art. 70 ust. 1 pkt 1</b>: plan pracy <b>zatwierdza rada pedagogiczna</b>. <b>rozporządzenie MEN z dnia 28 lutego 2019 r. w sprawie szczegółowej organizacji publicznych szkół i publicznych przedszkoli (t.j. Dz.U. z 2023 r. poz. 2736, z późn. zm.)</b> — <b>§ 6</b>: liczba dzieci w oddziale przedszkola integracyjnego wynosi <b>nie więcej niż 20</b>, w tym <b>nie więcej niż 5 dzieci niepełnosprawnych</b>; <b>doboru dzieci dokonuje dyrektor za zgodą rodziców</b>, z uwzględnieniem indywidualnych potrzeb rozwojowych i edukacyjnych oraz możliwości psychofizycznych. <b>rozporządzenie MEN z dnia 9 sierpnia 2017 r. w sprawie warunków organizowania kształcenia, wychowania i opieki dla dzieci i młodzieży niepełnosprawnych (t.j. Dz.U. z 2020 r. poz. 1309)</b> — w przedszkolu integracyjnym <b>zatrudnia się dodatkowo nauczycieli posiadających kwalifikacje z zakresu pedagogiki specjalnej</b> w celu współorganizowania kształcenia integracyjnego.</p>
+  </div>
+  <div class="sekcja"><span class="numer pom">I</span><h2>Metryka placówki i rok szkolny</h2><span class="linia"></span></div>
+  <div class="siatka3">
+    <div class="pole"><span class="etykieta">Pełna nazwa przedszkola</span><div class="linijki"><div></div></div></div>
+    <div class="pole"><span class="etykieta">Typ placówki</span><div class="linijki"><div></div></div></div>
+    <div class="pole"><span class="etykieta">Rok szkolny</span><div class="linijki"><div></div></div></div>
+  </div>
+  <div class="siatka3">
+    <div class="pole"><span class="etykieta">Organ prowadzący</span><div class="linijki"><div></div></div></div>
+    <div class="pole"><span class="etykieta">Liczba oddziałów</span><div class="linijki"><div></div></div></div>
+    <div class="pole"><span class="etykieta">Liczba dzieci ogółem</span><div class="linijki"><div></div></div></div>
+  </div>
+  <div class="siatka2">
+    <div class="pole"><span class="etykieta">Data zatwierdzenia planu przez radę pedagogiczną</span><div class="linijki"><div></div></div></div>
+    <div class="pole"><span class="etykieta">Numer uchwały rady</span><div class="linijki"><div></div></div></div>
+  </div>
+  <div class="sekcja"><span class="numer">II</span><h2>Liczebność oddziałów — limity ustawowe</h2><span class="linia"></span></div>
+  <table class="tab-mala tab-zw">
+    <thead><tr><th style="width:80mm">Rodzaj oddziału</th><th style="width:34mm">Limit</th><th style="width:36mm">Podstawa</th><th>Stan faktyczny</th></tr></thead>
+    <tbody>
+      <tr><td class="klucz">Oddział przedszkola integracyjnego</td><td><b>nie więcej niż 20</b></td><td>§ 6 rozp. o organizacji</td><td class="puste"></td></tr>
+      <tr><td class="klucz">w tym dzieci niepełnosprawnych</td><td><b>nie więcej niż 5</b></td><td>§ 6 rozp. o organizacji</td><td class="puste"></td></tr>
+    </tbody>
+  </table>
+  <div class="info"><b>Dobór dzieci to decyzja dyrektora, nie automat.</b> Przepis wymaga <b>zgody rodziców</b> i uwzględnienia indywidualnych potrzeb oraz możliwości psychofizycznych dziecka. Sam fakt posiadania orzeczenia nie przesądza o przydziale do konkretnego oddziału.</div>
+  <div class="stopka">
+    <span>EduPlaner 2026 · PCTP · pedagog specjalny</span>
+    <span><b>Strona 5 z 20</b> · Kącik dyrektora · druk DW-2 · metryka, podstawa prawna i limity</span>
+  </div>
+</section>
+<!-- === STRONA 6 === -->
+<section class="page">
+  <div class="naglowek">
+    <div class="marka">
+      <div class="logo"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" role="img" aria-label="Logo PCTP"> <defs> <radialGradient id="pctpTlo" cx="36%" cy="28%" r="82%"> <stop offset="0%" stop-color="#6A4C9E"/> <stop offset="55%" stop-color="#4A2E86"/> <stop offset="100%" stop-color="#331E63"/> </radialGradient> </defs> <circle cx="50" cy="50" r="49.2" fill="#3B2472"/> <circle cx="50" cy="50" r="46.4" fill="#D3C8EC"/> <circle cx="50" cy="50" r="43.6" fill="url(#pctpTlo)"/> <g stroke="#C79A2C" stroke-width="2.1" stroke-linecap="round" fill="none"> <path d="M50 60 C50 50 50 42 50 34"/> <path d="M50 60 C46 52 42 46 38 40"/> <path d="M50 60 C54 52 58 46 62 40"/> <path d="M50 59 C44 53 38 48 32 44"/> <path d="M50 59 C56 53 62 48 68 44"/> </g> <g> <ellipse cx="33" cy="41" rx="4.6" ry="10.4" fill="#A192D2" transform="rotate(-32 33 41)"/> <ellipse cx="67" cy="41" rx="4.6" ry="10.4" fill="#A192D2" transform="rotate(32 67 41)"/> <ellipse cx="39.5" cy="34" rx="5" ry="11.6" fill="#EFA275" transform="rotate(-16 39.5 34)"/> <ellipse cx="60.5" cy="34" rx="5" ry="11.6" fill="#EFA275" transform="rotate(16 60.5 34)"/> <ellipse cx="50" cy="30.5" rx="5.4" ry="12.4" fill="#E8712F"/> </g> <circle cx="50" cy="38.5" r="3.4" fill="#FBF6EC"/> <text x="50" y="76" text-anchor="middle" font-family="Georgia,'Times New Roman',serif" font-weight="bold" font-size="25" letter-spacing="1.2" fill="#F7F2E6">PCTP</text> </svg></div>
+      <div>
+        <div class="marka-nazwa">EduPlaner 2026</div>
+        <div class="marka-opis">Kącik dyrektora ·<br>integracyjne</div>
+      </div>
+    </div>
+    <div class="naglowek-prawy">
+      <span class="plakietka">dyrektor · plan pracy · integracyjne</span>
+      <div class="naglowek-podpis">Dokument wsparcia · 2026</div>
+    </div>
+  </div>
+  <div class="belka"></div>
+
+  <div class="metryczka">
+    <div class="box"><span class="etykieta">Przedszkole</span><span class="wypelnij"></span></div><div class="box"><span class="etykieta">Dyrektor</span><span class="wypelnij"></span></div>
+    <div class="box"><span class="etykieta">Rok szkolny</span><span class="wartosc">2026 / 2027</span></div>
+  </div>
+  <div class="sekcja"><span class="numer pom">III</span><h2>Diagnoza — punkt wyjścia na ten rok</h2><span class="linia"></span></div>
+  <div class="legenda" style="margin:1.4mm 0 2.6mm 8mm"><p><b>Podstawa prawna:</b> § 23 ust. 2 rozporządzenia o nadzorze pedagogicznym (t.j. Dz.U. z 2024 r. poz. 15) — plan opracowuje się z uwzględnieniem <b>wniosków z nadzoru za poprzedni rok szkolny</b>. Te same wnioski są punktem wyjścia planu pracy — inaczej oba dokumenty mówiłyby co innego.</p></div>
+  <div class="pole"><span class="etykieta">Wnioski z nadzoru pedagogicznego za poprzedni rok szkolny — co przenosimy do tego planu</span><div class="linijki"><div></div><div></div></div></div>
+  <div class="pole"><span class="etykieta">Mocne strony placówki — na czym budujemy</span><div class="linijki"><div></div><div></div></div></div>
+  <div class="pole"><span class="etykieta">Obszary wymagające poprawy — co wynika z diagnozy</span><div class="linijki"><div></div><div></div></div></div>
+  <div class="sekcja"><span class="numer">IV</span><h2>Cele na rok szkolny</h2><span class="linia"></span></div>
+  <table class="tab-mala">
+    <thead>
+      <tr><th style="width:6">Lp</th><th style="width:66">Cel — obserwowalny efekt, nie czynność</th><th style="width:44">Miernik osiągnięcia</th><th>Termin</th></tr>
+    </thead>
+    <tbody>
+      <tr><td class="lp">1</td><td class="puste"></td><td class="puste"></td><td class="puste"></td></tr>
+      <tr><td class="lp">2</td><td class="puste"></td><td class="puste"></td><td class="puste"></td></tr>
+      <tr><td class="lp">3</td><td class="puste"></td><td class="puste"></td><td class="puste"></td></tr>
+      <tr><td class="lp">4</td><td class="puste"></td><td class="puste"></td><td class="puste"></td></tr>
+      <tr><td class="lp">5</td><td class="puste"></td><td class="puste"></td><td class="puste"></td></tr>
+    </tbody>
+  </table>
+  <div class="stopka">
+    <span>EduPlaner 2026 · PCTP · pedagog specjalny</span>
+    <span><b>Strona 6 z 20</b> · Kącik dyrektora · druk DW-2 · diagnoza i cele roku</span>
+  </div>
+</section>
+<!-- === STRONA 7 === -->
+<section class="page">
+  <div class="naglowek">
+    <div class="marka">
+      <div class="logo"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" role="img" aria-label="Logo PCTP"> <defs> <radialGradient id="pctpTlo" cx="36%" cy="28%" r="82%"> <stop offset="0%" stop-color="#6A4C9E"/> <stop offset="55%" stop-color="#4A2E86"/> <stop offset="100%" stop-color="#331E63"/> </radialGradient> </defs> <circle cx="50" cy="50" r="49.2" fill="#3B2472"/> <circle cx="50" cy="50" r="46.4" fill="#D3C8EC"/> <circle cx="50" cy="50" r="43.6" fill="url(#pctpTlo)"/> <g stroke="#C79A2C" stroke-width="2.1" stroke-linecap="round" fill="none"> <path d="M50 60 C50 50 50 42 50 34"/> <path d="M50 60 C46 52 42 46 38 40"/> <path d="M50 60 C54 52 58 46 62 40"/> <path d="M50 59 C44 53 38 48 32 44"/> <path d="M50 59 C56 53 62 48 68 44"/> </g> <g> <ellipse cx="33" cy="41" rx="4.6" ry="10.4" fill="#A192D2" transform="rotate(-32 33 41)"/> <ellipse cx="67" cy="41" rx="4.6" ry="10.4" fill="#A192D2" transform="rotate(32 67 41)"/> <ellipse cx="39.5" cy="34" rx="5" ry="11.6" fill="#EFA275" transform="rotate(-16 39.5 34)"/> <ellipse cx="60.5" cy="34" rx="5" ry="11.6" fill="#EFA275" transform="rotate(16 60.5 34)"/> <ellipse cx="50" cy="30.5" rx="5.4" ry="12.4" fill="#E8712F"/> </g> <circle cx="50" cy="38.5" r="3.4" fill="#FBF6EC"/> <text x="50" y="76" text-anchor="middle" font-family="Georgia,'Times New Roman',serif" font-weight="bold" font-size="25" letter-spacing="1.2" fill="#F7F2E6">PCTP</text> </svg></div>
+      <div>
+        <div class="marka-nazwa">EduPlaner 2026</div>
+        <div class="marka-opis">Kącik dyrektora ·<br>integracyjne</div>
+      </div>
+    </div>
+    <div class="naglowek-prawy">
+      <span class="plakietka">dyrektor · plan pracy · integracyjne</span>
+      <div class="naglowek-podpis">Dokument wsparcia · 2026</div>
+    </div>
+  </div>
+  <div class="belka"></div>
+
+  <div class="metryczka">
+    <div class="box"><span class="etykieta">Przedszkole</span><span class="wypelnij"></span></div><div class="box"><span class="etykieta">Dyrektor</span><span class="wypelnij"></span></div>
+    <div class="box"><span class="etykieta">Rok szkolny</span><span class="wartosc">2026 / 2027</span></div>
+  </div>
+  <div class="sekcja"><span class="numer pom">V</span><h2>Organizacja integracji i kadra wspomagająca</h2><span class="linia"></span></div>
+  <div class="pole"><span class="etykieta">Liczba oddziałów integracyjnych i liczba dzieci z orzeczeniem w każdym</span><div class="linijki"><div></div></div></div>
+  <div class="pole"><span class="etykieta">Nauczyciele z kwalifikacjami z pedagogiki specjalnej — imiona, nazwiska, oddziały</span><div class="linijki"><div></div></div></div>
+  <div class="pole"><span class="etykieta">Specjaliści — logopeda, psycholog, pedagog specjalny, terapeuci</span><div class="linijki"><div></div></div></div>
+  <div class="pole"><span class="etykieta">Zasady doboru dzieci do oddziału i tryb uzyskania zgody rodziców</span><div class="linijki"><div></div></div></div>
+  <div class="sekcja"><span class="numer">VI</span><h2>Zadania na rok — kto, co, do kiedy</h2><span class="linia"></span></div>
+  <table class="tab-mala">
+    <thead>
+      <tr><th style="width:6">Lp</th><th style="width:62">Zadanie</th><th style="width:34">Odpowiedzialny</th><th style="width:24">Termin</th><th>Wykonano</th></tr>
+    </thead>
+    <tbody>
+      <tr><td class="lp">1</td><td class="puste"></td><td class="puste"></td><td class="puste"></td><td class="puste"></td></tr>
+      <tr><td class="lp">2</td><td class="puste"></td><td class="puste"></td><td class="puste"></td><td class="puste"></td></tr>
+      <tr><td class="lp">3</td><td class="puste"></td><td class="puste"></td><td class="puste"></td><td class="puste"></td></tr>
+      <tr><td class="lp">4</td><td class="puste"></td><td class="puste"></td><td class="puste"></td><td class="puste"></td></tr>
+      <tr><td class="lp">5</td><td class="puste"></td><td class="puste"></td><td class="puste"></td><td class="puste"></td></tr>
+      <tr><td class="lp">6</td><td class="puste"></td><td class="puste"></td><td class="puste"></td><td class="puste"></td></tr>
+    </tbody>
+  </table>
+  <div class="stopka">
+    <span>EduPlaner 2026 · PCTP · pedagog specjalny</span>
+    <span><b>Strona 7 z 20</b> · Kącik dyrektora · druk DW-2 · organizacja typu placówki i zadania</span>
+  </div>
+</section>
+<!-- === STRONA 8 === -->
+<section class="page">
+  <div class="naglowek">
+    <div class="marka">
+      <div class="logo"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" role="img" aria-label="Logo PCTP"> <defs> <radialGradient id="pctpTlo" cx="36%" cy="28%" r="82%"> <stop offset="0%" stop-color="#6A4C9E"/> <stop offset="55%" stop-color="#4A2E86"/> <stop offset="100%" stop-color="#331E63"/> </radialGradient> </defs> <circle cx="50" cy="50" r="49.2" fill="#3B2472"/> <circle cx="50" cy="50" r="46.4" fill="#D3C8EC"/> <circle cx="50" cy="50" r="43.6" fill="url(#pctpTlo)"/> <g stroke="#C79A2C" stroke-width="2.1" stroke-linecap="round" fill="none"> <path d="M50 60 C50 50 50 42 50 34"/> <path d="M50 60 C46 52 42 46 38 40"/> <path d="M50 60 C54 52 58 46 62 40"/> <path d="M50 59 C44 53 38 48 32 44"/> <path d="M50 59 C56 53 62 48 68 44"/> </g> <g> <ellipse cx="33" cy="41" rx="4.6" ry="10.4" fill="#A192D2" transform="rotate(-32 33 41)"/> <ellipse cx="67" cy="41" rx="4.6" ry="10.4" fill="#A192D2" transform="rotate(32 67 41)"/> <ellipse cx="39.5" cy="34" rx="5" ry="11.6" fill="#EFA275" transform="rotate(-16 39.5 34)"/> <ellipse cx="60.5" cy="34" rx="5" ry="11.6" fill="#EFA275" transform="rotate(16 60.5 34)"/> <ellipse cx="50" cy="30.5" rx="5.4" ry="12.4" fill="#E8712F"/> </g> <circle cx="50" cy="38.5" r="3.4" fill="#FBF6EC"/> <text x="50" y="76" text-anchor="middle" font-family="Georgia,'Times New Roman',serif" font-weight="bold" font-size="25" letter-spacing="1.2" fill="#F7F2E6">PCTP</text> </svg></div>
+      <div>
+        <div class="marka-nazwa">EduPlaner 2026</div>
+        <div class="marka-opis">Kącik dyrektora ·<br>integracyjne</div>
+      </div>
+    </div>
+    <div class="naglowek-prawy">
+      <span class="plakietka">dyrektor · plan pracy · integracyjne</span>
+      <div class="naglowek-podpis">Dokument wsparcia · 2026</div>
+    </div>
+  </div>
+  <div class="belka"></div>
+
+  <div class="metryczka">
+    <div class="box"><span class="etykieta">Przedszkole</span><span class="wypelnij"></span></div><div class="box"><span class="etykieta">Dyrektor</span><span class="wypelnij"></span></div>
+    <div class="box"><span class="etykieta">Rok szkolny</span><span class="wartosc">2026 / 2027</span></div>
+  </div>
+  <div class="sekcja"><span class="numer pom">VII</span><h2>Kalendarz roku — uroczystości, wyjścia, wydarzenia</h2><span class="linia"></span></div>
+  <table class="tab-mala">
+    <thead>
+      <tr><th style="width:24">Miesiąc</th><th style="width:72">Wydarzenie</th><th style="width:36">Odpowiedzialny</th><th>Uwagi</th></tr>
+    </thead>
+    <tbody>
+      <tr><td class="puste"></td><td class="puste"></td><td class="puste"></td><td class="puste"></td></tr>
+      <tr><td class="puste"></td><td class="puste"></td><td class="puste"></td><td class="puste"></td></tr>
+      <tr><td class="puste"></td><td class="puste"></td><td class="puste"></td><td class="puste"></td></tr>
+      <tr><td class="puste"></td><td class="puste"></td><td class="puste"></td><td class="puste"></td></tr>
+      <tr><td class="puste"></td><td class="puste"></td><td class="puste"></td><td class="puste"></td></tr>
+      <tr><td class="puste"></td><td class="puste"></td><td class="puste"></td><td class="puste"></td></tr>
+    </tbody>
+  </table>
+  <div class="sekcja"><span class="numer">VIII</span><h2>Ewaluacja planu</h2><span class="linia"></span></div>
+  <div class="siatka3">
+    <div class="pole"><span class="etykieta">Termin ewaluacji półrocznej</span><div class="linijki"><div></div></div></div>
+    <div class="pole"><span class="etykieta">Termin ewaluacji rocznej</span><div class="linijki"><div></div></div></div>
+    <div class="pole"><span class="etykieta">Kto przeprowadza</span><div class="linijki"><div></div></div></div>
+  </div>
+  <div class="pole"><span class="etykieta">Sposób sprawdzenia, czy cele zostały osiągnięte — źródła danych</span><div class="linijki"><div></div></div></div>
+  <div class="sekcja"><span class="numer">IX</span><h2>Zatwierdzenie przez radę pedagogiczną</h2><span class="linia"></span></div>
+  <div class="legenda" style="margin:1.4mm 0 2.6mm 8mm"><p><b>Podstawa prawna:</b> <b>Art. 70 ust. 1 pkt 1 Prawa oświatowego</b> — zatwierdzanie planów pracy przedszkola należy do <b>kompetencji stanowiących</b> rady pedagogicznej. Rada <b>zatwierdza plan uchwałą</b>; sama informacja o planie nie wystarcza. Protokół i uchwała — druki <b>RA-2</b> i <b>RA-7</b>.</p></div>
+  <div class="siatka3">
+    <div class="pole"><span class="etykieta">Data zebrania rady</span><div class="linijki"><div></div></div></div>
+    <div class="pole"><span class="etykieta">Numer uchwały</span><div class="linijki"><div></div></div></div>
+    <div class="pole"><span class="etykieta">Wynik głosowania (za / przeciw / wstrzym.)</span><div class="linijki"><div></div></div></div>
+  </div>
+  <div class="podpisy" style="margin-top:3mm">
+    <div class="podpis"><div class="kreska"></div><div class="opis">data i podpis dyrektora przedszkola</div></div>
+    <div class="podpis"><div class="kreska"></div><div class="opis">podpis przewodniczącego rady pedagogicznej</div></div>
+  </div>
+  <div class="stopka">
+    <span>EduPlaner 2026 · PCTP · pedagog specjalny</span>
+    <span><b>Strona 8 z 20</b> · Kącik dyrektora · druk DW-2 · kalendarz, ewaluacja i zatwierdzenie</span>
+  </div>
+</section>
+<!-- === STRONA 9 === -->
+<section class="page">
+  <div class="naglowek">
+    <div class="marka">
+      <div class="logo"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" role="img" aria-label="Logo PCTP"> <defs> <radialGradient id="pctpTlo" cx="36%" cy="28%" r="82%"> <stop offset="0%" stop-color="#6A4C9E"/> <stop offset="55%" stop-color="#4A2E86"/> <stop offset="100%" stop-color="#331E63"/> </radialGradient> </defs> <circle cx="50" cy="50" r="49.2" fill="#3B2472"/> <circle cx="50" cy="50" r="46.4" fill="#D3C8EC"/> <circle cx="50" cy="50" r="43.6" fill="url(#pctpTlo)"/> <g stroke="#C79A2C" stroke-width="2.1" stroke-linecap="round" fill="none"> <path d="M50 60 C50 50 50 42 50 34"/> <path d="M50 60 C46 52 42 46 38 40"/> <path d="M50 60 C54 52 58 46 62 40"/> <path d="M50 59 C44 53 38 48 32 44"/> <path d="M50 59 C56 53 62 48 68 44"/> </g> <g> <ellipse cx="33" cy="41" rx="4.6" ry="10.4" fill="#A192D2" transform="rotate(-32 33 41)"/> <ellipse cx="67" cy="41" rx="4.6" ry="10.4" fill="#A192D2" transform="rotate(32 67 41)"/> <ellipse cx="39.5" cy="34" rx="5" ry="11.6" fill="#EFA275" transform="rotate(-16 39.5 34)"/> <ellipse cx="60.5" cy="34" rx="5" ry="11.6" fill="#EFA275" transform="rotate(16 60.5 34)"/> <ellipse cx="50" cy="30.5" rx="5.4" ry="12.4" fill="#E8712F"/> </g> <circle cx="50" cy="38.5" r="3.4" fill="#FBF6EC"/> <text x="50" y="76" text-anchor="middle" font-family="Georgia,'Times New Roman',serif" font-weight="bold" font-size="25" letter-spacing="1.2" fill="#F7F2E6">PCTP</text> </svg></div>
+      <div>
+        <div class="marka-nazwa">EduPlaner 2026</div>
+        <div class="marka-opis">Kącik dyrektora ·<br>z oddziałami integracyjnymi</div>
+      </div>
+    </div>
+    <div class="naglowek-prawy">
+      <span class="plakietka">dyrektor · plan pracy · oddz. integracyjne</span>
+      <div class="naglowek-podpis">Dokument wsparcia · 2026</div>
+    </div>
+  </div>
+  <div class="belka"></div>
+
+  <div class="metryczka">
+    <div class="box"><span class="etykieta">Przedszkole</span><span class="wypelnij"></span></div><div class="box"><span class="etykieta">Dyrektor</span><span class="wypelnij"></span></div>
+    <div class="box"><span class="etykieta">Rok szkolny</span><span class="wartosc">2026 / 2027</span></div>
+  </div>
+  <div class="wstega"><span>Kącik dyrektora · przedszkole · druk DW-3 · zatwierdza rada pedagogiczna</span></div>
+  <div class="tytul">PLAN PRACY PRZEDSZKOLA Z ODDZIAŁAMI INTEGRACYJNYMI</div>
+  <div class="podtytul">część oddziałów integracyjnych, część ogólnodostępnych — dwa reżimy w jednej placówce</div>
+  <div class="kody">
+    <span class="kreska"></span>
+    <span class="tresc">DRUK DW-3 · ZADANIA · TERMINY · ODPOWIEDZIALNI</span>
+    <span class="kreska"></span>
+  </div>
+  <div class="prawna">
+    <p><b>PODSTAWA PRAWNA.</b> Ustawa z dnia 14 grudnia 2016 r. — Prawo oświatowe (t.j. Dz.U. z 2026 r. poz. 820, z późn. zm.) — <b>art. 70 ust. 1 pkt 1</b>. <b>rozporządzenie MEN z dnia 28 lutego 2019 r. w sprawie szczegółowej organizacji publicznych szkół i publicznych przedszkoli (t.j. Dz.U. z 2023 r. poz. 2736, z późn. zm.)</b> — <b>§ 5</b>: oddział ogólnodostępny <b>nie więcej niż 25</b> dzieci; <b>§ 6</b>: oddział integracyjny w przedszkolu ogólnodostępnym <b>nie więcej niż 20</b>, w tym <b>nie więcej niż 5 dzieci niepełnosprawnych</b>; doboru dokonuje <b>dyrektor za zgodą rodziców</b>. <b>rozporządzenie MEN z dnia 9 sierpnia 2017 r. w sprawie warunków organizowania kształcenia, wychowania i opieki dla dzieci i młodzieży niepełnosprawnych (t.j. Dz.U. z 2020 r. poz. 1309)</b> — w oddziałach integracyjnych zatrudnia się dodatkowo nauczycieli z kwalifikacjami z zakresu pedagogiki specjalnej.</p>
+  </div>
+  <div class="sekcja"><span class="numer pom">I</span><h2>Metryka placówki i rok szkolny</h2><span class="linia"></span></div>
+  <div class="siatka3">
+    <div class="pole"><span class="etykieta">Pełna nazwa przedszkola</span><div class="linijki"><div></div></div></div>
+    <div class="pole"><span class="etykieta">Typ placówki</span><div class="linijki"><div></div></div></div>
+    <div class="pole"><span class="etykieta">Rok szkolny</span><div class="linijki"><div></div></div></div>
+  </div>
+  <div class="siatka3">
+    <div class="pole"><span class="etykieta">Organ prowadzący</span><div class="linijki"><div></div></div></div>
+    <div class="pole"><span class="etykieta">Liczba oddziałów</span><div class="linijki"><div></div></div></div>
+    <div class="pole"><span class="etykieta">Liczba dzieci ogółem</span><div class="linijki"><div></div></div></div>
+  </div>
+  <div class="siatka2">
+    <div class="pole"><span class="etykieta">Data zatwierdzenia planu przez radę pedagogiczną</span><div class="linijki"><div></div></div></div>
+    <div class="pole"><span class="etykieta">Numer uchwały rady</span><div class="linijki"><div></div></div></div>
+  </div>
+  <div class="sekcja"><span class="numer">II</span><h2>Liczebność oddziałów — limity ustawowe</h2><span class="linia"></span></div>
+  <table class="tab-mala tab-zw">
+    <thead><tr><th style="width:80mm">Rodzaj oddziału</th><th style="width:34mm">Limit</th><th style="width:36mm">Podstawa</th><th>Stan faktyczny</th></tr></thead>
+    <tbody>
+      <tr><td class="klucz">Oddział ogólnodostępny</td><td><b>nie więcej niż 25</b></td><td>§ 5 rozp. o organizacji</td><td class="puste"></td></tr>
+      <tr><td class="klucz">Oddział integracyjny</td><td><b>nie więcej niż 20</b></td><td>§ 6 rozp. o organizacji</td><td class="puste"></td></tr>
+      <tr><td class="klucz">w tym dzieci niepełnosprawnych</td><td><b>nie więcej niż 5</b></td><td>§ 6 rozp. o organizacji</td><td class="puste"></td></tr>
+    </tbody>
+  </table>
+  <div class="info"><b>Najczęstszy błąd w tym typie placówki.</b> Limit <b>25</b> i limit <b>20 / 5</b> działają <b>osobno dla każdego oddziału</b>. Przekroczenie w oddziale integracyjnym nie da się wyrównać wolnym miejscem w oddziale ogólnodostępnym.</div>
+  <div class="stopka">
+    <span>EduPlaner 2026 · PCTP · pedagog specjalny</span>
+    <span><b>Strona 9 z 20</b> · Kącik dyrektora · druk DW-3 · metryka, podstawa prawna i limity</span>
+  </div>
+</section>
+<!-- === STRONA 10 === -->
+<section class="page">
+  <div class="naglowek">
+    <div class="marka">
+      <div class="logo"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" role="img" aria-label="Logo PCTP"> <defs> <radialGradient id="pctpTlo" cx="36%" cy="28%" r="82%"> <stop offset="0%" stop-color="#6A4C9E"/> <stop offset="55%" stop-color="#4A2E86"/> <stop offset="100%" stop-color="#331E63"/> </radialGradient> </defs> <circle cx="50" cy="50" r="49.2" fill="#3B2472"/> <circle cx="50" cy="50" r="46.4" fill="#D3C8EC"/> <circle cx="50" cy="50" r="43.6" fill="url(#pctpTlo)"/> <g stroke="#C79A2C" stroke-width="2.1" stroke-linecap="round" fill="none"> <path d="M50 60 C50 50 50 42 50 34"/> <path d="M50 60 C46 52 42 46 38 40"/> <path d="M50 60 C54 52 58 46 62 40"/> <path d="M50 59 C44 53 38 48 32 44"/> <path d="M50 59 C56 53 62 48 68 44"/> </g> <g> <ellipse cx="33" cy="41" rx="4.6" ry="10.4" fill="#A192D2" transform="rotate(-32 33 41)"/> <ellipse cx="67" cy="41" rx="4.6" ry="10.4" fill="#A192D2" transform="rotate(32 67 41)"/> <ellipse cx="39.5" cy="34" rx="5" ry="11.6" fill="#EFA275" transform="rotate(-16 39.5 34)"/> <ellipse cx="60.5" cy="34" rx="5" ry="11.6" fill="#EFA275" transform="rotate(16 60.5 34)"/> <ellipse cx="50" cy="30.5" rx="5.4" ry="12.4" fill="#E8712F"/> </g> <circle cx="50" cy="38.5" r="3.4" fill="#FBF6EC"/> <text x="50" y="76" text-anchor="middle" font-family="Georgia,'Times New Roman',serif" font-weight="bold" font-size="25" letter-spacing="1.2" fill="#F7F2E6">PCTP</text> </svg></div>
+      <div>
+        <div class="marka-nazwa">EduPlaner 2026</div>
+        <div class="marka-opis">Kącik dyrektora ·<br>z oddziałami integracyjnymi</div>
+      </div>
+    </div>
+    <div class="naglowek-prawy">
+      <span class="plakietka">dyrektor · plan pracy · oddz. integracyjne</span>
+      <div class="naglowek-podpis">Dokument wsparcia · 2026</div>
+    </div>
+  </div>
+  <div class="belka"></div>
+
+  <div class="metryczka">
+    <div class="box"><span class="etykieta">Przedszkole</span><span class="wypelnij"></span></div><div class="box"><span class="etykieta">Dyrektor</span><span class="wypelnij"></span></div>
+    <div class="box"><span class="etykieta">Rok szkolny</span><span class="wartosc">2026 / 2027</span></div>
+  </div>
+  <div class="sekcja"><span class="numer pom">III</span><h2>Diagnoza — punkt wyjścia na ten rok</h2><span class="linia"></span></div>
+  <div class="legenda" style="margin:1.4mm 0 2.6mm 8mm"><p><b>Podstawa prawna:</b> § 23 ust. 2 rozporządzenia o nadzorze pedagogicznym (t.j. Dz.U. z 2024 r. poz. 15) — plan opracowuje się z uwzględnieniem <b>wniosków z nadzoru za poprzedni rok szkolny</b>. Te same wnioski są punktem wyjścia planu pracy — inaczej oba dokumenty mówiłyby co innego.</p></div>
+  <div class="pole"><span class="etykieta">Wnioski z nadzoru pedagogicznego za poprzedni rok szkolny — co przenosimy do tego planu</span><div class="linijki"><div></div><div></div></div></div>
+  <div class="pole"><span class="etykieta">Mocne strony placówki — na czym budujemy</span><div class="linijki"><div></div><div></div></div></div>
+  <div class="pole"><span class="etykieta">Obszary wymagające poprawy — co wynika z diagnozy</span><div class="linijki"><div></div><div></div></div></div>
+  <div class="sekcja"><span class="numer">IV</span><h2>Cele na rok szkolny</h2><span class="linia"></span></div>
+  <table class="tab-mala">
+    <thead>
+      <tr><th style="width:6">Lp</th><th style="width:66">Cel — obserwowalny efekt, nie czynność</th><th style="width:44">Miernik osiągnięcia</th><th>Termin</th></tr>
+    </thead>
+    <tbody>
+      <tr><td class="lp">1</td><td class="puste"></td><td class="puste"></td><td class="puste"></td></tr>
+      <tr><td class="lp">2</td><td class="puste"></td><td class="puste"></td><td class="puste"></td></tr>
+      <tr><td class="lp">3</td><td class="puste"></td><td class="puste"></td><td class="puste"></td></tr>
+      <tr><td class="lp">4</td><td class="puste"></td><td class="puste"></td><td class="puste"></td></tr>
+      <tr><td class="lp">5</td><td class="puste"></td><td class="puste"></td><td class="puste"></td></tr>
+    </tbody>
+  </table>
+  <div class="stopka">
+    <span>EduPlaner 2026 · PCTP · pedagog specjalny</span>
+    <span><b>Strona 10 z 20</b> · Kącik dyrektora · druk DW-3 · diagnoza i cele roku</span>
+  </div>
+</section>
+<!-- === STRONA 11 === -->
+<section class="page">
+  <div class="naglowek">
+    <div class="marka">
+      <div class="logo"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" role="img" aria-label="Logo PCTP"> <defs> <radialGradient id="pctpTlo" cx="36%" cy="28%" r="82%"> <stop offset="0%" stop-color="#6A4C9E"/> <stop offset="55%" stop-color="#4A2E86"/> <stop offset="100%" stop-color="#331E63"/> </radialGradient> </defs> <circle cx="50" cy="50" r="49.2" fill="#3B2472"/> <circle cx="50" cy="50" r="46.4" fill="#D3C8EC"/> <circle cx="50" cy="50" r="43.6" fill="url(#pctpTlo)"/> <g stroke="#C79A2C" stroke-width="2.1" stroke-linecap="round" fill="none"> <path d="M50 60 C50 50 50 42 50 34"/> <path d="M50 60 C46 52 42 46 38 40"/> <path d="M50 60 C54 52 58 46 62 40"/> <path d="M50 59 C44 53 38 48 32 44"/> <path d="M50 59 C56 53 62 48 68 44"/> </g> <g> <ellipse cx="33" cy="41" rx="4.6" ry="10.4" fill="#A192D2" transform="rotate(-32 33 41)"/> <ellipse cx="67" cy="41" rx="4.6" ry="10.4" fill="#A192D2" transform="rotate(32 67 41)"/> <ellipse cx="39.5" cy="34" rx="5" ry="11.6" fill="#EFA275" transform="rotate(-16 39.5 34)"/> <ellipse cx="60.5" cy="34" rx="5" ry="11.6" fill="#EFA275" transform="rotate(16 60.5 34)"/> <ellipse cx="50" cy="30.5" rx="5.4" ry="12.4" fill="#E8712F"/> </g> <circle cx="50" cy="38.5" r="3.4" fill="#FBF6EC"/> <text x="50" y="76" text-anchor="middle" font-family="Georgia,'Times New Roman',serif" font-weight="bold" font-size="25" letter-spacing="1.2" fill="#F7F2E6">PCTP</text> </svg></div>
+      <div>
+        <div class="marka-nazwa">EduPlaner 2026</div>
+        <div class="marka-opis">Kącik dyrektora ·<br>z oddziałami integracyjnymi</div>
+      </div>
+    </div>
+    <div class="naglowek-prawy">
+      <span class="plakietka">dyrektor · plan pracy · oddz. integracyjne</span>
+      <div class="naglowek-podpis">Dokument wsparcia · 2026</div>
+    </div>
+  </div>
+  <div class="belka"></div>
+
+  <div class="metryczka">
+    <div class="box"><span class="etykieta">Przedszkole</span><span class="wypelnij"></span></div><div class="box"><span class="etykieta">Dyrektor</span><span class="wypelnij"></span></div>
+    <div class="box"><span class="etykieta">Rok szkolny</span><span class="wartosc">2026 / 2027</span></div>
+  </div>
+  <div class="sekcja"><span class="numer pom">V</span><h2>Dwa reżimy organizacyjne w jednej placówce</h2><span class="linia"></span></div>
+  <div class="pole"><span class="etykieta">Oddziały ogólnodostępne — liczba, liczebność, nauczyciele</span><div class="linijki"><div></div></div></div>
+  <div class="pole"><span class="etykieta">Oddziały integracyjne — liczba, liczebność, dzieci z orzeczeniem</span><div class="linijki"><div></div></div></div>
+  <div class="pole"><span class="etykieta">Nauczyciele z pedagogiki specjalnej — przydział do oddziałów integracyjnych</span><div class="linijki"><div></div></div></div>
+  <div class="pole"><span class="etykieta">Wspólne działania obu części placówki — uroczystości, wyjścia, projekty</span><div class="linijki"><div></div></div></div>
+  <div class="sekcja"><span class="numer">VI</span><h2>Zadania na rok — kto, co, do kiedy</h2><span class="linia"></span></div>
+  <table class="tab-mala">
+    <thead>
+      <tr><th style="width:6">Lp</th><th style="width:62">Zadanie</th><th style="width:34">Odpowiedzialny</th><th style="width:24">Termin</th><th>Wykonano</th></tr>
+    </thead>
+    <tbody>
+      <tr><td class="lp">1</td><td class="puste"></td><td class="puste"></td><td class="puste"></td><td class="puste"></td></tr>
+      <tr><td class="lp">2</td><td class="puste"></td><td class="puste"></td><td class="puste"></td><td class="puste"></td></tr>
+      <tr><td class="lp">3</td><td class="puste"></td><td class="puste"></td><td class="puste"></td><td class="puste"></td></tr>
+      <tr><td class="lp">4</td><td class="puste"></td><td class="puste"></td><td class="puste"></td><td class="puste"></td></tr>
+      <tr><td class="lp">5</td><td class="puste"></td><td class="puste"></td><td class="puste"></td><td class="puste"></td></tr>
+      <tr><td class="lp">6</td><td class="puste"></td><td class="puste"></td><td class="puste"></td><td class="puste"></td></tr>
+    </tbody>
+  </table>
+  <div class="stopka">
+    <span>EduPlaner 2026 · PCTP · pedagog specjalny</span>
+    <span><b>Strona 11 z 20</b> · Kącik dyrektora · druk DW-3 · organizacja typu placówki i zadania</span>
+  </div>
+</section>
+<!-- === STRONA 12 === -->
+<section class="page">
+  <div class="naglowek">
+    <div class="marka">
+      <div class="logo"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" role="img" aria-label="Logo PCTP"> <defs> <radialGradient id="pctpTlo" cx="36%" cy="28%" r="82%"> <stop offset="0%" stop-color="#6A4C9E"/> <stop offset="55%" stop-color="#4A2E86"/> <stop offset="100%" stop-color="#331E63"/> </radialGradient> </defs> <circle cx="50" cy="50" r="49.2" fill="#3B2472"/> <circle cx="50" cy="50" r="46.4" fill="#D3C8EC"/> <circle cx="50" cy="50" r="43.6" fill="url(#pctpTlo)"/> <g stroke="#C79A2C" stroke-width="2.1" stroke-linecap="round" fill="none"> <path d="M50 60 C50 50 50 42 50 34"/> <path d="M50 60 C46 52 42 46 38 40"/> <path d="M50 60 C54 52 58 46 62 40"/> <path d="M50 59 C44 53 38 48 32 44"/> <path d="M50 59 C56 53 62 48 68 44"/> </g> <g> <ellipse cx="33" cy="41" rx="4.6" ry="10.4" fill="#A192D2" transform="rotate(-32 33 41)"/> <ellipse cx="67" cy="41" rx="4.6" ry="10.4" fill="#A192D2" transform="rotate(32 67 41)"/> <ellipse cx="39.5" cy="34" rx="5" ry="11.6" fill="#EFA275" transform="rotate(-16 39.5 34)"/> <ellipse cx="60.5" cy="34" rx="5" ry="11.6" fill="#EFA275" transform="rotate(16 60.5 34)"/> <ellipse cx="50" cy="30.5" rx="5.4" ry="12.4" fill="#E8712F"/> </g> <circle cx="50" cy="38.5" r="3.4" fill="#FBF6EC"/> <text x="50" y="76" text-anchor="middle" font-family="Georgia,'Times New Roman',serif" font-weight="bold" font-size="25" letter-spacing="1.2" fill="#F7F2E6">PCTP</text> </svg></div>
+      <div>
+        <div class="marka-nazwa">EduPlaner 2026</div>
+        <div class="marka-opis">Kącik dyrektora ·<br>z oddziałami integracyjnymi</div>
+      </div>
+    </div>
+    <div class="naglowek-prawy">
+      <span class="plakietka">dyrektor · plan pracy · oddz. integracyjne</span>
+      <div class="naglowek-podpis">Dokument wsparcia · 2026</div>
+    </div>
+  </div>
+  <div class="belka"></div>
+
+  <div class="metryczka">
+    <div class="box"><span class="etykieta">Przedszkole</span><span class="wypelnij"></span></div><div class="box"><span class="etykieta">Dyrektor</span><span class="wypelnij"></span></div>
+    <div class="box"><span class="etykieta">Rok szkolny</span><span class="wartosc">2026 / 2027</span></div>
+  </div>
+  <div class="sekcja"><span class="numer pom">VII</span><h2>Kalendarz roku — uroczystości, wyjścia, wydarzenia</h2><span class="linia"></span></div>
+  <table class="tab-mala">
+    <thead>
+      <tr><th style="width:24">Miesiąc</th><th style="width:72">Wydarzenie</th><th style="width:36">Odpowiedzialny</th><th>Uwagi</th></tr>
+    </thead>
+    <tbody>
+      <tr><td class="puste"></td><td class="puste"></td><td class="puste"></td><td class="puste"></td></tr>
+      <tr><td class="puste"></td><td class="puste"></td><td class="puste"></td><td class="puste"></td></tr>
+      <tr><td class="puste"></td><td class="puste"></td><td class="puste"></td><td class="puste"></td></tr>
+      <tr><td class="puste"></td><td class="puste"></td><td class="puste"></td><td class="puste"></td></tr>
+      <tr><td class="puste"></td><td class="puste"></td><td class="puste"></td><td class="puste"></td></tr>
+      <tr><td class="puste"></td><td class="puste"></td><td class="puste"></td><td class="puste"></td></tr>
+    </tbody>
+  </table>
+  <div class="sekcja"><span class="numer">VIII</span><h2>Ewaluacja planu</h2><span class="linia"></span></div>
+  <div class="siatka3">
+    <div class="pole"><span class="etykieta">Termin ewaluacji półrocznej</span><div class="linijki"><div></div></div></div>
+    <div class="pole"><span class="etykieta">Termin ewaluacji rocznej</span><div class="linijki"><div></div></div></div>
+    <div class="pole"><span class="etykieta">Kto przeprowadza</span><div class="linijki"><div></div></div></div>
+  </div>
+  <div class="pole"><span class="etykieta">Sposób sprawdzenia, czy cele zostały osiągnięte — źródła danych</span><div class="linijki"><div></div></div></div>
+  <div class="sekcja"><span class="numer">IX</span><h2>Zatwierdzenie przez radę pedagogiczną</h2><span class="linia"></span></div>
+  <div class="legenda" style="margin:1.4mm 0 2.6mm 8mm"><p><b>Podstawa prawna:</b> <b>Art. 70 ust. 1 pkt 1 Prawa oświatowego</b> — zatwierdzanie planów pracy przedszkola należy do <b>kompetencji stanowiących</b> rady pedagogicznej. Rada <b>zatwierdza plan uchwałą</b>; sama informacja o planie nie wystarcza. Protokół i uchwała — druki <b>RA-2</b> i <b>RA-7</b>.</p></div>
+  <div class="siatka3">
+    <div class="pole"><span class="etykieta">Data zebrania rady</span><div class="linijki"><div></div></div></div>
+    <div class="pole"><span class="etykieta">Numer uchwały</span><div class="linijki"><div></div></div></div>
+    <div class="pole"><span class="etykieta">Wynik głosowania (za / przeciw / wstrzym.)</span><div class="linijki"><div></div></div></div>
+  </div>
+  <div class="podpisy" style="margin-top:3mm">
+    <div class="podpis"><div class="kreska"></div><div class="opis">data i podpis dyrektora przedszkola</div></div>
+    <div class="podpis"><div class="kreska"></div><div class="opis">podpis przewodniczącego rady pedagogicznej</div></div>
+  </div>
+  <div class="stopka">
+    <span>EduPlaner 2026 · PCTP · pedagog specjalny</span>
+    <span><b>Strona 12 z 20</b> · Kącik dyrektora · druk DW-3 · kalendarz, ewaluacja i zatwierdzenie</span>
+  </div>
+</section>
+<!-- === STRONA 13 === -->
+<section class="page">
+  <div class="naglowek">
+    <div class="marka">
+      <div class="logo"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" role="img" aria-label="Logo PCTP"> <defs> <radialGradient id="pctpTlo" cx="36%" cy="28%" r="82%"> <stop offset="0%" stop-color="#6A4C9E"/> <stop offset="55%" stop-color="#4A2E86"/> <stop offset="100%" stop-color="#331E63"/> </radialGradient> </defs> <circle cx="50" cy="50" r="49.2" fill="#3B2472"/> <circle cx="50" cy="50" r="46.4" fill="#D3C8EC"/> <circle cx="50" cy="50" r="43.6" fill="url(#pctpTlo)"/> <g stroke="#C79A2C" stroke-width="2.1" stroke-linecap="round" fill="none"> <path d="M50 60 C50 50 50 42 50 34"/> <path d="M50 60 C46 52 42 46 38 40"/> <path d="M50 60 C54 52 58 46 62 40"/> <path d="M50 59 C44 53 38 48 32 44"/> <path d="M50 59 C56 53 62 48 68 44"/> </g> <g> <ellipse cx="33" cy="41" rx="4.6" ry="10.4" fill="#A192D2" transform="rotate(-32 33 41)"/> <ellipse cx="67" cy="41" rx="4.6" ry="10.4" fill="#A192D2" transform="rotate(32 67 41)"/> <ellipse cx="39.5" cy="34" rx="5" ry="11.6" fill="#EFA275" transform="rotate(-16 39.5 34)"/> <ellipse cx="60.5" cy="34" rx="5" ry="11.6" fill="#EFA275" transform="rotate(16 60.5 34)"/> <ellipse cx="50" cy="30.5" rx="5.4" ry="12.4" fill="#E8712F"/> </g> <circle cx="50" cy="38.5" r="3.4" fill="#FBF6EC"/> <text x="50" y="76" text-anchor="middle" font-family="Georgia,'Times New Roman',serif" font-weight="bold" font-size="25" letter-spacing="1.2" fill="#F7F2E6">PCTP</text> </svg></div>
+      <div>
+        <div class="marka-nazwa">EduPlaner 2026</div>
+        <div class="marka-opis">Kącik dyrektora ·<br>specjalne</div>
+      </div>
+    </div>
+    <div class="naglowek-prawy">
+      <span class="plakietka">dyrektor · plan pracy · specjalne</span>
+      <div class="naglowek-podpis">Dokument wsparcia · 2026</div>
+    </div>
+  </div>
+  <div class="belka"></div>
+
+  <div class="metryczka">
+    <div class="box"><span class="etykieta">Przedszkole</span><span class="wypelnij"></span></div><div class="box"><span class="etykieta">Dyrektor</span><span class="wypelnij"></span></div>
+    <div class="box"><span class="etykieta">Rok szkolny</span><span class="wartosc">2026 / 2027</span></div>
+  </div>
+  <div class="wstega"><span>Kącik dyrektora · przedszkole · druk DW-4 · zatwierdza rada pedagogiczna</span></div>
+  <div class="tytul">PLAN PRACY PRZEDSZKOLA SPECJALNEGO</div>
+  <div class="podtytul">wszystkie oddziały specjalne — liczebność wg rodzaju niepełnosprawności, rewalidacja</div>
+  <div class="kody">
+    <span class="kreska"></span>
+    <span class="tresc">DRUK DW-4 · ZADANIA · TERMINY · ODPOWIEDZIALNI</span>
+    <span class="kreska"></span>
+  </div>
+  <div class="prawna">
+    <p><b>PODSTAWA PRAWNA.</b> Ustawa z dnia 14 grudnia 2016 r. — Prawo oświatowe (t.j. Dz.U. z 2026 r. poz. 820, z późn. zm.) — <b>art. 70 ust. 1 pkt 1</b>. <b>rozporządzenie MEN z dnia 28 lutego 2019 r. w sprawie szczegółowej organizacji publicznych szkół i publicznych przedszkoli (t.j. Dz.U. z 2023 r. poz. 2736, z późn. zm.)</b> — <b>§ 6</b>: liczba dzieci w oddziale przedszkola specjalnego zależy od <b>rodzaju niepełnosprawności</b> (tabela w sekcji II). <b>rozporządzenie MEN z dnia 9 sierpnia 2017 r. w sprawie warunków organizowania kształcenia, wychowania i opieki dla dzieci i młodzieży niepełnosprawnych (t.j. Dz.U. z 2020 r. poz. 1309)</b> — kształcenie specjalne organizuje się na podstawie <b>orzeczenia o potrzebie kształcenia specjalnego</b>; zespół opracowuje <b>IPET</b> i co najmniej dwa razy w roku dokonuje <b>wielospecjalistycznej oceny poziomu funkcjonowania dziecka</b>; przedszkole zapewnia <b>zajęcia rewalidacyjne</b> odpowiednie do potrzeb.</p>
+  </div>
+  <div class="sekcja"><span class="numer pom">I</span><h2>Metryka placówki i rok szkolny</h2><span class="linia"></span></div>
+  <div class="siatka3">
+    <div class="pole"><span class="etykieta">Pełna nazwa przedszkola</span><div class="linijki"><div></div></div></div>
+    <div class="pole"><span class="etykieta">Typ placówki</span><div class="linijki"><div></div></div></div>
+    <div class="pole"><span class="etykieta">Rok szkolny</span><div class="linijki"><div></div></div></div>
+  </div>
+  <div class="siatka3">
+    <div class="pole"><span class="etykieta">Organ prowadzący</span><div class="linijki"><div></div></div></div>
+    <div class="pole"><span class="etykieta">Liczba oddziałów</span><div class="linijki"><div></div></div></div>
+    <div class="pole"><span class="etykieta">Liczba dzieci ogółem</span><div class="linijki"><div></div></div></div>
+  </div>
+  <div class="siatka2">
+    <div class="pole"><span class="etykieta">Data zatwierdzenia planu przez radę pedagogiczną</span><div class="linijki"><div></div></div></div>
+    <div class="pole"><span class="etykieta">Numer uchwały rady</span><div class="linijki"><div></div></div></div>
+  </div>
+  <div class="sekcja"><span class="numer">II</span><h2>Liczebność oddziałów — limity ustawowe</h2><span class="linia"></span></div>
+  <table class="tab-mala tab-zw">
+    <thead><tr><th style="width:80mm">Rodzaj oddziału</th><th style="width:34mm">Limit</th><th style="width:36mm">Podstawa</th><th>Stan faktyczny</th></tr></thead>
+    <tbody>
+      <tr><td class="klucz">Autyzm, w tym zespół Aspergera</td><td><b>nie więcej niż 4</b></td><td>§ 6 rozp. o organizacji</td><td class="puste"></td></tr>
+      <tr><td class="klucz">Niepełnosprawności sprzężone</td><td><b>nie więcej niż 4</b></td><td>§ 6 rozp. o organizacji</td><td class="puste"></td></tr>
+      <tr><td class="klucz">Niesłyszący i słabosłyszący</td><td><b>nie więcej niż 8</b></td><td>§ 6 rozp. o organizacji</td><td class="puste"></td></tr>
+      <tr><td class="klucz">Niepełnosprawność intelektualna w stopniu umiarkowanym lub znacznym</td><td><b>nie więcej niż 8</b></td><td>§ 6 rozp. o organizacji</td><td class="puste"></td></tr>
+      <tr><td class="klucz">Niewidomi i słabowidzący</td><td><b>nie więcej niż 10</b></td><td>§ 6 rozp. o organizacji</td><td class="puste"></td></tr>
+      <tr><td class="klucz">Niepełnosprawność ruchowa, w tym afazja</td><td><b>nie więcej niż 12</b></td><td>§ 6 rozp. o organizacji</td><td class="puste"></td></tr>
+    </tbody>
+  </table>
+  <div class="info"><b>Limit liczebności zależy od rodzaju niepełnosprawności, nie od liczby oddziałów.</b> Oddział łączący dzieci o różnych rodzajach niepełnosprawności podlega limitowi <b>najniższemu</b> z występujących w nim rodzajów.</div>
+  <div class="stopka">
+    <span>EduPlaner 2026 · PCTP · pedagog specjalny</span>
+    <span><b>Strona 13 z 20</b> · Kącik dyrektora · druk DW-4 · metryka, podstawa prawna i limity</span>
+  </div>
+</section>
+<!-- === STRONA 14 === -->
+<section class="page">
+  <div class="naglowek">
+    <div class="marka">
+      <div class="logo"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" role="img" aria-label="Logo PCTP"> <defs> <radialGradient id="pctpTlo" cx="36%" cy="28%" r="82%"> <stop offset="0%" stop-color="#6A4C9E"/> <stop offset="55%" stop-color="#4A2E86"/> <stop offset="100%" stop-color="#331E63"/> </radialGradient> </defs> <circle cx="50" cy="50" r="49.2" fill="#3B2472"/> <circle cx="50" cy="50" r="46.4" fill="#D3C8EC"/> <circle cx="50" cy="50" r="43.6" fill="url(#pctpTlo)"/> <g stroke="#C79A2C" stroke-width="2.1" stroke-linecap="round" fill="none"> <path d="M50 60 C50 50 50 42 50 34"/> <path d="M50 60 C46 52 42 46 38 40"/> <path d="M50 60 C54 52 58 46 62 40"/> <path d="M50 59 C44 53 38 48 32 44"/> <path d="M50 59 C56 53 62 48 68 44"/> </g> <g> <ellipse cx="33" cy="41" rx="4.6" ry="10.4" fill="#A192D2" transform="rotate(-32 33 41)"/> <ellipse cx="67" cy="41" rx="4.6" ry="10.4" fill="#A192D2" transform="rotate(32 67 41)"/> <ellipse cx="39.5" cy="34" rx="5" ry="11.6" fill="#EFA275" transform="rotate(-16 39.5 34)"/> <ellipse cx="60.5" cy="34" rx="5" ry="11.6" fill="#EFA275" transform="rotate(16 60.5 34)"/> <ellipse cx="50" cy="30.5" rx="5.4" ry="12.4" fill="#E8712F"/> </g> <circle cx="50" cy="38.5" r="3.4" fill="#FBF6EC"/> <text x="50" y="76" text-anchor="middle" font-family="Georgia,'Times New Roman',serif" font-weight="bold" font-size="25" letter-spacing="1.2" fill="#F7F2E6">PCTP</text> </svg></div>
+      <div>
+        <div class="marka-nazwa">EduPlaner 2026</div>
+        <div class="marka-opis">Kącik dyrektora ·<br>specjalne</div>
+      </div>
+    </div>
+    <div class="naglowek-prawy">
+      <span class="plakietka">dyrektor · plan pracy · specjalne</span>
+      <div class="naglowek-podpis">Dokument wsparcia · 2026</div>
+    </div>
+  </div>
+  <div class="belka"></div>
+
+  <div class="metryczka">
+    <div class="box"><span class="etykieta">Przedszkole</span><span class="wypelnij"></span></div><div class="box"><span class="etykieta">Dyrektor</span><span class="wypelnij"></span></div>
+    <div class="box"><span class="etykieta">Rok szkolny</span><span class="wartosc">2026 / 2027</span></div>
+  </div>
+  <div class="sekcja"><span class="numer pom">III</span><h2>Diagnoza — punkt wyjścia na ten rok</h2><span class="linia"></span></div>
+  <div class="legenda" style="margin:1.4mm 0 2.6mm 8mm"><p><b>Podstawa prawna:</b> § 23 ust. 2 rozporządzenia o nadzorze pedagogicznym (t.j. Dz.U. z 2024 r. poz. 15) — plan opracowuje się z uwzględnieniem <b>wniosków z nadzoru za poprzedni rok szkolny</b>. Te same wnioski są punktem wyjścia planu pracy — inaczej oba dokumenty mówiłyby co innego.</p></div>
+  <div class="pole"><span class="etykieta">Wnioski z nadzoru pedagogicznego za poprzedni rok szkolny — co przenosimy do tego planu</span><div class="linijki"><div></div><div></div></div></div>
+  <div class="pole"><span class="etykieta">Mocne strony placówki — na czym budujemy</span><div class="linijki"><div></div><div></div></div></div>
+  <div class="pole"><span class="etykieta">Obszary wymagające poprawy — co wynika z diagnozy</span><div class="linijki"><div></div><div></div></div></div>
+  <div class="sekcja"><span class="numer">IV</span><h2>Cele na rok szkolny</h2><span class="linia"></span></div>
+  <table class="tab-mala">
+    <thead>
+      <tr><th style="width:6">Lp</th><th style="width:66">Cel — obserwowalny efekt, nie czynność</th><th style="width:44">Miernik osiągnięcia</th><th>Termin</th></tr>
+    </thead>
+    <tbody>
+      <tr><td class="lp">1</td><td class="puste"></td><td class="puste"></td><td class="puste"></td></tr>
+      <tr><td class="lp">2</td><td class="puste"></td><td class="puste"></td><td class="puste"></td></tr>
+      <tr><td class="lp">3</td><td class="puste"></td><td class="puste"></td><td class="puste"></td></tr>
+      <tr><td class="lp">4</td><td class="puste"></td><td class="puste"></td><td class="puste"></td></tr>
+      <tr><td class="lp">5</td><td class="puste"></td><td class="puste"></td><td class="puste"></td></tr>
+    </tbody>
+  </table>
+  <div class="stopka">
+    <span>EduPlaner 2026 · PCTP · pedagog specjalny</span>
+    <span><b>Strona 14 z 20</b> · Kącik dyrektora · druk DW-4 · diagnoza i cele roku</span>
+  </div>
+</section>
+<!-- === STRONA 15 === -->
+<section class="page">
+  <div class="naglowek">
+    <div class="marka">
+      <div class="logo"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" role="img" aria-label="Logo PCTP"> <defs> <radialGradient id="pctpTlo" cx="36%" cy="28%" r="82%"> <stop offset="0%" stop-color="#6A4C9E"/> <stop offset="55%" stop-color="#4A2E86"/> <stop offset="100%" stop-color="#331E63"/> </radialGradient> </defs> <circle cx="50" cy="50" r="49.2" fill="#3B2472"/> <circle cx="50" cy="50" r="46.4" fill="#D3C8EC"/> <circle cx="50" cy="50" r="43.6" fill="url(#pctpTlo)"/> <g stroke="#C79A2C" stroke-width="2.1" stroke-linecap="round" fill="none"> <path d="M50 60 C50 50 50 42 50 34"/> <path d="M50 60 C46 52 42 46 38 40"/> <path d="M50 60 C54 52 58 46 62 40"/> <path d="M50 59 C44 53 38 48 32 44"/> <path d="M50 59 C56 53 62 48 68 44"/> </g> <g> <ellipse cx="33" cy="41" rx="4.6" ry="10.4" fill="#A192D2" transform="rotate(-32 33 41)"/> <ellipse cx="67" cy="41" rx="4.6" ry="10.4" fill="#A192D2" transform="rotate(32 67 41)"/> <ellipse cx="39.5" cy="34" rx="5" ry="11.6" fill="#EFA275" transform="rotate(-16 39.5 34)"/> <ellipse cx="60.5" cy="34" rx="5" ry="11.6" fill="#EFA275" transform="rotate(16 60.5 34)"/> <ellipse cx="50" cy="30.5" rx="5.4" ry="12.4" fill="#E8712F"/> </g> <circle cx="50" cy="38.5" r="3.4" fill="#FBF6EC"/> <text x="50" y="76" text-anchor="middle" font-family="Georgia,'Times New Roman',serif" font-weight="bold" font-size="25" letter-spacing="1.2" fill="#F7F2E6">PCTP</text> </svg></div>
+      <div>
+        <div class="marka-nazwa">EduPlaner 2026</div>
+        <div class="marka-opis">Kącik dyrektora ·<br>specjalne</div>
+      </div>
+    </div>
+    <div class="naglowek-prawy">
+      <span class="plakietka">dyrektor · plan pracy · specjalne</span>
+      <div class="naglowek-podpis">Dokument wsparcia · 2026</div>
+    </div>
+  </div>
+  <div class="belka"></div>
+
+  <div class="metryczka">
+    <div class="box"><span class="etykieta">Przedszkole</span><span class="wypelnij"></span></div><div class="box"><span class="etykieta">Dyrektor</span><span class="wypelnij"></span></div>
+    <div class="box"><span class="etykieta">Rok szkolny</span><span class="wartosc">2026 / 2027</span></div>
+  </div>
+  <div class="sekcja"><span class="numer pom">V</span><h2>Kształcenie specjalne — organizacja</h2><span class="linia"></span></div>
+  <div class="pole"><span class="etykieta">Oddziały — rodzaj niepełnosprawności, liczba dzieci, limit z § 6</span><div class="linijki"><div></div></div></div>
+  <div class="pole"><span class="etykieta">Zajęcia rewalidacyjne — rodzaje, wymiar, prowadzący</span><div class="linijki"><div></div></div></div>
+  <div class="pole"><span class="etykieta">Zespoły i terminy WOPFU oraz modyfikacji IPET</span><div class="linijki"><div></div></div></div>
+  <div class="pole"><span class="etykieta">Specjaliści zatrudnieni w przedszkolu — stanowiska i wymiar</span><div class="linijki"><div></div></div></div>
+  <div class="pole"><span class="etykieta">Dowóz dzieci i opieka w czasie dowozu — jeżeli organizowany</span><div class="linijki"><div></div></div></div>
+  <div class="sekcja"><span class="numer">VI</span><h2>Zadania na rok — kto, co, do kiedy</h2><span class="linia"></span></div>
+  <table class="tab-mala">
+    <thead>
+      <tr><th style="width:6">Lp</th><th style="width:62">Zadanie</th><th style="width:34">Odpowiedzialny</th><th style="width:24">Termin</th><th>Wykonano</th></tr>
+    </thead>
+    <tbody>
+      <tr><td class="lp">1</td><td class="puste"></td><td class="puste"></td><td class="puste"></td><td class="puste"></td></tr>
+      <tr><td class="lp">2</td><td class="puste"></td><td class="puste"></td><td class="puste"></td><td class="puste"></td></tr>
+      <tr><td class="lp">3</td><td class="puste"></td><td class="puste"></td><td class="puste"></td><td class="puste"></td></tr>
+      <tr><td class="lp">4</td><td class="puste"></td><td class="puste"></td><td class="puste"></td><td class="puste"></td></tr>
+      <tr><td class="lp">5</td><td class="puste"></td><td class="puste"></td><td class="puste"></td><td class="puste"></td></tr>
+      <tr><td class="lp">6</td><td class="puste"></td><td class="puste"></td><td class="puste"></td><td class="puste"></td></tr>
+    </tbody>
+  </table>
+  <div class="stopka">
+    <span>EduPlaner 2026 · PCTP · pedagog specjalny</span>
+    <span><b>Strona 15 z 20</b> · Kącik dyrektora · druk DW-4 · organizacja typu placówki i zadania</span>
+  </div>
+</section>
+<!-- === STRONA 16 === -->
+<section class="page">
+  <div class="naglowek">
+    <div class="marka">
+      <div class="logo"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" role="img" aria-label="Logo PCTP"> <defs> <radialGradient id="pctpTlo" cx="36%" cy="28%" r="82%"> <stop offset="0%" stop-color="#6A4C9E"/> <stop offset="55%" stop-color="#4A2E86"/> <stop offset="100%" stop-color="#331E63"/> </radialGradient> </defs> <circle cx="50" cy="50" r="49.2" fill="#3B2472"/> <circle cx="50" cy="50" r="46.4" fill="#D3C8EC"/> <circle cx="50" cy="50" r="43.6" fill="url(#pctpTlo)"/> <g stroke="#C79A2C" stroke-width="2.1" stroke-linecap="round" fill="none"> <path d="M50 60 C50 50 50 42 50 34"/> <path d="M50 60 C46 52 42 46 38 40"/> <path d="M50 60 C54 52 58 46 62 40"/> <path d="M50 59 C44 53 38 48 32 44"/> <path d="M50 59 C56 53 62 48 68 44"/> </g> <g> <ellipse cx="33" cy="41" rx="4.6" ry="10.4" fill="#A192D2" transform="rotate(-32 33 41)"/> <ellipse cx="67" cy="41" rx="4.6" ry="10.4" fill="#A192D2" transform="rotate(32 67 41)"/> <ellipse cx="39.5" cy="34" rx="5" ry="11.6" fill="#EFA275" transform="rotate(-16 39.5 34)"/> <ellipse cx="60.5" cy="34" rx="5" ry="11.6" fill="#EFA275" transform="rotate(16 60.5 34)"/> <ellipse cx="50" cy="30.5" rx="5.4" ry="12.4" fill="#E8712F"/> </g> <circle cx="50" cy="38.5" r="3.4" fill="#FBF6EC"/> <text x="50" y="76" text-anchor="middle" font-family="Georgia,'Times New Roman',serif" font-weight="bold" font-size="25" letter-spacing="1.2" fill="#F7F2E6">PCTP</text> </svg></div>
+      <div>
+        <div class="marka-nazwa">EduPlaner 2026</div>
+        <div class="marka-opis">Kącik dyrektora ·<br>specjalne</div>
+      </div>
+    </div>
+    <div class="naglowek-prawy">
+      <span class="plakietka">dyrektor · plan pracy · specjalne</span>
+      <div class="naglowek-podpis">Dokument wsparcia · 2026</div>
+    </div>
+  </div>
+  <div class="belka"></div>
+
+  <div class="metryczka">
+    <div class="box"><span class="etykieta">Przedszkole</span><span class="wypelnij"></span></div><div class="box"><span class="etykieta">Dyrektor</span><span class="wypelnij"></span></div>
+    <div class="box"><span class="etykieta">Rok szkolny</span><span class="wartosc">2026 / 2027</span></div>
+  </div>
+  <div class="sekcja"><span class="numer pom">VII</span><h2>Kalendarz roku — uroczystości, wyjścia, wydarzenia</h2><span class="linia"></span></div>
+  <table class="tab-mala">
+    <thead>
+      <tr><th style="width:24">Miesiąc</th><th style="width:72">Wydarzenie</th><th style="width:36">Odpowiedzialny</th><th>Uwagi</th></tr>
+    </thead>
+    <tbody>
+      <tr><td class="puste"></td><td class="puste"></td><td class="puste"></td><td class="puste"></td></tr>
+      <tr><td class="puste"></td><td class="puste"></td><td class="puste"></td><td class="puste"></td></tr>
+      <tr><td class="puste"></td><td class="puste"></td><td class="puste"></td><td class="puste"></td></tr>
+      <tr><td class="puste"></td><td class="puste"></td><td class="puste"></td><td class="puste"></td></tr>
+      <tr><td class="puste"></td><td class="puste"></td><td class="puste"></td><td class="puste"></td></tr>
+      <tr><td class="puste"></td><td class="puste"></td><td class="puste"></td><td class="puste"></td></tr>
+    </tbody>
+  </table>
+  <div class="sekcja"><span class="numer">VIII</span><h2>Ewaluacja planu</h2><span class="linia"></span></div>
+  <div class="siatka3">
+    <div class="pole"><span class="etykieta">Termin ewaluacji półrocznej</span><div class="linijki"><div></div></div></div>
+    <div class="pole"><span class="etykieta">Termin ewaluacji rocznej</span><div class="linijki"><div></div></div></div>
+    <div class="pole"><span class="etykieta">Kto przeprowadza</span><div class="linijki"><div></div></div></div>
+  </div>
+  <div class="pole"><span class="etykieta">Sposób sprawdzenia, czy cele zostały osiągnięte — źródła danych</span><div class="linijki"><div></div></div></div>
+  <div class="sekcja"><span class="numer">IX</span><h2>Zatwierdzenie przez radę pedagogiczną</h2><span class="linia"></span></div>
+  <div class="legenda" style="margin:1.4mm 0 2.6mm 8mm"><p><b>Podstawa prawna:</b> <b>Art. 70 ust. 1 pkt 1 Prawa oświatowego</b> — zatwierdzanie planów pracy przedszkola należy do <b>kompetencji stanowiących</b> rady pedagogicznej. Rada <b>zatwierdza plan uchwałą</b>; sama informacja o planie nie wystarcza. Protokół i uchwała — druki <b>RA-2</b> i <b>RA-7</b>.</p></div>
+  <div class="siatka3">
+    <div class="pole"><span class="etykieta">Data zebrania rady</span><div class="linijki"><div></div></div></div>
+    <div class="pole"><span class="etykieta">Numer uchwały</span><div class="linijki"><div></div></div></div>
+    <div class="pole"><span class="etykieta">Wynik głosowania (za / przeciw / wstrzym.)</span><div class="linijki"><div></div></div></div>
+  </div>
+  <div class="podpisy" style="margin-top:3mm">
+    <div class="podpis"><div class="kreska"></div><div class="opis">data i podpis dyrektora przedszkola</div></div>
+    <div class="podpis"><div class="kreska"></div><div class="opis">podpis przewodniczącego rady pedagogicznej</div></div>
+  </div>
+  <div class="stopka">
+    <span>EduPlaner 2026 · PCTP · pedagog specjalny</span>
+    <span><b>Strona 16 z 20</b> · Kącik dyrektora · druk DW-4 · kalendarz, ewaluacja i zatwierdzenie</span>
+  </div>
+</section>
+<!-- === STRONA 17 === -->
+<section class="page">
+  <div class="naglowek">
+    <div class="marka">
+      <div class="logo"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" role="img" aria-label="Logo PCTP"> <defs> <radialGradient id="pctpTlo" cx="36%" cy="28%" r="82%"> <stop offset="0%" stop-color="#6A4C9E"/> <stop offset="55%" stop-color="#4A2E86"/> <stop offset="100%" stop-color="#331E63"/> </radialGradient> </defs> <circle cx="50" cy="50" r="49.2" fill="#3B2472"/> <circle cx="50" cy="50" r="46.4" fill="#D3C8EC"/> <circle cx="50" cy="50" r="43.6" fill="url(#pctpTlo)"/> <g stroke="#C79A2C" stroke-width="2.1" stroke-linecap="round" fill="none"> <path d="M50 60 C50 50 50 42 50 34"/> <path d="M50 60 C46 52 42 46 38 40"/> <path d="M50 60 C54 52 58 46 62 40"/> <path d="M50 59 C44 53 38 48 32 44"/> <path d="M50 59 C56 53 62 48 68 44"/> </g> <g> <ellipse cx="33" cy="41" rx="4.6" ry="10.4" fill="#A192D2" transform="rotate(-32 33 41)"/> <ellipse cx="67" cy="41" rx="4.6" ry="10.4" fill="#A192D2" transform="rotate(32 67 41)"/> <ellipse cx="39.5" cy="34" rx="5" ry="11.6" fill="#EFA275" transform="rotate(-16 39.5 34)"/> <ellipse cx="60.5" cy="34" rx="5" ry="11.6" fill="#EFA275" transform="rotate(16 60.5 34)"/> <ellipse cx="50" cy="30.5" rx="5.4" ry="12.4" fill="#E8712F"/> </g> <circle cx="50" cy="38.5" r="3.4" fill="#FBF6EC"/> <text x="50" y="76" text-anchor="middle" font-family="Georgia,'Times New Roman',serif" font-weight="bold" font-size="25" letter-spacing="1.2" fill="#F7F2E6">PCTP</text> </svg></div>
+      <div>
+        <div class="marka-nazwa">EduPlaner 2026</div>
+        <div class="marka-opis">Kącik dyrektora ·<br>z oddziałami specjalnymi</div>
+      </div>
+    </div>
+    <div class="naglowek-prawy">
+      <span class="plakietka">dyrektor · plan pracy · oddz. specjalne</span>
+      <div class="naglowek-podpis">Dokument wsparcia · 2026</div>
+    </div>
+  </div>
+  <div class="belka"></div>
+
+  <div class="metryczka">
+    <div class="box"><span class="etykieta">Przedszkole</span><span class="wypelnij"></span></div><div class="box"><span class="etykieta">Dyrektor</span><span class="wypelnij"></span></div>
+    <div class="box"><span class="etykieta">Rok szkolny</span><span class="wartosc">2026 / 2027</span></div>
+  </div>
+  <div class="wstega"><span>Kącik dyrektora · przedszkole · druk DW-5 · zatwierdza rada pedagogiczna</span></div>
+  <div class="tytul">PLAN PRACY PRZEDSZKOLA Z ODDZIAŁAMI SPECJALNYMI</div>
+  <div class="podtytul">część oddziałów specjalnych, część ogólnodostępnych — dwa reżimy i wspólny rytm dnia</div>
+  <div class="kody">
+    <span class="kreska"></span>
+    <span class="tresc">DRUK DW-5 · ZADANIA · TERMINY · ODPOWIEDZIALNI</span>
+    <span class="kreska"></span>
+  </div>
+  <div class="prawna">
+    <p><b>PODSTAWA PRAWNA.</b> Ustawa z dnia 14 grudnia 2016 r. — Prawo oświatowe (t.j. Dz.U. z 2026 r. poz. 820, z późn. zm.) — <b>art. 70 ust. 1 pkt 1</b>. <b>rozporządzenie MEN z dnia 28 lutego 2019 r. w sprawie szczegółowej organizacji publicznych szkół i publicznych przedszkoli (t.j. Dz.U. z 2023 r. poz. 2736, z późn. zm.)</b> — <b>§ 5</b>: oddział ogólnodostępny <b>nie więcej niż 25</b> dzieci; <b>§ 6</b>: oddział specjalny w przedszkolu ogólnodostępnym — limit zależny od <b>rodzaju niepełnosprawności</b> (tabela w sekcji II). <b>rozporządzenie MEN z dnia 9 sierpnia 2017 r. w sprawie warunków organizowania kształcenia, wychowania i opieki dla dzieci i młodzieży niepełnosprawnych (t.j. Dz.U. z 2020 r. poz. 1309)</b> — dla dzieci w oddziałach specjalnych obowiązuje <b>IPET</b>, <b>WOPFU</b> co najmniej dwa razy w roku oraz <b>zajęcia rewalidacyjne</b>.</p>
+  </div>
+  <div class="sekcja"><span class="numer pom">I</span><h2>Metryka placówki i rok szkolny</h2><span class="linia"></span></div>
+  <div class="siatka3">
+    <div class="pole"><span class="etykieta">Pełna nazwa przedszkola</span><div class="linijki"><div></div></div></div>
+    <div class="pole"><span class="etykieta">Typ placówki</span><div class="linijki"><div></div></div></div>
+    <div class="pole"><span class="etykieta">Rok szkolny</span><div class="linijki"><div></div></div></div>
+  </div>
+  <div class="siatka3">
+    <div class="pole"><span class="etykieta">Organ prowadzący</span><div class="linijki"><div></div></div></div>
+    <div class="pole"><span class="etykieta">Liczba oddziałów</span><div class="linijki"><div></div></div></div>
+    <div class="pole"><span class="etykieta">Liczba dzieci ogółem</span><div class="linijki"><div></div></div></div>
+  </div>
+  <div class="siatka2">
+    <div class="pole"><span class="etykieta">Data zatwierdzenia planu przez radę pedagogiczną</span><div class="linijki"><div></div></div></div>
+    <div class="pole"><span class="etykieta">Numer uchwały rady</span><div class="linijki"><div></div></div></div>
+  </div>
+  <div class="sekcja"><span class="numer">II</span><h2>Liczebność oddziałów — limity ustawowe</h2><span class="linia"></span></div>
+  <table class="tab-mala tab-zw">
+    <thead><tr><th style="width:80mm">Rodzaj oddziału</th><th style="width:34mm">Limit</th><th style="width:36mm">Podstawa</th><th>Stan faktyczny</th></tr></thead>
+    <tbody>
+      <tr><td class="klucz">Oddział ogólnodostępny</td><td><b>nie więcej niż 25</b></td><td>§ 5 rozp. o organizacji</td><td class="puste"></td></tr>
+      <tr><td class="klucz">Oddział specjalny — autyzm, sprzężone</td><td><b>nie więcej niż 4</b></td><td>§ 6 rozp. o organizacji</td><td class="puste"></td></tr>
+      <tr><td class="klucz">Oddział specjalny — niesłyszący, słabosłyszący, NI umiarkowana lub znaczna</td><td><b>nie więcej niż 8</b></td><td>§ 6 rozp. o organizacji</td><td class="puste"></td></tr>
+      <tr><td class="klucz">Oddział specjalny — niewidomi i słabowidzący</td><td><b>nie więcej niż 10</b></td><td>§ 6 rozp. o organizacji</td><td class="puste"></td></tr>
+      <tr><td class="klucz">Oddział specjalny — niepełnosprawność ruchowa, w tym afazja</td><td><b>nie więcej niż 12</b></td><td>§ 6 rozp. o organizacji</td><td class="puste"></td></tr>
+    </tbody>
+  </table>
+  <div class="info"><b>Wspólne działania to nie to samo co integracja.</b> Oddział specjalny w przedszkolu ogólnodostępnym pozostaje oddziałem specjalnym — wspólne uroczystości i wyjścia nie zmieniają jego statusu ani limitu liczebności.</div>
+  <div class="stopka">
+    <span>EduPlaner 2026 · PCTP · pedagog specjalny</span>
+    <span><b>Strona 17 z 20</b> · Kącik dyrektora · druk DW-5 · metryka, podstawa prawna i limity</span>
+  </div>
+</section>
+<!-- === STRONA 18 === -->
+<section class="page">
+  <div class="naglowek">
+    <div class="marka">
+      <div class="logo"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" role="img" aria-label="Logo PCTP"> <defs> <radialGradient id="pctpTlo" cx="36%" cy="28%" r="82%"> <stop offset="0%" stop-color="#6A4C9E"/> <stop offset="55%" stop-color="#4A2E86"/> <stop offset="100%" stop-color="#331E63"/> </radialGradient> </defs> <circle cx="50" cy="50" r="49.2" fill="#3B2472"/> <circle cx="50" cy="50" r="46.4" fill="#D3C8EC"/> <circle cx="50" cy="50" r="43.6" fill="url(#pctpTlo)"/> <g stroke="#C79A2C" stroke-width="2.1" stroke-linecap="round" fill="none"> <path d="M50 60 C50 50 50 42 50 34"/> <path d="M50 60 C46 52 42 46 38 40"/> <path d="M50 60 C54 52 58 46 62 40"/> <path d="M50 59 C44 53 38 48 32 44"/> <path d="M50 59 C56 53 62 48 68 44"/> </g> <g> <ellipse cx="33" cy="41" rx="4.6" ry="10.4" fill="#A192D2" transform="rotate(-32 33 41)"/> <ellipse cx="67" cy="41" rx="4.6" ry="10.4" fill="#A192D2" transform="rotate(32 67 41)"/> <ellipse cx="39.5" cy="34" rx="5" ry="11.6" fill="#EFA275" transform="rotate(-16 39.5 34)"/> <ellipse cx="60.5" cy="34" rx="5" ry="11.6" fill="#EFA275" transform="rotate(16 60.5 34)"/> <ellipse cx="50" cy="30.5" rx="5.4" ry="12.4" fill="#E8712F"/> </g> <circle cx="50" cy="38.5" r="3.4" fill="#FBF6EC"/> <text x="50" y="76" text-anchor="middle" font-family="Georgia,'Times New Roman',serif" font-weight="bold" font-size="25" letter-spacing="1.2" fill="#F7F2E6">PCTP</text> </svg></div>
+      <div>
+        <div class="marka-nazwa">EduPlaner 2026</div>
+        <div class="marka-opis">Kącik dyrektora ·<br>z oddziałami specjalnymi</div>
+      </div>
+    </div>
+    <div class="naglowek-prawy">
+      <span class="plakietka">dyrektor · plan pracy · oddz. specjalne</span>
+      <div class="naglowek-podpis">Dokument wsparcia · 2026</div>
+    </div>
+  </div>
+  <div class="belka"></div>
+
+  <div class="metryczka">
+    <div class="box"><span class="etykieta">Przedszkole</span><span class="wypelnij"></span></div><div class="box"><span class="etykieta">Dyrektor</span><span class="wypelnij"></span></div>
+    <div class="box"><span class="etykieta">Rok szkolny</span><span class="wartosc">2026 / 2027</span></div>
+  </div>
+  <div class="sekcja"><span class="numer pom">III</span><h2>Diagnoza — punkt wyjścia na ten rok</h2><span class="linia"></span></div>
+  <div class="legenda" style="margin:1.4mm 0 2.6mm 8mm"><p><b>Podstawa prawna:</b> § 23 ust. 2 rozporządzenia o nadzorze pedagogicznym (t.j. Dz.U. z 2024 r. poz. 15) — plan opracowuje się z uwzględnieniem <b>wniosków z nadzoru za poprzedni rok szkolny</b>. Te same wnioski są punktem wyjścia planu pracy — inaczej oba dokumenty mówiłyby co innego.</p></div>
+  <div class="pole"><span class="etykieta">Wnioski z nadzoru pedagogicznego za poprzedni rok szkolny — co przenosimy do tego planu</span><div class="linijki"><div></div><div></div></div></div>
+  <div class="pole"><span class="etykieta">Mocne strony placówki — na czym budujemy</span><div class="linijki"><div></div><div></div></div></div>
+  <div class="pole"><span class="etykieta">Obszary wymagające poprawy — co wynika z diagnozy</span><div class="linijki"><div></div><div></div></div></div>
+  <div class="sekcja"><span class="numer">IV</span><h2>Cele na rok szkolny</h2><span class="linia"></span></div>
+  <table class="tab-mala">
+    <thead>
+      <tr><th style="width:6">Lp</th><th style="width:66">Cel — obserwowalny efekt, nie czynność</th><th style="width:44">Miernik osiągnięcia</th><th>Termin</th></tr>
+    </thead>
+    <tbody>
+      <tr><td class="lp">1</td><td class="puste"></td><td class="puste"></td><td class="puste"></td></tr>
+      <tr><td class="lp">2</td><td class="puste"></td><td class="puste"></td><td class="puste"></td></tr>
+      <tr><td class="lp">3</td><td class="puste"></td><td class="puste"></td><td class="puste"></td></tr>
+      <tr><td class="lp">4</td><td class="puste"></td><td class="puste"></td><td class="puste"></td></tr>
+      <tr><td class="lp">5</td><td class="puste"></td><td class="puste"></td><td class="puste"></td></tr>
+    </tbody>
+  </table>
+  <div class="stopka">
+    <span>EduPlaner 2026 · PCTP · pedagog specjalny</span>
+    <span><b>Strona 18 z 20</b> · Kącik dyrektora · druk DW-5 · diagnoza i cele roku</span>
+  </div>
+</section>
+<!-- === STRONA 19 === -->
+<section class="page">
+  <div class="naglowek">
+    <div class="marka">
+      <div class="logo"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" role="img" aria-label="Logo PCTP"> <defs> <radialGradient id="pctpTlo" cx="36%" cy="28%" r="82%"> <stop offset="0%" stop-color="#6A4C9E"/> <stop offset="55%" stop-color="#4A2E86"/> <stop offset="100%" stop-color="#331E63"/> </radialGradient> </defs> <circle cx="50" cy="50" r="49.2" fill="#3B2472"/> <circle cx="50" cy="50" r="46.4" fill="#D3C8EC"/> <circle cx="50" cy="50" r="43.6" fill="url(#pctpTlo)"/> <g stroke="#C79A2C" stroke-width="2.1" stroke-linecap="round" fill="none"> <path d="M50 60 C50 50 50 42 50 34"/> <path d="M50 60 C46 52 42 46 38 40"/> <path d="M50 60 C54 52 58 46 62 40"/> <path d="M50 59 C44 53 38 48 32 44"/> <path d="M50 59 C56 53 62 48 68 44"/> </g> <g> <ellipse cx="33" cy="41" rx="4.6" ry="10.4" fill="#A192D2" transform="rotate(-32 33 41)"/> <ellipse cx="67" cy="41" rx="4.6" ry="10.4" fill="#A192D2" transform="rotate(32 67 41)"/> <ellipse cx="39.5" cy="34" rx="5" ry="11.6" fill="#EFA275" transform="rotate(-16 39.5 34)"/> <ellipse cx="60.5" cy="34" rx="5" ry="11.6" fill="#EFA275" transform="rotate(16 60.5 34)"/> <ellipse cx="50" cy="30.5" rx="5.4" ry="12.4" fill="#E8712F"/> </g> <circle cx="50" cy="38.5" r="3.4" fill="#FBF6EC"/> <text x="50" y="76" text-anchor="middle" font-family="Georgia,'Times New Roman',serif" font-weight="bold" font-size="25" letter-spacing="1.2" fill="#F7F2E6">PCTP</text> </svg></div>
+      <div>
+        <div class="marka-nazwa">EduPlaner 2026</div>
+        <div class="marka-opis">Kącik dyrektora ·<br>z oddziałami specjalnymi</div>
+      </div>
+    </div>
+    <div class="naglowek-prawy">
+      <span class="plakietka">dyrektor · plan pracy · oddz. specjalne</span>
+      <div class="naglowek-podpis">Dokument wsparcia · 2026</div>
+    </div>
+  </div>
+  <div class="belka"></div>
+
+  <div class="metryczka">
+    <div class="box"><span class="etykieta">Przedszkole</span><span class="wypelnij"></span></div><div class="box"><span class="etykieta">Dyrektor</span><span class="wypelnij"></span></div>
+    <div class="box"><span class="etykieta">Rok szkolny</span><span class="wartosc">2026 / 2027</span></div>
+  </div>
+  <div class="sekcja"><span class="numer pom">V</span><h2>Dwa reżimy organizacyjne i wspólny rytm dnia</h2><span class="linia"></span></div>
+  <div class="pole"><span class="etykieta">Oddziały ogólnodostępne — liczba, liczebność, nauczyciele</span><div class="linijki"><div></div></div></div>
+  <div class="pole"><span class="etykieta">Oddziały specjalne — rodzaj niepełnosprawności, liczebność, limit</span><div class="linijki"><div></div></div></div>
+  <div class="pole"><span class="etykieta">Zajęcia rewalidacyjne w oddziałach specjalnych — rodzaje i wymiar</span><div class="linijki"><div></div></div></div>
+  <div class="pole"><span class="etykieta">Wspólne działania obu części — uroczystości, wyjścia, projekty</span><div class="linijki"><div></div></div></div>
+  <div class="pole"><span class="etykieta">Zasady przechodzenia dziecka między oddziałami — jeżeli przewidziane</span><div class="linijki"><div></div></div></div>
+  <div class="sekcja"><span class="numer">VI</span><h2>Zadania na rok — kto, co, do kiedy</h2><span class="linia"></span></div>
+  <table class="tab-mala">
+    <thead>
+      <tr><th style="width:6">Lp</th><th style="width:62">Zadanie</th><th style="width:34">Odpowiedzialny</th><th style="width:24">Termin</th><th>Wykonano</th></tr>
+    </thead>
+    <tbody>
+      <tr><td class="lp">1</td><td class="puste"></td><td class="puste"></td><td class="puste"></td><td class="puste"></td></tr>
+      <tr><td class="lp">2</td><td class="puste"></td><td class="puste"></td><td class="puste"></td><td class="puste"></td></tr>
+      <tr><td class="lp">3</td><td class="puste"></td><td class="puste"></td><td class="puste"></td><td class="puste"></td></tr>
+      <tr><td class="lp">4</td><td class="puste"></td><td class="puste"></td><td class="puste"></td><td class="puste"></td></tr>
+      <tr><td class="lp">5</td><td class="puste"></td><td class="puste"></td><td class="puste"></td><td class="puste"></td></tr>
+      <tr><td class="lp">6</td><td class="puste"></td><td class="puste"></td><td class="puste"></td><td class="puste"></td></tr>
+    </tbody>
+  </table>
+  <div class="stopka">
+    <span>EduPlaner 2026 · PCTP · pedagog specjalny</span>
+    <span><b>Strona 19 z 20</b> · Kącik dyrektora · druk DW-5 · organizacja typu placówki i zadania</span>
+  </div>
+</section>
+<!-- === STRONA 20 === -->
+<section class="page">
+  <div class="naglowek">
+    <div class="marka">
+      <div class="logo"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" role="img" aria-label="Logo PCTP"> <defs> <radialGradient id="pctpTlo" cx="36%" cy="28%" r="82%"> <stop offset="0%" stop-color="#6A4C9E"/> <stop offset="55%" stop-color="#4A2E86"/> <stop offset="100%" stop-color="#331E63"/> </radialGradient> </defs> <circle cx="50" cy="50" r="49.2" fill="#3B2472"/> <circle cx="50" cy="50" r="46.4" fill="#D3C8EC"/> <circle cx="50" cy="50" r="43.6" fill="url(#pctpTlo)"/> <g stroke="#C79A2C" stroke-width="2.1" stroke-linecap="round" fill="none"> <path d="M50 60 C50 50 50 42 50 34"/> <path d="M50 60 C46 52 42 46 38 40"/> <path d="M50 60 C54 52 58 46 62 40"/> <path d="M50 59 C44 53 38 48 32 44"/> <path d="M50 59 C56 53 62 48 68 44"/> </g> <g> <ellipse cx="33" cy="41" rx="4.6" ry="10.4" fill="#A192D2" transform="rotate(-32 33 41)"/> <ellipse cx="67" cy="41" rx="4.6" ry="10.4" fill="#A192D2" transform="rotate(32 67 41)"/> <ellipse cx="39.5" cy="34" rx="5" ry="11.6" fill="#EFA275" transform="rotate(-16 39.5 34)"/> <ellipse cx="60.5" cy="34" rx="5" ry="11.6" fill="#EFA275" transform="rotate(16 60.5 34)"/> <ellipse cx="50" cy="30.5" rx="5.4" ry="12.4" fill="#E8712F"/> </g> <circle cx="50" cy="38.5" r="3.4" fill="#FBF6EC"/> <text x="50" y="76" text-anchor="middle" font-family="Georgia,'Times New Roman',serif" font-weight="bold" font-size="25" letter-spacing="1.2" fill="#F7F2E6">PCTP</text> </svg></div>
+      <div>
+        <div class="marka-nazwa">EduPlaner 2026</div>
+        <div class="marka-opis">Kącik dyrektora ·<br>z oddziałami specjalnymi</div>
+      </div>
+    </div>
+    <div class="naglowek-prawy">
+      <span class="plakietka">dyrektor · plan pracy · oddz. specjalne</span>
+      <div class="naglowek-podpis">Dokument wsparcia · 2026</div>
+    </div>
+  </div>
+  <div class="belka"></div>
+
+  <div class="metryczka">
+    <div class="box"><span class="etykieta">Przedszkole</span><span class="wypelnij"></span></div><div class="box"><span class="etykieta">Dyrektor</span><span class="wypelnij"></span></div>
+    <div class="box"><span class="etykieta">Rok szkolny</span><span class="wartosc">2026 / 2027</span></div>
+  </div>
+  <div class="sekcja"><span class="numer pom">VII</span><h2>Kalendarz roku — uroczystości, wyjścia, wydarzenia</h2><span class="linia"></span></div>
+  <table class="tab-mala">
+    <thead>
+      <tr><th style="width:24">Miesiąc</th><th style="width:72">Wydarzenie</th><th style="width:36">Odpowiedzialny</th><th>Uwagi</th></tr>
+    </thead>
+    <tbody>
+      <tr><td class="puste"></td><td class="puste"></td><td class="puste"></td><td class="puste"></td></tr>
+      <tr><td class="puste"></td><td class="puste"></td><td class="puste"></td><td class="puste"></td></tr>
+      <tr><td class="puste"></td><td class="puste"></td><td class="puste"></td><td class="puste"></td></tr>
+      <tr><td class="puste"></td><td class="puste"></td><td class="puste"></td><td class="puste"></td></tr>
+      <tr><td class="puste"></td><td class="puste"></td><td class="puste"></td><td class="puste"></td></tr>
+      <tr><td class="puste"></td><td class="puste"></td><td class="puste"></td><td class="puste"></td></tr>
+    </tbody>
+  </table>
+  <div class="sekcja"><span class="numer">VIII</span><h2>Ewaluacja planu</h2><span class="linia"></span></div>
+  <div class="siatka3">
+    <div class="pole"><span class="etykieta">Termin ewaluacji półrocznej</span><div class="linijki"><div></div></div></div>
+    <div class="pole"><span class="etykieta">Termin ewaluacji rocznej</span><div class="linijki"><div></div></div></div>
+    <div class="pole"><span class="etykieta">Kto przeprowadza</span><div class="linijki"><div></div></div></div>
+  </div>
+  <div class="pole"><span class="etykieta">Sposób sprawdzenia, czy cele zostały osiągnięte — źródła danych</span><div class="linijki"><div></div></div></div>
+  <div class="sekcja"><span class="numer">IX</span><h2>Zatwierdzenie przez radę pedagogiczną</h2><span class="linia"></span></div>
+  <div class="legenda" style="margin:1.4mm 0 2.6mm 8mm"><p><b>Podstawa prawna:</b> <b>Art. 70 ust. 1 pkt 1 Prawa oświatowego</b> — zatwierdzanie planów pracy przedszkola należy do <b>kompetencji stanowiących</b> rady pedagogicznej. Rada <b>zatwierdza plan uchwałą</b>; sama informacja o planie nie wystarcza. Protokół i uchwała — druki <b>RA-2</b> i <b>RA-7</b>.</p></div>
+  <div class="siatka3">
+    <div class="pole"><span class="etykieta">Data zebrania rady</span><div class="linijki"><div></div></div></div>
+    <div class="pole"><span class="etykieta">Numer uchwały</span><div class="linijki"><div></div></div></div>
+    <div class="pole"><span class="etykieta">Wynik głosowania (za / przeciw / wstrzym.)</span><div class="linijki"><div></div></div></div>
+  </div>
+  <div class="podpisy" style="margin-top:3mm">
+    <div class="podpis"><div class="kreska"></div><div class="opis">data i podpis dyrektora przedszkola</div></div>
+    <div class="podpis"><div class="kreska"></div><div class="opis">podpis przewodniczącego rady pedagogicznej</div></div>
+  </div>
+  <div class="stopka">
+    <span>EduPlaner 2026 · PCTP · pedagog specjalny</span>
+    <span><b>Strona 20 z 20</b> · Kącik dyrektora · druk DW-5 · kalendarz, ewaluacja i zatwierdzenie</span>
+  </div>
+</section>
+
+<!-- ======= WARSTWA INTERAKTYWNA · EduPlaner 2026 · PCTP ======= -->
+<style id="pctp-interaktywny">
+  .pole-edyt{ outline:none; -webkit-user-modify:read-write-plaintext-only }
+  .pole-edyt:focus{ background:#FFF7E8; box-shadow:0 0 0 1.2px var(--pomarancz) inset; border-radius:.8mm }
+  .linijki div.pole-edyt{ font-size:7.6pt; color:#17102e; line-height:4.4mm }
+  td.pole-edyt{ color:#17102e }
+  td.puste.wpisane::after{ content:"" }
+  .metryczka .wypelnij.pole-edyt,
+  .wybor .dopisz.pole-edyt{ font-size:8pt; color:#17102e; padding:0 1mm; line-height:3.4mm; text-align:left }
+
+  .kwadrat{ cursor:pointer; user-select:none }
+  .kwadrat.zazn{ background:var(--pomarancz); border-color:var(--pomarancz); color:#fff }
+  td.kratka span{ cursor:pointer }
+  td.kratka span.zazn{ background:var(--pomarancz); border-color:var(--pomarancz) }
+  td.kratka span.zazn::after{ content:"✓"; color:#fff; font-size:6.4pt; font-weight:bold; line-height:1 }
+  td.kratka span{ display:inline-flex; align-items:center; justify-content:center }
+
+  td.ocena b{ font-weight:normal; cursor:pointer; border-radius:.6mm }
+  td.ocena b.wybrana{ background:var(--fiolet); color:#fff; font-weight:bold; box-shadow:0 0 0 .7mm var(--fiolet) }
+
+  .pasek{
+    position:fixed; right:6mm; bottom:6mm; z-index:99; display:flex; gap:2mm; align-items:center;
+    background:#fff; border:1px solid var(--ramka); border-radius:3mm; padding:2.4mm 3mm;
+    box-shadow:0 3px 14px rgba(45,27,105,.22); font-size:8pt;
+  }
+  .pasek button{
+    font-family:inherit; font-size:7.8pt; font-weight:bold; letter-spacing:.4px; cursor:pointer;
+    border:1px solid var(--fiolet); background:var(--fiolet); color:#fff; padding:1.8mm 3.4mm; border-radius:2mm;
+  }
+  .pasek button.wtorny{ background:#fff; color:var(--fiolet) }
+  .pasek button.wtorny:hover{ background:var(--zazn); border-color:var(--pomarancz); color:var(--pomarancz) }
+  .pasek .stan{ color:var(--szary); font-size:7.2pt; min-width:26mm }
+  .pasek .stan b{ color:var(--pomarancz) }
+
+  @media print{
+    .pasek{ display:none !important }
+    .pole-edyt:focus{ background:none !important; box-shadow:none !important }
+    .kwadrat{ cursor:auto }
+  }
+</style>
+
+<div class="pasek" role="toolbar" aria-label="Wypełnianie druku">
+  <span class="stan" id="pctp-stan">Druk interaktywny</span>
+  <button class="wtorny" type="button" id="pctp-czysc">Wyczyść</button>
+  <button type="button" id="pctp-drukuj">Drukuj</button>
+</div>
+
+<script>
+(function(){
+  "use strict";
+  var KLUCZ = "pctp:" + (document.title || location.pathname).replace(/\s+/g," ").trim();
+  var stan = document.getElementById("pctp-stan");
+  var zapisTimer = null;
+
+  /* — 1. skale ocen: każdy token staje się klikalny — */
+  Array.prototype.forEach.call(document.querySelectorAll("td.ocena"), function(td){
+    var tekst = td.textContent.trim();
+    if(!tekst) return;
+    td.textContent = "";
+    tekst.split(/\s+/).forEach(function(tok, i){
+      if(i) td.appendChild(document.createTextNode(" "));
+      var b = document.createElement("b");
+      b.textContent = tok;
+      td.appendChild(b);
+    });
+  });
+
+  /* — 2. pola do wpisywania — */
+  var SEL = [
+    ".linijki div",
+    "td.puste",
+    ".metryczka .wypelnij",
+    ".wybor .dopisz"
+  ].join(",");
+  var pola = Array.prototype.slice.call(document.querySelectorAll(SEL));
+  pola.forEach(function(el, i){
+    el.classList.add("pole-edyt");
+    el.setAttribute("contenteditable", "true");
+    el.setAttribute("data-pctp", "p" + i);
+    el.addEventListener("input", function(){
+      el.classList.toggle("wpisane", el.textContent.trim().length > 0);
+      zaplanujZapis();
+    });
+  });
+
+  /* — 3. kratki i kwadraty do zaznaczania — */
+  var kratki = Array.prototype.slice.call(document.querySelectorAll(".kwadrat, td.kratka span"));
+  kratki.forEach(function(el, i){
+    el.setAttribute("data-pctp", "k" + i);
+    el.setAttribute("role", "checkbox");
+    el.setAttribute("tabindex", "0");
+    el.addEventListener("click", function(){ el.classList.toggle("zazn"); zaplanujZapis(); });
+    el.addEventListener("keydown", function(e){
+      if(e.key === " " || e.key === "Enter"){ e.preventDefault(); el.click(); }
+    });
+  });
+
+  /* — 4. wybór na skali: jedna wartość w wierszu skali — */
+  var oceny = Array.prototype.slice.call(document.querySelectorAll("td.ocena"));
+  oceny.forEach(function(td, i){
+    td.setAttribute("data-pctp", "o" + i);
+    Array.prototype.forEach.call(td.querySelectorAll("b"), function(b){
+      b.addEventListener("click", function(){
+        var byla = b.classList.contains("wybrana");
+        Array.prototype.forEach.call(td.querySelectorAll("b"), function(x){ x.classList.remove("wybrana"); });
+        if(!byla) b.classList.add("wybrana");
+        zaplanujZapis();
+      });
+    });
+  });
+
+  /* — 5. zapis i odczyt — */
+  function zbierz(){
+    var d = { p:{}, k:[], o:{} };
+    pola.forEach(function(el){
+      var t = el.textContent.trim();
+      if(t) d.p[el.getAttribute("data-pctp")] = t;
+    });
+    kratki.forEach(function(el){
+      if(el.classList.contains("zazn")) d.k.push(el.getAttribute("data-pctp"));
+    });
+    oceny.forEach(function(td){
+      var w = td.querySelector("b.wybrana");
+      if(w) d.o[td.getAttribute("data-pctp")] = w.textContent;
+    });
+    return d;
+  }
+  function zapisz(){
+    try{
+      localStorage.setItem(KLUCZ, JSON.stringify(zbierz()));
+      pokaz("Zapisano <b>" + new Date().toLocaleTimeString("pl-PL", {hour:"2-digit", minute:"2-digit"}) + "</b>");
+    }catch(e){
+      pokaz("Zapis niedostępny");
+    }
+  }
+  function zaplanujZapis(){
+    clearTimeout(zapisTimer);
+    zapisTimer = setTimeout(zapisz, 700);
+  }
+  function pokaz(html){ if(stan) stan.innerHTML = html; }
+
+  function wczytaj(){
+    var s = null;
+    try{ s = localStorage.getItem(KLUCZ); }catch(e){ return; }
+    if(!s) return;
+    var d;
+    try{ d = JSON.parse(s); }catch(e){ return; }
+    pola.forEach(function(el){
+      var v = d.p && d.p[el.getAttribute("data-pctp")];
+      if(v){ el.textContent = v; el.classList.add("wpisane"); }
+    });
+    (d.k || []).forEach(function(id){
+      var el = document.querySelector('[data-pctp="' + id + '"]');
+      if(el) el.classList.add("zazn");
+    });
+    Object.keys(d.o || {}).forEach(function(id){
+      var td = document.querySelector('td[data-pctp="' + id + '"]');
+      if(!td) return;
+      Array.prototype.forEach.call(td.querySelectorAll("b"), function(b){
+        if(b.textContent === d.o[id]) b.classList.add("wybrana");
+      });
+    });
+    pokaz("Wczytano zapis");
+  }
+
+  /* — 6. przyciski — */
+  var bC = document.getElementById("pctp-czysc");
+  if(bC) bC.addEventListener("click", function(){
+    if(!confirm("Wyczyścić wszystkie wpisy w tym druku? Tej operacji nie da się cofnąć.")) return;
+    pola.forEach(function(el){ el.textContent = ""; el.classList.remove("wpisane"); });
+    kratki.forEach(function(el){ el.classList.remove("zazn"); });
+    Array.prototype.forEach.call(document.querySelectorAll("td.ocena b"), function(b){ b.classList.remove("wybrana"); });
+    try{ localStorage.removeItem(KLUCZ); }catch(e){}
+    pokaz("Wyczyszczono");
+  });
+  var bD = document.getElementById("pctp-drukuj");
+  if(bD) bD.addEventListener("click", function(){ window.print(); });
+
+  wczytaj();
+})();
+</script>
+
+
+</body>
+</html>

@@ -3,7 +3,7 @@
   "aplikacja": "EduPlaner 2026",
   "wydawca": "PCTP",
   "rok_szkolny": "2026/2027",
-  "wersja": "3.2.1",
+  "wersja": "3.3.0",
   "etap": "przedszkole",
   "indeks": "INDEKS_Kacik_Dyrektora.html",
   "logo": "../assets/logo-pctp.svg",
@@ -232,14 +232,6 @@
       "strona_od": 1,
       "strona_do": 6,
       "kategoria": "organizacja"
-    },
-    {
-      "sygnatura": "DW-1",
-      "nazwa": "Plan pracy przedszkola (warianty: ogólnodostępne, integracyjne, specjalne)",
-      "plik": "Kacik_Dyrektora_Plan_Pracy_PCTP",
-      "strona_od": 1,
-      "strona_do": 6,
-      "kategoria": "planowanie"
     },
     {
       "sygnatura": "DN-1",
@@ -482,6 +474,110 @@
       "kategoria": "wychowanie",
       "status": "fakultatywny",
       "uwaga": "art. 26 Prawa oświatowego nie ma zastosowania do przedszkoli; przy dobrowolnym przyjęciu zatwierdza rada pedagogiczna na podstawie art. 70 ust. 1 pkt 1"
+    },
+    {
+      "sygnatura": "DW-1",
+      "nazwa": "Plan pracy przedszkola ogólnodostępnego",
+      "plik": "Kacik_Dyrektora_Plany_Pracy_PCTP",
+      "strona_od": 1,
+      "strona_do": 4,
+      "kategoria": "planowanie"
+    },
+    {
+      "sygnatura": "DW-2",
+      "nazwa": "Plan pracy przedszkola integracyjnego",
+      "plik": "Kacik_Dyrektora_Plany_Pracy_PCTP",
+      "strona_od": 5,
+      "strona_do": 8,
+      "kategoria": "planowanie"
+    },
+    {
+      "sygnatura": "DW-3",
+      "nazwa": "Plan pracy przedszkola z oddziałami integracyjnymi",
+      "plik": "Kacik_Dyrektora_Plany_Pracy_PCTP",
+      "strona_od": 9,
+      "strona_do": 12,
+      "kategoria": "planowanie"
+    },
+    {
+      "sygnatura": "DW-4",
+      "nazwa": "Plan pracy przedszkola specjalnego",
+      "plik": "Kacik_Dyrektora_Plany_Pracy_PCTP",
+      "strona_od": 13,
+      "strona_do": 16,
+      "kategoria": "planowanie"
+    },
+    {
+      "sygnatura": "DW-5",
+      "nazwa": "Plan pracy przedszkola z oddziałami specjalnymi",
+      "plik": "Kacik_Dyrektora_Plany_Pracy_PCTP",
+      "strona_od": 17,
+      "strona_do": 20,
+      "kategoria": "planowanie"
+    },
+    {
+      "sygnatura": "RA-1",
+      "nazwa": "Obowiązkowe rady pedagogiczne — kalendarz i katalog kompetencji",
+      "plik": "Kacik_Dyrektora_Rady_Pedagogiczne_KOMPLET_PCTP",
+      "strona_od": 1,
+      "strona_do": 2,
+      "kategoria": "rada"
+    },
+    {
+      "sygnatura": "RA-2",
+      "nazwa": "Rada organizacyjna przed rozpoczęciem roku — sierpień",
+      "plik": "Kacik_Dyrektora_Rady_Pedagogiczne_KOMPLET_PCTP",
+      "strona_od": 3,
+      "strona_do": 6,
+      "kategoria": "rada"
+    },
+    {
+      "sygnatura": "RA-3",
+      "nazwa": "Rada — przedstawienie planu nadzoru, do 15 września",
+      "plik": "Kacik_Dyrektora_Rady_Pedagogiczne_KOMPLET_PCTP",
+      "strona_od": 7,
+      "strona_do": 8,
+      "kategoria": "rada"
+    },
+    {
+      "sygnatura": "RA-4",
+      "nazwa": "Rada półroczna — wnioski z nadzoru za I półrocze",
+      "plik": "Kacik_Dyrektora_Rady_Pedagogiczne_KOMPLET_PCTP",
+      "strona_od": 9,
+      "strona_do": 10,
+      "kategoria": "rada"
+    },
+    {
+      "sygnatura": "RA-5",
+      "nazwa": "Rada po zakończeniu rocznych zajęć — czerwiec",
+      "plik": "Kacik_Dyrektora_Rady_Pedagogiczne_KOMPLET_PCTP",
+      "strona_od": 11,
+      "strona_do": 12,
+      "kategoria": "rada"
+    },
+    {
+      "sygnatura": "RA-6",
+      "nazwa": "Rada — wyniki i wnioski z nadzoru, do 31 sierpnia",
+      "plik": "Kacik_Dyrektora_Rady_Pedagogiczne_KOMPLET_PCTP",
+      "strona_od": 13,
+      "strona_do": 14,
+      "kategoria": "rada"
+    },
+    {
+      "sygnatura": "RA-7",
+      "nazwa": "Uchwały rady — wzór, rejestr i tryb wstrzymania",
+      "plik": "Kacik_Dyrektora_Rady_Pedagogiczne_KOMPLET_PCTP",
+      "strona_od": 15,
+      "strona_do": 16,
+      "kategoria": "rada"
+    },
+    {
+      "sygnatura": "RA-8",
+      "nazwa": "Zwołanie rady, zarządzenia wykonawcze i kontrola dokumentacji",
+      "plik": "Kacik_Dyrektora_Rady_Pedagogiczne_KOMPLET_PCTP",
+      "strona_od": 17,
+      "strona_do": 17,
+      "kategoria": "rada"
     }
   ],
   "kategorie": {
@@ -519,12 +615,12 @@
     ]
   },
   "statystyki": {
-    "druki": 32,
-    "pliki": 12,
-    "strony_a4": 91,
+    "druki": 44,
+    "pliki": 13,
+    "strony_a4": 122,
     "druki_powiazane": 9,
     "pola_interaktywne": 3403,
-    "pliki_docx": 12
+    "pliki_docx": 13
   },
   "kierunki_polityki_oswiatowej_2026_2027": [
     "Wspieranie przedszkoli i szkół we wdrażaniu zmian wynikających z Reformy26. Kompas Jutra",
@@ -669,7 +765,8 @@
   "zmiany": {
     "3.1.1": "DB-1, DB-2, DB-3 — doprecyzowana podstawa prawna i zakres powiadomień: DB-1 wskazuje § 3 ust. 1 i 2 rozporządzenia MENiS z 31.12.2002 (kontrola co najmniej raz w roku, protokół, kopia dla organu prowadzącego); DB-2 wskazuje § 40–§ 44 i uzupełnia tabelę powiadomień o radę rodziców, kuratora oświaty oraz państwowego powiatowego inspektora sanitarnego przy zatruciu, a sekcję V o datę zatwierdzenia protokołu przez dyrektora; DB-3 uzupełnia podstawę o weryfikację personelu w KRK obok RSPTS, dodaje procedurę i szkolenie ze standardów ochrony małoletnich oraz zasady bezpiecznego korzystania z urządzeń elektronicznych i internetu.",
     "3.2.0": "Przegląd prawny całego kącika (audyt 30.08.2026 + rejestr przepisów, stan 21–23.08.2026): 128 poprawek w 13 plikach, oznaczonych w HTML na niebiesko (kolor tylko na ekranie). Cztery klasy błędów: (1) wygasłe teksty jednolite — Prawo oświatowe 2024/737 → 2026/820, nadzór pedagogiczny 2020/1551 → 2024/15, ochrona małoletnich 2024/560 → 2026/110, dokumentacja 2017/1646 → t.j. 2024/50; (2) akty powołane w nieistniejącym kształcie — organizacja przedszkoli 17.03.2017/649 → 28.02.2019, t.j. 2023/2736, kwalifikacje 2017 → MEiN 14.09.2023/2102, świadectwa 2019/1700 → MEiN 7.06.2023/1120; (3) terminy nieprzewidziane przepisem — standardy ochrony małoletnich nie mają terminu 15.08.2026, obowiązuje dwuletni cykl oceny z art. 22c ust. 6, a rozporządzenie o orzeczeniach (2026/428) obowiązuje zasadniczo od 14.04.2026, nie od 1.09.2026; (4) adresat obowiązku przy wypadku dziecka — rada rodziców, organ nadzoru pedagogicznego, państwowy inspektor sanitarny. Osobno: tabela ośmiu kierunków polityki oświatowej w DN-1, DW-1 i DZ-3 miała kierunek 5 rozbity na dwa wiersze, przez co numery 6–8 były przesunięte, a kierunek 8 nie występował — wszystkie trzy tabele mają teraz brzmienie z obwieszczenia, a odesłania w RP-2, PW-1 i DN-1 przenumerowano. Wykaz: POPRAWKI_2026-08-31.md.",
-    "3.2.1": "Drugi przebieg — kontrola merytoryczna (czy druk mówi to, co mówi przepis). 9 poprawek: indeks wymieniał przy wypadku czterech adresatów zamiast dziewięciu z poprawionego DB-2; termin wydania opinii o funkcjonowaniu biegnie od otrzymania prośby poradni, nie od wniosku (DR-1, DK-1, indeks); pozostałość „po nowelizacji\" w RP-2. Zweryfikowano i potwierdzono: § 23 ust. 1 (plan do 15 września) i § 24 (wyniki i wnioski do 31 sierpnia) zachowują numerację w tekście jednolitym Dz.U. 2024 poz. 15; statut do 31.12.2026 i zakaz urządzeń od 1.09.2026 także w przedszkolach; liczby kontrolne 32 druki / 91 stron / 12 plików .docx zgodne. Otwarte: 33 rozjazdy z kącikiem nauczyciela (te same akty, stare publikatory) — naruszenie zasady „druk odpowiada drukowi\", czeka na decyzję."
+    "3.2.1": "Drugi przebieg — kontrola merytoryczna (czy druk mówi to, co mówi przepis). 9 poprawek: indeks wymieniał przy wypadku czterech adresatów zamiast dziewięciu z poprawionego DB-2; termin wydania opinii o funkcjonowaniu biegnie od otrzymania prośby poradni, nie od wniosku (DR-1, DK-1, indeks); pozostałość „po nowelizacji\" w RP-2. Zweryfikowano i potwierdzono: § 23 ust. 1 (plan do 15 września) i § 24 (wyniki i wnioski do 31 sierpnia) zachowują numerację w tekście jednolitym Dz.U. 2024 poz. 15; statut do 31.12.2026 i zakaz urządzeń od 1.09.2026 także w przedszkolach; liczby kontrolne 32 druki / 91 stron / 12 plików .docx zgodne. Otwarte: 33 rozjazdy z kącikiem nauczyciela (te same akty, stare publikatory) — naruszenie zasady „druk odpowiada drukowi\", czeka na decyzję.",
+    "3.3.0": "Pięć odrębnych planów pracy zamiast jednego z wariantami: DW-1 ogólnodostępne (§ 5 — nie więcej niż 25), DW-2 integracyjne i DW-3 z oddziałami integracyjnymi (§ 6 — nie więcej niż 20, w tym nie więcej niż 5 niepełnosprawnych; dobór przez dyrektora za zgodą rodziców; dodatkowi nauczyciele z kwalifikacjami z pedagogiki specjalnej), DW-4 specjalne i DW-5 z oddziałami specjalnymi (§ 6 — limit zależny od rodzaju niepełnosprawności: 4 przy autyzmie i sprzężonych, 8 przy niesłyszących oraz NI umiarkowanej i znacznej, 10 przy niewidomych i słabowidzących, 12 przy niepełnosprawności ruchowej). Nowy plik: komplet dokumentów rad pedagogicznych RA-1…RA-8 — kalendarz pięciu obowiązkowych zebrań, katalog kompetencji stanowiących i opiniodawczych, protokół z porządkiem obrad, listą obecności, kworum i załącznikami dla każdej rady, wzór i rejestr uchwał oraz tryb wstrzymania uchwały niezgodnej z prawem. Podstawy zweryfikowane: art. 69 ust. 4-7, art. 70, art. 71 ust. 1, art. 72 ust. 1, art. 73 ust. 1 i 1a Prawa oświatowego, art. 22a ust. 6 ustawy o systemie oświaty, § 23 ust. 1 i § 24 rozporządzenia o nadzorze pedagogicznym."
   },
   "podstawa_prawna_zrodlo": {
     "audyt": "Co warto poprawić w materiałach Kącika dyrektora i Kącika nauczyciela — 30.08.2026",
