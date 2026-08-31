@@ -6,9 +6,18 @@
 **Marka:** fiolet `#2D1B69`, pomarańcz `#E8450A` (akcent i CTA), Arial
 **Łuk:** powitanie → co jest w środku → dlaczego warto → otwarty projekt → zaproszenie
 
-Narracja liczy 119 słów. Przy spokojnym tempie 125–135 słów na minutę
-to **56–61 sekund** z pauzami między scenami. Jeśli wyjdzie za długo,
-skróć scenę 2 — jest najbardziej „wyliczankowa".
+Narracja liczy 119 słów. **Zmierzone na Twoim głosie** („Ewa-głos_do skils",
+`eleven_multilingual_v2`): **63,3 s** i **66,1 s** w dwóch ujęciach —
+Twój klon czyta wolniej i spokojniej, niż zakładał szacunek ze słów na minutę.
+To dobra wiadomość dla brzmienia, gorsza dla stopera.
+
+Jeśli potrzebujesz zmieścić się **równo w 60 sekundach**, skreśl w scenie 2
+ostatnie zdanie: „Do tego moduł Zespół i Baza wiedzy z gotowymi wzorami."
+To ok. 4,5 s i najmniej boli — moduły wspólne i tak zostają na planszy.
+Drugie miejsce do cięcia: „Zbudowaną przez praktyków, dla praktyków" w scenie 1 (ok. 2,5 s).
+
+Jeśli spot idzie na Twoją stronę albo social media, gdzie nikt nie mierzy sekund —
+zostaw 63 s. Tempo jest lepsze niż skrócony tekst czytany szybciej.
 
 ---
 
@@ -116,6 +125,10 @@ a nie zamiast niej.
 
 Narracja czeka gotowa w `reklama/narracja.txt`, bez znaczników i didaskaliów —
 ElevenLabs czyta dosłownie wszystko, co dostanie.
+
+Głos jest już nagrany — `reklama/glos-wersja-1.mp3` i `glos-wersja-2.mp3`.
+Poniższa komenda odtwarza to lokalnie i dokłada napisy `.srt`, których wersja
+z tej sesji nie ma.
 
 ```bash
 # 1. Twój głos + dokładne napisy
