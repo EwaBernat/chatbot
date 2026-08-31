@@ -51,6 +51,9 @@ heygen avatar looks list --group-id <group_id>
 - Voice Name: Ewa-głos_do skils
 - Model: eleven_v3 (znaczniki reżyserii w `reklama/narracja-v3.txt`)
 - Ustawienia: `--stability 0.35 --style 0.45 --speed 0.95`
+- **Rytm: jedno zdanie = jeden akapit; wyliczenia po kropce, nie po przecinku.**
+  Pełny przepis, zatwierdzony odsłuchem:
+  `.claude/skills/dane-i-glos/references/rytm_i_pauzy.md`
 
 Kandydaci alternatywni: `MxdHRlURUZPVY5h2NiXH` (Ewa2, podobne tempo),
 `D0Yz6dyyxHOodq3Zqi45` (Ewa1, dużo wolniejszy — raczej na materiały szkoleniowe).

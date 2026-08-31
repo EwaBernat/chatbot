@@ -201,7 +201,9 @@ Najczęstsze przełączniki:
   Kolejność: `--voice-id` > `ELEVENLABS_VOICE_ID` > pamięć skilla > głos zapasowy.
   Gdy pamięć jest pusta, skrypt **ostrzega**, że mówi cudzym głosem
 - `--glosy` — wypisz wszystkie głosy z konta i ich `voice_id`
-- `--model eleven_multilingual_v2` — domyślny, najlepszy dla polszczyzny
+- `--model eleven_v3` — **do materiałów, które mają brzmieć ciepło**; czyta
+  znaczniki reżyserii w nawiasach i ich nie wypowiada. `eleven_multilingual_v2`
+  jest szybszy i pewny, ale czyta płasko
 - `--srt napisy.srt` — napisy z rzeczywistymi znacznikami czasu z ElevenLabs
 - `--stability 0.6 --similarity 0.75 --speed 1.0` — barwa i tempo
 - `--suchy-bieg` — policz znaki bez wywołania API
@@ -213,6 +215,10 @@ Skrypt sam dzieli długi tekst na fragmenty poniżej limitu znaków, zachowuje c
 polszczyznę daje wyłącznie klon z etapu 0 — dlatego to on jest domyślny.
 
 Szczegóły API, modele, limity i kody błędów: `references/elevenlabs.md`.
+
+**Zanim wygenerujesz pierwsze nagranie, przeczytaj `references/rytm_i_pauzy.md`** —
+sprawdzony przepis na pauzy, tempo i ciepło. Bez niego wychodzi poprawnie,
+ale płasko, a wyliczenia brzmią jak katarynka.
 
 ## Etap 4b — Twarz i Twój głos (HeyGen)
 
@@ -300,6 +306,7 @@ zestaw po cichu.
 - `references/klon_glosu.md` — jak nagrać próbki i sklonować głos (etap 0)
 - `references/narracja.md` — zasady pisania pod polskiego lektora, wzorce zdań, przykłady
 - `references/elevenlabs.md` — API, modele, limity, głosy, rozwiązywanie błędów
+- `references/rytm_i_pauzy.md` — pauzy, tempo i ciepło: przepis sprawdzony odsłuchem
 - `references/heygen.md` — awatary, klon głosu, kredyty, dwie drogi głosu, kody błędów
 - `assets/remotion/` — szablon filmu (React + Remotion), z opisem palety i renderu
 - `assets/przyklad_dane.csv` — dane testowe do sprawdzenia całej ścieżki
