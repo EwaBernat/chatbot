@@ -4,6 +4,21 @@ Ten plik to instrukcja uruchomienia. Skille HeyGen są już w repozytorium — b
 tylko klucza API i **uruchomienia Claude Code lokalnie**, bo sesja webowa nie ma
 dostępu do serwerów HeyGen (szczegóły niżej).
 
+## Twoja droga — lista kontrolna
+
+Wybrane ustalenia: **Claude Code lokalnie** + **klon głosu w HeyGen**.
+
+- [ ] 1. Klucz API z `app.heygen.com` → `export HEYGEN_API_KEY` w `~/.zshrc` (krok 1)
+- [ ] 2. Sklonuj to repozytorium u siebie i otwórz w nim Claude Code
+- [ ] 3. Zainstaluj CLI HeyGen, sprawdź `heygen --version` (krok 2)
+- [ ] 4. Sklonuj swój głos w `app.heygen.com` → Voice Cloning (krok 3a) — **zrób to przed awatarem**
+- [ ] 5. Przygotuj zdjęcie portretowe albo krótkie nagranie wideo (krok 3b)
+- [ ] 6. W Claude Code: „stwórz mój awatar — moja twarz i mój głos" (krok 3)
+- [ ] 7. Test dymny, potem pierwszy prawdziwy film (krok 5)
+
+Kroki 4 i 5 możesz zrobić równolegle — klonowanie głosu w HeyGen chwilę trwa,
+a zdjęcie i tak przyda się dopiero w kroku 6.
+
 ## Co jest zainstalowane
 
 W `.claude/skills/` leżą trzy oficjalne skille HeyGen (wersja 3.2.0, z
@@ -93,7 +108,39 @@ Skill `heygen-avatar` poprowadzi rozmowę fazami, po jednym–dwóch pytaniach:
 wygląd, głos, potwierdzenie promptu, wybór głosu. **Przed wygenerowaniem awatara
 jest gate — nic się nie tworzy i żaden kredyt nie schodzi, dopóki nie zatwierdzisz.**
 
-### Twoja twarz — trzy drogi
+### Krok 3a — Twój głos (zrób to jako pierwsze)
+
+Skill `heygen-avatar` sam **nie klonuje głosu** — potrafi tylko dobrać gotowy głos
+z katalogu HeyGen (`design_voice` / `list_voices`). Klon powstaje w aplikacji webowej:
+
+1. `app.heygen.com` → **Voice Cloning** → nagraj albo wgraj próbki.
+   Nadaj mu nazwę, po której go rozpoznasz (np. „Ewa PL").
+2. Po przetworzeniu sprawdź z terminala, że API go widzi:
+
+   ```bash
+   heygen voice list --type private
+   ```
+
+   Szukaj po **nazwie, którą sama nadałaś** — nie po opisie.
+3. Zapisz `voice_id`. Skill wstawi je do sekcji `## HeyGen` w `AVATAR-<IMIĘ>.md`,
+   albo możesz je podać w rozmowie, gdy skill zapyta o głos.
+
+Materiał: kilka minut czystego nagrania po polsku, bez pogłosu i szumu tła,
+w tempie i tonie, jakich chcesz używać w filmach.
+
+**Klon zostaje w HeyGen.** API zwraca tylko `voice_id` — nie da się pobrać modelu
+głosu ani przenieść go do innej usługi. Dlatego **nagrania wzorcowe trzymaj u siebie
+na dysku**: to jedyny materiał, z którego można głos odtworzyć gdziekolwiek indziej.
+
+*Alternatywa, gdybyś kiedyś chciała ten sam głos poza HeyGenem:* skill `dane-i-glos`
+ma skrypt do klonowania w ElevenLabs (`elevenlabs_klon_glosu.py`) — z tych samych
+nagrań wzorcowych. Wtedy generujesz MP3 osobno i podajesz je jako ścieżkę audio
+(`heygen_awatar.py --audio glos.mp3`). Krok więcej, ale dokładniejsze napisy SRT
+i pełna kontrola nad brzmieniem.
+
+**Klonuj wyłącznie własny głos** albo głos osoby, która wyraziła wyraźną zgodę.
+
+### Krok 3b — Twoja twarz
 
 | Materiał | Typ | Efekt |
 |---|---|---|
@@ -105,33 +152,6 @@ Skoro ma być **Twój wygląd**, wybierz `photo` albo `digital_twin`.
 Wymagania dla zdjęcia: JPEG/PNG, minimum 512×512, twarz na wprost, dobre światło.
 
 Zdjęcie trzymaj lokalnie — skill wgra je do HeyGen dopiero na Twoją wyraźną prośbę.
-
-### Twój głos — dwie drogi
-
-Skill `heygen-avatar` sam **nie klonuje głosu** — potrafi tylko dobrać głos
-z katalogu HeyGen (`design_voice` / `list_voices`). Żeby awatar mówił *Twoim* głosem:
-
-1. **Klon w HeyGen** — sklonuj głos w aplikacji `app.heygen.com` (Voice Cloning).
-   Potem pojawi się jako głos prywatny i skill go znajdzie:
-   ```bash
-   heygen voice list --type private
-   ```
-   Jego `voice_id` wpisujesz do sekcji `## HeyGen` w pliku `AVATAR-<IMIĘ>.md`.
-   Klon zostaje w HeyGen — API nie pozwala go pobrać ani przenieść.
-
-2. **Klon w ElevenLabs** — masz do tego gotowy skrypt w skillu `dane-i-glos`:
-   ```bash
-   python3 .claude/skills/dane-i-glos/scripts/elevenlabs_klon_glosu.py "Ewa - narracja PL" probki/*.wav
-   ```
-   Wtedy generujesz MP3 osobno i podajesz je HeyGenowi jako ścieżkę audio
-   (`scripts/heygen_awatar.py --audio glos.mp3`). Daje pełną kontrolę nad brzmieniem
-   i dokładne napisy SRT, kosztem jednego kroku więcej.
-
-Jeśli chcesz mieć swój głos po obu stronach — sklonuj go dwa razy, z tych samych
-nagrań wzorcowych. Nagrania trzymaj u siebie na dysku, to jedyny materiał,
-z którego można głos odtworzyć gdziekolwiek.
-
-**Klonuj wyłącznie własny głos** albo głos osoby, która wyraziła wyraźną zgodę.
 
 ## Krok 4 — pliki awatara
 
