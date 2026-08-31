@@ -59,18 +59,29 @@
     "domyslny": "assets/podpis-klasyczny.svg"
   },
   "logo": {
-    "plik": "assets/logo/pctp-logo.svg",
-    "status": "odtworzone wektorowo z podglądu — do podmiany na oryginał",
-    "opis": "fioletowe koło z jasną obwódką, kwiat o pięciu płatkach (pomarańcz + wrzos), napis PCTP szeryfowy"
+    "plik": "assets/logo/pctp-logo.webp",
+    "plik_png": "assets/logo/pctp-logo.png",
+    "status": "oryginał od autorki (sierpień 2026) — zastąpił wcześniejszą rekonstrukcję wektorową",
+    "opis": "fioletowa tarcza z jasnym pierścieniem, pięciopłatkowy kwiat (pomarańcz + wrzos), szeryfowe PCTP",
+    "uzycie": "na jasnym tle wstaw w białym kole o średnicy ok. 1,3× logo — tarcza jest ciemna i sama zlewa się z ciemnym tłem"
   },
   "glos": {
     "skill": "glos-i-awatar",
-    "opis": "lektor z jednego długiego nagrania, cięty automatycznie na slajdy"
+    "probki": {
+      "nagranie_wlasne": "glos-i-awatar/assets/probka-glosu.mp3 — 98 s, z nagrania szkoleniowego po Studio Sound",
+      "ewa3": "glos-i-awatar/assets/probka-glosu-ewa3.mp3 — 67 s, spot EduPlaner, głos ciepła wersja 3"
+    },
+    "opis": "lektor z jednego długiego nagrania, cięty automatycznie na slajdy; klony w ElevenLabs: Ewa1, Ewa2 (odrzucone), Ewa3"
   },
   "formuly": {
     "stopka_krotka": "Opracowanie: Mirosława Ewa Jurczyszyn · PCTP Koszalin",
     "stopka_pelna": "Opracowanie: Mirosława Ewa Jurczyszyn · Pomorskie Centrum Terapii Pedagogicznej w Koszalinie · kontakt@eduplaner2026.pl",
     "plansza_konca": "Mirosława Ewa Jurczyszyn\nPomorskie Centrum Terapii Pedagogicznej · Koszalin\nkontakt@eduplaner2026.pl · [usunięto]",
     "prawa": "© 2026 Mirosława Ewa Jurczyszyn. Materiał do użytku wewnętrznego placówki."
+  },
+  "awatar": {
+    "zdjecie": "glos-i-awatar/assets/awatar-warsztaty.png",
+    "opis": "kadr z fotografii autorki — czerwona bluzka z książką; wariant „warsztaty” z awatary.json",
+    "uzycie": "kółko 232 px przy prawej krawędzi slajdu albo układ pół na pół"
   }
 }

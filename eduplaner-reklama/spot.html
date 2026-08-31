@@ -1,0 +1,169 @@
+<!doctype html><html lang="pl"><head><meta charset="utf-8">
+<title>EduPlaner 2026 — spot</title>
+
+
+<style>
+:root{--mgla:#F3EFFA;--jasna:#E2D9F2;--pastel:#CBBCE6;--lawenda:#A88FD0;
+--ciemna:#5D4A8A;--noc:#2E2352;--gleb:#1E1738;--latte:#D8C4AE;--latte-j:#F4EBE0;
+--pomar:#E8A263;--pomar-m:#D97A2B;--biel:#FBF8F4}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:#000;font-family:'DejaVu Sans',system-ui,sans-serif}
+.scena{position:relative;width:1920px;height:1080px;display:none;overflow:hidden;
+ background:radial-gradient(120% 100% at 20% -10%,var(--ciemna) 0%,var(--noc) 45%,var(--gleb) 100%);
+ color:#fff}
+.scena:target,.scena.pokaz{display:block}
+.pole{position:absolute;inset:0;padding:104px 120px;display:flex;flex-direction:column;justify-content:center}
+.awatar{position:absolute;right:64px;bottom:64px;width:236px;height:236px;border-radius:50%;
+ object-fit:cover;border:6px solid var(--pastel);box-shadow:0 26px 60px -18px rgba(0,0,0,.75)}
+.marka{display:flex;align-items:center;gap:24px;margin-bottom:44px}
+.logo{width:104px;height:104px;border-radius:50%;background:#fff;padding:0}
+.mn{font-size:26px;font-weight:800;letter-spacing:3px}
+.mo{font-size:17px;color:var(--pastel);letter-spacing:.8px;margin-top:3px}
+.wielki{font-size:132px;font-weight:800;letter-spacing:-4px;line-height:.96}
+.rok{color:var(--pomar);margin-left:18px}
+.lead{font-size:38px;color:var(--jasna);margin-top:18px}
+.haslo{font-size:44px;color:var(--jasna);margin-top:22px}
+.haslo b{color:#fff}
+.autor{margin-top:52px;font-size:36px;font-weight:800}
+.etyk{display:block;font-size:15px;font-weight:600;letter-spacing:3px;text-transform:uppercase;
+ color:var(--pastel);margin-bottom:8px}
+.fn{display:block;font-size:21px;font-weight:400;color:var(--pastel);margin-top:8px}
+.oko{font-size:18px;font-weight:600;letter-spacing:6px;text-transform:uppercase;color:var(--pomar);margin-bottom:26px}
+h2{font-size:66px;font-weight:800;line-height:1.12;letter-spacing:-1.6px;max-width:1400px}
+h2 b{color:var(--pastel)}
+h2.duzy{font-size:88px;line-height:1.08;letter-spacing:-2.4px}
+.pod{font-size:38px;color:var(--jasna);margin-top:26px}
+.pod b{color:var(--pomar)}
+.cytat .znak{font-size:170px;line-height:.5;color:var(--lawenda);opacity:.5;margin-bottom:34px}
+.szafa{margin-top:54px;display:flex;flex-direction:column;gap:20px;max-width:1180px}
+.polka{display:flex;gap:20px}
+.polka span{flex:1;height:96px;border-radius:12px;background:rgba(203,188,230,.16);
+ border:1px solid rgba(203,188,230,.34)}
+.polka:nth-child(2) span:nth-child(2){background:rgba(232,162,99,.3);border-color:var(--pomar)}
+.kafle{display:grid;gap:20px;margin-top:14px}
+.kafle.p5{grid-template-columns:repeat(5,1fr)}
+.kafle.p2{grid-template-columns:repeat(2,1fr);margin-top:34px}
+.kafel{background:rgba(255,255,255,.07);border:1px solid rgba(203,188,230,.3);border-radius:16px;
+ padding:30px 26px 32px}
+.kafel .nr{display:block;font-size:16px;font-weight:800;letter-spacing:2px;color:var(--pomar);margin-bottom:16px}
+.kafel b{display:block;font-size:34px;font-weight:800;letter-spacing:-.6px}
+.kafel i{display:block;font-style:normal;font-size:20px;color:var(--pastel);margin-top:10px;line-height:1.4}
+.kafel.duzyk{padding:44px 40px 48px}
+.kafel.duzyk b{font-size:48px}
+.kafel.duzyk i{font-size:24px;margin-top:14px}
+.os{margin-top:66px;max-width:1420px}
+.linia{height:4px;border-radius:2px;
+ background:linear-gradient(90deg,var(--lawenda),var(--pomar));margin-bottom:26px}
+.punkty{display:flex;justify-content:space-between}
+.punkty span{font-size:24px;color:var(--jasna);position:relative;padding-top:22px}
+.punkty span::before{content:"";position:absolute;top:-40px;left:50%;transform:translateX(-50%);
+ width:18px;height:18px;border-radius:50%;background:var(--pomar)}
+.trzy{display:flex;flex-direction:column;gap:34px}
+.nie{font-size:70px;font-weight:800;letter-spacing:-1.4px;color:var(--jasna)}
+.nie span{color:var(--pomar);margin-right:22px}
+.cta .kontakt,.tytul .kontakt{margin-top:52px;font-size:24px;color:var(--pastel);letter-spacing:1px}
+</style></head><body>
+<section class="scena tytul" id="s1">
+  <div class="pole">
+   <div class="marka"><img class="logo" src="../film-szkolenie/public/logo/pctp-logo.png"><div>
+     <div class="mn">PCTP</div><div class="mo">Pomorskie Centrum Terapii Pedagogicznej</div></div></div>
+   <h1 class="wielki">EduPlaner<span class="rok">2026</span></h1>
+   <p class="lead">Cyfrowa szafa dla przedszkola i szkoły</p>
+   <div class="autor"><span class="etyk">Autorka</span>Mirosława Ewa Jurczyszyn<span class="fn">pedagog specjalny</span></div></div>
+  <img class="awatar" src="../film-szkolenie/public/awatar/warsztaty.png">
+</section>
+<section class="scena srodek" id="s2">
+  <div class="pole">
+   <div class="oko">Cyfrowa szafa</div>
+   <h2>Cała dokumentacja przedszkola i szkoły<br><b>w jednym miejscu</b></h2>
+   <div class="szafa">
+     <div class="polka"><span></span><span></span><span></span></div>
+     <div class="polka"><span></span><span></span><span></span></div>
+     <div class="polka"><span></span><span></span><span></span></div>
+   </div></div>
+  <img class="awatar" src="../film-szkolenie/public/awatar/warsztaty.png">
+</section>
+<section class="scena cytat" id="s3">
+  <div class="pole">
+   <div class="znak">„</div>
+   <h2 class="duzy">Zbudowana przez praktyków<br>dla praktyków</h2></div>
+  <img class="awatar" src="../film-szkolenie/public/awatar/warsztaty.png">
+</section>
+<section class="scena srodek" id="s4">
+  <div class="pole">
+   <div class="oko">Ścieżka dziecka</div>
+   <div class="kafle p5">
+     <div class="kafel"><span class="nr">01</span><b>Metryczka</b><i>zgłoszenie, zgody, RODO</i></div>
+     <div class="kafel"><span class="nr">02</span><b>WOPF</b><i>ocena oparta na ICF</i></div>
+     <div class="kafel"><span class="nr">03</span><b>Plan wsparcia</b><i>IPET / PEWS</i></div>
+     <div class="kafel"><span class="nr">04</span><b>Realizacja</b><i>dziennik i zajęcia</i></div>
+     <div class="kafel"><span class="nr">05</span><b>Ewaluacja</b><i>oś czasu i raporty</i></div>
+   </div></div>
+  <img class="awatar" src="../film-szkolenie/public/awatar/warsztaty.png">
+</section>
+<section class="scena srodek" id="s5">
+  <div class="pole">
+   <h2>Od zgłoszenia po podsumowanie —<br><b>jeden logiczny ciąg</b></h2>
+   <div class="os">
+     <div class="linia"></div>
+     <div class="punkty"><span>zgłoszenie</span><span>ocena</span><span>plan</span><span>praca</span><span>podsumowanie</span></div>
+   </div></div>
+  <img class="awatar" src="../film-szkolenie/public/awatar/warsztaty.png">
+</section>
+<section class="scena srodek" id="s6">
+  <div class="pole">
+   <div class="oko">Moduły wspólne</div>
+   <div class="kafle p2">
+     <div class="kafel duzyk"><b>Zespół</b><i>koordynacja pracy specjalistów</i></div>
+     <div class="kafel duzyk"><b>Baza wiedzy</b><i>biblioteka gotowych wzorów i konspektów</i></div>
+   </div></div>
+  <img class="awatar" src="../film-szkolenie/public/awatar/warsztaty.png">
+</section>
+<section class="scena srodek" id="s7">
+  <div class="pole">
+   <div class="trzy">
+     <div class="nie"><span>nie</span>szukasz</div>
+     <div class="nie"><span>nie</span>piszesz od zera</div>
+     <div class="nie"><span>nie</span>martwisz się o przepisy</div>
+   </div></div>
+  <img class="awatar" src="../film-szkolenie/public/awatar/warsztaty.png">
+</section>
+<section class="scena srodek" id="s8">
+  <div class="pole">
+   <h2 class="duzy">Szybciej. Spokojniej. Pewniej.</h2>
+   <p class="pod">A w zamian dostajesz <b>czas</b>.</p></div>
+  <img class="awatar" src="../film-szkolenie/public/awatar/warsztaty.png">
+</section>
+<section class="scena cytat" id="s9">
+  <div class="pole">
+   <h2 class="duzy">Dla dziecka.<br>Dla ucznia.<br><b>Dla siebie.</b></h2></div>
+  <img class="awatar" src="../film-szkolenie/public/awatar/warsztaty.png">
+</section>
+<section class="scena srodek" id="s10">
+  <div class="pole">
+   <div class="oko">Projekt otwarty</div>
+   <h2>Zmienia się prawo.<br>Aplikacja zmienia się <b>razem z Tobą</b></h2>
+   <p class="pod">bo to Ty jesteś jej współautorką.</p></div>
+  <img class="awatar" src="../film-szkolenie/public/awatar/warsztaty.png">
+</section>
+<section class="scena cta" id="s11">
+  <div class="pole">
+   <div class="oko">Zrób pierwszy krok</div>
+   <h2 class="duzy">Wypełnij formularz<br>analizy potrzeb</h2>
+   <p class="pod">Powiedz nam, czego potrzebuje Twoja placówka.</p>
+   <div class="kontakt">kontakt@eduplaner2026.pl &nbsp;·&nbsp; eduplaner2026.pl</div></div>
+  <img class="awatar" src="../film-szkolenie/public/awatar/warsztaty.png">
+</section>
+<section class="scena tytul" id="s12">
+  <div class="pole">
+   <div class="marka"><img class="logo" src="../film-szkolenie/public/logo/pctp-logo.png"><div>
+     <div class="mn">PCTP</div><div class="mo">Pomorskie Centrum Terapii Pedagogicznej</div></div></div>
+   <h1 class="wielki">EduPlaner<span class="rok">2026</span></h1>
+   <p class="haslo">Mniej dokumentów. <b>Więcej edukacji.</b></p>
+   <div class="kontakt">kontakt@eduplaner2026.pl &nbsp;·&nbsp; eduplaner2026.pl</div></div>
+  <img class="awatar" src="../film-szkolenie/public/awatar/warsztaty.png">
+</section>
+<script>
+if(!location.hash) document.getElementById('s1').classList.add('pokaz');
+</script>
+</body></html>

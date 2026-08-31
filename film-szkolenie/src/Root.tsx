@@ -30,7 +30,7 @@ export const RemotionRoot: React.FC = () => {
           audioIntro: 'audio/czesc1/intro.wav',
           logo: 'logo/pctp-logo.png',
           fotoTytulowe: 'media/07-zabawa.jpg',
-          awatar: '',
+          awatar: 'awatar/warsztaty.png',
         }}
       />
       <Composition
@@ -48,7 +48,7 @@ export const RemotionRoot: React.FC = () => {
           intro: INTRO,
           outro: OUTRO,
           logo: 'logo/pctp-logo.png',
-          awatar: '',
+          awatar: 'awatar/warsztaty.png',
         }}
       />
       <Composition
@@ -66,7 +66,7 @@ export const RemotionRoot: React.FC = () => {
           intro: INTRO,
           outro: OUTRO,
           logo: 'logo/pctp-logo.png',
-          awatar: '',
+          awatar: 'awatar/warsztaty.png',
         }}
       />
     </>
