@@ -28,7 +28,8 @@ export const RemotionRoot: React.FC = () => {
           intro: INTRO,
           outro: OUTRO,
           audioIntro: 'audio/czesc1/intro.wav',
-          logo: 'logo/pctp-logo.svg',
+          logo: 'logo/pctp-logo.png',
+          fotoTytulowe: 'media/07-zabawa.jpg',
           awatar: '',
         }}
       />
@@ -46,7 +47,7 @@ export const RemotionRoot: React.FC = () => {
           podtytul: 'Mosty społeczne w klasach 1–3',
           intro: INTRO,
           outro: OUTRO,
-          logo: 'logo/pctp-logo.svg',
+          logo: 'logo/pctp-logo.png',
           awatar: '',
         }}
       />
@@ -64,7 +65,7 @@ export const RemotionRoot: React.FC = () => {
           podtytul: 'Teoria umysłu w 45 minut',
           intro: INTRO,
           outro: OUTRO,
-          logo: 'logo/pctp-logo.svg',
+          logo: 'logo/pctp-logo.png',
           awatar: '',
         }}
       />

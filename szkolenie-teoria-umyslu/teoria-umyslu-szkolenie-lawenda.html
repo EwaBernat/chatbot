@@ -1,0 +1,980 @@
+<title>Budowanie mostów społecznych</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Figtree:wght@500;700;800&family=Source+Sans+3:ital,wght@0,400;0,600;0,700;1,400&family=Lora:ital,wght@1,400;1,500&display=swap">
+<style>
+/* ===================== TOKENY ===================== */
+:root{
+  --forest:#2E2352;
+  --forest-2:#3E2E63;
+  --green:#5D4A8A;
+  --green-2:#A88FD0;
+  --green-3:#CBBCE6;
+  --sage:#EDE7F6;
+  --sage-2:#F3EFFA;
+  --paper:#FBF8F4;
+  --white:#FFFFFF;
+  --line:#E0D6CB;
+  --line-2:#D8C4AE;
+  --ink:#2E2352;
+  --ink-2:#6B6180;
+  --amber:#D97A2B;
+  --amber-ink:#A9581A;
+  --amber-soft:#F7E9DA;
+  --sky:#F4EBE0;
+  --sky-line:#D8C4AE;
+  --sky-ink:#8C7259;
+  --red:#C4453B;
+  --red-soft:#FAEAE8;
+  --s:1;
+  font-synthesis-weight:none;
+}
+*{box-sizing:border-box}
+body{
+  margin:0;overflow:hidden;color:var(--ink);
+  font-family:"Source Sans 3","Segoe UI",system-ui,sans-serif;
+  background:#182A1E;
+  background-image:radial-gradient(120% 100% at 50% -25%, #35573E 0%, #223A29 48%, #14231A 100%);
+  -webkit-font-smoothing:antialiased;
+}
+
+/* ===================== SCENA ===================== */
+#stage{position:fixed;inset:0;display:grid;place-items:center}
+#deck{width:1280px;height:720px;transform:scale(var(--s));transform-origin:center center;position:relative}
+.slide{
+  position:absolute;inset:0;width:1280px;height:720px;
+  background:var(--paper);border-radius:8px;overflow:hidden;
+  padding:46px 60px 54px 86px;display:none;
+  box-shadow:0 40px 90px -30px rgba(0,0,0,.7), 0 0 0 1px rgba(255,255,255,.05);
+}
+.slide.on{display:block;animation:in .32s cubic-bezier(.22,.9,.3,1) both}
+@keyframes in{from{opacity:0;transform:translateY(9px)}to{opacity:1;transform:none}}
+@media (prefers-reduced-motion:reduce){.slide.on{animation:none}}
+
+/* tor kolejowy — lewa krawędź każdego slajdu */
+.slide::before{
+  content:"";position:absolute;left:0;top:0;bottom:0;width:26px;background:var(--forest);
+}
+.slide::after{
+  content:"";position:absolute;left:5px;top:0;bottom:0;width:16px;
+  background:
+    linear-gradient(var(--green-3),var(--green-3)) 1px 0/1.5px 100% repeat-y,
+    linear-gradient(var(--green-3),var(--green-3)) 13px 0/1.5px 100% repeat-y,
+    repeating-linear-gradient(180deg, rgba(156,196,166,.85) 0 2px, transparent 2px 11px);
+  opacity:.65;
+}
+.num{position:absolute;right:26px;bottom:18px;font:700 12px/1 "Source Sans 3",sans-serif;
+  letter-spacing:.18em;color:var(--ink-2);opacity:.7;font-variant-numeric:tabular-nums}
+.tag{position:absolute;left:86px;bottom:20px;font:700 10.5px/1 "Source Sans 3",sans-serif;
+  letter-spacing:.24em;text-transform:uppercase;color:var(--green)}
+
+/* ===================== TYPOGRAFIA ===================== */
+.eyebrow{font:700 11.5px/1 "Source Sans 3",sans-serif;letter-spacing:.26em;text-transform:uppercase;
+  color:var(--green);margin:0 0 13px;display:flex;align-items:center;gap:11px}
+.eyebrow::after{content:"";height:1px;flex:1;background:var(--line-2)}
+h1{font-family:"Figtree",sans-serif;font-weight:800;font-size:70px;line-height:.97;letter-spacing:-.028em;margin:0;text-wrap:balance;color:var(--ink)}
+h2{font-family:"Figtree",sans-serif;font-weight:800;font-size:40px;line-height:1.06;letter-spacing:-.02em;margin:0 0 16px;text-wrap:balance;color:var(--forest)}
+h3{font-family:"Figtree",sans-serif;font-weight:700;font-size:20px;line-height:1.16;margin:0 0 7px;color:var(--forest-2)}
+h4{font-family:"Figtree",sans-serif;font-weight:700;font-size:16px;line-height:1.2;margin:0 0 5px;color:var(--green)}
+p{margin:0 0 11px;font-size:17.5px;line-height:1.48;color:var(--ink-2)}
+p:last-child{margin-bottom:0}
+.lead{font-size:21px;line-height:1.4;color:var(--ink)}
+.small{font-size:14.5px;line-height:1.45}
+strong{color:var(--ink);font-weight:700}
+em.q{font-family:"Lora",Georgia,serif;font-style:italic;color:var(--forest-2)}
+.quote{font-family:"Lora",Georgia,serif;font-style:italic;font-weight:400;font-size:24px;line-height:1.34;color:var(--forest-2)}
+
+/* ===================== SIATKI ===================== */
+.cols{display:grid;gap:24px}
+.c2{grid-template-columns:1fr 1fr}
+.c3{grid-template-columns:repeat(3,1fr)}
+.c4{grid-template-columns:repeat(4,1fr)}
+.c5{grid-template-columns:repeat(5,1fr)}
+.c-73{grid-template-columns:1.4fr 1fr}
+.c-37{grid-template-columns:1fr 1.4fr}
+.stack{display:flex;flex-direction:column;gap:13px}
+.gs{gap:13px}
+
+/* ===================== KOMPONENTY ===================== */
+.card{background:var(--white);border:1px solid var(--line);border-radius:7px;padding:18px 20px}
+.card p{font-size:15.5px;line-height:1.44}
+.card.soft{background:var(--sage-2);border-color:transparent}
+.card.top{border-top:4px solid var(--green)}
+.dark{background:var(--forest);color:#E7F0E6;border-radius:7px;padding:22px 26px}
+.dark p{color:#C3D6C4}
+.dark .lead,.dark strong{color:#fff}
+.dark h3{color:#A8D0B2}
+.dark ul.dots li{color:#C3D6C4}
+.dark ul.dots li::before{background:var(--green-3)}
+.dark .small{color:#B7CDB9}
+
+.chip{display:inline-flex;align-items:center;gap:7px;font:700 11px/1 "Source Sans 3",sans-serif;
+  letter-spacing:.14em;text-transform:uppercase;padding:6px 10px;border-radius:4px;background:var(--sage);color:var(--forest-2)}
+.chip.a{background:var(--amber-soft);color:var(--amber-ink)}
+.chip.s{background:var(--sky);color:var(--sky-ink)}
+.chip.r{background:var(--red-soft);color:var(--red)}
+.pill{display:inline-block;padding:5px 12px;border-radius:99px;background:var(--green);color:#fff;
+  font:700 12px/1.35 "Source Sans 3",sans-serif;letter-spacing:.08em}
+.kicker{font:700 11px/1 "Source Sans 3",sans-serif;letter-spacing:.2em;text-transform:uppercase;color:var(--ink-2)}
+.age{display:inline-flex;flex-direction:column;align-items:center;justify-content:center;
+  min-width:60px;padding:7px 9px;border-radius:7px;background:var(--green);color:#fff;
+  font-family:"Figtree",sans-serif;font-weight:800;font-size:19px;line-height:1;letter-spacing:-.02em}
+.age span{font:600 10px/1.3 "Source Sans 3",sans-serif;letter-spacing:.1em;opacity:.85;margin-top:3px}
+.n{font-family:"Figtree",sans-serif;font-weight:800;font-variant-numeric:tabular-nums;color:var(--green);letter-spacing:-.03em}
+.circ{width:34px;height:34px;border-radius:50%;background:var(--green);color:#fff;display:grid;place-items:center;
+  font:800 16px/1 "Figtree",sans-serif;flex:0 0 auto}
+
+ul.dots,ul.ticks{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:8px}
+ul.dots li{position:relative;padding-left:19px;font-size:16px;line-height:1.4;color:var(--ink-2)}
+ul.dots li::before{content:"";position:absolute;left:2px;top:8px;width:6px;height:6px;border-radius:50%;background:var(--green)}
+ul.ticks li{position:relative;padding-left:28px;font-size:16px;line-height:1.4;color:var(--ink-2)}
+ul.ticks li::before{content:"";position:absolute;left:0;top:2px;width:16px;height:16px;border:1.5px solid var(--line-2);border-radius:3px;background:var(--white)}
+
+.hr{height:1px;background:var(--line);border:0;margin:0}
+.track{height:13px;background:
+  linear-gradient(var(--line-2),var(--line-2)) 0 1px/100% 1.5px repeat-x,
+  linear-gradient(var(--line-2),var(--line-2)) 0 10px/100% 1.5px repeat-x,
+  repeating-linear-gradient(90deg, var(--line-2) 0 2px, transparent 2px 10px);
+  opacity:.8}
+
+/* zamiast → powiedz */
+.swap{display:grid;grid-template-columns:1fr 26px 1.2fr;align-items:center;gap:0 10px;padding:10px 0;border-bottom:1px solid var(--line)}
+.swap:last-child{border-bottom:0}
+.swap .no{color:var(--red);font-size:15.5px;line-height:1.32}
+.swap .yes{color:var(--ink);font-size:15.5px;line-height:1.32;font-weight:600}
+.swap .ar{color:var(--line-2);text-align:center;font-size:16px}
+
+.two{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+.box{padding:16px 18px;border-radius:7px}
+.box.bad{background:var(--red-soft);border:1px solid #F0D4D1}
+.box.good{background:var(--sage);border:1px solid #CFE0CB}
+.box.bad h3{color:var(--red)}
+.box.good h3{color:var(--green)}
+.box.bad li::before{background:var(--red)}
+.box.warn{background:var(--amber-soft);border:1px solid #F0DDBE}
+.box.warn h3{color:var(--amber-ink)}
+
+table.grid{width:100%;border-collapse:collapse;font-size:15px}
+table.grid th{text-align:left;font:700 10.5px/1.3 "Source Sans 3",sans-serif;letter-spacing:.16em;text-transform:uppercase;
+  color:var(--ink-2);padding:0 12px 8px 0;border-bottom:1.5px solid var(--line-2)}
+table.grid td{padding:10px 12px 10px 0;border-bottom:1px solid var(--line);color:var(--ink-2);vertical-align:top;line-height:1.36}
+table.grid tr:last-child td{border-bottom:0}
+table.grid td b{color:var(--ink)}
+
+/* dymki Carol Gray */
+.bub{position:relative;padding:18px 22px;border-radius:22px;font-size:17px;line-height:1.35;color:var(--ink)}
+.bub.say{background:var(--white);border:2px solid var(--forest-2)}
+.bub.think{background:var(--sky);border:2px solid var(--sky-line)}
+.bub .tail{position:absolute;bottom:-14px;left:32px;width:0;height:0;border:9px solid transparent;border-top-color:var(--forest-2)}
+.bub.think .dots{position:absolute;bottom:-26px;left:30px;display:flex;gap:5px;align-items:flex-start}
+.bub.think .dots i{display:block;background:var(--sky);border:2px solid var(--sky-line);border-radius:50%}
+.bub.think .dots i:nth-child(1){width:13px;height:13px}
+.bub.think .dots i:nth-child(2){width:9px;height:9px;margin-top:9px}
+
+/* etapy procedury */
+.steps{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;align-items:stretch}
+.step{background:var(--white);border:1px solid var(--line);border-left:5px solid var(--green);border-radius:7px;padding:15px 16px;position:relative}
+.step .k{display:flex;align-items:center;gap:10px;margin-bottom:9px}
+.step p{font-size:14.5px;line-height:1.4;margin:0}
+
+/* komiks */
+.comic{display:grid;grid-template-columns:repeat(3,1fr);gap:11px}
+.panel{background:var(--white);border:1px solid var(--line);border-radius:6px;overflow:hidden}
+.panel .cap{padding:7px 11px 8px;font-size:13.5px;line-height:1.34;color:var(--ink-2);border-top:1px solid var(--line)}
+.panel .cap b{color:var(--forest-2)}
+
+/* termometr */
+.therm{display:flex;flex-direction:column;gap:5px}
+.therm .lvl{display:flex;align-items:center;gap:12px;padding:9px 13px;border-radius:6px;font-size:15.5px;color:var(--ink)}
+.therm .lvl b{font-family:"Figtree",sans-serif;font-size:16px;min-width:14px}
+
+.slide.big p{font-size:18.5px}
+.slide.big .card p,.slide.big .box p{font-size:16.5px}
+.slide.big .card{padding:22px 24px}
+.slide.big .box{padding:20px 22px}
+.slide.big ul.dots li,.slide.big ul.ticks li{font-size:17.5px;line-height:1.45}
+.slide.big .cols{gap:30px}
+.slide.big table.grid{font-size:16px}
+.slide.big table.grid td{padding:15px 14px 15px 0}
+.slide.big .swap{padding:13px 0}
+
+/* ===================== HUD ===================== */
+#hud{position:fixed;left:0;right:0;bottom:0;height:46px;display:flex;align-items:center;gap:12px;
+  padding:0 16px;z-index:20;color:#AFC9B4;font:600 12px/1 "Source Sans 3",sans-serif;letter-spacing:.1em;
+  background:linear-gradient(to top,rgba(10,20,13,.9),transparent)}
+#hud button{appearance:none;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.15);
+  color:#DAE8DB;border-radius:4px;padding:6px 11px;font:600 12px/1 "Source Sans 3",sans-serif;letter-spacing:.08em;cursor:pointer}
+#hud button:hover{background:rgba(255,255,255,.17)}
+#hud button:focus-visible,#gridview button:focus-visible{outline:2px solid var(--amber);outline-offset:2px}
+#count{margin-left:auto;font-variant-numeric:tabular-nums;letter-spacing:.18em}
+
+/* pasek postępu jako tor z pociągiem */
+#rail{position:fixed;top:0;left:0;right:0;height:16px;z-index:30;background:rgba(0,0,0,.25)}
+#rail .bed{position:absolute;left:0;right:0;top:6px;height:9px;background:
+  linear-gradient(#6F9377,#6F9377) 0 0/100% 1.5px repeat-x,
+  linear-gradient(#6F9377,#6F9377) 0 7.5px/100% 1.5px repeat-x,
+  repeating-linear-gradient(90deg,#4E6E56 0 2px, transparent 2px 11px)}
+#train{position:absolute;top:0;left:0;width:34px;height:16px;transition:left .32s cubic-bezier(.4,0,.2,1)}
+
+#notes{position:fixed;left:0;right:0;bottom:46px;max-height:34vh;overflow:auto;display:none;z-index:19;
+  background:rgba(12,24,15,.97);color:#D3E3D4;border-top:2px solid var(--amber);padding:15px 20px;font-size:15px;line-height:1.5}
+#notes.on{display:block}
+#notes b{color:#fff;font-family:"Figtree",sans-serif}
+#notes .lbl{font:700 10.5px/1 "Source Sans 3",sans-serif;letter-spacing:.24em;text-transform:uppercase;color:var(--amber);display:block;margin-bottom:8px}
+
+#gridview{position:fixed;inset:0;background:rgba(9,18,12,.97);z-index:40;display:none;padding:40px 44px;overflow:auto}
+#gridview.on{display:block}
+#gridview h4{font-family:"Figtree",sans-serif;color:#fff;font-size:23px;margin:0 0 20px;font-weight:800}
+#gridview .gg{display:grid;grid-template-columns:repeat(5,1fr);gap:11px}
+#gridview button{text-align:left;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);border-radius:5px;
+  padding:11px 12px;color:#DFEBE0;cursor:pointer;font-family:"Source Sans 3",sans-serif;display:flex;flex-direction:column;gap:5px;min-height:78px}
+#gridview button:hover{background:rgba(255,255,255,.13);border-color:var(--green-2)}
+#gridview button span.i{font:800 14px/1 "Figtree",sans-serif;color:var(--green-3);font-variant-numeric:tabular-nums}
+#gridview button span.t{font-size:13px;line-height:1.3}
+
+/* ===================== DRUK ===================== */
+@media print{
+  @page{size:A4 landscape;margin:0}
+  body{background:#fff;overflow:visible}
+  #hud,#rail,#notes,#gridview{display:none!important}
+  #stage{position:static;display:block}
+  #deck{width:auto;height:auto;transform:none}
+  .slide{position:relative;display:block!important;inset:auto;transform:scale(.865);transform-origin:top left;
+    box-shadow:none;border-radius:0;break-after:page;page-break-after:always;animation:none!important}
+}
+</style>
+
+<div id="rail"><div class="bed"></div>
+  <svg id="train" viewBox="0 0 34 16" aria-hidden="true">
+    <rect x="2" y="4" width="20" height="8" rx="2" fill="#9CC4A6"/>
+    <rect x="22" y="1" width="10" height="11" rx="2" fill="#E4EEE1"/>
+    <rect x="24" y="3" width="6" height="4" rx="1" fill="#3E7B4F"/>
+    <circle cx="7" cy="13" r="2.2" fill="#E4EEE1"/><circle cx="16" cy="13" r="2.2" fill="#E4EEE1"/><circle cx="27" cy="13" r="2.2" fill="#9CC4A6"/>
+  </svg>
+</div>
+<div id="stage"><div id="deck">
+<style>
+.cover{background:var(--forest);padding:0}
+.cover::before{background:var(--green)}
+.cover::after{opacity:.5}
+.cover .in{position:absolute;inset:0;padding:56px 60px 50px 86px;display:flex;flex-direction:column;justify-content:space-between;z-index:2}
+.cover h1{color:#fff;font-size:78px;max-width:700px}
+.cover .sub{font-size:22px;line-height:1.4;color:#B9D2BE;max-width:600px;margin-top:20px}
+.cover .eyebrow{color:var(--green-3)}
+.cover .eyebrow::after{background:rgba(255,255,255,.22)}
+.cover .foot{display:flex;gap:30px;align-items:baseline;font:600 12.5px/1 "Source Sans 3",sans-serif;letter-spacing:.16em;text-transform:uppercase;color:#8FB098}
+.cover .foot b{color:#fff;font-family:"Figtree",sans-serif;font-size:15px}
+.cover .art{position:absolute;right:-24px;bottom:-6px;width:900px;height:508px;opacity:.95;z-index:1;-webkit-mask-image:linear-gradient(to right,transparent 0,#000 26%);mask-image:linear-gradient(to right,transparent 0,#000 26%)}
+.cover .num{color:#7B9683}
+</style>
+
+<!-- ========== 01 ========== -->
+<section class="slide cover on" data-t="Tytuł" data-notes="Powitanie i kontrakt szkoleniowy. Zapytaj na wejściu: „Ile razy w tym tygodniu pomyśleliście o dziecku — <b>przecież on doskonale wie, że tak nie wolno</b>?”. To pytanie otwiera całe szkolenie: dziecko wie, ale nie potrafi tej wiedzy użyć, gdy musi jednocześnie odczytać cudzy umysł. Zapowiedz metaforę przewodnią programu: każdy człowiek to osobny pociąg, a nasza praca to budowanie mostów między torami.">
+  <svg class="art" viewBox="0 0 760 430" aria-hidden="true">
+    <defs><radialGradient id="sun"><stop offset="0" stop-color="#84BE92" stop-opacity=".7"/><stop offset="1" stop-color="#84BE92" stop-opacity="0"/></radialGradient></defs>
+    <circle cx="466" cy="168" r="168" fill="url(#sun)"/>
+    <path d="M0 300 q120 -80 240 -18 q90 46 170 6 q110 -54 210 4 q70 40 140 8 v130 H0 Z" fill="#2F5539" opacity=".75"/>
+    <g stroke="#9CC4A6" stroke-width="7" fill="none" opacity=".95">
+      <path d="M250 250 A105 95 0 0 1 460 250"/>
+      <path d="M140 250 A46 42 0 0 1 232 250"/>
+      <path d="M478 250 A46 42 0 0 1 570 250"/>
+    </g>
+    <rect x="90" y="238" width="580" height="13" fill="#E4EEE1"/>
+    <g fill="#9CC4A6" opacity=".9"><rect x="124" y="250" width="12" height="60"/><rect x="236" y="250" width="12" height="60"/><rect x="462" y="250" width="12" height="60"/><rect x="574" y="250" width="12" height="60"/></g>
+    <rect x="90" y="251" width="580" height="4" fill="#3E7B4F" opacity=".7"/>
+    <g>
+      <rect x="300" y="206" width="72" height="32" rx="5" fill="#E4EEE1"/>
+      <rect x="372" y="196" width="46" height="42" rx="5" fill="#9CC4A6"/>
+      <rect x="380" y="204" width="30" height="16" rx="2" fill="#243F2C"/>
+      <g fill="#243F2C"><rect x="310" y="214" width="16" height="14" rx="2"/><rect x="336" y="214" width="16" height="14" rx="2"/></g>
+      <g fill="#63A075"><circle cx="316" cy="240" r="5"/><circle cx="352" cy="240" r="5"/><circle cx="396" cy="240" r="5"/></g>
+    </g>
+    <g stroke="#9CC4A6" stroke-width="2" opacity=".35">
+      <path d="M0 340 h760 M0 352 h760"/>
+      <g stroke-width="6" stroke-dasharray="3 12"><path d="M0 346 h760"/></g>
+    </g>
+  </svg>
+  <div class="in">
+    <div>
+      <p class="eyebrow">Szkolenie rady pedagogicznej &nbsp;·&nbsp; 90 minut &nbsp;·&nbsp; przedszkole</p>
+      <h1>Budowanie mostów społecznych</h1>
+      <p class="sub">Teoria umysłu w przedszkolu: jak rozpoznać dziecko, które nie odczytuje cudzych myśli — i jak z nim pracować każdego dnia, w sali.</p>
+    </div>
+    <div class="foot">
+      <span><b>25</b> slajdów</span><span><b>4</b> moduły</span><span><b>4</b> etapy sesji</span><span><b>30</b> dni wdrożenia</span>
+      <span style="margin-left:auto;letter-spacing:.08em;text-transform:none;font-size:12.5px">Opracowanie: Mirosława Ewa Jurczyszyn · PCTP Koszalin</span>
+    </div>
+  </div>
+  <div class="num">01 / 25</div>
+</section>
+
+<!-- ========== 02 ========== -->
+<section class="slide" data-t="Mapa szkolenia" data-notes="Zapowiedz strukturę i zawrzyj umowę z uczestnikami: <b>moduł I i II to rozpoznanie, moduł III i IV to narzędzia i wdrożenie</b>. Poproś, by każdy pomyślał teraz o jednym konkretnym dziecku ze swojej grupy i trzymał je w głowie przez całe szkolenie — na slajdzie 25 zbudujemy dla niego plan na 30 dni.">
+  <p class="eyebrow">Mapa szkolenia</p>
+  <h2>Cztery moduły — od „nie rozumiem tego dziecka”<br>do gotowej procedury pracy</h2>
+  <div class="cols c4" style="margin-top:24px">
+    <div class="card top"><span class="chip">Moduł I · 3–8</span><h3 style="margin-top:11px">Fundament</h3><p>Czym jest teoria umysłu, skąd się wzięła i jak rozwija się wiekowo — z etapami, które widzisz w swojej grupie.</p></div>
+    <div class="card top"><span class="chip">Moduł II · 9–13</span><h3 style="margin-top:11px">Rozpoznanie</h3><p>Sygnały w sali, grupy ryzyka, trzy mity oraz zasada podwójnego obciążenia sensoryczno-poznawczego.</p></div>
+    <div class="card top"><span class="chip">Moduł III · 14–21</span><h3 style="margin-top:11px">Procedura</h3><p>Sesja „Od ciała do umysłu” w czterech etapach, technika Carol Gray, język mentalny i niezbędnik nauczyciela.</p></div>
+    <div class="card top"><span class="chip">Moduł IV · 22–25</span><h3 style="margin-top:11px">Wdrożenie</h3><p>Własna historyjka terapeutyczna, pułapki, rozmowa z rodzicami, dokumentacja i plan na 30 dni.</p></div>
+  </div>
+  <div class="track" style="margin:30px 0 24px"></div>
+  <div class="cols c-73" style="align-items:center">
+    <p class="quote">„Zanim zaczniemy — pomyśl o jednym dziecku ze swojej grupy.<br>Na ostatnim slajdzie zbudujesz dla niego plan.”</p>
+    <div class="dark"><p class="lead" style="margin:0">Po szkoleniu potrafisz: <strong>rozpoznać</strong> sygnały deficytu ToM, <strong>poprowadzić</strong> 20-minutową sesję w sali i <strong>opisać</strong> obserwacje językiem, który przyjmie poradnia.</p></div>
+  </div>
+  <div class="tag">Wprowadzenie</div><div class="num">02 / 25</div>
+</section>
+
+<!-- ========== 03 ========== -->
+<section class="slide big" data-t="Czym jest teoria umysłu" data-notes="Zatrzymaj się na trzech słowach: <b>niewidzialne, osobne, omylne</b>. Umysł drugiego człowieka jest niewidzialny, osobny (może zawierać co innego niż mój) i omylny (może zawierać treść nieprawdziwą). Dziecko z zaburzoną ToM radzi sobie zwykle z pierwszym, gorzej z drugim, a na trzecim się zatrzymuje — i właśnie tam pracujemy.">
+  <p class="eyebrow">Moduł I · Fundament</p>
+  <div class="cols c-73" style="align-items:start;gap:34px">
+    <div>
+      <h2>Teoria umysłu to zdolność<br>widzenia tego, czego nie widać</h2>
+      <div class="dark">
+        <p class="lead" style="margin-bottom:10px">„Zdolność do przypisywania <strong>stanów mentalnych</strong> — przekonań, pragnień, zamiarów i emocji — sobie i innym”.</p>
+        <p style="margin:0">Pozwala przewidywać zachowania innych i umożliwia efektywne wchodzenie w interakcje.</p>
+      </div>
+      <div class="cols c2 gs" style="margin-top:16px">
+        <div class="card"><h4>Nie jest to</h4><p>inteligencja, wychowanie ani dobre maniery</p></div>
+        <div class="card"><h4>Jest to</h4><p>oddzielna umiejętność poznawcza, która rozwija się etapami</p></div>
+      </div>
+      <p class="small" style="margin-top:14px">Premack i Woodruff, 1978 — rozwinięte przez Baron-Cohena, Leslie i Frith (1985).</p>
+    </div>
+    <div class="stack">
+      <div class="card top"><h3>1. Niewidzialne</h3><p>Myśli nie widać. Trzeba je wywnioskować z twarzy, ciała, kontekstu i historii zdarzeń.</p></div>
+      <div class="card top"><h3>2. Osobne</h3><p>Twój umysł ma inną zawartość niż mój. Ty możesz nie wiedzieć tego, co ja wiem.</p></div>
+      <div class="card top"><h3>3. Omylne</h3><p>Umysł może zawierać treść nieprawdziwą — człowiek działa zgodnie z tym, w co <em>wierzy</em>, a nie z tym, jak jest.</p></div>
+    </div>
+  </div>
+  <div class="tag">Definicja</div><div class="num">03 / 25</div>
+</section>
+
+<!-- ========== 04 ========== -->
+<section class="slide big" data-t="Dlaczego to fundament" data-notes="Najmocniejszy moment modułu I. Pokaż, że ToM to nie „dodatkowa umiejętność społeczna”, tylko <b>warunek wstępny</b> czterech obszarów, które w przedszkolu oceniamy codziennie. Przykład moralności: dziecko bez ToM ocenia po skutku — kto rozlał więcej, ten bardziej winny, niezależnie od intencji. Zakończ zdaniem z ramki na dole.">
+  <p class="eyebrow">Moduł I · Fundament</p>
+  <h2>Bez teorii umysłu nie działa nic, co nazywamy<br>„umiejętnościami społecznymi”</h2>
+  <div class="cols c4" style="margin-top:22px">
+    <div class="card"><span class="chip">Zabawa</span><h3 style="margin-top:11px">Na niby i w role</h3><p>Żeby być mamą, lekarzem albo maszynistą, trzeba udawać stan umysłu, którego się nie ma — i wiedzieć, że inni też udają.</p></div>
+    <div class="card"><span class="chip">Język</span><h3 style="margin-top:11px">To, co między słowami</h3><p>Aluzja, żart, prośba w formie pytania. Sens zdania zależy od intencji mówiącego, nie od samych słów.</p></div>
+    <div class="card"><span class="chip">Relacje</span><h3 style="margin-top:11px">Przyjaźń i konflikt</h3><p>Żeby wejść do zabawy, trzeba odczytać, czy jestem mile widziany. Żeby zakończyć konflikt — zrozumieć, co czuje drugi.</p></div>
+    <div class="card"><span class="chip">Moralność</span><h3 style="margin-top:11px">Intencja ponad skutkiem</h3><p>„Chciał czy nie chciał?” to pytanie o umysł. Bez ToM dziecko ocenia wyłącznie po rozmiarze szkody.</p></div>
+  </div>
+  <div class="dark" style="margin-top:26px;display:flex;align-items:center;gap:24px">
+    <span class="n" style="font-size:46px;color:var(--green-3)">→</span>
+    <p class="lead" style="margin:0">Dziecko z zaburzoną teorią umysłu <strong>nie jest niegrzeczne</strong>. Ono jedzie po innych torach — a my oceniamy je tak, jakby jechało po naszych.</p>
+  </div>
+  <div class="tag">Dlaczego to ważne</div><div class="num">04 / 25</div>
+</section>
+
+<!-- ========== 05 ========== -->
+<section class="slide" data-t="Rozwój ToM 0–12+" data-notes="Podkreśl: <b>kolejność etapów jest stała, tempo indywidualne</b>. Każdy etap niesie inne deficyty i inne możliwości terapii. W przedszkolu pracujemy na trzech pierwszych etapach (0–2, 3–4, 4–6), ale warto znać całą trasę — bo to pokazuje rodzicom, dokąd zmierzamy. Zwróć uwagę, że w grupie 5-latków część dzieci jest jeszcze przed fałszywym przekonaniem i to mieści się w normie.">
+  <p class="eyebrow">Moduł I · Fundament</p>
+  <div style="display:flex;align-items:baseline;gap:22px"><h2 style="margin-bottom:6px">Jak teoria umysłu rozwija się wiekowo</h2></div>
+  <p class="small" style="margin-bottom:22px">Każdy etap niesie inne deficyty — i inne możliwości terapii. Kolejność jest stała, tempo indywidualne.</p>
+  <div class="cols c5" style="gap:14px">
+    <div class="card top" style="border-top-color:var(--green)"><span class="age">0–2<span>LATA</span></span><h3 style="margin-top:12px">Wspólne pole uwagi</h3><p>Dziecko uczy się śledzić wzrok opiekuna i dzielić zainteresowanie.</p><p class="small" style="margin-top:9px;color:var(--red)"><strong style="color:var(--red)">Deficyt:</strong> brak reakcji na wspólne zainteresowanie</p></div>
+    <div class="card top" style="border-top-color:var(--green)"><span class="age">3–4<span>LATA</span></span><h3 style="margin-top:12px">Rozumienie pragnień</h3><p>Inni mogą chcieć czegoś innego niż ja — i to jest w porządku.</p><p class="small" style="margin-top:9px;color:var(--red)"><strong style="color:var(--red)">Deficyt:</strong> dosłowność, brak zabawy symbolicznej i w role</p></div>
+    <div class="card top" style="border-top-color:var(--amber)"><span class="age" style="background:var(--amber)">4–6<span>LAT</span></span><h3 style="margin-top:12px">Fałszywe przekonania</h3><p>Przełom: inni mogą mieć błędne przekonania o świecie.</p><p class="small" style="margin-top:9px;color:var(--red)"><strong style="color:var(--red)">Deficyt:</strong> trudność w przewidywaniu wiedzy i działań innych</p></div>
+    <div class="card" style="opacity:.72"><span class="age" style="background:var(--ink-2)">7–11<span>LAT</span></span><h3 style="margin-top:12px">Ironia i metafory</h3><p>Rozumienie języka przenośnego, żartów, dwuznaczności.</p><p class="small" style="margin-top:9px;color:var(--ink-2)"><strong>Deficyt:</strong> interpretacja dosłowna, sarkazm niezrozumiany</p></div>
+    <div class="card" style="opacity:.72"><span class="age" style="background:var(--ink-2)">12+<span>LAT</span></span><h3 style="margin-top:12px">Empatia poznawcza</h3><p>Czytanie między wierszami, subtelne intencje i emocje społeczne.</p><p class="small" style="margin-top:9px;color:var(--ink-2)"><strong>Deficyt:</strong> podatność na manipulację, izolacja</p></div>
+  </div>
+  <div class="box good" style="margin-top:24px;display:flex;align-items:center;gap:20px">
+    <span class="pill">Przedszkole</span>
+    <p style="margin:0;font-size:17px;color:var(--ink)">Twoje pole pracy to <strong>trzy pierwsze etapy</strong>. Kolejne slajdy rozkładają każdy z nich na deficyt, sygnały w sali i konkretną terapię.</p>
+  </div>
+  <div class="tag">Etapy rozwoju</div><div class="num">05 / 25</div>
+</section>
+<!-- ========== 06 ========== -->
+<section class="slide" data-t="0–2: wspólne pole uwagi" data-notes="Etap prekursorowy — w przedszkolu dotyczy dzieci najmłodszych oraz każdego dziecka z opóźnieniem rozwoju społecznego, niezależnie od metryki. Kluczowa zasada: <b>jeśli brakuje fundamentu, nie ćwicz dachu</b>. Nie ma sensu uczyć 5-latka fałszywych przekonań, jeśli nie sprawdza twojej twarzy i nie dzieli z tobą pola uwagi. Wtedy cofamy się właśnie tutaj.">
+  <p class="eyebrow">Moduł I · Fundament · etap 1</p>
+  <div style="display:flex;align-items:center;gap:20px;margin-bottom:8px">
+    <span class="age" style="min-width:76px;font-size:22px">0–2<span>LATA</span></span>
+    <h2 style="margin:0">Wspólne pole uwagi</h2>
+  </div>
+  <p class="lead" style="margin:0 0 22px 96px;max-width:820px">Dziecko uczy się śledzić wzrok opiekuna i dzielić z nim zainteresowanie. To pierwszy most: <em class="q">patrzymy razem na to samo i oboje o tym wiemy</em>.</p>
+  <div class="cols c3" style="gap:18px">
+    <div class="box bad"><h3>Deficyt</h3><ul class="dots" style="margin-top:8px"><li>brak reakcji na wspólne zainteresowanie (joint attention)</li><li>nie podąża za wzrokiem ani za wskazanym palcem</li><li>nie sprawdza twarzy dorosłego w nowej sytuacji</li><li>brak wskazywania „popatrz!” — tylko „daj”</li></ul></div>
+    <div class="card top"><h3>Co widać w sali</h3><ul class="dots" style="margin-top:8px"><li>przynosi zabawkę, ale nie pokazuje jej tobie</li><li>bawi się plecami do grupy</li><li>nie reaguje na własne imię w zabawie</li><li>nie odwzajemnia uśmiechu przy powitaniu</li></ul></div>
+    <div class="box good"><h3>Terapia</h3><ul class="dots" style="margin-top:8px"><li><strong>zabawy naśladowcze</strong> — robię to, co ty, ty robisz to, co ja</li><li><strong>wskazywanie</strong> — „popatrz!” zanim podasz przedmiot</li><li><strong>kontakt wzrokowy</strong> budowany przez atrakcyjny przedmiot przy twarzy, nigdy przymusem</li><li>zabawy naprzemienne: raz ty, raz ja</li></ul></div>
+  </div>
+  <div class="two" style="margin-top:24px;grid-template-columns:1fr">
+    <div class="box warn" style="display:flex;align-items:center;gap:20px"><span class="chip a">Zasada</span><p style="margin:0;font-size:17px;color:var(--ink)"><strong>Jeśli brakuje fundamentu — nie ćwicz dachu.</strong> Zanim zaczniesz uczyć rozumienia cudzych myśli, sprawdź, czy dziecko ma wspólne pole uwagi. Jeśli nie — pracujesz właśnie tutaj, niezależnie od jego wieku.</p></div>
+  </div>
+  <div class="tag">Etap 0–2</div><div class="num">06 / 25</div>
+</section>
+
+<!-- ========== 07 ========== -->
+<section class="slide" data-t="3–4: rozumienie pragnień" data-notes="To najczęstszy etap pracy w grupach 3- i 4-latków. Podkreśl związek: <b>zabawa symboliczna jest treningiem trzymania w głowie dwóch rzeczywistości naraz</b> — to jest klocek i to jest telefon. Dziecko, które tylko ustawia i sortuje, nie ćwiczy tej zdolności. Piktogramy pragnień: zestaw obrazków „ja chcę / on chce”, którymi dziecko pokazuje różnicę.">
+  <p class="eyebrow">Moduł I · Fundament · etap 2</p>
+  <div style="display:flex;align-items:center;gap:20px;margin-bottom:8px">
+    <span class="age" style="min-width:76px;font-size:22px">3–4<span>LATA</span></span>
+    <h2 style="margin:0">Rozumienie pragnień</h2>
+  </div>
+  <p class="lead" style="margin:0 0 22px 96px;max-width:840px">Dziecko zaczyna rozumieć, że <strong>inni mogą chcieć czegoś innego niż ono samo</strong> — i że to normalne. Ja lubię, ty nie lubisz, oboje mamy rację.</p>
+  <div class="cols c3" style="gap:18px">
+    <div class="box bad"><h3>Deficyt</h3><ul class="dots" style="margin-top:8px"><li>dosłowność — wszystko rozumie wprost</li><li>brak zabawy symbolicznej („na niby”)</li><li>brak zabawy w odgrywanie ról</li><li>zakłada, że wszyscy chcą tego samego co ono</li></ul></div>
+    <div class="card top"><h3>Co widać w sali</h3><ul class="dots" style="margin-top:8px"><li>daje koledze swoją ulubioną zabawkę i nie rozumie odmowy</li><li>ustawia i sortuje zamiast bawić się w role</li><li>kubek to zawsze kubek — nigdy rakieta</li><li>„wszyscy lubią pociągi” jako oczywistość</li></ul></div>
+    <div class="box good"><h3>Terapia</h3><ul class="dots" style="margin-top:8px"><li><strong>zabawa lalkami i kukiełkami</strong> — kukiełka chce czegoś innego niż dziecko</li><li><strong>zabawy „na niby”</strong> z rekwizytem: klocek jest telefonem</li><li><strong>piktogramy pragnień</strong>: „ja chcę…” / „on chce…” obok siebie</li><li>wybory w parach: ty wybierasz, ja wybieram</li></ul></div>
+  </div>
+  <div class="cols c-73" style="margin-top:24px;align-items:center;gap:22px">
+    <div class="dark" style="display:flex;align-items:center;gap:20px"><span class="n" style="font-size:34px;color:var(--green-3)">≠</span><p class="lead" style="margin:0">„Podziel się” to za mało. Powiedz wprost: <strong>„Ty lubisz auta. Zosia lubi lalki. Możecie chcieć czegoś innego.”</strong></p></div>
+    <p class="small" style="margin:0">Zabawa symboliczna to jedyny moment dnia, w którym dziecko trenuje trzymanie w głowie <strong>dwóch rzeczywistości naraz</strong>. Dlatego jest ćwiczeniem, nie przerwą od ćwiczeń.</p>
+  </div>
+  <div class="tag">Etap 3–4</div><div class="num">07 / 25</div>
+</section>
+
+<!-- ========== 08 ========== -->
+<section class="slide" data-t="4–6: fałszywe przekonania" data-notes="Odegraj tę scenkę na żywo z dwiema kukiełkami — kadra zapamięta ją na lata. Dziecko z ukształtowaną ToM odpowie: <b>w pudełku</b> — tam, gdzie Basia zostawiła, bo nie widziała przeniesienia. Dziecko przed tym etapem odpowie: <b>w koszyku</b>, bo poda to, co samo wie. Uwaga: to obserwacja, nie diagnoza — zapisujesz sytuację i odpowiedź, nie stawiasz rozpoznania.">
+  <p class="eyebrow">Moduł I · Fundament · etap 3 — przełomowy</p>
+  <div style="display:flex;align-items:center;gap:20px;margin-bottom:4px">
+    <span class="age" style="min-width:76px;font-size:22px;background:var(--amber)">4–6<span>LAT</span></span>
+    <h2 style="margin:0">Fałszywe przekonania — test, który zrobisz dziś w sali</h2>
+  </div>
+  <p class="lead" style="margin:0 0 10px 96px;max-width:940px">Przełomowy etap: dziecko rozumie, że inni mogą mieć <strong>błędne przekonania</strong> o świecie — i że działają zgodnie z nimi, a nie zgodnie z faktami.</p>
+  <div class="comic">
+    <div class="panel">
+          <svg viewBox="0 8 240 140" aria-label="Panel 1"><rect width="240" height="152" fill="#EFF4ED"/><line x1="0" y1="124" x2="240" y2="124" stroke="#B7CCB2" stroke-width="2"/>
+            <g><circle cx="52" cy="66" r="14" fill="#3E7B4F"/><path d="M36 124 q0 -31 16 -31 q16 0 16 31 z" fill="#3E7B4F"/></g>
+            <g><circle cx="190" cy="66" r="14" fill="#9CC4A6"/><path d="M174 124 q0 -31 16 -31 q16 0 16 31 z" fill="#9CC4A6"/></g>
+            <rect x="96" y="92" width="52" height="32" rx="3" fill="none" stroke="#243F2C" stroke-width="2.5"/>
+            <path d="M92 92 h60 l-6 -9 h-48 z" fill="none" stroke="#243F2C" stroke-width="2.5"/>
+            <circle cx="122" cy="110" r="8" fill="#E08A2E"/>
+            <text x="30" y="145" font-family="Source Sans 3,sans-serif" font-size="12" font-weight="700" fill="#3E7B4F">ANNA</text>
+            <text x="170" y="145" font-family="Source Sans 3,sans-serif" font-size="12" font-weight="700" fill="#6E9678">BASIA</text>
+          </svg>
+          <div class="cap"><b>1.</b> Anna chowa zabawkę do pudełka. Basia patrzy.</div>
+        </div>
+    <div class="panel">
+          <svg viewBox="0 8 240 140" aria-label="Panel 2"><rect width="240" height="152" fill="#EFF4ED"/><line x1="0" y1="124" x2="240" y2="124" stroke="#B7CCB2" stroke-width="2"/>
+            <rect x="196" y="42" width="40" height="82" rx="2" fill="none" stroke="#B7CCB2" stroke-width="2.5"/><circle cx="204" cy="86" r="2.6" fill="#B7CCB2"/>
+            <g opacity=".55"><circle cx="172" cy="66" r="14" fill="#9CC4A6"/><path d="M156 124 q0 -31 16 -31 q16 0 16 31 z" fill="#9CC4A6"/></g>
+            <path d="M150 60 h26 m0 0 l-8 -6 m8 6 l-8 6" stroke="#6E9678" stroke-width="2.4" fill="none" stroke-linecap="round"/>
+            <g><circle cx="34" cy="66" r="14" fill="#3E7B4F"/><path d="M18 124 q0 -31 16 -31 q16 0 16 31 z" fill="#3E7B4F"/></g>
+            <rect x="62" y="96" width="42" height="28" rx="3" fill="none" stroke="#243F2C" stroke-width="2.5" opacity=".45"/>
+            <path d="M112 100 l6 -26 h34 l6 26 z" fill="none" stroke="#243F2C" stroke-width="2.5" transform="translate(0,24)"/>
+            <circle cx="135" cy="110" r="8" fill="#E08A2E"/>
+            <path d="M84 84 q22 -26 46 -6" stroke="#E08A2E" stroke-width="2.4" fill="none" stroke-dasharray="5 5" stroke-linecap="round"/><path d="M130 74 l2 12 l-11 -5 z" fill="#E08A2E"/>
+          </svg>
+          <div class="cap"><b>2.</b> Basia wychodzi. Anna przenosi zabawkę do koszyka.</div>
+        </div>
+    <div class="panel">
+          <svg viewBox="0 8 240 140" aria-label="Panel 3"><rect width="240" height="152" fill="#FBEEDC"/><line x1="0" y1="124" x2="240" y2="124" stroke="#E08A2E" stroke-width="2" opacity=".45"/>
+            <g><circle cx="42" cy="74" r="14" fill="#9CC4A6"/><path d="M26 124 q0 -31 16 -31 q16 0 16 31 z" fill="#9CC4A6"/></g>
+            <g fill="#9CC4A6"><circle cx="64" cy="50" r="3.4"/><circle cx="74" cy="40" r="5"/></g>
+            <ellipse cx="122" cy="30" rx="44" ry="22" fill="#fff" stroke="#7FA9CF" stroke-width="2"/>
+            <rect x="104" y="22" width="34" height="20" rx="2" fill="none" stroke="#7FA9CF" stroke-width="2"/><circle cx="121" cy="33" r="5" fill="#E08A2E"/>
+            <rect x="104" y="96" width="42" height="28" rx="3" fill="none" stroke="#A65E12" stroke-width="2.5"/>
+            <path d="M176 124 l5 -24 h34 l5 24 z" fill="none" stroke="#A65E12" stroke-width="2.5" opacity=".4"/>
+            <text x="24" y="145" font-family="Source Sans 3,sans-serif" font-size="11.5" font-weight="700" fill="#A65E12">GDZIE BĘDZIE SZUKAĆ?</text>
+          </svg>
+          <div class="cap"><b>3.</b> Basia wraca. <b>Gdzie zacznie szukać zabawki?</b></div>
+        </div>
+  </div>
+  <div class="cols c4" style="margin-top:12px;gap:16px">
+    <div class="box good" style="padding:14px 16px"><h4 style="color:var(--green)">Odpowiedź „w pudełku”</h4><p class="small" style="margin:0">Dziecko oddziela swoją wiedzę od wiedzy Basi. Teoria umysłu I rzędu działa.</p></div>
+    <div class="box bad" style="padding:14px 16px"><h4 style="color:var(--red)">Odpowiedź „w koszyku”</h4><p class="small" style="margin:0">Dziecko podaje to, co <em>samo</em> wie — nie potrafi zahamować własnej perspektywy. Typowe przed 4. r.ż.</p></div>
+    <div class="card top" style="border-top-color:var(--amber);padding:14px 16px"><h4>Terapia</h4><ul class="dots" style="margin-top:6px"><li>zadania typu Sally-Anne / Anna-Basia</li><li>historyjki z niespodzianką</li><li>dramatyzacja i teatrzyk kukiełkowy</li></ul></div>
+    <div class="box warn" style="padding:14px 16px"><h4 style="color:var(--amber-ink)">Wersja dopasowana do pasji</h4><p class="small" style="margin:0">Miłośnik kolei: <em class="q">„Co pomyśli maszynista, gdy wróci i zobaczy, że rozkład się zmienił?”</em></p></div>
+  </div>
+  <p class="small" style="position:absolute;right:112px;bottom:20px;left:400px;text-align:right;margin:0;font-size:13px;color:var(--red)"><strong style="color:var(--red)">Uwaga:</strong> to obserwacja, nie diagnoza — zapisujesz sytuację i odpowiedź dziecka, nie stawiasz rozpoznania.</p>
+  <div class="tag">Etap 4–6</div><div class="num">08 / 25</div>
+</section>
+<!-- ========== 09 ========== -->
+<section class="slide big" data-t="Checklista obserwacyjna" data-notes="Rozdaj ten slajd jako wydruk — to najczęściej używany materiał z całego szkolenia. Zasada interpretacji: <b>pojedynczy objaw nic nie znaczy</b>. Niepokoi obraz — kilka zachowań, powtarzalnych, w różnych sytuacjach, przez 3–4 tygodnie. Poproś uczestników, żeby zaznaczyli to, co widzą u „swojego” dziecka ze slajdu 2.">
+  <p class="eyebrow">Moduł II · Rozpoznanie</p>
+  <h2>Co widać w sali — checklista obserwacyjna</h2>
+  <div class="cols c2" style="margin-top:20px;gap:44px">
+    <ul class="ticks">
+      <li>Zaczyna mówić, <strong>nie sprawdzając</strong>, czy ktoś słucha i patrzy.</li>
+      <li>Opowiada od środka: <em class="q">„a on wtedy to wziął i uciekł”</em> — zakłada, że wiesz, o kim mowa.</li>
+      <li>Nie przyjmuje, że kolega mógł czegoś <strong>nie widzieć</strong> albo <strong>nie wiedzieć</strong>.</li>
+      <li>Ocenia po skutku, nie po intencji: <em class="q">„on mi rozwalił!”</em> — także gdy to był przypadek.</li>
+      <li>Nie potrafi zażartować ani ukryć prawdy — mówi wprost to, co myśli, także gdy rani.</li>
+    </ul>
+    <ul class="ticks">
+      <li>Bierze przenośnie dosłownie: <em class="q">„no pięknie”</em> rozumie jako pochwałę.</li>
+      <li>Zabawa w role się nie rozwija — ustawia, sortuje, powtarza ten sam schemat.</li>
+      <li>Nie zmienia zachowania, gdy druga osoba się nudzi, wycofuje albo złości.</li>
+      <li>„Skarży” bez intencji szkodzenia — relacjonuje fakt, bo zasada została złamana.</li>
+      <li>Bawi się <strong>obok</strong> dzieci, nie <strong>z</strong> dziećmi — mimo szczerej chęci kontaktu.</li>
+    </ul>
+  </div>
+  <div class="track" style="margin:26px 0 22px"></div>
+  <div class="cols c-73" style="align-items:center;gap:24px">
+    <div class="box good" style="display:flex;gap:18px;align-items:center"><span class="pill">Jak czytać</span><p style="margin:0;font-size:16.5px;color:var(--ink)">Pojedyncze zachowanie nic nie znaczy. Niepokoi <strong>obraz</strong>: kilka pozycji naraz, powtarzalnie, w różnych sytuacjach, przez <strong>3–4 tygodnie</strong>.</p></div>
+    <p class="small" style="margin:0">Zapisuj <strong>datę, sytuację i cytat</strong> — nie ocenę. „Nie chce współpracować” to opinia. „Podszedł, odwrócił się plecami i zaczął mówić o pociągach” to obserwacja.</p>
+  </div>
+  <div class="tag">Checklista</div><div class="num">09 / 25</div>
+</section>
+
+<!-- ========== 10 ========== -->
+<section class="slide" data-t="Grupy ryzyka i granica kompetencji" data-notes="Uwaga na granicę kompetencji: nauczyciel <b>opisuje funkcjonowanie</b>, nie stawia rozpoznania. Zdanie do zapamiętania: „Teoria umysłu to nie diagnoza, to obszar funkcjonowania”. Zwróć uwagę na grupę często pomijaną — dzieci z zaburzeniami rozwoju językowego oraz dzieci niesłyszące: u nich opóźnienie ToM bierze się z ograniczonego dostępu do rozmów o tym, kto co wie i czuje.">
+  <p class="eyebrow">Moduł II · Rozpoznanie</p>
+  <div class="cols c-73" style="align-items:start;gap:34px">
+    <div>
+      <h2>Kto jest w grupie podwyższonego ryzyka</h2>
+      <div class="cols c2 gs" style="margin-top:18px">
+        <div class="card"><h4>Spektrum autyzmu</h4><p>Trudność w mentalizacji jest tu cechą osiową — choć nie u wszystkich i w różnym nasileniu.</p></div>
+        <div class="card"><h4>Zaburzenia rozwoju językowego</h4><p>Bez zdań typu „myśli, że…” brakuje narzędzia, w którym da się pomyśleć cudzą myśl.</p></div>
+        <div class="card"><h4>Dzieci niesłyszące</h4><p>Bez wczesnego dostępu do pełnego języka — mniej podsłuchanych rozmów o stanach umysłu.</p></div>
+        <div class="card"><h4>Niepełnosprawność intelektualna, FASD</h4><p>Rozwój ToM przebiega wolniej i wymaga dłuższego, bardziej dosłownego wsparcia.</p></div>
+        <div class="card"><h4>Zaniedbanie, piecza zastępcza</h4><p>Mało doświadczeń, w których ktoś nazywał dziecku jego własne i cudze stany umysłu.</p></div>
+        <div class="card"><h4>ADHD i słabe funkcje wykonawcze</h4><p>Dziecko odczyta cudzą perspektywę „na spokojnie”, ale nie zdąży tego zrobić w działaniu.</p></div>
+      </div>
+    </div>
+    <div class="stack" style="padding-top:56px">
+      <div class="dark"><p class="lead" style="margin:0">Teoria umysłu <strong>to nie diagnoza</strong>. To obszar funkcjonowania, który możesz obserwować i wspierać — niezależnie od tego, czy dziecko ma orzeczenie, opinię, czy nie ma nic.</p></div>
+      <div class="card top"><h3>Twoja rola</h3><ul class="dots" style="margin-top:6px"><li><strong>opisujesz</strong> zachowanie i sytuację</li><li><strong>zbierasz</strong> częstotliwość i kontekst</li><li><strong>wspierasz</strong> codziennie, w sali</li><li><strong>kierujesz</strong> do specjalisty, gdy obraz się utrwala</li></ul><p class="small" style="margin-top:11px;color:var(--red)">Nie orzekasz, nie etykietujesz, nie stawiasz rozpoznania.</p></div>
+    </div>
+  </div>
+  <div class="tag">Grupy ryzyka</div><div class="num">10 / 25</div>
+</section>
+
+<!-- ========== 11 ========== -->
+<section class="slide big" data-t="Trzy mity" data-notes="Najważniejszy slajd dla zmiany postawy kadry. Rozróżnienie empatii poznawczej (rozumiem, co myślisz) i afektywnej (poruszają mnie twoje emocje) tłumaczy paradoks: dziecko może nie zauważyć, że kogoś zraniło, a jednocześnie rozpaczać nad rozdeptanym ślimakiem. Dodaj: nieporozumienie jest <b>dwustronne</b> — my również nie odczytujemy sygnałów tych dzieci.">
+  <p class="eyebrow">Moduł II · Rozpoznanie</p>
+  <h2>Trzy mity, które blokują pomoc</h2>
+  <div class="cols c3" style="margin-top:22px">
+    <div class="stack">
+      <div class="box bad" style="padding:14px 16px"><span class="kicker" style="color:var(--red)">Mit 1</span><p style="margin:6px 0 0;font-size:17px;color:var(--red)"><strong style="color:var(--red)">„To dziecko nie ma empatii.”</strong></p></div>
+      <div class="card"><span class="kicker" style="color:var(--green)">Fakt</span><p style="margin-top:6px">Empatia <strong>afektywna</strong> (poruszają mnie twoje emocje) bywa nienaruszona, a nawet bardzo silna. Osłabiona jest empatia <strong>poznawcza</strong> — odczytanie, <em>co</em> ktoś czuje i dlaczego.</p><p class="small" style="margin-top:9px">Stąd paradoks: nie zauważy, że zranił kolegę, a płacze nad ślimakiem.</p></div>
+    </div>
+    <div class="stack">
+      <div class="box bad" style="padding:14px 16px"><span class="kicker" style="color:var(--red)">Mit 2</span><p style="margin:6px 0 0;font-size:17px;color:var(--red)"><strong style="color:var(--red)">„Przecież doskonale wie, że tak nie wolno.”</strong></p></div>
+      <div class="card"><span class="kicker" style="color:var(--green)">Fakt</span><p style="margin-top:6px">Wiedza o zasadzie i użycie jej w emocjach to dwie różne rzeczy. W napięciu dziecko musi jednocześnie zahamować impuls, odczytać cudzą intencję i wybrać zachowanie. To trzy zadania naraz.</p><p class="small" style="margin-top:9px">Wie „przy stoliku”. Nie potrafi „przy konflikcie”.</p></div>
+    </div>
+    <div class="stack">
+      <div class="box bad" style="padding:14px 16px"><span class="kicker" style="color:var(--red)">Mit 3</span><p style="margin:6px 0 0;font-size:17px;color:var(--red)"><strong style="color:var(--red)">„Robi to specjalnie, żeby mnie sprowokować.”</strong></p></div>
+      <div class="card"><span class="kicker" style="color:var(--green)">Fakt</span><p style="margin-top:6px">Prowokacja wymaga modelu twojego umysłu — trzeba wiedzieć z góry, co cię zdenerwuje. Dziecko z trudnością w ToM rzadko planuje twoją reakcję. Częściej po prostu <strong>nie przewidziało</strong> skutku.</p><p class="small" style="margin-top:9px">Nieporozumienie jest dwustronne: my też nie odczytujemy jego sygnałów.</p></div>
+    </div>
+  </div>
+  <div class="dark" style="margin-top:26px;display:grid;grid-template-columns:auto 1fr;gap:24px;align-items:center">
+    <span class="pill" style="background:var(--green-2)">Co to zmienia</span>
+    <p class="lead" style="margin:0">Jeśli to nie jest zła wola, to <strong>kara niczego nie uczy</strong> — bo nie ma czego wygaszać. Uczy dopiero pokazanie tego, czego dziecko nie zobaczyło samo: cudzej myśli, cudzej intencji, cudzego stanu.</p>
+  </div>
+  <div class="tag">Mity i fakty</div><div class="num">11 / 25</div>
+</section>
+
+<!-- ========== 12 ========== -->
+<section class="slide big" data-t="Dwie perspektywy" data-notes="Ćwiczenie do zrobienia na żywo: przeczytaj kolumnę „co widzi nauczyciel”, zapytaj kadrę, jak zwykle reagują, dopiero potem odsłoń kolumnę „co widzi dziecko”. To najsilniejszy moment przesunięcia perspektywy w całym szkoleniu. Zakończ pytaniem: „Która reakcja uczy dziecko czegokolwiek o cudzym umyśle?”.">
+  <p class="eyebrow">Moduł II · Rozpoznanie</p>
+  <h2>Ta sama sytuacja, dwa różne pociągi</h2>
+  <table class="grid" style="margin-top:20px">
+    <thead><tr><th style="width:20%">Sytuacja w sali</th><th style="width:26%">Co widzi nauczyciel</th><th style="width:28%">Co dzieje się w dziecku</th><th style="width:26%">Co działa zamiast kary</th></tr></thead>
+    <tbody>
+      <tr><td><b>Rozbita wieża</b></td><td>„Zniszczył pracę kolegi i nawet nie przeprosił.”</td><td>Przechodząc, potrącił wieżę. Nie odczytał, że to <em>czyjaś</em> praca i że ktoś się zdenerwuje. Nie wie, po co się przeprasza.</td><td>Nazwij niewidzialne: <em class="q">„Kuba budował to 20 minut. Teraz jest smutny.”</em> Potem podaj gotowy skrypt naprawy.</td></tr>
+      <tr><td><b>Kolejka do szatni</b></td><td>„Wpycha się, choć zna zasadę.”</td><td>Widzi wolne miejsce, nie widzi <em>intencji</em> stojących. Zasada „kolejka” nie mówi mu, że inni też chcą wyjść pierwsi.</td><td>Znacznik wizualny na podłodze + zdanie: <em class="q">„Oni też chcą być pierwsi. Wszyscy chcą tego samego.”</em></td></tr>
+      <tr><td><b>Urodziny w grupie</b></td><td>„Powiedział, że tort jest brzydki. Jest niegrzeczny.”</td><td>Powiedział prawdę. Nie przewidział, że prawda może zranić — to wymaga wyobrażenia sobie cudzej reakcji <em>przed</em> mówieniem.</td><td>Ucz reguły dosłownie: <em class="q">„Gdy coś ci się nie podoba, mówisz to mnie na ucho, nie na głos.”</em></td></tr>
+      <tr><td><b>Zabawa w dom</b></td><td>„Bawi się obok, nie chce się integrować.”</td><td>Chce, ale nie wie, jak wejść: nie odczytuje, kiedy jest miejsce na dołączenie i czego oczekują pozostali.</td><td>Naucz jednego zdania wejściowego i przećwicz je z dwójką dzieci: <em class="q">„Mogę być kierowcą?”</em></td></tr>
+    </tbody>
+  </table>
+  <div class="tag">Zmiana perspektywy</div><div class="num">12 / 25</div>
+</section>
+
+<!-- ========== 13 ========== -->
+<section class="slide" data-t="Podwójne obciążenie" data-notes="To zasada nr 1 całego programu: <b>ciało najpierw — regulacja przed poznaniem, nigdy odwrotnie</b>. Bez poczucia bezpieczeństwa w ciele nie ma miejsca na uczenie się i rozwój społeczny. Praktyczny wniosek dla kadry: rozmowa wychowawcza w momencie wysokiego pobudzenia jest stratą czasu dla obu stron. Najpierw docisk i oddech, dopiero potem myślenie o cudzym umyśle.">
+  <p class="eyebrow">Moduł II · Rozpoznanie</p>
+  <div class="cols c-37" style="align-items:start;gap:36px">
+    <div>
+      <h2 style="font-size:36px">Podwójne obciążenie<br>sensoryczno-poznawcze</h2>
+      <p class="lead">Zasoby uwagi dziecka są jedne. Jeśli zużywa je na hałas, tłok i własne napięcie — na myślenie o cudzym umyśle nie zostaje nic.</p>
+      <div class="box warn" style="margin-top:16px"><h3 style="color:var(--amber-ink)">Wniosek praktyczny</h3><p style="margin:0;font-size:16px;color:var(--ink)">W wysokim pobudzeniu <strong>nie wymagamy pracy poznawczej</strong>. Rozmowa „dlaczego tak zrobiłeś” przy napięciu 5/5 nie uczy niczego — poza tym, że dorosły jest kolejnym źródłem stresu.</p></div>
+    </div>
+    <div class="stack">
+      <div class="card">
+        <h4 style="margin-bottom:14px">Zasoby dziecka w trudnej sytuacji</h4>
+        <div style="display:flex;flex-direction:column;gap:13px">
+          <div>
+            <div style="display:flex;justify-content:space-between;font-size:13px;color:var(--ink-2);margin-bottom:5px"><span>Hałas, tłok, faktura, zapach, światło</span><span style="color:var(--amber-ink);font-weight:700">obciążenie sensoryczne</span></div>
+            <div style="height:22px;background:var(--sage-2);border-radius:4px;overflow:hidden"><div style="width:62%;height:100%;background:var(--amber)"></div></div>
+          </div>
+          <div>
+            <div style="display:flex;justify-content:space-between;font-size:13px;color:var(--ink-2);margin-bottom:5px"><span>Własne napięcie i emocje</span><span style="color:var(--red);font-weight:700">obciążenie emocjonalne</span></div>
+            <div style="height:22px;background:var(--sage-2);border-radius:4px;overflow:hidden"><div style="width:26%;height:100%;background:var(--red)"></div></div>
+          </div>
+          <div>
+            <div style="display:flex;justify-content:space-between;font-size:13px;color:var(--ink-2);margin-bottom:5px"><span>„Co on teraz myśli i czuje?”</span><span style="color:var(--green);font-weight:700">zostało na ToM</span></div>
+            <div style="height:22px;background:var(--sage-2);border-radius:4px;overflow:hidden"><div style="width:12%;height:100%;background:var(--green)"></div></div>
+          </div>
+        </div>
+        <p class="small" style="margin-top:13px">Obniż obciążenie sensoryczne — a pole na myślenie o innych rośnie samo.</p>
+      </div>
+      <div class="dark" style="display:flex;align-items:center;gap:20px"><span class="circ" style="background:var(--green-2)">1</span><p class="lead" style="margin:0">Ciało najpierw — <strong>regulacja przed poznaniem. Nigdy odwrotnie.</strong></p></div>
+    </div>
+  </div>
+  <div style="margin-top:26px">
+    <p class="kicker" style="margin-bottom:12px">Sygnały, że dziecko jest powyżej 3 — zanim powie o tym słowami</p>
+    <div class="cols c5" style="gap:12px">
+      <div class="card soft"><p class="small" style="margin:0"><strong>Ciało</strong><br>napięte ramiona, zaciśnięte pięści, sztywna postawa</p></div>
+      <div class="card soft"><p class="small" style="margin:0"><strong>Ruch</strong><br>chodzenie w kółko, kołysanie, przyspieszone tempo</p></div>
+      <div class="card soft"><p class="small" style="margin:0"><strong>Zmysły</strong><br>zatykanie uszu, chowanie się, unikanie dotyku</p></div>
+      <div class="card soft"><p class="small" style="margin:0"><strong>Głos</strong><br>ciszej albo znacznie głośniej niż zwykle, echolalia</p></div>
+      <div class="card soft"><p class="small" style="margin:0"><strong>Kontakt</strong><br>przestaje odpowiadać, patrzy w jeden punkt</p></div>
+    </div>
+  </div>
+  <div class="tag">Zasada nr 1</div><div class="num">13 / 25</div>
+</section>
+<!-- ========== 14 ========== -->
+<section class="slide big" data-t="Procedura sesji" data-notes="To serce programu: <b>każda sesja przebiega w stałym rytmie czterech etapów — od regulacji sensorycznej do refleksji poznawczej</b>. Stałość rytuału jest sama w sobie terapeutyczna: dziecko wie, co będzie dalej, więc nie musi zużywać zasobów na przewidywanie. W przedszkolu cała sesja trwa ok. 20 minut i mieści się w czasie zajęć indywidualnych lub w małej grupie 2–3 dzieci.">
+  <p class="eyebrow">Moduł III · Procedura</p>
+  <h2>Sesja „Od ciała do umysłu” — stały rytm czterech etapów</h2>
+  <p class="lead" style="max-width:900px;margin-bottom:24px">Każda sesja przebiega tak samo: od regulacji sensorycznej, przez rozróżnienie mowy i myśli, do treningu i nagrody za próbę. <strong>Stałość rytuału zwalnia dziecko z przewidywania</strong> — cały zasób idzie na myślenie.</p>
+  <div class="steps">
+    <div class="step"><div class="k"><span class="circ">1</span><h3 style="margin:0">Proprioceptywny</h3></div><p>Ocena napięcia na Termometrze Emocji. Jeśli powyżej 3 — najpierw docisk i oddech, dopiero potem praca.</p><p class="small" style="margin-top:9px;color:var(--green)"><strong style="color:var(--green)">ok. 5 min</strong></p></div>
+    <div class="step"><div class="k"><span class="circ">2</span><h3 style="margin:0">Transformacja</h3></div><p>Technika Carol Gray: rozdzielamy to, co ktoś <em>mówi</em>, od tego, co <em>myśli</em>. Dymek biały i dymek niebieski.</p><p class="small" style="margin-top:9px;color:var(--green)"><strong style="color:var(--green)">ok. 5 min</strong></p></div>
+    <div class="step"><div class="k"><span class="circ">3</span><h3 style="margin:0">Trening</h3></div><p>Zadanie fałszywego przekonania dopasowane do pasji dziecka: kukiełki, historyjka, scenka.</p><p class="small" style="margin-top:9px;color:var(--green)"><strong style="color:var(--green)">ok. 7 min</strong></p></div>
+    <div class="step"><div class="k"><span class="circ">4</span><h3 style="margin:0">Ewaluacja</h3></div><p>Wpis o próbie poznawczej, żeton, krótkie podsumowanie. Nagradzamy próbę, nie poprawną odpowiedź.</p><p class="small" style="margin-top:9px;color:var(--green)"><strong style="color:var(--green)">ok. 3 min</strong></p></div>
+  </div>
+  <div class="cols c-73" style="margin-top:26px;align-items:center;gap:24px">
+    <div class="box good" style="display:flex;align-items:center;gap:18px"><span class="pill">Przedszkole</span><p style="margin:0;font-size:16.5px;color:var(--ink)">Cała sesja to <strong>ok. 20 minut</strong> — indywidualnie lub w grupie 2–3 dzieci. Lepiej trzy krótkie sesje w tygodniu niż jedna długa.</p></div>
+    <p class="small" style="margin:0">Kolejność jest nienaruszalna. Przeskoczenie etapu 1 przy wysokim pobudzeniu unieważnia całą resztę.</p>
+  </div>
+  <div class="tag">Procedura</div><div class="num">14 / 25</div>
+</section>
+
+<!-- ========== 15 ========== -->
+<section class="slide" data-t="Etap 1: Termometr Emocji" data-notes="Pokaż termometr fizycznie — wydrukowany, zalaminowany, ze strzałką na klipsie. Dziecko przesuwa strzałkę samo; to już jest praca nad mentalizacją własnego stanu. Dla przedszkolaka oddech 4-7-8 jest za trudny — użyj wersji „zdmuchnij świeczkę” albo „powąchaj kwiatek, zdmuchnij świeczkę”, wydech dłuższy niż wdech. Docisk: kocyk obciążeniowy, mocny uścisk, pchanie ściany, noszenie ciężkich książek.">
+  <p class="eyebrow">Moduł III · Procedura · etap 1</p>
+  <div style="display:flex;align-items:center;gap:18px;margin-bottom:14px"><span class="circ" style="width:44px;height:44px;font-size:20px">1</span><h2 style="margin:0">Etap proprioceptywny — zanim pomyśli, musi poczuć</h2></div>
+  <div class="cols c3" style="gap:24px;align-items:start">
+    <div>
+      <h4 style="margin-bottom:10px">Termometr Emocji</h4>
+      <div class="therm">
+        <div class="lvl" style="background:#E4EEE1"><b>1</b><span>spokój — mogę myśleć i uczyć się</span></div>
+        <div class="lvl" style="background:#DDEBD9"><b>2</b><span>łagodne napięcie — pracujemy normalnie</span></div>
+        <div class="lvl" style="background:var(--amber-soft)"><b>3</b><span>umiarkowane — skracamy zadanie</span></div>
+        <div class="lvl" style="background:#F8DFC4"><b>4</b><span>silne — <strong>stop</strong>, najpierw ciało</span></div>
+        <div class="lvl" style="background:var(--red-soft)"><b>5</b><span>bardzo silne — tylko regulacja i bezpieczeństwo</span></div>
+      </div>
+      <p class="small" style="margin-top:12px">Dziecko samo przesuwa strzałkę. Nazwanie własnego stanu to już mentalizacja.</p>
+    </div>
+    <div class="stack">
+      <div class="card top" style="border-top-color:var(--amber)"><h3>Jeśli napięcie &gt; 3</h3><ul class="dots" style="margin-top:6px"><li><strong>docisk:</strong> kocyk obciążeniowy, mocny uścisk, przytulenie do siebie</li><li><strong>praca ciężka:</strong> pchanie ściany, noszenie skrzynki z klockami, wspinanie</li><li><strong>oddech:</strong> wydech dłuższy niż wdech</li></ul></div>
+      <div class="box good"><h4 style="color:var(--green)">Wersja przedszkolna oddechu</h4><p class="small" style="margin:0">Schemat 4-7-8 jest dla przedszkolaka za trudny. Użyj obrazu: <em class="q">„powąchaj kwiatek — zdmuchnij świeczkę”</em>, trzy razy. Liczysz razem z dzieckiem, nie każesz mu liczyć samemu.</p></div>
+    </div>
+    <div class="stack">
+      <div class="dark"><h3>Sygnał ostrzegawczy</h3><p class="lead" style="margin:0">Podwójne obciążenie sensoryczno-poznawcze: w wysokim pobudzeniu <strong>nie wymagamy pracy kognitywnej</strong>.</p></div>
+      <div class="card"><h4>Co to znaczy w praktyce</h4><ul class="dots" style="margin-top:6px"><li>żadnych pytań „dlaczego” przy napięciu 4–5</li><li>żadnych przeprosin „na siłę” w afekcie</li><li>najpierw ciało, potem rozmowa — nawet po 20 minutach</li><li>miejsce wyciszenia jest <strong>narzędziem</strong>, nie karą</li></ul></div>
+    </div>
+  </div>
+  <div class="tag">Etap 1 · ciało</div><div class="num">15 / 25</div>
+</section>
+
+<!-- ========== 16 ========== -->
+<section class="slide" data-t="Etap 2: technika Carol Gray" data-notes="Kluczowe rozróżnienie całego programu: <b>dymek biały to co ktoś mówi, dymek niebieski to co ktoś myśli</b>. Dziecko musi zobaczyć różnicę kształtem i kolorem — sam opis słowny nie wystarczy. Rysuj przy dziecku, na bieżąco, po prawdziwej sytuacji z sali. Nie musisz umieć rysować: patyczaki w zupełności wystarczą.">
+  <p class="eyebrow">Moduł III · Procedura · etap 2</p>
+  <div style="display:flex;align-items:center;gap:18px;margin-bottom:6px"><span class="circ" style="width:44px;height:44px;font-size:20px">2</span><h2 style="margin:0">Transformacja — technika Carol Gray</h2></div>
+  <p class="lead" style="margin:0 0 22px 62px">Dziecko uczy się rozróżniać <strong>komunikat werbalny</strong> od <strong>wewnętrznego procesu mentalnego</strong>.</p>
+  <div class="cols c2" style="gap:34px;align-items:start">
+    <div>
+      <div style="display:flex;gap:26px;align-items:flex-start;padding-bottom:20px">
+        <div style="flex:1"><div class="bub say">Dymek <strong>MOWY</strong> (biały)<br><span style="color:var(--ink-2);font-size:15px">— co ktoś mówi</span><span class="tail"></span></div></div>
+        <div style="flex:1"><div class="bub think">Dymek <strong>MYŚLI</strong> (niebieski)<br><span style="color:var(--sky-ink);font-size:15px">— co ktoś myśli</span><span class="dots"><i></i><i></i></span></div></div>
+      </div>
+      <p class="kicker" style="margin:14px 0 10px">Cztery kroki rysowania — po zdarzeniu, przy dziecku</p>
+      <div class="cols c4" style="gap:10px">
+        <div class="card soft" style="padding:13px 14px"><span class="n" style="font-size:20px">1</span><p class="small" style="margin:4px 0 0">Narysuj sytuację — patyczaki wystarczą</p></div>
+        <div class="card soft" style="padding:13px 14px"><span class="n" style="font-size:20px">2</span><p class="small" style="margin:4px 0 0">Dorysuj, co każdy <strong>powiedział</strong></p></div>
+        <div class="card soft" style="padding:13px 14px"><span class="n" style="font-size:20px">3</span><p class="small" style="margin:4px 0 0">Dorysuj, co każdy <strong>pomyślał</strong></p></div>
+        <div class="card soft" style="padding:13px 14px"><span class="n" style="font-size:20px">4</span><p class="small" style="margin:4px 0 0">Pokoloruj emocje i zapytaj: co zrobimy inaczej?</p></div>
+      </div>
+    </div>
+    <div class="stack">
+      <div class="card"><h4>Przykład 1</h4><div style="display:flex;gap:12px;margin-top:9px"><div class="bub say" style="flex:1;padding:11px 13px;font-size:14.5px;border-radius:14px">Pójdziemy teraz na plac zabaw.</div><div class="bub think" style="flex:1;padding:11px 13px;font-size:14.5px;border-radius:14px">Cieszę się, lubię zjeżdżalnię!</div></div></div>
+      <div class="card"><h4>Przykład 2 — rozjazd mowy i myśli</h4><div style="display:flex;gap:12px;margin-top:9px"><div class="bub say" style="flex:1;padding:11px 13px;font-size:14.5px;border-radius:14px">Proszę, odłóż zabawki na miejsce.</div><div class="bub think" style="flex:1;padding:11px 13px;font-size:14.5px;border-radius:14px">Nie mam na to ochoty, chciałbym dokończyć grę.</div></div></div>
+    </div>
+  </div>
+  <div class="cols c3" style="margin-top:24px;gap:18px">
+    <div class="box good"><h4 style="color:var(--green)">Jak to robić</h4><p class="small" style="margin:0">Rysuj <strong>przy dziecku</strong>, zaraz po zdarzeniu. Najpierw sytuacja (patyczaki wystarczą), potem dymki mowy, na końcu dymki myśli.</p></div>
+    <div class="box good"><h4 style="color:var(--green)">Kolor niesie znaczenie</h4><p class="small" style="margin:0">Trzymaj stałe kody: biały = mowa, niebieski = myśl. Możesz dołożyć kolor emocji: czerwony — złość, żółty — radość.</p></div>
+    <div class="box warn"><h4 style="color:var(--amber-ink)">Częsty błąd</h4><p class="small" style="margin:0">Rysowanie dymków „na zapas”, w oderwaniu od zdarzenia. Technika działa na <strong>prawdziwej</strong> sytuacji z tej sali i z tego dnia.</p></div>
+  </div>
+  <div class="tag">Etap 2 · mowa vs myśl</div><div class="num">16 / 25</div>
+</section>
+<!-- ========== 17 ========== -->
+<section class="slide" data-t="Etap 3: trening" data-notes="Progresja jest ważniejsza niż pojedyncze zadanie: zacznij od „widzieć = wiedzieć”, dopiero potem przechodź do fałszywego przekonania. Trzy zasady prowadzenia: <b>daj czas (5–10 sekund ciszy), pytaj otwarcie, nie poprawiaj natychmiast</b>. Błędna odpowiedź to materiał do pracy, nie porażka. I najważniejsze — używaj fascynacji dziecka: kolej, dinozaury, Minecraft, cokolwiek działa.">
+  <p class="eyebrow">Moduł III · Procedura · etap 3</p>
+  <div style="display:flex;align-items:center;gap:18px;margin-bottom:16px"><span class="circ" style="width:44px;height:44px;font-size:20px">3</span><h2 style="margin:0">Trening — progresja zadań dla przedszkola</h2></div>
+  <div class="cols c4" style="gap:16px">
+    <div class="card top"><span class="chip">Poziom 1</span><h3 style="margin-top:11px">Widzieć = wiedzieć</h3><p>Chowasz przedmiot przy jednym dziecku, drugie wychodzi. <em class="q">„Kto wie, gdzie jest? Skąd wie?”</em></p><p class="small" style="margin-top:8px;color:var(--green)">od 3–4 lat</p></div>
+    <div class="card top"><span class="chip">Poziom 2</span><h3 style="margin-top:11px">Niespodziewana zawartość</h3><p>Pudełko po kredkach, w środku guziki. <em class="q">„Co pomyśli Kuba, gdy wejdzie i je zobaczy?”</em></p><p class="small" style="margin-top:8px;color:var(--green)">od 4 lat</p></div>
+    <div class="card top" style="border-top-color:var(--amber)"><span class="chip a">Poziom 3</span><h3 style="margin-top:11px">Nieoczekiwane przeniesienie</h3><p>Scenka Anna-Basia z kukiełkami. <em class="q">„Gdzie Basia zacznie szukać?”</em></p><p class="small" style="margin-top:8px;color:var(--amber-ink)">4–6 lat, etap przełomowy</p></div>
+    <div class="card top" style="border-top-color:var(--ink-2)"><span class="chip">Poziom 4</span><h3 style="margin-top:11px">Ukryta emocja</h3><p>Dostał prezent, który mu się nie podoba, ale się uśmiecha. <em class="q">„Co czuje, a co pokazuje?”</em></p><p class="small" style="margin-top:8px;color:var(--ink-2)">5–6 lat i starsze</p></div>
+  </div>
+  <div class="cols c-73" style="margin-top:26px;gap:24px;align-items:start">
+    <div class="dark">
+      <h3>Trzy zasady prowadzenia treningu</h3>
+      <div class="cols c3" style="margin-top:12px;gap:18px">
+        <div><p style="color:#fff;font-weight:700;margin-bottom:4px">Daj czas</p><p class="small" style="margin:0">5–10 sekund ciszy po pytaniu. To dużo dłużej, niż się wydaje — policz w myślach.</p></div>
+        <div><p style="color:#fff;font-weight:700;margin-bottom:4px">Pytaj otwarcie</p><p class="small" style="margin:0">„Jak myślisz, co on teraz myśli?” zamiast pytań tak/nie bez eksploracji.</p></div>
+        <div><p style="color:#fff;font-weight:700;margin-bottom:4px">Nie poprawiaj od razu</p><p class="small" style="margin:0">Zapytaj „skąd wiesz?”. Błędna odpowiedź to materiał do pracy, nie porażka.</p></div>
+      </div>
+    </div>
+    <div class="box good"><h4 style="color:var(--green)">Pasja jako język terapii</h4><p class="small" style="margin:0">To, co dziecko kocha, otwiera drzwi do relacji i nowych umiejętności. Przełóż każde zadanie na jego świat: <em class="q">„Co pomyśli maszynista, gdy wróci i zobaczy, że rozkład się zmienił?”</em></p></div>
+  </div>
+  <div class="tag">Etap 3 · trening</div><div class="num">17 / 25</div>
+</section>
+
+<!-- ========== 18 ========== -->
+<section class="slide" data-t="Etap 4: ewaluacja i motywacja" data-notes="Zasada, którą warto powiesić w pokoju nauczycielskim: <b>nagradzamy PRÓBĘ poznawczą, nie poprawną odpowiedź. Błąd jest częścią procesu ToM</b>. Dla przedszkolaka: żeton natychmiast, nagroda tego samego dnia — odroczenie tygodniowe nie działa. Kontrakt musi być obrazkowy, maksymalnie 2–3 cele, czytany razem z dzieckiem na początku każdej sesji.">
+  <p class="eyebrow">Moduł III · Procedura · etap 4</p>
+  <div style="display:flex;align-items:center;gap:18px;margin-bottom:16px"><span class="circ" style="width:44px;height:44px;font-size:20px">4</span><h2 style="margin:0">Ewaluacja i motywacja — nagradzamy próbę</h2></div>
+  <div class="cols c3" style="gap:22px;align-items:start">
+    <div class="card"><h3>Kontrakt obrazkowy</h3><p>Zamiast tekstu — 2–3 obrazki celów, np. „patrzę na twarz”, „pytam, zanim wezmę”. Czytacie go razem na starcie każdej sesji.</p><ul class="dots" style="margin-top:10px"><li>maksymalnie 3 cele</li><li>sformułowane pozytywnie: co robię, nie czego nie robię</li><li>podpis dziecka: odcisk palca albo naklejka</li></ul></div>
+    <div class="card"><h3>System żetonowy</h3><p>Żeton za <strong>podjęcie próby</strong> odpowiedzi o cudzej myśli — nie za trafność.</p><ul class="dots" style="margin-top:10px"><li>4–5 żetonów do nagrody, nie 20</li><li>żeton natychmiast, nagroda tego samego dnia</li><li>nagroda z listy dziecka, nie z naszej</li><li>nigdy nie zabieramy zdobytych żetonów</li></ul></div>
+    <div class="stack">
+      <div class="dark"><p class="lead" style="margin:0">Nagradzamy <strong>PRÓBĘ poznawczą</strong> — nie poprawną odpowiedź.<br><span style="color:#A8D0B2">Błąd to część nauki.</span></p></div>
+      <div class="card top"><h4>Wpis do dokumentacji — 3 zdania</h4><p class="small" style="margin:0"><strong>Sytuacja:</strong> scenka z kukiełkami, przeniesienie zabawki.<br><strong>Próba:</strong> zapytany, gdzie Basia będzie szukać, milczał 8 sekund, potem wskazał koszyk.<br><strong>Wniosek:</strong> perspektywa własna nadal dominująca; powtórzyć poziom 1.</p></div>
+    </div>
+  </div>
+  <div class="track" style="margin:24px 0 18px"></div>
+  <p class="quote" style="text-align:center">„Każda próba poznawcza — nawet błędna — to most, który budujesz razem z dzieckiem.”</p>
+  <div class="tag">Etap 4 · motywacja</div><div class="num">18 / 25</div>
+</section>
+
+<!-- ========== 19 ========== -->
+<section class="slide" data-t="Język mentalny" data-notes="To narzędzie, które nic nie kosztuje i działa przez cały dzień, nie tylko na sesji. Im częściej dorosły używa czasowników mentalnych — myśli, wie, nie wie, chce, pamiętał, zapomniał, sądził — tym szybciej dziecko buduje ToM. Ćwiczenie na żywo: poproś kadrę, żeby przełożyła własne typowe zdanie z lewej kolumny na prawą.">
+  <p class="eyebrow">Moduł III · Narzędzia</p>
+  <div class="cols c-73" style="align-items:start;gap:36px">
+    <div>
+      <h2>Mów wprost o tym, czego nie widać</h2>
+      <p class="lead" style="margin-bottom:18px">Dziecko nie wywnioskuje cudzej intencji samo. Powiedz mu ją głośno — słowami „myśli”, „wie”, „nie wiedział”, „chciał”, „zapomniał”.</p>
+      <div>
+        <div class="swap"><span class="no">„Przeproś Kubę.”</span><span class="ar">→</span><span class="yes">„Kuba <strong>myślał</strong>, że wieża zostanie. Teraz jest smutny. Powiedz: przepraszam, nie chciałem.”</span></div>
+        <div class="swap"><span class="no">„Zachowuj się grzecznie.”</span><span class="ar">→</span><span class="yes">„Podejdź, popatrz na Zosię i zapytaj: mogę się z tobą bawić?”</span></div>
+        <div class="swap"><span class="no">„Dlaczego to zrobiłeś?”</span><span class="ar">→</span><span class="yes">„Co było najpierw? A potem? Co wtedy <strong>pomyślałeś</strong>?”</span></div>
+        <div class="swap"><span class="no">„Przecież widzisz, że jest smutna.”</span><span class="ar">→</span><span class="yes">„Popatrz na jej twarz. Usta ma w dół. To znaczy smutek.”</span></div>
+        <div class="swap"><span class="no">„Nie przeszkadzaj.”</span><span class="ar">→</span><span class="yes">„Ja teraz rozmawiam z panią. <strong>Nie wiedziałem</strong>, że chcesz mi coś powiedzieć. Poczekaj do końca piosenki.”</span></div>
+      </div>
+    </div>
+    <div class="stack" style="padding-top:64px">
+      <div class="dark"><h3>Siedem słów, które budują ToM</h3><p class="lead" style="margin:0">myśli · wie · nie wie · chce · pamiętał · zapomniał · sądził</p></div>
+      <div class="card top"><h4>Myśl na głos</h4><p class="small" style="margin:0">Komentuj własny umysł przy dzieciach: <em class="q">„Myślałam, że Ola już przyszła, ale się pomyliłam.”</em> Dziecko słyszy wtedy, jak wygląda niewidzialne wnętrze dorosłego.</p></div>
+      <div class="box good"><h4 style="color:var(--green)">Kiedy to działa</h4><p class="small" style="margin:0">Przy każdym konflikcie, każdej zmianie planu i każdej pomyłce — a nie tylko w czasie zajęć. To narzędzie „przez cały dzień”.</p></div>
+    </div>
+  </div>
+  <div class="tag">Język</div><div class="num">19 / 25</div>
+</section>
+<!-- ========== 20 ========== -->
+<section class="slide" data-t="Zabawa, książka, rówieśnicy" data-notes="Podkreśl: <b>10 minut zabawy uczy więcej niż 30 minut karty pracy</b>. Karta pracy uczy rozwiązywać kartę pracy — umiejętność nie przenosi się na sytuację w szatni. Generalizacja jest największym problemem treningu ToM, dlatego ćwiczymy w naturalnych sytuacjach. Przy wspólnym czytaniu wybieraj książki, w których bohater się myli albo czegoś nie wie — to gotowe zadania fałszywego przekonania.">
+  <p class="eyebrow">Moduł III · Narzędzia</p>
+  <h2>Trening w naturalnej sytuacji — zabawa, książka, rówieśnicy</h2>
+  <div class="cols c3" style="margin-top:22px;gap:22px;align-items:start">
+    <div class="stack">
+      <div class="card top"><h3>Zabawa</h3><ul class="dots" style="margin-top:6px"><li><strong>chowanego z komentarzem:</strong> „on nie wie, gdzie jesteś — bo nie widział”</li><li><strong>teatrzyk kukiełkowy:</strong> kukiełka się myli, dziecko ją poprawia</li><li><strong>zabawa w role</strong> z podziałem zadań: sklep, przychodnia, dworzec</li><li><strong>gry współpracujące</strong> bez wygranego</li></ul></div>
+      <div class="box warn"><p class="small" style="margin:0"><strong>10 minut zabawy</strong> uczy więcej niż 30 minut karty pracy. Karta pracy uczy rozwiązywać kartę pracy.</p></div>
+    </div>
+    <div class="stack">
+      <div class="card top"><h3>Wspólne czytanie</h3><p style="font-size:15.5px">Wybieraj książki, w których bohater <strong>czegoś nie wie albo się myli</strong> — to gotowe zadania fałszywego przekonania.</p><ul class="dots" style="margin-top:8px"><li>„Co on teraz myśli?”</li><li>„Skąd on to wie?”</li><li>„Czy on wie, że…?”</li><li>„Jak myślisz, co zrobi?”</li><li>„Co byś czuł, gdybyś był na jego miejscu?”</li></ul><p class="small" style="margin-top:9px">Po każdym pytaniu — pauza. Cisza jest częścią metody.</p></div>
+    </div>
+    <div class="stack">
+      <div class="card top"><h3>Rówieśnicy</h3><p style="font-size:15.5px">Najskuteczniejszy „terapeuta” w przedszkolu to inne dziecko — pod warunkiem, że nauczysz je <em>jak</em>.</p><ul class="dots" style="margin-top:8px"><li>naucz 2–3 dzieci konkretów: jak zaprosić, jak poczekać, jak podać</li><li>rotacja „kolegi dnia” — nigdy jeden stały opiekun</li><li>zadania w parach z <strong>jednym</strong> zestawem materiałów</li><li>wycofuj się stopniowo: najpierw obok, potem z boku, potem tylko obserwujesz</li></ul></div>
+      <div class="box bad"><p class="small" style="margin:0;color:var(--red)"><strong style="color:var(--red)">Nie:</strong> wyznaczanie na stałe „opiekuna” — obciąża jedno dziecko i utrwala role.</p></div>
+    </div>
+  </div>
+  <div class="tag">Codzienna praktyka</div><div class="num">20 / 25</div>
+</section>
+
+<!-- ========== 21 ========== -->
+<section class="slide big" data-t="Niezbędnik nauczyciela" data-notes="To lista zakupowa i lista do przygotowania na najbliższy tydzień. Wszystko z kolumny „wizualne” zrobisz sama z drukarki i laminatora. Timer wizualny jest tu niedoceniany: dziecko, które widzi, ile czasu zostało, nie zużywa zasobów na pilnowanie tego w głowie. Strange Stories i Test Faux Pas to materiały dla starszych — w przedszkolu zastępujemy je autorskimi historyjkami.">
+  <p class="eyebrow">Moduł III · Narzędzia</p>
+  <h2>Niezbędnik nauczyciela przedszkola</h2>
+  <div class="stack" style="margin-top:22px;gap:16px">
+    <div class="card" style="display:grid;grid-template-columns:190px 1fr;gap:26px;align-items:center">
+      <div><span class="chip">Wizualne</span><h3 style="margin-top:11px">Do zrobienia z drukarki</h3></div>
+      <div class="cols c4" style="gap:18px">
+        <div><h4>Karty Teraz–Potem</h4><p class="small" style="margin:0">Dwa pola: co robimy teraz, co zaraz. Zmniejsza lęk przed zmianą.</p></div>
+        <div><h4>Piktogramy stanów mentalnych</h4><p class="small" style="margin:0">„myślę”, „wiem”, „nie wiem”, „chcę” — obrazkowo, do wskazywania.</p></div>
+        <div><h4>Termometr Emocji</h4><p class="small" style="margin:0">Pięć poziomów, strzałka na klipsie. Zalaminowany, zawsze pod ręką.</p></div>
+        <div><h4>Karty emocji</h4><p class="small" style="margin:0">Zdjęcia twarzy — dziecko wybiera minę, nie tylko słowo.</p></div>
+      </div>
+    </div>
+    <div class="card" style="display:grid;grid-template-columns:190px 1fr;gap:26px;align-items:center">
+      <div><span class="chip">Systemowe</span><h3 style="margin-top:11px">Porządkują sesję</h3></div>
+      <div class="cols c3" style="gap:18px">
+        <div><h4>Timer wizualny</h4><p class="small" style="margin:0">Dziecko widzi, ile czasu zostało — i nie musi tego pilnować w głowie.</p></div>
+        <div><h4>Kontrakt obrazkowy</h4><p class="small" style="margin:0">2–3 cele w obrazkach, czytany razem na początku każdej sesji.</p></div>
+        <div><h4>System żetonowy</h4><p class="small" style="margin:0">4–5 żetonów, nagroda tego samego dnia, żeton za próbę.</p></div>
+      </div>
+    </div>
+    <div class="card" style="display:grid;grid-template-columns:190px 1fr;gap:26px;align-items:center">
+      <div><span class="chip">Merytoryczne</span><h3 style="margin-top:11px">Źródła zadań</h3></div>
+      <div class="cols c3" style="gap:18px">
+        <div><h4>Autorskie historyjki</h4><p class="small" style="margin:0">Najważniejsze w przedszkolu — pisane pod konkretne dziecko i jego pasję.</p></div>
+        <div><h4>Strange Stories (Happé)</h4><p class="small" style="margin:0">Materiał dla starszych uczniów — do znajomości kierunku pracy.</p></div>
+        <div><h4>Test Faux Pas (Baron-Cohen, Stone)</h4><p class="small" style="margin:0">Rozpoznawanie gafy — etap szkolny, nie przedszkolny.</p></div>
+      </div>
+    </div>
+  </div>
+  <div class="tag">Wyposażenie</div><div class="num">21 / 25</div>
+</section>
+
+<!-- ========== 22 ========== -->
+<section class="slide" data-t="Własna historyjka terapeutyczna" data-notes="Pokaż konstrukcję na przykładzie historyjki „Peron nr 1 i Tajemnica Obcych Pociągów” — Adam, miłośnik kolei, który każdy brak uśmiechu odbiera jako własną winę. Cztery części: problem, spotkanie z przewodnikiem, metafora, zmiana. Dla przedszkolaka: skróć do 6–8 zdań, jedna ilustracja na zdanie, bohater w wieku dziecka i z jego pasją. Potem zadajesz pytania z trzech sekcji, sekwencyjnie.">
+  <p class="eyebrow">Moduł IV · Wdrożenie</p>
+  <div class="cols c-73" style="align-items:start;gap:34px">
+    <div>
+      <h2>Napisz własną historyjkę — cztery części</h2>
+      <p class="lead" style="margin-bottom:18px">Wzór: <em class="q">„Peron nr 1 i Tajemnica Obcych Pociągów”</em> — Adam, miłośnik kolei, czuł smutek, gdy ktoś mijał go bez uśmiechu. Myślał: <em class="q">coś zrobiłem nie tak?</em></p>
+      <div class="cols c2 gs">
+        <div class="card top"><h4>I. Problem</h4><p class="small" style="margin:0">Bohater przeżywa dokładnie tę trudność, którą ma dziecko. Nazwij jego <strong>myśl</strong>, nie tylko zachowanie.</p></div>
+        <div class="card top"><h4>II. Spotkanie</h4><p class="small" style="margin:0">Ktoś mądry i życzliwy podaje inne wyjaśnienie. U Adama — pan Marek, maszynista.</p></div>
+        <div class="card top"><h4>III. Metafora</h4><p class="small" style="margin:0">Obraz, który dziecko zapamięta: <em class="q">każdy człowiek to osobny pociąg, ma w głowie swój własny wagon</em>.</p></div>
+        <div class="card top"><h4>IV. Zmiana</h4><p class="small" style="margin:0">Bohater myśli inaczej i czuje się lepiej: <em class="q">ten człowiek jest zajęty swoją trasą</em>. Uśmiech to dar, nie transakcja.</p></div>
+      </div>
+      <div class="box good" style="margin-top:18px"><p class="small" style="margin:0"><strong>Wersja przedszkolna:</strong> 6–8 zdań, jedna ilustracja do każdego zdania, bohater w wieku dziecka i z jego pasją. Czytana wielokrotnie, zawsze tak samo.</p></div>
+    </div>
+    <div class="stack" style="gap:10px">
+      <div class="dark" style="padding:18px 22px"><h3>Pytania do historyjki — trzy sekcje</h3><p style="margin:0">Zadawaj sekwencyjnie, dopasuj poziom trudności do etapu rozwoju dziecka.</p></div>
+      <div class="card" style="padding:15px 17px"><h4>I. Rozpoznawanie emocji</h4><p class="small" style="margin:0">„Jak Adam się czuł, gdy ktoś nie odwzajemnił uśmiechu?” · „Czy brak uśmiechu zawsze oznacza złość?”</p></div>
+      <div class="card" style="padding:15px 17px"><h4>II. Perspektywa i teoria umysłu</h4><p class="small" style="margin:0">„Czy jeśli ktoś nie patrzy na Adama, to znaczy, że go celowo ignoruje?” · „Co to znaczy: każdy człowiek to osobny pociąg?”</p><p class="small" style="margin-top:7px;color:var(--green)"><strong style="color:var(--green)">To serce ćwiczenia</strong> — daj czas na myślenie, nie spiesz się z odpowiedzią.</p></div>
+      <div class="card" style="padding:15px 17px"><h4>III. Samoregulacja i akceptacja</h4><p class="small" style="margin:0">„Czy wartość Adama zmienia się zależnie od reakcji innych?” · <strong>„A jak TY wytłumaczysz brak uśmiechu?”</strong> — to moment przeniesienia na życie dziecka.</p></div>
+    </div>
+  </div>
+  <div class="tag">Historyjka</div><div class="num">22 / 25</div>
+</section>
+<!-- ========== 23 ========== -->
+<section class="slide big" data-t="Czego unikać" data-notes="Przejdź przez kolumnę „unikaj” powoli — to najczęstsze odruchy kadry, wykonywane w dobrej wierze. Szczególnie trzy: porównywanie z rówieśnikami („zobacz, jak ładnie siedzi Zosia”), publiczne omawianie zachowania przy grupie i wymuszanie kontaktu wzrokowego. Zamknij zdaniem: podwójne obciążenie sensoryczno-poznawcze to realne ryzyko — reaguj na ciało, nie tylko na słowa.">
+  <p class="eyebrow">Moduł IV · Wdrożenie</p>
+  <h2>Czego unikać w pracy z teorią umysłu</h2>
+  <div class="two" style="margin-top:22px">
+    <div class="box bad">
+      <h3>✕ &nbsp;Unikaj</h3>
+      <ul class="dots" style="margin-top:10px">
+        <li><strong>pracy poznawczej przy wysokim pobudzeniu</strong> — najpierw ciało</li><li><strong>pytań zamkniętych tak/nie</strong> bez eksploracji „skąd wiesz?”</li><li><strong>porównywania z rówieśnikami</strong> — „zobacz, jak ładnie siedzi Zosia”</li><li><strong>zakładania złej woli</strong> — „robi to specjalnie”</li><li><strong>ironii i metafor</strong> — „no pięknie”, „świetnie się spisałeś”</li><li><strong>publicznego omawiania</strong> zachowania przy całej grupie</li><li><strong>wymuszania kontaktu wzrokowego</strong> — zabiera zasoby na słuchanie</li></ul>
+    </div>
+    <div class="box good">
+      <h3>✓ &nbsp;Stosuj</h3>
+      <ul class="dots" style="margin-top:10px">
+        <li><strong>Termometr Emocji</strong> jako punkt startowy każdej sesji</li><li><strong>metafory bliskie pasji</strong> dziecka — pociągi, dinozaury, klocki</li><li><strong>wizualizacje</strong>: dymki, rysunki, piktogramy</li><li><strong>język mentalny</strong>: myśli, wie, nie wiedział, chciał</li><li><strong>ćwiczenie w naturalnej sytuacji</strong>, nie przy stoliku</li><li><strong>czas na przetworzenie</strong>: 5–10 sekund ciszy</li><li><strong>nagradzanie próby</strong>, nie poprawnej odpowiedzi</li></ul>
+    </div>
+  </div>
+  <div class="box warn" style="margin-top:24px;display:flex;align-items:center;gap:20px">
+    <span class="chip a">Pamiętaj</span>
+    <p style="margin:0;font-size:17px;color:var(--ink)">Podwójne obciążenie sensoryczno-poznawcze to <strong>realne ryzyko</strong>, a nie teoria. Reaguj na ciało, nie tylko na słowa.</p>
+  </div>
+  <div class="tag">Pułapki</div><div class="num">23 / 25</div>
+</section>
+
+<!-- ========== 24 ========== -->
+<section class="slide" data-t="Rodzice i dokumentacja" data-notes="Rozmowa z rodzicem udaje się wtedy, gdy przynosisz <b>dane, nie wrażenia</b>. Trzy tygodnie zapisów z datami działają lepiej niż najlepiej dobrane słowa. Ważne: nie nazywamy podejrzenia diagnostycznego — opisujemy funkcjonowanie i proponujemy konsultację. Przypomnij ścieżkę formalną: obserwacja → pomoc psychologiczno-pedagogiczna w przedszkolu → poradnia → orzeczenie → WOPFU i IPET dla dzieci z orzeczeniem.">
+  <p class="eyebrow">Moduł IV · Wdrożenie</p>
+  <div class="cols c-73" style="align-items:start;gap:34px">
+    <div>
+      <h2>Rozmowa z rodzicami i dokumentacja</h2>
+      <div class="two" style="margin-top:18px">
+        <div class="box bad" style="padding:15px 17px"><h4 style="color:var(--red)">Nie mów</h4><ul class="dots" style="margin-top:8px"><li>„To wygląda na autyzm.”</li><li>„On nie ma empatii.”</li><li>„Nie radzę sobie z Państwa dzieckiem.”</li><li>„Wszystkie dzieci już to potrafią.”</li></ul></div>
+        <div class="box good" style="padding:15px 17px"><h4 style="color:var(--green)">Powiedz</h4><ul class="dots" style="margin-top:8px"><li>„Zauważyłam, że w 4 z 5 obserwowanych sytuacji Antek zaczyna mówić, nie sprawdzając, czy kolega słucha.”</li><li>„Chcę to z Państwem omówić i zaproponować konsultację.”</li><li>„Oto co już robimy w sali i co przynosi efekt.”</li></ul></div>
+      </div>
+      <div class="card top" style="margin-top:18px"><h4>Zasada rozmowy</h4><p class="small" style="margin:0">Przynosisz <strong>dane, nie wrażenia</strong>: daty, sytuacje, cytaty, częstotliwość. Trzy tygodnie zapisów działają lepiej niż najlepiej dobrane słowa. Zaczynasz i kończysz mocną stroną dziecka.</p></div>
+    </div>
+    <div class="stack">
+      <div class="dark"><h3>Ścieżka formalna</h3><ul class="dots" style="margin-top:8px"><li style="color:#C3D6C4">obserwacja pedagogiczna i zapisy nauczyciela</li><li style="color:#C3D6C4">pomoc psychologiczno-pedagogiczna w przedszkolu</li><li style="color:#C3D6C4">konsultacja w poradni psychologiczno-pedagogicznej</li><li style="color:#C3D6C4">przy orzeczeniu: <strong>WOPFU</strong> i <strong>IPET</strong> opracowane przez zespół</li></ul></div>
+      <div class="card"><h4>Co wpisać do IPET w obszarze ToM</h4><p class="small" style="margin:0"><strong>Cel:</strong> „Dziecko wskaże, czego nie wie osoba nieobecna przy zdarzeniu — w 4 z 5 prób, w scence z kukiełkami, do końca semestru”.<br><strong>Metody:</strong> procedura „od ciała do umysłu”, technika Carol Gray, historyjki autorskie.<br><strong>Ewaluacja:</strong> zapis prób co dwa tygodnie.</p></div>
+      <p class="small">Podstawa: rozporządzenia MEN z 9 sierpnia 2017 r. o pomocy psychologiczno-pedagogicznej oraz o kształceniu dzieci z niepełnosprawnością.</p>
+    </div>
+  </div>
+  <div class="tag">Zespół i rodzina</div><div class="num">24 / 25</div>
+</section>
+
+<!-- ========== 25 ========== -->
+<section class="slide" data-t="Plan 30 dni" data-notes="Zamknięcie. Poproś, żeby każdy uczestnik zapisał teraz jedno nazwisko i jedną rzecz, którą zrobi jutro — nie w przyszłym tygodniu. Przeczytaj na głos cytat na dole: to jest sens całego programu. Zapowiedz, że wracacie do tego planu na radzie za miesiąc i sprawdzacie zapisy prób.">
+  <p class="eyebrow">Moduł IV · Wdrożenie</p>
+  <h2>Plan na 30 dni — zacznij od jednego dziecka</h2>
+  <div class="cols c4" style="margin-top:20px;gap:16px">
+    <div class="card top"><span class="chip">Tydzień 1</span><h3 style="margin-top:11px">Obserwuj</h3><ul class="dots" style="margin-top:6px"><li>checklista ze slajdu 9</li><li>3 zapisy w tygodniu: data, sytuacja, cytat</li><li>jedno zadanie „widzieć = wiedzieć”</li></ul></div>
+    <div class="card top"><span class="chip">Tydzień 2</span><h3 style="margin-top:11px">Zmień język</h3><ul class="dots" style="margin-top:6px"><li>siedem słów mentalnych codziennie</li><li>myślenie na głos przy dzieciach</li><li>Termometr Emocji w sali</li></ul></div>
+    <div class="card top"><span class="chip">Tydzień 3</span><h3 style="margin-top:11px">Wprowadź procedurę</h3><ul class="dots" style="margin-top:6px"><li>dwie sesje „od ciała do umysłu”</li><li>pierwsze dymki Carol Gray</li><li>własna historyjka — 8 zdań</li></ul></div>
+    <div class="card top"><span class="chip">Tydzień 4</span><h3 style="margin-top:11px">Włącz otoczenie</h3><ul class="dots" style="margin-top:6px"><li>2–3 dzieci przeszkolone „jak zapraszać”</li><li>rozmowa z rodzicami na danych</li><li>podsumowanie prób i wnioski do IPET</li></ul></div>
+  </div>
+  <div class="dark" style="margin-top:24px;display:grid;grid-template-columns:1.25fr 1fr;gap:30px;align-items:center">
+    <div>
+      <p class="quote" style="color:#EAF3EA;font-size:22px;margin:0">„Każde dziecko to osobny pociąg. Twoja rola to nie zmienić jego trasy — lecz pomóc mu zrozumieć, że inne pociągi mają swoje własne tory.”</p>
+    </div>
+    <div style="display:flex;flex-direction:column;gap:9px">
+      <div style="display:flex;gap:11px;align-items:baseline"><span class="n" style="color:var(--green-3);font-size:17px">1.</span><p style="margin:0;font-size:15px;color:#C3D6C4"><strong style="color:#fff">Ciało najpierw</strong> — regulacja przed poznaniem. Nigdy odwrotnie.</p></div>
+      <div style="display:flex;gap:11px;align-items:baseline"><span class="n" style="color:var(--green-3);font-size:17px">2.</span><p style="margin:0;font-size:15px;color:#C3D6C4"><strong style="color:#fff">Pasja dziecka jako język terapii</strong> — cokolwiek działa.</p></div>
+      <div style="display:flex;gap:11px;align-items:baseline"><span class="n" style="color:var(--green-3);font-size:17px">3.</span><p style="margin:0;font-size:15px;color:#C3D6C4"><strong style="color:#fff">Nagradzamy próbę, nie wynik</strong> — błąd jest częścią procesu.</p></div>
+    </div>
+  </div>
+  <p class="small" style="margin-top:16px;font-size:12.5px;color:var(--ink-2)"><strong>Opracowanie: Mirosława Ewa Jurczyszyn · PCTP Koszalin</strong> · na podstawie programu rewalidacji ToM „Budowanie mostów społecznych” (cz. I) · Premack &amp; Woodruff 1978 · Baron-Cohen, Leslie &amp; Frith 1985 · C. Gray — Comic Strip Conversations, Social Stories · F. Happé — Strange Stories · Stone, Baron-Cohen — Test Faux Pas</p>
+  <div class="tag">Wdrożenie</div><div class="num">25 / 25</div>
+</section>
+</div></div>
+
+<div id="notes"><span class="lbl">Notatki trenera</span><div id="notesbody"></div></div>
+<div id="gridview"><h4>Wszystkie slajdy</h4><div class="gg" id="gg"></div></div>
+<div id="hud">
+  <button id="prev" aria-label="Poprzedni slajd">← Wstecz</button>
+  <button id="next" aria-label="Następny slajd">Dalej →</button>
+  <button id="ov">Przegląd (O)</button>
+  <button id="nt">Notatki (N)</button>
+  <button id="pr">Drukuj / PDF (P)</button>
+  <span id="count">01 / 25</span>
+</div>
+
+<script>
+(function(){
+  var slides=[].slice.call(document.querySelectorAll('.slide'));
+  var deck=document.getElementById('deck'), notes=document.getElementById('notes');
+  var body=document.getElementById('notesbody'), grid=document.getElementById('gridview');
+  var train=document.getElementById('train'), count=document.getElementById('count');
+  var i=0, notesOn=false;
+
+  function pad(n){return (n<10?'0':'')+n}
+  function fit(){
+    var s=Math.min(window.innerWidth/1280, (window.innerHeight-58)/720)*0.96;
+    document.documentElement.style.setProperty('--s', s);
+  }
+  function show(n){
+    i=Math.max(0,Math.min(slides.length-1,n));
+    slides.forEach(function(s,k){s.classList.toggle('on',k===i)});
+    count.textContent=pad(i+1)+' / '+slides.length;
+    train.style.left='calc('+(i/(slides.length-1))*100+'% - '+(i/(slides.length-1))*34+'px)';
+    body.innerHTML=slides[i].getAttribute('data-notes')||'<i>Brak notatek do tego slajdu.</i>';
+    if(location.hash!=='#s'+(i+1)) history.replaceState(null,'','#s'+(i+1));
+  }
+  function move(d){show(i+d)}
+
+  document.getElementById('prev').onclick=function(){move(-1)};
+  document.getElementById('next').onclick=function(){move(1)};
+  document.getElementById('pr').onclick=function(){window.print()};
+  document.getElementById('nt').onclick=function(){notesOn=!notesOn;notes.classList.toggle('on',notesOn)};
+  document.getElementById('ov').onclick=function(){grid.classList.toggle('on')};
+
+  slides.forEach(function(s,k){
+    var b=document.createElement('button');
+    b.innerHTML='<span class="i">'+pad(k+1)+'</span><span class="t">'+(s.getAttribute('data-t')||'')+'</span>';
+    b.onclick=function(){show(k);grid.classList.remove('on')};
+    document.getElementById('gg').appendChild(b);
+  });
+
+  document.addEventListener('keydown',function(e){
+    var k=e.key;
+    if(k==='ArrowRight'||k==='PageDown'||k===' '){move(1);e.preventDefault()}
+    else if(k==='ArrowLeft'||k==='PageUp'){move(-1);e.preventDefault()}
+    else if(k==='Home'){show(0)}
+    else if(k==='End'){show(slides.length-1)}
+    else if(k==='n'||k==='N'){notesOn=!notesOn;notes.classList.toggle('on',notesOn)}
+    else if(k==='o'||k==='O'){grid.classList.toggle('on')}
+    else if(k==='p'||k==='P'){window.print()}
+    else if(k==='Escape'){grid.classList.remove('on')}
+    else if(k==='f'||k==='F'){if(!document.fullscreenElement){document.documentElement.requestFullscreen&&document.documentElement.requestFullscreen()}else{document.exitFullscreen()}}
+  });
+  deck.addEventListener('click',function(e){ if(!e.target.closest('a')) move(1) });
+
+  var x0=null;
+  deck.addEventListener('touchstart',function(e){x0=e.touches[0].clientX},{passive:true});
+  deck.addEventListener('touchend',function(e){
+    if(x0===null)return; var dx=e.changedTouches[0].clientX-x0;
+    if(Math.abs(dx)>50) move(dx<0?1:-1); x0=null;
+  },{passive:true});
+
+  window.addEventListener('resize',fit);
+  fit();
+  var h=parseInt((location.hash||'').replace('#s',''),10);
+  show(isNaN(h)?0:h-1);
+})();
+</script>
