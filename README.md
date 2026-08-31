@@ -20,6 +20,15 @@ A simple Streamlit app that shows how to build a chatbot using OpenAI's GPT-3.5.
 
 ---
 
+## 🎭 Skille HeyGen — Twój awatar i Twoje filmy
+
+W `.claude/skills/` stoją trzy oficjalne skille HeyGen (`heygen-avatar`, `heygen-video`,
+`heygen-translate`): awatar z Twoją twarzą i głosem, produkcja filmów i dubbing na inne języki.
+
+**Zanim zaczniesz, przeczytaj [`HEYGEN-START.md`](HEYGEN-START.md)** — klucz API, transport
+(CLI/MCP), drogi klonowania głosu i wyjaśnienie, dlaczego awatara trzeba utworzyć
+z Claude Code uruchomionego lokalnie, a nie z sesji webowej.
+
 ## 🎙️ Skill `dane-i-glos` — dane zamienione w nagranie
 
 W `.claude/skills/dane-i-glos/` znajduje się skill, który prowadzi jedną drogę:
