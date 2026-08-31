@@ -191,6 +191,66 @@ Materiał trzymaj lokalnie — skill wgra go do HeyGen dopiero na Twoją wyraźn
 `.gitignore` wyklucza już `*.wav` i `*.m4a`; nagranie wideo i zdjęcie trzymaj poza
 repozytorium albo dopisz je do `.gitignore`.
 
+## Gdzie co wkleić
+
+Jedno miejsce na wszystkie identyfikatory: **[`AVATAR-EWA.md`](AVATAR-EWA.md)**
+w katalogu głównym repozytorium. Skille `heygen-video` i `heygen-translate`
+czytają ten plik same — dlatego „zrób film ze mną" wystarczy za konfigurację.
+
+### Linki do HeyGen
+
+| Co | Gdzie | Co stamtąd bierzesz |
+|---|---|---|
+| **Awatary** — tworzenie ze zdjęcia lub nagrania, podgląd, edycja | [app.heygen.com/avatars](https://app.heygen.com/avatars) | **Group ID** i `look_id` → sekcja `## HeyGen` |
+| **Klonowanie głosu** (gdybyś chciała też w HeyGen) | tamże, zakładka **Voices** | `voice_id` → `Voice ID` |
+| **Klucz API** | [app.heygen.com/api](https://app.heygen.com/api) → Settings → API → New Key | `HEYGEN_API_KEY` → `~/.zshrc` |
+| **Kredyty i plan** | [app.heygen.com/billing](https://app.heygen.com/billing) | tylko podgląd — sprawdź przed renderem |
+
+Adresy `app.heygen.com/api` i `/billing` są potwierdzone w dokumentacji HeyGen.
+Ścieżkę do awatarów HeyGen czasem przestawia — jeśli link nie trafi, wejdź na
+[app.heygen.com](https://app.heygen.com) i szukaj **Avatars** w menu bocznym.
+
+### Tworzenie awatara ze zdjęcia — krok po kroku
+
+1. [app.heygen.com/avatars](https://app.heygen.com/avatars) → **Create Avatar**.
+2. Wybierz tworzenie z **materiału własnego** (Photo Avatar / Avatar ze zdjęcia),
+   nie z opisu tekstowego — opis dałby postać wygenerowaną, nie Ciebie.
+3. Wgraj **zdjęcie** (JPEG/PNG, min. 512×512, twarz na wprost, dobre światło)
+   albo **krótkie nagranie wideo** — nagranie daje wierniejszy efekt, bo oddaje mimikę.
+4. HeyGen poprosi o **nagranie zgody na wykorzystanie wizerunku**. To wymóg prawny,
+   nie da się go pominąć ani zrobić przez API — musisz przejść przez aplikację.
+5. Po przetworzeniu otwórz gotowego awatara i skopiuj **Avatar Group ID**.
+6. Wklej je do `AVATAR-EWA.md` w polu `Group ID`.
+
+Sprawdzenie z terminala, że API widzi awatara:
+
+```bash
+heygen avatar list --ownership private
+```
+
+### To samo bez klikania
+
+Skill `heygen-avatar` przeprowadzi tworzenie z poziomu Claude Code i sam zapisze
+identyfikatory do pliku. Jedyne, czego nie zrobi, to **nagranie zgody na wizerunek** —
+ten krok zawsze przechodzisz w aplikacji HeyGen. Dlatego przy awatarze z własnej
+twarzy prościej jest zrobić go w aplikacji i wkleić `Group ID` ręcznie.
+
+### Pobranie i modyfikacja gotowego awatara
+
+Awatara **nie pobiera się jako plik** — zostaje na koncie HeyGen, a Ty odwołujesz się
+do niego przez `group_id`. Pobierasz gotowe filmy, nie samego awatara.
+
+„Modyfikacja" oznacza w praktyce **dodanie nowego wyglądu (look) do tej samej postaci** —
+inny strój, inne tło, inne kadrowanie — przy zachowaniu tożsamości:
+
+```bash
+heygen avatar looks list --group-id <group_id>     # co już masz
+```
+
+Nowy look tworzysz w aplikacji albo prosząc Claude Code: *„dodaj mojemu awatarowi
+wersję w pionie"*. Skill użyje trybu z `avatar_group_id`, więc powstanie wariant
+tej samej postaci, a nie nowa osoba.
+
 ## Krok 4 — pliki awatara
 
 Po udanym utworzeniu skill zapisuje w katalogu głównym repozytorium:
