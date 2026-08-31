@@ -27,7 +27,7 @@ mkdir -p "$OUT"
 for i in $(seq 1 "$N"); do
   P=$(printf "%02d" "$i")
   "$CH" --headless=new --no-sandbox --disable-gpu --hide-scrollbars \
-    --force-device-scale-factor=2 --window-size=1280,720 --virtual-time-budget=6000 \
+    --force-device-scale-factor=3 --window-size=1280,720 --virtual-time-budget=6000 \
     --screenshot="$OUT/$P.png" "file://$TMP/film.html#s$i" >/dev/null 2>&1
   printf "."
 done

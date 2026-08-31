@@ -15,6 +15,13 @@ const FPS = 30;
 const ODDECH = 0.9;          // sekundy ciszy po zdaniu lektora
 const TEMPO_SLOW = 2.35;     // słów na sekundę przy spokojnym czytaniu
 const MIN_SEK = 5;
+// Widz musi zdążyć przeczytać slajd, a nie tylko wysłuchać lektora. Slajdy tego cyklu
+// mają po 140–240 słów; przy cichym czytaniu ok. 5 słów na sekundę daje to 28–48 s,
+// co jest za dużo na film — zakładamy więc, że widz skanuje slajd, nie czyta go w całości:
+// liczymy 7 słów na sekundę i doliczamy 1,8 s na złapanie układu strony.
+const TEMPO_SKANOWANIA = 7.0;
+const NA_UKLAD = 1.8;
+const MAX_DODATKU = 9;       // ile najwyżej dokładamy ponad ścieżkę lektorską
 
 const rozszerzenia = ['.mp3', '.m4a', '.wav', '.aac', '.ogg'];
 
@@ -30,6 +37,9 @@ const dlugoscAudio = async (sciezka) => {
 
 const policz = async (nazwa) => {
   const slajdy = JSON.parse(readFileSync(join(KATALOG, 'src', 'dane', `${nazwa}.json`), 'utf8'));
+  // liczba słów widocznych na każdym slajdzie prezentacji (jeśli policzona)
+  const plikGestosci = join(KATALOG, 'src', 'dane', `gestosc-${nazwa}.json`);
+  const gestosc = existsSync(plikGestosci) ? JSON.parse(readFileSync(plikGestosci, 'utf8')) : null;
   const odcinki = [];
   let zAudio = 0;
 
@@ -53,6 +63,13 @@ const policz = async (nazwa) => {
     if (sekundy === null) {
       const slowa = slajd.narracja.trim().split(/\s+/).length;
       sekundy = Math.max(MIN_SEK, slowa / TEMPO_SLOW + ODDECH);
+    }
+
+    // przedłużenie ekspozycji: slajd zostaje na ekranie, aż da się go objąć wzrokiem
+    const naEkranie = gestosc?.[odcinki.length];
+    if (naEkranie) {
+      const doPrzeczytania = naEkranie / TEMPO_SKANOWANIA + NA_UKLAD;
+      sekundy = Math.min(Math.max(sekundy, doPrzeczytania), sekundy + MAX_DODATKU);
     }
 
     odcinki.push({klatki: Math.round(sekundy * FPS), maAudio});
