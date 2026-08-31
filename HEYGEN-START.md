@@ -39,10 +39,16 @@ blokującą (403) wszystkie domeny HeyGen i ElevenLabs — `api.heygen.com`,
 `static.heygen.ai`, `app.heygen.com`, `api.elevenlabs.io`. Dlatego **droga przez
 CLI i klucz API działa wyłącznie na Twoim komputerze.**
 
-**Złącza (MCP) to omijają.** Nie idą przez kontener, tylko przez infrastrukturę
-Claude — dokładnie tak działa podłączone złącze ElevenLabs, którym nagraliśmy
-Twój głos, mimo że `api.elevenlabs.io` jest zablokowane. Z tego samego powodu
-złącze HeyGen ma szansę zadziałać także tutaj, w sesji webowej.
+**Uwaga — nie każde złącze to omija.** Rozstrzyga, kto nawiązuje połączenie:
+
+| Sposób dodania | Kto łączy się z serwerem | W sesji webowej |
+|---|---|---|
+| Złącze w ustawieniach claude.ai | infrastruktura Claude | **działa** — tak nagraliśmy Twój głos w ElevenLabs |
+| `claude mcp add` / `.mcp.json` | ten kontener | **nie działa** — 403 z polityki sieci |
+
+Dlatego `claude mcp add --transport http heygen ...` jest poleceniem **na Twój
+komputer**. Wpisane tutaj zapisze konfigurację, ale serwer i tak będzie nieosiągalny.
+W sesji webowej jedyną drogą jest złącze dodane w ustawieniach konta.
 
 ## Krok 1 — złącze HeyGen (bez klucza API)
 
@@ -50,15 +56,26 @@ To jest droga zalecana przez samego HeyGena i lepsza dla Ciebie z trzech powodó
 **nie potrzeba klucza**, **nie potrzeba instalować CLI**, a **rozliczenie idzie
 z Twojego obecnego planu HeyGen**, nie z osobnej puli kredytów API.
 
-1. W Claude otwórz **Ustawienia → Złącza** (Connectors) → **Dodaj niestandardowe złącze**.
-2. Nazwa: `HeyGen`. Adres serwera MCP:
+**W repozytorium jest już gotowa konfiguracja** — plik `.mcp.json` w katalogu
+głównym wpisuje serwer `heygen`. Uruchamiając Claude Code w tym repozytorium
+lokalnie, dostaniesz pytanie o zgodę na ten serwer; potwierdzasz i logujesz się
+przez OAuth. Nic więcej.
 
-   ```
-   https://mcp.heygen.com/mcp/v1/
-   ```
+Gdybyś chciała mieć HeyGena we **wszystkich** projektach, a nie tylko w tym:
 
-3. Kliknij **Połącz** i zaloguj się do HeyGen. To jednorazowy OAuth.
-4. Gotowe. Twoje awatary i głosy z konta HeyGen są od tej chwili dostępne.
+```bash
+claude mcp add --transport http -s user heygen https://mcp.heygen.com/mcp/v1/
+```
+
+`-s user` zapisuje do konfiguracji użytkownika, więc serwer jest widoczny wszędzie.
+Bez tego przełącznika trafia tylko do bieżącego projektu.
+
+**W przeglądarce** (claude.ai, także Claude Code na web) to samo robi się klikając:
+[claude.ai/customize/connectors](https://claude.ai/customize/connectors) →
+**Dodaj niestandardowe złącze** → nazwa `HeyGen`, adres `https://mcp.heygen.com/mcp/v1/`
+→ **Połącz** → logowanie do HeyGen.
+
+Po połączeniu Twoje awatary i głosy z konta HeyGen są dostępne dla agenta.
 
 Z dokumentacji HeyGen wprost: złącze działa **na wszystkich planach**, nie kosztuje
 dodatkowo ponad plan, a Twoje własne awatary i głosy są przez nie dostępne.

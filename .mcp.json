@@ -1,5 +1,9 @@
 {
   "mcpServers": {
+    "heygen": {
+      "type": "http",
+      "url": "https://mcp.heygen.com/mcp/v1/"
+    },
     "elevenlabs": {
       "command": "uvx",
       "args": ["elevenlabs-mcp"],
