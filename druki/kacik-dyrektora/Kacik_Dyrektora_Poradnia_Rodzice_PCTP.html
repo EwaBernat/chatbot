@@ -116,6 +116,10 @@
   td.puste::after{content:"................"; letter-spacing:.4px}
   td.lp{text-align:center; font-weight:bold; color:var(--pomarancz); width:7mm}
   .tab-mala td{height:6.4mm}
+  /* ——— poprawka prawna, oznaczona na niebiesko ——— */
+  .popr{color:#1152C9; background:#EAF2FE; border-radius:.6mm}
+  .popr b{color:#0B3C96}
+  .prawna .popr, .legenda .popr{background:#E4EEFD}
 
   /* ——— pola wyboru ——— */
   .wybor-tytul{display:flex; align-items:center; gap:2mm; margin:3.4mm 0 1.8mm}
@@ -191,6 +195,13 @@
 
 
   /* ——— panel aplikacji (nie drukuje się) ——— */
+  /* ——— pasek informacyjny o poprawkach (tylko ekran) ——— */
+  .pasek-popr{width:210mm; margin:0 auto 4mm; background:#EAF2FE; border:1px solid #B9D2F7;
+    border-left:2.6mm solid #1152C9; border-radius:2.4mm; padding:4mm 6mm; color:#123A6B}
+  .pasek-popr h3{font-size:9pt; color:#0B3C96; font-weight:bold; margin-bottom:1.6mm;
+    text-transform:uppercase; letter-spacing:.5px}
+  .pasek-popr p{font-size:8pt; line-height:1.5; color:#1B3A66}
+  .pasek-popr .probka{color:#1152C9; background:#DCE9FC; border-radius:.6mm; font-weight:bold}
   .panel{
     width:210mm; margin:0 auto 8mm; background:#fff; border-radius:3mm; overflow:hidden;
     box-shadow:0 2px 10px rgba(45,27,105,.18);
@@ -387,6 +398,8 @@
   @media print{
     body{background:#fff}
     .panel{display:none !important}
+    .pasek-popr{display:none !important}
+    .popr{color:inherit !important; background:none !important}
     .page{margin:0; box-shadow:none; page-break-after:always}
     .page:last-child{page-break-after:auto}
     @page{size:A4; margin:0}
@@ -396,6 +409,10 @@
 <body>
 
 <!-- ======= PANEL APLIKACJI · nie drukuje się ======= -->
+<div class="pasek-popr">
+  <h3>Poprawki prawne — 5 miejsc w tym pliku</h3>
+  <p>Fragmenty oznaczone <span class="probka">na niebiesko</span> to poprawki naniesione <b>31 sierpnia 2026 r.</b> na podstawie audytu z 30.08.2026 r. i rejestru przepisów (stan sprawdzenia: 21–23 sierpnia 2026 r.). Zmieniono wyłącznie te miejsca, w których zapis rozmijał się z obowiązującym prawem — publikator, adresata obowiązku, termin albo jednostkę redakcyjną. Reszta treści została bez zmian. Pasek i kolor są widoczne tylko na ekranie — <b>wydruk wychodzi w zwykłej kolorystyce</b>. Pełny wykaz: <b>POPRAWKI_2026-08-31.md</b>.</p>
+</div>
 <div class="panel">
   <div class="panel-glowa">
     <div class="etykieta-app">EduPlaner 2026 · Kącik dyrektora · przedszkole · panel informacyjny</div>
@@ -408,7 +425,7 @@
       <div class="panel-role">
         <div class="rola">
           <b>10 dni — opinia o funkcjonowaniu dziecka dla poradni</b>
-          <span>Od 1 września 2026 r., na wniosek przewodniczącego zespołu orzekającego, <em>dyrektor przedszkola wydaje opinię o funkcjonowaniu dziecka w terminie 10 dni</em> od otrzymania wniosku (Dz.U. 2026 poz. 428). Termin liczy się od <em>wpływu pisma do przedszkola</em>, nie od dnia, w którym nauczyciel dowiedział się o sprawie — dlatego druk <b>DR-1</b> zaczyna się od daty wpływu i wyliczonego terminu.</span>
+          <span><span class="popr">Na podstawie przepisów obowiązujących od 14 kwietnia 2026 r., na wniosek przewodniczącego</span> zespołu orzekającego, <em>dyrektor przedszkola wydaje opinię o funkcjonowaniu dziecka w terminie 10 dni</em> od otrzymania wniosku (Dz.U. 2026 poz. 428). Termin liczy się od <em>wpływu pisma do przedszkola</em>, nie od dnia, w którym nauczyciel dowiedział się o sprawie — dlatego druk <b>DR-1</b> zaczyna się od daty wpływu i wyliczonego terminu.</span>
         </div>
         <div class="rola">
           <b>Kopia opinii dla rodziców</b>
@@ -625,7 +642,7 @@
   </div>
   <div class="info"><b>Po co ten rejestr.</b> Większość zarzutów wobec przedszkola to nie brak działania, lecz <b>brak dowodu, że rodzic został poinformowany</b>. Ten druk zbiera w jednym miejscu wszystkie pisma, które placówka ma obowiązek skierować do rodziców, wraz z datą i potwierdzeniem odbioru.</div>
   <div class="sekcja"><span class="numer pom">I</span><h2>Obowiązkowe informacje pisemne</h2><span class="linia"></span></div>
-  <div class="legenda" style="margin:1.4mm 0 2.6mm 8mm"><p><b>Podstawa prawna:</b> rozporządzenie MEN z dnia 9 sierpnia 2017 r. o pomocy p-p (Dz.U. z 2017 r. poz. 1591, t.j. Dz.U. z 2023 r. poz. 1798) — <b>pisemna informacja dla rodziców</b> o ustalonych formach, okresie i wymiarze godzin; rozporządzenie MEN z dnia 9 sierpnia 2017 r. o kształceniu specjalnym (Dz.U. z 2017 r. poz. 1578, t.j. Dz.U. z 2020 r. poz. 1309) — <b>kopia IPET i WOPFU</b> dla rodziców; rozporządzenie ME z dnia 2 marca 2026 r. (Dz.U. z 2026 r. poz. 428) — <b>kopia opinii o funkcjonowaniu dziecka</b>; rozporządzenie MEN z dnia 27 sierpnia 2019 r. (Dz.U. z 2019 r. poz. 1700) — <b>informacja o gotowości szkolnej</b> na wzorze MEN-I/74; rozporządzenie MENiS z dnia 31 grudnia 2002 r. (t.j. Dz.U. z 2020 r. poz. 1604) — <b>doręczenie protokołu powypadkowego</b>. Dane osobowe zgodnie z RODO (UE) 2016/679.</p></div>
+  <div class="legenda" style="margin:1.4mm 0 2.6mm 8mm"><p><b>Podstawa prawna:</b> rozporządzenie MEN z dnia 9 sierpnia 2017 r. o pomocy p-p (Dz.U. z 2017 r. poz. 1591, t.j. Dz.U. z 2023 r. poz. 1798) — <b>pisemna informacja dla rodziców</b> o ustalonych formach, okresie i wymiarze godzin; rozporządzenie MEN z dnia 9 sierpnia 2017 r. o kształceniu specjalnym (Dz.U. z 2017 r. poz. 1578, t.j. Dz.U. z 2020 r. poz. 1309) — <b>kopia IPET i WOPFU</b> dla rodziców; rozporządzenie ME z dnia 2 marca 2026 r. (Dz.U. z 2026 r. poz. 428) — <b>kopia opinii o funkcjonowaniu dziecka</b>; <span class="popr">rozporządzenie MEiN z dnia 7 czerwca 2023 r. (Dz.U. z 2023 r. poz. 1120, z późn. zm.)</span> — <b>informacja o gotowości szkolnej</b> na wzorze <span class="popr">MEiN-I/82</span>; rozporządzenie MENiS z dnia 31 grudnia 2002 r. (t.j. Dz.U. z 2020 r. poz. 1604) — <b>doręczenie protokołu powypadkowego</b>. Dane osobowe zgodnie z RODO (UE) 2016/679.</p></div>
   <table class="tab-mala">
     <thead>
       <tr><th style="width:72mm">Rodzaj informacji</th><th style="width:34mm">Termin</th><th style="width:24mm">Wykonano</th><th>Data i potwierdzenie</th></tr>
@@ -635,7 +652,7 @@
       <tr><td class="klucz">Zawiadomienie o terminie spotkania zespołu</td><td>przed każdym spotkaniem</td><td class="ocena">TAK NIE</td><td class="puste"></td></tr>
       <tr><td class="klucz">Kopia IPET i WOPFU</td><td>niezwłocznie po opracowaniu</td><td class="ocena">TAK NIE</td><td class="puste"></td></tr>
       <tr><td class="klucz">Kopia opinii o funkcjonowaniu dziecka (DR-1)</td><td>po wydaniu opinii</td><td class="ocena">TAK NIE</td><td class="puste"></td></tr>
-      <tr><td class="klucz">Informacja o gotowości szkolnej (MEN-I/74)</td><td>do 30 kwietnia</td><td class="ocena">TAK NIE</td><td class="puste"></td></tr>
+      <tr><td class="klucz">Informacja o gotowości szkolnej (<span class="popr">MEiN-I/82</span>)</td><td>do 30 kwietnia</td><td class="ocena">TAK NIE</td><td class="puste"></td></tr>
       <tr><td class="klucz">Informacja o wypadku dziecka</td><td>niezwłocznie</td><td class="ocena">TAK NIE</td><td class="puste"></td></tr>
       <tr><td class="klucz">Doręczenie protokołu powypadkowego</td><td>po sporządzeniu protokołu</td><td class="ocena">TAK NIE</td><td class="puste"></td></tr>
       <tr><td class="klucz">Klauzula informacyjna RODO i zasady odpłatności</td><td>wrzesień, przy przyjęciu dziecka</td><td class="ocena">TAK NIE</td><td class="puste"></td></tr>
@@ -758,7 +775,7 @@
     <span class="kreska"></span>
   </div>
   <div class="prawna">
-    <p><b>PODSTAWA PRAWNA.</b> Ustawa z dnia 14 czerwca 1960 r. — Kodeks postępowania administracyjnego (t.j. Dz.U. z 2024 r. poz. 572, z późn. zm.) — <b>dział VIII: skargi i wnioski</b>; skargę załatwia się <b>bez zbędnej zwłoki, nie później niż w ciągu miesiąca</b>. Rozporządzenie Rady Ministrów z dnia 8 stycznia 2002 r. w sprawie organizacji przyjmowania i rozpatrywania skarg i wniosków (Dz.U. z 2002 r. Nr 5, poz. 46). Ustawa — Prawo oświatowe (t.j. Dz.U. z 2024 r. poz. 737, z późn. zm.) — art. 68 ust. 1; statut przedszkola określa tryb składania skarg w sprawach naruszenia praw dziecka. Dane osobowe zgodnie z RODO (UE) 2016/679.</p>
+    <p><b>PODSTAWA PRAWNA.</b> Ustawa z dnia 14 czerwca 1960 r. — Kodeks postępowania administracyjnego (t.j. Dz.U. z 2024 r. poz. 572, z późn. zm.) — <b>dział VIII: skargi i wnioski</b>; skargę załatwia się <b>bez zbędnej zwłoki, nie później niż w ciągu miesiąca</b>. Rozporządzenie Rady Ministrów z dnia 8 stycznia 2002 r. w sprawie organizacji przyjmowania i rozpatrywania skarg i wniosków (Dz.U. z 2002 r. Nr 5, poz. 46). Ustawa — Prawo oświatowe (<span class="popr">t.j. Dz.U. z 2026 r. poz. 820</span>, z późn. zm.) — art. 68 ust. 1; statut przedszkola określa tryb składania skarg w sprawach naruszenia praw dziecka. Dane osobowe zgodnie z RODO (UE) 2016/679.</p>
   </div>
   <div class="sekcja"><span class="numer pom">I</span><h2>Rejestr spraw</h2><span class="linia"></span></div>
   <table class="tab-mala">

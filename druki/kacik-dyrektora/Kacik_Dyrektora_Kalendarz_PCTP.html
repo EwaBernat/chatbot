@@ -116,6 +116,10 @@
   td.puste::after{content:"................"; letter-spacing:.4px}
   td.lp{text-align:center; font-weight:bold; color:var(--pomarancz); width:7mm}
   .tab-mala td{height:6.4mm}
+  /* ——— poprawka prawna, oznaczona na niebiesko ——— */
+  .popr{color:#1152C9; background:#EAF2FE; border-radius:.6mm}
+  .popr b{color:#0B3C96}
+  .prawna .popr, .legenda .popr{background:#E4EEFD}
 
   /* ——— pola wyboru ——— */
   .wybor-tytul{display:flex; align-items:center; gap:2mm; margin:3.4mm 0 1.8mm}
@@ -191,6 +195,13 @@
 
 
   /* ——— panel aplikacji (nie drukuje się) ——— */
+  /* ——— pasek informacyjny o poprawkach (tylko ekran) ——— */
+  .pasek-popr{width:210mm; margin:0 auto 4mm; background:#EAF2FE; border:1px solid #B9D2F7;
+    border-left:2.6mm solid #1152C9; border-radius:2.4mm; padding:4mm 6mm; color:#123A6B}
+  .pasek-popr h3{font-size:9pt; color:#0B3C96; font-weight:bold; margin-bottom:1.6mm;
+    text-transform:uppercase; letter-spacing:.5px}
+  .pasek-popr p{font-size:8pt; line-height:1.5; color:#1B3A66}
+  .pasek-popr .probka{color:#1152C9; background:#DCE9FC; border-radius:.6mm; font-weight:bold}
   .panel{
     width:210mm; margin:0 auto 8mm; background:#fff; border-radius:3mm; overflow:hidden;
     box-shadow:0 2px 10px rgba(45,27,105,.18);
@@ -387,6 +398,8 @@
   @media print{
     body{background:#fff}
     .panel{display:none !important}
+    .pasek-popr{display:none !important}
+    .popr{color:inherit !important; background:none !important}
     .page{margin:0; box-shadow:none; page-break-after:always}
     .page:last-child{page-break-after:auto}
     @page{size:A4; margin:0}
@@ -396,6 +409,10 @@
 <body>
 
 <!-- ======= PANEL APLIKACJI · nie drukuje się ======= -->
+<div class="pasek-popr">
+  <h3>Poprawki prawne — 15 miejsc w tym pliku</h3>
+  <p>Fragmenty oznaczone <span class="probka">na niebiesko</span> to poprawki naniesione <b>31 sierpnia 2026 r.</b> na podstawie audytu z 30.08.2026 r. i rejestru przepisów (stan sprawdzenia: 21–23 sierpnia 2026 r.). Zmieniono wyłącznie te miejsca, w których zapis rozmijał się z obowiązującym prawem — publikator, adresata obowiązku, termin albo jednostkę redakcyjną. Reszta treści została bez zmian. Pasek i kolor są widoczne tylko na ekranie — <b>wydruk wychodzi w zwykłej kolorystyce</b>. Pełny wykaz: <b>POPRAWKI_2026-08-31.md</b>.</p>
+</div>
 <div class="panel">
   <div class="panel-glowa">
     <div class="etykieta-app">EduPlaner 2026 · Kącik dyrektora · przedszkole · panel informacyjny</div>
@@ -438,7 +455,7 @@
         </div>
         <div class="rola">
           <b>30 kwietnia — informacja o gotowości szkolnej</b>
-          <span>Na urzędowym wzorze MEN-I/74. Dla dziecka 6-letniego — na wniosek rodziców złożony do 30 września.</span>
+          <span>Na urzędowym wzorze <span class="popr">MEiN-I/82</span>. Dla dziecka 6-letniego — na wniosek rodziców złożony do 30 września.</span>
         </div>
         <div class="rola">
           <b>10 dni i miesiąc — terminy wobec zewnętrznych</b>
@@ -484,20 +501,20 @@
   </div>
   <div class="sekcja"><span class="numer">§</span><h2>Legenda podstaw prawnych</h2><span class="linia"></span></div>
   <div class="legenda">
-    <p><b>PO</b> — ustawa z dnia 14 grudnia 2016 r. Prawo oświatowe (t.j. Dz.U. z 2024 r. poz. 737, z późn. zm.). &nbsp;·&nbsp;
+    <p><b>PO</b> — ustawa z dnia 14 grudnia 2016 r. Prawo oświatowe (<span class="popr">t.j. Dz.U. z 2026 r. poz. 820</span>, z późn. zm.). &nbsp;·&nbsp;
     <b>KN</b> — ustawa z dnia 26 stycznia 1982 r. Karta Nauczyciela (z późn. zm.). &nbsp;·&nbsp;
-    <b>NP</b> — rozporządzenie MEN z dnia 25 sierpnia 2017 r. w sprawie nadzoru pedagogicznego (t.j. Dz.U. z 2020 r. poz. 1551, z późn. zm.). &nbsp;·&nbsp;
+    <b>NP</b> — rozporządzenie MEN z dnia 25 sierpnia 2017 r. w sprawie nadzoru pedagogicznego (<span class="popr">t.j. Dz.U. z 2024 r. poz. 15</span>, z późn. zm.). &nbsp;·&nbsp;
     <b>KIER</b> — podstawowe kierunki realizacji polityki oświatowej państwa na rok szkolny 2026/2027, ustalone na podstawie <b>art. 60 ust. 3 pkt 1 PO</b>. &nbsp;·&nbsp;
     <b>PP</b> — rozporządzenie Ministra Edukacji z dnia 11 marca 2026 r. w sprawie podstawy programowej wychowania przedszkolnego (Dz.U. z 2026 r. poz. 378, zm. Dz.U. z 2026 r. poz. 958). &nbsp;·&nbsp;
     <b>PPP</b> — rozporządzenie MEN z dnia 9 sierpnia 2017 r. o pomocy psychologiczno-pedagogicznej (Dz.U. z 2017 r. poz. 1591, t.j. Dz.U. z 2023 r. poz. 1798). &nbsp;·&nbsp;
     <b>KS</b> — rozporządzenie MEN z dnia 9 sierpnia 2017 r. o kształceniu specjalnym (Dz.U. z 2017 r. poz. 1578, t.j. Dz.U. z 2020 r. poz. 1309). &nbsp;·&nbsp;
-    <b>OF</b> — rozporządzenie Ministra Edukacji z dnia 2 marca 2026 r. w sprawie orzeczeń i opinii poradni (Dz.U. z 2026 r. poz. 428) — ocena funkcjonalna od 1.09.2026 r. &nbsp;·&nbsp;
-    <b>DOK</b> — rozporządzenie MEN z dnia 25 sierpnia 2017 r. o dokumentacji przebiegu nauczania (Dz.U. z 2017 r. poz. 1646, z późn. zm.). &nbsp;·&nbsp;
-    <b>ORG</b> — rozporządzenie MEN z dnia 17 marca 2017 r. w sprawie szczegółowej organizacji publicznych szkół i publicznych przedszkoli (Dz.U. z 2017 r. poz. 649, z późn. zm.). &nbsp;·&nbsp;
-    <b>ŚW</b> — rozporządzenie MEN z dnia 27 sierpnia 2019 r. o świadectwach i drukach (Dz.U. z 2019 r. poz. 1700) — wzór <b>MEN-I/74</b>. &nbsp;·&nbsp;
+    <b>OF</b> — rozporządzenie Ministra Edukacji z dnia 2 marca 2026 r. w sprawie orzeczeń i opinii poradni (Dz.U. z 2026 r. <span class="popr">poz. 428) — obowiązuje zasadniczo od 14.04.2026 r.; wskazane przepisy od 1.09.2026 r.</span> &nbsp;·&nbsp;
+    <b>DOK</b> — rozporządzenie MEN z dnia 25 sierpnia 2017 r. o dokumentacji przebiegu nauczania (<span class="popr">t.j. Dz.U. z 2024 r. poz. 50</span>). &nbsp;·&nbsp;
+    <b>ORG</b> — rozporządzenie MEN <span class="popr">z dnia 28 lutego 2019 r. w sprawie szczegółowej organizacji publicznych szkół i publicznych przedszkoli (t.j. Dz.U. z 2023 r. poz. 2736, z późn. zm.)</span>. &nbsp;·&nbsp;
+    <b>ŚW</b> — <span class="popr">rozporządzenie MEiN z dnia 7 czerwca 2023 r. o świadectwach i drukach (Dz.U. z 2023 r. poz. 1120, z późn. zm.)</span> — wzór <b><span class="popr">MEiN-I/82</span></b>. &nbsp;·&nbsp;
     <b>BHP</b> — rozporządzenie MENiS z dnia 31 grudnia 2002 r. o bezpieczeństwie i higienie (t.j. Dz.U. z 2020 r. poz. 1604, z późn. zm.). &nbsp;·&nbsp;
     <b>TEL</b> — ustawa z dnia 3 lipca 2026 r. o zmianie ustawy — Prawo oświatowe (<b>Dz.U. z 2026 r. poz. 1036</b>) — zakaz urządzeń, dostosowanie statutu do 31.12.2026 r. &nbsp;·&nbsp;
-    <b>OM</b> — ustawa z dnia 13 maja 2016 r. o przeciwdziałaniu zagrożeniom przestępczością na tle seksualnym i ochronie małoletnich (t.j. Dz.U. z 2024 r. poz. 560), zmieniona ustawą z dnia 5 sierpnia 2025 r. &nbsp;·&nbsp;
+    <b>OM</b> — ustawa z dnia 13 maja 2016 r. o przeciwdziałaniu zagrożeniom przestępczością na tle seksualnym i ochronie małoletnich (<span class="popr">t.j. Dz.U. z 2026 r. poz. 110</span><span class="popr">), art. 22c ust. 6 — ocena standardów co najmniej raz na dwa lata &nbsp;·&nbsp;</span>
     <b>NK</b> — rozporządzenie RM z dnia 6 września 2023 r. „Niebieskie Karty” (Dz.U. z 2023 r. poz. 1870). &nbsp;·&nbsp;
     <b>KPA</b> — Kodeks postępowania administracyjnego (t.j. Dz.U. z 2024 r. poz. 572), dział VIII — skargi i wnioski. &nbsp;·&nbsp;
     <b>ST</b> — statut przedszkola, regulaminy i procedury wewnętrzne.</p>
@@ -509,7 +526,7 @@
     </thead>
     <tbody>
       <tr><td class="lp">1</td><td>Kontrola obiektu i terenu przed rozpoczęciem zajęć; protokół i kopia dla organu prowadzącego (druk DB-1)</td><td class="podstawa">BHP</td><td class="termin">przed 1 września</td><td class="kratka"><span></span></td><td class="puste"></td></tr>
-      <tr><td class="lp">2</td><td>Aktualizacja standardów ochrony małoletnich po nowelizacji</td><td class="podstawa">OM</td><td class="termin">do 15 sierpnia</td><td class="kratka"><span></span></td><td class="puste"></td></tr>
+      <tr><td class="lp">2</td><span class="popr"><td>Okresowa ocena standardów ochrony małoletnich i pisemne wnioski</td><td class="podstawa">OM</td><td class="termin">cykl 2-letni</td></span><td class="kratka"><span></span></td><td class="puste"></td></tr>
       <tr><td class="lp">3</td><td>Sprawdzenie kwalifikacji nauczycieli i specjalistów wobec przydzielonych zajęć (druk DO-1)</td><td class="podstawa">KS · ORG</td><td class="termin">sierpień</td><td class="kratka"><span></span></td><td class="puste"></td></tr>
       <tr><td class="lp">4</td><td>Analiza wniosków z nadzoru za poprzedni rok jako podstawy nowego planu</td><td class="podstawa">NP · PO art. 69 ust. 7</td><td class="termin">sierpień</td><td class="kratka"><span></span></td><td class="puste"></td></tr>
       <tr><td class="lp">5</td><td>Przedstawienie radzie pedagogicznej wyników i wniosków ze sprawowanego nadzoru (druk DN-4)</td><td class="podstawa">NP · PO art. 70 ust. 2 pkt 1</td><td class="termin">do 31 sierpnia</td><td class="kratka"><span></span></td><td class="puste"></td></tr>
@@ -560,7 +577,7 @@
       <tr><td class="lp">6</td><td>Opracowanie IPET dla dzieci z orzeczeniem</td><td class="podstawa">KS</td><td class="termin">do 30 września</td><td class="kratka"><span></span></td><td class="puste"></td></tr>
       <tr><td class="lp">7</td><td>Założenie i sprawdzenie dzienników zajęć przedszkola oraz dzienników innych zajęć</td><td class="podstawa">DOK § 11</td><td class="termin">wrzesień</td><td class="kratka"><span></span></td><td class="puste"></td></tr>
       <tr><td class="lp">8</td><td>Zebranie z rodzicami — statut, procedury, zakaz urządzeń elektronicznych, standardy ochrony małoletnich</td><td class="podstawa">ST · TEL · OM</td><td class="termin">wrzesień</td><td class="kratka"><span></span></td><td class="puste"></td></tr>
-      <tr><td class="lp">9</td><td>Przyjęcie wniosków rodziców o wydanie informacji MEN-I/74 dla dzieci 6-letnich</td><td class="podstawa">ŚW</td><td class="termin">do 30 września</td><td class="kratka"><span></span></td><td class="puste"></td></tr>
+      <tr><td class="lp">9</td><td>Przyjęcie wniosków rodziców o wydanie informacji <span class="popr">MEiN-I/82</span> dla dzieci 6-letnich</td><td class="podstawa">ŚW</td><td class="termin">do 30 września</td><td class="kratka"><span></span></td><td class="puste"></td></tr>
       <tr><td class="lp">10</td><td>Ustalenie harmonogramu zebrań rady pedagogicznej na rok szkolny (druk RP-2)</td><td class="podstawa">PO art. 69</td><td class="termin">wrzesień</td><td class="kratka"><span></span></td><td class="puste"></td></tr>
       <tr><td class="lp">11</td><td>Wpis dzieci do księgi dzieci i sprawdzenie kompletności dokumentacji przyjęć</td><td class="podstawa">DOK · ST</td><td class="termin">wrzesień</td><td class="kratka"><span></span></td><td class="puste"></td></tr>
       <tr><td class="lp">12</td><td>Zebranie zgód i upoważnień rodziców oraz klauzul informacyjnych RODO (druk DR-2)</td><td class="podstawa">ST · RODO</td><td class="termin">wrzesień</td><td class="kratka"><span></span></td><td class="puste"></td></tr>
@@ -661,7 +678,7 @@
     <tbody>
       <tr><td class="lp">1</td><td>Wielospecjalistyczne oceny poziomu funkcjonowania dzieci (WOPFU) i modyfikacja IPET</td><td class="podstawa">KS</td><td class="termin">styczeń</td><td class="kratka"><span></span></td><td class="puste"></td></tr>
       <tr><td class="lp">2</td><td>Ocena efektywności udzielanej pomocy p-p — zbiorczo (druk DP-4)</td><td class="podstawa">PPP</td><td class="termin">styczeń</td><td class="kratka"><span></span></td><td class="puste"></td></tr>
-      <tr><td class="lp">3</td><td>Zebranie sprawozdań nauczycieli z pomocy p-p (druk D-1)</td><td class="podstawa">PPP · NP</td><td class="termin">styczeń</td><td class="kratka"><span></span></td><td class="puste"></td></tr>
+      <tr><td class="lp">3</td><span class="popr"><td>Zebranie sprawozdań nauczycieli z pomocy p-p (druk D-1) — jeżeli przewiduje to procedura placówki</td></span><td class="podstawa">PPP · NP</td><td class="termin">styczeń</td><td class="kratka"><span></span></td><td class="puste"></td></tr>
       <tr><td class="lp">4</td><td><b>Sprawozdanie semestralne z nadzoru pedagogicznego</b> odniesione do planu (druk DN-4)</td><td class="podstawa">NP · PO art. 70 ust. 2 pkt 1</td><td class="termin">styczeń lub luty</td><td class="kratka"><span></span></td><td class="puste"></td></tr>
       <tr><td class="lp">5</td><td>Przedstawienie radzie pedagogicznej wyników nadzoru za I półrocze</td><td class="podstawa">PO art. 69 ust. 7</td><td class="termin">na zebraniu rady</td><td class="kratka"><span></span></td><td class="puste"></td></tr>
       <tr><td class="lp">6</td><td>Korekta planu nadzoru na II półrocze, jeżeli wnioski tego wymagają</td><td class="podstawa">NP § 23</td><td class="termin">luty</td><td class="kratka"><span></span></td><td class="puste"></td></tr>
@@ -715,7 +732,7 @@
     </thead>
     <tbody>
       <tr><td class="lp">1</td><td>Nadzór nad przeprowadzeniem diagnozy przedszkolnej dzieci w roku poprzedzającym szkołę</td><td class="podstawa">PP</td><td class="termin">marzec</td><td class="kratka"><span></span></td><td class="puste"></td></tr>
-      <tr><td class="lp">2</td><td>Wydanie rodzicom <b>informacji o gotowości szkolnej</b> na wzorze MEN-I/74</td><td class="podstawa">ŚW</td><td class="termin">do 30 kwietnia</td><td class="kratka"><span></span></td><td class="puste"></td></tr>
+      <tr><td class="lp">2</td><td>Wydanie rodzicom <b>informacji o gotowości szkolnej</b> na wzorze <span class="popr">MEiN-I/82</span></td><td class="podstawa">ŚW</td><td class="termin">do 30 kwietnia</td><td class="kratka"><span></span></td><td class="puste"></td></tr>
       <tr><td class="lp">3</td><td>Postępowanie rekrutacyjne — listy zakwalifikowanych i przyjętych</td><td class="podstawa">PO art. 158</td><td class="termin">według harmonogramu</td><td class="kratka"><span></span></td><td class="puste"></td></tr>
       <tr><td class="lp">4</td><td>Przygotowanie projektu arkusza organizacji na kolejny rok szkolny</td><td class="podstawa">ORG</td><td class="termin">do 21 kwietnia</td><td class="kratka"><span></span></td><td class="puste"></td></tr>
       <tr><td class="lp">5</td><td>Uwzględnienie w arkuszu godzin pomocy p-p i zajęć rewalidacyjnych wynikających z orzeczeń</td><td class="podstawa">PPP · KS · ORG</td><td class="termin">przy arkuszu</td><td class="kratka"><span></span></td><td class="puste"></td></tr>
@@ -770,7 +787,7 @@
     </thead>
     <tbody>
       <tr><td class="lp">1</td><td>Końcoworoczne WOPFU i ocena efektywności pomocy p-p</td><td class="podstawa">KS · PPP</td><td class="termin">czerwiec</td><td class="kratka"><span></span></td><td class="puste"></td></tr>
-      <tr><td class="lp">2</td><td>Zebranie sprawozdań nauczycieli i specjalistów (druki D-1, R-4, Z-3)</td><td class="podstawa">PPP · NP</td><td class="termin">czerwiec</td><td class="kratka"><span></span></td><td class="puste"></td></tr>
+      <tr><td class="lp">2</td><span class="popr"><td>Zebranie sprawozdań nauczycieli i specjalistów (druki D-1, R-4, Z-3) — jeżeli przewiduje to procedura placówki</td></span><td class="podstawa">PPP · NP</td><td class="termin">czerwiec</td><td class="kratka"><span></span></td><td class="puste"></td></tr>
       <tr><td class="lp">3</td><td>Zamknięcie dzienników zajęć i kontrola kompletności wpisów</td><td class="podstawa">DOK</td><td class="termin">czerwiec</td><td class="kratka"><span></span></td><td class="puste"></td></tr>
       <tr><td class="lp">4</td><td>Analiza realizacji planu pracy przedszkola i sformułowanie wniosków</td><td class="podstawa">PO art. 70 ust. 1 pkt 1</td><td class="termin">czerwiec</td><td class="kratka"><span></span></td><td class="puste"></td></tr>
     </tbody>

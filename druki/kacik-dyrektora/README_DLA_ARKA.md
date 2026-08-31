@@ -1,6 +1,6 @@
 # Kącik dyrektora — przedszkole · paczka do EduPlaner 2026
 
-**Wersja 3.1.1 · rok szkolny 2026/2027 · 32 druki w 12 plikach · 91 stron A4 + 9-stronicowy spis**
+**Wersja 3.2.0 · rok szkolny 2026/2027 · 32 druki w 12 plikach · 91 stron A4 + 9-stronicowy spis**
 **Trzy formaty: HTML interaktywny · PDF do druku · DOCX do edycji w Wordzie**
 
 Komplet dokumentacji dyrektora przedszkola, zbudowany na tej samej zasadzie co
@@ -9,6 +9,12 @@ Wszystko po polsku, format A4, marka PCTP (fiolet `#2D1B69`, pomarańcz
 `#E8450A`, Arial).
 
 ---
+
+> **Przegląd prawny 31.08.2026 (wersja 3.2.0).** 128 poprawek w 13 plikach na podstawie audytu
+> z 30.08.2026 r. i rejestru przepisów (stan 21–23.08.2026). W plikach HTML poprawione fragmenty są
+> **niebieskie** — kolor i pasek informacyjny widać wyłącznie na ekranie; wydruk oraz pliki .docx
+> wychodzą w zwykłej kolorystyce (`@media print` gasi znacznik). Pełny wykaz: `POPRAWKI_2026-08-31.md`.
+> Znacznik można zdjąć jedną zmianą: usunięcie reguły `.popr` ze stylu i bloków `<span class="popr">`.
 
 ## 1. Co jest w paczce
 

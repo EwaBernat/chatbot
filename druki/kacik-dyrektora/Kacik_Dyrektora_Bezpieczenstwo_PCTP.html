@@ -116,6 +116,10 @@
   td.puste::after{content:"................"; letter-spacing:.4px}
   td.lp{text-align:center; font-weight:bold; color:var(--pomarancz); width:7mm}
   .tab-mala td{height:6.4mm}
+  /* ——— poprawka prawna, oznaczona na niebiesko ——— */
+  .popr{color:#1152C9; background:#EAF2FE; border-radius:.6mm}
+  .popr b{color:#0B3C96}
+  .prawna .popr, .legenda .popr{background:#E4EEFD}
   .tab-zw td, .tab-zw th{padding:1.3mm 2.2mm}
 
   /* ——— pola wyboru ——— */
@@ -192,6 +196,13 @@
 
 
   /* ——— panel aplikacji (nie drukuje się) ——— */
+  /* ——— pasek informacyjny o poprawkach (tylko ekran) ——— */
+  .pasek-popr{width:210mm; margin:0 auto 4mm; background:#EAF2FE; border:1px solid #B9D2F7;
+    border-left:2.6mm solid #1152C9; border-radius:2.4mm; padding:4mm 6mm; color:#123A6B}
+  .pasek-popr h3{font-size:9pt; color:#0B3C96; font-weight:bold; margin-bottom:1.6mm;
+    text-transform:uppercase; letter-spacing:.5px}
+  .pasek-popr p{font-size:8pt; line-height:1.5; color:#1B3A66}
+  .pasek-popr .probka{color:#1152C9; background:#DCE9FC; border-radius:.6mm; font-weight:bold}
   .panel{
     width:210mm; margin:0 auto 8mm; background:#fff; border-radius:3mm; overflow:hidden;
     box-shadow:0 2px 10px rgba(45,27,105,.18);
@@ -388,6 +399,8 @@
   @media print{
     body{background:#fff}
     .panel{display:none !important}
+    .pasek-popr{display:none !important}
+    .popr{color:inherit !important; background:none !important}
     .page{margin:0; box-shadow:none; page-break-after:always}
     .page:last-child{page-break-after:auto}
     @page{size:A4; margin:0}
@@ -397,6 +410,10 @@
 <body>
 
 <!-- ======= PANEL APLIKACJI · nie drukuje się ======= -->
+<div class="pasek-popr">
+  <h3>Poprawki prawne — 7 miejsc w tym pliku</h3>
+  <p>Fragmenty oznaczone <span class="probka">na niebiesko</span> to poprawki naniesione <b>31 sierpnia 2026 r.</b> na podstawie audytu z 30.08.2026 r. i rejestru przepisów (stan sprawdzenia: 21–23 sierpnia 2026 r.). Zmieniono wyłącznie te miejsca, w których zapis rozmijał się z obowiązującym prawem — publikator, adresata obowiązku, termin albo jednostkę redakcyjną. Reszta treści została bez zmian. Pasek i kolor są widoczne tylko na ekranie — <b>wydruk wychodzi w zwykłej kolorystyce</b>. Pełny wykaz: <b>POPRAWKI_2026-08-31.md</b>.</p>
+</div>
 <div class="panel">
   <div class="panel-glowa">
     <div class="etykieta-app">EduPlaner 2026 · Kącik dyrektora · przedszkole · panel informacyjny</div>
@@ -472,7 +489,7 @@
     <span class="kreska"></span>
   </div>
   <div class="prawna">
-    <p><b>PODSTAWA PRAWNA.</b> <b>Rozporządzenie MENiS z dnia 31 grudnia 2002 r. w sprawie bezpieczeństwa i higieny w publicznych i niepublicznych szkołach i placówkach</b> (t.j. Dz.U. z 2020 r. poz. 1604, z późn. zm.) — <b>§ 3 ust. 1 i 2</b>: dyrektor <b>co najmniej raz w roku</b> dokonuje <b>kontroli zapewniania bezpiecznych i higienicznych warunków</b> korzystania z obiektów należących do szkoły lub placówki, w tym <b>bezpiecznych i higienicznych warunków nauki</b>, oraz <b>określa kierunki ich poprawy</b>. Z ustaleń kontroli sporządza się <b>protokół</b>, którego <b>kopię dyrektor przekazuje organowi prowadzącemu</b>. Ustawa z dnia 14 grudnia 2016 r. — Prawo oświatowe (t.j. Dz.U. z 2024 r. poz. 737, z późn. zm.) — <b>art. 68 ust. 1 pkt 6</b>. Dane osobowe zgodnie z RODO (UE) 2016/679.</p>
+    <p><b>PODSTAWA PRAWNA.</b> <b>Rozporządzenie MENiS z dnia 31 grudnia 2002 r. w sprawie bezpieczeństwa i higieny w publicznych i niepublicznych szkołach i placówkach</b> (t.j. Dz.U. z 2020 r. poz. 1604, z późn. zm.) — <b>§ 3 ust. 1 i 2</b>: dyrektor <b>co najmniej raz w roku</b> dokonuje <b>kontroli zapewniania bezpiecznych i higienicznych warunków</b> korzystania z obiektów należących do szkoły lub placówki, w tym <b>bezpiecznych i higienicznych warunków nauki</b>, oraz <b>określa kierunki ich poprawy</b>. Z ustaleń kontroli sporządza się <b>protokół</b>, którego <b>kopię dyrektor przekazuje organowi prowadzącemu</b>. Ustawa z dnia 14 grudnia 2016 r. — Prawo oświatowe (<span class="popr">t.j. Dz.U. z 2026 r. poz. 820</span>, z późn. zm.) — <b>art. 68 ust. 1 pkt 6</b>. Dane osobowe zgodnie z RODO (UE) 2016/679.</p>
   </div>
   <div class="sekcja"><span class="numer pom">I</span><h2>Dane kontroli i skład komisji</h2><span class="linia"></span></div>
   <div class="siatka2">
@@ -603,7 +620,7 @@
   </div>
   <div class="info"><b>Czym ten druk nie jest.</b> To karta pierwszych czynności i wpisu do rejestru — <b>nie zastępuje protokołu powypadkowego</b>, który sporządza <b>zespół powypadkowy</b> według urzędowego wzoru.</div>
   <div class="sekcja"><span class="numer pom">I</span><h2>Zdarzenie</h2><span class="linia"></span></div>
-  <div class="legenda" style="margin:1.4mm 0 2.6mm 8mm"><p><b>Podstawa prawna:</b> <b>rozporządzenie MENiS z dnia 31 grudnia 2002 r. w sprawie bezpieczeństwa i higieny w publicznych i niepublicznych szkołach i placówkach</b> (t.j. Dz.U. z 2020 r. poz. 1604, z późn. zm.) — <b>§ 40–§ 44</b>: dyrektor <b>zabezpiecza miejsce wypadku</b>, <b>niezwłocznie zawiadamia</b> rodziców (prawnych opiekunów), pracownika służby BHP, społecznego inspektora pracy, <b>organ prowadzący</b> oraz <b>radę rodziców</b>; o wypadku <b>śmiertelnym, ciężkim i zbiorowym</b> zawiadamia <b>prokuratora i kuratora oświaty</b>, a o wypadku w wyniku <b>zatrucia</b> — <b>państwowego powiatowego inspektora sanitarnego</b>. <b>Zespół powypadkowy</b> sporządza protokół według urzędowego wzoru z załącznika do rozporządzenia; dyrektor prowadzi <b>rejestr wypadków</b>. Art. 68 ust. 1 pkt 6 ustawy — Prawo oświatowe (t.j. Dz.U. z 2024 r. poz. 737, z późn. zm.).</p></div>
+  <div class="legenda" style="margin:1.4mm 0 2.6mm 8mm"><p><b>Podstawa prawna:</b> <b>rozporządzenie MENiS z dnia 31 grudnia 2002 r. w sprawie bezpieczeństwa i higieny w publicznych i niepublicznych szkołach i placówkach</b> (t.j. Dz.U. z 2020 r. poz. 1604, z późn. zm.) — <b>§ 40–§ 44</b>: dyrektor <b>zabezpiecza miejsce wypadku</b>, <b>niezwłocznie zawiadamia</b> rodziców (prawnych opiekunów), pracownika służby BHP, społecznego inspektora pracy, <b>organ prowadzący</b> oraz <b>radę rodziców</b>; o wypadku <b>śmiertelnym, ciężkim i zbiorowym</b> <span class="popr">zawiadamia <b>prokuratora i organ nadzoru pedagogicznego</b>, a o wypadku w wyniku <b>zatrucia</b> — <b>państwowego inspektora sanitarnego</b></span>. <b>Zespół powypadkowy</b> sporządza protokół według urzędowego wzoru z załącznika do rozporządzenia; dyrektor prowadzi <b>rejestr wypadków</b>. Art. 68 ust. 1 pkt 6 ustawy — Prawo oświatowe (<span class="popr">t.j. Dz.U. z 2026 r. poz. 820</span>, z późn. zm.).</p></div>
   <div class="siatka3">
     <div class="pole"><span class="etykieta">Dziecko (imię i nazwisko)</span><div class="linijki"><div></div></div></div>
     <div class="pole"><span class="etykieta">Grupa · wiek</span><div class="linijki"><div></div></div></div>
@@ -676,9 +693,9 @@
       <tr><td class="klucz">Pracownik służby BHP</td><td class="puste"></td><td class="puste"></td><td class="puste"></td></tr>
       <tr><td class="klucz">Społeczny inspektor pracy</td><td class="puste"></td><td class="puste"></td><td class="puste"></td></tr>
       <tr><td class="klucz">Rada rodziców (przy każdym wypadku)</td><td class="puste"></td><td class="puste"></td><td class="puste"></td></tr>
-      <tr><td class="klucz">Kurator oświaty (wypadek śmiertelny, ciężki, zbiorowy)</td><td class="puste"></td><td class="puste"></td><td class="puste"></td></tr>
+      <tr><td class="klucz"><span class="popr">Organ nadzoru pedagogicznego (wypadek śmiertelny, ciężki, zbiorowy)</span></td><td class="puste"></td><td class="puste"></td><td class="puste"></td></tr>
       <tr><td class="klucz">Prokurator i policja (wypadek śmiertelny, ciężki, zbiorowy)</td><td class="puste"></td><td class="puste"></td><td class="puste"></td></tr>
-      <tr><td class="klucz">Powiatowy inspektor sanitarny (zatrucie)</td><td class="puste"></td><td class="puste"></td><td class="puste"></td></tr>
+      <tr><td class="klucz"><span class="popr">Państwowy inspektor sanitarny (zatrucie)</span></td><td class="puste"></td><td class="puste"></td><td class="puste"></td></tr>
     </tbody>
   </table>
   <div class="sekcja"><span class="numer">V</span><h2>Zespół powypadkowy i protokół</h2><span class="linia"></span></div>
@@ -750,7 +767,7 @@
     <span class="kreska"></span>
   </div>
   <div class="prawna">
-    <p><b>PODSTAWA PRAWNA.</b> Rozporządzenie MENiS z dnia 31 grudnia 2002 r. o bezpieczeństwie i higienie (t.j. Dz.U. z 2020 r. poz. 1604, z późn. zm.). <b>Ustawa z dnia 13 maja 2016 r. o przeciwdziałaniu zagrożeniom przestępczością na tle seksualnym i ochronie małoletnich</b> (t.j. Dz.U. z 2024 r. poz. 560, z późn. zm.) — placówka wprowadza <b>standardy ochrony małoletnich</b>, określa <b>zasady bezpiecznego korzystania z urządzeń elektronicznych i internetu</b> oraz weryfikuje osoby dopuszczane do pracy z dziećmi w <b>Rejestrze Sprawców Przestępstw na Tle Seksualnym (RSPTS)</b> i w <b>Krajowym Rejestrze Karnym (zaświadczenie o niekaralności)</b>. Ustawa z dnia 29 lipca 2005 r. o przeciwdziałaniu przemocy domowej (t.j. Dz.U. z 2024 r. poz. 424, z późn. zm.) i rozporządzenie RM z dnia 6 września 2023 r. w sprawie procedury <b>Niebieskie Karty</b> (Dz.U. z 2023 r. poz. 1870) — <b>przedstawiciel oświaty</b> wszczyna procedurę przy podejrzeniu przemocy domowej. Ustawa — Prawo oświatowe (t.j. Dz.U. z 2024 r. poz. 737) — art. 68 ust. 1 pkt 6. Dane osobowe zgodnie z RODO (UE) 2016/679.</p>
+    <p><b>PODSTAWA PRAWNA.</b> Rozporządzenie MENiS z dnia 31 grudnia 2002 r. o bezpieczeństwie i higienie (t.j. Dz.U. z 2020 r. poz. 1604, z późn. zm.). <b>Ustawa z dnia 13 maja 2016 r. o przeciwdziałaniu zagrożeniom przestępczością na tle seksualnym i ochronie małoletnich</b> (<span class="popr">t.j. Dz.U. z 2026 r. poz. 110</span>, z późn. zm.) — placówka wprowadza <b>standardy ochrony małoletnich</b>, określa <b>zasady bezpiecznego korzystania z urządzeń elektronicznych i internetu</b> oraz weryfikuje osoby dopuszczane do pracy z dziećmi w <b>Rejestrze Sprawców Przestępstw na Tle Seksualnym (RSPTS)</b> i w <b>Krajowym Rejestrze Karnym (zaświadczenie o niekaralności)</b>. Ustawa z dnia 29 lipca 2005 r. o przeciwdziałaniu przemocy domowej (t.j. Dz.U. z 2024 r. poz. 424, z późn. zm.) i rozporządzenie RM z dnia 6 września 2023 r. w sprawie procedury <b>Niebieskie Karty</b> (Dz.U. z 2023 r. poz. 1870) — <b>przedstawiciel oświaty</b> wszczyna procedurę przy podejrzeniu przemocy domowej. Ustawa — Prawo oświatowe (<span class="popr">t.j. Dz.U. z 2026 r. poz. 820</span>) — art. 68 ust. 1 pkt 6. Dane osobowe zgodnie z RODO (UE) 2016/679.</p>
   </div>
   <div class="sekcja"><span class="numer pom">I</span><h2>Procedury obowiązujące w przedszkolu</h2><span class="linia"></span></div>
   <table class="tab-mala tab-zw">

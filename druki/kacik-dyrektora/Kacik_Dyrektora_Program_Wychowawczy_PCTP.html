@@ -116,6 +116,10 @@
   td.puste::after{content:"................"; letter-spacing:.4px}
   td.lp{text-align:center; font-weight:bold; color:var(--pomarancz); width:7mm}
   .tab-mala td{height:6.4mm}
+  /* ——— poprawka prawna, oznaczona na niebiesko ——— */
+  .popr{color:#1152C9; background:#EAF2FE; border-radius:.6mm}
+  .popr b{color:#0B3C96}
+  .prawna .popr, .legenda .popr{background:#E4EEFD}
 
   /* ——— pola wyboru ——— */
   .wybor-tytul{display:flex; align-items:center; gap:2mm; margin:3.4mm 0 1.8mm}
@@ -191,6 +195,13 @@
 
 
   /* ——— panel aplikacji (nie drukuje się) ——— */
+  /* ——— pasek informacyjny o poprawkach (tylko ekran) ——— */
+  .pasek-popr{width:210mm; margin:0 auto 4mm; background:#EAF2FE; border:1px solid #B9D2F7;
+    border-left:2.6mm solid #1152C9; border-radius:2.4mm; padding:4mm 6mm; color:#123A6B}
+  .pasek-popr h3{font-size:9pt; color:#0B3C96; font-weight:bold; margin-bottom:1.6mm;
+    text-transform:uppercase; letter-spacing:.5px}
+  .pasek-popr p{font-size:8pt; line-height:1.5; color:#1B3A66}
+  .pasek-popr .probka{color:#1152C9; background:#DCE9FC; border-radius:.6mm; font-weight:bold}
   .panel{
     width:210mm; margin:0 auto 8mm; background:#fff; border-radius:3mm; overflow:hidden;
     box-shadow:0 2px 10px rgba(45,27,105,.18);
@@ -387,6 +398,8 @@
   @media print{
     body{background:#fff}
     .panel{display:none !important}
+    .pasek-popr{display:none !important}
+    .popr{color:inherit !important; background:none !important}
     .page{margin:0; box-shadow:none; page-break-after:always}
     .page:last-child{page-break-after:auto}
     @page{size:A4; margin:0}
@@ -396,6 +409,10 @@
 <body>
 
 <!-- ======= PANEL APLIKACJI · nie drukuje się ======= -->
+<div class="pasek-popr">
+  <h3>Poprawki prawne — 8 miejsc w tym pliku</h3>
+  <p>Fragmenty oznaczone <span class="probka">na niebiesko</span> to poprawki naniesione <b>31 sierpnia 2026 r.</b> na podstawie audytu z 30.08.2026 r. i rejestru przepisów (stan sprawdzenia: 21–23 sierpnia 2026 r.). Zmieniono wyłącznie te miejsca, w których zapis rozmijał się z obowiązującym prawem — publikator, adresata obowiązku, termin albo jednostkę redakcyjną. Reszta treści została bez zmian. Pasek i kolor są widoczne tylko na ekranie — <b>wydruk wychodzi w zwykłej kolorystyce</b>. Pełny wykaz: <b>POPRAWKI_2026-08-31.md</b>.</p>
+</div>
 <div class="panel">
   <div class="panel-glowa">
     <div class="etykieta-app">EduPlaner 2026 · Kącik dyrektora · przedszkole · panel informacyjny</div>
@@ -426,7 +443,7 @@
         </div>
         <div class="rola">
           <b>Standardy ochrony małoletnich — to jest obowiązkowe</b>
-          <span>Ustawa z 13 maja 2016 r. (t.j. Dz.U. 2024 poz. 560), zmieniona ustawą z 5 sierpnia 2025 r. — aktualizacja do <em>15 sierpnia 2026 r.</em> Przegląd standardów prowadzi druk <b>DB-3</b>, a ten program wpina je w obszar profilaktyki.</span>
+          <span>Ustawa z 13 maja 2016 r. (<span class="popr">t.j. Dz.U. 2026 poz. 110</span><span class="popr">), art. 22c ust. 6 — ocena co najmniej raz na dwa lata i aktualizacja, jeżeli wynika z oceny.</span> Przegląd standardów prowadzi druk <b>DB-3</b>, a ten program wpina je w obszar profilaktyki.</span>
         </div>
         <div class="rola">
           <b>Trzy kierunki polityki oświatowej 2026/2027 dotyczą wprost profilaktyki</b>
@@ -481,7 +498,7 @@
     <span class="kreska"></span>
   </div>
   <div class="prawna">
-    <p><b>STATUS DOKUMENTU — RZECZ NAJWAŻNIEJSZA.</b> <b>Art. 26 ust. 1 ustawy z dnia 14 grudnia 2016 r. — Prawo oświatowe</b> (t.j. Dz.U. z 2024 r. poz. 737, z późn. zm.) nakłada obowiązek realizowania <b>programu wychowawczo-profilaktycznego</b> na szkoły i placówki. <b>Przepisów tych nie stosuje się jednak do przedszkoli</b> — wyłączenie wynika wprost z <b>art. 26</b> (przepisy o programie nie mają zastosowania do przedszkoli, szkół dla dorosłych, branżowych szkół II stopnia, szkół policealnych i policealnych szkół artystycznych). <b>Przedszkole nie ma zatem ustawowego obowiązku uchwalania programu wychowawczo-profilaktycznego</b>, a tryb z art. 26 ust. 2 — uchwalenie przez <b>radę rodziców w porozumieniu z radą pedagogiczną w terminie 30 dni</b> od rozpoczęcia roku szkolnego — przedszkola <b>nie dotyczy</b>. <b>CO OBOWIĄZUJE ZAMIAST.</b> Wychowanie i profilaktyka są w przedszkolu realizowane jako <b>zadania podstawy programowej</b> — rozporządzenie Ministra Edukacji z dnia 11 marca 2026 r. (Dz.U. z 2026 r. poz. 378, zm. poz. 958) — oraz jako <b>standardy ochrony małoletnich</b> — ustawa z dnia 13 maja 2016 r. o przeciwdziałaniu zagrożeniom przestępczością na tle seksualnym i ochronie małoletnich (t.j. Dz.U. z 2024 r. poz. 560), zmieniona ustawą z dnia 5 sierpnia 2025 r. Ponadto <b>kierunki 2, 3 i 7</b> polityki oświatowej państwa na rok szkolny 2026/2027 (art. 60 ust. 3 pkt 1 PO) dotyczą wprost odporności społecznej, edukacji zdrowotnej i profilaktyki. <b>JEŻELI PRZEDSZKOLE PRZYJMUJE TEN PROGRAM DOBROWOLNIE</b>, zatwierdza go <b>rada pedagogiczna</b> jako plan pracy — <b>art. 70 ust. 1 pkt 1</b> Prawa oświatowego — uchwałą (druk RP-3), a nie w trybie art. 26 ust. 2.</p>
+    <p><b>STATUS DOKUMENTU — RZECZ NAJWAŻNIEJSZA.</b> <b>Art. 26 ust. 1 ustawy z dnia 14 grudnia 2016 r. — Prawo oświatowe</b> (<span class="popr">t.j. Dz.U. z 2026 r. poz. 820</span>, z późn. zm.) nakłada obowiązek realizowania <b>programu wychowawczo-profilaktycznego</b> na szkoły i placówki. <b>Przepisów tych nie stosuje się jednak do przedszkoli</b> — wyłączenie wynika wprost z <b>art. 26</b> (przepisy o programie nie mają zastosowania do przedszkoli, szkół dla dorosłych, branżowych szkół II stopnia, szkół policealnych i policealnych szkół artystycznych). <b>Przedszkole nie ma zatem ustawowego obowiązku uchwalania programu wychowawczo-profilaktycznego</b>, a tryb z art. 26 ust. 2 — uchwalenie przez <b>radę rodziców w porozumieniu z radą pedagogiczną w terminie 30 dni</b> od rozpoczęcia roku szkolnego — przedszkola <b>nie dotyczy</b>. <b>CO OBOWIĄZUJE ZAMIAST.</b> Wychowanie i profilaktyka są w przedszkolu realizowane jako <b>zadania podstawy programowej</b> — rozporządzenie Ministra Edukacji z dnia 11 marca 2026 r. (Dz.U. z 2026 r. poz. 378, zm. poz. 958) — oraz jako <b>standardy ochrony małoletnich</b> — ustawa z dnia 13 maja 2016 r. o przeciwdziałaniu zagrożeniom przestępczością na tle seksualnym i ochronie małoletnich (<span class="popr">t.j. Dz.U. z 2026 r. poz. 110</span><span class="popr">), art. 22c ust. 6. Ponadto</span> <span class="popr"><b>kierunki 2, 3 i 6</b></span> polityki oświatowej państwa na rok szkolny 2026/2027 (art. 60 ust. 3 pkt 1 PO) dotyczą wprost odporności społecznej, edukacji zdrowotnej i profilaktyki. <b>JEŻELI PRZEDSZKOLE PRZYJMUJE TEN PROGRAM DOBROWOLNIE</b>, zatwierdza go <b>rada pedagogiczna</b> jako plan pracy — <b>art. 70 ust. 1 pkt 1</b> Prawa oświatowego — uchwałą (druk RP-3), a nie w trybie art. 26 ust. 2.</p>
   </div>
   <div class="info"><b>Kiedy warto go mieć mimo braku obowiązku.</b> Gdy przedszkole realizuje zewnętrzne programy profilaktyczne, gdy organ prowadzący albo kuratorium o niego pyta, gdy placówka chce spójnie opisać wychowanie w jednym dokumencie zamiast rozpraszać je po planach grup. Wtedy program staje się <b>częścią planu pracy (druk DW-1)</b> albo osobnym dokumentem zatwierdzanym uchwałą rady pedagogicznej.</div>
   <div class="sekcja"><span class="numer pom">I</span><h2>Status dokumentu w tym przedszkolu</h2><span class="linia"></span></div>
@@ -617,7 +634,7 @@
     <div class="box"><span class="etykieta">Rok szkolny</span><span class="wartosc">2026 / 2027</span></div>
   </div>
   <div class="sekcja"><span class="numer pom">V</span><h2>Profilaktyka — obszary działań</h2><span class="linia"></span></div>
-  <div class="legenda" style="margin:1.4mm 0 2.6mm 8mm"><p><b>Podstawa prawna:</b> ustawa z dnia 13 maja 2016 r. o ochronie małoletnich (t.j. Dz.U. z 2024 r. poz. 560), zm. ustawą z dnia 5 sierpnia 2025 r. — <b>standardy ochrony małoletnich</b>; rozporządzenie MENiS z dnia 31 grudnia 2002 r. o bezpieczeństwie i higienie (t.j. Dz.U. z 2020 r. poz. 1604); rozporządzenie RM z dnia 6 września 2023 r. — procedura <b>„Niebieskie Karty”</b> (Dz.U. z 2023 r. poz. 1870); kierunki <b>2, 3 i 7</b> polityki oświatowej państwa 2026/2027.</p></div>
+  <div class="legenda" style="margin:1.4mm 0 2.6mm 8mm"><p><b>Podstawa prawna:</b> ustawa z dnia 13 maja 2016 r. o ochronie małoletnich (<span class="popr">t.j. Dz.U. z 2026 r. poz. 110</span><span class="popr">), art. 22c ust. 6 — <b>standardy ochrony małoletnich</b></span>; rozporządzenie MENiS z dnia 31 grudnia 2002 r. o bezpieczeństwie i higienie (t.j. Dz.U. z 2020 r. poz. 1604); rozporządzenie RM z dnia 6 września 2023 r. — procedura <b>„Niebieskie Karty”</b> (Dz.U. z 2023 r. poz. 1870); kierunki <b>2, 3 i 7</b> polityki oświatowej państwa 2026/2027.</p></div>
   <table class="tab-mala">
     <thead>
       <tr><th style="width:44mm">Obszar profilaktyki</th><th style="width:56mm">Działania w przedszkolu</th><th style="width:24mm">Termin</th><th>Odpowiedzialny</th></tr>

@@ -116,6 +116,10 @@
   td.puste::after{content:"................"; letter-spacing:.4px}
   td.lp{text-align:center; font-weight:bold; color:var(--pomarancz); width:7mm}
   .tab-mala td{height:6.4mm}
+  /* ——— poprawka prawna, oznaczona na niebiesko ——— */
+  .popr{color:#1152C9; background:#EAF2FE; border-radius:.6mm}
+  .popr b{color:#0B3C96}
+  .prawna .popr, .legenda .popr{background:#E4EEFD}
 
   /* ——— pola wyboru ——— */
   .wybor-tytul{display:flex; align-items:center; gap:2mm; margin:3.4mm 0 1.8mm}
@@ -191,6 +195,13 @@
 
 
   /* ——— panel aplikacji (nie drukuje się) ——— */
+  /* ——— pasek informacyjny o poprawkach (tylko ekran) ——— */
+  .pasek-popr{width:210mm; margin:0 auto 4mm; background:#EAF2FE; border:1px solid #B9D2F7;
+    border-left:2.6mm solid #1152C9; border-radius:2.4mm; padding:4mm 6mm; color:#123A6B}
+  .pasek-popr h3{font-size:9pt; color:#0B3C96; font-weight:bold; margin-bottom:1.6mm;
+    text-transform:uppercase; letter-spacing:.5px}
+  .pasek-popr p{font-size:8pt; line-height:1.5; color:#1B3A66}
+  .pasek-popr .probka{color:#1152C9; background:#DCE9FC; border-radius:.6mm; font-weight:bold}
   .panel{
     width:210mm; margin:0 auto 8mm; background:#fff; border-radius:3mm; overflow:hidden;
     box-shadow:0 2px 10px rgba(45,27,105,.18);
@@ -449,6 +460,8 @@
   @media print{
     body{background:#fff}
     .panel{display:none !important}
+    .pasek-popr{display:none !important}
+    .popr{color:inherit !important; background:none !important}
     .page{margin:0; box-shadow:none; page-break-after:always}
     .page:last-child{page-break-after:auto}
     @page{size:A4; margin:0}
@@ -458,6 +471,10 @@
 <body>
 
 <!-- ======= PANEL APLIKACJI · nie drukuje się ======= -->
+<div class="pasek-popr">
+  <h3>Poprawki prawne — 10 miejsc w tym pliku</h3>
+  <p>Fragmenty oznaczone <span class="probka">na niebiesko</span> to poprawki naniesione <b>31 sierpnia 2026 r.</b> na podstawie audytu z 30.08.2026 r. i rejestru przepisów (stan sprawdzenia: 21–23 sierpnia 2026 r.). Zmieniono wyłącznie te miejsca, w których zapis rozmijał się z obowiązującym prawem — publikator, adresata obowiązku, termin albo jednostkę redakcyjną. Reszta treści została bez zmian. Pasek i kolor są widoczne tylko na ekranie — <b>wydruk wychodzi w zwykłej kolorystyce</b>. Pełny wykaz: <b>POPRAWKI_2026-08-31.md</b>.</p>
+</div>
 <div class="panel">
   <div class="panel-glowa">
     <div class="etykieta-app">EduPlaner 2026 · Kącik dyrektora · przedszkole</div>
@@ -637,7 +654,7 @@
       <li><b>DZ-1</b> — zakaz urządzeń elektronicznych w statucie</li>
       <li><b>DZ-2</b> — wdrożenie nowej podstawy programowej</li>
       <li><b>DZ-3</b> — osiem kierunków polityki oświatowej</li>
-      <li>Standardy ochrony małoletnich do 15 sierpnia 2026 r.</li>
+      <span class="popr"><li>Standardy ochrony małoletnich — ocena w cyklu dwuletnim</li></span>
     </ul>
   </div>
   </div>
@@ -679,12 +696,12 @@
       <tr><td class="klucz">niezwłocznie po ustaleniu</td><td><b>Pisemna informacja dla rodziców</b> o formach, okresie i wymiarze godzin pomocy p-p</td><td><span class="sygn">DP-1</span></td></tr>
       <tr><td class="klucz">10 dni od wpływu wniosku</td><td>Wydanie <b>opinii o funkcjonowaniu dziecka</b> na wniosek poradni, z kopią dla rodziców</td><td><span class="sygn">DR-1</span></td></tr>
       <tr><td class="klucz">co najmniej dwa razy w roku</td><td><b>WOPFU</b> i ocena efektywności pomocy p-p; w miarę potrzeb modyfikacja IPET</td><td><span class="sygn">DP-3, DP-4</span></td></tr>
-      <tr><td class="klucz">do 30 kwietnia</td><td>Przekazanie rodzicom <b>informacji o gotowości szkolnej</b> (urzędowy wzór MEN-I/74)</td><td><span class="sygn">DO-2</span></td></tr>
+      <tr><td class="klucz">do 30 kwietnia</td><td>Przekazanie rodzicom <b>informacji o gotowości szkolnej</b> (urzędowy wzór <span class="popr">MEiN-I/82</span>)</td><td><span class="sygn">DO-2</span></td></tr>
       <tr><td class="klucz">nie później niż w miesiąc</td><td>Załatwienie <b>skargi</b>; przy dłuższym postępowaniu — zawiadomienie o zwłoce i nowym terminie</td><td><span class="sygn">DR-3</span></td></tr>
       <tr><td class="klucz">niezwłocznie</td><td>Zawiadomienie o <b>wypadku</b>: rodzice, organ prowadzący, służba BHP, społeczny inspektor pracy</td><td><span class="sygn">DB-2</span></td></tr>
       <tr><td class="klucz">do 31 sierpnia</td><td>Przedstawienie radzie pedagogicznej <b>wyników i wniosków ze sprawowanego nadzoru</b></td><td><span class="sygn">DN-4</span></td></tr>
       <tr><td class="klucz">przed arkuszem organizacji</td><td>Przeniesienie wniosków z oceny efektywności pomocy do <b>organizacji na kolejny rok</b></td><td><span class="sygn">DP-4</span></td></tr>
-      <tr><td class="klucz">15 sierpnia 2026</td><td>Aktualizacja <b>standardów ochrony małoletnich</b>; od 1 września 2026 r. obowiązują nowa podstawa programowa, zakaz urządzeń elektronicznych i ocena funkcjonalna</td><td><span class="sygn">DZ-1, DZ-2, DZ-3</span></td></tr>
+      <span class="popr"><tr><td class="klucz">cykl 2-letni</td><td>Ocena <b>standardów ochrony małoletnich</b> i pisemne wnioski;</span> od 1 września 2026 r. obowiązują nowa podstawa programowa, zakaz urządzeń elektronicznych i ocena funkcjonalna</td><td><span class="sygn">DZ-1, DZ-2, DZ-3</span></td></tr>
       <tr><td class="klucz">31 grudnia 2026</td><td>Dostosowanie <b>statutu</b> przedszkola do przepisów o urządzeniach elektronicznych</td><td><span class="sygn">DZ-1, RP-3</span></td></tr>
     </tbody>
   </table>
@@ -984,7 +1001,7 @@
   </table>
   <div class="sekcja"><span class="numer">VI</span><h2>Podstawa prawna zestawu</h2><span class="linia"></span></div>
   <div class="prawna">
-    <p><b>USTAWY.</b> Prawo oświatowe z 14.12.2016 r. (t.j. <b>Dz.U. 2024 poz. 737</b>, z późn. zm.) — art. 55, 60 ust. 3 pkt 1, 68–73, 102, <b>131, 154, 157, 158</b>; <b>ustawa z 3.07.2026 r. o zmianie ustawy — Prawo oświatowe</b> (<b>Dz.U. 2026 poz. 1036</b>) — zakaz urządzeń elektronicznych od 1.09.2026 r., statuty do 31.12.2026 r.; Karta Nauczyciela z 26.01.1982 r.; ustawa z 13.05.2016 r. o ochronie małoletnich (t.j. Dz.U. 2024 poz. 560), zm. ustawą z 5.08.2025 r. — standardy do 15.08.2026 r.; ustawa z 29.07.2005 r. o przeciwdziałaniu przemocy domowej (t.j. Dz.U. 2024 poz. 424); k.p.a. (t.j. Dz.U. 2024 poz. 572) — dział VIII. <b>ROZPORZĄDZENIA.</b> ME z 11.03.2026 r. — podstawa programowa (<b>Dz.U. 2026 poz. 378</b>, zm. poz. 958); ME z 2.03.2026 r. — orzeczenia i opinie poradni (<b>Dz.U. 2026 poz. 428</b>); MEN z 25.08.2017 r. — nadzór pedagogiczny (t.j. Dz.U. 2020 poz. 1551), § 22–24; MEN z 9.08.2017 r. — pomoc p-p (Dz.U. 2017 poz. 1591, t.j. Dz.U. 2023 poz. 1798); MEN z 9.08.2017 r. — kształcenie specjalne (Dz.U. 2017 poz. 1578, t.j. Dz.U. 2020 poz. 1309); MEN z 25.08.2017 r. — dokumentacja (Dz.U. 2017 poz. 1646), § 11; MEN z 17.03.2017 r. — organizacja przedszkoli (Dz.U. 2017 poz. 649); MEN z 1.08.2017 r. — kwalifikacje (t.j. Dz.U. 2020 poz. 1289); MEN z 27.08.2019 r. — świadectwa i druki (Dz.U. 2019 poz. 1700), wzór MEN-I/74; MENiS z 31.12.2002 r. — bezpieczeństwo (t.j. Dz.U. 2020 poz. 1604); RM z 6.09.2023 r. — „Niebieskie Karty” (Dz.U. 2023 poz. 1870); RODO (UE) 2016/679. <b>KIERUNKI.</b> Podstawowe kierunki polityki oświatowej państwa 2026/2027 (art. 60 ust. 3 pkt 1 PO).</p>
+    <p><b>USTAWY.</b> Prawo oświatowe z 14.12.2016 r. (<span class="popr">t.j. <b>Dz.U. 2026 poz. 820</b>, z późn. zm.</span>) — art. 55, 60 ust. 3 pkt 1, 68–73, 102, <b>131, 154, 157, 158</b>; <b>ustawa z 3.07.2026 r. o zmianie ustawy — Prawo oświatowe</b> (<b>Dz.U. 2026 poz. 1036</b>) — zakaz urządzeń elektronicznych od 1.09.2026 r., statuty do 31.12.2026 r.; Karta Nauczyciela z 26.01.1982 r.; ustawa z 13.05.2016 r. o ochronie małoletnich (<span class="popr">t.j. Dz.U. 2026 poz. 110</span><span class="popr">), art. 22c ust. 6 — ocena standardów co najmniej raz na dwa lata</span>; ustawa z 29.07.2005 r. o przeciwdziałaniu przemocy domowej (t.j. Dz.U. 2024 poz. 424); k.p.a. (t.j. Dz.U. 2024 poz. 572) — dział VIII. <b>ROZPORZĄDZENIA.</b> ME z 11.03.2026 r. — podstawa programowa (<b>Dz.U. 2026 poz. 378</b>, zm. poz. 958); ME z 2.03.2026 r. — orzeczenia i opinie poradni (<b>Dz.U. 2026 poz. 428</b>); MEN z 25.08.2017 r. — nadzór pedagogiczny (<span class="popr">t.j. Dz.U. 2024 poz. 15</span>), § 22–24; MEN z 9.08.2017 r. — pomoc p-p (Dz.U. 2017 poz. 1591, t.j. Dz.U. 2023 poz. 1798); MEN z 9.08.2017 r. — kształcenie specjalne (Dz.U. 2017 poz. 1578, t.j. Dz.U. 2020 poz. 1309); MEN z 25.08.2017 r. — dokumentacja (<span class="popr">t.j. Dz.U. 2024 poz. 50</span>), § 11; <span class="popr">MEN z 28.02.2019 r. — organizacja przedszkoli (t.j. Dz.U. 2023 poz. 2736)</span>; <span class="popr">MEiN z 14.09.2023 r. — kwalifikacje (Dz.U. 2023 poz. 2102)</span>; <span class="popr">MEiN z 7.06.2023 r. — świadectwa i druki (Dz.U. 2023 poz. 1120)</span>, wzór <span class="popr">MEiN-I/82</span>; MENiS z 31.12.2002 r. — bezpieczeństwo (t.j. Dz.U. 2020 poz. 1604); RM z 6.09.2023 r. — „Niebieskie Karty” (Dz.U. 2023 poz. 1870); RODO (UE) 2016/679. <b>KIERUNKI.</b> Podstawowe kierunki polityki oświatowej państwa 2026/2027 (art. 60 ust. 3 pkt 1 PO).</p>
   </div>
   <div class="info"><b>Czego zestaw nie zastępuje.</b> <b>DB-2</b> — protokołu powypadkowego · <b>DR-1</b> — samej opinii (druk <b>O-2</b>) · <b>DP-3</b> — IPET ani WOPFU · <b>DO-2</b> — dzienników (druk <b>Z-2</b>) · <b>DZ-1</b> — statutu · <b>RE-1</b> — terminów i kryteriów ustalanych przez organ prowadzący.</div>
   <div class="stopka">

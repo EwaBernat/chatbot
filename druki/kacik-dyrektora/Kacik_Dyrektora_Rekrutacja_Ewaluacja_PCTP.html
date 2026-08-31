@@ -116,6 +116,10 @@
   td.puste::after{content:"................"; letter-spacing:.4px}
   td.lp{text-align:center; font-weight:bold; color:var(--pomarancz); width:7mm}
   .tab-mala td{height:6.4mm}
+  /* ——— poprawka prawna, oznaczona na niebiesko ——— */
+  .popr{color:#1152C9; background:#EAF2FE; border-radius:.6mm}
+  .popr b{color:#0B3C96}
+  .prawna .popr, .legenda .popr{background:#E4EEFD}
 
   /* ——— pola wyboru ——— */
   .wybor-tytul{display:flex; align-items:center; gap:2mm; margin:3.4mm 0 1.8mm}
@@ -191,6 +195,13 @@
 
 
   /* ——— panel aplikacji (nie drukuje się) ——— */
+  /* ——— pasek informacyjny o poprawkach (tylko ekran) ——— */
+  .pasek-popr{width:210mm; margin:0 auto 4mm; background:#EAF2FE; border:1px solid #B9D2F7;
+    border-left:2.6mm solid #1152C9; border-radius:2.4mm; padding:4mm 6mm; color:#123A6B}
+  .pasek-popr h3{font-size:9pt; color:#0B3C96; font-weight:bold; margin-bottom:1.6mm;
+    text-transform:uppercase; letter-spacing:.5px}
+  .pasek-popr p{font-size:8pt; line-height:1.5; color:#1B3A66}
+  .pasek-popr .probka{color:#1152C9; background:#DCE9FC; border-radius:.6mm; font-weight:bold}
   .panel{
     width:210mm; margin:0 auto 8mm; background:#fff; border-radius:3mm; overflow:hidden;
     box-shadow:0 2px 10px rgba(45,27,105,.18);
@@ -387,6 +398,8 @@
   @media print{
     body{background:#fff}
     .panel{display:none !important}
+    .pasek-popr{display:none !important}
+    .popr{color:inherit !important; background:none !important}
     .page{margin:0; box-shadow:none; page-break-after:always}
     .page:last-child{page-break-after:auto}
     @page{size:A4; margin:0}
@@ -396,6 +409,10 @@
 <body>
 
 <!-- ======= PANEL APLIKACJI · nie drukuje się ======= -->
+<div class="pasek-popr">
+  <h3>Poprawki prawne — 5 miejsc w tym pliku</h3>
+  <p>Fragmenty oznaczone <span class="probka">na niebiesko</span> to poprawki naniesione <b>31 sierpnia 2026 r.</b> na podstawie audytu z 30.08.2026 r. i rejestru przepisów (stan sprawdzenia: 21–23 sierpnia 2026 r.). Zmieniono wyłącznie te miejsca, w których zapis rozmijał się z obowiązującym prawem — publikator, adresata obowiązku, termin albo jednostkę redakcyjną. Reszta treści została bez zmian. Pasek i kolor są widoczne tylko na ekranie — <b>wydruk wychodzi w zwykłej kolorystyce</b>. Pełny wykaz: <b>POPRAWKI_2026-08-31.md</b>.</p>
+</div>
 <div class="panel">
   <div class="panel-glowa">
     <div class="etykieta-app">EduPlaner 2026 · Kącik dyrektora · przedszkole · panel informacyjny</div>
@@ -481,7 +498,7 @@
     <span class="kreska"></span>
   </div>
   <div class="prawna">
-    <p><b>PODSTAWA PRAWNA.</b> Ustawa z dnia 14 grudnia 2016 r. — Prawo oświatowe (t.j. Dz.U. z 2024 r. poz. 737, z późn. zm.), rozdział 6 działu II: <b>art. 131 ust. 1</b> — do publicznego przedszkola przyjmuje się <b>kandydatów zamieszkałych na obszarze danej gminy</b>; <b>art. 131 ust. 2 i 3</b> — w pierwszym etapie postępowania brane są pod uwagę <b>kryteria ustawowe o jednakowej wartości</b> (wielodzietność rodziny, niepełnosprawność kandydata, niepełnosprawność jednego lub obojga rodziców, niepełnosprawność rodzeństwa, samotne wychowywanie kandydata, objęcie kandydata pieczą zastępczą); <b>art. 131 ust. 4 i 6</b> — w drugim etapie stosuje się <b>kryteria określone przez organ prowadzący</b> (nie więcej niż 6) wraz z dokumentami niezbędnymi do ich potwierdzenia; <b>art. 154 ust. 1 pkt 1 i ust. 3</b> — organ prowadzący podaje do publicznej wiadomości <b>terminy postępowania rekrutacyjnego</b> oraz kryteria i dokumenty; <b>art. 157 ust. 1 i 2</b> — postępowanie rekrutacyjne przeprowadza <b>komisja rekrutacyjna powoływana przez dyrektora</b>, który wyznacza jej <b>przewodniczącego</b>; <b>art. 158</b> — komisja ustala wyniki i podaje do publicznej wiadomości <b>listę kandydatów zakwalifikowanych i niezakwalifikowanych</b> oraz <b>listę kandydatów przyjętych i nieprzyjętych</b>; przewiduje tryb <b>odwoławczy</b>: wniosek o uzasadnienie odmowy i odwołanie do dyrektora. Dane osobowe zgodnie z RODO (UE) 2016/679.</p>
+    <p><b>PODSTAWA PRAWNA.</b> Ustawa z dnia 14 grudnia 2016 r. — Prawo oświatowe (<span class="popr">t.j. Dz.U. z 2026 r. poz. 820</span>, z późn. zm.), rozdział 6 działu II: <b>art. 131 ust. 1</b> — do publicznego przedszkola przyjmuje się <b>kandydatów zamieszkałych na obszarze danej gminy</b>; <b>art. 131 ust. 2 i 3</b> — w pierwszym etapie postępowania brane są pod uwagę <b>kryteria ustawowe o jednakowej wartości</b> (wielodzietność rodziny, niepełnosprawność kandydata, niepełnosprawność jednego lub obojga rodziców, niepełnosprawność rodzeństwa, samotne wychowywanie kandydata, objęcie kandydata pieczą zastępczą); <b>art. 131 ust. 4 i 6</b> — w drugim etapie stosuje się <b>kryteria określone przez organ prowadzący</b> (nie więcej niż 6) wraz z dokumentami niezbędnymi do ich potwierdzenia; <b>art. 154 ust. 1 pkt 1 i ust. 3</b> — organ prowadzący podaje do publicznej wiadomości <b>terminy postępowania rekrutacyjnego</b> oraz kryteria i dokumenty; <b>art. 157 ust. 1 i 2</b> — postępowanie rekrutacyjne przeprowadza <b>komisja rekrutacyjna powoływana przez dyrektora</b>, który wyznacza jej <b>przewodniczącego</b>; <b>art. 158</b> — komisja ustala wyniki i podaje do publicznej wiadomości <b>listę kandydatów zakwalifikowanych i niezakwalifikowanych</b> oraz <b>listę kandydatów przyjętych i nieprzyjętych</b>; przewiduje tryb <b>odwoławczy</b>: wniosek o uzasadnienie odmowy i odwołanie do dyrektora. Dane osobowe zgodnie z RODO (UE) 2016/679.</p>
   </div>
   <div class="sekcja"><span class="numer pom">I</span><h2>Powołanie komisji rekrutacyjnej</h2><span class="linia"></span></div>
   <div class="legenda" style="margin:1.4mm 0 2.6mm 8mm"><p><b>Podstawa prawna:</b> art. 157 ust. 1 i 2 Prawa oświatowego — komisję powołuje dyrektor i wyznacza jej przewodniczącego.</p></div>
@@ -712,7 +729,7 @@
     <span class="tresc">EW-1 · PRZEDMIOT · WYNIKI · WNIOSKI</span>
     <span class="kreska"></span>
   </div>
-  <div class="legenda" style="margin:1.4mm 0 2.6mm 8mm"><p><b>Podstawa prawna:</b> <b>art. 55 ust. 1 i 2 oraz art. 68 ust. 1 pkt 2 ustawy — Prawo oświatowe</b> (t.j. Dz.U. z 2024 r. poz. 737, z późn. zm.) — nadzór pedagogiczny obejmuje <b>obserwowanie, analizowanie i ocenianie przebiegu procesów kształcenia i wychowania</b> oraz <b>ocenianie stanu i warunków działalności</b> przedszkola. <b>§ 23 rozporządzenia MEN z dnia 25 sierpnia 2017 r. w sprawie nadzoru pedagogicznego</b> (t.j. Dz.U. z 2020 r. poz. 1551, z późn. zm.) — ewaluację wewnętrzną dyrektor planuje w <b>planie nadzoru</b> (druk DN-1, sekcja VIII), a jej wyniki wchodzą do <b>sprawozdania z nadzoru</b> (druki DN-4 i DN-5). <b>Art. 70 ust. 1 pkt 6</b> — rada pedagogiczna ustala sposób wykorzystania wyników nadzoru do doskonalenia pracy przedszkola.</p></div>
+  <div class="legenda" style="margin:1.4mm 0 2.6mm 8mm"><p><b>Podstawa prawna:</b> <b>art. 55 ust. 1 i 2 oraz art. 68 ust. 1 pkt 2 ustawy — Prawo oświatowe</b> (<span class="popr">t.j. Dz.U. z 2026 r. poz. 820</span>, z późn. zm.) — nadzór pedagogiczny obejmuje <b>obserwowanie, analizowanie i ocenianie przebiegu procesów kształcenia i wychowania</b> oraz <b>ocenianie stanu i warunków działalności</b> przedszkola. <b>§ 23 rozporządzenia MEN z dnia 25 sierpnia 2017 r. w sprawie nadzoru pedagogicznego</b> (<span class="popr">t.j. Dz.U. z 2024 r. poz. 15</span>, z późn. zm.) — ewaluację wewnętrzną dyrektor planuje w <b>planie nadzoru</b> (druk DN-1, sekcja VIII), a jej wyniki wchodzą do <b>sprawozdania z nadzoru</b> (druki DN-4 i DN-5). <b>Art. 70 ust. 1 pkt 6</b> — rada pedagogiczna ustala sposób wykorzystania wyników nadzoru do doskonalenia pracy przedszkola.</p></div>
   <div class="sekcja"><span class="numer pom">I</span><h2>Przedmiot i organizacja ewaluacji</h2><span class="linia"></span></div>
   <div class="siatka2">
     <div class="pole"><span class="etykieta">Przedmiot ewaluacji (z planu nadzoru DN-1)</span><div class="linijki"><div></div></div></div>
@@ -833,14 +850,14 @@
     <span class="tresc">ZD-1 · WZÓR · PODSTAWA · REJESTR</span>
     <span class="kreska"></span>
   </div>
-  <div class="legenda" style="margin:1.4mm 0 2.6mm 8mm"><p><b>Podstawa prawna:</b> <b>art. 68 ust. 1 ustawy — Prawo oświatowe</b> (t.j. Dz.U. z 2024 r. poz. 737, z późn. zm.) — dyrektor <b>kieruje działalnością przedszkola</b> i reprezentuje je na zewnątrz; sprawuje nadzór pedagogiczny, sprawuje opiekę nad dziećmi, odpowiada za bezpieczeństwo oraz wykonuje zadania związane z zapewnieniem bezpieczeństwa. <b>Art. 68 ust. 5</b> — dyrektor jest kierownikiem zakładu pracy. Zarządzenie jest formą działania dyrektora w sprawach, które <b>nie należą do kompetencji stanowiących rady pedagogicznej</b> (art. 70 ust. 1) ani nie wymagają uchwały przy statucie (art. 72 ust. 1).</p></div>
+  <div class="legenda" style="margin:1.4mm 0 2.6mm 8mm"><p><b>Podstawa prawna:</b> <b>art. 68 ust. 1 ustawy — Prawo oświatowe</b> (<span class="popr">t.j. Dz.U. z 2026 r. poz. 820</span>, z późn. zm.) — dyrektor <b>kieruje działalnością przedszkola</b> i reprezentuje je na zewnątrz; sprawuje nadzór pedagogiczny, sprawuje opiekę nad dziećmi, odpowiada za bezpieczeństwo oraz wykonuje zadania związane z zapewnieniem bezpieczeństwa. <b>Art. 68 ust. 5</b> — dyrektor jest kierownikiem zakładu pracy. Zarządzenie jest formą działania dyrektora w sprawach, które <b>nie należą do kompetencji stanowiących rady pedagogicznej</b> (art. 70 ust. 1) ani nie wymagają uchwały przy statucie (art. 72 ust. 1).</p></div>
   <div class="sekcja"><span class="numer pom">I</span><h2>Wzór zarządzenia</h2><span class="linia"></span></div>
   <div class="pole" style="padding:3.4mm 4mm">
     <div class="tresc" style="text-align:center; font-weight:bold; color:var(--fiolet); font-size:9pt">ZARZĄDZENIE NR ......... / 2026-2027</div>
     <div class="tresc" style="text-align:center; font-size:7.6pt; margin-top:1mm">Dyrektora ................................................................ z dnia .............................</div>
     <div class="tresc" style="text-align:center; font-size:7.6pt; margin-top:1.6mm">w sprawie ................................................................................................................................</div>
     <div class="linijki" style="margin-top:2.6mm"><div></div></div>
-    <div class="tresc" style="font-size:7.2pt; margin-top:2.4mm"><b>Na podstawie</b> art. 68 ust. ......... ustawy z dnia 14 grudnia 2016 r. — Prawo oświatowe (t.j. Dz.U. z 2024 r. poz. 737, z późn. zm.) oraz .......................................................... zarządza się, co następuje:</div>
+    <div class="tresc" style="font-size:7.2pt; margin-top:2.4mm"><b>Na podstawie</b> art. 68 ust. ......... ustawy z dnia 14 grudnia 2016 r. — Prawo oświatowe (<span class="popr">t.j. Dz.U. z 2026 r. poz. 820</span>, z późn. zm.) oraz .......................................................... zarządza się, co następuje:</div>
     <div class="tresc" style="font-size:7.2pt; margin-top:2.4mm"><b>§ 1.</b></div>
     <div class="linijki"><div></div><div></div></div>
     <div class="tresc" style="font-size:7.2pt; margin-top:1.6mm"><b>§ 2.</b> Wykonanie zarządzenia powierza się .....................................................................</div>
