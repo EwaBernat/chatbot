@@ -3,7 +3,7 @@
   "aplikacja": "EduPlaner 2026",
   "wydawca": "PCTP",
   "rok_szkolny": "2026/2027",
-  "wersja": "3.1.0",
+  "wersja": "3.1.1",
   "etap": "przedszkole",
   "indeks": "INDEKS_Kacik_Dyrektora.html",
   "logo": "../assets/logo-pctp.svg",
@@ -665,5 +665,8 @@
     "kratki": "znak ☐ do zaznaczenia; skale ocen jako tekst do obrysowania lub pogrubienia",
     "zywa_pagina": "nagłówek z nazwą kącika, stopka z numeracją Strona X z Y",
     "weryfikacja": "walidacja XSD wszystkich plików, kontrola kompletności treści wobec HTML (0 braków), zgodność liczby podziałów stron z wersją HTML"
+  },
+  "zmiany": {
+    "3.1.1": "DB-1, DB-2, DB-3 — doprecyzowana podstawa prawna i zakres powiadomień: DB-1 wskazuje § 3 ust. 1 i 2 rozporządzenia MENiS z 31.12.2002 (kontrola co najmniej raz w roku, protokół, kopia dla organu prowadzącego); DB-2 wskazuje § 40–§ 44 i uzupełnia tabelę powiadomień o radę rodziców, kuratora oświaty oraz państwowego powiatowego inspektora sanitarnego przy zatruciu, a sekcję V o datę zatwierdzenia protokołu przez dyrektora; DB-3 uzupełnia podstawę o weryfikację personelu w KRK obok RSPTS, dodaje procedurę i szkolenie ze standardów ochrony małoletnich oraz zasady bezpiecznego korzystania z urządzeń elektronicznych i internetu."
   }
 }

@@ -1,6 +1,6 @@
 # Kącik dyrektora — przedszkole · paczka do EduPlaner 2026
 
-**Wersja 3.1.0 · rok szkolny 2026/2027 · 32 druki w 12 plikach · 91 stron A4 + 9-stronicowy spis**
+**Wersja 3.1.1 · rok szkolny 2026/2027 · 32 druki w 12 plikach · 91 stron A4 + 9-stronicowy spis**
 **Trzy formaty: HTML interaktywny · PDF do druku · DOCX do edycji w Wordzie**
 
 Komplet dokumentacji dyrektora przedszkola, zbudowany na tej samej zasadzie co
