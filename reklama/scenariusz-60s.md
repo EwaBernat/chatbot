@@ -6,29 +6,44 @@
 **Marka:** fiolet `#2D1B69`, pomarańcz `#E8450A` (akcent i CTA), Arial
 **Łuk:** powitanie → co jest w środku → dlaczego warto → otwarty projekt → zaproszenie
 
-Narracja liczy 122 słowa. Przy spokojnym tempie 125–135 słów na minutę
-to **57–62 sekundy** z pauzami między scenami. Jeśli wyjdzie za długo,
+Narracja liczy 119 słów. Przy spokojnym tempie 125–135 słów na minutę
+to **56–61 sekund** z pauzami między scenami. Jeśli wyjdzie za długo,
 skróć scenę 2 — jest najbardziej „wyliczankowa".
 
 ---
 
 ## Sceny
 
-### Scena 1 — Powitanie · 0:00–0:12 · awatar DUŻY, pełny kadr
+### Scena 1 — Powitanie · 0:00–0:11 · awatar DUŻY, pełny kadr
 
-> Dzień dobry. Nazywam się Mirosława Jurczyszyn i jestem pedagogiem specjalnym.
-> Stworzyłam EduPlaner 2026 — cyfrową szafę, w której cała dokumentacja
-> przedszkola i szkoły jest w jednym miejscu.
+> Dzień dobry. Stworzyłam EduPlaner 2026 — cyfrową szafę, w której cała
+> dokumentacja przedszkola i szkoły jest w jednym miejscu.
+> Zbudowaną przez praktyków, dla praktyków.
 
 **Na ekranie:** sam awatar na gładkim fioletowym tle `#2D1B69`.
-W 6. sekundzie delikatnie wjeżdża podpis: **Mirosława Ewa Jurczyszyn · PCTP Koszalin**.
+W 2. sekundzie wjeżdża od dołu podpis pod postacią i zostaje do końca sceny:
 
-**Dlaczego tak:** widz najpierw poznaje człowieka, nie produkt. Twoja twarz i Twój
-głos w pierwszych trzech sekundach robią więcej niż jakakolwiek plansza.
+```
+        mgr Mirosława Ewa Jurczyszyn
+             pedagog specjalny
+```
+
+Imię i nazwisko białe, półtłuste, funkcja pod spodem mniejsza i pomarańczowa
+`#E8450A`. Podpis wyrównany do awatara, w dolnej jednej trzeciej kadru —
+tak nisko, żeby nie zasłaniał twarzy.
+
+**Dlaczego tak:** kto mówi, widz **czyta**, a nie słucha. Wypowiadanie własnego
+imienia i tytułu zjada pięć sekund z sześćdziesięciu i brzmi jak prezentacja
+na konferencji. Podpis mówi to samo w tym samym czasie, w którym Ty mówisz
+już o produkcie — a zdanie „zbudowaną przez praktyków, dla praktyków" przejmuje
+wiarygodność, którą wcześniej niosło przedstawienie się.
+
+**Powtórz podpis na ekranie końcowym** (scena 5), mniejszą czcionką nad kontaktem —
+widz, który zdecyduje się zapisać numer, chce wiedzieć, do kogo dzwoni.
 
 ---
 
-### Scena 2 — Co jest w środku · 0:12–0:25 · awatar MAŁY, prawy dolny róg
+### Scena 2 — Co jest w środku · 0:11–0:25 · awatar MAŁY, prawy dolny róg
 
 > Metryczka, WOPF, plan wsparcia, realizacja, ewaluacja. Od zgłoszenia po
 > podsumowanie — cała droga dziecka w jednym, logicznym ciągu. Do tego moduł
@@ -85,6 +100,7 @@ tylko to, że mówisz go w pierwszej osobie.
 
      [QR / link do formularza analizy potrzeb]
 
+     mgr Mirosława Ewa Jurczyszyn · pedagog specjalny
      kontakt@eduplaner2026.pl  ·  [usunięto]
 ```
 
