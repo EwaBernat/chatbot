@@ -144,9 +144,22 @@ python3 .claude/skills/dane-i-glos/scripts/heygen_awatar.py \
 W praktyce nie musisz tego wpisywać — wystarczy poprosić Claude Code:
 *„zrób spot z `reklama/narracja.txt` moim głosem"*.
 
-### Wersja pionowa na Reels i TikToka
+### Wersja pionowa na Reels i TikToka — gotowa
 
-To samo MP3, inny render — nie generuj głosu drugi raz:
+Jest zrobiona: `reklama/eduplaner-spot-60s-pion.mp4`, 1080×1920, ten sam głos
+i ta sama treść. Plansze mają osobny układ, nie przycięty poziom — oś ścieżki
+dziecka układa się w kolumnę, a treść trzyma się środka kadru, poza obszarem,
+który Reels i TikTok zasłaniają swoimi nakładkami.
+
+```bash
+python3 reklama/build_plansze.py pion     # plansze 1080x1920
+python3 reklama/build_wideo.py pion       # montaż
+```
+
+Chcesz innego ujęcia głosu? Dopisz nazwę pliku:
+`python3 reklama/build_wideo.py pion cieply-wersja-3.mp3`
+
+Wariant przez skrypt HeyGena (gdy będzie już awatar):
 
 ```bash
 python3 .claude/skills/dane-i-glos/scripts/heygen_awatar.py \

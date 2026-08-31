@@ -1,18 +1,23 @@
 #!/usr/bin/env python3
-"""Sklada spot EduPlaner 2026: plansze PNG + narracja MP3 -> MP4 1920x1080.
+"""Sklada spot EduPlaner 2026: plansze PNG + narracja MP3 -> MP4.
 
-Czasy plansz pochodza z build_plansze.py i sa dopasowane do sciezki glosowej.
-Uruchomienie:  python3 reklama/build_wideo.py [plik_audio.mp3] [wyjscie.mp4]
+Czasy plansz pochodza z build_plansze.py i sa dopasowane do sciezki glosowej,
+wiec oba formaty maja identyczny montaz — tylko inny kadr.
+
+Uruchomienie:
+    python3 reklama/build_wideo.py                     # poziom, glos domyslny
+    python3 reklama/build_wideo.py pion
+    python3 reklama/build_wideo.py pion cieply-wersja-3.mp3
 """
 import shutil
 import subprocess
 import sys
 from pathlib import Path
 
-from build_plansze import PLANSZE
+from build_plansze import CZASY, FORMATY
 
 KATALOG = Path(__file__).parent
-PLANSZE_DIR = KATALOG / "plansze"
+DOMYSLNE_AUDIO = KATALOG / "cieply-wersja-1.mp3"
 PRZEJSCIE = 0.6          # dlugosc xfade w sekundach
 FPS = 30
 
@@ -34,19 +39,30 @@ def ffmpeg() -> str:
 
 
 def main() -> int:
-    audio = Path(sys.argv[1]) if len(sys.argv) > 1 else KATALOG / "cieply-wersja-1.mp3"
-    wyjscie = Path(sys.argv[2]) if len(sys.argv) > 2 else KATALOG / "eduplaner-spot-60s.mp4"
+    format_nazwa = sys.argv[1] if len(sys.argv) > 1 else "poziom"
+    if format_nazwa not in FORMATY:
+        raise SystemExit(f"Nieznany format: {format_nazwa}. Dostępne: {', '.join(FORMATY)}")
+    f = FORMATY[format_nazwa]
+
+    audio = Path(sys.argv[2]) if len(sys.argv) > 2 else DOMYSLNE_AUDIO
+    if not audio.is_absolute():
+        audio = KATALOG / audio
     if not audio.exists():
         raise SystemExit(f"Brak pliku audio: {audio}")
+    if not f["katalog"].exists():
+        raise SystemExit(f"Brak plansz. Uruchom najpierw: python3 build_plansze.py {format_nazwa}")
 
-    # xfade zjada (N-1) * PRZEJSCIE z laczna dlugosci — oddajemy to kazdej planszy
+    przyrostek = "" if format_nazwa == "poziom" else "-pion"
+    wyjscie = KATALOG / f"eduplaner-spot-60s{przyrostek}.mp4"
+
+    # xfade zjada (N-1) * PRZEJSCIE z lacznej dlugosci — oddajemy to kazdej planszy
     # poza ostatnia, zeby obraz nie skonczyl sie przed narracja.
-    czasy = [czas + PRZEJSCIE for _, czas, _ in PLANSZE[:-1]] + [PLANSZE[-1][1]]
+    czasy = [czas + PRZEJSCIE for _, czas in CZASY[:-1]] + [CZASY[-1][1]]
     n = len(czasy)
 
     wejscia = []
-    for (nazwa, _, _), czas in zip(PLANSZE, czasy):
-        wejscia += ["-loop", "1", "-t", f"{czas:.3f}", "-i", str(PLANSZE_DIR / f"{nazwa}.png")]
+    for (nazwa, _), czas in zip(CZASY, czasy):
+        wejscia += ["-loop", "1", "-t", f"{czas:.3f}", "-i", str(f["katalog"] / f"{nazwa}.png")]
     wejscia += ["-i", str(audio)]
 
     filtr = [f"[{i}:v]fps={FPS},format=yuv420p,setsar=1[v{i}]" for i in range(n)]
@@ -68,7 +84,8 @@ def main() -> int:
         "-c:v", "libx264", "-preset", "medium", "-crf", "20", "-pix_fmt", "yuv420p",
         "-c:a", "aac", "-b:a", "192k", "-shortest", str(wyjscie),
     ]
-    print(f"Obraz: {dlugosc:.1f} s · plansz: {n} · audio: {audio.name}")
+    print(f"{format_nazwa} {f['w']}x{f['h']} · obraz {dlugosc:.1f} s · "
+          f"plansz {n} · audio {audio.name}")
     wynik = subprocess.run(polecenie, capture_output=True, text=True)
     if wynik.returncode != 0:
         print(wynik.stderr[-2500:])
