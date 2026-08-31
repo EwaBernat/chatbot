@@ -169,6 +169,10 @@ narracja*.txt
 *.mp4
 node_modules/
 .claude/skills/dane-i-glos/assets/remotion/out/
+# Teksty narracji spotu reklamowego to materiał źródłowy, nie robocze wyjście —
+# reguła narracja*.txt wyżej dotyczy plików roboczych skilla dane-i-glos.
+!reklama/narracja*.txt
+
 # Nagrania głosu — dane biometryczne, nigdy do repozytorium
 *.wav
 *.m4a
