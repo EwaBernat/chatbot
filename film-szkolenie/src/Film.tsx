@@ -294,11 +294,16 @@ const Plansza: React.FC<{
 
       <div
         style={{
-          position: 'absolute', top: 984, left: (1920 - OBRAZ_SZER) / 2, width: OBRAZ_SZER,
+          position: 'absolute', top: 976, left: (1920 - OBRAZ_SZER) / 2, width: OBRAZ_SZER,
           display: 'flex', alignItems: 'flex-start', gap: 40,
         }}
       >
-        <div style={{flex: 1, fontFamily: SANS, fontSize: 27, lineHeight: 1.35, color: MOTYW.tekst, maxWidth: 1240}}>
+        <div
+          style={{
+            flex: 1, fontFamily: SANS, fontSize: stopienNapisu(biezace), lineHeight: 1.28,
+            color: MOTYW.tekst, maxWidth: 1340,
+          }}
+        >
           {biezace}
         </div>
         <div style={{textAlign: 'right', minWidth: 190}}>
@@ -312,6 +317,14 @@ const Plansza: React.FC<{
       </div>
     </AbsoluteFill>
   );
+};
+
+/** Napis musi zmieścić się nad dolną krawędzią kadru: dłuższe zdanie dostaje mniejszy stopień. */
+const stopienNapisu = (tekst: string): number => {
+  const n = tekst.length;
+  if (n <= 180) return 27;
+  if (n <= 270) return 23;
+  return 20;
 };
 
 const Karta: React.FC<{dzieci: React.ReactNode}> = ({dzieci}) => {
