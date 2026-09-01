@@ -1,9 +1,25 @@
 # Avatar: Ewa
 
-> **Awatar istnieje.** `Group ID` jest wypełnione — skille używają go automatycznie,
-> nie tworzą nowego. Identyfikator pochodzi z aplikacji HeyGen i **nie został
-> zweryfikowany wywołaniem API** (sesja, w której go zapisano, nie miała połączenia
-> z HeyGenem). Pierwsze użycie lokalnie to potwierdzi.
+> ## ⚠️ Awatar na koncie NIE przedstawia autorki
+>
+> Na koncie HeyGen jest awatar o nazwie **„Margaret"** z 34 lookami
+> („Margaret in a purple suit", „Margaret in her colorful classroom",
+> „Professional woman in a modern office"). Nazwy pochodzą z promptów, więc
+> to **postać wygenerowana przez AI**, nie cyfrowy bliźniak Mirosławy Ewy
+> Jurczyszyn.
+>
+> **Można jej używać** — to legalne i częste. Ale nie wolno łączyć jej z:
+> podpisem „mgr Mirosława Ewa Jurczyszyn" w kadrze ani pierwszą osobą
+> („**stworzyłam** EduPlaner"). To sprawia, że widz bierze modelkę za autorkę.
+> Przy materiałach dla rodziców, budowanych na zaufaniu, jest to szczególnie
+> ryzykowne.
+>
+> **Do rozstrzygnięcia przez autorkę:** albo awatar z jej własnego zdjęcia
+> (wtedy podpis i pierwsza osoba działają), albo Margaret jako bezimienna
+> prezenterka marki (wtedy narracja bezosobowa, bez nazwiska w kadrze).
+>
+> Identyfikatory poniżej **nie zostały zweryfikowane** wywołaniem API — sesja,
+> w której je zapisano, nie miała połączenia z HeyGenem.
 
 ## Appearance
 - Age: <do uzupełnienia — albo nieistotne, jeśli awatar powstaje ze zdjęcia lub nagrania>
