@@ -73,14 +73,49 @@ i dość chłodna, żeby nie kłócić się z pomarańczowym akcentem.
 kwiat (trzy pomarańczowe płatki w górze, dwa fioletowe po bokach, biały środek, złota
 łodyga rozchodząca się w trzy odnogi), pod nim **PCTP** białą szryftą szeryfową.
 
-**Plik:** `assets/logo-pctp.png` — PNG z przezroczystym tłem, kwadrat, minimum 512 px.
+**Pliki — logo jest już w repozytorium. Nie proś właścicielki o wgranie go ponownie.**
+
+| Ścieżka | Do czego |
+|---|---|
+| `.claude/skills/awatar-ewy/assets/logo-pctp.png` | **wzorzec skilla** — 1200×1200, RGBA, przezroczyste tło |
+| `assets/logo-pctp.png` | kopia robocza, z której czyta `reklama/build_plansze.py` |
+
+Gdyby kopia robocza gdzieś zniknęła, odtwórz ją jednym poleceniem:
+
+```bash
+cp .claude/skills/awatar-ewy/assets/logo-pctp.png assets/logo-pctp.png
+```
+
+Ten sam znak leży też w innych gałęziach repozytorium — m.in.
+`.claude/skills/pctp-marka/assets/logo-pctp.png` (ten sam plik) oraz
+`logo-pctp-znak.png` (sam kwiat, bez pieczęci i napisu).
+
+⚠️ **Zanim poprosisz o wgranie jakiejkolwiek grafiki, przeszukaj repozytorium —
+razem z gałęziami.** Ta lekcja kosztowała kilka rund rozmowy: logo leżało
+w repozytorium od początku, na innej gałęzi, a ja prosiłem o wysyłanie go raz
+za razem. Obrazek wklejony w rozmowie **widzę, ale nie ląduje na dysku** — więc
+dopóki nie ma go w `git`, nie ma go wcale.
+
+```bash
+for b in $(git branch -r --format='%(refname:short)'); do
+  git ls-tree -r "$b" | grep -iE "logo|\.png$|\.svg$"
+done | awk '{print $3, $4}' | sort -u
+```
+
+Wynik daje hasze blobów — plik wyciąga się bez przełączania gałęzi:
+
+```bash
+git cat-file blob <hasz> > assets/logo-pctp.png
+```
 
 Logo jest **okrągłe i ciemnofioletowe**, więc na tle marki `#2D1B69` prawie znika.
 Kładź je na jasnym polu albo z delikatną białą obwódką — nigdy wprost na fiolecie.
+W planszach robi to reguła `.logo` w `build_plansze.py`: biały krążek
+`rgba(255,255,255,.94)` z pięciopikselowym marginesem i cieniem. Bez niego
+w kadrze zostaje sam kwiat, bez konturu pieczęci.
 
-Dopóki pliku nie ma, plansze używają napisu tekstowego **EDU**PLANER **2026**
-w lewym górnym rogu. `build_plansze.py` przełącza się na logo automatycznie,
-gdy tylko plik się pojawi — nie trzeba nic zmieniać w kodzie.
+Gdyby pliku zabrakło, `build_plansze.py` cofa się do napisu **EDU**PLANER **2026**
+w lewym górnym rogu i wraca do logo automatycznie — bez zmian w kodzie.
 
 ## Skład stopki według postaci
 
