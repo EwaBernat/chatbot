@@ -37,7 +37,7 @@ jest, skrót wymaga, żeby widz już wiedział.
   Numer bywa usuwany przez automatyczne czyszczenie danych osobowych; jeśli w plikach
   pojawi się `[usunięto]`, przywróć go stąd.
 - **Strona internetowa:** `<do uzupełnienia — będzie wkrótce>`
-- **Formularz analizy potrzeb (główne CTA):** `<do uzupełnienia — link albo QR>`
+- **Link do zamówienia (główne CTA):** `<do uzupełnienia — link albo QR>`
 
 ## Produkt
 
@@ -90,7 +90,7 @@ gdy tylko plik się pojawi — nie trzeba nic zmieniać w kodzie.
 | `warsztat` | skrócona: podpis · e-mail |
 | `konsultacja` | minimalna: e-mail |
 | `maks` | **żadnej** — dziecko nie jest odbiorcą kontaktu firmowego |
-| `spot` | pełna + QR do formularza analizy potrzeb |
+| `spot` | pełna + QR do zamówienia |
 | `herbatka` | lekka: podpis · strona (bez telefonu, bez QR) |
 
 ## Wzorzec ekranu końcowego (spot)
@@ -99,7 +99,7 @@ gdy tylko plik się pojawi — nie trzeba nic zmieniać w kodzie.
             EduPlaner 2026
      Mniej dokumentów. Więcej edukacji.
 
-        [QR / link do formularza]
+        [QR / link do zamówienia]
 
   mgr Mirosława Ewa Jurczyszyn · pedagog specjalny
      kontakt@eduplaner2026.pl · <strona>

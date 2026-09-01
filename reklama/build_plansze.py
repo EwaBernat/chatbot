@@ -171,7 +171,7 @@ def plansze(w: int, h: int, pion: bool):
         ("s5", 14.0, s(
             "<div class='mid'><h1>Mniej dokumentów.<br>"
             "<span class='o'>Więcej edukacji.</span></h1>"
-            "<div class='qr'>QR / link do formularza analizy potrzeb</div></div>"
+            "<div class='qr'>QR / link do zamówienia</div></div>"
             "<div class='stopka'>Pomorskie Centrum Terapii Pedagogicznej<br>"
             "<span class='kontakt'>kontakt@eduplaner2026.pl &nbsp;·&nbsp; 662 888 403</span>"
             "</div>")),

@@ -102,8 +102,8 @@ tylko to, że mówisz go w pierwszej osobie.
 
 ### Scena 5 — Zaproszenie · 0:49–1:00 · awatar MAŁY, ekran końcowy
 
-> Wypełnij formularz analizy potrzeb i powiedz nam, czego potrzebuje Twoja placówka.
-> EduPlaner 2026. Mniej dokumentów. Więcej edukacji.
+> Zamów EduPlaner 2026 dla swojej placówki.
+> Mniej dokumentów. Więcej edukacji.
 
 **Ekran końcowy** (zostaje 2 s po ostatnim słowie, w ciszy):
 
@@ -111,17 +111,19 @@ tylko to, że mówisz go w pierwszej osobie.
             EduPlaner 2026
      Mniej dokumentów. Więcej edukacji.
 
-     [QR / link do formularza analizy potrzeb]
+     [QR / link do zamówienia]
 
      Pomorskie Centrum Terapii Pedagogicznej
      kontakt@eduplaner2026.pl  ·  662 888 403
 ```
 
-Hasło i QR pomarańczowe na fiolecie. **Link do formularza wstawiasz sama** —
+Hasło i QR pomarańczowe na fiolecie. **Link do zamówienia wstawiasz sama** —
 nie ma go w materiałach skilla.
 
-**Dlaczego tak:** jedno CTA, bez presji. Kontakt pojawia się po wartości,
-a nie zamiast niej.
+**Dlaczego tak:** jedno CTA, bez presji. Prosimy wprost o zamówienie, bo tego
+dotyczy rozmowa — ale dopiero na końcu, gdy widz wie już, za co miałby zapłacić.
+Formularz analizy potrzeb odsuwał decyzję o krok i zostawiał dyrektora
+z pytaniem „i co dalej".
 
 ---
 
