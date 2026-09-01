@@ -58,12 +58,12 @@ kto mówi, więc nie wprowadza nikogo w błąd.
 
 ### Scena 2 — Co jest w środku · 0:11–0:25 · awatar MAŁY, prawy dolny róg
 
-> Metryczka, WOPF, plan wsparcia, realizacja, ewaluacja. Od zgłoszenia po
+> Metryczka. Wielospecjalistyczna ocena poziomu funkcjonowania. Plan wsparcia. Realizacja. Ewaluacja. Od zgłoszenia po
 > podsumowanie — cała droga dziecka w jednym, logicznym ciągu. Do tego moduł
 > Zespół i Baza wiedzy z gotowymi wzorami.
 
 **Na ekranie:** pozioma oś, na której zapalają się kolejno pięć etapów —
-Metryczka → WOPF → Plan wsparcia → Realizacja → Ewaluacja — dokładnie w rytm słów.
+Metryczka → Wielospecjalistyczna ocena poziomu funkcjonowania → Plan wsparcia → Realizacja → Ewaluacja — dokładnie w rytm słów.
 Aktywny etap na pomarańczowo `#E8450A`, przeszłe na biało, przyszłe wyszarzone.
 Na końcu zdania osi towarzyszą dwa kafle: **Zespół** i **Baza wiedzy**.
 
@@ -184,7 +184,7 @@ Posłuchaj pierwszego MP3 właśnie pod tym kątem:
 
 | Słowo | Ryzyko | Jeśli źle brzmi, wpisz w `narracja.txt` |
 |---|---|---|
-| **WOPF** | ElevenLabs może przeczytać jak wyraz zamiast literować | `wu o pe ef` |
+| skróty | rozwijaj do pełnych nazw — decyzja właścicielki; skrót w mowie brzmi hermetycznie | `wielospecjalistyczna ocena poziomu funkcjonowania` |
 | **2026** | powinno wyjść „dwa tysiące dwadzieścia sześć" | `EduPlaner dwa tysiące dwadzieścia sześć` |
 
 Poprawiasz plik tekstowy i generujesz audio od nowa — render wideo robisz dopiero,

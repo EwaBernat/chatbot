@@ -72,7 +72,9 @@ h1 .o{{color:{POMARANCZ};}}
      margin-top:14px;}}
 .krok{{padding:{'24px 34px' if not pion else '22px 40px'};border-radius:18px;
        font-size:{34 if not pion else 40}px;font-weight:700;
-       border:3px solid rgba(255,255,255,.22);color:#8d7cc4;white-space:nowrap;}}
+       border:3px solid rgba(255,255,255,.22);color:#8d7cc4;
+       white-space:nowrap;line-height:1.25;}}
+.krok.dlugi{{font-size:{27 if not pion else 32}px;}}
 .krok.byl{{color:#fff;border-color:rgba(255,255,255,.55);}}
 .krok.teraz{{color:#fff;background:{POMARANCZ};border-color:{POMARANCZ};
              box-shadow:0 14px 42px rgba(232,69,10,.45);}}
@@ -127,11 +129,15 @@ def strona(tresc: str, w: int, h: int, pion: bool, podpis: bool = False) -> str:
 
 def os_etapow(aktywny: int, pion: bool) -> str:
     """aktywny = indeks etapu podswietlonego; wczesniejsze biale, pozniejsze wygaszone."""
-    etapy = ["Metryczka", "WOPF", "Plan wsparcia", "Realizacja", "Ewaluacja"]
+    etapy = ["Metryczka",
+             "Wielospecjalistyczna ocena<br>poziomu funkcjonowania",
+             "Plan wsparcia", "Realizacja", "Ewaluacja"]
     strzalka = "&#8595;" if pion else "&#8594;"
     czesci = []
     for i, e in enumerate(etapy):
         klasa = "teraz" if i == aktywny else ("byl" if i < aktywny else "")
+        if "<br>" in e:
+            klasa += " dlugi"
         czesci.append(f"<div class='krok {klasa}'>{e}</div>")
         if i < len(etapy) - 1:
             czesci.append(f"<div class='strzalka'>{strzalka}</div>")

@@ -19,7 +19,8 @@ from build_plansze import CZASY, FORMATY
 
 KATALOG = Path(__file__).parent
 DOMYSLNE_AUDIO = KATALOG / "glos-bezosobowy.mp3"
-OGON = 1.5               # ile sekundy ekran koncowy zostaje po ostatnim slowie
+OGON = 2.0               # ile sekund ekran koncowy zostaje po ostatnim slowie
+MIN_OSTATNIA = 5.0       # dolna granica dlugosci ekranu koncowego
 PRZEJSCIE = 0.6          # dlugosc xfade w sekundach
 FPS = 30
 
@@ -83,10 +84,15 @@ def main() -> int:
     trwanie_audio = dlugosc_audio(audio)
     if trwanie_audio:
         obraz = sum(czasy) - (n - 1) * PRZEJSCIE
-        brakuje = trwanie_audio + OGON - obraz
-        if brakuje > 0:
-            czasy[-1] += brakuje
-            print(f"  audio {trwanie_audio:.1f} s — ostatnia plansza dłuższa o {brakuje:.1f} s")
+        roznica = trwanie_audio + OGON - obraz
+        # Skracamy tylko do granicy czytelnosci: ekran koncowy z kontaktem
+        # i kodem QR musi zostac na tyle dlugo, zeby dalo sie go przepisac.
+        nowa = max(MIN_OSTATNIA, czasy[-1] + roznica)
+        if abs(nowa - czasy[-1]) > 0.05:
+            kierunek = "dłuższa" if nowa > czasy[-1] else "krótsza"
+            print(f"  audio {trwanie_audio:.1f} s — ostatnia plansza {kierunek} "
+                  f"o {abs(nowa - czasy[-1]):.1f} s")
+            czasy[-1] = nowa
 
     wejscia = []
     for (nazwa, _), czas in zip(CZASY, czasy):
