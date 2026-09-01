@@ -175,6 +175,29 @@ Rozmiary, pozycje, jak nagrać materiał i jak zapętlić krótkie ujęcie:
 Projektując slajdy pod film z kółkiem, zostaw **prawy dolny narożnik wolny** —
 albo przenieś awatara na `pozycja="prawy-gora"`.
 
+## Układ kadru, który wytrzymuje projektor
+
+Zasady wyprowadzone z części I szkolenia o teorii umysłu — plansze są gęste,
+a film ogląda się na rzutniku w sali, gdzie każdy zasłonięty wyraz to problem.
+
+- **Prowadząca ma własną kolumnę, nie leży na planszy.** Plansza 1620 px idzie
+  do lewej krawędzi (margines 40 px), a po prawej zostaje pas 260 px na kółko
+  z awatarem. Kółko wpuszczone w róg planszy zasłania treść na każdym slajdzie,
+  który ma zapełniony dolny prawy narożnik — a takie są prawie wszystkie.
+- **Żadnych kart z hasłami na planszy.** Wyglądają efektownie na pojedynczej
+  klatce, ale nie ma slajdu, na którym byłoby dla nich wolne miejsce
+  (sprawdzone pomiarem gęstości treści we wszystkich narożnikach). Ruch daje
+  światło punktowe i wejście planszy, nie nakładki.
+- **Zbliżenie najwyżej 1,06.** Powyżej tej wartości kadr ucina pierwsze litery
+  nagłówka i wygląda to na usterkę, a nie na podkreślenie. Uwagę prowadzi
+  **światło punktowe** — przyciemnienie wszystkiego poza obszarem ważnym.
+  Zbliżenie trzymaj na 30% czasu slajdu (0,42–0,72), nie na połowie.
+- **Napis skaluje się do długości zdania**: do 180 znaków 27 pkt, do 270 znaków
+  23 pkt, powyżej 20 pkt. Przy stałym stopniu dłuższe kwestie wychodzą poza
+  dolną krawędź kadru — w narracji szkoleniowej zdania po 300 znaków są normą.
+- **Logo bez białego podkładu** — znak PCTP jest już kółkiem, więc dostaje tylko
+  cienką białą obwódkę (1,5 px) z niewielkim odstępem.
+
 ## Podpis autorki
 
 Każdy materiał — film, prezentacja, scenariusz — kończy się planszą albo linijką:

@@ -21,7 +21,7 @@ export type Slajd = {
   /** Zbliżenie na fragment planszy: x,y to punkt 0–1, od/do to ułamki czasu slajdu. */
   zoom?: {x: number; y: number; skala: number; od: number; do: number};
   /** Hasła wyjęte z planszy, wjeżdżające w rytm narracji. `od` to ułamek czasu slajdu. */
-  hasla?: {t: string; od: number}[];
+  awatarPozycja?: string;
 };
 
 export type Odcinek = {klatki: number; maAudio: boolean};
@@ -43,6 +43,16 @@ type Props = {
   fotoTytulowe?: string;
 };
 
+/**
+ * Zbliżenie nie może uciąć nagłówka planszy. Tytuł zaczyna się ok. 40 px od krawędzi,
+ * więc powyżej skali 1,06 pierwsze litery wychodzą poza kadr i wygląda to na usterkę,
+ * a nie na świadome podkreślenie. Uwagę prowadzi światło punktowe, nie powiększenie.
+ */
+const SKALA_ZBLIZENIA_MAX = 1.06;
+
+const MARGINES_LEWY = 40;
+/** Kolumna prowadzącej po prawej stronie planszy: awatar nigdy nie zasłania treści slajdu. */
+const KOLUMNA_PRAWA = 1920 - MARGINES_LEWY - 1620; // 260 px
 const OBRAZ_SZER = 1620;
 const OBRAZ_WYS = Math.round((OBRAZ_SZER * 9) / 16); // 911
 
@@ -107,14 +117,15 @@ const Monogram: React.FC<{mowi: boolean}> = ({mowi}) => {
   );
 };
 
-const KolkoAwatara: React.FC<{plik?: string; rozmiar?: number}> = ({plik, rozmiar = 232}) => {
+const KolkoAwatara: React.FC<{plik?: string; rozmiar?: number; pozycja?: string}> = ({plik, rozmiar = 232, pozycja = 'dol'}) => {
   const klatka = useCurrentFrame();
   const skala = interpolate(klatka, [0, 16], [0.9, 1], {extrapolateRight: 'clamp'});
   const film = plik ? /\.(mp4|webm|mov|m4v)$/i.test(plik) : false;
   return (
     <div
       style={{
-        position: 'absolute', right: (1920 - OBRAZ_SZER) / 2 + 22, top: 28 + OBRAZ_WYS - rozmiar - 22,
+        position: 'absolute', right: 14,
+        top: 28 + OBRAZ_WYS - rozmiar,
         width: rozmiar, height: rozmiar, borderRadius: '50%', overflow: 'hidden',
         border: `5px solid ${MOTYW.zielenJasna}`, boxShadow: '0 22px 50px -16px rgba(0,0,0,.7)',
         transform: `scale(${skala})`,
@@ -131,34 +142,6 @@ const KolkoAwatara: React.FC<{plik?: string; rozmiar?: number}> = ({plik, rozmia
   );
 };
 
-const Haslo: React.FC<{tekst: string; klatki: number; od: number}> = ({tekst, klatki, od}) => {
-  const klatka = useCurrentFrame();
-  const start = klatki * od;
-  const dlugosc = 132;                    // ok. 4,4 s na ekranie
-  const post = interpolate(
-    klatka,
-    [start - 12, start, start + dlugosc, start + dlugosc + 14],
-    [0, 1, 1, 0],
-    {extrapolateLeft: 'clamp', extrapolateRight: 'clamp'},
-  );
-  if (post <= 0.001) return null;
-  const wjazd = interpolate(klatka, [start - 12, start + 6], [46, 0], {extrapolateLeft: 'clamp', extrapolateRight: 'clamp'});
-  return (
-    <div
-      style={{
-        opacity: post, transform: `translateX(${wjazd}px)`,
-        background: 'rgba(46,35,82,.93)', border: `1px solid ${MOTYW.zielenSrednia}`,
-        borderLeft: `5px solid ${MOTYW.bursztyn}`, borderRadius: 12,
-        padding: '16px 24px 18px', marginBottom: 12, maxWidth: 560,
-        boxShadow: '0 20px 44px -18px rgba(0,0,0,.8)',
-        fontFamily: FIGTREE, fontWeight: 800, fontSize: 30, lineHeight: 1.22, color: '#fff',
-        letterSpacing: -0.5,
-      }}
-    >
-      {tekst}
-    </div>
-  );
-};
 
 const Plansza: React.FC<{
   slajd: Slajd; indeks: number; liczba: number; czesc: string; klatki: number; maAudio: boolean; awatar?: string;
@@ -191,7 +174,7 @@ const Plansza: React.FC<{
       [0, 1, 1, 0],
       {extrapolateLeft: 'clamp', extrapolateRight: 'clamp'},
     );
-    lupaSkala = 1 + (skala - 1) * post;
+    lupaSkala = 1 + (Math.min(skala, SKALA_ZBLIZENIA_MAX) - 1) * post;
     lupaX = (0.5 - x) * OBRAZ_SZER * (lupaSkala - 1);
     lupaY = (0.5 - y) * OBRAZ_WYS * (lupaSkala - 1);
   }
@@ -230,7 +213,7 @@ const Plansza: React.FC<{
     <AbsoluteFill style={{opacity: wejscie}}>
       {maAudio ? <Audio src={staticFile(slajd.audio)} /> : null}
 
-      <div style={{position: 'absolute', top: 28, left: (1920 - OBRAZ_SZER) / 2, transform: `translateY(${przesuniecie}px)`}}>
+      <div style={{position: 'absolute', top: 28, left: MARGINES_LEWY, transform: `translateY(${przesuniecie}px)`}}>
         <div style={{position: 'relative', width: OBRAZ_SZER, height: OBRAZ_WYS, overflow: 'hidden', borderRadius: 10, boxShadow: '0 30px 70px -20px rgba(0,0,0,.75)'}}>
           <Img
             src={staticFile(slajd.obraz)}
@@ -244,7 +227,7 @@ const Plansza: React.FC<{
         <div
           style={{
             position: 'absolute', inset: 0, pointerEvents: 'none',
-            opacity: ((lupaSkala - 1) / Math.max(0.001, slajd.zoom.skala - 1)) * 0.5,
+            opacity: ((lupaSkala - 1) / Math.max(0.001, SKALA_ZBLIZENIA_MAX - 1)) * 0.62,
             background: `radial-gradient(closest-side at ${slajd.zoom.x * 100}% ${slajd.zoom.y * 100}%, rgba(0,0,0,0) 42%, rgba(20,14,40,.9) 100%)`,
           }}
         />
@@ -273,28 +256,15 @@ const Plansza: React.FC<{
         </div>
       </div>
 
-      {slajd.hasla && slajd.hasla.length ? (
-        <div
-          style={{
-            position: 'absolute', top: 74, right: (1920 - OBRAZ_SZER) / 2 + 46,
-            display: 'flex', flexDirection: 'column', alignItems: 'flex-end',
-          }}
-        >
-          {slajd.hasla.map((h, i) => (
-            <Haslo key={i} tekst={h.t} klatki={klatki} od={h.od} />
-          ))}
-        </div>
-      ) : null}
+      <KolkoAwatara plik={awatar || undefined} pozycja={slajd.awatarPozycja} />
 
-      <KolkoAwatara plik={awatar || undefined} />
-
-      <div style={{position: 'absolute', top: 956, left: (1920 - OBRAZ_SZER) / 2}}>
+      <div style={{position: 'absolute', top: 956, left: MARGINES_LEWY}}>
         <Tor postep={postep} szerokosc={OBRAZ_SZER} />
       </div>
 
       <div
         style={{
-          position: 'absolute', top: 976, left: (1920 - OBRAZ_SZER) / 2, width: OBRAZ_SZER,
+          position: 'absolute', top: 976, left: MARGINES_LEWY, width: OBRAZ_SZER,
           display: 'flex', alignItems: 'flex-start', gap: 40,
         }}
       >
