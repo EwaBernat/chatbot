@@ -36,7 +36,9 @@ wyłącznie skill `heygen-video`, gdybyś kiedyś generowała film wprost z teks
 - Voice Name: <nazwa tego głosu>
 - Voice Designed: false
 - Voice Seed:
-- Looks: landscape=<look_id>, portrait=<look_id>
+- Nazwa w HeyGenie: „Ewa - szkolenia-niebieska"
+- Looks: `szkolenia-niebieska` — strój niebieski, postać `wyklad`
+  (pozostałe looki: `<do utworzenia>` — patrz `postacie.md`)
 - Last Synced: 2026-09-01 (zapisane z aplikacji, niezweryfikowane API)
 
 ### Pierwsze sprawdzenie (lokalnie, po zalogowaniu do HeyGena)

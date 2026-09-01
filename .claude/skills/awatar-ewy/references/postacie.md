@@ -7,6 +7,16 @@ Wygląd bierze się z jednego awatara HeyGen (`Group ID` w `AVATAR-EWA.md`); pos
 stroje to **looki** w tej samej grupie. Nowy look dodaje się trybem z `avatar_group_id` —
 wtedy powstaje wariant tej samej osoby, a nie nowa postać.
 
+## Co już istnieje na koncie
+
+Na dziś jest **jeden look**: „Ewa - szkolenia-niebieska" (strój niebieski), grupa
+`4fceb4c254a349eab302734b740edbdd`.
+
+Dopóki nie powstaną kolejne, **wszystkie postacie korzystają z tego looka** — a różnicę
+niesie ton, tempo, kadr i tło, nie strój. To działa: widz rozpoznaje wykład po rytmie
+i po tym, jak z nim rozmawiasz, zanim zauważy marynarkę. Nowe stroje dokładasz wtedy,
+gdy sama uznasz, że warto — nie są warunkiem ruszenia z materiałami.
+
 ## Skrót
 
 | Klucz | Postać | Odbiorca | Kadr | Tempo |
@@ -41,7 +51,9 @@ Zasady rytmu (akapit = pauza, wyliczenia po kropce) obowiązują wszędzie:
 **Kiedy:** rada pedagogiczna, webinar, szkolenie dla dyrektorów, wprowadzenie do tematu.
 Wszędzie tam, gdzie mówisz do sali i musisz mieć autorytet od pierwszego zdania.
 
-**Wygląd:** granatowa marynarka, biała bluzka, perły — strój formalny, ten sam co w spocie.
+**Wygląd:** **strój niebieski** — look „Ewa - szkolenia-niebieska", jedyny istniejący
+na koncie HeyGen. To on jest twarzą wszystkich trzech postaci szkoleniowych, dopóki nie
+powstaną osobne looki dla warsztatu i konsultacji.
 **Kadr:** popiersie, wzrok w obiektyw, awatar w lewej lub prawej trzeciej, resztę zajmuje treść.
 **Tło:** fiolet marki `#2D1B69`, gładkie. Bez rozpraszaczy — konkurują z wykresem.
 
@@ -63,7 +75,8 @@ skrótu swobodnie.
 **Kiedy:** instruktaż krok po kroku, ćwiczenie do wykonania, praca w grupach, „teraz Państwo
 spróbują". Widz ma coś **robić**, nie tylko słuchać.
 
-**Wygląd:** marynarka rozpięta albo zdjęta, bluzka bez pereł — mniej dystansu, ta sama osoba.
+**Wygląd:** docelowo marynarka rozpięta albo zdjęta — mniej dystansu, ta sama osoba.
+Do czasu utworzenia osobnego looka: strój niebieski, a dystans zdejmuje ton i kadr.
 **Kadr:** półpostać, żeby było widać gest. Awatar mniejszy, obok duży kadr z ekranem aplikacji.
 **Tło:** jaśniejszy wariant fioletu albo zrzut z aplikacji.
 
@@ -84,7 +97,8 @@ kroku — widz musi zdążyć kliknąć. Buduj ją osobnym akapitem, nie wielokr
 **Kiedy:** odpowiedź na konkretne pytanie, wsparcie dla jednej osoby, trudny temat
 wymagający taktu. Nagranie, które ktoś ogląda sam, często z niepokojem.
 
-**Wygląd:** jak w warsztacie, spokojniej. **Kadr:** zbliżenie — twarz wypełnia kadr,
+**Wygląd:** docelowo jak w warsztacie, spokojniej; na razie strój niebieski.
+**Kadr:** zbliżenie — twarz wypełnia kadr,
 bez plansz obok. Rozmawiasz z jedną osobą; wykres by ją tu wyprowadził.
 **Tło:** ciemny fiolet, mocno rozmyty.
 
