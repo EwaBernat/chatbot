@@ -18,6 +18,8 @@ export type Slajd = {
   napisy?: Napis[];
   /** Zdjęcie z sali pokazywane na wejściu slajdu, zanim wjedzie treść. */
   foto?: string;
+  /** Zbliżenie na fragment planszy: x,y to punkt 0–1, od/do to ułamki czasu slajdu. */
+  zoom?: {x: number; y: number; skala: number; od: number; do: number};
 };
 
 export type Odcinek = {klatki: number; maAudio: boolean};
@@ -143,6 +145,26 @@ const Plansza: React.FC<{
     : 0;
   const fotoZblizenie = interpolate(klatka, [0, trwanieFoto], [1.06, 1], {extrapolateRight: 'clamp'});
 
+  // zbliżenie na element, o którym właśnie mówi lektor — wjazd, przytrzymanie, wyjazd
+  let lupaSkala = 1;
+  let lupaX = 0;
+  let lupaY = 0;
+  if (slajd.zoom) {
+    const {x, y, skala, od, do: koniec} = slajd.zoom;
+    const a = klatki * od;
+    const b = klatki * koniec;
+    const wejscieLupy = Math.min(26, (b - a) * 0.3);
+    const post = interpolate(
+      klatka,
+      [a - wejscieLupy, a, b, b + wejscieLupy],
+      [0, 1, 1, 0],
+      {extrapolateLeft: 'clamp', extrapolateRight: 'clamp'},
+    );
+    lupaSkala = 1 + (skala - 1) * post;
+    lupaX = (0.5 - x) * OBRAZ_SZER * (lupaSkala - 1);
+    lupaY = (0.5 - y) * OBRAZ_WYS * (lupaSkala - 1);
+  }
+
   let biezace = '';
   if (slajd.napisy && slajd.napisy.length) {
     // czas wzięty wprost z nagrania — napis pojawia się dokładnie ze słowem
@@ -181,7 +203,10 @@ const Plansza: React.FC<{
         <div style={{position: 'relative', width: OBRAZ_SZER, height: OBRAZ_WYS, overflow: 'hidden', borderRadius: 10, boxShadow: '0 30px 70px -20px rgba(0,0,0,.75)'}}>
           <Img
             src={staticFile(slajd.obraz)}
-            style={{width: OBRAZ_SZER, height: OBRAZ_WYS, transform: `scale(${zblizenie})`, transformOrigin: 'center'}}
+            style={{
+              width: OBRAZ_SZER, height: OBRAZ_WYS, transformOrigin: 'center',
+              transform: `translate(${lupaX}px, ${lupaY}px) scale(${zblizenie * lupaSkala})`,
+            }}
           />
           {slajd.foto ? (
             <div style={{position: 'absolute', inset: 0, opacity: nakladka}}>
