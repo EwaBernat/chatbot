@@ -20,6 +20,8 @@ export type Slajd = {
   foto?: string;
   /** Zbliżenie na fragment planszy: x,y to punkt 0–1, od/do to ułamki czasu slajdu. */
   zoom?: {x: number; y: number; skala: number; od: number; do: number};
+  /** Hasła wyjęte z planszy, wjeżdżające w rytm narracji. `od` to ułamek czasu slajdu. */
+  hasla?: {t: string; od: number}[];
 };
 
 export type Odcinek = {klatki: number; maAudio: boolean};
@@ -129,6 +131,35 @@ const KolkoAwatara: React.FC<{plik?: string; rozmiar?: number}> = ({plik, rozmia
   );
 };
 
+const Haslo: React.FC<{tekst: string; klatki: number; od: number}> = ({tekst, klatki, od}) => {
+  const klatka = useCurrentFrame();
+  const start = klatki * od;
+  const dlugosc = 132;                    // ok. 4,4 s na ekranie
+  const post = interpolate(
+    klatka,
+    [start - 12, start, start + dlugosc, start + dlugosc + 14],
+    [0, 1, 1, 0],
+    {extrapolateLeft: 'clamp', extrapolateRight: 'clamp'},
+  );
+  if (post <= 0.001) return null;
+  const wjazd = interpolate(klatka, [start - 12, start + 6], [46, 0], {extrapolateLeft: 'clamp', extrapolateRight: 'clamp'});
+  return (
+    <div
+      style={{
+        opacity: post, transform: `translateX(${wjazd}px)`,
+        background: 'rgba(46,35,82,.93)', border: `1px solid ${MOTYW.zielenSrednia}`,
+        borderLeft: `5px solid ${MOTYW.bursztyn}`, borderRadius: 12,
+        padding: '16px 24px 18px', marginBottom: 12, maxWidth: 560,
+        boxShadow: '0 20px 44px -18px rgba(0,0,0,.8)',
+        fontFamily: FIGTREE, fontWeight: 800, fontSize: 30, lineHeight: 1.22, color: '#fff',
+        letterSpacing: -0.5,
+      }}
+    >
+      {tekst}
+    </div>
+  );
+};
+
 const Plansza: React.FC<{
   slajd: Slajd; indeks: number; liczba: number; czesc: string; klatki: number; maAudio: boolean; awatar?: string;
 }> = ({slajd, indeks, liczba, czesc, klatki, maAudio, awatar}) => {
@@ -208,7 +239,18 @@ const Plansza: React.FC<{
               transform: `translate(${lupaX}px, ${lupaY}px) scale(${zblizenie * lupaSkala})`,
             }}
           />
-          {slajd.foto ? (
+          {/* światło punktowe — przy zbliżeniu reszta planszy przygasa */}
+      {slajd.zoom ? (
+        <div
+          style={{
+            position: 'absolute', inset: 0, pointerEvents: 'none',
+            opacity: ((lupaSkala - 1) / Math.max(0.001, slajd.zoom.skala - 1)) * 0.5,
+            background: `radial-gradient(closest-side at ${slajd.zoom.x * 100}% ${slajd.zoom.y * 100}%, rgba(0,0,0,0) 42%, rgba(20,14,40,.9) 100%)`,
+          }}
+        />
+      ) : null}
+
+      {slajd.foto ? (
             <div style={{position: 'absolute', inset: 0, opacity: nakladka}}>
               <Img
                 src={staticFile(slajd.foto)}
@@ -230,6 +272,19 @@ const Plansza: React.FC<{
           ) : null}
         </div>
       </div>
+
+      {slajd.hasla && slajd.hasla.length ? (
+        <div
+          style={{
+            position: 'absolute', top: 74, right: (1920 - OBRAZ_SZER) / 2 + 46,
+            display: 'flex', flexDirection: 'column', alignItems: 'flex-end',
+          }}
+        >
+          {slajd.hasla.map((h, i) => (
+            <Haslo key={i} tekst={h.t} klatki={klatki} od={h.od} />
+          ))}
+        </div>
+      ) : null}
 
       <KolkoAwatara plik={awatar || undefined} />
 
