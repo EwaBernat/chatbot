@@ -10,8 +10,8 @@ Ustalenia: **złącze HeyGen (MCP, bez klucza API)** + **głos sklonowany w Elev
 
 - [ ] 1. Dodaj złącze HeyGen w ustawieniach Claude i zaloguj się przez OAuth (krok 1)
 - [ ] 2. **Nie ustawiaj `HEYGEN_API_KEY`** — wyłączyłby złącze (krok 1)
-- [ ] 3. Utwórz awatara ze swojej twarzy + nagraj zgodę na wizerunek (krok 3b)
-- [ ] 4. Wklej `Group ID` do [`AVATAR-EWA.md`](AVATAR-EWA.md) (krok 4)
+- [x] 3. ~~Utwórz awatara ze swojej twarzy + nagraj zgodę na wizerunek~~ — zrobione w aplikacji HeyGen
+- [x] 4. ~~Wklej `Group ID`~~ — `4fceb4c254a349eab302734b740edbdd` zapisane w [`AVATAR-EWA.md`](AVATAR-EWA.md)
 - [ ] 5. Pierwszy film: ElevenLabs robi MP3, HeyGen animuje usta (krok 5)
 
 Głos masz już sklonowany w ElevenLabs (`Ewa-głos_do skils`) i przetestowany —

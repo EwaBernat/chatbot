@@ -1,9 +1,9 @@
 # Avatar: Ewa
 
-> **⚠️ Zanim uruchomisz skill `heygen-avatar` — uzupełnij sekcję `## HeyGen` poniżej.**
-> Dopóki `Group ID` jest puste, skill uzna, że awatara jeszcze nie ma, i zaproponuje
-> utworzenie nowego zamiast użycia Twojego. Jeśli awatara robisz sama w aplikacji
-> HeyGen (tak ustaliliśmy), najpierw wklej tu identyfikatory, potem wołaj skille.
+> **Awatar istnieje.** `Group ID` jest wypełnione — skille używają go automatycznie,
+> nie tworzą nowego. Identyfikator pochodzi z aplikacji HeyGen i **nie został
+> zweryfikowany wywołaniem API** (sesja, w której go zapisano, nie miała połączenia
+> z HeyGenem). Pierwsze użycie lokalnie to potwierdzi.
 
 ## Appearance
 - Age: <do uzupełnienia — albo nieistotne, jeśli awatar powstaje ze zdjęcia lub nagrania>
@@ -31,20 +31,26 @@ usta do gotowego MP3. Głos z katalogu HeyGen poniżej jest zapasowy — użyje 
 wyłącznie skill `heygen-video`, gdybyś kiedyś generowała film wprost z tekstu.
 
 ## HeyGen
-- Group ID: <wklej — „Avatar Group ID" z aplikacji HeyGen>
+- Group ID: 4fceb4c254a349eab302734b740edbdd
 - Voice ID: <wklej — opcjonalnie, głos zapasowy z katalogu HeyGen>
 - Voice Name: <nazwa tego głosu>
 - Voice Designed: false
 - Voice Seed:
 - Looks: landscape=<look_id>, portrait=<look_id>
-- Last Synced: <data, gdy ostatnio to sprawdzałaś>
+- Last Synced: 2026-09-01 (zapisane z aplikacji, niezweryfikowane API)
 
-⚠️ `look_id` są ulotne — nie przywiązuj się do nich. Stabilny jest `group_id`;
-aktualne looki rozwiązuj świeżo:
+### Pierwsze sprawdzenie (lokalnie, po zalogowaniu do HeyGena)
 
 ```bash
-heygen avatar looks list --group-id <group_id>
+heygen avatar looks list --group-id 4fceb4c254a349eab302734b740edbdd
 ```
+
+- **Wypisze listę looków** → identyfikator poprawny, wszystko działa.
+- **404 albo „group not found"** → to prawdopodobnie `look_id`, nie `group_id`.
+  Oba mają ten sam kształt (32 znaki szesnastkowe), więc łatwo je pomylić.
+  Wtedy: `heygen avatar list --ownership private` i weź `group_id` z odpowiedzi.
+
+⚠️ `look_id` są ulotne — nie przywiązuj się do nich. Stabilny jest `group_id`.
 
 ## ElevenLabs (poza konwencją skilla HeyGen — nasza droga)
 - Voice ID: jq4ZUryuBeDqmtkKtBZ4
