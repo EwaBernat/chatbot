@@ -353,12 +353,12 @@ const Intro: React.FC<{czesc: string; podtytul: string; audioIntro?: string; log
           {logo ? (
             <div
               style={{
-                width: 108, height: 108, borderRadius: '50%', background: 'rgba(255,255,255,.94)',
+                width: 112, height: 112, borderRadius: '50%',
                 display: 'flex', alignItems: 'center', justifyContent: 'center',
-                boxShadow: '0 18px 46px -16px rgba(0,0,0,.6)',
+                boxShadow: '0 0 0 1.5px rgba(255,255,255,.55), 0 18px 46px -16px rgba(0,0,0,.55)',
               }}
             >
-              <Img src={staticFile(logo)} style={{width: 82, height: 82}} />
+              <Img src={staticFile(logo)} style={{width: 100, height: 100, borderRadius: '50%', display: 'block'}} />
             </div>
           ) : null}
           <div>
@@ -411,7 +411,17 @@ const Outro: React.FC<{logo?: string}> = ({logo}) => (
   <Karta
     dzieci={
       <>
-        {logo ? <Img src={staticFile(logo)} style={{width: 104, height: 104, marginBottom: 26}} /> : null}
+        {logo ? (
+          <div
+            style={{
+              width: 116, height: 116, borderRadius: '50%', marginBottom: 26,
+              display: 'flex', alignItems: 'center', justifyContent: 'center',
+              boxShadow: '0 0 0 1.5px rgba(255,255,255,.55)',
+            }}
+          >
+            <Img src={staticFile(logo)} style={{width: 104, height: 104, borderRadius: '50%', display: 'block'}} />
+          </div>
+        ) : null}
         <div style={{fontFamily: FIGTREE, fontWeight: 800, fontSize: 64, color: '#fff', letterSpacing: -1.4}}>{PROGRAM}</div>
         <div style={{fontFamily: SANS, fontSize: 26, color: MOTYW.zielenJasna, marginTop: 14}}>{PODPROGRAM}</div>
         <div style={{width: 220, height: 2, background: MOTYW.zielen, margin: '44px auto 30px'}} />
