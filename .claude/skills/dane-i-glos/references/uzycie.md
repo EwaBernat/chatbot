@@ -9,7 +9,7 @@ Pod ostatnią sekcją, mniejszym stopniem pisma, kolorem `marka.fiolet`:
 
 ```
 Opracowanie: Mirosława Ewa Jurczyszyn · Pomorskie Centrum Terapii Pedagogicznej w Koszalinie
-kontakt@eduplaner2026.pl · [usunięto]
+kontakt@eduplaner2026.pl · [telefon — plik prywatny]
 ```
 
 W dokumentach z podpisami (WOPF, IPET) obowiązuje konwencja PCTP: **linia NAD
@@ -37,7 +37,7 @@ podmień na fiolet `#2D1B69`.
 ```
 Mirosława Ewa Jurczyszyn
 Pomorskie Centrum Terapii Pedagogicznej · Koszalin
-kontakt@eduplaner2026.pl · [usunięto]
+kontakt@eduplaner2026.pl · [telefon — plik prywatny]
 ```
 
 Nazwisko krojem nagłówkowym (Figtree 800, 40 px), reszta mniejszym, w kolorze
@@ -53,7 +53,7 @@ Na okładce i na ostatnim slajdzie, w pasku dolnym:
 ```
 Mirosława Ewa Jurczyszyn
 pedagog specjalny · Pomorskie Centrum Terapii Pedagogicznej
-tel. [usunięto] · kontakt@eduplaner2026.pl
+tel. [telefon — plik prywatny] · kontakt@eduplaner2026.pl
 ```
 
 ## Logo
@@ -67,6 +67,6 @@ na okładce, przy dolnej krawędzi.
 
 - **„Pomorskie Centrum Terapii Pedagogicznej”** — pełna nazwa przy pierwszym
   wystąpieniu w dokumencie, potem można skracać do PCTP.
-- Telefon zapisujemy z odstępami: `[usunięto]`.
+- Telefon zapisujemy z odstępami: `[telefon — plik prywatny]`.
 - Nazwisko zawsze w pełnej formie: **Mirosława Ewa Jurczyszyn** — bez inicjałów.
 - Materiały dla placówek kończymy formułą praw z `formuly.prawa`.

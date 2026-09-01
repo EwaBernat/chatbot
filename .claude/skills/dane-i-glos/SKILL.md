@@ -56,7 +56,7 @@ autorka.funkcja   pedagog specjalny
 firma.pelna       Pomorskie Centrum Terapii Pedagogicznej
 firma.podpis_krotki   PCTP Koszalin
 kontakt.email     kontakt@eduplaner2026.pl
-kontakt.telefon   [usunięto]
+kontakt.telefon   [telefon — plik prywatny]
 marka.fiolet      #2D1B69      (ekosystem EduPlaner)
 marka.pomarancz   #E8450A
 marka.zielen      #3E7B4F      (cykl Budowanie mostów społecznych)
