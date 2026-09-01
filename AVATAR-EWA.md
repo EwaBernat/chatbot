@@ -55,6 +55,20 @@ heygen avatar looks list --group-id <group_id>
   Pełny przepis, zatwierdzony odsłuchem:
   `.claude/skills/dane-i-glos/references/rytm_i_pauzy.md`
 
+## Agent głosowy (rozmowa po polsku)
+
+- **Nazwa:** Asystent Ewy — rozmowa po polsku
+- **Agent ID:** `agent_9201m1ezxy5hfxyvn8zkkz2gxa87`
+- **Głos:** ten sam klon, `jq4ZUryuBeDqmtkKtBZ4`
+- **Model TTS:** `eleven_turbo_v2_5` — **wymagany**; agenci nieanglojęzyczni nie
+  działają na `eleven_multilingual_v2` ani `eleven_v3`, API odrzuca konfigurację
+- **Język:** `pl`
+- **Rozmowa:** [elevenlabs.io/app/talk-to?agent_id=agent_9201m1ezxy5hfxyvn8zkkz2gxa87](https://elevenlabs.io/app/talk-to?agent_id=agent_9201m1ezxy5hfxyvn8zkkz2gxa87)
+
+Agent jest prywatny — link działa po zalogowaniu na konto ElevenLabs. Udostępnienie
+publiczne (żeby rozmawiali z nim inni, np. rodzice albo dyrektorzy) włącza się
+w ustawieniach agenta; wtedy `agents_get_link` zwróci token do wklejenia na stronę.
+
 Kandydaci alternatywni: `MxdHRlURUZPVY5h2NiXH` (Ewa2, podobne tempo),
 `D0Yz6dyyxHOodq3Zqi45` (Ewa1, dużo wolniejszy — raczej na materiały szkoleniowe).
 `1tw3WuUEU1Wt8m68hw81` („Głos bez tytułu") **nie działa** — patrz
