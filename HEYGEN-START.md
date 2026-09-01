@@ -167,6 +167,114 @@ głos robi złącze ElevenLabs, które już masz podłączone.
 export ELEVENLABS_API_KEY="sk_..."    # elevenlabs.io → profil → API Keys
 ```
 
+## Zasady bezpiecznego przechowywania klucza
+
+Klucz API to hasło do Twojego konta i Twoich kredytów. Kto go ma, ten może generować
+filmy na Twój rachunek i sięgnąć po Twoje awatary.
+
+### Gdzie klucz MA być
+
+- **`.env`** w głównym folderze projektu, na Twoim komputerze — bezpieczny schowek
+  na poufne hasła i tokeny.
+- Albo w profilu powłoki (`~/.zshrc`, `~/.bashrc`), jeśli chcesz go mieć we wszystkich
+  projektach.
+
+Kod **zawsze** czyta klucz ze zmiennej środowiskowej — nigdy nie ma go wpisanego wprost:
+
+```python
+klucz = os.environ["HEYGEN_API_KEY"]     # tak
+klucz = "hg_..."                          # nigdy
+```
+
+### Gdzie klucza NIGDY nie wolno wrzucać
+
+- do plików z kodem (`.py`, `.js`, `.ts`) ani konfiguracji (`.mcp.json`, `settings.json`),
+- do dokumentacji (`README.md`, ten plik, instrukcje),
+- do repozytorium GitHub — w żadnym pliku i w żadnym commicie,
+- **do czatu z asystentem, do zgłoszeń, na zrzuty ekranu i do maili.**
+
+### Jak Git to zabezpiecza
+
+W `.gitignore` jest wpis `.env` (linia 127) — mówi Gitowi: nigdy nie wysyłaj tego pliku
+na GitHuba, ignoruj go przy commitach. Sprawdzenie w każdej chwili:
+
+```bash
+git check-ignore -v .env        # powinno wskazać regułę z .gitignore
+git ls-files | grep '^\.env$'   # nie powinno wypisać nic
+```
+
+W repozytorium leży `.env.example` — sam szkielet z nazwami zmiennych i pustymi
+wartościami. To on jest wersjonowany; `.env` z prawdziwymi wartościami nigdy.
+
+---
+
+## Zabezpieczenia, które warto dołożyć
+
+### 1. Automatyczna blokada commita
+
+W repozytorium jest skrypt, który przegląda zmiany przed commitem i zatrzymuje go,
+jeśli znajdzie coś wyglądającego na klucz albo plik `.env`. Zainstaluj go raz,
+na każdym komputerze, na którym pracujesz:
+
+```bash
+ln -sf ../../scripts/sprawdz-sekrety.sh .git/hooks/pre-commit
+```
+
+Od tej pory Git sam Cię zatrzyma, zanim klucz opuści Twój dysk. Hooki nie są częścią
+repozytorium — Git ich nie klonuje — dlatego skrypt leży w `scripts/`, a dowiązanie
+robisz u siebie. Sprawdzenie ręczne w dowolnym momencie:
+
+```bash
+./scripts/sprawdz-sekrety.sh
+```
+
+### 2. Ochrona po stronie GitHuba
+
+W ustawieniach repozytorium włącz **Secret scanning** i **Push protection**
+(Settings → Code security). GitHub odrzuci wtedy wysłanie commita zawierającego
+klucz — to druga siatka, na wypadek gdyby hook nie był zainstalowany.
+
+### 3. Nigdy nie wypisuj całego klucza
+
+Do sprawdzenia, czy zmienna dotarła do procesu, wystarczy początek:
+
+```bash
+echo ${HEYGEN_API_KEY:0:6}
+```
+
+Pełne `echo $HEYGEN_API_KEY` zostawia klucz w historii powłoki (`~/.zsh_history`)
+i w logach terminala.
+
+### 4. Osobny klucz do każdego zastosowania
+
+Jeden do skryptów lokalnych, drugi do ewentualnej automatyzacji. Gdy jeden wycieknie,
+unieważniasz tylko jego, a reszta pracy stoi. Klucze, których nie używasz, kasuj —
+każdy istniejący klucz to otwarte drzwi.
+
+### 5. Gdy klucz wycieknie — unieważnij, nie sprzątaj
+
+Kolejność ma znaczenie:
+
+1. **Najpierw** skasuj klucz w [panelu API HeyGen](https://app.heygen.com/home?from=&nav=API)
+   i wygeneruj nowy.
+2. **Dopiero potem** czyść pliki i historię.
+
+Unieważnienie działa natychmiast i nieodwracalnie. Czyszczenie historii Gita **nie
+cofa** tego, że ktoś zdążył klucz skopiować — a jeśli commit poszedł na GitHuba,
+zakładaj, że zdążył. Klucz wklejony do czatu, maila albo na zrzut ekranu traktuj
+tak samo jak opublikowany.
+
+### 6. Wymieniaj klucze co jakiś czas
+
+Nawet bez wycieku. Raz na kwartał, przy okazji przeglądu kredytów. To pięć minut,
+a zamyka wszystkie stare kopie, o których zdążyłaś zapomnieć.
+
+### Stan tego repozytorium
+
+Sprawdzone: `.env` jest w `.gitignore`, nie jest śledzony, a w plikach i w całej
+historii commitów **nie ma żadnego klucza**. Skrypt `sprawdz-sekrety.sh` pilnuje,
+żeby tak zostało.
+
 ## Krok 2 — co dostajesz przez złącze
 
 Złącze daje agentowi komplet narzędzi HeyGen. Najważniejsze dla Ciebie:
