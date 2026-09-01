@@ -9,6 +9,7 @@ Uruchomienie:
     python3 reklama/build_plansze.py pion       # tylko 9:16
 """
 import asyncio
+import base64
 import sys
 from pathlib import Path
 
@@ -18,6 +19,8 @@ KATALOG = Path(__file__).parent
 # W tym kontenerze Chromium jest wgrany osobno; podajemy sciezke wprost,
 # zeby Playwright nie probowal pobierac wlasnej wersji.
 CHROMIUM = "/opt/pw-browsers/chromium-1194/chrome-linux/chrome"
+# Logo PCTP. Gdy plik istnieje, plansze pokazuja znak; gdy nie — napis tekstowy.
+LOGO = KATALOG.parent / "assets" / "logo-pctp.png"
 FIOLET, FIOLET_C, POMARANCZ = "#2D1B69", "#1a0f42", "#E8450A"
 
 FORMATY = {
@@ -48,6 +51,11 @@ html,body{{width:{w}px;height:{h}px;overflow:hidden;}}
 .wm{{position:absolute;top:{56 if not pion else 74}px;left:{100 if not pion else 68}px;
      font-size:{26 if not pion else 24}px;letter-spacing:7px;font-weight:700;color:#d9ccff;}}
 .wm b{{color:{POMARANCZ};}}
+.logo{{position:absolute;top:{40 if not pion else 56}px;left:{88 if not pion else 56}px;
+       width:{104 if not pion else 92}px;height:{104 if not pion else 92}px;
+       border-radius:50%;background:rgba(255,255,255,.94);padding:5px;
+       box-shadow:0 8px 24px rgba(0,0,0,.35);}}
+.logo img{{width:100%;height:100%;border-radius:50%;display:block;}}
 .mid{{position:absolute;inset:0;display:flex;flex-direction:column;
       justify-content:center;align-items:center;text-align:center;
       padding:0 {140 if not pion else 80}px;}}
@@ -93,6 +101,18 @@ h1 .o{{color:{POMARANCZ};}}
 """
 
 
+def znak() -> str:
+    """Logo PCTP jako data URI, a bez pliku — napis tekstowy.
+
+    Logo jest ciemnofioletowe i okragle, wiec na tle marki #2D1B69 gubi sie.
+    Dlatego lezy na jasnym krazku — inaczej widac sam kwiat, bez konturu pieczeci.
+    """
+    if LOGO.exists():
+        dane = base64.b64encode(LOGO.read_bytes()).decode()
+        return f"<div class='logo'><img src='data:image/png;base64,{dane}' alt='PCTP'></div>"
+    return "<div class='wm'>EDU<b>PLANER</b> 2026</div>"
+
+
 def strona(tresc: str, w: int, h: int, pion: bool, podpis: bool = False) -> str:
     stopka = ""
     if podpis:
@@ -101,7 +121,7 @@ def strona(tresc: str, w: int, h: int, pion: bool, podpis: bool = False) -> str:
                   "<div class='rola'>pedagog specjalny</div></div>")
     return (f"<!doctype html><meta charset='utf-8'><style>{css(w, h, pion)}</style>"
             f"<div class='stage'><div class='blob b1'></div><div class='blob b2'></div>"
-            f"<div class='bar'></div><div class='wm'>EDU<b>PLANER</b> 2026</div>"
+            f"<div class='bar'></div>{znak()}"
             f"{tresc}{stopka}</div>")
 
 
@@ -153,7 +173,7 @@ def plansze(w: int, h: int, pion: bool):
             "<span class='o'>Więcej edukacji.</span></h1>"
             "<div class='qr'>QR / link do formularza analizy potrzeb</div></div>"
             "<div class='stopka'>mgr Mirosława Ewa Jurczyszyn · pedagog specjalny<br>"
-            "<span class='kontakt'>kontakt@eduplaner2026.pl &nbsp;·&nbsp; [usunięto]</span>"
+            "<span class='kontakt'>kontakt@eduplaner2026.pl &nbsp;·&nbsp; 662 888 403</span>"
             "</div>")),
     ]
 

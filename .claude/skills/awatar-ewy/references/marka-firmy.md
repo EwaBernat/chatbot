@@ -21,18 +21,22 @@ prezentacja na konferencji.
 
 ## Firma
 
-- **Nazwa skrócona:** PCTP Koszalin
-- **Nazwa rozwinięta:** Pomorskie Centrum Terapii Pedagogicznej
-- **Pełna nazwa prawna (do faktur, umów, materiałów oficjalnych):** `<do uzupełnienia>`
+- **Pełna nazwa:** Pomorskie Centrum Terapii Pedagogicznej
+- **Nazwa skrócona (stopki, wąskie kadry):** PCTP Koszalin
+- **Skrót w logo:** PCTP
 - **Adres:** `<do uzupełnienia — jeśli ma się pojawiać w materiałach>`
+
+W stopce pełnego materiału (`wyklad`, `spot`) używaj **pełnej nazwy**. Skrótu
+„PCTP Koszalin" tylko tam, gdzie brakuje miejsca — pełna nazwa mówi, czym firma
+jest, skrót wymaga, żeby widz już wiedział.
 
 ## Kontakt
 
 - **E-mail:** kontakt@eduplaner2026.pl
-- **Telefon:** `<do potwierdzenia>` — numer został celowo usunięty z repozytorium
-  przy czyszczeniu danych osobowych. Jeśli ma wracać na ekran końcowy, potwierdź go
-  i wpisz tutaj.
-- **Strona internetowa:** `<do uzupełnienia>`
+- **Telefon:** 662 888 403 — potwierdzony przez właścicielkę do użytku w materiałach.
+  Numer bywa usuwany przez automatyczne czyszczenie danych osobowych; jeśli w plikach
+  pojawi się `[usunięto]`, przywróć go stąd.
+- **Strona internetowa:** `<do uzupełnienia — będzie wkrótce>`
 - **Formularz analizy potrzeb (główne CTA):** `<do uzupełnienia — link albo QR>`
 
 ## Produkt
@@ -57,10 +61,20 @@ Pełny opis produktu, moduły i ton marki:
 | Font | Arial | wszędzie |
 | Font zastępczy | Liberation Sans | środowiska bez Ariala — metrycznie zgodny, poprawne polskie znaki |
 
-**Logo:** `<do uzupełnienia>` — brak pliku w repozytorium. Docelowe miejsce:
-`assets/logo-pctp.png`, wersja na ciemnym tle (biała albo w kontrze), przezroczyste
-tło, minimum 512 px szerokości. Do czasu dostarczenia materiały używają napisu
-tekstowego **EDU**PLANER **2026** w lewym górnym rogu.
+### Logo
+
+**Znak:** okrągła pieczęć — fioletowe koło z jaśniejszą obwódką, w środku stylizowany
+kwiat (trzy pomarańczowe płatki w górze, dwa fioletowe po bokach, biały środek, złota
+łodyga rozchodząca się w trzy odnogi), pod nim **PCTP** białą szryftą szeryfową.
+
+**Plik:** `assets/logo-pctp.png` — PNG z przezroczystym tłem, kwadrat, minimum 512 px.
+
+Logo jest **okrągłe i ciemnofioletowe**, więc na tle marki `#2D1B69` prawie znika.
+Kładź je na jasnym polu albo z delikatną białą obwódką — nigdy wprost na fiolecie.
+
+Dopóki pliku nie ma, plansze używają napisu tekstowego **EDU**PLANER **2026**
+w lewym górnym rogu. `build_plansze.py` przełącza się na logo automatycznie,
+gdy tylko plik się pojawi — nie trzeba nic zmieniać w kodzie.
 
 ## Skład stopki według postaci
 

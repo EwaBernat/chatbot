@@ -110,7 +110,7 @@ tylko to, że mówisz go w pierwszej osobie.
      [QR / link do formularza analizy potrzeb]
 
      mgr Mirosława Ewa Jurczyszyn · pedagog specjalny
-     kontakt@eduplaner2026.pl  ·  [usunięto]
+     kontakt@eduplaner2026.pl  ·  662 888 403
 ```
 
 Hasło i QR pomarańczowe na fiolecie. **Link do formularza wstawiasz sama** —
