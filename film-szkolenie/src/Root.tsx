@@ -27,7 +27,6 @@ export const RemotionRoot: React.FC = () => {
           podtytul: 'Teoria umysłu w przedszkolu',
           intro: INTRO,
           outro: OUTRO,
-          audioIntro: 'audio/czesc1/intro.wav',
           logo: 'logo/pctp-logo.png',
           fotoTytulowe: 'media/07-zabawa.jpg',
           awatar: 'awatar/warsztaty.png',
