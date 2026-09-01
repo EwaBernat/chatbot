@@ -10,7 +10,10 @@ description: >-
   slajdów lub scen. Wyzwalaj również przy prośbach o awatara na ekranie:
   „moja twarz w kółeczku po prawej”, „układ pół na pół przy pokazywaniu
   ekranu”, „awatar w rogu slajdu”, „gadająca głowa do podkastu”, „plakietka
-  z nazwiskiem na wstępie filmu”. NIE używaj do samego pisania scenariusza
+  z nazwiskiem na wstępie filmu”. Wyzwalaj także przy syntezie mowy:
+  „wygeneruj narrację w ElevenLabs”, „przeczytaj to moim głosem”, „głos jest
+  robotyczny”, „za szybko / za wolno na początku”, „dodaj ciepła i emocji” —
+  wtedy prowadzi Cię `references/styl-narracji.md`. NIE używaj do samego pisania scenariusza
   ani do składania prezentacji — to robi skill szkolenie-html-16-9; ten skill
   wchodzi dopiero wtedy, gdy w grę wchodzi dźwięk albo wizerunek prowadzącej.
 ---
@@ -112,6 +115,33 @@ i wideo. Nowy klon autorka musi założyć sama w aplikacji; my dostarczamy pró
 
 Koszt syntezy dla porównania: ok. 196 kredytów (≈ 0,03 USD) na 19 sekund mowy,
 czyli ok. 5 tys. kredytów na 10-minutowy film.
+
+## Narracja z syntezy — styl zatwierdzony
+
+Gdy część szkolenia powstaje z tekstu, a nie z nagrania, obowiązuje jeden
+wzorzec brzmienia, zaakceptowany przez autorkę. Pełny przepis:
+**`references/styl-narracji.md`** — przeczytaj go, zanim wygenerujesz
+pierwszy blok.
+
+W skrócie:
+
+- model **`eleven_v3`**, głos „Ewa-głos_do skils" (`jq4ZUryuBeDqmtkKtBZ4`);
+  `eleven_multilingual_v2` brzmi robotycznie i został odrzucony;
+- 3–5 **polskich znaczników reżyserskich** w nawiasach kwadratowych na blok,
+  dobranych do treści: `[spokojnie, z namysłem]` przy definicji,
+  `[z naciskiem]` przy zasadzie, `[stanowczo]` przy przestrodze,
+  `[łagodnie]` przy zastrzeżeniu, `[ciepło, podsumowująco]` przy planie;
+- **reguła wstępu:** sam tytuł w normalnym tempie (ok. 0,58 s na słowo),
+  cała reszta wolno i z namysłem. Gdy model nie trafi — nie generuj od nowa,
+  tylko przyspiesz sam początek przez `atempo` 1,2–1,4 i sklej;
+- pauzy rób interpunkcją, **nigdy wielokropkami** — wielokropek każe modelowi
+  wlec każde słowo;
+- po syntezie obowiązkowy lekki łańcuch korekcyjny do −14 LUFS / −1,2 dBTP
+  (ten z `dane-i-glos`, nie mocny łańcuch telefoniczny), potem
+  `node scripts/oblicz-czas.mjs`.
+
+Długość bloku trzymaj w przedziale **35–75 s**. Dłuższy tekst dziel na dwa
+slajdy, zamiast przyspieszać lektora.
 
 ## Awatar w kadrze
 

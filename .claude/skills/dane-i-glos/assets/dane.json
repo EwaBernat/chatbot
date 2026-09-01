@@ -1,103 +1,116 @@
 {
-  "autorka": {
-    "pelne": "Mirosława Ewa Jurczyszyn",
-    "imiona": "Mirosława Ewa",
-    "nazwisko": "Jurczyszyn",
-    "funkcja": "pedagog specjalny",
-    "rola": "autorka programów i narzędzi PCTP"
+ "autorka": {
+  "pelne": "Mirosława Ewa Jurczyszyn",
+  "imiona": "Mirosława Ewa",
+  "nazwisko": "Jurczyszyn",
+  "funkcja": "pedagog specjalny",
+  "rola": "autorka programów i narzędzi PCTP"
+ },
+ "firma": {
+  "skrot": "PCTP",
+  "pelna": "Pomorskie Centrum Terapii Pedagogicznej",
+  "miasto": "Koszalin",
+  "podpis_krotki": "PCTP Koszalin",
+  "ekosystem": "EduPlaner2026-MJ-PCTP"
+ },
+ "kontakt": {
+  "email": "kontakt@eduplaner2026.pl",
+  "telefon": "[usunięto]",
+  "www": "eduplaner2026.pl"
+ },
+ "marka": {
+  "_opis": "Paleta marki: pełna drabinka lawendy od mgły po noc, ciepłe latte, pomarańcz jako akcent. Pastele na tło i kafelki, ciemne końce drabinki na tekst i plansze tytułowe — to daje kontrast, którego brakowało.",
+  "lawenda_mgla": "#F3EFFA",
+  "lawenda_jasna": "#E2D9F2",
+  "lawenda_pastel": "#CBBCE6",
+  "lawenda": "#A88FD0",
+  "lawenda_ciemna": "#5D4A8A",
+  "lawenda_noc": "#2E2352",
+  "latte": "#D8C4AE",
+  "latte_jasne": "#F4EBE0",
+  "latte_ciemne": "#8C7259",
+  "pomarancz": "#E8A263",
+  "pomarancz_mocny": "#D97A2B",
+  "tlo": "#FBF8F4",
+  "tekst": "#2E2352",
+  "tekst_jasny": "#6B6180",
+  "kroj_dokumenty": "Arial",
+  "kroj_produkty": "Figtree + Source Sans 3 + Lora",
+  "uzycie": {
+   "tlo_slajdu": "tlo lub lawenda_mgla",
+   "naglowki": "lawenda_noc",
+   "plansze_tytulowe": "gradient lawenda_noc → lawenda_ciemna → lawenda, tekst biały",
+   "akcent_wazne": "pomarancz_mocny (linie, liczby, wyróżnienia)",
+   "kafelki_i_ramki": "lawenda_jasna na tle, obrys latte",
+   "cytaty": "latte_jasne z lewą listwą lawenda_ciemna",
+   "zasada": "jasne końce drabinki na powierzchnie, ciemne na tekst — nigdy odwrotnie"
   },
-  "firma": {
-    "skrot": "PCTP",
-    "pelna": "Pomorskie Centrum Terapii Pedagogicznej",
-    "miasto": "Koszalin",
-    "podpis_krotki": "PCTP Koszalin",
-    "ekosystem": "EduPlaner2026-MJ-PCTP"
-  },
-  "kontakt": {
-    "email": "kontakt@eduplaner2026.pl",
-    "telefon": "[usunięto]",
-    "www": "eduplaner2026.pl"
-  },
-  "marka": {
-    "_opis": "Paleta marki: pełna drabinka lawendy od mgły po noc, ciepłe latte, pomarańcz jako akcent. Pastele na tło i kafelki, ciemne końce drabinki na tekst i plansze tytułowe — to daje kontrast, którego brakowało.",
-    "lawenda_mgla": "#F3EFFA",
-    "lawenda_jasna": "#E2D9F2",
-    "lawenda_pastel": "#CBBCE6",
-    "lawenda": "#A88FD0",
-    "lawenda_ciemna": "#5D4A8A",
-    "lawenda_noc": "#2E2352",
-    "latte": "#D8C4AE",
-    "latte_jasne": "#F4EBE0",
-    "latte_ciemne": "#8C7259",
-    "pomarancz": "#E8A263",
-    "pomarancz_mocny": "#D97A2B",
-    "tlo": "#FBF8F4",
-    "tekst": "#2E2352",
-    "tekst_jasny": "#6B6180",
-    "kroj_dokumenty": "Arial",
-    "kroj_produkty": "Figtree + Source Sans 3 + Lora",
-    "uzycie": {
-      "tlo_slajdu": "tlo lub lawenda_mgla",
-      "naglowki": "lawenda_noc",
-      "plansze_tytulowe": "gradient lawenda_noc → lawenda_ciemna → lawenda, tekst biały",
-      "akcent_wazne": "pomarancz_mocny (linie, liczby, wyróżnienia)",
-      "kafelki_i_ramki": "lawenda_jasna na tle, obrys latte",
-      "cytaty": "latte_jasne z lewą listwą lawenda_ciemna",
-      "zasada": "jasne końce drabinki na powierzchnie, ciemne na tekst — nigdy odwrotnie"
-    },
-    "poprzednia_paleta": {
-      "zielen": "#3E7B4F",
-      "zielen_ciemna": "#243F2C",
-      "uwaga": "cykl „Budowanie mostów społecznych” powstał w zieleni; nowe materiały robimy w palecie lawendowej"
-    }
-  },
-  "podpisy": {
-    "kaligraficzny": "assets/podpis-kaligraficzny.svg",
-    "odreczny": "assets/podpis-odreczny.svg",
-    "lekki": "assets/podpis-lekki.svg",
-    "klasyczny": "assets/podpis-klasyczny.svg",
-    "domyslny": "assets/podpis-klasyczny.svg"
-  },
-  "logo": {
-    "plik": "assets/logo/pctp-logo.webp",
-    "plik_png": "assets/logo/pctp-logo.png",
-    "status": "oryginał od autorki (sierpień 2026) — zastąpił wcześniejszą rekonstrukcję wektorową",
-    "opis": "fioletowa tarcza z jasnym pierścieniem, pięciopłatkowy kwiat (pomarańcz + wrzos), szeryfowe PCTP",
-    "uzycie": "na jasnym tle wstaw w białym kole o średnicy ok. 1,3× logo — tarcza jest ciemna i sama zlewa się z ciemnym tłem"
-  },
-  "glos": {
-    "glos_firmowy": {
-      "plik": "assets/glos/glos-firmowy.mp3",
-      "nazwa": "Ewa3 — ciepła wersja 3",
-      "opis": "Głos marki PCTP i EduPlaner 2026: klon głosu autorki z ElevenLabs, po korekcji brzmienia. To jest wzorzec — każdy nowy materiał ma brzmieć tak samo.",
-      "zrodlo": "ElevenLabs, klon Ewa3; korekcja w ffmpeg wg łańcucha poniżej",
-      "parametry_docelowe": {
-        "glosnosc": "-14 LUFS, szczyt -1,2 dBTP (standard wideo)",
-        "barwa": "różnica RMS 500 Hz ↔ 4 kHz nie większa niż 8 dB",
-        "format_montazowy": "WAV 48 kHz mono; MP3 tylko do wysyłki"
-      },
-      "lancuch_ffmpeg": "highpass=f=80,equalizer=f=300:t=q:w=1.0:g=-2.5,equalizer=f=2600:t=q:w=1.0:g=3,treble=g=2.5:f=9000:width_type=q:w=0.7,deesser=i=0.3,acompressor=threshold=-19dB:ratio=2.4:attack=15:release=250:makeup=1.5,alimiter=limit=0.95,loudnorm=I=-14:TP=-1.2:LRA=9",
-      "uwaga": "Nagranie z telefonu wymaga mocniejszej korekcji — wtedy sięgnij po łańcuch ze skilla glos-i-awatar (po Descript Studio Sound)."
-    },
-    "probki_dodatkowe": {
-      "nagranie_wlasne": "glos-i-awatar/assets/probka-glosu.mp3 — 98 s z nagrania szkoleniowego, do klonowania"
-    },
-    "klony_elevenlabs": {
-      "Ewa1": "odrzucony",
-      "Ewa2": "odrzucony",
-      "Ewa3": "obowiązujący"
-    },
-    "skill_produkcyjny": "glos-i-awatar"
-  },
-  "formuly": {
-    "stopka_krotka": "Opracowanie: Mirosława Ewa Jurczyszyn · PCTP Koszalin",
-    "stopka_pelna": "Opracowanie: Mirosława Ewa Jurczyszyn · Pomorskie Centrum Terapii Pedagogicznej w Koszalinie · kontakt@eduplaner2026.pl",
-    "plansza_konca": "Mirosława Ewa Jurczyszyn\nPomorskie Centrum Terapii Pedagogicznej · Koszalin\nkontakt@eduplaner2026.pl · [usunięto]",
-    "prawa": "© 2026 Mirosława Ewa Jurczyszyn. Materiał do użytku wewnętrznego placówki."
-  },
-  "awatar": {
-    "zdjecie": "glos-i-awatar/assets/awatar-warsztaty.png",
-    "opis": "kadr z fotografii autorki — czerwona bluzka z książką; wariant „warsztaty” z awatary.json",
-    "uzycie": "kółko 232 px przy prawej krawędzi slajdu albo układ pół na pół"
+  "poprzednia_paleta": {
+   "zielen": "#3E7B4F",
+   "zielen_ciemna": "#243F2C",
+   "uwaga": "cykl „Budowanie mostów społecznych” powstał w zieleni; nowe materiały robimy w palecie lawendowej"
   }
+ },
+ "podpisy": {
+  "kaligraficzny": "assets/podpis-kaligraficzny.svg",
+  "odreczny": "assets/podpis-odreczny.svg",
+  "lekki": "assets/podpis-lekki.svg",
+  "klasyczny": "assets/podpis-klasyczny.svg",
+  "domyslny": "assets/podpis-klasyczny.svg"
+ },
+ "logo": {
+  "plik": "assets/logo/pctp-logo.webp",
+  "plik_png": "assets/logo/pctp-logo.png",
+  "status": "oryginał od autorki (sierpień 2026) — zastąpił wcześniejszą rekonstrukcję wektorową",
+  "opis": "fioletowa tarcza z jasnym pierścieniem, pięciopłatkowy kwiat (pomarańcz + wrzos), szeryfowe PCTP",
+  "uzycie": "na jasnym tle wstaw w białym kole o średnicy ok. 1,3× logo — tarcza jest ciemna i sama zlewa się z ciemnym tłem"
+ },
+ "glos": {
+  "glos_firmowy": {
+   "plik": "assets/glos/glos-firmowy.mp3",
+   "nazwa": "Ewa3 — ciepła wersja 3",
+   "opis": "Głos marki PCTP i EduPlaner 2026: klon głosu autorki z ElevenLabs, po korekcji brzmienia. To jest wzorzec — każdy nowy materiał ma brzmieć tak samo.",
+   "zrodlo": "ElevenLabs, klon Ewa3; korekcja w ffmpeg wg łańcucha poniżej",
+   "parametry_docelowe": {
+    "glosnosc": "-14 LUFS, szczyt -1,2 dBTP (standard wideo)",
+    "barwa": "różnica RMS 500 Hz ↔ 4 kHz nie większa niż 8 dB",
+    "format_montazowy": "WAV 48 kHz mono; MP3 tylko do wysyłki"
+   },
+   "lancuch_ffmpeg": "highpass=f=80,equalizer=f=300:t=q:w=1.0:g=-2.5,equalizer=f=2600:t=q:w=1.0:g=3,treble=g=2.5:f=9000:width_type=q:w=0.7,deesser=i=0.3,acompressor=threshold=-19dB:ratio=2.4:attack=15:release=250:makeup=1.5,alimiter=limit=0.95,loudnorm=I=-14:TP=-1.2:LRA=9",
+   "uwaga": "Nagranie z telefonu wymaga mocniejszej korekcji — wtedy sięgnij po łańcuch ze skilla glos-i-awatar (po Descript Studio Sound)."
+  },
+  "probki_dodatkowe": {
+   "nagranie_wlasne": "glos-i-awatar/assets/probka-glosu.mp3 — 98 s z nagrania szkoleniowego, do klonowania"
+  },
+  "klony_elevenlabs": {
+   "Ewa1": "odrzucony",
+   "Ewa2": "odrzucony",
+   "Ewa3": "obowiązujący",
+   "Ewa-głos_do skils": "obowiązujący do narracji (jq4ZUryuBeDqmtkKtBZ4)"
+  },
+  "skill_produkcyjny": "glos-i-awatar",
+  "glos_lektorski_elevenlabs": {
+   "voice_id": "jq4ZUryuBeDqmtkKtBZ4",
+   "nazwa": "Ewa-głos_do skils",
+   "model": "eleven_v3",
+   "status": "obowiązujący do narracji szkoleniowej",
+   "dlaczego_nie_v2": "eleven_multilingual_v2 czyta płasko i robotycznie — odrzucone przez autorkę",
+   "styl": "ciepła trenerka, intonacja zmienna zależnie od treści; sterowanie polskimi znacznikami w nawiasach kwadratowych, 3–5 na blok",
+   "regula_wstepu": "sam tytuł w normalnym tempie (ok. 0,58 s na słowo, po tytule pauza 0,6–0,7 s), reszta wstępu wolno i z namysłem",
+   "korekta_tempa": "gdy model nie trafi — nie generuj od nowa; przyspiesz sam początek: atrim + atempo 1,2–1,4 + concat",
+   "dlugosc_bloku": "35–75 s na slajd",
+   "przepis": "glos-i-awatar/references/styl-narracji.md"
+  }
+ },
+ "formuly": {
+  "stopka_krotka": "Opracowanie: Mirosława Ewa Jurczyszyn · PCTP Koszalin",
+  "stopka_pelna": "Opracowanie: Mirosława Ewa Jurczyszyn · Pomorskie Centrum Terapii Pedagogicznej w Koszalinie · kontakt@eduplaner2026.pl",
+  "plansza_konca": "Mirosława Ewa Jurczyszyn\nPomorskie Centrum Terapii Pedagogicznej · Koszalin\nkontakt@eduplaner2026.pl · [usunięto]",
+  "prawa": "© 2026 Mirosława Ewa Jurczyszyn. Materiał do użytku wewnętrznego placówki."
+ },
+ "awatar": {
+  "zdjecie": "glos-i-awatar/assets/awatar-warsztaty.png",
+  "opis": "kadr z fotografii autorki — czerwona bluzka z książką; wariant „warsztaty” z awatary.json",
+  "uzycie": "kółko 232 px przy prawej krawędzi slajdu albo układ pół na pół"
+ }
 }
