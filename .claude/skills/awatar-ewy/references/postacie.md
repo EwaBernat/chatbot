@@ -28,7 +28,7 @@ gdy sama uznasz, że warto — nie są warunkiem ruszenia z materiałami.
 | `konsultacja` | Szkolenie · Konsultacja | jedna osoba | zbliżenie | wolne |
 | `maks` | Zajęcia z Maksem | dziecko | popiersie | bardzo wolne |
 | `spot` | Spot reklamowy | dyrektorzy, social media | popiersie | spokojne |
-| `herbatka` | Herbatka z Ewą | stali odbiorcy | popiersie luźne | swobodne |
+| `herbatka` | Herbatka z Ewą | **rodzice** | popiersie luźne | swobodne |
 
 ## Ustawienia głosu
 
@@ -170,26 +170,63 @@ w praktyce. Nowy spot buduj na tym łuku, zmieniając treść, nie strukturę.
 
 ## `herbatka` — Herbatka z Ewą
 
-**Kiedy:** odcinek cyklu, kulisy, luźniejszy temat, odpowiedź na komentarze, „co u nas słychać".
-Postać budująca **relację**, nie sprzedaż i nie wykład.
+**Odbiorca: rodzice.** To zmienia wszystko — więcej niż strój, kadr i tempo razem wzięte.
 
-**Wygląd:** najbardziej swobodny — miękki sweter albo bluzka w cieplejszym kolorze,
-włosy mniej formalnie. Kubek w kadrze jest mile widziany; to znak rozpoznawczy cyklu.
-**Kadr:** popiersie, lekko z boku, mniej „prezenterski". **Tło:** ciepłe, domowe,
-z delikatną głębią ostrości. Jedyna postać, w której tło może być nieformalne.
+**Kiedy:** spotkania dla rodziców, wyjaśnienie procedury, odpowiedź na powtarzające się
+pytania, materiał wysyłany przed zebraniem albo po nim.
 
-**Ton:** rozmowa przy stole. Możesz się zaśmiać, zawahać, zacząć od anegdoty. To jedyna
-postać, w której **dygresja jest zaletą** — buduje wrażenie, że ktoś naprawdę mówi.
+### Kogo masz przed sobą
 
-**Zdania:** naturalne, różnej długości. Zwracaj się bezpośrednio: „pewnie znasz to uczucie",
-„piszecie mi, że…". Zaczynaj od konkretu z życia, nie od tezy.
+Rodzic dziecka ze specjalnymi potrzebami przychodzi zmęczony i często po kilku
+rozmowach, w których czuł się oceniany. Bywa nieufny wobec instytucji — i zwykle
+ma po temu powody. Nie jest odbiorcą szkolenia; jest współpracownikiem, który zna
+swoje dziecko lepiej niż ktokolwiek w zespole.
 
-**Znaczniki:** `[warmly]` przeważa, `[sincerely]` przy osobistym wątku,
-`[encouraging]` na pożegnanie.
-**Długość:** 3–8 minut. **Format:** 16:9, wersja 9:16 na zapowiedź.
-**Stopka:** lekka — podpis i strona, bez telefonu i bez QR. To nie jest materiał sprzedażowy.
+Dlatego „Herbatka" nie jest wykładem w miękkim opakowaniu. To rozmowa na równych
+prawach, przy stole, nie zza biurka.
 
----
+### Jak mówisz
+
+**Najpierw uznaj, potem informuj.** Nazwij to, co rodzic czuje, zanim podasz procedurę.
+„Wiem, że ta lista dokumentów wygląda przytłaczająco" przed „potrzebujemy trzech
+rzeczy". Kolejność odwrotna brzmi jak urzędowe załatwianie.
+
+**Zero żargonu bez tłumaczenia.** WOPF, IPET, ewaluacja — to są słowa zespołu, nie
+rodzica. Albo rozwiń przy pierwszym użyciu, albo powiedz zwyczajnie: „ocena tego,
+jak dziecku idzie w różnych sytuacjach".
+
+**Mów o dziecku, nie o przypadku.** Nigdy „deficyty", „dysfunkcje", „wykazuje".
+Mów o tym, co dziecku wychodzi i gdzie potrzebuje wsparcia.
+
+**Nie obiecuj wyników.** Możesz obiecać uwagę, rzetelność i kontakt. Nie postępy
+w terminie.
+
+**Kończ tym, co rodzic może zrobić.** Choćby jedną rzeczą. Bezradność jest tu
+najgorszym uczuciem, jakie można zostawić.
+
+### Wygląd i kadr
+
+**Strój:** **lawendowa bluzka atłasowa** — cieplejsza i mniej urzędowa niż niebieski
+strój szkoleniowy. Lawenda `#D6CBEC` należy do rodziny marki: te same odcienie są
+na płatkach logo PCTP. Atłas daje miękki połysk, który w kadrze czyta się jako
+staranność bez sztywności.
+
+**Kadr:** popiersie, lekko z boku, mniej „prezenterskie" niż wykład. Kubek herbaty
+w kadrze jest mile widziany — to znak rozpoznawczy cyklu i sygnał, że to rozmowa,
+nie wystąpienie.
+
+**Tło:** ciepłe, domowe, z delikatną głębią ostrości. Jedyna postać, w której tło
+może być nieformalne — i powinno. Fiolet marki byłby tu za chłodny.
+
+### Głos i długość
+
+`[warmly]` przeważa, `[sincerely]` przy trudnym wątku, `[encouraging]` na pożegnanie.
+Tempo swobodne — możesz się zawahać, zaśmiać, zacząć od anegdoty. **To jedyna postać,
+w której dygresja jest zaletą:** buduje wrażenie, że mówi człowiek, nie procedura.
+
+**Długość:** 3–8 minut. **Format:** 16:9, zapowiedź 9:16.
+**Stopka:** lekka — podpis i e-mail. Bez telefonu, bez QR, bez nazwy firmy w pełnym
+brzmieniu. To nie jest materiał sprzedażowy i rodzic nie ma się poczuć klientem.
 
 ## Dodawanie nowej postaci
 

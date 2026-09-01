@@ -59,7 +59,13 @@ Pełny opis produktu, moduły i ton marki:
 | Fiolet ciemny | `#1a0f42` | gradient |
 | Pomarańcz | `#E8450A` | akcent, CTA, aktywny element |
 | Font | Arial | wszędzie |
+| Lawenda | `#D6CBEC` | strój i tło postaci `herbatka` (materiały dla rodziców) |
 | Font zastępczy | Liberation Sans | środowiska bez Ariala — metrycznie zgodny, poprawne polskie znaki |
+
+Lawenda nie jest dodatkiem — te odcienie są już na bocznych płatkach logo PCTP.
+Dlatego strój dla rodziców w lawendzie zamyka klamrę: logo, bluzka i tło z jednej
+rodziny. Jest przy tym dość jasna, żeby sylwetka odcinała się od ciemnego tła,
+i dość chłodna, żeby nie kłócić się z pomarańczowym akcentem.
 
 ### Logo
 
