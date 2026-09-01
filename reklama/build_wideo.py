@@ -9,6 +9,7 @@ Uruchomienie:
     python3 reklama/build_wideo.py pion
     python3 reklama/build_wideo.py pion cieply-wersja-3.mp3
 """
+import re
 import shutil
 import subprocess
 import sys
@@ -17,7 +18,8 @@ from pathlib import Path
 from build_plansze import CZASY, FORMATY
 
 KATALOG = Path(__file__).parent
-DOMYSLNE_AUDIO = KATALOG / "cieply-wersja-1.mp3"
+DOMYSLNE_AUDIO = KATALOG / "glos-bezosobowy.mp3"
+OGON = 1.5               # ile sekundy ekran koncowy zostaje po ostatnim slowie
 PRZEJSCIE = 0.6          # dlugosc xfade w sekundach
 FPS = 30
 
@@ -36,6 +38,21 @@ def ffmpeg() -> str:
     except ImportError:
         raise SystemExit("Brak ffmpeg. Zainstaluj: pip install imageio-ffmpeg")
     return imageio_ffmpeg.get_ffmpeg_exe()
+
+
+def dlugosc_audio(sciezka: Path) -> float | None:
+    """Dlugosc nagrania w sekundach, odczytana z naglowka przez ffmpeg.
+
+    Nie uzywamy ffprobe — build z imageio-ffmpeg go nie zawiera. ffmpeg bez
+    wyjscia konczy sie bledem, ale zdazy wypisac Duration na stderr.
+    """
+    wynik = subprocess.run([ffmpeg(), "-hide_banner", "-i", str(sciezka)],
+                           capture_output=True, text=True)
+    trafienie = re.search(r"Duration: (\d+):(\d+):(\d+\.?\d*)", wynik.stderr)
+    if not trafienie:
+        return None
+    g, m, s = trafienie.groups()
+    return int(g) * 3600 + int(m) * 60 + float(s)
 
 
 def main() -> int:
@@ -59,6 +76,17 @@ def main() -> int:
     # poza ostatnia, zeby obraz nie skonczyl sie przed narracja.
     czasy = [czas + PRZEJSCIE for _, czas in CZASY[:-1]] + [CZASY[-1][1]]
     n = len(czasy)
+
+    # Obraz musi byc dluzszy od narracji, inaczej -shortest utnie ostatnie slowa.
+    # Roznice dokladamy do ostatniej planszy: ekran koncowy i tak ma wybrzmiec
+    # w ciszy, wiec wydluzenie go niczego nie psuje.
+    trwanie_audio = dlugosc_audio(audio)
+    if trwanie_audio:
+        obraz = sum(czasy) - (n - 1) * PRZEJSCIE
+        brakuje = trwanie_audio + OGON - obraz
+        if brakuje > 0:
+            czasy[-1] += brakuje
+            print(f"  audio {trwanie_audio:.1f} s — ostatnia plansza dłuższa o {brakuje:.1f} s")
 
     wejscia = []
     for (nazwa, _), czas in zip(CZASY, czasy):
