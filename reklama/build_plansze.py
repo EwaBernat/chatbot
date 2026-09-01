@@ -117,8 +117,8 @@ def strona(tresc: str, w: int, h: int, pion: bool, podpis: bool = False) -> str:
     stopka = ""
     if podpis:
         stopka = ("<div class='podpis'>"
-                  "<div class='imie'>mgr Mirosława Ewa Jurczyszyn</div>"
-                  "<div class='rola'>pedagog specjalny</div></div>")
+                  "<div class='imie'>Pomorskie Centrum Terapii Pedagogicznej</div>"
+                  "<div class='rola'>Koszalin</div></div>")
     return (f"<!doctype html><meta charset='utf-8'><style>{css(w, h, pion)}</style>"
             f"<div class='stage'><div class='blob b1'></div><div class='blob b2'></div>"
             f"<div class='bar'></div>{znak()}"
@@ -172,7 +172,7 @@ def plansze(w: int, h: int, pion: bool):
             "<div class='mid'><h1>Mniej dokumentów.<br>"
             "<span class='o'>Więcej edukacji.</span></h1>"
             "<div class='qr'>QR / link do formularza analizy potrzeb</div></div>"
-            "<div class='stopka'>mgr Mirosława Ewa Jurczyszyn · pedagog specjalny<br>"
+            "<div class='stopka'>Pomorskie Centrum Terapii Pedagogicznej<br>"
             "<span class='kontakt'>kontakt@eduplaner2026.pl &nbsp;·&nbsp; 662 888 403</span>"
             "</div>")),
     ]

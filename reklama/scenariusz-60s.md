@@ -25,30 +25,34 @@ zostaw 63 s. Tempo jest lepsze niż skrócony tekst czytany szybciej.
 
 ### Scena 1 — Powitanie · 0:00–0:11 · awatar DUŻY, pełny kadr
 
-> Dzień dobry. Stworzyłam EduPlaner 2026 — cyfrową szafę, w której cała
+> Dzień dobry. EduPlaner 2026 to cyfrowa szafa, w której cała
 > dokumentacja przedszkola i szkoły jest w jednym miejscu.
-> Zbudowaną przez praktyków, dla praktyków.
+> Zbudowana przez praktyków, dla praktyków.
 
 **Na ekranie:** sam awatar na gładkim fioletowym tle `#2D1B69`.
 W 2. sekundzie wjeżdża od dołu podpis pod postacią i zostaje do końca sceny:
 
 ```
-        mgr Mirosława Ewa Jurczyszyn
-             pedagog specjalny
+   Pomorskie Centrum Terapii Pedagogicznej
+                 Koszalin
 ```
 
 Imię i nazwisko białe, półtłuste, funkcja pod spodem mniejsza i pomarańczowa
 `#E8450A`. Podpis wyrównany do awatara, w dolnej jednej trzeciej kadru —
 tak nisko, żeby nie zasłaniał twarzy.
 
-**Dlaczego tak:** kto mówi, widz **czyta**, a nie słucha. Wypowiadanie własnego
-imienia i tytułu zjada pięć sekund z sześćdziesięciu i brzmi jak prezentacja
-na konferencji. Podpis mówi to samo w tym samym czasie, w którym Ty mówisz
-już o produkcie — a zdanie „zbudowaną przez praktyków, dla praktyków" przejmuje
-wiarygodność, którą wcześniej niosło przedstawienie się.
+**Dlaczego bez nazwiska:** prezenterem jest awatar wygenerowany przez AI, nie
+autorka. Podpis imieniem i nazwiskiem kazałby widzowi wziąć postać w kadrze za
+konkretną osobę. Podpis firmowy mówi prawdę — materiał pochodzi od PCTP — i nie
+obiecuje niczego, czego obraz nie dotrzymuje.
 
-**Powtórz podpis na ekranie końcowym** (scena 5), mniejszą czcionką nad kontaktem —
-widz, który zdecyduje się zapisać numer, chce wiedzieć, do kogo dzwoni.
+Z tego samego powodu narracja jest **bezosobowa**: „EduPlaner 2026 to cyfrowa
+szafa", nie „stworzyłam". Zdanie „zbudowana przez praktyków, dla praktyków"
+niesie wiarygodność bez wskazywania palcem na twarz w kadrze.
+
+Autorstwo aplikacji można podać osobno — w opisie filmu albo jako oddzielny wiersz
+„Autorka aplikacji: Mirosława Ewa Jurczyszyn". To prawda o programie, nie o tym,
+kto mówi, więc nie wprowadza nikogo w błąd.
 
 ---
 
@@ -109,7 +113,7 @@ tylko to, że mówisz go w pierwszej osobie.
 
      [QR / link do formularza analizy potrzeb]
 
-     mgr Mirosława Ewa Jurczyszyn · pedagog specjalny
+     Pomorskie Centrum Terapii Pedagogicznej
      kontakt@eduplaner2026.pl  ·  662 888 403
 ```
 
