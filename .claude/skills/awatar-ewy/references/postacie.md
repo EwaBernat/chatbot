@@ -9,8 +9,10 @@ wtedy powstaje wariant tej samej osoby, a nie nowa postać.
 
 ## Co już istnieje na koncie
 
-Na dziś jest **jeden look**: „Ewa - szkolenia-niebieska" (strój niebieski), grupa
-`4fceb4c254a349eab302734b740edbdd`.
+Na dziś jest **jeden look**: „Ewa - szkolenia-niebieska" (strój niebieski, look
+`4fceb4c254a349eab302734b740edbdd`) w postaci „ewa-szkolenia" (grupa
+`41d5e035154744828ca9b697f7c3690a`). Przypisanie grupa/look wymaga potwierdzenia
+pierwszym wywołaniem — patrz `AVATAR-EWA.md`.
 
 Dopóki nie powstaną kolejne, **wszystkie postacie korzystają z tego looka** — a różnicę
 niesie ton, tempo, kadr i tło, nie strój. To działa: widz rozpoznaje wykład po rytmie

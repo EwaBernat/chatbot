@@ -31,26 +31,34 @@ usta do gotowego MP3. Głos z katalogu HeyGen poniżej jest zapasowy — użyje 
 wyłącznie skill `heygen-video`, gdybyś kiedyś generowała film wprost z tekstu.
 
 ## HeyGen
-- Group ID: 4fceb4c254a349eab302734b740edbdd
+- Group ID: 41d5e035154744828ca9b697f7c3690a   ← „ewa-szkolenia" (postać)
 - Voice ID: <wklej — opcjonalnie, głos zapasowy z katalogu HeyGen>
 - Voice Name: <nazwa tego głosu>
 - Voice Designed: false
 - Voice Seed:
-- Nazwa w HeyGenie: „Ewa - szkolenia-niebieska"
-- Looks: `szkolenia-niebieska` — strój niebieski, postać `wyklad`
-  (pozostałe looki: `<do utworzenia>` — patrz `postacie.md`)
+- Look ID: 4fceb4c254a349eab302734b740edbdd   ← „Ewa - szkolenia-niebieska" (strój)
+- Looks: `szkolenia-niebieska` — strój niebieski, obsługuje na razie wszystkie postacie
+  (patrz `postacie.md`, sekcja „Co już istnieje na koncie")
+
+**Które jest które — do potwierdzenia.** Oba identyfikatory mają ten sam kształt
+(32 znaki szesnastkowe), więc z samego wyglądu nie da się ich odróżnić. Przypisałem je
+po nazwach: „ewa-szkolenia" to nazwa **postaci** (grupa), „Ewa - szkolenia-niebieska"
+nazywa **strój** (look). To wnioskowanie, nie sprawdzony fakt — pierwsze wywołanie
+rozstrzygnie. Gdyby było odwrotnie, zamień je miejscami w tym pliku.
 - Last Synced: 2026-09-01 (zapisane z aplikacji, niezweryfikowane API)
 
 ### Pierwsze sprawdzenie (lokalnie, po zalogowaniu do HeyGena)
 
 ```bash
-heygen avatar looks list --group-id 4fceb4c254a349eab302734b740edbdd
+heygen avatar looks list --group-id 41d5e035154744828ca9b697f7c3690a
 ```
 
-- **Wypisze listę looków** → identyfikator poprawny, wszystko działa.
-- **404 albo „group not found"** → to prawdopodobnie `look_id`, nie `group_id`.
-  Oba mają ten sam kształt (32 znaki szesnastkowe), więc łatwo je pomylić.
-  Wtedy: `heygen avatar list --ownership private` i weź `group_id` z odpowiedzi.
+- **Wypisze listę looków**, a wśród nich `4fceb4c2…` → przypisanie poprawne, gotowe.
+- **404 albo „group not found"** → identyfikatory są zamienione. Spróbuj drugiego:
+  `heygen avatar looks list --group-id 4fceb4c254a349eab302734b740edbdd`
+  i popraw kolejność w tym pliku.
+- **Oba dają 404** → sprawdź, co naprawdę jest na koncie:
+  `heygen avatar list --ownership private`
 
 ⚠️ `look_id` są ulotne — nie przywiązuj się do nich. Stabilny jest `group_id`.
 
