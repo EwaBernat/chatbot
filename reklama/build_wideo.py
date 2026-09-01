@@ -18,7 +18,7 @@ from pathlib import Path
 from build_plansze import CZASY, FORMATY
 
 KATALOG = Path(__file__).parent
-DOMYSLNE_AUDIO = KATALOG / "glos-bezosobowy.mp3"
+DOMYSLNE_AUDIO = KATALOG / "glos-pelne-nazwy.mp3"
 OGON = 2.0               # ile sekund ekran koncowy zostaje po ostatnim slowie
 MIN_OSTATNIA = 5.0       # dolna granica dlugosci ekranu koncowego
 PRZEJSCIE = 0.6          # dlugosc xfade w sekundach
