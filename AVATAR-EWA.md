@@ -46,6 +46,7 @@ wyłącznie skill `heygen-video`, gdybyś kiedyś generowała film wprost z teks
 |---|---|
 | `efbb4cedc78e4dbc8b09813780a870ec` | look, grupa albo `voice_id` |
 | `2000554c556745e699e49be7428b1555` | look, grupa albo `voice_id` |
+| `5f11396ddc014e4a8de82604b9a0589c` | look, grupa albo `voice_id` |
 
 **Nie używaj ich, dopóki nie wiadomo, czym są.** Wywołanie ze złym rodzajem
 identyfikatora kończy się błędem 404, który wygląda jak awaria, a nie jak pomyłka —
