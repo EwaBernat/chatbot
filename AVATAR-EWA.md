@@ -40,6 +40,11 @@ wyłącznie skill `heygen-video`, gdybyś kiedyś generowała film wprost z teks
 - Looks: `szkolenia-niebieska` — strój niebieski, obsługuje na razie wszystkie postacie
   (patrz `postacie.md`, sekcja „Co już istnieje na koncie")
 
+- Niezidentyfikowany: `efbb4cedc78e4dbc8b09813780a870ec` — podany bez nazwy.
+  Może być trzecim awatarem, kolejnym lookiem albo `voice_id` głosu z HeyGena.
+  **Nie używaj go, dopóki nie wiadomo, czym jest** — wywołanie ze złym rodzajem
+  identyfikatora kończy się błędem 404, który wygląda jak awaria, a nie jak pomyłka.
+
 **Które jest które — do potwierdzenia.** Oba identyfikatory mają ten sam kształt
 (32 znaki szesnastkowe), więc z samego wyglądu nie da się ich odróżnić. Przypisałem je
 po nazwach: „ewa-szkolenia" to nazwa **postaci** (grupa), „Ewa - szkolenia-niebieska"
