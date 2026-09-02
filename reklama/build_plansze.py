@@ -21,6 +21,8 @@ KATALOG = Path(__file__).parent
 CHROMIUM = "/opt/pw-browsers/chromium-1194/chrome-linux/chrome"
 # Logo PCTP. Gdy plik istnieje, plansze pokazuja znak; gdy nie — napis tekstowy.
 LOGO = KATALOG.parent / "assets" / "logo-pctp.png"
+# Portret prowadzacej w kolku w prawym dolnym rogu. Bez pliku kolka po prostu nie ma.
+PORTRET = KATALOG.parent / "assets" / "ewa-portret.png"
 FIOLET, FIOLET_C, POMARANCZ = "#2D1B69", "#1a0f42", "#E8450A"
 
 FORMATY = {
@@ -56,6 +58,8 @@ html,body{{width:{w}px;height:{h}px;overflow:hidden;}}
        border-radius:50%;background:rgba(255,255,255,.94);padding:5px;
        box-shadow:0 8px 24px rgba(0,0,0,.35);}}
 .logo img{{width:100%;height:100%;border-radius:50%;display:block;}}
+.awatar{{position:absolute;right:{48 if not pion else 40}px;bottom:{48 if not pion else 150}px;width:{232 if not pion else 200}px;height:{232 if not pion else 200}px;border-radius:50%;overflow:hidden;border:{5 if not pion else 4}px solid rgba(255,255,255,.92);box-shadow:0 14px 40px rgba(0,0,0,.45);}}
+.awatar img{{width:100%;height:100%;object-fit:cover;display:block;}}
 .mid{{position:absolute;inset:0;display:flex;flex-direction:column;
       justify-content:center;align-items:center;text-align:center;
       padding:0 {140 if not pion else 80}px;}}
@@ -115,6 +119,19 @@ def znak() -> str:
     return "<div class='wm'>EDU<b>PLANER</b> 2026</div>"
 
 
+def portret() -> str:
+    """Prowadzaca w kolku w prawym dolnym rogu — albo nic, gdy pliku brak.
+
+    Kolko jest stale we wszystkich planszach: widz ma z kim rozmawiac, nawet
+    gdy na ekranie sa same napisy. W pionie siedzi wyzej, bo dol kadru zajmuje
+    podpis, a na telefonie zaslonilby go pasek interfejsu.
+    """
+    if not PORTRET.exists():
+        return ""
+    dane = base64.b64encode(PORTRET.read_bytes()).decode()
+    return f"<div class='awatar'><img src='data:image/png;base64,{dane}' alt=''></div>"
+
+
 def strona(tresc: str, w: int, h: int, pion: bool, podpis: bool = False) -> str:
     stopka = ""
     if podpis:
@@ -124,7 +141,7 @@ def strona(tresc: str, w: int, h: int, pion: bool, podpis: bool = False) -> str:
     return (f"<!doctype html><meta charset='utf-8'><style>{css(w, h, pion)}</style>"
             f"<div class='stage'><div class='blob b1'></div><div class='blob b2'></div>"
             f"<div class='bar'></div>{znak()}"
-            f"{tresc}{stopka}</div>")
+            f"{tresc}{portret()}{stopka}</div>")
 
 
 def os_etapow(aktywny: int, pion: bool) -> str:
