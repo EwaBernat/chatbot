@@ -73,6 +73,34 @@ konspektu (tytuł, ICF, punkty podstawy, metody, wskazówka, materiał) jest wsp
 dla trzech wersji wiekowych; wariant wiekowy niesie cel terapeutyczny, przebieg
 i pomoc charakterystyczną dla wieku.
 
+### 25 pomocy dydaktycznych i 75 poleceń jej głosem
+
+Każdy wskaźnik ma **pomoc dydaktyczną** w sekcji VII konspektu — druk **KC-4**:
+zdjęcie poglądowe pomocy, lista „co przygotować”, trzy kroki użycia i wskazówka.
+Zdjęcia (`assets/pomoce_fba/k_<kod>.jpg`) rysuje model `gemini-2.5-flash-image`
+w tej samej pastelowej konwencji co ilustracje w banku KPOF; obrazek z tekstem
+odrzucamy i generujemy od nowa, bo napis na pomocy dla trzylatka nic nie znaczy.
+
+Do każdej pomocy w każdej wersji wiekowej idzie **nagrane polecenie dla dziecka**
+— 75 nagrań jej głosem (`assets/audio_fba/<wersja><kod>.mp3`), przycisk ▶ przy
+tekście polecenia w sekcji VII. Nagrywa się je modelem `eleven_v3` w jej
+sklonowanym głosie (`voice_id` w `CLAUDE.md`), w rejestrze
+`[warmly, smiling, telling a story to a small child]` i **czystą prozą**.
+Tekst nagrania to zawsze polecenie **do dziecka**, w drugiej osobie — nie
+instrukcja dla nauczyciela; to, co ma zrobić dorosły, siedzi w trzech krokach obok.
+
+Nagrania z ElevenLabs kompresujemy do 40 kbps mono, a oryginał zostaje jako
+`*.orig.mp3` (poza repozytorium — nagranie głosu to dana biometryczna):
+
+```bash
+python3 src/kompresuj_fba.py        # PNG → k_*.jpg, MP3 → 40 kbps mono
+python3 -c "import sys;sys.path.insert(0,'src');import karta_pomocy as K;print(K.braki())"
+```
+
+`braki()` zwraca listę pomocy bez zdjęcia i poleceń bez nagrania. Karta bez
+któregoś z nich nie psuje budowania — dostaje pole zastępcze i wyłączony przycisk,
+więc dokument składa się poprawnie na każdym etapie kompletowania mediów.
+
 Konspekty drukują się pionowo, mimo że tabela wokół nich jest pozioma
 (`@page kon`): scenariusz na jednej kartce, materiał do wydruku na drugiej.
 Przycisk w wykazie drukuje **cały zeszyt jednej wersji** — 25 konspektów,
@@ -116,6 +144,11 @@ src/build_tabela.py     składanie druku FBA-T
 src/konspekty_fba.py    scalanie konspektów: rdzeń + wariant wiekowy + tabela
 src/konspekty_fba_1..5.py  treść konspektów, moduł na funkcję zachowania
 src/konspekt_fba.py     renderowanie konspektu i wykazu (wzór KC-3)
+src/pomoce_fba.py       25 pomocy dydaktycznych i 75 poleceń dla dziecka
+src/karta_pomocy.py     renderowanie karty pomocy z nagraniem (wzór KC-4)
+src/symbole_fba.py      mapowanie kart i pasków na bibliotekę symboli EduPlaner
+src/kompresuj_fba.py    kompresja zdjęć pomocy i nagrań
+src/logo.py             logo PCTP w nagłówkach druków
 src/zmierz_konspekty.mjs   pomiar wysokości druku wszystkich 75 konspektów
 src/zmierz_strony.mjs   pomiar, czy strony mieszczą się na A4
 src/do_pdf.mjs          wydruk obu druków do PDF

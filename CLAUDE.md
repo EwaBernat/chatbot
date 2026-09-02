@@ -127,6 +127,15 @@ wokół (`@page kon`); przycisk w wykazie drukuje cały zeszyt wersji — 25 kon
 Pomiar: `node src/zmierz_konspekty.mjs`. Karty w materiale mają puste pola na symbole
 z biblioteki EduPlaner — symbol dorysowany pod jeden konspekt przestaje być dla dziecka słowem.
 
+Każdy wskaźnik ma **pomoc dydaktyczną** w sekcji VII konspektu (druk **KC-4**, `src/pomoce_fba.py`
+i `src/karta_pomocy.py`): zdjęcie poglądowe, co przygotować, trzy kroki użycia i **nagrane
+polecenie dla dziecka jej głosem** — 75 nagrań, po jednym na wskaźnik i wersję wiekową
+(`assets/audio_fba/<wersja><kod>.mp3`, model `eleven_v3`). Nagranie zawiera **polecenie do
+dziecka w drugiej osobie**, nie instrukcję dla nauczyciela — ta siedzi w trzech krokach obok.
+Kompletność sprawdza `karta_pomocy.braki()`: karta bez zdjęcia albo bez nagrania dostaje pole
+zastępcze i wyłączony przycisk, więc dokument buduje się poprawnie na każdym etapie.
+Kompresja: `python3 src/kompresuj_fba.py` (zdjęcia 900 px, nagrania 40 kbps mono).
+
 Kolor poziomów (czerwony · żółty · zielony) jest **tylko w legendzie na górze tabeli**;
 w samej tabeli koloru nie ma, bo 75 kolorowych komórek przestaje cokolwiek wyróżniać.
 
