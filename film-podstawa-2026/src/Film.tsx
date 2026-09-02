@@ -21,6 +21,8 @@ export type WlasciwosciFilmu = {
   jestAwatar: boolean;
   /** Długość powitania awatara — o tyle przesuwa się reszta filmu. */
   powitanieKlatek: number;
+  /** Nagranie awatara zsynchronizowane z lektorem, jeśli istnieje. */
+  awatarMowiacy?: string;
 };
 
 const trescSceny = (s: Scena) => {
@@ -53,7 +55,7 @@ const Przenikanie: React.FC<{ dlugoscKlatek: number; children: React.ReactNode }
 };
 
 export const Film: React.FC<WlasciwosciFilmu> = ({
-  dane, napisySrt, jestAudio, jestAwatar, powitanieKlatek,
+  dane, napisySrt, jestAudio, jestAwatar, powitanieKlatek, awatarMowiacy,
 }) => {
   const { fps } = useVideoConfig();
   const napisy: Napis[] = React.useMemo(
@@ -89,7 +91,7 @@ export const Film: React.FC<WlasciwosciFilmu> = ({
           })}
 
           {/* prowadząca w prawym dolnym rogu — przez całą część lektorską */}
-          <AwatarRog jest={jestAwatar} />
+          <AwatarRog jest={jestAwatar} mowiace={awatarMowiacy} />
           <Napisy napisy={napisy} />
         </AbsoluteFill>
       </Sequence>

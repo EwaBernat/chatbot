@@ -72,35 +72,68 @@ i ten krok odpada. Można też wyeksportować na jednolitym, nasyconym tle
 
 ### Gdzie awatar występuje w filmie
 
-| Miejsce | Co widać | Dźwięk |
-|---|---|---|
-| Powitanie (0:00–0:13) | pełna sylwetka na środku prawej strony | własny dźwięk z `awatar.webm` |
-| Sceny 1–18 i plansza końcowa | popiersie w prawym dolnym rogu, w pętli | lektor z `narracja.mp3` |
+| Miejsce | Co widać | Dźwięk | Usta |
+|---|---|---|---|
+| Powitanie 0:00–0:13 | pełna sylwetka po prawej | własny dźwięk z `awatar.webm` | **zgadzają się** |
+| Sceny 1–18 i plansza końcowa | kółeczko w prawym dolnym rogu | lektor z `narracja.mp3` | zależy od trybu (niżej) |
 
-W rogu klip chodzi **w pętli i bez dźwięku** — trwa 13 s, a film ponad
-jedenaście minut. Pierwsza i ostatnia klatka mają praktycznie tę samą pozę
-(średnia różnica pikseli 7,6), więc szew pętli nie rzuca się w oczy.
-Dźwięk jest wyciszony, bo mówi lektor; w tej skali ruch ust czyta się jako
-„prowadząca mówi", a nie jako konkretne głoski.
+### Kółeczko ma dwa tryby i samo wybiera właściwy
 
-Rozmiar i miejsce rogu ustawia się stałymi `ROG_SZEROKOSC`, `ROG_WYSOKOSC`
-i `skala` w `src/elementy/Awatar.tsx`. Napisy i plansze pełnoekranowe mają
-z tego powodu prawy margines 560 px, żeby tekst nie wchodził na postać.
+**Tryb mówiący** — gdy w `public/` leży `awatar-lektor.mp4` (albo `.webm`):
+postać w kółeczku mówi, a usta idą za lektorem, bo to jedno i to samo nagranie.
 
-Gdyby powitanie miało zniknąć z montażu, wystarczy ustawić
-`POWITANIE_SEKUND = 0` w `src/Root.tsx`.
+**Tryb nieruchomy** — gdy tego pliku nie ma: w kółeczku jest nieruchoma
+sylwetka z `portret-alfa.png`, z bardzo wolnym najazdem, żeby kadr nie wyglądał
+na zacięty. Tak jest teraz.
 
-`AwatarStop` (nieruchoma sylwetka z `portret-alfa.png`) czeka nieużywany —
-przyda się, gdyby pętla gdzieś przeszkadzała. Klatkę wycina się tak:
+Powitalnego klipu (`awatar.webm`) w kółeczku **nie puszczamy w pętli**. Trwa
+13 sekund i powstał do innego tekstu; pod jedenastominutową narracją poruszałby
+ustami do słów, których nie ma — widz wychwytuje to natychmiast. Lepsza
+nieruchoma postać niż postać kłamiąca ustami.
+
+### Jak włączyć tryb mówiący
+
+Wymaga HeyGena, a ten jest **niedostępny z tego środowiska** — polityka sieci
+odrzuca połączenie do `api.heygen.com` (403 na CONNECT w bramie). Nie jest to
+kwestia klucza: wyjście jest zamknięte. Podłączony konektor HyperFrames buduje
+filmy z HTML i nie ma dostępu do Twoich awatarów ani sklonowanego głosu.
+
+Na własnym komputerze, gdzie HeyGen jest osiągalny:
 
 ```bash
-ffmpeg -c:v libvpx-vp9 -ss 6.5 -i public/awatar.webm \
-       -frames:v 1 -pix_fmt rgba public/portret-alfa.png
+export HEYGEN_API_KEY="..."
+python3 ~/.claude/skills/dane-i-glos/scripts/heygen_awatar.py --awatary
+
+python3 ~/.claude/skills/dane-i-glos/scripts/heygen_awatar.py \
+        --audio public/narracja.mp3 \
+        --avatar-id <twoje_id> --styl circle --tlo "#2D1B69" \
+        --czekaj -o public/awatar-lektor.mp4
 ```
 
-Film składa się także **bez** tych dwóch plików — wtedy w rogu jest ramka
-z napisem „miejsce na awatar”, a obraz leci bez dźwięku. Nic nie trzeba
-przestawiać: gdy pliki pojawią się w `public/`, wchodzą do montażu same.
+`--audio` jest tu kluczowe: awatar dostaje **gotowe** `narracja.mp3`, więc
+mówi Twoim głosem z ElevenLabs i rusza ustami dokładnie do tego dźwięku.
+Nagranie trwa 11 minut i 43 sekundy — sprawdź w HeyGenie limit długości
+swojego planu, zanim uruchomisz render.
+
+Plik wrzuć do `public/` i przerenderuj film. **Kod nie wymaga żadnej zmiany** —
+`src/Root.tsx` sam wykrywa nazwę i przełącza kółeczko w tryb mówiący.
+
+### Rozmiar i miejsce kółeczka
+
+Stałe `SREDNICA`, `OBRAMOWANIE` i pozycja `right`/`bottom` w
+`src/elementy/Awatar.tsx`. Kadr portretowy liczy się z rzeczywistych wymiarów
+sylwetki zmierzonych z kanału alfa (czubek głowy y=62, broda y≈400, środek
+głowy x=963), więc zmiana średnicy nie psuje kadrowania. Napisy i plansze
+pełnoekranowe mają prawy margines 560 px, żeby tekst nie wchodził na kółeczko.
+
+Klatkę do `portret-alfa.png` wybrano tak, żeby usta były zamknięte, a wyraz
+twarzy ciepły — to klatka 144 (5,76 s):
+
+```bash
+ffmpeg -c:v libvpx-vp9 -i public/awatar.webm \
+       -vf "select=eq(n\,144)" -vsync 0 -frames:v 1 \
+       -pix_fmt rgba public/portret-alfa.png
+```
 
 ## Render
 

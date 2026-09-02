@@ -18,6 +18,9 @@ const maPlik = (nazwa: string) =>
 export const RemotionRoot: React.FC = () => {
   const jestAudio = maPlik(d.audio);
   const jestAwatar = maPlik('awatar.webm');
+  /** Awatar wygenerowany w HeyGen z gotowego narracja.mp3 — usta idą wtedy
+   *  za lektorem. Gdy pliku nie ma, w kółeczku jest nieruchoma sylwetka. */
+  const awatarMowiacy = ['awatar-lektor.webm', 'awatar-lektor.mp4'].find(maPlik);
   const powitanieKlatek = jestAwatar ? Math.round(POWITANIE_SEKUND * d.fps) : 0;
   const [napisySrt, setNapisySrt] = React.useState<string | undefined>();
 
@@ -34,7 +37,7 @@ export const RemotionRoot: React.FC = () => {
       fps={d.fps}
       width={d.szerokosc}
       height={d.wysokosc}
-      defaultProps={{ dane: d, jestAudio, jestAwatar, napisySrt, powitanieKlatek }}
+      defaultProps={{ dane: d, jestAudio, jestAwatar, napisySrt, powitanieKlatek, awatarMowiacy }}
     />
   );
 };

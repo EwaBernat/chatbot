@@ -1,6 +1,6 @@
 import React from 'react';
 import {
-  OffthreadVideo, Img, Loop, staticFile, useCurrentFrame, useVideoConfig,
+  OffthreadVideo, Img, staticFile, useCurrentFrame, useVideoConfig,
   interpolate, spring,
 } from 'remotion';
 import { MARKA, FONT_NAGLOWEK } from '../marka';
@@ -116,32 +116,50 @@ export const AwatarStop: React.FC<{
 };
 
 /**
- * Awatar w prawym dolnym rogu — prowadząca obecna przez cały film.
+ * Awatar w kółeczku w prawym dolnym rogu — prowadząca obecna przez cały film.
  *
- * Nagranie trwa 13 s, a film ponad jedenaście minut, więc klip chodzi w pętli
- * i **bez dźwięku**: mówi lektor z narracja.mp3. W tej skali ruch ust czyta się
- * jako „prowadząca mówi", a nie jako litery — dlatego pętla tu nie przeszkadza,
- * a nieruchome zdjęcie przez jedenaście minut wyglądałoby na zacięty obraz.
+ * Kółeczko ma dwa tryby i sam wybiera właściwy:
  *
- * Kadrujemy popiersie: pudełko o stałym rozmiarze przycina nagranie, a sylwetka
- * jest w nim ustawiona tak, żeby czubek głowy siedział tuż pod górną krawędzią.
+ * 1. Gdy w public/ leży `awatar-lektor.mp4` — awatar z HeyGen wygenerowany
+ *    z gotowego `narracja.mp3` — postać **mówi**, a usta idą za lektorem,
+ *    bo to jedno i to samo nagranie.
+ * 2. Gdy tego pliku nie ma, w kółeczku jest **nieruchoma sylwetka**.
+ *
+ * Powitalnego klipu (`awatar.webm`) tu nie puszczamy. Trwa 13 s, powstał do
+ * innego tekstu i w pętli pod 11-minutową narracją poruszałby ustami do słów,
+ * których nie ma — widz wychwytuje to natychmiast. Lepsza nieruchoma postać
+ * niż postać kłamiąca ustami.
+ *
+ * Żeby włączyć tryb pierwszy, wystarczy wygenerować nagranie i wrzucić je
+ * do public/ — kod nie wymaga żadnej zmiany (patrz README, sekcja o awatarze).
+ *
+ * Nieruchoma sylwetka dostaje bardzo wolny najazd — ruch ledwo zauważalny
+ * w skali kółeczka, ale kadr nie wygląda przez to na zacięty.
+ *
+ * Kadr portretowy liczymy z rzeczywistych wymiarów sylwetki, a nie na oko:
+ * czubek głowy jest w źródle na y=62, broda ok. y=400, a głowa ma środek
+ * w x=963 (pomiar z kanału alfa). Stąd skala i przesunięcia poniżej —
+ * głowa zajmuje ok. 58% wysokości koła i siedzi 10% od jego górnej krawędzi.
  */
-/** Długość nagrania z HeyGen — po tylu sekundach pętla wraca na początek.
- *  Pierwsza i ostatnia klatka mają praktycznie tę samą pozę, więc szew
- *  nie rzuca się w oczy. */
-const DLUGOSC_KLIPU = 13.04;
-const ROG_SZEROKOSC = 500;
-const ROG_WYSOKOSC = 620;
+const GLOWA_GORA = 62;
+const GLOWA_DOL = 400;
+const GLOWA_SRODEK_X = 963;
 
-export const AwatarRog: React.FC<{ jest: boolean; opoznienie?: number }> = ({
-  jest, opoznienie = 10,
-}) => {
+const SREDNICA = 400;
+const OBRAMOWANIE = 7;
+
+export const AwatarRog: React.FC<{
+  jest: boolean;
+  /** nazwa nagrania awatara zsynchronizowanego z lektorem, gdy istnieje */
+  mowiace?: string;
+  opoznienie?: number;
+}> = ({ jest, mowiace, opoznienie = 10 }) => {
   const klatka = useCurrentFrame();
   const { fps, durationInFrames } = useVideoConfig();
   const wejscie = spring({
     frame: klatka - opoznienie, fps, config: { damping: 200, stiffness: 80 },
   });
-  // znika razem z końcem sekwencji, żeby nie ucinało go twardo na cięciu
+  // znika przed końcem sekwencji, żeby nie ucinało go twardo na cięciu
   const wyjscie = interpolate(
     klatka, [durationInFrames - 14, durationInFrames - 4], [1, 0],
     { extrapolateLeft: 'clamp', extrapolateRight: 'clamp' },
@@ -149,34 +167,32 @@ export const AwatarRog: React.FC<{ jest: boolean; opoznienie?: number }> = ({
 
   if (!jest) return null;
 
-  // sylwetka ma trafić środkiem w środek pudełka, czubkiem głowy tuż pod górę
-  const skala = 0.6;
-  const lewo = ROG_SZEROKOSC / 2 - SRODEK_ZRODLA * skala;
-  const gora = 8 - GORA_ZRODLA * skala;
+  // najazd o 4% przez cały film — ruch na granicy dostrzegalności
+  const najazd = interpolate(klatka, [0, durationInFrames], [1, 1.04]);
+  const wnetrze = SREDNICA - OBRAMOWANIE * 2;
+  const skala = (wnetrze * 0.58) / (GLOWA_DOL - GLOWA_GORA);
+  const lewo = wnetrze / 2 - GLOWA_SRODEK_X * skala;
+  const gora = wnetrze * 0.10 - GLOWA_GORA * skala;
 
   return (
     <div style={{
-      position: 'absolute', right: 44, bottom: 0,
-      width: ROG_SZEROKOSC, height: ROG_WYSOKOSC,
+      position: 'absolute', right: 72, bottom: 96,
+      width: SREDNICA, height: SREDNICA,
       opacity: Math.min(wejscie, wyjscie),
-      transform: `translateY(${interpolate(wejscie, [0, 1], [40, 0])}px)`,
+      transform: `scale(${interpolate(wejscie, [0, 1], [0.84, 1])})`,
+      transformOrigin: 'center center',
     }}>
-      {/* poświata i cień — bez nich wycinanka odkleja się od tła */}
       <div style={{
-        position: 'absolute', left: -40, top: 40, width: 580, height: 580,
-        borderRadius: '50%',
-        background: `radial-gradient(circle, ${MARKA.fioletJasny}4D 0%, transparent 66%)`,
-        filter: 'blur(34px)',
-      }} />
-      <div style={{
-        position: 'absolute', left: 60, bottom: -34, width: 380, height: 120,
-        borderRadius: '50%', background: 'rgba(10,6,26,.5)', filter: 'blur(34px)',
-      }} />
-
-      <div style={{ position: 'absolute', inset: 0, overflow: 'hidden' }}>
-        <Loop durationInFrames={Math.round(DLUGOSC_KLIPU * fps)}>
+        position: 'absolute', inset: 0, borderRadius: '50%',
+        overflow: 'hidden',
+        border: `${OBRAMOWANIE}px solid ${MARKA.pomaranczJasny}`,
+        boxShadow: '0 34px 90px -30px rgba(0,0,0,.8)',
+        // wypełnienie pod postacią: przezroczysty awatar musi mieć na czym stanąć
+        background: `linear-gradient(160deg, ${MARKA.fioletJasny} 0%, ${MARKA.fioletCiemny} 72%)`,
+      }}>
+        {mowiace ? (
           <OffthreadVideo
-            src={staticFile('awatar.webm')}
+            src={staticFile(mowiace)}
             transparent
             muted
             style={{
@@ -184,7 +200,16 @@ export const AwatarRog: React.FC<{ jest: boolean; opoznienie?: number }> = ({
               width: 1920 * skala, height: 1080 * skala,
             }}
           />
-        </Loop>
+        ) : (
+          <Img
+            src={staticFile('portret-alfa.png')}
+            style={{
+              position: 'absolute', left: lewo, top: gora,
+              width: 1920 * skala, height: 1080 * skala,
+              transform: `scale(${najazd})`, transformOrigin: '50% 18%',
+            }}
+          />
+        )}
       </div>
     </div>
   );
