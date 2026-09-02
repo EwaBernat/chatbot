@@ -269,6 +269,9 @@ def main() -> int:
     ap.add_argument("katalog", type=pathlib.Path, help="katalog z nagraniami s1.mp3 … s6.mp3")
     ap.add_argument("-o", "--output", type=pathlib.Path, default=pathlib.Path("film.mp4"))
     ap.add_argument("--segmenty", help="np. 4,5,6 — zbuduj tylko wybrane")
+    ap.add_argument("--lekka-kopia", action="store_true",
+                    help="obok filmu zapisz mocno skompresowaną kopię do wysłania "
+                         "(plansze kompresują się świetnie, więc jakość prawie nie cierpi)")
     a = ap.parse_args()
 
     wybrane = {int(x) for x in a.segmenty.split(",")} if a.segmenty else None
@@ -291,7 +294,16 @@ def main() -> int:
     lista.write_text("".join(f"file '{p.resolve()}'\n" for p in czesci), encoding="utf-8")
     przebieg(["ffmpeg", "-y", "-v", "error", "-f", "concat", "-safe", "0",
               "-i", str(lista), "-c", "copy", str(a.output)])
-    print(f"\nGotowe: {a.output} ({trwanie(a.output):.1f} s)")
+    print(f"\nGotowe: {a.output} ({trwanie(a.output):.1f} s, "
+          f"{a.output.stat().st_size / 1_048_576:.1f} MB)")
+
+    if a.lekka_kopia:
+        lekka = a.output.with_name(a.output.stem + "_lekki.mp4")
+        przebieg(["ffmpeg", "-y", "-v", "error", "-i", str(a.output),
+                  "-c:v", "libx264", "-preset", "slow", "-crf", "30", "-tune", "stillimage",
+                  "-pix_fmt", "yuv420p", "-movflags", "+faststart",
+                  "-c:a", "aac", "-b:a", "96k", "-ac", "1", str(lekka)])
+        print(f"Lekka kopia: {lekka} ({lekka.stat().st_size / 1_048_576:.1f} MB)")
     return 0
 
 

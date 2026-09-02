@@ -103,6 +103,10 @@ Generator stoi na trzech zasadach:
 3. **Jedno źródło treści.** Stany planszy powstają przez wstrzyknięcie CSS do gotowego
    HTML-a, więc tekst nie jest duplikowany.
 
+Film w pełnej jakości potrafi przekroczyć limity załączników w komunikatorach —
+plansze kompresują się jednak bardzo dobrze, więc `--lekka-kopia` zapisuje obok
+mocno skompresowaną wersję do wysłania, praktycznie bez straty czytelności tekstu.
+
 Granice ujęć w segmentach 1–3 są wpisane jako sekundy; w segmentach 4–6 wyznacza je
 automatycznie najdłuższe pauzy w nagraniu. Podgląd pauz:
 
