@@ -19,6 +19,7 @@ import html
 from pathlib import Path
 
 import dane_poziomy as P
+import konspekt_fba as KON
 
 KOR = Path(__file__).resolve().parent.parent
 
@@ -28,7 +29,12 @@ STYL = """
   --on-accent:#FFFFFF; --tekst:#241C3A; --szary:#5B5470;
   --paper:#FFFFFF; --soft:#F6F3FC; --field:#EFEAF9; --row-alt:#FAF8FE;
   --line:#DCD4F0; --line-2:#C9BEEA; --tlo:#EDE9F6;
-  --p3:#C2410C; --p2:#B45309; --p1:#15803D;
+  /* Poziomy wsparcia mają kolor tylko w legendzie na górze: czerwony, żółty,
+     zielony — jak oceny modyfikacji w konspekcie. W tabeli koloru nie ma,
+     bo 75 kolorowych komórek przestaje cokolwiek wyróżniać. */
+  --p3:#B91C1C; --p2:#A16207; --p1:#15803D;
+  --t3:#FEF2F2; --t2:#FEFCE8; --t1:#F0FDF4;
+  --r3:#FCA5A5; --r2:#FDE047; --r1:#86EFAC;
 }
 *{box-sizing:border-box}
 body{margin:0; background:var(--tlo); color:var(--tekst);
@@ -60,11 +66,15 @@ body{margin:0; background:var(--tlo); color:var(--tekst);
 .tab:focus-visible{outline:2px solid var(--accent); outline-offset:2px}
 
 .legenda{display:grid; grid-template-columns:repeat(3,1fr); gap:10px; margin-bottom:14px}
-.leg{border:1px solid var(--line); border-left:4px solid var(--violet); border-radius:0 8px 8px 0;
-  padding:9px 12px; font-size:10.5px; line-height:1.5}
-.leg b{display:block; font-size:11px; color:var(--ink); margin-bottom:2px}
-.leg.p3{border-left-color:var(--p3)} .leg.p2{border-left-color:var(--p2)}
-.leg.p1{border-left-color:var(--p1)}
+.leg{border:1px solid var(--line); border-left:5px solid var(--violet); border-radius:0 9px 9px 0;
+  padding:10px 13px; font-size:10.5px; line-height:1.5}
+.leg b{display:flex; align-items:center; gap:7px; font-size:11.5px; color:var(--ink); margin-bottom:3px}
+.leg b i{width:11px; height:11px; border-radius:50%; display:inline-block; border:1px solid rgba(0,0,0,.14)}
+.leg.p3{background:var(--t3); border-color:var(--r3); border-left-color:var(--p3)}
+.leg.p2{background:var(--t2); border-color:var(--r2); border-left-color:var(--p2)}
+.leg.p1{background:var(--t1); border-color:var(--r1); border-left-color:var(--p1)}
+.leg.p3 b i{background:var(--r3)} .leg.p2 b i{background:var(--r2)} .leg.p1 b i{background:var(--r1)}
+.leg.p3 b{color:var(--p3)} .leg.p2 b{color:var(--p2)} .leg.p1 b{color:var(--p1)}
 .leg .kryt{color:var(--szary)}
 .uwaga{background:var(--soft); border-left:4px solid var(--accent); border-radius:0 8px 8px 0;
   padding:10px 14px; font-size:11px; line-height:1.55; margin-bottom:14px}
@@ -73,7 +83,7 @@ body{margin:0; background:var(--tlo); color:var(--tekst);
 table{width:100%; border-collapse:collapse; font-size:11px; table-layout:fixed}
 th{background:var(--field); color:var(--ink); text-align:left; font-size:9px; letter-spacing:.1em;
   text-transform:uppercase; padding:8px 9px; border:1px solid var(--line-2)}
-th.p3{color:var(--p3)} th.p2{color:var(--p2)} th.p1{color:var(--p1)}
+th.p3, th.p2, th.p1{color:var(--ink)}
 .wband th{background:var(--soft); color:var(--szary); font-size:9px; letter-spacing:.12em;
   border-bottom:none; padding:6px 9px}
 .wband th b{color:var(--accent); letter-spacing:.1em; margin-left:10px}
@@ -88,18 +98,84 @@ td.g .ram{display:block; margin-top:3px; color:var(--szary); font-size:9px;
 tr.pas td{background:var(--ink) !important; color:#fff; font-size:10px; letter-spacing:.14em;
   text-transform:uppercase; padding:7px 10px; border-color:var(--ink)}
 tr.pas td .li{color:#CDBEF5; letter-spacing:.06em; text-transform:none; margin-left:8px}
+td.g.haskon{cursor:pointer; position:relative}
+td.g.haskon:hover, td.g.haskon:focus-visible{outline:2px solid var(--accent); outline-offset:-2px}
+td.g.haskon .tresc{text-decoration:underline; text-decoration-color:var(--line-2);
+  text-underline-offset:2px}
+.kzn{display:inline-block; margin-top:5px; background:var(--accent); color:var(--on-accent);
+  border-radius:999px; padding:3px 9px; font-size:8px; letter-spacing:.09em; text-transform:uppercase}
 .wersja[hidden]{display:none}
 .stopka{margin-top:16px; border-top:1px solid var(--line); padding-top:9px;
   display:flex; justify-content:space-between; font-size:9px; color:var(--szary); letter-spacing:.04em}
 
 @media print{
   @page{size:A4 landscape; margin:9mm}
+  /* Konspekt to druk pionowy — orientacja pozioma odziedziczona po tabeli
+     kładła go na boku i rozciągała kolumny celów na całą szerokość. */
+  @page kon{size:A4 portrait; margin:10mm}
   body{background:#fff; padding:0}
   .ark{max-width:none; box-shadow:none; border-radius:0; padding:0}
   .zakladki, .tab{display:none}
   thead{display:table-header-group}
   tr{break-inside:avoid}
   .uwaga{break-inside:avoid}
+  .kmodal{display:none !important}
+  .kzn{display:none}
+  td.g.haskon .tresc{text-decoration:none}
+  /* Druk konspektu: znika tabela, zostaje sama karta — pionowo, bez przycisków. */
+  html.print-konspekt .ark{display:none !important}
+  html.print-konspekt .kmodal.open{display:block !important; position:static; background:none;
+    padding:0; overflow:visible}
+  /* 0.96 to zapas na fonty: pomiar leci na Arialu (bez sieci), DM Sans jest
+     odrobinę wyższy, a scenariusz kończy się tuż pod krawędzią kartki. Bez tego
+     marginesu konspekt schodziłby u niej na drugą stronę w pół tabeli. */
+  html.print-konspekt .kcard{box-shadow:none; max-width:none; padding:0; border-radius:0;
+    page:kon; zoom:.96}
+  html.print-konspekt .kclose, html.print-konspekt .kfoot, html.print-konspekt .kesc{display:none}
+  html.print-konspekt .zal{break-before:page; border-top:none}
+  /* Zagęszczenie na druk — konspekt ma się zmieścić na jednej kartce, tak jak
+     konspekty w banku. Pomiar przed: 1380 px scenariusza przy budżecie 1047. */
+  html.print-konspekt .ktitle{margin:9px 0 8px}
+  html.print-konspekt .ktitle h3{font-size:16px}
+  html.print-konspekt .ksec{margin:9px 0 5px}
+  html.print-konspekt .kcele{gap:8px}
+  html.print-konspekt .kcel{padding:7px 9px}
+  html.print-konspekt .ktresc{font-size:10.5px; line-height:1.4}
+  html.print-konspekt .ksmart li{font-size:8.8px; line-height:1.32}
+  html.print-konspekt .kkryt{font-size:8.8px; padding-top:4px; margin-top:4px}
+  html.print-konspekt .klista{font-size:9.5px; line-height:1.4}
+  html.print-konspekt .kkurs{font-size:8.8px; margin:4px 0 3px}
+  html.print-konspekt table.ktab{font-size:9.5px}
+  html.print-konspekt table.ktab td{padding:4px 7px; line-height:1.35}
+  html.print-konspekt .kmod{font-size:9px; padding:6px 8px}
+  html.print-konspekt .kwsk{font-size:9.5px; padding:7px 11px; margin-top:8px}
+  html.print-konspekt .kmeta{margin-top:6px; gap:8px}
+  html.print-konspekt .kmeta .field{padding:2px 2px 3px; font-size:9px}
+  html.print-konspekt .kmeta .field .val{font-size:10.5px}
+  html.print-konspekt .khead{padding-bottom:8px}
+  html.print-konspekt .khead .kw{font-size:12.5px}
+  html.print-konspekt .ksec{margin:7px 0 4px}
+  html.print-konspekt .ksec .sq{width:19px; height:19px}
+  html.print-konspekt .ksmart{gap:2px; margin-top:5px}
+  html.print-konspekt .ksmart li{font-size:8.4px; line-height:1.28}
+  html.print-konspekt table.ktab td{padding:3px 6px}
+  html.print-konspekt table.ktab th{padding:4px 6px}
+  html.print-konspekt .kmod{font-size:8.6px; line-height:1.34}
+  html.print-konspekt .kmods{gap:7px}
+  html.print-konspekt .ktitle{margin:7px 0 6px}
+  html.print-konspekt .ktitle h3{font-size:15px}
+  html.print-konspekt .ktitle .kp{padding:3px 11px; font-size:8.5px}
+  html.print-konspekt .ktitle .ksfera{margin:6px 0 2px; font-size:8.6px}
+  html.print-konspekt .ktitle .kpod{font-size:10px}
+  html.print-konspekt .ktresc{font-size:10px}
+  html.print-konspekt .klista{font-size:9.2px; line-height:1.36}
+  /* Zapas na fonty: pomiar leci na Arialu (bez sieci), a DM Sans jest odrobinę
+     wyższy — 30 px luzu trzyma konspekt na jednej kartce w obu przypadkach. */
+  html.print-konspekt .kcel{padding:6px 9px}
+  html.print-konspekt .kcele{gap:7px}
+  html.print-konspekt .kdwie{gap:9px}
+  html.print-konspekt .kwsk{padding:6px 10px; line-height:1.42}
+  html.print-konspekt .kwsk, html.print-konspekt .kmod, html.print-konspekt .zal-karta{break-inside:avoid}
 }
 """
 
@@ -110,10 +186,16 @@ def _e(t):
 
 def _legenda():
     k = "".join(
-        f'<div class="leg {kod}"><b>{nazwa}</b>{_e(opis)}'
+        f'<div class="leg {kod}"><b><i aria-hidden="true"></i>{nazwa}</b>{_e(opis)}'
         f'<div class="kryt">kryterium {kryt} sytuacji · weryfikacja po {hor.replace("tygodni", "tygodniach")}</div></div>'
         for kod, nazwa, kryt, hor, opis in P.POZIOMY)
     return f'<div class="legenda">{k}</div>'
+
+
+# Wskaźnik z gotowym konspektem: para (wersja, numer). W banku to samo robi
+# słownik KONSPEKTY — komórka bez konspektu zostaje zwykłą komórką, a nie
+# przyciskiem, który po kliknięciu nic nie robi.
+MA_KONSPEKT = (KON.KONSPEKT["wersja"], KON.KONSPEKT["wskaznik"])
 
 
 def _wiersze(kod_wersji):
@@ -122,13 +204,18 @@ def _wiersze(kod_wersji):
         w.append(f'<tr class="pas"><td colspan="5">Funkcja {rzym} · {_e(f["nazwa"])}'
                  f'<span class="li">pięć wskaźników kwestionariusza</span></td></tr>')
         for i, wsk in enumerate(f["wskazniki"], 1):
+            nrw = f"{rzym}.{i}"
+            kon = (kod_wersji, nrw) == MA_KONSPEKT
             kom = ""
             for (kod, _n, kryt, hor, _o), tekst in zip(P.POZIOMY, wsk[kod_wersji]):
-                kom += (f'<td class="g"><span class="tresc">{_e(tekst)}</span>'
+                atr = (f' class="g haskon" data-lvl="{kod}" tabindex="0" role="button"'
+                       f' title="Otwórz konspekt zajęć do tego celu"' if kon else ' class="g"')
+                kom += (f'<td{atr}><span class="tresc">{_e(tekst)}</span>'
                         f'<span class="ram">{kryt} sytuacji · {hor}</span></td>')
-            w.append(f'<tr><td class="nr">{rzym}.{i}</td>'
+            znak = ('<span class="kzn">konspekt zajęć — kliknij cel</span>' if kon else '')
+            w.append(f'<tr data-wsk="{nrw}"><td class="nr">{nrw}</td>'
                      f'<td class="wsk"><b>{_e(wsk["wskaznik"])}</b>'
-                     f'<span>zachowanie zastępcze: {_e(wsk["zastepcze"])}</span></td>{kom}</tr>')
+                     f'<span>zachowanie zastępcze: {_e(wsk["zastepcze"])}</span>{znak}</td>{kom}</tr>')
     return "".join(w)
 
 
@@ -181,7 +268,7 @@ def dokument():
 <title>Cele SMART do wskaźników FBA — wiek i poziom wsparcia</title>
 <link rel="stylesheet" media="print" onload="this.media='all'"
   href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&display=swap">
-<style>{STYL}
+<style>{STYL}{KON.STYL}
 .sr-only{{position:absolute; width:1px; height:1px; overflow:hidden; clip:rect(0 0 0 0)}}</style>
 </head>
 <body>
@@ -222,7 +309,8 @@ def dokument():
     <span>druk FBA-T · tabela drukuje się poziomo · {cele} celów</span>
   </div>
 </div>
-<script>{SKRYPT}</script>
+{KON.modal()}
+<script>{SKRYPT}{KON.SKRYPT}</script>
 </body>
 </html>
 """

@@ -53,6 +53,21 @@ zachowaniem, 4 z 5, 12 tygodni. Kryterium na Poziomie I nie rośnie do 5 z 5:
 „za każdym razem” to w przedszkolu cel nie do osiągnięcia i psuje ewaluację,
 zamiast ją domykać.
 
+### Przykładowy konspekt
+
+Wskaźnik **I.1** wersji A ma gotowy konspekt zajęć we wzorze druku **KC-3**
+z banku KPOF — sekcje I–VII, tabela przebiegu w parach N/D, trzy modyfikacje
+w kolorach oceny, materiał do wydruku. Otwiera się **kliknięciem celu**
+w wierszu I.1, a cel edukacyjny czyta się **na żywo z tabeli**: po poprawce
+w `dane_poziomy.py` konspekt nie zaczyna żyć własną wersją celu. Kliknięty
+poziom wyróżnia się w modyfikacjach i w metryce.
+
+Konspekt drukuje się pionowo — scenariusz na jednej kartce, materiał do wydruku
+na drugiej — mimo że tabela wokół niego jest pozioma (`@page kon`). Karty
+w materiale mają puste pola na symbole: symbol bierze się z biblioteki
+EduPlaner, żeby dziecko widziało ten sam obrazek tu, na tablicy AAC i w planie
+dnia.
+
 Tabela drukuje się **poziomo** i drukuje się ta wersja wiekowa, która jest
 otwarta — tak jak bank. Pas z nazwą wersji siedzi w `thead`, więc powtarza się
 na każdej kartce; bez niego druga i trzecia strona nie mówiły, czyj to rocznik.
@@ -82,6 +97,7 @@ src/dane_fba.py         25 celów SMART do obserwacji pogłębionej (druk FBA-C)
 src/dane_poziomy.py     225 celów: wiek × poziom wsparcia (druk FBA-T)
 src/build_cele_fba.py   składanie druku FBA-C
 src/build_tabela.py     składanie druku FBA-T
+src/konspekt_fba.py     przykładowy konspekt zajęć do wskaźnika I.1 (wzór KC-3)
 src/zmierz_strony.mjs   pomiar, czy strony mieszczą się na A4
 src/do_pdf.mjs          wydruk obu druków do PDF
 ```
