@@ -125,6 +125,11 @@ celerybeat.pid
 
 # Environments
 .env
+# Warianty plików z sekretami — samo ".env" ich nie łapało, a klucz w
+# .env.local albo heygen.env wjechałby do repozytorium.
+.env.*
+*.env
+!.env.przyklad
 .venv
 env/
 venv/

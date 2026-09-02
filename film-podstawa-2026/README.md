@@ -100,8 +100,12 @@ filmy z HTML i nie ma dostępu do Twoich awatarów ani sklonowanego głosu.
 
 Na własnym komputerze, gdzie HeyGen jest osiągalny:
 
+Klucz trzymasz w zmiennej środowiskowej — nazwy zmiennych są w `.env.przyklad`
+w korzeniu repozytorium, wartości wpisujesz u siebie do `.env` (ignorowanego
+przez git razem z wariantami `*.env` i `.env.*`).
+
 ```bash
-export HEYGEN_API_KEY="..."
+export HEYGEN_API_KEY="..."          # albo: set -a; source .env; set +a
 python3 ~/.claude/skills/dane-i-glos/scripts/heygen_awatar.py --awatary
 
 python3 ~/.claude/skills/dane-i-glos/scripts/heygen_awatar.py \
