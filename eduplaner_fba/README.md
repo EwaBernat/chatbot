@@ -53,20 +53,36 @@ zachowaniem, 4 z 5, 12 tygodni. Kryterium na Poziomie I nie rośnie do 5 z 5:
 „za każdym razem” to w przedszkolu cel nie do osiągnięcia i psuje ewaluację,
 zamiast ją domykać.
 
-### Przykładowy konspekt
+### 75 konspektów zajęć
 
-Wskaźnik **I.1** wersji A ma gotowy konspekt zajęć we wzorze druku **KC-3**
-z banku KPOF — sekcje I–VII, tabela przebiegu w parach N/D, trzy modyfikacje
-w kolorach oceny, materiał do wydruku. Otwiera się **kliknięciem celu**
-w wierszu I.1, a cel edukacyjny czyta się **na żywo z tabeli**: po poprawce
-w `dane_poziomy.py` konspekt nie zaczyna żyć własną wersją celu. Kliknięty
-poziom wyróżnia się w modyfikacjach i w metryce.
+Każdy wskaźnik w każdej wersji wiekowej ma konspekt we wzorze druku **KC-3**
+z banku KPOF — **25 × 3 = 75 scenariuszy**. Sekcje I–VII, cel terapeutyczny
+z rozpisaniem SMART, pomoce, metody, tabela przebiegu w parach N/D, trzy
+modyfikacje w kolorach oceny, wskazówka dla prowadzącego i materiał do wydruku.
 
-Konspekt drukuje się pionowo — scenariusz na jednej kartce, materiał do wydruku
-na drugiej — mimo że tabela wokół niego jest pozioma (`@page kon`). Karty
-w materiale mają puste pola na symbole: symbol bierze się z biblioteki
-EduPlaner, żeby dziecko widziało ten sam obrazek tu, na tablicy AAC i w planie
-dnia.
+Jeden konspekt obsługuje **trzy poziomy wsparcia**: poziom zmienia sekcję VI
+(modyfikacje), a nie scenariusz. Konspekt otwiera się **kliknięciem celu**
+w tabeli — wtedy pokazuje cel z klikniętej komórki i wyróżnia ten poziom —
+albo z **wykazu konspektów** nad tabelą, i wtedy pokazuje wszystkie trzy cele
+naraz. Cel edukacyjny czyta się **na żywo z tabeli**: po poprawce w
+`dane_poziomy.py` konspekt nie zaczyna żyć własną wersją celu.
+
+Treść leży w pięciu modułach po jednym na funkcję (`konspekty_fba_1.py` … `_5.py`);
+`konspekty_fba.py` je scala i dokłada to, co wynika z wieku i z tabeli. Rdzeń
+konspektu (tytuł, ICF, punkty podstawy, metody, wskazówka, materiał) jest wspólny
+dla trzech wersji wiekowych; wariant wiekowy niesie cel terapeutyczny, przebieg
+i pomoc charakterystyczną dla wieku.
+
+Konspekty drukują się pionowo, mimo że tabela wokół nich jest pozioma
+(`@page kon`): scenariusz na jednej kartce, materiał do wydruku na drugiej.
+Przycisk w wykazie drukuje **cały zeszyt jednej wersji** — 25 konspektów,
+50 stron. Karty w materiale mają puste pola na symbole: symbol bierze się
+z biblioteki EduPlaner, żeby dziecko widziało ten sam obrazek tu, na tablicy
+AAC i w planie dnia.
+
+```bash
+node src/zmierz_konspekty.mjs   # czy każdy konspekt mieści się na jednej kartce
+```
 
 Tabela drukuje się **poziomo** i drukuje się ta wersja wiekowa, która jest
 otwarta — tak jak bank. Pas z nazwą wersji siedzi w `thead`, więc powtarza się
@@ -97,7 +113,10 @@ src/dane_fba.py         25 celów SMART do obserwacji pogłębionej (druk FBA-C)
 src/dane_poziomy.py     225 celów: wiek × poziom wsparcia (druk FBA-T)
 src/build_cele_fba.py   składanie druku FBA-C
 src/build_tabela.py     składanie druku FBA-T
-src/konspekt_fba.py     przykładowy konspekt zajęć do wskaźnika I.1 (wzór KC-3)
+src/konspekty_fba.py    scalanie konspektów: rdzeń + wariant wiekowy + tabela
+src/konspekty_fba_1..5.py  treść konspektów, moduł na funkcję zachowania
+src/konspekt_fba.py     renderowanie konspektu i wykazu (wzór KC-3)
+src/zmierz_konspekty.mjs   pomiar wysokości druku wszystkich 75 konspektów
 src/zmierz_strony.mjs   pomiar, czy strony mieszczą się na A4
 src/do_pdf.mjs          wydruk obu druków do PDF
 ```

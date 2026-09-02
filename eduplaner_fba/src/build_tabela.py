@@ -20,6 +20,7 @@ from pathlib import Path
 
 import dane_poziomy as P
 import konspekt_fba as KON
+import konspekty_fba as KF
 
 KOR = Path(__file__).resolve().parent.parent
 
@@ -104,6 +105,28 @@ td.g.haskon .tresc{text-decoration:underline; text-decoration-color:var(--line-2
   text-underline-offset:2px}
 .kzn{display:inline-block; margin-top:5px; background:var(--accent); color:var(--on-accent);
   border-radius:999px; padding:3px 9px; font-size:8px; letter-spacing:.09em; text-transform:uppercase}
+/* Wykaz konspektów: siatka minmax, nie rząd pigułek — pigułka miała szerokość
+   swojego tytułu, więc kolumny nie trzymały pionu. Pasek rozwijania w kolorze
+   akcentu, bo wykaz schowany pod szarą belką nauczyciel przeoczy. */
+.kspis{border:1px solid var(--accent); border-radius:10px; margin-bottom:12px; overflow:hidden}
+.kspis > summary{cursor:pointer; list-style:none; background:var(--accent); color:var(--on-accent);
+  padding:9px 15px; font:700 11px/1.4 "DM Sans",Arial,sans-serif; letter-spacing:.08em;
+  text-transform:uppercase; display:flex; align-items:center; gap:9px}
+.kspis > summary::-webkit-details-marker{display:none}
+.kspis > summary::before{content:"▸"; font-size:13px; transition:transform .15s}
+.kspis[open] > summary::before{transform:rotate(90deg)}
+.kspis-tresc{padding:12px 15px 14px}
+.kgrupa + .kgrupa{margin-top:12px}
+.kgrupa h4{margin:0 0 7px; font-size:10px; letter-spacing:.11em; text-transform:uppercase;
+  color:var(--accent)}
+.ksiatka{display:grid; grid-template-columns:repeat(auto-fill,minmax(232px,1fr)); gap:7px}
+.kbtn{text-align:left; background:var(--paper); border:1px solid var(--line); border-radius:8px;
+  padding:7px 10px; cursor:pointer; font:400 10.5px/1.4 "DM Sans",Arial,sans-serif; color:var(--tekst)}
+.kbtn:hover{border-color:var(--accent)}
+.kbtn:hover b{color:var(--accent)}
+.kbtn .knr{display:inline-block; min-width:26px; font-weight:700; color:var(--ink); font-size:9.5px}
+.kbtn b{color:var(--ink); font-size:11px}
+.kbtn .kzast{display:block; color:var(--szary); font-size:9px; margin-top:2px}
 .wersja[hidden]{display:none}
 .stopka{margin-top:16px; border-top:1px solid var(--line); padding-top:9px;
   display:flex; justify-content:space-between; font-size:9px; color:var(--szary); letter-spacing:.04em}
@@ -120,7 +143,7 @@ td.g.haskon .tresc{text-decoration:underline; text-decoration-color:var(--line-2
   tr{break-inside:avoid}
   .uwaga{break-inside:avoid}
   .kmodal{display:none !important}
-  .kzn{display:none}
+  .kzn, .kspis{display:none}
   td.g.haskon .tresc{text-decoration:none}
   /* Druk konspektu: znika tabela, zostaje sama karta — pionowo, bez przycisków. */
   html.print-konspekt .ark{display:none !important}
@@ -133,6 +156,19 @@ td.g.haskon .tresc{text-decoration:underline; text-decoration-color:var(--line-2
     page:kon; zoom:.96}
   html.print-konspekt .kclose, html.print-konspekt .kfoot, html.print-konspekt .kesc{display:none}
   html.print-konspekt .zal{break-before:page; border-top:none}
+  /* Zeszyt jednej wersji wiekowej: wszystkie jej konspekty po kolei, każdy
+     scenariusz i każdy arkusz na własnej kartce. */
+  html.print-zeszyt .ark{display:none !important}
+  html.print-zeszyt .kmodal{display:none !important}
+  html.print-zeszyt[data-zeszyt="A"] .kmodal[data-wersja="A"],
+  html.print-zeszyt[data-zeszyt="B"] .kmodal[data-wersja="B"],
+  html.print-zeszyt[data-zeszyt="C"] .kmodal[data-wersja="C"]{display:block !important;
+    position:static; background:none; padding:0; overflow:visible; break-before:page}
+  html.print-zeszyt .kcard{box-shadow:none; max-width:none; padding:0; border-radius:0;
+    page:kon; zoom:.96}
+  html.print-zeszyt .kclose, html.print-zeszyt .kfoot, html.print-zeszyt .kesc{display:none}
+  html.print-zeszyt .zal{break-before:page; border-top:none}
+  html.print-zeszyt .kwsk, html.print-zeszyt .kmod, html.print-zeszyt .zal-karta{break-inside:avoid}
   /* Zagęszczenie na druk — konspekt ma się zmieścić na jednej kartce, tak jak
      konspekty w banku. Pomiar przed: 1380 px scenariusza przy budżecie 1047. */
   html.print-konspekt .ktitle{margin:9px 0 8px}
@@ -175,6 +211,48 @@ td.g.haskon .tresc{text-decoration:underline; text-decoration-color:var(--line-2
   html.print-konspekt .kcele{gap:7px}
   html.print-konspekt .kdwie{gap:9px}
   html.print-konspekt .kwsk{padding:6px 10px; line-height:1.42}
+  /* To samo zagęszczenie w zeszycie — konspekt ma się zmieścić na jednej kartce, tak jak
+     konspekty w banku. Pomiar przed: 1380 px scenariusza przy budżecie 1047. */
+  html.print-zeszyt .ktitle{margin:9px 0 8px}
+  html.print-zeszyt .ktitle h3{font-size:16px}
+  html.print-zeszyt .ksec{margin:9px 0 5px}
+  html.print-zeszyt .kcele{gap:8px}
+  html.print-zeszyt .kcel{padding:7px 9px}
+  html.print-zeszyt .ktresc{font-size:10.5px; line-height:1.4}
+  html.print-zeszyt .ksmart li{font-size:8.8px; line-height:1.32}
+  html.print-zeszyt .kkryt{font-size:8.8px; padding-top:4px; margin-top:4px}
+  html.print-zeszyt .klista{font-size:9.5px; line-height:1.4}
+  html.print-zeszyt .kkurs{font-size:8.8px; margin:4px 0 3px}
+  html.print-zeszyt table.ktab{font-size:9.5px}
+  html.print-zeszyt table.ktab td{padding:4px 7px; line-height:1.35}
+  html.print-zeszyt .kmod{font-size:9px; padding:6px 8px}
+  html.print-zeszyt .kwsk{font-size:9.5px; padding:7px 11px; margin-top:8px}
+  html.print-zeszyt .kmeta{margin-top:6px; gap:8px}
+  html.print-zeszyt .kmeta .field{padding:2px 2px 3px; font-size:9px}
+  html.print-zeszyt .kmeta .field .val{font-size:10.5px}
+  html.print-zeszyt .khead{padding-bottom:8px}
+  html.print-zeszyt .khead .kw{font-size:12.5px}
+  html.print-zeszyt .ksec{margin:7px 0 4px}
+  html.print-zeszyt .ksec .sq{width:19px; height:19px}
+  html.print-zeszyt .ksmart{gap:2px; margin-top:5px}
+  html.print-zeszyt .ksmart li{font-size:8.4px; line-height:1.28}
+  html.print-zeszyt table.ktab td{padding:3px 6px}
+  html.print-zeszyt table.ktab th{padding:4px 6px}
+  html.print-zeszyt .kmod{font-size:8.6px; line-height:1.34}
+  html.print-zeszyt .kmods{gap:7px}
+  html.print-zeszyt .ktitle{margin:7px 0 6px}
+  html.print-zeszyt .ktitle h3{font-size:15px}
+  html.print-zeszyt .ktitle .kp{padding:3px 11px; font-size:8.5px}
+  html.print-zeszyt .ktitle .ksfera{margin:6px 0 2px; font-size:8.6px}
+  html.print-zeszyt .ktitle .kpod{font-size:10px}
+  html.print-zeszyt .ktresc{font-size:10px}
+  html.print-zeszyt .klista{font-size:9.2px; line-height:1.36}
+  /* Zapas na fonty: pomiar leci na Arialu (bez sieci), a DM Sans jest odrobinę
+     wyższy — 30 px luzu trzyma konspekt na jednej kartce w obu przypadkach. */
+  html.print-zeszyt .kcel{padding:6px 9px}
+  html.print-zeszyt .kcele{gap:7px}
+  html.print-zeszyt .kdwie{gap:9px}
+  html.print-zeszyt .kwsk{padding:6px 10px; line-height:1.42}
   html.print-konspekt .kwsk, html.print-konspekt .kmod, html.print-konspekt .zal-karta{break-inside:avoid}
 }
 """
@@ -192,12 +270,6 @@ def _legenda():
     return f'<div class="legenda">{k}</div>'
 
 
-# Wskaźnik z gotowym konspektem: para (wersja, numer). W banku to samo robi
-# słownik KONSPEKTY — komórka bez konspektu zostaje zwykłą komórką, a nie
-# przyciskiem, który po kliknięciu nic nie robi.
-MA_KONSPEKT = (KON.KONSPEKT["wersja"], KON.KONSPEKT["wskaznik"])
-
-
 def _wiersze(kod_wersji):
     w = []
     for rzym, f in P.CELE.items():
@@ -205,14 +277,15 @@ def _wiersze(kod_wersji):
                  f'<span class="li">pięć wskaźników kwestionariusza</span></td></tr>')
         for i, wsk in enumerate(f["wskazniki"], 1):
             nrw = f"{rzym}.{i}"
-            kon = (kod_wersji, nrw) == MA_KONSPEKT
+            kid = KF.kid(nrw, kod_wersji)
             kom = ""
             for (kod, _n, kryt, hor, _o), tekst in zip(P.POZIOMY, wsk[kod_wersji]):
-                atr = (f' class="g haskon" data-lvl="{kod}" tabindex="0" role="button"'
-                       f' title="Otwórz konspekt zajęć do tego celu"' if kon else ' class="g"')
-                kom += (f'<td{atr}><span class="tresc">{_e(tekst)}</span>'
+                kom += (f'<td class="g haskon" data-kon="{kid}" data-lvl="{kod}"'
+                        f' data-wersja="{kod_wersji}" data-wsk="{nrw}" tabindex="0" role="button"'
+                        f' title="Otwórz konspekt zajęć do tego celu">'
+                        f'<span class="tresc">{_e(tekst)}</span>'
                         f'<span class="ram">{kryt} sytuacji · {hor}</span></td>')
-            znak = ('<span class="kzn">konspekt zajęć — kliknij cel</span>' if kon else '')
+            znak = (f'<span class="kzn">konspekt: {_e(KF.RDZEN[nrw]["tytul"])}</span>')
             w.append(f'<tr data-wsk="{nrw}"><td class="nr">{nrw}</td>'
                      f'<td class="wsk"><b>{_e(wsk["wskaznik"])}</b>'
                      f'<span>zachowanie zastępcze: {_e(wsk["zastepcze"])}</span>{znak}</td>{kom}</tr>')
@@ -223,6 +296,7 @@ def _tabela(kod_wersji, nazwa_wersji, aktywna):
     naglowki = "".join(f'<th class="{kod}">{nazwa}</th>' for kod, nazwa, *_ in P.POZIOMY)
     ukryj = "" if aktywna else " hidden"
     return f'''<section class="wersja" id="w-{kod_wersji}" data-wersja="{kod_wersji}"{ukryj}>
+  {KON.spis(kod_wersji)}
   <table>
     <colgroup><col style="width:5%"><col style="width:32%">
       <col style="width:21%"><col style="width:21%"><col style="width:21%"></colgroup>
@@ -309,7 +383,7 @@ def dokument():
     <span>druk FBA-T · tabela drukuje się poziomo · {cele} celów</span>
   </div>
 </div>
-{KON.modal()}
+{KON.modale()}
 <script>{SKRYPT}{KON.SKRYPT}</script>
 </body>
 </html>

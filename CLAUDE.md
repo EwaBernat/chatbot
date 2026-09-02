@@ -116,11 +116,16 @@ na Poziomie I nie rośnie do 5 z 5 — „za każdym razem” to w przedszkolu c
 osiągnięcia. Tabela drukuje się poziomo, a pas z nazwą wersji siedzi w `thead`, żeby
 powtarzał się na każdej kartce.
 
-Wskaźnik I.1 wersji A ma w tabeli **przykładowy konspekt** we wzorze druku KC-3
-(`src/konspekt_fba.py`) — otwiera się kliknięciem celu, a cel edukacyjny czyta na żywo
-z tabeli, nie z kopii. Drukuje się pionowo mimo poziomej tabeli wokół (`@page kon`),
-scenariusz na jednej kartce. Karty w materiale mają puste pola na symbole z biblioteki
-EduPlaner — symbol dorysowany pod jeden konspekt przestaje być dla dziecka słowem.
+Każdy wskaźnik w każdej wersji ma **konspekt zajęć** we wzorze KC-3 — **75 scenariuszy**
+(treść: `src/konspekty_fba_1..5.py`, moduł na funkcję; scalanie: `konspekty_fba.py`;
+renderowanie: `konspekt_fba.py`). Jeden konspekt obsługuje trzy poziomy: poziom zmienia
+sekcję VI, nie scenariusz. Otwiera się kliknięciem celu (pokazuje ten poziom) albo
+z wykazu (pokazuje wszystkie trzy), a cel edukacyjny czyta **na żywo z tabeli**, nie
+z kopii. Rdzeń konspektu jest wspólny dla trzech wersji wiekowych, wariant niesie cel
+terapeutyczny, przebieg N/D i pomoc dla wieku. Drukuje się pionowo mimo poziomej tabeli
+wokół (`@page kon`); przycisk w wykazie drukuje cały zeszyt wersji — 25 konspektów, 50 stron.
+Pomiar: `node src/zmierz_konspekty.mjs`. Karty w materiale mają puste pola na symbole
+z biblioteki EduPlaner — symbol dorysowany pod jeden konspekt przestaje być dla dziecka słowem.
 
 Kolor poziomów (czerwony · żółty · zielony) jest **tylko w legendzie na górze tabeli**;
 w samej tabeli koloru nie ma, bo 75 kolorowych komórek przestaje cokolwiek wyróżniać.

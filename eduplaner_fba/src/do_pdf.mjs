@@ -42,18 +42,20 @@ for (const plik of pliki) {
                 margin: { top: '9mm', right: '9mm', bottom: '9mm', left: '9mm' } });
   console.log(`${path.basename(out)} · ${poziomo ? 'poziomo' : 'pionowo'} · ${(fs.statSync(out).size / 1024).toFixed(0)} kB`);
 
-  /* Konspekt siedzi w tabeli jako modal i normalny wydruk go pomija — trzeba
-     go otworzyć klikiem, tak jak robi to nauczyciel. Wychodzi pionowo:
-     scenariusz na jednej kartce, materiał do wydruku na drugiej. */
-  const kom = await p.$$('td.g.haskon');
-  if (poziomo && kom.length) {
-    await kom[0].click();
-    await p.evaluate(() => document.documentElement.classList.add('print-konspekt'));
-    const kon = path.join(path.dirname(plik), 'Konspekt_FBA_A-I1.pdf');
-    await p.pdf({ path: kon, format: 'A4', printBackground: true,
-                  margin: { top: '10mm', right: '10mm', bottom: '10mm', left: '10mm' } });
-    await p.evaluate(() => document.documentElement.classList.remove('print-konspekt'));
-    console.log(`${path.basename(kon)} · pionowo · ${(fs.statSync(kon).size / 1024).toFixed(0)} kB`);
+  /* Konspekty siedzą w tabeli jako modale i normalny wydruk je pomija. Zeszyt
+     jednej wersji wiekowej to 25 scenariuszy plus 25 arkuszy — po jednej
+     kartce A4 pionowo na każdy. */
+  if (poziomo) {
+    for (const w of ['A', 'B', 'C']) {
+      await p.evaluate(v => { document.documentElement.dataset.zeszyt = v;
+        document.documentElement.classList.add('print-zeszyt'); }, w);
+      const kon = path.join(path.dirname(plik), `Konspekty_FBA_${w}.pdf`);
+      await p.pdf({ path: kon, format: 'A4', printBackground: true,
+                    margin: { top: '10mm', right: '10mm', bottom: '10mm', left: '10mm' } });
+      await p.evaluate(() => { document.documentElement.classList.remove('print-zeszyt');
+        delete document.documentElement.dataset.zeszyt; });
+      console.log(`${path.basename(kon)} · pionowo · ${(fs.statSync(kon).size / 1024).toFixed(0)} kB`);
+    }
   }
 }
 await b.close();
