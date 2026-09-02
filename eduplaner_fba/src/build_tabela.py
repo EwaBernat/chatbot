@@ -20,6 +20,7 @@ from pathlib import Path
 
 import dane_poziomy as P
 import karta_pomocy as KP
+import logo as LOGO
 import konspekt_fba as KON
 import konspekty_fba as KF
 
@@ -46,8 +47,6 @@ body{margin:0; background:var(--tlo); color:var(--tekst);
 
 .head{display:flex; align-items:flex-start; gap:12px; border-bottom:2px solid var(--line-2);
   padding-bottom:11px; margin-bottom:14px}
-.mark{flex:0 0 auto; width:34px; height:34px; border-radius:7px; background:var(--ink);
-  color:#fff; font:700 10px/34px "DM Sans",Arial,sans-serif; text-align:center; letter-spacing:.06em}
 .head h1{margin:0; font-size:15px; color:var(--ink)}
 .head .sub{font-size:9.5px; letter-spacing:.16em; text-transform:uppercase; color:var(--szary); margin-top:3px}
 .head .prawa{margin-left:auto; text-align:right}
@@ -343,13 +342,13 @@ def dokument():
 <title>Cele SMART do wskaźników FBA — wiek i poziom wsparcia</title>
 <link rel="stylesheet" media="print" onload="this.media='all'"
   href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&display=swap">
-<style>{STYL}{KON.STYL}{KP.STYL}
+<style>{LOGO.zmienna()}{STYL}{KON.STYL}{KP.STYL}{KON.style_symboli()}{LOGO.STYL}
 .sr-only{{position:absolute; width:1px; height:1px; overflow:hidden; clip:rect(0 0 0 0)}}</style>
 </head>
 <body>
 <div class="ark">
   <div class="head">
-    <span class="mark">PCTP</span>
+    <span class="mark" role="img" aria-label="Logo PCTP"></span>
     <div>
       <h1>EduPlaner 2026</h1>
       <div class="sub">ABC / FBA · tabela celów SMART · wiek i poziom wsparcia</div>

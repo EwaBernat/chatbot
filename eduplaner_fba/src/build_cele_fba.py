@@ -26,6 +26,7 @@ from datetime import date
 from pathlib import Path
 
 import dane_fba as D
+import logo as LOGO
 
 KOR = Path(__file__).resolve().parent.parent
 STRON = 8
@@ -53,8 +54,9 @@ body{margin:0; background:var(--tlo); color:var(--tekst);
 /* nagłówek i stopka — układ przepisany z karty ABC/FBA */
 .head{display:flex; align-items:flex-start; gap:12px; border-bottom:2px solid var(--line-2);
   padding:12px 4px 9px; margin-bottom:10px}
-.mark{flex:0 0 auto; width:34px; height:34px; border-radius:7px; background:var(--ink);
-  color:#fff; font:700 10px/34px "DM Sans",Arial,sans-serif; text-align:center; letter-spacing:.06em}
+.mark{flex:0 0 auto; width:38px; height:38px; border-radius:50%;
+  background:center/cover no-repeat var(--soft); background-image:var(--logo);
+  box-shadow:0 0 0 1px var(--line-2)}
 .head h1{margin:0; font-size:14px; font-weight:700; color:var(--ink); letter-spacing:.01em}
 .head .sub{font-size:9.5px; letter-spacing:.16em; text-transform:uppercase; color:var(--szary); margin-top:3px}
 .head .prawa{margin-left:auto; text-align:right}
@@ -146,7 +148,7 @@ def _e(t):
 
 def _naglowek(tytul, nazwa_sekcji):
     return f"""  <div class="head">
-    <span class="mark">PCTP</span>
+    <span class="mark" role="img" aria-label="Logo PCTP"></span>
     <div>
       <h1>EduPlaner 2026</h1>
       <div class="sub">ABC / FBA · {_e(tytul)}</div>
@@ -347,7 +349,7 @@ def dokument(uczen, klasa, data, wyniki):
 <title>{_e(tytul)}{" — " + _e(uczen) if uczen else ""}</title>
 <link rel="stylesheet" media="print" onload="this.media='all'"
   href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&display=swap">
-<style>{STYL}</style>
+<style>{LOGO.zmienna()}{STYL}</style>
 </head>
 <body>
 {chr(10).join(strony)}

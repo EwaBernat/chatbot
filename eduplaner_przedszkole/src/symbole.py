@@ -270,6 +270,18 @@ SYMBOLE = {
  "umiem_spiewam":    ("Śpiewam", "a child singing with an open mouth and music notes"),
  "umiem_biegam":     ("Biegam", "a child running happily"),
  "umiem_pomagam":    ("Pomagam", "a child handing a toy to another child"),
+
+ # ——— regulacja i sygnały (konspekty FBA) ————————————————————————————
+ "sensor_gniotek":  ("Ściskam", "a small round squeeze ball with soft dents pressed into it"),
+ "sensor_tasma":    ("Ciągnę", "a wide elastic band stretched between the front legs of a small chair"),
+ "sensor_faktura":  ("Dotykam", "a small square patch of fabric with a bumpy ridged texture"),
+ "sensor_zamiana":  ("Zamiana", "two curved arrows forming a circle around a small toy"),
+ "sensor_ucisk":    ("Ucisk", "a folded heavy weighted blanket with stitched squares"),
+ "karta_czerwona":  ("Czerwona karta", "a plain red rectangular card with rounded corners"),
+ "plan_zmiana":     ("Zmiana", "a day-plan strip with the middle picture card being swapped, two curved arrows"),
+ "gest_skinienie":  ("Widzę cię", "a friendly adult face smiling and nodding, with a small green tick"),
+ "gest_dziekuje":   ("Dziękuję", "a child moving one open hand forward from the chin, the sign for thank you"),
+ "sygnal_ciala":    ("Mój sygnał", "a child seen from the front with tummy and hands marked by small dots"),
 }
 
 

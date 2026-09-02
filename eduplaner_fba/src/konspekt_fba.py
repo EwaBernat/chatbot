@@ -18,9 +18,11 @@ To nie jest brak: symbol do tych kart **bierze się z biblioteki EduPlaner**,
 Symbol dorysowany pod jeden konspekt przestaje być słowem.
 """
 
+import base64
 import html
 
 import karta_pomocy as KP
+import symbole_fba as SF
 import konspekty_fba as KF
 
 
@@ -122,14 +124,21 @@ table.ktab td.lp{text-align:center; font-weight:700; color:var(--ink); width:26p
 .zal-wstep{font-size:10.5px; color:var(--szary); line-height:1.5; margin:0 0 11px}
 .zal-siatka{display:grid; grid-template-columns:1fr 1fr; gap:11px}
 .zal-karta{border:2px dashed var(--line-2); border-radius:10px; padding:11px 12px 13px; text-align:center}
-.zal-karta .pole{height:118px; border:1px solid var(--line); border-radius:8px; background:var(--soft);
+.zal-karta .pole{height:118px; border:1px solid var(--line); border-radius:8px; background-color:var(--soft);
   display:grid; place-items:center; color:var(--szary); font-size:9px; letter-spacing:.08em;
   text-transform:uppercase; padding:0 10px; margin-bottom:8px}
+/* Pole z symbolem z biblioteki: obrazek w całości, nie przycięty — dziecko ma
+   rozpoznać ten sam znak, co na tablicy AAC. */
+.pole.ma{background-color:var(--paper); background-repeat:no-repeat;
+  background-position:center; background-size:contain; border-color:var(--line-2)}
 .zal-karta b{display:block; font-size:15px; color:var(--ink); letter-spacing:.04em}
 .zal-karta span{font-size:9px; color:var(--szary)}
 .zal-pasek{display:grid; grid-template-columns:repeat(3,1fr); gap:9px; margin-top:11px}
 .zal-pasek div{border:2px dashed var(--line-2); border-radius:10px; padding:9px; text-align:center}
-.zal-pasek .pole{height:74px; border:1px solid var(--line); border-radius:8px; background:var(--soft); margin-bottom:6px}
+.zal-pasek .pole{height:74px; border:1px solid var(--line); border-radius:8px; background-color:var(--soft);
+  margin-bottom:6px; font-size:0}
+.zal-pasek .pole.ma{background-color:var(--paper); background-repeat:no-repeat;
+  background-position:center; background-size:contain}
 .zal-pasek b{font-size:11px; color:var(--ink)}
 """
 
@@ -243,11 +252,38 @@ SKRYPT = """
 """
 
 
-def _arkusz(a):
+def _obraz_symbolu(kod):
+    """Pole karty: klasa symbolu albo prośba o wklejenie własnego.
+
+    Obraz osadzamy raz, w arkuszu stylów (`style_symboli`), a nie w każdym
+    polu z osobna: ten sam symbol wraca na kartach kilkunastu konspektów,
+    a przy 525 polach dokument urósłby z 5 do 18 MB.
+    """
+    if not SF.plik(kod):
+        return '<div class="pole">miejsce na symbol<br>z biblioteki EduPlaner</div>'
+    return f'<div class="pole ma sym-{kod}" role="img" aria-label="Symbol"></div>'
+
+
+def style_symboli():
+    """Każdy użyty symbol osadzony dokładnie raz, jako klasa CSS."""
+    kody = sorted({k for lista in list(SF.KARTY.values()) + list(SF.PASKI.values())
+                   for k in lista if SF.plik(k)})
+    regu = []
+    for k in kody:
+        dane = base64.b64encode(SF.plik(k).read_bytes()).decode()
+        regu.append(f".sym-{k}{{background-image:url(data:image/jpeg;base64,{dane})}}")
+    return "\n".join(regu)
+
+
+def _arkusz(a, nr):
+    kody = SF.KARTY.get(nr, [None] * 4)
+    kodyp = SF.PASKI.get(nr, [None] * 3)
     karty = "".join(
-        f'<div class="zal-karta"><div class="pole">miejsce na symbol<br>z biblioteki EduPlaner</div>'
-        f'<b>{_e(t)}</b><span>{_e(o)}</span></div>' for t, o in a["karty"])
-    pasek = "".join(f'<div><div class="pole"></div><b>{_e(x)}</b></div>' for x in a["pasek"])
+        f'<div class="zal-karta">{_obraz_symbolu(kody[i] if i < len(kody) else None)}'
+        f'<b>{_e(t)}</b><span>{_e(o)}</span></div>' for i, (t, o) in enumerate(a["karty"]))
+    pasek = "".join(
+        f'<div>{_obraz_symbolu(kodyp[i] if i < len(kodyp) else None)}<b>{_e(x)}</b></div>'
+        for i, x in enumerate(a["pasek"]))
     return f'''    <section class="zal">
       <div class="zal-head"><span class="kp">Materiał do wydruku · A4</span><h4>{_e(a["tytul"])}</h4></div>
       <p class="zal-wstep">{_e(a["wstep"])}</p>
@@ -275,7 +311,7 @@ def modal(K):
   <div class="kcard">
     <button class="kclose" data-zamknij aria-label="Zamknij konspekt" title="Zamknij (Esc)">✕</button>
     <div class="khead">
-      <span class="mark">PCTP</span>
+      <span class="mark" role="img" aria-label="Logo PCTP"></span>
       <div>
         <div class="kw">EduPlaner 2026</div>
         <div class="ks">Konspekt · funkcja {_e(K["funkcja"])} · wersja {K["wersja"]} · {_e(K["wiek"])}
@@ -363,7 +399,7 @@ def modal(K):
     <p class="kkurs">Karta pomocy z ilustracją i poleceniem nagranym jej głosem, a pod nią
       materiał do wycięcia — cztery karty i pasek kolejności, A4 pionowo.</p>
 {KP.karta(K["nr"], K["wersja"], K["wiek"])}
-{_arkusz(K["arkusz"])}
+{_arkusz(K["arkusz"], K["nr"])}
 
     <div class="kfoot">
       <button class="chipbtn" data-zamknij>✕ Zamknij i wróć do tabeli</button>
