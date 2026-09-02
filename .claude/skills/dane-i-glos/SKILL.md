@@ -77,6 +77,18 @@ jedno polecenie załatwia całość (przyjmuje też film, sam wyciągnie z niego
 python3 .../skonfiguruj_glos.py nagranie.mp4 --nazwa "Ewa - narracja PL"
 ```
 
+**Gdy głos jest już sklonowany na koncie ElevenLabs** — a tak bywa najczęściej, bo
+użytkowniczka klonuje go w aplikacji — nie klonuj go drugi raz. Wystarczy zapamiętać
+istniejący identyfikator; nic nie zostaje wysłane i nie ubywa miejsc na głosy:
+
+```bash
+python3 .../skonfiguruj_glos.py --zapamietaj <voice_id> --nazwa "Ewa - narracja PL"
+```
+
+`voice_id` znajdziesz przez `elevenlabs_tts.py --glosy`, a gdy skrypty nie mają dostępu
+do sieci — przez złącze MCP: `creative_list_voices`. Jej głosy to te z kategorii `cloned`
+i języka `pl`; `premade` i `professional` to głosy cudze.
+
 Skrypt wyciąga dźwięk, sprawdza próbki, klonuje głos i **zapisuje `voice_id`
 w pamięci skilla** (`~/.config/dane-i-glos/konfiguracja.json`) — poza repozytorium,
 bo do repozytorium trafiać nie powinien. Kluczy API ten plik nie przyjmuje.

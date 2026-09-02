@@ -22,6 +22,7 @@ import os
 import shutil
 import subprocess
 import sys
+import re
 import tempfile
 import urllib.error
 import urllib.request
@@ -113,6 +114,9 @@ def main() -> int:
                     help="usun zapamietany glos z konfiguracji")
     ap.add_argument("--tylko-sprawdz", action="store_true",
                     help="sprawdz nagrania i zakoncz — nic nie zostanie wyslane")
+    ap.add_argument("--zapamietaj", metavar="VOICE_ID",
+                    help="zapamietaj glos juz sklonowany na koncie ElevenLabs "
+                         "(nie wysyla nagran, nie klonuje niczego)")
     a = ap.parse_args()
 
     if a.pokaz:
@@ -127,8 +131,28 @@ def main() -> int:
                                         encoding="utf-8")
         print("Zapomniane. Nagrania na dysku i glos na koncie ElevenLabs zostaja nietkniete.")
         return 0
+    if a.zapamietaj:
+        voice_id = a.zapamietaj.strip()
+        if a.nagrania:
+            ap.error("--zapamietaj dotyczy glosu juz istniejacego — nie podawaj nagran")
+        if not re.fullmatch(r"[A-Za-z0-9]{16,32}", voice_id):
+            print(f"To nie wyglada na voice_id ElevenLabs: {voice_id!r}\n"
+                  "Identyfikator to ciag liter i cyfr, np. jq4ZUryuBeDqmtkKtBZ4.",
+                  file=sys.stderr)
+            return 1
+        sciezka = konfiguracja.zapisz(
+            elevenlabs_voice_id=voice_id,
+            elevenlabs_voice_name=a.nazwa,
+            utworzono=str(date.today()),
+        )
+        print(f"Gotowe. Skill pamieta juz Twoj glos.\n"
+              f"  nazwa:    {a.nazwa}\n"
+              f"  voice_id: {voice_id}\n"
+              f"  zapisane: {sciezka}\n\n"
+              f"Nic nie zostalo wyslane — glos byl juz sklonowany na Twoim koncie.")
+        return 0
     if not a.nagrania:
-        ap.error("podaj pliki z nagraniami (albo --pokaz / --zapomnij)")
+        ap.error("podaj pliki z nagraniami (albo --zapamietaj / --pokaz / --zapomnij)")
 
     with tempfile.TemporaryDirectory() as tymczasowy:
         katalog = Path(tymczasowy)
