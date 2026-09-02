@@ -115,6 +115,7 @@ eduplaner_fba/
   src/karta_pomocy.py      renderowanie karty pomocy z nagraniem (wzór KC-4)
   src/symbole_fba.py       mapowanie kart i pasków na bibliotekę symboli KPOF
   src/moje_konspekty_fba.py  edytor własnych konspektów nauczycielki
+  src/eksport_json.py      cała treść modułu do JSON, dla aplikacji
   src/kompresuj_fba.py     PNG → k_*.jpg 900 px, MP3 → 40 kbps mono
   src/zmierz_konspekty.mjs   pomiar: czy konspekt mieści się na kartce
   src/zmierz_strony.mjs    pomiar stron druku FBA-C
@@ -139,6 +140,7 @@ projekcie już raz kosztowały przebudowę.
 | „brakuje materiału do wycięcia" | `references/konspekt.md` (sekcja *Arkusz*) | ewentualnie nowy symbol w banku KPOF |
 | „popraw edytor własnych konspektów" | `references/edytor.md` | test w Chromium, nie oglądanie |
 | „zrób druk dla ucznia Zosi" | niżej, sekcja *Druk dla konkretnego dziecka* | plik **poza** repozytorium |
+| „spakuj to dla Arka / dla programisty" | niżej, sekcja *Paczka dla programisty* | `spakuj_dla_programisty.py` |
 
 ## Pętla robocza
 
@@ -211,6 +213,42 @@ python3 src/build_cele_fba.py \
 kryterium i horyzont każdego celu. **Dokument z nazwiskiem nie wchodzi do
 repozytorium** (`eduplaner_fba/.gitignore`) — nazwisko i punktacja to dane osobowe
 dziecka. Zapisuj go poza katalogiem projektu i powiedz jej, gdzie leży.
+
+## Paczka dla programisty
+
+Gdy prosi o komplet dla kogoś, kto wpina moduł w aplikację:
+
+```bash
+python3 ../.claude/skills/cele-fba-pbs/scripts/spakuj_dla_programisty.py \
+  --cel /gdzie/zapisac --limit 28 --czytaj opis_dla_odbiorcy.md
+```
+
+Skrypt eksportuje świeży JSON, zbiera dokumenty, kod i te wersje mediów, które
+naprawdę wchodzą do dokumentów. Dzieli na części dopiero wtedy, gdy komplet nie
+mieści się w limicie — moduł FBA zwykle mieści się w jednym archiwum, a jedna
+przesyłka jest o klasę wygodniejsza niż dwie, których obie trzeba rozpakować
+w to samo miejsce.
+
+**Symbole muszą wejść razem z modułem.** Arkusze korzystają z biblioteki banku
+KPOF, więc paczka niosąca sam `eduplaner_fba/` zostawiłaby w JSON ścieżki do
+plików, których odbiorca nie ma — i 172 symbole zniknęłyby bez komunikatu.
+Skrypt dokłada je z sąsiedniego modułu, zachowując układ katalogów: **katalogiem
+bazowym dla wszystkich ścieżek z JSON jest `04_media/`**.
+
+Dołóż `--czytaj <plik.md>` z listem do odbiorcy. Najważniejsze, co ma tam być:
+
+* **wpina się JSON, HTML jest wzorcem docelowym** — kto zacznie przepisywać treść
+  z HTML-a, zrobi to raz i już nigdy nie zsynchronizuje;
+* **cel opisuje zachowanie zastępcze** — bez pola `zachowanie_zastepcze` aplikacja
+  gubi to, po co ten moduł powstał;
+* **kryterium i horyzont nie są stałe**, w FBA-C pole `cel` ma jeszcze znaczniki
+  `{proba}` i `{horyzont}` do podstawienia;
+* **cel edukacyjny konspektu czyta się z pliku celów**, nie kopiuje do konspektu;
+* **kto co czyta**: `polecenie_dla_dziecka` i `etykieta_dla_dziecka` idą do
+  dziecka, `trzy_kroki_uzycia` i opisy pod polami do dorosłego.
+
+Paczka zawiera jej nagrania głosowe — to dane biometryczne. Powiedz jej o tym,
+zanim komplet gdziekolwiek pojedzie, i napisz to samo w liście do odbiorcy.
 
 ## Kiedy pytać, a kiedy działać
 
