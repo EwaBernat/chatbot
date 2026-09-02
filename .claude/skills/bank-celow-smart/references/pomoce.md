@@ -77,6 +77,28 @@ i zostały odrzucone.
 Polecenie do dziecka to jedno–dwa zdania. Mówi, co dziecko ma zrobić, nie co
 nauczyciel zamierza osiągnąć.
 
+### Słowa, których przedszkolak nie rozumie
+
+Polecenie pisz **prostymi, krótkimi zdaniami**. Nie używaj słów, które są
+terminami dla dorosłego: *strategia*, *sygnał*, *instrukcja*, *sekwencja*,
+*komunikat*, *procedura*, *technika*, *regulacja*. Nazwij to, co dziecko widzi
+i słyszy w sali:
+
+| zamiast | napisz |
+|---|---|
+| wybierz swoją strategię | wybierz jeden sposób · zrób to, co ci pomaga |
+| kiedy usłyszysz sygnał | kiedy usłyszysz gwizdek · kiedy zadzwoni dzwonek |
+| popatrz na instrukcję | popatrz na kartkę |
+| kiedy zauważysz swój sygnał | kiedy poczujesz, że robi się trudno |
+| licznik dojdzie do końca | zadzwoni minutnik |
+| pokaż na termometrze | pokaż, jaki masz teraz kolor |
+
+Jedno zdanie = jedna czynność. Dwa krótkie zdania są lepsze niż jedno długie
+ze spójnikiem. Nazwy przedmiotów, które stoją na stoliku i dziecko ich dotyka
+(*minutnik*, *klepsydra*, *pudełko*), zostają — dziecko uczy się ich jak każdego
+innego słowa. Trudne słowa zostają tam, gdzie czyta je dorosły: w celu SMART,
+w metodach, w trzech krokach użycia i we wskazówce dla prowadzącego.
+
 ## Kontrola
 
 `sprawdz_bank.py` wypisuje karty bez zdjęcia i bez nagrania. Karta bez mediów nie

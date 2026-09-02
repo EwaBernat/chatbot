@@ -76,11 +76,13 @@ STYL = """
 td.g:hover .mkf-add, td.g:focus-within .mkf-add, .mkf-add:focus-visible{opacity:1}
 .mkf-add:hover{border-color:var(--accent); color:var(--accent); opacity:1}
 td.g.mkf-ma .mkf-add{opacity:1; border-color:var(--accent); color:var(--accent); font-size:10px}
-/* Miejsce na plus robimy pływakiem w pierwszym wierszu celu, a nie wcięciem
-   całego akapitu: plus siedzi w prawym górnym rogu, więc reszta wierszy ma
-   biec do samej krawędzi komórki — inaczej cele robią się o wiersz dłuższe
-   i tabela rośnie o kartkę. */
-@media screen{td.g.haskon .tresc::before{content:""; float:right; width:22px; height:15px}}
+/* Miejsce na plus robimy pływakiem w pierwszym wierszu, a nie wcięciem całego
+   akapitu: plus siedzi w prawym górnym rogu, więc reszta wierszy ma biec do
+   samej krawędzi komórki — inaczej cele robią się o wiersz dłuższe i tabela
+   rośnie o kartkę. Pływak wisi na **komórce**, nie na tekście celu: wpięty
+   w `.tresc` wciągał róg z przyciskiem do prostokąta tekstu i kliknięcie
+   w cel trafiało w plus zamiast otwierać gotowy konspekt. */
+@media screen{td.g.haskon::before{content:""; float:right; width:22px; height:15px}}
 
 .mkf-panel{margin:0 0 11px; border:1px solid var(--line); border-radius:10px;
   background:var(--paper); overflow:hidden}
@@ -163,6 +165,26 @@ td.g.mkf-ma .mkf-add{opacity:1; border-color:var(--accent); color:var(--accent);
 @media (max-width:760px){.mkf-pola{grid-template-columns:1fr}
   .mkf-prz-w{grid-template-columns:20px 1fr 24px}
   .mkf-prz-w textarea:last-of-type{grid-column:2}}
+/* `display:grid` z klasy bije regułę przeglądarki `[hidden]{display:none}`, bo
+   styl autora ma pierwszeństwo przed stylem przeglądarki — bez tej linijki pola
+   własnej karty pokazywały się także przy karcie gotowej. */
+.mkf-pola[hidden]{display:none}
+.mkf-media{grid-column:1/-1; display:grid; grid-template-columns:1fr 1fr; gap:12px;
+  margin-top:2px}   /* klasa `szer` działa tylko na `.mkf-pole` */
+.mkf-media-poz{border:1px solid var(--line); border-radius:9px; padding:10px 12px; background:var(--soft)}
+.mkf-media-poz > b{display:block; font:700 9.5px/1.3 inherit; letter-spacing:.07em;
+  text-transform:uppercase; color:var(--ink); margin-bottom:6px}
+.mkf-podglad{height:104px; border:1px dashed var(--line-2); border-radius:7px; background:var(--paper);
+  background-size:cover; background-position:center; display:grid; place-items:center;
+  font-size:10px; color:var(--szary); text-align:center; padding:0 10px}
+.mkf-podglad.ma{border-style:solid}
+.mkf-media-btn{display:flex; flex-wrap:wrap; gap:6px; margin-top:7px}
+.mkf-media-btn .chipbtn{font-size:10.5px; padding:5px 11px}
+.mkf-uwaga{display:block; margin-top:6px; font-size:9.5px; line-height:1.5; color:var(--szary)}
+.mkf-miejsce{margin:10px 0 0; font-size:10px; color:var(--szary)}
+.mkf-miejsce b{color:var(--ink)}
+.mkf-miejsce.pelno b{color:var(--p3)}
+
 /* Zachowanie zastępcze nad celem — we własnym konspekcie to jedyne miejsce,
    w którym widać, czego właściwie uczymy zamiast zachowania trudnego. */
 .kzast{margin:11px 0 0; padding:8px 12px; border-left:4px solid var(--accent);
@@ -243,11 +265,57 @@ SZKIELET = """
         <textarea id="mkf-wsk" rows="2"></textarea></div>
 
       <div class="mkf-grupa">VII · Materiały do wydruku</div>
-      <label class="mkf-zgoda"><input type="checkbox" id="mkf-pomoc" checked>
-        <span><b>Dołącz kartę pomocy i materiał do wycięcia z gotowego konspektu tego wskaźnika.</b>
-        Dziecko usłyszy to samo nagrane polecenie i zobaczy ten sam symbol, co przy gotowym
-        scenariuszu — pomoc, która zmienia wygląd między materiałami, przestaje być dla niego
-        słowem. Odznacz, jeśli przygotowujesz własną pomoc.</span></label>
+      <div class="mkf-pole szer"><label for="mkf-vii">Karta pomocy dydaktycznej</label>
+        <select id="mkf-vii">
+          <option value="gotowa">Gotowa — karta tego wskaźnika, ze zdjęciem i nagranym poleceniem</option>
+          <option value="wlasna">Własna — moje zdjęcie, moje kroki, moje nagranie</option>
+          <option value="brak">Bez karty pomocy</option>
+        </select></div>
+      <label class="mkf-zgoda"><input type="checkbox" id="mkf-arkusz" checked>
+        <span><b>Dołącz materiał do wycięcia z gotowego konspektu</b> — karty i pasek kolejności
+        z biblioteki symboli EduPlaner. Ten sam symbol tutaj, na tablicy AAC i w planie dnia:
+        symbol, który zmienia wygląd między materiałami, przestaje być dla dziecka słowem.</span></label>
+
+      <div class="mkf-pola" id="mkf-wlasna" hidden style="grid-column:1/-1; gap:11px 15px">
+        <div class="mkf-pole szer"><label for="mkf-p-nazwa">Nazwa pomocy
+          <span class="podp">— wymagana przy własnej karcie</span></label>
+          <input id="mkf-p-nazwa" maxlength="70" placeholder="Pudełko pierwszego kroku"></div>
+        <div class="mkf-pole"><label for="mkf-p-przygotuj">Co przygotować
+          <span class="podp">— jedno w wierszu</span></label>
+          <textarea id="mkf-p-przygotuj" rows="5"></textarea></div>
+        <div class="mkf-pole"><label for="mkf-p-kroki">Jak użyć — trzy kroki
+          <span class="podp">— jeden w wierszu</span></label>
+          <textarea id="mkf-p-kroki" rows="5"></textarea></div>
+        <div class="mkf-pole szer"><label for="mkf-p-wsk">Wskazówka do pomocy
+          <span class="podp">— dla dorosłego, nie dla dziecka</span></label>
+          <input id="mkf-p-wsk" maxlength="180"></div>
+        <div class="mkf-pole szer"><label for="mkf-p-polecenie">Polecenie dla dziecka
+          <span class="podp">— w drugiej osobie, prostymi słowami: krótkie zdania, żadnych
+          trudnych wyrazów</span></label>
+          <input id="mkf-p-polecenie" maxlength="180"
+            placeholder="Weź jedną rzecz z pudełka i połóż ją przed sobą."></div>
+        <div class="mkf-media szer">
+          <div class="mkf-media-poz"><b>Zdjęcie pomocy</b>
+            <div class="mkf-podglad" id="mkf-foto-podglad">nie dodano zdjęcia</div>
+            <div class="mkf-media-btn">
+              <button type="button" class="chipbtn" id="mkf-foto-wybierz">Wybierz zdjęcie</button>
+              <button type="button" class="chipbtn" id="mkf-foto-usun">Usuń</button>
+            </div>
+            <span class="mkf-uwaga">Zdjęcie zmniejszamy do 900 px i zapisujemy jako JPEG. Bez tego
+            jedno zdjęcie z telefonu zajęłoby cały magazyn przeglądarki.</span>
+          </div>
+          <div class="mkf-media-poz"><b>Nagranie polecenia</b>
+            <div class="mkf-podglad" id="mkf-audio-podglad">nie dodano nagrania</div>
+            <div class="mkf-media-btn">
+              <button type="button" class="chipbtn" id="mkf-audio-wybierz">Wybierz nagranie</button>
+              <button type="button" class="chipbtn" id="mkf-audio-sluchaj">▶ Posłuchaj</button>
+              <button type="button" class="chipbtn" id="mkf-audio-usun">Usuń</button>
+            </div>
+            <span class="mkf-uwaga">MP3, M4A, WAV albo OGG do 600 kB — tyle waży kilkanaście sekund
+            mowy. Nagranie z ElevenLabs Twoim głosem waży około 30 kB.</span>
+          </div>
+        </div>
+      </div>
     </form>
     <p class="mkf-blad" id="mkf-blad"></p>
     <div class="mkf-stopka">
@@ -259,6 +327,8 @@ SZKIELET = """
   </div>
 </div>
 <input type="file" id="mkf-plik" accept="application/json,.json" hidden>
+<input type="file" id="mkf-foto-plik" accept="image/*" hidden>
+<input type="file" id="mkf-audio-plik" accept="audio/*,.mp3,.m4a,.wav,.ogg" hidden>
 """
 
 
@@ -291,6 +361,7 @@ def panel(kod_wersji):
       </div>
       <div class="mkf-lista" data-mkf-lista></div>
       <p class="mkf-pusto" data-mkf-pusto>Nie masz jeszcze własnych konspektów w tej wersji.</p>
+      <p class="mkf-miejsce" data-mkf-miejsce></p>
     </div>
   </details>"""
 
@@ -308,6 +379,10 @@ SKRYPT = """
   let pamiec=null;                // kopia robocza, gdy localStorage jest zablokowany
   let edytowany=null;             // rekord w edycji albo null przy nowym konspekcie
   let kontekstBiezacy=null;       // cel, z którego wyszedł otwarty formularz
+  let media={foto:null, audio:null};  // zdjęcie i nagranie własnej karty pomocy
+  let sluchane=null;                  // podgląd nagrania w edytorze
+  const SZEROKOSC_FOTO=900;           // tyle samo, co zdjęcia pomocy gotowych
+  const LIMIT_AUDIO=600*1024;
 
   const esc=s=>String(s==null?'':s).replace(/[&<>"]/g,
     c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
@@ -325,11 +400,22 @@ SKRYPT = """
     try{const s=localStorage.getItem(KLUCZ); const t=s?JSON.parse(s):[]; return Array.isArray(t)?t:[];}
     catch(e){return [];}
   }
+  /* Zwraca 'ok', 'pamiec' (magazyn zablokowany) albo 'brak-miejsca' — komunikat
+     „nie udało się zapisać" bez powodu nie mówi nauczycielce, co ma zrobić,
+     a przy własnych zdjęciach i nagraniach magazyn kończy się naprawdę. */
   function zapisz(lista){
-    if(!MAGAZYN){pamiec=lista; return true;}
-    try{localStorage.setItem(KLUCZ,JSON.stringify(lista)); return true;}
-    catch(e){pamiec=lista; return false;}
+    if(!MAGAZYN){pamiec=lista; return 'pamiec';}
+    try{localStorage.setItem(KLUCZ,JSON.stringify(lista)); return 'ok';}
+    catch(e){
+      pamiec=lista;
+      return (e && (e.name==='QuotaExceededError'||e.code===22)) ? 'brak-miejsca' : 'blad';
+    }
   }
+  function zajete(){
+    try{return (MAGAZYN?(localStorage.getItem(KLUCZ)||''):JSON.stringify(pamiec||[])).length;}
+    catch(e){return 0;}
+  }
+  const waga=b=>b>=1048576?(b/1048576).toFixed(1).replace('.',',')+' MB':Math.round(b/1024)+' kB';
   const noweId=()=>'mkf'+Date.now().toString(36)+Math.random().toString(36).slice(2,7);
 
   /* Kontekst celu bierzemy z atrybutów komórki i wiersza — tabela już je niesie,
@@ -451,21 +537,57 @@ SKRYPT = """
     <p class="kesc">zamkniesz też klawiszem <b>Esc</b> albo kliknięciem w tło poza kartą</p>`;
   }
 
-  /* Sekcja VII bierze się z gotowego konspektu tego samego wskaźnika: klonujemy
-     jego kartę pomocy i arkusz, zamiast kopiować zdjęcie i nagranie do magazynu
-     przeglądarki. Przycisk odtwarzania działa w klonie, bo nasłuch jest
-     delegowany na dokumencie. */
+  /* Własna karta pomocy — ten sam wzór KC-4 co karty gotowe, żeby wyglądała
+     i drukowała się identycznie. Zdjęcie i nagranie siedzą w rekordzie jako
+     data-URI, a przycisk gra dzięki nasłuchowi delegowanemu na dokumencie. */
+  function kartaWlasna(k){
+    const p=k.pomoc||{};
+    const li=t=>(t||[]).map(x=>'<li>'+esc(x)+'</li>').join('');
+    const pusto='<li style="color:var(--szary); font-style:italic">— nie wypełniono</li>';
+    const foto=p.foto
+      ? '<div class="pom-foto" style="background-image:url('+p.foto+')" role="img"'
+        +' aria-label="Pomoc dydaktyczna: '+esc(p.nazwa||'')+'"></div>'
+      : '<div class="pom-foto brak">zdjęcie poglądowe<br>nie zostało dodane</div>';
+    const btn=p.audio
+      ? '<button type="button" class="pom-play" data-src="'+p.audio+'"'
+        +' aria-label="Posłuchaj polecenia">▶</button>'
+      : '<button type="button" class="pom-play" disabled'
+        +' title="Nagranie nie zostało dodane">▶</button>';
+    return '<section class="pom">'
+      +'<div class="pom-head"><span class="kp">Pomoc dydaktyczna · druk KC-4 · własna</span>'
+      +'<h5>'+esc(p.nazwa||'Pomoc własna')+'</h5>'
+      +'<span class="wiek">'+esc(WERSJE[k.wersja]||'')+'</span></div>'
+      +'<div class="pom-ciało">'+foto+'<div class="pom-tresc">'
+      +'<h6>Co przygotować</h6><ul>'+((p.przygotuj||[]).length?li(p.przygotuj):pusto)+'</ul>'
+      +'<h6>Jak użyć — trzy kroki</h6><ol>'+((p.kroki||[]).length?li(p.kroki):pusto)+'</ol>'
+      +'<div class="pom-glos">'+btn+'<span class="tekst"><b>Polecenie dla dziecka · jej głosem</b>'
+      +'„'+esc(p.polecenie||'—')+'”</span></div>'
+      +'</div></div>'
+      +'<div class="pom-wsk"><b>Wskazówka:</b> '+esc(p.wskazowka||'—')+'</div></section>';
+  }
+
+  /* Sekcja VII składa się z trzech niezależnych rzeczy: karty pomocy (gotowej
+     albo własnej), arkusza do wycięcia z gotowego konspektu i niczego. Kartę
+     i arkusz gotowe **klonujemy** z dokumentu, zamiast kopiować ich zdjęcia
+     i nagrania do magazynu przeglądarki — jedno nagranie to 30 kB w base64,
+     a magazyn kończy się po kilkunastu konspektach. */
   function dolaczVII(k,gniazdo){
-    if(!k.zPomoca) return;
+    const tryb=k.vii||(k.zPomoca===false?'brak':'gotowa');
+    const zArk=(k.zArkuszem!==undefined)?k.zArkuszem:(k.zPomoca!==false);
     const zrodlo=document.getElementById(kid(k.nr,k.wersja));
-    if(!zrodlo) return;
-    const czesci=[...zrodlo.querySelectorAll('.pom, .zal')];
-    if(!czesci.length) return;
+    const klony=[];
+    if(tryb==='gotowa'&&zrodlo){const p=zrodlo.querySelector('.pom'); if(p) klony.push(p);}
+    if(zArk&&zrodlo){const z=zrodlo.querySelector('.zal'); if(z) klony.push(z);}
+    const wlasna=(tryb==='wlasna')?kartaWlasna(k):'';
+    if(!klony.length&&!wlasna) return;
+    const skad=tryb==='wlasna'
+      ? 'Twoja karta pomocy'+(zArk?' i materiał do wycięcia z gotowego konspektu':'')+'.'
+      : 'Karta pomocy'+(zArk?' i materiał do wycięcia':'')+' z gotowego konspektu tego wskaźnika '
+        +'— to samo nagrane polecenie i ten sam symbol, co przy scenariuszu gotowym.';
     gniazdo.innerHTML='<div class="ksec"><span class="sq">VII</span>'
       +'<h4>Materiały do wydruku</h4><span class="line"></span></div>'
-      +'<p class="kkurs">Karta pomocy i materiał do wycięcia z gotowego konspektu tego '
-      +'wskaźnika — to samo nagrane polecenie i ten sam symbol, co przy scenariuszu gotowym.</p>';
-    czesci.forEach(c=>gniazdo.appendChild(c.cloneNode(true)));
+      +'<p class="kkurs">'+skad+'</p>'+wlasna;
+    klony.forEach(c=>gniazdo.appendChild(c.cloneNode(true)));
   }
 
   function pokazKonspekt(id){
@@ -524,7 +646,17 @@ SKRYPT = """
     f('mkf-mod2').value=dane?(dane.mod2||[]).join('\\n'):'';
     f('mkf-mod1').value=dane?(dane.mod1||[]).join('\\n'):'';
     f('mkf-wsk').value=dane?dane.wskazowka||'':'';
-    f('mkf-pomoc').checked=dane?dane.zPomoca!==false:true;
+    const p=(dane&&dane.pomoc)||{};
+    f('mkf-vii').value=dane?(dane.vii||(dane.zPomoca===false?'brak':'gotowa')):'gotowa';
+    f('mkf-arkusz').checked=dane
+      ? ((dane.zArkuszem!==undefined)?dane.zArkuszem:(dane.zPomoca!==false)) : true;
+    f('mkf-p-nazwa').value=p.nazwa||'';
+    f('mkf-p-przygotuj').value=(p.przygotuj||[]).join('\\n');
+    f('mkf-p-kroki').value=(p.kroki||[]).join('\\n');
+    f('mkf-p-wsk').value=p.wskazowka||'';
+    f('mkf-p-polecenie').value=p.polecenie||'';
+    media={foto:p.foto||null, audio:p.audio||null};
+    pokazMedia(); przelaczVII();
     document.getElementById('mkf-przebieg').innerHTML='';
     const kroki=(dane&&dane.przebieg&&dane.przebieg.length)?dane.przebieg:[['',''],['',''],['','']];
     kroki.forEach(p=>wierszPrzebiegu(p[0],p[1]));
@@ -564,13 +696,79 @@ SKRYPT = """
       pomoce: linie(v('mkf-pomoce')), metody: linie(v('mkf-metody')), rodzaj: v('mkf-rodzaj'),
       przebieg, mod3: linie(v('mkf-mod3')), mod2: linie(v('mkf-mod2')), mod1: linie(v('mkf-mod1')),
       wskazowka: v('mkf-wsk'),
-      zPomoca: document.getElementById('mkf-pomoc').checked,
+      vii: v('mkf-vii'),
+      zArkuszem: document.getElementById('mkf-arkusz').checked,
+      /* Własną kartę trzymamy niezależnie od tego, która jest teraz wybrana:
+         przełączenie na kartę gotową nie może skasować zdjęcia i nagrania,
+         które nauczycielka dopiero co wgrała. Miejsce zwalnia się przyciskiem
+         „Usuń" przy zdjęciu albo nagraniu — świadomie, a nie przy okazji. */
+      pomoc: pomocZFormularza(),
       utworzono: ctx.utworzono||new Date().toISOString(),
       zmieniono: new Date().toISOString()
     };
   }
+  function pomocZFormularza(){
+    const v=id=>document.getElementById(id).value.trim();
+    const p={nazwa:v('mkf-p-nazwa'), przygotuj:linie(v('mkf-p-przygotuj')),
+             kroki:linie(v('mkf-p-kroki')), wskazowka:v('mkf-p-wsk'),
+             polecenie:v('mkf-p-polecenie'), foto:media.foto, audio:media.audio};
+    const puste = !p.nazwa && !p.przygotuj.length && !p.kroki.length && !p.wskazowka
+                  && !p.polecenie && !p.foto && !p.audio;
+    return puste ? null : p;
+  }
   function blad(t){
     const b=document.getElementById('mkf-blad'); b.textContent=t; b.classList.add('jest');
+  }
+
+  /* ——— zdjęcie i nagranie własnej karty ——— */
+  function przelaczVII(){
+    document.getElementById('mkf-wlasna').hidden =
+      document.getElementById('mkf-vii').value !== 'wlasna';
+  }
+  function pokazMedia(){
+    const f=document.getElementById('mkf-foto-podglad');
+    f.classList.toggle('ma', !!media.foto);
+    f.style.backgroundImage = media.foto ? 'url('+media.foto+')' : '';
+    f.textContent = media.foto ? '' : 'nie dodano zdjęcia';
+    const a=document.getElementById('mkf-audio-podglad');
+    a.classList.toggle('ma', !!media.audio);
+    a.textContent = media.audio
+      ? 'nagranie gotowe · '+waga(Math.round(media.audio.length*0.75))
+      : 'nie dodano nagrania';
+    document.getElementById('mkf-audio-sluchaj').disabled=!media.audio;
+  }
+  /* Zdjęcie z telefonu ma 3–5 MB; w magazynie przeglądarki mieści się kilka
+     takich i koniec. Zmniejszamy je do tej samej szerokości, co zdjęcia pomocy
+     gotowych, i zapisujemy jako JPEG — na ekranie i w druku A4 nie widać różnicy. */
+  function wczytajZdjecie(plik){
+    const r=new FileReader();
+    r.onload=()=>{
+      const im=new Image();
+      im.onload=()=>{
+        const sk=Math.min(1, SZEROKOSC_FOTO/im.width);
+        const c=document.createElement('canvas');
+        c.width=Math.round(im.width*sk); c.height=Math.round(im.height*sk);
+        c.getContext('2d').drawImage(im,0,0,c.width,c.height);
+        media.foto=c.toDataURL('image/jpeg',0.82);
+        pokazMedia();
+      };
+      im.onerror=()=>alert('Nie udało się odczytać tego pliku jako zdjęcia. '
+        +'Wybierz plik JPG albo PNG.');
+      im.src=r.result;
+    };
+    r.readAsDataURL(plik);
+  }
+  function wczytajNagranie(plik){
+    if(plik.size>LIMIT_AUDIO){
+      alert('To nagranie waży '+waga(plik.size)+', a karta przyjmuje do '+waga(LIMIT_AUDIO)+'.\\n\\n'
+        +'Skróć je albo zapisz w niższej jakości — kilkanaście sekund mowy w 40 kbps mono '
+        +'to około 60 kB. Nagranie z ElevenLabs Twoim głosem waży zwykle 30 kB.');
+      return;
+    }
+    const r=new FileReader();
+    r.onload=()=>{media.audio=r.result; pokazMedia();};
+    r.onerror=()=>alert('Nie udało się odczytać tego pliku jako nagrania.');
+    r.readAsDataURL(plik);
   }
 
   /* ——— panele i oznaczenia w tabeli ——— */
@@ -598,6 +796,13 @@ SKRYPT = """
         +'<b>'+esc(k.nr)+'</b><span class="tyt">'+esc(k.tytul)+'</span>'
         +'<span class="lvl '+k.poziom+'">'+POZIOMY[k.poziom].rzym+'</span></button>').join('');
       p.querySelector('[data-mkf-pusto]').hidden=moje.length>0;
+      const m=p.querySelector('[data-mkf-miejsce]'), b=zajete();
+      m.innerHTML=lista.length
+        ? 'Twoje konspekty zajmują <b>'+waga(b)+'</b> w pamięci tej przeglądarki '
+          +'(mieści się w niej około 5 MB). Zdjęcie własnej pomocy to około 100 kB, '
+          +'nagranie — od 30 kB.'
+        : '';
+      m.classList.toggle('pelno', b>4*1048576);
       const o=p.querySelector('[data-mkf-ostrz]');
       if(!MAGAZYN){
         o.hidden=false;
@@ -686,6 +891,31 @@ SKRYPT = """
       return;
     }
   });
+  document.getElementById('mkf-vii').addEventListener('change',przelaczVII);
+  document.getElementById('mkf-foto-wybierz').addEventListener('click',
+    ()=>document.getElementById('mkf-foto-plik').click());
+  document.getElementById('mkf-audio-wybierz').addEventListener('click',
+    ()=>document.getElementById('mkf-audio-plik').click());
+  document.getElementById('mkf-foto-usun').addEventListener('click',()=>{media.foto=null; pokazMedia();});
+  document.getElementById('mkf-audio-usun').addEventListener('click',()=>{
+    if(sluchane){sluchane.pause(); sluchane=null;}
+    media.audio=null; pokazMedia();
+  });
+  document.getElementById('mkf-audio-sluchaj').addEventListener('click',()=>{
+    if(!media.audio) return;
+    if(sluchane){sluchane.pause(); sluchane=null; return;}
+    sluchane=new Audio(media.audio);
+    sluchane.onended=()=>{sluchane=null;};
+    sluchane.play();
+  });
+  document.getElementById('mkf-foto-plik').addEventListener('change',e=>{
+    if(e.target.files&&e.target.files[0]) wczytajZdjecie(e.target.files[0]);
+    e.target.value='';
+  });
+  document.getElementById('mkf-audio-plik').addEventListener('change',e=>{
+    if(e.target.files&&e.target.files[0]) wczytajNagranie(e.target.files[0]);
+    e.target.value='';
+  });
   document.getElementById('mkf-dodaj-wiersz').addEventListener('click',()=>wierszPrzebiegu('',''));
   document.getElementById('mkf-poziom').addEventListener('change',()=>{
     if(kontekstBiezacy) odswiezCelWEdytorze(kontekstBiezacy);
@@ -700,12 +930,21 @@ SKRYPT = """
     if(!k.zastepcze){blad('Wpisz zachowanie zastępcze — to ono jest treścią planu PBS. '
       +'Możesz zostawić brzmienie z tabeli.');
       document.getElementById('mkf-zast').focus(); return;}
+    if(k.vii==='wlasna'&&!(k.pomoc&&k.pomoc.nazwa)){
+      blad('Własna karta pomocy musi mieć nazwę — bez niej karta wychodzi z drukarki bez tytułu.');
+      document.getElementById('mkf-p-nazwa').focus(); return;}
     const lista=wczytaj().filter(x=>x.id!==k.id);
     lista.push(k);
-    const ok=zapisz(lista);
+    const wynik=zapisz(lista);
     zamknijEdytor(); odswiez();
-    if(!ok) alert('Konspekt jest gotowy, ale przeglądarka nie pozwoliła go zapisać na stałe. '
-                 +'Zapisz kopię do pliku JSON, zanim zamkniesz kartę.');
+    if(wynik==='brak-miejsca')
+      alert('Konspekt jest gotowy, ale w pamięci tej przeglądarki skończyło się miejsce.\\n\\n'
+        +'Zapisz kopię do pliku JSON (przycisk w panelu „Moje konspekty"), a potem usuń zdjęcie '
+        +'albo nagranie z któregoś konspektu — zdjęcie zajmuje około 100 kB, nagranie od 30 kB.\\n\\n'
+        +'Do zamknięcia karty wszystko działa normalnie.');
+    else if(wynik!=='ok')
+      alert('Konspekt jest gotowy, ale przeglądarka nie pozwoliła go zapisać na stałe. '
+        +'Zapisz kopię do pliku JSON, zanim zamkniesz kartę.');
     pokazKonspekt(k.id);
   });
   document.getElementById('mkf-usun').addEventListener('click',()=>{

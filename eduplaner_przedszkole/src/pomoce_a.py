@@ -462,7 +462,7 @@ POMOCE = {
    ["Przed wyjściem pokaż zdjęcia trasy i przypomnij sygnał zatrzymania.",
     "Dobierzcie pary; każde dziecko trzyma swój uchwyt na lince.",
     "Na trasie ćwiczcie zatrzymanie na sygnał — także tam, gdzie nie trzeba."],
-   "Idziemy na spacer. Znajdź swoją parę i chwyć uchwyt na lince. Kiedy usłyszysz sygnał, zatrzymujemy się.",
+   "Idziemy na spacer. Znajdź swoją parę i chwyć uchwyt na lince. Kiedy usłyszysz gwizdek, zatrzymujemy się.",
    "Ćwicz zatrzymanie w miejscach bezpiecznych, zanim będzie potrzebne przy jezdni. Sygnał musi być odruchem, nie decyzją."),
 
  "d9_41": ("D9-41", "Plac zabaw według zasad",

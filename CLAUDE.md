@@ -34,6 +34,25 @@ aktorska, nie interpunkcja; nagrania robione „na wielokropkach” brzmią sztu
 i zostały odrzucone. Model `eleven_multilingual_v2` czyta jej teksty
 lektorsko — do materiałów dla dzieci używaj `eleven_v3`.
 
+### Język poleceń do dziecka
+
+Każdy tekst, który **usłyszy albo przeczyta przedszkolak** — polecenie na karcie
+pomocy, etykieta na arkuszu, narracja historyjki — ma być pisany **krótkimi,
+prostymi zdaniami i bez trudnych słów**. Przedszkolak nie rozumie wyrazów typu
+*strategia*, *sygnał*, *instrukcja*, *sekwencja*, *komunikat*, *procedura*,
+*technika*. Zamiast nich piszemy to, co dziecko widzi i robi: *sposób*, *kartka*,
+*gwizdek*, *dzwonek*, *co ci pomaga*, *kiedy robi się trudno*. Jedno zdanie =
+jedna czynność; dwa krótkie zdania są lepsze niż jedno długie ze spójnikiem.
+
+Nazwy przedmiotów stojących na stoliku (*minutnik*, *klepsydra*, *pudełko*)
+zostają — dziecko uczy się ich jak każdego innego słowa. Trudne słowa zostają
+tam, gdzie czyta je **dorosły**: w celu SMART, w metodach, w trzech krokach
+użycia pomocy i we wskazówce dla prowadzącego.
+
+Sprawdzaj to **przed nagraniem** — poprawka po nagraniu kosztuje drugie nagranie.
+Zasada i tabela zamienników: skill `bank-celow-smart`
+(`references/pomoce.md`, „Słowa, których przedszkolak nie rozumie").
+
 ### Skąd to brać
 
 * skill **`dane-i-glos`** — pełny łańcuch dane → scenariusz → MP3 + SRT → wideo;
@@ -141,8 +160,13 @@ Kompresja: `python3 src/kompresuj_fba.py` (zdjęcia 900 px, nagrania 40 kbps mon
 co konspekt gotowy, a zapisany scenariusz otwiera się i drukuje tak samo. Trzy rzeczy
 specyficzne dla tego druku: **zachowanie zastępcze ma własne pole i bez niego konspekt się
 nie zapisze** (to ono jest treścią planu PBS), cel edukacyjny czyta się **na żywo z tabeli**,
-a sekcja VII klonuje kartę pomocy i arkusz z gotowego konspektu tego wskaźnika — dziecko ma
-słyszeć to samo nagranie i widzieć ten sam symbol, a media nie idą do `localStorage`.
+a sekcja VII ma trzy warianty karty pomocy: **gotową** (klonowaną z konspektu tego wskaźnika —
+dziecko ma słyszeć to samo nagranie i widzieć ten sam symbol, a media nie idą do `localStorage`),
+**własną** (pełny druk KC-4 z wgranym zdjęciem i nagraniem) albo żadną; materiał do wycięcia
+dokłada się osobnym polem. Zdjęcie własnej pomocy zmniejszamy w przeglądarce do 900 px JPEG,
+nagranie przyjmujemy do 600 kB, a panel pokazuje, ile miejsca zajęły konspekty — przy pełnym
+magazynie komunikat mówi, co zrobić, zamiast samego „nie udało się zapisać". Przełączenie karty
+na gotową nie kasuje wgranych mediów.
 
 Klucz `localStorage` jest **inny niż klucz banku KPOF** (`eduplaner2026.moje-konspekty-fba.v1`)
 i wczytywanie kopii odrzuca pozycje spoza tego druku — konspekt z banku wisiałby tu w próżni,

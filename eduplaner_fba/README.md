@@ -130,11 +130,22 @@ Trzy rzeczy, które ten edytor trzyma inaczej niż zwykły formularz:
 * **Cel edukacyjny czyta się na żywo z tabeli**, nie kopiuje do rekordu — po
   poprawce w `dane_poziomy.py` własny konspekt nie zaczyna żyć nieaktualną
   wersją celu. Zmiana poziomu w formularzu od razu pokazuje cel z tej kolumny.
-* **Sekcja VII bierze się z gotowego konspektu** tego samego wskaźnika: karta
-  pomocy ze zdjęciem i nagranym poleceniem oraz materiał do wycięcia. Klonujemy
-  gotowy węzeł dokumentu, nie kopiujemy mediów do `localStorage` — dziecko ma
-  słyszeć **to samo** polecenie i widzieć **ten sam** symbol, co przy scenariuszu
-  gotowym. Można to odznaczyć, jeśli nauczycielka robi własną pomoc.
+* **Sekcja VII ma trzy warianty karty pomocy** — gotową, własną albo żadną,
+  niezależnie od materiału do wycięcia. Karta **gotowa** i arkusz klonują się
+  z konspektu tego samego wskaźnika: kopiujemy węzeł dokumentu, nie media do
+  `localStorage`, bo dziecko ma słyszeć **to samo** polecenie i widzieć **ten
+  sam** symbol, co przy scenariuszu gotowym. Karta **własna** to pełny druk KC-4
+  pisany od zera: nazwa, co przygotować, trzy kroki, wskazówka, polecenie dla
+  dziecka, **własne zdjęcie** i **własne nagranie**.
+
+Zdjęcie własnej pomocy wgrywa się z dysku i **zmniejsza w przeglądarce** do 900 px
+(JPEG, jakość 0.82) — tyle samo, ile mają zdjęcia pomocy gotowych. Bez tego jedno
+zdjęcie z telefonu zajęłoby cały magazyn przeglądarki. Nagranie przyjmujemy do
+600 kB (MP3, M4A, WAV, OGG); nagranie z ElevenLabs jej głosem waży około 30 kB.
+Panel pokazuje, ile miejsca zajmują konspekty, a gdy magazyn się skończy, komunikat
+mówi wprost, co zrobić: zapisz kopię JSON i usuń zdjęcie albo nagranie. Przełączenie
+karty na gotową **nie kasuje** wgranego zdjęcia i nagrania — miejsce zwalnia się
+przyciskiem „Usuń", świadomie.
 
 Dane leżą w `localStorage` pod kluczem `moje_konspekty_fba.KLUCZ` — **innym niż
 klucz banku KPOF**, żeby dwa zbiory się nie mieszały; przy wczytywaniu kopii

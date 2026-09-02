@@ -134,7 +134,7 @@ POMOCE = {
    ["Omów cztery strategie i poproś o wskazanie znanych sobie.",
     "Daj zadanie trudniejsze niż zwykle i pozwól napotkać trudność.",
     "Przy zacięciu wskaż tablicę: „którą strategię wybierasz?”"],
-   "To zadanie jest trudniejsze niż zwykle i możesz na chwilę utknąć. Kiedy tak się stanie, popatrz na tablicę i wybierz jedną ze strategii. Możesz odetchnąć, zrobić przerwę, poprosić o pomoc albo podzielić zadanie na części.",
+   "To zadanie jest trudniejsze niż zwykle i możesz na chwilę utknąć. Kiedy tak się stanie, popatrz na tablicę i wybierz jeden sposób. Możesz odetchnąć, zrobić przerwę, poprosić o pomoc albo podzielić zadanie na części.",
    "Zadanie musi być naprawdę za trudne, inaczej nie ma czego ćwiczyć. Sześciolatek uczy się strategii wtedy, gdy jej potrzebuje, a nie gdy omawiamy ją przy łatwej pracy."),
 
  "c3_11": ("C3-11", "Wyraźnie i płynnie",
@@ -362,7 +362,7 @@ POMOCE = {
    ["Dziecko odczytuje z instrukcji, ile wody potrzebuje dana roślina.",
     "Odmierza wodę konewką z podziałką — nie „na oko”.",
     "Mierzy roślinę linijką i zapisuje wynik w dzienniku."],
-   "Przy każdej roślinie wisi instrukcja. Przeczytaj, ile wody potrzebuje ta, i odmierz dokładnie tyle konewką. Potem zmierz ją linijką i zapisz w dzienniku, ile urosła od wczoraj.",
+   "Przy każdej roślinie wisi kartka. Przeczytaj, ile wody potrzebuje ta, i odmierz dokładnie tyle konewką. Potem zmierz ją linijką i zapisz w dzienniku, ile urosła od wczoraj.",
    "Podziałka na konewce i linijka zamieniają podlewanie w pomiar. Bez nich dyżur przyrodniczy jest czynnością porządkową, a nie obserwacją."),
 
  "c7_30": ("C7-30", "Rada grupy",

@@ -80,7 +80,7 @@ POMOCE = {
    ["Wręcz identyfikator i połóż instrukcję tak, by dziecko ją widziało cały czas.",
     "Gdy dziecko utknie, wskaż kolejny obrazek zamiast mówić, co robić.",
     "Po skończeniu dziecko samo dokłada żeton na tablicy zleceń."],
-   "Jesteś dziś mistrzem budowy. Na instrukcji są trzy kroki. Zrób pierwszy, potem popatrz na drugi. Kiedy nie wiesz, co dalej, zajrzyj do instrukcji.",
+   "Jesteś dziś mistrzem budowy. Na kartce są trzy kroki. Zrób pierwszy, potem popatrz na drugi. Kiedy nie wiesz, co dalej, zajrzyj na kartkę.",
    "Wskazuj instrukcję zamiast podpowiadać — celem nie jest ukończone zadanie, lecz nawyk sięgania po instrukcję, który zostanie z dzieckiem w szkole."),
 
  "b2_07": ("B2-07", "Most między zajęciami",
@@ -449,7 +449,7 @@ POMOCE = {
    ["Podaj temat, ale nie technikę — dziecko wybiera dwie samodzielnie.",
     "Pracuje, mając wszystkie materiały w zasięgu wzroku i ręki.",
     "Po skończeniu odpowiada na jedno pytanie: co byś jeszcze zmienił."],
-   "Dziś pracujesz w pracowni ulepszeń. Wybierz sam dwie techniki i materiały, które ci pasują. Kiedy skończysz, powiedz mi, co byś jeszcze w tej pracy zmienił.",
+   "Dziś pracujesz w pracowni ulepszeń. Wybierz sam dwa sposoby pracy i materiały, które ci pasują. Kiedy skończysz, powiedz mi, co byś jeszcze w tej pracy zmienił.",
    "Pytanie „co byś zmienił” zamienia pracę plastyczną w projektowanie — i jest jedyną oceną, która nie odbiera dziecku poczucia autorstwa."),
 
  "b8_38": ("B8-38", "Orkiestra przedszkolna",

@@ -29,7 +29,7 @@ narysowane, karty bez zdjęcia albo bez nagrania, pokrycie podstawy. Kończy si�
 kodem 1, gdy znalazł brak. Uruchom to **przed** pracą (żeby wiedzieć, od czego
 zaczynasz) i **po** (żeby wiedzieć, że nic nie zniknęło).
 
-## Trzy zasady, których nie wolno złamać
+## Cztery zasady, których nie wolno złamać
 
 **1. Nagrania tylko jej własnym, sklonowanym głosem.** `voice_id
 jq4ZUryuBeDqmtkKtBZ4`, model `eleven_v3`. Materiał firmowany jej nazwiskiem ma
@@ -42,7 +42,36 @@ pochodzą z jej arkuszy KPOF. Wersja U to cele dopisane po to, by domknąć pokr
 podstawy do 113/113. Wymyślonego celu nie wolno dopisać do wersji A, B ani C —
 to nie jest kwestia porządku, tylko wiarygodności narzędzia diagnostycznego.
 
-**3. Jeden symbol = jeden plik, używany wszędzie tak samo.** Dziecko korzystające
+**3. Do dziecka mów prosto.** Każdy tekst, który usłyszy albo przeczyta
+przedszkolak — polecenie na karcie pomocy, etykieta na arkuszu, narracja
+historyjki — pisz **krótkimi, prostymi zdaniami i bez trudnych słów**.
+Przedszkolak nie rozumie wyrazów typu *strategia*, *sygnał*, *instrukcja*,
+*sekwencja*, *komunikat*, *procedura*, *technika*, *emocja* w roli terminu.
+Zamiast nich pisz to, co dziecko widzi i robi: **sposób**, **kartka**,
+**dzwonek**, **gwizdek**, **co ci pomaga**, **kiedy robi się trudno**.
+Jedno zdanie = jedna czynność; dwa krótkie zdania są lepsze niż jedno długie.
+
+Trudne słowa zostają tam, gdzie czyta je **dorosły** — w celu SMART, w opisie
+metod, w trzech krokach użycia pomocy i we wskazówce dla prowadzącego. Sprawdź
+to przed nagraniem, bo poprawka po nagraniu kosztuje drugie nagranie:
+
+```bash
+python3 - <<'EOF'
+import sys, re, importlib; sys.path.insert(0, 'src')
+TRUDNE = ['strategi','sygnał','sekwencj','komunikat','instrukcj','procedur','technik',
+          'regulacj','identyfik','alternatyw','konsekwencj','koncentr','analiz','wizualiz']
+for mod in ('pomoce_a','pomoce_b','pomoce_c','pomoce_u'):
+    m = importlib.import_module(mod)
+    for kod, poz in m.POMOCE.items():
+        tekst = str(poz[4])
+        trafienia = [w for w in TRUDNE if w in tekst.lower()]
+        dlugie = [z for z in re.split(r'[.!?]', tekst) if len(z.split()) > 14]
+        if trafienia or dlugie:
+            print(mod, kod, trafienia, f'{len(dlugie)} długich zdań')
+EOF
+```
+
+**4. Jeden symbol = jeden plik, używany wszędzie tak samo.** Dziecko korzystające
 z komunikacji obrazkowej musi widzieć **ten sam** obrazek na tablicy AAC, w planie
 dnia i na breloku. Symbol, który zmienia wygląd między materiałami, przestaje być
 słowem. Nigdy nie rysuj drugiego „podobnego" symbolu pod jeden konspekt — dopisz
