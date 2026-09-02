@@ -87,6 +87,7 @@ SEGMENTY = [
    (None, "", "#porownanie .stare"),
    (None, "", "#porownanie .nowe"),
    (None, "", "#bezzmian"),
+   (None, "", ".ostrzezenie"),
  ]},
  {"audio": "s6.mp3", "plansza": "10_podstawa_prawna.html", "ujecia": [
    (None, "", None),

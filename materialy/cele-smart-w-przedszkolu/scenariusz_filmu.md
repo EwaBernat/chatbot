@@ -8,8 +8,8 @@
 | Parametr | Wartość |
 |---|---|
 | Liczba scen | 16 |
-| Szacowany czas | ok. 18 min 55 s |
-| Liczba słów narracji | 2830 |
+| Szacowany czas | ok. 19 min 10 s |
+| Liczba słów narracji | 2871 |
 | Tempo | ok. 150 słów/min (polski lektor) |
 | Format obrazu | 16:9, 1920 × 1080 px (konspekt: A4, 1240 × 1754 px) |
 | Marka | fiolet `#2D1B69` + pomarańcz `#E8450A`, Arial |
@@ -50,7 +50,7 @@ czytają polskie liczebniki niepewnie. Pusta linia oznacza naturalną pauzę.
 
 ## Scena 2 · Dlaczego akurat teraz
 
-**Czas:** ok. 50 s (125 słów) · **Plansza:** `plansze/12_dlaczego_teraz.png`
+**Czas:** ok. 50 s (126 słów) · **Plansza:** `plansze/12_dlaczego_teraz.png`
 
 **Tekst na ekranie:** Nowa podstawa · wrzesień · ocena efektywności
 
@@ -67,7 +67,8 @@ czytają polskie liczebniki niepewnie. Pusta linia oznacza naturalną pauzę.
 >
 > Trzecia. Ocena efektywności udzielanej pomocy to obowiązek, nie dobra wola.
 > Zespół co najmniej dwa razy w roku ocenia poziom funkcjonowania dziecka i skuteczność programu.
-> Pierwszy przegląd wypadnie w styczniu. Do stycznia policzy się tylko to, co ma miarę wpisaną dziś.
+> Pierwszy przegląd wypada zwykle na przełomie semestrów.
+> Policzy się wtedy tylko to, co ma miarę wpisaną dziś.
 
 ---
 
@@ -382,7 +383,7 @@ czytają polskie liczebniki niepewnie. Pusta linia oznacza naturalną pauzę.
 
 ## Scena 13 · Stare i nowe rozporządzenie
 
-**Czas:** ok. 70 s (170 słów) · **Plansza:** `plansze/10c_stare_nowe.png`
+**Czas:** ok. 80 s (205 słów) · **Plansza:** `plansze/10c_stare_nowe.png`
 
 **Tekst na ekranie:** §10 · Zmiana podstawy · 2017 poz. 356 → 2026 poz. 378
 
@@ -400,19 +401,24 @@ czytają polskie liczebniki niepewnie. Pusta linia oznacza naturalną pauzę.
 > dwa tysiące dwudziestego szóstego roku, pozycja trzysta siedemdziesiąt osiem.
 > Obszarów jest teraz dziewięć: społeczny, osobisty, językowy, matematyczny, przyrodniczy,
 > techniczny, cyfrowy, artystyczny i ruchowy.
-> I ważna różnica — cel musi wskazać obszar oraz numer osiągnięcia z załącznika.
+> I praktyczna wskazówka — w dokumentacji wskazuj obszar oraz numer osiągnięcia z załącznika.
+> To ten numer obroni cel przed zespołem i organem nadzoru.
 >
 > A teraz to, co się nie zmieniło, i to jest dobra wiadomość.
-> Paragraf szósty rozporządzenia o kształceniu specjalnym obowiązuje dalej, w tym samym brzmieniu.
-> Paragraf dwudziesty, ustęp dziewiąty, o ocenie efektywności — tak samo.
-> Obowiązek mierzalności celu nie zmienił się ani o jotę.
+> Obowiązek mierzalności celu nie płynie z podstawy programowej, tylko z dwóch innych rozporządzeń —
+> o kształceniu specjalnym i o pomocy psychologiczno-pedagogicznej. Te obowiązują dalej.
+> Zmiana podstawy ich nie ruszyła.
 > Zmienił się wyłącznie adres obszaru, do którego cel przypisujesz. Z czterech na dziewięć.
+>
+> Jedno zastrzeżenie, żeby uniknąć wpadki. Numery tekstów jednolitych sprawdź w bazie ISAP,
+> zanim je zacytujesz w dokumencie.
+> Rozporządzenia bywają nowelizowane częściej, niż zmienia się ich treść merytoryczna.
 
 ---
 
 ## Scena 14 · Czy cel SMART jest obowiązkowy
 
-**Czas:** ok. 90 s (227 słów) · **Plansza:** `plansze/10b_czy_obowiazkowe.png`
+**Czas:** ok. 95 s (232 słowa) · **Plansza:** `plansze/10b_czy_obowiazkowe.png`
 
 **Tekst na ekranie:** §10 · Pytanie z sali · Formuła — nie. Miara — tak.
 
@@ -421,7 +427,8 @@ czytają polskie liczebniki niepewnie. Pusta linia oznacza naturalną pauzę.
 > To pytanie pada na każdym szkoleniu, więc odpowiem na nie wprost. Czy cel SMART jest obowiązkowy?
 >
 > Sama formuła — nie. I dobrze o tym wiedzieć, zanim ktoś zapyta.
-> Słowo „SMART” nie pada w żadnym rozporządzeniu oświatowym. Żaden przepis nie narzuca formuły zdania
+> Słowo „SMART” nie pada w rozporządzeniach, które regulują program edukacyjno-terapeutyczny
+> i pomoc psychologiczno-pedagogiczną. Żaden przepis nie narzuca formuły zdania
 > ani kolejności siedmiu pól. Co więcej — w katalogu tego, co określa program edukacyjno-terapeutyczny,
 > same cele nie są wymienione jako odrębny element. Ten katalog mówi o zakresie i sposobie dostosowania,
 > o zintegrowanych działaniach nauczycieli i specjalistów, o formach i okresie pomocy, o zajęciach rewalidacyjnych.

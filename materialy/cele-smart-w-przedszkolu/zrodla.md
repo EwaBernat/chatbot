@@ -82,6 +82,22 @@ uznaje się za mierzalny, gdy zawiera cztery elementy: **termin, warunki, zachow
 - https://www.ecfr.gov/current/title-34/subtitle-B/chapter-III/part-300/subpart-D/subject-group-ECFR28b07e67452ed7a/section-300.320
 - https://sites.ed.gov/idea/regs/b/d/300.320
 
+## Błędy znalezione w pierwszej wersji narracji — i jak zostały poprawione
+
+Kontrola własnych twierdzeń wykryła trzy rzeczy, które nie broniły się przed sprawdzeniem.
+Zapisuję je razem z poprawką, żeby nie wróciły przy kolejnej redakcji.
+
+| # | Co było | Dlaczego to błąd | Jak brzmi teraz |
+|---|---|---|---|
+| 1 | „Słowo SMART nie pada w **żadnym rozporządzeniu oświatowym**" | Twierdzenie o wszystkich rozporządzeniach — nie do zweryfikowania i wystarczy jeden kontrprzykład, żeby upadło | „…nie pada w rozporządzeniach, **które regulują program edukacyjno-terapeutyczny i pomoc psychologiczno-pedagogiczną**" |
+| 2 | „§ 6 … obowiązuje dalej, **w tym samym brzmieniu**" | Nie potwierdzone. Przepisy o kształceniu specjalnym były nowelizowane po tekście jednolitym z 2020 r. (m.in. Dz.U. 2025 poz. 1111) — twierdzenie o niezmienionym brzmieniu jest ryzykowne | „Obowiązek mierzalności **nie płynie z podstawy programowej, tylko z dwóch innych rozporządzeń** … Te obowiązują dalej, zmiana podstawy ich nie ruszyła" + zastrzeżenie o sprawdzeniu tekstu jednolitego w ISAP |
+| 3 | „Cel **musi** wskazać obszar oraz numer osiągnięcia z załącznika" | To zalecenie dokumentacyjne z broszury, a nie literalny nakaz przepisu — „musi" sugeruje obowiązek prawny | „**W dokumentacji wskazuj** obszar oraz numer osiągnięcia … To ten numer obroni cel przed zespołem i organem nadzoru" |
+| 4 | „Pierwszy przegląd **wypadnie w styczniu**" | Przepis nie wyznacza stycznia — mówi o „co najmniej dwóch razach w roku szkolnym" | „Pierwszy przegląd **wypada zwykle na przełomie semestrów**" |
+
+Do sprawdzenia przy okazji, przepisane z broszury i nieweryfikowane w tej sesji:
+powołania na **art. 1, art. 47 ust. 1 pkt 5 i art. 127** Prawa oświatowego (plansza §10)
+oraz dokładny paragraf rozporządzenia o WWRD.
+
 ## Kontrola przepisów — co zostało zweryfikowane u źródła
 
 Każde twierdzenie prawne z filmu przeszło osobne sprawdzenie. Poniżej stan tej kontroli,

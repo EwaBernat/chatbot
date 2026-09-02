@@ -466,7 +466,7 @@ dodaj("10b_czy_obowiazkowe", slajd("10b", "Czy cel SMART jest obowiązkowy?", "�
   <div class="zle-blok">
     <div class="et" style="color:var(--czerwony)">✕ Czego przepisy NIE nakazują</div>
     <ul class="pkt" style="margin-top:14px">
-      <li>Słowo <b>„SMART”</b> nie pada w żadnym rozporządzeniu oświatowym.</li>
+      <li>Słowo <b>„SMART”</b> nie pada w rozporządzeniach regulujących IPET i pomoc psychologiczno-pedagogiczną.</li>
       <li>Żaden przepis nie narzuca formuły zdania ani kolejności siedmiu pól.</li>
       <li>W katalogu z <span class="pp">§ 6 ust. 1</span> rozporządzenia o kształceniu specjalnym
           <b>„cele” nie są wymienione</b> jako odrębny element programu. Katalog obejmuje m.in.:
@@ -529,18 +529,19 @@ dodaj("10c_stare_nowe", slajd("10c", "Stare i nowe rozporządzenie — co się z
     <div class="et2">Dziewięć obszarów</div>
     <div class="chipy nowe-chipy"><span>społeczny</span><span>osobisty</span><span>językowy</span><span>matematyczny</span><span>przyrodniczy</span><span>techniczny</span><span>cyfrowy</span><span>artystyczny</span><span>ruchowy</span></div>
     <ul class="pkt ptaszki">
-      <li>Cel musi wskazać <b>obszar oraz numer osiągnięcia</b> z załącznika.</li>
+      <li>W dokumentacji wskazuj <b>obszar oraz numer osiągnięcia</b> z załącznika.</li>
       <li>To numer osiągnięcia obroni cel przed zespołem i organem nadzoru.</li>
     </ul>
   </div>
 </div>
 <div class="bez-zmian" id="bezzmian">
-  <div class="et2" style="color:var(--zielony)">Czego zmiana NIE ruszyła — te przepisy obowiązują dalej, w tym samym brzmieniu</div>
+  <div class="et2" style="color:var(--zielony)">Czego zmiana NIE ruszyła — to te przepisy, a nie podstawa programowa, wymagają mierzalności</div>
   <div class="trzy">
     <div><b>§ 6</b><span>Rozp. MEN z 9.08.2017 r. o kształceniu specjalnym <i>(t.j. Dz.U. 2020 poz. 1309)</i> — treść IPET oraz okresowa wielospecjalistyczna ocena poziomu funkcjonowania co najmniej dwa razy w roku szkolnym.</span></div>
     <div><b>§ 20 ust. 9</b><span>Rozp. MEN z 9.08.2017 r. o pomocy psychologiczno-pedagogicznej <i>(t.j. Dz.U. 2023 poz. 1798)</i> — ocena efektywności udzielonej pomocy i wnioski do dalszej pracy.</span></div>
-    <div class="wniosek-blok"><b>Wniosek</b><span>Obowiązek <b>mierzalności</b> celu nie zmienił się ani o jotę. Zmienił się wyłącznie <b>adres obszaru</b>, do którego cel przypisujesz — z czterech na dziewięć.</span></div>
+    <div class="wniosek-blok"><b>Wniosek</b><span>Nowa podstawa <b>nie ruszyła obowiązku mierzalności</b> — on płynie z tych dwóch rozporządzeń. Zmienił się <b>adres obszaru</b>, do którego cel przypisujesz: z czterech na dziewięć.</span></div>
   </div>
+  <p class="ostrzezenie">Numery tekstów jednolitych sprawdź w ISAP przed zacytowaniem — rozporządzenia bywają nowelizowane częściej, niż zmienia się ich treść merytoryczna.</p>
 </div>''', styl='''
 .dwie{display:grid;grid-template-columns:1fr 1fr;gap:30px}
 .akt{background:#fff;border:1px solid var(--linia);border-radius:16px;padding:24px 26px}
@@ -559,6 +560,7 @@ dodaj("10c_stare_nowe", slajd("10c", "Stare i nowe rozporządzenie — co się z
 .nowe-chipy span{background:#FFF6F2;color:var(--pomarancz);border:1px solid #F3C9B6}
 .dwie ul.pkt li{font-size:17.5px;line-height:1.45;margin-bottom:7px}
 .dwie ul.pkt li b{color:var(--fiolet-cn)}
+.ostrzezenie{margin-top:13px;padding-top:11px;border-top:1px dashed #A9D8C4;font-size:15.5px;line-height:1.45;color:var(--mute)}
 .bez-zmian{margin-top:26px;background:#F1F8F4;border:2px solid #A9D8C4;border-left:10px solid var(--zielony);
  border-radius:14px;padding:20px 26px}
 .trzy{display:grid;grid-template-columns:1fr 1fr 1fr;gap:22px;margin-top:6px}
