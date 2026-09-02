@@ -46,6 +46,7 @@
 *,*::before,*::after{box-sizing:border-box}
 html{scroll-behavior:smooth;scroll-padding-top:88px}
 @media (prefers-reduced-motion: reduce){html{scroll-behavior:auto}}
+html,body{overflow-x:clip}
 body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--body);font-size:17px;line-height:1.6;-webkit-font-smoothing:antialiased}
 img{max-width:100%;display:block}
 a{color:inherit}
@@ -96,7 +97,7 @@ svg.ck{flex:none;width:18px;height:18px;margin-top:3px}
 .hero{padding:76px 0 64px;border-bottom:1px solid var(--line);position:relative;overflow:hidden}
 .hero::before{content:"";position:absolute;right:-180px;top:-120px;width:640px;height:640px;border-radius:50%;background:radial-gradient(closest-side,var(--plum-soft),transparent 72%);pointer-events:none}
 .hero .wrap{display:grid;grid-template-columns:minmax(0,11fr) minmax(0,10fr);gap:56px;align-items:center;position:relative}
-.hero h1{font-size:clamp(38px,4.8vw,58px);font-weight:800;line-height:1.02;letter-spacing:-.025em}
+.hero h1{font-size:clamp(40px,5vw,62px);font-weight:800;line-height:1.02;letter-spacing:-.025em}
 .hero h1 em{font-style:normal;color:var(--plum)}
 .hero .lead{margin-top:22px}
 .hero-actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:32px;align-items:center}
@@ -411,6 +412,76 @@ svg.ck{flex:none;width:18px;height:18px;margin-top:3px}
 .done{background:color-mix(in srgb,var(--ok) 10%,var(--card));border:1px solid color-mix(in srgb,var(--ok) 40%,transparent);border-radius:10px;padding:16px 18px;font-size:15px;margin-top:16px}
 .done b{color:var(--ok);display:block;margin-bottom:4px}
 
+/* motyw kwiatu PCTP i plamy koloru ---------------------------------- */
+.kw{position:absolute;pointer-events:none;display:block}
+.blob{position:absolute;border-radius:50%;filter:blur(70px);pointer-events:none;opacity:.7}
+.blob.peach{background:#F7C6AE}
+.blob.lav{background:#CFC3EE}
+:root[data-theme="dark"] .blob,:root:not([data-theme="light"]) .blob{opacity:.18}
+@media (prefers-color-scheme: light){:root:not([data-theme="dark"]) .blob{opacity:.7}}
+
+/* scena hero -------------------------------------------------------- */
+.stage{position:relative;padding:44px 0 56px 44px;min-height:520px}
+.stage::before{content:"";position:absolute;top:-20px;bottom:0;left:0;right:-260px;border-radius:32px 0 0 32px;background:linear-gradient(160deg,#4A33A0 0%,var(--plum) 42%,var(--plum-deep) 100%);z-index:0;box-shadow:inset 0 0 0 1px rgba(255,255,255,.06)}
+.stage::after{content:"";position:absolute;inset:-20px -260px 0 0;border-radius:32px 0 0 32px;background:radial-gradient(60% 50% at 85% 10%,rgba(255,255,255,.14),transparent 70%);z-index:0;pointer-events:none}
+.stage .kw{right:-40px;top:-46px;width:300px;height:300px;opacity:.16;z-index:0}
+.stage .kw-2{left:-14px;bottom:10px;width:120px;height:120px;opacity:.28;z-index:0}
+.stage .app{position:relative;z-index:2;transform:perspective(1400px) rotateY(-7deg) rotateX(2deg);transform-origin:left center;border-color:rgba(255,255,255,.35);box-shadow:0 40px 70px -30px rgba(0,0,0,.55)}
+.stage .float{z-index:3;left:auto;right:-16px;bottom:24px}
+.docp{position:absolute;z-index:1;right:28px;top:-6px;width:150px;aspect-ratio:1/1.41;background:#fff;border-radius:6px;box-shadow:0 24px 40px -20px rgba(0,0,0,.6);padding:14px 12px;transform:rotate(6deg);display:flex;flex-direction:column;gap:6px}
+.docp::before{content:"IPET";font-family:var(--display);font-weight:800;font-size:11px;color:var(--plum);letter-spacing:.06em}
+.docp i{display:block;height:4px;border-radius:2px;background:#E4DEF3}
+.docp i.o{background:var(--orange);width:40%;height:5px;margin-bottom:2px}
+.docp i.s{width:70%}
+.docp i.m{width:85%}
+.docp .tbl{margin-top:4px;border:1px solid #E4DEF3;border-radius:3px;height:34px;background:repeating-linear-gradient(#fff 0 7px,#F3F0FA 7px 8px)}
+@media (max-width:980px){.stage{padding:36px 0 56px 24px}.stage::before,.stage::after{right:-24px;border-radius:32px}.stage .app{transform:none}.docp{display:none}.stage .float{right:8px}}
+.hero h1 em{background:linear-gradient(transparent 64%,color-mix(in srgb,var(--orange) 30%,transparent) 64% 90%,transparent 90%)}
+.hero .blob.peach{width:420px;height:420px;left:-180px;top:-120px}
+.hero .blob.lav{width:360px;height:360px;left:260px;bottom:-200px}
+
+/* ikony kroków ------------------------------------------------------ */
+.steps .ic{width:40px;height:40px;border-radius:12px;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.14);display:grid;place-items:center;margin-bottom:14px}
+.steps .ic svg{width:20px;height:20px;stroke:#FFB59A;fill:none;stroke-width:1.9;stroke-linecap:round;stroke-linejoin:round}
+.section.path{position:relative;overflow:hidden}
+.path .kw{right:-120px;bottom:-140px;width:520px;height:520px;opacity:.07}
+.path .wrap{position:relative;z-index:1}
+
+/* stakes ------------------------------------------------------------ */
+.stakes{position:relative;overflow:hidden}
+.stakes .year{position:absolute;right:-10px;top:-30px;font-family:var(--display);font-weight:800;font-size:220px;line-height:1;color:var(--plum);opacity:.05;letter-spacing:-.05em;pointer-events:none;user-select:none}
+.stakes .wrap{position:relative}
+
+/* okładki broszur --------------------------------------------------- */
+.cover .kw{right:-30px;bottom:-30px;width:150px;height:150px;opacity:.28}
+.cover.pale .kw{opacity:.5}
+.cover .ttl,.cover .sub,.cover .ser{position:relative;z-index:1}
+.cover::after{content:"";position:absolute;left:-40%;top:30%;width:180%;height:26%;background:rgba(255,255,255,.06);transform:rotate(-18deg);pointer-events:none}
+
+/* miniatura filmu --------------------------------------------------- */
+.thumb .kw{right:80px;top:-40px;width:260px;height:260px;opacity:.16;z-index:0}
+.thumb .presenter{position:absolute;left:50%;bottom:0;transform:translateX(-50%);width:44%;height:78%;z-index:0;opacity:.85}
+.thumb::before{content:"";position:absolute;inset:auto 0 0 0;height:62%;background:linear-gradient(transparent,rgba(26,15,66,.9));z-index:1;pointer-events:none}
+.thumb .title,.thumb .kicker,.thumb .dur,.play{z-index:2}
+.thumb .presenter svg{width:100%;height:100%}
+
+/* karty szkoleń: ikony ---------------------------------------------- */
+.offer .ico{width:48px;height:48px;border-radius:14px;background:var(--plum-soft);display:grid;place-items:center;margin-bottom:4px}
+.offer .ico svg{width:24px;height:24px;stroke:var(--plum);fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.offer.hot .ico{background:var(--orange-soft)}
+.offer.hot .ico svg{stroke:var(--orange-ink)}
+
+/* portret, zamówienie ----------------------------------------------- */
+.portrait .kw{right:-60px;top:-50px;width:280px;height:280px;opacity:.2}
+.portrait span{position:relative;z-index:1}
+.order{position:relative;overflow:hidden}
+.order .kw{left:-160px;bottom:-160px;width:560px;height:560px;opacity:.06}
+.order .wrap{position:relative;z-index:1}
+.howbuy{position:relative;overflow:hidden}
+.howbuy .blob.lav{width:520px;height:520px;right:-200px;top:-200px}
+.howbuy .wrap{position:relative}
+.standards .kw{position:static;width:22px;height:22px;display:inline-block;vertical-align:middle;margin-right:6px}
+
 /* stopka ------------------------------------------------------------ */
 .site-footer{background:var(--plum-deep);color:var(--on-plum-2);padding:48px 0 32px;font-size:14.5px;border-top:1px solid rgba(255,255,255,.1)}
 .foot-grid{display:grid;grid-template-columns:minmax(0,5fr) repeat(3,minmax(0,2fr));gap:40px;padding-bottom:36px;border-bottom:1px solid rgba(255,255,255,.12)}
@@ -436,6 +507,18 @@ svg.ck{flex:none;width:18px;height:18px;margin-top:3px}
 </head>
 <body>
 
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+  <symbol id="kwiat" viewBox="0 0 100 100">
+    <path d="M50 60v36" stroke="#C9A227" stroke-width="4" fill="none" stroke-linecap="round"/>
+    <path d="M50 80c-10-3-19-8-27-15M50 80c10-3 19-8 27-15" stroke="#C9A227" stroke-width="3.5" fill="none" stroke-linecap="round"/>
+    <ellipse cx="22" cy="52" rx="7.5" ry="16" fill="#A48FD6" transform="rotate(-58 22 52)"/>
+    <ellipse cx="78" cy="52" rx="7.5" ry="16" fill="#A48FD6" transform="rotate(58 78 52)"/>
+    <ellipse cx="35" cy="41" rx="8.5" ry="18" fill="#F0A57E" transform="rotate(-26 35 41)"/>
+    <ellipse cx="65" cy="41" rx="8.5" ry="18" fill="#F0A57E" transform="rotate(26 65 41)"/>
+    <ellipse cx="50" cy="35" rx="9.5" ry="21" fill="#E8632A"/>
+    <circle cx="50" cy="57" r="4.5" fill="#FBF8F3"/>
+  </symbol>
+</svg>
 <header class="site-header">
   <div class="wrap">
     <a class="brand" href="#top" aria-label="EduPlaner 2026 — strona główna">
@@ -458,10 +541,11 @@ svg.ck{flex:none;width:18px;height:18px;margin-top:3px}
 
 <!-- HERO ----------------------------------------------------------- -->
 <section class="hero">
+  <span class="blob peach"></span><span class="blob lav"></span>
   <div class="wrap">
     <div>
-      <span class="alert"><i></i>Nowa ocena funkcjonalna obowiązuje od roku szkolnego 2026/2027</span>
-      <h1>Cały zespół gotowy na nową ocenę funkcjonalną. <em>Bez ani jednego wieczoru nad arkuszami.</em></h1>
+      <span class="alert"><i></i>WOPF · IPET / PEWS · ocena funkcjonalna od roku szkolnego 2026/2027</span>
+      <h1><em>WOPF i&nbsp;IPET</em> w&nbsp;jednej aplikacji. Cały zespół gotowy na nową ocenę funkcjonalną.</h1>
       <p class="lead">
         EduPlaner 2026 prowadzi zespół od zgłoszenia ucznia, przez WOPF na kwestionariuszu KSzOF, po IPET albo PEWS i&nbsp;ewaluację.
         Wpisujesz dane raz. Na końcu dostajesz gotowe druki A4, pod którymi podpisze się cały zespół.
@@ -478,7 +562,9 @@ svg.ck{flex:none;width:18px;height:18px;margin-top:3px}
       </div>
     </div>
 
-    <div class="app-wrap">
+    <div class="app-wrap stage">
+    <svg class="kw " aria-hidden="true"><use href="#kwiat"/></svg><svg class="kw kw-2" aria-hidden="true"><use href="#kwiat"/></svg>
+    <div class="docp" aria-hidden="true"><i class="o"></i><i class="m"></i><i class="s"></i><i class="m"></i><span class="tbl"></span><i class="s"></i><i class="m"></i></div>
     <div class="app" role="img" aria-label="Ekran aplikacji: profil funkcjonowania ucznia w dziewięciu obszarach KSzOF z poziomem wsparcia">
       <div class="app-bar"><b>EduPlaner 2026</b><span>· Szkoła podstawowa · kl. I–III</span><span class="pill">WOPF</span></div>
       <div class="app-body">
@@ -513,13 +599,14 @@ svg.ck{flex:none;width:18px;height:18px;margin-top:3px}
 <!-- STANDARDY ------------------------------------------------------ -->
 <section class="standards" aria-label="Standardy, na których oparta jest aplikacja">
   <div class="wrap">
-    <p>Zbudowana na obowiązujących standardach:</p>
-    <ul><li>Standard WOPF</li><li>KSzOF</li><li>Klasyfikacja ICF</li><li>Analiza ABC · FBA</li><li>Profil sensoryczny W.&nbsp;Dunn</li><li>Teoria umysłu (ToM)</li><li>Cele SMART</li><li>RODO</li></ul>
+    <p><svg class="kw " aria-hidden="true"><use href="#kwiat"/></svg>Zbudowana na obowiązujących standardach:</p>
+    <ul><li>Standard WOPF</li><li>IPET / PEWS</li><li>KSzOF</li><li>Klasyfikacja ICF</li><li>Analiza ABC · FBA</li><li>Profil sensoryczny W.&nbsp;Dunn</li><li>Teoria umysłu (ToM)</li><li>Cele SMART</li><li>RODO</li></ul>
   </div>
 </section>
 
 <!-- CO SIĘ ZMIENIŁO ------------------------------------------------ -->
 <section class="stakes" id="zmiany">
+  <span class="year" aria-hidden="true">2026/27</span>
   <div class="wrap stakes-grid">
     <div>
       <p class="eyebrow">Co się zmieniło</p>
@@ -538,6 +625,7 @@ svg.ck{flex:none;width:18px;height:18px;margin-top:3px}
 
 <!-- APLIKACJA / ŚCIEŻKA ------------------------------------------- -->
 <section class="section path" id="aplikacja">
+  <svg class="kw " aria-hidden="true"><use href="#kwiat"/></svg>
   <div class="wrap">
     <div class="section-head">
       <div>
@@ -547,11 +635,11 @@ svg.ck{flex:none;width:18px;height:18px;margin-top:3px}
       <p class="lead">Kolejność w&nbsp;aplikacji jest taka sama jak w&nbsp;przepisach. Każdy krok zbiera to, co następny potrzebuje, więc nic nie przepisujesz.</p>
     </div>
     <ol class="steps">
-      <li><h3>Zgłoszenie</h3><p>Metryczka ucznia, dane wejściowe, zgody rodziców i&nbsp;RODO. Podstawa prawna wpisuje się sama.</p><span class="tag">Metryczka</span></li>
-      <li><h3>Ocena funkcjonalna</h3><p>WOPF na kwestionariuszu KSzOF: dziewięć obszarów, skala 1–5, wynik przeliczony na sten.</p><span class="tag">WOPF · KSzOF · ICF</span></li>
-      <li><h3>Obserwacja pogłębiona</h3><p>Gdy trzeba: dziennik ABC, profil sensoryczny, kwestionariusz mowy, karta teorii umysłu.</p><span class="tag">ABC · Dunn · ToM</span></li>
-      <li><h3>Plan wsparcia</h3><p>Kwalifikacja do poziomu I, II lub III i&nbsp;plan z&nbsp;celami SMART — jako IPET albo PEWS.</p><span class="tag">IPET / PEWS</span></li>
-      <li><h3>Realizacja i&nbsp;ewaluacja</h3><p>Dziennik zajęć, oś czasu i&nbsp;raport końcowy, który zamyka rok i&nbsp;otwiera następny.</p><span class="tag">Dziennik · Raport</span></li>
+      <li><span class="ic"><svg viewBox="0 0 24 24"><path d="M9 4h6l1 2h3v14H5V6h3z"/><path d="M9 12h6M9 16h4"/></svg></span><h3>Zgłoszenie</h3><p>Metryczka ucznia, dane wejściowe, zgody rodziców i&nbsp;RODO. Podstawa prawna wpisuje się sama.</p><span class="tag">Metryczka</span></li>
+      <li><span class="ic"><svg viewBox="0 0 24 24"><path d="M4 20V10M10 20V4M16 20v-8M22 20H2"/></svg></span><h3>Ocena funkcjonalna</h3><p>WOPF na kwestionariuszu KSzOF: dziewięć obszarów, skala 1–5, wynik przeliczony na sten.</p><span class="tag">WOPF · KSzOF · ICF</span></li>
+      <li><span class="ic"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="6"/><path d="M20 20l-4.5-4.5"/></svg></span><h3>Obserwacja pogłębiona</h3><p>Gdy trzeba: dziennik ABC, profil sensoryczny, kwestionariusz mowy, karta teorii umysłu.</p><span class="tag">ABC · Dunn · ToM</span></li>
+      <li><span class="ic"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="8"/><circle cx="12" cy="12" r="3.5"/><path d="M12 4v2M12 18v2M4 12h2M18 12h2"/></svg></span><h3>Plan wsparcia</h3><p>Kwalifikacja do poziomu I, II lub III i&nbsp;plan z&nbsp;celami SMART — jako IPET albo PEWS.</p><span class="tag">IPET / PEWS</span></li>
+      <li><span class="ic"><svg viewBox="0 0 24 24"><rect x="4" y="5" width="16" height="15" rx="2"/><path d="M4 10h16M8 3v4M16 3v4M9 15l2 2 4-4"/></svg></span><h3>Realizacja i&nbsp;ewaluacja</h3><p>Dziennik zajęć, oś czasu i&nbsp;raport końcowy, który zamyka rok i&nbsp;otwiera następny.</p><span class="tag">Dziennik · Raport</span></li>
     </ol>
     <div class="modules">
       <h3>Dziesięć modułów w&nbsp;jednym ekranie</h3>
@@ -637,7 +725,7 @@ svg.ck{flex:none;width:18px;height:18px;margin-top:3px}
       <article class="feature">
         <!-- TODO: podmień href na adres filmu w YouTube -->
         <a class="thumb" href="#" aria-label="Odtwórz film wprowadzający na YouTube">
-          <span class="kicker">Film wprowadzający</span><span class="dur">2:00</span>
+          <svg class="kw " aria-hidden="true"><use href="#kwiat"/></svg><span class="presenter" aria-hidden="true"><svg viewBox="0 0 200 200" preserveAspectRatio="xMidYMax meet"><defs><linearGradient id="pg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#8E7BD0"/><stop offset="1" stop-color="#2D1B69"/></linearGradient></defs><ellipse cx="100" cy="230" rx="110" ry="80" fill="url(#pg)"/><rect x="58" y="112" width="84" height="100" rx="34" fill="url(#pg)"/><circle cx="100" cy="76" r="36" fill="#BDB0DF"/><path d="M64 78c0-30 18-48 36-48s36 18 36 48c-8-10-20-16-36-16s-28 6-36 16z" fill="#4A33A0"/></svg></span><span class="kicker">Film wprowadzający</span><span class="dur">2:00</span>
           <span class="title">Co zmienia się w&nbsp;roku szkolnym 2026/2027 — i&nbsp;jak EduPlaner Cię przez to przeprowadzi</span>
           <span class="play"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 4l14 8-14 8z"/></svg></span>
         </a>
@@ -673,7 +761,7 @@ svg.ck{flex:none;width:18px;height:18px;margin-top:3px}
     <!-- TODO: przykładowe formaty — podmień czasy, zakres, ceny i linki zapisu na prawdziwe -->
     <div class="offer-grid cols-3">
       <article class="offer">
-        <span class="fmt">Online · rada pedagogiczna</span>
+        <span class="ico"><svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="12" rx="2"/><path d="M8 20h8M12 16v4M7 12l3-3 2 2 4-4"/></svg></span><span class="fmt">Online · rada pedagogiczna</span>
         <h3>Nowa ocena funkcjonalna od A do D</h3>
         <p>Cztery bloki szkolenia w&nbsp;pełnej wersji, z&nbsp;pytaniami na żywo. Dla całej rady w&nbsp;jednym terminie lub otwarty termin dla osób indywidualnych.</p>
         <ul>
@@ -690,7 +778,7 @@ svg.ck{flex:none;width:18px;height:18px;margin-top:3px}
       </article>
       <article class="offer hot">
         <span class="badge">Najlepszy start</span>
-        <span class="fmt">Online · warsztat z&nbsp;aplikacją</span>
+        <span class="ico"><svg viewBox="0 0 24 24"><circle cx="9" cy="8" r="3.5"/><circle cx="17" cy="9" r="2.5"/><path d="M2.5 19c0-4 3-6 6.5-6s6.5 2 6.5 6M15 15c3 0 6 1.5 6 4"/></svg></span><span class="fmt">Online · warsztat z&nbsp;aplikacją</span>
         <h3>Wdrożenie EduPlaner 2026 w&nbsp;Twojej placówce</h3>
         <p>Pracujemy na Waszych prawdziwych przypadkach, w&nbsp;Waszej aplikacji. Po warsztacie pierwszy uczeń ma komplet dokumentów.</p>
         <ul>
@@ -706,7 +794,7 @@ svg.ck{flex:none;width:18px;height:18px;margin-top:3px}
         <a class="btn btn-primary" href="#zamow" data-order="szk-wdrozenie" data-buyer="inst">Zarezerwuj warsztat</a>
       </article>
       <article class="offer">
-        <span class="fmt">Online · dla specjalistów</span>
+        <span class="ico"><svg viewBox="0 0 24 24"><circle cx="10.5" cy="10.5" r="6.5"/><path d="M21 21l-5.5-5.5M8 10.5h5M10.5 8v5"/></svg></span><span class="fmt">Online · dla specjalistów</span>
         <h3>Obserwacja pogłębiona: cztery narzędzia</h3>
         <p>Dziennik ABC, profil sensoryczny W.&nbsp;Dunn, kwestionariusz rozwoju mowy i&nbsp;karta teorii umysłu na przykładach z&nbsp;praktyki.</p>
         <ul>
@@ -738,7 +826,7 @@ svg.ck{flex:none;width:18px;height:18px;margin-top:3px}
     <!-- TODO: przykładowe pozycje — podmień tytuły, opisy, ceny i linki na prawdziwe -->
     <div class="offer-grid cols-4">
       <article class="offer">
-        <div class="cover"><span class="lg"></span><span class="ser">EduPlaner 2026 · Broszura 1</span><span class="ttl">WOPF na kwestionariuszu KSzOF</span><span class="sub">Dziewięć obszarów, skala 1–5, sten</span></div>
+        <div class="cover"><svg class="kw " aria-hidden="true"><use href="#kwiat"/></svg><span class="lg"></span><span class="ser">EduPlaner 2026 · Broszura 1</span><span class="ttl">WOPF na kwestionariuszu KSzOF</span><span class="sub">Dziewięć obszarów, skala 1–5, sten</span></div>
         <span class="fmt">Dla zespołu</span>
         <h3>WOPF krok po kroku</h3>
         <p>Jak wypełnić kwestionariusz, przeliczyć wynik na sten i&nbsp;zestawić profile rodzica, nauczyciela i&nbsp;specjalisty.</p>
@@ -750,7 +838,7 @@ svg.ck{flex:none;width:18px;height:18px;margin-top:3px}
         <a class="btn btn-primary" href="#zamow" data-order="br-wopf">Kup</a>
       </article>
       <article class="offer">
-        <div class="cover alt"><span class="lg"></span><span class="ser">EduPlaner 2026 · Broszura 2</span><span class="ttl">IPET albo PEWS</span><span class="sub">Jeden WOPF, dwa tryby planu</span></div>
+        <div class="cover alt"><svg class="kw " aria-hidden="true"><use href="#kwiat"/></svg><span class="lg"></span><span class="ser">EduPlaner 2026 · Broszura 2</span><span class="ttl">IPET albo PEWS</span><span class="sub">Jeden WOPF, dwa tryby planu</span></div>
         <span class="fmt">Dla zespołu</span>
         <h3>Plan wsparcia z&nbsp;celami SMART</h3>
         <p>Kwalifikacja do poziomu I, II lub III i&nbsp;plan, który da się zrealizować i&nbsp;ocenić po roku.</p>
@@ -762,7 +850,7 @@ svg.ck{flex:none;width:18px;height:18px;margin-top:3px}
         <a class="btn btn-primary" href="#zamow" data-order="br-ipet">Kup</a>
       </article>
       <article class="offer">
-        <div class="cover pale"><span class="lg"></span><span class="ser">EduPlaner 2026 · Broszura 3</span><span class="ttl">Obserwacja pogłębiona</span><span class="sub">ABC · profil sensoryczny · mowa · ToM</span></div>
+        <div class="cover pale"><svg class="kw " aria-hidden="true"><use href="#kwiat"/></svg><span class="lg"></span><span class="ser">EduPlaner 2026 · Broszura 3</span><span class="ttl">Obserwacja pogłębiona</span><span class="sub">ABC · profil sensoryczny · mowa · ToM</span></div>
         <span class="fmt">Dla specjalisty</span>
         <h3>Cztery narzędzia obserwacji</h3>
         <p>Kiedy sięgnąć po dziennik ABC, profil sensoryczny W.&nbsp;Dunn, kwestionariusz mowy i&nbsp;kartę teorii umysłu.</p>
@@ -774,7 +862,7 @@ svg.ck{flex:none;width:18px;height:18px;margin-top:3px}
         <a class="btn btn-primary" href="#zamow" data-order="br-obserwacja">Kup</a>
       </article>
       <article class="offer">
-        <div class="cover"><span class="lg"></span><span class="ser">EduPlaner 2026 · Dla rodziców</span><span class="ttl">Ocena funkcjonalna. Co to znaczy dla mojego dziecka?</span><span class="sub">Krótko i&nbsp;bez żargonu</span></div>
+        <div class="cover"><svg class="kw " aria-hidden="true"><use href="#kwiat"/></svg><span class="lg"></span><span class="ser">EduPlaner 2026 · Dla rodziców</span><span class="ttl">Ocena funkcjonalna. Co to znaczy dla mojego dziecka?</span><span class="sub">Krótko i&nbsp;bez żargonu</span></div>
         <span class="fmt">Dla rodziców</span>
         <h3>Ulotka na zebranie zespołu</h3>
         <p>Do rozdania rodzicom przed spotkaniem: co się zmienia, o&nbsp;co zapytamy, co dostaną na koniec.</p>
@@ -795,6 +883,7 @@ svg.ck{flex:none;width:18px;height:18px;margin-top:3px}
 
 <!-- JAK KUPUJESZ --------------------------------------------------- -->
 <section class="howbuy" id="jak-kupic">
+  <span class="blob lav"></span>
   <div class="wrap">
     <div class="section-head">
       <div>
@@ -901,7 +990,7 @@ svg.ck{flex:none;width:18px;height:18px;margin-top:3px}
 <section class="section author" id="autorka">
   <div class="wrap">
     <!-- TODO: podmień blok .portrait na zdjęcie autorki (proporcje 4:5) -->
-    <div class="portrait" role="img" aria-label="Portret autorki — miejsce na zdjęcie"><span>MJ</span><small>Mirosława Ewa Jurczyszyn · pedagog specjalny</small></div>
+    <div class="portrait" role="img" aria-label="Portret autorki — miejsce na zdjęcie"><svg class="kw " aria-hidden="true"><use href="#kwiat"/></svg><span>MJ</span><small>Mirosława Ewa Jurczyszyn · pedagog specjalny</small></div>
     <div>
       <p class="eyebrow">Autorka</p>
       <blockquote>Chciałam, żeby zespół spotykał się nad uczniem, a&nbsp;nie nad drukiem. Papier ma być gotowy, zanim usiądziecie do rozmowy.</blockquote>
@@ -934,6 +1023,7 @@ svg.ck{flex:none;width:18px;height:18px;margin-top:3px}
 
 <!-- ZAMÓWIENIE ----------------------------------------------------- -->
 <section class="order" id="zamow">
+  <svg class="kw " aria-hidden="true"><use href="#kwiat"/></svg>
   <div class="wrap">
     <div class="intro">
       <p class="eyebrow">Zamówienie</p>
