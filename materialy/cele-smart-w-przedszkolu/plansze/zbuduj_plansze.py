@@ -459,6 +459,54 @@ td.w{font-size:16.5px;line-height:1.45;color:var(--atrament)}
 td.w b{color:var(--fiolet-cn)}
 ''', stopka_prawo="Plansza 11 · §10 Podstawa prawna"))
 
+# ------------------------------------------- 10b · CZY SMART JEST OBOWIĄZKOWY
+dodaj("10b_czy_obowiazkowe", slajd("10b", "Czy cel SMART jest obowiązkowy?", "§10 · Prawo — pytanie z sali",
+  "Sama formuła — nie. Mierzalność celu — w praktyce tak. Różnica jest ważna i warto ją znać przed rozmową z dyrektorem albo kontrolą.",
+  '''<div class="dwie">
+  <div class="zle-blok">
+    <div class="et" style="color:var(--czerwony)">✕ Czego przepisy NIE nakazują</div>
+    <ul class="pkt" style="margin-top:14px">
+      <li>Słowo <b>„SMART”</b> nie pada w żadnym rozporządzeniu oświatowym.</li>
+      <li>Żaden przepis nie narzuca formuły zdania ani kolejności siedmiu pól.</li>
+      <li>W katalogu z <span class="pp">§ 6 ust. 1</span> rozporządzenia o kształceniu specjalnym
+          <b>„cele” nie są wymienione</b> jako odrębny element programu. Katalog obejmuje m.in.:
+          zakres i sposób dostosowania programu i wymagań, zintegrowane działania nauczycieli i specjalistów,
+          formy i okres pomocy wraz z wymiarem godzin, działania wspierające rodziców, zajęcia rewalidacyjne
+          oraz rodzaj i sposób dostosowania warunków organizacji kształcenia.</li>
+    </ul>
+    <p class="wniosek">Nikt nie zakwestionuje Twojego celu dlatego, że nie ma w nim akronimu.</p>
+  </div>
+  <div class="ok-blok">
+    <div class="et" style="color:var(--zielony)">✓ Co przepisy nakazują — i co z tego wynika</div>
+    <ul class="pkt ptaszki" style="margin-top:14px">
+      <li><b>Ocena efektywności pomocy.</b> Nauczyciele i specjaliści udzielający pomocy
+          <b>oceniają jej efektywność i formułują wnioski</b> dotyczące dalszych działań
+          — <span class="pp">§ 20 ust. 9</span> rozp. MEN z 9.08.2017 r. (t.j. Dz.U. 2023 poz. 1798).</li>
+      <li><b>Okresowa ocena poziomu funkcjonowania.</b> Zespół <b>co najmniej dwa razy w roku szkolnym</b>
+          dokonuje jej, <b>uwzględniając ocenę efektywności programu</b>, i w miarę potrzeb program modyfikuje
+          — <span class="pp">§ 6 ust. 9</span> rozp. MEN z 9.08.2017 r. (t.j. Dz.U. 2020 poz. 1309).</li>
+      <li><b>Rozpoznanie potrzeb.</b> W przedszkolu — obserwacja pedagogiczna, a w roku poprzedzającym szkołę
+          zakończona analizą i oceną gotowości dziecka (diagnoza przedszkolna)
+          — <span class="pp">§ 20 ust. 1</span> tego samego rozporządzenia.</li>
+      <li><b>Obszar i osiągnięcie.</b> Cel jest uszczegółowieniem wymagania z podstawy programowej
+          — <span class="pp">Dz.U. 2026 poz. 378</span>, obowiązuje od 1.09.2026 r.</li>
+    </ul>
+  </div>
+</div>
+<div class="pom-blok" style="margin-top:24px">
+  <div class="et" style="color:var(--pomarancz)">Sedno — i zdanie, którym można to wyjaśnić dyrektorowi albo wizytatorowi</div>
+  <p class="sedno">Przepis nie mówi „napisz cel SMART”. Przepis mówi <b>„oceń efektywność”</b>.
+  Efektywności celu bez miary nie da się ocenić — więc miara jest wymuszona <b>funkcjonalnie</b>, choć nie literalnie.
+  SMART to nie dodatkowy obowiązek nałożony na Ciebie, tylko najprostsza znana technika wykonania obowiązku, który i tak masz.</p>
+</div>''', styl='''
+.dwie{display:grid;grid-template-columns:1fr 1fr;gap:34px}
+.dwie ul.pkt li{font-size:18px;line-height:1.5;margin-bottom:12px}
+.dwie ul.pkt li b{color:var(--fiolet-cn)}
+.wniosek{margin-top:14px;padding-top:12px;border-top:1px dashed #E9BDB0;font-size:19px;font-style:italic;color:var(--czerwony)}
+.sedno{font-size:23px;line-height:1.5;margin-top:10px;color:var(--atrament)}
+.sedno b{color:var(--pomarancz)}
+''', stopka_prawo="Plansza 12 · §10 Czy to obowiązkowe"))
+
 # ---------------------------------------------- 11 · SKĄD SIĘ WZIĄŁ TEN POMYSŁ
 ZR = [("1981","G. T. Doran","„There's a S.M.A.R.T. way to write management's goals and objectives”, <i>Management Review</i> 70(11), s. 35–36",
    "Pierwsze użycie skrótu SMART. U Dorana <b>A</b> = <i>assignable</i> (przypisany komuś), <b>R</b> = <i>realistic</i> (realny przy danych zasobach). Doran od razu zastrzegł, że nie każdy cel musi spełniać wszystkie pięć kryteriów — SMART to lista kontrolna, nie gorset."),
@@ -483,7 +531,7 @@ dodaj("11_zrodla", slajd("11", "Skąd się wzięły te cele — i skąd ten pomy
 .tyt{font-size:17px;line-height:1.4;color:var(--mute);margin:3px 0 9px}
 .tre p{font-size:18.5px;line-height:1.48;color:var(--atrament)}
 .tre p b{font-size:inherit;color:var(--fiolet-cn)}
-''', stopka_prawo="Plansza 12 · Zaplecze merytoryczne"))
+''', stopka_prawo="Plansza 13 · Zaplecze merytoryczne"))
 
 # ------------------------------------------------------- 12 · DLACZEGO TERAZ
 dodaj("12_dlaczego_teraz", slajd("12", "Dlaczego akurat teraz", "Uzasadnienie · Wrzesień 2026",
@@ -518,7 +566,7 @@ dodaj("12_dlaczego_teraz", slajd("12", "Dlaczego akurat teraz", "Uzasadnienie ·
 .p p b{color:var(--fiolet-cn)}
 .dwa-doly{display:grid;grid-template-columns:1fr 1fr;gap:26px}
 .dwa-doly ul.pkt li{font-size:18px;margin-bottom:6px}
-''', stopka_prawo="Plansza 13 · Uzasadnienie"))
+''', stopka_prawo="Plansza 14 · Uzasadnienie"))
 
 # ------------------------------------------------------------- 13 · FINAŁ
 dodaj("13_final", slajd("13", "", "", "", '''
@@ -558,7 +606,7 @@ dodaj("13_final", slajd("13", "", "", "", '''
 .fin-dane div{font-size:20px;font-weight:700;color:var(--fiolet);line-height:1.35}
 .fin-dane span{display:block;font-size:10.5px;font-weight:700;letter-spacing:.13em;text-transform:uppercase;color:var(--faint);margin-bottom:4px}
 .fin-sygn{margin-top:26px;padding-top:16px;border-top:1px solid var(--linia);font-size:14px;line-height:1.55;color:var(--faint)}
-''', klasa="ciemny", stopka_prawo="Plansza 14 · Finał"))
+''', klasa="ciemny", stopka_prawo="Plansza 15 · Finał"))
 
 # --------------------------------------- 14 · KONSPEKT TUE-1 (A4, „zdjęcie”)
 KONSPEKT = '''<!doctype html><html lang="pl"><head><meta charset="utf-8">
@@ -716,7 +764,7 @@ table.t td.et2{font-weight:700;color:var(--fiolet);white-space:nowrap}
   <div class="ppb">
     <b>Podstawa prawna:</b> § 6 rozporządzenia MEN z 9.08.2017 r. w sprawie warunków organizowania kształcenia, wychowania i opieki dla dzieci i młodzieży niepełnosprawnych… (t.j. Dz.U. 2020 poz. 1309) — cele IPET, zintegrowane działania, okresowa wielospecjalistyczna ocena poziomu funkcjonowania co najmniej dwa razy w roku szkolnym · § 6 i § 20 rozporządzenia MEN z 9.08.2017 r. w sprawie zasad organizacji i udzielania pomocy psychologiczno-pedagogicznej (t.j. Dz.U. 2023 poz. 1798) — obserwacja pedagogiczna i ocena efektywności udzielanej pomocy · rozporządzenie Ministra Edukacji z 11.03.2026 r. w sprawie podstawy programowej wychowania przedszkolnego (Dz.U. 2026 poz. 378), obowiązujące od 1.09.2026 r. — obszar osobisty.
   </div>
-  <div class="stopka2"><span>EduPlaner 2026 · PCTP Koszalin · materiał szkoleniowy do broszury SMART-P1</span><span>Plansza 15 · Konspekt TUE-1 (format A4)</span></div>
+  <div class="stopka2"><span>EduPlaner 2026 · PCTP Koszalin · materiał szkoleniowy do broszury SMART-P1</span><span>Plansza 16 · Konspekt TUE-1 (format A4)</span></div>
 </div></body></html>'''
 dodaj("14_konspekt_tue1", KONSPEKT, 1240, 1754)
 

@@ -82,6 +82,39 @@ uznaje się za mierzalny, gdy zawiera cztery elementy: **termin, warunki, zachow
 - https://www.ecfr.gov/current/title-34/subtitle-B/chapter-III/part-300/subpart-D/subject-group-ECFR28b07e67452ed7a/section-300.320
 - https://sites.ed.gov/idea/regs/b/d/300.320
 
+## Czy cel SMART jest obowiązkowy — sprawdzone przepisy
+
+Rozróżnienie ze sceny 13 filmu opiera się na trzech ustaleniach:
+
+- **Katalog z § 6 ust. 1** rozporządzenia MEN z 9.08.2017 r. o kształceniu specjalnym (t.j. Dz.U. 2020 poz. 1309)
+  wylicza, co określa indywidualny program edukacyjno-terapeutyczny: zakres i sposób dostosowania programu
+  i wymagań, zintegrowane działania nauczycieli i specjalistów, formy i okres pomocy wraz z wymiarem godzin,
+  działania wspierające rodziców i współdziałanie z poradniami, zajęcia rewalidacyjne i inne odpowiednie,
+  zakres współpracy z rodzicami oraz rodzaj i sposób dostosowania warunków organizacji kształcenia.
+  **„Cele” nie są w tym katalogu odrębnym elementem** — i nigdzie nie pada słowo „SMART”.
+- **§ 20 ust. 9** rozporządzenia MEN z 9.08.2017 r. o pomocy psychologiczno-pedagogicznej (t.j. Dz.U. 2023 poz. 1798):
+  nauczyciele i specjaliści udzielający pomocy w formach z § 6 „oceniają efektywność udzielonej pomocy
+  i formułują wnioski dotyczące dalszych działań mających na celu poprawę funkcjonowania ucznia”.
+- **§ 6 ust. 9** rozporządzenia o kształceniu specjalnym: zespół **co najmniej dwa razy w roku szkolnym**
+  dokonuje okresowej wielospecjalistycznej oceny poziomu funkcjonowania, uwzględniając ocenę efektywności programu,
+  i w miarę potrzeb program modyfikuje. *(Część źródeł podaje ten obowiązek jako § 6 ust. 9 i 10 — numeracja ustępów
+  w tekście jednolitym bywa cytowana różnie; przed powołaniem się w dokumencie sprawdź brzmienie w ISAP.)*
+
+Stąd wniosek filmu: obowiązkowa jest **ocena efektywności**, a nie forma zapisu. Miara w celu jest wymuszona
+**funkcjonalnie** — bez niej obowiązku oceny nie da się wykonać — a nie literalnie.
+
+- https://isap.sejm.gov.pl/isap.nsf/DocDetails.xsp?id=WDU20200001309
+- https://isap.sejm.gov.pl/isap.nsf/DocDetails.xsp?id=WDU20230001798
+
+## Nowa podstawa programowa
+
+**Rozporządzenie Ministra Edukacji z dnia 11 marca 2026 r.** w sprawie podstawy programowej wychowania
+przedszkolnego oraz podstawy programowej kształcenia ogólnego dla szkoły podstawowej…, **Dz.U. z 2026 r. poz. 378**,
+opublikowane 20 marca 2026 r., **obowiązuje od 1 września 2026 r.** Istnienie i datę wejścia w życie potwierdziłem
+w wykazie ISAP — to ono zastępuje rozporządzenie z 14 lutego 2017 r. (Dz.U. poz. 356).
+
+- https://isap.sejm.gov.pl/isap.nsf/DocDetails.xsp?id=WDU20260000378
+
 ## Polska podstawa prawna
 
 Pięć aktów prawa polskiego, wraz z tym, co z każdego wynika dla zapisu celu, jest w **§10 broszury**

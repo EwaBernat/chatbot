@@ -7,9 +7,9 @@
 
 | Parametr | Wartość |
 |---|---|
-| Liczba scen | 14 |
-| Szacowany czas | ok. 16 min 15 s |
-| Liczba słów narracji | 2433 |
+| Liczba scen | 15 |
+| Szacowany czas | ok. 17 min 45 s |
+| Liczba słów narracji | 2660 |
 | Tempo | ok. 150 słów/min (polski lektor) |
 | Format obrazu | 16:9, 1920 × 1080 px (konspekt: A4, 1240 × 1754 px) |
 | Marka | fiolet `#2D1B69` + pomarańcz `#E8450A`, Arial |
@@ -380,7 +380,41 @@ czytają polskie liczebniki niepewnie. Pusta linia oznacza naturalną pauzę.
 
 ---
 
-## Scena 13 · Skąd się wzięły te cele i skąd ten pomysł
+## Scena 13 · Czy cel SMART jest obowiązkowy
+
+**Czas:** ok. 90 s (227 słów) · **Plansza:** `plansze/10b_czy_obowiazkowe.png`
+
+**Tekst na ekranie:** §10 · Pytanie z sali · Formuła — nie. Miara — tak.
+
+**Narracja:**
+
+> To pytanie pada na każdym szkoleniu, więc odpowiem na nie wprost. Czy cel SMART jest obowiązkowy?
+>
+> Sama formuła — nie. I dobrze o tym wiedzieć, zanim ktoś zapyta.
+> Słowo „SMART” nie pada w żadnym rozporządzeniu oświatowym. Żaden przepis nie narzuca formuły zdania
+> ani kolejności siedmiu pól. Co więcej — w katalogu tego, co określa program edukacyjno-terapeutyczny,
+> same cele nie są wymienione jako odrębny element. Ten katalog mówi o zakresie i sposobie dostosowania,
+> o zintegrowanych działaniach nauczycieli i specjalistów, o formach i okresie pomocy, o zajęciach rewalidacyjnych.
+> Nikt nie zakwestionuje Twojego celu dlatego, że nie ma w nim akronimu.
+>
+> Ale teraz druga strona. Obowiązkowa jest ocena efektywności.
+> Nauczyciele i specjaliści udzielający pomocy oceniają jej efektywność i formułują wnioski dotyczące dalszych działań.
+> To paragraf dwudziesty, ustęp dziewiąty rozporządzenia o pomocy psychologiczno-pedagogicznej.
+>
+> Obowiązkowa jest też okresowa wielospecjalistyczna ocena poziomu funkcjonowania.
+> Zespół dokonuje jej co najmniej dwa razy w roku szkolnym, uwzględniając ocenę efektywności programu,
+> i w miarę potrzeb ten program modyfikuje. To paragraf szósty, ustęp dziewiąty rozporządzenia o kształceniu specjalnym.
+>
+> I tu jest całe sedno. Przepis nie mówi „napisz cel SMART”. Przepis mówi „oceń efektywność”.
+> A efektywności celu bez miary nie da się ocenić. Miara jest więc wymuszona funkcjonalnie, choć nie literalnie.
+>
+> Jeśli ktoś zapyta, dlaczego tak piszesz cele, odpowiedź brzmi:
+> nie realizuję metodyki, tylko obowiązek oceny efektywności. SMART jest po prostu najprostszą znaną techniką,
+> która pozwala ten obowiązek wykonać.
+
+---
+
+## Scena 14 · Skąd się wzięły te cele i skąd ten pomysł
 
 **Czas:** ok. 110 s (279 słów) · **Plansza:** `plansze/11_zrodla.png`
 
@@ -418,7 +452,7 @@ czytają polskie liczebniki niepewnie. Pusta linia oznacza naturalną pauzę.
 
 ---
 
-## Scena 14 · Zakończenie — trzy rzeczy do zrobienia
+## Scena 15 · Zakończenie — trzy rzeczy do zrobienia
 
 **Czas:** ok. 30 s (69 słów) · **Plansza:** `plansze/13_final.png`
 

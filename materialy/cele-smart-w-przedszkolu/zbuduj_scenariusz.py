@@ -270,7 +270,33 @@ paragraf dwudziesty przy obserwacji pedagogicznej i ocenie efektywności pomocy.
 Przed oddaniem dokumentacji sprawdź aktualny tekst jednolity — pozycje tekstów jednolitych
 zmieniają się częściej niż same przepisy."""),
 
-("13","Skąd się wzięły te cele i skąd ten pomysł","plansze/11_zrodla.png",95,
+("13","Czy cel SMART jest obowiązkowy","plansze/10b_czy_obowiazkowe.png",95,
+ ["§10 · Pytanie z sali","Formuła — nie. Miara — tak."],
+ """To pytanie pada na każdym szkoleniu, więc odpowiem na nie wprost. Czy cel SMART jest obowiązkowy?
+
+Sama formuła — nie. I dobrze o tym wiedzieć, zanim ktoś zapyta.
+Słowo „SMART” nie pada w żadnym rozporządzeniu oświatowym. Żaden przepis nie narzuca formuły zdania
+ani kolejności siedmiu pól. Co więcej — w katalogu tego, co określa program edukacyjno-terapeutyczny,
+same cele nie są wymienione jako odrębny element. Ten katalog mówi o zakresie i sposobie dostosowania,
+o zintegrowanych działaniach nauczycieli i specjalistów, o formach i okresie pomocy, o zajęciach rewalidacyjnych.
+Nikt nie zakwestionuje Twojego celu dlatego, że nie ma w nim akronimu.
+
+Ale teraz druga strona. Obowiązkowa jest ocena efektywności.
+Nauczyciele i specjaliści udzielający pomocy oceniają jej efektywność i formułują wnioski dotyczące dalszych działań.
+To paragraf dwudziesty, ustęp dziewiąty rozporządzenia o pomocy psychologiczno-pedagogicznej.
+
+Obowiązkowa jest też okresowa wielospecjalistyczna ocena poziomu funkcjonowania.
+Zespół dokonuje jej co najmniej dwa razy w roku szkolnym, uwzględniając ocenę efektywności programu,
+i w miarę potrzeb ten program modyfikuje. To paragraf szósty, ustęp dziewiąty rozporządzenia o kształceniu specjalnym.
+
+I tu jest całe sedno. Przepis nie mówi „napisz cel SMART”. Przepis mówi „oceń efektywność”.
+A efektywności celu bez miary nie da się ocenić. Miara jest więc wymuszona funkcjonalnie, choć nie literalnie.
+
+Jeśli ktoś zapyta, dlaczego tak piszesz cele, odpowiedź brzmi:
+nie realizuję metodyki, tylko obowiązek oceny efektywności. SMART jest po prostu najprostszą znaną techniką,
+która pozwala ten obowiązek wykonać."""),
+
+("14","Skąd się wzięły te cele i skąd ten pomysł","plansze/11_zrodla.png",95,
  ["Źródła","Doran · Mager · Kiresuk · Locke i Latham · WHO · IDEA"],
  """Zostaje pytanie, które warto sobie zadać: skąd to wszystko właściwie pochodzi.
 SMART w przedszkolu ma cztery korzenie i żaden z nich nie jest przedszkolny.
@@ -300,7 +326,7 @@ Ten sam zestaw, co w naszej formule.
 
 Innymi słowy: nie wymyślamy niczego nowego. Korzystamy z czegoś, co sprawdza się od kilkudziesięciu lat."""),
 
-("14","Zakończenie — trzy rzeczy do zrobienia","plansze/13_final.png",60,
+("15","Zakończenie — trzy rzeczy do zrobienia","plansze/13_final.png",60,
  ["Mniej dokumentów. Więcej edukacji."],
  """Zostawiam Cię z trzema rzeczami do zrobienia.
 

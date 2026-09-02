@@ -11,11 +11,11 @@ Przykład przewodni — ten sam co w broszurze: konspekt **TUE-1 „Termometr na
 
 | Plik | Co to jest |
 |---|---|
-| `scenariusz_filmu.md` | scenariusz produkcyjny — 14 scen, ok. 16 minut: plansza + tekst na ekranie + narracja + wskazówki |
+| `scenariusz_filmu.md` | scenariusz produkcyjny — 15 scen, ok. 18 minut: plansza + tekst na ekranie + narracja + wskazówki |
 | `narracja.txt` | **czysty** tekst narracji (bez nagłówków), liczby zapisane słowami — gotowy dla lektora albo silnika mowy |
 | `narracja_ze_scenami.txt` | ta sama narracja z podziałem na sceny — do redakcji, nie do nagrania |
 | `zrodla.md` | zaplecze merytoryczne: skąd pochodzi SMART, formuła zdania, progi ewaluacji i kody ICF |
-| `plansze/*.png` | 15 gotowych plansz w kolorach marki (14 w 16:9 + konspekt A4 do wydruku) |
+| `plansze/*.png` | 16 gotowych plansz w kolorach marki (14 w 16:9 + konspekt A4 do wydruku) |
 | `plansze/*.html` | źródła plansz — poprawiasz tekst i renderujesz ponownie |
 | `zbuduj_plansze.py` | generator plansz (headless Chromium, działa bez internetu) |
 | `zbuduj_scenariusz.py` | generator scenariusza i pliku narracji z jednej listy scen |
@@ -36,8 +36,9 @@ Przykład przewodni — ten sam co w broszurze: konspekt **TUE-1 „Termometr na
 | `08_ewaluacja.png` | 10 | §8 — zielony, żółty, czerwony |
 | `09_checklista.png` | 11 | §9 — dziesięć pytań i pięć poprawek |
 | `10_podstawa_prawna.png` | 12 | §10 — pięć aktów i co z nich wynika |
-| `11_zrodla.png` | 13 | skąd się wzięły te cele — Doran, Mager, Kiresuk, Locke i Latham, WHO, IDEA |
-| `13_final.png` | 14 | zakończenie i kontakt |
+| `10b_czy_obowiazkowe.png` | 13 | §10 — **czy cel SMART jest obowiązkowy**: co przepisy nakazują, a czego nie |
+| `11_zrodla.png` | 14 | skąd się wzięły te cele — Doran, Mager, Kiresuk, Locke i Latham, WHO, IDEA |
+| `13_final.png` | 15 | zakończenie i kontakt |
 | `14_konspekt_tue1.png` | 8 (wstawka) | **konspekt zajęć A4** z wpisanym celem SMART i kartą obserwacji do wydruku |
 
 ## Jak to przebudować
