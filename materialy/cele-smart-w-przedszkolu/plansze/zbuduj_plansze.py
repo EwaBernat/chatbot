@@ -433,15 +433,15 @@ td.db i{font-weight:400;color:var(--mute)}
 
 # ------------------------------------------------- 10 · §10 PODSTAWA PRAWNA
 AKTY = [("Ustawa z dnia 14 grudnia 2016 r. — Prawo oświatowe","t.j. Dz.U. z 2025 r. poz. 1043",
-  "Podstawa całego systemu: przedszkole ma dostosowywać treści, metody i organizację nauczania do możliwości psychofizycznych dziecka oraz zapewniać pomoc psychologiczno-pedagogiczną (m.in. art. 1 i art. 47 ust. 1 pkt 5, art. 127). Dostosowanie musi być opisane konkretnie — stąd wymóg mierzalnego celu."),
+  "Podstawa całego systemu: przedszkole ma dostosowywać treści, metody i organizację nauczania do możliwości psychofizycznych dziecka oraz zapewniać pomoc psychologiczno-pedagogiczną, a dzieciom z orzeczeniem — kształcenie specjalne. Dostosowanie musi być opisane konkretnie, stąd wymóg mierzalnego celu. <i>Konkretne jednostki redakcyjne sprawdź w aktualnym tekście jednolitym.</i>"),
  ("Rozporządzenie MEN z dnia 9 sierpnia 2017 r. w sprawie zasad organizacji i udzielania pomocy psychologiczno-pedagogicznej","t.j. Dz.U. z 2023 r. poz. 1798",
   "Obowiązek obserwacji pedagogicznej nastawionej na wczesne rozpoznanie dysharmonii rozwojowych, rozpoznawania potrzeb i barier oraz <b>oceny efektywności udzielanej pomocy</b> wraz z wnioskami (m.in. § 20). Określa formy pomocy w przedszkolu (§ 6). Bez liczby w celu nie da się tej oceny sporządzić."),
  ("Rozporządzenie MEN z dnia 9 sierpnia 2017 r. w sprawie warunków organizowania kształcenia dzieci i młodzieży niepełnosprawnych…","t.j. Dz.U. z 2020 r. poz. 1309",
   "To „konstytucja IPET-u” (§ 6). Zespół <b>co najmniej dwa razy w roku szkolnym</b> dokonuje okresowej wielospecjalistycznej oceny poziomu funkcjonowania, uwzględniając ocenę efektywności programu, i w miarę potrzeb go modyfikuje. Cel SMART jest tym, co w ogóle daje się ocenić po pół roku."),
  ("Rozporządzenie MEN z dnia 24 sierpnia 2017 r. w sprawie organizowania wczesnego wspomagania rozwoju dzieci","Dz.U. z 2017 r. poz. 1635",
-  "Dotyczy dzieci objętych WWRD. Zespół opracowuje indywidualny program wczesnego wspomagania i analizuje jego skuteczność, wprowadzając zmiany stosownie do potrzeb dziecka i rodziny. Ta sama logika: cel → działanie → sprawdzenie → modyfikacja."),
+  "Dotyczy dzieci objętych wczesnym wspomaganiem rozwoju. Zespół opracowuje i realizuje indywidualny program wczesnego wspomagania we współpracy z rodziną. Ta sama logika co wyżej: cel → działanie → sprawdzenie → modyfikacja."),
  ("Rozporządzenie Ministra Edukacji z dnia 11 marca 2026 r. w sprawie podstawy programowej wychowania przedszkolnego…","Dz.U. z 2026 r. poz. 378 — obowiązuje od 1 września 2026 r.",
-  "Porządkuje osiągnięcia dziecka w <b>dziewięciu obszarach</b> w miejsce dotychczasowych czterech. Każdy cel indywidualny musi wskazywać obszar i konkretne osiągnięcie: cel jest uszczegółowieniem wymagania z podstawy, nie bytem osobnym. Zastępuje rozporządzenie z 14 lutego 2017 r. (Dz.U. poz. 356).")]
+  "Porządkuje osiągnięcia dziecka w <b>dziewięciu obszarach</b> w miejsce dotychczasowych czterech. W dokumentacji wskazuj obszar i konkretne osiągnięcie: cel jest uszczegółowieniem wymagania z podstawy, nie bytem osobnym. Zastępuje rozporządzenie z 14 lutego 2017 r. (Dz.U. poz. 356).")]
 akt = "".join(f'<tr><td class="a"><b>{n}</b><span>{s}</span></td><td class="w">{o}</td></tr>' for n,s,o in AKTY)
 dodaj("10_podstawa_prawna", slajd("10", "Podstawa prawna — pięć aktów", "§10 · Prawo",
   "Cel SMART nie jest wymysłem metodyków. To praktyczna odpowiedź na to, czego przepisy wymagają od dokumentacji: rozpoznania potrzeb, zaplanowania działań i oceny ich efektywności.",

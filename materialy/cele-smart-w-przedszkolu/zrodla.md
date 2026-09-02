@@ -94,9 +94,21 @@ Zapisuję je razem z poprawką, żeby nie wróciły przy kolejnej redakcji.
 | 3 | „Cel **musi** wskazać obszar oraz numer osiągnięcia z załącznika" | To zalecenie dokumentacyjne z broszury, a nie literalny nakaz przepisu — „musi" sugeruje obowiązek prawny | „**W dokumentacji wskazuj** obszar oraz numer osiągnięcia … To ten numer obroni cel przed zespołem i organem nadzoru" |
 | 4 | „Pierwszy przegląd **wypadnie w styczniu**" | Przepis nie wyznacza stycznia — mówi o „co najmniej dwóch razach w roku szkolnym" | „Pierwszy przegląd **wypada zwykle na przełomie semestrów**" |
 
-Do sprawdzenia przy okazji, przepisane z broszury i nieweryfikowane w tej sesji:
-powołania na **art. 1, art. 47 ust. 1 pkt 5 i art. 127** Prawa oświatowego (plansza §10)
-oraz dokładny paragraf rozporządzenia o WWRD.
+### Zasada: czego nie potwierdziłem, tego nie cytuję z numerem
+
+Materiał trzyma się reguły — **każde powołanie z numerem jednostki redakcyjnej musi być
+zweryfikowane; reszta jest omówiona ogólnie, przez nazwę aktu i treść obowiązku.**
+Dlatego z planszy §10 usunięte zostały powołania na **art. 1, art. 47 ust. 1 pkt 5 i art. 127**
+Prawa oświatowego, przepisane z broszury i niesprawdzone w tej sesji. W ich miejsce jest opis
+tego, co z ustawy wynika, plus zdanie: „konkretne jednostki redakcyjne sprawdź w aktualnym
+tekście jednolitym".
+
+Tak samo wiersz o wczesnym wspomaganiu rozwoju: został opis zadania zespołu bez przypisywania
+mu paragrafu, którego nie udało się zweryfikować.
+
+Numery, które **zostają** w materiale, bo przeszły weryfikację: § 6 i § 6 ust. 9 oraz § 20,
+§ 20 ust. 1 i § 20 ust. 9 obu rozporządzeń z 9 sierpnia 2017 r., a także pozycje Dz.U.
+2017 poz. 356, 2017 poz. 1635, 2020 poz. 1309, 2023 poz. 1798, 2025 poz. 1043 i 2026 poz. 378.
 
 ## Kontrola przepisów — co zostało zweryfikowane u źródła
 
