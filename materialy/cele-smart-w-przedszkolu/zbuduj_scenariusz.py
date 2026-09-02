@@ -270,7 +270,29 @@ paragraf dwudziesty przy obserwacji pedagogicznej i ocenie efektywności pomocy.
 Przed oddaniem dokumentacji sprawdź aktualny tekst jednolity — pozycje tekstów jednolitych
 zmieniają się częściej niż same przepisy."""),
 
-("13","Czy cel SMART jest obowiązkowy","plansze/10b_czy_obowiazkowe.png",95,
+("13","Stare i nowe rozporządzenie","plansze/10c_stare_nowe.png",90,
+ ["§10 · Zmiana podstawy","2017 poz. 356 → 2026 poz. 378"],
+ """Skoro mowa o przepisach — pierwszego września zmieniła się podstawa programowa wychowania przedszkolnego.
+Zobaczmy dokładnie, co się zmieniło, a co zostało po staremu.
+
+Po lewej stan do trzydziestego pierwszego sierpnia dwa tysiące dwudziestego szóstego roku.
+Rozporządzenie z czternastego lutego dwa tysiące siedemnastego roku, pozycja trzysta pięćdziesiąt sześć.
+Osiągnięcia dziecka opisywano w czterech obszarach rozwoju: fizycznym, emocjonalnym, społecznym i poznawczym.
+Cel odnosił się do obszaru rozwoju dziecka.
+
+Po prawej stan od pierwszego września. Rozporządzenie Ministra Edukacji z jedenastego marca
+dwa tysiące dwudziestego szóstego roku, pozycja trzysta siedemdziesiąt osiem.
+Obszarów jest teraz dziewięć: społeczny, osobisty, językowy, matematyczny, przyrodniczy,
+techniczny, cyfrowy, artystyczny i ruchowy.
+I ważna różnica — cel musi wskazać obszar oraz numer osiągnięcia z załącznika.
+
+A teraz to, co się nie zmieniło, i to jest dobra wiadomość.
+Paragraf szósty rozporządzenia o kształceniu specjalnym obowiązuje dalej, w tym samym brzmieniu.
+Paragraf dwudziesty, ustęp dziewiąty, o ocenie efektywności — tak samo.
+Obowiązek mierzalności celu nie zmienił się ani o jotę.
+Zmienił się wyłącznie adres obszaru, do którego cel przypisujesz. Z czterech na dziewięć."""),
+
+("14","Czy cel SMART jest obowiązkowy","plansze/10b_czy_obowiazkowe.png",95,
  ["§10 · Pytanie z sali","Formuła — nie. Miara — tak."],
  """To pytanie pada na każdym szkoleniu, więc odpowiem na nie wprost. Czy cel SMART jest obowiązkowy?
 
@@ -296,7 +318,7 @@ Jeśli ktoś zapyta, dlaczego tak piszesz cele, odpowiedź brzmi:
 nie realizuję metodyki, tylko obowiązek oceny efektywności. SMART jest po prostu najprostszą znaną techniką,
 która pozwala ten obowiązek wykonać."""),
 
-("14","Skąd się wzięły te cele i skąd ten pomysł","plansze/11_zrodla.png",95,
+("15","Skąd się wzięły te cele i skąd ten pomysł","plansze/11_zrodla.png",95,
  ["Źródła","Doran · Mager · Kiresuk · Locke i Latham · WHO · IDEA"],
  """Zostaje pytanie, które warto sobie zadać: skąd to wszystko właściwie pochodzi.
 SMART w przedszkolu ma cztery korzenie i żaden z nich nie jest przedszkolny.
@@ -326,7 +348,7 @@ Ten sam zestaw, co w naszej formule.
 
 Innymi słowy: nie wymyślamy niczego nowego. Korzystamy z czegoś, co sprawdza się od kilkudziesięciu lat."""),
 
-("15","Zakończenie — trzy rzeczy do zrobienia","plansze/13_final.png",60,
+("16","Zakończenie — trzy rzeczy do zrobienia","plansze/13_final.png",60,
  ["Mniej dokumentów. Więcej edukacji."],
  """Zostawiam Cię z trzema rzeczami do zrobienia.
 

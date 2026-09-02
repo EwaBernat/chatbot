@@ -507,6 +507,68 @@ dodaj("10b_czy_obowiazkowe", slajd("10b", "Czy cel SMART jest obowiązkowy?", "�
 .sedno b{color:var(--pomarancz)}
 ''', stopka_prawo="Plansza 12 · §10 Czy to obowiązkowe"))
 
+# ------------------------------------------ 10c · STARE I NOWE ROZPORZĄDZENIE
+dodaj("10c_stare_nowe", slajd("10c", "Stare i nowe rozporządzenie — co się zmieniło 1 września", "§10 · Prawo — zmiana podstawy",
+  "Zmienił się adres obszaru, a nie obowiązek mierzalności. To rozróżnienie oszczędza mnóstwo niepotrzebnego przepisywania.",
+  '''<div class="dwie" id="porownanie">
+  <div class="akt stare">
+    <div class="naglowek"><span class="tag">Do 31 sierpnia 2026 r.</span>
+      <h3>Rozporządzenie MEN<br>z 14 lutego 2017 r.</h3>
+      <div class="dzu">Dz.U. 2017 poz. 356</div></div>
+    <div class="et2">Cztery obszary rozwoju</div>
+    <div class="chipy stare-chipy"><span>fizyczny</span><span>emocjonalny</span><span>społeczny</span><span>poznawczy</span></div>
+    <ul class="pkt">
+      <li>Cel odnosił się do <b>obszaru rozwoju dziecka</b>.</li>
+      <li>W zakresie wychowania przedszkolnego <b>zastąpione</b> od 1 września 2026 r.</li>
+    </ul>
+  </div>
+  <div class="akt nowe">
+    <div class="naglowek"><span class="tag tag-on">Od 1 września 2026 r.</span>
+      <h3>Rozporządzenie<br>Ministra Edukacji z 11 marca 2026 r.</h3>
+      <div class="dzu">Dz.U. 2026 poz. 378</div></div>
+    <div class="et2">Dziewięć obszarów</div>
+    <div class="chipy nowe-chipy"><span>społeczny</span><span>osobisty</span><span>językowy</span><span>matematyczny</span><span>przyrodniczy</span><span>techniczny</span><span>cyfrowy</span><span>artystyczny</span><span>ruchowy</span></div>
+    <ul class="pkt ptaszki">
+      <li>Cel musi wskazać <b>obszar oraz numer osiągnięcia</b> z załącznika.</li>
+      <li>To numer osiągnięcia obroni cel przed zespołem i organem nadzoru.</li>
+    </ul>
+  </div>
+</div>
+<div class="bez-zmian" id="bezzmian">
+  <div class="et2" style="color:var(--zielony)">Czego zmiana NIE ruszyła — te przepisy obowiązują dalej, w tym samym brzmieniu</div>
+  <div class="trzy">
+    <div><b>§ 6</b><span>Rozp. MEN z 9.08.2017 r. o kształceniu specjalnym <i>(t.j. Dz.U. 2020 poz. 1309)</i> — treść IPET oraz okresowa wielospecjalistyczna ocena poziomu funkcjonowania co najmniej dwa razy w roku szkolnym.</span></div>
+    <div><b>§ 20 ust. 9</b><span>Rozp. MEN z 9.08.2017 r. o pomocy psychologiczno-pedagogicznej <i>(t.j. Dz.U. 2023 poz. 1798)</i> — ocena efektywności udzielonej pomocy i wnioski do dalszej pracy.</span></div>
+    <div class="wniosek-blok"><b>Wniosek</b><span>Obowiązek <b>mierzalności</b> celu nie zmienił się ani o jotę. Zmienił się wyłącznie <b>adres obszaru</b>, do którego cel przypisujesz — z czterech na dziewięć.</span></div>
+  </div>
+</div>''', styl='''
+.dwie{display:grid;grid-template-columns:1fr 1fr;gap:30px}
+.akt{background:#fff;border:1px solid var(--linia);border-radius:16px;padding:24px 26px}
+.akt.stare{border-top:8px solid var(--faint);opacity:.96}
+.akt.nowe{border-top:8px solid var(--pomarancz)}
+.naglowek{display:flex;flex-direction:column;gap:8px;margin-bottom:16px}
+.tag{align-self:flex-start;font-size:12px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;
+ background:#EFECF6;color:var(--mute);border-radius:999px;padding:6px 14px}
+.tag-on{background:#FFE4D8;color:var(--pomarancz)}
+.akt h3{font-size:26px;line-height:1.2;color:var(--fiolet)}
+.dzu{font-size:17px;font-weight:700;color:var(--bursztyn)}
+.et2{font-size:11.5px;font-weight:700;letter-spacing:.13em;text-transform:uppercase;color:var(--mute);margin:14px 0 9px}
+.chipy{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:14px}
+.chipy span{font-size:17px;font-weight:700;border-radius:999px;padding:7px 15px}
+.stare-chipy span{background:#F1EFF7;color:var(--mute);border:1px solid var(--linia)}
+.nowe-chipy span{background:#FFF6F2;color:var(--pomarancz);border:1px solid #F3C9B6}
+.dwie ul.pkt li{font-size:17.5px;line-height:1.45;margin-bottom:7px}
+.dwie ul.pkt li b{color:var(--fiolet-cn)}
+.bez-zmian{margin-top:26px;background:#F1F8F4;border:2px solid #A9D8C4;border-left:10px solid var(--zielony);
+ border-radius:14px;padding:20px 26px}
+.trzy{display:grid;grid-template-columns:1fr 1fr 1fr;gap:22px;margin-top:6px}
+.trzy div b{display:block;font-size:24px;color:var(--zielony);margin-bottom:6px}
+.trzy div span{font-size:16.5px;line-height:1.45;color:var(--atrament)}
+.trzy div span i{color:var(--bursztyn);font-style:normal;font-weight:700}
+.wniosek-blok b{color:var(--pomarancz)!important}
+.wniosek-blok span b{display:inline;font-size:inherit;color:var(--fiolet-cn)!important}
+''', stopka_prawo="Plansza 12b · §10 Stare i nowe rozporządzenie"))
+
 # ---------------------------------------------- 11 · SKĄD SIĘ WZIĄŁ TEN POMYSŁ
 ZR = [("1981","G. T. Doran","„There's a S.M.A.R.T. way to write management's goals and objectives”, <i>Management Review</i> 70(11), s. 35–36",
    "Pierwsze użycie skrótu SMART. U Dorana <b>A</b> = <i>assignable</i> (przypisany komuś), <b>R</b> = <i>realistic</i> (realny przy danych zasobach). Doran od razu zastrzegł, że nie każdy cel musi spełniać wszystkie pięć kryteriów — SMART to lista kontrolna, nie gorset."),

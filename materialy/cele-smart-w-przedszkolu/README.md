@@ -11,14 +11,15 @@ Przykład przewodni — ten sam co w broszurze: konspekt **TUE-1 „Termometr na
 
 | Plik | Co to jest |
 |---|---|
-| `scenariusz_filmu.md` | scenariusz produkcyjny — 15 scen, ok. 18 minut: plansza + tekst na ekranie + narracja + wskazówki |
+| `scenariusz_filmu.md` | scenariusz produkcyjny — 16 scen, ok. 19 minut: plansza + tekst na ekranie + narracja + wskazówki |
 | `narracja.txt` | **czysty** tekst narracji (bez nagłówków), liczby zapisane słowami — gotowy dla lektora albo silnika mowy |
 | `narracja_ze_scenami.txt` | ta sama narracja z podziałem na sceny — do redakcji, nie do nagrania |
 | `zrodla.md` | zaplecze merytoryczne: skąd pochodzi SMART, formuła zdania, progi ewaluacji i kody ICF |
-| `plansze/*.png` | 16 gotowych plansz w kolorach marki (14 w 16:9 + konspekt A4 do wydruku) |
+| `plansze/*.png` | 17 gotowych plansz w kolorach marki (14 w 16:9 + konspekt A4 do wydruku) |
 | `plansze/*.html` | źródła plansz — poprawiasz tekst i renderujesz ponownie |
 | `zbuduj_plansze.py` | generator plansz (headless Chromium, działa bez internetu) |
 | `zbuduj_scenariusz.py` | generator scenariusza i pliku narracji z jednej listy scen |
+| `zbuduj_animacje.py` | generator gotowego filmu: ujęcia, najazdy kamery na omawiany element, narracja bez pośpiechu |
 
 ## Plansze
 
@@ -36,9 +37,10 @@ Przykład przewodni — ten sam co w broszurze: konspekt **TUE-1 „Termometr na
 | `08_ewaluacja.png` | 10 | §8 — zielony, żółty, czerwony |
 | `09_checklista.png` | 11 | §9 — dziesięć pytań i pięć poprawek |
 | `10_podstawa_prawna.png` | 12 | §10 — pięć aktów i co z nich wynika |
-| `10b_czy_obowiazkowe.png` | 13 | §10 — **czy cel SMART jest obowiązkowy**: co przepisy nakazują, a czego nie |
-| `11_zrodla.png` | 14 | skąd się wzięły te cele — Doran, Mager, Kiresuk, Locke i Latham, WHO, IDEA |
-| `13_final.png` | 15 | zakończenie i kontakt |
+| `10b_czy_obowiazkowe.png` | 14 | §10 — **czy cel SMART jest obowiązkowy**: co przepisy nakazują, a czego nie |
+| `10c_stare_nowe.png` | 13 | §10 — **stare i nowe rozporządzenie**: 2017 poz. 356 → 2026 poz. 378, i co się nie zmieniło |
+| `11_zrodla.png` | 15 | skąd się wzięły te cele — Doran, Mager, Kiresuk, Locke i Latham, WHO, IDEA |
+| `13_final.png` | 16 | zakończenie i kontakt |
 | `14_konspekt_tue1.png` | 8 (wstawka) | **konspekt zajęć A4** z wpisanym celem SMART i kartą obserwacji do wydruku |
 
 ## Jak to przebudować
@@ -81,3 +83,29 @@ python3 .claude/skills/dane-i-glos/scripts/elevenlabs_tts.py \
 
 Alternatywnie: nagraj narrację samodzielnie z pliku `narracja.txt` — tekst jest przygotowany
 pod czytanie na głos (zdania do 20 słów, liczby zapisane słowami, pauzy w miejscach pustych linii).
+
+## Jak powstaje gotowy film
+
+```bash
+python3 zbuduj_animacje.py <katalog_z_nagraniami> -o film.mp4
+python3 zbuduj_animacje.py <katalog> -o proba.mp4 --segmenty 4,5   # tylko wybrane
+```
+
+Katalog ma zawierać nagrania `s1.mp3` … `s6.mp3` — po jednym na segment, akapit na ujęcie.
+Generator stoi na trzech zasadach:
+
+1. **Obraz nadąża za słowem.** Nagranie tnie się na ujęcia tam, gdzie kończy się akapit
+   narracji, a między ujęciami wstawiana jest cisza. Żadne zdanie nie zaczyna się, zanim
+   obraz nie usiądzie — nic nie jest przyspieszane.
+2. **Kamera pokazuje to, o czym mowa.** Ujęcie wskazuje selektor CSS; pozycję elementu
+   mierzy przeglądarka (`--dump-dom`), a kadr dojeżdża do niego płynnie przez `zoompan`.
+   Współrzędnych nie wpisujemy ręcznie — poprawiona plansza sama przesuwa kadr.
+3. **Jedno źródło treści.** Stany planszy powstają przez wstrzyknięcie CSS do gotowego
+   HTML-a, więc tekst nie jest duplikowany.
+
+Granice ujęć w segmentach 1–3 są wpisane jako sekundy; w segmentach 4–6 wyznacza je
+automatycznie najdłuższe pauzy w nagraniu. Podgląd pauz:
+
+```bash
+ffmpeg -i s4.mp3 -af silencedetect=noise=-32dB:d=0.28 -f null /dev/null
+```

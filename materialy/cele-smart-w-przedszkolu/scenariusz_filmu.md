@@ -7,9 +7,9 @@
 
 | Parametr | Wartość |
 |---|---|
-| Liczba scen | 15 |
-| Szacowany czas | ok. 17 min 45 s |
-| Liczba słów narracji | 2660 |
+| Liczba scen | 16 |
+| Szacowany czas | ok. 18 min 55 s |
+| Liczba słów narracji | 2830 |
 | Tempo | ok. 150 słów/min (polski lektor) |
 | Format obrazu | 16:9, 1920 × 1080 px (konspekt: A4, 1240 × 1754 px) |
 | Marka | fiolet `#2D1B69` + pomarańcz `#E8450A`, Arial |
@@ -380,7 +380,37 @@ czytają polskie liczebniki niepewnie. Pusta linia oznacza naturalną pauzę.
 
 ---
 
-## Scena 13 · Czy cel SMART jest obowiązkowy
+## Scena 13 · Stare i nowe rozporządzenie
+
+**Czas:** ok. 70 s (170 słów) · **Plansza:** `plansze/10c_stare_nowe.png`
+
+**Tekst na ekranie:** §10 · Zmiana podstawy · 2017 poz. 356 → 2026 poz. 378
+
+**Narracja:**
+
+> Skoro mowa o przepisach — pierwszego września zmieniła się podstawa programowa wychowania przedszkolnego.
+> Zobaczmy dokładnie, co się zmieniło, a co zostało po staremu.
+>
+> Po lewej stan do trzydziestego pierwszego sierpnia dwa tysiące dwudziestego szóstego roku.
+> Rozporządzenie z czternastego lutego dwa tysiące siedemnastego roku, pozycja trzysta pięćdziesiąt sześć.
+> Osiągnięcia dziecka opisywano w czterech obszarach rozwoju: fizycznym, emocjonalnym, społecznym i poznawczym.
+> Cel odnosił się do obszaru rozwoju dziecka.
+>
+> Po prawej stan od pierwszego września. Rozporządzenie Ministra Edukacji z jedenastego marca
+> dwa tysiące dwudziestego szóstego roku, pozycja trzysta siedemdziesiąt osiem.
+> Obszarów jest teraz dziewięć: społeczny, osobisty, językowy, matematyczny, przyrodniczy,
+> techniczny, cyfrowy, artystyczny i ruchowy.
+> I ważna różnica — cel musi wskazać obszar oraz numer osiągnięcia z załącznika.
+>
+> A teraz to, co się nie zmieniło, i to jest dobra wiadomość.
+> Paragraf szósty rozporządzenia o kształceniu specjalnym obowiązuje dalej, w tym samym brzmieniu.
+> Paragraf dwudziesty, ustęp dziewiąty, o ocenie efektywności — tak samo.
+> Obowiązek mierzalności celu nie zmienił się ani o jotę.
+> Zmienił się wyłącznie adres obszaru, do którego cel przypisujesz. Z czterech na dziewięć.
+
+---
+
+## Scena 14 · Czy cel SMART jest obowiązkowy
 
 **Czas:** ok. 90 s (227 słów) · **Plansza:** `plansze/10b_czy_obowiazkowe.png`
 
@@ -414,7 +444,7 @@ czytają polskie liczebniki niepewnie. Pusta linia oznacza naturalną pauzę.
 
 ---
 
-## Scena 14 · Skąd się wzięły te cele i skąd ten pomysł
+## Scena 15 · Skąd się wzięły te cele i skąd ten pomysł
 
 **Czas:** ok. 110 s (279 słów) · **Plansza:** `plansze/11_zrodla.png`
 
@@ -452,7 +482,7 @@ czytają polskie liczebniki niepewnie. Pusta linia oznacza naturalną pauzę.
 
 ---
 
-## Scena 15 · Zakończenie — trzy rzeczy do zrobienia
+## Scena 16 · Zakończenie — trzy rzeczy do zrobienia
 
 **Czas:** ok. 30 s (69 słów) · **Plansza:** `plansze/13_final.png`
 

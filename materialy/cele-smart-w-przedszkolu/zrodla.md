@@ -82,6 +82,25 @@ uznaje się za mierzalny, gdy zawiera cztery elementy: **termin, warunki, zachow
 - https://www.ecfr.gov/current/title-34/subtitle-B/chapter-III/part-300/subpart-D/subject-group-ECFR28b07e67452ed7a/section-300.320
 - https://sites.ed.gov/idea/regs/b/d/300.320
 
+## Kontrola przepisów — co zostało zweryfikowane u źródła
+
+Każde twierdzenie prawne z filmu przeszło osobne sprawdzenie. Poniżej stan tej kontroli,
+żeby przy kolejnej aktualizacji nie trzeba było jej powtarzać od zera.
+
+| Twierdzenie w materiale | Status | Uwaga |
+|---|---|---|
+| Prawo oświatowe — t.j. **Dz.U. 2025 poz. 1043** | **potwierdzone** | obwieszczenie Marszałka Sejmu z 25 lipca 2025 r. |
+| **§ 6 ust. 9** rozp. o kształceniu specjalnym — okresowa WOPF co najmniej dwa razy w roku szkolnym, z oceną efektywności programu | **potwierdzone** | uwaga: część opracowań cytuje ten obowiązek jako „§ 6 pkt 10" — to błąd cytowania w tych źródłach, nie w przepisie |
+| **§ 20 ust. 9** rozp. o pomocy p-p — „oceniają efektywność udzielonej pomocy i formułują wnioski dotyczące dalszych działań" | **potwierdzone** | brzmienie zgodne z t.j. Dz.U. 2023 poz. 1798 |
+| **Dz.U. 2026 poz. 378**, rozp. ME z 11 marca 2026 r., w mocy od 1 września 2026 r. | **potwierdzone** | pozycja figuruje w wykazie ISAP; data wejścia w życie potwierdzona |
+| **Dziewięć obszarów** nowej podstawy (społeczny, osobisty, językowy, matematyczny, przyrodniczy, techniczny, cyfrowy, artystyczny, ruchowy) w miejsce czterech | **potwierdzone** | zgodnie u kilku niezależnych omówień nowej podstawy |
+| **§ 6 ust. 1** nie wymienia „celów" jako odrębnego elementu IPET | **zgodne ze wszystkimi znalezionymi omówieniami** | dwa niezależne wyliczenia katalogu, w żadnym nie ma pozycji „cele"; **przed powołaniem się w dokumencie sprawdź pełne brzmienie w ISAP** |
+| Rozp. o WWRD — **Dz.U. 2017 poz. 1635** | **istnienie potwierdzone** | dokładnego paragrafu o analizie skuteczności programu **nie udało się zweryfikować** — w materiale mówimy o niej ogólnie, bez numeru |
+
+Dostęp sieciowy tego środowiska nie przepuszcza `isap.sejm.gov.pl` ani `eli.gov.pl`, więc
+weryfikacja szła przez wyszukiwarkę i omówienia cytujące brzmienie przepisów. Tam, gdzie to
+nie wystarcza do postawienia twardej tezy, materiał mówi ostrożniej — patrz ostatnie dwa wiersze.
+
 ## Czy cel SMART jest obowiązkowy — sprawdzone przepisy
 
 Rozróżnienie ze sceny 13 filmu opiera się na trzech ustaleniach:
