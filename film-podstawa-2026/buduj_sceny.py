@@ -50,11 +50,24 @@ def czytaj(sciezka):
     return sceny
 
 def dlugosc_audio(sciezka):
-    wynik = subprocess.run(
-        ["ffprobe","-v","error","-show_entries","format=duration","-of","csv=p=0",sciezka],
-        capture_output=True, text=True)
-    if wynik.returncode: sys.exit(f"ffprobe nie odczytał {sciezka}")
-    return float(wynik.stdout.strip())
+    """Czyta długość nagrania. Woli ffprobe, a gdy go nie ma — wyciąga czas
+    z komunikatu ffmpeg, bo w kontenerach częściej jest sam ffmpeg."""
+    import re, shutil
+    if shutil.which("ffprobe"):
+        w = subprocess.run(["ffprobe","-v","error","-show_entries","format=duration",
+                            "-of","csv=p=0", sciezka], capture_output=True, text=True)
+        if not w.returncode:
+            return float(w.stdout.strip())
+    ff = shutil.which("ffmpeg")
+    if not ff:
+        try:
+            import imageio_ffmpeg; ff = imageio_ffmpeg.get_ffmpeg_exe()
+        except ImportError:
+            sys.exit("Nie znalazłem ffprobe ani ffmpeg — zainstaluj jedno z nich.")
+    w = subprocess.run([ff, "-i", sciezka], capture_output=True, text=True)
+    m = re.search(r"Duration: (\d+):(\d+):(\d+\.?\d*)", w.stderr)
+    if not m: sys.exit(f"Nie odczytałem długości {sciezka}")
+    return int(m.group(1))*3600 + int(m.group(2))*60 + float(m.group(3))
 
 def main():
     a = argparse.ArgumentParser()
