@@ -213,7 +213,9 @@ Najczęstsze przełączniki:
   Kolejność: `--voice-id` > `ELEVENLABS_VOICE_ID` > pamięć skilla > głos zapasowy.
   Gdy pamięć jest pusta, skrypt **ostrzega**, że mówi cudzym głosem
 - `--glosy` — wypisz wszystkie głosy z konta i ich `voice_id`
-- `--model eleven_multilingual_v2` — domyślny, najlepszy dla polszczyzny
+- `--model eleven_v3` — domyślny dla narracji szkoleniowej; skrypt bierze go z pamięci
+  skilla, tak samo jak głos. `eleven_multilingual_v2` na klonie brzmi płasko —
+  szczegóły i znaczniki stylu: `references/elevenlabs.md`
 - `--srt napisy.srt` — napisy z rzeczywistymi znacznikami czasu z ElevenLabs
 - `--stability 0.6 --similarity 0.75 --speed 1.0` — barwa i tempo
 - `--suchy-bieg` — policz znaki bez wywołania API
@@ -223,6 +225,11 @@ Skrypt sam dzieli długi tekst na fragmenty poniżej limitu znaków, zachowuje c
 
 **Uwaga o polskim brzmieniu**: głosy premade mówią po polsku z obcym akcentem. Naturalną
 polszczyznę daje wyłącznie klon z etapu 0 — dlatego to on jest domyślny.
+
+**Gdy usłyszysz „głos robota"** — nie zmieniaj od razu głosu ani nie klonuj go ponownie.
+Najpierw sprawdź model: ten sam klon na `eleven_multilingual_v2` czyta płasko, a na
+`eleven_v3` ze znacznikiem stylu w nawiasie kwadratowym na początku akapitu brzmi
+naturalnie. Dopiero gdy to nie pomoże, wróć do jakości próbek (`references/klon_glosu.md`).
 
 Szczegóły API, modele, limity i kody błędów: `references/elevenlabs.md`.
 

@@ -22,10 +22,17 @@ w zmiennej środowiskowej — nigdy w pliku w repozytorium, w scenariuszu ani w 
 
 | model_id | Kiedy | Uwagi |
 |---|---|---|
-| `eleven_multilingual_v2` | **domyślny dla polskiego** | najbardziej stabilna wymowa, obsługuje `<break>` |
-| `eleven_v3` | najbardziej ekspresyjny | znaczniki emocji, wolniejszy, droższy |
+| `eleven_multilingual_v2` | stabilna wymowa, obsługuje `<break>` | **na klonach potrafi brzmieć płasko i „robotycznie"** przy długich, informacyjnych tekstach |
+| `eleven_v3` | **domyślny dla szkoleń i narracji jej głosem** | znaczniki emocji w nawiasach kwadratowych, wolniejszy, droższy — ale to on ratuje intonację |
 | `eleven_turbo_v2_5` | gdy liczy się czas | niższa latencja, przyjmuje `language_code` |
 | `eleven_flash_v2_5` | najszybszy, najtańszy | do długich, „roboczych" nagrań |
+
+**Gdy nagranie brzmi jak robot, najpierw zmień model, a dopiero potem ustawienia.**
+Sprawdzone na tym koncie: ten sam klon czytający ten sam tekst brzmi płasko na
+`eleven_multilingual_v2`, a naturalnie na `eleven_v3` ze znacznikiem stylu na początku
+akapitu, np. `[ciepło, spokojnie, jak do koleżanki w pokoju nauczycielskim]`.
+Znacznik dotyczy całego dalszego fragmentu i **nie jest czytany na głos**.
+Model zapamiętuje się raz: `skonfiguruj_glos.py --model eleven_v3`.
 
 Polski jest obsługiwany przez wszystkie cztery. Przy modelach `*_v2_5` warto podać
 `--jezyk pl`, żeby wymusić polską wymowę przy tekstach z nazwami obcymi.

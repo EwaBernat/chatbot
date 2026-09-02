@@ -266,8 +266,8 @@ def main() -> int:
                     help="wypisz plan, zuzycie znakow i dostepnosc klonowania")
     ap.add_argument("--voice-id", default=None,
                     help="domyslnie glos zapamietany przez skill (skonfiguruj_glos.py)")
-    ap.add_argument("--model", default=MODEL_DOMYSLNY,
-                    help=f"domyslnie {MODEL_DOMYSLNY}; alternatywy: eleven_v3, "
+    ap.add_argument("--model", default=None,
+                    help=f"gdy skill nie pamieta modelu: {MODEL_DOMYSLNY}; alternatywy: eleven_v3, "
                          "eleven_turbo_v2_5, eleven_flash_v2_5")
     ap.add_argument("--jezyk", default=None,
                     help="wymus kod jezyka, np. pl (dziala z modelami turbo/flash v2.5)")
@@ -292,6 +292,10 @@ def main() -> int:
     # kolejnosc: --voice-id > ELEVENLABS_VOICE_ID > pamiec skilla
     a.voice_id = konfiguracja.ustal(
         a.voice_id, "ELEVENLABS_VOICE_ID", "elevenlabs_voice_id", None)
+    # ta sama kolejnosc dla modelu — glos i model razem decyduja o brzmieniu,
+    # wiec skill pamieta oba, a nie tylko glos
+    a.model = konfiguracja.ustal(
+        a.model, "ELEVENLABS_MODEL", "elevenlabs_model", MODEL_DOMYSLNY)
 
     if not a.voice_id:
         if not a.obcy_glos:

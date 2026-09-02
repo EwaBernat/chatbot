@@ -114,6 +114,9 @@ def main() -> int:
                     help="usun zapamietany glos z konfiguracji")
     ap.add_argument("--tylko-sprawdz", action="store_true",
                     help="sprawdz nagrania i zakoncz — nic nie zostanie wyslane")
+    ap.add_argument("--model", metavar="MODEL_ID",
+                    help="zapamietaj model mowy (np. eleven_v3) — glos i model razem "
+                         "decyduja o brzmieniu")
     ap.add_argument("--zapamietaj", metavar="VOICE_ID",
                     help="zapamietaj glos juz sklonowany na koncie ElevenLabs "
                          "(nie wysyla nagran, nie klonuje niczego)")
@@ -131,6 +134,10 @@ def main() -> int:
                                         encoding="utf-8")
         print("Zapomniane. Nagrania na dysku i glos na koncie ElevenLabs zostaja nietkniete.")
         return 0
+    if a.model and not a.zapamietaj and not a.nagrania:
+        sciezka = konfiguracja.zapisz(elevenlabs_model=a.model.strip())
+        print(f"Zapamietany model mowy: {a.model.strip()}\n  zapisane: {sciezka}")
+        return 0
     if a.zapamietaj:
         voice_id = a.zapamietaj.strip()
         if a.nagrania:
@@ -143,6 +150,7 @@ def main() -> int:
         sciezka = konfiguracja.zapisz(
             elevenlabs_voice_id=voice_id,
             elevenlabs_voice_name=a.nazwa,
+            elevenlabs_model=a.model,
             utworzono=str(date.today()),
         )
         print(f"Gotowe. Skill pamieta juz Twoj glos.\n"

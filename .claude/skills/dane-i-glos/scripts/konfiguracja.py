@@ -79,6 +79,7 @@ def opisz() -> str:
     etykiety = {
         "elevenlabs_voice_id": "glos ElevenLabs",
         "elevenlabs_voice_name": "  nazwa",
+        "elevenlabs_model": "model mowy",
         "heygen_avatar_id": "awatar HeyGen",
         "heygen_voice_id": "glos HeyGen",
         "utworzono": "zapisano",
