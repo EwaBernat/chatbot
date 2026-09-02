@@ -19,6 +19,7 @@ import html
 from pathlib import Path
 
 import dane_poziomy as P
+import karta_pomocy as KP
 import konspekt_fba as KON
 import konspekty_fba as KF
 
@@ -155,7 +156,7 @@ td.g.haskon .tresc{text-decoration:underline; text-decoration-color:var(--line-2
   html.print-konspekt .kcard{box-shadow:none; max-width:none; padding:0; border-radius:0;
     page:kon; zoom:.96}
   html.print-konspekt .kclose, html.print-konspekt .kfoot, html.print-konspekt .kesc{display:none}
-  html.print-konspekt .zal{break-before:page; border-top:none}
+  html.print-konspekt .pom, html.print-konspekt .zal{break-before:page; border-top:none}
   /* Zeszyt jednej wersji wiekowej: wszystkie jej konspekty po kolei, każdy
      scenariusz i każdy arkusz na własnej kartce. */
   html.print-zeszyt .ark{display:none !important}
@@ -167,7 +168,7 @@ td.g.haskon .tresc{text-decoration:underline; text-decoration-color:var(--line-2
   html.print-zeszyt .kcard{box-shadow:none; max-width:none; padding:0; border-radius:0;
     page:kon; zoom:.96}
   html.print-zeszyt .kclose, html.print-zeszyt .kfoot, html.print-zeszyt .kesc{display:none}
-  html.print-zeszyt .zal{break-before:page; border-top:none}
+  html.print-zeszyt .pom, html.print-zeszyt .zal{break-before:page; border-top:none}
   html.print-zeszyt .kwsk, html.print-zeszyt .kmod, html.print-zeszyt .zal-karta{break-inside:avoid}
   /* Zagęszczenie na druk — konspekt ma się zmieścić na jednej kartce, tak jak
      konspekty w banku. Pomiar przed: 1380 px scenariusza przy budżecie 1047. */
@@ -342,7 +343,7 @@ def dokument():
 <title>Cele SMART do wskaźników FBA — wiek i poziom wsparcia</title>
 <link rel="stylesheet" media="print" onload="this.media='all'"
   href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&display=swap">
-<style>{STYL}{KON.STYL}
+<style>{STYL}{KON.STYL}{KP.STYL}
 .sr-only{{position:absolute; width:1px; height:1px; overflow:hidden; clip:rect(0 0 0 0)}}</style>
 </head>
 <body>
@@ -384,7 +385,7 @@ def dokument():
   </div>
 </div>
 {KON.modale()}
-<script>{SKRYPT}{KON.SKRYPT}</script>
+<script>{SKRYPT}{KON.SKRYPT}{KP.SKRYPT}</script>
 </body>
 </html>
 """

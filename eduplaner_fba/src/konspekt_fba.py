@@ -20,6 +20,7 @@ Symbol dorysowany pod jeden konspekt przestaje być słowem.
 
 import html
 
+import karta_pomocy as KP
 import konspekty_fba as KF
 
 
@@ -359,8 +360,9 @@ def modal(K):
 
     <div class="ksec"><span class="sq">VII</span><h4>Materiały do wydruku</h4><span class="line"></span>
       </div>
-    <p class="kkurs">Cztery karty i pasek kolejności, A4 pionowo. Symbole wkleja się z biblioteki
-      EduPlaner — te same, których dziecko używa na tablicy AAC i w planie dnia.</p>
+    <p class="kkurs">Karta pomocy z ilustracją i poleceniem nagranym jej głosem, a pod nią
+      materiał do wycięcia — cztery karty i pasek kolejności, A4 pionowo.</p>
+{KP.karta(K["nr"], K["wersja"], K["wiek"])}
 {_arkusz(K["arkusz"])}
 
     <div class="kfoot">

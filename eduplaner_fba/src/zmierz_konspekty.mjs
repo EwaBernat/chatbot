@@ -45,18 +45,22 @@ const wyniki = await p.evaluate(() => {
     m.classList.add('open');
     const k = m.querySelector('.kcard');
     const zal = m.querySelector('.zal');
+    const pom = m.querySelector('.pom');
+    const h = e => e ? Math.round(e.getBoundingClientRect().height) : 0;
     out.push({ id: m.id,
-      scenariusz: Math.round(k.getBoundingClientRect().height - zal.getBoundingClientRect().height),
-      arkusz: Math.round(zal.getBoundingClientRect().height) });
+      scenariusz: h(k) - h(zal) - h(pom),
+      pomoc: h(pom),
+      arkusz: h(zal) });
     m.classList.remove('open');
   }
   return out;
 });
 await b.close();
 
-const poza = wyniki.filter(w => w.scenariusz > BUDZET || w.arkusz > BUDZET);
+const poza = wyniki.filter(w => w.scenariusz > BUDZET || w.arkusz > BUDZET || w.pomoc > BUDZET);
 const max = wyniki.reduce((a, w) => Math.max(a, w.scenariusz), 0);
-for (const w of poza) console.log(`  POZA ${w.id}: scenariusz ${w.scenariusz}, arkusz ${w.arkusz}`);
-console.log(`${wyniki.length} konspektów · najwyższy scenariusz ${max} px · budżet ${BUDZET} px `
+for (const w of poza) console.log(`  POZA ${w.id}: scenariusz ${w.scenariusz}, pomoc ${w.pomoc}, arkusz ${w.arkusz}`);
+const maxp = wyniki.reduce((a, w) => Math.max(a, w.pomoc), 0);
+console.log(`${wyniki.length} konspektów · najwyższy scenariusz ${max} px · karta pomocy ${maxp} px · budżet ${BUDZET} px `
           + `(A4 pionowo, skala ${SKALA}) · poza stroną: ${poza.length}`);
 process.exit(poza.length ? 1 : 0);
