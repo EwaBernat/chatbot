@@ -66,11 +66,20 @@ Formularz bez backendu składa gotową wiadomość e-mail z treścią zamówieni
 Do wdrożenia: podłączenie do własnego endpointu lub Formspree i bramki płatności
 (Przelewy24 / Stripe) dla osób indywidualnych.
 
+## Prawdziwe ekrany aplikacji
+
+Hero i sekcja „Aplikacja” pokazują rzeczywiste zrzuty z aplikacji EduPlaner 2026
+(Moduł Realizacji Zajęć z drukiem IPET oraz Karta Funkcjonalna WOPF), wyrenderowane
+z plików w skillach `eduplaner-zajecia-ipet` i `eduplaner-pctp` z przykładowym uczniem
+Janem Kowalskim. Kopie zrzutów są w katalogu `img/`. Obrazy w `index.html` są
+wbudowane jako data URI, więc strona pozostaje jednym plikiem.
+
 ## Do uzupełnienia przed wdrożeniem
 
 Miejsca oznaczone w `index.html` komentarzem `TODO`:
 - linki do filmów w YouTube (sześć adresów),
 - zdjęcie autorki (proporcje 4:5) w miejsce bloku z inicjałami,
+- jeśli chcesz, zrzuty z produkcyjnej wersji aplikacji w miejsce obecnych (te same miejsca w hero i galerii),
 - ceny: subskrypcja roczna, każde szkolenie i każda broszura, osobno dla placówki i osoby indywidualnej,
 - prawdziwe tytuły broszur i formaty szkoleń (obecne są przykładowe),
 - backend formularza i bramka płatności online,
