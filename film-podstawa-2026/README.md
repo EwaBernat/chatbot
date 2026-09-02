@@ -11,7 +11,9 @@ miejsce na awatara i napisy.
 | Scenariusz lektorski (18 scen, 1363 słowa) | `public/narracja.txt` |
 | Montaż — czasy scen liczone ze scenariusza | `public/film.json` |
 | Wszystkie plansze i animacje | `src/sceny/Sceny.tsx` |
-| Tło sali, znak PCTP, ikony obszarów, okno awatara, napisy | `src/elementy/` |
+| Tło sali, znak PCTP, ikony obszarów, awatar, napisy | `src/elementy/` |
+| Powitanie — awatar mówi własnym dźwiękiem | `src/sceny/Powitanie.tsx` |
+| Zdjęcie tła z awatara (przezroczystość) | `narzedzia/wytnij_tlo.py` |
 | Podgląd pierwszych 40 sekund | `out/podglad-40s.mp4` |
 | Klatki kontrolne z całego filmu | `podglad/` |
 
@@ -37,17 +39,54 @@ python3 ~/.claude/skills/dane-i-glos/scripts/elevenlabs_tts.py \
 python3 buduj_sceny.py --audio public/narracja.mp3   # dosuwa sceny do nagrania
 ```
 
-**2. Awatar** → `public/awatar.mp4`
+**2. Awatar** → `public/awatar.webm`
 
-Wejdź do HeyGen, wybierz swojego awatara i wygeneruj film z gotowego
-`public/narracja.mp3` (usta idą za Twoim głosem, nie za cudzym):
+Nagranie z HeyGen (`public/awatar-intro.mp4`) trzeba najpierw pozbawić tła:
 
 ```bash
-export HEYGEN_API_KEY="..."
-python3 ~/.claude/skills/dane-i-glos/scripts/heygen_awatar.py --awatary
-python3 ~/.claude/skills/dane-i-glos/scripts/heygen_awatar.py \
-        --audio public/narracja.mp3 --avatar-id <twoje_id> \
-        --tlo "#2D1B69" --czekaj -o public/awatar.mp4
+python3 narzedzia/wytnij_tlo.py public/awatar-intro.mp4 public/awatar.webm
+```
+
+Skrypt zapisuje VP9 z kanałem alfa — Chromium, a więc i Remotion, odtwarza
+go z przezroczystością, dzięki czemu postać stoi wprost na tle sali,
+bez ramki i bez koła.
+
+### Dlaczego to wymaga osobnego kroku
+
+HeyGen wyeksportował awatara „z przezroczystością", ale do kodeka, który alfy
+nie niesie (H.264, yuv420p). Przezroczystość jest w tym pliku **wypalona
+w pikselach** jako szara szachownica. Zwykły klucz luminancji jej nie zdejmie:
+szachownica ma luminancję ok. 250, a biała bluzka 251 — klucz wyciąłby bluzkę
+razem z tłem.
+
+Dlatego skrypt rozpoznaje tło inaczej. Piksel jest tłem, gdy jest jasny
+i neutralny kolorystycznie **oraz** należy do obszaru stykającego się
+z krawędzią kadru. Bluzka jest zamknięta marynarką, więc krawędzi nie dotyka
+i zostaje nietknięta — biała, dokładnie taka jak w oryginale. Drobne wyspy
+po kompresji odsiewa próg wielkości obszaru.
+
+**Prościej będzie następnym razem:** jeśli w HeyGen wyeksportujesz awatara
+do WebM/VP9 z alfą albo do MOV/ProRes 4444, przezroczystość przyjdzie gotowa
+i ten krok odpada. Można też wyeksportować na jednolitym, nasyconym tle
+(np. zieleni), które kluczuje się bez ryzyka dla bluzki.
+
+### Gdzie awatar występuje w filmie
+
+| Miejsce | Co widać | Dźwięk |
+|---|---|---|
+| Powitanie (0:00–0:13) | pełna sylwetka, mówi | własny dźwięk z `awatar.webm` |
+| Sceny 1–18 | brak postaci | lektor z `narracja.mp3` |
+| Plansza końcowa | nieruchoma sylwetka (`portret-alfa.png`) | lektor |
+
+Postać mówi tylko w powitaniu, bo dalej prowadzi lektor z ElevenLabs — ruch ust
+rozjechałby się z tekstem. Gdyby powitanie miało być nieme, wystarczy ustawić
+`POWITANIE_SEKUND = 0` w `src/Root.tsx`.
+
+Nieruchomą sylwetkę na planszę końcową wycina się z gotowego `awatar.webm`:
+
+```bash
+ffmpeg -c:v libvpx-vp9 -ss 6.5 -i public/awatar.webm \
+       -frames:v 1 -pix_fmt rgba public/portret-alfa.png
 ```
 
 Film składa się także **bez** tych dwóch plików — wtedy w rogu jest ramka
@@ -69,7 +108,8 @@ npx remotion render src/index.ts Film out/film.mp4 \
     --browser-executable /opt/pw-browsers/chromium_headless_shell-1194/chrome-linux/headless_shell
 ```
 
-Pełny render (ok. 17 400 klatek) trwa w tym środowisku około godziny.
+Pełny render (21 486 klatek — 13,04 s powitania plus 703,16 s narracji) trwa
+w tym środowisku ponad godzinę.
 Podgląd fragmentu: dodaj `--frames=0-1200`.
 
 ## Jak to jest zbudowane

@@ -6,6 +6,10 @@ import type { Film as FilmDane } from './typy';
 
 const d = dane as FilmDane;
 
+/** Długość powitania — tyle trwa awatar.webm (13,04 s po wycięciu tła
+ *  z nagrania HeyGen). O tyle przesuwa się cała narracja lektorska. */
+const POWITANIE_SEKUND = 13.04;
+
 /** public/ decyduje o tym, czego film użyje: gdy nagranie i awatar są na
  *  miejscu, wchodzą do montażu; gdy ich nie ma, film i tak się składa. */
 const maPlik = (nazwa: string) =>
@@ -13,7 +17,8 @@ const maPlik = (nazwa: string) =>
 
 export const RemotionRoot: React.FC = () => {
   const jestAudio = maPlik(d.audio);
-  const jestAwatar = maPlik('awatar.mp4');
+  const jestAwatar = maPlik('awatar.webm');
+  const powitanieKlatek = jestAwatar ? Math.round(POWITANIE_SEKUND * d.fps) : 0;
   const [napisySrt, setNapisySrt] = React.useState<string | undefined>();
 
   React.useEffect(() => {
@@ -25,11 +30,11 @@ export const RemotionRoot: React.FC = () => {
     <Composition
       id="Film"
       component={Film}
-      durationInFrames={Math.round(d.lacznieSekund * d.fps)}
+      durationInFrames={powitanieKlatek + Math.round(d.lacznieSekund * d.fps)}
       fps={d.fps}
       width={d.szerokosc}
       height={d.wysokosc}
-      defaultProps={{ dane: d, jestAudio, jestAwatar, napisySrt }}
+      defaultProps={{ dane: d, jestAudio, jestAwatar, napisySrt, powitanieKlatek }}
     />
   );
 };

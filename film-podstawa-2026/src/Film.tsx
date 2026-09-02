@@ -5,7 +5,7 @@ import {
 } from 'remotion';
 import { SalaPrzedszkolna } from './elementy/SalaPrzedszkolna';
 import { ZnakPCTP } from './elementy/Logo';
-import { Awatar } from './elementy/Awatar';
+import { Powitanie } from './sceny/Powitanie';
 import { Napisy, parsujSrt, type Napis } from './elementy/Napisy';
 import {
   Intro, Fakt, Prawo, Konstrukcja, Przejscie, Obszar, Filary, Praktyka, Arkusz, Koniec,
@@ -18,9 +18,11 @@ export type WlasciwosciFilmu = {
   napisySrt?: string;
   jestAudio: boolean;
   jestAwatar: boolean;
+  /** Długość powitania awatara — o tyle przesuwa się reszta filmu. */
+  powitanieKlatek: number;
 };
 
-const trescSceny = (s: Scena) => {
+const trescSceny = (s: Scena, jestAwatar: boolean) => {
   switch (s.typ) {
     case 'intro':       return <Intro />;
     case 'fakt':        return <Fakt scena={s} />;
@@ -31,7 +33,7 @@ const trescSceny = (s: Scena) => {
     case 'filary':      return <Filary />;
     case 'praktyka':    return <Praktyka />;
     case 'arkusz':      return <Arkusz />;
-    case 'koniec':      return <Koniec />;
+    case 'koniec':      return <Koniec jestAwatar={jestAwatar} />;
     default:            return null;
   }
 };
@@ -49,7 +51,9 @@ const Przenikanie: React.FC<{ dlugoscKlatek: number; children: React.ReactNode }
   return <AbsoluteFill style={{ opacity: krycie }}>{children}</AbsoluteFill>;
 };
 
-export const Film: React.FC<WlasciwosciFilmu> = ({ dane, napisySrt, jestAudio, jestAwatar }) => {
+export const Film: React.FC<WlasciwosciFilmu> = ({
+  dane, napisySrt, jestAudio, jestAwatar, powitanieKlatek,
+}) => {
   const { fps } = useVideoConfig();
   const napisy: Napis[] = React.useMemo(
     () => (napisySrt ? parsujSrt(napisySrt) : []), [napisySrt],
@@ -60,20 +64,34 @@ export const Film: React.FC<WlasciwosciFilmu> = ({ dane, napisySrt, jestAudio, j
     <AbsoluteFill>
       <SalaPrzedszkolna />
 
-      {jestAudio ? <Audio src={staticFile(dane.audio)} /> : null}
+      {/* Powitanie awatara — mówi własnym dźwiękiem z awatar.webm,
+          dlatego narracja lektorska startuje dopiero za nim. */}
+      <Sequence durationInFrames={powitanieKlatek} name="0. Powitanie">
+        <Przenikanie dlugoscKlatek={powitanieKlatek}>
+          <Powitanie jestAwatar={jestAwatar} />
+        </Przenikanie>
+      </Sequence>
 
-      {dane.sceny.map((s) => {
-        const od = Math.round(kursor * fps);
-        const dlugosc = Math.max(1, Math.round(s.sekundy * fps));
-        kursor += s.sekundy;
-        return (
-          <Sequence key={s.nr} from={od} durationInFrames={dlugosc} name={`${s.nr}. ${s.tytul}`}>
-            <Przenikanie dlugoscKlatek={dlugosc}>{trescSceny(s)}</Przenikanie>
-          </Sequence>
-        );
-      })}
+      <Sequence from={powitanieKlatek} name="Narracja">
+        <AbsoluteFill>
+          {jestAudio ? <Audio src={staticFile(dane.audio)} /> : null}
 
-      {/* warstwa stała: znak, podpis materiału, awatar, napisy */}
+          {dane.sceny.map((s) => {
+            const od = Math.round(kursor * fps);
+            const dlugosc = Math.max(1, Math.round(s.sekundy * fps));
+            kursor += s.sekundy;
+            return (
+              <Sequence key={s.nr} from={od} durationInFrames={dlugosc} name={`${s.nr}. ${s.tytul}`}>
+                <Przenikanie dlugoscKlatek={dlugosc}>{trescSceny(s, jestAwatar)}</Przenikanie>
+              </Sequence>
+            );
+          })}
+
+          <Napisy napisy={napisy} />
+        </AbsoluteFill>
+      </Sequence>
+
+      {/* warstwa stała nad wszystkim: znak i podpis materiału */}
       <div style={{ position: 'absolute', left: 64, top: 54, display: 'flex',
                     alignItems: 'center', gap: 18 }}>
         <ZnakPCTP rozmiar={74} />
@@ -90,8 +108,6 @@ export const Film: React.FC<WlasciwosciFilmu> = ({ dane, napisySrt, jestAudio, j
         </div>
       </div>
 
-      <Awatar jest={jestAwatar} />
-      <Napisy napisy={napisy} />
     </AbsoluteFill>
   );
 };
