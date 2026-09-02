@@ -74,15 +74,24 @@ i ten krok odpada. Można też wyeksportować na jednolitym, nasyconym tle
 
 | Miejsce | Co widać | Dźwięk |
 |---|---|---|
-| Powitanie (0:00–0:13) | pełna sylwetka, mówi | własny dźwięk z `awatar.webm` |
-| Sceny 1–18 | brak postaci | lektor z `narracja.mp3` |
-| Plansza końcowa | nieruchoma sylwetka (`portret-alfa.png`) | lektor |
+| Powitanie (0:00–0:13) | pełna sylwetka na środku prawej strony | własny dźwięk z `awatar.webm` |
+| Sceny 1–18 i plansza końcowa | popiersie w prawym dolnym rogu, w pętli | lektor z `narracja.mp3` |
 
-Postać mówi tylko w powitaniu, bo dalej prowadzi lektor z ElevenLabs — ruch ust
-rozjechałby się z tekstem. Gdyby powitanie miało być nieme, wystarczy ustawić
+W rogu klip chodzi **w pętli i bez dźwięku** — trwa 13 s, a film ponad
+jedenaście minut. Pierwsza i ostatnia klatka mają praktycznie tę samą pozę
+(średnia różnica pikseli 7,6), więc szew pętli nie rzuca się w oczy.
+Dźwięk jest wyciszony, bo mówi lektor; w tej skali ruch ust czyta się jako
+„prowadząca mówi", a nie jako konkretne głoski.
+
+Rozmiar i miejsce rogu ustawia się stałymi `ROG_SZEROKOSC`, `ROG_WYSOKOSC`
+i `skala` w `src/elementy/Awatar.tsx`. Napisy i plansze pełnoekranowe mają
+z tego powodu prawy margines 560 px, żeby tekst nie wchodził na postać.
+
+Gdyby powitanie miało zniknąć z montażu, wystarczy ustawić
 `POWITANIE_SEKUND = 0` w `src/Root.tsx`.
 
-Nieruchomą sylwetkę na planszę końcową wycina się z gotowego `awatar.webm`:
+`AwatarStop` (nieruchoma sylwetka z `portret-alfa.png`) czeka nieużywany —
+przyda się, gdyby pętla gdzieś przeszkadzała. Klatkę wycina się tak:
 
 ```bash
 ffmpeg -c:v libvpx-vp9 -ss 6.5 -i public/awatar.webm \

@@ -5,6 +5,7 @@ import {
 } from 'remotion';
 import { SalaPrzedszkolna } from './elementy/SalaPrzedszkolna';
 import { ZnakPCTP } from './elementy/Logo';
+import { AwatarRog } from './elementy/Awatar';
 import { Powitanie } from './sceny/Powitanie';
 import { Napisy, parsujSrt, type Napis } from './elementy/Napisy';
 import {
@@ -22,7 +23,7 @@ export type WlasciwosciFilmu = {
   powitanieKlatek: number;
 };
 
-const trescSceny = (s: Scena, jestAwatar: boolean) => {
+const trescSceny = (s: Scena) => {
   switch (s.typ) {
     case 'intro':       return <Intro />;
     case 'fakt':        return <Fakt scena={s} />;
@@ -33,7 +34,7 @@ const trescSceny = (s: Scena, jestAwatar: boolean) => {
     case 'filary':      return <Filary />;
     case 'praktyka':    return <Praktyka />;
     case 'arkusz':      return <Arkusz />;
-    case 'koniec':      return <Koniec jestAwatar={jestAwatar} />;
+    case 'koniec':      return <Koniec />;
     default:            return null;
   }
 };
@@ -82,11 +83,13 @@ export const Film: React.FC<WlasciwosciFilmu> = ({
             kursor += s.sekundy;
             return (
               <Sequence key={s.nr} from={od} durationInFrames={dlugosc} name={`${s.nr}. ${s.tytul}`}>
-                <Przenikanie dlugoscKlatek={dlugosc}>{trescSceny(s, jestAwatar)}</Przenikanie>
+                <Przenikanie dlugoscKlatek={dlugosc}>{trescSceny(s)}</Przenikanie>
               </Sequence>
             );
           })}
 
+          {/* prowadząca w prawym dolnym rogu — przez całą część lektorską */}
+          <AwatarRog jest={jestAwatar} />
           <Napisy napisy={napisy} />
         </AbsoluteFill>
       </Sequence>

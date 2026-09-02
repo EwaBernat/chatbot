@@ -14,12 +14,12 @@ export const Napisy: React.FC<{ napisy: Napis[] }> = ({ napisy }) => {
 
   return (
     <div style={{
-      position: 'absolute', left: 0, right: 0, bottom: 46,
+      position: 'absolute', left: 0, right: 560, bottom: 46,
       display: 'flex', justifyContent: 'center', padding: '0 220px',
     }}>
       <p style={{
         margin: 0, fontFamily: FONT_TEKST, fontSize: 34, lineHeight: 1.35,
-        color: '#FFFFFF', textAlign: 'center', maxWidth: 1240,
+        color: '#FFFFFF', textAlign: 'center', maxWidth: 1180,
         textShadow: '0 2px 12px rgba(0,0,0,.85), 0 0 3px rgba(0,0,0,.9)',
       }}>{biezacy.tekst}</p>
     </div>

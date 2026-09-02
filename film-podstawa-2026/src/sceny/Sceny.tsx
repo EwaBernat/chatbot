@@ -3,7 +3,6 @@ import { AbsoluteFill, useCurrentFrame, useVideoConfig, interpolate, spring } fr
 import { MARKA, OBSZARY_KOLOR, FONT_NAGLOWEK, FONT_TEKST, FONT_DANE } from '../marka';
 import { IkonaObszaru } from '../elementy/Ikony';
 import { ZnakPCTP } from '../elementy/Logo';
-import { AwatarStop } from '../elementy/Awatar';
 import { Eyebrow, Naglowek, Punkty, Panel, useWejscie } from './wspolne';
 import type { Scena } from '../typy';
 
@@ -12,7 +11,7 @@ export const Intro: React.FC = () => {
   const w = useWejscie(0);
   return (
     <AbsoluteFill style={{ alignItems: 'center', justifyContent: 'center',
-                           paddingLeft: 110, paddingRight: 470 }}>
+                           paddingLeft: 110, paddingRight: 560 }}>
       <div style={{ ...w, textAlign: 'center' }}>
         <div style={{ display: 'flex', justifyContent: 'center', marginBottom: 30 }}>
           <ZnakPCTP rozmiar={132} />
@@ -366,13 +365,11 @@ export const Arkusz: React.FC = () => (
 );
 
 /* ── 18. KONIEC ───────────────────────────────────────────────────────── */
-export const Koniec: React.FC<{ jestAwatar?: boolean }> = ({ jestAwatar = false }) => {
+export const Koniec: React.FC = () => {
   const w = useWejscie(4);
   return (
     <AbsoluteFill style={{ alignItems: 'center', justifyContent: 'center',
-                           paddingLeft: 110, paddingRight: 470 }}>
-      {/* pożegnanie: sylwetka wraca, ale nieruchomo — mówi lektor, nie awatar */}
-      <AwatarStop jest={jestAwatar} srodekX={1515} skala={0.80} gora={200} opoznienie={14} />
+                           paddingLeft: 110, paddingRight: 560 }}>
       <div style={{ ...w, textAlign: 'center' }}>
         <div style={{ display: 'flex', justifyContent: 'center', marginBottom: 26 }}>
           <ZnakPCTP rozmiar={112} />
