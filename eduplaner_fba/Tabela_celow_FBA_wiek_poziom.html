@@ -481,8 +481,15 @@ td.g.mkf-ma .mkf-add{opacity:1; border-color:var(--accent); color:var(--accent);
   background:rgba(36,28,58,.62); padding:22px 16px}
 .mkfmodal.open{display:block}
 .mkfcard{max-width:940px; margin:0 auto; background:var(--paper); border-radius:14px;
-  padding:21px 23px 19px; box-shadow:0 18px 60px rgba(36,28,58,.35)}
-.mkf-head{display:flex; align-items:baseline; gap:12px; padding-bottom:10px;
+  padding:21px 23px 19px; position:relative; box-shadow:0 18px 60px rgba(36,28,58,.35)}
+/* Krzyżyk taki sam jak w konspekcie — nauczycielka szuka go w prawym górnym
+   rogu okna, niezależnie od tego, czy konspekt czyta, czy pisze. Zamyka
+   z pytaniem, bo Escape nie może kasować niezapisanej pracy. */
+.mkf-close{position:absolute; top:14px; right:16px; border:1px solid var(--line-2);
+  background:var(--paper); color:var(--ink); border-radius:8px; width:30px; height:30px;
+  cursor:pointer; font:600 13px/1 inherit}
+.mkf-close:hover{border-color:var(--accent); color:var(--accent)}
+.mkf-head{display:flex; align-items:baseline; gap:12px; padding:0 40px 10px 0;
   border-bottom:2px solid var(--ink); margin-bottom:13px}
 .mkf-head h3{margin:0; font-size:18px; color:var(--ink)}
 .mkf-head .skad{margin-left:auto; font-size:10.5px; color:var(--szary); text-align:right;
@@ -10013,6 +10020,8 @@ td.g.mkf-ma .mkf-add{opacity:1; border-color:var(--accent); color:var(--accent);
 <div class="mkfmodal" id="mkf-edytor" role="dialog" aria-modal="true"
   aria-label="Edytor własnego konspektu">
   <div class="mkfcard">
+    <button type="button" class="mkf-close" id="mkf-zamknij"
+      aria-label="Zamknij edytor" title="Zamknij edytor">✕</button>
     <div class="mkf-head">
       <h3 id="mkf-edytor-tytul">Nowy konspekt własny</h3>
       <div class="skad" id="mkf-edytor-skad"></div>
@@ -10702,9 +10711,11 @@ document.querySelectorAll('.tab').forEach(t => t.addEventListener('click', () =>
   document.getElementById('mkf-poziom').addEventListener('change',()=>{
     if(kontekstBiezacy) odswiezCelWEdytorze(kontekstBiezacy);
   });
-  document.getElementById('mkf-anuluj').addEventListener('click',()=>{
+  const wyjdzZEdytora=()=>{
     if(confirm('Zamknąć edytor bez zapisania zmian?')) zamknijEdytor();
-  });
+  };
+  document.getElementById('mkf-anuluj').addEventListener('click',wyjdzZEdytora);
+  document.getElementById('mkf-zamknij').addEventListener('click',wyjdzZEdytora);
   document.getElementById('mkf-zapisz').addEventListener('click',()=>{
     const k=zbierz(kontekstBiezacy||{});
     if(!k.tytul){blad('Konspekt musi mieć tytuł — bez niego nie znajdziesz go później na liście.');

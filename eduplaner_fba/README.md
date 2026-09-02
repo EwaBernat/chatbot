@@ -122,6 +122,11 @@ otwiera formularz o dokładnie takiej samej strukturze co konspekt gotowy
 ten sam druk KC-3 A4. Nad tabelą jest panel **Moje konspekty** z listą własnych
 scenariuszy tej wersji wiekowej.
 
+Oba okna — formularz i podgląd — mają **krzyżyk w prawym górnym rogu**, w tym
+samym miejscu co konspekt gotowy. Krzyżyk formularza pyta, zanim zamknie: Escape
+i kliknięcie w tło celowo **nie** zamykają edytora, bo nie mogą skasować
+niezapisanej pracy jednym przypadkowym ruchem.
+
 Trzy rzeczy, które ten edytor trzyma inaczej niż zwykły formularz:
 
 * **Zachowanie zastępcze ma własne pole** i bez niego konspekt się nie zapisze.
