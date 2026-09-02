@@ -106,3 +106,20 @@ do awatara i sklonowanego głosu służy `HEYGEN_API_KEY` oraz `scripts/heygen_a
 
 Klucz API trzymaj wyłącznie w zmiennej środowiskowej — `.gitignore` blokuje `.env`,
 a wygenerowane `*.mp3`, `*.srt` i `narracja*.txt` nie trafiają do repozytorium.
+
+---
+
+## 🛡️ Strażnicy — reguły dokumentacji EduPlaner 2026
+
+W [`straznicy/`](./straznicy/) leżą podstawy strażników: **jeden plik na strażnika**, każdy mówi
+wprost, czego **nie** pilnuje. Dziś w repozytorium są cztery dokumenty z siedmiu zapowiedzianych —
+stan i braki wypisuje [`straznicy/README.md`](./straznicy/README.md) w sekcji „Stan folderu".
+
+- [`straznik-wygladu-druku.md`](./straznicy/straznik-wygladu-druku.md) — rama, typografia, dualizm
+  i zapełnienie kartki A4 dla 78 druków.
+- [`KANON-UI.md`](./straznicy/KANON-UI.md) — materiał historyczny, opis powłoki z lipca 2026;
+  **konflikt z kodem rozstrzyga kod**.
+- [`straznik-prawo/rejestr-przepisow.json`](./straznicy/straznik-prawo/rejestr-przepisow.json) —
+  26 aktów prawnych ze skanu 559 plików.
+- [`straznik-prawo/kompendium-prawno-merytoryczne.md`](./straznicy/straznik-prawo/kompendium-prawno-merytoryczne.md)
+  — materiał wejściowy dla strażnika prawa; **tekst urwany na rozdziale 3 z 12**.

@@ -1,0 +1,969 @@
+{
+  "schemat": 1,
+  "opis": "Rejestr aktow prawnych cytowanych w drukach przedszkola. Wystepowanie pochodzi ze skanu kodu, a tytuly, relacje i statusy zweryfikowano w ELI w ramach E18. Dla obwieszczen pole obowiazujeOd ma wartosc \"nie dotyczy\"; data wejscia w zycie aktu bazowego jest podana w uwadze.",
+  "wygenerowano": "2026-08-21",
+  "zweryfikowano": "2026-08-21",
+  "zakres": {
+    "moduly": [
+      "metryczka",
+      "wopf",
+      "ipet",
+      "ewaluacja",
+      "realizacja",
+      "zespol"
+    ],
+    "pominiete": [
+      "baza-wiedzy"
+    ],
+    "plikowPrzeszukanych": 559,
+    "plikowPominietych": 24
+  },
+  "przepisy": [
+    {
+      "id": "dz-u-2017-1578",
+      "publikator": {
+        "rok": 2017,
+        "poz": 1578
+      },
+      "tytul": "Rozporządzenie Ministra Edukacji Narodowej z dnia 9 sierpnia 2017 r. w sprawie warunków organizowania kształcenia, wychowania i opieki dla dzieci i młodzieży niepełnosprawnych, niedostosowanych społecznie i zagrożonych niedostosowaniem społecznym",
+      "zapisKanoniczny": "Rozporządzenie Ministra Edukacji Narodowej z dnia 9 sierpnia 2017 r. w sprawie warunków organizowania kształcenia, wychowania i opieki dla dzieci i młodzieży niepełnosprawnych, niedostosowanych społecznie i zagrożonych niedostosowaniem społecznym (t.j. Dz.U. z 2020 r. poz. 1309)",
+      "status": "zmieniony",
+      "tekstJednolityDla": null,
+      "zastapionyPrzez": null,
+      "obowiazujeOd": "2017-09-01",
+      "zrodloWeryfikacji": "https://eli.gov.pl/eli/DU/2017/1578/ogl",
+      "sprawdzonoDnia": "2026-08-21",
+      "uwaga": "Akt pierwotny zmieniony Dz.U. 2018 poz. 1485; aktualny tekst jednolity ogłoszono w Dz.U. 2020 poz. 1309. Tekst jednolity nie jest prawnym następcą aktu.",
+      "wystepowanie": {
+        "plikow": 54,
+        "modulow": 6,
+        "moduly": [
+          "ewaluacja",
+          "ipet",
+          "metryczka",
+          "realizacja",
+          "wopf",
+          "zespol"
+        ],
+        "wariantowZapisu": 70
+      },
+      "kontekstWKodzie": " poz. 1591, z późn. zm.); rozp. MEN z dnia 9 sierpnia 2017 r. w sprawie warunków organizowania kształcenia, wychowania i opieki dla dzieci i młodzieży niepełnosprawnych (",
+      "pliki": [
+        "src/modules/ewaluacja/data/przedszkole/os-czasu.ts",
+        "src/modules/ewaluacja/data/przedszkole/sprawozdania.ts",
+        "src/modules/ewaluacja/views/przedszkole/raport-ipet-start/tresc.ts",
+        "src/modules/ewaluacja/views/przedszkole/raport-koniec/tresc.ts",
+        "src/modules/ewaluacja/views/przedszkole/raport-polrocze-1/tresc.ts",
+        "src/modules/ewaluacja/views/przedszkole/raport-polrocze-2/tresc.ts",
+        "src/modules/ewaluacja/views/przedszkole/raport-trajektoria/tresc.ts",
+        "src/modules/ewaluacja/views/przedszkole/raport-wopf-start/tresc.ts",
+        "src/modules/ipet/data/przedszkole/dostosowania/dostosowania-katalog.ts",
+        "src/modules/ipet/data/przedszkole/dostosowania/dostosowania-organizacja.ts",
+        "src/modules/ipet/data/przedszkole/dostosowania/dostosowania-podstawa-zbiorczo.ts",
+        "src/modules/ipet/data/przedszkole/mocne-strony-i-bariery/bariery-i-trudnosci.ts",
+        "src/modules/ipet/data/przedszkole/mocne-strony-i-bariery/mocne-strony-i-bariery-zbiorczo.ts",
+        "src/modules/ipet/data/przedszkole/program-wsparcia/ipet-caly-dostosowania.ts",
+        "src/modules/ipet/data/przedszkole/program-wsparcia/ipet-caly-naglowek.ts",
+        "src/modules/ipet/data/przedszkole/program-wsparcia/ipet-caly-programy.ts",
+        "src/modules/ipet/data/przedszkole/program-wsparcia/ipet-caly-sfery-wspolne.ts",
+        "src/modules/ipet/data/przedszkole/program-wsparcia/ipet-caly-wopf.ts",
+        "src/modules/ipet/data/przedszkole/program-wsparcia/ipet-caly-wsparcie.ts",
+        "src/modules/ipet/data/przedszkole/program-wsparcia/ipet-caly-zalecenia.ts",
+        "src/modules/ipet/data/przedszkole/wspolpraca-i-zespol.ts",
+        "src/modules/ipet/views/przedszkole/program-wsparcia/ZalacznikCwiczenView.tsx",
+        "src/modules/metryczka/model/legal-texts.ts",
+        "src/modules/metryczka/views/przedszkole/podstawa-prawna/PodstawaPrawnaView.tsx",
+        "src/modules/realizacja/data/przedszkole/konspekt-sensoryka-ppp.ts",
+        "src/modules/realizacja/data/przedszkole/konspekt-sensoryka-rewalidacja.ts",
+        "src/modules/realizacja/data/przedszkole/wykaz-programow.ts",
+        "src/modules/wopf/data/przedszkole/decyzje-opinie-druki/decyzja-tresc.ts",
+        "src/modules/wopf/data/przedszkole/decyzje-opinie-druki/opinia-tresc.ts",
+        "src/modules/wopf/data/przedszkole/karta-fba-tresc.ts",
+        "src/modules/wopf/data/przedszkole/tom-tresc.ts",
+        "src/modules/wopf/data/przedszkole/wopf-ocena-poziomu-funkcjonowania/wopf-dane-3.ts",
+        "src/modules/wopf/data/przedszkole/wopf-ocena-poziomu-funkcjonowania/wopf-dane-5.ts",
+        "src/modules/wopf/data/przedszkole/wopf-ocena-poziomu-funkcjonowania/wopf-dane-6.ts",
+        "src/modules/wopf/data/przedszkole/wopf-ocena-poziomu-funkcjonowania/wopf-wspolne.ts",
+        "src/modules/zespol/data/przedszkole/dziennik-wspolpraca/dziennik.ts",
+        "src/modules/zespol/data/przedszkole/informacje-podstawowe/podstawa-prawna.ts",
+        "src/modules/zespol/data/przedszkole/plan-pracy-rodzice/plan-pracy.ts",
+        "src/modules/zespol/data/przedszkole/powolanie/powolanie.ts",
+        "src/modules/zespol/data/przedszkole/protokoly/protokoly.ts",
+        "src/modules/zespol/data/przedszkole/rejestr-zmian-skladu/rejestr.ts",
+        "src/modules/zespol/data/zespol-czym-jest.ts",
+        "src/modules/zespol/data/zespol-dziennik.ts",
+        "src/modules/zespol/data/zespol-ewaluacja.ts",
+        "src/modules/zespol/data/zespol-podstawa-prawna.ts",
+        "src/modules/zespol/data/zespol-powolanie.ts",
+        "src/modules/zespol/data/zespol-rejestr.ts",
+        "src/modules/zespol/data/zespol-synteza.ts",
+        "src/modules/zespol/model/nadzor.ts",
+        "src/modules/zespol/views/ZespolPlanPracyView.tsx",
+        "src/modules/zespol/views/ZespolPowolanieView.tsx",
+        "src/modules/zespol/views/dyrektor/checklista-wopf-ipet/tresc.ts",
+        "src/modules/zespol/views/dyrektor/sprawy-organizacyjne/model.ts",
+        "src/modules/zespol/views/przedszkole/ZespolPowolaniePrzedszkoleView.tsx"
+      ]
+    },
+    {
+      "id": "dz-u-2017-1591",
+      "publikator": {
+        "rok": 2017,
+        "poz": 1591
+      },
+      "tytul": "Rozporządzenie Ministra Edukacji Narodowej z dnia 9 sierpnia 2017 r. w sprawie zasad organizacji i udzielania pomocy psychologiczno-pedagogicznej w publicznych przedszkolach, szkołach i placówkach",
+      "zapisKanoniczny": "Rozporządzenie Ministra Edukacji Narodowej z dnia 9 sierpnia 2017 r. w sprawie zasad organizacji i udzielania pomocy psychologiczno-pedagogicznej w publicznych przedszkolach, szkołach i placówkach (t.j. Dz.U. z 2023 r. poz. 1798)",
+      "status": "zmieniony",
+      "tekstJednolityDla": null,
+      "zastapionyPrzez": null,
+      "obowiazujeOd": "2017-09-01",
+      "zrodloWeryfikacji": "https://eli.gov.pl/eli/DU/2017/1591/ogl",
+      "sprawdzonoDnia": "2026-08-21",
+      "uwaga": "Akt pierwotny; aktualny tekst jednolity ogłoszono w Dz.U. 2023 poz. 1798. Wcześniejszy tekst jednolity Dz.U. 2020 poz. 1280 wygasł 2023-09-05.",
+      "wystepowanie": {
+        "plikow": 39,
+        "modulow": 6,
+        "moduly": [
+          "ewaluacja",
+          "ipet",
+          "metryczka",
+          "realizacja",
+          "wopf",
+          "zespol"
+        ],
+        "wariantowZapisu": 58
+      },
+      "kontekstWKodzie": "oświatowe (Dz.U. 2024 poz. 737, z późn. zm.), art. 127; rozp. MEN z dnia 9 sierpnia 2017 r. w sprawie zasad organizacji i udzielania pomocy psychologiczno-pedagogicznej (",
+      "pliki": [
+        "src/modules/ewaluacja/data/przedszkole/sprawozdania.ts",
+        "src/modules/ipet/data/przedszkole/dostosowania/dostosowania-katalog.ts",
+        "src/modules/ipet/data/przedszkole/dostosowania/dostosowania-organizacja.ts",
+        "src/modules/ipet/data/przedszkole/dostosowania/dostosowania-podstawa-zbiorczo.ts",
+        "src/modules/ipet/data/przedszkole/mocne-strony-i-bariery/bariery-i-trudnosci.ts",
+        "src/modules/ipet/data/przedszkole/mocne-strony-i-bariery/mocne-strony-i-bariery-zbiorczo.ts",
+        "src/modules/ipet/data/przedszkole/program-wsparcia/ipet-caly-dostosowania.ts",
+        "src/modules/ipet/data/przedszkole/program-wsparcia/ipet-caly-programy.ts",
+        "src/modules/ipet/data/przedszkole/program-wsparcia/ipet-caly-zalecenia.ts",
+        "src/modules/ipet/data/przedszkole/program-wsparcia/pews-cele.ts",
+        "src/modules/ipet/data/przedszkole/program-wsparcia/pews-dzialania.ts",
+        "src/modules/ipet/data/przedszkole/program-wsparcia/pews-naglowek.ts",
+        "src/modules/ipet/data/przedszkole/program-wsparcia/pews-rozpoznanie.ts",
+        "src/modules/ipet/data/przedszkole/program-wsparcia/pews-zespol.ts",
+        "src/modules/metryczka/model/legal-texts.ts",
+        "src/modules/realizacja/data/przedszkole/konspekt-sensoryka-ppp.ts",
+        "src/modules/realizacja/data/przedszkole/konspekt-sensoryka-rewalidacja.ts",
+        "src/modules/realizacja/data/przedszkole/wykaz-programow.ts",
+        "src/modules/wopf/data/abc/abc.ts",
+        "src/modules/wopf/data/przedszkole/decyzje-opinie-druki/decyzja-tresc.ts",
+        "src/modules/wopf/data/przedszkole/decyzje-opinie-druki/ustalenie-tresc.ts",
+        "src/modules/wopf/data/przedszkole/karta-fba-tresc.ts",
+        "src/modules/wopf/data/przedszkole/mowa-tresc.ts",
+        "src/modules/wopf/data/przedszkole/tom-tresc.ts",
+        "src/modules/wopf/data/przedszkole/wopf-bez-orzeczenia/wopf-dane-1.ts",
+        "src/modules/wopf/data/przedszkole/wopf-bez-orzeczenia/wopf-dane-2.ts",
+        "src/modules/wopf/data/przedszkole/wopf-bez-orzeczenia/wopf-dane-3.ts",
+        "src/modules/wopf/data/przedszkole/wopf-bez-orzeczenia/wopf-dane-4.ts",
+        "src/modules/wopf/data/przedszkole/wopf-bez-orzeczenia/wopf-dane-5.ts",
+        "src/modules/wopf/data/przedszkole/wopf-bez-orzeczenia/wopf-dane-6.ts",
+        "src/modules/wopf/data/przedszkole/wopf-bez-orzeczenia/wopf-wspolne.ts",
+        "src/modules/wopf/data/przedszkole/wopf-ocena-poziomu-funkcjonowania/wopf-dane-5.ts",
+        "src/modules/zespol/data/przedszkole/dziennik-wspolpraca/dziennik.ts",
+        "src/modules/zespol/data/przedszkole/ewaluacja-i-podpisy/ewaluacja.ts",
+        "src/modules/zespol/data/przedszkole/rejestr-zmian-skladu/rejestr.ts",
+        "src/modules/zespol/data/zespol-dziennik.ts",
+        "src/modules/zespol/data/zespol-ewaluacja.ts",
+        "src/modules/zespol/data/zespol-powolanie.ts",
+        "src/modules/zespol/data/zespol-rejestr.ts"
+      ]
+    },
+    {
+      "id": "dz-u-2024-737",
+      "publikator": {
+        "rok": 2024,
+        "poz": 737
+      },
+      "tytul": "Obwieszczenie Marszałka Sejmu Rzeczypospolitej Polskiej z dnia 21 marca 2024 r. w sprawie ogłoszenia jednolitego tekstu ustawy - Prawo oświatowe",
+      "zapisKanoniczny": "Ustawa z dnia 14 grudnia 2016 r. - Prawo oświatowe (t.j. Dz.U. z 2026 r. poz. 820, z późn. zm.)",
+      "status": "uchylony",
+      "tekstJednolityDla": "dz-u-2017-59",
+      "zastapionyPrzez": "dz-u-2025-1043",
+      "obowiazujeOd": "nie dotyczy",
+      "zrodloWeryfikacji": "https://eli.gov.pl/eli/DU/2024/737/ogl",
+      "sprawdzonoDnia": "2026-08-21",
+      "uwaga": "Wygasły tekst jednolity Prawa oświatowego; wygasł 2025-07-31. Bezpośrednio zastąpił go tekst jednolity Dz.U. 2025 poz. 1043, a aktualny tekst jednolity to Dz.U. 2026 poz. 820. Akt bazowy obowiązuje od 2017-09-01.",
+      "wystepowanie": {
+        "plikow": 35,
+        "modulow": 5,
+        "moduly": [
+          "ewaluacja",
+          "ipet",
+          "metryczka",
+          "wopf",
+          "zespol"
+        ],
+        "wariantowZapisu": 21
+      },
+      "kontekstWKodzie": "ierpnia 2017 r. w sprawie warunków organizowania kształcenia, wychowania i opieki (Dz.U. 2017 poz. 1578 ze zm.), § 6 ust. 9; ustawa Prawo oświatowe z 14 grudnia 2016 r. (",
+      "pliki": [
+        "src/modules/ewaluacja/data/przedszkole/os-czasu.ts",
+        "src/modules/ewaluacja/data/przedszkole/sprawozdania.ts",
+        "src/modules/ewaluacja/views/przedszkole/raport-ipet-start/tresc.ts",
+        "src/modules/ewaluacja/views/przedszkole/raport-koniec/tresc.ts",
+        "src/modules/ewaluacja/views/przedszkole/raport-polrocze-1/tresc.ts",
+        "src/modules/ewaluacja/views/przedszkole/raport-polrocze-2/tresc.ts",
+        "src/modules/ewaluacja/views/przedszkole/raport-trajektoria/tresc.ts",
+        "src/modules/ewaluacja/views/przedszkole/raport-wopf-start/tresc.ts",
+        "src/modules/ipet/data/przedszkole/program-wsparcia/ipet-caly-naglowek.ts",
+        "src/modules/ipet/data/przedszkole/program-wsparcia/pews-naglowek.ts",
+        "src/modules/metryczka/model/legal-texts.ts",
+        "src/modules/metryczka/views/przedszkole/metryczka-dziecka/MetryczkaDzieckaView.tsx",
+        "src/modules/metryczka/views/przedszkole/podstawa-prawna/PodstawaPrawnaView.tsx",
+        "src/modules/wopf/data/abc/abc.ts",
+        "src/modules/wopf/data/dunn/dunn-wspolne.ts",
+        "src/modules/wopf/data/fba/fba-wspolne.ts",
+        "src/modules/wopf/data/icf/icf-wspolne.ts",
+        "src/modules/wopf/data/przedszkole/decyzje-opinie-druki/decyzja-tresc.ts",
+        "src/modules/wopf/data/przedszkole/decyzje-opinie-druki/ustalenie-tresc.ts",
+        "src/modules/wopf/data/przedszkole/mowa-tresc.ts",
+        "src/modules/wopf/data/przedszkole/wopf-bez-orzeczenia/wopf-dane-5.ts",
+        "src/modules/wopf/data/przedszkole/wopf-bez-orzeczenia/wopf-wspolne.ts",
+        "src/modules/wopf/data/przedszkole/wopf-ocena-poziomu-funkcjonowania/wopf-wspolne.ts",
+        "src/modules/wopf/data/wofu-tresc.tsx",
+        "src/modules/zespol/data/przedszkole/dziennik-wspolpraca/dziennik.ts",
+        "src/modules/zespol/data/przedszkole/ewaluacja-i-podpisy/ewaluacja.ts",
+        "src/modules/zespol/data/przedszkole/rejestr-zmian-skladu/rejestr.ts",
+        "src/modules/zespol/data/zespol-dziennik.ts",
+        "src/modules/zespol/data/zespol-ewaluacja.ts",
+        "src/modules/zespol/data/zespol-plan-pracy.ts",
+        "src/modules/zespol/data/zespol-powolanie.ts",
+        "src/modules/zespol/data/zespol-protokoly.ts",
+        "src/modules/zespol/data/zespol-rejestr.ts",
+        "src/modules/zespol/data/zespol-synteza.ts",
+        "src/modules/zespol/views/przedszkole/ZespolPowolaniePrzedszkoleView.tsx"
+      ]
+    },
+    {
+      "id": "dz-u-2020-1309",
+      "publikator": {
+        "rok": 2020,
+        "poz": 1309
+      },
+      "tytul": "Obwieszczenie Ministra Edukacji Narodowej z dnia 9 lipca 2020 r. w sprawie ogłoszenia jednolitego tekstu rozporządzenia Ministra Edukacji Narodowej w sprawie warunków organizowania kształcenia, wychowania i opieki dla dzieci i młodzieży niepełnosprawnych, niedostosowanych społecznie i zagrożonych niedostosowaniem społecznym",
+      "zapisKanoniczny": "Rozporządzenie Ministra Edukacji Narodowej z dnia 9 sierpnia 2017 r. w sprawie warunków organizowania kształcenia, wychowania i opieki dla dzieci i młodzieży niepełnosprawnych, niedostosowanych społecznie i zagrożonych niedostosowaniem społecznym (t.j. Dz.U. z 2020 r. poz. 1309)",
+      "status": "tekst-jednolity",
+      "tekstJednolityDla": "dz-u-2017-1578",
+      "zastapionyPrzez": null,
+      "obowiazujeOd": "nie dotyczy",
+      "zrodloWeryfikacji": "https://eli.gov.pl/eli/DU/2020/1309/ogl",
+      "sprawdzonoDnia": "2026-08-21",
+      "uwaga": "Akt bazowy obowiązuje od 2017-09-01. Jest to aktualny tekst jednolity. Z40 (2026-08-22) dodalo cytowania w planie pracy i protokolach zespolu (wariant \"Dz.U. z 2020 r. poz. 1309\"); liczba wariantow zapisu nieprzeliczona od E18; przy Z40 doliczono tez pominiety przez skan E18 plik slownik.ts sprawozdania nadzoru (wariant \"Dz.U. z 2020 r. poz. 1309\").",
+      "wystepowanie": {
+        "plikow": 19,
+        "modulow": 4,
+        "moduly": [
+          "ipet",
+          "metryczka",
+          "wopf",
+          "zespol"
+        ],
+        "wariantowZapisu": 22
+      },
+      "kontekstWKodzie": "2017 r. w sprawie pomocy psychologiczno-pedagogicznej (t.j. Dz.U. 2023 poz. 1798, ze zm.); rozporządzenie MEN z 9 sierpnia 2017 r. w sprawie kształcenia specjalnego (t.j.",
+      "pliki": [
+        "src/modules/ipet/data/przedszkole/zintegrowane-dzialania.ts",
+        "src/modules/metryczka/model/legal-warianty.ts",
+        "src/modules/metryczka/model/przedszkole/legal-warianty-przedszkole.ts",
+        "src/modules/metryczka/views/przedszkole/metryczka-dziecka/MetryczkaDzieckaView.tsx",
+        "src/modules/metryczka/views/przedszkole/podstawa-prawna/PodstawaPrawnaView.tsx",
+        "src/modules/wopf/data/dunn/dunn-wspolne.ts",
+        "src/modules/wopf/data/fba/fba-wspolne.ts",
+        "src/modules/wopf/data/icf/icf-wspolne.ts",
+        "src/modules/wopf/data/przedszkole/wopf-ocena-poziomu-funkcjonowania/wopf-dane-6.ts",
+        "src/modules/wopf/data/przedszkole/wopf-ocena-poziomu-funkcjonowania/wopf-wspolne.ts",
+        "src/modules/zespol/data/przedszkole/synteza-i-przewodnik/przewodnik.ts",
+        "src/modules/zespol/data/zespol-plan-pracy.ts",
+        "src/modules/zespol/data/zespol-protokoly.ts",
+        "src/modules/zespol/views/dyrektor/ArkuszObserwacjiView.tsx",
+        "src/modules/zespol/views/dyrektor/PlanNadzoruView.tsx",
+        "src/modules/zespol/views/dyrektor/archiwum-dyrektora/model.ts",
+        "src/modules/zespol/views/dyrektor/kontrola-dokumentacji/KontrolaDokumentacjiNowyView.tsx",
+        "src/modules/zespol/views/dyrektor/sprawozdanie-nadzoru/SprawozdanieNadzoruView.tsx",
+        "src/modules/zespol/views/dyrektor/sprawozdanie-nadzoru/slownik.ts"
+      ]
+    },
+    {
+      "id": "dz-u-2023-1798",
+      "publikator": {
+        "rok": 2023,
+        "poz": 1798
+      },
+      "tytul": "Obwieszczenie Ministra Edukacji i Nauki z dnia 25 lipca 2023 r. w sprawie ogłoszenia jednolitego tekstu rozporządzenia Ministra Edukacji Narodowej w sprawie zasad organizacji i udzielania pomocy psychologiczno-pedagogicznej w publicznych przedszkolach, szkołach i placówkach",
+      "zapisKanoniczny": "Rozporządzenie Ministra Edukacji Narodowej z dnia 9 sierpnia 2017 r. w sprawie zasad organizacji i udzielania pomocy psychologiczno-pedagogicznej w publicznych przedszkolach, szkołach i placówkach (t.j. Dz.U. z 2023 r. poz. 1798)",
+      "status": "tekst-jednolity",
+      "tekstJednolityDla": "dz-u-2017-1591",
+      "zastapionyPrzez": null,
+      "obowiazujeOd": "nie dotyczy",
+      "zrodloWeryfikacji": "https://eli.gov.pl/eli/DU/2023/1798/ogl",
+      "sprawdzonoDnia": "2026-08-21",
+      "uwaga": "Akt bazowy obowiązuje od 2017-09-01. Jest to aktualny tekst jednolity.",
+      "wystepowanie": {
+        "plikow": 15,
+        "modulow": 3,
+        "moduly": [
+          "metryczka",
+          "wopf",
+          "zespol"
+        ],
+        "wariantowZapisu": 21
+      },
+      "kontekstWKodzie": "a 2016 r. — Prawo oświatowe (t.j. Dz.U. 2024 poz. 737, z późn. zm.), art. 127; rozporządzenie MEN z 9 sierpnia 2017 r. w sprawie pomocy psychologiczno-pedagogicznej (t.j.",
+      "pliki": [
+        "src/modules/metryczka/views/przedszkole/metryczka-dziecka/MetryczkaDzieckaView.tsx",
+        "src/modules/metryczka/views/przedszkole/podstawa-prawna/PodstawaPrawnaView.tsx",
+        "src/modules/metryczka/views/przedszkole/zgloszenie-potrzeby-wsparcia/ZgloszenieView.tsx",
+        "src/modules/metryczka/views/przedszkole/zgloszenie-rodzica/ZgloszenieRodzicaView.tsx",
+        "src/modules/wopf/data/dunn/dunn-wspolne.ts",
+        "src/modules/wopf/data/fba/fba-wspolne.ts",
+        "src/modules/wopf/data/icf/icf-wspolne.ts",
+        "src/modules/wopf/data/wofu-tresc.tsx",
+        "src/modules/zespol/data/przedszkole/synteza-i-przewodnik/przewodnik.ts",
+        "src/modules/zespol/data/zespol-plan-pracy.ts",
+        "src/modules/zespol/views/dyrektor/ArkuszObserwacjiView.tsx",
+        "src/modules/zespol/views/dyrektor/PlanNadzoruView.tsx",
+        "src/modules/zespol/views/dyrektor/archiwum-dyrektora/model.ts",
+        "src/modules/zespol/views/dyrektor/kontrola-dokumentacji/KontrolaDokumentacjiNowyView.tsx",
+        "src/modules/zespol/views/dyrektor/sprawozdanie-nadzoru/SprawozdanieNadzoruView.tsx"
+      ]
+    },
+    {
+      "id": "dz-u-2017-356",
+      "publikator": {
+        "rok": 2017,
+        "poz": 356
+      },
+      "tytul": "Rozporządzenie Ministra Edukacji Narodowej z dnia 14 lutego 2017 r. w sprawie podstawy programowej wychowania przedszkolnego oraz podstawy programowej kształcenia ogólnego dla szkoły podstawowej, w tym dla uczniów z niepełnosprawnością intelektualną w stopniu umiarkowanym lub znacznym, kształcenia ogólnego dla branżowej szkoły I stopnia, kształcenia ogólnego dla szkoły specjalnej przysposabiającej do pracy oraz kształcenia ogólnego dla szkoły policealnej",
+      "zapisKanoniczny": "Rozporządzenie Ministra Edukacji Narodowej z dnia 14 lutego 2017 r. w sprawie podstawy programowej wychowania przedszkolnego oraz podstawy programowej kształcenia ogólnego (Dz.U. z 2017 r. poz. 356, z późn. zm.)",
+      "status": "zmieniony",
+      "tekstJednolityDla": null,
+      "zastapionyPrzez": "dz-u-2026-378",
+      "obowiazujeOd": "2017-09-01",
+      "zrodloWeryfikacji": "https://eli.gov.pl/eli/DU/2017/356/ogl",
+      "sprawdzonoDnia": "2026-08-21",
+      "uwaga": "Obowiązuje do 2026-08-31. Od 2026-09-01 zakres dzieli się między Dz.U. 2026 poz. 378 (przedszkole i część szkoły podstawowej) oraz poz. 1012; dla starszych klas działają przepisy przejściowe. ZastapionyPrzez wskazuje następcę właściwego dla zakresu przedszkolnego E18.",
+      "wystepowanie": {
+        "plikow": 14,
+        "modulow": 3,
+        "moduly": [
+          "ipet",
+          "wopf",
+          "zespol"
+        ],
+        "wariantowZapisu": 17
+      },
+      "kontekstWKodzie": "wy programowej i prawnej. */ export const PODSTAWA_PROGRAMOWA = 'Podstawa programowa i prawna. Podstawa programowa wychowania przedszkolnego — Rozp. MEN z 14.02.2017 r. (",
+      "pliki": [
+        "src/modules/ipet/data/przedszkole/dostosowania/dostosowania-katalog.ts",
+        "src/modules/ipet/data/przedszkole/dostosowania/dostosowania-organizacja.ts",
+        "src/modules/ipet/data/przedszkole/dostosowania/dostosowania-podstawa-zbiorczo.ts",
+        "src/modules/ipet/data/przedszkole/mocne-strony-i-bariery/mocne-strony-dziecka.ts",
+        "src/modules/ipet/data/przedszkole/program-wsparcia/ipet-caly-dostosowania.ts",
+        "src/modules/ipet/data/przedszkole/program-wsparcia/ipet-caly-naglowek.ts",
+        "src/modules/ipet/data/przedszkole/program-wsparcia/pews-dzialania.ts",
+        "src/modules/ipet/data/przedszkole/program-wsparcia/pews-naglowek.ts",
+        "src/modules/wopf/data/przedszkole/decyzje-opinie-druki/opinia-tresc.ts",
+        "src/modules/wopf/data/przedszkole/decyzje-opinie-druki/raport-tresc.ts",
+        "src/modules/wopf/data/przedszkole/karta-fba-tresc.ts",
+        "src/modules/wopf/data/przedszkole/mowa-tresc.ts",
+        "src/modules/wopf/data/przedszkole/tom-tresc.ts",
+        "src/modules/zespol/views/dyrektor/sprawozdanie-nadzoru/SprawozdanieNadzoruView.tsx"
+      ]
+    },
+    {
+      "id": "dz-u-2026-378",
+      "publikator": {
+        "rok": 2026,
+        "poz": 378
+      },
+      "tytul": "Rozporządzenie Ministra Edukacji z dnia 11 marca 2026 r. w sprawie podstawy programowej wychowania przedszkolnego oraz podstawy programowej kształcenia ogólnego dla szkoły podstawowej, w tym dla uczniów z niepełnosprawnością intelektualną w stopniu umiarkowanym lub znacznym",
+      "zapisKanoniczny": "Rozporządzenie Ministra Edukacji z dnia 11 marca 2026 r. w sprawie podstawy programowej wychowania przedszkolnego oraz podstawy programowej kształcenia ogólnego dla szkoły podstawowej, w tym dla uczniów z niepełnosprawnością intelektualną w stopniu umiarkowanym lub znacznym (Dz.U. z 2026 r. poz. 378, z późn. zm.)",
+      "status": "zmieniony",
+      "tekstJednolityDla": null,
+      "zastapionyPrzez": null,
+      "obowiazujeOd": "2026-09-01",
+      "zrodloWeryfikacji": "https://eli.gov.pl/eli/DU/2026/378/ogl",
+      "sprawdzonoDnia": "2026-08-21",
+      "uwaga": "Na dzień weryfikacji akt pozostaje w vacatio legis mimo etykiety ELI. Zmienia go Dz.U. 2026 poz. 958 również od 2026-09-01; zmiana nie dotyczy załącznika nr 1 dla przedszkola. Jest to nowy akt bazowy, nie nowelizacja Dz.U. 2017 poz. 356.",
+      "wystepowanie": {
+        "plikow": 10,
+        "modulow": 4,
+        "moduly": [
+          "ewaluacja",
+          "ipet",
+          "metryczka",
+          "wopf"
+        ],
+        "wariantowZapisu": 13
+      },
+      "kontekstWKodzie": "pieki (Dz.U. 2017 poz. 1578 ze zm.), § 6 ust. 9; ustawa Prawo oświatowe z 14 grudnia 2016 r. (Dz.U. 2024 poz. 737 ze zm.); podstawa programowa wychowania przedszkolnego (",
+      "pliki": [
+        "src/modules/ewaluacja/data/przedszkole/sprawozdania.ts",
+        "src/modules/ewaluacja/views/przedszkole/raport-ipet-start/tresc.ts",
+        "src/modules/ewaluacja/views/przedszkole/raport-polrocze-2/tresc.ts",
+        "src/modules/ewaluacja/views/przedszkole/raport-trajektoria/tresc.ts",
+        "src/modules/ewaluacja/views/przedszkole/raport-wopf-start/tresc.ts",
+        "src/modules/ipet/data/przedszkole/zintegrowane-dzialania.ts",
+        "src/modules/metryczka/views/przedszkole/podstawa-prawna/PodstawaPrawnaView.tsx",
+        "src/modules/wopf/data/abc/abc.ts",
+        "src/modules/wopf/data/przedszkole/decyzje-opinie-druki/decyzja-tresc.ts",
+        "src/modules/wopf/data/przedszkole/decyzje-opinie-druki/ustalenie-tresc.ts"
+      ]
+    },
+    {
+      "id": "dz-u-2024-15",
+      "publikator": {
+        "rok": 2024,
+        "poz": 15
+      },
+      "tytul": "Obwieszczenie Ministra Edukacji z dnia 27 grudnia 2023 r. w sprawie ogłoszenia jednolitego tekstu rozporządzenia Ministra Edukacji Narodowej w sprawie nadzoru pedagogicznego",
+      "zapisKanoniczny": "Rozporządzenie Ministra Edukacji Narodowej z dnia 25 sierpnia 2017 r. w sprawie nadzoru pedagogicznego (t.j. Dz.U. z 2024 r. poz. 15)",
+      "status": "tekst-jednolity",
+      "tekstJednolityDla": "dz-u-2017-1658",
+      "zastapionyPrzez": null,
+      "obowiazujeOd": "nie dotyczy",
+      "zrodloWeryfikacji": "https://eli.gov.pl/eli/DU/2024/15/ogl",
+      "sprawdzonoDnia": "2026-08-21",
+      "uwaga": "Akt bazowy obowiązuje od 2017-09-01. To tekst jednolity rozporządzenia o nadzorze pedagogicznym, nie rozporządzenia Dz.U. 2017 poz. 1578.",
+      "wystepowanie": {
+        "plikow": 7,
+        "modulow": 1,
+        "moduly": [
+          "zespol"
+        ],
+        "wariantowZapisu": 23
+      },
+      "kontekstWKodzie": ": art. 68–69 ustawy — Prawo oświatowe; § 6 rozp. MEN z 9 sierpnia 2017 r. (Dz.U. 2017 poz. 1578, ze zm.; zmiana Dz.U. 2026 poz. 770); rozp. o nadzorze pedagogicznym (t.j.",
+      "pliki": [
+        "src/modules/zespol/views/dyrektor/ArkuszObserwacjiView.tsx",
+        "src/modules/zespol/views/dyrektor/PlanNadzoruView.tsx",
+        "src/modules/zespol/views/dyrektor/archiwum-dyrektora/model.ts",
+        "src/modules/zespol/views/dyrektor/checklista-wopf-ipet/tresc.ts",
+        "src/modules/zespol/views/dyrektor/kontrola-dokumentacji/KontrolaDokumentacjiNowyView.tsx",
+        "src/modules/zespol/views/dyrektor/sprawozdanie-nadzoru/SprawozdanieNadzoruView.tsx",
+        "src/modules/zespol/views/dyrektor/sprawozdanie-nadzoru/slownik.ts"
+      ]
+    },
+    {
+      "id": "dz-u-2019-1078",
+      "publikator": {
+        "rok": 2019,
+        "poz": 1078
+      },
+      "tytul": "Ustawa z dnia 12 kwietna 2019 r. o opiece zdrowotnej nad uczniami",
+      "zapisKanoniczny": "Ustawa z dnia 12.04.2019 r. o opiece zdrowotnej nad uczniami (Dz.U. z 2019 r. poz. 1078)",
+      "status": "obowiazuje",
+      "tekstJednolityDla": null,
+      "zastapionyPrzez": null,
+      "obowiazujeOd": "2019-09-12",
+      "zrodloWeryfikacji": "https://eli.gov.pl/eli/DU/2019/1078/ogl",
+      "sprawdzonoDnia": "2026-08-21",
+      "uwaga": "Słowo 'kwietna' jest literalną literówką w urzędowym tytule ogłoszonym i metadanych ELI; zapis kanoniczny używa daty liczbowej. Art. 30 pkt 3 i 4 obowiązują od 2020-01-01.",
+      "wystepowanie": {
+        "plikow": 4,
+        "modulow": 2,
+        "moduly": [
+          "metryczka",
+          "wopf"
+        ],
+        "wariantowZapisu": 2
+      },
+      "kontekstWKodzie": "nel = { tytul: 'Podawanie leków w szkole — podstawa prawna', suffix: '(informacja, nie drukuje się)', punkty: [ 'Ustawa z 12.04.2019 r. o opiece zdrowotnej nad uczniami (",
+      "pliki": [
+        "src/modules/metryczka/model/legal-texts.ts",
+        "src/modules/wopf/data/przedszkole/wopf-bez-orzeczenia/wopf-dane-1.ts",
+        "src/modules/wopf/data/przedszkole/wopf-ocena-poziomu-funkcjonowania/wopf-dane-1.ts",
+        "src/modules/wopf/data/wofu-tresc.tsx"
+      ]
+    },
+    {
+      "id": "dz-u-2023-2736",
+      "publikator": {
+        "rok": 2023,
+        "poz": 2736
+      },
+      "tytul": "Obwieszczenie Ministra Edukacji i Nauki z dnia 4 grudnia 2023 r. w sprawie ogłoszenia jednolitego tekstu rozporządzenia Ministra Edukacji Narodowej w sprawie szczegółowej organizacji publicznych szkół i publicznych przedszkoli",
+      "zapisKanoniczny": "Rozporządzenie Ministra Edukacji Narodowej z dnia 28 lutego 2019 r. w sprawie szczegółowej organizacji publicznych szkół i publicznych przedszkoli (t.j. Dz.U. z 2023 r. poz. 2736, z późn. zm.)",
+      "status": "tekst-jednolity",
+      "tekstJednolityDla": "dz-u-2019-502",
+      "zastapionyPrzez": null,
+      "obowiazujeOd": "nie dotyczy",
+      "zrodloWeryfikacji": "https://eli.gov.pl/eli/DU/2023/2736/ogl",
+      "sprawdzonoDnia": "2026-08-21",
+      "uwaga": "Akt bazowy obowiązuje od 2019-09-01. Po tekście jednolitym weszły zmiany Dz.U. 2025 poz. 849 i Dz.U. 2026 poz. 130; Dz.U. 2026 poz. 1090 wchodzi 2026-09-01.",
+      "wystepowanie": {
+        "plikow": 4,
+        "modulow": 1,
+        "moduly": [
+          "metryczka"
+        ],
+        "wariantowZapisu": 3
+      },
+      "kontekstWKodzie": "iczno-pedagogicznej (Dz.U. 2020 poz. 1280, z późn. zm.).', }, { tytul: 'Rozp. MEN z 28.02.2019 r. w sprawie szczegółowej organizacji publicznych szkół i przedszkoli (",
+      "pliki": [
+        "src/modules/metryczka/model/legal-texts.ts",
+        "src/modules/metryczka/model/legal-warianty.ts",
+        "src/modules/metryczka/model/przedszkole/legal-warianty-przedszkole.ts",
+        "src/modules/metryczka/views/przedszkole/metryczka-dziecka/MetryczkaDzieckaView.tsx"
+      ]
+    },
+    {
+      "id": "dz-u-2026-428",
+      "publikator": {
+        "rok": 2026,
+        "poz": 428
+      },
+      "tytul": "Rozporządzenie Ministra Edukacji z dnia 2 marca 2026 r. w sprawie orzeczeń i opinii wydawanych przez zespoły orzekające działające w publicznych poradniach psychologiczno-pedagogicznych",
+      "zapisKanoniczny": "Rozporządzenie Ministra Edukacji z dnia 2 marca 2026 r. w sprawie orzeczeń i opinii wydawanych przez zespoły orzekające działające w publicznych poradniach psychologiczno-pedagogicznych (Dz.U. z 2026 r. poz. 428)",
+      "status": "obowiazuje",
+      "tekstJednolityDla": null,
+      "zastapionyPrzez": null,
+      "obowiazujeOd": "2026-04-14",
+      "zrodloWeryfikacji": "https://eli.gov.pl/eli/DU/2026/428/ogl",
+      "sprawdzonoDnia": "2026-08-21",
+      "uwaga": "Akt zasadniczo obowiązuje od 2026-04-14 i wtedy uchylił poprzednie rozporządzenie. Tylko § 7 ust. 6-7 i § 8 wchodzą 2026-09-01; § 33 określa zakres opinii do 2026-08-31.",
+      "wystepowanie": {
+        "plikow": 4,
+        "modulow": 2,
+        "moduly": [
+          "metryczka",
+          "wopf"
+        ],
+        "wariantowZapisu": 4
+      },
+      "kontekstWKodzie": "5 kwietnia 2011 r. o systemie informacji oświatowej (art. 12–25 — dane dziedzinowe uczniów, art. 16); rozp. Ministra Edukacji z 2.03.2026 r. w sprawie orzeczeń i opinii (",
+      "pliki": [
+        "src/modules/metryczka/model/legal-warianty.ts",
+        "src/modules/metryczka/model/przedszkole/legal-warianty-przedszkole.ts",
+        "src/modules/metryczka/views/przedszkole/podstawa-prawna/PodstawaPrawnaView.tsx",
+        "src/modules/wopf/data/przedszkole/decyzje-opinie-druki/opinia-tresc.ts"
+      ]
+    },
+    {
+      "id": "dz-u-2020-1280",
+      "publikator": {
+        "rok": 2020,
+        "poz": 1280
+      },
+      "tytul": "Obwieszczenie Ministra Edukacji Narodowej z dnia 9 lipca 2020 r. w sprawie ogłoszenia jednolitego tekstu rozporządzenia Ministra Edukacji Narodowej w sprawie zasad organizacji i udzielania pomocy psychologiczno-pedagogicznej w publicznych przedszkolach, szkołach i placówkach",
+      "zapisKanoniczny": "Rozporządzenie Ministra Edukacji Narodowej z dnia 9 sierpnia 2017 r. w sprawie zasad organizacji i udzielania pomocy psychologiczno-pedagogicznej w publicznych przedszkolach, szkołach i placówkach (t.j. Dz.U. z 2023 r. poz. 1798)",
+      "status": "uchylony",
+      "tekstJednolityDla": "dz-u-2017-1591",
+      "zastapionyPrzez": "dz-u-2023-1798",
+      "obowiazujeOd": "nie dotyczy",
+      "zrodloWeryfikacji": "https://eli.gov.pl/eli/DU/2020/1280/ogl",
+      "sprawdzonoDnia": "2026-08-21",
+      "uwaga": "Wygasły tekst jednolity; wygasł 2023-09-05. Akt bazowy obowiązuje od 2017-09-01; aktualny tekst jednolity to Dz.U. 2023 poz. 1798.",
+      "wystepowanie": {
+        "plikow": 3,
+        "modulow": 3,
+        "moduly": [
+          "ipet",
+          "metryczka",
+          "wopf"
+        ],
+        "wariantowZapisu": 3
+      },
+      "kontekstWKodzie": ") uczniów niepełnosprawnych (Dz.U. 2017 poz. 1578, z późn. zm.) — WOPF i IPET.', }, { tytul: 'Rozp. MEN z 9.08.2017 r. w sprawie pomocy psychologiczno-pedagogicznej (",
+      "pliki": [
+        "src/modules/ipet/data/przedszkole/zintegrowane-dzialania.ts",
+        "src/modules/metryczka/model/legal-texts.ts",
+        "src/modules/wopf/data/przedszkole/wopf-ocena-poziomu-funkcjonowania/wopf-dane-4.ts"
+      ]
+    },
+    {
+      "id": "dz-u-2023-1606",
+      "publikator": {
+        "rok": 2023,
+        "poz": 1606
+      },
+      "tytul": "Ustawa z dnia 28 lipca 2023 r. o zmianie ustawy - Kodeks rodzinny i opiekuńczy oraz niektórych innych ustaw",
+      "zapisKanoniczny": "Ustawa z dnia 13 maja 2016 r. o przeciwdziałaniu zagrożeniom przestępczością na tle seksualnym i ochronie małoletnich (t.j. Dz.U. z 2026 r. poz. 110, z późn. zm.)",
+      "status": "obowiazuje",
+      "tekstJednolityDla": null,
+      "zastapionyPrzez": null,
+      "obowiazujeOd": "2024-02-15",
+      "zrodloWeryfikacji": "https://eli.gov.pl/eli/DU/2023/1606/ogl",
+      "sprawdzonoDnia": "2026-08-21",
+      "uwaga": "Wybrane przepisy weszły 2023-08-29. Dla bieżących standardów ochrony małoletnich należy cytować ustawę bazową w aktualnym tekście jednolitym Dz.U. 2026 poz. 110, z późn. zm.; ten publikator jest właściwy dla historycznej nowelizacji.",
+      "wystepowanie": {
+        "plikow": 3,
+        "modulow": 1,
+        "moduly": [
+          "wopf"
+        ],
+        "wariantowZapisu": 4
+      },
+      "kontekstWKodzie": "wna. Obowiązek wprowadzenia standardów ochrony małoletnich — ustawa z dnia 28 lipca 2023 r. o zmianie ustawy — Kodeks rodzinny i opiekuńczy oraz niektórych innych ustaw (",
+      "pliki": [
+        "src/modules/wopf/data/przedszkole/karta-fba-tresc.ts",
+        "src/modules/wopf/data/przedszkole/wopf-bez-orzeczenia/wopf-dane-4.ts",
+        "src/modules/wopf/data/przedszkole/wopf-ocena-poziomu-funkcjonowania/wopf-dane-4.ts"
+      ]
+    },
+    {
+      "id": "dz-u-2025-1043",
+      "publikator": {
+        "rok": 2025,
+        "poz": 1043
+      },
+      "tytul": "Obwieszczenie Marszałka Sejmu Rzeczypospolitej Polskiej z dnia 25 lipca 2025 r. w sprawie ogłoszenia jednolitego tekstu ustawy - Prawo oświatowe",
+      "zapisKanoniczny": "Ustawa z dnia 14 grudnia 2016 r. - Prawo oświatowe (t.j. Dz.U. z 2026 r. poz. 820, z późn. zm.)",
+      "status": "uchylony",
+      "tekstJednolityDla": "dz-u-2017-59",
+      "zastapionyPrzez": "dz-u-2026-820",
+      "obowiazujeOd": "nie dotyczy",
+      "zrodloWeryfikacji": "https://eli.gov.pl/eli/DU/2025/1043/ogl",
+      "sprawdzonoDnia": "2026-08-21",
+      "uwaga": "Wygasły tekst jednolity Prawa oświatowego; wygasł 2026-06-21. Akt bazowy obowiązuje od 2017-09-01; aktualny tekst jednolity to Dz.U. 2026 poz. 820.",
+      "wystepowanie": {
+        "plikow": 3,
+        "modulow": 1,
+        "moduly": [
+          "zespol"
+        ],
+        "wariantowZapisu": 3
+      },
+      "kontekstWKodzie": ", uzupełnij uwagi, wydrukuj lub zapisz PDF. </DrukProza> <DrukCallout label=\"Podstawa prawna\" tone=\"violet\"> Art. 55 i art. 68–69 ustawy — Prawo oświatowe (",
+      "pliki": [
+        "src/modules/zespol/views/dyrektor/ArkuszObserwacjiView.tsx",
+        "src/modules/zespol/views/dyrektor/PlanNadzoruView.tsx",
+        "src/modules/zespol/views/dyrektor/sprawozdanie-nadzoru/SprawozdanieNadzoruView.tsx"
+      ]
+    },
+    {
+      "id": "dz-u-2019-1781",
+      "publikator": {
+        "rok": 2019,
+        "poz": 1781
+      },
+      "tytul": "Obwieszczenie Marszałka Sejmu Rzeczypospolitej Polskiej z dnia 30 sierpnia 2019 r. w sprawie ogłoszenia jednolitego tekstu ustawy o ochronie danych osobowych",
+      "zapisKanoniczny": "Ustawa z dnia 10 maja 2018 r. o ochronie danych osobowych (t.j. Dz.U. z 2019 r. poz. 1781, z późn. zm.)",
+      "status": "tekst-jednolity",
+      "tekstJednolityDla": "dz-u-2018-1000",
+      "zastapionyPrzez": null,
+      "obowiazujeOd": "nie dotyczy",
+      "zrodloWeryfikacji": "https://eli.gov.pl/eli/DU/2019/1781/ogl",
+      "sprawdzonoDnia": "2026-08-21",
+      "uwaga": "Akt bazowy obowiązuje od 2018-05-25. Po tekście jednolitym weszły zmiany Dz.U. 2026 poz. 252 i 548; zmiana poz. 1003 wchodzi 2026-10-28.",
+      "wystepowanie": {
+        "plikow": 2,
+        "modulow": 1,
+        "moduly": [
+          "metryczka"
+        ],
+        "wariantowZapisu": 2
+      },
+      "kontekstWKodzie": "GODA_STOPKA = 'Podstawa: Rozporządzenie Parlamentu Europejskiego i Rady (UE) 2016/679 (RODO) — art. 6, 9 i 13; ustawa z dnia 10 maja 2018 r. o ochronie danych osobowych (",
+      "pliki": [
+        "src/modules/metryczka/model/legal-texts.ts",
+        "src/modules/metryczka/views/przedszkole/podstawa-prawna/PodstawaPrawnaView.tsx"
+      ]
+    },
+    {
+      "id": "dz-u-2020-1604",
+      "publikator": {
+        "rok": 2020,
+        "poz": 1604
+      },
+      "tytul": "Obwieszczenie Ministra Edukacji Narodowej z dnia 4 września 2020 r. w sprawie ogłoszenia jednolitego tekstu rozporządzenia Ministra Edukacji Narodowej i Sportu w sprawie bezpieczeństwa i higieny w publicznych i niepublicznych szkołach i placówkach",
+      "zapisKanoniczny": "Rozporządzenie Ministra Edukacji Narodowej i Sportu z dnia 31 grudnia 2002 r. w sprawie bezpieczeństwa i higieny w publicznych i niepublicznych szkołach i placówkach (t.j. Dz.U. z 2020 r. poz. 1604, z późn. zm.)",
+      "status": "tekst-jednolity",
+      "tekstJednolityDla": "dz-u-2003-69",
+      "zastapionyPrzez": null,
+      "obowiazujeOd": "nie dotyczy",
+      "zrodloWeryfikacji": "https://eli.gov.pl/eli/DU/2020/1604/ogl",
+      "sprawdzonoDnia": "2026-08-21",
+      "uwaga": "Akt bazowy obowiązuje od 2003-02-06. Po tekście jednolitym weszła zmiana Dz.U. 2024 poz. 933.",
+      "wystepowanie": {
+        "plikow": 2,
+        "modulow": 2,
+        "moduly": [
+          "metryczka",
+          "zespol"
+        ],
+        "wariantowZapisu": 3
+      },
+      "kontekstWKodzie": "obowiązek zapewnić uczniom <strong>bezpieczeństwo i opiekę</strong> — art. 6 pkt 1 Karty Nauczyciela; § 2 rozp. MENiS z 31.12.2002 r. w sprawie bezpieczeństwa i higieny (",
+      "pliki": [
+        "src/modules/metryczka/model/legal-texts.ts",
+        "src/modules/zespol/views/dyrektor/sprawozdanie-nadzoru/SprawozdanieNadzoruView.tsx"
+      ]
+    },
+    {
+      "id": "dz-u-2024-1411",
+      "publikator": {
+        "rok": 2024,
+        "poz": 1411
+      },
+      "tytul": "Obwieszczenie Marszałka Sejmu Rzeczypospolitej Polskiej z dnia 18 września 2024 r. w sprawie ogłoszenia jednolitego tekstu ustawy o zapewnianiu dostępności osobom ze szczególnymi potrzebami",
+      "zapisKanoniczny": "Ustawa z dnia 19 lipca 2019 r. o zapewnianiu dostępności osobom ze szczególnymi potrzebami (t.j. Dz.U. z 2024 r. poz. 1411)",
+      "status": "tekst-jednolity",
+      "tekstJednolityDla": "dz-u-2019-1696",
+      "zastapionyPrzez": null,
+      "obowiazujeOd": "nie dotyczy",
+      "zrodloWeryfikacji": "https://eli.gov.pl/eli/DU/2024/1411/ogl",
+      "sprawdzonoDnia": "2026-08-21",
+      "uwaga": "Akt bazowy obowiązuje od 2019-09-20. Tekst jednolity uwzględnia zmianę Dz.U. 2024 poz. 731, której główna część weszła 2025-06-28; ELI nie wskazuje późniejszego aktu zmieniającego.",
+      "wystepowanie": {
+        "plikow": 2,
+        "modulow": 1,
+        "moduly": [
+          "metryczka"
+        ],
+        "wariantowZapisu": 3
+      },
+      "kontekstWKodzie": ", art. 6 i art. 9 — przetwarzanie danych osobowych ucznia.', }, { tytul: 'Ustawa z dnia 19 lipca 2019 r. o zapewnianiu dostępności osobom ze szczególnymi potrzebami (",
+      "pliki": [
+        "src/modules/metryczka/model/legal-texts.ts",
+        "src/modules/metryczka/views/przedszkole/metryczka-dziecka/MetryczkaDzieckaView.tsx"
+      ]
+    },
+    {
+      "id": "dz-u-2026-820",
+      "publikator": {
+        "rok": 2026,
+        "poz": 820
+      },
+      "tytul": "Obwieszczenie Marszałka Sejmu Rzeczypospolitej Polskiej z dnia 12 czerwca 2026 r. w sprawie ogłoszenia jednolitego tekstu ustawy - Prawo oświatowe",
+      "zapisKanoniczny": "Ustawa z dnia 14 grudnia 2016 r. - Prawo oświatowe (t.j. Dz.U. z 2026 r. poz. 820, z późn. zm.)",
+      "status": "tekst-jednolity",
+      "tekstJednolityDla": "dz-u-2017-59",
+      "zastapionyPrzez": null,
+      "obowiazujeOd": "nie dotyczy",
+      "zrodloWeryfikacji": "https://eli.gov.pl/eli/DU/2026/820/ogl",
+      "sprawdzonoDnia": "2026-08-21",
+      "uwaga": "Akt bazowy obowiązuje od 2017-09-01. Tekst jednolity odzwierciedla stan na 2026-06-07; po nim weszła zmiana Dz.U. 2026 poz. 982, a poz. 904 i 1036 wchodzą 2026-09-01.",
+      "wystepowanie": {
+        "plikow": 2,
+        "modulow": 1,
+        "moduly": [
+          "zespol"
+        ],
+        "wariantowZapisu": 2
+      },
+      "kontekstWKodzie": "na podstawa prawna w skrócie: 4 wiersze [akt, zakres]. */ export const PRZEW_PODSTAWA_PRAWNA: readonly (readonly [string, string])[] = [ [ 'Ustawa — Prawo oświatowe (t.j.",
+      "pliki": [
+        "src/modules/zespol/data/przedszkole/synteza-i-przewodnik/przewodnik.ts",
+        "src/modules/zespol/views/dyrektor/archiwum-dyrektora/model.ts"
+      ]
+    },
+    {
+      "id": "dz-u-2017-1646",
+      "publikator": {
+        "rok": 2017,
+        "poz": 1646
+      },
+      "tytul": "Rozporządzenie Ministra Edukacji Narodowej z dnia 25 sierpnia 2017 r. w sprawie sposobu prowadzenia przez publiczne przedszkola, szkoły i placówki dokumentacji przebiegu nauczania, działalności wychowawczej i opiekuńczej oraz rodzajów tej dokumentacji",
+      "zapisKanoniczny": "Rozporządzenie Ministra Edukacji Narodowej z dnia 25 sierpnia 2017 r. w sprawie sposobu prowadzenia przez publiczne przedszkola, szkoły i placówki dokumentacji przebiegu nauczania, działalności wychowawczej i opiekuńczej oraz rodzajów tej dokumentacji (t.j. Dz.U. z 2024 r. poz. 50)",
+      "status": "zmieniony",
+      "tekstJednolityDla": null,
+      "zastapionyPrzez": null,
+      "obowiazujeOd": "2017-09-01",
+      "zrodloWeryfikacji": "https://eli.gov.pl/eli/DU/2017/1646/ogl",
+      "sprawdzonoDnia": "2026-08-21",
+      "uwaga": "Akt pierwotny posiada aktualny tekst jednolity Dz.U. 2024 poz. 50. Tekst jednolity nie jest prawnym następcą aktu.",
+      "wystepowanie": {
+        "plikow": 1,
+        "modulow": 1,
+        "moduly": [
+          "metryczka"
+        ],
+        "wariantowZapisu": 1
+      },
+      "kontekstWKodzie": "sprawie sposobu prowadzenia przez publiczne przedszkola, szkoły i placówki dokumentacji przebiegu nauczania, działalności wychowawczej i opiekuńczej. </> ), chipy: ['",
+      "pliki": [
+        "src/modules/metryczka/views/przedszkole/podstawa-prawna/PodstawaPrawnaView.tsx"
+      ]
+    },
+    {
+      "id": "dz-u-2019-325",
+      "publikator": {
+        "rok": 2019,
+        "poz": 325
+      },
+      "tytul": "Rozporządzenie Ministra Edukacji Narodowej z dnia 12 lutego 2019 r. w sprawie doradztwa zawodowego",
+      "zapisKanoniczny": "Rozporządzenie Ministra Edukacji Narodowej z dnia 12 lutego 2019 r. w sprawie doradztwa zawodowego (Dz.U. z 2019 r. poz. 325, z późn. zm.)",
+      "status": "zmieniony",
+      "tekstJednolityDla": null,
+      "zastapionyPrzez": null,
+      "obowiazujeOd": "2019-09-01",
+      "zrodloWeryfikacji": "https://eli.gov.pl/eli/DU/2019/325/ogl",
+      "sprawdzonoDnia": "2026-08-21",
+      "uwaga": "Zmiana Dz.U. 2026 poz. 73: § 1 pkt 1 obowiązuje od 2026-01-24, pozostałe zmiany od 2026-09-01.",
+      "wystepowanie": {
+        "plikow": 1,
+        "modulow": 1,
+        "moduly": [
+          "zespol"
+        ],
+        "wariantowZapisu": 1
+      },
+      "kontekstWKodzie": "preorientacja zawodowa)\" /> <DrukCallout label=\"Podstawa prawna\" ton=\"prawny\"> <strong>Rozp. MEN z 12 lutego 2019 r. w sprawie doradztwa zawodowego</strong> (",
+      "pliki": [
+        "src/modules/zespol/views/dyrektor/sprawozdanie-nadzoru/SprawozdanieNadzoruView.tsx"
+      ]
+    },
+    {
+      "id": "dz-u-2024-50",
+      "publikator": {
+        "rok": 2024,
+        "poz": 50
+      },
+      "tytul": "Obwieszczenie w sprawie ogloszenia jednolitego tekstu rozporzadzenia Ministra Edukacji Narodowej w sprawie sposobu prowadzenia przez publiczne przedszkola, szkoly i placowki dokumentacji przebiegu nauczania, dzialalnosci wychowawczej i opiekunczej oraz rodzajow tej dokumentacji",
+      "zapisKanoniczny": "Rozporządzenie Ministra Edukacji Narodowej z dnia 25 sierpnia 2017 r. w sprawie sposobu prowadzenia przez publiczne przedszkola, szkoły i placówki dokumentacji przebiegu nauczania, działalności wychowawczej i opiekuńczej oraz rodzajów tej dokumentacji (t.j. Dz.U. z 2024 r. poz. 50)",
+      "status": "tekst-jednolity",
+      "tekstJednolityDla": "dz-u-2017-1646",
+      "zastapionyPrzez": null,
+      "obowiazujeOd": "nie dotyczy",
+      "zrodloWeryfikacji": "https://eli.gov.pl/eli/DU/2024/50/ogl",
+      "sprawdzonoDnia": "2026-08-21",
+      "uwaga": "Aktualny tekst jednolity rozporzadzenia o dokumentacji przebiegu nauczania; publikator zweryfikowany w E18 (uwaga przy dz-u-2017-1646). Pelna data obwieszczenia do uzupelnienia przy przegladzie rejestru 2026-09-01. Wpis dodany w Z40 (2026-08-22) po zastapieniu blednego Dz.U. 2024 poz. 1640.",
+      "wystepowanie": {
+        "plikow": 1,
+        "modulow": 1,
+        "moduly": [
+          "zespol"
+        ],
+        "wariantowZapisu": 1
+      },
+      "kontekstWKodzie": "rozporzadzenie w sprawie sposobu prowadzenia dokumentacji przebiegu nauczania (t.j. Dz.U. z 2024 r. poz. 50);",
+      "pliki": [
+        "src/modules/zespol/views/dyrektor/kontrola-dokumentacji/KontrolaDokumentacjiNowyView.tsx"
+      ]
+    },
+    {
+      "id": "dz-u-2026-110",
+      "publikator": {
+        "rok": 2026,
+        "poz": 110
+      },
+      "tytul": "Obwieszczenie w sprawie ogloszenia jednolitego tekstu ustawy o przeciwdzialaniu zagrozeniom przestepczoscia na tle seksualnym i ochronie maloletnich",
+      "zapisKanoniczny": "Ustawa z dnia 13 maja 2016 r. o przeciwdziałaniu zagrożeniom przestępczością na tle seksualnym i ochronie małoletnich (t.j. Dz.U. z 2026 r. poz. 110, z późn. zm.)",
+      "status": "tekst-jednolity",
+      "tekstJednolityDla": "dz-u-2016-862",
+      "zastapionyPrzez": null,
+      "obowiazujeOd": "nie dotyczy",
+      "zrodloWeryfikacji": "https://eli.gov.pl/eli/DU/2026/110/ogl",
+      "sprawdzonoDnia": "2026-08-21",
+      "uwaga": "Aktualny tekst jednolity ustawy o ochronie maloletnich; publikator zweryfikowany w E18 (uwagi przy dz-u-2024-560 i dz-u-2023-1606). Pelna data obwieszczenia do uzupelnienia przy przegladzie rejestru 2026-09-01. Wpis dodany w Z40 (2026-08-22) po zastapieniu przestarzalego Dz.U. 2024 poz. 560; obejmuje tez wykaz aktow w slownik.ts (wariant \"Dz.U. z 2026 r. poz. 110\" znaleziony pomiarem na zywo, poza lista E18).",
+      "wystepowanie": {
+        "plikow": 2,
+        "modulow": 1,
+        "moduly": [
+          "zespol"
+        ],
+        "wariantowZapisu": 1
+      },
+      "kontekstWKodzie": "ustawa z 13 maja 2016 r. o przeciwdzialaniu zagrozeniom przestepczoscia na tle seksualnym i ochronie maloletnich (t.j. Dz.U. z 2026 r. poz. 110, z pozn. zm.)",
+      "pliki": [
+        "src/modules/zespol/views/dyrektor/sprawozdanie-nadzoru/SprawozdanieNadzoruView.tsx",
+        "src/modules/zespol/views/dyrektor/sprawozdanie-nadzoru/slownik.ts"
+      ]
+    },
+    {
+      "id": "dz-u-2023-2029",
+      "publikator": {
+        "rok": 2023,
+        "poz": 2029
+      },
+      "tytul": "Ustawa z dnia 16 czerwca 2023 r. o zmianie ustawy - Prawo geologiczne i górnicze oraz niektórych innych ustaw",
+      "zapisKanoniczny": "Ustawa z dnia 16 czerwca 2023 r. o zmianie ustawy - Prawo geologiczne i górnicze oraz niektórych innych ustaw (Dz.U. z 2023 r. poz. 2029, z późn. zm.)",
+      "status": "zmieniony",
+      "tekstJednolityDla": null,
+      "zastapionyPrzez": null,
+      "obowiazujeOd": "2023-10-28",
+      "zrodloWeryfikacji": "https://eli.gov.pl/eli/DU/2023/2029/ogl",
+      "sprawdzonoDnia": "2026-08-21",
+      "uwaga": "Krytyczny rozjazd kodu: pozycja dotyczy prawa geologicznego i górniczego, nie jest tekstem jednolitym rozporządzenia o kształceniu specjalnym. W drukach właściwy publikator to Dz.U. 2020 poz. 1309. Akt później zmieniono Dz.U. 2025 poz. 527 i Dz.U. 2026 poz. 781. Po Z40 (2026-08-22) akt nie wystepuje w kodzie drukow — bledne cytowania poprawiono. Bledne cytowania zastapiono t.j. Dz.U. z 2020 r. poz. 1309.",
+      "wystepowanie": {
+        "plikow": 0,
+        "modulow": 0,
+        "moduly": [],
+        "wariantowZapisu": 0
+      },
+      "kontekstWKodzie": "",
+      "pliki": []
+    },
+    {
+      "id": "dz-u-2024-1640",
+      "publikator": {
+        "rok": 2024,
+        "poz": 1640
+      },
+      "tytul": "Rozporządzenie Ministra Infrastruktury z dnia 5 listopada 2024 r. w sprawie udzielania pomocy publicznej w zakresie wyposażenia pojazdów kolejowych z napędem lub z kabiną sterowniczą w system ERTMS w ramach Krajowego Planu Odbudowy i Zwiększania Odporności",
+      "zapisKanoniczny": "Rozporządzenie Ministra Infrastruktury z dnia 5 listopada 2024 r. w sprawie udzielania pomocy publicznej w zakresie wyposażenia pojazdów kolejowych z napędem lub z kabiną sterowniczą w system ERTMS w ramach Krajowego Planu Odbudowy i Zwiększania Odporności (Dz.U. z 2024 r. poz. 1640)",
+      "status": "obowiazuje",
+      "tekstJednolityDla": null,
+      "zastapionyPrzez": null,
+      "obowiazujeOd": "2024-11-09",
+      "zrodloWeryfikacji": "https://eli.gov.pl/eli/DU/2024/1640/ogl",
+      "sprawdzonoDnia": "2026-08-21",
+      "uwaga": "Krytyczny rozjazd kodu: pozycja dotyczy pomocy publicznej dla kolejowego ERTMS, nie dokumentacji przebiegu nauczania. W druku właściwy publikator to tekst jednolity Dz.U. 2024 poz. 50. Po Z40 (2026-08-22) akt nie wystepuje w kodzie drukow — bledne cytowania poprawiono. Bledne cytowanie zastapiono t.j. Dz.U. z 2024 r. poz. 50.",
+      "wystepowanie": {
+        "plikow": 0,
+        "modulow": 0,
+        "moduly": [],
+        "wariantowZapisu": 0
+      },
+      "kontekstWKodzie": "",
+      "pliki": []
+    },
+    {
+      "id": "dz-u-2024-560",
+      "publikator": {
+        "rok": 2024,
+        "poz": 560
+      },
+      "tytul": "Obwieszczenie Marszałka Sejmu Rzeczypospolitej Polskiej z dnia 21 marca 2024 r. w sprawie ogłoszenia jednolitego tekstu ustawy o przeciwdziałaniu zagrożeniom przestępczością na tle seksualnym i ochronie małoletnich",
+      "zapisKanoniczny": "Ustawa z dnia 13 maja 2016 r. o przeciwdziałaniu zagrożeniom przestępczością na tle seksualnym i ochronie małoletnich (t.j. Dz.U. z 2026 r. poz. 110, z późn. zm.)",
+      "status": "uchylony",
+      "tekstJednolityDla": "dz-u-2016-862",
+      "zastapionyPrzez": "dz-u-2024-1802",
+      "obowiazujeOd": "nie dotyczy",
+      "zrodloWeryfikacji": "https://eli.gov.pl/eli/DU/2024/560/ogl",
+      "sprawdzonoDnia": "2026-08-21",
+      "uwaga": "Wygasły tekst jednolity; wygasł 2024-12-06 i bezpośrednio zastąpił go tekst jednolity Dz.U. 2024 poz. 1802. Aktualny tekst jednolity to Dz.U. 2026 poz. 110. Akt bazowy obowiązuje od 2017-10-01. Po Z40 (2026-08-22) akt nie wystepuje w kodzie drukow — bledne cytowania poprawiono. Przestarzale cytowanie zastapiono t.j. Dz.U. z 2026 r. poz. 110 z pelnym tytulem ustawy.",
+      "wystepowanie": {
+        "plikow": 0,
+        "modulow": 0,
+        "moduly": [],
+        "wariantowZapisu": 0
+      },
+      "kontekstWKodzie": "",
+      "pliki": []
+    },
+    {
+      "id": "dz-u-2026-770",
+      "publikator": {
+        "rok": 2026,
+        "poz": 770
+      },
+      "tytul": "Rozporządzenie Ministra Edukacji z dnia 12 czerwca 2026 r. zmieniające rozporządzenie w sprawie organizacji kształcenia oraz warunków i form realizowania specjalnych działań opiekuńczo-wychowawczych w przedszkolach i szkołach specjalnych oraz w oddziałach specjalnych, zorganizowanych w podmiotach leczniczych i jednostkach pomocy społecznej",
+      "zapisKanoniczny": "Rozporządzenie Ministra Edukacji z dnia 12 czerwca 2026 r. zmieniające rozporządzenie w sprawie organizacji kształcenia oraz warunków i form realizowania specjalnych działań opiekuńczo-wychowawczych w przedszkolach i szkołach specjalnych oraz w oddziałach specjalnych, zorganizowanych w podmiotach leczniczych i jednostkach pomocy społecznej (Dz.U. z 2026 r. poz. 770)",
+      "status": "obowiazuje",
+      "tekstJednolityDla": null,
+      "zastapionyPrzez": null,
+      "obowiazujeOd": "2026-06-13",
+      "zrodloWeryfikacji": "https://eli.gov.pl/eli/DU/2026/770/ogl",
+      "sprawdzonoDnia": "2026-08-21",
+      "uwaga": "Krytyczny rozjazd kodu: akt zmienia wyłącznie Dz.U. 2025 poz. 115 i nie zmienia rozporządzenia Dz.U. 2017 poz. 1578. Cytat należy usunąć z ogólnej podstawy WOPF/IPET. Po Z40 (2026-08-22) akt nie wystepuje w kodzie drukow — bledne cytowania poprawiono. Falszywa wzmianke o zmianie wykreslono (decyzja Ewy); akt zmienia wylacznie Dz.U. 2025 poz. 115.",
+      "wystepowanie": {
+        "plikow": 0,
+        "modulow": 0,
+        "moduly": [],
+        "wariantowZapisu": 0
+      },
+      "kontekstWKodzie": "",
+      "pliki": []
+    }
+  ]
+}
