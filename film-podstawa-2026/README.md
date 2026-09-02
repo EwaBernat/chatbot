@@ -106,9 +106,20 @@ python3 ~/.claude/skills/dane-i-glos/scripts/heygen_awatar.py --awatary
 
 python3 ~/.claude/skills/dane-i-glos/scripts/heygen_awatar.py \
         --audio public/narracja.mp3 \
-        --avatar-id <twoje_id> --styl circle --tlo "#2D1B69" \
+        --avatar-id <twoje_id> --styl normal --tlo "#2D1B69" \
         --czekaj -o public/awatar-lektor.mp4
 ```
+
+**`--styl normal`, nie `circle`** — to ważne. Kółeczko wycina już
+`src/elementy/Awatar.tsx`, a kadr liczy z wymiarów sylwetki zmierzonych
+z `awatar.webm` (czubek głowy y=62, środek głowy x=963). Gotowy kadr kołowy
+z HeyGena wszedłby w kółeczko drugi raz i te wymiary przestałyby pasować.
+`--styl normal` daje ten sam kadr pełnoekranowy co nagranie powitalne, więc
+pozycjonowanie zostaje poprawne.
+
+Gdyby HeyGen mimo to skadrował inaczej, korekta to trzy stałe na górze
+`AwatarRog`: `GLOWA_GORA`, `GLOWA_DOL`, `GLOWA_SRODEK_X`. Zmierzyć je można
+tym samym sposobem, co poprzednio — z kanału alfa albo z klatki nagrania.
 
 `--audio` jest tu kluczowe: awatar dostaje **gotowe** `narracja.mp3`, więc
 mówi Twoim głosem z ElevenLabs i rusza ustami dokładnie do tego dźwięku.
