@@ -45,10 +45,33 @@ Analiza na podstawie zrzutów strony (wrzesień 2026). Nowy projekt: `index.html
 - **Typografia:** Bricolage Grotesque (nagłówki) + IBM Plex Sans (tekst), oba z polskimi znakami; liczby tabelaryczne.
 - **Tryb ciemny i jasny** z jednego zestawu tokenów; brak poziomego przewijania; widoczny fokus klawiatury.
 
+## Wersja sprzedażowa (aktualna)
+
+Po uwagach: strona ma sprzedawać aplikację, a szkolenia i broszury mają ją wspierać.
+Kolejność sekcji prowadzi od problemu do zamówienia:
+
+1. Hero z realnym terminem (rok szkolny 2026/2027), dwa przyciski: „Zamów dla placówki” i „Umów pokaz”.
+2. „Co się zmieniło” — dotychczas kontra od 2026/27, czyli dlaczego placówka musi to mieć.
+3. Aplikacja: ścieżka ucznia w pięciu krokach i dziesięć modułów.
+4. Porównanie „Arkusze czy aplikacja” w tabeli.
+5. Etapy, bezpłatne filmy jako wejście do szkoleń.
+6. Szkolenia i broszury z dwiema cenami: placówka (faktura) i osoba indywidualna (online).
+7. „Jak kupujesz”: dwie drogi zakupu w trzech krokach każda.
+8. Cennik w trzech kolumnach z aplikacją jako główną ofertą.
+9. Autorka, FAQ przed zakupem.
+10. Formularz „Zamów w 2 minuty”: przełącznik placówka / osoba, wybór pozycji, podsumowanie i przycisk.
+    Każdy przycisk „Zamów”, „Kup”, „Zapisz się” na stronie ustawia w formularzu właściwą pozycję.
+
+Formularz bez backendu składa gotową wiadomość e-mail z treścią zamówienia.
+Do wdrożenia: podłączenie do własnego endpointu lub Formspree i bramki płatności
+(Przelewy24 / Stripe) dla osób indywidualnych.
+
 ## Do uzupełnienia przed wdrożeniem
 
 Miejsca oznaczone w `index.html` komentarzem `TODO`:
 - linki do filmów w YouTube (sześć adresów),
 - zdjęcie autorki (proporcje 4:5) w miejsce bloku z inicjałami,
-- cena roczna i, jeśli jest, adres formularza analizy potrzeb,
+- ceny: subskrypcja roczna, każde szkolenie i każda broszura, osobno dla placówki i osoby indywidualnej,
+- prawdziwe tytuły broszur i formaty szkoleń (obecne są przykładowe),
+- backend formularza i bramka płatności online,
 - opisy modułu przedszkolnego i ponadpodstawowego — w projekcie są ogólne, warto je doprecyzować pod realny zakres.
