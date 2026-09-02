@@ -90,6 +90,29 @@ tekst wyciągalny) — sprawdzaj w nim, zamiast zgadywać.
 Miejsce w kodzie: `OBSZAR_PP_NAZWY` w `monitoring_podstawy()`
 (`eduplaner_przedszkole/src/build.py`) — jedno źródło dla legendy i kolumny tabeli.
 
+## Cele SMART do analizy funkcjonalnej zachowania (FBA)
+
+`eduplaner_fba/` — druk **FBA-C**, ciąg dalszy karty ABC / FBA. Tamta kończy się
+pięcioma celami SMART (po jednym na funkcję zachowania); ten druk rozpisuje je na
+**25 celów szczegółowych** — po jednym do każdego wskaźnika kwestionariusza funkcji.
+Osiem stron A4 pionowo, każdy cel z rozpisaniem SMART i miejscem na wynik obserwacji.
+
+Kryterium prób i horyzont **wynikają z punktacji funkcji u konkretnego ucznia**, tak
+samo jak w banku horyzont wynika z poziomu wsparcia: dominująca (10–15 pkt) — 8 z 10
+sytuacji i 4 tygodnie, istotna (5–9) — 7 z 10 i 8 tygodni, słaba (0–4) — 6 z 10
+i 12 tygodni. Funkcja dominująca ma najkrótszy horyzont nie dlatego, że jest łatwiejsza,
+tylko dlatego, że jest priorytetem planu PBS.
+
+Cele opisują **zachowanie zastępcze** — pełniące tę samą funkcję co zachowanie trudne,
+tylko akceptowalne. Tego nie wolno zgubić przy dopisywaniu: plan PBS uczy innej drogi
+do funkcji, nie odbiera dziecku funkcji.
+
+**Dokumenty z nazwiskiem ucznia nie wchodzą do repozytorium** (`eduplaner_fba/.gitignore`)
+— zostaje sam formularz. Nazwisko i punktacja to dane osobowe dziecka.
+
+Horyzont trzymamy w trzech formach gramatycznych (`4 tygodni` · `4 tygodniach`
+· `4 tygodnie`) — jedna forma dawała „weryfikacja po 4 tygodni” w druku dla rodzica.
+
 ## Materiały przedszkolne
 
 `eduplaner_przedszkole/` — bank celów SMART KPOF (130 twierdzeń, wersje A/B/C),

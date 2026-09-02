@@ -1,0 +1,663 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Cele SMART do obserwacji pogłębionej (ABC / FBA)</title>
+<link rel="stylesheet" media="print" onload="this.media='all'"
+  href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&display=swap">
+<style>
+:root{
+  --ink:#2D1B69; --indigo:#4F3AA8; --violet:#6C4CC4; --accent:#E8450A;
+  --on-accent:#FFFFFF; --tekst:#241C3A; --szary:#5B5470;
+  --paper:#FFFFFF; --soft:#F6F3FC; --field:#EFEAF9;
+  --line:#DCD4F0; --line-2:#C9BEEA; --tlo:#EDE9F6;
+}
+*{box-sizing:border-box}
+body{margin:0; background:var(--tlo); color:var(--tekst);
+  font:13px/1.5 "DM Sans",Arial,Helvetica,sans-serif; padding:26px 0}
+.strona{width:726px; min-height:1054px; margin:0 auto 26px; background:var(--paper);
+  padding:0; display:flex; flex-direction:column; box-shadow:0 2px 14px rgba(45,27,105,.13)}
+.tresc{flex:1 1 auto; padding:0 4px}
+
+/* nagłówek i stopka — układ przepisany z karty ABC/FBA */
+.head{display:flex; align-items:flex-start; gap:12px; border-bottom:2px solid var(--line-2);
+  padding:12px 4px 9px; margin-bottom:10px}
+.mark{flex:0 0 auto; width:34px; height:34px; border-radius:7px; background:var(--ink);
+  color:#fff; font:700 10px/34px "DM Sans",Arial,sans-serif; text-align:center; letter-spacing:.06em}
+.head h1{margin:0; font-size:14px; font-weight:700; color:var(--ink); letter-spacing:.01em}
+.head .sub{font-size:9.5px; letter-spacing:.16em; text-transform:uppercase; color:var(--szary); margin-top:3px}
+.head .prawa{margin-left:auto; text-align:right}
+.head .prawa b{display:block; font-size:10px; letter-spacing:.1em; color:var(--accent); text-transform:uppercase}
+.head .prawa span{font-size:8.5px; letter-spacing:.18em; text-transform:uppercase; color:var(--szary)}
+.metryka{display:flex; gap:10px; align-items:stretch; margin:0 4px 11px; font-size:10px}
+.metryka div{flex:1 1 auto; border-bottom:1px solid var(--line-2); padding:4px 2px 5px;
+  display:flex; gap:8px; align-items:baseline}
+.metryka span{font-size:8.5px; letter-spacing:.13em; text-transform:uppercase; color:var(--szary); white-space:nowrap}
+.metryka b{font-size:12px; color:var(--ink); font-weight:700}
+.stopka{margin-top:auto; border-top:1px solid var(--line); padding:8px 4px 12px;
+  display:flex; justify-content:space-between; font-size:8.5px; color:var(--szary); letter-spacing:.04em}
+
+/* wspólne elementy treści */
+.pas{background:var(--ink); color:#fff; border-radius:7px; padding:9px 14px; margin:0 0 12px;
+  font-size:10px; letter-spacing:.16em; text-transform:uppercase; text-align:center}
+h2{margin:0 0 8px; font-size:15px; color:var(--ink)}
+p{margin:0 0 9px}
+.wstep{background:var(--soft); border-left:4px solid var(--violet); border-radius:0 8px 8px 0;
+  padding:11px 14px; font-size:11.5px; line-height:1.6; margin-bottom:12px}
+.wstep b{color:var(--ink)}
+.dwie{display:grid; grid-template-columns:1fr 1fr; gap:11px; margin-bottom:12px}
+.karta-info{border:1px solid var(--line); border-radius:9px; padding:11px 13px; font-size:11px; line-height:1.55}
+.karta-info h3{margin:0 0 6px; font-size:11.5px; color:var(--accent);
+  letter-spacing:.06em; text-transform:uppercase}
+table{width:100%; border-collapse:collapse; font-size:11px}
+th{background:var(--field); color:var(--ink); text-align:left; font-size:9px; letter-spacing:.1em;
+  text-transform:uppercase; padding:7px 8px; border:1px solid var(--line)}
+td{padding:6px 8px; border:1px solid var(--line); vertical-align:top}
+tbody tr:nth-child(even) td{background:var(--soft)}
+.pkt{font-weight:700; color:var(--ink); text-align:center; white-space:nowrap}
+.ocena{font-weight:700; white-space:nowrap}
+.ocena.dom{color:var(--accent)}
+.pole{border-bottom:1px dotted var(--line-2); min-width:54px; display:inline-block}
+
+/* nagłówek funkcji */
+.fn{display:flex; align-items:center; gap:11px; margin:0 0 8px}
+.fn .rz{flex:0 0 auto; width:32px; height:32px; border-radius:6px; background:var(--accent);
+  color:var(--on-accent); font:700 13px/32px "DM Sans",Arial,sans-serif; text-align:center}
+.fn h2{margin:0; font-size:15px}
+.fn .op{font-size:10px; color:var(--szary); margin-top:2px}
+.fn .bad{margin-left:auto; text-align:right; font-size:9.5px; letter-spacing:.08em;
+  text-transform:uppercase; color:var(--szary)}
+.fn .bad b{display:block; font-size:12px; color:var(--ink); letter-spacing:0; text-transform:none}
+.pbs{background:var(--soft); border-radius:8px; padding:7px 11px; font-size:10px;
+  line-height:1.45; margin-bottom:7px}
+.pbs b{color:var(--accent); letter-spacing:.08em; text-transform:uppercase; font-size:9px}
+
+/* karta jednego celu */
+.cel{border:1px solid var(--line); border-radius:9px; padding:5px 10px 6px; margin-bottom:5px;
+  break-inside:avoid}
+.cel-h{display:flex; align-items:baseline; gap:9px; margin-bottom:4px}
+.cel-h .nr{flex:0 0 auto; background:var(--ink); color:#fff; border-radius:4px; padding:2px 7px;
+  font:700 9.5px/1.4 "DM Sans",Arial,sans-serif; letter-spacing:.04em}
+.cel-h .def{font-size:10px; color:var(--szary); line-height:1.35}
+.cel-h .def b{color:var(--ink); font-size:9px; letter-spacing:.1em; text-transform:uppercase}
+.cel-t{margin:0 0 5px; font-size:11px; line-height:1.42; color:var(--tekst);
+  border-left:3px solid var(--accent); padding-left:9px}
+.cel-t b{color:var(--accent); font-size:9px; letter-spacing:.1em; text-transform:uppercase;
+  display:block; margin-bottom:1px}
+.smart{display:grid; grid-template-columns:repeat(5,1fr); gap:4px; margin-bottom:5px}
+.smart div{background:var(--soft); border-radius:5px; padding:4px 5px; font-size:8px; line-height:1.32}
+.smart i{display:block; font-style:normal; font-weight:700; color:var(--accent); font-size:9.5px; margin-bottom:1px}
+.obs{display:flex; gap:10px; align-items:baseline; font-size:9.2px; color:var(--szary);
+  border-top:1px dashed var(--line); padding-top:3px}
+.obs b{color:var(--ink); font-size:8.5px; letter-spacing:.09em; text-transform:uppercase}
+.obs .wynik{margin-left:auto; white-space:nowrap; color:var(--ink)}
+
+/* podpisy */
+.podpisy{display:grid; grid-template-columns:1fr 1fr; gap:36px; margin:20px 4px 12px}
+.podpisy div{border-top:1px solid var(--line-2); padding-top:6px; text-align:center;
+  font-size:9px; letter-spacing:.12em; text-transform:uppercase; color:var(--szary)}
+.podstawa{border:1px solid var(--line); border-radius:8px; padding:10px 13px;
+  font-size:9px; line-height:1.55; color:var(--szary)}
+.podstawa b{color:var(--ink)}
+
+@media print{
+  @page{size:A4 portrait; margin:9mm}
+  body{background:#fff; padding:0}
+  .strona{width:auto; min-height:0; margin:0; box-shadow:none; break-after:page}
+  .strona:last-child{break-after:auto}
+}
+</style>
+</head>
+<body>
+<section class="strona">
+  <div class="head">
+    <span class="mark">PCTP</span>
+    <div>
+      <h1>EduPlaner 2026</h1>
+      <div class="sub">ABC / FBA · Cele SMART — wprowadzenie</div>
+    </div>
+    <div class="prawa"><b>ABC · PBS</b><span>narzędzie · druk FBA-C</span></div>
+  </div>
+  <div class="metryka">
+    <div><span>Dotyczy ucznia</span><b>&nbsp;</b></div>
+    <div><span>Klasa</span><b>&nbsp;</b></div>
+    <div><span>Data</span><b>&nbsp;</b> r.</div>
+  </div>
+  <div class="tresc">
+    <div class="pas">Cele SMART do obserwacji pogłębionej · 25 wskaźników z kwestionariusza funkcji</div>
+    <div class="wstep">
+      <b>Po co ten druk.</b> Karta ABC / FBA kończy się pięcioma celami SMART — po jednym na funkcję
+      zachowania. Wyznaczają kierunek planu PBS, ale są za szerokie na obserwację pogłębioną:
+      „skorzysta z ustalonej strategii wyciszenia” nie mówi, w której z pięciu sytuacji napięcia
+      liczymy postęp. Ten druk rozpisuje tamte pięć celów na <b>25 celów szczegółowych</b> —
+      po jednym do każdego wskaźnika kwestionariusza, każdy z zachowaniem, które widać, liczbą,
+      którą da się policzyć, i terminem, w którym sprawdzamy.
+    </div>
+    <div class="dwie">
+      <div class="karta-info">
+        <h3>Jak czytać cel</h3>
+        Każdy cel opisuje <b>zachowanie zastępcze</b> — takie, które pełni tę samą funkcję,
+        co zachowanie trudne, tylko jest akceptowalne. Nie odbieramy dziecku funkcji
+        (ucieczki, uwagi, regulacji), uczymy innej drogi do niej. Dlatego pod celem stoi
+        rozpisanie SMART: co dokładnie widać (S), ile tego liczymy (M), co to umożliwia (A),
+        po co to dziecku (R) i kiedy sprawdzamy (T).
+      </div>
+      <div class="karta-info">
+        <h3>Skąd kryterium i horyzont</h3>
+        Nie z podręcznika, tylko z <b>punktacji funkcji u tego ucznia</b>. Funkcja dominująca
+        (10–15 pkt) jest priorytetem planu, więc sprawdzamy ją najczęściej — po 4 tygodniach,
+        przy kryterium 8 z 10. Funkcja istotna (5–9 pkt) — po 8 tygodniach, przy 7 z 10.
+        Funkcja słaba (0–4 pkt) — po 12 tygodniach, przy 6 z 10. Ta sama logika, co przy
+        poziomach wsparcia w banku celów SMART.
+      </div>
+    </div>
+    <table><thead><tr><th>Funkcja zachowania</th><th>Wynik</th><th>Ocena</th><th>Kryterium</th><th>Horyzont</th><th>Znaczenie dla planu</th></tr></thead><tbody><tr><td>I · Ucieczka / unikanie</td><td class="pkt">7/15</td><td class="ocena">Istotna</td><td class="pkt">7 z 10</td><td class="pkt">8 tygodni</td><td>do uwzględnienia</td></tr><tr><td>II · Sensoryczne / autostymulacja</td><td class="pkt">8/15</td><td class="ocena">Istotna</td><td class="pkt">7 z 10</td><td class="pkt">8 tygodni</td><td>do uwzględnienia</td></tr><tr><td>III · Uwaga</td><td class="pkt">13/15</td><td class="ocena dom">Dominująca</td><td class="pkt">8 z 10</td><td class="pkt">4 tygodnie</td><td>priorytet planu PBS</td></tr><tr><td>IV · Dostęp do przedmiotu / aktywności</td><td class="pkt">7/15</td><td class="ocena">Istotna</td><td class="pkt">7 z 10</td><td class="pkt">8 tygodni</td><td>do uwzględnienia</td></tr><tr><td>V · Regulacja emocji / napięcie</td><td class="pkt">13/15</td><td class="ocena dom">Dominująca</td><td class="pkt">8 z 10</td><td class="pkt">4 tygodnie</td><td>priorytet planu PBS</td></tr></tbody></table>
+    <div class="dwie" style="margin-top:12px">
+      <div class="karta-info">
+        <h3>Cel, który da się obserwować</h3>
+        <p style="margin-bottom:6px"><b style="color:var(--indigo)">Dobrze:</b> „Uczennica poprosi
+        o uwagę dorosłego przez podniesienie ręki, zamiast zachowaniem trudnym, w 8 z 10 sytuacji
+        potrzeby kontaktu, w ciągu 4 tygodni.”</p>
+        <p style="margin:0"><b style="color:var(--accent)">Źle:</b> „Poprawa umiejętności proszenia
+        o uwagę.” — nie widać zachowania, nie ma czego policzyć, więc nie da się zrobić ewaluacji
+        ani napisać, czy cel został osiągnięty.</p>
+      </div>
+      <div class="karta-info">
+        <h3>Jak liczyć „8 z 10”</h3>
+        Liczymy <b>sytuacje, w których zachowanie mogło wystąpić</b>, nie dni i nie lekcje.
+        Dziesięć kolejnych sytuacji z rejestru ABC daje jeden wynik; przy wskaźnikach rzadkich
+        (zmiana planu, odmowa) zbiera się to przez dwa–trzy tygodnie i to jest w porządku —
+        lepszy wynik z dziesięciu prawdziwych sytuacji niż z dziesięciu wywołanych na próbę.
+        Wynik zapisujemy w polu przy celu, w dniu, w którym domknęła się dziesiątka.
+      </div>
+    </div>
+    <div class="wstep">
+      <b>Czego ten druk nie zastępuje.</b> Cel wpisujemy do pracy dopiero wtedy, gdy wskaźnik
+      został oceniony na 2 albo 3 — przy ocenie 0 lub 1 nie ma czego obserwować. Wybieramy
+      zwykle <b>trzy do pięciu celów</b> naraz, zaczynając od funkcji dominującej; 25 celów to
+      zapas na cały rok, nie plan na wrzesień. Wynik obserwacji wpisujemy w pole przy celu,
+      a zbiorczo — w tabelę ewaluacji na ostatniej stronie.
+    </div>
+  </div>
+  <div class="stopka"><span>EduPlaner 2026 · PCTP · pedagog specjalny mgr Mirosława Ewa Jurczyszyn</span><span>Strona 1 z 8 · wprowadzenie</span></div>
+</section>
+<section class="strona">
+  <div class="head">
+    <span class="mark">PCTP</span>
+    <div>
+      <h1>EduPlaner 2026</h1>
+      <div class="sub">ABC / FBA · Cele SMART · funkcja I</div>
+    </div>
+    <div class="prawa"><b>ABC · PBS</b><span>narzędzie · druk FBA-C</span></div>
+  </div>
+  <div class="metryka">
+    <div><span>Dotyczy ucznia</span><b>&nbsp;</b></div>
+    <div><span>Klasa</span><b>&nbsp;</b></div>
+    <div><span>Data</span><b>&nbsp;</b> r.</div>
+  </div>
+  <div class="tresc">
+    <div class="fn">
+      <span class="rz">I</span>
+      <div><h2>Ucieczka / unikanie</h2><div class="op">Zachowanie nasila się przy trudnych i nielubianych zadaniach, a wygasa po ich odpuszczeniu.</div></div>
+      <div class="bad">7/15 · <span class="ocena">Istotna</span>
+        <b>7 z 10 sytuacji · 8 tygodni</b></div>
+    </div>
+    <div class="pbs"><b>Zalecenia PBS</b> Nie zwalniamy z zadania po zachowaniu trudnym — inaczej wzmacniamy ucieczkę. Zamiast tego: krótsze partie, stopniowanie trudności i przerwa „na prośbę”.</div>
+    <article class="cel">
+      <div class="cel-h">
+        <span class="nr">I.1</span>
+        <span class="def"><b>Deficyt</b> Zachowanie pojawia się, gdy uczennica ma wykonać trudne lub nielubiane zadanie.</span>
+      </div>
+      <p class="cel-t"><b>Cel SMART</b>Uczennica rozpocznie trudne zadanie w ciągu 1 minuty od polecenia, korzystając z karty „zacznij od jednego kroku”, w 7 z 10 sytuacji, w ciągu 8 tygodni.</p>
+      <div class="smart"><div><i>S</i>Bierze przybory i wykonuje pierwszy krok zadania.</div><div><i>M</i>1 minuta od polecenia; 7 z 10 sytuacji.</div><div><i>A</i>Karta zdejmuje decyzję, od czego zacząć.</div><div><i>R</i>Rozpoczęcie jest warunkiem korzystania z lekcji.</div><div><i>T</i>Weryfikacja po 8 tygodniach.</div></div>
+      <div class="obs">
+        <span><b>Obserwacja</b> Rejestr ABC — kolumna A: polecenie zadania pisemnego. · 10 poleceń w tygodniu</span>
+        <span class="wynik">wynik <span class="pole">&nbsp;</span>/10 · data <span class="pole">&nbsp;</span></span>
+      </div>
+    </article>
+    <article class="cel">
+      <div class="cel-h">
+        <span class="nr">I.2</span>
+        <span class="def"><b>Deficyt</b> Zachowanie nasila się przy poleceniach lub wymaganiach.</span>
+      </div>
+      <p class="cel-t"><b>Cel SMART</b>Uczennica wykona polecenie po jednokrotnym powtórzeniu i zapowiedzi „za dwie minuty kończymy”, bez zachowania trudnego, w 7 z 10 poleceń, w ciągu 8 tygodni.</p>
+      <div class="smart"><div><i>S</i>Wykonuje polecenie bez odmowy, krzyku i wyjścia z ławki.</div><div><i>M</i>Jedno powtórzenie; 7 z 10 poleceń.</div><div><i>A</i>Zapowiedź czasu uprzedza o końcu, nie zaskakuje.</div><div><i>R</i>Polecenia wracają na każdej lekcji, u każdego dorosłego.</div><div><i>T</i>Weryfikacja po 8 tygodniach.</div></div>
+      <div class="obs">
+        <span><b>Obserwacja</b> Rejestr poleceń — liczymy wykonane po pierwszym powtórzeniu. · 10 poleceń w tygodniu</span>
+        <span class="wynik">wynik <span class="pole">&nbsp;</span>/10 · data <span class="pole">&nbsp;</span></span>
+      </div>
+    </article>
+    <article class="cel">
+      <div class="cel-h">
+        <span class="nr">I.3</span>
+        <span class="def"><b>Deficyt</b> Po zachowaniu uczennica zostaje zwolniona z zadania lub wyprowadzona.</span>
+      </div>
+      <p class="cel-t"><b>Cel SMART</b>Uczennica wróci do przerwanego zadania po trzyminutowej przerwie i wykona ustaloną, skróconą część, w 7 z 10 przerw, w ciągu 8 tygodni.</p>
+      <div class="smart"><div><i>S</i>Wraca do ławki i kończy uzgodnioną część zadania.</div><div><i>M</i>3 minuty przerwy; 7 z 10 przerw.</div><div><i>A</i>Skrócona część jest wykonalna po wzburzeniu.</div><div><i>R</i>Powrót do zadania przerywa błędne koło ucieczki.</div><div><i>T</i>Weryfikacja po 8 tygodniach.</div></div>
+      <div class="obs">
+        <span><b>Obserwacja</b> Rejestr ABC — kolumna C: co następuje po przerwie. · każda przerwa w tygodniu</span>
+        <span class="wynik">wynik <span class="pole">&nbsp;</span>/10 · data <span class="pole">&nbsp;</span></span>
+      </div>
+    </article>
+    <article class="cel">
+      <div class="cel-h">
+        <span class="nr">I.4</span>
+        <span class="def"><b>Deficyt</b> Zachowanie rzadziej występuje, gdy zadanie jest łatwe lub atrakcyjne.</span>
+      </div>
+      <p class="cel-t"><b>Cel SMART</b>Uczennica podejmie zadanie trudniejsze ustawione po dwóch łatwych (zasada „dwa łatwe, jedno trudne”), w 7 z 10 serii, w ciągu 8 tygodni.</p>
+      <div class="smart"><div><i>S</i>Zaczyna trzecie, trudniejsze zadanie w serii.</div><div><i>M</i>Serie 2 + 1; 7 z 10 serii.</div><div><i>A</i>Dwa sukcesy z rzędu budują gotowość na trudność.</div><div><i>R</i>Trudniejszych zadań nie da się z lekcji usunąć.</div><div><i>T</i>Weryfikacja po 8 tygodniach.</div></div>
+      <div class="obs">
+        <span><b>Obserwacja</b> Karta serii zadań — zaznaczamy podjęcie trzeciego. · 5 serii w tygodniu</span>
+        <span class="wynik">wynik <span class="pole">&nbsp;</span>/10 · data <span class="pole">&nbsp;</span></span>
+      </div>
+    </article>
+    <article class="cel">
+      <div class="cel-h">
+        <span class="nr">I.5</span>
+        <span class="def"><b>Deficyt</b> Po „odpuszczeniu” zadania zachowanie ustaje — ucieczka działa.</span>
+      </div>
+      <p class="cel-t"><b>Cel SMART</b>Uczennica poprosi o przerwę kartą „przerwa” albo słowami, zamiast przerywać zadanie zachowaniem trudnym, w 7 z 10 sytuacji narastania oporu, w ciągu 8 tygodni.</p>
+      <div class="smart"><div><i>S</i>Podnosi kartę „przerwa” albo mówi: „potrzebuję przerwy”.</div><div><i>M</i>7 z 10 sytuacji narastania oporu.</div><div><i>A</i>Karta leży na ławce przez całą lekcję.</div><div><i>R</i>Prośba o przerwę pełni tę samą funkcję, co ucieczka.</div><div><i>T</i>Weryfikacja po 8 tygodniach.</div></div>
+      <div class="obs">
+        <span><b>Obserwacja</b> Rejestr ABC — czy przed zachowaniem pojawiła się prośba. · wszystkie sytuacje oporu</span>
+        <span class="wynik">wynik <span class="pole">&nbsp;</span>/10 · data <span class="pole">&nbsp;</span></span>
+      </div>
+    </article>
+  </div>
+  <div class="stopka"><span>EduPlaner 2026 · PCTP · pedagog specjalny mgr Mirosława Ewa Jurczyszyn</span><span>Strona 2 z 8 · funkcja I · ucieczka</span></div>
+</section>
+<section class="strona">
+  <div class="head">
+    <span class="mark">PCTP</span>
+    <div>
+      <h1>EduPlaner 2026</h1>
+      <div class="sub">ABC / FBA · Cele SMART · funkcja II</div>
+    </div>
+    <div class="prawa"><b>ABC · PBS</b><span>narzędzie · druk FBA-C</span></div>
+  </div>
+  <div class="metryka">
+    <div><span>Dotyczy ucznia</span><b>&nbsp;</b></div>
+    <div><span>Klasa</span><b>&nbsp;</b></div>
+    <div><span>Data</span><b>&nbsp;</b> r.</div>
+  </div>
+  <div class="tresc">
+    <div class="fn">
+      <span class="rz">II</span>
+      <div><h2>Sensoryczne / autostymulacja</h2><div class="op">Zachowanie pojawia się także w samotności, dostarcza wrażeń i trudno je przerwać.</div></div>
+      <div class="bad">8/15 · <span class="ocena">Istotna</span>
+        <b>7 z 10 sytuacji · 8 tygodni</b></div>
+    </div>
+    <div class="pbs"><b>Zalecenia PBS</b> Zaplanowane przerwy sensoryczne i akceptowalne źródła stymulacji (dieta sensoryczna), nauka sygnalizowania potrzeby regulacji, współpraca z terapeutą SI.</div>
+    <article class="cel">
+      <div class="cel-h">
+        <span class="nr">II.1</span>
+        <span class="def"><b>Deficyt</b> Zachowanie pojawia się także, gdy uczennica jest sama.</span>
+      </div>
+      <p class="cel-t"><b>Cel SMART</b>Uczennica sięgnie po ustalony przedmiot do regulacji (gniotek, taśma na nodze krzesła) podczas pracy samodzielnej, w 7 z 10 dziesięciominutowych odcinków pracy, w ciągu 8 tygodni.</p>
+      <div class="smart"><div><i>S</i>Sięga po przedmiot z ustalonego miejsca i wraca do zadania.</div><div><i>M</i>Odcinki po 10 minut; 7 z 10 odcinków.</div><div><i>A</i>Przedmiot jest w zasięgu ręki, bez proszenia.</div><div><i>R</i>Praca samodzielna to najdłuższy odcinek dnia bez dorosłego.</div><div><i>T</i>Weryfikacja po 8 tygodniach.</div></div>
+      <div class="obs">
+        <span><b>Obserwacja</b> Arkusz próbek czasowych — co 10 minut pracy samodzielnej. · 10 odcinków w tygodniu</span>
+        <span class="wynik">wynik <span class="pole">&nbsp;</span>/10 · data <span class="pole">&nbsp;</span></span>
+      </div>
+    </article>
+    <article class="cel">
+      <div class="cel-h">
+        <span class="nr">II.2</span>
+        <span class="def"><b>Deficyt</b> Zachowanie wydaje się dostarczać przyjemnych wrażeń (ruch, dźwięk, dotyk).</span>
+      </div>
+      <p class="cel-t"><b>Cel SMART</b>Uczennica wskaże na karcie diety sensorycznej, jakiego wrażenia potrzebuje (ruch, ucisk, dźwięk), i skorzysta z odpowiadającej mu formy, w 7 z 10 przerw sensorycznych, w ciągu 8 tygodni.</p>
+      <div class="smart"><div><i>S</i>Wskazuje pole na karcie i wybiera formę z tego pola.</div><div><i>M</i>Trzy rodzaje wrażeń; 7 z 10 przerw.</div><div><i>A</i>Karta ma po dwie propozycje na każde wrażenie.</div><div><i>R</i>Nazwane wrażenie można zaspokoić inaczej niż zachowaniem trudnym.</div><div><i>T</i>Weryfikacja po 8 tygodniach.</div></div>
+      <div class="obs">
+        <span><b>Obserwacja</b> Karta diety sensorycznej — zapis wyboru i formy. · wszystkie przerwy sensoryczne</span>
+        <span class="wynik">wynik <span class="pole">&nbsp;</span>/10 · data <span class="pole">&nbsp;</span></span>
+      </div>
+    </article>
+    <article class="cel">
+      <div class="cel-h">
+        <span class="nr">II.3</span>
+        <span class="def"><b>Deficyt</b> Zachowanie występuje niezależnie od reakcji otoczenia.</span>
+      </div>
+      <p class="cel-t"><b>Cel SMART</b>Uczennica skorzysta z zaplanowanej przerwy sensorycznej po sygnale minutnika, bez przypominania dorosłego, w 7 z 10 zaplanowanych przerw, w ciągu 8 tygodni.</p>
+      <div class="smart"><div><i>S</i>Po sygnale wstaje i idzie do miejsca przerwy.</div><div><i>M</i>7 z 10 zaplanowanych przerw, bez przypomnienia.</div><div><i>A</i>Minutnik stoi na ławce, sygnał jest ten sam co dzień.</div><div><i>R</i>Przerwa uprzedzająca jest tańsza niż przerywanie zachowania.</div><div><i>T</i>Weryfikacja po 8 tygodniach.</div></div>
+      <div class="obs">
+        <span><b>Obserwacja</b> Plan przerw — odhaczenie przerwy wziętej samodzielnie. · 4 przerwy dziennie</span>
+        <span class="wynik">wynik <span class="pole">&nbsp;</span>/10 · data <span class="pole">&nbsp;</span></span>
+      </div>
+    </article>
+    <article class="cel">
+      <div class="cel-h">
+        <span class="nr">II.4</span>
+        <span class="def"><b>Deficyt</b> Zachowanie nasila się przy nudzie lub braku aktywności.</span>
+      </div>
+      <p class="cel-t"><b>Cel SMART</b>Uczennica wybierze zajęcie z listy trzech aktywności „gdy skończę wcześniej” i zajmie się nim przez 5 minut, w 7 z 10 sytuacji oczekiwania, w ciągu 8 tygodni.</p>
+      <div class="smart"><div><i>S</i>Wybiera z listy i pracuje przy wybranym zajęciu.</div><div><i>M</i>5 minut; 7 z 10 sytuacji oczekiwania.</div><div><i>A</i>Lista wisi przy ławce, wybór jest z trzech, nie z wielu.</div><div><i>R</i>Puste minuty po zadaniu wracają na każdej lekcji.</div><div><i>T</i>Weryfikacja po 8 tygodniach.</div></div>
+      <div class="obs">
+        <span><b>Obserwacja</b> Rejestr ABC — kolumna A: koniec zadania przed czasem. · wszystkie sytuacje oczekiwania</span>
+        <span class="wynik">wynik <span class="pole">&nbsp;</span>/10 · data <span class="pole">&nbsp;</span></span>
+      </div>
+    </article>
+    <article class="cel">
+      <div class="cel-h">
+        <span class="nr">II.5</span>
+        <span class="def"><b>Deficyt</b> Zachowanie trudno przerwać uwagą lub poleceniem.</span>
+      </div>
+      <p class="cel-t"><b>Cel SMART</b>Uczennica zakończy autostymulację w ciągu 30 sekund od umówionego sygnału („stop — zamiana”) i przejdzie do formy zastępczej, w 7 z 10 sygnałów, w ciągu 8 tygodni.</p>
+      <div class="smart"><div><i>S</i>Odkłada to, czym się stymuluje, i bierze formę zastępczą.</div><div><i>M</i>30 sekund od sygnału; 7 z 10 sygnałów.</div><div><i>A</i>Sygnał jest wzrokowo-dotykowy, nie słowny — słowa nie docierają.</div><div><i>R</i>Przerwanie bez konfrontacji chroni relację z dorosłym.</div><div><i>T</i>Weryfikacja po 8 tygodniach.</div></div>
+      <div class="obs">
+        <span><b>Obserwacja</b> Rejestr ABC — czas od sygnału do zakończenia. · wszystkie sygnały w tygodniu</span>
+        <span class="wynik">wynik <span class="pole">&nbsp;</span>/10 · data <span class="pole">&nbsp;</span></span>
+      </div>
+    </article>
+  </div>
+  <div class="stopka"><span>EduPlaner 2026 · PCTP · pedagog specjalny mgr Mirosława Ewa Jurczyszyn</span><span>Strona 3 z 8 · funkcja II · sensoryczne</span></div>
+</section>
+<section class="strona">
+  <div class="head">
+    <span class="mark">PCTP</span>
+    <div>
+      <h1>EduPlaner 2026</h1>
+      <div class="sub">ABC / FBA · Cele SMART · funkcja III</div>
+    </div>
+    <div class="prawa"><b>ABC · PBS</b><span>narzędzie · druk FBA-C</span></div>
+  </div>
+  <div class="metryka">
+    <div><span>Dotyczy ucznia</span><b>&nbsp;</b></div>
+    <div><span>Klasa</span><b>&nbsp;</b></div>
+    <div><span>Data</span><b>&nbsp;</b> r.</div>
+  </div>
+  <div class="tresc">
+    <div class="fn">
+      <span class="rz">III</span>
+      <div><h2>Uwaga</h2><div class="op">Zachowanie pojawia się, gdy dorosły jest zajęty, przynosi uwagę (upomnienie) i nasila się przy publiczności.</div></div>
+      <div class="bad">13/15 · <span class="ocena dom">Dominująca</span>
+        <b>8 z 10 sytuacji · 4 tygodnie</b></div>
+    </div>
+    <div class="pbs"><b>Zalecenia PBS</b> Uwaga „z wyprzedzeniem” i pozytywna za zachowania pożądane, nauka właściwego sposobu proszenia o uwagę, minimalna reakcja na zachowanie trudne, spójny plan wzmocnień.</div>
+    <article class="cel">
+      <div class="cel-h">
+        <span class="nr">III.1</span>
+        <span class="def"><b>Deficyt</b> Zachowanie pojawia się, gdy dorosły zajmuje się czymś innym.</span>
+      </div>
+      <p class="cel-t"><b>Cel SMART</b>Uczennica położy na ławce kartę „potrzebuję pomocy” i poczeka 2 minuty, gdy nauczyciel zajmuje się kimś innym, w 8 z 10 sytuacji, w ciągu 4 tygodni.</p>
+      <div class="smart"><div><i>S</i>Kładzie kartę i zostaje przy ławce do podejścia dorosłego.</div><div><i>M</i>2 minuty czekania; 8 z 10 sytuacji.</div><div><i>A</i>Karta działa bez mówienia i bez podchodzenia do nauczyciela.</div><div><i>R</i>Nauczyciel bywa zajęty na każdej lekcji — tego nie da się usunąć.</div><div><i>T</i>Weryfikacja po 4 tygodniach.</div></div>
+      <div class="obs">
+        <span><b>Obserwacja</b> Rejestr ABC — kolumna A: dorosły zajęty innym uczniem. · wszystkie takie sytuacje</span>
+        <span class="wynik">wynik <span class="pole">&nbsp;</span>/10 · data <span class="pole">&nbsp;</span></span>
+      </div>
+    </article>
+    <article class="cel">
+      <div class="cel-h">
+        <span class="nr">III.2</span>
+        <span class="def"><b>Deficyt</b> Po zachowaniu uczennica otrzymuje uwagę (upomnienie, rozmowę).</span>
+      </div>
+      <p class="cel-t"><b>Cel SMART</b>Uczennica poprosi o uwagę dorosłego przez podniesienie ręki, zamiast zachowaniem trudnym, w 8 z 10 sytuacji potrzeby kontaktu, w ciągu 4 tygodni.</p>
+      <div class="smart"><div><i>S</i>Podnosi rękę i czeka na podejście albo skinienie.</div><div><i>M</i>8 z 10 sytuacji potrzeby kontaktu.</div><div><i>A</i>Dorosły odpowiada na rękę od razu, na zachowanie trudne — minimalnie.</div><div><i>R</i>To zachowanie zastępcze o tej samej funkcji: uwaga.</div><div><i>T</i>Weryfikacja po 4 tygodniach.</div></div>
+      <div class="obs">
+        <span><b>Obserwacja</b> Rejestr ABC — którą drogą uczennica uzyskała uwagę. · wszystkie sytuacje kontaktu</span>
+        <span class="wynik">wynik <span class="pole">&nbsp;</span>/10 · data <span class="pole">&nbsp;</span></span>
+      </div>
+    </article>
+    <article class="cel">
+      <div class="cel-h">
+        <span class="nr">III.3</span>
+        <span class="def"><b>Deficyt</b> Zachowanie nasila się w grupie lub przy publiczności.</span>
+      </div>
+      <p class="cel-t"><b>Cel SMART</b>Uczennica zgłosi się do wypowiedzi w ustalonym momencie zajęć („runda”), nie przerywając innym, w 8 z 10 zajęć grupowych, w ciągu 4 tygodni.</p>
+      <div class="smart"><div><i>S</i>Mówi w swojej kolejce w rundzie, bez wchodzenia w słowo.</div><div><i>M</i>8 z 10 zajęć grupowych.</div><div><i>A</i>Runda gwarantuje jej głos — nie musi go zdobywać.</div><div><i>R</i>Praca w grupie to codzienna forma zajęć w klasie III.</div><div><i>T</i>Weryfikacja po 4 tygodniach.</div></div>
+      <div class="obs">
+        <span><b>Obserwacja</b> Karta zajęć grupowych — zgłoszenia i wejścia w słowo. · wszystkie zajęcia grupowe</span>
+        <span class="wynik">wynik <span class="pole">&nbsp;</span>/10 · data <span class="pole">&nbsp;</span></span>
+      </div>
+    </article>
+    <article class="cel">
+      <div class="cel-h">
+        <span class="nr">III.4</span>
+        <span class="def"><b>Deficyt</b> Zachowanie ustaje, gdy uczennica dostanie indywidualną uwagę.</span>
+      </div>
+      <p class="cel-t"><b>Cel SMART</b>Uczennica skorzysta z zaplanowanych 2 minut uwagi „z wyprzedzeniem” na początku lekcji i wróci do zadania po sygnale, w 8 z 10 lekcji, w ciągu 4 tygodni.</p>
+      <div class="smart"><div><i>S</i>Rozmawia 2 minuty i po sygnale siada do zadania.</div><div><i>M</i>2 minuty na starcie; 8 z 10 lekcji.</div><div><i>A</i>Uwaga dana z góry jest tańsza niż odzyskiwana po wybuchu.</div><div><i>R</i>Zapobiega zachowaniu, zamiast na nie reagować.</div><div><i>T</i>Weryfikacja po 4 tygodniach.</div></div>
+      <div class="obs">
+        <span><b>Obserwacja</b> Plan lekcji — odhaczenie rozmowy i powrotu do zadania. · wszystkie lekcje</span>
+        <span class="wynik">wynik <span class="pole">&nbsp;</span>/10 · data <span class="pole">&nbsp;</span></span>
+      </div>
+    </article>
+    <article class="cel">
+      <div class="cel-h">
+        <span class="nr">III.5</span>
+        <span class="def"><b>Deficyt</b> Uczennica patrzy na reakcję dorosłego w trakcie zachowania.</span>
+      </div>
+      <p class="cel-t"><b>Cel SMART</b>Uczennica nawiąże kontakt z dorosłym umówionym gestem (uniesiona dłoń), zamiast sprawdzać jego reakcję zachowaniem trudnym, w 8 z 10 obserwowanych sytuacji, w ciągu 4 tygodni.</p>
+      <div class="smart"><div><i>S</i>Unosi dłoń i czeka na skinienie dorosłego.</div><div><i>M</i>8 z 10 obserwowanych sytuacji.</div><div><i>A</i>Gest jest krótszy niż podejście i nie przerywa lekcji.</div><div><i>R</i>Sprawdzanie reakcji to prośba o kontakt, nie prowokacja.</div><div><i>T</i>Weryfikacja po 4 tygodniach.</div></div>
+      <div class="obs">
+        <span><b>Obserwacja</b> Rejestr ABC — czy przed zachowaniem pojawił się gest. · wszystkie obserwowane sytuacje</span>
+        <span class="wynik">wynik <span class="pole">&nbsp;</span>/10 · data <span class="pole">&nbsp;</span></span>
+      </div>
+    </article>
+  </div>
+  <div class="stopka"><span>EduPlaner 2026 · PCTP · pedagog specjalny mgr Mirosława Ewa Jurczyszyn</span><span>Strona 4 z 8 · funkcja III · uwaga</span></div>
+</section>
+<section class="strona">
+  <div class="head">
+    <span class="mark">PCTP</span>
+    <div>
+      <h1>EduPlaner 2026</h1>
+      <div class="sub">ABC / FBA · Cele SMART · funkcja IV</div>
+    </div>
+    <div class="prawa"><b>ABC · PBS</b><span>narzędzie · druk FBA-C</span></div>
+  </div>
+  <div class="metryka">
+    <div><span>Dotyczy ucznia</span><b>&nbsp;</b></div>
+    <div><span>Klasa</span><b>&nbsp;</b></div>
+    <div><span>Data</span><b>&nbsp;</b> r.</div>
+  </div>
+  <div class="tresc">
+    <div class="fn">
+      <span class="rz">IV</span>
+      <div><h2>Dostęp do przedmiotu / aktywności</h2><div class="op">Zachowanie nasila się przy odmowie lub zabraniu przedmiotu, a wygasa po jego uzyskaniu.</div></div>
+      <div class="bad">7/15 · <span class="ocena">Istotna</span>
+        <b>7 z 10 sytuacji · 8 tygodni</b></div>
+    </div>
+    <div class="pbs"><b>Zalecenia PBS</b> Nauka proszenia i czekania (odraczanie gratyfikacji), jasne zasady dostępu, system żetonowy; przedmiotu nie wydajemy bezpośrednio po zachowaniu trudnym.</div>
+    <article class="cel">
+      <div class="cel-h">
+        <span class="nr">IV.1</span>
+        <span class="def"><b>Deficyt</b> Zachowanie pojawia się, gdy uczennica nie może dostać tego, czego chce.</span>
+      </div>
+      <p class="cel-t"><b>Cel SMART</b>Uczennica przyjmie odmowę i wybierze jedną z dwóch zaproponowanych alternatyw, w 7 z 10 odmów, w ciągu 8 tygodni.</p>
+      <div class="smart"><div><i>S</i>Wskazuje jedną z dwóch propozycji i zajmuje się nią.</div><div><i>M</i>Dwie alternatywy; 7 z 10 odmów.</div><div><i>A</i>Wybór zostawia jej sprawczość mimo odmowy.</div><div><i>R</i>Odmowa jest nieusuwalną częścią dnia w szkole.</div><div><i>T</i>Weryfikacja po 8 tygodniach.</div></div>
+      <div class="obs">
+        <span><b>Obserwacja</b> Rejestr ABC — kolumna A: odmowa dorosłego. · wszystkie odmowy</span>
+        <span class="wynik">wynik <span class="pole">&nbsp;</span>/10 · data <span class="pole">&nbsp;</span></span>
+      </div>
+    </article>
+    <article class="cel">
+      <div class="cel-h">
+        <span class="nr">IV.2</span>
+        <span class="def"><b>Deficyt</b> Zachowanie nasila się przy odmowie lub zabraniu przedmiotu.</span>
+      </div>
+      <p class="cel-t"><b>Cel SMART</b>Uczennica odda przedmiot po zapowiedzi „jeszcze dwie minuty” i sygnale minutnika, w 7 z 10 sytuacji kończenia aktywności, w ciągu 8 tygodni.</p>
+      <div class="smart"><div><i>S</i>Odkłada przedmiot na ustalone miejsce po sygnale.</div><div><i>M</i>2 minuty zapowiedzi; 7 z 10 sytuacji.</div><div><i>A</i>Zapowiedź zamienia zabranie w zakończenie.</div><div><i>R</i>Zabieranie przedmiotu bez uprzedzenia było wyzwalaczem.</div><div><i>T</i>Weryfikacja po 8 tygodniach.</div></div>
+      <div class="obs">
+        <span><b>Obserwacja</b> Rejestr ABC — zapowiedź, sygnał, reakcja. · wszystkie zakończenia aktywności</span>
+        <span class="wynik">wynik <span class="pole">&nbsp;</span>/10 · data <span class="pole">&nbsp;</span></span>
+      </div>
+    </article>
+    <article class="cel">
+      <div class="cel-h">
+        <span class="nr">IV.3</span>
+        <span class="def"><b>Deficyt</b> Po zachowaniu uczennica otrzymuje pożądany przedmiot lub aktywność.</span>
+      </div>
+      <p class="cel-t"><b>Cel SMART</b>Uczennica poprosi o przedmiot pełnym zwrotem („poproszę o…”), zamiast sięgać po niego zachowaniem trudnym, w 7 z 10 sytuacji, w ciągu 8 tygodni.</p>
+      <div class="smart"><div><i>S</i>Mówi „poproszę o…” i czeka na odpowiedź.</div><div><i>M</i>7 z 10 sytuacji, w których czegoś chce.</div><div><i>A</i>Zwrot jest krótki i ten sam u wszystkich dorosłych.</div><div><i>R</i>Prośba pełni tę samą funkcję, co zachowanie trudne.</div><div><i>T</i>Weryfikacja po 8 tygodniach.</div></div>
+      <div class="obs">
+        <span><b>Obserwacja</b> Rejestr ABC — którą drogą uczennica uzyskała przedmiot. · wszystkie sytuacje</span>
+        <span class="wynik">wynik <span class="pole">&nbsp;</span>/10 · data <span class="pole">&nbsp;</span></span>
+      </div>
+    </article>
+    <article class="cel">
+      <div class="cel-h">
+        <span class="nr">IV.4</span>
+        <span class="def"><b>Deficyt</b> Zachowanie ustaje, gdy uczennica dostanie to, czego chciała.</span>
+      </div>
+      <p class="cel-t"><b>Cel SMART</b>Uczennica poczeka na przedmiot 3 minuty, korzystając z wizualnego licznika, w 7 z 10 sytuacji odroczenia, w ciągu 8 tygodni.</p>
+      <div class="smart"><div><i>S</i>Zostaje przy swojej ławce do końca odliczania.</div><div><i>M</i>3 minuty; 7 z 10 sytuacji odroczenia.</div><div><i>A</i>Licznik pokazuje koniec czekania — czas przestaje być nieznany.</div><div><i>R</i>Czekanie jest warunkiem pracy w grupie 25 osób.</div><div><i>T</i>Weryfikacja po 8 tygodniach.</div></div>
+      <div class="obs">
+        <span><b>Obserwacja</b> Karta odroczeń — czas czekania i wynik. · 5 odroczeń w tygodniu</span>
+        <span class="wynik">wynik <span class="pole">&nbsp;</span>/10 · data <span class="pole">&nbsp;</span></span>
+      </div>
+    </article>
+    <article class="cel">
+      <div class="cel-h">
+        <span class="nr">IV.5</span>
+        <span class="def"><b>Deficyt</b> Zachowanie występuje przy oczekiwaniu na coś atrakcyjnego.</span>
+      </div>
+      <p class="cel-t"><b>Cel SMART</b>Uczennica wykona ustaloną czynność „w międzyczasie” (zadanie z żetonem) w czasie oczekiwania na atrakcyjną aktywność, w 7 z 10 sytuacji oczekiwania, w ciągu 8 tygodni.</p>
+      <div class="smart"><div><i>S</i>Bierze zadanie z pudełka i pracuje przy nim do sygnału.</div><div><i>M</i>7 z 10 sytuacji oczekiwania.</div><div><i>A</i>Żeton łączy czekanie z nagrodą, nie z pustką.</div><div><i>R</i>Oczekiwanie na atrakcję wraca przy każdej wycieczce i przerwie.</div><div><i>T</i>Weryfikacja po 8 tygodniach.</div></div>
+      <div class="obs">
+        <span><b>Obserwacja</b> Karta żetonowa — żeton za czynność w międzyczasie. · wszystkie sytuacje oczekiwania</span>
+        <span class="wynik">wynik <span class="pole">&nbsp;</span>/10 · data <span class="pole">&nbsp;</span></span>
+      </div>
+    </article>
+  </div>
+  <div class="stopka"><span>EduPlaner 2026 · PCTP · pedagog specjalny mgr Mirosława Ewa Jurczyszyn</span><span>Strona 5 z 8 · funkcja IV · dostęp</span></div>
+</section>
+<section class="strona">
+  <div class="head">
+    <span class="mark">PCTP</span>
+    <div>
+      <h1>EduPlaner 2026</h1>
+      <div class="sub">ABC / FBA · Cele SMART · funkcja V</div>
+    </div>
+    <div class="prawa"><b>ABC · PBS</b><span>narzędzie · druk FBA-C</span></div>
+  </div>
+  <div class="metryka">
+    <div><span>Dotyczy ucznia</span><b>&nbsp;</b></div>
+    <div><span>Klasa</span><b>&nbsp;</b></div>
+    <div><span>Data</span><b>&nbsp;</b> r.</div>
+  </div>
+  <div class="tresc">
+    <div class="fn">
+      <span class="rz">V</span>
+      <div><h2>Regulacja emocji / napięcie</h2><div class="op">Zachowanie wybucha przy zmianie lub przeciążeniu, z objawami napięcia, i jest trudne do przewidzenia.</div></div>
+      <div class="bad">13/15 · <span class="ocena dom">Dominująca</span>
+        <b>8 z 10 sytuacji · 4 tygodnie</b></div>
+    </div>
+    <div class="pbs"><b>Zalecenia PBS</b> Przewidywalność (plan dnia, uprzedzanie zmian), strefa wyciszenia i strategie regulacji (oddech, przerwa), wsparcie dorosłego przy pierwszych sygnałach napięcia.</div>
+    <article class="cel">
+      <div class="cel-h">
+        <span class="nr">V.1</span>
+        <span class="def"><b>Deficyt</b> Zachowanie pojawia się przy zmianie, niespodziance lub przeciążeniu.</span>
+      </div>
+      <p class="cel-t"><b>Cel SMART</b>Uczennica przejdzie do zmienionej aktywności po uprzedzeniu i pokazaniu zmiany na planie dnia, bez zachowania trudnego, w 8 z 10 zapowiedzianych zmian, w ciągu 4 tygodni.</p>
+      <div class="smart"><div><i>S</i>Ogląda zmianę na planie i przechodzi do nowej aktywności.</div><div><i>M</i>8 z 10 zapowiedzianych zmian.</div><div><i>A</i>Plan dnia wisi na wysokości jej wzroku, karty się przekładają.</div><div><i>R</i>Zmiana planu w szkole jest nie do uniknięcia.</div><div><i>T</i>Weryfikacja po 4 tygodniach.</div></div>
+      <div class="obs">
+        <span><b>Obserwacja</b> Plan dnia — zapis zmiany i reakcji. · wszystkie zmiany planu</span>
+        <span class="wynik">wynik <span class="pole">&nbsp;</span>/10 · data <span class="pole">&nbsp;</span></span>
+      </div>
+    </article>
+    <article class="cel">
+      <div class="cel-h">
+        <span class="nr">V.2</span>
+        <span class="def"><b>Deficyt</b> Zachowaniu towarzyszą objawy napięcia (płacz, pobudzenie).</span>
+      </div>
+      <p class="cel-t"><b>Cel SMART</b>Uczennica nazwie swoje napięcie na termometrze emocji (zielony — żółty — czerwony) przy pierwszych objawach, w 8 z 10 sytuacji, w ciągu 4 tygodni.</p>
+      <div class="smart"><div><i>S</i>Wskazuje kolor na termometrze i mówi, co czuje.</div><div><i>M</i>Trzy poziomy; 8 z 10 sytuacji napięcia.</div><div><i>A</i>Termometr leży na ławce, wskazanie nie wymaga słów.</div><div><i>R</i>Nazwane napięcie daje się obniżyć, zanim wybuchnie.</div><div><i>T</i>Weryfikacja po 4 tygodniach.</div></div>
+      <div class="obs">
+        <span><b>Obserwacja</b> Termometr emocji — zapis wskazań w ciągu dnia. · wszystkie sytuacje napięcia</span>
+        <span class="wynik">wynik <span class="pole">&nbsp;</span>/10 · data <span class="pole">&nbsp;</span></span>
+      </div>
+    </article>
+    <article class="cel">
+      <div class="cel-h">
+        <span class="nr">V.3</span>
+        <span class="def"><b>Deficyt</b> Zachowanie występuje w sytuacjach stresu lub przebodźcowania.</span>
+      </div>
+      <p class="cel-t"><b>Cel SMART</b>Uczennica skorzysta ze strefy wyciszenia przez 5 minut, na własną prośbę albo propozycję dorosłego, w 8 z 10 sytuacji przebodźcowania, w ciągu 4 tygodni.</p>
+      <div class="smart"><div><i>S</i>Idzie do strefy i zostaje tam do końca odliczania.</div><div><i>M</i>5 minut; 8 z 10 sytuacji przebodźcowania.</div><div><i>A</i>Strefa jest w sali, wejście nie wymaga zgody za każdym razem.</div><div><i>R</i>Wyjście z bodźców przerywa narastanie, zanim dojdzie do wybuchu.</div><div><i>T</i>Weryfikacja po 4 tygodniach.</div></div>
+      <div class="obs">
+        <span><b>Obserwacja</b> Rejestr strefy wyciszenia — kto zainicjował i jak długo. · wszystkie sytuacje przebodźcowania</span>
+        <span class="wynik">wynik <span class="pole">&nbsp;</span>/10 · data <span class="pole">&nbsp;</span></span>
+      </div>
+    </article>
+    <article class="cel">
+      <div class="cel-h">
+        <span class="nr">V.4</span>
+        <span class="def"><b>Deficyt</b> Zachowanie ustaje po wyciszeniu lub odzyskaniu równowagi.</span>
+      </div>
+      <p class="cel-t"><b>Cel SMART</b>Uczennica wróci do zajęć w ciągu 5 minut od zakończenia strategii wyciszenia, w 8 z 10 sytuacji, w ciągu 4 tygodni.</p>
+      <div class="smart"><div><i>S</i>Wraca do ławki i podejmuje bieżące zadanie.</div><div><i>M</i>5 minut od końca strategii; 8 z 10 sytuacji.</div><div><i>A</i>Po powrocie dostaje zadanie skrócone, nie zaległe w całości.</div><div><i>R</i>Bez powrotu wyciszenie staje się ucieczką z lekcji.</div><div><i>T</i>Weryfikacja po 4 tygodniach.</div></div>
+      <div class="obs">
+        <span><b>Obserwacja</b> Rejestr strefy wyciszenia — czas powrotu do zajęć. · wszystkie wyciszenia</span>
+        <span class="wynik">wynik <span class="pole">&nbsp;</span>/10 · data <span class="pole">&nbsp;</span></span>
+      </div>
+    </article>
+    <article class="cel">
+      <div class="cel-h">
+        <span class="nr">V.5</span>
+        <span class="def"><b>Deficyt</b> Zachowanie jest trudne do przewidzenia, wybucha nagle.</span>
+      </div>
+      <p class="cel-t"><b>Cel SMART</b>Uczennica zasygnalizuje czerwoną kartą pierwszy sygnał napięcia, zanim dojdzie do wybuchu, w 8 z 10 obserwowanych narastań, w ciągu 4 tygodni.</p>
+      <div class="smart"><div><i>S</i>Podnosi czerwoną kartę przed wybuchem, nie po nim.</div><div><i>M</i>8 z 10 obserwowanych narastań napięcia.</div><div><i>A</i>Karta jest zawsze w tym samym miejscu ławki.</div><div><i>R</i>To jedyny cel, który skraca fazę nagłego wybuchu.</div><div><i>T</i>Weryfikacja po 4 tygodniach.</div></div>
+      <div class="obs">
+        <span><b>Obserwacja</b> Rejestr ABC — sygnał ucznia przed zachowaniem (tak/nie). · wszystkie narastania napięcia</span>
+        <span class="wynik">wynik <span class="pole">&nbsp;</span>/10 · data <span class="pole">&nbsp;</span></span>
+      </div>
+    </article>
+  </div>
+  <div class="stopka"><span>EduPlaner 2026 · PCTP · pedagog specjalny mgr Mirosława Ewa Jurczyszyn</span><span>Strona 6 z 8 · funkcja V · regulacja emocji</span></div>
+</section>
+<section class="strona">
+  <div class="head">
+    <span class="mark">PCTP</span>
+    <div>
+      <h1>EduPlaner 2026</h1>
+      <div class="sub">ABC / FBA · Tabela ewaluacji · część 1</div>
+    </div>
+    <div class="prawa"><b>ABC · PBS</b><span>narzędzie · druk FBA-C</span></div>
+  </div>
+  <div class="metryka">
+    <div><span>Dotyczy ucznia</span><b>&nbsp;</b></div>
+    <div><span>Klasa</span><b>&nbsp;</b></div>
+    <div><span>Data</span><b>&nbsp;</b> r.</div>
+  </div>
+  <div class="tresc">
+    <div class="pas">Tabela ewaluacji · 15 celów · I ucieczka · II sensoryczne · III uwaga</div>
+    <table><thead><tr><th>Nr</th><th>Cel — zachowanie zastępcze</th><th>Kryt.</th><th>Horyzont</th><th>Data startu</th><th>Wynik</th><th>Osiągnięty</th></tr></thead><tbody><tr><td class="pkt">I.1</td><td>Uczennica rozpocznie trudne zadanie w ciągu 1 minuty od polecenia, korzystając z karty „zacznij od jednego kroku”</td><td class="pkt">7 z 10</td><td class="pkt">8 tygodni</td><td></td><td></td><td></td></tr><tr><td class="pkt">I.2</td><td>Uczennica wykona polecenie po jednokrotnym powtórzeniu i zapowiedzi „za dwie minuty kończymy”, bez zachowania trudnego</td><td class="pkt">7 z 10</td><td class="pkt">8 tygodni</td><td></td><td></td><td></td></tr><tr><td class="pkt">I.3</td><td>Uczennica wróci do przerwanego zadania po trzyminutowej przerwie i wykona ustaloną, skróconą część</td><td class="pkt">7 z 10</td><td class="pkt">8 tygodni</td><td></td><td></td><td></td></tr><tr><td class="pkt">I.4</td><td>Uczennica podejmie zadanie trudniejsze ustawione po dwóch łatwych (zasada „dwa łatwe, jedno trudne”)</td><td class="pkt">7 z 10</td><td class="pkt">8 tygodni</td><td></td><td></td><td></td></tr><tr><td class="pkt">I.5</td><td>Uczennica poprosi o przerwę kartą „przerwa” albo słowami, zamiast przerywać zadanie zachowaniem trudnym</td><td class="pkt">7 z 10</td><td class="pkt">8 tygodni</td><td></td><td></td><td></td></tr><tr><td class="pkt">II.1</td><td>Uczennica sięgnie po ustalony przedmiot do regulacji (gniotek, taśma na nodze krzesła) podczas pracy samodzielnej</td><td class="pkt">7 z 10</td><td class="pkt">8 tygodni</td><td></td><td></td><td></td></tr><tr><td class="pkt">II.2</td><td>Uczennica wskaże na karcie diety sensorycznej, jakiego wrażenia potrzebuje (ruch, ucisk, dźwięk), i skorzysta z odpowiadającej mu formy</td><td class="pkt">7 z 10</td><td class="pkt">8 tygodni</td><td></td><td></td><td></td></tr><tr><td class="pkt">II.3</td><td>Uczennica skorzysta z zaplanowanej przerwy sensorycznej po sygnale minutnika, bez przypominania dorosłego</td><td class="pkt">7 z 10</td><td class="pkt">8 tygodni</td><td></td><td></td><td></td></tr><tr><td class="pkt">II.4</td><td>Uczennica wybierze zajęcie z listy trzech aktywności „gdy skończę wcześniej” i zajmie się nim przez 5 minut</td><td class="pkt">7 z 10</td><td class="pkt">8 tygodni</td><td></td><td></td><td></td></tr><tr><td class="pkt">II.5</td><td>Uczennica zakończy autostymulację w ciągu 30 sekund od umówionego sygnału („stop — zamiana”) i przejdzie do formy zastępczej</td><td class="pkt">7 z 10</td><td class="pkt">8 tygodni</td><td></td><td></td><td></td></tr><tr><td class="pkt">III.1</td><td>Uczennica położy na ławce kartę „potrzebuję pomocy” i poczeka 2 minuty, gdy nauczyciel zajmuje się kimś innym</td><td class="pkt">8 z 10</td><td class="pkt">4 tygodnie</td><td></td><td></td><td></td></tr><tr><td class="pkt">III.2</td><td>Uczennica poprosi o uwagę dorosłego przez podniesienie ręki, zamiast zachowaniem trudnym</td><td class="pkt">8 z 10</td><td class="pkt">4 tygodnie</td><td></td><td></td><td></td></tr><tr><td class="pkt">III.3</td><td>Uczennica zgłosi się do wypowiedzi w ustalonym momencie zajęć („runda”), nie przerywając innym</td><td class="pkt">8 z 10</td><td class="pkt">4 tygodnie</td><td></td><td></td><td></td></tr><tr><td class="pkt">III.4</td><td>Uczennica skorzysta z zaplanowanych 2 minut uwagi „z wyprzedzeniem” na początku lekcji i wróci do zadania po sygnale</td><td class="pkt">8 z 10</td><td class="pkt">4 tygodnie</td><td></td><td></td><td></td></tr><tr><td class="pkt">III.5</td><td>Uczennica nawiąże kontakt z dorosłym umówionym gestem (uniesiona dłoń), zamiast sprawdzać jego reakcję zachowaniem trudnym</td><td class="pkt">8 z 10</td><td class="pkt">4 tygodnie</td><td></td><td></td><td></td></tr></tbody></table>
+  </div>
+  <div class="stopka"><span>EduPlaner 2026 · PCTP · pedagog specjalny mgr Mirosława Ewa Jurczyszyn</span><span>Strona 7 z 8 · ewaluacja I–III</span></div>
+</section>
+<section class="strona">
+  <div class="head">
+    <span class="mark">PCTP</span>
+    <div>
+      <h1>EduPlaner 2026</h1>
+      <div class="sub">ABC / FBA · Tabela ewaluacji · część 2 i podpisy</div>
+    </div>
+    <div class="prawa"><b>ABC · PBS</b><span>narzędzie · druk FBA-C</span></div>
+  </div>
+  <div class="metryka">
+    <div><span>Dotyczy ucznia</span><b>&nbsp;</b></div>
+    <div><span>Klasa</span><b>&nbsp;</b></div>
+    <div><span>Data</span><b>&nbsp;</b> r.</div>
+  </div>
+  <div class="tresc">
+    <div class="pas">Tabela ewaluacji · 10 celów · IV dostęp · V regulacja emocji</div>
+    <table><thead><tr><th>Nr</th><th>Cel — zachowanie zastępcze</th><th>Kryt.</th><th>Horyzont</th><th>Data startu</th><th>Wynik</th><th>Osiągnięty</th></tr></thead><tbody><tr><td class="pkt">IV.1</td><td>Uczennica przyjmie odmowę i wybierze jedną z dwóch zaproponowanych alternatyw</td><td class="pkt">7 z 10</td><td class="pkt">8 tygodni</td><td></td><td></td><td></td></tr><tr><td class="pkt">IV.2</td><td>Uczennica odda przedmiot po zapowiedzi „jeszcze dwie minuty” i sygnale minutnika</td><td class="pkt">7 z 10</td><td class="pkt">8 tygodni</td><td></td><td></td><td></td></tr><tr><td class="pkt">IV.3</td><td>Uczennica poprosi o przedmiot pełnym zwrotem („poproszę o…”), zamiast sięgać po niego zachowaniem trudnym</td><td class="pkt">7 z 10</td><td class="pkt">8 tygodni</td><td></td><td></td><td></td></tr><tr><td class="pkt">IV.4</td><td>Uczennica poczeka na przedmiot 3 minuty, korzystając z wizualnego licznika</td><td class="pkt">7 z 10</td><td class="pkt">8 tygodni</td><td></td><td></td><td></td></tr><tr><td class="pkt">IV.5</td><td>Uczennica wykona ustaloną czynność „w międzyczasie” (zadanie z żetonem) w czasie oczekiwania na atrakcyjną aktywność</td><td class="pkt">7 z 10</td><td class="pkt">8 tygodni</td><td></td><td></td><td></td></tr><tr><td class="pkt">V.1</td><td>Uczennica przejdzie do zmienionej aktywności po uprzedzeniu i pokazaniu zmiany na planie dnia, bez zachowania trudnego</td><td class="pkt">8 z 10</td><td class="pkt">4 tygodnie</td><td></td><td></td><td></td></tr><tr><td class="pkt">V.2</td><td>Uczennica nazwie swoje napięcie na termometrze emocji (zielony — żółty — czerwony) przy pierwszych objawach</td><td class="pkt">8 z 10</td><td class="pkt">4 tygodnie</td><td></td><td></td><td></td></tr><tr><td class="pkt">V.3</td><td>Uczennica skorzysta ze strefy wyciszenia przez 5 minut, na własną prośbę albo propozycję dorosłego</td><td class="pkt">8 z 10</td><td class="pkt">4 tygodnie</td><td></td><td></td><td></td></tr><tr><td class="pkt">V.4</td><td>Uczennica wróci do zajęć w ciągu 5 minut od zakończenia strategii wyciszenia</td><td class="pkt">8 z 10</td><td class="pkt">4 tygodnie</td><td></td><td></td><td></td></tr><tr><td class="pkt">V.5</td><td>Uczennica zasygnalizuje czerwoną kartą pierwszy sygnał napięcia, zanim dojdzie do wybuchu</td><td class="pkt">8 z 10</td><td class="pkt">4 tygodnie</td><td></td><td></td><td></td></tr></tbody></table>
+    <div class="podpisy"><div>Podpis oceniającego</div><div>Podpis koordynatora</div></div>
+    <div class="podstawa">
+      <b>Podstawa.</b> Cele szczegółowe do analizy funkcjonalnej zachowania (FBA) i programu
+      pozytywnego wsparcia (PBS) — element wielospecjalistycznej oceny poziomu funkcjonowania
+      (WOPF). Model A-B-C (Antecedent–Behaviour–Consequence). Kryterium i horyzont wynikają
+      z punktacji kwestionariusza funkcji (0–15 pkt); wynik kwestionariusza wskazuje
+      przypuszczalną funkcję i nie zastępuje pełnej diagnozy. Podstawa prawna: ustawa
+      z 14.12.2016 r. — Prawo oświatowe (Dz.U. 2024 poz. 737, ze zm.), art. 127; rozp. MEN
+      z 9.08.2017 r. w sprawie zasad organizacji i udzielania pomocy psychologiczno-pedagogicznej
+      (Dz.U. 2017 poz. 1591, ze zm.); rozp. MEN z 9.08.2017 r. (Dz.U. 2017 poz. 1578, ze zm.) —
+      zintegrowane działania nauczycieli i specjalistów. Wszystkie pola są edytowalne.
+    </div>
+  </div>
+  <div class="stopka"><span>EduPlaner 2026 · PCTP · pedagog specjalny mgr Mirosława Ewa Jurczyszyn</span><span>Strona 8 z 8 · ewaluacja IV–V</span></div>
+</section>
+</body>
+</html>
