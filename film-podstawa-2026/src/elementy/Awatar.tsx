@@ -118,12 +118,17 @@ export const AwatarStop: React.FC<{
 /**
  * Awatar w kółeczku w prawym dolnym rogu — prowadząca obecna przez cały film.
  *
- * Kółeczko ma dwa tryby i sam wybiera właściwy:
+ * Kółeczko ma dwa tryby i samo wybiera właściwy:
  *
- * 1. Gdy w public/ leży `awatar-lektor.mp4` — awatar z HeyGen wygenerowany
- *    z gotowego `narracja.mp3` — postać **mówi**, a usta idą za lektorem,
- *    bo to jedno i to samo nagranie.
- * 2. Gdy tego pliku nie ma, w kółeczku jest **nieruchoma sylwetka**.
+ * 1. Gdy w public/ leży nagranie awatara zsynchronizowane z lektorem, postać
+ *    **mówi**, a usta idą za narracją, bo to jeden i ten sam dźwięk. Nagranie
+ *    może mieć dwa kształty i kod obsługuje oba:
+ *      • `kadr='pelny'` — pełna klatka 1920×1080 z HeyGena, kadrowana tak samo
+ *        jak `awatar.webm`, więc pozycjonuje się zmierzonymi stałymi;
+ *      • `kadr='kolo'`  — gotowy kwadrat wycięty pod kółeczko (tak wychodzi
+ *        lipsync z ElevenLabs, któremu podajemy już przycięte źródło twarzy),
+ *        więc wystarczy wypełnić nim koło.
+ * 2. Gdy takiego pliku nie ma, w kółeczku jest **nieruchoma sylwetka**.
  *
  * Powitalnego klipu (`awatar.webm`) tu nie puszczamy. Trwa 13 s, powstał do
  * innego tekstu i w pętli pod 11-minutową narracją poruszałby ustami do słów,
@@ -152,8 +157,10 @@ export const AwatarRog: React.FC<{
   jest: boolean;
   /** nazwa nagrania awatara zsynchronizowanego z lektorem, gdy istnieje */
   mowiace?: string;
+  /** kształt tego nagrania: pełna klatka czy gotowy kwadrat pod kółeczko */
+  kadr?: 'pelny' | 'kolo';
   opoznienie?: number;
-}> = ({ jest, mowiace, opoznienie = 10 }) => {
+}> = ({ jest, mowiace, kadr = 'pelny', opoznienie = 10 }) => {
   const klatka = useCurrentFrame();
   const { fps, durationInFrames } = useVideoConfig();
   const wejscie = spring({
@@ -195,10 +202,11 @@ export const AwatarRog: React.FC<{
             src={staticFile(mowiace)}
             transparent
             muted
-            style={{
-              position: 'absolute', left: lewo, top: gora,
-              width: 1920 * skala, height: 1080 * skala,
-            }}
+            style={kadr === 'kolo'
+              ? { position: 'absolute', inset: 0, width: '100%', height: '100%',
+                  objectFit: 'cover' }
+              : { position: 'absolute', left: lewo, top: gora,
+                  width: 1920 * skala, height: 1080 * skala }}
           />
         ) : (
           <Img
