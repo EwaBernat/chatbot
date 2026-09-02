@@ -28,6 +28,35 @@ node src/zmierz_strony.mjs Cele_SMART_FBA_obserwacja_poglebiona.html
 Dokumenty z nazwiskiem nie wchodzą do repozytorium (`.gitignore`) — noszą dane
 osobowe ucznia. Zostaje sam formularz.
 
+## Druk FBA-T — tabela wiek × poziom wsparcia
+
+Ten sam materiał ułożony tak, jak układa go bank celów SMART KPOF: zakładki
+wersji wiekowych, wiersz na wskaźnik, trzy kolumny poziomów wsparcia.
+**225 celów** (25 wskaźników × 3 poziomy × 3 wersje) — nauczyciel wybiera
+komórkę, zamiast przepisywać cel pod dziecko.
+
+```bash
+python3 src/build_tabela.py     # Tabela_celow_FBA_wiek_poziom.html
+node src/do_pdf.mjs             # oba druki do PDF: FBA-C pionowo, FBA-T poziomo
+```
+
+| wersja | wiek | czym się różni |
+|---|---|---|
+| A | 3–4 lata | symbol podany do ręki, krótkie czasy, proste zachowanie |
+| B | 5 lat | karta na stoliku plus słowo, czasy średnie |
+| C | 6 lat | słowo zamiast karty, nazywanie własnego stanu, planowanie |
+
+Poziom wsparcia zmienia **warunki zadania**, nie funkcję zachowania: Poziom III —
+podpora dorosłego, 3 z 5 sytuacji, 4 tygodnie; Poziom II — pomoc w zasięgu,
+4 z 5, 8 tygodni; Poziom I — bez pomocy przedmiotowej i z trudniejszym
+zachowaniem, 4 z 5, 12 tygodni. Kryterium na Poziomie I nie rośnie do 5 z 5:
+„za każdym razem” to w przedszkolu cel nie do osiągnięcia i psuje ewaluację,
+zamiast ją domykać.
+
+Tabela drukuje się **poziomo** i drukuje się ta wersja wiekowa, która jest
+otwarta — tak jak bank. Pas z nazwą wersji siedzi w `thead`, więc powtarza się
+na każdej kartce; bez niego druga i trzecia strona nie mówiły, czyj to rocznik.
+
 ## Skąd kryterium i horyzont
 
 Nie z podręcznika, tylko z punktacji funkcji u tego ucznia — tak samo jak
@@ -49,9 +78,12 @@ Horyzont trzymamy w trzech formach gramatycznych (`4 tygodni` · `4 tygodniach`
 ## Co gdzie leży
 
 ```
-src/dane_fba.py         25 celów SMART — treść, po pięć na funkcję
-src/build_cele_fba.py   składanie dokumentu HTML
+src/dane_fba.py         25 celów SMART do obserwacji pogłębionej (druk FBA-C)
+src/dane_poziomy.py     225 celów: wiek × poziom wsparcia (druk FBA-T)
+src/build_cele_fba.py   składanie druku FBA-C
+src/build_tabela.py     składanie druku FBA-T
 src/zmierz_strony.mjs   pomiar, czy strony mieszczą się na A4
+src/do_pdf.mjs          wydruk obu druków do PDF
 ```
 
 Cele mówią o **zachowaniu zastępczym** — pełniącym tę samą funkcję co zachowanie

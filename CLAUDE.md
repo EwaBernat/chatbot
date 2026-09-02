@@ -107,6 +107,15 @@ Cele opisują **zachowanie zastępcze** — pełniące tę samą funkcję co zac
 tylko akceptowalne. Tego nie wolno zgubić przy dopisywaniu: plan PBS uczy innej drogi
 do funkcji, nie odbiera dziecku funkcji.
 
+Druk **FBA-T** (`src/build_tabela.py`) to ten sam materiał w układzie banku KPOF:
+zakładki wersji wiekowych (A 3–4 lata · B 5 lat · C 6 lat), wiersz na wskaźnik, trzy
+kolumny poziomów wsparcia — **225 celów**. Poziom zmienia warunki zadania, nie funkcję:
+III — podpora dorosłego, 3 z 5, 4 tygodnie; II — pomoc w zasięgu, 4 z 5, 8 tygodni;
+I — bez pomocy przedmiotowej i z trudniejszym zachowaniem, 4 z 5, 12 tygodni. Kryterium
+na Poziomie I nie rośnie do 5 z 5 — „za każdym razem” to w przedszkolu cel nie do
+osiągnięcia. Tabela drukuje się poziomo, a pas z nazwą wersji siedzi w `thead`, żeby
+powtarzał się na każdej kartce.
+
 **Dokumenty z nazwiskiem ucznia nie wchodzą do repozytorium** (`eduplaner_fba/.gitignore`)
 — zostaje sam formularz. Nazwisko i punktacja to dane osobowe dziecka.
 
