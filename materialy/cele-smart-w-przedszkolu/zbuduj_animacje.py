@@ -49,6 +49,12 @@ def przygas(nr: int | None) -> str:
 # akapitu). Podgląd pauz: ffmpeg -i s1.mp3 -af silencedetect=noise=-32dB:d=0.28 -f null -
 SEGMENTY = [
  {"plansza": "000_karta_tytulowa.html", "trwanie": 6.5},
+ {"audio": "s0.mp3", "plansza": "001_plan_szkolenia.html", "ujecia": [
+   (None, "", None),
+   (None, "", "#czesc-pierwsza"),
+   (None, "", "#czesc-druga"),
+   (None, "", ".pom-blok"),
+ ]},
  {"audio": "s1.mp3", "plansza": "00_tytul.html", "ujecia": [
    (0.00,  ukryj(".tyt-box.zle", ".tyt-strzalka", ".tyt-box.ok", ".tyt-chipy", ".tyt-aut"), None),
    (0.80,  ukryj(".tyt-box.zle .tyt-box-uw", ".tyt-strzalka", ".tyt-box.ok", ".tyt-chipy", ".tyt-aut"), ".tyt-box.zle"),

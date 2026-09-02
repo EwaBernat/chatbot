@@ -65,6 +65,49 @@ dodaj("000_karta_tytulowa", slajd("000", "", "", "", '''
 .kt-stopka{font-size:17px;color:#A79ECB;margin-top:14px}
 ''', klasa="ciemny", stopka_prawo=""))
 
+# -------------------------------------------------------- 001 · PLAN SZKOLENIA
+CZESC_1 = [
+ ("1","Cel-życzenie kontra cel-narzędzie","Dlaczego zapis bez liczby nie przechodzi przez ewaluację"),
+ ("2","Formuła zdania","Siedem pól, które wypełniasz po kolei"),
+ ("3","Gotowe cele","Trzy przykłady z obszarów nowej podstawy"),
+]
+CZESC_2 = [
+ ("4","Czy to jest obowiązkowe","Co przepisy nakazują, a czego nie"),
+ ("5","Stare i nowe rozporządzenie","Co zmieniło się 1 września, a co zostało"),
+ ("6","Podstawa prawna","Pięć aktów i jedna linia do rubryki w dokumencie"),
+]
+def punkty(lista):
+    return "".join(f'''<div class="pl"><div class="nrp">{n}</div>
+      <div class="pl-tre"><h3>{t}</h3><p>{o}</p></div></div>''' for n, t, o in lista)
+
+dodaj("001_plan_szkolenia", slajd("001", "O czym będziemy mówić", "Plan szkolenia",
+  "Droga od celu, którego nie da się sprawdzić, do zapisu, który obroni się przed zespołem, rodzicem i organem nadzoru.",
+  f'''<div class="plan">
+  <div class="kol" id="czesc-pierwsza">
+    <div class="naglowek-czesci">Część pierwsza — jak napisać cel</div>
+    {punkty(CZESC_1)}
+  </div>
+  <div class="kol" id="czesc-druga">
+    <div class="naglowek-czesci">Część druga — na czym ten cel się opiera</div>
+    {punkty(CZESC_2)}
+  </div>
+</div>
+<div class="pom-blok" style="margin-top:26px">
+  <p style="font-size:23px;line-height:1.5">Wszystko opiera się na broszurze <b>„Cele SMART w przedszkolu”</b> — skrypcie dla nauczyciela przedszkola, sygnatura SMART-P1.</p>
+</div>''', styl='''
+.plan{display:grid;grid-template-columns:1fr 1fr;gap:38px}
+.kol{background:#fff;border:1px solid var(--linia);border-top:9px solid var(--pomarancz);
+ border-radius:18px;padding:32px 36px;display:flex;flex-direction:column}
+.naglowek-czesci{font-size:15px;font-weight:700;letter-spacing:.13em;text-transform:uppercase;
+ color:var(--pomarancz);margin-bottom:30px}
+.pl{display:flex;gap:22px;align-items:flex-start;margin-bottom:34px}
+.pl:last-child{margin-bottom:0}
+.nrp{flex:0 0 58px;height:58px;border-radius:50%;background:var(--fiolet);color:#fff;
+ display:flex;align-items:center;justify-content:center;font-size:27px;font-weight:700}
+.pl-tre h3{font-size:30px;line-height:1.18;color:var(--fiolet-cn);margin-bottom:7px}
+.pl-tre p{font-size:21px;line-height:1.45;color:var(--mute)}
+''', stopka_prawo="Plansza · Plan szkolenia"))
+
 # ---------------------------------------------------------------- 00 · TYTUŁ
 dodaj("00_tytul", slajd("00_tytul", "", "", "", '''
 <div class="tyt-ram">

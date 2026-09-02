@@ -7,9 +7,9 @@
 
 | Parametr | Wartość |
 |---|---|
-| Liczba scen | 16 |
-| Szacowany czas | ok. 19 min 10 s |
-| Liczba słów narracji | 2871 |
+| Liczba scen | 17 |
+| Szacowany czas | ok. 20 min 0 s |
+| Liczba słów narracji | 2994 |
 | Tempo | ok. 150 słów/min (polski lektor) |
 | Format obrazu | 16:9, 1920 × 1080 px (konspekt: A4, 1240 × 1754 px) |
 | Marka | fiolet `#2D1B69` + pomarańcz `#E8450A`, Arial |
@@ -24,6 +24,31 @@ Tekst narracji jest jednocześnie w osobnym pliku `narracja.txt` — do wklejeni
 
 Liczby w narracji są **zapisane słowami** („cztery na pięć”, a nie „4/5”), bo silniki mowy
 czytają polskie liczebniki niepewnie. Pusta linia oznacza naturalną pauzę.
+
+---
+
+## Scena 0 · Wstęp — o czym będziemy mówić
+
+**Czas:** ok. 50 s (123 słowa) · **Plansza:** `plansze/001_plan_szkolenia.png`
+
+**Tekst na ekranie:** Plan szkolenia · Część pierwsza · część druga
+
+**Narracja:**
+
+> Dzień dobry. Zapraszam na krótkie szkolenie o celach SMART w przedszkolu.
+> Przez najbliższych kilka minut przejdziemy razem drogę od celu, którego nie da się sprawdzić,
+> do zapisu, który obroni się przed zespołem, rodzicem i organem nadzoru.
+>
+> Zaczniemy od tego, czym różni się cel-życzenie od celu-narzędzia.
+> Potem pokażę formułę jednego zdania — siedem pól, które wypełnia się po kolei.
+> Na koniec pierwszej części zobaczymy trzy gotowe cele z różnych obszarów podstawy programowej.
+>
+> W drugiej części odpowiem na pytanie, które pada na każdym szkoleniu:
+> czy cel SMART jest w ogóle obowiązkowy.
+> Sprawdzimy, co zmieniło się w podstawie programowej pierwszego września, a co zostało po staremu.
+> I zobaczymy komplet przepisów, na które można się powołać w dokumentacji.
+>
+> Wszystko opieram na broszurze „Cele SMART w przedszkolu”. Zaczynajmy.
 
 ---
 

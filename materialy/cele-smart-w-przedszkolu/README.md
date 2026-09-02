@@ -27,6 +27,7 @@ Przykład przewodni — ten sam co w broszurze: konspekt **TUE-1 „Termometr na
 | Plik | Scena filmu | Zawartość |
 |---|---|---|
 | `000_karta_tytulowa.png` | — | **karta tytułowa** filmu: tytuł, autorka, sygnatura, stan prawny |
+| `001_plan_szkolenia.png` | 0 | **plan szkolenia** — powitanie i zapowiedź obu części |
 | `00_tytul.png` | 1 | otwarcie: cel-życzenie kontra cel-narzędzie |
 | `12_dlaczego_teraz.png` | 2 | uzasadnienie: nowa podstawa, wrzesień, ocena efektywności |
 | `01_zyczenie_narzedzie.png` | 3 | §1 — zasada trzech osób |
@@ -115,7 +116,7 @@ python3 zbuduj_animacje.py <katalog_z_nagraniami> -o film.mp4
 python3 zbuduj_animacje.py <katalog> -o proba.mp4 --segmenty 4,5   # tylko wybrane
 ```
 
-Katalog ma zawierać nagrania `s1.mp3` … `s6.mp3` — po jednym na segment, akapit na ujęcie.
+Katalog ma zawierać nagrania `s0.mp3` … `s6.mp3` — po jednym na segment, akapit na ujęcie.
 Generator stoi na trzech zasadach:
 
 1. **Obraz nadąża za słowem.** Nagranie tnie się na ujęcia tam, gdzie kończy się akapit
