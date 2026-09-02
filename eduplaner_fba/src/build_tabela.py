@@ -23,6 +23,7 @@ import karta_pomocy as KP
 import logo as LOGO
 import konspekt_fba as KON
 import konspekty_fba as KF
+import moje_konspekty_fba as MK
 
 KOR = Path(__file__).resolve().parent.parent
 
@@ -284,9 +285,12 @@ def _wiersze(kod_wersji):
                         f' data-wersja="{kod_wersji}" data-wsk="{nrw}" tabindex="0" role="button"'
                         f' title="Otwórz konspekt zajęć do tego celu">'
                         f'<span class="tresc">{_e(tekst)}</span>'
-                        f'<span class="ram">{kryt} sytuacji · {hor}</span></td>')
+                        f'<span class="ram">{kryt} sytuacji · {hor}</span>'
+                        f'{MK.przycisk_dodania()}</td>')
             znak = (f'<span class="kzn">konspekt: {_e(KF.RDZEN[nrw]["tytul"])}</span>')
-            w.append(f'<tr data-wsk="{nrw}"><td class="nr">{nrw}</td>'
+            w.append(f'<tr data-wsk="{nrw}" data-fun="{rzym}"'
+                     f' data-zast="{html.escape(wsk["zastepcze"], quote=True)}">'
+                     f'<td class="nr">{nrw}</td>'
                      f'<td class="wsk"><b>{_e(wsk["wskaznik"])}</b>'
                      f'<span>zachowanie zastępcze: {_e(wsk["zastepcze"])}</span>{znak}</td>{kom}</tr>')
     return "".join(w)
@@ -297,6 +301,7 @@ def _tabela(kod_wersji, nazwa_wersji, aktywna):
     ukryj = "" if aktywna else " hidden"
     return f'''<section class="wersja" id="w-{kod_wersji}" data-wersja="{kod_wersji}"{ukryj}>
   {KON.spis(kod_wersji)}
+{MK.panel(kod_wersji)}
   <table>
     <colgroup><col style="width:5%"><col style="width:32%">
       <col style="width:21%"><col style="width:21%"><col style="width:21%"></colgroup>
@@ -342,7 +347,7 @@ def dokument():
 <title>Cele SMART do wskaźników FBA — wiek i poziom wsparcia</title>
 <link rel="stylesheet" media="print" onload="this.media='all'"
   href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&display=swap">
-<style>{LOGO.zmienna()}{STYL}{KON.STYL}{KP.STYL}{KON.style_symboli()}{LOGO.STYL}
+<style>{LOGO.zmienna()}{STYL}{KON.STYL}{KP.STYL}{KON.style_symboli()}{MK.STYL}{LOGO.STYL}
 .sr-only{{position:absolute; width:1px; height:1px; overflow:hidden; clip:rect(0 0 0 0)}}</style>
 </head>
 <body>
@@ -384,7 +389,8 @@ def dokument():
   </div>
 </div>
 {KON.modale()}
-<script>{SKRYPT}{KON.SKRYPT}{KP.SKRYPT}</script>
+{MK.szkielet()}
+<script>{SKRYPT}{MK.skrypt()}{KON.SKRYPT}{KP.SKRYPT}</script>
 </body>
 </html>
 """

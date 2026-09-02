@@ -41,7 +41,9 @@ await p.waitForTimeout(400);
 
 const wyniki = await p.evaluate(() => {
   const out = [];
-  for (const m of document.querySelectorAll('.kmodal')) {
+  /* Tylko konspekty gotowe: `#mkf-widok` to puste okno podglądu własnych
+     scenariuszy nauczycielki — treść dostaje dopiero, gdy któryś otworzy. */
+  for (const m of document.querySelectorAll('.kmodal[id^="kon-"]')) {
     m.classList.add('open');
     const k = m.querySelector('.kcard');
     const zal = m.querySelector('.zal');

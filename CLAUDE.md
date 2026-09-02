@@ -136,6 +136,20 @@ Kompletność sprawdza `karta_pomocy.braki()`: karta bez zdjęcia albo bez nagra
 zastępcze i wyłączony przycisk, więc dokument buduje się poprawnie na każdym etapie.
 Kompresja: `python3 src/kompresuj_fba.py` (zdjęcia 900 px, nagrania 40 kbps mono).
 
+**Własne konspekty** dopisuje się w tabeli FBA-T plusem w komórce z celem
+(`src/moje_konspekty_fba.py`) — tak samo jak w banku KPOF. Formularz ma tę samą strukturę
+co konspekt gotowy, a zapisany scenariusz otwiera się i drukuje tak samo. Trzy rzeczy
+specyficzne dla tego druku: **zachowanie zastępcze ma własne pole i bez niego konspekt się
+nie zapisze** (to ono jest treścią planu PBS), cel edukacyjny czyta się **na żywo z tabeli**,
+a sekcja VII klonuje kartę pomocy i arkusz z gotowego konspektu tego wskaźnika — dziecko ma
+słyszeć to samo nagranie i widzieć ten sam symbol, a media nie idą do `localStorage`.
+
+Klucz `localStorage` jest **inny niż klucz banku KPOF** (`eduplaner2026.moje-konspekty-fba.v1`)
+i wczytywanie kopii odrzuca pozycje spoza tego druku — konspekt z banku wisiałby tu w próżni,
+bo tam cel ma numer twierdzenia, a nie wskaźnik FBA. Skrypt edytora idzie **przed** skryptem
+konspektów: oba nasłuchują kliknięć na `document` w fazie przechwytywania, więc bez tego
+plus otwierałby przy okazji gotowy konspekt.
+
 Kolor poziomów (czerwony · żółty · zielony) jest **tylko w legendzie na górze tabeli**;
 w samej tabeli koloru nie ma, bo 75 kolorowych komórek przestaje cokolwiek wyróżniać.
 

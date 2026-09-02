@@ -112,6 +112,42 @@ AAC i w planie dnia.
 node src/zmierz_konspekty.mjs   # czy każdy konspekt mieści się na jednej kartce
 ```
 
+### Własne konspekty nauczycielki
+
+Bank ma 75 gotowych scenariuszy, ale każde dziecko jest inne i prędzej czy
+później trzeba napisać własny. Przy **każdej komórce z celem** jest **+**, który
+otwiera formularz o dokładnie takiej samej strukturze co konspekt gotowy
+(I cel · II pomoce · III metody · IV–V realizacja · przebieg N/D · VI modyfikacje
+· wskazówka). Zapisany scenariusz otwiera się i drukuje tak samo — ta sama karta,
+ten sam druk KC-3 A4. Nad tabelą jest panel **Moje konspekty** z listą własnych
+scenariuszy tej wersji wiekowej.
+
+Trzy rzeczy, które ten edytor trzyma inaczej niż zwykły formularz:
+
+* **Zachowanie zastępcze ma własne pole** i bez niego konspekt się nie zapisze.
+  To ono jest treścią planu PBS: uczymy innej drogi do tej samej funkcji, nie
+  odbieramy dziecku funkcji. Pole wchodzi wypełnione brzmieniem z wiersza tabeli.
+* **Cel edukacyjny czyta się na żywo z tabeli**, nie kopiuje do rekordu — po
+  poprawce w `dane_poziomy.py` własny konspekt nie zaczyna żyć nieaktualną
+  wersją celu. Zmiana poziomu w formularzu od razu pokazuje cel z tej kolumny.
+* **Sekcja VII bierze się z gotowego konspektu** tego samego wskaźnika: karta
+  pomocy ze zdjęciem i nagranym poleceniem oraz materiał do wycięcia. Klonujemy
+  gotowy węzeł dokumentu, nie kopiujemy mediów do `localStorage` — dziecko ma
+  słyszeć **to samo** polecenie i widzieć **ten sam** symbol, co przy scenariuszu
+  gotowym. Można to odznaczyć, jeśli nauczycielka robi własną pomoc.
+
+Dane leżą w `localStorage` pod kluczem `moje_konspekty_fba.KLUCZ` — **innym niż
+klucz banku KPOF**, żeby dwa zbiory się nie mieszały; przy wczytywaniu kopii
+pozycje spoza tego druku są pomijane i zliczane w komunikacie. To jedyny magazyn,
+jaki ma dokument otwierany z dysku, więc panel ma **zapis kopii do pliku JSON
+i wczytanie jej z powrotem** i mówi wprost, że bez tego konspekty nie przejdą na
+inny komputer. Gdy przeglądarka blokuje `localStorage`, edytor działa dalej
+w pamięci karty i pokazuje ostrzeżenie.
+
+Własny scenariusz mieści się na jednej kartce A4 do ośmiu długich kroków
+przebiegu (pomiar: 1043 px przy budżecie 1091). Dłuższy przechodzi na drugą
+stronę — nic się nie psuje, ale warto o tym wiedzieć przed drukiem.
+
 Tabela drukuje się **poziomo** i drukuje się ta wersja wiekowa, która jest
 otwarta — tak jak bank. Pas z nazwą wersji siedzi w `thead`, więc powtarza się
 na każdej kartce; bez niego druga i trzecia strona nie mówiły, czyj to rocznik.
@@ -149,6 +185,7 @@ src/karta_pomocy.py     renderowanie karty pomocy z nagraniem (wzór KC-4)
 src/symbole_fba.py      mapowanie kart i pasków na bibliotekę symboli EduPlaner
 src/kompresuj_fba.py    kompresja zdjęć pomocy i nagrań
 src/logo.py             logo PCTP w nagłówkach druków
+src/moje_konspekty_fba.py  edytor własnych konspektów nauczycielki
 src/zmierz_konspekty.mjs   pomiar wysokości druku wszystkich 75 konspektów
 src/zmierz_strony.mjs   pomiar, czy strony mieszczą się na A4
 src/do_pdf.mjs          wydruk obu druków do PDF
