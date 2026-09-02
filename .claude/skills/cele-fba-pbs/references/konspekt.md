@@ -56,19 +56,34 @@ celem i etykietą „Poziom III" przy każdym konspekcie.
 
 ## Arkusz — materiał do wycięcia
 
-Sekcja VII, druga kartka konspektu. Siedem rodzajów: `karty` (do wycięcia),
-`pasek` (sekwencja z numerami), `tablica` (bez rozcinania), `tabela` (do
-wypełniania), `pola` (puste pola z etykietami), `etykiety` (karteczki z polem
-koloru), `sciezki` (pasy do przecięcia albo szlaczki).
+Sekcja VII, druga kartka konspektu. W tym module arkusz ma **jeden układ** —
+inaczej niż w banku KPOF, gdzie rodzajów jest siedem. Cztery karty do wycięcia
+plus trzypolowy pasek kolejności:
+
+```python
+arkusz = dict(
+    tytul="Karty do zajęć „Czerwona karta, zanim wybuchnie”",
+    wstep="Wytnij czerwoną kartę i karty znaków. …",      # czyta dorosły
+    karty=[("Czerwona karta", "duże czerwone pole — sygnał dziecka do dorosłego"),
+           ("Mój znak 1",     "miejsce na pierwszy sygnał ciała dziecka"), …],
+    pasek=["zauważam", "pokazuję kartę", "dostaję pomoc"])
+```
+
+**Kto co czyta, decyduje o języku.** `karty[i][0]` i cały `pasek` to napisy,
+które **widzi dziecko** — obowiązuje je ta sama zasada co polecenie: krótko,
+prosto, bez słów typu *sygnał* czy *strategia*. Drugi element karty i `wstep`
+to instrukcja **dla dorosłego** — tam trudne słowa są na miejscu i nie ma po co
+ich upraszczać. `sprawdz_fba.py` sprawdza jedno, a drugie zostawia; ten podział
+kosztował już rundę, bo siedem kart ze słowem „sygnał" przeszło przez zieloną
+kontrolę, zanim skrypt zaczął patrzeć na arkusze.
 
 Symbole biorą się z **biblioteki banku KPOF** — `symbole_fba.py` mapuje karty
-i paski na jej kody. Symbol nienarysowany nie ma pliku, a arkusz go używający
-jest po cichu pomijany; `sprawdz_fba.py` to wyłapuje. Gdy brakuje symbolu,
-dorysuj go **do biblioteki KPOF**, nie do tego modułu — inaczej dziecko zobaczy
-w planie dnia inny obrazek niż na karcie z zajęć i symbol przestanie być słowem.
-
-Arkusz `tabela` musi mieć `min-width:0`: tabela celów ma `min-width:1080px`
-i bez tego wyjątku arkusz ucieka poza krawędź strony.
+i paski na jej kody. Symbol nienarysowany nie ma pliku, a pole go używające
+zostaje puste; `sprawdz_fba.py` to wyłapuje (uwaga: część pól jest pusta
+**celowo** — to miejsce, w które nauczyciel wkleja własny symbol, i skrypt liczy
+je osobno). Gdy brakuje symbolu, dorysuj go **do biblioteki KPOF**, nie do tego
+modułu — inaczej dziecko zobaczy w planie dnia inny obrazek niż na karcie z zajęć
+i symbol przestanie być słowem.
 
 ## Druk
 
@@ -77,10 +92,11 @@ Konspekty drukują się **pionowo**, mimo że tabela wokół nich jest pozioma
 Przycisk w wykazie drukuje cały zeszyt wersji — 25 konspektów.
 
 ```bash
-node src/zmierz_konspekty.mjs
+node src/zmierz_konspekty.mjs     # konspekty, budżet 1091 px
+node src/zmierz_strony.mjs        # strony druku FBA-C, budżet 726 × 1054 px
 ```
 
-Budżet **1091 px** przy skali 0.96. Skala to zapas na fonty: pomiar leci na
+Budżet konspektu to **1091 px** przy skali 0.96. Skala to zapas na fonty: pomiar leci na
 Arialu (bez sieci), DM Sans jest odrobinę wyższy. Przekroczenie budżetu nie
 zgłasza błędu — konspekt pęka w pół tabeli przebiegu.
 

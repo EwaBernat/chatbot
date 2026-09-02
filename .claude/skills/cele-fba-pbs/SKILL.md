@@ -9,7 +9,7 @@ description: 'Rozbudowa modułu FBA/PBS dla przedszkola (EduPlaner 2026, PCTP Ko
 celami SMART — po jednym na funkcję zachowania. Ten moduł rozpisuje je na
 **25 wskaźników × 3 poziomy wsparcia × 3 wersje wiekowe = 225 celów**, dokłada
 **75 konspektów zajęć**, **25 pomocy dydaktycznych z 75 nagraniami jej głosem**,
-**75 arkuszy A4 do wycięcia** i edytor, w którym nauczycielka dopisuje własne
+**25 arkuszy A4 do wycięcia** (każdy drukowany w trzech wersjach) i edytor, w którym nauczycielka dopisuje własne
 scenariusze.
 
 Trzy druki, każdy jednym plikiem HTML otwieranym z dysku — bez serwera, bez konta,
@@ -117,6 +117,9 @@ eduplaner_fba/
   src/moje_konspekty_fba.py  edytor własnych konspektów nauczycielki
   src/kompresuj_fba.py     PNG → k_*.jpg 900 px, MP3 → 40 kbps mono
   src/zmierz_konspekty.mjs   pomiar: czy konspekt mieści się na kartce
+  src/zmierz_strony.mjs    pomiar stron druku FBA-C
+  src/logo.py              logo PCTP w nagłówkach
+  src/pobierz.sh           pobieranie nagrań z ElevenLabs po parach „kod URL”
   src/do_pdf.mjs           wydruk druków i trzech zeszytów do PDF
   assets/pomoce_fba/       zdjęcia pomocy dydaktycznych
   assets/audio_fba/        75 nagrań poleceń jej głosem (poza repozytorium)
@@ -148,8 +151,9 @@ python3 src/kompresuj_fba.py
 python3 src/build_tabela.py && python3 src/build_cele_fba.py
 # 4. sprawdź spójność
 python3 ../.claude/skills/cele-fba-pbs/scripts/sprawdz_fba.py
-# 5. sprawdź druk — czy każdy konspekt mieści się na kartce
-node src/zmierz_konspekty.mjs
+# 5. sprawdź druk — dwa pomiary, bo są dwa druki
+node src/zmierz_konspekty.mjs   # 75 konspektów, budżet 1091 px
+node src/zmierz_strony.mjs      # 8 stron FBA-C, budżet 726 × 1054 px
 # 6. PDF-y (tabela + trzy zeszyty), gdy prosi o pliki do druku
 node src/do_pdf.mjs
 ```
@@ -158,18 +162,40 @@ Kroku 5 nie da się zastąpić oglądaniem. Konspekt, który wyjdzie poza stron�
 zgłasza błędu — pęka w pół tabeli przebiegu, co widać dopiero przy drukarce.
 Budżet: **1091 px** treści przy skali druku 0.96.
 
+Symbole na arkuszach biorą się z banku KPOF ścieżką **względną, trzy poziomy
+w górę** (`symbole_fba.BIBLIOTEKA`). Budowanie druku spoza układu repozytorium —
+z kopii modułu, z innego katalogu — **po cichu gubi wszystkie symbole**: dokument
+składa się, jest o ponad megabajt lżejszy i niczego nie zgłasza. Jeśli budujesz
+gdzie indziej, porównaj wagę pliku z tą w repozytorium.
+
 `kompresuj_fba.py` **pomija pliki już przetworzone**: po poprawieniu zdjęcia albo
 nagrania skasuj `k_*.jpg` bądź `*.orig.mp3`, inaczej dokument dalej pokaże
 poprzednią wersję. Ta pułapka kosztowała już rundę w obu modułach.
 
-Playwright bywa nie do zaimportowania z katalogu modułu. Dowiąż go na czas pracy
-i **skasuj dowiązanie**, żeby nie trafiło do repozytorium:
+Skrypty `.mjs` **same znajdują playwrighta** (mają fallback na
+`/opt/node22/lib/node_modules`), więc uruchamiaj je wprost. Dowiązanie rób tylko
+wtedy, gdy skrypt zgłosi „Nie znalazłem playwrighta" — albo gdy piszesz **własny**
+jednorazowy pomiar, bo zwykłe `require('playwright')` z katalogu modułu nie
+zadziała. Wtedy koniecznie **skasuj dowiązanie** po pracy, żeby nie trafiło do
+repozytorium:
 
 ```bash
 mkdir -p node_modules && ln -sfn /opt/node22/lib/node_modules/playwright node_modules/playwright
-# ... pomiary ...
+# ... własny pomiar ...
 rm -f node_modules/playwright && rmdir node_modules
 ```
+
+## Kontrola bez dotykania plików
+
+Gdy prosi o samo sprawdzenie („czy wszystko jest kompletne", „czy się drukuje"),
+nie przebudowuj dokumentów — kroki 1–3 pętli nadpisują pliki w repozytorium.
+Sam `sprawdz_fba.py` i oba pomiary czytają, niczego nie zapisując, i to wystarcza
+do odpowiedzi.
+
+`build_tabela.py` nie ma `--wyjscie` i zawsze pisze w miejsce (jedyny wyjątek to
+`build_cele_fba.py`). Gdy naprawdę potrzebujesz sprawdzić, czy dokument jest
+aktualny wobec `src/`, skopiuj **cały katalog modułu** obok `eduplaner_przedszkole`
+— inaczej zgubisz symbole, jak wyżej — i porównaj sumy kontrolne.
 
 ## Druk dla konkretnego dziecka
 
@@ -195,7 +221,9 @@ zanim: zmienisz kryterium albo horyzont, dopiszesz nowy wskaźnik, przypiszesz
 konspekt do innej funkcji zachowania.
 
 Gdy znajdziesz brak, o który nie pytała — powiedz o nim i **uzupełnij**, zamiast
-tylko raportować. W tym module brakujące elementy nie zgłaszają się same.
+tylko raportować. W tym module brakujące elementy nie zgłaszają się same. Wyjątek:
+gdy prosi o samą kontrolę, raportuj i **nie dotykaj plików** — inaczej odda jej
+odpowiedź razem ze zmianami, o które nie prosiła.
 
 ## Sprawdzanie efektu oczami
 

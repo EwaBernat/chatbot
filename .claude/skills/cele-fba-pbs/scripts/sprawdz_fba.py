@@ -114,7 +114,8 @@ def main():
     for nr in bez_zdjecia:
         problemy.append(f"pomoc {nr}: brak zdjęcia")
     for nr, w in bez_nagrania:
-        problemy.append(f"polecenie {w}{PF.kod(nr)}: brak nagrania")
+        problemy.append(f"polecenie wersja {w} · wskaźnik {nr} "
+                        f"(plik {w.lower()}{PF.kod(nr)}.mp3): brak nagrania")
     for nr in KF.RDZEN:
         if nr not in PF.POMOCE:
             problemy.append(f"{nr}: konspekt bez pomocy dydaktycznej")
@@ -126,10 +127,10 @@ def main():
         maly = tekst.lower()
         trafienia = [x for x in TRUDNE if x in maly]
         if trafienia:
-            trudne.append((f"{w}{PF.kod(nr)}", trafienia, tekst))
+            trudne.append((f"wersja {w} · wskaźnik {nr}", trafienia, tekst))
         zdania = [z for z in re.split(r"[.!?]", tekst) if len(z.split()) > DLUGIE_ZDANIE]
         if zdania:
-            dlugie.append((f"{w}{PF.kod(nr)}", len(zdania)))
+            dlugie.append((f"wersja {w} · wskaźnik {nr}", len(zdania)))
     if trudne:
         for kod, trafienia, tekst in trudne:
             mow(f"  {kod}: {', '.join(trafienia)} — „{tekst}”")
@@ -141,6 +142,38 @@ def main():
             + ", ".join(k for k, _ in dlugie))
         mow("  (to nie jest błąd — do rozważenia przy nagraniu, dziecko nie powtórzy"
             " długiego zdania)")
+
+    # ——— napisy na arkuszach ——————————————————————————————————————————————
+    # Zasada „do dziecka mów prosto" obejmuje nie tylko nagrane polecenie, ale
+    # i napis, który dziecko widzi na wyciętej karcie albo na pasku kolejności.
+    # Te napisy wymykały się kontroli: skrypt patrzył wyłącznie w POLECENIA
+    # i przepuścił siedem kart ze słowami „sygnał" i „strategia".
+    # W arkuszu dziecko czyta `karty[i][0]` i `pasek[i]`. Reszta — `wstep`
+    # i opis pod polem — to instrukcja dla dorosłego i trudne słowa są tam na
+    # miejscu, więc nie sprawdzamy ich wcale.
+    naglowek("Napisy na arkuszach")
+
+    def napisy_dla_dziecka(arkusz):
+        widoczne = []
+        for karta in arkusz.get("karty") or []:
+            widoczne.append(karta[0] if isinstance(karta, (list, tuple)) else karta)
+        for krok in arkusz.get("pasek") or []:
+            widoczne.append(krok[0] if isinstance(krok, (list, tuple)) else krok)
+        return [str(x) for x in widoczne if x]
+
+    zle_napisy = []
+    for nr, rdzen in sorted(KF.RDZEN.items()):
+        for napis in napisy_dla_dziecka(rdzen.get("arkusz") or {}):
+            trafienia = [x for x in TRUDNE if x in napis.lower()]
+            if trafienia:
+                zle_napisy.append((nr, napis, trafienia))
+    if zle_napisy:
+        for nr, napis, trafienia in zle_napisy:
+            mow(f"  {nr}: „{napis}” — {', '.join(trafienia)}")
+            problemy.append(f"arkusz {nr}: napis „{napis}” z trudnym słowem")
+    else:
+        mow("  bez trudnych słów")
+    mow("  (opisy pod polami i wstęp do arkusza czyta dorosły — te nie są sprawdzane)")
 
     # ——— symbole ——————————————————————————————————————————————————————————
     naglowek("Symbole na arkuszach")

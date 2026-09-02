@@ -71,8 +71,8 @@ RDZEN = {
    karty=[("Zielony", "symbol spokoju — mogę pracować"),
           ("Żółty", "symbol napięcia — potrzebuję strategii"),
           ("Czerwony", "symbol wybuchu — potrzebuję pomocy dorosłego"),
-          ("Moja strategia", "symbol tego, co pomaga przy żółtym")],
-   pasek=["sprawdzam", "nazywam", "wybieram strategię"])),
+          ("Co mi pomaga", "symbol tego, co pomaga przy żółtym")],
+   pasek=["sprawdzam", "nazywam", "wybieram, co mi pomaga"])),
 
  "V.3": dict(
   tytul="Kącik, w którym robi się ciszej",
@@ -165,8 +165,8 @@ RDZEN = {
          "z dzieckiem — to mają być jego sygnały, nie lista z podręcznika. Symbole "
          "pozostałych kart wklej z biblioteki EduPlaner.",
    karty=[("Czerwona karta", "duże czerwone pole — sygnał dziecka do dorosłego"),
-          ("Sygnał 1", "miejsce na pierwszy sygnał ciała dziecka"),
-          ("Sygnał 2", "miejsce na drugi sygnał"),
+          ("Mój znak 1", "miejsce na pierwszy sygnał ciała dziecka"),
+          ("Mój znak 2", "miejsce na drugi sygnał"),
           ("Co robimy", "symbol reakcji dorosłego: podejście, przerwa, kącik")],
    pasek=["zauważam", "pokazuję kartę", "dostaję pomoc"])),
 }

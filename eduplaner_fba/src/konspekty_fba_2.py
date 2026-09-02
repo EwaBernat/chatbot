@@ -102,7 +102,7 @@ RDZEN = {
           ("Przerwa 2", "symbol pory dnia: przed zajęciami"),
           ("Przerwa 3", "symbol pory dnia: po obiedzie"),
           ("Moje miejsce", "symbol miejsca, w którym odbywa się przerwa")],
-   pasek=["sygnał", "idę", "odhaczam"])),
+   pasek=["słyszę minutnik", "idę", "odhaczam"])),
 
  "II.4": dict(
   tytul="Skończyłem — i co teraz",
@@ -166,7 +166,7 @@ RDZEN = {
           ("Zamiana", "symbol formy zastępczej dającej to samo wrażenie"),
           ("Ruch", "symbol formy ruchowej, gdy zachowanie daje ruch"),
           ("Dźwięk", "symbol formy dźwiękowej, gdy zachowanie daje dźwięk")],
-   pasek=["widzę sygnał", "kończę", "biorę zamianę"])),
+   pasek=["widzę kartę", "kończę", "biorę zamianę"])),
 }
 
 WARIANTY = {

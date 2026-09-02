@@ -50,7 +50,9 @@ spójnikiem. Nazwy przedmiotów stojących na stoliku (*minutnik*, *klepsydra*,
 
 Sprawdź to **przed nagraniem**. Poprawka po nagraniu kosztuje drugie nagranie,
 a `sprawdz_fba.py` wypisuje polecenia z trudnymi słowami właśnie po to, żeby
-zdążyć.
+zdążyć — razem z napisami na kartach do wycięcia, bo te dziecko też czyta
+(`references/konspekt.md`, sekcja *Arkusz*). Poprawka napisu jest tania: nie jest
+nagrany, więc kosztuje samą przebudowę dokumentu.
 
 ## Nagranie
 

@@ -132,7 +132,7 @@ RDZEN = {
           ("Dwie minuty", "symbol minutnika ustawionego na czas rozmowy"),
           ("Wracam do zadania", "symbol powrotu na miejsce"),
           ("Następna rozmowa", "symbol pory dnia, o której będzie następna")],
-   pasek=["rozmawiam", "sygnał", "wracam"])),
+   pasek=["rozmawiam", "słyszę minutnik", "wracam"])),
 
  "III.5": dict(
   tytul="Umówiony znak",

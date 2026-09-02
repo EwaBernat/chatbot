@@ -101,8 +101,8 @@ w panelu, trwałość po `reload()`, edycję z podglądu, krzyżyk w obu oknach,
 sekcję VII (klon albo własna karta z działającym nagraniem) i wysokość wydruku.
 Wersje B i C są ukryte na starcie — najpierw kliknij zakładkę.
 
-Playwright może nie importować się z katalogu modułu; dowiąż go na czas testu
-i **skasuj dowiązanie** po wszystkim:
+Skrypty `.mjs` w module same znajdują playwrighta, ale **własny** jednorazowy test
+już nie — dowiąż go na czas pracy i **skasuj dowiązanie** po wszystkim:
 
 ```bash
 mkdir -p node_modules && ln -sfn /opt/node22/lib/node_modules/playwright node_modules/playwright
