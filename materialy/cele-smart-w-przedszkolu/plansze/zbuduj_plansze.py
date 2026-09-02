@@ -37,6 +37,30 @@ PLANSZE = []
 def dodaj(nazwa, html, w=1920, h=1080):
     PLANSZE.append((nazwa, html, w, h))
 
+# ------------------------------------------------------ 000 · KARTA TYTUŁOWA
+dodaj("000_karta_tytulowa", slajd("000", "", "", "", '''
+<div class="kt">
+  <div class="kt-nad">PCTP Koszalin · Pomorskie Centrum Terapii Pedagogicznej</div>
+  <h1 class="kt-tyt">Cele SMART<br>w przedszkolu</h1>
+  <div class="kt-kreska"></div>
+  <div class="kt-pod">Szkolenie dla nauczycieli przedszkola</div>
+  <div class="kt-lead">Jak napisać cel, który da się zobaczyć, policzyć i obronić<br>przed zespołem, rodzicem i kuratorium.</div>
+  <div class="kt-aut">Opracowanie: pedagog specjalny <b>mgr Mirosława Ewa Jurczyszyn</b></div>
+  <div class="kt-stopka">EduPlaner 2026 · materiał do broszury sygn. SMART-P1 · stan prawny 28 sierpnia 2026 r.</div>
+</div>''', styl='''
+.kt{height:100%;display:flex;flex-direction:column;align-items:center;justify-content:center;
+ text-align:center;padding-bottom:30px}
+.kt-nad{font-size:19px;font-weight:700;letter-spacing:.22em;text-transform:uppercase;
+ color:var(--pomarancz);margin-bottom:40px}
+.kt-tyt{font-size:132px;line-height:1;color:#fff;letter-spacing:-.035em}
+.kt-kreska{width:180px;height:6px;background:var(--pomarancz);border-radius:3px;margin:44px 0 36px}
+.kt-pod{font-size:32px;color:#fff;letter-spacing:.01em}
+.kt-lead{font-size:25px;line-height:1.5;color:#C9C1E4;margin-top:22px}
+.kt-aut{font-size:23px;color:#D6CFEE;margin-top:52px}
+.kt-aut b{color:#fff}
+.kt-stopka{font-size:17px;color:#A79ECB;margin-top:14px}
+''', klasa="ciemny", stopka_prawo=""))
+
 # ---------------------------------------------------------------- 00 · TYTUŁ
 dodaj("00_tytul", slajd("00_tytul", "", "", "", '''
 <div class="tyt-ram">

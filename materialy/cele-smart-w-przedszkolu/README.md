@@ -25,6 +25,7 @@ Przykład przewodni — ten sam co w broszurze: konspekt **TUE-1 „Termometr na
 
 | Plik | Scena filmu | Zawartość |
 |---|---|---|
+| `000_karta_tytulowa.png` | — | **karta tytułowa** filmu: tytuł, autorka, sygnatura, stan prawny |
 | `00_tytul.png` | 1 | otwarcie: cel-życzenie kontra cel-narzędzie |
 | `12_dlaczego_teraz.png` | 2 | uzasadnienie: nowa podstawa, wrzesień, ocena efektywności |
 | `01_zyczenie_narzedzie.png` | 3 | §1 — zasada trzech osób |
@@ -106,6 +107,11 @@ Generator stoi na trzech zasadach:
 Film w pełnej jakości potrafi przekroczyć limity załączników w komunikatorach —
 plansze kompresują się jednak bardzo dobrze, więc `--lekka-kopia` zapisuje obok
 mocno skompresowaną wersję do wysłania, praktycznie bez straty czytelności tekstu.
+
+Film otwiera i zamyka **karta w ciszy** — segment bez narracji, opisany w `SEGMENTY`
+przez `{"plansza": …, "trwanie": 6.5}` zamiast listy ujęć. Dostaje delikatny najazd
+oraz łagodne wejście i wyjście z czerni, żeby widz zdążył przeczytać tytuł, zanim
+zacznie się mówienie.
 
 Granice ujęć w segmentach 1–3 są wpisane jako sekundy; w segmentach 4–6 wyznacza je
 automatycznie najdłuższe pauzy w nagraniu. Podgląd pauz:

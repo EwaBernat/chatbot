@@ -48,6 +48,7 @@ def przygas(nr: int | None) -> str:
 # „od" to sekunda w nagraniu, w której ujęcie się zaczyna (koniec poprzedniego
 # akapitu). Podgląd pauz: ffmpeg -i s1.mp3 -af silencedetect=noise=-32dB:d=0.28 -f null -
 SEGMENTY = [
+ {"plansza": "000_karta_tytulowa.html", "trwanie": 6.5},
  {"audio": "s1.mp3", "plansza": "00_tytul.html", "ujecia": [
    (0.00,  ukryj(".tyt-box.zle", ".tyt-strzalka", ".tyt-box.ok", ".tyt-chipy", ".tyt-aut"), None),
    (0.80,  ukryj(".tyt-box.zle .tyt-box-uw", ".tyt-strzalka", ".tyt-box.ok", ".tyt-chipy", ".tyt-aut"), ".tyt-box.zle"),
@@ -95,6 +96,7 @@ SEGMENTY = [
    (None, "", "table.akty tr:nth-child(4)"),
    (None, "", ".pom-blok"),
  ]},
+ {"plansza": "13_final.html", "trwanie": 7.0},
 ]
 
 
@@ -209,6 +211,30 @@ def filtr_kamery(od: tuple, do: tuple) -> str:
             f":d=1:s={SZER}x{WYS}:fps={KLATKI}")
 
 
+def zbuduj_segment_cichy(nr: int, segment: dict, roboczy: pathlib.Path) -> pathlib.Path:
+    """Karta tytułowa albo końcowa: plansza trzymana w ciszy, z delikatnym najazdem."""
+    html = PLANSZE / segment["plansza"]
+    dlugosc = float(segment["trwanie"])
+    png = roboczy / f"seg{nr}_karta.png"
+    zrzut(html, "", png)
+    pelny = kadr(None)
+    lekki_najazd = (pelny[0] + 34, pelny[1] + 19, pelny[2] - 68, pelny[3] - 38)
+    wynik = roboczy / f"segment{nr}.mp4"
+    przebieg(["ffmpeg", "-y", "-v", "error",
+              "-loop", "1", "-framerate", str(KLATKI), "-t", str(dlugosc), "-i", str(png),
+              "-f", "lavfi", "-t", str(dlugosc), "-i", "anullsrc=r=44100:cl=mono",
+              "-filter_complex",
+              f"[0:v]scale={SZER * SKALA}:{WYS * SKALA}:flags=lanczos,"
+              f"{filtr_kamery(pelny, lekki_najazd).replace(f'min(on/{NAJAZD * KLATKI:.0f},1)', f'min(on/{dlugosc * KLATKI:.0f},1)')},"
+              f"setsar=1,fade=t=in:st=0:d=0.9,fade=t=out:st={dlugosc - 0.9:.2f}:d=0.9,format=yuv420p[v]",
+              "-map", "[v]", "-map", "1:a",
+              "-c:v", "libx264", "-preset", "medium", "-crf", "20", "-pix_fmt", "yuv420p",
+              "-r", str(KLATKI), "-c:a", "aac", "-b:a", "192k", "-ar", "44100", "-ac", "1",
+              "-t", str(dlugosc), str(wynik)])
+    print(f"segment {nr} ({segment['plansza']}): karta w ciszy, {dlugosc:.1f} s")
+    return wynik
+
+
 def zbuduj_segment(nr: int, segment: dict, katalog: pathlib.Path,
                    roboczy: pathlib.Path) -> pathlib.Path:
     audio = katalog / segment["audio"]
@@ -281,6 +307,9 @@ def main() -> int:
     czesci = []
     for nr, segment in enumerate(SEGMENTY, start=1):
         if wybrane and nr not in wybrane:
+            continue
+        if "audio" not in segment:
+            czesci.append(zbuduj_segment_cichy(nr, segment, roboczy))
             continue
         if not (a.katalog / segment["audio"]).exists():
             print(f"Pomijam segment {nr}: brak {segment['audio']}", file=sys.stderr)
