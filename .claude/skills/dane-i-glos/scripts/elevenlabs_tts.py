@@ -189,12 +189,28 @@ def ustawienia(a) -> dict:
     return u
 
 
+def z_stylem(fragment: str, a) -> str:
+    """Dokleja znacznik stylu do fragmentu — tylko dla modeli, ktore go rozumieja.
+
+    Kazdy fragment idzie osobnym zapytaniem, wiec znacznik musi byc w kazdym,
+    inaczej pierwszy akapit brzmi inaczej niz reszta nagrania.
+    """
+    if not a.styl or not a.model.startswith("eleven_v3"):
+        return fragment
+    znacznik = a.styl.strip()
+    if not znacznik.startswith("["):
+        znacznik = f"[{znacznik}]"
+    if fragment.lstrip().startswith(znacznik):
+        return fragment
+    return f"{znacznik} {fragment}"
+
+
 def syntezuj(fragment: str, poprzedni: str, nastepny: str, a, ze_znacznikami: bool):
     sciezka = (f"/v1/text-to-speech/{a.voice_id}"
                f"{'/with-timestamps' if ze_znacznikami else ''}"
                f"?output_format={a.format}")
     cialo = {
-        "text": fragment,
+        "text": z_stylem(fragment, a),
         "model_id": a.model,
         "voice_settings": ustawienia(a),
         "language_code": a.jezyk,
@@ -266,6 +282,9 @@ def main() -> int:
                     help="wypisz plan, zuzycie znakow i dostepnosc klonowania")
     ap.add_argument("--voice-id", default=None,
                     help="domyslnie glos zapamietany przez skill (skonfiguruj_glos.py)")
+    ap.add_argument("--styl", default=None,
+                    help="znacznik stylu dla eleven_v3, np. \"ciepło, spokojnie\"; "
+                         "domyslnie brany z pamieci skilla")
     ap.add_argument("--model", default=None,
                     help=f"gdy skill nie pamieta modelu: {MODEL_DOMYSLNY}; alternatywy: eleven_v3, "
                          "eleven_turbo_v2_5, eleven_flash_v2_5")
@@ -296,6 +315,8 @@ def main() -> int:
     # wiec skill pamieta oba, a nie tylko glos
     a.model = konfiguracja.ustal(
         a.model, "ELEVENLABS_MODEL", "elevenlabs_model", MODEL_DOMYSLNY)
+    a.styl = konfiguracja.ustal(
+        a.styl, "ELEVENLABS_STYL", "elevenlabs_styl", None)
 
     if not a.voice_id:
         if not a.obcy_glos:
