@@ -166,6 +166,8 @@ cython_debug/
 *.mp3
 *.srt
 narracja*.txt
+# Wyjątek: narracje w katalogu materiałów to gotowe deliverable, nie pliki robocze
+!materialy/**/narracja*.txt
 *.mp4
 node_modules/
 .claude/skills/dane-i-glos/assets/remotion/out/
