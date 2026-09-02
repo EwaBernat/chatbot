@@ -6,3 +6,8 @@ public/portret.jpg
 podglad/*.jpg
 podglad/*.png
 out/
+
+# Pliki tymczasowe kodowania dwuprzebiegowego ffmpeg — powstają przy składaniu
+# wersji filmu pod limit rozmiaru i znikają razem z nią.
+ffmpeg2pass-*.log
+ffmpeg2pass-*.log.*
