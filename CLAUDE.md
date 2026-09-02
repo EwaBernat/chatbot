@@ -180,6 +180,11 @@ w samej tabeli koloru nie ma, bo 75 kolorowych komórek przestaje cokolwiek wyr�
 **Dokumenty z nazwiskiem ucznia nie wchodzą do repozytorium** (`eduplaner_fba/.gitignore`)
 — zostaje sam formularz. Nazwisko i punktacja to dane osobowe dziecka.
 
+Rozbudowę tego modułu prowadzi skill **`cele-fba-pbs`** — zna kryteria z punktacji
+funkcji, zasadę zachowania zastępczego, język poleceń do dziecka i pułapki edytora.
+Kontrola jednym poleceniem:
+`python3 .claude/skills/cele-fba-pbs/scripts/sprawdz_fba.py`.
+
 Horyzont trzymamy w trzech formach gramatycznych (`4 tygodni` · `4 tygodniach`
 · `4 tygodnie`) — jedna forma dawała „weryfikacja po 4 tygodni” w druku dla rodzica.
 

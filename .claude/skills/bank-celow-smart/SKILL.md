@@ -18,6 +18,12 @@ składa się dalej i wygląda dobrze. Nauczyciel dowiaduje się o braku dopiero 
 drukarce, w sali, przy dziecku. Dlatego po każdej partii sprawdzamy pomiarem,
 zamiast zakładać.
 
+Moduł **FBA/PBS** (`eduplaner_fba/`, druki FBA-C i FBA-T, cele do wskaźników
+funkcji zachowania) to osobny dokument i osobny skill — `cele-fba-pbs`. Tamten
+zna kryteria z punktacji funkcji i zasadę zachowania zastępczego, których ten
+skill nie niesie. Wspólna jest tylko **biblioteka symboli**: arkusze FBA biorą
+obrazki stąd, więc brakujący symbol dorysowuje się w tym module, nie w tamtym.
+
 ## Zanim cokolwiek dopiszesz
 
 ```bash
