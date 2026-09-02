@@ -136,6 +136,7 @@ decyzja podejmowana jest raz.
 
 ## Materiały
 
+- `references/komendy.md` — **gotowe komendy do skopiowania**, jedna na każdą postać
 - `references/postacie.md` — sześć postaci: wygląd, kadr, ton, tempo, głos, stopka, format
 - `references/marka-firmy.md` — nazwa, e-mail, logo, strona, kolory, podpis autorki
 - `AVATAR-EWA.md` (katalog główny) — identyfikatory HeyGen i ElevenLabs
