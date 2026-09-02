@@ -18,6 +18,7 @@ Przykład przewodni — ten sam co w broszurze: konspekt **TUE-1 „Termometr na
 | `plansze/*.png` | 17 gotowych plansz w kolorach marki (14 w 16:9 + konspekt A4 do wydruku) |
 | `plansze/*.html` | źródła plansz — poprawiasz tekst i renderujesz ponownie |
 | `zbuduj_plansze.py` | generator plansz (headless Chromium, działa bez internetu) |
+| `plansze/logo-pctp.webp` | logo PCTP — w nagłówku każdej planszy, duże na karcie tytułowej i końcowej |
 | `zbuduj_scenariusz.py` | generator scenariusza i pliku narracji z jednej listy scen |
 | `zbuduj_animacje.py` | generator gotowego filmu: ujęcia, najazdy kamery na omawiany element, narracja bez pośpiechu |
 
@@ -62,6 +63,13 @@ Kolorów marki nie zmieniaj bez potrzeby: fiolet `#2D1B69` jest tekstem i tłem 
 pomarańcz `#E8450A` to akcent, zielony `#0D7D5C` oznacza zapis poprawny, czerwony `#B8350D` — błędny.
 Ten kod kolorystyczny powtarza się na wszystkich planszach i niesie znaczenie.
 
+## Logo
+
+`plansze/logo-pctp.webp` to kopia `logo-lawenda.webp` z katalogu głównego repozytorium.
+Leży obok plansz, bo odwołania w HTML są względne — zrzut z innego katalogu wyszedłby
+bez logo, tak samo jak bez arkusza stylów. Podmiana logo to podmiana tego jednego pliku
+i ponowne uruchomienie `zbuduj_plansze.py`.
+
 ## Czego tu nie ma — i dlaczego
 
 **Nie ma pliku MP3 ani MP4.** Film firmowany nazwiskiem autorki ma brzmieć jej głosem,
@@ -81,6 +89,21 @@ python3 .claude/skills/dane-i-glos/scripts/skonfiguruj_glos.py nagranie.mp4 --na
 python3 .claude/skills/dane-i-glos/scripts/elevenlabs_tts.py \
         materialy/cele-smart-w-przedszkolu/narracja.txt -o narracja.mp3 --srt napisy.srt
 ```
+
+**Nie ma też wersji z awatarem HeyGen.** Wymaga ona klucza `HEYGEN_API_KEY` oraz połączenia
+z `api.heygen.com`; w tym środowisku klucza nie ma, a polityka sieciowa i tak blokuje ten host
+(proxy zwraca 403). Złącze HyperFrames nie sięga po awatary z konta — robi filmy z HTML.
+Ścieżka do awatara prowadzi więc przez własny komputer:
+
+```bash
+export HEYGEN_API_KEY="..."                                  # app.heygen.com → Settings → API
+python3 .claude/skills/dane-i-glos/scripts/heygen_awatar.py --awatary
+python3 .claude/skills/dane-i-glos/scripts/heygen_awatar.py \
+        --audio narracja.mp3 --avatar-id <id> --tlo "#2D1B69" --czekaj -o awatar.mp4
+```
+
+Wariant `--audio` jest właściwy: awatar mówi wtedy tym samym nagraniem, które słychać w filmie,
+a nie innym głosem z HeyGen.
 
 Alternatywnie: nagraj narrację samodzielnie z pliku `narracja.txt` — tekst jest przygotowany
 pod czytanie na głos (zdania do 20 słów, liczby zapisane słowami, pauzy w miejscach pustych linii).

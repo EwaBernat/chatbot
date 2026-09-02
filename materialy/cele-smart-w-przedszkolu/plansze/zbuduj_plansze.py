@@ -11,8 +11,9 @@ import subprocess, sys, pathlib
 
 KAT = pathlib.Path(__file__).parent
 CHROM = "/opt/pw-browsers/chromium_headless_shell-1194/chrome-linux/headless_shell"
-ZNAK = ('<div class="znak"><b>PCTP KOSZALIN</b>EduPlaner 2026<br>'
-        'Cele SMART w przedszkolu · SMART-P1</div>')
+ZNAK = ('<div class="znak"><div class="znak-txt"><b>PCTP KOSZALIN</b>EduPlaner 2026<br>'
+        'Cele SMART w przedszkolu · SMART-P1</div>'
+        '<img class="znak-logo" src="logo-pctp.webp" alt="Logo PCTP Koszalin"></div>')
 
 def slajd(nazwa, tytul, par, sub, tresc, styl="", klasa="", stopka_prawo="", a4=False):
     body_cls = " ".join(x for x in (["a4"] if a4 else []) + ([klasa] if klasa else []))
@@ -40,6 +41,7 @@ def dodaj(nazwa, html, w=1920, h=1080):
 # ------------------------------------------------------ 000 · KARTA TYTUŁOWA
 dodaj("000_karta_tytulowa", slajd("000", "", "", "", '''
 <div class="kt">
+  <img class="kt-logo" src="logo-pctp.webp" alt="Logo PCTP Koszalin">
   <div class="kt-nad">PCTP Koszalin · Pomorskie Centrum Terapii Pedagogicznej</div>
   <h1 class="kt-tyt">Cele SMART<br>w przedszkolu</h1>
   <div class="kt-kreska"></div>
@@ -50,10 +52,12 @@ dodaj("000_karta_tytulowa", slajd("000", "", "", "", '''
 </div>''', styl='''
 .kt{height:100%;display:flex;flex-direction:column;align-items:center;justify-content:center;
  text-align:center;padding-bottom:30px}
+.kt-logo{width:132px;height:132px;border-radius:50%;margin-bottom:30px;
+ box-shadow:0 18px 44px -18px rgba(0,0,0,.55)}
 .kt-nad{font-size:19px;font-weight:700;letter-spacing:.22em;text-transform:uppercase;
- color:var(--pomarancz);margin-bottom:40px}
-.kt-tyt{font-size:132px;line-height:1;color:#fff;letter-spacing:-.035em}
-.kt-kreska{width:180px;height:6px;background:var(--pomarancz);border-radius:3px;margin:44px 0 36px}
+ color:var(--pomarancz);margin-bottom:34px}
+.kt-tyt{font-size:118px;line-height:1;color:#fff;letter-spacing:-.035em}
+.kt-kreska{width:180px;height:6px;background:var(--pomarancz);border-radius:3px;margin:34px 0 30px}
 .kt-pod{font-size:32px;color:#fff;letter-spacing:.01em}
 .kt-lead{font-size:25px;line-height:1.5;color:#C9C1E4;margin-top:22px}
 .kt-aut{font-size:23px;color:#D6CFEE;margin-top:52px}
@@ -660,6 +664,7 @@ dodaj("12_dlaczego_teraz", slajd("12", "Dlaczego akurat teraz", "Uzasadnienie ·
 dodaj("13_final", slajd("13", "", "", "", '''
 <div class="fin">
   <div>
+    <img class="fin-logo" src="logo-pctp.webp" alt="Logo PCTP Koszalin">
     <div class="fin-nad">EduPlaner 2026 · PCTP Koszalin</div>
     <h1 class="fin-h">Mniej dokumentów.<br>Więcej edukacji.</h1>
     <p class="fin-lead">Jedno zdanie z miarą zastępuje pół strony ogólników — i jako jedyne przechodzi przez ewaluację.</p>
@@ -682,6 +687,8 @@ dodaj("13_final", slajd("13", "", "", "", '''
   </div>
 </div>''', styl='''
 .fin{display:grid;grid-template-columns:1fr 700px;gap:70px;height:100%;align-items:center;padding-bottom:20px}
+.fin-logo{width:104px;height:104px;border-radius:50%;margin-bottom:24px;
+ box-shadow:0 16px 40px -18px rgba(0,0,0,.55)}
 .fin-nad{font-size:16px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--pomarancz);margin-bottom:22px}
 .fin-h{font-size:82px;line-height:1.03;color:#fff;letter-spacing:-.03em}
 .fin-lead{font-size:26px;line-height:1.45;color:#D6CFEE;margin-top:26px;max-width:860px}
@@ -705,7 +712,9 @@ body.a4{background:#fff}
 .gl{display:flex;justify-content:space-between;align-items:flex-end;border-bottom:3px solid var(--fiolet);padding-bottom:13px;margin-bottom:20px}
 .gl h1{font-size:29px;color:var(--fiolet);letter-spacing:-.01em}
 .gl .sub{font-size:13.5px;color:var(--mute);margin-top:5px}
-.gl .znak{text-align:right;font-size:11.5px;color:var(--mute);line-height:1.5}
+.gl .znak{display:flex;align-items:center;gap:13px;font-size:11.5px;color:var(--mute);line-height:1.5}
+.gl .znak .znak-txt{text-align:right}
+.gl .znak .znak-logo{width:52px;height:52px;flex:0 0 52px;border-radius:50%}
 .gl .znak b{color:var(--pomarancz);font-size:13.5px;display:block;letter-spacing:.09em}
 .meta{display:grid;grid-template-columns:repeat(4,1fr);border:1px solid var(--linia);border-radius:10px;overflow:hidden;margin-bottom:18px}
 .meta div{padding:10px 13px;border-right:1px solid var(--linia);background:var(--papier-lt)}
@@ -754,7 +763,7 @@ table.t td.et2{font-weight:700;color:var(--fiolet);white-space:nowrap}
   <div class="gl">
     <div><h1>Konspekt zajęć · TUE-1 „Termometr napięcia”</h1>
       <div class="sub">Załącznik do IPET · sfera integracji społeczno-emocjonalnej i samoregulacji</div></div>
-    <div class="znak"><b>PCTP KOSZALIN</b>EduPlaner 2026 · SMART-P1<br>Cele SMART w przedszkolu</div>
+    <div class="znak"><div class="znak-txt"><b>PCTP KOSZALIN</b>EduPlaner 2026 · SMART-P1<br>Cele SMART w przedszkolu</div><img class="znak-logo" src="logo-pctp.webp" alt="Logo PCTP Koszalin"></div>
   </div>
   <div class="meta">
     <div><label>Grupa</label><span>„Motylki” · 5-latki</span></div>

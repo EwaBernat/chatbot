@@ -15,8 +15,10 @@ body.a4{width:1240px;height:1754px;background:#fff}
 .gl .par{font-size:14px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--pomarancz);margin-bottom:8px}
 .gl h1{font-size:48px;color:var(--fiolet);letter-spacing:-.015em;line-height:1.06}
 .gl .sub{font-size:21px;color:var(--mute);margin-top:10px;max-width:1180px;line-height:1.4}
-.gl .znak{text-align:right;font-size:15px;color:var(--mute);line-height:1.6;flex:0 0 auto;padding-left:40px}
-.gl .znak b{color:var(--pomarancz);font-size:17px;display:block;letter-spacing:.1em}
+.gl .znak{display:flex;align-items:center;gap:18px;font-size:15px;color:var(--mute);line-height:1.6;flex:0 0 auto;padding-left:40px}
+.znak-txt{text-align:right}
+.znak-logo{width:70px;height:70px;flex:0 0 70px;border-radius:50%}
+.znak-txt b{color:var(--pomarancz);font-size:17px;display:block;letter-spacing:.1em}
 .tresc{flex:1;min-height:0}
 .stopka{display:flex;justify-content:space-between;padding:16px 0 18px;font-size:15px;color:var(--faint);border-top:1px solid var(--linia);margin-top:20px}
 /* ciemny wariant */

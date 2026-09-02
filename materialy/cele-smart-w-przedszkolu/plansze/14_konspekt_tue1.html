@@ -6,7 +6,9 @@ body.a4{background:#fff}
 .gl{display:flex;justify-content:space-between;align-items:flex-end;border-bottom:3px solid var(--fiolet);padding-bottom:13px;margin-bottom:20px}
 .gl h1{font-size:29px;color:var(--fiolet);letter-spacing:-.01em}
 .gl .sub{font-size:13.5px;color:var(--mute);margin-top:5px}
-.gl .znak{text-align:right;font-size:11.5px;color:var(--mute);line-height:1.5}
+.gl .znak{display:flex;align-items:center;gap:13px;font-size:11.5px;color:var(--mute);line-height:1.5}
+.gl .znak .znak-txt{text-align:right}
+.gl .znak .znak-logo{width:52px;height:52px;flex:0 0 52px;border-radius:50%}
 .gl .znak b{color:var(--pomarancz);font-size:13.5px;display:block;letter-spacing:.09em}
 .meta{display:grid;grid-template-columns:repeat(4,1fr);border:1px solid var(--linia);border-radius:10px;overflow:hidden;margin-bottom:18px}
 .meta div{padding:10px 13px;border-right:1px solid var(--linia);background:var(--papier-lt)}
@@ -55,7 +57,7 @@ table.t td.et2{font-weight:700;color:var(--fiolet);white-space:nowrap}
   <div class="gl">
     <div><h1>Konspekt zajęć · TUE-1 „Termometr napięcia”</h1>
       <div class="sub">Załącznik do IPET · sfera integracji społeczno-emocjonalnej i samoregulacji</div></div>
-    <div class="znak"><b>PCTP KOSZALIN</b>EduPlaner 2026 · SMART-P1<br>Cele SMART w przedszkolu</div>
+    <div class="znak"><div class="znak-txt"><b>PCTP KOSZALIN</b>EduPlaner 2026 · SMART-P1<br>Cele SMART w przedszkolu</div><img class="znak-logo" src="logo-pctp.webp" alt="Logo PCTP Koszalin"></div>
   </div>
   <div class="meta">
     <div><label>Grupa</label><span>„Motylki” · 5-latki</span></div>
