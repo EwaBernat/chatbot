@@ -1,0 +1,157 @@
+<!doctype html><html lang="pl"><head><meta charset="utf-8">
+<title>Konspekt TUE-1 Termometr napięcia</title><link rel="stylesheet" href="wspolne.css">
+<style>
+body.a4{background:#fff}
+.ark{padding:44px 56px 30px}
+.gl{display:flex;justify-content:space-between;align-items:flex-end;border-bottom:3px solid var(--fiolet);padding-bottom:13px;margin-bottom:20px}
+.gl h1{font-size:29px;color:var(--fiolet);letter-spacing:-.01em}
+.gl .sub{font-size:13.5px;color:var(--mute);margin-top:5px}
+.gl .znak{text-align:right;font-size:11.5px;color:var(--mute);line-height:1.5}
+.gl .znak b{color:var(--pomarancz);font-size:13.5px;display:block;letter-spacing:.09em}
+.meta{display:grid;grid-template-columns:repeat(4,1fr);border:1px solid var(--linia);border-radius:10px;overflow:hidden;margin-bottom:18px}
+.meta div{padding:10px 13px;border-right:1px solid var(--linia);background:var(--papier-lt)}
+.meta div:last-child{border-right:none}
+.meta label{display:block;font-size:9.5px;font-weight:700;letter-spacing:.11em;text-transform:uppercase;color:var(--mute);margin-bottom:3px}
+.meta span{font-size:14px;font-weight:700;color:var(--fiolet)}
+h2.sek{font-size:12px;font-weight:700;letter-spacing:.13em;text-transform:uppercase;color:var(--fiolet);margin:18px 0 8px;display:flex;align-items:center;gap:9px}
+h2.sek::before{content:"";width:15px;height:3px;background:var(--pomarancz)}
+.cel{border:2px solid var(--pomarancz);border-left:10px solid var(--pomarancz);border-radius:11px;background:#FFF6F2;padding:15px 19px}
+.cel .nag{font-size:10px;font-weight:700;letter-spacing:.13em;text-transform:uppercase;color:var(--pomarancz);margin-bottom:7px}
+.cel p{font-size:17.5px;line-height:1.45;font-weight:700;color:var(--fiolet-cn)}
+.cel .rozbior{display:grid;grid-template-columns:repeat(5,1fr);gap:7px;margin-top:12px}
+.cel .rozbior div{background:#fff;border:1px solid #F3C9B6;border-radius:7px;padding:7px 8px}
+.cel .rozbior b{display:block;font-size:15px;color:var(--pomarancz);line-height:1}
+.cel .rozbior span{font-size:9.5px;color:var(--mute);line-height:1.35;display:block;margin-top:3px}
+ul.pkt2{list-style:none}
+ul.pkt2 li{font-size:13.5px;line-height:1.55;padding-left:19px;position:relative;margin-bottom:2px}
+ul.pkt2 li::before{content:"▸";position:absolute;left:0;color:var(--pomarancz);font-weight:700}
+ul.pkt2.zi li::before{content:"✓";color:var(--zielony)}
+.kol2{display:grid;grid-template-columns:1fr 1fr;gap:24px}
+.kol3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px}
+table.t{width:100%;border-collapse:collapse;font-size:12.5px}
+table.t th{background:var(--fiolet);color:#fff;text-align:left;padding:8px 11px;font-size:10px;letter-spacing:.08em;text-transform:uppercase}
+table.t td{border:1px solid var(--linia);padding:8px 11px;vertical-align:top;line-height:1.45}
+table.t.karta td{height:26px}
+table.t.karta tr:nth-child(even) td{background:#fff}
+table.t.karta tr td:not(.et2){background:var(--papier-lt)}
+table.t tr:nth-child(even) td{background:var(--papier-lt)}
+table.t td.et2{font-weight:700;color:var(--fiolet);white-space:nowrap}
+.pozLvl{border:1px solid var(--linia);border-radius:9px;padding:10px 12px;background:var(--papier-lt)}
+.pozLvl b{display:block;font-size:11px;letter-spacing:.09em;text-transform:uppercase;color:var(--pomarancz);margin-bottom:4px}
+.pozLvl span{font-size:12.5px;line-height:1.45;color:var(--atrament)}
+.wsk{border:1px solid var(--linia);border-left:7px solid var(--zielony);border-radius:9px;background:#F1F8F4;padding:12px 16px;font-size:13.5px;line-height:1.6}
+.wsk b{color:var(--zielony)}
+.kreski{display:flex;align-items:center;gap:8px;margin-top:8px}
+.kreski span{width:34px;height:34px;border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:17px;font-weight:700;border:2px solid var(--linia);background:#fff}
+.kreski .p{color:var(--zielony);border-color:#A9D8C4}
+.kreski .m{color:var(--faint)}
+.kreski b{margin-left:6px;font-size:13.5px;color:var(--zielony)}
+.ppb{margin-top:16px;border-top:1px solid var(--linia);padding-top:11px;font-size:10.5px;line-height:1.7;color:var(--mute)}
+.ppb b{color:var(--bursztyn)}
+.stopka2{margin-top:14px;border-top:1px solid var(--linia);padding-top:9px;display:flex;justify-content:space-between;font-size:10.5px;color:var(--faint)}
+</style></head><body class="a4">
+<div class="pasek"></div>
+<div class="ark">
+  <div class="gl">
+    <div><h1>Konspekt zajęć · TUE-1 „Termometr napięcia”</h1>
+      <div class="sub">Załącznik do IPET · sfera integracji społeczno-emocjonalnej i samoregulacji</div></div>
+    <div class="znak"><b>PCTP KOSZALIN</b>EduPlaner 2026 · SMART-P1<br>Cele SMART w przedszkolu</div>
+  </div>
+  <div class="meta">
+    <div><label>Grupa</label><span>„Motylki” · 5-latki</span></div>
+    <div><label>Data zajęć</label><span>14.10.2026 r.</span></div>
+    <div><label>Czas</label><span>30 minut + praca ciągła</span></div>
+    <div><label>Prowadząca</label><span>mgr A. Nowak</span></div>
+  </div>
+
+  <h2 class="sek">Obszar podstawy programowej i kod ICF</h2>
+  <ul class="pkt2"><li><b>Obszar osobisty</b> — tożsamość, emocje, granice (podstawa programowa wychowania przedszkolnego obowiązująca od 1.09.2026 r.). Sfera integracji społeczno-emocjonalnej i samoregulacji. <span class="icf">ICF: b1521 — regulacja emocji</span></li></ul>
+
+  <h2 class="sek">Cel zajęć zapisany formułą SMART</h2>
+  <div class="cel">
+    <div class="nag">Cel · ten sam zapis w konspekcie, w karcie obserwacji i w sekcji III IPET</div>
+    <p>Dziecko w sytuacjach trudnych w sali i w ogrodzie samodzielnie, bez podpowiedzi słownej dorosłego, rozpozna narastające napięcie na termometrze i zastosuje strategię wyciszenia (oddech 4-4-4) w 4 na 5 obserwowanych sytuacji, do końca I semestru, co potwierdzi zapis w karcie obserwacji.</p>
+    <div class="rozbior">
+      <div><b>S</b><span>rozpozna na termometrze · zastosuje oddech — obie czynności widać</span></div>
+      <div><b>M</b><span>4 na 5 sytuacji trudnych, jedna kreska = jedna sytuacja</span></div>
+      <div><b>A</b><span>punkt wyjścia 1/5 z podpowiedzią → kryterium 4/5</span></div>
+      <div><b>R</b><span>samoregulacja = warunek udziału w zabawie i posiłku</span></div>
+      <div><b>T</b><span>koniec I semestru, przegląd po 8 tygodniach</span></div>
+    </div>
+  </div>
+
+  <div class="kol2" style="margin-top:18px">
+    <div>
+      <h2 class="sek">Cele operacyjne — dziecko:</h2>
+      <ul class="pkt2 zi">
+        <li>wskaże na termometrze poziom odpowiadający swojemu napięciu,</li>
+        <li>nazwie strefę kolorem (zielona / żółta / czerwona),</li>
+        <li>wykona oddech 4-4-4 według wzoru z planszy,</li>
+        <li>zgłosi potrzebę przerwy umówionym zdaniem, zanim wejdzie w strefę czerwoną.</li>
+      </ul>
+      <h2 class="sek">Metody i formy</h2>
+      <ul class="pkt2">
+        <li>plansza termometru jako pomoc i jednocześnie narzędzie pomiaru,</li>
+        <li>modelowanie oddechu przez dorosłego, próba z podpowiedzią, próba samodzielna,</li>
+        <li>formy: indywidualna → w parze z dorosłym → w sytuacji naturalnej w grupie.</li>
+      </ul>
+    </div>
+    <div>
+      <h2 class="sek">Modyfikacja dla poziomów wsparcia</h2>
+      <div class="kol3">
+        <div class="pozLvl"><b>Poziom I</b><span>Zapis bazowy: samodzielnie, 4 na 5 sytuacji.</span></div>
+        <div class="pozLvl"><b>Poziom II</b><span>Dopuszczalna jedna podpowiedź gestem; kryterium 3 na 5.</span></div>
+        <div class="pozLvl"><b>Poziom III</b><span>Wspólne wskazanie z dorosłym; kryterium 2 na 5, praca 1:1.</span></div>
+      </div>
+      <h2 class="sek">Środki dydaktyczne</h2>
+      <ul class="pkt2"><li>plansza „Termometr napięcia 1–6”, karta obserwacji, karta „Potrzebuję przerwy”, plansza oddechu 4-4-4.</li></ul>
+    </div>
+  </div>
+
+  <h2 class="sek">Przebieg zajęć</h2>
+  <table class="t">
+    <tr><th style="width:145px">Etap</th><th style="width:66px">Czas</th><th>Czynności nauczyciela i dzieci</th></tr>
+    <tr><td class="et2">Wprowadzenie</td><td>5 min</td><td>Zabawa „Jak dziś świeci mój termometr?” — każde dziecko wskazuje poziom. Nauczyciel nazywa strefy kolorem, bez oceniania.</td></tr>
+    <tr><td class="et2">Część główna</td><td>20 min</td><td>Modelowanie oddechu 4-4-4. Scenki sytuacji trudnych (przegrana, hałas, czekanie na swoją kolej) — dziecko wskazuje poziom i wybiera strategię. Nauczyciel stawia kreskę na karcie obserwacji przy próbach samodzielnych.</td></tr>
+    <tr><td class="et2">Zakończenie</td><td>5 min</td><td>Termometr zostaje na ścianie na wysokości oczu dzieci. Umowa: wracamy do niego w realnych sytuacjach przez cały dzień — dlatego dane zbierają się same.</td></tr>
+  </table>
+
+  <div class="kol2" style="margin-top:16px">
+    <div>
+      <h2 class="sek">Jak sprawdzę, czy cel został osiągnięty</h2>
+      <div class="wsk">
+        <b>Wskaźnik:</b> w ilu z 5 kolejnych sytuacji trudnych w tygodniu dziecko samodzielnie rozpoznało poziom i użyło strategii.<br>
+        <b>Narzędzie:</b> karta obserwacji — jedna kreska = jedna sytuacja.<br>
+        <b>Punkt kontrolny:</b> po 8 tygodniach · <b>Podsumowanie:</b> koniec I semestru.
+        <div class="kreski"><span class="p">✓</span><span class="p">✓</span><span class="m">–</span><span class="p">✓</span><span class="p">✓</span><b>4 / 5 → kryterium spełnione</b></div>
+      </div>
+    </div>
+    <div>
+      <h2 class="sek">Decyzja po punkcie kontrolnym (§8 broszury)</h2>
+      <table class="t">
+        <tr><th style="width:96px">Wynik</th><th>Co robię z celem</th></tr>
+        <tr><td class="et2" style="color:var(--zielony)">4–5 / 5</td><td>Cel osiągnięty — zapisuję z liczbą, przechodzę do generalizacji (inne miejsce, inna osoba dorosła).</td></tr>
+        <tr><td class="et2" style="color:var(--zolty)">2–3 / 5</td><td>Cel zostaje — zmieniam drogę: mniejszy krok, podpowiedź, więcej prób.</td></tr>
+        <tr><td class="et2" style="color:var(--czerwony)">0–1 / 5</td><td>Cofam cel o etap, upraszczam zadanie, weryfikuję poziom wsparcia i sam zapis celu.</td></tr>
+      </table>
+    </div>
+  </div>
+
+
+  <h2 class="sek">Karta obserwacji do wydruku — jedna kreska = jedna sytuacja trudna</h2>
+  <table class="t karta">
+    <tr><th style="width:150px">Tydzień</th><th>Sytuacja 1</th><th>Sytuacja 2</th><th>Sytuacja 3</th><th>Sytuacja 4</th><th>Sytuacja 5</th><th style="width:96px">Wynik</th><th style="width:150px">Uwagi</th></tr>
+    <tr><td class="et2">1 (14–18.10)</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+    <tr><td class="et2">2 (21–25.10)</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+    <tr><td class="et2">3 (28.10–01.11)</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+    <tr><td class="et2">4 (04–08.11)</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+    <tr><td class="et2">…</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+    <tr><td class="et2">8 — punkt kontrolny</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+  </table>
+  <p style="font-size:11.5px;color:var(--mute);margin-top:7px">Zaznaczasz tylko jedno: czy dziecko <b>samodzielnie</b> rozpoznało poziom na termometrze i użyło strategii (✓), czy nie (–). Sumę z tygodnia wpisujesz w kolumnie „Wynik” jako <b>x / 5</b>.</p>
+
+  <div class="ppb">
+    <b>Podstawa prawna:</b> § 6 rozporządzenia MEN z 9.08.2017 r. w sprawie warunków organizowania kształcenia, wychowania i opieki dla dzieci i młodzieży niepełnosprawnych… (t.j. Dz.U. 2020 poz. 1309) — cele IPET, zintegrowane działania, okresowa wielospecjalistyczna ocena poziomu funkcjonowania co najmniej dwa razy w roku szkolnym · § 6 i § 20 rozporządzenia MEN z 9.08.2017 r. w sprawie zasad organizacji i udzielania pomocy psychologiczno-pedagogicznej (t.j. Dz.U. 2023 poz. 1798) — obserwacja pedagogiczna i ocena efektywności udzielanej pomocy · rozporządzenie Ministra Edukacji z 11.03.2026 r. w sprawie podstawy programowej wychowania przedszkolnego (Dz.U. 2026 poz. 378), obowiązujące od 1.09.2026 r. — obszar osobisty.
+  </div>
+  <div class="stopka2"><span>EduPlaner 2026 · PCTP Koszalin · materiał szkoleniowy do broszury SMART-P1</span><span>Plansza 15 · Konspekt TUE-1 (format A4)</span></div>
+</div></body></html>

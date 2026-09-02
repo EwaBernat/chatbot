@@ -1,0 +1,42 @@
+/* Marka PCTP · EduPlaner 2026 — plansze do filmu szkoleniowego "Cele SMART w przedszkolu"
+   Źródło treści: broszura "Cele SMART w przedszkolu" (sygn. SMART-P1), stan prawny 28.08.2026 r. */
+:root{
+  --fiolet:#2D1B69; --fiolet-cn:#1F1148; --pomarancz:#E8450A;
+  --zielony:#0D7D5C; --czerwony:#B8350D; --bursztyn:#9A6206; --teal:#2B6E6E;
+  --zolty:#C47A10;
+  --papier:#FFFFFF; --papier-lt:#F7F5FB; --linia:#DDD8EA; --atrament:#1B1B22; --mute:#6B6580; --faint:#9A93AE;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:"Liberation Sans",Arial,Helvetica,sans-serif;color:var(--atrament);background:var(--papier-lt);width:1920px;height:1080px;overflow:hidden}
+body.a4{width:1240px;height:1754px;background:#fff}
+.pasek{height:10px;background:linear-gradient(90deg,var(--fiolet) 0%,var(--fiolet) 62%,var(--pomarancz) 62%,var(--pomarancz) 100%)}
+.ram{padding:40px 60px 0;height:1080px;display:flex;flex-direction:column}
+.gl{display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:26px}
+.gl .par{font-size:14px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--pomarancz);margin-bottom:8px}
+.gl h1{font-size:48px;color:var(--fiolet);letter-spacing:-.015em;line-height:1.06}
+.gl .sub{font-size:21px;color:var(--mute);margin-top:10px;max-width:1180px;line-height:1.4}
+.gl .znak{text-align:right;font-size:15px;color:var(--mute);line-height:1.6;flex:0 0 auto;padding-left:40px}
+.gl .znak b{color:var(--pomarancz);font-size:17px;display:block;letter-spacing:.1em}
+.tresc{flex:1;min-height:0}
+.stopka{display:flex;justify-content:space-between;padding:16px 0 18px;font-size:15px;color:var(--faint);border-top:1px solid var(--linia);margin-top:20px}
+/* ciemny wariant */
+body.ciemny{background:var(--fiolet)}
+body.ciemny .pasek{background:linear-gradient(90deg,#fff 0%,#fff 62%,var(--pomarancz) 62%,var(--pomarancz) 100%)}
+body.ciemny .ram{color:#fff}
+body.ciemny .gl h1{color:#fff}
+body.ciemny .gl .sub{color:#C9C1E4}
+body.ciemny .gl .znak{color:#C9C1E4}
+body.ciemny .stopka{color:#A79ECB;border-top-color:rgba(255,255,255,.18)}
+/* elementy wspólne */
+.karta{background:#fff;border:1px solid var(--linia);border-radius:18px;padding:26px 28px}
+.et{font-size:12px;font-weight:700;letter-spacing:.13em;text-transform:uppercase;color:var(--mute)}
+.zle-blok{border:2px solid #E9BDB0;border-left:10px solid var(--czerwony);border-radius:14px;background:#FDF4F1;padding:24px 28px}
+.ok-blok{border:2px solid #A9D8C4;border-left:10px solid var(--zielony);border-radius:14px;background:#F1F8F4;padding:24px 28px}
+.pom-blok{border:2px solid #F3C9B6;border-left:10px solid var(--pomarancz);border-radius:14px;background:#FFF6F2;padding:24px 28px}
+.cytat{font-size:27px;line-height:1.45;font-weight:700;color:var(--fiolet-cn)}
+ul.pkt{list-style:none}
+ul.pkt li{font-size:19px;line-height:1.55;padding-left:26px;position:relative;margin-bottom:9px;color:var(--atrament)}
+ul.pkt li::before{content:"▸";position:absolute;left:0;color:var(--pomarancz);font-weight:700}
+ul.pkt.ptaszki li::before{content:"✓";color:var(--zielony)}
+.pp{color:var(--bursztyn);font-weight:700}
+.icf{color:var(--teal);font-weight:700}
