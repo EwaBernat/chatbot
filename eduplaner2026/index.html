@@ -1962,12 +1962,14 @@ var OFERTA = [
     if(cel) cel.innerHTML=wg(typ).filter(function(o){return o.polecane;}).map(karta).join('');
   });
 
-  /* przyciski „wszystkie” */
+  /* przycisk „wszystkie” pokazuje się dopiero, gdy w katalogu jest coś
+     poza pozycjami widocznymi na stronie — inaczej obiecywałby więcej, niż daje */
   document.querySelectorAll('[data-katalog]').forEach(function(b){
-    var typ=b.dataset.katalog, n=wg(typ).length;
+    var typ=b.dataset.katalog, lista=wg(typ), widoczne=lista.filter(function(o){return o.polecane;}).length;
+    if(lista.length<=widoczne){ b.parentNode.hidden=true; return; }
     b.textContent = typ==='szkolenie'
-      ? 'Wszystkie szkolenia ('+n+')'
-      : 'Wszystkie broszury i materiały ('+n+')';
+      ? 'Wszystkie szkolenia ('+lista.length+')'
+      : 'Wszystkie broszury i materiały ('+lista.length+')';
     b.addEventListener('click',function(){ location.hash='katalog-'+typ; });
   });
 
