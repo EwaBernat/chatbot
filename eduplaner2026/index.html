@@ -388,6 +388,20 @@ svg.ck{flex:none;width:18px;height:18px;margin-top:3px}
 .buy-card .for{font-size:14px;color:var(--ink-2)}
 .buy-card .for b{color:var(--ink)}
 
+/* odtwarzacz filmów --------------------------------------------------- */
+.soon{cursor:default}
+.soon .play{background:rgba(255,255,255,.16);box-shadow:none}
+.soon .play svg{fill:rgba(255,255,255,.6)}
+.soon .dur::after,.playlist a.soon .d::after{content:" · wkrótce";color:var(--orange-ink);font-weight:600}
+.btn.soon{opacity:.55;pointer-events:none}
+.vbox{position:fixed;inset:0;z-index:60;display:none;place-items:center;padding:24px;background:rgba(18,11,40,.82);backdrop-filter:blur(6px)}
+.vbox[open],.vbox.on{display:grid}
+.vbox .frame{width:min(1080px,100%);aspect-ratio:16/9;background:#000;border-radius:14px;overflow:hidden;box-shadow:0 40px 80px -30px rgba(0,0,0,.8)}
+.vbox iframe,.vbox video{width:100%;height:100%;border:0;display:block}
+.vbox .close{position:absolute;top:18px;right:20px;width:44px;height:44px;border-radius:50%;border:1px solid rgba(255,255,255,.3);background:rgba(255,255,255,.12);color:#fff;font-size:22px;cursor:pointer;line-height:1}
+.vbox .close:hover{background:rgba(255,255,255,.22)}
+.vbox .cap{position:absolute;left:24px;bottom:20px;color:#EDE8F6;font-size:14px}
+
 /* pasek zaufania ----------------------------------------------------- */
 .trust-strip{padding:68px 0 64px;background:var(--paper);border-top:1px solid var(--line)}
 .trust-strip .eyebrow{margin-bottom:26px}
@@ -908,24 +922,23 @@ svg.ck{flex:none;width:18px;height:18px;margin-top:3px}
     </div>
     <div class="videos">
       <article class="feature">
-        <!-- TODO: podmień href na adres filmu w YouTube -->
-        <a class="thumb" href="#" aria-label="Odtwórz film wprowadzający na YouTube">
+        <a class="thumb" data-video="wprowadzenie" href="#" aria-label="Odtwórz film wprowadzający">
           <svg class="kw " aria-hidden="true"><use href="#kwiat"/></svg><span class="presenter" aria-hidden="true"><svg viewBox="0 0 200 200" preserveAspectRatio="xMidYMax meet"><defs><linearGradient id="pg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#8E7BD0"/><stop offset="1" stop-color="#2D1B69"/></linearGradient></defs><ellipse cx="100" cy="230" rx="110" ry="80" fill="url(#pg)"/><rect x="58" y="112" width="84" height="100" rx="34" fill="url(#pg)"/><circle cx="100" cy="76" r="36" fill="#BDB0DF"/><path d="M64 78c0-30 18-48 36-48s36 18 36 48c-8-10-20-16-36-16s-28 6-36 16z" fill="#4A33A0"/></svg></span><span class="kicker">Film wprowadzający</span><span class="dur">2:00</span>
           <span class="title">Co zmienia się w&nbsp;roku szkolnym 2026/2027 — i&nbsp;jak EduPlaner Cię przez to przeprowadzi</span>
           <span class="play"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 4l14 8-14 8z"/></svg></span>
         </a>
         <div class="feature-body">
           <div><p class="eyebrow">Zacznij tutaj</p><h3>Krótkie nagranie o&nbsp;nowej ocenie funkcjonalnej</h3><p>Czym jest KSzOF, co oznacza „jeden WOPF, dwa tryby” i&nbsp;jak wygląda cała ścieżka ucznia w&nbsp;programie.</p></div>
-          <a class="btn btn-ghost" href="#">Obejrzyj na YouTube</a>
+          <a class="btn btn-ghost" data-video="wprowadzenie" href="#">Obejrzyj film</a>
         </div>
       </article>
       <div>
         <ol class="playlist" aria-label="Szkolenie: ocena funkcjonalna w szkole podstawowej">
-          <li><a href="#"><span class="n">SP</span><span class="t">Ocena funkcjonalna wchodzi do szkoły<span class="s">Co się zmienia od września, czym jest KSzOF, jak wygląda ścieżka ucznia</span></span><span class="d">2:29</span></a></li>
-          <li><a href="#"><span class="n">A</span><span class="t">Co się zmienia od roku 2026/2027<span class="s">Zestawienie „dotychczas → od tego roku” i&nbsp;trzy warianty narzędzia</span></span><span class="d">4:10</span></a></li>
-          <li><a href="#"><span class="n">B</span><span class="t">Podstawa prawna, autorzy i&nbsp;ICF<span class="s">Rozporządzenie, zespół badaczy i&nbsp;pełna legenda pięciostopniowej skali</span></span><span class="d">3:08</span></a></li>
-          <li><a href="#"><span class="n">C</span><span class="t">Dziewięć obszarów, sten i&nbsp;poziom wsparcia<span class="s">Budowa kwestionariusza i&nbsp;profile rodzica, nauczyciela i&nbsp;specjalisty</span></span><span class="d">3:27</span></a></li>
-          <li><a href="#"><span class="n">D</span><span class="t">Obserwacja pogłębiona — cztery narzędzia<span class="s">Dziennik ABC, profil sensoryczny, rozwój mowy i&nbsp;teoria umysłu</span></span><span class="d">5:37</span></a></li>
+          <li><a href="#" data-video="sp"><span class="n">SP</span><span class="t">Ocena funkcjonalna wchodzi do szkoły<span class="s">Co się zmienia od września, czym jest KSzOF, jak wygląda ścieżka ucznia</span></span><span class="d">2:29</span></a></li>
+          <li><a href="#" data-video="a"><span class="n">A</span><span class="t">Co się zmienia od roku 2026/2027<span class="s">Zestawienie „dotychczas → od tego roku” i&nbsp;trzy warianty narzędzia</span></span><span class="d">4:10</span></a></li>
+          <li><a href="#" data-video="b"><span class="n">B</span><span class="t">Podstawa prawna, autorzy i&nbsp;ICF<span class="s">Rozporządzenie, zespół badaczy i&nbsp;pełna legenda pięciostopniowej skali</span></span><span class="d">3:08</span></a></li>
+          <li><a href="#" data-video="c"><span class="n">C</span><span class="t">Dziewięć obszarów, sten i&nbsp;poziom wsparcia<span class="s">Budowa kwestionariusza i&nbsp;profile rodzica, nauczyciela i&nbsp;specjalisty</span></span><span class="d">3:27</span></a></li>
+          <li><a href="#" data-video="d"><span class="n">D</span><span class="t">Obserwacja pogłębiona — cztery narzędzia<span class="s">Dziennik ABC, profil sensoryczny, rozwój mowy i&nbsp;teoria umysłu</span></span><span class="d">5:37</span></a></li>
         </ol>
         <p class="playlist-note"><b>18 minut i&nbsp;wiesz, na czym stoisz.</b> To, co widzisz w&nbsp;filmach, w&nbsp;aplikacji robisz klikając. Bloki A–D to skrót szkolenia, które prowadzimy dla rad pedagogicznych.</p>
       </div>
@@ -1285,12 +1298,59 @@ svg.ck{flex:none;width:18px;height:18px;margin-top:3px}
   </div>
 </footer>
 
+<div class="vbox" id="vbox" role="dialog" aria-modal="true" aria-label="Odtwarzacz filmu">
+  <button class="close" type="button" aria-label="Zamknij odtwarzacz">×</button>
+  <div class="frame" id="vframe"></div>
+</div>
+
 <div class="mobile-cta" aria-label="Szybkie działania">
   <a class="btn btn-ghost" href="tel:+48662888403">Zadzwoń</a>
   <a class="btn btn-primary" href="#zamow" data-order="app" data-buyer="inst">Zamów</a>
 </div>
 
 <script>
+/* ------------------------------------------------------------------
+   FILMY — wklej adresy poniżej. Działa YouTube, Vimeo i plik .mp4
+   (np. nagranie z HeyGen wgrane na własny serwer).
+   Puste pole = kafelek pokazuje „wkrótce” i nie udaje działającego linku.
+------------------------------------------------------------------- */
+var VIDEO = {
+  wprowadzenie: '',   // film wprowadzający, 2:00
+  sp:           '',   // Ocena funkcjonalna wchodzi do szkoły, 2:29
+  a:            '',   // Co się zmienia od roku 2026/2027, 4:10
+  b:            '',   // Podstawa prawna, autorzy i ICF, 3:08
+  c:            '',   // Dziewięć obszarów, sten i poziom wsparcia, 3:27
+  d:            ''    // Obserwacja pogłębiona — cztery narzędzia, 5:37
+};
+
+(function(){
+  var box=document.getElementById('vbox'), frame=document.getElementById('vframe');
+  if(!box) return;
+  function embed(url){
+    var yt=url.match(/(?:youtube\.com\/(?:watch\?v=|embed\/|live\/)|youtu\.be\/)([\w-]{6,})/);
+    if(yt) return '<iframe src="https://www.youtube-nocookie.com/embed/'+yt[1]+'?autoplay=1&rel=0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen title="Film EduPlaner 2026"></iframe>';
+    var vm=url.match(/vimeo\.com\/(?:video\/)?(\d+)/);
+    if(vm) return '<iframe src="https://player.vimeo.com/video/'+vm[1]+'?autoplay=1" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen title="Film EduPlaner 2026"></iframe>';
+    return '<video src="'+url+'" controls autoplay playsinline></video>';
+  }
+  function open(url){ frame.innerHTML=embed(url); box.classList.add('on'); document.body.style.overflow='hidden'; box.querySelector('.close').focus(); }
+  function close(){ box.classList.remove('on'); frame.innerHTML=''; document.body.style.overflow=''; }
+  box.querySelector('.close').addEventListener('click',close);
+  box.addEventListener('click',function(e){ if(e.target===box) close(); });
+  document.addEventListener('keydown',function(e){ if(e.key==='Escape'&&box.classList.contains('on')) close(); });
+
+  document.querySelectorAll('[data-video]').forEach(function(el){
+    var url=VIDEO[el.dataset.video];
+    if(url){
+      el.setAttribute('href',url); el.setAttribute('target','_blank'); el.setAttribute('rel','noopener');
+      el.addEventListener('click',function(e){ e.preventDefault(); open(url); });
+    } else {
+      el.classList.add('soon'); el.removeAttribute('href'); el.setAttribute('aria-disabled','true');
+      el.addEventListener('click',function(e){ e.preventDefault(); });
+    }
+  });
+})();
+
 (function(){
   var track=document.getElementById('track'), dots=document.getElementById('dots'); if(!track) return;
   var cards=track.querySelectorAll('.item');
