@@ -91,22 +91,58 @@ Do tego czytelność samego tekstu:
   większego oddechu, żeby nie zlewały się w plamę.
 - Moduły: karty szersze, tekst 14,5 px zamiast 13,5 px.
 
-## Jak podmienić zrzuty ekranu na własne
+## Jak podmienić obrazy na własne
 
-Strona czyta obrazy z katalogu `img/`. Wystarczy wgrać pliki o tych nazwach (JPG, najlepiej 1280×800 px lub 1920×1200 px, kadr od góry ekranu):
+Strona czyta obrazy z katalogu `img/`. Wystarczy wgrać pliki o tych nazwach (JPG, kadr od góry ekranu):
 
-| Plik | Gdzie się pokazuje |
-|---|---|
-| `img/ekran-obserwacje-wopf.jpg` | hero (główna ramka), taśma ekranów, galeria |
-| `img/ekran-druk-ipet.jpg` | hero (druk za ramką), taśma, galeria |
-| `img/ekran-karta-start.jpg` | taśma ekranów |
-| `img/ekran-karta-wopf.jpg` | taśma, galeria |
-| `img/ekran-baza.jpg` | taśma, galeria |
-| `img/autorka.jpg` | portret autorki (proporcje 4:5); bez pliku pokazują się inicjały |
+| Plik | Gdzie się pokazuje | Zalecany rozmiar |
+|---|---|---|
+| `img/app-panel-glowny.jpg` | hero — ekran w laptopie | 1600×1000 |
+| `img/app-kartoteka.jpg` | taśma ekranów | 1600×1000 |
+| `img/app-metryczka.jpg` | taśma ekranów | 1600×1000 |
+| `img/app-wopf.jpg` | taśma ekranów | 1600×1000 |
+| `img/app-plan-wsparcia.jpg` | taśma ekranów | 1600×1000 |
+| `img/app-ewaluacja.jpg` | taśma ekranów | 1600×1000 |
+| `img/app-zespol.jpg` | taśma ekranów | 1600×1000 |
+| `img/app-baza-wiedzy.jpg` | taśma ekranów | 1600×1000 |
+| `img/etap-przedszkole.jpg` | karta „Moduł 1 · Przedszkole” | 1200×750 (16:10) |
+| `img/etap-podstawowa.jpg` | karta „Moduł 2 · Szkoła podstawowa” | 1200×750 (16:10) |
+| `img/etap-ponadpodstawowa.jpg` | karta „Moduł 3 · Szkoła ponadpodstawowa” | 1200×750 (16:10) |
+| `img/hero-biurko.jpg` | hero zamiast laptopa (opcjonalnie) | 1600×1040 |
+| `img/autorka.jpg` | portret autorki (4:5) | 800×1000 |
+
+Trzy pliki `etap-*.jpg` to na razie **ilustracje w palecie marki**, nie zdjęcia. Można je zastąpić
+prawdziwymi zdjęciami sali przedszkolnej, klasy i pracowni — te same nazwy plików, ten sam kadr.
+Jeśli któregoś pliku brakuje, karta pokazuje się bez obrazu (skrypt `onerror` usuwa ramkę), więc
+strona się nie psuje.
 
 Po podmianie uruchom `python3 build_single.py`, a w `dist/eduplaner2026.html` powstanie
 wersja jednoplikowa z wbudowanymi obrazami (do wysyłki lub podglądu). Do wdrożenia na serwer
 wystarczy wgrać `index.html` razem z katalogiem `img/`.
+
+## Panel filmów — dodawanie nagrań bez kodu
+
+Plik `panel-filmow.html` to osobne narzędzie dla autorki, nie część strony sprzedażowej.
+Otwiera się dwuklikiem w przeglądarce i działa bez internetu. Trzy kroki:
+
+1. wczytanie pliku `index.html` (przeciągnięcie lub wybór z dysku),
+2. edycja listy filmów — dodanie, usunięcie, zmiana kolejności, wskazanie filmu głównego,
+   tytuł, opis, czas, link; panel rozpoznaje YouTube, Vimeo i bezpośrednie pliki MP4
+   oraz pozwala od razu obejrzeć podgląd,
+3. pobranie gotowego `index.html` do wgrania na serwer.
+
+Panel działa dlatego, że sekcja filmów powstaje z jednej tablicy danych w `index.html`:
+
+```js
+var FILMY = [ { "id": "...", "glowny": true, "tytul": "...", "czas": "2:00", "url": "" } ];
+```
+
+Puste `url` oznacza „wkrótce” — kafelek jest wtedy nieklikalny zamiast prowadzić donikąd.
+Sumę minut pod listą program liczy sam z pola `czas`, więc nie trzeba jej poprawiać ręcznie.
+
+Nagrania z HeyGen: pobrany plik MP4 warto wgrać na YouTube jako **niepubliczny** i wkleić
+adres do panelu. Plików wideo nie umieszcza się w samej stronie — jeden film waży więcej
+niż cała strona.
 
 ## Prawdziwe ekrany aplikacji
 

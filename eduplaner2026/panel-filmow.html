@@ -1,0 +1,330 @@
+<!doctype html>
+<html lang="pl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Panel filmów — EduPlaner 2026</title>
+<style>
+:root{
+  --plum:#2D1B69;--plum-soft:#EDE8F7;--plum-line:#D7CFEA;
+  --orange:#E8450A;--orange-ink:#C43705;--orange-soft:#FDE9E0;
+  --paper:#FBF8F3;--paper-2:#F4EFE8;--card:#FFFFFF;
+  --ink:#221B3A;--ink-2:#5B5471;--ink-3:#8A8399;--line:#E4DED6;--ok:#1E7F4F;
+  --font:"Segoe UI",system-ui,-apple-system,Roboto,Arial,sans-serif;
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--paper);color:var(--ink);font:16px/1.55 var(--font)}
+.wrap{max-width:1000px;margin:0 auto;padding:32px 22px 80px}
+h1{font-size:30px;margin:0 0 6px;color:var(--plum);letter-spacing:-.01em}
+h2{font-size:19px;margin:0 0 4px;color:var(--plum)}
+.sub{color:var(--ink-2);margin:0 0 26px;max-width:62ch}
+.step{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:22px 24px;margin-bottom:18px;
+  box-shadow:0 16px 30px -28px rgba(34,27,58,.5)}
+.step-no{display:inline-flex;align-items:center;justify-content:center;width:26px;height:26px;border-radius:50%;
+  background:var(--plum);color:#fff;font-size:13px;font-weight:700;margin-right:9px;vertical-align:2px}
+.hint{color:var(--ink-2);font-size:14.5px;margin:6px 0 0}
+.drop{margin-top:14px;border:2px dashed var(--plum-line);border-radius:14px;background:var(--plum-soft);
+  padding:26px;text-align:center;cursor:pointer;transition:background .15s ease,border-color .15s ease}
+.drop.over{background:var(--orange-soft);border-color:var(--orange)}
+.drop b{display:block;color:var(--plum);font-size:17px;margin-bottom:4px}
+.drop span{color:var(--ink-2);font-size:14px}
+input[type=file]{display:none}
+.btn{display:inline-flex;align-items:center;gap:8px;border:0;cursor:pointer;font:600 15px var(--font);
+  border-radius:11px;padding:12px 20px;background:var(--orange);color:#fff;text-decoration:none}
+.btn:hover{background:var(--orange-ink)}
+.btn.ghost{background:#fff;color:var(--plum);border:1px solid var(--plum-line)}
+.btn.ghost:hover{background:var(--plum-soft)}
+.btn:disabled{opacity:.45;cursor:not-allowed}
+.btn.sm{padding:8px 13px;font-size:13.5px;border-radius:9px}
+.row{display:flex;gap:10px;flex-wrap:wrap;align-items:center}
+.film{border:1px solid var(--line);border-radius:14px;padding:16px 16px 14px;margin-bottom:12px;background:var(--card)}
+.film.main{border-color:var(--orange);background:linear-gradient(180deg,#fff,var(--orange-soft))}
+.film-top{display:flex;align-items:center;gap:10px;margin-bottom:12px;flex-wrap:wrap}
+.tag{font-size:11.5px;letter-spacing:.12em;text-transform:uppercase;font-weight:700;color:#fff;background:var(--plum);
+  border-radius:99px;padding:5px 11px}
+.tag.o{background:var(--orange)}
+.spacer{flex:1}
+.grid{display:grid;grid-template-columns:110px 1fr 96px;gap:10px}
+@media (max-width:700px){.grid{grid-template-columns:1fr}}
+label{display:block;font-size:12.5px;font-weight:600;color:var(--ink-3);letter-spacing:.04em;
+  text-transform:uppercase;margin:0 0 4px}
+input[type=text],textarea{width:100%;font:15px var(--font);color:var(--ink);background:#fff;
+  border:1px solid var(--line);border-radius:9px;padding:9px 11px}
+input[type=text]:focus,textarea:focus{outline:2px solid var(--plum);outline-offset:1px;border-color:var(--plum)}
+textarea{resize:vertical;min-height:52px}
+.field{margin-bottom:10px}
+.url-state{font-size:13.5px;margin-top:5px;font-weight:600}
+.url-state.ok{color:var(--ok)}
+.url-state.bad{color:var(--orange-ink)}
+.url-state.empty{color:var(--ink-3);font-weight:500}
+.help{background:var(--plum-soft);border:1px solid var(--plum-line);border-radius:14px;padding:18px 20px;margin-top:16px}
+.help h3{margin:0 0 8px;font-size:16px;color:var(--plum)}
+.help ol{margin:0;padding-left:20px;color:var(--ink-2);font-size:14.5px}
+.help li{margin-bottom:5px}
+.done{display:none;margin-top:14px;background:#E9F6EE;border:1px solid #B9E0C9;color:#12603A;
+  border-radius:12px;padding:13px 16px;font-size:14.5px}
+.done.on{display:block}
+.warn{display:none;margin-top:12px;background:var(--orange-soft);border:1px solid #F3C4B0;color:var(--orange-ink);
+  border-radius:12px;padding:13px 16px;font-size:14.5px}
+.warn.on{display:block}
+.off{opacity:.5;pointer-events:none}
+#vbox{position:fixed;inset:0;background:rgba(20,13,40,.86);display:none;place-items:center;z-index:50;padding:24px}
+#vbox.on{display:grid}
+#vbox .in{width:min(900px,100%);aspect-ratio:16/9;background:#000;border-radius:14px;overflow:hidden;position:relative}
+#vbox iframe,#vbox video{width:100%;height:100%;border:0;display:block}
+#vbox .x{position:absolute;top:-44px;right:0;background:#fff;border:0;border-radius:9px;padding:7px 13px;
+  font:600 14px var(--font);cursor:pointer;color:var(--plum)}
+code{background:var(--paper-2);border:1px solid var(--line);border-radius:5px;padding:1px 5px;font-size:13.5px}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<h1>Panel filmów</h1>
+<p class="sub">Tutaj dodajesz nagrania do strony eduplaner2026.pl bez dotykania kodu.
+Wczytujesz plik strony, wklejasz linki do filmów, pobierasz gotowy plik i wysyłasz go na serwer.</p>
+
+<div class="step">
+  <h2><span class="step-no">1</span>Wczytaj plik strony</h2>
+  <p class="hint">Potrzebny jest plik <code>index.html</code> — ten sam, który stoi na stronie.
+  Przeciągnij go tutaj albo kliknij i wybierz z dysku.</p>
+  <div class="drop" id="drop" tabindex="0" role="button" aria-label="Wczytaj plik index.html">
+    <b>Przeciągnij tu plik index.html</b>
+    <span>albo kliknij, żeby wybrać go z komputera</span>
+  </div>
+  <input type="file" id="file" accept=".html,.htm,text/html">
+  <div class="warn" id="warn"></div>
+  <div class="done" id="loaded"></div>
+</div>
+
+<div class="step off" id="step2">
+  <h2><span class="step-no">2</span>Uzupełnij filmy</h2>
+  <p class="hint">Film oznaczony jako <b>główny</b> pokazuje się jako duży kafelek. Reszta trafia na listę obok.
+  Pole „Link” zostaw puste, jeśli nagranie jeszcze nie jest gotowe — na stronie pojawi się wtedy napis „wkrótce”,
+  a nie zepsuty odnośnik.</p>
+  <div id="lista"></div>
+  <div class="row" style="margin-top:14px">
+    <button class="btn ghost" id="add">+ Dodaj film</button>
+  </div>
+
+  <div class="help">
+    <h3>Skąd wziąć link do nagrania z HeyGen?</h3>
+    <ol>
+      <li>Pobierz z HeyGen gotowy plik MP4 na komputer.</li>
+      <li>Wejdź na YouTube, kliknij <b>Utwórz → Prześlij film</b> i wgraj ten plik.</li>
+      <li>W widoczności wybierz <b>Niepubliczny</b> — film obejrzy tylko ten, kto ma link, ale nie pojawi się w wyszukiwarce.
+          Jeśli chcesz, żeby każdy mógł go znaleźć, wybierz <b>Publiczny</b>.</li>
+      <li>Skopiuj adres filmu i wklej go tutaj w pole „Link”.</li>
+    </ol>
+    <p class="hint" style="margin-top:9px">Panel przyjmuje też linki z Vimeo oraz bezpośrednie adresy plików MP4,
+    jeśli masz własny serwer. Nie wgrywaj plików MP4 do samej strony — jeden film waży więcej niż cała strona.</p>
+  </div>
+</div>
+
+<div class="step off" id="step3">
+  <h2><span class="step-no">3</span>Pobierz gotowy plik</h2>
+  <p class="hint">Zapisz nowy <code>index.html</code> i wgraj go na serwer w miejsce starego. Reszta strony zostaje bez zmian.</p>
+  <div class="row" style="margin-top:12px">
+    <button class="btn" id="save">Pobierz gotowy index.html</button>
+    <button class="btn ghost" id="copy">Skopiuj sam fragment z filmami</button>
+  </div>
+  <div class="done" id="saved"></div>
+</div>
+
+</div>
+
+<div id="vbox" aria-hidden="true"><div class="in"><button class="x" type="button">Zamknij ✕</button><div id="vframe"></div></div></div>
+
+<script>
+(function(){
+'use strict';
+var RE = /var FILMY = (\[[\s\S]*?\n\]);/;
+var plik = null, nazwa = 'index.html', dane = [];
+
+var drop=document.getElementById('drop'), file=document.getElementById('file'),
+    warn=document.getElementById('warn'), loaded=document.getElementById('loaded'),
+    lista=document.getElementById('lista'), step2=document.getElementById('step2'),
+    step3=document.getElementById('step3'), saved=document.getElementById('saved');
+
+function pokazBlad(t){ warn.textContent=t; warn.classList.add('on'); loaded.classList.remove('on'); }
+function schowajBlad(){ warn.classList.remove('on'); }
+
+/* --- rozpoznanie linku ------------------------------------------- */
+function rozpoznaj(url){
+  url=(url||'').trim();
+  if(!url) return {stan:'empty', opis:'Brak linku — na stronie pokaże się „wkrótce”.'};
+  var yt=url.match(/(?:youtube\.com\/(?:watch\?v=|embed\/|live\/)|youtu\.be\/)([\w-]{6,})/);
+  if(yt) return {stan:'ok', opis:'Rozpoznano: YouTube', id:yt[1], typ:'yt'};
+  var vm=url.match(/vimeo\.com\/(?:video\/)?(\d+)/);
+  if(vm) return {stan:'ok', opis:'Rozpoznano: Vimeo', id:vm[1], typ:'vm'};
+  if(/^https?:\/\/\S+\.(mp4|webm|mov)(\?\S*)?$/i.test(url)) return {stan:'ok', opis:'Rozpoznano: plik wideo', typ:'mp4'};
+  if(/^https?:\/\//i.test(url)) return {stan:'bad', opis:'Nie rozpoznaję tego adresu. Użyj linku z YouTube lub Vimeo.'};
+  return {stan:'bad', opis:'To nie wygląda na adres internetowy — powinien zaczynać się od https://'};
+}
+
+/* --- podglad ------------------------------------------------------ */
+var vbox=document.getElementById('vbox'), vframe=document.getElementById('vframe');
+function graj(url){
+  var r=rozpoznaj(url);
+  if(r.typ==='yt') vframe.innerHTML='<iframe src="https://www.youtube-nocookie.com/embed/'+r.id+'?autoplay=1&rel=0" allow="autoplay; fullscreen" allowfullscreen></iframe>';
+  else if(r.typ==='vm') vframe.innerHTML='<iframe src="https://player.vimeo.com/video/'+r.id+'?autoplay=1" allow="autoplay; fullscreen" allowfullscreen></iframe>';
+  else vframe.innerHTML='<video src="'+url.replace(/"/g,'&quot;')+'" controls autoplay playsinline></video>';
+  vbox.classList.add('on');
+}
+function stop(){ vbox.classList.remove('on'); vframe.innerHTML=''; }
+vbox.querySelector('.x').addEventListener('click',stop);
+vbox.addEventListener('click',function(e){ if(e.target===vbox) stop(); });
+document.addEventListener('keydown',function(e){ if(e.key==='Escape') stop(); });
+
+/* --- wczytanie pliku ---------------------------------------------- */
+function wczytaj(f){
+  nazwa=f.name||'index.html';
+  var r=new FileReader();
+  r.onload=function(){
+    var t=String(r.result);
+    var m=t.match(RE);
+    if(!m){ pokazBlad('W tym pliku nie ma listy filmów. Upewnij się, że to index.html strony eduplaner2026.pl.'); return; }
+    try{ dane=JSON.parse(m[1]); }
+    catch(err){ pokazBlad('Lista filmów w pliku jest uszkodzona i nie da się jej odczytać. Wgraj kopię pliku sprzed zmian.'); return; }
+    if(!Array.isArray(dane)||!dane.length){ pokazBlad('Lista filmów jest pusta.'); return; }
+    plik=t; schowajBlad();
+    loaded.textContent='Wczytano '+nazwa+' — znaleziono '+dane.length+' '+(dane.length===1?'film':'filmów')+'.';
+    loaded.classList.add('on');
+    step2.classList.remove('off'); step3.classList.remove('off');
+    rysuj();
+  };
+  r.readAsText(f,'utf-8');
+}
+drop.addEventListener('click',function(){ file.click(); });
+drop.addEventListener('keydown',function(e){ if(e.key==='Enter'||e.key===' '){ e.preventDefault(); file.click(); } });
+file.addEventListener('change',function(){ if(file.files[0]) wczytaj(file.files[0]); });
+['dragenter','dragover'].forEach(function(t){ drop.addEventListener(t,function(e){ e.preventDefault(); drop.classList.add('over'); }); });
+['dragleave','drop'].forEach(function(t){ drop.addEventListener(t,function(e){ e.preventDefault(); drop.classList.remove('over'); }); });
+drop.addEventListener('drop',function(e){ var f=e.dataTransfer.files[0]; if(f) wczytaj(f); });
+
+/* --- edytor -------------------------------------------------------- */
+function esc(t){ return String(t==null?'':t).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/"/g,'&quot;'); }
+
+function rysuj(){
+  lista.innerHTML='';
+  dane.forEach(function(f,i){
+    var el=document.createElement('div');
+    el.className='film'+(f.glowny?' main':'');
+    el.innerHTML=
+      '<div class="film-top">'
+      + (f.glowny?'<span class="tag o">Film główny</span>':'<span class="tag">'+esc(f.numer||(i+1))+'</span>')
+      + '<span class="spacer"></span>'
+      + (f.glowny?'':'<button class="btn ghost sm" data-a="main">Ustaw jako główny</button>')
+      + '<button class="btn ghost sm" data-a="up">↑</button>'
+      + '<button class="btn ghost sm" data-a="down">↓</button>'
+      + '<button class="btn ghost sm" data-a="del">Usuń</button>'
+      + '</div>'
+      + '<div class="grid">'
+      +   '<div class="field"><label>Oznaczenie</label><input type="text" data-f="numer" value="'+esc(f.numer)+'" placeholder="np. A"></div>'
+      +   '<div class="field"><label>Tytuł</label><input type="text" data-f="tytul" value="'+esc(f.tytul)+'"></div>'
+      +   '<div class="field"><label>Czas</label><input type="text" data-f="czas" value="'+esc(f.czas)+'" placeholder="4:10"></div>'
+      + '</div>'
+      + '<div class="field"><label>Krótki opis</label><textarea data-f="opis">'+esc(f.opis)+'</textarea></div>'
+      + (f.glowny
+          ? '<div class="field"><label>Etykieta na kafelku</label><input type="text" data-f="etykieta" value="'+esc(f.etykieta)+'" placeholder="Film wprowadzający"></div>'
+            +'<div class="field"><label>Nagłówek pod kafelkiem</label><input type="text" data-f="naglowek" value="'+esc(f.naglowek)+'"></div>'
+          : '')
+      + '<div class="field"><label>Link do nagrania</label>'
+      +   '<div class="row"><input type="text" data-f="url" value="'+esc(f.url)+'" placeholder="https://www.youtube.com/watch?v=..." style="flex:1;min-width:220px">'
+      +   '<button class="btn ghost sm" data-a="play">Podgląd</button></div>'
+      +   '<p class="url-state"></p></div>';
+
+    el.querySelectorAll('[data-f]').forEach(function(inp){
+      inp.addEventListener('input',function(){
+        f[inp.dataset.f]=inp.value;
+        if(inp.dataset.f==='url') stanLinku(el,f);
+        zapiszLokalnie();
+      });
+    });
+    el.querySelectorAll('[data-a]').forEach(function(b){
+      b.addEventListener('click',function(){
+        var a=b.dataset.a;
+        if(a==='del'){
+          if(dane.length===1){ alert('Musi zostać przynajmniej jeden film.'); return; }
+          if(!confirm('Usunąć film „'+(f.tytul||'bez tytułu')+'”?')) return;
+          dane.splice(i,1);
+          if(!dane.some(function(x){return x.glowny;})) dane[0].glowny=true;
+        }
+        else if(a==='up'&&i>0){ dane.splice(i-1,0,dane.splice(i,1)[0]); }
+        else if(a==='down'&&i<dane.length-1){ dane.splice(i+1,0,dane.splice(i,1)[0]); }
+        else if(a==='main'){ dane.forEach(function(x){ x.glowny=false; }); f.glowny=true; }
+        else if(a==='play'){
+          if(!f.url){ alert('Najpierw wklej link do nagrania.'); return; }
+          graj(f.url); return;
+        }
+        zapiszLokalnie(); rysuj();
+      });
+    });
+    lista.appendChild(el);
+    stanLinku(el,f);
+  });
+}
+
+function stanLinku(el,f){
+  var p=el.querySelector('.url-state'), r=rozpoznaj(f.url);
+  p.textContent=r.opis; p.className='url-state '+r.stan;
+}
+
+/* --- pamiec podreczna przegladarki -------------------------------- */
+function zapiszLokalnie(){
+  try{ localStorage.setItem('eduplaner-filmy',JSON.stringify(dane)); }catch(e){}
+}
+
+/* --- zapis pliku --------------------------------------------------- */
+function idy(){
+  var uzyte={};
+  dane.forEach(function(f,i){
+    var baza=(f.id||'film'+(i+1)).toString().toLowerCase().replace(/[^a-z0-9-]+/g,'-').replace(/^-|-$/g,'')||('film'+(i+1));
+    var id=baza,n=2;
+    while(uzyte[id]){ id=baza+'-'+n; n++; }
+    uzyte[id]=1; f.id=id;
+  });
+}
+function nowyPlik(){
+  idy();
+  if(!dane.some(function(x){return x.glowny;})) dane[0].glowny=true;
+  var czysty=dane.map(function(f){
+    return {id:f.id, glowny:!!f.glowny, etykieta:f.etykieta||'', numer:f.numer||'',
+            czas:f.czas||'', tytul:f.tytul||'', naglowek:f.naglowek||'', opis:f.opis||'', url:(f.url||'').trim()};
+  });
+  var blok='var FILMY = '+JSON.stringify(czysty,null,2)+';';
+  return {tekst: plik.replace(RE,function(){ return blok; }), blok: blok};
+}
+document.getElementById('save').addEventListener('click',function(){
+  if(!plik) return;
+  var zle=dane.filter(function(f){ return rozpoznaj(f.url).stan==='bad'; });
+  if(zle.length && !confirm('W '+zle.length+' '+(zle.length===1?'filmie jest link, którego nie rozpoznaję':'filmach są linki, których nie rozpoznaję')
+      +'.\n\nTakie nagranie może się nie odtworzyć. Zapisać mimo to?')) return;
+  var w=nowyPlik();
+  var a=document.createElement('a');
+  a.href=URL.createObjectURL(new Blob([w.tekst],{type:'text/html;charset=utf-8'}));
+  a.download='index.html';
+  document.body.appendChild(a); a.click(); a.remove();
+  setTimeout(function(){ URL.revokeObjectURL(a.href); },4000);
+  saved.textContent='Zapisano. Wgraj pobrany index.html na serwer w miejsce poprzedniego.';
+  saved.classList.add('on');
+  rysuj();
+});
+document.getElementById('copy').addEventListener('click',function(){
+  if(!plik) return;
+  var w=nowyPlik();
+  function po(){ saved.textContent='Skopiowano fragment do schowka.'; saved.classList.add('on'); }
+  if(navigator.clipboard&&navigator.clipboard.writeText){ navigator.clipboard.writeText(w.blok).then(po,recznie); }
+  else recznie();
+  function recznie(){ window.prompt('Skopiuj poniższy tekst (Ctrl+C):', w.blok); po(); }
+});
+document.getElementById('add').addEventListener('click',function(){
+  dane.push({id:'film'+(dane.length+1), glowny:false, etykieta:'', numer:'', czas:'',
+             tytul:'Nowy film', naglowek:'', opis:'', url:''});
+  zapiszLokalnie(); rysuj();
+  lista.lastChild.scrollIntoView({behavior:'smooth',block:'center'});
+});
+})();
+</script>
+</body>
+</html>

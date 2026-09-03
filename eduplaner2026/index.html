@@ -163,11 +163,11 @@ svg.ck{flex:none;width:18px;height:18px;margin-top:3px}
 .device .foot{height:4px;width:64px;margin:9px auto 0;border-radius:99px;background:rgba(255,255,255,.16)}
 .livedot{position:absolute;right:22px;bottom:-16px;z-index:5;display:flex;align-items:center;gap:8px;background:rgba(20,13,40,.78);backdrop-filter:blur(6px);border:1px solid rgba(255,255,255,.2);border-radius:99px;padding:7px 14px 7px 11px;color:#F0ECF7;font-size:12.5px;font-weight:600;animation:wake .9s ease .45s both}
 .livedot i{width:7px;height:7px;border-radius:50%;background:#57D08A;animation:pulse 2.6s ease-out infinite}
-.stage .float{z-index:6;left:-40px;right:auto;bottom:-42px;animation:wake 1s cubic-bezier(.2,.8,.25,1) .3s both}
+.hero-stage .float{z-index:6;left:-40px;right:auto;bottom:-42px;animation:wake 1s cubic-bezier(.2,.8,.25,1) .3s both}
 @keyframes wake{from{opacity:0;transform:translateY(18px) scale(.985)}to{opacity:1;transform:none}}
 @keyframes pulse{0%{box-shadow:0 0 0 0 rgba(87,208,138,.6)}70%{box-shadow:0 0 0 9px rgba(87,208,138,0)}100%{box-shadow:0 0 0 0 rgba(87,208,138,0)}}
-@media (prefers-reduced-motion: reduce){.device,.livedot,.stage .float{animation:none}.livedot i{animation:none}}
-@media (max-width:980px){.device{margin-right:0}.stage .float{left:0;bottom:-10px}}
+@media (prefers-reduced-motion: reduce){.device,.livedot,.hero-stage .float{animation:none}.livedot i{animation:none}}
+@media (max-width:980px){.device{margin-right:0}.hero-stage .float{left:0;bottom:-10px}}
 .laptop{background:none!important;box-shadow:none!important;padding:0!important}
 .laptop .lid{border-radius:13px 13px 5px 5px;padding:9px 9px 16px;background:linear-gradient(160deg,#31274F,#181128);box-shadow:0 46px 80px -44px rgba(0,0,0,.8),inset 0 0 0 1px rgba(255,255,255,.11),inset 0 1px 0 rgba(255,255,255,.16);position:relative}
 .laptop .cam{position:absolute;left:50%;top:5px;transform:translateX(-50%);width:5px;height:5px;border-radius:50%;background:#4B4270;box-shadow:0 0 0 2px rgba(255,255,255,.07)}
@@ -182,11 +182,11 @@ svg.ck{flex:none;width:18px;height:18px;margin-top:3px}
 .photo img{display:block;width:100%;height:auto;aspect-ratio:16/10.4;object-fit:cover;object-position:52% 42%}
 .photo::after{content:"";position:absolute;inset:0;pointer-events:none;
   background:linear-gradient(200deg,rgba(45,27,105,.06),transparent 34%),radial-gradient(120% 80% at 50% 108%,rgba(26,15,66,.30),transparent 62%)}
-.stage.has-photo .device,.stage.has-photo .deck{display:none}
-.stage.has-photo .photo{display:block}
-.stage.has-photo .livedot{bottom:16px;right:16px}
-.stage.has-photo .float{bottom:-30px;left:-38px}
-@media (max-width:980px){.stage.has-photo .float{left:0;bottom:-16px}}
+.hero-stage.has-photo .device,.hero-stage.has-photo .deck{display:none}
+.hero-stage.has-photo .photo{display:block}
+.hero-stage.has-photo .livedot{bottom:16px;right:16px}
+.hero-stage.has-photo .float{bottom:-30px;left:-38px}
+@media (max-width:980px){.hero-stage.has-photo .float{left:0;bottom:-16px}}
 
 /* pasek standardów -------------------------------------------------- */
 .standards{padding:26px 0;border-bottom:1px solid var(--line);background:var(--paper-2)}
@@ -288,8 +288,13 @@ svg.ck{flex:none;width:18px;height:18px;margin-top:3px}
 /* etapy ------------------------------------------------------------- */
 .stages{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:24px}
 @media (max-width:900px){.stages{grid-template-columns:1fr}}
-.stage{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:28px 28px 26px;display:flex;flex-direction:column;gap:14px}
-.stage .lbl{font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-3);font-weight:600}
+.stage{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;display:flex;flex-direction:column;box-shadow:0 18px 34px -28px rgba(34,27,58,.5);transition:transform .18s ease,box-shadow .18s ease}
+.stage:hover{transform:translateY(-3px);box-shadow:0 26px 46px -28px rgba(34,27,58,.55)}
+.stage-photo{position:relative;margin:0;aspect-ratio:16/10;background:var(--paper-2);overflow:hidden}
+.stage-photo img{display:block;width:100%;height:100%;object-fit:cover}
+.stage-photo::after{content:"";position:absolute;inset:0;pointer-events:none;background:linear-gradient(180deg,transparent 52%,rgba(45,27,105,.28));border-bottom:1px solid var(--line)}
+.stage-chip{position:absolute;left:16px;bottom:14px;z-index:2;font-size:11.5px;letter-spacing:.14em;text-transform:uppercase;font-weight:700;color:#fff;background:rgba(45,27,105,.86);border:1px solid rgba(255,255,255,.28);border-radius:99px;padding:6px 13px}
+.stage-body{padding:22px 26px 26px;display:flex;flex-direction:column;gap:13px;flex:1}
 .stage h3{font-size:26px;color:var(--plum)}
 .stage p{color:var(--ink-2);font-size:15.5px}
 .stage ul{margin:6px 0 0;padding:16px 0 0;list-style:none;display:flex;flex-direction:column;gap:8px;border-top:1px solid var(--line)}
@@ -595,12 +600,12 @@ svg.ck{flex:none;width:18px;height:18px;margin-top:3px}
 @media (prefers-color-scheme: light){:root:not([data-theme="dark"]) .blob{opacity:.7}}
 
 /* scena hero -------------------------------------------------------- */
-.stage{position:relative;padding:44px 0 66px 40px;min-height:520px}
-.stage::before{content:"";position:absolute;top:-26px;bottom:14px;left:0;right:-320px;border-radius:32px 0 0 32px;background:linear-gradient(160deg,#4A3A8C 0%,#382A6B 45%,var(--plum-deep) 100%);z-index:0;box-shadow:inset 0 0 0 1px rgba(255,255,255,.07)}
-.stage::after{content:"";position:absolute;inset:-26px -320px 14px 0;border-radius:32px 0 0 32px;background:radial-gradient(60% 50% at 85% 10%,rgba(255,255,255,.14),transparent 70%);z-index:0;pointer-events:none}
-.stage .kw{right:-40px;top:-46px;width:300px;height:300px;opacity:.16;z-index:0}
-.stage .kw-2{left:-14px;bottom:10px;width:120px;height:120px;opacity:.28;z-index:0}
-.stage .app{position:relative;z-index:2;transform:perspective(1400px) rotateY(-7deg) rotateX(2deg);transform-origin:left center;border-color:rgba(255,255,255,.35);box-shadow:0 40px 70px -30px rgba(0,0,0,.55)}
+.hero-stage{position:relative;padding:44px 0 66px 40px;min-height:520px}
+.hero-stage::before{content:"";position:absolute;top:-26px;bottom:14px;left:0;right:-320px;border-radius:32px 0 0 32px;background:linear-gradient(160deg,#4A3A8C 0%,#382A6B 45%,var(--plum-deep) 100%);z-index:0;box-shadow:inset 0 0 0 1px rgba(255,255,255,.07)}
+.hero-stage::after{content:"";position:absolute;inset:-26px -320px 14px 0;border-radius:32px 0 0 32px;background:radial-gradient(60% 50% at 85% 10%,rgba(255,255,255,.14),transparent 70%);z-index:0;pointer-events:none}
+.hero-stage .kw{right:-40px;top:-46px;width:300px;height:300px;opacity:.16;z-index:0}
+.hero-stage .kw-2{left:-14px;bottom:10px;width:120px;height:120px;opacity:.28;z-index:0}
+.hero-stage .app{position:relative;z-index:2;transform:perspective(1400px) rotateY(-7deg) rotateX(2deg);transform-origin:left center;border-color:rgba(255,255,255,.35);box-shadow:0 40px 70px -30px rgba(0,0,0,.55)}
 
 .docp{position:absolute;z-index:1;right:28px;top:-6px;width:150px;aspect-ratio:1/1.41;background:#fff;border-radius:6px;box-shadow:0 24px 40px -20px rgba(0,0,0,.6);padding:14px 12px;transform:rotate(6deg);display:flex;flex-direction:column;gap:6px}
 .docp::before{content:"IPET";font-family:var(--display);font-weight:800;font-size:11px;color:var(--plum);letter-spacing:.06em}
@@ -609,7 +614,7 @@ svg.ck{flex:none;width:18px;height:18px;margin-top:3px}
 .docp i.s{width:70%}
 .docp i.m{width:85%}
 .docp .tbl{margin-top:4px;border:1px solid #E4DEF3;border-radius:3px;height:34px;background:repeating-linear-gradient(#fff 0 7px,#F3F0FA 7px 8px)}
-@media (max-width:980px){.stage{padding:36px 0 56px 24px}.stage::before,.stage::after{right:-24px;border-radius:32px}.stage .app{transform:none}.docp{display:none}.stage .float{right:8px}}
+@media (max-width:980px){.hero-stage{padding:36px 0 56px 24px}.hero-stage::before,.hero-stage::after{right:-24px;border-radius:32px}.hero-stage .app{transform:none}.docp{display:none}.hero-stage .float{right:8px}}
 .hero h1 em{background:linear-gradient(transparent 64%,color-mix(in srgb,var(--orange) 30%,transparent) 64% 90%,transparent 90%)}
 .hero .blob.peach{width:420px;height:420px;left:-180px;top:-120px}
 .hero .blob.lav{width:360px;height:360px;left:260px;bottom:-200px}
@@ -807,11 +812,11 @@ svg.ck{flex:none;width:18px;height:18px;margin-top:3px}
       </div>
     </div>
 
-    <div class="app-wrap stage">
+    <div class="app-wrap hero-stage">
     <svg class="kw " aria-hidden="true"><use href="#kwiat"/></svg><svg class="kw kw-2" aria-hidden="true"><use href="#kwiat"/></svg>
     <figure class="photo">
       <img src="img/hero-biurko.jpg" alt="EduPlaner 2026 otwarty na monitorze w sali przedszkolnej, obok notatnik WOPF i kubek PCTP"
-           onload="this.closest('.stage').classList.add('has-photo')" onerror="this.closest('figure').remove()">
+           onload="this.closest('.hero-stage').classList.add('has-photo')" onerror="this.closest('figure').remove()">
     </figure>
     <div class="device laptop">
       <div class="lid">
@@ -963,9 +968,30 @@ svg.ck{flex:none;width:18px;height:18px;margin-top:3px}
       <p class="lead">Kwestionariusz, druki i&nbsp;słownictwo dopasowane do etapu. Subskrypcja obejmuje moduł dla etapu, który prowadzi Twoja placówka.</p>
     </div>
     <div class="stages">
-      <article class="stage"><span class="lbl">Moduł 1</span><h3>Przedszkole</h3><p>Ocena funkcjonalna dziecka w&nbsp;wieku przedszkolnym i&nbsp;plan wsparcia gotowy przed pierwszym zebraniem zespołu.</p><ul><li>Kwestionariusz dla etapu przedszkolnego</li><li>Profil rodzica i&nbsp;nauczyciela obok siebie</li><li>IPET / PEWS z&nbsp;celami SMART</li></ul></article>
-      <article class="stage"><span class="lbl">Moduł 2</span><h3>Szkoła podstawowa</h3><p>KSzOF w&nbsp;wariantach dla klas I–III i&nbsp;IV–VIII, obserwacja pogłębiona i&nbsp;trzy poziomy wsparcia.</p><ul><li>KSzOF: dziewięć obszarów, sten, poziom wsparcia</li><li>Dziennik ABC, profil sensoryczny, ToM</li><li>Dziennik realizacji i&nbsp;ewaluacja</li></ul></article>
-      <article class="stage"><span class="lbl">Moduł 3</span><h3>Szkoła ponadpodstawowa</h3><p>Ta sama ścieżka dla ucznia starszego, z&nbsp;naciskiem na samodzielność, edukację i&nbsp;życie w&nbsp;społeczności.</p><ul><li>Kwestionariusz dla etapu ponadpodstawowego</li><li>Profil ucznia jako jeden z&nbsp;profili oceny</li><li>IPET / PEWS i&nbsp;raport ewaluacyjny</li></ul></article>
+      <article class="stage">
+        <figure class="stage-photo"><img src="img/etap-przedszkole.jpg" alt="Sala przedszkolna: niski stolik, taborety, półka z pojemnikami" loading="lazy" width="1200" height="750" onerror="this.closest('.stage-photo').remove()"><span class="stage-chip">Moduł 1</span></figure>
+        <div class="stage-body">
+          <h3>Przedszkole</h3>
+          <p>Ocena funkcjonalna dziecka w&nbsp;wieku przedszkolnym i&nbsp;plan wsparcia gotowy przed pierwszym zebraniem zespołu.</p>
+          <ul><li>Kwestionariusz dla etapu przedszkolnego</li><li>Profil rodzica i&nbsp;nauczyciela obok siebie</li><li>IPET / PEWS z&nbsp;celami SMART</li></ul>
+        </div>
+      </article>
+      <article class="stage">
+        <figure class="stage-photo"><img src="img/etap-podstawowa.jpg" alt="Klasa szkoły podstawowej: tablica, ławki, plecak" loading="lazy" width="1200" height="750" onerror="this.closest('.stage-photo').remove()"><span class="stage-chip">Moduł 2</span></figure>
+        <div class="stage-body">
+          <h3>Szkoła podstawowa</h3>
+          <p>KSzOF w&nbsp;wariantach dla klas I–III i&nbsp;IV–VIII, obserwacja pogłębiona i&nbsp;trzy poziomy wsparcia.</p>
+          <ul><li>KSzOF: dziewięć obszarów, sten, poziom wsparcia</li><li>Dziennik ABC, profil sensoryczny, ToM</li><li>Dziennik realizacji i&nbsp;ewaluacja</li></ul>
+        </div>
+      </article>
+      <article class="stage">
+        <figure class="stage-photo"><img src="img/etap-ponadpodstawowa.jpg" alt="Sala szkoły ponadpodstawowej: szafki uczniowskie, biurko z laptopem" loading="lazy" width="1200" height="750" onerror="this.closest('.stage-photo').remove()"><span class="stage-chip">Moduł 3</span></figure>
+        <div class="stage-body">
+          <h3>Szkoła ponadpodstawowa</h3>
+          <p>Ta sama ścieżka dla ucznia starszego, z&nbsp;naciskiem na samodzielność, edukację i&nbsp;życie w&nbsp;społeczności.</p>
+          <ul><li>Kwestionariusz dla etapu ponadpodstawowego</li><li>Profil ucznia jako jeden z&nbsp;profili oceny</li><li>IPET / PEWS i&nbsp;raport ewaluacyjny</li></ul>
+        </div>
+      </article>
     </div>
   </div>
 </section>
@@ -981,26 +1007,11 @@ svg.ck{flex:none;width:18px;height:18px;margin-top:3px}
       <p class="lead">Wprowadzenie do zmian od września i&nbsp;czteroczęściowe szkolenie z&nbsp;oceny funkcjonalnej w&nbsp;szkole podstawowej. Prowadzi autorka.</p>
     </div>
     <div class="videos">
-      <article class="feature">
-        <a class="thumb" data-video="wprowadzenie" href="#" aria-label="Odtwórz film wprowadzający">
-          <svg class="kw " aria-hidden="true"><use href="#kwiat"/></svg><span class="presenter" aria-hidden="true"><svg viewBox="0 0 200 200" preserveAspectRatio="xMidYMax meet"><defs><linearGradient id="pg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#8E7BD0"/><stop offset="1" stop-color="#2D1B69"/></linearGradient></defs><ellipse cx="100" cy="230" rx="110" ry="80" fill="url(#pg)"/><rect x="58" y="112" width="84" height="100" rx="34" fill="url(#pg)"/><circle cx="100" cy="76" r="36" fill="#BDB0DF"/><path d="M64 78c0-30 18-48 36-48s36 18 36 48c-8-10-20-16-36-16s-28 6-36 16z" fill="#4A33A0"/></svg></span><span class="kicker">Film wprowadzający</span><span class="dur">2:00</span>
-          <span class="title">Co zmienia się w&nbsp;roku szkolnym 2026/2027 — i&nbsp;jak EduPlaner Cię przez to przeprowadzi</span>
-          <span class="play"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 4l14 8-14 8z"/></svg></span>
-        </a>
-        <div class="feature-body">
-          <div><p class="eyebrow">Zacznij tutaj</p><h3>Krótkie nagranie o&nbsp;nowej ocenie funkcjonalnej</h3><p>Czym jest KSzOF, co oznacza „jeden WOPF, dwa tryby” i&nbsp;jak wygląda cała ścieżka ucznia w&nbsp;programie.</p></div>
-          <a class="btn btn-ghost" data-video="wprowadzenie" href="#">Obejrzyj film</a>
-        </div>
-      </article>
+      <article class="feature" id="film-glowny"></article>
       <div>
-        <ol class="playlist" aria-label="Szkolenie: ocena funkcjonalna w szkole podstawowej">
-          <li><a href="#" data-video="sp"><span class="n">SP</span><span class="t">Ocena funkcjonalna wchodzi do szkoły<span class="s">Co się zmienia od września, czym jest KSzOF, jak wygląda ścieżka ucznia</span></span><span class="d">2:29</span></a></li>
-          <li><a href="#" data-video="a"><span class="n">A</span><span class="t">Co się zmienia od roku 2026/2027<span class="s">Zestawienie „dotychczas → od tego roku” i&nbsp;trzy warianty narzędzia</span></span><span class="d">4:10</span></a></li>
-          <li><a href="#" data-video="b"><span class="n">B</span><span class="t">Podstawa prawna, autorzy i&nbsp;ICF<span class="s">Rozporządzenie, zespół badaczy i&nbsp;pełna legenda pięciostopniowej skali</span></span><span class="d">3:08</span></a></li>
-          <li><a href="#" data-video="c"><span class="n">C</span><span class="t">Dziewięć obszarów, sten i&nbsp;poziom wsparcia<span class="s">Budowa kwestionariusza i&nbsp;profile rodzica, nauczyciela i&nbsp;specjalisty</span></span><span class="d">3:27</span></a></li>
-          <li><a href="#" data-video="d"><span class="n">D</span><span class="t">Obserwacja pogłębiona — cztery narzędzia<span class="s">Dziennik ABC, profil sensoryczny, rozwój mowy i&nbsp;teoria umysłu</span></span><span class="d">5:37</span></a></li>
-        </ol>
-        <p class="playlist-note"><b>18 minut i&nbsp;wiesz, na czym stoisz.</b> To, co widzisz w&nbsp;filmach, w&nbsp;aplikacji robisz klikając. Bloki A–D to skrót szkolenia, które prowadzimy dla rad pedagogicznych.</p>
+        <ol class="playlist" id="film-lista" aria-label="Szkolenie: ocena funkcjonalna w szkole podstawowej"></ol>
+        <p class="playlist-note" id="film-nota"></p>
+        <noscript><p class="playlist-note">Filmy odtwarzają się po włączeniu JavaScriptu w przeglądarce.</p></noscript>
       </div>
     </div>
   </div>
@@ -1264,7 +1275,7 @@ svg.ck{flex:none;width:18px;height:18px;margin-top:3px}
         <p>Krótkie wpisy o&nbsp;tym, co właśnie powstaje i&nbsp;dlaczego akurat to.</p>
         <ul>
           <li><i></i>Nad czym pracujemy w&nbsp;danym miesiącu</li>
-          <li><i></i>Co zmieniamy po uwagach placówek</li>
+          <li><i></i>Otwarty projekt — udoskonalenia po kolejnych analizach</li>
           <li><i></i>Zapowiedzi nowych modułów i&nbsp;druków</li>
         </ul>
         <span class="go">Zobacz profil <svg viewBox="0 0 24 24"><path d="M5 12h13M13 6l6 6-6 6"/></svg></span>
@@ -1440,14 +1451,122 @@ var LINKS = {
   blog:     ''    // np. https://eduplaner2026.pl/blog
 };
 
-var VIDEO = {
-  wprowadzenie: '',   // film wprowadzający, 2:00
-  sp:           '',   // Ocena funkcjonalna wchodzi do szkoły, 2:29
-  a:            '',   // Co się zmienia od roku 2026/2027, 4:10
-  b:            '',   // Podstawa prawna, autorzy i ICF, 3:08
-  c:            '',   // Dziewięć obszarów, sten i poziom wsparcia, 3:27
-  d:            ''    // Obserwacja pogłębiona — cztery narzędzia, 5:37
-};
+var FILMY = [
+  {
+    "id": "wprowadzenie",
+    "glowny": true,
+    "etykieta": "Film wprowadzający",
+    "numer": "",
+    "czas": "2:00",
+    "tytul": "Co zmienia się w roku szkolnym 2026/2027 — i jak EduPlaner Cię przez to przeprowadzi",
+    "naglowek": "Krótkie nagranie o nowej ocenie funkcjonalnej",
+    "opis": "Czym jest KSzOF, co oznacza „jeden WOPF, dwa tryby” i jak wygląda cała ścieżka ucznia w programie.",
+    "url": ""
+  },
+  {
+    "id": "sp",
+    "glowny": false,
+    "etykieta": "",
+    "numer": "SP",
+    "czas": "2:29",
+    "tytul": "Ocena funkcjonalna wchodzi do szkoły",
+    "naglowek": "",
+    "opis": "Co się zmienia od września, czym jest KSzOF, jak wygląda ścieżka ucznia",
+    "url": ""
+  },
+  {
+    "id": "a",
+    "glowny": false,
+    "etykieta": "",
+    "numer": "A",
+    "czas": "4:10",
+    "tytul": "Co się zmienia od roku 2026/2027",
+    "naglowek": "",
+    "opis": "Zestawienie „dotychczas → od tego roku” i trzy warianty narzędzia",
+    "url": ""
+  },
+  {
+    "id": "b",
+    "glowny": false,
+    "etykieta": "",
+    "numer": "B",
+    "czas": "3:08",
+    "tytul": "Podstawa prawna, autorzy i ICF",
+    "naglowek": "",
+    "opis": "Rozporządzenie, zespół badaczy i pełna legenda pięciostopniowej skali",
+    "url": ""
+  },
+  {
+    "id": "c",
+    "glowny": false,
+    "etykieta": "",
+    "numer": "C",
+    "czas": "3:27",
+    "tytul": "Dziewięć obszarów, sten i poziom wsparcia",
+    "naglowek": "",
+    "opis": "Budowa kwestionariusza i profile rodzica, nauczyciela i specjalisty",
+    "url": ""
+  },
+  {
+    "id": "d",
+    "glowny": false,
+    "etykieta": "",
+    "numer": "D",
+    "czas": "5:37",
+    "tytul": "Obserwacja pogłębiona — cztery narzędzia",
+    "naglowek": "",
+    "opis": "Dziennik ABC, profil sensoryczny, rozwój mowy i teoria umysłu",
+    "url": ""
+  }
+];
+/* mapa adresow dla odtwarzacza — powstaje z FILMY, nie edytuj recznie */
+var VIDEO = {};
+FILMY.forEach(function(f){ VIDEO[f.id] = f.url || ''; });
+
+/* render sekcji filmow -------------------------------------------- */
+(function(){
+  var feat=document.getElementById('film-glowny'),
+      list=document.getElementById('film-lista'),
+      nota=document.getElementById('film-nota');
+  if(!feat||!list) return;
+  var PRESENTER='<span class="presenter" aria-hidden="true"><svg viewBox="0 0 200 200" preserveAspectRatio="xMidYMax meet"><defs><linearGradient id="pg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#8E7BD0"/><stop offset="1" stop-color="#2D1B69"/></linearGradient></defs><ellipse cx="100" cy="230" rx="110" ry="80" fill="url(#pg)"/><rect x="58" y="112" width="84" height="100" rx="34" fill="url(#pg)"/><circle cx="100" cy="76" r="36" fill="#BDB0DF"/><path d="M64 78c0-30 18-48 36-48s36 18 36 48c-8-10-20-16-36-16s-28 6-36 16z" fill="#4A33A0"/></svg></span>';
+  function esc(t){return String(t==null?'':t).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');}
+  /* jednoliterowe spojniki nie zostaja na koncu wiersza */
+  function tx(t){return esc(t).replace(/(^|[\s(])([aiouwzAIOUWZ])\s+/g,'$1$2\u00A0');}
+
+  var glowny=FILMY.filter(function(f){return f.glowny;})[0]||FILMY[0];
+  var reszta=FILMY.filter(function(f){return f!==glowny;});
+
+  feat.innerHTML=
+    '<a class="thumb" data-video="'+esc(glowny.id)+'" href="#" aria-label="Odtwórz: '+esc(glowny.tytul)+'">'
+    +'<svg class="kw" aria-hidden="true"><use href="#kwiat"/></svg>'+PRESENTER
+    +'<span class="kicker">'+tx(glowny.etykieta||'Film wprowadzający')+'</span>'
+    +'<span class="dur">'+esc(glowny.czas)+'</span>'
+    +'<span class="title">'+tx(glowny.tytul)+'</span>'
+    +'<span class="play"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 4l14 8-14 8z"/></svg></span></a>'
+    +'<div class="feature-body"><div><p class="eyebrow">Zacznij tutaj</p>'
+    +'<h3>'+tx(glowny.naglowek||glowny.tytul)+'</h3><p>'+tx(glowny.opis)+'</p></div>'
+    +'<a class="btn btn-ghost" data-video="'+esc(glowny.id)+'" href="#">Obejrzyj film</a></div>';
+
+  list.innerHTML=reszta.map(function(f){
+    return '<li><a href="#" data-video="'+esc(f.id)+'">'
+      +'<span class="n">'+esc(f.numer||'•')+'</span>'
+      +'<span class="t">'+tx(f.tytul)+'<span class="s">'+tx(f.opis)+'</span></span>'
+      +'<span class="d">'+esc(f.czas)+'</span></a></li>';
+  }).join('');
+
+  if(nota){
+    var sek=0;
+    FILMY.forEach(function(f){
+      var m=String(f.czas||'').match(/^(\d+):(\d{2})$/);
+      if(m) sek+=Number(m[1])*60+Number(m[2]);
+    });
+    var min=Math.round(sek/60);
+    nota.innerHTML='<b>'+(min?min+'\u00A0minut i\u00A0wiesz, na czym stoisz.':'Obejrzyj i\u00A0wiedz, na czym stoisz.')+'</b> '
+      +'To, co widzisz w\u00A0filmach, w\u00A0aplikacji robisz klikając. Bloki A–D to skrót szkolenia, które prowadzimy dla rad pedagogicznych.';
+  }
+})();
+
 
 (function(){
   var box=document.getElementById('vbox'), frame=document.getElementById('vframe');
