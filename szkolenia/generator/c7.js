@@ -1,0 +1,138 @@
+const G = require('./gen.js');
+const { Paragraph, AlignmentType, BorderStyle, t, p, H1, H2, H3, bullet, numItem, spacer,
+        pageBreak, box, table, lines, modul, straznik, cw, CONTENT, PURPLE, ORANGE, LIGHT, LIGHTO } = G;
+
+const C = [];
+const add = (...x) => x.forEach(e => C.push(e));
+const BLANK = '';
+
+add(pageBreak());
+add(new Paragraph({ alignment: AlignmentType.CENTER, spacing: { before: 200, after: 60 },
+  children: [t('ZAŁĄCZNIKI  Z1 – Z8', { bold: true, size: 34, color: PURPLE, sp: 30 })] }));
+add(new Paragraph({ alignment: AlignmentType.CENTER, spacing: { after: 240 },
+  border: { bottom: { style: BorderStyle.SINGLE, size: 12, color: ORANGE, space: 8 } },
+  children: [t('materiały do powielenia dla uczestników', { size: 20, color: '4A4A4A' })] }));
+add(p('Załączniki Z2 (tabela porównawcza „co było / co jest”) oraz Z3 (mapa obszarów ICF d1–d9) znajdują się w treści modułów M1 i M2 — powielamy je bezpośrednio z tych stron.'));
+
+/* ---- Z1 ---- */
+add(spacer(160));
+add(H1('Z1', 'Ściąga podstaw prawnych — jedna strona do laminowania'));
+add(table(['Zagadnienie', 'Akt prawny', 'Publikator'], [
+  ['Podstawa programowa wychowania przedszkolnego (od 1.09.2026)', 'Rozporządzenie Ministra Edukacji z dnia 11 marca 2026 r.', 'Dz.U. 2026 poz. 378'],
+  ['Ocena funkcjonalna; orzeczenia i opinie zespołów orzekających', 'Rozporządzenie Ministra Edukacji z dnia 2 marca 2026 r.', 'Dz.U. 2026 poz. 428'],
+  ['Zasady organizacji i udzielania pomocy psychologiczno-pedagogicznej', 'Rozporządzenie MEN z dnia 9 sierpnia 2017 r.', 'Dz.U. 2017 poz. 1591; tekst jedn. Dz.U. 2023 poz. 1798'],
+  ['Kształcenie specjalne — WOPFU, IPET, dostosowania', 'Rozporządzenie MEN z dnia 9 sierpnia 2017 r.', 'Dz.U. 2017 poz. 1578; tekst jedn. Dz.U. 2020 poz. 1309'],
+  ['Dokumentacja przebiegu nauczania, działalności wychowawczej i opiekuńczej', 'Rozporządzenie MEN z dnia 25 sierpnia 2017 r.', 'Dz.U. 2017 poz. 1646 ze zm.'],
+  ['Ustrój szkolnictwa, zadania przedszkola, prawa rodziców', 'Ustawa z dnia 14 grudnia 2016 r. — Prawo oświatowe', 'tekst jedn. — sprawdzić aktualny w ISAP'],
+  ['Ochrona danych osobowych, w tym danych o zdrowiu dziecka', 'Rozporządzenie (UE) 2016/679 (RODO), art. 6 ust. 1 lit. c i e; art. 9 ust. 2 lit. g', 'Dz.Urz. UE L 119 z 4.05.2016'],
+  ['Poprzednia podstawa programowa (stan do 31.08.2026 — dla porównania)', 'Rozporządzenie MEN z dnia 14 lutego 2017 r., załącznik nr 1', 'Dz.U. 2017 poz. 356'],
+  ['Poprzednie rozporządzenie o orzeczeniach i opiniach (stan poprzedni)', 'Rozporządzenie MEN z dnia 7 września 2017 r.', 'Dz.U. 2017 poz. 1743 ze zm.'],
+], [3000, 3400, CONTENT - 3000 - 3400], { boldCol0: true }));
+add(spacer(80));
+add(box('ZASADA STRAŻNIKA PRAWA', [
+  p('Nie cytujemy przepisów z pamięci ani z materiałów szkoleniowych — także z tego. Przed wpisaniem podstawy prawnej do dokumentu dziecka sprawdzamy publikator w Internetowym Systemie Aktów Prawnych (isap.sejm.gov.pl) i upewniamy się, czy akt nie został zmieniony. W przypadku aktów z 2026 r. sprawdzamy dodatkowo, czy nie ukazał się tekst jednolity.'),
+], { fill: LIGHTO, bar: ORANGE }));
+
+/* ---- Z4 ---- */
+add(pageBreak());
+add(H1('Z4', 'Karta decyzyjna — czy uruchamiamy moduł pogłębiony?'));
+add(p('Kartę wypełnia zespół po analizie arkuszy KPOF. Jedna karta na jedno dziecko. Kartę wpina się do teczki dziecka niezależnie od podjętej decyzji — także wtedy, gdy zdecydowano nie uruchamiać modułu. Zapis decyzji odmownej jest równie ważny jak zapis decyzji pozytywnej.'));
+add(spacer(80));
+add(table(null, [
+  ['Dziecko / grupa', BLANK], ['Data analizy / skład zespołu', BLANK],
+  ['Wersja KPOF (A / B / C)', BLANK], ['Wynik ogólny i kwalifikacja', BLANK],
+], [2600, CONTENT - 2600], { boldCol0: true, zebra: false }));
+add(spacer(120));
+add(H3('Krok 1 — sprawdź reguły'));
+add(table(['Reguła', 'Warunek', 'Spełniona?'], [
+  ['R1', 'Średnia któregokolwiek obszaru poniżej 2,0.', '☐ TAK   ☐ NIE'],
+  ['R2', 'Dwa lub więcej twierdzeń ocenionych na 1 lub 2 w tym samym obszarze.', '☐ TAK   ☐ NIE'],
+  ['R3', 'Rozbieżność średniej obszaru między oceniającymi ≥ 1,5 pkt.', '☐ TAK   ☐ NIE'],
+  ['R4', 'Sygnał zdrowotny z metryczki (sekcja VI).', '☐ TAK   ☐ NIE'],
+  ['R5', 'Zachowanie powtarzalne, zagrażające lub przerywające uczestnictwo.', '☐ TAK   ☐ NIE'],
+  ['R6', 'Brak poprawy mimo udzielanej pomocy p-p przez ok. 3 miesiące.', '☐ TAK   ☐ NIE'],
+], [900, 5900, CONTENT - 900 - 5900], { boldCol0: true }));
+add(spacer(120));
+add(H3('Krok 2 — wybierz moduł'));
+add(table(['Moduł', 'Uruchamiamy?', 'Uzasadnienie (obszar, twierdzenia, obserwacje)'], [
+  ['ABC — analiza behawioralna', '☐ TAK  ☐ NIE', BLANK],
+  ['Profil sensoryczny', '☐ TAK  ☐ NIE', BLANK],
+  ['Obserwacja ToM', '☐ TAK  ☐ NIE', BLANK],
+], [2600, 1700, CONTENT - 2600 - 1700], { boldCol0: true, zebra: false }));
+add(spacer(120));
+add(H3('Krok 3 — organizacja'));
+add(table(null, [
+  ['Osoba prowadząca obserwację', BLANK],
+  ['Termin rozpoczęcia i zakończenia', BLANK],
+  ['Liczba planowanych zapisów / zdarzeń', BLANK],
+  ['Data spotkania zespołu omawiającego wynik', BLANK],
+  ['Poinformowano rodzica — data i forma', BLANK],
+  ['Podpisy członków zespołu', BLANK],
+], [3400, CONTENT - 3400], { boldCol0: true, zebra: false }));
+
+/* ---- Z5 ---- */
+add(pageBreak());
+add(H1('Z5', 'Karta celu SMART z wbudowaną ewaluacją'));
+add(p('Jedna karta na jeden cel. Karta służy jednocześnie do zaplanowania celu i do jego ewaluacji — dolna część wypełniana jest w terminie pomiaru, bez tworzenia osobnego dokumentu.'));
+add(spacer(100));
+add(table(['Element', 'Zapis'], [
+  ['Dziecko / grupa', BLANK],
+  ['Źródło celu w WOPF (blok, strona, cytat)', BLANK],
+  ['Obszar ICF (d1–d9) i punkt podstawy programowej', BLANK],
+  ['Poziom wyjściowy — ocena KPOF dla tego zachowania', BLANK],
+], [3600, CONTENT - 3600], { boldCol0: true, zebra: false }));
+add(spacer(100));
+add(box('TREŚĆ CELU — WYPEŁNIJ WEDŁUG FORMUŁY', [
+  p([t('[Imię] w [sytuacja] będzie [zachowanie] w [ile razy z ilu prób] przy [poziom wsparcia] do [data]; pomiar: [narzędzie].', { i: true, color: '6B6B6B' })]),
+  ...lines(4),
+], { fill: 'FFFFFF', bar: PURPLE }));
+add(spacer(100));
+add(table(['Kontrola SMART', 'Sprawdzenie', 'OK?'], [
+  ['S — konkretny', 'Czy wskazano zachowanie i sytuację?', '☐'],
+  ['M — mierzalny', 'Czy jest liczba i poziom wsparcia?', '☐'],
+  ['A — osiągalny', 'Czy to jeden krok od poziomu wyjściowego z KPOF?', '☐'],
+  ['R — istotny', 'Czy da się wskazać źródło w WOPF?', '☐'],
+  ['T — określony w czasie', 'Czy jest data osiągnięcia i data pomiaru?', '☐'],
+], [2200, 5900, CONTENT - 2200 - 5900], { boldCol0: true }));
+add(spacer(120));
+add(H3('Ewaluacja celu — wypełnia zespół w terminie pomiaru'));
+const opcje = (arr) => arr.map(x => new Paragraph({ spacing: { before: 40, after: 40 },
+  children: [t(x, { size: 17 })] }));
+const wynikOpc = () => opcje(['☐ osiągnięty w pełni', '☐ osiągnięty częściowo', '☐ brak postępu', '☐ regres']);
+const decyzjaOpc = () => opcje(['☐ zamykamy cel', '☐ kontynuujemy bez zmian', '☐ modyfikujemy IPET', '☐ zespół z rodzicem']);
+add(table(['Data pomiaru', 'Wartość osiągnięta', 'Wynik', 'Decyzja'], [
+  [BLANK, BLANK, wynikOpc(), decyzjaOpc()],
+  [BLANK, BLANK, wynikOpc(), decyzjaOpc()],
+], [1500, 1900, 2900, CONTENT - 1500 - 1900 - 2900], { zebra: false }));
+add(spacer(80));
+add(table(null, [['Uzasadnienie decyzji i zmiany wprowadzone w IPET', lines(3)]], [3600, CONTENT - 3600], { boldCol0: true, zebra: false }));
+
+/* ---- Z6 ---- */
+add(pageBreak());
+add(H1('Z6', 'Kalendarz dokumentacji — rok szkolny 2026 / 2027'));
+add(p('Kalendarz przyjmuje rada pedagogiczna w module M10. Kolumna „odpowiedzialny” wypełniana jest na szkoleniu — bez nazwisk harmonogram pozostaje deklaracją.'));
+add(spacer(80));
+add(table(['Termin', 'Zadanie', 'Dokument', 'Odpowiedzialny'], [
+  ['1–15 września', 'Zebranie i uzupełnienie metryczek; odbiór podpisów pod klauzulą RODO i upoważnieniami do odbioru.', 'Metryczka dziecka', BLANK],
+  ['do 15 września', 'Weryfikacja orzeczeń i opinii złożonych w przedszkolu; uruchomienie zegara 30 dni dla nowych orzeczeń.', 'Metryczka, sekcja VII', BLANK],
+  ['15–30 września', 'Wypełnienie KPOF przez nauczycieli i specjalistów; przekazanie arkuszy rodzicom.', 'KPOF A / B / C', BLANK],
+  ['do 30 września', 'Opracowanie IPET dla dzieci rozpoczynających kształcenie z orzeczeniem.', 'IPET', BLANK],
+  ['wrzesień / październik', 'Pierwsza WOPF w roku szkolnym; spotkania zespołów z rodzicami.', 'WOPF', BLANK],
+  ['październik', 'KPOF dla grup 3-latków — po zakończeniu okresu adaptacji.', 'KPOF A', BLANK],
+  ['1–15 października', 'Analiza profili, karty decyzyjne, uruchomienie modułów pogłębionych.', 'Karta decyzyjna Z4', BLANK],
+  ['październik / listopad', 'Prowadzenie modułów pogłębionych (2–3 tygodnie obserwacji).', 'ABC / sensoryczny / ToM', BLANK],
+  ['listopad', 'Przegląd wskaźników — 15 minut na dziecko, notatka w dzienniku. Bez pełnej WOPF.', 'Karta celu Z5', BLANK],
+  ['grudzień / styczeń', 'Wystąpienia do poradni za zgodą rodziców dla dzieci bez poprawy mimo udzielanej pomocy.', 'Informacja o funkcjonowaniu', BLANK],
+  ['styczeń / luty', 'Druga WOPF; ewaluacja półroczna celów SMART; modyfikacja IPET.', 'WOPF + IPET + Z5', BLANK],
+  ['styczeń / luty', 'Ocena efektywności pomocy p-p dla dzieci bez orzeczenia; wnioski o dalszych działaniach.', 'Dokumentacja pomocy p-p', BLANK],
+  ['marzec', 'Przegląd wskaźników — notatka w dzienniku.', 'Karta celu Z5', BLANK],
+  ['do 30 kwietnia', 'Informacja o gotowości dziecka do podjęcia nauki w szkole podstawowej — wydanie rodzicom.', 'Informacja o gotowości', BLANK],
+  ['kwiecień / maj', 'KPOF — pomiar kontrolny na tym samym arkuszu, innym kolorem; porównanie profili.', 'KPOF', BLANK],
+  ['maj / czerwiec', 'Trzecia WOPF (zalecana) — podsumowanie roku; wnioski do organizacji pracy na kolejny rok.', 'WOPF', BLANK],
+  ['czerwiec', 'Ocena efektywności pomocy p-p na zakończenie form; wnioski dla nowych zespołów.', 'Dokumentacja pomocy p-p', BLANK],
+  ['czerwiec', 'Przegląd i uporządkowanie teczek; przekazanie dokumentacji zgodnie z instrukcją kancelaryjną.', 'Teczki dzieci', BLANK],
+  ['cały rok — 14 dni', 'Sporządzenie informacji o funkcjonowaniu dziecka od dnia otrzymania wystąpienia poradni.', 'Informacja o funkcjonowaniu', BLANK],
+  ['cały rok — 30 dni', 'Opracowanie IPET od dnia złożenia w przedszkolu orzeczenia o potrzebie kształcenia specjalnego.', 'IPET', BLANK],
+], [1750, 4000, 2000, CONTENT - 1750 - 4000 - 2000], { boldCol0: true }));
+
+module.exports = C;
