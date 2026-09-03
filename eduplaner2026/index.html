@@ -5,6 +5,25 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>EduPlaner 2026</title>
 <meta name="description" content="EduPlaner 2026 — aplikacja do oceny funkcjonalnej WOPF i planu wsparcia IPET / PEWS dla przedszkoli i szkół. Szkolenia i broszury dla placówek oraz osób indywidualnych. Zamówienie w 2 minuty, faktura dla placówki. PCTP Koszalin.">
+<link rel="canonical" href="https://eduplaner2026.pl/">
+<meta name="robots" content="index,follow">
+<meta name="author" content="Mirosława Ewa Jurczyszyn, PCTP Koszalin">
+
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="EduPlaner 2026">
+<meta property="og:locale" content="pl_PL">
+<meta property="og:url" content="https://eduplaner2026.pl/">
+<meta property="og:title" content="EduPlaner 2026 — WOPF i IPET w jednej aplikacji">
+<meta property="og:description" content="Ocena funkcjonalna na kwestionariuszu KSzOF, plan wsparcia IPET albo PEWS i ewaluacja. Dane ucznia wpisujesz raz, druki A4 wychodzą gotowe. Dla przedszkoli, szkół podstawowych i ponadpodstawowych.">
+<meta property="og:image" content="https://eduplaner2026.pl/img/og.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="EduPlaner 2026 — WOPF i IPET w jednej aplikacji">
+
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="EduPlaner 2026 — WOPF i IPET w jednej aplikacji">
+<meta name="twitter:description" content="Ocena funkcjonalna, plan wsparcia i ewaluacja w jednym miejscu. Dane wpisujesz raz, druki A4 wychodzą gotowe.">
+<meta name="twitter:image" content="https://eduplaner2026.pl/img/og.jpg">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=IBM+Plex+Sans:wght@400;500;600&display=swap">
@@ -175,7 +194,7 @@ svg.ck{flex:none;width:18px;height:18px;margin-top:3px}
 .laptop .deck .pad{position:absolute;left:50%;top:0;transform:translateX(-50%);width:16%;height:7px;border-radius:0 0 8px 8px;background:rgba(0,0,0,.45);box-shadow:inset 0 -1px 0 rgba(255,255,255,.12)}
 .laptop .livedot{bottom:-58px}
 
-/* zdjęcie w hero (img/hero-biurko.jpg) ------------------------------- */
+/* zdjęcie w hero (img/hero-biurko.webp) ------------------------------- */
 .photo{display:none;margin:0;position:relative;z-index:2;border-radius:16px;overflow:hidden;
   box-shadow:0 46px 84px -44px rgba(0,0,0,.72),0 0 0 1px rgba(255,255,255,.14);
   animation:wake .9s cubic-bezier(.2,.8,.25,1) both}
@@ -345,6 +364,7 @@ svg.ck{flex:none;width:18px;height:18px;margin-top:3px}
 .offer-grid.cols-3{grid-template-columns:repeat(3,minmax(0,1fr))}
 .offer-grid.cols-4{grid-template-columns:repeat(4,minmax(0,1fr))}
 @media (max-width:1000px){.offer-grid.cols-4{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:1080px){.foot-grid{grid-template-columns:repeat(3,minmax(0,1fr));gap:30px}}
 @media (max-width:900px){.offer-grid.cols-3,.offer-grid.cols-2{grid-template-columns:1fr}}
 @media (max-width:520px){.offer-grid.cols-4{grid-template-columns:1fr}}
 .offer{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:26px;display:flex;flex-direction:column;gap:12px;position:relative}
@@ -395,6 +415,26 @@ svg.ck{flex:none;width:18px;height:18px;margin-top:3px}
 .cover.autyzm .ttl em{font-style:normal;color:#8FC7F0;display:block}
 .cover.autyzm .ser{color:#9CC4E4;opacity:1}
 .offer-all{margin-top:26px;display:flex;justify-content:center}
+.kat-narzedzia{display:flex;flex-direction:column;gap:14px;margin-bottom:22px;
+  padding-bottom:20px;border-bottom:1px solid var(--line)}
+.kat-szukaj{position:relative}
+.kat-szukaj input{width:100%;font:15.5px var(--body);color:var(--ink);background:var(--card);
+  border:1px solid var(--line);border-radius:11px;padding:12px 40px 12px 40px}
+.kat-szukaj input:focus{outline:2px solid var(--plum);outline-offset:1px;border-color:var(--plum)}
+.kat-szukaj svg{position:absolute;left:13px;top:50%;transform:translateY(-50%);width:17px;height:17px;
+  stroke:var(--ink-3);fill:none;stroke-width:2.2;stroke-linecap:round;pointer-events:none}
+.kat-szukaj button{position:absolute;right:8px;top:50%;transform:translateY(-50%);border:0;background:none;
+  cursor:pointer;color:var(--ink-3);font:600 18px var(--body);padding:4px 8px;border-radius:7px}
+.kat-szukaj button:hover{background:var(--paper-2);color:var(--ink)}
+.kat-tagi{display:flex;flex-wrap:wrap;gap:8px}
+.kat-tagi button{border:1px solid var(--plum-line);background:var(--card);color:var(--ink-2);cursor:pointer;
+  border-radius:99px;padding:7px 14px;font:600 13.5px var(--body);transition:background .15s ease,color .15s ease}
+.kat-tagi button:hover{background:var(--plum-soft)}
+.kat-tagi button[aria-pressed="true"]{background:var(--plum);border-color:var(--plum);color:#fff}
+.kat-licznik{font-size:13.5px;color:var(--ink-3);font-variant-numeric:tabular-nums}
+.kat-licznik b{color:var(--ink)}
+.kat-pusto{padding:34px 4px;color:var(--ink-2);font-size:15.5px}
+.kat-wiecej{display:flex;justify-content:center;margin-top:22px}
 .tile-katalog{background:var(--plum-soft);border:1.5px dashed var(--plum-line);box-shadow:none;
   align-items:center;text-align:center;justify-content:center;gap:6px}
 .tile-katalog .ico{background:#fff;border-color:var(--plum-line)}
@@ -428,6 +468,13 @@ svg.ck{flex:none;width:18px;height:18px;margin-top:3px}
 @media (max-width:620px){.poz-main{grid-template-columns:1fr}}
 .poz .cover{width:100%;margin:0;aspect-ratio:1/1.3}
 .poz .ico{margin-bottom:14px}
+.zgody{display:flex;flex-direction:column;gap:12px;margin:20px 0 18px}
+.zgoda{display:grid;grid-template-columns:22px minmax(0,1fr);gap:11px;align-items:start;cursor:pointer;
+  font-size:14px;line-height:1.5;color:var(--ink-2)}
+.zgoda input{width:20px;height:20px;margin:1px 0 0;accent-color:var(--orange);cursor:pointer}
+.zgoda a{color:var(--plum);text-underline-offset:2px}
+.zgoda.err{color:var(--orange-ink)}
+.zgoda.err input{outline:2px solid var(--orange);outline-offset:2px}
 .ask-note{margin-top:22px;font-size:14.5px;color:var(--ink-3)}
 .offer-note{margin-top:24px;display:flex;justify-content:space-between;gap:24px;flex-wrap:wrap;align-items:center;padding:20px 24px;background:var(--plum-soft);border:1px solid var(--plum-line);border-radius:var(--radius)}
 .offer-note p{font-size:15px;color:var(--ink-2);max-width:62ch}
@@ -832,7 +879,7 @@ svg.ck{flex:none;width:18px;height:18px;margin-top:3px}
 
 /* stopka ------------------------------------------------------------ */
 .site-footer{background:var(--plum-deep);color:var(--on-plum-3);padding:48px 0 32px;font-size:15px;line-height:1.6}
-.foot-grid{display:grid;grid-template-columns:minmax(0,5fr) repeat(3,minmax(0,2fr));gap:40px;padding-bottom:36px;border-bottom:1px solid var(--on-plum-line)}
+.foot-grid{display:grid;grid-template-columns:minmax(0,4fr) repeat(4,minmax(0,2fr));gap:32px;padding-bottom:36px;border-bottom:1px solid var(--on-plum-line)}
 @media (max-width:860px){.foot-grid{grid-template-columns:1fr 1fr}}
 @media (max-width:520px){.foot-grid{grid-template-columns:1fr}}
 .site-footer .brand{color:#F6F3FB;margin-bottom:14px}
@@ -842,6 +889,7 @@ svg.ck{flex:none;width:18px;height:18px;margin-top:3px}
 .site-footer a{color:var(--on-plum-3);text-decoration:none}
 .site-footer a:hover{color:#F6F3FB;text-decoration:underline}
 .site-footer .contact a{color:#F6F3FB;font-weight:600}
+.contact .do-uzupelnienia i{color:var(--orange);font-style:normal;font-size:.9em}
 .foot-bottom{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;padding-top:24px;font-size:13px}
 
 /* pasek mobilny ----------------------------------------------------- */
@@ -916,13 +964,13 @@ svg.ck{flex:none;width:18px;height:18px;margin-top:3px}
     <div class="app-wrap hero-stage">
     <svg class="kw " aria-hidden="true"><use href="#kwiat"/></svg><svg class="kw kw-2" aria-hidden="true"><use href="#kwiat"/></svg>
     <figure class="photo">
-      <img src="img/hero-biurko.jpg" alt="EduPlaner 2026 otwarty na monitorze w sali przedszkolnej, obok notatnik WOPF i kubek PCTP"
+      <img src="img/hero-biurko.webp" alt="EduPlaner 2026 otwarty na monitorze w sali przedszkolnej, obok notatnik WOPF i kubek PCTP"
            onload="this.closest('.hero-stage').classList.add('has-photo')" onerror="this.closest('figure').remove()">
     </figure>
     <div class="device laptop">
       <div class="lid">
       <div class="screen">
-        <img src="img/app-panel-glowny.jpg" alt="Panel główny aplikacji EduPlaner 2026 na ekranie laptopa: menu Ścieżka dziecka, list autorki i moduły" width="2400" height="1500">
+        <img src="img/app-panel-glowny.webp" alt="Panel główny aplikacji EduPlaner 2026 na ekranie laptopa: menu Ścieżka dziecka, list autorki i moduły" width="2400" height="1500">
         <span class="glare" aria-hidden="true"></span>
       </div>
       <span class="cam" aria-hidden="true"></span>
@@ -1064,7 +1112,7 @@ svg.ck{flex:none;width:18px;height:18px;margin-top:3px}
     </div>
     <div class="stages">
       <article class="stage">
-        <figure class="stage-photo"><img src="img/etap-przedszkole.jpg" alt="Jasna sala przedszkolna: okrągłe stoliki, otwarte regały z pojemnikami, kącik z dywanem" loading="lazy" width="1200" height="750" onerror="this.closest('.stage-photo').remove()"><span class="stage-chip">Moduł 1</span></figure>
+        <figure class="stage-photo"><img src="img/etap-przedszkole.webp" alt="Jasna sala przedszkolna: okrągłe stoliki, otwarte regały z pojemnikami, kącik z dywanem" loading="lazy" width="1200" height="750" onerror="this.closest('.stage-photo').remove()"><span class="stage-chip">Moduł 1</span></figure>
         <div class="stage-body">
           <h3>Przedszkole</h3>
           <p>Ocena funkcjonalna dziecka w&nbsp;wieku przedszkolnym i&nbsp;plan wsparcia gotowy przed pierwszym zebraniem zespołu.</p>
@@ -1072,7 +1120,7 @@ svg.ck{flex:none;width:18px;height:18px;margin-top:3px}
         </div>
       </article>
       <article class="stage">
-        <figure class="stage-photo"><img src="img/etap-podstawowa.jpg" alt="Klasa szkoły podstawowej: rzędy ławek, tablica, wysokie okna" loading="lazy" width="1200" height="750" onerror="this.closest('.stage-photo').remove()"><span class="stage-chip">Moduł 2</span></figure>
+        <figure class="stage-photo"><img src="img/etap-podstawowa.webp" alt="Klasa szkoły podstawowej: rzędy ławek, tablica, wysokie okna" loading="lazy" width="1200" height="750" onerror="this.closest('.stage-photo').remove()"><span class="stage-chip">Moduł 2</span></figure>
         <div class="stage-body">
           <h3>Szkoła podstawowa</h3>
           <p>KSzOF w&nbsp;wariantach dla klas I–III i&nbsp;IV–VIII, obserwacja pogłębiona i&nbsp;trzy poziomy wsparcia.</p>
@@ -1080,7 +1128,7 @@ svg.ck{flex:none;width:18px;height:18px;margin-top:3px}
         </div>
       </article>
       <article class="stage">
-        <figure class="stage-photo"><img src="img/etap-ponadpodstawowa.jpg" alt="Pracownia szkoły ponadpodstawowej: szafki uczniowskie, stoły z laptopami, regały z segregatorami" loading="lazy" width="1200" height="750" onerror="this.closest('.stage-photo').remove()"><span class="stage-chip">Moduł 3</span></figure>
+        <figure class="stage-photo"><img src="img/etap-ponadpodstawowa.webp" alt="Pracownia szkoły ponadpodstawowej: szafki uczniowskie, stoły z laptopami, regały z segregatorami" loading="lazy" width="1200" height="750" onerror="this.closest('.stage-photo').remove()"><span class="stage-chip">Moduł 3</span></figure>
         <div class="stage-body">
           <h3>Szkoła ponadpodstawowa</h3>
           <p>Ta sama ścieżka dla ucznia starszego, z&nbsp;naciskiem na samodzielność, edukację i&nbsp;życie w&nbsp;społeczności.</p>
@@ -1250,8 +1298,8 @@ svg.ck{flex:none;width:18px;height:18px;margin-top:3px}
 <!-- AUTORKA -------------------------------------------------------- -->
 <section class="section author" id="autorka">
   <div class="wrap">
-    <!-- Zdjęcie autorki: wgraj plik img/autorka.jpg (proporcje 4:5). Bez pliku wyświetlają się inicjały. -->
-    <div class="portrait" role="img" aria-label="Portret autorki"><img src="img/autorka.jpg" alt="" onerror="this.remove()"><svg class="kw " aria-hidden="true"><use href="#kwiat"/></svg><span>MJ</span><small>Mirosława Ewa Jurczyszyn · pedagog specjalny</small></div>
+    <!-- Zdjęcie autorki: wgraj plik img/autorka.webp (proporcje 4:5). Bez pliku wyświetlają się inicjały. -->
+    <div class="portrait" role="img" aria-label="Portret autorki"><img src="img/autorka.webp" alt="" onerror="this.remove()"><svg class="kw " aria-hidden="true"><use href="#kwiat"/></svg><span>MJ</span><small>Mirosława Ewa Jurczyszyn · pedagog specjalny</small></div>
     <div>
       <p class="eyebrow">Autorka</p>
       <blockquote>Chciałam, żeby zespół spotykał się nad uczniem, a&nbsp;nie nad drukiem. Papier ma być gotowy, zanim usiądziecie do rozmowy.</blockquote>
@@ -1366,21 +1414,21 @@ svg.ck{flex:none;width:18px;height:18px;margin-top:3px}
         <label for="product">Co zamawiasz</label>
         <select id="product" name="product">
           <optgroup label="Aplikacja (tylko placówki)">
-            <option value="app" data-inst="1" data-person="0" data-price="3 800 zł brutto / rok">Aplikacja EduPlaner 2026 — roczna subskrypcja</option>
-            <option value="app-pakiet" data-inst="1" data-person="0" data-price="na zapytanie">Aplikacja + warsztat wdrożeniowy (pakiet)</option>
-            <option value="demo" data-inst="1" data-person="0" data-price="bezpłatnie">Pokaz online 20 min (bezpłatny)</option>
+            <option value="app" data-rodzaj="usluga" data-inst="1" data-person="0" data-price="3 800 zł brutto / rok">Aplikacja EduPlaner 2026 — roczna subskrypcja</option>
+            <option value="app-pakiet" data-rodzaj="usluga" data-inst="1" data-person="0" data-price="na zapytanie">Aplikacja + warsztat wdrożeniowy (pakiet)</option>
+            <option value="demo" data-rodzaj="bezplatne" data-inst="1" data-person="0" data-price="bezpłatnie">Pokaz online 20 min (bezpłatny)</option>
           </optgroup>
           <optgroup label="Szkolenia">
-            <option value="szk-a-d" data-inst="1" data-person="1" data-price="na zapytanie">Szkolenie: Nowa ocena funkcjonalna od A do D</option>
-            <option value="szk-wdrozenie" data-inst="1" data-person="0" data-price="na zapytanie">Warsztat wdrożeniowy EduPlaner 2026</option>
-            <option value="szk-obserwacja" data-inst="1" data-person="1" data-price="na zapytanie">Szkolenie: Obserwacja pogłębiona, cztery narzędzia</option>
+            <option value="szk-a-d" data-rodzaj="usluga" data-inst="1" data-person="1" data-price="na zapytanie">Szkolenie: Nowa ocena funkcjonalna od A do D</option>
+            <option value="szk-wdrozenie" data-rodzaj="usluga" data-inst="1" data-person="0" data-price="na zapytanie">Warsztat wdrożeniowy EduPlaner 2026</option>
+            <option value="szk-obserwacja" data-rodzaj="usluga" data-inst="1" data-person="1" data-price="na zapytanie">Szkolenie: Obserwacja pogłębiona, cztery narzędzia</option>
           </optgroup>
           <optgroup label="Broszury (PDF)">
-            <option value="br-emocje" data-inst="1" data-person="1" data-price="30 zł brutto (24,39 zł netto + VAT 23%)">Broszura: Kolorowy Świat Emocji</option>
-            <option value="br-echolalia" data-inst="1" data-person="1" data-price="30 zł brutto (24,39 zł netto + VAT 23%)">Broszura: Echolalia i rozumienie jej funkcji</option>
-            <option value="br-maly-ksiaze" data-inst="1" data-person="1" data-price="50 zł brutto (40,65 zł netto + VAT 23%)">Broszura: Mały Książę moim bohaterem</option>
-            <option value="br-sala" data-inst="1" data-person="1" data-price="30 zł brutto (24,39 zł netto + VAT 23%)">Broszura: Sala, która uczy każde dziecko</option>
-            <option value="br-autyzm" data-inst="1" data-person="1" data-price="30 zł brutto (24,39 zł netto + VAT 23%)">Broszura: Spektrum autyzmu bez tajemnic</option>
+            <option value="br-emocje" data-rodzaj="plik" data-inst="1" data-person="1" data-price="30 zł brutto (24,39 zł netto + VAT 23%)">Broszura: Kolorowy Świat Emocji</option>
+            <option value="br-echolalia" data-rodzaj="plik" data-inst="1" data-person="1" data-price="30 zł brutto (24,39 zł netto + VAT 23%)">Broszura: Echolalia i rozumienie jej funkcji</option>
+            <option value="br-maly-ksiaze" data-rodzaj="plik" data-inst="1" data-person="1" data-price="50 zł brutto (40,65 zł netto + VAT 23%)">Broszura: Mały Książę moim bohaterem</option>
+            <option value="br-sala" data-rodzaj="plik" data-inst="1" data-person="1" data-price="30 zł brutto (24,39 zł netto + VAT 23%)">Broszura: Sala, która uczy każde dziecko</option>
+            <option value="br-autyzm" data-rodzaj="plik" data-inst="1" data-person="1" data-price="30 zł brutto (24,39 zł netto + VAT 23%)">Broszura: Spektrum autyzmu bez tajemnic</option>
           </optgroup>
         </select>
       </div>
@@ -1409,8 +1457,19 @@ svg.ck{flex:none;width:18px;height:18px;margin-top:3px}
         <div class="pay-note"><span id="sum-pay">Faktura · przelew · dostęp po wpłacie</span><b id="sum-price">3 800 zł brutto / rok</b></div>
       </div>
 
-      <button class="btn btn-primary btn-lg" type="submit" id="submit-btn">Wyślij zamówienie</button>
-      <p class="legal">Wysyłając zamówienie, zgadzasz się na kontakt w&nbsp;sprawie realizacji. Dane przetwarza PCTP Koszalin wyłącznie w&nbsp;celu obsługi zamówienia. Możesz też napisać bezpośrednio: <a href="mailto:kontakt@eduplaner2026.pl">kontakt@eduplaner2026.pl</a>.</p>
+      <div class="zgody">
+        <label class="zgoda" for="zgoda-regulamin">
+          <input type="checkbox" id="zgoda-regulamin">
+          <span>Akceptuję <a href="regulamin.html" target="_blank" rel="noopener">regulamin</a> i&nbsp;zapoznałam/em się z&nbsp;<a href="polityka-prywatnosci.html" target="_blank" rel="noopener">polityką prywatności</a>.</span>
+        </label>
+        <label class="zgoda" for="zgoda-cyfrowa" id="zgoda-cyfrowa-box" hidden>
+          <input type="checkbox" id="zgoda-cyfrowa">
+          <span id="zgoda-cyfrowa-tekst"></span>
+        </label>
+      </div>
+
+      <button class="btn btn-primary btn-lg" type="submit" id="submit-btn">Zamawiam z&nbsp;obowiązkiem zapłaty</button>
+      <p class="legal">Dane przetwarza PCTP Koszalin w&nbsp;celu obsługi zamówienia i&nbsp;wystawienia faktury. Szczegóły w&nbsp;<a href="polityka-prywatnosci.html">polityce prywatności</a>. Zasady zwrotów i&nbsp;reklamacji opisuje <a href="regulamin.html">regulamin</a>; wzór oświadczenia znajdziesz w&nbsp;<a href="formularz-odstapienia.html">formularzu odstąpienia</a>. Możesz też napisać bezpośrednio: <a href="mailto:kontakt@eduplaner2026.pl">kontakt@eduplaner2026.pl</a>.</p>
       <div class="done" id="done" hidden><b>Zamówienie przygotowane.</b>Otworzyliśmy Twój program pocztowy z&nbsp;gotową treścią zamówienia. Wyślij wiadomość, a&nbsp;my odeślemy potwierdzenie.</div>
     </form>
   </div>
@@ -1432,9 +1491,9 @@ svg.ck{flex:none;width:18px;height:18px;margin-top:3px}
       </div>
       <div><h4>Oferta</h4><ul><li><a href="#aplikacja">Aplikacja</a></li><li><a href="#szkolenia">Szkolenia</a></li><li><a href="#broszury">Broszury</a></li><li><a href="#cennik">Cennik</a></li><li><a href="#jak-kupic">Jak kupić</a></li></ul></div>
       <div><h4>Poznaj</h4><ul><li><a href="#spolecznosc">Blog i&nbsp;grupa na Facebooku</a></li><li><a href="#filmy">Nagrania szkoleniowe</a></li><li><a href="#porownanie">Arkusze czy aplikacja</a></li><li><a href="#autorka">O&nbsp;autorce</a></li><li><a href="mailto:kontakt@eduplaner2026.pl?subject=Analiza%20potrzeb">Formularz analizy potrzeb</a></li></ul></div>
-      <div class="contact"><h4>Kontakt</h4><ul><li><a href="mailto:kontakt@eduplaner2026.pl">kontakt@eduplaner2026.pl</a></li><li><a href="tel:+48662888403">662 888 403</a></li><li>Pomorskie Centrum Terapii Pedagogicznej, Koszalin</li></ul></div>
+      <div class="contact"><h4>Sprzedawca</h4><ul><li><b>Pomorskie Centrum Terapii Pedagogicznej</b></li><li class="do-uzupelnienia">ul. — · 75-000 Koszalin <i>(adres do uzupełnienia)</i></li><li class="do-uzupelnienia">NIP — · REGON — <i>(do uzupełnienia)</i></li><li><a href="mailto:kontakt@eduplaner2026.pl">kontakt@eduplaner2026.pl</a></li><li><a href="tel:+48662888403">662 888 403</a></li></ul></div><div class="contact"><h4>Dokumenty</h4><ul><li><a href="regulamin.html">Regulamin sklepu</a></li><li><a href="polityka-prywatnosci.html">Polityka prywatności</a></li><li><a href="formularz-odstapienia.html">Formularz odstąpienia</a></li><li><a href="regulamin.html#reklamacje">Reklamacje i zwroty</a></li></ul></div>
     </div>
-    <div class="foot-bottom"><span>© 2026 PCTP Koszalin · EduPlaner 2026</span><span>Mirosława Ewa Jurczyszyn, pedagog specjalny</span></div>
+    <div class="foot-bottom"><span>© 2026 PCTP Koszalin · EduPlaner 2026 · Mirosława Ewa Jurczyszyn, pedagog specjalny</span><span>Wszelkie prawa zastrzeżone. Kopiowanie, powielanie i&nbsp;redystrybucja materiałów bez zgody autorki zabronione.</span></div>
   </div>
 </footer>
 
@@ -1629,19 +1688,19 @@ FILMY.forEach(function(f){ VIDEO[f.id] = f.url || ''; });
 
 /* --- ekrany aplikacji: dane i wycieczka --------------------------- */
 var EKRANY = [
-  {plik:"img/app-kartoteka.jpg", tytul:"Kartoteka dzieci",
+  {plik:"img/app-kartoteka.webp", tytul:"Kartoteka dzieci",
    opis:"Rejestr placówki: data urodzenia, grupa, postęp dokumentacji. Wybranie dziecka otwiera jego teczkę."},
-  {plik:"img/app-metryczka.jpg", tytul:"Metryczka",
+  {plik:"img/app-metryczka.webp", tytul:"Metryczka",
    opis:"Wejście na ścieżkę: zgłoszenie, druk metryczki, wywiad z rodzicem, dostępność placówki, zgody i podstawa prawna."},
-  {plik:"img/app-wopf.jpg", tytul:"WOPF — ocena funkcjonalna",
+  {plik:"img/app-wopf.webp", tytul:"WOPF — ocena funkcjonalna",
    opis:"Kwestionariusz KPOF dobiera się do grupy wiekowej. Obok narzędzia obserwacji pogłębionej: ABC, FBA, sensoryka, ToM."},
-  {plik:"img/app-plan-wsparcia.jpg", tytul:"Plan wsparcia — IPET / PEWS",
+  {plik:"img/app-plan-wsparcia.webp", tytul:"Plan wsparcia — IPET / PEWS",
    opis:"Struktura wspólna dla obu ścieżek. Cele SMART, dostosowania, zespół. Różni się tylko druk na końcu."},
-  {plik:"img/app-ewaluacja.jpg", tytul:"Ewaluacja",
+  {plik:"img/app-ewaluacja.webp", tytul:"Ewaluacja",
    opis:"Oś czasu dziecka, ocena realizacji celów, ewaluacja półroczna i roczna, raporty dla rodzica i dyrektora."},
-  {plik:"img/app-zespol.jpg", tytul:"Zespół",
+  {plik:"img/app-zespol.webp", tytul:"Zespół",
    opis:"Skład, role i zadania, terminy z wyprzedzeniem, protokoły, podpisy i uprawnienia zgodne z RODO."},
-  {plik:"img/app-baza-wiedzy.jpg", tytul:"Baza wiedzy",
+  {plik:"img/app-baza-wiedzy.webp", tytul:"Baza wiedzy",
    opis:"Kącik dyrektora i nauczyciela, konspekty rewalidacji i pomocy psychologiczno-pedagogicznej, wzory pism, podstawa prawna."}
 ];
 
@@ -1765,7 +1824,12 @@ var OFERTA = [
     "cta": "Zapisz się lub zamów",
     "primary": false,
     "buyer": "",
-    "wiecej": []
+    "wiecej": [],
+    "tagi": [
+      "WOPF",
+      "KSzOF",
+      "Rada pedagogiczna"
+    ]
   },
   {
     "id": "szk-wdrozenie",
@@ -1798,7 +1862,12 @@ var OFERTA = [
     "cta": "Zarezerwuj warsztat",
     "primary": true,
     "buyer": "inst",
-    "wiecej": []
+    "wiecej": [],
+    "tagi": [
+      "Wdrożenie",
+      "Aplikacja",
+      "IPET"
+    ]
   },
   {
     "id": "szk-obserwacja",
@@ -1831,7 +1900,12 @@ var OFERTA = [
     "cta": "Zapisz się lub zamów",
     "primary": false,
     "buyer": "",
-    "wiecej": []
+    "wiecej": [],
+    "tagi": [
+      "Obserwacja",
+      "Narzędzia",
+      "Specjaliści"
+    ]
   },
   {
     "id": "br-emocje",
@@ -1890,7 +1964,12 @@ var OFERTA = [
     "primary": false,
     "buyer": "",
     "wiecej": [],
-    "netto": "24,39 zł netto + 5,61 zł VAT 23%"
+    "netto": "24,39 zł netto + 5,61 zł VAT 23%",
+    "tagi": [
+      "Emocje",
+      "Autyzm",
+      "Zeszyt ucznia"
+    ]
   },
   {
     "id": "br-echolalia",
@@ -1928,7 +2007,12 @@ var OFERTA = [
     "primary": false,
     "buyer": "",
     "wiecej": [],
-    "netto": "24,39 zł netto + 5,61 zł VAT 23%"
+    "netto": "24,39 zł netto + 5,61 zł VAT 23%",
+    "tagi": [
+      "Mowa",
+      "Autyzm",
+      "IPET"
+    ]
   },
   {
     "id": "br-maly-ksiaze",
@@ -1967,7 +2051,12 @@ var OFERTA = [
     "primary": false,
     "buyer": "",
     "wiecej": [],
-    "netto": "40,65 zł netto + 9,35 zł VAT 23%"
+    "netto": "40,65 zł netto + 9,35 zł VAT 23%",
+    "tagi": [
+      "Teoria umysłu",
+      "Autyzm",
+      "Lektura"
+    ]
   },
   {
     "id": "br-sala",
@@ -2019,7 +2108,12 @@ var OFERTA = [
     "primary": false,
     "buyer": "",
     "wiecej": [],
-    "netto": "24,39 zł netto + 5,61 zł VAT 23%"
+    "netto": "24,39 zł netto + 5,61 zł VAT 23%",
+    "tagi": [
+      "Przedszkole",
+      "Organizacja sali",
+      "Dostosowania"
+    ]
   },
   {
     "id": "br-autyzm",
@@ -2058,9 +2152,15 @@ var OFERTA = [
     "cta": "Kup",
     "primary": false,
     "buyer": "",
-    "wiecej": []
+    "wiecej": [],
+    "tagi": [
+      "Autyzm",
+      "Diagnoza",
+      "Poradnik"
+    ]
   }
 ];
+
 
 
 
@@ -2179,13 +2279,78 @@ var OFERTA = [
     if(poz){ e.preventDefault(); location.hash='pozycja-'+poz.dataset.poz; }
   });
 
+  /* Katalog: wyszukiwarka, filtry po tagach i doładowywanie po 24 pozycje.
+     Przy pięciu pozycjach filtry są niewidoczne w skutkach, ale mechanizm
+     jest ten sam przy stu — i wtedy zaczyna decydować o użyteczności. */
+  var NA_RAZ=24;
+
+  function pasuje(o,fraza,tagi){
+    if(tagi.length && !tagi.every(function(t){ return (o.tagi||[]).indexOf(t)>=0; })) return false;
+    if(!fraza) return true;
+    var stog=[o.tytul,o.opis,o.fmt,o.spec].concat(o.punkty||[],o.tagi||[]).join(' ').toLowerCase();
+    return fraza.split(/\s+/).every(function(w){ return stog.indexOf(w)>=0; });
+  }
+
   OKNO.katalog=function(typ){
     var lista=wg(typ), k=kategoria(typ);
     if(!lista.length) return;
     OKNO.brew.textContent = k.naglowek;
     OKNO.tytul.textContent = k.tytul+' ('+lista.length+')';
     OKNO.wroc.hidden=true;
-    OKNO.body.innerHTML='<div class="offer-grid">'+lista.map(karta).join('')+'</div>';
+
+    var wszystkieTagi=[];
+    lista.forEach(function(o){ (o.tagi||[]).forEach(function(t){ if(wszystkieTagi.indexOf(t)<0) wszystkieTagi.push(t); }); });
+    wszystkieTagi.sort(function(a,b){ return a.localeCompare(b,'pl'); });
+
+    OKNO.body.innerHTML=
+      '<div class="kat-narzedzia">'
+      + '<div class="kat-szukaj">'
+      +   '<svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M20 20l-4.6-4.6"/></svg>'
+      +   '<input type="search" id="kat-fraza" placeholder="Szukaj w tytułach i opisach…" aria-label="Szukaj w katalogu" autocomplete="off">'
+      +   '<button type="button" id="kat-czysc" hidden aria-label="Wyczyść wyszukiwanie">×</button>'
+      + '</div>'
+      + (wszystkieTagi.length ? '<div class="kat-tagi" role="group" aria-label="Filtry tematyczne">'
+          + wszystkieTagi.map(function(t){ return '<button type="button" data-tag="'+esc(t)+'" aria-pressed="false">'+esc(t)+'</button>'; }).join('')
+          + '</div>' : '')
+      + '<p class="kat-licznik" id="kat-licznik" role="status"></p>'
+      + '</div>'
+      + '<div class="offer-grid" id="kat-siatka"></div>'
+      + '<div class="kat-wiecej" id="kat-wiecej" hidden><button class="btn btn-ghost" type="button">Wczytaj więcej</button></div>';
+
+    var pole=OKNO.body.querySelector('#kat-fraza'),
+        czysc=OKNO.body.querySelector('#kat-czysc'),
+        siatka=OKNO.body.querySelector('#kat-siatka'),
+        licznik=OKNO.body.querySelector('#kat-licznik'),
+        wiecej=OKNO.body.querySelector('#kat-wiecej'),
+        tagi=[], widocznych=NA_RAZ;
+
+    function rysuj(){
+      var fraza=pole.value.trim().toLowerCase();
+      var wynik=lista.filter(function(o){ return pasuje(o,fraza,tagi); });
+      czysc.hidden = !pole.value;
+      if(!wynik.length){
+        siatka.className=''; siatka.innerHTML='<p class="kat-pusto">Nic nie pasuje do tego wyszukiwania. Spróbuj krótszego słowa albo wyłącz filtry.</p>';
+        licznik.innerHTML='<b>0</b> z '+lista.length; wiecej.hidden=true; return;
+      }
+      var pokaz=wynik.slice(0,widocznych);
+      siatka.className='offer-grid cols-'+Math.min(pokaz.length,3);
+      siatka.innerHTML=pokaz.map(karta).join('');
+      licznik.innerHTML='Pokazujemy <b>'+pokaz.length+'</b> z '+wynik.length
+        + (wynik.length<lista.length ? ' (w katalogu '+lista.length+')' : '');
+      wiecej.hidden = pokaz.length>=wynik.length;
+    }
+    pole.addEventListener('input',function(){ widocznych=NA_RAZ; rysuj(); });
+    czysc.addEventListener('click',function(){ pole.value=''; widocznych=NA_RAZ; rysuj(); pole.focus(); });
+    OKNO.body.querySelectorAll('[data-tag]').forEach(function(b){
+      b.addEventListener('click',function(){
+        var t=b.dataset.tag, i=tagi.indexOf(t);
+        if(i<0) tagi.push(t); else tagi.splice(i,1);
+        b.setAttribute('aria-pressed', i<0);
+        widocznych=NA_RAZ; rysuj();
+      });
+    });
+    wiecej.querySelector('button').addEventListener('click',function(){ widocznych+=NA_RAZ; rysuj(); });
+    rysuj();
     OKNO.otworz();
   };
 
@@ -2252,10 +2417,29 @@ var OFERTA = [
     sumP.textContent=opt.textContent;
     sumPrice.textContent=opt.dataset.price||'';
     if(opt.value==='demo'){ sumPay.textContent='Bez zobowiązań'; submit.textContent='Umów pokaz'; }
-    else if(b==='inst'){ sumPay.textContent='Faktura · przelew · dostęp po wpłacie'; submit.textContent='Wyślij zamówienie'; }
-    else { sumPay.textContent='Płatność online · BLIK · karta'; submit.textContent='Zamawiam i płacę online'; }
+    else if(b==='inst'){ sumPay.textContent='Faktura · przelew · dostęp po wpłacie'; submit.textContent='Zamawiam z obowiązkiem zapłaty'; }
+    else { sumPay.textContent='Płatność online · BLIK · karta'; submit.textContent='Zamawiam z obowiązkiem zapłaty'; }
+    zgodaCyfrowa(b,opt);
+  }
+
+  /* Prawo odstąpienia przysługuje konsumentowi. Placówka kupująca na fakturę
+     zamawia w ramach działalności, więc zgoda jej nie dotyczy. Przy pozycji
+     bezpłatnej (pokaz) nie ma czego dostarczać przed terminem. */
+  var boxCyfrowa=document.getElementById('zgoda-cyfrowa-box'),
+      polCyfrowa=document.getElementById('zgoda-cyfrowa'),
+      txtCyfrowa=document.getElementById('zgoda-cyfrowa-tekst');
+  function zgodaCyfrowa(b,opt){
+    var rodzaj=opt.dataset.rodzaj||'', dotyczy = b==='person' && (rodzaj==='plik'||rodzaj==='usluga');
+    boxCyfrowa.hidden=!dotyczy;
+    if(!dotyczy){ polCyfrowa.checked=false; boxCyfrowa.classList.remove('err'); return; }
+    txtCyfrowa.textContent = rodzaj==='plik'
+      ? 'Żądam dostarczenia treści cyfrowej przed upływem terminu do odstąpienia od umowy i przyjmuję do wiadomości, że wraz z pobraniem pliku tracę prawo do odstąpienia od umowy.'
+      : 'Żądam rozpoczęcia świadczenia usługi przed upływem terminu do odstąpienia od umowy i przyjmuję do wiadomości, że po jej pełnym wykonaniu tracę prawo do odstąpienia od umowy.';
   }
   form.addEventListener('change',refresh);
+  form.querySelectorAll('.zgoda input').forEach(function(c){
+    c.addEventListener('change',function(){ c.closest('.zgoda').classList.remove('err'); });
+  });
 
   // przyciski „Zamów / Kup / Zapisz się” ustawiają produkt i typ kupującego
   window.ZAMOW=function(v,b){
@@ -2281,12 +2465,30 @@ var OFERTA = [
         f.classList.remove('err');
       }
     }
+    var reg=document.getElementById('zgoda-regulamin'), regBox=reg.closest('.zgoda');
+    if(!reg.checked){
+      regBox.classList.add('err'); reg.focus();
+      if(reg.setCustomValidity){ reg.setCustomValidity('Zaznacz, że akceptujesz regulamin — bez tego nie możemy przyjąć zamówienia.'); reg.reportValidity(); reg.setCustomValidity(''); }
+      else { alert('Zaznacz akceptację regulaminu.'); }
+      return;
+    }
+    regBox.classList.remove('err');
+    if(!boxCyfrowa.hidden && !polCyfrowa.checked){
+      boxCyfrowa.classList.add('err'); polCyfrowa.focus();
+      if(polCyfrowa.setCustomValidity){ polCyfrowa.setCustomValidity('Zaznacz zgodę — bez niej nie możemy udostępnić materiału przed upływem 14 dni.'); polCyfrowa.reportValidity(); polCyfrowa.setCustomValidity(''); }
+      else { alert('Zaznacz zgodę na wcześniejsze dostarczenie.'); }
+      return;
+    }
+    boxCyfrowa.classList.remove('err');
     if(!email.value||!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(email.value)){ email.focus(); email.reportValidity ? (email.setCustomValidity('Podaj adres e-mail, na który wyślemy potwierdzenie.'),email.reportValidity(),email.setCustomValidity('')) : alert('Podaj adres e-mail.'); return; }
     var b=buyer(), opt=product.options[product.selectedIndex];
     var who = b==='inst'
       ? 'Placówka (nabywca): '+(document.getElementById('inst-name').value||'—')+'\nAdres do faktury: '+(document.getElementById('inst-addr').value||'—')+'\nNIP: '+(document.getElementById('inst-nip').value||'—')+'\nEtapy: '+document.getElementById('inst-stage').value+'\nPłatność: faktura przelewowa, dostęp po opłaceniu'
       : 'Osoba indywidualna: '+(document.getElementById('person-name').value||'—')+'\nPłatność: online (proszę o link do płatności)';
-    var body='ZAMÓWIENIE — EduPlaner 2026\n\nPozycja: '+opt.textContent+'\nCena: '+(opt.dataset.price||'')+'\n\n'+who+'\nE-mail: '+email.value+'\nTelefon: '+(document.getElementById('phone').value||'—')+'\n\nUwagi:\n'+(document.getElementById('note').value||'—')+'\n';
+    var body='ZAMÓWIENIE — EduPlaner 2026\n\nPozycja: '+opt.textContent+'\nCena: '+(opt.dataset.price||'')+'\n\n'+who+'\nE-mail: '+email.value+'\nTelefon: '+(document.getElementById('phone').value||'—')+'\n\nUwagi:\n'+(document.getElementById('note').value||'—')
+      +'\n\nZGODY\nRegulamin i polityka prywatności: zaakceptowane'
+      +(boxCyfrowa.hidden?'' : '\nZgoda na dostarczenie przed upływem terminu odstąpienia: '+(polCyfrowa.checked?'TAK':'nie'))
+      +'\n';
     var subject=(opt.value==='demo'?'Pokaz online':'Zamówienie')+' — '+opt.textContent;
     window.location.href='mailto:kontakt@eduplaner2026.pl?subject='+encodeURIComponent(subject)+'&body='+encodeURIComponent(body);
     done.hidden=false;
