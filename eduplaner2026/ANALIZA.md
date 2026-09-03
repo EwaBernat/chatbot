@@ -66,6 +66,31 @@ Formularz bez backendu składa gotową wiadomość e-mail z treścią zamówieni
 Do wdrożenia: podłączenie do własnego endpointu lub Formspree i bramki płatności
 (Przelewy24 / Stripe) dla osób indywidualnych.
 
+## Ciemne sekcje: dlaczego męczyły i co zmienione
+
+Trzy przyczyny, wszystkie mierzalne:
+
+1. **Nasycenie.** Tło `#1A0F42` to prawie czerń o bardzo wysokim nasyceniu w paśmie
+   niebiesko-fioletowym. Oko nie ogniskuje czerwieni i błękitu w jednej płaszczyźnie,
+   więc krawędzie liter drgają (chromostereopsja). Nowe tło `#2A1E45` ma o połowę
+   mniejsze nasycenie, z rozjaśnieniem przy krawędziach sekcji.
+2. **Kontrast.** Tekst `#F4EFFF` na dawnym tle dawał 16:1; powyżej ok. 12:1 jasne litery
+   na ciemnym rozlewają się. Wprowadzona hierarchia: nagłówki `#F6F3FB` (12:1),
+   tekst ciągły `--on-plum-3` `#D2CBE0` (ok. 10:1), etykiety `--on-plum-2` (ok. 6,5:1).
+3. **Białe zrzuty na czerni.** Galeria czterech jasnych zrzutów w ciemnej sekcji zmuszała
+   źrenicę do ciągłej adaptacji. Zrzuty przeniesione do jasnej taśmy `#ekrany`,
+   a ich opisy pod ramki.
+
+Do tego czytelność samego tekstu:
+
+- Kroki ścieżki ucznia miały **30 znaków w wierszu** (pięć wąskich kolumn) — łamanie co trzy
+  słowa. Przebudowane na rejestr wierszy: ikona z numerem, tytuł, opis przy **69 znakach**,
+  etykieta po prawej.
+- Interlinia na ciemnym podniesiona do 1,6–1,65, światło międzyliterowe +0,004–0,006 em,
+  tekst ciągły o 1–1,5 px większy niż na jasnym tle. Na ciemnym tle cienkie kroje wymagają
+  większego oddechu, żeby nie zlewały się w plamę.
+- Moduły: karty szersze, tekst 14,5 px zamiast 13,5 px.
+
 ## Jak podmienić zrzuty ekranu na własne
 
 Strona czyta obrazy z katalogu `img/`. Wystarczy wgrać pliki o tych nazwach (JPG, najlepiej 1280×800 px lub 1920×1200 px, kadr od góry ekranu):
