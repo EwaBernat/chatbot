@@ -505,10 +505,12 @@ svg.ck{flex:none;width:18px;height:18px;margin-top:3px}
 .strip .nav-btns button:hover{background:var(--plum-soft);border-color:var(--plum)}
 .track{--pad:max(24px,calc((100vw - 1160px)/2));display:flex;gap:22px;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none;padding:8px var(--pad) 24px;scroll-padding-inline:var(--pad);margin:0 calc(50% - 50vw);width:100vw}
 .track::-webkit-scrollbar{display:none}
-.track .shot{flex:0 0 min(760px,84vw);scroll-snap-align:start;border:1px solid var(--plum-line);box-shadow:0 30px 50px -30px rgba(45,27,105,.45);position:relative}
+.track{align-items:start}
+.track .item{flex:0 0 min(720px,84vw);scroll-snap-align:start;display:flex;flex-direction:column;gap:14px}
+.track .shot{border:1px solid var(--plum-line);box-shadow:0 26px 44px -30px rgba(45,27,105,.4);position:relative}
+.shot-desc{font-size:14.5px;color:var(--ink-2);line-height:1.5;max-width:58ch;margin:0}
 .track .shot img{aspect-ratio:16/10;object-fit:cover;object-position:top}
-.track .cap{position:absolute;left:14px;bottom:14px;background:color-mix(in srgb,var(--plum) 92%,transparent);color:#fff;padding:8px 12px;border-radius:8px;font-size:13px;font-weight:600;box-shadow:0 8px 20px -10px rgba(0,0,0,.6)}
-.track .cap small{display:block;font-weight:500;color:var(--on-plum-2);font-size:11.5px;margin-top:1px}
+.track .cap{position:absolute;left:14px;bottom:14px;background:color-mix(in srgb,var(--plum) 92%,transparent);color:#fff;padding:8px 12px;border-radius:8px;font-size:13.5px;font-weight:600;box-shadow:0 8px 20px -10px rgba(0,0,0,.45)}
 .strip .dots{display:flex;gap:6px;justify-content:center;margin-top:4px}
 .strip .dots i{width:8px;height:8px;border-radius:50%;background:var(--plum-line)}
 .strip .dots i.on{background:var(--orange);width:22px;border-radius:99px}
@@ -622,11 +624,11 @@ svg.ck{flex:none;width:18px;height:18px;margin-top:3px}
       <div class="nav-btns"><button type="button" data-dir="-1" aria-label="Poprzedni ekran">←</button><button type="button" data-dir="1" aria-label="Następny ekran">→</button></div>
     </div>
     <div class="track" id="track">
-      <figure class="shot"><span class="bar" aria-hidden="true"><i></i><i></i><i></i><b>EduPlaner 2026 · ① Obserwacje WOPF</b></span><img src="img/ekran-obserwacje-wopf.jpg" alt="① Obserwacje WOPF" loading="lazy"><span class="cap">① Obserwacje WOPF<small>osoba · miejsce · narzędzie · KSzOF</small></span></figure>
-      <figure class="shot"><span class="bar" aria-hidden="true"><i></i><i></i><i></i><b>EduPlaner 2026 · Karta Funkcjonalna WOPF</b></span><img src="img/ekran-karta-start.jpg" alt="Karta Funkcjonalna WOPF" loading="lazy"><span class="cap">Karta Funkcjonalna WOPF<small>obserwacja i synteza w jednym przepływie</small></span></figure>
-      <figure class="shot"><span class="bar" aria-hidden="true"><i></i><i></i><i></i><b>EduPlaner 2026 · Obszar: funkcjonowanie poznawcze</b></span><img src="img/ekran-karta-wopf.jpg" alt="Obszar: funkcjonowanie poznawcze" loading="lazy"><span class="cap">Obszar: funkcjonowanie poznawcze<small>banki trudności i celów SMART</small></span></figure>
-      <figure class="shot"><span class="bar" aria-hidden="true"><i></i><i></i><i></i><b>EduPlaner 2026 · ③ Baza 120 pozycji</b></span><img src="img/ekran-baza.jpg" alt="③ Baza 120 pozycji" loading="lazy"><span class="cap">③ Baza 120 pozycji<small>ćwiczenia, dostosowania, pomoce</small></span></figure>
-      <figure class="shot"><span class="bar" aria-hidden="true"><i></i><i></i><i></i><b>EduPlaner 2026 · ⑫ Druk IPET</b></span><img src="img/ekran-druk-ipet.jpg" alt="⑫ Druk IPET" loading="lazy"><span class="cap">⑫ Druk IPET<small>metryczka i dziewięć sekcji A4</small></span></figure>
+      <div class="item"><figure class="shot"><span class="bar" aria-hidden="true"><i></i><i></i><i></i><b>EduPlaner 2026 · ① Obserwacje WOPF</b></span><img src="img/ekran-obserwacje-wopf.jpg" alt="① Obserwacje WOPF" loading="lazy"><span class="cap">① Obserwacje WOPF</span></figure><p class="shot-desc">Osoba, miejsce, narzędzie: KSzOF, ABC, ToM, sensoryka. Tabela oceny przełącza się sama.</p></div>
+      <div class="item"><figure class="shot"><span class="bar" aria-hidden="true"><i></i><i></i><i></i><b>EduPlaner 2026 · Karta Funkcjonalna WOPF</b></span><img src="img/ekran-karta-start.jpg" alt="Karta Funkcjonalna WOPF" loading="lazy"><span class="cap">Karta Funkcjonalna WOPF</span></figure><p class="shot-desc">Obserwacja i synteza w&nbsp;jednym przepływie, jedna karta na każdy obszar funkcjonowania.</p></div>
+      <div class="item"><figure class="shot"><span class="bar" aria-hidden="true"><i></i><i></i><i></i><b>EduPlaner 2026 · Obszar: funkcjonowanie poznawcze</b></span><img src="img/ekran-karta-wopf.jpg" alt="Obszar: funkcjonowanie poznawcze" loading="lazy"><span class="cap">Obszar: funkcjonowanie poznawcze</span></figure><p class="shot-desc">Każdy obszar na jednej karcie: obserwacja po lewej, banki trudności i&nbsp;celów SMART po prawej.</p></div>
+      <div class="item"><figure class="shot"><span class="bar" aria-hidden="true"><i></i><i></i><i></i><b>EduPlaner 2026 · ③ Baza 120 pozycji</b></span><img src="img/ekran-baza.jpg" alt="③ Baza 120 pozycji" loading="lazy"><span class="cap">③ Baza 120 pozycji</span></figure><p class="shot-desc">Ćwiczenia i&nbsp;dostosowania z&nbsp;celem, przebiegiem i&nbsp;wskaźnikiem. Jeden klik: „Do programu”.</p></div>
+      <div class="item"><figure class="shot"><span class="bar" aria-hidden="true"><i></i><i></i><i></i><b>EduPlaner 2026 · ⑫ Druk IPET</b></span><img src="img/ekran-druk-ipet.jpg" alt="⑫ Druk IPET" loading="lazy"><span class="cap">⑫ Druk IPET</span></figure><p class="shot-desc">Metryczka, dziewięć sekcji, cele ciągnięte na żywo z&nbsp;WOPF. Drukuj lub zapisz PDF.</p></div>
     </div>
     <div class="dots" id="dots" aria-hidden="true"></div>
   </div>
@@ -1159,7 +1161,7 @@ svg.ck{flex:none;width:18px;height:18px;margin-top:3px}
 <script>
 (function(){
   var track=document.getElementById('track'), dots=document.getElementById('dots'); if(!track) return;
-  var cards=track.querySelectorAll('.shot');
+  var cards=track.querySelectorAll('.item');
   cards.forEach(function(_,i){var d=document.createElement('i'); if(i===0)d.className='on'; dots.appendChild(d);});
   function step(){ return cards[0].getBoundingClientRect().width+22; }
   document.querySelectorAll('.strip .nav-btns button').forEach(function(b){ b.addEventListener('click',function(){ track.scrollBy({left:step()*Number(b.dataset.dir),behavior:'smooth'}); }); });
