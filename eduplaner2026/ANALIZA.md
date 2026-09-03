@@ -66,13 +66,29 @@ Formularz bez backendu składa gotową wiadomość e-mail z treścią zamówieni
 Do wdrożenia: podłączenie do własnego endpointu lub Formspree i bramki płatności
 (Przelewy24 / Stripe) dla osób indywidualnych.
 
+## Jak podmienić zrzuty ekranu na własne
+
+Strona czyta obrazy z katalogu `img/`. Wystarczy wgrać pliki o tych nazwach (JPG, najlepiej 1280×800 px lub 1920×1200 px, kadr od góry ekranu):
+
+| Plik | Gdzie się pokazuje |
+|---|---|
+| `img/ekran-obserwacje-wopf.jpg` | hero (główna ramka), taśma ekranów, galeria |
+| `img/ekran-druk-ipet.jpg` | hero (druk za ramką), taśma, galeria |
+| `img/ekran-karta-start.jpg` | taśma ekranów |
+| `img/ekran-karta-wopf.jpg` | taśma, galeria |
+| `img/ekran-baza.jpg` | taśma, galeria |
+| `img/autorka.jpg` | portret autorki (proporcje 4:5); bez pliku pokazują się inicjały |
+
+Po podmianie uruchom `python3 build_single.py`, a w `dist/eduplaner2026.html` powstanie
+wersja jednoplikowa z wbudowanymi obrazami (do wysyłki lub podglądu). Do wdrożenia na serwer
+wystarczy wgrać `index.html` razem z katalogiem `img/`.
+
 ## Prawdziwe ekrany aplikacji
 
 Hero i sekcja „Aplikacja” pokazują rzeczywiste zrzuty z aplikacji EduPlaner 2026
 (Moduł Realizacji Zajęć z drukiem IPET oraz Karta Funkcjonalna WOPF), wyrenderowane
 z plików w skillach `eduplaner-zajecia-ipet` i `eduplaner-pctp` z przykładowym uczniem
-Janem Kowalskim. Kopie zrzutów są w katalogu `img/`. Obrazy w `index.html` są
-wbudowane jako data URI, więc strona pozostaje jednym plikiem.
+Janem Kowalskim. Zrzuty są w katalogu `img/`; `index.html` odwołuje się do nich ścieżką, a `build_single.py` składa wersję jednoplikową.
 
 ## Do uzupełnienia przed wdrożeniem
 
