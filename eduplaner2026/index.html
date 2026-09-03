@@ -485,6 +485,10 @@ svg.ck{flex:none;width:18px;height:18px;margin-top:3px}
 .tier .lbl{font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-3);font-weight:600}
 .tier h3{font-size:24px}
 .tier .amount{font-family:var(--display);font-size:32px;font-weight:800;line-height:1;letter-spacing:-.02em;color:var(--plum);font-variant-numeric:tabular-nums}
+.tier .amount .per{font-family:var(--body);font-size:17px;font-weight:600;letter-spacing:0;margin-left:9px;color:var(--ink-3)}
+.tier.main .amount .per{color:var(--on-plum-2)}
+.tier .amount .net{display:block;font-family:var(--body);font-size:15px;font-weight:600;letter-spacing:0;margin-top:9px;color:var(--ink-2)}
+.tier.main .amount .net{color:#F0D9CF}
 .tier .amount small{display:block;font-family:var(--body);font-size:13.5px;font-weight:500;color:var(--ink-3);letter-spacing:0;margin-top:8px}
 .tier p{color:var(--ink-2);font-size:15px}
 .tier ul{list-style:none;margin:4px 0 0;padding:14px 0 0;border-top:1px solid var(--line);display:flex;flex-direction:column;gap:9px;font-size:14.5px}
@@ -803,7 +807,7 @@ svg.ck{flex:none;width:18px;height:18px;margin-top:3px}
       <div class="hero-actions">
         <a class="btn btn-primary btn-lg" href="#zamow" data-order="app" data-buyer="inst">Zamów dla swojej placówki</a>
         <a class="btn btn-ghost btn-lg" href="#zamow" data-order="demo" data-buyer="inst">Umów pokaz online · 20 min</a>
-        <span class="sub">Zamawiasz jak każdą pomoc dydaktyczną: <b>zamówienie, faktura dla placówki, dostęp po opłaceniu. Bez karty.</b></span>
+        <span class="sub"><b>3&thinsp;800&nbsp;zł brutto za rok</b> dla całej placówki (3&thinsp;089,43&nbsp;zł netto + VAT&nbsp;23%). Zamawiasz jak każdą pomoc dydaktyczną: zamówienie, faktura, dostęp po opłaceniu. Bez karty.</span>
       </div>
       <div class="hero-facts" aria-label="Najważniejsze liczby">
         <div><b>3</b><span>etapy do wyboru: przedszkole, podstawowa, ponadpodstawowa</span></div>
@@ -1195,7 +1199,7 @@ svg.ck{flex:none;width:18px;height:18px;margin-top:3px}
       <li><b>Autorka jest praktykiem</b><span>Pedagog specjalny z&nbsp;PCTP Koszalin. Druki powstały z&nbsp;pracy z&nbsp;dziećmi, nie z&nbsp;teorii.</span></li>
       <li><b>Bez limitu użytkowników</b><span>Subskrypcja jest na placówkę. Nie liczysz stanowisk ani nauczycieli.</span></li>
       <li><b>Aktualizacje w&nbsp;cenie</b><span>Zmienią się przepisy — wzory zmieniamy u&nbsp;siebie, nie u&nbsp;Ciebie.</span></li>
-      <li><b>Faktura dla placówki</b><span>Zamawiasz jak każdą pomoc dydaktyczną, płacisz przelewem. Dostęp otwieramy po opłaceniu.</span></li>
+      <li><b>Dane zostają w&nbsp;placówce</b><span>Aplikacja pracuje na serwerze szkoły. Dokumentacja uczniów nie wychodzi na zewnątrz, administratorem danych pozostaje dyrektor.</span></li>
       <li><b>Zgodne z&nbsp;prawem</b><span>Rozporządzenie MEN, KSzOF, ICF i&nbsp;RODO wpisane w&nbsp;druki.</span></li>
       <li><b>Otwarty projekt</b><span>Zgłaszasz, czego brakuje. Twoje uwagi trafiają do planu rozwoju.</span></li>
     </ul>
@@ -1217,14 +1221,13 @@ svg.ck{flex:none;width:18px;height:18px;margin-top:3px}
         <span class="badge">Główny produkt</span>
         <span class="lbl">Roczna subskrypcja · tylko placówki</span>
         <h3>Aplikacja EduPlaner 2026</h3>
-        <!-- TODO: wpisz cenę roczną (np. 1 490 zł netto / rok) -->
-        <div class="amount ask">Wycena dla placówki<small>netto · jedna placówka · bez limitu użytkowników · dostęp po opłaceniu faktury</small></div>
+        <div class="amount">3&thinsp;800&nbsp;zł<span class="per">brutto / rok</span><span class="net">3&thinsp;089,43&nbsp;zł netto + 710,57&nbsp;zł VAT&nbsp;23%</span><small>Jedna placówka, jeden etap edukacyjny · bez limitu użytkowników · dostęp po opłaceniu faktury</small></div>
         <p>Moduł dla etapu Twojej placówki, wszystkie moduły wspólne, nagrania szkoleniowe i&nbsp;aktualizacje przez cały rok szkolny 2026/2027.</p>
         <ul>
           <li><svg class="ck" viewBox="0 0 24 24" fill="none" stroke="#FFB59A" stroke-width="2.4"><path d="M5 12l5 5L20 7"/></svg>Moduł Twojego etapu: przedszkole, podstawowa albo ponadpodstawowa</li>
           <li><svg class="ck" viewBox="0 0 24 24" fill="none" stroke="#FFB59A" stroke-width="2.4"><path d="M5 12l5 5L20 7"/></svg>10 modułów: od metryczki po raport z&nbsp;ewaluacji</li>
           <li><svg class="ck" viewBox="0 0 24 24" fill="none" stroke="#FFB59A" stroke-width="2.4"><path d="M5 12l5 5L20 7"/></svg>Dokumenty przygotowane i&nbsp;sprawdzone przez praktyków</li>
-          <li><svg class="ck" viewBox="0 0 24 24" fill="none" stroke="#FFB59A" stroke-width="2.4"><path d="M5 12l5 5L20 7"/></svg>Utrzymanie, kopie zapasowe i&nbsp;bezpieczeństwo danych</li>
+          <li><svg class="ck" viewBox="0 0 24 24" fill="none" stroke="#FFB59A" stroke-width="2.4"><path d="M5 12l5 5L20 7"/></svg>Dane uczniów na serwerze placówki, nie w&nbsp;obcej chmurze</li>
           <li><svg class="ck" viewBox="0 0 24 24" fill="none" stroke="#FFB59A" stroke-width="2.4"><path d="M5 12l5 5L20 7"/></svg>Warsztat wdrożeniowy w&nbsp;pakiecie taniej</li>
         </ul>
         <a class="btn btn-primary btn-lg" href="#zamow" data-order="app" data-buyer="inst">Zamów aplikację</a>
@@ -1236,6 +1239,7 @@ svg.ck{flex:none;width:18px;height:18px;margin-top:3px}
         <div class="links"><a class="btn btn-ghost" href="#szkolenia">Zobacz szkolenia</a><a class="btn btn-ghost" href="#broszury">Zobacz broszury</a></div>
       </aside>
     </div>
+    <p class="ask-note">Ceny podajemy w&nbsp;dwóch kwotach: <b>brutto</b> — tyle placówka realnie płaci, oraz <b>netto&nbsp;+&nbsp;VAT&nbsp;23%</b> — tak wygląda pozycja na fakturze. PCTP Koszalin jest czynnym podatnikiem VAT.</p>
   </div>
 </section>
 
@@ -1319,9 +1323,9 @@ svg.ck{flex:none;width:18px;height:18px;margin-top:3px}
     </div>
     <div class="faq-grid">
                   <details open><summary>Kiedy zespół dostaje dostęp?</summary><p>Po zaksięgowaniu wpłaty, zwykle tego samego dnia roboczego. Zamówienie i&nbsp;faktura idą pierwsze, żeby księgowość miała komplet dokumentów, a&nbsp;dostęp otwieramy zaraz po opłaceniu.</p></details>
-      <details><summary>Czy trzeba coś instalować?</summary><p>Nie. EduPlaner 2026 działa w&nbsp;przeglądarce, na komputerach szkolnych i&nbsp;domowych. Zespół dostaje dostęp i&nbsp;zaczyna pracę tego samego dnia.</p></details>
+      <details><summary>Czy trzeba coś instalować?</summary><p>Nauczyciele — nie. Program uruchamiamy raz na serwerze placówki, a&nbsp;zespół otwiera go w&nbsp;przeglądarce jak zwykłą stronę, bez instalowania czegokolwiek na swoich komputerach.</p></details>
       <details><summary>Ile osób może korzystać z&nbsp;aplikacji?</summary><p>Cały zespół placówki: dyrektor, wychowawcy, specjaliści. Subskrypcja jest na placówkę, nie na osobę, więc nie liczysz stanowisk.</p></details>
-      <details><summary>Co z&nbsp;danymi uczniów i&nbsp;RODO?</summary><p>Zgody i&nbsp;klauzule RODO są częścią metryczki. Utrzymanie aplikacji, kopie zapasowe i&nbsp;bezpieczeństwo danych są w&nbsp;cenie subskrypcji.</p></details>
+      <details><summary>Co z&nbsp;danymi uczniów i&nbsp;RODO?</summary><p>Dane zostają u&nbsp;Was. Aplikacja pracuje na serwerze placówki, więc dokumentacja uczniów nie jest przesyłana do nas ani do zewnętrznej chmury, a&nbsp;administratorem danych pozostaje dyrektor. Zgody i&nbsp;klauzule RODO są częścią metryczki, a&nbsp;podstawa prawna jest wpisana w&nbsp;każdy druk.</p></details>
       <details><summary>Co, gdy przepisy znów się zmienią?</summary><p>Aktualizujemy wzory w&nbsp;aplikacji. Nie szukasz nowych druków i&nbsp;nie poprawiasz starych, zmiana pojawia się u&nbsp;Ciebie w&nbsp;ramach subskrypcji.</p></details>
       <details><summary>Czy mogę zobaczyć aplikację przed zakupem?</summary><p>Tak. Umów 20-minutowy pokaz online, w&nbsp;którym przechodzimy ścieżkę jednego ucznia od metryczki po druk IPET. Wcześniej obejrzyj nagrania szkoleniowe.</p></details>
       <details><summary>Czy dostanę zaświadczenie ze szkolenia?</summary><p>Tak, każdy uczestnik dostaje zaświadczenie imienne. Placówka dostaje komplet dla całej rady.</p></details>
@@ -1358,7 +1362,7 @@ svg.ck{flex:none;width:18px;height:18px;margin-top:3px}
         <label for="product">Co zamawiasz</label>
         <select id="product" name="product">
           <optgroup label="Aplikacja (tylko placówki)">
-            <option value="app" data-inst="1" data-person="0" data-price="na zapytanie">Aplikacja EduPlaner 2026 — roczna subskrypcja</option>
+            <option value="app" data-inst="1" data-person="0" data-price="3 800 zł brutto / rok">Aplikacja EduPlaner 2026 — roczna subskrypcja</option>
             <option value="app-pakiet" data-inst="1" data-person="0" data-price="na zapytanie">Aplikacja + warsztat wdrożeniowy (pakiet)</option>
             <option value="demo" data-inst="1" data-person="0" data-price="bezpłatnie">Pokaz online 20 min (bezpłatny)</option>
           </optgroup>
@@ -1398,7 +1402,7 @@ svg.ck{flex:none;width:18px;height:18px;margin-top:3px}
 
       <div class="summary">
         <div><span>Zamawiasz</span><b id="sum-product">Aplikacja EduPlaner 2026 — roczna subskrypcja</b></div>
-        <div class="pay-note"><span id="sum-pay">Faktura · przelew · dostęp po wpłacie</span><b id="sum-price">na zapytanie</b></div>
+        <div class="pay-note"><span id="sum-pay">Faktura · przelew · dostęp po wpłacie</span><b id="sum-price">3 800 zł brutto / rok</b></div>
       </div>
 
       <button class="btn btn-primary btn-lg" type="submit" id="submit-btn">Wyślij zamówienie</button>
