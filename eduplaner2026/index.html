@@ -37,7 +37,7 @@
   --orange:#E8450A;--orange-btn:#D63E08;--orange-ink:#C43705;--orange-soft:#FDE9E0;
   --paper:#FBF8F3;--paper-2:#F4EFE8;--card:#FFFFFF;
   --ink:#221B3A;--ink-2:#5B5471;--ink-3:#6A6377;--line:#E4DED6;
-  --on-plum:#E9E4F2;--on-plum-2:#ADA4BF;--on-plum-3:#D2CBE0;--on-plum-line:rgba(255,255,255,.13);--ok:#186B42;
+  --on-plum:#E9E4F2;--on-plum-2:#ADA4BF;--on-plum-3:#D2CBE0;--on-plum-line:rgba(255,255,255,.13);--ok:#186B42;--ok-tlo:#E4F1E9;--ok-linia:#BCDECB;
   --shadow:0 18px 40px -24px rgba(45,27,105,.35);--radius:14px;
   --display:"Bricolage Grotesque","Segoe UI",Arial,sans-serif;
   --body:"IBM Plex Sans","Segoe UI",Arial,sans-serif;
@@ -49,7 +49,7 @@
     --orange:#F0602B;--orange-btn:#C63A0A;--orange-ink:#FF7A47;--orange-soft:#3A1F17;
     --paper:#15102A;--paper-2:#1C1536;--card:#211A3E;
     --ink:#F1ECFA;--ink-2:#B9B0D0;--ink-3:#A29AC0;--line:#332A55;
-    --on-plum:#E9E4F2;--on-plum-2:#ADA4BF;--on-plum-3:#D2CBE0;--on-plum-line:rgba(255,255,255,.13);--ok:#4CC98A;
+    --on-plum:#E9E4F2;--on-plum-2:#ADA4BF;--on-plum-3:#D2CBE0;--on-plum-line:rgba(255,255,255,.13);--ok:#4CC98A;--ok-tlo:#16301F;--ok-linia:#22503A;
     --shadow:0 18px 40px -24px rgba(0,0,0,.7);color-scheme:dark;
   }
 }
@@ -58,7 +58,7 @@
   --orange:#F0602B;--orange-btn:#C63A0A;--orange-ink:#FF7A47;--orange-soft:#3A1F17;
   --paper:#15102A;--paper-2:#1C1536;--card:#211A3E;
   --ink:#F1ECFA;--ink-2:#B9B0D0;--ink-3:#A29AC0;--line:#332A55;
-  --on-plum:#E9E4F2;--on-plum-2:#ADA4BF;--on-plum-3:#D2CBE0;--on-plum-line:rgba(255,255,255,.13);--ok:#4CC98A;
+  --on-plum:#E9E4F2;--on-plum-2:#ADA4BF;--on-plum-3:#D2CBE0;--on-plum-line:rgba(255,255,255,.13);--ok:#4CC98A;--ok-tlo:#16301F;--ok-linia:#22503A;
   --shadow:0 18px 40px -24px rgba(0,0,0,.7);color-scheme:dark;
 }
 
@@ -387,6 +387,10 @@ svg.ck{flex:none;width:18px;height:18px;margin-top:3px}
 .offer .btn{width:100%;justify-content:center;padding:12px 14px;font-size:15px}
 .cover{aspect-ratio:1/1.15;margin:-6px 0 4px;border-radius:8px;position:relative;overflow:hidden;background:linear-gradient(165deg,#3A2686 0%,var(--plum) 55%,var(--plum-deep) 100%);color:var(--on-plum);padding:16px;display:flex;flex-direction:column;box-shadow:0 12px 24px -16px rgba(45,27,105,.6)}
 .cover.alt{background:linear-gradient(165deg,#FF7A47 0%,var(--orange) 55%,#B33205 100%)}
+.cover.cover-szk{aspect-ratio:16/9}
+.cover.cover-szk .ttl{font-size:17px}
+.poz .cover.cover-szk{aspect-ratio:16/9;width:100%}
+@media (max-width:620px){.poz-main:has(.cover-szk){grid-template-columns:1fr}}
 .cover.pale{background:linear-gradient(165deg,#F4EFFF 0%,var(--plum-soft) 100%);color:var(--plum-text);box-shadow:0 12px 24px -16px rgba(45,27,105,.35);border:1px solid var(--plum-line)}
 .cover::before{content:"";position:absolute;left:0;right:0;top:0;height:5px;background:var(--orange-btn)}
 .cover.alt::before{background:#fff}
@@ -444,6 +448,27 @@ svg.ck{flex:none;width:18px;height:18px;margin-top:3px}
   margin:6px 0 2px;font-variant-numeric:tabular-nums}
 .tile-katalog .co{font-size:12.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-3);font-weight:600;margin-bottom:14px}
 .tile-katalog .btn{margin-top:0}
+.meta{display:flex;flex-wrap:wrap;gap:6px;margin:2px 0 10px}
+.meta span{font-size:11.5px;font-weight:600;letter-spacing:.02em;color:var(--ink-2);
+  background:var(--paper-2);border:1px solid var(--line);border-radius:99px;padding:4px 10px;white-space:nowrap}
+.meta .czas{color:var(--plum-text);background:var(--plum-soft);border-color:var(--plum-line)}
+.zasw{display:flex;align-items:center;gap:8px;margin-top:12px;padding:9px 12px;border-radius:10px;
+  background:var(--ok-tlo);border:1px solid var(--ok-linia);color:var(--ok);font-size:13px;font-weight:600}
+.zasw svg{flex:none;width:15px;height:15px;stroke:currentColor;fill:none;stroke-width:2.3;stroke-linecap:round;stroke-linejoin:round}
+.poz-side .zasw{margin:14px 0 0}
+.poz .program{list-style:none;counter-reset:pr;padding:0}
+.poz .program li{counter-increment:pr;padding-left:34px;position:relative}
+.poz .program li::before{content:counter(pr);position:absolute;left:0;top:1px;width:23px;height:23px;border-radius:7px;
+  background:var(--plum-soft);color:var(--plum-text);display:grid;place-items:center;font-size:12px;font-weight:700;
+  font-variant-numeric:tabular-nums}
+.poz .kogo{background:var(--paper-2);border:1px solid var(--line);border-radius:12px;padding:14px 16px;margin-top:18px}
+.poz .kogo b{display:block;font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-3);margin-bottom:5px}
+.poz .kogo span{font-size:15px;color:var(--ink-2);line-height:1.5}
+.prowadzaca{display:flex;gap:14px;align-items:flex-start;margin-top:18px;padding-top:18px;border-top:1px solid var(--line)}
+.prowadzaca .ini{flex:none;width:44px;height:44px;border-radius:50%;background:var(--plum);color:#fff;
+  display:grid;place-items:center;font-family:var(--display);font-weight:700;font-size:15px}
+.prowadzaca b{display:block;font-size:15px;color:var(--ink)}
+.prowadzaca span{font-size:13.5px;color:var(--ink-2);line-height:1.5}
 .offer.zwiezla h3{margin-bottom:auto}
 .offer.zwiezla .prices{margin-top:16px}
 .offer .netto{display:block;margin-top:8px;font-size:12.5px;color:var(--ink-3);font-variant-numeric:tabular-nums}
@@ -1424,9 +1449,16 @@ svg.ck{flex:none;width:18px;height:18px;margin-top:3px}
             <option value="demo" data-rodzaj="bezplatne" data-inst="1" data-person="0" data-price="bezpłatnie">Pokaz online 20 min (bezpłatny)</option>
           </optgroup>
           <optgroup label="Szkolenia">
-            <option value="szk-a-d" data-rodzaj="usluga" data-inst="1" data-person="1" data-price="na zapytanie">Szkolenie: Nowa ocena funkcjonalna od A do D</option>
-            <option value="szk-wdrozenie" data-rodzaj="usluga" data-inst="1" data-person="0" data-price="na zapytanie">Warsztat wdrożeniowy EduPlaner 2026</option>
-            <option value="szk-obserwacja" data-rodzaj="usluga" data-inst="1" data-person="1" data-price="na zapytanie">Szkolenie: Obserwacja pogłębiona, cztery narzędzia</option>
+            <option value="szk-a-d" data-inst="1" data-person="1" data-rodzaj="usluga" data-price="na zapytanie">Szkolenie: Nowa ocena funkcjonalna od A do D</option>
+            <option value="szk-wdrozenie" data-inst="1" data-person="0" data-rodzaj="usluga" data-price="na zapytanie">Szkolenie: Wdrożenie EduPlaner 2026 w Twojej placówce</option>
+            <option value="szk-obserwacja" data-inst="1" data-person="1" data-rodzaj="usluga" data-price="na zapytanie">Szkolenie: Obserwacja pogłębiona: cztery narzędzia</option>
+            <option value="szk-echolalia" data-inst="1" data-person="1" data-rodzaj="usluga" data-price="na zapytanie">Szkolenie: Echolalia — jak rozumieć jej funkcje</option>
+            <option value="szk-tom" data-inst="1" data-person="1" data-rodzaj="usluga" data-price="na zapytanie">Szkolenie: Teoria umysłu w praktyce szkolnej</option>
+            <option value="szk-emocje" data-inst="1" data-person="1" data-rodzaj="usluga" data-price="na zapytanie">Szkolenie: Emocje w spektrum: radość, smutek, złość, wstyd, lęk</option>
+            <option value="szk-sala" data-inst="1" data-person="0" data-rodzaj="usluga" data-price="na zapytanie">Szkolenie: Sala, która uczy każde dziecko</option>
+            <option value="szk-autyzm" data-inst="1" data-person="0" data-rodzaj="usluga" data-price="na zapytanie">Szkolenie: Spektrum autyzmu bez tajemnic — szkolenie dla rady</option>
+            <option value="szk-ipet" data-inst="1" data-person="1" data-rodzaj="usluga" data-price="na zapytanie">Szkolenie: IPET i PEWS: cele SMART, których nie pisze się co roku od nowa</option>
+            <option value="szk-dokumentacja" data-inst="1" data-person="0" data-rodzaj="usluga" data-price="na zapytanie">Szkolenie: Dokumentacja bez nadgodzin — organizacja pracy zespołu</option>
           </optgroup>
           <optgroup label="Broszury (PDF)">
             <option value="br-emocje" data-rodzaj="plik" data-inst="1" data-person="1" data-price="30 zł brutto (24,39 zł netto + VAT 23%)">Broszura: Kolorowy Świat Emocji</option>
@@ -1829,18 +1861,24 @@ var OFERTA = [
     "id": "szk-a-d",
     "typ": "szkolenie",
     "polecane": true,
-    "ikona": "ekran",
     "hot": false,
     "badge": "",
+    "okladka": {
+      "wariant": "",
+      "ser": "Szkolenie · cztery bloki",
+      "ttl": "Nowa ocena funkcjonalna",
+      "sub": "od A do D",
+      "pasy": []
+    },
     "fmt": "Online · rada pedagogiczna",
     "tytul": "Nowa ocena funkcjonalna od A do D",
-    "opis": "Cztery bloki szkolenia w pełnej wersji, z pytaniami na żywo. Dla całej rady w jednym terminie lub otwarty termin dla osób indywidualnych.",
+    "opis": "Cztery bloki w pełnej wersji, z pytaniami na żywo. Dla całej rady w jednym terminie albo otwarty termin dla osób indywidualnych.",
     "punkty": [
       "Podstawa prawna, KSzOF, ICF, skala i sten",
       "Trzy poziomy wsparcia, IPET i PEWS",
-      "Zaświadczenie dla każdego uczestnika"
+      "Nagranie dostępne 30 dni po szkoleniu"
     ],
-    "spec": "ok. 3 h · nagranie dostępne 30 dni po szkoleniu",
+    "spec": "ok. 3 h · online",
     "ceny": [
       [
         "Placówka",
@@ -1853,23 +1891,43 @@ var OFERTA = [
         "za osobę · online"
       ]
     ],
+    "zaswiadczenie": true,
+    "tagi": [
+      "WOPF",
+      "KSzOF",
+      "Rada pedagogiczna",
+      "Szkolenia otwarte"
+    ],
     "cta": "Zapisz się lub zamów",
     "primary": false,
     "buyer": "",
     "wiecej": [],
-    "tagi": [
-      "WOPF",
-      "KSzOF",
-      "Rada pedagogiczna"
+    "poziom": "podstawowy",
+    "tryb": "otwarte",
+    "dlaKogo": "Nauczyciele, specjaliści i dyrektorzy, którzy pierwszy raz mierzą się z oceną funkcjonalną",
+    "program": [
+      "Wprowadzenie: po co to robimy i co się zmienia",
+      "Podstawa prawna, KSzOF, ICF, skala i sten",
+      "Trzy poziomy wsparcia, IPET i PEWS",
+      "Pytania uczestników i podsumowanie"
+    ],
+    "zawiera": [
+      "Nagranie dostępne 30 dni po szkoleniu"
     ]
   },
   {
     "id": "szk-wdrozenie",
     "typ": "szkolenie",
     "polecane": true,
-    "ikona": "ludzie",
     "hot": true,
     "badge": "Najlepszy start",
+    "okladka": {
+      "wariant": "alt",
+      "ser": "Warsztat z aplikacją",
+      "ttl": "Wdrożenie EduPlaner 2026",
+      "sub": "w Twojej placówce",
+      "pasy": []
+    },
     "fmt": "Online · warsztat z aplikacją",
     "tytul": "Wdrożenie EduPlaner 2026 w Twojej placówce",
     "opis": "Pracujemy na Waszych prawdziwych przypadkach, w Waszej aplikacji. Po warsztacie pierwszy uczeń ma komplet dokumentów.",
@@ -1883,31 +1941,51 @@ var OFERTA = [
       [
         "Placówka",
         "na zapytanie",
-        "cały zespół · faktura"
+        "cała rada · faktura"
       ],
       [
-        "W pakiecie",
+        "Indywidualnie",
         "na zapytanie",
-        "z aplikacją · taniej"
+        "za osobę · online"
       ]
+    ],
+    "zaswiadczenie": true,
+    "tagi": [
+      "Wdrożenie",
+      "Aplikacja",
+      "IPET",
+      "Na zamówienie"
     ],
     "cta": "Zarezerwuj warsztat",
     "primary": true,
     "buyer": "inst",
     "wiecej": [],
-    "tagi": [
-      "Wdrożenie",
-      "Aplikacja",
-      "IPET"
+    "poziom": "wdrożeniowy",
+    "tryb": "na zamówienie",
+    "dlaKogo": "Zespół placówki, która ma już subskrypcję i chce zacząć pracę w aplikacji",
+    "program": [
+      "Wprowadzenie: po co to robimy i co się zmienia",
+      "Metryczka, WOPF i plan dla realnego ucznia",
+      "Podział ról w zespole i pulpit dyrektora",
+      "Pytania uczestników i podsumowanie"
+    ],
+    "zawiera": [
+      "Miesiąc konsultacji po warsztacie"
     ]
   },
   {
     "id": "szk-obserwacja",
     "typ": "szkolenie",
     "polecane": true,
-    "ikona": "lupa",
     "hot": false,
     "badge": "",
+    "okladka": {
+      "wariant": "pale",
+      "ser": "Dla specjalistów",
+      "ttl": "Obserwacja pogłębiona",
+      "sub": "cztery narzędzia",
+      "pasy": []
+    },
     "fmt": "Online · dla specjalistów",
     "tytul": "Obserwacja pogłębiona: cztery narzędzia",
     "opis": "Dziennik ABC, profil sensoryczny W. Dunn, kwestionariusz rozwoju mowy i karta teorii umysłu na przykładach z praktyki.",
@@ -1921,7 +1999,7 @@ var OFERTA = [
       [
         "Placówka",
         "na zapytanie",
-        "do 10 osób · faktura"
+        "cała rada · faktura"
       ],
       [
         "Indywidualnie",
@@ -1929,15 +2007,430 @@ var OFERTA = [
         "za osobę · online"
       ]
     ],
+    "zaswiadczenie": true,
+    "tagi": [
+      "Obserwacja",
+      "Narzędzia",
+      "Specjaliści",
+      "Szkolenia otwarte"
+    ],
     "cta": "Zapisz się lub zamów",
     "primary": false,
     "buyer": "",
     "wiecej": [],
-    "tagi": [
-      "Obserwacja",
-      "Narzędzia",
-      "Specjaliści"
+    "poziom": "rozszerzony",
+    "tryb": "otwarte",
+    "dlaKogo": "Psycholodzy, pedagodzy specjalni, logopedzi i terapeuci",
+    "program": [
+      "Wprowadzenie: po co to robimy i co się zmienia",
+      "Kiedy sięgać po które narzędzie",
+      "Od obserwacji do celu SMART w planie",
+      "Pytania uczestników i podsumowanie"
+    ],
+    "zawiera": [
+      "Arkusze obserwacyjne do pobrania"
     ]
+  },
+  {
+    "id": "szk-echolalia",
+    "typ": "szkolenie",
+    "polecane": false,
+    "hot": false,
+    "badge": "",
+    "okladka": {
+      "wariant": "echolalia",
+      "ser": "Szkolenie tematyczne",
+      "ttl": "Echolalia",
+      "sub": "i jej funkcje",
+      "pasy": []
+    },
+    "fmt": "Online · nauczyciele, terapeuci, rodzice",
+    "tytul": "Echolalia — jak rozumieć jej funkcje",
+    "opis": "Siedem mechanizmów echolalii opisanych w literaturze, każdy z uczciwą oceną siły dowodów. Co z tego wynika dla zapisu w IPET.",
+    "punkty": [
+      "Siedem mechanizmów i co je odróżnia",
+      "Reagować czy nie reagować — i kiedy",
+      "Dostosowania gotowe do zapisania w IPET"
+    ],
+    "spec": "ok. 2 h · online",
+    "ceny": [
+      [
+        "Placówka",
+        "na zapytanie",
+        "cała rada · faktura"
+      ],
+      [
+        "Indywidualnie",
+        "na zapytanie",
+        "za osobę · online"
+      ]
+    ],
+    "zaswiadczenie": true,
+    "tagi": [
+      "Mowa",
+      "Autyzm",
+      "IPET",
+      "Szkolenia otwarte"
+    ],
+    "cta": "Zapisz się lub zamów",
+    "primary": false,
+    "buyer": "",
+    "wiecej": [],
+    "poziom": "rozszerzony",
+    "tryb": "otwarte",
+    "dlaKogo": "Nauczyciele, terapeuci i rodzice dzieci, u których występuje echolalia",
+    "program": [
+      "Wprowadzenie: po co to robimy i co się zmienia",
+      "Siedem mechanizmów i co je odróżnia",
+      "Reagować czy nie reagować — i kiedy",
+      "Dostosowania gotowe do zapisania w IPET",
+      "Pytania uczestników i podsumowanie"
+    ],
+    "zawiera": []
+  },
+  {
+    "id": "szk-tom",
+    "typ": "szkolenie",
+    "polecane": false,
+    "hot": false,
+    "badge": "",
+    "okladka": {
+      "wariant": "ksiaze",
+      "ser": "Szkolenie tematyczne",
+      "ttl": "Teoria umysłu",
+      "sub": "w praktyce szkolnej",
+      "pasy": []
+    },
+    "fmt": "Online · nauczyciele i specjaliści",
+    "tytul": "Teoria umysłu w praktyce szkolnej",
+    "opis": "Pięć etapów rozwoju teorii umysłu i konkretne ćwiczenia na każdym z nich — z wykorzystaniem lektury jako narzędzia pracy.",
+    "punkty": [
+      "Pięć etapów i jak rozpoznać, na którym jest uczeń",
+      "Wnioskowanie i ocena sytuacji krok po kroku",
+      "Scenariusz zajęć i gra planszowa do wykorzystania"
+    ],
+    "spec": "ok. 2,5 h · online",
+    "ceny": [
+      [
+        "Placówka",
+        "na zapytanie",
+        "cała rada · faktura"
+      ],
+      [
+        "Indywidualnie",
+        "na zapytanie",
+        "za osobę · online"
+      ]
+    ],
+    "zaswiadczenie": true,
+    "tagi": [
+      "Teoria umysłu",
+      "Autyzm",
+      "Scenariusze",
+      "Szkolenia otwarte"
+    ],
+    "cta": "Zapisz się lub zamów",
+    "primary": false,
+    "buyer": "",
+    "wiecej": [],
+    "poziom": "rozszerzony",
+    "tryb": "otwarte",
+    "dlaKogo": "Nauczyciele i specjaliści pracujący z uczniem ze spektrum autyzmu",
+    "program": [
+      "Wprowadzenie: po co to robimy i co się zmienia",
+      "Pięć etapów i jak rozpoznać, na którym jest uczeń",
+      "Wnioskowanie i ocena sytuacji krok po kroku",
+      "Pytania uczestników i podsumowanie"
+    ],
+    "zawiera": [
+      "Scenariusz zajęć i gra planszowa do wykorzystania"
+    ]
+  },
+  {
+    "id": "szk-emocje",
+    "typ": "szkolenie",
+    "polecane": false,
+    "hot": false,
+    "badge": "",
+    "okladka": {
+      "wariant": "emocje",
+      "ser": "Szkolenie tematyczne",
+      "ttl": "Kompetencje emocjonalne",
+      "sub": "pięć kolorów, pięć emocji",
+      "pasy": []
+    },
+    "fmt": "Online · nauczyciele i specjaliści",
+    "tytul": "Emocje w spektrum: radość, smutek, złość, wstyd, lęk",
+    "opis": "Jak prowadzić zajęcia rozwijające kompetencje emocjonalne i społeczne z młodzieżą ze spektrum autyzmu.",
+    "punkty": [
+      "Pięć emocji, pięć sposobów pracy",
+      "Kiedy nazywanie emocji pomaga, a kiedy przeszkadza",
+      "Gotowy zeszyt ucznia jako podstawa zajęć"
+    ],
+    "spec": "ok. 2 h · online",
+    "ceny": [
+      [
+        "Placówka",
+        "na zapytanie",
+        "cała rada · faktura"
+      ],
+      [
+        "Indywidualnie",
+        "na zapytanie",
+        "za osobę · online"
+      ]
+    ],
+    "zaswiadczenie": true,
+    "tagi": [
+      "Emocje",
+      "Autyzm",
+      "Zajęcia grupowe",
+      "Szkolenia otwarte"
+    ],
+    "cta": "Zapisz się lub zamów",
+    "primary": false,
+    "buyer": "",
+    "wiecej": [],
+    "poziom": "podstawowy",
+    "tryb": "otwarte",
+    "dlaKogo": "Osoby prowadzące zajęcia rozwijające kompetencje emocjonalne i społeczne",
+    "program": [
+      "Wprowadzenie: po co to robimy i co się zmienia",
+      "Pięć emocji, pięć sposobów pracy",
+      "Kiedy nazywanie emocji pomaga, a kiedy przeszkadza",
+      "Praca na zeszycie ucznia jako podstawie zajęć",
+      "Pytania uczestników i podsumowanie"
+    ],
+    "zawiera": []
+  },
+  {
+    "id": "szk-sala",
+    "typ": "szkolenie",
+    "polecane": false,
+    "hot": false,
+    "badge": "",
+    "okladka": {
+      "wariant": "sala",
+      "ser": "Dla przedszkoli",
+      "ttl": "Sala, która uczy",
+      "sub": "każde dziecko",
+      "pasy": []
+    },
+    "fmt": "Online · nauczyciele i dyrektorzy przedszkoli",
+    "tytul": "Sala, która uczy każde dziecko",
+    "opis": "Jak urządzić salę zgodnie z nową podstawą programową i jednocześnie zapewnić dostępność dzieciom z różnymi deficytami.",
+    "punkty": [
+      "Pięć stref sali i trzy poziomy wsparcia",
+      "Dziesięć grup potrzeb — co zmienić przy każdej",
+      "Arkusze monitorujące do wypełnienia po szkoleniu"
+    ],
+    "spec": "ok. 2,5 h · online",
+    "ceny": [
+      [
+        "Placówka",
+        "na zapytanie",
+        "cała rada · faktura"
+      ],
+      [
+        "Indywidualnie",
+        "na zapytanie",
+        "za osobę · online"
+      ]
+    ],
+    "zaswiadczenie": true,
+    "tagi": [
+      "Przedszkole",
+      "Organizacja sali",
+      "Dostosowania",
+      "Na zamówienie"
+    ],
+    "cta": "Zapisz się lub zamów",
+    "primary": false,
+    "buyer": "",
+    "wiecej": [],
+    "poziom": "podstawowy",
+    "tryb": "na zamówienie",
+    "dlaKogo": "Nauczyciele i dyrektorzy przedszkoli",
+    "program": [
+      "Wprowadzenie: po co to robimy i co się zmienia",
+      "Pięć stref sali i trzy poziomy wsparcia",
+      "Dziesięć grup potrzeb — co zmienić przy każdej",
+      "Pytania uczestników i podsumowanie"
+    ],
+    "zawiera": [
+      "Arkusze monitorujące do wypełnienia po szkoleniu"
+    ]
+  },
+  {
+    "id": "szk-autyzm",
+    "typ": "szkolenie",
+    "polecane": false,
+    "hot": false,
+    "badge": "",
+    "okladka": {
+      "wariant": "autyzm",
+      "ser": "Kompendium dla rady",
+      "ttl": "Spektrum autyzmu",
+      "sub": "bez tajemnic",
+      "pasy": []
+    },
+    "fmt": "Online · rada pedagogiczna",
+    "tytul": "Spektrum autyzmu bez tajemnic — szkolenie dla rady",
+    "opis": "Od pierwszych subtelnych sygnałów, przez teorię umysłu i profil sensoryczny, po drogę do samodzielności. Kompendium w formie szkolenia.",
+    "punkty": [
+      "Na co zwrócić uwagę i kiedy reagować",
+      "Profil sensoryczny w codziennej sali",
+      "Co znaczy wsparcie prowadzące do samodzielności"
+    ],
+    "spec": "ok. 3 h · dla całej rady",
+    "ceny": [
+      [
+        "Placówka",
+        "na zapytanie",
+        "cała rada · faktura"
+      ],
+      [
+        "Indywidualnie",
+        "na zapytanie",
+        "za osobę · online"
+      ]
+    ],
+    "zaswiadczenie": true,
+    "tagi": [
+      "Autyzm",
+      "Diagnoza",
+      "Rada pedagogiczna",
+      "Na zamówienie"
+    ],
+    "cta": "Zapisz się lub zamów",
+    "primary": false,
+    "buyer": "",
+    "wiecej": [],
+    "poziom": "podstawowy",
+    "tryb": "na zamówienie",
+    "dlaKogo": "Cała rada pedagogiczna — także osoby, które dopiero zaczynają",
+    "program": [
+      "Wprowadzenie: po co to robimy i co się zmienia",
+      "Na co zwrócić uwagę i kiedy reagować",
+      "Profil sensoryczny w codziennej sali",
+      "Co znaczy wsparcie prowadzące do samodzielności",
+      "Pytania uczestników i podsumowanie"
+    ],
+    "zawiera": []
+  },
+  {
+    "id": "szk-ipet",
+    "typ": "szkolenie",
+    "polecane": false,
+    "hot": false,
+    "badge": "",
+    "okladka": {
+      "wariant": "",
+      "ser": "Szkolenie warsztatowe",
+      "ttl": "IPET i PEWS",
+      "sub": "cele, które da się ocenić",
+      "pasy": []
+    },
+    "fmt": "Online · zespoły i specjaliści",
+    "tytul": "IPET i PEWS: cele SMART, których nie pisze się co roku od nowa",
+    "opis": "Warsztat na prawdziwych zapisach: przerabiamy hasła na cele, które da się zrealizować i ocenić po pół roku.",
+    "punkty": [
+      "Kwalifikacja do poziomu I, II albo III",
+      "Od obszaru WOPF do celu z terminem i właścicielem",
+      "Ewaluacja półroczna, która nie jest przepisywaniem"
+    ],
+    "spec": "ok. 3 h · warsztat na przykładach",
+    "ceny": [
+      [
+        "Placówka",
+        "na zapytanie",
+        "cała rada · faktura"
+      ],
+      [
+        "Indywidualnie",
+        "na zapytanie",
+        "za osobę · online"
+      ]
+    ],
+    "zaswiadczenie": true,
+    "tagi": [
+      "IPET",
+      "Cele SMART",
+      "Dokumentacja",
+      "Szkolenia otwarte"
+    ],
+    "cta": "Zapisz się lub zamów",
+    "primary": false,
+    "buyer": "",
+    "wiecej": [],
+    "poziom": "rozszerzony",
+    "tryb": "otwarte",
+    "dlaKogo": "Zespoły opracowujące IPET i PEWS",
+    "program": [
+      "Wprowadzenie: po co to robimy i co się zmienia",
+      "Kwalifikacja do poziomu I, II albo III",
+      "Od obszaru WOPF do celu z terminem i właścicielem",
+      "Ewaluacja półroczna, która nie jest przepisywaniem",
+      "Pytania uczestników i podsumowanie"
+    ],
+    "zawiera": []
+  },
+  {
+    "id": "szk-dokumentacja",
+    "typ": "szkolenie",
+    "polecane": false,
+    "hot": false,
+    "badge": "",
+    "okladka": {
+      "wariant": "pale",
+      "ser": "Dla dyrektorów",
+      "ttl": "Dokumentacja",
+      "sub": "bez nadgodzin",
+      "pasy": []
+    },
+    "fmt": "Online · dyrektorzy i liderzy zespołów",
+    "tytul": "Dokumentacja bez nadgodzin — organizacja pracy zespołu",
+    "opis": "Jak rozłożyć dokumentację oceny funkcjonalnej na zespół, żeby nie robiła jej jedna osoba w czerwcu.",
+    "punkty": [
+      "Podział ról i terminy z wyprzedzeniem",
+      "Zebranie zespołu w 60 minut zamiast w trzy godziny",
+      "Co dyrektor widzi na pulpicie i po co"
+    ],
+    "spec": "ok. 2 h · dla kadry kierowniczej",
+    "ceny": [
+      [
+        "Placówka",
+        "na zapytanie",
+        "cała rada · faktura"
+      ],
+      [
+        "Indywidualnie",
+        "na zapytanie",
+        "za osobę · online"
+      ]
+    ],
+    "zaswiadczenie": true,
+    "tagi": [
+      "Organizacja",
+      "Dyrektor",
+      "Dokumentacja",
+      "Na zamówienie"
+    ],
+    "cta": "Zapisz się lub zamów",
+    "primary": false,
+    "buyer": "",
+    "wiecej": [],
+    "poziom": "organizacyjny",
+    "tryb": "na zamówienie",
+    "dlaKogo": "Dyrektorzy, wicedyrektorzy i liderzy zespołów",
+    "program": [
+      "Wprowadzenie: po co to robimy i co się zmienia",
+      "Podział ról i terminy z wyprzedzeniem",
+      "Zebranie zespołu w 60 minut zamiast w trzy godziny",
+      "Co dyrektor widzi na pulpicie i po co",
+      "Pytania uczestników i podsumowanie"
+    ],
+    "zawiera": []
   },
   {
     "id": "br-emocje",
@@ -2201,6 +2694,10 @@ var OFERTA = [
 
 
 
+
+
+
+
 /* --- szkolenia i broszury: karty, katalog, szczegóły --------------- */
 (function(){
   var esc=OKNO.esc;
@@ -2217,14 +2714,14 @@ var OFERTA = [
     return o.netto ? '<span class="netto">'+esc(o.netto)+'</span>' : '';
   }
   function glowa(o){
-    if((o.typ==='broszura'||o.typ==='pomoc') && o.okladka){
+    if(o.okladka){
       var w=o.okladka;
       var pasy = (w.pasy&&w.pasy.length)
         ? '<span class="pasy" aria-hidden="true">'+w.pasy.map(function(c){
             return '<span style="background:'+esc(c[0])+'" title="'+esc(c[1])+'"></span>'; }).join('')+'</span>'
         : '';
       var tytul = esc(w.ttl) + (w.ttl2 ? '<em>'+esc(w.ttl2)+'</em>' : '');
-      return '<div class="cover'+(w.wariant?' '+w.wariant:'')+'">'+KW+'<span class="lg"></span>'
+      return '<div class="cover'+(o.typ==='szkolenie'?' cover-szk':'')+(w.wariant?' '+w.wariant:'')+'">'+KW+'<span class="lg"></span>'
         +'<span class="ser">'+esc(w.ser)+'</span><span class="ttl">'+tytul+'</span>'
         +'<span class="sub">'+esc(w.sub)+'</span>'+pasy+'</div>';
     }
@@ -2232,23 +2729,33 @@ var OFERTA = [
   }
   /* Broszury i pomoce mają karty zwięzłe: okładka, tytuł, cena.
      Opis, punkty i szczegóły techniczne czekają w oknie po kliknięciu. */
+  var ZASW='<svg viewBox="0 0 24 24"><path d="M9 12l2 2 4-4"/><circle cx="12" cy="12" r="9"/></svg>';
+
+  /* Karta katalogowa: okładka, najważniejsze parametry w pasku, tytuł i cena.
+     Program, dla kogo i co uczestnik dostaje — w oknie po kliknięciu. Tak działają
+     platformy szkoleniowe i tak sekcja nie rośnie wraz z liczbą tematów. */
+  function meta(o){
+    if(o.typ!=='szkolenie') return '';
+    var el=[];
+    if(o.spec) el.push('<span class="czas">'+esc(o.spec.split('·')[0].trim())+'</span>');
+    if(o.tryb) el.push('<span>'+(o.tryb==='otwarte'?'Termin otwarty':'Na zamówienie')+'</span>');
+    if(o.poziom) el.push('<span>poziom '+esc(o.poziom)+'</span>');
+    return el.length ? '<div class="meta">'+el.join('')+'</div>' : '';
+  }
   function karta(o){
-    var zwiezla = o.typ!=='szkolenie';
-    var srodek = zwiezla ? ''
-      : '<p>'+esc(o.opis)+'</p>'
-        + (o.punkty.length?'<ul>'+o.punkty.map(function(t){return '<li>'+CK+esc(t)+'</li>';}).join('')+'</ul>':'')
-        + '<span class="spec">'+esc(o.spec)+'</span>';
-    return '<article class="offer'+(o.hot?' hot':'')+(zwiezla?' zwiezla':'')+'">'
+    var srodek = '';
+    return '<article class="offer'+(o.hot?' hot':'')+' zwiezla">'
       + (o.badge?'<span class="badge">'+esc(o.badge)+'</span>':'')
       + glowa(o)
       + '<span class="fmt">'+esc(o.fmt)+'</span>'
       + '<h3>'+esc(o.tytul)+'</h3>'
-      + srodek
+      + meta(o) + srodek
+      + (o.zaswiadczenie ? '<div class="zasw">'+ZASW+'Zaświadczenie dla uczestnika</div>' : '')
       + ceny(o) + netto(o)
       + '<a class="btn '+(o.primary?'btn-primary':'btn-ghost')+'" href="#zamow" data-order="'+esc(o.id)+'"'
       + (o.buyer?' data-buyer="'+esc(o.buyer)+'"':'')+'>'+esc(o.cta)+'</a>'
       + '<button class="more" type="button" data-poz="'+esc(o.id)+'">'
-      + (zwiezla?'Co jest w środku':'Zobacz szczegóły')+'</button>'
+      + (o.typ==='szkolenie'?'Program szkolenia':'Co jest w środku')+'</button>'
       + '</article>';
   }
 
@@ -2330,9 +2837,15 @@ var OFERTA = [
     OKNO.tytul.textContent = k.tytul+' ('+lista.length+')';
     OKNO.wroc.hidden=true;
 
-    var wszystkieTagi=[];
-    lista.forEach(function(o){ (o.tagi||[]).forEach(function(t){ if(wszystkieTagi.indexOf(t)<0) wszystkieTagi.push(t); }); });
-    wszystkieTagi.sort(function(a,b){ return a.localeCompare(b,'pl'); });
+    /* Dwadzieścia pięć chipów filtruje gorzej niż dziesięć, bo nikt ich nie czyta.
+       Pokazujemy te, które faktycznie coś dzielą — najczęstsze; rzadkie tematy
+       znajdzie wyszukiwarka. */
+    var ile={};
+    lista.forEach(function(o){ (o.tagi||[]).forEach(function(t){ ile[t]=(ile[t]||0)+1; }); });
+    var wszystkieTagi=Object.keys(ile)
+      .sort(function(a,b){ return ile[b]-ile[a] || a.localeCompare(b,'pl'); })
+      .slice(0,10)
+      .sort(function(a,b){ return a.localeCompare(b,'pl'); });
 
     OKNO.body.innerHTML=
       '<div class="kat-narzedzia">'
@@ -2394,12 +2907,29 @@ var OFERTA = [
     OKNO.wroc.hidden=false;
     OKNO.wroc.onclick=function(){ location.hash='katalog-'+o.typ; };
     var kol = (o.typ!=='szkolenie' && o.okladka) ? 'poz-main' : '';
+    var szkolenie = o.typ==='szkolenie';
     var lewa='<div>'+(kol?'<div class="'+kol+'">'+glowa(o)+'<div><p>'+esc(o.opis)+'</p></div></div>':glowa(o)+'<p>'+esc(o.opis)+'</p>')
-      + (o.punkty.length?'<h4>Co obejmuje</h4><ul>'+o.punkty.map(function(t){return '<li>'+CK+esc(t)+'</li>';}).join('')+'</ul>':'')
-      + (o.wiecej && o.wiecej.length?'<h4>Szczegóły</h4><ul>'+o.wiecej.map(function(t){return '<li>'+CK+esc(t)+'</li>';}).join('')+'</ul>':'')
+      + (szkolenie && o.program && o.program.length
+          ? '<h4>Program szkolenia</h4><ul class="program">'
+            + o.program.map(function(t){ return '<li>'+esc(t)+'</li>'; }).join('') + '</ul>'
+          : (o.punkty.length?'<h4>Co obejmuje</h4><ul>'+o.punkty.map(function(t){return '<li>'+CK+esc(t)+'</li>';}).join('')+'</ul>':''))
+      + (o.wiecej && o.wiecej.length?'<h4>Więcej</h4><ul>'+o.wiecej.map(function(t){return '<li>'+CK+esc(t)+'</li>';}).join('')+'</ul>':'')
+      + (o.dlaKogo?'<div class="kogo"><b>Dla kogo</b><span>'+esc(o.dlaKogo)+'</span></div>':'')
+      + (szkolenie
+          ? '<div class="prowadzaca"><span class="ini">MJ</span><span><b>Mirosława Ewa Jurczyszyn</b>'
+            + '<span>Pedagog specjalny, Pomorskie Centrum Terapii Pedagogicznej w Koszalinie. '
+            + 'Autorka aplikacji EduPlaner 2026 i materiałów, na których opiera się szkolenie. '
+            + 'Prowadzi zajęcia na własnych przypadkach z praktyki, nie na przykładach z podręcznika.</span></span></div>'
+          : '')
       + '</div>';
     var prawa='<aside class="poz-side"><span class="fmt">'+esc(o.fmt)+'</span>'
+      + meta(o)
       + ceny(o) + netto(o) + '<span class="spec">'+esc(o.spec)+'</span>'
+      + (o.zaswiadczenie ? '<div class="zasw">'+ZASW+'Zaświadczenie dla uczestnika</div>' : '')
+      + (o.zawiera && o.zawiera.length
+          ? '<h4 style="margin:16px 0 6px">Co dostajesz</h4><ul>'
+            + o.zawiera.map(function(t){ return '<li>'+CK+esc(t)+'</li>'; }).join('') + '</ul>'
+          : '')
       + '<a class="btn '+(o.primary?'btn-primary':'btn-ghost')+'" href="#zamow" data-zamow="'+esc(o.id)+'"'
       + (o.buyer?' data-buyer="'+esc(o.buyer)+'"':'')+'>'+esc(o.cta)+'</a></aside>';
     OKNO.body.innerHTML='<div class="poz">'+lewa+prawa+'</div>';
