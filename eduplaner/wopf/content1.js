@@ -1,4 +1,4 @@
-const L = require('./lib.js');
+const L = require('../lib.js');
 const { section, howto, lead, legal, note, ta, fields, checks, table, scale, bars, signatures, brk, text, subhead, dotline, C, AlignmentType } = L;
 
 const B = [];

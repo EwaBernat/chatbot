@@ -1,5 +1,5 @@
 const fs = require('fs');
-const L = require('./lib.js');
+const L = require('../lib.js');
 const { Document, Packer, FONT, C, pageHeader, pageFooter } = L;
 
 const children = [...require('./content1.js'), ...require('./content2.js')];

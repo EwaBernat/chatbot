@@ -41,7 +41,7 @@ const P = (children, o={}) => new Paragraph({
 const text = (t, o={}) => P([run(t, o)], o);
 
 /* ---------- nagłówek / stopka strony ---------- */
-const pageHeader = new Header({ children: [
+const makeHeader = (o={}) => new Header({ children: [
   new Paragraph({
     spacing: { before: 0, after: 40, line: 240 },
     tabStops: [{ type: TabStopType.RIGHT, position: CW }],
@@ -51,50 +51,74 @@ const pageHeader = new Header({ children: [
       run('  ', { size: 15 }),
       run('EduPlaner 2026', { size: 19, bold: true, color: C.purple }),
       run('   ·   ', { size: 15, color: C.line }),
-      run('WOPF · przedszkole', { size: 14, bold: true, color: C.soft, caps: true }),
+      run(o.kind || 'WOPF · przedszkole', { size: 14, bold: true, color: C.soft, caps: true }),
       run('\t'),
-      run('  WOPF  ', { size: 15, bold: true, color: 'FFFFFF' }),
-      run('   ocena zintegrowana · dokument scalający · 2026', { size: 13, bold: true, color: C.soft })
+      run('  ' + (o.badge || 'WOPF') + '  ', { size: 15, bold: true, color: 'FFFFFF' }),
+      run('   ' + (o.tagline || 'ocena zintegrowana · dokument scalający · 2026'), { size: 13, bold: true, color: C.soft })
     ]
   })
 ]});
 
-const pageFooter = new Footer({ children: [
+const makeFooter = (o={}) => new Footer({ children: [
   new Paragraph({
     spacing: { before: 60, after: 0 },
     tabStops: [{ type: TabStopType.RIGHT, position: CW }],
     border: { top: bd(C.line, 6) },
     children: [
-      run('EduPlaner 2026 · PCTP · przedszkole', { size: 13, color: C.muted }),
+      run(o.left || 'EduPlaner 2026 · PCTP · przedszkole', { size: 13, color: C.muted }),
       run('\t'),
       run('Strona ', { size: 13, color: C.muted }),
       new TextRun({ children: [PageNumber.CURRENT], font: FONT, size: 13, bold: true, color: C.orange }),
-      run(' · WOPF', { size: 13, bold: true, color: C.purple })
+      run(' · ' + (o.badge || 'WOPF'), { size: 13, bold: true, color: C.purple })
     ]
   })
 ]});
 
+const pageHeader = makeHeader();
+const pageFooter = makeFooter();
+
 /* ---------- bloki treści ---------- */
+
+// Baner części dokumentu (CZĘŚĆ I · OCENA itd.)
+function partBanner(kicker, title, sub) {
+  return [
+    new Table({
+      width: { size: CW, type: WidthType.DXA }, columnWidths: [CW],
+      rows: [new TableRow({ children: [new TableCell({
+        width: { size: CW, type: WidthType.DXA },
+        shading: { fill: C.purple, type: ShadingType.CLEAR, color: 'auto' },
+        margins: { top: 200, left: 200, bottom: 200, right: 200 },
+        borders: { top: bd(C.purple, 6), left: bd(C.orange, 24), bottom: bd(C.purple, 6), right: bd(C.purple, 6) },
+        children: [
+          P([run(kicker, { size: 15, bold: true, color: 'F0B48A', caps: true })], { after: 60 }),
+          P([run(title, { size: 26, bold: true, color: 'FFFFFF' })], { after: sub ? 60 : 0, line: 280 }),
+          ...(sub ? [P([run(sub, { size: 14, bold: true, color: 'C9BCEA', caps: true })], { after: 0, line: 220 })] : [])
+        ]
+      })] })]
+    }),
+    text('', { size: 8, after: 160 })
+  ];
+}
 
 // Nagłówek sekcji: numer rzymski w pomarańczowym kaflu + tytuł + tag
 function section(num, title, tag) {
   const cells = [
     new TableCell({
-      width: { size: 760, type: WidthType.DXA },
+      width: { size: 1000, type: WidthType.DXA },
       shading: { fill: C.orange, type: ShadingType.CLEAR, color: 'auto' },
       margins: { top: 70, left: 60, bottom: 70, right: 60 },
       borders: NOB, verticalAlign: VerticalAlign.CENTER,
       children: [P([run(num, { size: 20, bold: true, color: 'FFFFFF' })], { align: AlignmentType.CENTER, after: 0 })]
     }),
     new TableCell({
-      width: { size: tag ? 5400 : CW - 760, type: WidthType.DXA },
+      width: { size: tag ? 5200 : CW - 1000, type: WidthType.DXA },
       margins: { top: 70, left: 160, bottom: 40, right: 80 },
       borders: { top: NIL, left: NIL, bottom: bd(C.line, 8), right: NIL }, verticalAlign: VerticalAlign.CENTER,
       children: [P([run(title, { size: 22, bold: true, color: C.purple, caps: true })], { after: 0 })]
     })
   ];
   if (tag) cells.push(new TableCell({
-    width: { size: CW - 760 - 5400, type: WidthType.DXA },
+    width: { size: CW - 1000 - 5200, type: WidthType.DXA },
     margins: { top: 70, left: 80, bottom: 40, right: 40 },
     borders: { top: NIL, left: NIL, bottom: bd(C.line, 8), right: NIL }, verticalAlign: VerticalAlign.CENTER,
     children: [P([run(tag, { size: 14, bold: true, color: C.orange, italic: true })], { align: AlignmentType.RIGHT, after: 0 })]
@@ -326,7 +350,7 @@ function signatures(roles, cols=2) {
 
 const brk = () => new Paragraph({ children: [new PageBreak()] });
 
-module.exports = { Document, Packer, Paragraph, TextRun, Table, TableRow, TableCell,
+module.exports = { makeHeader, makeFooter, partBanner, Document, Packer, Paragraph, TextRun, Table, TableRow, TableCell,
   AlignmentType, BorderStyle, WidthType, ShadingType, VerticalAlign,
   FONT, CW, C, NOB, NIL, bd, run, P, text, pageHeader, pageFooter,
   section, subhead, howto, lead, legal, note, dotline, ta, fields, checks, table, scale, bars, signatures, brk };
