@@ -150,16 +150,23 @@ svg.ck{flex:none;width:18px;height:18px;margin-top:3px}
 /* monitor z aplikacją w hero ---------------------------------------- */
 .device{position:relative;z-index:2;margin-right:-150px;border-radius:16px;padding:11px 11px 13px;background:linear-gradient(160deg,#2A2145,#161027);box-shadow:0 50px 90px -40px rgba(0,0,0,.75),inset 0 0 0 1px rgba(255,255,255,.09);animation:wake .9s cubic-bezier(.2,.8,.25,1) both}
 .device .screen{border-radius:8px;overflow:hidden;background:#fff;position:relative;aspect-ratio:16/9.4}
-.device .screen img{width:100%;height:100%;object-fit:cover;object-position:top left;display:block;transform:scale(1.46);transform-origin:0 0}
+.device .screen img{width:100%;height:100%;object-fit:cover;object-position:top left;display:block;transform:scale(1.2);transform-origin:0 0}
 .device .glare{position:absolute;inset:0;background:linear-gradient(115deg,rgba(255,255,255,.16) 0%,transparent 34%);pointer-events:none}
 .device .foot{height:4px;width:64px;margin:9px auto 0;border-radius:99px;background:rgba(255,255,255,.16)}
 .livedot{position:absolute;right:22px;bottom:-16px;z-index:5;display:flex;align-items:center;gap:8px;background:rgba(20,13,40,.78);backdrop-filter:blur(6px);border:1px solid rgba(255,255,255,.2);border-radius:99px;padding:7px 14px 7px 11px;color:#F0ECF7;font-size:12.5px;font-weight:600;animation:wake .9s ease .45s both}
 .livedot i{width:7px;height:7px;border-radius:50%;background:#57D08A;animation:pulse 2.6s ease-out infinite}
-.stage .float{z-index:6;left:-34px;right:auto;bottom:4px;animation:wake 1s cubic-bezier(.2,.8,.25,1) .3s both}
+.stage .float{z-index:6;left:-40px;right:auto;bottom:-42px;animation:wake 1s cubic-bezier(.2,.8,.25,1) .3s both}
 @keyframes wake{from{opacity:0;transform:translateY(18px) scale(.985)}to{opacity:1;transform:none}}
 @keyframes pulse{0%{box-shadow:0 0 0 0 rgba(87,208,138,.6)}70%{box-shadow:0 0 0 9px rgba(87,208,138,0)}100%{box-shadow:0 0 0 0 rgba(87,208,138,0)}}
 @media (prefers-reduced-motion: reduce){.device,.livedot,.stage .float{animation:none}.livedot i{animation:none}}
 @media (max-width:980px){.device{margin-right:0}.stage .float{left:0;bottom:-10px}}
+.laptop{background:none!important;box-shadow:none!important;padding:0!important}
+.laptop .lid{border-radius:15px 15px 6px 6px;padding:12px 12px 20px;background:linear-gradient(160deg,#31274F,#181128);box-shadow:0 46px 80px -44px rgba(0,0,0,.8),inset 0 0 0 1px rgba(255,255,255,.11),inset 0 1px 0 rgba(255,255,255,.16);position:relative}
+.laptop .cam{position:absolute;left:50%;top:5px;transform:translateX(-50%);width:5px;height:5px;border-radius:50%;background:#4B4270;box-shadow:0 0 0 2px rgba(255,255,255,.07)}
+.laptop .deck{display:block;height:19px;margin:0 -6.5%;border-radius:0 0 13px 13px;background:linear-gradient(#6A5D9B,#3A3060 42%,#221B3C);box-shadow:0 30px 44px -24px rgba(0,0,0,.8),inset 0 1.5px 0 rgba(255,255,255,.38);position:relative;clip-path:polygon(1.3% 0,98.7% 0,100% 100%,0 100%)}
+.laptop .deck .pad{position:absolute;left:50%;top:0;transform:translateX(-50%);width:16%;height:7px;border-radius:0 0 8px 8px;background:rgba(0,0,0,.45);box-shadow:inset 0 -1px 0 rgba(255,255,255,.12)}
+.laptop .livedot{bottom:-58px}
+
 /* pasek standardów -------------------------------------------------- */
 .standards{padding:26px 0;border-bottom:1px solid var(--line);background:var(--paper-2)}
 .standards .wrap{display:flex;align-items:center;gap:20px;flex-wrap:wrap}
@@ -536,6 +543,28 @@ svg.ck{flex:none;width:18px;height:18px;margin-top:3px}
 .strip .dots i.on{background:var(--orange);width:22px;border-radius:99px}
 .portrait img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:2}
 
+/* ciemne sekcje: głębia i światło ------------------------------------ */
+.path::after{content:"";position:absolute;inset:0;pointer-events:none;background:radial-gradient(58% 42% at 22% 8%,rgba(190,170,255,.13),transparent 68%),radial-gradient(46% 38% at 88% 96%,rgba(255,150,100,.07),transparent 70%)}
+.path::before{content:"";position:absolute;left:0;right:0;top:0;height:1px;background:linear-gradient(90deg,transparent,rgba(255,255,255,.22),transparent);pointer-events:none}
+.steps{border-top:0}
+.steps li{border-bottom:0;border-radius:14px;margin-bottom:8px;padding:20px 20px 20px 18px;
+  background:linear-gradient(180deg,rgba(255,255,255,.075),rgba(255,255,255,.022));
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.16),inset 0 0 0 1px rgba(255,255,255,.05),0 14px 26px -20px rgba(0,0,0,.9);
+  transition:transform .2s cubic-bezier(.2,.8,.25,1),box-shadow .2s ease,background .2s ease}
+.steps li:hover{transform:translateY(-2px);background:linear-gradient(180deg,rgba(255,255,255,.105),rgba(255,255,255,.04));
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.24),inset 0 0 0 1px rgba(255,255,255,.09),0 20px 34px -20px rgba(0,0,0,.95)}
+.steps .ic{background:linear-gradient(180deg,rgba(255,255,255,.16),rgba(255,255,255,.045));border:1px solid rgba(255,255,255,.14);
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.3),0 6px 12px -8px rgba(0,0,0,.9)}
+.steps .ic::after{box-shadow:0 3px 8px -3px rgba(232,69,10,.9),inset 0 1px 0 rgba(255,255,255,.4)}
+.modules li{background:linear-gradient(180deg,rgba(255,255,255,.085),rgba(255,255,255,.028));
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.16),0 12px 22px -18px rgba(0,0,0,.9);transition:transform .2s ease,box-shadow .2s ease}
+.modules li:hover{transform:translateY(-2px);box-shadow:inset 0 1px 0 rgba(255,255,255,.26),0 18px 30px -18px rgba(0,0,0,.95)}
+.order::after{content:"";position:absolute;inset:0;pointer-events:none;background:radial-gradient(52% 44% at 78% 6%,rgba(190,170,255,.14),transparent 68%),radial-gradient(40% 34% at 6% 92%,rgba(255,150,100,.07),transparent 70%)}
+.order::before{content:"";position:absolute;left:0;right:0;top:0;height:1px;background:linear-gradient(90deg,transparent,rgba(255,255,255,.2),transparent);pointer-events:none}
+.order .promise li{padding:11px 14px;border-radius:11px;background:linear-gradient(180deg,rgba(255,255,255,.06),rgba(255,255,255,.02));box-shadow:inset 0 1px 0 rgba(255,255,255,.13)}
+.order .box,.form{position:relative;z-index:1}
+@media (prefers-reduced-motion: reduce){.steps li,.modules li{transition:none}}
+
 /* stopka ------------------------------------------------------------ */
 .site-footer{background:var(--plum-deep);color:var(--on-plum-3);padding:48px 0 32px;font-size:15px;line-height:1.6}
 .foot-grid{display:grid;grid-template-columns:minmax(0,5fr) repeat(3,minmax(0,2fr));gap:40px;padding-bottom:36px;border-bottom:1px solid var(--on-plum-line)}
@@ -618,14 +647,16 @@ svg.ck{flex:none;width:18px;height:18px;margin-top:3px}
 
     <div class="app-wrap stage">
     <svg class="kw " aria-hidden="true"><use href="#kwiat"/></svg><svg class="kw kw-2" aria-hidden="true"><use href="#kwiat"/></svg>
-    <div class="device">
+    <div class="device laptop">
+      <div class="lid">
       <div class="screen">
-        <img src="img/app-wopf.jpg" alt="Ekran WOPF w aplikacji EduPlaner 2026: kwestionariusze KPOF i narzędzia obserwacji pogłębionej" width="2400" height="1500">
+        <img src="img/app-panel-glowny.jpg" alt="Panel główny aplikacji EduPlaner 2026 na ekranie laptopa: menu Ścieżka dziecka, list autorki i moduły" width="2400" height="1500">
         <span class="glare" aria-hidden="true"></span>
       </div>
-      <span class="foot" aria-hidden="true"></span>
-      <span class="livedot"><i></i>WOPF · ocena funkcjonalna</span>
+      <span class="cam" aria-hidden="true"></span>
+      <span class="livedot"><i></i>Działa w przeglądarce</span>
     </div>
+    <span class="deck" aria-hidden="true"><span class="pad"></span></span>
     <div class="float" aria-hidden="true"><span class="doc"></span><div><b>Druk IPET gotowy do PDF</b><span>metryczka i cele SMART z WOPF</span></div></div>
     </div>
   </div>
@@ -648,8 +679,10 @@ svg.ck{flex:none;width:18px;height:18px;margin-top:3px}
     </div>
     <div class="track" id="track">
       <div class="item"><figure class="shot"><span class="bar" aria-hidden="true"><i></i><i></i><i></i><b>EduPlaner 2026 · Panel główny</b></span><img src="img/app-panel-glowny.jpg" alt="Ekran aplikacji: Panel główny" loading="lazy"><span class="cap">Panel główny</span></figure><p class="shot-desc">Menu prowadzi przez cały proces: metryczka, WOPF, plan wsparcia, realizacja, ewaluacja. Na pulpicie list autorki i moduły wspólne.</p></div>
+      <div class="item"><figure class="shot"><span class="bar" aria-hidden="true"><i></i><i></i><i></i><b>EduPlaner 2026 · Metryczka</b></span><img src="img/app-metryczka.jpg" alt="Ekran aplikacji: Metryczka" loading="lazy"><span class="cap">Metryczka</span></figure><p class="shot-desc">Wejście na ścieżkę: zgłoszenie z placówki lub od rodzica, druk metryczki, wywiad, dostępność placówki, zgody i podstawa prawna. Dane stąd zasilają wszystkie dalsze druki.</p></div>
       <div class="item"><figure class="shot"><span class="bar" aria-hidden="true"><i></i><i></i><i></i><b>EduPlaner 2026 · Kartoteka dzieci</b></span><img src="img/app-kartoteka.jpg" alt="Ekran aplikacji: Kartoteka dzieci" loading="lazy"><span class="cap">Kartoteka dzieci</span></figure><p class="shot-desc">Wszystkie dzieci w placówce z datą urodzenia, grupą i postępem dokumentacji. Wybranie dziecka otwiera jego teczkę.</p></div>
       <div class="item"><figure class="shot"><span class="bar" aria-hidden="true"><i></i><i></i><i></i><b>EduPlaner 2026 · WOPF — ocena funkcjonalna</b></span><img src="img/app-wopf.jpg" alt="Ekran aplikacji: WOPF — ocena funkcjonalna" loading="lazy"><span class="cap">WOPF — ocena funkcjonalna</span></figure><p class="shot-desc">Jeden WOPF, dwa warianty ścieżki: bez orzeczenia prowadzi do PEWS, z orzeczeniem do IPET. Kwestionariusz KPOF dobiera się sam do grupy wiekowej dziecka.</p></div>
+      <div class="item"><figure class="shot"><span class="bar" aria-hidden="true"><i></i><i></i><i></i><b>EduPlaner 2026 · Plan wsparcia (IPET / PEWS)</b></span><img src="img/app-plan-wsparcia.jpg" alt="Ekran aplikacji: Plan wsparcia (IPET / PEWS)" loading="lazy"><span class="cap">Plan wsparcia (IPET / PEWS)</span></figure><p class="shot-desc">Struktura wspólna dla obu ścieżek: dane z metryczki, mocne strony z WOPF, dostosowania, zespół i program z celami SMART. Różni się tylko druk na końcu.</p></div>
     </div>
     <div class="dots" id="dots" aria-hidden="true"></div>
   </div>
