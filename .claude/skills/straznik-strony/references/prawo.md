@@ -99,6 +99,22 @@ rękojmię można wyłączyć.
 Praktyczny wniosek: formularz powinien pytać, kto kupuje, i **dostosowywać zgody**.
 Jedna ścieżka dla wszystkich albo straszy firmy zgodami, albo pozbawia konsumenta ochrony.
 
+### Produkt tylko dla instytucji
+
+Bywa, że czegoś świadomie nie sprzedajesz konsumentom — bo wymaga wdrożenia
+u kupującego, licencji na zespół albo dlatego, że administratorem danych staje się
+instytucja. Wtedy trzy rzeczy muszą mówić to samo:
+
+1. **Regulamin** — definicja produktu z zastrzeżeniem, kto może go kupić, i punkt
+   o tym, że zamówienie od osoby prywatnej nie zostaje przyjęte.
+2. **Strona** — napisane wprost przy cenie i w odpowiedziach na pytania, a nie
+   tylko wywnioskowane z tego, że pozycja jest wyszarzona.
+3. **Serwer** — sprawdza to przy przyjęciu zamówienia. Blokada wyłącznie
+   w przeglądarce nie jest blokadą.
+
+Milczenie w tej sprawie kończy się zamówieniem, którego trzeba odmówić po fakcie —
+a to jest już spór z klientem, nie decyzja o ofercie.
+
 ## 7. Omnibus i opinie
 
 Przy każdej obniżce: **najniższa cena z 30 dni** przed obniżką, obok ceny promocyjnej.

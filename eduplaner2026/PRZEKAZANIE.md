@@ -3,6 +3,24 @@
 Notatka dla osoby, która przejmuje serwis i buduje z niego sklep.
 Stan na 3 września 2026, gałąź `claude/website-analysis-design-a4nffd`.
 
+**Jeżeli pracujesz z Claude Code, wszystko to jest też w dwóch skillach**
+i włącza się samo, gdy dotykasz tego projektu:
+
+| Skill | Do czego |
+|---|---|
+| `eduplaner-sklep` | budowa tego serwisu: dokładanie pozycji, backend, wdrożenie |
+| `straznik-strony` | zasady dla stron sprzedażowych w Polsce + dwa kontrolery |
+
+Dwie komendy, którymi kończy się każda zmiana:
+
+```bash
+node ../.claude/skills/straznik-strony/scripts/gotowosc.js .            # puste miejsca, brakujące pliki
+node ../.claude/skills/straznik-strony/scripts/straznik.js index.html   # kontrast, dostępność, prawo
+node ../.claude/skills/straznik-strony/scripts/straznik.js index.html --ciemny
+```
+
+Stan docelowy: zero blokad i zero błędów w obu trybach.
+
 ## Czym to jest dzisiaj
 
 Jedna statyczna strona sprzedażowa (`index.html`), bez frameworka, bez kroku budowania.

@@ -15,17 +15,30 @@ kontroler sprawdza, czy tak wygląda, i wypisuje, czego brakuje.
 które zgłosił, i dopiero wtedy pisz raport. Kontroler łapie to, co mierzalne;
 reszta wymaga oceny.
 
-## Kontroler
+## Dwa kontrolery
+
+Jeden ogląda stronę oczami przeglądarki, drugi czyta pliki źródłowe.
+Przed publikacją uruchamiaj **oba** — łapią zupełnie różne rzeczy.
 
 ```bash
-node scripts/straznik.js <ścieżka-lub-URL> [--json] [--tylko bledy]
+node scripts/straznik.js <ścieżka-lub-URL> [--json] [--tylko bledy] [--ciemny]
+node scripts/gotowosc.js <katalog> [--json]
 ```
 
-Działa na pliku lokalnym (`index.html`) albo adresie `https://`. Wymaga Playwrighta.
-Sprawdza stronę przy trzech szerokościach (390, 768, 1440 px), liczy kontrast,
-mierzy długość wiersza, waży obrazy i czyta formularze.
+**`straznik.js`** renderuje stronę (wymaga Playwrighta) przy trzech szerokościach
+(390, 768, 1440 px): liczy kontrast, mierzy długość wiersza, waży obrazy, czyta
+formularze, sprawdza nagłówki, cele dotykowe i wymogi prawa konsumenckiego.
+Uruchom go dwa razy — bez przełącznika i z `--ciemny` — bo tryb ciemny potrafi
+mieć własne, zupełnie inne błędy kontrastu.
 
-Zwraca trzy poziomy:
+**`gotowosc.js`** nie potrzebuje przeglądarki. Czyta wszystkie pliki `.html`
+w katalogu i szuka tego, czego nie widać na gotowej stronie: pustych miejsc
+w dokumentach prawnych, oznaczeń „do uzupełnienia", banerów „projekt dokumentu",
+odnośników do plików, których nie ma, formularzy bez `action`, kluczy i haseł
+w kodzie, obrazów, których nikt nie używa. Zwraca **BLOKADY** — rzeczy, przy
+których publikacja jest przedwczesna.
+
+Oba zwracają trzy poziomy:
 
 | Poziom | Znaczenie | Co zrobić |
 |---|---|---|
@@ -33,7 +46,8 @@ Zwraca trzy poziomy:
 | **OSTRZEŻENIE** | działa, ale szkodzi | poprawić, gdy tylko się da |
 | **DO UZUPEŁNIENIA** | brakuje danych, których kod nie wymyśli | zapytać właściciela |
 
-Kod wyjścia: `0` gdy nie ma błędów, `1` gdy są. Nadaje się do CI.
+Kod wyjścia: `0` gdy czysto, `1` gdy są błędy albo blokady. Nadaje się do CI
+i na hak `pre-push`.
 
 **Czego kontroler nie sprawdzi:** czy treść regulaminu pasuje do tego, co naprawdę
 sprzedajesz; czy zdjęcia mają licencję; czy opinie są prawdziwe; czy cena ma sens.
@@ -75,6 +89,10 @@ Sprzedaż w Polsce wymaga trzech dokumentów i kilku elementów w interfejsie.
 - **Reklamacje**: 14 dni na odpowiedź. Brak odpowiedzi = uznanie reklamacji.
 - **Omnibus**: przy każdej obniżce najniższa cena z 30 dni przed obniżką.
   Przy opiniach — informacja, czy i jak są weryfikowane.
+- **Produkt nie dla wszystkich**: jeśli czegoś nie sprzedajesz konsumentom
+  (bo kupuje to instytucja na fakturę), napisz to w regulaminie, powiedz na stronie
+  i **sprawdź po stronie serwera**. Wyszarzona pozycja na liście nie jest
+  zabezpieczeniem — jest podpowiedzią.
 - **Cookies**: baner jest potrzebny dopiero wtedy, gdy strona ładuje analitykę
   lub marketing. Strona bez skryptów śledzących nie potrzebuje banera i lepiej
   napisać to wprost, niż dokładać okienko dla ozdoby.
