@@ -81,17 +81,24 @@ svg.ck{flex:none;width:18px;height:18px;margin-top:3px}
 
 /* nagłówek ---------------------------------------------------------- */
 .site-header{position:sticky;top:0;z-index:20;background:color-mix(in srgb,var(--paper) 88%,transparent);backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
-.site-header .wrap{display:flex;align-items:center;gap:28px;height:72px}
-.brand{display:flex;align-items:center;gap:12px;text-decoration:none;margin-right:auto}
-.brand img{width:44px;height:44px;border-radius:50%}
-.brand-name{font-family:var(--display);font-weight:800;font-size:21px;letter-spacing:-.01em;line-height:1}
+.site-header .wrap{display:flex;align-items:center;gap:28px;min-height:72px;padding-block:10px}
+.brand{display:flex;align-items:center;gap:12px;text-decoration:none;margin-right:auto;min-width:0}
+.brand img{width:44px;height:44px;border-radius:50%;flex:none}
+.brand-name{font-family:var(--display);font-weight:800;font-size:21px;letter-spacing:-.01em;line-height:1.05;white-space:nowrap}
 .brand-sub{display:block;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-3);margin-top:4px;font-weight:600}
-.nav{display:flex;gap:26px}
+.nav{display:flex;gap:22px}
 .nav a{text-decoration:none;font-weight:500;font-size:15.5px;color:var(--ink-2);padding:6px 0;border-bottom:2px solid transparent}
 .nav a:hover{color:var(--ink);border-color:var(--orange)}
 .site-header .btn{padding:12px 18px;font-size:15px}
 .site-header .tel{font-size:14.5px;font-weight:600;color:var(--ink-2);text-decoration:none;white-space:nowrap}
 @media (max-width:1060px){.nav,.site-header .tel{display:none}}
+@media (max-width:520px){
+  .site-header .wrap{gap:12px}
+  .brand img{width:36px;height:36px}
+  .brand-name{font-size:17px}
+  .brand-sub{display:none}
+  .site-header .btn{padding:10px 14px;font-size:14px}
+}
 
 /* hero -------------------------------------------------------------- */
 .hero{padding:76px 0 64px;border-bottom:1px solid var(--line);position:relative;overflow:hidden}
@@ -100,6 +107,7 @@ svg.ck{flex:none;width:18px;height:18px;margin-top:3px}
 .hero h1{font-size:clamp(40px,5vw,62px);font-weight:800;line-height:1.02;letter-spacing:-.025em}
 .hero h1 em{font-style:normal;color:var(--plum)}
 .hero .lead{margin-top:22px}
+.hero .lead b{color:var(--ink);font-weight:600}
 .hero-actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:32px;align-items:center}
 .hero-actions .sub{width:100%;font-size:14px;color:var(--ink-3);margin-top:-2px}
 .hero-actions .sub b{color:var(--ink-2);font-weight:600}
@@ -331,6 +339,9 @@ svg.ck{flex:none;width:18px;height:18px;margin-top:3px}
 .prices div{background:var(--paper-2);border-radius:10px;padding:10px 12px}
 .prices small{display:block;font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-3);font-weight:600;margin-bottom:4px}
 .prices b{font-family:var(--display);font-size:19px;font-weight:700;color:var(--plum);font-variant-numeric:tabular-nums}
+.prices b.ask,.price.ask{font-size:15px;font-weight:600;color:var(--ink-2);letter-spacing:0}
+.amount.ask{font-size:26px;letter-spacing:-.01em}
+.tier.main .amount.ask{font-size:30px}
 .prices i{display:block;font-style:normal;font-size:11.5px;color:var(--ink-3);margin-top:2px}
 .offer .btn{width:100%;justify-content:center;padding:12px 14px;font-size:15px}
 .cover{aspect-ratio:1/1.15;margin:-6px 0 4px;border-radius:8px;position:relative;overflow:hidden;background:linear-gradient(165deg,#3A2686 0%,var(--plum) 55%,var(--plum-deep) 100%);color:var(--on-plum);padding:16px;display:flex;flex-direction:column;box-shadow:0 12px 24px -16px rgba(45,27,105,.6)}
@@ -344,7 +355,8 @@ svg.ck{flex:none;width:18px;height:18px;margin-top:3px}
 .cover .sub{font-size:10.5px;margin-top:8px;opacity:.8;line-height:1.3}
 .cover .lg{position:absolute;right:12px;top:14px;width:22px;height:22px;border-radius:50%;background:rgba(255,255,255,.18);border:1px solid rgba(255,255,255,.35)}
 .cover.pale .lg{background:var(--plum);border-color:var(--plum)}
-.offer-note{margin-top:32px;display:flex;justify-content:space-between;gap:24px;flex-wrap:wrap;align-items:center;padding:20px 24px;background:var(--plum-soft);border:1px solid var(--plum-line);border-radius:var(--radius)}
+.ask-note{margin-top:22px;font-size:14.5px;color:var(--ink-3)}
+.offer-note{margin-top:24px;display:flex;justify-content:space-between;gap:24px;flex-wrap:wrap;align-items:center;padding:20px 24px;background:var(--plum-soft);border:1px solid var(--plum-line);border-radius:var(--radius)}
 .offer-note p{font-size:15px;color:var(--ink-2);max-width:62ch}
 .offer-note p b{color:var(--ink)}
 .trainings{background:var(--paper-2);border-block:1px solid var(--line)}
@@ -370,6 +382,17 @@ svg.ck{flex:none;width:18px;height:18px;margin-top:3px}
 .buy-card .pay span.ok{color:var(--ok);background:color-mix(in srgb,var(--ok) 12%,transparent)}
 .buy-card .for{font-size:14px;color:var(--ink-2)}
 .buy-card .for b{color:var(--ink)}
+
+/* pasek zaufania ----------------------------------------------------- */
+.trust-strip{padding:68px 0 64px;background:var(--paper);border-top:1px solid var(--line)}
+.trust-strip .eyebrow{margin-bottom:26px}
+.trust-strip ul{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:26px 40px}
+@media (max-width:900px){.trust-strip ul{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:560px){.trust-strip ul{grid-template-columns:1fr;gap:20px}}
+.trust-strip li{padding-left:20px;position:relative}
+.trust-strip li::before{content:"";position:absolute;left:0;top:7px;width:7px;height:7px;border-radius:50%;background:var(--orange)}
+.trust-strip b{display:block;font-family:var(--display);font-size:17.5px;color:var(--ink);margin-bottom:5px}
+.trust-strip span{display:block;font-size:15px;line-height:1.5;color:var(--ink-2);max-width:38ch}
 
 /* cennik ------------------------------------------------------------ */
 .pricing{background:var(--paper-2);border-block:1px solid var(--line)}
@@ -658,10 +681,11 @@ svg.ck{flex:none;width:18px;height:18px;margin-top:3px}
     </a>
     <nav class="nav" aria-label="Główna nawigacja">
       <a href="#aplikacja">Aplikacja</a>
+      <a href="#ekrany">Ekrany</a>
       <a href="#szkolenia">Szkolenia</a>
       <a href="#broszury">Broszury</a>
       <a href="#cennik">Cennik</a>
-      <a href="#autorka">Autorka</a>
+      <a href="#faq">Pytania</a>
     </nav>
     <a class="tel" href="tel:+48662888403">662 888 403</a>
     <a class="btn btn-primary" href="#zamow" data-order="app" data-buyer="inst">Zamów aplikację</a>
@@ -676,10 +700,11 @@ svg.ck{flex:none;width:18px;height:18px;margin-top:3px}
   <div class="wrap">
     <div>
       <span class="alert"><i></i>WOPF · IPET / PEWS · ocena funkcjonalna od roku szkolnego 2026/2027</span>
-      <h1><em>WOPF i&nbsp;IPET</em> w&nbsp;jednej aplikacji. Cały zespół gotowy na nową ocenę funkcjonalną.</h1>
+      <h1><em>WOPF i&nbsp;IPET</em> w&nbsp;jednej aplikacji.</h1>
       <p class="lead">
-        EduPlaner 2026 prowadzi zespół od zgłoszenia ucznia, przez WOPF na kwestionariuszu KSzOF, po IPET albo PEWS i&nbsp;ewaluację.
-        Wpisujesz dane raz. Na końcu dostajesz gotowe druki A4, pod którymi podpisze się cały zespół.
+<b>Cały zespół gotowy na nową ocenę funkcjonalną.</b> Program prowadzi Was od zgłoszenia ucznia,
+        przez WOPF na kwestionariuszu KSzOF, po IPET albo PEWS i&nbsp;ewaluację. Wpisujesz dane raz,
+        a na końcu dostajesz gotowe druki A4, pod którymi podpisze się cały zespół.
       </p>
       <div class="hero-actions">
         <a class="btn btn-primary btn-lg" href="#zamow" data-order="app" data-buyer="inst">Zamów dla swojej placówki</a>
@@ -719,26 +744,6 @@ svg.ck{flex:none;width:18px;height:18px;margin-top:3px}
   <div class="wrap">
     <p><svg class="kw " aria-hidden="true"><use href="#kwiat"/></svg>Zbudowana na obowiązujących standardach:</p>
     <ul><li>Standard WOPF</li><li>IPET / PEWS</li><li>KSzOF</li><li>Klasyfikacja ICF</li><li>Analiza ABC · FBA</li><li>Profil sensoryczny W.&nbsp;Dunn</li><li>Teoria umysłu (ToM)</li><li>Cele SMART</li><li>RODO</li></ul>
-  </div>
-</section>
-
-<!-- TAŚMA EKRANÓW -------------------------------------------------- -->
-<section class="strip" id="ekrany" aria-label="Prawdziwe ekrany aplikacji">
-  <div class="wrap">
-    <div class="head">
-      <div><p class="eyebrow">Prosto z aplikacji</p><h2>Siedem ekranów, jedna ścieżka dziecka</h2></div>
-      <div class="nav-btns"><button type="button" data-dir="-1" aria-label="Poprzedni ekran">←</button><button type="button" data-dir="1" aria-label="Następny ekran">→</button></div>
-    </div>
-    <div class="track" id="track">
-      <div class="item"><figure class="shot"><span class="bar" aria-hidden="true"><i></i><i></i><i></i><b>EduPlaner 2026 · Kartoteka dzieci</b></span><img src="img/app-kartoteka.jpg" alt="Ekran aplikacji: Kartoteka dzieci" loading="lazy"><span class="cap">Kartoteka dzieci</span></figure><p class="shot-desc">Rejestr placówki: data urodzenia, grupa, postęp dokumentacji. Wybranie dziecka otwiera jego teczkę.</p></div>
-      <div class="item"><figure class="shot"><span class="bar" aria-hidden="true"><i></i><i></i><i></i><b>EduPlaner 2026 · Metryczka</b></span><img src="img/app-metryczka.jpg" alt="Ekran aplikacji: Metryczka" loading="lazy"><span class="cap">Metryczka</span></figure><p class="shot-desc">Wejście na ścieżkę: zgłoszenie, druk metryczki, wywiad z rodzicem, dostępność placówki, zgody i podstawa prawna.</p></div>
-      <div class="item"><figure class="shot"><span class="bar" aria-hidden="true"><i></i><i></i><i></i><b>EduPlaner 2026 · WOPF — ocena funkcjonalna</b></span><img src="img/app-wopf.jpg" alt="Ekran aplikacji: WOPF — ocena funkcjonalna" loading="lazy"><span class="cap">WOPF — ocena funkcjonalna</span></figure><p class="shot-desc">Kwestionariusz KPOF dobiera się do grupy wiekowej. Obok narzędzia obserwacji pogłębionej: ABC, FBA, sensoryka, ToM.</p></div>
-      <div class="item"><figure class="shot"><span class="bar" aria-hidden="true"><i></i><i></i><i></i><b>EduPlaner 2026 · Plan wsparcia — IPET / PEWS</b></span><img src="img/app-plan-wsparcia.jpg" alt="Ekran aplikacji: Plan wsparcia — IPET / PEWS" loading="lazy"><span class="cap">Plan wsparcia — IPET / PEWS</span></figure><p class="shot-desc">Struktura wspólna dla obu ścieżek. Cele SMART, dostosowania, zespół. Różni się tylko druk na końcu.</p></div>
-      <div class="item"><figure class="shot"><span class="bar" aria-hidden="true"><i></i><i></i><i></i><b>EduPlaner 2026 · Ewaluacja</b></span><img src="img/app-ewaluacja.jpg" alt="Ekran aplikacji: Ewaluacja" loading="lazy"><span class="cap">Ewaluacja</span></figure><p class="shot-desc">Oś czasu dziecka, ocena realizacji celów, ewaluacja półroczna i roczna, raporty dla rodzica i dyrektora.</p></div>
-      <div class="item"><figure class="shot"><span class="bar" aria-hidden="true"><i></i><i></i><i></i><b>EduPlaner 2026 · Zespół</b></span><img src="img/app-zespol.jpg" alt="Ekran aplikacji: Zespół" loading="lazy"><span class="cap">Zespół</span></figure><p class="shot-desc">Skład, role i zadania, terminy z wyprzedzeniem, protokoły, podpisy i uprawnienia zgodne z RODO.</p></div>
-      <div class="item"><figure class="shot"><span class="bar" aria-hidden="true"><i></i><i></i><i></i><b>EduPlaner 2026 · Baza wiedzy</b></span><img src="img/app-baza-wiedzy.jpg" alt="Ekran aplikacji: Baza wiedzy" loading="lazy"><span class="cap">Baza wiedzy</span></figure><p class="shot-desc">Kącik dyrektora i nauczyciela, konspekty rewalidacji i pomocy psychologiczno-pedagogicznej, wzory pism, podstawa prawna.</p></div>
-    </div>
-    <div class="dots" id="dots" aria-hidden="true"></div>
   </div>
 </section>
 
@@ -799,6 +804,26 @@ svg.ck{flex:none;width:18px;height:18px;margin-top:3px}
       <p><b>Jeden WOPF, dwa tryby.</b> Ta sama ocena prowadzi do IPET dla ucznia z&nbsp;orzeczeniem albo do PEWS dla ucznia bez orzeczenia. Zespół uczy się jednego narzędzia i&nbsp;używa go we wszystkich trzech etapach.</p>
       <a class="btn btn-primary" href="#zamow" data-order="app" data-buyer="inst">Zamów aplikację</a>
     </div>
+  </div>
+</section>
+
+<!-- TAŚMA EKRANÓW -------------------------------------------------- -->
+<section class="strip" id="ekrany" aria-label="Prawdziwe ekrany aplikacji">
+  <div class="wrap">
+    <div class="head">
+      <div><p class="eyebrow">Prosto z aplikacji</p><h2>Siedem ekranów, jedna ścieżka dziecka</h2></div>
+      <div class="nav-btns"><button type="button" data-dir="-1" aria-label="Poprzedni ekran">←</button><button type="button" data-dir="1" aria-label="Następny ekran">→</button></div>
+    </div>
+    <div class="track" id="track">
+      <div class="item"><figure class="shot"><span class="bar" aria-hidden="true"><i></i><i></i><i></i><b>EduPlaner 2026 · Kartoteka dzieci</b></span><img src="img/app-kartoteka.jpg" alt="Ekran aplikacji: Kartoteka dzieci" loading="lazy"><span class="cap">Kartoteka dzieci</span></figure><p class="shot-desc">Rejestr placówki: data urodzenia, grupa, postęp dokumentacji. Wybranie dziecka otwiera jego teczkę.</p></div>
+      <div class="item"><figure class="shot"><span class="bar" aria-hidden="true"><i></i><i></i><i></i><b>EduPlaner 2026 · Metryczka</b></span><img src="img/app-metryczka.jpg" alt="Ekran aplikacji: Metryczka" loading="lazy"><span class="cap">Metryczka</span></figure><p class="shot-desc">Wejście na ścieżkę: zgłoszenie, druk metryczki, wywiad z rodzicem, dostępność placówki, zgody i podstawa prawna.</p></div>
+      <div class="item"><figure class="shot"><span class="bar" aria-hidden="true"><i></i><i></i><i></i><b>EduPlaner 2026 · WOPF — ocena funkcjonalna</b></span><img src="img/app-wopf.jpg" alt="Ekran aplikacji: WOPF — ocena funkcjonalna" loading="lazy"><span class="cap">WOPF — ocena funkcjonalna</span></figure><p class="shot-desc">Kwestionariusz KPOF dobiera się do grupy wiekowej. Obok narzędzia obserwacji pogłębionej: ABC, FBA, sensoryka, ToM.</p></div>
+      <div class="item"><figure class="shot"><span class="bar" aria-hidden="true"><i></i><i></i><i></i><b>EduPlaner 2026 · Plan wsparcia — IPET / PEWS</b></span><img src="img/app-plan-wsparcia.jpg" alt="Ekran aplikacji: Plan wsparcia — IPET / PEWS" loading="lazy"><span class="cap">Plan wsparcia — IPET / PEWS</span></figure><p class="shot-desc">Struktura wspólna dla obu ścieżek. Cele SMART, dostosowania, zespół. Różni się tylko druk na końcu.</p></div>
+      <div class="item"><figure class="shot"><span class="bar" aria-hidden="true"><i></i><i></i><i></i><b>EduPlaner 2026 · Ewaluacja</b></span><img src="img/app-ewaluacja.jpg" alt="Ekran aplikacji: Ewaluacja" loading="lazy"><span class="cap">Ewaluacja</span></figure><p class="shot-desc">Oś czasu dziecka, ocena realizacji celów, ewaluacja półroczna i roczna, raporty dla rodzica i dyrektora.</p></div>
+      <div class="item"><figure class="shot"><span class="bar" aria-hidden="true"><i></i><i></i><i></i><b>EduPlaner 2026 · Zespół</b></span><img src="img/app-zespol.jpg" alt="Ekran aplikacji: Zespół" loading="lazy"><span class="cap">Zespół</span></figure><p class="shot-desc">Skład, role i zadania, terminy z wyprzedzeniem, protokoły, podpisy i uprawnienia zgodne z RODO.</p></div>
+      <div class="item"><figure class="shot"><span class="bar" aria-hidden="true"><i></i><i></i><i></i><b>EduPlaner 2026 · Baza wiedzy</b></span><img src="img/app-baza-wiedzy.jpg" alt="Ekran aplikacji: Baza wiedzy" loading="lazy"><span class="cap">Baza wiedzy</span></figure><p class="shot-desc">Kącik dyrektora i nauczyciela, konspekty rewalidacji i pomocy psychologiczno-pedagogicznej, wzory pism, podstawa prawna.</p></div>
+    </div>
+    <div class="dots" id="dots" aria-hidden="true"></div>
   </div>
 </section>
 
@@ -924,8 +949,8 @@ svg.ck{flex:none;width:18px;height:18px;margin-top:3px}
         </ul>
         <span class="spec">ok. 3 h · nagranie dostępne 30 dni po szkoleniu</span>
         <div class="prices">
-          <div><small>Placówka</small><b>— zł</b><i>cała rada · faktura</i></div>
-          <div><small>Indywidualnie</small><b>— zł</b><i>za osobę · online</i></div>
+          <div><small>Placówka</small><b class="ask">na zapytanie</b><i>cała rada · faktura</i></div>
+          <div><small>Indywidualnie</small><b class="ask">na zapytanie</b><i>za osobę · online</i></div>
         </div>
         <a class="btn btn-ghost" href="#zamow" data-order="szk-a-d">Zapisz się lub zamów</a>
       </article>
@@ -941,8 +966,8 @@ svg.ck{flex:none;width:18px;height:18px;margin-top:3px}
         </ul>
         <span class="spec">ok. 4 h · tylko dla placówek z&nbsp;subskrypcją</span>
         <div class="prices">
-          <div><small>Placówka</small><b>— zł</b><i>cały zespół · faktura</i></div>
-          <div><small>W&nbsp;pakiecie</small><b>— zł</b><i>z&nbsp;aplikacją · taniej</i></div>
+          <div><small>Placówka</small><b class="ask">na zapytanie</b><i>cały zespół · faktura</i></div>
+          <div><small>W&nbsp;pakiecie</small><b class="ask">na zapytanie</b><i>z&nbsp;aplikacją · taniej</i></div>
         </div>
         <a class="btn btn-primary" href="#zamow" data-order="szk-wdrozenie" data-buyer="inst">Zarezerwuj warsztat</a>
       </article>
@@ -957,8 +982,8 @@ svg.ck{flex:none;width:18px;height:18px;margin-top:3px}
         </ul>
         <span class="spec">ok. 2 h · terminy otwarte co miesiąc</span>
         <div class="prices">
-          <div><small>Placówka</small><b>— zł</b><i>do 10 osób · faktura</i></div>
-          <div><small>Indywidualnie</small><b>— zł</b><i>za osobę · online</i></div>
+          <div><small>Placówka</small><b class="ask">na zapytanie</b><i>do 10 osób · faktura</i></div>
+          <div><small>Indywidualnie</small><b class="ask">na zapytanie</b><i>za osobę · online</i></div>
         </div>
         <a class="btn btn-ghost" href="#zamow" data-order="szk-obserwacja">Zapisz się lub zamów</a>
       </article>
@@ -985,10 +1010,10 @@ svg.ck{flex:none;width:18px;height:18px;margin-top:3px}
         <p>Jak wypełnić kwestionariusz, przeliczyć wynik na sten i&nbsp;zestawić profile rodzica, nauczyciela i&nbsp;specjalisty.</p>
         <span class="spec">ok. 24 strony A4 · przykład wypełnionego druku</span>
         <div class="prices">
-          <div><small>Placówka</small><b>— zł</b><i>licencja · faktura</i></div>
-          <div><small>Indywidualnie</small><b>— zł</b><i>PDF od razu</i></div>
+          <div><small>Placówka</small><b class="ask">na zapytanie</b><i>licencja · faktura</i></div>
+          <div><small>Indywidualnie</small><b class="ask">na zapytanie</b><i>PDF od razu</i></div>
         </div>
-        <a class="btn btn-primary" href="#zamow" data-order="br-wopf">Kup</a>
+        <a class="btn btn-ghost" href="#zamow" data-order="br-wopf">Kup</a>
       </article>
       <article class="offer">
         <div class="cover alt"><svg class="kw " aria-hidden="true"><use href="#kwiat"/></svg><span class="lg"></span><span class="ser">EduPlaner 2026 · Broszura 2</span><span class="ttl">IPET albo PEWS</span><span class="sub">Jeden WOPF, dwa tryby planu</span></div>
@@ -997,10 +1022,10 @@ svg.ck{flex:none;width:18px;height:18px;margin-top:3px}
         <p>Kwalifikacja do poziomu I, II lub III i&nbsp;plan, który da się zrealizować i&nbsp;ocenić po roku.</p>
         <span class="spec">ok. 20 stron A4 · wzory celów</span>
         <div class="prices">
-          <div><small>Placówka</small><b>— zł</b><i>licencja · faktura</i></div>
-          <div><small>Indywidualnie</small><b>— zł</b><i>PDF od razu</i></div>
+          <div><small>Placówka</small><b class="ask">na zapytanie</b><i>licencja · faktura</i></div>
+          <div><small>Indywidualnie</small><b class="ask">na zapytanie</b><i>PDF od razu</i></div>
         </div>
-        <a class="btn btn-primary" href="#zamow" data-order="br-ipet">Kup</a>
+        <a class="btn btn-ghost" href="#zamow" data-order="br-ipet">Kup</a>
       </article>
       <article class="offer">
         <div class="cover pale"><svg class="kw " aria-hidden="true"><use href="#kwiat"/></svg><span class="lg"></span><span class="ser">EduPlaner 2026 · Broszura 3</span><span class="ttl">Obserwacja pogłębiona</span><span class="sub">ABC · profil sensoryczny · mowa · ToM</span></div>
@@ -1009,10 +1034,10 @@ svg.ck{flex:none;width:18px;height:18px;margin-top:3px}
         <p>Kiedy sięgnąć po dziennik ABC, profil sensoryczny W.&nbsp;Dunn, kwestionariusz mowy i&nbsp;kartę teorii umysłu.</p>
         <span class="spec">ok. 28 stron A4 · arkusze do druku</span>
         <div class="prices">
-          <div><small>Placówka</small><b>— zł</b><i>licencja · faktura</i></div>
-          <div><small>Indywidualnie</small><b>— zł</b><i>PDF od razu</i></div>
+          <div><small>Placówka</small><b class="ask">na zapytanie</b><i>licencja · faktura</i></div>
+          <div><small>Indywidualnie</small><b class="ask">na zapytanie</b><i>PDF od razu</i></div>
         </div>
-        <a class="btn btn-primary" href="#zamow" data-order="br-obserwacja">Kup</a>
+        <a class="btn btn-ghost" href="#zamow" data-order="br-obserwacja">Kup</a>
       </article>
       <article class="offer">
         <div class="cover"><svg class="kw " aria-hidden="true"><use href="#kwiat"/></svg><span class="lg"></span><span class="ser">EduPlaner 2026 · Dla rodziców</span><span class="ttl">Ocena funkcjonalna. Co to znaczy dla mojego dziecka?</span><span class="sub">Krótko i&nbsp;bez żargonu</span></div>
@@ -1021,12 +1046,13 @@ svg.ck{flex:none;width:18px;height:18px;margin-top:3px}
         <p>Do rozdania rodzicom przed spotkaniem: co się zmienia, o&nbsp;co zapytamy, co dostaną na koniec.</p>
         <span class="spec">4 strony A5 · do druku bez limitu</span>
         <div class="prices">
-          <div><small>Placówka</small><b>— zł</b><i>licencja · faktura</i></div>
-          <div><small>Indywidualnie</small><b>— zł</b><i>PDF od razu</i></div>
+          <div><small>Placówka</small><b class="ask">na zapytanie</b><i>licencja · faktura</i></div>
+          <div><small>Indywidualnie</small><b class="ask">na zapytanie</b><i>PDF od razu</i></div>
         </div>
-        <a class="btn btn-primary" href="#zamow" data-order="br-rodzice">Kup</a>
+        <a class="btn btn-ghost" href="#zamow" data-order="br-rodzice">Kup</a>
       </article>
     </div>
+    <p class="ask-note">Ceny podajemy w&nbsp;jeden dzień roboczy — napisz, ilu osób dotyczy zamówienie i&nbsp;jakie etapy prowadzi placówka.</p>
     <div class="offer-note">
       <p><b>Broszury to dobry początek. Aplikacja to koniec przepisywania.</b> W&nbsp;subskrypcji EduPlaner 2026 ta sama wiedza jest wbudowana w&nbsp;druki, które wypełniają się z&nbsp;danych ucznia.</p>
       <a class="btn btn-primary" href="#cennik">Zobacz subskrypcję</a>
@@ -1070,6 +1096,21 @@ svg.ck{flex:none;width:18px;height:18px;margin-top:3px}
   </div>
 </section>
 
+<!-- ZAUFANIE ------------------------------------------------------ -->
+<section class="trust-strip" aria-label="Na czym stoi ta oferta">
+  <div class="wrap">
+    <p class="eyebrow">Zanim spojrzysz na cenę</p>
+    <ul>
+      <li><b>Autorka jest praktykiem</b><span>Pedagog specjalny z&nbsp;PCTP Koszalin. Druki powstały z&nbsp;pracy z&nbsp;dziećmi, nie z&nbsp;teorii.</span></li>
+      <li><b>Bez limitu użytkowników</b><span>Subskrypcja jest na placówkę. Nie liczysz stanowisk ani nauczycieli.</span></li>
+      <li><b>Aktualizacje w&nbsp;cenie</b><span>Zmienią się przepisy — wzory zmieniamy u&nbsp;siebie, nie u&nbsp;Ciebie.</span></li>
+      <li><b>Faktura z&nbsp;terminem</b><span>Zamawiasz jak każdą pomoc dydaktyczną. Przelew 14 dni, bez karty.</span></li>
+      <li><b>Zgodne z&nbsp;prawem</b><span>Rozporządzenie MEN, KSzOF, ICF i&nbsp;RODO wpisane w&nbsp;druki.</span></li>
+      <li><b>Otwarty projekt</b><span>Zgłaszasz, czego brakuje. Twoje uwagi trafiają do planu rozwoju.</span></li>
+    </ul>
+  </div>
+</section>
+
 <!-- CENNIK --------------------------------------------------------- -->
 <section class="section pricing" id="cennik">
   <div class="wrap">
@@ -1085,7 +1126,7 @@ svg.ck{flex:none;width:18px;height:18px;margin-top:3px}
         <span class="lbl">Na początek</span>
         <h3>Broszury</h3>
         <!-- TODO: wpisz ceny -->
-        <div class="amount">od — zł<small>placówka: licencja na fakturę · osoba: PDF online</small></div>
+        <div class="amount ask">Wycena indywidualna<small>placówka: licencja na fakturę · osoba: PDF online</small></div>
         <p>Wiedza w&nbsp;pigułce dla zespołu i&nbsp;rodziców. Dobre, gdy chcesz zacząć od zrozumienia zmian.</p>
         <ul>
           <li><svg class="ck" viewBox="0 0 24 24" fill="none" stroke="var(--ok)" stroke-width="2.4"><path d="M5 12l5 5L20 7"/></svg>WOPF, IPET / PEWS, obserwacja pogłębiona</li>
@@ -1099,7 +1140,7 @@ svg.ck{flex:none;width:18px;height:18px;margin-top:3px}
         <span class="lbl">Roczna subskrypcja · tylko placówki</span>
         <h3>Aplikacja EduPlaner 2026</h3>
         <!-- TODO: wpisz cenę roczną (np. 1 490 zł netto / rok) -->
-        <div class="amount">— zł / rok<small>netto · jedna placówka · bez limitu użytkowników · faktura 14 dni</small></div>
+        <div class="amount ask">Wycena dla placówki<small>netto · jedna placówka · bez limitu użytkowników · faktura 14 dni</small></div>
         <p>Wszystkie trzy moduły etapowe, moduły wspólne, nagrania szkoleniowe i&nbsp;aktualizacje przez cały rok szkolny 2026/2027.</p>
         <ul>
           <li><svg class="ck" viewBox="0 0 24 24" fill="none" stroke="#FFB59A" stroke-width="2.4"><path d="M5 12l5 5L20 7"/></svg>Przedszkole, szkoła podstawowa, ponadpodstawowa</li>
@@ -1115,7 +1156,7 @@ svg.ck{flex:none;width:18px;height:18px;margin-top:3px}
         <span class="lbl">Dla zespołu i&nbsp;dla siebie</span>
         <h3>Szkolenia</h3>
         <!-- TODO: wpisz ceny -->
-        <div class="amount">od — zł<small>placówka: cała rada na fakturę · osoba: online</small></div>
+        <div class="amount ask">Wycena indywidualna<small>placówka: cała rada na fakturę · osoba: online</small></div>
         <p>Rada pedagogiczna, warsztat wdrożeniowy lub szkolenie dla specjalistów. Prowadzi autorka, każdy dostaje zaświadczenie.</p>
         <ul>
           <li><svg class="ck" viewBox="0 0 24 24" fill="none" stroke="var(--ok)" stroke-width="2.4"><path d="M5 12l5 5L20 7"/></svg>Praca na prawdziwych przypadkach</li>
@@ -1210,21 +1251,21 @@ svg.ck{flex:none;width:18px;height:18px;margin-top:3px}
         <label for="product">Co zamawiasz</label>
         <select id="product" name="product">
           <optgroup label="Aplikacja (tylko placówki)">
-            <option value="app" data-inst="1" data-person="0" data-price="— zł / rok">Aplikacja EduPlaner 2026 — roczna subskrypcja</option>
-            <option value="app-pakiet" data-inst="1" data-person="0" data-price="— zł">Aplikacja + warsztat wdrożeniowy (pakiet)</option>
+            <option value="app" data-inst="1" data-person="0" data-price="na zapytanie">Aplikacja EduPlaner 2026 — roczna subskrypcja</option>
+            <option value="app-pakiet" data-inst="1" data-person="0" data-price="na zapytanie">Aplikacja + warsztat wdrożeniowy (pakiet)</option>
             <option value="demo" data-inst="1" data-person="0" data-price="bezpłatnie">Pokaz online 20 min (bezpłatny)</option>
           </optgroup>
           <optgroup label="Szkolenia">
-            <option value="szk-a-d" data-inst="1" data-person="1" data-price="— zł">Szkolenie: Nowa ocena funkcjonalna od A do D</option>
-            <option value="szk-wdrozenie" data-inst="1" data-person="0" data-price="— zł">Warsztat wdrożeniowy EduPlaner 2026</option>
-            <option value="szk-obserwacja" data-inst="1" data-person="1" data-price="— zł">Szkolenie: Obserwacja pogłębiona, cztery narzędzia</option>
+            <option value="szk-a-d" data-inst="1" data-person="1" data-price="na zapytanie">Szkolenie: Nowa ocena funkcjonalna od A do D</option>
+            <option value="szk-wdrozenie" data-inst="1" data-person="0" data-price="na zapytanie">Warsztat wdrożeniowy EduPlaner 2026</option>
+            <option value="szk-obserwacja" data-inst="1" data-person="1" data-price="na zapytanie">Szkolenie: Obserwacja pogłębiona, cztery narzędzia</option>
           </optgroup>
           <optgroup label="Broszury (PDF)">
-            <option value="br-wopf" data-inst="1" data-person="1" data-price="— zł">Broszura: WOPF krok po kroku</option>
-            <option value="br-ipet" data-inst="1" data-person="1" data-price="— zł">Broszura: Plan wsparcia z celami SMART</option>
-            <option value="br-obserwacja" data-inst="1" data-person="1" data-price="— zł">Broszura: Cztery narzędzia obserwacji</option>
-            <option value="br-rodzice" data-inst="1" data-person="1" data-price="— zł">Ulotka dla rodziców</option>
-            <option value="br-komplet" data-inst="1" data-person="1" data-price="— zł">Komplet czterech broszur (taniej)</option>
+            <option value="br-wopf" data-inst="1" data-person="1" data-price="na zapytanie">Broszura: WOPF krok po kroku</option>
+            <option value="br-ipet" data-inst="1" data-person="1" data-price="na zapytanie">Broszura: Plan wsparcia z celami SMART</option>
+            <option value="br-obserwacja" data-inst="1" data-person="1" data-price="na zapytanie">Broszura: Cztery narzędzia obserwacji</option>
+            <option value="br-rodzice" data-inst="1" data-person="1" data-price="na zapytanie">Ulotka dla rodziców</option>
+            <option value="br-komplet" data-inst="1" data-person="1" data-price="na zapytanie">Komplet czterech broszur (taniej)</option>
           </optgroup>
         </select>
       </div>
@@ -1248,7 +1289,7 @@ svg.ck{flex:none;width:18px;height:18px;margin-top:3px}
 
       <div class="summary">
         <div><span>Zamawiasz</span><b id="sum-product">Aplikacja EduPlaner 2026 — roczna subskrypcja</b></div>
-        <div class="pay-note"><span id="sum-pay">Faktura · przelew · 14 dni</span><b id="sum-price">— zł / rok</b></div>
+        <div class="pay-note"><span id="sum-pay">Faktura · przelew · 14 dni</span><b id="sum-price">na zapytanie</b></div>
       </div>
 
       <button class="btn btn-primary btn-lg" type="submit" id="submit-btn">Wyślij zamówienie</button>
