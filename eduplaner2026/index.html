@@ -340,10 +340,12 @@ svg.ck{flex:none;width:18px;height:18px;margin-top:3px}
 
 /* karty oferty (szkolenia, broszury) -------------------------------- */
 .offer-grid{display:grid;gap:24px}
+.offer-grid.cols-1{grid-template-columns:minmax(0,420px);justify-content:center}
+.offer-grid.cols-2{grid-template-columns:repeat(2,minmax(0,1fr));max-width:800px;margin-inline:auto}
 .offer-grid.cols-3{grid-template-columns:repeat(3,minmax(0,1fr))}
 .offer-grid.cols-4{grid-template-columns:repeat(4,minmax(0,1fr))}
 @media (max-width:1000px){.offer-grid.cols-4{grid-template-columns:repeat(2,minmax(0,1fr))}}
-@media (max-width:900px){.offer-grid.cols-3{grid-template-columns:1fr}}
+@media (max-width:900px){.offer-grid.cols-3,.offer-grid.cols-2{grid-template-columns:1fr}}
 @media (max-width:520px){.offer-grid.cols-4{grid-template-columns:1fr}}
 .offer{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:26px;display:flex;flex-direction:column;gap:12px;position:relative}
 .offer.hot{border-color:var(--plum);box-shadow:var(--shadow)}
@@ -374,6 +376,17 @@ svg.ck{flex:none;width:18px;height:18px;margin-top:3px}
 .cover .sub{font-size:10.5px;margin-top:8px;opacity:.8;line-height:1.3}
 .cover .lg{position:absolute;right:12px;top:14px;width:22px;height:22px;border-radius:50%;background:rgba(255,255,255,.18);border:1px solid rgba(255,255,255,.35)}
 .cover.pale .lg{background:var(--plum);border-color:var(--plum)}
+.cover.emocje{background:linear-gradient(170deg,#3A2686 0%,#2D1B69 60%,#241557 100%)}
+.cover.emocje::before{background:#E8B426}
+.cover.echolalia{background:linear-gradient(150deg,#4B2A86 0%,#2E2160 42%,#16303F 100%)}
+.cover.echolalia::before{background:var(--orange)}
+.cover .pasy{display:flex;gap:3px;margin-top:10px}
+.cover .pasy span{flex:1;height:16px;border-radius:3px}
+.cover.echolalia .ttl em{font-style:normal;color:#FF9A4D}
+.cover.ksiaze{background:linear-gradient(170deg,#1E4A3C 0%,#123028 55%,#0B201A 100%)}
+.cover.ksiaze::before{background:#E8C55A}
+.cover.ksiaze .ttl em{font-style:normal;color:#E8C55A;display:block}
+.cover.ksiaze .sub{color:#8FD6C0;opacity:1}
 .offer-all{margin-top:26px;display:flex;justify-content:center}
 .tile-katalog{background:var(--plum-soft);border:1.5px dashed var(--plum-line);box-shadow:none;
   align-items:center;text-align:center;justify-content:center;gap:6px}
@@ -1114,7 +1127,7 @@ svg.ck{flex:none;width:18px;height:18px;margin-top:3px}
       <p class="lead">Krótkie, praktyczne opracowania PDF. Placówka kupuje licencję na fakturę i&nbsp;drukuje dla całego zespołu. Nauczyciel kupuje dla siebie i&nbsp;płaci online, plik dostaje od razu.</p>
     </div>
     <div class="offer-grid cols-4" id="lista-broszur"></div>
-    <p class="ask-note">Ceny podajemy w&nbsp;jeden dzień roboczy — napisz, ilu osób dotyczy zamówienie i&nbsp;jakie etapy prowadzi placówka.</p>
+    <p class="ask-note">Ceny broszur podane w&nbsp;kwocie netto; faktura zawiera VAT według obowiązującej stawki.</p>
     <div class="offer-note">
       <p><b>Broszury to dobry początek. Aplikacja to koniec przepisywania.</b> W&nbsp;subskrypcji EduPlaner 2026 ta sama wiedza jest wbudowana w&nbsp;druki, które wypełniają się z&nbsp;danych ucznia.</p>
       <a class="btn btn-primary" href="#cennik">Zobacz subskrypcję</a>
@@ -1339,11 +1352,9 @@ svg.ck{flex:none;width:18px;height:18px;margin-top:3px}
             <option value="szk-obserwacja" data-inst="1" data-person="1" data-price="na zapytanie">Szkolenie: Obserwacja pogłębiona, cztery narzędzia</option>
           </optgroup>
           <optgroup label="Broszury (PDF)">
-            <option value="br-wopf" data-inst="1" data-person="1" data-price="na zapytanie">Broszura: WOPF krok po kroku</option>
-            <option value="br-ipet" data-inst="1" data-person="1" data-price="na zapytanie">Broszura: Plan wsparcia z celami SMART</option>
-            <option value="br-obserwacja" data-inst="1" data-person="1" data-price="na zapytanie">Broszura: Cztery narzędzia obserwacji</option>
-            <option value="br-rodzice" data-inst="1" data-person="1" data-price="na zapytanie">Ulotka dla rodziców</option>
-            <option value="br-komplet" data-inst="1" data-person="1" data-price="na zapytanie">Komplet czterech broszur (taniej)</option>
+            <option value="br-emocje" data-inst="1" data-person="1" data-price="25 zł netto">Broszura: Kolorowy Świat Emocji</option>
+            <option value="br-echolalia" data-inst="1" data-person="1" data-price="25 zł netto">Broszura: Echolalia i rozumienie jej funkcji</option>
+            <option value="br-maly-ksiaze" data-inst="1" data-person="1" data-price="60 zł netto">Broszura: Mały Książę moim bohaterem</option>
           </optgroup>
         </select>
       </div>
@@ -1797,29 +1808,55 @@ var OFERTA = [
     "wiecej": []
   },
   {
-    "id": "br-wopf",
+    "id": "br-emocje",
     "typ": "broszura",
     "polecane": true,
     "okladka": {
-      "wariant": "",
-      "ser": "EduPlaner 2026 · Broszura 1",
-      "ttl": "WOPF na kwestionariuszu KSzOF",
-      "sub": "Dziewięć obszarów, skala 1–5, sten"
+      "wariant": "emocje",
+      "ser": "Świat kolorów · Część 1",
+      "ttl": "Kolorowy Świat Emocji",
+      "sub": "Pięć kolorów. Pięć emocji. Jeden Ty.",
+      "pasy": [
+        [
+          "#E8B426",
+          "Radość"
+        ],
+        [
+          "#2E76B4",
+          "Smutek"
+        ],
+        [
+          "#D6472F",
+          "Złość"
+        ],
+        [
+          "#E96BA8",
+          "Wstyd"
+        ],
+        [
+          "#8A8D91",
+          "Lęk"
+        ]
+      ]
     },
-    "fmt": "Dla zespołu",
-    "tytul": "WOPF krok po kroku",
-    "opis": "Jak wypełnić kwestionariusz, przeliczyć wynik na sten i zestawić profile rodzica, nauczyciela i specjalisty.",
-    "punkty": [],
-    "spec": "ok. 24 strony A4 · przykład wypełnionego druku",
+    "fmt": "Zeszyt ucznia",
+    "tytul": "Kolorowy Świat Emocji",
+    "opis": "Zeszyt do zajęć rozwijających kompetencje emocjonalne i społeczne, dostosowany do potrzeb młodzieży ze spektrum autyzmu.",
+    "punkty": [
+      "Radość, smutek, złość, wstyd i lęk — każda emocja w swoim kolorze",
+      "Ćwiczenia do zajęć rozwijających kompetencje emocjonalne i społeczne",
+      "Dostosowany do potrzeb młodzieży ze spektrum autyzmu"
+    ],
+    "spec": "Świat kolorów · część 1 · PDF do druku",
     "ceny": [
       [
         "Placówka",
-        "na zapytanie",
+        "25 zł netto",
         "licencja · faktura"
       ],
       [
         "Indywidualnie",
-        "na zapytanie",
+        "25 zł netto",
         "PDF od razu"
       ]
     ],
@@ -1829,29 +1866,34 @@ var OFERTA = [
     "wiecej": []
   },
   {
-    "id": "br-ipet",
+    "id": "br-echolalia",
     "typ": "broszura",
     "polecane": true,
     "okladka": {
-      "wariant": "alt",
-      "ser": "EduPlaner 2026 · Broszura 2",
-      "ttl": "IPET albo PEWS",
-      "sub": "Jeden WOPF, dwa tryby planu"
+      "wariant": "echolalia",
+      "ser": "Poradnik dla nauczycieli, terapeutów i rodziców",
+      "ttl": "Echolalia i rozumienie jej funkcji",
+      "sub": "Dostosowania i zintegrowane działania w szkole i placówkach",
+      "pasy": []
     },
-    "fmt": "Dla zespołu",
-    "tytul": "Plan wsparcia z celami SMART",
-    "opis": "Kwalifikacja do poziomu I, II lub III i plan, który da się zrealizować i ocenić po roku.",
-    "punkty": [],
-    "spec": "ok. 20 stron A4 · wzory celów",
+    "fmt": "Dla nauczycieli, terapeutów i rodziców",
+    "tytul": "Echolalia i rozumienie jej funkcji",
+    "opis": "Siedem mechanizmów echolalii opisanych w literaturze naukowej — każdy z uczciwą oceną siły dowodów, z ćwiczeniami i dostosowaniami gotowymi do zapisania w IPET.",
+    "punkty": [
+      "Siedem mechanizmów opisanych w literaturze naukowej",
+      "Przy każdym uczciwa ocena siły dowodów",
+      "Ćwiczenia i dostosowania do zapisania w IPET"
+    ],
+    "spec": "Wydanie I · 2026 · PDF",
     "ceny": [
       [
         "Placówka",
-        "na zapytanie",
+        "25 zł netto",
         "licencja · faktura"
       ],
       [
         "Indywidualnie",
-        "na zapytanie",
+        "25 zł netto",
         "PDF od razu"
       ]
     ],
@@ -1861,61 +1903,35 @@ var OFERTA = [
     "wiecej": []
   },
   {
-    "id": "br-obserwacja",
+    "id": "br-maly-ksiaze",
     "typ": "broszura",
     "polecane": true,
     "okladka": {
-      "wariant": "pale",
-      "ser": "EduPlaner 2026 · Broszura 3",
-      "ttl": "Obserwacja pogłębiona",
-      "sub": "ABC · profil sensoryczny · mowa · ToM"
+      "wariant": "ksiaze",
+      "ser": "Adaptacja lektury dla młodzieży ze spektrum autyzmu",
+      "ttl": "Mały Książę",
+      "ttl2": "moim bohaterem",
+      "sub": "Podróż emocjonalna",
+      "pasy": []
     },
-    "fmt": "Dla specjalisty",
-    "tytul": "Cztery narzędzia obserwacji",
-    "opis": "Kiedy sięgnąć po dziennik ABC, profil sensoryczny W. Dunn, kwestionariusz mowy i kartę teorii umysłu.",
-    "punkty": [],
-    "spec": "ok. 28 stron A4 · arkusze do druku",
-    "ceny": [
-      [
-        "Placówka",
-        "na zapytanie",
-        "licencja · faktura"
-      ],
-      [
-        "Indywidualnie",
-        "na zapytanie",
-        "PDF od razu"
-      ]
+    "fmt": "Adaptacja lektury · teoria umysłu",
+    "tytul": "Mały Książę moim bohaterem",
+    "opis": "Adaptacja lektury dla młodzieży ze spektrum autyzmu: dwadzieścia siedem rozdziałów w prostym języku, ze scenariuszem zajęć z teorii umysłu.",
+    "punkty": [
+      "27 rozdziałów w prostym języku; trudne pojęcia, emocje i zależności wyjaśnione",
+      "Teoria umysłu w pięciu etapach, wnioskowanie i ocena sytuacji krok po kroku",
+      "Pytania łatwiejsze i trudniejsze, ćwiczenia, gra planszowa i scenariusz przedstawienia"
     ],
-    "cta": "Kup",
-    "primary": false,
-    "buyer": "",
-    "wiecej": []
-  },
-  {
-    "id": "br-rodzice",
-    "typ": "broszura",
-    "polecane": true,
-    "okladka": {
-      "wariant": "",
-      "ser": "EduPlaner 2026 · Dla rodziców",
-      "ttl": "Ocena funkcjonalna. Co to znaczy dla mojego dziecka?",
-      "sub": "Krótko i bez żargonu"
-    },
-    "fmt": "Dla rodziców",
-    "tytul": "Ulotka na zebranie zespołu",
-    "opis": "Do rozdania rodzicom przed spotkaniem: co się zmienia, o co zapytamy, co dostaną na koniec.",
-    "punkty": [],
-    "spec": "4 strony A5 · do druku bez limitu",
+    "spec": "ponad 120 stron · PDF",
     "ceny": [
       [
         "Placówka",
-        "na zapytanie",
+        "60 zł netto",
         "licencja · faktura"
       ],
       [
         "Indywidualnie",
-        "na zapytanie",
+        "60 zł netto",
         "PDF od razu"
       ]
     ],
@@ -1925,6 +1941,8 @@ var OFERTA = [
     "wiecej": []
   }
 ];
+
+
 
 /* --- szkolenia i broszury: karty, katalog, szczegóły --------------- */
 (function(){
@@ -1941,8 +1959,14 @@ var OFERTA = [
   function glowa(o){
     if(o.typ==='broszura'){
       var w=o.okladka;
+      var pasy = (w.pasy&&w.pasy.length)
+        ? '<span class="pasy" aria-hidden="true">'+w.pasy.map(function(c){
+            return '<span style="background:'+esc(c[0])+'" title="'+esc(c[1])+'"></span>'; }).join('')+'</span>'
+        : '';
+      var tytul = esc(w.ttl) + (w.ttl2 ? '<em>'+esc(w.ttl2)+'</em>' : '');
       return '<div class="cover'+(w.wariant?' '+w.wariant:'')+'">'+KW+'<span class="lg"></span>'
-        +'<span class="ser">'+esc(w.ser)+'</span><span class="ttl">'+esc(w.ttl)+'</span><span class="sub">'+esc(w.sub)+'</span></div>';
+        +'<span class="ser">'+esc(w.ser)+'</span><span class="ttl">'+tytul+'</span>'
+        +'<span class="sub">'+esc(w.sub)+'</span>'+pasy+'</div>';
     }
     return '<span class="ico"><svg viewBox="0 0 24 24">'+IKONY[o.ikona]+'</svg></span>';
   }
@@ -1988,9 +2012,10 @@ var OFERTA = [
     var lista=wg(typ), wybor=lista.filter(function(o){return o.polecane;}).slice(0,NA_STRONIE);
     var wiecej = lista.length>wybor.length;
     var html=wybor.map(karta).join('');
+    var kart=wybor.length;
     if(typ==='broszura'){
-      if(wiecej){ html+=kafelekKatalogu(typ,lista.length); cel.className='offer-grid cols-4'; }
-      else { cel.className='offer-grid cols-3'; }
+      if(wiecej){ html+=kafelekKatalogu(typ,lista.length); kart++; }
+      cel.className='offer-grid cols-'+Math.min(kart,4);
     }
     cel.innerHTML=html;
   });
