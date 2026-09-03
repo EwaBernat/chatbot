@@ -470,8 +470,13 @@ svg.ck{flex:none;width:18px;height:18px;margin-top:3px}
 .prowadzaca b{display:block;font-size:15px;color:var(--ink)}
 .prowadzaca span{font-size:13.5px;color:var(--ink-2);line-height:1.5}
 .offer.zwiezla h3{margin-bottom:auto}
-.offer.zwiezla .prices{margin-top:16px}
-.offer .netto{display:block;margin-top:8px;font-size:12.5px;color:var(--ink-3);font-variant-numeric:tabular-nums}
+.offer.zwiezla .prices{margin-top:16px;grid-template-columns:1fr;gap:8px}
+.offer.zwiezla .prices div{display:grid;grid-template-columns:auto 1fr;align-items:baseline;column-gap:10px;padding:9px 12px}
+.offer.zwiezla .prices small{margin:0}
+.offer.zwiezla .prices b{white-space:nowrap}
+.offer.zwiezla .prices i{grid-column:1/-1;margin-top:3px}
+.prices.jedna{grid-template-columns:1fr}
+.netto{display:block;margin-top:8px;font-size:12.5px;color:var(--ink-3);font-variant-numeric:tabular-nums}
 .poz-side .netto{margin:10px 0 0}
 .offer .more{margin-top:10px;background:none;border:0;color:var(--plum-text);font:600 14px var(--body);cursor:pointer;
   text-decoration:underline;text-underline-offset:3px;padding:6px;width:100%}
@@ -501,6 +506,7 @@ svg.ck{flex:none;width:18px;height:18px;margin-top:3px}
 .zgoda.err{color:var(--orange-ink)}
 .zgoda.err input{outline:2px solid var(--orange);outline-offset:2px}
 .ask-note{margin-top:22px;font-size:14.5px;color:var(--ink-3)}
+.uwaga-kupujacy{margin:-4px 0 18px;padding:10px 14px;border-radius:10px;background:var(--ok-tlo);border:1px solid var(--ok-linia);font-size:13.5px;line-height:1.5;color:var(--ink)}
 .offer-note{margin-top:24px;display:flex;justify-content:space-between;gap:24px;flex-wrap:wrap;align-items:center;padding:20px 24px;background:var(--plum-soft);border:1px solid var(--plum-line);border-radius:var(--radius)}
 .offer-note p{font-size:15px;color:var(--ink-2);max-width:62ch}
 .offer-note p b{color:var(--ink)}
@@ -1196,7 +1202,7 @@ svg.ck{flex:none;width:18px;height:18px;margin-top:3px}
         <p class="eyebrow">Szkolenia · placówki i&nbsp;osoby indywidualne</p>
         <h2>Zespół, który wie, co robi, wdraża się w&nbsp;tydzień</h2>
       </div>
-      <p class="lead">Prowadzi autorka programu. Placówka zamawia dla całej rady na fakturę, nauczyciel lub specjalista zapisuje się sam i&nbsp;płaci online. Każdy uczestnik dostaje zaświadczenie.</p>
+      <p class="lead">Prowadzi autorka programu. Każde szkolenie trwa 2&nbsp;godziny i&nbsp;kończy się zaświadczeniem dla&nbsp;każdego uczestnika. Dla&nbsp;rady pedagogicznej — <b>1500&nbsp;zł brutto</b> za grupę do&nbsp;20 osób, na&nbsp;fakturę. Dla&nbsp;jednej osoby — <b>300&nbsp;zł brutto</b>, zapis i&nbsp;płatność online.</p>
     </div>
     <div class="offer-grid cols-3" id="lista-szkolen"></div>
     <noscript><p class="ask-note">Katalog wczytuje się skryptem przeglądarki. Jeśli go nie widzisz, włącz obsługę JavaScriptu albo napisz na <a href="mailto:kontakt@eduplaner2026.pl">kontakt@eduplaner2026.pl</a> — odeślemy pełną ofertę z cenami.</p></noscript>
@@ -1313,7 +1319,7 @@ svg.ck{flex:none;width:18px;height:18px;margin-top:3px}
           <li><svg class="ck" viewBox="0 0 24 24" fill="none" stroke="#FFB59A" stroke-width="2.4"><path d="M5 12l5 5L20 7"/></svg>Warsztat wdrożeniowy w&nbsp;pakiecie taniej</li>
         </ul>
         <a class="btn btn-primary btn-lg" href="#zamow" data-order="app" data-buyer="inst">Zamów aplikację</a>
-        <p class="fine">Zamówienie w&nbsp;2 minuty, dostęp zaraz po opłaceniu. Pytania? <a href="tel:+48662888403">662 888 403</a></p>
+        <p class="fine">Subskrypcję zamawia placówka na fakturę — przedszkole, szkoła lub poradnia. Osobom prywatnym aplikacji nie sprzedajemy. Pytania? <a href="tel:+48662888403">662 888 403</a></p>
       </article>
       <aside class="tier-side">
         <p><b>Prowadzisz zespół szkół albo kilka etapów?</b> Napisz, ile placówek i&nbsp;jakie etapy — przygotujemy wycenę na całość.</p>
@@ -1410,6 +1416,7 @@ svg.ck{flex:none;width:18px;height:18px;margin-top:3px}
       <details><summary>Co z&nbsp;danymi uczniów i&nbsp;RODO?</summary><p>Dane zostają u&nbsp;Was. Aplikacja pracuje na serwerze placówki, więc dokumentacja uczniów nie jest przesyłana do nas ani do zewnętrznej chmury, a&nbsp;administratorem danych pozostaje dyrektor. Zgody i&nbsp;klauzule RODO są częścią metryczki, a&nbsp;podstawa prawna jest wpisana w&nbsp;każdy druk.</p></details>
       <details><summary>Co, gdy przepisy znów się zmienią?</summary><p>Aktualizujemy wzory w&nbsp;aplikacji. Nie szukasz nowych druków i&nbsp;nie poprawiasz starych, zmiana pojawia się u&nbsp;Ciebie w&nbsp;ramach subskrypcji.</p></details>
       <details><summary>Czy mogę zobaczyć aplikację przed zakupem?</summary><p>Tak. Umów 20-minutowy pokaz online, w&nbsp;którym przechodzimy ścieżkę jednego ucznia od metryczki po druk IPET. Wcześniej obejrzyj nagrania szkoleniowe.</p></details>
+      <details><summary>Jestem nauczycielem. Czy kupię aplikację prywatnie?</summary><p>Nie. Aplikacja pracuje na serwerze placówki i&nbsp;prowadzi dokumentację uczniów, więc zamawia ją placówka na&nbsp;fakturę, a&nbsp;administratorem danych jest dyrektor. Prywatnie kupisz szkolenie (300&nbsp;zł brutto za osobę) i&nbsp;broszury PDF.</p></details>
       <details><summary>Czy dostanę zaświadczenie ze szkolenia?</summary><p>Tak, każdy uczestnik dostaje zaświadczenie imienne. Placówka dostaje komplet dla całej rady.</p></details>
     </div>
   </div>
@@ -1440,6 +1447,8 @@ svg.ck{flex:none;width:18px;height:18px;margin-top:3px}
         <label><input type="radio" name="buyer" value="person"><span>Osoba indywidualna<small>BLIK · karta · PDF od razu</small></span></label>
       </div>
 
+      <p class="uwaga-kupujacy" id="uwaga-osoba" hidden>Aplikację zamawia placówka na fakturę — osoba prywatna jej nie kupi. Dla&nbsp;nauczycieli i&nbsp;specjalistów są szkolenia i&nbsp;broszury poniżej.</p>
+
       <div class="field">
         <label for="product">Co zamawiasz</label>
         <select id="product" name="product">
@@ -1449,16 +1458,16 @@ svg.ck{flex:none;width:18px;height:18px;margin-top:3px}
             <option value="demo" data-rodzaj="bezplatne" data-inst="1" data-person="0" data-price="bezpłatnie">Pokaz online 20 min (bezpłatny)</option>
           </optgroup>
           <optgroup label="Szkolenia">
-            <option value="szk-a-d" data-inst="1" data-person="1" data-rodzaj="usluga" data-price="na zapytanie">Szkolenie: Nowa ocena funkcjonalna od A do D</option>
-            <option value="szk-wdrozenie" data-inst="1" data-person="0" data-rodzaj="usluga" data-price="na zapytanie">Szkolenie: Wdrożenie EduPlaner 2026 w Twojej placówce</option>
-            <option value="szk-obserwacja" data-inst="1" data-person="1" data-rodzaj="usluga" data-price="na zapytanie">Szkolenie: Obserwacja pogłębiona: cztery narzędzia</option>
-            <option value="szk-echolalia" data-inst="1" data-person="1" data-rodzaj="usluga" data-price="na zapytanie">Szkolenie: Echolalia — jak rozumieć jej funkcje</option>
-            <option value="szk-tom" data-inst="1" data-person="1" data-rodzaj="usluga" data-price="na zapytanie">Szkolenie: Teoria umysłu w praktyce szkolnej</option>
-            <option value="szk-emocje" data-inst="1" data-person="1" data-rodzaj="usluga" data-price="na zapytanie">Szkolenie: Emocje w spektrum: radość, smutek, złość, wstyd, lęk</option>
-            <option value="szk-sala" data-inst="1" data-person="0" data-rodzaj="usluga" data-price="na zapytanie">Szkolenie: Sala, która uczy każde dziecko</option>
-            <option value="szk-autyzm" data-inst="1" data-person="0" data-rodzaj="usluga" data-price="na zapytanie">Szkolenie: Spektrum autyzmu bez tajemnic — szkolenie dla rady</option>
-            <option value="szk-ipet" data-inst="1" data-person="1" data-rodzaj="usluga" data-price="na zapytanie">Szkolenie: IPET i PEWS: cele SMART, których nie pisze się co roku od nowa</option>
-            <option value="szk-dokumentacja" data-inst="1" data-person="0" data-rodzaj="usluga" data-price="na zapytanie">Szkolenie: Dokumentacja bez nadgodzin — organizacja pracy zespołu</option>
+            <option value="szk-a-d" data-inst="1" data-person="1" data-rodzaj="usluga" data-price="1500 zł brutto · do 20 osób (1219,51 zł netto + VAT 23%)" data-price-osoba="300 zł brutto · 1 osoba (243,90 zł netto + VAT 23%)">Szkolenie: Nowa ocena funkcjonalna od A do D</option>
+            <option value="szk-wdrozenie" data-inst="1" data-person="0" data-rodzaj="usluga" data-price="1500 zł brutto · do 20 osób (1219,51 zł netto + VAT 23%)">Szkolenie: Wdrożenie EduPlaner 2026 w Twojej placówce</option>
+            <option value="szk-obserwacja" data-inst="1" data-person="1" data-rodzaj="usluga" data-price="1500 zł brutto · do 20 osób (1219,51 zł netto + VAT 23%)" data-price-osoba="300 zł brutto · 1 osoba (243,90 zł netto + VAT 23%)">Szkolenie: Obserwacja pogłębiona: cztery narzędzia</option>
+            <option value="szk-echolalia" data-inst="1" data-person="1" data-rodzaj="usluga" data-price="1500 zł brutto · do 20 osób (1219,51 zł netto + VAT 23%)" data-price-osoba="300 zł brutto · 1 osoba (243,90 zł netto + VAT 23%)">Szkolenie: Echolalia — jak rozumieć jej funkcje</option>
+            <option value="szk-tom" data-inst="1" data-person="1" data-rodzaj="usluga" data-price="1500 zł brutto · do 20 osób (1219,51 zł netto + VAT 23%)" data-price-osoba="300 zł brutto · 1 osoba (243,90 zł netto + VAT 23%)">Szkolenie: Teoria umysłu w praktyce szkolnej</option>
+            <option value="szk-emocje" data-inst="1" data-person="1" data-rodzaj="usluga" data-price="1500 zł brutto · do 20 osób (1219,51 zł netto + VAT 23%)" data-price-osoba="300 zł brutto · 1 osoba (243,90 zł netto + VAT 23%)">Szkolenie: Emocje w spektrum: radość, smutek, złość, wstyd, lęk</option>
+            <option value="szk-sala" data-inst="1" data-person="0" data-rodzaj="usluga" data-price="1500 zł brutto · do 20 osób (1219,51 zł netto + VAT 23%)">Szkolenie: Sala, która uczy każde dziecko</option>
+            <option value="szk-autyzm" data-inst="1" data-person="0" data-rodzaj="usluga" data-price="1500 zł brutto · do 20 osób (1219,51 zł netto + VAT 23%)">Szkolenie: Spektrum autyzmu bez tajemnic — szkolenie dla rady</option>
+            <option value="szk-ipet" data-inst="1" data-person="1" data-rodzaj="usluga" data-price="1500 zł brutto · do 20 osób (1219,51 zł netto + VAT 23%)" data-price-osoba="300 zł brutto · 1 osoba (243,90 zł netto + VAT 23%)">Szkolenie: IPET i PEWS: cele SMART, których nie pisze się co roku od nowa</option>
+            <option value="szk-dokumentacja" data-inst="1" data-person="0" data-rodzaj="usluga" data-price="1500 zł brutto · do 20 osób (1219,51 zł netto + VAT 23%)">Szkolenie: Dokumentacja bez nadgodzin — organizacja pracy zespołu</option>
           </optgroup>
           <optgroup label="Broszury (PDF)">
             <option value="br-emocje" data-rodzaj="plik" data-inst="1" data-person="1" data-price="30 zł brutto (24,39 zł netto + VAT 23%)">Broszura: Kolorowy Świat Emocji</option>
@@ -1878,17 +1887,17 @@ var OFERTA = [
       "Trzy poziomy wsparcia, IPET i PEWS",
       "Nagranie dostępne 30 dni po szkoleniu"
     ],
-    "spec": "ok. 3 h · online",
+    "spec": "2 h · online",
     "ceny": [
       [
-        "Placówka",
-        "na zapytanie",
-        "cała rada · faktura"
+        "Cała rada",
+        "1500 zł",
+        "brutto · do 20 osób · faktura"
       ],
       [
         "Indywidualnie",
-        "na zapytanie",
-        "za osobę · online"
+        "300 zł",
+        "brutto · 1 osoba · online"
       ]
     ],
     "zaswiadczenie": true,
@@ -1913,7 +1922,8 @@ var OFERTA = [
     ],
     "zawiera": [
       "Nagranie dostępne 30 dni po szkoleniu"
-    ]
+    ],
+    "netto": "Rada: 1219,51 zł netto + 280,49 zł VAT 23% · Osoba: 243,90 zł netto + 56,10 zł VAT 23%"
   },
   {
     "id": "szk-wdrozenie",
@@ -1936,17 +1946,12 @@ var OFERTA = [
       "Podział ról w zespole i pulpit dyrektora",
       "Miesiąc konsultacji po warsztacie"
     ],
-    "spec": "ok. 4 h · tylko dla placówek z subskrypcją",
+    "spec": "2 h · tylko dla placówek z subskrypcją",
     "ceny": [
       [
-        "Placówka",
-        "na zapytanie",
-        "cała rada · faktura"
-      ],
-      [
-        "Indywidualnie",
-        "na zapytanie",
-        "za osobę · online"
+        "Cała rada",
+        "1500 zł",
+        "brutto · do 20 osób · faktura"
       ]
     ],
     "zaswiadczenie": true,
@@ -1971,7 +1976,8 @@ var OFERTA = [
     ],
     "zawiera": [
       "Miesiąc konsultacji po warsztacie"
-    ]
+    ],
+    "netto": "Rada: 1219,51 zł netto + 280,49 zł VAT 23%"
   },
   {
     "id": "szk-obserwacja",
@@ -1994,17 +2000,17 @@ var OFERTA = [
       "Od obserwacji do celu SMART w planie",
       "Arkusze do pobrania"
     ],
-    "spec": "ok. 2 h · terminy otwarte co miesiąc",
+    "spec": "2 h · terminy otwarte co miesiąc",
     "ceny": [
       [
-        "Placówka",
-        "na zapytanie",
-        "cała rada · faktura"
+        "Cała rada",
+        "1500 zł",
+        "brutto · do 20 osób · faktura"
       ],
       [
         "Indywidualnie",
-        "na zapytanie",
-        "za osobę · online"
+        "300 zł",
+        "brutto · 1 osoba · online"
       ]
     ],
     "zaswiadczenie": true,
@@ -2029,7 +2035,8 @@ var OFERTA = [
     ],
     "zawiera": [
       "Arkusze obserwacyjne do pobrania"
-    ]
+    ],
+    "netto": "Rada: 1219,51 zł netto + 280,49 zł VAT 23% · Osoba: 243,90 zł netto + 56,10 zł VAT 23%"
   },
   {
     "id": "szk-echolalia",
@@ -2052,17 +2059,17 @@ var OFERTA = [
       "Reagować czy nie reagować — i kiedy",
       "Dostosowania gotowe do zapisania w IPET"
     ],
-    "spec": "ok. 2 h · online",
+    "spec": "2 h · online",
     "ceny": [
       [
-        "Placówka",
-        "na zapytanie",
-        "cała rada · faktura"
+        "Cała rada",
+        "1500 zł",
+        "brutto · do 20 osób · faktura"
       ],
       [
         "Indywidualnie",
-        "na zapytanie",
-        "za osobę · online"
+        "300 zł",
+        "brutto · 1 osoba · online"
       ]
     ],
     "zaswiadczenie": true,
@@ -2086,7 +2093,8 @@ var OFERTA = [
       "Dostosowania gotowe do zapisania w IPET",
       "Pytania uczestników i podsumowanie"
     ],
-    "zawiera": []
+    "zawiera": [],
+    "netto": "Rada: 1219,51 zł netto + 280,49 zł VAT 23% · Osoba: 243,90 zł netto + 56,10 zł VAT 23%"
   },
   {
     "id": "szk-tom",
@@ -2109,17 +2117,17 @@ var OFERTA = [
       "Wnioskowanie i ocena sytuacji krok po kroku",
       "Scenariusz zajęć i gra planszowa do wykorzystania"
     ],
-    "spec": "ok. 2,5 h · online",
+    "spec": "2 h · online",
     "ceny": [
       [
-        "Placówka",
-        "na zapytanie",
-        "cała rada · faktura"
+        "Cała rada",
+        "1500 zł",
+        "brutto · do 20 osób · faktura"
       ],
       [
         "Indywidualnie",
-        "na zapytanie",
-        "za osobę · online"
+        "300 zł",
+        "brutto · 1 osoba · online"
       ]
     ],
     "zaswiadczenie": true,
@@ -2144,7 +2152,8 @@ var OFERTA = [
     ],
     "zawiera": [
       "Scenariusz zajęć i gra planszowa do wykorzystania"
-    ]
+    ],
+    "netto": "Rada: 1219,51 zł netto + 280,49 zł VAT 23% · Osoba: 243,90 zł netto + 56,10 zł VAT 23%"
   },
   {
     "id": "szk-emocje",
@@ -2167,17 +2176,17 @@ var OFERTA = [
       "Kiedy nazywanie emocji pomaga, a kiedy przeszkadza",
       "Gotowy zeszyt ucznia jako podstawa zajęć"
     ],
-    "spec": "ok. 2 h · online",
+    "spec": "2 h · online",
     "ceny": [
       [
-        "Placówka",
-        "na zapytanie",
-        "cała rada · faktura"
+        "Cała rada",
+        "1500 zł",
+        "brutto · do 20 osób · faktura"
       ],
       [
         "Indywidualnie",
-        "na zapytanie",
-        "za osobę · online"
+        "300 zł",
+        "brutto · 1 osoba · online"
       ]
     ],
     "zaswiadczenie": true,
@@ -2201,7 +2210,8 @@ var OFERTA = [
       "Praca na zeszycie ucznia jako podstawie zajęć",
       "Pytania uczestników i podsumowanie"
     ],
-    "zawiera": []
+    "zawiera": [],
+    "netto": "Rada: 1219,51 zł netto + 280,49 zł VAT 23% · Osoba: 243,90 zł netto + 56,10 zł VAT 23%"
   },
   {
     "id": "szk-sala",
@@ -2224,17 +2234,12 @@ var OFERTA = [
       "Dziesięć grup potrzeb — co zmienić przy każdej",
       "Arkusze monitorujące do wypełnienia po szkoleniu"
     ],
-    "spec": "ok. 2,5 h · online",
+    "spec": "2 h · online",
     "ceny": [
       [
-        "Placówka",
-        "na zapytanie",
-        "cała rada · faktura"
-      ],
-      [
-        "Indywidualnie",
-        "na zapytanie",
-        "za osobę · online"
+        "Cała rada",
+        "1500 zł",
+        "brutto · do 20 osób · faktura"
       ]
     ],
     "zaswiadczenie": true,
@@ -2259,7 +2264,8 @@ var OFERTA = [
     ],
     "zawiera": [
       "Arkusze monitorujące do wypełnienia po szkoleniu"
-    ]
+    ],
+    "netto": "Rada: 1219,51 zł netto + 280,49 zł VAT 23%"
   },
   {
     "id": "szk-autyzm",
@@ -2282,17 +2288,12 @@ var OFERTA = [
       "Profil sensoryczny w codziennej sali",
       "Co znaczy wsparcie prowadzące do samodzielności"
     ],
-    "spec": "ok. 3 h · dla całej rady",
+    "spec": "2 h · dla całej rady",
     "ceny": [
       [
-        "Placówka",
-        "na zapytanie",
-        "cała rada · faktura"
-      ],
-      [
-        "Indywidualnie",
-        "na zapytanie",
-        "za osobę · online"
+        "Cała rada",
+        "1500 zł",
+        "brutto · do 20 osób · faktura"
       ]
     ],
     "zaswiadczenie": true,
@@ -2316,7 +2317,8 @@ var OFERTA = [
       "Co znaczy wsparcie prowadzące do samodzielności",
       "Pytania uczestników i podsumowanie"
     ],
-    "zawiera": []
+    "zawiera": [],
+    "netto": "Rada: 1219,51 zł netto + 280,49 zł VAT 23%"
   },
   {
     "id": "szk-ipet",
@@ -2339,17 +2341,17 @@ var OFERTA = [
       "Od obszaru WOPF do celu z terminem i właścicielem",
       "Ewaluacja półroczna, która nie jest przepisywaniem"
     ],
-    "spec": "ok. 3 h · warsztat na przykładach",
+    "spec": "2 h · warsztat na przykładach",
     "ceny": [
       [
-        "Placówka",
-        "na zapytanie",
-        "cała rada · faktura"
+        "Cała rada",
+        "1500 zł",
+        "brutto · do 20 osób · faktura"
       ],
       [
         "Indywidualnie",
-        "na zapytanie",
-        "za osobę · online"
+        "300 zł",
+        "brutto · 1 osoba · online"
       ]
     ],
     "zaswiadczenie": true,
@@ -2373,7 +2375,8 @@ var OFERTA = [
       "Ewaluacja półroczna, która nie jest przepisywaniem",
       "Pytania uczestników i podsumowanie"
     ],
-    "zawiera": []
+    "zawiera": [],
+    "netto": "Rada: 1219,51 zł netto + 280,49 zł VAT 23% · Osoba: 243,90 zł netto + 56,10 zł VAT 23%"
   },
   {
     "id": "szk-dokumentacja",
@@ -2396,17 +2399,12 @@ var OFERTA = [
       "Zebranie zespołu w 60 minut zamiast w trzy godziny",
       "Co dyrektor widzi na pulpicie i po co"
     ],
-    "spec": "ok. 2 h · dla kadry kierowniczej",
+    "spec": "2 h · dla kadry kierowniczej",
     "ceny": [
       [
-        "Placówka",
-        "na zapytanie",
-        "cała rada · faktura"
-      ],
-      [
-        "Indywidualnie",
-        "na zapytanie",
-        "za osobę · online"
+        "Cała rada",
+        "1500 zł",
+        "brutto · do 20 osób · faktura"
       ]
     ],
     "zaswiadczenie": true,
@@ -2430,7 +2428,8 @@ var OFERTA = [
       "Co dyrektor widzi na pulpicie i po co",
       "Pytania uczestników i podsumowanie"
     ],
-    "zawiera": []
+    "zawiera": [],
+    "netto": "Rada: 1219,51 zł netto + 280,49 zł VAT 23%"
   },
   {
     "id": "br-emocje",
@@ -2705,13 +2704,16 @@ var OFERTA = [
   var KW='<svg class="kw" aria-hidden="true"><use href="#kwiat"/></svg>';
 
   function ceny(o){
-    return '<div class="prices">'+o.ceny.map(function(c){
+    return '<div class="prices'+(o.ceny.length<2?' jedna':'')+'">'+o.ceny.map(function(c){
       var kl = /^\d/.test(c[1]) ? '' : ' class="ask"';
       return '<div><small>'+esc(c[0])+'</small><b'+kl+'>'+esc(c[1])+'</b><i>'+esc(c[2])+'</i></div>';
     }).join('')+'</div>';
   }
-  function netto(o){
-    return o.netto ? '<span class="netto">'+esc(o.netto)+'</span>' : '';
+  /* Szkolenie ma dwie ceny, więc pełne rozliczenie netto + VAT nie zmieści się
+     na karcie w jednej linii. Czeka w oknie ze szczegółami, przy cenach. */
+  function netto(o,naKarcie){
+    if(!o.netto || (naKarcie && o.typ==='szkolenie')) return '';
+    return '<span class="netto">'+esc(o.netto)+'</span>';
   }
   function glowa(o){
     if(o.okladka){
@@ -2751,7 +2753,7 @@ var OFERTA = [
       + '<h3>'+esc(o.tytul)+'</h3>'
       + meta(o) + srodek
       + (o.zaswiadczenie ? '<div class="zasw">'+ZASW+'Zaświadczenie dla uczestnika</div>' : '')
-      + ceny(o) + netto(o)
+      + ceny(o) + netto(o,true)
       + '<a class="btn '+(o.primary?'btn-primary':'btn-ghost')+'" href="#zamow" data-order="'+esc(o.id)+'"'
       + (o.buyer?' data-buyer="'+esc(o.buyer)+'"':'')+'>'+esc(o.cta)+'</a>'
       + '<button class="more" type="button" data-poz="'+esc(o.id)+'">'
@@ -2961,13 +2963,22 @@ var OFERTA = [
   var fInst=document.getElementById('f-inst'), fPerson=document.getElementById('f-person');
   var sumP=document.getElementById('sum-product'), sumPay=document.getElementById('sum-pay'), sumPrice=document.getElementById('sum-price');
   var submit=document.getElementById('submit-btn'), done=document.getElementById('done');
+  var uwagaOsoba=document.getElementById('uwaga-osoba');
 
   function buyer(){ return form.querySelector('input[name="buyer"]:checked').value; }
   function setBuyer(v){ var r=form.querySelector('input[name="buyer"][value="'+v+'"]'); if(r){ r.checked=true; } }
 
+  /* Szkolenia mają dwie ceny: dla rady pedagogicznej i dla jednej osoby.
+     Pokazujemy tę, która pasuje do wybranego kupującego. */
+  function cena(opt,b){
+    if(b==='person' && opt.dataset.priceOsoba){ return opt.dataset.priceOsoba; }
+    return opt.dataset.price||'';
+  }
+
   function refresh(){
     var b=buyer(), opt=product.options[product.selectedIndex];
     fInst.hidden = b!=='inst'; fPerson.hidden = b!=='person';
+    uwagaOsoba.hidden = b!=='person';
     // pozycje tylko dla placówek są niedostępne dla osób indywidualnych
     Array.prototype.forEach.call(product.options,function(o){
       var okFor = b==='inst' ? o.dataset.inst==='1' : o.dataset.person==='1';
@@ -2978,7 +2989,7 @@ var OFERTA = [
       opt=product.options[product.selectedIndex];
     }
     sumP.textContent=opt.textContent;
-    sumPrice.textContent=opt.dataset.price||'';
+    sumPrice.textContent=cena(opt,b);
     if(opt.value==='demo'){ sumPay.textContent='Bez zobowiązań'; submit.textContent='Umów pokaz'; }
     else if(b==='inst'){ sumPay.textContent='Faktura · przelew · dostęp po wpłacie'; submit.textContent='Zamawiam z obowiązkiem zapłaty'; }
     else { sumPay.textContent='Płatność online · BLIK · karta'; submit.textContent='Zamawiam z obowiązkiem zapłaty'; }
@@ -3048,7 +3059,7 @@ var OFERTA = [
     var who = b==='inst'
       ? 'Placówka (nabywca): '+(document.getElementById('inst-name').value||'—')+'\nAdres do faktury: '+(document.getElementById('inst-addr').value||'—')+'\nNIP: '+(document.getElementById('inst-nip').value||'—')+'\nEtapy: '+document.getElementById('inst-stage').value+'\nPłatność: faktura przelewowa, dostęp po opłaceniu'
       : 'Osoba indywidualna: '+(document.getElementById('person-name').value||'—')+'\nPłatność: online (proszę o link do płatności)';
-    var body='ZAMÓWIENIE — EduPlaner 2026\n\nPozycja: '+opt.textContent+'\nCena: '+(opt.dataset.price||'')+'\n\n'+who+'\nE-mail: '+email.value+'\nTelefon: '+(document.getElementById('phone').value||'—')+'\n\nUwagi:\n'+(document.getElementById('note').value||'—')
+    var body='ZAMÓWIENIE — EduPlaner 2026\n\nPozycja: '+opt.textContent+'\nCena: '+cena(opt,buyer())+'\n\n'+who+'\nE-mail: '+email.value+'\nTelefon: '+(document.getElementById('phone').value||'—')+'\n\nUwagi:\n'+(document.getElementById('note').value||'—')
       +'\n\nZGODY\nRegulamin i polityka prywatności: zaakceptowane'
       +(boxCyfrowa.hidden?'' : '\nZgoda na dostarczenie przed upływem terminu odstąpienia: '+(polCyfrowa.checked?'TAK':'nie'))
       +'\n';
