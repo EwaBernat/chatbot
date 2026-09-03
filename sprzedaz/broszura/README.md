@@ -72,8 +72,22 @@ czego nie ma w sprzedawanym pliku.
   min. 8 mm od krawędzi.
 - Druk domowy i biurowy: „dopasuj do strony" wyłączone, skala 100%.
 
+## Numer telefonu w plikach źródłowych
+
+Platforma automatycznie usuwa numery telefonów z plików tekstowych
+(HTML, JS, Markdown) przy wypychaniu do repozytorium. Dlatego w źródłach
+stoi znacznik `[ telefon ]`, a numer podaje się dopiero przy budowaniu:
+
+```
+PCTP_TELEFON="000 000 000" node generuj.js
+```
+
+Pliki PDF, DOCX i XLSX nie są czyszczone — raz zbudowany dokument zachowuje
+numer. Bez zmiennej w dokumencie zostaje widoczny znacznik `[ telefon ]`,
+tak samo jak `[ cena ]`.
+
 ---
 
 Autorka treści zeszytu: Mirosława Ewa Jurczyszyn, pedagog specjalny.
 Wydawca: Pomorskie Centrum Terapii Pedagogicznej, Koszalin.
-kontakt@eduplaner2026.pl · [usunięto] · www.eduplaner2026.pl
+kontakt@eduplaner2026.pl · [ telefon ] · www.eduplaner2026.pl

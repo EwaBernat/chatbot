@@ -173,3 +173,11 @@ node_modules/
 *.wav
 *.m4a
 konfiguracja.json
+
+# Katalogi PCTP — HTML jest wynikiem budowania (node generuj.js).
+# Nie trzymamy go w repozytorium, bo powstaje z numerem telefonu,
+# który platforma i tak usuwa z plików tekstowych. PDF-y zostają.
+sprzedaz/katalog-szkolen/Katalog-szkolen-PCTP.html
+sprzedaz/katalog-szkolen/Katalog-szkolen-PCTP-artifact.html
+sprzedaz/katalog-pomocy/Katalog-pomocy-dydaktycznych-PCTP.html
+sprzedaz/katalog-pomocy/Katalog-pomocy-dydaktycznych-PCTP-artifact.html

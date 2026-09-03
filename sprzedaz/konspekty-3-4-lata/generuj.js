@@ -135,7 +135,7 @@ function stronaTytulowa() {
     pusty(700),
     p(t("Autorka: Mirosława Ewa Jurczyszyn, pedagog specjalny", { size: 19, bold: true }), { po: 40 }),
     p(t("Pomorskie Centrum Terapii Pedagogicznej, Koszalin · EduPlaner 2026", { size: 18, color: BRAND.szept }), { po: 40 }),
-    p(t("kontakt@eduplaner2026.pl · [usunięto] · www.eduplaner2026.pl", { size: 18, color: BRAND.szept }), { po: 0 }),
+    p(t("kontakt@eduplaner2026.pl · [ telefon ] · www.eduplaner2026.pl", { size: 18, color: BRAND.szept }), { po: 0 }),
     new Paragraph({ children: [new PageBreak()] }),
   ];
 }

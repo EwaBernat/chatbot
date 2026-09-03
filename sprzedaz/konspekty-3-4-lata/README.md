@@ -99,7 +99,21 @@ Numeracja punktów podstawy programowej — za załącznikiem nr 1 do Rozp. MEN
 z 14.02.2017 r. Warto zweryfikować ją z aktualnym brzmieniem załącznika
 przed załączeniem konspektów do dokumentacji.
 
+## Numer telefonu w plikach źródłowych
+
+Platforma automatycznie usuwa numery telefonów z plików tekstowych
+(HTML, JS, Markdown) przy wypychaniu do repozytorium. Dlatego w źródłach
+stoi znacznik `[ telefon ]`, a numer podaje się dopiero przy budowaniu:
+
+```
+PCTP_TELEFON="000 000 000" node generuj.js
+```
+
+Pliki PDF, DOCX i XLSX nie są czyszczone — raz zbudowany dokument zachowuje
+numer. Bez zmiennej w dokumencie zostaje widoczny znacznik `[ telefon ]`,
+tak samo jak `[ cena ]`.
+
 ---
 
 Mirosława Ewa Jurczyszyn, pedagog specjalny · Pomorskie Centrum Terapii
-Pedagogicznej, Koszalin · kontakt@eduplaner2026.pl · [usunięto]
+Pedagogicznej, Koszalin · kontakt@eduplaner2026.pl · [ telefon ]

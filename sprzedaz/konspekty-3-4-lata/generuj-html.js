@@ -97,7 +97,7 @@ function tytulowa() {
   </div>
   <div class="stopka-dok">
     <strong>Mirosława Ewa Jurczyszyn</strong>, pedagog specjalny · Pomorskie Centrum Terapii Pedagogicznej, Koszalin<br>
-    kontakt@eduplaner2026.pl · [usunięto] · www.eduplaner2026.pl · EduPlaner 2026
+    kontakt@eduplaner2026.pl · [ telefon ] · www.eduplaner2026.pl · EduPlaner 2026
   </div>
 </section>`;
 }
