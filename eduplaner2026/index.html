@@ -167,6 +167,19 @@ svg.ck{flex:none;width:18px;height:18px;margin-top:3px}
 .laptop .deck .pad{position:absolute;left:50%;top:0;transform:translateX(-50%);width:16%;height:7px;border-radius:0 0 8px 8px;background:rgba(0,0,0,.45);box-shadow:inset 0 -1px 0 rgba(255,255,255,.12)}
 .laptop .livedot{bottom:-58px}
 
+/* zdjęcie w hero (img/hero-biurko.jpg) ------------------------------- */
+.photo{display:none;margin:0;position:relative;z-index:2;border-radius:16px;overflow:hidden;
+  box-shadow:0 46px 84px -44px rgba(0,0,0,.72),0 0 0 1px rgba(255,255,255,.14);
+  animation:wake .9s cubic-bezier(.2,.8,.25,1) both}
+.photo img{display:block;width:100%;height:auto;aspect-ratio:16/10.4;object-fit:cover;object-position:52% 42%}
+.photo::after{content:"";position:absolute;inset:0;pointer-events:none;
+  background:linear-gradient(200deg,rgba(45,27,105,.06),transparent 34%),radial-gradient(120% 80% at 50% 108%,rgba(26,15,66,.30),transparent 62%)}
+.stage.has-photo .device,.stage.has-photo .deck{display:none}
+.stage.has-photo .photo{display:block}
+.stage.has-photo .livedot{bottom:16px;right:16px}
+.stage.has-photo .float{bottom:-30px;left:-38px}
+@media (max-width:980px){.stage.has-photo .float{left:0;bottom:-16px}}
+
 /* pasek standardów -------------------------------------------------- */
 .standards{padding:26px 0;border-bottom:1px solid var(--line);background:var(--paper-2)}
 .standards .wrap{display:flex;align-items:center;gap:20px;flex-wrap:wrap}
@@ -682,6 +695,10 @@ svg.ck{flex:none;width:18px;height:18px;margin-top:3px}
 
     <div class="app-wrap stage">
     <svg class="kw " aria-hidden="true"><use href="#kwiat"/></svg><svg class="kw kw-2" aria-hidden="true"><use href="#kwiat"/></svg>
+    <figure class="photo">
+      <img src="img/hero-biurko.jpg" alt="EduPlaner 2026 otwarty na monitorze w sali przedszkolnej, obok notatnik WOPF i kubek PCTP"
+           onload="this.closest('.stage').classList.add('has-photo')" onerror="this.closest('figure').remove()">
+    </figure>
     <div class="device laptop">
       <div class="lid">
       <div class="screen">
