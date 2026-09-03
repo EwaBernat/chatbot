@@ -21,6 +21,9 @@ const args = process.argv.slice(2);
 const cel = args.find(a => !a.startsWith('--'));
 const jakoJson = args.includes('--json');
 const tylkoBledy = args.includes('--tylko') && args[args.indexOf('--tylko') + 1] === 'bledy';
+/* Strona z trybem ciemnym ma dwa komplety kolorów. Sprawdzenie tylko jasnego
+   zostawia połowę użytkowników bez kontroli — a to zwykle ciemny wypada gorzej. */
+const ciemny = args.includes('--ciemny');
 if (!cel) { console.error('Podaj plik HTML albo adres URL.'); process.exit(2); }
 
 const adres = /^https?:\/\//.test(cel) ? cel : 'file://' + path.resolve(cel);
@@ -61,7 +64,8 @@ function naRgb(s, pod) {
 
 (async () => {
   const b = await chromium.launch({ executablePath: process.env.CHROMIUM_PATH || undefined });
-  const kontekst = await b.newContext({ viewport: { width: 1440, height: 1000 } });
+  const kontekst = await b.newContext({ viewport: { width: 1440, height: 1000 },
+    colorScheme: ciemny ? 'dark' : 'light' });
   const p = await kontekst.newPage();
   const bledyJs = [];
   p.on('pageerror', e => bledyJs.push(e.message));
@@ -162,11 +166,24 @@ function naRgb(s, pod) {
       }
       return getComputedStyle(document.body).backgroundColor || 'rgb(255,255,255)';
     }
-    const probki = [...document.querySelectorAll('p,li,h1,h2,h3,span,a,td,label')].filter(widoczny)
-      .filter(e => e.textContent.trim().length > 12).slice(0, 300).map(e => {
+    /* Liczymy tylko elementy, które mają własny tekst. Rodzic zawierający wyłącznie
+       dzieci dostawał ich treść, a swój kolor — i wychodziły z tego zmyślone błędy. */
+    const wlasnyTekst = e => [...e.childNodes]
+      .filter(n => n.nodeType === 3).map(n => n.textContent.trim()).join('').length > 12;
+    const probki = [...document.querySelectorAll('p,li,h1,h2,h3,span,a,td,label')]
+      .filter(widoczny).filter(wlasnyTekst).slice(0, 300).map(e => {
         const s = getComputedStyle(e), px = parseFloat(s.fontSize);
         const bg = tlo(e); if (!bg) return null;
-        return { kolor: s.color, tlo: bg, px, duzy: px >= 24 || (px >= 19 && +s.fontWeight >= 700),
+        /* Tło pod półprzezroczystym tłem elementu — potrzebne, żeby złożyć kolor. */
+        const pod = (() => { let r = e.parentElement;
+          while (r && r !== document.documentElement) {
+            const rs = getComputedStyle(r);
+            if (rs.backgroundImage && rs.backgroundImage !== 'none') return null;
+            if (rs.backgroundColor && !/rgba\(0, 0, 0, 0\)|transparent/.test(rs.backgroundColor)
+                && !/, 0?\.\d+\)$/.test(rs.backgroundColor)) return rs.backgroundColor;
+            r = r.parentElement; }
+          return getComputedStyle(document.body).backgroundColor; })();
+        return { kolor: s.color, tlo: bg, pod, px, duzy: px >= 24 || (px >= 19 && +s.fontWeight >= 700),
                  tekst: e.textContent.trim().slice(0, 42) };
       }).filter(Boolean);
 
@@ -285,7 +302,7 @@ function naRgb(s, pod) {
 
   const zleKontrasty = [];
   d.probki.forEach(s => {
-    const tl = naRgb(s.tlo, [255, 255, 255]);
+    const tl = naRgb(s.tlo, naRgb(s.pod || 'rgb(255,255,255)') || [255, 255, 255]);
     const k = naRgb(s.kolor, tl);
     if (!k || !tl) return;
     const w = kontrast(k, tl), prog = s.duzy ? 3 : 4.5;
@@ -356,7 +373,8 @@ function naRgb(s, pod) {
       podsumowanie: { bledy: licz('BŁĄD'), ostrzezenia: licz('OSTRZEŻENIE'), doUzupelnienia: licz('DO UZUPEŁNIENIA') } }, null, 2));
   } else {
     const kreska = '─'.repeat(74);
-    console.log('\n' + kreska + '\nSTRAŻNIK STRONY  ·  ' + (d.title || cel) + '\n' + kreska);
+    console.log('\n' + kreska + '\nSTRAŻNIK STRONY  ·  ' + (d.title || cel) +
+      '  ·  tryb ' + (ciemny ? 'CIEMNY' : 'jasny') + '\n' + kreska);
     const znak = { 'BŁĄD': '✖', 'OSTRZEŻENIE': '▲', 'DO UZUPEŁNIENIA': '□', 'INFO': 'ℹ' };
     let ostatni = null;
     uwagi.filter(u => !tylkoBledy || u.poziom === 'BŁĄD').forEach(u => {
@@ -367,6 +385,7 @@ function naRgb(s, pod) {
     console.log('\n' + kreska);
     console.log('Błędy: ' + licz('BŁĄD') + '   Ostrzeżenia: ' + licz('OSTRZEŻENIE') + '   Do uzupełnienia: ' + licz('DO UZUPEŁNIENIA'));
     console.log(kreska);
+    if (!ciemny) console.log('Sprawdzono tryb jasny. Jeśli strona ma tryb ciemny, uruchom też z --ciemny.');
     console.log('Kontroler sprawdza to, co mierzalne. Nie oceni, czy treść regulaminu pasuje');
     console.log('do tego, co sprzedajesz, czy zdjęcia mają licencję ani czy opinie są prawdziwe.');
     console.log('Dokumenty prawne przed publikacją sprawdza prawnik.\n');
