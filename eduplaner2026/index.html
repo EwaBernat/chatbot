@@ -150,7 +150,7 @@ svg.ck{flex:none;width:18px;height:18px;margin-top:3px}
 /* monitor z aplikacją w hero ---------------------------------------- */
 .device{position:relative;z-index:2;margin-right:-150px;border-radius:16px;padding:11px 11px 13px;background:linear-gradient(160deg,#2A2145,#161027);box-shadow:0 50px 90px -40px rgba(0,0,0,.75),inset 0 0 0 1px rgba(255,255,255,.09);animation:wake .9s cubic-bezier(.2,.8,.25,1) both}
 .device .screen{border-radius:8px;overflow:hidden;background:#fff;position:relative;aspect-ratio:16/9.4}
-.device .screen img{width:100%;height:100%;object-fit:cover;object-position:top left;display:block;transform:scale(1.5);transform-origin:0 8%}
+.device .screen img{width:100%;height:100%;object-fit:cover;object-position:top left;display:block;transform:scale(1.46);transform-origin:0 0}
 .device .glare{position:absolute;inset:0;background:linear-gradient(115deg,rgba(255,255,255,.16) 0%,transparent 34%);pointer-events:none}
 .device .foot{height:4px;width:64px;margin:9px auto 0;border-radius:99px;background:rgba(255,255,255,.16)}
 .livedot{position:absolute;right:22px;bottom:-16px;z-index:5;display:flex;align-items:center;gap:8px;background:rgba(20,13,40,.78);backdrop-filter:blur(6px);border:1px solid rgba(255,255,255,.2);border-radius:99px;padding:7px 14px 7px 11px;color:#F0ECF7;font-size:12.5px;font-weight:600;animation:wake .9s ease .45s both}
@@ -189,17 +189,17 @@ svg.ck{flex:none;width:18px;height:18px;margin-top:3px}
 .path .eyebrow::before{background:#E9A184}
 .path .lead{color:var(--on-plum-3);font-size:18.5px;line-height:1.62;letter-spacing:.004em}
 .steps{list-style:none;margin:44px 0 0;padding:0;counter-reset:step;border-top:1px solid var(--on-plum-line)}
-.steps li{display:grid;grid-template-columns:52px minmax(190px,230px) minmax(0,1fr) minmax(120px,168px);gap:8px 28px;align-items:start;padding:22px 12px 22px 0;border-bottom:1px solid var(--on-plum-line);position:relative;transition:background .18s ease}
+.steps li{display:grid;grid-template-columns:44px minmax(190px,230px) minmax(0,1fr) minmax(120px,168px);gap:8px 28px;align-items:start;padding:22px 12px 22px 0;border-bottom:1px solid var(--on-plum-line);position:relative;transition:background .18s ease}
 .steps li:hover{background:rgba(255,255,255,.035)}
 .steps li:last-child{border-bottom:0}
-.steps .ic{grid-row:span 2;width:44px;height:44px;border-radius:13px;background:rgba(255,255,255,.07);border:1px solid var(--on-plum-line);display:grid;place-items:center;position:relative;margin:0}
-.steps .ic svg{width:21px;height:21px;stroke:#E9A184;fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
-.steps .ic::after{counter-increment:step;content:counter(step);position:absolute;top:-7px;left:-7px;width:20px;height:20px;border-radius:50%;background:var(--orange);color:#fff;font-size:11px;font-weight:700;display:grid;place-items:center;font-family:var(--display)}
+.steps .ic{grid-row:span 2;width:36px;height:36px;border-radius:11px;background:rgba(255,255,255,.07);border:1px solid var(--on-plum-line);display:grid;place-items:center;position:relative;margin:0}
+.steps .ic svg{width:17px;height:17px;stroke:#E9A184;fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.steps .ic::after{counter-increment:step;content:counter(step);position:absolute;top:-6px;left:-6px;width:18px;height:18px;border-radius:50%;background:var(--orange);color:#fff;font-size:11px;font-weight:700;display:grid;place-items:center;font-family:var(--display)}
 .steps h3{font-size:20px;color:#F6F3FB;align-self:center;letter-spacing:-.005em}
 .steps p{font-size:16px;line-height:1.65;color:var(--on-plum-3);letter-spacing:.006em;max-width:62ch;align-self:center;text-wrap:pretty}
 .steps .tag{font-size:11px;letter-spacing:.11em;text-transform:uppercase;color:#E9A184;font-weight:600;align-self:center;justify-self:end;text-align:right;line-height:1.5}
 @media (max-width:1080px){
-  .steps li{grid-template-columns:52px minmax(0,1fr);row-gap:10px;padding:22px 0}
+  .steps li{grid-template-columns:44px minmax(0,1fr);row-gap:10px;padding:22px 0}
   .steps h3{align-self:center}
   .steps p{grid-column:2;align-self:start}
   .steps .tag{grid-column:2;justify-self:start;text-align:left}
@@ -260,9 +260,9 @@ svg.ck{flex:none;width:18px;height:18px;margin-top:3px}
 @media (max-width:560px){.feature-body{grid-template-columns:1fr}}
 .playlist{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;border-top:1px solid var(--line)}
 .playlist li{border-bottom:1px solid var(--line)}
-.playlist a{display:grid;grid-template-columns:44px 1fr auto;gap:16px;align-items:center;padding:16px 6px;text-decoration:none;border-radius:8px}
+.playlist a{display:grid;grid-template-columns:38px 1fr auto;gap:16px;align-items:center;padding:16px 6px;text-decoration:none;border-radius:8px}
 .playlist a:hover{background:var(--plum-soft)}
-.playlist .n{width:44px;height:44px;border-radius:10px;background:var(--plum-soft);color:var(--plum);display:grid;place-items:center;font-family:var(--display);font-weight:700;font-size:15px}
+.playlist .n{width:38px;height:38px;border-radius:9px;background:var(--plum-soft);color:var(--plum);display:grid;place-items:center;font-family:var(--display);font-weight:700;font-size:15px}
 .playlist .t{font-weight:600;font-size:16px;line-height:1.3}
 .playlist .s{display:block;font-size:13.5px;color:var(--ink-2);font-weight:400;margin-top:3px}
 .playlist .d{font-size:13px;color:var(--ink-3);font-variant-numeric:tabular-nums;font-weight:500}
@@ -314,8 +314,8 @@ svg.ck{flex:none;width:18px;height:18px;margin-top:3px}
 .buy-card{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:30px 30px 28px;display:flex;flex-direction:column;gap:16px}
 .buy-card.inst{border-color:var(--plum);box-shadow:var(--shadow)}
 .buy-card .who{display:flex;align-items:center;gap:12px}
-.buy-card .who i{width:40px;height:40px;border-radius:10px;background:var(--plum-soft);display:grid;place-items:center;flex:none}
-.buy-card .who i svg{width:22px;height:22px;stroke:var(--plum);fill:none;stroke-width:2}
+.buy-card .who i{width:34px;height:34px;border-radius:9px;background:var(--plum-soft);display:grid;place-items:center;flex:none}
+.buy-card .who i svg{width:18px;height:18px;stroke:var(--plum);fill:none;stroke-width:2}
 .buy-card .who b{font-family:var(--display);font-size:20px;font-weight:700}
 .buy-card .who span{display:block;font-size:13px;color:var(--ink-3)}
 .buy-card ol{margin:0;padding:0;list-style:none;counter-reset:b;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}
@@ -487,8 +487,8 @@ svg.ck{flex:none;width:18px;height:18px;margin-top:3px}
 .thumb .presenter svg{width:100%;height:100%}
 
 /* karty szkoleń: ikony ---------------------------------------------- */
-.offer .ico{width:48px;height:48px;border-radius:14px;background:var(--plum-soft);display:grid;place-items:center;margin-bottom:4px}
-.offer .ico svg{width:24px;height:24px;stroke:var(--plum);fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.offer .ico{width:38px;height:38px;border-radius:11px;background:var(--plum-soft);display:grid;place-items:center;margin-bottom:4px}
+.offer .ico svg{width:19px;height:19px;stroke:var(--plum);fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
 .offer.hot .ico{background:var(--orange-soft)}
 .offer.hot .ico svg{stroke:var(--orange-ink)}
 
@@ -620,11 +620,11 @@ svg.ck{flex:none;width:18px;height:18px;margin-top:3px}
     <svg class="kw " aria-hidden="true"><use href="#kwiat"/></svg><svg class="kw kw-2" aria-hidden="true"><use href="#kwiat"/></svg>
     <div class="device">
       <div class="screen">
-        <img src="img/app-panel-glowny.jpg" alt="Panel główny aplikacji EduPlaner 2026: ścieżka dziecka w menu bocznym, list autorki i moduły" width="2400" height="1500">
+        <img src="img/app-wopf.jpg" alt="Ekran WOPF w aplikacji EduPlaner 2026: kwestionariusze KPOF i narzędzia obserwacji pogłębionej" width="2400" height="1500">
         <span class="glare" aria-hidden="true"></span>
       </div>
       <span class="foot" aria-hidden="true"></span>
-      <span class="livedot"><i></i>Działa w przeglądarce</span>
+      <span class="livedot"><i></i>WOPF · ocena funkcjonalna</span>
     </div>
     <div class="float" aria-hidden="true"><span class="doc"></span><div><b>Druk IPET gotowy do PDF</b><span>metryczka i cele SMART z WOPF</span></div></div>
     </div>
@@ -649,6 +649,7 @@ svg.ck{flex:none;width:18px;height:18px;margin-top:3px}
     <div class="track" id="track">
       <div class="item"><figure class="shot"><span class="bar" aria-hidden="true"><i></i><i></i><i></i><b>EduPlaner 2026 · Panel główny</b></span><img src="img/app-panel-glowny.jpg" alt="Ekran aplikacji: Panel główny" loading="lazy"><span class="cap">Panel główny</span></figure><p class="shot-desc">Menu prowadzi przez cały proces: metryczka, WOPF, plan wsparcia, realizacja, ewaluacja. Na pulpicie list autorki i moduły wspólne.</p></div>
       <div class="item"><figure class="shot"><span class="bar" aria-hidden="true"><i></i><i></i><i></i><b>EduPlaner 2026 · Kartoteka dzieci</b></span><img src="img/app-kartoteka.jpg" alt="Ekran aplikacji: Kartoteka dzieci" loading="lazy"><span class="cap">Kartoteka dzieci</span></figure><p class="shot-desc">Wszystkie dzieci w placówce z datą urodzenia, grupą i postępem dokumentacji. Wybranie dziecka otwiera jego teczkę.</p></div>
+      <div class="item"><figure class="shot"><span class="bar" aria-hidden="true"><i></i><i></i><i></i><b>EduPlaner 2026 · WOPF — ocena funkcjonalna</b></span><img src="img/app-wopf.jpg" alt="Ekran aplikacji: WOPF — ocena funkcjonalna" loading="lazy"><span class="cap">WOPF — ocena funkcjonalna</span></figure><p class="shot-desc">Jeden WOPF, dwa warianty ścieżki: bez orzeczenia prowadzi do PEWS, z orzeczeniem do IPET. Kwestionariusz KPOF dobiera się sam do grupy wiekowej dziecka.</p></div>
     </div>
     <div class="dots" id="dots" aria-hidden="true"></div>
   </div>
