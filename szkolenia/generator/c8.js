@@ -57,8 +57,8 @@ pyt.forEach((q, i) => {
 add(pageBreak());
 add(H1('Z8', 'Klucz odpowiedzi — dla prowadzącego'));
 add(table(['#', 'Odpowiedź'], [
-  ['1', 'Rozporządzenie Ministra Edukacji z dnia 11 marca 2026 r. (Dz.U. 2026 poz. 378); obowiązuje od 1 września 2026 r. W przedszkolach nie ma wdrażania etapowego — obejmuje wszystkie grupy wiekowe jednocześnie.'],
-  ['2', 'Rozporządzenie ME z 2 marca 2026 r. (Dz.U. 2026 poz. 428) czyni ocenę funkcjonalną obowiązkowym etapem procesu diagnostycznego przed wydaniem orzeczenia i nakłada na przedszkole obowiązek sporządzenia oraz przekazania poradni informacji o funkcjonowaniu dziecka jako elementu tej oceny. Formalną ocenę funkcjonalną sporządza zespół w poradni; przedszkole dostarcza dane z obserwacji.'],
+  ['1', 'Rozporządzenie Ministra Edukacji z dnia 11 marca 2026 r. w sprawie podstawy programowej wychowania przedszkolnego oraz podstawy programowej kształcenia ogólnego dla szkoły podstawowej, w tym dla uczniów z niepełnosprawnością intelektualną w stopniu umiarkowanym lub znacznym (Dz.U. 2026 poz. 378); obowiązuje od 1 września 2026 r. W przedszkolach nie ma wdrażania etapowego — obejmuje wszystkie grupy wiekowe jednocześnie.'],
+  ['2', 'Rozporządzenie ME z 2 marca 2026 r. (Dz.U. 2026 poz. 428) czyni ocenę funkcjonalną obowiązkowym etapem procesu diagnostycznego przed wydaniem orzeczenia i nakłada na przedszkole obowiązek sporządzenia oraz przekazania poradni informacji o funkcjonowaniu dziecka jako elementu tej oceny. Formalną ocenę funkcjonalną sporządza zespół w poradni; przedszkole dostarcza dane z obserwacji. Uwaga na daty: rozporządzenie weszło w życie 14 kwietnia 2026 r., a przepisy dotyczące przedszkola — § 7 ust. 6 i 7 oraz § 8 — dopiero 1 września 2026 r.'],
   ['3', 'W terminie 14 dni od dnia otrzymania wystąpienia. Obowiązkowo: trudności dziecka ORAZ jego mocne strony i uzdolnienia rozpoznane przez nauczycieli i specjalistów.'],
   ['4', 'ICF — Międzynarodowa Klasyfikacja Funkcjonowania, Niepełnosprawności i Zdrowia (WHO, 2001; wersja dla dzieci i młodzieży: ICF-CY, 2007). ICF odpowiada na pytanie „jak dziecko funkcjonuje w swoim środowisku”; ICD — „co dziecku dolega”.'],
   ['5', 'b — funkcje ciała; s — struktury ciała; d — aktywność i uczestniczenie; e — czynniki środowiskowe; czynniki osobowe (nieklasyfikowane). Bariery i ułatwienia opisuje komponent „e”.'],
@@ -77,14 +77,14 @@ add(H1('▌', 'Podstawy prawne i źródła — nota metodyczna'));
 add(p([t('Stan prawny na dzień opracowania scenariusza. ', { bold: true }), t('Przed każdą edycją szkolenia prowadzący sprawdza aktualność publikatorów w Internetowym Systemie Aktów Prawnych (isap.sejm.gov.pl), a w szczególności — czy do aktów z 2026 r. nie ogłoszono zmian lub tekstów jednolitych.')]));
 add(spacer(100));
 add(H3('Akty prawne'));
-add(bullet('Rozporządzenie Ministra Edukacji z dnia 11 marca 2026 r. w sprawie podstawy programowej wychowania przedszkolnego oraz kształcenia ogólnego — Dz.U. 2026 poz. 378.'));
-add(bullet('Rozporządzenie Ministra Edukacji z dnia 2 marca 2026 r. w sprawie orzeczeń i opinii wydawanych przez zespoły orzekające działające w publicznych poradniach psychologiczno-pedagogicznych — Dz.U. 2026 poz. 428.'));
+add(bullet('Rozporządzenie Ministra Edukacji z dnia 11 marca 2026 r. w sprawie podstawy programowej wychowania przedszkolnego oraz podstawy programowej kształcenia ogólnego dla szkoły podstawowej, w tym dla uczniów z niepełnosprawnością intelektualną w stopniu umiarkowanym lub znacznym — Dz.U. 2026 poz. 378 (ogł. 20.03.2026; obowiązuje od 01.09.2026).'));
+add(bullet('Rozporządzenie Ministra Edukacji z dnia 2 marca 2026 r. w sprawie orzeczeń i opinii wydawanych przez zespoły orzekające działające w publicznych poradniach psychologiczno-pedagogicznych — Dz.U. 2026 poz. 428 (ogł. 30.03.2026; weszło w życie 14.04.2026, a § 7 ust. 6 i 7 oraz § 8 — 01.09.2026).'));
 add(bullet('Rozporządzenie Ministra Edukacji Narodowej z dnia 9 sierpnia 2017 r. w sprawie zasad organizacji i udzielania pomocy psychologiczno-pedagogicznej w publicznych przedszkolach, szkołach i placówkach — Dz.U. 2017 poz. 1591; tekst jedn. Dz.U. 2023 poz. 1798.'));
 add(bullet('Rozporządzenie Ministra Edukacji Narodowej z dnia 9 sierpnia 2017 r. w sprawie warunków organizowania kształcenia, wychowania i opieki dla dzieci i młodzieży niepełnosprawnych, niedostosowanych społecznie i zagrożonych niedostosowaniem społecznym — Dz.U. 2017 poz. 1578; tekst jedn. Dz.U. 2020 poz. 1309.'));
-add(bullet('Rozporządzenie Ministra Edukacji Narodowej z dnia 25 sierpnia 2017 r. w sprawie sposobu prowadzenia przez publiczne przedszkola, szkoły i placówki dokumentacji przebiegu nauczania, działalności wychowawczej i opiekuńczej — Dz.U. 2017 poz. 1646 ze zm.'));
-add(bullet('Rozporządzenie Parlamentu Europejskiego i Rady (UE) 2016/679 z dnia 27 kwietnia 2016 r. (RODO) — Dz.Urz. UE L 119 z 4.05.2016.'));
-add(bullet('Ustawa z dnia 14 grudnia 2016 r. — Prawo oświatowe.'));
-add(bullet('Stan poprzedni, przywołany dla porównania: rozporządzenie MEN z dnia 14 lutego 2017 r. (Dz.U. 2017 poz. 356, zał. nr 1) oraz rozporządzenie MEN z dnia 7 września 2017 r. (Dz.U. 2017 poz. 1743 ze zm.).'));
+add(bullet('Rozporządzenie Ministra Edukacji Narodowej z dnia 25 sierpnia 2017 r. w sprawie sposobu prowadzenia przez publiczne przedszkola, szkoły i placówki dokumentacji przebiegu nauczania, działalności wychowawczej i opiekuńczej oraz rodzajów tej dokumentacji — Dz.U. 2017 poz. 1646; tekst jedn. Dz.U. 2024 poz. 50.'));
+add(bullet('Rozporządzenie Parlamentu Europejskiego i Rady (UE) 2016/679 z dnia 27 kwietnia 2016 r. (RODO) — Dz.Urz. UE L 119 z 04.05.2016, CELEX 32016R0679.'));
+add(bullet('Ustawa z dnia 14 grudnia 2016 r. — Prawo oświatowe; tekst jedn. Dz.U. 2026 poz. 820 (obwieszczenie Marszałka Sejmu z 12 czerwca 2026 r., ogł. 22.06.2026).'));
+add(bullet('WYJĄTEK HISTORYCZNY (reguła L4) — akty przywołane wyłącznie w tabeli porównawczej modułu M1, dla zobrazowania stanu sprzed reformy: rozporządzenie MEN z dnia 14 lutego 2017 r., zał. nr 1 (Dz.U. 2017 poz. 356) — utraciło moc z dniem 31.08.2026, a jego zakres rozdzielono na Dz.U. 2026 poz. 378 oraz Dz.U. 2026 poz. 1012; rozporządzenie MEN z dnia 7 września 2017 r. (Dz.U. 2017 poz. 1743 ze zm.) — zastąpione przez Dz.U. 2026 poz. 428. Żaden z tych aktów nie jest w scenariuszu podstawą jakiegokolwiek obowiązku placówki.'));
 
 add(spacer(120));
 add(H3('Podstawy merytoryczne'));
@@ -93,10 +93,10 @@ add(bullet('Kwestionariusz Przedszkolnej Oceny Funkcjonalnej (KPOF), wersje A (3
 add(bullet('Metryczka dziecka — karta danych dziecka, EduPlaner 2026 / PCTP, rok szkolny 2026/2027.'));
 
 add(spacer(140));
-add(box('OSTRZEŻENIE DLA PROWADZĄCEGO — DO PRZECZYTANIA PRZED PIERWSZĄ EDYCJĄ', [
-  p([t('Numery paragrafów rozporządzenia z 2 marca 2026 r. nie są w niniejszym scenariuszu przywoływane, ponieważ ustalono je na podstawie opracowań branżowych, a nie bezpośredniej lektury tekstu w Dzienniku Ustaw. Merytoryczna treść obowiązków — obligatoryjność oceny funkcjonalnej, obowiązek sporządzenia informacji o funkcjonowaniu dziecka, termin czternastu dni oraz wymóg opisania mocnych stron obok trudności — jest zgodna z opublikowanymi omówieniami rozporządzenia. ')  ,
-     t('Przed powołaniem się na konkretną jednostkę redakcyjną w dokumencie dziecka prowadzący zobowiązany jest sprawdzić tekst rozporządzenia w ISAP.', { bold: true })]),
-  p([t('Podobnie: aktualny wzór informacji o gotowości dziecka do podjęcia nauki w szkole podstawowej należy każdorazowo zweryfikować w obowiązujących na dany rok szkolny przepisach o świadectwach i drukach szkolnych.')]),
+add(box('CZEGO STRAŻNIK PRAWA NIE SPRAWDZIŁ — GRANICA ODPOWIEDZIALNOŚCI', [
+  p([t('Publikatory, statusy, daty wejścia w życie i relacje tekstów jednolitych w tym scenariuszu zostały zweryfikowane według reguł L1–L6. Strażnik prawa ')  , t('nie sprawdza jednak zgodności merytorycznej', { bold: true }), t(' — tego, czy dany paragraf mówi to, co twierdzi druk. Ta warstwa należy do odrębnej kontroli.')]),
+  p([t('Pozostaje do rozstrzygnięcia merytorycznego: ', { bold: true }), t('szczegółowa treść § 7 ust. 6 i 7 oraz § 8 rozporządzenia Dz.U. 2026 poz. 428 — czternastodniowy termin, zakres informacji o funkcjonowaniu dziecka i wymóg opisania mocnych stron obok trudności ustalono na podstawie opracowań branżowych, nie bezpośredniej lektury tekstu. Przed powołaniem się na konkretną jednostkę redakcyjną w dokumencie dziecka należy sprawdzić tekst w ISAP.')]),
+  p([t('Poza zakresem także: ', { bold: true }), t('podstawa prawna przetwarzania danych w metryczce, którą wybiera placówka jako administrator, oraz aktualny wzór informacji o gotowości dziecka do podjęcia nauki w szkole podstawowej — do zweryfikowania w przepisach o świadectwach i drukach szkolnych obowiązujących na dany rok szkolny.')]),
 ], { fill: LIGHTO, bar: ORANGE }));
 
 add(new Paragraph({ alignment: AlignmentType.CENTER, spacing: { before: 300 },

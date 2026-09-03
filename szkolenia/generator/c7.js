@@ -17,20 +17,44 @@ add(p('Załączniki Z2 (tabela porównawcza „co było / co jest”) oraz Z3 (m
 /* ---- Z1 ---- */
 add(spacer(160));
 add(H1('Z1', 'Ściąga podstaw prawnych — jedna strona do laminowania'));
-add(table(['Zagadnienie', 'Akt prawny', 'Publikator'], [
-  ['Podstawa programowa wychowania przedszkolnego (od 1.09.2026)', 'Rozporządzenie Ministra Edukacji z dnia 11 marca 2026 r.', 'Dz.U. 2026 poz. 378'],
-  ['Ocena funkcjonalna; orzeczenia i opinie zespołów orzekających', 'Rozporządzenie Ministra Edukacji z dnia 2 marca 2026 r.', 'Dz.U. 2026 poz. 428'],
-  ['Zasady organizacji i udzielania pomocy psychologiczno-pedagogicznej', 'Rozporządzenie MEN z dnia 9 sierpnia 2017 r.', 'Dz.U. 2017 poz. 1591; tekst jedn. Dz.U. 2023 poz. 1798'],
-  ['Kształcenie specjalne — WOPFU, IPET, dostosowania', 'Rozporządzenie MEN z dnia 9 sierpnia 2017 r.', 'Dz.U. 2017 poz. 1578; tekst jedn. Dz.U. 2020 poz. 1309'],
-  ['Dokumentacja przebiegu nauczania, działalności wychowawczej i opiekuńczej', 'Rozporządzenie MEN z dnia 25 sierpnia 2017 r.', 'Dz.U. 2017 poz. 1646 ze zm.'],
-  ['Ustrój szkolnictwa, zadania przedszkola, prawa rodziców', 'Ustawa z dnia 14 grudnia 2016 r. — Prawo oświatowe', 'tekst jedn. — sprawdzić aktualny w ISAP'],
-  ['Ochrona danych osobowych, w tym danych o zdrowiu dziecka', 'Rozporządzenie (UE) 2016/679 (RODO), art. 6 ust. 1 lit. c i e; art. 9 ust. 2 lit. g', 'Dz.Urz. UE L 119 z 4.05.2016'],
-  ['Poprzednia podstawa programowa (stan do 31.08.2026 — dla porównania)', 'Rozporządzenie MEN z dnia 14 lutego 2017 r., załącznik nr 1', 'Dz.U. 2017 poz. 356'],
-  ['Poprzednie rozporządzenie o orzeczeniach i opiniach (stan poprzedni)', 'Rozporządzenie MEN z dnia 7 września 2017 r.', 'Dz.U. 2017 poz. 1743 ze zm.'],
-], [3000, 3400, CONTENT - 3000 - 3400], { boldCol0: true }));
+add(table(['Zagadnienie', 'Akt prawny', 'Publikator', 'Status · wejście w życie'], [
+  ['Podstawa programowa wychowania przedszkolnego',
+   'Rozporządzenie Ministra Edukacji z dnia 11 marca 2026 r. w sprawie podstawy programowej wychowania przedszkolnego oraz podstawy programowej kształcenia ogólnego dla szkoły podstawowej, w tym dla uczniów z niepełnosprawnością intelektualną w stopniu umiarkowanym lub znacznym',
+   'Dz.U. 2026 poz. 378', 'obowiązuje · od 01.09.2026'],
+  ['Ocena funkcjonalna; orzeczenia i opinie zespołów orzekających',
+   'Rozporządzenie Ministra Edukacji z dnia 2 marca 2026 r. w sprawie orzeczeń i opinii wydawanych przez zespoły orzekające działające w publicznych poradniach psychologiczno-pedagogicznych',
+   'Dz.U. 2026 poz. 428', 'obowiązuje · od 14.04.2026, a § 7 ust. 6–7 i § 8 — od 01.09.2026'],
+  ['Zasady organizacji i udzielania pomocy psychologiczno-pedagogicznej',
+   'Rozporządzenie Ministra Edukacji Narodowej z dnia 9 sierpnia 2017 r. w sprawie zasad organizacji i udzielania pomocy psychologiczno-pedagogicznej w publicznych przedszkolach, szkołach i placówkach',
+   'Dz.U. 2017 poz. 1591; tekst jedn. Dz.U. 2023 poz. 1798', 'obowiązuje · tekst jednolity z 05.09.2023'],
+  ['Kształcenie specjalne — WOPFU, IPET, dostosowania',
+   'Rozporządzenie Ministra Edukacji Narodowej z dnia 9 sierpnia 2017 r. w sprawie warunków organizowania kształcenia, wychowania i opieki dla dzieci i młodzieży niepełnosprawnych, niedostosowanych społecznie i zagrożonych niedostosowaniem społecznym',
+   'Dz.U. 2017 poz. 1578; tekst jedn. Dz.U. 2020 poz. 1309', 'obowiązuje · tekst jednolity z 2020 r.'],
+  ['Dokumentacja przebiegu nauczania, działalności wychowawczej i opiekuńczej',
+   'Rozporządzenie Ministra Edukacji Narodowej z dnia 25 sierpnia 2017 r. w sprawie sposobu prowadzenia przez publiczne przedszkola, szkoły i placówki dokumentacji przebiegu nauczania, działalności wychowawczej i opiekuńczej oraz rodzajów tej dokumentacji',
+   'Dz.U. 2017 poz. 1646; tekst jedn. Dz.U. 2024 poz. 50', 'obowiązuje · tekst jednolity z 2024 r.'],
+  ['Ustrój szkolnictwa, zadania przedszkola, prawa rodziców',
+   'Ustawa z dnia 14 grudnia 2016 r. — Prawo oświatowe',
+   'tekst jedn. Dz.U. 2026 poz. 820', 'obowiązuje · tekst jednolity ogł. 22.06.2026'],
+  ['Ochrona danych osobowych, w tym danych o zdrowiu dziecka',
+   'Rozporządzenie Parlamentu Europejskiego i Rady (UE) 2016/679 (RODO) — art. 6 ust. 1 lit. c i e; art. 9 ust. 2 lit. g',
+   'Dz.Urz. UE L 119 z 04.05.2016 · CELEX 32016R0679', 'obowiązuje · inny typ publikatora niż Dz.U.'],
+  ['WYJĄTEK HISTORYCZNY — poprzednia podstawa programowa (stan do 31.08.2026, przywołana wyłącznie w tabeli porównawczej modułu M1)',
+   'Rozporządzenie Ministra Edukacji Narodowej z dnia 14 lutego 2017 r., załącznik nr 1',
+   'Dz.U. 2017 poz. 356', 'utraciło moc z dniem 31.08.2026 · zakres rozdzielony na Dz.U. 2026 poz. 378 i Dz.U. 2026 poz. 1012'],
+  ['WYJĄTEK HISTORYCZNY — poprzednie rozporządzenie o orzeczeniach i opiniach (stan do 13.04.2026, przywołane wyłącznie w tabeli porównawczej modułu M1)',
+   'Rozporządzenie Ministra Edukacji Narodowej z dnia 7 września 2017 r.',
+   'Dz.U. 2017 poz. 1743 ze zm.', 'zastąpione przez Dz.U. 2026 poz. 428'],
+], [2100, 3200, 2100, CONTENT - 2100 - 3200 - 2100], { boldCol0: true }));
 add(spacer(80));
-add(box('ZASADA STRAŻNIKA PRAWA', [
-  p('Nie cytujemy przepisów z pamięci ani z materiałów szkoleniowych — także z tego. Przed wpisaniem podstawy prawnej do dokumentu dziecka sprawdzamy publikator w Internetowym Systemie Aktów Prawnych (isap.sejm.gov.pl) i upewniamy się, czy akt nie został zmieniony. W przypadku aktów z 2026 r. sprawdzamy dodatkowo, czy nie ukazał się tekst jednolity.'),
+add(box('SZEŚĆ REGUŁ STRAŻNIKA PRAWA', [
+  p([t('L1 · ', { bold: true, color: ORANGE }), t('Każdy cytowany akt istnieje w rejestrze. Akt w druku, a nie w rejestrze, jest naruszeniem — nie „przepisem do dopisania przy okazji”.')]),
+  p([t('L2 · ', { bold: true, color: ORANGE }), t('Jeden akt, jedno brzmienie. Cytujemy dokładnie tak, jak stoi w zapisie kanonicznym — nie „Dz.U. z 2017 r. poz.” raz, a „Dz.U. 2017 poz.” drugi raz.')]),
+  p([t('L3 · ', { bold: true, color: ORANGE }), t('Dopasowanie po parze rok–pozycja, nigdy po tekście tytułu. Uwaga na inne typy publikatorów: RODO ma sygnaturę Dz.Urz. UE i numer CELEX, nie pozycję Dz.U.')]),
+  p([t('L4 · ', { bold: true, color: ORANGE }), t('Akt uchylony nie stoi w druku bez jawnego wyjątku z powodem i datą. W tym scenariuszu dwa takie wyjątki są oznaczone w tabeli powyżej — oba dotyczą wyłącznie tabeli porównawczej „co było / co jest”.')]),
+  p([t('L5 · ', { bold: true, color: ORANGE }), t('Sygnatura musi zgadzać się z opisem. Najgroźniejszy błąd to prawidłowa sygnatura pod nieprawidłową nazwą. Dwa rozporządzenia z 9 sierpnia 2017 r. różnią się tylko pozycją: 1578 to kształcenie specjalne, 1591 to pomoc psychologiczno-pedagogiczna.')]),
+  p([t('L6 · ', { bold: true, color: ORANGE }), t('Zmiana prawa jest jedną edycją, nie polowaniem: zmieniamy status jednej pozycji w rejestrze, uruchamiamy sondę, dostajemy listę druków do poprawy.')]),
+  p([t('Termin przeglądu: ', { bold: true }), t('co trzy miesiące, obowiązkowo 1 września i 1 stycznia, oraz zawsze przed wydaniem dokumentacji placówce. Nie cytujemy przepisów z pamięci ani z materiałów szkoleniowych — także z tego.')]),
 ], { fill: LIGHTO, bar: ORANGE }));
 
 /* ---- Z4 ---- */

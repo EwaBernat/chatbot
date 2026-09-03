@@ -29,22 +29,31 @@ test sprawdzający z kluczem.
 
 ## Podstawa prawna scenariusza
 
-- Rozporządzenie Ministra Edukacji z 11 marca 2026 r. — podstawa programowa
-  wychowania przedszkolnego, **Dz.U. 2026 poz. 378** (od 1.09.2026, bez etapowania).
-- Rozporządzenie Ministra Edukacji z 2 marca 2026 r. — orzeczenia i opinie zespołów
-  orzekających, **Dz.U. 2026 poz. 428** (ocena funkcjonalna od 1.09.2026; obowiązek
-  sporządzenia informacji o funkcjonowaniu dziecka w terminie 14 dni).
-- Rozporządzenie MEN z 9 sierpnia 2017 r. — pomoc psychologiczno-pedagogiczna,
-  Dz.U. 2017 poz. 1591; **tekst jedn. Dz.U. 2023 poz. 1798**.
-- Rozporządzenie MEN z 9 sierpnia 2017 r. — kształcenie specjalne (WOPFU, IPET),
-  Dz.U. 2017 poz. 1578; **tekst jedn. Dz.U. 2020 poz. 1309**.
-- Rozporządzenie MEN z 25 sierpnia 2017 r. — dokumentacja przebiegu nauczania,
-  Dz.U. 2017 poz. 1646 ze zm.
-- RODO (UE) 2016/679 — art. 6 ust. 1 lit. c i e, art. 9 ust. 2 lit. g.
+Zweryfikowana regułami Strażnika Prawa L1–L6 (audyt: 2026-09-03).
 
-Numery paragrafów rozporządzenia z 2 marca 2026 r. nie są w scenariuszu przywoływane —
-przed powołaniem się na konkretną jednostkę redakcyjną należy sprawdzić tekst w ISAP.
-Ostrzeżenie w tej sprawie jest wydrukowane na ostatniej stronie dokumentu.
+| Zagadnienie | Publikator | Status · wejście w życie |
+|---|---|---|
+| Podstawa programowa wychowania przedszkolnego (rozp. ME z 11.03.2026) | Dz.U. 2026 poz. 378 | obowiązuje · od 01.09.2026 |
+| Ocena funkcjonalna, orzeczenia i opinie (rozp. ME z 02.03.2026) | Dz.U. 2026 poz. 428 | obowiązuje · od **14.04.2026**, a **§ 7 ust. 6–7 i § 8** — od 01.09.2026 |
+| Pomoc psychologiczno-pedagogiczna (rozp. MEN z 09.08.2017) | Dz.U. 2017 poz. 1591; tekst jedn. **Dz.U. 2023 poz. 1798** | obowiązuje |
+| Kształcenie specjalne — WOPFU, IPET (rozp. MEN z 09.08.2017) | Dz.U. 2017 poz. 1578; tekst jedn. **Dz.U. 2020 poz. 1309** | obowiązuje |
+| Dokumentacja przebiegu nauczania (rozp. MEN z 25.08.2017) | Dz.U. 2017 poz. 1646; tekst jedn. **Dz.U. 2024 poz. 50** | obowiązuje |
+| Prawo oświatowe (ustawa z 14.12.2016) | tekst jedn. **Dz.U. 2026 poz. 820** | obowiązuje · ogł. 22.06.2026 |
+| RODO (UE) 2016/679 | Dz.Urz. UE L 119 z 04.05.2016 · CELEX 32016R0679 | obowiązuje · inny typ publikatora |
+
+**Wyjątki historyczne (L4)** — przywołane wyłącznie w tabeli porównawczej modułu M1,
+oznaczone w Załączniku Z1 z powodem i datą:
+
+- Dz.U. 2017 poz. 356 (poprzednia podstawa programowa) — utraciło moc 31.08.2026;
+  zakres rozdzielony na Dz.U. 2026 poz. 378 **oraz** Dz.U. 2026 poz. 1012.
+- Dz.U. 2017 poz. 1743 (poprzednie orzeczenia i opinie) — zastąpione przez Dz.U. 2026 poz. 428.
+
+**Poza zakresem Strażnika Prawa** (zgodnie z jego własną definicją): zgodność merytoryczna
+druku z treścią paragrafu, podstawa prawna przetwarzania danych wybierana przez placówkę
+jako administratora oraz wygląd bloku podstawy prawnej. Szczegółową treść § 7 ust. 6–7
+i § 8 rozporządzenia Dz.U. 2026 poz. 428 ustalono z opracowań branżowych — przed powołaniem
+konkretnej jednostki redakcyjnej w dokumencie dziecka należy sprawdzić tekst w ISAP.
+Ostrzeżenie w tej sprawie jest wydrukowane na ostatniej stronie scenariusza.
 
 ## Ponowne wygenerowanie dokumentu
 
