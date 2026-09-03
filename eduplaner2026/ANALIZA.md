@@ -111,8 +111,11 @@ Strona czyta obrazy z katalogu `img/`. Wystarczy wgrać pliki o tych nazwach (JP
 | `img/hero-biurko.jpg` | hero zamiast laptopa (opcjonalnie) | 1600×1040 |
 | `img/autorka.jpg` | portret autorki (4:5) | 800×1000 |
 
-Trzy pliki `etap-*.jpg` to na razie **ilustracje w palecie marki**, nie zdjęcia. Można je zastąpić
-prawdziwymi zdjęciami sali przedszkolnej, klasy i pracowni — te same nazwy plików, ten sam kadr.
+Trzy pliki `etap-*.jpg` to **zdjęcia wygenerowane przez sztuczną inteligencję** (ElevenLabs,
+model bytedance-seedream-5-pro): pusta sala przedszkolna, klasa szkoły podstawowej i pracownia
+szkoły ponadpodstawowej, bez ludzi, w ciepłej palecie kremu i lawendy zgodnej ze stroną.
+Nie są to zdjęcia konkretnej placówki i nie wolno ich podpisywać nazwą żadnej szkoły.
+Najlepiej zastąpić je własnymi zdjęciami — te same nazwy plików, kadr 16:10.
 Jeśli któregoś pliku brakuje, karta pokazuje się bez obrazu (skrypt `onerror` usuwa ramkę), więc
 strona się nie psuje.
 
