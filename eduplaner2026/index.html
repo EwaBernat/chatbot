@@ -375,6 +375,15 @@ svg.ck{flex:none;width:18px;height:18px;margin-top:3px}
 .cover .lg{position:absolute;right:12px;top:14px;width:22px;height:22px;border-radius:50%;background:rgba(255,255,255,.18);border:1px solid rgba(255,255,255,.35)}
 .cover.pale .lg{background:var(--plum);border-color:var(--plum)}
 .offer-all{margin-top:26px;display:flex;justify-content:center}
+.tile-katalog{background:var(--plum-soft);border:1.5px dashed var(--plum-line);box-shadow:none;
+  align-items:center;text-align:center;justify-content:center;gap:6px}
+.tile-katalog .ico{background:#fff;border-color:var(--plum-line)}
+.tile-katalog h3{font-size:20px}
+.tile-katalog p{max-width:26ch}
+.tile-katalog .liczba{font-family:var(--display);font-size:44px;font-weight:800;color:var(--plum);line-height:1;
+  margin:6px 0 2px;font-variant-numeric:tabular-nums}
+.tile-katalog .co{font-size:12.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-3);font-weight:600;margin-bottom:14px}
+.tile-katalog .btn{margin-top:0}
 .offer .more{margin-top:10px;background:none;border:0;color:var(--plum);font:600 14px var(--body);cursor:pointer;
   text-decoration:underline;text-underline-offset:3px;padding:6px;width:100%}
 .offer .more:hover{color:var(--orange-ink)}
@@ -1105,7 +1114,6 @@ svg.ck{flex:none;width:18px;height:18px;margin-top:3px}
       <p class="lead">Krótkie, praktyczne opracowania PDF. Placówka kupuje licencję na fakturę i&nbsp;drukuje dla całego zespołu. Nauczyciel kupuje dla siebie i&nbsp;płaci online, plik dostaje od razu.</p>
     </div>
     <div class="offer-grid cols-4" id="lista-broszur"></div>
-    <div class="offer-all"><button class="btn btn-ghost" type="button" data-katalog="broszura"></button></div>
     <p class="ask-note">Ceny podajemy w&nbsp;jeden dzień roboczy — napisz, ilu osób dotyczy zamówienie i&nbsp;jakie etapy prowadzi placówka.</p>
     <div class="offer-note">
       <p><b>Broszury to dobry początek. Aplikacja to koniec przepisywania.</b> W&nbsp;subskrypcji EduPlaner 2026 ta sama wiedza jest wbudowana w&nbsp;druki, które wypełniają się z&nbsp;danych ucznia.</p>
@@ -1956,21 +1964,48 @@ var OFERTA = [
   function znajdz(id){ for(var i=0;i<OFERTA.length;i++){ if(OFERTA[i].id===id) return OFERTA[i]; } return null; }
   function wg(typ){ return OFERTA.filter(function(o){ return o.typ===typ; }); }
 
-  /* karty na stronie */
+  /* Na stronie stoją najwyżej trzy pozycje każdego rodzaju — reszta mieszka
+     w katalogu. Dzięki temu strona nie rośnie, gdy przybywa szkoleń i broszur,
+     i nie odciąga uwagi od aplikacji. */
+  var NA_STRONIE=3;
+
+  function kafelekKatalogu(typ,n){
+    var co = typ==='szkolenie' ? 'szkoleń' : 'broszur i materiałów';
+    return '<article class="offer tile-katalog">'
+      + '<span class="ico"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7" rx="1.6"/>'
+      + '<rect x="14" y="3" width="7" height="7" rx="1.6"/><rect x="3" y="14" width="7" height="7" rx="1.6"/>'
+      + '<path d="M14 17.5h7M17.5 14v7"/></svg></span>'
+      + '<span class="liczba">'+n+'</span><span class="co">'+co+'</span>'
+      + '<h3>Pełny katalog</h3>'
+      + '<p>Pozostałe pozycje otwierają się w oknie — bez opuszczania tej strony.</p>'
+      + '<button class="btn btn-ghost" type="button" data-katalog="'+typ+'">Otwórz katalog</button>'
+      + '</article>';
+  }
+
   ['szkolenie','broszura'].forEach(function(typ){
     var cel=document.getElementById(typ==='szkolenie'?'lista-szkolen':'lista-broszur');
-    if(cel) cel.innerHTML=wg(typ).filter(function(o){return o.polecane;}).map(karta).join('');
+    if(!cel) return;
+    var lista=wg(typ), wybor=lista.filter(function(o){return o.polecane;}).slice(0,NA_STRONIE);
+    var wiecej = lista.length>wybor.length;
+    var html=wybor.map(karta).join('');
+    if(typ==='broszura'){
+      if(wiecej){ html+=kafelekKatalogu(typ,lista.length); cel.className='offer-grid cols-4'; }
+      else { cel.className='offer-grid cols-3'; }
+    }
+    cel.innerHTML=html;
   });
 
   /* przycisk „wszystkie” pokazuje się dopiero, gdy w katalogu jest coś
      poza pozycjami widocznymi na stronie — inaczej obiecywałby więcej, niż daje */
-  document.querySelectorAll('[data-katalog]').forEach(function(b){
-    var typ=b.dataset.katalog, lista=wg(typ), widoczne=lista.filter(function(o){return o.polecane;}).length;
+  document.querySelectorAll('.offer-all [data-katalog]').forEach(function(b){
+    var typ=b.dataset.katalog, lista=wg(typ);
+    var widoczne=Math.min(lista.filter(function(o){return o.polecane;}).length, NA_STRONIE);
     if(lista.length<=widoczne){ b.parentNode.hidden=true; return; }
-    b.textContent = typ==='szkolenie'
-      ? 'Wszystkie szkolenia ('+lista.length+')'
-      : 'Wszystkie broszury i materiały ('+lista.length+')';
-    b.addEventListener('click',function(){ location.hash='katalog-'+typ; });
+    b.textContent='Wszystkie szkolenia ('+lista.length+')';
+  });
+  document.addEventListener('click',function(e){
+    var b=e.target.closest ? e.target.closest('[data-katalog]') : null;
+    if(b){ e.preventDefault(); location.hash='katalog-'+b.dataset.katalog; }
   });
 
   /* szczegóły z kart na stronie */

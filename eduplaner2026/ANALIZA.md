@@ -131,8 +131,14 @@ Dwie sekcje przestały wymagać przewijania w bok:
   Klawisze strzałek przełączają pozycje, przyciski ← → też, a kliknięcie zrzutu otwiera go
   w oknie na pełną szerokość. Dane w tablicy `EKRANY` w `index.html`.
 - **Szkolenia i broszury** (`#szkolenia`, `#broszury`) powstają z tablicy `OFERTA`.
-  Na stronie widać pozycje z `"polecane": true`; przycisk „Wszystkie…" otwiera katalog
-  w oknie, a „Zobacz szczegóły" — kartę pojedynczej pozycji z ceną i przyciskiem zamówienia.
+  Obowiązuje zasada **trzy na stronie, reszta w katalogu**: sekcja pokazuje najwyżej trzy
+  pozycje z `"polecane": true` (stała `NA_STRONIE` w skrypcie), a wszystkie pozostałe
+  otwierają się w oknie. Dzięki temu strona ma stałą długość niezależnie od tego,
+  ile pozycji przybędzie, i nie odciąga uwagi od aplikacji.
+  Wejściem do katalogu broszur jest czwarty kafelek w siatce — pokazuje liczbę wszystkich
+  pozycji i przycisk „Otwórz katalog"; pojawia się dopiero, gdy jest co pokazać.
+  Przy szkoleniach tę rolę pełni przycisk pod siatką. „Zobacz szczegóły" przy każdej karcie
+  otwiera kartę pojedynczej pozycji z ceną i przyciskiem zamówienia.
 
 Okno ma własne adresy, więc da się je podlinkować w mailu albo na Facebooku:
 
