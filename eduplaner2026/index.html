@@ -495,6 +495,8 @@ svg.ck{flex:none;width:18px;height:18px;margin-top:3px}
 .seg input:focus-visible + span{outline:3px solid var(--orange);outline-offset:2px}
 .field{display:flex;flex-direction:column;gap:6px;margin-bottom:14px}
 .field label{font-size:13px;font-weight:600;color:var(--ink-2);letter-spacing:.02em}
+.fld-note{font-size:13.5px;color:var(--ink-3);line-height:1.5;margin:-4px 0 14px}
+.field input.err,.field textarea.err{border-color:var(--orange);box-shadow:0 0 0 3px color-mix(in srgb,var(--orange) 18%,transparent)}
 .field input,.field select,.field textarea{font:inherit;font-size:15.5px;padding:12px 14px;border:1.5px solid var(--line);border-radius:10px;background:var(--card);color:var(--ink);width:100%}
 .field input:focus,.field select:focus,.field textarea:focus{outline:none;border-color:var(--plum);box-shadow:0 0 0 3px color-mix(in srgb,var(--plum) 18%,transparent)}
 .field textarea{min-height:76px;resize:vertical}
@@ -725,7 +727,7 @@ svg.ck{flex:none;width:18px;height:18px;margin-top:3px}
         <span class="sub">Zamawiasz jak każdą pomoc dydaktyczną: <b>zamówienie, faktura dla placówki, dostęp po opłaceniu. Bez karty.</b></span>
       </div>
       <div class="hero-facts" aria-label="Najważniejsze liczby">
-        <div><b>3</b><span>etapy: przedszkole, szkoła podstawowa, ponadpodstawowa</span></div>
+        <div><b>3</b><span>etapy do wyboru: przedszkole, podstawowa, ponadpodstawowa</span></div>
         <div><b>10</b><span>modułów: od metryczki po raport z&nbsp;ewaluacji</span></div>
         <div><b>1&nbsp;WOPF</b><span>i dwa tryby planu: IPET albo PEWS, bez przepisywania</span></div>
       </div>
@@ -806,7 +808,7 @@ svg.ck{flex:none;width:18px;height:18px;margin-top:3px}
     </div>
 
     <div class="path-cta">
-      <p><b>Jeden WOPF, dwa tryby.</b> Ta sama ocena prowadzi do IPET dla ucznia z&nbsp;orzeczeniem albo do PEWS dla ucznia bez orzeczenia. Zespół uczy się jednego narzędzia i&nbsp;używa go we wszystkich trzech etapach.</p>
+      <p><b>Jeden WOPF, dwa tryby.</b> Ta sama ocena prowadzi do IPET dla ucznia z&nbsp;orzeczeniem albo do PEWS dla ucznia bez orzeczenia. Zespół uczy się jednego narzędzia i&nbsp;pracuje w&nbsp;nim przez cały rok.</p>
       <a class="btn btn-primary" href="#zamow" data-order="app" data-buyer="inst">Zamów aplikację</a>
     </div>
   </div>
@@ -884,7 +886,7 @@ svg.ck{flex:none;width:18px;height:18px;margin-top:3px}
         <p class="eyebrow">Etapy edukacyjne</p>
         <h2>Trzy warianty narzędzia, jeden sposób pracy</h2>
       </div>
-      <p class="lead">Kwestionariusz, druki i&nbsp;słownictwo dopasowane do etapu. Wszystkie trzy w&nbsp;jednej subskrypcji.</p>
+      <p class="lead">Kwestionariusz, druki i&nbsp;słownictwo dopasowane do etapu. Subskrypcja obejmuje moduł dla etapu, który prowadzi Twoja placówka.</p>
     </div>
     <div class="stages">
       <article class="stage"><span class="lbl">Moduł 1</span><h3>Przedszkole</h3><p>Ocena funkcjonalna dziecka w&nbsp;wieku przedszkolnym i&nbsp;plan wsparcia gotowy przed pierwszym zebraniem zespołu.</p><ul><li>Kwestionariusz dla etapu przedszkolnego</li><li>Profil rodzica i&nbsp;nauczyciela obok siebie</li><li>IPET / PEWS z&nbsp;celami SMART</li></ul></article>
@@ -1081,7 +1083,7 @@ svg.ck{flex:none;width:18px;height:18px;margin-top:3px}
         <div class="who"><i><svg viewBox="0 0 24 24"><path d="M3 21h18M5 21V8l7-4 7 4v13M9 21v-6h6v6"/></svg></i><div><b>Placówka edukacyjna</b><span>przedszkole, szkoła, poradnia, zespół szkół</span></div></div>
         <p class="for">Aplikacja, szkolenia i&nbsp;broszury. <b>Zamawiasz jak każdą pomoc dydaktyczną, dostęp po opłaceniu faktury.</b></p>
         <ol>
-          <li><b>Wysyłasz zamówienie</b>Formularz poniżej lub e-mail z&nbsp;danymi placówki. Bez karty, bez konta.</li>
+          <li><b>Wysyłasz zamówienie z&nbsp;danymi do faktury</b>Nazwa placówki, adres i&nbsp;NIP. Formularz poniżej albo e-mail. Bez karty, bez konta.</li>
           <li><b>Dostajesz fakturę</b>Faktura przelewowa gotowa dla księgowości, z&nbsp;danymi placówki i&nbsp;NIP.</li>
           <li><b>Zespół zaczyna pracę</b>Po zaksięgowaniu wpłaty otwieramy dostęp dla całego zespołu — zwykle tego samego dnia roboczego.</li>
         </ol>
@@ -1133,9 +1135,9 @@ svg.ck{flex:none;width:18px;height:18px;margin-top:3px}
         <h3>Aplikacja EduPlaner 2026</h3>
         <!-- TODO: wpisz cenę roczną (np. 1 490 zł netto / rok) -->
         <div class="amount ask">Wycena dla placówki<small>netto · jedna placówka · bez limitu użytkowników · dostęp po opłaceniu faktury</small></div>
-        <p>Wszystkie trzy moduły etapowe, moduły wspólne, nagrania szkoleniowe i&nbsp;aktualizacje przez cały rok szkolny 2026/2027.</p>
+        <p>Moduł dla etapu Twojej placówki, wszystkie moduły wspólne, nagrania szkoleniowe i&nbsp;aktualizacje przez cały rok szkolny 2026/2027.</p>
         <ul>
-          <li><svg class="ck" viewBox="0 0 24 24" fill="none" stroke="#FFB59A" stroke-width="2.4"><path d="M5 12l5 5L20 7"/></svg>Przedszkole, szkoła podstawowa, ponadpodstawowa</li>
+          <li><svg class="ck" viewBox="0 0 24 24" fill="none" stroke="#FFB59A" stroke-width="2.4"><path d="M5 12l5 5L20 7"/></svg>Moduł Twojego etapu: przedszkole, podstawowa albo ponadpodstawowa</li>
           <li><svg class="ck" viewBox="0 0 24 24" fill="none" stroke="#FFB59A" stroke-width="2.4"><path d="M5 12l5 5L20 7"/></svg>10 modułów: od metryczki po raport z&nbsp;ewaluacji</li>
           <li><svg class="ck" viewBox="0 0 24 24" fill="none" stroke="#FFB59A" stroke-width="2.4"><path d="M5 12l5 5L20 7"/></svg>Dokumenty przygotowane i&nbsp;sprawdzone przez praktyków</li>
           <li><svg class="ck" viewBox="0 0 24 24" fill="none" stroke="#FFB59A" stroke-width="2.4"><path d="M5 12l5 5L20 7"/></svg>Utrzymanie, kopie zapasowe i&nbsp;bezpieczeństwo danych</li>
@@ -1145,6 +1147,7 @@ svg.ck{flex:none;width:18px;height:18px;margin-top:3px}
         <p class="fine">Zamówienie w&nbsp;2 minuty, dostęp zaraz po opłaceniu. Pytania? <a href="tel:+48662888403">662 888 403</a></p>
       </article>
       <aside class="tier-side">
+        <p><b>Prowadzisz zespół szkół albo kilka etapów?</b> Napisz, ile placówek i&nbsp;jakie etapy — przygotujemy wycenę na całość.</p>
         <p><b>Szkolenia i&nbsp;broszury mają własne ceny.</b> Kupisz je osobno, także jako osoba prywatna — bez subskrypcji.</p>
         <div class="links"><a class="btn btn-ghost" href="#szkolenia">Zobacz szkolenia</a><a class="btn btn-ghost" href="#broszury">Zobacz broszury</a></div>
       </aside>
@@ -1235,9 +1238,11 @@ svg.ck{flex:none;width:18px;height:18px;margin-top:3px}
       </div>
 
       <div id="f-inst">
-        <div class="field"><label for="inst-name">Nazwa placówki</label><input id="inst-name" name="inst-name" type="text" autocomplete="organization" placeholder="np. Szkoła Podstawowa nr 4 w Koszalinie"></div>
+        <p class="fld-note">Zamówienie wysyłamy razem z&nbsp;danymi do faktury — dzięki temu księgowość dostaje komplet od razu.</p>
+        <div class="field"><label for="inst-name">Nazwa placówki (nabywca na fakturze)</label><input id="inst-name" name="inst-name" type="text" autocomplete="organization" placeholder="np. Szkoła Podstawowa nr 4 w Koszalinie"></div>
+        <div class="field"><label for="inst-addr">Adres do faktury</label><input id="inst-addr" name="inst-addr" type="text" autocomplete="street-address" placeholder="ulica, kod pocztowy, miejscowość"></div>
         <div class="row">
-          <div class="field"><label for="inst-nip">NIP do faktury</label><input id="inst-nip" name="inst-nip" type="text" inputmode="numeric" placeholder="000-000-00-00"></div>
+          <div class="field"><label for="inst-nip">NIP</label><input id="inst-nip" name="inst-nip" type="text" inputmode="numeric" placeholder="000-000-00-00"></div>
           <div class="field"><label for="inst-stage">Etapy w&nbsp;placówce</label><select id="inst-stage" name="inst-stage"><option>Przedszkole</option><option>Szkoła podstawowa</option><option>Szkoła ponadpodstawowa</option><option>Kilka etapów (zespół szkół)</option><option>Poradnia / inna</option></select></div>
         </div>
       </div>
@@ -1337,10 +1342,20 @@ svg.ck{flex:none;width:18px;height:18px;margin-top:3px}
   form.addEventListener('submit',function(e){
     e.preventDefault();
     var email=document.getElementById('email');
+    if(buyer()==='inst'){
+      var need=[['inst-name','Podaj nazwę placówki — to nabywca na fakturze.'],['inst-nip','Podaj NIP placówki.']];
+      for(var n=0;n<need.length;n++){
+        var f=document.getElementById(need[n][0]);
+        if(!f.value.trim()){ f.classList.add('err'); f.focus();
+          if(f.setCustomValidity){ f.setCustomValidity(need[n][1]); f.reportValidity(); f.setCustomValidity(''); } else { alert(need[n][1]); }
+          return; }
+        f.classList.remove('err');
+      }
+    }
     if(!email.value||!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(email.value)){ email.focus(); email.reportValidity ? (email.setCustomValidity('Podaj adres e-mail, na który wyślemy potwierdzenie.'),email.reportValidity(),email.setCustomValidity('')) : alert('Podaj adres e-mail.'); return; }
     var b=buyer(), opt=product.options[product.selectedIndex];
     var who = b==='inst'
-      ? 'Placówka: '+(document.getElementById('inst-name').value||'—')+'\nNIP: '+(document.getElementById('inst-nip').value||'—')+'\nEtapy: '+document.getElementById('inst-stage').value+'\nPłatność: faktura przelewowa, dostęp po opłaceniu'
+      ? 'Placówka (nabywca): '+(document.getElementById('inst-name').value||'—')+'\nAdres do faktury: '+(document.getElementById('inst-addr').value||'—')+'\nNIP: '+(document.getElementById('inst-nip').value||'—')+'\nEtapy: '+document.getElementById('inst-stage').value+'\nPłatność: faktura przelewowa, dostęp po opłaceniu'
       : 'Osoba indywidualna: '+(document.getElementById('person-name').value||'—')+'\nPłatność: online (proszę o link do płatności)';
     var body='ZAMÓWIENIE — EduPlaner 2026\n\nPozycja: '+opt.textContent+'\nCena: '+(opt.dataset.price||'')+'\n\n'+who+'\nE-mail: '+email.value+'\nTelefon: '+(document.getElementById('phone').value||'—')+'\n\nUwagi:\n'+(document.getElementById('note').value||'—')+'\n';
     var subject=(opt.value==='demo'?'Pokaz online':'Zamówienie')+' — '+opt.textContent;
