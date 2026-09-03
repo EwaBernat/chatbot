@@ -390,6 +390,10 @@ svg.ck{flex:none;width:18px;height:18px;margin-top:3px}
 .cover.sala{background:linear-gradient(160deg,#6E5AAE 0%,#4A3A8C 45%,#2D1B69 100%)}
 .cover.sala::before{background:#3FBFA0}
 .cover.sala .ttl em{font-style:normal;color:#8FD6C0;display:block}
+.cover.autyzm{background:linear-gradient(165deg,#173C6B 0%,#0E2749 55%,#071B33 100%)}
+.cover.autyzm::before{background:#5AA9E6}
+.cover.autyzm .ttl em{font-style:normal;color:#8FC7F0;display:block}
+.cover.autyzm .ser{color:#9CC4E4;opacity:1}
 .offer-all{margin-top:26px;display:flex;justify-content:center}
 .tile-katalog{background:var(--plum-soft);border:1.5px dashed var(--plum-line);box-shadow:none;
   align-items:center;text-align:center;justify-content:center;gap:6px}
@@ -1376,6 +1380,7 @@ svg.ck{flex:none;width:18px;height:18px;margin-top:3px}
             <option value="br-echolalia" data-inst="1" data-person="1" data-price="30 zł brutto (24,39 zł netto + VAT 23%)">Broszura: Echolalia i rozumienie jej funkcji</option>
             <option value="br-maly-ksiaze" data-inst="1" data-person="1" data-price="50 zł brutto (40,65 zł netto + VAT 23%)">Broszura: Mały Książę moim bohaterem</option>
             <option value="br-sala" data-inst="1" data-person="1" data-price="30 zł brutto (24,39 zł netto + VAT 23%)">Broszura: Sala, która uczy każde dziecko</option>
+            <option value="br-autyzm" data-inst="1" data-person="1" data-price="30 zł brutto (24,39 zł netto + VAT 23%)">Broszura: Spektrum autyzmu bez tajemnic</option>
           </optgroup>
         </select>
       </div>
@@ -2015,8 +2020,48 @@ var OFERTA = [
     "buyer": "",
     "wiecej": [],
     "netto": "24,39 zł netto + 5,61 zł VAT 23%"
+  },
+  {
+    "id": "br-autyzm",
+    "typ": "broszura",
+    "polecane": true,
+    "okladka": {
+      "wariant": "autyzm",
+      "ser": "Kompendium specjalistyczne · Wydanie I",
+      "ttl": "Spektrum autyzmu",
+      "ttl2": "bez tajemnic",
+      "sub": "Seria: Autyzm · 2026",
+      "pasy": []
+    },
+    "fmt": "Dla rodziców, nauczycieli i terapeutów",
+    "tytul": "Spektrum autyzmu bez tajemnic",
+    "opis": "Kompendium dla rodziców, nauczycieli i terapeutów: od pierwszych subtelnych sygnałów, przez teorię umysłu i profil sensoryczny, do pełnej samodzielności.",
+    "punkty": [
+      "Pierwsze subtelne sygnały — na co zwrócić uwagę i kiedy",
+      "Teoria umysłu i profil sensoryczny wyjaśnione po ludzku",
+      "Droga do samodzielności krok po kroku"
+    ],
+    "spec": "Wydanie specjalistyczne · 2026 · PDF",
+    "ceny": [
+      [
+        "Placówka",
+        "30 zł",
+        "brutto · faktura"
+      ],
+      [
+        "Indywidualnie",
+        "30 zł",
+        "brutto · od razu"
+      ]
+    ],
+    "netto": "24,39 zł netto + 5,61 zł VAT 23%",
+    "cta": "Kup",
+    "primary": false,
+    "buyer": "",
+    "wiecej": []
   }
 ];
+
 
 
 
