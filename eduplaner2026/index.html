@@ -866,7 +866,7 @@ svg.ck{flex:none;width:18px;height:18px;margin-top:3px}
       <a href="#aplikacja">Aplikacja</a>
       <a href="#ekrany">Ekrany</a>
       <a href="#szkolenia">Szkolenia</a>
-      <a href="#broszury">Broszury</a>
+      <a href="#broszury">Broszury</a><a href="#pomoce" id="nav-pomoce" hidden>Pomoce</a>
       <a href="#cennik">Cennik</a>
       <a href="#spolecznosc">Blog</a>
       <a href="#faq">Pytania</a>
@@ -1112,7 +1112,6 @@ svg.ck{flex:none;width:18px;height:18px;margin-top:3px}
       <p class="lead">Prowadzi autorka programu. Placówka zamawia dla całej rady na fakturę, nauczyciel lub specjalista zapisuje się sam i&nbsp;płaci online. Każdy uczestnik dostaje zaświadczenie.</p>
     </div>
     <div class="offer-grid cols-3" id="lista-szkolen"></div>
-    <div class="offer-all"><button class="btn btn-ghost" type="button" data-katalog="szkolenie"></button></div>
   </div>
 </section>
 
@@ -1132,6 +1131,20 @@ svg.ck{flex:none;width:18px;height:18px;margin-top:3px}
       <p><b>Broszury to dobry początek. Aplikacja to koniec przepisywania.</b> W&nbsp;subskrypcji EduPlaner 2026 ta sama wiedza jest wbudowana w&nbsp;druki, które wypełniają się z&nbsp;danych ucznia.</p>
       <a class="btn btn-primary" href="#cennik">Zobacz subskrypcję</a>
     </div>
+  </div>
+</section>
+
+<!-- POMOCE DYDAKTYCZNE ------------------------------------------- -->
+<section class="section trainings" id="pomoce" hidden>
+  <div class="wrap">
+    <div class="section-head">
+      <div>
+        <p class="eyebrow">Pomoce dydaktyczne · placówki i&nbsp;osoby indywidualne</p>
+        <h2>Gotowe materiały do pracy z&nbsp;uczniem</h2>
+      </div>
+      <p class="lead">Karty, plansze i&nbsp;narzędzia do zajęć — w&nbsp;tej samej metodzie, na której stoi aplikacja. Placówka kupuje na fakturę, nauczyciel dla siebie i&nbsp;płaci online.</p>
+    </div>
+    <div class="offer-grid cols-3" id="lista-pomocy"></div>
   </div>
 </section>
 
@@ -1957,7 +1970,7 @@ var OFERTA = [
     }).join('')+'</div>';
   }
   function glowa(o){
-    if(o.typ==='broszura'){
+    if((o.typ==='broszura'||o.typ==='pomoc') && o.okladka){
       var w=o.okladka;
       var pasy = (w.pasy&&w.pasy.length)
         ? '<span class="pasy" aria-hidden="true">'+w.pasy.map(function(c){
@@ -1988,61 +2001,67 @@ var OFERTA = [
   function znajdz(id){ for(var i=0;i<OFERTA.length;i++){ if(OFERTA[i].id===id) return OFERTA[i]; } return null; }
   function wg(typ){ return OFERTA.filter(function(o){ return o.typ===typ; }); }
 
-  /* Na stronie stoją najwyżej trzy pozycje każdego rodzaju — reszta mieszka
-     w katalogu. Dzięki temu strona nie rośnie, gdy przybywa szkoleń i broszur,
-     i nie odciąga uwagi od aplikacji. */
+  /* Na stronie stoją najwyżej trzy pozycje każdej kategorii — reszta mieszka
+     w katalogu, do którego prowadzi kafelek w siatce. Dzięki temu strona nie
+     rośnie, gdy przybywa pozycji, i nie odciąga uwagi od aplikacji.
+     Kategoria bez pozycji chowa całą swoją sekcję. */
   var NA_STRONIE=3;
+  var KATEGORIE=[
+    {typ:'szkolenie', lista:'lista-szkolen', sekcja:'szkolenia', dopelniacz:'szkoleń',
+     tytul:'Wszystkie szkolenia', naglowek:'Szkolenia · placówki i osoby indywidualne'},
+    {typ:'broszura', lista:'lista-broszur', sekcja:'broszury', dopelniacz:'broszur',
+     tytul:'Wszystkie broszury', naglowek:'Broszury i materiały'},
+    {typ:'pomoc', lista:'lista-pomocy', sekcja:'pomoce', dopelniacz:'pomocy dydaktycznych',
+     tytul:'Wszystkie pomoce dydaktyczne', naglowek:'Pomoce dydaktyczne'}
+  ];
+  function kategoria(typ){
+    for(var i=0;i<KATEGORIE.length;i++){ if(KATEGORIE[i].typ===typ) return KATEGORIE[i]; }
+    return KATEGORIE[0];
+  }
 
-  function kafelekKatalogu(typ,n){
-    var co = typ==='szkolenie' ? 'szkoleń' : 'broszur i materiałów';
+  function kafelekKatalogu(k,n){
     return '<article class="offer tile-katalog">'
       + '<span class="ico"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7" rx="1.6"/>'
       + '<rect x="14" y="3" width="7" height="7" rx="1.6"/><rect x="3" y="14" width="7" height="7" rx="1.6"/>'
       + '<path d="M14 17.5h7M17.5 14v7"/></svg></span>'
-      + '<span class="liczba">'+n+'</span><span class="co">'+co+'</span>'
+      + '<span class="liczba">'+n+'</span><span class="co">'+esc(k.dopelniacz)+'</span>'
       + '<h3>Pełny katalog</h3>'
       + '<p>Pozostałe pozycje otwierają się w oknie — bez opuszczania tej strony.</p>'
-      + '<button class="btn btn-ghost" type="button" data-katalog="'+typ+'">Otwórz katalog</button>'
+      + '<button class="btn btn-ghost" type="button" data-katalog="'+k.typ+'">Otwórz katalog</button>'
       + '</article>';
   }
 
-  ['szkolenie','broszura'].forEach(function(typ){
-    var cel=document.getElementById(typ==='szkolenie'?'lista-szkolen':'lista-broszur');
+  KATEGORIE.forEach(function(k){
+    var cel=document.getElementById(k.lista), sek=document.getElementById(k.sekcja);
     if(!cel) return;
-    var lista=wg(typ), wybor=lista.filter(function(o){return o.polecane;}).slice(0,NA_STRONIE);
-    var wiecej = lista.length>wybor.length;
-    var html=wybor.map(karta).join('');
-    var kart=wybor.length;
-    if(typ==='broszura'){
-      if(wiecej){ html+=kafelekKatalogu(typ,lista.length); kart++; }
-      cel.className='offer-grid cols-'+Math.min(kart,4);
-    }
+    var lista=wg(k.typ);
+    /* kategoria bez pozycji nie pokazuje pustej sekcji */
+    if(sek) sek.hidden = lista.length===0;
+    var nav=document.getElementById('nav-'+k.sekcja);
+    if(nav) nav.hidden = lista.length===0;
+    if(!lista.length){ cel.innerHTML=''; return; }
+
+    var wybor=lista.filter(function(o){return o.polecane;}).slice(0,NA_STRONIE);
+    if(!wybor.length) wybor=lista.slice(0,NA_STRONIE);
+    var html=wybor.map(karta).join(''), kart=wybor.length;
+    if(lista.length>wybor.length){ html+=kafelekKatalogu(k,lista.length); kart++; }
+    cel.className='offer-grid cols-'+Math.min(kart,4);
     cel.innerHTML=html;
   });
 
-  /* przycisk „wszystkie” pokazuje się dopiero, gdy w katalogu jest coś
-     poza pozycjami widocznymi na stronie — inaczej obiecywałby więcej, niż daje */
-  document.querySelectorAll('.offer-all [data-katalog]').forEach(function(b){
-    var typ=b.dataset.katalog, lista=wg(typ);
-    var widoczne=Math.min(lista.filter(function(o){return o.polecane;}).length, NA_STRONIE);
-    if(lista.length<=widoczne){ b.parentNode.hidden=true; return; }
-    b.textContent='Wszystkie szkolenia ('+lista.length+')';
-  });
   document.addEventListener('click',function(e){
-    var b=e.target.closest ? e.target.closest('[data-katalog]') : null;
-    if(b){ e.preventDefault(); location.hash='katalog-'+b.dataset.katalog; }
-  });
-
-  /* szczegóły z kart na stronie */
-  document.addEventListener('click',function(e){
-    var b=e.target.closest ? e.target.closest('[data-poz]') : null;
-    if(b){ e.preventDefault(); location.hash='pozycja-'+b.dataset.poz; }
+    if(!e.target.closest) return;
+    var kat=e.target.closest('[data-katalog]');
+    if(kat){ e.preventDefault(); location.hash='katalog-'+kat.dataset.katalog; return; }
+    var poz=e.target.closest('[data-poz]');
+    if(poz){ e.preventDefault(); location.hash='pozycja-'+poz.dataset.poz; }
   });
 
   OKNO.katalog=function(typ){
-    var lista=wg(typ);
-    OKNO.brew.textContent = typ==='szkolenie' ? 'Szkolenia · placówki i osoby indywidualne' : 'Broszury i materiały';
-    OKNO.tytul.textContent = typ==='szkolenie' ? 'Wszystkie szkolenia ('+lista.length+')' : 'Wszystkie broszury ('+lista.length+')';
+    var lista=wg(typ), k=kategoria(typ);
+    if(!lista.length) return;
+    OKNO.brew.textContent = k.naglowek;
+    OKNO.tytul.textContent = k.tytul+' ('+lista.length+')';
     OKNO.wroc.hidden=true;
     OKNO.body.innerHTML='<div class="offer-grid">'+lista.map(karta).join('')+'</div>';
     OKNO.otworz();
@@ -2050,11 +2069,12 @@ var OFERTA = [
 
   OKNO.pozycja=function(id){
     var o=znajdz(id); if(!o) return;
-    OKNO.brew.textContent = o.typ==='szkolenie' ? 'Szkolenie' : 'Broszura';
+    OKNO.brew.textContent = o.typ==='szkolenie' ? 'Szkolenie'
+      : (o.typ==='pomoc' ? 'Pomoc dydaktyczna' : 'Broszura');
     OKNO.tytul.textContent = o.tytul;
     OKNO.wroc.hidden=false;
     OKNO.wroc.onclick=function(){ location.hash='katalog-'+o.typ; };
-    var kol = o.typ==='broszura' ? 'poz-main' : '';
+    var kol = (o.typ!=='szkolenie' && o.okladka) ? 'poz-main' : '';
     var lewa='<div>'+(kol?'<div class="'+kol+'">'+glowa(o)+'<div><p>'+esc(o.opis)+'</p></div></div>':glowa(o)+'<p>'+esc(o.opis)+'</p>')
       + (o.punkty.length?'<h4>Co obejmuje</h4><ul>'+o.punkty.map(function(t){return '<li>'+CK+esc(t)+'</li>';}).join('')+'</ul>':'')
       + (o.wiecej && o.wiecej.length?'<h4>Szczegóły</h4><ul>'+o.wiecej.map(function(t){return '<li>'+CK+esc(t)+'</li>';}).join('')+'</ul>':'')
