@@ -1,0 +1,26 @@
+{
+  "name": "film-szkoleniowy-przedszkole",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Film szkoleniowy dla rady pedagogicznej przedszkola — 6 modułów (EduPlaner 2026 / PCTP)",
+  "scripts": {
+    "start": "remotion studio",
+    "typecheck": "tsc --noEmit",
+    "render": "for m in M1 M2 M3 M4 M5 M6; do remotion render $m out/$m.mp4 --browser-executable=/opt/pw-browsers/chromium_headless_shell-1194/chrome-linux/headless_shell; done",
+    "still": "remotion still"
+  },
+  "dependencies": {
+    "@remotion/cli": "4.0.520",
+    "@remotion/media-utils": "4.0.520",
+    "react": "19.2.0",
+    "react-dom": "19.2.0",
+    "remotion": "4.0.520"
+  },
+  "devDependencies": {
+    "@types/react": "19.2.0",
+    "typescript": "5.9.3"
+  },
+  "overrides": {
+    "electron-to-chromium": "1.5.420"
+  }
+}
