@@ -123,6 +123,34 @@ Po podmianie uruchom `python3 build_single.py`, a w `dist/eduplaner2026.html` po
 wersja jednoplikowa z wbudowanymi obrazami (do wysyłki lub podglądu). Do wdrożenia na serwer
 wystarczy wgrać `index.html` razem z katalogiem `img/`.
 
+## Ekrany aplikacji i katalog oferty w oknach
+
+Dwie sekcje przestały wymagać przewijania w bok:
+
+- **Siedem ekranów** (`#ekrany`) to teraz lista po lewej i jeden duży ekran po prawej.
+  Klawisze strzałek przełączają pozycje, przyciski ← → też, a kliknięcie zrzutu otwiera go
+  w oknie na pełną szerokość. Dane w tablicy `EKRANY` w `index.html`.
+- **Szkolenia i broszury** (`#szkolenia`, `#broszury`) powstają z tablicy `OFERTA`.
+  Na stronie widać pozycje z `"polecane": true`; przycisk „Wszystkie…" otwiera katalog
+  w oknie, a „Zobacz szczegóły" — kartę pojedynczej pozycji z ceną i przyciskiem zamówienia.
+
+Okno ma własne adresy, więc da się je podlinkować w mailu albo na Facebooku:
+
+| Adres | Co otwiera |
+|---|---|
+| `#katalog-szkolenie` | katalog wszystkich szkoleń |
+| `#katalog-broszura` | katalog wszystkich broszur |
+| `#pozycja-br-wopf` | szczegóły jednej pozycji (identyfikator z pola `id`) |
+
+**Jak dodać nowe szkolenie albo broszurę:** dopisać obiekt do tablicy `OFERTA`.
+Pola: `id` (bez spacji i polskich znaków), `typ` (`"szkolenie"` albo `"broszura"`),
+`polecane` (czy ma być na stronie głównej, czy tylko w katalogu), `fmt`, `tytul`, `opis`,
+`punkty`, `spec`, `ceny`, `cta`. Pole `wiecej` to lista dodatkowych punktów widocznych
+tylko w oknie szczegółów — dziś puste, warto je uzupełnić: program szkolenia,
+spis treści broszury, dla kogo jest przeznaczona.
+Nową pozycję trzeba też dodać jako `<option>` w formularzu zamówienia,
+żeby przycisk „Kup" ustawiał właściwą pozycję.
+
 ## Panel filmów — dodawanie nagrań bez kodu
 
 Plik `panel-filmow.html` to osobne narzędzie dla autorki, nie część strony sprzedażowej.

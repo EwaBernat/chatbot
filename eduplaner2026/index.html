@@ -286,19 +286,28 @@ svg.ck{flex:none;width:18px;height:18px;margin-top:3px}
 }
 
 /* etapy ------------------------------------------------------------- */
-.stages{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:24px}
+.stages{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:34px;perspective:1700px;margin-top:8px}
 @media (max-width:900px){.stages{grid-template-columns:1fr}}
-.stage{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;display:flex;flex-direction:column;box-shadow:0 18px 34px -28px rgba(34,27,58,.5);transition:transform .18s ease,box-shadow .18s ease}
-.stage:hover{transform:translateY(-3px);box-shadow:0 26px 46px -28px rgba(34,27,58,.55)}
-.stage-photo{position:relative;margin:0;aspect-ratio:16/10;background:var(--paper-2);overflow:hidden}
+.stage{position:relative;background:var(--card);border:1px solid rgba(255,255,255,.7);border-radius:20px;overflow:hidden;display:flex;flex-direction:column;
+  transform:rotateX(4deg) translateZ(0);transform-origin:50% 100%;
+  box-shadow:0 1px 0 rgba(255,255,255,.9) inset,0 2px 4px rgba(45,27,105,.10),0 14px 22px -12px rgba(45,27,105,.24),0 40px 60px -34px rgba(34,27,58,.6);
+  transition:transform .28s cubic-bezier(.2,.8,.25,1),box-shadow .28s ease}
+.stage::before{content:"";position:absolute;left:7%;right:7%;bottom:-26px;height:54px;z-index:-1;pointer-events:none;
+  background:radial-gradient(60% 100% at 50% 0%,rgba(142,123,208,.55),rgba(142,123,208,.2) 45%,transparent 74%);
+  filter:blur(17px);opacity:.85;transition:opacity .28s ease}
+.stage:hover{transform:rotateX(0deg) translateY(-10px);
+  box-shadow:0 1px 0 rgba(255,255,255,.9) inset,0 2px 4px rgba(45,27,105,.10),0 22px 34px -14px rgba(45,27,105,.3),0 60px 80px -38px rgba(34,27,58,.62)}
+.stage:hover::before{opacity:1}
+@media (prefers-reduced-motion: reduce){.stage,.stage:hover{transform:none;transition:none}}
+.stage-photo{position:relative;margin:0;aspect-ratio:4/3;background:var(--paper-2);overflow:hidden}
 .stage-photo img{display:block;width:100%;height:100%;object-fit:cover}
 .stage-photo::after{content:"";position:absolute;inset:0;pointer-events:none;background:linear-gradient(180deg,transparent 60%,rgba(35,22,80,.34));border-bottom:1px solid var(--line)}
-.stage-chip{position:absolute;left:16px;bottom:14px;z-index:2;font-size:11.5px;letter-spacing:.14em;text-transform:uppercase;font-weight:700;color:#fff;background:rgba(45,27,105,.86);border:1px solid rgba(255,255,255,.28);border-radius:99px;padding:6px 13px}
-.stage-body{padding:22px 26px 26px;display:flex;flex-direction:column;gap:13px;flex:1}
-.stage h3{font-size:26px;color:var(--plum)}
-.stage p{color:var(--ink-2);font-size:15.5px}
+.stage-chip{position:absolute;left:20px;bottom:18px;z-index:2;font-size:11.5px;letter-spacing:.14em;text-transform:uppercase;font-weight:700;color:#fff;background:rgba(45,27,105,.86);border:1px solid rgba(255,255,255,.28);border-radius:99px;padding:6px 13px}
+.stage-body{padding:26px 30px 30px;display:flex;flex-direction:column;gap:14px;flex:1}
+.stage h3{font-size:29px;line-height:1.12;color:var(--plum);text-wrap:balance}
+.stage p{color:var(--ink-2);font-size:16.5px;line-height:1.55}
 .stage ul{margin:6px 0 0;padding:16px 0 0;list-style:none;display:flex;flex-direction:column;gap:8px;border-top:1px solid var(--line)}
-.stage li{font-size:14.5px;display:flex;gap:10px;align-items:flex-start}
+.stage li{font-size:15.5px;line-height:1.45;display:flex;gap:11px;align-items:flex-start}
 .stage li::before{content:"";flex:none;width:6px;height:6px;border-radius:50%;background:var(--orange);margin-top:9px}
 
 /* filmy ------------------------------------------------------------- */
@@ -365,6 +374,27 @@ svg.ck{flex:none;width:18px;height:18px;margin-top:3px}
 .cover .sub{font-size:10.5px;margin-top:8px;opacity:.8;line-height:1.3}
 .cover .lg{position:absolute;right:12px;top:14px;width:22px;height:22px;border-radius:50%;background:rgba(255,255,255,.18);border:1px solid rgba(255,255,255,.35)}
 .cover.pale .lg{background:var(--plum);border-color:var(--plum)}
+.offer-all{margin-top:26px;display:flex;justify-content:center}
+.offer .more{margin-top:10px;background:none;border:0;color:var(--plum);font:600 14px var(--body);cursor:pointer;
+  text-decoration:underline;text-underline-offset:3px;padding:6px;width:100%}
+.offer .more:hover{color:var(--orange-ink)}
+.sheet .offer-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(258px,1fr));gap:20px}
+.sheet .offer{background:var(--card)}
+.poz{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,320px);gap:30px;align-items:start}
+@media (max-width:820px){.poz{grid-template-columns:1fr;gap:22px}}
+.poz h4{font-family:var(--display);font-size:15px;color:var(--plum);margin:22px 0 8px;letter-spacing:.01em}
+.poz p{font-size:16px;line-height:1.6;color:var(--ink-2);margin:0}
+.poz ul{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:9px;font-size:15.5px}
+.poz li{display:flex;gap:11px;align-items:flex-start;line-height:1.45}
+.poz-side{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:20px}
+.poz-side .fmt{display:block;font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-3);font-weight:600;margin-bottom:12px}
+.poz-side .prices{margin-top:0;padding-top:0;border-top:0}
+.poz-side .spec{display:block;font-size:13px;color:var(--ink-3);margin:12px 0 16px}
+.poz-side .btn{width:100%;justify-content:center}
+.poz-main{display:grid;grid-template-columns:220px minmax(0,1fr);gap:24px;align-items:start}
+@media (max-width:620px){.poz-main{grid-template-columns:1fr}}
+.poz .cover{width:100%;margin:0;aspect-ratio:1/1.3}
+.poz .ico{margin-bottom:14px}
 .ask-note{margin-top:22px;font-size:14.5px;color:var(--ink-3)}
 .offer-note{margin-top:24px;display:flex;justify-content:space-between;gap:24px;flex-wrap:wrap;align-items:center;padding:20px 24px;background:var(--plum-soft);border:1px solid var(--plum-line);border-radius:var(--radius)}
 .offer-note p{font-size:15px;color:var(--ink-2);max-width:62ch}
@@ -685,16 +715,50 @@ svg.ck{flex:none;width:18px;height:18px;margin-top:3px}
 .strip .nav-btns{display:flex;gap:8px}
 .strip .nav-btns button{width:44px;height:44px;border-radius:50%;border:1.5px solid var(--plum-line);background:var(--card);color:var(--plum);cursor:pointer;display:grid;place-items:center;font-size:18px;font-family:var(--body)}
 .strip .nav-btns button:hover{background:var(--plum-soft);border-color:var(--plum)}
-.track{--pad:max(24px,calc((100vw - 1160px)/2));display:flex;gap:22px;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none;padding:8px var(--pad) 24px;scroll-padding-inline:var(--pad);margin:0 calc(50% - 50vw);width:100vw}
-.track::-webkit-scrollbar{display:none}
-.track{align-items:start}
-.track .item{flex:0 0 min(430px,72vw);scroll-snap-align:start;display:flex;flex-direction:column;gap:14px}
-.track .shot{border:1px solid var(--plum-line);box-shadow:0 26px 44px -30px rgba(45,27,105,.4);position:relative}
-.shot-desc{font-size:13.5px;color:var(--ink-2);line-height:1.5;max-width:52ch;margin:0}
-.track .shot img{aspect-ratio:16/10;object-fit:cover;object-position:top}
-.track .cap{position:absolute;left:10px;bottom:10px;background:color-mix(in srgb,var(--plum) 92%,transparent);color:#fff;padding:6px 10px;border-radius:7px;font-size:12px;font-weight:600;box-shadow:0 8px 20px -10px rgba(0,0,0,.45)}
-.strip .dots{display:flex;gap:6px;justify-content:center;margin-top:4px}
-.strip .dots i{width:8px;height:8px;border-radius:50%;background:var(--plum-line)}
+.tour{display:grid;grid-template-columns:minmax(0,330px) minmax(0,1fr);gap:34px;align-items:start}
+@media (max-width:960px){.tour{grid-template-columns:1fr;gap:20px}}
+.tour-list{display:flex;flex-direction:column;gap:6px}
+@media (max-width:960px){.tour-list{flex-direction:row;overflow-x:auto;padding-bottom:6px;scrollbar-width:none}.tour-list::-webkit-scrollbar{display:none}}
+.tour-list button{display:grid;grid-template-columns:28px minmax(0,1fr);gap:12px;align-items:center;text-align:left;width:100%;
+  padding:13px 15px;border-radius:13px;border:1px solid transparent;background:transparent;cursor:pointer;font-family:var(--body);
+  transition:background .16s ease,border-color .16s ease,box-shadow .16s ease}
+@media (max-width:960px){.tour-list button{width:auto;flex:0 0 auto;grid-template-columns:28px auto}}
+.tour-list button:hover{background:var(--card)}
+.tour-list .n{width:28px;height:28px;border-radius:9px;background:var(--plum-soft);color:var(--plum);display:grid;place-items:center;
+  font-size:12.5px;font-weight:700;font-variant-numeric:tabular-nums;transition:background .16s ease,color .16s ease}
+.tour-list .t{font-size:15.5px;font-weight:600;color:var(--ink);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.tour-list button[aria-selected="true"]{background:var(--card);border-color:var(--plum-line);box-shadow:0 14px 26px -18px rgba(45,27,105,.5)}
+.tour-list button[aria-selected="true"] .n{background:var(--orange);color:#fff}
+.tour-view .shot{border:1px solid var(--plum-line);box-shadow:0 30px 54px -32px rgba(45,27,105,.45);position:relative;cursor:zoom-in}
+.tour-view .shot img{aspect-ratio:16/10;object-fit:cover;object-position:top}
+.tour-view .cap{position:absolute;left:12px;bottom:12px;background:color-mix(in srgb,var(--plum) 92%,transparent);color:#fff;
+  padding:7px 12px;border-radius:8px;font-size:12.5px;font-weight:600}
+.tour-view .zoom{position:absolute;right:12px;bottom:12px;background:rgba(255,255,255,.95);color:var(--plum);
+  border:1px solid var(--plum-line);border-radius:8px;padding:7px 12px;font-size:12.5px;font-weight:600;display:flex;gap:7px;align-items:center}
+.tour-view .zoom svg{width:14px;height:14px;stroke:var(--orange);fill:none;stroke-width:2.2;stroke-linecap:round}
+.tour-desc{margin:18px 0 0;font-size:16px;line-height:1.6;color:var(--ink-2);max-width:70ch}
+.tour-counter{margin-top:10px;font-size:13px;color:var(--ink-3);font-variant-numeric:tabular-nums}
+
+/* okno (katalog, szczegóły, powiększenie) --------------------------- */
+.sheet{position:fixed;inset:0;z-index:60;display:none}
+.sheet.on{display:block}
+.sheet-bd{position:absolute;inset:0;background:rgba(24,14,48,.72)}
+.sheet-win{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:min(1120px,calc(100% - 52px));
+  max-height:calc(100% - 52px);background:var(--paper);border-radius:20px;
+  display:flex;flex-direction:column;overflow:hidden;box-shadow:0 70px 130px -50px rgba(0,0,0,.7);border:1px solid rgba(255,255,255,.5)}
+@media (max-width:760px){.sheet-win{left:0;top:0;transform:none;width:100%;height:100%;max-height:100%;border-radius:0;border:0}}
+.sheet-top{display:flex;align-items:center;gap:14px;padding:16px 20px;background:var(--card);border-bottom:1px solid var(--line);flex:none}
+.sheet-top .eyebrow{margin:0}
+.sheet-top h3{font-family:var(--display);font-size:20px;color:var(--plum);margin:0;line-height:1.2}
+.sheet-top .sp{flex:1}
+.sheet-btn{border:1px solid var(--plum-line);background:var(--card);color:var(--plum);border-radius:10px;padding:9px 14px;
+  font:600 14px var(--body);cursor:pointer;display:inline-flex;gap:8px;align-items:center}
+.sheet-btn:hover{background:var(--plum-soft)}
+.sheet-body{flex:1;overflow:auto;padding:26px;-webkit-overflow-scrolling:touch}
+@media (max-width:760px){.sheet-body{padding:18px}}
+.sheet-body .big{width:100%;height:auto;display:block;border-radius:12px;border:1px solid var(--plum-line);
+  box-shadow:0 30px 60px -34px rgba(45,27,105,.5)}
+.sheet-cap{margin:16px 0 0;font-size:16px;line-height:1.6;color:var(--ink-2);max-width:74ch}
 .strip .dots i.on{background:var(--orange);width:22px;border-radius:99px}
 .portrait img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:2}
 
@@ -902,18 +966,12 @@ svg.ck{flex:none;width:18px;height:18px;margin-top:3px}
   <div class="wrap">
     <div class="head">
       <div><p class="eyebrow">Prosto z aplikacji</p><h2>Siedem ekranów, jedna ścieżka dziecka</h2></div>
-      <div class="nav-btns"><button type="button" data-dir="-1" aria-label="Poprzedni ekran">←</button><button type="button" data-dir="1" aria-label="Następny ekran">→</button></div>
+      <div class="nav-btns"><button type="button" data-ekran="-1" aria-label="Poprzedni ekran">←</button><button type="button" data-ekran="1" aria-label="Następny ekran">→</button></div>
     </div>
-    <div class="track" id="track">
-      <div class="item"><figure class="shot"><span class="bar" aria-hidden="true"><i></i><i></i><i></i><b>EduPlaner 2026 · Kartoteka dzieci</b></span><img src="img/app-kartoteka.jpg" alt="Ekran aplikacji: Kartoteka dzieci" loading="lazy"><span class="cap">Kartoteka dzieci</span></figure><p class="shot-desc">Rejestr placówki: data urodzenia, grupa, postęp dokumentacji. Wybranie dziecka otwiera jego teczkę.</p></div>
-      <div class="item"><figure class="shot"><span class="bar" aria-hidden="true"><i></i><i></i><i></i><b>EduPlaner 2026 · Metryczka</b></span><img src="img/app-metryczka.jpg" alt="Ekran aplikacji: Metryczka" loading="lazy"><span class="cap">Metryczka</span></figure><p class="shot-desc">Wejście na ścieżkę: zgłoszenie, druk metryczki, wywiad z rodzicem, dostępność placówki, zgody i podstawa prawna.</p></div>
-      <div class="item"><figure class="shot"><span class="bar" aria-hidden="true"><i></i><i></i><i></i><b>EduPlaner 2026 · WOPF — ocena funkcjonalna</b></span><img src="img/app-wopf.jpg" alt="Ekran aplikacji: WOPF — ocena funkcjonalna" loading="lazy"><span class="cap">WOPF — ocena funkcjonalna</span></figure><p class="shot-desc">Kwestionariusz KPOF dobiera się do grupy wiekowej. Obok narzędzia obserwacji pogłębionej: ABC, FBA, sensoryka, ToM.</p></div>
-      <div class="item"><figure class="shot"><span class="bar" aria-hidden="true"><i></i><i></i><i></i><b>EduPlaner 2026 · Plan wsparcia — IPET / PEWS</b></span><img src="img/app-plan-wsparcia.jpg" alt="Ekran aplikacji: Plan wsparcia — IPET / PEWS" loading="lazy"><span class="cap">Plan wsparcia — IPET / PEWS</span></figure><p class="shot-desc">Struktura wspólna dla obu ścieżek. Cele SMART, dostosowania, zespół. Różni się tylko druk na końcu.</p></div>
-      <div class="item"><figure class="shot"><span class="bar" aria-hidden="true"><i></i><i></i><i></i><b>EduPlaner 2026 · Ewaluacja</b></span><img src="img/app-ewaluacja.jpg" alt="Ekran aplikacji: Ewaluacja" loading="lazy"><span class="cap">Ewaluacja</span></figure><p class="shot-desc">Oś czasu dziecka, ocena realizacji celów, ewaluacja półroczna i roczna, raporty dla rodzica i dyrektora.</p></div>
-      <div class="item"><figure class="shot"><span class="bar" aria-hidden="true"><i></i><i></i><i></i><b>EduPlaner 2026 · Zespół</b></span><img src="img/app-zespol.jpg" alt="Ekran aplikacji: Zespół" loading="lazy"><span class="cap">Zespół</span></figure><p class="shot-desc">Skład, role i zadania, terminy z wyprzedzeniem, protokoły, podpisy i uprawnienia zgodne z RODO.</p></div>
-      <div class="item"><figure class="shot"><span class="bar" aria-hidden="true"><i></i><i></i><i></i><b>EduPlaner 2026 · Baza wiedzy</b></span><img src="img/app-baza-wiedzy.jpg" alt="Ekran aplikacji: Baza wiedzy" loading="lazy"><span class="cap">Baza wiedzy</span></figure><p class="shot-desc">Kącik dyrektora i nauczyciela, konspekty rewalidacji i pomocy psychologiczno-pedagogicznej, wzory pism, podstawa prawna.</p></div>
+    <div class="tour">
+      <div class="tour-list" id="tour-list" role="tablist" aria-label="Ekrany aplikacji"></div>
+      <div class="tour-view" id="tour-view"></div>
     </div>
-    <div class="dots" id="dots" aria-hidden="true"></div>
   </div>
 </section>
 
@@ -1031,58 +1089,8 @@ svg.ck{flex:none;width:18px;height:18px;margin-top:3px}
       </div>
       <p class="lead">Prowadzi autorka programu. Placówka zamawia dla całej rady na fakturę, nauczyciel lub specjalista zapisuje się sam i&nbsp;płaci online. Każdy uczestnik dostaje zaświadczenie.</p>
     </div>
-    <!-- TODO: przykładowe formaty — podmień czasy, zakres, ceny i linki zapisu na prawdziwe -->
-    <div class="offer-grid cols-3">
-      <article class="offer">
-        <span class="ico"><svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="12" rx="2"/><path d="M8 20h8M12 16v4M7 12l3-3 2 2 4-4"/></svg></span><span class="fmt">Online · rada pedagogiczna</span>
-        <h3>Nowa ocena funkcjonalna od A do D</h3>
-        <p>Cztery bloki szkolenia w&nbsp;pełnej wersji, z&nbsp;pytaniami na żywo. Dla całej rady w&nbsp;jednym terminie lub otwarty termin dla osób indywidualnych.</p>
-        <ul>
-          <li><svg class="ck" viewBox="0 0 24 24" fill="none" stroke="var(--ok)" stroke-width="2.4"><path d="M5 12l5 5L20 7"/></svg>Podstawa prawna, KSzOF, ICF, skala i&nbsp;sten</li>
-          <li><svg class="ck" viewBox="0 0 24 24" fill="none" stroke="var(--ok)" stroke-width="2.4"><path d="M5 12l5 5L20 7"/></svg>Trzy poziomy wsparcia, IPET i&nbsp;PEWS</li>
-          <li><svg class="ck" viewBox="0 0 24 24" fill="none" stroke="var(--ok)" stroke-width="2.4"><path d="M5 12l5 5L20 7"/></svg>Zaświadczenie dla każdego uczestnika</li>
-        </ul>
-        <span class="spec">ok. 3 h · nagranie dostępne 30 dni po szkoleniu</span>
-        <div class="prices">
-          <div><small>Placówka</small><b class="ask">na zapytanie</b><i>cała rada · faktura</i></div>
-          <div><small>Indywidualnie</small><b class="ask">na zapytanie</b><i>za osobę · online</i></div>
-        </div>
-        <a class="btn btn-ghost" href="#zamow" data-order="szk-a-d">Zapisz się lub zamów</a>
-      </article>
-      <article class="offer hot">
-        <span class="badge">Najlepszy start</span>
-        <span class="ico"><svg viewBox="0 0 24 24"><circle cx="9" cy="8" r="3.5"/><circle cx="17" cy="9" r="2.5"/><path d="M2.5 19c0-4 3-6 6.5-6s6.5 2 6.5 6M15 15c3 0 6 1.5 6 4"/></svg></span><span class="fmt">Online · warsztat z&nbsp;aplikacją</span>
-        <h3>Wdrożenie EduPlaner 2026 w&nbsp;Twojej placówce</h3>
-        <p>Pracujemy na Waszych prawdziwych przypadkach, w&nbsp;Waszej aplikacji. Po warsztacie pierwszy uczeń ma komplet dokumentów.</p>
-        <ul>
-          <li><svg class="ck" viewBox="0 0 24 24" fill="none" stroke="var(--ok)" stroke-width="2.4"><path d="M5 12l5 5L20 7"/></svg>Metryczka, WOPF i&nbsp;plan dla realnego ucznia</li>
-          <li><svg class="ck" viewBox="0 0 24 24" fill="none" stroke="var(--ok)" stroke-width="2.4"><path d="M5 12l5 5L20 7"/></svg>Podział ról w&nbsp;zespole i&nbsp;pulpit dyrektora</li>
-          <li><svg class="ck" viewBox="0 0 24 24" fill="none" stroke="var(--ok)" stroke-width="2.4"><path d="M5 12l5 5L20 7"/></svg>Miesiąc konsultacji po warsztacie</li>
-        </ul>
-        <span class="spec">ok. 4 h · tylko dla placówek z&nbsp;subskrypcją</span>
-        <div class="prices">
-          <div><small>Placówka</small><b class="ask">na zapytanie</b><i>cały zespół · faktura</i></div>
-          <div><small>W&nbsp;pakiecie</small><b class="ask">na zapytanie</b><i>z&nbsp;aplikacją · taniej</i></div>
-        </div>
-        <a class="btn btn-primary" href="#zamow" data-order="szk-wdrozenie" data-buyer="inst">Zarezerwuj warsztat</a>
-      </article>
-      <article class="offer">
-        <span class="ico"><svg viewBox="0 0 24 24"><circle cx="10.5" cy="10.5" r="6.5"/><path d="M21 21l-5.5-5.5M8 10.5h5M10.5 8v5"/></svg></span><span class="fmt">Online · dla specjalistów</span>
-        <h3>Obserwacja pogłębiona: cztery narzędzia</h3>
-        <p>Dziennik ABC, profil sensoryczny W.&nbsp;Dunn, kwestionariusz rozwoju mowy i&nbsp;karta teorii umysłu na przykładach z&nbsp;praktyki.</p>
-        <ul>
-          <li><svg class="ck" viewBox="0 0 24 24" fill="none" stroke="var(--ok)" stroke-width="2.4"><path d="M5 12l5 5L20 7"/></svg>Kiedy sięgać po które narzędzie</li>
-          <li><svg class="ck" viewBox="0 0 24 24" fill="none" stroke="var(--ok)" stroke-width="2.4"><path d="M5 12l5 5L20 7"/></svg>Od obserwacji do celu SMART w&nbsp;planie</li>
-          <li><svg class="ck" viewBox="0 0 24 24" fill="none" stroke="var(--ok)" stroke-width="2.4"><path d="M5 12l5 5L20 7"/></svg>Arkusze do pobrania</li>
-        </ul>
-        <span class="spec">ok. 2 h · terminy otwarte co miesiąc</span>
-        <div class="prices">
-          <div><small>Placówka</small><b class="ask">na zapytanie</b><i>do 10 osób · faktura</i></div>
-          <div><small>Indywidualnie</small><b class="ask">na zapytanie</b><i>za osobę · online</i></div>
-        </div>
-        <a class="btn btn-ghost" href="#zamow" data-order="szk-obserwacja">Zapisz się lub zamów</a>
-      </article>
-    </div>
+    <div class="offer-grid cols-3" id="lista-szkolen"></div>
+    <div class="offer-all"><button class="btn btn-ghost" type="button" data-katalog="szkolenie"></button></div>
   </div>
 </section>
 
@@ -1096,57 +1104,8 @@ svg.ck{flex:none;width:18px;height:18px;margin-top:3px}
       </div>
       <p class="lead">Krótkie, praktyczne opracowania PDF. Placówka kupuje licencję na fakturę i&nbsp;drukuje dla całego zespołu. Nauczyciel kupuje dla siebie i&nbsp;płaci online, plik dostaje od razu.</p>
     </div>
-    <!-- TODO: przykładowe pozycje — podmień tytuły, opisy, ceny i linki na prawdziwe -->
-    <div class="offer-grid cols-4">
-      <article class="offer">
-        <div class="cover"><svg class="kw " aria-hidden="true"><use href="#kwiat"/></svg><span class="lg"></span><span class="ser">EduPlaner 2026 · Broszura 1</span><span class="ttl">WOPF na kwestionariuszu KSzOF</span><span class="sub">Dziewięć obszarów, skala 1–5, sten</span></div>
-        <span class="fmt">Dla zespołu</span>
-        <h3>WOPF krok po kroku</h3>
-        <p>Jak wypełnić kwestionariusz, przeliczyć wynik na sten i&nbsp;zestawić profile rodzica, nauczyciela i&nbsp;specjalisty.</p>
-        <span class="spec">ok. 24 strony A4 · przykład wypełnionego druku</span>
-        <div class="prices">
-          <div><small>Placówka</small><b class="ask">na zapytanie</b><i>licencja · faktura</i></div>
-          <div><small>Indywidualnie</small><b class="ask">na zapytanie</b><i>PDF od razu</i></div>
-        </div>
-        <a class="btn btn-ghost" href="#zamow" data-order="br-wopf">Kup</a>
-      </article>
-      <article class="offer">
-        <div class="cover alt"><svg class="kw " aria-hidden="true"><use href="#kwiat"/></svg><span class="lg"></span><span class="ser">EduPlaner 2026 · Broszura 2</span><span class="ttl">IPET albo PEWS</span><span class="sub">Jeden WOPF, dwa tryby planu</span></div>
-        <span class="fmt">Dla zespołu</span>
-        <h3>Plan wsparcia z&nbsp;celami SMART</h3>
-        <p>Kwalifikacja do poziomu I, II lub III i&nbsp;plan, który da się zrealizować i&nbsp;ocenić po roku.</p>
-        <span class="spec">ok. 20 stron A4 · wzory celów</span>
-        <div class="prices">
-          <div><small>Placówka</small><b class="ask">na zapytanie</b><i>licencja · faktura</i></div>
-          <div><small>Indywidualnie</small><b class="ask">na zapytanie</b><i>PDF od razu</i></div>
-        </div>
-        <a class="btn btn-ghost" href="#zamow" data-order="br-ipet">Kup</a>
-      </article>
-      <article class="offer">
-        <div class="cover pale"><svg class="kw " aria-hidden="true"><use href="#kwiat"/></svg><span class="lg"></span><span class="ser">EduPlaner 2026 · Broszura 3</span><span class="ttl">Obserwacja pogłębiona</span><span class="sub">ABC · profil sensoryczny · mowa · ToM</span></div>
-        <span class="fmt">Dla specjalisty</span>
-        <h3>Cztery narzędzia obserwacji</h3>
-        <p>Kiedy sięgnąć po dziennik ABC, profil sensoryczny W.&nbsp;Dunn, kwestionariusz mowy i&nbsp;kartę teorii umysłu.</p>
-        <span class="spec">ok. 28 stron A4 · arkusze do druku</span>
-        <div class="prices">
-          <div><small>Placówka</small><b class="ask">na zapytanie</b><i>licencja · faktura</i></div>
-          <div><small>Indywidualnie</small><b class="ask">na zapytanie</b><i>PDF od razu</i></div>
-        </div>
-        <a class="btn btn-ghost" href="#zamow" data-order="br-obserwacja">Kup</a>
-      </article>
-      <article class="offer">
-        <div class="cover"><svg class="kw " aria-hidden="true"><use href="#kwiat"/></svg><span class="lg"></span><span class="ser">EduPlaner 2026 · Dla rodziców</span><span class="ttl">Ocena funkcjonalna. Co to znaczy dla mojego dziecka?</span><span class="sub">Krótko i&nbsp;bez żargonu</span></div>
-        <span class="fmt">Dla rodziców</span>
-        <h3>Ulotka na zebranie zespołu</h3>
-        <p>Do rozdania rodzicom przed spotkaniem: co się zmienia, o&nbsp;co zapytamy, co dostaną na koniec.</p>
-        <span class="spec">4 strony A5 · do druku bez limitu</span>
-        <div class="prices">
-          <div><small>Placówka</small><b class="ask">na zapytanie</b><i>licencja · faktura</i></div>
-          <div><small>Indywidualnie</small><b class="ask">na zapytanie</b><i>PDF od razu</i></div>
-        </div>
-        <a class="btn btn-ghost" href="#zamow" data-order="br-rodzice">Kup</a>
-      </article>
-    </div>
+    <div class="offer-grid cols-4" id="lista-broszur"></div>
+    <div class="offer-all"><button class="btn btn-ghost" type="button" data-katalog="broszura"></button></div>
     <p class="ask-note">Ceny podajemy w&nbsp;jeden dzień roboczy — napisz, ilu osób dotyczy zamówienie i&nbsp;jakie etapy prowadzi placówka.</p>
     <div class="offer-note">
       <p><b>Broszury to dobry początek. Aplikacja to koniec przepisywania.</b> W&nbsp;subskrypcji EduPlaner 2026 ta sama wiedza jest wbudowana w&nbsp;druki, które wypełniają się z&nbsp;danych ucznia.</p>
@@ -1434,6 +1393,19 @@ svg.ck{flex:none;width:18px;height:18px;margin-top:3px}
   </div>
 </footer>
 
+<div class="sheet" id="sheet" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="sheet-title">
+  <div class="sheet-bd" data-close></div>
+  <div class="sheet-win">
+    <div class="sheet-top">
+      <button class="sheet-btn" id="sheet-back" type="button" hidden>← Wróć do listy</button>
+      <div><p class="eyebrow" id="sheet-eyebrow"></p><h3 id="sheet-title"></h3></div>
+      <span class="sp"></span>
+      <button class="sheet-btn" type="button" data-close aria-label="Zamknij okno">Zamknij ✕</button>
+    </div>
+    <div class="sheet-body" id="sheet-body"></div>
+  </div>
+</div>
+
 <div class="vbox" id="vbox" role="dialog" aria-modal="true" aria-label="Odtwarzacz filmu">
   <button class="close" type="button" aria-label="Zamknij odtwarzacz">×</button>
   <div class="frame" id="vframe"></div>
@@ -1609,14 +1581,448 @@ FILMY.forEach(function(f){ VIDEO[f.id] = f.url || ''; });
   });
 })();
 
+
+/* --- ekrany aplikacji: dane i wycieczka --------------------------- */
+var EKRANY = [
+  {plik:"img/app-kartoteka.jpg", tytul:"Kartoteka dzieci",
+   opis:"Rejestr placówki: data urodzenia, grupa, postęp dokumentacji. Wybranie dziecka otwiera jego teczkę."},
+  {plik:"img/app-metryczka.jpg", tytul:"Metryczka",
+   opis:"Wejście na ścieżkę: zgłoszenie, druk metryczki, wywiad z rodzicem, dostępność placówki, zgody i podstawa prawna."},
+  {plik:"img/app-wopf.jpg", tytul:"WOPF — ocena funkcjonalna",
+   opis:"Kwestionariusz KPOF dobiera się do grupy wiekowej. Obok narzędzia obserwacji pogłębionej: ABC, FBA, sensoryka, ToM."},
+  {plik:"img/app-plan-wsparcia.jpg", tytul:"Plan wsparcia — IPET / PEWS",
+   opis:"Struktura wspólna dla obu ścieżek. Cele SMART, dostosowania, zespół. Różni się tylko druk na końcu."},
+  {plik:"img/app-ewaluacja.jpg", tytul:"Ewaluacja",
+   opis:"Oś czasu dziecka, ocena realizacji celów, ewaluacja półroczna i roczna, raporty dla rodzica i dyrektora."},
+  {plik:"img/app-zespol.jpg", tytul:"Zespół",
+   opis:"Skład, role i zadania, terminy z wyprzedzeniem, protokoły, podpisy i uprawnienia zgodne z RODO."},
+  {plik:"img/app-baza-wiedzy.jpg", tytul:"Baza wiedzy",
+   opis:"Kącik dyrektora i nauczyciela, konspekty rewalidacji i pomocy psychologiczno-pedagogicznej, wzory pism, podstawa prawna."}
+];
+
 (function(){
-  var track=document.getElementById('track'), dots=document.getElementById('dots'); if(!track) return;
-  var cards=track.querySelectorAll('.item');
-  cards.forEach(function(_,i){var d=document.createElement('i'); if(i===0)d.className='on'; dots.appendChild(d);});
-  function step(){ return cards[0].getBoundingClientRect().width+22; }
-  document.querySelectorAll('.strip .nav-btns button').forEach(function(b){ b.addEventListener('click',function(){ track.scrollBy({left:step()*Number(b.dataset.dir),behavior:'smooth'}); }); });
-  track.addEventListener('scroll',function(){ var i=Math.round(track.scrollLeft/step()); dots.querySelectorAll('i').forEach(function(d,k){ d.className=k===i?'on':''; }); },{passive:true});
+  var lista=document.getElementById('tour-list'), widok=document.getElementById('tour-view');
+  if(!lista||!widok) return;
+  var akt=0;
+  function esc(t){return String(t==null?'':t).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/"/g,'&quot;');}
+
+  lista.innerHTML=EKRANY.map(function(e,i){
+    return '<button type="button" role="tab" id="tab-'+i+'" aria-controls="tour-view" aria-selected="'+(i===0)+'" tabindex="'+(i===0?0:-1)+'">'
+      +'<span class="n">'+(i+1)+'</span><span class="t">'+esc(e.tytul)+'</span></button>';
+  }).join('');
+  var taby=lista.querySelectorAll('button');
+
+  function pokaz(i){
+    akt=(i+EKRANY.length)%EKRANY.length;
+    var e=EKRANY[akt];
+    taby.forEach(function(b,k){ b.setAttribute('aria-selected',k===akt); b.tabIndex=k===akt?0:-1; });
+    widok.innerHTML='<figure class="shot" role="button" tabindex="0" aria-label="Powiększ ekran: '+esc(e.tytul)+'">'
+      +'<span class="bar" aria-hidden="true"><i></i><i></i><i></i><b>EduPlaner 2026 · '+esc(e.tytul)+'</b></span>'
+      +'<img src="'+esc(e.plik)+'" alt="Ekran aplikacji: '+esc(e.tytul)+'" loading="lazy">'
+      +'<span class="cap">'+esc(e.tytul)+'</span>'
+      +'<span class="zoom"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="M20 20l-4.5-4.5M11 8v6M8 11h6"/></svg>Powiększ</span>'
+      +'</figure>'
+      +'<p class="tour-desc">'+esc(e.opis)+'</p>'
+      +'<p class="tour-counter">Ekran '+(akt+1)+' z '+EKRANY.length+'</p>';
+    var fig=widok.querySelector('.shot');
+    fig.addEventListener('click',function(){ OKNO.obraz(e); });
+    fig.addEventListener('keydown',function(ev){ if(ev.key==='Enter'||ev.key===' '){ ev.preventDefault(); OKNO.obraz(e); } });
+    if(lista.scrollWidth>lista.clientWidth) taby[akt].scrollIntoView({block:'nearest',inline:'center',behavior:'smooth'});
+  }
+
+  taby.forEach(function(b,i){ b.addEventListener('click',function(){ pokaz(i); }); });
+  lista.addEventListener('keydown',function(e){
+    var k=e.key, poz=akt;
+    if(k==='ArrowDown'||k==='ArrowRight') poz=akt+1;
+    else if(k==='ArrowUp'||k==='ArrowLeft') poz=akt-1;
+    else if(k==='Home') poz=0;
+    else if(k==='End') poz=EKRANY.length-1;
+    else return;
+    e.preventDefault(); pokaz(poz); taby[akt].focus();
+  });
+  document.querySelectorAll('[data-ekran]').forEach(function(b){
+    b.addEventListener('click',function(){ pokaz(akt+Number(b.dataset.ekran)); });
+  });
+  pokaz(0);
 })();
+
+/* --- okno: powiększenie ekranu, katalog, szczegóły ---------------- */
+var OKNO=(function(){
+  var box=document.getElementById('sheet');
+  if(!box) return {obraz:function(){}, zamknij:function(){}};
+  var body=document.getElementById('sheet-body'),
+      tytul=document.getElementById('sheet-title'),
+      brew=document.getElementById('sheet-eyebrow'),
+      wroc=document.getElementById('sheet-back');
+  var ostatniFokus=null;
+  function esc(t){return String(t==null?'':t).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/"/g,'&quot;');}
+
+  function otworz(){
+    if(!box.classList.contains('on')){ ostatniFokus=document.activeElement; }
+    box.classList.add('on'); box.setAttribute('aria-hidden','false');
+    document.body.style.overflow='hidden';
+    body.scrollTop=0;
+    box.querySelector('[data-close]:not(.sheet-bd)').focus();
+  }
+  function zamknij(){
+    box.classList.remove('on'); box.setAttribute('aria-hidden','true');
+    document.body.style.overflow=''; body.innerHTML=''; wroc.hidden=true;
+    if(ostatniFokus&&ostatniFokus.focus) ostatniFokus.focus();
+  }
+  box.querySelectorAll('[data-close]').forEach(function(el){ el.addEventListener('click',zamknij); });
+  document.addEventListener('keydown',function(e){ if(e.key==='Escape'&&box.classList.contains('on')) zamknij(); });
+
+  function obraz(e){
+    brew.textContent='Ekran aplikacji';
+    tytul.textContent=e.tytul;
+    wroc.hidden=true;
+    body.innerHTML='<img class="big" src="'+esc(e.plik)+'" alt="Ekran aplikacji: '+esc(e.tytul)+'">'
+      +'<p class="sheet-cap">'+esc(e.opis)+'</p>';
+    otworz();
+  }
+  return {obraz:obraz, otworz:otworz, zamknij:zamknij, box:box, body:body, tytul:tytul, brew:brew, wroc:wroc, esc:esc};
+})();
+
+var IKONY = {
+  "ekran": "<rect x=\"3\" y=\"4\" width=\"18\" height=\"12\" rx=\"2\"/><path d=\"M8 20h8M12 16v4M7 12l3-3 2 2 4-4\"/>",
+  "ludzie": "<circle cx=\"9\" cy=\"8\" r=\"3.5\"/><circle cx=\"17\" cy=\"9\" r=\"2.5\"/><path d=\"M2.5 19c0-4 3-6 6.5-6s6.5 2 6.5 6M15 15c3 0 6 1.5 6 4\"/>",
+  "lupa": "<circle cx=\"10.5\" cy=\"10.5\" r=\"6.5\"/><path d=\"M21 21l-5.5-5.5M8 10.5h5M10.5 8v5\"/>"
+};
+var OFERTA = [
+  {
+    "id": "szk-a-d",
+    "typ": "szkolenie",
+    "polecane": true,
+    "ikona": "ekran",
+    "hot": false,
+    "badge": "",
+    "fmt": "Online · rada pedagogiczna",
+    "tytul": "Nowa ocena funkcjonalna od A do D",
+    "opis": "Cztery bloki szkolenia w pełnej wersji, z pytaniami na żywo. Dla całej rady w jednym terminie lub otwarty termin dla osób indywidualnych.",
+    "punkty": [
+      "Podstawa prawna, KSzOF, ICF, skala i sten",
+      "Trzy poziomy wsparcia, IPET i PEWS",
+      "Zaświadczenie dla każdego uczestnika"
+    ],
+    "spec": "ok. 3 h · nagranie dostępne 30 dni po szkoleniu",
+    "ceny": [
+      [
+        "Placówka",
+        "na zapytanie",
+        "cała rada · faktura"
+      ],
+      [
+        "Indywidualnie",
+        "na zapytanie",
+        "za osobę · online"
+      ]
+    ],
+    "cta": "Zapisz się lub zamów",
+    "primary": false,
+    "buyer": "",
+    "wiecej": []
+  },
+  {
+    "id": "szk-wdrozenie",
+    "typ": "szkolenie",
+    "polecane": true,
+    "ikona": "ludzie",
+    "hot": true,
+    "badge": "Najlepszy start",
+    "fmt": "Online · warsztat z aplikacją",
+    "tytul": "Wdrożenie EduPlaner 2026 w Twojej placówce",
+    "opis": "Pracujemy na Waszych prawdziwych przypadkach, w Waszej aplikacji. Po warsztacie pierwszy uczeń ma komplet dokumentów.",
+    "punkty": [
+      "Metryczka, WOPF i plan dla realnego ucznia",
+      "Podział ról w zespole i pulpit dyrektora",
+      "Miesiąc konsultacji po warsztacie"
+    ],
+    "spec": "ok. 4 h · tylko dla placówek z subskrypcją",
+    "ceny": [
+      [
+        "Placówka",
+        "na zapytanie",
+        "cały zespół · faktura"
+      ],
+      [
+        "W pakiecie",
+        "na zapytanie",
+        "z aplikacją · taniej"
+      ]
+    ],
+    "cta": "Zarezerwuj warsztat",
+    "primary": true,
+    "buyer": "inst",
+    "wiecej": []
+  },
+  {
+    "id": "szk-obserwacja",
+    "typ": "szkolenie",
+    "polecane": true,
+    "ikona": "lupa",
+    "hot": false,
+    "badge": "",
+    "fmt": "Online · dla specjalistów",
+    "tytul": "Obserwacja pogłębiona: cztery narzędzia",
+    "opis": "Dziennik ABC, profil sensoryczny W. Dunn, kwestionariusz rozwoju mowy i karta teorii umysłu na przykładach z praktyki.",
+    "punkty": [
+      "Kiedy sięgać po które narzędzie",
+      "Od obserwacji do celu SMART w planie",
+      "Arkusze do pobrania"
+    ],
+    "spec": "ok. 2 h · terminy otwarte co miesiąc",
+    "ceny": [
+      [
+        "Placówka",
+        "na zapytanie",
+        "do 10 osób · faktura"
+      ],
+      [
+        "Indywidualnie",
+        "na zapytanie",
+        "za osobę · online"
+      ]
+    ],
+    "cta": "Zapisz się lub zamów",
+    "primary": false,
+    "buyer": "",
+    "wiecej": []
+  },
+  {
+    "id": "br-wopf",
+    "typ": "broszura",
+    "polecane": true,
+    "okladka": {
+      "wariant": "",
+      "ser": "EduPlaner 2026 · Broszura 1",
+      "ttl": "WOPF na kwestionariuszu KSzOF",
+      "sub": "Dziewięć obszarów, skala 1–5, sten"
+    },
+    "fmt": "Dla zespołu",
+    "tytul": "WOPF krok po kroku",
+    "opis": "Jak wypełnić kwestionariusz, przeliczyć wynik na sten i zestawić profile rodzica, nauczyciela i specjalisty.",
+    "punkty": [],
+    "spec": "ok. 24 strony A4 · przykład wypełnionego druku",
+    "ceny": [
+      [
+        "Placówka",
+        "na zapytanie",
+        "licencja · faktura"
+      ],
+      [
+        "Indywidualnie",
+        "na zapytanie",
+        "PDF od razu"
+      ]
+    ],
+    "cta": "Kup",
+    "primary": false,
+    "buyer": "",
+    "wiecej": []
+  },
+  {
+    "id": "br-ipet",
+    "typ": "broszura",
+    "polecane": true,
+    "okladka": {
+      "wariant": "alt",
+      "ser": "EduPlaner 2026 · Broszura 2",
+      "ttl": "IPET albo PEWS",
+      "sub": "Jeden WOPF, dwa tryby planu"
+    },
+    "fmt": "Dla zespołu",
+    "tytul": "Plan wsparcia z celami SMART",
+    "opis": "Kwalifikacja do poziomu I, II lub III i plan, który da się zrealizować i ocenić po roku.",
+    "punkty": [],
+    "spec": "ok. 20 stron A4 · wzory celów",
+    "ceny": [
+      [
+        "Placówka",
+        "na zapytanie",
+        "licencja · faktura"
+      ],
+      [
+        "Indywidualnie",
+        "na zapytanie",
+        "PDF od razu"
+      ]
+    ],
+    "cta": "Kup",
+    "primary": false,
+    "buyer": "",
+    "wiecej": []
+  },
+  {
+    "id": "br-obserwacja",
+    "typ": "broszura",
+    "polecane": true,
+    "okladka": {
+      "wariant": "pale",
+      "ser": "EduPlaner 2026 · Broszura 3",
+      "ttl": "Obserwacja pogłębiona",
+      "sub": "ABC · profil sensoryczny · mowa · ToM"
+    },
+    "fmt": "Dla specjalisty",
+    "tytul": "Cztery narzędzia obserwacji",
+    "opis": "Kiedy sięgnąć po dziennik ABC, profil sensoryczny W. Dunn, kwestionariusz mowy i kartę teorii umysłu.",
+    "punkty": [],
+    "spec": "ok. 28 stron A4 · arkusze do druku",
+    "ceny": [
+      [
+        "Placówka",
+        "na zapytanie",
+        "licencja · faktura"
+      ],
+      [
+        "Indywidualnie",
+        "na zapytanie",
+        "PDF od razu"
+      ]
+    ],
+    "cta": "Kup",
+    "primary": false,
+    "buyer": "",
+    "wiecej": []
+  },
+  {
+    "id": "br-rodzice",
+    "typ": "broszura",
+    "polecane": true,
+    "okladka": {
+      "wariant": "",
+      "ser": "EduPlaner 2026 · Dla rodziców",
+      "ttl": "Ocena funkcjonalna. Co to znaczy dla mojego dziecka?",
+      "sub": "Krótko i bez żargonu"
+    },
+    "fmt": "Dla rodziców",
+    "tytul": "Ulotka na zebranie zespołu",
+    "opis": "Do rozdania rodzicom przed spotkaniem: co się zmienia, o co zapytamy, co dostaną na koniec.",
+    "punkty": [],
+    "spec": "4 strony A5 · do druku bez limitu",
+    "ceny": [
+      [
+        "Placówka",
+        "na zapytanie",
+        "licencja · faktura"
+      ],
+      [
+        "Indywidualnie",
+        "na zapytanie",
+        "PDF od razu"
+      ]
+    ],
+    "cta": "Kup",
+    "primary": false,
+    "buyer": "",
+    "wiecej": []
+  }
+];
+
+/* --- szkolenia i broszury: karty, katalog, szczegóły --------------- */
+(function(){
+  var esc=OKNO.esc;
+  var CK='<svg class="ck" viewBox="0 0 24 24" fill="none" stroke="var(--ok)" stroke-width="2.4"><path d="M5 12l5 5L20 7"/></svg>';
+  var KW='<svg class="kw" aria-hidden="true"><use href="#kwiat"/></svg>';
+
+  function ceny(o){
+    return '<div class="prices">'+o.ceny.map(function(c){
+      var kl = /^\d/.test(c[1]) ? '' : ' class="ask"';
+      return '<div><small>'+esc(c[0])+'</small><b'+kl+'>'+esc(c[1])+'</b><i>'+esc(c[2])+'</i></div>';
+    }).join('')+'</div>';
+  }
+  function glowa(o){
+    if(o.typ==='broszura'){
+      var w=o.okladka;
+      return '<div class="cover'+(w.wariant?' '+w.wariant:'')+'">'+KW+'<span class="lg"></span>'
+        +'<span class="ser">'+esc(w.ser)+'</span><span class="ttl">'+esc(w.ttl)+'</span><span class="sub">'+esc(w.sub)+'</span></div>';
+    }
+    return '<span class="ico"><svg viewBox="0 0 24 24">'+IKONY[o.ikona]+'</svg></span>';
+  }
+  function karta(o){
+    return '<article class="offer'+(o.hot?' hot':'')+'">'
+      + (o.badge?'<span class="badge">'+esc(o.badge)+'</span>':'')
+      + glowa(o)
+      + '<span class="fmt">'+esc(o.fmt)+'</span>'
+      + '<h3>'+esc(o.tytul)+'</h3><p>'+esc(o.opis)+'</p>'
+      + (o.punkty.length?'<ul>'+o.punkty.map(function(t){return '<li>'+CK+esc(t)+'</li>';}).join('')+'</ul>':'')
+      + '<span class="spec">'+esc(o.spec)+'</span>'
+      + ceny(o)
+      + '<a class="btn '+(o.primary?'btn-primary':'btn-ghost')+'" href="#zamow" data-order="'+esc(o.id)+'"'
+      + (o.buyer?' data-buyer="'+esc(o.buyer)+'"':'')+'>'+esc(o.cta)+'</a>'
+      + '<button class="more" type="button" data-poz="'+esc(o.id)+'">Zobacz szczegóły</button>'
+      + '</article>';
+  }
+
+  function znajdz(id){ for(var i=0;i<OFERTA.length;i++){ if(OFERTA[i].id===id) return OFERTA[i]; } return null; }
+  function wg(typ){ return OFERTA.filter(function(o){ return o.typ===typ; }); }
+
+  /* karty na stronie */
+  ['szkolenie','broszura'].forEach(function(typ){
+    var cel=document.getElementById(typ==='szkolenie'?'lista-szkolen':'lista-broszur');
+    if(cel) cel.innerHTML=wg(typ).filter(function(o){return o.polecane;}).map(karta).join('');
+  });
+
+  /* przyciski „wszystkie” */
+  document.querySelectorAll('[data-katalog]').forEach(function(b){
+    var typ=b.dataset.katalog, n=wg(typ).length;
+    b.textContent = typ==='szkolenie'
+      ? 'Wszystkie szkolenia ('+n+')'
+      : 'Wszystkie broszury i materiały ('+n+')';
+    b.addEventListener('click',function(){ location.hash='katalog-'+typ; });
+  });
+
+  /* szczegóły z kart na stronie */
+  document.addEventListener('click',function(e){
+    var b=e.target.closest ? e.target.closest('[data-poz]') : null;
+    if(b){ e.preventDefault(); location.hash='pozycja-'+b.dataset.poz; }
+  });
+
+  OKNO.katalog=function(typ){
+    var lista=wg(typ);
+    OKNO.brew.textContent = typ==='szkolenie' ? 'Szkolenia · placówki i osoby indywidualne' : 'Broszury i materiały';
+    OKNO.tytul.textContent = typ==='szkolenie' ? 'Wszystkie szkolenia ('+lista.length+')' : 'Wszystkie broszury ('+lista.length+')';
+    OKNO.wroc.hidden=true;
+    OKNO.body.innerHTML='<div class="offer-grid">'+lista.map(karta).join('')+'</div>';
+    OKNO.otworz();
+  };
+
+  OKNO.pozycja=function(id){
+    var o=znajdz(id); if(!o) return;
+    OKNO.brew.textContent = o.typ==='szkolenie' ? 'Szkolenie' : 'Broszura';
+    OKNO.tytul.textContent = o.tytul;
+    OKNO.wroc.hidden=false;
+    OKNO.wroc.onclick=function(){ location.hash='katalog-'+o.typ; };
+    var kol = o.typ==='broszura' ? 'poz-main' : '';
+    var lewa='<div>'+(kol?'<div class="'+kol+'">'+glowa(o)+'<div><p>'+esc(o.opis)+'</p></div></div>':glowa(o)+'<p>'+esc(o.opis)+'</p>')
+      + (o.punkty.length?'<h4>Co obejmuje</h4><ul>'+o.punkty.map(function(t){return '<li>'+CK+esc(t)+'</li>';}).join('')+'</ul>':'')
+      + (o.wiecej && o.wiecej.length?'<h4>Szczegóły</h4><ul>'+o.wiecej.map(function(t){return '<li>'+CK+esc(t)+'</li>';}).join('')+'</ul>':'')
+      + '</div>';
+    var prawa='<aside class="poz-side"><span class="fmt">'+esc(o.fmt)+'</span>'
+      + ceny(o) + '<span class="spec">'+esc(o.spec)+'</span>'
+      + '<a class="btn '+(o.primary?'btn-primary':'btn-ghost')+'" href="#zamow" data-zamow="'+esc(o.id)+'"'
+      + (o.buyer?' data-buyer="'+esc(o.buyer)+'"':'')+'>'+esc(o.cta)+'</a></aside>';
+    OKNO.body.innerHTML='<div class="poz">'+lewa+prawa+'</div>';
+    OKNO.body.querySelectorAll('[data-zamow]').forEach(function(a){
+      a.addEventListener('click',function(ev){
+        ev.preventDefault();
+        if(window.ZAMOW) window.ZAMOW(a.dataset.zamow, a.dataset.buyer||'');
+        OKNO.zamknij();
+        location.hash='zamow';
+      });
+    });
+    OKNO.otworz();
+  };
+
+  /* adresy: #katalog-szkolenie, #katalog-broszura, #pozycja-<id> */
+  function zHasza(){
+    var h=(location.hash||'').replace(/^#/,'');
+    if(h.indexOf('katalog-')===0){ OKNO.katalog(h.slice(8)); }
+    else if(h.indexOf('pozycja-')===0){ OKNO.pozycja(h.slice(8)); }
+  }
+  window.addEventListener('hashchange',zHasza);
+  zHasza();
+})();
+
 (function(){
   var form=document.getElementById('order-form'); if(!form) return;
   var product=document.getElementById('product');
@@ -1648,13 +2054,14 @@ FILMY.forEach(function(f){ VIDEO[f.id] = f.url || ''; });
   form.addEventListener('change',refresh);
 
   // przyciski „Zamów / Kup / Zapisz się” ustawiają produkt i typ kupującego
-  document.querySelectorAll('[data-order]').forEach(function(a){
-    a.addEventListener('click',function(){
-      if(a.dataset.buyer) setBuyer(a.dataset.buyer);
-      var v=a.dataset.order;
-      for(var i=0;i<product.options.length;i++){ if(product.options[i].value===v){ product.selectedIndex=i; break; } }
-      refresh();
-    });
+  window.ZAMOW=function(v,b){
+    if(b) setBuyer(b);
+    for(var i=0;i<product.options.length;i++){ if(product.options[i].value===v){ product.selectedIndex=i; break; } }
+    refresh();
+  };
+  document.addEventListener('click',function(e){
+    var a=e.target.closest ? e.target.closest('[data-order]') : null;
+    if(a) window.ZAMOW(a.dataset.order, a.dataset.buyer||'');
   });
 
   form.addEventListener('submit',function(e){
