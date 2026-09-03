@@ -173,3 +173,7 @@ node_modules/
 *.wav
 *.m4a
 konfiguracja.json
+
+# Gotowa narracja filmu szkoleniowego (potrzebna do renderu Remotion)
+!film/remotion/public/audio/*.mp3
+!film/remotion/public/audio/*.srt
