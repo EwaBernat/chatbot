@@ -400,6 +400,10 @@ svg.ck{flex:none;width:18px;height:18px;margin-top:3px}
   margin:6px 0 2px;font-variant-numeric:tabular-nums}
 .tile-katalog .co{font-size:12.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-3);font-weight:600;margin-bottom:14px}
 .tile-katalog .btn{margin-top:0}
+.offer.zwiezla h3{margin-bottom:auto}
+.offer.zwiezla .prices{margin-top:16px}
+.offer .netto{display:block;margin-top:8px;font-size:12.5px;color:var(--ink-3);font-variant-numeric:tabular-nums}
+.poz-side .netto{margin:10px 0 0}
 .offer .more{margin-top:10px;background:none;border:0;color:var(--plum);font:600 14px var(--body);cursor:pointer;
   text-decoration:underline;text-underline-offset:3px;padding:6px;width:100%}
 .offer .more:hover{color:var(--orange-ink)}
@@ -1129,7 +1133,7 @@ svg.ck{flex:none;width:18px;height:18px;margin-top:3px}
       <p class="lead">Krótkie, praktyczne opracowania PDF. Placówka kupuje licencję na fakturę i&nbsp;drukuje dla całego zespołu. Nauczyciel kupuje dla siebie i&nbsp;płaci online, plik dostaje od razu.</p>
     </div>
     <div class="offer-grid cols-4" id="lista-broszur"></div>
-    <p class="ask-note">Ceny broszur podane w&nbsp;kwocie netto; faktura zawiera VAT według obowiązującej stawki.</p>
+    <p class="ask-note">Ceny broszur podane w&nbsp;kwocie brutto — tyle płacisz. Pod spodem kwota netto i&nbsp;VAT, czyli to, co księgowość zobaczy na fakturze.</p>
     <div class="offer-note">
       <p><b>Broszury to dobry początek. Aplikacja to koniec przepisywania.</b> W&nbsp;subskrypcji EduPlaner 2026 ta sama wiedza jest wbudowana w&nbsp;druki, które wypełniają się z&nbsp;danych ucznia.</p>
       <a class="btn btn-primary" href="#cennik">Zobacz subskrypcję</a>
@@ -1368,10 +1372,10 @@ svg.ck{flex:none;width:18px;height:18px;margin-top:3px}
             <option value="szk-obserwacja" data-inst="1" data-person="1" data-price="na zapytanie">Szkolenie: Obserwacja pogłębiona, cztery narzędzia</option>
           </optgroup>
           <optgroup label="Broszury (PDF)">
-            <option value="br-emocje" data-inst="1" data-person="1" data-price="25 zł netto">Broszura: Kolorowy Świat Emocji</option>
-            <option value="br-echolalia" data-inst="1" data-person="1" data-price="25 zł netto">Broszura: Echolalia i rozumienie jej funkcji</option>
-            <option value="br-maly-ksiaze" data-inst="1" data-person="1" data-price="60 zł netto">Broszura: Mały Książę moim bohaterem</option>
-            <option value="br-sala" data-inst="1" data-person="1" data-price="20 zł netto">Broszura: Sala, która uczy każde dziecko</option>
+            <option value="br-emocje" data-inst="1" data-person="1" data-price="30 zł brutto (24,39 zł netto + VAT 23%)">Broszura: Kolorowy Świat Emocji</option>
+            <option value="br-echolalia" data-inst="1" data-person="1" data-price="30 zł brutto (24,39 zł netto + VAT 23%)">Broszura: Echolalia i rozumienie jej funkcji</option>
+            <option value="br-maly-ksiaze" data-inst="1" data-person="1" data-price="50 zł brutto (40,65 zł netto + VAT 23%)">Broszura: Mały Książę moim bohaterem</option>
+            <option value="br-sala" data-inst="1" data-person="1" data-price="30 zł brutto (24,39 zł netto + VAT 23%)">Broszura: Sala, która uczy każde dziecko</option>
           </optgroup>
         </select>
       </div>
@@ -1868,19 +1872,20 @@ var OFERTA = [
     "ceny": [
       [
         "Placówka",
-        "25 zł netto",
-        "licencja · faktura"
+        "30 zł",
+        "brutto · faktura"
       ],
       [
         "Indywidualnie",
-        "25 zł netto",
-        "PDF od razu"
+        "30 zł",
+        "brutto · od razu"
       ]
     ],
     "cta": "Kup",
     "primary": false,
     "buyer": "",
-    "wiecej": []
+    "wiecej": [],
+    "netto": "24,39 zł netto + 5,61 zł VAT 23%"
   },
   {
     "id": "br-echolalia",
@@ -1905,19 +1910,20 @@ var OFERTA = [
     "ceny": [
       [
         "Placówka",
-        "25 zł netto",
-        "licencja · faktura"
+        "30 zł",
+        "brutto · faktura"
       ],
       [
         "Indywidualnie",
-        "25 zł netto",
-        "PDF od razu"
+        "30 zł",
+        "brutto · od razu"
       ]
     ],
     "cta": "Kup",
     "primary": false,
     "buyer": "",
-    "wiecej": []
+    "wiecej": [],
+    "netto": "24,39 zł netto + 5,61 zł VAT 23%"
   },
   {
     "id": "br-maly-ksiaze",
@@ -1943,19 +1949,20 @@ var OFERTA = [
     "ceny": [
       [
         "Placówka",
-        "60 zł netto",
-        "licencja · faktura"
+        "50 zł",
+        "brutto · faktura"
       ],
       [
         "Indywidualnie",
-        "60 zł netto",
-        "PDF od razu"
+        "50 zł",
+        "brutto · od razu"
       ]
     ],
     "cta": "Kup",
     "primary": false,
     "buyer": "",
-    "wiecej": []
+    "wiecej": [],
+    "netto": "40,65 zł netto + 9,35 zł VAT 23%"
   },
   {
     "id": "br-sala",
@@ -1994,21 +2001,25 @@ var OFERTA = [
     "ceny": [
       [
         "Placówka",
-        "20 zł netto",
-        "licencja · faktura"
+        "30 zł",
+        "brutto · faktura"
       ],
       [
         "Indywidualnie",
-        "20 zł netto",
-        "PDF od razu"
+        "30 zł",
+        "brutto · od razu"
       ]
     ],
     "cta": "Kup",
     "primary": false,
     "buyer": "",
-    "wiecej": []
+    "wiecej": [],
+    "netto": "24,39 zł netto + 5,61 zł VAT 23%"
   }
 ];
+
+
+
 
 
 
@@ -2025,6 +2036,9 @@ var OFERTA = [
       return '<div><small>'+esc(c[0])+'</small><b'+kl+'>'+esc(c[1])+'</b><i>'+esc(c[2])+'</i></div>';
     }).join('')+'</div>';
   }
+  function netto(o){
+    return o.netto ? '<span class="netto">'+esc(o.netto)+'</span>' : '';
+  }
   function glowa(o){
     if((o.typ==='broszura'||o.typ==='pomoc') && o.okladka){
       var w=o.okladka;
@@ -2039,18 +2053,25 @@ var OFERTA = [
     }
     return '<span class="ico"><svg viewBox="0 0 24 24">'+IKONY[o.ikona]+'</svg></span>';
   }
+  /* Broszury i pomoce mają karty zwięzłe: okładka, tytuł, cena.
+     Opis, punkty i szczegóły techniczne czekają w oknie po kliknięciu. */
   function karta(o){
-    return '<article class="offer'+(o.hot?' hot':'')+'">'
+    var zwiezla = o.typ!=='szkolenie';
+    var srodek = zwiezla ? ''
+      : '<p>'+esc(o.opis)+'</p>'
+        + (o.punkty.length?'<ul>'+o.punkty.map(function(t){return '<li>'+CK+esc(t)+'</li>';}).join('')+'</ul>':'')
+        + '<span class="spec">'+esc(o.spec)+'</span>';
+    return '<article class="offer'+(o.hot?' hot':'')+(zwiezla?' zwiezla':'')+'">'
       + (o.badge?'<span class="badge">'+esc(o.badge)+'</span>':'')
       + glowa(o)
       + '<span class="fmt">'+esc(o.fmt)+'</span>'
-      + '<h3>'+esc(o.tytul)+'</h3><p>'+esc(o.opis)+'</p>'
-      + (o.punkty.length?'<ul>'+o.punkty.map(function(t){return '<li>'+CK+esc(t)+'</li>';}).join('')+'</ul>':'')
-      + '<span class="spec">'+esc(o.spec)+'</span>'
-      + ceny(o)
+      + '<h3>'+esc(o.tytul)+'</h3>'
+      + srodek
+      + ceny(o) + netto(o)
       + '<a class="btn '+(o.primary?'btn-primary':'btn-ghost')+'" href="#zamow" data-order="'+esc(o.id)+'"'
       + (o.buyer?' data-buyer="'+esc(o.buyer)+'"':'')+'>'+esc(o.cta)+'</a>'
-      + '<button class="more" type="button" data-poz="'+esc(o.id)+'">Zobacz szczegóły</button>'
+      + '<button class="more" type="button" data-poz="'+esc(o.id)+'">'
+      + (zwiezla?'Co jest w środku':'Zobacz szczegóły')+'</button>'
       + '</article>';
   }
 
@@ -2136,7 +2157,7 @@ var OFERTA = [
       + (o.wiecej && o.wiecej.length?'<h4>Szczegóły</h4><ul>'+o.wiecej.map(function(t){return '<li>'+CK+esc(t)+'</li>';}).join('')+'</ul>':'')
       + '</div>';
     var prawa='<aside class="poz-side"><span class="fmt">'+esc(o.fmt)+'</span>'
-      + ceny(o) + '<span class="spec">'+esc(o.spec)+'</span>'
+      + ceny(o) + netto(o) + '<span class="spec">'+esc(o.spec)+'</span>'
       + '<a class="btn '+(o.primary?'btn-primary':'btn-ghost')+'" href="#zamow" data-zamow="'+esc(o.id)+'"'
       + (o.buyer?' data-buyer="'+esc(o.buyer)+'"':'')+'>'+esc(o.cta)+'</a></aside>';
     OKNO.body.innerHTML='<div class="poz">'+lewa+prawa+'</div>';
