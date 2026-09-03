@@ -402,55 +402,58 @@ svg.ck{flex:none;width:18px;height:18px;margin-top:3px}
 .vbox .close:hover{background:rgba(255,255,255,.22)}
 .vbox .cap{position:absolute;left:24px;bottom:20px;color:#EDE8F6;font-size:14px}
 
-/* Facebook i blog ---------------------------------------------------- */
+/* Facebook, blog, szkolenia ------------------------------------------ */
 .community{background:linear-gradient(180deg,var(--paper),var(--paper-2));border-block:1px solid var(--line)}
-.comm-grid{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);gap:24px;align-items:stretch}
-@media (max-width:900px){.comm-grid{grid-template-columns:1fr}}
+.comm-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:22px;align-items:stretch}
+@media (max-width:1000px){.comm-grid{grid-template-columns:1fr 1fr}}
+@media (max-width:680px){.comm-grid{grid-template-columns:1fr}}
 
-.fb-card{position:relative;overflow:hidden;border-radius:var(--radius);padding:32px 32px 28px;
-  background:linear-gradient(158deg,#FBF3EA 0%,#F5EFF9 48%,#EDE6F6 100%);
-  border:1px solid var(--plum-line);
-  box-shadow:0 26px 50px -34px rgba(45,27,105,.42),inset 0 1px 0 rgba(255,255,255,.9);
-  display:flex;flex-direction:column;gap:15px;text-decoration:none}
-.fb-card .kw{right:-86px;bottom:-104px;width:320px;height:320px;opacity:.16}
-.fb-card::after{content:"";position:absolute;inset:0;pointer-events:none;
-  background:radial-gradient(58% 44% at 96% 2%,rgba(216,96,64,.10),transparent 66%),radial-gradient(52% 40% at 4% 100%,rgba(45,27,105,.07),transparent 70%)}
-.fb-card > *{position:relative;z-index:1}
-.fb-mark{width:56px;height:56px;border-radius:17px;background:#fff;display:grid;place-items:center;
-  border:1px solid var(--plum-line);box-shadow:0 10px 22px -14px rgba(45,27,105,.55)}
-.fb-mark svg{width:29px;height:29px}
-.fb-card .lbl{font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--plum);font-weight:700}
-.fb-card h3{font-size:clamp(23px,2.4vw,28px);color:var(--plum);letter-spacing:-.01em;line-height:1.15}
-.fb-card p{color:var(--ink-2);font-size:16px;line-height:1.6;max-width:40ch}
-.fb-card ul{list-style:none;margin:2px 0 0;padding:0;display:flex;flex-direction:column;gap:9px}
-.fb-card li{display:flex;gap:11px;align-items:flex-start;font-size:15.5px;color:var(--ink-2);line-height:1.5}
-.fb-card li i{flex:none;width:6px;height:6px;border-radius:50%;background:#D2603F;margin-top:9px}
-.fb-card .go{margin-top:auto;padding-top:20px;display:flex;align-items:center;gap:10px;font-weight:700;font-size:16.5px;color:var(--orange-ink)}
-.fb-card .go svg{width:18px;height:18px;stroke:var(--orange);fill:none;stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round;transition:transform .18s ease}
-.fb-card:hover{box-shadow:0 32px 58px -32px rgba(45,27,105,.5),inset 0 1px 0 rgba(255,255,255,.95)}
-.fb-card:hover .go svg{transform:translateX(4px)}
-.fb-card.soon{cursor:default}
-.fb-card.soon .go{color:var(--ink-3)}
-.fb-card.soon .go svg{stroke:var(--ink-3)}
-.blog-card{background:linear-gradient(180deg,#fff,#FDFAF6);border:1px solid var(--plum-line);border-radius:var(--radius);padding:30px 32px 26px;display:flex;flex-direction:column;box-shadow:0 26px 50px -34px rgba(45,27,105,.4)}
-.blog-card .top{display:flex;align-items:flex-start;gap:16px;margin-bottom:6px}
-.blog-mark{width:52px;height:52px;border-radius:15px;flex:none;background:linear-gradient(180deg,#FDEBE1,#FADFD1);display:grid;place-items:center;border:1px solid color-mix(in srgb,var(--orange) 26%,transparent)}
-.blog-mark svg{width:25px;height:25px;stroke:var(--orange-ink);fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
-.blog-card .lbl{font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-3);font-weight:600;margin-bottom:5px}
-.blog-card h3{font-size:24px;line-height:1.15}
-.blog-card > p{color:var(--ink-2);font-size:15.5px;line-height:1.55;margin:10px 0 4px;max-width:56ch}
-.posts{list-style:none;margin:18px 0 0;padding:0;border-top:1px solid var(--line)}
+.comm-card{position:relative;overflow:hidden;border-radius:var(--radius);padding:28px 28px 26px;display:flex;flex-direction:column;gap:13px;text-decoration:none;
+  border:1px solid var(--plum-line);box-shadow:0 24px 46px -34px rgba(45,27,105,.42),inset 0 1px 0 rgba(255,255,255,.9)}
+.comm-card > *{position:relative;z-index:1}
+.fb-card{background:linear-gradient(158deg,#FBF3EA 0%,#F5EFF9 50%,#EDE6F6 100%)}
+.blog-card{background:linear-gradient(170deg,#FFFDFB 0%,#FBF4EC 100%)}
+.learn-card{background:linear-gradient(170deg,#F7F3FC 0%,#EFE9F8 100%)}
+.comm-card .kw{right:-84px;bottom:-100px;width:300px;height:300px;opacity:.15}
+.fb-card::after,.learn-card::after{content:"";position:absolute;inset:0;pointer-events:none;
+  background:radial-gradient(56% 42% at 96% 2%,rgba(210,96,63,.09),transparent 66%)}
+.comm-card .mark{width:52px;height:52px;border-radius:16px;display:grid;place-items:center;flex:none;border:1px solid var(--plum-line)}
+.comm-card .mark svg{width:25px;height:25px}
+.mark.white{background:#fff;box-shadow:0 10px 20px -14px rgba(45,27,105,.55)}
+.mark.white span{display:grid;place-items:center}
+.mark.orange{background:linear-gradient(180deg,#FDEBE1,#FADFD1);border-color:color-mix(in srgb,var(--orange) 26%,transparent)}
+.mark.orange svg{stroke:var(--orange-ink);fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.mark.plum{background:linear-gradient(180deg,#EDE7F8,#E2DAF3)}
+.mark.plum svg{stroke:var(--plum);fill:none;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}
+.comm-card .lbl{font-size:11.5px;letter-spacing:.15em;text-transform:uppercase;color:var(--plum);font-weight:700}
+.comm-card h3{font-size:22px;color:var(--plum);letter-spacing:-.01em;line-height:1.18}
+.comm-card > p{color:var(--ink-2);font-size:15.5px;line-height:1.55}
+.comm-card ul{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:8px}
+.comm-card ul li{display:flex;gap:10px;align-items:flex-start;font-size:14.5px;color:var(--ink-2);line-height:1.5}
+.comm-card ul li i{flex:none;width:6px;height:6px;border-radius:50%;background:#D2603F;margin-top:8px}
+.comm-card .go{margin-top:auto;padding-top:18px;display:flex;align-items:center;gap:9px;font-weight:700;font-size:15.5px;color:var(--orange-ink);text-decoration:none}
+.comm-card .go svg{width:17px;height:17px;stroke:var(--orange);fill:none;stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round;transition:transform .18s ease}
+.comm-card:hover .go svg,.comm-card .go:hover svg{transform:translateX(4px)}
+.comm-card.soon{cursor:default}
+.comm-card.soon .go,a.go.soon{color:var(--ink-3)}
+.comm-card.soon .go svg,a.go.soon svg{stroke:var(--ink-3)}
+
+.posts{list-style:none;margin:4px 0 0;padding:0;border-top:1px solid var(--line)}
 .posts li{border-bottom:1px solid var(--line)}
-.posts a{display:grid;grid-template-columns:auto 1fr auto;gap:16px;align-items:center;padding:15px 4px;text-decoration:none;border-radius:9px;transition:background .16s ease}
-.posts a:hover{background:linear-gradient(90deg,var(--plum-soft),rgba(237,232,247,.35))}
-.posts .num{width:34px;height:34px;border-radius:10px;background:linear-gradient(180deg,#F1ECFA,#E7E0F4);border:1px solid var(--plum-line);color:var(--plum);display:grid;place-items:center;font-family:var(--display);font-weight:700;font-size:14px}
-.posts .tt{font-weight:600;font-size:16px;line-height:1.3;color:var(--ink)}
-.posts .tt span{display:block;font-weight:400;font-size:13.5px;color:var(--ink-2);margin-top:3px}
-.posts .meta{font-size:13px;color:var(--ink-3);white-space:nowrap;font-variant-numeric:tabular-nums}
-.blog-card .foot{margin-top:auto;padding-top:20px;display:flex;gap:12px;flex-wrap:wrap;align-items:center}
-.blog-card .foot .hint{font-size:13.5px;color:var(--ink-3)}
+.posts a{display:grid;grid-template-columns:auto 1fr;gap:12px;align-items:center;padding:12px 2px;text-decoration:none;border-radius:8px;transition:background .16s ease}
+.posts a:hover{background:rgba(237,232,247,.55)}
+.posts .num{width:30px;height:30px;border-radius:9px;background:linear-gradient(180deg,#F1ECFA,#E7E0F4);border:1px solid var(--plum-line);color:var(--plum);display:grid;place-items:center;font-family:var(--display);font-weight:700;font-size:12.5px}
+.posts .tt{font-weight:600;font-size:14.5px;line-height:1.35;color:var(--ink)}
 .blog-card.soon .posts{opacity:.55;pointer-events:none}
-.ribbon{display:inline-flex;align-items:center;gap:7px;background:var(--orange-soft);color:var(--orange-ink);border:1px solid color-mix(in srgb,var(--orange) 32%,transparent);border-radius:99px;padding:5px 12px;font-size:12.5px;font-weight:700;letter-spacing:.02em}
+
+.two-links{gap:10px!important}
+.two-links li{display:block!important}
+.two-links a{display:grid;grid-template-columns:1fr auto;align-items:center;gap:10px;padding:13px 15px;border-radius:11px;background:rgba(255,255,255,.72);border:1px solid var(--plum-line);text-decoration:none;transition:background .16s ease,transform .16s ease}
+.two-links a:hover{background:#fff;transform:translateY(-2px)}
+.two-links b{grid-column:1;grid-row:1;font-family:var(--display);font-size:16px;color:var(--plum)}
+.two-links span{grid-column:1;grid-row:2;font-size:13.5px;color:var(--ink-2);line-height:1.45;margin-top:2px}
+.two-links svg{grid-column:2;grid-row:1/span 2;align-self:center;width:17px;height:17px;stroke:var(--orange);fill:none;stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round}
+.learn-card .hint{margin-top:auto;padding-top:16px;font-size:13px;color:var(--ink-3);line-height:1.5}
 
 /* ikony społecznościowe w stopce */
 .soc{display:flex;gap:10px;margin-top:16px}
@@ -1240,52 +1243,57 @@ svg.ck{flex:none;width:18px;height:18px;margin-top:3px}
   </div>
 </section>
 
-<!-- FACEBOOK I BLOG ------------------------------------------------ -->
+<!-- FACEBOOK, BLOG, SZKOLENIA -------------------------------------- -->
 <section class="section community" id="spolecznosc">
   <div class="wrap">
     <div class="section-head">
       <div>
         <p class="eyebrow">Bądźmy w kontakcie</p>
-        <h2>Grupa na Facebooku i&nbsp;blog o&nbsp;ocenie funkcjonalnej</h2>
+        <h2>Jak rozwija się EduPlaner 2026</h2>
       </div>
-      <p class="lead">Zmiany w&nbsp;przepisach nie kończą się we wrześniu. Tu wrzucamy to, co przydaje się w&nbsp;pracy: interpretacje, wzory i&nbsp;odpowiedzi na pytania, które wracają najczęściej.</p>
+      <p class="lead">Nie prowadzę infolinii i&nbsp;nie obiecuję odpowiedzi na każdy komentarz. Dzielę się tym, co dla Was najcenniejsze: w&nbsp;którą stronę idzie aplikacja, co wynika z&nbsp;wymagań w&nbsp;edukacji i&nbsp;jakie pomysły z&nbsp;praktyki wchodzą do programu.</p>
     </div>
 
     <div class="comm-grid">
-      <!-- TODO: adres grupy lub strony wpisz w LINKS.facebook na dole pliku -->
-      <a class="fb-card" data-link="facebook" href="#" aria-label="Dołącz do grupy na Facebooku">
+      <!-- TODO: adres grupy lub strony wpisz w LINKS.facebook -->
+      <a class="comm-card fb-card" data-link="facebook" href="#" aria-label="Facebook EduPlaner 2026">
         <svg class="kw" aria-hidden="true"><use href="#kwiat"/></svg>
-        <span class="fb-mark"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="#1877F2" d="M24 12.07C24 5.4 18.63 0 12 0S0 5.4 0 12.07C0 18.1 4.39 23.1 10.13 24v-8.44H7.08v-3.49h3.05V9.41c0-3.02 1.79-4.69 4.53-4.69 1.31 0 2.68.24 2.68.24v2.96h-1.51c-1.49 0-1.96.93-1.96 1.89v2.26h3.33l-.53 3.49h-2.8V24C19.61 23.1 24 18.1 24 12.07z"/></svg></span>
-        <span class="lbl">Facebook · grupa dla praktyków</span>
-        <h3>Pytania z&nbsp;praktyki, odpowiedzi tego samego dnia</h3>
-        <p>Miejsce dla nauczycieli, specjalistów i&nbsp;dyrektorów, którzy wdrażają ocenę funkcjonalną u&nbsp;siebie.</p>
+        <span class="mark white"><span><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="#1877F2" d="M24 12.07C24 5.4 18.63 0 12 0S0 5.4 0 12.07C0 18.1 4.39 23.1 10.13 24v-8.44H7.08v-3.49h3.05V9.41c0-3.02 1.79-4.69 4.53-4.69 1.31 0 2.68.24 2.68.24v2.96h-1.51c-1.49 0-1.96.93-1.96 1.89v2.26h3.33l-.53 3.49h-2.8V24C19.61 23.1 24 18.1 24 12.07z"/></svg></span></span>
+        <span class="lbl">Facebook</span>
+        <h3>Kulisy powstawania aplikacji</h3>
+        <p>Krótkie wpisy o&nbsp;tym, co właśnie powstaje i&nbsp;dlaczego akurat to.</p>
         <ul>
-          <li><i></i>Pytania o&nbsp;WOPF, IPET i&nbsp;PEWS — bez oceniania, że ktoś czegoś nie wie</li>
-          <li><i></i>Informacje o&nbsp;zmianach w&nbsp;przepisach, gdy tylko się pojawią</li>
-          <li><i></i>Terminy bezpłatnych spotkań na żywo z&nbsp;autorką</li>
+          <li><i></i>Nad czym pracujemy w&nbsp;danym miesiącu</li>
+          <li><i></i>Co zmieniamy po uwagach placówek</li>
+          <li><i></i>Zapowiedzi nowych modułów i&nbsp;druków</li>
         </ul>
-        <span class="go">Dołącz do grupy <svg viewBox="0 0 24 24"><path d="M5 12h13M13 6l6 6-6 6"/></svg></span>
+        <span class="go">Zobacz profil <svg viewBox="0 0 24 24"><path d="M5 12h13M13 6l6 6-6 6"/></svg></span>
       </a>
 
-      <div class="blog-card" data-link="blog">
-        <div class="top">
-          <span class="blog-mark"><svg viewBox="0 0 24 24"><path d="M4 5a2 2 0 0 1 2-2h9l5 5v11a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2z"/><path d="M15 3v5h5M8 13h8M8 17h5"/></svg></span>
-          <div>
-            <p class="lbl">Blog EduPlaner</p>
-            <h3>Ocena funkcjonalna wytłumaczona po ludzku</h3>
-          </div>
-        </div>
-        <p>Krótkie teksty pisane przez praktyka: co mówi przepis, co to znaczy w&nbsp;Twojej sali i&nbsp;jak zapisać to w&nbsp;dokumencie, żeby obroniło się przy kontroli.</p>
-        <!-- TODO: podmień trzy wpisy na prawdziwe (tytuł, opis, data, czas czytania) -->
+      <!-- TODO: adres bloga wpisz w LINKS.blog -->
+      <div class="comm-card blog-card" data-link="blog">
+        <span class="mark orange"><svg viewBox="0 0 24 24"><path d="M4 5a2 2 0 0 1 2-2h9l5 5v11a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2z"/><path d="M15 3v5h5M8 13h8M8 17h5"/></svg></span>
+        <span class="lbl">Blog</span>
+        <h3>Wymagania w&nbsp;edukacji a&nbsp;praktyka</h3>
+        <p>Dłuższe teksty: co mówi przepis, co to znaczy w&nbsp;sali i&nbsp;jaki pomysł na to mamy w&nbsp;programie.</p>
         <ol class="posts">
-          <li><a href="#" data-link="blog"><span class="num">01</span><span class="tt">Jeden WOPF, dwa tryby — kiedy IPET, a&nbsp;kiedy PEWS<span>Najczęstsza wątpliwość zespołów, rozstrzygnięta na przykładach</span></span><span class="meta">7 min</span></a></li>
-          <li><a href="#" data-link="blog"><span class="num">02</span><span class="tt">Sten w&nbsp;KSzOF: co znaczy wynik i&nbsp;co z&nbsp;nim zrobić<span>Od surowych ocen 1–5 do poziomu wsparcia</span></span><span class="meta">6 min</span></a></li>
-          <li><a href="#" data-link="blog"><span class="num">03</span><span class="tt">Cele SMART, których nie trzeba przepisywać co roku<span>Jak sformułować cel, żeby dało się go ocenić w&nbsp;czerwcu</span></span><span class="meta">8 min</span></a></li>
+          <li><a href="#" data-link="blog"><span class="num">01</span><span class="tt">Jeden WOPF, dwa tryby — kiedy IPET, a&nbsp;kiedy PEWS</span></a></li>
+          <li><a href="#" data-link="blog"><span class="num">02</span><span class="tt">Sten w&nbsp;KSzOF: co znaczy wynik i&nbsp;co z&nbsp;nim zrobić</span></a></li>
+          <li><a href="#" data-link="blog"><span class="num">03</span><span class="tt">Cele SMART, których nie trzeba pisać co roku od nowa</span></a></li>
         </ol>
-        <div class="foot">
-          <a class="btn btn-ghost" data-link="blog" href="#">Czytaj bloga</a>
-          <span class="hint">Nowy tekst mniej więcej co dwa tygodnie.</span>
-        </div>
+        <a class="go as-link" data-link="blog" href="#">Czytaj bloga <svg viewBox="0 0 24 24"><path d="M5 12h13M13 6l6 6-6 6"/></svg></a>
+      </div>
+
+      <div class="comm-card learn-card">
+        <span class="mark plum"><svg viewBox="0 0 24 24"><path d="M3 7l9-4 9 4-9 4z"/><path d="M7 10v5c0 1.7 2.2 3 5 3s5-1.3 5-3v-5M21 7v6"/></svg></span>
+        <span class="lbl">Szkolenia i&nbsp;nagrania</span>
+        <h3>Miejsce na naukę</h3>
+        <p>Bezpłatne filmy wprowadzające i&nbsp;płatne szkolenia dla rady pedagogicznej — wszystko zebrane na tej stronie.</p>
+        <ul class="two-links">
+          <li><a href="#filmy"><b>Filmy</b><span>wprowadzenie i&nbsp;szkolenie w&nbsp;pięciu częściach, bezpłatnie</span><svg viewBox="0 0 24 24"><path d="M5 12h13M13 6l6 6-6 6"/></svg></a></li>
+          <li><a href="#szkolenia"><b>Szkolenia</b><span>rada pedagogiczna, warsztat wdrożeniowy, terminy dla osób prywatnych</span><svg viewBox="0 0 24 24"><path d="M5 12h13M13 6l6 6-6 6"/></svg></a></li>
+        </ul>
+        <p class="hint">Nowe nagranie pojawia się, gdy zmieniają się przepisy lub gdy dochodzi moduł.</p>
       </div>
     </div>
   </div>
@@ -1463,9 +1471,8 @@ var VIDEO = {
     else { el.classList.add('soon'); el.removeAttribute('href'); el.setAttribute('aria-disabled','true');
            el.addEventListener('click',function(e){e.preventDefault();}); }
   });
-  var fb=document.querySelector('.fb-card.soon .go'); if(fb) fb.firstChild.textContent='Grupa startuje wkrótce ';
-  var bc=document.querySelector('.blog-card.soon'); if(bc){ var b=bc.querySelector('.foot .btn'); if(b) b.textContent='Blog ruszy wkrótce';
-    var h=bc.querySelector('.foot .hint'); if(h) h.innerHTML='Chcesz wiedzieć pierwsza? <a href="mailto:kontakt@eduplaner2026.pl?subject=Powiadom%20o%20blogu">Napisz do nas</a>.'; }
+  var fb=document.querySelector('.fb-card.soon .go'); if(fb) fb.firstChild.textContent='Profil startuje wkrótce ';
+  var bg=document.querySelector('.blog-card.soon .go'); if(bg) bg.firstChild.textContent='Blog ruszy wkrótce ';
 
   document.querySelectorAll('[data-video]').forEach(function(el){
     var url=VIDEO[el.dataset.video];
