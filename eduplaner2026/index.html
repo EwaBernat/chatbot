@@ -147,6 +147,19 @@ svg.ck{flex:none;width:18px;height:18px;margin-top:3px}
 .app-foot b{color:var(--ink)}
 .app-foot .go{background:var(--orange);color:#fff;padding:6px 10px;border-radius:7px;font-weight:600;font-size:11px}
 
+/* monitor z aplikacją w hero ---------------------------------------- */
+.device{position:relative;z-index:2;margin-right:-150px;border-radius:16px;padding:11px 11px 13px;background:linear-gradient(160deg,#2A2145,#161027);box-shadow:0 50px 90px -40px rgba(0,0,0,.75),inset 0 0 0 1px rgba(255,255,255,.09);animation:wake .9s cubic-bezier(.2,.8,.25,1) both}
+.device .screen{border-radius:8px;overflow:hidden;background:#fff;position:relative;aspect-ratio:16/9.4}
+.device .screen img{width:100%;height:100%;object-fit:cover;object-position:top left;display:block;transform:scale(1.34);transform-origin:0 0}
+.device .glare{position:absolute;inset:0;background:linear-gradient(115deg,rgba(255,255,255,.16) 0%,transparent 34%);pointer-events:none}
+.device .foot{height:4px;width:64px;margin:9px auto 0;border-radius:99px;background:rgba(255,255,255,.16)}
+.livedot{position:absolute;right:22px;bottom:-16px;z-index:5;display:flex;align-items:center;gap:8px;background:rgba(20,13,40,.78);backdrop-filter:blur(6px);border:1px solid rgba(255,255,255,.2);border-radius:99px;padding:7px 14px 7px 11px;color:#F0ECF7;font-size:12.5px;font-weight:600;animation:wake .9s ease .45s both}
+.livedot i{width:7px;height:7px;border-radius:50%;background:#57D08A;animation:pulse 2.6s ease-out infinite}
+.stage .float{z-index:6;left:-34px;right:auto;bottom:4px;animation:wake 1s cubic-bezier(.2,.8,.25,1) .3s both}
+@keyframes wake{from{opacity:0;transform:translateY(18px) scale(.985)}to{opacity:1;transform:none}}
+@keyframes pulse{0%{box-shadow:0 0 0 0 rgba(87,208,138,.6)}70%{box-shadow:0 0 0 9px rgba(87,208,138,0)}100%{box-shadow:0 0 0 0 rgba(87,208,138,0)}}
+@media (prefers-reduced-motion: reduce){.device,.livedot,.stage .float{animation:none}.livedot i{animation:none}}
+@media (max-width:980px){.device{margin-right:0}.stage .float{left:0;bottom:-10px}}
 /* pasek standardów -------------------------------------------------- */
 .standards{padding:26px 0;border-bottom:1px solid var(--line);background:var(--paper-2)}
 .standards .wrap{display:flex;align-items:center;gap:20px;flex-wrap:wrap}
@@ -429,13 +442,13 @@ svg.ck{flex:none;width:18px;height:18px;margin-top:3px}
 @media (prefers-color-scheme: light){:root:not([data-theme="dark"]) .blob{opacity:.7}}
 
 /* scena hero -------------------------------------------------------- */
-.stage{position:relative;padding:44px 0 56px 44px;min-height:520px}
-.stage::before{content:"";position:absolute;top:-20px;bottom:0;left:0;right:-260px;border-radius:32px 0 0 32px;background:linear-gradient(160deg,#4A3A8C 0%,#382A6B 45%,var(--plum-deep) 100%);z-index:0;box-shadow:inset 0 0 0 1px rgba(255,255,255,.07)}
-.stage::after{content:"";position:absolute;inset:-20px -260px 0 0;border-radius:32px 0 0 32px;background:radial-gradient(60% 50% at 85% 10%,rgba(255,255,255,.14),transparent 70%);z-index:0;pointer-events:none}
+.stage{position:relative;padding:34px 0 58px 30px;min-height:520px}
+.stage::before{content:"";position:absolute;top:-26px;bottom:14px;left:0;right:-320px;border-radius:32px 0 0 32px;background:linear-gradient(160deg,#4A3A8C 0%,#382A6B 45%,var(--plum-deep) 100%);z-index:0;box-shadow:inset 0 0 0 1px rgba(255,255,255,.07)}
+.stage::after{content:"";position:absolute;inset:-26px -320px 14px 0;border-radius:32px 0 0 32px;background:radial-gradient(60% 50% at 85% 10%,rgba(255,255,255,.14),transparent 70%);z-index:0;pointer-events:none}
 .stage .kw{right:-40px;top:-46px;width:300px;height:300px;opacity:.16;z-index:0}
 .stage .kw-2{left:-14px;bottom:10px;width:120px;height:120px;opacity:.28;z-index:0}
 .stage .app{position:relative;z-index:2;transform:perspective(1400px) rotateY(-7deg) rotateX(2deg);transform-origin:left center;border-color:rgba(255,255,255,.35);box-shadow:0 40px 70px -30px rgba(0,0,0,.55)}
-.stage .float{z-index:3;left:auto;right:-16px;bottom:24px}
+
 .docp{position:absolute;z-index:1;right:28px;top:-6px;width:150px;aspect-ratio:1/1.41;background:#fff;border-radius:6px;box-shadow:0 24px 40px -20px rgba(0,0,0,.6);padding:14px 12px;transform:rotate(6deg);display:flex;flex-direction:column;gap:6px}
 .docp::before{content:"IPET";font-family:var(--display);font-weight:800;font-size:11px;color:var(--plum);letter-spacing:.06em}
 .docp i{display:block;height:4px;border-radius:2px;background:#E4DEF3}
@@ -605,11 +618,14 @@ svg.ck{flex:none;width:18px;height:18px;margin-top:3px}
 
     <div class="app-wrap stage">
     <svg class="kw " aria-hidden="true"><use href="#kwiat"/></svg><svg class="kw kw-2" aria-hidden="true"><use href="#kwiat"/></svg>
-    <figure class="shot shot-back"><img src="img/ekran-druk-ipet.jpg" alt="Ekran aplikacji: Druk IPET z wypełnioną metryczką ucznia" loading="eager"></figure>
-    <figure class="shot shot-main">
-      <span class="bar" aria-hidden="true"><i></i><i></i><i></i><b>EduPlaner 2026 · Obserwacje WOPF · Jan Kowalski · kl. VI A</b></span>
-      <img src="img/ekran-obserwacje-wopf.jpg" alt="Ekran aplikacji EduPlaner 2026: zakładka Obserwacje WOPF z wyborem osoby obserwującej, miejsca i narzędzia KSzOF">
-    </figure>
+    <div class="device">
+      <div class="screen">
+        <img src="img/app-panel-glowny.jpg" alt="Panel główny aplikacji EduPlaner 2026: ścieżka dziecka w menu bocznym, list autorki i moduły" width="2400" height="1500">
+        <span class="glare" aria-hidden="true"></span>
+      </div>
+      <span class="foot" aria-hidden="true"></span>
+      <span class="livedot"><i></i>Działa w przeglądarce</span>
+    </div>
     <div class="float" aria-hidden="true"><span class="doc"></span><div><b>Druk IPET gotowy do PDF</b><span>metryczka i cele SMART z WOPF</span></div></div>
     </div>
   </div>
