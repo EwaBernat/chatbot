@@ -387,6 +387,9 @@ svg.ck{flex:none;width:18px;height:18px;margin-top:3px}
 .cover.ksiaze::before{background:#E8C55A}
 .cover.ksiaze .ttl em{font-style:normal;color:#E8C55A;display:block}
 .cover.ksiaze .sub{color:#8FD6C0;opacity:1}
+.cover.sala{background:linear-gradient(160deg,#6E5AAE 0%,#4A3A8C 45%,#2D1B69 100%)}
+.cover.sala::before{background:#3FBFA0}
+.cover.sala .ttl em{font-style:normal;color:#8FD6C0;display:block}
 .offer-all{margin-top:26px;display:flex;justify-content:center}
 .tile-katalog{background:var(--plum-soft);border:1.5px dashed var(--plum-line);box-shadow:none;
   align-items:center;text-align:center;justify-content:center;gap:6px}
@@ -1368,6 +1371,7 @@ svg.ck{flex:none;width:18px;height:18px;margin-top:3px}
             <option value="br-emocje" data-inst="1" data-person="1" data-price="25 zł netto">Broszura: Kolorowy Świat Emocji</option>
             <option value="br-echolalia" data-inst="1" data-person="1" data-price="25 zł netto">Broszura: Echolalia i rozumienie jej funkcji</option>
             <option value="br-maly-ksiaze" data-inst="1" data-person="1" data-price="60 zł netto">Broszura: Mały Książę moim bohaterem</option>
+            <option value="br-sala" data-inst="1" data-person="1" data-price="20 zł netto">Broszura: Sala, która uczy każde dziecko</option>
           </optgroup>
         </select>
       </div>
@@ -1952,8 +1956,60 @@ var OFERTA = [
     "primary": false,
     "buyer": "",
     "wiecej": []
+  },
+  {
+    "id": "br-sala",
+    "typ": "broszura",
+    "polecane": true,
+    "okladka": {
+      "wariant": "sala",
+      "ser": "Przewodnik dla nauczycieli, specjalistów i dyrektorów przedszkoli",
+      "ttl": "Sala,",
+      "ttl2": "która uczy każde dziecko",
+      "sub": "Trzy poziomy wsparcia w jednej sali",
+      "pasy": [
+        [
+          "#3FBFA0",
+          "Poziom 1 · projektowanie uniwersalne"
+        ],
+        [
+          "#F0B429",
+          "Poziom 2 · dostosowania ukierunkowane"
+        ],
+        [
+          "#8E7BD0",
+          "Poziom 3 · wsparcie indywidualne"
+        ]
+      ]
+    },
+    "fmt": "Dla przedszkoli · nauczyciele, specjaliści, dyrektorzy",
+    "tytul": "Sala, która uczy każde dziecko",
+    "opis": "Jak urządzić salę zgodnie z nową podstawą programową i jednocześnie zapewnić dostępność dzieciom z różnymi deficytami: pięć stref, trzy poziomy wsparcia, projektowanie uniwersalne i gotowe arkusze monitorujące.",
+    "punkty": [
+      "Pięć stref sali i trzy poziomy wsparcia: uniwersalny, ukierunkowany, indywidualny",
+      "Dziesięć grup potrzeb i deficytów — co zmienić w sali przy każdej z nich",
+      "Cztery narzędzia do kopiowania, w tym arkusze monitorujące"
+    ],
+    "spec": "49 stron A4 · PDF gotowy do druku · wydanie 2026",
+    "ceny": [
+      [
+        "Placówka",
+        "20 zł netto",
+        "licencja · faktura"
+      ],
+      [
+        "Indywidualnie",
+        "20 zł netto",
+        "PDF od razu"
+      ]
+    ],
+    "cta": "Kup",
+    "primary": false,
+    "buyer": "",
+    "wiecej": []
   }
 ];
+
 
 
 

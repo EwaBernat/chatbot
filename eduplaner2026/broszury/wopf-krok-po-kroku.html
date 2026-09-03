@@ -1,0 +1,437 @@
+<!doctype html>
+<html lang="pl">
+<head>
+<meta charset="utf-8">
+<title>WOPF krok po kroku — EduPlaner 2026</title>
+<style>
+@page{size:A4;margin:18mm 16mm 16mm}
+*{box-sizing:border-box}
+html{-webkit-print-color-adjust:exact;print-color-adjust:exact}
+body{margin:0;font:11pt/1.55 Arial,"DejaVu Sans",Helvetica,sans-serif;color:#221B3A}
+h1,h2,h3,h4{font-family:Arial,"DejaVu Sans",Helvetica,sans-serif;color:#2D1B69;margin:0}
+p{margin:0 0 9pt}
+ul,ol{margin:0 0 9pt;padding-left:16pt}
+li{margin-bottom:4pt}
+.page{page-break-after:always;position:relative;min-height:245mm}
+.page:last-child{page-break-after:auto}
+
+/* okładka */
+.cover{background:linear-gradient(165deg,#3A2686 0%,#2D1B69 55%,#241557 100%);color:#fff;
+  margin:-18mm -16mm 0;padding:26mm 20mm;min-height:261mm}
+.cover .marka{display:flex;align-items:center;gap:10pt;margin-bottom:30pt}
+.cover .znak{width:34pt;height:34pt;border-radius:50%;background:rgba(255,255,255,.14);
+  border:1px solid rgba(255,255,255,.4);display:flex;align-items:center;justify-content:center;
+  font-size:9pt;font-weight:bold;letter-spacing:.05em}
+.cover .marka b{display:block;font-size:12pt}
+.cover .marka span{display:block;font-size:8.5pt;letter-spacing:.14em;text-transform:uppercase;opacity:.75}
+.cover .seria{display:inline-block;border:1px solid rgba(255,255,255,.45);border-radius:4pt;
+  padding:5pt 10pt;font-size:8.5pt;letter-spacing:.16em;text-transform:uppercase;margin-bottom:18pt}
+.cover h1{color:#fff;font-size:40pt;line-height:1.04;letter-spacing:-.5pt;margin-bottom:12pt}
+.cover .lead{font-size:14pt;line-height:1.45;color:#E9E4F2;max-width:120mm;margin-bottom:26pt}
+.cover .kropki{display:flex;gap:4pt;margin-bottom:26pt}
+.cover .kropki i{height:8pt;flex:1;border-radius:2pt;background:#E8450A;opacity:.9}
+.cover .kropki i:nth-child(2){background:#F6A98C}
+.cover .kropki i:nth-child(3){background:#8E7BD0}
+.cover .kropki i:nth-child(4){background:#C6BBE6}
+.cover ul{list-style:none;padding:0;margin:0 0 30pt}
+.cover li{padding-left:16pt;position:relative;font-size:11pt;color:#D2CBE0;margin-bottom:7pt}
+.cover li::before{content:"";position:absolute;left:0;top:6pt;width:6pt;height:6pt;border-radius:50%;background:#E8450A}
+.cover .stopka{border-top:1px solid rgba(255,255,255,.22);padding-top:12pt;font-size:9.5pt;color:#ADA4BF}
+.cover .stopka b{color:#fff;display:block;font-size:11pt;margin-bottom:3pt}
+
+/* strony */
+.nag{display:flex;justify-content:space-between;align-items:baseline;
+  border-bottom:2px solid #2D1B69;padding-bottom:6pt;margin-bottom:16pt}
+.nag .nr{font-size:8.5pt;letter-spacing:.16em;text-transform:uppercase;color:#8A8399}
+.nag .roz{font-size:8.5pt;letter-spacing:.12em;text-transform:uppercase;color:#E8450A;font-weight:bold}
+h2{font-size:22pt;line-height:1.12;margin-bottom:10pt}
+h3{font-size:13pt;margin:16pt 0 6pt}
+h4{font-size:11pt;margin:12pt 0 4pt;color:#5B5471}
+.wstep{font-size:12pt;color:#5B5471;margin-bottom:14pt}
+.ramka{background:#F4EFE8;border-left:3pt solid #E8450A;padding:11pt 13pt;margin:12pt 0}
+.ramka p:last-child{margin-bottom:0}
+.ramka b{color:#2D1B69}
+.uwaga{background:#FDE9E0;border:1px solid #F3C4B0;border-radius:4pt;padding:11pt 13pt;margin:12pt 0}
+.uwaga p:last-child{margin-bottom:0}
+.uwaga .etykieta{display:block;font-size:8.5pt;letter-spacing:.14em;text-transform:uppercase;
+  color:#C43705;font-weight:bold;margin-bottom:5pt}
+.pole{border:1.5pt dashed #B9AFD0;border-radius:4pt;background:#FBF8F3;padding:11pt 13pt;margin:12pt 0;color:#5B5471}
+.pole .etykieta{display:block;font-size:8.5pt;letter-spacing:.14em;text-transform:uppercase;
+  color:#2D1B69;font-weight:bold;margin-bottom:5pt}
+table{width:100%;border-collapse:collapse;margin:10pt 0;font-size:10pt}
+th{background:#2D1B69;color:#fff;text-align:left;padding:7pt 8pt;font-size:9pt;
+  letter-spacing:.06em;text-transform:uppercase}
+td{border-bottom:1px solid #E4DED6;padding:7pt 8pt;vertical-align:top}
+tr:nth-child(even) td{background:#FBF8F3}
+.obszar{border:1px solid #E4DED6;border-radius:5pt;padding:10pt 12pt;margin-bottom:8pt}
+.obszar b{color:#2D1B69;display:block;margin-bottom:3pt}
+.obszar span{font-size:10pt;color:#5B5471}
+.dwie{display:flex;gap:12pt}
+.dwie>div{flex:1}
+.krok{display:flex;gap:10pt;margin-bottom:11pt}
+.krok .n{flex:none;width:22pt;height:22pt;border-radius:5pt;background:#2D1B69;color:#fff;
+  display:flex;align-items:center;justify-content:center;font-weight:bold;font-size:10pt}
+.krok b{color:#2D1B69}
+.stopka-str{position:absolute;bottom:0;left:0;right:0;border-top:1px solid #E4DED6;padding-top:6pt;
+  font-size:8pt;color:#8A8399;display:flex;justify-content:space-between}
+.spis li{margin-bottom:6pt;font-size:11pt}
+.spis b{color:#2D1B69}
+.ciasno table{font-size:9.5pt}
+.ciasno td,.ciasno th{padding:5pt 7pt}
+.ciasno h2{font-size:20pt}
+.ciasno .obszar{padding:7pt 10pt;margin-bottom:6pt}
+.ciasno .obszar span{font-size:9.5pt}
+.ciasno .uwaga{padding:9pt 11pt}
+.ciasno .wstep{font-size:11pt;margin-bottom:10pt}
+</style>
+</head>
+<body>
+
+<!-- OKŁADKA -->
+<div class="page cover">
+  <div class="marka">
+    <span class="znak">PCTP</span>
+    <span><b>Pomorskie Centrum Terapii Pedagogicznej</b><span>Koszalin · EduPlaner2026-MJ-PCTP</span></span>
+  </div>
+  <span class="seria">Broszura 1 · Dla zespołu</span>
+  <h1>WOPF<br>krok po kroku</h1>
+  <p class="lead">Jak wypełnić kwestionariusz KSzOF, odczytać wynik i zestawić trzy profile, żeby z oceny funkcjonalnej wyszedł plan, a nie stos papieru.</p>
+  <div class="kropki"><i></i><i></i><i></i><i></i></div>
+  <ul>
+    <li>Dziewięć obszarów funkcjonowania omówionych po kolei</li>
+    <li>Skala 1–5 z opisem, co dokładnie znaczy każdy stopień</li>
+    <li>Trzy profile: rodzic, nauczyciel, specjalista — i co robić, gdy się różnią</li>
+    <li>Od wyniku do poziomu wsparcia i do celów w planie</li>
+    <li>Przykład wypełnionego arkusza i checklista dla zespołu</li>
+  </ul>
+  <div class="stopka">
+    <b>opracowanie: Mirosława Ewa Jurczyszyn</b>
+    pedagog specjalny · kontakt@eduplaner2026.pl · eduplaner2026.pl
+  </div>
+</div>
+
+<!-- SPIS -->
+<div class="page">
+  <div class="nag"><span class="nr">WOPF krok po kroku</span><span class="roz">Spis treści</span></div>
+  <h2>Co znajdziesz w środku</h2>
+  <p class="wstep">Broszura prowadzi przez jedno postępowanie od początku do końca: od zebrania informacji, przez wypełnienie kwestionariusza, po zapis w planie wsparcia.</p>
+  <ol class="spis">
+    <li><b>Dla kogo jest ta broszura</b> — i jak z niej korzystać w zespole</li>
+    <li><b>Czym jest WOPF</b> — jedna ocena, dwa tryby planu</li>
+    <li><b>Zanim usiądziesz do kwestionariusza</b> — co trzeba mieć pod ręką</li>
+    <li><b>Dziewięć obszarów KSzOF</b> — co obserwujemy w każdym z nich</li>
+    <li><b>Skala 1–5</b> — jak nie mylić „nie potrafi" z „nie chce"</li>
+    <li><b>Trzy profile</b> — rodzic, nauczyciel, specjalista</li>
+    <li><b>Odczytanie wyniku</b> — wynik surowy, sten, poziom wsparcia</li>
+    <li><b>Kiedy profile się różnią</b> — rozbieżność jako informacja, nie błąd</li>
+    <li><b>Od oceny do planu</b> — jak z obszaru zrobić cel</li>
+    <li><b>Siedem najczęstszych błędów</b></li>
+    <li><b>Przykład</b> — uczeń Jan K., arkusz i wnioski</li>
+    <li><b>Checklista zespołu</b> — do wydrukowania</li>
+  </ol>
+  <div class="uwaga">
+    <span class="etykieta">Zanim zaczniesz</span>
+    <p>Broszura opisuje <b>metodę pracy</b>. Aktualne brzmienie przepisów, wzory druków obowiązujące w Twojej placówce i normy przeliczeniowe kwestionariusza sprawdź w dokumentacji narzędzia i w aktualnym stanie prawnym. Terminy i wzory bywają zmieniane w trakcie roku szkolnego.</p>
+  </div>
+  <div class="stopka-str"><span>PCTP Koszalin · EduPlaner 2026</span><span>2</span></div>
+</div>
+
+<!-- 1 -->
+<div class="page">
+  <div class="nag"><span class="nr">Rozdział 1</span><span class="roz">Dla kogo</span></div>
+  <h2>Dla kogo jest ta broszura</h2>
+  <p class="wstep">Dla zespołu, który ma wypełnić WOPF i nie chce, żeby zajęło to trzy wieczory.</p>
+  <p>Kwestionariusz KSzOF wypełnia się <b>w zespole</b>, ale nie znaczy to, że wszyscy siedzą nad nim jednocześnie. Każda osoba wnosi to, co realnie widzi:</p>
+  <div class="obszar"><b>Wychowawca</b><span>Widzi ucznia w grupie przez większość dnia: jak wchodzi do sali, jak reaguje na zmianę planu, jak radzi sobie z zadaniem, którego nie rozumie.</span></div>
+  <div class="obszar"><b>Specjalista</b><span>Widzi ucznia w warunkach ustrukturyzowanych, jeden na jeden. Ma narzędzia obserwacji pogłębionej i wie, kiedy po nie sięgnąć.</span></div>
+  <div class="obszar"><b>Rodzic</b><span>Widzi dziecko poza szkołą — tam, gdzie nie ma nauczyciela, planu lekcji i rówieśników z klasy. To jedyne źródło informacji o funkcjonowaniu w domu i w miejscach publicznych.</span></div>
+  <div class="obszar"><b>Dyrektor</b><span>Nie wypełnia kwestionariusza, ale odpowiada za to, żeby zespół się zebrał, dokumentacja powstała w terminie i była spójna w całej placówce.</span></div>
+  <h3>Jak korzystać z tej broszury</h3>
+  <ol>
+    <li>Przeczytaj rozdziały 4 i 5 <b>przed</b> pierwszym wypełnieniem — one decydują o jakości całej oceny.</li>
+    <li>Rozdział 12 wydrukuj i połóż na stole podczas zebrania zespołu.</li>
+    <li>Do rozdziału 8 wróć wtedy, gdy profile rodzica i nauczyciela znacząco się rozejdą.</li>
+  </ol>
+  <div class="stopka-str"><span>PCTP Koszalin · EduPlaner 2026</span><span>3</span></div>
+</div>
+
+<!-- 2 -->
+<div class="page">
+  <div class="nag"><span class="nr">Rozdział 2</span><span class="roz">Czym jest WOPF</span></div>
+  <h2>Jedna ocena, dwa tryby planu</h2>
+  <p class="wstep">Wielospecjalistyczna ocena poziomu funkcjonowania opisuje, <b>jak uczeń funkcjonuje</b> — a nie, jaką ma diagnozę.</p>
+  <p>Różnica jest praktyczna, nie filozoficzna. Diagnoza mówi, co uczniowi jest. Ocena funkcjonalna mówi, <b>co uczeń robi sam, co robi ze wsparciem i czego nie robi wcale</b> — w konkretnych sytuacjach szkolnego dnia. Dopiero to da się zamienić na plan.</p>
+  <div class="ramka">
+    <p><b>Zapamiętaj jedno zdanie:</b> ocena funkcjonalna opisuje sytuację, nie osobę. Nie „Jan jest niesamodzielny", tylko „Jan wykonuje polecenie dwuetapowe, gdy je usłyszy i zobaczy zapisane; przy poleceniu tylko ustnym zatrzymuje się po pierwszym kroku".</p>
+  </div>
+  <h3>Co się dzieje z oceną dalej</h3>
+  <div class="krok"><span class="n">1</span><div><b>WOPF</b> — zespół opisuje funkcjonowanie w dziewięciu obszarach.</div></div>
+  <div class="krok"><span class="n">2</span><div><b>Poziom wsparcia</b> — z oceny wynika, ile i jakiego wsparcia uczeń potrzebuje.</div></div>
+  <div class="krok"><span class="n">3</span><div><b>Plan</b> — IPET albo PEWS, zależnie od podstawy prawnej wsparcia. Struktura pracy jest ta sama; różni się druk.</div></div>
+  <div class="krok"><span class="n">4</span><div><b>Realizacja i ewaluacja</b> — po pół roku i po roku sprawdzamy, co się zmieniło, i wracamy do punktu 1.</div></div>
+  <p>To jest pętla, nie linia. Ocena z czerwca jest punktem wyjścia oceny z przyszłego roku — dlatego warto ją zapisać tak, żeby dało się ją potem porównać.</p>
+  <div class="uwaga">
+    <span class="etykieta">Do sprawdzenia w placówce</span>
+    <p>Który tryb planu obowiązuje w przypadku konkretnego ucznia, wynika z podstawy prawnej jego wsparcia. Ustal to <b>przed</b> zebraniem zespołu — inaczej dyskusja zejdzie na formę zamiast na treść.</p>
+  </div>
+  <div class="stopka-str"><span>PCTP Koszalin · EduPlaner 2026</span><span>4</span></div>
+</div>
+
+<!-- 3 -->
+<div class="page">
+  <div class="nag"><span class="nr">Rozdział 3</span><span class="roz">Przygotowanie</span></div>
+  <h2>Zanim usiądziesz do kwestionariusza</h2>
+  <p class="wstep">Połowa błędów w WOPF bierze się z tego, że ktoś wypełnia go z pamięci, tydzień po zdarzeniach.</p>
+  <h3>Co trzeba mieć pod ręką</h3>
+  <table>
+    <tr><th style="width:38%">Materiał</th><th>Po co</th></tr>
+    <tr><td>Orzeczenie lub opinia</td><td>Zalecenia są punktem odniesienia, ale nie zwalniają z obserwacji.</td></tr>
+    <tr><td>Poprzedni WOPF i plan</td><td>Żeby ocenić zmianę, a nie opisywać stan od zera.</td></tr>
+    <tr><td>Notatki z obserwacji</td><td>Konkretne sytuacje z datami — najcenniejsze źródło.</td></tr>
+    <tr><td>Wywiad z rodzicem</td><td>Funkcjonowanie poza szkołą; bez tego ocena jest niepełna.</td></tr>
+    <tr><td>Wytwory ucznia</td><td>Zeszyty, prace, nagrania — pokazują to, czego nie widać w rozmowie.</td></tr>
+  </table>
+  <h3>Zbieraj przykłady, nie wrażenia</h3>
+  <p>Zanim ktokolwiek postawi ocenę na skali, każda osoba w zespole powinna mieć <b>przynajmniej dwa konkretne zdarzenia</b> na każdy obszar, o którym się wypowiada. Nie „ma trudności w kontaktach", tylko „w poniedziałek podszedł do grupy przy stoliku, stanął z boku i po chwili odszedł; w środę dołączył, gdy nauczyciel przydzielił mu rolę".</p>
+  <div class="ramka">
+    <p><b>Zasada dwóch zdarzeń.</b> Jeśli na dany obszar nie masz dwóch przykładów, nie stawiaj oceny — zaznacz, że potrzebna jest dodatkowa obserwacja. Puste pole jest uczciwsze niż zgadywanie i widać je w ewaluacji.</p>
+  </div>
+  <h3>Ile czasu to zajmuje</h3>
+  <p>Przy przygotowanych notatkach wypełnienie jednego profilu zajmuje zwykle kilkadziesiąt minut. Bez notatek — kilka godzin, bo połowa czasu schodzi na przypominanie sobie zdarzeń i uzgadnianie, czy naprawdę tak było.</p>
+  <div class="stopka-str"><span>PCTP Koszalin · EduPlaner 2026</span><span>5</span></div>
+</div>
+
+<!-- 4 -->
+<div class="page ciasno">
+  <div class="nag"><span class="nr">Rozdział 4</span><span class="roz">Dziewięć obszarów</span></div>
+  <h2>Co obserwujemy w każdym obszarze</h2>
+  <p class="wstep">Obszary nie są kategoriami diagnostycznymi. To dziewięć okien, przez które patrzymy na ten sam dzień ucznia.</p>
+  <div class="obszar"><b>1 · Komunikacja i mowa</b><span>Jak uczeń przekazuje potrzebę, prosi o pomoc, odmawia. Czy rozumie polecenie złożone. Czy korzysta z komunikacji wspomagającej.</span></div>
+  <div class="obszar"><b>2 · Funkcjonowanie poznawcze</b><span>Uwaga, pamięć robocza, tempo pracy, przenoszenie umiejętności na nową sytuację.</span></div>
+  <div class="obszar"><b>3 · Emocje i regulacja</b><span>Rozpoznawanie własnego stanu, reakcja na porażkę i zmianę, sposoby uspokajania się, czas powrotu do równowagi.</span></div>
+  <div class="obszar"><b>4 · Relacje i kompetencje społeczne</b><span>Wchodzenie w kontakt, utrzymanie go, rozumienie intencji innych, zachowanie w grupie i w konflikcie.</span></div>
+  <div class="obszar"><b>5 · Samodzielność i czynności dnia</b><span>Ubieranie, posiłek, toaleta, organizacja miejsca pracy, pamiętanie o przyborach, poruszanie się po budynku.</span></div>
+  <div class="obszar"><b>6 · Motoryka</b><span>Duża i mała: równowaga, koordynacja, chwyt, grafomotoryka, wytrzymałość ręki przy dłuższym zadaniu.</span></div>
+  <div class="obszar"><b>7 · Przetwarzanie sensoryczne</b><span>Reakcje na dźwięk, światło, dotyk, ruch; poszukiwanie i unikanie bodźców; wpływ na funkcjonowanie w sali.</span></div>
+  <div class="obszar"><b>8 · Uczenie się i osiągnięcia szkolne</b><span>Czytanie, pisanie, liczenie, praca z instrukcją, korzystanie z pomocy, mocne strony przedmiotowe.</span></div>
+  <div class="obszar"><b>9 · Uczestnictwo i środowisko</b><span>Udział w zajęciach, wycieczkach, przerwach; bariery i ułatwienia po stronie placówki, nie ucznia.</span></div>
+  <div class="uwaga">
+    <span class="etykieta">Uwaga metodyczna</span>
+    <p>Obszar dziewiąty opisuje <b>środowisko, nie ucznia</b>. Jeśli uczeń nie uczestniczy w wycieczkach, bo placówka nie zapewnia wsparcia w transporcie, to jest informacja o placówce. Zapisanie jej tutaj jest podstawą do zmiany organizacji, a nie oceną dziecka.</p>
+  </div>
+  <div class="stopka-str"><span>PCTP Koszalin · EduPlaner 2026</span><span>6</span></div>
+</div>
+
+<!-- 5 -->
+<div class="page ciasno">
+  <div class="nag"><span class="nr">Rozdział 5</span><span class="roz">Skala</span></div>
+  <h2>Skala 1–5: co dokładnie znaczy każdy stopień</h2>
+  <p class="wstep">Najczęstszy błąd w całym WOPF: mylenie tego, czego uczeń <b>nie potrafi</b>, z tym, czego <b>nie robi</b> w danych warunkach.</p>
+  <table>
+    <tr><th style="width:12%">Stopień</th><th style="width:30%">Krótko</th><th>Co to znaczy w praktyce</th></tr>
+    <tr><td><b>5</b></td><td>Samodzielnie i stale</td><td>Uczeń wykonuje czynność bez przypomnienia, w różnych sytuacjach i u różnych osób.</td></tr>
+    <tr><td><b>4</b></td><td>Samodzielnie, z przypomnieniem</td><td>Potrzebuje sygnału na start albo drobnej podpowiedzi; dalej radzi sobie sam.</td></tr>
+    <tr><td><b>3</b></td><td>Ze wsparciem częściowym</td><td>Potrzebuje towarzyszenia lub podziału zadania na kroki; część wykonuje sam.</td></tr>
+    <tr><td><b>2</b></td><td>Ze wsparciem stałym</td><td>Wykonuje z pomocą osoby dorosłej przez cały czas trwania czynności.</td></tr>
+    <tr><td><b>1</b></td><td>Nie wykonuje</td><td>Czynność nie pojawia się nawet przy pełnym wsparciu — albo nie była jeszcze wprowadzana.</td></tr>
+  </table>
+  <h3>Trzy pytania, które rozstrzygają wątpliwość</h3>
+  <ol>
+    <li><b>W ilu miejscach?</b> Umiejętność, która działa tylko w gabinecie specjalisty, nie jest jeszcze na poziomie 5.</li>
+    <li><b>Przy ilu osobach?</b> Jeśli uczeń robi coś tylko przy jednej nauczycielce, zapisz to — to informacja o warunkach, nie o umiejętności.</li>
+    <li><b>Jak często?</b> Raz w tygodniu to nie „stale". Skala opisuje typowe funkcjonowanie, nie najlepszy dzień.</li>
+  </ol>
+  <div class="ramka">
+    <p><b>Stopień 1 ma dwa znaczenia</b> — „nie potrafi mimo prób" i „jeszcze nie próbowaliśmy". Pierwszy wchodzi do planu jako cel, drugi jako zadanie dla zespołu. Zaznacz, o który chodzi.</p>
+  </div>
+  <div class="stopka-str"><span>PCTP Koszalin · EduPlaner 2026</span><span>7</span></div>
+</div>
+
+<!-- 6 -->
+<div class="page">
+  <div class="nag"><span class="nr">Rozdział 6</span><span class="roz">Trzy profile</span></div>
+  <h2>Rodzic, nauczyciel, specjalista</h2>
+  <p class="wstep">Trzy osoby wypełniają ten sam kwestionariusz osobno. Dopiero zestawienie trzech profili jest oceną.</p>
+  <table>
+    <tr><th style="width:24%">Profil</th><th style="width:38%">Co widzi najlepiej</th><th>Czego nie widzi</th></tr>
+    <tr><td><b>Rodzic</b></td><td>Dom, poranek, wieczór, miejsca publiczne, relacje w rodzinie, sen, jedzenie</td><td>Funkcjonowania w grupie rówieśniczej i pod presją zadania szkolnego</td></tr>
+    <tr><td><b>Nauczyciel</b></td><td>Grupa, przerwa, zmiana aktywności, praca z instrukcją, wytrzymałość w ciągu dnia</td><td>Kosztu, jaki uczeń płaci po lekcjach; funkcjonowania poza szkołą</td></tr>
+    <tr><td><b>Specjalista</b></td><td>Zachowanie w warunkach ustrukturyzowanych, reakcja na konkretne techniki</td><td>Codzienności — widuje ucznia rzadko i w sztucznych warunkach</td></tr>
+  </table>
+  <h3>Dlaczego osobno, a nie razem</h3>
+  <p>Gdy zespół wypełnia kwestionariusz wspólnie przy jednym stole, po dwóch obszarach ustala się jedna narracja i reszta ocen się do niej dopasowuje. Najgłośniejsza osoba przy stole staje się autorem oceny. Wypełnienie osobne kosztuje więcej czasu i daje trzy niezależne obrazy — a różnice między nimi są najcenniejszą częścią materiału.</p>
+  <div class="ramka">
+    <p><b>Rodzic nie jest respondentem, tylko członkiem zespołu.</b> Kwestionariusz przekaż z wyprzedzeniem i wyjaśnij skalę — inaczej rodzic ocenia „jak w szkole", zamiast opisać dom. Warto dołączyć krótką instrukcję albo ulotkę.</p>
+  </div>
+  <div class="stopka-str"><span>PCTP Koszalin · EduPlaner 2026</span><span>8</span></div>
+</div>
+
+<!-- 7 -->
+<div class="page">
+  <div class="nag"><span class="nr">Rozdział 7</span><span class="roz">Odczytanie wyniku</span></div>
+  <h2>Wynik surowy, sten, poziom wsparcia</h2>
+  <p class="wstep">Trzy różne liczby, które łatwo pomylić. Każda odpowiada na inne pytanie.</p>
+  <div class="obszar"><b>Wynik surowy</b><span>Suma ocen w obszarze. Mówi, ile punktów uczeń uzyskał — nic więcej. Sam w sobie nie znaczy „dobrze" ani „źle".</span></div>
+  <div class="obszar"><b>Sten</b><span>Wynik surowy odniesiony do normy dla grupy wiekowej. Odpowiada na pytanie: jak to wygląda na tle rówieśników w tym samym wieku.</span></div>
+  <div class="obszar"><b>Poziom wsparcia</b><span>Decyzja zespołu, nie wynik działania arytmetycznego. Bierze pod uwagę steny, ale też sytuację ucznia, zasoby placówki i wnioski z obserwacji.</span></div>
+  <div class="pole">
+    <span class="etykieta">Do uzupełnienia z dokumentacji narzędzia</span>
+    <p>Tabelę przeliczenia wyniku surowego na sten oraz progi dla grup wiekowych wstaw z instrukcji kwestionariusza używanego w Twojej placówce. Nie licz ich samodzielnie i nie przenoś tabel z innych narzędzi — normy nie są wymienne.</p>
+  </div>
+  <h3>Jak czytać sten w rozmowie z rodzicem</h3>
+  <p>Sten to nie ocena szkolna i nie wyrok. To informacja o tym, gdzie warto skierować wsparcie w pierwszej kolejności. W rozmowie z rodzicem pokaż <b>profil</b> — który obszar jest najmocniejszy, a który najsłabszy — zamiast wymieniać liczby. Rodzic zapamięta obraz, nie cyfry.</p>
+  <div class="ramka">
+    <p><b>Mocne strony wpisuj tak samo starannie jak trudności.</b> Obszar z wysokim wynikiem jest zasobem, na którym opiera się cały plan: to przez niego wprowadza się umiejętności z obszaru słabszego.</p>
+  </div>
+  <div class="stopka-str"><span>PCTP Koszalin · EduPlaner 2026</span><span>9</span></div>
+</div>
+
+<!-- 8 -->
+<div class="page">
+  <div class="nag"><span class="nr">Rozdział 8</span><span class="roz">Rozbieżności</span></div>
+  <h2>Kiedy profile się różnią</h2>
+  <p class="wstep">Rozbieżność między rodzicem a nauczycielem nie jest błędem pomiaru. To najczęściej prawdziwa informacja o dwóch różnych środowiskach.</p>
+  <table>
+    <tr><th style="width:34%">Co widzisz</th><th>Co to zwykle znaczy</th></tr>
+    <tr><td>Rodzic ocenia wyżej niż szkoła</td><td>W domu jest mniej bodźców, więcej czasu i znane osoby. Umiejętność istnieje, ale nie przenosi się na warunki szkolne.</td></tr>
+    <tr><td>Szkoła ocenia wyżej niż rodzic</td><td>Struktura i przewidywalność dnia pomagają. Warto sprawdzić, co konkretnie działa, i przekazać to rodzicowi.</td></tr>
+    <tr><td>Specjalista wyżej niż oboje</td><td>Umiejętność działa jeden na jeden. Cel na najbliższy okres: przeniesienie do sali i do domu.</td></tr>
+    <tr><td>Duża różnica w jednym obszarze, zgodność w reszcie</td><td>Najcenniejszy sygnał w całym WOPF. Warto pogłębić obserwację właśnie tam.</td></tr>
+  </table>
+  <h3>Co z tym zrobić na zebraniu</h3>
+  <ol>
+    <li>Nie uśredniaj ocen. Średnia z dwóch różnych sytuacji nie opisuje żadnej z nich.</li>
+    <li>Zapytaj o konkretne zdarzenie stojące za oceną — po obu stronach.</li>
+    <li>Zapisz obie obserwacje w opisie obszaru, z zaznaczeniem, gdzie i kiedy.</li>
+    <li>Jeśli różnica dotyczy obszaru kluczowego dla planu, zaplanuj obserwację pogłębioną zamiast rozstrzygać ją dyskusją.</li>
+  </ol>
+  <div class="ramka">
+    <p><b>Zdanie, które ratuje trudne zebrania:</b> „To znaczy, że w domu to działa, a u nas jeszcze nie — sprawdźmy, czym się te sytuacje różnią". Rodzic przestaje się bronić, a zespół dostaje trop.</p>
+  </div>
+  <div class="stopka-str"><span>PCTP Koszalin · EduPlaner 2026</span><span>10</span></div>
+</div>
+
+<!-- 9 -->
+<div class="page">
+  <div class="nag"><span class="nr">Rozdział 9</span><span class="roz">Od oceny do planu</span></div>
+  <h2>Jak z obszaru zrobić cel</h2>
+  <p class="wstep">Ocena funkcjonalna jest warta tyle, ile plan, który z niej wynika.</p>
+  <div class="krok"><span class="n">1</span><div><b>Wybierz obszary priorytetowe.</b> Nie wszystkie dziewięć. Dwa albo trzy — te, których poprawa najbardziej zmieni codzienność ucznia.</div></div>
+  <div class="krok"><span class="n">2</span><div><b>Znajdź najbliższy krok.</b> Nie „poprawa komunikacji", tylko konkretna umiejętność o jeden stopień wyżej niż obecna.</div></div>
+  <div class="krok"><span class="n">3</span><div><b>Opisz warunki.</b> Gdzie, z kim, z jakim wsparciem, jak często.</div></div>
+  <div class="krok"><span class="n">4</span><div><b>Ustal, po czym poznamy zmianę.</b> Zdanie, które da się sprawdzić za pół roku bez dyskusji.</div></div>
+  <div class="krok"><span class="n">5</span><div><b>Przypisz osobę i termin.</b> Cel bez właściciela nie jest celem.</div></div>
+  <h3>Ten sam cel, dwa zapisy</h3>
+  <table>
+    <tr><th style="width:50%">Zapis, który nic nie da</th><th>Zapis, który da się zrealizować</th></tr>
+    <tr><td>Rozwijanie samodzielności ucznia.</td><td>Jan samodzielnie przygotowuje przybory na lekcję po jednym sygnale wizualnym, w 4 z 5 dni, do końca stycznia.</td></tr>
+    <tr><td>Poprawa funkcjonowania w grupie.</td><td>Jan dołącza do pracy w parze po przydzieleniu mu roli przez nauczyciela, na zajęciach plastycznych, raz w tygodniu.</td></tr>
+    <tr><td>Praca nad regulacją emocji.</td><td>Jan po sygnale „przerwa" korzysta z kącika wyciszenia zamiast opuszczać salę, w 3 z 4 sytuacji trudnych w miesiącu.</td></tr>
+  </table>
+  <div class="ramka">
+    <p><b>Sprawdzian dobrego celu:</b> gdyby jutro do szkoły przyszła inna osoba i przeczytała ten zapis, czy wiedziałaby, co robić i po czym poznać, że się udało? Jeśli nie — cel jest jeszcze hasłem.</p>
+  </div>
+  <div class="stopka-str"><span>PCTP Koszalin · EduPlaner 2026</span><span>11</span></div>
+</div>
+
+<!-- 10 -->
+<div class="page">
+  <div class="nag"><span class="nr">Rozdział 10</span><span class="roz">Błędy</span></div>
+  <h2>Siedem najczęstszych błędów</h2>
+  <div class="obszar"><b>1 · Ocena z pamięci</b><span>Wypełnianie kwestionariusza tydzień po zdarzeniach, bez notatek. Skutek: opis ostatniego trudnego dnia zamiast typowego funkcjonowania.</span></div>
+  <div class="obszar"><b>2 · Kopiowanie z zeszłego roku</b><span>Przeklejenie poprzedniego WOPF z drobnymi zmianami. Ewaluacja przestaje mieć sens, bo nie ma czego porównać.</span></div>
+  <div class="obszar"><b>3 · Opis osoby zamiast sytuacji</b><span>„Jest niesamodzielny", „bywa agresywny". Takie zapisy nie prowadzą do żadnego celu i krzywdzą ucznia w dokumentacji, która zostaje na lata.</span></div>
+  <div class="obszar"><b>4 · Pominięcie mocnych stron</b><span>Dokument złożony z samych trudności. Zespół traci punkt zaczepienia, a rodzic — powód, żeby współpracować.</span></div>
+  <div class="obszar"><b>5 · Uśrednianie rozbieżności</b><span>Zamiast opisać dwa środowiska, zespół wpisuje ocenę pośrednią, która nie opisuje żadnego z nich.</span></div>
+  <div class="obszar"><b>6 · Dziewięć obszarów, dziewięć celów</b><span>Plan, którego nie da się zrealizować. Trzy dobrze wybrane cele działają lepiej niż dziewięć wpisanych na wszelki wypadek.</span></div>
+  <div class="obszar"><b>7 · Rodzic dostaje gotowy dokument do podpisu</b><span>Formalnie zebranie się odbyło. Praktycznie — rodzic nie wie, co podpisał, i nie zrobi w domu nic z tego, co ustalono.</span></div>
+  <div class="stopka-str"><span>PCTP Koszalin · EduPlaner 2026</span><span>12</span></div>
+</div>
+
+<!-- 11 -->
+<div class="page">
+  <div class="nag"><span class="nr">Rozdział 11</span><span class="roz">Przykład</span></div>
+  <h2>Uczeń Jan K. — od arkusza do wniosków</h2>
+  <p class="wstep">Przykład ilustracyjny. Dane są zmyślone; służą pokazaniu sposobu zapisu.</p>
+  <table>
+    <tr><th style="width:40%">Obszar</th><th style="width:15%">Rodzic</th><th style="width:15%">Nauczyciel</th><th style="width:15%">Specjalista</th><th>Sygnał</th></tr>
+    <tr><td>Komunikacja i mowa</td><td>4</td><td>3</td><td>4</td><td>—</td></tr>
+    <tr><td>Funkcjonowanie poznawcze</td><td>3</td><td>3</td><td>4</td><td>—</td></tr>
+    <tr><td>Emocje i regulacja</td><td>4</td><td>2</td><td>3</td><td><b>różnica</b></td></tr>
+    <tr><td>Relacje społeczne</td><td>3</td><td>2</td><td>3</td><td>—</td></tr>
+    <tr><td>Samodzielność</td><td>4</td><td>2</td><td>3</td><td><b>różnica</b></td></tr>
+    <tr><td>Motoryka</td><td>4</td><td>4</td><td>4</td><td>mocna strona</td></tr>
+    <tr><td>Przetwarzanie sensoryczne</td><td>3</td><td>2</td><td>2</td><td>—</td></tr>
+    <tr><td>Uczenie się</td><td>3</td><td>3</td><td>3</td><td>—</td></tr>
+    <tr><td>Uczestnictwo i środowisko</td><td>2</td><td>3</td><td>—</td><td>—</td></tr>
+  </table>
+  <h3>Co z tego wynika</h3>
+  <ul>
+    <li><b>Dwie rozbieżności</b> w tych samych obszarach — regulacja i samodzielność. W domu działa, w szkole nie. Pierwsze pytanie na zebraniu: czym różnią się te sytuacje?</li>
+    <li><b>Sensoryka nisko u nauczyciela i specjalisty, wyżej u rodzica</b> — sala jest głośniejsza niż dom. To wskazówka organizacyjna, nie cel dla ucznia.</li>
+    <li><b>Motoryka wysoka i zgodna</b> — zasób, przez który można wprowadzać umiejętności z obszaru samodzielności.</li>
+    <li><b>Uczestnictwo ocenione nisko przez rodzica</b> — sprawdzić, czy chodzi o barierę po stronie placówki.</li>
+  </ul>
+  <div class="ramka">
+    <p><b>Wniosek do planu:</b> dwa cele — samodzielne przygotowanie do lekcji (oparte na mocnej motoryce) i korzystanie z kącika wyciszenia zamiast wyjścia z sali. Do tego jedno zadanie dla placówki: obniżenie poziomu bodźców w sali.</p>
+  </div>
+  <div class="stopka-str"><span>PCTP Koszalin · EduPlaner 2026</span><span>13</span></div>
+</div>
+
+<!-- 12 -->
+<div class="page">
+  <div class="nag"><span class="nr">Rozdział 12</span><span class="roz">Checklista</span></div>
+  <h2>Checklista zespołu</h2>
+  <p class="wstep">Do wydrukowania i położenia na stole podczas zebrania.</p>
+  <h3>Przed zebraniem</h3>
+  <table>
+    <tr><td style="width:22pt;text-align:center">☐</td><td>Każda osoba wypełniła swój profil <b>osobno</b></td></tr>
+    <tr><td style="text-align:center">☐</td><td>Rodzic dostał kwestionariusz z wyprzedzeniem i wyjaśnioną skalę</td></tr>
+    <tr><td style="text-align:center">☐</td><td>Poprzedni WOPF i plan leżą na stole</td></tr>
+    <tr><td style="text-align:center">☐</td><td>Do każdego ocenionego obszaru są przynajmniej dwa konkretne zdarzenia</td></tr>
+    <tr><td style="text-align:center">☐</td><td>Wiadomo, który tryb planu obowiązuje tego ucznia</td></tr>
+  </table>
+  <h3>W trakcie</h3>
+  <table>
+    <tr><td style="width:22pt;text-align:center">☐</td><td>Zaczynamy od mocnych stron, nie od trudności</td></tr>
+    <tr><td style="text-align:center">☐</td><td>Rozbieżności są omówione, a nie uśrednione</td></tr>
+    <tr><td style="text-align:center">☐</td><td>Rodzic wypowiedział się przed odczytaniem gotowych wniosków</td></tr>
+    <tr><td style="text-align:center">☐</td><td>Zapisy opisują sytuacje, nie cechy ucznia</td></tr>
+    <tr><td style="text-align:center">☐</td><td>Wybrane są dwa lub trzy obszary priorytetowe, nie dziewięć</td></tr>
+  </table>
+  <h3>Na koniec</h3>
+  <table>
+    <tr><td style="width:22pt;text-align:center">☐</td><td>Każdy cel ma osobę odpowiedzialną i termin</td></tr>
+    <tr><td style="text-align:center">☐</td><td>Każdy cel da się sprawdzić bez dyskusji</td></tr>
+    <tr><td style="text-align:center">☐</td><td>Ustalono, co rodzic robi w domu — konkretnie</td></tr>
+    <tr><td style="text-align:center">☐</td><td>Zapisano obszary wymagające obserwacji pogłębionej</td></tr>
+    <tr><td style="text-align:center">☐</td><td>Wyznaczono termin ewaluacji półrocznej</td></tr>
+  </table>
+  <div class="stopka-str"><span>PCTP Koszalin · EduPlaner 2026</span><span>14</span></div>
+</div>
+
+<!-- TYŁ -->
+<div class="page cover" style="min-height:261mm">
+  <div class="marka">
+    <span class="znak">PCTP</span>
+    <span><b>Pomorskie Centrum Terapii Pedagogicznej</b><span>Koszalin</span></span>
+  </div>
+  <h1 style="font-size:28pt">Ta sama wiedza,<br>wbudowana w&nbsp;druki</h1>
+  <p class="lead">Wszystko, co opisuje ta broszura, w aplikacji EduPlaner 2026 robi się klikając: kwestionariusz przelicza wynik, trzy profile stają obok siebie, a cele SMART przechodzą do gotowego druku A4.</p>
+  <div class="kropki"><i></i><i></i><i></i><i></i></div>
+  <ul>
+    <li>Metryczka, WOPF, plan wsparcia, realizacja i ewaluacja w jednym miejscu</li>
+    <li>Dane ucznia wpisujesz raz — przechodzą do wszystkich druków</li>
+    <li>Dane zostają na serwerze placówki</li>
+    <li>Subskrypcja roczna dla całej placówki, bez limitu użytkowników</li>
+  </ul>
+  <div class="stopka">
+    <b>eduplaner2026.pl</b>
+    kontakt@eduplaner2026.pl · 662 888 403<br>
+    Mirosława Ewa Jurczyszyn, pedagog specjalny · PCTP Koszalin<br>
+    Wydanie I · 2026 · EduPlaner2026-MJ-PCTP
+  </div>
+</div>
+
+</body>
+</html>
