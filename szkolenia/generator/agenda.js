@@ -27,30 +27,30 @@ add(spacer(160));
 add(H1('▌', 'Przebieg — 120 minut'));
 add(table(['Czas', 'Blok', 'Forma', 'Co się dzieje', 'Materiały'], [
   ['0:00–0:05', 'Otwarcie', 'prowadzący', 'Kontrakt, trzy karteczki: dokument, którego nie rozumiem · który zajmuje najwięcej czasu · pytanie na dziś.', 'karteczki, 3 arkusze na ścianie'],
-  ['0:05–0:12', 'FILM · M1', 'film', 'Podstawa prawna — co obowiązuje od 1 września 2026. STOP po ostatniej planszy „Trzy zdania na zamknięcie".', 'Z1 ściąga podstaw prawnych'],
-  ['0:12–0:24', 'Ćwiczenie', 'zespoły 3–4', '„Sąd nad dokumentem": Strażnik Prawa · Adwokat dziecka · Kontroler — trzy anonimowe fragmenty dokumentacji z lat ubiegłych.', 'fragmenty WOPF, IPET, opinii'],
-  ['0:24–0:30', 'FILM · M2', 'film', 'Obieg dokumentów — sześć przystanków. STOP po planszy „Zapamiętajmy kolejność".', '—'],
-  ['0:30–0:35', 'FILM · M3', 'film', 'Metryczka — zasadność i wypełnianie krok po kroku (animacja druku).', 'druk Metryczki'],
+  ['0:05–0:13', 'FILM · M1', 'film', 'Podstawa prawna — co obowiązuje od 1 września 2026; § 7 ust. 3 rozporządzenia o orzekaniu (10 dni). STOP po planszy „Trzy zdania na zamknięcie".', 'Z1 ściąga podstaw prawnych'],
+  ['0:13–0:23', 'Ćwiczenie', 'zespoły 3–4', '„Sąd nad dokumentem": Strażnik Prawa · Adwokat dziecka · Kontroler — trzy anonimowe fragmenty dokumentacji z lat ubiegłych.', 'fragmenty WOPF, IPET, opinii'],
+  ['0:23–0:29', 'FILM · M2', 'film', 'Obieg dokumentów — sześć przystanków, cztery narzędzia obserwacji pogłębionej. STOP po planszy „Zapamiętajmy kolejność".', '—'],
+  ['0:29–0:35', 'FILM · M3', 'film', 'Metryczka — zasadność i wypełnianie krok po kroku (animacja druku; bez PESEL, z podstawą orzeczenia i chorobami przewlekłymi).', 'druk Metryczki'],
   ['0:35–0:45', 'Ćwiczenie', 'indywidualnie + pary', '„Metryczka w 10 minut": sekcje I, II, VI, VII dla jednego dziecka; kontrola krzyżowa sekcji VI (kto podaje lek, gdzie, kogo powiadamiamy).', 'druk Metryczki'],
-  ['0:45–0:53', 'FILM · M4', 'film', 'KPOF — budowa, skala, siedem zasad, wypełnianie, liczenie, profil. STOP po planszy „dwa razy w roku".', 'KPOF A/B/C'],
-  ['0:53–1:07', 'Ćwiczenie', 'zespoły 3', '„Policz i zdecyduj": kazusy A (profil poszarpany), B (płaski, niski), C (pułapka reguły nadrzędnej). Wniosek jednym zdaniem na flipchart.', 'kazusy A/B/C, kalkulatory'],
-  ['1:07–1:14', 'FILM · M5', 'film', 'Obserwacja pogłębiona — reguły R1–R6, ABC, profil sensoryczny, teoria umysłu, karta obserwacji mowy, karta decyzyjna.', 'Z4 karta decyzyjna'],
-  ['1:14–1:22', 'Ćwiczenie', 'zespoły 3', 'Trzy kazusy z modułu M6 scenariusza: która reguła, który moduł, którego NIE uruchamiamy i dlaczego.', 'Z4'],
-  ['1:22–1:32', 'FILM · M6', 'film', 'Ocena → program → cele SMART (czym są, czy wymagane) → ewaluacja → opinia o funkcjonowaniu dziecka dla poradni (10 dni, § 7 ust. 3).', 'Z5 karta celu'],
-  ['1:32–1:45', 'Warsztat', 'zespoły 3', '„Napisz trzy cele": z wniosków z kazusów A/B/C; kontrola krzyżowa pięcioma pytaniami S-M-A-R-T.', 'karty A5, Z5'],
-  ['1:45–1:52', 'Warsztat', 'pary', '„Szkic w 7 minut": punkty 2, 4 i 6 opinii o funkcjonowaniu dziecka; mocne strony PIERWSZE i nie krótsze niż trudności.', 'wzór opinii'],
-  ['1:52–2:00', 'Zamknięcie', 'rada', 'Powrót do karteczek z otwarcia; przyjęcie kalendarza (Z6) i reguł R1–R6; jedno zdanie od każdego: „od poniedziałku robię inaczej…"; ankieta (Z7).', 'Z6, Z7'],
+  ['0:45–0:55', 'FILM · M4', 'film', 'KPOF — ICF i profil biopsychospołeczny, budowa, skala, siedem zasad, wypełnianie, liczenie, profil. STOP po planszy „dwa razy w roku".', 'KPOF A/B/C'],
+  ['0:55–1:07', 'Ćwiczenie', 'zespoły 3', '„Policz i zdecyduj": kazusy A (profil poszarpany), B (płaski, niski), C (pułapka reguły nadrzędnej). Wniosek jednym zdaniem na flipchart.', 'kazusy A/B/C, kalkulatory'],
+  ['1:07–1:17', 'FILM · M5', 'film', 'Obserwacja pogłębiona — reguły R1–R6, ABC, profil sensoryczny, teoria umysłu, karta obserwacji mowy, karta decyzyjna.', 'Z4 karta decyzyjna, karta mowy'],
+  ['1:17–1:24', 'Ćwiczenie', 'zespoły 3', 'Cztery kazusy z modułu M6 scenariusza: która reguła, które narzędzie, którego NIE uruchamiamy i dlaczego.', 'Z4'],
+  ['1:24–1:37', 'FILM · M6', 'film', 'Ocena → IPET (zalecenia z orzeczenia i WOPF, dostosowania, zintegrowane działania, sala) → cele SMART → ewaluacja → opinia o funkcjonowaniu dziecka dla poradni (10 dni, § 7 ust. 3).', 'Z5 karta celu'],
+  ['1:37–1:48', 'Warsztat', 'zespoły 3', '„Napisz trzy cele": z wniosków z kazusów A/B/C; kontrola krzyżowa pięcioma pytaniami S-M-A-R-T.', 'karty A5, Z5'],
+  ['1:48–1:54', 'Warsztat', 'pary', '„Szkic w 6 minut": punkty 2, 4 i 6 opinii o funkcjonowaniu dziecka; mocne strony PIERWSZE i nie krótsze niż trudności.', 'wzór opinii'],
+  ['1:54–2:00', 'Zamknięcie', 'rada', 'Powrót do karteczek z otwarcia; przyjęcie kalendarza (Z6) i reguł R1–R6; jedno zdanie od każdego: „od poniedziałku robię inaczej…"; ankieta (Z7).', 'Z6, Z7'],
 ], [1150, 1300, 1400, CONTENT - 1150 - 1300 - 1400 - 1900, 1900], { boldCol0: true }));
 
 add(spacer(160));
 add(H2('Czas filmu w modułach'));
 add(table(['Moduł', 'Temat', 'Czas filmu', 'Ćwiczenie po module'], [
-  ['M1', 'Podstawa prawna', '7 min 25 s', 'Sąd nad dokumentem · 12 min'],
-  ['M2', 'Obieg dokumentów', '5 min 50 s', '—'],
-  ['M3', 'Metryczka', '4 min 53 s', 'Metryczka w 10 minut'],
-  ['M4', 'Kwestionariusz KPOF', '7 min 48 s', 'Policz i zdecyduj · 14 min'],
-  ['M5', 'Obserwacja pogłębiona', '6 min 54 s', 'Kazusy · 8 min'],
-  ['M6', 'Ocena · program · SMART · ewaluacja · poradnia', '9 min 37 s', 'Trzy cele · 13 min + Szkic · 7 min'],
+  ['M1', 'Podstawa prawna', '7:36', 'Sąd nad dokumentem · 10 min'],
+  ['M2', 'Obieg dokumentów', '5:36', '—'],
+  ['M3', 'Metryczka', '5:45', 'Metryczka w 10 minut'],
+  ['M4', 'Kwestionariusz KPOF, ICF i profil biopsychospołeczny', '10:08', 'Policz i zdecyduj · 12 min'],
+  ['M5', 'Obserwacja pogłębiona — cztery narzędzia', '9:46', 'Kazusy · 7 min'],
+  ['M6', 'Ocena · IPET · dostosowania · SMART · ewaluacja · opinia dla poradni', '13:12', 'Trzy cele · 11 min + Szkic · 6 min'],
 ], [900, 4200, 1500, CONTENT - 900 - 4200 - 1500], { boldCol0: true }));
 
 add(spacer(160));
