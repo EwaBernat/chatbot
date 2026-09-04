@@ -111,7 +111,7 @@ add(table(['#', 'Argument', 'Na czym polega'], [
 
 add(spacer(160));
 add(H2('3.2  Trzy błędy, które popełniamy przy metryczce'));
-add(bullet([t('Zbieramy dane, których nie potrzebujemy. ', { bold: true }), t('Zasada minimalizacji z RODO obowiązuje także nas. Jeżeli nie umiemy powiedzieć, do jakiego zadania przedszkola potrzebujemy danej informacji, nie wpisujemy jej do druku.')]));
+add(bullet([t('Zbieramy dane, których nie potrzebujemy. ', { bold: true }), t('Zasada minimalizacji z RODO obowiązuje także nas. Jeżeli nie umiemy powiedzieć, do jakiego zadania przedszkola potrzebujemy danej informacji, nie wpisujemy jej do druku. Dlatego w metryczce nie wpisujemy numeru PESEL ani daty urodzenia — są już w księdze dzieci i nie powielamy ich w kolejnym dokumencie; dziecko identyfikuje numer w księdze dzieci.')]));
 add(bullet([t('Wypełniamy raz we wrześniu i nie aktualizujemy. ', { bold: true }), t('Numer telefonu i lista osób upoważnionych zmieniają się w ciągu roku. Ustalamy zasadę: aktualizacja przy każdej zmianie zgłoszonej przez rodzica, z datą; poprzedni wpis zostaje w dokumentacji z datą wykreślenia — tak, jak przewiduje to sam druk.')]));
 add(bullet([t('Trzymamy metryczkę tam, gdzie sięgnie każdy. ', { bold: true }), t('Dokument zawiera dane o zdrowiu — kategoria szczególna z art. 9 RODO. Miejsce przechowywania i osobę odpowiedzialną wskazuje zarządzenie dyrektora.')]));
 
