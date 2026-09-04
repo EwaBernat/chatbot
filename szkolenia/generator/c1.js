@@ -65,7 +65,7 @@ add(spacer(160));
 add(H3('SESJA II  ·  NARZĘDZIA I DOKUMENTY  ·  4 × 45 min'));
 add(table(['Moduł', 'Temat', 'Czas', 'Produkt modułu'], [
   ['M5', 'KPOF w praktyce — liczenie wyniku, odczyt profilu, kwalifikacja', '35 min', 'Policzony profil dziecka'],
-  ['M6', 'Obserwacja pogłębiona: ABC, profil sensoryczny, ToM — kiedy?', '45 min', 'Reguły przekierowania (Z4)'],
+  ['M6', 'Obserwacja pogłębiona: ABC, profil sensoryczny, ToM, karta mowy — kiedy?', '45 min', 'Reguły przekierowania (Z4)'],
   ['—', 'Przerwa', '10 min', '—'],
   ['M7', 'WOPF i IPET oraz cele SMART — od danych do zobowiązania', '55 min', 'Trzy cele SMART na piśmie'],
   ['—', 'Przerwa', '10 min', '—'],

@@ -32,7 +32,7 @@ add(table(['Dokument / działanie', 'Ile razy w roku', 'Kiedy', 'Źródło obowi
    '2 RAZY (decyzja placówki)',
    'I — wrzesień (pomiar bazowy, także grupy 3-latków — przed IPET); II — kwiecień/maj (pomiar kontrolny, na tym samym arkuszu, innym kolorem).',
    'Decyzja rady pedagogicznej — narzędzie wewnętrzne. Zapisujemy w procedurze placówki.'],
-  ['Moduł pogłębiony (ABC / sensoryczny / ToM)',
+  ['Moduł pogłębiony (ABC / sensoryczny / ToM / karta mowy)',
    'Wyłącznie na uruchomienie reguły R1–R6',
    'W ciągu 3 tygodni od decyzji zespołu. Powtórzenie tylko wtedy, gdy zmieniły się warunki albo minęło pół roku od poprzedniego.',
    'Decyzja zespołu — nie jest badaniem cyklicznym.'],

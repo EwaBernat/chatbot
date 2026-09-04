@@ -34,7 +34,7 @@ add(table(['Czas', 'Blok', 'Forma', 'Co się dzieje', 'Materiały'], [
   ['0:35–0:45', 'Ćwiczenie', 'indywidualnie + pary', '„Metryczka w 10 minut": sekcje I, II, VI, VII dla jednego dziecka; kontrola krzyżowa sekcji VI (kto podaje lek, gdzie, kogo powiadamiamy).', 'druk Metryczki'],
   ['0:45–0:53', 'FILM · M4', 'film', 'KPOF — budowa, skala, siedem zasad, wypełnianie, liczenie, profil. STOP po planszy „dwa razy w roku".', 'KPOF A/B/C'],
   ['0:53–1:07', 'Ćwiczenie', 'zespoły 3', '„Policz i zdecyduj": kazusy A (profil poszarpany), B (płaski, niski), C (pułapka reguły nadrzędnej). Wniosek jednym zdaniem na flipchart.', 'kazusy A/B/C, kalkulatory'],
-  ['1:07–1:14', 'FILM · M5', 'film', 'Obserwacja pogłębiona — reguły R1–R6, ABC, profil sensoryczny, teoria umysłu, karta decyzyjna.', 'Z4 karta decyzyjna'],
+  ['1:07–1:14', 'FILM · M5', 'film', 'Obserwacja pogłębiona — reguły R1–R6, ABC, profil sensoryczny, teoria umysłu, karta obserwacji mowy, karta decyzyjna.', 'Z4 karta decyzyjna'],
   ['1:14–1:22', 'Ćwiczenie', 'zespoły 3', 'Trzy kazusy z modułu M6 scenariusza: która reguła, który moduł, którego NIE uruchamiamy i dlaczego.', 'Z4'],
   ['1:22–1:32', 'FILM · M6', 'film', 'Ocena → program → cele SMART (czym są, czy wymagane) → ewaluacja → opinia o funkcjonowaniu dziecka dla poradni (10 dni, § 7 ust. 3).', 'Z5 karta celu'],
   ['1:32–1:45', 'Warsztat', 'zespoły 3', '„Napisz trzy cele": z wniosków z kazusów A/B/C; kontrola krzyżowa pięcioma pytaniami S-M-A-R-T.', 'karty A5, Z5'],

@@ -60,39 +60,37 @@ add(box('SZEŚĆ REGUŁ STRAŻNIKA PRAWA', [
 /* ---- Z4 ---- */
 add(pageBreak());
 add(H1('Z4', 'Karta decyzyjna — czy uruchamiamy moduł pogłębiony?'));
-add(p('Kartę wypełnia zespół po analizie arkuszy KPOF. Jedna karta na jedno dziecko. Kartę wpina się do teczki dziecka niezależnie od podjętej decyzji — także wtedy, gdy zdecydowano nie uruchamiać modułu. Zapis decyzji odmownej jest równie ważny jak zapis decyzji pozytywnej.'));
-add(spacer(80));
+add(p('Jedna karta na jedno dziecko, wypełniana przez zespół po analizie KPOF; wpinana do teczki także przy decyzji „nie uruchamiamy”.'));
+add(spacer(20));
 add(table(null, [
-  ['Dziecko / grupa', BLANK], ['Data analizy / skład zespołu', BLANK],
-  ['Wersja KPOF (A / B / C)', BLANK], ['Wynik ogólny i kwalifikacja', BLANK],
-], [2600, CONTENT - 2600], { boldCol0: true, zebra: false }));
-add(spacer(120));
+  ['Dziecko / grupa', BLANK], ['Data analizy · skład zespołu', BLANK],
+  ['Wersja KPOF · wynik ogólny · kwalifikacja', BLANK],
+], [3400, CONTENT - 3400], { boldCol0: true, zebra: false }));
+add(spacer(20));
 add(H3('Krok 1 — sprawdź reguły'));
 add(table(['Reguła', 'Warunek', 'Spełniona?'], [
   ['R1', 'Średnia któregokolwiek obszaru poniżej 2,0.', '☐ TAK   ☐ NIE'],
-  ['R2', 'Dwa lub więcej twierdzeń ocenionych na 1 lub 2 w tym samym obszarze.', '☐ TAK   ☐ NIE'],
+  ['R2', 'Dwa lub więcej twierdzeń na 1 lub 2 w tym samym obszarze.', '☐ TAK   ☐ NIE'],
   ['R3', 'Rozbieżność średniej obszaru między oceniającymi ≥ 1,5 pkt.', '☐ TAK   ☐ NIE'],
   ['R4', 'Sygnał zdrowotny z metryczki (sekcja VI).', '☐ TAK   ☐ NIE'],
   ['R5', 'Zachowanie powtarzalne, zagrażające lub przerywające uczestnictwo.', '☐ TAK   ☐ NIE'],
   ['R6', 'Brak poprawy mimo udzielanej pomocy p-p przez ok. 3 miesiące.', '☐ TAK   ☐ NIE'],
 ], [900, 5900, CONTENT - 900 - 5900], { boldCol0: true }));
-add(spacer(120));
+add(spacer(20));
 add(H3('Krok 2 — wybierz moduł'));
 add(table(['Moduł', 'Uruchamiamy?', 'Uzasadnienie (obszar, twierdzenia, obserwacje)'], [
   ['ABC — analiza behawioralna', '☐ TAK  ☐ NIE', BLANK],
   ['Profil sensoryczny', '☐ TAK  ☐ NIE', BLANK],
   ['Obserwacja ToM', '☐ TAK  ☐ NIE', BLANK],
-], [2600, 1700, CONTENT - 2600 - 1700], { boldCol0: true, zebra: false }));
-add(spacer(120));
+  ['Karta obserwacji rozwoju mowy', '☐ TAK  ☐ NIE', BLANK],
+], [3300, 1700, CONTENT - 3300 - 1700], { boldCol0: true, zebra: false }));
+add(spacer(20));
 add(H3('Krok 3 — organizacja'));
 add(table(null, [
-  ['Osoba prowadząca obserwację', BLANK],
-  ['Termin rozpoczęcia i zakończenia', BLANK],
-  ['Liczba planowanych zapisów / zdarzeń', BLANK],
-  ['Data spotkania zespołu omawiającego wynik', BLANK],
-  ['Poinformowano rodzica — data i forma', BLANK],
+  ['Osoba prowadząca · termin (od – do) · liczba zapisów', BLANK],
+  ['Spotkanie zespołu (data) · poinformowano rodzica (data, forma)', BLANK],
   ['Podpisy członków zespołu', BLANK],
-], [3400, CONTENT - 3400], { boldCol0: true, zebra: false }));
+], [4600, CONTENT - 4600], { boldCol0: true, zebra: false }));
 
 /* ---- Z5 ---- */
 add(pageBreak());
@@ -143,7 +141,7 @@ add(table(['Termin', 'Zadanie', 'Dokument', 'Odpowiedzialny'], [
   ['do 30 września', 'Opracowanie IPET dla dzieci rozpoczynających kształcenie z orzeczeniem.', 'IPET', BLANK],
   ['wrzesień / październik', 'Pierwsza WOPF w roku szkolnym; spotkania zespołów z rodzicami.', 'WOPF', BLANK],
   ['1–15 października', 'Analiza profili, karty decyzyjne, uruchomienie modułów pogłębionych.', 'Karta decyzyjna Z4', BLANK],
-  ['październik / listopad', 'Prowadzenie modułów pogłębionych (2–3 tygodnie obserwacji).', 'ABC / sensoryczny / ToM', BLANK],
+  ['październik / listopad', 'Prowadzenie modułów pogłębionych (2–3 tygodnie obserwacji).', 'ABC / sensoryczny / ToM / karta mowy', BLANK],
   ['listopad', 'Przegląd wskaźników — 15 minut na dziecko, notatka w dzienniku. Bez pełnej WOPF.', 'Karta celu Z5', BLANK],
   ['grudzień / styczeń', 'Wystąpienia do poradni za zgodą rodziców dla dzieci bez poprawy mimo udzielanej pomocy.', 'Opinia o funkcjonowaniu', BLANK],
   ['styczeń / luty', 'Druga WOPF; ewaluacja półroczna celów SMART; modyfikacja IPET.', 'WOPF + IPET + Z5', BLANK],

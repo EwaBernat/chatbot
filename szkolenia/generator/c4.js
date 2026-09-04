@@ -8,7 +8,7 @@ const add = (...x) => x.forEach(e => C.push(e));
 add(pageBreak());
 
 /* ============ M6 OBSERWACJA POGŁĘBIONA ============ */
-add(modul('M6', 'Obserwacja pogłębiona — ABC, profil sensoryczny, ToM. Kiedy?', '45 min',
+add(modul('M6', 'Obserwacja pogłębiona — ABC, profil sensoryczny, ToM, karta mowy. Kiedy?', '45 min',
   'ustalić jednoznaczne reguły uruchamiania modułów pogłębionych'));
 add(spacer(120));
 
@@ -40,6 +40,9 @@ add(table(['Sygnał z KPOF', 'Moduł', 'Czego szukamy'], [
   ['Niskie d7 przy zachowanym d1 i d4; brak zabawy „na niby”; dosłowność; trudność z perspektywą drugiej osoby.',
    'OBSERWACJA ToM — teoria umysłu',
    'Zdolności do przypisywania innym stanów umysłu: wiedzy, przekonań, intencji, emocji.'],
+  ['Niskie d3 (porozumiewanie się); dziecko nie mówi albo rozumie je tylko najbliższa rodzina; nie wykonuje prostych poleceń mimo prawidłowego słuchu; zachowania trudne, za którymi może stać brak możliwości porozumienia się.',
+   'KARTA OBSERWACJI ROZWOJU MOWY I KOMUNIKACJI',
+   'Poziomu rozumienia i mówienia w 5 obszarach (0–10 pkt): co dziecko rozumie, jak mówi, jak się porozumiewa — i podstaw do skierowania na diagnozę logopedyczną.'],
 ], [3400, 2200, CONTENT - 3400 - 2200], { boldCol0: true }));
 
 add(pageBreak());
@@ -94,6 +97,26 @@ add(box('WIEK MA ZNACZENIE — INACZEJ NARZĘDZIE WPROWADZI NAS W BŁĄD', [
   p([t('Granica kompetencji: ', { bold: true, color: ORANGE }), t('obserwacja ToM w przedszkolu opisuje zachowania. Nie jest testem, nie daje wyniku i nie prowadzi do rozpoznania spektrum autyzmu. Prowadzi wyłącznie do rzetelnego opisu przekazywanego poradni w opinii o funkcjonowaniu dziecka.')]),
 ], { fill: LIGHTO, bar: ORANGE }));
 
+add(spacer(140));
+add(H2('6.7  Karta obserwacji rozwoju mowy i komunikacji'));
+add(p([t('Dlaczego czwarte narzędzie: ', { bold: true }), t('trudności w komunikacji bywają przyczyną wielu innych problemów. Dziecko, które nie rozumie polecenia, wygląda na nieposłuszne. Dziecko, które nie potrafi powiedzieć, czego chce, krzyczy albo uderza. Zanim uznamy, że problem leży w zachowaniu, sprawdzamy, czy dziecko nas rozumie i czy potrafi się z nami porozumieć — brak mowy albo brak rozumienia mowy trzeba wykluczyć w pierwszej kolejności.')]));
+add(p([t('Co to jest: ', { bold: true }), t('karta obserwacji rozwoju mowy i komunikacji (narzędzie EduPlaner 2026) porządkuje mowę dziecka w pięciu obszarach: rozumienie mowy (recepcja), mowa czynna i artykulacja (ekspresja), słuch fonematyczny i percepcja słuchowa, słownictwo i gramatyka oraz komunikacja i budowanie wypowiedzi (pragmatyka). 25 wskaźników w skali 0–2: 0 — zachowanie nieobecne, 1 — częściowo lub z pomocą dorosłego, 2 — samodzielnie. Każdy obszar daje wynik 0–10 pkt; średni poziom mowy to średnia z pięciu obszarów. Wskaźniki mają kody ICF (d310, b320, b1560, b16700, d330 i in.).')]));
+add(table(['Wynik obszaru', 'Odczyt', 'Co robimy'], [
+  ['8–10', 'Zasób — mocna strona, fundament do pracy', 'Wykorzystujemy w celach SMART jako punkt oparcia.'],
+  ['4–7', 'Wymaga wsparcia — częściowo opanowane', 'Cel SMART w tym obszarze; wsparcie w bieżącej pracy.'],
+  ['0–3', 'Priorytet — obszar do intensywnej pracy', 'Cel SMART + wskazanie diagnozy logopedycznej w dokumentacji.'],
+], [1400, 3600, CONTENT - 1400 - 3600], { boldCol0: true }));
+add(spacer(60));
+add(H3('Kiedy uruchamiamy kartę mowy'));
+add(bullet('Obszar d3 (porozumiewanie się) w KPOF jest niski albo zawiera twierdzenia ocenione na 1–2 (reguły R1, R2).'));
+add(bullet('Dziecko nie mówi, mówi pojedynczymi słowami albo mówi tak, że rozumie je wyłącznie najbliższa rodzina.'));
+add(bullet('Nie wykonuje prostych poleceń mimo prawidłowego słuchu — sprawdzamy rozumienie, zanim uznamy to za brak współpracy.'));
+add(bullet('Zespół podejrzewa, że za zachowaniem trudnym (R5) stoi brak możliwości porozumienia się — wtedy karta mowy wyprzedza ABC albo idzie z nim równolegle.'));
+add(spacer(60));
+add(box('GRANICA KOMPETENCJI', [
+  p([t('Nauczyciel opisuje to, co słyszy i widzi w naturalnych sytuacjach: w zabawie, rozmowie, słuchaniu bajek. ', { bold: true }), t('Karta nie jest testem i nie zastępuje diagnozy logopedycznej. Wynik zasila cele SMART, WOPF oraz opinię o funkcjonowaniu dziecka i stanowi podstawę do skierowania na diagnozę logopedyczną. W dokumentacji piszemy np.: „obserwowane trudności w wyodrębnianiu głosek i w budowaniu wypowiedzi, wskazana diagnoza logopedyczna”.')]),
+], { fill: LIGHTO, bar: ORANGE }));
+
 add(spacer(150));
 add(cw('KAZUS ZESPOŁOWY  ·  20 min', [
   p([t('Materiał: ', { bold: true }), t('trzy opisy dzieci (po jednym na zespół), zawierające fragment profilu KPOF i krótką notatkę nauczyciela.')]),
@@ -101,6 +124,7 @@ add(cw('KAZUS ZESPOŁOWY  ·  20 min', [
   p([t('Kazus 1: ', { bold: true }), t('czterolatek, d1 = 4,1; d4 = 4,3; d7 = 1,6; nie przyjmuje ról w zabawie tematycznej; nie odczytuje żartu; wskazuje palcem wyłącznie po to, by dostać przedmiot. → R1 + R2; moduł ToM; nie uruchamiamy ABC, bo nie ma zachowań trudnych.')]),
   p([t('Kazus 2: ', { bold: true }), t('pięciolatek, wszystkie obszary 3,1–4,0; w ostatnim miesiącu siedem incydentów uderzenia rówieśnika, wszystkie w szatni i przy kolejce do łazienki. → R5; moduł ABC natychmiast, bez czekania na komplet arkuszy; nie uruchamiamy modułu sensorycznego wyłącznie na podstawie miejsca zdarzeń — dopiero analiza ABC pokaże, czy tłok i hałas są poprzednikiem.')]),
   p([t('Kazus 3: ', { bold: true }), t('trzylatek, d5 = 1,9; odmawia potraw o konsystencji papkowatej, płacze przy myciu rąk, zdejmuje skarpetki; w metryczce zaznaczono nadwrażliwość sensoryczną. → R1 + R4; profil sensoryczny; nie uruchamiamy ToM — trzylatek, brak przesłanek relacyjnych, wiek poniżej progu zadań fałszywego przekonania.')]),
+  p([t('Kazus 4: ', { bold: true }), t('czterolatek, d3 = 1,8; mówi pojedynczymi słowami, rozumie go tylko mama; w kole odchodzi i przewraca zabawki, gdy nie może się porozumieć. → R1 + R2; karta obserwacji mowy jako pierwsza; ABC dopiero po sprawdzeniu, czy zachowanie nie wynika z braku możliwości porozumienia się.')]),
 ]));
 
 module.exports = C;

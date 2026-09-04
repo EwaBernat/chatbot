@@ -16,7 +16,7 @@ dydaktyczne (8 × 45 min)**, wersja skrócona 3 × 45 min.
 | M3 | Metryczka dziecka — pierwszy dokument września | 25 min |
 | M4 | KPOF — budowa narzędzia, skala, siedem zasad obserwacji | 35 min |
 | M5 | KPOF w praktyce — liczenie, odczyt profilu, kwalifikacja | 35 min |
-| M6 | Obserwacja pogłębiona: ABC, profil sensoryczny, ToM — kiedy? | 45 min |
+| M6 | Obserwacja pogłębiona: ABC, profil sensoryczny, ToM, karta mowy — kiedy? | 45 min |
 | M7 | WOPF i IPET oraz cele SMART | 55 min |
 | M8 | Ewaluacja — ile razy w roku i co po niej robimy | 20 min |
 | M9 | Opinia o funkcjonowaniu dziecka dla poradni | 20 min |
