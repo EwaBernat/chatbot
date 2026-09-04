@@ -61,13 +61,14 @@ Katalog `film/druki/` zawiera wzory dokumentów, które film wypełnia na ekrani
 (animacja pól na prawdziwym druku): metryczka dziecka (oryginalny druk EduPlaner 2026, 7 stron — `Metryczka.pdf`), KPOF (3 warianty wiekowe),
 karta obserwacji rozwoju mowy, karta celu SMART (Z5) oraz trzy druki z modułu 6:
 
-| Druk | Plik | Podstawa |
+| Druk | Plik | Uwagi |
 |---|---|---|
-| Wielospecjalistyczna ocena poziomu funkcjonowania (WOPF), 4 strony | `WOPF_przedszkole.docx` / `.pdf` | Dz.U. 2020 poz. 1309, § 6 ust. 4, 9–11 |
-| Indywidualny program edukacyjno-terapeutyczny (IPET), 4 strony | `IPET_przedszkole.docx` / `.pdf` | Dz.U. 2020 poz. 1309, § 6 ust. 1 pkt 1–8 |
+| WOPFU — druk EduPlaner 2026 (21 stron), **pokazywany w module 6** | `WOPFU_2026_FORMULARZ.pdf`, strony `WOPFU-01/-04/-09.png` | wersja szkolna formularza (nagłówek „uczeń / klasa”); w filmie kadrowana poniżej nagłówka |
+| IPET przedszkole — druk EduPlaner 2026 (40 stron), **pokazywany w module 6** | `IPET_przedszkole_2026_PCTP.pdf`, strony `IPET_PCTP-07/-26/-27.png` | strony: zalecenia z orzeczenia, dostosowania, zintegrowane działania |
 | Opinia o funkcjonowaniu dziecka dla poradni, 2 strony | `Opinia_o_funkcjonowaniu_dziecka.docx` / `.pdf` | Dz.U. 2026 poz. 428, § 7 ust. 2–3 |
+| Uproszczone wzory zapasowe (WOPF, IPET) | `WOPF_przedszkole.docx`, `IPET_przedszkole.docx` | wygenerowane skryptem `generator/druki.js`; w filmie nieużywane |
 
-Generator tych trzech druków: `generator/druki.js` (`node druki.js`).
+Generator wzorów zapasowych i opinii: `generator/druki.js` (`node druki.js`).
 
 ## Ponowne wygenerowanie dokumentu
 

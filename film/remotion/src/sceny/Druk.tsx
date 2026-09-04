@@ -31,13 +31,29 @@ export const Druk: React.FC<{
   const najazd = interpolate(wejscie, [0, 1], [0.97, 1]);
   const s = skala * najazd;
 
-  const srodekX = kadr.x + kadr.szer / 2;
-  const srodekY = kadr.y + kadr.wys / 2;
-  const tx = width / 2 - srodekX * s;
-  const ty = (height - 120) / 2 - srodekY * s + 20;
+  const szerEkr = kadr.szer * s;
+  const wysEkr = kadr.wys * s;
+  const lewo = width / 2 - szerEkr / 2;
+  const gora = (height - 120) / 2 - wysEkr / 2 + 20;
 
   return (
     <AbsoluteFill style={{background: MARKA.tloDrugie, overflow: 'hidden', fontFamily: FONT}}>
+      {/* ramka arkusza — druk widać jako kartkę w oprawie, nic nie wychodzi poza kadr */}
+      <div
+        style={{
+          position: 'absolute',
+          left: lewo,
+          top: gora,
+          width: szerEkr,
+          height: wysEkr,
+          overflow: 'hidden',
+          borderRadius: 10,
+          border: `3px solid ${MARKA.tekst}`,
+          boxShadow: '0 26px 70px rgba(45,27,105,0.28)',
+          background: '#FFFFFF',
+          opacity: wejscie,
+        }}
+      >
       <div
         style={{
           position: 'absolute',
@@ -45,10 +61,8 @@ export const Druk: React.FC<{
           top: 0,
           width: szerObrazu,
           height: wysObrazu,
-          transform: `translate(${tx}px, ${ty}px) scale(${s})`,
+          transform: `translate(${-kadr.x * s}px, ${-kadr.y * s}px) scale(${s})`,
           transformOrigin: '0 0',
-          opacity: wejscie,
-          boxShadow: '0 30px 90px rgba(45,27,105,0.18)',
           background: '#FFFFFF',
         }}
       >
@@ -147,6 +161,7 @@ export const Druk: React.FC<{
             </div>
           );
         })}
+      </div>
       </div>
 
       {etykieta ? (
