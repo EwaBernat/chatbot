@@ -23,6 +23,16 @@ add(table(['KPOF JEST', 'KPOF NIE JEST'], [
     ['Materiałem źródłowym do WOPF i do opinii o funkcjonowaniu dziecka dla poradni.', 'Dokumentem, który wysyłamy do poradni w oryginale zamiast opinii o funkcjonowaniu.'],
 ], [4680, 4680]));
 
+add(spacer(140));
+add(H2('4.1a  ICF i profil biopsychospołeczny — na czym stoi kwestionariusz'));
+add(p([t('Co to jest ICF: ', { bold: true }), t('Międzynarodowa Klasyfikacja Funkcjonowania, Niepełnosprawności i Zdrowia (WHO, 2001). Nie opisuje choroby ani rozpoznania — opisuje, jak człowiek funkcjonuje: co robi, w czym uczestniczy i co w jego otoczeniu mu pomaga albo przeszkadza. Dziewięć obszarów KPOF to dziewięć rozdziałów składnika „aktywność i uczestniczenie” ICF: d1 uczenie się i stosowanie wiedzy, d2 ogólne zadania i obowiązki, d3 porozumiewanie się, d4 poruszanie się, d5 dbanie o siebie, d6 życie domowe, d7 wzajemne kontakty i związki międzyludzkie, d8 główne obszary życia (edukacja i zabawa), d9 życie społeczne.')]));
+add(p([t('Model biopsychospołeczny: ', { bold: true }), t('ICF zakłada, że funkcjonowanie dziecka jest wypadkową trzech składników — stanu zdrowia i funkcji ciała, aktywności i uczestniczenia oraz czynników kontekstowych (środowiskowych i osobowych). Dwoje dzieci z tym samym rozpoznaniem może funkcjonować zupełnie inaczej, bo inne są ich zasoby, inna sala, inna grupa i inne wsparcie w domu. Profil biopsychospołeczny nie jest w przedszkolu osobnym drukiem: jest sposobem patrzenia wpisanym w KPOF (kody ICF przy twierdzeniach), w blok „bariery i ułatwienia” WOPF oraz w opinię o funkcjonowaniu dziecka. Trzeba go brać pod uwagę, bo bez czynników środowiskowych opis dziecka jest niepełny, a bez opisu barier nie da się zaplanować dostosowań.')]));
+add(spacer(60));
+add(straznik('ICF', 'GDZIE PRZEPIS MÓWI O ICF — ROZPORZĄDZENIE O ORZEKANIU', [
+  p([t('Rozporządzenie o orzekaniu — Ministra Edukacji z dnia 2 marca 2026 r. w sprawie orzeczeń i opinii (Dz.U. 2026 poz. 428), § 7 ust. 7: ', { bold: true }), t('opinia o funkcjonowaniu dziecka odnosi się do aktywności i uczestniczenia w rozumieniu Międzynarodowej Klasyfikacji Funkcjonowania, Niepełnosprawności i Zdrowia (ICF); przepis obowiązuje od 1 września 2026 r. Na tym samym modelu poradnia opiera ocenę funkcjonalną poprzedzającą wydanie orzeczenia. Treść ust. 7 przytoczono za opracowaniami branżowymi — przed powołaniem w dokumencie dziecka sprawdź brzmienie w ISAP.')]),
+  p([t('Co to zmienia w obserwacji: ', { bold: true }), t('patrzymy na to, co dziecko robi, a nie na diagnozę; opisujemy funkcjonowanie w konkretnym środowisku (co w sali pomaga, co przeszkadza); mówimy tym samym językiem, co poradnia.')]),
+]));
+
 add(spacer(150));
 add(H2('4.2  Trzy wersje arkusza'));
 add(table(['Wersja', 'Wiek', 'Liczba twierdzeń', 'Kiedy stosujemy'], [

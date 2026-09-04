@@ -17,9 +17,10 @@ z Załącznikiem Z1 zaudytowanego scenariusza. Sprawdzone przed generowaniem dź
 | M1 | metryczka — narzędzie wewnętrzne, zarządzenie dyrektora | Z1 karta 5 (nie jest dokumentem z nazwy w Dz.U. 2024 poz. 50) | ✅ |
 | M2 | 30-dniowy termin na program · 10 dni na opinię dla poradni od otrzymania prośby przez dyrektora | Dz.U. 2020 poz. 1309 · Dz.U. 2026 poz. 428 § 7 ust. 3 | ✅ |
 | M3 | 30 dni · roczne obowiązkowe przygotowanie przedszkolne · zasada odbioru | Z1 / scenariusz M3 | ✅ |
-| M4 | brak powołań prawnych (narzędzie autorskie KPOF; klasyfikacja ICF WHO) | — | ✅ |
+| M4 | ICF (WHO 2001); rozporządzenie o orzekaniu Dz.U. 2026 poz. 428 § 7 ust. 7: opinia odnosi się do aktywności i uczestniczenia wg ICF, od 1.09.2026 | Dz.U. 2026 poz. 428 · § 7 ust. 7 (treść wg opracowań branżowych — do sprawdzenia w ISAP) | ✅ (z zastrzeżeniem) |
 | M5 | reguły R1–R6 — jawnie nazwane decyzją rady, nie przepisem | scenariusz M6 | ✅ |
-| M6 | rozporządzenie w sprawie kształcenia specjalnego · WOPFU 2× · IPET 30 dni / 30 września | Dz.U. 2020 poz. 1309 | ✅ |
+| M6 | rozporządzenie w sprawie kształcenia specjalnego · WOPFU 2× · IPET 30 dni / 30 września · § 6: program uwzględnia diagnozę, wnioski z WOPF i zalecenia z orzeczenia; zakres i sposób dostosowania; zintegrowane działania | Dz.U. 2020 poz. 1309 · § 6 | ✅ |
+| M6 | podstawa programowa Dz.U. 2026 poz. 378 — sala i doświadczenia edukacyjne (opisowo) | Dz.U. 2026 poz. 378 | ✅ |
 | M6 | SMART: nazwa nie pada w rozporządzeniu · wymagana ocena efektywności | § dot. zawartości IPET i WOPFU (Dz.U. 2020 poz. 1309); ocena efektywności (Dz.U. 2023 poz. 1798) | ✅ |
 | M6 | informacja o gotowości szkolnej — do końca kwietnia | Z1: przepisy o świadectwach i drukach — do weryfikacji na dany rok | ✅ (z zastrzeżeniem) |
 

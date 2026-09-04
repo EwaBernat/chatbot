@@ -58,6 +58,40 @@ add(table(['Termin', 'Zdarzenie'], [
 add(spacer(80));
 add(p([t('Prawa rodzica — trzy rzeczy, o których zapominamy: ', { bold: true }), t('rodzice mają prawo uczestniczyć w spotkaniach zespołu, mają prawo otrzymać kopię IPET i kopię wielospecjalistycznej oceny, a dyrektor zawiadamia ich o terminie spotkania w sposób przyjęty w placówce. Brak zawiadomienia jest uchybieniem formalnym niezależnie od tego, czy rodzic i tak by nie przyszedł.')]));
 
+add(spacer(140));
+add(H3('Co musi być w IPET — zalecenia z orzeczenia i z WOPF'));
+add(p([t('§ 6 rozporządzenia (Dz.U. 2020 poz. 1309): ', { bold: true }), t('zespół opracowuje program po dokonaniu wielospecjalistycznej oceny poziomu funkcjonowania, uwzględniając diagnozę i wnioski sformułowane na jej podstawie oraz zalecenia zawarte w orzeczeniu o potrzebie kształcenia specjalnego. W praktyce: do IPET wpisujemy zalecenia poradni z orzeczenia jedno po drugim, a przy każdym — sposób realizacji (forma, kto, wymiar, od kiedy). To samo robimy z zaleceniami z WOPF. Orzeczenie mówi, co dziecku zalecono; WOPF mówi, co widzimy w przedszkolu; IPET pokazuje, jak jedno i drugie zamieniamy w działanie, a karta ewaluacji — czy zadziałało.')]));
+add(table(['Element IPET (§ 6)', 'Skąd bierzemy', 'Jak zapisujemy'], [
+  ['Zalecenia z orzeczenia i ich realizacja', 'orzeczenie poradni', 'tabela: zalecenie → forma realizacji → kto → wymiar → od kiedy → ocena realizacji'],
+  ['Zalecenia z WOPF i ich realizacja', 'blok 7 WOPF (wnioski i rekomendacje)', 'to samo — każde zalecenie ma swój wiersz i swojego właściciela'],
+  ['Zakres i sposób dostosowania wymagań i warunków', 'blok 4 WOPF (bariery i ułatwienia)', 'dostosowanie = odpowiedź na konkretną barierę z WOPF'],
+  ['Zintegrowane działania nauczycieli i specjalistów', 'cele SMART z IPET', 'jeden cel, jeden plan, wiele rąk — kto, co, kiedy'],
+  ['Formy i okres pomocy p-p, zajęcia rewalidacyjne, wsparcie rodziców', 'orzeczenie + WOPF', 'wymiar godzin, prowadzący, okres'],
+], [3000, 2600, CONTENT - 3000 - 2600], { boldCol0: true }));
+add(spacer(100));
+add(H3('Dostosowania w przedszkolu — zmieniamy JAK, nie CZEGO'));
+add(p('Podstawa programowa pozostaje ta sama. Dostosowanie to zmiana sposobu, w jaki dziecko dociera do treści i pokazuje, co umie:'));
+add(bullet([t('Sposób podania: ', { bold: true }), t('polecenie krótkie, poparte gestem i obrazkiem; jedna instrukcja naraz; modelowanie.')]));
+add(bullet([t('Czas: ', { bold: true }), t('dłuższa chwila na reakcję, dodatkowa próba, przewidywalne przejścia między aktywnościami.')]));
+add(bullet([t('Przestrzeń: ', { bold: true }), t('miejsce w kole blisko nauczyciela, kącik wyciszenia, wizualny plan dnia, ograniczenie bodźców.')]));
+add(bullet([t('Sposób sprawdzania: ', { bold: true }), t('dziecko pokazuje zamiast mówić, wskazuje obrazek, wykonuje zamiast opowiadać.')]));
+add(bullet([t('Pomoce: ', { bold: true }), t('sztućce z grubym uchwytem, słuchawki wyciszające, obrazki do komunikacji (AAC), podkładki antypoślizgowe.')]));
+add(p([t('Zasada: ', { bold: true }), t('każde dostosowanie ma źródło w WOPF — w barierze, którą tam opisaliśmy. Dostosowanie bez bariery jest przypadkowe; bariera bez dostosowania jest zaniechaniem.')]));
+add(spacer(100));
+add(H3('Zintegrowane działania nauczycieli i specjalistów — jak to wygląda w przedszkolu'));
+add(bullet('Jeden zestaw celów SMART z IPET dla wszystkich: logopeda, psycholog, terapeuta i nauczyciel grupy pracują nad tymi samymi celami, każdy w swoim czasie i swoimi metodami.'));
+add(bullet('Strategia z gabinetu przechodzi do sali i do domu: jeśli logopeda uczy dziecko prosić gestem o picie, nauczycielka honoruje ten gest przy śniadaniu, a rodzice w domu.'));
+add(bullet('Stały rytm spotkań zespołu (np. co 6 tygodni, 20 minut), wspólny zeszyt komunikacji w teczce dziecka, jedna karta ewaluacji (Z5) dla wszystkich prowadzących.'));
+add(bullet('Żaden specjalista nie prowadzi celów w oderwaniu od IPET — zajęcia specjalistyczne realizują program, a nie własny plan.'));
+add(spacer(100));
+add(H3('Sala pod nową podstawę programową (Dz.U. 2026 poz. 378)'));
+add(p('Podstawa opisuje osiągnięcia dziecka w dziewięciu obszarach i kładzie nacisk na doświadczenia edukacyjne. Przestrzeń sali ma to umożliwiać — i jednocześnie realizować dostosowania z IPET:'));
+add(bullet('Wyraźne strefy: ruch · zabawa tematyczna · badanie przyrody i techniki · książka i język · sztuka · kącik wyciszenia.'));
+add(bullet('Materiały dostępne na wysokości dziecka i opisane obrazkiem — dziecko samo wybiera i odkłada.'));
+add(bullet('Wizualny plan dnia; miejsce w kole i przy stoliku dobrane do potrzeb sensorycznych.'));
+add(bullet('Hałas i światło pod kontrolą — to najczęstsze bariery środowiskowe w ocenie według ICF.'));
+add(p([t('Uniwersalne projektowanie: ', { bold: true }), t('sala urządzona tak, że dostosowanie dla jednego dziecka jest dobrym środowiskiem dla całej grupy.')]));
+
 add(spacer(150));
 add(H2('7.4  Cele SMART — dlaczego przez nie realizujemy IPET'));
 add(p([t('Zapis „rozwijanie samodzielności” nie jest celem. Jest życzeniem. Nie da się go zrealizować, bo nie wiadomo, co miałoby się stać, i nie da się go zewaluować, bo nie wiadomo, po czym poznamy, że się stało. ')  , t('Cel SMART jest jedynym formatem, który jednocześnie planuje działanie i przygotowuje ewaluację', { bold: true }), t(' — kryterium mierzalności zapisane w celu jest gotowym wskaźnikiem w karcie ewaluacji. To jest cała odpowiedź na pytanie, po co komu SMART w IPET.')]));
