@@ -63,10 +63,11 @@ karta obserwacji rozwoju mowy, karta celu SMART (Z5) oraz trzy druki z modułu 6
 
 | Druk | Plik | Uwagi |
 |---|---|---|
-| WOPFU — druk EduPlaner 2026 (21 stron), **pokazywany w module 6** | `WOPFU_2026_FORMULARZ.pdf`, strony `WOPFU-01/-04/-09.png` | wersja szkolna formularza (nagłówek „uczeń / klasa”); w filmie kadrowana poniżej nagłówka |
+| WOPF przedszkole — druk EduPlaner 2026 (5 stron), **pokazywany w module 6** | `WOPF_przedszkole_2026.docx` / `.pdf`, strony `WOPF_pp-1..5.png` | układ jak w druku WOPFU, ale w całości przedszkolny: dziecko i grupa, obszary ICF opisane po przedszkolnemu; generator `generator/wopf_przedszkole.js` |
 | IPET przedszkole — druk EduPlaner 2026 (40 stron), **pokazywany w module 6** | `IPET_przedszkole_2026_PCTP.pdf`, strony `IPET_PCTP-07/-26/-27.png` | strony: zalecenia z orzeczenia, dostosowania, zintegrowane działania |
 | Opinia o funkcjonowaniu dziecka dla poradni, 2 strony | `Opinia_o_funkcjonowaniu_dziecka.docx` / `.pdf` | Dz.U. 2026 poz. 428, § 7 ust. 2–3 |
 | Uproszczone wzory zapasowe (WOPF, IPET) | `WOPF_przedszkole.docx`, `IPET_przedszkole.docx` | wygenerowane skryptem `generator/druki.js`; w filmie nieużywane |
+| Druk WOPFU w wersji szkolnej | — | nie jest częścią repozytorium; film przedszkolny korzysta wyłącznie z wersji przedszkolnej |
 
 Generator wzorów zapasowych i opinii: `generator/druki.js` (`node druki.js`).
 
