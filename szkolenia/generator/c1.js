@@ -109,6 +109,28 @@ add(p([t('Rola Strażnika Prawa. ', { bold: true }),
   t('„Z czego to wynika i gdzie to jest zapisane?”. ', { bold: true, i: true }),
   t('Strażnik ma prawo zatrzymać pracę zespołu do czasu wskazania podstawy. Funkcja jest rotacyjna — w ciągu roku pełni ją każdy nauczyciel. To najtańszy znany mechanizm chroniący przed dokumentacją tworzoną „z przyzwyczajenia”.')]));
 
+add(H2('Zanim zaczniemy — czy placówka, która ma już szczegółową dokumentację, musi ją zmieniać?'));
+add(p([t('Odpowiedź: nie zaczynamy od zera, ale aktualizujemy. ', { bold: true }),
+  t('Dotychczasowe arkusze obserwacji, oceny wielospecjalistyczne i programy pozostają ważnym źródłem danych o dziecku i zostają w teczce jako historia wsparcia. Żaden przepis nie nakazuje ich przepisywać. Zmiany wynikają z trzech powodów i dotyczą tego, jak dokumentujemy od 1 września 2026 r.')]));
+add(spacer(80));
+add(table(['Powód', 'Co się zmienia', 'Skutek dla naszej dokumentacji'], [
+  ['1. Nowa podstawa programowa\nDz.U. 2026 poz. 378 · od 1.09.2026',
+   'Osiągnięcia dziecka opisane w 9 obszarach zamiast 4 obszarów rozwoju; nacisk na doświadczenia edukacyjne.',
+   'Każde narzędzie obserwacji i każdy IPET, który odsyła do „obszarów rozwoju” starej podstawy, przemapowujemy na 9 obszarów. KPOF ma ten układ wbudowany.'],
+  ['2. Rozporządzenie o orzekaniu\nDz.U. 2026 poz. 428 · § 7 ust. 6–7 i § 8 od 1.09.2026',
+   'Ocena funkcjonalna przed orzeczeniem; opinia o funkcjonowaniu dziecka wydawana w 10 dni od otrzymania prośby przez dyrektora (§ 7 ust. 3); mocne strony obowiązkowo.',
+   'Opinia wymaga języka funkcjonalnego: co dziecko robi, w jakich warunkach, przy jakim wsparciu, jak często. Dokumentacja pisana przez rozpoznanie i listę trudności takich danych nie daje — dlatego arkusz obserwacji wypełniamy we wrześniu dla wszystkich dzieci.'],
+  ['3. ICF jako wspólny język\nWHO 2001 · § 7 ust. 7 rozporządzenia o orzekaniu',
+   'Poradnia opisuje dziecko w modelu biopsychospołecznym: aktywność, uczestniczenie, czynniki środowiskowe.',
+   'Opis dziecka uzupełniamy o bariery i ułatwienia w środowisku; skala i obszary KPOF (d1–d9) odpowiadają temu układowi.'],
+], [2100, 3300, CONTENT - 2100 - 3300], { boldCol0: true }));
+add(spacer(100));
+add(box('Z CZYM TO SIĘ WIĄŻE — A Z CZYM NIE', [
+  p([t('Robimy: ', { bold: true }), t('przegląd wzorów druków i aktualizację podstaw prawnych na obowiązujące teksty jednolite · wrześniową obserwację wszystkich dzieci, żeby dane były gotowe, zanim wpłynie prośba z poradni · zarządzenie dyrektora porządkujące obieg dokumentów · aktualizację IPET i oceny przy najbliższej wielospecjalistycznej ocenie, czyli we wrześniu.')]),
+  p([t('Nie robimy: ', { bold: true }), t('nie przepisujemy dokumentów już sporządzonych i nie usuwamy ich z teczki — poprzednie oceny i programy są punktem odniesienia dla oceny efektów wsparcia.')]),
+], { fill: LIGHTO, bar: ORANGE }));
+add(spacer(140));
+
 add(H2('1.1  Sześć aktów prawnych, na których stoi teczka dziecka'));
 add(p('Poniższe sześć pozycji wystarcza, by uzasadnić każdy dokument omawiany na tym szkoleniu. Uczestnicy otrzymują je jako Załącznik Z1 — karty Strażnika Prawa do laminowania i powieszenia w pokoju nauczycielskim.'));
 

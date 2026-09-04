@@ -11,7 +11,7 @@ dydaktyczne (8 × 45 min)**, wersja skrócona 3 × 45 min.
 | Moduł | Temat | Czas |
 |---|---|---|
 | M0 | Otwarcie, kontrakt, diagnoza wstępna | 15 min |
-| M1 | Strażnik Prawa — co było, a co jest od 1.09.2026 | 60 min |
+| M1 | Strażnik Prawa — czy musimy zmieniać dokumentację, którą już mamy; co było, a co jest od 1.09.2026 | 60 min |
 | M2 | ICF — czym jest i dlaczego stał się językiem dokumentacji | 45 min |
 | M3 | Metryczka dziecka — pierwszy dokument września | 25 min |
 | M4 | KPOF — budowa narzędzia, skala, siedem zasad obserwacji | 35 min |

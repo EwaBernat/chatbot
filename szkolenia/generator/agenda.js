@@ -27,8 +27,8 @@ add(spacer(160));
 add(H1('▌', 'Przebieg — 120 minut'));
 add(table(['Czas', 'Blok', 'Forma', 'Co się dzieje', 'Materiały'], [
   ['0:00–0:05', 'Otwarcie', 'prowadzący', 'Kontrakt, trzy karteczki: dokument, którego nie rozumiem · który zajmuje najwięcej czasu · pytanie na dziś.', 'karteczki, 3 arkusze na ścianie'],
-  ['0:05–0:13', 'FILM · M1', 'film', 'Podstawa prawna — co obowiązuje od 1 września 2026; § 7 ust. 3 rozporządzenia o orzekaniu (10 dni). STOP po planszy „Trzy zdania na zamknięcie".', 'Z1 ściąga podstaw prawnych'],
-  ['0:13–0:23', 'Ćwiczenie', 'zespoły 3–4', '„Sąd nad dokumentem": Strażnik Prawa · Adwokat dziecka · Kontroler — trzy anonimowe fragmenty dokumentacji z lat ubiegłych.', 'fragmenty WOPF, IPET, opinii'],
+  ['0:05–0:15', 'FILM · M1', 'film', 'Czy musimy zmieniać dokumentację, którą już mamy (trzy powody, z czym się to wiąże); podstawa prawna — co obowiązuje od 1 września 2026; § 7 ust. 3 rozporządzenia o orzekaniu (10 dni). STOP po planszy „Trzy zdania na zamknięcie".', 'Z1 ściąga podstaw prawnych'],
+  ['0:15–0:23', 'Ćwiczenie', 'zespoły 3–4', '„Sąd nad dokumentem": Strażnik Prawa · Adwokat dziecka · Kontroler — trzy anonimowe fragmenty dokumentacji z lat ubiegłych.', 'fragmenty WOPF, IPET, opinii'],
   ['0:23–0:29', 'FILM · M2', 'film', 'Obieg dokumentów — sześć przystanków, cztery narzędzia obserwacji pogłębionej. STOP po planszy „Zapamiętajmy kolejność".', '—'],
   ['0:29–0:35', 'FILM · M3', 'film', 'Metryczka — zasadność i wypełnianie krok po kroku (animacja oryginalnego druku, sekcje I–VII i XI; bez PESEL, z podstawą orzeczenia i chorobami przewlekłymi).', 'druk Metryczki'],
   ['0:35–0:45', 'Ćwiczenie', 'indywidualnie + pary', '„Metryczka w 10 minut": sekcje I, II, VI, VII dla jednego dziecka; kontrola krzyżowa sekcji VI (kto podaje lek, gdzie, kogo powiadamiamy).', 'druk Metryczki'],
@@ -45,7 +45,7 @@ add(table(['Czas', 'Blok', 'Forma', 'Co się dzieje', 'Materiały'], [
 add(spacer(160));
 add(H2('Czas filmu w modułach'));
 add(table(['Moduł', 'Temat', 'Czas filmu', 'Ćwiczenie po module'], [
-  ['M1', 'Podstawa prawna', '7:36', 'Sąd nad dokumentem · 10 min'],
+  ['M1', 'Czy zmieniać dokumentację · podstawa prawna', '9:30', 'Sąd nad dokumentem · 8 min'],
   ['M2', 'Obieg dokumentów', '5:36', '—'],
   ['M3', 'Metryczka', '5:45', 'Metryczka w 10 minut'],
   ['M4', 'Kwestionariusz KPOF, ICF i profil biopsychospołeczny', '10:08', 'Policz i zdecyduj · 12 min'],
