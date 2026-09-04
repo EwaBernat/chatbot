@@ -30,7 +30,7 @@ add(table(['Dokument / działanie', 'Ile razy w roku', 'Kiedy', 'Źródło obowi
    'Rozp. MEN 09.08.2017, tekst jedn. Dz.U. 2023 poz. 1798 — obowiązek oceny efektywności i formułowania wniosków.'],
   ['KPOF',
    '2 RAZY (decyzja placówki)',
-   'I — wrzesień/październik (pomiar bazowy; grupy 3-latków po adaptacji); II — kwiecień/maj (pomiar kontrolny, na tym samym arkuszu, innym kolorem).',
+   'I — wrzesień (pomiar bazowy, także grupy 3-latków — przed IPET); II — kwiecień/maj (pomiar kontrolny, na tym samym arkuszu, innym kolorem).',
    'Decyzja rady pedagogicznej — narzędzie wewnętrzne. Zapisujemy w procedurze placówki.'],
   ['Moduł pogłębiony (ABC / sensoryczny / ToM)',
    'Wyłącznie na uruchomienie reguły R1–R6',

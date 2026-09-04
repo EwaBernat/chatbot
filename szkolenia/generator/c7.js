@@ -139,10 +139,9 @@ add(spacer(80));
 add(table(['Termin', 'Zadanie', 'Dokument', 'Odpowiedzialny'], [
   ['1–15 września', 'Zebranie i uzupełnienie metryczek; odbiór podpisów pod klauzulą RODO i upoważnieniami do odbioru.', 'Metryczka dziecka', BLANK],
   ['do 15 września', 'Weryfikacja orzeczeń i opinii złożonych w przedszkolu; uruchomienie zegara 30 dni dla nowych orzeczeń.', 'Metryczka, sekcja VII', BLANK],
-  ['15–30 września', 'Wypełnienie KPOF przez nauczycieli i specjalistów; przekazanie arkuszy rodzicom.', 'KPOF A / B / C', BLANK],
+  ['15–30 września', 'Wypełnienie KPOF przez nauczycieli i specjalistów we wszystkich grupach, także u 3-latków (dziecko z orzeczeniem musi mieć IPET do 30 września); przekazanie arkuszy rodzicom.', 'KPOF A / B / C', BLANK],
   ['do 30 września', 'Opracowanie IPET dla dzieci rozpoczynających kształcenie z orzeczeniem.', 'IPET', BLANK],
   ['wrzesień / październik', 'Pierwsza WOPF w roku szkolnym; spotkania zespołów z rodzicami.', 'WOPF', BLANK],
-  ['październik', 'KPOF dla grup 3-latków — po zakończeniu okresu adaptacji.', 'KPOF A', BLANK],
   ['1–15 października', 'Analiza profili, karty decyzyjne, uruchomienie modułów pogłębionych.', 'Karta decyzyjna Z4', BLANK],
   ['październik / listopad', 'Prowadzenie modułów pogłębionych (2–3 tygodnie obserwacji).', 'ABC / sensoryczny / ToM', BLANK],
   ['listopad', 'Przegląd wskaźników — 15 minut na dziecko, notatka w dzienniku. Bez pełnej WOPF.', 'Karta celu Z5', BLANK],

@@ -26,7 +26,7 @@ add(table(['KPOF JEST', 'KPOF NIE JEST'], [
 add(spacer(150));
 add(H2('4.2  Trzy wersje arkusza'));
 add(table(['Wersja', 'Wiek', 'Liczba twierdzeń', 'Kiedy stosujemy'], [
-  ['A', '3–4 lata', '42', 'Grupy najmłodsze. Pierwsze wypełnienie po zakończeniu okresu adaptacji, nie wcześniej niż w październiku.'],
+  ['A', '3–4 lata', '42', 'Grupy najmłodsze. Pierwsze wypełnienie we wrześniu, tak jak w pozostałych grupach — dziecko z orzeczeniem musi mieć IPET do 30 września, a IPET opiera się na ocenie funkcjonowania. Wynik trzylatka odczytujemy z uwzględnieniem trwającej adaptacji.'],
   ['B', '5 lat', '44', 'Grupy pięciolatków. Wrzesień / październik.'],
   ['C', '6 lat', '44', 'Roczne przygotowanie przedszkolne. Wrzesień/październik — wynik zasila także informację o gotowości szkolnej.'],
 ], [1100, 1400, 1900, CONTENT - 1100 - 1400 - 1900], { boldCol0: true }));

@@ -20,6 +20,8 @@ export const Profil: React.FC<{
   const wysWykresu = 520;
   const doPx = (v: number) => ((v - 1) / 4) * wysWykresu;
   const kwalifikacja = (v: number) => (v >= 4 ? 'zasób' : v >= 3 ? 'poziom I' : v >= 2 ? 'poziom II' : 'poziom III');
+  const kolorSlupka = (v: number) => (v >= 3 ? MARKA.profilZielony : v >= 2 ? MARKA.profilZolty : MARKA.profilCzerwony);
+  const kolorTekstu = (v: number) => (v >= 3 ? MARKA.profilZielony : v >= 2 ? MARKA.profilZoltyTekst : MARKA.profilCzerwony);
 
   return (
     <AbsoluteFill style={{padding: '80px 140px 200px', fontFamily: FONT}}>
@@ -43,7 +45,7 @@ export const Profil: React.FC<{
               right: 0,
               bottom: 90 + doPx(v),
               height: v === 2 || v === 3 ? 3 : 1,
-              background: v === 2 ? MARKA.wyroznienie : v === 3 ? MARKA.slupek : MARKA.siatka,
+              background: v === 2 ? MARKA.profilCzerwony : v === 3 ? MARKA.profilZielony : MARKA.siatka,
               opacity: v === 2 || v === 3 ? 0.7 : 1,
             }}
           >
@@ -80,7 +82,6 @@ export const Profil: React.FC<{
             const brak = o.wartosc === null;
             const v = o.wartosc ?? 1;
             const h = doPx(v) * w;
-            const uwaga = !brak && v < 3;
             return (
               <div key={o.kod} style={{width: 120, display: 'flex', flexDirection: 'column', alignItems: 'center', position: 'relative'}}>
                 {!brak ? (
@@ -90,7 +91,7 @@ export const Profil: React.FC<{
                       bottom: h + 12,
                       fontSize: 30,
                       fontWeight: 800,
-                      color: uwaga ? MARKA.wyroznienie : MARKA.tekst,
+                      color: kolorTekstu(v),
                       opacity: w,
                       whiteSpace: 'nowrap',
                       textAlign: 'center',
@@ -109,7 +110,7 @@ export const Profil: React.FC<{
                   style={{
                     width: 78,
                     height: Math.max(0, h),
-                    background: brak ? 'transparent' : uwaga ? MARKA.wyroznienie : MARKA.slupek,
+                    background: brak ? 'transparent' : kolorSlupka(v),
                     borderRadius: '6px 6px 0 0',
                     border: brak ? `3px dashed ${MARKA.siatka}` : 'none',
                     minHeight: brak ? 40 : 0,

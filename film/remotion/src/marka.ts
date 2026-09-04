@@ -20,6 +20,11 @@ export const MARKA = {
   tlo: '#FCFCFB',
   tloDrugie: '#F3F1F8',    // tło toru słupka
   siatka: '#E4E0EE',
+  // profil KPOF — spójnie z narracją: zielony = zasób i poziom I, żółty = poziom II, czerwony = poziom III
+  profilZielony: '#1E8A4C',
+  profilZolty: '#E3A400',
+  profilZoltyTekst: '#9A6B00',
+  profilCzerwony: '#C62828',
 } as const;
 
 export const FONT =
