@@ -93,7 +93,7 @@ add(modul('M3', 'Metryczka dziecka — pierwszy dokument września', '25 min',
   'uzasadnić metryczkę i przećwiczyć jej wypełnienie bez zbierania danych nadmiarowych'));
 add(spacer(120));
 
-add(H2('3.1  Zasadność — po co nam metryczka'));
+add(H2('3.1  Zasadność — po co nam metryczka?'));
 add(p('Metryczka nie jest dokumentem, który ktoś od nas wymaga z nazwy. Jest dokumentem, który wymyśliliśmy sobie sami, żeby przestać tracić czas. Uzasadnienie podajemy radzie w pięciu punktach — i w tej kolejności.'));
 add(spacer(60));
 add(table(['#', 'Argument', 'Na czym polega'], [
@@ -102,7 +102,7 @@ add(table(['#', 'Argument', 'Na czym polega'], [
   ['2', 'Bezpieczeństwo dziecka tu i teraz',
    'Sekcje IV (osoby upoważnione), V (kontakt w nagłych wypadkach) i VI (zdrowie, alergie, leki, procedury postępowania) to jedyne informacje, które muszą być dostępne w ciągu kilkunastu sekund. Metryczka jest dokumentem operacyjnym, nie archiwalnym.'],
   ['3', 'Punkt wyjścia dla pomocy psychologiczno-pedagogicznej',
-   'Sekcja VII (objęcie wsparciem i dokumentacja specjalna) daje natychmiastową odpowiedź na pytanie, czy dziecko ma orzeczenie, opinię, WWRD, IPET — i od kiedy. To ta informacja uruchamia zegar 30 dni na opracowanie IPET.'],
+   'Sekcja VII (objęcie wsparciem i dokumentacja specjalna) daje natychmiastową odpowiedź na pytanie, czy dziecko ma orzeczenie, opinię, WWRD, IPET — od kiedy i na jakiej podstawie (rodzaj niepełnosprawności, schorzenie). To ta informacja uruchamia zegar 30 dni na opracowanie IPET.'],
   ['4', 'Ślad współpracy z rodzicem',
    'Sekcja XI (rejestr kontaktów i ustaleń) jest dowodem, że przedszkole informowało, konsultowało i ustalało. W sytuacji spornej to jedyny dokument, który to potwierdza.'],
   ['5', 'Zgodność z RODO',
@@ -111,7 +111,7 @@ add(table(['#', 'Argument', 'Na czym polega'], [
 
 add(spacer(160));
 add(H2('3.2  Trzy błędy, które popełniamy przy metryczce'));
-add(bullet([t('Zbieramy dane, których nie potrzebujemy. ', { bold: true }), t('Zasada minimalizacji z RODO obowiązuje także nas. Jeżeli nie umiemy powiedzieć, do jakiego zadania przedszkola potrzebujemy danej informacji, nie wpisujemy jej do druku. Dlatego w metryczce nie wpisujemy numeru PESEL ani daty urodzenia — są już w księdze dzieci i nie powielamy ich w kolejnym dokumencie; dziecko identyfikuje numer w księdze dzieci.')]));
+add(bullet([t('Zbieramy dane, których nie potrzebujemy. ', { bold: true }), t('Zasada minimalizacji z RODO obowiązuje także nas. Jeżeli nie umiemy powiedzieć, do jakiego zadania przedszkola potrzebujemy danej informacji, nie wpisujemy jej do druku. Dlatego w metryczce nie wpisujemy numeru PESEL — jest już w księdze dzieci i nie powielamy go w kolejnym dokumencie. Wpisujemy natomiast to, co wpływa na funkcjonowanie dziecka w placówce: datę urodzenia, imiona i nazwiska rodziców z kontaktem, podstawę wydania orzeczenia (rodzaj niepełnosprawności, schorzenie), choroby przewlekłe i ostrzeżenia z nimi związane (np. astma, cukrzyca) oraz przyjmowane leki.')]));
 add(bullet([t('Wypełniamy raz we wrześniu i nie aktualizujemy. ', { bold: true }), t('Numer telefonu i lista osób upoważnionych zmieniają się w ciągu roku. Ustalamy zasadę: aktualizacja przy każdej zmianie zgłoszonej przez rodzica, z datą; poprzedni wpis zostaje w dokumentacji z datą wykreślenia — tak, jak przewiduje to sam druk.')]));
 add(bullet([t('Trzymamy metryczkę tam, gdzie sięgnie każdy. ', { bold: true }), t('Dokument zawiera dane o zdrowiu — kategoria szczególna z art. 9 RODO. Miejsce przechowywania i osobę odpowiedzialną wskazuje zarządzenie dyrektora.')]));
 
