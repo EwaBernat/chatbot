@@ -55,6 +55,20 @@ i § 8 rozporządzenia Dz.U. 2026 poz. 428 ustalono z opracowań branżowych —
 konkretnej jednostki redakcyjnej w dokumencie dziecka należy sprawdzić tekst w ISAP.
 Ostrzeżenie w tej sprawie jest wydrukowane na ostatniej stronie scenariusza.
 
+## Druki pokazywane w filmie szkoleniowym
+
+Katalog `film/druki/` zawiera wzory dokumentów, które film wypełnia na ekranie
+(animacja pól na prawdziwym druku): metryczka dziecka, KPOF (3 warianty wiekowe),
+karta obserwacji rozwoju mowy, karta celu SMART (Z5) oraz trzy druki z modułu 6:
+
+| Druk | Plik | Podstawa |
+|---|---|---|
+| Wielospecjalistyczna ocena poziomu funkcjonowania (WOPF), 4 strony | `WOPF_przedszkole.docx` / `.pdf` | Dz.U. 2020 poz. 1309, § 6 ust. 4, 9–11 |
+| Indywidualny program edukacyjno-terapeutyczny (IPET), 4 strony | `IPET_przedszkole.docx` / `.pdf` | Dz.U. 2020 poz. 1309, § 6 ust. 1 pkt 1–8 |
+| Opinia o funkcjonowaniu dziecka dla poradni, 2 strony | `Opinia_o_funkcjonowaniu_dziecka.docx` / `.pdf` | Dz.U. 2026 poz. 428, § 7 ust. 2–3 |
+
+Generator tych trzech druków: `generator/druki.js` (`node druki.js`).
+
 ## Ponowne wygenerowanie dokumentu
 
 ```bash
