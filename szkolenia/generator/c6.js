@@ -68,7 +68,7 @@ add(pageBreak());
 
 /* ============ M9 INFORMACJA DO PORADNI ============ */
 add(modul('M9', 'Opinia o funkcjonowaniu dziecka dla poradni', '20 min',
-  'przygotować placówkę na nowy obowiązek i 14-dniowy termin'));
+  'przygotować placówkę na opinię o funkcjonowaniu dziecka i 10-dniowy termin z § 7 ust. 3'));
 add(spacer(120));
 
 add(H2('9.1  Nowy obowiązek — co dokładnie się zmieniło'));

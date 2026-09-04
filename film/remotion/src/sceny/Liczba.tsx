@@ -2,7 +2,7 @@ import React from 'react';
 import {AbsoluteFill, useCurrentFrame, useVideoConfig, spring, interpolate} from 'remotion';
 import {MARKA, FONT} from '../marka';
 
-/** Jedna wielka liczba z opisem — dla terminów: 14 dni, 30 dni, 2 razy w roku. */
+/** Jedna wielka liczba z opisem — dla terminów: 10 dni, 30 dni, 2 razy w roku. */
 export const Liczba: React.FC<{wartosc: string; opis: string; kontekst?: string}> = ({wartosc, opis, kontekst}) => {
   const klatka = useCurrentFrame();
   const {fps} = useVideoConfig();
