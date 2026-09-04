@@ -37,7 +37,7 @@ add(spacer(100));
 const pyt = [
   'Który akt prawny wprowadza nową podstawę programową wychowania przedszkolnego i od kiedy obowiązuje? Czy przewidziano wdrażanie etapowe?',
   'Co zmienia rozporządzenie z 2 marca 2026 r. w zakresie roli przedszkola wobec poradni psychologiczno-pedagogicznej?',
-  'W jakim terminie przedszkole sporządza informację o funkcjonowaniu dziecka i jakie dwa rodzaje treści musi ona obowiązkowo zawierać?',
+  'W jakim terminie przedszkole sporządza opinię o funkcjonowaniu dziecka i jakie dwa rodzaje treści musi ona obowiązkowo zawierać?',
   'Rozwiń skrót ICF. Na jakie pytanie odpowiada ICF, a na jakie ICD?',
   'Wymień pięć komponentów opisu funkcjonowania w ICF wraz z ich symbolami. Który z nich opisuje bariery i ułatwienia?',
   'Ile twierdzeń liczy arkusz KPOF w wersji A, a ile w wersjach B i C? Który obszar nie wlicza się do wyniku ogólnego i dlaczego?',
@@ -58,8 +58,8 @@ add(pageBreak());
 add(H1('Z8', 'Klucz odpowiedzi — dla prowadzącego'));
 add(table(['#', 'Odpowiedź'], [
   ['1', 'Rozporządzenie Ministra Edukacji z dnia 11 marca 2026 r. w sprawie podstawy programowej wychowania przedszkolnego oraz podstawy programowej kształcenia ogólnego dla szkoły podstawowej, w tym dla uczniów z niepełnosprawnością intelektualną w stopniu umiarkowanym lub znacznym (Dz.U. 2026 poz. 378); obowiązuje od 1 września 2026 r. W przedszkolach nie ma wdrażania etapowego — obejmuje wszystkie grupy wiekowe jednocześnie.'],
-  ['2', 'Rozporządzenie ME z 2 marca 2026 r. (Dz.U. 2026 poz. 428) czyni ocenę funkcjonalną obowiązkowym etapem procesu diagnostycznego przed wydaniem orzeczenia i nakłada na przedszkole obowiązek sporządzenia oraz przekazania poradni informacji o funkcjonowaniu dziecka jako elementu tej oceny. Formalną ocenę funkcjonalną sporządza zespół w poradni; przedszkole dostarcza dane z obserwacji. Uwaga na daty: rozporządzenie weszło w życie 14 kwietnia 2026 r., a przepisy dotyczące przedszkola — § 7 ust. 6 i 7 oraz § 8 — dopiero 1 września 2026 r.'],
-  ['3', 'W terminie 14 dni od dnia otrzymania wystąpienia. Obowiązkowo: trudności dziecka ORAZ jego mocne strony i uzdolnienia rozpoznane przez nauczycieli i specjalistów.'],
+  ['2', 'Rozporządzenie ME z 2 marca 2026 r. (Dz.U. 2026 poz. 428) czyni ocenę funkcjonalną obowiązkowym etapem procesu diagnostycznego przed wydaniem orzeczenia i nakłada na przedszkole obowiązek sporządzenia oraz przekazania poradni opinii o funkcjonowaniu dziecka jako elementu tej oceny. Formalną ocenę funkcjonalną sporządza zespół w poradni; przedszkole dostarcza dane z obserwacji. Uwaga na daty: rozporządzenie weszło w życie 14 kwietnia 2026 r., a przepisy dotyczące przedszkola — § 7 ust. 6 i 7 oraz § 8 — dopiero 1 września 2026 r.'],
+  ['3', '§ 7 ust. 3: „Opinię, o której mowa w ust. 2, wydaje się w terminie 10 dni od dnia otrzymania przez dyrektora prośby o jej wydanie.” Kopię opinii otrzymują rodzice. Obowiązkowo: trudności dziecka ORAZ jego mocne strony i uzdolnienia rozpoznane przez nauczycieli i specjalistów.'],
   ['4', 'ICF — Międzynarodowa Klasyfikacja Funkcjonowania, Niepełnosprawności i Zdrowia (WHO, 2001; wersja dla dzieci i młodzieży: ICF-CY, 2007). ICF odpowiada na pytanie „jak dziecko funkcjonuje w swoim środowisku”; ICD — „co dziecku dolega”.'],
   ['5', 'b — funkcje ciała; s — struktury ciała; d — aktywność i uczestniczenie; e — czynniki środowiskowe; czynniki osobowe (nieklasyfikowane). Bariery i ułatwienia opisuje komponent „e”.'],
   ['6', 'Wersja A (3–4 lata) — 42 twierdzenia; wersje B (5 lat) i C (6 lat) — po 44. Do wyniku ogólnego nie wlicza się obszaru VI (życie domowe), ponieważ ma charakter opisowy, a przedszkole obserwuje go w ograniczonym zakresie.'],
@@ -95,7 +95,7 @@ add(bullet('Metryczka dziecka — karta danych dziecka, EduPlaner 2026 / PCTP, r
 add(spacer(140));
 add(box('CZEGO STRAŻNIK PRAWA NIE SPRAWDZIŁ — GRANICA ODPOWIEDZIALNOŚCI', [
   p([t('Publikatory, statusy, daty wejścia w życie i relacje tekstów jednolitych w tym scenariuszu zostały zweryfikowane według reguł L1–L6. Strażnik prawa ')  , t('nie sprawdza jednak zgodności merytorycznej', { bold: true }), t(' — tego, czy dany paragraf mówi to, co twierdzi druk. Ta warstwa należy do odrębnej kontroli.')]),
-  p([t('Pozostaje do rozstrzygnięcia merytorycznego: ', { bold: true }), t('szczegółowa treść § 7 ust. 6 i 7 oraz § 8 rozporządzenia Dz.U. 2026 poz. 428 — czternastodniowy termin, zakres informacji o funkcjonowaniu dziecka i wymóg opisania mocnych stron obok trudności ustalono na podstawie opracowań branżowych, nie bezpośredniej lektury tekstu. Przed powołaniem się na konkretną jednostkę redakcyjną w dokumencie dziecka należy sprawdzić tekst w ISAP.')]),
+  p([t('Pozostaje do rozstrzygnięcia merytorycznego: ', { bold: true }), t('brzmienie § 7 ust. 2 i 3 rozporządzenia Dz.U. 2026 poz. 428 (prośba przewodniczącego zespołu orzekającego, opinia o funkcjonowaniu dziecka, termin 10 dni od dnia otrzymania prośby przez dyrektora) przytoczono za tekstem ogłoszonym w Dzienniku Ustaw. Zakres treści opinii od 1 września 2026 r. (§ 7 ust. 6 i 7 — ujęcie według ICF) oraz § 8 opisano na podstawie opracowań branżowych. Przed powołaniem się na konkretną jednostkę redakcyjną w dokumencie dziecka należy sprawdzić tekst w ISAP.')]),
   p([t('Poza zakresem także: ', { bold: true }), t('podstawa prawna przetwarzania danych w metryczce, którą wybiera placówka jako administrator, oraz aktualny wzór informacji o gotowości dziecka do podjęcia nauki w szkole podstawowej — do zweryfikowania w przepisach o świadectwach i drukach szkolnych obowiązujących na dany rok szkolny.')]),
 ], { fill: LIGHTO, bar: ORANGE }));
 

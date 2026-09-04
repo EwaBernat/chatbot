@@ -19,7 +19,7 @@ dydaktyczne (8 × 45 min)**, wersja skrócona 3 × 45 min.
 | M6 | Obserwacja pogłębiona: ABC, profil sensoryczny, ToM — kiedy? | 45 min |
 | M7 | WOPF i IPET oraz cele SMART | 55 min |
 | M8 | Ewaluacja — ile razy w roku i co po niej robimy | 20 min |
-| M9 | Informacja o funkcjonowaniu dziecka dla poradni | 20 min |
+| M9 | Opinia o funkcjonowaniu dziecka dla poradni | 20 min |
 | M10 | Kalendarz wdrożenia, przydział zadań, zamknięcie | 5 min |
 
 Załączniki **Z1–Z8**: ściąga podstaw prawnych, tabela porównawcza „co było / co jest”,

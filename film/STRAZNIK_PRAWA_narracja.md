@@ -7,7 +7,7 @@ z Załącznikiem Z1 zaudytowanego scenariusza. Sprawdzone przed generowaniem dź
 |---|---|---|---|
 | M1 | rozporządzenie Ministra Edukacji z 11 marca 2026 · Dz.U. 2026 poz. 378 · od 1 września · wszystkie grupy | Dz.U. 2026 poz. 378 · obowiązuje od 01.09.2026 · bez etapowania | ✅ |
 | M1 | rozporządzenie ME z 2 marca 2026 w sprawie orzeczeń i opinii · Dz.U. 2026 poz. 428 · weszło w życie 14 kwietnia · § 7 ust. 6 i 7 oraz § 8 od 1 września | Dz.U. 2026 poz. 428 · od 14.04.2026, § 7 ust. 6–7 i § 8 od 01.09.2026 | ✅ |
-| M1 | 14 dni na informację o funkcjonowaniu dziecka; trudności ORAZ mocne strony | Z1 / karta 2 (z opracowań branżowych — poza zakresem Strażnika, do strażnika-merytoryki) | ✅ (z zastrzeżeniem) |
+| M1 | § 7 ust. 3 cytowany w całości: „Opinię, o której mowa w ust. 2, wydaje się w terminie 10 dni od dnia otrzymania przez dyrektora prośby o jej wydanie."; opinia o funkcjonowaniu dziecka (§ 7 ust. 2): trudności ORAZ mocne strony i uzdolnienia; kopia dla rodziców | Dz.U. 2026 poz. 428 · § 7 ust. 2–3 (tekst ogłoszony) | ✅ |
 | M1 | rozporządzenie MEN z 9 sierpnia 2017 (pomoc p-p) · tekst jednolity Dz.U. 2023 poz. 1798 | Dz.U. 2017 poz. 1591; tekst jedn. Dz.U. 2023 poz. 1798 | ✅ |
 | M1 | rozporządzenie z 9 sierpnia 2017 (kształcenie specjalne) · tekst jednolity Dz.U. 2020 poz. 1309 · poz. 1578 vs 1591 | Dz.U. 2017 poz. 1578; tekst jedn. Dz.U. 2020 poz. 1309 | ✅ (L5) |
 | M1 | WOPFU co najmniej 2 razy w roku · IPET do 30 września albo 30 dni od złożenia orzeczenia | Z1 karta 4 | ✅ |
@@ -15,7 +15,7 @@ z Załącznikiem Z1 zaudytowanego scenariusza. Sprawdzone przed generowaniem dź
 | M1 | Prawo oświatowe · tekst jednolity Dz.U. 2026 poz. 820 | tekst jedn. Dz.U. 2026 poz. 820 | ✅ |
 | M1 | rozporządzenie o ochronie danych osobowych · dane szczególnej kategorii | RODO (UE) 2016/679 · CELEX 32016R0679 · art. 9 | ✅ |
 | M1 | metryczka — narzędzie wewnętrzne, zarządzenie dyrektora | Z1 karta 5 (nie jest dokumentem z nazwy w Dz.U. 2024 poz. 50) | ✅ |
-| M2 | 30-dniowy termin na program · 14 dni na informację dla poradni | jw. | ✅ |
+| M2 | 30-dniowy termin na program · 10 dni na opinię dla poradni od otrzymania prośby przez dyrektora | Dz.U. 2020 poz. 1309 · Dz.U. 2026 poz. 428 § 7 ust. 3 | ✅ |
 | M3 | 30 dni · roczne obowiązkowe przygotowanie przedszkolne · zasada odbioru | Z1 / scenariusz M3 | ✅ |
 | M4 | brak powołań prawnych (narzędzie autorskie KPOF; klasyfikacja ICF WHO) | — | ✅ |
 | M5 | reguły R1–R6 — jawnie nazwane decyzją rady, nie przepisem | scenariusz M6 | ✅ |
@@ -28,5 +28,7 @@ Stan sprzed reformy pojawia się wyłącznie opisowo („cztery obszary", „dow
 o dziecku") w porównaniach modułu M1, bez sygnatur Dz.U. 2017 poz. 356 i poz. 1743.
 
 **Poza zakresem Strażnika Prawa** (jak w audycie scenariusza): treść § 7 ust. 6–7 i § 8
-rozporządzenia Dz.U. 2026 poz. 428 — termin 14 dni i zakres informacji o funkcjonowaniu —
-pochodzi z opracowań branżowych. Nagranie powtarza dokładnie to, co zaudytowany scenariusz.
+rozporządzenia Dz.U. 2026 poz. 428 (ujęcie opinii według ICF od 1 września 2026 r.) — pochodzi
+z opracowań branżowych. Termin 10 dni i nazwa dokumentu (§ 7 ust. 2–3) są cytowane za tekstem
+ogłoszonym w Dzienniku Ustaw. Poprzednia wersja narracji podawała błędnie 14 dni od „wystąpienia";
+poprawiono w M1, M2 i M6 wraz ze scenariuszem.

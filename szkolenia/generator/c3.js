@@ -20,7 +20,7 @@ add(table(['KPOF JEST', 'KPOF NIE JEST'], [
     ['Uporządkowanym zapisem obserwacji nauczyciela, rodzica i specjalisty.', 'Diagnozą — nie zastępuje badania psychologicznego, logopedycznego ani lekarskiego.'],
     ['Narzędziem kryterialnym: porównujemy dziecko z oczekiwaniami rozwojowymi dla wieku.', 'Testem normalizowanym — nie ma norm centylowych ani ilorazów.'],
     ['Punktem wyjścia do decyzji zespołu: obserwować dalej, wesprzeć w przedszkolu, czy skierować do poradni.', 'Podstawą do postawienia dziecku etykiety ani do rozmowy z rodzicem o „podejrzeniu” czegokolwiek.'],
-    ['Materiałem źródłowym do WOPF i do informacji o funkcjonowaniu dziecka dla poradni.', 'Dokumentem, który wysyłamy do poradni w oryginale zamiast informacji o funkcjonowaniu.'],
+    ['Materiałem źródłowym do WOPF i do opinii o funkcjonowaniu dziecka dla poradni.', 'Dokumentem, który wysyłamy do poradni w oryginale zamiast opinii o funkcjonowaniu.'],
 ], [4680, 4680]));
 
 add(spacer(150));

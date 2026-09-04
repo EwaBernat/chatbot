@@ -38,7 +38,7 @@ add(table(null, [
     ['Forma', 'Szkolenie warsztatowe — wykład interaktywny, praca na autentycznych drukach, praca w zespołach 3–4-osobowych, kazusy.'],
     ['Czas trwania', '2 sesje po 4 jednostki dydaktyczne (2 × 180 min zajęć + przerwy) = 8 × 45 min. Wersja skrócona: 3 × 45 min — moduły M1, M4, M7.'],
     ['Cel główny', 'Uporządkowanie dokumentacji dziecka od pierwszego dnia września 2026 r. w logicznym ciągu: PRAWO → METRYCZKA → KPOF → OBSERWACJA POGŁĘBIONA → WOPF → IPET → CELE SMART → EWALUACJA → INFORMACJA DO PORADNI.'],
-    ['Materiały', 'Metryczka dziecka 2026/27; KPOF wersja A (3–4 lata), B (5 lat), C (6 lat); druk WOPF; druk IPET; karta celów SMART; karta ewaluacji; wzór informacji o funkcjonowaniu dziecka. Załączniki Z1–Z8 do niniejszego scenariusza.'],
+    ['Materiały', 'Metryczka dziecka 2026/27; KPOF wersja A (3–4 lata), B (5 lat), C (6 lat); druk WOPF; druk IPET; karta celów SMART; karta ewaluacji; wzór opinii o funkcjonowaniu dziecka. Załączniki Z1–Z8 do niniejszego scenariusza.'],
     ['Prowadzący', 'Dyrektor / pedagog specjalny / koordynator pomocy psychologiczno-pedagogicznej.'],
     ['Produkt szkolenia', 'Przyjęty przez radę pedagogiczną kalendarz dokumentacji na rok 2026/2027 (Załącznik Z6) oraz reguły uruchamiania obserwacji pogłębionej (Załącznik Z4).'],
 ], [1900, CONTENT - 1900], { boldCol0: true, zebra: true }));
@@ -70,7 +70,7 @@ add(table(['Moduł', 'Temat', 'Czas', 'Produkt modułu'], [
   ['M7', 'WOPF i IPET oraz cele SMART — od danych do zobowiązania', '55 min', 'Trzy cele SMART na piśmie'],
   ['—', 'Przerwa', '10 min', '—'],
   ['M8', 'Ewaluacja — ile razy w roku i co po niej robimy', '20 min', 'Karta ewaluacji'],
-  ['M9', 'Informacja o funkcjonowaniu dziecka dla poradni', '20 min', 'Szkic informacji'],
+  ['M9', 'Opinia o funkcjonowaniu dziecka dla poradni', '20 min', 'Szkic informacji'],
   ['M10', 'Kalendarz wdrożenia, przydział zadań, zamknięcie', '05 min', 'Kalendarz Z6 przyjęty'],
 ], [900, CONTENT - 900 - 1000 - 2600, 1000, 2600], { boldCol0: true }));
 
@@ -122,11 +122,11 @@ add(straznik(1, 'PODSTAWA PROGRAMOWA WYCHOWANIA PRZEDSZKOLNEGO', [
 
 add(spacer(140));
 add(straznik(2, 'OCENA FUNKCJONALNA, ORZECZENIA I OPINIE PORADNI', [
-  p([t('Akt: ', { bold: true }), t('Rozporządzenie Ministra Edukacji z dnia 2 marca 2026 r. w sprawie orzeczeń i opinii wydawanych przez zespoły orzekające działające w publicznych poradniach psychologiczno-pedagogicznych — '), t('Dz.U. 2026 poz. 428', { bold: true }), t(' (ogłoszone 30 marca 2026 r.). Rozporządzenie weszło w życie po upływie 14 dni od ogłoszenia, to jest ')  , t('14 kwietnia 2026 r.', { bold: true }), t(' — z wyjątkiem ')  , t('§ 7 ust. 6 i 7 oraz § 8', { bold: true }), t(', które wchodzą w życie ')  , t('1 września 2026 r.', { bold: true }), t(' To właśnie te trzy jednostki redakcyjne dotyczą przedszkola: pozyskiwania informacji o funkcjonowaniu dziecka i oceny funkcjonalnej.')]),
-  p([t('Co było: ', { bold: true }), t('na gruncie rozporządzenia MEN z 7 września 2017 r. (Dz.U. 2017 poz. 1743 ze zm.) przedszkole przekazywało poradni informacje o dziecku, ale bez ustawowo określonego standardu treści i bez wyznaczonego terminu. W praktyce była to dowolnie skonstruowana „opinia o dziecku”, często deficytowa i pisana w ostatniej chwili.')]),
-  p([t('Co jest: ', { bold: true }), t('ocena funkcjonalna dziecka staje się obowiązkowym etapem procesu diagnostycznego poprzedzającego wydanie orzeczenia. Przedszkole ma obowiązek sporządzić i przekazać poradni ')  , t('informację o funkcjonowaniu dziecka', { bold: true }), t(' — dokument stanowiący element oceny funkcjonalnej. Informację przygotowuje się w terminie ')  , t('14 dni', { bold: true }), t(' od dnia otrzymania wystąpienia poradni. Informacja obejmuje trudności dziecka ORAZ jego mocne strony i uzdolnienia rozpoznane przez nauczycieli i specjalistów pracujących z dzieckiem. Uproszczono wzory orzeczeń i opinii; orzeczenie podpisują wszyscy członkowie zespołu orzekającego, zgodnie z wymogami Kodeksu postępowania administracyjnego.')]),
+  p([t('Akt: ', { bold: true }), t('Rozporządzenie Ministra Edukacji z dnia 2 marca 2026 r. w sprawie orzeczeń i opinii wydawanych przez zespoły orzekające działające w publicznych poradniach psychologiczno-pedagogicznych — '), t('Dz.U. 2026 poz. 428', { bold: true }), t(' (ogłoszone 30 marca 2026 r.). Rozporządzenie weszło w życie po upływie 14 dni od ogłoszenia, to jest ')  , t('14 kwietnia 2026 r.', { bold: true }), t(' — z wyjątkiem ')  , t('§ 7 ust. 6 i 7 oraz § 8', { bold: true }), t(', które wchodzą w życie ')  , t('1 września 2026 r.', { bold: true }), t(' To właśnie te trzy jednostki redakcyjne dotyczą przedszkola: pozyskiwania opinii o funkcjonowaniu dziecka i oceny funkcjonalnej.')]),
+  p([t('Co było: ', { bold: true }), t('na gruncie dotychczasowego rozporządzenia przedszkole wydawało na prośbę przewodniczącego zespołu orzekającego opinię nauczycieli i specjalistów o dziecku. W praktyce bywała ona pisana w ostatniej chwili, z przewagą opisu deficytów i bez odniesienia do klasyfikacji ICF.')]),
+  p([t('Co jest: ', { bold: true }), t('ocena funkcjonalna dziecka staje się obowiązkowym etapem procesu diagnostycznego poprzedzającego wydanie orzeczenia. Na prośbę przewodniczącego zespołu orzekającego dyrektor przekazuje poradni ')  , t('opinię o funkcjonowaniu dziecka w przedszkolu', { bold: true }), t(' (§ 7 ust. 2). Termin określa § 7 ust. 3 w brzmieniu: ')  , t('„Opinię, o której mowa w ust. 2, wydaje się w terminie 10 dni od dnia otrzymania przez dyrektora prośby o jej wydanie.”', { bold: true, italics: true }), t(' Kopię opinii przekazuje się rodzicom dziecka. Opinia obejmuje trudności dziecka ORAZ jego mocne strony i uzdolnienia rozpoznane przez nauczycieli, wychowawców lub specjalistów prowadzących zajęcia z dzieckiem; od 1 września 2026 r. (§ 7 ust. 6–7) opis odnosi się do aktywności i uczestniczenia dziecka według klasyfikacji ICF. Uproszczono wzory orzeczeń i opinii; orzeczenie podpisują wszyscy członkowie zespołu orzekającego, zgodnie z wymogami Kodeksu postępowania administracyjnego.')]),
   p([t('Podział ról: ', { bold: true }), t('formalną ocenę funkcjonalną sporządza zespół działający w poradni. Rolą przedszkola pozostaje obserwacja dziecka w codziennych sytuacjach oraz opisanie jego aktywności, mocnych stron, trudności i efektów udzielanego wsparcia. Przedszkole nie stawia diagnoz — dostarcza rzetelnych danych z obserwacji.')]),
-  p([t('Skutek dokumentacyjny: ', { bold: true }), t('czternastodniowy termin jest nie do dotrzymania, jeżeli obserwacja zaczyna się dopiero po wpłynięciu pisma z poradni. To jest właściwy powód, dla którego KPOF wypełniamy we wrześniu dla wszystkich dzieci — nie po to, by mieć arkusz w segregatorze, lecz po to, by w dowolnym momencie roku móc odpowiedzieć poradni w ciągu dwóch tygodni na podstawie danych, a nie wspomnień.')]),
+  p([t('Skutek dokumentacyjny: ', { bold: true }), t('dziesięciodniowy termin jest nie do dotrzymania, jeżeli obserwacja zaczyna się dopiero po wpłynięciu prośby z poradni. To jest właściwy powód, dla którego KPOF wypełniamy we wrześniu dla wszystkich dzieci — nie po to, by mieć arkusz w segregatorze, lecz po to, by w dowolnym momencie roku móc odpowiedzieć poradni w ciągu dziesięciu dni na podstawie danych, a nie wspomnień.')]),
 ]));
 
 add(pageBreak());
@@ -179,8 +179,8 @@ add(table(['Obszar', 'Stan do 31.08.2026 r.', 'Stan od 1.09.2026 r.', 'Co robimy
    'Obowiązkowy etap procesu diagnostycznego przed wydaniem orzeczenia (rozp. z 02.03.2026, Dz.U. 2026 poz. 428).',
    'Obserwacja przedszkolna przestaje być dobrą praktyką, a staje się wkładem do procedury administracyjnej.'],
   ['Informacja przedszkola dla poradni',
-   'Dowolna „opinia o dziecku”, bez standardu treści i bez terminu.',
-   'Informacja o funkcjonowaniu dziecka — element oceny funkcjonalnej; obowiązek sporządzenia i przekazania; 14 dni od otrzymania wystąpienia; obligatoryjnie trudności ORAZ mocne strony i uzdolnienia.',
+   'Opinia nauczycieli i specjalistów na prośbę zespołu orzekającego, bez odniesienia do ICF.',
+   'Opinia o funkcjonowaniu dziecka (§ 7 ust. 2) — 10 dni od dnia otrzymania przez dyrektora prośby o jej wydanie (§ 7 ust. 3); obligatoryjnie trudności ORAZ mocne strony i uzdolnienia; od 1 września 2026 r. w ujęciu ICF (§ 7 ust. 6–7).',
    'Wprowadzamy jeden wzór dla całej placówki i procedurę obiegu. Dane bierzemy z KPOF, nie z pamięci.'],
   ['Zespoły orzekające',
    'Dotychczasowe składy i wzory orzeczeń.',

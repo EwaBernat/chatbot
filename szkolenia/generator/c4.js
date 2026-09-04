@@ -91,7 +91,7 @@ add(spacer(140));
 add(box('WIEK MA ZNACZENIE — INACZEJ NARZĘDZIE WPROWADZI NAS W BŁĄD', [
   p([t('Klasyczne zadania fałszywego przekonania pierwszego rzędu (typu Sally–Anne, „nieoczekiwana zawartość”) rozwiązywane są przez dzieci typowo rozwijające się mniej więcej ')  , t('od 4.–4,5 roku życia', { bold: true }), t('. Niepowodzenie u trzylatka jest zjawiskiem rozwojowo typowym i ')  , t('nie stanowi żadnej przesłanki diagnostycznej', { bold: true }), t('.')]),
   p([t('U dzieci młodszych obserwujemy wyłącznie wskaźniki wczesne: ')  , t('uwagę wspólną', { bold: true }), t(' (podążanie za wzrokiem i gestem dorosłego), ')  , t('wskazywanie protodeklaratywne', { bold: true }), t(' („zobacz!” — dzielenie się uwagą, nie proszenie o przedmiot), ')  , t('odwoływanie społeczne', { bold: true }), t(' (sprawdzanie miny dorosłego w sytuacji niejasnej) oraz ')  , t('początki zabawy symbolicznej', { bold: true }), t(' (klocek jako telefon). Dla trzylatka to są jedyne uprawnione wskaźniki.')]),
-  p([t('Granica kompetencji: ', { bold: true, color: ORANGE }), t('obserwacja ToM w przedszkolu opisuje zachowania. Nie jest testem, nie daje wyniku i nie prowadzi do rozpoznania spektrum autyzmu. Prowadzi wyłącznie do rzetelnego opisu przekazywanego poradni w informacji o funkcjonowaniu dziecka.')]),
+  p([t('Granica kompetencji: ', { bold: true, color: ORANGE }), t('obserwacja ToM w przedszkolu opisuje zachowania. Nie jest testem, nie daje wyniku i nie prowadzi do rozpoznania spektrum autyzmu. Prowadzi wyłącznie do rzetelnego opisu przekazywanego poradni w opinii o funkcjonowaniu dziecka.')]),
 ], { fill: LIGHTO, bar: ORANGE }));
 
 add(spacer(150));

@@ -146,7 +146,7 @@ add(table(['Termin', 'Zadanie', 'Dokument', 'Odpowiedzialny'], [
   ['1–15 października', 'Analiza profili, karty decyzyjne, uruchomienie modułów pogłębionych.', 'Karta decyzyjna Z4', BLANK],
   ['październik / listopad', 'Prowadzenie modułów pogłębionych (2–3 tygodnie obserwacji).', 'ABC / sensoryczny / ToM', BLANK],
   ['listopad', 'Przegląd wskaźników — 15 minut na dziecko, notatka w dzienniku. Bez pełnej WOPF.', 'Karta celu Z5', BLANK],
-  ['grudzień / styczeń', 'Wystąpienia do poradni za zgodą rodziców dla dzieci bez poprawy mimo udzielanej pomocy.', 'Informacja o funkcjonowaniu', BLANK],
+  ['grudzień / styczeń', 'Wystąpienia do poradni za zgodą rodziców dla dzieci bez poprawy mimo udzielanej pomocy.', 'Opinia o funkcjonowaniu', BLANK],
   ['styczeń / luty', 'Druga WOPF; ewaluacja półroczna celów SMART; modyfikacja IPET.', 'WOPF + IPET + Z5', BLANK],
   ['styczeń / luty', 'Ocena efektywności pomocy p-p dla dzieci bez orzeczenia; wnioski o dalszych działaniach.', 'Dokumentacja pomocy p-p', BLANK],
   ['marzec', 'Przegląd wskaźników — notatka w dzienniku.', 'Karta celu Z5', BLANK],
@@ -155,7 +155,7 @@ add(table(['Termin', 'Zadanie', 'Dokument', 'Odpowiedzialny'], [
   ['maj / czerwiec', 'Trzecia WOPF (zalecana) — podsumowanie roku; wnioski do organizacji pracy na kolejny rok.', 'WOPF', BLANK],
   ['czerwiec', 'Ocena efektywności pomocy p-p na zakończenie form; wnioski dla nowych zespołów.', 'Dokumentacja pomocy p-p', BLANK],
   ['czerwiec', 'Przegląd i uporządkowanie teczek; przekazanie dokumentacji zgodnie z instrukcją kancelaryjną.', 'Teczki dzieci', BLANK],
-  ['cały rok — 14 dni', 'Sporządzenie informacji o funkcjonowaniu dziecka od dnia otrzymania wystąpienia poradni.', 'Informacja o funkcjonowaniu', BLANK],
+  ['cały rok — 10 dni', 'Wydanie opinii o funkcjonowaniu dziecka od dnia otrzymania przez dyrektora prośby przewodniczącego zespołu orzekającego (§ 7 ust. 3).', 'Opinia o funkcjonowaniu', BLANK],
   ['cały rok — 30 dni', 'Opracowanie IPET od dnia złożenia w przedszkolu orzeczenia o potrzebie kształcenia specjalnego.', 'IPET', BLANK],
 ], [1750, 4000, 2000, CONTENT - 1750 - 4000 - 2000], { boldCol0: true }));
 

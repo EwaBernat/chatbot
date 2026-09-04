@@ -67,15 +67,15 @@ add(box('DWA GRZECHY EWALUACJI', [
 add(pageBreak());
 
 /* ============ M9 INFORMACJA DO PORADNI ============ */
-add(modul('M9', 'Informacja o funkcjonowaniu dziecka dla poradni', '20 min',
+add(modul('M9', 'Opinia o funkcjonowaniu dziecka dla poradni', '20 min',
   'przygotować placówkę na nowy obowiązek i 14-dniowy termin'));
 add(spacer(120));
 
 add(H2('9.1  Nowy obowiązek — co dokładnie się zmieniło'));
-add(p([t('Od 1 września 2026 r., na gruncie rozporządzenia Ministra Edukacji z dnia 2 marca 2026 r. (Dz.U. 2026 poz. 428), ocena funkcjonalna staje się obowiązkowym etapem procesu diagnostycznego poprzedzającego wydanie orzeczenia. Przedszkole ma obowiązek sporządzić i przekazać poradni ')  , t('informację o funkcjonowaniu dziecka', { bold: true }), t(' — dokument stanowiący element oceny funkcjonalnej — w terminie ')  , t('14 dni od dnia otrzymania wystąpienia', { bold: true }), t('. Informacja obligatoryjnie obejmuje trudności dziecka ')  , t('oraz jego mocne strony i uzdolnienia', { bold: true }), t(' rozpoznane przez nauczycieli i specjalistów pracujących z dzieckiem.')]));
+add(p([t('Od 1 września 2026 r., na gruncie rozporządzenia Ministra Edukacji z dnia 2 marca 2026 r. (Dz.U. 2026 poz. 428), ocena funkcjonalna staje się obowiązkowym etapem procesu diagnostycznego poprzedzającego wydanie orzeczenia. Na prośbę przewodniczącego zespołu orzekającego dyrektor przekazuje poradni ')  , t('opinię o funkcjonowaniu dziecka w przedszkolu', { bold: true }), t(' (§ 7 ust. 2). Termin wynika z § 7 ust. 3: ')  , t('„Opinię, o której mowa w ust. 2, wydaje się w terminie 10 dni od dnia otrzymania przez dyrektora prośby o jej wydanie.”', { bold: true, italics: true }), t(' Kopię opinii przekazuje się rodzicom. Opinia obligatoryjnie obejmuje trudności dziecka ')  , t('oraz jego mocne strony i uzdolnienia', { bold: true }), t(' rozpoznane przez nauczycieli i specjalistów pracujących z dzieckiem.')]));
 add(spacer(60));
 add(box('DLACZEGO TO JEST NAJWAŻNIEJSZY SLAJD CAŁEGO SZKOLENIA', [
-  p('Czternaście dni to mniej, niż trwa rzetelna obserwacja. Jeżeli w dniu wpłynięcia wystąpienia z poradni przedszkole nie ma o dziecku żadnych danych, ma do wyboru dwie złe drogi: napisać informację z pamięci albo uchybić terminowi. Wypełnienie KPOF we wrześniu dla wszystkich dzieci jest jedynym rozwiązaniem, które tę sytuację likwiduje — w dniu wpłynięcia pisma zespół ma już profil, obserwacje jakościowe i ewentualny moduł pogłębiony, a czternaście dni wystarcza na złożenie tego w jeden dokument i na spotkanie z rodzicem.'),
+  p('Dziesięć dni to mniej, niż trwa rzetelna obserwacja. Jeżeli w dniu wpłynięcia prośby z poradni przedszkole nie ma o dziecku żadnych danych, ma do wyboru dwie złe drogi: napisać opinię z pamięci albo uchybić terminowi. Wypełnienie KPOF we wrześniu dla wszystkich dzieci jest jedynym rozwiązaniem, które tę sytuację likwiduje — w dniu wpłynięcia pisma zespół ma już profil, obserwacje jakościowe i ewentualny moduł pogłębiony, a dziesięć dni wystarcza na złożenie tego w jeden dokument i na spotkanie z rodzicem.'),
 ], { fill: LIGHTO, bar: ORANGE }));
 
 add(spacer(140));
@@ -100,7 +100,7 @@ add(bullet([t('Załączonych arkuszy KPOF w oryginale. ', { bold: true }), t('KP
 
 add(spacer(150));
 add(cw('SZKIC W 12 MINUT  ·  pary', [
-  p([t('Zadanie: ', { bold: true }), t('na podstawie kazusu z modułu M5 i celów napisanych w M7 pary redagują punkty 2, 4 i 6 informacji o funkcjonowaniu dziecka — po trzy–cztery zdania każdy.')]),
+  p([t('Zadanie: ', { bold: true }), t('na podstawie kazusu z modułu M5 i celów napisanych w M7 pary redagują punkty 2, 4 i 6 opinii o funkcjonowaniu dziecka — po trzy–cztery zdania każdy.')]),
   p([t('Wymóg formalny ćwiczenia: ', { bold: true }), t('punkt 2 (mocne strony) musi być napisany PIERWSZY i musi być co najmniej tak samo obszerny jak punkt 4 (trudności). Prowadzący pilnuje tego rygorystycznie — proporcja między tymi punktami jest najprostszym testem, czy zespół rzeczywiście przeszedł na język funkcjonalny, czy tylko zmienił nagłówki w starym druku.')]),
   p([t('Sprawdzenie: ', { bold: true }), t('pary czytają swój punkt 4 na głos. Sala ma wychwycić każde słowo niesprawdzalne i każdą hipotezę diagnostyczną. Za każde takie słowo zespół dopisuje przy nim liczbę albo je wykreśla.')]),
 ]));
@@ -123,7 +123,7 @@ add(spacer(150));
 add(H2('10.2  Trzy zdania, z którymi rada ma wyjść'));
 add(box(null, [
   p([t('1.  ', { bold: true, color: ORANGE, size: 22 }), t('Każdy druk ma swój przepis. ', { bold: true, size: 21 }), t('Jeżeli nie umiemy go wskazać, pytamy — nie wypełniamy „na wszelki wypadek”.', { size: 21 })]),
-  p([t('2.  ', { bold: true, color: ORANGE, size: 22 }), t('Obserwacja wyprzedza pismo z poradni. ', { bold: true, size: 21 }), t('Wrześniowy KPOF to nie biurokracja — to jedyny sposób, by dotrzymać czternastodniowego terminu.', { size: 21 })]),
+  p([t('2.  ', { bold: true, color: ORANGE, size: 22 }), t('Obserwacja wyprzedza pismo z poradni. ', { bold: true, size: 21 }), t('Wrześniowy KPOF to nie biurokracja — to jedyny sposób, by dotrzymać dziesięciodniowego terminu z § 7 ust. 3.', { size: 21 })]),
   p([t('3.  ', { bold: true, color: ORANGE, size: 22 }), t('Cel bez liczby nie jest celem. ', { bold: true, size: 21 }), t('Ewaluacja bez konsekwencji nie jest ewaluacją.', { size: 21 })]),
 ], { fill: LIGHT, bar: PURPLE }));
 
