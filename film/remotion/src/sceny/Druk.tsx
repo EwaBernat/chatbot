@@ -76,7 +76,7 @@ export const Druk: React.FC<{
                   inset: -6,
                   borderRadius: 6,
                   border: `3px solid ${MARKA.wyroznienie}`,
-                  background: `rgba(232, 69, 10, ${gotowe ? 0.04 : 0.10})`,
+                  background: p.tlo ? '#FFFCF9' : `rgba(232, 69, 10, ${gotowe ? 0.04 : 0.10})`,
                   opacity: ramka,
                   boxShadow: gotowe ? 'none' : '0 0 0 6px rgba(232,69,10,0.12)',
                 }}

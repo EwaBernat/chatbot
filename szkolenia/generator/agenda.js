@@ -30,7 +30,7 @@ add(table(['Czas', 'Blok', 'Forma', 'Co się dzieje', 'Materiały'], [
   ['0:05–0:13', 'FILM · M1', 'film', 'Podstawa prawna — co obowiązuje od 1 września 2026; § 7 ust. 3 rozporządzenia o orzekaniu (10 dni). STOP po planszy „Trzy zdania na zamknięcie".', 'Z1 ściąga podstaw prawnych'],
   ['0:13–0:23', 'Ćwiczenie', 'zespoły 3–4', '„Sąd nad dokumentem": Strażnik Prawa · Adwokat dziecka · Kontroler — trzy anonimowe fragmenty dokumentacji z lat ubiegłych.', 'fragmenty WOPF, IPET, opinii'],
   ['0:23–0:29', 'FILM · M2', 'film', 'Obieg dokumentów — sześć przystanków, cztery narzędzia obserwacji pogłębionej. STOP po planszy „Zapamiętajmy kolejność".', '—'],
-  ['0:29–0:35', 'FILM · M3', 'film', 'Metryczka — zasadność i wypełnianie krok po kroku (animacja druku; bez PESEL, z podstawą orzeczenia i chorobami przewlekłymi).', 'druk Metryczki'],
+  ['0:29–0:35', 'FILM · M3', 'film', 'Metryczka — zasadność i wypełnianie krok po kroku (animacja oryginalnego druku, sekcje I–VII i XI; bez PESEL, z podstawą orzeczenia i chorobami przewlekłymi).', 'druk Metryczki'],
   ['0:35–0:45', 'Ćwiczenie', 'indywidualnie + pary', '„Metryczka w 10 minut": sekcje I, II, VI, VII dla jednego dziecka; kontrola krzyżowa sekcji VI (kto podaje lek, gdzie, kogo powiadamiamy).', 'druk Metryczki'],
   ['0:45–0:55', 'FILM · M4', 'film', 'KPOF — ICF i profil biopsychospołeczny, budowa, skala, siedem zasad, wypełnianie, liczenie, profil. STOP po planszy „dwa razy w roku".', 'KPOF A/B/C'],
   ['0:55–1:07', 'Ćwiczenie', 'zespoły 3', '„Policz i zdecyduj": kazusy A (profil poszarpany), B (płaski, niski), C (pułapka reguły nadrzędnej). Wniosek jednym zdaniem na flipchart.', 'kazusy A/B/C, kalkulatory'],

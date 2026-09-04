@@ -58,7 +58,7 @@ Ostrzeżenie w tej sprawie jest wydrukowane na ostatniej stronie scenariusza.
 ## Druki pokazywane w filmie szkoleniowym
 
 Katalog `film/druki/` zawiera wzory dokumentów, które film wypełnia na ekranie
-(animacja pól na prawdziwym druku): metryczka dziecka, KPOF (3 warianty wiekowe),
+(animacja pól na prawdziwym druku): metryczka dziecka (oryginalny druk EduPlaner 2026, 7 stron — `Metryczka.pdf`), KPOF (3 warianty wiekowe),
 karta obserwacji rozwoju mowy, karta celu SMART (Z5) oraz trzy druki z modułu 6:
 
 | Druk | Plik | Podstawa |

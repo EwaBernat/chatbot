@@ -17,6 +17,8 @@ export type PoleDruku = {
   odSek: number;
   doSek?: number;
   rozmiar?: number;
+  /** kryjące tło pola — gdy druk ma w tym miejscu szary tekst podpowiedzi */
+  tlo?: boolean;
 };
 
 export type Kadr = {x: number; y: number; szer: number; wys: number};
