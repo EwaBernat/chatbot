@@ -55,6 +55,14 @@ i § 8 rozporządzenia Dz.U. 2026 poz. 428 ustalono z opracowań branżowych —
 konkretnej jednostki redakcyjnej w dokumencie dziecka należy sprawdzić tekst w ISAP.
 Ostrzeżenie w tej sprawie jest wydrukowane na ostatniej stronie scenariusza.
 
+## Materiały do filmu
+
+| Plik | Zawartość | Generator |
+|---|---|---|
+| `film/Spis_czesci_filmu.docx` / `.pdf` | tytuł, zakres i czas każdej z sześciu części, zestawienie zbiorcze | `generator/spis_filmu.js` |
+| `film/Skrypt_dla_nauczycieli.docx` / `.pdf` | pełna transkrypcja narracji, podstawa prawna każdej części, instrukcja przygotowania dokumentów, kalendarz roku | `generator/skrypt_nauczyciela.js` |
+| `film/Agenda_szkolenia_120min.docx` | agenda szkolenia z blokami filmu i ćwiczeniami | `generator/agenda.js` |
+
 ## Druki pokazywane w filmie szkoleniowym
 
 Katalog `film/druki/` zawiera wzory dokumentów, które film wypełnia na ekranie
