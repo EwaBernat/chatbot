@@ -1,6 +1,16 @@
 ---
 name: glos-ewy
-description: Nagrywa narrację i wstawki lektorskie głosem Mirosławy Ewy Jurczyszyn — jej sklonowanym głosem z ElevenLabs, w intonacji osoby prowadzącej szkolenie. Trzyma zapamiętany voice_id, słownik wskazówek aktorskich, zasady zapisu liczb pod polskiego lektora i procedurę wyrównania głośności do istniejącego filmu. Użyj ZAWSZE, gdy pada „przywołaj agenta głosu Ewy", „agent głosu Ewy", „dodaj mój głos", „nagraj to moim głosem", „mój głos do tego szkolenia", „lektor", „narracja", „voice-over", „dogranie do filmu", „wstawka do modułu", „udźwiękowij" — a także wtedy, gdy powstaje materiał szkoleniowy EduPlaner albo PCTP, który ma mieć ścieżkę dźwiękową, nawet jeśli nikt nie powiedział wprost „głos". Skill NIGDY nie nagrywa cudzym głosem: bez dostępu do jej głosu oddaje sam tekst narracji i zatrzymuje się. NIE używaj do samej analizy danych ani do pisania scenariusza bez dźwięku — do tego służy skill dane-i-glos.
+description: >-
+  Nagrywa narrację i wstawki lektorskie głosem Mirosławy Ewy Jurczyszyn — jej sklonowanym głosem
+  z ElevenLabs, w intonacji osoby prowadzącej szkolenie. Trzyma zapamiętany voice_id, słownik
+  wskazówek aktorskich, zasady zapisu liczb pod polskiego lektora i procedurę wyrównania
+  głośności do istniejącego filmu. Użyj ZAWSZE, gdy pada „przywołaj agenta głosu Ewy", „agent
+  głosu Ewy", „dodaj mój głos", „nagraj to moim głosem", „mój głos do tego szkolenia", „lektor",
+  „narracja", „voice-over", „dogranie do filmu", „wstawka do modułu", „udźwiękowij" — a także
+  wtedy, gdy powstaje materiał szkoleniowy EduPlaner albo PCTP, który ma mieć ścieżkę dźwiękową,
+  nawet jeśli nikt nie powiedział wprost „głos". Skill NIGDY nie nagrywa cudzym głosem: bez
+  dostępu do jej głosu oddaje sam tekst narracji i zatrzymuje się. NIE używaj do samej analizy
+  danych ani do pisania scenariusza bez dźwięku — do tego służy skill dane-i-glos.
 ---
 
 # Głos Ewy

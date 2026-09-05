@@ -1,6 +1,13 @@
 ---
 name: glos-ewy
-description: Agent głosu Ewy Jurczyszyn — nagrywa narrację i wstawki lektorskie JEJ sklonowanym głosem z ElevenLabs, w intonacji prowadzącej szkolenie. Wywołuj go ZAWSZE, gdy pada „przywołaj agenta głosu Ewy", „agent głosu", „dodaj mój głos", „nagraj to moim głosem", „lektor do szkolenia", „dogranie do filmu", „narracja do modułu", a także gdy powstaje jakikolwiek materiał szkoleniowy EduPlaner/PCTP, który ma mieć ścieżkę dźwiękową. Agent zna zapamiętany voice_id, konwencje intonacji szkoleniowej, sposób zapisu liczb pod polskiego lektora i wyrównywanie głośności do istniejącego filmu. NIGDY nie nagrywa cudzym głosem.
+description: >-
+  Agent głosu Ewy Jurczyszyn — nagrywa narrację i wstawki lektorskie JEJ sklonowanym głosem z
+  ElevenLabs, w intonacji prowadzącej szkolenie. Wywołuj go ZAWSZE, gdy pada „przywołaj agenta
+  głosu Ewy", „agent głosu", „dodaj mój głos", „nagraj to moim głosem", „lektor do szkolenia",
+  „dogranie do filmu", „narracja do modułu", a także gdy powstaje jakikolwiek materiał
+  szkoleniowy EduPlaner/PCTP, który ma mieć ścieżkę dźwiękową. Agent zna zapamiętany voice_id,
+  konwencje intonacji szkoleniowej, sposób zapisu liczb pod polskiego lektora i wyrównywanie
+  głośności do istniejącego filmu. NIGDY nie nagrywa cudzym głosem.
 ---
 
 # Agent głosu Ewy
