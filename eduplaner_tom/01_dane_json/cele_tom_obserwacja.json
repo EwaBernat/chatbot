@@ -1,0 +1,1288 @@
+{
+  "dokument": "EduPlaner 2026 · druk TOM-C · cele SMART do obserwacji pogłębionej",
+  "opis": "Ciąg dalszy teorii umysłu. Kryterium prób i horyzont ewaluacji NIE są stałe — wynikają z punktacji danego zmysłu u konkretnego dziecka, według tabeli `progi`. Horyzont jest w trzech formach gramatycznych, bo wchodzi w trzy różne zdania.",
+  "modul": {
+    "nazwa": "Teoria umysłu (ToM) — bank celów SMART (przedszkole)",
+    "kod": "TOM",
+    "wersja": "2026.1",
+    "autorka": "mgr Mirosława Ewa Jurczyszyn, pedagog specjalny, PCTP Koszalin",
+    "aplikacja": "EduPlaner 2026",
+    "druk_zrodlowy": "Karta obserwacji Teorii umysłu (ToM) — przedszkole · 5 komponentów · 25 pozycji · skala 0–2",
+    "podstawa_merytoryczna": "Narzędzie obserwacyjne oparte na elementach Skali Teorii Umysłu Wellmana i Liu (Wellman & Liu, 2004) — sekwencji rozwojowej: różne pragnienia → różne przekonania → dostęp do wiedzy → fałszywe przekonanie → ukryte emocje — oraz na klasycznych zadaniach fałszywego przekonania: Sally-Anne (Baron-Cohen, Leslie, Frith 1985) i niespodziewanej zawartości (Perner, Leekam, Wimmer 1987). Konstrukt: Premack i Woodruff, 1978. Nie zastępuje diagnozy specjalistycznej.",
+    "podstawa_prawna": [
+      "Rozp. MEN z 14.02.2017 r. w sprawie podstawy programowej wychowania przedszkolnego (Dz.U. 2017 poz. 356, ze zm.) — emocjonalny i społeczny obszar rozwoju.",
+      "Rozp. MEN z 9.08.2017 r. w sprawie pomocy psychologiczno-pedagogicznej (Dz.U. 2017 poz. 1591).",
+      "Rozp. MEN z 9.08.2017 r. w sprawie kształcenia specjalnego (Dz.U. 2017 poz. 1578) — przy autyzmie, w tym zespole Aspergera, zajęcia rozwijające kompetencje społeczne są obowiązkowe."
+    ],
+    "zasada_modulu": "Cel z tego banku opisuje KROK MENTALIZACJI, który widać — co dziecko robi albo mówi, po czym poznajemy, że uwzględniło cudzą perspektywę. „Zrozumie, że inni myślą inaczej” nie jest celem z tego modułu: rozumienia nie da się zaobserwować ani policzyć. „Wskaże koszyk, w którym Ala będzie szukać piłki, choć samo wie, że piłka jest w pudełku” — jest. Poziom wsparcia zmienia warunki, nie krok mentalizacji."
+  },
+  "przelicznik_natezenia": "wynik komponentu (0–10) = suma pięciu pozycji karty, każda w skali 0–2",
+  "progi": [
+    {
+      "od_punktow": 8,
+      "ocena": "Zasób",
+      "kryterium": "3 z 5",
+      "horyzont": {
+        "mianownik": "12 tygodni",
+        "dopelniacz": "12 tygodni",
+        "miejscownik": "12 tygodniach"
+      },
+      "dlaczego": "umiejętność opanowana — cel podtrzymujący, utrwalanie w trudniejszych sytuacjach"
+    },
+    {
+      "od_punktow": 4,
+      "ocena": "Wymaga wsparcia",
+      "kryterium": "4 z 5",
+      "horyzont": {
+        "mianownik": "8 tygodni",
+        "dopelniacz": "8 tygodni",
+        "miejscownik": "8 tygodniach"
+      },
+      "dlaczego": "częściowo opanowana — praca z malejącym wsparciem dorosłego"
+    },
+    {
+      "od_punktow": 0,
+      "ocena": "Priorytet",
+      "kryterium": "4 z 5",
+      "horyzont": {
+        "mianownik": "4 tygodnie",
+        "dopelniacz": "4 tygodni",
+        "miejscownik": "4 tygodniach"
+      },
+      "dlaczego": "znaczne trudności — praca codzienna, metodą małych kroków, krótki cykl weryfikacji"
+    }
+  ],
+  "liczba_celow": 25,
+  "komponenty": [
+    {
+      "nr": "I",
+      "nazwa": "Rozpoznawanie i nazywanie emocji",
+      "icf": "b152 · b1521",
+      "skala": "wynik 0–10",
+      "norma_rozwojowa": "podstawowe emocje ok. 2–3 r.ż.; łączenie z sytuacją ok. 3–4 r.ż.",
+      "opis": "Nazywanie emocji własnych i cudzych, czytanie ich z twarzy i wiązanie z sytuacją.",
+      "zasada_tom": "Nazywamy emocję dziecka, zanim poprosimy je o nazwanie cudzej. Dziecko, któremu nikt nie nazwał złości, nie rozpozna jej u kolegi.",
+      "wskazniki": [
+        {
+          "nr": "I.1",
+          "pozycja": 1,
+          "deficyt": "Nazywa podstawowe emocje: radość, złość, smutek, strach.",
+          "krok_mentalizacji": "nazwanie emocji słowem albo wskazanie jej na karcie",
+          "cel": "Dziecko nazwie emocję własną albo cudzą słowem lub kartą, w {proba} sytuacjach, w ciągu {horyzont_dopelniacz}.",
+          "znaczniki": [
+            "{proba}",
+            "{horyzont_dopelniacz}",
+            "{horyzont_miejscownik}"
+          ],
+          "co_obserwowac": "Arkusz obserwacji — kolumna: zabawa, czytanie, sytuacja z rówieśnikiem. Notujemy nazwania bez pytania dorosłego.",
+          "ile_sytuacji": "5 sytuacji w tygodniu",
+          "smart": [
+            {
+              "litera": "S",
+              "tresc": "Nazywa emocję słowem albo wskazuje kartę."
+            },
+            {
+              "litera": "M",
+              "tresc": "{proba} sytuacji z pięciu obserwowanych w tygodniu."
+            },
+            {
+              "litera": "A",
+              "tresc": "Tablica emocji i karty są dostępne w sali przez cały dzień."
+            },
+            {
+              "litera": "R",
+              "tresc": "Nazwana emocja jest warunkiem rozmowy o niej i jej regulacji."
+            },
+            {
+              "litera": "T",
+              "tresc": "Weryfikacja po {horyzont_miejscownik}, według wyniku komponentu."
+            }
+          ],
+          "zalecenia": [
+            "nazywanie emocji w naturalnych sytuacjach przez cały dzień, nie tylko na zajęciach",
+            "tablica emocji i karty dostępne w sali na stałe",
+            "nazywanie emocji bohaterów podczas codziennego czytania"
+          ],
+          "dostosowania": [
+            "fotografie twarzy zamiast schematycznych buziek",
+            "nazywanie emocji dziecka przez dorosłego, zanim poprosimy o nazwanie cudzej",
+            "brak odpytywania z emocji w chwili silnego napięcia"
+          ],
+          "uwaga_rozwojowa": "Nazywanie czterech podstawowych emocji pojawia się typowo ok. 2–3 r.ż. U dziecka trzyletniego brak tej umiejętności jest sygnałem do pracy, ale nie do rozpoznania deficytu — sprawdź najpierw rozumienie mowy i słownictwo bierne."
+        },
+        {
+          "nr": "I.2",
+          "pozycja": 2,
+          "deficyt": "Rozpoznaje emocje z wyrazu twarzy (obrazek, zdjęcie, druga osoba).",
+          "krok_mentalizacji": "odczytanie emocji z twarzy drugiej osoby",
+          "cel": "Dziecko odczyta emocję z twarzy drugiej osoby i nazwie ją, w {proba} sytuacjach, w ciągu {horyzont_dopelniacz}.",
+          "znaczniki": [
+            "{proba}",
+            "{horyzont_dopelniacz}",
+            "{horyzont_miejscownik}"
+          ],
+          "co_obserwowac": "Arkusz obserwacji — kolumna: zabawa z rówieśnikami, czytanie, zajęcia w kręgu. Notujemy trafność odczytu.",
+          "ile_sytuacji": "5 sytuacji w tygodniu",
+          "smart": [
+            {
+              "litera": "S",
+              "tresc": "Nazywa emocję, patrząc na twarz, bez podpowiedzi słownej."
+            },
+            {
+              "litera": "M",
+              "tresc": "{proba} sytuacji z pięciu obserwowanych w tygodniu."
+            },
+            {
+              "litera": "A",
+              "tresc": "Fotografie i lustro są w kąciku emocji przez cały dzień."
+            },
+            {
+              "litera": "R",
+              "tresc": "Odczyt z twarzy jest szybszy niż odczyt z sytuacji i działa w zabawie."
+            },
+            {
+              "litera": "T",
+              "tresc": "Weryfikacja po {horyzont_miejscownik}, według wyniku komponentu."
+            }
+          ],
+          "zalecenia": [
+            "codzienna krótka rozgrzewka: cztery fotografie twarzy przed zajęciami w kręgu",
+            "nazywanie emocji dzieci z grupy na bieżąco („Ola się cieszy, bo…”)",
+            "zdjęcia fragmentów twarzy dla dziecka, które czyta emocje tylko z ust"
+          ],
+          "dostosowania": [
+            "fotografie znajomych twarzy zamiast ilustracji z internetu",
+            "wybór z dwóch przy wysokim napięciu, z czterech w spokojnym dniu",
+            "pytanie sprawdzające zamiast poprawiania odczytu przez dorosłego"
+          ],
+          "uwaga_rozwojowa": "Trudność w czytaniu twarzy przy dobrym nazywaniu emocji z sytuacji wymaga sprawdzenia wzroku i kontaktu wzrokowego — to nie zawsze deficyt mentalizacji."
+        },
+        {
+          "nr": "I.3",
+          "pozycja": 3,
+          "deficyt": "Łączy emocję z prostą sytuacją („płacze, bo się przewrócił”).",
+          "krok_mentalizacji": "podanie przyczyny emocji w zdaniu „czuje…, bo…”",
+          "cel": "Dziecko poda przyczynę emocji własnej albo cudzej w zdaniu „czuje…, bo…”, w {proba} sytuacjach, w ciągu {horyzont_dopelniacz}.",
+          "znaczniki": [
+            "{proba}",
+            "{horyzont_dopelniacz}",
+            "{horyzont_miejscownik}"
+          ],
+          "co_obserwowac": "Arkusz obserwacji — kolumna: historyjka, czytanie, sytuacja z rówieśnikiem. Notujemy podanie przyczyny.",
+          "ile_sytuacji": "5 sytuacji w tygodniu",
+          "smart": [
+            {
+              "litera": "S",
+              "tresc": "Podaje przyczynę emocji w zdaniu z „bo”."
+            },
+            {
+              "litera": "M",
+              "tresc": "{proba} sytuacji z pięciu obserwowanych w tygodniu."
+            },
+            {
+              "litera": "A",
+              "tresc": "Rama zdania leży w kąciku emocji i wolno z niej korzystać."
+            },
+            {
+              "litera": "R",
+              "tresc": "Przyczyna emocji jest mostem do przewidywania cudzych reakcji."
+            },
+            {
+              "litera": "T",
+              "tresc": "Weryfikacja po {horyzont_miejscownik}, według wyniku komponentu."
+            }
+          ],
+          "zalecenia": [
+            "rama zdania „czuje…, bo…” dostępna w kąciku emocji na stałe",
+            "codzienne przenoszenie ćwiczenia na prawdziwą sytuację z sali",
+            "zdjęcia z życia grupy jako materiał do rozmów o emocjach"
+          ],
+          "dostosowania": [
+            "sytuacje znane dziecku zamiast historyjek abstrakcyjnych",
+            "dwie przyczyny do wyboru przy trudnościach z mową czynną",
+            "brak poprawiania przypuszczenia przed sprawdzeniem go u kolegi"
+          ],
+          "uwaga_rozwojowa": "Łączenie emocji z sytuacją pojawia się typowo ok. 3–4 r.ż. U młodszego dziecka pracujemy nad samym nazywaniem emocji (I.1), nie nad przyczyną."
+        },
+        {
+          "nr": "I.4",
+          "pozycja": 4,
+          "deficyt": "Pokazuje lub mówi, jak sam czuje się w danej chwili.",
+          "krok_mentalizacji": "zgłoszenie własnego stanu słowem albo kartą",
+          "cel": "Dziecko zgłosi swój stan emocjonalny słowem albo kartą, zanim emocja zamieni się w krzyk lub wycofanie, w {proba} sytuacjach, w ciągu {horyzont_dopelniacz}.",
+          "znaczniki": [
+            "{proba}",
+            "{horyzont_dopelniacz}",
+            "{horyzont_miejscownik}"
+          ],
+          "co_obserwowac": "Dziennik obserwacji — rubryka poranna, popołudniowa i sytuacje napięcia. Notujemy zgłoszenia z inicjatywy dziecka.",
+          "ile_sytuacji": "5 sytuacji w tygodniu",
+          "smart": [
+            {
+              "litera": "S",
+              "tresc": "Nazywa własną emocję albo pokazuje ją kartą."
+            },
+            {
+              "litera": "M",
+              "tresc": "{proba} sytuacji z pięciu obserwowanych w tygodniu."
+            },
+            {
+              "litera": "A",
+              "tresc": "Termometr i karty potrzeb wiszą na wysokości oczu dziecka."
+            },
+            {
+              "litera": "R",
+              "tresc": "Zgłoszony stan pozwala uprzedzić trudną sytuację, zamiast ją gasić."
+            },
+            {
+              "litera": "T",
+              "tresc": "Weryfikacja po {horyzont_miejscownik}, według wyniku komponentu."
+            }
+          ],
+          "zalecenia": [
+            "zgłoszenie stanu dwa razy dziennie: przy powitaniu i po odpoczynku",
+            "karty potrzeb obok termometru — zgłoszenie ma coś zmieniać",
+            "modelowanie: dorosły mówi o swoim stanie na głos, codziennie"
+          ],
+          "dostosowania": [
+            "trzy buźki dla młodszych, skala natężenia 1–5 dla starszych",
+            "brak oceniania i podważania zgłoszonej emocji",
+            "kącik wyciszenia dostępny natychmiast po zgłoszeniu złości"
+          ],
+          "uwaga_rozwojowa": "Mówienie o własnym stanie pojawia się później niż nazywanie emocji na obrazku. U dziecka, które nie mówi, zgłoszenie kartą jest pełnowartościową realizacją tego celu."
+        },
+        {
+          "nr": "I.5",
+          "pozycja": 5,
+          "deficyt": "Zauważa, że inne dziecko jest smutne lub złe, i reaguje.",
+          "krok_mentalizacji": "podejście do kolegi i zaoferowanie konkretnej pomocy",
+          "cel": "Dziecko zauważy smutek albo złość kolegi i zareaguje jednym z ustalonych sposobów pomocy, w {proba} sytuacjach, w ciągu {horyzont_dopelniacz}.",
+          "znaczniki": [
+            "{proba}",
+            "{horyzont_dopelniacz}",
+            "{horyzont_miejscownik}"
+          ],
+          "co_obserwowac": "Arkusz obserwacji — kolumna: sytuacja smutku lub złości w grupie. Notujemy reakcję z inicjatywy dziecka.",
+          "ile_sytuacji": "5 sytuacji w tygodniu",
+          "smart": [
+            {
+              "litera": "S",
+              "tresc": "Podchodzi i wykonuje jeden z trzech ustalonych sposobów pomocy."
+            },
+            {
+              "litera": "M",
+              "tresc": "{proba} sytuacji z pięciu obserwowanych w tygodniu."
+            },
+            {
+              "litera": "A",
+              "tresc": "Karta sposobów i maskotka są w sali, w zasięgu dziecka."
+            },
+            {
+              "litera": "R",
+              "tresc": "Zauważenie bez reakcji zostaje dla kolegi niewidoczne."
+            },
+            {
+              "litera": "T",
+              "tresc": "Weryfikacja po {horyzont_miejscownik}, według wyniku komponentu."
+            }
+          ],
+          "zalecenia": [
+            "karta trzech sposobów pomocy w sali, na wysokości oczu dzieci",
+            "odczekanie chwili przed interwencją dorosłego — miejsce na reakcję dziecka",
+            "konkretna pochwała nazywająca czyn, nie cechę"
+          ],
+          "dostosowania": [
+            "maskotka pocieszanka jako gotowy przedmiot do podania",
+            "brak wymuszania przeprosin i przytulania",
+            "nauka przyjmowania odmowy pomocy („chcę być sam”)"
+          ],
+          "uwaga_rozwojowa": "Reagowanie na cudzy smutek pojawia się już u dwulatka, ale w formie zarażania emocją. Właściwa pomoc — dopasowana do kolegi — jest umiejętnością późniejszą i wymaga kroku z pytaniem."
+        }
+      ]
+    },
+    {
+      "nr": "II",
+      "nazwa": "Różne pragnienia i upodobania",
+      "icf": "b1560 · d7104",
+      "skala": "wynik 0–10",
+      "norma_rozwojowa": "różne pragnienia i upodobania ok. 3 r.ż.",
+      "opis": "Rozumienie, że inni chcą i lubią co innego, i uwzględnianie tego w zabawie.",
+      "zasada_tom": "Nie żądamy ustępowania. Uwzględnienie cudzego upodobania to krok poznawczy — dopiero po nim ma sens rozmowa o dzieleniu się.",
+      "wskazniki": [
+        {
+          "nr": "II.1",
+          "pozycja": 1,
+          "deficyt": "Rozumie, że inne dzieci lubią co innego niż on (owoc, zabawka).",
+          "krok_mentalizacji": "wskazanie cudzego wyboru, innego niż własny",
+          "cel": "Dziecko wskaże wybór kolegi zgodny z jego upodobaniem, a nie własnym, w {proba} sytuacjach, w ciągu {horyzont_dopelniacz}.",
+          "znaczniki": [
+            "{proba}",
+            "{horyzont_dopelniacz}",
+            "{horyzont_miejscownik}"
+          ],
+          "co_obserwowac": "Arkusz obserwacji — kolumna: wybór zabawy, podwieczorek, zabawa w parach. Notujemy trafność wskazania.",
+          "ile_sytuacji": "5 sytuacji w tygodniu",
+          "smart": [
+            {
+              "litera": "S",
+              "tresc": "Wskazuje albo nazywa cudzy wybór, różny od własnego."
+            },
+            {
+              "litera": "M",
+              "tresc": "{proba} sytuacji z pięciu obserwowanych w tygodniu."
+            },
+            {
+              "litera": "A",
+              "tresc": "Tablica „co kto lubi” wisi w sali i jest aktualna."
+            },
+            {
+              "litera": "R",
+              "tresc": "To pierwszy krok, na którym widać rozejście się dwóch perspektyw."
+            },
+            {
+              "litera": "T",
+              "tresc": "Weryfikacja po {horyzont_miejscownik}, według wyniku komponentu."
+            }
+          ],
+          "zalecenia": [
+            "tablica „co kto lubi” w sali, aktualizowana co miesiąc",
+            "głosowania i wybory w grupie jako codzienna praktyka",
+            "pytanie „a co ty lubisz?” jako stały element zapraszania do zabawy"
+          ],
+          "dostosowania": [
+            "wybór z dwóch przedmiotów zamiast czterech na początku",
+            "prawdziwe przedmioty zamiast obrazków dla młodszych dzieci",
+            "sprawdzanie odpowiedzi u kolegi zamiast korygowania przez dorosłego"
+          ],
+          "uwaga_rozwojowa": "Rozumienie różnych pragnień pojawia się typowo ok. 3 r.ż. i poprzedza rozumienie różnych przekonań. Praca nad komponentem IV bez tego kroku jest pracą ponad sekwencją rozwojową."
+        },
+        {
+          "nr": "II.2",
+          "pozycja": 2,
+          "deficyt": "Przewiduje, że ktoś wybierze to, co lubi — choć on woli co innego.",
+          "krok_mentalizacji": "przewidzenie cudzego wyboru wbrew własnemu upodobaniu",
+          "cel": "Dziecko przewidzi wybór drugiej osoby zgodnie z jej upodobaniem, a nie własnym, w {proba} próbach, w ciągu {horyzont_dopelniacz}.",
+          "znaczniki": [
+            "{proba}",
+            "{horyzont_dopelniacz}",
+            "{horyzont_miejscownik}"
+          ],
+          "co_obserwowac": "Arkusz obserwacji — kolumna: wybór zabawy, podwieczorek, zabawa z pacynką. Notujemy trafność prognozy.",
+          "ile_sytuacji": "5 prób w tygodniu",
+          "smart": [
+            {
+              "litera": "S",
+              "tresc": "Podaje prognozę cudzego wyboru przed samym wyborem."
+            },
+            {
+              "litera": "M",
+              "tresc": "{proba} prób z pięciu obserwowanych w tygodniu."
+            },
+            {
+              "litera": "A",
+              "tresc": "Upodobania kolegów są znane z tablicy i z codziennej zabawy."
+            },
+            {
+              "litera": "R",
+              "tresc": "Prognoza cudzego zachowania jest zalążkiem rozumienia przekonań."
+            },
+            {
+              "litera": "T",
+              "tresc": "Weryfikacja po {horyzont_miejscownik}, według wyniku komponentu."
+            }
+          ],
+          "zalecenia": [
+            "codzienne krótkie próby prognozy przy wyborze zabawy albo podwieczorku",
+            "natychmiastowe sprawdzenie prognozy u kolegi",
+            "rama zdania z uzasadnieniem dla dzieci sześcioletnich"
+          ],
+          "dostosowania": [
+            "pacynka o stałym upodobaniu dla dzieci, które nie utrzymują w pamięci upodobań kolegów",
+            "wybór z dwóch przedmiotów zamiast czterech",
+            "prognoza wskazywana kartonikiem, gdy mowa czynna jest ograniczona"
+          ],
+          "uwaga_rozwojowa": "Trafne przewidywanie cudzego wyboru wbrew własnemu pojawia się ok. 3 r.ż. Uparte wskazywanie własnego ulubionego przedmiotu u trzylatka mieści się w normie i nie wymaga korygowania słownego."
+        },
+        {
+          "nr": "II.3",
+          "pozycja": 3,
+          "deficyt": "Rozumie, że spełnione pragnienie cieszy, a niespełnione smuci.",
+          "krok_mentalizacji": "powiązanie cudzego pragnienia z emocją, która po nim nastąpi",
+          "cel": "Dziecko powie, jak poczuje się osoba, której pragnienie zostało spełnione albo niespełnione, w {proba} sytuacjach, w ciągu {horyzont_dopelniacz}.",
+          "znaczniki": [
+            "{proba}",
+            "{horyzont_dopelniacz}",
+            "{horyzont_miejscownik}"
+          ],
+          "co_obserwowac": "Arkusz obserwacji — kolumna: historyjka, podział zabawek, sytuacja odmowy. Notujemy trafność nazwania emocji.",
+          "ile_sytuacji": "5 sytuacji w tygodniu",
+          "smart": [
+            {
+              "litera": "S",
+              "tresc": "Nazywa emocję wynikającą ze spełnienia albo niespełnienia pragnienia."
+            },
+            {
+              "litera": "M",
+              "tresc": "{proba} sytuacji z pięciu obserwowanych w tygodniu."
+            },
+            {
+              "litera": "A",
+              "tresc": "Karty emocji z rozczarowaniem są dostępne w kąciku emocji."
+            },
+            {
+              "litera": "R",
+              "tresc": "Rozpoznane rozczarowanie kolegi zmniejsza liczbę sporów przy podziale."
+            },
+            {
+              "litera": "T",
+              "tresc": "Weryfikacja po {horyzont_miejscownik}, według wyniku komponentu."
+            }
+          ],
+          "zalecenia": [
+            "obie wersje historyjki odgrywane po kolei, nie osobno",
+            "słowo „rozczarowanie” wprowadzone i używane też przez dorosłego o sobie",
+            "prawdziwy podział zabawek jako próba przeniesienia"
+          ],
+          "dostosowania": [
+            "dwie buźki do wyboru zamiast czterech kart emocji",
+            "historyjki dwuobrazkowe o tej samej postaci",
+            "nazywanie rozczarowania dziecka, zanim poprosimy o nazwanie cudzego"
+          ],
+          "uwaga_rozwojowa": "Powiązanie pragnienia z emocją pojawia się ok. 3 r.ż. i jest wcześniejsze niż rozumienie przekonań — u dziecka, które go nie ma, komponent IV jest jeszcze poza zasięgiem."
+        },
+        {
+          "nr": "II.4",
+          "pozycja": 4,
+          "deficyt": "Uwzględnia upodobania kolegi w zabawie i przy dzieleniu się.",
+          "krok_mentalizacji": "wybór dla kolegi zgodny z jego upodobaniem, nie własnym",
+          "cel": "Dziecko wybierze dla kolegi albo zaproponuje zabawę zgodną z jego upodobaniem, w {proba} sytuacjach, w ciągu {horyzont_dopelniacz}.",
+          "znaczniki": [
+            "{proba}",
+            "{horyzont_dopelniacz}",
+            "{horyzont_miejscownik}"
+          ],
+          "co_obserwowac": "Arkusz obserwacji — kolumna: dzielenie się, wybór wspólnej zabawy. Notujemy wybory uwzględniające kolegę.",
+          "ile_sytuacji": "5 sytuacji w tygodniu",
+          "smart": [
+            {
+              "litera": "S",
+              "tresc": "Podaje koledze jego rzecz albo proponuje zabawę pod niego."
+            },
+            {
+              "litera": "M",
+              "tresc": "{proba} sytuacji z pięciu obserwowanych w tygodniu."
+            },
+            {
+              "litera": "A",
+              "tresc": "Tablica upodobań i karty zabaw są dostępne w sali."
+            },
+            {
+              "litera": "R",
+              "tresc": "Wiedza o cudzym upodobaniu ma się zamienić w czyn."
+            },
+            {
+              "litera": "T",
+              "tresc": "Weryfikacja po {horyzont_miejscownik}, według wyniku komponentu."
+            }
+          ],
+          "zalecenia": [
+            "wybór dla kolegi przed wyborem dla siebie — codziennie, przy jednej sytuacji",
+            "klepsydra do dzielenia czasu zamiast rozstrzygania sporu przez dorosłego",
+            "pochwała za uwzględnienie kolegi, nie za rezygnację z siebie"
+          ],
+          "dostosowania": [
+            "wybór z dwóch przedmiotów, oba w zasięgu ręki",
+            "karty zabaw odpowiadające wyposażeniu sali",
+            "wsparcie dziecka, które ustępuje zawsze — nauka mówienia o własnym upodobaniu"
+          ],
+          "uwaga_rozwojowa": "Dzielenie się z uwzględnieniem cudzego upodobania wymaga wcześniejszego kroku II.1 i II.2. Wymuszanie dzielenia się przed nimi uczy posłuszeństwa przy dorosłym, nie mentalizacji."
+        },
+        {
+          "nr": "II.5",
+          "pozycja": 5,
+          "deficyt": "Mówi o własnych upodobaniach i pyta o cudze.",
+          "krok_mentalizacji": "zadanie pytania o cudze upodobanie",
+          "cel": "Dziecko zapyta kolegę o jego upodobanie i wysłucha odpowiedzi, w {proba} rozmowach, w ciągu {horyzont_dopelniacz}.",
+          "znaczniki": [
+            "{proba}",
+            "{horyzont_dopelniacz}",
+            "{horyzont_miejscownik}"
+          ],
+          "co_obserwowac": "Arkusz obserwacji — kolumna: zabawa swobodna, krąg, przyjęcie nowego dziecka. Notujemy pytania z inicjatywy dziecka.",
+          "ile_sytuacji": "5 rozmów w tygodniu",
+          "smart": [
+            {
+              "litera": "S",
+              "tresc": "Zadaje pytanie o cudze upodobanie i słucha odpowiedzi."
+            },
+            {
+              "litera": "M",
+              "tresc": "{proba} rozmów z pięciu obserwowanych w tygodniu."
+            },
+            {
+              "litera": "A",
+              "tresc": "Karta pytania wisi w kąciku zabawy."
+            },
+            {
+              "litera": "R",
+              "tresc": "Pytanie zastępuje założenie, że kolega lubi to samo."
+            },
+            {
+              "litera": "T",
+              "tresc": "Weryfikacja po {horyzont_miejscownik}, według wyniku komponentu."
+            }
+          ],
+          "zalecenia": [
+            "runda „co lubię” w kręgu jako stały element tygodnia",
+            "karta pytania w kąciku zabawy, nie przy stoliku",
+            "powtarzanie odpowiedzi kolegi jako dowód słuchania"
+          ],
+          "dostosowania": [
+            "pokazanie przedmiotu zamiast mówienia o nim, gdy mowa czynna jest ograniczona",
+            "przedmiot podawany mówiącemu, żeby kolejność była widoczna",
+            "brak odpowiadania przez dorosłego za milczące dziecko"
+          ],
+          "uwaga_rozwojowa": "Pytanie o cudze upodobanie wymaga sprawnej mowy czynnej. U dziecka z opóźnionym rozwojem mowy realizacją tego celu jest podanie karty pytania — nie należy zaniżać wyniku komponentu z powodu samej mowy."
+        }
+      ]
+    },
+    {
+      "nr": "III",
+      "nazwa": "Zabawa „na niby” i udawanie",
+      "icf": "b1640 · d880",
+      "skala": "wynik 0–10",
+      "norma_rozwojowa": "zabawa „na niby” ok. 2–3 r.ż.; rozwinięta zabawa w role 3–4 r.ż.",
+      "opis": "Udawanie, wchodzenie w rolę, wspólny scenariusz i odróżnianie „na niby” od „naprawdę”.",
+      "zasada_tom": "Dorosły wchodzi w rolę pierwszy i zostaje w niej. Zabawa „na niby” komentowana z zewnątrz przestaje być zabawą, a staje się ćwiczeniem.",
+      "wskazniki": [
+        {
+          "nr": "III.1",
+          "pozycja": 1,
+          "deficyt": "Podejmuje zabawę „na niby” (klocek jako telefon, patyk jako łyżka).",
+          "krok_mentalizacji": "użycie przedmiotu w funkcji innej niż jego własna",
+          "cel": "Dziecko użyje przedmiotu zastępczego w zabawie, nadając mu znaczenie „na niby”, w {proba} sytuacjach, w ciągu {horyzont_dopelniacz}.",
+          "znaczniki": [
+            "{proba}",
+            "{horyzont_dopelniacz}",
+            "{horyzont_miejscownik}"
+          ],
+          "co_obserwowac": "Arkusz obserwacji — kolumna: zabawa swobodna w kąciku. Notujemy udawanie z inicjatywy dziecka.",
+          "ile_sytuacji": "5 sytuacji w tygodniu",
+          "smart": [
+            {
+              "litera": "S",
+              "tresc": "Nadaje przedmiotowi funkcję, której ten nie ma."
+            },
+            {
+              "litera": "M",
+              "tresc": "{proba} sytuacji z pięciu obserwowanych w tygodniu."
+            },
+            {
+              "litera": "A",
+              "tresc": "Kosz przedmiotów niedookreślonych stoi w kąciku zabawy."
+            },
+            {
+              "litera": "R",
+              "tresc": "Udawanie jest najwcześniejszą formą myślenia o tym, czego nie widać."
+            },
+            {
+              "litera": "T",
+              "tresc": "Weryfikacja po {horyzont_miejscownik}, według wyniku komponentu."
+            }
+          ],
+          "zalecenia": [
+            "kosz przedmiotów niedookreślonych dostępny w kąciku codziennie",
+            "dorosły wchodzi w zabawę i zostaje w roli przez kilka minut",
+            "rozszerzanie: ten sam przedmiot w dwóch różnych rolach"
+          ],
+          "dostosowania": [
+            "przedmioty niedookreślone zamiast gotowych zabawek tematycznych",
+            "modelowanie gestem przed poleceniem słownym",
+            "krótkie epizody zabawy, powtarzane często, zamiast jednej długiej sesji"
+          ],
+          "uwaga_rozwojowa": "Zabawa „na niby” pojawia się typowo ok. 2–3 r.ż. Jej brak u dziecka trzyletniego jest ważnym sygnałem — warto skonsultować rozwój społeczny, zanim ustawimy cele z komponentu IV."
+        },
+        {
+          "nr": "III.2",
+          "pozycja": 2,
+          "deficyt": "Wchodzi w rolę w zabawie tematycznej (dom, sklep, lekarz).",
+          "krok_mentalizacji": "przyjęcie roli i mówienie z jej perspektywy",
+          "cel": "Dziecko wejdzie w rolę w zabawie tematycznej i utrzyma ją przez czas zabawy, w {proba} sytuacjach, w ciągu {horyzont_dopelniacz}.",
+          "znaczniki": [
+            "{proba}",
+            "{horyzont_dopelniacz}",
+            "{horyzont_miejscownik}"
+          ],
+          "co_obserwowac": "Arkusz obserwacji — kolumna: zabawa w kąciku tematycznym. Notujemy wejście w rolę i czas jej utrzymania.",
+          "ile_sytuacji": "5 zabaw tematycznych w tygodniu",
+          "smart": [
+            {
+              "litera": "S",
+              "tresc": "Zakłada rekwizyt, działa i mówi z perspektywy roli."
+            },
+            {
+              "litera": "M",
+              "tresc": "{proba} zabaw z pięciu obserwowanych w tygodniu."
+            },
+            {
+              "litera": "A",
+              "tresc": "Kącik tematyczny i rekwizyty są gotowe przed zajęciami."
+            },
+            {
+              "litera": "R",
+              "tresc": "Rola jest pierwszym trwałym wejściem w cudzą perspektywę."
+            },
+            {
+              "litera": "T",
+              "tresc": "Weryfikacja po {horyzont_miejscownik}, według wyniku komponentu."
+            }
+          ],
+          "zalecenia": [
+            "codzienne krótkie zabawy tematyczne z modelowaniem roli przez dorosłego",
+            "rytuał wejścia i wyjścia z roli: rekwizyt zakładany i zdejmowany",
+            "stopniowe włączanie drugiego dziecka do zabawy"
+          ],
+          "dostosowania": [
+            "jeden wyraźny rekwizyt zamiast kompletu przebrania",
+            "obrazkowe wzory zdań z roli w kąciku",
+            "klepsydra domykająca zabawę, zanim się rozsypie"
+          ],
+          "uwaga_rozwojowa": "Rozwinięta zabawa w role kształtuje się ok. 3–4 r.ż. U młodszego dziecka pracujemy nad III.1 (pojedyncze gesty udawania), nie nad utrzymaniem roli."
+        },
+        {
+          "nr": "III.3",
+          "pozycja": 3,
+          "deficyt": "Rozumie udawanie innych i włącza się w ich zabawę.",
+          "krok_mentalizacji": "odczytanie cudzej zabawy „na niby” i dołączenie do niej",
+          "cel": "Dziecko rozpozna, w co bawią się inne dzieci, i dołączy do ich zabawy, nie zmieniając jej tematu, w {proba} próbach, w ciągu {horyzont_dopelniacz}.",
+          "znaczniki": [
+            "{proba}",
+            "{horyzont_dopelniacz}",
+            "{horyzont_miejscownik}"
+          ],
+          "co_obserwowac": "Arkusz obserwacji — kolumna: zabawa swobodna z rówieśnikami. Notujemy próby dołączenia i ich wynik.",
+          "ile_sytuacji": "5 prób dołączenia w tygodniu",
+          "smart": [
+            {
+              "litera": "S",
+              "tresc": "Podchodzi, wykonuje czynność zgodną z zabawą albo prosi o przyjęcie."
+            },
+            {
+              "litera": "M",
+              "tresc": "{proba} prób z pięciu obserwowanych w tygodniu."
+            },
+            {
+              "litera": "A",
+              "tresc": "Karty kroków dołączania wiszą w kąciku zabawy."
+            },
+            {
+              "litera": "R",
+              "tresc": "Wejście z własnym tematem jest najczęstszą przyczyną odrzucenia."
+            },
+            {
+              "litera": "T",
+              "tresc": "Weryfikacja po {horyzont_miejscownik}, według wyniku komponentu."
+            }
+          ],
+          "zalecenia": [
+            "karty trzech kroków dołączania w kąciku zabawy",
+            "zapasowe rekwizyty, żeby dołączenie było fizycznie możliwe",
+            "ćwiczenie drugiej próby po odmowie, zamiast interwencji dorosłego"
+          ],
+          "dostosowania": [
+            "zabawy o prostym, powtarzalnym schemacie na początek",
+            "dołączanie do dwojga dzieci, nie do większej grupy",
+            "brak wprowadzania dziecka do zabawy autorytetem dorosłego"
+          ],
+          "uwaga_rozwojowa": "Dołączanie do cudzej zabawy „na niby” wymaga wcześniejszego opanowania własnego udawania (III.1 i III.2). Dziecko, które nie udaje samo, nie odczyta konwencji grupy."
+        },
+        {
+          "nr": "III.4",
+          "pozycja": 4,
+          "deficyt": "Odróżnia „na niby” od „naprawdę”.",
+          "krok_mentalizacji": "nazwanie, co jest udawane, a co prawdziwe",
+          "cel": "Dziecko nazwie, co w sytuacji jest udawane, a co prawdziwe, w {proba} sytuacjach, w ciągu {horyzont_dopelniacz}.",
+          "znaczniki": [
+            "{proba}",
+            "{horyzont_dopelniacz}",
+            "{horyzont_miejscownik}"
+          ],
+          "co_obserwowac": "Arkusz obserwacji — kolumna: zabawa w role, żarty, scenki. Notujemy trafne nazwanie ramy.",
+          "ile_sytuacji": "5 sytuacji w tygodniu",
+          "smart": [
+            {
+              "litera": "S",
+              "tresc": "Mówi, że coś jest „na niby”, albo wskazuje przedmiot prawdziwy."
+            },
+            {
+              "litera": "M",
+              "tresc": "{proba} sytuacji z pięciu obserwowanych w tygodniu."
+            },
+            {
+              "litera": "A",
+              "tresc": "Rama zabawy jest otwierana i zamykana wyraźnie, tym samym rytuałem."
+            },
+            {
+              "litera": "R",
+              "tresc": "Trzymanie dwóch ram naraz chroni dziecko przed strachem w zabawie."
+            },
+            {
+              "litera": "T",
+              "tresc": "Weryfikacja po {horyzont_miejscownik}, według wyniku komponentu."
+            }
+          ],
+          "zalecenia": [
+            "wyraźne otwieranie i zamykanie ramy zabawy przez dorosłego",
+            "pary przedmiotów prawdziwych i zabawkowych dostępne w kąciku",
+            "uspokajanie młodszych kolegów jako codzienne zadanie dla starszych dzieci"
+          ],
+          "dostosowania": [
+            "pary przedmiotów zamiast obrazków dla młodszych dzieci",
+            "łagodne wersje strasznych postaci",
+            "rekwizyt zdejmowany na zakończenie zamiast tłumaczenia słownego"
+          ],
+          "uwaga_rozwojowa": "Odróżnianie „na niby” od „naprawdę” bywa chwiejne jeszcze u czterolatka, zwłaszcza przy silnych emocjach. Chwilowe pomylenie ram w strasznej zabawie nie jest wskaźnikiem deficytu."
+        },
+        {
+          "nr": "III.5",
+          "pozycja": 5,
+          "deficyt": "Tworzy prostą historyjkę lub scenariusz w zabawie z rówieśnikami.",
+          "krok_mentalizacji": "uzgodnienie z kolegą, co dzieje się dalej",
+          "cel": "Dziecko zaproponuje i uzgodni z kolegą ciąg dalszy wspólnej zabawy, w {proba} zabawach, w ciągu {horyzont_dopelniacz}.",
+          "znaczniki": [
+            "{proba}",
+            "{horyzont_dopelniacz}",
+            "{horyzont_miejscownik}"
+          ],
+          "co_obserwowac": "Arkusz obserwacji — kolumna: zabawa tematyczna w parach. Notujemy uzgodnienia i liczbę zrealizowanych elementów scenariusza.",
+          "ile_sytuacji": "5 zabaw w tygodniu",
+          "smart": [
+            {
+              "litera": "S",
+              "tresc": "Proponuje ciąg dalszy i uzgadnia go z kolegą."
+            },
+            {
+              "litera": "M",
+              "tresc": "{proba} zabaw z pięciu obserwowanych w tygodniu."
+            },
+            {
+              "litera": "A",
+              "tresc": "Listwa scenariusza i obrazki są dostępne w kąciku."
+            },
+            {
+              "litera": "R",
+              "tresc": "Uzgodniony scenariusz wytrzymuje spory, których w trakcie nie da się rozstrzygnąć."
+            },
+            {
+              "litera": "T",
+              "tresc": "Weryfikacja po {horyzont_miejscownik}, według wyniku komponentu."
+            }
+          ],
+          "zalecenia": [
+            "układanie scenariusza przed zabawą, nie w jej trakcie",
+            "opowiadanie planu koledze jako stały element rozpoczęcia zabawy",
+            "powrót do uzgodnionego scenariusza przy sporze zamiast rozstrzygania przez dorosłego"
+          ],
+          "dostosowania": [
+            "dwa elementy scenariusza dla młodszych, trzy dla starszych",
+            "obrazki odpowiadające wyposażeniu kącików",
+            "klepsydra domykająca zabawę przed zmęczeniem"
+          ],
+          "uwaga_rozwojowa": "Wspólny scenariusz z rówieśnikami to szczyt komponentu III i pojawia się ok. 4–5 r.ż. U młodszych dzieci wystarcza równoległa zabawa w tej samej konwencji."
+        }
+      ]
+    },
+    {
+      "nr": "IV",
+      "nazwa": "Różne przekonania i fałszywe przekonanie",
+      "icf": "b1641 · d710",
+      "skala": "wynik 0–10",
+      "norma_rozwojowa": "różne przekonania i dostęp do wiedzy ok. 3–4 r.ż.; fałszywe przekonanie ok. 4–5 r.ż.",
+      "opis": "Rozumienie, że ktoś może myśleć inaczej i wiedzieć mniej — aż po fałszywe przekonanie.",
+      "zasada_tom": "Kolejność jest rozwojowa i nie da się jej przeskoczyć: najpierw „kto nie widział, ten nie wie”, dopiero potem Sally-Anne. Cel ustawiony ponad sekwencją uczy dziecko odpowiadania na chybił trafił.",
+      "wskazniki": [
+        {
+          "nr": "IV.1",
+          "pozycja": 1,
+          "deficyt": "Rozumie, że ktoś może myśleć inaczej o tej samej rzeczy.",
+          "krok_mentalizacji": "wskazanie cudzego zdania, różnego od własnego",
+          "cel": "Dziecko poda zdanie drugiej osoby o rzeczy, o której samo myśli inaczej, w {proba} sytuacjach, w ciągu {horyzont_dopelniacz}.",
+          "znaczniki": [
+            "{proba}",
+            "{horyzont_dopelniacz}",
+            "{horyzont_miejscownik}"
+          ],
+          "co_obserwowac": "Arkusz obserwacji — kolumna: rozmowa o książce, spór w sali, zabawa z pacynkami. Notujemy podanie cudzego zdania.",
+          "ile_sytuacji": "5 sytuacji w tygodniu",
+          "smart": [
+            {
+              "litera": "S",
+              "tresc": "Podaje cudze zdanie, różne od własnego."
+            },
+            {
+              "litera": "M",
+              "tresc": "{proba} sytuacji z pięciu obserwowanych w tygodniu."
+            },
+            {
+              "litera": "A",
+              "tresc": "Chmurki myśli i kartoniki opinii są w kąciku."
+            },
+            {
+              "litera": "R",
+              "tresc": "To brama do całego komponentu przekonań."
+            },
+            {
+              "litera": "T",
+              "tresc": "Weryfikacja po {horyzont_miejscownik}, według wyniku komponentu."
+            }
+          ],
+          "zalecenia": [
+            "chmurki myśli dostępne w kąciku i używane przy sporach",
+            "codzienne pytanie o zdanie kolegi, oddzielone od zdania dziecka",
+            "sprawdzanie cudzego zdania u tej osoby, nie u dorosłego"
+          ],
+          "dostosowania": [
+            "zdania o gustach zamiast zdań o faktach na początek",
+            "obrazki wkładane w chmurki zamiast wypowiedzi słownej",
+            "dwie możliwości do wyboru przy ograniczonej mowie czynnej"
+          ],
+          "uwaga_rozwojowa": "Rozumienie różnych przekonań pojawia się ok. 3–4 r.ż. i poprzedza fałszywe przekonanie. To wskaźnik graniczny: bez niego cele IV.3 i IV.4 są ustawione ponad sekwencją rozwojową."
+        },
+        {
+          "nr": "IV.2",
+          "pozycja": 2,
+          "deficyt": "Rozumie, że „kto nie widział — ten nie wie” (dostęp do wiedzy).",
+          "krok_mentalizacji": "wskazanie, kto wie, a kto nie wie, na podstawie tego, kto widział",
+          "cel": "Dziecko wskaże, kto wie, a kto nie wie o zdarzeniu, na podstawie tego, kto je widział, w {proba} próbach, w ciągu {horyzont_dopelniacz}.",
+          "znaczniki": [
+            "{proba}",
+            "{horyzont_dopelniacz}",
+            "{horyzont_miejscownik}"
+          ],
+          "co_obserwowac": "Arkusz obserwacji — kolumna: zabawa w chowanie, wyjście kolegi z sali. Notujemy trafność rozdzielenia wiedzy.",
+          "ile_sytuacji": "5 prób w tygodniu",
+          "smart": [
+            {
+              "litera": "S",
+              "tresc": "Wskazuje osobę wiedzącą i niewiedzącą."
+            },
+            {
+              "litera": "M",
+              "tresc": "{proba} prób z pięciu obserwowanych w tygodniu."
+            },
+            {
+              "litera": "A",
+              "tresc": "Pacynka z opaską i karty „wie / nie wie” są w kąciku."
+            },
+            {
+              "litera": "R",
+              "tresc": "To bezpośredni poprzednik zadań z fałszywym przekonaniem."
+            },
+            {
+              "litera": "T",
+              "tresc": "Weryfikacja po {horyzont_miejscownik}, według wyniku komponentu."
+            }
+          ],
+          "zalecenia": [
+            "codzienne krótkie próby z chowaniem przedmiotu przy jednej osobie",
+            "pytanie „kto wie?” przed pytaniem „gdzie jest?”",
+            "opowiadanie nieobecnym o tym, co się wydarzyło w grupie"
+          ],
+          "dostosowania": [
+            "pacynka z opaską jako fizyczny znak braku dostępu",
+            "wyjście kolegi z sali zamiast opowiadania o wyjściu",
+            "sprawdzanie odpowiedzi u kolegi zamiast korygowania przez dorosłego"
+          ],
+          "uwaga_rozwojowa": "Dostęp do wiedzy rozumiany jest ok. 3–4 r.ż. i jest bezpośrednim poprzednikiem fałszywego przekonania. Praca nad IV.4 przed tym krokiem daje odpowiedzi zgadywane, nie rozumiane."
+        },
+        {
+          "nr": "IV.3",
+          "pozycja": 3,
+          "deficyt": "Rozwiązuje zadanie niespodziewanej zawartości (typu Smarties).",
+          "krok_mentalizacji": "podanie, co pomyśli ktoś, kto zna tylko opakowanie",
+          "cel": "Dziecko poda, co pomyśli osoba znająca tylko opakowanie, choć samo zna zawartość, w {proba} próbach, w ciągu {horyzont_dopelniacz}.",
+          "znaczniki": [
+            "{proba}",
+            "{horyzont_dopelniacz}",
+            "{horyzont_miejscownik}"
+          ],
+          "co_obserwowac": "Arkusz obserwacji — kolumna: próba z pudełkiem. Notujemy odpowiedź o cudzym przekonaniu.",
+          "ile_sytuacji": "5 prób w tygodniu",
+          "smart": [
+            {
+              "litera": "S",
+              "tresc": "Podaje cudze przekonanie, różne od własnej wiedzy."
+            },
+            {
+              "litera": "M",
+              "tresc": "{proba} prób z pięciu obserwowanych w tygodniu."
+            },
+            {
+              "litera": "A",
+              "tresc": "Pudełka i zaskakująca zawartość są przygotowane wcześniej."
+            },
+            {
+              "litera": "R",
+              "tresc": "To klasyczne zadanie fałszywego przekonania z sekwencji Wellmana i Liu."
+            },
+            {
+              "litera": "T",
+              "tresc": "Weryfikacja po {horyzont_miejscownik}, według wyniku komponentu."
+            }
+          ],
+          "zalecenia": [
+            "próby z pudełkami dwa razy w tygodniu, zawsze z inną zawartością",
+            "pytanie o własne wcześniejsze przekonanie przed pytaniem o cudze",
+            "sprawdzanie przewidywania na prawdziwym koledze"
+          ],
+          "dostosowania": [
+            "pudełka po produktach znanych dziecku z domu",
+            "karty „myślałem” i „jest” jako wsparcie pamięci",
+            "wybór z dwóch odpowiedzi przy ograniczonej mowie czynnej"
+          ],
+          "uwaga_rozwojowa": "Zadanie niespodziewanej zawartości rozwiązywane jest typowo ok. 4–5 r.ż. Błędna odpowiedź czterolatka mieści się w normie rozwojowej i nie wymaga interwencji — wymaga powtarzania zadań IV.1 i IV.2."
+        },
+        {
+          "nr": "IV.4",
+          "pozycja": 4,
+          "deficyt": "Rozwiązuje proste zadanie fałszywego przekonania (typu Sally-Anne).",
+          "krok_mentalizacji": "wskazanie, gdzie bohater będzie szukał, a nie gdzie przedmiot jest",
+          "cel": "Dziecko wskaże, gdzie bohater będzie szukał przedmiotu, zgodnie z jego przekonaniem, a nie ze stanem faktycznym, w {proba} próbach, w ciągu {horyzont_dopelniacz}.",
+          "znaczniki": [
+            "{proba}",
+            "{horyzont_dopelniacz}",
+            "{horyzont_miejscownik}"
+          ],
+          "co_obserwowac": "Arkusz obserwacji — kolumna: zadanie fałszywego przekonania. Notujemy odpowiedź na pytanie kontrolne i na pytanie o szukanie.",
+          "ile_sytuacji": "5 prób w tygodniu",
+          "smart": [
+            {
+              "litera": "S",
+              "tresc": "Wskazuje pierwsze miejsce schowania, nie miejsce faktyczne."
+            },
+            {
+              "litera": "M",
+              "tresc": "{proba} prób z pięciu obserwowanych w tygodniu."
+            },
+            {
+              "litera": "A",
+              "tresc": "Historyjka jest krótka, odgrywana pacynkami, z prawdziwymi pojemnikami."
+            },
+            {
+              "litera": "R",
+              "tresc": "To najtrudniejszy i najlepiej zbadany krok sekwencji teorii umysłu."
+            },
+            {
+              "litera": "T",
+              "tresc": "Weryfikacja po {horyzont_miejscownik}, według wyniku komponentu."
+            }
+          ],
+          "zalecenia": [
+            "historyjka odgrywana pacynkami, dwa razy w tygodniu, z różnymi przedmiotami",
+            "pytanie kontrolne o faktyczne miejsce przed pytaniem o szukanie",
+            "powrót do wskaźnika IV.2 przy serii błędnych odpowiedzi"
+          ],
+          "dostosowania": [
+            "prawdziwe pojemniki na stole obok historyjki obrazkowej",
+            "jedna zmiana miejsca zamiast dwóch",
+            "wskazanie ręką zamiast odpowiedzi słownej"
+          ],
+          "uwaga_rozwojowa": "Fałszywe przekonanie rozwiązywane jest typowo ok. 4–5 r.ż. Błędna odpowiedź trzy- i czterolatka jest normą rozwojową. Cel z tego wskaźnika ustawiamy dopiero po opanowaniu IV.1 i IV.2 — inaczej uczymy zgadywania."
+        },
+        {
+          "nr": "IV.5",
+          "pozycja": 5,
+          "deficyt": "Przewiduje zachowanie kogoś na podstawie tego, co ten ktoś wie.",
+          "krok_mentalizacji": "prognoza cudzego działania wynikająca z jego wiedzy",
+          "cel": "Dziecko przewidzi działanie osoby na podstawie tego, co ta osoba wie, i uprzedzi ją o zmianie, w {proba} sytuacjach, w ciągu {horyzont_dopelniacz}.",
+          "znaczniki": [
+            "{proba}",
+            "{horyzont_dopelniacz}",
+            "{horyzont_miejscownik}"
+          ],
+          "co_obserwowac": "Arkusz obserwacji — kolumna: zmiana w sali, powrót nieobecnego. Notujemy prognozy i uprzedzenia.",
+          "ile_sytuacji": "5 sytuacji w tygodniu",
+          "smart": [
+            {
+              "litera": "S",
+              "tresc": "Podaje prognozę działania i przekazuje informację koledze."
+            },
+            {
+              "litera": "M",
+              "tresc": "{proba} sytuacji z pięciu obserwowanych w tygodniu."
+            },
+            {
+              "litera": "A",
+              "tresc": "Zmiany w sali zdarzają się codziennie; karty wiszą przy drzwiach."
+            },
+            {
+              "litera": "R",
+              "tresc": "Uprzedzenie zamienia rozumienie w pomoc dla drugiej osoby."
+            },
+            {
+              "litera": "T",
+              "tresc": "Weryfikacja po {horyzont_miejscownik}, według wyniku komponentu."
+            }
+          ],
+          "zalecenia": [
+            "wykorzystywanie prawdziwych zmian w sali jako materiału ćwiczeniowego",
+            "prognoza formułowana przed powrotem nieobecnego",
+            "pochwała za uprzedzenie kolegi, nie za samą trafność prognozy"
+          ],
+          "dostosowania": [
+            "dwa miejsca zamiast trzech przy przewidywaniu",
+            "wskazanie ręką zamiast wypowiedzi",
+            "karta „uprzedzam” przy drzwiach, gdzie wracają nieobecni"
+          ],
+          "uwaga_rozwojowa": "Przewidywanie działania na podstawie cudzej wiedzy pojawia się razem z fałszywym przekonaniem, ok. 4–5 r.ż. To wskaźnik domykający komponent IV i najlepiej widoczny w codziennych sytuacjach."
+        }
+      ]
+    },
+    {
+      "nr": "V",
+      "nazwa": "Ukryte emocje i intencje w kontaktach",
+      "icf": "b1641 · d740",
+      "skala": "wynik 0–10",
+      "norma_rozwojowa": "intencje ok. 3 r.ż.; ukryte emocje ok. 5–6 r.ż.",
+      "opis": "Intencja („specjalnie” czy „niechcący”), pomoc kontra przeszkadzanie, ukryta emocja.",
+      "zasada_tom": "Pytanie „chciał czy niechcący?” zadajemy po ochłonięciu, nie w środku sporu. W afekcie dziecko nie ma dostępu do cudzej intencji.",
+      "wskazniki": [
+        {
+          "nr": "V.1",
+          "pozycja": 1,
+          "deficyt": "Rozumie, że można czuć co innego, niż się pokazuje (ukryta emocja).",
+          "krok_mentalizacji": "nazwanie dwóch stanów naraz: pokazywanego i przeżywanego",
+          "cel": "Dziecko nazwie rozbieżność między miną a uczuciem drugiej osoby, w {proba} sytuacjach, w ciągu {horyzont_dopelniacz}.",
+          "znaczniki": [
+            "{proba}",
+            "{horyzont_dopelniacz}",
+            "{horyzont_miejscownik}"
+          ],
+          "co_obserwowac": "Arkusz obserwacji — kolumna: historyjka, sytuacja z rówieśnikiem. Notujemy zauważenie rozbieżności.",
+          "ile_sytuacji": "5 sytuacji w tygodniu",
+          "smart": [
+            {
+              "litera": "S",
+              "tresc": "Nazywa minę i domniemane uczucie osobno."
+            },
+            {
+              "litera": "M",
+              "tresc": "{proba} sytuacji z pięciu obserwowanych w tygodniu."
+            },
+            {
+              "litera": "A",
+              "tresc": "Sylwetka z dwoma polami leży w kąciku emocji."
+            },
+            {
+              "litera": "R",
+              "tresc": "Czytanie tylko z twarzy prowadzi do przeoczenia kolegi, który ukrywa smutek."
+            },
+            {
+              "litera": "T",
+              "tresc": "Weryfikacja po {horyzont_miejscownik}, według wyniku komponentu."
+            }
+          ],
+          "zalecenia": [
+            "sylwetka z dwoma polami dostępna w kąciku emocji",
+            "reagowanie na ukrytą emocję na osobności, nie przy grupie",
+            "nazywanie powodów ukrywania: wstyd, chęć bycia dzielnym"
+          ],
+          "dostosowania": [
+            "dwie karty naraz zamiast pytania otwartego",
+            "historyjki o ukrywaniu emocji przed rozmową o sytuacjach z sali",
+            "brak demaskowania dziecka, które mówi „nic mi nie jest”"
+          ],
+          "uwaga_rozwojowa": "Ukryte emocje rozumiane są typowo ok. 5–6 r.ż. — najpóźniej z całej sekwencji. Brak tej umiejętności u czterolatka jest normą rozwojową i nie wymaga celu z tego wskaźnika."
+        },
+        {
+          "nr": "V.2",
+          "pozycja": 2,
+          "deficyt": "Odróżnia zrobione „specjalnie” od „przez przypadek” (intencja).",
+          "krok_mentalizacji": "nazwanie intencji sprawcy, oddzielone od skutku",
+          "cel": "Dziecko odróżni czyn celowy od przypadkowego i dobierze do niego reakcję, w {proba} sytuacjach, w ciągu {horyzont_dopelniacz}.",
+          "znaczniki": [
+            "{proba}",
+            "{horyzont_dopelniacz}",
+            "{horyzont_miejscownik}"
+          ],
+          "co_obserwowac": "Arkusz obserwacji — kolumna: spór, potrącenie, zniszczona budowla. Notujemy ocenę intencji i reakcję.",
+          "ile_sytuacji": "5 sytuacji w tygodniu",
+          "smart": [
+            {
+              "litera": "S",
+              "tresc": "Nazywa intencję i reaguje inaczej niż przy czynie celowym."
+            },
+            {
+              "litera": "M",
+              "tresc": "{proba} sytuacji z pięciu obserwowanych w tygodniu."
+            },
+            {
+              "litera": "A",
+              "tresc": "Karty intencji wiszą w kąciku rozmów."
+            },
+            {
+              "litera": "R",
+              "tresc": "Ocena po skutku jest przyczyną większości sporów w grupie."
+            },
+            {
+              "litera": "T",
+              "tresc": "Weryfikacja po {horyzont_miejscownik}, według wyniku komponentu."
+            }
+          ],
+          "zalecenia": [
+            "dwie scenki o identycznym skutku i różnej intencji jako stałe ćwiczenie",
+            "rozmowa o intencji po ochłonięciu, w wyznaczonym kąciku",
+            "brak wymuszania natychmiastowych przeprosin"
+          ],
+          "dostosowania": [
+            "karty intencji zamiast pytania otwartego",
+            "scenki z pacynkami przed rozmową o prawdziwym sporze",
+            "czas na ochłonięcie przed każdą rozmową o intencji"
+          ],
+          "uwaga_rozwojowa": "Rozróżnianie intencji pojawia się ok. 3 r.ż., ale w silnej emocji zawodzi jeszcze u sześciolatka. Ocena po skutku w chwili złości nie jest wskaźnikiem deficytu."
+        },
+        {
+          "nr": "V.3",
+          "pozycja": 3,
+          "deficyt": "Rozpoznaje, że ktoś chce pomóc, a ktoś inny przeszkodzić.",
+          "krok_mentalizacji": "odczytanie cudzego zamiaru wobec siebie",
+          "cel": "Dziecko rozpozna, czy druga osoba chce pomóc, czy przeszkodzić, i odpowie zgodnie z tym zamiarem, w {proba} sytuacjach, w ciągu {horyzont_dopelniacz}.",
+          "znaczniki": [
+            "{proba}",
+            "{horyzont_dopelniacz}",
+            "{horyzont_miejscownik}"
+          ],
+          "co_obserwowac": "Arkusz obserwacji — kolumna: wspólne zadanie, zabawa w parach. Notujemy odczyt zamiaru i reakcję.",
+          "ile_sytuacji": "5 sytuacji w tygodniu",
+          "smart": [
+            {
+              "litera": "S",
+              "tresc": "Nazywa zamiar kolegi i odpowiada przyjęciem albo odmową."
+            },
+            {
+              "litera": "M",
+              "tresc": "{proba} sytuacji z pięciu obserwowanych w tygodniu."
+            },
+            {
+              "litera": "A",
+              "tresc": "Karty zamiarów i odpowiedzi są w kąciku."
+            },
+            {
+              "litera": "R",
+              "tresc": "Reakcja na ruch zamiast na zamiar rodzi konflikty bez powodu."
+            },
+            {
+              "litera": "T",
+              "tresc": "Weryfikacja po {horyzont_miejscownik}, według wyniku komponentu."
+            }
+          ],
+          "zalecenia": [
+            "pary scenek: pomoc i przeszkadzanie w tej samej sytuacji",
+            "ćwiczenie obu odpowiedzi: przyjęcia pomocy i spokojnej odmowy",
+            "proponowanie pomocy pytaniem zamiast działania bez uprzedzenia"
+          ],
+          "dostosowania": [
+            "karty zamiarów zamiast pytania otwartego",
+            "scenki z pacynkami przed sytuacjami z rówieśnikami",
+            "prawo do odmowy pomocy respektowane przez dorosłych"
+          ],
+          "uwaga_rozwojowa": "Odczytywanie zamiarów rozwija się razem z rozumieniem intencji, ok. 3–4 r.ż. Dziecko, które odpycha każdą zbliżającą się rękę, częściej ma trudność w tym wskaźniku niż w regulacji złości."
+        },
+        {
+          "nr": "V.4",
+          "pozycja": 4,
+          "deficyt": "Reaguje na potrzeby innych — pociesza, dzieli się, pomaga.",
+          "krok_mentalizacji": "działanie odpowiadające na rozpoznaną cudzą potrzebę",
+          "cel": "Dziecko zareaguje na potrzebę kolegi działaniem dopasowanym do tej potrzeby, w {proba} sytuacjach, w ciągu {horyzont_dopelniacz}.",
+          "znaczniki": [
+            "{proba}",
+            "{horyzont_dopelniacz}",
+            "{horyzont_miejscownik}"
+          ],
+          "co_obserwowac": "Arkusz obserwacji — kolumna: sytuacja potrzeby w grupie. Notujemy rodzaj pomocy i jej trafność.",
+          "ile_sytuacji": "5 sytuacji w tygodniu",
+          "smart": [
+            {
+              "litera": "S",
+              "tresc": "Wybiera i wykonuje jeden z trzech rodzajów pomocy."
+            },
+            {
+              "litera": "M",
+              "tresc": "{proba} sytuacji z pięciu obserwowanych w tygodniu."
+            },
+            {
+              "litera": "A",
+              "tresc": "Karta rodzajów pomocy wisi nisko, przedmioty są w zasięgu."
+            },
+            {
+              "litera": "R",
+              "tresc": "Cała wcześniejsza praca zamienia się tu w czyn wobec kolegi."
+            },
+            {
+              "litera": "T",
+              "tresc": "Weryfikacja po {horyzont_miejscownik}, według wyniku komponentu."
+            }
+          ],
+          "zalecenia": [
+            "karta trzech rodzajów pomocy w sali, na wysokości dzieci",
+            "pytanie sprawdzające „pomogło ci?” po każdej pomocy",
+            "tablica podziękowań z zapisem czynów, nie cech"
+          ],
+          "dostosowania": [
+            "aranżowane sytuacje z widoczną potrzebą na początek",
+            "przedmioty pomocy w zasięgu dziecka",
+            "zawołanie dorosłego traktowane jako pełnoprawna pomoc"
+          ],
+          "uwaga_rozwojowa": "Zachowania prospołeczne pojawiają się wcześnie, ale ich trafność zależy od wcześniejszych wskaźników — zwłaszcza od I.5 i II.4. Dziecko pomagające zawsze tak samo nie jest niewrażliwe, tylko nie rozpoznaje jeszcze rodzaju potrzeby."
+        },
+        {
+          "nr": "V.5",
+          "pozycja": 5,
+          "deficyt": "Uwzględnia, co czuje lub chce drugie dziecko, przy rozwiązaniu sporu.",
+          "krok_mentalizacji": "propozycja rozwiązania mieszcząca obie strony",
+          "cel": "Dziecko zaproponuje albo przyjmie rozwiązanie sporu uwzględniające to, czego chce druga strona, w {proba} sytuacjach, w ciągu {horyzont_dopelniacz}.",
+          "znaczniki": [
+            "{proba}",
+            "{horyzont_dopelniacz}",
+            "{horyzont_miejscownik}"
+          ],
+          "co_obserwowac": "Arkusz obserwacji — kolumna: spór z rówieśnikiem. Notujemy nazwanie cudzej chęci i rozwiązanie.",
+          "ile_sytuacji": "5 sporów w tygodniu",
+          "smart": [
+            {
+              "litera": "S",
+              "tresc": "Nazywa cudzą chęć i proponuje albo przyjmuje rozwiązanie."
+            },
+            {
+              "litera": "M",
+              "tresc": "{proba} sytuacji z pięciu obserwowanych w tygodniu."
+            },
+            {
+              "litera": "A",
+              "tresc": "Karta trzech kroków i klepsydra są w kąciku rozmów."
+            },
+            {
+              "litera": "R",
+              "tresc": "Rozwiązanie uwzględniające obie strony wytrzymuje dłużej niż wyrok dorosłego."
+            },
+            {
+              "litera": "T",
+              "tresc": "Weryfikacja po {horyzont_miejscownik}, według wyniku komponentu."
+            }
+          ],
+          "zalecenia": [
+            "kącik rozmów z kartą trzech kroków, inny niż miejsce sporu",
+            "klepsydra jako stałe narzędzie podziału czasu",
+            "rozwiązania wymyślane przez dzieci i zapisywane na kartce grupy"
+          ],
+          "dostosowania": [
+            "dwa gotowe rozwiązania do wyboru na początku",
+            "czas na ochłonięcie przed każdą rozmową",
+            "wsparcie obrazkowe trzech kroków dla dzieci z ograniczoną mową"
+          ],
+          "uwaga_rozwojowa": "To wskaźnik domykający całą kartę — wymaga wszystkich wcześniejszych komponentów naraz. U dziecka poniżej piątego roku życia oczekujemy udziału w rozwiązaniu, nie samodzielnej mediacji."
+        }
+      ]
+    }
+  ]
+}

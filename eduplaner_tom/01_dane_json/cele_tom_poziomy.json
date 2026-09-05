@@ -1,0 +1,1195 @@
+{
+  "dokument": "EduPlaner 2026 · druk TOM-T · cele SMART wiek × poziom wsparcia",
+  "opis": "Poziom wsparcia zmienia warunki, nie krok mentalizacji. Kryterium na Poziomie I zostaje 4 z 5 — rośnie trudność zachowania, nie liczba prób.",
+  "modul": {
+    "nazwa": "Teoria umysłu (ToM) — bank celów SMART (przedszkole)",
+    "kod": "TOM",
+    "wersja": "2026.1",
+    "autorka": "mgr Mirosława Ewa Jurczyszyn, pedagog specjalny, PCTP Koszalin",
+    "aplikacja": "EduPlaner 2026",
+    "druk_zrodlowy": "Karta obserwacji Teorii umysłu (ToM) — przedszkole · 5 komponentów · 25 pozycji · skala 0–2",
+    "podstawa_merytoryczna": "Narzędzie obserwacyjne oparte na elementach Skali Teorii Umysłu Wellmana i Liu (Wellman & Liu, 2004) — sekwencji rozwojowej: różne pragnienia → różne przekonania → dostęp do wiedzy → fałszywe przekonanie → ukryte emocje — oraz na klasycznych zadaniach fałszywego przekonania: Sally-Anne (Baron-Cohen, Leslie, Frith 1985) i niespodziewanej zawartości (Perner, Leekam, Wimmer 1987). Konstrukt: Premack i Woodruff, 1978. Nie zastępuje diagnozy specjalistycznej.",
+    "podstawa_prawna": [
+      "Rozp. MEN z 14.02.2017 r. w sprawie podstawy programowej wychowania przedszkolnego (Dz.U. 2017 poz. 356, ze zm.) — emocjonalny i społeczny obszar rozwoju.",
+      "Rozp. MEN z 9.08.2017 r. w sprawie pomocy psychologiczno-pedagogicznej (Dz.U. 2017 poz. 1591).",
+      "Rozp. MEN z 9.08.2017 r. w sprawie kształcenia specjalnego (Dz.U. 2017 poz. 1578) — przy autyzmie, w tym zespole Aspergera, zajęcia rozwijające kompetencje społeczne są obowiązkowe."
+    ],
+    "zasada_modulu": "Cel z tego banku opisuje KROK MENTALIZACJI, który widać — co dziecko robi albo mówi, po czym poznajemy, że uwzględniło cudzą perspektywę. „Zrozumie, że inni myślą inaczej” nie jest celem z tego modułu: rozumienia nie da się zaobserwować ani policzyć. „Wskaże koszyk, w którym Ala będzie szukać piłki, choć samo wie, że piłka jest w pudełku” — jest. Poziom wsparcia zmienia warunki, nie krok mentalizacji."
+  },
+  "poziomy_wsparcia": [
+    {
+      "klucz": "p3",
+      "nazwa": "Poziom III",
+      "rzym": "III",
+      "kryterium": "3 z 5",
+      "horyzont": "4 tygodni",
+      "warunki": "dorosły obok, podpowiedź wizualna i modelowanie, zadanie wykonywane razem",
+      "kolor_oceny": "czerwona"
+    },
+    {
+      "klucz": "p2",
+      "nazwa": "Poziom II",
+      "rzym": "II",
+      "kryterium": "4 z 5",
+      "horyzont": "8 tygodni",
+      "warunki": "podpowiedź obrazkowa w zasięgu, dziecko wykonuje zadanie samo po pytaniu dorosłego",
+      "kolor_oceny": "żółta"
+    },
+    {
+      "klucz": "p1",
+      "nazwa": "Poziom I",
+      "rzym": "I",
+      "kryterium": "4 z 5",
+      "horyzont": "12 tygodni",
+      "warunki": "bez podpowiedzi obrazkowej, w naturalnej sytuacji z rówieśnikami",
+      "kolor_oceny": "zielona"
+    }
+  ],
+  "wersje_wiekowe": [
+    {
+      "klucz": "A",
+      "wiek": "3–4 lata",
+      "czas": "10 min",
+      "forma": "para z nauczycielem",
+      "cykl": "4× w tygodniu",
+      "jezyk": "polecenie 2–3 słowa, obrazek zawsze przy słowie, jedna postać w historyjce"
+    },
+    {
+      "klucz": "B",
+      "wiek": "5 lat",
+      "czas": "15 min",
+      "forma": "mała grupa (3–4 dzieci)",
+      "cykl": "3× w tygodniu",
+      "jezyk": "polecenie jednozdaniowe, dziecko odpowiada słowem, dwie postacie w historyjce"
+    },
+    {
+      "klucz": "C",
+      "wiek": "6 lat",
+      "czas": "20 min",
+      "forma": "mała grupa (4–6 dzieci)",
+      "cykl": "3× w tygodniu",
+      "jezyk": "dziecko uzasadnia odpowiedź i pyta o cudzą perspektywę samo"
+    }
+  ],
+  "tory_zajec": [
+    "rewalidacja",
+    "pomoc psychologiczno-pedagogiczna",
+    "kształcenie specjalne (IPET)"
+  ],
+  "rodzaje_zajec": [
+    "zajęcia rozwijające kompetencje emocjonalno-społeczne",
+    "zajęcia rewalidacyjne (Dz.U. 2017 poz. 1578)",
+    "socjoterapia",
+    "zajęcia korekcyjno-kompensacyjne",
+    "wsparcie nauczyciela współorganizującego kształcenie",
+    "porada / konsultacja (psycholog)"
+  ],
+  "liczba_celow": 225,
+  "komponenty": [
+    {
+      "nr": "I",
+      "nazwa": "Rozpoznawanie i nazywanie emocji",
+      "icf": "b152 · b1521",
+      "pp": "PP 1.1·2.1·2.2",
+      "norma_rozwojowa": "podstawowe emocje ok. 2–3 r.ż.; łączenie z sytuacją ok. 3–4 r.ż.",
+      "opis": "Nazywanie emocji własnych i cudzych, czytanie ich z twarzy i wiązanie z sytuacją.",
+      "zasada_tom": "Nazywamy emocję dziecka, zanim poprosimy je o nazwanie cudzej. Dziecko, któremu nikt nie nazwał złości, nie rozpozna jej u kolegi.",
+      "wskazniki": [
+        {
+          "nr": "I.1",
+          "pozycja": 1,
+          "wskaznik": "Nazywa podstawowe emocje: radość, złość, smutek, strach.",
+          "krok_mentalizacji": "nazwanie emocji słowem albo wskazanie jej na karcie",
+          "opis_kroku": "Dziecko nazywa emocję — słowem, gestem albo wskazaniem karty — zamiast tylko ją przeżywać. To pierwszy widoczny krok mentalizacji: emocja dostaje nazwę, więc da się o niej rozmawiać.",
+          "cele": {
+            "A": {
+              "p3": "Wskaże kartę emocji nazwanej przez nauczyciela (radość, złość, smutek, strach)",
+              "p2": "Nazwie emocję z karty pokazanej przez nauczyciela",
+              "p1": "Nazwie emocję bohatera bajki bez pokazywania karty"
+            },
+            "B": {
+              "p3": "Nazwie dwie emocje, wybierając z trzech kart podanych przez nauczyciela",
+              "p2": "Nazwie cztery podstawowe emocje, korzystając z tablicy emocji w sali",
+              "p1": "Nazwie emocję bohatera i poda ją bez tablicy, w rozmowie o książce"
+            },
+            "C": {
+              "p3": "Nazwie emocję i dobierze do niej kartę razem z nauczycielem",
+              "p2": "Nazwie emocję oraz jej odcień (złość — złość i rozczarowanie) z pomocą tablicy",
+              "p1": "Nazwie emocję i jej odcień w rozmowie z rówieśnikiem, bez podpowiedzi wizualnej"
+            }
+          },
+          "zalecenia": [
+            "nazywanie emocji w naturalnych sytuacjach przez cały dzień, nie tylko na zajęciach",
+            "tablica emocji i karty dostępne w sali na stałe",
+            "nazywanie emocji bohaterów podczas codziennego czytania"
+          ],
+          "dostosowania": [
+            "fotografie twarzy zamiast schematycznych buziek",
+            "nazywanie emocji dziecka przez dorosłego, zanim poprosimy o nazwanie cudzej",
+            "brak odpytywania z emocji w chwili silnego napięcia"
+          ],
+          "uwaga_rozwojowa": "Nazywanie czterech podstawowych emocji pojawia się typowo ok. 2–3 r.ż. U dziecka trzyletniego brak tej umiejętności jest sygnałem do pracy, ale nie do rozpoznania deficytu — sprawdź najpierw rozumienie mowy i słownictwo bierne.",
+          "konspekty": {
+            "A": "kon-A-I-1",
+            "B": "kon-B-I-1",
+            "C": "kon-C-I-1"
+          },
+          "pomoc_id": "I.1",
+          "arkusz_id": "I.1"
+        },
+        {
+          "nr": "I.2",
+          "pozycja": 2,
+          "wskaznik": "Rozpoznaje emocje z wyrazu twarzy (obrazek, zdjęcie, druga osoba).",
+          "krok_mentalizacji": "odczytanie emocji z twarzy drugiej osoby",
+          "opis_kroku": "Dziecko patrzy na twarz i mówi albo pokazuje, co ta osoba czuje — zanim ktokolwiek powie mu o tym słowem.",
+          "cele": {
+            "A": {
+              "p3": "Dopasuje kartę emocji do miny pokazanej przez nauczyciela",
+              "p2": "Wskaże, która z dwóch fotografii pokazuje smutek",
+              "p1": "Pokaże, co czuje kolega, patrząc na jego twarz"
+            },
+            "B": {
+              "p3": "Dopasuje trzy fotografie twarzy do trzech kart emocji z pomocą nauczyciela",
+              "p2": "Nazwie emocję z fotografii twarzy, bez podpowiedzi nazwą",
+              "p1": "Nazwie emocję kolegi na podstawie jego twarzy w sytuacji zabawy"
+            },
+            "C": {
+              "p3": "Nazwie emocję z fotografii i wskaże, po czym ją poznał, z pomocą nauczyciela",
+              "p2": "Nazwie emocję z twarzy i powie, po czym ją poznał (oczy, usta, brwi)",
+              "p1": "Rozpozna emocję kolegi w naturalnej sytuacji i sprawdzi ją pytaniem"
+            }
+          },
+          "zalecenia": [
+            "codzienna krótka rozgrzewka: cztery fotografie twarzy przed zajęciami w kręgu",
+            "nazywanie emocji dzieci z grupy na bieżąco („Ola się cieszy, bo…”)",
+            "zdjęcia fragmentów twarzy dla dziecka, które czyta emocje tylko z ust"
+          ],
+          "dostosowania": [
+            "fotografie znajomych twarzy zamiast ilustracji z internetu",
+            "wybór z dwóch przy wysokim napięciu, z czterech w spokojnym dniu",
+            "pytanie sprawdzające zamiast poprawiania odczytu przez dorosłego"
+          ],
+          "uwaga_rozwojowa": "Trudność w czytaniu twarzy przy dobrym nazywaniu emocji z sytuacji wymaga sprawdzenia wzroku i kontaktu wzrokowego — to nie zawsze deficyt mentalizacji.",
+          "konspekty": {
+            "A": "kon-A-I-2",
+            "B": "kon-B-I-2",
+            "C": "kon-C-I-2"
+          },
+          "pomoc_id": "I.2",
+          "arkusz_id": "I.2"
+        },
+        {
+          "nr": "I.3",
+          "pozycja": 3,
+          "wskaznik": "Łączy emocję z prostą sytuacją („płacze, bo się przewrócił”).",
+          "krok_mentalizacji": "podanie przyczyny emocji w zdaniu „czuje…, bo…”",
+          "opis_kroku": "Dziecko wiąże emocję z tym, co się wydarzyło — mówi „bo”. To pierwszy krok od czytania miny do rozumienia, skąd emocja się bierze.",
+          "cele": {
+            "A": {
+              "p3": "Wskaże obrazek sytuacji pasujący do emocji nazwanej przez nauczyciela",
+              "p2": "Dopasuje kartę emocji do obrazka sytuacji",
+              "p1": "Powie, dlaczego bohater płacze, patrząc na obrazek"
+            },
+            "B": {
+              "p3": "Dokończy zdanie „jest smutny, bo…” z dwiema podpowiedziami do wyboru",
+              "p2": "Dokończy zdanie „czuje…, bo…” do obrazka sytuacji",
+              "p1": "Poda przyczynę emocji kolegi w sytuacji z sali"
+            },
+            "C": {
+              "p3": "Poda przyczynę emocji bohatera z pomocą pytań nauczyciela",
+              "p2": "Poda przyczynę emocji i zaproponuje, co mogłoby pomóc",
+              "p1": "Poda przyczynę emocji kolegi i sprawdzi ją, pytając go wprost"
+            }
+          },
+          "zalecenia": [
+            "rama zdania „czuje…, bo…” dostępna w kąciku emocji na stałe",
+            "codzienne przenoszenie ćwiczenia na prawdziwą sytuację z sali",
+            "zdjęcia z życia grupy jako materiał do rozmów o emocjach"
+          ],
+          "dostosowania": [
+            "sytuacje znane dziecku zamiast historyjek abstrakcyjnych",
+            "dwie przyczyny do wyboru przy trudnościach z mową czynną",
+            "brak poprawiania przypuszczenia przed sprawdzeniem go u kolegi"
+          ],
+          "uwaga_rozwojowa": "Łączenie emocji z sytuacją pojawia się typowo ok. 3–4 r.ż. U młodszego dziecka pracujemy nad samym nazywaniem emocji (I.1), nie nad przyczyną.",
+          "konspekty": {
+            "A": "kon-A-I-3",
+            "B": "kon-B-I-3",
+            "C": "kon-C-I-3"
+          },
+          "pomoc_id": "I.3",
+          "arkusz_id": "I.3"
+        },
+        {
+          "nr": "I.4",
+          "pozycja": 4,
+          "wskaznik": "Pokazuje lub mówi, jak sam czuje się w danej chwili.",
+          "krok_mentalizacji": "zgłoszenie własnego stanu słowem albo kartą",
+          "opis_kroku": "Dziecko samo zgłasza, co czuje — zanim emocja zamieni się w krzyk albo wycofanie. Bez tego kroku dorosły zgaduje, a dziecko uczy się, że jego stan jest niewidzialny.",
+          "cele": {
+            "A": {
+              "p3": "Wskaże swoją buźkę na termometrze emocji trzymanym przez nauczyciela",
+              "p2": "Przypnie klamerkę na termometrze emocji przy powitaniu",
+              "p1": "Pokaże kartą, jak się czuje, gdy zmieni mu się nastrój"
+            },
+            "B": {
+              "p3": "Powie, jak się czuje, wybierając z dwóch nazw podanych przez nauczyciela",
+              "p2": "Nazwie swoją emocję przy powitaniu i po odpoczynku",
+              "p1": "Zgłosi zmianę swojego stanu w ciągu dnia, bez pytania dorosłego"
+            },
+            "C": {
+              "p3": "Nazwie swoją emocję i jej natężenie z pomocą termometru",
+              "p2": "Nazwie emocję, jej natężenie i powie, czego potrzebuje",
+              "p1": "Poprosi o to, czego potrzebuje, zanim emocja urośnie do krzyku albo płaczu"
+            }
+          },
+          "zalecenia": [
+            "zgłoszenie stanu dwa razy dziennie: przy powitaniu i po odpoczynku",
+            "karty potrzeb obok termometru — zgłoszenie ma coś zmieniać",
+            "modelowanie: dorosły mówi o swoim stanie na głos, codziennie"
+          ],
+          "dostosowania": [
+            "trzy buźki dla młodszych, skala natężenia 1–5 dla starszych",
+            "brak oceniania i podważania zgłoszonej emocji",
+            "kącik wyciszenia dostępny natychmiast po zgłoszeniu złości"
+          ],
+          "uwaga_rozwojowa": "Mówienie o własnym stanie pojawia się później niż nazywanie emocji na obrazku. U dziecka, które nie mówi, zgłoszenie kartą jest pełnowartościową realizacją tego celu.",
+          "konspekty": {
+            "A": "kon-A-I-4",
+            "B": "kon-B-I-4",
+            "C": "kon-C-I-4"
+          },
+          "pomoc_id": "I.4",
+          "arkusz_id": "I.4"
+        },
+        {
+          "nr": "I.5",
+          "pozycja": 5,
+          "wskaznik": "Zauważa, że inne dziecko jest smutne lub złe, i reaguje.",
+          "krok_mentalizacji": "podejście do kolegi i zaoferowanie konkretnej pomocy",
+          "opis_kroku": "Dziecko zauważa cudzą emocję i coś z nią robi — podchodzi, podaje zabawkę, woła dorosłego. Zauważenie bez reakcji zostaje niewidoczne dla kolegi.",
+          "cele": {
+            "A": {
+              "p3": "Podejdzie do smutnego kolegi razem z nauczycielem i poda mu maskotkę",
+              "p2": "Podejdzie do smutnego kolegi po wskazaniu przez nauczyciela",
+              "p1": "Zauważy smutek kolegi i zawoła dorosłego"
+            },
+            "B": {
+              "p3": "Wybierze jeden ze sposobów pomocy z karty, wskazanej przez nauczyciela",
+              "p2": "Wybierze sposób pomocy z karty i zastosuje go wobec kolegi",
+              "p1": "Zaproponuje koledze pomoc własnymi słowami"
+            },
+            "C": {
+              "p3": "Zaproponuje pomoc z pomocą pytań nauczyciela",
+              "p2": "Zapyta kolegę, czego potrzebuje, i zrobi to, o co poprosił",
+              "p1": "Zauważy smutek kolegi w zabawie grupowej i zareaguje bez udziału dorosłego"
+            }
+          },
+          "zalecenia": [
+            "karta trzech sposobów pomocy w sali, na wysokości oczu dzieci",
+            "odczekanie chwili przed interwencją dorosłego — miejsce na reakcję dziecka",
+            "konkretna pochwała nazywająca czyn, nie cechę"
+          ],
+          "dostosowania": [
+            "maskotka pocieszanka jako gotowy przedmiot do podania",
+            "brak wymuszania przeprosin i przytulania",
+            "nauka przyjmowania odmowy pomocy („chcę być sam”)"
+          ],
+          "uwaga_rozwojowa": "Reagowanie na cudzy smutek pojawia się już u dwulatka, ale w formie zarażania emocją. Właściwa pomoc — dopasowana do kolegi — jest umiejętnością późniejszą i wymaga kroku z pytaniem.",
+          "konspekty": {
+            "A": "kon-A-I-5",
+            "B": "kon-B-I-5",
+            "C": "kon-C-I-5"
+          },
+          "pomoc_id": "I.5",
+          "arkusz_id": "I.5"
+        }
+      ]
+    },
+    {
+      "nr": "II",
+      "nazwa": "Różne pragnienia i upodobania",
+      "icf": "b1560 · d7104",
+      "pp": "PP 2.3·3.5",
+      "norma_rozwojowa": "różne pragnienia i upodobania ok. 3 r.ż.",
+      "opis": "Rozumienie, że inni chcą i lubią co innego, i uwzględnianie tego w zabawie.",
+      "zasada_tom": "Nie żądamy ustępowania. Uwzględnienie cudzego upodobania to krok poznawczy — dopiero po nim ma sens rozmowa o dzieleniu się.",
+      "wskazniki": [
+        {
+          "nr": "II.1",
+          "pozycja": 1,
+          "wskaznik": "Rozumie, że inne dzieci lubią co innego niż on (owoc, zabawka).",
+          "krok_mentalizacji": "wskazanie cudzego wyboru, innego niż własny",
+          "opis_kroku": "Dziecko wskazuje, co wybierze kolega — a nie to, co samo lubi. Pierwsze rozejście się dwóch perspektyw, które da się zobaczyć w prostym zadaniu.",
+          "cele": {
+            "A": {
+              "p3": "Wskaże ulubioną zabawkę kolegi ze zdjęcia, po podpowiedzi nauczyciela",
+              "p2": "Wskaże, co lubi kolega, korzystając z tablicy „co kto lubi”",
+              "p1": "Poda ulubioną zabawkę kolegi z pamięci"
+            },
+            "B": {
+              "p3": "Wskaże wybór kolegi spośród dwóch przedmiotów, z pomocą nauczyciela",
+              "p2": "Powie, co wybierze kolega, choć sam wybrałby co innego",
+              "p1": "Poda ulubione zajęcie dwojga dzieci z grupy"
+            },
+            "C": {
+              "p3": "Poda różnicę między swoim a cudzym upodobaniem z pomocą pytań",
+              "p2": "Nazwie, czym różni się jego upodobanie od upodobania kolegi",
+              "p1": "Uwzględni różnicę upodobań, proponując zabawę konkretnemu dziecku"
+            }
+          },
+          "zalecenia": [
+            "tablica „co kto lubi” w sali, aktualizowana co miesiąc",
+            "głosowania i wybory w grupie jako codzienna praktyka",
+            "pytanie „a co ty lubisz?” jako stały element zapraszania do zabawy"
+          ],
+          "dostosowania": [
+            "wybór z dwóch przedmiotów zamiast czterech na początku",
+            "prawdziwe przedmioty zamiast obrazków dla młodszych dzieci",
+            "sprawdzanie odpowiedzi u kolegi zamiast korygowania przez dorosłego"
+          ],
+          "uwaga_rozwojowa": "Rozumienie różnych pragnień pojawia się typowo ok. 3 r.ż. i poprzedza rozumienie różnych przekonań. Praca nad komponentem IV bez tego kroku jest pracą ponad sekwencją rozwojową.",
+          "konspekty": {
+            "A": "kon-A-II-1",
+            "B": "kon-B-II-1",
+            "C": "kon-C-II-1"
+          },
+          "pomoc_id": "II.1",
+          "arkusz_id": "II.1"
+        },
+        {
+          "nr": "II.2",
+          "pozycja": 2,
+          "wskaznik": "Przewiduje, że ktoś wybierze to, co lubi — choć on woli co innego.",
+          "krok_mentalizacji": "przewidzenie cudzego wyboru wbrew własnemu upodobaniu",
+          "opis_kroku": "Dziecko mówi, po co sięgnie kolega, zanim ten sięgnie — i wskazuje jego rzecz, nie swoją. To pierwsza prognoza cudzego zachowania.",
+          "cele": {
+            "A": {
+              "p3": "Wskaże, po co sięgnie pacynka, po podpowiedzi nauczyciela",
+              "p2": "Wskaże, co weźmie kolega, mając przed sobą dwa przedmioty",
+              "p1": "Wskaże wybór kolegi, choć sam woli drugi przedmiot"
+            },
+            "B": {
+              "p3": "Przewidzi wybór kolegi z pomocą tablicy „co kto lubi”",
+              "p2": "Przewidzi wybór kolegi i sprawdzi go, pytając",
+              "p1": "Przewidzi wybory dwojga dzieci w jednej zabawie"
+            },
+            "C": {
+              "p3": "Uzasadni przewidywany wybór z pomocą pytań nauczyciela",
+              "p2": "Przewidzi wybór kolegi i uzasadni go („bo on lubi…”)",
+              "p1": "Przewidzi wybór kolegi w nowej sytuacji, o której nie było mowy wcześniej"
+            }
+          },
+          "zalecenia": [
+            "codzienne krótkie próby prognozy przy wyborze zabawy albo podwieczorku",
+            "natychmiastowe sprawdzenie prognozy u kolegi",
+            "rama zdania z uzasadnieniem dla dzieci sześcioletnich"
+          ],
+          "dostosowania": [
+            "pacynka o stałym upodobaniu dla dzieci, które nie utrzymują w pamięci upodobań kolegów",
+            "wybór z dwóch przedmiotów zamiast czterech",
+            "prognoza wskazywana kartonikiem, gdy mowa czynna jest ograniczona"
+          ],
+          "uwaga_rozwojowa": "Trafne przewidywanie cudzego wyboru wbrew własnemu pojawia się ok. 3 r.ż. Uparte wskazywanie własnego ulubionego przedmiotu u trzylatka mieści się w normie i nie wymaga korygowania słownego.",
+          "konspekty": {
+            "A": "kon-A-II-2",
+            "B": "kon-B-II-2",
+            "C": "kon-C-II-2"
+          },
+          "pomoc_id": "II.2",
+          "arkusz_id": "II.2"
+        },
+        {
+          "nr": "II.3",
+          "pozycja": 3,
+          "wskaznik": "Rozumie, że spełnione pragnienie cieszy, a niespełnione smuci.",
+          "krok_mentalizacji": "powiązanie cudzego pragnienia z emocją, która po nim nastąpi",
+          "opis_kroku": "Dziecko mówi, jak poczuje się ktoś, kto dostał albo nie dostał tego, czego chciał. Pragnienie i emocja zostają połączone w jednym zdaniu.",
+          "cele": {
+            "A": {
+              "p3": "Wskaże buźkę pasującą do bohatera, który dostał to, co chciał",
+              "p2": "Dopasuje buźkę do dwóch historyjek: spełnione i niespełnione pragnienie",
+              "p1": "Powie, jak czuje się bohater, który nie dostał tego, czego chciał"
+            },
+            "B": {
+              "p3": "Nazwie emocję bohatera z pomocą dwóch podpowiedzi",
+              "p2": "Nazwie emocję bohatera po spełnieniu i niespełnieniu pragnienia",
+              "p1": "Nazwie emocję kolegi, który nie dostał wybranej zabawki"
+            },
+            "C": {
+              "p3": "Powie, co czuje bohater, z pomocą pytań nauczyciela",
+              "p2": "Powie, co czuje bohater, i zaproponuje, co mogłoby pomóc",
+              "p1": "Przewidzi emocję kolegi przy podziale zabawek i uwzględni ją w propozycji"
+            }
+          },
+          "zalecenia": [
+            "obie wersje historyjki odgrywane po kolei, nie osobno",
+            "słowo „rozczarowanie” wprowadzone i używane też przez dorosłego o sobie",
+            "prawdziwy podział zabawek jako próba przeniesienia"
+          ],
+          "dostosowania": [
+            "dwie buźki do wyboru zamiast czterech kart emocji",
+            "historyjki dwuobrazkowe o tej samej postaci",
+            "nazywanie rozczarowania dziecka, zanim poprosimy o nazwanie cudzego"
+          ],
+          "uwaga_rozwojowa": "Powiązanie pragnienia z emocją pojawia się ok. 3 r.ż. i jest wcześniejsze niż rozumienie przekonań — u dziecka, które go nie ma, komponent IV jest jeszcze poza zasięgiem.",
+          "konspekty": {
+            "A": "kon-A-II-3",
+            "B": "kon-B-II-3",
+            "C": "kon-C-II-3"
+          },
+          "pomoc_id": "II.3",
+          "arkusz_id": "II.3"
+        },
+        {
+          "nr": "II.4",
+          "pozycja": 4,
+          "wskaznik": "Uwzględnia upodobania kolegi w zabawie i przy dzieleniu się.",
+          "krok_mentalizacji": "wybór dla kolegi zgodny z jego upodobaniem, nie własnym",
+          "opis_kroku": "Dziecko podaje koledze to, co ten lubi, albo proponuje zabawę pod niego. Wiedza o cudzym upodobaniu zamienia się w czyn.",
+          "cele": {
+            "A": {
+              "p3": "Poda koledze zabawkę wskazaną przez nauczyciela jako ulubioną kolegi",
+              "p2": "Wybierze dla kolegi zabawkę z dwóch, korzystając z tablicy „co kto lubi”",
+              "p1": "Poda koledze jego ulubioną zabawkę z własnej inicjatywy"
+            },
+            "B": {
+              "p3": "Podzieli się z kolegą po podpowiedzi nauczyciela, uwzględniając jego upodobanie",
+              "p2": "Wybierze wspólną zabawę uwzględniającą upodobanie kolegi",
+              "p1": "Zaproponuje podział, w którym każdy dostaje to, co lubi"
+            },
+            "C": {
+              "p3": "Uzgodni wspólną zabawę z pomocą nauczyciela",
+              "p2": "Uzgodni z kolegą wspólną zabawę, pytając go o zdanie",
+              "p1": "Uzgodni zabawę z dwojgiem dzieci o różnych upodobaniach"
+            }
+          },
+          "zalecenia": [
+            "wybór dla kolegi przed wyborem dla siebie — codziennie, przy jednej sytuacji",
+            "klepsydra do dzielenia czasu zamiast rozstrzygania sporu przez dorosłego",
+            "pochwała za uwzględnienie kolegi, nie za rezygnację z siebie"
+          ],
+          "dostosowania": [
+            "wybór z dwóch przedmiotów, oba w zasięgu ręki",
+            "karty zabaw odpowiadające wyposażeniu sali",
+            "wsparcie dziecka, które ustępuje zawsze — nauka mówienia o własnym upodobaniu"
+          ],
+          "uwaga_rozwojowa": "Dzielenie się z uwzględnieniem cudzego upodobania wymaga wcześniejszego kroku II.1 i II.2. Wymuszanie dzielenia się przed nimi uczy posłuszeństwa przy dorosłym, nie mentalizacji.",
+          "konspekty": {
+            "A": "kon-A-II-4",
+            "B": "kon-B-II-4",
+            "C": "kon-C-II-4"
+          },
+          "pomoc_id": "II.4",
+          "arkusz_id": "II.4"
+        },
+        {
+          "nr": "II.5",
+          "pozycja": 5,
+          "wskaznik": "Mówi o własnych upodobaniach i pyta o cudze.",
+          "krok_mentalizacji": "zadanie pytania o cudze upodobanie",
+          "opis_kroku": "Dziecko pyta kolegę, co ten lubi — zamiast zakładać, że lubi to samo. Pytanie jest tu całym krokiem mentalizacji: dziecko przyznaje, że nie wie.",
+          "cele": {
+            "A": {
+              "p3": "Powie, co lubi, wskazując na tablicy „co kto lubi”",
+              "p2": "Powie, co lubi, i pokaże to koledze",
+              "p1": "Zapyta kolegę o jego ulubioną zabawkę, korzystając z karty pytania"
+            },
+            "B": {
+              "p3": "Zada pytanie o upodobanie z pomocą karty i nauczyciela",
+              "p2": "Zapyta kolegę „a co ty lubisz?” i wysłucha odpowiedzi",
+              "p1": "Zapyta i powtórzy to, co usłyszał od kolegi"
+            },
+            "C": {
+              "p3": "Poprowadzi krótką rozmowę o upodobaniach z pomocą pytań nauczyciela",
+              "p2": "Zapyta kolegę o upodobanie i dopyta o powód („a dlaczego?”)",
+              "p1": "Poprowadzi rozmowę o upodobaniach z nowym dzieckiem w grupie"
+            }
+          },
+          "zalecenia": [
+            "runda „co lubię” w kręgu jako stały element tygodnia",
+            "karta pytania w kąciku zabawy, nie przy stoliku",
+            "powtarzanie odpowiedzi kolegi jako dowód słuchania"
+          ],
+          "dostosowania": [
+            "pokazanie przedmiotu zamiast mówienia o nim, gdy mowa czynna jest ograniczona",
+            "przedmiot podawany mówiącemu, żeby kolejność była widoczna",
+            "brak odpowiadania przez dorosłego za milczące dziecko"
+          ],
+          "uwaga_rozwojowa": "Pytanie o cudze upodobanie wymaga sprawnej mowy czynnej. U dziecka z opóźnionym rozwojem mowy realizacją tego celu jest podanie karty pytania — nie należy zaniżać wyniku komponentu z powodu samej mowy.",
+          "konspekty": {
+            "A": "kon-A-II-5",
+            "B": "kon-B-II-5",
+            "C": "kon-C-II-5"
+          },
+          "pomoc_id": "II.5",
+          "arkusz_id": "II.5"
+        }
+      ]
+    },
+    {
+      "nr": "III",
+      "nazwa": "Zabawa „na niby” i udawanie",
+      "icf": "b1640 · d880",
+      "pp": "PP 3.1·4.1",
+      "norma_rozwojowa": "zabawa „na niby” ok. 2–3 r.ż.; rozwinięta zabawa w role 3–4 r.ż.",
+      "opis": "Udawanie, wchodzenie w rolę, wspólny scenariusz i odróżnianie „na niby” od „naprawdę”.",
+      "zasada_tom": "Dorosły wchodzi w rolę pierwszy i zostaje w niej. Zabawa „na niby” komentowana z zewnątrz przestaje być zabawą, a staje się ćwiczeniem.",
+      "wskazniki": [
+        {
+          "nr": "III.1",
+          "pozycja": 1,
+          "wskaznik": "Podejmuje zabawę „na niby” (klocek jako telefon, patyk jako łyżka).",
+          "krok_mentalizacji": "użycie przedmiotu w funkcji innej niż jego własna",
+          "opis_kroku": "Dziecko traktuje klocek jak telefon — nadaje przedmiotowi znaczenie, którego on nie ma. To pierwszy krok oderwania myśli od tego, co widać.",
+          "cele": {
+            "A": {
+              "p3": "Powtórzy za nauczycielem gest udawania (klocek jako telefon)",
+              "p2": "Użyje przedmiotu zastępczego po pokazaniu przez nauczyciela",
+              "p1": "Sam użyje przedmiotu zastępczego w zabawie"
+            },
+            "B": {
+              "p3": "Wykona dwa gesty udawania z podanym rekwizytem",
+              "p2": "Wymyśli, czym może być dany przedmiot, i pokaże to w zabawie",
+              "p1": "Poda dwa różne zastosowania „na niby” tego samego przedmiotu"
+            },
+            "C": {
+              "p3": "Zaproponuje przedmiot zastępczy z pomocą pytań nauczyciela",
+              "p2": "Zaproponuje przedmiot zastępczy w zabawie z kolegą",
+              "p1": "Poprowadzi zabawę „na niby” bez rekwizytów, samym gestem"
+            }
+          },
+          "zalecenia": [
+            "kosz przedmiotów niedookreślonych dostępny w kąciku codziennie",
+            "dorosły wchodzi w zabawę i zostaje w roli przez kilka minut",
+            "rozszerzanie: ten sam przedmiot w dwóch różnych rolach"
+          ],
+          "dostosowania": [
+            "przedmioty niedookreślone zamiast gotowych zabawek tematycznych",
+            "modelowanie gestem przed poleceniem słownym",
+            "krótkie epizody zabawy, powtarzane często, zamiast jednej długiej sesji"
+          ],
+          "uwaga_rozwojowa": "Zabawa „na niby” pojawia się typowo ok. 2–3 r.ż. Jej brak u dziecka trzyletniego jest ważnym sygnałem — warto skonsultować rozwój społeczny, zanim ustawimy cele z komponentu IV.",
+          "konspekty": {
+            "A": "kon-A-III-1",
+            "B": "kon-B-III-1",
+            "C": "kon-C-III-1"
+          },
+          "pomoc_id": "III.1",
+          "arkusz_id": "III.1"
+        },
+        {
+          "nr": "III.2",
+          "pozycja": 2,
+          "wskaznik": "Wchodzi w rolę w zabawie tematycznej (dom, sklep, lekarz).",
+          "krok_mentalizacji": "przyjęcie roli i mówienie z jej perspektywy",
+          "opis_kroku": "Dziecko mówi i działa jak ktoś inny: „jestem lekarzem, pokaż gardło”. Wchodzi w cudzą perspektywę na czas zabawy.",
+          "cele": {
+            "A": {
+              "p3": "Wykona czynność z roli pokazaną przez nauczyciela (opatruje misia)",
+              "p2": "Weźmie rekwizyt roli i wykona dwie czynności z nią związane",
+              "p1": "Wejdzie w rolę i utrzyma ją przez czas krótkiej zabawy"
+            },
+            "B": {
+              "p3": "Odegra rolę razem z nauczycielem, powtarzając jego zdania",
+              "p2": "Wejdzie w rolę w zabawie z kolegą i wypowie zdanie z tej roli",
+              "p1": "Utrzyma rolę przez całą zabawę, nie wychodząc z niej"
+            },
+            "C": {
+              "p3": "Wybierze rolę i odegra ją z pomocą pytań nauczyciela",
+              "p2": "Wejdzie w rolę i dostosuje wypowiedzi do tego, kim jest w zabawie",
+              "p1": "Zamieni się rolą z kolegą w trakcie zabawy i utrzyma nową rolę"
+            }
+          },
+          "zalecenia": [
+            "codzienne krótkie zabawy tematyczne z modelowaniem roli przez dorosłego",
+            "rytuał wejścia i wyjścia z roli: rekwizyt zakładany i zdejmowany",
+            "stopniowe włączanie drugiego dziecka do zabawy"
+          ],
+          "dostosowania": [
+            "jeden wyraźny rekwizyt zamiast kompletu przebrania",
+            "obrazkowe wzory zdań z roli w kąciku",
+            "klepsydra domykająca zabawę, zanim się rozsypie"
+          ],
+          "uwaga_rozwojowa": "Rozwinięta zabawa w role kształtuje się ok. 3–4 r.ż. U młodszego dziecka pracujemy nad III.1 (pojedyncze gesty udawania), nie nad utrzymaniem roli.",
+          "konspekty": {
+            "A": "kon-A-III-2",
+            "B": "kon-B-III-2",
+            "C": "kon-C-III-2"
+          },
+          "pomoc_id": "III.2",
+          "arkusz_id": "III.2"
+        },
+        {
+          "nr": "III.3",
+          "pozycja": 3,
+          "wskaznik": "Rozumie udawanie innych i włącza się w ich zabawę.",
+          "krok_mentalizacji": "odczytanie cudzej zabawy „na niby” i dołączenie do niej",
+          "opis_kroku": "Dziecko rozpoznaje, w co bawią się inni, i wchodzi w tę samą konwencję — zamiast rozbić zabawę własnym pomysłem.",
+          "cele": {
+            "A": {
+              "p3": "Dołączy do zabawy kolegów, prowadzony przez nauczyciela",
+              "p2": "Powtórzy czynność, którą wykonują bawiące się dzieci",
+              "p1": "Dołączy do zabawy dwojga dzieci, wykonując tę samą czynność"
+            },
+            "B": {
+              "p3": "Nazwie, w co bawią się koledzy, z pomocą pytań nauczyciela",
+              "p2": "Nazwie, w co bawią się koledzy, i poprosi o przyjęcie do zabawy",
+              "p1": "Dołączy do zabawy, przyjmując rolę, która jest jeszcze wolna"
+            },
+            "C": {
+              "p3": "Zaproponuje swój udział z pomocą nauczyciela",
+              "p2": "Dołączy do zabawy i rozwinie jej wątek, nie zmieniając tematu",
+              "p1": "Wprowadzi do zabawy nowy wątek, uzgadniając go z bawiącymi się"
+            }
+          },
+          "zalecenia": [
+            "karty trzech kroków dołączania w kąciku zabawy",
+            "zapasowe rekwizyty, żeby dołączenie było fizycznie możliwe",
+            "ćwiczenie drugiej próby po odmowie, zamiast interwencji dorosłego"
+          ],
+          "dostosowania": [
+            "zabawy o prostym, powtarzalnym schemacie na początek",
+            "dołączanie do dwojga dzieci, nie do większej grupy",
+            "brak wprowadzania dziecka do zabawy autorytetem dorosłego"
+          ],
+          "uwaga_rozwojowa": "Dołączanie do cudzej zabawy „na niby” wymaga wcześniejszego opanowania własnego udawania (III.1 i III.2). Dziecko, które nie udaje samo, nie odczyta konwencji grupy.",
+          "konspekty": {
+            "A": "kon-A-III-3",
+            "B": "kon-B-III-3",
+            "C": "kon-C-III-3"
+          },
+          "pomoc_id": "III.3",
+          "arkusz_id": "III.3"
+        },
+        {
+          "nr": "III.4",
+          "pozycja": 4,
+          "wskaznik": "Odróżnia „na niby” od „naprawdę”.",
+          "krok_mentalizacji": "nazwanie, co jest udawane, a co prawdziwe",
+          "opis_kroku": "Dziecko mówi, że coś było „na niby” — pokazuje, że trzyma dwie ramy naraz: zabawę i rzeczywistość.",
+          "cele": {
+            "A": {
+              "p3": "Wskaże prawdziwe jedzenie spośród prawdziwego i zabawkowego",
+              "p2": "Powie „na niby” o czynności odegranej przez nauczyciela",
+              "p1": "Wskaże, co w zabawie było „na niby”, a co naprawdę"
+            },
+            "B": {
+              "p3": "Rozróżni „na niby” i „naprawdę” z pomocą dwóch kart",
+              "p2": "Powie, że kolega udaje, gdy ten bawi się w rolę",
+              "p1": "Uspokoi kolegę wystraszonego zabawą, mówiąc, że to „na niby”"
+            },
+            "C": {
+              "p3": "Wyjaśni różnicę z pomocą pytań nauczyciela",
+              "p2": "Wyjaśni młodszemu dziecku, że straszna scena w zabawie jest „na niby”",
+              "p1": "Rozpozna żart i odróżni go od informacji prawdziwej"
+            }
+          },
+          "zalecenia": [
+            "wyraźne otwieranie i zamykanie ramy zabawy przez dorosłego",
+            "pary przedmiotów prawdziwych i zabawkowych dostępne w kąciku",
+            "uspokajanie młodszych kolegów jako codzienne zadanie dla starszych dzieci"
+          ],
+          "dostosowania": [
+            "pary przedmiotów zamiast obrazków dla młodszych dzieci",
+            "łagodne wersje strasznych postaci",
+            "rekwizyt zdejmowany na zakończenie zamiast tłumaczenia słownego"
+          ],
+          "uwaga_rozwojowa": "Odróżnianie „na niby” od „naprawdę” bywa chwiejne jeszcze u czterolatka, zwłaszcza przy silnych emocjach. Chwilowe pomylenie ram w strasznej zabawie nie jest wskaźnikiem deficytu.",
+          "konspekty": {
+            "A": "kon-A-III-4",
+            "B": "kon-B-III-4",
+            "C": "kon-C-III-4"
+          },
+          "pomoc_id": "III.4",
+          "arkusz_id": "III.4"
+        },
+        {
+          "nr": "III.5",
+          "pozycja": 5,
+          "wskaznik": "Tworzy prostą historyjkę lub scenariusz w zabawie z rówieśnikami.",
+          "krok_mentalizacji": "uzgodnienie z kolegą, co dzieje się dalej",
+          "opis_kroku": "Dziecko proponuje ciąg dalszy zabawy i dogaduje go z kolegą. Dwie wyobraźnie muszą się spotkać w jednej opowieści.",
+          "cele": {
+            "A": {
+              "p3": "Doda jedną czynność do scenariusza zaproponowanego przez nauczyciela",
+              "p2": "Ułoży dwuelementowy scenariusz zabawy z obrazków",
+              "p1": "Zaproponuje, co dzieje się dalej w zabawie z kolegą"
+            },
+            "B": {
+              "p3": "Ułoży trzyelementowy scenariusz z pomocą obrazków",
+              "p2": "Opowie scenariusz zabawy przed jej rozpoczęciem",
+              "p1": "Uzgodni z kolegą ciąg dalszy zabawy i zrealizuje go"
+            },
+            "C": {
+              "p3": "Rozwinie scenariusz z pomocą pytań nauczyciela",
+              "p2": "Rozwinie scenariusz zabawy o nowy wątek, uzgadniając go z grupą",
+              "p1": "Poprowadzi zabawę z kilkoma zwrotami akcji, godząc pomysły dwojga dzieci"
+            }
+          },
+          "zalecenia": [
+            "układanie scenariusza przed zabawą, nie w jej trakcie",
+            "opowiadanie planu koledze jako stały element rozpoczęcia zabawy",
+            "powrót do uzgodnionego scenariusza przy sporze zamiast rozstrzygania przez dorosłego"
+          ],
+          "dostosowania": [
+            "dwa elementy scenariusza dla młodszych, trzy dla starszych",
+            "obrazki odpowiadające wyposażeniu kącików",
+            "klepsydra domykająca zabawę przed zmęczeniem"
+          ],
+          "uwaga_rozwojowa": "Wspólny scenariusz z rówieśnikami to szczyt komponentu III i pojawia się ok. 4–5 r.ż. U młodszych dzieci wystarcza równoległa zabawa w tej samej konwencji.",
+          "konspekty": {
+            "A": "kon-A-III-5",
+            "B": "kon-B-III-5",
+            "C": "kon-C-III-5"
+          },
+          "pomoc_id": "III.5",
+          "arkusz_id": "III.5"
+        }
+      ]
+    },
+    {
+      "nr": "IV",
+      "nazwa": "Różne przekonania i fałszywe przekonanie",
+      "icf": "b1641 · d710",
+      "pp": "PP 2.3·3.5",
+      "norma_rozwojowa": "różne przekonania i dostęp do wiedzy ok. 3–4 r.ż.; fałszywe przekonanie ok. 4–5 r.ż.",
+      "opis": "Rozumienie, że ktoś może myśleć inaczej i wiedzieć mniej — aż po fałszywe przekonanie.",
+      "zasada_tom": "Kolejność jest rozwojowa i nie da się jej przeskoczyć: najpierw „kto nie widział, ten nie wie”, dopiero potem Sally-Anne. Cel ustawiony ponad sekwencją uczy dziecko odpowiadania na chybił trafił.",
+      "wskazniki": [
+        {
+          "nr": "IV.1",
+          "pozycja": 1,
+          "wskaznik": "Rozumie, że ktoś może myśleć inaczej o tej samej rzeczy.",
+          "krok_mentalizacji": "wskazanie cudzego zdania, różnego od własnego",
+          "opis_kroku": "Dziecko mówi, co myśli kolega — i to coś innego niż to, co myśli samo. Dwa zdania o jednej rzeczy istnieją naraz.",
+          "cele": {
+            "A": {
+              "p3": "Wskaże, co myśli pacynka, po podpowiedzi nauczyciela",
+              "p2": "Wskaże na obrazku, co myśli bohater, gdy myśli inaczej niż dziecko",
+              "p1": "Powie, że kolega myśli inaczej o tej samej zabawce"
+            },
+            "B": {
+              "p3": "Poda zdanie bohatera z dwóch podanych możliwości",
+              "p2": "Poda, co myśli bohater, choć samo myśli inaczej",
+              "p1": "Poda zdania dwojga dzieci o tej samej rzeczy"
+            },
+            "C": {
+              "p3": "Uzasadni cudze zdanie z pomocą pytań nauczyciela",
+              "p2": "Poda cudze zdanie i uzasadni je („bo on…”)",
+              "p1": "Wyjaśni, dlaczego dwoje dzieci może inaczej myśleć o tym samym"
+            }
+          },
+          "zalecenia": [
+            "chmurki myśli dostępne w kąciku i używane przy sporach",
+            "codzienne pytanie o zdanie kolegi, oddzielone od zdania dziecka",
+            "sprawdzanie cudzego zdania u tej osoby, nie u dorosłego"
+          ],
+          "dostosowania": [
+            "zdania o gustach zamiast zdań o faktach na początek",
+            "obrazki wkładane w chmurki zamiast wypowiedzi słownej",
+            "dwie możliwości do wyboru przy ograniczonej mowie czynnej"
+          ],
+          "uwaga_rozwojowa": "Rozumienie różnych przekonań pojawia się ok. 3–4 r.ż. i poprzedza fałszywe przekonanie. To wskaźnik graniczny: bez niego cele IV.3 i IV.4 są ustawione ponad sekwencją rozwojową.",
+          "konspekty": {
+            "A": "kon-A-IV-1",
+            "B": "kon-B-IV-1",
+            "C": "kon-C-IV-1"
+          },
+          "pomoc_id": "IV.1",
+          "arkusz_id": "IV.1"
+        },
+        {
+          "nr": "IV.2",
+          "pozycja": 2,
+          "wskaznik": "Rozumie, że „kto nie widział — ten nie wie” (dostęp do wiedzy).",
+          "krok_mentalizacji": "wskazanie, kto wie, a kto nie wie, na podstawie tego, kto widział",
+          "opis_kroku": "Dziecko rozdziela wiedzę: kto był przy chowaniu, ten wie; kto wyszedł, nie wie. Własna wiedza przestaje być wiedzą wszystkich.",
+          "cele": {
+            "A": {
+              "p3": "Wskaże, kto widział chowanie przedmiotu, po pytaniu nauczyciela",
+              "p2": "Wskaże osobę, która wie, gdzie jest przedmiot",
+              "p1": "Powie, że kolega, który wyszedł, nie wie, gdzie schowaliśmy zabawkę"
+            },
+            "B": {
+              "p3": "Odpowie, kto wie, z dwiema podpowiedziami nauczyciela",
+              "p2": "Odpowie, kto wie, a kto nie wie, po scence z wyjściem z sali",
+              "p1": "Powie, co trzeba zrobić, żeby kolega się dowiedział"
+            },
+            "C": {
+              "p3": "Rozdzieli wiedzę z pomocą pytań nauczyciela",
+              "p2": "Rozdzieli wiedzę dwóch osób i uzasadni to („bo jej tu nie było”)",
+              "p1": "Uwzględni brak wiedzy kolegi, opowiadając mu o czymś, czego nie widział"
+            }
+          },
+          "zalecenia": [
+            "codzienne krótkie próby z chowaniem przedmiotu przy jednej osobie",
+            "pytanie „kto wie?” przed pytaniem „gdzie jest?”",
+            "opowiadanie nieobecnym o tym, co się wydarzyło w grupie"
+          ],
+          "dostosowania": [
+            "pacynka z opaską jako fizyczny znak braku dostępu",
+            "wyjście kolegi z sali zamiast opowiadania o wyjściu",
+            "sprawdzanie odpowiedzi u kolegi zamiast korygowania przez dorosłego"
+          ],
+          "uwaga_rozwojowa": "Dostęp do wiedzy rozumiany jest ok. 3–4 r.ż. i jest bezpośrednim poprzednikiem fałszywego przekonania. Praca nad IV.4 przed tym krokiem daje odpowiedzi zgadywane, nie rozumiane.",
+          "konspekty": {
+            "A": "kon-A-IV-2",
+            "B": "kon-B-IV-2",
+            "C": "kon-C-IV-2"
+          },
+          "pomoc_id": "IV.2",
+          "arkusz_id": "IV.2"
+        },
+        {
+          "nr": "IV.3",
+          "pozycja": 3,
+          "wskaznik": "Rozwiązuje zadanie niespodziewanej zawartości (typu Smarties).",
+          "krok_mentalizacji": "podanie, co pomyśli ktoś, kto zna tylko opakowanie",
+          "opis_kroku": "Dziecko mówi, że kolega pomyśli „cukierki”, choć samo wie, że w pudełku są kredki. Pierwsze fałszywe przekonanie u innej osoby.",
+          "cele": {
+            "A": {
+              "p3": "Nazwie, co widać na pudełku, i co jest w środku, po otwarciu",
+              "p2": "Powie, co myślało samo, zanim pudełko zostało otwarte",
+              "p1": "Powie, co pomyśli kolega, który nie widział środka"
+            },
+            "B": {
+              "p3": "Odpowie o przekonaniu kolegi z dwiema podpowiedziami",
+              "p2": "Powie, co pomyśli kolega, patrząc na zamknięte pudełko",
+              "p1": "Powie, co pomyśli kolega, i co powie, gdy zobaczy zawartość"
+            },
+            "C": {
+              "p3": "Uzasadni odpowiedź z pomocą pytań nauczyciela",
+              "p2": "Powie, co pomyśli kolega, i uzasadni to („bo widzi tylko pudełko”)",
+              "p1": "Przygotuje własne pudełko-niespodziankę i sprawdzi reakcję kolegi"
+            }
+          },
+          "zalecenia": [
+            "próby z pudełkami dwa razy w tygodniu, zawsze z inną zawartością",
+            "pytanie o własne wcześniejsze przekonanie przed pytaniem o cudze",
+            "sprawdzanie przewidywania na prawdziwym koledze"
+          ],
+          "dostosowania": [
+            "pudełka po produktach znanych dziecku z domu",
+            "karty „myślałem” i „jest” jako wsparcie pamięci",
+            "wybór z dwóch odpowiedzi przy ograniczonej mowie czynnej"
+          ],
+          "uwaga_rozwojowa": "Zadanie niespodziewanej zawartości rozwiązywane jest typowo ok. 4–5 r.ż. Błędna odpowiedź czterolatka mieści się w normie rozwojowej i nie wymaga interwencji — wymaga powtarzania zadań IV.1 i IV.2.",
+          "konspekty": {
+            "A": "kon-A-IV-3",
+            "B": "kon-B-IV-3",
+            "C": "kon-C-IV-3"
+          },
+          "pomoc_id": "IV.3",
+          "arkusz_id": "IV.3"
+        },
+        {
+          "nr": "IV.4",
+          "pozycja": 4,
+          "wskaznik": "Rozwiązuje proste zadanie fałszywego przekonania (typu Sally-Anne).",
+          "krok_mentalizacji": "wskazanie, gdzie bohater będzie szukał, a nie gdzie przedmiot jest",
+          "opis_kroku": "Dziecko wskazuje koszyk, choć wie, że piłka leży w pudełku. Cudze przekonanie wygrywa z własną wiedzą — to najtrudniejszy krok w tym banku.",
+          "cele": {
+            "A": {
+              "p3": "Odegra historyjkę z przekładaniem przedmiotu razem z nauczycielem",
+              "p2": "Pokaże, gdzie bohater schował przedmiot na początku",
+              "p1": "Pokaże, gdzie bohater będzie szukał, z pomocą wsparcia wizualnego"
+            },
+            "B": {
+              "p3": "Wskaże miejsce szukania z dwiema podpowiedziami nauczyciela",
+              "p2": "Wskaże, gdzie bohater będzie szukał przedmiotu, korzystając z historyjki obrazkowej",
+              "p1": "Wskaże miejsce szukania i powie, gdzie przedmiot jest naprawdę"
+            },
+            "C": {
+              "p3": "Uzasadni odpowiedź z pomocą pytań nauczyciela",
+              "p2": "Wskaże miejsce szukania i uzasadni je („bo nie widziała, jak przełożono”)",
+              "p1": "Rozwiąże zadanie z dwiema zmianami miejsca i uzasadni odpowiedź"
+            }
+          },
+          "zalecenia": [
+            "historyjka odgrywana pacynkami, dwa razy w tygodniu, z różnymi przedmiotami",
+            "pytanie kontrolne o faktyczne miejsce przed pytaniem o szukanie",
+            "powrót do wskaźnika IV.2 przy serii błędnych odpowiedzi"
+          ],
+          "dostosowania": [
+            "prawdziwe pojemniki na stole obok historyjki obrazkowej",
+            "jedna zmiana miejsca zamiast dwóch",
+            "wskazanie ręką zamiast odpowiedzi słownej"
+          ],
+          "uwaga_rozwojowa": "Fałszywe przekonanie rozwiązywane jest typowo ok. 4–5 r.ż. Błędna odpowiedź trzy- i czterolatka jest normą rozwojową. Cel z tego wskaźnika ustawiamy dopiero po opanowaniu IV.1 i IV.2 — inaczej uczymy zgadywania.",
+          "konspekty": {
+            "A": "kon-A-IV-4",
+            "B": "kon-B-IV-4",
+            "C": "kon-C-IV-4"
+          },
+          "pomoc_id": "IV.4",
+          "arkusz_id": "IV.4"
+        },
+        {
+          "nr": "IV.5",
+          "pozycja": 5,
+          "wskaznik": "Przewiduje zachowanie kogoś na podstawie tego, co ten ktoś wie.",
+          "krok_mentalizacji": "prognoza cudzego działania wynikająca z jego wiedzy",
+          "opis_kroku": "Dziecko mówi, co zrobi kolega — na podstawie tego, co ten wie, a nie tego, co wie ono samo. Wiedza zamienia się w przewidywanie działania.",
+          "cele": {
+            "A": {
+              "p3": "Pokaże, dokąd pójdzie bohater, po podpowiedzi nauczyciela",
+              "p2": "Pokaże, dokąd pójdzie bohater, który nie widział zmiany",
+              "p1": "Powie, co zrobi kolega, który nie wie o zmianie w sali"
+            },
+            "B": {
+              "p3": "Poda przewidywanie z dwiema podpowiedziami",
+              "p2": "Poda, co zrobi osoba, która czegoś nie widziała",
+              "p1": "Poda przewidywanie i uprzedzi kolegę o zmianie"
+            },
+            "C": {
+              "p3": "Uzasadni przewidywanie z pomocą pytań nauczyciela",
+              "p2": "Przewidzi zachowanie kolegi i uzasadni je jego wiedzą",
+              "p1": "Uprzedzi kolegę o zmianie, zanim ten popełni błąd"
+            }
+          },
+          "zalecenia": [
+            "wykorzystywanie prawdziwych zmian w sali jako materiału ćwiczeniowego",
+            "prognoza formułowana przed powrotem nieobecnego",
+            "pochwała za uprzedzenie kolegi, nie za samą trafność prognozy"
+          ],
+          "dostosowania": [
+            "dwa miejsca zamiast trzech przy przewidywaniu",
+            "wskazanie ręką zamiast wypowiedzi",
+            "karta „uprzedzam” przy drzwiach, gdzie wracają nieobecni"
+          ],
+          "uwaga_rozwojowa": "Przewidywanie działania na podstawie cudzej wiedzy pojawia się razem z fałszywym przekonaniem, ok. 4–5 r.ż. To wskaźnik domykający komponent IV i najlepiej widoczny w codziennych sytuacjach.",
+          "konspekty": {
+            "A": "kon-A-IV-5",
+            "B": "kon-B-IV-5",
+            "C": "kon-C-IV-5"
+          },
+          "pomoc_id": "IV.5",
+          "arkusz_id": "IV.5"
+        }
+      ]
+    },
+    {
+      "nr": "V",
+      "nazwa": "Ukryte emocje i intencje w kontaktach",
+      "icf": "b1641 · d740",
+      "pp": "PP 2.4·3.4",
+      "norma_rozwojowa": "intencje ok. 3 r.ż.; ukryte emocje ok. 5–6 r.ż.",
+      "opis": "Intencja („specjalnie” czy „niechcący”), pomoc kontra przeszkadzanie, ukryta emocja.",
+      "zasada_tom": "Pytanie „chciał czy niechcący?” zadajemy po ochłonięciu, nie w środku sporu. W afekcie dziecko nie ma dostępu do cudzej intencji.",
+      "wskazniki": [
+        {
+          "nr": "V.1",
+          "pozycja": 1,
+          "wskaznik": "Rozumie, że można czuć co innego, niż się pokazuje (ukryta emocja).",
+          "krok_mentalizacji": "nazwanie dwóch stanów naraz: pokazywanego i przeżywanego",
+          "opis_kroku": "Dziecko mówi, że bohater uśmiecha się, ale jest mu smutno. Twarz i wnętrze przestają być tym samym.",
+          "cele": {
+            "A": {
+              "p3": "Wskaże, jaką minę ma bohater, i jaką ma buźkę w środku, po podpowiedzi",
+              "p2": "Dopasuje dwie karty: mina na zewnątrz i uczucie w środku",
+              "p1": "Powie, że bohater udaje wesołego"
+            },
+            "B": {
+              "p3": "Nazwie obie emocje z dwiema podpowiedziami nauczyciela",
+              "p2": "Nazwie minę bohatera i to, co bohater czuje naprawdę",
+              "p1": "Rozpozna, że kolega mówi „nic mi nie jest”, choć jest smutny"
+            },
+            "C": {
+              "p3": "Wyjaśni różnicę z pomocą pytań nauczyciela",
+              "p2": "Wyjaśni, dlaczego ktoś ukrywa emocję, i poda przykład ze swojego życia",
+              "p1": "Zareaguje na ukrytą emocję kolegi, nie zawstydzając go przy grupie"
+            }
+          },
+          "zalecenia": [
+            "sylwetka z dwoma polami dostępna w kąciku emocji",
+            "reagowanie na ukrytą emocję na osobności, nie przy grupie",
+            "nazywanie powodów ukrywania: wstyd, chęć bycia dzielnym"
+          ],
+          "dostosowania": [
+            "dwie karty naraz zamiast pytania otwartego",
+            "historyjki o ukrywaniu emocji przed rozmową o sytuacjach z sali",
+            "brak demaskowania dziecka, które mówi „nic mi nie jest”"
+          ],
+          "uwaga_rozwojowa": "Ukryte emocje rozumiane są typowo ok. 5–6 r.ż. — najpóźniej z całej sekwencji. Brak tej umiejętności u czterolatka jest normą rozwojową i nie wymaga celu z tego wskaźnika.",
+          "konspekty": {
+            "A": "kon-A-V-1",
+            "B": "kon-B-V-1",
+            "C": "kon-C-V-1"
+          },
+          "pomoc_id": "V.1",
+          "arkusz_id": "V.1"
+        },
+        {
+          "nr": "V.2",
+          "pozycja": 2,
+          "wskaznik": "Odróżnia zrobione „specjalnie” od „przez przypadek” (intencja).",
+          "krok_mentalizacji": "nazwanie intencji sprawcy, oddzielone od skutku",
+          "opis_kroku": "Dziecko mówi, czy kolega chciał, czy niechcący — i reaguje inaczej w każdym z tych przypadków. Skutek przestaje decydować o ocenie.",
+          "cele": {
+            "A": {
+              "p3": "Wskaże kartę „chciał” albo „niechcący” po odegraniu scenki przez nauczyciela",
+              "p2": "Wskaże właściwą kartę po obejrzeniu dwóch scenek",
+              "p1": "Powie, że kolega przewrócił wieżę niechcący"
+            },
+            "B": {
+              "p3": "Rozróżni intencję z dwiema podpowiedziami nauczyciela",
+              "p2": "Rozróżni „specjalnie” od „przez przypadek” w scence i w sytuacji z sali",
+              "p1": "Zareaguje inaczej na czyn celowy i przypadkowy"
+            },
+            "C": {
+              "p3": "Uzasadni ocenę intencji z pomocą pytań nauczyciela",
+              "p2": "Uzasadni, po czym poznał intencję kolegi",
+              "p1": "Przyjmie przeprosiny za czyn przypadkowy i wróci do zabawy"
+            }
+          },
+          "zalecenia": [
+            "dwie scenki o identycznym skutku i różnej intencji jako stałe ćwiczenie",
+            "rozmowa o intencji po ochłonięciu, w wyznaczonym kąciku",
+            "brak wymuszania natychmiastowych przeprosin"
+          ],
+          "dostosowania": [
+            "karty intencji zamiast pytania otwartego",
+            "scenki z pacynkami przed rozmową o prawdziwym sporze",
+            "czas na ochłonięcie przed każdą rozmową o intencji"
+          ],
+          "uwaga_rozwojowa": "Rozróżnianie intencji pojawia się ok. 3 r.ż., ale w silnej emocji zawodzi jeszcze u sześciolatka. Ocena po skutku w chwili złości nie jest wskaźnikiem deficytu.",
+          "konspekty": {
+            "A": "kon-A-V-2",
+            "B": "kon-B-V-2",
+            "C": "kon-C-V-2"
+          },
+          "pomoc_id": "V.2",
+          "arkusz_id": "V.2"
+        },
+        {
+          "nr": "V.3",
+          "pozycja": 3,
+          "wskaznik": "Rozpoznaje, że ktoś chce pomóc, a ktoś inny przeszkodzić.",
+          "krok_mentalizacji": "odczytanie cudzego zamiaru wobec siebie",
+          "opis_kroku": "Dziecko rozpoznaje, czy zbliżający się kolega chce pomóc, czy popsuć — i odpowiada na zamiar, nie na sam ruch.",
+          "cele": {
+            "A": {
+              "p3": "Wskaże, która pacynka pomaga, po podpowiedzi nauczyciela",
+              "p2": "Wskaże pomagającą pacynkę spośród dwóch",
+              "p1": "Powie, że kolega chce pomóc, gdy podaje mu klocek"
+            },
+            "B": {
+              "p3": "Rozpozna zamiar z dwiema podpowiedziami",
+              "p2": "Rozpozna, kto chce pomóc, a kto przeszkodzić, w scence z rówieśnikami",
+              "p1": "Przyjmie pomoc kolegi albo odmówi jej spokojnie"
+            },
+            "C": {
+              "p3": "Uzasadni odczyt zamiaru z pomocą pytań nauczyciela",
+              "p2": "Uzasadni, po czym poznał zamiar kolegi",
+              "p1": "Zaproponuje pomoc w sposób, który kolega przyjmie"
+            }
+          },
+          "zalecenia": [
+            "pary scenek: pomoc i przeszkadzanie w tej samej sytuacji",
+            "ćwiczenie obu odpowiedzi: przyjęcia pomocy i spokojnej odmowy",
+            "proponowanie pomocy pytaniem zamiast działania bez uprzedzenia"
+          ],
+          "dostosowania": [
+            "karty zamiarów zamiast pytania otwartego",
+            "scenki z pacynkami przed sytuacjami z rówieśnikami",
+            "prawo do odmowy pomocy respektowane przez dorosłych"
+          ],
+          "uwaga_rozwojowa": "Odczytywanie zamiarów rozwija się razem z rozumieniem intencji, ok. 3–4 r.ż. Dziecko, które odpycha każdą zbliżającą się rękę, częściej ma trudność w tym wskaźniku niż w regulacji złości.",
+          "konspekty": {
+            "A": "kon-A-V-3",
+            "B": "kon-B-V-3",
+            "C": "kon-C-V-3"
+          },
+          "pomoc_id": "V.3",
+          "arkusz_id": "V.3"
+        },
+        {
+          "nr": "V.4",
+          "pozycja": 4,
+          "wskaznik": "Reaguje na potrzeby innych — pociesza, dzieli się, pomaga.",
+          "krok_mentalizacji": "działanie odpowiadające na rozpoznaną cudzą potrzebę",
+          "opis_kroku": "Dziecko robi coś, co odpowiada na potrzebę kolegi — nie na własną. Cała wcześniejsza praca zamienia się tu w czyn.",
+          "cele": {
+            "A": {
+              "p3": "Wykona gest pomocy pokazany przez nauczyciela",
+              "p2": "Poda koledze przedmiot, którego ten potrzebuje",
+              "p1": "Pomoże koledze w codziennej czynności bez proszenia"
+            },
+            "B": {
+              "p3": "Wybierze sposób pomocy z karty, wskazanej przez nauczyciela",
+              "p2": "Rozpozna potrzebę kolegi i zareaguje jednym z ustalonych sposobów",
+              "p1": "Pomoże koledze i sprawdzi, czy pomoc była trafna"
+            },
+            "C": {
+              "p3": "Zaproponuje pomoc z pomocą pytań nauczyciela",
+              "p2": "Dostosuje rodzaj pomocy do tego, czego kolega naprawdę potrzebuje",
+              "p1": "Zorganizuje pomoc dla kolegi, angażując inne dziecko"
+            }
+          },
+          "zalecenia": [
+            "karta trzech rodzajów pomocy w sali, na wysokości dzieci",
+            "pytanie sprawdzające „pomogło ci?” po każdej pomocy",
+            "tablica podziękowań z zapisem czynów, nie cech"
+          ],
+          "dostosowania": [
+            "aranżowane sytuacje z widoczną potrzebą na początek",
+            "przedmioty pomocy w zasięgu dziecka",
+            "zawołanie dorosłego traktowane jako pełnoprawna pomoc"
+          ],
+          "uwaga_rozwojowa": "Zachowania prospołeczne pojawiają się wcześnie, ale ich trafność zależy od wcześniejszych wskaźników — zwłaszcza od I.5 i II.4. Dziecko pomagające zawsze tak samo nie jest niewrażliwe, tylko nie rozpoznaje jeszcze rodzaju potrzeby.",
+          "konspekty": {
+            "A": "kon-A-V-4",
+            "B": "kon-B-V-4",
+            "C": "kon-C-V-4"
+          },
+          "pomoc_id": "V.4",
+          "arkusz_id": "V.4"
+        },
+        {
+          "nr": "V.5",
+          "pozycja": 5,
+          "wskaznik": "Uwzględnia, co czuje lub chce drugie dziecko, przy rozwiązaniu sporu.",
+          "krok_mentalizacji": "propozycja rozwiązania mieszcząca obie strony",
+          "opis_kroku": "Dziecko proponuje wyjście ze sporu, w którym mieści się także to, czego chce kolega. Szczyt całej karty: wiedza o cudzym stanie wchodzi do negocjacji.",
+          "cele": {
+            "A": {
+              "p3": "Przyjmie rozwiązanie sporu zaproponowane przez nauczyciela",
+              "p2": "Wybierze jedno z dwóch rozwiązań pokazanych na kartach",
+              "p1": "Odda zabawkę po odmierzonym czasie, bez płaczu"
+            },
+            "B": {
+              "p3": "Nazwie, czego chce kolega, z pomocą pytań nauczyciela",
+              "p2": "Nazwie, czego chce kolega, i wybierze rozwiązanie mieszczące oboje",
+              "p1": "Zaproponuje rozwiązanie sporu i zrealizuje je"
+            },
+            "C": {
+              "p3": "Zaproponuje rozwiązanie z pomocą karty trzech kroków",
+              "p2": "Rozwiąże spór, uwzględniając emocję i chęć kolegi",
+              "p1": "Pomoże rozwiązać spór dwojga innych dzieci"
+            }
+          },
+          "zalecenia": [
+            "kącik rozmów z kartą trzech kroków, inny niż miejsce sporu",
+            "klepsydra jako stałe narzędzie podziału czasu",
+            "rozwiązania wymyślane przez dzieci i zapisywane na kartce grupy"
+          ],
+          "dostosowania": [
+            "dwa gotowe rozwiązania do wyboru na początku",
+            "czas na ochłonięcie przed każdą rozmową",
+            "wsparcie obrazkowe trzech kroków dla dzieci z ograniczoną mową"
+          ],
+          "uwaga_rozwojowa": "To wskaźnik domykający całą kartę — wymaga wszystkich wcześniejszych komponentów naraz. U dziecka poniżej piątego roku życia oczekujemy udziału w rozwiązaniu, nie samodzielnej mediacji.",
+          "konspekty": {
+            "A": "kon-A-V-5",
+            "B": "kon-B-V-5",
+            "C": "kon-C-V-5"
+          },
+          "pomoc_id": "V.5",
+          "arkusz_id": "V.5"
+        }
+      ]
+    }
+  ]
+}

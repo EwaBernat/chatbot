@@ -1,0 +1,463 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cele SMART · teoria umysłu — EduPlaner 2026 · PCTP</title>
+<style>
+:root{--fiolet:#2D1B69;--fiolet-2:#5a4a94;--fiolet-tlo:#efeaf9;--fiolet-linia:#d9d0f0;
+  --pomarancz:#E8450A;--pomarancz-tlo:#fdece4;--pomarancz-linia:#f3cdbd;
+  --ink:#2b2733;--szary:#6f6a7d;--linia:#e4e1ec;--zebra:#faf7f2;
+  --dom:#c0392b;--dom-tlo:#fbebe9;--ist:#c8811b;--ist-tlo:#fbf3e3;--sla:#1f8a5b;--sla-tlo:#eaf6f0}
+*{box-sizing:border-box}
+html,body{margin:0;padding:0}
+body{background:#e9e7ef;color:var(--ink);font-family:'Mulish','Segoe UI',Candara,Arial,sans-serif}
+.strona{width:210mm;min-height:297mm;margin:12px auto;background:#fff;padding:11mm 12mm 8mm;
+  box-shadow:0 6px 30px rgba(45,27,105,.16);display:flex;flex-direction:column}
+.head{display:flex;align-items:center;gap:12px}
+.mark{width:38px;height:38px;border-radius:50%;background:var(--fiolet);border:2px solid #cfc4ea;color:#fff;
+  display:flex;align-items:center;justify-content:center;font-size:8.5px;font-weight:800;flex:0 0 auto}
+.mark::after{content:"PCTP"}
+.head h1{font-size:16px;margin:0;color:var(--fiolet)}
+.head .sub{font-size:8.5px;color:var(--szary);letter-spacing:.6px;text-transform:uppercase;font-weight:700;margin-top:2px}
+.head .prawa{margin-left:auto;text-align:right}
+.head .prawa b{display:inline-block;background:var(--pomarancz);color:#fff;font-size:10px;padding:4px 12px;border-radius:20px}
+.head .prawa span{display:block;font-size:8px;color:var(--szary);letter-spacing:.9px;margin-top:3px;text-transform:uppercase}
+.kreska{height:3px;border-radius:3px;margin:8px 0 0;
+  background:linear-gradient(90deg,var(--fiolet) 0%,var(--fiolet) 55%,var(--pomarancz) 55%,var(--pomarancz) 100%)}
+.metryka{display:flex;gap:8px;margin-top:9px}
+.metryka div{flex:1;background:var(--fiolet-tlo);border:1px solid var(--fiolet-linia);border-radius:8px;
+  padding:5px 10px;font-size:11px;display:flex;gap:7px;align-items:baseline}
+.metryka span{font-size:7.5px;font-weight:800;letter-spacing:.7px;color:var(--fiolet);text-transform:uppercase}
+.metryka b{flex:1;border-bottom:1.5px dotted #b7add6;font-size:11px}
+.tresc{flex:1;margin-top:10px}
+.pas{background:var(--fiolet);color:#fff;border-radius:8px;padding:6px 12px;font-size:11px;font-weight:700;
+  letter-spacing:.3px;margin-bottom:9px}
+.wstep{font-size:10.5px;line-height:1.6;background:var(--zebra);border-radius:9px;padding:10px 13px}
+.wstep b{color:var(--fiolet)}
+.dwie{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:10px}
+.karta-info{border:1px solid var(--fiolet-linia);border-radius:9px;padding:9px 12px;font-size:10px;line-height:1.55}
+.karta-info h3{margin:0 0 4px;font-size:10.5px;color:var(--fiolet);letter-spacing:.4px}
+table{width:100%;border-collapse:collapse;font-size:10px;margin-top:10px}
+th{background:var(--fiolet);color:#fff;font-size:8px;letter-spacing:.6px;text-transform:uppercase;
+  padding:5px 7px;text-align:left}
+td{border-bottom:1px solid var(--linia);padding:5px 7px;vertical-align:top}
+tr:nth-child(even) td{background:var(--zebra)}
+td.pkt{font-weight:800;color:var(--fiolet);white-space:nowrap}
+.ocena{display:inline-block;font-size:8px;font-weight:800;padding:1px 7px;border-radius:9px;
+  background:var(--sla-tlo);color:var(--sla)}
+.ocena.pri{background:var(--dom-tlo);color:var(--dom)}
+.ocena.mon{background:var(--ist-tlo);color:var(--ist)}
+.fn{display:flex;align-items:center;gap:10px;margin-bottom:7px}
+.fn .rz{width:26px;height:26px;border-radius:7px;background:var(--pomarancz);color:#fff;display:flex;
+  align-items:center;justify-content:center;font-weight:800;font-size:12px;flex:0 0 auto}
+.fn h2{margin:0;font-size:14px;color:var(--fiolet)}
+.fn .op{font-size:9px;color:var(--szary);margin-top:2px;line-height:1.4}
+.fn .bad{margin-left:auto;text-align:right;font-size:9.5px;color:var(--szary);white-space:nowrap}
+.fn .bad b{display:block;color:var(--fiolet);font-size:10px;margin-top:2px}
+.si{background:var(--pomarancz-tlo);border:1px solid var(--pomarancz-linia);border-radius:8px;
+  padding:7px 11px;font-size:9.5px;line-height:1.55;margin-bottom:9px}
+.si b{color:var(--fiolet)}
+.cel{border:1px solid var(--linia);border-radius:10px;padding:9px 12px;margin-bottom:9px;break-inside:avoid}
+.cel-h{display:flex;gap:9px;align-items:flex-start;margin-bottom:5px}
+.cel-h .nr{background:var(--fiolet);color:#fff;font-size:9px;font-weight:800;padding:2px 8px;border-radius:10px;flex:0 0 auto}
+.cel-h .def{font-size:9.5px;line-height:1.45;color:var(--szary)}
+.cel-h .def b{color:var(--fiolet);margin-right:5px}
+.strat{font-size:9px;color:var(--pomarancz);font-weight:700;margin:0 0 5px 0}
+.cel-t{font-size:10.5px;line-height:1.55;margin:0 0 6px;background:var(--fiolet-tlo);border-radius:8px;padding:7px 11px}
+.cel-t b{display:block;font-size:8px;letter-spacing:.7px;text-transform:uppercase;color:var(--fiolet);margin-bottom:3px}
+.smart{display:grid;grid-template-columns:1fr 1fr;gap:3px 10px;font-size:9px;line-height:1.4}
+.smart div{display:flex;gap:6px}
+.smart i{background:var(--fiolet-2);color:#fff;width:14px;height:14px;border-radius:4px;display:flex;
+  align-items:center;justify-content:center;font-size:8px;font-style:normal;font-weight:800;flex:0 0 auto}
+.obs{display:flex;gap:10px;align-items:center;margin-top:6px;padding-top:6px;border-top:1px dashed var(--linia);
+  font-size:9px;color:var(--szary);flex-wrap:wrap}
+.obs b{color:var(--fiolet)}
+.obs .wynik{margin-left:auto;white-space:nowrap}
+.obs .pole{display:inline-block;width:34px;border-bottom:1.5px dotted #b7add6}
+.uwagi{font-size:9px;color:var(--szary);line-height:1.5;margin-top:6px}
+.stopka{margin-top:auto;padding-top:7px;border-top:1px solid var(--linia);display:flex;
+  justify-content:space-between;font-size:8px;color:var(--szary)}
+@media print{body{background:#fff}.strona{box-shadow:none;margin:0;page-break-after:always}
+  @page{size:A4 portrait;margin:0}}
+</style>
+</head>
+<body>
+<section class="strona">
+<div class="head"><span class="mark" role="img" aria-label="Logo PCTP"></span>
+  <div><h1>EduPlaner 2026</h1><div class="sub">Teoria umysłu (ToM) · cele SMART — wprowadzenie</div></div>
+  <div class="prawa"><b>ToM · WOPF</b><span>narzędzie · druk TOM-C</span></div></div>
+<div class="kreska"></div>
+<div class="metryka">
+  <div><span>Dotyczy dziecka</span><b>&nbsp;</b></div>
+  <div><span>Grupa</span><b>&nbsp;</b></div>
+  <div><span>Data</span><b>&nbsp;</b> r.</div></div>
+<div class="tresc">
+  <div class="pas">Cele SMART do obserwacji pogłębionej · 25 wskaźników karty obserwacji ToM</div>
+  <div class="wstep"><b>Po co ten druk.</b> Karta obserwacji ToM kończy się pięcioma wynikami —
+    po jednym na komponent. Wyznaczają kierunek pracy, ale są za szerokie na obserwację pogłębioną:
+    „fałszywe przekonanie 1/10” nie mówi, którą z pięciu pozycji karty ćwiczymy w poniedziałek
+    i po czym poznamy postęp. Ten druk rozpisuje tamte pięć wyników na <b>25 celów
+    szczegółowych</b> — po jednym do każdej pozycji karty, każdy z zachowaniem, które widać,
+    liczbą, którą da się policzyć, i terminem, w którym sprawdzamy.</div>
+  <div class="dwie">
+    <div class="karta-info"><h3>Jak czytać cel</h3>
+      Każdy cel opisuje <b>krok mentalizacji, który widać</b> — to, co dziecko robi albo mówi,
+      po czym poznajemy, że uwzględniło cudzą perspektywę. „Zrozumie, że inni myślą inaczej” nie
+      jest celem: rozumienia nie da się zaobserwować ani policzyć. Dlatego pod celem stoi rozpisanie
+      SMART: co dokładnie widać (S), ile tego liczymy (M), co to umożliwia (A), po co to dziecku (R)
+      i kiedy sprawdzamy (T).</div>
+    <div class="karta-info"><h3>Skąd kryterium i horyzont</h3>
+      Nie z podręcznika, tylko z <b>wyniku tego komponentu u tego dziecka</b>. Uwaga: tu im wyżej,
+      tym lepiej. Komponent z wynikiem 0–3 (znaczne trudności) jest priorytetem, więc sprawdzamy go
+      najczęściej — po 4 tygodniach, przy kryterium 4 z 5. Wynik 4–7 (częściowo opanowane) —
+      po 8 tygodniach, przy 4 z 5. Wynik 8–10 (zasób) — cel podtrzymujący, po 12 tygodniach,
+      przy 3 z 5. Ta sama logika, co przy poziomach wsparcia w druku TOM-T.</div>
+  </div>
+  <table><thead><tr><th>Komponent</th><th>Wynik</th><th>Norma rozwojowa (typowy wiek)</th>
+    <th>Pasmo</th><th>Kryterium</th><th>Horyzont</th><th>Znaczenie dla planu pracy</th></tr></thead>
+    <tbody><tr><td>I · Rozpoznawanie i nazywanie emocji</td><td class="pkt">…/10</td><td style="font-size:9px">podstawowe emocje ok. 2–3 r.ż.; łączenie z sytuacją ok. 3–4 r.ż.</td><td>………</td><td class="pkt">……</td><td class="pkt">……</td><td>wpisz po odczytaniu pasma z tabeli progów</td></tr><tr><td>II · Różne pragnienia i upodobania</td><td class="pkt">…/10</td><td style="font-size:9px">różne pragnienia i upodobania ok. 3 r.ż.</td><td>………</td><td class="pkt">……</td><td class="pkt">……</td><td>wpisz po odczytaniu pasma z tabeli progów</td></tr><tr><td>III · Zabawa „na niby” i udawanie</td><td class="pkt">…/10</td><td style="font-size:9px">zabawa „na niby” ok. 2–3 r.ż.; rozwinięta zabawa w role 3–4 r.ż.</td><td>………</td><td class="pkt">……</td><td class="pkt">……</td><td>wpisz po odczytaniu pasma z tabeli progów</td></tr><tr><td>IV · Różne przekonania i fałszywe przekonanie</td><td class="pkt">…/10</td><td style="font-size:9px">różne przekonania i dostęp do wiedzy ok. 3–4 r.ż.; fałszywe przekonanie ok. 4–5 r.ż.</td><td>………</td><td class="pkt">……</td><td class="pkt">……</td><td>wpisz po odczytaniu pasma z tabeli progów</td></tr><tr><td>V · Ukryte emocje i intencje w kontaktach</td><td class="pkt">…/10</td><td style="font-size:9px">intencje ok. 3 r.ż.; ukryte emocje ok. 5–6 r.ż.</td><td>………</td><td class="pkt">……</td><td class="pkt">……</td><td>wpisz po odczytaniu pasma z tabeli progów</td></tr></tbody></table>
+  <div class="uwagi">wynik komponentu (0–10) = suma pięciu pozycji karty, każda w skali 0–2 — 5 komponentów × 5 pozycji × skala 0–2.
+    Rozbieżność między normą rozwojową a wynikiem wskazuje, na których komponentach skupić pracę.</div>
+  <table><thead><tr><th>Wynik komponentu</th><th>Pasmo</th><th>Kryterium</th><th>Horyzont</th>
+    <th>Znaczenie</th></tr></thead><tbody><tr><td>8 pkt i więcej</td><td><span class="ocena ">Zasób</span></td><td class="pkt">3 z 5</td><td class="pkt">12 tygodni</td><td>umiejętność opanowana — cel podtrzymujący, utrwalanie w trudniejszych sytuacjach</td></tr><tr><td>4 pkt i więcej</td><td><span class="ocena ">Wymaga wsparcia</span></td><td class="pkt">4 z 5</td><td class="pkt">8 tygodni</td><td>częściowo opanowana — praca z malejącym wsparciem dorosłego</td></tr><tr><td>0 pkt i więcej</td><td><span class="ocena pri">Priorytet</span></td><td class="pkt">4 z 5</td><td class="pkt">4 tygodnie</td><td>znaczne trudności — praca codzienna, metodą małych kroków, krótki cykl weryfikacji</td></tr></tbody></table>
+  <div class="uwagi"><b>Nie wszystkie 25 celów naraz.</b> Do planu bierzemy cele z komponentu
+    priorytetowego i jeden–dwa z komponentu wymagającego wsparcia; 25 celów to zapas na cały rok,
+    nie plan na wrzesień. <b>Kolejność jest rozwojowa</b>: komponenty IV i V mają sens dopiero
+    po opanowaniu I–III. Wynik obserwacji wpisujemy w pole przy celu, a zbiorczo — w tabelę ewaluacji
+    na ostatniej stronie.</div>
+</div>
+<div class="stopka"><span>EduPlaner 2026 · PCTP · pedagog specjalny <b>mgr Mirosława Ewa Jurczyszyn</b></span><span>Strona 1 z 7 · wprowadzenie</span></div>
+</section>
+<section class="strona">
+<div class="head"><span class="mark" role="img" aria-label="Logo PCTP"></span>
+  <div><h1>EduPlaner 2026</h1><div class="sub">Teoria umysłu · cele SMART · komponent I</div></div>
+  <div class="prawa"><b>ToM · WOPF</b><span>narzędzie · druk TOM-C</span></div></div>
+<div class="kreska"></div>
+<div class="metryka">
+  <div><span>Dotyczy dziecka</span><b>&nbsp;</b></div>
+  <div><span>Grupa</span><b>&nbsp;</b></div>
+  <div><span>Data</span><b>&nbsp;</b> r.</div></div>
+<div class="tresc">
+  <div class="fn"><span class="rz">I</span>
+    <div><h2>Rozpoznawanie i nazywanie emocji <span style="font-size:9px;color:var(--szary)">b152 · b1521</span></h2>
+      <div class="op">Nazywanie emocji własnych i cudzych, czytanie ich z twarzy i wiązanie z sytuacją.</div></div>
+    <div class="bad">……/10 · <span class="ocena">pasmo ………</span><b>…… z 5 · ……… tygodni</b></div></div>
+  <div class="si"><b>Zasada pracy nad teorią umysłu</b> Nazywamy emocję dziecka, zanim poprosimy je o nazwanie cudzej. Dziecko, któremu nikt nie nazwał złości, nie rozpozna jej u kolegi.</div>
+  <article class="cel">
+  <div class="cel-h"><span class="nr">I.1</span>
+    <span class="def"><b>Wskaźnik</b> Nazywa podstawowe emocje: radość, złość, smutek, strach.</span></div>
+  <p class="strat">krok mentalizacji: nazwanie emocji słowem albo wskazanie jej na karcie · pozycja karty: 1</p>
+  <p class="cel-t"><b>Cel SMART</b>Dziecko nazwie emocję własną albo cudzą słowem lub kartą, w ……… z 5 sytuacjach, w ciągu ……… tygodni.</p>
+  <div class="smart"><div><i>S</i>Nazywa emocję słowem albo wskazuje kartę.</div><div><i>M</i>……… z 5 sytuacji z pięciu obserwowanych w tygodniu.</div><div><i>A</i>Tablica emocji i karty są dostępne w sali przez cały dzień.</div><div><i>R</i>Nazwana emocja jest warunkiem rozmowy o niej i jej regulacji.</div><div><i>T</i>Weryfikacja po ……… tygodniach, według wyniku komponentu.</div></div>
+  <div class="obs"><span><b>Obserwacja</b> Arkusz obserwacji — kolumna: zabawa, czytanie, sytuacja z rówieśnikiem. Notujemy nazwania bez pytania dorosłego. · 5 sytuacji w tygodniu</span>
+    <span class="wynik">wynik <span class="pole">&nbsp;</span>/5 · data <span class="pole">&nbsp;</span></span></div>
+</article><article class="cel">
+  <div class="cel-h"><span class="nr">I.2</span>
+    <span class="def"><b>Wskaźnik</b> Rozpoznaje emocje z wyrazu twarzy (obrazek, zdjęcie, druga osoba).</span></div>
+  <p class="strat">krok mentalizacji: odczytanie emocji z twarzy drugiej osoby · pozycja karty: 2</p>
+  <p class="cel-t"><b>Cel SMART</b>Dziecko odczyta emocję z twarzy drugiej osoby i nazwie ją, w ……… z 5 sytuacjach, w ciągu ……… tygodni.</p>
+  <div class="smart"><div><i>S</i>Nazywa emocję, patrząc na twarz, bez podpowiedzi słownej.</div><div><i>M</i>……… z 5 sytuacji z pięciu obserwowanych w tygodniu.</div><div><i>A</i>Fotografie i lustro są w kąciku emocji przez cały dzień.</div><div><i>R</i>Odczyt z twarzy jest szybszy niż odczyt z sytuacji i działa w zabawie.</div><div><i>T</i>Weryfikacja po ……… tygodniach, według wyniku komponentu.</div></div>
+  <div class="obs"><span><b>Obserwacja</b> Arkusz obserwacji — kolumna: zabawa z rówieśnikami, czytanie, zajęcia w kręgu. Notujemy trafność odczytu. · 5 sytuacji w tygodniu</span>
+    <span class="wynik">wynik <span class="pole">&nbsp;</span>/5 · data <span class="pole">&nbsp;</span></span></div>
+</article><article class="cel">
+  <div class="cel-h"><span class="nr">I.3</span>
+    <span class="def"><b>Wskaźnik</b> Łączy emocję z prostą sytuacją („płacze, bo się przewrócił”).</span></div>
+  <p class="strat">krok mentalizacji: podanie przyczyny emocji w zdaniu „czuje…, bo…” · pozycja karty: 3</p>
+  <p class="cel-t"><b>Cel SMART</b>Dziecko poda przyczynę emocji własnej albo cudzej w zdaniu „czuje…, bo…”, w ……… z 5 sytuacjach, w ciągu ……… tygodni.</p>
+  <div class="smart"><div><i>S</i>Podaje przyczynę emocji w zdaniu z „bo”.</div><div><i>M</i>……… z 5 sytuacji z pięciu obserwowanych w tygodniu.</div><div><i>A</i>Rama zdania leży w kąciku emocji i wolno z niej korzystać.</div><div><i>R</i>Przyczyna emocji jest mostem do przewidywania cudzych reakcji.</div><div><i>T</i>Weryfikacja po ……… tygodniach, według wyniku komponentu.</div></div>
+  <div class="obs"><span><b>Obserwacja</b> Arkusz obserwacji — kolumna: historyjka, czytanie, sytuacja z rówieśnikiem. Notujemy podanie przyczyny. · 5 sytuacji w tygodniu</span>
+    <span class="wynik">wynik <span class="pole">&nbsp;</span>/5 · data <span class="pole">&nbsp;</span></span></div>
+</article><article class="cel">
+  <div class="cel-h"><span class="nr">I.4</span>
+    <span class="def"><b>Wskaźnik</b> Pokazuje lub mówi, jak sam czuje się w danej chwili.</span></div>
+  <p class="strat">krok mentalizacji: zgłoszenie własnego stanu słowem albo kartą · pozycja karty: 4</p>
+  <p class="cel-t"><b>Cel SMART</b>Dziecko zgłosi swój stan emocjonalny słowem albo kartą, zanim emocja zamieni się w krzyk lub wycofanie, w ……… z 5 sytuacjach, w ciągu ……… tygodni.</p>
+  <div class="smart"><div><i>S</i>Nazywa własną emocję albo pokazuje ją kartą.</div><div><i>M</i>……… z 5 sytuacji z pięciu obserwowanych w tygodniu.</div><div><i>A</i>Termometr i karty potrzeb wiszą na wysokości oczu dziecka.</div><div><i>R</i>Zgłoszony stan pozwala uprzedzić trudną sytuację, zamiast ją gasić.</div><div><i>T</i>Weryfikacja po ……… tygodniach, według wyniku komponentu.</div></div>
+  <div class="obs"><span><b>Obserwacja</b> Dziennik obserwacji — rubryka poranna, popołudniowa i sytuacje napięcia. Notujemy zgłoszenia z inicjatywy dziecka. · 5 sytuacji w tygodniu</span>
+    <span class="wynik">wynik <span class="pole">&nbsp;</span>/5 · data <span class="pole">&nbsp;</span></span></div>
+</article><article class="cel">
+  <div class="cel-h"><span class="nr">I.5</span>
+    <span class="def"><b>Wskaźnik</b> Zauważa, że inne dziecko jest smutne lub złe, i reaguje.</span></div>
+  <p class="strat">krok mentalizacji: podejście do kolegi i zaoferowanie konkretnej pomocy · pozycja karty: 5</p>
+  <p class="cel-t"><b>Cel SMART</b>Dziecko zauważy smutek albo złość kolegi i zareaguje jednym z ustalonych sposobów pomocy, w ……… z 5 sytuacjach, w ciągu ……… tygodni.</p>
+  <div class="smart"><div><i>S</i>Podchodzi i wykonuje jeden z trzech ustalonych sposobów pomocy.</div><div><i>M</i>……… z 5 sytuacji z pięciu obserwowanych w tygodniu.</div><div><i>A</i>Karta sposobów i maskotka są w sali, w zasięgu dziecka.</div><div><i>R</i>Zauważenie bez reakcji zostaje dla kolegi niewidoczne.</div><div><i>T</i>Weryfikacja po ……… tygodniach, według wyniku komponentu.</div></div>
+  <div class="obs"><span><b>Obserwacja</b> Arkusz obserwacji — kolumna: sytuacja smutku lub złości w grupie. Notujemy reakcję z inicjatywy dziecka. · 5 sytuacji w tygodniu</span>
+    <span class="wynik">wynik <span class="pole">&nbsp;</span>/5 · data <span class="pole">&nbsp;</span></span></div>
+</article>
+</div>
+<div class="stopka"><span>EduPlaner 2026 · PCTP · pedagog specjalny <b>mgr Mirosława Ewa Jurczyszyn</b></span><span>Strona 2 z 7 · komponent I · rozpoznawanie i nazywanie emocji</span></div>
+</section>
+<section class="strona">
+<div class="head"><span class="mark" role="img" aria-label="Logo PCTP"></span>
+  <div><h1>EduPlaner 2026</h1><div class="sub">Teoria umysłu · cele SMART · komponent II</div></div>
+  <div class="prawa"><b>ToM · WOPF</b><span>narzędzie · druk TOM-C</span></div></div>
+<div class="kreska"></div>
+<div class="metryka">
+  <div><span>Dotyczy dziecka</span><b>&nbsp;</b></div>
+  <div><span>Grupa</span><b>&nbsp;</b></div>
+  <div><span>Data</span><b>&nbsp;</b> r.</div></div>
+<div class="tresc">
+  <div class="fn"><span class="rz">II</span>
+    <div><h2>Różne pragnienia i upodobania <span style="font-size:9px;color:var(--szary)">b1560 · d7104</span></h2>
+      <div class="op">Rozumienie, że inni chcą i lubią co innego, i uwzględnianie tego w zabawie.</div></div>
+    <div class="bad">……/10 · <span class="ocena">pasmo ………</span><b>…… z 5 · ……… tygodni</b></div></div>
+  <div class="si"><b>Zasada pracy nad teorią umysłu</b> Nie żądamy ustępowania. Uwzględnienie cudzego upodobania to krok poznawczy — dopiero po nim ma sens rozmowa o dzieleniu się.</div>
+  <article class="cel">
+  <div class="cel-h"><span class="nr">II.1</span>
+    <span class="def"><b>Wskaźnik</b> Rozumie, że inne dzieci lubią co innego niż on (owoc, zabawka).</span></div>
+  <p class="strat">krok mentalizacji: wskazanie cudzego wyboru, innego niż własny · pozycja karty: 1</p>
+  <p class="cel-t"><b>Cel SMART</b>Dziecko wskaże wybór kolegi zgodny z jego upodobaniem, a nie własnym, w ……… z 5 sytuacjach, w ciągu ……… tygodni.</p>
+  <div class="smart"><div><i>S</i>Wskazuje albo nazywa cudzy wybór, różny od własnego.</div><div><i>M</i>……… z 5 sytuacji z pięciu obserwowanych w tygodniu.</div><div><i>A</i>Tablica „co kto lubi” wisi w sali i jest aktualna.</div><div><i>R</i>To pierwszy krok, na którym widać rozejście się dwóch perspektyw.</div><div><i>T</i>Weryfikacja po ……… tygodniach, według wyniku komponentu.</div></div>
+  <div class="obs"><span><b>Obserwacja</b> Arkusz obserwacji — kolumna: wybór zabawy, podwieczorek, zabawa w parach. Notujemy trafność wskazania. · 5 sytuacji w tygodniu</span>
+    <span class="wynik">wynik <span class="pole">&nbsp;</span>/5 · data <span class="pole">&nbsp;</span></span></div>
+</article><article class="cel">
+  <div class="cel-h"><span class="nr">II.2</span>
+    <span class="def"><b>Wskaźnik</b> Przewiduje, że ktoś wybierze to, co lubi — choć on woli co innego.</span></div>
+  <p class="strat">krok mentalizacji: przewidzenie cudzego wyboru wbrew własnemu upodobaniu · pozycja karty: 2</p>
+  <p class="cel-t"><b>Cel SMART</b>Dziecko przewidzi wybór drugiej osoby zgodnie z jej upodobaniem, a nie własnym, w ……… z 5 próbach, w ciągu ……… tygodni.</p>
+  <div class="smart"><div><i>S</i>Podaje prognozę cudzego wyboru przed samym wyborem.</div><div><i>M</i>……… z 5 prób z pięciu obserwowanych w tygodniu.</div><div><i>A</i>Upodobania kolegów są znane z tablicy i z codziennej zabawy.</div><div><i>R</i>Prognoza cudzego zachowania jest zalążkiem rozumienia przekonań.</div><div><i>T</i>Weryfikacja po ……… tygodniach, według wyniku komponentu.</div></div>
+  <div class="obs"><span><b>Obserwacja</b> Arkusz obserwacji — kolumna: wybór zabawy, podwieczorek, zabawa z pacynką. Notujemy trafność prognozy. · 5 prób w tygodniu</span>
+    <span class="wynik">wynik <span class="pole">&nbsp;</span>/5 · data <span class="pole">&nbsp;</span></span></div>
+</article><article class="cel">
+  <div class="cel-h"><span class="nr">II.3</span>
+    <span class="def"><b>Wskaźnik</b> Rozumie, że spełnione pragnienie cieszy, a niespełnione smuci.</span></div>
+  <p class="strat">krok mentalizacji: powiązanie cudzego pragnienia z emocją, która po nim nastąpi · pozycja karty: 3</p>
+  <p class="cel-t"><b>Cel SMART</b>Dziecko powie, jak poczuje się osoba, której pragnienie zostało spełnione albo niespełnione, w ……… z 5 sytuacjach, w ciągu ……… tygodni.</p>
+  <div class="smart"><div><i>S</i>Nazywa emocję wynikającą ze spełnienia albo niespełnienia pragnienia.</div><div><i>M</i>……… z 5 sytuacji z pięciu obserwowanych w tygodniu.</div><div><i>A</i>Karty emocji z rozczarowaniem są dostępne w kąciku emocji.</div><div><i>R</i>Rozpoznane rozczarowanie kolegi zmniejsza liczbę sporów przy podziale.</div><div><i>T</i>Weryfikacja po ……… tygodniach, według wyniku komponentu.</div></div>
+  <div class="obs"><span><b>Obserwacja</b> Arkusz obserwacji — kolumna: historyjka, podział zabawek, sytuacja odmowy. Notujemy trafność nazwania emocji. · 5 sytuacji w tygodniu</span>
+    <span class="wynik">wynik <span class="pole">&nbsp;</span>/5 · data <span class="pole">&nbsp;</span></span></div>
+</article><article class="cel">
+  <div class="cel-h"><span class="nr">II.4</span>
+    <span class="def"><b>Wskaźnik</b> Uwzględnia upodobania kolegi w zabawie i przy dzieleniu się.</span></div>
+  <p class="strat">krok mentalizacji: wybór dla kolegi zgodny z jego upodobaniem, nie własnym · pozycja karty: 4</p>
+  <p class="cel-t"><b>Cel SMART</b>Dziecko wybierze dla kolegi albo zaproponuje zabawę zgodną z jego upodobaniem, w ……… z 5 sytuacjach, w ciągu ……… tygodni.</p>
+  <div class="smart"><div><i>S</i>Podaje koledze jego rzecz albo proponuje zabawę pod niego.</div><div><i>M</i>……… z 5 sytuacji z pięciu obserwowanych w tygodniu.</div><div><i>A</i>Tablica upodobań i karty zabaw są dostępne w sali.</div><div><i>R</i>Wiedza o cudzym upodobaniu ma się zamienić w czyn.</div><div><i>T</i>Weryfikacja po ……… tygodniach, według wyniku komponentu.</div></div>
+  <div class="obs"><span><b>Obserwacja</b> Arkusz obserwacji — kolumna: dzielenie się, wybór wspólnej zabawy. Notujemy wybory uwzględniające kolegę. · 5 sytuacji w tygodniu</span>
+    <span class="wynik">wynik <span class="pole">&nbsp;</span>/5 · data <span class="pole">&nbsp;</span></span></div>
+</article><article class="cel">
+  <div class="cel-h"><span class="nr">II.5</span>
+    <span class="def"><b>Wskaźnik</b> Mówi o własnych upodobaniach i pyta o cudze.</span></div>
+  <p class="strat">krok mentalizacji: zadanie pytania o cudze upodobanie · pozycja karty: 5</p>
+  <p class="cel-t"><b>Cel SMART</b>Dziecko zapyta kolegę o jego upodobanie i wysłucha odpowiedzi, w ……… z 5 rozmowach, w ciągu ……… tygodni.</p>
+  <div class="smart"><div><i>S</i>Zadaje pytanie o cudze upodobanie i słucha odpowiedzi.</div><div><i>M</i>……… z 5 rozmów z pięciu obserwowanych w tygodniu.</div><div><i>A</i>Karta pytania wisi w kąciku zabawy.</div><div><i>R</i>Pytanie zastępuje założenie, że kolega lubi to samo.</div><div><i>T</i>Weryfikacja po ……… tygodniach, według wyniku komponentu.</div></div>
+  <div class="obs"><span><b>Obserwacja</b> Arkusz obserwacji — kolumna: zabawa swobodna, krąg, przyjęcie nowego dziecka. Notujemy pytania z inicjatywy dziecka. · 5 rozmów w tygodniu</span>
+    <span class="wynik">wynik <span class="pole">&nbsp;</span>/5 · data <span class="pole">&nbsp;</span></span></div>
+</article>
+</div>
+<div class="stopka"><span>EduPlaner 2026 · PCTP · pedagog specjalny <b>mgr Mirosława Ewa Jurczyszyn</b></span><span>Strona 3 z 7 · komponent II · różne pragnienia i upodobania</span></div>
+</section>
+<section class="strona">
+<div class="head"><span class="mark" role="img" aria-label="Logo PCTP"></span>
+  <div><h1>EduPlaner 2026</h1><div class="sub">Teoria umysłu · cele SMART · komponent III</div></div>
+  <div class="prawa"><b>ToM · WOPF</b><span>narzędzie · druk TOM-C</span></div></div>
+<div class="kreska"></div>
+<div class="metryka">
+  <div><span>Dotyczy dziecka</span><b>&nbsp;</b></div>
+  <div><span>Grupa</span><b>&nbsp;</b></div>
+  <div><span>Data</span><b>&nbsp;</b> r.</div></div>
+<div class="tresc">
+  <div class="fn"><span class="rz">III</span>
+    <div><h2>Zabawa „na niby” i udawanie <span style="font-size:9px;color:var(--szary)">b1640 · d880</span></h2>
+      <div class="op">Udawanie, wchodzenie w rolę, wspólny scenariusz i odróżnianie „na niby” od „naprawdę”.</div></div>
+    <div class="bad">……/10 · <span class="ocena">pasmo ………</span><b>…… z 5 · ……… tygodni</b></div></div>
+  <div class="si"><b>Zasada pracy nad teorią umysłu</b> Dorosły wchodzi w rolę pierwszy i zostaje w niej. Zabawa „na niby” komentowana z zewnątrz przestaje być zabawą, a staje się ćwiczeniem.</div>
+  <article class="cel">
+  <div class="cel-h"><span class="nr">III.1</span>
+    <span class="def"><b>Wskaźnik</b> Podejmuje zabawę „na niby” (klocek jako telefon, patyk jako łyżka).</span></div>
+  <p class="strat">krok mentalizacji: użycie przedmiotu w funkcji innej niż jego własna · pozycja karty: 1</p>
+  <p class="cel-t"><b>Cel SMART</b>Dziecko użyje przedmiotu zastępczego w zabawie, nadając mu znaczenie „na niby”, w ……… z 5 sytuacjach, w ciągu ……… tygodni.</p>
+  <div class="smart"><div><i>S</i>Nadaje przedmiotowi funkcję, której ten nie ma.</div><div><i>M</i>……… z 5 sytuacji z pięciu obserwowanych w tygodniu.</div><div><i>A</i>Kosz przedmiotów niedookreślonych stoi w kąciku zabawy.</div><div><i>R</i>Udawanie jest najwcześniejszą formą myślenia o tym, czego nie widać.</div><div><i>T</i>Weryfikacja po ……… tygodniach, według wyniku komponentu.</div></div>
+  <div class="obs"><span><b>Obserwacja</b> Arkusz obserwacji — kolumna: zabawa swobodna w kąciku. Notujemy udawanie z inicjatywy dziecka. · 5 sytuacji w tygodniu</span>
+    <span class="wynik">wynik <span class="pole">&nbsp;</span>/5 · data <span class="pole">&nbsp;</span></span></div>
+</article><article class="cel">
+  <div class="cel-h"><span class="nr">III.2</span>
+    <span class="def"><b>Wskaźnik</b> Wchodzi w rolę w zabawie tematycznej (dom, sklep, lekarz).</span></div>
+  <p class="strat">krok mentalizacji: przyjęcie roli i mówienie z jej perspektywy · pozycja karty: 2</p>
+  <p class="cel-t"><b>Cel SMART</b>Dziecko wejdzie w rolę w zabawie tematycznej i utrzyma ją przez czas zabawy, w ……… z 5 sytuacjach, w ciągu ……… tygodni.</p>
+  <div class="smart"><div><i>S</i>Zakłada rekwizyt, działa i mówi z perspektywy roli.</div><div><i>M</i>……… z 5 zabaw z pięciu obserwowanych w tygodniu.</div><div><i>A</i>Kącik tematyczny i rekwizyty są gotowe przed zajęciami.</div><div><i>R</i>Rola jest pierwszym trwałym wejściem w cudzą perspektywę.</div><div><i>T</i>Weryfikacja po ……… tygodniach, według wyniku komponentu.</div></div>
+  <div class="obs"><span><b>Obserwacja</b> Arkusz obserwacji — kolumna: zabawa w kąciku tematycznym. Notujemy wejście w rolę i czas jej utrzymania. · 5 zabaw tematycznych w tygodniu</span>
+    <span class="wynik">wynik <span class="pole">&nbsp;</span>/5 · data <span class="pole">&nbsp;</span></span></div>
+</article><article class="cel">
+  <div class="cel-h"><span class="nr">III.3</span>
+    <span class="def"><b>Wskaźnik</b> Rozumie udawanie innych i włącza się w ich zabawę.</span></div>
+  <p class="strat">krok mentalizacji: odczytanie cudzej zabawy „na niby” i dołączenie do niej · pozycja karty: 3</p>
+  <p class="cel-t"><b>Cel SMART</b>Dziecko rozpozna, w co bawią się inne dzieci, i dołączy do ich zabawy, nie zmieniając jej tematu, w ……… z 5 próbach, w ciągu ……… tygodni.</p>
+  <div class="smart"><div><i>S</i>Podchodzi, wykonuje czynność zgodną z zabawą albo prosi o przyjęcie.</div><div><i>M</i>……… z 5 prób z pięciu obserwowanych w tygodniu.</div><div><i>A</i>Karty kroków dołączania wiszą w kąciku zabawy.</div><div><i>R</i>Wejście z własnym tematem jest najczęstszą przyczyną odrzucenia.</div><div><i>T</i>Weryfikacja po ……… tygodniach, według wyniku komponentu.</div></div>
+  <div class="obs"><span><b>Obserwacja</b> Arkusz obserwacji — kolumna: zabawa swobodna z rówieśnikami. Notujemy próby dołączenia i ich wynik. · 5 prób dołączenia w tygodniu</span>
+    <span class="wynik">wynik <span class="pole">&nbsp;</span>/5 · data <span class="pole">&nbsp;</span></span></div>
+</article><article class="cel">
+  <div class="cel-h"><span class="nr">III.4</span>
+    <span class="def"><b>Wskaźnik</b> Odróżnia „na niby” od „naprawdę”.</span></div>
+  <p class="strat">krok mentalizacji: nazwanie, co jest udawane, a co prawdziwe · pozycja karty: 4</p>
+  <p class="cel-t"><b>Cel SMART</b>Dziecko nazwie, co w sytuacji jest udawane, a co prawdziwe, w ……… z 5 sytuacjach, w ciągu ……… tygodni.</p>
+  <div class="smart"><div><i>S</i>Mówi, że coś jest „na niby”, albo wskazuje przedmiot prawdziwy.</div><div><i>M</i>……… z 5 sytuacji z pięciu obserwowanych w tygodniu.</div><div><i>A</i>Rama zabawy jest otwierana i zamykana wyraźnie, tym samym rytuałem.</div><div><i>R</i>Trzymanie dwóch ram naraz chroni dziecko przed strachem w zabawie.</div><div><i>T</i>Weryfikacja po ……… tygodniach, według wyniku komponentu.</div></div>
+  <div class="obs"><span><b>Obserwacja</b> Arkusz obserwacji — kolumna: zabawa w role, żarty, scenki. Notujemy trafne nazwanie ramy. · 5 sytuacji w tygodniu</span>
+    <span class="wynik">wynik <span class="pole">&nbsp;</span>/5 · data <span class="pole">&nbsp;</span></span></div>
+</article><article class="cel">
+  <div class="cel-h"><span class="nr">III.5</span>
+    <span class="def"><b>Wskaźnik</b> Tworzy prostą historyjkę lub scenariusz w zabawie z rówieśnikami.</span></div>
+  <p class="strat">krok mentalizacji: uzgodnienie z kolegą, co dzieje się dalej · pozycja karty: 5</p>
+  <p class="cel-t"><b>Cel SMART</b>Dziecko zaproponuje i uzgodni z kolegą ciąg dalszy wspólnej zabawy, w ……… z 5 zabawach, w ciągu ……… tygodni.</p>
+  <div class="smart"><div><i>S</i>Proponuje ciąg dalszy i uzgadnia go z kolegą.</div><div><i>M</i>……… z 5 zabaw z pięciu obserwowanych w tygodniu.</div><div><i>A</i>Listwa scenariusza i obrazki są dostępne w kąciku.</div><div><i>R</i>Uzgodniony scenariusz wytrzymuje spory, których w trakcie nie da się rozstrzygnąć.</div><div><i>T</i>Weryfikacja po ……… tygodniach, według wyniku komponentu.</div></div>
+  <div class="obs"><span><b>Obserwacja</b> Arkusz obserwacji — kolumna: zabawa tematyczna w parach. Notujemy uzgodnienia i liczbę zrealizowanych elementów scenariusza. · 5 zabaw w tygodniu</span>
+    <span class="wynik">wynik <span class="pole">&nbsp;</span>/5 · data <span class="pole">&nbsp;</span></span></div>
+</article>
+</div>
+<div class="stopka"><span>EduPlaner 2026 · PCTP · pedagog specjalny <b>mgr Mirosława Ewa Jurczyszyn</b></span><span>Strona 4 z 7 · komponent III · zabawa „na niby” i udawanie</span></div>
+</section>
+<section class="strona">
+<div class="head"><span class="mark" role="img" aria-label="Logo PCTP"></span>
+  <div><h1>EduPlaner 2026</h1><div class="sub">Teoria umysłu · cele SMART · komponent IV</div></div>
+  <div class="prawa"><b>ToM · WOPF</b><span>narzędzie · druk TOM-C</span></div></div>
+<div class="kreska"></div>
+<div class="metryka">
+  <div><span>Dotyczy dziecka</span><b>&nbsp;</b></div>
+  <div><span>Grupa</span><b>&nbsp;</b></div>
+  <div><span>Data</span><b>&nbsp;</b> r.</div></div>
+<div class="tresc">
+  <div class="fn"><span class="rz">IV</span>
+    <div><h2>Różne przekonania i fałszywe przekonanie <span style="font-size:9px;color:var(--szary)">b1641 · d710</span></h2>
+      <div class="op">Rozumienie, że ktoś może myśleć inaczej i wiedzieć mniej — aż po fałszywe przekonanie.</div></div>
+    <div class="bad">……/10 · <span class="ocena">pasmo ………</span><b>…… z 5 · ……… tygodni</b></div></div>
+  <div class="si"><b>Zasada pracy nad teorią umysłu</b> Kolejność jest rozwojowa i nie da się jej przeskoczyć: najpierw „kto nie widział, ten nie wie”, dopiero potem Sally-Anne. Cel ustawiony ponad sekwencją uczy dziecko odpowiadania na chybił trafił.</div>
+  <article class="cel">
+  <div class="cel-h"><span class="nr">IV.1</span>
+    <span class="def"><b>Wskaźnik</b> Rozumie, że ktoś może myśleć inaczej o tej samej rzeczy.</span></div>
+  <p class="strat">krok mentalizacji: wskazanie cudzego zdania, różnego od własnego · pozycja karty: 1</p>
+  <p class="cel-t"><b>Cel SMART</b>Dziecko poda zdanie drugiej osoby o rzeczy, o której samo myśli inaczej, w ……… z 5 sytuacjach, w ciągu ……… tygodni.</p>
+  <div class="smart"><div><i>S</i>Podaje cudze zdanie, różne od własnego.</div><div><i>M</i>……… z 5 sytuacji z pięciu obserwowanych w tygodniu.</div><div><i>A</i>Chmurki myśli i kartoniki opinii są w kąciku.</div><div><i>R</i>To brama do całego komponentu przekonań.</div><div><i>T</i>Weryfikacja po ……… tygodniach, według wyniku komponentu.</div></div>
+  <div class="obs"><span><b>Obserwacja</b> Arkusz obserwacji — kolumna: rozmowa o książce, spór w sali, zabawa z pacynkami. Notujemy podanie cudzego zdania. · 5 sytuacji w tygodniu</span>
+    <span class="wynik">wynik <span class="pole">&nbsp;</span>/5 · data <span class="pole">&nbsp;</span></span></div>
+</article><article class="cel">
+  <div class="cel-h"><span class="nr">IV.2</span>
+    <span class="def"><b>Wskaźnik</b> Rozumie, że „kto nie widział — ten nie wie” (dostęp do wiedzy).</span></div>
+  <p class="strat">krok mentalizacji: wskazanie, kto wie, a kto nie wie, na podstawie tego, kto widział · pozycja karty: 2</p>
+  <p class="cel-t"><b>Cel SMART</b>Dziecko wskaże, kto wie, a kto nie wie o zdarzeniu, na podstawie tego, kto je widział, w ……… z 5 próbach, w ciągu ……… tygodni.</p>
+  <div class="smart"><div><i>S</i>Wskazuje osobę wiedzącą i niewiedzącą.</div><div><i>M</i>……… z 5 prób z pięciu obserwowanych w tygodniu.</div><div><i>A</i>Pacynka z opaską i karty „wie / nie wie” są w kąciku.</div><div><i>R</i>To bezpośredni poprzednik zadań z fałszywym przekonaniem.</div><div><i>T</i>Weryfikacja po ……… tygodniach, według wyniku komponentu.</div></div>
+  <div class="obs"><span><b>Obserwacja</b> Arkusz obserwacji — kolumna: zabawa w chowanie, wyjście kolegi z sali. Notujemy trafność rozdzielenia wiedzy. · 5 prób w tygodniu</span>
+    <span class="wynik">wynik <span class="pole">&nbsp;</span>/5 · data <span class="pole">&nbsp;</span></span></div>
+</article><article class="cel">
+  <div class="cel-h"><span class="nr">IV.3</span>
+    <span class="def"><b>Wskaźnik</b> Rozwiązuje zadanie niespodziewanej zawartości (typu Smarties).</span></div>
+  <p class="strat">krok mentalizacji: podanie, co pomyśli ktoś, kto zna tylko opakowanie · pozycja karty: 3</p>
+  <p class="cel-t"><b>Cel SMART</b>Dziecko poda, co pomyśli osoba znająca tylko opakowanie, choć samo zna zawartość, w ……… z 5 próbach, w ciągu ……… tygodni.</p>
+  <div class="smart"><div><i>S</i>Podaje cudze przekonanie, różne od własnej wiedzy.</div><div><i>M</i>……… z 5 prób z pięciu obserwowanych w tygodniu.</div><div><i>A</i>Pudełka i zaskakująca zawartość są przygotowane wcześniej.</div><div><i>R</i>To klasyczne zadanie fałszywego przekonania z sekwencji Wellmana i Liu.</div><div><i>T</i>Weryfikacja po ……… tygodniach, według wyniku komponentu.</div></div>
+  <div class="obs"><span><b>Obserwacja</b> Arkusz obserwacji — kolumna: próba z pudełkiem. Notujemy odpowiedź o cudzym przekonaniu. · 5 prób w tygodniu</span>
+    <span class="wynik">wynik <span class="pole">&nbsp;</span>/5 · data <span class="pole">&nbsp;</span></span></div>
+</article><article class="cel">
+  <div class="cel-h"><span class="nr">IV.4</span>
+    <span class="def"><b>Wskaźnik</b> Rozwiązuje proste zadanie fałszywego przekonania (typu Sally-Anne).</span></div>
+  <p class="strat">krok mentalizacji: wskazanie, gdzie bohater będzie szukał, a nie gdzie przedmiot jest · pozycja karty: 4</p>
+  <p class="cel-t"><b>Cel SMART</b>Dziecko wskaże, gdzie bohater będzie szukał przedmiotu, zgodnie z jego przekonaniem, a nie ze stanem faktycznym, w ……… z 5 próbach, w ciągu ……… tygodni.</p>
+  <div class="smart"><div><i>S</i>Wskazuje pierwsze miejsce schowania, nie miejsce faktyczne.</div><div><i>M</i>……… z 5 prób z pięciu obserwowanych w tygodniu.</div><div><i>A</i>Historyjka jest krótka, odgrywana pacynkami, z prawdziwymi pojemnikami.</div><div><i>R</i>To najtrudniejszy i najlepiej zbadany krok sekwencji teorii umysłu.</div><div><i>T</i>Weryfikacja po ……… tygodniach, według wyniku komponentu.</div></div>
+  <div class="obs"><span><b>Obserwacja</b> Arkusz obserwacji — kolumna: zadanie fałszywego przekonania. Notujemy odpowiedź na pytanie kontrolne i na pytanie o szukanie. · 5 prób w tygodniu</span>
+    <span class="wynik">wynik <span class="pole">&nbsp;</span>/5 · data <span class="pole">&nbsp;</span></span></div>
+</article><article class="cel">
+  <div class="cel-h"><span class="nr">IV.5</span>
+    <span class="def"><b>Wskaźnik</b> Przewiduje zachowanie kogoś na podstawie tego, co ten ktoś wie.</span></div>
+  <p class="strat">krok mentalizacji: prognoza cudzego działania wynikająca z jego wiedzy · pozycja karty: 5</p>
+  <p class="cel-t"><b>Cel SMART</b>Dziecko przewidzi działanie osoby na podstawie tego, co ta osoba wie, i uprzedzi ją o zmianie, w ……… z 5 sytuacjach, w ciągu ……… tygodni.</p>
+  <div class="smart"><div><i>S</i>Podaje prognozę działania i przekazuje informację koledze.</div><div><i>M</i>……… z 5 sytuacji z pięciu obserwowanych w tygodniu.</div><div><i>A</i>Zmiany w sali zdarzają się codziennie; karty wiszą przy drzwiach.</div><div><i>R</i>Uprzedzenie zamienia rozumienie w pomoc dla drugiej osoby.</div><div><i>T</i>Weryfikacja po ……… tygodniach, według wyniku komponentu.</div></div>
+  <div class="obs"><span><b>Obserwacja</b> Arkusz obserwacji — kolumna: zmiana w sali, powrót nieobecnego. Notujemy prognozy i uprzedzenia. · 5 sytuacji w tygodniu</span>
+    <span class="wynik">wynik <span class="pole">&nbsp;</span>/5 · data <span class="pole">&nbsp;</span></span></div>
+</article>
+</div>
+<div class="stopka"><span>EduPlaner 2026 · PCTP · pedagog specjalny <b>mgr Mirosława Ewa Jurczyszyn</b></span><span>Strona 5 z 7 · komponent IV · różne przekonania i fałszywe przekonanie</span></div>
+</section>
+<section class="strona">
+<div class="head"><span class="mark" role="img" aria-label="Logo PCTP"></span>
+  <div><h1>EduPlaner 2026</h1><div class="sub">Teoria umysłu · cele SMART · komponent V</div></div>
+  <div class="prawa"><b>ToM · WOPF</b><span>narzędzie · druk TOM-C</span></div></div>
+<div class="kreska"></div>
+<div class="metryka">
+  <div><span>Dotyczy dziecka</span><b>&nbsp;</b></div>
+  <div><span>Grupa</span><b>&nbsp;</b></div>
+  <div><span>Data</span><b>&nbsp;</b> r.</div></div>
+<div class="tresc">
+  <div class="fn"><span class="rz">V</span>
+    <div><h2>Ukryte emocje i intencje w kontaktach <span style="font-size:9px;color:var(--szary)">b1641 · d740</span></h2>
+      <div class="op">Intencja („specjalnie” czy „niechcący”), pomoc kontra przeszkadzanie, ukryta emocja.</div></div>
+    <div class="bad">……/10 · <span class="ocena">pasmo ………</span><b>…… z 5 · ……… tygodni</b></div></div>
+  <div class="si"><b>Zasada pracy nad teorią umysłu</b> Pytanie „chciał czy niechcący?” zadajemy po ochłonięciu, nie w środku sporu. W afekcie dziecko nie ma dostępu do cudzej intencji.</div>
+  <article class="cel">
+  <div class="cel-h"><span class="nr">V.1</span>
+    <span class="def"><b>Wskaźnik</b> Rozumie, że można czuć co innego, niż się pokazuje (ukryta emocja).</span></div>
+  <p class="strat">krok mentalizacji: nazwanie dwóch stanów naraz: pokazywanego i przeżywanego · pozycja karty: 1</p>
+  <p class="cel-t"><b>Cel SMART</b>Dziecko nazwie rozbieżność między miną a uczuciem drugiej osoby, w ……… z 5 sytuacjach, w ciągu ……… tygodni.</p>
+  <div class="smart"><div><i>S</i>Nazywa minę i domniemane uczucie osobno.</div><div><i>M</i>……… z 5 sytuacji z pięciu obserwowanych w tygodniu.</div><div><i>A</i>Sylwetka z dwoma polami leży w kąciku emocji.</div><div><i>R</i>Czytanie tylko z twarzy prowadzi do przeoczenia kolegi, który ukrywa smutek.</div><div><i>T</i>Weryfikacja po ……… tygodniach, według wyniku komponentu.</div></div>
+  <div class="obs"><span><b>Obserwacja</b> Arkusz obserwacji — kolumna: historyjka, sytuacja z rówieśnikiem. Notujemy zauważenie rozbieżności. · 5 sytuacji w tygodniu</span>
+    <span class="wynik">wynik <span class="pole">&nbsp;</span>/5 · data <span class="pole">&nbsp;</span></span></div>
+</article><article class="cel">
+  <div class="cel-h"><span class="nr">V.2</span>
+    <span class="def"><b>Wskaźnik</b> Odróżnia zrobione „specjalnie” od „przez przypadek” (intencja).</span></div>
+  <p class="strat">krok mentalizacji: nazwanie intencji sprawcy, oddzielone od skutku · pozycja karty: 2</p>
+  <p class="cel-t"><b>Cel SMART</b>Dziecko odróżni czyn celowy od przypadkowego i dobierze do niego reakcję, w ……… z 5 sytuacjach, w ciągu ……… tygodni.</p>
+  <div class="smart"><div><i>S</i>Nazywa intencję i reaguje inaczej niż przy czynie celowym.</div><div><i>M</i>……… z 5 sytuacji z pięciu obserwowanych w tygodniu.</div><div><i>A</i>Karty intencji wiszą w kąciku rozmów.</div><div><i>R</i>Ocena po skutku jest przyczyną większości sporów w grupie.</div><div><i>T</i>Weryfikacja po ……… tygodniach, według wyniku komponentu.</div></div>
+  <div class="obs"><span><b>Obserwacja</b> Arkusz obserwacji — kolumna: spór, potrącenie, zniszczona budowla. Notujemy ocenę intencji i reakcję. · 5 sytuacji w tygodniu</span>
+    <span class="wynik">wynik <span class="pole">&nbsp;</span>/5 · data <span class="pole">&nbsp;</span></span></div>
+</article><article class="cel">
+  <div class="cel-h"><span class="nr">V.3</span>
+    <span class="def"><b>Wskaźnik</b> Rozpoznaje, że ktoś chce pomóc, a ktoś inny przeszkodzić.</span></div>
+  <p class="strat">krok mentalizacji: odczytanie cudzego zamiaru wobec siebie · pozycja karty: 3</p>
+  <p class="cel-t"><b>Cel SMART</b>Dziecko rozpozna, czy druga osoba chce pomóc, czy przeszkodzić, i odpowie zgodnie z tym zamiarem, w ……… z 5 sytuacjach, w ciągu ……… tygodni.</p>
+  <div class="smart"><div><i>S</i>Nazywa zamiar kolegi i odpowiada przyjęciem albo odmową.</div><div><i>M</i>……… z 5 sytuacji z pięciu obserwowanych w tygodniu.</div><div><i>A</i>Karty zamiarów i odpowiedzi są w kąciku.</div><div><i>R</i>Reakcja na ruch zamiast na zamiar rodzi konflikty bez powodu.</div><div><i>T</i>Weryfikacja po ……… tygodniach, według wyniku komponentu.</div></div>
+  <div class="obs"><span><b>Obserwacja</b> Arkusz obserwacji — kolumna: wspólne zadanie, zabawa w parach. Notujemy odczyt zamiaru i reakcję. · 5 sytuacji w tygodniu</span>
+    <span class="wynik">wynik <span class="pole">&nbsp;</span>/5 · data <span class="pole">&nbsp;</span></span></div>
+</article><article class="cel">
+  <div class="cel-h"><span class="nr">V.4</span>
+    <span class="def"><b>Wskaźnik</b> Reaguje na potrzeby innych — pociesza, dzieli się, pomaga.</span></div>
+  <p class="strat">krok mentalizacji: działanie odpowiadające na rozpoznaną cudzą potrzebę · pozycja karty: 4</p>
+  <p class="cel-t"><b>Cel SMART</b>Dziecko zareaguje na potrzebę kolegi działaniem dopasowanym do tej potrzeby, w ……… z 5 sytuacjach, w ciągu ……… tygodni.</p>
+  <div class="smart"><div><i>S</i>Wybiera i wykonuje jeden z trzech rodzajów pomocy.</div><div><i>M</i>……… z 5 sytuacji z pięciu obserwowanych w tygodniu.</div><div><i>A</i>Karta rodzajów pomocy wisi nisko, przedmioty są w zasięgu.</div><div><i>R</i>Cała wcześniejsza praca zamienia się tu w czyn wobec kolegi.</div><div><i>T</i>Weryfikacja po ……… tygodniach, według wyniku komponentu.</div></div>
+  <div class="obs"><span><b>Obserwacja</b> Arkusz obserwacji — kolumna: sytuacja potrzeby w grupie. Notujemy rodzaj pomocy i jej trafność. · 5 sytuacji w tygodniu</span>
+    <span class="wynik">wynik <span class="pole">&nbsp;</span>/5 · data <span class="pole">&nbsp;</span></span></div>
+</article><article class="cel">
+  <div class="cel-h"><span class="nr">V.5</span>
+    <span class="def"><b>Wskaźnik</b> Uwzględnia, co czuje lub chce drugie dziecko, przy rozwiązaniu sporu.</span></div>
+  <p class="strat">krok mentalizacji: propozycja rozwiązania mieszcząca obie strony · pozycja karty: 5</p>
+  <p class="cel-t"><b>Cel SMART</b>Dziecko zaproponuje albo przyjmie rozwiązanie sporu uwzględniające to, czego chce druga strona, w ……… z 5 sytuacjach, w ciągu ……… tygodni.</p>
+  <div class="smart"><div><i>S</i>Nazywa cudzą chęć i proponuje albo przyjmuje rozwiązanie.</div><div><i>M</i>……… z 5 sytuacji z pięciu obserwowanych w tygodniu.</div><div><i>A</i>Karta trzech kroków i klepsydra są w kąciku rozmów.</div><div><i>R</i>Rozwiązanie uwzględniające obie strony wytrzymuje dłużej niż wyrok dorosłego.</div><div><i>T</i>Weryfikacja po ……… tygodniach, według wyniku komponentu.</div></div>
+  <div class="obs"><span><b>Obserwacja</b> Arkusz obserwacji — kolumna: spór z rówieśnikiem. Notujemy nazwanie cudzej chęci i rozwiązanie. · 5 sporów w tygodniu</span>
+    <span class="wynik">wynik <span class="pole">&nbsp;</span>/5 · data <span class="pole">&nbsp;</span></span></div>
+</article>
+</div>
+<div class="stopka"><span>EduPlaner 2026 · PCTP · pedagog specjalny <b>mgr Mirosława Ewa Jurczyszyn</b></span><span>Strona 6 z 7 · komponent V · ukryte emocje i intencje w kontaktach</span></div>
+</section>
+<section class="strona">
+<div class="head"><span class="mark" role="img" aria-label="Logo PCTP"></span>
+  <div><h1>EduPlaner 2026</h1><div class="sub">Teoria umysłu · ewaluacja</div></div>
+  <div class="prawa"><b>ToM · WOPF</b><span>narzędzie · druk TOM-C</span></div></div>
+<div class="kreska"></div>
+<div class="metryka">
+  <div><span>Dotyczy dziecka</span><b>&nbsp;</b></div>
+  <div><span>Grupa</span><b>&nbsp;</b></div>
+  <div><span>Data</span><b>&nbsp;</b> r.</div></div>
+<div class="tresc">
+  <div class="pas">Ewaluacja — postęp wg komponentów (0–10 pkt)</div>
+  <div class="wstep">Minimum trzy pomiary: start (pierwsza obserwacja) · połowa okresu · koniec.
+    Horyzont każdego komponentu bierze się z jego pasma — komponent priorytetowy sprawdzamy
+    po 4 tygodniach, wymagający wsparcia po 8, zasób po 12. <b>Wzrost punktów nie jest jedynym
+    wynikiem</b>: równie ważne jest to, na jakim poziomie wsparcia dziecko wykonuje krok
+    mentalizacji — przejście z Poziomu III na II jest postępem także bez zmiany punktacji.</div>
+  <table><thead><tr><th>Komponent</th><th>Start</th><th>Połowa okresu</th><th>Koniec</th>
+    <th>Analiza zmiany</th></tr></thead><tbody><tr><td>I · Rozpoznawanie i nazywanie emocji</td><td class="pkt">&nbsp;</td><td class="pkt">&nbsp;</td><td class="pkt">&nbsp;</td><td>&nbsp;</td></tr><tr><td>II · Różne pragnienia i upodobania</td><td class="pkt">&nbsp;</td><td class="pkt">&nbsp;</td><td class="pkt">&nbsp;</td><td>&nbsp;</td></tr><tr><td>III · Zabawa „na niby” i udawanie</td><td class="pkt">&nbsp;</td><td class="pkt">&nbsp;</td><td class="pkt">&nbsp;</td><td>&nbsp;</td></tr><tr><td>IV · Różne przekonania i fałszywe przekonanie</td><td class="pkt">&nbsp;</td><td class="pkt">&nbsp;</td><td class="pkt">&nbsp;</td><td>&nbsp;</td></tr><tr><td>V · Ukryte emocje i intencje w kontaktach</td><td class="pkt">&nbsp;</td><td class="pkt">&nbsp;</td><td class="pkt">&nbsp;</td><td>&nbsp;</td></tr></tbody></table>
+  <div class="dwie" style="margin-top:12px">
+    <div class="karta-info"><h3>Wnioski z ewaluacji</h3>
+      <div style="min-height:70px;border-bottom:1.5px dotted #b7add6"></div></div>
+    <div class="karta-info"><h3>Decyzja — kontynuacja / modyfikacja planu pracy</h3>
+      <div style="min-height:70px;border-bottom:1.5px dotted #b7add6"></div></div>
+  </div>
+  <div class="dwie" style="margin-top:12px">
+    <div class="karta-info"><h3>Prowadzący obserwację · data i podpis</h3>
+      <div style="min-height:46px;border-bottom:1.5px dotted #b7add6"></div></div>
+    <div class="karta-info"><h3>Terapeuta SI / rodzic · data i podpis</h3>
+      <div style="min-height:46px;border-bottom:1.5px dotted #b7add6"></div></div>
+  </div>
+  <div class="uwagi">Narzędzie obserwacyjne oparte na elementach Skali Teorii Umysłu Wellmana i Liu (Wellman &amp; Liu, 2004) — sekwencji rozwojowej: różne pragnienia → różne przekonania → dostęp do wiedzy → fałszywe przekonanie → ukryte emocje — oraz na klasycznych zadaniach fałszywego przekonania: Sally-Anne (Baron-Cohen, Leslie, Frith 1985) i niespodziewanej zawartości (Perner, Leekam, Wimmer 1987). Konstrukt: Premack i Woodruff, 1978. Nie zastępuje diagnozy specjalistycznej.<br><br>
+    Rozp. MEN z 14.02.2017 r. w sprawie podstawy programowej wychowania przedszkolnego (Dz.U. 2017 poz. 356, ze zm.) — emocjonalny i społeczny obszar rozwoju.<br>Rozp. MEN z 9.08.2017 r. w sprawie pomocy psychologiczno-pedagogicznej (Dz.U. 2017 poz. 1591).<br>Rozp. MEN z 9.08.2017 r. w sprawie kształcenia specjalnego (Dz.U. 2017 poz. 1578) — przy autyzmie, w tym zespole Aspergera, zajęcia rozwijające kompetencje społeczne są obowiązkowe.</div>
+</div>
+<div class="stopka"><span>EduPlaner 2026 · PCTP · pedagog specjalny <b>mgr Mirosława Ewa Jurczyszyn</b></span><span>Strona 7 z 7 · ewaluacja</span></div>
+</section>
+</body>
+</html>

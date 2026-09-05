@@ -1,0 +1,1239 @@
+{
+  "dokument": "EduPlaner 2026 · materiały A4 do wycięcia przy konspektach teorii umysłu",
+  "opis": "Etykiety kart widzi DZIECKO — pisane są prostym językiem. Opisy pod polami i wstęp czyta dorosły. Symbole pochodzą z biblioteki banku KPOF: ten sam obrazek musi być tu, na tablicy AAC i w planie dnia.",
+  "biblioteka_symboli": {
+    "katalog": "eduplaner_przedszkole/assets/symbole",
+    "przypisanych": 175,
+    "z_obrazkiem": 154,
+    "pol_celowo_pustych": 21,
+    "uwaga": "Pole puste = miejsce na własny symbol dziecka z jego tablicy AAC."
+  },
+  "liczba_arkuszy": 25,
+  "arkusze": [
+    {
+      "wskaznik": "I.1",
+      "tytul": "Karty do zajęć „Cztery buźki”",
+      "wstep_dla_doroslego": "Wytnij karty i naklej na karton. W puste pola wklej symbole z biblioteki EduPlaner — te same, których dziecko używa na tablicy AAC i w planie dnia.",
+      "karty": [
+        {
+          "etykieta_dla_dziecka": "Radość",
+          "opis_dla_doroslego": "karta emocji — do tablicy emocji i do zabawy",
+          "symbol": "emocja_radosc",
+          "plik_symbolu": "eduplaner_przedszkole/assets/symbole/k_emocja_radosc.jpg"
+        },
+        {
+          "etykieta_dla_dziecka": "Złość",
+          "opis_dla_doroslego": "karta emocji — do tablicy emocji i do zabawy",
+          "symbol": "emocja_zlosc",
+          "plik_symbolu": "eduplaner_przedszkole/assets/symbole/k_emocja_zlosc.jpg"
+        },
+        {
+          "etykieta_dla_dziecka": "Smutek",
+          "opis_dla_doroslego": "karta emocji — pole na fotografię smutnej twarzy",
+          "symbol": null,
+          "plik_symbolu": null
+        },
+        {
+          "etykieta_dla_dziecka": "Spokój",
+          "opis_dla_doroslego": "karta emocji — stan, do którego wracamy po złości",
+          "symbol": "emocja_spokoj",
+          "plik_symbolu": "eduplaner_przedszkole/assets/symbole/k_emocja_spokoj.jpg"
+        }
+      ],
+      "pasek_kolejnosci": [
+        {
+          "etykieta_dla_dziecka": "1 · patrzę",
+          "symbol": "gest_slucham",
+          "plik_symbolu": "eduplaner_przedszkole/assets/symbole/k_gest_slucham.jpg"
+        },
+        {
+          "etykieta_dla_dziecka": "2 · nazywam",
+          "symbol": "gest_mowie",
+          "plik_symbolu": "eduplaner_przedszkole/assets/symbole/k_gest_mowie.jpg"
+        },
+        {
+          "etykieta_dla_dziecka": "3 · pokazuję minę",
+          "symbol": "emocja_radosc",
+          "plik_symbolu": "eduplaner_przedszkole/assets/symbole/k_emocja_radosc.jpg"
+        }
+      ],
+      "format": "A4 pionowo, karton 200 g"
+    },
+    {
+      "wskaznik": "I.2",
+      "tytul": "Karty do zajęć „Twarz mówi”",
+      "wstep_dla_doroslego": "Wytnij karty i ramki na fotografie. Fotografie wklej sam — najlepiej twarze dzieci z waszej grupy, za zgodą rodziców; twarz znajoma czyta się łatwiej niż twarz z internetu.",
+      "karty": [
+        {
+          "etykieta_dla_dziecka": "Radość",
+          "opis_dla_doroslego": "ramka na fotografię twarzy roześmianej",
+          "symbol": "emocja_radosc",
+          "plik_symbolu": "eduplaner_przedszkole/assets/symbole/k_emocja_radosc.jpg"
+        },
+        {
+          "etykieta_dla_dziecka": "Złość",
+          "opis_dla_doroslego": "ramka na fotografię twarzy złej",
+          "symbol": "emocja_zlosc",
+          "plik_symbolu": "eduplaner_przedszkole/assets/symbole/k_emocja_zlosc.jpg"
+        },
+        {
+          "etykieta_dla_dziecka": "Zmęczenie",
+          "opis_dla_doroslego": "ramka na fotografię twarzy zmęczonej",
+          "symbol": "emocja_zmeczenie",
+          "plik_symbolu": "eduplaner_przedszkole/assets/symbole/k_emocja_zmeczenie.jpg"
+        },
+        {
+          "etykieta_dla_dziecka": "Jesteś smutny?",
+          "opis_dla_doroslego": "karta z pytaniem sprawdzającym odczyt",
+          "symbol": "gest_mowie",
+          "plik_symbolu": "eduplaner_przedszkole/assets/symbole/k_gest_mowie.jpg"
+        }
+      ],
+      "pasek_kolejnosci": [
+        {
+          "etykieta_dla_dziecka": "1 · patrzę na twarz",
+          "symbol": "gest_slucham",
+          "plik_symbolu": "eduplaner_przedszkole/assets/symbole/k_gest_slucham.jpg"
+        },
+        {
+          "etykieta_dla_dziecka": "2 · nazywam",
+          "symbol": "gest_mowie",
+          "plik_symbolu": "eduplaner_przedszkole/assets/symbole/k_gest_mowie.jpg"
+        },
+        {
+          "etykieta_dla_dziecka": "3 · pytam",
+          "symbol": "prosze_pomoc",
+          "plik_symbolu": "eduplaner_przedszkole/assets/symbole/k_prosze_pomoc.jpg"
+        }
+      ],
+      "format": "A4 pionowo, karton 200 g"
+    },
+    {
+      "wskaznik": "I.3",
+      "tytul": "Karty do zajęć „Czuje, bo…”",
+      "wstep_dla_doroslego": "Wytnij kartę ramy zdania i obrazki sytuacji. Ramę zdania zostaw na stałe w kąciku emocji — wraca przy każdym konflikcie i przy każdej rozmowie o książce.",
+      "karty": [
+        {
+          "etykieta_dla_dziecka": "Czuje…, bo…",
+          "opis_dla_doroslego": "rama zdania — do stałego użytku w kąciku emocji",
+          "symbol": "gest_mowie",
+          "plik_symbolu": "eduplaner_przedszkole/assets/symbole/k_gest_mowie.jpg"
+        },
+        {
+          "etykieta_dla_dziecka": "Smutek",
+          "opis_dla_doroslego": "karta emocji do dopasowania do sytuacji",
+          "symbol": null,
+          "plik_symbolu": null
+        },
+        {
+          "etykieta_dla_dziecka": "Pomagam",
+          "opis_dla_doroslego": "karta propozycji pomocy po nazwaniu przyczyny",
+          "symbol": "prosze_pomoc",
+          "plik_symbolu": "eduplaner_przedszkole/assets/symbole/k_prosze_pomoc.jpg"
+        },
+        {
+          "etykieta_dla_dziecka": "Pytam kolegę",
+          "opis_dla_doroslego": "karta sprawdzenia przypuszczenia",
+          "symbol": "gest_slucham",
+          "plik_symbolu": "eduplaner_przedszkole/assets/symbole/k_gest_slucham.jpg"
+        }
+      ],
+      "pasek_kolejnosci": [
+        {
+          "etykieta_dla_dziecka": "1 · co czuje",
+          "symbol": "emocja_zlosc",
+          "plik_symbolu": "eduplaner_przedszkole/assets/symbole/k_emocja_zlosc.jpg"
+        },
+        {
+          "etykieta_dla_dziecka": "2 · dlaczego",
+          "symbol": "gest_mowie",
+          "plik_symbolu": "eduplaner_przedszkole/assets/symbole/k_gest_mowie.jpg"
+        },
+        {
+          "etykieta_dla_dziecka": "3 · co pomoże",
+          "symbol": "prosze_pomoc",
+          "plik_symbolu": "eduplaner_przedszkole/assets/symbole/k_prosze_pomoc.jpg"
+        }
+      ],
+      "format": "A4 pionowo, karton 200 g"
+    },
+    {
+      "wskaznik": "I.4",
+      "tytul": "Termometr emocji i karty potrzeb",
+      "wstep_dla_doroslego": "Wytnij termometr, klamerkę i karty potrzeb. Karty potrzeb powieś obok termometru — zgłoszenie emocji bez możliwości poproszenia o pomoc zatrzymuje się w połowie drogi.",
+      "karty": [
+        {
+          "etykieta_dla_dziecka": "Jak się dziś czuję",
+          "opis_dla_doroslego": "nagłówek termometru emocji",
+          "symbol": "sygnal_ciala",
+          "plik_symbolu": "eduplaner_przedszkole/assets/symbole/k_sygnal_ciala.jpg"
+        },
+        {
+          "etykieta_dla_dziecka": "Potrzebuję przerwy",
+          "opis_dla_doroslego": "karta potrzeby — do kącika wyciszenia",
+          "symbol": "strategia_przerwa",
+          "plik_symbolu": "eduplaner_przedszkole/assets/symbole/k_strategia_przerwa.jpg"
+        },
+        {
+          "etykieta_dla_dziecka": "Potrzebuję przytulenia",
+          "opis_dla_doroslego": "karta potrzeby — pole na własny symbol",
+          "symbol": null,
+          "plik_symbolu": null
+        },
+        {
+          "etykieta_dla_dziecka": "Potrzebuję ruchu",
+          "opis_dla_doroslego": "karta potrzeby — ruch przed powrotem do zabawy",
+          "symbol": "prosze_ruch",
+          "plik_symbolu": "eduplaner_przedszkole/assets/symbole/k_prosze_ruch.jpg"
+        }
+      ],
+      "pasek_kolejnosci": [
+        {
+          "etykieta_dla_dziecka": "1 · sprawdzam siebie",
+          "symbol": "sygnal_ciala",
+          "plik_symbolu": "eduplaner_przedszkole/assets/symbole/k_sygnal_ciala.jpg"
+        },
+        {
+          "etykieta_dla_dziecka": "2 · nazywam",
+          "symbol": "gest_mowie",
+          "plik_symbolu": "eduplaner_przedszkole/assets/symbole/k_gest_mowie.jpg"
+        },
+        {
+          "etykieta_dla_dziecka": "3 · proszę",
+          "symbol": "prosze_pomoc",
+          "plik_symbolu": "eduplaner_przedszkole/assets/symbole/k_prosze_pomoc.jpg"
+        }
+      ],
+      "format": "A4 pionowo, karton 200 g"
+    },
+    {
+      "wskaznik": "I.5",
+      "tytul": "Karty do zajęć „Widzę, że ci smutno”",
+      "wstep_dla_doroslego": "Wytnij kartę sposobów pomocy i karty potrzeb. Powieś je nisko — w sytuacji, w której są potrzebne, dziecko nie podniesie wzroku wysoko.",
+      "karty": [
+        {
+          "etykieta_dla_dziecka": "Pomagam",
+          "opis_dla_doroslego": "karta trzech sposobów pomocy koledze",
+          "symbol": "prosze_pomoc",
+          "plik_symbolu": "eduplaner_przedszkole/assets/symbole/k_prosze_pomoc.jpg"
+        },
+        {
+          "etykieta_dla_dziecka": "Usiądź ze mną",
+          "opis_dla_doroslego": "karta potrzeby kolegi — pole na własny symbol",
+          "symbol": null,
+          "plik_symbolu": null
+        },
+        {
+          "etykieta_dla_dziecka": "Zawołam dorosłego",
+          "opis_dla_doroslego": "trzeci sposób pomocy, zawsze dostępny",
+          "symbol": "gest_mowie",
+          "plik_symbolu": "eduplaner_przedszkole/assets/symbole/k_gest_mowie.jpg"
+        },
+        {
+          "etykieta_dla_dziecka": "Dziękuję",
+          "opis_dla_doroslego": "karta na tablicę podziękowań",
+          "symbol": "gest_dziekuje",
+          "plik_symbolu": "eduplaner_przedszkole/assets/symbole/k_gest_dziekuje.jpg"
+        }
+      ],
+      "pasek_kolejnosci": [
+        {
+          "etykieta_dla_dziecka": "1 · widzę",
+          "symbol": "gest_slucham",
+          "plik_symbolu": "eduplaner_przedszkole/assets/symbole/k_gest_slucham.jpg"
+        },
+        {
+          "etykieta_dla_dziecka": "2 · pytam",
+          "symbol": "gest_mowie",
+          "plik_symbolu": "eduplaner_przedszkole/assets/symbole/k_gest_mowie.jpg"
+        },
+        {
+          "etykieta_dla_dziecka": "3 · pomagam",
+          "symbol": "prosze_pomoc",
+          "plik_symbolu": "eduplaner_przedszkole/assets/symbole/k_prosze_pomoc.jpg"
+        }
+      ],
+      "format": "A4 pionowo, karton 200 g"
+    },
+    {
+      "wskaznik": "II.1",
+      "tytul": "Tablica „co kto lubi” — karty do wycięcia",
+      "wstep_dla_doroslego": "Wytnij ramki na zdjęcia dzieci i karty upodobań. Buduj tablicę razem z grupą — wpisy zrobione za dzieci przestają być prawdziwe po tygodniu.",
+      "karty": [
+        {
+          "etykieta_dla_dziecka": "Ja lubię",
+          "opis_dla_doroslego": "ramka na zdjęcie dziecka i jego ulubione rzeczy",
+          "symbol": null,
+          "plik_symbolu": null
+        },
+        {
+          "etykieta_dla_dziecka": "Klocki",
+          "opis_dla_doroslego": "karta upodobania do tablicy",
+          "symbol": "zabawa_klocki",
+          "plik_symbolu": "eduplaner_przedszkole/assets/symbole/k_zabawa_klocki.jpg"
+        },
+        {
+          "etykieta_dla_dziecka": "Książki",
+          "opis_dla_doroslego": "karta upodobania do tablicy",
+          "symbol": "zabawa_ksiazki",
+          "plik_symbolu": "eduplaner_przedszkole/assets/symbole/k_zabawa_ksiazki.jpg"
+        },
+        {
+          "etykieta_dla_dziecka": "Rysowanie",
+          "opis_dla_doroslego": "karta upodobania do tablicy",
+          "symbol": "zabawa_rysowanie",
+          "plik_symbolu": "eduplaner_przedszkole/assets/symbole/k_zabawa_rysowanie.jpg"
+        }
+      ],
+      "pasek_kolejnosci": [
+        {
+          "etykieta_dla_dziecka": "1 · co ja lubię",
+          "symbol": "zabawa_ukladanka",
+          "plik_symbolu": "eduplaner_przedszkole/assets/symbole/k_zabawa_ukladanka.jpg"
+        },
+        {
+          "etykieta_dla_dziecka": "2 · co on lubi",
+          "symbol": "gest_slucham",
+          "plik_symbolu": "eduplaner_przedszkole/assets/symbole/k_gest_slucham.jpg"
+        },
+        {
+          "etykieta_dla_dziecka": "3 · bawimy się",
+          "symbol": "dzien_zabawa",
+          "plik_symbolu": "eduplaner_przedszkole/assets/symbole/k_dzien_zabawa.jpg"
+        }
+      ],
+      "format": "A4 pionowo, karton 200 g"
+    },
+    {
+      "wskaznik": "II.2",
+      "tytul": "Karty do zajęć „Po co sięgnie kolega”",
+      "wstep_dla_doroslego": "Wytnij kartoniki prognoz i kartę ramy zdania. Kartoniki drukuj w dwóch kolorach: jeden na mój wybór, drugi na wybór kolegi — różnica ma być widoczna od razu.",
+      "karty": [
+        {
+          "etykieta_dla_dziecka": "Mój wybór",
+          "opis_dla_doroslego": "kartonik prognozy własnej",
+          "symbol": "zabawa_ukladanka",
+          "plik_symbolu": "eduplaner_przedszkole/assets/symbole/k_zabawa_ukladanka.jpg"
+        },
+        {
+          "etykieta_dla_dziecka": "Wybór kolegi",
+          "opis_dla_doroslego": "kartonik prognozy dla drugiej osoby",
+          "symbol": "gest_slucham",
+          "plik_symbolu": "eduplaner_przedszkole/assets/symbole/k_gest_slucham.jpg"
+        },
+        {
+          "etykieta_dla_dziecka": "Wybierze…, bo lubi…",
+          "opis_dla_doroslego": "rama zdania z uzasadnieniem",
+          "symbol": "gest_mowie",
+          "plik_symbolu": "eduplaner_przedszkole/assets/symbole/k_gest_mowie.jpg"
+        },
+        {
+          "etykieta_dla_dziecka": "Sprawdzam",
+          "opis_dla_doroslego": "karta sprawdzenia prognozy u kolegi",
+          "symbol": "prosze_pomoc",
+          "plik_symbolu": "eduplaner_przedszkole/assets/symbole/k_prosze_pomoc.jpg"
+        }
+      ],
+      "pasek_kolejnosci": [
+        {
+          "etykieta_dla_dziecka": "1 · zgaduję",
+          "symbol": "gest_mowie",
+          "plik_symbolu": "eduplaner_przedszkole/assets/symbole/k_gest_mowie.jpg"
+        },
+        {
+          "etykieta_dla_dziecka": "2 · sprawdzam",
+          "symbol": "gest_slucham",
+          "plik_symbolu": "eduplaner_przedszkole/assets/symbole/k_gest_slucham.jpg"
+        },
+        {
+          "etykieta_dla_dziecka": "3 · wiem",
+          "symbol": "gest_brawo",
+          "plik_symbolu": "eduplaner_przedszkole/assets/symbole/k_gest_brawo.jpg"
+        }
+      ],
+      "format": "A4 pionowo, karton 200 g"
+    },
+    {
+      "wskaznik": "II.3",
+      "tytul": "Karty do zajęć „Dostał, czego chciał”",
+      "wstep_dla_doroslego": "Wytnij karty emocji i ramę zdania. Kartę rozczarowania dołóż do tablicy emocji — to słowo brakuje najczęściej, a bez niego dziecko nazywa wszystko złością.",
+      "karty": [
+        {
+          "etykieta_dla_dziecka": "Cieszę się",
+          "opis_dla_doroslego": "karta emocji po spełnionym pragnieniu",
+          "symbol": "emocja_radosc",
+          "plik_symbolu": "eduplaner_przedszkole/assets/symbole/k_emocja_radosc.jpg"
+        },
+        {
+          "etykieta_dla_dziecka": "Rozczarowanie",
+          "opis_dla_doroslego": "karta emocji po niespełnionym pragnieniu — pole na własny symbol",
+          "symbol": null,
+          "plik_symbolu": null
+        },
+        {
+          "etykieta_dla_dziecka": "Będzie mu…, bo…",
+          "opis_dla_doroslego": "rama zdania do przewidywania emocji",
+          "symbol": "gest_mowie",
+          "plik_symbolu": "eduplaner_przedszkole/assets/symbole/k_gest_mowie.jpg"
+        },
+        {
+          "etykieta_dla_dziecka": "Dzielimy się",
+          "opis_dla_doroslego": "karta sytuacji podziału zabawek",
+          "symbol": "umiem_pomagam",
+          "plik_symbolu": "eduplaner_przedszkole/assets/symbole/k_umiem_pomagam.jpg"
+        }
+      ],
+      "pasek_kolejnosci": [
+        {
+          "etykieta_dla_dziecka": "1 · czego chce",
+          "symbol": "gest_slucham",
+          "plik_symbolu": "eduplaner_przedszkole/assets/symbole/k_gest_slucham.jpg"
+        },
+        {
+          "etykieta_dla_dziecka": "2 · co dostał",
+          "symbol": "polecenie_daj",
+          "plik_symbolu": "eduplaner_przedszkole/assets/symbole/k_polecenie_daj.jpg"
+        },
+        {
+          "etykieta_dla_dziecka": "3 · co czuje",
+          "symbol": "emocja_radosc",
+          "plik_symbolu": "eduplaner_przedszkole/assets/symbole/k_emocja_radosc.jpg"
+        }
+      ],
+      "format": "A4 pionowo, karton 200 g"
+    },
+    {
+      "wskaznik": "II.4",
+      "tytul": "Karty do zajęć „Bawimy się w to, co lubisz”",
+      "wstep_dla_doroslego": "Wytnij karty zabaw dostępnych w twojej sali — te, które naprawdę stoją na półkach. Karta zabawy, której nie ma, kończy uzgodnienie rozczarowaniem.",
+      "karty": [
+        {
+          "etykieta_dla_dziecka": "Klocki",
+          "opis_dla_doroslego": "karta zabawy do uzgadniania",
+          "symbol": "zabawa_klocki",
+          "plik_symbolu": "eduplaner_przedszkole/assets/symbole/k_zabawa_klocki.jpg"
+        },
+        {
+          "etykieta_dla_dziecka": "Auta",
+          "opis_dla_doroslego": "karta zabawy do uzgadniania",
+          "symbol": "zabawa_auta",
+          "plik_symbolu": "eduplaner_przedszkole/assets/symbole/k_zabawa_auta.jpg"
+        },
+        {
+          "etykieta_dla_dziecka": "A co ty lubisz?",
+          "opis_dla_doroslego": "karta pytania do kolegi",
+          "symbol": "gest_mowie",
+          "plik_symbolu": "eduplaner_przedszkole/assets/symbole/k_gest_mowie.jpg"
+        },
+        {
+          "etykieta_dla_dziecka": "Najpierw ty, potem ja",
+          "opis_dla_doroslego": "karta podziału czasu zabawy",
+          "symbol": "gest_czekam",
+          "plik_symbolu": "eduplaner_przedszkole/assets/symbole/k_gest_czekam.jpg"
+        }
+      ],
+      "pasek_kolejnosci": [
+        {
+          "etykieta_dla_dziecka": "1 · pytam",
+          "symbol": "gest_mowie",
+          "plik_symbolu": "eduplaner_przedszkole/assets/symbole/k_gest_mowie.jpg"
+        },
+        {
+          "etykieta_dla_dziecka": "2 · wybieramy",
+          "symbol": "zabawa_klocki",
+          "plik_symbolu": "eduplaner_przedszkole/assets/symbole/k_zabawa_klocki.jpg"
+        },
+        {
+          "etykieta_dla_dziecka": "3 · bawimy się",
+          "symbol": "dzien_zabawa",
+          "plik_symbolu": "eduplaner_przedszkole/assets/symbole/k_dzien_zabawa.jpg"
+        }
+      ],
+      "format": "A4 pionowo, karton 200 g"
+    },
+    {
+      "wskaznik": "II.5",
+      "tytul": "Karty do zajęć „A co ty lubisz?”",
+      "wstep_dla_doroslego": "Wytnij karty pytań i etykiety do pudełka skarbów. Kartę pytania powieś w kąciku zabawy, nie przy stoliku — pytanie potrzebne jest tam, gdzie zaczyna się zabawa.",
+      "karty": [
+        {
+          "etykieta_dla_dziecka": "A co ty lubisz?",
+          "opis_dla_doroslego": "karta pytania do kolegi",
+          "symbol": "gest_mowie",
+          "plik_symbolu": "eduplaner_przedszkole/assets/symbole/k_gest_mowie.jpg"
+        },
+        {
+          "etykieta_dla_dziecka": "Ja lubię",
+          "opis_dla_doroslego": "karta wypowiedzi o sobie",
+          "symbol": "umiem_pomagam",
+          "plik_symbolu": "eduplaner_przedszkole/assets/symbole/k_umiem_pomagam.jpg"
+        },
+        {
+          "etykieta_dla_dziecka": "Słucham",
+          "opis_dla_doroslego": "karta przypominająca o wysłuchaniu odpowiedzi",
+          "symbol": "gest_slucham",
+          "plik_symbolu": "eduplaner_przedszkole/assets/symbole/k_gest_slucham.jpg"
+        },
+        {
+          "etykieta_dla_dziecka": "A dlaczego?",
+          "opis_dla_doroslego": "karta dopytania — pole na własny symbol",
+          "symbol": null,
+          "plik_symbolu": null
+        }
+      ],
+      "pasek_kolejnosci": [
+        {
+          "etykieta_dla_dziecka": "1 · mówię o sobie",
+          "symbol": "umiem_pomagam",
+          "plik_symbolu": "eduplaner_przedszkole/assets/symbole/k_umiem_pomagam.jpg"
+        },
+        {
+          "etykieta_dla_dziecka": "2 · pytam",
+          "symbol": "gest_mowie",
+          "plik_symbolu": "eduplaner_przedszkole/assets/symbole/k_gest_mowie.jpg"
+        },
+        {
+          "etykieta_dla_dziecka": "3 · słucham",
+          "symbol": "gest_slucham",
+          "plik_symbolu": "eduplaner_przedszkole/assets/symbole/k_gest_slucham.jpg"
+        }
+      ],
+      "format": "A4 pionowo, karton 200 g"
+    },
+    {
+      "wskaznik": "III.1",
+      "tytul": "Karty do zajęć „Klocek jest telefonem”",
+      "wstep_dla_doroslego": "Wytnij karty czynności do odgrywania gestem i etykiety kosza. Karty czynności dobierz do tego, co dziecko zna z domu i z sali — udawanie działa na czynnościach przeżytych, nie wyobrażonych.",
+      "karty": [
+        {
+          "etykieta_dla_dziecka": "Na niby",
+          "opis_dla_doroslego": "karta oznaczająca zabawę w udawanie",
+          "symbol": "dzien_zabawa",
+          "plik_symbolu": "eduplaner_przedszkole/assets/symbole/k_dzien_zabawa.jpg"
+        },
+        {
+          "etykieta_dla_dziecka": "Jem",
+          "opis_dla_doroslego": "karta czynności do odegrania gestem",
+          "symbol": "dzien_obiad",
+          "plik_symbolu": "eduplaner_przedszkole/assets/symbole/k_dzien_obiad.jpg"
+        },
+        {
+          "etykieta_dla_dziecka": "Dzwonię",
+          "opis_dla_doroslego": "karta czynności do odegrania gestem — pole na własny symbol",
+          "symbol": null,
+          "plik_symbolu": null
+        },
+        {
+          "etykieta_dla_dziecka": "Śpię",
+          "opis_dla_doroslego": "karta czynności do odegrania gestem",
+          "symbol": "prosze_odpoczynek",
+          "plik_symbolu": "eduplaner_przedszkole/assets/symbole/k_prosze_odpoczynek.jpg"
+        }
+      ],
+      "pasek_kolejnosci": [
+        {
+          "etykieta_dla_dziecka": "1 · biorę",
+          "symbol": "polecenie_wez",
+          "plik_symbolu": "eduplaner_przedszkole/assets/symbole/k_polecenie_wez.jpg"
+        },
+        {
+          "etykieta_dla_dziecka": "2 · udaję",
+          "symbol": "dzien_zabawa",
+          "plik_symbolu": "eduplaner_przedszkole/assets/symbole/k_dzien_zabawa.jpg"
+        },
+        {
+          "etykieta_dla_dziecka": "3 · bawimy się",
+          "symbol": "zabawa_klocki",
+          "plik_symbolu": "eduplaner_przedszkole/assets/symbole/k_zabawa_klocki.jpg"
+        }
+      ],
+      "format": "A4 pionowo, karton 200 g"
+    },
+    {
+      "wskaznik": "III.2",
+      "tytul": "Karty do zajęć „Jestem lekarzem”",
+      "wstep_dla_doroslego": "Wytnij karty ról i wzory zdań. Wzory zdań powieś w kąciku na wysokości oczu dzieci — dziecko sięga po nie w środku zabawy, nie przed nią.",
+      "karty": [
+        {
+          "etykieta_dla_dziecka": "Lekarz",
+          "opis_dla_doroslego": "karta roli — do kącika tematycznego",
+          "symbol": null,
+          "plik_symbolu": null
+        },
+        {
+          "etykieta_dla_dziecka": "Sklep",
+          "opis_dla_doroslego": "karta roli — do kącika tematycznego",
+          "symbol": "dzien_zajecia",
+          "plik_symbolu": "eduplaner_przedszkole/assets/symbole/k_dzien_zajecia.jpg"
+        },
+        {
+          "etykieta_dla_dziecka": "Zamiana ról",
+          "opis_dla_doroslego": "karta sygnału zamiany",
+          "symbol": "sensor_zamiana",
+          "plik_symbolu": "eduplaner_przedszkole/assets/symbole/k_sensor_zamiana.jpg"
+        },
+        {
+          "etykieta_dla_dziecka": "Koniec zabawy",
+          "opis_dla_doroslego": "karta zakończenia i zdjęcia rekwizytu",
+          "symbol": "plan_zmiana",
+          "plik_symbolu": "eduplaner_przedszkole/assets/symbole/k_plan_zmiana.jpg"
+        }
+      ],
+      "pasek_kolejnosci": [
+        {
+          "etykieta_dla_dziecka": "1 · zakładam rekwizyt",
+          "symbol": "polecenie_wez",
+          "plik_symbolu": "eduplaner_przedszkole/assets/symbole/k_polecenie_wez.jpg"
+        },
+        {
+          "etykieta_dla_dziecka": "2 · gram rolę",
+          "symbol": "dzien_zabawa",
+          "plik_symbolu": "eduplaner_przedszkole/assets/symbole/k_dzien_zabawa.jpg"
+        },
+        {
+          "etykieta_dla_dziecka": "3 · kończę",
+          "symbol": "plan_zmiana",
+          "plik_symbolu": "eduplaner_przedszkole/assets/symbole/k_plan_zmiana.jpg"
+        }
+      ],
+      "format": "A4 pionowo, karton 200 g"
+    },
+    {
+      "wskaznik": "III.3",
+      "tytul": "Karty do zajęć „Można się przyłączyć?”",
+      "wstep_dla_doroslego": "Wytnij trzy karty kroków dołączania i powieś je w kąciku zabawy. Kolejność kroków jest tu ważniejsza niż same słowa — dziecko ma widzieć, że patrzenie jest pierwsze.",
+      "karty": [
+        {
+          "etykieta_dla_dziecka": "Patrzę",
+          "opis_dla_doroslego": "krok pierwszy — obserwacja zabawy",
+          "symbol": "gest_slucham",
+          "plik_symbolu": "eduplaner_przedszkole/assets/symbole/k_gest_slucham.jpg"
+        },
+        {
+          "etykieta_dla_dziecka": "Robię tak samo",
+          "opis_dla_doroslego": "krok drugi — powtórzenie czynności grupy",
+          "symbol": "zabawa_klocki",
+          "plik_symbolu": "eduplaner_przedszkole/assets/symbole/k_zabawa_klocki.jpg"
+        },
+        {
+          "etykieta_dla_dziecka": "Mogę się przyłączyć?",
+          "opis_dla_doroslego": "krok trzeci — prośba o przyjęcie",
+          "symbol": "gest_mowie",
+          "plik_symbolu": "eduplaner_przedszkole/assets/symbole/k_gest_mowie.jpg"
+        },
+        {
+          "etykieta_dla_dziecka": "Spróbuję jeszcze raz",
+          "opis_dla_doroslego": "karta drugiej próby po odmowie",
+          "symbol": "gest_czekam",
+          "plik_symbolu": "eduplaner_przedszkole/assets/symbole/k_gest_czekam.jpg"
+        }
+      ],
+      "pasek_kolejnosci": [
+        {
+          "etykieta_dla_dziecka": "1 · patrzę",
+          "symbol": "gest_slucham",
+          "plik_symbolu": "eduplaner_przedszkole/assets/symbole/k_gest_slucham.jpg"
+        },
+        {
+          "etykieta_dla_dziecka": "2 · robię tak samo",
+          "symbol": "zabawa_klocki",
+          "plik_symbolu": "eduplaner_przedszkole/assets/symbole/k_zabawa_klocki.jpg"
+        },
+        {
+          "etykieta_dla_dziecka": "3 · pytam",
+          "symbol": "gest_mowie",
+          "plik_symbolu": "eduplaner_przedszkole/assets/symbole/k_gest_mowie.jpg"
+        }
+      ],
+      "format": "A4 pionowo, karton 200 g"
+    },
+    {
+      "wskaznik": "III.4",
+      "tytul": "Karty do zajęć „Na niby czy naprawdę”",
+      "wstep_dla_doroslego": "Wytnij trzy karty ram i pary obrazków. Kartę „żart” dokładaj dopiero u sześciolatków — wcześniej trzecia rama miesza się z dwiema pierwszymi.",
+      "karty": [
+        {
+          "etykieta_dla_dziecka": "Na niby",
+          "opis_dla_doroslego": "karta ramy zabawy",
+          "symbol": "dzien_zabawa",
+          "plik_symbolu": "eduplaner_przedszkole/assets/symbole/k_dzien_zabawa.jpg"
+        },
+        {
+          "etykieta_dla_dziecka": "Naprawdę",
+          "opis_dla_doroslego": "karta rzeczywistości — pole na własny symbol",
+          "symbol": null,
+          "plik_symbolu": null
+        },
+        {
+          "etykieta_dla_dziecka": "Żart",
+          "opis_dla_doroslego": "karta trzeciej ramy — dla sześciolatków",
+          "symbol": "emocja_radosc",
+          "plik_symbolu": "eduplaner_przedszkole/assets/symbole/k_emocja_radosc.jpg"
+        },
+        {
+          "etykieta_dla_dziecka": "Koniec zabawy",
+          "opis_dla_doroslego": "karta zamykająca ramę udawania",
+          "symbol": "plan_zmiana",
+          "plik_symbolu": "eduplaner_przedszkole/assets/symbole/k_plan_zmiana.jpg"
+        }
+      ],
+      "pasek_kolejnosci": [
+        {
+          "etykieta_dla_dziecka": "1 · zaczynamy",
+          "symbol": "dzien_zabawa",
+          "plik_symbolu": "eduplaner_przedszkole/assets/symbole/k_dzien_zabawa.jpg"
+        },
+        {
+          "etykieta_dla_dziecka": "2 · na niby",
+          "symbol": "gest_mowie",
+          "plik_symbolu": "eduplaner_przedszkole/assets/symbole/k_gest_mowie.jpg"
+        },
+        {
+          "etykieta_dla_dziecka": "3 · koniec",
+          "symbol": "plan_zmiana",
+          "plik_symbolu": "eduplaner_przedszkole/assets/symbole/k_plan_zmiana.jpg"
+        }
+      ],
+      "format": "A4 pionowo, karton 200 g"
+    },
+    {
+      "wskaznik": "III.5",
+      "tytul": "Listwa scenariusza i karta trzech pomysłów",
+      "wstep_dla_doroslego": "Wytnij listwę i obrazki czynności. Obrazki dobierz do waszych kącików — scenariusz z obrazkiem, którego nie da się odegrać w sali, kończy się rozczarowaniem.",
+      "karty": [
+        {
+          "etykieta_dla_dziecka": "Najpierw",
+          "opis_dla_doroslego": "pierwsze pole listwy scenariusza",
+          "symbol": "polecenie_wez",
+          "plik_symbolu": "eduplaner_przedszkole/assets/symbole/k_polecenie_wez.jpg"
+        },
+        {
+          "etykieta_dla_dziecka": "Potem",
+          "opis_dla_doroslego": "drugie pole listwy scenariusza",
+          "symbol": "plan_zmiana",
+          "plik_symbolu": "eduplaner_przedszkole/assets/symbole/k_plan_zmiana.jpg"
+        },
+        {
+          "etykieta_dla_dziecka": "Na końcu",
+          "opis_dla_doroslego": "trzecie pole listwy scenariusza",
+          "symbol": "gest_brawo",
+          "plik_symbolu": "eduplaner_przedszkole/assets/symbole/k_gest_brawo.jpg"
+        },
+        {
+          "etykieta_dla_dziecka": "Nasz pomysł",
+          "opis_dla_doroslego": "karta uzgodnienia dwóch pomysłów — pole na własny symbol",
+          "symbol": null,
+          "plik_symbolu": null
+        }
+      ],
+      "pasek_kolejnosci": [
+        {
+          "etykieta_dla_dziecka": "1 · planujemy",
+          "symbol": "zabawa_ukladanka",
+          "plik_symbolu": "eduplaner_przedszkole/assets/symbole/k_zabawa_ukladanka.jpg"
+        },
+        {
+          "etykieta_dla_dziecka": "2 · bawimy się",
+          "symbol": "dzien_zabawa",
+          "plik_symbolu": "eduplaner_przedszkole/assets/symbole/k_dzien_zabawa.jpg"
+        },
+        {
+          "etykieta_dla_dziecka": "3 · kończymy",
+          "symbol": "plan_zmiana",
+          "plik_symbolu": "eduplaner_przedszkole/assets/symbole/k_plan_zmiana.jpg"
+        }
+      ],
+      "format": "A4 pionowo, karton 200 g"
+    },
+    {
+      "wskaznik": "IV.1",
+      "tytul": "Chmurki myśli — karty do wycięcia",
+      "wstep_dla_doroslego": "Wytnij dwie chmurki myśli i kartoniki opinii. Chmurki zostaw w kąciku — wracają przy każdym sporze i przy każdej rozmowie o książce.",
+      "karty": [
+        {
+          "etykieta_dla_dziecka": "Ja myślę",
+          "opis_dla_doroslego": "chmurka myśli dziecka",
+          "symbol": "gest_mowie",
+          "plik_symbolu": "eduplaner_przedszkole/assets/symbole/k_gest_mowie.jpg"
+        },
+        {
+          "etykieta_dla_dziecka": "On myśli",
+          "opis_dla_doroslego": "chmurka myśli drugiej osoby — pole na własny symbol",
+          "symbol": null,
+          "plik_symbolu": null
+        },
+        {
+          "etykieta_dla_dziecka": "Lubię",
+          "opis_dla_doroslego": "kartonik opinii do chmurki",
+          "symbol": "emocja_radosc",
+          "plik_symbolu": "eduplaner_przedszkole/assets/symbole/k_emocja_radosc.jpg"
+        },
+        {
+          "etykieta_dla_dziecka": "Nie lubię",
+          "opis_dla_doroslego": "kartonik opinii do chmurki",
+          "symbol": "emocja_zlosc",
+          "plik_symbolu": "eduplaner_przedszkole/assets/symbole/k_emocja_zlosc.jpg"
+        }
+      ],
+      "pasek_kolejnosci": [
+        {
+          "etykieta_dla_dziecka": "1 · co ja myślę",
+          "symbol": "gest_mowie",
+          "plik_symbolu": "eduplaner_przedszkole/assets/symbole/k_gest_mowie.jpg"
+        },
+        {
+          "etykieta_dla_dziecka": "2 · co on myśli",
+          "symbol": "gest_slucham",
+          "plik_symbolu": "eduplaner_przedszkole/assets/symbole/k_gest_slucham.jpg"
+        },
+        {
+          "etykieta_dla_dziecka": "3 · pytam go",
+          "symbol": "prosze_pomoc",
+          "plik_symbolu": "eduplaner_przedszkole/assets/symbole/k_prosze_pomoc.jpg"
+        }
+      ],
+      "format": "A4 pionowo, karton 200 g"
+    },
+    {
+      "wskaznik": "IV.2",
+      "tytul": "Karty do zajęć „Kto nie widział, ten nie wie”",
+      "wstep_dla_doroslego": "Wytnij karty „wie” i „nie wie” oraz opaskę dla pacynki. Karty zostaw przy kąciku — wracają w zadaniach IV.3 i IV.4 jako gotowe narzędzie.",
+      "karty": [
+        {
+          "etykieta_dla_dziecka": "Wie",
+          "opis_dla_doroslego": "karta osoby, która widziała",
+          "symbol": "gest_slucham",
+          "plik_symbolu": "eduplaner_przedszkole/assets/symbole/k_gest_slucham.jpg"
+        },
+        {
+          "etykieta_dla_dziecka": "Nie wie",
+          "opis_dla_doroslego": "karta osoby, która nie widziała — pole na własny symbol",
+          "symbol": null,
+          "plik_symbolu": null
+        },
+        {
+          "etykieta_dla_dziecka": "Wyszedł",
+          "opis_dla_doroslego": "karta oznaczająca brak dostępu do zdarzenia",
+          "symbol": "dzien_powrot",
+          "plik_symbolu": "eduplaner_przedszkole/assets/symbole/k_dzien_powrot.jpg"
+        },
+        {
+          "etykieta_dla_dziecka": "Opowiadam",
+          "opis_dla_doroslego": "karta wyrównania wiedzy przez opowiedzenie",
+          "symbol": "gest_mowie",
+          "plik_symbolu": "eduplaner_przedszkole/assets/symbole/k_gest_mowie.jpg"
+        }
+      ],
+      "pasek_kolejnosci": [
+        {
+          "etykieta_dla_dziecka": "1 · kto widział",
+          "symbol": "gest_slucham",
+          "plik_symbolu": "eduplaner_przedszkole/assets/symbole/k_gest_slucham.jpg"
+        },
+        {
+          "etykieta_dla_dziecka": "2 · kto wie",
+          "symbol": "zabawa_ukladanka",
+          "plik_symbolu": "eduplaner_przedszkole/assets/symbole/k_zabawa_ukladanka.jpg"
+        },
+        {
+          "etykieta_dla_dziecka": "3 · opowiadam",
+          "symbol": "gest_mowie",
+          "plik_symbolu": "eduplaner_przedszkole/assets/symbole/k_gest_mowie.jpg"
+        }
+      ],
+      "format": "A4 pionowo, karton 200 g"
+    },
+    {
+      "wskaznik": "IV.3",
+      "tytul": "Karty do zajęć „Co jest w pudełku”",
+      "wstep_dla_doroslego": "Wytnij karty „myślałem” i „jest” oraz ramę zdania. Zbieraj puste pudełka po produktach, które dzieci znają — obrazek na pudełku jest tu połową zadania.",
+      "karty": [
+        {
+          "etykieta_dla_dziecka": "Myślałem",
+          "opis_dla_doroslego": "karta wcześniejszego przekonania",
+          "symbol": "gest_mowie",
+          "plik_symbolu": "eduplaner_przedszkole/assets/symbole/k_gest_mowie.jpg"
+        },
+        {
+          "etykieta_dla_dziecka": "A jest",
+          "opis_dla_doroslego": "karta prawdziwej zawartości",
+          "symbol": "zabawa_ukladanka",
+          "plik_symbolu": "eduplaner_przedszkole/assets/symbole/k_zabawa_ukladanka.jpg"
+        },
+        {
+          "etykieta_dla_dziecka": "On pomyśli…",
+          "opis_dla_doroslego": "karta przewidywania cudzego przekonania — pole na własny symbol",
+          "symbol": null,
+          "plik_symbolu": null
+        },
+        {
+          "etykieta_dla_dziecka": "Bo widzi tylko pudełko",
+          "opis_dla_doroslego": "karta uzasadnienia",
+          "symbol": "gest_slucham",
+          "plik_symbolu": "eduplaner_przedszkole/assets/symbole/k_gest_slucham.jpg"
+        }
+      ],
+      "pasek_kolejnosci": [
+        {
+          "etykieta_dla_dziecka": "1 · patrzę na pudełko",
+          "symbol": "gest_slucham",
+          "plik_symbolu": "eduplaner_przedszkole/assets/symbole/k_gest_slucham.jpg"
+        },
+        {
+          "etykieta_dla_dziecka": "2 · otwieram",
+          "symbol": "polecenie_wez",
+          "plik_symbolu": "eduplaner_przedszkole/assets/symbole/k_polecenie_wez.jpg"
+        },
+        {
+          "etykieta_dla_dziecka": "3 · co pomyśli on",
+          "symbol": "gest_mowie",
+          "plik_symbolu": "eduplaner_przedszkole/assets/symbole/k_gest_mowie.jpg"
+        }
+      ],
+      "format": "A4 pionowo, karton 200 g"
+    },
+    {
+      "wskaznik": "IV.4",
+      "tytul": "Historyjka „Gdzie będzie szukać” — karty do wycięcia",
+      "wstep_dla_doroslego": "Wytnij cztery pola historyjki i kartę uzasadnienia. Historyjkę układaj na stole razem z prawdziwym koszykiem i pudełkiem — obrazek sam nie wystarcza.",
+      "karty": [
+        {
+          "etykieta_dla_dziecka": "Chowa",
+          "opis_dla_doroslego": "pole pierwsze historyjki",
+          "symbol": "polecenie_poloz",
+          "plik_symbolu": "eduplaner_przedszkole/assets/symbole/k_polecenie_poloz.jpg"
+        },
+        {
+          "etykieta_dla_dziecka": "Wychodzi",
+          "opis_dla_doroslego": "pole drugie historyjki",
+          "symbol": "dzien_powrot",
+          "plik_symbolu": "eduplaner_przedszkole/assets/symbole/k_dzien_powrot.jpg"
+        },
+        {
+          "etykieta_dla_dziecka": "Ktoś przekłada",
+          "opis_dla_doroslego": "pole trzecie historyjki — pole na własny symbol",
+          "symbol": null,
+          "plik_symbolu": null
+        },
+        {
+          "etykieta_dla_dziecka": "Wraca i szuka",
+          "opis_dla_doroslego": "pole czwarte historyjki",
+          "symbol": "zabawa_ukladanka",
+          "plik_symbolu": "eduplaner_przedszkole/assets/symbole/k_zabawa_ukladanka.jpg"
+        }
+      ],
+      "pasek_kolejnosci": [
+        {
+          "etykieta_dla_dziecka": "1 · chowa",
+          "symbol": "polecenie_poloz",
+          "plik_symbolu": "eduplaner_przedszkole/assets/symbole/k_polecenie_poloz.jpg"
+        },
+        {
+          "etykieta_dla_dziecka": "2 · wychodzi",
+          "symbol": "dzien_powrot",
+          "plik_symbolu": "eduplaner_przedszkole/assets/symbole/k_dzien_powrot.jpg"
+        },
+        {
+          "etykieta_dla_dziecka": "3 · szuka",
+          "symbol": "zabawa_ukladanka",
+          "plik_symbolu": "eduplaner_przedszkole/assets/symbole/k_zabawa_ukladanka.jpg"
+        }
+      ],
+      "format": "A4 pionowo, karton 200 g"
+    },
+    {
+      "wskaznik": "IV.5",
+      "tytul": "Karty do zajęć „Co zrobi, skoro nie wie”",
+      "wstep_dla_doroslego": "Wytnij karty prognozy i kartę „uprzedzam”. Kartę „uprzedzam” powieś przy drzwiach — tam wracają dzieci, które były poza salą.",
+      "karty": [
+        {
+          "etykieta_dla_dziecka": "On nie wie",
+          "opis_dla_doroslego": "karta braku wiedzy o zmianie",
+          "symbol": "gest_slucham",
+          "plik_symbolu": "eduplaner_przedszkole/assets/symbole/k_gest_slucham.jpg"
+        },
+        {
+          "etykieta_dla_dziecka": "Pójdzie tu",
+          "opis_dla_doroslego": "karta prognozy działania — pole na własny symbol",
+          "symbol": null,
+          "plik_symbolu": null
+        },
+        {
+          "etykieta_dla_dziecka": "Uprzedzam",
+          "opis_dla_doroslego": "karta przekazania informacji koledze",
+          "symbol": "gest_mowie",
+          "plik_symbolu": "eduplaner_przedszkole/assets/symbole/k_gest_mowie.jpg"
+        },
+        {
+          "etykieta_dla_dziecka": "Zmiana w sali",
+          "opis_dla_doroslego": "karta oznaczająca przestawienie przedmiotów",
+          "symbol": "plan_zmiana",
+          "plik_symbolu": "eduplaner_przedszkole/assets/symbole/k_plan_zmiana.jpg"
+        }
+      ],
+      "pasek_kolejnosci": [
+        {
+          "etykieta_dla_dziecka": "1 · zmiana",
+          "symbol": "plan_zmiana",
+          "plik_symbolu": "eduplaner_przedszkole/assets/symbole/k_plan_zmiana.jpg"
+        },
+        {
+          "etykieta_dla_dziecka": "2 · kto nie wie",
+          "symbol": "gest_slucham",
+          "plik_symbolu": "eduplaner_przedszkole/assets/symbole/k_gest_slucham.jpg"
+        },
+        {
+          "etykieta_dla_dziecka": "3 · uprzedzam",
+          "symbol": "gest_mowie",
+          "plik_symbolu": "eduplaner_przedszkole/assets/symbole/k_gest_mowie.jpg"
+        }
+      ],
+      "format": "A4 pionowo, karton 200 g"
+    },
+    {
+      "wskaznik": "V.1",
+      "tytul": "Sylwetka „twarz i serce” — karty do wycięcia",
+      "wstep_dla_doroslego": "Wytnij sylwetkę i dwa komplety kart emocji. Karty na serce zrób większe — różnica wielkości sama pokazuje, że wnętrze bywa mocniejsze niż mina.",
+      "karty": [
+        {
+          "etykieta_dla_dziecka": "Moja mina",
+          "opis_dla_doroslego": "pole na twarz sylwetki",
+          "symbol": "emocja_radosc",
+          "plik_symbolu": "eduplaner_przedszkole/assets/symbole/k_emocja_radosc.jpg"
+        },
+        {
+          "etykieta_dla_dziecka": "W środku",
+          "opis_dla_doroslego": "pole na serce sylwetki — pole na własny symbol",
+          "symbol": null,
+          "plik_symbolu": null
+        },
+        {
+          "etykieta_dla_dziecka": "Nic mi nie jest",
+          "opis_dla_doroslego": "karta zdania, które słyszy się przy ukrytej emocji",
+          "symbol": "gest_mowie",
+          "plik_symbolu": "eduplaner_przedszkole/assets/symbole/k_gest_mowie.jpg"
+        },
+        {
+          "etykieta_dla_dziecka": "Mówię cicho",
+          "opis_dla_doroslego": "karta dyskretnej reakcji na osobności",
+          "symbol": "prosze_cisza",
+          "plik_symbolu": "eduplaner_przedszkole/assets/symbole/k_prosze_cisza.jpg"
+        }
+      ],
+      "pasek_kolejnosci": [
+        {
+          "etykieta_dla_dziecka": "1 · patrzę na minę",
+          "symbol": "gest_slucham",
+          "plik_symbolu": "eduplaner_przedszkole/assets/symbole/k_gest_slucham.jpg"
+        },
+        {
+          "etykieta_dla_dziecka": "2 · myślę o środku",
+          "symbol": "sygnal_ciala",
+          "plik_symbolu": "eduplaner_przedszkole/assets/symbole/k_sygnal_ciala.jpg"
+        },
+        {
+          "etykieta_dla_dziecka": "3 · mówię cicho",
+          "symbol": "prosze_cisza",
+          "plik_symbolu": "eduplaner_przedszkole/assets/symbole/k_prosze_cisza.jpg"
+        }
+      ],
+      "format": "A4 pionowo, karton 200 g"
+    },
+    {
+      "wskaznik": "V.2",
+      "tytul": "Karty do zajęć „Chciał czy niechcący”",
+      "wstep_dla_doroslego": "Wytnij karty intencji i karty reakcji. Powieś je w kąciku rozmów — tam, gdzie idziecie po sporze, a nie w miejscu, w którym spór się wydarzył.",
+      "karty": [
+        {
+          "etykieta_dla_dziecka": "Chciał",
+          "opis_dla_doroslego": "karta intencji celowej — pole na własny symbol",
+          "symbol": null,
+          "plik_symbolu": null
+        },
+        {
+          "etykieta_dla_dziecka": "Niechcący",
+          "opis_dla_doroslego": "karta intencji przypadkowej",
+          "symbol": "gest_stop",
+          "plik_symbolu": "eduplaner_przedszkole/assets/symbole/k_gest_stop.jpg"
+        },
+        {
+          "etykieta_dla_dziecka": "Przepraszam",
+          "opis_dla_doroslego": "karta przeprosin — używana po ochłonięciu",
+          "symbol": "gest_dziekuje",
+          "plik_symbolu": "eduplaner_przedszkole/assets/symbole/k_gest_dziekuje.jpg"
+        },
+        {
+          "etykieta_dla_dziecka": "Wracam do zabawy",
+          "opis_dla_doroslego": "karta domknięcia sporu",
+          "symbol": "dzien_zabawa",
+          "plik_symbolu": "eduplaner_przedszkole/assets/symbole/k_dzien_zabawa.jpg"
+        }
+      ],
+      "pasek_kolejnosci": [
+        {
+          "etykieta_dla_dziecka": "1 · ochłonę",
+          "symbol": "strategia_oddech",
+          "plik_symbolu": "eduplaner_przedszkole/assets/symbole/k_strategia_oddech.jpg"
+        },
+        {
+          "etykieta_dla_dziecka": "2 · myślę o intencji",
+          "symbol": "gest_mowie",
+          "plik_symbolu": "eduplaner_przedszkole/assets/symbole/k_gest_mowie.jpg"
+        },
+        {
+          "etykieta_dla_dziecka": "3 · wracam",
+          "symbol": "dzien_zabawa",
+          "plik_symbolu": "eduplaner_przedszkole/assets/symbole/k_dzien_zabawa.jpg"
+        }
+      ],
+      "format": "A4 pionowo, karton 200 g"
+    },
+    {
+      "wskaznik": "V.3",
+      "tytul": "Karty do zajęć „Chce pomóc czy popsuć”",
+      "wstep_dla_doroslego": "Wytnij karty zamiarów i karty odpowiedzi. Kartę odmowy traktuj równie poważnie jak kartę przyjęcia pomocy — obie są tu potrzebne.",
+      "karty": [
+        {
+          "etykieta_dla_dziecka": "Pomaga",
+          "opis_dla_doroslego": "karta zamiaru życzliwego",
+          "symbol": "prosze_pomoc",
+          "plik_symbolu": "eduplaner_przedszkole/assets/symbole/k_prosze_pomoc.jpg"
+        },
+        {
+          "etykieta_dla_dziecka": "Przeszkadza",
+          "opis_dla_doroslego": "karta zamiaru przeszkodzenia — pole na własny symbol",
+          "symbol": null,
+          "plik_symbolu": null
+        },
+        {
+          "etykieta_dla_dziecka": "Dziękuję, pomóż",
+          "opis_dla_doroslego": "karta przyjęcia pomocy",
+          "symbol": "gest_dziekuje",
+          "plik_symbolu": "eduplaner_przedszkole/assets/symbole/k_gest_dziekuje.jpg"
+        },
+        {
+          "etykieta_dla_dziecka": "Poradzę sobie sam",
+          "opis_dla_doroslego": "karta spokojnej odmowy",
+          "symbol": "gest_stop",
+          "plik_symbolu": "eduplaner_przedszkole/assets/symbole/k_gest_stop.jpg"
+        }
+      ],
+      "pasek_kolejnosci": [
+        {
+          "etykieta_dla_dziecka": "1 · patrzę",
+          "symbol": "gest_slucham",
+          "plik_symbolu": "eduplaner_przedszkole/assets/symbole/k_gest_slucham.jpg"
+        },
+        {
+          "etykieta_dla_dziecka": "2 · rozpoznaję",
+          "symbol": "gest_mowie",
+          "plik_symbolu": "eduplaner_przedszkole/assets/symbole/k_gest_mowie.jpg"
+        },
+        {
+          "etykieta_dla_dziecka": "3 · odpowiadam",
+          "symbol": "gest_dziekuje",
+          "plik_symbolu": "eduplaner_przedszkole/assets/symbole/k_gest_dziekuje.jpg"
+        }
+      ],
+      "format": "A4 pionowo, karton 200 g"
+    },
+    {
+      "wskaznik": "V.4",
+      "tytul": "Karty do zajęć „Co mu teraz potrzebne”",
+      "wstep_dla_doroslego": "Wytnij kartę trzech rodzajów pomocy i tablicę podziękowań. Tablicę wieszaj nisko i wpisuj na nią czyny, nie cechy dzieci.",
+      "karty": [
+        {
+          "etykieta_dla_dziecka": "Podaję",
+          "opis_dla_doroslego": "pomoc przedmiotem",
+          "symbol": "polecenie_daj",
+          "plik_symbolu": "eduplaner_przedszkole/assets/symbole/k_polecenie_daj.jpg"
+        },
+        {
+          "etykieta_dla_dziecka": "Siadam obok",
+          "opis_dla_doroslego": "pomoc obecnością — pole na własny symbol",
+          "symbol": null,
+          "plik_symbolu": null
+        },
+        {
+          "etykieta_dla_dziecka": "Wołam dorosłego",
+          "opis_dla_doroslego": "pomoc przez zawołanie osoby dorosłej",
+          "symbol": "prosze_pomoc",
+          "plik_symbolu": "eduplaner_przedszkole/assets/symbole/k_prosze_pomoc.jpg"
+        },
+        {
+          "etykieta_dla_dziecka": "Pomogło ci?",
+          "opis_dla_doroslego": "karta sprawdzenia trafności pomocy",
+          "symbol": "gest_mowie",
+          "plik_symbolu": "eduplaner_przedszkole/assets/symbole/k_gest_mowie.jpg"
+        }
+      ],
+      "pasek_kolejnosci": [
+        {
+          "etykieta_dla_dziecka": "1 · widzę potrzebę",
+          "symbol": "gest_slucham",
+          "plik_symbolu": "eduplaner_przedszkole/assets/symbole/k_gest_slucham.jpg"
+        },
+        {
+          "etykieta_dla_dziecka": "2 · pomagam",
+          "symbol": "umiem_pomagam",
+          "plik_symbolu": "eduplaner_przedszkole/assets/symbole/k_umiem_pomagam.jpg"
+        },
+        {
+          "etykieta_dla_dziecka": "3 · sprawdzam",
+          "symbol": "gest_mowie",
+          "plik_symbolu": "eduplaner_przedszkole/assets/symbole/k_gest_mowie.jpg"
+        }
+      ],
+      "format": "A4 pionowo, karton 200 g"
+    },
+    {
+      "wskaznik": "V.5",
+      "tytul": "Trzy kroki sporu — karta do wycięcia",
+      "wstep_dla_doroslego": "Wytnij kartę trzech kroków i karty kolejności. Powieś je w kąciku rozmów, na wysokości oczu dzieci — kącik ma być inny niż miejsce, w którym spór wybuchł.",
+      "karty": [
+        {
+          "etykieta_dla_dziecka": "Co czuję",
+          "opis_dla_doroslego": "krok pierwszy — nazwanie własnej emocji",
+          "symbol": "sygnal_ciala",
+          "plik_symbolu": "eduplaner_przedszkole/assets/symbole/k_sygnal_ciala.jpg"
+        },
+        {
+          "etykieta_dla_dziecka": "Czego chce on",
+          "opis_dla_doroslego": "krok drugi — nazwanie cudzej chęci",
+          "symbol": "gest_slucham",
+          "plik_symbolu": "eduplaner_przedszkole/assets/symbole/k_gest_slucham.jpg"
+        },
+        {
+          "etykieta_dla_dziecka": "Co robimy",
+          "opis_dla_doroslego": "krok trzeci — rozwiązanie mieszczące oboje — pole na własny symbol",
+          "symbol": null,
+          "plik_symbolu": null
+        },
+        {
+          "etykieta_dla_dziecka": "Teraz ty, potem ja",
+          "opis_dla_doroslego": "karta podziału czasu z klepsydrą",
+          "symbol": "gest_czekam",
+          "plik_symbolu": "eduplaner_przedszkole/assets/symbole/k_gest_czekam.jpg"
+        }
+      ],
+      "pasek_kolejnosci": [
+        {
+          "etykieta_dla_dziecka": "1 · ochłonę",
+          "symbol": "strategia_oddech",
+          "plik_symbolu": "eduplaner_przedszkole/assets/symbole/k_strategia_oddech.jpg"
+        },
+        {
+          "etykieta_dla_dziecka": "2 · rozmawiamy",
+          "symbol": "gest_mowie",
+          "plik_symbolu": "eduplaner_przedszkole/assets/symbole/k_gest_mowie.jpg"
+        },
+        {
+          "etykieta_dla_dziecka": "3 · wracamy do zabawy",
+          "symbol": "dzien_zabawa",
+          "plik_symbolu": "eduplaner_przedszkole/assets/symbole/k_dzien_zabawa.jpg"
+        }
+      ],
+      "format": "A4 pionowo, karton 200 g"
+    }
+  ]
+}

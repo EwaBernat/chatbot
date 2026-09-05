@@ -135,3 +135,34 @@ python3 03_kod_zrodlowy/nagrania_glos.py --generuj   # 63 nagrania głosem autor
 Szczegóły dla programisty: `eduplaner_sens/CZYTAJ_TO_NAJPIERW_programista.md`.
 Cel z tego banku opisuje **strategię sensoryczną** dziecka — „nie będzie zatykał uszu"
 nie jest celem, „założy słuchawki, zanim hałas go przeciąży" jest.
+
+---
+
+## 🧠 Moduł `eduplaner_tom` — bank celów SMART do teorii umysłu (ToM)
+
+W `eduplaner_tom/` znajduje się bank celów SMART do **karty obserwacji teorii umysłu**
+(EduPlaner 2026, PCTP Koszalin), zbudowany **według tego samego wzoru co moduł ABC/FBA
+i bank sensoryczny**.
+
+**225 celów SMART** — 25 wskaźników (5 komponentów × 5 pozycji karty, `I.1`…`V.5`) × 3 wersje
+wiekowe × 3 poziomy wsparcia · 25 celów do obserwacji pogłębionej · 75 konspektów zajęć (KC-3) ·
+25 pomocy dydaktycznych · 75 poleceń dla dziecka z nagraniami głosem autorki ·
+25 arkuszy A4 do wycięcia.
+
+Druk **TOM-T** to jedna tabela wszystkich celów; kliknięcie w cel otwiera konspekt zajęć
+z wyróżnionym tym poziomem, a cel edukacyjny konspekt czyta **na żywo z komórki tabeli**.
+Druk **TOM-C** rozpisuje pięć wyników komponentów na 25 celów szczegółowych, z normą
+rozwojową obok wyniku.
+
+```bash
+cd eduplaner_tom
+python3 03_kod_zrodlowy/eksport_json.py        # sześć plików JSON do wpięcia
+python3 03_kod_zrodlowy/build_tabela.py        # druk TOM-T (tabela + 75 konspektów)
+python3 03_kod_zrodlowy/build_cele_tom.py      # druk TOM-C (cele do obserwacji)
+python3 03_kod_zrodlowy/nagrania_glos.py --generuj   # 75 nagrań głosem autorki
+```
+
+Szczegóły dla programisty: `eduplaner_tom/CZYTAJ_TO_NAJPIERW_programista.md`.
+Cel z tego banku opisuje **krok mentalizacji, który widać** — „zrozumie, że inni myślą
+inaczej" nie jest celem, „wskaże koszyk, w którym Ala będzie szukać piłki" jest.
+Uwaga: w tej karcie **im wyżej, tym lepiej** — priorytetem jest komponent z niskim wynikiem.
