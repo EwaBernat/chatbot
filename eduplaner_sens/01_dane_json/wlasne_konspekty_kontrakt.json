@@ -1,0 +1,67 @@
+{
+  "modul": {
+    "nazwa": "Profil sensoryczny — bank celów SMART (przedszkole)",
+    "kod": "SENS",
+    "wersja": "2026.1",
+    "autorka": "mgr Mirosława Ewa Jurczyszyn, pedagog specjalny, PCTP Koszalin",
+    "aplikacja": "EduPlaner 2026",
+    "druk_zrodlowy": "Profil sensoryczny (przedszkole) 2026 — obserwacja pogłębiona WOPF · SI",
+    "podstawa_merytoryczna": "Narzędzie obserwacyjne oparte na elementach Profilu Sensorycznego Winnie Dunn (Sensory Profile 2 — model czterech wzorców przetwarzania sensorycznego) oraz na teorii integracji sensorycznej A. Jean Ayres. Nie zastępuje diagnozy SI.",
+    "podstawa_prawna": [
+      "Rozp. MEN z 14.02.2017 r. w sprawie podstawy programowej wychowania przedszkolnego (Dz.U. 2017 poz. 356, ze zm.) — fizyczny obszar rozwoju.",
+      "Rozp. MEN z 9.08.2017 r. w sprawie pomocy psychologiczno-pedagogicznej (Dz.U. 2017 poz. 1591).",
+      "Rozp. MEN z 9.08.2017 r. w sprawie kształcenia specjalnego (Dz.U. 2017 poz. 1578) — zajęcia rewalidacyjne dla dzieci z orzeczeniem."
+    ],
+    "zasada_modulu": "Cel z tego banku opisuje STRATEGIĘ SENSORYCZNĄ dziecka — co dziecko ROBI, żeby poradzić sobie z bodźcem — a nie zanik objawu. „Nie będzie zatykał uszu” nie jest celem z tego modułu. „Założy słuchawki wygłuszające, zanim hałas w szatni go przeciąży” — jest. Każdy wskaźnik niesie pole `strategia_sensoryczna`; cel bez niego traci sens terapeutyczny."
+  },
+  "opis": "Kształt rekordu, w którym nauczycielka zapisuje własny scenariusz. Aplikacja przechowuje go obok konspektów autorskich i wyświetla w tej samej tabeli.",
+  "kontrakt": {
+    "id": "string — nadawany przez aplikację, prefiks WK-",
+    "autor": "string — imię i nazwisko nauczyciela",
+    "data_utworzenia": "string ISO 8601 (RRRR-MM-DD)",
+    "wskaznik_id": "string — jeden z 21 identyfikatorów SENS-01…SENS-21",
+    "poziom_wsparcia": "string — III | II | I",
+    "wersja_wiekowa": "string — 3-4 | 5 | 6",
+    "temat": "string — do 120 znaków",
+    "cel_edukacyjny_zrodlo": {
+      "plik": "cele_sens_poziomy.json",
+      "cel_id": "string — np. SENS-04-II-5",
+      "pole": "cel",
+      "uwaga": "cel czytany na żywo; nie kopiować treści do rekordu"
+    },
+    "czas_trwania_min": "int — 15…60",
+    "forma": "string",
+    "metody": "array[string]",
+    "pomoce": {
+      "pomoc_glowna_id": "string | null",
+      "wlasne": "array[string]"
+    },
+    "przebieg": {
+      "wprowadzenie": {
+        "czas_min": "int",
+        "czynnosci": "string",
+        "polecenie_dla_dziecka": "string — krótkie zdania, bez trudnych słów"
+      },
+      "czesc_glowna": {
+        "czas_min": "int",
+        "czynnosci": "string"
+      },
+      "zakonczenie": {
+        "czas_min": "int",
+        "czynnosci": "string"
+      }
+    },
+    "ewaluacja": {
+      "co_liczymy": "string",
+      "kryterium": "string — np. 4 z 5"
+    },
+    "bezpieczenstwo": "string | null",
+    "zalaczniki": "array[string] — ścieżki względem 04_media/"
+  },
+  "walidacja": [
+    "wskaznik_id musi istnieć w cele_sens_poziomy.json",
+    "cel_edukacyjny_zrodlo.cel_id musi zgadzać się z wskaznik_id, poziomem i wersją wiekową",
+    "polecenie_dla_dziecka: maksymalnie 12 słów w zdaniu, bez terminów fachowych",
+    "pole bezpieczenstwo wymagane, gdy wskaźnik dotyczy propriocepcji lub równowagi"
+  ]
+}

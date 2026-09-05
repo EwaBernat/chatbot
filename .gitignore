@@ -173,3 +173,12 @@ node_modules/
 *.wav
 *.m4a
 konfiguracja.json
+
+# EduPlaner — moduł profilu sensorycznego
+# dokumenty z nazwiskiem dziecka to dane osobowe
+eduplaner_sens/02_gotowe_dokumenty/uczen_*
+# nagrania to sklonowany głos autorki (dana biometryczna); zdjęcia i arkusze PDF odtwarza kod
+eduplaner_sens/04_media/**/*.mp3
+eduplaner_sens/04_media/**/*.jpg
+eduplaner_sens/04_media/**/*.png
+eduplaner_sens/04_media/**/*.pdf

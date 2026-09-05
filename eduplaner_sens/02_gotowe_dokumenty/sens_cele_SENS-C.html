@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Profil sensoryczny · cele SMART — EduPlaner 2026 · PCTP</title>
+<style>
+:root{
+  --purple:#2D1B69; --purple-soft:#efeaf9; --purple-line:#d9d0f0; --purple-mid:#5a4a94;
+  --orange:#E8450A; --orange-soft:#fdece4; --orange-line:#f3cdbd;
+  --ink:#2b2733; --muted:#6f6a7d; --paper:#fff; --hair:#e4e1ec; --zebra:#faf7f2;
+  --lvl1:#1f8a5b; --lvl1-bg:#eaf6f0; --lvl2:#c8811b; --lvl2-bg:#fbf3e3; --lvl3:#c0392b; --lvl3-bg:#fbebe9;
+}
+*{box-sizing:border-box}
+html,body{margin:0;padding:0}
+body{background:#e9e7ef;color:var(--ink);
+     font-family:'Mulish','Segoe UI',Candara,Arial,sans-serif;-webkit-font-smoothing:antialiased}
+.sheet{width:210mm;min-height:297mm;margin:12px auto;background:var(--paper);
+       padding:9mm 11mm 7mm;box-shadow:0 6px 30px rgba(45,27,105,.16);
+       position:relative;display:flex;flex-direction:column}
+.head{display:flex;align-items:center;justify-content:space-between;gap:14px}
+.brand{display:flex;align-items:center;gap:11px}
+.logo{width:38px;height:38px;border-radius:50%;background:var(--purple);color:#fff;display:flex;
+      align-items:center;justify-content:center;font-size:8.5px;font-weight:700;letter-spacing:.4px;
+      border:2px solid #cfc4ea;flex:0 0 auto}
+.brand h1{font-size:16px;margin:0;color:var(--purple);letter-spacing:.3px;line-height:1.1}
+.brand .sub{font-size:8.5px;color:var(--muted);margin-top:2px;letter-spacing:.5px;
+            text-transform:uppercase;font-weight:700}
+.badge{text-align:right}
+.pill{display:inline-block;background:var(--orange);color:#fff;font-size:10px;font-weight:700;
+      padding:5px 12px;border-radius:20px}
+.pill.p{background:var(--purple)}
+.badge .tag{font-size:8px;color:var(--muted);letter-spacing:.9px;margin-top:4px;text-transform:uppercase}
+.rule{height:3px;border-radius:3px;margin:8px 0 0;
+      background:linear-gradient(90deg,var(--purple) 0%,var(--purple) 55%,var(--orange) 55%,var(--orange) 100%)}
+.student{display:flex;gap:9px;margin-top:9px}
+.field{flex:1;background:var(--purple-soft);border:1px solid var(--purple-line);border-radius:8px;
+       padding:6px 11px;display:flex;align-items:baseline;gap:8px}
+.field .lab{font-size:7.5px;font-weight:700;letter-spacing:.7px;color:var(--purple);text-transform:uppercase}
+.field .val{font-size:11.5px;font-weight:700}
+.field .blank{flex:1;border-bottom:1.5px dotted #b7add6;height:13px}
+.sec{display:flex;align-items:center;gap:9px;margin:13px 0 3px}
+.sec .n{min-width:22px;padding:0 6px;height:22px;border-radius:6px;background:var(--orange);color:#fff;
+        display:flex;align-items:center;justify-content:center;font-weight:700;font-size:12px}
+.sec .n.p{background:var(--purple)}
+.sec h2{font-size:12.5px;letter-spacing:.8px;color:var(--purple);margin:0;text-transform:uppercase}
+.sec .line{flex:1;height:1px;background:var(--hair)}
+.note{font-size:8.5px;color:var(--muted);margin:2px 0 6px 31px;line-height:1.45}
+p{line-height:1.5}
+.tbl{width:100%;border-collapse:collapse;font-size:9px;margin-top:5px}
+.tbl th{background:var(--purple);color:#fff;font-size:7.5px;letter-spacing:.6px;text-transform:uppercase;
+        padding:5px 6px;text-align:left;font-weight:700}
+.tbl td{border-bottom:1px solid var(--hair);padding:5px 6px;vertical-align:top;line-height:1.42}
+.tbl tr:nth-child(even) td{background:var(--zebra)}
+.lvl{display:inline-block;font-size:7.5px;font-weight:700;padding:2px 7px;border-radius:10px;white-space:nowrap}
+.lvl.III{background:var(--lvl3-bg);color:var(--lvl3)}
+.lvl.II{background:var(--lvl2-bg);color:var(--lvl2)}
+.lvl.I{background:var(--lvl1-bg);color:var(--lvl1)}
+.box{background:var(--purple-soft);border:1px solid var(--purple-line);border-radius:9px;
+     padding:8px 11px;font-size:9px;line-height:1.5;margin-top:6px}
+.box.o{background:var(--orange-soft);border-color:var(--orange-line)}
+.box b{color:var(--purple)}
+.blk{font-size:9px;font-weight:700;letter-spacing:.6px;color:var(--purple);text-transform:uppercase;
+     margin:9px 0 3px;display:flex;align-items:center;gap:6px}
+.blk::before{content:"";width:9px;height:9px;border-radius:2px;background:var(--orange)}
+.dziecko{background:#fff8f4;border-left:3px solid var(--orange);padding:5px 9px;font-size:9.5px;
+         border-radius:0 6px 6px 0;margin:3px 0}
+.doroslego{background:#f6f4fb;border-left:3px solid var(--purple-mid);padding:5px 9px;font-size:9px;
+           border-radius:0 6px 6px 0;margin:3px 0}
+.audio{font-size:8px;color:var(--muted);font-family:ui-monospace,Consolas,monospace}
+.foot{margin-top:auto;padding-top:7px;border-top:1px solid var(--hair);display:flex;
+      justify-content:space-between;font-size:8px;color:var(--muted);letter-spacing:.3px}
+.edit{border:1px dashed var(--purple-line);border-radius:6px;padding:5px 8px;min-height:20px;
+      font-size:9px;color:var(--muted);background:#fdfdff}
+.edit:focus{outline:2px solid var(--orange);color:var(--ink)}
+.filtry{position:sticky;top:0;z-index:9;background:var(--purple);color:#fff;padding:8px 14px;
+        display:flex;gap:10px;align-items:center;flex-wrap:wrap;font-size:11px}
+.filtry select{font:inherit;padding:3px 6px;border-radius:6px;border:0}
+.filtry .licz{margin-left:auto;font-weight:700}
+@media print{
+  body{background:#fff}
+  .sheet{box-shadow:none;margin:0;page-break-after:always}
+  .filtry{display:none}
+  @page{size:A4;margin:0}
+}
+</style>
+</head>
+<body>
+
+<div class="sheet">
+<div class="head">
+  <div class="brand"><div class="logo">PCTP</div>
+    <div><h1>EduPlaner 2026</h1><div class="sub">Profil sensoryczny · cele do obserwacji pogłębionej</div></div></div>
+  <div class="badge"><span class="pill">SENS-C</span><div class="tag">WOPF · SI · cele</div></div>
+</div>
+<div class="rule"></div>
+<div class="student"><div class="field"><span class="lab">Dotyczy dziecka</span><span class=blank></span></div><div class="field"><span class="lab">Grupa</span><span class=blank></span></div><div class="field"><span class="lab">Data</span><span class="blank"></span><span class="val">r.</span></div></div>
+<div class="sec"><div class="n p">I</div><h2>O druku</h2><div class="line"></div></div>
+<div class="box"><b>Zasada modułu.</b> Cel z tego banku opisuje STRATEGIĘ SENSORYCZNĄ dziecka — co dziecko ROBI, żeby poradzić sobie z bodźcem — a nie zanik objawu. „Nie będzie zatykał uszu” nie jest celem z tego modułu. „Założy słuchawki wygłuszające, zanim hałas w szatni go przeciąży” — jest. Każdy wskaźnik niesie pole `strategia_sensoryczna`; cel bez niego traci sens terapeutyczny.</div>
+<div class="note">Kryterium i horyzont NIE są stałe. Wynikają z sumy punktów zmysłu (0–24) z druku obserwacji: znajdź pasmo w tabeli `progi` i podstaw `proba` oraz trzy formy gramatyczne horyzontu w miejsce znaczników w polu `cel`. Horyzont jest w trzech formach, bo wchodzi w trzy różne zdania — jedna forma dawała w druku dla rodzica „weryfikacja po 4 tygodni”.</div>
+
+<div class="sec"><div class="n">II</div><h2>Wyniki obserwacji — 7 zmysłów</h2><div class="line"></div></div>
+<table class="tbl"><thead><tr><th style="width:8%">LP.</th><th style="width:24%">Zmysł</th>
+<th style="width:14%">Suma 0–24</th><th style="width:14%">Natężenie 0–10</th><th>Pasmo</th></tr></thead>
+<tbody><tr><td>I</td><td><b>Wzrok</b></td><td>……… / 24</td><td>……… / 10</td><td>………</td></tr><tr><td>II</td><td><b>Słuch</b></td><td>……… / 24</td><td>……… / 10</td><td>………</td></tr><tr><td>III</td><td><b>Dotyk</b></td><td>……… / 24</td><td>……… / 10</td><td>………</td></tr><tr><td>IV</td><td><b>Smak</b></td><td>……… / 24</td><td>……… / 10</td><td>………</td></tr><tr><td>V</td><td><b>Węch</b></td><td>……… / 24</td><td>……… / 10</td><td>………</td></tr><tr><td>VI</td><td><b>Propriocepcja</b></td><td>……… / 24</td><td>……… / 10</td><td>………</td></tr><tr><td>VII</td><td><b>Równowaga</b></td><td>……… / 24</td><td>……… / 10</td><td>………</td></tr></tbody></table>
+
+<div class="sec"><div class="n">III</div><h2>Progi — skąd kryterium i horyzont</h2><div class="line"></div></div>
+<div class="note">natężenie (0–10) = zaokrąglone (suma zmysłu × 10 / 24)</div>
+<table class="tbl"><thead><tr><th style="width:11%">Suma</th><th style="width:11%">Natężenie</th>
+<th style="width:26%">Pasmo</th><th style="width:16%">Kryterium · horyzont</th><th>Decyzja</th></tr></thead>
+<tbody><tr><td><b>0–5</b></td><td>0–2</td><td>modulacja prawidłowa — zasób</td><td><b>3 z 5</b> · 12 tygodni</td><td>cel podtrzymujący; obserwacja bez interwencji</td></tr><tr><td><b>6–12</b></td><td>3–5</td><td>modulacja częściowo zaburzona — monitorowanie</td><td><b>4 z 5</b> · 8 tygodni</td><td>dieta sensoryczna wpisana do planu dnia; weryfikacja w połowie okresu</td></tr><tr><td><b>13–24</b></td><td>6–10</td><td>duża nad- lub podwrażliwość — priorytet diety sensorycznej</td><td><b>4 z 5</b> · 4 tygodnie</td><td>dieta sensoryczna codziennie, konsultacja terapeuty SI, krótki cykl weryfikacji</td></tr></tbody></table>
+
+<div class="sec"><div class="n">IV</div><h2>Podstawa</h2><div class="line"></div></div>
+<div class="box">Narzędzie obserwacyjne oparte na elementach Profilu Sensorycznego Winnie Dunn (Sensory Profile 2 — model czterech wzorców przetwarzania sensorycznego) oraz na teorii integracji sensorycznej A. Jean Ayres. Nie zastępuje diagnozy SI.<br><br>
+Rozp. MEN z 14.02.2017 r. w sprawie podstawy programowej wychowania przedszkolnego (Dz.U. 2017 poz. 356, ze zm.) — fizyczny obszar rozwoju.<br>Rozp. MEN z 9.08.2017 r. w sprawie pomocy psychologiczno-pedagogicznej (Dz.U. 2017 poz. 1591).<br>Rozp. MEN z 9.08.2017 r. w sprawie kształcenia specjalnego (Dz.U. 2017 poz. 1578) — zajęcia rewalidacyjne dla dzieci z orzeczeniem.</div>
+<div class="foot"><span>EduPlaner 2026 · PCTP · pedagog specjalny <b>mgr Mirosława Ewa Jurczyszyn</b></span><span>Strona 1 z 8 · SENS-C · cele do obserwacji</span></div>
+</div>
+<div class="sheet">
+<div class="head">
+  <div class="brand"><div class="logo">PCTP</div>
+    <div><h1>EduPlaner 2026</h1><div class="sub">Cele do obserwacji pogłębionej · Wzrok</div></div></div>
+  <div class="badge"><span class="pill">SENS-C</span><div class="tag">WOPF · SI · cele</div></div>
+</div>
+<div class="rule"></div>
+<div class="student"><div class="field"><span class="lab">Dotyczy dziecka</span><span class=blank></span></div><div class="field"><span class="lab">Grupa</span><span class=blank></span></div><div class="field"><span class="lab">Data</span><span class="blank"></span><span class="val">r.</span></div></div>
+<div class="sec"><div class="n">I</div><h2>Wzrok</h2><div class="line"></div>
+  <span class="lvl I">b210</span></div>
+<div class="box o"><b>Suma zmysłu: ……… / 24</b> · natężenie ……… / 10.<br>Wpisz sumę z druku obserwacji, odczytaj pasmo z tabeli progów na stronie 1 i wpisz kryterium oraz horyzont do celów poniżej.</div>
+<div class="blk">Nadwrażliwość · ↑ za dużo bodźca</div>
+<div class="box"><b>WZR-NAD — Osłona wzrokowa przy jasnym świetle i nadmiarze bodźców</b><br>
+<b>Obserwowane objawy:</b> Mruży oczy, osłania je lub odwraca wzrok przy jasnym świetle, słońcu, migoczących ekranach; Męczy się przy pracy wzrokowej (obrazek, książeczka, układanka) szybciej niż rówieśnicy; Przeszkadza mu ruch i nadmiar bodźców wzrokowych (dekoracje, tłum, wirujące zabawki)<br>
+<b>Strategia sensoryczna:</b> Dziecko samo sięga po osłonę wzrokową (parawan na stoliku, daszek, miejsce tyłem do okna) albo przechodzi do kącika o małej liczbie bodźców — ZANIM zacznie mrużyć oczy i wycofywać się z zadania.<br>
+<b>Sygnał dziecka:</b> karta „ZA JASNO” podana dorosłemu lub położona na blacie</div>
+<div class="dziecko"><b>CEL SMART:</b> Dziecko samo sięga po osłonę wzrokową (parawan na stoliku, daszek, miejsce tyłem do okna) albo przechodzi do kącika o małej liczbie bodźców — ZANIM zacznie mrużyć oczy i wycofywać się z zadania. Kryterium: ……… z 5 obserwowanych sytuacji w ciągu ……… tygodni; weryfikacja po ……… tygodniach.</div>
+<div class="doroslego"><b>Co liczymy:</b> liczba sytuacji, w których dziecko użyło osłony wzrokowej zamiast przerwać zadanie &nbsp;·&nbsp;
+<b>Dieta sensoryczna:</b> krótkie zadania wzrokowe (3–7 minut) przeplatane przerwą z zamkniętymi oczami lub patrzeniem w dal; „kącik małych bodźców” — ściana bez dekoracji, jedna pomoc na blacie; przyciemnienie części sali w porze zajęć przy stoliku<br>
+<b>Dostosowania:</b> miejsce tyłem do okna i z dala od migoczących świateł oraz wirujących zabawek; większe, wyraźne obrazki z dużym odstępem między elementami; usunięcie dekoracji z pola pracy dziecka (ściana i blat) &nbsp;·&nbsp;
+<b>Uwaga:</b> przy skargach na ból oczu, częstym mrużeniu jednego oka lub przybliżaniu twarzy do kartki — skierowanie do okulisty przed pracą sensoryczną</div>
+<div class="edit" contenteditable="true">notatka nauczyciela — kliknij i nadpisz…</div><div class="blk">Podwrażliwość / poszukiwanie bodźców · ↓ za mało bodźca</div>
+<div class="box"><b>WZR-POD — Zaplanowany bodziec wzrokowy zamiast wpatrywania się</b><br>
+<b>Obserwowane objawy:</b> Wpatruje się w źródła światła, wirujące lub błyszczące przedmioty; Przysuwa przedmioty blisko oczu, ogląda je pod kątem; Gubi miejsce na obrazku, pomija szczegóły, „nie widzi” rzeczy przed sobą<br>
+<b>Strategia sensoryczna:</b> Dziecko korzysta z zaplanowanego, mocnego bodźca wzrokowego (butelka sensoryczna, tuba z brokatem, lampka światłowodowa) w wyznaczonym momencie dnia, a w zadaniu prowadzi wzrok palcem lub okienkiem czytelniczym — zamiast szukać bodźca w suficie i lampach.<br>
+<b>Sygnał dziecka:</b> karta „POTRZEBUJĘ ŚWIATEŁEK” wymieniana na 2 minuty przy butelce sensorycznej</div>
+<div class="dziecko"><b>CEL SMART:</b> Dziecko korzysta z zaplanowanego, mocnego bodźca wzrokowego (butelka sensoryczna, tuba z brokatem, lampka światłowodowa) w wyznaczonym momencie dnia, a w zadaniu prowadzi wzrok palcem lub okienkiem czytelniczym — zamiast szukać bodźca w suficie i lampach. Kryterium: ……… z 5 obserwowanych sytuacji w ciągu ……… tygodni; weryfikacja po ……… tygodniach.</div>
+<div class="doroslego"><b>Co liczymy:</b> liczba zadań, w których dziecko użyło prowadzenia wzroku (palec, okienko) i nie zgubiło miejsca &nbsp;·&nbsp;
+<b>Dieta sensoryczna:</b> butelka sensoryczna lub tuba z brokatem dostępna na półce — 2 minuty na sygnał; zabawy „szukaj i pokaż” z kontrastowym obrazkiem (czarno-biały, duże pola); latarka w ciemnym namiocie — kontrolowany, mocny bodziec zamiast wpatrywania się w lampę<br>
+<b>Dostosowania:</b> okienko czytelnicze lub kartka zasłaniająca resztę obrazka; obrazki z wyraźnym konturem i jednym elementem na polu; przypomnienie palcem: „prowadź od lewej” &nbsp;·&nbsp;
+<b>Uwaga:</b> przysuwanie przedmiotów do oczu i pomijanie części obrazka wymaga wykluczenia wady wzroku — kontrola okulistyczna przed interwencją sensoryczną</div>
+<div class="edit" contenteditable="true">notatka nauczyciela — kliknij i nadpisz…</div><div class="blk">Biały szum (reaktywność zmienna) · ↕ raz za dużo, raz za mało</div>
+<div class="box"><b>WZR-SZUM — Codzienne sprawdzanie, jak dziś pracują oczy</b><br>
+<b>Obserwowane objawy:</b> Reakcje na światło i bodźce wzrokowe są zmienne — raz przesadne, raz brak reakcji; Raz dostrzega drobne szczegóły, innym razem nie zauważa rzeczy oczywistych<br>
+<b>Strategia sensoryczna:</b> Dziecko codziennie rano ustawia własny „termometr oczu” (3 pola: dużo światła / średnio / mało) i na tej podstawie razem z nauczycielem wybiera miejsce i pomoc na dany dzień.<br>
+<b>Sygnał dziecka:</b> przestawienie klamerki na termometrze oczu przy porannym powitaniu</div>
+<div class="dziecko"><b>CEL SMART:</b> Dziecko codziennie rano ustawia własny „termometr oczu” (3 pola: dużo światła / średnio / mało) i na tej podstawie razem z nauczycielem wybiera miejsce i pomoc na dany dzień. Kryterium: ……… z 5 obserwowanych sytuacji w ciągu ……… tygodni; weryfikacja po ……… tygodniach.</div>
+<div class="doroslego"><b>Co liczymy:</b> liczba dni, w których dziecko ustawiło termometr przed pierwszym zadaniem &nbsp;·&nbsp;
+<b>Dieta sensoryczna:</b> poranne 30 sekund na ustawienie termometru — stały punkt planu dnia; dwa gotowe miejsca w sali: jasne i przyciemnione — wybór należy do dziecka; krótkie sprawdzenie po obiedzie, czy poziom się zmienił<br>
+<b>Dostosowania:</b> plan dnia z polem na termometr oczu; brak automatycznych dostosowań „na stałe” — decyzja zapada codziennie; notatka w dzienniku obserwacji: poziom i to, co po nim ustalono &nbsp;·&nbsp;
+<b>Uwaga:</b> zmienność reakcji utrzymująca się mimo diety sensorycznej wymaga konsultacji neurologicznej i okulistycznej — może maskować napady nieświadomości</div>
+<div class="edit" contenteditable="true">notatka nauczyciela — kliknij i nadpisz…</div>
+<div class="foot"><span>EduPlaner 2026 · PCTP · pedagog specjalny <b>mgr Mirosława Ewa Jurczyszyn</b></span><span>Strona 2 z 8 · SENS-C · cele do obserwacji</span></div>
+</div>
+<div class="sheet">
+<div class="head">
+  <div class="brand"><div class="logo">PCTP</div>
+    <div><h1>EduPlaner 2026</h1><div class="sub">Cele do obserwacji pogłębionej · Słuch</div></div></div>
+  <div class="badge"><span class="pill">SENS-C</span><div class="tag">WOPF · SI · cele</div></div>
+</div>
+<div class="rule"></div>
+<div class="student"><div class="field"><span class="lab">Dotyczy dziecka</span><span class=blank></span></div><div class="field"><span class="lab">Grupa</span><span class=blank></span></div><div class="field"><span class="lab">Data</span><span class="blank"></span><span class="val">r.</span></div></div>
+<div class="sec"><div class="n">II</div><h2>Słuch</h2><div class="line"></div>
+  <span class="lvl I">b230</span></div>
+<div class="box o"><b>Suma zmysłu: ……… / 24</b> · natężenie ……… / 10.<br>Wpisz sumę z druku obserwacji, odczytaj pasmo z tabeli progów na stronie 1 i wpisz kryterium oraz horyzont do celów poniżej.</div>
+<div class="blk">Nadwrażliwość · ↑ za dużo bodźca</div>
+<div class="box"><b>SLU-NAD — Ochrona słuchu przed hałasem sali i szatni</b><br>
+<b>Obserwowane objawy:</b> Zatyka uszy, płacze lub ucieka przy hałasie (dzwonek, suszarka, gwar sali); Rozprasza się przy dźwiękach, których inni nie zauważają (brzęczenie, tykanie); Reaguje lękiem lub złością na nagłe, głośne dźwięki<br>
+<b>Strategia sensoryczna:</b> Dziecko zakłada słuchawki wygłuszające albo przechodzi do kącika wyciszenia ZANIM hałas je przeciąży — na podstawie zapowiedzi dorosłego („za chwilę szatnia”) lub własnego rozpoznania.<br>
+<b>Sygnał dziecka:</b> karta „ZA GŁOŚNO” albo samodzielne sięgnięcie po słuchawki z wieszaka</div>
+<div class="dziecko"><b>CEL SMART:</b> Dziecko zakłada słuchawki wygłuszające albo przechodzi do kącika wyciszenia ZANIM hałas je przeciąży — na podstawie zapowiedzi dorosłego („za chwilę szatnia”) lub własnego rozpoznania. Kryterium: ……… z 5 obserwowanych sytuacji w ciągu ……… tygodni; weryfikacja po ……… tygodniach.</div>
+<div class="doroslego"><b>Co liczymy:</b> liczba hałaśliwych sytuacji, w których dziecko użyło ochrony słuchu zamiast uciec lub zapłakać &nbsp;·&nbsp;
+<b>Dieta sensoryczna:</b> słuchawki wygłuszające na stałym wieszaku, w zasięgu dziecka — bez proszenia dorosłego; kącik wyciszenia z miękką ścianą i jedną książeczką, dostępny bez pytania; uprzedzanie o głośnych sytuacjach 2 minuty wcześniej, tym samym zdaniem<br>
+<b>Dostosowania:</b> miejsce z dala od dzwonka, suszarki i drzwi do szatni; wyjście do szatni przed resztą grupy lub po niej; sygnał wizualny zamiast dzwonka na zmianę aktywności &nbsp;·&nbsp;
+<b>Uwaga:</b> nadwrażliwość słuchowa z zatykaniem uszu wymaga wykluczenia stanu zapalnego ucha i badania słuchu przed wdrożeniem diety sensorycznej</div>
+<div class="edit" contenteditable="true">notatka nauczyciela — kliknij i nadpisz…</div><div class="blk">Podwrażliwość / poszukiwanie bodźców · ↓ za mało bodźca</div>
+<div class="box"><b>SLU-POD — Reakcja na imię i zaplanowany bodziec dźwiękowy</b><br>
+<b>Obserwowane objawy:</b> Nie reaguje na wołanie po imieniu, choć słuch ma prawidłowy; Samo wytwarza głośne dźwięki (pomrukuje, stuka, trzaska); Potrzebuje głośnych bodźców — przybliża ucho do źródła dźwięku, pogłaśnia<br>
+<b>Strategia sensoryczna:</b> Dziecko korzysta z instrumentu lub „kącika dźwięków” w zaplanowanym momencie dnia, a na wołanie odpowiada po sygnale dotykowo-wzrokowym (dotknięcie ramienia i pokazanie karty), który zastępuje sam głos.<br>
+<b>Sygnał dziecka:</b> podanie karty „CHCĘ DŹWIĘKI” w zamian za 2 minuty z instrumentem</div>
+<div class="dziecko"><b>CEL SMART:</b> Dziecko korzysta z instrumentu lub „kącika dźwięków” w zaplanowanym momencie dnia, a na wołanie odpowiada po sygnale dotykowo-wzrokowym (dotknięcie ramienia i pokazanie karty), który zastępuje sam głos. Kryterium: ……… z 5 obserwowanych sytuacji w ciągu ……… tygodni; weryfikacja po ……… tygodniach.</div>
+<div class="doroslego"><b>Co liczymy:</b> liczba wołań, na które dziecko zareagowało do trzeciego powtórzenia &nbsp;·&nbsp;
+<b>Dieta sensoryczna:</b> „kącik dźwięków”: bębenek, marakas, rura grzmotowa — 2 minuty na sygnał; zabawy rytmiczne z mocnym akcentem przed zadaniem wymagającym słuchania; śpiewane polecenia zamiast mówionych w porach niskiej uwagi<br>
+<b>Dostosowania:</b> wołanie po imieniu zawsze z podejściem na odległość wyciągniętej ręki i kontaktem wzrokowym; polecenie do dziecka po jego imieniu, nie do całej grupy; sprawdzenie zrozumienia gestem, nie pytaniem „rozumiesz?” &nbsp;·&nbsp;
+<b>Uwaga:</b> brak reakcji na imię zawsze wymaga aktualnego badania słuchu (audiometria) — dopiero jego prawidłowy wynik pozwala mówić o podwrażliwości</div>
+<div class="edit" contenteditable="true">notatka nauczyciela — kliknij i nadpisz…</div><div class="blk">Biały szum (reaktywność zmienna) · ↕ raz za dużo, raz za mało</div>
+<div class="box"><b>SLU-SZUM — Sprawdzanie poziomu słuchowego przed zajęciami</b><br>
+<b>Obserwowane objawy:</b> Reakcje na dźwięki są niestałe — ten sam hałas raz przeszkadza, raz pozostaje niezauważony; Raz reaguje na szept, innym razem nie słyszy głośnego wołania<br>
+<b>Strategia sensoryczna:</b> Dziecko przed zajęciami ustawia „radio uszu” (3 pola: cicho / średnio / głośno) i wybiera z niego dzisiejsze dostosowanie: słuchawki, miejsce z brzegu albo brak dodatkowego wsparcia.<br>
+<b>Sygnał dziecka:</b> przestawienie strzałki na tarczy „radio uszu”</div>
+<div class="dziecko"><b>CEL SMART:</b> Dziecko przed zajęciami ustawia „radio uszu” (3 pola: cicho / średnio / głośno) i wybiera z niego dzisiejsze dostosowanie: słuchawki, miejsce z brzegu albo brak dodatkowego wsparcia. Kryterium: ……… z 5 obserwowanych sytuacji w ciągu ……… tygodni; weryfikacja po ……… tygodniach.</div>
+<div class="doroslego"><b>Co liczymy:</b> liczba dni, w których dziecko ustawiło tarczę przed pierwszymi zajęciami &nbsp;·&nbsp;
+<b>Dieta sensoryczna:</b> sprawdzenie poziomu dwa razy dziennie: rano i po odpoczynku; trzy gotowe dostosowania do wyboru, zawsze te same; wpis poziomu do dziennika — po dwóch tygodniach widać wzór dni trudnych<br>
+<b>Dostosowania:</b> brak stałego przypisania dziecku „nadwrażliwości słuchowej” w dokumentacji; polecenia zawsze sprawdzane gestem, niezależnie od poziomu; informacja o poziomie przekazywana wszystkim dorosłym pracującym tego dnia z grupą &nbsp;·&nbsp;
+<b>Uwaga:</b> naprzemienne reagowanie na szept i brak reakcji na głośne wołanie może wskazywać na wysiękowe zapalenie ucha — wymaga kontroli laryngologicznej</div>
+<div class="edit" contenteditable="true">notatka nauczyciela — kliknij i nadpisz…</div>
+<div class="foot"><span>EduPlaner 2026 · PCTP · pedagog specjalny <b>mgr Mirosława Ewa Jurczyszyn</b></span><span>Strona 3 z 8 · SENS-C · cele do obserwacji</span></div>
+</div>
+<div class="sheet">
+<div class="head">
+  <div class="brand"><div class="logo">PCTP</div>
+    <div><h1>EduPlaner 2026</h1><div class="sub">Cele do obserwacji pogłębionej · Dotyk</div></div></div>
+  <div class="badge"><span class="pill">SENS-C</span><div class="tag">WOPF · SI · cele</div></div>
+</div>
+<div class="rule"></div>
+<div class="student"><div class="field"><span class="lab">Dotyczy dziecka</span><span class=blank></span></div><div class="field"><span class="lab">Grupa</span><span class=blank></span></div><div class="field"><span class="lab">Data</span><span class="blank"></span><span class="val">r.</span></div></div>
+<div class="sec"><div class="n">III</div><h2>Dotyk</h2><div class="line"></div>
+  <span class="lvl I">b265</span></div>
+<div class="box o"><b>Suma zmysłu: ……… / 24</b> · natężenie ……… / 10.<br>Wpisz sumę z druku obserwacji, odczytaj pasmo z tabeli progów na stronie 1 i wpisz kryterium oraz horyzont do celów poniżej.</div>
+<div class="blk">Nadwrażliwość · ↑ za dużo bodźca</div>
+<div class="box"><b>DOT-NAD — Bezpieczna odległość i uprzedzanie o dotyku</b><br>
+<b>Obserwowane objawy:</b> Unika dotyku, przytulania, mycia twarzy/głowy, obcinania paznokci i włosów; Przeszkadzają mu metki, szwy, niektóre faktury ubrań i materiałów plastycznych; Reaguje obronnie na przypadkowy dotyk (kolejka, ciasnota, zabawy grupowe)<br>
+<b>Strategia sensoryczna:</b> Dziecko zajmuje ustalone miejsce chroniące plecy i boki (koniec kolejki, brzeg dywanu, krzesło przy ścianie) i korzysta z zapowiedzi dotyku — dorosły mówi, zanim dotknie, a dziecko odpowiada „tak” albo „nie teraz”.<br>
+<b>Sygnał dziecka:</b> karta „NIE TERAZ” lub gest otwartej dłoni oznaczający „daj mi miejsce”</div>
+<div class="dziecko"><b>CEL SMART:</b> Dziecko zajmuje ustalone miejsce chroniące plecy i boki (koniec kolejki, brzeg dywanu, krzesło przy ścianie) i korzysta z zapowiedzi dotyku — dorosły mówi, zanim dotknie, a dziecko odpowiada „tak” albo „nie teraz”. Kryterium: ……… z 5 obserwowanych sytuacji w ciągu ……… tygodni; weryfikacja po ……… tygodniach.</div>
+<div class="doroslego"><b>Co liczymy:</b> liczba sytuacji z bliskością, w których dziecko użyło miejsca lub karty zamiast reakcji obronnej &nbsp;·&nbsp;
+<b>Dieta sensoryczna:</b> mocny docisk przed sytuacją bliskości (przytulenie w kocyk, przeciskanie przez tunel) — proprioceptywne wyciszenie dotyku; zabawy fakturami w tempie dziecka: najpierw suche i twarde, dopiero potem mokre i lepkie; stały znak na podłodze wyznaczający „moje miejsce” w kolejce<br>
+<b>Dostosowania:</b> pierwsze lub ostatnie miejsce w kolejce — nigdy w środku; akceptacja własnych ubrań dziecka, odcinanie metek, brak wymuszania fartuszka; uprzedzanie o każdym dotyku dorosłego, także przy pomaganiu w ubieraniu &nbsp;·&nbsp;
+<b>Uwaga:</b> gwałtowna obrona przed myciem głowy i obcinaniem paznokci bywa objawem obronności dotykowej wymagającej terapii SI — sama dieta sensoryczna nie wystarczy</div>
+<div class="edit" contenteditable="true">notatka nauczyciela — kliknij i nadpisz…</div><div class="blk">Podwrażliwość / poszukiwanie bodźców · ↓ za mało bodźca</div>
+<div class="box"><b>DOT-POD — Zaplanowane wrażenia dotykowe zamiast dotykania wszystkiego</b><br>
+<b>Obserwowane objawy:</b> Dotyka wszystkiego i wszystkich, mocno ściska, potrąca inne dzieci; Nie zauważa brudu na twarzy/rękach, słabo czuje ból i temperaturę; Poszukuje intensywnych wrażeń dotykowych (grzebanie w materiałach, ugniatanie)<br>
+<b>Strategia sensoryczna:</b> Dziecko korzysta ze skrzynki sensorycznej (ryż, kasztany, masa) i „gniotka w kieszeni” w zaplanowanych momentach dnia, a w kręgu trzyma ręce na własnej pomocy zamiast na sąsiedzie.<br>
+<b>Sygnał dziecka:</b> sięgnięcie po gniotka do kieszeni fartuszka lub karta „RĘCE DO PRACY”</div>
+<div class="dziecko"><b>CEL SMART:</b> Dziecko korzysta ze skrzynki sensorycznej (ryż, kasztany, masa) i „gniotka w kieszeni” w zaplanowanych momentach dnia, a w kręgu trzyma ręce na własnej pomocy zamiast na sąsiedzie. Kryterium: ……… z 5 obserwowanych sytuacji w ciągu ……… tygodni; weryfikacja po ……… tygodniach.</div>
+<div class="doroslego"><b>Co liczymy:</b> liczba sytuacji w kręgu lub kolejce bez dotykania innych dzieci, z użyciem własnej pomocy &nbsp;·&nbsp;
+<b>Dieta sensoryczna:</b> skrzynka sensoryczna (ryż, kasztany, makaron) — 3 minuty przed zajęciami wymagającymi siedzenia; gniotek lub kawałek masy w kieszeni fartuszka, dostępny bez pytania; prace z ugniataniem: ciastolina, glina, wyciskanie gąbki — codziennie<br>
+<b>Dostosowania:</b> miejsce w kręgu z jednym sąsiadem, nie dwoma (brzeg półkola); zadania z materiałem w rękach — dziecko trzyma pomoc, a nie „nic”; sprawdzanie twarzy i rąk przed wyjściem — dziecko może nie czuć brudu &nbsp;·&nbsp;
+<b>Uwaga:</b> obniżone czucie bólu i temperatury wymaga codziennej kontroli skóry (oparzenia, otarcia) i informacji dla rodziców — dziecko może nie zgłosić urazu</div>
+<div class="edit" contenteditable="true">notatka nauczyciela — kliknij i nadpisz…</div><div class="blk">Biały szum (reaktywność zmienna) · ↕ raz za dużo, raz za mało</div>
+<div class="box"><b>DOT-SZUM — Sprawdzanie tolerancji ubrania i faktur w danym dniu</b><br>
+<b>Obserwowane objawy:</b> Reakcje na dotyk są zmienne — ten sam bodziec raz drażni, raz jest poszukiwany; Tolerancja ubrań, mycia i przytulania zmienia się z dnia na dzień<br>
+<b>Strategia sensoryczna:</b> Dziecko rano sprawdza „mapę ubrania” (co dziś pasuje, co drapie) i wybiera z dwóch przygotowanych wariantów, a przed pracą z materiałami wskazuje na skali, ile dziś zniesie.<br>
+<b>Sygnał dziecka:</b> wskazanie pola na skali faktur (1 – suche, 2 – wilgotne, 3 – lepkie)</div>
+<div class="dziecko"><b>CEL SMART:</b> Dziecko rano sprawdza „mapę ubrania” (co dziś pasuje, co drapie) i wybiera z dwóch przygotowanych wariantów, a przed pracą z materiałami wskazuje na skali, ile dziś zniesie. Kryterium: ……… z 5 obserwowanych sytuacji w ciągu ……… tygodni; weryfikacja po ……… tygodniach.</div>
+<div class="doroslego"><b>Co liczymy:</b> liczba dni, w których dziecko wskazało poziom przed zajęciami zamiast odmówić w trakcie &nbsp;·&nbsp;
+<b>Dieta sensoryczna:</b> docisk przed przebieraniem (mocne przytulenie w kocyk, zabawa w naleśnik) — obniża próg drażliwości; trzystopniowa skala faktur zawsze dostępna na stole plastycznym; dwa warianty ubrania przygotowane przez rodzica w worku<br>
+<b>Dostosowania:</b> brak wymuszania fartuszka i rękawiczek w dniu wysokiej drażliwości; materiały suche zawsze jako alternatywa dla mokrych; informacja dla rodzica o poziomie z danego dnia — poranek w domu wygląda tak samo &nbsp;·&nbsp;
+<b>Uwaga:</b> nagły wzrost drażliwości dotykowej może być objawem infekcji, gorączki lub bólu — najpierw wyklucz przyczynę medyczną</div>
+<div class="edit" contenteditable="true">notatka nauczyciela — kliknij i nadpisz…</div>
+<div class="foot"><span>EduPlaner 2026 · PCTP · pedagog specjalny <b>mgr Mirosława Ewa Jurczyszyn</b></span><span>Strona 4 z 8 · SENS-C · cele do obserwacji</span></div>
+</div>
+<div class="sheet">
+<div class="head">
+  <div class="brand"><div class="logo">PCTP</div>
+    <div><h1>EduPlaner 2026</h1><div class="sub">Cele do obserwacji pogłębionej · Smak</div></div></div>
+  <div class="badge"><span class="pill">SENS-C</span><div class="tag">WOPF · SI · cele</div></div>
+</div>
+<div class="rule"></div>
+<div class="student"><div class="field"><span class="lab">Dotyczy dziecka</span><span class=blank></span></div><div class="field"><span class="lab">Grupa</span><span class=blank></span></div><div class="field"><span class="lab">Data</span><span class="blank"></span><span class="val">r.</span></div></div>
+<div class="sec"><div class="n">IV</div><h2>Smak</h2><div class="line"></div>
+  <span class="lvl I">b250</span></div>
+<div class="box o"><b>Suma zmysłu: ……… / 24</b> · natężenie ……… / 10.<br>Wpisz sumę z druku obserwacji, odczytaj pasmo z tabeli progów na stronie 1 i wpisz kryterium oraz horyzont do celów poniżej.</div>
+<div class="blk">Nadwrażliwość · ↑ za dużo bodźca</div>
+<div class="box"><b>SMA-NAD — Oswajanie nowej potrawy bez presji jedzenia</b><br>
+<b>Obserwowane objawy:</b> Je bardzo wąski repertuar potraw — odmawia nowych smaków i konsystencji; Reaguje odruchem wymiotnym na niektóre konsystencje jedzenia; Preferuje potrawy „bez smaku”, oddziela składniki na talerzu<br>
+<b>Strategia sensoryczna:</b> Dziecko poznaje nową potrawę po drabinie oswajania: patrzę → dotykam widelcem → wącham → dotykam wargą → liżę → gryzę. Każdy szczebel jest sukcesem, jedzenie nie jest warunkiem.<br>
+<b>Sygnał dziecka:</b> wskazanie szczebla na drabinie oswajania („dziś jestem tutaj”)</div>
+<div class="dziecko"><b>CEL SMART:</b> Dziecko poznaje nową potrawę po drabinie oswajania: patrzę → dotykam widelcem → wącham → dotykam wargą → liżę → gryzę. Każdy szczebel jest sukcesem, jedzenie nie jest warunkiem. Kryterium: ……… z 5 obserwowanych sytuacji w ciągu ……… tygodni; weryfikacja po ……… tygodniach.</div>
+<div class="doroslego"><b>Co liczymy:</b> liczba posiłków, w których dziecko wykonało wskazany szczebel drabiny (nie: zjadło) &nbsp;·&nbsp;
+<b>Dieta sensoryczna:</b> osobny mały talerzyk „do prób” obok talerza z jedzeniem znanym — nowa potrawa nigdy nie miesza się ze znaną; przygotowanie jamy ustnej przed posiłkiem: picie przez rurkę, gryzak, chrupiąca przekąska; udział w przygotowaniu potrawy (mycie, krojenie miękkiego) — dotyk poprzedza smak<br>
+<b>Dostosowania:</b> brak namawiania, komentowania i nagradzania za jedzenie; składniki podawane osobno, nie wymieszane; stałe, przewidywalne miejsce i pora posiłku &nbsp;·&nbsp;
+<b>Uwaga:</b> repertuar poniżej 15 produktów, spadek masy ciała lub krztuszenie się wymagają skierowania do lekarza i logopedy/neurologopedy — to zaburzenie karmienia, nie tylko sensoryka</div>
+<div class="edit" contenteditable="true">notatka nauczyciela — kliknij i nadpisz…</div><div class="blk">Podwrażliwość / poszukiwanie bodźców · ↓ za mało bodźca</div>
+<div class="box"><b>SMA-POD — Bezpieczny bodziec w jamie ustnej zamiast gryzienia przedmiotów</b><br>
+<b>Obserwowane objawy:</b> Wkłada do ust przedmioty niejadalne, liże lub gryzie zabawki i przybory; Poszukuje intensywnych smaków (ostre, kwaśne, bardzo słodkie); Przepełnia usta jedzeniem, je łapczywie<br>
+<b>Strategia sensoryczna:</b> Dziecko korzysta z bezpiecznego gryzaka na sznurku i „mocnych” bodźców jadalnych (picie gęstego przez rurkę, chrupiące, kwaśne) w stałych momentach dnia, a przy posiłku je łyżeczką odmierzającą jeden kęs.<br>
+<b>Sygnał dziecka:</b> sięgnięcie po gryzak zawieszony przy fartuszku</div>
+<div class="dziecko"><b>CEL SMART:</b> Dziecko korzysta z bezpiecznego gryzaka na sznurku i „mocnych” bodźców jadalnych (picie gęstego przez rurkę, chrupiące, kwaśne) w stałych momentach dnia, a przy posiłku je łyżeczką odmierzającą jeden kęs. Kryterium: ……… z 5 obserwowanych sytuacji w ciągu ……… tygodni; weryfikacja po ……… tygodniach.</div>
+<div class="doroslego"><b>Co liczymy:</b> liczba zajęć bez gryzienia przedmiotów niejadalnych, z użyciem gryzaka lub bodźca jadalnego &nbsp;·&nbsp;
+<b>Dieta sensoryczna:</b> picie gęstego napoju (kisiel, jogurt pitny) przez wąską rurkę przed zajęciami wymagającymi skupienia; chrupiąca przekąska (marchewka, wafel ryżowy) w połowie przedpołudnia; gryzak silikonowy na sznurku, dostępny cały czas<br>
+<b>Dostosowania:</b> usunięcie z zasięgu drobnych przedmiotów, które można połknąć; łyżeczka odmierzająca jeden kęs i przypomnienie „jeden kęs, potem następny”; picie wody między kęsami — spowalnia jedzenie &nbsp;·&nbsp;
+<b>Uwaga:</b> wkładanie do ust przedmiotów niejadalnych to ryzyko zadławienia i zatrucia — wymaga stałego nadzoru, kontroli zasięgu drobnych przedmiotów oraz wykluczenia niedoboru żelaza (pica)</div>
+<div class="edit" contenteditable="true">notatka nauczyciela — kliknij i nadpisz…</div><div class="blk">Biały szum (reaktywność zmienna) · ↕ raz za dużo, raz za mało</div>
+<div class="box"><b>SMA-SZUM — Przewidywalny posiłek mimo zmiennej akceptacji smaków</b><br>
+<b>Obserwowane objawy:</b> Akceptacja smaków i konsystencji zmienia się bez wyraźnej przyczyny; Raz odmawia potrawy, którą innym razem je chętnie<br>
+<b>Strategia sensoryczna:</b> Dziecko przed posiłkiem wskazuje na karcie „jak dziś smakuje” jeden z trzech wariantów (jem swoje · próbuję · dziś tylko patrzę) i według niego przebiega posiłek — bez negocjacji.<br>
+<b>Sygnał dziecka:</b> położenie na stole jednej z trzech kart posiłku</div>
+<div class="dziecko"><b>CEL SMART:</b> Dziecko przed posiłkiem wskazuje na karcie „jak dziś smakuje” jeden z trzech wariantów (jem swoje · próbuję · dziś tylko patrzę) i według niego przebiega posiłek — bez negocjacji. Kryterium: ……… z 5 obserwowanych sytuacji w ciągu ……… tygodni; weryfikacja po ……… tygodniach.</div>
+<div class="doroslego"><b>Co liczymy:</b> liczba posiłków rozpoczętych wyborem karty i zakończonych przy stole, bez konfliktu &nbsp;·&nbsp;
+<b>Dieta sensoryczna:</b> stała pora, miejsce i kolejność czynności przy posiłku — zmienne jest tylko menu; zawsze jeden produkt pewny na talerzu, niezależnie od dania dnia; przygotowanie ust przed posiłkiem (rurka, chrupiące) — obniża zmienność odbioru<br>
+<b>Dostosowania:</b> brak komentarza do wyboru dziecka przy stole; informacja dla rodzica: dziś wariant „tylko patrzę” — kolacja zaplanowana z zapasem; zapis wariantu w dzienniku — po dwóch tygodniach widać, czy zmienność ma rytm &nbsp;·&nbsp;
+<b>Uwaga:</b> seria dni z wariantem „tylko patrzę” (powyżej 3 pod rząd) wymaga kontaktu z rodzicem i lekarzem — sprawdź ból gardła, zęby, refluks</div>
+<div class="edit" contenteditable="true">notatka nauczyciela — kliknij i nadpisz…</div>
+<div class="foot"><span>EduPlaner 2026 · PCTP · pedagog specjalny <b>mgr Mirosława Ewa Jurczyszyn</b></span><span>Strona 5 z 8 · SENS-C · cele do obserwacji</span></div>
+</div>
+<div class="sheet">
+<div class="head">
+  <div class="brand"><div class="logo">PCTP</div>
+    <div><h1>EduPlaner 2026</h1><div class="sub">Cele do obserwacji pogłębionej · Węch</div></div></div>
+  <div class="badge"><span class="pill">SENS-C</span><div class="tag">WOPF · SI · cele</div></div>
+</div>
+<div class="rule"></div>
+<div class="student"><div class="field"><span class="lab">Dotyczy dziecka</span><span class=blank></span></div><div class="field"><span class="lab">Grupa</span><span class=blank></span></div><div class="field"><span class="lab">Data</span><span class="blank"></span><span class="val">r.</span></div></div>
+<div class="sec"><div class="n">V</div><h2>Węch</h2><div class="line"></div>
+  <span class="lvl I">b255</span></div>
+<div class="box o"><b>Suma zmysłu: ……… / 24</b> · natężenie ……… / 10.<br>Wpisz sumę z druku obserwacji, odczytaj pasmo z tabeli progów na stronie 1 i wpisz kryterium oraz horyzont do celów poniżej.</div>
+<div class="blk">Nadwrażliwość · ↑ za dużo bodźca</div>
+<div class="box"><b>WEC-NAD — Pozostanie w sali mimo intensywnego zapachu</b><br>
+<b>Obserwowane objawy:</b> Skarży się na zapachy, których inni nie czują; unika stołówki, toalet; Reaguje mdłościami lub odmową na zapach jedzenia, środków czystości; Zapach potrafi wytrącić je z równowagi na długi czas<br>
+<b>Strategia sensoryczna:</b> Dziecko korzysta z „zapachu ratunkowego” (chusteczka z zapachem lubianym, np. cytryny, w kieszeni) i miejsca przy oknie, zamiast wychodzić z sali albo odmawiać wejścia do stołówki.<br>
+<b>Sygnał dziecka:</b> wyjęcie chusteczki zapachowej lub karta „BRZYDKI ZAPACH”</div>
+<div class="dziecko"><b>CEL SMART:</b> Dziecko korzysta z „zapachu ratunkowego” (chusteczka z zapachem lubianym, np. cytryny, w kieszeni) i miejsca przy oknie, zamiast wychodzić z sali albo odmawiać wejścia do stołówki. Kryterium: ……… z 5 obserwowanych sytuacji w ciągu ……… tygodni; weryfikacja po ……… tygodniach.</div>
+<div class="doroslego"><b>Co liczymy:</b> liczba sytuacji zapachowych, w których dziecko zostało w pomieszczeniu, korzystając ze strategii &nbsp;·&nbsp;
+<b>Dieta sensoryczna:</b> chusteczka z 2 kroplami olejku cytrynowego w kieszeni — wymieniana codziennie; wietrzenie sali przed zajęciami i po sprzątaniu, zawsze w tej samej porze; krótka przerwa przy oknie po wejściu do stołówki (30 sekund) — zanim dziecko usiądzie<br>
+<b>Dostosowania:</b> miejsce przy oknie lub drzwiach, z dala od okienka wydawania posiłków i toalety; sprzątanie środkami bezzapachowymi w porze pobytu dziecka; uprzedzanie o mopowaniu i o daniach o intensywnym zapachu &nbsp;·&nbsp;
+<b>Uwaga:</b> unikanie toalety z powodu zapachu prowadzi do zatrzymywania moczu i zaparć — wymaga natychmiastowego dostosowania i informacji dla rodzica</div>
+<div class="edit" contenteditable="true">notatka nauczyciela — kliknij i nadpisz…</div><div class="blk">Podwrażliwość / poszukiwanie bodźców · ↓ za mało bodźca</div>
+<div class="box"><b>WEC-POD — Zaplanowane wąchanie zamiast obwąchiwania ludzi i przedmiotów</b><br>
+<b>Obserwowane objawy:</b> Obwąchuje przedmioty, jedzenie, ubrania, innych ludzi; Nie zauważa wyraźnych, nieprzyjemnych zapachów; Poszukuje intensywnych zapachów (klej, pisaki, środki czystości)<br>
+<b>Strategia sensoryczna:</b> Dziecko korzysta z pudełka zapachów (3–5 woreczków: cytryna, mięta, kawa, cynamon) w zaplanowanych momentach dnia, zamiast obwąchiwać ludzi i sięgać po chemię.<br>
+<b>Sygnał dziecka:</b> karta „CHCĘ POWĄCHAĆ” wymieniana na dostęp do pudełka zapachów</div>
+<div class="dziecko"><b>CEL SMART:</b> Dziecko korzysta z pudełka zapachów (3–5 woreczków: cytryna, mięta, kawa, cynamon) w zaplanowanych momentach dnia, zamiast obwąchiwać ludzi i sięgać po chemię. Kryterium: ……… z 5 obserwowanych sytuacji w ciągu ……… tygodni; weryfikacja po ……… tygodniach.</div>
+<div class="doroslego"><b>Co liczymy:</b> liczba dni bez obwąchiwania innych dzieci i sięgania po środki chemiczne &nbsp;·&nbsp;
+<b>Dieta sensoryczna:</b> pudełko zapachów na stałej półce — 2 minuty na sygnał, 2 razy dziennie; zajęcia kulinarne z przyprawami (cynamon, wanilia) jako mocny bodziec zaplanowany; wąchanie przed jedzeniem — zapach jako element rozpoznawania potrawy<br>
+<b>Dostosowania:</b> kleje, pisaki i środki czystości zamknięte i poza zasięgiem dziecka; zamiast upomnienia „nie wąchaj” — wskazanie pudełka; informacja dla wszystkich dorosłych w grupie: to potrzeba, nie zaczepka &nbsp;·&nbsp;
+<b>Uwaga:</b> wdychanie kleju i środków czystości grozi zatruciem i uszkodzeniem dróg oddechowych — zabezpieczenie chemii jest warunkiem wstępnym, nie zaleceniem</div>
+<div class="edit" contenteditable="true">notatka nauczyciela — kliknij i nadpisz…</div><div class="blk">Biały szum (reaktywność zmienna) · ↕ raz za dużo, raz za mało</div>
+<div class="box"><b>WEC-SZUM — Codzienne sprawdzenie wrażliwości na zapachy</b><br>
+<b>Obserwowane objawy:</b> Reakcje na zapachy są niestałe — ten sam zapach raz przeszkadza, raz jest niezauważany; Wrażliwość na zapachy zmienia się z dnia na dzień<br>
+<b>Strategia sensoryczna:</b> Dziecko przed posiłkiem sprawdza swój „nos dnia” na dwóch woreczkach kontrolnych i na tej podstawie decyduje, czy bierze chusteczkę ratunkową i miejsce przy oknie.<br>
+<b>Sygnał dziecka:</b> wskazanie buźki przy karcie „NOS DNIA” (mocno czuję / normalnie / nie czuję)</div>
+<div class="dziecko"><b>CEL SMART:</b> Dziecko przed posiłkiem sprawdza swój „nos dnia” na dwóch woreczkach kontrolnych i na tej podstawie decyduje, czy bierze chusteczkę ratunkową i miejsce przy oknie. Kryterium: ……… z 5 obserwowanych sytuacji w ciągu ……… tygodni; weryfikacja po ……… tygodniach.</div>
+<div class="doroslego"><b>Co liczymy:</b> liczba posiłków poprzedzonych sprawdzeniem nosa dnia &nbsp;·&nbsp;
+<b>Dieta sensoryczna:</b> dwa woreczki kontrolne (cytryna i mięta) przy wejściu do sali; sprawdzenie przed posiłkiem i przed plastyką — dwa razy dziennie; wietrzenie sali według wskazania dziecka, nie tylko według harmonogramu<br>
+<b>Dostosowania:</b> brak stałego wpisu „nadwrażliwość węchowa” — decyzja zapada codziennie; informacja dla rodzica przy katarze: dziś wskazania mogą być inne; zapis wskazania w dzienniku obserwacji &nbsp;·&nbsp;
+<b>Uwaga:</b> utrzymujące się „nie czuję” wymaga kontroli laryngologicznej (przerost migdałka, alergia) — brak węchu wpływa też na apetyt</div>
+<div class="edit" contenteditable="true">notatka nauczyciela — kliknij i nadpisz…</div>
+<div class="foot"><span>EduPlaner 2026 · PCTP · pedagog specjalny <b>mgr Mirosława Ewa Jurczyszyn</b></span><span>Strona 6 z 8 · SENS-C · cele do obserwacji</span></div>
+</div>
+<div class="sheet">
+<div class="head">
+  <div class="brand"><div class="logo">PCTP</div>
+    <div><h1>EduPlaner 2026</h1><div class="sub">Cele do obserwacji pogłębionej · Propriocepcja</div></div></div>
+  <div class="badge"><span class="pill">SENS-C</span><div class="tag">WOPF · SI · cele</div></div>
+</div>
+<div class="rule"></div>
+<div class="student"><div class="field"><span class="lab">Dotyczy dziecka</span><span class=blank></span></div><div class="field"><span class="lab">Grupa</span><span class=blank></span></div><div class="field"><span class="lab">Data</span><span class="blank"></span><span class="val">r.</span></div></div>
+<div class="sec"><div class="n">VI</div><h2>Propriocepcja</h2><div class="line"></div>
+  <span class="lvl I">b760</span></div>
+<div class="box o"><b>Suma zmysłu: ……… / 24</b> · natężenie ……… / 10.<br>Wpisz sumę z druku obserwacji, odczytaj pasmo z tabeli progów na stronie 1 i wpisz kryterium oraz horyzont do celów poniżej.</div>
+<div class="blk">Nadwrażliwość · ↑ za dużo bodźca</div>
+<div class="box"><b>PRO-NAD — Udział w wysiłku fizycznym małymi krokami</b><br>
+<b>Obserwowane objawy:</b> Unika wysiłku fizycznego, wspinania, przepychania — szybko się męczy; Słabo dozuje siłę — rysuje zbyt lekko, upuszcza przedmioty; Jest ostrożne ruchowo, sztywno trzyma ciało przy nowych czynnościach<br>
+<b>Strategia sensoryczna:</b> Dziecko wchodzi w wysiłek po własnej „drabinie ruchu” — od zadań z podparciem i małym obciążeniem do większych — i samo decyduje o kolejnym szczeblu, korzystając z pomocy wyznaczających siłę (kredka z nakładką, dzbanek z miarką).<br>
+<b>Sygnał dziecka:</b> wskazanie szczebla na drabinie ruchu („dziś robię ten”)</div>
+<div class="dziecko"><b>CEL SMART:</b> Dziecko wchodzi w wysiłek po własnej „drabinie ruchu” — od zadań z podparciem i małym obciążeniem do większych — i samo decyduje o kolejnym szczeblu, korzystając z pomocy wyznaczających siłę (kredka z nakładką, dzbanek z miarką). Kryterium: ……… z 5 obserwowanych sytuacji w ciągu ……… tygodni; weryfikacja po ……… tygodniach.</div>
+<div class="doroslego"><b>Co liczymy:</b> liczba zajęć ruchowych, w których dziecko wykonało zaplanowany szczebel zamiast wycofać się &nbsp;·&nbsp;
+<b>Dieta sensoryczna:</b> zadania oporowe wplecione w dzień: pchanie pudła, noszenie koszyka z klockami, wycieranie stołu; praca w pozycji na brzuchu przy niskim stoliku — buduje napięcie mięśniowe; krótkie serie (2–3 minuty) częściej, zamiast jednego długiego wysiłku<br>
+<b>Dostosowania:</b> krzesło z podparciem stóp i blat na wysokości łokci; nakładka na kredkę i kredki trójkątne — wyznaczają nacisk; brak porównywania z rówieśnikami i wyścigów na czas &nbsp;·&nbsp;
+<b>Uwaga:</b> szybka męczliwość i sztywność ciała wymagają wykluczenia przyczyn ortopedycznych i neurologicznych (obniżone napięcie mięśniowe) — konsultacja fizjoterapeuty</div>
+<div class="edit" contenteditable="true">notatka nauczyciela — kliknij i nadpisz…</div><div class="blk">Podwrażliwość / poszukiwanie bodźców · ↓ za mało bodźca</div>
+<div class="box"><b>PRO-POD — Zaplanowana przerwa proprioceptywna zamiast napierania na innych</b><br>
+<b>Obserwowane objawy:</b> Poszukuje mocnego docisku — rzuca się na podłogę/materace, wciska w ciasne miejsca, mocno przytula; Gryzie rękawy/przybory, zaciska pięści, napiera na innych podczas zabawy; Rysuje z bardzo mocnym naciskiem, niszczy przybory<br>
+<b>Strategia sensoryczna:</b> Dziecko korzysta z zaplanowanej przerwy proprioceptywnej — docisk (kocyk obciążeniowy, poduszka, przeciskanie przez tunel), praca oporowa, ugniatanie — i wraca do zabawy, zamiast napierać na rówieśników.<br>
+<b>Sygnał dziecka:</b> karta „MOCNO” wymieniana na 3 minuty przerwy proprioceptywnej</div>
+<div class="dziecko"><b>CEL SMART:</b> Dziecko korzysta z zaplanowanej przerwy proprioceptywnej — docisk (kocyk obciążeniowy, poduszka, przeciskanie przez tunel), praca oporowa, ugniatanie — i wraca do zabawy, zamiast napierać na rówieśników. Kryterium: ……… z 5 obserwowanych sytuacji w ciągu ……… tygodni; weryfikacja po ……… tygodniach.</div>
+<div class="doroslego"><b>Co liczymy:</b> liczba dni, w których dziecko użyło przerwy proprioceptywnej zamiast napierać na inne dzieci &nbsp;·&nbsp;
+<b>Dieta sensoryczna:</b> docisk co 90 minut: kocyk obciążeniowy 3–5 minut albo mocne przytulenie w zwiniętym kocu; praca oporowa: pchanie skrzynki, przeciąganie liny, przeciskanie przez tunel; ugniatanie ciastoliny lub gąbki przed siedzeniem w kręgu<br>
+<b>Dostosowania:</b> poduszka sensoryczna na krześle — pozwala pracować mięśniom w czasie siedzenia; miejsce w kręgu przy brzegu, z jednym sąsiadem; przybory odporne na nacisk (kredki woskowe, gruby papier) &nbsp;·&nbsp;
+<b>Uwaga:</b> kocyk obciążeniowy tylko pod nadzorem, do 10% masy ciała, nigdy podczas snu i nigdy na klatkę piersiową — przy wadach serca i padaczce wymaga zgody lekarza</div>
+<div class="edit" contenteditable="true">notatka nauczyciela — kliknij i nadpisz…</div><div class="blk">Biały szum (reaktywność zmienna) · ↕ raz za dużo, raz za mało</div>
+<div class="box"><b>PRO-SZUM — Rozpoznawanie i dozowanie siły w danym dniu</b><br>
+<b>Obserwowane objawy:</b> Dozowanie siły jest zmienne — raz za mocno, raz za słabo (rysowanie, zabawa, przybory); Raz unika wysiłku, innym razem poszukuje mocnego docisku<br>
+<b>Strategia sensoryczna:</b> Dziecko przed zadaniem sprawdza siłę na „mierniku siły” (trzy pola nacisku na papierze) i dobiera do dnia narzędzie oraz sposób dotykania kolegów („dotyk jak piórko”).<br>
+<b>Sygnał dziecka:</b> wskazanie pola na mierniku siły przed zadaniem</div>
+<div class="dziecko"><b>CEL SMART:</b> Dziecko przed zadaniem sprawdza siłę na „mierniku siły” (trzy pola nacisku na papierze) i dobiera do dnia narzędzie oraz sposób dotykania kolegów („dotyk jak piórko”). Kryterium: ……… z 5 obserwowanych sytuacji w ciągu ……… tygodni; weryfikacja po ……… tygodniach.</div>
+<div class="doroslego"><b>Co liczymy:</b> liczba zadań rozpoczętych sprawdzeniem siły i skończonych bez zniszczenia przyboru lub kartki &nbsp;·&nbsp;
+<b>Dieta sensoryczna:</b> sprawdzenie miernika siły przed każdym zadaniem grafomotorycznym; praca oporowa przed zadaniem — porządkuje czucie i zmniejsza zmienność; zabawy z dozowaniem: przelewanie wody, przenoszenie piórka na łyżce, budowanie z kubków<br>
+<b>Dostosowania:</b> gruby papier i kredki odporne na nacisk; podkładka antypoślizgowa pod kartkę; przypomnienie o sile przed zabawą w parze, nie po incydencie &nbsp;·&nbsp;
+<b>Uwaga:</b> duża zmienność siły przy jednoczesnym potykaniu się i upuszczaniu przedmiotów wymaga konsultacji fizjoterapeuty i terapeuty SI</div>
+<div class="edit" contenteditable="true">notatka nauczyciela — kliknij i nadpisz…</div>
+<div class="foot"><span>EduPlaner 2026 · PCTP · pedagog specjalny <b>mgr Mirosława Ewa Jurczyszyn</b></span><span>Strona 7 z 8 · SENS-C · cele do obserwacji</span></div>
+</div>
+<div class="sheet">
+<div class="head">
+  <div class="brand"><div class="logo">PCTP</div>
+    <div><h1>EduPlaner 2026</h1><div class="sub">Cele do obserwacji pogłębionej · Równowaga</div></div></div>
+  <div class="badge"><span class="pill">SENS-C</span><div class="tag">WOPF · SI · cele</div></div>
+</div>
+<div class="rule"></div>
+<div class="student"><div class="field"><span class="lab">Dotyczy dziecka</span><span class=blank></span></div><div class="field"><span class="lab">Grupa</span><span class=blank></span></div><div class="field"><span class="lab">Data</span><span class="blank"></span><span class="val">r.</span></div></div>
+<div class="sec"><div class="n">VII</div><h2>Równowaga</h2><div class="line"></div>
+  <span class="lvl I">b235</span></div>
+<div class="box o"><b>Suma zmysłu: ……… / 24</b> · natężenie ……… / 10.<br>Wpisz sumę z druku obserwacji, odczytaj pasmo z tabeli progów na stronie 1 i wpisz kryterium oraz horyzont do celów poniżej.</div>
+<div class="blk">Nadwrażliwość · ↑ za dużo bodźca</div>
+<div class="box"><b>ROW-NAD — Oswajanie ruchu i wysokości metodą małych kroków</b><br>
+<b>Obserwowane objawy:</b> Boi się huśtawek, zjeżdżalni, schodów, oderwania nóg od podłoża; Ma chorobę lokomocyjną, unika zabaw z obracaniem i zmianą pozycji głowy; Unika zajęć ruchowych, placu zabaw, jazdy na rowerku/hulajnodze<br>
+<b>Strategia sensoryczna:</b> Dziecko wchodzi w ruch po własnej drabinie (stopy na podłożu → huśtanie z podparciem nóg → krótkie huśtanie → zjeżdżalnia z asekuracją), zawsze samo decyduje o wejściu i ma słowo, którym ruch zatrzymuje („stop”).<br>
+<b>Sygnał dziecka:</b> słowo „STOP” lub karta STOP zatrzymująca ruch natychmiast</div>
+<div class="dziecko"><b>CEL SMART:</b> Dziecko wchodzi w ruch po własnej drabinie (stopy na podłożu → huśtanie z podparciem nóg → krótkie huśtanie → zjeżdżalnia z asekuracją), zawsze samo decyduje o wejściu i ma słowo, którym ruch zatrzymuje („stop”). Kryterium: ……… z 5 obserwowanych sytuacji w ciągu ……… tygodni; weryfikacja po ……… tygodniach.</div>
+<div class="doroslego"><b>Co liczymy:</b> liczba wyjść na plac zabaw, w których dziecko weszło na sprzęt na wybranym przez siebie szczeblu &nbsp;·&nbsp;
+<b>Dieta sensoryczna:</b> przed ruchem: docisk i praca oporowa (propriocepcja wycisza układ przedsionkowy); ruch liniowy (huśtanie przód-tył) zamiast obrotowego — obrót zostawiamy na koniec drogi; krótkie serie 10–20 sekund z przerwą na stanie obiema stopami na ziemi<br>
+<b>Dostosowania:</b> brak wsadzania na sprzęt „na siłę” i brak niespodziewanego rozhuśtania; trzymanie się za ręce przy schodach, stopy zawsze widoczne dla dziecka; uprzedzanie o każdej zmianie pozycji głowy przy ubieraniu i myciu &nbsp;·&nbsp;
+<b>Uwaga:</b> silny lęk przedsionkowy z wymiotami i bladością wymaga konsultacji neurologicznej i terapii SI — samo oswajanie może nie wystarczyć</div>
+<div class="edit" contenteditable="true">notatka nauczyciela — kliknij i nadpisz…</div><div class="blk">Podwrażliwość / poszukiwanie bodźców · ↓ za mało bodźca</div>
+<div class="box"><b>ROW-POD — Zaplanowany ruch zamiast ciągłego bujania się i wstawania</b><br>
+<b>Obserwowane objawy:</b> Jest w ciągłym ruchu — buja się na krześle, wstaje z miejsca co chwilę, kręci się w kółko; Poszukuje intensywnego ruchu (huśtanie, wirowanie, skakanie) i nie ma zawrotów głowy; Ryzykuje ruchowo ponad miarę — wspina się wysoko, skacze z wysokości<br>
+<b>Strategia sensoryczna:</b> Dziecko korzysta z zaplanowanych dawek mocnego ruchu (skakanie, huśtanie, bieg z zadaniem) przed siedzeniem i w przerwach, a w czasie zajęć ma poduszkę sensoryczną, która pozwala się ruszać bez wstawania.<br>
+<b>Sygnał dziecka:</b> karta „POTRZEBUJĘ RUCHU” wymieniana na 3 minuty ruchu w wyznaczonym miejscu</div>
+<div class="dziecko"><b>CEL SMART:</b> Dziecko korzysta z zaplanowanych dawek mocnego ruchu (skakanie, huśtanie, bieg z zadaniem) przed siedzeniem i w przerwach, a w czasie zajęć ma poduszkę sensoryczną, która pozwala się ruszać bez wstawania. Kryterium: ……… z 5 obserwowanych sytuacji w ciągu ……… tygodni; weryfikacja po ……… tygodniach.</div>
+<div class="doroslego"><b>Co liczymy:</b> liczba zajęć, w których dziecko wstało z miejsca nie więcej niż raz, po skorzystaniu z dawki ruchu &nbsp;·&nbsp;
+<b>Dieta sensoryczna:</b> dawka mocnego ruchu przed każdym zadaniem wymagającym siedzenia: 10 podskoków, bieg do drzwi i z powrotem, huśtanie 1 minuta; poduszka sensoryczna na krześle i możliwość klęczenia lub stania przy stoliku; zadania z ruchem wplecionym w treść (przynieś, podaj, zanieś) zamiast siedzenia bez przerwy<br>
+<b>Dostosowania:</b> miejsce przy brzegu, z drogą wyjścia bez przechodzenia przez środek dywanu; krótsze bloki zadań (5–7 minut) z ruchem między nimi; jasne zasady bezpieczeństwa na sprzęcie: dokąd wolno się wspinać, skąd nie wolno skakać &nbsp;·&nbsp;
+<b>Uwaga:</b> wspinanie się wysoko i skakanie z wysokości bez oceny ryzyka wymaga stałego nadzoru i ustalenia granic sprzętu — to najczęstsza przyczyna urazów w tej grupie</div>
+<div class="edit" contenteditable="true">notatka nauczyciela — kliknij i nadpisz…</div><div class="blk">Biały szum (reaktywność zmienna) · ↕ raz za dużo, raz za mało</div>
+<div class="box"><b>ROW-SZUM — Sprawdzenie poziomu ruchu przed wyjściem na plac zabaw</b><br>
+<b>Obserwowane objawy:</b> Reakcje na ruch są niestałe — raz lęk przed huśtaniem, raz poszukiwanie intensywnego ruchu; Aktywność ruchowa zmienia się skrajnie z dnia na dzień<br>
+<b>Strategia sensoryczna:</b> Dziecko przed wyjściem ustawia „licznik ruchu” (dużo ruchu / średnio / dziś spokojnie) i według niego wybiera sprzęt oraz dawkę — codziennie od nowa.<br>
+<b>Sygnał dziecka:</b> przesunięcie suwaka na liczniku ruchu przed wyjściem</div>
+<div class="dziecko"><b>CEL SMART:</b> Dziecko przed wyjściem ustawia „licznik ruchu” (dużo ruchu / średnio / dziś spokojnie) i według niego wybiera sprzęt oraz dawkę — codziennie od nowa. Kryterium: ……… z 5 obserwowanych sytuacji w ciągu ……… tygodni; weryfikacja po ……… tygodniach.</div>
+<div class="doroslego"><b>Co liczymy:</b> liczba wyjść poprzedzonych ustawieniem licznika i zgodnym z nim wyborem zabawy &nbsp;·&nbsp;
+<b>Dieta sensoryczna:</b> praca oporowa przed każdym wyjściem — stabilizuje odczyt niezależnie od poziomu; dwie gotowe ścieżki na placu: „dużo ruchu” i „dziś spokojnie”; sprawdzenie licznika także po odpoczynku — poziom potrafi zmienić się w ciągu dnia<br>
+<b>Dostosowania:</b> brak stałego przypisania dziecku profilu ruchowego w dokumentacji; sprzęt dobierany do ustawienia z danego dnia, nie do planu z poprzedniego tygodnia; wpis poziomu do dziennika — po dwóch tygodniach widać rytm zmienności &nbsp;·&nbsp;
+<b>Uwaga:</b> skrajna zmienność aktywności ruchowej z sennością lub nadmiernym pobudzeniem wymaga konsultacji pediatrycznej — sprawdź sen, żelazo i tarczycę</div>
+<div class="edit" contenteditable="true">notatka nauczyciela — kliknij i nadpisz…</div>
+<div class="foot"><span>EduPlaner 2026 · PCTP · pedagog specjalny <b>mgr Mirosława Ewa Jurczyszyn</b></span><span>Strona 8 z 8 · SENS-C · cele do obserwacji</span></div>
+</div>
+</body>
+</html>
