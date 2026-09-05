@@ -285,7 +285,7 @@ WSKAZNIKI = [
    "opis_zdjecia": "szary trzyczęściowy parawan stojący na stoliku tyłem do okna, oparta o niego pusta karta zgłoszenia",
    "polecenia": {
      "A": "Za jasno. Stawiamy parawan. Teraz układamy.",
-     "B": "Popatrz na kartę. Jak jest za jasno, weź osłonę z półki i wracaj do zadania.",
+     "B": "Jak jest za jasno, weź osłonę z półki i wracaj do zadania.",
      "C": "Zanim zaczniesz, ustaw sobie miejsce dla oczu. Powiedz mi, które wybierasz.",
    },
  },
@@ -642,8 +642,8 @@ WSKAZNIKI = [
    "opis_zdjecia": "pionowy pasek kartonu z trzema polami — zielonym, żółtym i czerwonym — na ścianie na wysokości oczu dziecka, klamerka wpięta w jedno z pól",
    "polecenia": {
      "A": "Jak dziś mają się twoje oczy? Przypnij klamerkę.",
-     "B": "Ustaw dziś swój termometr, a potem wybierz miejsce przy stole.",
-     "C": "Sprawdź termometr i powiedz mi, po czym poznajesz, że dziś jest inaczej.",
+     "B": "Pokaż klamerką, jak dziś mają się twoje oczy, a potem wybierz miejsce przy stole.",
+     "C": "Popatrz na swój pasek i powiedz mi, po czym poznajesz, że dziś jest inaczej.",
    },
  },
  "arkusz": {
@@ -3883,8 +3883,8 @@ WSKAZNIKI = [
    "opis_zdjecia": "kartonowy suwak z trzema polami i ruchomym języczkiem na stoliku, obok dwie karty ścieżek",
    "polecenia": {
      "A": "Sprawdzamy ruch. Przesuń suwak.",
-     "B": "Ustaw licznik i wybierz zabawę.",
-     "C": "Ustaw licznik. Możesz zmienić ścieżkę, jeśli coś się zmieni.",
+     "B": "Przesuń suwak i wybierz zabawę.",
+     "C": "Przesuń suwak. Możesz zmienić ścieżkę, jeśli coś się zmieni.",
    },
  },
  "arkusz": {
