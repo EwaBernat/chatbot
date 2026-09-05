@@ -717,9 +717,9 @@ def czesc_2(doc):
         'akt obowiązuje od 14.04.2026 i uchylił rozporządzenie z 7 września 2017 r. (t.j. Dz.U. 2023 poz. 2061).]]',
         'WOPFU jako podstawa programu — § 6 ust. 4 rozporządzenia MEN z 9 sierpnia 2017 r. (t.j. Dz.U. 2020 poz. 1309): '
         'program opracowuje się po dokonaniu oceny, uwzględniając diagnozę i wnioski z oceny oraz zalecenia z orzeczenia.',
-        'Ocena efektywności udzielanej pomocy — § 6 ust. 9–11 rozporządzenia o kształceniu specjalnym oraz przepisy '
+        'Ocena efektywności udzielanej pomocy — § 6 rozporządzenia o kształceniu specjalnym oraz przepisy '
         'rozporządzenia o pomocy psychologiczno-pedagogicznej (t.j. Dz.U. 2023 poz. 1798).',
-        'Prawa rodziców — § 6 ust. 10–12: udział w spotkaniach zespołu, otrzymanie kopii programu i kopii '
+        'Prawa rodziców — § 6 rozporządzenia: udział w spotkaniach zespołu, otrzymanie kopii programu i kopii '
         'wielospecjalistycznej oceny.',
         'Minimalizacja danych — art. 5 ust. 1 lit. c RODO; dane o zdrowiu — art. 9 RODO.',
         'Wydatkowanie środków na kształcenie specjalne — [[art. 8 ust. 1 ustawy z 27 października 2017 r. '
@@ -861,7 +861,7 @@ def czesc_2(doc):
             '§ 6 ust. 4 rozp. t.j. Dz.U. 2020 poz. 1309',
             'Zalecenia bez uzasadnienia; pytanie nadzoru „na jakiej podstawie zespół to stwierdził” zostaje bez odpowiedzi.'],
            ['4', 'Ocena efektywności wymaga celu z kryterium.',
-            '§ 6 ust. 9–11; rozp. o pomocy pp t.j. Dz.U. 2023 poz. 1798',
+            '§ 6 rozp. t.j. Dz.U. 2020 poz. 1309; rozp. o pomocy pp t.j. Dz.U. 2023 poz. 1798',
             'Ewaluacja sprowadza się do formuły „cel realizowany częściowo”, która niczego nie zmienia.'],
            ['5', 'Przy każdym zaleceniu wymagany sposób realizacji: forma, osoba, wymiar, data.',
             '§ 6 ust. 1 i 4 rozp. t.j. Dz.U. 2020 poz. 1309',
@@ -874,7 +874,7 @@ def czesc_2(doc):
             'ustawa o dostępności (t.j. Dz.U. 2024 poz. 1411); model ICF (WHO 2001)',
             'Dostosowania nieuzasadnione i nieweryfikowalne; nie wiadomo, po czym poznać, że pomogły.'],
            ['8', 'Prawa rodziców: udział w zespole, kopia oceny i programu; głos ucznia.',
-            '§ 6 ust. 10–12 rozp. t.j. Dz.U. 2020 poz. 1309',
+            '§ 6 rozp. t.j. Dz.U. 2020 poz. 1309',
             'Brak śladu realizacji prawa; ryzyko skargi i sporu o przebieg współpracy.'],
            ['9', 'Ciągłość między I a II etapem edukacyjnym (klasa III → klasa IV).',
             'decyzja rady pedagogicznej wpisana do procedury',
@@ -929,7 +929,7 @@ def czesc_2(doc):
             'art. 5 ust. 1 lit. c RODO — minimalizacja danych.'],
            ['Współpraca z rodzicami', 'Ustalenia ustne.',
             'Rejestr kontaktów + potwierdzenie przekazania kopii oceny i programu, z datą i podpisem.',
-            '§ 6 ust. 10–12 — prawa rodziców muszą mieć ślad.'],
+            '§ 6 rozporządzenia — prawa rodziców muszą mieć ślad.'],
            ['Głos ucznia', 'Nieobecny.',
             'Sekcja „Mój głos” — słowami ucznia albo przez wskazanie, piktogram, AAC.',
             'Element ponad wymóg rozporządzenia; podnosi trafność celów.'],
@@ -1619,7 +1619,9 @@ def czesc_7(doc):
     accent_box(doc, [
         'WOPFU i IPET — § 6 rozporządzenia MEN z 9 sierpnia 2017 r. (t.j. Dz.U. 2020 poz. 1309): ust. 1 pkt 1–8 '
         '(zawartość programu), ust. 4 (program po ocenie, z uwzględnieniem zaleceń z orzeczenia), '
-        'ust. 9–12 (ocena co najmniej dwa razy w roku, prawa rodziców do udziału i do kopii).',
+        'oraz dalsze ustępy § 6 — ocena co najmniej dwa razy w roku i prawa rodziców do udziału i do kopii. '
+        '[[Numeru ustępu nie wpisujemy do dokumentu ucznia bez sprawdzenia w ogłoszonym tekście jednolitym — '
+        'ustalenie A1 audytu skryptu przedszkolnego z 5.09.2026.]]',
         'Terminy IPET: do 30 września dla ucznia rozpoczynającego kształcenie z orzeczeniem albo 30 dni od dnia '
         'złożenia orzeczenia w szkole.',
         'Formy pomocy psychologiczno-pedagogicznej i ocena efektywności — rozporządzenie o pomocy pp '
@@ -2289,7 +2291,7 @@ def zal_C_2(doc):
                 'Przekazywana rodzicom we wrześniu, równolegle z arkuszem wychowawcy. Rodzic wypełnia '
                 'kwestionariusz KSzOF niezależnie — ta ankieta jest jego uzupełnieniem.')
     _meta(doc, 'rodzic / opiekun prawny; wywiad prowadzi pedagog lub wychowawca', 'wrzesień oraz przed każdą oceną',
-          'współpraca z rodzicami — § 6 ust. 10–12 rozp. t.j. Dz.U. 2020 poz. 1309',
+          'współpraca z rodzicami — § 6 rozp. t.j. Dz.U. 2020 poz. 1309',
           'sekcje X–XIII oceny WOPF-SP; obszar VI KSzOF')
     _naglowek_ucznia(doc)
     form_lines(doc, 'CO MOJE DZIECKO LUBI ROBIĆ W DOMU? W CZYM JEST DOBRE?', 2)
@@ -2421,7 +2423,7 @@ def zal_C_3(doc):
                 'Jedna karta na jeden cel. Kryterium zapisane w celu jest gotowym wskaźnikiem ewaluacji — '
                 'nie tworzymy do niej osobnego narzędzia.')
     _meta(doc, 'nauczyciel / specjalista odpowiedzialny za cel', 'przy opracowaniu IPET lub PWES; pomiar wg planu',
-          'ocena efektywności — § 6 ust. 9–11 rozp. t.j. Dz.U. 2020 poz. 1309',
+          'ocena efektywności — § 6 rozp. t.j. Dz.U. 2020 poz. 1309',
           'karta oceny efektywności (druk 14); modyfikacja IPET / PWES')
     table(doc, ['Uczeń', 'Klasa', 'Sfera / obszar KSzOF', 'Nr celu', 'Okres realizacji'],
           [['', '', '', '', '']], widths=[4.0, 1.6, 4.6, 1.6, 4.9], size=8, align_first_bold=False)
@@ -2457,7 +2459,7 @@ def zal_C_4(doc):
                 'Ocena efektywności jest obowiązkiem, nie dobrą praktyką. Wypełniamy w styczniu i w czerwcu '
                 'oraz na zakończenie każdej formy pomocy.')
     _meta(doc, 'nauczyciele i specjaliści prowadzący zajęcia z uczniem', 'styczeń, czerwiec, koniec formy pomocy',
-          'rozp. o pomocy pp (t.j. Dz.U. 2023 poz. 1798); § 6 ust. 9–11 rozp. t.j. Dz.U. 2020 poz. 1309',
+          'rozp. o pomocy pp (t.j. Dz.U. 2023 poz. 1798); § 6 rozp. t.j. Dz.U. 2020 poz. 1309',
           'modyfikacja IPET / PWES; kolejna ocena wielospecjalistyczna; opinia dla poradni')
     table(doc, ['Uczeń', 'Klasa', 'Okres objęty oceną', 'Ścieżka'],
           [['', '', '', '☐ kształcenie specjalne (IPET)   ☐ pomoc pp (PWES)']],
@@ -2588,7 +2590,7 @@ def zal_C_4(doc):
                 'Prowadzony na bieżąco. To ten rejestr zasili opinię dla poradni i będzie dowodem w każdej '
                 'sytuacji spornej. Rozmowa nieodnotowana nie istnieje.')
     _meta(doc, 'wychowawca i specjaliści pracujący z uczniem', 'na bieżąco przez cały rok szkolny',
-          '§ 6 ust. 10–12 rozp. t.j. Dz.U. 2020 poz. 1309 — prawa rodziców; zakres współpracy',
+          '§ 6 rozp. t.j. Dz.U. 2020 poz. 1309 — prawa rodziców; zakres współpracy',
           'opinia dla poradni; sekcja o współpracy z rodzicami w WOPF-SP')
     table(doc, ['Uczeń', 'Klasa', 'Rok szkolny', 'Wychowawca'],
           [['', '', '', '']], widths=[5.0, 2.0, 3.0, 6.7], size=8, align_first_bold=False)
@@ -2912,6 +2914,11 @@ def raport_straznika(doc):
            ['C4', 'Podstawa nadzoru wskazana ogólnikowo („art. 55 i art. 60”).',
             'Zastąpiono: art. 55 oraz art. 68 ust. 1 Prawa oświatowego (t.j. Dz.U. 2026 poz. 820) i rozporządzenie '
             'MEN z 25.08.2017 r. w sprawie nadzoru pedagogicznego (t.j. Dz.U. 2024 poz. 15).'],
+           ['C6', 'Numeracja ustępów § 6 rozporządzenia o kształceniu specjalnym (ocena okresowa, prawa '
+            'rodziców) nie jest potwierdzona w ogłoszonym tekście — ustalenie wspólne z audytem skryptu '
+            'przedszkolnego (A1).',
+            'W całym dokumencie cytujemy „§ 6 rozporządzenia” i opisujemy obowiązek słowami. Numer ustępu '
+            'wpisujemy dopiero po sprawdzeniu w ogłoszonym tekście jednolitym.'],
            ['C5', 'Brak mechanizmu, który utrwala wynik weryfikacji — bez niego następny audyt zaczyna od zera.',
             'Dodano załącznik F (rejestr przepisów z datą sprawdzenia) oraz obowiązek jego prowadzenia przez '
             'Strażnika Prawa w § 11 wzoru zarządzenia.']],
@@ -2943,7 +2950,8 @@ def zal_F(doc):
            ['Rozporządzenie MEN z 9.08.2017 r. w sprawie warunków organizowania kształcenia (…) '
             '(t.j. Dz.U. 2020 poz. 1309)',
             'obowiązuje', 'Cz. 1–7; druki 11, 13, 14, 17, 18; zał. D',
-            'Publikator pierwotny Dz.U. 2017 poz. 1578 — nie cytować. § 6 ust. 1 pkt 1–8, ust. 4, ust. 9–12; '
+            'Publikator pierwotny Dz.U. 2017 poz. 1578 — nie cytować. § 6 ust. 1 pkt 1–8 i ust. 4; dalsze ustępy '
+            '§ 6 (ocena okresowa, prawa rodziców) — numeracja do sprawdzenia w ogłoszonym tekście; '
             '§ 5; § 7 ust. 2 i 3.'],
            ['Rozporządzenie MEN z 9.08.2017 r. w sprawie zasad organizacji i udzielania pomocy '
             'psychologiczno-pedagogicznej (t.j. Dz.U. 2023 poz. 1798)',

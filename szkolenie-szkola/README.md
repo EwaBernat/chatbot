@@ -74,3 +74,20 @@ python3 build_skrypt_szkola.py     # → Skrypt_dla_nauczycieli_SZKOLA_PODSTAWOW
 
 Marka PCTP: Arial, fiolet `#2D1B69`, pomarańcz `#E8450A`, tła `#F2F0F7` / `#F7F6FA` — zgodnie
 ze skryptem przedszkolnym.
+
+---
+
+## Audyt skryptu przedszkolnego (5 września 2026)
+
+Tą samą metodą sprawdzono oryginalny skrypt przedszkolny. Wynik: **zero nieaktualnych publikatorów
+i zero błędów w treści przepisu** — 4 sprostowania merytoryczne i 5 luk (czynność wymagana przez skrypt
+bez wskazanej podstawy prawnej).
+
+- `AUDYT_Skryptu_PRZEDSZKOLNEGO_Straznik_Prawa_2026-09-05.docx` — raport (5 stron)
+- `AUDYT-PRZEDSZKOLE-2026-09-05.md` — ta sama treść w markdownie
+- `Skrypt_dla_nauczycieli_PRZEDSZKOLE_wydanie2_po_audycie.docx` — oryginał z poprawkami na niebiesko
+- `patch_skrypt_przedszkole.py` — skrypt nanoszący poprawki na plik źródłowy
+
+Ustalenie wspólne dla obu skryptów: numeracja ustępów § 6 rozporządzenia o kształceniu specjalnym nie jest
+potwierdzona w ogłoszonym tekście, więc w obu dokumentach cytujemy „§ 6 rozporządzenia” i opisujemy obowiązek
+słowami.
