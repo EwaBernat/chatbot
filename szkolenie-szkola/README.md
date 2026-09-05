@@ -51,11 +51,19 @@ IPET/2026-2027/III A/07 — zgodnie z dokumentacją wzorcową EduPlaner 2026.
 Przykład obliczeniowy KSzOF jest wewnętrznie spójny z tabelą obszarów w druku IPET:
 suma 114/260 pkt → sten 4 (wynik niski), profil obszarowy 6–12 pkt w skali 0–20.
 
-## Weryfikacja publikatorów
+## Weryfikacja publikatorów — wydanie 2 (5 września 2026)
 
-Pozycje oznaczone w dokumencie znakiem ⚑ wymagają sprawdzenia w ISAP przed wpisaniem do
-dokumentacji ucznia — dotyczy to w szczególności tekstów jednolitych ogłaszanych w trakcie roku
-szkolnego oraz terminów i katalogu dostosowań z corocznego komunikatu dyrektora CKE.
+Dokument przeszedł audyt podstaw prawnych. Wszystkie publikatory zweryfikowano i wpisano do
+**rejestru przepisów (załącznik F)** z datą sprawdzenia. Fragmenty zmienione w audycie oznaczono
+w dokumencie **kolorem niebieskim**; pełny wykaz ustaleń zawiera **Raport Strażnika Prawa**
+(strona 3 dokumentu) oraz plik [`AUDYT-2026-09-05.md`](AUDYT-2026-09-05.md).
+
+Wynik audytu: 5 błędów potwierdzonych i poprawionych, 2 zarzuty odrzucone jako nietrafne
+(rozporządzenie Dz.U. 2026 poz. 428 obowiązuje i uchyliło akt z 2017 r.; Prawo oświatowe ma t.j.
+Dz.U. 2026 poz. 820), 5 ustaleń własnych.
+
+Znak ⚑ pozostaje w dokumencie tylko przy komunikacie dyrektora CKE o dostosowaniach egzaminu
+ósmoklasisty — jedynym źródle, które zmienia się co roku.
 
 ## Budowanie dokumentu
 

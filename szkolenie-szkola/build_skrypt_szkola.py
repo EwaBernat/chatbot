@@ -7,6 +7,7 @@ Odwzorowuje układ i markę skryptu przedszkolnego:
 Arial, fiolet #2D1B69, pomarańcz #E8450A, tła #F2F0F7 / #F7F6FA.
 """
 import os
+import re
 from docx import Document
 from docx.shared import Pt, Cm, RGBColor
 from docx.enum.text import WD_ALIGN_PARAGRAPH, WD_BREAK
@@ -22,6 +23,7 @@ GREY   = "8A8A8A"
 LILAC  = "F2F0F7"
 LILAC2 = "F7F6FA"
 BORDER = "D6D1E4"
+BLUE   = "0B4F9E"   # kolor korekty — audyt Strażnika Prawa 05.09.2026
 
 # ---------------------------------------------------------------- low level
 
@@ -104,6 +106,18 @@ def run(p, text, size=10, bold=False, italic=False, color=INK, caps=False, space
                              'w:cs': 'Arial', 'w:eastAsia': 'Arial'})
     return r
 
+def rich(p, text, size=10, bold=False, italic=False, color=INK):
+    """Tekst z korektami: fragment w [[...]] renderuje się na niebiesko (audyt)."""
+    parts = re.split(r'\[\[(.*?)\]\]', text, flags=re.S)
+    for i, part in enumerate(parts):
+        if not part:
+            continue
+        if i % 2 == 1:
+            run(p, part, size=size, bold=True, italic=italic, color=BLUE)
+        else:
+            run(p, part, size=size, bold=bold, italic=italic, color=color)
+
+
 def para(doc_or_cell, text='', size=10, bold=False, italic=False, color=INK,
          before=0, after=6, align=None, indent=None, hanging=None, fill=None,
          line=264, keep=False):
@@ -125,7 +139,7 @@ def para(doc_or_cell, text='', size=10, bold=False, italic=False, color=INK,
     if keep:
         pf.keep_with_next = True
     if text:
-        run(p, text, size=size, bold=bold, italic=italic, color=color)
+        rich(p, text, size=size, bold=bold, italic=italic, color=color)
     return p
 
 def hairline(doc, color=BORDER):
@@ -175,7 +189,7 @@ def accent_box(doc, lines, title=None, fill=LILAC, accent=PURPLE, size=9):
     for i, ln in enumerate(lines):
         p = para(c, '', size=size, after=(0 if i == len(lines) - 1 else 4))
         run(p, '· ', size=size, bold=True, color=accent)
-        run(p, ln, size=size, color=INK)
+        rich(p, ln, size=size, color=INK)
     para(doc, '', after=4)
     return t
 
@@ -213,7 +227,7 @@ def narration(doc, items):
         _sub(pPr, 'w:spacing', **{'w:line': '264', 'w:lineRule': 'auto'})
         run(p, '%02d' % i, size=9, bold=True, color=ORANGE)
         run(p, '\t', size=10)
-        run(p, txt, size=10, color=INK)
+        rich(p, txt, size=10, color=INK)
         tabs = _sub(pPr, 'w:tabs')
         _sub(tabs, 'w:tab', **{'w:val': 'left', 'w:pos': '567'})
 
@@ -229,10 +243,10 @@ def steps(doc, items, marker='▸', color=PURPLE, size=10, after=5):
         # obsługa pogrubionego wstępu: "Lead — reszta"
         if txt.startswith('**'):
             head, rest = txt[2:].split('**', 1)
-            run(p, head, size=size, bold=True, color=INK)
-            run(p, rest, size=size, color=INK)
+            rich(p, head, size=size, bold=True, color=INK)
+            rich(p, rest, size=size, color=INK)
         else:
-            run(p, txt, size=size, color=INK)
+            rich(p, txt, size=size, color=INK)
 
 def numbered(doc, items, color=ORANGE, size=10):
     for i, txt in enumerate(items, 1):
@@ -245,10 +259,10 @@ def numbered(doc, items, color=ORANGE, size=10):
         run(p, '%d.  ' % i, size=size, bold=True, color=color)
         if txt.startswith('**'):
             head, rest = txt[2:].split('**', 1)
-            run(p, head, size=size, bold=True, color=INK)
-            run(p, rest, size=size, color=INK)
+            rich(p, head, size=size, bold=True, color=INK)
+            rich(p, rest, size=size, color=INK)
         else:
-            run(p, txt, size=size, color=INK)
+            rich(p, txt, size=size, color=INK)
 
 def table(doc, headers, rows, widths=None, size=8.5, head_fill=PURPLE,
           head_color='FFFFFF', zebra=True, align_first_bold=True):
@@ -273,9 +287,9 @@ def table(doc, headers, rows, widths=None, size=8.5, head_fill=PURPLE,
             c.paragraphs[0]._p.getparent().remove(c.paragraphs[0]._p)
             for j, sub in enumerate(str(val).split('\n')):
                 p = para(c, '', after=(0 if j == 0 else 0), line=250)
-                run(p, sub, size=size,
-                    bold=(align_first_bold and ci == 0),
-                    color=INK)
+                rich(p, sub, size=size,
+                     bold=(align_first_bold and ci == 0),
+                     color=INK)
     if widths:
         t.autofit = False
         _sub(t._tbl.tblPr, 'w:tblLayout', **{'w:type': 'fixed'})
@@ -383,7 +397,11 @@ def build():
     para(doc, 'Transkrypcja filmu · podstawy prawne · uzasadnienie zmian w dokumentacji · sposób przygotowania druków',
          size=10, color=INK, after=2)
     para(doc, 'Dokumentacja szkolna · rok szkolny 2026/2027 · siedem części · 71 minut 40 sekund · 18 druków w załączniku',
-         size=10, color=GREY, after=10)
+         size=10, color=GREY, after=6)
+    p = para(doc, '', after=10)
+    run(p, 'WYDANIE 2 · po audycie podstaw prawnych — 5 września 2026 r.  ', size=9.5, bold=True, color=BLUE)
+    run(p, 'Fragmenty zmienione w audycie oznaczono kolorem niebieskim. Wykaz zmian — Raport Strażnika Prawa '
+            'na następnej stronie; wykaz aktów wraz z datą weryfikacji — załącznik F.', size=9, color=GREY)
     hairline(doc)
 
     h2(doc, 'JAK KORZYSTAĆ ZE SKRYPTU', before=6)
@@ -396,11 +414,14 @@ def build():
 
     h2(doc, 'NOTA REDAKCYJNA — ZASADA STRAŻNIKA PRAWA')
     accent_box(doc, [
-        'Publikatory oznaczone znakiem ⚑ sprawdzamy w Internetowym Systemie Aktów Prawnych (isap.sejm.gov.pl) '
-        'bezpośrednio przed wpisaniem ich do dokumentu ucznia. Teksty jednolite bywają ogłaszane w trakcie roku szkolnego, '
-        'a druk z nieaktualnym publikatorem jest drukiem wadliwym.',
+        '[[Wszystkie publikatory w tym wydaniu zweryfikowano 5 września 2026 r. i wpisano do rejestru przepisów '
+        '(załącznik F). Znak ⚑ pozostaje tylko przy jednym źródle, które zmienia się co roku i którego nie da się '
+        'zweryfikować raz na zawsze: komunikat dyrektora Centralnej Komisji Egzaminacyjnej o sposobach dostosowania '
+        'warunków egzaminu ósmoklasisty.]]',
         'W dokumencie ucznia cytujemy zawsze obowiązujący tekst jednolity, a nie pierwotny publikator '
-        '(np. „t.j. Dz.U. 2020 poz. 1309”, a nie „Dz.U. 2017 poz. 1578”).',
+        '(np. „t.j. Dz.U. 2020 poz. 1309”, a nie „Dz.U. 2017 poz. 1578”). '
+        '[[Uwaga odwrotna, równie ważna: tekst jednolity także wygasa. Prawo oświatowe miało w latach 2024–2026 trzy '
+        'kolejne teksty jednolite — Dz.U. 2024 poz. 737, Dz.U. 2025 poz. 1043 i obowiązujący Dz.U. 2026 poz. 820.]]',
         'Progi, reguły przekierowania i skale przeliczeniowe opisane w częściach 5 i 6 nie wynikają wprost z przepisu. '
         'To decyzja rady pedagogicznej, którą wpisujemy do procedury szkoły — po to, aby decyzja nie zależała od tego, '
         'kto danego dnia patrzy na arkusz.',
@@ -422,7 +443,8 @@ def build():
            ['Załącznik B', 'Język funkcjonalny — cztery pytania do każdego zdania', '—', '—'],
            ['Załącznik C', 'Osiemnaście druków kwestionariuszy i kart do powielenia', '—', '—'],
            ['Załącznik D', 'Wzór zarządzenia dyrektora i procedura dokumentacyjna', '—', '—'],
-           ['Załącznik E', 'Checklista wdrożenia — 30 / 60 / 90 dni', '—', '—']],
+           ['Załącznik E', 'Checklista wdrożenia — 30 / 60 / 90 dni', '—', '—'],
+           ['Załącznik F', '[[Rejestr przepisów cytowanych w skrypcie — status i data weryfikacji]]', '—', '—']],
           widths=[2.3, 10.5, 1.6, 1.6])
 
     para(doc, 'Placówka wzorcowa użyta w przykładach: Szkoła Podstawowa nr 7 im. Jana Brzechwy w Koszalinie. '
@@ -442,25 +464,42 @@ def czesc_1(doc):
 
     accent_box(doc, [
         'Prawo oświatowe — ustawa z 14 grudnia 2016 r., art. 1 pkt 5–7 (dostosowanie treści, metod i organizacji '
-        'do możliwości psychofizycznych ucznia) oraz art. 127 (kształcenie specjalne). ⚑ tekst jednolity',
+        'do możliwości psychofizycznych ucznia) oraz art. 127 (kształcenie specjalne) — '
+        '[[t.j. Dz.U. 2026 poz. 820, z późn. zm.]] (poprzednie teksty jednolite Dz.U. 2024 poz. 737 i Dz.U. 2025 '
+        'poz. 1043 wygasły).',
         'Kształcenie specjalne — rozporządzenie MEN z 9 sierpnia 2017 r., t.j. Dz.U. 2020 poz. 1309: § 5 (zajęcia '
-        'rewalidacyjne), § 6 (WOPFU i IPET), § 7 (nauczyciel współorganizujący kształcenie).',
+        'rewalidacyjne), § 6 (WOPFU i IPET), [[§ 7 ust. 2 — obowiązek zatrudnienia nauczyciela współorganizującego '
+        'wyłącznie przy autyzmie, w tym zespole Aspergera, oraz niepełnosprawnościach sprzężonych; § 7 ust. 3 — '
+        'pozostałe przypadki, w tym niedostosowanie społeczne, tylko za zgodą organu prowadzącego]].',
         'Pomoc psychologiczno-pedagogiczna — rozporządzenie MEN z 9 sierpnia 2017 r., t.j. Dz.U. 2023 poz. 1798: '
         'formy pomocy w szkole oraz § 12 — zindywidualizowana ścieżka kształcenia.',
         'Orzeczenia i opinie zespołów orzekających — rozporządzenie ME z 2 marca 2026 r., Dz.U. 2026 poz. 428: '
-        '§ 7 ust. 2–3 (opinia szkoły w terminie 10 dni), § 7 ust. 6–7 i § 8 — obowiązują od 1.09.2026. ⚑',
+        '§ 7 ust. 2–3 (opinia szkoły w terminie 10 dni), § 7 ust. 6–7 i § 8 — obowiązują od 1.09.2026. '
+        '[[Akt zweryfikowany: obowiązuje od 14.04.2026 i z tym dniem uchylił rozporządzenie MEN z 7 września 2017 r. '
+        '(t.j. Dz.U. 2023 poz. 2061), którego nie wolno już cytować jako obowiązującego.]]',
         'Dokumentacja przebiegu nauczania — rozporządzenie MEN z 25 sierpnia 2017 r., t.j. Dz.U. 2024 poz. 50: '
-        'księga uczniów, dziennik lekcyjny, dzienniki zajęć, arkusze ocen, dokumentacja badań i czynności uzupełniających. ⚑',
-        'Ocenianie, klasyfikowanie i promowanie — rozporządzenie MEN z 22 lutego 2019 r., Dz.U. 2019 poz. 373 ze zm.: '
-        'dostosowanie wymagań edukacyjnych, ocena zachowania ucznia z orzeczeniem, zwolnienia. ⚑',
-        'Indywidualne nauczanie — rozporządzenie MEN z 9 sierpnia 2017 r., Dz.U. 2017 poz. 1616 ze zm. ⚑',
-        'Organizacja publicznych szkół — rozporządzenie MEN z 28 lutego 2019 r., t.j. Dz.U. 2023 poz. 2736. ⚑',
-        'Podstawa programowa kształcenia ogólnego dla szkoły podstawowej — rozporządzenie MEN z 14 lutego 2017 r., '
-        'Dz.U. 2017 poz. 356 z późn. zm.; zmiany wchodzące etapami od roku szkolnego 2026/2027 wpisujemy do druków '
-        'dopiero po sprawdzeniu publikatora. ⚑',
-        'Zapewnianie dostępności osobom ze szczególnymi potrzebami — ustawa z 19 lipca 2019 r., t.j. Dz.U. 2024 poz. 1411. ⚑',
-        'Finansowanie zadań oświatowych — ustawa z 27 października 2017 r., art. 8 ust. 16–17: środki naliczone '
-        'na kształcenie specjalne wydatkuje się na zadania związane z organizacją tego kształcenia. ⚑',
+        'księga uczniów, dziennik lekcyjny, dzienniki zajęć, arkusze ocen, dokumentacja badań i czynności uzupełniających. '
+        '[[Uwaga na rozjazd spotykany w drukach: Dz.U. 2024 poz. 1640 to akt o zupełnie innej treści.]]',
+        'Ocenianie, klasyfikowanie i promowanie — rozporządzenie MEN z 22 lutego 2019 r., '
+        '[[t.j. Dz.U. 2023 poz. 2572, z późn. zm. (m.in. Dz.U. 2025 poz. 778)]]: dostosowanie wymagań edukacyjnych, '
+        'ocena zachowania ucznia z orzeczeniem, zwolnienia.',
+        'Indywidualne nauczanie — rozporządzenie MEN z 9 sierpnia 2017 r., '
+        '[[t.j. Dz.U. 2023 poz. 2468, z późn. zm. (zm. Dz.U. 2024 poz. 1714)]].',
+        'Organizacja publicznych szkół — rozporządzenie MEN z 28 lutego 2019 r., '
+        '[[t.j. Dz.U. 2023 poz. 2736, z późn. zm. (Dz.U. 2025 poz. 849, Dz.U. 2026 poz. 130, a od 1.09.2026 '
+        'Dz.U. 2026 poz. 1090)]].',
+        'Podstawa programowa — [[rozporządzenie ME z 11 marca 2026 r. w sprawie podstawy programowej wychowania '
+        'przedszkolnego oraz podstawy programowej kształcenia ogólnego dla szkoły podstawowej, w tym dla uczniów '
+        'z niepełnosprawnością intelektualną w stopniu umiarkowanym lub znacznym (Dz.U. 2026 poz. 378, zm. Dz.U. 2026 '
+        'poz. 958). Wdrażana sukcesywnie: od 1.09.2026 w klasach I i IV, w kolejnych latach w następnych klasach; '
+        'dla uczniów z niepełnosprawnością intelektualną w stopniu umiarkowanym lub znacznym — od 1.09.2026. '
+        'Dla pozostałych klas nadal obowiązuje rozporządzenie MEN z 14 lutego 2017 r. (Dz.U. 2017 poz. 356, z późn. zm.).]]',
+        'Zapewnianie dostępności osobom ze szczególnymi potrzebami — ustawa z 19 lipca 2019 r., '
+        't.j. Dz.U. 2024 poz. 1411.',
+        'Finansowanie zadań oświatowych — ustawa z 27 października 2017 r., [[t.j. Dz.U. 2026 poz. 650, art. 8 '
+        'ust. 1: jednostka samorządu terytorialnego przeznacza na zadania wymagające stosowania specjalnej '
+        'organizacji nauki i metod pracy środki w wysokości nie niższej niż kwota wynikająca z podziału części '
+        'oświatowej subwencji ogólnej. Obowiązek adresowany jest do organu prowadzącego, nie do szkoły.]]',
         'RODO — rozporządzenie (UE) 2016/679, art. 5 ust. 1 lit. c (minimalizacja danych) oraz art. 9 '
         '(dane o zdrowiu jako dane szczególnej kategorii). ICF — Międzynarodowa Klasyfikacja Funkcjonowania, WHO 2001.',
     ], title='PODSTAWA PRAWNA CZĘŚCI')
@@ -501,10 +540,16 @@ def czesc_1(doc):
         'obowiązkowych elementów. Paragraf szósty ustęp czwarty: program opracowujemy po dokonaniu wielospecjalistycznej '
         'oceny poziomu funkcjonowania ucznia. I paragraf szósty ustęp dziewiąty: ocenę dokonujemy co najmniej dwa razy '
         'w roku szkolnym.',
-        'Zapamiętajmy też paragraf siódmy. W szkole ogólnodostępnej dla ucznia z autyzmem, w tym z zespołem Aspergera, '
-        'z niepełnosprawnościami sprzężonymi oraz dla ucznia niedostosowanego społecznie zatrudnia się dodatkowo '
-        'nauczyciela współorganizującego kształcenie. To nie jest dobra wola dyrektora. To obowiązek wynikający '
-        'z rozporządzenia. A wymiar jego pracy zapisujemy w programie, w konkretnych godzinach i konkretnych zajęciach.',
+        '[[Zapamiętajmy też paragraf siódmy, bo jest najczęściej cytowany błędnie. Ustęp drugi mówi, że '
+        'w przedszkolach i szkołach ogólnodostępnych, w których kształceniem specjalnym objęci są uczniowie '
+        'posiadający orzeczenie wydane ze względu na autyzm, w tym zespół Aspergera, albo niepełnosprawności '
+        'sprzężone, zatrudnia się dodatkowo nauczyciela współorganizującego kształcenie. Tylko te dwie podstawy '
+        'orzeczenia. To nie jest dobra wola dyrektora, to obowiązek. Ustęp trzeci mówi o wszystkich pozostałych '
+        'przypadkach: przy innych niepełnosprawnościach, przy niedostosowaniu społecznym i przy zagrożeniu '
+        'niedostosowaniem takiego nauczyciela można zatrudnić dodatkowo, ale wyłącznie za zgodą organu prowadzącego. '
+        'Nie jest to obowiązek szkoły. Bezwzględny obowiązek przy niedostosowaniu społecznym dotyczy szkół '
+        'specjalnych i młodzieżowych ośrodków wychowawczych, a nie szkoły ogólnodostępnej. Wymiar pracy nauczyciela '
+        'współorganizującego zapisujemy w programie, w konkretnych godzinach i konkretnych zajęciach.]]',
         'Terminy programu są dwa. Do trzydziestego września dla ucznia, który rozpoczyna kształcenie z orzeczeniem '
         'w danym roku szkolnym. Albo trzydzieści dni od dnia złożenia w szkole orzeczenia, niezależnie od miesiąca. '
         'Termin liczymy od daty wpływu orzeczenia do szkoły, dlatego datę wpływu odnotowujemy w metryczce ucznia.',
@@ -563,6 +608,16 @@ def czesc_1(doc):
         'Z tego samego rozporządzenia wynika, że przy ustalaniu oceny zachowania ucznia posiadającego orzeczenie '
         'lub opinię uwzględnia się wpływ stwierdzonych zaburzeń lub zaburzeń rozwojowych na jego zachowanie. '
         'To zdanie ratuje wielu uczniów przed oceną naganną za objaw.',
+        '[[Zanim przejdziemy dalej, jedno zdanie o podstawie programowej, bo w tym roku wchodzi ona etapami. '
+        'Rozporządzenie Ministra Edukacji z jedenastego marca dwa tysiące dwudziestego szóstego roku, Dziennik Ustaw '
+        'pozycja trzysta siedemdziesiąt osiem, wprowadza nową podstawę programową wychowania przedszkolnego '
+        'i kształcenia ogólnego dla szkoły podstawowej. Od pierwszego września obowiązuje ona w klasach pierwszej '
+        'i czwartej, a w latach następnych wchodzi w kolejnych klasach. Dla uczniów z niepełnosprawnością '
+        'intelektualną w stopniu umiarkowanym lub znacznym obowiązuje od pierwszego września w całej szkole '
+        'podstawowej. W pozostałych klasach nadal stosujemy podstawę z dwa tysiące siedemnastego roku, pozycja '
+        'trzysta pięćdziesiąt sześć. Ma to bardzo praktyczny skutek dla naszej dokumentacji. W programie uczennicy '
+        'klasy trzeciej, o której będziemy mówić w kolejnych modułach, powołujemy się na podstawę z dwa tysiące '
+        'siedemnastego roku, a nie na nową. Nowa obejmie ją dopiero wtedy, gdy dojdzie do klasy objętej wdrożeniem.]]',
         'Szósty obszar to egzamin ósmoklasisty. Dostosowanie warunków i form przeprowadzania egzaminu przysługuje '
         'uczniowi na podstawie orzeczenia, opinii poradni albo — w niektórych przypadkach — pozytywnej opinii rady '
         'pedagogicznej. Szczegółowe sposoby dostosowania ogłasza corocznie komunikat dyrektora Centralnej Komisji '
@@ -570,9 +625,12 @@ def czesc_1(doc):
         'jeden wniosek praktyczny: dostosowanie, którego nie ma w dokumentacji ucznia w listopadzie, nie pojawi się '
         'na egzaminie w maju.',
         'I trzy akty, które stoją nad wszystkimi. Ustawa o zapewnianiu dostępności osobom ze szczególnymi potrzebami. '
-        'Ustawa o finansowaniu zadań oświatowych, z której wynika, że środki naliczone na kształcenie specjalne '
-        'wydatkuje się na zadania związane z organizacją tego kształcenia, a dokumentacja ucznia jest dowodem, '
-        'że tak się stało. Oraz rozporządzenie o ochronie danych osobowych. Pamiętajmy, że dane o zdrowiu i rozwoju '
+        '[[Ustawa o finansowaniu zadań oświatowych, której artykuł ósmy ustęp pierwszy nakłada na jednostkę samorządu '
+        'terytorialnego obowiązek przeznaczenia na zadania wymagające stosowania specjalnej organizacji nauki i metod '
+        'pracy środków w wysokości nie niższej niż kwota wynikająca z podziału części oświatowej subwencji ogólnej. '
+        'Adresatem tego obowiązku jest organ prowadzący, a nie szkoła. Dla nas płynie z tego wniosek pośredni, '
+        'ale ważny: to dokumentacja ucznia pokazuje, jakie zadania szkoła faktycznie realizuje, i to na jej podstawie '
+        'organ prowadzący planuje oraz rozlicza te środki.]] Oraz rozporządzenie o ochronie danych osobowych. Pamiętajmy, że dane o zdrowiu i rozwoju '
         'ucznia to dane szczególnej kategorii. Teczka ucznia ma swoje bezpieczne miejsce, a klauzula informacyjna '
         'jest podpisana przez rodzica.',
         'W naszej szkole działa Strażnik Prawa. To nie jest osoba, która zna przepisy na pamięć. To osoba, która '
@@ -588,30 +646,34 @@ def czesc_1(doc):
     h2(doc, 'Co z którego aktu bierzemy — mapa dla wypełniającego')
     table(doc,
           ['Akt prawny', 'Co z niego wynika dla szkoły', 'Gdzie to widać w druku'],
-          [['Prawo oświatowe\nart. 1 pkt 5–7, art. 127',
+          [['Prawo oświatowe\n[[t.j. Dz.U. 2026 poz. 820]]\nart. 1 pkt 5–7, art. 127',
             'Obowiązek dostosowania treści, metod i organizacji do możliwości ucznia; kształcenie specjalne na podstawie orzeczenia.',
             'Metryczka — sekcja „podstawa objęcia wsparciem”; IPET — część wstępna.'],
            ['Kształcenie specjalne\nt.j. Dz.U. 2020 poz. 1309, § 5–7',
-            'Zajęcia rewalidacyjne; osiem elementów IPET; WOPFU co najmniej dwa razy w roku; nauczyciel współorganizujący.',
+            'Zajęcia rewalidacyjne; osiem elementów IPET; WOPFU co najmniej dwa razy w roku; nauczyciel '
+            'współorganizujący — [[obowiązkowo tylko przy autyzmie/zespole Aspergera i niepełnosprawnościach '
+            'sprzężonych (§ 7 ust. 2); w pozostałych przypadkach za zgodą organu prowadzącego (§ 7 ust. 3)]].',
             'WOPF-SP — całość; IPET — sekcje 2–7; karta kontrolna rozporządzenia.'],
            ['Pomoc pp\nt.j. Dz.U. 2023 poz. 1798',
             'Rozpoznawanie potrzeb przez nauczycieli, katalog form pomocy, zindywidualizowana ścieżka, ocena efektywności.',
             'PWES; karta oceny efektywności; KSzOF jako narzędzie rozpoznania.'],
-           ['Orzeczenia i opinie\nDz.U. 2026 poz. 428 ⚑',
+           ['Orzeczenia i opinie\nDz.U. 2026 poz. 428\n[[obowiązuje od 14.04.2026]]',
             'Ocena funkcjonalna przed orzeczeniem; opinia szkoły o funkcjonowaniu ucznia w terminie 10 dni; język ICF.',
             'Opinia o funkcjonowaniu ucznia — siedem punktów; KSzOF (kody ICF przy twierdzeniach).'],
-           ['Dokumentacja przebiegu nauczania\nt.j. Dz.U. 2024 poz. 50 ⚑',
+           ['Dokumentacja przebiegu nauczania\nt.j. Dz.U. 2024 poz. 50',
             'Arkusze obserwacji i karty specjalistów jako dokumentacja badań i czynności uzupełniających.',
             'Stopka każdego druku obserwacyjnego; wykaz dokumentacji w metryczce.'],
-           ['Ocenianie\nDz.U. 2019 poz. 373 ⚑',
+           ['Ocenianie\n[[t.j. Dz.U. 2023 poz. 2572, z późn. zm.]]',
             'Dostosowanie wymagań edukacyjnych; uwzględnienie zaburzeń przy ocenie zachowania; zwolnienia.',
             'IPET — sekcja dostosowań; karta dostosowań przedmiotowych (druk 11).'],
            ['Egzamin ósmoklasisty\nkomunikat dyrektora CKE ⚑',
             'Dostosowanie warunków i form egzaminu na podstawie orzeczenia, opinii albo opinii rady pedagogicznej.',
             'Karta dostosowań egzaminacyjnych (druk 12); protokół rady pedagogicznej.'],
-           ['Finansowanie zadań oświatowych\nart. 8 ust. 16–17 ⚑',
-            'Środki naliczone na kształcenie specjalne wydatkuje się na organizację tego kształcenia.',
-            'IPET — wymiar godzin przy każdym zaleceniu; arkusz organizacyjny.'],
+           ['Finansowanie zadań oświatowych\n[[t.j. Dz.U. 2026 poz. 650, art. 8 ust. 1]]',
+            '[[Obowiązek jednostki samorządu terytorialnego: przeznaczyć na zadania wymagające specjalnej '
+            'organizacji nauki środki nie niższe niż kwota z subwencji. Szkoła nie jest adresatem tego przepisu.]]',
+            'IPET — wymiar godzin przy każdym zaleceniu; arkusz organizacyjny jako źródło danych dla organu '
+            'prowadzącego.'],
            ['RODO\nart. 5 ust. 1 lit. c, art. 9',
             'Minimalizacja danych; dane o zdrowiu jako dane szczególnej kategorii.',
             'Metryczka (bez PESEL w drukach pochodnych); klauzula informacyjna w każdym druku.']],
@@ -630,7 +692,9 @@ def czesc_1(doc):
         '**Ustal, kto pełni funkcję Strażnika Prawa** i w jakim rytmie funkcja się zmienia. Zadanie jest jedno: '
         'przy każdej decyzji pytać, z czego to wynika i gdzie jest zapisane.',
         '**Sprawdź obsadę nauczyciela współorganizującego** dla uczniów z autyzmem, w tym z zespołem Aspergera, '
-        'z niepełnosprawnościami sprzężonymi oraz niedostosowanych społecznie. To obowiązek, nie opcja.',
+        'oraz z niepełnosprawnościami sprzężonymi — [[tu zatrudnienie jest obowiązkiem (§ 7 ust. 2). Przy innych '
+        'niepełnosprawnościach, niedostosowaniu społecznym i zagrożeniu niedostosowaniem wystąp do organu '
+        'prowadzącego o zgodę (§ 7 ust. 3) — bez niej nie ma podstawy do zatrudnienia.]]',
         '**Przygotuj zarządzenie dyrektora** porządkujące obieg dokumentacji ucznia: kto zakłada teczkę, gdzie jest '
         'przechowywana, kto ma do niej dostęp, w jakim terminie wpływają arkusze. Wzór — załącznik D.',
         '**Nie przepisuj dokumentów już sporządzonych.** Program i ocenę aktualizuj przy najbliższej wielospecjalistycznej '
@@ -649,7 +713,8 @@ def czesc_2(doc):
     accent_box(doc, [
         'Ocena funkcjonalna i opinia szkoły o funkcjonowaniu ucznia — § 7 ust. 2–3, 6–7 i § 8 rozporządzenia ME '
         'z 2 marca 2026 r. (Dz.U. 2026 poz. 428): od 1.09.2026 opis funkcjonowania odnosi się do aktywności '
-        'i uczestniczenia w rozumieniu ICF, a opinię wydaje się w terminie 10 dni. ⚑',
+        'i uczestniczenia w rozumieniu ICF, a opinię wydaje się w terminie 10 dni. [[Publikator zweryfikowany; '
+        'akt obowiązuje od 14.04.2026 i uchylił rozporządzenie z 7 września 2017 r. (t.j. Dz.U. 2023 poz. 2061).]]',
         'WOPFU jako podstawa programu — § 6 ust. 4 rozporządzenia MEN z 9 sierpnia 2017 r. (t.j. Dz.U. 2020 poz. 1309): '
         'program opracowuje się po dokonaniu oceny, uwzględniając diagnozę i wnioski z oceny oraz zalecenia z orzeczenia.',
         'Ocena efektywności udzielanej pomocy — § 6 ust. 9–11 rozporządzenia o kształceniu specjalnym oraz przepisy '
@@ -657,11 +722,13 @@ def czesc_2(doc):
         'Prawa rodziców — § 6 ust. 10–12: udział w spotkaniach zespołu, otrzymanie kopii programu i kopii '
         'wielospecjalistycznej oceny.',
         'Minimalizacja danych — art. 5 ust. 1 lit. c RODO; dane o zdrowiu — art. 9 RODO.',
-        'Wydatkowanie środków na kształcenie specjalne — art. 8 ust. 16–17 ustawy z 27 października 2017 r. '
-        'o finansowaniu zadań oświatowych. ⚑',
-        'Dostępność — ustawa z 19 lipca 2019 r. o zapewnianiu dostępności osobom ze szczególnymi potrzebami. ⚑',
-        'Nadzór pedagogiczny — art. 55 i art. 60 ustawy Prawo oświatowe: kontrola przestrzegania przepisów '
-        'dotyczących działalności dydaktycznej, wychowawczej i opiekuńczej. ⚑',
+        'Wydatkowanie środków na kształcenie specjalne — [[art. 8 ust. 1 ustawy z 27 października 2017 r. '
+        'o finansowaniu zadań oświatowych (t.j. Dz.U. 2026 poz. 650); obowiązek spoczywa na jednostce samorządu '
+        'terytorialnego]].',
+        'Dostępność — ustawa z 19 lipca 2019 r. o zapewnianiu dostępności osobom ze szczególnymi potrzebami '
+        '(t.j. Dz.U. 2024 poz. 1411).',
+        'Nadzór pedagogiczny — [[art. 55 oraz art. 68 ust. 1 ustawy Prawo oświatowe (t.j. Dz.U. 2026 poz. 820) '
+        'i rozporządzenie MEN z 25 sierpnia 2017 r. w sprawie nadzoru pedagogicznego (t.j. Dz.U. 2024 poz. 15)]].',
     ], title='PODSTAWA PRAWNA CZĘŚCI')
 
     h3(doc, 'Transkrypcja narracji')
@@ -718,11 +785,15 @@ def czesc_2(doc):
         'do programu nie wystarcza. Przy każdym zaleceniu zapisujemy, w jakiej formie je realizujemy, kto je realizuje, '
         'w jakim wymiarze godzin i od kiedy. Brak tej kolumny to najczęstsze uchybienie stwierdzane w kontrolach '
         'dokumentacji kształcenia specjalnego.',
-        'Powód szósty, o którym mówi się najrzadziej, a który w szkole waży najwięcej. Pieniądze. Artykuł ósmy '
-        'ustawy o finansowaniu zadań oświatowych stanowi, że środki naliczone na uczniów posiadających orzeczenie '
-        'wydatkuje się na zadania związane z organizacją kształcenia specjalnego. Dokumentacja ucznia jest jedynym '
-        'dowodem, że tak się stało. Jeżeli w programie nie ma wymiaru godzin, form i osób realizujących, organ '
-        'prowadzący nie ma czym wykazać wydatkowania. To już nie jest kwestia estetyki dokumentu.',
+        '[[Powód szósty, o którym mówi się najrzadziej. Pieniądze. Artykuł ósmy ustęp pierwszy ustawy '
+        'o finansowaniu zadań oświatowych nakłada obowiązek na jednostkę samorządu terytorialnego: musi ona '
+        'przeznaczyć na zadania wymagające stosowania specjalnej organizacji nauki i metod pracy środki w wysokości '
+        'nie niższej niż kwota wynikająca z podziału części oświatowej subwencji ogólnej. Powiedzmy wyraźnie: '
+        'adresatem tego przepisu jest organ prowadzący, a nie szkoła, i nie wynika z niego żaden bezpośredni '
+        'obowiązek dokumentacyjny dla nas. Nasz wniosek jest pośredni, ale praktyczny. Skoro organ prowadzący ma '
+        'zaplanować i rozliczyć te środki, potrzebuje wiedzieć, jakie zajęcia, w jakim wymiarze i przez kogo są '
+        'realizowane. Tę informację niesie program ucznia i arkusz organizacyjny. Program bez wymiaru godzin, form '
+        'i osób realizujących nie daje jej wcale.]]',
         'Powód siódmy. Dostosowania muszą mieć uzasadnienie w opisie bariery. Ustawa o zapewnianiu dostępności '
         'i model biopsychospołeczny mówią to samo: trudność powstaje na styku możliwości ucznia i wymagań otoczenia. '
         'Jeżeli w ocenie nie opisaliśmy, że hałas w sali skraca czas pracy z ośmiu minut do jednej, to dostosowanie '
@@ -781,10 +852,10 @@ def czesc_2(doc):
     table(doc,
           ['#', 'Powód', 'Podstawa', 'Co się dzieje, jeśli nie zmienimy'],
           [['1', 'Zmienił się adresat: poradnia opiera orzeczenie na ocenie funkcjonalnej w języku ICF.',
-            '§ 7 ust. 7 rozp. Dz.U. 2026 poz. 428 ⚑',
+            '§ 7 ust. 7 rozp. Dz.U. 2026 poz. 428\n[[wchodzi 1.09.2026]]',
             'Dane ze szkoły nie zostaną wykorzystane; orzeczenie powstaje bez perspektywy nauczycieli.'],
            ['2', 'Opinia o funkcjonowaniu ucznia w terminie 10 dni od wpływu prośby do dyrektora.',
-            '§ 7 ust. 2–3 rozp. Dz.U. 2026 poz. 428 ⚑',
+            '§ 7 ust. 2–3 rozp. Dz.U. 2026 poz. 428\n[[zweryfikowane]]',
             'Opinia pisana z pamięci albo po terminie; uchybienie formalne i niska jakość danych.'],
            ['3', 'WOPFU jest podstawą programu — każdy wniosek musi mieć źródło.',
             '§ 6 ust. 4 rozp. t.j. Dz.U. 2020 poz. 1309',
@@ -795,11 +866,12 @@ def czesc_2(doc):
            ['5', 'Przy każdym zaleceniu wymagany sposób realizacji: forma, osoba, wymiar, data.',
             '§ 6 ust. 1 i 4 rozp. t.j. Dz.U. 2020 poz. 1309',
             'Najczęstsze uchybienie w kontroli dokumentacji kształcenia specjalnego.'],
-           ['6', 'Dokumentacja jest dowodem wydatkowania środków naliczonych na kształcenie specjalne.',
-            'art. 8 ust. 16–17 ustawy o finansowaniu zadań oświatowych ⚑',
-            'Organ prowadzący nie ma czym wykazać wydatkowania; ryzyko przy rozliczeniu i kontroli.'],
+           ['6', '[[Dokumentacja ucznia jest źródłem danych, na których organ prowadzący planuje i rozlicza środki '
+            'na specjalną organizację nauki (obowiązek JST, nie szkoły).]]',
+            '[[art. 8 ust. 1 ustawy o finansowaniu zadań oświatowych, t.j. Dz.U. 2026 poz. 650]]',
+            'Organ prowadzący nie ma na czym oprzeć planowania i rozliczenia; ryzyko przy kontroli.'],
            ['7', 'Dostosowanie musi wynikać z opisanej bariery środowiskowej.',
-            'ustawa o dostępności ⚑; model ICF (WHO 2001)',
+            'ustawa o dostępności (t.j. Dz.U. 2024 poz. 1411); model ICF (WHO 2001)',
             'Dostosowania nieuzasadnione i nieweryfikowalne; nie wiadomo, po czym poznać, że pomogły.'],
            ['8', 'Prawa rodziców: udział w zespole, kopia oceny i programu; głos ucznia.',
             '§ 6 ust. 10–12 rozp. t.j. Dz.U. 2020 poz. 1309',
@@ -847,10 +919,11 @@ def czesc_2(doc):
             'W II etapie ucznia uczy kilkunastu nauczycieli — ogólna lista nie działa.'],
            ['Uczeń bez orzeczenia', 'Notatka w dzienniku, brak dokumentu wiodącego.',
             'Plan wsparcia edukacyjnego ucznia (PWES) + karta oceny efektywności.',
-            'Pomoc pp również podlega ocenie efektywności.'],
+            '[[Pomoc pp podlega ocenie efektywności. Sam PWES to narzędzie wewnętrzne szkoły — rozporządzenie '
+            'nie przewiduje takiego druku.]]'],
            ['Ocena zachowania', 'Bez odniesienia do orzeczenia lub opinii.',
             'Zapis o uwzględnieniu wpływu zaburzeń, z odesłaniem do dokumentu.',
-            'Rozp. o ocenianiu (Dz.U. 2019 poz. 373 ⚑).'],
+            '[[Rozp. o ocenianiu — t.j. Dz.U. 2023 poz. 2572, z późn. zm.]]'],
            ['Dane osobowe w drukach', 'PESEL, adres, miejsce pracy rodziców powielane w każdym druku.',
             'Dane wyłącznie w metryczce i w dokumentacji przebiegu nauczania; druki dziedziczą.',
             'art. 5 ust. 1 lit. c RODO — minimalizacja danych.'],
@@ -911,9 +984,9 @@ def czesc_3(doc):
         'WOPFU poprzedza IPET i jest jego podstawą; ocena co najmniej dwa razy w roku szkolnym.',
         'Pomoc psychologiczno-pedagogiczna — rozpoznawanie potrzeb przez nauczycieli, formy pomocy w szkole '
         'i ocena efektywności (t.j. Dz.U. 2023 poz. 1798).',
-        'Opinia o funkcjonowaniu ucznia dla poradni — § 7 ust. 2–3 rozporządzenia o orzekaniu (Dz.U. 2026 poz. 428). ⚑',
+        'Opinia o funkcjonowaniu ucznia dla poradni — § 7 ust. 2–3 rozporządzenia o orzekaniu (Dz.U. 2026 poz. 428).',
         'Dokumentacja badań i czynności uzupełniających — rozporządzenie o dokumentacji przebiegu nauczania '
-        '(t.j. Dz.U. 2024 poz. 50). ⚑',
+        '(t.j. Dz.U. 2024 poz. 50).',
     ], title='PODSTAWA PRAWNA CZĘŚCI')
 
     h3(doc, 'Transkrypcja narracji')
@@ -1034,7 +1107,7 @@ def czesc_4(doc):
 
     accent_box(doc, [
         'Dokumentacja przebiegu nauczania — rozporządzenie MEN z 25 sierpnia 2017 r. (t.j. Dz.U. 2024 poz. 50): '
-        'księga uczniów, dzienniki, arkusze ocen, dokumentacja badań i czynności uzupełniających. ⚑',
+        'księga uczniów, dzienniki, arkusze ocen, dokumentacja badań i czynności uzupełniających.',
         'Metryczka jest narzędziem wewnętrznym szkoły — wprowadza ją zarządzenie dyrektora; porządkuje dane '
         'gromadzone z innych tytułów i nie zastępuje dokumentacji przebiegu nauczania.',
         'RODO — art. 5 ust. 1 lit. c (minimalizacja danych) i art. 9 (dane o zdrowiu jako dane szczególnej kategorii).',
@@ -1168,9 +1241,9 @@ def czesc_5(doc):
         'Rozpoznawanie indywidualnych potrzeb rozwojowych i edukacyjnych oraz możliwości psychofizycznych uczniów — '
         'rozporządzenie o pomocy psychologiczno-pedagogicznej (t.j. Dz.U. 2023 poz. 1798).',
         'Obserwacja pedagogiczna i arkusze obserwacji jako dokumentacja badań i czynności uzupełniających — '
-        'rozporządzenie o dokumentacji przebiegu nauczania (t.j. Dz.U. 2024 poz. 50). ⚑',
+        'rozporządzenie o dokumentacji przebiegu nauczania (t.j. Dz.U. 2024 poz. 50).',
         'ICF (WHO 2001) — model biopsychospołeczny; rozporządzenie o orzekaniu (Dz.U. 2026 poz. 428) nakazuje '
-        'opisywać funkcjonowanie w kategoriach aktywności i uczestniczenia. ⚑',
+        'opisywać funkcjonowanie w kategoriach aktywności i uczestniczenia — [[§ 7 ust. 7, obowiązuje od 1.09.2026]].',
         'Narzędzie źródłowe: Z. Gajdzica, E. Widawska, S. Byra i in. (2024), Kwestionariusz Szkolnej Oceny '
         'Funkcjonalnej (KSzOF-I-III) — 52 twierdzenia, 9 obszarów ICF, skala 1–5, normy stenowe odrębne '
         'dla nauczyciela i rodzica.',
@@ -1376,7 +1449,7 @@ def czesc_6(doc):
         'pomocy — rozporządzenie o pomocy psychologiczno-pedagogicznej (t.j. Dz.U. 2023 poz. 1798).',
         'Wystąpienie do poradni, gdy mimo udzielanej pomocy nie ma poprawy — za zgodą rodziców, wniosek dyrektora.',
         'Arkusze obserwacji pogłębionej jako dokumentacja badań i czynności uzupełniających — rozporządzenie '
-        'o dokumentacji przebiegu nauczania (t.j. Dz.U. 2024 poz. 50). ⚑',
+        'o dokumentacji przebiegu nauczania (t.j. Dz.U. 2024 poz. 50).',
         'Reguły przekierowania i karta decyzyjna nie wynikają wprost z przepisu — to decyzja rady pedagogicznej '
         'wpisana do procedury szkoły.',
         'Granica kompetencji: nauczyciel opisuje obserwowane zachowanie; rozpoznanie i kwalifikacja do terapii '
@@ -1552,9 +1625,12 @@ def czesc_7(doc):
         'Formy pomocy psychologiczno-pedagogicznej i ocena efektywności — rozporządzenie o pomocy pp '
         '(t.j. Dz.U. 2023 poz. 1798); zindywidualizowana ścieżka kształcenia — § 12 tego rozporządzenia.',
         'Opinia o funkcjonowaniu ucznia — § 7 ust. 2–3 rozporządzenia o orzekaniu (Dz.U. 2026 poz. 428): wydaje się '
-        'w terminie 10 dni od dnia otrzymania przez dyrektora prośby o jej wydanie; kopię otrzymują rodzice. ⚑',
+        'w terminie 10 dni od dnia otrzymania przez dyrektora prośby o jej wydanie; kopię otrzymują rodzice.',
         'Dostosowanie wymagań edukacyjnych i ocena zachowania ucznia z orzeczeniem lub opinią — rozporządzenie '
-        'o ocenianiu (Dz.U. 2019 poz. 373 ze zm.). ⚑',
+        'o ocenianiu z 22 lutego 2019 r. ([[t.j. Dz.U. 2023 poz. 2572, z późn. zm.]]).',
+        '[[Plan wsparcia edukacyjnego ucznia (PWES) nie jest drukiem wymaganym przez rozporządzenie. Formy, okres '
+        'i wymiar pomocy psychologiczno-pedagogicznej ustala dyrektor, a przebieg zajęć dokumentuje się w dziennikach. '
+        'PWES wprowadzamy zarządzeniem dyrektora jako narzędzie wewnętrzne — tak samo jak metryczkę.]]',
         'Cele SMART nie są nazwane w rozporządzeniu. Wymagana jest ocena efektywności, a cel z kryterium jest '
         'najprostszym sposobem, żeby ją przeprowadzić.',
     ], title='PODSTAWA PRAWNA CZĘŚCI')
@@ -1635,11 +1711,18 @@ def czesc_7(doc):
         'i jednocześnie dobrym środowiskiem dla całej klasy. To jest uniwersalne projektowanie, a przy okazji '
         'realizacja ustawy o zapewnianiu dostępności.',
         'Teraz uczeń bez orzeczenia, bo to najliczniejsza grupa w każdej szkole.',
-        'Dla ucznia z opinią poradni albo rozpoznanego przez nauczycieli nie sporządzamy programu — sporządzamy plan '
+        'Dla ucznia z opinią poradni albo rozpoznanego przez nauczycieli nie sporządzamy programu. Sporządzamy plan '
         'wsparcia edukacyjnego. Plan ma tę samą logikę: rozpoznana potrzeba, cel z kryterium, forma pomocy, osoba '
-        'prowadząca, wymiar godzin, okres i termin oceny efektywności. Różni się podstawą prawną i tym, że nie wymaga '
-        'orzeczenia. To jest dokument, którego w większości szkół po prostu nie ma, a bez którego ocena efektywności '
-        'pomocy nie ma do czego się odnieść.',
+        'prowadząca, wymiar godzin, okres i termin oceny efektywności.',
+        '[[I tu muszę powiedzieć rzecz, o której łatwo zapomnieć, a która jest istotą pracy Strażnika Prawa. '
+        'Rozporządzenie o pomocy psychologiczno-pedagogicznej nie zna dokumentu o nazwie plan wsparcia edukacyjnego. '
+        'Nie ma w nim odpowiednika programu dla ucznia bez orzeczenia. Przepis mówi tylko tyle: formy pomocy, okres '
+        'ich udzielania i wymiar godzin ustala dyrektor, a nauczyciele i specjaliści oceniają efektywność udzielanej '
+        'pomocy i dokumentują zajęcia w dziennikach. Plan wsparcia jest zatem naszym narzędziem wewnętrznym, '
+        'wprowadzanym zarządzeniem dyrektora — dokładnie na tej samej zasadzie co metryczka. Nikt nie może wymagać '
+        'go od nas w kontroli i my też nie powołujemy się przy nim na rozporządzenie. Robimy go dlatego, że bez '
+        'jednego miejsca, w którym zapisano cel z kryterium, ocena efektywności nie ma do czego się odnieść. '
+        'To jest uczciwe uzasadnienie i tylko takiego wolno nam używać.]]',
         'Program i plan realizujemy przez cele mierzalne. Zatrzymajmy się na chwilę, bo to pojęcie budzi pytania.',
         'Czym są cele SMART? To sposób formułowania celu, w którym cel jest konkretny, mierzalny, osiągalny, istotny '
         'i określony w czasie. Nazwa to skrót od pierwszych liter tych pięciu cech w języku angielskim. Metoda pochodzi '
@@ -1729,23 +1812,28 @@ def czesc_7(doc):
           ['Kryterium', 'IPET — kształcenie specjalne', 'PWES — pomoc psychologiczno-pedagogiczna'],
           [['Dla kogo', 'Uczeń z orzeczeniem o potrzebie kształcenia specjalnego.',
             'Uczeń z opinią poradni albo rozpoznany przez nauczycieli, bez orzeczenia.'],
-           ['Podstawa prawna', 'Art. 127 Prawa oświatowego; § 6 rozp. t.j. Dz.U. 2020 poz. 1309.',
-            'Rozp. o pomocy pp, t.j. Dz.U. 2023 poz. 1798.'],
+           ['Podstawa prawna', 'Art. 127 Prawa oświatowego (t.j. Dz.U. 2026 poz. 820); § 6 rozp. t.j. Dz.U. 2020 '
+            'poz. 1309. Druk IPET jest wymagany przez rozporządzenie.',
+            'Rozp. o pomocy pp, t.j. Dz.U. 2023 poz. 1798 — [[reguluje formy, okres i wymiar pomocy oraz ocenę '
+            'efektywności, ale NIE przewiduje druku planu. PWES to narzędzie wewnętrzne szkoły.]]'],
            ['Poprzedza go', 'Wielospecjalistyczna ocena poziomu funkcjonowania (obowiązkowo).',
             'Rozpoznanie potrzeb przez nauczycieli; KSzOF jako narzędzie rozpoznania.'],
            ['Termin', 'Do 30 września albo 30 dni od złożenia orzeczenia w szkole.',
             'Niezwłocznie po ustaleniu form pomocy przez dyrektora.'],
            ['Kto opracowuje', 'Zespół nauczycieli i specjalistów; koordynator wyznaczony przez dyrektora.',
-            'Nauczyciele i specjaliści prowadzący zajęcia z uczniem.'],
+            'Nauczyciele i specjaliści prowadzący zajęcia z uczniem; [[formy, okres i wymiar pomocy ustala '
+            'dyrektor]].'],
            ['Obowiązkowa zawartość', 'Osiem elementów z § 6 ust. 1.',
-            'Potrzeba, forma pomocy, okres i wymiar godzin, osoba prowadząca, sposób oceny efektywności.'],
+            '[[Zakres ustala szkoła. Z przepisu wynikają: forma pomocy, okres i wymiar godzin (ustala dyrektor) '
+            'oraz ocena efektywności.]]'],
            ['Ewaluacja', 'WOPFU co najmniej 2× w roku; modyfikacja programu po każdej ocenie.',
             'Ocena efektywności na bieżąco i na zakończenie formy pomocy.'],
            ['Prawa rodziców', 'Udział w spotkaniach zespołu; kopia oceny i kopia programu.',
             'Informacja o formach, wymiarze i okresie pomocy.'],
            ['Zajęcia rewalidacyjne', 'Tak — § 5 rozporządzenia.', 'Nie. Rewalidacja przysługuje tylko z orzeczeniem.'],
-           ['Nauczyciel współorganizujący', 'Tak, obowiązkowo przy autyzmie (w tym zespole Aspergera), '
-            'niepełnosprawnościach sprzężonych i niedostosowaniu społecznym.', 'Nie dotyczy.']],
+           ['Nauczyciel współorganizujący', 'Obowiązkowo [[wyłącznie przy autyzmie (w tym zespole Aspergera) '
+            'i niepełnosprawnościach sprzężonych — § 7 ust. 2. W pozostałych przypadkach, także przy '
+            'niedostosowaniu społecznym, tylko za zgodą organu prowadzącego — § 7 ust. 3.]]', 'Nie dotyczy.']],
           widths=[3.2, 6.4, 6.4], size=8)
 
     h2(doc, 'Cel wyjściowy a cel mierzalny — trzy pary do porównania')
@@ -1839,7 +1927,7 @@ def zal_A_B(doc):
            ['październik', 'Zebranie informacji od nauczycieli przedmiotów o uczniach objętych wsparciem (II etap).',
             'Arkusz informacji nauczyciela przedmiotu (druk 10)', 'wychowawca'],
            ['listopad', 'Krótki przegląd wskaźników — 15 minut na ucznia. W klasach VIII: uporządkowanie '
-            'dokumentacji pod dostosowania egzaminacyjne. ⚑ terminy z komunikatu CKE',
+            'dokumentacji pod dostosowania egzaminacyjne. ⚑ terminy z komunikatu dyrektora CKE na dany rok',
             'Karta celu SMART + karta dostosowań egzaminacyjnych', 'koordynator / dyrektor'],
            ['styczeń', 'Druga wielospecjalistyczna ocena; ewaluacja półroczna celów; ocena efektywności pomocy pp.',
             'WOPF-SP + IPET + karta ewaluacji + karta oceny efektywności', 'zespół'],
@@ -1925,7 +2013,8 @@ def zal_C_1(doc):
            ['12', 'Karta dostosowań warunków egzaminu ósmoklasisty', 'AD-E8', 'listopad klasy VIII ⚑ terminy z komunikatu CKE'],
            ['13', 'Karta celu i ewaluacji', 'SMART-SP', 'przy każdym celu z IPET lub PWES'],
            ['14', 'Karta oceny efektywności udzielanej pomocy', 'OE-SP', 'styczeń i czerwiec oraz na zakończenie formy pomocy'],
-           ['15', 'Plan wsparcia edukacyjnego ucznia', 'PWES', 'uczeń bez orzeczenia objęty pomocą pp'],
+           ['15', 'Plan wsparcia edukacyjnego ucznia [[(narzędzie wewnętrzne)]]', 'PWES',
+            'uczeń bez orzeczenia objęty pomocą pp'],
            ['16', 'Karta przekazania informacji o uczniu (III → IV)', 'KP-SP', 'czerwiec klasy III'],
            ['17', 'Arkusz audytu dokumentacji kształcenia specjalnego', 'AUD-SP', 'sierpień / wrzesień — raz w roku, przed radą pedagogiczną'],
            ['18', 'Rejestr kontaktów z rodzicami', 'RK-SP', 'prowadzony na bieżąco przez cały rok']],
@@ -2254,7 +2343,8 @@ def zal_C_3(doc):
                 'Jedna karta na jeden przedmiot. Nauczyciel otrzymuje ją we wrześniu. Zapis „wydłużenie czasu pracy” '
                 'w programie nie mówi nic nauczycielowi geografii — ta karta mówi wszystko.')
     _meta(doc, 'koordynator zespołu na podstawie IPET / PWES', 'wrzesień; aktualizacja po każdej ocenie',
-          '§ 6 ust. 1 pkt 1 rozp. t.j. Dz.U. 2020 poz. 1309; rozp. o ocenianiu (Dz.U. 2019 poz. 373) ⚑',
+          '§ 6 ust. 1 pkt 1 rozp. t.j. Dz.U. 2020 poz. 1309; rozp. o ocenianiu [[t.j. Dz.U. 2023 poz. 2572, '
+          'z późn. zm.]]',
           'praca bieżąca nauczyciela; podstawa dostosowań egzaminacyjnych (druk 12)')
     table(doc, ['Uczeń', 'Klasa', 'Przedmiot', 'Podstawa dostosowania'],
           [['', '', '', '☐ orzeczenie   ☐ opinia PPP   ☐ rozpoznanie nauczycieli (zapisane w dokumentacji)']],
@@ -2276,7 +2366,8 @@ def zal_C_3(doc):
         'KAŻDE DOSTOSOWANIE MA ŹRÓDŁO. Jeżeli w kolumnie „bariera” nic nie stoi, wracamy do oceny — '
         'albo bariery nie opisaliśmy, albo dostosowanie jest zbędne.',
         'OCENA ZACHOWANIA. Przy ustalaniu oceny zachowania ucznia z orzeczeniem lub opinią uwzględnia się wpływ '
-        'stwierdzonych zaburzeń na jego zachowanie — zapis o tym umieszczamy w dokumentacji. ⚑',
+        'stwierdzonych zaburzeń na jego zachowanie — zapis o tym umieszczamy w dokumentacji '
+        '([[rozp. o ocenianiu, t.j. Dz.U. 2023 poz. 2572, z późn. zm.]]).',
     ], title='TRZY ZASADY DOSTOSOWAŃ')
     table(doc, ['Data przekazania nauczycielowi', 'Podpis nauczyciela', 'Data przeglądu skuteczności', 'Wynik przeglądu'],
           [['', '', '', '']], widths=[4.4, 4.0, 4.0, 4.3], size=8, align_first_bold=False)
@@ -2287,7 +2378,8 @@ def zal_C_3(doc):
                 'Zakładamy w listopadzie klasy VIII. ⚑ Katalog dostosowań i terminy każdorazowo sprawdzamy '
                 'w komunikacie dyrektora Centralnej Komisji Egzaminacyjnej na dany rok szkolny.')
     _meta(doc, 'dyrektor / koordynator na podstawie dokumentacji ucznia', 'listopad klasy VIII ⚑ termin z komunikatu CKE',
-          'ustawa o systemie oświaty — art. 44zzr; komunikat dyrektora CKE ⚑',
+          'ustawa o systemie oświaty — art. 44zzr; [[komunikat dyrektora CKE na dany rok szkolny — jedyne źródło '
+          'katalogu dostosowań i terminów; sprawdź przed wypełnieniem ⚑]]',
           'protokół rady pedagogicznej; organizacja egzaminu')
     table(doc, ['Uczeń', 'Klasa', 'Rok szkolny', 'Podstawa uprawnienia do dostosowania'],
           [['', '', '', '☐ orzeczenie o potrzebie kształcenia specjalnego, nr ...............\n'
@@ -2391,11 +2483,12 @@ def zal_C_4(doc):
     # ---------------------------------------------------------------- DRUK 15
     page_break(doc)
     form_header(doc, 'DRUK 15 · PWES', 'Plan wsparcia edukacyjnego ucznia (bez orzeczenia)',
-                'Dokument, którego w większości szkół nie ma — a bez którego ocena efektywności pomocy '
-                'nie ma do czego się odnieść. Ta sama logika co IPET, inna podstawa prawna.')
+                'Narzędzie wewnętrzne placówki — nie druk wymagany przepisem. Porządkuje to, co i tak musimy '
+                'ustalić i ocenić. Ta sama logika co IPET, ale bez rangi rozporządzenia.')
     _meta(doc, 'nauczyciele i specjaliści prowadzący zajęcia; koordynuje wychowawca',
           'niezwłocznie po ustaleniu form pomocy przez dyrektora',
-          'rozp. o pomocy psychologiczno-pedagogicznej (t.j. Dz.U. 2023 poz. 1798)',
+          '[[NARZĘDZIE WEWNĘTRZNE SZKOŁY — wprowadza zarządzenie dyrektora. Rozporządzenie o pomocy pp '
+          '(t.j. Dz.U. 2023 poz. 1798) NIE przewiduje takiego druku.]]',
           'karta oceny efektywności (druk 14); ewentualny wniosek do poradni')
     table(doc, ['Uczeń', 'Klasa', 'Rok szkolny', 'Podstawa objęcia pomocą'],
           [['', '', '', '☐ opinia poradni nr ...............   ☐ rozpoznanie nauczycieli (data, dokument)\n'
@@ -2412,10 +2505,17 @@ def zal_C_4(doc):
     table(doc, ['Data sporządzenia', 'Koordynator', 'Rodzic poinformowany o formach, wymiarze i okresie (data, podpis)'],
           [['', '', '']], widths=[3.4, 4.6, 8.7], size=8, align_first_bold=False)
     accent_box(doc, [
+        '[[STATUS DRUKU. Rozporządzenie o pomocy psychologiczno-pedagogicznej nie przewiduje planu wsparcia '
+        'jako dokumentu obowiązkowego. Z przepisów wynika, że formy pomocy, okres ich udzielania i wymiar godzin '
+        'ustala dyrektor, nauczyciele i specjaliści oceniają efektywność udzielanej pomocy, a przebieg zajęć '
+        'dokumentuje się w dziennikach zajęć. Ten druk wprowadzamy zarządzeniem dyrektora jako narzędzie wewnętrzne '
+        '— tak samo jak metryczkę. W stopce druku i w dokumentacji NIE powołujemy się na rozporządzenie jako '
+        'na podstawę jego sporządzenia.]]',
         'ZINDYWIDUALIZOWANA ŚCIEŻKA KSZTAŁCENIA (§ 12 rozp. o pomocy pp) wymaga OPINII publicznej poradni '
         'i wniosku rodziców. Nie stosuje się jej wobec ucznia objętego kształceniem specjalnym ani indywidualnym '
-        'nauczaniem. To osobna forma — nie mylimy jej z nauczaniem indywidualnym (rozp. Dz.U. 2017 poz. 1616 ⚑).',
-    ], title='UWAGA — ROZRÓŻNIENIE, KTÓRE MYLI SIĘ NAJCZĘŚCIEJ')
+        'nauczaniem. To osobna forma — nie mylimy jej z nauczaniem indywidualnym '
+        '([[rozp. MEN z 9 sierpnia 2017 r., t.j. Dz.U. 2023 poz. 2468, z późn. zm.]]).',
+    ], title='UWAGA — STATUS DRUKU I ROZRÓŻNIENIE, KTÓRE MYLI SIĘ NAJCZĘŚCIEJ')
 
     # ---------------------------------------------------------------- DRUK 16
     page_break(doc)
@@ -2450,7 +2550,8 @@ def zal_C_4(doc):
                 'Wypełniamy raz w roku, przed sierpniową radą pedagogiczną. Jeden arkusz na całą szkołę '
                 'plus wykaz uczniów wymagających działania.')
     _meta(doc, 'koordynator / pedagog specjalny; zatwierdza dyrektor', 'sierpień / wrzesień',
-          'nadzór dyrektora nad dokumentacją; art. 68 ustawy Prawo oświatowe ⚑',
+          'nadzór dyrektora nad dokumentacją — [[art. 68 ust. 1 ustawy Prawo oświatowe (t.j. Dz.U. 2026 poz. 820); '
+          'rozp. o nadzorze pedagogicznym, t.j. Dz.U. 2024 poz. 15]]',
           'plan nadzoru pedagogicznego; harmonogram wdrożenia (załącznik E)')
     table(doc,
           ['#', 'Pytanie kontrolne', 'Tak', 'Nie', 'Działanie naprawcze i termin'],
@@ -2463,7 +2564,9 @@ def zal_C_4(doc):
            ['7', 'Czy każdy wniosek w ocenie ma wskazane źródło (druk, z którego pochodzi)?', '☐', '☐', ''],
            ['8', 'Czy cele w programach mają kryterium liczbowe i datę pomiaru?', '☐', '☐', ''],
            ['9', 'Czy przeprowadzono i udokumentowano ocenę efektywności udzielanej pomocy?', '☐', '☐', ''],
-           ['10', 'Czy uczniowie bez orzeczenia objęci pomocą mają plan wsparcia (PWES)?', '☐', '☐', ''],
+           ['10', 'Czy dla uczniów bez orzeczenia ustalono formy, okres i wymiar pomocy (dyrektor) oraz czy '
+            'zajęcia są dokumentowane w dziennikach? [[PWES — jeśli szkoła go wprowadziła zarządzeniem]]',
+            '☐', '☐', ''],
            ['11', 'Czy dostosowania zapisano przedmiotowo i przekazano nauczycielom przedmiotów?', '☐', '☐', ''],
            ['12', 'Czy zatrudniono nauczyciela współorganizującego tam, gdzie jest to obowiązkowe?', '☐', '☐', ''],
            ['13', 'Czy w teczkach są potwierdzenia przekazania rodzicom kopii oceny i programu?', '☐', '☐', ''],
@@ -2517,11 +2620,12 @@ def zal_D_E(doc):
         'z dnia …… sierpnia 2026 r.',
         'w sprawie organizacji dokumentacji ucznia objętego kształceniem specjalnym oraz pomocą '
         'psychologiczno-pedagogiczną w roku szkolnym 2026/2027',
-        'Na podstawie art. 68 ust. 1 ustawy z dnia 14 grudnia 2016 r. — Prawo oświatowe ⚑, rozporządzenia MEN '
-        'z dnia 9 sierpnia 2017 r. w sprawie warunków organizowania kształcenia (…) (t.j. Dz.U. 2020 poz. 1309), '
-        'rozporządzenia MEN z dnia 9 sierpnia 2017 r. w sprawie pomocy psychologiczno-pedagogicznej '
-        '(t.j. Dz.U. 2023 poz. 1798) oraz rozporządzenia MEN z dnia 25 sierpnia 2017 r. w sprawie sposobu '
-        'prowadzenia dokumentacji przebiegu nauczania (t.j. Dz.U. 2024 poz. 50) ⚑ — zarządzam, co następuje:',
+        'Na podstawie art. 68 ust. 1 ustawy z dnia 14 grudnia 2016 r. — Prawo oświatowe '
+        '([[t.j. Dz.U. 2026 poz. 820, z późn. zm.]]), rozporządzenia MEN z dnia 9 sierpnia 2017 r. w sprawie '
+        'warunków organizowania kształcenia (…) (t.j. Dz.U. 2020 poz. 1309), rozporządzenia MEN z dnia 9 sierpnia '
+        '2017 r. w sprawie pomocy psychologiczno-pedagogicznej (t.j. Dz.U. 2023 poz. 1798) oraz rozporządzenia MEN '
+        'z dnia 25 sierpnia 2017 r. w sprawie sposobu prowadzenia dokumentacji przebiegu nauczania '
+        '(t.j. Dz.U. 2024 poz. 50) — zarządzam, co następuje:',
     ], title='NAGŁÓWEK')
 
     numbered(doc, [
@@ -2557,12 +2661,21 @@ def zal_D_E(doc):
         'dyrektorowi nie później niż w 7. dniu terminu.',
         '**§ 9. Dostosowania.** Dla każdego ucznia objętego wsparciem sporządza się karty dostosowań przedmiotowych '
         'i przekazuje je nauczycielom przedmiotów w terminie do …… września, za potwierdzeniem odbioru.',
+        '**[[§ 9a. Nauczyciel współorganizujący kształcenie.]]** [[Dyrektor zapewnia zatrudnienie nauczyciela '
+        'współorganizującego kształcenie dla uczniów posiadających orzeczenie wydane ze względu na autyzm, w tym '
+        'zespół Aspergera, oraz niepełnosprawności sprzężone (§ 7 ust. 2 rozp. t.j. Dz.U. 2020 poz. 1309). '
+        'W pozostałych przypadkach, w tym przy niedostosowaniu społecznym i zagrożeniu niedostosowaniem, dyrektor '
+        'występuje do organu prowadzącego o zgodę na dodatkowe zatrudnienie (§ 7 ust. 3) i dokumentuje wystąpienie '
+        'oraz rozstrzygnięcie w dokumentacji ucznia.]]',
         '**§ 10. Prawa rodziców.** O terminie spotkania zespołu zawiadamia się rodziców …… (wskazać sposób przyjęty '
         'w szkole) nie później niż …… dni przed spotkaniem. Przekazanie rodzicom kopii wielospecjalistycznej oceny '
         'i kopii programu odnotowuje się w rejestrze kontaktów, z datą i podpisem.',
         '**§ 11. Strażnik Prawa.** Ustanawia się rotacyjną funkcję Strażnika Prawa. Osoba pełniąca funkcję sprawdza '
         'aktualność publikatorów w drukach przed każdym cyklem dokumentacyjnym i przy każdej decyzji zespołu zadaje '
-        'pytanie o podstawę prawną. Funkcję pełni się przez …… , zgodnie z harmonogramem stanowiącym załącznik nr 2.',
+        'pytanie o podstawę prawną. Funkcję pełni się przez …… , zgodnie z harmonogramem stanowiącym załącznik nr 2. '
+        '[[Strażnik Prawa prowadzi rejestr przepisów cytowanych w drukach szkoły (załącznik F do skryptu): '
+        'dla każdego aktu odnotowuje tytuł, obowiązujący publikator, status, źródło weryfikacji i datę sprawdzenia. '
+        'Druk, przy którym w rejestrze brakuje daty sprawdzenia, nie jest dopuszczony do obiegu.]]',
         '**§ 12. Audyt roczny.** W sierpniu przeprowadza się audyt dokumentacji kształcenia specjalnego '
         '(druk AUD-SP). Wyniki audytu dyrektor przedstawia radzie pedagogicznej na zebraniu przed rozpoczęciem '
         'roku szkolnego.',
@@ -2668,6 +2781,7 @@ def zal_D_E(doc):
 
 def main():
     doc, sec = build()
+    raport_straznika(doc)
     czesc_1(doc)
     czesc_2(doc)
     czesc_3(doc)
@@ -2681,11 +2795,225 @@ def main():
     zal_C_3(doc)
     zal_C_4(doc)
     zal_D_E(doc)
+    zal_F(doc)
     out = os.path.join(os.path.dirname(os.path.abspath(__file__)),
                        'Skrypt_dla_nauczycieli_SZKOLA_PODSTAWOWA_EduPlaner_2026.docx')
     doc.save(out)
     print('Zapisano:', out)
     return out
+
+
+
+# ================================================ RAPORT STRAŻNIKA PRAWA
+
+def raport_straznika(doc):
+    page_break(doc)
+    band(doc, 'AUDYT', 'Raport Strażnika Prawa — weryfikacja podstaw prawnych wydania 1', '05.09.2026')
+
+    para(doc, 'Wydanie 1 skryptu zostało poddane audytowi podstaw prawnych. Sprawdzono każdy publikator i każdą '
+              'tezę prawną w źródłach: w rejestrze przepisów placówki (stan weryfikacji ELI z 21 sierpnia 2026 r.) '
+              'oraz w ogłoszonych tekstach aktów. Poniżej wynik — łącznie dwanaście ustaleń. Fragmenty zmienione '
+              'w dokumencie oznaczono kolorem niebieskim.', after=8)
+
+    accent_box(doc, [
+        'Audyt potwierdził pięć błędów wydania 1. Cztery z nich to naruszenie zasady, którą sam skrypt ogłasza: '
+        'cytowanie publikatora pierwotnego zamiast obowiązującego tekstu jednolitego. Piąty to błąd merytoryczny '
+        'w opisie obowiązku zatrudnienia nauczyciela współorganizującego.',
+        'Audyt odrzucił dwa zarzuty postawione skryptowi. Rozporządzenie ME z 2 marca 2026 r. (Dz.U. 2026 poz. 428) '
+        'istnieje, obowiązuje od 14 kwietnia 2026 r. i z tym dniem uchyliło rozporządzenie z 7 września 2017 r.; '
+        'dziesięciodniowy termin na opinię jest w nim zapisany. Prawo oświatowe ma tekst jednolity Dz.U. 2026 '
+        'poz. 820 — wskazywany w zarzucie Dz.U. 2024 poz. 737 wygasł 31 lipca 2025 r.',
+        'Audyt wykrył pięć dalszych rozbieżności, których w zgłoszeniu nie było — w tym brak podstawy programowej '
+        'obowiązującej od 1 września 2026 r. i nieprecyzyjne przypisanie obowiązku finansowego.',
+        'Zasada na przyszłość: przepis wpisany do druku bez daty sprawdzenia jest przepisem niesprawdzonym. '
+        'Rejestr w załączniku F zamyka tę lukę.',
+    ], title='WYNIK W CZTERECH ZDANIACH')
+
+    h2(doc, 'A. Błędy potwierdzone — poprawione w wydaniu 2')
+    table(doc,
+          ['#', 'Gdzie', 'Było w wydaniu 1', 'Jest w wydaniu 2', 'Na jakiej podstawie'],
+          [['A1', 'Cz. 1 i 7, tabela dwóch ścieżek, zał. D',
+            'W szkole ogólnodostępnej nauczyciela współorganizującego zatrudnia się dla ucznia z autyzmem, '
+            'zespołem Aspergera, niepełnosprawnościami sprzężonymi ORAZ niedostosowanego społecznie — „to obowiązek”.',
+            'Obowiązek dotyczy wyłącznie autyzmu (w tym zespołu Aspergera) i niepełnosprawności sprzężonych. '
+            'Przy niedostosowaniu społecznym i pozostałych niepełnosprawnościach — tylko za zgodą organu prowadzącego. '
+            'Dodano § 9a do wzoru zarządzenia.',
+            '§ 7 ust. 2 („zatrudnia się dodatkowo”) i § 7 ust. 3 („za zgodą organu prowadzącego można zatrudniać”) '
+            'rozporządzenia MEN z 9.08.2017 r., t.j. Dz.U. 2020 poz. 1309.'],
+           ['A2', 'Cz. 1 i 2 — podstawa prawna, narracja, tabela powodów',
+            'Ustawa o finansowaniu zadań oświatowych, „art. 8 ust. 16–17: środki naliczone na kształcenie specjalne '
+            'wydatkuje się na zadania związane z organizacją tego kształcenia”.',
+            'Art. 8 ust. 1: obowiązek przeznaczenia środków nie niższych niż kwota z podziału części oświatowej '
+            'subwencji ogólnej spoczywa na jednostce samorządu terytorialnego, nie na szkole. Argument '
+            'przeformułowano na pośredni: dokumentacja jest źródłem danych do planowania i rozliczenia.',
+            'Ustawa z 27.10.2017 r. o finansowaniu zadań oświatowych, art. 8 ust. 1; t.j. Dz.U. 2026 poz. 650 '
+            '(obwieszczenie z 12.05.2026 r.).'],
+           ['A3', 'Cz. 1 i 7, druki 11 i 12, tabela „było → ma być”',
+            'Rozporządzenie o ocenianiu — „Dz.U. 2019 poz. 373 ze zm.”, czyli publikator pierwotny.',
+            'Tekst jednolity: Dz.U. 2023 poz. 2572, z późn. zm. (m.in. Dz.U. 2025 poz. 778).',
+            'Obwieszczenie MEiN z 10.11.2023 r. — t.j. rozporządzenia MEN z 22.02.2019 r.'],
+           ['A4', 'Cz. 1 — podstawa prawna, druk 15',
+            'Rozporządzenie o nauczaniu indywidualnym — „Dz.U. 2017 poz. 1616 ze zm.”, czyli publikator pierwotny.',
+            'Tekst jednolity: Dz.U. 2023 poz. 2468, z późn. zm. (zm. Dz.U. 2024 poz. 1714).',
+            'Obwieszczenie MEiN z 27.10.2023 r. Uwaga: wskazana w zgłoszeniu pozycja 2724 dotyczy innego aktu.'],
+           ['A5', 'Cz. 2 i 7, druk 15, spis druków',
+            'Plan wsparcia edukacyjnego ucznia (PWES) przedstawiony jako druk o podstawie prawnej w rozporządzeniu '
+            'o pomocy psychologiczno-pedagogicznej.',
+            'PWES opisany jako narzędzie wewnętrzne szkoły, wprowadzane zarządzeniem dyrektora — tak jak metryczka. '
+            'W stopce druku nie powołujemy się na rozporządzenie. Dodano akapit narracji i ramkę „status druku”.',
+            'Rozporządzenie o pomocy pp (t.j. Dz.U. 2023 poz. 1798) nie przewiduje takiego dokumentu: formy, okres '
+            'i wymiar pomocy ustala dyrektor, zajęcia dokumentuje się w dziennikach, a przepis wymaga oceny '
+            'efektywności — nie planu.']],
+          widths=[0.9, 3.3, 4.4, 4.4, 3.7], size=7.5)
+
+    h2(doc, 'B. Zarzuty odrzucone — zapis wydania 1 był prawidłowy')
+    table(doc,
+          ['#', 'Zarzut', 'Ustalenie audytu', 'Źródło'],
+          [['B1', 'Rozporządzenie ME z 2 marca 2026 r. (Dz.U. 2026 poz. 428) jest fikcyjne / projektowe; jedynym '
+            'obowiązującym aktem pozostaje rozporządzenie MEN z 7 września 2017 r. (t.j. Dz.U. 2023 poz. 2061).',
+            'Zarzut nietrafny — i jego przyjęcie wprowadziłoby błąd. Rozporządzenie zostało ogłoszone w Dz.U. 2026 '
+            'poz. 428, obowiązuje od 14 kwietnia 2026 r. i z tym dniem uchyliło rozporządzenie z 7 września 2017 r. '
+            'Cytowanie t.j. Dz.U. 2023 poz. 2061 jako obowiązującego byłoby dziś błędem. Zapis wydania 1 '
+            'pozostaje bez zmian; usunięto natomiast znak ⚑ jako niepotrzebny.',
+            'Rejestr przepisów placówki, wpis „dz-u-2026-428”, status: obowiązuje, weryfikacja ELI 21.08.2026; '
+            'ogłoszenie w Dz.U. 2026 poz. 428; komunikaty kuratoriów oświaty.'],
+           ['B2', 'Dziesięciodniowy termin na opinię szkoły o funkcjonowaniu ucznia nie istnieje w obowiązującym '
+            'prawie i pochodzi z projektów reformy.',
+            'Zarzut nietrafny. Termin jest zapisany w § 7 ust. 3 rozporządzenia: opinię wydaje się w terminie 10 dni '
+            'od dnia otrzymania przez dyrektora prośby o jej wydanie, a kopię otrzymują rodzice. Wymóg odniesienia '
+            'opisu do aktywności i uczestniczenia w rozumieniu ICF zawiera § 7 ust. 7, wchodzący 1 września 2026 r.',
+            'Tekst rozporządzenia Dz.U. 2026 poz. 428, § 7 ust. 2–3 i ust. 6–7 oraz § 8; § 33 określa zakres opinii '
+            'do 31 sierpnia 2026 r.'],
+           ['B3', 'Prawo oświatowe należy cytować jako t.j. Dz.U. 2024 poz. 737.',
+            'Zarzut nietrafny i wewnętrznie sprzeczny z zasadą, na którą się powołuje. Tekst jednolity Dz.U. 2024 '
+            'poz. 737 wygasł 31 lipca 2025 r., zastąpił go Dz.U. 2025 poz. 1043 (wygasł 21 czerwca 2026 r.), '
+            'a obowiązujący to Dz.U. 2026 poz. 820, z późn. zm. Wydanie 1 cytowało prawidłowo; w wydaniu 2 '
+            'publikator uzupełniono tam, gdzie go brakowało.',
+            'Rejestr przepisów placówki, wpisy „dz-u-2024-737” (uchylony), „dz-u-2025-1043” (uchylony) '
+            'i „dz-u-2026-820” (tekst jednolity), weryfikacja ELI 21.08.2026.']],
+          widths=[0.9, 4.6, 6.2, 5.0], size=7.5)
+
+    h2(doc, 'C. Ustalenia własne audytu — nieobjęte zgłoszeniem')
+    table(doc,
+          ['#', 'Ustalenie', 'Co zmieniono w wydaniu 2'],
+          [['C1', 'Wydanie 1 nie wskazywało podstawy programowej obowiązującej od 1 września 2026 r. i odsyłało '
+            'do sprawdzenia publikatora. To luka w dokumencie, który uczy powoływania podstaw prawnych.',
+            'Wpisano rozporządzenie ME z 11 marca 2026 r. (Dz.U. 2026 poz. 378, zm. Dz.U. 2026 poz. 958) '
+            'z harmonogramem wdrażania: od 1.09.2026 klasy I i IV, w kolejnych latach następne klasy; dla uczniów '
+            'z niepełnosprawnością intelektualną w stopniu umiarkowanym lub znacznym — od 1.09.2026. Dodano '
+            'planszę narracji w części 1.'],
+           ['C2', 'Skutek praktyczny wdrażania etapami: uczennica z przykładu (klasa III w roku 2026/2027) '
+            'nie jest objęta nową podstawą programową.',
+            'W narracji dopisano wprost, że w jej programie powołujemy się na podstawę z Dz.U. 2017 poz. 356, '
+            'z późn. zm., a nie na nową.'],
+           ['C3', 'Rozporządzenie o organizacji publicznych szkół cytowano bez zmian po tekście jednolitym.',
+            'Uzupełniono: t.j. Dz.U. 2023 poz. 2736, z późn. zm. (Dz.U. 2025 poz. 849, Dz.U. 2026 poz. 130, '
+            'a od 1.09.2026 Dz.U. 2026 poz. 1090).'],
+           ['C4', 'Podstawa nadzoru wskazana ogólnikowo („art. 55 i art. 60”).',
+            'Zastąpiono: art. 55 oraz art. 68 ust. 1 Prawa oświatowego (t.j. Dz.U. 2026 poz. 820) i rozporządzenie '
+            'MEN z 25.08.2017 r. w sprawie nadzoru pedagogicznego (t.j. Dz.U. 2024 poz. 15).'],
+           ['C5', 'Brak mechanizmu, który utrwala wynik weryfikacji — bez niego następny audyt zaczyna od zera.',
+            'Dodano załącznik F (rejestr przepisów z datą sprawdzenia) oraz obowiązek jego prowadzenia przez '
+            'Strażnika Prawa w § 11 wzoru zarządzenia.']],
+          widths=[0.9, 7.4, 8.4], size=7.5)
+
+    accent_box(doc, [
+        'Czego audyt NIE obejmował: treści merytorycznych narzędzia KSzOF (normy stenowe i twierdzenia pochodzą '
+        'z opracowania Z. Gajdzicy, E. Widawskiej, S. Byry i in. z 2024 r.), progów przeliczeniowych i reguł '
+        'przekierowania — te pozostają decyzją rady pedagogicznej i skrypt tak je opisuje, oraz katalogu dostosowań '
+        'egzaminacyjnych, który ogłasza corocznie dyrektor CKE.',
+        'Czego audyt nie może zastąpić: sprawdzenia publikatora w dniu wpisania go do dokumentu ucznia. '
+        'Data weryfikacji w załączniku F to 5 września 2026 r. — po tej dacie odpowiada za nią Strażnik Prawa.',
+    ], title='GRANICE AUDYTU', accent=ORANGE)
+
+
+# ================================================ ZAŁĄCZNIK F — REJESTR
+
+def zal_F(doc):
+    page_break(doc)
+    band(doc, 'ZAŁĄCZNIK F', 'Rejestr przepisów cytowanych w skrypcie — status i data weryfikacji')
+    para(doc, 'Rejestr prowadzi Strażnik Prawa. Zasada jest jedna: druk, przy którym w rejestrze brakuje daty '
+              'sprawdzenia, nie jest dopuszczony do obiegu. Przy każdym akcie podajemy zapis kanoniczny — dokładnie '
+              'w tej postaci wpisujemy go do dokumentu ucznia. Stan na 5 września 2026 r.', after=8)
+    table(doc,
+          ['Akt i zapis kanoniczny', 'Status', 'Gdzie w skrypcie', 'Uwaga'],
+          [['Ustawa z 14.12.2016 r. — Prawo oświatowe (t.j. Dz.U. 2026 poz. 820, z późn. zm.)',
+            'obowiązuje', 'Cz. 1, 2, 7; zał. D; druki 12, 17',
+            'Teksty jednolite Dz.U. 2024 poz. 737 i Dz.U. 2025 poz. 1043 WYGASŁY — nie cytować.'],
+           ['Rozporządzenie MEN z 9.08.2017 r. w sprawie warunków organizowania kształcenia (…) '
+            '(t.j. Dz.U. 2020 poz. 1309)',
+            'obowiązuje', 'Cz. 1–7; druki 11, 13, 14, 17, 18; zał. D',
+            'Publikator pierwotny Dz.U. 2017 poz. 1578 — nie cytować. § 6 ust. 1 pkt 1–8, ust. 4, ust. 9–12; '
+            '§ 5; § 7 ust. 2 i 3.'],
+           ['Rozporządzenie MEN z 9.08.2017 r. w sprawie zasad organizacji i udzielania pomocy '
+            'psychologiczno-pedagogicznej (t.j. Dz.U. 2023 poz. 1798)',
+            'obowiązuje', 'Cz. 1, 3, 5, 6, 7; druki 2, 3, 7, 14, 15',
+            'Poprzedni t.j. Dz.U. 2020 poz. 1280 wygasł 5.09.2023. § 12 — zindywidualizowana ścieżka kształcenia.'],
+           ['Rozporządzenie ME z 2.03.2026 r. w sprawie orzeczeń i opinii wydawanych przez zespoły orzekające '
+            '(Dz.U. 2026 poz. 428)',
+            'obowiązuje', 'Cz. 1, 2, 3, 5, 7',
+            'Obowiązuje od 14.04.2026; uchyliło rozp. z 7.09.2017 r. (t.j. Dz.U. 2023 poz. 2061). '
+            '§ 7 ust. 6–7 i § 8 wchodzą 1.09.2026; § 33 — zakres opinii do 31.08.2026.'],
+           ['Rozporządzenie MEN z 25.08.2017 r. w sprawie sposobu prowadzenia dokumentacji przebiegu nauczania (…) '
+            '(t.j. Dz.U. 2024 poz. 50)',
+            'obowiązuje', 'Cz. 1, 3, 4, 5, 6; stopki druków obserwacyjnych',
+            'Nie mylić z Dz.U. 2024 poz. 1640 — to akt o zupełnie innej treści; rozjazd odnotowany w rejestrze '
+            'placówki.'],
+           ['Rozporządzenie MEN z 22.02.2019 r. w sprawie oceniania, klasyfikowania i promowania uczniów '
+            'i słuchaczy w szkołach publicznych (t.j. Dz.U. 2023 poz. 2572, z późn. zm.)',
+            'obowiązuje', 'Cz. 1, 2, 7; druki 11, 12',
+            'Publikator pierwotny Dz.U. 2019 poz. 373 — nie cytować. Zmiana m.in. Dz.U. 2025 poz. 778.'],
+           ['Rozporządzenie MEN z 9.08.2017 r. w sprawie indywidualnego obowiązkowego rocznego przygotowania '
+            'przedszkolnego dzieci i indywidualnego nauczania dzieci i młodzieży '
+            '(t.j. Dz.U. 2023 poz. 2468, z późn. zm.)',
+            'obowiązuje', 'Cz. 1; druk 15',
+            'Publikator pierwotny Dz.U. 2017 poz. 1616 — nie cytować. Zmiana Dz.U. 2024 poz. 1714.'],
+           ['Rozporządzenie MEN z 28.02.2019 r. w sprawie szczegółowej organizacji publicznych szkół i publicznych '
+            'przedszkoli (t.j. Dz.U. 2023 poz. 2736, z późn. zm.)',
+            'obowiązuje', 'Cz. 1',
+            'Po tekście jednolitym: Dz.U. 2025 poz. 849, Dz.U. 2026 poz. 130; Dz.U. 2026 poz. 1090 od 1.09.2026.'],
+           ['Rozporządzenie ME z 11.03.2026 r. w sprawie podstawy programowej wychowania przedszkolnego oraz '
+            'podstawy programowej kształcenia ogólnego dla szkoły podstawowej (…) (Dz.U. 2026 poz. 378)',
+            'obowiązuje', 'Cz. 1, 7',
+            'Zmiana Dz.U. 2026 poz. 958. Wdrażanie: 1.09.2026 klasy I i IV, w kolejnych latach następne klasy; '
+            'uczniowie z NI w stopniu umiarkowanym lub znacznym — od 1.09.2026.'],
+           ['Rozporządzenie MEN z 14.02.2017 r. w sprawie podstawy programowej (…) '
+            '(Dz.U. 2017 poz. 356, z późn. zm.)',
+            'stosowane\nprzejściowo', 'Cz. 1, 7',
+            'Nadal właściwe dla klas nieobjętych jeszcze wdrożeniem nowej podstawy — m.in. dla klasy III '
+            'w roku 2026/2027.'],
+           ['Rozporządzenie MEN z 25.08.2017 r. w sprawie nadzoru pedagogicznego (t.j. Dz.U. 2024 poz. 15)',
+            'obowiązuje', 'Cz. 2; druk 17', 'Nie mylić z rozporządzeniem o dokumentacji z tej samej daty.'],
+           ['Ustawa z 27.10.2017 r. o finansowaniu zadań oświatowych (t.j. Dz.U. 2026 poz. 650)',
+            'obowiązuje', 'Cz. 1, 2',
+            'Art. 8 ust. 1 — obowiązek jednostki samorządu terytorialnego. Artykuł 8 nie zawiera ustępów 16–17. '
+            'Wskazywany w zgłoszeniu t.j. Dz.U. 2024 poz. 754 jest nieaktualny.'],
+           ['Ustawa z 19.07.2019 r. o zapewnianiu dostępności osobom ze szczególnymi potrzebami '
+            '(t.j. Dz.U. 2024 poz. 1411)',
+            'obowiązuje', 'Cz. 1, 2, 7', 'Tekst jednolity uwzględnia zmianę Dz.U. 2024 poz. 731.'],
+           ['Rozporządzenie (UE) 2016/679 — RODO, art. 5 ust. 1 lit. c i art. 9',
+            'obowiązuje', 'Cz. 1, 2, 4; druki 4, 9, 12', 'Dane o zdrowiu ucznia — dane szczególnej kategorii.'],
+           ['Komunikat dyrektora Centralnej Komisji Egzaminacyjnej o dostosowaniach egzaminu ósmoklasisty',
+            'ogłaszany\ncorocznie ⚑', 'Cz. 1, 2, 7; druk 12; zał. A',
+            'Jedyne źródło katalogu dostosowań i terminów. Sprawdzać każdego roku — nie da się zweryfikować raz '
+            'na zawsze.'],
+           ['ICF — Międzynarodowa Klasyfikacja Funkcjonowania, Niepełnosprawności i Zdrowia (WHO, 2001)',
+            'standard', 'Cz. 2, 5, 6, 7; druki 1–7',
+            'Nie jest aktem prawa; obowiązek odniesienia opisu do aktywności i uczestniczenia wynika z § 7 ust. 7 '
+            'rozp. Dz.U. 2026 poz. 428.'],
+           ['Z. Gajdzica, E. Widawska, S. Byra i in. (2024), Kwestionariusz Szkolnej Oceny Funkcjonalnej '
+            '(KSzOF-I-III)',
+            'opracowanie\nnaukowe', 'Cz. 5; druk źródłowy',
+            'Źródło twierdzeń, skali i norm stenowych. Nie jest aktem prawa i nie podlega weryfikacji w ISAP.']],
+          widths=[5.6, 1.9, 3.6, 5.6], size=7.5)
+
+    table(doc,
+          ['Rejestr sprawdził', 'Data weryfikacji', 'Źródła', 'Termin kolejnego przeglądu'],
+          [['Strażnik Prawa — ……………………', '5 września 2026 r.',
+            'Rejestr przepisów placówki (weryfikacja ELI 21.08.2026); ogłoszone teksty aktów; obwieszczenia '
+            'o tekstach jednolitych.',
+            'przed każdym cyklem dokumentacyjnym, nie rzadziej niż raz na kwartał']],
+          widths=[4.2, 3.0, 6.5, 3.0], size=8, align_first_bold=False)
 
 
 if __name__ == '__main__':
