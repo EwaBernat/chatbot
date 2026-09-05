@@ -233,11 +233,11 @@ table.ktab td.lp{font-weight:800;color:var(--fiolet);text-align:center}
 .pom-head{background:var(--fiolet-tlo);padding:8px 12px;display:flex;align-items:center;gap:9px}
 .pom-head h5{margin:0;font-size:12px;color:var(--fiolet)}
 .pom-head .wiek{margin-left:auto;font-size:9px;color:var(--szary);font-weight:700}
-.pom-cialo{display:grid;grid-template-columns:200px 1fr;gap:12px;padding:12px}
-.pom-foto{margin:0;border:1px solid var(--fiolet-linia);border-radius:9px;background:#fbfaff;
+.pom-cialo{display:block;padding:12px}
+.pom-foto{margin:0 0 10px;border:1px solid var(--fiolet-linia);border-radius:9px;background:#fbfaff;
           overflow:hidden;display:flex;flex-direction:column}
-.pom-foto .kadr{flex:1;width:100%;min-height:126px;background-size:cover;background-position:center}
-.pom-foto figcaption{padding:5px 7px;font-size:8px;line-height:1.35;color:var(--szary);text-align:center}
+.pom-foto .kadr{width:100%;aspect-ratio:16/9;background-size:contain;background-repeat:no-repeat;background-position:center}
+.pom-foto figcaption{padding:6px 9px;font-size:9px;line-height:1.4;color:var(--szary)}
 .pom-foto.pusta{border-style:dashed;min-height:150px;align-items:center;justify-content:center;
           padding:10px;font-size:8.5px;color:var(--szary);text-align:center;line-height:1.45}
 .pom-tresc h6{margin:0 0 3px;font-size:9px;letter-spacing:.6px;text-transform:uppercase;color:var(--fiolet)}
@@ -272,10 +272,13 @@ table.ktab td.lp{font-weight:800;color:var(--fiolet);text-align:center}
 .fbtn.mocny{background:var(--fiolet);color:#fff;border-color:var(--fiolet)}
 .fbtn.usun{color:var(--p3);border-color:var(--p3-linia)}
 .komunikat{font-size:10px;color:var(--szary);margin-right:auto;align-self:center}
-@media (max-width:900px){
+/* Ten próg jest dla wąskiego EKRANU — telefonu i podzielonego okna.
+   Bez słowa `screen` łapał też wydruk: A4 pionowo to 794 px, czyli mniej niż 900,
+   więc drukowany konspekt dostawał układ mobilny — cztery karty jedna pod drugą,
+   cele w jednej kolumnie — i nie wyglądał jak to, co widać na ekranie. */
+@media screen and (max-width:900px){
   .legenda,.kcele,.kdwie,.kmods,.karty{grid-template-columns:1fr}
   .kmeta{grid-template-columns:1fr 1fr}
-  .pom-cialo{grid-template-columns:1fr}
   table{font-size:10px}
 }
 /* ——— historyjki obrazkowe, drabiny i skale ———
@@ -324,7 +327,6 @@ table.ktab td.lp{font-weight:800;color:var(--fiolet);text-align:center}
   html.druk-konspektu .kcard{box-shadow:none;max-width:none;padding:0;border-radius:0;page:kon;zoom:.95}
   html.druk-konspektu .kclose{display:none}
   .pom,.kmod,.karta,.pom-foto,.hist figure,.hist .hwiersz{break-inside:avoid}
-  .pom-cialo{grid-template-columns:170px 1fr}
 }
 """
 

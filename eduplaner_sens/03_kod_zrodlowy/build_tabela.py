@@ -271,7 +271,11 @@ table.ktab td.lp{font-weight:800;color:var(--fiolet);text-align:center}
 .fbtn.mocny{background:var(--fiolet);color:#fff;border-color:var(--fiolet)}
 .fbtn.usun{color:var(--p3);border-color:var(--p3-linia)}
 .komunikat{font-size:10px;color:var(--szary);margin-right:auto;align-self:center}
-@media (max-width:900px){
+/* Ten próg jest dla wąskiego EKRANU — telefonu i podzielonego okna.
+   Bez słowa `screen` łapał też wydruk: A4 pionowo to 794 px, czyli mniej niż 900,
+   więc drukowany konspekt dostawał układ mobilny — cztery karty jedna pod drugą,
+   cele w jednej kolumnie — i nie wyglądał jak to, co widać na ekranie. */
+@media screen and (max-width:900px){
   .legenda,.kcele,.kdwie,.kmods,.karty{grid-template-columns:1fr}
   .kmeta{grid-template-columns:1fr 1fr}
   .pom-cialo{grid-template-columns:1fr}

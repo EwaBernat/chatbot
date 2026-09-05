@@ -87,13 +87,20 @@ body{background:#e9e7ef;color:var(--ink);font-family:'Mulish','Segoe UI',Candara
 .tyt .nr{background:var(--fiolet);color:#fff;font-size:11px;font-weight:800;padding:3px 10px;border-radius:12px;flex:0 0 auto}
 .tyt h2{margin:0;font-size:15px;color:var(--fiolet)}
 .tyt .kon{font-size:9px;color:var(--szary);margin-top:2px}
-.przed{display:grid;grid-template-columns:62mm 1fr;gap:5mm;align-items:start;margin-bottom:9px}
-.foto{margin:0;border:1px solid var(--fiolet-linia);border-radius:8px;overflow:hidden;background:#fbfaff;
-  break-inside:avoid}
-.foto img{display:block;width:100%;height:40mm;object-fit:cover}
-.foto figcaption{padding:4px 7px;font-size:7.5px;line-height:1.4;color:var(--szary)}
-.foto figcaption b{display:block;color:var(--fiolet);font-size:8.5px;margin-bottom:1px}
-.foto.pusta{border-style:dashed;padding:6mm;font-size:8px;color:var(--szary);text-align:center;line-height:1.5}
+/* Zdjęcie gotowej pomocy szło wcześniej w kolumnie 62 mm i było przycinane
+   (object-fit:cover), więc na wydruku nie dało się rozpoznać, co na nim leży.
+   Teraz zajmuje pełną szerokość kolumny tekstu i pokazuje się w całości. */
+.foto{margin:0 0 6px;border:1px solid var(--fiolet-linia);border-radius:8px;overflow:hidden;
+  background:#fbfaff;break-inside:avoid}
+.foto img{display:block;width:100%;height:auto;object-fit:contain}
+.foto figcaption{padding:5px 9px;font-size:8.5px;line-height:1.45;color:var(--szary)}
+.foto figcaption b{display:block;color:var(--fiolet);font-size:9.5px;margin-bottom:1px}
+.foto.pusta{border-style:dashed;padding:10mm;font-size:9px;color:var(--szary);text-align:center;line-height:1.5}
+/* Dwie kolumny: po lewej co przygotować, po prawej jak użyć i co znaczy która karta.
+   Wcześniej wszystko szło jedną kolumną przez całą szerokość i dolna połowa
+   kartki zostawała pusta, a zdjęcie musiało być małe, żeby się obok zmieściło. */
+.dwie{display:grid;grid-template-columns:1fr 1fr;gap:6mm;align-items:start}
+.dwie > div{min-width:0}
 .wstep{background:var(--zebra);border-radius:8px;padding:8px 11px;font-size:9.5px;line-height:1.55}
 .wstep b{color:var(--fiolet)}
 .wstep h5{margin:7px 0 3px;font-size:8px;letter-spacing:.6px;text-transform:uppercase;color:var(--fiolet)}
@@ -274,16 +281,20 @@ def strona_instrukcji(arkusz: dict, pomoc: dict, konspekt_tytul: str,
     return f"""<section class="strona instrukcja">
 {naglowek("instrukcja do kart pracy", arkusz, pomoc, konspekt_tytul,
           e(arkusz['tytul']), " · dla dorosłego")}
-<div class="przed">{foto_pomocy(pomoc)}
-  <div class="wstep"><b>Dla dorosłego.</b> {e(arkusz['wstep_dla_doroslego'])}
-    <h5>Co przygotować</h5>
-    <ul>{''.join(f'<li>{e(x)}</li>' for x in pomoc['co_przygotowac'])}</ul></div></div>
-
-<div class="blk">Jak użyć — trzy kroki</div>
-<ol class="kroki">{''.join(f'<li>{e(x)}</li>' for x in pomoc['trzy_kroki_uzycia'])}</ol>
-
-<div class="blk">Co znaczy która karta</div>
-<ul class="opisy">{opisy}</ul>
+{foto_pomocy(pomoc)}
+<div class="dwie">
+  <div>
+    <div class="blk">Co przygotować</div>
+    <div class="wstep"><b>Dla dorosłego.</b> {e(arkusz['wstep_dla_doroslego'])}
+      <ul>{''.join(f'<li>{e(x)}</li>' for x in pomoc['co_przygotowac'])}</ul></div>
+  </div>
+  <div>
+    <div class="blk">Jak użyć — trzy kroki</div>
+    <ol class="kroki">{''.join(f'<li>{e(x)}</li>' for x in pomoc['trzy_kroki_uzycia'])}</ol>
+    <div class="blk">Co znaczy która karta</div>
+    <ul class="opisy">{opisy}</ul>
+  </div>
+</div>
 
 <div class="blk">Polecenie dla dziecka <span class="info">to jest tekst nagrany głosem autorki</span></div>
 <div class="polecenia">{polecenia}</div>
