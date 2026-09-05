@@ -191,6 +191,7 @@ table.ktab td.lp{font-weight:800;color:var(--fiolet);text-align:center}
 .pom-play{border:1px solid var(--pomarancz-linia);background:#fff;color:var(--pomarancz);border-radius:999px;
           padding:3px 10px;font:700 9px/1 inherit;cursor:pointer;margin-top:5px}
 .pom-play small{font-weight:400;color:var(--szary)}
+.pom-plik{display:block;font-family:ui-monospace,Consolas,monospace;font-size:7.5px;color:var(--szary);margin-top:3px}
 .karty{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-top:6px}
 .karta{border:1px dashed var(--fiolet-linia);border-radius:9px;padding:8px;text-align:center;font-size:9px}
 .karta .pole{height:52px;border-radius:7px;background:#fbfaff;border:1px solid var(--linia);margin-bottom:5px;
@@ -255,7 +256,7 @@ table.ktab td.lp{font-weight:800;color:var(--fiolet);text-align:center}
   @page kon{size:A4 portrait;margin:10mm}
   body{background:#fff;padding:0}
   .ark{max-width:none;box-shadow:none;border-radius:0;padding:0}
-  .zakladki,.kspis,.mkt-add,.pom-play,.chipbtn{display:none !important}
+  .zakladki,.kspis,.mkt-add,.pom-play,.chipbtn,.fprzyciski{display:none !important}
   thead{display:table-header-group}
   tr,.uwaga,.leg{break-inside:avoid}
   .kmodal{display:none !important}
@@ -456,7 +457,7 @@ table.ktab td.lp{font-weight:800;color:var(--fiolet);text-align:center}
       <div><div class="kw">EduPlaner 2026</div>
         <div class="ks">Konspekt · komponent I · Rozpoznawanie i nazywanie emocji · pozycja 1 · wersja
           A · 3–4 lata · wskaźnik I.1</div></div>
-      <span class="kpill">Konspekt SENS A-I.1</span></div>
+      <span class="kpill">Konspekt ToM A-I.1</span></div>
     <div class="kmeta" style="grid-template-columns:1.6fr 1fr 1fr">
       <div class="field"><b>Dotyczy dziecka</b><span class="dots"></span></div>
       <div class="field"><b>Grupa</b><span class="dots"></span></div>
@@ -529,7 +530,8 @@ table.ktab td.lp{font-weight:800;color:var(--fiolet);text-align:center}
       <div class="pom-dziecko"><span class="lab">Polecenie dla dziecka · 3–4 lata</span>
         „Popatrz. To jest smutna buźka. Pokaż mi smutną buźkę.”
         <button type="button" class="pom-play" data-audio="../04_media/eduplaner_tom/assets/audio_tom/ai_1.mp3">
-          ▶ posłuchaj głosem autorki <small>ai_1.mp3</small></button></div>
+          ▶ posłuchaj głosem autorki</button>
+        <span class="pom-plik">nagranie: ai_1.mp3</span></div>
     </div>
   </div>
   <div style="padding:0 12px 12px">
@@ -556,7 +558,7 @@ table.ktab td.lp{font-weight:800;color:var(--fiolet);text-align:center}
       <div><div class="kw">EduPlaner 2026</div>
         <div class="ks">Konspekt · komponent I · Rozpoznawanie i nazywanie emocji · pozycja 1 · wersja
           B · 5 lat · wskaźnik I.1</div></div>
-      <span class="kpill">Konspekt SENS B-I.1</span></div>
+      <span class="kpill">Konspekt ToM B-I.1</span></div>
     <div class="kmeta" style="grid-template-columns:1.6fr 1fr 1fr">
       <div class="field"><b>Dotyczy dziecka</b><span class="dots"></span></div>
       <div class="field"><b>Grupa</b><span class="dots"></span></div>
@@ -629,7 +631,8 @@ table.ktab td.lp{font-weight:800;color:var(--fiolet);text-align:center}
       <div class="pom-dziecko"><span class="lab">Polecenie dla dziecka · 5 lat</span>
         „Jaka to emocja? Możesz popatrzeć na tablicę.”
         <button type="button" class="pom-play" data-audio="../04_media/eduplaner_tom/assets/audio_tom/bi_1.mp3">
-          ▶ posłuchaj głosem autorki <small>bi_1.mp3</small></button></div>
+          ▶ posłuchaj głosem autorki</button>
+        <span class="pom-plik">nagranie: bi_1.mp3</span></div>
     </div>
   </div>
   <div style="padding:0 12px 12px">
@@ -656,7 +659,7 @@ table.ktab td.lp{font-weight:800;color:var(--fiolet);text-align:center}
       <div><div class="kw">EduPlaner 2026</div>
         <div class="ks">Konspekt · komponent I · Rozpoznawanie i nazywanie emocji · pozycja 1 · wersja
           C · 6 lat · wskaźnik I.1</div></div>
-      <span class="kpill">Konspekt SENS C-I.1</span></div>
+      <span class="kpill">Konspekt ToM C-I.1</span></div>
     <div class="kmeta" style="grid-template-columns:1.6fr 1fr 1fr">
       <div class="field"><b>Dotyczy dziecka</b><span class="dots"></span></div>
       <div class="field"><b>Grupa</b><span class="dots"></span></div>
@@ -729,7 +732,8 @@ table.ktab td.lp{font-weight:800;color:var(--fiolet);text-align:center}
       <div class="pom-dziecko"><span class="lab">Polecenie dla dziecka · 6 lat</span>
         „Co czuje bohater? Powiedz mi też, jak mocno to czuje.”
         <button type="button" class="pom-play" data-audio="../04_media/eduplaner_tom/assets/audio_tom/ci_1.mp3">
-          ▶ posłuchaj głosem autorki <small>ci_1.mp3</small></button></div>
+          ▶ posłuchaj głosem autorki</button>
+        <span class="pom-plik">nagranie: ci_1.mp3</span></div>
     </div>
   </div>
   <div style="padding:0 12px 12px">
@@ -756,7 +760,7 @@ table.ktab td.lp{font-weight:800;color:var(--fiolet);text-align:center}
       <div><div class="kw">EduPlaner 2026</div>
         <div class="ks">Konspekt · komponent I · Rozpoznawanie i nazywanie emocji · pozycja 2 · wersja
           A · 3–4 lata · wskaźnik I.2</div></div>
-      <span class="kpill">Konspekt SENS A-I.2</span></div>
+      <span class="kpill">Konspekt ToM A-I.2</span></div>
     <div class="kmeta" style="grid-template-columns:1.6fr 1fr 1fr">
       <div class="field"><b>Dotyczy dziecka</b><span class="dots"></span></div>
       <div class="field"><b>Grupa</b><span class="dots"></span></div>
@@ -829,7 +833,8 @@ table.ktab td.lp{font-weight:800;color:var(--fiolet);text-align:center}
       <div class="pom-dziecko"><span class="lab">Polecenie dla dziecka · 3–4 lata</span>
         „Popatrz na buźki. Która jest smutna?”
         <button type="button" class="pom-play" data-audio="../04_media/eduplaner_tom/assets/audio_tom/ai_2.mp3">
-          ▶ posłuchaj głosem autorki <small>ai_2.mp3</small></button></div>
+          ▶ posłuchaj głosem autorki</button>
+        <span class="pom-plik">nagranie: ai_2.mp3</span></div>
     </div>
   </div>
   <div style="padding:0 12px 12px">
@@ -856,7 +861,7 @@ table.ktab td.lp{font-weight:800;color:var(--fiolet);text-align:center}
       <div><div class="kw">EduPlaner 2026</div>
         <div class="ks">Konspekt · komponent I · Rozpoznawanie i nazywanie emocji · pozycja 2 · wersja
           B · 5 lat · wskaźnik I.2</div></div>
-      <span class="kpill">Konspekt SENS B-I.2</span></div>
+      <span class="kpill">Konspekt ToM B-I.2</span></div>
     <div class="kmeta" style="grid-template-columns:1.6fr 1fr 1fr">
       <div class="field"><b>Dotyczy dziecka</b><span class="dots"></span></div>
       <div class="field"><b>Grupa</b><span class="dots"></span></div>
@@ -929,7 +934,8 @@ table.ktab td.lp{font-weight:800;color:var(--fiolet);text-align:center}
       <div class="pom-dziecko"><span class="lab">Polecenie dla dziecka · 5 lat</span>
         „Jaka to emocja? Popatrz na oczy i na usta.”
         <button type="button" class="pom-play" data-audio="../04_media/eduplaner_tom/assets/audio_tom/bi_2.mp3">
-          ▶ posłuchaj głosem autorki <small>bi_2.mp3</small></button></div>
+          ▶ posłuchaj głosem autorki</button>
+        <span class="pom-plik">nagranie: bi_2.mp3</span></div>
     </div>
   </div>
   <div style="padding:0 12px 12px">
@@ -956,7 +962,7 @@ table.ktab td.lp{font-weight:800;color:var(--fiolet);text-align:center}
       <div><div class="kw">EduPlaner 2026</div>
         <div class="ks">Konspekt · komponent I · Rozpoznawanie i nazywanie emocji · pozycja 2 · wersja
           C · 6 lat · wskaźnik I.2</div></div>
-      <span class="kpill">Konspekt SENS C-I.2</span></div>
+      <span class="kpill">Konspekt ToM C-I.2</span></div>
     <div class="kmeta" style="grid-template-columns:1.6fr 1fr 1fr">
       <div class="field"><b>Dotyczy dziecka</b><span class="dots"></span></div>
       <div class="field"><b>Grupa</b><span class="dots"></span></div>
@@ -1029,7 +1035,8 @@ table.ktab td.lp{font-weight:800;color:var(--fiolet);text-align:center}
       <div class="pom-dziecko"><span class="lab">Polecenie dla dziecka · 6 lat</span>
         „Co czuje twój kolega? Zapytaj go, czy tak jest.”
         <button type="button" class="pom-play" data-audio="../04_media/eduplaner_tom/assets/audio_tom/ci_2.mp3">
-          ▶ posłuchaj głosem autorki <small>ci_2.mp3</small></button></div>
+          ▶ posłuchaj głosem autorki</button>
+        <span class="pom-plik">nagranie: ci_2.mp3</span></div>
     </div>
   </div>
   <div style="padding:0 12px 12px">
@@ -1056,7 +1063,7 @@ table.ktab td.lp{font-weight:800;color:var(--fiolet);text-align:center}
       <div><div class="kw">EduPlaner 2026</div>
         <div class="ks">Konspekt · komponent I · Rozpoznawanie i nazywanie emocji · pozycja 3 · wersja
           A · 3–4 lata · wskaźnik I.3</div></div>
-      <span class="kpill">Konspekt SENS A-I.3</span></div>
+      <span class="kpill">Konspekt ToM A-I.3</span></div>
     <div class="kmeta" style="grid-template-columns:1.6fr 1fr 1fr">
       <div class="field"><b>Dotyczy dziecka</b><span class="dots"></span></div>
       <div class="field"><b>Grupa</b><span class="dots"></span></div>
@@ -1129,7 +1136,8 @@ table.ktab td.lp{font-weight:800;color:var(--fiolet);text-align:center}
       <div class="pom-dziecko"><span class="lab">Polecenie dla dziecka · 3–4 lata</span>
         „Popatrz. Dlaczego on płacze?”
         <button type="button" class="pom-play" data-audio="../04_media/eduplaner_tom/assets/audio_tom/ai_3.mp3">
-          ▶ posłuchaj głosem autorki <small>ai_3.mp3</small></button></div>
+          ▶ posłuchaj głosem autorki</button>
+        <span class="pom-plik">nagranie: ai_3.mp3</span></div>
     </div>
   </div>
   <div style="padding:0 12px 12px">
@@ -1156,7 +1164,7 @@ table.ktab td.lp{font-weight:800;color:var(--fiolet);text-align:center}
       <div><div class="kw">EduPlaner 2026</div>
         <div class="ks">Konspekt · komponent I · Rozpoznawanie i nazywanie emocji · pozycja 3 · wersja
           B · 5 lat · wskaźnik I.3</div></div>
-      <span class="kpill">Konspekt SENS B-I.3</span></div>
+      <span class="kpill">Konspekt ToM B-I.3</span></div>
     <div class="kmeta" style="grid-template-columns:1.6fr 1fr 1fr">
       <div class="field"><b>Dotyczy dziecka</b><span class="dots"></span></div>
       <div class="field"><b>Grupa</b><span class="dots"></span></div>
@@ -1229,7 +1237,8 @@ table.ktab td.lp{font-weight:800;color:var(--fiolet);text-align:center}
       <div class="pom-dziecko"><span class="lab">Polecenie dla dziecka · 5 lat</span>
         „Dokończ: czuje…, bo…”
         <button type="button" class="pom-play" data-audio="../04_media/eduplaner_tom/assets/audio_tom/bi_3.mp3">
-          ▶ posłuchaj głosem autorki <small>bi_3.mp3</small></button></div>
+          ▶ posłuchaj głosem autorki</button>
+        <span class="pom-plik">nagranie: bi_3.mp3</span></div>
     </div>
   </div>
   <div style="padding:0 12px 12px">
@@ -1256,7 +1265,7 @@ table.ktab td.lp{font-weight:800;color:var(--fiolet);text-align:center}
       <div><div class="kw">EduPlaner 2026</div>
         <div class="ks">Konspekt · komponent I · Rozpoznawanie i nazywanie emocji · pozycja 3 · wersja
           C · 6 lat · wskaźnik I.3</div></div>
-      <span class="kpill">Konspekt SENS C-I.3</span></div>
+      <span class="kpill">Konspekt ToM C-I.3</span></div>
     <div class="kmeta" style="grid-template-columns:1.6fr 1fr 1fr">
       <div class="field"><b>Dotyczy dziecka</b><span class="dots"></span></div>
       <div class="field"><b>Grupa</b><span class="dots"></span></div>
@@ -1329,7 +1338,8 @@ table.ktab td.lp{font-weight:800;color:var(--fiolet);text-align:center}
       <div class="pom-dziecko"><span class="lab">Polecenie dla dziecka · 6 lat</span>
         „Jak myślisz, dlaczego kolega tak się czuje? Zapytaj go.”
         <button type="button" class="pom-play" data-audio="../04_media/eduplaner_tom/assets/audio_tom/ci_3.mp3">
-          ▶ posłuchaj głosem autorki <small>ci_3.mp3</small></button></div>
+          ▶ posłuchaj głosem autorki</button>
+        <span class="pom-plik">nagranie: ci_3.mp3</span></div>
     </div>
   </div>
   <div style="padding:0 12px 12px">
@@ -1356,7 +1366,7 @@ table.ktab td.lp{font-weight:800;color:var(--fiolet);text-align:center}
       <div><div class="kw">EduPlaner 2026</div>
         <div class="ks">Konspekt · komponent I · Rozpoznawanie i nazywanie emocji · pozycja 4 · wersja
           A · 3–4 lata · wskaźnik I.4</div></div>
-      <span class="kpill">Konspekt SENS A-I.4</span></div>
+      <span class="kpill">Konspekt ToM A-I.4</span></div>
     <div class="kmeta" style="grid-template-columns:1.6fr 1fr 1fr">
       <div class="field"><b>Dotyczy dziecka</b><span class="dots"></span></div>
       <div class="field"><b>Grupa</b><span class="dots"></span></div>
@@ -1429,7 +1439,8 @@ table.ktab td.lp{font-weight:800;color:var(--fiolet);text-align:center}
       <div class="pom-dziecko"><span class="lab">Polecenie dla dziecka · 3–4 lata</span>
         „Jak się dziś czujesz? Przypnij klamerkę.”
         <button type="button" class="pom-play" data-audio="../04_media/eduplaner_tom/assets/audio_tom/ai_4.mp3">
-          ▶ posłuchaj głosem autorki <small>ai_4.mp3</small></button></div>
+          ▶ posłuchaj głosem autorki</button>
+        <span class="pom-plik">nagranie: ai_4.mp3</span></div>
     </div>
   </div>
   <div style="padding:0 12px 12px">
@@ -1456,7 +1467,7 @@ table.ktab td.lp{font-weight:800;color:var(--fiolet);text-align:center}
       <div><div class="kw">EduPlaner 2026</div>
         <div class="ks">Konspekt · komponent I · Rozpoznawanie i nazywanie emocji · pozycja 4 · wersja
           B · 5 lat · wskaźnik I.4</div></div>
-      <span class="kpill">Konspekt SENS B-I.4</span></div>
+      <span class="kpill">Konspekt ToM B-I.4</span></div>
     <div class="kmeta" style="grid-template-columns:1.6fr 1fr 1fr">
       <div class="field"><b>Dotyczy dziecka</b><span class="dots"></span></div>
       <div class="field"><b>Grupa</b><span class="dots"></span></div>
@@ -1529,7 +1540,8 @@ table.ktab td.lp{font-weight:800;color:var(--fiolet);text-align:center}
       <div class="pom-dziecko"><span class="lab">Polecenie dla dziecka · 5 lat</span>
         „Powiedz, jak się czujesz. Czego dziś potrzebujesz?”
         <button type="button" class="pom-play" data-audio="../04_media/eduplaner_tom/assets/audio_tom/bi_4.mp3">
-          ▶ posłuchaj głosem autorki <small>bi_4.mp3</small></button></div>
+          ▶ posłuchaj głosem autorki</button>
+        <span class="pom-plik">nagranie: bi_4.mp3</span></div>
     </div>
   </div>
   <div style="padding:0 12px 12px">
@@ -1556,7 +1568,7 @@ table.ktab td.lp{font-weight:800;color:var(--fiolet);text-align:center}
       <div><div class="kw">EduPlaner 2026</div>
         <div class="ks">Konspekt · komponent I · Rozpoznawanie i nazywanie emocji · pozycja 4 · wersja
           C · 6 lat · wskaźnik I.4</div></div>
-      <span class="kpill">Konspekt SENS C-I.4</span></div>
+      <span class="kpill">Konspekt ToM C-I.4</span></div>
     <div class="kmeta" style="grid-template-columns:1.6fr 1fr 1fr">
       <div class="field"><b>Dotyczy dziecka</b><span class="dots"></span></div>
       <div class="field"><b>Grupa</b><span class="dots"></span></div>
@@ -1629,7 +1641,8 @@ table.ktab td.lp{font-weight:800;color:var(--fiolet);text-align:center}
       <div class="pom-dziecko"><span class="lab">Polecenie dla dziecka · 6 lat</span>
         „Nazwij emocję i powiedz, jak mocno ją czujesz. Poproś o to, czego ci trzeba.”
         <button type="button" class="pom-play" data-audio="../04_media/eduplaner_tom/assets/audio_tom/ci_4.mp3">
-          ▶ posłuchaj głosem autorki <small>ci_4.mp3</small></button></div>
+          ▶ posłuchaj głosem autorki</button>
+        <span class="pom-plik">nagranie: ci_4.mp3</span></div>
     </div>
   </div>
   <div style="padding:0 12px 12px">
@@ -1656,7 +1669,7 @@ table.ktab td.lp{font-weight:800;color:var(--fiolet);text-align:center}
       <div><div class="kw">EduPlaner 2026</div>
         <div class="ks">Konspekt · komponent I · Rozpoznawanie i nazywanie emocji · pozycja 5 · wersja
           A · 3–4 lata · wskaźnik I.5</div></div>
-      <span class="kpill">Konspekt SENS A-I.5</span></div>
+      <span class="kpill">Konspekt ToM A-I.5</span></div>
     <div class="kmeta" style="grid-template-columns:1.6fr 1fr 1fr">
       <div class="field"><b>Dotyczy dziecka</b><span class="dots"></span></div>
       <div class="field"><b>Grupa</b><span class="dots"></span></div>
@@ -1729,7 +1742,8 @@ table.ktab td.lp{font-weight:800;color:var(--fiolet);text-align:center}
       <div class="pom-dziecko"><span class="lab">Polecenie dla dziecka · 3–4 lata</span>
         „Popatrz, Ola płacze. Idziemy razem. Podaj jej misia.”
         <button type="button" class="pom-play" data-audio="../04_media/eduplaner_tom/assets/audio_tom/ai_5.mp3">
-          ▶ posłuchaj głosem autorki <small>ai_5.mp3</small></button></div>
+          ▶ posłuchaj głosem autorki</button>
+        <span class="pom-plik">nagranie: ai_5.mp3</span></div>
     </div>
   </div>
   <div style="padding:0 12px 12px">
@@ -1756,7 +1770,7 @@ table.ktab td.lp{font-weight:800;color:var(--fiolet);text-align:center}
       <div><div class="kw">EduPlaner 2026</div>
         <div class="ks">Konspekt · komponent I · Rozpoznawanie i nazywanie emocji · pozycja 5 · wersja
           B · 5 lat · wskaźnik I.5</div></div>
-      <span class="kpill">Konspekt SENS B-I.5</span></div>
+      <span class="kpill">Konspekt ToM B-I.5</span></div>
     <div class="kmeta" style="grid-template-columns:1.6fr 1fr 1fr">
       <div class="field"><b>Dotyczy dziecka</b><span class="dots"></span></div>
       <div class="field"><b>Grupa</b><span class="dots"></span></div>
@@ -1829,7 +1843,8 @@ table.ktab td.lp{font-weight:800;color:var(--fiolet);text-align:center}
       <div class="pom-dziecko"><span class="lab">Polecenie dla dziecka · 5 lat</span>
         „Popatrz na kartę. Jak dziś pomożesz koledze?”
         <button type="button" class="pom-play" data-audio="../04_media/eduplaner_tom/assets/audio_tom/bi_5.mp3">
-          ▶ posłuchaj głosem autorki <small>bi_5.mp3</small></button></div>
+          ▶ posłuchaj głosem autorki</button>
+        <span class="pom-plik">nagranie: bi_5.mp3</span></div>
     </div>
   </div>
   <div style="padding:0 12px 12px">
@@ -1856,7 +1871,7 @@ table.ktab td.lp{font-weight:800;color:var(--fiolet);text-align:center}
       <div><div class="kw">EduPlaner 2026</div>
         <div class="ks">Konspekt · komponent I · Rozpoznawanie i nazywanie emocji · pozycja 5 · wersja
           C · 6 lat · wskaźnik I.5</div></div>
-      <span class="kpill">Konspekt SENS C-I.5</span></div>
+      <span class="kpill">Konspekt ToM C-I.5</span></div>
     <div class="kmeta" style="grid-template-columns:1.6fr 1fr 1fr">
       <div class="field"><b>Dotyczy dziecka</b><span class="dots"></span></div>
       <div class="field"><b>Grupa</b><span class="dots"></span></div>
@@ -1929,7 +1944,8 @@ table.ktab td.lp{font-weight:800;color:var(--fiolet);text-align:center}
       <div class="pom-dziecko"><span class="lab">Polecenie dla dziecka · 6 lat</span>
         „Zapytaj kolegę, czego potrzebuje. Potem zrób to, o co poprosi.”
         <button type="button" class="pom-play" data-audio="../04_media/eduplaner_tom/assets/audio_tom/ci_5.mp3">
-          ▶ posłuchaj głosem autorki <small>ci_5.mp3</small></button></div>
+          ▶ posłuchaj głosem autorki</button>
+        <span class="pom-plik">nagranie: ci_5.mp3</span></div>
     </div>
   </div>
   <div style="padding:0 12px 12px">
@@ -1956,7 +1972,7 @@ table.ktab td.lp{font-weight:800;color:var(--fiolet);text-align:center}
       <div><div class="kw">EduPlaner 2026</div>
         <div class="ks">Konspekt · komponent II · Różne pragnienia i upodobania · pozycja 1 · wersja
           A · 3–4 lata · wskaźnik II.1</div></div>
-      <span class="kpill">Konspekt SENS A-II.1</span></div>
+      <span class="kpill">Konspekt ToM A-II.1</span></div>
     <div class="kmeta" style="grid-template-columns:1.6fr 1fr 1fr">
       <div class="field"><b>Dotyczy dziecka</b><span class="dots"></span></div>
       <div class="field"><b>Grupa</b><span class="dots"></span></div>
@@ -2029,7 +2045,8 @@ table.ktab td.lp{font-weight:800;color:var(--fiolet);text-align:center}
       <div class="pom-dziecko"><span class="lab">Polecenie dla dziecka · 3–4 lata</span>
         „Popatrz na tablicę. Co lubi Ola?”
         <button type="button" class="pom-play" data-audio="../04_media/eduplaner_tom/assets/audio_tom/aii_1.mp3">
-          ▶ posłuchaj głosem autorki <small>aii_1.mp3</small></button></div>
+          ▶ posłuchaj głosem autorki</button>
+        <span class="pom-plik">nagranie: aii_1.mp3</span></div>
     </div>
   </div>
   <div style="padding:0 12px 12px">
@@ -2056,7 +2073,7 @@ table.ktab td.lp{font-weight:800;color:var(--fiolet);text-align:center}
       <div><div class="kw">EduPlaner 2026</div>
         <div class="ks">Konspekt · komponent II · Różne pragnienia i upodobania · pozycja 1 · wersja
           B · 5 lat · wskaźnik II.1</div></div>
-      <span class="kpill">Konspekt SENS B-II.1</span></div>
+      <span class="kpill">Konspekt ToM B-II.1</span></div>
     <div class="kmeta" style="grid-template-columns:1.6fr 1fr 1fr">
       <div class="field"><b>Dotyczy dziecka</b><span class="dots"></span></div>
       <div class="field"><b>Grupa</b><span class="dots"></span></div>
@@ -2129,7 +2146,8 @@ table.ktab td.lp{font-weight:800;color:var(--fiolet);text-align:center}
       <div class="pom-dziecko"><span class="lab">Polecenie dla dziecka · 5 lat</span>
         „Co wybierze Ola? A ty co wybierasz?”
         <button type="button" class="pom-play" data-audio="../04_media/eduplaner_tom/assets/audio_tom/bii_1.mp3">
-          ▶ posłuchaj głosem autorki <small>bii_1.mp3</small></button></div>
+          ▶ posłuchaj głosem autorki</button>
+        <span class="pom-plik">nagranie: bii_1.mp3</span></div>
     </div>
   </div>
   <div style="padding:0 12px 12px">
@@ -2156,7 +2174,7 @@ table.ktab td.lp{font-weight:800;color:var(--fiolet);text-align:center}
       <div><div class="kw">EduPlaner 2026</div>
         <div class="ks">Konspekt · komponent II · Różne pragnienia i upodobania · pozycja 1 · wersja
           C · 6 lat · wskaźnik II.1</div></div>
-      <span class="kpill">Konspekt SENS C-II.1</span></div>
+      <span class="kpill">Konspekt ToM C-II.1</span></div>
     <div class="kmeta" style="grid-template-columns:1.6fr 1fr 1fr">
       <div class="field"><b>Dotyczy dziecka</b><span class="dots"></span></div>
       <div class="field"><b>Grupa</b><span class="dots"></span></div>
@@ -2229,7 +2247,8 @@ table.ktab td.lp{font-weight:800;color:var(--fiolet);text-align:center}
       <div class="pom-dziecko"><span class="lab">Polecenie dla dziecka · 6 lat</span>
         „Z kim się dziś bawisz? Zaproponuj zabawę, którą on lubi.”
         <button type="button" class="pom-play" data-audio="../04_media/eduplaner_tom/assets/audio_tom/cii_1.mp3">
-          ▶ posłuchaj głosem autorki <small>cii_1.mp3</small></button></div>
+          ▶ posłuchaj głosem autorki</button>
+        <span class="pom-plik">nagranie: cii_1.mp3</span></div>
     </div>
   </div>
   <div style="padding:0 12px 12px">
@@ -2256,7 +2275,7 @@ table.ktab td.lp{font-weight:800;color:var(--fiolet);text-align:center}
       <div><div class="kw">EduPlaner 2026</div>
         <div class="ks">Konspekt · komponent II · Różne pragnienia i upodobania · pozycja 2 · wersja
           A · 3–4 lata · wskaźnik II.2</div></div>
-      <span class="kpill">Konspekt SENS A-II.2</span></div>
+      <span class="kpill">Konspekt ToM A-II.2</span></div>
     <div class="kmeta" style="grid-template-columns:1.6fr 1fr 1fr">
       <div class="field"><b>Dotyczy dziecka</b><span class="dots"></span></div>
       <div class="field"><b>Grupa</b><span class="dots"></span></div>
@@ -2329,7 +2348,8 @@ table.ktab td.lp{font-weight:800;color:var(--fiolet);text-align:center}
       <div class="pom-dziecko"><span class="lab">Polecenie dla dziecka · 3–4 lata</span>
         „Po co sięgnie pacynka? Pokaż.”
         <button type="button" class="pom-play" data-audio="../04_media/eduplaner_tom/assets/audio_tom/aii_2.mp3">
-          ▶ posłuchaj głosem autorki <small>aii_2.mp3</small></button></div>
+          ▶ posłuchaj głosem autorki</button>
+        <span class="pom-plik">nagranie: aii_2.mp3</span></div>
     </div>
   </div>
   <div style="padding:0 12px 12px">
@@ -2356,7 +2376,7 @@ table.ktab td.lp{font-weight:800;color:var(--fiolet);text-align:center}
       <div><div class="kw">EduPlaner 2026</div>
         <div class="ks">Konspekt · komponent II · Różne pragnienia i upodobania · pozycja 2 · wersja
           B · 5 lat · wskaźnik II.2</div></div>
-      <span class="kpill">Konspekt SENS B-II.2</span></div>
+      <span class="kpill">Konspekt ToM B-II.2</span></div>
     <div class="kmeta" style="grid-template-columns:1.6fr 1fr 1fr">
       <div class="field"><b>Dotyczy dziecka</b><span class="dots"></span></div>
       <div class="field"><b>Grupa</b><span class="dots"></span></div>
@@ -2429,7 +2449,8 @@ table.ktab td.lp{font-weight:800;color:var(--fiolet);text-align:center}
       <div class="pom-dziecko"><span class="lab">Polecenie dla dziecka · 5 lat</span>
         „Co wybierze Ola? Zapytaj ją potem, czy tak jest.”
         <button type="button" class="pom-play" data-audio="../04_media/eduplaner_tom/assets/audio_tom/bii_2.mp3">
-          ▶ posłuchaj głosem autorki <small>bii_2.mp3</small></button></div>
+          ▶ posłuchaj głosem autorki</button>
+        <span class="pom-plik">nagranie: bii_2.mp3</span></div>
     </div>
   </div>
   <div style="padding:0 12px 12px">
@@ -2456,7 +2477,7 @@ table.ktab td.lp{font-weight:800;color:var(--fiolet);text-align:center}
       <div><div class="kw">EduPlaner 2026</div>
         <div class="ks">Konspekt · komponent II · Różne pragnienia i upodobania · pozycja 2 · wersja
           C · 6 lat · wskaźnik II.2</div></div>
-      <span class="kpill">Konspekt SENS C-II.2</span></div>
+      <span class="kpill">Konspekt ToM C-II.2</span></div>
     <div class="kmeta" style="grid-template-columns:1.6fr 1fr 1fr">
       <div class="field"><b>Dotyczy dziecka</b><span class="dots"></span></div>
       <div class="field"><b>Grupa</b><span class="dots"></span></div>
@@ -2529,7 +2550,8 @@ table.ktab td.lp{font-weight:800;color:var(--fiolet);text-align:center}
       <div class="pom-dziecko"><span class="lab">Polecenie dla dziecka · 6 lat</span>
         „Co wybierze kolega i dlaczego? Dokończ: wybierze…, bo lubi…”
         <button type="button" class="pom-play" data-audio="../04_media/eduplaner_tom/assets/audio_tom/cii_2.mp3">
-          ▶ posłuchaj głosem autorki <small>cii_2.mp3</small></button></div>
+          ▶ posłuchaj głosem autorki</button>
+        <span class="pom-plik">nagranie: cii_2.mp3</span></div>
     </div>
   </div>
   <div style="padding:0 12px 12px">
@@ -2556,7 +2578,7 @@ table.ktab td.lp{font-weight:800;color:var(--fiolet);text-align:center}
       <div><div class="kw">EduPlaner 2026</div>
         <div class="ks">Konspekt · komponent II · Różne pragnienia i upodobania · pozycja 3 · wersja
           A · 3–4 lata · wskaźnik II.3</div></div>
-      <span class="kpill">Konspekt SENS A-II.3</span></div>
+      <span class="kpill">Konspekt ToM A-II.3</span></div>
     <div class="kmeta" style="grid-template-columns:1.6fr 1fr 1fr">
       <div class="field"><b>Dotyczy dziecka</b><span class="dots"></span></div>
       <div class="field"><b>Grupa</b><span class="dots"></span></div>
@@ -2629,7 +2651,8 @@ table.ktab td.lp{font-weight:800;color:var(--fiolet);text-align:center}
       <div class="pom-dziecko"><span class="lab">Polecenie dla dziecka · 3–4 lata</span>
         „Dostała lody. Jaka jest buźka? A teraz nie dostała.”
         <button type="button" class="pom-play" data-audio="../04_media/eduplaner_tom/assets/audio_tom/aii_3.mp3">
-          ▶ posłuchaj głosem autorki <small>aii_3.mp3</small></button></div>
+          ▶ posłuchaj głosem autorki</button>
+        <span class="pom-plik">nagranie: aii_3.mp3</span></div>
     </div>
   </div>
   <div style="padding:0 12px 12px">
@@ -2656,7 +2679,7 @@ table.ktab td.lp{font-weight:800;color:var(--fiolet);text-align:center}
       <div><div class="kw">EduPlaner 2026</div>
         <div class="ks">Konspekt · komponent II · Różne pragnienia i upodobania · pozycja 3 · wersja
           B · 5 lat · wskaźnik II.3</div></div>
-      <span class="kpill">Konspekt SENS B-II.3</span></div>
+      <span class="kpill">Konspekt ToM B-II.3</span></div>
     <div class="kmeta" style="grid-template-columns:1.6fr 1fr 1fr">
       <div class="field"><b>Dotyczy dziecka</b><span class="dots"></span></div>
       <div class="field"><b>Grupa</b><span class="dots"></span></div>
@@ -2729,7 +2752,8 @@ table.ktab td.lp{font-weight:800;color:var(--fiolet);text-align:center}
       <div class="pom-dziecko"><span class="lab">Polecenie dla dziecka · 5 lat</span>
         „Jak się czuje bohater? A jak, kiedy nie dostał?”
         <button type="button" class="pom-play" data-audio="../04_media/eduplaner_tom/assets/audio_tom/bii_3.mp3">
-          ▶ posłuchaj głosem autorki <small>bii_3.mp3</small></button></div>
+          ▶ posłuchaj głosem autorki</button>
+        <span class="pom-plik">nagranie: bii_3.mp3</span></div>
     </div>
   </div>
   <div style="padding:0 12px 12px">
@@ -2756,7 +2780,7 @@ table.ktab td.lp{font-weight:800;color:var(--fiolet);text-align:center}
       <div><div class="kw">EduPlaner 2026</div>
         <div class="ks">Konspekt · komponent II · Różne pragnienia i upodobania · pozycja 3 · wersja
           C · 6 lat · wskaźnik II.3</div></div>
-      <span class="kpill">Konspekt SENS C-II.3</span></div>
+      <span class="kpill">Konspekt ToM C-II.3</span></div>
     <div class="kmeta" style="grid-template-columns:1.6fr 1fr 1fr">
       <div class="field"><b>Dotyczy dziecka</b><span class="dots"></span></div>
       <div class="field"><b>Grupa</b><span class="dots"></span></div>
@@ -2829,7 +2853,8 @@ table.ktab td.lp{font-weight:800;color:var(--fiolet);text-align:center}
       <div class="pom-dziecko"><span class="lab">Polecenie dla dziecka · 6 lat</span>
         „Kto się dziś rozczaruje przy podziale? Jak podzielić, żeby było znośnie?”
         <button type="button" class="pom-play" data-audio="../04_media/eduplaner_tom/assets/audio_tom/cii_3.mp3">
-          ▶ posłuchaj głosem autorki <small>cii_3.mp3</small></button></div>
+          ▶ posłuchaj głosem autorki</button>
+        <span class="pom-plik">nagranie: cii_3.mp3</span></div>
     </div>
   </div>
   <div style="padding:0 12px 12px">
@@ -2856,7 +2881,7 @@ table.ktab td.lp{font-weight:800;color:var(--fiolet);text-align:center}
       <div><div class="kw">EduPlaner 2026</div>
         <div class="ks">Konspekt · komponent II · Różne pragnienia i upodobania · pozycja 4 · wersja
           A · 3–4 lata · wskaźnik II.4</div></div>
-      <span class="kpill">Konspekt SENS A-II.4</span></div>
+      <span class="kpill">Konspekt ToM A-II.4</span></div>
     <div class="kmeta" style="grid-template-columns:1.6fr 1fr 1fr">
       <div class="field"><b>Dotyczy dziecka</b><span class="dots"></span></div>
       <div class="field"><b>Grupa</b><span class="dots"></span></div>
@@ -2929,7 +2954,8 @@ table.ktab td.lp{font-weight:800;color:var(--fiolet);text-align:center}
       <div class="pom-dziecko"><span class="lab">Polecenie dla dziecka · 3–4 lata</span>
         „Co lubi Ola? Podaj jej to.”
         <button type="button" class="pom-play" data-audio="../04_media/eduplaner_tom/assets/audio_tom/aii_4.mp3">
-          ▶ posłuchaj głosem autorki <small>aii_4.mp3</small></button></div>
+          ▶ posłuchaj głosem autorki</button>
+        <span class="pom-plik">nagranie: aii_4.mp3</span></div>
     </div>
   </div>
   <div style="padding:0 12px 12px">
@@ -2956,7 +2982,7 @@ table.ktab td.lp{font-weight:800;color:var(--fiolet);text-align:center}
       <div><div class="kw">EduPlaner 2026</div>
         <div class="ks">Konspekt · komponent II · Różne pragnienia i upodobania · pozycja 4 · wersja
           B · 5 lat · wskaźnik II.4</div></div>
-      <span class="kpill">Konspekt SENS B-II.4</span></div>
+      <span class="kpill">Konspekt ToM B-II.4</span></div>
     <div class="kmeta" style="grid-template-columns:1.6fr 1fr 1fr">
       <div class="field"><b>Dotyczy dziecka</b><span class="dots"></span></div>
       <div class="field"><b>Grupa</b><span class="dots"></span></div>
@@ -3029,7 +3055,8 @@ table.ktab td.lp{font-weight:800;color:var(--fiolet);text-align:center}
       <div class="pom-dziecko"><span class="lab">Polecenie dla dziecka · 5 lat</span>
         „W co pobawicie się razem? Sprawdź, co lubi kolega.”
         <button type="button" class="pom-play" data-audio="../04_media/eduplaner_tom/assets/audio_tom/bii_4.mp3">
-          ▶ posłuchaj głosem autorki <small>bii_4.mp3</small></button></div>
+          ▶ posłuchaj głosem autorki</button>
+        <span class="pom-plik">nagranie: bii_4.mp3</span></div>
     </div>
   </div>
   <div style="padding:0 12px 12px">
@@ -3056,7 +3083,7 @@ table.ktab td.lp{font-weight:800;color:var(--fiolet);text-align:center}
       <div><div class="kw">EduPlaner 2026</div>
         <div class="ks">Konspekt · komponent II · Różne pragnienia i upodobania · pozycja 4 · wersja
           C · 6 lat · wskaźnik II.4</div></div>
-      <span class="kpill">Konspekt SENS C-II.4</span></div>
+      <span class="kpill">Konspekt ToM C-II.4</span></div>
     <div class="kmeta" style="grid-template-columns:1.6fr 1fr 1fr">
       <div class="field"><b>Dotyczy dziecka</b><span class="dots"></span></div>
       <div class="field"><b>Grupa</b><span class="dots"></span></div>
@@ -3129,7 +3156,8 @@ table.ktab td.lp{font-weight:800;color:var(--fiolet);text-align:center}
       <div class="pom-dziecko"><span class="lab">Polecenie dla dziecka · 6 lat</span>
         „Zapytaj oboje, co lubią. Zaproponuj coś dla wszystkich.”
         <button type="button" class="pom-play" data-audio="../04_media/eduplaner_tom/assets/audio_tom/cii_4.mp3">
-          ▶ posłuchaj głosem autorki <small>cii_4.mp3</small></button></div>
+          ▶ posłuchaj głosem autorki</button>
+        <span class="pom-plik">nagranie: cii_4.mp3</span></div>
     </div>
   </div>
   <div style="padding:0 12px 12px">
@@ -3156,7 +3184,7 @@ table.ktab td.lp{font-weight:800;color:var(--fiolet);text-align:center}
       <div><div class="kw">EduPlaner 2026</div>
         <div class="ks">Konspekt · komponent II · Różne pragnienia i upodobania · pozycja 5 · wersja
           A · 3–4 lata · wskaźnik II.5</div></div>
-      <span class="kpill">Konspekt SENS A-II.5</span></div>
+      <span class="kpill">Konspekt ToM A-II.5</span></div>
     <div class="kmeta" style="grid-template-columns:1.6fr 1fr 1fr">
       <div class="field"><b>Dotyczy dziecka</b><span class="dots"></span></div>
       <div class="field"><b>Grupa</b><span class="dots"></span></div>
@@ -3229,7 +3257,8 @@ table.ktab td.lp{font-weight:800;color:var(--fiolet);text-align:center}
       <div class="pom-dziecko"><span class="lab">Polecenie dla dziecka · 3–4 lata</span>
         „Powiedz, co lubisz. Pokaż to koledze.”
         <button type="button" class="pom-play" data-audio="../04_media/eduplaner_tom/assets/audio_tom/aii_5.mp3">
-          ▶ posłuchaj głosem autorki <small>aii_5.mp3</small></button></div>
+          ▶ posłuchaj głosem autorki</button>
+        <span class="pom-plik">nagranie: aii_5.mp3</span></div>
     </div>
   </div>
   <div style="padding:0 12px 12px">
@@ -3256,7 +3285,7 @@ table.ktab td.lp{font-weight:800;color:var(--fiolet);text-align:center}
       <div><div class="kw">EduPlaner 2026</div>
         <div class="ks">Konspekt · komponent II · Różne pragnienia i upodobania · pozycja 5 · wersja
           B · 5 lat · wskaźnik II.5</div></div>
-      <span class="kpill">Konspekt SENS B-II.5</span></div>
+      <span class="kpill">Konspekt ToM B-II.5</span></div>
     <div class="kmeta" style="grid-template-columns:1.6fr 1fr 1fr">
       <div class="field"><b>Dotyczy dziecka</b><span class="dots"></span></div>
       <div class="field"><b>Grupa</b><span class="dots"></span></div>
@@ -3329,7 +3358,8 @@ table.ktab td.lp{font-weight:800;color:var(--fiolet);text-align:center}
       <div class="pom-dziecko"><span class="lab">Polecenie dla dziecka · 5 lat</span>
         „Zapytaj kolegę: a co ty lubisz? Potem powtórz jego odpowiedź.”
         <button type="button" class="pom-play" data-audio="../04_media/eduplaner_tom/assets/audio_tom/bii_5.mp3">
-          ▶ posłuchaj głosem autorki <small>bii_5.mp3</small></button></div>
+          ▶ posłuchaj głosem autorki</button>
+        <span class="pom-plik">nagranie: bii_5.mp3</span></div>
     </div>
   </div>
   <div style="padding:0 12px 12px">
@@ -3356,7 +3386,7 @@ table.ktab td.lp{font-weight:800;color:var(--fiolet);text-align:center}
       <div><div class="kw">EduPlaner 2026</div>
         <div class="ks">Konspekt · komponent II · Różne pragnienia i upodobania · pozycja 5 · wersja
           C · 6 lat · wskaźnik II.5</div></div>
-      <span class="kpill">Konspekt SENS C-II.5</span></div>
+      <span class="kpill">Konspekt ToM C-II.5</span></div>
     <div class="kmeta" style="grid-template-columns:1.6fr 1fr 1fr">
       <div class="field"><b>Dotyczy dziecka</b><span class="dots"></span></div>
       <div class="field"><b>Grupa</b><span class="dots"></span></div>
@@ -3429,7 +3459,8 @@ table.ktab td.lp{font-weight:800;color:var(--fiolet);text-align:center}
       <div class="pom-dziecko"><span class="lab">Polecenie dla dziecka · 6 lat</span>
         „Zapytaj nowego kolegę, co lubi. Potem zapytaj dlaczego.”
         <button type="button" class="pom-play" data-audio="../04_media/eduplaner_tom/assets/audio_tom/cii_5.mp3">
-          ▶ posłuchaj głosem autorki <small>cii_5.mp3</small></button></div>
+          ▶ posłuchaj głosem autorki</button>
+        <span class="pom-plik">nagranie: cii_5.mp3</span></div>
     </div>
   </div>
   <div style="padding:0 12px 12px">
@@ -3456,7 +3487,7 @@ table.ktab td.lp{font-weight:800;color:var(--fiolet);text-align:center}
       <div><div class="kw">EduPlaner 2026</div>
         <div class="ks">Konspekt · komponent III · Zabawa „na niby” i udawanie · pozycja 1 · wersja
           A · 3–4 lata · wskaźnik III.1</div></div>
-      <span class="kpill">Konspekt SENS A-III.1</span></div>
+      <span class="kpill">Konspekt ToM A-III.1</span></div>
     <div class="kmeta" style="grid-template-columns:1.6fr 1fr 1fr">
       <div class="field"><b>Dotyczy dziecka</b><span class="dots"></span></div>
       <div class="field"><b>Grupa</b><span class="dots"></span></div>
@@ -3529,7 +3560,8 @@ table.ktab td.lp{font-weight:800;color:var(--fiolet);text-align:center}
       <div class="pom-dziecko"><span class="lab">Polecenie dla dziecka · 3–4 lata</span>
         „Popatrz, to mój telefon. Halo! Weź swój.”
         <button type="button" class="pom-play" data-audio="../04_media/eduplaner_tom/assets/audio_tom/aiii_1.mp3">
-          ▶ posłuchaj głosem autorki <small>aiii_1.mp3</small></button></div>
+          ▶ posłuchaj głosem autorki</button>
+        <span class="pom-plik">nagranie: aiii_1.mp3</span></div>
     </div>
   </div>
   <div style="padding:0 12px 12px">
@@ -3556,7 +3588,7 @@ table.ktab td.lp{font-weight:800;color:var(--fiolet);text-align:center}
       <div><div class="kw">EduPlaner 2026</div>
         <div class="ks">Konspekt · komponent III · Zabawa „na niby” i udawanie · pozycja 1 · wersja
           B · 5 lat · wskaźnik III.1</div></div>
-      <span class="kpill">Konspekt SENS B-III.1</span></div>
+      <span class="kpill">Konspekt ToM B-III.1</span></div>
     <div class="kmeta" style="grid-template-columns:1.6fr 1fr 1fr">
       <div class="field"><b>Dotyczy dziecka</b><span class="dots"></span></div>
       <div class="field"><b>Grupa</b><span class="dots"></span></div>
@@ -3629,7 +3661,8 @@ table.ktab td.lp{font-weight:800;color:var(--fiolet);text-align:center}
       <div class="pom-dziecko"><span class="lab">Polecenie dla dziecka · 5 lat</span>
         „Co to może być? Pokaż mi.”
         <button type="button" class="pom-play" data-audio="../04_media/eduplaner_tom/assets/audio_tom/biii_1.mp3">
-          ▶ posłuchaj głosem autorki <small>biii_1.mp3</small></button></div>
+          ▶ posłuchaj głosem autorki</button>
+        <span class="pom-plik">nagranie: biii_1.mp3</span></div>
     </div>
   </div>
   <div style="padding:0 12px 12px">
@@ -3656,7 +3689,7 @@ table.ktab td.lp{font-weight:800;color:var(--fiolet);text-align:center}
       <div><div class="kw">EduPlaner 2026</div>
         <div class="ks">Konspekt · komponent III · Zabawa „na niby” i udawanie · pozycja 1 · wersja
           C · 6 lat · wskaźnik III.1</div></div>
-      <span class="kpill">Konspekt SENS C-III.1</span></div>
+      <span class="kpill">Konspekt ToM C-III.1</span></div>
     <div class="kmeta" style="grid-template-columns:1.6fr 1fr 1fr">
       <div class="field"><b>Dotyczy dziecka</b><span class="dots"></span></div>
       <div class="field"><b>Grupa</b><span class="dots"></span></div>
@@ -3729,7 +3762,8 @@ table.ktab td.lp{font-weight:800;color:var(--fiolet);text-align:center}
       <div class="pom-dziecko"><span class="lab">Polecenie dla dziecka · 6 lat</span>
         „Pokaż koledze, co robisz — bez zabawki, samą ręką.”
         <button type="button" class="pom-play" data-audio="../04_media/eduplaner_tom/assets/audio_tom/ciii_1.mp3">
-          ▶ posłuchaj głosem autorki <small>ciii_1.mp3</small></button></div>
+          ▶ posłuchaj głosem autorki</button>
+        <span class="pom-plik">nagranie: ciii_1.mp3</span></div>
     </div>
   </div>
   <div style="padding:0 12px 12px">
@@ -3756,7 +3790,7 @@ table.ktab td.lp{font-weight:800;color:var(--fiolet);text-align:center}
       <div><div class="kw">EduPlaner 2026</div>
         <div class="ks">Konspekt · komponent III · Zabawa „na niby” i udawanie · pozycja 2 · wersja
           A · 3–4 lata · wskaźnik III.2</div></div>
-      <span class="kpill">Konspekt SENS A-III.2</span></div>
+      <span class="kpill">Konspekt ToM A-III.2</span></div>
     <div class="kmeta" style="grid-template-columns:1.6fr 1fr 1fr">
       <div class="field"><b>Dotyczy dziecka</b><span class="dots"></span></div>
       <div class="field"><b>Grupa</b><span class="dots"></span></div>
@@ -3829,7 +3863,8 @@ table.ktab td.lp{font-weight:800;color:var(--fiolet);text-align:center}
       <div class="pom-dziecko"><span class="lab">Polecenie dla dziecka · 3–4 lata</span>
         „Jestem lekarzem. Załóż fartuch. Zbadamy misia.”
         <button type="button" class="pom-play" data-audio="../04_media/eduplaner_tom/assets/audio_tom/aiii_2.mp3">
-          ▶ posłuchaj głosem autorki <small>aiii_2.mp3</small></button></div>
+          ▶ posłuchaj głosem autorki</button>
+        <span class="pom-plik">nagranie: aiii_2.mp3</span></div>
     </div>
   </div>
   <div style="padding:0 12px 12px">
@@ -3856,7 +3891,7 @@ table.ktab td.lp{font-weight:800;color:var(--fiolet);text-align:center}
       <div><div class="kw">EduPlaner 2026</div>
         <div class="ks">Konspekt · komponent III · Zabawa „na niby” i udawanie · pozycja 2 · wersja
           B · 5 lat · wskaźnik III.2</div></div>
-      <span class="kpill">Konspekt SENS B-III.2</span></div>
+      <span class="kpill">Konspekt ToM B-III.2</span></div>
     <div class="kmeta" style="grid-template-columns:1.6fr 1fr 1fr">
       <div class="field"><b>Dotyczy dziecka</b><span class="dots"></span></div>
       <div class="field"><b>Grupa</b><span class="dots"></span></div>
@@ -3929,7 +3964,8 @@ table.ktab td.lp{font-weight:800;color:var(--fiolet);text-align:center}
       <div class="pom-dziecko"><span class="lab">Polecenie dla dziecka · 5 lat</span>
         „Kim jesteś w tej zabawie? Powiedz coś do kolegi ze swojej roli.”
         <button type="button" class="pom-play" data-audio="../04_media/eduplaner_tom/assets/audio_tom/biii_2.mp3">
-          ▶ posłuchaj głosem autorki <small>biii_2.mp3</small></button></div>
+          ▶ posłuchaj głosem autorki</button>
+        <span class="pom-plik">nagranie: biii_2.mp3</span></div>
     </div>
   </div>
   <div style="padding:0 12px 12px">
@@ -3956,7 +3992,7 @@ table.ktab td.lp{font-weight:800;color:var(--fiolet);text-align:center}
       <div><div class="kw">EduPlaner 2026</div>
         <div class="ks">Konspekt · komponent III · Zabawa „na niby” i udawanie · pozycja 2 · wersja
           C · 6 lat · wskaźnik III.2</div></div>
-      <span class="kpill">Konspekt SENS C-III.2</span></div>
+      <span class="kpill">Konspekt ToM C-III.2</span></div>
     <div class="kmeta" style="grid-template-columns:1.6fr 1fr 1fr">
       <div class="field"><b>Dotyczy dziecka</b><span class="dots"></span></div>
       <div class="field"><b>Grupa</b><span class="dots"></span></div>
@@ -4029,7 +4065,8 @@ table.ktab td.lp{font-weight:800;color:var(--fiolet);text-align:center}
       <div class="pom-dziecko"><span class="lab">Polecenie dla dziecka · 6 lat</span>
         „Zamieniamy się rolami. Teraz ty jesteś pacjentem.”
         <button type="button" class="pom-play" data-audio="../04_media/eduplaner_tom/assets/audio_tom/ciii_2.mp3">
-          ▶ posłuchaj głosem autorki <small>ciii_2.mp3</small></button></div>
+          ▶ posłuchaj głosem autorki</button>
+        <span class="pom-plik">nagranie: ciii_2.mp3</span></div>
     </div>
   </div>
   <div style="padding:0 12px 12px">
@@ -4056,7 +4093,7 @@ table.ktab td.lp{font-weight:800;color:var(--fiolet);text-align:center}
       <div><div class="kw">EduPlaner 2026</div>
         <div class="ks">Konspekt · komponent III · Zabawa „na niby” i udawanie · pozycja 3 · wersja
           A · 3–4 lata · wskaźnik III.3</div></div>
-      <span class="kpill">Konspekt SENS A-III.3</span></div>
+      <span class="kpill">Konspekt ToM A-III.3</span></div>
     <div class="kmeta" style="grid-template-columns:1.6fr 1fr 1fr">
       <div class="field"><b>Dotyczy dziecka</b><span class="dots"></span></div>
       <div class="field"><b>Grupa</b><span class="dots"></span></div>
@@ -4129,7 +4166,8 @@ table.ktab td.lp{font-weight:800;color:var(--fiolet);text-align:center}
       <div class="pom-dziecko"><span class="lab">Polecenie dla dziecka · 3–4 lata</span>
         „Popatrz, w co się bawią. Zrób tak samo.”
         <button type="button" class="pom-play" data-audio="../04_media/eduplaner_tom/assets/audio_tom/aiii_3.mp3">
-          ▶ posłuchaj głosem autorki <small>aiii_3.mp3</small></button></div>
+          ▶ posłuchaj głosem autorki</button>
+        <span class="pom-plik">nagranie: aiii_3.mp3</span></div>
     </div>
   </div>
   <div style="padding:0 12px 12px">
@@ -4156,7 +4194,7 @@ table.ktab td.lp{font-weight:800;color:var(--fiolet);text-align:center}
       <div><div class="kw">EduPlaner 2026</div>
         <div class="ks">Konspekt · komponent III · Zabawa „na niby” i udawanie · pozycja 3 · wersja
           B · 5 lat · wskaźnik III.3</div></div>
-      <span class="kpill">Konspekt SENS B-III.3</span></div>
+      <span class="kpill">Konspekt ToM B-III.3</span></div>
     <div class="kmeta" style="grid-template-columns:1.6fr 1fr 1fr">
       <div class="field"><b>Dotyczy dziecka</b><span class="dots"></span></div>
       <div class="field"><b>Grupa</b><span class="dots"></span></div>
@@ -4229,7 +4267,8 @@ table.ktab td.lp{font-weight:800;color:var(--fiolet);text-align:center}
       <div class="pom-dziecko"><span class="lab">Polecenie dla dziecka · 5 lat</span>
         „W co się bawią? Zapytaj, czy możesz się przyłączyć.”
         <button type="button" class="pom-play" data-audio="../04_media/eduplaner_tom/assets/audio_tom/biii_3.mp3">
-          ▶ posłuchaj głosem autorki <small>biii_3.mp3</small></button></div>
+          ▶ posłuchaj głosem autorki</button>
+        <span class="pom-plik">nagranie: biii_3.mp3</span></div>
     </div>
   </div>
   <div style="padding:0 12px 12px">
@@ -4256,7 +4295,7 @@ table.ktab td.lp{font-weight:800;color:var(--fiolet);text-align:center}
       <div><div class="kw">EduPlaner 2026</div>
         <div class="ks">Konspekt · komponent III · Zabawa „na niby” i udawanie · pozycja 3 · wersja
           C · 6 lat · wskaźnik III.3</div></div>
-      <span class="kpill">Konspekt SENS C-III.3</span></div>
+      <span class="kpill">Konspekt ToM C-III.3</span></div>
     <div class="kmeta" style="grid-template-columns:1.6fr 1fr 1fr">
       <div class="field"><b>Dotyczy dziecka</b><span class="dots"></span></div>
       <div class="field"><b>Grupa</b><span class="dots"></span></div>
@@ -4329,7 +4368,8 @@ table.ktab td.lp{font-weight:800;color:var(--fiolet);text-align:center}
       <div class="pom-dziecko"><span class="lab">Polecenie dla dziecka · 6 lat</span>
         „Dołącz i dołóż swój pomysł — taki, który pasuje do ich zabawy.”
         <button type="button" class="pom-play" data-audio="../04_media/eduplaner_tom/assets/audio_tom/ciii_3.mp3">
-          ▶ posłuchaj głosem autorki <small>ciii_3.mp3</small></button></div>
+          ▶ posłuchaj głosem autorki</button>
+        <span class="pom-plik">nagranie: ciii_3.mp3</span></div>
     </div>
   </div>
   <div style="padding:0 12px 12px">
@@ -4356,7 +4396,7 @@ table.ktab td.lp{font-weight:800;color:var(--fiolet);text-align:center}
       <div><div class="kw">EduPlaner 2026</div>
         <div class="ks">Konspekt · komponent III · Zabawa „na niby” i udawanie · pozycja 4 · wersja
           A · 3–4 lata · wskaźnik III.4</div></div>
-      <span class="kpill">Konspekt SENS A-III.4</span></div>
+      <span class="kpill">Konspekt ToM A-III.4</span></div>
     <div class="kmeta" style="grid-template-columns:1.6fr 1fr 1fr">
       <div class="field"><b>Dotyczy dziecka</b><span class="dots"></span></div>
       <div class="field"><b>Grupa</b><span class="dots"></span></div>
@@ -4429,7 +4469,8 @@ table.ktab td.lp{font-weight:800;color:var(--fiolet);text-align:center}
       <div class="pom-dziecko"><span class="lab">Polecenie dla dziecka · 3–4 lata</span>
         „Które jabłko można zjeść? A to jest na niby.”
         <button type="button" class="pom-play" data-audio="../04_media/eduplaner_tom/assets/audio_tom/aiii_4.mp3">
-          ▶ posłuchaj głosem autorki <small>aiii_4.mp3</small></button></div>
+          ▶ posłuchaj głosem autorki</button>
+        <span class="pom-plik">nagranie: aiii_4.mp3</span></div>
     </div>
   </div>
   <div style="padding:0 12px 12px">
@@ -4456,7 +4497,7 @@ table.ktab td.lp{font-weight:800;color:var(--fiolet);text-align:center}
       <div><div class="kw">EduPlaner 2026</div>
         <div class="ks">Konspekt · komponent III · Zabawa „na niby” i udawanie · pozycja 4 · wersja
           B · 5 lat · wskaźnik III.4</div></div>
-      <span class="kpill">Konspekt SENS B-III.4</span></div>
+      <span class="kpill">Konspekt ToM B-III.4</span></div>
     <div class="kmeta" style="grid-template-columns:1.6fr 1fr 1fr">
       <div class="field"><b>Dotyczy dziecka</b><span class="dots"></span></div>
       <div class="field"><b>Grupa</b><span class="dots"></span></div>
@@ -4529,7 +4570,8 @@ table.ktab td.lp{font-weight:800;color:var(--fiolet);text-align:center}
       <div class="pom-dziecko"><span class="lab">Polecenie dla dziecka · 5 lat</span>
         „Kolega udaje wilka. Powiedz mu, że to na niby.”
         <button type="button" class="pom-play" data-audio="../04_media/eduplaner_tom/assets/audio_tom/biii_4.mp3">
-          ▶ posłuchaj głosem autorki <small>biii_4.mp3</small></button></div>
+          ▶ posłuchaj głosem autorki</button>
+        <span class="pom-plik">nagranie: biii_4.mp3</span></div>
     </div>
   </div>
   <div style="padding:0 12px 12px">
@@ -4556,7 +4598,7 @@ table.ktab td.lp{font-weight:800;color:var(--fiolet);text-align:center}
       <div><div class="kw">EduPlaner 2026</div>
         <div class="ks">Konspekt · komponent III · Zabawa „na niby” i udawanie · pozycja 4 · wersja
           C · 6 lat · wskaźnik III.4</div></div>
-      <span class="kpill">Konspekt SENS C-III.4</span></div>
+      <span class="kpill">Konspekt ToM C-III.4</span></div>
     <div class="kmeta" style="grid-template-columns:1.6fr 1fr 1fr">
       <div class="field"><b>Dotyczy dziecka</b><span class="dots"></span></div>
       <div class="field"><b>Grupa</b><span class="dots"></span></div>
@@ -4629,7 +4671,8 @@ table.ktab td.lp{font-weight:800;color:var(--fiolet);text-align:center}
       <div class="pom-dziecko"><span class="lab">Polecenie dla dziecka · 6 lat</span>
         „To był żart czy naprawdę? Po czym to poznajesz?”
         <button type="button" class="pom-play" data-audio="../04_media/eduplaner_tom/assets/audio_tom/ciii_4.mp3">
-          ▶ posłuchaj głosem autorki <small>ciii_4.mp3</small></button></div>
+          ▶ posłuchaj głosem autorki</button>
+        <span class="pom-plik">nagranie: ciii_4.mp3</span></div>
     </div>
   </div>
   <div style="padding:0 12px 12px">
@@ -4656,7 +4699,7 @@ table.ktab td.lp{font-weight:800;color:var(--fiolet);text-align:center}
       <div><div class="kw">EduPlaner 2026</div>
         <div class="ks">Konspekt · komponent III · Zabawa „na niby” i udawanie · pozycja 5 · wersja
           A · 3–4 lata · wskaźnik III.5</div></div>
-      <span class="kpill">Konspekt SENS A-III.5</span></div>
+      <span class="kpill">Konspekt ToM A-III.5</span></div>
     <div class="kmeta" style="grid-template-columns:1.6fr 1fr 1fr">
       <div class="field"><b>Dotyczy dziecka</b><span class="dots"></span></div>
       <div class="field"><b>Grupa</b><span class="dots"></span></div>
@@ -4729,7 +4772,8 @@ table.ktab td.lp{font-weight:800;color:var(--fiolet);text-align:center}
       <div class="pom-dziecko"><span class="lab">Polecenie dla dziecka · 3–4 lata</span>
         „Co najpierw, a co potem? Ułóż obrazki.”
         <button type="button" class="pom-play" data-audio="../04_media/eduplaner_tom/assets/audio_tom/aiii_5.mp3">
-          ▶ posłuchaj głosem autorki <small>aiii_5.mp3</small></button></div>
+          ▶ posłuchaj głosem autorki</button>
+        <span class="pom-plik">nagranie: aiii_5.mp3</span></div>
     </div>
   </div>
   <div style="padding:0 12px 12px">
@@ -4756,7 +4800,7 @@ table.ktab td.lp{font-weight:800;color:var(--fiolet);text-align:center}
       <div><div class="kw">EduPlaner 2026</div>
         <div class="ks">Konspekt · komponent III · Zabawa „na niby” i udawanie · pozycja 5 · wersja
           B · 5 lat · wskaźnik III.5</div></div>
-      <span class="kpill">Konspekt SENS B-III.5</span></div>
+      <span class="kpill">Konspekt ToM B-III.5</span></div>
     <div class="kmeta" style="grid-template-columns:1.6fr 1fr 1fr">
       <div class="field"><b>Dotyczy dziecka</b><span class="dots"></span></div>
       <div class="field"><b>Grupa</b><span class="dots"></span></div>
@@ -4829,7 +4873,8 @@ table.ktab td.lp{font-weight:800;color:var(--fiolet);text-align:center}
       <div class="pom-dziecko"><span class="lab">Polecenie dla dziecka · 5 lat</span>
         „Opowiedz koledze, jak będziemy się bawić.”
         <button type="button" class="pom-play" data-audio="../04_media/eduplaner_tom/assets/audio_tom/biii_5.mp3">
-          ▶ posłuchaj głosem autorki <small>biii_5.mp3</small></button></div>
+          ▶ posłuchaj głosem autorki</button>
+        <span class="pom-plik">nagranie: biii_5.mp3</span></div>
     </div>
   </div>
   <div style="padding:0 12px 12px">
@@ -4856,7 +4901,7 @@ table.ktab td.lp{font-weight:800;color:var(--fiolet);text-align:center}
       <div><div class="kw">EduPlaner 2026</div>
         <div class="ks">Konspekt · komponent III · Zabawa „na niby” i udawanie · pozycja 5 · wersja
           C · 6 lat · wskaźnik III.5</div></div>
-      <span class="kpill">Konspekt SENS C-III.5</span></div>
+      <span class="kpill">Konspekt ToM C-III.5</span></div>
     <div class="kmeta" style="grid-template-columns:1.6fr 1fr 1fr">
       <div class="field"><b>Dotyczy dziecka</b><span class="dots"></span></div>
       <div class="field"><b>Grupa</b><span class="dots"></span></div>
@@ -4929,7 +4974,8 @@ table.ktab td.lp{font-weight:800;color:var(--fiolet);text-align:center}
       <div class="pom-dziecko"><span class="lab">Polecenie dla dziecka · 6 lat</span>
         „Twój pomysł i jego pomysł. Jak zrobić, żeby zmieściły się oba?”
         <button type="button" class="pom-play" data-audio="../04_media/eduplaner_tom/assets/audio_tom/ciii_5.mp3">
-          ▶ posłuchaj głosem autorki <small>ciii_5.mp3</small></button></div>
+          ▶ posłuchaj głosem autorki</button>
+        <span class="pom-plik">nagranie: ciii_5.mp3</span></div>
     </div>
   </div>
   <div style="padding:0 12px 12px">
@@ -4956,7 +5002,7 @@ table.ktab td.lp{font-weight:800;color:var(--fiolet);text-align:center}
       <div><div class="kw">EduPlaner 2026</div>
         <div class="ks">Konspekt · komponent IV · Różne przekonania i fałszywe przekonanie · pozycja 1 · wersja
           A · 3–4 lata · wskaźnik IV.1</div></div>
-      <span class="kpill">Konspekt SENS A-IV.1</span></div>
+      <span class="kpill">Konspekt ToM A-IV.1</span></div>
     <div class="kmeta" style="grid-template-columns:1.6fr 1fr 1fr">
       <div class="field"><b>Dotyczy dziecka</b><span class="dots"></span></div>
       <div class="field"><b>Grupa</b><span class="dots"></span></div>
@@ -5029,7 +5075,8 @@ table.ktab td.lp{font-weight:800;color:var(--fiolet);text-align:center}
       <div class="pom-dziecko"><span class="lab">Polecenie dla dziecka · 3–4 lata</span>
         „Ona myśli: pyszne. A ta myśli: niedobre. Co myśli ta pierwsza?”
         <button type="button" class="pom-play" data-audio="../04_media/eduplaner_tom/assets/audio_tom/aiv_1.mp3">
-          ▶ posłuchaj głosem autorki <small>aiv_1.mp3</small></button></div>
+          ▶ posłuchaj głosem autorki</button>
+        <span class="pom-plik">nagranie: aiv_1.mp3</span></div>
     </div>
   </div>
   <div style="padding:0 12px 12px">
@@ -5056,7 +5103,7 @@ table.ktab td.lp{font-weight:800;color:var(--fiolet);text-align:center}
       <div><div class="kw">EduPlaner 2026</div>
         <div class="ks">Konspekt · komponent IV · Różne przekonania i fałszywe przekonanie · pozycja 1 · wersja
           B · 5 lat · wskaźnik IV.1</div></div>
-      <span class="kpill">Konspekt SENS B-IV.1</span></div>
+      <span class="kpill">Konspekt ToM B-IV.1</span></div>
     <div class="kmeta" style="grid-template-columns:1.6fr 1fr 1fr">
       <div class="field"><b>Dotyczy dziecka</b><span class="dots"></span></div>
       <div class="field"><b>Grupa</b><span class="dots"></span></div>
@@ -5129,7 +5176,8 @@ table.ktab td.lp{font-weight:800;color:var(--fiolet);text-align:center}
       <div class="pom-dziecko"><span class="lab">Polecenie dla dziecka · 5 lat</span>
         „Co myśli kolega o tej zabawce? A co myślisz ty?”
         <button type="button" class="pom-play" data-audio="../04_media/eduplaner_tom/assets/audio_tom/biv_1.mp3">
-          ▶ posłuchaj głosem autorki <small>biv_1.mp3</small></button></div>
+          ▶ posłuchaj głosem autorki</button>
+        <span class="pom-plik">nagranie: biv_1.mp3</span></div>
     </div>
   </div>
   <div style="padding:0 12px 12px">
@@ -5156,7 +5204,7 @@ table.ktab td.lp{font-weight:800;color:var(--fiolet);text-align:center}
       <div><div class="kw">EduPlaner 2026</div>
         <div class="ks">Konspekt · komponent IV · Różne przekonania i fałszywe przekonanie · pozycja 1 · wersja
           C · 6 lat · wskaźnik IV.1</div></div>
-      <span class="kpill">Konspekt SENS C-IV.1</span></div>
+      <span class="kpill">Konspekt ToM C-IV.1</span></div>
     <div class="kmeta" style="grid-template-columns:1.6fr 1fr 1fr">
       <div class="field"><b>Dotyczy dziecka</b><span class="dots"></span></div>
       <div class="field"><b>Grupa</b><span class="dots"></span></div>
@@ -5229,7 +5277,8 @@ table.ktab td.lp{font-weight:800;color:var(--fiolet);text-align:center}
       <div class="pom-dziecko"><span class="lab">Polecenie dla dziecka · 6 lat</span>
         „Dlaczego wy dwoje myślicie inaczej o tym samym?”
         <button type="button" class="pom-play" data-audio="../04_media/eduplaner_tom/assets/audio_tom/civ_1.mp3">
-          ▶ posłuchaj głosem autorki <small>civ_1.mp3</small></button></div>
+          ▶ posłuchaj głosem autorki</button>
+        <span class="pom-plik">nagranie: civ_1.mp3</span></div>
     </div>
   </div>
   <div style="padding:0 12px 12px">
@@ -5256,7 +5305,7 @@ table.ktab td.lp{font-weight:800;color:var(--fiolet);text-align:center}
       <div><div class="kw">EduPlaner 2026</div>
         <div class="ks">Konspekt · komponent IV · Różne przekonania i fałszywe przekonanie · pozycja 2 · wersja
           A · 3–4 lata · wskaźnik IV.2</div></div>
-      <span class="kpill">Konspekt SENS A-IV.2</span></div>
+      <span class="kpill">Konspekt ToM A-IV.2</span></div>
     <div class="kmeta" style="grid-template-columns:1.6fr 1fr 1fr">
       <div class="field"><b>Dotyczy dziecka</b><span class="dots"></span></div>
       <div class="field"><b>Grupa</b><span class="dots"></span></div>
@@ -5329,7 +5378,8 @@ table.ktab td.lp{font-weight:800;color:var(--fiolet);text-align:center}
       <div class="pom-dziecko"><span class="lab">Polecenie dla dziecka · 3–4 lata</span>
         „Która pacynka widziała? Ta wie, gdzie jest miś.”
         <button type="button" class="pom-play" data-audio="../04_media/eduplaner_tom/assets/audio_tom/aiv_2.mp3">
-          ▶ posłuchaj głosem autorki <small>aiv_2.mp3</small></button></div>
+          ▶ posłuchaj głosem autorki</button>
+        <span class="pom-plik">nagranie: aiv_2.mp3</span></div>
     </div>
   </div>
   <div style="padding:0 12px 12px">
@@ -5356,7 +5406,7 @@ table.ktab td.lp{font-weight:800;color:var(--fiolet);text-align:center}
       <div><div class="kw">EduPlaner 2026</div>
         <div class="ks">Konspekt · komponent IV · Różne przekonania i fałszywe przekonanie · pozycja 2 · wersja
           B · 5 lat · wskaźnik IV.2</div></div>
-      <span class="kpill">Konspekt SENS B-IV.2</span></div>
+      <span class="kpill">Konspekt ToM B-IV.2</span></div>
     <div class="kmeta" style="grid-template-columns:1.6fr 1fr 1fr">
       <div class="field"><b>Dotyczy dziecka</b><span class="dots"></span></div>
       <div class="field"><b>Grupa</b><span class="dots"></span></div>
@@ -5429,7 +5479,8 @@ table.ktab td.lp{font-weight:800;color:var(--fiolet);text-align:center}
       <div class="pom-dziecko"><span class="lab">Polecenie dla dziecka · 5 lat</span>
         „Czy kolega wie, gdzie to schowaliśmy? Dlaczego nie wie?”
         <button type="button" class="pom-play" data-audio="../04_media/eduplaner_tom/assets/audio_tom/biv_2.mp3">
-          ▶ posłuchaj głosem autorki <small>biv_2.mp3</small></button></div>
+          ▶ posłuchaj głosem autorki</button>
+        <span class="pom-plik">nagranie: biv_2.mp3</span></div>
     </div>
   </div>
   <div style="padding:0 12px 12px">
@@ -5456,7 +5507,7 @@ table.ktab td.lp{font-weight:800;color:var(--fiolet);text-align:center}
       <div><div class="kw">EduPlaner 2026</div>
         <div class="ks">Konspekt · komponent IV · Różne przekonania i fałszywe przekonanie · pozycja 2 · wersja
           C · 6 lat · wskaźnik IV.2</div></div>
-      <span class="kpill">Konspekt SENS C-IV.2</span></div>
+      <span class="kpill">Konspekt ToM C-IV.2</span></div>
     <div class="kmeta" style="grid-template-columns:1.6fr 1fr 1fr">
       <div class="field"><b>Dotyczy dziecka</b><span class="dots"></span></div>
       <div class="field"><b>Grupa</b><span class="dots"></span></div>
@@ -5529,7 +5580,8 @@ table.ktab td.lp{font-weight:800;color:var(--fiolet);text-align:center}
       <div class="pom-dziecko"><span class="lab">Polecenie dla dziecka · 6 lat</span>
         „Kolegi tu nie było. Opowiedz mu, co się stało.”
         <button type="button" class="pom-play" data-audio="../04_media/eduplaner_tom/assets/audio_tom/civ_2.mp3">
-          ▶ posłuchaj głosem autorki <small>civ_2.mp3</small></button></div>
+          ▶ posłuchaj głosem autorki</button>
+        <span class="pom-plik">nagranie: civ_2.mp3</span></div>
     </div>
   </div>
   <div style="padding:0 12px 12px">
@@ -5556,7 +5608,7 @@ table.ktab td.lp{font-weight:800;color:var(--fiolet);text-align:center}
       <div><div class="kw">EduPlaner 2026</div>
         <div class="ks">Konspekt · komponent IV · Różne przekonania i fałszywe przekonanie · pozycja 3 · wersja
           A · 3–4 lata · wskaźnik IV.3</div></div>
-      <span class="kpill">Konspekt SENS A-IV.3</span></div>
+      <span class="kpill">Konspekt ToM A-IV.3</span></div>
     <div class="kmeta" style="grid-template-columns:1.6fr 1fr 1fr">
       <div class="field"><b>Dotyczy dziecka</b><span class="dots"></span></div>
       <div class="field"><b>Grupa</b><span class="dots"></span></div>
@@ -5629,7 +5681,8 @@ table.ktab td.lp{font-weight:800;color:var(--fiolet);text-align:center}
       <div class="pom-dziecko"><span class="lab">Polecenie dla dziecka · 3–4 lata</span>
         „Co jest w pudełku? Otwórzmy. A co miało być w środku?”
         <button type="button" class="pom-play" data-audio="../04_media/eduplaner_tom/assets/audio_tom/aiv_3.mp3">
-          ▶ posłuchaj głosem autorki <small>aiv_3.mp3</small></button></div>
+          ▶ posłuchaj głosem autorki</button>
+        <span class="pom-plik">nagranie: aiv_3.mp3</span></div>
     </div>
   </div>
   <div style="padding:0 12px 12px">
@@ -5656,7 +5709,7 @@ table.ktab td.lp{font-weight:800;color:var(--fiolet);text-align:center}
       <div><div class="kw">EduPlaner 2026</div>
         <div class="ks">Konspekt · komponent IV · Różne przekonania i fałszywe przekonanie · pozycja 3 · wersja
           B · 5 lat · wskaźnik IV.3</div></div>
-      <span class="kpill">Konspekt SENS B-IV.3</span></div>
+      <span class="kpill">Konspekt ToM B-IV.3</span></div>
     <div class="kmeta" style="grid-template-columns:1.6fr 1fr 1fr">
       <div class="field"><b>Dotyczy dziecka</b><span class="dots"></span></div>
       <div class="field"><b>Grupa</b><span class="dots"></span></div>
@@ -5729,7 +5782,8 @@ table.ktab td.lp{font-weight:800;color:var(--fiolet);text-align:center}
       <div class="pom-dziecko"><span class="lab">Polecenie dla dziecka · 5 lat</span>
         „Zaraz wejdzie kolega. Co on pomyśli, że jest w pudełku?”
         <button type="button" class="pom-play" data-audio="../04_media/eduplaner_tom/assets/audio_tom/biv_3.mp3">
-          ▶ posłuchaj głosem autorki <small>biv_3.mp3</small></button></div>
+          ▶ posłuchaj głosem autorki</button>
+        <span class="pom-plik">nagranie: biv_3.mp3</span></div>
     </div>
   </div>
   <div style="padding:0 12px 12px">
@@ -5756,7 +5810,7 @@ table.ktab td.lp{font-weight:800;color:var(--fiolet);text-align:center}
       <div><div class="kw">EduPlaner 2026</div>
         <div class="ks">Konspekt · komponent IV · Różne przekonania i fałszywe przekonanie · pozycja 3 · wersja
           C · 6 lat · wskaźnik IV.3</div></div>
-      <span class="kpill">Konspekt SENS C-IV.3</span></div>
+      <span class="kpill">Konspekt ToM C-IV.3</span></div>
     <div class="kmeta" style="grid-template-columns:1.6fr 1fr 1fr">
       <div class="field"><b>Dotyczy dziecka</b><span class="dots"></span></div>
       <div class="field"><b>Grupa</b><span class="dots"></span></div>
@@ -5829,7 +5883,8 @@ table.ktab td.lp{font-weight:800;color:var(--fiolet);text-align:center}
       <div class="pom-dziecko"><span class="lab">Polecenie dla dziecka · 6 lat</span>
         „Przygotuj swoje pudełko. Co pomyśli kolega i dlaczego?”
         <button type="button" class="pom-play" data-audio="../04_media/eduplaner_tom/assets/audio_tom/civ_3.mp3">
-          ▶ posłuchaj głosem autorki <small>civ_3.mp3</small></button></div>
+          ▶ posłuchaj głosem autorki</button>
+        <span class="pom-plik">nagranie: civ_3.mp3</span></div>
     </div>
   </div>
   <div style="padding:0 12px 12px">
@@ -5856,7 +5911,7 @@ table.ktab td.lp{font-weight:800;color:var(--fiolet);text-align:center}
       <div><div class="kw">EduPlaner 2026</div>
         <div class="ks">Konspekt · komponent IV · Różne przekonania i fałszywe przekonanie · pozycja 4 · wersja
           A · 3–4 lata · wskaźnik IV.4</div></div>
-      <span class="kpill">Konspekt SENS A-IV.4</span></div>
+      <span class="kpill">Konspekt ToM A-IV.4</span></div>
     <div class="kmeta" style="grid-template-columns:1.6fr 1fr 1fr">
       <div class="field"><b>Dotyczy dziecka</b><span class="dots"></span></div>
       <div class="field"><b>Grupa</b><span class="dots"></span></div>
@@ -5929,7 +5984,8 @@ table.ktab td.lp{font-weight:800;color:var(--fiolet);text-align:center}
       <div class="pom-dziecko"><span class="lab">Polecenie dla dziecka · 3–4 lata</span>
         „Popatrz. Ala chowa piłkę do koszyka. Gdzie ją schowała?”
         <button type="button" class="pom-play" data-audio="../04_media/eduplaner_tom/assets/audio_tom/aiv_4.mp3">
-          ▶ posłuchaj głosem autorki <small>aiv_4.mp3</small></button></div>
+          ▶ posłuchaj głosem autorki</button>
+        <span class="pom-plik">nagranie: aiv_4.mp3</span></div>
     </div>
   </div>
   <div style="padding:0 12px 12px">
@@ -5956,7 +6012,7 @@ table.ktab td.lp{font-weight:800;color:var(--fiolet);text-align:center}
       <div><div class="kw">EduPlaner 2026</div>
         <div class="ks">Konspekt · komponent IV · Różne przekonania i fałszywe przekonanie · pozycja 4 · wersja
           B · 5 lat · wskaźnik IV.4</div></div>
-      <span class="kpill">Konspekt SENS B-IV.4</span></div>
+      <span class="kpill">Konspekt ToM B-IV.4</span></div>
     <div class="kmeta" style="grid-template-columns:1.6fr 1fr 1fr">
       <div class="field"><b>Dotyczy dziecka</b><span class="dots"></span></div>
       <div class="field"><b>Grupa</b><span class="dots"></span></div>
@@ -6029,7 +6085,8 @@ table.ktab td.lp{font-weight:800;color:var(--fiolet);text-align:center}
       <div class="pom-dziecko"><span class="lab">Polecenie dla dziecka · 5 lat</span>
         „Gdzie piłka jest naprawdę? A gdzie Ala będzie jej szukać?”
         <button type="button" class="pom-play" data-audio="../04_media/eduplaner_tom/assets/audio_tom/biv_4.mp3">
-          ▶ posłuchaj głosem autorki <small>biv_4.mp3</small></button></div>
+          ▶ posłuchaj głosem autorki</button>
+        <span class="pom-plik">nagranie: biv_4.mp3</span></div>
     </div>
   </div>
   <div style="padding:0 12px 12px">
@@ -6056,7 +6113,7 @@ table.ktab td.lp{font-weight:800;color:var(--fiolet);text-align:center}
       <div><div class="kw">EduPlaner 2026</div>
         <div class="ks">Konspekt · komponent IV · Różne przekonania i fałszywe przekonanie · pozycja 4 · wersja
           C · 6 lat · wskaźnik IV.4</div></div>
-      <span class="kpill">Konspekt SENS C-IV.4</span></div>
+      <span class="kpill">Konspekt ToM C-IV.4</span></div>
     <div class="kmeta" style="grid-template-columns:1.6fr 1fr 1fr">
       <div class="field"><b>Dotyczy dziecka</b><span class="dots"></span></div>
       <div class="field"><b>Grupa</b><span class="dots"></span></div>
@@ -6129,7 +6186,8 @@ table.ktab td.lp{font-weight:800;color:var(--fiolet);text-align:center}
       <div class="pom-dziecko"><span class="lab">Polecenie dla dziecka · 6 lat</span>
         „Gdzie będzie szukać? Powiedz dlaczego.”
         <button type="button" class="pom-play" data-audio="../04_media/eduplaner_tom/assets/audio_tom/civ_4.mp3">
-          ▶ posłuchaj głosem autorki <small>civ_4.mp3</small></button></div>
+          ▶ posłuchaj głosem autorki</button>
+        <span class="pom-plik">nagranie: civ_4.mp3</span></div>
     </div>
   </div>
   <div style="padding:0 12px 12px">
@@ -6156,7 +6214,7 @@ table.ktab td.lp{font-weight:800;color:var(--fiolet);text-align:center}
       <div><div class="kw">EduPlaner 2026</div>
         <div class="ks">Konspekt · komponent IV · Różne przekonania i fałszywe przekonanie · pozycja 5 · wersja
           A · 3–4 lata · wskaźnik IV.5</div></div>
-      <span class="kpill">Konspekt SENS A-IV.5</span></div>
+      <span class="kpill">Konspekt ToM A-IV.5</span></div>
     <div class="kmeta" style="grid-template-columns:1.6fr 1fr 1fr">
       <div class="field"><b>Dotyczy dziecka</b><span class="dots"></span></div>
       <div class="field"><b>Grupa</b><span class="dots"></span></div>
@@ -6229,7 +6287,8 @@ table.ktab td.lp{font-weight:800;color:var(--fiolet);text-align:center}
       <div class="pom-dziecko"><span class="lab">Polecenie dla dziecka · 3–4 lata</span>
         „Dokąd pójdzie pacynka? Pokaż.”
         <button type="button" class="pom-play" data-audio="../04_media/eduplaner_tom/assets/audio_tom/aiv_5.mp3">
-          ▶ posłuchaj głosem autorki <small>aiv_5.mp3</small></button></div>
+          ▶ posłuchaj głosem autorki</button>
+        <span class="pom-plik">nagranie: aiv_5.mp3</span></div>
     </div>
   </div>
   <div style="padding:0 12px 12px">
@@ -6256,7 +6315,7 @@ table.ktab td.lp{font-weight:800;color:var(--fiolet);text-align:center}
       <div><div class="kw">EduPlaner 2026</div>
         <div class="ks">Konspekt · komponent IV · Różne przekonania i fałszywe przekonanie · pozycja 5 · wersja
           B · 5 lat · wskaźnik IV.5</div></div>
-      <span class="kpill">Konspekt SENS B-IV.5</span></div>
+      <span class="kpill">Konspekt ToM B-IV.5</span></div>
     <div class="kmeta" style="grid-template-columns:1.6fr 1fr 1fr">
       <div class="field"><b>Dotyczy dziecka</b><span class="dots"></span></div>
       <div class="field"><b>Grupa</b><span class="dots"></span></div>
@@ -6329,7 +6388,8 @@ table.ktab td.lp{font-weight:800;color:var(--fiolet);text-align:center}
       <div class="pom-dziecko"><span class="lab">Polecenie dla dziecka · 5 lat</span>
         „Kolega nie wie, że przestawiliśmy kredki. Co zrobi?”
         <button type="button" class="pom-play" data-audio="../04_media/eduplaner_tom/assets/audio_tom/biv_5.mp3">
-          ▶ posłuchaj głosem autorki <small>biv_5.mp3</small></button></div>
+          ▶ posłuchaj głosem autorki</button>
+        <span class="pom-plik">nagranie: biv_5.mp3</span></div>
     </div>
   </div>
   <div style="padding:0 12px 12px">
@@ -6356,7 +6416,7 @@ table.ktab td.lp{font-weight:800;color:var(--fiolet);text-align:center}
       <div><div class="kw">EduPlaner 2026</div>
         <div class="ks">Konspekt · komponent IV · Różne przekonania i fałszywe przekonanie · pozycja 5 · wersja
           C · 6 lat · wskaźnik IV.5</div></div>
-      <span class="kpill">Konspekt SENS C-IV.5</span></div>
+      <span class="kpill">Konspekt ToM C-IV.5</span></div>
     <div class="kmeta" style="grid-template-columns:1.6fr 1fr 1fr">
       <div class="field"><b>Dotyczy dziecka</b><span class="dots"></span></div>
       <div class="field"><b>Grupa</b><span class="dots"></span></div>
@@ -6429,7 +6489,8 @@ table.ktab td.lp{font-weight:800;color:var(--fiolet);text-align:center}
       <div class="pom-dziecko"><span class="lab">Polecenie dla dziecka · 6 lat</span>
         „Uprzedź kolegę, zanim zacznie szukać w starym miejscu.”
         <button type="button" class="pom-play" data-audio="../04_media/eduplaner_tom/assets/audio_tom/civ_5.mp3">
-          ▶ posłuchaj głosem autorki <small>civ_5.mp3</small></button></div>
+          ▶ posłuchaj głosem autorki</button>
+        <span class="pom-plik">nagranie: civ_5.mp3</span></div>
     </div>
   </div>
   <div style="padding:0 12px 12px">
@@ -6456,7 +6517,7 @@ table.ktab td.lp{font-weight:800;color:var(--fiolet);text-align:center}
       <div><div class="kw">EduPlaner 2026</div>
         <div class="ks">Konspekt · komponent V · Ukryte emocje i intencje w kontaktach · pozycja 1 · wersja
           A · 3–4 lata · wskaźnik V.1</div></div>
-      <span class="kpill">Konspekt SENS A-V.1</span></div>
+      <span class="kpill">Konspekt ToM A-V.1</span></div>
     <div class="kmeta" style="grid-template-columns:1.6fr 1fr 1fr">
       <div class="field"><b>Dotyczy dziecka</b><span class="dots"></span></div>
       <div class="field"><b>Grupa</b><span class="dots"></span></div>
@@ -6529,7 +6590,8 @@ table.ktab td.lp{font-weight:800;color:var(--fiolet);text-align:center}
       <div class="pom-dziecko"><span class="lab">Polecenie dla dziecka · 3–4 lata</span>
         „Jaką ma minę? A co czuje w środku? Połóż karty.”
         <button type="button" class="pom-play" data-audio="../04_media/eduplaner_tom/assets/audio_tom/av_1.mp3">
-          ▶ posłuchaj głosem autorki <small>av_1.mp3</small></button></div>
+          ▶ posłuchaj głosem autorki</button>
+        <span class="pom-plik">nagranie: av_1.mp3</span></div>
     </div>
   </div>
   <div style="padding:0 12px 12px">
@@ -6556,7 +6618,7 @@ table.ktab td.lp{font-weight:800;color:var(--fiolet);text-align:center}
       <div><div class="kw">EduPlaner 2026</div>
         <div class="ks">Konspekt · komponent V · Ukryte emocje i intencje w kontaktach · pozycja 1 · wersja
           B · 5 lat · wskaźnik V.1</div></div>
-      <span class="kpill">Konspekt SENS B-V.1</span></div>
+      <span class="kpill">Konspekt ToM B-V.1</span></div>
     <div class="kmeta" style="grid-template-columns:1.6fr 1fr 1fr">
       <div class="field"><b>Dotyczy dziecka</b><span class="dots"></span></div>
       <div class="field"><b>Grupa</b><span class="dots"></span></div>
@@ -6629,7 +6691,8 @@ table.ktab td.lp{font-weight:800;color:var(--fiolet);text-align:center}
       <div class="pom-dziecko"><span class="lab">Polecenie dla dziecka · 5 lat</span>
         „Kolega mówi, że nic mu nie jest. Jak myślisz, co czuje?”
         <button type="button" class="pom-play" data-audio="../04_media/eduplaner_tom/assets/audio_tom/bv_1.mp3">
-          ▶ posłuchaj głosem autorki <small>bv_1.mp3</small></button></div>
+          ▶ posłuchaj głosem autorki</button>
+        <span class="pom-plik">nagranie: bv_1.mp3</span></div>
     </div>
   </div>
   <div style="padding:0 12px 12px">
@@ -6656,7 +6719,7 @@ table.ktab td.lp{font-weight:800;color:var(--fiolet);text-align:center}
       <div><div class="kw">EduPlaner 2026</div>
         <div class="ks">Konspekt · komponent V · Ukryte emocje i intencje w kontaktach · pozycja 1 · wersja
           C · 6 lat · wskaźnik V.1</div></div>
-      <span class="kpill">Konspekt SENS C-V.1</span></div>
+      <span class="kpill">Konspekt ToM C-V.1</span></div>
     <div class="kmeta" style="grid-template-columns:1.6fr 1fr 1fr">
       <div class="field"><b>Dotyczy dziecka</b><span class="dots"></span></div>
       <div class="field"><b>Grupa</b><span class="dots"></span></div>
@@ -6729,7 +6792,8 @@ table.ktab td.lp{font-weight:800;color:var(--fiolet);text-align:center}
       <div class="pom-dziecko"><span class="lab">Polecenie dla dziecka · 6 lat</span>
         „Dlaczego ktoś ukrywa smutek? Powiedz mu o tym cicho, na osobności.”
         <button type="button" class="pom-play" data-audio="../04_media/eduplaner_tom/assets/audio_tom/cv_1.mp3">
-          ▶ posłuchaj głosem autorki <small>cv_1.mp3</small></button></div>
+          ▶ posłuchaj głosem autorki</button>
+        <span class="pom-plik">nagranie: cv_1.mp3</span></div>
     </div>
   </div>
   <div style="padding:0 12px 12px">
@@ -6756,7 +6820,7 @@ table.ktab td.lp{font-weight:800;color:var(--fiolet);text-align:center}
       <div><div class="kw">EduPlaner 2026</div>
         <div class="ks">Konspekt · komponent V · Ukryte emocje i intencje w kontaktach · pozycja 2 · wersja
           A · 3–4 lata · wskaźnik V.2</div></div>
-      <span class="kpill">Konspekt SENS A-V.2</span></div>
+      <span class="kpill">Konspekt ToM A-V.2</span></div>
     <div class="kmeta" style="grid-template-columns:1.6fr 1fr 1fr">
       <div class="field"><b>Dotyczy dziecka</b><span class="dots"></span></div>
       <div class="field"><b>Grupa</b><span class="dots"></span></div>
@@ -6829,7 +6893,8 @@ table.ktab td.lp{font-weight:800;color:var(--fiolet);text-align:center}
       <div class="pom-dziecko"><span class="lab">Polecenie dla dziecka · 3–4 lata</span>
         „Chciał czy niechcący? Pokaż kartę.”
         <button type="button" class="pom-play" data-audio="../04_media/eduplaner_tom/assets/audio_tom/av_2.mp3">
-          ▶ posłuchaj głosem autorki <small>av_2.mp3</small></button></div>
+          ▶ posłuchaj głosem autorki</button>
+        <span class="pom-plik">nagranie: av_2.mp3</span></div>
     </div>
   </div>
   <div style="padding:0 12px 12px">
@@ -6856,7 +6921,7 @@ table.ktab td.lp{font-weight:800;color:var(--fiolet);text-align:center}
       <div><div class="kw">EduPlaner 2026</div>
         <div class="ks">Konspekt · komponent V · Ukryte emocje i intencje w kontaktach · pozycja 2 · wersja
           B · 5 lat · wskaźnik V.2</div></div>
-      <span class="kpill">Konspekt SENS B-V.2</span></div>
+      <span class="kpill">Konspekt ToM B-V.2</span></div>
     <div class="kmeta" style="grid-template-columns:1.6fr 1fr 1fr">
       <div class="field"><b>Dotyczy dziecka</b><span class="dots"></span></div>
       <div class="field"><b>Grupa</b><span class="dots"></span></div>
@@ -6929,7 +6994,8 @@ table.ktab td.lp{font-weight:800;color:var(--fiolet);text-align:center}
       <div class="pom-dziecko"><span class="lab">Polecenie dla dziecka · 5 lat</span>
         „Jak myślisz, kolega zrobił to specjalnie? Co teraz zrobisz?”
         <button type="button" class="pom-play" data-audio="../04_media/eduplaner_tom/assets/audio_tom/bv_2.mp3">
-          ▶ posłuchaj głosem autorki <small>bv_2.mp3</small></button></div>
+          ▶ posłuchaj głosem autorki</button>
+        <span class="pom-plik">nagranie: bv_2.mp3</span></div>
     </div>
   </div>
   <div style="padding:0 12px 12px">
@@ -6956,7 +7022,7 @@ table.ktab td.lp{font-weight:800;color:var(--fiolet);text-align:center}
       <div><div class="kw">EduPlaner 2026</div>
         <div class="ks">Konspekt · komponent V · Ukryte emocje i intencje w kontaktach · pozycja 2 · wersja
           C · 6 lat · wskaźnik V.2</div></div>
-      <span class="kpill">Konspekt SENS C-V.2</span></div>
+      <span class="kpill">Konspekt ToM C-V.2</span></div>
     <div class="kmeta" style="grid-template-columns:1.6fr 1fr 1fr">
       <div class="field"><b>Dotyczy dziecka</b><span class="dots"></span></div>
       <div class="field"><b>Grupa</b><span class="dots"></span></div>
@@ -7029,7 +7095,8 @@ table.ktab td.lp{font-weight:800;color:var(--fiolet);text-align:center}
       <div class="pom-dziecko"><span class="lab">Polecenie dla dziecka · 6 lat</span>
         „Po czym poznajesz, że niechcący? Przyjmiesz przeprosiny?”
         <button type="button" class="pom-play" data-audio="../04_media/eduplaner_tom/assets/audio_tom/cv_2.mp3">
-          ▶ posłuchaj głosem autorki <small>cv_2.mp3</small></button></div>
+          ▶ posłuchaj głosem autorki</button>
+        <span class="pom-plik">nagranie: cv_2.mp3</span></div>
     </div>
   </div>
   <div style="padding:0 12px 12px">
@@ -7056,7 +7123,7 @@ table.ktab td.lp{font-weight:800;color:var(--fiolet);text-align:center}
       <div><div class="kw">EduPlaner 2026</div>
         <div class="ks">Konspekt · komponent V · Ukryte emocje i intencje w kontaktach · pozycja 3 · wersja
           A · 3–4 lata · wskaźnik V.3</div></div>
-      <span class="kpill">Konspekt SENS A-V.3</span></div>
+      <span class="kpill">Konspekt ToM A-V.3</span></div>
     <div class="kmeta" style="grid-template-columns:1.6fr 1fr 1fr">
       <div class="field"><b>Dotyczy dziecka</b><span class="dots"></span></div>
       <div class="field"><b>Grupa</b><span class="dots"></span></div>
@@ -7129,7 +7196,8 @@ table.ktab td.lp{font-weight:800;color:var(--fiolet);text-align:center}
       <div class="pom-dziecko"><span class="lab">Polecenie dla dziecka · 3–4 lata</span>
         „Która pacynka pomaga? Pokaż.”
         <button type="button" class="pom-play" data-audio="../04_media/eduplaner_tom/assets/audio_tom/av_3.mp3">
-          ▶ posłuchaj głosem autorki <small>av_3.mp3</small></button></div>
+          ▶ posłuchaj głosem autorki</button>
+        <span class="pom-plik">nagranie: av_3.mp3</span></div>
     </div>
   </div>
   <div style="padding:0 12px 12px">
@@ -7156,7 +7224,7 @@ table.ktab td.lp{font-weight:800;color:var(--fiolet);text-align:center}
       <div><div class="kw">EduPlaner 2026</div>
         <div class="ks">Konspekt · komponent V · Ukryte emocje i intencje w kontaktach · pozycja 3 · wersja
           B · 5 lat · wskaźnik V.3</div></div>
-      <span class="kpill">Konspekt SENS B-V.3</span></div>
+      <span class="kpill">Konspekt ToM B-V.3</span></div>
     <div class="kmeta" style="grid-template-columns:1.6fr 1fr 1fr">
       <div class="field"><b>Dotyczy dziecka</b><span class="dots"></span></div>
       <div class="field"><b>Grupa</b><span class="dots"></span></div>
@@ -7229,7 +7297,8 @@ table.ktab td.lp{font-weight:800;color:var(--fiolet);text-align:center}
       <div class="pom-dziecko"><span class="lab">Polecenie dla dziecka · 5 lat</span>
         „Kolega chce pomóc. Powiesz „dziękuję” czy „poradzę sobie”?”
         <button type="button" class="pom-play" data-audio="../04_media/eduplaner_tom/assets/audio_tom/bv_3.mp3">
-          ▶ posłuchaj głosem autorki <small>bv_3.mp3</small></button></div>
+          ▶ posłuchaj głosem autorki</button>
+        <span class="pom-plik">nagranie: bv_3.mp3</span></div>
     </div>
   </div>
   <div style="padding:0 12px 12px">
@@ -7256,7 +7325,7 @@ table.ktab td.lp{font-weight:800;color:var(--fiolet);text-align:center}
       <div><div class="kw">EduPlaner 2026</div>
         <div class="ks">Konspekt · komponent V · Ukryte emocje i intencje w kontaktach · pozycja 3 · wersja
           C · 6 lat · wskaźnik V.3</div></div>
-      <span class="kpill">Konspekt SENS C-V.3</span></div>
+      <span class="kpill">Konspekt ToM C-V.3</span></div>
     <div class="kmeta" style="grid-template-columns:1.6fr 1fr 1fr">
       <div class="field"><b>Dotyczy dziecka</b><span class="dots"></span></div>
       <div class="field"><b>Grupa</b><span class="dots"></span></div>
@@ -7329,7 +7398,8 @@ table.ktab td.lp{font-weight:800;color:var(--fiolet);text-align:center}
       <div class="pom-dziecko"><span class="lab">Polecenie dla dziecka · 6 lat</span>
         „Zapytaj kolegę, czy chce pomocy, zanim mu pomożesz.”
         <button type="button" class="pom-play" data-audio="../04_media/eduplaner_tom/assets/audio_tom/cv_3.mp3">
-          ▶ posłuchaj głosem autorki <small>cv_3.mp3</small></button></div>
+          ▶ posłuchaj głosem autorki</button>
+        <span class="pom-plik">nagranie: cv_3.mp3</span></div>
     </div>
   </div>
   <div style="padding:0 12px 12px">
@@ -7356,7 +7426,7 @@ table.ktab td.lp{font-weight:800;color:var(--fiolet);text-align:center}
       <div><div class="kw">EduPlaner 2026</div>
         <div class="ks">Konspekt · komponent V · Ukryte emocje i intencje w kontaktach · pozycja 4 · wersja
           A · 3–4 lata · wskaźnik V.4</div></div>
-      <span class="kpill">Konspekt SENS A-V.4</span></div>
+      <span class="kpill">Konspekt ToM A-V.4</span></div>
     <div class="kmeta" style="grid-template-columns:1.6fr 1fr 1fr">
       <div class="field"><b>Dotyczy dziecka</b><span class="dots"></span></div>
       <div class="field"><b>Grupa</b><span class="dots"></span></div>
@@ -7429,7 +7499,8 @@ table.ktab td.lp{font-weight:800;color:var(--fiolet);text-align:center}
       <div class="pom-dziecko"><span class="lab">Polecenie dla dziecka · 3–4 lata</span>
         „Koledze brakuje kredki. Podaj mu ją.”
         <button type="button" class="pom-play" data-audio="../04_media/eduplaner_tom/assets/audio_tom/av_4.mp3">
-          ▶ posłuchaj głosem autorki <small>av_4.mp3</small></button></div>
+          ▶ posłuchaj głosem autorki</button>
+        <span class="pom-plik">nagranie: av_4.mp3</span></div>
     </div>
   </div>
   <div style="padding:0 12px 12px">
@@ -7456,7 +7527,7 @@ table.ktab td.lp{font-weight:800;color:var(--fiolet);text-align:center}
       <div><div class="kw">EduPlaner 2026</div>
         <div class="ks">Konspekt · komponent V · Ukryte emocje i intencje w kontaktach · pozycja 4 · wersja
           B · 5 lat · wskaźnik V.4</div></div>
-      <span class="kpill">Konspekt SENS B-V.4</span></div>
+      <span class="kpill">Konspekt ToM B-V.4</span></div>
     <div class="kmeta" style="grid-template-columns:1.6fr 1fr 1fr">
       <div class="field"><b>Dotyczy dziecka</b><span class="dots"></span></div>
       <div class="field"><b>Grupa</b><span class="dots"></span></div>
@@ -7529,7 +7600,8 @@ table.ktab td.lp{font-weight:800;color:var(--fiolet);text-align:center}
       <div class="pom-dziecko"><span class="lab">Polecenie dla dziecka · 5 lat</span>
         „Czego kolega teraz potrzebuje? Wybierz z karty.”
         <button type="button" class="pom-play" data-audio="../04_media/eduplaner_tom/assets/audio_tom/bv_4.mp3">
-          ▶ posłuchaj głosem autorki <small>bv_4.mp3</small></button></div>
+          ▶ posłuchaj głosem autorki</button>
+        <span class="pom-plik">nagranie: bv_4.mp3</span></div>
     </div>
   </div>
   <div style="padding:0 12px 12px">
@@ -7556,7 +7628,7 @@ table.ktab td.lp{font-weight:800;color:var(--fiolet);text-align:center}
       <div><div class="kw">EduPlaner 2026</div>
         <div class="ks">Konspekt · komponent V · Ukryte emocje i intencje w kontaktach · pozycja 4 · wersja
           C · 6 lat · wskaźnik V.4</div></div>
-      <span class="kpill">Konspekt SENS C-V.4</span></div>
+      <span class="kpill">Konspekt ToM C-V.4</span></div>
     <div class="kmeta" style="grid-template-columns:1.6fr 1fr 1fr">
       <div class="field"><b>Dotyczy dziecka</b><span class="dots"></span></div>
       <div class="field"><b>Grupa</b><span class="dots"></span></div>
@@ -7629,7 +7701,8 @@ table.ktab td.lp{font-weight:800;color:var(--fiolet);text-align:center}
       <div class="pom-dziecko"><span class="lab">Polecenie dla dziecka · 6 lat</span>
         „To za ciężkie dla jednej osoby. Kogo poprosisz o pomoc?”
         <button type="button" class="pom-play" data-audio="../04_media/eduplaner_tom/assets/audio_tom/cv_4.mp3">
-          ▶ posłuchaj głosem autorki <small>cv_4.mp3</small></button></div>
+          ▶ posłuchaj głosem autorki</button>
+        <span class="pom-plik">nagranie: cv_4.mp3</span></div>
     </div>
   </div>
   <div style="padding:0 12px 12px">
@@ -7656,7 +7729,7 @@ table.ktab td.lp{font-weight:800;color:var(--fiolet);text-align:center}
       <div><div class="kw">EduPlaner 2026</div>
         <div class="ks">Konspekt · komponent V · Ukryte emocje i intencje w kontaktach · pozycja 5 · wersja
           A · 3–4 lata · wskaźnik V.5</div></div>
-      <span class="kpill">Konspekt SENS A-V.5</span></div>
+      <span class="kpill">Konspekt ToM A-V.5</span></div>
     <div class="kmeta" style="grid-template-columns:1.6fr 1fr 1fr">
       <div class="field"><b>Dotyczy dziecka</b><span class="dots"></span></div>
       <div class="field"><b>Grupa</b><span class="dots"></span></div>
@@ -7729,7 +7802,8 @@ table.ktab td.lp{font-weight:800;color:var(--fiolet);text-align:center}
       <div class="pom-dziecko"><span class="lab">Polecenie dla dziecka · 3–4 lata</span>
         „Teraz ty, potem kolega. Popatrz na klepsydrę.”
         <button type="button" class="pom-play" data-audio="../04_media/eduplaner_tom/assets/audio_tom/av_5.mp3">
-          ▶ posłuchaj głosem autorki <small>av_5.mp3</small></button></div>
+          ▶ posłuchaj głosem autorki</button>
+        <span class="pom-plik">nagranie: av_5.mp3</span></div>
     </div>
   </div>
   <div style="padding:0 12px 12px">
@@ -7756,7 +7830,7 @@ table.ktab td.lp{font-weight:800;color:var(--fiolet);text-align:center}
       <div><div class="kw">EduPlaner 2026</div>
         <div class="ks">Konspekt · komponent V · Ukryte emocje i intencje w kontaktach · pozycja 5 · wersja
           B · 5 lat · wskaźnik V.5</div></div>
-      <span class="kpill">Konspekt SENS B-V.5</span></div>
+      <span class="kpill">Konspekt ToM B-V.5</span></div>
     <div class="kmeta" style="grid-template-columns:1.6fr 1fr 1fr">
       <div class="field"><b>Dotyczy dziecka</b><span class="dots"></span></div>
       <div class="field"><b>Grupa</b><span class="dots"></span></div>
@@ -7829,7 +7903,8 @@ table.ktab td.lp{font-weight:800;color:var(--fiolet);text-align:center}
       <div class="pom-dziecko"><span class="lab">Polecenie dla dziecka · 5 lat</span>
         „Co ty czujesz? Czego chce kolega? Co zrobimy?”
         <button type="button" class="pom-play" data-audio="../04_media/eduplaner_tom/assets/audio_tom/bv_5.mp3">
-          ▶ posłuchaj głosem autorki <small>bv_5.mp3</small></button></div>
+          ▶ posłuchaj głosem autorki</button>
+        <span class="pom-plik">nagranie: bv_5.mp3</span></div>
     </div>
   </div>
   <div style="padding:0 12px 12px">
@@ -7856,7 +7931,7 @@ table.ktab td.lp{font-weight:800;color:var(--fiolet);text-align:center}
       <div><div class="kw">EduPlaner 2026</div>
         <div class="ks">Konspekt · komponent V · Ukryte emocje i intencje w kontaktach · pozycja 5 · wersja
           C · 6 lat · wskaźnik V.5</div></div>
-      <span class="kpill">Konspekt SENS C-V.5</span></div>
+      <span class="kpill">Konspekt ToM C-V.5</span></div>
     <div class="kmeta" style="grid-template-columns:1.6fr 1fr 1fr">
       <div class="field"><b>Dotyczy dziecka</b><span class="dots"></span></div>
       <div class="field"><b>Grupa</b><span class="dots"></span></div>
@@ -7929,7 +8004,8 @@ table.ktab td.lp{font-weight:800;color:var(--fiolet);text-align:center}
       <div class="pom-dziecko"><span class="lab">Polecenie dla dziecka · 6 lat</span>
         „Pomóż im się dogadać. Zapytaj każdego, czego chce.”
         <button type="button" class="pom-play" data-audio="../04_media/eduplaner_tom/assets/audio_tom/cv_5.mp3">
-          ▶ posłuchaj głosem autorki <small>cv_5.mp3</small></button></div>
+          ▶ posłuchaj głosem autorki</button>
+        <span class="pom-plik">nagranie: cv_5.mp3</span></div>
     </div>
   </div>
   <div style="padding:0 12px 12px">
@@ -8039,9 +8115,14 @@ function drukujZeszyt(wersja){
    Pliki audio to sklonowany głos autorki — dana biometryczna. Nie ma ich
    w repozytorium; odtwarza je `nagrania_glos.py --generuj` do 04_media/. */
 function odtworz(btn){
+  /* Ten plik może linkować nagranie z 04_media albo mieć je w sobie (build --z-glosem).
+     Gdy dokument wyjechał bez katalogu mediów, nagranie się nie wczyta — komunikat ma
+     mówić nauczycielce, co z tym zrobić, a nie którą komendę uruchomić. */
   const a = new Audio(btn.dataset.audio);
   a.play().catch(() => {
-    btn.innerHTML = 'brak pliku nagrania — uruchom <code>nagrania_glos.py --generuj</code>';
+    btn.innerHTML = btn.dataset.audio.startsWith('data:')
+      ? 'nagranie jest w pliku, ale przeglądarka go nie odtworzyła — kliknij jeszcze raz'
+      : 'ten plik tylko linkuje nagrania — otwórz wersję <b>…_Z_GLOSEM.html</b>, która gra sama';
     btn.disabled = true;
   });
 }

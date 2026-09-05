@@ -259,12 +259,16 @@ def strona_instrukcji(arkusz: dict, pomoc: dict, konspekt_tytul: str,
                     for k in arkusz["karty"])
 
     def polecenie(w, p) -> str:
+        # Przycisk służy do klikania na tablicy w sali; na papierze nie ma czego kliknąć,
+        # więc znika w druku, a nazwa nagrania zostaje — i mówi, którego pliku szukać.
+        # Wcześniej stało tu „brak nagrania”, co na wydruku było po prostu nieprawdą:
+        # nagranie istnieje, tylko nie jest wklejone w tę wersję dokumentu.
         dane = zrodlo_audio(p["nagranie"])
-        stopka_pol = (f'<button type="button" class="graj" data-audio="{dane}">▶ głos autorki</button>'
-                      if dane else
-                      f'<span class="audio">{e(p["nagranie"].rsplit("/", 1)[-1])} — brak nagrania</span>')
+        przycisk = (f'<button type="button" class="graj" data-audio="{dane}">▶ głos autorki</button>'
+                    if dane else "")
         return (f'<div class="pol"><span class="wiek">Wersja {w} · {e(p["wiek"])}</span>'
-                f'„{e(p["polecenie_dla_dziecka"])}”{stopka_pol}</div>')
+                f'„{e(p["polecenie_dla_dziecka"])}”{przycisk}'
+                f'<span class="audio">nagranie: {e(p["nagranie"].rsplit("/", 1)[-1])}</span></div>')
 
     polecenia = "".join(polecenie(w, p) for w, p in pomoc["polecenia"].items())
     return f"""<section class="strona instrukcja">

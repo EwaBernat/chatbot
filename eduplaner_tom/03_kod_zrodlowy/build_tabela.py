@@ -249,6 +249,7 @@ table.ktab td.lp{font-weight:800;color:var(--fiolet);text-align:center}
 .pom-play{border:1px solid var(--pomarancz-linia);background:#fff;color:var(--pomarancz);border-radius:999px;
           padding:3px 10px;font:700 9px/1 inherit;cursor:pointer;margin-top:5px}
 .pom-play small{font-weight:400;color:var(--szary)}
+.pom-plik{display:block;font-family:ui-monospace,Consolas,monospace;font-size:7.5px;color:var(--szary);margin-top:3px}
 .karty{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-top:6px}
 .karta{border:1px dashed var(--fiolet-linia);border-radius:9px;padding:8px;text-align:center;font-size:9px}
 .karta .pole{height:52px;border-radius:7px;background:#fbfaff;border:1px solid var(--linia);margin-bottom:5px;
@@ -313,7 +314,7 @@ table.ktab td.lp{font-weight:800;color:var(--fiolet);text-align:center}
   @page kon{size:A4 portrait;margin:10mm}
   body{background:#fff;padding:0}
   .ark{max-width:none;box-shadow:none;border-radius:0;padding:0}
-  .zakladki,.kspis,.mkt-add,.pom-play,.chipbtn{display:none !important}
+  .zakladki,.kspis,.mkt-add,.pom-play,.chipbtn,.fprzyciski{display:none !important}
   thead{display:table-header-group}
   tr,.uwaga,.leg{break-inside:avoid}
   .kmodal{display:none !important}
@@ -580,7 +581,8 @@ def karta_pomocy(kon: dict, pomoc: dict, arkusz: dict) -> str:
       <div class="pom-dziecko"><span class="lab">Polecenie dla dziecka · {e(pol['wiek'])}</span>
         „{e(pol['polecenie_dla_dziecka'])}”
         <button type="button" class="pom-play" data-audio="{e(zrodlo_audio(pol['nagranie']))}">
-          ▶ posłuchaj głosem autorki <small>{e(pol['nagranie'].rsplit('/', 1)[-1])}</small></button></div>
+          ▶ posłuchaj głosem autorki</button>
+        <span class="pom-plik">nagranie: {e(pol['nagranie'].rsplit('/', 1)[-1])}</span></div>
     </div>
   </div>
   <div style="padding:0 12px 12px">
@@ -618,7 +620,7 @@ def modal_konspektu(kon: dict, pomoc: dict, arkusz: dict, wskaznik: dict, poziom
       <div><div class="kw">EduPlaner 2026</div>
         <div class="ks">Konspekt · komponent {e(kon['komponent'])} · pozycja {e(kon['pozycja'])} · wersja
           {e(kon['wersja_wiekowa'])} · {e(kon['wiek'])} · wskaźnik {e(kon['wskaznik'])}</div></div>
-      <span class="kpill">Konspekt SENS {e(kon['wersja_wiekowa'])}-{e(kon['wskaznik'])}</span></div>
+      <span class="kpill">Konspekt ToM {e(kon['wersja_wiekowa'])}-{e(kon['wskaznik'])}</span></div>
     <div class="kmeta" style="grid-template-columns:1.6fr 1fr 1fr">
       <div class="field"><b>Dotyczy dziecka</b><span class="dots"></span></div>
       <div class="field"><b>Grupa</b><span class="dots"></span></div>
@@ -776,9 +778,14 @@ function drukujZeszyt(wersja){
    Pliki audio to sklonowany głos autorki — dana biometryczna. Nie ma ich
    w repozytorium; odtwarza je `nagrania_glos.py --generuj` do 04_media/. */
 function odtworz(btn){
+  /* Ten plik może linkować nagranie z 04_media albo mieć je w sobie (build --z-glosem).
+     Gdy dokument wyjechał bez katalogu mediów, nagranie się nie wczyta — komunikat ma
+     mówić nauczycielce, co z tym zrobić, a nie którą komendę uruchomić. */
   const a = new Audio(btn.dataset.audio);
   a.play().catch(() => {
-    btn.innerHTML = 'brak pliku nagrania — uruchom <code>nagrania_glos.py --generuj</code>';
+    btn.innerHTML = btn.dataset.audio.startsWith('data:')
+      ? 'nagranie jest w pliku, ale przeglądarka go nie odtworzyła — kliknij jeszcze raz'
+      : 'ten plik tylko linkuje nagrania — otwórz wersję <b>…_Z_GLOSEM.html</b>, która gra sama';
     btn.disabled = true;
   });
 }
