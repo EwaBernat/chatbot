@@ -3927,3 +3927,77 @@ WSKAZNIKI = [
 ]
 
 assert len(WSKAZNIKI) == 21, f"oczekiwano 21 wskaźników, jest {len(WSKAZNIKI)}"
+
+
+# --- drabiny, skale i listwy obrazkowe -------------------------------------
+# Obrazki dostają te wskaźniki, przy których sama pomoc ich wymaga — gdzie w
+# „co przygotować” stoi drabina ze szczeblami, tarcza albo pasek skali.
+# Rysunki są bez tekstu: podpisy są polskie i składa je dokument, bo generator
+# obrazu polskiego napisu nie postawi poprawnie, a i tak chcemy je móc poprawić
+# bez przerysowywania. Szczeble drabiny idą od najłatwiejszego do najtrudniejszego.
+KAT_ARKUSZY = "eduplaner_sens/assets/arkusze"
+
+HISTORYJKI = {
+ "II.3": {
+   "rodzaj": "skala",
+   "tytul": "Tarcza „radio uszu”",
+   "po_co": "Dziecko pokazuje, jak głośno jest w sali, zanim zdąży się zalać dźwiękiem. Trzy pola wystarczą — więcej stopni nie jest czytelne dla przedszkolaka.",
+   "jak_uzyc": "Wytnij trzy pola i naklej na kartonową tarczę ze strzałką. Pytaj o ustawienie na wejściu do sali, nie w środku hałasu.",
+   "pola": [
+     {"plik": "ii_3_p1.jpg", "podpis": "Cicho",      "pytanie": "Tak jest teraz?"},
+     {"plik": "ii_3_p2.jpg", "podpis": "W sam raz",  "pytanie": "Czy tak jest dobrze?"},
+     {"plik": "ii_3_p3.jpg", "podpis": "Za głośno",  "pytanie": "Bierzemy słuchawki?"},
+   ],
+ },
+ "III.3": {
+   "rodzaj": "skala",
+   "tytul": "Pasek skali faktur",
+   "po_co": "Dziecko nazywa, co czuje na skórze, zanim zdejmie ubranie albo odsunie rękę. Trzy poziomy dają słowo tam, gdzie wcześniej był tylko protest.",
+   "jak_uzyc": "Wytnij pola, naklej w rzędzie na pasek kartonu i połóż przy stanowisku. Pytaj przy każdej nowej fakturze, także wtedy, gdy dziecko nie protestuje.",
+   "pola": [
+     {"plik": "iii_3_p1.jpg", "podpis": "Suche",   "pytanie": "Jak to jest w dotyku?"},
+     {"plik": "iii_3_p2.jpg", "podpis": "Wilgotne", "pytanie": "A to jak?"},
+     {"plik": "iii_3_p3.jpg", "podpis": "Lepkie",  "pytanie": "Chcesz to zmyć?"},
+   ],
+ },
+ "IV.1": {
+   "rodzaj": "drabina",
+   "tytul": "Drabina oswajania jedzenia",
+   "po_co": "Nowe jedzenie nie zaczyna się od zjedzenia. Sześć szczebli rozkłada drogę na kroki, z których każdy da się wykonać bez przymusu.",
+   "jak_uzyc": "Drukuj A4 pionowo, powieś przy stoliku. Dziecko wskazuje szczebel przed posiłkiem i robi tylko ten jeden. Nie przeskakujemy szczebla, nawet gdy dzień jest dobry.",
+   "pola": [
+     {"plik": "iv_1_p1.jpg", "podpis": "Patrzę z daleka",  "pytanie": "Jesteś tu dzisiaj?"},
+     {"plik": "iv_1_p2.jpg", "podpis": "Patrzę z bliska",  "pytanie": "Podsuniemy talerz?"},
+     {"plik": "iv_1_p3.jpg", "podpis": "Dotykam palcem",   "pytanie": "Dotkniesz jednym palcem?"},
+     {"plik": "iv_1_p4.jpg", "podpis": "Wącham",           "pytanie": "Powąchasz?"},
+     {"plik": "iv_1_p5.jpg", "podpis": "Dotykam ustami",   "pytanie": "Przyłożysz do buzi?"},
+     {"plik": "iv_1_p6.jpg", "podpis": "Biorę mały kęs",   "pytanie": "Spróbujesz kawałek?"},
+   ],
+ },
+ "VI.1": {
+   "rodzaj": "drabina",
+   "tytul": "Drabina pracy mięśniowej",
+   "po_co": "Dociskowa praca mięśni wycisza szybciej niż każde upomnienie. Drabina daje dziecku wybór zadania, a nie polecenie.",
+   "jak_uzyc": "Drukuj A4 pionowo i powieś w kąciku ruchu. Dziecko wskazuje szczebel i robi go do końca, zanim wróci do stolika. Trzy szczeble dziennie wystarczą.",
+   "pola": [
+     {"plik": "vi_1_p1.jpg", "podpis": "Dłoń w dłoń",       "pytanie": "Zaczynamy od tego?"},
+     {"plik": "vi_1_p2.jpg", "podpis": "Pcham ścianę",      "pytanie": "Policzymy do dziesięciu?"},
+     {"plik": "vi_1_p3.jpg", "podpis": "Pcham pudło",       "pytanie": "Dokąd je przesuwasz?"},
+     {"plik": "vi_1_p4.jpg", "podpis": "Niosę książki",     "pytanie": "Dasz radę sam?"},
+     {"plik": "vi_1_p5.jpg", "podpis": "Ciągnę wózek",      "pytanie": "Gdzie czujesz mięśnie?"},
+   ],
+ },
+ "VII.1": {
+   "rodzaj": "drabina",
+   "tytul": "Drabina ruchu przedsionkowego",
+   "po_co": "Dziecko, które boi się ruchu w przestrzeni, potrzebuje najmniejszego możliwego kroku, nie zachęty. Każdy szczebel dodaje dokładnie jedną trudność.",
+   "jak_uzyc": "Drukuj A4 pionowo. Karta STOP zostaje u dziecka przez cały czas — jeśli jej użyje, wracamy o szczebel niżej i na tym kończymy próbę.",
+   "pola": [
+     {"plik": "vii_1_p1.jpg", "podpis": "Stopy na ziemi",        "pytanie": "Stoisz pewnie?"},
+     {"plik": "vii_1_p2.jpg", "podpis": "Bujanie z podparciem",  "pytanie": "Trzymam huśtawkę, siadasz?"},
+     {"plik": "vii_1_p3.jpg", "podpis": "Dziesięć sekund sam",   "pytanie": "Policzymy razem?"},
+     {"plik": "vii_1_p4.jpg", "podpis": "Zjeżdżalnia z asekuracją", "pytanie": "Trzymam cię, jedziemy?"},
+     {"plik": "vii_1_p5.jpg", "podpis": "Zjeżdżalnia sam",       "pytanie": "Chcesz spróbować sam?"},
+   ],
+ },
+}

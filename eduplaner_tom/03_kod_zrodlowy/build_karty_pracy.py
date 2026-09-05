@@ -24,6 +24,7 @@ import pathlib
 KORZEN = pathlib.Path(__file__).resolve().parent.parent
 DANE = KORZEN / "01_dane_json"
 MEDIA = KORZEN / "04_media"
+WSPOLNE = KORZEN.parent / "media_wspolne"   # biblioteka symboli, jedna dla wszystkich modułów
 WYJSCIE = KORZEN / "02_gotowe_dokumenty" / "Karty_pracy_TOM.html"
 MODUL = {"kod": "TOM", "nazwa": "Teoria umysłu (ToM)", "plik_celow": "cele_tom_poziomy.json",
          "plik_pomocy": "pomoce_tom.json", "grupa": "komponenty"}
@@ -46,6 +47,8 @@ def obraz_base64(sciezka_wzgledna: str) -> str | None:
     if not sciezka_wzgledna:
         return None
     p = MEDIA / sciezka_wzgledna
+    if not p.exists():
+        p = WSPOLNE / sciezka_wzgledna
     if not p.exists():
         return None
     typ = "jpeg" if p.suffix.lower() in (".jpg", ".jpeg") else p.suffix.lstrip(".")
@@ -120,6 +123,28 @@ body{background:#e9e7ef;color:var(--ink);font-family:'Mulish','Segoe UI',Candara
 .pol .audio{display:block;font-family:ui-monospace,Consolas,monospace;font-size:7px;color:var(--szary);margin-top:3px}
 .graj{display:block;margin-top:4px;border:1px solid var(--pomarancz-linia);background:#fff;color:var(--pomarancz);
   border-radius:999px;padding:3px 9px;font:700 8px/1 inherit;cursor:pointer}
+/* ——— arkusz historyjki obrazkowej ———
+   Osobna strona A4, bo pola tnie sie i uklada na stole, a karty z poprzedniej
+   strony zostaja na tablicy. Drabina idzie od dolu do gory: najnizszy szczebel
+   jest najlatwiejszy, wiec dziecko wchodzi na karte od dolu. */
+.hpola{display:grid;grid-template-columns:repeat(auto-fill,minmax(46mm,1fr));
+  gap:5mm;margin-top:3mm}
+.hkafel{border:1.5px dashed var(--fiolet-linia);border-radius:3mm;
+  padding:3mm;background:#fff;display:flex;flex-direction:column;gap:2mm;break-inside:avoid}
+.hkafel img{width:100%;aspect-ratio:4/3;object-fit:contain;background:#fff}
+.hkafel .hp{font-size:13px;font-weight:800;color:var(--fiolet);line-height:1.2}
+.hkafel .hnr{display:inline-block;min-width:5mm;height:5mm;line-height:5mm;text-align:center;
+  border-radius:50%;background:var(--fiolet);color:#fff;font-size:9px;font-weight:800;margin-right:1.5mm}
+.hkafel .hq{font-size:9px;color:var(--szary);font-style:italic;line-height:1.4}
+.drabina .hpola{display:flex;flex-direction:column-reverse;gap:3mm}
+.drabina .hkafel{flex-direction:row;align-items:center;gap:4mm}
+.drabina .hkafel img{width:38mm;flex:none}
+.hpo{border:1px solid var(--linia);border-radius:2mm;background:var(--fiolet-tlo);padding:3mm;
+  font-size:10px;line-height:1.55;margin-top:2mm}
+.hpo b{color:var(--fiolet)}
+.hwiersz{border-top:1px dashed var(--linia);padding-top:3mm;margin-top:3mm}
+.hwiersz:first-of-type{border-top:none;margin-top:0;padding-top:0}
+.hwiersz>.hnazwa{font-size:9px;letter-spacing:.6px;text-transform:uppercase;color:var(--szary)}
 .stopka{margin-top:auto;padding-top:7px;border-top:1px solid var(--linia);display:flex;
   justify-content:space-between;font-size:8px;color:var(--szary);gap:10px}
 @media print{
@@ -127,7 +152,7 @@ body{background:#e9e7ef;color:var(--ink);font-family:'Mulish','Segoe UI',Candara
   body{background:#fff}
   .strona{box-shadow:none;margin:0;page-break-after:always}
   @page{size:A4 portrait;margin:0}
-  .karta,.pole-k,.foto{break-inside:avoid}
+  .karta,.pole-k,.foto,.hkafel,.hwiersz{break-inside:avoid}
   .graj{display:none !important}
 }
 """
@@ -235,6 +260,55 @@ def strona(arkusz: dict, pomoc: dict, wskaznik: dict, konspekt_tytul: str,
 </section>"""
 
 
+
+def strona_historyjki(arkusz: dict, pomoc: dict, konspekt_tytul: str,
+                      nr_strony: int, ile: int) -> str:
+    """Druga strona A4 dla wskaźników, których pomoc wymaga obrazków: historyjki,
+    drabiny albo skali. Rysunki przychodzą bez tekstu — polskie podpisy dokładamy
+    tutaj, więc poprawka słowa nie oznacza przerysowywania obrazka."""
+    h = arkusz["historyjka"]
+
+    def kafel(p, nr=None) -> str:
+        obraz = obraz_base64(p["plik"])
+        numer = f'<span class="hnr">{nr}</span>' if nr else ""
+        pytanie = f'<div class="hq">{e(p["pytanie"])}</div>' if p.get("pytanie") else ""
+        rysunek = (f'<img src="{obraz}" alt="{e(p["podpis"])}">' if obraz
+                   else f'<div class="hq">brak pliku {e(p["plik"].rsplit("/", 1)[-1])}</div>')
+        return (f'<div class="hkafel">{rysunek}'
+                f'<div class="hp">{numer}{e(p["podpis"])}</div>{pytanie}</div>')
+
+    if h["rodzaj"] == "rozgalezienie":
+        srodek = "".join(
+            f'<div class="hwiersz"><div class="hnazwa">{e(w["nazwa"])}</div>'
+            f'<div class="hpola">{kafel(w["poczatek"])}'
+            f'{"".join(kafel(z) for z in w["zakonczenia"])}</div></div>'
+            for w in h["wiersze"])
+    else:
+        numeruj = h["rodzaj"] in ("historyjka", "listwa", "drabina")
+        srodek = ('<div class="hpola">'
+                  + "".join(kafel(p, i if numeruj else None)
+                            for i, p in enumerate(h["pola"], 1))
+                  + "</div>")
+
+    nazwy = {"historyjka": "historyjka obrazkowa", "drabina": "drabina do powieszenia",
+             "listwa": "listwa scenariusza", "skala": "skala do wskazywania",
+             "zestaw": "zestaw obrazków", "rozgalezienie": "historyjki w dwóch zakończeniach"}
+    return f"""<section class="strona {e(h['rodzaj'])}">
+<div class="head"><span class="mark" role="img" aria-label="Logo PCTP"></span>
+  <div><h1>EduPlaner 2026</h1><div class="sub">{e(MODUL['nazwa'])} · {nazwy[h['rodzaj']]}</div></div>
+  <div class="prawa"><b>{e(MODUL['kod'])} · KC-4</b><span>arkusz A4 · do wycięcia</span></div></div>
+<div class="kreska"></div>
+<div class="tyt"><span class="nr">{e(arkusz['wskaznik'])}</span>
+  <div><h2>{e(h['tytul'])}</h2>
+    <div class="kon">do konspektu „{e(konspekt_tytul)}” · pomoc: {e(pomoc['nazwa'])}</div></div></div>
+<div class="hpo"><b>Po co to jest.</b> {e(h['po_co_dla_doroslego'])}<br>
+  <b>Jak użyć.</b> {e(h['jak_uzyc_dla_doroslego'])}</div>
+{srodek}
+<div class="stopka"><span>EduPlaner 2026 · PCTP · pedagog specjalny <b>mgr Mirosława Ewa Jurczyszyn</b></span>
+  <span>Karta pracy {nr_strony} z {ile} · wskaźnik {e(arkusz['wskaznik'])}</span></div>
+</section>"""
+
+
 def main() -> int:
     ap = argparse.ArgumentParser(description=f"Karty pracy — arkusze A4 modułu {MODUL['kod']}")
     ap.add_argument("--wyjscie", default=str(WYJSCIE), help="plik docelowy")
@@ -251,9 +325,15 @@ def main() -> int:
     konspekty = {k["wskaznik"]: k["tytul"] for k in wczytaj(f"konspekty_{MODUL['kod'].lower()}.json")["konspekty"]}
 
     arkusze = materialy["arkusze"]
-    strony = [strona(a, pomoce[a["wskaznik"]], wskazniki[a["wskaznik"]],
-                     konspekty[a["wskaznik"]], i, len(arkusze))
-              for i, a in enumerate(arkusze, start=1)]
+    # Wskaźnik z historyjką dostaje drugą stronę, więc liczbę stron znamy dopiero
+    # po przejściu listy — stopka ma pokazywać prawdziwe „x z y”.
+    ile = len(arkusze) + sum(1 for a in arkusze if a.get("historyjka"))
+    strony, nr = [], 1
+    for a in arkusze:
+        w, p, tyt = wskazniki[a["wskaznik"]], pomoce[a["wskaznik"]], konspekty[a["wskaznik"]]
+        strony.append(strona(a, p, w, tyt, nr, ile)); nr += 1
+        if a.get("historyjka"):
+            strony.append(strona_historyjki(a, p, tyt, nr, ile)); nr += 1
 
     wyjscie = pathlib.Path(args.wyjscie)
     wyjscie.parent.mkdir(parents=True, exist_ok=True)

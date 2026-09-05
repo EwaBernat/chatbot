@@ -5,7 +5,8 @@ Wszystkie ścieżki w plikach JSON liczone są od tego katalogu — tak jak w mo
 ```
 eduplaner_sens/assets/audio_sens/     ai_1.mp3 … cvii_3.mp3   — 63 nagrania poleceń dla dziecka
 eduplaner_sens/assets/pomoce_sens/    k_i_1.jpg … k_vii_3.jpg — 21 zdjęć pomocy dydaktycznych
-eduplaner_przedszkole/assets/symbole/                         — biblioteka WSPÓLNA z bankiem KPOF
+eduplaner_sens/assets/arkusze/        pola drabin, skal i historyjek — bez tekstu
+../../media_wspolne/eduplaner_przedszkole/assets/symbole/     — biblioteka WSPÓLNA z bankiem KPOF
 ```
 
 Nazwa pliku nagrania: litera wersji wiekowej (a/b/c) + numer zmysłu rzymski małymi literami
@@ -18,8 +19,13 @@ i kod, który je odtwarza.
 
 Symbole **nie są kopiowane** do tego modułu. Dziecko korzystające z komunikacji obrazkowej
 musi widzieć ten sam obrazek na karcie z zajęć, na tablicy AAC i w planie dnia —
-biblioteka symboli zostaje jedna, w katalogu banku KPOF. Karta z `plik_symbolu: null`
-to pole celowo puste: miejsce na własny symbol dziecka.
+biblioteka symboli zostaje jedna, w `media_wspolne/` obok modułów. Buildy szukają pliku
+najpierw tutaj, potem tam. Karta z `plik_symbolu: null` to pole celowo puste: miejsce na
+własny symbol dziecka.
+
+Rysunki w `assets/arkusze/` są **bez tekstu**. Polskie podpisy dokładają dokumenty z
+`HISTORYJKI` w `dane_zrodlowe.py` — poprawka słowa nie wymaga wtedy przerysowywania
+obrazka, a generator obrazu i tak nie postawiłby polskiego napisu poprawnie.
 
 Nagrania odtwarza:
 

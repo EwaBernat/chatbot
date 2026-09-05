@@ -68,6 +68,28 @@ def plik_symbolu(symbol) -> str | None:
     return f"{KAT_SYMBOLI}/k_{symbol}.jpg" if symbol else None
 
 
+def historyjka(nr: str) -> dict | None:
+    """Historyjka obrazkowa, drabina albo skala — tylko przy tych wskaźnikach,
+    których pomoc naprawdę ich wymaga. Rysunek jest bez tekstu, podpis polski
+    dokłada dokument, więc tutaj sklejamy jedno z drugim i dopisujemy ścieżkę."""
+    h = getattr(dz, "HISTORYJKI", {}).get(nr)
+    if not h:
+        return None
+
+    def pole(p):
+        return {**p, "plik": f"{dz.KAT_ARKUSZY}/{p['plik']}"}
+
+    wynik = {"rodzaj": h["rodzaj"], "tytul": h["tytul"],
+             "po_co_dla_doroslego": h["po_co"], "jak_uzyc_dla_doroslego": h["jak_uzyc"]}
+    if "pola" in h:
+        wynik["pola"] = [pole(p) for p in h["pola"]]
+    else:
+        wynik["wiersze"] = [{"nazwa": w["nazwa"], "poczatek": pole(w["poczatek"]),
+                             "zakonczenia": [pole(z) for z in w["zakonczenia"]]}
+                            for w in h["wiersze"]]
+    return wynik
+
+
 def poziomy_lista() -> list[dict]:
     return [{"klucz": k, "nazwa": v["nazwa"], "rzym": v["rzym"], "kryterium": v["kryterium"],
              "horyzont": v["horyzont"], "warunki": v["warunki"], "kolor_oceny": v["kolor"]}
@@ -244,6 +266,7 @@ def pomoce() -> dict:
                 for wersja in dz.WERSJE
             },
             "arkusz_id": w["nr"],
+            "historyjka": historyjka(w["nr"]),
         })
     return {
         "dokument": "EduPlaner 2026 · druk KC-4 · pomoce dydaktyczne do wskaźników teorii umysłu",
@@ -285,6 +308,7 @@ def materialy_do_druku() -> dict:
             "wstep_dla_doroslego": a["wstep_dla_doroslego"],
             "karty": karty,
             "pasek_kolejnosci": pasek,
+            "historyjka": historyjka(w["nr"]),
             "format": "A4 pionowo, karton 200 g",
         })
     return {

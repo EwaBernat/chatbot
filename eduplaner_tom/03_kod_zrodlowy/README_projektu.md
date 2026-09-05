@@ -52,6 +52,24 @@ Dodanie wskaźnika to jeden rekord: 9 celów SMART, 3 konspekty, 1 pomoc, 3 pole
 `symbol: None` w karcie arkusza znaczy **pole celowo puste** — miejsce na własny symbol
 dziecka z jego tablicy AAC. Eksport liczy takie pola i zapisuje w `biblioteka_symboli`.
 
+`HISTORYJKI` na końcu pliku to osobny słownik, kluczowany numerem wskaźnika. Dostają w nim
+wpis tylko te wskaźniki, których pomoc naprawdę wymaga obrazków — tam, gdzie w
+`co_przygotowac` stoi historyjka, drabina, listwa albo pasek skali. Pole `rodzaj` decyduje
+o układzie na wydruku:
+
+| rodzaj | układ | przykład |
+|---|---|---|
+| `historyjka` | pola numerowane, czyta się w prawo | Sally-Anne w czterech polach |
+| `rozgalezienie` | początek → dwa zakończenia, wiersz na historię | to samo pragnienie, spełnione i nie |
+| `listwa` | trzy pola scenariusza zabawy | garnek → mieszanie → talerz |
+| `drabina` | pola jedno nad drugim, **od dołu w górę** | szczeble oswajania jedzenia |
+| `skala` | pola obok siebie, bez numerów | cicho / w sam raz / za głośno |
+
+Rysunki są **bez tekstu**: polskie podpisy stoją w danych i składa je dokument. Dzięki temu
+poprawka słowa nie wymaga przerysowania obrazka — a generator obrazu i tak nie postawiłby
+polskiego napisu poprawnie. Wskaźnik z historyjką dostaje w kartach pracy **drugą stronę A4**.
+
+
 ## Skąd bierze się kryterium
 
 **Druk TOM-T** — z poziomu wsparcia:

@@ -25,6 +25,7 @@ DANE = KORZEN / "01_dane_json"
 WYJSCIE = KORZEN / "02_gotowe_dokumenty" / "Tabela_celow_TOM_wiek_poziom.html"
 MEDIA = "../04_media"          # ścieżki mediów liczone od 02_gotowe_dokumenty/
 MEDIA_KAT = KORZEN / "04_media"   # ten sam katalog na dysku — do wklejania plików w dokument
+WSPOLNE = KORZEN.parent / "media_wspolne"   # biblioteka symboli, jedna dla wszystkich modułów
 
 
 def e(t) -> str:
@@ -38,6 +39,8 @@ def obraz_base64(sciezka_wzgledna: str | None) -> str | None:
     if not sciezka_wzgledna:
         return None
     p = MEDIA_KAT / sciezka_wzgledna
+    if not p.exists():
+        p = WSPOLNE / sciezka_wzgledna
     if not p.exists():
         return None
     typ = "jpeg" if p.suffix.lower() in (".jpg", ".jpeg") else p.suffix.lstrip(".")
@@ -266,6 +269,36 @@ table.ktab td.lp{font-weight:800;color:var(--fiolet);text-align:center}
   .pom-cialo{grid-template-columns:1fr}
   table{font-size:10px}
 }
+/* ——— historyjki obrazkowe, drabiny i skale ———
+   Rysunek przychodzi bez tekstu, podpis polski stoi pod nim — dzięki temu
+   poprawka słowa nie wymaga przerysowywania obrazka. Drabina idzie od dołu
+   do góry, bo tak dziecko czyta wysiłek: najniższy szczebel jest najłatwiejszy. */
+.hist{margin:10px 0 4px;border:1px solid var(--linia);border-radius:8px;background:#fbfaff;padding:10px}
+.hist>h6{font-size:9px;letter-spacing:.6px;text-transform:uppercase;color:var(--fiolet);margin:0 0 4px}
+.hist .hopis{font-size:9.5px;line-height:1.5;color:var(--szary);margin:0 0 8px}
+.hist .hopis b{color:var(--tekst)}
+.hist .hpola{display:grid;grid-template-columns:repeat(auto-fill,minmax(105px,1fr));gap:8px}
+.hist figure{margin:0;min-width:0}
+.hist img{width:100%;aspect-ratio:4/3;object-fit:contain;border:1px solid var(--linia);
+  border-radius:6px;background:#fff;display:block}
+.hist .hnr{display:inline-block;min-width:15px;height:15px;line-height:15px;text-align:center;
+  border-radius:50%;background:var(--fiolet);color:#fff;font-size:8.5px;font-weight:800;margin-right:4px}
+.hist .hp{font-size:10px;font-weight:700;color:var(--fiolet);margin-top:4px;line-height:1.3}
+.hist .hq{display:block;font-size:9px;color:var(--szary);font-style:italic;line-height:1.4;margin-top:1px}
+.hist.drabina .hpola{display:flex;flex-direction:column-reverse;gap:6px}
+.hist.drabina figure{display:grid;grid-template-columns:86px 1fr;gap:9px;align-items:center}
+.hist.drabina .hp{margin-top:0}
+.hist .hwiersz{display:grid;grid-template-columns:1fr auto 2fr;gap:8px;align-items:center;
+  padding:6px 0;border-top:1px dashed var(--linia)}
+.hist .hwiersz:first-of-type{border-top:none}
+.hist .hstrzalka{font-size:16px;color:var(--pomarancz);font-weight:800}
+.hist .hkonce{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.hist .hnazwa{grid-column:1/-1;font-size:9px;letter-spacing:.5px;text-transform:uppercase;
+  color:var(--szary);margin-bottom:-2px}
+
+.ob{width:100%;background-size:contain;background-position:center;background-repeat:no-repeat;
+  background-color:#fff}
+
 @media print{
   *{-webkit-print-color-adjust:exact;print-color-adjust:exact}
   @page{size:A4 landscape;margin:9mm}
@@ -281,7 +314,7 @@ table.ktab td.lp{font-weight:800;color:var(--fiolet);text-align:center}
     padding:0;overflow:visible}
   html.druk-konspektu .kcard{box-shadow:none;max-width:none;padding:0;border-radius:0;page:kon;zoom:.95}
   html.druk-konspektu .kclose{display:none}
-  .pom,.kmod,.karta,.pom-foto{break-inside:avoid}
+  .pom,.kmod,.karta,.pom-foto,.hist figure,.hist .hwiersz{break-inside:avoid}
   .pom-cialo{grid-template-columns:170px 1fr}
 }
 """
@@ -421,6 +454,33 @@ def klasa_zdjecia(pomoc: dict) -> str:
     return "foto-" + pathlib.Path(pomoc["zdjecie"]).stem.replace("_", "-")
 
 
+
+def klasa_obrazka(sciezka: str) -> str:
+    """Nazwa klasy CSS obrazka — z nazwy pliku, np. iv_4_p1.jpg → o-iv-4-p1."""
+    return "o-" + pathlib.Path(sciezka).stem.replace("_", "-")
+
+
+def styl_obrazkow(pomoce: list[dict], arkusze: list[dict]) -> str:
+    """Symbole i pola historyjek wklejamy tak samo jak zdjęcia pomocy: raz na plik,
+    jako regułę CSS. Ten sam symbol wraca w kilku wskaźnikach i w każdym z trzech
+    konspektów — wklejony w miejscu użycia rozdąłby dokument kilkunastokrotnie."""
+    sciezki = set()
+    for a in arkusze:
+        sciezki |= {k["plik_symbolu"] for k in a["karty"] + a["pasek_kolejnosci"] if k["plik_symbolu"]}
+    for p in pomoce:
+        h = p.get("historyjka")
+        if not h:
+            continue
+        pola = h.get("pola") or [x for w in h["wiersze"] for x in [w["poczatek"]] + w["zakonczenia"]]
+        sciezki |= {x["plik"] for x in pola}
+    reguly = []
+    for sciezka in sorted(sciezki):
+        dane = obraz_base64(sciezka)
+        if dane:
+            reguly.append(f'.{klasa_obrazka(sciezka)}{{background-image:url("{dane}")}}')
+    return "\n".join(reguly)
+
+
 def styl_zdjec(pomoce: list[dict]) -> str:
     """Każde zdjęcie pomocy wklejamy w dokument RAZ, jako regułę CSS. Ten sam
     wskaźnik ma trzy konspekty (A, B, C), więc gdyby zdjęcie siedziało w każdym
@@ -447,6 +507,38 @@ def pole_zdjecia(pomoc: dict) -> str:
             f'<figcaption>{e(pomoc["nazwa"])}</figcaption></figure>')
 
 
+
+def blok_historyjki(h: dict | None) -> str:
+    """Historyjka obrazkowa, drabina albo skala — tam, gdzie pomoc ich wymaga.
+    Kolejność pól niesie znaczenie, więc numerujemy je i nie pozwalamy im się
+    przemieszać: historyjka czyta się w prawo, drabina w górę."""
+    if not h:
+        return ""
+
+    def figura(p, nr=None) -> str:
+        numer = f'<span class="hnr">{nr}</span>' if nr else ""
+        pytanie = f'<span class="hq">{e(p["pytanie"])}</span>' if p.get("pytanie") else ""
+        return (f'<figure><div class="ob {klasa_obrazka(p["plik"])}" role="img" '
+                f'aria-label="{e(p["podpis"])}"></div>'
+                f'<figcaption class="hp">{numer}{e(p["podpis"])}{pytanie}</figcaption></figure>')
+
+    if h["rodzaj"] == "rozgalezienie":
+        srodek = "".join(
+            f'<div class="hwiersz"><span class="hnazwa">{e(w["nazwa"])}</span>'
+            f'{figura(w["poczatek"])}<span class="hstrzalka">→</span>'
+            f'<div class="hkonce">{"".join(figura(z) for z in w["zakonczenia"])}</div></div>'
+            for w in h["wiersze"])
+    else:
+        numeruj = h["rodzaj"] in ("historyjka", "listwa", "drabina")
+        srodek = ('<div class="hpola">'
+                  + "".join(figura(p, i if numeruj else None)
+                            for i, p in enumerate(h["pola"], 1))
+                  + "</div>")
+    return (f'<div class="hist {e(h["rodzaj"])}"><h6>{e(h["tytul"])}</h6>'
+            f'<p class="hopis"><b>Po co:</b> {e(h["po_co_dla_doroslego"])} '
+            f'<b>Jak użyć:</b> {e(h["jak_uzyc_dla_doroslego"])}</p>{srodek}</div>')
+
+
 def karta_pomocy(kon: dict, pomoc: dict, arkusz: dict) -> str:
     pol = pomoc["polecenia"][kon["wersja_wiekowa"]]
     def pole_symbolu(k) -> str:
@@ -454,11 +546,9 @@ def karta_pomocy(kon: dict, pomoc: dict, arkusz: dict) -> str:
         pokazuje jego nazwę — nauczycielka wie wtedy, co wkleić w puste pole."""
         if not k["plik_symbolu"]:
             return '<div class="pole">pole na własny symbol z tablicy AAC</div>'
-        nazwa = k["plik_symbolu"].rsplit("/", 1)[-1]
-        return (f'<div class="pole"><img src="{MEDIA}/{k["plik_symbolu"]}" alt="" '
-                f'style="max-width:100%;max-height:100%" '
-                f"onerror=\"this.replaceWith(Object.assign(document.createElement('span'),"
-                f"{{textContent:'symbol {nazwa} — z biblioteki KPOF'}}))\"></div>")
+        return (f'<div class="pole"><div class="ob {klasa_obrazka(k["plik_symbolu"])}" '
+                f'role="img" aria-label="{e(k["etykieta_dla_dziecka"])}" '
+                f'style="height:100%"></div></div>')
 
     karty = "".join(
         f'<div class="karta">{pole_symbolu(k)}'
@@ -489,6 +579,7 @@ def karta_pomocy(kon: dict, pomoc: dict, arkusz: dict) -> str:
     <h6 style="font-size:9px;letter-spacing:.6px;text-transform:uppercase;color:var(--fiolet);margin:4px 0 2px">
       Arkusz A4 do wycięcia · {e(arkusz['tytul'])}</h6>
     <p class="kkurs" style="margin:2px 0 6px">{e(arkusz['wstep_dla_doroslego'])}</p>
+    {blok_historyjki(pomoc.get('historyjka'))}
     <div class="karty">{karty}</div>
     <div class="pasek">{pasek}</div>
   </div>
@@ -918,7 +1009,8 @@ def main() -> int:
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Tabela celów SMART · teoria umysłu (przedszkole) — EduPlaner 2026 · PCTP</title>
 <style>{STYL}
-{styl_zdjec(pomoce["pomoce"])}</style>
+{styl_zdjec(pomoce["pomoce"])}
+{styl_obrazkow(pomoce["pomoce"], materialy["arkusze"])}</style>
 </head>
 <body>
 <div class="ark">

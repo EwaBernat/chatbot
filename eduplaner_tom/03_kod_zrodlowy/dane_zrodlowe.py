@@ -4526,3 +4526,81 @@ WSKAZNIKI = [
 ]
 
 assert len(WSKAZNIKI) == 25, f"oczekiwano 25 wskaźników, jest {len(WSKAZNIKI)}"
+
+
+# --- historyjki obrazkowe, listwy i skale ----------------------------------
+# Nie każdy wskaźnik potrzebuje obrazków. Dodajemy je tam, gdzie sama pomoc ich
+# wymaga — gdzie w „co przygotować” stoi historyjka, listwa albo zestaw obrazków.
+# Rysunki są bez tekstu: podpisy są polskie i składa je dokument, bo generator
+# obrazu polskiego napisu nie postawi poprawnie, a i tak chcemy je móc poprawić
+# bez przerysowywania. Podpis czyta DOROSŁY, pytanie zadaje DZIECKU.
+KAT_ARKUSZY = "eduplaner_tom/assets/arkusze"
+
+HISTORYJKI = {
+ "I.3": {
+   "rodzaj": "zestaw",
+   "tytul": "Sześć sytuacji „czuje, bo…”",
+   "po_co": "Dziecko ma powiedzieć nie tylko CO bohater czuje, ale DLACZEGO. Obrazek pokazuje przyczynę, więc odpowiedź nie wymaga pamiętania opowiedzianej historii.",
+   "jak_uzyc": "Wytnij pola i podawaj po jednym. Najpierw dziecko nazywa emocję, dopiero potem pytasz o przyczynę. Nie podpowiadaj słowa „bo” — poczekaj.",
+   "pola": [
+     {"plik": "i_3_p1.jpg", "podpis": "Lody spadły na ziemię.",        "pytanie": "Co ono czuje? A dlaczego?"},
+     {"plik": "i_3_p2.jpg", "podpis": "Dostaje prezent.",              "pytanie": "Co ono czuje? A dlaczego?"},
+     {"plik": "i_3_p3.jpg", "podpis": "Wieża z klocków się przewróciła.", "pytanie": "Co ono czuje? A dlaczego?"},
+     {"plik": "i_3_p4.jpg", "podpis": "Inne dzieci bawią się bez niego.", "pytanie": "Co ono czuje? A dlaczego?"},
+     {"plik": "i_3_p5.jpg", "podpis": "Przytula pieska.",              "pytanie": "Co ono czuje? A dlaczego?"},
+     {"plik": "i_3_p6.jpg", "podpis": "W pokoju jest ciemno.",         "pytanie": "Co ono czuje? A dlaczego?"},
+   ],
+ },
+ "II.3": {
+   "rodzaj": "rozgalezienie",
+   "tytul": "Trzy historyjki, dwa zakończenia",
+   "po_co": "To samo pragnienie kończy się raz spełnieniem, raz nie. Dziecko widzi, że emocja zależy od tego, czy pragnienie zostało spełnione — a nie od samego zdarzenia.",
+   "jak_uzyc": "Pokaż pole początkowe i zapytaj, czego bohater chce. Potem odsłoń jedno zakończenie, spytaj o emocję, i dopiero wtedy drugie. Nigdy obu naraz.",
+   "wiersze": [
+     {"nazwa": "Piłka z półki",  "poczatek": {"plik": "ii_3_a1.jpg", "podpis": "Chce piłkę z półki."},
+      "zakonczenia": [{"plik": "ii_3_a2.jpg", "podpis": "Dostał piłkę."},
+                      {"plik": "ii_3_a3.jpg", "podpis": "Półka jest pusta."}]},
+     {"nazwa": "Wyjście na dwór", "poczatek": {"plik": "ii_3_b1.jpg", "podpis": "Chce wyjść na dwór."},
+      "zakonczenia": [{"plik": "ii_3_b2.jpg", "podpis": "Świeci słońce, wychodzi."},
+                      {"plik": "ii_3_b3.jpg", "podpis": "Leje deszcz, zostaje w środku."}]},
+     {"nazwa": "Kawałek ciasta", "poczatek": {"plik": "ii_3_c1.jpg", "podpis": "Czeka na ciasto."},
+      "zakonczenia": [{"plik": "ii_3_c2.jpg", "podpis": "Dostała kawałek."},
+                      {"plik": "ii_3_c3.jpg", "podpis": "Talerz został pusty."}]},
+   ],
+ },
+ "III.5": {
+   "rodzaj": "listwa",
+   "tytul": "Listwa scenariusza zabawy",
+   "po_co": "Zanim dzieci zaczną się bawić, ustalają kolejność. Listwa robi z pomysłu plan, który da się pokazać drugiemu dziecku palcem.",
+   "jak_uzyc": "Wytnij trzy pola i połóż na listwie w kolejności. Dziecko opowiada plan koledze, wskazując pola. Zostaw jedno pole puste, jeśli dzieci chcą dołożyć własny krok.",
+   "pola": [
+     {"plik": "iii_5_p1.jpg", "podpis": "Przynosimy garnek.",     "pytanie": "Co robimy najpierw?"},
+     {"plik": "iii_5_p2.jpg", "podpis": "Mieszamy razem.",        "pytanie": "A co potem?"},
+     {"plik": "iii_5_p3.jpg", "podpis": "Nakładamy na talerz.",   "pytanie": "Czym kończymy?"},
+   ],
+ },
+ "IV.4": {
+   "rodzaj": "historyjka",
+   "tytul": "Historyjka obrazkowa „Ala, Ola i piłka”",
+   "po_co": "Klasyczna próba fałszywego przekonania. Cztery pola pokazują, że Ala nie widziała przełożenia — więc będzie szukać tam, gdzie sama schowała.",
+   "jak_uzyc": "Odsłaniaj pola po kolei, nie wszystkie naraz. Po polu trzecim zatrzymaj się i zapytaj, zanim pokażesz czwarte. Pytanie kontrolne: gdzie piłka jest naprawdę?",
+   "pola": [
+     {"plik": "iv_4_p1.jpg", "podpis": "Ala i Ola mają piłkę.",              "pytanie": "Kto trzyma piłkę?"},
+     {"plik": "iv_4_p2.jpg", "podpis": "Ala chowa piłkę do koszyka i wychodzi.", "pytanie": "Gdzie Ala schowała piłkę?"},
+     {"plik": "iv_4_p3.jpg", "podpis": "Ola przekłada piłkę do pudełka.",   "pytanie": "Czy Ala to widziała?"},
+     {"plik": "iv_4_p4.jpg", "podpis": "Ala wraca.",                        "pytanie": "Gdzie Ala będzie szukać piłki?"},
+   ],
+ },
+ "V.1": {
+   "rodzaj": "historyjka",
+   "tytul": "Historyjka obrazkowa „Uśmiech, który udaje”",
+   "po_co": "Mina i uczucie to nie to samo. Historyjka daje dziecku przypadek, w którym bohater uśmiecha się, choć jest mu smutno.",
+   "jak_uzyc": "Przy polu trzecim zatrzymaj się na twarzy: usta się uśmiechają, brwi nie. Dopiero potem pole czwarte. Nie mów dziecku odpowiedzi — pytaj o oczy.",
+   "pola": [
+     {"plik": "v_1_p1.jpg", "podpis": "Robot się zepsuł. Jest mu smutno.", "pytanie": "Co on czuje?"},
+     {"plik": "v_1_p2.jpg", "podpis": "Podchodzi kolega. Uśmiecha się.",   "pytanie": "Jaką ma teraz minę?"},
+     {"plik": "v_1_p3.jpg", "podpis": "Usta się śmieją, oczy są smutne.",  "pytanie": "A co czuje w środku?"},
+     {"plik": "v_1_p4.jpg", "podpis": "Kolega siada obok.",                "pytanie": "Co się zmieniło?"},
+   ],
+ },
+}
