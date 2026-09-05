@@ -13,6 +13,7 @@ Czyta wyłącznie pliki z 01_dane_json/. Zapisuje jeden samodzielny plik HTML.
 """
 from __future__ import annotations
 
+import base64
 import html
 import json
 import pathlib
@@ -22,10 +23,24 @@ KORZEN = pathlib.Path(__file__).resolve().parent.parent
 DANE = KORZEN / "01_dane_json"
 WYJSCIE = KORZEN / "02_gotowe_dokumenty" / "Tabela_celow_SENS_wiek_poziom.html"
 MEDIA = "../04_media"          # ścieżki mediów liczone od 02_gotowe_dokumenty/
+MEDIA_KAT = KORZEN / "04_media"   # ten sam katalog na dysku — do wklejania plików w dokument
 
 
 def e(t) -> str:
     return html.escape(str(t if t is not None else ""))
+
+
+def obraz_base64(sciezka_wzgledna: str | None) -> str | None:
+    """Zdjęcie pomocy wklejamy w dokument, a nie linkujemy. Dzięki temu konspekt
+    drukuje się ze zdjęciem także wtedy, gdy nauczycielka otworzy sam plik HTML,
+    bez katalogu 04_media. Gdy pliku nie ma, zostaje opis słowny."""
+    if not sciezka_wzgledna:
+        return None
+    p = MEDIA_KAT / sciezka_wzgledna
+    if not p.exists():
+        return None
+    typ = "jpeg" if p.suffix.lower() in (".jpg", ".jpeg") else p.suffix.lstrip(".")
+    return f"data:image/{typ};base64," + base64.b64encode(p.read_bytes()).decode("ascii")
 
 
 def wczytaj(nazwa: str) -> dict:
@@ -207,9 +222,12 @@ table.ktab td.lp{font-weight:800;color:var(--fiolet);text-align:center}
 .pom-head h5{margin:0;font-size:12px;color:var(--fiolet)}
 .pom-head .wiek{margin-left:auto;font-size:9px;color:var(--szary);font-weight:700}
 .pom-cialo{display:grid;grid-template-columns:200px 1fr;gap:12px;padding:12px}
-.pom-foto{border:1px dashed var(--fiolet-linia);border-radius:9px;background:#fbfaff;min-height:150px;
-          display:flex;align-items:center;justify-content:center;padding:10px;font-size:8.5px;
-          color:var(--szary);text-align:center;line-height:1.45;background-size:cover;background-position:center}
+.pom-foto{margin:0;border:1px solid var(--fiolet-linia);border-radius:9px;background:#fbfaff;
+          overflow:hidden;display:flex;flex-direction:column}
+.pom-foto .kadr{flex:1;width:100%;min-height:126px;background-size:cover;background-position:center}
+.pom-foto figcaption{padding:5px 7px;font-size:8px;line-height:1.35;color:var(--szary);text-align:center}
+.pom-foto.pusta{border-style:dashed;min-height:150px;align-items:center;justify-content:center;
+          padding:10px;font-size:8.5px;color:var(--szary);text-align:center;line-height:1.45}
 .pom-tresc h6{margin:0 0 3px;font-size:9px;letter-spacing:.6px;text-transform:uppercase;color:var(--fiolet)}
 .pom-tresc ul,.pom-tresc ol{margin:0 0 8px;padding-left:16px;font-size:10px;line-height:1.5}
 .pom-dziecko{background:var(--pomarancz-tlo);border-left:3px solid var(--pomarancz);border-radius:0 8px 8px 0;
@@ -248,6 +266,7 @@ table.ktab td.lp{font-weight:800;color:var(--fiolet);text-align:center}
   table{font-size:10px}
 }
 @media print{
+  *{-webkit-print-color-adjust:exact;print-color-adjust:exact}
   @page{size:A4 landscape;margin:9mm}
   @page kon{size:A4 portrait;margin:10mm}
   body{background:#fff;padding:0}
@@ -261,7 +280,8 @@ table.ktab td.lp{font-weight:800;color:var(--fiolet);text-align:center}
     padding:0;overflow:visible}
   html.druk-konspektu .kcard{box-shadow:none;max-width:none;padding:0;border-radius:0;page:kon;zoom:.95}
   html.druk-konspektu .kclose{display:none}
-  .pom,.kmod,.karta{break-inside:avoid}
+  .pom,.kmod,.karta,.pom-foto{break-inside:avoid}
+  .pom-cialo{grid-template-columns:170px 1fr}
 }
 """
 
@@ -378,6 +398,54 @@ def tabela_wersji(wersja: str, wiek: str, zmysly: list[dict], poziomy: list[dict
   </table>
 </section>"""
 
+WKLEJ_GLOS = False   # ustawiane przez --z-glosem; patrz uwaga niżej
+
+
+def zrodlo_audio(sciezka_wzgledna: str) -> str:
+    """Nagranie polecenia.
+
+    GŁOS JEST DANĄ BIOMETRYCZNĄ. Domyślnie dokument tylko LINKUJE plik z 04_media
+    — dzięki temu wersja w repozytorium nie zawiera sklonowanego głosu autorki.
+    Z opcją --z-glosem nagranie zostaje wklejone w plik (base64) i dokument gra
+    z pendrive'a, bez katalogu mediów. Taki plik jest do użytku własnego autorki
+    i nie trafia do repozytorium (patrz .gitignore)."""
+    plik = MEDIA_KAT / sciezka_wzgledna
+    if WKLEJ_GLOS and plik.exists():
+        return "data:audio/mpeg;base64," + base64.b64encode(plik.read_bytes()).decode("ascii")
+    return f"{MEDIA}/{sciezka_wzgledna}"
+
+
+def klasa_zdjecia(pomoc: dict) -> str:
+    """Nazwa klasy CSS zdjęcia — z nazwy pliku, np. k_i_1.jpg → foto-k-i-1."""
+    return "foto-" + pathlib.Path(pomoc["zdjecie"]).stem.replace("_", "-")
+
+
+def styl_zdjec(pomoce: list[dict]) -> str:
+    """Każde zdjęcie pomocy wklejamy w dokument RAZ, jako regułę CSS. Ten sam
+    wskaźnik ma trzy konspekty (A, B, C), więc gdyby zdjęcie siedziało w każdym
+    z nich osobno, plik urósłby trzykrotnie bez żadnego zysku."""
+    reguly = []
+    for sciezka in sorted({p["zdjecie"] for p in pomoce}):
+        dane = obraz_base64(sciezka)
+        if not dane:
+            continue
+        klasa = "foto-" + pathlib.Path(sciezka).stem.replace("_", "-")
+        reguly.append(f'.{klasa} .kadr{{background-image:url("{dane}")}}')
+    return "\n".join(reguly)
+
+
+def pole_zdjecia(pomoc: dict) -> str:
+    """Zdjęcie pomocy w konspekcie. Plik jest wklejony w dokument, więc konspekt
+    drukuje się ze zdjęciem także wtedy, gdy nauczycielka otworzy sam HTML, bez
+    katalogu 04_media. Gdy zdjęcia nie ma, zostaje opis słowny."""
+    if not obraz_base64(pomoc.get("zdjecie")):
+        return (f'<figure class="pom-foto pusta"><span>zdjęcie pomocy<br>'
+                f'{e(pomoc["zdjecie"])}</span></figure>')
+    return (f'<figure class="pom-foto {klasa_zdjecia(pomoc)}">'
+            f'<div class="kadr" role="img" aria-label="{e(pomoc["nazwa"])}"></div>'
+            f'<figcaption>{e(pomoc["nazwa"])}</figcaption></figure>')
+
+
 def karta_pomocy(kon: dict, pomoc: dict, arkusz: dict) -> str:
     pol = pomoc["polecenia"][kon["wersja_wiekowa"]]
     def pole_symbolu(k) -> str:
@@ -402,7 +470,7 @@ def karta_pomocy(kon: dict, pomoc: dict, arkusz: dict) -> str:
   <div class="pom-head"><span class="kp">Pomoc dydaktyczna · druk KC-4</span>
     <h5>{e(pomoc['nazwa'])}</h5><span class="wiek">{e(kon['wiek'])}</span></div>
   <div class="pom-cialo">
-    <div class="pom-foto">zdjęcie pomocy<br>{e(pomoc['zdjecie'])}</div>
+    {pole_zdjecia(pomoc)}
     <div class="pom-tresc">
       <h6>Co przygotować</h6>
       <ul>{''.join(f'<li>{e(x)}</li>' for x in pomoc['co_przygotowac'])}</ul>
@@ -412,7 +480,7 @@ def karta_pomocy(kon: dict, pomoc: dict, arkusz: dict) -> str:
       <p style="font-size:10px;line-height:1.5;margin:0">{e(pomoc['wskazowka_dla_doroslego'])}</p>
       <div class="pom-dziecko"><span class="lab">Polecenie dla dziecka · {e(pol['wiek'])}</span>
         „{e(pol['polecenie_dla_dziecka'])}”
-        <button type="button" class="pom-play" data-audio="{MEDIA}/{e(pol['nagranie'])}">
+        <button type="button" class="pom-play" data-audio="{e(zrodlo_audio(pol['nagranie']))}">
           ▶ posłuchaj głosem autorki <small>{e(pol['nagranie'].rsplit('/', 1)[-1])}</small></button></div>
     </div>
   </div>
@@ -848,7 +916,8 @@ def main() -> int:
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Tabela celów SMART · profil sensoryczny (przedszkole) — EduPlaner 2026 · PCTP</title>
-<style>{STYL}</style>
+<style>{STYL}
+{styl_zdjec(pomoce["pomoce"])}</style>
 </head>
 <body>
 <div class="ark">
@@ -876,4 +945,9 @@ def main() -> int:
 
 
 if __name__ == "__main__":
+    # --z-glosem wkleja nagrania w dokument (dana biometryczna — plik do użytku
+    # własnego autorki, nie do repozytorium). Bez tej opcji dokument linkuje mp3
+    # z katalogu 04_media i wersja w repozytorium nie zawiera głosu.
+    if "--z-glosem" in sys.argv:
+        globals()["WKLEJ_GLOS"] = True
     raise SystemExit(main())

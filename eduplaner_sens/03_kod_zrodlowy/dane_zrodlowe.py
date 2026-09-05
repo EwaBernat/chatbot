@@ -282,7 +282,7 @@ WSKAZNIKI = [
      "Po zadaniu złóż parawan razem z dzieckiem i zapisz, czy sygnał wyszedł od niego.",
    ],
    "wskazowka_dla_doroslego": "Parawan nie jest nagrodą ani przywilejem. Wydawany „za dobre siedzenie” przestaje być narzędziem dziecka, a staje się narzędziem dorosłego — i przestaje działać.",
-   "opis_zdjecia": "a low grey cardboard screen standing on a nursery table, one puzzle inside it, a small orange picture card lying within a child's reach",
+   "opis_zdjecia": "szary trzyczęściowy parawan stojący na stoliku tyłem do okna, oparta o niego pusta karta zgłoszenia",
    "polecenia": {
      "A": "Za jasno. Stawiamy parawan. Teraz układamy.",
      "B": "Popatrz na kartę. Jak jest za jasno, weź osłonę z półki i wracaj do zadania.",
@@ -462,11 +462,11 @@ WSKAZNIKI = [
      "Po zadaniu zapisz, czy dziecko sięgnęło po bodziec na sygnał, czy wpatrywało się w lampę.",
    ],
    "wskazowka_dla_doroslego": "Butelka musi być zakręcona na stałe, a brokat drobny. Butelka, którą da się otworzyć, przestaje być pomocą, a staje się zagrożeniem — zwłaszcza u dziecka, które wkłada rzeczy do ust.",
-   "opis_zdjecia": "a clear sensory bottle with slowly settling glitter standing on a low shelf beside a small sand timer, and a cardboard reading window lying on a picture task",
+   "opis_zdjecia": "butelka sensoryczna z opadającym brokatem na niskiej półce, obok dwa kartonowe okienka czytelnicze",
    "polecenia": {
      "A": "Popatrz na światełka. Kiedy piasek się skończy, odkładamy butelkę.",
      "B": "Podaj kartę, jeśli chcesz światełka. Potem weź okienko i prowadź od lewej strony.",
-     "C": "Powiedz mi, kiedy zrobisz sobie przerwę. Potem sprawdź, czy niczego nie pominąłeś.",
+     "C": "Powiedz mi, kiedy zrobisz sobie przerwę. Potem sprawdź, czy niczego nie brakuje.",
    },
  },
  "arkusz": {
@@ -639,7 +639,7 @@ WSKAZNIKI = [
      "Przenieś odczyt do dziennika obserwacji; po dwóch tygodniach pokaż dziecku cały tydzień.",
    ],
    "wskazowka_dla_doroslego": "Odczyt przekazuj wszystkim dorosłym pracującym danego dnia z grupą. Termometr, o którym wie tylko jedna nauczycielka, działa przez pół dnia.",
-   "opis_zdjecia": "a vertical cardboard strip with three coloured fields and small pictures, a wooden clothes peg clipped to the middle field, hanging at child height next to a daily plan",
+   "opis_zdjecia": "pionowy pasek kartonu z trzema polami — zielonym, żółtym i czerwonym — na ścianie na wysokości oczu dziecka, klamerka wpięta w jedno z pól",
    "polecenia": {
      "A": "Jak dziś mają się twoje oczy? Przypnij klamerkę.",
      "B": "Ustaw dziś swój termometr, a potem wybierz miejsce przy stole.",
@@ -820,7 +820,7 @@ WSKAZNIKI = [
      "Zapisz, czy dziecko sięgnęło samo, czy dopiero po podaniu przez dorosłego.",
    ],
    "wskazowka_dla_doroslego": "Dopasuj słuchawki w ciszy, nie w hałasie. Pierwsze założenie w gwarze szatni kończy się zerwaniem ich z głowy i niechęcią na kilka tygodni.",
-   "opis_zdjecia": "child-sized passive ear defenders hanging on a low hook by a cloakroom door, an orange picture card pinned beside them",
+   "opis_zdjecia": "nauszniki wygłuszające na niskim wieszaku przy drzwiach do szatni, obok przypięta karta zgłoszenia",
    "polecenia": {
      "A": "Za głośno. Zakładamy słuchawki. Jestem obok.",
      "B": "Za chwilę szatnia. Weź słuchawki z wieszaka.",
@@ -1000,7 +1000,7 @@ WSKAZNIKI = [
      "Zapisz, ile razy dziecko sięgnęło po kartę zamiast stukać w blat albo pomrukiwać.",
    ],
    "wskazowka_dla_doroslego": "Wołaj dziecko po imieniu z odległości wyciągniętej ręki, nie z drugiego końca sali — dopóki reakcja nie jest pewna, wołanie z daleka uczy je, że imienia można nie usłyszeć.",
-   "opis_zdjecia": "a basket with a small drum, a maraca and a thunder tube on a low shelf, a picture exchange card and a two-minute sand timer next to it",
+   "opis_zdjecia": "koszyk z instrumentami na niskiej półce: tamburyn, grzechotka i kartonowa rura, przed koszykiem karta wymiany",
    "polecenia": {
      "A": "Popatrz na mnie. Jestem tutaj. Idziemy po bębenek.",
      "B": "Podaj kartę. Dwie minuty z instrumentem, potem wracamy.",
@@ -1178,7 +1178,7 @@ WSKAZNIKI = [
      "Przekaż odczyt drugiemu nauczycielowi i zapisz go w dzienniku obserwacji.",
    ],
    "wskazowka_dla_doroslego": "Nie mów „wczoraj ci nie przeszkadzało”. To zdanie kończy sprawdzanie poziomu szybciej niż jakikolwiek hałas — dziecko przestaje ufać własnemu odczytowi.",
-   "opis_zdjecia": "a round cardboard dial with three pictogram fields showing a crossed-out ear, a plain ear and an ear with sound waves, a movable arrow pinned in the middle",
+   "opis_zdjecia": "okrągła tarcza z kartonu z trzema polami i ruchomą strzałką, obok rozłożone trzy karty dostosowań",
    "polecenia": {
      "A": "Sprawdzamy uszy. Przesuń strzałkę.",
      "B": "Ustaw radio uszu i wybierz, czego dziś potrzebujesz.",
@@ -1360,7 +1360,7 @@ WSKAZNIKI = [
      "Po każdej sytuacji z bliskością zapisz, czy dziecko użyło znaku, karty, czy odepchnęło.",
    ],
    "wskazowka_dla_doroslego": "Zanim wyślesz dziecko w kolejkę, daj mu docisk: zabawę w naleśnik albo mocne przytulenie w kocu. Propriocepcja wycisza układ dotykowy i obniża próg drażliwości na kilkanaście minut.",
-   "opis_zdjecia": "two footprint stickers on a nursery floor by the cloakroom door, and a small card with an open-hand symbol tucked into an apron pocket",
+   "opis_zdjecia": "dwie naklejone stópki na podłodze przy brzegu dywanu, obok złożony kocyk obciążeniowy i karta zgłoszenia",
    "polecenia": {
      "A": "Stajemy na stópkach. Jestem obok ciebie.",
      "B": "Twoje miejsce jest na stópkach. Kartę „nie teraz” masz w kieszeni.",
@@ -1540,7 +1540,7 @@ WSKAZNIKI = [
      "Zapisz, czy w kręgu ręce dziecka były na gniotku, czy na sąsiedzie.",
    ],
    "wskazowka_dla_doroslego": "Przy obniżonym czuciu bólu sprawdzaj skórę dziecka codziennie i informuj rodziców. Dziecko może nie zgłosić otarcia ani oparzenia, a siniak zauważony po tygodniu jest kłopotem dla wszystkich.",
-   "opis_zdjecia": "a shallow tray filled with rice and small hidden objects on a nursery table, a soft squeeze ball resting beside it",
+   "opis_zdjecia": "płaska skrzynka z ryżem i częściowo ukrytymi drobiazgami na stoliku, obok leży gniotek",
    "polecenia": {
      "A": "Ręce na gniotka. Siedzimy do końca piosenki.",
      "B": "Weź gniotka z kieszeni. Twoje ręce pracują tutaj.",
@@ -1718,7 +1718,7 @@ WSKAZNIKI = [
      "Zapisz poziom w dzienniku i przekaż go rodzicowi przy odbiorze dziecka.",
    ],
    "wskazowka_dla_doroslego": "Nagły wzrost drażliwości dotykowej sprawdź najpierw medycznie: gorączka, ból ucha albo ząbkowanie podnoszą próg drażliwości bardziej niż jakikolwiek materiał plastyczny.",
-   "opis_zdjecia": "a paper body outline with a few areas circled, next to a three-step texture scale strip showing sand, dough and glue",
+   "opis_zdjecia": "karta z sylwetką dziecka na stoliku, obok pasek skali faktur i płócienny worek z dwiema złożonymi koszulkami",
    "polecenia": {
      "A": "Pokaż, co dziś drapie. Wybierzemy ubranie razem.",
      "B": "Wskaż na pasku: jeden, dwa czy trzy?",
@@ -1899,7 +1899,7 @@ WSKAZNIKI = [
      "Zapisz szczebel; przy następnym posiłku zacznij od tego samego, nie od wyższego.",
    ],
    "wskazowka_dla_doroslego": "Nie chwal za jedzenie. Pochwała robi z posiłku zadanie do zaliczenia i wraca odmową w dniu, w którym dziecko nie ma sił na sukces.",
-   "opis_zdjecia": "a vertical card with six pictogram rungs beside a small side plate holding one piece of unfamiliar food, next to a child's main plate",
+   "opis_zdjecia": "pionowa karta drabiny z sześcioma szczeblami obrazkowymi, klamerka wpięta w jeden szczebel, obok pusty talerzyk do prób",
    "polecenia": {
      "A": "Popatrz, tu jest nowe jedzenie. Nie musisz jeść.",
      "B": "Pokaż na drabinie, gdzie dziś jesteś. Zrób ten jeden szczebel.",
@@ -2079,7 +2079,7 @@ WSKAZNIKI = [
      "Przy posiłku połóż małą łyżeczkę i przypominaj krótko: „jeden kęs”.",
    ],
    "wskazowka_dla_doroslego": "Sprawdź gryzak codziennie przed użyciem. Nadgryziony silikon odrywa się kawałkami i z pomocy robi się dokładnie to zagrożenie, przed którym miał chronić.",
-   "opis_zdjecia": "a silicone chew pendant clipped to a nursery apron, a narrow straw in a cup of thick drink and a small measuring spoon on a plate",
+   "opis_zdjecia": "wąska rurka i mała łyżeczka na stoliku, obok szklanka gęstego jogurtu i talerzyk z chrupiącą przekąską",
    "polecenia": {
      "A": "Buzia chce mocno. Bierzemy gryzak. Kredka zostaje na stole.",
      "B": "Napij się przez rurkę. Potem jeden kęs, i następny.",
@@ -2258,7 +2258,7 @@ WSKAZNIKI = [
      "Zapisz wariant w dzienniku i przekaż go rodzicowi przy odbiorze dziecka.",
    ],
    "wskazowka_dla_doroslego": "Trzy dni z rzędu z wariantem „tylko patrzę” to sygnał do kontaktu z rodzicem i lekarzem. Sprawdź gardło, zęby i refluks, zanim uznasz to za zmienność sensoryczną.",
-   "opis_zdjecia": "three picture cards laid beside a child's plate on a nursery table, one of them moved forward onto a placemat",
+   "opis_zdjecia": "trzy karty posiłku ułożone w rzędzie przy talerzu ze znanym produktem, obok pusty talerzyk do prób",
    "polecenia": {
      "A": "Wybieramy kartę. Jem swoje, próbuję czy tylko patrzę?",
      "B": "Połóż kartę przed jedzeniem. Powiedz, co zjesz zamiast.",
@@ -2440,7 +2440,7 @@ WSKAZNIKI = [
      "Zapisz, czy dziecko weszło i zostało, i jak długo korzystało z chusteczki.",
    ],
    "wskazowka_dla_doroslego": "Sprawdź, czy dziecko nie unika toalety z powodu zapachu. Zatrzymywanie moczu i zaparcia zaczynają się właśnie tak i wymagają dostosowania od razu, nie po miesiącu obserwacji.",
-   "opis_zdjecia": "a small cotton handkerchief in a cloth pouch beside three labelled scent sachets on a nursery windowsill",
+   "opis_zdjecia": "bawełniana chusteczka w woreczku z gazy na parapecie, obok trzy słoiczki: skórka cytryny, listki mięty i suszona lawenda",
    "polecenia": {
      "A": "Brzydki zapach. Weź chusteczkę. Wchodzimy razem.",
      "B": "Chusteczka jest w kieszeni. Miejsce przy oknie jest wolne.",
@@ -2619,7 +2619,7 @@ WSKAZNIKI = [
      "Zapisuj, po który zapach dziecko sięga najczęściej — to on działa najlepiej.",
    ],
    "wskazowka_dla_doroslego": "Wymieniaj zawartość woreczków co dwa tygodnie. Zwietrzały zapach przestaje zaspokajać potrzebę i dziecko wraca do mocniejszych źródeł — czyli do chemii.",
-   "opis_zdjecia": "a lidded box on a low shelf holding five small gauze sachets labelled with pictures of lemon, mint, coffee, cinnamon and lavender",
+   "opis_zdjecia": "otwarte pudełko z pokrywką na niskiej półce, w środku pięć woreczków z gazy, o pudełko oparta karta wymiany",
    "polecenia": {
      "A": "Wąchamy tutaj. To jest pudełko zapachów.",
      "B": "Podaj kartę i idź do pudełka. Dwie minuty.",
@@ -2798,7 +2798,7 @@ WSKAZNIKI = [
      "Zrealizuj to, co ze wskazania wynika (chusteczka, miejsce), i zapisz wynik.",
    ],
    "wskazowka_dla_doroslego": "Przy katarze odczyt „nie czuję” jest normalny i nie oznacza postępu. Zapisz obok informację o katarze — inaczej dwutygodniowe zestawienie pokaże poprawę, której nie było.",
-   "opis_zdjecia": "two small scent sachets hanging by a nursery doorway next to a card with three simple faces indicating strong, normal and no smell",
+   "opis_zdjecia": "dwa woreczki zapachowe zawieszone na haczyku przy futrynie, obok przypięta karta z trzema buźkami",
    "polecenia": {
      "A": "Sprawdzamy nos. Powąchaj i pokaż buźkę.",
      "B": "Powąchaj oba woreczki. Jeśli mocno czujesz, weź chusteczkę.",
@@ -2980,11 +2980,11 @@ WSKAZNIKI = [
      "Po zadaniu nazwij, gdzie pracowały mięśnie, i zapisz wykonany szczebel.",
    ],
    "wskazowka_dla_doroslego": "Dobierz ciężar tak, żeby dziecko dało radę do końca. Zadanie porzucone w połowie uczy, że wysiłek się nie opłaca — i kolejny szczebel będzie trudniejszy do namówienia.",
-   "opis_zdjecia": "a card with five pictogram rungs of resistance tasks, a box of wooden blocks on a nursery floor and a triangular pencil with a rubber grip",
+   "opis_zdjecia": "karta drabiny z pięcioma szczeblami na niskim stoliku, obok na podłodze skrzynka z klockami, koszyk, złożona ścierka i zwinięta lina",
    "polecenia": {
      "A": "Pchamy pudło razem. Ja z jednej strony, ty z drugiej.",
      "B": "Wskaż szczebel na drabinie i zrób go do końca.",
-     "C": "Wybierz trzy zadania na dziś. Powiedz mi, gdzie poczułeś mięśnie.",
+     "C": "Wybierz trzy zadania na dziś. Powiedz mi, gdzie czujesz mięśnie.",
    },
  },
  "arkusz": {
@@ -3160,7 +3160,7 @@ WSKAZNIKI = [
      "Po przerwie zamknij ją tym samym zdaniem i zapisz, czy sygnał wyszedł od dziecka.",
    ],
    "wskazowka_dla_doroslego": "Kocyk obciążeniowy tylko pod nadzorem, nigdy podczas snu i nigdy na klatkę piersiową. Przy wadach serca i padaczce potrzebna jest zgoda lekarza — zapytaj przed pierwszym użyciem, nie po nim.",
-   "opis_zdjecia": "a nursery corner with a weighted blanket folded on a mat, a fabric crawl tunnel and an inflatable wobble cushion on a small chair",
+   "opis_zdjecia": "kącik docisku: kocyk obciążeniowy złożony na macie, za nim tunel do przeciskania, na małym krzesełku poduszka sensoryczna",
    "polecenia": {
      "A": "Twoje ciało chce mocno. Idziemy po kocyk.",
      "B": "Podaj kartę „mocno” i idź do kącika. Trzy minuty.",
@@ -3339,7 +3339,7 @@ WSKAZNIKI = [
      "W trakcie zadania przypomnij raz, wskazując pole „w sam raz”.",
    ],
    "wskazowka_dla_doroslego": "Zacznij od pracy oporowej, nie od miernika. Kilka minut pchania i noszenia porządkuje czucie na tyle, że próba na mierniku pokazuje realną siłę, a nie przypadkowy wynik.",
-   "opis_zdjecia": "a sheet divided into three labelled pressure fields with a light, a medium and a torn heavy pencil stroke, beside triangular pencils",
+   "opis_zdjecia": "kartka grubego papieru podzielona na trzy pola nacisku, obok na antypoślizgowej podkładce kredki różnej twardości i kredki trójkątne",
    "polecenia": {
      "A": "Robimy trzy kreski. Piórko, w sam raz, za mocno.",
      "B": "Zrób próbę na mierniku. Która jest w sam raz?",
@@ -3521,7 +3521,7 @@ WSKAZNIKI = [
      "Zatrzymaj ruch natychmiast po słowie albo karcie „stop”, bez „jeszcze chwilkę”.",
    ],
    "wskazowka_dla_doroslego": "Zacznij od pracy oporowej: kilka minut pchania i przeciskania wycisza układ przedsionkowy i obniża lęk bardziej niż jakiekolwiek namawianie.",
-   "opis_zdjecia": "a low playground swing with a child's feet touching the ground, a red stop card tucked into a jacket pocket beside it",
+   "opis_zdjecia": "karta drabiny z pięcioma szczeblami na macie, obok czerwona karta „stop”, w tle skrzynka, tunel i zwinięta lina",
    "polecenia": {
      "A": "Siadamy. Stopy na ziemi. Powiedz stop, kiedy chcesz.",
      "B": "Wskaż szczebel na drabinie. Karta stop jest u ciebie.",
@@ -3701,7 +3701,7 @@ WSKAZNIKI = [
      "Przyjmuj kartę bez oceny i zamykaj przerwę zawsze tym samym zdaniem.",
    ],
    "wskazowka_dla_doroslego": "Ustal wprost granice na sprzęcie: dokąd wolno się wspinać i skąd nie wolno skakać. Dziecko, które nie czuje zawrotów głowy, nie oceni wysokości samo — to najczęstsza przyczyna urazów w tej grupie.",
-   "opis_zdjecia": "an inflatable wobble cushion on a small nursery chair, a floor marker across the room and a three-minute sand timer",
+   "opis_zdjecia": "dmuchana poduszka sensoryczna na małym krzesełku, na siedzisku karta zgłoszenia, na podłodze obok znak wyznaczający miejsce ruchu",
    "polecenia": {
      "A": "Skaczemy dziesięć razy. Potem siadamy na poduszce.",
      "B": "Podaj kartę i idź na znak. Trzy minuty ruchu, potem stolik.",
@@ -3880,7 +3880,7 @@ WSKAZNIKI = [
      "Zrealizuj ścieżkę zgodną z ustawieniem i zapisz poziom w dzienniku.",
    ],
    "wskazowka_dla_doroslego": "Daj pracę oporową przed każdym wyjściem, niezależnie od poziomu. Ustabilizowane czucie sprawia, że odczyt licznika mówi o dziecku, a nie o tym, co działo się pięć minut wcześniej.",
-   "opis_zdjecia": "a cardboard slider strip with three fields showing playground equipment, hanging by a door to a nursery garden at child height",
+   "opis_zdjecia": "kartonowy suwak z trzema polami i ruchomym języczkiem na stoliku, obok dwie karty ścieżek",
    "polecenia": {
      "A": "Sprawdzamy ruch. Przesuń suwak.",
      "B": "Ustaw licznik i wybierz zabawę.",

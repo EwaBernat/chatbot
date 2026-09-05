@@ -148,3 +148,26 @@ z biblioteki wspólnej z bankiem KPOF.
 
 Pytania o treść merytoryczną — do autorki. Pytania o strukturę danych —
 `03_kod_zrodlowy/README_projektu.md`.
+
+## Zdjęcia, karty pracy i głos (aktualizacja)
+
+W konspekcie, w sekcji **VII Materiały do wydruku**, karta pomocy ma teraz
+zdjęcie gotowej pomocy. Zdjęcie jest wklejone w dokument (base64, jedna reguła
+CSS na plik), więc konspekt drukuje się razem ze zdjęciem także wtedy, gdy plik
+HTML otworzy się bez katalogu `04_media`. Układ konspektu (I–VII) nie zmienił się.
+
+`build_karty_pracy.py` generuje osobny druk **Karty_pracy_TOM.html** — jedna
+strona A4 na wskaźnik, karty 9 × 9 cm z liniami cięcia, pasek kolejności,
+zdjęcie pomocy i wszystkie trzy polecenia dla dziecka.
+
+    python3 03_kod_zrodlowy/build_karty_pracy.py
+
+**Głos.** Nagrania poleceń leżą w `04_media/.../audio_tom/`.
+Dokument domyślnie tylko je linkuje — dzięki temu wersja w repozytorium nie
+zawiera sklonowanego głosu autorki (dana biometryczna, patrz `.gitignore`).
+Żeby zrobić sobie plik grający z pendrive'a, bez katalogu mediów:
+
+    python3 03_kod_zrodlowy/build_tabela.py --z-glosem
+    python3 03_kod_zrodlowy/build_karty_pracy.py --z-glosem
+
+Takiego pliku nie commituje się do repozytorium.

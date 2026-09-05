@@ -272,7 +272,7 @@ WSKAZNIKI = [
      "Zapisz, ile razy dziecko nazwało emocję samo, bez pytania dorosłego.",
    ],
    "wskazowka_dla_doroslego": "Fotografie działają lepiej niż rysunkowe buźki: dziecko ma rozpoznawać emocje na prawdziwych twarzach, a nie na symbolu, którego w sali nikt nie ma.",
-   "opis_zdjecia": "four large photo cards of children's faces showing joy, anger, sadness and fear, pinned on a nursery wall board at child height, a small mirror beside them",
+   "opis_zdjecia": "cztery duże karty ze zdjęciami twarzy — radość, złość, smutek i strach — ustawione w rzędzie na filcowej tablicy, obok małe okrągłe lustro",
    "polecenia": {
      "A": "Popatrz. To jest smutna buźka. Pokaż mi smutną buźkę.",
      "B": "Jaka to emocja? Możesz popatrzeć na tablicę.",
@@ -447,11 +447,11 @@ WSKAZNIKI = [
      "Zapisz, które emocje dziecko myli — to one wracają na kolejnych zajęciach.",
    ],
    "wskazowka_dla_doroslego": "Dziecko z trudnościami w kontakcie wzrokowym często czyta emocje z ust, nie z oczu. Zdjęcia samych oczu pokazują to od razu i mówią, na czym skupić pracę.",
-   "opis_zdjecia": "a set of printed photographs of children's faces on a nursery table, two of them showing similar expressions, a small mirror and word cards beside them",
+   "opis_zdjecia": "zdjęcia twarzy dzieci rozłożone na stoliku, dwa z nich z podobnym wyrazem, obok małe lustro i kartoniki z nazwami",
    "polecenia": {
      "A": "Popatrz na buźki. Która jest smutna?",
      "B": "Jaka to emocja? Popatrz na oczy i na usta.",
-     "C": "Co czuje twój kolega? Zapytaj go, czy dobrze zgadłeś.",
+     "C": "Co czuje twój kolega? Zapytaj go, czy tak jest.",
    },
  },
  "arkusz": {
@@ -622,7 +622,7 @@ WSKAZNIKI = [
      "Po ćwiczeniu przenieś je na prawdziwą sytuację z tego samego dnia.",
    ],
    "wskazowka_dla_doroslego": "Przyczyna podana przez dziecko bywa inna niż twoja i nie zawsze jest błędna. Zanim poprawisz, zapytaj kolegę — to on wie, dlaczego czuje to, co czuje.",
-   "opis_zdjecia": "a nursery table with picture cards of simple situations, four emotion cards and a large sentence frame card reading a fill-in prompt",
+   "opis_zdjecia": "stolik z obrazkami prostych sytuacji, czterema kartami emocji i dużą pustą kartą ramy zdania, przy brzegu kredki",
    "polecenia": {
      "A": "Popatrz. Dlaczego on płacze?",
      "B": "Dokończ: czuje…, bo…",
@@ -797,7 +797,7 @@ WSKAZNIKI = [
      "Zapisz zgłoszenia w dzienniku; po dwóch tygodniach widać, o której porze robi się trudno.",
    ],
    "wskazowka_dla_doroslego": "Zgłoszenie emocji musi coś zmieniać. Jeżeli po „jestem zły” nic się nie dzieje, dziecko wraca do pokazywania złości ciałem — bo tamto działa.",
-   "opis_zdjecia": "a wall-mounted emotion thermometer with three faces and a wooden peg clipped to one of them, four small need cards pinned beside it",
+   "opis_zdjecia": "termometr emocji z trzema buźkami na ścianie, klamerka wpięta w jedno pole, obok przypięte cztery małe karty potrzeb",
    "polecenia": {
      "A": "Jak się dziś czujesz? Przypnij klamerkę.",
      "B": "Powiedz, jak się czujesz. Czego dziś potrzebujesz?",
@@ -972,7 +972,7 @@ WSKAZNIKI = [
      "Chwal konkretnie: nazwij czyn, nie cechę („podałeś misia”, nie „jesteś dobry”).",
    ],
    "wskazowka_dla_doroslego": "Nie każde dziecko chce być pocieszane tak samo. Nauka pytania „czego potrzebujesz?” chroni przed pomocą, która dla kolegi jest kolejnym natrętnym dotykiem.",
-   "opis_zdjecia": "a small card showing three ways to help pinned at child height in a nursery, a soft comfort toy sitting on a shelf below it",
+   "opis_zdjecia": "karta z trzema sposobami pomocy przypięta nisko na ścianie, na półce poniżej maskotka pocieszanka",
    "polecenia": {
      "A": "Popatrz, Ola płacze. Idziemy razem. Podaj jej misia.",
      "B": "Popatrz na kartę. Jak dziś pomożesz koledze?",
@@ -1149,10 +1149,10 @@ WSKAZNIKI = [
      "Aktualizuj wpisy co miesiąc — upodobania czterolatka zmieniają się szybciej niż tablica.",
    ],
    "wskazowka_dla_doroslego": "Tablica działa tylko wtedy, gdy jest prawdziwa. Wpisane „na oko” upodobanie kolegi psuje całe ćwiczenie: dziecko sprawdza odpowiedź u niego i dostaje inną.",
-   "opis_zdjecia": "a nursery wall board with photographs of children, each with pictures of their favourite toy and fruit pinned beside it",
+   "opis_zdjecia": "tablica ze zdjęciami dzieci, przy każdym przypięte obrazki ulubionej zabawki i owocu, na wysokości oczu dzieci",
    "polecenia": {
      "A": "Popatrz na tablicę. Co lubi Ola?",
-     "B": "Co wybierze Ola? A co ty byś wybrał?",
+     "B": "Co wybierze Ola? A ty co wybierasz?",
      "C": "Z kim się dziś bawisz? Zaproponuj zabawę, którą on lubi.",
    },
  },
@@ -1324,10 +1324,10 @@ WSKAZNIKI = [
      "Zapisz trafność prognoz; rosnąca trafność jest miarą postępu, nie liczba prób.",
    ],
    "wskazowka_dla_doroslego": "Gdy dziecko uparcie wskazuje własny ulubiony przedmiot, nie poprawiaj słowem — pozwól pacynce wybrać na jego oczach. Rozejście się prognozy z rzeczywistością uczy tu więcej niż tłumaczenie.",
-   "opis_zdjecia": "a hand puppet on a nursery table between two objects, small paper tokens placed beside one of them as a prediction",
+   "opis_zdjecia": "pacynka na stoliku obok dwóch talerzyków — z marchewką i z ciastkiem — przy jednym z nich położone kartoniki prognozy",
    "polecenia": {
      "A": "Po co sięgnie pacynka? Pokaż.",
-     "B": "Co wybierze Ola? Zapytaj ją potem, czy dobrze zgadłeś.",
+     "B": "Co wybierze Ola? Zapytaj ją potem, czy tak jest.",
      "C": "Co wybierze kolega i dlaczego? Dokończ: wybierze…, bo lubi…",
    },
  },
@@ -1499,7 +1499,7 @@ WSKAZNIKI = [
      "Przenieś ćwiczenie na prawdziwy podział zabawek tego samego dnia.",
    ],
    "wskazowka_dla_doroslego": "Prawdziwy podział, w którym nie każdy dostaje swoją zabawkę, jest tu potrzebny. Ćwiczenie wyłącznie na historyjkach nie przenosi się na salę.",
-   "opis_zdjecia": "two picture story strips laid side by side on a nursery table, showing the same character with a fulfilled and an unfulfilled wish, emotion cards beside them",
+   "opis_zdjecia": "dwie historyjki obrazkowe obok siebie: ta sama postać z życzeniem spełnionym i niespełnionym, obok karty emocji",
    "polecenia": {
      "A": "Dostała lody. Jaka jest buźka? A teraz nie dostała.",
      "B": "Jak się czuje bohater? A jak, kiedy nie dostał?",
@@ -1673,7 +1673,7 @@ WSKAZNIKI = [
      "Chwal wybór uwzględniający kolegę — nie chwal rezygnacji z własnej zabawy.",
    ],
    "wskazowka_dla_doroslego": "Dziecko, które zawsze ustępuje, wygląda na dobrze uspołecznione, a często po prostu nie ma narzędzi do uzgadniania. Klepsydra daje mu je szybciej niż rozmowa o dzieleniu się.",
-   "opis_zdjecia": "activity cards spread on a nursery floor between two children, a five-minute sand timer standing between them",
+   "opis_zdjecia": "karty zabaw rozłożone na macie, wśród nich stojąca pięciominutowa klepsydra, przy brzegu dwie poduszki do siedzenia",
    "polecenia": {
      "A": "Co lubi Ola? Podaj jej to.",
      "B": "W co pobawicie się razem? Sprawdź, co lubi kolega.",
@@ -1848,10 +1848,10 @@ WSKAZNIKI = [
      "Nie odpowiadaj za milczącego kolegę — poczekaj albo zaproponuj powtórzenie pytania.",
    ],
    "wskazowka_dla_doroslego": "Dziecko, które mówi tylko o sobie, nie jest egocentryczne „z charakteru” — najczęściej nie ma jeszcze narzędzia, żeby zapytać. Karta pytania jest tym narzędziem.",
-   "opis_zdjecia": "a nursery circle time with a soft toy passed between children, a question card propped on a low shelf nearby",
+   "opis_zdjecia": "krąg niskich krzesełek, na środkowym maskotka podawana mówiącemu, obok na półce oparta karta z pytaniem i pudełko skarbów",
    "polecenia": {
      "A": "Powiedz, co lubisz. Pokaż to koledze.",
-     "B": "Zapytaj kolegę: a co ty lubisz? Potem powtórz, co usłyszałeś.",
+     "B": "Zapytaj kolegę: a co ty lubisz? Potem powtórz jego odpowiedź.",
      "C": "Zapytaj nowego kolegę, co lubi. Potem zapytaj dlaczego.",
    },
  },
@@ -2025,7 +2025,7 @@ WSKAZNIKI = [
      "Zapisz, ile razy dziecko nadało przedmiotowi znaczenie samo, bez pokazania.",
    ],
    "wskazowka_dla_doroslego": "Gotowe zabawki (plastikowy telefon, plastikowe jedzenie) ułatwiają zabawę, ale nie ćwiczą udawania — funkcję mają wpisaną w kształt. Kosz z chustami i klockami działa tu lepiej niż najbogatszy kącik.",
-   "opis_zdjecia": "a basket of open-ended nursery play objects: wooden blocks, scarves, cardboard tubes and small boxes, on a play mat",
+   "opis_zdjecia": "koszyk przedmiotów niedookreślonych na macie: klocki, chusty, rolki i pudełka, obok drewniana łyżka i pusty garnek",
    "polecenia": {
      "A": "Popatrz, to mój telefon. Halo! Weź swój.",
      "B": "Co to może być? Pokaż mi.",
@@ -2200,7 +2200,7 @@ WSKAZNIKI = [
      "Zapisz, czy dziecko mówiło z roli, czy tylko wykonywało czynności.",
    ],
    "wskazowka_dla_doroslego": "Zabawa w role rozsypuje się najczęściej nie z braku pomysłów, lecz z braku zakończenia. Klepsydra i zdjęcie rekwizytu domykają ją, zanim zamieni się w bieganie po sali.",
-   "opis_zdjecia": "a nursery role-play corner with a small doctor's coat, toy stethoscope and bag laid out, a teddy bear lying on a play mat as the patient",
+   "opis_zdjecia": "kącik tematyczny: mały fartuch lekarza na haczyku, zabawkowy stetoskop i torba na niskim stoliku, na macie miś w roli pacjenta",
    "polecenia": {
      "A": "Jestem lekarzem. Załóż fartuch. Zbadamy misia.",
      "B": "Kim jesteś w tej zabawie? Powiedz coś do kolegi ze swojej roli.",
@@ -2375,7 +2375,7 @@ WSKAZNIKI = [
      "Zapisz, po którym kroku dołączenie się udaje, a po którym rozpada.",
    ],
    "wskazowka_dla_doroslego": "Odmowa jest częścią nauki. Dziecko, które nigdy nie usłyszało „nie”, nie ma jak nauczyć się drugiej próby — a to ona decyduje o wejściu do grupy.",
-   "opis_zdjecia": "three small picture cards on a nursery shelf showing watch, ask and join steps, with children playing with blocks in the background",
+   "opis_zdjecia": "trzy karty na półce — popatrz, poproś, przyłącz się — za nimi na podłodze rozpoczęta wieża z klocków",
    "polecenia": {
      "A": "Popatrz, w co się bawią. Zrób tak samo.",
      "B": "W co się bawią? Zapytaj, czy możesz się przyłączyć.",
@@ -2550,11 +2550,11 @@ WSKAZNIKI = [
      "Zapisz, czy dziecko nazwało udawanie samo, czy dopiero po pytaniu.",
    ],
    "wskazowka_dla_doroslego": "Dzieci, które mylą ramy, boją się nie postaci, tylko braku zakończenia. Wyraźne zamknięcie zabawy jest tu ważniejsze niż wszystkie tłumaczenia.",
-   "opis_zdjecia": "a real apple and a plastic toy apple side by side on a nursery table with two small labelled cards beneath them",
+   "opis_zdjecia": "prawdziwe jabłko i plastikowe jabłko obok siebie na stoliku, pod nimi dwie puste karty, w pobliżu drewniany kubek",
    "polecenia": {
      "A": "Które jabłko można zjeść? A to jest na niby.",
      "B": "Kolega udaje wilka. Powiedz mu, że to na niby.",
-     "C": "To był żart czy naprawdę? Po czym poznałeś?",
+     "C": "To był żart czy naprawdę? Po czym to poznajesz?",
    },
  },
  "arkusz": {
@@ -2725,7 +2725,7 @@ WSKAZNIKI = [
      "Zapisz, ile elementów scenariusza dzieci zrealizowały, zanim zabawa się rozsypała.",
    ],
    "wskazowka_dla_doroslego": "Nie rozstrzygaj sporu o ciąg dalszy za dzieci. Wróć z nimi do ułożonego scenariusza — to on jest tu autorytetem, nie dorosły.",
-   "opis_zdjecia": "a three-slot picture strip on a nursery table with sequence cards placed in it, role-play props waiting beside it",
+   "opis_zdjecia": "listwa na trzy obrazki z ułożonym scenariuszem na stoliku, obok czekające rekwizyty kącika",
    "polecenia": {
      "A": "Co najpierw, a co potem? Ułóż obrazki.",
      "B": "Opowiedz koledze, jak będziemy się bawić.",
@@ -2902,7 +2902,7 @@ WSKAZNIKI = [
      "Pozwól sprawdzić cudze zdanie u tej osoby, a nie u dorosłego.",
    ],
    "wskazowka_dla_doroslego": "Ten wskaźnik jest bramą do całego komponentu IV. Dopóki dziecko nie utrzyma dwóch różnych zdań o jednej rzeczy, zadania z fałszywym przekonaniem będą tylko zgadywaniem.",
-   "opis_zdjecia": "two cardboard thought bubbles held above two hand puppets facing a plate of broccoli on a nursery table",
+   "opis_zdjecia": "dwie kartonowe chmurki myśli oparte o talerz z brokułami, obok leżące dwie pacynki",
    "polecenia": {
      "A": "Ona myśli: pyszne. A ta myśli: niedobre. Co myśli ta pierwsza?",
      "B": "Co myśli kolega o tej zabawce? A co myślisz ty?",
@@ -3077,7 +3077,7 @@ WSKAZNIKI = [
      "Zapisz, czy dziecko odpowiada z własnej wiedzy, czy z wiedzy drugiej osoby.",
    ],
    "wskazowka_dla_doroslego": "Jeżeli dziecko uparcie odpowiada ze swojej wiedzy, nie tłumacz — wróć do pacynki z opaską. Znak fizyczny (zasłonięte oczy) działa tu lepiej niż każde wyjaśnienie.",
-   "opis_zdjecia": "two hand puppets on a nursery table, one wearing a small blindfold, a closed box between them",
+   "opis_zdjecia": "dwie pacynki na stoliku, jedna z opaską na oczach, między nimi zamknięte pudełko",
    "polecenia": {
      "A": "Która pacynka widziała? Ta wie, gdzie jest miś.",
      "B": "Czy kolega wie, gdzie to schowaliśmy? Dlaczego nie wie?",
@@ -3252,9 +3252,9 @@ WSKAZNIKI = [
      "Zapisz, czy dziecko odpowiedziało z własnej wiedzy, czy z perspektywy kolegi.",
    ],
    "wskazowka_dla_doroslego": "Zawartość musi naprawdę zaskakiwać. Pudełko po cukierkach z cukierkami w środku nie ćwiczy niczego — cała siła tego zadania leży w rozejściu się obrazka i zawartości.",
-   "opis_zdjecia": "a familiar sweets box opened on a nursery table revealing coloured pencils inside, a closed identical box standing next to it",
+   "opis_zdjecia": "otwarte pudełko po słodyczach z kredkami w środku, obok stoi drugie, takie samo, zamknięte",
    "polecenia": {
-     "A": "Co jest w pudełku? Otwórzmy. A co myślałeś przedtem?",
+     "A": "Co jest w pudełku? Otwórzmy. A co miało być w środku?",
      "B": "Zaraz wejdzie kolega. Co on pomyśli, że jest w pudełku?",
      "C": "Przygotuj swoje pudełko. Co pomyśli kolega i dlaczego?",
    },
@@ -3427,7 +3427,7 @@ WSKAZNIKI = [
      "Zapisz obie odpowiedzi osobno; różnią się one diagnostycznie.",
    ],
    "wskazowka_dla_doroslego": "Nie powtarzaj zadania wiele razy pod rząd, gdy dziecko odpowiada błędnie. Wróć do IV.2 („kto nie widział, ten nie wie”) — to tam leży brakujący krok, a nie w liczbie powtórzeń.",
-   "opis_zdjecia": "two hand puppets, a small basket and a box on a nursery table with a single ball placed in the basket",
+   "opis_zdjecia": "dwie pacynki, koszyk i pudełko na stoliku, w koszyku jedna piłeczka",
    "polecenia": {
      "A": "Popatrz. Ala chowa piłkę do koszyka. Gdzie ją schowała?",
      "B": "Gdzie piłka jest naprawdę? A gdzie Ala będzie jej szukać?",
@@ -3602,7 +3602,7 @@ WSKAZNIKI = [
      "Zapisuj sytuacje, w których dziecko uprzedziło kolegę samo.",
    ],
    "wskazowka_dla_doroslego": "Nie chwal za samą trafną prognozę. Chwal uprzedzenie kolegi — to ono zamienia rozumienie w zachowanie, które komuś pomaga.",
-   "opis_zdjecia": "a nursery shelf with a box of crayons moved to a different place, two small prediction cards lying on the table nearby",
+   "opis_zdjecia": "półka z pudełkiem kredek przestawionym w nowe miejsce i pustą luką po nim, na stoliku poniżej dwie karty prognozy",
    "polecenia": {
      "A": "Dokąd pójdzie pacynka? Pokaż.",
      "B": "Kolega nie wie, że przestawiliśmy kredki. Co zrobi?",
@@ -3779,7 +3779,7 @@ WSKAZNIKI = [
      "Zapisz, czy dziecko zauważyło rozbieżność samo, czy dopiero po pytaniu.",
    ],
    "wskazowka_dla_doroslego": "Ten wskaźnik pojawia się najpóźniej z całej karty — ok. 5–6 r.ż. U czterolatka jego brak jest normą i nie powinien obniżać oceny całego komponentu w interpretacji.",
-   "opis_zdjecia": "a paper figure on a nursery table with a smiling face card on its head and a sad face card placed over its chest",
+   "opis_zdjecia": "papierowa sylwetka na stoliku z kartą uśmiechu przy głowie i kartą smutku położoną na sercu, obok rozłożone karty emocji",
    "polecenia": {
      "A": "Jaką ma minę? A co czuje w środku? Połóż karty.",
      "B": "Kolega mówi, że nic mu nie jest. Jak myślisz, co czuje?",
@@ -3954,11 +3954,11 @@ WSKAZNIKI = [
      "Zapisz, czy dziecko oceniło po intencji, czy po wielkości szkody.",
    ],
    "wskazowka_dla_doroslego": "Nie wymuszaj natychmiastowych przeprosin. Przeprosiny wymuszone w afekcie uczą formuły, a nie rozumienia intencji — a to drugie jest tu celem.",
-   "opis_zdjecia": "two small cards labelled with intention symbols beside a toppled block tower on a nursery floor",
+   "opis_zdjecia": "dwie karty intencji na podłodze obok przewróconej wieży z klocków i rozsypanych klocków",
    "polecenia": {
      "A": "Chciał czy niechcący? Pokaż kartę.",
      "B": "Jak myślisz, kolega zrobił to specjalnie? Co teraz zrobisz?",
-     "C": "Po czym poznałeś, że niechcący? Przyjmiesz przeprosiny?",
+     "C": "Po czym poznajesz, że niechcący? Przyjmiesz przeprosiny?",
    },
  },
  "arkusz": {
@@ -4129,10 +4129,10 @@ WSKAZNIKI = [
      "Zapisz, czy dziecko czyta zamiar, czy reaguje na sam ruch kolegi.",
    ],
    "wskazowka_dla_doroslego": "Dziecko, które odpycha każdą zbliżającą się rękę, najczęściej nie odróżnia zamiarów, a nie „jest agresywne”. Praca nad tym wskaźnikiem zmienia więcej niż praca nad samym zakazem odpychania.",
-   "opis_zdjecia": "two children building a block tower together while a third watches, with two small intention cards lying on the floor nearby",
+   "opis_zdjecia": "rozpoczęta wieża z klocków na podłodze, obok dwie karty i czekające puzzle do wspólnego ułożenia",
    "polecenia": {
      "A": "Która pacynka pomaga? Pokaż.",
-     "B": "Kolega chce pomóc. Powiesz „dziękuję” czy „poradzę sobie sam”?",
+     "B": "Kolega chce pomóc. Powiesz „dziękuję” czy „poradzę sobie”?",
      "C": "Zapytaj kolegę, czy chce pomocy, zanim mu pomożesz.",
    },
  },
@@ -4304,7 +4304,7 @@ WSKAZNIKI = [
      "Chwal konkretnie, nazywając czyn, i notuj pomoc na tablicy podziękowań.",
    ],
    "wskazowka_dla_doroslego": "Zawołanie dorosłego jest pełnowartościową pomocą, nie porażką. Dziecko, które wie, kiedy zawołać, chroni siebie i kolegę lepiej niż to, które próbuje wszystkiego samo.",
-   "opis_zdjecia": "a card showing three ways of helping pinned low on a nursery wall, with a thank-you board beside it",
+   "opis_zdjecia": "karta z trzema sposobami pomocy przypięta nisko na ścianie, obok tablica podziękowań z papierowymi żetonami",
    "polecenia": {
      "A": "Koledze brakuje kredki. Podaj mu ją.",
      "B": "Czego kolega teraz potrzebuje? Wybierz z karty.",
@@ -4479,7 +4479,7 @@ WSKAZNIKI = [
      "Zapisz rozwiązanie na kartce grupy i wracaj do niego przy podobnym sporze.",
    ],
    "wskazowka_dla_doroslego": "To ostatni wskaźnik karty i najtrudniejszy: wymaga wszystkich wcześniejszych kroków naraz. Jeżeli dziecko utyka, sprawdź, czy nazywa emocje (I) i czy rozumie różne pragnienia (II) — braki są zwykle tam, nie tutaj.",
-   "opis_zdjecia": "a quiet nursery corner with two small chairs facing each other, a three-step conflict card and a sand timer on a low table between them",
+   "opis_zdjecia": "cichy kącik z dwoma krzesełkami zwróconymi do siebie, na niskim stoliku karta trzech kroków i drewniana klepsydra",
    "polecenia": {
      "A": "Teraz ty, potem kolega. Popatrz na klepsydrę.",
      "B": "Co ty czujesz? Czego chce kolega? Co zrobimy?",
