@@ -106,3 +106,16 @@ zdanie nie wymaga powtórzenia. Moduły M2 i M5 bez zmian. Do wymiany 5 plansz z
 (zmiana wyłącznie graficzna).
 
 Tempo dogrywek policzone z istniejącego filmu: 5753 słowa / 53:57 = **107 słów na minutę**.
+
+## Montaż wstawek do filmu (M1, M3, M4)
+
+- `wstawki_manifest.json` — siedem wstawek: punkt cięcia, tytuł, punkty planszy, tekst narracji
+- `plansza.py` — renderer plansz w projekcie filmu (Chromium, 1920×1080)
+- `zloz_wstawki.py` — potok montażowy: dzieli film, buduje wstawkę, skleja
+- `nagraj_wstawki.py` — generuje nagrania głosem autorki (uruchamiać tam, gdzie sieć przepuszcza)
+- `plansze_wstawek/` — podglądy siedmiu plansz
+- `INSTRUKCJA-montazu-filmu.md` — punkty cięcia i trzy polecenia do dokończenia
+
+Punkty cięcia namierzone OCR-em paska napisów i potwierdzone klatkami; potok przetestowany
+na M3 (345 s → 410 s, styki czyste). Nagrania czekają na dostęp do ElevenLabs — skrypt nie
+podstawia cudzego głosu.
