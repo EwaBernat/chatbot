@@ -10,8 +10,8 @@ Stan na 5 września 2026 r.
 | Plansze wstawek w projekcie filmu | **gotowe** — `plansze_wstawek/*.png`, 1920×1080 |
 | Teksty narracji | **gotowe** — w `wstawki_manifest.json` |
 | Potok montażowy | **gotowe i przetestowane** — M3 345 s → 410 s, styki czyste |
-| Nagrania głosem autorki | **zablokowane** — brak dostępu do ElevenLabs z tego środowiska |
-| Gotowe filmy | **czekają na nagrania** |
+| Nagrania głosem autorki | **gotowe** — głos „Ewa-głos_do skils" (ElevenLabs), 7 plików, 4:13 |
+| Gotowe filmy | **gotowe** — `gotowe/M1_po_audycie.mp4`, `M3_…`, `M4_…` |
 
 ## Punkty cięcia (zweryfikowane)
 
@@ -29,7 +29,21 @@ Sześć z siedmiu cięć pokrywa się z wykrytą zmianą planszy w oryginale (r�
 Siódme (M1_3) wypada w ciszy między akapitami 21 i 22 — sprawdzone klatkami: 436,5 s pasek pusty,
 437,6 s zaczyna się „Z tego rozporządzenia wynikają trzy nasze obowiązki”.
 
-## Jak dokończyć — trzy polecenia na komputerze z dostępem do sieci
+## Filmy są złożone
+
+Wstawki nagrano głosem **„Ewa-głos_do skils"** (`jq4ZUryuBeDqmtkKtBZ4`, klon polski, w opisie:
+„intonacja pasuje do prowadzenia szkoleń i wykładów"), model `eleven_multilingual_v2`.
+Zużyto **3458 kredytów ElevenLabs (≈ 0,57 USD)**, 4 minuty 13 sekund materiału.
+Wszystkie generacje na jednym przepływie: <https://elevenlabs.io/app/flows/ASET7HhNnsqGeHwrKxsw>
+
+| Wstawka | Długość nagrania | | Wstawka | Długość nagrania |
+|---|---|---|---|---|
+| M1_1 | 27,85 s | | M3_1 | 14,47 s |
+| M1_2 | 27,90 s | | M3_2 | 44,96 s |
+| M1_3 | 35,19 s | | M4_1 | 29,57 s |
+| M1_4 | 73,56 s | | | |
+
+## Gdyby trzeba było powtórzyć — trzy polecenia
 
 ```bash
 # 1. Zapamiętaj głos (raz). Skrypt sam wyciągnie dźwięk z filmu.

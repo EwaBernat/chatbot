@@ -116,6 +116,8 @@ Tempo dogrywek policzone z istniejącego filmu: 5753 słowa / 53:57 = **107 sł�
 - `plansze_wstawek/` — podglądy siedmiu plansz
 - `INSTRUKCJA-montazu-filmu.md` — punkty cięcia i trzy polecenia do dokończenia
 
-Punkty cięcia namierzone OCR-em paska napisów i potwierdzone klatkami; potok przetestowany
-na M3 (345 s → 410 s, styki czyste). Nagrania czekają na dostęp do ElevenLabs — skrypt nie
-podstawia cudzego głosu.
+- `gotowe/` — złożone filmy: `M1_po_audycie.mp4`, `M3_po_audycie.mp4`, `M4_po_audycie.mp4`
+
+Punkty cięcia namierzone OCR-em paska napisów i potwierdzone klatkami. Wstawki nagrane
+głosem autorki („Ewa-głos_do skils", ElevenLabs, `eleven_multilingual_v2`) — 3458 kredytów,
+4:13 materiału. Filmy złożone i sprawdzone na stykach.
