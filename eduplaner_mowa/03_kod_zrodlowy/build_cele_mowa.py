@@ -2,12 +2,13 @@
 # -*- coding: utf-8 -*-
 """Druk MOWA-C — 25 celów SMART do obserwacji pogłębionej rozwoju mowy.
 
-    python3 03_kod_zrodlowy/build_cele_sens.py
-    python3 03_kod_zrodlowy/build_cele_sens.py --uczen "Zofia Lewandowska" --grupa "Biedronki" \
+    python3 03_kod_zrodlowy/build_cele_mowa.py
+    python3 03_kod_zrodlowy/build_cele_mowa.py --uczen "Zofia Lewandowska" --grupa "Biedronki" \
             --wyniki 8,6,3,1,2
 
 `--wyniki` to wyniki pięciu obszarów z karty obserwacji (0–10, w kolejności karty:
-emocje, pragnienia, udawanie, fałszywe przekonanie, ukryte emocje). Z nich biorą się
+rozumienie, mowa czynna, słuch fonematyczny, słownictwo i gramatyka, komunikacja).
+Z nich biorą się
 kryterium i horyzont każdego celu — dlatego znaczniki `{proba}` i `{horyzont_*}`
 podstawia się dopiero tutaj, a nie w banku.
 
@@ -188,15 +189,16 @@ def strona_wstepna(dane: dict, wyniki: dict | None, uczen: str, grupa: str, ile:
   <div class="pas">Cele SMART do obserwacji pogłębionej · 25 wskaźników karty obserwacji MOWA</div>
   <div class="wstep"><b>Po co ten druk.</b> Karta obserwacji MOWA kończy się pięcioma wynikami —
     po jednym na obszar. Wyznaczają kierunek pracy, ale są za szerokie na obserwację pogłębioną:
-    „fałszywe przekonanie 1/10” nie mówi, którą z pięciu pozycji karty ćwiczymy w poniedziałek
+    „mowa czynna 1/10” nie mówi, którą z pięciu pozycji karty ćwiczymy w poniedziałek
     i po czym poznamy postęp. Ten druk rozpisuje tamte pięć wyników na <b>25 celów
     szczegółowych</b> — po jednym do każdej pozycji karty, każdy z zachowaniem, które widać,
     liczbą, którą da się policzyć, i terminem, w którym sprawdzamy.</div>
   <div class="dwie">
     <div class="karta-info"><h3>Jak czytać cel</h3>
-      Każdy cel opisuje <b>krok komunikacyjny, który widać</b> — to, co dziecko robi albo mówi,
-      po czym poznajemy, że uwzględniło cudzą perspektywę. „Zrozumie, że inni myślą inaczej” nie
-      jest celem: rozumienia nie da się zaobserwować ani policzyć. Dlatego pod celem stoi rozpisanie
+      Każdy cel opisuje <b>krok komunikacyjny, który słychać albo widać</b> — to, co dziecko
+      powiedziało, pokazało albo podało, żeby się porozumieć. „Poprawi wymowę” i „wzbogaci
+      słownictwo” nie są celami z tego druku: pierwsze należy do logopedy, drugiego nie da się
+      policzyć w arkuszu obserwacji. Dlatego pod celem stoi rozpisanie
       SMART: co dokładnie widać (S), ile tego liczymy (M), co to umożliwia (A), po co to dziecku (R)
       i kiedy sprawdzamy (T).</div>
     <div class="karta-info"><h3>Skąd kryterium i horyzont</h3>
@@ -249,7 +251,7 @@ def strona_obszaru(z: dict, suma: int | None, prog: dict | None, uczen: str, gru
 </article>""")
     dopisek = ' <span style="font-size:9px;color:var(--szary)">· ciąg dalszy</span>' if dalszy_ciag else ""
     zasada = ("" if dalszy_ciag else
-              f'<div class="si"><b>Zasada pracy nad teorią umysłu</b> {e(z["zasada_mowy"])}</div>')
+              f'<div class="si"><b>Zasada pracy nad mową</b> {e(z["zasada_mowy"])}</div>')
     return f"""<section class="strona">
 {naglowek(f'Rozwój mowy · cele SMART · obszar {e(z["nr"])}', uczen, grupa)}
 <div class="tresc">
@@ -277,7 +279,7 @@ def strona_ewaluacji(dane: dict, uczen: str, grupa: str, ile: int) -> str:
     Horyzont każdego obszaru bierze się z jego pasma — obszar priorytetowy sprawdzamy
     po 4 tygodniach, wymagający wsparcia po 8, zasób po 12. <b>Wzrost punktów nie jest jedynym
     wynikiem</b>: równie ważne jest to, na jakim poziomie wsparcia dziecko wykonuje krok
-    mentalizacji — przejście z Poziomu III na II jest postępem także bez zmiany punktacji.</div>
+    komunikacyjny — przejście z Poziomu III na II jest postępem także bez zmiany punktacji.</div>
   <table><thead><tr><th>Obszar</th><th>Start</th><th>Połowa okresu</th><th>Koniec</th>
     <th>Analiza zmiany</th></tr></thead><tbody>{wiersze}</tbody></table>
   <div class="dwie" style="margin-top:12px">

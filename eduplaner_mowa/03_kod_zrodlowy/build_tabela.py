@@ -313,7 +313,7 @@ table.ktab td.lp{font-weight:800;color:var(--fiolet);text-align:center}
   @page kon{size:A4 portrait;margin:10mm}
   body{background:#fff;padding:0}
   .ark{max-width:none;box-shadow:none;border-radius:0;padding:0}
-  .zakladki,.kspis,.mkt-add,.pom-play,.chipbtn{display:none !important}
+  .zakladki,.kspis,.mkt-add,.pom-play,.chipbtn,.fprzyciski{display:none !important}
   thead{display:table-header-group}
   tr,.uwaga,.leg{break-inside:avoid}
   .kmodal{display:none !important}
@@ -337,10 +337,10 @@ def naglowek(liczba_celow: int) -> str:
 <div class="kreska"></div>
 <div class="tyt">
   <span class="pigula">{liczba_celow} celów SMART</span>
-  <p>25 wskaźników karty obserwacji MOWA — pięć obszarów po pięć pozycji — × trzy wersje
-     wiekowe × trzy poziomy wsparcia. Wiersz mówi, <b>co dziecko robi albo mówi, po czym widać,
-     że uwzględniło cudzą perspektywę</b>; kolumna — ile przy tym dostaje podpory. Kliknięcie w cel otwiera konspekt
-     zajęć z wyróżnionym tym poziomem.</p>
+  <p>25 wskaźników karty obserwacji rozwoju mowy — pięć obszarów po pięć pozycji — razy trzy
+     wersje wiekowe i trzy poziomy wsparcia. Wiersz mówi, <b>co dziecko powiedziało, pokazało
+     albo podało, żeby się porozumieć</b>; kolumna — ile przy tym dostaje podpory. Kliknięcie
+     w cel otwiera konspekt zajęć z wyróżnionym tym poziomem.</p>
 </div>"""
 
 
@@ -618,7 +618,7 @@ def modal_konspektu(kon: dict, pomoc: dict, arkusz: dict, wskaznik: dict, poziom
       <div><div class="kw">EduPlaner 2026</div>
         <div class="ks">Konspekt · obszar {e(kon['obszar'])} · pozycja {e(kon['pozycja'])} · wersja
           {e(kon['wersja_wiekowa'])} · {e(kon['wiek'])} · wskaźnik {e(kon['wskaznik'])}</div></div>
-      <span class="kpill">Konspekt SENS {e(kon['wersja_wiekowa'])}-{e(kon['wskaznik'])}</span></div>
+      <span class="kpill">Konspekt MOWA {e(kon['wersja_wiekowa'])}-{e(kon['wskaznik'])}</span></div>
     <div class="kmeta" style="grid-template-columns:1.6fr 1fr 1fr">
       <div class="field"><b>Dotyczy dziecka</b><span class="dots"></span></div>
       <div class="field"><b>Grupa</b><span class="dots"></span></div>
@@ -631,7 +631,7 @@ def modal_konspektu(kon: dict, pomoc: dict, arkusz: dict, wskaznik: dict, poziom
       <div class="field"><b>Forma</b>{e(kon['forma'])}</div>
       <div class="field"><b>Cykl</b>{e(kon['cykl'])}</div>
       <div class="field"><b>Poziom wsparcia</b><span class="kon-poz">wszystkie trzy</span></div></div>
-    <div class="kkrok"><b>Krok mentalizacji:</b> {e(wskaznik['krok_komunikacyjny'])}
+    <div class="kkrok"><b>Krok komunikacyjny:</b> {e(wskaznik['krok_komunikacyjny'])}
       <span>{e(wskaznik['opis_kroku'])}</span></div>
 
     <div class="ksec"><span class="sq">I</span><h4>Cel SMART</h4><span class="line"></span></div>
@@ -776,9 +776,14 @@ function drukujZeszyt(wersja){
    Pliki audio to sklonowany głos autorki — dana biometryczna. Nie ma ich
    w repozytorium; odtwarza je `nagrania_glos.py --generuj` do 04_media/. */
 function odtworz(btn){
+  /* Ten plik może linkować nagranie z 04_media albo mieć je w sobie (build --z-glosem).
+     Gdy dokument wyjechał bez katalogu mediów, nagranie się nie wczyta — komunikat ma
+     mówić nauczycielce, co z tym zrobić, a nie którą komendę uruchomić. */
   const a = new Audio(btn.dataset.audio);
   a.play().catch(() => {
-    btn.innerHTML = 'brak pliku nagrania — uruchom <code>nagrania_glos.py --generuj</code>';
+    btn.innerHTML = btn.dataset.audio.startsWith('data:')
+      ? 'nagranie jest w pliku, ale przeglądarka go nie odtworzyła — kliknij jeszcze raz'
+      : 'ten plik tylko linkuje nagrania — otwórz wersję <b>…_Z_GLOSEM.html</b>, która gra sama';
     btn.disabled = true;
   });
 }
@@ -786,7 +791,7 @@ function odtworz(btn){
 /* ——— własne konspekty nauczycielki ———
    Zapisywane w pamięci przeglądarki, w kształcie z `wlasne_konspekty_kontrakt.json`.
    Cel edukacyjny i tu czytany jest z tabeli — rekord go nie przechowuje. */
-const KLUCZ = 'eduplaner2026.moje-konspekty-tom.v1';
+const KLUCZ = 'eduplaner2026.moje-konspekty-mowa.v1';
 const POZIOMY_JS = __POZIOMY__;
 const OBSZARY_JS = __OBSZARY__;
 const WERSJE_JS = __WERSJE__;
@@ -1047,7 +1052,7 @@ def main() -> int:
 
 
 if __name__ == "__main__":
-    ap = argparse.ArgumentParser(description="Tabela celów TOM z konspektami")
+    ap = argparse.ArgumentParser(description="Tabela celów MOWA z konspektami")
     ap.add_argument("--wyjscie", default=str(WYJSCIE), help="plik docelowy")
     ap.add_argument("--z-glosem", action="store_true", dest="z_glosem",
                     help="wklej nagrania w dokument (dana biometryczna — plik tylko do "

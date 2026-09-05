@@ -199,7 +199,7 @@ def konspekty() -> dict:
                 "pozycja": w["pozycja"],
                 "tytul": k["tytul"],
                 "podtytul": wa["podtytul"],
-                "sfera": (f"KOMPONENT {w['obszar']} · {z['nazwa'].upper()} · pozycja {w['pozycja']} · "
+                "sfera": (f"OBSZAR {w['obszar']} · {z['nazwa'].upper()} · pozycja {w['pozycja']} · "
                           f"krok komunikacyjny: {w['krok_komunikacyjny']} (ICF {z['icf']} · {z['pp']})"),
                 "czas": wu["czas"],
                 "forma": wu["forma"],
@@ -334,9 +334,9 @@ def wlasne_konspekty_kontrakt() -> dict:
         "dokument": "EduPlaner 2026 · kontrakt rekordu własnego konspektu (rozwój mowy (MOWA))",
         "opis": ("Kształt rekordu, w którym nauczycielka zapisuje własny scenariusz do celu "
                  "z tabeli MOWA-T. Druk MOWA-T zapisuje takie konspekty w pamięci przeglądarki "
-                 "(klucz `eduplaner2026.moje-konspekty-tom.v1`); aplikacja ma je czytać z tego "
+                 "(klucz `eduplaner2026.moje-konspekty-mowa.v1`); aplikacja ma je czytać z tego "
                  "samego kształtu."),
-        "klucz_magazynu": "eduplaner2026.moje-konspekty-tom.v1",
+        "klucz_magazynu": "eduplaner2026.moje-konspekty-mowa.v1",
         "kontrakt": {
             "id": "string — prefiks mks, nadawany przy zapisie",
             "nr": "string — wskaźnik, np. VI.2",
