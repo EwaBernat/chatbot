@@ -223,15 +223,19 @@ def strona_wstepna(dane: dict, wyniki: dict | None, uczen: str, grupa: str, ile:
 </section>"""
 
 
+CELE_NA_STRONE = 3   # tyle bloków celu mieści się na A4 obok nagłówka komponentu
+
+
 def strona_komponentu(z: dict, suma: int | None, prog: dict | None, uczen: str, grupa: str,
-                  nr_strony: int, ile: int) -> str:
+                  nr_strony: int, ile: int, wskazniki: list[dict] | None = None,
+                  dalszy_ciag: bool = False) -> str:
     if prog is not None:
         bad = (f'{suma}/10 · <span class="ocena {klasa_oceny(prog["ocena"])}">{e(prog["ocena"])}</span>'
                f'<b>{e(prog["kryterium"])} sytuacji · {e(prog["horyzont"]["mianownik"])}</b>')
     else:
         bad = '……/10 · <span class="ocena">pasmo ………</span><b>…… z 5 · ……… tygodni</b>'
     cele = []
-    for w in z["wskazniki"]:
+    for w in (wskazniki if wskazniki is not None else z["wskazniki"]):
         smart = "".join(f'<div><i>{e(s["litera"])}</i>{e(podstaw(s["tresc"], prog))}</div>'
                         for s in w["smart"])
         cele.append(f"""<article class="cel">
@@ -243,14 +247,17 @@ def strona_komponentu(z: dict, suma: int | None, prog: dict | None, uczen: str, 
   <div class="obs"><span><b>Obserwacja</b> {e(w['co_obserwowac'])} · {e(w['ile_sytuacji'])}</span>
     <span class="wynik">wynik <span class="pole">&nbsp;</span>/5 · data <span class="pole">&nbsp;</span></span></div>
 </article>""")
+    dopisek = ' <span style="font-size:9px;color:var(--szary)">· ciąg dalszy</span>' if dalszy_ciag else ""
+    zasada = ("" if dalszy_ciag else
+              f'<div class="si"><b>Zasada pracy nad teorią umysłu</b> {e(z["zasada_tom"])}</div>')
     return f"""<section class="strona">
 {naglowek(f'Teoria umysłu · cele SMART · komponent {e(z["nr"])}', uczen, grupa)}
 <div class="tresc">
   <div class="fn"><span class="rz">{e(z['nr'])}</span>
-    <div><h2>{e(z['nazwa'])} <span style="font-size:9px;color:var(--szary)">{e(z['icf'])}</span></h2>
+    <div><h2>{e(z['nazwa'])}{dopisek} <span style="font-size:9px;color:var(--szary)">{e(z['icf'])}</span></h2>
       <div class="op">{e(z['opis'])}</div></div>
     <div class="bad">{bad}</div></div>
-  <div class="si"><b>Zasada pracy nad teorią umysłu</b> {e(z['zasada_tom'])}</div>
+  {zasada}
   {''.join(cele)}
 </div>
 {stopka(nr_strony, ile, f"komponent {z['nr']} · {z['nazwa'].lower()}")}
@@ -312,13 +319,23 @@ def main() -> int:
             raise SystemExit("Wynik komponentu mieści się w skali 0–10.")
         wyniki = dict(zip(KOLEJNOSC, liczby))
 
-    ile = 2 + len(KOLEJNOSC)
-    strony = [strona_wstepna(dane, wyniki, args.uczen, args.grupa, ile)]
-    for i, nr in enumerate(KOLEJNOSC, start=2):
+    # Komponent ma pięć wskaźników, a na A4 mieszczą się trzy bloki celu. Reszta
+    # przechodzi na kolejną stronę z tym samym nagłówkiem i dopiskiem „ciąg dalszy” —
+    # inaczej kartka rosłaby do 352 mm i drukarka dzieliła ją w przypadkowym miejscu.
+    porcje = []
+    for nr in KOLEJNOSC:
         z = next(x for x in dane["komponenty"] if x["nr"] == nr)
+        w = z["wskazniki"]
+        for k in range(0, len(w), CELE_NA_STRONE):
+            porcje.append((z, nr, w[k:k + CELE_NA_STRONE], k > 0))
+
+    ile = 2 + len(porcje)
+    strony = [strona_wstepna(dane, wyniki, args.uczen, args.grupa, ile)]
+    for i, (z, nr, czesc, dalej) in enumerate(porcje, start=2):
         suma = wyniki[nr] if wyniki else None
         prog = prog_dla(suma, dane["progi"]) if suma is not None else None
-        strony.append(strona_komponentu(z, suma, prog, args.uczen, args.grupa, i, ile))
+        strony.append(strona_komponentu(z, suma, prog, args.uczen, args.grupa, i, ile,
+                                        wskazniki=czesc, dalszy_ciag=dalej))
     strony.append(strona_ewaluacji(dane, args.uczen, args.grupa, ile))
 
     nazwa = (f"uczen_{slug(args.uczen)}_TOM-C.html" if args.uczen

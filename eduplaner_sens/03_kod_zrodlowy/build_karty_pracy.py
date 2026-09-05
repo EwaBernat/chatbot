@@ -106,7 +106,7 @@ body{background:#e9e7ef;color:var(--ink);font-family:'Mulish','Segoe UI',Candara
 .karta{width:90mm;height:90mm;border:1.5px dashed var(--fiolet-linia);border-radius:4mm;padding:5mm;
   display:flex;flex-direction:column;align-items:center;justify-content:space-between;text-align:center;
   break-inside:avoid;position:relative;background:#fff}
-.karta .pole{width:100%;flex:1;border:1px solid var(--linia);border-radius:3mm;background:#fbfaff;
+.karta .pole{width:100%;flex:1;border:1px solid var(--linia);border-radius:3mm;background:#fff;
   display:flex;align-items:center;justify-content:center;overflow:hidden;margin-bottom:4mm}
 .karta .pole img{max-width:100%;max-height:100%;object-fit:contain}
 .karta .pole .puste{font-size:8px;color:var(--szary);line-height:1.5;padding:6mm}
@@ -131,6 +131,18 @@ body{background:#e9e7ef;color:var(--ink);font-family:'Mulish','Segoe UI',Candara
 .pol .audio{display:block;font-family:ui-monospace,Consolas,monospace;font-size:7px;color:var(--szary);margin-top:3px}
 .graj{display:block;margin-top:4px;border:1px solid var(--pomarancz-linia);background:#fff;color:var(--pomarancz);
   border-radius:999px;padding:3px 9px;font:700 8px/1 inherit;cursor:pointer}
+/* ——— strona instrukcji ———
+   Wszystko, czego nie tnie się nożyczkami: zdjęcie gotowej pomocy, trzy kroki,
+   znaczenie kart i teksty poleceń. Osobna kartka, bo razem z arkuszem do cięcia
+   treść urastała do 370 mm i drukarka dzieliła ją w przypadkowym miejscu. */
+.kroki{margin:2mm 0 0;padding-left:6mm;font-size:10px;line-height:1.6;color:var(--ink)}
+.kroki li{margin-bottom:1mm}
+.opisy{margin:2mm 0 0;padding-left:5mm;font-size:9.5px;line-height:1.6;color:var(--szary)}
+.opisy b{color:var(--fiolet)}
+.wskaz{margin-top:3mm;border-left:3px solid var(--fiolet);background:var(--fiolet-tlo);
+  border-radius:0 2mm 2mm 0;padding:3mm 4mm;font-size:9.5px;line-height:1.55;color:var(--ink)}
+.pole-k img{width:100%;height:26mm;object-fit:contain;background:#fff;margin:1.5mm 0}
+
 /* ——— arkusz historyjki obrazkowej ———
    Osobna strona A4, bo pola tnie sie i uklada na stole, a karty z poprzedniej
    strony zostaja na tablicy. Drabina idzie od dolu do gory: najnizszy szczebel
@@ -220,53 +232,87 @@ def foto_pomocy(pomoc: dict) -> str:
             f'<figcaption><b>Tak wygląda gotowa pomoc</b>{e(pomoc["opis_zdjecia"])}</figcaption></figure>')
 
 
-def strona(arkusz: dict, pomoc: dict, wskaznik: dict, konspekt_tytul: str,
-           nr_strony: int, ile: int) -> str:
-    karty = "".join(karta(k) for k in arkusz["karty"])
-    pasek = "".join(
-        f'<div class="pole-k"><div class="num">{i}</div>'
-        f'<div class="et">{e(p["etykieta_dla_dziecka"].split("·", 1)[-1].strip())}</div>'
-        f'<div class="sym">{e((p.get("plik_symbolu") or "pole celowo puste").rsplit("/", 1)[-1])}</div></div>'
-        for i, p in enumerate(arkusz["pasek_kolejnosci"], start=1))
-    opisy = "".join(f'<li><b>{e(k["etykieta_dla_dziecka"])}</b> — {e(k["opis_dla_doroslego"])}</li>'
-                    for k in arkusz["karty"])
-    def polecenie(w, p) -> str:
-        dane = zrodlo_audio(p["nagranie"])
-        stopka = (f'<button type="button" class="graj" data-audio="{dane}">▶ głos autorki</button>'
-                  if dane else
-                  f'<span class="audio">{e(p["nagranie"].rsplit("/", 1)[-1])} — brak nagrania</span>')
-        return (f'<div class="pol"><span class="wiek">Wersja {w} · {e(p["wiek"])}</span>'
-                f'„{e(p["polecenie_dla_dziecka"])}”{stopka}</div>')
-
-    polecenia = "".join(polecenie(w, p) for w, p in pomoc["polecenia"].items())
-    return f"""<section class="strona">
-<div class="head"><span class="mark" role="img" aria-label="Logo PCTP"></span>
-  <div><h1>EduPlaner 2026</h1><div class="sub">{e(MODUL['nazwa'])} · karty pracy do wycięcia</div></div>
-  <div class="prawa"><b>{e(MODUL['kod'])} · KC-4</b><span>arkusz A4 · do wycięcia</span></div></div>
+def naglowek(podtytul: str, arkusz: dict, pomoc: dict, konspekt_tytul: str,
+             tytul: str, dopisek: str = "") -> str:
+    """Wspólna głowa każdej strony A4 — ta sama marka, ten sam numer wskaźnika."""
+    return f"""<div class="head"><span class="mark" role="img" aria-label="Logo PCTP"></span>
+  <div><h1>EduPlaner 2026</h1><div class="sub">{e(MODUL['nazwa'])} · {podtytul}</div></div>
+  <div class="prawa"><b>{e(MODUL['kod'])} · KC-4</b><span>arkusz A4{dopisek}</span></div></div>
 <div class="kreska"></div>
 <div class="tyt"><span class="nr">{e(arkusz['wskaznik'])}</span>
-  <div><h2>{e(arkusz['tytul'])}</h2>
-    <div class="kon">do konspektu „{e(konspekt_tytul)}” · pomoc: {e(pomoc['nazwa'])} ·
-      strategia sensoryczna: {e(wskaznik['strategia_sensoryczna'])}</div></div></div>
+  <div><h2>{tytul}</h2>
+    <div class="kon">do konspektu „{e(konspekt_tytul)}” · pomoc: {e(pomoc['nazwa'])}</div></div></div>"""
+
+
+def stopka(arkusz: dict, nr_strony: int, ile: int) -> str:
+    return (f'<div class="stopka"><span>EduPlaner 2026 · PCTP · pedagog specjalny '
+            f'<b>mgr Mirosława Ewa Jurczyszyn</b></span>'
+            f'<span>Karta pracy {nr_strony} z {ile} · wskaźnik {e(arkusz["wskaznik"])}</span></div>')
+
+
+def strona_instrukcji(arkusz: dict, pomoc: dict, konspekt_tytul: str,
+                      nr_strony: int, ile: int) -> str:
+    """Strona dla dorosłego: zdjęcie gotowej pomocy, co przygotować, co znaczy która
+    karta i teksty poleceń. Nie idzie pod nożyczki, więc zostaje w całości —
+    wcześniej dzieliła kartkę z arkuszem do cięcia i obie rzeczy się nie mieściły."""
+    opisy = "".join(f'<li><b>{e(k["etykieta_dla_dziecka"])}</b> — {e(k["opis_dla_doroslego"])}</li>'
+                    for k in arkusz["karty"])
+
+    def polecenie(w, p) -> str:
+        dane = zrodlo_audio(p["nagranie"])
+        stopka_pol = (f'<button type="button" class="graj" data-audio="{dane}">▶ głos autorki</button>'
+                      if dane else
+                      f'<span class="audio">{e(p["nagranie"].rsplit("/", 1)[-1])} — brak nagrania</span>')
+        return (f'<div class="pol"><span class="wiek">Wersja {w} · {e(p["wiek"])}</span>'
+                f'„{e(p["polecenie_dla_dziecka"])}”{stopka_pol}</div>')
+
+    polecenia = "".join(polecenie(w, p) for w, p in pomoc["polecenia"].items())
+    return f"""<section class="strona instrukcja">
+{naglowek("instrukcja do kart pracy", arkusz, pomoc, konspekt_tytul,
+          e(arkusz['tytul']), " · dla dorosłego")}
 <div class="przed">{foto_pomocy(pomoc)}
   <div class="wstep"><b>Dla dorosłego.</b> {e(arkusz['wstep_dla_doroslego'])}
     <h5>Co przygotować</h5>
     <ul>{''.join(f'<li>{e(x)}</li>' for x in pomoc['co_przygotowac'])}</ul></div></div>
 
+<div class="blk">Jak użyć — trzy kroki</div>
+<ol class="kroki">{''.join(f'<li>{e(x)}</li>' for x in pomoc['trzy_kroki_uzycia'])}</ol>
+
+<div class="blk">Co znaczy która karta</div>
+<ul class="opisy">{opisy}</ul>
+
+<div class="blk">Polecenie dla dziecka <span class="info">to jest tekst nagrany głosem autorki</span></div>
+<div class="polecenia">{polecenia}</div>
+
+<div class="wskaz">{e(pomoc['wskazowka_dla_doroslego'])}</div>
+{stopka(arkusz, nr_strony, ile)}
+</section>"""
+
+
+def strona_ciecia(arkusz: dict, pomoc: dict, konspekt_tytul: str,
+                  nr_strony: int, ile: int) -> str:
+    """Strona pod nożyczki: cztery karty 90 × 90 mm i pasek kolejności. Nic więcej,
+    bo wszystko, co tu jeszcze stało, zostawało przecięte razem z kartami."""
+    karty = "".join(karta(k) for k in arkusz["karty"])
+
+    def pole_paska(i, p) -> str:
+        obraz = obraz_base64(p.get("plik_symbolu"))
+        rysunek = (f'<img src="{obraz}" alt="">' if obraz
+                   else '<div class="sym">pole na własny symbol</div>')
+        return (f'<div class="pole-k"><div class="num">{i}</div>{rysunek}'
+                f'<div class="et">{e(p["etykieta_dla_dziecka"].split("·", 1)[-1].strip())}</div></div>')
+
+    pasek = "".join(pole_paska(i, p) for i, p in enumerate(arkusz["pasek_kolejnosci"], start=1))
+    return f"""<section class="strona ciecie">
+{naglowek("karty pracy do wycięcia", arkusz, pomoc, konspekt_tytul,
+          e(arkusz['tytul']), " · do wycięcia")}
 <div class="blk">Karty dla dziecka <span class="info">rozmiar docelowy 90 × 90 mm · wytnij wzdłuż linii przerywanej</span></div>
 <div class="karty">{karty}</div>
 
 <div class="blk">Pasek kolejności <span class="info">wytnij w całości i powieś w miejscu, którego dotyczy</span></div>
 <div class="pasek">{pasek}</div>
-
-<div class="legenda"><h4>Co znaczy która karta — dla nauczyciela</h4><ul>{opisy}</ul></div>
-<div class="blk">Polecenie dla dziecka <span class="info">to jest tekst nagrany głosem autorki</span></div>
-<div class="polecenia">{polecenia}</div>
-
-<div class="stopka"><span>EduPlaner 2026 · PCTP · pedagog specjalny <b>mgr Mirosława Ewa Jurczyszyn</b></span>
-  <span>Karta pracy {nr_strony} z {ile} · wskaźnik {e(arkusz['wskaznik'])}</span></div>
+{stopka(arkusz, nr_strony, ile)}
 </section>"""
-
 
 
 def strona_historyjki(arkusz: dict, pomoc: dict, konspekt_tytul: str,
@@ -340,11 +386,15 @@ def main() -> int:
     arkusze = materialy["arkusze"]
     # Wskaźnik z historyjką dostaje drugą stronę, więc liczbę stron znamy dopiero
     # po przejściu listy — stopka ma pokazywać prawdziwe „x z y”.
-    ile = len(arkusze) + sum(1 for a in arkusze if a.get("historyjka"))
+    # Każdy wskaźnik to dwie strony: instrukcja dla dorosłego i arkusz pod nożyczki.
+    # Razem nie mieściły się na A4 — kartka rosła do 370 mm i drukarka tnęła ją
+    # w przypadkowym miejscu, więc wydruk nie wyglądał jak podgląd na ekranie.
+    ile = 2 * len(arkusze) + sum(1 for a in arkusze if a.get("historyjka"))
     strony, nr = [], 1
     for a in arkusze:
-        w, p, tyt = wskazniki[a["wskaznik"]], pomoce[a["wskaznik"]], konspekty[a["wskaznik"]]
-        strony.append(strona(a, p, w, tyt, nr, ile)); nr += 1
+        p, tyt = pomoce[a["wskaznik"]], konspekty[a["wskaznik"]]
+        strony.append(strona_instrukcji(a, p, tyt, nr, ile)); nr += 1
+        strony.append(strona_ciecia(a, p, tyt, nr, ile)); nr += 1
         if a.get("historyjka"):
             strony.append(strona_historyjki(a, p, tyt, nr, ile)); nr += 1
 
