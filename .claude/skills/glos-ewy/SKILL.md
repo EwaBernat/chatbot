@@ -1,16 +1,17 @@
 ---
 name: glos-ewy
 description: >-
-  Nagrywa narrację i wstawki lektorskie głosem Mirosławy Ewy Jurczyszyn — jej sklonowanym głosem
-  z ElevenLabs, w intonacji osoby prowadzącej szkolenie. Trzyma zapamiętany voice_id, słownik
-  wskazówek aktorskich, zasady zapisu liczb pod polskiego lektora i procedurę wyrównania
-  głośności do istniejącego filmu. Użyj ZAWSZE, gdy pada „przywołaj agenta głosu Ewy", „agent
-  głosu Ewy", „dodaj mój głos", „nagraj to moim głosem", „mój głos do tego szkolenia", „lektor",
-  „narracja", „voice-over", „dogranie do filmu", „wstawka do modułu", „udźwiękowij" — a także
-  wtedy, gdy powstaje materiał szkoleniowy EduPlaner albo PCTP, który ma mieć ścieżkę dźwiękową,
-  nawet jeśli nikt nie powiedział wprost „głos". Skill NIGDY nie nagrywa cudzym głosem: bez
-  dostępu do jej głosu oddaje sam tekst narracji i zatrzymuje się. NIE używaj do samej analizy
-  danych ani do pisania scenariusza bez dźwięku — do tego służy skill dane-i-glos.
+  Nagrywa narrację, wstawki lektorskie, wersje audio broszur i odcinki podkastu głosem
+  Mirosławy Ewy Jurczyszyn — jej sklonowanym głosem z ElevenLabs, w intonacji osoby
+  prowadzącej szkolenie. Trzyma zapamiętany voice_id, wskazówki aktorskie, zasady zapisu
+  liczb pod polskiego lektora i wyrównanie głośności. Użyj ZAWSZE, gdy pada „przywołaj
+  agenta głosu Ewy", „agent głosu", „dodaj mój głos", „nagraj to moim głosem", „lektor",
+  „narracja", „voice-over", „udźwiękowij", „dogranie do filmu", „wstawka do modułu",
+  „audio do broszury", „podkast", „odcinek", „wersja mówiona" — a także gdy powstaje
+  materiał EduPlaner albo PCTP mający mieć ścieżkę dźwiękową: szkolenie, moduł filmowy,
+  broszura, poradnik, ulotka, podkast. Bez dostępu do jej głosu oddaje sam tekst narracji
+  i zatrzymuje się — NIGDY nie nagrywa cudzym głosem. NIE używaj do filmu z awatarem
+  HeyGen: tam ustawienia trzyma skill film-glos.
 ---
 
 # Głos Ewy
@@ -18,7 +19,8 @@ description: >-
 Ten skill istnieje po to, żeby każde nagranie firmowane nazwiskiem Mirosławy Ewy
 Jurczyszyn brzmiało nią i pasowało do materiału, do którego trafia. Trzyma trzy rzeczy,
 które za każdym razem trzeba by odtwarzać od zera: **który to głos**, **jak pisać, żeby
-zabrzmiał jak na szkoleniu**, i **jak dopasować go do istniejącego filmu**.
+zabrzmiał jak na szkoleniu**, i **jak dopasować go do materiału, do którego trafia** —
+szkolenia, broszury albo podkastu.
 
 ## Zasada nadrzędna: tylko jej głos
 
@@ -144,6 +146,82 @@ Dobra kompozycja dłuższej wstawki: ciepłe wejście → spokojne wyjaśnienie 
 na sedno → ciepłe domknięcie. Tak mówi ktoś, kto stoi przed radą pedagogiczną, a nie
 ktoś, kto czyta rozporządzenie.
 
+## Trzy rodzaje materiału
+
+Głos jest jeden, ale sposób mówienia dobiera się do formy. Ustal rodzaj, zanim napiszesz
+pierwsze zdanie — przepisany później tekst i tak trzeba nagrać od nowa.
+
+| | szkolenie / film | broszura | podkast |
+|---|---|---|---|
+| długość jednego nagrania | 20–90 s (wstawka), scena do 2 min | 2–8 min, całość działu | 8–25 min, odcinek |
+| tempo | ~107 słów/min | ~100 słów/min (wolniej, słuchacz nie ma obrazu) | ~112 słów/min (swobodniej) |
+| model | `eleven_v3` | `eleven_v3` | `eleven_v3` |
+| wskazówki aktorskie | jedna na akapit | jedna na sekcję, oszczędnie | dwie–trzy na blok, żywiej |
+| dzielenie na pliki | jeden plik na wstawkę | jeden plik na rozdział broszury | jeden plik na blok, sklejane na końcu |
+| cel głośności | zmierzony z filmu docelowego | `--cel -20.7` | `--cel -16.0` (norma podkastowa) |
+
+### Szkolenia i filmy
+
+Wstawka wchodzi w środek gotowego modułu, więc liczy się przede wszystkim **szew**:
+zaczyna się i kończy pełnym zdaniem, nie wchodzi w połowie myśli i ma tę samą głośność,
+co materiał wokół. Kompozycja dłuższej wstawki: ciepłe wejście → spokojne wyjaśnienie →
+mocny akcent na sedno → ciepłe domknięcie.
+
+Nie zapowiadaj samej siebie („teraz powiem o…") — w filmie robi to plansza. Cała procedura
+wklejenia w gotowy film: [`references/montaz-wstawek.md`](./references/montaz-wstawek.md).
+
+Film z awatarem to **inna ścieżka** — tam mówi awatar HeyGen ustawieniami ze skilla
+skill `film-glos` (repo EduPlaner 2026). Ten skill obsługuje dźwięk samodzielny: wstawki
+lektorskie, narrację do plansz, materiał bez prezenterki w kadrze.
+
+### Broszury
+
+Wersja mówiona broszury powstaje **z gotowej, zatwierdzonej treści** — tej samej, którą
+Ewa przyjęła w PDF-ie. Obowiązuje ta sama twarda zasada, co w skillu
+skill `broszury` (repo EduPlaner 2026): **treść przepisujesz 1:1**, bez skracania i bez
+„poprawiania stylu". Wolno Ci zrobić tylko trzy rzeczy, i tylko one:
+
+1. rozwinąć skróty i liczby na zapis do czytania („Wopfu", „paragraf siódmy ustęp trzeci"),
+2. dodać wskazówki aktorskie i pauzy w wersji TTS,
+3. dopisać jedno zdanie zapowiedzi rozdziału tam, gdzie w druku jest sam nagłówek —
+   bo słuchacz nie widzi nagłówka. To zdanie pokazujesz Ewie do akceptacji.
+
+Czego w audio nie ma: numerów stron, odsyłaczy „patrz tabela obok", podpisów pod
+ilustracjami. Zamiast „w tabeli obok" mów „za chwilę wymienię".
+
+Plik nazywaj tak jak broszurę, z dopiskiem rodzaju: `nazwa-broszury-audio.mp3`, jeden
+plik na rozdział. Oddajesz je razem z PDF-em, nie osobno.
+
+### Podkasty
+
+Odcinek jest dłuższy i słucha się go bez obrazu, więc trzyma go **struktura, nie plansze**:
+
+1. **Czołówka** (20–30 s): kto mówi, o czym jest odcinek, dlaczego teraz. Nazwisko pada
+   tu i tylko tu.
+2. **Zapowiedź** (15 s): trzy rzeczy, które słuchacz będzie wiedział po odcinku.
+3. **Bloki tematyczne** (3–5, po 3–6 min): jeden blok to jedna sprawa. Każdy zaczyna się
+   pytaniem, które zadaje sala („Czy dyrektor musi…").
+4. **Domknięcie** (30–60 s): co z tym zrobić w poniedziałek. Konkret, nie podsumowanie.
+
+Zasady, które w podkaście różnią się od filmu:
+
+- **Sygnalizuj przejścia głosem** — „to była pierwsza sprawa, teraz druga". Bez obrazu
+  słuchacz nie wie, że zmienił się temat.
+- **Powtórz to, co ważne, innymi słowami.** W filmie powtórzenie jest zbędne, bo wisi
+  na planszy; w podkaście to jedyny sposób, żeby coś zostało.
+- **Nie czytaj wyliczeń dłuższych niż trzy punkty.** Cztery punkty ze słuchu to za dużo —
+  rozbij je na dwa zdania albo odeślij do druku.
+- **Numery publikatorów podawaj raz**, przy pierwszym wystąpieniu, i wracaj do nazwy
+  („to rozporządzenie"). Trzykrotnie przeczytana pozycja Dziennika Ustaw usypia.
+
+Bloki generuj jako osobne pliki i sklej na końcu — poprawka jednego zdania nie może
+oznaczać przegenerowania dwudziestu minut. Sklejenie bez przekodowania:
+
+```bash
+printf "file '%s'\n" blok-*.mp3 > lista.txt
+ffmpeg -f concat -safe 0 -i lista.txt -c copy odcinek.mp3
+```
+
 ## Wyrównanie głośności
 
 Nagrania z ElevenLabs wychodzą zwykle o 1–4 dB ciszej niż jej filmy. Na styku słychać to
@@ -178,5 +256,5 @@ zapewniać, że brzmi dobrze.
 
 Jeżeli nagranie ma trafić w środek gotowego modułu, cała procedura — namierzanie punktu
 cięcia OCR-em paska napisów, renderowanie plansz w projekcie filmu i montaż — jest
-opisana w `references/montaz-wstawek.md`. Tam też jest gotowy potok
-(`szkolenie-szkola/zloz_wstawki.py`), który przyjmuje pliki MP3 i zwraca złożony film.
+opisana w `references/montaz-wstawek.md`. Tam też jest gotowy potok (`szkolenie-szkola/zloz_wstawki.py`), który przyjmuje pliki MP3
+i zwraca złożony film.
