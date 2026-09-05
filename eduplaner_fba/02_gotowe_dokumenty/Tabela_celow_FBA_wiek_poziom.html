@@ -205,6 +205,11 @@ table.ktab td.lp{font-weight:800;color:var(--fiolet);text-align:center}
 .pasek{display:grid;grid-template-columns:repeat(3,1fr);gap:6mm;margin-top:9mm}
 .pasek .pole-k{flex:1;border:1px solid var(--fiolet-linia);border-radius:8px;padding:6px;text-align:center;
                font-size:9px;font-weight:700;color:var(--fiolet);background:var(--fiolet-tlo)}
+/* Numer kolejności w pomarańczowym kółku — ten sam znak, co na arkuszu do wycięcia,
+   żeby dziecko widziało tę samą jedynkę w konspekcie i na pasku powieszonym w sali. */
+.pasek .pole-k b{display:inline-flex;align-items:center;justify-content:center;width:14px;height:14px;
+                 border-radius:50%;background:var(--pomarancz);color:#fff;font-size:8px;margin-right:5px;
+                 vertical-align:-2px}
 .formularz{display:grid;gap:8px;font-size:11px}
 .formularz label{display:grid;gap:3px;font-size:9.5px;font-weight:700;color:var(--fiolet)}
 .formularz input,.formularz textarea,.formularz select{font:inherit;font-size:11px;font-weight:400;
@@ -558,7 +563,7 @@ table.ktab td.lp{font-weight:800;color:var(--fiolet);text-align:center}
     <h5>Karty do zajęć „Jeden krok i już zaczynam”</h5></div>
   <p class="kkurs">Wytnij karty wzdłuż linii. W puste pola wklej symbole z biblioteki EduPlaner — te same, których dziecko używa na tablicy AAC i w planie dnia. Symbol, który zmienia wygląd między materiałami, przestaje być dla dziecka słowem.</p>
   <div class="karty"><div class="karta"><div class="pole"><div class="ob o-k-postawa-stolik" role="img" aria-label="Najpierw" style="height:100%"></div></div><div class="et">Najpierw</div><div class="op">symbol zadania — tego, które dziecko ma wykonać</div></div><div class="karta"><div class="pole"><div class="ob o-k-dzien-zabawa" role="img" aria-label="Potem" style="height:100%"></div></div><div class="et">Potem</div><div class="op">symbol zabawy albo aktywności po zadaniu</div></div><div class="karta"><div class="pole"><div class="ob o-k-polecenie-wez" role="img" aria-label="Pierwszy krok" style="height:100%"></div></div><div class="et">Pierwszy krok</div><div class="op">symbol jednej czynności: weź, włóż, połóż</div></div><div class="karta"><div class="pole"><div class="ob o-k-strategia-przerwa" role="img" aria-label="Przerwa" style="height:100%"></div></div><div class="et">Przerwa</div><div class="op">symbol przerwy — leży przy dziecku przez całe zajęcia</div></div></div>
-  <div class="pasek"><div class="pole-k">1 · biorę</div><div class="pole-k">2 · wkładam</div><div class="pole-k">3 · gotowe</div></div>
+  <div class="pasek"><div class="pole-k"><b>1</b> biorę</div><div class="pole-k"><b>2</b> wkładam</div><div class="pole-k"><b>3</b> gotowe</div></div>
 </section>
 
   <div class="kcard kstopka">
@@ -663,7 +668,7 @@ table.ktab td.lp{font-weight:800;color:var(--fiolet);text-align:center}
     <h5>Karty do zajęć „Jeden krok i już zaczynam”</h5></div>
   <p class="kkurs">Wytnij karty wzdłuż linii. W puste pola wklej symbole z biblioteki EduPlaner — te same, których dziecko używa na tablicy AAC i w planie dnia. Symbol, który zmienia wygląd między materiałami, przestaje być dla dziecka słowem.</p>
   <div class="karty"><div class="karta"><div class="pole"><div class="ob o-k-postawa-stolik" role="img" aria-label="Najpierw" style="height:100%"></div></div><div class="et">Najpierw</div><div class="op">symbol zadania — tego, które dziecko ma wykonać</div></div><div class="karta"><div class="pole"><div class="ob o-k-dzien-zabawa" role="img" aria-label="Potem" style="height:100%"></div></div><div class="et">Potem</div><div class="op">symbol zabawy albo aktywności po zadaniu</div></div><div class="karta"><div class="pole"><div class="ob o-k-polecenie-wez" role="img" aria-label="Pierwszy krok" style="height:100%"></div></div><div class="et">Pierwszy krok</div><div class="op">symbol jednej czynności: weź, włóż, połóż</div></div><div class="karta"><div class="pole"><div class="ob o-k-strategia-przerwa" role="img" aria-label="Przerwa" style="height:100%"></div></div><div class="et">Przerwa</div><div class="op">symbol przerwy — leży przy dziecku przez całe zajęcia</div></div></div>
-  <div class="pasek"><div class="pole-k">1 · biorę</div><div class="pole-k">2 · wkładam</div><div class="pole-k">3 · gotowe</div></div>
+  <div class="pasek"><div class="pole-k"><b>1</b> biorę</div><div class="pole-k"><b>2</b> wkładam</div><div class="pole-k"><b>3</b> gotowe</div></div>
 </section>
 
   <div class="kcard kstopka">
@@ -768,7 +773,7 @@ table.ktab td.lp{font-weight:800;color:var(--fiolet);text-align:center}
     <h5>Karty do zajęć „Jeden krok i już zaczynam”</h5></div>
   <p class="kkurs">Wytnij karty wzdłuż linii. W puste pola wklej symbole z biblioteki EduPlaner — te same, których dziecko używa na tablicy AAC i w planie dnia. Symbol, który zmienia wygląd między materiałami, przestaje być dla dziecka słowem.</p>
   <div class="karty"><div class="karta"><div class="pole"><div class="ob o-k-postawa-stolik" role="img" aria-label="Najpierw" style="height:100%"></div></div><div class="et">Najpierw</div><div class="op">symbol zadania — tego, które dziecko ma wykonać</div></div><div class="karta"><div class="pole"><div class="ob o-k-dzien-zabawa" role="img" aria-label="Potem" style="height:100%"></div></div><div class="et">Potem</div><div class="op">symbol zabawy albo aktywności po zadaniu</div></div><div class="karta"><div class="pole"><div class="ob o-k-polecenie-wez" role="img" aria-label="Pierwszy krok" style="height:100%"></div></div><div class="et">Pierwszy krok</div><div class="op">symbol jednej czynności: weź, włóż, połóż</div></div><div class="karta"><div class="pole"><div class="ob o-k-strategia-przerwa" role="img" aria-label="Przerwa" style="height:100%"></div></div><div class="et">Przerwa</div><div class="op">symbol przerwy — leży przy dziecku przez całe zajęcia</div></div></div>
-  <div class="pasek"><div class="pole-k">1 · biorę</div><div class="pole-k">2 · wkładam</div><div class="pole-k">3 · gotowe</div></div>
+  <div class="pasek"><div class="pole-k"><b>1</b> biorę</div><div class="pole-k"><b>2</b> wkładam</div><div class="pole-k"><b>3</b> gotowe</div></div>
 </section>
 
   <div class="kcard kstopka">
@@ -873,7 +878,7 @@ table.ktab td.lp{font-weight:800;color:var(--fiolet);text-align:center}
     <h5>Karty do zajęć „Słyszę, robię, kończę”</h5></div>
   <p class="kkurs">Wytnij karty i pasek. Krążki z paska zdejmuje dziecko po każdym wykonanym poleceniu — widzi wtedy, ile zostało, zamiast słyszeć „jeszcze chwilę”. Symbole wklej z biblioteki EduPlaner.</p>
   <div class="karty"><div class="karta"><div class="pole"><div class="ob o-k-gest-slucham" role="img" aria-label="Słucham" style="height:100%"></div></div><div class="et">Słucham</div><div class="op">symbol słuchania — dorosły mówi, dziecko patrzy</div></div><div class="karta"><div class="pole"><div class="ob o-k-polecenie-wez" role="img" aria-label="Robię" style="height:100%"></div></div><div class="et">Robię</div><div class="op">symbol czynności z polecenia</div></div><div class="karta"><div class="pole"><div class="ob o-k-gest-brawo" role="img" aria-label="Koniec" style="height:100%"></div></div><div class="et">Koniec</div><div class="op">symbol zakończenia — koszyk, ptaszek albo pusty stolik</div></div><div class="karta"><div class="pole"><div class="ob o-k-strategia-przerwa" role="img" aria-label="Przerwa" style="height:100%"></div></div><div class="et">Przerwa</div><div class="op">symbol przerwy na prośbę</div></div></div>
-  <div class="pasek"><div class="pole-k">zostały 3</div><div class="pole-k">zostały 2</div><div class="pole-k">została 1</div></div>
+  <div class="pasek"><div class="pole-k"><b>1</b> zostały 3</div><div class="pole-k"><b>2</b> zostały 2</div><div class="pole-k"><b>3</b> została 1</div></div>
 </section>
 
   <div class="kcard kstopka">
@@ -978,7 +983,7 @@ table.ktab td.lp{font-weight:800;color:var(--fiolet);text-align:center}
     <h5>Karty do zajęć „Słyszę, robię, kończę”</h5></div>
   <p class="kkurs">Wytnij karty i pasek. Krążki z paska zdejmuje dziecko po każdym wykonanym poleceniu — widzi wtedy, ile zostało, zamiast słyszeć „jeszcze chwilę”. Symbole wklej z biblioteki EduPlaner.</p>
   <div class="karty"><div class="karta"><div class="pole"><div class="ob o-k-gest-slucham" role="img" aria-label="Słucham" style="height:100%"></div></div><div class="et">Słucham</div><div class="op">symbol słuchania — dorosły mówi, dziecko patrzy</div></div><div class="karta"><div class="pole"><div class="ob o-k-polecenie-wez" role="img" aria-label="Robię" style="height:100%"></div></div><div class="et">Robię</div><div class="op">symbol czynności z polecenia</div></div><div class="karta"><div class="pole"><div class="ob o-k-gest-brawo" role="img" aria-label="Koniec" style="height:100%"></div></div><div class="et">Koniec</div><div class="op">symbol zakończenia — koszyk, ptaszek albo pusty stolik</div></div><div class="karta"><div class="pole"><div class="ob o-k-strategia-przerwa" role="img" aria-label="Przerwa" style="height:100%"></div></div><div class="et">Przerwa</div><div class="op">symbol przerwy na prośbę</div></div></div>
-  <div class="pasek"><div class="pole-k">zostały 3</div><div class="pole-k">zostały 2</div><div class="pole-k">została 1</div></div>
+  <div class="pasek"><div class="pole-k"><b>1</b> zostały 3</div><div class="pole-k"><b>2</b> zostały 2</div><div class="pole-k"><b>3</b> została 1</div></div>
 </section>
 
   <div class="kcard kstopka">
@@ -1083,7 +1088,7 @@ table.ktab td.lp{font-weight:800;color:var(--fiolet);text-align:center}
     <h5>Karty do zajęć „Słyszę, robię, kończę”</h5></div>
   <p class="kkurs">Wytnij karty i pasek. Krążki z paska zdejmuje dziecko po każdym wykonanym poleceniu — widzi wtedy, ile zostało, zamiast słyszeć „jeszcze chwilę”. Symbole wklej z biblioteki EduPlaner.</p>
   <div class="karty"><div class="karta"><div class="pole"><div class="ob o-k-gest-slucham" role="img" aria-label="Słucham" style="height:100%"></div></div><div class="et">Słucham</div><div class="op">symbol słuchania — dorosły mówi, dziecko patrzy</div></div><div class="karta"><div class="pole"><div class="ob o-k-polecenie-wez" role="img" aria-label="Robię" style="height:100%"></div></div><div class="et">Robię</div><div class="op">symbol czynności z polecenia</div></div><div class="karta"><div class="pole"><div class="ob o-k-gest-brawo" role="img" aria-label="Koniec" style="height:100%"></div></div><div class="et">Koniec</div><div class="op">symbol zakończenia — koszyk, ptaszek albo pusty stolik</div></div><div class="karta"><div class="pole"><div class="ob o-k-strategia-przerwa" role="img" aria-label="Przerwa" style="height:100%"></div></div><div class="et">Przerwa</div><div class="op">symbol przerwy na prośbę</div></div></div>
-  <div class="pasek"><div class="pole-k">zostały 3</div><div class="pole-k">zostały 2</div><div class="pole-k">została 1</div></div>
+  <div class="pasek"><div class="pole-k"><b>1</b> zostały 3</div><div class="pole-k"><b>2</b> zostały 2</div><div class="pole-k"><b>3</b> została 1</div></div>
 </section>
 
   <div class="kcard kstopka">
@@ -1188,7 +1193,7 @@ table.ktab td.lp{font-weight:800;color:var(--fiolet);text-align:center}
     <h5>Karty do zajęć „Przerwa i powrót”</h5></div>
   <p class="kkurs">Wytnij karty. Kartę „wracam” dziecko kładzie na swoim zadaniu, wychodząc na przerwę — to widoczna umowa, że zadanie na nie czeka. Symbole wklej z biblioteki EduPlaner.</p>
   <div class="karty"><div class="karta"><div class="pole"><div class="ob o-k-strategia-przerwa" role="img" aria-label="Przerwa" style="height:100%"></div></div><div class="et">Przerwa</div><div class="op">symbol przerwy — miejsce, do którego dziecko idzie</div></div><div class="karta"><div class="pole"><div class="ob o-k-gest-chodz" role="img" aria-label="Wracam" style="height:100%"></div></div><div class="et">Wracam</div><div class="op">symbol powrotu — kładziony na zadaniu</div></div><div class="karta"><div class="pole"><div class="ob o-k-strategia-czesci" role="img" aria-label="Dokończę" style="height:100%"></div></div><div class="et">Dokończę</div><div class="op">symbol jednej części zadania do dokończenia</div></div><div class="karta"><div class="pole"><div class="ob o-k-gest-brawo" role="img" aria-label="Gotowe" style="height:100%"></div></div><div class="et">Gotowe</div><div class="op">symbol zakończenia całości</div></div></div>
-  <div class="pasek"><div class="pole-k">idę na przerwę</div><div class="pole-k">kończy się czas</div><div class="pole-k">wracam do zadania</div></div>
+  <div class="pasek"><div class="pole-k"><b>1</b> idę na przerwę</div><div class="pole-k"><b>2</b> kończy się czas</div><div class="pole-k"><b>3</b> wracam do zadania</div></div>
 </section>
 
   <div class="kcard kstopka">
@@ -1293,7 +1298,7 @@ table.ktab td.lp{font-weight:800;color:var(--fiolet);text-align:center}
     <h5>Karty do zajęć „Przerwa i powrót”</h5></div>
   <p class="kkurs">Wytnij karty. Kartę „wracam” dziecko kładzie na swoim zadaniu, wychodząc na przerwę — to widoczna umowa, że zadanie na nie czeka. Symbole wklej z biblioteki EduPlaner.</p>
   <div class="karty"><div class="karta"><div class="pole"><div class="ob o-k-strategia-przerwa" role="img" aria-label="Przerwa" style="height:100%"></div></div><div class="et">Przerwa</div><div class="op">symbol przerwy — miejsce, do którego dziecko idzie</div></div><div class="karta"><div class="pole"><div class="ob o-k-gest-chodz" role="img" aria-label="Wracam" style="height:100%"></div></div><div class="et">Wracam</div><div class="op">symbol powrotu — kładziony na zadaniu</div></div><div class="karta"><div class="pole"><div class="ob o-k-strategia-czesci" role="img" aria-label="Dokończę" style="height:100%"></div></div><div class="et">Dokończę</div><div class="op">symbol jednej części zadania do dokończenia</div></div><div class="karta"><div class="pole"><div class="ob o-k-gest-brawo" role="img" aria-label="Gotowe" style="height:100%"></div></div><div class="et">Gotowe</div><div class="op">symbol zakończenia całości</div></div></div>
-  <div class="pasek"><div class="pole-k">idę na przerwę</div><div class="pole-k">kończy się czas</div><div class="pole-k">wracam do zadania</div></div>
+  <div class="pasek"><div class="pole-k"><b>1</b> idę na przerwę</div><div class="pole-k"><b>2</b> kończy się czas</div><div class="pole-k"><b>3</b> wracam do zadania</div></div>
 </section>
 
   <div class="kcard kstopka">
@@ -1398,7 +1403,7 @@ table.ktab td.lp{font-weight:800;color:var(--fiolet);text-align:center}
     <h5>Karty do zajęć „Przerwa i powrót”</h5></div>
   <p class="kkurs">Wytnij karty. Kartę „wracam” dziecko kładzie na swoim zadaniu, wychodząc na przerwę — to widoczna umowa, że zadanie na nie czeka. Symbole wklej z biblioteki EduPlaner.</p>
   <div class="karty"><div class="karta"><div class="pole"><div class="ob o-k-strategia-przerwa" role="img" aria-label="Przerwa" style="height:100%"></div></div><div class="et">Przerwa</div><div class="op">symbol przerwy — miejsce, do którego dziecko idzie</div></div><div class="karta"><div class="pole"><div class="ob o-k-gest-chodz" role="img" aria-label="Wracam" style="height:100%"></div></div><div class="et">Wracam</div><div class="op">symbol powrotu — kładziony na zadaniu</div></div><div class="karta"><div class="pole"><div class="ob o-k-strategia-czesci" role="img" aria-label="Dokończę" style="height:100%"></div></div><div class="et">Dokończę</div><div class="op">symbol jednej części zadania do dokończenia</div></div><div class="karta"><div class="pole"><div class="ob o-k-gest-brawo" role="img" aria-label="Gotowe" style="height:100%"></div></div><div class="et">Gotowe</div><div class="op">symbol zakończenia całości</div></div></div>
-  <div class="pasek"><div class="pole-k">idę na przerwę</div><div class="pole-k">kończy się czas</div><div class="pole-k">wracam do zadania</div></div>
+  <div class="pasek"><div class="pole-k"><b>1</b> idę na przerwę</div><div class="pole-k"><b>2</b> kończy się czas</div><div class="pole-k"><b>3</b> wracam do zadania</div></div>
 </section>
 
   <div class="kcard kstopka">
@@ -1503,7 +1508,7 @@ table.ktab td.lp{font-weight:800;color:var(--fiolet);text-align:center}
     <h5>Karty do zajęć „Dwa łatwe, jedno trudne”</h5></div>
   <p class="kkurs">Wytnij karty i pasek serii. Na kartach zadań wklej symbole konkretnych czynności z biblioteki EduPlaner — dziecko ma widzieć, co go czeka, zanim usiądzie do stolika.</p>
   <div class="karty"><div class="karta"><div class="pole"><div class="ob o-k-zabawa-ukladanka" role="img" aria-label="Zadanie 1 · łatwe" style="height:100%"></div></div><div class="et">Zadanie 1 · łatwe</div><div class="op">symbol czynności, którą dziecko umie na pewno</div></div><div class="karta"><div class="pole"><div class="ob o-k-zabawa-klocki" role="img" aria-label="Zadanie 2 · łatwe" style="height:100%"></div></div><div class="et">Zadanie 2 · łatwe</div><div class="op">symbol drugiej czynności pewnej</div></div><div class="karta"><div class="pole">pole na własny symbol z tablicy AAC</div><div class="et">Zadanie 3 · trudne</div><div class="op">symbol czynności o stopień trudniejszej</div></div><div class="karta"><div class="pole"><div class="ob o-k-emocja-duma" role="img" aria-label="Poradzę sobie" style="height:100%"></div></div><div class="et">Poradzę sobie</div><div class="op">miejsce na znak dziecka po podjęciu trudnego zadania</div></div></div>
-  <div class="pasek"><div class="pole-k">1 · łatwe</div><div class="pole-k">2 · łatwe</div><div class="pole-k">3 · trudne</div></div>
+  <div class="pasek"><div class="pole-k"><b>1</b> łatwe</div><div class="pole-k"><b>2</b> łatwe</div><div class="pole-k"><b>3</b> trudne</div></div>
 </section>
 
   <div class="kcard kstopka">
@@ -1608,7 +1613,7 @@ table.ktab td.lp{font-weight:800;color:var(--fiolet);text-align:center}
     <h5>Karty do zajęć „Dwa łatwe, jedno trudne”</h5></div>
   <p class="kkurs">Wytnij karty i pasek serii. Na kartach zadań wklej symbole konkretnych czynności z biblioteki EduPlaner — dziecko ma widzieć, co go czeka, zanim usiądzie do stolika.</p>
   <div class="karty"><div class="karta"><div class="pole"><div class="ob o-k-zabawa-ukladanka" role="img" aria-label="Zadanie 1 · łatwe" style="height:100%"></div></div><div class="et">Zadanie 1 · łatwe</div><div class="op">symbol czynności, którą dziecko umie na pewno</div></div><div class="karta"><div class="pole"><div class="ob o-k-zabawa-klocki" role="img" aria-label="Zadanie 2 · łatwe" style="height:100%"></div></div><div class="et">Zadanie 2 · łatwe</div><div class="op">symbol drugiej czynności pewnej</div></div><div class="karta"><div class="pole">pole na własny symbol z tablicy AAC</div><div class="et">Zadanie 3 · trudne</div><div class="op">symbol czynności o stopień trudniejszej</div></div><div class="karta"><div class="pole"><div class="ob o-k-emocja-duma" role="img" aria-label="Poradzę sobie" style="height:100%"></div></div><div class="et">Poradzę sobie</div><div class="op">miejsce na znak dziecka po podjęciu trudnego zadania</div></div></div>
-  <div class="pasek"><div class="pole-k">1 · łatwe</div><div class="pole-k">2 · łatwe</div><div class="pole-k">3 · trudne</div></div>
+  <div class="pasek"><div class="pole-k"><b>1</b> łatwe</div><div class="pole-k"><b>2</b> łatwe</div><div class="pole-k"><b>3</b> trudne</div></div>
 </section>
 
   <div class="kcard kstopka">
@@ -1713,7 +1718,7 @@ table.ktab td.lp{font-weight:800;color:var(--fiolet);text-align:center}
     <h5>Karty do zajęć „Dwa łatwe, jedno trudne”</h5></div>
   <p class="kkurs">Wytnij karty i pasek serii. Na kartach zadań wklej symbole konkretnych czynności z biblioteki EduPlaner — dziecko ma widzieć, co go czeka, zanim usiądzie do stolika.</p>
   <div class="karty"><div class="karta"><div class="pole"><div class="ob o-k-zabawa-ukladanka" role="img" aria-label="Zadanie 1 · łatwe" style="height:100%"></div></div><div class="et">Zadanie 1 · łatwe</div><div class="op">symbol czynności, którą dziecko umie na pewno</div></div><div class="karta"><div class="pole"><div class="ob o-k-zabawa-klocki" role="img" aria-label="Zadanie 2 · łatwe" style="height:100%"></div></div><div class="et">Zadanie 2 · łatwe</div><div class="op">symbol drugiej czynności pewnej</div></div><div class="karta"><div class="pole">pole na własny symbol z tablicy AAC</div><div class="et">Zadanie 3 · trudne</div><div class="op">symbol czynności o stopień trudniejszej</div></div><div class="karta"><div class="pole"><div class="ob o-k-emocja-duma" role="img" aria-label="Poradzę sobie" style="height:100%"></div></div><div class="et">Poradzę sobie</div><div class="op">miejsce na znak dziecka po podjęciu trudnego zadania</div></div></div>
-  <div class="pasek"><div class="pole-k">1 · łatwe</div><div class="pole-k">2 · łatwe</div><div class="pole-k">3 · trudne</div></div>
+  <div class="pasek"><div class="pole-k"><b>1</b> łatwe</div><div class="pole-k"><b>2</b> łatwe</div><div class="pole-k"><b>3</b> trudne</div></div>
 </section>
 
   <div class="kcard kstopka">
@@ -1818,7 +1823,7 @@ table.ktab td.lp{font-weight:800;color:var(--fiolet);text-align:center}
     <h5>Karty do zajęć „Karta przerwy zamiast ucieczki”</h5></div>
   <p class="kkurs">Wytnij karty. Karta „przerwa” ma być jedna i ma leżeć zawsze w tym samym miejscu — dziecko musi wiedzieć, gdzie jej szukać, zanim zrobi się trudno. Symbole wklej z biblioteki EduPlaner.</p>
   <div class="karty"><div class="karta"><div class="pole"><div class="ob o-k-strategia-przerwa" role="img" aria-label="Przerwa" style="height:100%"></div></div><div class="et">Przerwa</div><div class="op">symbol przerwy — karta główna, zawsze na stoliku</div></div><div class="karta"><div class="pole"><div class="ob o-k-prosze-odpoczynek" role="img" aria-label="Chcę odpocząć" style="height:100%"></div></div><div class="et">Chcę odpocząć</div><div class="op">symbol odpoczynku: koc, poduszka, kącik</div></div><div class="karta"><div class="pole"><div class="ob o-k-prosze-ruch" role="img" aria-label="Chcę się poruszać" style="height:100%"></div></div><div class="et">Chcę się poruszać</div><div class="op">symbol ruchu: skakanie, chodzenie, huśtawka</div></div><div class="karta"><div class="pole"><div class="ob o-k-gest-chodz" role="img" aria-label="Wracam" style="height:100%"></div></div><div class="et">Wracam</div><div class="op">symbol powrotu do zadania</div></div></div>
-  <div class="pasek"><div class="pole-k">proszę o przerwę</div><div class="pole-k">odpoczywam</div><div class="pole-k">wracam</div></div>
+  <div class="pasek"><div class="pole-k"><b>1</b> proszę o przerwę</div><div class="pole-k"><b>2</b> odpoczywam</div><div class="pole-k"><b>3</b> wracam</div></div>
 </section>
 
   <div class="kcard kstopka">
@@ -1923,7 +1928,7 @@ table.ktab td.lp{font-weight:800;color:var(--fiolet);text-align:center}
     <h5>Karty do zajęć „Karta przerwy zamiast ucieczki”</h5></div>
   <p class="kkurs">Wytnij karty. Karta „przerwa” ma być jedna i ma leżeć zawsze w tym samym miejscu — dziecko musi wiedzieć, gdzie jej szukać, zanim zrobi się trudno. Symbole wklej z biblioteki EduPlaner.</p>
   <div class="karty"><div class="karta"><div class="pole"><div class="ob o-k-strategia-przerwa" role="img" aria-label="Przerwa" style="height:100%"></div></div><div class="et">Przerwa</div><div class="op">symbol przerwy — karta główna, zawsze na stoliku</div></div><div class="karta"><div class="pole"><div class="ob o-k-prosze-odpoczynek" role="img" aria-label="Chcę odpocząć" style="height:100%"></div></div><div class="et">Chcę odpocząć</div><div class="op">symbol odpoczynku: koc, poduszka, kącik</div></div><div class="karta"><div class="pole"><div class="ob o-k-prosze-ruch" role="img" aria-label="Chcę się poruszać" style="height:100%"></div></div><div class="et">Chcę się poruszać</div><div class="op">symbol ruchu: skakanie, chodzenie, huśtawka</div></div><div class="karta"><div class="pole"><div class="ob o-k-gest-chodz" role="img" aria-label="Wracam" style="height:100%"></div></div><div class="et">Wracam</div><div class="op">symbol powrotu do zadania</div></div></div>
-  <div class="pasek"><div class="pole-k">proszę o przerwę</div><div class="pole-k">odpoczywam</div><div class="pole-k">wracam</div></div>
+  <div class="pasek"><div class="pole-k"><b>1</b> proszę o przerwę</div><div class="pole-k"><b>2</b> odpoczywam</div><div class="pole-k"><b>3</b> wracam</div></div>
 </section>
 
   <div class="kcard kstopka">
@@ -2028,7 +2033,7 @@ table.ktab td.lp{font-weight:800;color:var(--fiolet);text-align:center}
     <h5>Karty do zajęć „Karta przerwy zamiast ucieczki”</h5></div>
   <p class="kkurs">Wytnij karty. Karta „przerwa” ma być jedna i ma leżeć zawsze w tym samym miejscu — dziecko musi wiedzieć, gdzie jej szukać, zanim zrobi się trudno. Symbole wklej z biblioteki EduPlaner.</p>
   <div class="karty"><div class="karta"><div class="pole"><div class="ob o-k-strategia-przerwa" role="img" aria-label="Przerwa" style="height:100%"></div></div><div class="et">Przerwa</div><div class="op">symbol przerwy — karta główna, zawsze na stoliku</div></div><div class="karta"><div class="pole"><div class="ob o-k-prosze-odpoczynek" role="img" aria-label="Chcę odpocząć" style="height:100%"></div></div><div class="et">Chcę odpocząć</div><div class="op">symbol odpoczynku: koc, poduszka, kącik</div></div><div class="karta"><div class="pole"><div class="ob o-k-prosze-ruch" role="img" aria-label="Chcę się poruszać" style="height:100%"></div></div><div class="et">Chcę się poruszać</div><div class="op">symbol ruchu: skakanie, chodzenie, huśtawka</div></div><div class="karta"><div class="pole"><div class="ob o-k-gest-chodz" role="img" aria-label="Wracam" style="height:100%"></div></div><div class="et">Wracam</div><div class="op">symbol powrotu do zadania</div></div></div>
-  <div class="pasek"><div class="pole-k">proszę o przerwę</div><div class="pole-k">odpoczywam</div><div class="pole-k">wracam</div></div>
+  <div class="pasek"><div class="pole-k"><b>1</b> proszę o przerwę</div><div class="pole-k"><b>2</b> odpoczywam</div><div class="pole-k"><b>3</b> wracam</div></div>
 </section>
 
   <div class="kcard kstopka">
@@ -2133,7 +2138,7 @@ table.ktab td.lp{font-weight:800;color:var(--fiolet);text-align:center}
     <h5>Karty do zajęć „Coś do rąk, kiedy trzeba”</h5></div>
   <p class="kkurs">Wytnij karty i przyklej je na pudełku regulacyjnym oraz na podkładce dziecka. W pola wklej zdjęcia albo symbole konkretnych przedmiotów z biblioteki EduPlaner — dziecko ma poznać swój przedmiot, nie kategorię.</p>
   <div class="karty"><div class="karta"><div class="pole"><div class="ob o-k-sensor-gniotek" role="img" aria-label="Ściskam" style="height:100%"></div></div><div class="et">Ściskam</div><div class="op">symbol gniotka albo piłeczki</div></div><div class="karta"><div class="pole"><div class="ob o-k-sensor-tasma" role="img" aria-label="Ciągnę" style="height:100%"></div></div><div class="et">Ciągnę</div><div class="op">symbol taśmy elastycznej przy krześle</div></div><div class="karta"><div class="pole"><div class="ob o-k-sensor-faktura" role="img" aria-label="Dotykam" style="height:100%"></div></div><div class="et">Dotykam</div><div class="op">symbol materiału o wyraźnej fakturze</div></div><div class="karta"><div class="pole"><div class="ob o-k-polecenie-poloz" role="img" aria-label="Odkładam" style="height:100%"></div></div><div class="et">Odkładam</div><div class="op">symbol miejsca, w którym przedmiot czeka po zadaniu</div></div></div>
-  <div class="pasek"><div class="pole-k">biorę</div><div class="pole-k">pracuję</div><div class="pole-k">odkładam</div></div>
+  <div class="pasek"><div class="pole-k"><b>1</b> biorę</div><div class="pole-k"><b>2</b> pracuję</div><div class="pole-k"><b>3</b> odkładam</div></div>
 </section>
 
   <div class="kcard kstopka">
@@ -2238,7 +2243,7 @@ table.ktab td.lp{font-weight:800;color:var(--fiolet);text-align:center}
     <h5>Karty do zajęć „Coś do rąk, kiedy trzeba”</h5></div>
   <p class="kkurs">Wytnij karty i przyklej je na pudełku regulacyjnym oraz na podkładce dziecka. W pola wklej zdjęcia albo symbole konkretnych przedmiotów z biblioteki EduPlaner — dziecko ma poznać swój przedmiot, nie kategorię.</p>
   <div class="karty"><div class="karta"><div class="pole"><div class="ob o-k-sensor-gniotek" role="img" aria-label="Ściskam" style="height:100%"></div></div><div class="et">Ściskam</div><div class="op">symbol gniotka albo piłeczki</div></div><div class="karta"><div class="pole"><div class="ob o-k-sensor-tasma" role="img" aria-label="Ciągnę" style="height:100%"></div></div><div class="et">Ciągnę</div><div class="op">symbol taśmy elastycznej przy krześle</div></div><div class="karta"><div class="pole"><div class="ob o-k-sensor-faktura" role="img" aria-label="Dotykam" style="height:100%"></div></div><div class="et">Dotykam</div><div class="op">symbol materiału o wyraźnej fakturze</div></div><div class="karta"><div class="pole"><div class="ob o-k-polecenie-poloz" role="img" aria-label="Odkładam" style="height:100%"></div></div><div class="et">Odkładam</div><div class="op">symbol miejsca, w którym przedmiot czeka po zadaniu</div></div></div>
-  <div class="pasek"><div class="pole-k">biorę</div><div class="pole-k">pracuję</div><div class="pole-k">odkładam</div></div>
+  <div class="pasek"><div class="pole-k"><b>1</b> biorę</div><div class="pole-k"><b>2</b> pracuję</div><div class="pole-k"><b>3</b> odkładam</div></div>
 </section>
 
   <div class="kcard kstopka">
@@ -2343,7 +2348,7 @@ table.ktab td.lp{font-weight:800;color:var(--fiolet);text-align:center}
     <h5>Karty do zajęć „Coś do rąk, kiedy trzeba”</h5></div>
   <p class="kkurs">Wytnij karty i przyklej je na pudełku regulacyjnym oraz na podkładce dziecka. W pola wklej zdjęcia albo symbole konkretnych przedmiotów z biblioteki EduPlaner — dziecko ma poznać swój przedmiot, nie kategorię.</p>
   <div class="karty"><div class="karta"><div class="pole"><div class="ob o-k-sensor-gniotek" role="img" aria-label="Ściskam" style="height:100%"></div></div><div class="et">Ściskam</div><div class="op">symbol gniotka albo piłeczki</div></div><div class="karta"><div class="pole"><div class="ob o-k-sensor-tasma" role="img" aria-label="Ciągnę" style="height:100%"></div></div><div class="et">Ciągnę</div><div class="op">symbol taśmy elastycznej przy krześle</div></div><div class="karta"><div class="pole"><div class="ob o-k-sensor-faktura" role="img" aria-label="Dotykam" style="height:100%"></div></div><div class="et">Dotykam</div><div class="op">symbol materiału o wyraźnej fakturze</div></div><div class="karta"><div class="pole"><div class="ob o-k-polecenie-poloz" role="img" aria-label="Odkładam" style="height:100%"></div></div><div class="et">Odkładam</div><div class="op">symbol miejsca, w którym przedmiot czeka po zadaniu</div></div></div>
-  <div class="pasek"><div class="pole-k">biorę</div><div class="pole-k">pracuję</div><div class="pole-k">odkładam</div></div>
+  <div class="pasek"><div class="pole-k"><b>1</b> biorę</div><div class="pole-k"><b>2</b> pracuję</div><div class="pole-k"><b>3</b> odkładam</div></div>
 </section>
 
   <div class="kcard kstopka">
@@ -2448,7 +2453,7 @@ table.ktab td.lp{font-weight:800;color:var(--fiolet);text-align:center}
     <h5>Karta diety sensorycznej do zajęć „Czego mi teraz trzeba”</h5></div>
   <p class="kkurs">Wytnij karty wrażeń i powieś je na wysokości wzroku dziecka. W pola wklej symbole form, które są u was naprawdę dostępne — karta z formą, której nie ma w sali, uczy dziecko, że wskazywanie nic nie daje.</p>
   <div class="karty"><div class="karta"><div class="pole"><div class="ob o-k-prosze-ruch" role="img" aria-label="Ruch" style="height:100%"></div></div><div class="et">Ruch</div><div class="op">symbol huśtania, skakania albo chodzenia</div></div><div class="karta"><div class="pole"><div class="ob o-k-sensor-ucisk" role="img" aria-label="Ucisk" style="height:100%"></div></div><div class="et">Ucisk</div><div class="op">symbol koca obciążeniowego, poduszki, mocnego przytulenia</div></div><div class="karta"><div class="pole"><div class="ob o-k-prosze-cisza" role="img" aria-label="Cisza" style="height:100%"></div></div><div class="et">Cisza</div><div class="op">symbol słuchawek albo kącika wyciszenia</div></div><div class="karta"><div class="pole"><div class="ob o-k-emocja-radosc" role="img" aria-label="Pomogło?" style="height:100%"></div></div><div class="et">Pomogło?</div><div class="op">dwie buźki do zaznaczenia po skorzystaniu z formy</div></div></div>
-  <div class="pasek"><div class="pole-k">wskazuję</div><div class="pole-k">korzystam</div><div class="pole-k">sprawdzam</div></div>
+  <div class="pasek"><div class="pole-k"><b>1</b> wskazuję</div><div class="pole-k"><b>2</b> korzystam</div><div class="pole-k"><b>3</b> sprawdzam</div></div>
 </section>
 
   <div class="kcard kstopka">
@@ -2553,7 +2558,7 @@ table.ktab td.lp{font-weight:800;color:var(--fiolet);text-align:center}
     <h5>Karta diety sensorycznej do zajęć „Czego mi teraz trzeba”</h5></div>
   <p class="kkurs">Wytnij karty wrażeń i powieś je na wysokości wzroku dziecka. W pola wklej symbole form, które są u was naprawdę dostępne — karta z formą, której nie ma w sali, uczy dziecko, że wskazywanie nic nie daje.</p>
   <div class="karty"><div class="karta"><div class="pole"><div class="ob o-k-prosze-ruch" role="img" aria-label="Ruch" style="height:100%"></div></div><div class="et">Ruch</div><div class="op">symbol huśtania, skakania albo chodzenia</div></div><div class="karta"><div class="pole"><div class="ob o-k-sensor-ucisk" role="img" aria-label="Ucisk" style="height:100%"></div></div><div class="et">Ucisk</div><div class="op">symbol koca obciążeniowego, poduszki, mocnego przytulenia</div></div><div class="karta"><div class="pole"><div class="ob o-k-prosze-cisza" role="img" aria-label="Cisza" style="height:100%"></div></div><div class="et">Cisza</div><div class="op">symbol słuchawek albo kącika wyciszenia</div></div><div class="karta"><div class="pole"><div class="ob o-k-emocja-radosc" role="img" aria-label="Pomogło?" style="height:100%"></div></div><div class="et">Pomogło?</div><div class="op">dwie buźki do zaznaczenia po skorzystaniu z formy</div></div></div>
-  <div class="pasek"><div class="pole-k">wskazuję</div><div class="pole-k">korzystam</div><div class="pole-k">sprawdzam</div></div>
+  <div class="pasek"><div class="pole-k"><b>1</b> wskazuję</div><div class="pole-k"><b>2</b> korzystam</div><div class="pole-k"><b>3</b> sprawdzam</div></div>
 </section>
 
   <div class="kcard kstopka">
@@ -2658,7 +2663,7 @@ table.ktab td.lp{font-weight:800;color:var(--fiolet);text-align:center}
     <h5>Karta diety sensorycznej do zajęć „Czego mi teraz trzeba”</h5></div>
   <p class="kkurs">Wytnij karty wrażeń i powieś je na wysokości wzroku dziecka. W pola wklej symbole form, które są u was naprawdę dostępne — karta z formą, której nie ma w sali, uczy dziecko, że wskazywanie nic nie daje.</p>
   <div class="karty"><div class="karta"><div class="pole"><div class="ob o-k-prosze-ruch" role="img" aria-label="Ruch" style="height:100%"></div></div><div class="et">Ruch</div><div class="op">symbol huśtania, skakania albo chodzenia</div></div><div class="karta"><div class="pole"><div class="ob o-k-sensor-ucisk" role="img" aria-label="Ucisk" style="height:100%"></div></div><div class="et">Ucisk</div><div class="op">symbol koca obciążeniowego, poduszki, mocnego przytulenia</div></div><div class="karta"><div class="pole"><div class="ob o-k-prosze-cisza" role="img" aria-label="Cisza" style="height:100%"></div></div><div class="et">Cisza</div><div class="op">symbol słuchawek albo kącika wyciszenia</div></div><div class="karta"><div class="pole"><div class="ob o-k-emocja-radosc" role="img" aria-label="Pomogło?" style="height:100%"></div></div><div class="et">Pomogło?</div><div class="op">dwie buźki do zaznaczenia po skorzystaniu z formy</div></div></div>
-  <div class="pasek"><div class="pole-k">wskazuję</div><div class="pole-k">korzystam</div><div class="pole-k">sprawdzam</div></div>
+  <div class="pasek"><div class="pole-k"><b>1</b> wskazuję</div><div class="pole-k"><b>2</b> korzystam</div><div class="pole-k"><b>3</b> sprawdzam</div></div>
 </section>
 
   <div class="kcard kstopka">
@@ -2763,7 +2768,7 @@ table.ktab td.lp{font-weight:800;color:var(--fiolet);text-align:center}
     <h5>Plan przerw do zajęć „Przerwa, zanim będzie za dużo”</h5></div>
   <p class="kkurs">Wytnij karty i pasek przerw. Pasek zostaje przy dziecku na cały dzień — odhaczona przerwa jest widocznym dowodem, że plan działa. Symbole wklej z biblioteki EduPlaner.</p>
   <div class="karty"><div class="karta"><div class="pole"><div class="ob o-k-dzien-sniadanie" role="img" aria-label="Przerwa 1" style="height:100%"></div></div><div class="et">Przerwa 1</div><div class="op">symbol pory dnia: po śniadaniu</div></div><div class="karta"><div class="pole"><div class="ob o-k-dzien-zajecia" role="img" aria-label="Przerwa 2" style="height:100%"></div></div><div class="et">Przerwa 2</div><div class="op">symbol pory dnia: przed zajęciami</div></div><div class="karta"><div class="pole"><div class="ob o-k-dzien-obiad" role="img" aria-label="Przerwa 3" style="height:100%"></div></div><div class="et">Przerwa 3</div><div class="op">symbol pory dnia: po obiedzie</div></div><div class="karta"><div class="pole"><div class="ob o-k-postawa-stolik" role="img" aria-label="Moje miejsce" style="height:100%"></div></div><div class="et">Moje miejsce</div><div class="op">symbol miejsca, w którym odbywa się przerwa</div></div></div>
-  <div class="pasek"><div class="pole-k">słyszę minutnik</div><div class="pole-k">idę</div><div class="pole-k">odhaczam</div></div>
+  <div class="pasek"><div class="pole-k"><b>1</b> słyszę minutnik</div><div class="pole-k"><b>2</b> idę</div><div class="pole-k"><b>3</b> odhaczam</div></div>
 </section>
 
   <div class="kcard kstopka">
@@ -2868,7 +2873,7 @@ table.ktab td.lp{font-weight:800;color:var(--fiolet);text-align:center}
     <h5>Plan przerw do zajęć „Przerwa, zanim będzie za dużo”</h5></div>
   <p class="kkurs">Wytnij karty i pasek przerw. Pasek zostaje przy dziecku na cały dzień — odhaczona przerwa jest widocznym dowodem, że plan działa. Symbole wklej z biblioteki EduPlaner.</p>
   <div class="karty"><div class="karta"><div class="pole"><div class="ob o-k-dzien-sniadanie" role="img" aria-label="Przerwa 1" style="height:100%"></div></div><div class="et">Przerwa 1</div><div class="op">symbol pory dnia: po śniadaniu</div></div><div class="karta"><div class="pole"><div class="ob o-k-dzien-zajecia" role="img" aria-label="Przerwa 2" style="height:100%"></div></div><div class="et">Przerwa 2</div><div class="op">symbol pory dnia: przed zajęciami</div></div><div class="karta"><div class="pole"><div class="ob o-k-dzien-obiad" role="img" aria-label="Przerwa 3" style="height:100%"></div></div><div class="et">Przerwa 3</div><div class="op">symbol pory dnia: po obiedzie</div></div><div class="karta"><div class="pole"><div class="ob o-k-postawa-stolik" role="img" aria-label="Moje miejsce" style="height:100%"></div></div><div class="et">Moje miejsce</div><div class="op">symbol miejsca, w którym odbywa się przerwa</div></div></div>
-  <div class="pasek"><div class="pole-k">słyszę minutnik</div><div class="pole-k">idę</div><div class="pole-k">odhaczam</div></div>
+  <div class="pasek"><div class="pole-k"><b>1</b> słyszę minutnik</div><div class="pole-k"><b>2</b> idę</div><div class="pole-k"><b>3</b> odhaczam</div></div>
 </section>
 
   <div class="kcard kstopka">
@@ -2973,7 +2978,7 @@ table.ktab td.lp{font-weight:800;color:var(--fiolet);text-align:center}
     <h5>Plan przerw do zajęć „Przerwa, zanim będzie za dużo”</h5></div>
   <p class="kkurs">Wytnij karty i pasek przerw. Pasek zostaje przy dziecku na cały dzień — odhaczona przerwa jest widocznym dowodem, że plan działa. Symbole wklej z biblioteki EduPlaner.</p>
   <div class="karty"><div class="karta"><div class="pole"><div class="ob o-k-dzien-sniadanie" role="img" aria-label="Przerwa 1" style="height:100%"></div></div><div class="et">Przerwa 1</div><div class="op">symbol pory dnia: po śniadaniu</div></div><div class="karta"><div class="pole"><div class="ob o-k-dzien-zajecia" role="img" aria-label="Przerwa 2" style="height:100%"></div></div><div class="et">Przerwa 2</div><div class="op">symbol pory dnia: przed zajęciami</div></div><div class="karta"><div class="pole"><div class="ob o-k-dzien-obiad" role="img" aria-label="Przerwa 3" style="height:100%"></div></div><div class="et">Przerwa 3</div><div class="op">symbol pory dnia: po obiedzie</div></div><div class="karta"><div class="pole"><div class="ob o-k-postawa-stolik" role="img" aria-label="Moje miejsce" style="height:100%"></div></div><div class="et">Moje miejsce</div><div class="op">symbol miejsca, w którym odbywa się przerwa</div></div></div>
-  <div class="pasek"><div class="pole-k">słyszę minutnik</div><div class="pole-k">idę</div><div class="pole-k">odhaczam</div></div>
+  <div class="pasek"><div class="pole-k"><b>1</b> słyszę minutnik</div><div class="pole-k"><b>2</b> idę</div><div class="pole-k"><b>3</b> odhaczam</div></div>
 </section>
 
   <div class="kcard kstopka">
@@ -3078,7 +3083,7 @@ table.ktab td.lp{font-weight:800;color:var(--fiolet);text-align:center}
     <h5>Karty do zajęć „Skończyłem — i co teraz”</h5></div>
   <p class="kkurs">Wytnij karty i powieś je przy stoliku dziecka. Wklej symbole zajęć, które są w sali naprawdę dostępne bez pytania dorosłego — lista z zajęciem wymagającym zgody nie działa w momencie, w którym jest potrzebna.</p>
   <div class="karty"><div class="karta"><div class="pole"><div class="ob o-k-zabawa-ukladanka" role="img" aria-label="Wybór 1" style="height:100%"></div></div><div class="et">Wybór 1</div><div class="op">symbol pierwszego zajęcia po skończonej pracy</div></div><div class="karta"><div class="pole"><div class="ob o-k-zabawa-rysowanie" role="img" aria-label="Wybór 2" style="height:100%"></div></div><div class="et">Wybór 2</div><div class="op">symbol drugiego zajęcia</div></div><div class="karta"><div class="pole"><div class="ob o-k-zabawa-ksiazki" role="img" aria-label="Wybór 3" style="height:100%"></div></div><div class="et">Wybór 3</div><div class="op">symbol trzeciego zajęcia</div></div><div class="karta"><div class="pole"><div class="ob o-k-dzien-sprzatanie" role="img" aria-label="Sprzątam" style="height:100%"></div></div><div class="et">Sprzątam</div><div class="op">symbol odłożenia materiałów na miejsce</div></div></div>
-  <div class="pasek"><div class="pole-k">kończę</div><div class="pole-k">wybieram</div><div class="pole-k">zajmuję się</div></div>
+  <div class="pasek"><div class="pole-k"><b>1</b> kończę</div><div class="pole-k"><b>2</b> wybieram</div><div class="pole-k"><b>3</b> zajmuję się</div></div>
 </section>
 
   <div class="kcard kstopka">
@@ -3183,7 +3188,7 @@ table.ktab td.lp{font-weight:800;color:var(--fiolet);text-align:center}
     <h5>Karty do zajęć „Skończyłem — i co teraz”</h5></div>
   <p class="kkurs">Wytnij karty i powieś je przy stoliku dziecka. Wklej symbole zajęć, które są w sali naprawdę dostępne bez pytania dorosłego — lista z zajęciem wymagającym zgody nie działa w momencie, w którym jest potrzebna.</p>
   <div class="karty"><div class="karta"><div class="pole"><div class="ob o-k-zabawa-ukladanka" role="img" aria-label="Wybór 1" style="height:100%"></div></div><div class="et">Wybór 1</div><div class="op">symbol pierwszego zajęcia po skończonej pracy</div></div><div class="karta"><div class="pole"><div class="ob o-k-zabawa-rysowanie" role="img" aria-label="Wybór 2" style="height:100%"></div></div><div class="et">Wybór 2</div><div class="op">symbol drugiego zajęcia</div></div><div class="karta"><div class="pole"><div class="ob o-k-zabawa-ksiazki" role="img" aria-label="Wybór 3" style="height:100%"></div></div><div class="et">Wybór 3</div><div class="op">symbol trzeciego zajęcia</div></div><div class="karta"><div class="pole"><div class="ob o-k-dzien-sprzatanie" role="img" aria-label="Sprzątam" style="height:100%"></div></div><div class="et">Sprzątam</div><div class="op">symbol odłożenia materiałów na miejsce</div></div></div>
-  <div class="pasek"><div class="pole-k">kończę</div><div class="pole-k">wybieram</div><div class="pole-k">zajmuję się</div></div>
+  <div class="pasek"><div class="pole-k"><b>1</b> kończę</div><div class="pole-k"><b>2</b> wybieram</div><div class="pole-k"><b>3</b> zajmuję się</div></div>
 </section>
 
   <div class="kcard kstopka">
@@ -3288,7 +3293,7 @@ table.ktab td.lp{font-weight:800;color:var(--fiolet);text-align:center}
     <h5>Karty do zajęć „Skończyłem — i co teraz”</h5></div>
   <p class="kkurs">Wytnij karty i powieś je przy stoliku dziecka. Wklej symbole zajęć, które są w sali naprawdę dostępne bez pytania dorosłego — lista z zajęciem wymagającym zgody nie działa w momencie, w którym jest potrzebna.</p>
   <div class="karty"><div class="karta"><div class="pole"><div class="ob o-k-zabawa-ukladanka" role="img" aria-label="Wybór 1" style="height:100%"></div></div><div class="et">Wybór 1</div><div class="op">symbol pierwszego zajęcia po skończonej pracy</div></div><div class="karta"><div class="pole"><div class="ob o-k-zabawa-rysowanie" role="img" aria-label="Wybór 2" style="height:100%"></div></div><div class="et">Wybór 2</div><div class="op">symbol drugiego zajęcia</div></div><div class="karta"><div class="pole"><div class="ob o-k-zabawa-ksiazki" role="img" aria-label="Wybór 3" style="height:100%"></div></div><div class="et">Wybór 3</div><div class="op">symbol trzeciego zajęcia</div></div><div class="karta"><div class="pole"><div class="ob o-k-dzien-sprzatanie" role="img" aria-label="Sprzątam" style="height:100%"></div></div><div class="et">Sprzątam</div><div class="op">symbol odłożenia materiałów na miejsce</div></div></div>
-  <div class="pasek"><div class="pole-k">kończę</div><div class="pole-k">wybieram</div><div class="pole-k">zajmuję się</div></div>
+  <div class="pasek"><div class="pole-k"><b>1</b> kończę</div><div class="pole-k"><b>2</b> wybieram</div><div class="pole-k"><b>3</b> zajmuję się</div></div>
 </section>
 
   <div class="kcard kstopka">
@@ -3393,7 +3398,7 @@ table.ktab td.lp{font-weight:800;color:var(--fiolet);text-align:center}
     <h5>Karty do zajęć „Stop i zamiana”</h5></div>
   <p class="kkurs">Wytnij kartę sygnału i karty form zastępczych. Forma zastępcza musi dawać to samo wrażenie co zachowanie, które zamieniamy — dobierz ją z terapeutą SI i wklej jej symbol z biblioteki EduPlaner.</p>
   <div class="karty"><div class="karta"><div class="pole"><div class="ob o-k-gest-stop" role="img" aria-label="Stop" style="height:100%"></div></div><div class="et">Stop</div><div class="op">symbol zatrzymania — ten sam gest, ten sam obrazek</div></div><div class="karta"><div class="pole"><div class="ob o-k-sensor-zamiana" role="img" aria-label="Zamiana" style="height:100%"></div></div><div class="et">Zamiana</div><div class="op">symbol formy zastępczej dającej to samo wrażenie</div></div><div class="karta"><div class="pole"><div class="ob o-k-prosze-ruch" role="img" aria-label="Ruch" style="height:100%"></div></div><div class="et">Ruch</div><div class="op">symbol formy ruchowej, gdy zachowanie daje ruch</div></div><div class="karta"><div class="pole"><div class="ob o-k-instrument-dzwonki" role="img" aria-label="Dźwięk" style="height:100%"></div></div><div class="et">Dźwięk</div><div class="op">symbol formy dźwiękowej, gdy zachowanie daje dźwięk</div></div></div>
-  <div class="pasek"><div class="pole-k">widzę kartę</div><div class="pole-k">kończę</div><div class="pole-k">biorę zamianę</div></div>
+  <div class="pasek"><div class="pole-k"><b>1</b> widzę kartę</div><div class="pole-k"><b>2</b> kończę</div><div class="pole-k"><b>3</b> biorę zamianę</div></div>
 </section>
 
   <div class="kcard kstopka">
@@ -3498,7 +3503,7 @@ table.ktab td.lp{font-weight:800;color:var(--fiolet);text-align:center}
     <h5>Karty do zajęć „Stop i zamiana”</h5></div>
   <p class="kkurs">Wytnij kartę sygnału i karty form zastępczych. Forma zastępcza musi dawać to samo wrażenie co zachowanie, które zamieniamy — dobierz ją z terapeutą SI i wklej jej symbol z biblioteki EduPlaner.</p>
   <div class="karty"><div class="karta"><div class="pole"><div class="ob o-k-gest-stop" role="img" aria-label="Stop" style="height:100%"></div></div><div class="et">Stop</div><div class="op">symbol zatrzymania — ten sam gest, ten sam obrazek</div></div><div class="karta"><div class="pole"><div class="ob o-k-sensor-zamiana" role="img" aria-label="Zamiana" style="height:100%"></div></div><div class="et">Zamiana</div><div class="op">symbol formy zastępczej dającej to samo wrażenie</div></div><div class="karta"><div class="pole"><div class="ob o-k-prosze-ruch" role="img" aria-label="Ruch" style="height:100%"></div></div><div class="et">Ruch</div><div class="op">symbol formy ruchowej, gdy zachowanie daje ruch</div></div><div class="karta"><div class="pole"><div class="ob o-k-instrument-dzwonki" role="img" aria-label="Dźwięk" style="height:100%"></div></div><div class="et">Dźwięk</div><div class="op">symbol formy dźwiękowej, gdy zachowanie daje dźwięk</div></div></div>
-  <div class="pasek"><div class="pole-k">widzę kartę</div><div class="pole-k">kończę</div><div class="pole-k">biorę zamianę</div></div>
+  <div class="pasek"><div class="pole-k"><b>1</b> widzę kartę</div><div class="pole-k"><b>2</b> kończę</div><div class="pole-k"><b>3</b> biorę zamianę</div></div>
 </section>
 
   <div class="kcard kstopka">
@@ -3603,7 +3608,7 @@ table.ktab td.lp{font-weight:800;color:var(--fiolet);text-align:center}
     <h5>Karty do zajęć „Stop i zamiana”</h5></div>
   <p class="kkurs">Wytnij kartę sygnału i karty form zastępczych. Forma zastępcza musi dawać to samo wrażenie co zachowanie, które zamieniamy — dobierz ją z terapeutą SI i wklej jej symbol z biblioteki EduPlaner.</p>
   <div class="karty"><div class="karta"><div class="pole"><div class="ob o-k-gest-stop" role="img" aria-label="Stop" style="height:100%"></div></div><div class="et">Stop</div><div class="op">symbol zatrzymania — ten sam gest, ten sam obrazek</div></div><div class="karta"><div class="pole"><div class="ob o-k-sensor-zamiana" role="img" aria-label="Zamiana" style="height:100%"></div></div><div class="et">Zamiana</div><div class="op">symbol formy zastępczej dającej to samo wrażenie</div></div><div class="karta"><div class="pole"><div class="ob o-k-prosze-ruch" role="img" aria-label="Ruch" style="height:100%"></div></div><div class="et">Ruch</div><div class="op">symbol formy ruchowej, gdy zachowanie daje ruch</div></div><div class="karta"><div class="pole"><div class="ob o-k-instrument-dzwonki" role="img" aria-label="Dźwięk" style="height:100%"></div></div><div class="et">Dźwięk</div><div class="op">symbol formy dźwiękowej, gdy zachowanie daje dźwięk</div></div></div>
-  <div class="pasek"><div class="pole-k">widzę kartę</div><div class="pole-k">kończę</div><div class="pole-k">biorę zamianę</div></div>
+  <div class="pasek"><div class="pole-k"><b>1</b> widzę kartę</div><div class="pole-k"><b>2</b> kończę</div><div class="pole-k"><b>3</b> biorę zamianę</div></div>
 </section>
 
   <div class="kcard kstopka">
@@ -3708,7 +3713,7 @@ table.ktab td.lp{font-weight:800;color:var(--fiolet);text-align:center}
     <h5>Karty do zajęć „Kartka, kiedy nauczyciel jest zajęty”</h5></div>
   <p class="kkurs">Wytnij karty. Karta „potrzebuję pomocy” leży na stoliku dziecka przez całe zajęcia, w tym samym rogu. Symbole wklej z biblioteki EduPlaner.</p>
   <div class="karty"><div class="karta"><div class="pole"><div class="ob o-k-prosze-pomoc" role="img" aria-label="Potrzebuję pomocy" style="height:100%"></div></div><div class="et">Potrzebuję pomocy</div><div class="op">symbol prośby o pomoc — karta główna</div></div><div class="karta"><div class="pole"><div class="ob o-k-gest-czekam" role="img" aria-label="Czekam" style="height:100%"></div></div><div class="et">Czekam</div><div class="op">symbol czekania: klepsydra albo zegar</div></div><div class="karta"><div class="pole"><div class="ob o-k-zabawa-ukladanka" role="img" aria-label="W międzyczasie" style="height:100%"></div></div><div class="et">W międzyczasie</div><div class="op">symbol zadania, które robię, czekając</div></div><div class="karta"><div class="pole"><div class="ob o-k-gest-chodz" role="img" aria-label="Już idę" style="height:100%"></div></div><div class="et">Już idę</div><div class="op">symbol dla dorosłego: potwierdzenie, że widzi kartę</div></div></div>
-  <div class="pasek"><div class="pole-k">kładę kartę</div><div class="pole-k">czekam</div><div class="pole-k">dostaję pomoc</div></div>
+  <div class="pasek"><div class="pole-k"><b>1</b> kładę kartę</div><div class="pole-k"><b>2</b> czekam</div><div class="pole-k"><b>3</b> dostaję pomoc</div></div>
 </section>
 
   <div class="kcard kstopka">
@@ -3813,7 +3818,7 @@ table.ktab td.lp{font-weight:800;color:var(--fiolet);text-align:center}
     <h5>Karty do zajęć „Kartka, kiedy nauczyciel jest zajęty”</h5></div>
   <p class="kkurs">Wytnij karty. Karta „potrzebuję pomocy” leży na stoliku dziecka przez całe zajęcia, w tym samym rogu. Symbole wklej z biblioteki EduPlaner.</p>
   <div class="karty"><div class="karta"><div class="pole"><div class="ob o-k-prosze-pomoc" role="img" aria-label="Potrzebuję pomocy" style="height:100%"></div></div><div class="et">Potrzebuję pomocy</div><div class="op">symbol prośby o pomoc — karta główna</div></div><div class="karta"><div class="pole"><div class="ob o-k-gest-czekam" role="img" aria-label="Czekam" style="height:100%"></div></div><div class="et">Czekam</div><div class="op">symbol czekania: klepsydra albo zegar</div></div><div class="karta"><div class="pole"><div class="ob o-k-zabawa-ukladanka" role="img" aria-label="W międzyczasie" style="height:100%"></div></div><div class="et">W międzyczasie</div><div class="op">symbol zadania, które robię, czekając</div></div><div class="karta"><div class="pole"><div class="ob o-k-gest-chodz" role="img" aria-label="Już idę" style="height:100%"></div></div><div class="et">Już idę</div><div class="op">symbol dla dorosłego: potwierdzenie, że widzi kartę</div></div></div>
-  <div class="pasek"><div class="pole-k">kładę kartę</div><div class="pole-k">czekam</div><div class="pole-k">dostaję pomoc</div></div>
+  <div class="pasek"><div class="pole-k"><b>1</b> kładę kartę</div><div class="pole-k"><b>2</b> czekam</div><div class="pole-k"><b>3</b> dostaję pomoc</div></div>
 </section>
 
   <div class="kcard kstopka">
@@ -3918,7 +3923,7 @@ table.ktab td.lp{font-weight:800;color:var(--fiolet);text-align:center}
     <h5>Karty do zajęć „Kartka, kiedy nauczyciel jest zajęty”</h5></div>
   <p class="kkurs">Wytnij karty. Karta „potrzebuję pomocy” leży na stoliku dziecka przez całe zajęcia, w tym samym rogu. Symbole wklej z biblioteki EduPlaner.</p>
   <div class="karty"><div class="karta"><div class="pole"><div class="ob o-k-prosze-pomoc" role="img" aria-label="Potrzebuję pomocy" style="height:100%"></div></div><div class="et">Potrzebuję pomocy</div><div class="op">symbol prośby o pomoc — karta główna</div></div><div class="karta"><div class="pole"><div class="ob o-k-gest-czekam" role="img" aria-label="Czekam" style="height:100%"></div></div><div class="et">Czekam</div><div class="op">symbol czekania: klepsydra albo zegar</div></div><div class="karta"><div class="pole"><div class="ob o-k-zabawa-ukladanka" role="img" aria-label="W międzyczasie" style="height:100%"></div></div><div class="et">W międzyczasie</div><div class="op">symbol zadania, które robię, czekając</div></div><div class="karta"><div class="pole"><div class="ob o-k-gest-chodz" role="img" aria-label="Już idę" style="height:100%"></div></div><div class="et">Już idę</div><div class="op">symbol dla dorosłego: potwierdzenie, że widzi kartę</div></div></div>
-  <div class="pasek"><div class="pole-k">kładę kartę</div><div class="pole-k">czekam</div><div class="pole-k">dostaję pomoc</div></div>
+  <div class="pasek"><div class="pole-k"><b>1</b> kładę kartę</div><div class="pole-k"><b>2</b> czekam</div><div class="pole-k"><b>3</b> dostaję pomoc</div></div>
 </section>
 
   <div class="kcard kstopka">
@@ -4023,7 +4028,7 @@ table.ktab td.lp{font-weight:800;color:var(--fiolet);text-align:center}
     <h5>Karty do zajęć „Ręka w górę zamiast hałasu”</h5></div>
   <p class="kkurs">Wytnij karty i tabelkę żetonów. Żeton dziecko dostaje za skorzystanie z ręki, a nie za brak zachowania trudnego — nagradzamy to, co ma się pojawić, nie to, czego ma nie być.</p>
   <div class="karty"><div class="karta"><div class="pole"><div class="ob o-k-strategia-pomoc" role="img" aria-label="Ręka w górę" style="height:100%"></div></div><div class="et">Ręka w górę</div><div class="op">symbol podniesionej ręki</div></div><div class="karta"><div class="pole"><div class="ob o-k-gest-skinienie" role="img" aria-label="Widzę cię" style="height:100%"></div></div><div class="et">Widzę cię</div><div class="op">symbol skinienia — odpowiedź dorosłego</div></div><div class="karta"><div class="pole"><div class="ob o-k-gest-czekam" role="img" aria-label="Czekam chwilę" style="height:100%"></div></div><div class="et">Czekam chwilę</div><div class="op">symbol krótkiego czekania po zgłoszeniu</div></div><div class="karta"><div class="pole"><div class="ob o-k-zeton-diament" role="img" aria-label="Mój żeton" style="height:100%"></div></div><div class="et">Mój żeton</div><div class="op">pole na żeton za skorzystanie z ręki</div></div></div>
-  <div class="pasek"><div class="pole-k">podnoszę rękę</div><div class="pole-k">dostaję skinienie</div><div class="pole-k">rozmawiamy</div></div>
+  <div class="pasek"><div class="pole-k"><b>1</b> podnoszę rękę</div><div class="pole-k"><b>2</b> dostaję skinienie</div><div class="pole-k"><b>3</b> rozmawiamy</div></div>
 </section>
 
   <div class="kcard kstopka">
@@ -4128,7 +4133,7 @@ table.ktab td.lp{font-weight:800;color:var(--fiolet);text-align:center}
     <h5>Karty do zajęć „Ręka w górę zamiast hałasu”</h5></div>
   <p class="kkurs">Wytnij karty i tabelkę żetonów. Żeton dziecko dostaje za skorzystanie z ręki, a nie za brak zachowania trudnego — nagradzamy to, co ma się pojawić, nie to, czego ma nie być.</p>
   <div class="karty"><div class="karta"><div class="pole"><div class="ob o-k-strategia-pomoc" role="img" aria-label="Ręka w górę" style="height:100%"></div></div><div class="et">Ręka w górę</div><div class="op">symbol podniesionej ręki</div></div><div class="karta"><div class="pole"><div class="ob o-k-gest-skinienie" role="img" aria-label="Widzę cię" style="height:100%"></div></div><div class="et">Widzę cię</div><div class="op">symbol skinienia — odpowiedź dorosłego</div></div><div class="karta"><div class="pole"><div class="ob o-k-gest-czekam" role="img" aria-label="Czekam chwilę" style="height:100%"></div></div><div class="et">Czekam chwilę</div><div class="op">symbol krótkiego czekania po zgłoszeniu</div></div><div class="karta"><div class="pole"><div class="ob o-k-zeton-diament" role="img" aria-label="Mój żeton" style="height:100%"></div></div><div class="et">Mój żeton</div><div class="op">pole na żeton za skorzystanie z ręki</div></div></div>
-  <div class="pasek"><div class="pole-k">podnoszę rękę</div><div class="pole-k">dostaję skinienie</div><div class="pole-k">rozmawiamy</div></div>
+  <div class="pasek"><div class="pole-k"><b>1</b> podnoszę rękę</div><div class="pole-k"><b>2</b> dostaję skinienie</div><div class="pole-k"><b>3</b> rozmawiamy</div></div>
 </section>
 
   <div class="kcard kstopka">
@@ -4233,7 +4238,7 @@ table.ktab td.lp{font-weight:800;color:var(--fiolet);text-align:center}
     <h5>Karty do zajęć „Ręka w górę zamiast hałasu”</h5></div>
   <p class="kkurs">Wytnij karty i tabelkę żetonów. Żeton dziecko dostaje za skorzystanie z ręki, a nie za brak zachowania trudnego — nagradzamy to, co ma się pojawić, nie to, czego ma nie być.</p>
   <div class="karty"><div class="karta"><div class="pole"><div class="ob o-k-strategia-pomoc" role="img" aria-label="Ręka w górę" style="height:100%"></div></div><div class="et">Ręka w górę</div><div class="op">symbol podniesionej ręki</div></div><div class="karta"><div class="pole"><div class="ob o-k-gest-skinienie" role="img" aria-label="Widzę cię" style="height:100%"></div></div><div class="et">Widzę cię</div><div class="op">symbol skinienia — odpowiedź dorosłego</div></div><div class="karta"><div class="pole"><div class="ob o-k-gest-czekam" role="img" aria-label="Czekam chwilę" style="height:100%"></div></div><div class="et">Czekam chwilę</div><div class="op">symbol krótkiego czekania po zgłoszeniu</div></div><div class="karta"><div class="pole"><div class="ob o-k-zeton-diament" role="img" aria-label="Mój żeton" style="height:100%"></div></div><div class="et">Mój żeton</div><div class="op">pole na żeton za skorzystanie z ręki</div></div></div>
-  <div class="pasek"><div class="pole-k">podnoszę rękę</div><div class="pole-k">dostaję skinienie</div><div class="pole-k">rozmawiamy</div></div>
+  <div class="pasek"><div class="pole-k"><b>1</b> podnoszę rękę</div><div class="pole-k"><b>2</b> dostaję skinienie</div><div class="pole-k"><b>3</b> rozmawiamy</div></div>
 </section>
 
   <div class="kcard kstopka">
@@ -4338,7 +4343,7 @@ table.ktab td.lp{font-weight:800;color:var(--fiolet);text-align:center}
     <h5>Karty do zajęć „Moja kolej w rundzie”</h5></div>
   <p class="kkurs">Wytnij karty i pasek. Pasek „mówię — słucham” dziecko trzyma przy sobie w czasie rundy i przesuwa znacznik. Symbole wklej z biblioteki EduPlaner.</p>
   <div class="karty"><div class="karta"><div class="pole"><div class="ob o-k-gest-mowie" role="img" aria-label="Mówię" style="height:100%"></div></div><div class="et">Mówię</div><div class="op">symbol mówienia — trzymam maskotkę</div></div><div class="karta"><div class="pole"><div class="ob o-k-gest-slucham" role="img" aria-label="Słucham" style="height:100%"></div></div><div class="et">Słucham</div><div class="op">symbol słuchania — patrzę na mówiącego</div></div><div class="karta"><div class="pole"><div class="ob o-k-gest-czekam" role="img" aria-label="Moja kolej" style="height:100%"></div></div><div class="et">Moja kolej</div><div class="op">symbol kolejki z zaznaczonym miejscem dziecka</div></div><div class="karta"><div class="pole"><div class="ob o-k-gest-brawo" role="img" aria-label="Koniec rundy" style="height:100%"></div></div><div class="et">Koniec rundy</div><div class="op">symbol zakończenia — maskotka wraca do nauczyciela</div></div></div>
-  <div class="pasek"><div class="pole-k">słucham</div><div class="pole-k">moja kolej</div><div class="pole-k">słucham dalej</div></div>
+  <div class="pasek"><div class="pole-k"><b>1</b> słucham</div><div class="pole-k"><b>2</b> moja kolej</div><div class="pole-k"><b>3</b> słucham dalej</div></div>
 </section>
 
   <div class="kcard kstopka">
@@ -4443,7 +4448,7 @@ table.ktab td.lp{font-weight:800;color:var(--fiolet);text-align:center}
     <h5>Karty do zajęć „Moja kolej w rundzie”</h5></div>
   <p class="kkurs">Wytnij karty i pasek. Pasek „mówię — słucham” dziecko trzyma przy sobie w czasie rundy i przesuwa znacznik. Symbole wklej z biblioteki EduPlaner.</p>
   <div class="karty"><div class="karta"><div class="pole"><div class="ob o-k-gest-mowie" role="img" aria-label="Mówię" style="height:100%"></div></div><div class="et">Mówię</div><div class="op">symbol mówienia — trzymam maskotkę</div></div><div class="karta"><div class="pole"><div class="ob o-k-gest-slucham" role="img" aria-label="Słucham" style="height:100%"></div></div><div class="et">Słucham</div><div class="op">symbol słuchania — patrzę na mówiącego</div></div><div class="karta"><div class="pole"><div class="ob o-k-gest-czekam" role="img" aria-label="Moja kolej" style="height:100%"></div></div><div class="et">Moja kolej</div><div class="op">symbol kolejki z zaznaczonym miejscem dziecka</div></div><div class="karta"><div class="pole"><div class="ob o-k-gest-brawo" role="img" aria-label="Koniec rundy" style="height:100%"></div></div><div class="et">Koniec rundy</div><div class="op">symbol zakończenia — maskotka wraca do nauczyciela</div></div></div>
-  <div class="pasek"><div class="pole-k">słucham</div><div class="pole-k">moja kolej</div><div class="pole-k">słucham dalej</div></div>
+  <div class="pasek"><div class="pole-k"><b>1</b> słucham</div><div class="pole-k"><b>2</b> moja kolej</div><div class="pole-k"><b>3</b> słucham dalej</div></div>
 </section>
 
   <div class="kcard kstopka">
@@ -4548,7 +4553,7 @@ table.ktab td.lp{font-weight:800;color:var(--fiolet);text-align:center}
     <h5>Karty do zajęć „Moja kolej w rundzie”</h5></div>
   <p class="kkurs">Wytnij karty i pasek. Pasek „mówię — słucham” dziecko trzyma przy sobie w czasie rundy i przesuwa znacznik. Symbole wklej z biblioteki EduPlaner.</p>
   <div class="karty"><div class="karta"><div class="pole"><div class="ob o-k-gest-mowie" role="img" aria-label="Mówię" style="height:100%"></div></div><div class="et">Mówię</div><div class="op">symbol mówienia — trzymam maskotkę</div></div><div class="karta"><div class="pole"><div class="ob o-k-gest-slucham" role="img" aria-label="Słucham" style="height:100%"></div></div><div class="et">Słucham</div><div class="op">symbol słuchania — patrzę na mówiącego</div></div><div class="karta"><div class="pole"><div class="ob o-k-gest-czekam" role="img" aria-label="Moja kolej" style="height:100%"></div></div><div class="et">Moja kolej</div><div class="op">symbol kolejki z zaznaczonym miejscem dziecka</div></div><div class="karta"><div class="pole"><div class="ob o-k-gest-brawo" role="img" aria-label="Koniec rundy" style="height:100%"></div></div><div class="et">Koniec rundy</div><div class="op">symbol zakończenia — maskotka wraca do nauczyciela</div></div></div>
-  <div class="pasek"><div class="pole-k">słucham</div><div class="pole-k">moja kolej</div><div class="pole-k">słucham dalej</div></div>
+  <div class="pasek"><div class="pole-k"><b>1</b> słucham</div><div class="pole-k"><b>2</b> moja kolej</div><div class="pole-k"><b>3</b> słucham dalej</div></div>
 </section>
 
   <div class="kcard kstopka">
@@ -4653,7 +4658,7 @@ table.ktab td.lp{font-weight:800;color:var(--fiolet);text-align:center}
     <h5>Karty do zajęć „Dwie minuty tylko dla mnie”</h5></div>
   <p class="kkurs">Wytnij karty i wklej je w plan dnia dziecka. Karta „następna rozmowa” zostaje u dziecka po zakończeniu tej — widoczna zapowiedź działa lepiej niż obietnica powiedziana raz.</p>
   <div class="karty"><div class="karta"><div class="pole"><div class="ob o-k-gest-mowie" role="img" aria-label="Rozmowa" style="height:100%"></div></div><div class="et">Rozmowa</div><div class="op">symbol rozmowy: dwa krzesła, dwie osoby</div></div><div class="karta"><div class="pole"><div class="ob o-k-gest-czekam" role="img" aria-label="Dwie minuty" style="height:100%"></div></div><div class="et">Dwie minuty</div><div class="op">symbol minutnika ustawionego na czas rozmowy</div></div><div class="karta"><div class="pole"><div class="ob o-k-postawa-stolik" role="img" aria-label="Wracam do zadania" style="height:100%"></div></div><div class="et">Wracam do zadania</div><div class="op">symbol powrotu na miejsce</div></div><div class="karta"><div class="pole"><div class="ob o-k-dzien-zajecia" role="img" aria-label="Następna rozmowa" style="height:100%"></div></div><div class="et">Następna rozmowa</div><div class="op">symbol pory dnia, o której będzie następna</div></div></div>
-  <div class="pasek"><div class="pole-k">rozmawiam</div><div class="pole-k">słyszę minutnik</div><div class="pole-k">wracam</div></div>
+  <div class="pasek"><div class="pole-k"><b>1</b> rozmawiam</div><div class="pole-k"><b>2</b> słyszę minutnik</div><div class="pole-k"><b>3</b> wracam</div></div>
 </section>
 
   <div class="kcard kstopka">
@@ -4758,7 +4763,7 @@ table.ktab td.lp{font-weight:800;color:var(--fiolet);text-align:center}
     <h5>Karty do zajęć „Dwie minuty tylko dla mnie”</h5></div>
   <p class="kkurs">Wytnij karty i wklej je w plan dnia dziecka. Karta „następna rozmowa” zostaje u dziecka po zakończeniu tej — widoczna zapowiedź działa lepiej niż obietnica powiedziana raz.</p>
   <div class="karty"><div class="karta"><div class="pole"><div class="ob o-k-gest-mowie" role="img" aria-label="Rozmowa" style="height:100%"></div></div><div class="et">Rozmowa</div><div class="op">symbol rozmowy: dwa krzesła, dwie osoby</div></div><div class="karta"><div class="pole"><div class="ob o-k-gest-czekam" role="img" aria-label="Dwie minuty" style="height:100%"></div></div><div class="et">Dwie minuty</div><div class="op">symbol minutnika ustawionego na czas rozmowy</div></div><div class="karta"><div class="pole"><div class="ob o-k-postawa-stolik" role="img" aria-label="Wracam do zadania" style="height:100%"></div></div><div class="et">Wracam do zadania</div><div class="op">symbol powrotu na miejsce</div></div><div class="karta"><div class="pole"><div class="ob o-k-dzien-zajecia" role="img" aria-label="Następna rozmowa" style="height:100%"></div></div><div class="et">Następna rozmowa</div><div class="op">symbol pory dnia, o której będzie następna</div></div></div>
-  <div class="pasek"><div class="pole-k">rozmawiam</div><div class="pole-k">słyszę minutnik</div><div class="pole-k">wracam</div></div>
+  <div class="pasek"><div class="pole-k"><b>1</b> rozmawiam</div><div class="pole-k"><b>2</b> słyszę minutnik</div><div class="pole-k"><b>3</b> wracam</div></div>
 </section>
 
   <div class="kcard kstopka">
@@ -4863,7 +4868,7 @@ table.ktab td.lp{font-weight:800;color:var(--fiolet);text-align:center}
     <h5>Karty do zajęć „Dwie minuty tylko dla mnie”</h5></div>
   <p class="kkurs">Wytnij karty i wklej je w plan dnia dziecka. Karta „następna rozmowa” zostaje u dziecka po zakończeniu tej — widoczna zapowiedź działa lepiej niż obietnica powiedziana raz.</p>
   <div class="karty"><div class="karta"><div class="pole"><div class="ob o-k-gest-mowie" role="img" aria-label="Rozmowa" style="height:100%"></div></div><div class="et">Rozmowa</div><div class="op">symbol rozmowy: dwa krzesła, dwie osoby</div></div><div class="karta"><div class="pole"><div class="ob o-k-gest-czekam" role="img" aria-label="Dwie minuty" style="height:100%"></div></div><div class="et">Dwie minuty</div><div class="op">symbol minutnika ustawionego na czas rozmowy</div></div><div class="karta"><div class="pole"><div class="ob o-k-postawa-stolik" role="img" aria-label="Wracam do zadania" style="height:100%"></div></div><div class="et">Wracam do zadania</div><div class="op">symbol powrotu na miejsce</div></div><div class="karta"><div class="pole"><div class="ob o-k-dzien-zajecia" role="img" aria-label="Następna rozmowa" style="height:100%"></div></div><div class="et">Następna rozmowa</div><div class="op">symbol pory dnia, o której będzie następna</div></div></div>
-  <div class="pasek"><div class="pole-k">rozmawiam</div><div class="pole-k">słyszę minutnik</div><div class="pole-k">wracam</div></div>
+  <div class="pasek"><div class="pole-k"><b>1</b> rozmawiam</div><div class="pole-k"><b>2</b> słyszę minutnik</div><div class="pole-k"><b>3</b> wracam</div></div>
 </section>
 
   <div class="kcard kstopka">
@@ -4968,7 +4973,7 @@ table.ktab td.lp{font-weight:800;color:var(--fiolet);text-align:center}
     <h5>Karty do zajęć „Umówiony znak”</h5></div>
   <p class="kkurs">Wytnij karty. Gest ustal z dzieckiem i narysuj go na karcie razem z nim — znak wymyślony wspólnie działa lepiej niż narzucony. Symbole pozostałych kart wklej z biblioteki EduPlaner.</p>
   <div class="karty"><div class="karta"><div class="pole">pole na własny symbol z tablicy AAC</div><div class="et">Mój znak</div><div class="op">miejsce na rysunek umówionego gestu</div></div><div class="karta"><div class="pole"><div class="ob o-k-gest-skinienie" role="img" aria-label="Widzę cię" style="height:100%"></div></div><div class="et">Widzę cię</div><div class="op">symbol skinienia dorosłego</div></div><div class="karta"><div class="pole"><div class="ob o-k-emocja-duma" role="img" aria-label="Zobacz, co zrobiłem" style="height:100%"></div></div><div class="et">Zobacz, co zrobiłem</div><div class="op">symbol pokazywania własnej pracy</div></div><div class="karta"><div class="pole"><div class="ob o-k-gest-czekam" role="img" aria-label="Poczekam" style="height:100%"></div></div><div class="et">Poczekam</div><div class="op">symbol krótkiego czekania na spojrzenie</div></div></div>
-  <div class="pasek"><div class="pole-k">daję znak</div><div class="pole-k">dostaję skinienie</div><div class="pole-k">pracuję dalej</div></div>
+  <div class="pasek"><div class="pole-k"><b>1</b> daję znak</div><div class="pole-k"><b>2</b> dostaję skinienie</div><div class="pole-k"><b>3</b> pracuję dalej</div></div>
 </section>
 
   <div class="kcard kstopka">
@@ -5073,7 +5078,7 @@ table.ktab td.lp{font-weight:800;color:var(--fiolet);text-align:center}
     <h5>Karty do zajęć „Umówiony znak”</h5></div>
   <p class="kkurs">Wytnij karty. Gest ustal z dzieckiem i narysuj go na karcie razem z nim — znak wymyślony wspólnie działa lepiej niż narzucony. Symbole pozostałych kart wklej z biblioteki EduPlaner.</p>
   <div class="karty"><div class="karta"><div class="pole">pole na własny symbol z tablicy AAC</div><div class="et">Mój znak</div><div class="op">miejsce na rysunek umówionego gestu</div></div><div class="karta"><div class="pole"><div class="ob o-k-gest-skinienie" role="img" aria-label="Widzę cię" style="height:100%"></div></div><div class="et">Widzę cię</div><div class="op">symbol skinienia dorosłego</div></div><div class="karta"><div class="pole"><div class="ob o-k-emocja-duma" role="img" aria-label="Zobacz, co zrobiłem" style="height:100%"></div></div><div class="et">Zobacz, co zrobiłem</div><div class="op">symbol pokazywania własnej pracy</div></div><div class="karta"><div class="pole"><div class="ob o-k-gest-czekam" role="img" aria-label="Poczekam" style="height:100%"></div></div><div class="et">Poczekam</div><div class="op">symbol krótkiego czekania na spojrzenie</div></div></div>
-  <div class="pasek"><div class="pole-k">daję znak</div><div class="pole-k">dostaję skinienie</div><div class="pole-k">pracuję dalej</div></div>
+  <div class="pasek"><div class="pole-k"><b>1</b> daję znak</div><div class="pole-k"><b>2</b> dostaję skinienie</div><div class="pole-k"><b>3</b> pracuję dalej</div></div>
 </section>
 
   <div class="kcard kstopka">
@@ -5178,7 +5183,7 @@ table.ktab td.lp{font-weight:800;color:var(--fiolet);text-align:center}
     <h5>Karty do zajęć „Umówiony znak”</h5></div>
   <p class="kkurs">Wytnij karty. Gest ustal z dzieckiem i narysuj go na karcie razem z nim — znak wymyślony wspólnie działa lepiej niż narzucony. Symbole pozostałych kart wklej z biblioteki EduPlaner.</p>
   <div class="karty"><div class="karta"><div class="pole">pole na własny symbol z tablicy AAC</div><div class="et">Mój znak</div><div class="op">miejsce na rysunek umówionego gestu</div></div><div class="karta"><div class="pole"><div class="ob o-k-gest-skinienie" role="img" aria-label="Widzę cię" style="height:100%"></div></div><div class="et">Widzę cię</div><div class="op">symbol skinienia dorosłego</div></div><div class="karta"><div class="pole"><div class="ob o-k-emocja-duma" role="img" aria-label="Zobacz, co zrobiłem" style="height:100%"></div></div><div class="et">Zobacz, co zrobiłem</div><div class="op">symbol pokazywania własnej pracy</div></div><div class="karta"><div class="pole"><div class="ob o-k-gest-czekam" role="img" aria-label="Poczekam" style="height:100%"></div></div><div class="et">Poczekam</div><div class="op">symbol krótkiego czekania na spojrzenie</div></div></div>
-  <div class="pasek"><div class="pole-k">daję znak</div><div class="pole-k">dostaję skinienie</div><div class="pole-k">pracuję dalej</div></div>
+  <div class="pasek"><div class="pole-k"><b>1</b> daję znak</div><div class="pole-k"><b>2</b> dostaję skinienie</div><div class="pole-k"><b>3</b> pracuję dalej</div></div>
 </section>
 
   <div class="kcard kstopka">
@@ -5283,7 +5288,7 @@ table.ktab td.lp{font-weight:800;color:var(--fiolet);text-align:center}
     <h5>Karty do zajęć „Nie teraz — a co zamiast”</h5></div>
   <p class="kkurs">Wytnij karty. Karty alternatyw pokazuj razem z odmową, nie po niej — dziecko ma zobaczyć wyjście w tej samej chwili, w której słyszy „nie”. Symbole wklej z biblioteki EduPlaner.</p>
   <div class="karty"><div class="karta"><div class="pole"><div class="ob o-k-gest-stop" role="img" aria-label="Nie teraz" style="height:100%"></div></div><div class="et">Nie teraz</div><div class="op">symbol odmowy z miejscem na porę, kiedy będzie można</div></div><div class="karta"><div class="pole"><div class="ob o-k-zabawa-klocki" role="img" aria-label="Mogę to" style="height:100%"></div></div><div class="et">Mogę to</div><div class="op">symbol pierwszej alternatywy</div></div><div class="karta"><div class="pole"><div class="ob o-k-zabawa-rysowanie" role="img" aria-label="Albo to" style="height:100%"></div></div><div class="et">Albo to</div><div class="op">symbol drugiej alternatywy</div></div><div class="karta"><div class="pole"><div class="ob o-k-emocja-spokoj" role="img" aria-label="Jak się czuję" style="height:100%"></div></div><div class="et">Jak się czuję</div><div class="op">buźki: złość, smutek, spokój</div></div></div>
-  <div class="pasek"><div class="pole-k">słyszę „nie”</div><div class="pole-k">wybieram</div><div class="pole-k">robię</div></div>
+  <div class="pasek"><div class="pole-k"><b>1</b> słyszę „nie”</div><div class="pole-k"><b>2</b> wybieram</div><div class="pole-k"><b>3</b> robię</div></div>
 </section>
 
   <div class="kcard kstopka">
@@ -5388,7 +5393,7 @@ table.ktab td.lp{font-weight:800;color:var(--fiolet);text-align:center}
     <h5>Karty do zajęć „Nie teraz — a co zamiast”</h5></div>
   <p class="kkurs">Wytnij karty. Karty alternatyw pokazuj razem z odmową, nie po niej — dziecko ma zobaczyć wyjście w tej samej chwili, w której słyszy „nie”. Symbole wklej z biblioteki EduPlaner.</p>
   <div class="karty"><div class="karta"><div class="pole"><div class="ob o-k-gest-stop" role="img" aria-label="Nie teraz" style="height:100%"></div></div><div class="et">Nie teraz</div><div class="op">symbol odmowy z miejscem na porę, kiedy będzie można</div></div><div class="karta"><div class="pole"><div class="ob o-k-zabawa-klocki" role="img" aria-label="Mogę to" style="height:100%"></div></div><div class="et">Mogę to</div><div class="op">symbol pierwszej alternatywy</div></div><div class="karta"><div class="pole"><div class="ob o-k-zabawa-rysowanie" role="img" aria-label="Albo to" style="height:100%"></div></div><div class="et">Albo to</div><div class="op">symbol drugiej alternatywy</div></div><div class="karta"><div class="pole"><div class="ob o-k-emocja-spokoj" role="img" aria-label="Jak się czuję" style="height:100%"></div></div><div class="et">Jak się czuję</div><div class="op">buźki: złość, smutek, spokój</div></div></div>
-  <div class="pasek"><div class="pole-k">słyszę „nie”</div><div class="pole-k">wybieram</div><div class="pole-k">robię</div></div>
+  <div class="pasek"><div class="pole-k"><b>1</b> słyszę „nie”</div><div class="pole-k"><b>2</b> wybieram</div><div class="pole-k"><b>3</b> robię</div></div>
 </section>
 
   <div class="kcard kstopka">
@@ -5493,7 +5498,7 @@ table.ktab td.lp{font-weight:800;color:var(--fiolet);text-align:center}
     <h5>Karty do zajęć „Nie teraz — a co zamiast”</h5></div>
   <p class="kkurs">Wytnij karty. Karty alternatyw pokazuj razem z odmową, nie po niej — dziecko ma zobaczyć wyjście w tej samej chwili, w której słyszy „nie”. Symbole wklej z biblioteki EduPlaner.</p>
   <div class="karty"><div class="karta"><div class="pole"><div class="ob o-k-gest-stop" role="img" aria-label="Nie teraz" style="height:100%"></div></div><div class="et">Nie teraz</div><div class="op">symbol odmowy z miejscem na porę, kiedy będzie można</div></div><div class="karta"><div class="pole"><div class="ob o-k-zabawa-klocki" role="img" aria-label="Mogę to" style="height:100%"></div></div><div class="et">Mogę to</div><div class="op">symbol pierwszej alternatywy</div></div><div class="karta"><div class="pole"><div class="ob o-k-zabawa-rysowanie" role="img" aria-label="Albo to" style="height:100%"></div></div><div class="et">Albo to</div><div class="op">symbol drugiej alternatywy</div></div><div class="karta"><div class="pole"><div class="ob o-k-emocja-spokoj" role="img" aria-label="Jak się czuję" style="height:100%"></div></div><div class="et">Jak się czuję</div><div class="op">buźki: złość, smutek, spokój</div></div></div>
-  <div class="pasek"><div class="pole-k">słyszę „nie”</div><div class="pole-k">wybieram</div><div class="pole-k">robię</div></div>
+  <div class="pasek"><div class="pole-k"><b>1</b> słyszę „nie”</div><div class="pole-k"><b>2</b> wybieram</div><div class="pole-k"><b>3</b> robię</div></div>
 </section>
 
   <div class="kcard kstopka">
@@ -5598,7 +5603,7 @@ table.ktab td.lp{font-weight:800;color:var(--fiolet);text-align:center}
     <h5>Karty do zajęć „Jeszcze dwie minuty i oddaję”</h5></div>
   <p class="kkurs">Wytnij karty i pasek. Kartę „jeszcze dwie minuty” pokazuj razem z nastawieniem minutnika — to samo dziecko widzi i słyszy. Symbole wklej z biblioteki EduPlaner.</p>
   <div class="karty"><div class="karta"><div class="pole"><div class="ob o-k-gest-czekam" role="img" aria-label="Jeszcze dwie minuty" style="height:100%"></div></div><div class="et">Jeszcze dwie minuty</div><div class="op">symbol minutnika z zapowiedzią końca</div></div><div class="karta"><div class="pole"><div class="ob o-k-gest-stop" role="img" aria-label="Koniec" style="height:100%"></div></div><div class="et">Koniec</div><div class="op">symbol sygnału końca zabawy</div></div><div class="karta"><div class="pole"><div class="ob o-k-polecenie-poloz" role="img" aria-label="Tu odkładam" style="height:100%"></div></div><div class="et">Tu odkładam</div><div class="op">symbol miejsca, na które wraca przedmiot</div></div><div class="karta"><div class="pole"><div class="ob o-k-dzien-powrot" role="img" aria-label="Wróci jutro" style="height:100%"></div></div><div class="et">Wróci jutro</div><div class="op">symbol następnego dnia</div></div></div>
-  <div class="pasek"><div class="pole-k">gram</div><div class="pole-k">zapowiedź</div><div class="pole-k">odkładam</div></div>
+  <div class="pasek"><div class="pole-k"><b>1</b> gram</div><div class="pole-k"><b>2</b> zapowiedź</div><div class="pole-k"><b>3</b> odkładam</div></div>
 </section>
 
   <div class="kcard kstopka">
@@ -5703,7 +5708,7 @@ table.ktab td.lp{font-weight:800;color:var(--fiolet);text-align:center}
     <h5>Karty do zajęć „Jeszcze dwie minuty i oddaję”</h5></div>
   <p class="kkurs">Wytnij karty i pasek. Kartę „jeszcze dwie minuty” pokazuj razem z nastawieniem minutnika — to samo dziecko widzi i słyszy. Symbole wklej z biblioteki EduPlaner.</p>
   <div class="karty"><div class="karta"><div class="pole"><div class="ob o-k-gest-czekam" role="img" aria-label="Jeszcze dwie minuty" style="height:100%"></div></div><div class="et">Jeszcze dwie minuty</div><div class="op">symbol minutnika z zapowiedzią końca</div></div><div class="karta"><div class="pole"><div class="ob o-k-gest-stop" role="img" aria-label="Koniec" style="height:100%"></div></div><div class="et">Koniec</div><div class="op">symbol sygnału końca zabawy</div></div><div class="karta"><div class="pole"><div class="ob o-k-polecenie-poloz" role="img" aria-label="Tu odkładam" style="height:100%"></div></div><div class="et">Tu odkładam</div><div class="op">symbol miejsca, na które wraca przedmiot</div></div><div class="karta"><div class="pole"><div class="ob o-k-dzien-powrot" role="img" aria-label="Wróci jutro" style="height:100%"></div></div><div class="et">Wróci jutro</div><div class="op">symbol następnego dnia</div></div></div>
-  <div class="pasek"><div class="pole-k">gram</div><div class="pole-k">zapowiedź</div><div class="pole-k">odkładam</div></div>
+  <div class="pasek"><div class="pole-k"><b>1</b> gram</div><div class="pole-k"><b>2</b> zapowiedź</div><div class="pole-k"><b>3</b> odkładam</div></div>
 </section>
 
   <div class="kcard kstopka">
@@ -5808,7 +5813,7 @@ table.ktab td.lp{font-weight:800;color:var(--fiolet);text-align:center}
     <h5>Karty do zajęć „Jeszcze dwie minuty i oddaję”</h5></div>
   <p class="kkurs">Wytnij karty i pasek. Kartę „jeszcze dwie minuty” pokazuj razem z nastawieniem minutnika — to samo dziecko widzi i słyszy. Symbole wklej z biblioteki EduPlaner.</p>
   <div class="karty"><div class="karta"><div class="pole"><div class="ob o-k-gest-czekam" role="img" aria-label="Jeszcze dwie minuty" style="height:100%"></div></div><div class="et">Jeszcze dwie minuty</div><div class="op">symbol minutnika z zapowiedzią końca</div></div><div class="karta"><div class="pole"><div class="ob o-k-gest-stop" role="img" aria-label="Koniec" style="height:100%"></div></div><div class="et">Koniec</div><div class="op">symbol sygnału końca zabawy</div></div><div class="karta"><div class="pole"><div class="ob o-k-polecenie-poloz" role="img" aria-label="Tu odkładam" style="height:100%"></div></div><div class="et">Tu odkładam</div><div class="op">symbol miejsca, na które wraca przedmiot</div></div><div class="karta"><div class="pole"><div class="ob o-k-dzien-powrot" role="img" aria-label="Wróci jutro" style="height:100%"></div></div><div class="et">Wróci jutro</div><div class="op">symbol następnego dnia</div></div></div>
-  <div class="pasek"><div class="pole-k">gram</div><div class="pole-k">zapowiedź</div><div class="pole-k">odkładam</div></div>
+  <div class="pasek"><div class="pole-k"><b>1</b> gram</div><div class="pole-k"><b>2</b> zapowiedź</div><div class="pole-k"><b>3</b> odkładam</div></div>
 </section>
 
   <div class="kcard kstopka">
@@ -5913,7 +5918,7 @@ table.ktab td.lp{font-weight:800;color:var(--fiolet);text-align:center}
     <h5>Karty do zajęć „Poproszę o to”</h5></div>
   <p class="kkurs">Wytnij karty przedmiotów. Wklej symbole rzeczy, o które dziecko naprawdę najczęściej się dopomina — karta z przedmiotem nieużywanym nie zostanie użyta w momencie, w którym jest potrzebna.</p>
   <div class="karty"><div class="karta"><div class="pole"><div class="ob o-k-polecenie-daj" role="img" aria-label="Poproszę o…" style="height:100%"></div></div><div class="et">Poproszę o…</div><div class="op">karta zwrotu z pustym polem na symbol przedmiotu</div></div><div class="karta"><div class="pole"><div class="ob o-k-zabawa-auta" role="img" aria-label="Przedmiot 1" style="height:100%"></div></div><div class="et">Przedmiot 1</div><div class="op">symbol rzeczy najczęściej pożądanej</div></div><div class="karta"><div class="pole"><div class="ob o-k-zabawa-ksiazki" role="img" aria-label="Przedmiot 2" style="height:100%"></div></div><div class="et">Przedmiot 2</div><div class="op">symbol drugiej rzeczy</div></div><div class="karta"><div class="pole"><div class="ob o-k-gest-dziekuje" role="img" aria-label="Dziękuję" style="height:100%"></div></div><div class="et">Dziękuję</div><div class="op">symbol podziękowania po otrzymaniu</div></div></div>
-  <div class="pasek"><div class="pole-k">proszę</div><div class="pole-k">czekam</div><div class="pole-k">dostaję</div></div>
+  <div class="pasek"><div class="pole-k"><b>1</b> proszę</div><div class="pole-k"><b>2</b> czekam</div><div class="pole-k"><b>3</b> dostaję</div></div>
 </section>
 
   <div class="kcard kstopka">
@@ -6018,7 +6023,7 @@ table.ktab td.lp{font-weight:800;color:var(--fiolet);text-align:center}
     <h5>Karty do zajęć „Poproszę o to”</h5></div>
   <p class="kkurs">Wytnij karty przedmiotów. Wklej symbole rzeczy, o które dziecko naprawdę najczęściej się dopomina — karta z przedmiotem nieużywanym nie zostanie użyta w momencie, w którym jest potrzebna.</p>
   <div class="karty"><div class="karta"><div class="pole"><div class="ob o-k-polecenie-daj" role="img" aria-label="Poproszę o…" style="height:100%"></div></div><div class="et">Poproszę o…</div><div class="op">karta zwrotu z pustym polem na symbol przedmiotu</div></div><div class="karta"><div class="pole"><div class="ob o-k-zabawa-auta" role="img" aria-label="Przedmiot 1" style="height:100%"></div></div><div class="et">Przedmiot 1</div><div class="op">symbol rzeczy najczęściej pożądanej</div></div><div class="karta"><div class="pole"><div class="ob o-k-zabawa-ksiazki" role="img" aria-label="Przedmiot 2" style="height:100%"></div></div><div class="et">Przedmiot 2</div><div class="op">symbol drugiej rzeczy</div></div><div class="karta"><div class="pole"><div class="ob o-k-gest-dziekuje" role="img" aria-label="Dziękuję" style="height:100%"></div></div><div class="et">Dziękuję</div><div class="op">symbol podziękowania po otrzymaniu</div></div></div>
-  <div class="pasek"><div class="pole-k">proszę</div><div class="pole-k">czekam</div><div class="pole-k">dostaję</div></div>
+  <div class="pasek"><div class="pole-k"><b>1</b> proszę</div><div class="pole-k"><b>2</b> czekam</div><div class="pole-k"><b>3</b> dostaję</div></div>
 </section>
 
   <div class="kcard kstopka">
@@ -6123,7 +6128,7 @@ table.ktab td.lp{font-weight:800;color:var(--fiolet);text-align:center}
     <h5>Karty do zajęć „Poproszę o to”</h5></div>
   <p class="kkurs">Wytnij karty przedmiotów. Wklej symbole rzeczy, o które dziecko naprawdę najczęściej się dopomina — karta z przedmiotem nieużywanym nie zostanie użyta w momencie, w którym jest potrzebna.</p>
   <div class="karty"><div class="karta"><div class="pole"><div class="ob o-k-polecenie-daj" role="img" aria-label="Poproszę o…" style="height:100%"></div></div><div class="et">Poproszę o…</div><div class="op">karta zwrotu z pustym polem na symbol przedmiotu</div></div><div class="karta"><div class="pole"><div class="ob o-k-zabawa-auta" role="img" aria-label="Przedmiot 1" style="height:100%"></div></div><div class="et">Przedmiot 1</div><div class="op">symbol rzeczy najczęściej pożądanej</div></div><div class="karta"><div class="pole"><div class="ob o-k-zabawa-ksiazki" role="img" aria-label="Przedmiot 2" style="height:100%"></div></div><div class="et">Przedmiot 2</div><div class="op">symbol drugiej rzeczy</div></div><div class="karta"><div class="pole"><div class="ob o-k-gest-dziekuje" role="img" aria-label="Dziękuję" style="height:100%"></div></div><div class="et">Dziękuję</div><div class="op">symbol podziękowania po otrzymaniu</div></div></div>
-  <div class="pasek"><div class="pole-k">proszę</div><div class="pole-k">czekam</div><div class="pole-k">dostaję</div></div>
+  <div class="pasek"><div class="pole-k"><b>1</b> proszę</div><div class="pole-k"><b>2</b> czekam</div><div class="pole-k"><b>3</b> dostaję</div></div>
 </section>
 
   <div class="kcard kstopka">
@@ -6228,7 +6233,7 @@ table.ktab td.lp{font-weight:800;color:var(--fiolet);text-align:center}
     <h5>Karty do zajęć „Czekam z licznikiem”</h5></div>
   <p class="kkurs">Wytnij karty i pasek czekania. Na karcie „dostanę o…” zaznacz porę razem z dzieckiem — zapisany termin jest umową, a nie obietnicą. Symbole wklej z biblioteki EduPlaner.</p>
   <div class="karty"><div class="karta"><div class="pole"><div class="ob o-k-polecenie-daj" role="img" aria-label="Chcę to" style="height:100%"></div></div><div class="et">Chcę to</div><div class="op">symbol przedmiotu, na który dziecko czeka</div></div><div class="karta"><div class="pole"><div class="ob o-k-gest-czekam" role="img" aria-label="Dostanę o…" style="height:100%"></div></div><div class="et">Dostanę o…</div><div class="op">symbol pory dnia z miejscem na zaznaczenie</div></div><div class="karta"><div class="pole"><div class="ob o-k-zabawa-ukladanka" role="img" aria-label="W tym czasie" style="height:100%"></div></div><div class="et">W tym czasie</div><div class="op">symbol zajęcia na czas czekania</div></div><div class="karta"><div class="pole"><div class="ob o-k-emocja-duma" role="img" aria-label="Doczekałem" style="height:100%"></div></div><div class="et">Doczekałem</div><div class="op">pole na znak po udanym czekaniu</div></div></div>
-  <div class="pasek"><div class="pole-k">proszę</div><div class="pole-k">czekam</div><div class="pole-k">dostaję</div></div>
+  <div class="pasek"><div class="pole-k"><b>1</b> proszę</div><div class="pole-k"><b>2</b> czekam</div><div class="pole-k"><b>3</b> dostaję</div></div>
 </section>
 
   <div class="kcard kstopka">
@@ -6333,7 +6338,7 @@ table.ktab td.lp{font-weight:800;color:var(--fiolet);text-align:center}
     <h5>Karty do zajęć „Czekam z licznikiem”</h5></div>
   <p class="kkurs">Wytnij karty i pasek czekania. Na karcie „dostanę o…” zaznacz porę razem z dzieckiem — zapisany termin jest umową, a nie obietnicą. Symbole wklej z biblioteki EduPlaner.</p>
   <div class="karty"><div class="karta"><div class="pole"><div class="ob o-k-polecenie-daj" role="img" aria-label="Chcę to" style="height:100%"></div></div><div class="et">Chcę to</div><div class="op">symbol przedmiotu, na który dziecko czeka</div></div><div class="karta"><div class="pole"><div class="ob o-k-gest-czekam" role="img" aria-label="Dostanę o…" style="height:100%"></div></div><div class="et">Dostanę o…</div><div class="op">symbol pory dnia z miejscem na zaznaczenie</div></div><div class="karta"><div class="pole"><div class="ob o-k-zabawa-ukladanka" role="img" aria-label="W tym czasie" style="height:100%"></div></div><div class="et">W tym czasie</div><div class="op">symbol zajęcia na czas czekania</div></div><div class="karta"><div class="pole"><div class="ob o-k-emocja-duma" role="img" aria-label="Doczekałem" style="height:100%"></div></div><div class="et">Doczekałem</div><div class="op">pole na znak po udanym czekaniu</div></div></div>
-  <div class="pasek"><div class="pole-k">proszę</div><div class="pole-k">czekam</div><div class="pole-k">dostaję</div></div>
+  <div class="pasek"><div class="pole-k"><b>1</b> proszę</div><div class="pole-k"><b>2</b> czekam</div><div class="pole-k"><b>3</b> dostaję</div></div>
 </section>
 
   <div class="kcard kstopka">
@@ -6438,7 +6443,7 @@ table.ktab td.lp{font-weight:800;color:var(--fiolet);text-align:center}
     <h5>Karty do zajęć „Czekam z licznikiem”</h5></div>
   <p class="kkurs">Wytnij karty i pasek czekania. Na karcie „dostanę o…” zaznacz porę razem z dzieckiem — zapisany termin jest umową, a nie obietnicą. Symbole wklej z biblioteki EduPlaner.</p>
   <div class="karty"><div class="karta"><div class="pole"><div class="ob o-k-polecenie-daj" role="img" aria-label="Chcę to" style="height:100%"></div></div><div class="et">Chcę to</div><div class="op">symbol przedmiotu, na który dziecko czeka</div></div><div class="karta"><div class="pole"><div class="ob o-k-gest-czekam" role="img" aria-label="Dostanę o…" style="height:100%"></div></div><div class="et">Dostanę o…</div><div class="op">symbol pory dnia z miejscem na zaznaczenie</div></div><div class="karta"><div class="pole"><div class="ob o-k-zabawa-ukladanka" role="img" aria-label="W tym czasie" style="height:100%"></div></div><div class="et">W tym czasie</div><div class="op">symbol zajęcia na czas czekania</div></div><div class="karta"><div class="pole"><div class="ob o-k-emocja-duma" role="img" aria-label="Doczekałem" style="height:100%"></div></div><div class="et">Doczekałem</div><div class="op">pole na znak po udanym czekaniu</div></div></div>
-  <div class="pasek"><div class="pole-k">proszę</div><div class="pole-k">czekam</div><div class="pole-k">dostaję</div></div>
+  <div class="pasek"><div class="pole-k"><b>1</b> proszę</div><div class="pole-k"><b>2</b> czekam</div><div class="pole-k"><b>3</b> dostaję</div></div>
 </section>
 
   <div class="kcard kstopka">
@@ -6543,7 +6548,7 @@ table.ktab td.lp{font-weight:800;color:var(--fiolet);text-align:center}
     <h5>Karty do zajęć „Co robię, zanim się zacznie”</h5></div>
   <p class="kkurs">Wytnij karty i pasek czasu. Zadania „w międzyczasie” przygotuj wcześniej i trzymaj w jednym pudełku — szukanie zajęcia w momencie oczekiwania przychodzi zawsze o minutę za późno.</p>
   <div class="karty"><div class="karta"><div class="pole"><div class="ob o-k-gest-czekam" role="img" aria-label="Czekam na" style="height:100%"></div></div><div class="et">Czekam na</div><div class="op">symbol atrakcji, na którą dziecko czeka</div></div><div class="karta"><div class="pole"><div class="ob o-k-zabawa-rysowanie" role="img" aria-label="W międzyczasie 1" style="height:100%"></div></div><div class="et">W międzyczasie 1</div><div class="op">symbol pierwszego krótkiego zadania</div></div><div class="karta"><div class="pole"><div class="ob o-k-zabawa-ukladanka" role="img" aria-label="W międzyczasie 2" style="height:100%"></div></div><div class="et">W międzyczasie 2</div><div class="op">symbol drugiego zadania</div></div><div class="karta"><div class="pole"><div class="ob o-k-zeton-diament" role="img" aria-label="Mój żeton" style="height:100%"></div></div><div class="et">Mój żeton</div><div class="op">pole na żeton za wypełnione oczekiwanie</div></div></div>
-  <div class="pasek"><div class="pole-k">dużo czasu</div><div class="pole-k">trochę czasu</div><div class="pole-k">zaczynamy</div></div>
+  <div class="pasek"><div class="pole-k"><b>1</b> dużo czasu</div><div class="pole-k"><b>2</b> trochę czasu</div><div class="pole-k"><b>3</b> zaczynamy</div></div>
 </section>
 
   <div class="kcard kstopka">
@@ -6648,7 +6653,7 @@ table.ktab td.lp{font-weight:800;color:var(--fiolet);text-align:center}
     <h5>Karty do zajęć „Co robię, zanim się zacznie”</h5></div>
   <p class="kkurs">Wytnij karty i pasek czasu. Zadania „w międzyczasie” przygotuj wcześniej i trzymaj w jednym pudełku — szukanie zajęcia w momencie oczekiwania przychodzi zawsze o minutę za późno.</p>
   <div class="karty"><div class="karta"><div class="pole"><div class="ob o-k-gest-czekam" role="img" aria-label="Czekam na" style="height:100%"></div></div><div class="et">Czekam na</div><div class="op">symbol atrakcji, na którą dziecko czeka</div></div><div class="karta"><div class="pole"><div class="ob o-k-zabawa-rysowanie" role="img" aria-label="W międzyczasie 1" style="height:100%"></div></div><div class="et">W międzyczasie 1</div><div class="op">symbol pierwszego krótkiego zadania</div></div><div class="karta"><div class="pole"><div class="ob o-k-zabawa-ukladanka" role="img" aria-label="W międzyczasie 2" style="height:100%"></div></div><div class="et">W międzyczasie 2</div><div class="op">symbol drugiego zadania</div></div><div class="karta"><div class="pole"><div class="ob o-k-zeton-diament" role="img" aria-label="Mój żeton" style="height:100%"></div></div><div class="et">Mój żeton</div><div class="op">pole na żeton za wypełnione oczekiwanie</div></div></div>
-  <div class="pasek"><div class="pole-k">dużo czasu</div><div class="pole-k">trochę czasu</div><div class="pole-k">zaczynamy</div></div>
+  <div class="pasek"><div class="pole-k"><b>1</b> dużo czasu</div><div class="pole-k"><b>2</b> trochę czasu</div><div class="pole-k"><b>3</b> zaczynamy</div></div>
 </section>
 
   <div class="kcard kstopka">
@@ -6753,7 +6758,7 @@ table.ktab td.lp{font-weight:800;color:var(--fiolet);text-align:center}
     <h5>Karty do zajęć „Co robię, zanim się zacznie”</h5></div>
   <p class="kkurs">Wytnij karty i pasek czasu. Zadania „w międzyczasie” przygotuj wcześniej i trzymaj w jednym pudełku — szukanie zajęcia w momencie oczekiwania przychodzi zawsze o minutę za późno.</p>
   <div class="karty"><div class="karta"><div class="pole"><div class="ob o-k-gest-czekam" role="img" aria-label="Czekam na" style="height:100%"></div></div><div class="et">Czekam na</div><div class="op">symbol atrakcji, na którą dziecko czeka</div></div><div class="karta"><div class="pole"><div class="ob o-k-zabawa-rysowanie" role="img" aria-label="W międzyczasie 1" style="height:100%"></div></div><div class="et">W międzyczasie 1</div><div class="op">symbol pierwszego krótkiego zadania</div></div><div class="karta"><div class="pole"><div class="ob o-k-zabawa-ukladanka" role="img" aria-label="W międzyczasie 2" style="height:100%"></div></div><div class="et">W międzyczasie 2</div><div class="op">symbol drugiego zadania</div></div><div class="karta"><div class="pole"><div class="ob o-k-zeton-diament" role="img" aria-label="Mój żeton" style="height:100%"></div></div><div class="et">Mój żeton</div><div class="op">pole na żeton za wypełnione oczekiwanie</div></div></div>
-  <div class="pasek"><div class="pole-k">dużo czasu</div><div class="pole-k">trochę czasu</div><div class="pole-k">zaczynamy</div></div>
+  <div class="pasek"><div class="pole-k"><b>1</b> dużo czasu</div><div class="pole-k"><b>2</b> trochę czasu</div><div class="pole-k"><b>3</b> zaczynamy</div></div>
 </section>
 
   <div class="kcard kstopka">
@@ -6858,7 +6863,7 @@ table.ktab td.lp{font-weight:800;color:var(--fiolet);text-align:center}
     <h5>Karty do zajęć „Zmiana, o której wiem wcześniej”</h5></div>
   <p class="kkurs">Wytnij karty i wpinaj je w plan dnia dziecka. Karta „zmiana” ma być jedna i zawsze ta sama — dziecko rozpoznaje ją szybciej niż zdanie, które słyszy. Symbole wklej z biblioteki EduPlaner.</p>
   <div class="karty"><div class="karta"><div class="pole"><div class="ob o-k-plan-zmiana" role="img" aria-label="Zmiana" style="height:100%"></div></div><div class="et">Zmiana</div><div class="op">symbol zmiany — karta wstawiana w plan dnia</div></div><div class="karta"><div class="pole"><div class="ob o-k-gest-czekam" role="img" aria-label="Za pięć minut" style="height:100%"></div></div><div class="et">Za pięć minut</div><div class="op">symbol odliczania: zostało pięć minut</div></div><div class="karta"><div class="pole"><div class="ob o-k-dzien-zajecia" role="img" aria-label="Teraz to" style="height:100%"></div></div><div class="et">Teraz to</div><div class="op">symbol nowej aktywności</div></div><div class="karta"><div class="pole"><div class="ob o-k-emocja-spokoj" role="img" aria-label="Jak się czuję" style="height:100%"></div></div><div class="et">Jak się czuję</div><div class="op">buźki do zaznaczenia po zmianie</div></div></div>
-  <div class="pasek"><div class="pole-k">wiem wcześniej</div><div class="pole-k">odliczam</div><div class="pole-k">przechodzę</div></div>
+  <div class="pasek"><div class="pole-k"><b>1</b> wiem wcześniej</div><div class="pole-k"><b>2</b> odliczam</div><div class="pole-k"><b>3</b> przechodzę</div></div>
 </section>
 
   <div class="kcard kstopka">
@@ -6963,7 +6968,7 @@ table.ktab td.lp{font-weight:800;color:var(--fiolet);text-align:center}
     <h5>Karty do zajęć „Zmiana, o której wiem wcześniej”</h5></div>
   <p class="kkurs">Wytnij karty i wpinaj je w plan dnia dziecka. Karta „zmiana” ma być jedna i zawsze ta sama — dziecko rozpoznaje ją szybciej niż zdanie, które słyszy. Symbole wklej z biblioteki EduPlaner.</p>
   <div class="karty"><div class="karta"><div class="pole"><div class="ob o-k-plan-zmiana" role="img" aria-label="Zmiana" style="height:100%"></div></div><div class="et">Zmiana</div><div class="op">symbol zmiany — karta wstawiana w plan dnia</div></div><div class="karta"><div class="pole"><div class="ob o-k-gest-czekam" role="img" aria-label="Za pięć minut" style="height:100%"></div></div><div class="et">Za pięć minut</div><div class="op">symbol odliczania: zostało pięć minut</div></div><div class="karta"><div class="pole"><div class="ob o-k-dzien-zajecia" role="img" aria-label="Teraz to" style="height:100%"></div></div><div class="et">Teraz to</div><div class="op">symbol nowej aktywności</div></div><div class="karta"><div class="pole"><div class="ob o-k-emocja-spokoj" role="img" aria-label="Jak się czuję" style="height:100%"></div></div><div class="et">Jak się czuję</div><div class="op">buźki do zaznaczenia po zmianie</div></div></div>
-  <div class="pasek"><div class="pole-k">wiem wcześniej</div><div class="pole-k">odliczam</div><div class="pole-k">przechodzę</div></div>
+  <div class="pasek"><div class="pole-k"><b>1</b> wiem wcześniej</div><div class="pole-k"><b>2</b> odliczam</div><div class="pole-k"><b>3</b> przechodzę</div></div>
 </section>
 
   <div class="kcard kstopka">
@@ -7068,7 +7073,7 @@ table.ktab td.lp{font-weight:800;color:var(--fiolet);text-align:center}
     <h5>Karty do zajęć „Zmiana, o której wiem wcześniej”</h5></div>
   <p class="kkurs">Wytnij karty i wpinaj je w plan dnia dziecka. Karta „zmiana” ma być jedna i zawsze ta sama — dziecko rozpoznaje ją szybciej niż zdanie, które słyszy. Symbole wklej z biblioteki EduPlaner.</p>
   <div class="karty"><div class="karta"><div class="pole"><div class="ob o-k-plan-zmiana" role="img" aria-label="Zmiana" style="height:100%"></div></div><div class="et">Zmiana</div><div class="op">symbol zmiany — karta wstawiana w plan dnia</div></div><div class="karta"><div class="pole"><div class="ob o-k-gest-czekam" role="img" aria-label="Za pięć minut" style="height:100%"></div></div><div class="et">Za pięć minut</div><div class="op">symbol odliczania: zostało pięć minut</div></div><div class="karta"><div class="pole"><div class="ob o-k-dzien-zajecia" role="img" aria-label="Teraz to" style="height:100%"></div></div><div class="et">Teraz to</div><div class="op">symbol nowej aktywności</div></div><div class="karta"><div class="pole"><div class="ob o-k-emocja-spokoj" role="img" aria-label="Jak się czuję" style="height:100%"></div></div><div class="et">Jak się czuję</div><div class="op">buźki do zaznaczenia po zmianie</div></div></div>
-  <div class="pasek"><div class="pole-k">wiem wcześniej</div><div class="pole-k">odliczam</div><div class="pole-k">przechodzę</div></div>
+  <div class="pasek"><div class="pole-k"><b>1</b> wiem wcześniej</div><div class="pole-k"><b>2</b> odliczam</div><div class="pole-k"><b>3</b> przechodzę</div></div>
 </section>
 
   <div class="kcard kstopka">
@@ -7173,7 +7178,7 @@ table.ktab td.lp{font-weight:800;color:var(--fiolet);text-align:center}
     <h5>Termometr emocji do zajęć „Zanim zrobi się czerwono”</h5></div>
   <p class="kkurs">Wytnij termometr i karty. Termometr zostaje na stoliku dziecka na stałe. W pola przy kolorze żółtym wklej symbole strategii, które u was działają — kolor bez wyjścia jest tylko etykietą.</p>
   <div class="karty"><div class="karta"><div class="pole"><div class="ob o-k-emocja-spokoj" role="img" aria-label="Zielony" style="height:100%"></div></div><div class="et">Zielony</div><div class="op">symbol spokoju — mogę pracować</div></div><div class="karta"><div class="pole"><div class="ob o-k-emocja-zmeczenie" role="img" aria-label="Żółty" style="height:100%"></div></div><div class="et">Żółty</div><div class="op">symbol napięcia — potrzebuję strategii</div></div><div class="karta"><div class="pole"><div class="ob o-k-emocja-zlosc" role="img" aria-label="Czerwony" style="height:100%"></div></div><div class="et">Czerwony</div><div class="op">symbol wybuchu — potrzebuję pomocy dorosłego</div></div><div class="karta"><div class="pole"><div class="ob o-k-strategia-oddech" role="img" aria-label="Co mi pomaga" style="height:100%"></div></div><div class="et">Co mi pomaga</div><div class="op">symbol tego, co pomaga przy żółtym</div></div></div>
-  <div class="pasek"><div class="pole-k">sprawdzam</div><div class="pole-k">nazywam</div><div class="pole-k">wybieram, co mi pomaga</div></div>
+  <div class="pasek"><div class="pole-k"><b>1</b> sprawdzam</div><div class="pole-k"><b>2</b> nazywam</div><div class="pole-k"><b>3</b> wybieram, co mi pomaga</div></div>
 </section>
 
   <div class="kcard kstopka">
@@ -7278,7 +7283,7 @@ table.ktab td.lp{font-weight:800;color:var(--fiolet);text-align:center}
     <h5>Termometr emocji do zajęć „Zanim zrobi się czerwono”</h5></div>
   <p class="kkurs">Wytnij termometr i karty. Termometr zostaje na stoliku dziecka na stałe. W pola przy kolorze żółtym wklej symbole strategii, które u was działają — kolor bez wyjścia jest tylko etykietą.</p>
   <div class="karty"><div class="karta"><div class="pole"><div class="ob o-k-emocja-spokoj" role="img" aria-label="Zielony" style="height:100%"></div></div><div class="et">Zielony</div><div class="op">symbol spokoju — mogę pracować</div></div><div class="karta"><div class="pole"><div class="ob o-k-emocja-zmeczenie" role="img" aria-label="Żółty" style="height:100%"></div></div><div class="et">Żółty</div><div class="op">symbol napięcia — potrzebuję strategii</div></div><div class="karta"><div class="pole"><div class="ob o-k-emocja-zlosc" role="img" aria-label="Czerwony" style="height:100%"></div></div><div class="et">Czerwony</div><div class="op">symbol wybuchu — potrzebuję pomocy dorosłego</div></div><div class="karta"><div class="pole"><div class="ob o-k-strategia-oddech" role="img" aria-label="Co mi pomaga" style="height:100%"></div></div><div class="et">Co mi pomaga</div><div class="op">symbol tego, co pomaga przy żółtym</div></div></div>
-  <div class="pasek"><div class="pole-k">sprawdzam</div><div class="pole-k">nazywam</div><div class="pole-k">wybieram, co mi pomaga</div></div>
+  <div class="pasek"><div class="pole-k"><b>1</b> sprawdzam</div><div class="pole-k"><b>2</b> nazywam</div><div class="pole-k"><b>3</b> wybieram, co mi pomaga</div></div>
 </section>
 
   <div class="kcard kstopka">
@@ -7383,7 +7388,7 @@ table.ktab td.lp{font-weight:800;color:var(--fiolet);text-align:center}
     <h5>Termometr emocji do zajęć „Zanim zrobi się czerwono”</h5></div>
   <p class="kkurs">Wytnij termometr i karty. Termometr zostaje na stoliku dziecka na stałe. W pola przy kolorze żółtym wklej symbole strategii, które u was działają — kolor bez wyjścia jest tylko etykietą.</p>
   <div class="karty"><div class="karta"><div class="pole"><div class="ob o-k-emocja-spokoj" role="img" aria-label="Zielony" style="height:100%"></div></div><div class="et">Zielony</div><div class="op">symbol spokoju — mogę pracować</div></div><div class="karta"><div class="pole"><div class="ob o-k-emocja-zmeczenie" role="img" aria-label="Żółty" style="height:100%"></div></div><div class="et">Żółty</div><div class="op">symbol napięcia — potrzebuję strategii</div></div><div class="karta"><div class="pole"><div class="ob o-k-emocja-zlosc" role="img" aria-label="Czerwony" style="height:100%"></div></div><div class="et">Czerwony</div><div class="op">symbol wybuchu — potrzebuję pomocy dorosłego</div></div><div class="karta"><div class="pole"><div class="ob o-k-strategia-oddech" role="img" aria-label="Co mi pomaga" style="height:100%"></div></div><div class="et">Co mi pomaga</div><div class="op">symbol tego, co pomaga przy żółtym</div></div></div>
-  <div class="pasek"><div class="pole-k">sprawdzam</div><div class="pole-k">nazywam</div><div class="pole-k">wybieram, co mi pomaga</div></div>
+  <div class="pasek"><div class="pole-k"><b>1</b> sprawdzam</div><div class="pole-k"><b>2</b> nazywam</div><div class="pole-k"><b>3</b> wybieram, co mi pomaga</div></div>
 </section>
 
   <div class="kcard kstopka">
@@ -7488,7 +7493,7 @@ table.ktab td.lp{font-weight:800;color:var(--fiolet);text-align:center}
     <h5>Karty do zajęć „Kącik, w którym robi się ciszej”</h5></div>
   <p class="kkurs">Wytnij karty i powieś je w kąciku wyciszenia. Formy na kartach mają być naprawdę dostępne w tym kąciku — karta z formą, której tam nie ma, uczy dziecko, że kącik nie działa. Symbole wklej z biblioteki EduPlaner.</p>
   <div class="karty"><div class="karta"><div class="pole"><div class="ob o-k-strategia-przerwa" role="img" aria-label="Idę do kącika" style="height:100%"></div></div><div class="et">Idę do kącika</div><div class="op">symbol wejścia — karta kładziona przy wejściu</div></div><div class="karta"><div class="pole"><div class="ob o-k-strategia-oddech" role="img" aria-label="Oddech" style="height:100%"></div></div><div class="et">Oddech</div><div class="op">symbol ćwiczenia oddechowego</div></div><div class="karta"><div class="pole"><div class="ob o-k-sensor-ucisk" role="img" aria-label="Ciężki koc" style="height:100%"></div></div><div class="et">Ciężki koc</div><div class="op">symbol ucisku</div></div><div class="karta"><div class="pole"><div class="ob o-k-prosze-cisza" role="img" aria-label="Cisza" style="height:100%"></div></div><div class="et">Cisza</div><div class="op">symbol słuchawek wygłuszających</div></div></div>
-  <div class="pasek"><div class="pole-k">wchodzę</div><div class="pole-k">wyciszam się</div><div class="pole-k">wychodzę</div></div>
+  <div class="pasek"><div class="pole-k"><b>1</b> wchodzę</div><div class="pole-k"><b>2</b> wyciszam się</div><div class="pole-k"><b>3</b> wychodzę</div></div>
 </section>
 
   <div class="kcard kstopka">
@@ -7593,7 +7598,7 @@ table.ktab td.lp{font-weight:800;color:var(--fiolet);text-align:center}
     <h5>Karty do zajęć „Kącik, w którym robi się ciszej”</h5></div>
   <p class="kkurs">Wytnij karty i powieś je w kąciku wyciszenia. Formy na kartach mają być naprawdę dostępne w tym kąciku — karta z formą, której tam nie ma, uczy dziecko, że kącik nie działa. Symbole wklej z biblioteki EduPlaner.</p>
   <div class="karty"><div class="karta"><div class="pole"><div class="ob o-k-strategia-przerwa" role="img" aria-label="Idę do kącika" style="height:100%"></div></div><div class="et">Idę do kącika</div><div class="op">symbol wejścia — karta kładziona przy wejściu</div></div><div class="karta"><div class="pole"><div class="ob o-k-strategia-oddech" role="img" aria-label="Oddech" style="height:100%"></div></div><div class="et">Oddech</div><div class="op">symbol ćwiczenia oddechowego</div></div><div class="karta"><div class="pole"><div class="ob o-k-sensor-ucisk" role="img" aria-label="Ciężki koc" style="height:100%"></div></div><div class="et">Ciężki koc</div><div class="op">symbol ucisku</div></div><div class="karta"><div class="pole"><div class="ob o-k-prosze-cisza" role="img" aria-label="Cisza" style="height:100%"></div></div><div class="et">Cisza</div><div class="op">symbol słuchawek wygłuszających</div></div></div>
-  <div class="pasek"><div class="pole-k">wchodzę</div><div class="pole-k">wyciszam się</div><div class="pole-k">wychodzę</div></div>
+  <div class="pasek"><div class="pole-k"><b>1</b> wchodzę</div><div class="pole-k"><b>2</b> wyciszam się</div><div class="pole-k"><b>3</b> wychodzę</div></div>
 </section>
 
   <div class="kcard kstopka">
@@ -7698,7 +7703,7 @@ table.ktab td.lp{font-weight:800;color:var(--fiolet);text-align:center}
     <h5>Karty do zajęć „Kącik, w którym robi się ciszej”</h5></div>
   <p class="kkurs">Wytnij karty i powieś je w kąciku wyciszenia. Formy na kartach mają być naprawdę dostępne w tym kąciku — karta z formą, której tam nie ma, uczy dziecko, że kącik nie działa. Symbole wklej z biblioteki EduPlaner.</p>
   <div class="karty"><div class="karta"><div class="pole"><div class="ob o-k-strategia-przerwa" role="img" aria-label="Idę do kącika" style="height:100%"></div></div><div class="et">Idę do kącika</div><div class="op">symbol wejścia — karta kładziona przy wejściu</div></div><div class="karta"><div class="pole"><div class="ob o-k-strategia-oddech" role="img" aria-label="Oddech" style="height:100%"></div></div><div class="et">Oddech</div><div class="op">symbol ćwiczenia oddechowego</div></div><div class="karta"><div class="pole"><div class="ob o-k-sensor-ucisk" role="img" aria-label="Ciężki koc" style="height:100%"></div></div><div class="et">Ciężki koc</div><div class="op">symbol ucisku</div></div><div class="karta"><div class="pole"><div class="ob o-k-prosze-cisza" role="img" aria-label="Cisza" style="height:100%"></div></div><div class="et">Cisza</div><div class="op">symbol słuchawek wygłuszających</div></div></div>
-  <div class="pasek"><div class="pole-k">wchodzę</div><div class="pole-k">wyciszam się</div><div class="pole-k">wychodzę</div></div>
+  <div class="pasek"><div class="pole-k"><b>1</b> wchodzę</div><div class="pole-k"><b>2</b> wyciszam się</div><div class="pole-k"><b>3</b> wychodzę</div></div>
 </section>
 
   <div class="kcard kstopka">
@@ -7803,7 +7808,7 @@ table.ktab td.lp{font-weight:800;color:var(--fiolet);text-align:center}
     <h5>Karty do zajęć „Wracam do grupy”</h5></div>
   <p class="kkurs">Wytnij karty. Karta „moje miejsce” wskazuje, dokąd dziecko wraca — powrót do konkretnego miejsca jest łatwiejszy niż powrót „do grupy”. Symbole wklej z biblioteki EduPlaner.</p>
   <div class="karty"><div class="karta"><div class="pole"><div class="ob o-k-gest-chodz" role="img" aria-label="Wracam" style="height:100%"></div></div><div class="et">Wracam</div><div class="op">symbol powrotu z kącika</div></div><div class="karta"><div class="pole"><div class="ob o-k-postawa-stolik" role="img" aria-label="Moje miejsce" style="height:100%"></div></div><div class="et">Moje miejsce</div><div class="op">symbol konkretnego miejsca w sali</div></div><div class="karta"><div class="pole"><div class="ob o-k-gest-brawo" role="img" aria-label="Kończę zadanie" style="height:100%"></div></div><div class="et">Kończę zadanie</div><div class="op">symbol skróconej części zadania</div></div><div class="karta"><div class="pole"><div class="ob o-k-umiem-pomagam" role="img" aria-label="Naprawiam" style="height:100%"></div></div><div class="et">Naprawiam</div><div class="op">symbol przeprosin albo posprzątania</div></div></div>
-  <div class="pasek"><div class="pole-k">kończę wyciszenie</div><div class="pole-k">wracam</div><div class="pole-k">kończę zadanie</div></div>
+  <div class="pasek"><div class="pole-k"><b>1</b> kończę wyciszenie</div><div class="pole-k"><b>2</b> wracam</div><div class="pole-k"><b>3</b> kończę zadanie</div></div>
 </section>
 
   <div class="kcard kstopka">
@@ -7908,7 +7913,7 @@ table.ktab td.lp{font-weight:800;color:var(--fiolet);text-align:center}
     <h5>Karty do zajęć „Wracam do grupy”</h5></div>
   <p class="kkurs">Wytnij karty. Karta „moje miejsce” wskazuje, dokąd dziecko wraca — powrót do konkretnego miejsca jest łatwiejszy niż powrót „do grupy”. Symbole wklej z biblioteki EduPlaner.</p>
   <div class="karty"><div class="karta"><div class="pole"><div class="ob o-k-gest-chodz" role="img" aria-label="Wracam" style="height:100%"></div></div><div class="et">Wracam</div><div class="op">symbol powrotu z kącika</div></div><div class="karta"><div class="pole"><div class="ob o-k-postawa-stolik" role="img" aria-label="Moje miejsce" style="height:100%"></div></div><div class="et">Moje miejsce</div><div class="op">symbol konkretnego miejsca w sali</div></div><div class="karta"><div class="pole"><div class="ob o-k-gest-brawo" role="img" aria-label="Kończę zadanie" style="height:100%"></div></div><div class="et">Kończę zadanie</div><div class="op">symbol skróconej części zadania</div></div><div class="karta"><div class="pole"><div class="ob o-k-umiem-pomagam" role="img" aria-label="Naprawiam" style="height:100%"></div></div><div class="et">Naprawiam</div><div class="op">symbol przeprosin albo posprzątania</div></div></div>
-  <div class="pasek"><div class="pole-k">kończę wyciszenie</div><div class="pole-k">wracam</div><div class="pole-k">kończę zadanie</div></div>
+  <div class="pasek"><div class="pole-k"><b>1</b> kończę wyciszenie</div><div class="pole-k"><b>2</b> wracam</div><div class="pole-k"><b>3</b> kończę zadanie</div></div>
 </section>
 
   <div class="kcard kstopka">
@@ -8013,7 +8018,7 @@ table.ktab td.lp{font-weight:800;color:var(--fiolet);text-align:center}
     <h5>Karty do zajęć „Wracam do grupy”</h5></div>
   <p class="kkurs">Wytnij karty. Karta „moje miejsce” wskazuje, dokąd dziecko wraca — powrót do konkretnego miejsca jest łatwiejszy niż powrót „do grupy”. Symbole wklej z biblioteki EduPlaner.</p>
   <div class="karty"><div class="karta"><div class="pole"><div class="ob o-k-gest-chodz" role="img" aria-label="Wracam" style="height:100%"></div></div><div class="et">Wracam</div><div class="op">symbol powrotu z kącika</div></div><div class="karta"><div class="pole"><div class="ob o-k-postawa-stolik" role="img" aria-label="Moje miejsce" style="height:100%"></div></div><div class="et">Moje miejsce</div><div class="op">symbol konkretnego miejsca w sali</div></div><div class="karta"><div class="pole"><div class="ob o-k-gest-brawo" role="img" aria-label="Kończę zadanie" style="height:100%"></div></div><div class="et">Kończę zadanie</div><div class="op">symbol skróconej części zadania</div></div><div class="karta"><div class="pole"><div class="ob o-k-umiem-pomagam" role="img" aria-label="Naprawiam" style="height:100%"></div></div><div class="et">Naprawiam</div><div class="op">symbol przeprosin albo posprzątania</div></div></div>
-  <div class="pasek"><div class="pole-k">kończę wyciszenie</div><div class="pole-k">wracam</div><div class="pole-k">kończę zadanie</div></div>
+  <div class="pasek"><div class="pole-k"><b>1</b> kończę wyciszenie</div><div class="pole-k"><b>2</b> wracam</div><div class="pole-k"><b>3</b> kończę zadanie</div></div>
 </section>
 
   <div class="kcard kstopka">
@@ -8118,7 +8123,7 @@ table.ktab td.lp{font-weight:800;color:var(--fiolet);text-align:center}
     <h5>Karty do zajęć „Czerwona karta, zanim wybuchnie”</h5></div>
   <p class="kkurs">Wytnij czerwoną kartę i karty sygnałów. Sygnały ciała uzupełnij razem z dzieckiem — to mają być jego sygnały, nie lista z podręcznika. Symbole pozostałych kart wklej z biblioteki EduPlaner.</p>
   <div class="karty"><div class="karta"><div class="pole"><div class="ob o-k-karta-czerwona" role="img" aria-label="Czerwona karta" style="height:100%"></div></div><div class="et">Czerwona karta</div><div class="op">duże czerwone pole — sygnał dziecka do dorosłego</div></div><div class="karta"><div class="pole"><div class="ob o-k-sygnal-ciala" role="img" aria-label="Mój znak 1" style="height:100%"></div></div><div class="et">Mój znak 1</div><div class="op">miejsce na pierwszy sygnał ciała dziecka</div></div><div class="karta"><div class="pole">pole na własny symbol z tablicy AAC</div><div class="et">Mój znak 2</div><div class="op">miejsce na drugi sygnał</div></div><div class="karta"><div class="pole"><div class="ob o-k-prosze-pomoc" role="img" aria-label="Co robimy" style="height:100%"></div></div><div class="et">Co robimy</div><div class="op">symbol reakcji dorosłego: podejście, przerwa, kącik</div></div></div>
-  <div class="pasek"><div class="pole-k">zauważam</div><div class="pole-k">pokazuję kartę</div><div class="pole-k">dostaję pomoc</div></div>
+  <div class="pasek"><div class="pole-k"><b>1</b> zauważam</div><div class="pole-k"><b>2</b> pokazuję kartę</div><div class="pole-k"><b>3</b> dostaję pomoc</div></div>
 </section>
 
   <div class="kcard kstopka">
@@ -8223,7 +8228,7 @@ table.ktab td.lp{font-weight:800;color:var(--fiolet);text-align:center}
     <h5>Karty do zajęć „Czerwona karta, zanim wybuchnie”</h5></div>
   <p class="kkurs">Wytnij czerwoną kartę i karty sygnałów. Sygnały ciała uzupełnij razem z dzieckiem — to mają być jego sygnały, nie lista z podręcznika. Symbole pozostałych kart wklej z biblioteki EduPlaner.</p>
   <div class="karty"><div class="karta"><div class="pole"><div class="ob o-k-karta-czerwona" role="img" aria-label="Czerwona karta" style="height:100%"></div></div><div class="et">Czerwona karta</div><div class="op">duże czerwone pole — sygnał dziecka do dorosłego</div></div><div class="karta"><div class="pole"><div class="ob o-k-sygnal-ciala" role="img" aria-label="Mój znak 1" style="height:100%"></div></div><div class="et">Mój znak 1</div><div class="op">miejsce na pierwszy sygnał ciała dziecka</div></div><div class="karta"><div class="pole">pole na własny symbol z tablicy AAC</div><div class="et">Mój znak 2</div><div class="op">miejsce na drugi sygnał</div></div><div class="karta"><div class="pole"><div class="ob o-k-prosze-pomoc" role="img" aria-label="Co robimy" style="height:100%"></div></div><div class="et">Co robimy</div><div class="op">symbol reakcji dorosłego: podejście, przerwa, kącik</div></div></div>
-  <div class="pasek"><div class="pole-k">zauważam</div><div class="pole-k">pokazuję kartę</div><div class="pole-k">dostaję pomoc</div></div>
+  <div class="pasek"><div class="pole-k"><b>1</b> zauważam</div><div class="pole-k"><b>2</b> pokazuję kartę</div><div class="pole-k"><b>3</b> dostaję pomoc</div></div>
 </section>
 
   <div class="kcard kstopka">
@@ -8328,7 +8333,7 @@ table.ktab td.lp{font-weight:800;color:var(--fiolet);text-align:center}
     <h5>Karty do zajęć „Czerwona karta, zanim wybuchnie”</h5></div>
   <p class="kkurs">Wytnij czerwoną kartę i karty sygnałów. Sygnały ciała uzupełnij razem z dzieckiem — to mają być jego sygnały, nie lista z podręcznika. Symbole pozostałych kart wklej z biblioteki EduPlaner.</p>
   <div class="karty"><div class="karta"><div class="pole"><div class="ob o-k-karta-czerwona" role="img" aria-label="Czerwona karta" style="height:100%"></div></div><div class="et">Czerwona karta</div><div class="op">duże czerwone pole — sygnał dziecka do dorosłego</div></div><div class="karta"><div class="pole"><div class="ob o-k-sygnal-ciala" role="img" aria-label="Mój znak 1" style="height:100%"></div></div><div class="et">Mój znak 1</div><div class="op">miejsce na pierwszy sygnał ciała dziecka</div></div><div class="karta"><div class="pole">pole na własny symbol z tablicy AAC</div><div class="et">Mój znak 2</div><div class="op">miejsce na drugi sygnał</div></div><div class="karta"><div class="pole"><div class="ob o-k-prosze-pomoc" role="img" aria-label="Co robimy" style="height:100%"></div></div><div class="et">Co robimy</div><div class="op">symbol reakcji dorosłego: podejście, przerwa, kącik</div></div></div>
-  <div class="pasek"><div class="pole-k">zauważam</div><div class="pole-k">pokazuję kartę</div><div class="pole-k">dostaję pomoc</div></div>
+  <div class="pasek"><div class="pole-k"><b>1</b> zauważam</div><div class="pole-k"><b>2</b> pokazuję kartę</div><div class="pole-k"><b>3</b> dostaję pomoc</div></div>
 </section>
 
   <div class="kcard kstopka">

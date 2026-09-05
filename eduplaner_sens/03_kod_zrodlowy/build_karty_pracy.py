@@ -20,6 +20,7 @@ import base64
 import html
 import json
 import pathlib
+import re
 
 KORZEN = pathlib.Path(__file__).resolve().parent.parent
 DANE = KORZEN / "01_dane_json"
@@ -36,6 +37,15 @@ def sciezka_w_opisie(p: pathlib.Path) -> str:
         return str(p.relative_to(KORZEN))
     except ValueError:
         return str(p)
+
+
+def bez_numeru(etykieta: str) -> str:
+    """Etykieta bez wiodącego „1 · ”, gdy autorka wpisała numer w treść.
+
+    Dopasowanie jest zakotwiczone na cyfrze z przodu, bo w środku etykiety
+    kropka środkowa bywa częścią tekstu i nie wolno po niej ciąć.
+    """
+    return re.sub(r"^\s*\d+\s*·\s*", "", str(etykieta))
 
 
 def e(t) -> str:
@@ -315,7 +325,7 @@ def strona_ciecia(arkusz: dict, pomoc: dict, konspekt_tytul: str,
         rysunek = (f'<img src="{obraz}" alt="">' if obraz
                    else '<div class="sym">pole na własny symbol</div>')
         return (f'<div class="pole-k"><div class="num">{i}</div>{rysunek}'
-                f'<div class="et">{e(p["etykieta_dla_dziecka"].split("·", 1)[-1].strip())}</div></div>')
+                f'<div class="et">{e(bez_numeru(p["etykieta_dla_dziecka"]))}</div></div>')
 
     pasek = "".join(pole_paska(i, p) for i, p in enumerate(arkusz["pasek_kolejnosci"], start=1))
     return f"""<section class="strona ciecie">

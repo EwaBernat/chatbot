@@ -18,6 +18,7 @@ import base64
 import html
 import json
 import pathlib
+import re
 import sys
 
 KORZEN = pathlib.Path(__file__).resolve().parent.parent
@@ -34,6 +35,15 @@ def sciezka_w_opisie(p: pathlib.Path) -> str:
         return str(p.relative_to(KORZEN))
     except ValueError:
         return str(p)
+
+
+def bez_numeru(etykieta: str) -> str:
+    """Etykieta bez wiodącego „1 · ”, gdy autorka wpisała numer w treść.
+
+    Dopasowanie jest zakotwiczone na cyfrze z przodu, bo w środku etykiety
+    kropka środkowa bywa częścią tekstu i nie wolno po niej ciąć.
+    """
+    return re.sub(r"^\s*\d+\s*·\s*", "", str(etykieta))
 
 
 def e(t) -> str:
@@ -263,6 +273,11 @@ table.ktab td.lp{font-weight:800;color:var(--fiolet);text-align:center}
 .pasek{display:grid;grid-template-columns:repeat(3,1fr);gap:6mm;margin-top:9mm}
 .pasek .pole-k{flex:1;border:1px solid var(--fiolet-linia);border-radius:8px;padding:6px;text-align:center;
                font-size:9px;font-weight:700;color:var(--fiolet);background:var(--fiolet-tlo)}
+/* Numer kolejności w pomarańczowym kółku — ten sam znak, co na arkuszu do wycięcia,
+   żeby dziecko widziało tę samą jedynkę w konspekcie i na pasku powieszonym w sali. */
+.pasek .pole-k b{display:inline-flex;align-items:center;justify-content:center;width:14px;height:14px;
+                 border-radius:50%;background:var(--pomarancz);color:#fff;font-size:8px;margin-right:5px;
+                 vertical-align:-2px}
 .formularz{display:grid;gap:8px;font-size:11px}
 .formularz label{display:grid;gap:3px;font-size:9.5px;font-weight:700;color:var(--fiolet)}
 .formularz input,.formularz textarea,.formularz select{font:inherit;font-size:11px;font-weight:400;
@@ -599,8 +614,12 @@ def karta_pomocy(kon: dict, pomoc: dict, arkusz: dict) -> str:
         f'<div class="et">{e(k["etykieta_dla_dziecka"])}</div>'
         f'<div class="op">{e(k["opis_dla_doroslego"])}</div></div>'
         for k in arkusz["karty"])
-    pasek = "".join(f'<div class="pole-k">{e(p["etykieta_dla_dziecka"])}</div>'
-                    for p in arkusz["pasek_kolejnosci"])
+    # Numer bierze się z pozycji pola, nie z tekstu etykiety. SENS, ToM i MOWA
+    # miały go wpisany w etykietę („1 · słucham”), FBA w 23 z 25 arkuszy nie —
+    # i pasek kolejności drukował się bez kolejności, czyli bez jedynej rzeczy,
+    # po którą się go wiesza.
+    pasek = "".join(f'<div class="pole-k"><b>{i}</b> {e(bez_numeru(p["etykieta_dla_dziecka"]))}</div>'
+                    for i, p in enumerate(arkusz["pasek_kolejnosci"], 1))
     return f"""<section class="kstrona pom">
   <div class="pom-head"><span class="kp">Pomoc dydaktyczna · druk KC-4</span>
     <h5>{e(pomoc['nazwa'])}</h5><span class="wiek">{e(kon['wiek'])}</span></div>
