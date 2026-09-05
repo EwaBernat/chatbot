@@ -1,0 +1,1428 @@
+{
+  "dokument": "EduPlaner 2026 · materiały A4 do wycięcia przy konspektach rozwoju mowy",
+  "opis": "Etykiety kart widzi DZIECKO — pisane są prostym językiem. Opisy pod polami i wstęp czyta dorosły. Symbole pochodzą z biblioteki banku KPOF: ten sam obrazek musi być tu, na tablicy AAC i w planie dnia.",
+  "biblioteka_symboli": {
+    "katalog": "eduplaner_przedszkole/assets/symbole",
+    "przypisanych": 175,
+    "z_obrazkiem": 150,
+    "pol_celowo_pustych": 25,
+    "uwaga": "Pole puste = miejsce na własny symbol dziecka z jego tablicy AAC."
+  },
+  "liczba_arkuszy": 25,
+  "arkusze": [
+    {
+      "wskaznik": "I.1",
+      "tytul": "Karty do zajęć „Wołam cię po imieniu”",
+      "wstep_dla_doroslego": "Wytnij karty i naklej na karton. W puste pola wklej symbole z biblioteki EduPlaner — te same, których dziecko używa na tablicy AAC i w planie dnia.",
+      "karty": [
+        {
+          "etykieta_dla_dziecka": "Słucham",
+          "opis_dla_doroslego": "karta sygnału — leży przy dziecku podczas zajęć",
+          "symbol": "gest_slucham",
+          "plik_symbolu": "eduplaner_przedszkole/assets/symbole/k_gest_slucham.jpg"
+        },
+        {
+          "etykieta_dla_dziecka": "Chodź",
+          "opis_dla_doroslego": "karta zwrotu — do wołania z drugiego końca sali",
+          "symbol": "gest_chodz",
+          "plik_symbolu": "eduplaner_przedszkole/assets/symbole/k_gest_chodz.jpg"
+        },
+        {
+          "etykieta_dla_dziecka": "Moje imię",
+          "opis_dla_doroslego": "karta ze zdjęciem dziecka — pole na własne zdjęcie",
+          "symbol": null,
+          "plik_symbolu": null
+        },
+        {
+          "etykieta_dla_dziecka": "Zbiórka",
+          "opis_dla_doroslego": "symbol miejsca zbiórki, do planu dnia",
+          "symbol": "dzien_zajecia",
+          "plik_symbolu": "eduplaner_przedszkole/assets/symbole/k_dzien_zajecia.jpg"
+        }
+      ],
+      "pasek_kolejnosci": [
+        {
+          "etykieta_dla_dziecka": "1 · słucham",
+          "symbol": "gest_slucham",
+          "plik_symbolu": "eduplaner_przedszkole/assets/symbole/k_gest_slucham.jpg"
+        },
+        {
+          "etykieta_dla_dziecka": "2 · patrzę",
+          "symbol": "gest_skinienie",
+          "plik_symbolu": "eduplaner_przedszkole/assets/symbole/k_gest_skinienie.jpg"
+        },
+        {
+          "etykieta_dla_dziecka": "3 · idę",
+          "symbol": "gest_chodz",
+          "plik_symbolu": "eduplaner_przedszkole/assets/symbole/k_gest_chodz.jpg"
+        }
+      ],
+      "historyjka": null,
+      "format": "A4 pionowo, karton 200 g"
+    },
+    {
+      "wskaznik": "I.2",
+      "tytul": "Karty do zajęć „Jedno polecenie naraz”",
+      "wstep_dla_doroslego": "Wytnij karty i naklej na karton. W puste pola wklej symbole z biblioteki EduPlaner — te same, których dziecko używa na tablicy AAC i w planie dnia.",
+      "karty": [
+        {
+          "etykieta_dla_dziecka": "Daj",
+          "opis_dla_doroslego": "karta czynności — do poleceń i do tablicy AAC",
+          "symbol": "polecenie_daj",
+          "plik_symbolu": "eduplaner_przedszkole/assets/symbole/k_polecenie_daj.jpg"
+        },
+        {
+          "etykieta_dla_dziecka": "Weź",
+          "opis_dla_doroslego": "karta czynności — do poleceń przy stoliku",
+          "symbol": "polecenie_wez",
+          "plik_symbolu": "eduplaner_przedszkole/assets/symbole/k_polecenie_wez.jpg"
+        },
+        {
+          "etykieta_dla_dziecka": "Połóż",
+          "opis_dla_doroslego": "karta czynności — do sprzątania i porządków",
+          "symbol": "polecenie_poloz",
+          "plik_symbolu": "eduplaner_przedszkole/assets/symbole/k_polecenie_poloz.jpg"
+        },
+        {
+          "etykieta_dla_dziecka": "Pokaż",
+          "opis_dla_doroslego": "karta czynności — pole na własny symbol dziecka",
+          "symbol": null,
+          "plik_symbolu": null
+        }
+      ],
+      "pasek_kolejnosci": [
+        {
+          "etykieta_dla_dziecka": "1 · słucham",
+          "symbol": "gest_slucham",
+          "plik_symbolu": "eduplaner_przedszkole/assets/symbole/k_gest_slucham.jpg"
+        },
+        {
+          "etykieta_dla_dziecka": "2 · robię",
+          "symbol": "polecenie_wez",
+          "plik_symbolu": "eduplaner_przedszkole/assets/symbole/k_polecenie_wez.jpg"
+        },
+        {
+          "etykieta_dla_dziecka": "3 · gotowe",
+          "symbol": "gest_brawo",
+          "plik_symbolu": "eduplaner_przedszkole/assets/symbole/k_gest_brawo.jpg"
+        }
+      ],
+      "historyjka": null,
+      "format": "A4 pionowo, karton 200 g"
+    },
+    {
+      "wskaznik": "I.3",
+      "tytul": "Karty do zajęć „Najpierw to, potem to”",
+      "wstep_dla_doroslego": "Wytnij karty i naklej na karton. W puste pola wklej symbole z biblioteki EduPlaner — te same, których dziecko używa na tablicy AAC i w planie dnia.",
+      "karty": [
+        {
+          "etykieta_dla_dziecka": "Najpierw",
+          "opis_dla_doroslego": "karta kolejności — pierwsze pole listwy",
+          "symbol": "polecenie_wez",
+          "plik_symbolu": "eduplaner_przedszkole/assets/symbole/k_polecenie_wez.jpg"
+        },
+        {
+          "etykieta_dla_dziecka": "Potem",
+          "opis_dla_doroslego": "karta kolejności — drugie pole listwy",
+          "symbol": "polecenie_poloz",
+          "plik_symbolu": "eduplaner_przedszkole/assets/symbole/k_polecenie_poloz.jpg"
+        },
+        {
+          "etykieta_dla_dziecka": "Gotowe",
+          "opis_dla_doroslego": "karta zakończenia zadania",
+          "symbol": "gest_brawo",
+          "plik_symbolu": "eduplaner_przedszkole/assets/symbole/k_gest_brawo.jpg"
+        },
+        {
+          "etykieta_dla_dziecka": "Moje zadanie",
+          "opis_dla_doroslego": "pole na własny symbol czynności dziecka",
+          "symbol": null,
+          "plik_symbolu": null
+        }
+      ],
+      "pasek_kolejnosci": [
+        {
+          "etykieta_dla_dziecka": "1 · słucham",
+          "symbol": "gest_slucham",
+          "plik_symbolu": "eduplaner_przedszkole/assets/symbole/k_gest_slucham.jpg"
+        },
+        {
+          "etykieta_dla_dziecka": "2 · najpierw",
+          "symbol": "polecenie_wez",
+          "plik_symbolu": "eduplaner_przedszkole/assets/symbole/k_polecenie_wez.jpg"
+        },
+        {
+          "etykieta_dla_dziecka": "3 · potem",
+          "symbol": "polecenie_poloz",
+          "plik_symbolu": "eduplaner_przedszkole/assets/symbole/k_polecenie_poloz.jpg"
+        }
+      ],
+      "historyjka": {
+        "rodzaj": "listwa",
+        "tytul": "Najpierw to, potem to",
+        "po_co_dla_doroslego": "Polecenie dwuetapowe rozpada się w pamięci dziecka na dwa osobne zadania. Listwa trzyma kolejność na widoku, więc dziecko nie musi jej pamiętać, tylko wykonać.",
+        "jak_uzyc_dla_doroslego": "Wytnij pasek i powieś go na wysokości wzroku dziecka przy miejscu, gdzie polecenie pada najczęściej. Wskazuj kolejne pole ręką, nie mów „a teraz drugie” — obraz ma zastąpić słowo, nie je podwoić.",
+        "pola": [
+          {
+            "plik": "eduplaner_mowa/assets/arkusze/i_3_p1.jpg",
+            "podpis": "Odkładam zabawkę do pudełka.",
+            "pytanie": "Co robimy najpierw?"
+          },
+          {
+            "plik": "eduplaner_mowa/assets/arkusze/i_3_p2.jpg",
+            "podpis": "Idę do stolika.",
+            "pytanie": "A co potem?"
+          },
+          {
+            "plik": "eduplaner_mowa/assets/arkusze/i_3_p3.jpg",
+            "podpis": "Siadam na krześle.",
+            "pytanie": "Co na końcu?"
+          }
+        ]
+      },
+      "format": "A4 pionowo, karton 200 g"
+    },
+    {
+      "wskaznik": "I.4",
+      "tytul": "Karty do zajęć „Pokaż, co słyszysz”",
+      "wstep_dla_doroslego": "Wytnij karty i naklej na karton. W puste pola wklej symbole z biblioteki EduPlaner — te same, których dziecko używa na tablicy AAC i w planie dnia.",
+      "karty": [
+        {
+          "etykieta_dla_dziecka": "Pokaż",
+          "opis_dla_doroslego": "karta czynności — do zadań ze wskazywaniem",
+          "symbol": "mowa_pokaz",
+          "plik_symbolu": "eduplaner_przedszkole/assets/symbole/k_mowa_pokaz.jpg"
+        },
+        {
+          "etykieta_dla_dziecka": "Słucham",
+          "opis_dla_doroslego": "karta sygnału — leży przy dziecku podczas zadania",
+          "symbol": "gest_slucham",
+          "plik_symbolu": "eduplaner_przedszkole/assets/symbole/k_gest_slucham.jpg"
+        },
+        {
+          "etykieta_dla_dziecka": "Książka",
+          "opis_dla_doroslego": "symbol zabawy z obrazkami, do planu dnia",
+          "symbol": "zabawa_ksiazki",
+          "plik_symbolu": "eduplaner_przedszkole/assets/symbole/k_zabawa_ksiazki.jpg"
+        },
+        {
+          "etykieta_dla_dziecka": "Mój obrazek",
+          "opis_dla_doroslego": "pole na własny symbol dziecka z tablicy AAC",
+          "symbol": null,
+          "plik_symbolu": null
+        }
+      ],
+      "pasek_kolejnosci": [
+        {
+          "etykieta_dla_dziecka": "1 · słucham",
+          "symbol": "gest_slucham",
+          "plik_symbolu": "eduplaner_przedszkole/assets/symbole/k_gest_slucham.jpg"
+        },
+        {
+          "etykieta_dla_dziecka": "2 · pokazuję",
+          "symbol": "mowa_pokaz",
+          "plik_symbolu": "eduplaner_przedszkole/assets/symbole/k_mowa_pokaz.jpg"
+        },
+        {
+          "etykieta_dla_dziecka": "3 · brawo",
+          "symbol": "gest_brawo",
+          "plik_symbolu": "eduplaner_przedszkole/assets/symbole/k_gest_brawo.jpg"
+        }
+      ],
+      "historyjka": null,
+      "format": "A4 pionowo, karton 200 g"
+    },
+    {
+      "wskaznik": "I.5",
+      "tytul": "Karty do zajęć „Kto, co, gdzie”",
+      "wstep_dla_doroslego": "Wytnij karty i naklej na karton. W puste pola wklej symbole z biblioteki EduPlaner — te same, których dziecko używa na tablicy AAC i w planie dnia.",
+      "karty": [
+        {
+          "etykieta_dla_dziecka": "Kto?",
+          "opis_dla_doroslego": "karta pytania o osobę",
+          "symbol": "pytanie_kto",
+          "plik_symbolu": "eduplaner_przedszkole/assets/symbole/k_pytanie_kto.jpg"
+        },
+        {
+          "etykieta_dla_dziecka": "Co?",
+          "opis_dla_doroslego": "karta pytania o rzecz albo czynność",
+          "symbol": "pytanie_co",
+          "plik_symbolu": "eduplaner_przedszkole/assets/symbole/k_pytanie_co.jpg"
+        },
+        {
+          "etykieta_dla_dziecka": "Gdzie?",
+          "opis_dla_doroslego": "karta pytania o miejsce",
+          "symbol": "pytanie_gdzie",
+          "plik_symbolu": "eduplaner_przedszkole/assets/symbole/k_pytanie_gdzie.jpg"
+        },
+        {
+          "etykieta_dla_dziecka": "Moje pytanie",
+          "opis_dla_doroslego": "pole na własny symbol pytania dziecka",
+          "symbol": null,
+          "plik_symbolu": null
+        }
+      ],
+      "pasek_kolejnosci": [
+        {
+          "etykieta_dla_dziecka": "1 · patrzę",
+          "symbol": "gest_slucham",
+          "plik_symbolu": "eduplaner_przedszkole/assets/symbole/k_gest_slucham.jpg"
+        },
+        {
+          "etykieta_dla_dziecka": "2 · pytam",
+          "symbol": "gest_mowie",
+          "plik_symbolu": "eduplaner_przedszkole/assets/symbole/k_gest_mowie.jpg"
+        },
+        {
+          "etykieta_dla_dziecka": "3 · odpowiadam",
+          "symbol": "mowa_pokaz",
+          "plik_symbolu": "eduplaner_przedszkole/assets/symbole/k_mowa_pokaz.jpg"
+        }
+      ],
+      "historyjka": null,
+      "format": "A4 pionowo, karton 200 g"
+    },
+    {
+      "wskaznik": "II.1",
+      "tytul": "Karty do zajęć „Jedno słowo, które działa”",
+      "wstep_dla_doroslego": "Wytnij karty i naklej na karton. W puste pola wklej symbole z biblioteki EduPlaner — te same, których dziecko używa na tablicy AAC i w planie dnia.",
+      "karty": [
+        {
+          "etykieta_dla_dziecka": "Proszę",
+          "opis_dla_doroslego": "karta prośby — leży przy dziecku przez cały dzień",
+          "symbol": "polecenie_daj",
+          "plik_symbolu": "eduplaner_przedszkole/assets/symbole/k_polecenie_daj.jpg"
+        },
+        {
+          "etykieta_dla_dziecka": "Jeszcze",
+          "opis_dla_doroslego": "karta prośby o powtórzenie zabawy",
+          "symbol": "gest_chodz",
+          "plik_symbolu": "eduplaner_przedszkole/assets/symbole/k_gest_chodz.jpg"
+        },
+        {
+          "etykieta_dla_dziecka": "Nie chcę",
+          "opis_dla_doroslego": "karta odmowy — dziecko ma prawo jej użyć",
+          "symbol": "gest_stop",
+          "plik_symbolu": "eduplaner_przedszkole/assets/symbole/k_gest_stop.jpg"
+        },
+        {
+          "etykieta_dla_dziecka": "Popatrz",
+          "opis_dla_doroslego": "karta zwrócenia uwagi — pole na własny symbol",
+          "symbol": null,
+          "plik_symbolu": null
+        }
+      ],
+      "pasek_kolejnosci": [
+        {
+          "etykieta_dla_dziecka": "1 · chcę",
+          "symbol": "gest_mowie",
+          "plik_symbolu": "eduplaner_przedszkole/assets/symbole/k_gest_mowie.jpg"
+        },
+        {
+          "etykieta_dla_dziecka": "2 · proszę",
+          "symbol": "polecenie_daj",
+          "plik_symbolu": "eduplaner_przedszkole/assets/symbole/k_polecenie_daj.jpg"
+        },
+        {
+          "etykieta_dla_dziecka": "3 · dziękuję",
+          "symbol": "gest_dziekuje",
+          "plik_symbolu": "eduplaner_przedszkole/assets/symbole/k_gest_dziekuje.jpg"
+        }
+      ],
+      "historyjka": null,
+      "format": "A4 pionowo, karton 200 g"
+    },
+    {
+      "wskaznik": "II.2",
+      "tytul": "Karty do zajęć „Dwa słowa razem”",
+      "wstep_dla_doroslego": "Wytnij karty i naklej na karton. W puste pola wklej symbole z biblioteki EduPlaner — te same, których dziecko używa na tablicy AAC i w planie dnia.",
+      "karty": [
+        {
+          "etykieta_dla_dziecka": "Chcę",
+          "opis_dla_doroslego": "karta czasownika — pierwsze pole listwy",
+          "symbol": "gest_mowie",
+          "plik_symbolu": "eduplaner_przedszkole/assets/symbole/k_gest_mowie.jpg"
+        },
+        {
+          "etykieta_dla_dziecka": "Daj",
+          "opis_dla_doroslego": "karta czasownika — do próśb",
+          "symbol": "polecenie_daj",
+          "plik_symbolu": "eduplaner_przedszkole/assets/symbole/k_polecenie_daj.jpg"
+        },
+        {
+          "etykieta_dla_dziecka": "Jem",
+          "opis_dla_doroslego": "karta czasownika — do sytuacji przy posiłku",
+          "symbol": "dzien_obiad",
+          "plik_symbolu": "eduplaner_przedszkole/assets/symbole/k_dzien_obiad.jpg"
+        },
+        {
+          "etykieta_dla_dziecka": "Moja rzecz",
+          "opis_dla_doroslego": "drugie pole listwy — na własny symbol dziecka",
+          "symbol": null,
+          "plik_symbolu": null
+        }
+      ],
+      "pasek_kolejnosci": [
+        {
+          "etykieta_dla_dziecka": "1 · kto",
+          "symbol": "pytanie_kto",
+          "plik_symbolu": "eduplaner_przedszkole/assets/symbole/k_pytanie_kto.jpg"
+        },
+        {
+          "etykieta_dla_dziecka": "2 · robi co",
+          "symbol": "gest_mowie",
+          "plik_symbolu": "eduplaner_przedszkole/assets/symbole/k_gest_mowie.jpg"
+        },
+        {
+          "etykieta_dla_dziecka": "3 · co",
+          "symbol": "pytanie_co",
+          "plik_symbolu": "eduplaner_przedszkole/assets/symbole/k_pytanie_co.jpg"
+        }
+      ],
+      "historyjka": null,
+      "format": "A4 pionowo, karton 200 g"
+    },
+    {
+      "wskaznik": "II.3",
+      "tytul": "Karty do zajęć „Powiedz jeszcze raz, inaczej”",
+      "wstep_dla_doroslego": "Wytnij karty i naklej na karton. W puste pola wklej symbole z biblioteki EduPlaner — te same, których dziecko używa na tablicy AAC i w planie dnia.",
+      "karty": [
+        {
+          "etykieta_dla_dziecka": "Powtórz",
+          "opis_dla_doroslego": "karta naprawy — pierwszy sposób",
+          "symbol": "mowa_powtorz",
+          "plik_symbolu": "eduplaner_przedszkole/assets/symbole/k_mowa_powtorz.jpg"
+        },
+        {
+          "etykieta_dla_dziecka": "Powiedz inaczej",
+          "opis_dla_doroslego": "karta naprawy — drugi sposób",
+          "symbol": "gest_mowie",
+          "plik_symbolu": "eduplaner_przedszkole/assets/symbole/k_gest_mowie.jpg"
+        },
+        {
+          "etykieta_dla_dziecka": "Pokaż",
+          "opis_dla_doroslego": "karta naprawy — trzeci sposób",
+          "symbol": "mowa_pokaz",
+          "plik_symbolu": "eduplaner_przedszkole/assets/symbole/k_mowa_pokaz.jpg"
+        },
+        {
+          "etykieta_dla_dziecka": "Nie zrozumiałam",
+          "opis_dla_doroslego": "sygnał dorosłego — pole na własny symbol",
+          "symbol": null,
+          "plik_symbolu": null
+        }
+      ],
+      "pasek_kolejnosci": [
+        {
+          "etykieta_dla_dziecka": "1 · mówię",
+          "symbol": "gest_mowie",
+          "plik_symbolu": "eduplaner_przedszkole/assets/symbole/k_gest_mowie.jpg"
+        },
+        {
+          "etykieta_dla_dziecka": "2 · powtarzam",
+          "symbol": "mowa_powtorz",
+          "plik_symbolu": "eduplaner_przedszkole/assets/symbole/k_mowa_powtorz.jpg"
+        },
+        {
+          "etykieta_dla_dziecka": "3 · pokazuję",
+          "symbol": "mowa_pokaz",
+          "plik_symbolu": "eduplaner_przedszkole/assets/symbole/k_mowa_pokaz.jpg"
+        }
+      ],
+      "historyjka": null,
+      "format": "A4 pionowo, karton 200 g"
+    },
+    {
+      "wskaznik": "II.4",
+      "tytul": "Karty do zajęć „Mówię, choć jeszcze nie wszystko wychodzi”",
+      "wstep_dla_doroslego": "Wytnij karty i naklej na karton. W puste pola wklej symbole z biblioteki EduPlaner — te same, których dziecko używa na tablicy AAC i w planie dnia.",
+      "karty": [
+        {
+          "etykieta_dla_dziecka": "Mówię",
+          "opis_dla_doroslego": "karta głosu — kto ją trzyma, ten mówi",
+          "symbol": "gest_mowie",
+          "plik_symbolu": "eduplaner_przedszkole/assets/symbole/k_gest_mowie.jpg"
+        },
+        {
+          "etykieta_dla_dziecka": "Słucham",
+          "opis_dla_doroslego": "karta dla reszty grupy",
+          "symbol": "gest_slucham",
+          "plik_symbolu": "eduplaner_przedszkole/assets/symbole/k_gest_slucham.jpg"
+        },
+        {
+          "etykieta_dla_dziecka": "Moja kolej",
+          "opis_dla_doroslego": "karta kolejności w kręgu",
+          "symbol": "mowa_kolej",
+          "plik_symbolu": "eduplaner_przedszkole/assets/symbole/k_mowa_kolej.jpg"
+        },
+        {
+          "etykieta_dla_dziecka": "Mój temat",
+          "opis_dla_doroslego": "pole na własny obrazek tematu wypowiedzi",
+          "symbol": null,
+          "plik_symbolu": null
+        }
+      ],
+      "pasek_kolejnosci": [
+        {
+          "etykieta_dla_dziecka": "1 · czekam",
+          "symbol": "gest_czekam",
+          "plik_symbolu": "eduplaner_przedszkole/assets/symbole/k_gest_czekam.jpg"
+        },
+        {
+          "etykieta_dla_dziecka": "2 · mówię",
+          "symbol": "gest_mowie",
+          "plik_symbolu": "eduplaner_przedszkole/assets/symbole/k_gest_mowie.jpg"
+        },
+        {
+          "etykieta_dla_dziecka": "3 · słucham",
+          "symbol": "gest_slucham",
+          "plik_symbolu": "eduplaner_przedszkole/assets/symbole/k_gest_slucham.jpg"
+        }
+      ],
+      "historyjka": null,
+      "format": "A4 pionowo, karton 200 g"
+    },
+    {
+      "wskaznik": "II.5",
+      "tytul": "Karty do zajęć „Powtórz za mną”",
+      "wstep_dla_doroslego": "Wytnij karty i naklej na karton. W puste pola wklej symbole z biblioteki EduPlaner — te same, których dziecko używa na tablicy AAC i w planie dnia.",
+      "karty": [
+        {
+          "etykieta_dla_dziecka": "Słucham",
+          "opis_dla_doroslego": "karta pierwszego kroku — dziecko czeka do końca wzoru",
+          "symbol": "gest_slucham",
+          "plik_symbolu": "eduplaner_przedszkole/assets/symbole/k_gest_slucham.jpg"
+        },
+        {
+          "etykieta_dla_dziecka": "Powtarzam",
+          "opis_dla_doroslego": "karta drugiego kroku",
+          "symbol": "mowa_powtorz",
+          "plik_symbolu": "eduplaner_przedszkole/assets/symbole/k_mowa_powtorz.jpg"
+        },
+        {
+          "etykieta_dla_dziecka": "Rytm",
+          "opis_dla_doroslego": "karta zabawy z bębenkiem",
+          "symbol": "instrument_dzwonki",
+          "plik_symbolu": "eduplaner_przedszkole/assets/symbole/k_instrument_dzwonki.jpg"
+        },
+        {
+          "etykieta_dla_dziecka": "Moje słowo",
+          "opis_dla_doroslego": "pole na własny obrazek słowa do powtarzania",
+          "symbol": null,
+          "plik_symbolu": null
+        }
+      ],
+      "pasek_kolejnosci": [
+        {
+          "etykieta_dla_dziecka": "1 · słucham",
+          "symbol": "gest_slucham",
+          "plik_symbolu": "eduplaner_przedszkole/assets/symbole/k_gest_slucham.jpg"
+        },
+        {
+          "etykieta_dla_dziecka": "2 · powtarzam",
+          "symbol": "mowa_powtorz",
+          "plik_symbolu": "eduplaner_przedszkole/assets/symbole/k_mowa_powtorz.jpg"
+        },
+        {
+          "etykieta_dla_dziecka": "3 · brawo",
+          "symbol": "gest_brawo",
+          "plik_symbolu": "eduplaner_przedszkole/assets/symbole/k_gest_brawo.jpg"
+        }
+      ],
+      "historyjka": null,
+      "format": "A4 pionowo, karton 200 g"
+    },
+    {
+      "wskaznik": "III.1",
+      "tytul": "Karty do zajęć „Co tak zabrzmiało”",
+      "wstep_dla_doroslego": "Wytnij karty i naklej na karton. W puste pola wklej symbole z biblioteki EduPlaner — te same, których dziecko używa na tablicy AAC i w planie dnia.",
+      "karty": [
+        {
+          "etykieta_dla_dziecka": "Słucham",
+          "opis_dla_doroslego": "karta pierwszego kroku — cisza przed dźwiękiem",
+          "symbol": "gest_slucham",
+          "plik_symbolu": "eduplaner_przedszkole/assets/symbole/k_gest_slucham.jpg"
+        },
+        {
+          "etykieta_dla_dziecka": "Pokazuję",
+          "opis_dla_doroslego": "karta wskazania źródła dźwięku",
+          "symbol": "mowa_pokaz",
+          "plik_symbolu": "eduplaner_przedszkole/assets/symbole/k_mowa_pokaz.jpg"
+        },
+        {
+          "etykieta_dla_dziecka": "Dzwonek",
+          "opis_dla_doroslego": "karta przedmiotu grającego",
+          "symbol": "instrument_dzwonki",
+          "plik_symbolu": "eduplaner_przedszkole/assets/symbole/k_instrument_dzwonki.jpg"
+        },
+        {
+          "etykieta_dla_dziecka": "Mój dźwięk",
+          "opis_dla_doroslego": "pole na obrazek przedmiotu wybranego przez dziecko",
+          "symbol": null,
+          "plik_symbolu": null
+        }
+      ],
+      "pasek_kolejnosci": [
+        {
+          "etykieta_dla_dziecka": "1 · cisza",
+          "symbol": "prosze_cisza",
+          "plik_symbolu": "eduplaner_przedszkole/assets/symbole/k_prosze_cisza.jpg"
+        },
+        {
+          "etykieta_dla_dziecka": "2 · słucham",
+          "symbol": "gest_slucham",
+          "plik_symbolu": "eduplaner_przedszkole/assets/symbole/k_gest_slucham.jpg"
+        },
+        {
+          "etykieta_dla_dziecka": "3 · pokazuję",
+          "symbol": "mowa_pokaz",
+          "plik_symbolu": "eduplaner_przedszkole/assets/symbole/k_mowa_pokaz.jpg"
+        }
+      ],
+      "historyjka": null,
+      "format": "A4 pionowo, karton 200 g"
+    },
+    {
+      "wskaznik": "III.2",
+      "tytul": "Karty do zajęć „Sylaby i rytm”",
+      "wstep_dla_doroslego": "Wytnij karty i naklej na karton. W puste pola wklej symbole z biblioteki EduPlaner — te same, których dziecko używa na tablicy AAC i w planie dnia.",
+      "karty": [
+        {
+          "etykieta_dla_dziecka": "Słucham",
+          "opis_dla_doroslego": "karta pierwszego kroku — dziecko czeka do końca wzoru",
+          "symbol": "gest_slucham",
+          "plik_symbolu": "eduplaner_przedszkole/assets/symbole/k_gest_slucham.jpg"
+        },
+        {
+          "etykieta_dla_dziecka": "Klaszczę",
+          "opis_dla_doroslego": "karta odtwarzania rytmu",
+          "symbol": "rytm_klaskanie",
+          "plik_symbolu": "eduplaner_przedszkole/assets/symbole/k_rytm_klaskanie.jpg"
+        },
+        {
+          "etykieta_dla_dziecka": "Powtarzam",
+          "opis_dla_doroslego": "karta powtórzenia sekwencji sylab",
+          "symbol": "mowa_powtorz",
+          "plik_symbolu": "eduplaner_przedszkole/assets/symbole/k_mowa_powtorz.jpg"
+        },
+        {
+          "etykieta_dla_dziecka": "Mój rytm",
+          "opis_dla_doroslego": "pole na rytm wymyślony przez dziecko",
+          "symbol": null,
+          "plik_symbolu": null
+        }
+      ],
+      "pasek_kolejnosci": [
+        {
+          "etykieta_dla_dziecka": "1 · słucham",
+          "symbol": "gest_slucham",
+          "plik_symbolu": "eduplaner_przedszkole/assets/symbole/k_gest_slucham.jpg"
+        },
+        {
+          "etykieta_dla_dziecka": "2 · klaszczę",
+          "symbol": "rytm_klaskanie",
+          "plik_symbolu": "eduplaner_przedszkole/assets/symbole/k_rytm_klaskanie.jpg"
+        },
+        {
+          "etykieta_dla_dziecka": "3 · brawo",
+          "symbol": "gest_brawo",
+          "plik_symbolu": "eduplaner_przedszkole/assets/symbole/k_gest_brawo.jpg"
+        }
+      ],
+      "historyjka": null,
+      "format": "A4 pionowo, karton 200 g"
+    },
+    {
+      "wskaznik": "III.3",
+      "tytul": "Karty do zajęć „Klaszczemy słowa”",
+      "wstep_dla_doroslego": "Wytnij karty i naklej na karton. W puste pola wklej symbole z biblioteki EduPlaner — te same, których dziecko używa na tablicy AAC i w planie dnia.",
+      "karty": [
+        {
+          "etykieta_dla_dziecka": "Słucham",
+          "opis_dla_doroslego": "karta pierwszego kroku — dziecko słucha całego słowa",
+          "symbol": "gest_slucham",
+          "plik_symbolu": "eduplaner_przedszkole/assets/symbole/k_gest_slucham.jpg"
+        },
+        {
+          "etykieta_dla_dziecka": "Klaszczę",
+          "opis_dla_doroslego": "karta dzielenia słowa na części",
+          "symbol": "rytm_klaskanie",
+          "plik_symbolu": "eduplaner_przedszkole/assets/symbole/k_rytm_klaskanie.jpg"
+        },
+        {
+          "etykieta_dla_dziecka": "Liczę",
+          "opis_dla_doroslego": "karta układania klocka na każdą sylabę",
+          "symbol": "sylaba_dziel",
+          "plik_symbolu": "eduplaner_przedszkole/assets/symbole/k_sylaba_dziel.jpg"
+        },
+        {
+          "etykieta_dla_dziecka": "Moje słowo",
+          "opis_dla_doroslego": "pole na obrazek słowa wybranego przez dziecko",
+          "symbol": null,
+          "plik_symbolu": null
+        }
+      ],
+      "pasek_kolejnosci": [
+        {
+          "etykieta_dla_dziecka": "1 · słucham",
+          "symbol": "gest_slucham",
+          "plik_symbolu": "eduplaner_przedszkole/assets/symbole/k_gest_slucham.jpg"
+        },
+        {
+          "etykieta_dla_dziecka": "2 · klaszczę",
+          "symbol": "rytm_klaskanie",
+          "plik_symbolu": "eduplaner_przedszkole/assets/symbole/k_rytm_klaskanie.jpg"
+        },
+        {
+          "etykieta_dla_dziecka": "3 · liczę",
+          "symbol": "sylaba_dziel",
+          "plik_symbolu": "eduplaner_przedszkole/assets/symbole/k_sylaba_dziel.jpg"
+        }
+      ],
+      "historyjka": {
+        "rodzaj": "zestaw",
+        "tytul": "Słowa do klaskania",
+        "po_co_dla_doroslego": "Dziecko dzieli na sylaby słowo, które widzi — obrazek zdejmuje z pamięci zadanie utrzymania słowa i zostawia samą analizę. Pola są uporządkowane od dwóch sylab do czterech, więc trudność rośnie w jednym kierunku.",
+        "jak_uzyc_dla_doroslego": "Wytnij pola i podawaj po jednym, zaczynając od dwusylabowych. Klaszcz razem z dzieckiem przy pierwszym słowie, potem tylko słuchaj. Nie mów, ile sylab ma słowo — to jest odpowiedź, nie polecenie.",
+        "pola": [
+          {
+            "plik": "eduplaner_mowa/assets/arkusze/iii_3_p1.jpg",
+            "podpis": "Buty",
+            "pytanie": "Ile części ma to słowo?"
+          },
+          {
+            "plik": "eduplaner_mowa/assets/arkusze/iii_3_p2.jpg",
+            "podpis": "Lody",
+            "pytanie": "Ile części ma to słowo?"
+          },
+          {
+            "plik": "eduplaner_mowa/assets/arkusze/iii_3_p3.jpg",
+            "podpis": "Kubeczki",
+            "pytanie": "Ile części ma to słowo?"
+          },
+          {
+            "plik": "eduplaner_mowa/assets/arkusze/iii_3_p4.jpg",
+            "podpis": "Samolot",
+            "pytanie": "Ile części ma to słowo?"
+          },
+          {
+            "plik": "eduplaner_mowa/assets/arkusze/iii_3_p5.jpg",
+            "podpis": "Marchewka",
+            "pytanie": "Ile części ma to słowo?"
+          },
+          {
+            "plik": "eduplaner_mowa/assets/arkusze/iii_3_p6.jpg",
+            "podpis": "Lokomotywa",
+            "pytanie": "Ile części ma to słowo?"
+          }
+        ]
+      },
+      "format": "A4 pionowo, karton 200 g"
+    },
+    {
+      "wskaznik": "III.4",
+      "tytul": "Karty do zajęć „Od czego się zaczyna”",
+      "wstep_dla_doroslego": "Wytnij karty i naklej na karton. W puste pola wklej symbole z biblioteki EduPlaner — te same, których dziecko używa na tablicy AAC i w planie dnia.",
+      "karty": [
+        {
+          "etykieta_dla_dziecka": "Słucham",
+          "opis_dla_doroslego": "karta pierwszego kroku — dziecko słucha całego słowa",
+          "symbol": "gest_slucham",
+          "plik_symbolu": "eduplaner_przedszkole/assets/symbole/k_gest_slucham.jpg"
+        },
+        {
+          "etykieta_dla_dziecka": "Początek",
+          "opis_dla_doroslego": "karta wydzielania pierwszej cząstki słowa",
+          "symbol": "sylaba_dziel",
+          "plik_symbolu": "eduplaner_przedszkole/assets/symbole/k_sylaba_dziel.jpg"
+        },
+        {
+          "etykieta_dla_dziecka": "Mówię",
+          "opis_dla_doroslego": "karta podania pierwszej głoski albo sylaby",
+          "symbol": "gest_mowie",
+          "plik_symbolu": "eduplaner_przedszkole/assets/symbole/k_gest_mowie.jpg"
+        },
+        {
+          "etykieta_dla_dziecka": "Moje słowo",
+          "opis_dla_doroslego": "pole na obrazek słowa wybranego przez dziecko",
+          "symbol": null,
+          "plik_symbolu": null
+        }
+      ],
+      "pasek_kolejnosci": [
+        {
+          "etykieta_dla_dziecka": "1 · słucham",
+          "symbol": "gest_slucham",
+          "plik_symbolu": "eduplaner_przedszkole/assets/symbole/k_gest_slucham.jpg"
+        },
+        {
+          "etykieta_dla_dziecka": "2 · początek",
+          "symbol": "sylaba_dziel",
+          "plik_symbolu": "eduplaner_przedszkole/assets/symbole/k_sylaba_dziel.jpg"
+        },
+        {
+          "etykieta_dla_dziecka": "3 · mówię",
+          "symbol": "gest_mowie",
+          "plik_symbolu": "eduplaner_przedszkole/assets/symbole/k_gest_mowie.jpg"
+        }
+      ],
+      "historyjka": null,
+      "format": "A4 pionowo, karton 200 g"
+    },
+    {
+      "wskaznik": "III.5",
+      "tytul": "Karty do zajęć „Półka czy bułka”",
+      "wstep_dla_doroslego": "Wytnij karty i naklej na karton. W puste pola wklej symbole z biblioteki EduPlaner — te same, których dziecko używa na tablicy AAC i w planie dnia.",
+      "karty": [
+        {
+          "etykieta_dla_dziecka": "Słucham",
+          "opis_dla_doroslego": "karta pierwszego kroku — dziecko słucha całego słowa",
+          "symbol": "gest_slucham",
+          "plik_symbolu": "eduplaner_przedszkole/assets/symbole/k_gest_slucham.jpg"
+        },
+        {
+          "etykieta_dla_dziecka": "Takie same",
+          "opis_dla_doroslego": "karta odpowiedzi zielonej",
+          "symbol": "gest_skinienie",
+          "plik_symbolu": "eduplaner_przedszkole/assets/symbole/k_gest_skinienie.jpg"
+        },
+        {
+          "etykieta_dla_dziecka": "Różne",
+          "opis_dla_doroslego": "karta odpowiedzi czerwonej",
+          "symbol": "gest_stop",
+          "plik_symbolu": "eduplaner_przedszkole/assets/symbole/k_gest_stop.jpg"
+        },
+        {
+          "etykieta_dla_dziecka": "Moja para",
+          "opis_dla_doroslego": "pole na parę obrazków dobraną przez dziecko",
+          "symbol": null,
+          "plik_symbolu": null
+        }
+      ],
+      "pasek_kolejnosci": [
+        {
+          "etykieta_dla_dziecka": "1 · słucham",
+          "symbol": "gest_slucham",
+          "plik_symbolu": "eduplaner_przedszkole/assets/symbole/k_gest_slucham.jpg"
+        },
+        {
+          "etykieta_dla_dziecka": "2 · wybieram",
+          "symbol": "mowa_pokaz",
+          "plik_symbolu": "eduplaner_przedszkole/assets/symbole/k_mowa_pokaz.jpg"
+        },
+        {
+          "etykieta_dla_dziecka": "3 · sprawdzam",
+          "symbol": "gest_skinienie",
+          "plik_symbolu": "eduplaner_przedszkole/assets/symbole/k_gest_skinienie.jpg"
+        }
+      ],
+      "historyjka": null,
+      "format": "A4 pionowo, karton 200 g"
+    },
+    {
+      "wskaznik": "IV.1",
+      "tytul": "Karty do zajęć „Nazwij, czego potrzebujesz”",
+      "wstep_dla_doroslego": "Wytnij karty i naklej na karton. W puste pola wklej symbole z biblioteki EduPlaner — te same, których dziecko używa na tablicy AAC i w planie dnia.",
+      "karty": [
+        {
+          "etykieta_dla_dziecka": "Chcę",
+          "opis_dla_doroslego": "karta prośby o przedmiot",
+          "symbol": "prosze_pomoc",
+          "plik_symbolu": "eduplaner_przedszkole/assets/symbole/k_prosze_pomoc.jpg"
+        },
+        {
+          "etykieta_dla_dziecka": "Mówię",
+          "opis_dla_doroslego": "karta nazwania przedmiotu słowem",
+          "symbol": "gest_mowie",
+          "plik_symbolu": "eduplaner_przedszkole/assets/symbole/k_gest_mowie.jpg"
+        },
+        {
+          "etykieta_dla_dziecka": "Biorę",
+          "opis_dla_doroslego": "karta odebrania przedmiotu po nazwaniu",
+          "symbol": "polecenie_wez",
+          "plik_symbolu": "eduplaner_przedszkole/assets/symbole/k_polecenie_wez.jpg"
+        },
+        {
+          "etykieta_dla_dziecka": "Moje słowo",
+          "opis_dla_doroslego": "pole na obrazek nowego słowa tygodnia",
+          "symbol": null,
+          "plik_symbolu": null
+        }
+      ],
+      "pasek_kolejnosci": [
+        {
+          "etykieta_dla_dziecka": "1 · chcę",
+          "symbol": "prosze_pomoc",
+          "plik_symbolu": "eduplaner_przedszkole/assets/symbole/k_prosze_pomoc.jpg"
+        },
+        {
+          "etykieta_dla_dziecka": "2 · mówię",
+          "symbol": "gest_mowie",
+          "plik_symbolu": "eduplaner_przedszkole/assets/symbole/k_gest_mowie.jpg"
+        },
+        {
+          "etykieta_dla_dziecka": "3 · biorę",
+          "symbol": "polecenie_wez",
+          "plik_symbolu": "eduplaner_przedszkole/assets/symbole/k_polecenie_wez.jpg"
+        }
+      ],
+      "historyjka": null,
+      "format": "A4 pionowo, karton 200 g"
+    },
+    {
+      "wskaznik": "IV.2",
+      "tytul": "Karty do zajęć „Co robisz, jakie to jest”",
+      "wstep_dla_doroslego": "Wytnij karty i naklej na karton. W puste pola wklej symbole z biblioteki EduPlaner — te same, których dziecko używa na tablicy AAC i w planie dnia.",
+      "karty": [
+        {
+          "etykieta_dla_dziecka": "Robię",
+          "opis_dla_doroslego": "karta nazwania czynności",
+          "symbol": "zabawa_rysowanie",
+          "plik_symbolu": "eduplaner_przedszkole/assets/symbole/k_zabawa_rysowanie.jpg"
+        },
+        {
+          "etykieta_dla_dziecka": "Jakie",
+          "opis_dla_doroslego": "karta podania cechy przedmiotu",
+          "symbol": "sensor_faktura",
+          "plik_symbolu": "eduplaner_przedszkole/assets/symbole/k_sensor_faktura.jpg"
+        },
+        {
+          "etykieta_dla_dziecka": "Mówię",
+          "opis_dla_doroslego": "karta wypowiedzi o czynności",
+          "symbol": "gest_mowie",
+          "plik_symbolu": "eduplaner_przedszkole/assets/symbole/k_gest_mowie.jpg"
+        },
+        {
+          "etykieta_dla_dziecka": "Moja czynność",
+          "opis_dla_doroslego": "pole na obrazek czynności wybranej przez dziecko",
+          "symbol": null,
+          "plik_symbolu": null
+        }
+      ],
+      "pasek_kolejnosci": [
+        {
+          "etykieta_dla_dziecka": "1 · patrzę",
+          "symbol": "mowa_pokaz",
+          "plik_symbolu": "eduplaner_przedszkole/assets/symbole/k_mowa_pokaz.jpg"
+        },
+        {
+          "etykieta_dla_dziecka": "2 · robię",
+          "symbol": "zabawa_rysowanie",
+          "plik_symbolu": "eduplaner_przedszkole/assets/symbole/k_zabawa_rysowanie.jpg"
+        },
+        {
+          "etykieta_dla_dziecka": "3 · mówię",
+          "symbol": "gest_mowie",
+          "plik_symbolu": "eduplaner_przedszkole/assets/symbole/k_gest_mowie.jpg"
+        }
+      ],
+      "historyjka": {
+        "rodzaj": "zestaw",
+        "tytul": "Sześć czynności do nazwania",
+        "po_co_dla_doroslego": "Czasownik jest tym słowem, bez którego nie powstanie zdanie. Obrazek czynności — a nie przedmiotu — wymusza użycie czasownika, bo samą nazwą rzeczy nie da się na niego odpowiedzieć.",
+        "jak_uzyc_dla_doroslego": "Wytnij pola i podawaj po jednym. Pytaj „co ona robi?”, nie „co to jest?”. Jeśli dziecko odpowie ogólnie „robi”, dopytaj o dokładniejsze słowo, ale przyjmij pierwszą odpowiedź jako trafną.",
+        "pola": [
+          {
+            "plik": "eduplaner_mowa/assets/arkusze/iv_2_p1.jpg",
+            "podpis": "Myje ręce.",
+            "pytanie": "Co ona robi?"
+          },
+          {
+            "plik": "eduplaner_mowa/assets/arkusze/iv_2_p2.jpg",
+            "podpis": "Buduje wieżę z klocków.",
+            "pytanie": "Co on robi?"
+          },
+          {
+            "plik": "eduplaner_mowa/assets/arkusze/iv_2_p3.jpg",
+            "podpis": "Miesza łyżką w misce.",
+            "pytanie": "Co ona robi?"
+          },
+          {
+            "plik": "eduplaner_mowa/assets/arkusze/iv_2_p4.jpg",
+            "podpis": "Ciągnie wózek.",
+            "pytanie": "Co on robi?"
+          },
+          {
+            "plik": "eduplaner_mowa/assets/arkusze/iv_2_p5.jpg",
+            "podpis": "Wkłada buty.",
+            "pytanie": "Co ona robi?"
+          },
+          {
+            "plik": "eduplaner_mowa/assets/arkusze/iv_2_p6.jpg",
+            "podpis": "Podlewa kwiatek.",
+            "pytanie": "Co on robi?"
+          }
+        ]
+      },
+      "format": "A4 pionowo, karton 200 g"
+    },
+    {
+      "wskaznik": "IV.3",
+      "tytul": "Karty do zajęć „Jeden kubek, dwa kubki”",
+      "wstep_dla_doroslego": "Wytnij karty i naklej na karton. W puste pola wklej symbole z biblioteki EduPlaner — te same, których dziecko używa na tablicy AAC i w planie dnia.",
+      "karty": [
+        {
+          "etykieta_dla_dziecka": "Jeden",
+          "opis_dla_doroslego": "karta liczby pojedynczej",
+          "symbol": "polecenie_wez",
+          "plik_symbolu": "eduplaner_przedszkole/assets/symbole/k_polecenie_wez.jpg"
+        },
+        {
+          "etykieta_dla_dziecka": "Dwa",
+          "opis_dla_doroslego": "karta liczby mnogiej",
+          "symbol": "polecenie_daj",
+          "plik_symbolu": "eduplaner_przedszkole/assets/symbole/k_polecenie_daj.jpg"
+        },
+        {
+          "etykieta_dla_dziecka": "Proszę",
+          "opis_dla_doroslego": "karta prośby o przedmiot",
+          "symbol": "prosze_pomoc",
+          "plik_symbolu": "eduplaner_przedszkole/assets/symbole/k_prosze_pomoc.jpg"
+        },
+        {
+          "etykieta_dla_dziecka": "Mój przedmiot",
+          "opis_dla_doroslego": "pole na obrazek przedmiotu do liczenia",
+          "symbol": null,
+          "plik_symbolu": null
+        }
+      ],
+      "pasek_kolejnosci": [
+        {
+          "etykieta_dla_dziecka": "1 · patrzę",
+          "symbol": "mowa_pokaz",
+          "plik_symbolu": "eduplaner_przedszkole/assets/symbole/k_mowa_pokaz.jpg"
+        },
+        {
+          "etykieta_dla_dziecka": "2 · liczę",
+          "symbol": "polecenie_daj",
+          "plik_symbolu": "eduplaner_przedszkole/assets/symbole/k_polecenie_daj.jpg"
+        },
+        {
+          "etykieta_dla_dziecka": "3 · mówię",
+          "symbol": "gest_mowie",
+          "plik_symbolu": "eduplaner_przedszkole/assets/symbole/k_gest_mowie.jpg"
+        }
+      ],
+      "historyjka": null,
+      "format": "A4 pionowo, karton 200 g"
+    },
+    {
+      "wskaznik": "IV.4",
+      "tytul": "Karty do zajęć „Powiedz to całym zdaniem”",
+      "wstep_dla_doroslego": "Wytnij karty i naklej na karton. W puste pola wklej symbole z biblioteki EduPlaner — te same, których dziecko używa na tablicy AAC i w planie dnia.",
+      "karty": [
+        {
+          "etykieta_dla_dziecka": "Kto",
+          "opis_dla_doroslego": "karta pierwszego elementu zdania",
+          "symbol": "pytanie_kto",
+          "plik_symbolu": "eduplaner_przedszkole/assets/symbole/k_pytanie_kto.jpg"
+        },
+        {
+          "etykieta_dla_dziecka": "Co robi",
+          "opis_dla_doroslego": "karta czasownika w zdaniu",
+          "symbol": "zabawa_rysowanie",
+          "plik_symbolu": "eduplaner_przedszkole/assets/symbole/k_zabawa_rysowanie.jpg"
+        },
+        {
+          "etykieta_dla_dziecka": "Mówię zdanie",
+          "opis_dla_doroslego": "karta całej wypowiedzi",
+          "symbol": "gest_mowie",
+          "plik_symbolu": "eduplaner_przedszkole/assets/symbole/k_gest_mowie.jpg"
+        },
+        {
+          "etykieta_dla_dziecka": "Moje zdanie",
+          "opis_dla_doroslego": "pole na obrazek sytuacji wybranej przez dziecko",
+          "symbol": null,
+          "plik_symbolu": null
+        }
+      ],
+      "pasek_kolejnosci": [
+        {
+          "etykieta_dla_dziecka": "1 · kto",
+          "symbol": "pytanie_kto",
+          "plik_symbolu": "eduplaner_przedszkole/assets/symbole/k_pytanie_kto.jpg"
+        },
+        {
+          "etykieta_dla_dziecka": "2 · co robi",
+          "symbol": "zabawa_rysowanie",
+          "plik_symbolu": "eduplaner_przedszkole/assets/symbole/k_zabawa_rysowanie.jpg"
+        },
+        {
+          "etykieta_dla_dziecka": "3 · mówię",
+          "symbol": "gest_mowie",
+          "plik_symbolu": "eduplaner_przedszkole/assets/symbole/k_gest_mowie.jpg"
+        }
+      ],
+      "historyjka": null,
+      "format": "A4 pionowo, karton 200 g"
+    },
+    {
+      "wskaznik": "IV.5",
+      "tytul": "Karty do zajęć „Pytam i opowiadam”",
+      "wstep_dla_doroslego": "Wytnij karty i naklej na karton. W puste pola wklej symbole z biblioteki EduPlaner — te same, których dziecko używa na tablicy AAC i w planie dnia.",
+      "karty": [
+        {
+          "etykieta_dla_dziecka": "Co to?",
+          "opis_dla_doroslego": "karta pytania o nazwę",
+          "symbol": "pytanie_co",
+          "plik_symbolu": "eduplaner_przedszkole/assets/symbole/k_pytanie_co.jpg"
+        },
+        {
+          "etykieta_dla_dziecka": "Gdzie?",
+          "opis_dla_doroslego": "karta pytania o miejsce",
+          "symbol": "pytanie_gdzie",
+          "plik_symbolu": "eduplaner_przedszkole/assets/symbole/k_pytanie_gdzie.jpg"
+        },
+        {
+          "etykieta_dla_dziecka": "Opowiadam",
+          "opis_dla_doroslego": "karta wypowiedzi o własnej pracy",
+          "symbol": "mowa_opowiadam",
+          "plik_symbolu": "eduplaner_przedszkole/assets/symbole/k_mowa_opowiadam.jpg"
+        },
+        {
+          "etykieta_dla_dziecka": "Moje pytanie",
+          "opis_dla_doroslego": "pole na obrazek rzeczy, o którą dziecko chce zapytać",
+          "symbol": null,
+          "plik_symbolu": null
+        }
+      ],
+      "pasek_kolejnosci": [
+        {
+          "etykieta_dla_dziecka": "1 · patrzę",
+          "symbol": "mowa_pokaz",
+          "plik_symbolu": "eduplaner_przedszkole/assets/symbole/k_mowa_pokaz.jpg"
+        },
+        {
+          "etykieta_dla_dziecka": "2 · pytam",
+          "symbol": "pytanie_co",
+          "plik_symbolu": "eduplaner_przedszkole/assets/symbole/k_pytanie_co.jpg"
+        },
+        {
+          "etykieta_dla_dziecka": "3 · opowiadam",
+          "symbol": "mowa_opowiadam",
+          "plik_symbolu": "eduplaner_przedszkole/assets/symbole/k_mowa_opowiadam.jpg"
+        }
+      ],
+      "historyjka": null,
+      "format": "A4 pionowo, karton 200 g"
+    },
+    {
+      "wskaznik": "V.1",
+      "tytul": "Karty do zajęć „Rozmowa na dwa głosy”",
+      "wstep_dla_doroslego": "Wytnij karty i naklej na karton. W puste pola wklej symbole z biblioteki EduPlaner — te same, których dziecko używa na tablicy AAC i w planie dnia.",
+      "karty": [
+        {
+          "etykieta_dla_dziecka": "Patrzę na ciebie",
+          "opis_dla_doroslego": "karta nawiązania kontaktu",
+          "symbol": "gest_skinienie",
+          "plik_symbolu": "eduplaner_przedszkole/assets/symbole/k_gest_skinienie.jpg"
+        },
+        {
+          "etykieta_dla_dziecka": "Mówię",
+          "opis_dla_doroslego": "karta własnej wypowiedzi",
+          "symbol": "gest_mowie",
+          "plik_symbolu": "eduplaner_przedszkole/assets/symbole/k_gest_mowie.jpg"
+        },
+        {
+          "etykieta_dla_dziecka": "Słucham",
+          "opis_dla_doroslego": "karta wypowiedzi rozmówcy",
+          "symbol": "gest_slucham",
+          "plik_symbolu": "eduplaner_przedszkole/assets/symbole/k_gest_slucham.jpg"
+        },
+        {
+          "etykieta_dla_dziecka": "Mój rozmówca",
+          "opis_dla_doroslego": "pole na zdjęcie kolegi albo dorosłego z sali",
+          "symbol": null,
+          "plik_symbolu": null
+        }
+      ],
+      "pasek_kolejnosci": [
+        {
+          "etykieta_dla_dziecka": "1 · zaczepiam",
+          "symbol": "gest_skinienie",
+          "plik_symbolu": "eduplaner_przedszkole/assets/symbole/k_gest_skinienie.jpg"
+        },
+        {
+          "etykieta_dla_dziecka": "2 · mówię",
+          "symbol": "gest_mowie",
+          "plik_symbolu": "eduplaner_przedszkole/assets/symbole/k_gest_mowie.jpg"
+        },
+        {
+          "etykieta_dla_dziecka": "3 · słucham",
+          "symbol": "gest_slucham",
+          "plik_symbolu": "eduplaner_przedszkole/assets/symbole/k_gest_slucham.jpg"
+        }
+      ],
+      "historyjka": null,
+      "format": "A4 pionowo, karton 200 g"
+    },
+    {
+      "wskaznik": "V.2",
+      "tytul": "Karty do zajęć „Powiedz, zanim będzie za trudno”",
+      "wstep_dla_doroslego": "Wytnij karty i naklej na karton. W puste pola wklej symbole z biblioteki EduPlaner — te same, których dziecko używa na tablicy AAC i w planie dnia.",
+      "karty": [
+        {
+          "etykieta_dla_dziecka": "Proszę",
+          "opis_dla_doroslego": "karta prośby o przedmiot",
+          "symbol": "prosze_pomoc",
+          "plik_symbolu": "eduplaner_przedszkole/assets/symbole/k_prosze_pomoc.jpg"
+        },
+        {
+          "etykieta_dla_dziecka": "Pomoc",
+          "opis_dla_doroslego": "karta prośby o pomoc dorosłego",
+          "symbol": "umiem_pomagam",
+          "plik_symbolu": "eduplaner_przedszkole/assets/symbole/k_umiem_pomagam.jpg"
+        },
+        {
+          "etykieta_dla_dziecka": "Przerwa",
+          "opis_dla_doroslego": "karta prośby o przerwę",
+          "symbol": "strategia_przerwa",
+          "plik_symbolu": "eduplaner_przedszkole/assets/symbole/k_strategia_przerwa.jpg"
+        },
+        {
+          "etykieta_dla_dziecka": "Moja potrzeba",
+          "opis_dla_doroslego": "pole na obrazek potrzeby ważnej dla dziecka",
+          "symbol": null,
+          "plik_symbolu": null
+        }
+      ],
+      "pasek_kolejnosci": [
+        {
+          "etykieta_dla_dziecka": "1 · czuję",
+          "symbol": "sygnal_ciala",
+          "plik_symbolu": "eduplaner_przedszkole/assets/symbole/k_sygnal_ciala.jpg"
+        },
+        {
+          "etykieta_dla_dziecka": "2 · pokazuję",
+          "symbol": "prosze_pomoc",
+          "plik_symbolu": "eduplaner_przedszkole/assets/symbole/k_prosze_pomoc.jpg"
+        },
+        {
+          "etykieta_dla_dziecka": "3 · dostaję",
+          "symbol": "polecenie_wez",
+          "plik_symbolu": "eduplaner_przedszkole/assets/symbole/k_polecenie_wez.jpg"
+        }
+      ],
+      "historyjka": {
+        "rodzaj": "rozgalezienie",
+        "tytul": "Dwa zakończenia tej samej sytuacji",
+        "po_co_dla_doroslego": "Dziecko widzi obok siebie skutek płaczu i skutek sygnału. Nie chodzi o ocenę zachowania, tylko o pokazanie, że jeden ze sposobów po prostu działa szybciej — to jest cały powód, dla którego warto go użyć.",
+        "jak_uzyc_dla_doroslego": "Pokaż początek i zapytaj, co może się stać dalej. Wyłóż oba zakończenia dopiero po odpowiedzi dziecka. Nie mów, które jest dobre — zapytaj, przy którym dziecko szybciej dostanie to, czego chce.",
+        "wiersze": [
+          {
+            "nazwa": "Kubek na wysokiej półce",
+            "poczatek": {
+              "plik": "eduplaner_mowa/assets/arkusze/v_2_a1.jpg",
+              "podpis": "Chce pić, kubek stoi wysoko."
+            },
+            "zakonczenia": [
+              {
+                "plik": "eduplaner_mowa/assets/arkusze/v_2_a2.jpg",
+                "podpis": "Pokazuje kartę — dostaje kubek."
+              },
+              {
+                "plik": "eduplaner_mowa/assets/arkusze/v_2_a3.jpg",
+                "podpis": "Płacze pod półką, nikt nie wie, o co chodzi."
+              }
+            ]
+          },
+          {
+            "nazwa": "Zakręcony słoik",
+            "poczatek": {
+              "plik": "eduplaner_mowa/assets/arkusze/v_2_b1.jpg",
+              "podpis": "Słoik nie chce się otworzyć."
+            },
+            "zakonczenia": [
+              {
+                "plik": "eduplaner_mowa/assets/arkusze/v_2_b2.jpg",
+                "podpis": "Prosi o pomoc — słoik jest otwarty."
+              },
+              {
+                "plik": "eduplaner_mowa/assets/arkusze/v_2_b3.jpg",
+                "podpis": "Odchodzi od stolika, słoik zostaje zamknięty."
+              }
+            ]
+          }
+        ]
+      },
+      "format": "A4 pionowo, karton 200 g"
+    },
+    {
+      "wskaznik": "V.3",
+      "tytul": "Karty do zajęć „Najpierw, potem, na końcu”",
+      "wstep_dla_doroslego": "Wytnij karty i naklej na karton. W puste pola wklej symbole z biblioteki EduPlaner — te same, których dziecko używa na tablicy AAC i w planie dnia.",
+      "karty": [
+        {
+          "etykieta_dla_dziecka": "Najpierw",
+          "opis_dla_doroslego": "karta pierwszego zdarzenia historyjki",
+          "symbol": "dzien_sniadanie",
+          "plik_symbolu": "eduplaner_przedszkole/assets/symbole/k_dzien_sniadanie.jpg"
+        },
+        {
+          "etykieta_dla_dziecka": "Potem",
+          "opis_dla_doroslego": "karta drugiego zdarzenia historyjki",
+          "symbol": "dzien_zajecia",
+          "plik_symbolu": "eduplaner_przedszkole/assets/symbole/k_dzien_zajecia.jpg"
+        },
+        {
+          "etykieta_dla_dziecka": "Na końcu",
+          "opis_dla_doroslego": "karta zakończenia historyjki",
+          "symbol": "dzien_powrot",
+          "plik_symbolu": "eduplaner_przedszkole/assets/symbole/k_dzien_powrot.jpg"
+        },
+        {
+          "etykieta_dla_dziecka": "Moja historia",
+          "opis_dla_doroslego": "pole na zdjęcie z wydarzenia przeżytego przez dziecko",
+          "symbol": null,
+          "plik_symbolu": null
+        }
+      ],
+      "pasek_kolejnosci": [
+        {
+          "etykieta_dla_dziecka": "1 · najpierw",
+          "symbol": "dzien_sniadanie",
+          "plik_symbolu": "eduplaner_przedszkole/assets/symbole/k_dzien_sniadanie.jpg"
+        },
+        {
+          "etykieta_dla_dziecka": "2 · potem",
+          "symbol": "dzien_zajecia",
+          "plik_symbolu": "eduplaner_przedszkole/assets/symbole/k_dzien_zajecia.jpg"
+        },
+        {
+          "etykieta_dla_dziecka": "3 · na końcu",
+          "symbol": "dzien_powrot",
+          "plik_symbolu": "eduplaner_przedszkole/assets/symbole/k_dzien_powrot.jpg"
+        }
+      ],
+      "historyjka": {
+        "rodzaj": "historyjka",
+        "tytul": "Cztery obrazki o jednym dniu",
+        "po_co_dla_doroslego": "Narracja wymaga trzymania kolejności zdarzeń w głowie i jednocześnie budowania zdań. Historyjka bierze na siebie kolejność, więc dziecku zostaje samo opowiadanie.",
+        "jak_uzyc_dla_doroslego": "Wytnij pola i podaj je pomieszane. Najpierw dziecko układa, dopiero potem opowiada. Poproś o opowiedzenie komuś, kto obrazków nie widzi — przy słuchaczu patrzącym na obrazki relacja skraca się do jednego zdania.",
+        "pola": [
+          {
+            "plik": "eduplaner_mowa/assets/arkusze/v_3_p1.jpg",
+            "podpis": "Wkłada kalosze i kurtkę.",
+            "pytanie": "Co było najpierw?"
+          },
+          {
+            "plik": "eduplaner_mowa/assets/arkusze/v_3_p2.jpg",
+            "podpis": "Idzie z grupą przez kałuże.",
+            "pytanie": "A co potem?"
+          },
+          {
+            "plik": "eduplaner_mowa/assets/arkusze/v_3_p3.jpg",
+            "podpis": "Znajduje kasztana pod drzewem.",
+            "pytanie": "Co się stało dalej?"
+          },
+          {
+            "plik": "eduplaner_mowa/assets/arkusze/v_3_p4.jpg",
+            "podpis": "Pokazuje kasztana pani w sali.",
+            "pytanie": "Jak to się skończyło?"
+          }
+        ]
+      },
+      "format": "A4 pionowo, karton 200 g"
+    },
+    {
+      "wskaznik": "V.4",
+      "tytul": "Karty do zajęć „Do kogo mówię”",
+      "wstep_dla_doroslego": "Wytnij karty i naklej na karton. W puste pola wklej symbole z biblioteki EduPlaner — te same, których dziecko używa na tablicy AAC i w planie dnia.",
+      "karty": [
+        {
+          "etykieta_dla_dziecka": "Cicho",
+          "opis_dla_doroslego": "karta mówienia ciszej w sali",
+          "symbol": "prosze_cisza",
+          "plik_symbolu": "eduplaner_przedszkole/assets/symbole/k_prosze_cisza.jpg"
+        },
+        {
+          "etykieta_dla_dziecka": "Głośno",
+          "opis_dla_doroslego": "karta mówienia głośniej na dworze",
+          "symbol": "gest_mowie",
+          "plik_symbolu": "eduplaner_przedszkole/assets/symbole/k_gest_mowie.jpg"
+        },
+        {
+          "etykieta_dla_dziecka": "Dziękuję",
+          "opis_dla_doroslego": "karta zwrotu grzecznościowego",
+          "symbol": "gest_dziekuje",
+          "plik_symbolu": "eduplaner_przedszkole/assets/symbole/k_gest_dziekuje.jpg"
+        },
+        {
+          "etykieta_dla_dziecka": "Mój rozmówca",
+          "opis_dla_doroslego": "pole na zdjęcie osoby, do której dziecko mówi",
+          "symbol": null,
+          "plik_symbolu": null
+        }
+      ],
+      "pasek_kolejnosci": [
+        {
+          "etykieta_dla_dziecka": "1 · patrzę, kto słucha",
+          "symbol": "gest_skinienie",
+          "plik_symbolu": "eduplaner_przedszkole/assets/symbole/k_gest_skinienie.jpg"
+        },
+        {
+          "etykieta_dla_dziecka": "2 · wybieram głos",
+          "symbol": "prosze_cisza",
+          "plik_symbolu": "eduplaner_przedszkole/assets/symbole/k_prosze_cisza.jpg"
+        },
+        {
+          "etykieta_dla_dziecka": "3 · mówię",
+          "symbol": "gest_mowie",
+          "plik_symbolu": "eduplaner_przedszkole/assets/symbole/k_gest_mowie.jpg"
+        }
+      ],
+      "historyjka": null,
+      "format": "A4 pionowo, karton 200 g"
+    },
+    {
+      "wskaznik": "V.5",
+      "tytul": "Karty do zajęć „Kiedy słowo nie wystarcza”",
+      "wstep_dla_doroslego": "Wytnij karty i naklej na karton. W puste pola wklej symbole z biblioteki EduPlaner — te same, których dziecko używa na tablicy AAC i w planie dnia.",
+      "karty": [
+        {
+          "etykieta_dla_dziecka": "Chcę",
+          "opis_dla_doroslego": "karta otwierająca komunikat na tablicy",
+          "symbol": "aac_tablica",
+          "plik_symbolu": "eduplaner_przedszkole/assets/symbole/k_aac_tablica.jpg"
+        },
+        {
+          "etykieta_dla_dziecka": "Pokazuję",
+          "opis_dla_doroslego": "karta wskazania symbolu",
+          "symbol": "mowa_pokaz",
+          "plik_symbolu": "eduplaner_przedszkole/assets/symbole/k_mowa_pokaz.jpg"
+        },
+        {
+          "etykieta_dla_dziecka": "Pomoc",
+          "opis_dla_doroslego": "karta prośby o pomoc bez słowa",
+          "symbol": "prosze_pomoc",
+          "plik_symbolu": "eduplaner_przedszkole/assets/symbole/k_prosze_pomoc.jpg"
+        },
+        {
+          "etykieta_dla_dziecka": "Mój symbol",
+          "opis_dla_doroslego": "pole na symbol ważny dla dziecka",
+          "symbol": null,
+          "plik_symbolu": null
+        }
+      ],
+      "pasek_kolejnosci": [
+        {
+          "etykieta_dla_dziecka": "1 · chcę",
+          "symbol": "aac_tablica",
+          "plik_symbolu": "eduplaner_przedszkole/assets/symbole/k_aac_tablica.jpg"
+        },
+        {
+          "etykieta_dla_dziecka": "2 · pokazuję",
+          "symbol": "mowa_pokaz",
+          "plik_symbolu": "eduplaner_przedszkole/assets/symbole/k_mowa_pokaz.jpg"
+        },
+        {
+          "etykieta_dla_dziecka": "3 · dostaję",
+          "symbol": "polecenie_wez",
+          "plik_symbolu": "eduplaner_przedszkole/assets/symbole/k_polecenie_wez.jpg"
+        }
+      ],
+      "historyjka": null,
+      "format": "A4 pionowo, karton 200 g"
+    }
+  ]
+}

@@ -1,0 +1,558 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cele SMART · rozwój mowy — EduPlaner 2026 · PCTP</title>
+<style>
+:root{--fiolet:#2D1B69;--fiolet-2:#5a4a94;--fiolet-tlo:#efeaf9;--fiolet-linia:#d9d0f0;
+  --pomarancz:#E8450A;--pomarancz-tlo:#fdece4;--pomarancz-linia:#f3cdbd;
+  --ink:#2b2733;--szary:#6f6a7d;--linia:#e4e1ec;--zebra:#faf7f2;
+  --dom:#c0392b;--dom-tlo:#fbebe9;--ist:#c8811b;--ist-tlo:#fbf3e3;--sla:#1f8a5b;--sla-tlo:#eaf6f0}
+*{box-sizing:border-box}
+html,body{margin:0;padding:0}
+body{background:#e9e7ef;color:var(--ink);font-family:'Mulish','Segoe UI',Candara,Arial,sans-serif}
+.strona{width:210mm;min-height:297mm;margin:12px auto;background:#fff;padding:11mm 12mm 8mm;
+  box-shadow:0 6px 30px rgba(45,27,105,.16);display:flex;flex-direction:column}
+.head{display:flex;align-items:center;gap:12px}
+.mark{width:38px;height:38px;border-radius:50%;background:var(--fiolet);border:2px solid #cfc4ea;color:#fff;
+  display:flex;align-items:center;justify-content:center;font-size:8.5px;font-weight:800;flex:0 0 auto}
+.mark::after{content:"PCTP"}
+.head h1{font-size:16px;margin:0;color:var(--fiolet)}
+.head .sub{font-size:8.5px;color:var(--szary);letter-spacing:.6px;text-transform:uppercase;font-weight:700;margin-top:2px}
+.head .prawa{margin-left:auto;text-align:right}
+.head .prawa b{display:inline-block;background:var(--pomarancz);color:#fff;font-size:10px;padding:4px 12px;border-radius:20px}
+.head .prawa span{display:block;font-size:8px;color:var(--szary);letter-spacing:.9px;margin-top:3px;text-transform:uppercase}
+.kreska{height:3px;border-radius:3px;margin:8px 0 0;
+  background:linear-gradient(90deg,var(--fiolet) 0%,var(--fiolet) 55%,var(--pomarancz) 55%,var(--pomarancz) 100%)}
+.metryka{display:flex;gap:8px;margin-top:9px}
+.metryka div{flex:1;background:var(--fiolet-tlo);border:1px solid var(--fiolet-linia);border-radius:8px;
+  padding:5px 10px;font-size:11px;display:flex;gap:7px;align-items:baseline}
+.metryka span{font-size:7.5px;font-weight:800;letter-spacing:.7px;color:var(--fiolet);text-transform:uppercase}
+.metryka b{flex:1;border-bottom:1.5px dotted #b7add6;font-size:11px}
+.tresc{flex:1;margin-top:10px}
+.pas{background:var(--fiolet);color:#fff;border-radius:8px;padding:6px 12px;font-size:11px;font-weight:700;
+  letter-spacing:.3px;margin-bottom:9px}
+.wstep{font-size:10.5px;line-height:1.6;background:var(--zebra);border-radius:9px;padding:10px 13px}
+.wstep b{color:var(--fiolet)}
+.dwie{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:10px}
+.karta-info{border:1px solid var(--fiolet-linia);border-radius:9px;padding:9px 12px;font-size:10px;line-height:1.55}
+.karta-info h3{margin:0 0 4px;font-size:10.5px;color:var(--fiolet);letter-spacing:.4px}
+table{width:100%;border-collapse:collapse;font-size:10px;margin-top:10px}
+th{background:var(--fiolet);color:#fff;font-size:8px;letter-spacing:.6px;text-transform:uppercase;
+  padding:5px 7px;text-align:left}
+td{border-bottom:1px solid var(--linia);padding:5px 7px;vertical-align:top}
+tr:nth-child(even) td{background:var(--zebra)}
+td.pkt{font-weight:800;color:var(--fiolet);white-space:nowrap}
+.ocena{display:inline-block;font-size:8px;font-weight:800;padding:1px 7px;border-radius:9px;
+  background:var(--sla-tlo);color:var(--sla)}
+.ocena.pri{background:var(--dom-tlo);color:var(--dom)}
+.ocena.mon{background:var(--ist-tlo);color:var(--ist)}
+.fn{display:flex;align-items:center;gap:10px;margin-bottom:7px}
+.fn .rz{width:26px;height:26px;border-radius:7px;background:var(--pomarancz);color:#fff;display:flex;
+  align-items:center;justify-content:center;font-weight:800;font-size:12px;flex:0 0 auto}
+.fn h2{margin:0;font-size:14px;color:var(--fiolet)}
+.fn .op{font-size:9px;color:var(--szary);margin-top:2px;line-height:1.4}
+.fn .bad{margin-left:auto;text-align:right;font-size:9.5px;color:var(--szary);white-space:nowrap}
+.fn .bad b{display:block;color:var(--fiolet);font-size:10px;margin-top:2px}
+.si{background:var(--pomarancz-tlo);border:1px solid var(--pomarancz-linia);border-radius:8px;
+  padding:7px 11px;font-size:9.5px;line-height:1.55;margin-bottom:9px}
+.si b{color:var(--fiolet)}
+.cel{border:1px solid var(--linia);border-radius:10px;padding:9px 12px;margin-bottom:9px;break-inside:avoid}
+.cel-h{display:flex;gap:9px;align-items:flex-start;margin-bottom:5px}
+.cel-h .nr{background:var(--fiolet);color:#fff;font-size:9px;font-weight:800;padding:2px 8px;border-radius:10px;flex:0 0 auto}
+.cel-h .def{font-size:9.5px;line-height:1.45;color:var(--szary)}
+.cel-h .def b{color:var(--fiolet);margin-right:5px}
+.strat{font-size:9px;color:var(--pomarancz);font-weight:700;margin:0 0 5px 0}
+.cel-t{font-size:10.5px;line-height:1.55;margin:0 0 6px;background:var(--fiolet-tlo);border-radius:8px;padding:7px 11px}
+.cel-t b{display:block;font-size:8px;letter-spacing:.7px;text-transform:uppercase;color:var(--fiolet);margin-bottom:3px}
+.smart{display:grid;grid-template-columns:1fr 1fr;gap:3px 10px;font-size:9px;line-height:1.4}
+.smart div{display:flex;gap:6px}
+.smart i{background:var(--fiolet-2);color:#fff;width:14px;height:14px;border-radius:4px;display:flex;
+  align-items:center;justify-content:center;font-size:8px;font-style:normal;font-weight:800;flex:0 0 auto}
+.obs{display:flex;gap:10px;align-items:center;margin-top:6px;padding-top:6px;border-top:1px dashed var(--linia);
+  font-size:9px;color:var(--szary);flex-wrap:wrap}
+.obs b{color:var(--fiolet)}
+.obs .wynik{margin-left:auto;white-space:nowrap}
+.obs .pole{display:inline-block;width:34px;border-bottom:1.5px dotted #b7add6}
+.uwagi{font-size:9px;color:var(--szary);line-height:1.5;margin-top:6px}
+.stopka{margin-top:auto;padding-top:7px;border-top:1px solid var(--linia);display:flex;
+  justify-content:space-between;font-size:8px;color:var(--szary)}
+@media print{body{background:#fff}.strona{box-shadow:none;margin:0;page-break-after:always}
+  @page{size:A4 portrait;margin:0}}
+</style>
+</head>
+<body>
+<section class="strona">
+<div class="head"><span class="mark" role="img" aria-label="Logo PCTP"></span>
+  <div><h1>EduPlaner 2026</h1><div class="sub">Rozwój mowy i komunikacja · cele SMART — wprowadzenie</div></div>
+  <div class="prawa"><b>MOWA · WOPF</b><span>narzędzie · druk MOWA-C</span></div></div>
+<div class="kreska"></div>
+<div class="metryka">
+  <div><span>Dotyczy dziecka</span><b>&nbsp;</b></div>
+  <div><span>Grupa</span><b>&nbsp;</b></div>
+  <div><span>Data</span><b>&nbsp;</b> r.</div></div>
+<div class="tresc">
+  <div class="pas">Cele SMART do obserwacji pogłębionej · 25 wskaźników karty obserwacji MOWA</div>
+  <div class="wstep"><b>Po co ten druk.</b> Karta obserwacji MOWA kończy się pięcioma wynikami —
+    po jednym na obszar. Wyznaczają kierunek pracy, ale są za szerokie na obserwację pogłębioną:
+    „fałszywe przekonanie 1/10” nie mówi, którą z pięciu pozycji karty ćwiczymy w poniedziałek
+    i po czym poznamy postęp. Ten druk rozpisuje tamte pięć wyników na <b>25 celów
+    szczegółowych</b> — po jednym do każdej pozycji karty, każdy z zachowaniem, które widać,
+    liczbą, którą da się policzyć, i terminem, w którym sprawdzamy.</div>
+  <div class="dwie">
+    <div class="karta-info"><h3>Jak czytać cel</h3>
+      Każdy cel opisuje <b>krok komunikacyjny, który widać</b> — to, co dziecko robi albo mówi,
+      po czym poznajemy, że uwzględniło cudzą perspektywę. „Zrozumie, że inni myślą inaczej” nie
+      jest celem: rozumienia nie da się zaobserwować ani policzyć. Dlatego pod celem stoi rozpisanie
+      SMART: co dokładnie widać (S), ile tego liczymy (M), co to umożliwia (A), po co to dziecku (R)
+      i kiedy sprawdzamy (T).</div>
+    <div class="karta-info"><h3>Skąd kryterium i horyzont</h3>
+      Nie z podręcznika, tylko z <b>wyniku tego obszaru u tego dziecka</b>. Uwaga: tu im wyżej,
+      tym lepiej. Obszar z wynikiem 0–3 (znaczne trudności) jest priorytetem, więc sprawdzamy go
+      najczęściej — po 4 tygodniach, przy kryterium 4 z 5. Wynik 4–7 (częściowo opanowane) —
+      po 8 tygodniach, przy 4 z 5. Wynik 8–10 (zasób) — cel podtrzymujący, po 12 tygodniach,
+      przy 3 z 5. Ta sama logika, co przy poziomach wsparcia w druku MOWA-T.</div>
+  </div>
+  <table><thead><tr><th>Obszar</th><th>Wynik</th><th>Norma rozwojowa (typowy wiek)</th>
+    <th>Pasmo</th><th>Kryterium</th><th>Horyzont</th><th>Znaczenie dla planu pracy</th></tr></thead>
+    <tbody><tr><td>I · Rozumienie mowy (recepcja)</td><td class="pkt">…/10</td><td style="font-size:9px">reakcja na imię ok. 9–12 mies.; polecenie jednoetapowe ok. 18–24 mies.; dwuetapowe ok. 2,5–3 r.ż.</td><td>………</td><td class="pkt">……</td><td class="pkt">……</td><td>wpisz po odczytaniu pasma z tabeli progów</td></tr><tr><td>II · Mowa czynna i artykulacja (ekspresja)</td><td class="pkt">…/10</td><td style="font-size:9px">pierwsze słowa ok. 12 mies.; zdanie dwuwyrazowe ok. 2 r.ż.; mowa zrozumiała dla obcych ok. 4 r.ż.</td><td>………</td><td class="pkt">……</td><td class="pkt">……</td><td>wpisz po odczytaniu pasma z tabeli progów</td></tr><tr><td>III · Słuch fonematyczny i percepcja słuchowa</td><td class="pkt">…/10</td><td style="font-size:9px">różnicowanie dźwięków od 1 r.ż.; sylaby ok. 4 r.ż.; pierwsza głoska ok. 5–6 r.ż.</td><td>………</td><td class="pkt">……</td><td class="pkt">……</td><td>wpisz po odczytaniu pasma z tabeli progów</td></tr><tr><td>IV · Słownictwo i gramatyka (system językowy)</td><td class="pkt">…/10</td><td style="font-size:9px">ok. 50 słów w 2 r.ż.; zdania proste 3 r.ż.; poprawne formy gramatyczne 5–6 r.ż.</td><td>………</td><td class="pkt">……</td><td class="pkt">……</td><td>wpisz po odczytaniu pasma z tabeli progów</td></tr><tr><td>V · Komunikacja i budowanie wypowiedzi (pragmatyka)</td><td class="pkt">…/10</td><td style="font-size:9px">sygnalizowanie potrzeb ok. 18 mies.; narracja ok. 4–5 r.ż.; dostosowanie wypowiedzi do rozmówcy ok. 5–6 r.ż.</td><td>………</td><td class="pkt">……</td><td class="pkt">……</td><td>wpisz po odczytaniu pasma z tabeli progów</td></tr></tbody></table>
+  <div class="uwagi">wynik obszaru (0–10) = suma pięciu pozycji karty, każda w skali 0–2 — 5 obszarów × 5 pozycji × skala 0–2.
+    Rozbieżność między normą rozwojową a wynikiem wskazuje, na których obszarach skupić pracę.</div>
+  <table><thead><tr><th>Wynik obszaru</th><th>Pasmo</th><th>Kryterium</th><th>Horyzont</th>
+    <th>Znaczenie</th></tr></thead><tbody><tr><td>8 pkt i więcej</td><td><span class="ocena ">Zasób</span></td><td class="pkt">3 z 5</td><td class="pkt">12 tygodni</td><td>umiejętność opanowana — cel podtrzymujący, utrwalanie w trudniejszych sytuacjach</td></tr><tr><td>4 pkt i więcej</td><td><span class="ocena ">Wymaga wsparcia</span></td><td class="pkt">4 z 5</td><td class="pkt">8 tygodni</td><td>częściowo opanowana — praca z malejącym wsparciem dorosłego</td></tr><tr><td>0 pkt i więcej</td><td><span class="ocena pri">Priorytet</span></td><td class="pkt">4 z 5</td><td class="pkt">4 tygodnie</td><td>znaczne trudności — praca codzienna, metodą małych kroków, krótki cykl weryfikacji; przy obszarze II lub III rozważyć skierowanie na diagnozę logopedyczną</td></tr></tbody></table>
+  <div class="uwagi"><b>Nie wszystkie 25 celów naraz.</b> Do planu bierzemy cele z obszaru
+    priorytetowego i jeden–dwa z obszaru wymagającego wsparcia; 25 celów to zapas na cały rok,
+    nie plan na wrzesień. <b>Kolejność jest rozwojowa</b>: obszary IV i V mają sens dopiero
+    po opanowaniu I–III. Wynik obserwacji wpisujemy w pole przy celu, a zbiorczo — w tabelę ewaluacji
+    na ostatniej stronie.</div>
+</div>
+<div class="stopka"><span>EduPlaner 2026 · PCTP · pedagog specjalny <b>mgr Mirosława Ewa Jurczyszyn</b></span><span>Strona 1 z 12 · wprowadzenie</span></div>
+</section>
+<section class="strona">
+<div class="head"><span class="mark" role="img" aria-label="Logo PCTP"></span>
+  <div><h1>EduPlaner 2026</h1><div class="sub">Rozwój mowy · cele SMART · obszar I</div></div>
+  <div class="prawa"><b>MOWA · WOPF</b><span>narzędzie · druk MOWA-C</span></div></div>
+<div class="kreska"></div>
+<div class="metryka">
+  <div><span>Dotyczy dziecka</span><b>&nbsp;</b></div>
+  <div><span>Grupa</span><b>&nbsp;</b></div>
+  <div><span>Data</span><b>&nbsp;</b> r.</div></div>
+<div class="tresc">
+  <div class="fn"><span class="rz">I</span>
+    <div><h2>Rozumienie mowy (recepcja) <span style="font-size:9px;color:var(--szary)">d310 · b1560</span></h2>
+      <div class="op">Rozumienie słów, poleceń i pytań kierowanych do dziecka — zanim samo zacznie mówić.</div></div>
+    <div class="bad">……/10 · <span class="ocena">pasmo ………</span><b>…… z 5 · ……… tygodni</b></div></div>
+  <div class="si"><b>Zasada pracy nad teorią umysłu</b> Rozumienie sprawdzamy bez gestu podpowiadającego. Dziecko, które wykonuje polecenie, bo dorosły jednocześnie pokazał ręką, rozumie gest, nie zdanie.</div>
+  <article class="cel">
+  <div class="cel-h"><span class="nr">I.1</span>
+    <span class="def"><b>Wskaźnik</b> Reaguje na swoje imię i proste zwroty („chodź”, „daj”).</span></div>
+  <p class="strat">krok komunikacyjny: zatrzymanie się i spojrzenie na dorosłego po usłyszeniu imienia · pozycja karty: 1</p>
+  <p class="cel-t"><b>Cel SMART</b>Dziecko zatrzyma się i spojrzy na dorosłego wołającego je po imieniu, w ……… z 5 sytuacjach, w ciągu ……… tygodni.</p>
+  <div class="smart"><div><i>S</i>Zatrzymuje się i patrzy na wołającego.</div><div><i>M</i>……… z 5 sytuacji z pięciu obserwowanych w tygodniu.</div><div><i>A</i>Wołanie jest pojedyncze, z dwusekundową ciszą po imieniu.</div><div><i>R</i>Reakcja na imię otwiera drogę każdemu innemu poleceniu.</div><div><i>T</i>Weryfikacja po ……… tygodniach, według wyniku obszaru.</div></div>
+  <div class="obs"><span><b>Obserwacja</b> Arkusz obserwacji — kolumna: reakcja na imię. Notujemy reakcję po pierwszym wywołaniu, bez gestu. · 5 wywołań w tygodniu</span>
+    <span class="wynik">wynik <span class="pole">&nbsp;</span>/5 · data <span class="pole">&nbsp;</span></span></div>
+</article><article class="cel">
+  <div class="cel-h"><span class="nr">I.2</span>
+    <span class="def"><b>Wskaźnik</b> Rozumie i wykonuje proste, jednoetapowe polecenie.</span></div>
+  <p class="strat">krok komunikacyjny: wykonanie polecenia bez gestu podpowiadającego dorosłego · pozycja karty: 2</p>
+  <p class="cel-t"><b>Cel SMART</b>Dziecko wykona jednoetapowe polecenie podane samym słowem, bez gestu dorosłego, w ……… z 5 sytuacjach, w ciągu ……… tygodni.</p>
+  <div class="smart"><div><i>S</i>Wykonuje polecenie podane samym słowem.</div><div><i>M</i>……… z 5 poleceń z pięciu obserwowanych w tygodniu.</div><div><i>A</i>Polecenia dotyczą znanych czynności i przedmiotów z sali.</div><div><i>R</i>Rozumienie polecenia decyduje o samodzielności w każdej innej sytuacji.</div><div><i>T</i>Weryfikacja po ……… tygodniach, według wyniku obszaru.</div></div>
+  <div class="obs"><span><b>Obserwacja</b> Arkusz obserwacji — kolumna: polecenie jednoetapowe. Notujemy wykonanie bez gestu. · 5 poleceń w tygodniu</span>
+    <span class="wynik">wynik <span class="pole">&nbsp;</span>/5 · data <span class="pole">&nbsp;</span></span></div>
+</article><article class="cel">
+  <div class="cel-h"><span class="nr">I.3</span>
+    <span class="def"><b>Wskaźnik</b> Rozumie polecenie dwuetapowe („weź misia i połóż na stole”).</span></div>
+  <p class="strat">krok komunikacyjny: wykonanie obu kroków polecenia w podanej kolejności · pozycja karty: 3</p>
+  <p class="cel-t"><b>Cel SMART</b>Dziecko wykona dwuetapowe polecenie w podanej kolejności, w ……… z 5 sytuacjach, w ciągu ……… tygodni.</p>
+  <div class="smart"><div><i>S</i>Wykonuje oba kroki polecenia w podanej kolejności.</div><div><i>M</i>……… z 5 poleceń z pięciu obserwowanych w tygodniu.</div><div><i>A</i>Listwa kolejności jest dostępna, dopóki jej potrzeba.</div><div><i>R</i>Dwa kroki naraz to warunek samodzielności w szatni i przy posiłku.</div><div><i>T</i>Weryfikacja po ……… tygodniach, według wyniku obszaru.</div></div>
+  <div class="obs"><span><b>Obserwacja</b> Arkusz obserwacji — kolumna: polecenie dwuetapowe. Notujemy oba kroki i ich kolejność. · 5 poleceń w tygodniu</span>
+    <span class="wynik">wynik <span class="pole">&nbsp;</span>/5 · data <span class="pole">&nbsp;</span></span></div>
+</article>
+</div>
+<div class="stopka"><span>EduPlaner 2026 · PCTP · pedagog specjalny <b>mgr Mirosława Ewa Jurczyszyn</b></span><span>Strona 2 z 12 · obszar I · rozumienie mowy (recepcja)</span></div>
+</section>
+<section class="strona">
+<div class="head"><span class="mark" role="img" aria-label="Logo PCTP"></span>
+  <div><h1>EduPlaner 2026</h1><div class="sub">Rozwój mowy · cele SMART · obszar I</div></div>
+  <div class="prawa"><b>MOWA · WOPF</b><span>narzędzie · druk MOWA-C</span></div></div>
+<div class="kreska"></div>
+<div class="metryka">
+  <div><span>Dotyczy dziecka</span><b>&nbsp;</b></div>
+  <div><span>Grupa</span><b>&nbsp;</b></div>
+  <div><span>Data</span><b>&nbsp;</b> r.</div></div>
+<div class="tresc">
+  <div class="fn"><span class="rz">I</span>
+    <div><h2>Rozumienie mowy (recepcja) <span style="font-size:9px;color:var(--szary)">· ciąg dalszy</span> <span style="font-size:9px;color:var(--szary)">d310 · b1560</span></h2>
+      <div class="op">Rozumienie słów, poleceń i pytań kierowanych do dziecka — zanim samo zacznie mówić.</div></div>
+    <div class="bad">……/10 · <span class="ocena">pasmo ………</span><b>…… z 5 · ……… tygodni</b></div></div>
+  
+  <article class="cel">
+  <div class="cel-h"><span class="nr">I.4</span>
+    <span class="def"><b>Wskaźnik</b> Wskazuje nazwane obrazki, przedmioty i części ciała.</span></div>
+  <p class="strat">krok komunikacyjny: wskazanie palcem właściwego obrazka albo przedmiotu po usłyszeniu nazwy · pozycja karty: 4</p>
+  <p class="cel-t"><b>Cel SMART</b>Dziecko wskaże nazwany obrazek albo przedmiot spośród sześciu, w ……… z 5 próbach, w ciągu ……… tygodni.</p>
+  <div class="smart"><div><i>S</i>Wskazuje palcem nazwany obrazek albo przedmiot.</div><div><i>M</i>……… z 5 prób z pięciu obserwowanych w tygodniu.</div><div><i>A</i>Materiał pochodzi z sali i jest dziecku znany.</div><div><i>R</i>Słownik bierny jest warunkiem mowy czynnej i rozumienia poleceń.</div><div><i>T</i>Weryfikacja po ……… tygodniach, według wyniku obszaru.</div></div>
+  <div class="obs"><span><b>Obserwacja</b> Arkusz obserwacji — kolumna: wskazywanie na nazwę. Notujemy liczbę obrazków do wyboru. · 5 prób w tygodniu</span>
+    <span class="wynik">wynik <span class="pole">&nbsp;</span>/5 · data <span class="pole">&nbsp;</span></span></div>
+</article><article class="cel">
+  <div class="cel-h"><span class="nr">I.5</span>
+    <span class="def"><b>Wskaźnik</b> Rozumie proste pytania (kto? co? gdzie?).</span></div>
+  <p class="strat">krok komunikacyjny: odpowiedź pasująca do rodzaju pytania — osobą, rzeczą albo miejscem · pozycja karty: 5</p>
+  <p class="cel-t"><b>Cel SMART</b>Dziecko odpowie na pytanie zgodnie z jego rodzajem — osobą, rzeczą albo miejscem, w ……… z 5 próbach, w ciągu ……… tygodni.</p>
+  <div class="smart"><div><i>S</i>Odpowiada zgodnie z rodzajem pytania.</div><div><i>M</i>……… z 5 pytań z pięciu obserwowanych w tygodniu.</div><div><i>A</i>Karty pytań są dostępne, dopóki ich potrzeba.</div><div><i>R</i>Rozumienie pytajnika jest warunkiem rozmowy i pracy z tekstem.</div><div><i>T</i>Weryfikacja po ……… tygodniach, według wyniku obszaru.</div></div>
+  <div class="obs"><span><b>Obserwacja</b> Arkusz obserwacji — kolumna: rozumienie pytań. Notujemy rodzaj pytania i trafność odpowiedzi. · 5 pytań w tygodniu</span>
+    <span class="wynik">wynik <span class="pole">&nbsp;</span>/5 · data <span class="pole">&nbsp;</span></span></div>
+</article>
+</div>
+<div class="stopka"><span>EduPlaner 2026 · PCTP · pedagog specjalny <b>mgr Mirosława Ewa Jurczyszyn</b></span><span>Strona 3 z 12 · obszar I · rozumienie mowy (recepcja)</span></div>
+</section>
+<section class="strona">
+<div class="head"><span class="mark" role="img" aria-label="Logo PCTP"></span>
+  <div><h1>EduPlaner 2026</h1><div class="sub">Rozwój mowy · cele SMART · obszar II</div></div>
+  <div class="prawa"><b>MOWA · WOPF</b><span>narzędzie · druk MOWA-C</span></div></div>
+<div class="kreska"></div>
+<div class="metryka">
+  <div><span>Dotyczy dziecka</span><b>&nbsp;</b></div>
+  <div><span>Grupa</span><b>&nbsp;</b></div>
+  <div><span>Data</span><b>&nbsp;</b> r.</div></div>
+<div class="tresc">
+  <div class="fn"><span class="rz">II</span>
+    <div><h2>Mowa czynna i artykulacja (ekspresja) <span style="font-size:9px;color:var(--szary)">b320 · b16710</span></h2>
+      <div class="op">Mówienie w celu porozumienia się: od pojedynczego słowa po zrozumiałą wypowiedź.</div></div>
+    <div class="bad">……/10 · <span class="ocena">pasmo ………</span><b>…… z 5 · ……… tygodni</b></div></div>
+  <div class="si"><b>Zasada pracy nad teorią umysłu</b> Liczy się, ŻE dziecko powiedziało, nie JAK wymówiło. Poprawianie wymowy w trakcie wypowiedzi ucina wypowiedź — poprawną głoskę stawia logopeda, na osobnych zajęciach.</div>
+  <article class="cel">
+  <div class="cel-h"><span class="nr">II.1</span>
+    <span class="def"><b>Wskaźnik</b> Wypowiada pojedyncze słowa w celu porozumienia się.</span></div>
+  <p class="strat">krok komunikacyjny: wypowiedzenie słowa, żeby coś dostać albo coś się wydarzyło · pozycja karty: 1</p>
+  <p class="cel-t"><b>Cel SMART</b>Dziecko wypowie słowo skierowane do drugiej osoby, żeby o coś poprosić, w ……… z 5 sytuacjach, w ciągu ……… tygodni.</p>
+  <div class="smart"><div><i>S</i>Mówi słowo, żeby coś dostać albo żeby coś się wydarzyło.</div><div><i>M</i>……… z 5 sytuacji z pięciu obserwowanych w tygodniu.</div><div><i>A</i>Sytuacje są ustawione tak, że proszenie ma sens.</div><div><i>R</i>Słowo, które działa, jest fundamentem całej mowy czynnej.</div><div><i>T</i>Weryfikacja po ……… tygodniach, według wyniku obszaru.</div></div>
+  <div class="obs"><span><b>Obserwacja</b> Arkusz obserwacji — kolumna: prośba słowem. Notujemy wypowiedzi z inicjatywy dziecka. · 5 okazji w tygodniu</span>
+    <span class="wynik">wynik <span class="pole">&nbsp;</span>/5 · data <span class="pole">&nbsp;</span></span></div>
+</article><article class="cel">
+  <div class="cel-h"><span class="nr">II.2</span>
+    <span class="def"><b>Wskaźnik</b> Łączy 2–3 słowa w prostą wypowiedź.</span></div>
+  <p class="strat">krok komunikacyjny: połączenie dwóch słów w jedną wypowiedź skierowaną do kogoś · pozycja karty: 2</p>
+  <p class="cel-t"><b>Cel SMART</b>Dziecko połączy dwa słowa w jedną wypowiedź skierowaną do drugiej osoby, w ……… z 5 sytuacjach, w ciągu ……… tygodni.</p>
+  <div class="smart"><div><i>S</i>Łączy dwa słowa w jedną wypowiedź.</div><div><i>M</i>……… z 5 wypowiedzi z pięciu obserwowanych w tygodniu.</div><div><i>A</i>Listwa składni jest dostępna, dopóki jej potrzeba.</div><div><i>R</i>Połączenie dwóch słów jest progiem między nazywaniem a mówieniem.</div><div><i>T</i>Weryfikacja po ……… tygodniach, według wyniku obszaru.</div></div>
+  <div class="obs"><span><b>Obserwacja</b> Arkusz obserwacji — kolumna: długość wypowiedzi. Notujemy liczbę słów w wypowiedzi. · 5 wypowiedzi w tygodniu</span>
+    <span class="wynik">wynik <span class="pole">&nbsp;</span>/5 · data <span class="pole">&nbsp;</span></span></div>
+</article><article class="cel">
+  <div class="cel-h"><span class="nr">II.3</span>
+    <span class="def"><b>Wskaźnik</b> Mowa jest zrozumiała dla osób spoza najbliższej rodziny.</span></div>
+  <p class="strat">krok komunikacyjny: dokończenie wypowiedzi tak, żeby obcy dorosły zrozumiał, o co chodzi · pozycja karty: 3</p>
+  <p class="cel-t"><b>Cel SMART</b>Dziecko naprawi wypowiedź niezrozumianą przez rozmówcę — powtórzy ją, powie inaczej albo pokaże, w ……… z 5 sytuacjach, w ciągu ……… tygodni.</p>
+  <div class="smart"><div><i>S</i>Powtarza, przeformułowuje albo pokazuje, gdy nie został zrozumiany.</div><div><i>M</i>……… z 5 sytuacji z pięciu obserwowanych w tygodniu.</div><div><i>A</i>Karty naprawy i tablica obrazkowa są dostępne.</div><div><i>R</i>Skuteczne porozumienie jest ważniejsze od czystej wymowy.</div><div><i>T</i>Weryfikacja po ……… tygodniach, według wyniku obszaru.</div></div>
+  <div class="obs"><span><b>Obserwacja</b> Arkusz obserwacji — kolumna: naprawa wypowiedzi. Notujemy sposób i skutek. · 5 sytuacji w tygodniu</span>
+    <span class="wynik">wynik <span class="pole">&nbsp;</span>/5 · data <span class="pole">&nbsp;</span></span></div>
+</article>
+</div>
+<div class="stopka"><span>EduPlaner 2026 · PCTP · pedagog specjalny <b>mgr Mirosława Ewa Jurczyszyn</b></span><span>Strona 4 z 12 · obszar II · mowa czynna i artykulacja (ekspresja)</span></div>
+</section>
+<section class="strona">
+<div class="head"><span class="mark" role="img" aria-label="Logo PCTP"></span>
+  <div><h1>EduPlaner 2026</h1><div class="sub">Rozwój mowy · cele SMART · obszar II</div></div>
+  <div class="prawa"><b>MOWA · WOPF</b><span>narzędzie · druk MOWA-C</span></div></div>
+<div class="kreska"></div>
+<div class="metryka">
+  <div><span>Dotyczy dziecka</span><b>&nbsp;</b></div>
+  <div><span>Grupa</span><b>&nbsp;</b></div>
+  <div><span>Data</span><b>&nbsp;</b> r.</div></div>
+<div class="tresc">
+  <div class="fn"><span class="rz">II</span>
+    <div><h2>Mowa czynna i artykulacja (ekspresja) <span style="font-size:9px;color:var(--szary)">· ciąg dalszy</span> <span style="font-size:9px;color:var(--szary)">b320 · b16710</span></h2>
+      <div class="op">Mówienie w celu porozumienia się: od pojedynczego słowa po zrozumiałą wypowiedź.</div></div>
+    <div class="bad">……/10 · <span class="ocena">pasmo ………</span><b>…… z 5 · ……… tygodni</b></div></div>
+  
+  <article class="cel">
+  <div class="cel-h"><span class="nr">II.4</span>
+    <span class="def"><b>Wskaźnik</b> Realizuje głoski odpowiednio do wieku (bez licznych zniekształceń).</span></div>
+  <p class="strat">krok komunikacyjny: mówienie w sali mimo trudności z wymową — liczba wypowiedzi, nie ich czystość · pozycja karty: 4</p>
+  <p class="cel-t"><b>Cel SMART</b>Dziecko zabierze głos w grupie mimo trudności z wymową, w ……… z 5 sytuacjach, w ciągu ……… tygodni.</p>
+  <div class="smart"><div><i>S</i>Zabiera głos w grupie.</div><div><i>M</i>……… z 5 sytuacji z pięciu obserwowanych w tygodniu.</div><div><i>A</i>Kolejka mówienia jest znana z góry, nikt nie poprawia wymowy publicznie.</div><div><i>R</i>Bez praktyki mówienia w grupie żadna terapia wymowy nie utrwali się.</div><div><i>T</i>Weryfikacja po ……… tygodniach, według wyniku obszaru.</div></div>
+  <div class="obs"><span><b>Obserwacja</b> Arkusz obserwacji — kolumna: gotowość do mówienia. Notujemy fakt wypowiedzi, nie jej brzmienie. · 5 sytuacji grupowych w tygodniu</span>
+    <span class="wynik">wynik <span class="pole">&nbsp;</span>/5 · data <span class="pole">&nbsp;</span></span></div>
+</article><article class="cel">
+  <div class="cel-h"><span class="nr">II.5</span>
+    <span class="def"><b>Wskaźnik</b> Powtarza słowa i krótkie zdania za dorosłym.</span></div>
+  <p class="strat">krok komunikacyjny: powtórzenie usłyszanego wzoru w całości, zaraz po jego usłyszeniu · pozycja karty: 5</p>
+  <p class="cel-t"><b>Cel SMART</b>Dziecko powtórzy za dorosłym zdanie o długości odpowiedniej do wieku, w ……… z 5 próbach, w ciągu ……… tygodni.</p>
+  <div class="smart"><div><i>S</i>Powtarza usłyszany wzór w całości.</div><div><i>M</i>……… z 5 prób z pięciu obserwowanych w tygodniu.</div><div><i>A</i>Materiał jest zbudowany ze słów znanych dziecku.</div><div><i>R</i>Pamięć słuchowa wyznacza granicę długości wypowiedzi dziecka.</div><div><i>T</i>Weryfikacja po ……… tygodniach, według wyniku obszaru.</div></div>
+  <div class="obs"><span><b>Obserwacja</b> Arkusz obserwacji — kolumna: powtarzanie. Notujemy liczbę słów powtórzonych bezbłędnie. · 5 prób w tygodniu</span>
+    <span class="wynik">wynik <span class="pole">&nbsp;</span>/5 · data <span class="pole">&nbsp;</span></span></div>
+</article>
+</div>
+<div class="stopka"><span>EduPlaner 2026 · PCTP · pedagog specjalny <b>mgr Mirosława Ewa Jurczyszyn</b></span><span>Strona 5 z 12 · obszar II · mowa czynna i artykulacja (ekspresja)</span></div>
+</section>
+<section class="strona">
+<div class="head"><span class="mark" role="img" aria-label="Logo PCTP"></span>
+  <div><h1>EduPlaner 2026</h1><div class="sub">Rozwój mowy · cele SMART · obszar III</div></div>
+  <div class="prawa"><b>MOWA · WOPF</b><span>narzędzie · druk MOWA-C</span></div></div>
+<div class="kreska"></div>
+<div class="metryka">
+  <div><span>Dotyczy dziecka</span><b>&nbsp;</b></div>
+  <div><span>Grupa</span><b>&nbsp;</b></div>
+  <div><span>Data</span><b>&nbsp;</b> r.</div></div>
+<div class="tresc">
+  <div class="fn"><span class="rz">III</span>
+    <div><h2>Słuch fonematyczny i percepcja słuchowa <span style="font-size:9px;color:var(--szary)">b1560 · b230</span></h2>
+      <div class="op">Słyszenie różnic między dźwiękami i głoskami — podstawa pod naukę czytania.</div></div>
+    <div class="bad">……/10 · <span class="ocena">pasmo ………</span><b>…… z 5 · ……… tygodni</b></div></div>
+  <div class="si"><b>Zasada pracy nad teorią umysłu</b> Sylaba przed głoską, zawsze. Dziecko, które nie klaszcze sylab, nie wyodrębni pierwszej głoski — a ćwiczone ponad poziomem zaczyna zgadywać.</div>
+  <article class="cel">
+  <div class="cel-h"><span class="nr">III.1</span>
+    <span class="def"><b>Wskaźnik</b> Różnicuje dźwięki z otoczenia i wskazuje kierunek dźwięku.</span></div>
+  <p class="strat">krok komunikacyjny: wskazanie źródła dźwięku — dziecko pokazuje przedmiot albo stronę, z której dźwięk przyszedł · pozycja karty: 1</p>
+  <p class="cel-t"><b>Cel SMART</b>Dziecko wskaże źródło albo kierunek usłyszanego dźwięku, w ……… z 5 próbach, w ciągu ……… tygodni.</p>
+  <div class="smart"><div><i>S</i>Wskazuje przedmiot albo stronę, z której przyszedł dźwięk.</div><div><i>M</i>……… z 5 prób z pięciu obserwowanych w tygodniu.</div><div><i>A</i>Zadanie odbywa się przy wyciszonym tle.</div><div><i>R</i>Percepcja słuchowa jest podstawą różnicowania głosek.</div><div><i>T</i>Weryfikacja po ……… tygodniach, według wyniku obszaru.</div></div>
+  <div class="obs"><span><b>Obserwacja</b> Arkusz obserwacji — kolumna: różnicowanie dźwięków. Notujemy trafienia i pomyłki. · 5 prób w tygodniu</span>
+    <span class="wynik">wynik <span class="pole">&nbsp;</span>/5 · data <span class="pole">&nbsp;</span></span></div>
+</article><article class="cel">
+  <div class="cel-h"><span class="nr">III.2</span>
+    <span class="def"><b>Wskaźnik</b> Powtarza sekwencje sylab oraz prosty rytm.</span></div>
+  <p class="strat">krok komunikacyjny: odtworzenie usłyszanej sekwencji — dziecko powtarza sylaby albo wyklaskuje układ uderzeń · pozycja karty: 2</p>
+  <p class="cel-t"><b>Cel SMART</b>Dziecko powtórzy sekwencję sylab albo wyklaszcze rytm zgodny z wzorem, w ……… z 5 próbach, w ciągu ……… tygodni.</p>
+  <div class="smart"><div><i>S</i>Odtwarza usłyszaną sekwencję w tej samej kolejności.</div><div><i>M</i>……… z 5 prób z pięciu obserwowanych w tygodniu.</div><div><i>A</i>Sekwencja mieści się w pojemności pamięci słuchowej dziecka.</div><div><i>R</i>Sekwencje słuchowe poprzedzają dzielenie słów na sylaby.</div><div><i>T</i>Weryfikacja po ……… tygodniach, według wyniku obszaru.</div></div>
+  <div class="obs"><span><b>Obserwacja</b> Arkusz obserwacji — kolumna: sekwencje słuchowe. Notujemy długość odtworzonej sekwencji. · 5 prób w tygodniu</span>
+    <span class="wynik">wynik <span class="pole">&nbsp;</span>/5 · data <span class="pole">&nbsp;</span></span></div>
+</article><article class="cel">
+  <div class="cel-h"><span class="nr">III.3</span>
+    <span class="def"><b>Wskaźnik</b> Dzieli proste słowa na sylaby (klaskanie).</span></div>
+  <p class="strat">krok komunikacyjny: podzielenie słowa na części — dziecko klaszcze albo układa klocek na każdą sylabę · pozycja karty: 3</p>
+  <p class="cel-t"><b>Cel SMART</b>Dziecko podzieli słowo na sylaby i poda ich liczbę, w ……… z 5 próbach, w ciągu ……… tygodni.</p>
+  <div class="smart"><div><i>S</i>Dzieli słowo na części i pokazuje ich liczbę.</div><div><i>M</i>……… z 5 słów z pięciu obserwowanych w tygodniu.</div><div><i>A</i>Słowa są znane dziecku i mają wsparcie obrazkowe.</div><div><i>R</i>Analiza sylabowa jest predyktorem nauki czytania.</div><div><i>T</i>Weryfikacja po ……… tygodniach, według wyniku obszaru.</div></div>
+  <div class="obs"><span><b>Obserwacja</b> Arkusz obserwacji — kolumna: podział sylabowy. Notujemy długość słowa i trafność podziału. · 5 słów w tygodniu</span>
+    <span class="wynik">wynik <span class="pole">&nbsp;</span>/5 · data <span class="pole">&nbsp;</span></span></div>
+</article>
+</div>
+<div class="stopka"><span>EduPlaner 2026 · PCTP · pedagog specjalny <b>mgr Mirosława Ewa Jurczyszyn</b></span><span>Strona 6 z 12 · obszar III · słuch fonematyczny i percepcja słuchowa</span></div>
+</section>
+<section class="strona">
+<div class="head"><span class="mark" role="img" aria-label="Logo PCTP"></span>
+  <div><h1>EduPlaner 2026</h1><div class="sub">Rozwój mowy · cele SMART · obszar III</div></div>
+  <div class="prawa"><b>MOWA · WOPF</b><span>narzędzie · druk MOWA-C</span></div></div>
+<div class="kreska"></div>
+<div class="metryka">
+  <div><span>Dotyczy dziecka</span><b>&nbsp;</b></div>
+  <div><span>Grupa</span><b>&nbsp;</b></div>
+  <div><span>Data</span><b>&nbsp;</b> r.</div></div>
+<div class="tresc">
+  <div class="fn"><span class="rz">III</span>
+    <div><h2>Słuch fonematyczny i percepcja słuchowa <span style="font-size:9px;color:var(--szary)">· ciąg dalszy</span> <span style="font-size:9px;color:var(--szary)">b1560 · b230</span></h2>
+      <div class="op">Słyszenie różnic między dźwiękami i głoskami — podstawa pod naukę czytania.</div></div>
+    <div class="bad">……/10 · <span class="ocena">pasmo ………</span><b>…… z 5 · ……… tygodni</b></div></div>
+  
+  <article class="cel">
+  <div class="cel-h"><span class="nr">III.4</span>
+    <span class="def"><b>Wskaźnik</b> Wyodrębnia pierwszą głoskę lub sylabę w słowie (5–6 lat).</span></div>
+  <p class="strat">krok komunikacyjny: podanie pierwszej cząstki słowa — dziecko mówi, od czego zaczyna się wyraz · pozycja karty: 4</p>
+  <p class="cel-t"><b>Cel SMART</b>Dziecko poda pierwszą sylabę albo głoskę usłyszanego słowa, w ……… z 5 próbach, w ciągu ……… tygodni.</p>
+  <div class="smart"><div><i>S</i>Wydziela początek słowa i nazywa go osobno.</div><div><i>M</i>……… z 5 słów z pięciu obserwowanych w tygodniu.</div><div><i>A</i>Poziom zadania odpowiada wiekowi: sylaba przed głoską.</div><div><i>R</i>Świadomość fonologiczna warunkuje naukę czytania.</div><div><i>T</i>Weryfikacja po ……… tygodniach, według wyniku obszaru.</div></div>
+  <div class="obs"><span><b>Obserwacja</b> Arkusz obserwacji — kolumna: pierwsza cząstka słowa. Notujemy, czy była to sylaba czy głoska. · 5 słów w tygodniu</span>
+    <span class="wynik">wynik <span class="pole">&nbsp;</span>/5 · data <span class="pole">&nbsp;</span></span></div>
+</article><article class="cel">
+  <div class="cel-h"><span class="nr">III.5</span>
+    <span class="def"><b>Wskaźnik</b> Nie myli słów podobnych brzmieniowo w codziennych sytuacjach.</span></div>
+  <p class="strat">krok komunikacyjny: wybór właściwego przedmiotu po usłyszeniu słowa różniącego się jedną głoską · pozycja karty: 5</p>
+  <p class="cel-t"><b>Cel SMART</b>Dziecko wybierze właściwy przedmiot albo obrazek po usłyszeniu słowa podobnego brzmieniowo, w ……… z 5 próbach, w ciągu ……… tygodni.</p>
+  <div class="smart"><div><i>S</i>Wybiera przedmiot zgodny z usłyszanym słowem.</div><div><i>M</i>……… z 5 prób z pięciu obserwowanych w tygodniu.</div><div><i>A</i>Słowa są znane, para różni się jedną głoską.</div><div><i>R</i>Różnicowanie fonemowe warunkuje rozumienie i pisownię.</div><div><i>T</i>Weryfikacja po ……… tygodniach, według wyniku obszaru.</div></div>
+  <div class="obs"><span><b>Obserwacja</b> Arkusz obserwacji — kolumna: różnicowanie słów. Notujemy pary głosek, przy których dziecko myli. · 5 prób w tygodniu</span>
+    <span class="wynik">wynik <span class="pole">&nbsp;</span>/5 · data <span class="pole">&nbsp;</span></span></div>
+</article>
+</div>
+<div class="stopka"><span>EduPlaner 2026 · PCTP · pedagog specjalny <b>mgr Mirosława Ewa Jurczyszyn</b></span><span>Strona 7 z 12 · obszar III · słuch fonematyczny i percepcja słuchowa</span></div>
+</section>
+<section class="strona">
+<div class="head"><span class="mark" role="img" aria-label="Logo PCTP"></span>
+  <div><h1>EduPlaner 2026</h1><div class="sub">Rozwój mowy · cele SMART · obszar IV</div></div>
+  <div class="prawa"><b>MOWA · WOPF</b><span>narzędzie · druk MOWA-C</span></div></div>
+<div class="kreska"></div>
+<div class="metryka">
+  <div><span>Dotyczy dziecka</span><b>&nbsp;</b></div>
+  <div><span>Grupa</span><b>&nbsp;</b></div>
+  <div><span>Data</span><b>&nbsp;</b> r.</div></div>
+<div class="tresc">
+  <div class="fn"><span class="rz">IV</span>
+    <div><h2>Słownictwo i gramatyka (system językowy) <span style="font-size:9px;color:var(--szary)">b16700 · b16710</span></h2>
+      <div class="op">Zasób słów, formy gramatyczne i budowa zdania — z czego dziecko składa wypowiedź.</div></div>
+    <div class="bad">……/10 · <span class="ocena">pasmo ………</span><b>…… z 5 · ……… tygodni</b></div></div>
+  <div class="si"><b>Zasada pracy nad teorią umysłu</b> Nowe słowo wchodzi przez czynność, nie przez planszę. Dziecko zapamiętuje „miesza”, kiedy miesza, a nie kiedy pokazuje obrazek mieszania.</div>
+  <article class="cel">
+  <div class="cel-h"><span class="nr">IV.1</span>
+    <span class="def"><b>Wskaźnik</b> Ma zasób słów adekwatny do wieku.</span></div>
+  <p class="strat">krok komunikacyjny: nazwanie przedmiotu albo czynności słowem — dziecko używa nazwy zamiast wskazania palcem · pozycja karty: 1</p>
+  <p class="cel-t"><b>Cel SMART</b>Dziecko nazwie potrzebny przedmiot słowem zamiast wskazania palcem, w ……… z 5 sytuacjach, w ciągu ……… tygodni.</p>
+  <div class="smart"><div><i>S</i>Używa nazwy przedmiotu zamiast gestu wskazującego.</div><div><i>M</i>……… z 5 sytuacji z pięciu obserwowanych w tygodniu.</div><div><i>A</i>Przedmioty są znane, ustawione w zasięgu wzroku.</div><div><i>R</i>Zasób słów wyznacza granice tego, co dziecko może powiedzieć.</div><div><i>T</i>Weryfikacja po ……… tygodniach, według wyniku obszaru.</div></div>
+  <div class="obs"><span><b>Obserwacja</b> Arkusz obserwacji — kolumna: nowe nazwy. Notujemy słowa użyte przez dziecko w ciągu tygodnia. · 5 sytuacji w tygodniu</span>
+    <span class="wynik">wynik <span class="pole">&nbsp;</span>/5 · data <span class="pole">&nbsp;</span></span></div>
+</article><article class="cel">
+  <div class="cel-h"><span class="nr">IV.2</span>
+    <span class="def"><b>Wskaźnik</b> Używa czasowników i określeń, nie tylko rzeczowników.</span></div>
+  <p class="strat">krok komunikacyjny: dołożenie do nazwy słowa mówiącego, co się dzieje albo jakie coś jest · pozycja karty: 2</p>
+  <p class="cel-t"><b>Cel SMART</b>Dziecko nazwie czynność albo cechę, dokładając słowo do nazwy przedmiotu, w ……… z 5 sytuacjach, w ciągu ……… tygodni.</p>
+  <div class="smart"><div><i>S</i>Używa czasownika albo określenia obok nazwy przedmiotu.</div><div><i>M</i>……… z 5 sytuacji z pięciu obserwowanych w tygodniu.</div><div><i>A</i>Czynności i cechy pochodzą z codziennych zajęć.</div><div><i>R</i>Czasownik jest warunkiem zbudowania zdania.</div><div><i>T</i>Weryfikacja po ……… tygodniach, według wyniku obszaru.</div></div>
+  <div class="obs"><span><b>Obserwacja</b> Arkusz obserwacji — kolumna: czasowniki i określenia. Notujemy osobno jedne i drugie. · 5 sytuacji w tygodniu</span>
+    <span class="wynik">wynik <span class="pole">&nbsp;</span>/5 · data <span class="pole">&nbsp;</span></span></div>
+</article><article class="cel">
+  <div class="cel-h"><span class="nr">IV.3</span>
+    <span class="def"><b>Wskaźnik</b> Stosuje proste formy gramatyczne (liczba, rodzaj, przypadki).</span></div>
+  <p class="strat">krok komunikacyjny: użycie właściwej końcówki — dziecko mówi „dwa kubki”, nie „dwa kubek” · pozycja karty: 3</p>
+  <p class="cel-t"><b>Cel SMART</b>Dziecko użyje właściwej formy gramatycznej w wypowiedzi, w ……… z 5 sytuacjach, w ciągu ……… tygodni.</p>
+  <div class="smart"><div><i>S</i>Dopasowuje końcówkę słowa do liczby, rodzaju i przypadka.</div><div><i>M</i>……… z 5 sytuacji z pięciu obserwowanych w tygodniu.</div><div><i>A</i>Sytuacje same wymagają formy: liczenie, prośba, rozdawanie.</div><div><i>R</i>Właściwa forma czyni wypowiedź zrozumiałą bez domysłu.</div><div><i>T</i>Weryfikacja po ……… tygodniach, według wyniku obszaru.</div></div>
+  <div class="obs"><span><b>Obserwacja</b> Arkusz obserwacji — kolumna: formy gramatyczne. Notujemy, które formy sprawiają trudność. · 5 sytuacji w tygodniu</span>
+    <span class="wynik">wynik <span class="pole">&nbsp;</span>/5 · data <span class="pole">&nbsp;</span></span></div>
+</article>
+</div>
+<div class="stopka"><span>EduPlaner 2026 · PCTP · pedagog specjalny <b>mgr Mirosława Ewa Jurczyszyn</b></span><span>Strona 8 z 12 · obszar IV · słownictwo i gramatyka (system językowy)</span></div>
+</section>
+<section class="strona">
+<div class="head"><span class="mark" role="img" aria-label="Logo PCTP"></span>
+  <div><h1>EduPlaner 2026</h1><div class="sub">Rozwój mowy · cele SMART · obszar IV</div></div>
+  <div class="prawa"><b>MOWA · WOPF</b><span>narzędzie · druk MOWA-C</span></div></div>
+<div class="kreska"></div>
+<div class="metryka">
+  <div><span>Dotyczy dziecka</span><b>&nbsp;</b></div>
+  <div><span>Grupa</span><b>&nbsp;</b></div>
+  <div><span>Data</span><b>&nbsp;</b> r.</div></div>
+<div class="tresc">
+  <div class="fn"><span class="rz">IV</span>
+    <div><h2>Słownictwo i gramatyka (system językowy) <span style="font-size:9px;color:var(--szary)">· ciąg dalszy</span> <span style="font-size:9px;color:var(--szary)">b16700 · b16710</span></h2>
+      <div class="op">Zasób słów, formy gramatyczne i budowa zdania — z czego dziecko składa wypowiedź.</div></div>
+    <div class="bad">……/10 · <span class="ocena">pasmo ………</span><b>…… z 5 · ……… tygodni</b></div></div>
+  
+  <article class="cel">
+  <div class="cel-h"><span class="nr">IV.4</span>
+    <span class="def"><b>Wskaźnik</b> Buduje zdania, nie tylko równoważniki i pojedyncze słowa.</span></div>
+  <p class="strat">krok komunikacyjny: wypowiedzenie zdania z czasownikiem — kto coś robi, a nie samo słowo · pozycja karty: 4</p>
+  <p class="cel-t"><b>Cel SMART</b>Dziecko wypowie zdanie zawierające czasownik zamiast pojedynczego słowa, w ……… z 5 sytuacjach, w ciągu ……… tygodni.</p>
+  <div class="smart"><div><i>S</i>Łączy słowa w zdanie z czasownikiem.</div><div><i>M</i>……… z 5 wypowiedzi z pięciu obserwowanych w tygodniu.</div><div><i>A</i>Sytuacje pochodzą z zabawy i z obrazków znanych dziecku.</div><div><i>R</i>Zdanie przekazuje informację, której pojedyncze słowo nie niesie.</div><div><i>T</i>Weryfikacja po ……… tygodniach, według wyniku obszaru.</div></div>
+  <div class="obs"><span><b>Obserwacja</b> Arkusz obserwacji — kolumna: długość wypowiedzi. Notujemy liczbę słów w najdłuższym zdaniu. · 5 wypowiedzi w tygodniu</span>
+    <span class="wynik">wynik <span class="pole">&nbsp;</span>/5 · data <span class="pole">&nbsp;</span></span></div>
+</article><article class="cel">
+  <div class="cel-h"><span class="nr">IV.5</span>
+    <span class="def"><b>Wskaźnik</b> Zadaje pytania i opowiada o tym, co robi.</span></div>
+  <p class="strat">krok komunikacyjny: postawienie pytania albo powiedzenie o własnym działaniu z własnej inicjatywy · pozycja karty: 5</p>
+  <p class="cel-t"><b>Cel SMART</b>Dziecko zada pytanie albo opowie o swoim działaniu z własnej inicjatywy, w ……… z 5 sytuacjach, w ciągu ……… tygodni.</p>
+  <div class="smart"><div><i>S</i>Zaczyna wypowiedź samo: pyta albo opowiada.</div><div><i>M</i>……… z 5 sytuacji z pięciu obserwowanych w tygodniu.</div><div><i>A</i>Sytuacje zagadkowe same wywołują pytanie.</div><div><i>R</i>Inicjatywa językowa odróżnia porozumiewanie się od odpowiadania.</div><div><i>T</i>Weryfikacja po ……… tygodniach, według wyniku obszaru.</div></div>
+  <div class="obs"><span><b>Obserwacja</b> Arkusz obserwacji — kolumna: inicjatywa językowa. Notujemy pytania zadane przez dziecko. · 5 sytuacji w tygodniu</span>
+    <span class="wynik">wynik <span class="pole">&nbsp;</span>/5 · data <span class="pole">&nbsp;</span></span></div>
+</article>
+</div>
+<div class="stopka"><span>EduPlaner 2026 · PCTP · pedagog specjalny <b>mgr Mirosława Ewa Jurczyszyn</b></span><span>Strona 9 z 12 · obszar IV · słownictwo i gramatyka (system językowy)</span></div>
+</section>
+<section class="strona">
+<div class="head"><span class="mark" role="img" aria-label="Logo PCTP"></span>
+  <div><h1>EduPlaner 2026</h1><div class="sub">Rozwój mowy · cele SMART · obszar V</div></div>
+  <div class="prawa"><b>MOWA · WOPF</b><span>narzędzie · druk MOWA-C</span></div></div>
+<div class="kreska"></div>
+<div class="metryka">
+  <div><span>Dotyczy dziecka</span><b>&nbsp;</b></div>
+  <div><span>Grupa</span><b>&nbsp;</b></div>
+  <div><span>Data</span><b>&nbsp;</b> r.</div></div>
+<div class="tresc">
+  <div class="fn"><span class="rz">V</span>
+    <div><h2>Komunikacja i budowanie wypowiedzi (pragmatyka) <span style="font-size:9px;color:var(--szary)">d330 · d350 · d3350</span></h2>
+      <div class="op">Porozumiewanie się w praktyce: kontakt, prośba, opowiadanie, komunikacja wspomagająca.</div></div>
+    <div class="bad">……/10 · <span class="ocena">pasmo ………</span><b>…… z 5 · ……… tygodni</b></div></div>
+  <div class="si"><b>Zasada pracy nad teorią umysłu</b> Każdy sposób porozumienia się jest komunikacją. Gest i obrazek nie opóźniają mowy — dają dziecku powód, żeby mówić, bo pokazują, że komunikat działa.</div>
+  <article class="cel">
+  <div class="cel-h"><span class="nr">V.1</span>
+    <span class="def"><b>Wskaźnik</b> Nawiązuje i podtrzymuje kontakt.</span></div>
+  <p class="strat">krok komunikacyjny: zwrócenie się do drugiej osoby i pozostanie w rozmowie na dwie wymiany · pozycja karty: 1</p>
+  <p class="cel-t"><b>Cel SMART</b>Dziecko zwróci się do rozmówcy i utrzyma rozmowę przez dwie wymiany, w ……… z 5 sytuacjach, w ciągu ……… tygodni.</p>
+  <div class="smart"><div><i>S</i>Zwraca się do osoby i pozostaje w rozmowie po jej odpowiedzi.</div><div><i>M</i>……… z 5 rozmów z pięciu obserwowanych w tygodniu.</div><div><i>A</i>Rozmowa toczy się przy wspólnym przedmiocie, w parze.</div><div><i>R</i>Kontakt jest warunkiem każdego porozumienia się.</div><div><i>T</i>Weryfikacja po ……… tygodniach, według wyniku obszaru.</div></div>
+  <div class="obs"><span><b>Obserwacja</b> Arkusz obserwacji — kolumna: kontakt i wymiany. Notujemy liczbę wymian w rozmowie. · 5 rozmów w tygodniu</span>
+    <span class="wynik">wynik <span class="pole">&nbsp;</span>/5 · data <span class="pole">&nbsp;</span></span></div>
+</article><article class="cel">
+  <div class="cel-h"><span class="nr">V.2</span>
+    <span class="def"><b>Wskaźnik</b> Sygnalizuje potrzeby słowem, gestem lub obrazkiem.</span></div>
+  <p class="strat">krok komunikacyjny: przekazanie potrzeby dowolnym sposobem — słowem, gestem albo kartą — zanim pojawi się płacz · pozycja karty: 2</p>
+  <p class="cel-t"><b>Cel SMART</b>Dziecko zasygnalizuje potrzebę słowem, gestem albo kartą, zanim pojawi się płacz, w ……… z 5 sytuacjach, w ciągu ……… tygodni.</p>
+  <div class="smart"><div><i>S</i>Przekazuje potrzebę zrozumiałym sposobem, przed narastaniem napięcia.</div><div><i>M</i>……… z 5 sytuacji z pięciu obserwowanych w tygodniu.</div><div><i>A</i>Karty leżą w stałym miejscu, dorosły reaguje natychmiast.</div><div><i>R</i>Skuteczny sygnał zastępuje płacz i zachowanie trudne.</div><div><i>T</i>Weryfikacja po ……… tygodniach, według wyniku obszaru.</div></div>
+  <div class="obs"><span><b>Obserwacja</b> Arkusz obserwacji — kolumna: sygnalizowanie potrzeb. Notujemy sposób i moment sygnału. · 5 sytuacji w tygodniu</span>
+    <span class="wynik">wynik <span class="pole">&nbsp;</span>/5 · data <span class="pole">&nbsp;</span></span></div>
+</article><article class="cel">
+  <div class="cel-h"><span class="nr">V.3</span>
+    <span class="def"><b>Wskaźnik</b> Opowiada prostą historyjkę lub relacjonuje wydarzenie (narracja).</span></div>
+  <p class="strat">krok komunikacyjny: opowiedzenie zdarzenia w kolejności — co było najpierw, potem i na końcu · pozycja karty: 3</p>
+  <p class="cel-t"><b>Cel SMART</b>Dziecko opowie zdarzenie z zachowaniem kolejności zdarzeń, w ……… z 5 opowiadaniach, w ciągu ……… tygodni.</p>
+  <div class="smart"><div><i>S</i>Opowiada, co było najpierw, potem i na końcu.</div><div><i>M</i>……… z 5 opowiadań z pięciu obserwowanych w tygodniu.</div><div><i>A</i>Zdarzenia są przeżyte przez dziecko albo pokazane na obrazkach.</div><div><i>R</i>Narracja zapowiada radzenie sobie z tekstem w szkole.</div><div><i>T</i>Weryfikacja po ……… tygodniach, według wyniku obszaru.</div></div>
+  <div class="obs"><span><b>Obserwacja</b> Arkusz obserwacji — kolumna: narracja. Notujemy liczbę zdań i zachowanie kolejności. · 5 opowiadań w tygodniu</span>
+    <span class="wynik">wynik <span class="pole">&nbsp;</span>/5 · data <span class="pole">&nbsp;</span></span></div>
+</article>
+</div>
+<div class="stopka"><span>EduPlaner 2026 · PCTP · pedagog specjalny <b>mgr Mirosława Ewa Jurczyszyn</b></span><span>Strona 10 z 12 · obszar V · komunikacja i budowanie wypowiedzi (pragmatyka)</span></div>
+</section>
+<section class="strona">
+<div class="head"><span class="mark" role="img" aria-label="Logo PCTP"></span>
+  <div><h1>EduPlaner 2026</h1><div class="sub">Rozwój mowy · cele SMART · obszar V</div></div>
+  <div class="prawa"><b>MOWA · WOPF</b><span>narzędzie · druk MOWA-C</span></div></div>
+<div class="kreska"></div>
+<div class="metryka">
+  <div><span>Dotyczy dziecka</span><b>&nbsp;</b></div>
+  <div><span>Grupa</span><b>&nbsp;</b></div>
+  <div><span>Data</span><b>&nbsp;</b> r.</div></div>
+<div class="tresc">
+  <div class="fn"><span class="rz">V</span>
+    <div><h2>Komunikacja i budowanie wypowiedzi (pragmatyka) <span style="font-size:9px;color:var(--szary)">· ciąg dalszy</span> <span style="font-size:9px;color:var(--szary)">d330 · d350 · d3350</span></h2>
+      <div class="op">Porozumiewanie się w praktyce: kontakt, prośba, opowiadanie, komunikacja wspomagająca.</div></div>
+    <div class="bad">……/10 · <span class="ocena">pasmo ………</span><b>…… z 5 · ……… tygodni</b></div></div>
+  
+  <article class="cel">
+  <div class="cel-h"><span class="nr">V.4</span>
+    <span class="def"><b>Wskaźnik</b> Dostosowuje wypowiedź do rozmówcy i sytuacji.</span></div>
+  <p class="strat">krok komunikacyjny: zmiana sposobu mówienia zależnie od tego, kto słucha i gdzie toczy się rozmowa · pozycja karty: 4</p>
+  <p class="cel-t"><b>Cel SMART</b>Dziecko dostosuje sposób mówienia do rozmówcy i miejsca, w ……… z 5 sytuacjach, w ciągu ……… tygodni.</p>
+  <div class="smart"><div><i>S</i>Zmienia sposób mówienia zależnie od odbiorcy i miejsca.</div><div><i>M</i>……… z 5 sytuacji z pięciu obserwowanych w tygodniu.</div><div><i>A</i>Rozmówcy i miejsca są wyraźnie różne, karty w zasięgu.</div><div><i>R</i>Uwzględnienie odbiorcy decyduje o skuteczności wypowiedzi.</div><div><i>T</i>Weryfikacja po ……… tygodniach, według wyniku obszaru.</div></div>
+  <div class="obs"><span><b>Obserwacja</b> Arkusz obserwacji — kolumna: dostosowanie wypowiedzi. Notujemy rozmówcę i miejsce. · 5 sytuacji w tygodniu</span>
+    <span class="wynik">wynik <span class="pole">&nbsp;</span>/5 · data <span class="pole">&nbsp;</span></span></div>
+</article><article class="cel">
+  <div class="cel-h"><span class="nr">V.5</span>
+    <span class="def"><b>Wskaźnik</b> Korzysta z komunikacji wspomagającej (gest, obrazek, AAC), gdy mowa nie wystarcza.</span></div>
+  <p class="strat">krok komunikacyjny: sięgnięcie po gest, obrazek albo tablicę AAC w miejscu, w którym słowo nie wystarczyło · pozycja karty: 5</p>
+  <p class="cel-t"><b>Cel SMART</b>Dziecko sięgnie po gest, obrazek albo tablicę AAC, gdy słowo nie wystarczyło, w ……… z 5 sytuacjach, w ciągu ……… tygodni.</p>
+  <div class="smart"><div><i>S</i>Używa gestu, symbolu albo tablicy zamiast rezygnacji z komunikatu.</div><div><i>M</i>……… z 5 sytuacji z pięciu obserwowanych w tygodniu.</div><div><i>A</i>Tablica i karty są dostępne w stałych miejscach przez cały dzień.</div><div><i>R</i>Skuteczny komunikat jest ważniejszy od sposobu, w jaki został przekazany.</div><div><i>T</i>Weryfikacja po ……… tygodniach, według wyniku obszaru.</div></div>
+  <div class="obs"><span><b>Obserwacja</b> Arkusz obserwacji — kolumna: komunikacja wspomagająca. Notujemy sposób i sytuację użycia. · 5 sytuacji w tygodniu</span>
+    <span class="wynik">wynik <span class="pole">&nbsp;</span>/5 · data <span class="pole">&nbsp;</span></span></div>
+</article>
+</div>
+<div class="stopka"><span>EduPlaner 2026 · PCTP · pedagog specjalny <b>mgr Mirosława Ewa Jurczyszyn</b></span><span>Strona 11 z 12 · obszar V · komunikacja i budowanie wypowiedzi (pragmatyka)</span></div>
+</section>
+<section class="strona">
+<div class="head"><span class="mark" role="img" aria-label="Logo PCTP"></span>
+  <div><h1>EduPlaner 2026</h1><div class="sub">Rozwój mowy · ewaluacja</div></div>
+  <div class="prawa"><b>MOWA · WOPF</b><span>narzędzie · druk MOWA-C</span></div></div>
+<div class="kreska"></div>
+<div class="metryka">
+  <div><span>Dotyczy dziecka</span><b>&nbsp;</b></div>
+  <div><span>Grupa</span><b>&nbsp;</b></div>
+  <div><span>Data</span><b>&nbsp;</b> r.</div></div>
+<div class="tresc">
+  <div class="pas">Ewaluacja — postęp wg obszarów (0–10 pkt)</div>
+  <div class="wstep">Minimum trzy pomiary: start (pierwsza obserwacja) · połowa okresu · koniec.
+    Horyzont każdego obszaru bierze się z jego pasma — obszar priorytetowy sprawdzamy
+    po 4 tygodniach, wymagający wsparcia po 8, zasób po 12. <b>Wzrost punktów nie jest jedynym
+    wynikiem</b>: równie ważne jest to, na jakim poziomie wsparcia dziecko wykonuje krok
+    mentalizacji — przejście z Poziomu III na II jest postępem także bez zmiany punktacji.</div>
+  <table><thead><tr><th>Obszar</th><th>Start</th><th>Połowa okresu</th><th>Koniec</th>
+    <th>Analiza zmiany</th></tr></thead><tbody><tr><td>I · Rozumienie mowy (recepcja)</td><td class="pkt">&nbsp;</td><td class="pkt">&nbsp;</td><td class="pkt">&nbsp;</td><td>&nbsp;</td></tr><tr><td>II · Mowa czynna i artykulacja (ekspresja)</td><td class="pkt">&nbsp;</td><td class="pkt">&nbsp;</td><td class="pkt">&nbsp;</td><td>&nbsp;</td></tr><tr><td>III · Słuch fonematyczny i percepcja słuchowa</td><td class="pkt">&nbsp;</td><td class="pkt">&nbsp;</td><td class="pkt">&nbsp;</td><td>&nbsp;</td></tr><tr><td>IV · Słownictwo i gramatyka (system językowy)</td><td class="pkt">&nbsp;</td><td class="pkt">&nbsp;</td><td class="pkt">&nbsp;</td><td>&nbsp;</td></tr><tr><td>V · Komunikacja i budowanie wypowiedzi (pragmatyka)</td><td class="pkt">&nbsp;</td><td class="pkt">&nbsp;</td><td class="pkt">&nbsp;</td><td>&nbsp;</td></tr></tbody></table>
+  <div class="dwie" style="margin-top:12px">
+    <div class="karta-info"><h3>Wnioski z ewaluacji</h3>
+      <div style="min-height:70px;border-bottom:1.5px dotted #b7add6"></div></div>
+    <div class="karta-info"><h3>Decyzja — kontynuacja / modyfikacja planu pracy</h3>
+      <div style="min-height:70px;border-bottom:1.5px dotted #b7add6"></div></div>
+  </div>
+  <div class="dwie" style="margin-top:12px">
+    <div class="karta-info"><h3>Prowadzący obserwację · data i podpis</h3>
+      <div style="min-height:46px;border-bottom:1.5px dotted #b7add6"></div></div>
+    <div class="karta-info"><h3>Terapeuta SI / rodzic · data i podpis</h3>
+      <div style="min-height:46px;border-bottom:1.5px dotted #b7add6"></div></div>
+  </div>
+  <div class="uwagi">Narzędzie obserwacyjne oparte na przebiegu rozwoju mowy dziecka polskiego opisanym przez Leona Kaczmarka (stadia: melodii, wyrazu, zdania, swoistej mowy dziecięcej) i na porządku pojawiania się głosek według Ireny Styczek. Obszar słuchu fonematycznego odwołuje się do świadomości fonologicznej jako predyktora nauki czytania; obszar pragmatyki — do funkcjonalnego modelu komunikacji, w którym gest i symbol są pełnoprawnym sposobem porozumienia się. NIE JEST TO DIAGNOZA LOGOPEDYCZNA. Karta służy wychwyceniu trudności i skierowaniu do logopedy, a nie postawieniu rozpoznania.<br><br>
+    Rozp. MEN z 14.02.2017 r. w sprawie podstawy programowej wychowania przedszkolnego (Dz.U. 2017 poz. 356, ze zm.) — poznawczy i społeczny obszar rozwoju: dziecko słucha, pyta, opowiada i porozumiewa się.<br>Rozp. MEN z 9.08.2017 r. w sprawie pomocy psychologiczno-pedagogicznej (Dz.U. 2017 poz. 1591) — zajęcia logopedyczne jako forma pomocy, organizowane po rozpoznaniu potrzeby.<br>Rozp. MEN z 9.08.2017 r. w sprawie kształcenia specjalnego (Dz.U. 2017 poz. 1578) — zajęcia rozwijające kompetencje komunikacyjne i komunikacja wspomagająca w IPET.</div>
+</div>
+<div class="stopka"><span>EduPlaner 2026 · PCTP · pedagog specjalny <b>mgr Mirosława Ewa Jurczyszyn</b></span><span>Strona 12 z 12 · ewaluacja</span></div>
+</section>
+</body>
+</html>

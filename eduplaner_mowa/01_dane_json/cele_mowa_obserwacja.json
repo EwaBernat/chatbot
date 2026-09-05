@@ -1,0 +1,1289 @@
+{
+  "dokument": "EduPlaner 2026 · druk MOWA-C · cele SMART do obserwacji pogłębionej",
+  "opis": "Ciąg dalszy rozwoju mowy. Kryterium prób i horyzont ewaluacji NIE są stałe — wynikają z punktacji danego zmysłu u konkretnego dziecka, według tabeli `progi`. Horyzont jest w trzech formach gramatycznych, bo wchodzi w trzy różne zdania.",
+  "modul": {
+    "nazwa": "Rozwój mowy i komunikacja — bank celów SMART (przedszkole)",
+    "kod": "MOWA",
+    "wersja": "2026.1",
+    "autorka": "mgr Mirosława Ewa Jurczyszyn, pedagog specjalny, PCTP Koszalin",
+    "aplikacja": "EduPlaner 2026",
+    "druk_zrodlowy": "Karta obserwacji rozwoju mowy — przedszkole · 5 obszarów · 25 pozycji · skala 0–2",
+    "podstawa_merytoryczna": "Narzędzie obserwacyjne oparte na przebiegu rozwoju mowy dziecka polskiego opisanym przez Leona Kaczmarka (stadia: melodii, wyrazu, zdania, swoistej mowy dziecięcej) i na porządku pojawiania się głosek według Ireny Styczek. Obszar słuchu fonematycznego odwołuje się do świadomości fonologicznej jako predyktora nauki czytania; obszar pragmatyki — do funkcjonalnego modelu komunikacji, w którym gest i symbol są pełnoprawnym sposobem porozumienia się. NIE JEST TO DIAGNOZA LOGOPEDYCZNA. Karta służy wychwyceniu trudności i skierowaniu do logopedy, a nie postawieniu rozpoznania.",
+    "podstawa_prawna": [
+      "Rozp. MEN z 14.02.2017 r. w sprawie podstawy programowej wychowania przedszkolnego (Dz.U. 2017 poz. 356, ze zm.) — poznawczy i społeczny obszar rozwoju: dziecko słucha, pyta, opowiada i porozumiewa się.",
+      "Rozp. MEN z 9.08.2017 r. w sprawie pomocy psychologiczno-pedagogicznej (Dz.U. 2017 poz. 1591) — zajęcia logopedyczne jako forma pomocy, organizowane po rozpoznaniu potrzeby.",
+      "Rozp. MEN z 9.08.2017 r. w sprawie kształcenia specjalnego (Dz.U. 2017 poz. 1578) — zajęcia rozwijające kompetencje komunikacyjne i komunikacja wspomagająca w IPET."
+    ],
+    "zasada_modulu": "Cel z tego banku opisuje KROK KOMUNIKACYJNY, który słychać albo widać — co dziecko powiedziało, pokazało albo podało, żeby się porozumieć. „Poprawi wymowę” i „wzbogaci słownictwo” nie są celami z tego modułu: pierwsze należy do logopedy, drugiego nie da się policzyć w arkuszu obserwacji. „Poprosi o pomoc słowem albo kartą, zanim odejdzie od stolika” — da się. Poziom wsparcia zmienia warunki, nie krok komunikacyjny.",
+    "granica_kompetencji": "Ten bank jest dla nauczyciela i pedagoga, nie dla logopedy. Korekcja artykulacji, usprawnianie aparatu mowy i terapia jąkania NIE MAJĄ TU CELÓW — cele przy tych wskaźnikach dotyczą warunków porozumienia się i częstości wypowiedzi. Wskaźnik z wynikiem 0 albo 1 przy pozycjach II.3, II.4 i III.5 jest przesłanką do skierowania na diagnozę logopedyczną, a nie do samodzielnego ćwiczenia głosek w sali."
+  },
+  "przelicznik_natezenia": "wynik obszaru (0–10) = suma pięciu pozycji karty, każda w skali 0–2",
+  "progi": [
+    {
+      "od_punktow": 8,
+      "ocena": "Zasób",
+      "kryterium": "3 z 5",
+      "horyzont": {
+        "mianownik": "12 tygodni",
+        "dopelniacz": "12 tygodni",
+        "miejscownik": "12 tygodniach"
+      },
+      "dlaczego": "umiejętność opanowana — cel podtrzymujący, utrwalanie w trudniejszych sytuacjach"
+    },
+    {
+      "od_punktow": 4,
+      "ocena": "Wymaga wsparcia",
+      "kryterium": "4 z 5",
+      "horyzont": {
+        "mianownik": "8 tygodni",
+        "dopelniacz": "8 tygodni",
+        "miejscownik": "8 tygodniach"
+      },
+      "dlaczego": "częściowo opanowana — praca z malejącym wsparciem dorosłego"
+    },
+    {
+      "od_punktow": 0,
+      "ocena": "Priorytet",
+      "kryterium": "4 z 5",
+      "horyzont": {
+        "mianownik": "4 tygodnie",
+        "dopelniacz": "4 tygodni",
+        "miejscownik": "4 tygodniach"
+      },
+      "dlaczego": "znaczne trudności — praca codzienna, metodą małych kroków, krótki cykl weryfikacji; przy obszarze II lub III rozważyć skierowanie na diagnozę logopedyczną"
+    }
+  ],
+  "liczba_celow": 25,
+  "obszary": [
+    {
+      "nr": "I",
+      "nazwa": "Rozumienie mowy (recepcja)",
+      "icf": "d310 · b1560",
+      "skala": "wynik 0–10",
+      "norma_rozwojowa": "reakcja na imię ok. 9–12 mies.; polecenie jednoetapowe ok. 18–24 mies.; dwuetapowe ok. 2,5–3 r.ż.",
+      "opis": "Rozumienie słów, poleceń i pytań kierowanych do dziecka — zanim samo zacznie mówić.",
+      "zasada_mowy": "Rozumienie sprawdzamy bez gestu podpowiadającego. Dziecko, które wykonuje polecenie, bo dorosły jednocześnie pokazał ręką, rozumie gest, nie zdanie.",
+      "wskazniki": [
+        {
+          "nr": "I.1",
+          "pozycja": 1,
+          "deficyt": "Reaguje na swoje imię i proste zwroty („chodź”, „daj”).",
+          "krok_komunikacyjny": "zatrzymanie się i spojrzenie na dorosłego po usłyszeniu imienia",
+          "cel": "Dziecko zatrzyma się i spojrzy na dorosłego wołającego je po imieniu, w {proba} sytuacjach, w ciągu {horyzont_dopelniacz}.",
+          "znaczniki": [
+            "{proba}",
+            "{horyzont_dopelniacz}",
+            "{horyzont_miejscownik}"
+          ],
+          "co_obserwowac": "Arkusz obserwacji — kolumna: reakcja na imię. Notujemy reakcję po pierwszym wywołaniu, bez gestu.",
+          "ile_sytuacji": "5 wywołań w tygodniu",
+          "smart": [
+            {
+              "litera": "S",
+              "tresc": "Zatrzymuje się i patrzy na wołającego."
+            },
+            {
+              "litera": "M",
+              "tresc": "{proba} sytuacji z pięciu obserwowanych w tygodniu."
+            },
+            {
+              "litera": "A",
+              "tresc": "Wołanie jest pojedyncze, z dwusekundową ciszą po imieniu."
+            },
+            {
+              "litera": "R",
+              "tresc": "Reakcja na imię otwiera drogę każdemu innemu poleceniu."
+            },
+            {
+              "litera": "T",
+              "tresc": "Weryfikacja po {horyzont_miejscownik}, według wyniku obszaru."
+            }
+          ],
+          "zalecenia": [
+            "wołanie imieniem przed każdym poleceniem, w całym dniu przedszkolnym",
+            "jeden stały sygnał dźwiękowy zmiany aktywności",
+            "ograniczenie hałasu tła w chwili wydawania poleceń"
+          ],
+          "dostosowania": [
+            "dotknięcie ramienia jako zapowiedź wołania u dziecka z niedosłuchem",
+            "karta ze zdjęciem dziecka w miejscu zbiórki",
+            "wydłużony czas oczekiwania na reakcję do pięciu sekund"
+          ],
+          "uwaga_rozwojowa": "Brak reakcji na imię po drugim roku życia jest przesłanką do badania słuchu — zanim uznamy rzecz za brak uwagi albo upór. Do wykluczenia niedosłuchu nie planujemy celów z tego obszaru."
+        },
+        {
+          "nr": "I.2",
+          "pozycja": 2,
+          "deficyt": "Rozumie i wykonuje proste, jednoetapowe polecenie.",
+          "krok_komunikacyjny": "wykonanie polecenia bez gestu podpowiadającego dorosłego",
+          "cel": "Dziecko wykona jednoetapowe polecenie podane samym słowem, bez gestu dorosłego, w {proba} sytuacjach, w ciągu {horyzont_dopelniacz}.",
+          "znaczniki": [
+            "{proba}",
+            "{horyzont_dopelniacz}",
+            "{horyzont_miejscownik}"
+          ],
+          "co_obserwowac": "Arkusz obserwacji — kolumna: polecenie jednoetapowe. Notujemy wykonanie bez gestu.",
+          "ile_sytuacji": "5 poleceń w tygodniu",
+          "smart": [
+            {
+              "litera": "S",
+              "tresc": "Wykonuje polecenie podane samym słowem."
+            },
+            {
+              "litera": "M",
+              "tresc": "{proba} poleceń z pięciu obserwowanych w tygodniu."
+            },
+            {
+              "litera": "A",
+              "tresc": "Polecenia dotyczą znanych czynności i przedmiotów z sali."
+            },
+            {
+              "litera": "R",
+              "tresc": "Rozumienie polecenia decyduje o samodzielności w każdej innej sytuacji."
+            },
+            {
+              "litera": "T",
+              "tresc": "Weryfikacja po {horyzont_miejscownik}, według wyniku obszaru."
+            }
+          ],
+          "zalecenia": [
+            "jedno polecenie w jednym zdaniu przez cały dzień przedszkolny",
+            "stały szyk polecenia: imię, czasownik, przedmiot",
+            "sprawdzanie rozumienia przez wykonanie, nie przez pytanie o rozumienie"
+          ],
+          "dostosowania": [
+            "karta czynności przy dziecku jako stałe wsparcie",
+            "wydłużony czas na wykonanie polecenia do dziesięciu sekund",
+            "polecenie podane po zbliżeniu się do dziecka, nie z drugiego końca sali"
+          ],
+          "uwaga_rozwojowa": "Polecenie jednoetapowe dziecko rozumie zwykle ok. 18–24 miesiąca życia. Jeśli po trzecim roku nie wykonuje go bez gestu, sprawdzamy najpierw słuch, potem planujemy cele."
+        },
+        {
+          "nr": "I.3",
+          "pozycja": 3,
+          "deficyt": "Rozumie polecenie dwuetapowe („weź misia i połóż na stole”).",
+          "krok_komunikacyjny": "wykonanie obu kroków polecenia w podanej kolejności",
+          "cel": "Dziecko wykona dwuetapowe polecenie w podanej kolejności, w {proba} sytuacjach, w ciągu {horyzont_dopelniacz}.",
+          "znaczniki": [
+            "{proba}",
+            "{horyzont_dopelniacz}",
+            "{horyzont_miejscownik}"
+          ],
+          "co_obserwowac": "Arkusz obserwacji — kolumna: polecenie dwuetapowe. Notujemy oba kroki i ich kolejność.",
+          "ile_sytuacji": "5 poleceń w tygodniu",
+          "smart": [
+            {
+              "litera": "S",
+              "tresc": "Wykonuje oba kroki polecenia w podanej kolejności."
+            },
+            {
+              "litera": "M",
+              "tresc": "{proba} poleceń z pięciu obserwowanych w tygodniu."
+            },
+            {
+              "litera": "A",
+              "tresc": "Listwa kolejności jest dostępna, dopóki jej potrzeba."
+            },
+            {
+              "litera": "R",
+              "tresc": "Dwa kroki naraz to warunek samodzielności w szatni i przy posiłku."
+            },
+            {
+              "litera": "T",
+              "tresc": "Weryfikacja po {horyzont_miejscownik}, według wyniku obszaru."
+            }
+          ],
+          "zalecenia": [
+            "listwa kolejności dostępna w sali przez cały dzień, nie tylko na zajęciach",
+            "polecenia dwuetapowe wprowadzane dopiero po pewnym jednoetapowym",
+            "kolejność obrazków zawsze zgodna z porządkiem wykonania"
+          ],
+          "dostosowania": [
+            "rozbicie polecenia na dwa osobne zdania u dziecka z krótką pamięcią słuchową",
+            "obrazki listwy w wersji zdjęciowej, jeśli rysunek jest za mało czytelny",
+            "wydłużony czas na wykonanie do dwudziestu sekund"
+          ],
+          "uwaga_rozwojowa": "Polecenie dwuetapowe dziecko wykonuje zwykle ok. 2,5–3 roku życia. Gubienie drugiego kroku po czwartym roku wskazuje częściej na wąską pamięć słuchową niż na brak rozumienia — i tak też planujemy wsparcie."
+        },
+        {
+          "nr": "I.4",
+          "pozycja": 4,
+          "deficyt": "Wskazuje nazwane obrazki, przedmioty i części ciała.",
+          "krok_komunikacyjny": "wskazanie palcem właściwego obrazka albo przedmiotu po usłyszeniu nazwy",
+          "cel": "Dziecko wskaże nazwany obrazek albo przedmiot spośród sześciu, w {proba} próbach, w ciągu {horyzont_dopelniacz}.",
+          "znaczniki": [
+            "{proba}",
+            "{horyzont_dopelniacz}",
+            "{horyzont_miejscownik}"
+          ],
+          "co_obserwowac": "Arkusz obserwacji — kolumna: wskazywanie na nazwę. Notujemy liczbę obrazków do wyboru.",
+          "ile_sytuacji": "5 prób w tygodniu",
+          "smart": [
+            {
+              "litera": "S",
+              "tresc": "Wskazuje palcem nazwany obrazek albo przedmiot."
+            },
+            {
+              "litera": "M",
+              "tresc": "{proba} prób z pięciu obserwowanych w tygodniu."
+            },
+            {
+              "litera": "A",
+              "tresc": "Materiał pochodzi z sali i jest dziecku znany."
+            },
+            {
+              "litera": "R",
+              "tresc": "Słownik bierny jest warunkiem mowy czynnej i rozumienia poleceń."
+            },
+            {
+              "litera": "T",
+              "tresc": "Weryfikacja po {horyzont_miejscownik}, według wyniku obszaru."
+            }
+          ],
+          "zalecenia": [
+            "sprawdzanie słownika biernego przez wskazywanie, nie przez pytanie „co to jest”",
+            "obrazki tych samych przedmiotów, które dziecko widzi w sali",
+            "stopniowe zwiększanie liczby obrazków do wyboru"
+          ],
+          "dostosowania": [
+            "dwa obrazki zamiast sześciu u dziecka z trudnością w przeszukiwaniu wzrokowym",
+            "zdjęcia zamiast rysunków, gdy rysunek jest za mało czytelny",
+            "wskazywanie wzrokiem uznawane za odpowiedź u dziecka z niepełnosprawnością ruchową"
+          ],
+          "uwaga_rozwojowa": "Słownik bierny wyprzedza czynny o kilkanaście miesięcy. Dziecko, które wskazuje trafnie, a nie nazywa, ma trudność w mowie czynnej, nie w rozumieniu — cele planujemy wtedy w obszarze II, nie tutaj."
+        },
+        {
+          "nr": "I.5",
+          "pozycja": 5,
+          "deficyt": "Rozumie proste pytania (kto? co? gdzie?).",
+          "krok_komunikacyjny": "odpowiedź pasująca do rodzaju pytania — osobą, rzeczą albo miejscem",
+          "cel": "Dziecko odpowie na pytanie zgodnie z jego rodzajem — osobą, rzeczą albo miejscem, w {proba} próbach, w ciągu {horyzont_dopelniacz}.",
+          "znaczniki": [
+            "{proba}",
+            "{horyzont_dopelniacz}",
+            "{horyzont_miejscownik}"
+          ],
+          "co_obserwowac": "Arkusz obserwacji — kolumna: rozumienie pytań. Notujemy rodzaj pytania i trafność odpowiedzi.",
+          "ile_sytuacji": "5 pytań w tygodniu",
+          "smart": [
+            {
+              "litera": "S",
+              "tresc": "Odpowiada zgodnie z rodzajem pytania."
+            },
+            {
+              "litera": "M",
+              "tresc": "{proba} pytań z pięciu obserwowanych w tygodniu."
+            },
+            {
+              "litera": "A",
+              "tresc": "Karty pytań są dostępne, dopóki ich potrzeba."
+            },
+            {
+              "litera": "R",
+              "tresc": "Rozumienie pytajnika jest warunkiem rozmowy i pracy z tekstem."
+            },
+            {
+              "litera": "T",
+              "tresc": "Weryfikacja po {horyzont_miejscownik}, według wyniku obszaru."
+            }
+          ],
+          "zalecenia": [
+            "karty pytań dostępne w sali i używane przez cały dzień",
+            "jeden rodzaj pytania wprowadzany naraz, aż do utrwalenia",
+            "odpowiedź wskazaniem uznawana na równi z odpowiedzią słowem"
+          ],
+          "dostosowania": [
+            "karta pytania trzymana przy twarzy dorosłego, gdy dziecko potrzebuje wsparcia wzrokowego",
+            "pytanie o obrazek zamiast o zdarzenie z pamięci u dziecka z wąską pamięcią",
+            "dwie odpowiedzi do wyboru zamiast pytania otwartego"
+          ],
+          "uwaga_rozwojowa": "Pytania „kto, co, gdzie” dziecko rozumie zwykle ok. 3 roku życia, „dlaczego” ok. 4–5. Wymaganie odpowiedzi na „dlaczego” od trzylatka daje odpowiedź „bo tak” i nie mierzy niczego."
+        }
+      ]
+    },
+    {
+      "nr": "II",
+      "nazwa": "Mowa czynna i artykulacja (ekspresja)",
+      "icf": "b320 · b16710",
+      "skala": "wynik 0–10",
+      "norma_rozwojowa": "pierwsze słowa ok. 12 mies.; zdanie dwuwyrazowe ok. 2 r.ż.; mowa zrozumiała dla obcych ok. 4 r.ż.",
+      "opis": "Mówienie w celu porozumienia się: od pojedynczego słowa po zrozumiałą wypowiedź.",
+      "zasada_mowy": "Liczy się, ŻE dziecko powiedziało, nie JAK wymówiło. Poprawianie wymowy w trakcie wypowiedzi ucina wypowiedź — poprawną głoskę stawia logopeda, na osobnych zajęciach.",
+      "wskazniki": [
+        {
+          "nr": "II.1",
+          "pozycja": 1,
+          "deficyt": "Wypowiada pojedyncze słowa w celu porozumienia się.",
+          "krok_komunikacyjny": "wypowiedzenie słowa, żeby coś dostać albo coś się wydarzyło",
+          "cel": "Dziecko wypowie słowo skierowane do drugiej osoby, żeby o coś poprosić, w {proba} sytuacjach, w ciągu {horyzont_dopelniacz}.",
+          "znaczniki": [
+            "{proba}",
+            "{horyzont_dopelniacz}",
+            "{horyzont_miejscownik}"
+          ],
+          "co_obserwowac": "Arkusz obserwacji — kolumna: prośba słowem. Notujemy wypowiedzi z inicjatywy dziecka.",
+          "ile_sytuacji": "5 okazji w tygodniu",
+          "smart": [
+            {
+              "litera": "S",
+              "tresc": "Mówi słowo, żeby coś dostać albo żeby coś się wydarzyło."
+            },
+            {
+              "litera": "M",
+              "tresc": "{proba} sytuacji z pięciu obserwowanych w tygodniu."
+            },
+            {
+              "litera": "A",
+              "tresc": "Sytuacje są ustawione tak, że proszenie ma sens."
+            },
+            {
+              "litera": "R",
+              "tresc": "Słowo, które działa, jest fundamentem całej mowy czynnej."
+            },
+            {
+              "litera": "T",
+              "tresc": "Weryfikacja po {horyzont_miejscownik}, według wyniku obszaru."
+            }
+          ],
+          "zalecenia": [
+            "tworzenie w ciągu dnia okazji do proszenia zamiast uprzedzania potrzeb",
+            "przyjmowanie każdej próby słownej, także niewyraźnej, bez poprawiania wymowy",
+            "karta odmowy dostępna dla dziecka na równi z kartą prośby"
+          ],
+          "dostosowania": [
+            "przyjmowanie gestu albo obrazka jako pełnej wypowiedzi u dziecka niemówiącego",
+            "wydłużona pauza wyczekująca do dziesięciu sekund",
+            "zdjęcie ulubionego przedmiotu jako karta prośby"
+          ],
+          "uwaga_rozwojowa": "Pierwsze słowa pojawiają się zwykle ok. 12 miesiąca życia, a brak jakichkolwiek słów po 18–24 miesiącu jest wskazaniem do konsultacji logopedycznej. Cele z tego wskaźnika planujemy równolegle ze skierowaniem, nie zamiast niego."
+        },
+        {
+          "nr": "II.2",
+          "pozycja": 2,
+          "deficyt": "Łączy 2–3 słowa w prostą wypowiedź.",
+          "krok_komunikacyjny": "połączenie dwóch słów w jedną wypowiedź skierowaną do kogoś",
+          "cel": "Dziecko połączy dwa słowa w jedną wypowiedź skierowaną do drugiej osoby, w {proba} sytuacjach, w ciągu {horyzont_dopelniacz}.",
+          "znaczniki": [
+            "{proba}",
+            "{horyzont_dopelniacz}",
+            "{horyzont_miejscownik}"
+          ],
+          "co_obserwowac": "Arkusz obserwacji — kolumna: długość wypowiedzi. Notujemy liczbę słów w wypowiedzi.",
+          "ile_sytuacji": "5 wypowiedzi w tygodniu",
+          "smart": [
+            {
+              "litera": "S",
+              "tresc": "Łączy dwa słowa w jedną wypowiedź."
+            },
+            {
+              "litera": "M",
+              "tresc": "{proba} wypowiedzi z pięciu obserwowanych w tygodniu."
+            },
+            {
+              "litera": "A",
+              "tresc": "Listwa składni jest dostępna, dopóki jej potrzeba."
+            },
+            {
+              "litera": "R",
+              "tresc": "Połączenie dwóch słów jest progiem między nazywaniem a mówieniem."
+            },
+            {
+              "litera": "T",
+              "tresc": "Weryfikacja po {horyzont_miejscownik}, według wyniku obszaru."
+            }
+          ],
+          "zalecenia": [
+            "rozszerzanie wypowiedzi dziecka o jedno słowo przez cały dzień",
+            "listwa składni dostępna w kąciku zabaw tematycznych",
+            "zapisywanie raz w tygodniu długości najdłuższej wypowiedzi"
+          ],
+          "dostosowania": [
+            "listwa z symbolami AAC zamiast obrazków rysunkowych",
+            "przyjmowanie wypowiedzi złożonej ze słowa i gestu jako dwuelementowej",
+            "wydłużony czas na zbudowanie wypowiedzi, bez dopowiadania za dziecko"
+          ],
+          "uwaga_rozwojowa": "Zdanie dwuwyrazowe pojawia się zwykle ok. 2 roku życia. Brak łączenia słów po trzecim roku jest wskazaniem do diagnozy logopedycznej — cele planujemy równolegle ze skierowaniem."
+        },
+        {
+          "nr": "II.3",
+          "pozycja": 3,
+          "deficyt": "Mowa jest zrozumiała dla osób spoza najbliższej rodziny.",
+          "krok_komunikacyjny": "dokończenie wypowiedzi tak, żeby obcy dorosły zrozumiał, o co chodzi",
+          "cel": "Dziecko naprawi wypowiedź niezrozumianą przez rozmówcę — powtórzy ją, powie inaczej albo pokaże, w {proba} sytuacjach, w ciągu {horyzont_dopelniacz}.",
+          "znaczniki": [
+            "{proba}",
+            "{horyzont_dopelniacz}",
+            "{horyzont_miejscownik}"
+          ],
+          "co_obserwowac": "Arkusz obserwacji — kolumna: naprawa wypowiedzi. Notujemy sposób i skutek.",
+          "ile_sytuacji": "5 sytuacji w tygodniu",
+          "smart": [
+            {
+              "litera": "S",
+              "tresc": "Powtarza, przeformułowuje albo pokazuje, gdy nie został zrozumiany."
+            },
+            {
+              "litera": "M",
+              "tresc": "{proba} sytuacji z pięciu obserwowanych w tygodniu."
+            },
+            {
+              "litera": "A",
+              "tresc": "Karty naprawy i tablica obrazkowa są dostępne."
+            },
+            {
+              "litera": "R",
+              "tresc": "Skuteczne porozumienie jest ważniejsze od czystej wymowy."
+            },
+            {
+              "litera": "T",
+              "tresc": "Weryfikacja po {horyzont_miejscownik}, według wyniku obszaru."
+            }
+          ],
+          "zalecenia": [
+            "umówiony sygnał niezrozumienia zamiast samego „nie rozumiem”",
+            "tablica obrazkowa dostępna dla dziecka w każdej sytuacji dnia",
+            "skierowanie na diagnozę logopedyczną przy wyniku 0 albo 1"
+          ],
+          "dostosowania": [
+            "stały dostęp do tablicy AAC jako drogi naprawy wypowiedzi",
+            "informowanie osób spoza grupy o sposobie porozumiewania się dziecka",
+            "wydłużony czas rozmowy, bez dopowiadania za dziecko"
+          ],
+          "uwaga_rozwojowa": "Mowa dziecka bywa zrozumiała dla obcych ok. 4 roku życia. To wskaźnik przesiewowy: wynik 0 albo 1 po czwartym roku jest wskazaniem do diagnozy logopedycznej. Nauczyciel pracuje nad skutecznością przekazu, nie nad głoskami."
+        },
+        {
+          "nr": "II.4",
+          "pozycja": 4,
+          "deficyt": "Realizuje głoski odpowiednio do wieku (bez licznych zniekształceń).",
+          "krok_komunikacyjny": "mówienie w sali mimo trudności z wymową — liczba wypowiedzi, nie ich czystość",
+          "cel": "Dziecko zabierze głos w grupie mimo trudności z wymową, w {proba} sytuacjach, w ciągu {horyzont_dopelniacz}.",
+          "znaczniki": [
+            "{proba}",
+            "{horyzont_dopelniacz}",
+            "{horyzont_miejscownik}"
+          ],
+          "co_obserwowac": "Arkusz obserwacji — kolumna: gotowość do mówienia. Notujemy fakt wypowiedzi, nie jej brzmienie.",
+          "ile_sytuacji": "5 sytuacji grupowych w tygodniu",
+          "smart": [
+            {
+              "litera": "S",
+              "tresc": "Zabiera głos w grupie."
+            },
+            {
+              "litera": "M",
+              "tresc": "{proba} sytuacji z pięciu obserwowanych w tygodniu."
+            },
+            {
+              "litera": "A",
+              "tresc": "Kolejka mówienia jest znana z góry, nikt nie poprawia wymowy publicznie."
+            },
+            {
+              "litera": "R",
+              "tresc": "Bez praktyki mówienia w grupie żadna terapia wymowy nie utrwali się."
+            },
+            {
+              "litera": "T",
+              "tresc": "Weryfikacja po {horyzont_miejscownik}, według wyniku obszaru."
+            }
+          ],
+          "zalecenia": [
+            "zakaz poprawiania wymowy dziecka przy innych dzieciach",
+            "zapowiadanie kolejki mówienia z góry",
+            "skierowanie na diagnozę logopedyczną przy licznych zniekształceniach po czwartym roku"
+          ],
+          "dostosowania": [
+            "wcześniejsze uzgodnienie tematu wypowiedzi z dzieckiem",
+            "rysunkowa notatka jako podpora wystąpienia",
+            "możliwość wypowiedzi do dwóch osób zamiast do całej grupy"
+          ],
+          "uwaga_rozwojowa": "Porządek pojawiania się głosek jest rozwojowy: sz, ż, cz, dż i r bywają prawidłowo realizowane dopiero ok. 5–6 roku życia. Wymaganie ich wcześniej i ćwiczenie w sali daje zniekształcenia trudniejsze do usunięcia niż wada wyjściowa."
+        },
+        {
+          "nr": "II.5",
+          "pozycja": 5,
+          "deficyt": "Powtarza słowa i krótkie zdania za dorosłym.",
+          "krok_komunikacyjny": "powtórzenie usłyszanego wzoru w całości, zaraz po jego usłyszeniu",
+          "cel": "Dziecko powtórzy za dorosłym zdanie o długości odpowiedniej do wieku, w {proba} próbach, w ciągu {horyzont_dopelniacz}.",
+          "znaczniki": [
+            "{proba}",
+            "{horyzont_dopelniacz}",
+            "{horyzont_miejscownik}"
+          ],
+          "co_obserwowac": "Arkusz obserwacji — kolumna: powtarzanie. Notujemy liczbę słów powtórzonych bezbłędnie.",
+          "ile_sytuacji": "5 prób w tygodniu",
+          "smart": [
+            {
+              "litera": "S",
+              "tresc": "Powtarza usłyszany wzór w całości."
+            },
+            {
+              "litera": "M",
+              "tresc": "{proba} prób z pięciu obserwowanych w tygodniu."
+            },
+            {
+              "litera": "A",
+              "tresc": "Materiał jest zbudowany ze słów znanych dziecku."
+            },
+            {
+              "litera": "R",
+              "tresc": "Pamięć słuchowa wyznacza granicę długości wypowiedzi dziecka."
+            },
+            {
+              "litera": "T",
+              "tresc": "Weryfikacja po {horyzont_miejscownik}, według wyniku obszaru."
+            }
+          ],
+          "zalecenia": [
+            "skracanie materiału zamiast powtarzania tego samego wzoru przy niepowodzeniu",
+            "zabawy typu echo i wyliczanki zamiast ćwiczeń pamięciowych przy stoliku",
+            "zapisywanie raz w tygodniu długości bezbłędnie powtarzanego materiału"
+          ],
+          "dostosowania": [
+            "podział materiału na dwie części u dziecka z wąską pamięcią słuchową",
+            "wsparcie obrazkowe treści zdania",
+            "powtarzanie za kukiełką zamiast za dorosłym, gdy dziecko unika kontaktu"
+          ],
+          "uwaga_rozwojowa": "Pojemność pamięci słuchowej rośnie z wiekiem: trzylatek powtórzy zwykle trzy słowa, sześciolatek pięć. Wymaganie dłuższego materiału niż pozwala wiek daje niepowodzenia, które zniechęcają do mówienia."
+        }
+      ]
+    },
+    {
+      "nr": "III",
+      "nazwa": "Słuch fonematyczny i percepcja słuchowa",
+      "icf": "b1560 · b230",
+      "skala": "wynik 0–10",
+      "norma_rozwojowa": "różnicowanie dźwięków od 1 r.ż.; sylaby ok. 4 r.ż.; pierwsza głoska ok. 5–6 r.ż.",
+      "opis": "Słyszenie różnic między dźwiękami i głoskami — podstawa pod naukę czytania.",
+      "zasada_mowy": "Sylaba przed głoską, zawsze. Dziecko, które nie klaszcze sylab, nie wyodrębni pierwszej głoski — a ćwiczone ponad poziomem zaczyna zgadywać.",
+      "wskazniki": [
+        {
+          "nr": "III.1",
+          "pozycja": 1,
+          "deficyt": "Różnicuje dźwięki z otoczenia i wskazuje kierunek dźwięku.",
+          "krok_komunikacyjny": "wskazanie źródła dźwięku — dziecko pokazuje przedmiot albo stronę, z której dźwięk przyszedł",
+          "cel": "Dziecko wskaże źródło albo kierunek usłyszanego dźwięku, w {proba} próbach, w ciągu {horyzont_dopelniacz}.",
+          "znaczniki": [
+            "{proba}",
+            "{horyzont_dopelniacz}",
+            "{horyzont_miejscownik}"
+          ],
+          "co_obserwowac": "Arkusz obserwacji — kolumna: różnicowanie dźwięków. Notujemy trafienia i pomyłki.",
+          "ile_sytuacji": "5 prób w tygodniu",
+          "smart": [
+            {
+              "litera": "S",
+              "tresc": "Wskazuje przedmiot albo stronę, z której przyszedł dźwięk."
+            },
+            {
+              "litera": "M",
+              "tresc": "{proba} prób z pięciu obserwowanych w tygodniu."
+            },
+            {
+              "litera": "A",
+              "tresc": "Zadanie odbywa się przy wyciszonym tle."
+            },
+            {
+              "litera": "R",
+              "tresc": "Percepcja słuchowa jest podstawą różnicowania głosek."
+            },
+            {
+              "litera": "T",
+              "tresc": "Weryfikacja po {horyzont_miejscownik}, według wyniku obszaru."
+            }
+          ],
+          "zalecenia": [
+            "wyciszanie tła przed każdym zadaniem słuchowym",
+            "różnicowanie dźwięków wyraźnie odmiennych przed podobnymi",
+            "sprawdzenie słuchu fizycznego przy utrzymujących się pomyłkach"
+          ],
+          "dostosowania": [
+            "parawan zamiast opaski na oczy u dziecka wrażliwego dotykowo",
+            "obrazki przedmiotów jako alternatywa dla nazywania",
+            "zmniejszenie głośności u dziecka nadwrażliwego słuchowo"
+          ],
+          "uwaga_rozwojowa": "Różnicowanie dźwięków z otoczenia pojawia się w pierwszym roku życia. Trudność w tym zakresie u pięciolatka wskazuje na problem percepcji słuchowej albo na niedosłuch, a nie na opóźnienie mowy — kolejność sprawdzania jest tu odwrotna niż zwykle."
+        },
+        {
+          "nr": "III.2",
+          "pozycja": 2,
+          "deficyt": "Powtarza sekwencje sylab oraz prosty rytm.",
+          "krok_komunikacyjny": "odtworzenie usłyszanej sekwencji — dziecko powtarza sylaby albo wyklaskuje układ uderzeń",
+          "cel": "Dziecko powtórzy sekwencję sylab albo wyklaszcze rytm zgodny z wzorem, w {proba} próbach, w ciągu {horyzont_dopelniacz}.",
+          "znaczniki": [
+            "{proba}",
+            "{horyzont_dopelniacz}",
+            "{horyzont_miejscownik}"
+          ],
+          "co_obserwowac": "Arkusz obserwacji — kolumna: sekwencje słuchowe. Notujemy długość odtworzonej sekwencji.",
+          "ile_sytuacji": "5 prób w tygodniu",
+          "smart": [
+            {
+              "litera": "S",
+              "tresc": "Odtwarza usłyszaną sekwencję w tej samej kolejności."
+            },
+            {
+              "litera": "M",
+              "tresc": "{proba} prób z pięciu obserwowanych w tygodniu."
+            },
+            {
+              "litera": "A",
+              "tresc": "Sekwencja mieści się w pojemności pamięci słuchowej dziecka."
+            },
+            {
+              "litera": "R",
+              "tresc": "Sekwencje słuchowe poprzedzają dzielenie słów na sylaby."
+            },
+            {
+              "litera": "T",
+              "tresc": "Weryfikacja po {horyzont_miejscownik}, według wyniku obszaru."
+            }
+          ],
+          "zalecenia": [
+            "wydłużanie sekwencji o jeden element po serii trafień",
+            "wsparcie ruchem i klockiem przy gubieniu kolejności",
+            "zabawy rytmiczne w kręgu zamiast ćwiczeń przy stoliku"
+          ],
+          "dostosowania": [
+            "sekwencja dwuelementowa u dziecka z wąską pamięcią słuchową",
+            "uderzenia w bębenek zamiast klaskania u dziecka z trudnością koordynacji rąk",
+            "karta z kropkami jako stała podpowiedź długości sekwencji"
+          ],
+          "uwaga_rozwojowa": "Trzylatek powtarza zwykle dwie sylaby, pięciolatek trzy do czterech. Sekwencja dłuższa niż pojemność pamięci słuchowej daje pozorną trudność fonematyczną — dziecko słyszy dobrze, tylko nie utrzymuje całości."
+        },
+        {
+          "nr": "III.3",
+          "pozycja": 3,
+          "deficyt": "Dzieli proste słowa na sylaby (klaskanie).",
+          "krok_komunikacyjny": "podzielenie słowa na części — dziecko klaszcze albo układa klocek na każdą sylabę",
+          "cel": "Dziecko podzieli słowo na sylaby i poda ich liczbę, w {proba} próbach, w ciągu {horyzont_dopelniacz}.",
+          "znaczniki": [
+            "{proba}",
+            "{horyzont_dopelniacz}",
+            "{horyzont_miejscownik}"
+          ],
+          "co_obserwowac": "Arkusz obserwacji — kolumna: podział sylabowy. Notujemy długość słowa i trafność podziału.",
+          "ile_sytuacji": "5 słów w tygodniu",
+          "smart": [
+            {
+              "litera": "S",
+              "tresc": "Dzieli słowo na części i pokazuje ich liczbę."
+            },
+            {
+              "litera": "M",
+              "tresc": "{proba} słów z pięciu obserwowanych w tygodniu."
+            },
+            {
+              "litera": "A",
+              "tresc": "Słowa są znane dziecku i mają wsparcie obrazkowe."
+            },
+            {
+              "litera": "R",
+              "tresc": "Analiza sylabowa jest predyktorem nauki czytania."
+            },
+            {
+              "litera": "T",
+              "tresc": "Weryfikacja po {horyzont_miejscownik}, według wyniku obszaru."
+            }
+          ],
+          "zalecenia": [
+            "podział sylabowy przed jakimkolwiek ćwiczeniem głoskowym",
+            "układanie klocka na sylabę u dziecka gubiącego liczbę części",
+            "słowa z życia sali zamiast list ćwiczeniowych"
+          ],
+          "dostosowania": [
+            "uderzanie w bębenek zamiast klaskania przy trudności z koordynacją rąk",
+            "słowa dwusylabowe przez cały cykl u dziecka na poziomie III",
+            "pasek z gotową liczbą pól jako podpowiedź długości słowa"
+          ],
+          "uwaga_rozwojowa": "Dzielenie na sylaby pojawia się zwykle około czwartego roku życia, wyodrębnianie głoski dopiero po piątym. Odwrócenie tej kolejności w zajęciach jest najczęstszym błędem w przygotowaniu do czytania."
+        },
+        {
+          "nr": "III.4",
+          "pozycja": 4,
+          "deficyt": "Wyodrębnia pierwszą głoskę lub sylabę w słowie (5–6 lat).",
+          "krok_komunikacyjny": "podanie pierwszej cząstki słowa — dziecko mówi, od czego zaczyna się wyraz",
+          "cel": "Dziecko poda pierwszą sylabę albo głoskę usłyszanego słowa, w {proba} próbach, w ciągu {horyzont_dopelniacz}.",
+          "znaczniki": [
+            "{proba}",
+            "{horyzont_dopelniacz}",
+            "{horyzont_miejscownik}"
+          ],
+          "co_obserwowac": "Arkusz obserwacji — kolumna: pierwsza cząstka słowa. Notujemy, czy była to sylaba czy głoska.",
+          "ile_sytuacji": "5 słów w tygodniu",
+          "smart": [
+            {
+              "litera": "S",
+              "tresc": "Wydziela początek słowa i nazywa go osobno."
+            },
+            {
+              "litera": "M",
+              "tresc": "{proba} słów z pięciu obserwowanych w tygodniu."
+            },
+            {
+              "litera": "A",
+              "tresc": "Poziom zadania odpowiada wiekowi: sylaba przed głoską."
+            },
+            {
+              "litera": "R",
+              "tresc": "Świadomość fonologiczna warunkuje naukę czytania."
+            },
+            {
+              "litera": "T",
+              "tresc": "Weryfikacja po {horyzont_miejscownik}, według wyniku obszaru."
+            }
+          ],
+          "zalecenia": [
+            "wymawianie głoski, nie nazwy litery, przez wszystkich dorosłych w sali",
+            "samogłoski i głoski przedłużalne przed zwartymi",
+            "powrót do sylab przy trzech pomyłkach z rzędu"
+          ],
+          "dostosowania": [
+            "praca wyłącznie na sylabach u dziecka poniżej piątego roku życia",
+            "lustro dla dziecka, które potrzebuje zobaczyć układ ust",
+            "wybór z dwóch obrazków zamiast samodzielnego podania głoski"
+          ],
+          "uwaga_rozwojowa": "Świadomość głoskowa jest najsilniejszym predyktorem powodzenia w nauce czytania, ale dojrzewa dopiero między piątym a szóstym rokiem życia. Brak tej umiejętności u czterolatka jest normą rozwojową, u sześciolatka — sygnałem do wsparcia przed klasą pierwszą."
+        },
+        {
+          "nr": "III.5",
+          "pozycja": 5,
+          "deficyt": "Nie myli słów podobnych brzmieniowo w codziennych sytuacjach.",
+          "krok_komunikacyjny": "wybór właściwego przedmiotu po usłyszeniu słowa różniącego się jedną głoską",
+          "cel": "Dziecko wybierze właściwy przedmiot albo obrazek po usłyszeniu słowa podobnego brzmieniowo, w {proba} próbach, w ciągu {horyzont_dopelniacz}.",
+          "znaczniki": [
+            "{proba}",
+            "{horyzont_dopelniacz}",
+            "{horyzont_miejscownik}"
+          ],
+          "co_obserwowac": "Arkusz obserwacji — kolumna: różnicowanie słów. Notujemy pary głosek, przy których dziecko myli.",
+          "ile_sytuacji": "5 prób w tygodniu",
+          "smart": [
+            {
+              "litera": "S",
+              "tresc": "Wybiera przedmiot zgodny z usłyszanym słowem."
+            },
+            {
+              "litera": "M",
+              "tresc": "{proba} prób z pięciu obserwowanych w tygodniu."
+            },
+            {
+              "litera": "A",
+              "tresc": "Słowa są znane, para różni się jedną głoską."
+            },
+            {
+              "litera": "R",
+              "tresc": "Różnicowanie fonemowe warunkuje rozumienie i pisownię."
+            },
+            {
+              "litera": "T",
+              "tresc": "Weryfikacja po {horyzont_miejscownik}, według wyniku obszaru."
+            }
+          ],
+          "zalecenia": [
+            "zapisywanie konkretnych par głosek mylonych przez dziecko",
+            "sprawdzanie różnicowania w działaniu, nie w teście przy stoliku",
+            "skierowanie na diagnozę logopedyczną przy utrzymujących się pomyłkach"
+          ],
+          "dostosowania": [
+            "wybór z dwóch obrazków zamiast porównywania samych słów",
+            "przedmioty zamiast obrazków u dziecka słabiej rozpoznającego rysunek",
+            "rezygnacja z parawanu u dziecka, które wspiera się obserwacją ust"
+          ],
+          "uwaga_rozwojowa": "Różnicowanie fonemowe dojrzewa do około szóstego roku życia; pomyłki na parach s–sz, c–cz, k–t u czterolatka mieszczą się w normie. Utrzymywanie się ich u sześciolatka wymaga sprawdzenia słuchu i konsultacji logopedycznej."
+        }
+      ]
+    },
+    {
+      "nr": "IV",
+      "nazwa": "Słownictwo i gramatyka (system językowy)",
+      "icf": "b16700 · b16710",
+      "skala": "wynik 0–10",
+      "norma_rozwojowa": "ok. 50 słów w 2 r.ż.; zdania proste 3 r.ż.; poprawne formy gramatyczne 5–6 r.ż.",
+      "opis": "Zasób słów, formy gramatyczne i budowa zdania — z czego dziecko składa wypowiedź.",
+      "zasada_mowy": "Nowe słowo wchodzi przez czynność, nie przez planszę. Dziecko zapamiętuje „miesza”, kiedy miesza, a nie kiedy pokazuje obrazek mieszania.",
+      "wskazniki": [
+        {
+          "nr": "IV.1",
+          "pozycja": 1,
+          "deficyt": "Ma zasób słów adekwatny do wieku.",
+          "krok_komunikacyjny": "nazwanie przedmiotu albo czynności słowem — dziecko używa nazwy zamiast wskazania palcem",
+          "cel": "Dziecko nazwie potrzebny przedmiot słowem zamiast wskazania palcem, w {proba} sytuacjach, w ciągu {horyzont_dopelniacz}.",
+          "znaczniki": [
+            "{proba}",
+            "{horyzont_dopelniacz}",
+            "{horyzont_miejscownik}"
+          ],
+          "co_obserwowac": "Arkusz obserwacji — kolumna: nowe nazwy. Notujemy słowa użyte przez dziecko w ciągu tygodnia.",
+          "ile_sytuacji": "5 sytuacji w tygodniu",
+          "smart": [
+            {
+              "litera": "S",
+              "tresc": "Używa nazwy przedmiotu zamiast gestu wskazującego."
+            },
+            {
+              "litera": "M",
+              "tresc": "{proba} sytuacji z pięciu obserwowanych w tygodniu."
+            },
+            {
+              "litera": "A",
+              "tresc": "Przedmioty są znane, ustawione w zasięgu wzroku."
+            },
+            {
+              "litera": "R",
+              "tresc": "Zasób słów wyznacza granice tego, co dziecko może powiedzieć."
+            },
+            {
+              "litera": "T",
+              "tresc": "Weryfikacja po {horyzont_miejscownik}, według wyniku obszaru."
+            }
+          ],
+          "zalecenia": [
+            "pięć nowych słów w tygodniu, używanych codziennie przez wszystkich dorosłych",
+            "trzysekundowa pauza po wskazaniu palcem, zanim dorosły nazwie za dziecko",
+            "zapisywanie nazw używanych przez dziecko zamiast testowania z obrazków"
+          ],
+          "dostosowania": [
+            "podanie pierwszej sylaby jako podpowiedzi u dziecka z trudnością wydobycia słowa",
+            "obrazek przy przedmiocie u dziecka korzystającego z AAC",
+            "dwa słowa tygodnia zamiast pięciu u dziecka na poziomie III"
+          ],
+          "uwaga_rozwojowa": "Dwulatek używa około pięćdziesięciu słów, czterolatek około tysiąca pięciuset. Różnice indywidualne są duże, dlatego ważniejszy od liczby jest przyrost: brak nowych słów przez kilka tygodni jest sygnałem, nawet przy zasobie pozornie wystarczającym."
+        },
+        {
+          "nr": "IV.2",
+          "pozycja": 2,
+          "deficyt": "Używa czasowników i określeń, nie tylko rzeczowników.",
+          "krok_komunikacyjny": "dołożenie do nazwy słowa mówiącego, co się dzieje albo jakie coś jest",
+          "cel": "Dziecko nazwie czynność albo cechę, dokładając słowo do nazwy przedmiotu, w {proba} sytuacjach, w ciągu {horyzont_dopelniacz}.",
+          "znaczniki": [
+            "{proba}",
+            "{horyzont_dopelniacz}",
+            "{horyzont_miejscownik}"
+          ],
+          "co_obserwowac": "Arkusz obserwacji — kolumna: czasowniki i określenia. Notujemy osobno jedne i drugie.",
+          "ile_sytuacji": "5 sytuacji w tygodniu",
+          "smart": [
+            {
+              "litera": "S",
+              "tresc": "Używa czasownika albo określenia obok nazwy przedmiotu."
+            },
+            {
+              "litera": "M",
+              "tresc": "{proba} sytuacji z pięciu obserwowanych w tygodniu."
+            },
+            {
+              "litera": "A",
+              "tresc": "Czynności i cechy pochodzą z codziennych zajęć."
+            },
+            {
+              "litera": "R",
+              "tresc": "Czasownik jest warunkiem zbudowania zdania."
+            },
+            {
+              "litera": "T",
+              "tresc": "Weryfikacja po {horyzont_miejscownik}, według wyniku obszaru."
+            }
+          ],
+          "zalecenia": [
+            "komentarz równoległy dorosłego przy czynnościach dnia",
+            "podawanie cech w parach przeciwieństw",
+            "osobne liczenie czasowników w zapisie zasobu słów"
+          ],
+          "dostosowania": [
+            "wybór czasownika z dwóch podanych u dziecka z trudnością wydobycia słowa",
+            "obrazki czynności na tablicy AAC u dziecka niemówiącego",
+            "jedna cecha naraz u dziecka na poziomie III"
+          ],
+          "uwaga_rozwojowa": "Czasowniki pojawiają się w mowie dziecka później niż rzeczowniki, zwykle w drugim roku życia, i to ich liczba, nie liczba rzeczowników, zapowiada budowanie zdań. Zasób złożony niemal wyłącznie z nazw przedmiotów u trzylatka wymaga uwagi."
+        },
+        {
+          "nr": "IV.3",
+          "pozycja": 3,
+          "deficyt": "Stosuje proste formy gramatyczne (liczba, rodzaj, przypadki).",
+          "krok_komunikacyjny": "użycie właściwej końcówki — dziecko mówi „dwa kubki”, nie „dwa kubek”",
+          "cel": "Dziecko użyje właściwej formy gramatycznej w wypowiedzi, w {proba} sytuacjach, w ciągu {horyzont_dopelniacz}.",
+          "znaczniki": [
+            "{proba}",
+            "{horyzont_dopelniacz}",
+            "{horyzont_miejscownik}"
+          ],
+          "co_obserwowac": "Arkusz obserwacji — kolumna: formy gramatyczne. Notujemy, które formy sprawiają trudność.",
+          "ile_sytuacji": "5 sytuacji w tygodniu",
+          "smart": [
+            {
+              "litera": "S",
+              "tresc": "Dopasowuje końcówkę słowa do liczby, rodzaju i przypadka."
+            },
+            {
+              "litera": "M",
+              "tresc": "{proba} sytuacji z pięciu obserwowanych w tygodniu."
+            },
+            {
+              "litera": "A",
+              "tresc": "Sytuacje same wymagają formy: liczenie, prośba, rozdawanie."
+            },
+            {
+              "litera": "R",
+              "tresc": "Właściwa forma czyni wypowiedź zrozumiałą bez domysłu."
+            },
+            {
+              "litera": "T",
+              "tresc": "Weryfikacja po {horyzont_miejscownik}, według wyniku obszaru."
+            }
+          ],
+          "zalecenia": [
+            "podawanie wzoru formy zamiast tłumaczenia reguły",
+            "przekształcanie wypowiedzi dziecka bez uwagi o błędzie",
+            "tworzenie sytuacji wymagających formy: liczenie, prośba, rozdawanie"
+          ],
+          "dostosowania": [
+            "praca wyłącznie na liczbie mnogiej u dziecka na poziomie III",
+            "obrazki wspierające formę u dziecka korzystającego z AAC",
+            "wybór formy z dwóch podanych zamiast samodzielnej odpowiedzi"
+          ],
+          "uwaga_rozwojowa": "Formy gramatyczne ustalają się między trzecim a szóstym rokiem życia, a błędy typu „dwa kubek” czy „poszłem” są w tym okresie normą. Utrzymywanie się ich u sześciolatka wymaga konsultacji, ale nie ćwiczeń przy stoliku."
+        },
+        {
+          "nr": "IV.4",
+          "pozycja": 4,
+          "deficyt": "Buduje zdania, nie tylko równoważniki i pojedyncze słowa.",
+          "krok_komunikacyjny": "wypowiedzenie zdania z czasownikiem — kto coś robi, a nie samo słowo",
+          "cel": "Dziecko wypowie zdanie zawierające czasownik zamiast pojedynczego słowa, w {proba} sytuacjach, w ciągu {horyzont_dopelniacz}.",
+          "znaczniki": [
+            "{proba}",
+            "{horyzont_dopelniacz}",
+            "{horyzont_miejscownik}"
+          ],
+          "co_obserwowac": "Arkusz obserwacji — kolumna: długość wypowiedzi. Notujemy liczbę słów w najdłuższym zdaniu.",
+          "ile_sytuacji": "5 wypowiedzi w tygodniu",
+          "smart": [
+            {
+              "litera": "S",
+              "tresc": "Łączy słowa w zdanie z czasownikiem."
+            },
+            {
+              "litera": "M",
+              "tresc": "{proba} wypowiedzi z pięciu obserwowanych w tygodniu."
+            },
+            {
+              "litera": "A",
+              "tresc": "Sytuacje pochodzą z zabawy i z obrazków znanych dziecku."
+            },
+            {
+              "litera": "R",
+              "tresc": "Zdanie przekazuje informację, której pojedyncze słowo nie niesie."
+            },
+            {
+              "litera": "T",
+              "tresc": "Weryfikacja po {horyzont_miejscownik}, według wyniku obszaru."
+            }
+          ],
+          "zalecenia": [
+            "rozbudowywanie wypowiedzi dziecka o jedno słowo",
+            "pytania otwarte zamiast pytań o tak i nie",
+            "zapisywanie najdłuższego zdania dziecka raz w tygodniu"
+          ],
+          "dostosowania": [
+            "zdanie dwuwyrazowe przez cały cykl u dziecka na poziomie III",
+            "klocki na słowa u dziecka gubiącego części zdania",
+            "budowanie zdania na tablicy AAC u dziecka niemówiącego"
+          ],
+          "uwaga_rozwojowa": "Zdanie dwuwyrazowe pojawia się około drugiego roku życia, zdania złożone około czwartego. Dziecko trzyletnie mówiące wyłącznie pojedynczymi słowami wymaga konsultacji logopedycznej, nawet gdy rozumie wszystko."
+        },
+        {
+          "nr": "IV.5",
+          "pozycja": 5,
+          "deficyt": "Zadaje pytania i opowiada o tym, co robi.",
+          "krok_komunikacyjny": "postawienie pytania albo powiedzenie o własnym działaniu z własnej inicjatywy",
+          "cel": "Dziecko zada pytanie albo opowie o swoim działaniu z własnej inicjatywy, w {proba} sytuacjach, w ciągu {horyzont_dopelniacz}.",
+          "znaczniki": [
+            "{proba}",
+            "{horyzont_dopelniacz}",
+            "{horyzont_miejscownik}"
+          ],
+          "co_obserwowac": "Arkusz obserwacji — kolumna: inicjatywa językowa. Notujemy pytania zadane przez dziecko.",
+          "ile_sytuacji": "5 sytuacji w tygodniu",
+          "smart": [
+            {
+              "litera": "S",
+              "tresc": "Zaczyna wypowiedź samo: pyta albo opowiada."
+            },
+            {
+              "litera": "M",
+              "tresc": "{proba} sytuacji z pięciu obserwowanych w tygodniu."
+            },
+            {
+              "litera": "A",
+              "tresc": "Sytuacje zagadkowe same wywołują pytanie."
+            },
+            {
+              "litera": "R",
+              "tresc": "Inicjatywa językowa odróżnia porozumiewanie się od odpowiadania."
+            },
+            {
+              "litera": "T",
+              "tresc": "Weryfikacja po {horyzont_miejscownik}, według wyniku obszaru."
+            }
+          ],
+          "zalecenia": [
+            "tworzenie sytuacji zagadkowych wywołujących pytanie",
+            "odpowiadanie na pytania powtarzane, także po raz kolejny",
+            "zapisywanie pytań zadanych przez dziecko z własnej inicjatywy"
+          ],
+          "dostosowania": [
+            "karta z gotowym początkiem pytania u dziecka z trudnością rozpoczęcia wypowiedzi",
+            "pytanie wskazywane na tablicy AAC u dziecka niemówiącego",
+            "opowiadanie o pracy w parze zamiast przed grupą u dziecka wycofanego"
+          ],
+          "uwaga_rozwojowa": "Pytania „co to?” pojawiają się około drugiego roku życia, „dlaczego?” około czwartego. Dziecko, które nie zadaje pytań mimo sprawnej mowy, wymaga uwagi — brak inicjatywy językowej bywa sygnałem trudności w komunikacji, nie w mowie."
+        }
+      ]
+    },
+    {
+      "nr": "V",
+      "nazwa": "Komunikacja i budowanie wypowiedzi (pragmatyka)",
+      "icf": "d330 · d350 · d3350",
+      "skala": "wynik 0–10",
+      "norma_rozwojowa": "sygnalizowanie potrzeb ok. 18 mies.; narracja ok. 4–5 r.ż.; dostosowanie wypowiedzi do rozmówcy ok. 5–6 r.ż.",
+      "opis": "Porozumiewanie się w praktyce: kontakt, prośba, opowiadanie, komunikacja wspomagająca.",
+      "zasada_mowy": "Każdy sposób porozumienia się jest komunikacją. Gest i obrazek nie opóźniają mowy — dają dziecku powód, żeby mówić, bo pokazują, że komunikat działa.",
+      "wskazniki": [
+        {
+          "nr": "V.1",
+          "pozycja": 1,
+          "deficyt": "Nawiązuje i podtrzymuje kontakt.",
+          "krok_komunikacyjny": "zwrócenie się do drugiej osoby i pozostanie w rozmowie na dwie wymiany",
+          "cel": "Dziecko zwróci się do rozmówcy i utrzyma rozmowę przez dwie wymiany, w {proba} sytuacjach, w ciągu {horyzont_dopelniacz}.",
+          "znaczniki": [
+            "{proba}",
+            "{horyzont_dopelniacz}",
+            "{horyzont_miejscownik}"
+          ],
+          "co_obserwowac": "Arkusz obserwacji — kolumna: kontakt i wymiany. Notujemy liczbę wymian w rozmowie.",
+          "ile_sytuacji": "5 rozmów w tygodniu",
+          "smart": [
+            {
+              "litera": "S",
+              "tresc": "Zwraca się do osoby i pozostaje w rozmowie po jej odpowiedzi."
+            },
+            {
+              "litera": "M",
+              "tresc": "{proba} rozmów z pięciu obserwowanych w tygodniu."
+            },
+            {
+              "litera": "A",
+              "tresc": "Rozmowa toczy się przy wspólnym przedmiocie, w parze."
+            },
+            {
+              "litera": "R",
+              "tresc": "Kontakt jest warunkiem każdego porozumienia się."
+            },
+            {
+              "litera": "T",
+              "tresc": "Weryfikacja po {horyzont_miejscownik}, według wyniku obszaru."
+            }
+          ],
+          "zalecenia": [
+            "rozmowa w parze przed rozmową w grupie",
+            "pauza dorosłego zamiast dopowiadania za dziecko",
+            "liczenie wymian w rozmowie zamiast długości zdań"
+          ],
+          "dostosowania": [
+            "rozmowa przy wspólnym przedmiocie u dziecka unikającego kontaktu wzrokowego",
+            "karta z gotowym pytaniem u dziecka, któremu rozmowa gaśnie",
+            "jedna wymiana jako cel przez cały cykl u dziecka na poziomie III"
+          ],
+          "uwaga_rozwojowa": "Wymiana zdań z rówieśnikiem pojawia się około trzeciego roku życia i wydłuża się z wiekiem. Dziecko rozmawiające wyłącznie z dorosłymi, a milczące wśród rówieśników, wymaga pracy nad kontaktem, nie nad zasobem słów."
+        },
+        {
+          "nr": "V.2",
+          "pozycja": 2,
+          "deficyt": "Sygnalizuje potrzeby słowem, gestem lub obrazkiem.",
+          "krok_komunikacyjny": "przekazanie potrzeby dowolnym sposobem — słowem, gestem albo kartą — zanim pojawi się płacz",
+          "cel": "Dziecko zasygnalizuje potrzebę słowem, gestem albo kartą, zanim pojawi się płacz, w {proba} sytuacjach, w ciągu {horyzont_dopelniacz}.",
+          "znaczniki": [
+            "{proba}",
+            "{horyzont_dopelniacz}",
+            "{horyzont_miejscownik}"
+          ],
+          "co_obserwowac": "Arkusz obserwacji — kolumna: sygnalizowanie potrzeb. Notujemy sposób i moment sygnału.",
+          "ile_sytuacji": "5 sytuacji w tygodniu",
+          "smart": [
+            {
+              "litera": "S",
+              "tresc": "Przekazuje potrzebę zrozumiałym sposobem, przed narastaniem napięcia."
+            },
+            {
+              "litera": "M",
+              "tresc": "{proba} sytuacji z pięciu obserwowanych w tygodniu."
+            },
+            {
+              "litera": "A",
+              "tresc": "Karty leżą w stałym miejscu, dorosły reaguje natychmiast."
+            },
+            {
+              "litera": "R",
+              "tresc": "Skuteczny sygnał zastępuje płacz i zachowanie trudne."
+            },
+            {
+              "litera": "T",
+              "tresc": "Weryfikacja po {horyzont_miejscownik}, według wyniku obszaru."
+            }
+          ],
+          "zalecenia": [
+            "stałe miejsce kart potrzeb w sali",
+            "natychmiastowa reakcja na każdy sygnał, także niewyraźny",
+            "uczenie sygnału w sytuacji spokojnej, nie w kryzysie"
+          ],
+          "dostosowania": [
+            "karta podawana do ręki u dziecka na poziomie III",
+            "tablica AAC zamiast pojedynczych kart u dziecka niemówiącego",
+            "gest umówiony zamiast słowa u dziecka, które milknie w napięciu"
+          ],
+          "uwaga_rozwojowa": "Sygnalizowanie potrzeb pojawia się około osiemnastego miesiąca życia, na długo przed mową zdaniową. Dziecko, które komunikuje potrzeby wyłącznie płaczem, wymaga wprowadzenia sposobu zastępczego, niezależnie od poziomu rozwoju mowy."
+        },
+        {
+          "nr": "V.3",
+          "pozycja": 3,
+          "deficyt": "Opowiada prostą historyjkę lub relacjonuje wydarzenie (narracja).",
+          "krok_komunikacyjny": "opowiedzenie zdarzenia w kolejności — co było najpierw, potem i na końcu",
+          "cel": "Dziecko opowie zdarzenie z zachowaniem kolejności zdarzeń, w {proba} opowiadaniach, w ciągu {horyzont_dopelniacz}.",
+          "znaczniki": [
+            "{proba}",
+            "{horyzont_dopelniacz}",
+            "{horyzont_miejscownik}"
+          ],
+          "co_obserwowac": "Arkusz obserwacji — kolumna: narracja. Notujemy liczbę zdań i zachowanie kolejności.",
+          "ile_sytuacji": "5 opowiadań w tygodniu",
+          "smart": [
+            {
+              "litera": "S",
+              "tresc": "Opowiada, co było najpierw, potem i na końcu."
+            },
+            {
+              "litera": "M",
+              "tresc": "{proba} opowiadań z pięciu obserwowanych w tygodniu."
+            },
+            {
+              "litera": "A",
+              "tresc": "Zdarzenia są przeżyte przez dziecko albo pokazane na obrazkach."
+            },
+            {
+              "litera": "R",
+              "tresc": "Narracja zapowiada radzenie sobie z tekstem w szkole."
+            },
+            {
+              "litera": "T",
+              "tresc": "Weryfikacja po {horyzont_miejscownik}, według wyniku obszaru."
+            }
+          ],
+          "zalecenia": [
+            "układanie obrazków przed opowiadaniem",
+            "opowiadanie do osoby, która nie widziała zdarzenia",
+            "zapisywanie liczby zdań w relacji raz w tygodniu"
+          ],
+          "dostosowania": [
+            "dwa obrazki zamiast trzech u dziecka na poziomie III",
+            "zdjęcia z zajęć zamiast rysunków u dziecka słabiej czytającego rysunek",
+            "opowiadanie w parze zamiast przed grupą u dziecka wycofanego"
+          ],
+          "uwaga_rozwojowa": "Narracja z zachowaną kolejnością pojawia się około czwartego–piątego roku życia i dojrzewa jeszcze w szkole. Trudność w opowiadaniu przy sprawnej mowie zdaniowej jest sygnałem do pracy nad porządkowaniem zdarzeń, nie nad słownictwem."
+        },
+        {
+          "nr": "V.4",
+          "pozycja": 4,
+          "deficyt": "Dostosowuje wypowiedź do rozmówcy i sytuacji.",
+          "krok_komunikacyjny": "zmiana sposobu mówienia zależnie od tego, kto słucha i gdzie toczy się rozmowa",
+          "cel": "Dziecko dostosuje sposób mówienia do rozmówcy i miejsca, w {proba} sytuacjach, w ciągu {horyzont_dopelniacz}.",
+          "znaczniki": [
+            "{proba}",
+            "{horyzont_dopelniacz}",
+            "{horyzont_miejscownik}"
+          ],
+          "co_obserwowac": "Arkusz obserwacji — kolumna: dostosowanie wypowiedzi. Notujemy rozmówcę i miejsce.",
+          "ile_sytuacji": "5 sytuacji w tygodniu",
+          "smart": [
+            {
+              "litera": "S",
+              "tresc": "Zmienia sposób mówienia zależnie od odbiorcy i miejsca."
+            },
+            {
+              "litera": "M",
+              "tresc": "{proba} sytuacji z pięciu obserwowanych w tygodniu."
+            },
+            {
+              "litera": "A",
+              "tresc": "Rozmówcy i miejsca są wyraźnie różne, karty w zasięgu."
+            },
+            {
+              "litera": "R",
+              "tresc": "Uwzględnienie odbiorcy decyduje o skuteczności wypowiedzi."
+            },
+            {
+              "litera": "T",
+              "tresc": "Weryfikacja po {horyzont_miejscownik}, według wyniku obszaru."
+            }
+          ],
+          "zalecenia": [
+            "pokazywanie różnicy na dwóch zdaniach zamiast polecenia „bądź grzeczny”",
+            "karty głośności w miejscach, gdzie zmienia się zasada",
+            "omawianie scenek po ich zakończeniu, nie w trakcie"
+          ],
+          "dostosowania": [
+            "jeden zwrot grzecznościowy naraz u dziecka na poziomie III",
+            "karta ciszy zamiast uwagi słownej u dziecka reagującego na hałas",
+            "scenka w parze zamiast przed grupą u dziecka wycofanego"
+          ],
+          "uwaga_rozwojowa": "Dostosowanie wypowiedzi do rozmówcy pojawia się około piątego–szóstego roku życia i wiąże się z rozwojem teorii umysłu. Dziecko mówiące do wszystkich tak samo nie jest niegrzeczne — jeszcze nie uwzględnia perspektywy słuchacza."
+        },
+        {
+          "nr": "V.5",
+          "pozycja": 5,
+          "deficyt": "Korzysta z komunikacji wspomagającej (gest, obrazek, AAC), gdy mowa nie wystarcza.",
+          "krok_komunikacyjny": "sięgnięcie po gest, obrazek albo tablicę AAC w miejscu, w którym słowo nie wystarczyło",
+          "cel": "Dziecko sięgnie po gest, obrazek albo tablicę AAC, gdy słowo nie wystarczyło, w {proba} sytuacjach, w ciągu {horyzont_dopelniacz}.",
+          "znaczniki": [
+            "{proba}",
+            "{horyzont_dopelniacz}",
+            "{horyzont_miejscownik}"
+          ],
+          "co_obserwowac": "Arkusz obserwacji — kolumna: komunikacja wspomagająca. Notujemy sposób i sytuację użycia.",
+          "ile_sytuacji": "5 sytuacji w tygodniu",
+          "smart": [
+            {
+              "litera": "S",
+              "tresc": "Używa gestu, symbolu albo tablicy zamiast rezygnacji z komunikatu."
+            },
+            {
+              "litera": "M",
+              "tresc": "{proba} sytuacji z pięciu obserwowanych w tygodniu."
+            },
+            {
+              "litera": "A",
+              "tresc": "Tablica i karty są dostępne w stałych miejscach przez cały dzień."
+            },
+            {
+              "litera": "R",
+              "tresc": "Skuteczny komunikat jest ważniejszy od sposobu, w jaki został przekazany."
+            },
+            {
+              "litera": "T",
+              "tresc": "Weryfikacja po {horyzont_miejscownik}, według wyniku obszaru."
+            }
+          ],
+          "zalecenia": [
+            "dostępność tablicy AAC przez cały dzień, nie tylko na zajęciach",
+            "modelowanie symboli przez dorosłych podczas mówienia",
+            "te same symbole w planie dnia, na kartach pracy i w AAC"
+          ],
+          "dostosowania": [
+            "tablica czteropolowa u dziecka na poziomie III",
+            "karty przenośne na kółku dla dziecka poza salą",
+            "gest umówiony zamiast karty u dziecka z trudnością manipulacyjną"
+          ],
+          "uwaga_rozwojowa": "Komunikacja wspomagająca nie opóźnia rozwoju mowy — badania nad AAC pokazują odwrotny kierunek: dzieci korzystające z symboli mówią częściej, bo doświadczają skuteczności komunikatu. Odebranie systemu w celu wymuszenia mowy odbiera dziecku jedyny działający sposób porozumienia się."
+        }
+      ]
+    }
+  ]
+}

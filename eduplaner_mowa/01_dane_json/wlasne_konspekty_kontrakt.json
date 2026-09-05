@@ -1,0 +1,37 @@
+{
+  "dokument": "EduPlaner 2026 · kontrakt rekordu własnego konspektu (rozwój mowy (MOWA))",
+  "opis": "Kształt rekordu, w którym nauczycielka zapisuje własny scenariusz do celu z tabeli MOWA-T. Druk MOWA-T zapisuje takie konspekty w pamięci przeglądarki (klucz `eduplaner2026.moje-konspekty-tom.v1`); aplikacja ma je czytać z tego samego kształtu.",
+  "klucz_magazynu": "eduplaner2026.moje-konspekty-tom.v1",
+  "kontrakt": {
+    "id": "string — prefiks mks, nadawany przy zapisie",
+    "nr": "string — wskaźnik, np. VI.2",
+    "wersja": "string — A | B | C",
+    "poziom": "string — p3 | p2 | p1 (poziom, z którego wyszedł formularz)",
+    "obszar": "string — I…V",
+    "krok_komunikacyjny": "string — krok komunikacyjny wskaźnika, kopiowany z tabeli",
+    "tytul": "string — do 120 znaków",
+    "podtytul": "string | pusty",
+    "czas": "string — np. 15 min",
+    "forma": "string",
+    "cykl": "string — np. 3× w tygodniu",
+    "ter": "string — cel terapeutyczny",
+    "kryt": "string — kryterium obserwacji",
+    "pomoce": "array[string]",
+    "metody": "array[string]",
+    "rodzaj": "string — rodzaj zajęć wg prawa oświatowego",
+    "przebieg": "array[[nauczyciel, dziecko]] — pary tekstów",
+    "mody": {
+      "p3": "array[string]",
+      "p2": "array[string]",
+      "p1": "array[string]"
+    },
+    "wskazowka": "string",
+    "data": "string ISO 8601"
+  },
+  "walidacja": [
+    "nr musi istnieć w cele_mowa_poziomy.json",
+    "cel edukacyjny czytany jest z tabeli po (nr, wersja, poziom) — nie zapisuje się go w rekordzie",
+    "polecenie dla dziecka: krótkie zdania, bez terminów fachowych",
+    "przy wskaźnikach VI i VII pole bezpieczeństwa wypełnia się obowiązkowo"
+  ]
+}

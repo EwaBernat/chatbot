@@ -1,0 +1,1196 @@
+{
+  "dokument": "EduPlaner 2026 · druk MOWA-T · cele SMART wiek × poziom wsparcia",
+  "opis": "Poziom wsparcia zmienia warunki, nie krok komunikacyjny. Kryterium na Poziomie I zostaje 4 z 5 — rośnie trudność zachowania, nie liczba prób.",
+  "modul": {
+    "nazwa": "Rozwój mowy i komunikacja — bank celów SMART (przedszkole)",
+    "kod": "MOWA",
+    "wersja": "2026.1",
+    "autorka": "mgr Mirosława Ewa Jurczyszyn, pedagog specjalny, PCTP Koszalin",
+    "aplikacja": "EduPlaner 2026",
+    "druk_zrodlowy": "Karta obserwacji rozwoju mowy — przedszkole · 5 obszarów · 25 pozycji · skala 0–2",
+    "podstawa_merytoryczna": "Narzędzie obserwacyjne oparte na przebiegu rozwoju mowy dziecka polskiego opisanym przez Leona Kaczmarka (stadia: melodii, wyrazu, zdania, swoistej mowy dziecięcej) i na porządku pojawiania się głosek według Ireny Styczek. Obszar słuchu fonematycznego odwołuje się do świadomości fonologicznej jako predyktora nauki czytania; obszar pragmatyki — do funkcjonalnego modelu komunikacji, w którym gest i symbol są pełnoprawnym sposobem porozumienia się. NIE JEST TO DIAGNOZA LOGOPEDYCZNA. Karta służy wychwyceniu trudności i skierowaniu do logopedy, a nie postawieniu rozpoznania.",
+    "podstawa_prawna": [
+      "Rozp. MEN z 14.02.2017 r. w sprawie podstawy programowej wychowania przedszkolnego (Dz.U. 2017 poz. 356, ze zm.) — poznawczy i społeczny obszar rozwoju: dziecko słucha, pyta, opowiada i porozumiewa się.",
+      "Rozp. MEN z 9.08.2017 r. w sprawie pomocy psychologiczno-pedagogicznej (Dz.U. 2017 poz. 1591) — zajęcia logopedyczne jako forma pomocy, organizowane po rozpoznaniu potrzeby.",
+      "Rozp. MEN z 9.08.2017 r. w sprawie kształcenia specjalnego (Dz.U. 2017 poz. 1578) — zajęcia rozwijające kompetencje komunikacyjne i komunikacja wspomagająca w IPET."
+    ],
+    "zasada_modulu": "Cel z tego banku opisuje KROK KOMUNIKACYJNY, który słychać albo widać — co dziecko powiedziało, pokazało albo podało, żeby się porozumieć. „Poprawi wymowę” i „wzbogaci słownictwo” nie są celami z tego modułu: pierwsze należy do logopedy, drugiego nie da się policzyć w arkuszu obserwacji. „Poprosi o pomoc słowem albo kartą, zanim odejdzie od stolika” — da się. Poziom wsparcia zmienia warunki, nie krok komunikacyjny.",
+    "granica_kompetencji": "Ten bank jest dla nauczyciela i pedagoga, nie dla logopedy. Korekcja artykulacji, usprawnianie aparatu mowy i terapia jąkania NIE MAJĄ TU CELÓW — cele przy tych wskaźnikach dotyczą warunków porozumienia się i częstości wypowiedzi. Wskaźnik z wynikiem 0 albo 1 przy pozycjach II.3, II.4 i III.5 jest przesłanką do skierowania na diagnozę logopedyczną, a nie do samodzielnego ćwiczenia głosek w sali."
+  },
+  "poziomy_wsparcia": [
+    {
+      "klucz": "p3",
+      "nazwa": "Poziom III",
+      "rzym": "III",
+      "kryterium": "3 z 5",
+      "horyzont": "4 tygodni",
+      "warunki": "dorosły obok, wzór wypowiedzi i podpowiedź obrazkowa, zadanie wykonywane razem",
+      "kolor_oceny": "czerwona"
+    },
+    {
+      "klucz": "p2",
+      "nazwa": "Poziom II",
+      "rzym": "II",
+      "kryterium": "4 z 5",
+      "horyzont": "8 tygodni",
+      "warunki": "podpowiedź obrazkowa w zasięgu, dziecko odpowiada samo po pytaniu dorosłego",
+      "kolor_oceny": "żółta"
+    },
+    {
+      "klucz": "p1",
+      "nazwa": "Poziom I",
+      "rzym": "I",
+      "kryterium": "4 z 5",
+      "horyzont": "12 tygodni",
+      "warunki": "bez podpowiedzi obrazkowej, w naturalnej rozmowie z rówieśnikami",
+      "kolor_oceny": "zielona"
+    }
+  ],
+  "wersje_wiekowe": [
+    {
+      "klucz": "A",
+      "wiek": "3–4 lata",
+      "czas": "10 min",
+      "forma": "para z nauczycielem",
+      "cykl": "4× w tygodniu",
+      "jezyk": "polecenie 2–3 słowa, obrazek zawsze przy słowie, jedno zadanie naraz"
+    },
+    {
+      "klucz": "B",
+      "wiek": "5 lat",
+      "czas": "15 min",
+      "forma": "mała grupa (3–4 dzieci)",
+      "cykl": "3× w tygodniu",
+      "jezyk": "polecenie jednozdaniowe, dziecko odpowiada zdaniem, dwa elementy w zadaniu"
+    },
+    {
+      "klucz": "C",
+      "wiek": "6 lat",
+      "czas": "20 min",
+      "forma": "mała grupa (4–6 dzieci)",
+      "cykl": "3× w tygodniu",
+      "jezyk": "dziecko uzasadnia, opowiada po kolei i pyta samo"
+    }
+  ],
+  "tory_zajec": [
+    "rewalidacja",
+    "pomoc psychologiczno-pedagogiczna",
+    "kształcenie specjalne (IPET)"
+  ],
+  "rodzaje_zajec": [
+    "zajęcia logopedyczne (Dz.U. 2017 poz. 1591)",
+    "zajęcia rozwijające kompetencje komunikacyjne",
+    "zajęcia rewalidacyjne (Dz.U. 2017 poz. 1578)",
+    "zajęcia korekcyjno-kompensacyjne",
+    "wsparcie nauczyciela współorganizującego kształcenie",
+    "porada / konsultacja (logopeda)"
+  ],
+  "liczba_celow": 225,
+  "obszary": [
+    {
+      "nr": "I",
+      "nazwa": "Rozumienie mowy (recepcja)",
+      "icf": "d310 · b1560",
+      "pp": "PP 3.1·4.2",
+      "norma_rozwojowa": "reakcja na imię ok. 9–12 mies.; polecenie jednoetapowe ok. 18–24 mies.; dwuetapowe ok. 2,5–3 r.ż.",
+      "opis": "Rozumienie słów, poleceń i pytań kierowanych do dziecka — zanim samo zacznie mówić.",
+      "zasada_mowy": "Rozumienie sprawdzamy bez gestu podpowiadającego. Dziecko, które wykonuje polecenie, bo dorosły jednocześnie pokazał ręką, rozumie gest, nie zdanie.",
+      "wskazniki": [
+        {
+          "nr": "I.1",
+          "pozycja": 1,
+          "wskaznik": "Reaguje na swoje imię i proste zwroty („chodź”, „daj”).",
+          "krok_komunikacyjny": "zatrzymanie się i spojrzenie na dorosłego po usłyszeniu imienia",
+          "opis_kroku": "Dziecko przerywa to, co robi, i kieruje uwagę na mówiącego. To pierwszy widoczny krok komunikacyjny: bez niego żadne polecenie nie ma dokąd trafić.",
+          "cele": {
+            "A": {
+              "p3": "Zatrzyma się i spojrzy na nauczyciela, gdy ten wymówi jego imię z odległości metra",
+              "p2": "Zatrzyma się i spojrzy na nauczyciela wołającego je z drugiego końca stolika",
+              "p1": "Zatrzyma się i spojrzy na dorosłego wołającego je z drugiego końca sali"
+            },
+            "B": {
+              "p3": "Podejdzie do nauczyciela po usłyszeniu imienia i słowa „chodź”, ze wskazaniem ręką",
+              "p2": "Podejdzie do nauczyciela po usłyszeniu imienia i słowa „chodź”, bez wskazania ręką",
+              "p1": "Podejdzie do dorosłego wołającego je podczas swobodnej zabawy w grupie"
+            },
+            "C": {
+              "p3": "Odpowie „tak” albo podniesie rękę na swoje imię podczas powitania w kręgu",
+              "p2": "Odpowie na swoje imię i wykona zwrot „daj” w sytuacji dyżuru",
+              "p1": "Odpowie na swoje imię i zareaguje na zwrot skierowany do grupy, w hałasie sali"
+            }
+          },
+          "zalecenia": [
+            "wołanie imieniem przed każdym poleceniem, w całym dniu przedszkolnym",
+            "jeden stały sygnał dźwiękowy zmiany aktywności",
+            "ograniczenie hałasu tła w chwili wydawania poleceń"
+          ],
+          "dostosowania": [
+            "dotknięcie ramienia jako zapowiedź wołania u dziecka z niedosłuchem",
+            "karta ze zdjęciem dziecka w miejscu zbiórki",
+            "wydłużony czas oczekiwania na reakcję do pięciu sekund"
+          ],
+          "uwaga_rozwojowa": "Brak reakcji na imię po drugim roku życia jest przesłanką do badania słuchu — zanim uznamy rzecz za brak uwagi albo upór. Do wykluczenia niedosłuchu nie planujemy celów z tego obszaru.",
+          "konspekty": {
+            "A": "kon-A-I-1",
+            "B": "kon-B-I-1",
+            "C": "kon-C-I-1"
+          },
+          "pomoc_id": "I.1",
+          "arkusz_id": "I.1"
+        },
+        {
+          "nr": "I.2",
+          "pozycja": 2,
+          "wskaznik": "Rozumie i wykonuje proste, jednoetapowe polecenie.",
+          "krok_komunikacyjny": "wykonanie polecenia bez gestu podpowiadającego dorosłego",
+          "opis_kroku": "Dziecko robi to, co usłyszało, a nie to, co zobaczyło w ręce dorosłego. Dopiero wtedy wiadomo, że zrozumiało słowa, a nie odczytało pokazanie.",
+          "cele": {
+            "A": {
+              "p3": "Wykona polecenie „daj” podane razem z gestem podania i obrazkiem",
+              "p2": "Wykona polecenie „daj” albo „weź” podane z obrazkiem, bez gestu",
+              "p1": "Wykona proste polecenie podane samym słowem, przy stoliku"
+            },
+            "B": {
+              "p3": "Wykona jednoetapowe polecenie z obrazkiem czynności w zasięgu wzroku",
+              "p2": "Wykona jednoetapowe polecenie bez obrazka, w zabawie przy stoliku",
+              "p1": "Wykona jednoetapowe polecenie w naturalnej sytuacji sali, przy innych dzieciach"
+            },
+            "C": {
+              "p3": "Wykona polecenie dotyczące jednej czynności, z powtórzeniem go na głos",
+              "p2": "Wykona polecenie i powie, co ma zrobić, zanim zacznie",
+              "p1": "Wykona polecenie usłyszane raz, w gwarze sali, bez powtarzania"
+            }
+          },
+          "zalecenia": [
+            "jedno polecenie w jednym zdaniu przez cały dzień przedszkolny",
+            "stały szyk polecenia: imię, czasownik, przedmiot",
+            "sprawdzanie rozumienia przez wykonanie, nie przez pytanie o rozumienie"
+          ],
+          "dostosowania": [
+            "karta czynności przy dziecku jako stałe wsparcie",
+            "wydłużony czas na wykonanie polecenia do dziesięciu sekund",
+            "polecenie podane po zbliżeniu się do dziecka, nie z drugiego końca sali"
+          ],
+          "uwaga_rozwojowa": "Polecenie jednoetapowe dziecko rozumie zwykle ok. 18–24 miesiąca życia. Jeśli po trzecim roku nie wykonuje go bez gestu, sprawdzamy najpierw słuch, potem planujemy cele.",
+          "konspekty": {
+            "A": "kon-A-I-2",
+            "B": "kon-B-I-2",
+            "C": "kon-C-I-2"
+          },
+          "pomoc_id": "I.2",
+          "arkusz_id": "I.2"
+        },
+        {
+          "nr": "I.3",
+          "pozycja": 3,
+          "wskaznik": "Rozumie polecenie dwuetapowe („weź misia i połóż na stole”).",
+          "krok_komunikacyjny": "wykonanie obu kroków polecenia w podanej kolejności",
+          "opis_kroku": "Dziecko utrzymuje w pamięci dwa polecenia naraz i wykonuje je po kolei. Widać to po tym, że nie zatrzymuje się po pierwszym kroku i nie odwraca kolejności.",
+          "cele": {
+            "A": {
+              "p3": "Wykona dwuetapowe polecenie rozłożone na dwie karty obrazkowe, krok po kroku",
+              "p2": "Wykona dwuetapowe polecenie z listwą dwóch obrazków przed sobą",
+              "p1": "Wykona dwuetapowe polecenie podane w jednym zdaniu, z listwą w zasięgu wzroku"
+            },
+            "B": {
+              "p3": "Wykona dwuetapowe polecenie po powtórzeniu go przez nauczyciela raz",
+              "p2": "Wykona dwuetapowe polecenie usłyszane raz, z listwą obrazkową na stoliku",
+              "p1": "Wykona dwuetapowe polecenie usłyszane raz, bez listwy obrazkowej"
+            },
+            "C": {
+              "p3": "Powtórzy dwuetapowe polecenie i wykona je razem z nauczycielem",
+              "p2": "Powtórzy polecenie własnymi słowami i wykona oba kroki samodzielnie",
+              "p1": "Wykona trzyetapowe polecenie w naturalnej sytuacji porządków w sali"
+            }
+          },
+          "zalecenia": [
+            "listwa kolejności dostępna w sali przez cały dzień, nie tylko na zajęciach",
+            "polecenia dwuetapowe wprowadzane dopiero po pewnym jednoetapowym",
+            "kolejność obrazków zawsze zgodna z porządkiem wykonania"
+          ],
+          "dostosowania": [
+            "rozbicie polecenia na dwa osobne zdania u dziecka z krótką pamięcią słuchową",
+            "obrazki listwy w wersji zdjęciowej, jeśli rysunek jest za mało czytelny",
+            "wydłużony czas na wykonanie do dwudziestu sekund"
+          ],
+          "uwaga_rozwojowa": "Polecenie dwuetapowe dziecko wykonuje zwykle ok. 2,5–3 roku życia. Gubienie drugiego kroku po czwartym roku wskazuje częściej na wąską pamięć słuchową niż na brak rozumienia — i tak też planujemy wsparcie.",
+          "konspekty": {
+            "A": "kon-A-I-3",
+            "B": "kon-B-I-3",
+            "C": "kon-C-I-3"
+          },
+          "pomoc_id": "I.3",
+          "arkusz_id": "I.3"
+        },
+        {
+          "nr": "I.4",
+          "pozycja": 4,
+          "wskaznik": "Wskazuje nazwane obrazki, przedmioty i części ciała.",
+          "krok_komunikacyjny": "wskazanie palcem właściwego obrazka albo przedmiotu po usłyszeniu nazwy",
+          "opis_kroku": "Dziecko pokazuje to, co zostało nazwane. To jedyny sposób sprawdzenia słownika biernego u dziecka, które jeszcze nie mówi — i pierwszy krok do nazywania.",
+          "cele": {
+            "A": {
+              "p3": "Wskaże nazwany przedmiot spośród dwóch leżących przed nim",
+              "p2": "Wskaże nazwany obrazek spośród czterech na tablicy",
+              "p1": "Wskaże nazwaną część ciała na sobie, bez pokazywania przez dorosłego"
+            },
+            "B": {
+              "p3": "Wskaże nazwany obrazek spośród sześciu, po powtórzeniu nazwy",
+              "p2": "Wskaże nazwany obrazek spośród sześciu, po jednym podaniu nazwy",
+              "p1": "Wskaże przedmiot opisany funkcją („to, czym pijemy”), nie nazwą"
+            },
+            "C": {
+              "p3": "Wskaże obrazek z kategorii nazwanej przez nauczyciela, z podpowiedzią",
+              "p2": "Wskaże wszystkie obrazki należące do nazwanej kategorii",
+              "p1": "Wskaże obrazek pasujący do opisu złożonego z dwóch cech"
+            }
+          },
+          "zalecenia": [
+            "sprawdzanie słownika biernego przez wskazywanie, nie przez pytanie „co to jest”",
+            "obrazki tych samych przedmiotów, które dziecko widzi w sali",
+            "stopniowe zwiększanie liczby obrazków do wyboru"
+          ],
+          "dostosowania": [
+            "dwa obrazki zamiast sześciu u dziecka z trudnością w przeszukiwaniu wzrokowym",
+            "zdjęcia zamiast rysunków, gdy rysunek jest za mało czytelny",
+            "wskazywanie wzrokiem uznawane za odpowiedź u dziecka z niepełnosprawnością ruchową"
+          ],
+          "uwaga_rozwojowa": "Słownik bierny wyprzedza czynny o kilkanaście miesięcy. Dziecko, które wskazuje trafnie, a nie nazywa, ma trudność w mowie czynnej, nie w rozumieniu — cele planujemy wtedy w obszarze II, nie tutaj.",
+          "konspekty": {
+            "A": "kon-A-I-4",
+            "B": "kon-B-I-4",
+            "C": "kon-C-I-4"
+          },
+          "pomoc_id": "I.4",
+          "arkusz_id": "I.4"
+        },
+        {
+          "nr": "I.5",
+          "pozycja": 5,
+          "wskaznik": "Rozumie proste pytania (kto? co? gdzie?).",
+          "krok_komunikacyjny": "odpowiedź pasująca do rodzaju pytania — osobą, rzeczą albo miejscem",
+          "opis_kroku": "Dziecko odpowiada tym, o co pytano: na „kto” osobą, na „gdzie” miejscem. Widać wtedy, że rozpoznaje pytajnik, a nie odpowiada na całe zdanie na chybił trafił.",
+          "cele": {
+            "A": {
+              "p3": "Odpowie na pytanie „gdzie” wskazaniem miejsca, po pokazaniu karty pytania",
+              "p2": "Odpowie na pytanie „co to?” nazwą albo wskazaniem, z kartą pytania",
+              "p1": "Odpowie na pytanie „kto?” imieniem albo wskazaniem osoby, bez karty"
+            },
+            "B": {
+              "p3": "Odpowie na dwa rodzaje pytań, mając karty pytań przed sobą",
+              "p2": "Odpowie na trzy rodzaje pytań o obrazek, z kartami w zasięgu wzroku",
+              "p1": "Odpowie na trzy rodzaje pytań o zdarzenie z sali, bez kart"
+            },
+            "C": {
+              "p3": "Odpowie na pytanie i wskaże, jakiego rodzaju było, z pomocą kart",
+              "p2": "Odpowie na pytania „kto, co, gdzie” o wysłuchaną historyjkę",
+              "p1": "Sam zada kolegom trzy różne pytania o obrazek i oceni odpowiedzi"
+            }
+          },
+          "zalecenia": [
+            "karty pytań dostępne w sali i używane przez cały dzień",
+            "jeden rodzaj pytania wprowadzany naraz, aż do utrwalenia",
+            "odpowiedź wskazaniem uznawana na równi z odpowiedzią słowem"
+          ],
+          "dostosowania": [
+            "karta pytania trzymana przy twarzy dorosłego, gdy dziecko potrzebuje wsparcia wzrokowego",
+            "pytanie o obrazek zamiast o zdarzenie z pamięci u dziecka z wąską pamięcią",
+            "dwie odpowiedzi do wyboru zamiast pytania otwartego"
+          ],
+          "uwaga_rozwojowa": "Pytania „kto, co, gdzie” dziecko rozumie zwykle ok. 3 roku życia, „dlaczego” ok. 4–5. Wymaganie odpowiedzi na „dlaczego” od trzylatka daje odpowiedź „bo tak” i nie mierzy niczego.",
+          "konspekty": {
+            "A": "kon-A-I-5",
+            "B": "kon-B-I-5",
+            "C": "kon-C-I-5"
+          },
+          "pomoc_id": "I.5",
+          "arkusz_id": "I.5"
+        }
+      ]
+    },
+    {
+      "nr": "II",
+      "nazwa": "Mowa czynna i artykulacja (ekspresja)",
+      "icf": "b320 · b16710",
+      "pp": "PP 3.1·4.2",
+      "norma_rozwojowa": "pierwsze słowa ok. 12 mies.; zdanie dwuwyrazowe ok. 2 r.ż.; mowa zrozumiała dla obcych ok. 4 r.ż.",
+      "opis": "Mówienie w celu porozumienia się: od pojedynczego słowa po zrozumiałą wypowiedź.",
+      "zasada_mowy": "Liczy się, ŻE dziecko powiedziało, nie JAK wymówiło. Poprawianie wymowy w trakcie wypowiedzi ucina wypowiedź — poprawną głoskę stawia logopeda, na osobnych zajęciach.",
+      "wskazniki": [
+        {
+          "nr": "II.1",
+          "pozycja": 1,
+          "wskaznik": "Wypowiada pojedyncze słowa w celu porozumienia się.",
+          "krok_komunikacyjny": "wypowiedzenie słowa, żeby coś dostać albo coś się wydarzyło",
+          "opis_kroku": "Dziecko mówi słowo skierowane do drugiej osoby i czeka na skutek. Nie chodzi o powtarzanie ani nazywanie na polecenie — chodzi o słowo, które czegoś dokonuje.",
+          "cele": {
+            "A": {
+              "p3": "Powie słowo-prośbę po podaniu wzoru przez dorosłego („powiedz: daj”)",
+              "p2": "Powie słowo-prośbę po pokazaniu przedmiotu, bez wzoru słownego",
+              "p1": "Powie słowo-prośbę z własnej inicjatywy, gdy czegoś potrzebuje"
+            },
+            "B": {
+              "p3": "Poprosi słowem o przedmiot, mając obrazek jako podpowiedź",
+              "p2": "Poprosi słowem o przedmiot i o pomoc, bez obrazka",
+              "p1": "Poprosi słowem w naturalnej sytuacji, kierując je do kolegi, nie do dorosłego"
+            },
+            "C": {
+              "p3": "Użyje słowa-prośby i słowa-odmowy, z podpowiedzią dorosłego",
+              "p2": "Użyje słowa w trzech różnych celach: prośba, odmowa, pokazanie",
+              "p1": "Użyje słowa, żeby zwrócić uwagę kolegi na coś, co widzi (wskazanie z komentarzem)"
+            }
+          },
+          "zalecenia": [
+            "tworzenie w ciągu dnia okazji do proszenia zamiast uprzedzania potrzeb",
+            "przyjmowanie każdej próby słownej, także niewyraźnej, bez poprawiania wymowy",
+            "karta odmowy dostępna dla dziecka na równi z kartą prośby"
+          ],
+          "dostosowania": [
+            "przyjmowanie gestu albo obrazka jako pełnej wypowiedzi u dziecka niemówiącego",
+            "wydłużona pauza wyczekująca do dziesięciu sekund",
+            "zdjęcie ulubionego przedmiotu jako karta prośby"
+          ],
+          "uwaga_rozwojowa": "Pierwsze słowa pojawiają się zwykle ok. 12 miesiąca życia, a brak jakichkolwiek słów po 18–24 miesiącu jest wskazaniem do konsultacji logopedycznej. Cele z tego wskaźnika planujemy równolegle ze skierowaniem, nie zamiast niego.",
+          "konspekty": {
+            "A": "kon-A-II-1",
+            "B": "kon-B-II-1",
+            "C": "kon-C-II-1"
+          },
+          "pomoc_id": "II.1",
+          "arkusz_id": "II.1"
+        },
+        {
+          "nr": "II.2",
+          "pozycja": 2,
+          "wskaznik": "Łączy 2–3 słowa w prostą wypowiedź.",
+          "krok_komunikacyjny": "połączenie dwóch słów w jedną wypowiedź skierowaną do kogoś",
+          "opis_kroku": "Dziecko mówi „daj sok” zamiast „sok”. Widać wtedy, że buduje wypowiedź, a nie tylko nazywa — to przejście od słowa do zdania.",
+          "cele": {
+            "A": {
+              "p3": "Powtórzy dwuwyrazową wypowiedź za dorosłym i użyje jej w tej samej sytuacji",
+              "p2": "Powie dwa słowa razem po rozszerzeniu jego wypowiedzi przez dorosłego",
+              "p1": "Powie dwa słowa razem z własnej inicjatywy, prosząc o coś"
+            },
+            "B": {
+              "p3": "Ułoży dwuwyrazową wypowiedź z dwóch obrazków na listwie",
+              "p2": "Powie dwu- albo trzywyrazową wypowiedź o tym, co robi, z listwą obrazkową",
+              "p1": "Powie trzywyrazową wypowiedź o tym, co robi, bez listwy"
+            },
+            "C": {
+              "p3": "Uzupełni zdanie rozpoczęte przez dorosłego, dobierając brakujące słowo",
+              "p2": "Powie zdanie z czasownikiem i określeniem o zdarzeniu z sali",
+              "p1": "Powie dwa zdania połączone o tym, co się wydarzyło"
+            }
+          },
+          "zalecenia": [
+            "rozszerzanie wypowiedzi dziecka o jedno słowo przez cały dzień",
+            "listwa składni dostępna w kąciku zabaw tematycznych",
+            "zapisywanie raz w tygodniu długości najdłuższej wypowiedzi"
+          ],
+          "dostosowania": [
+            "listwa z symbolami AAC zamiast obrazków rysunkowych",
+            "przyjmowanie wypowiedzi złożonej ze słowa i gestu jako dwuelementowej",
+            "wydłużony czas na zbudowanie wypowiedzi, bez dopowiadania za dziecko"
+          ],
+          "uwaga_rozwojowa": "Zdanie dwuwyrazowe pojawia się zwykle ok. 2 roku życia. Brak łączenia słów po trzecim roku jest wskazaniem do diagnozy logopedycznej — cele planujemy równolegle ze skierowaniem.",
+          "konspekty": {
+            "A": "kon-A-II-2",
+            "B": "kon-B-II-2",
+            "C": "kon-C-II-2"
+          },
+          "pomoc_id": "II.2",
+          "arkusz_id": "II.2"
+        },
+        {
+          "nr": "II.3",
+          "pozycja": 3,
+          "wskaznik": "Mowa jest zrozumiała dla osób spoza najbliższej rodziny.",
+          "krok_komunikacyjny": "dokończenie wypowiedzi tak, żeby obcy dorosły zrozumiał, o co chodzi",
+          "opis_kroku": "Dziecko powtarza, przeformułowuje albo pokazuje, gdy rozmówca nie zrozumiał — zamiast rezygnować. To krok komunikacyjny, nie artykulacyjny: mierzymy skuteczność porozumienia, nie czystość głosek.",
+          "cele": {
+            "A": {
+              "p3": "Powtórzy wypowiedź na prośbę dorosłego, zamiast odchodzić",
+              "p2": "Powtórzy wypowiedź i doda gest albo wskazanie, gdy dorosły nie zrozumiał",
+              "p1": "Powtórzy wypowiedź wolniej z własnej inicjatywy, gdy widzi, że nie zrozumiano"
+            },
+            "B": {
+              "p3": "Pokaże obrazek albo przedmiot, gdy słowo nie zostało zrozumiane, z podpowiedzią",
+              "p2": "Poda inne słowo albo pokaże, gdy pierwsza wypowiedź nie została zrozumiana",
+              "p1": "Doprowadzi do zrozumienia w rozmowie z osobą spoza grupy, na trzy sposoby"
+            },
+            "C": {
+              "p3": "Powie wypowiedź wolniej i głośniej po sygnale dorosłego",
+              "p2": "Sam zauważy niezrozumienie i naprawi wypowiedź, bez sygnału",
+              "p1": "Przekaże wiadomość osobie z innej grupy tak, żeby ta ją poprawnie powtórzyła"
+            }
+          },
+          "zalecenia": [
+            "umówiony sygnał niezrozumienia zamiast samego „nie rozumiem”",
+            "tablica obrazkowa dostępna dla dziecka w każdej sytuacji dnia",
+            "skierowanie na diagnozę logopedyczną przy wyniku 0 albo 1"
+          ],
+          "dostosowania": [
+            "stały dostęp do tablicy AAC jako drogi naprawy wypowiedzi",
+            "informowanie osób spoza grupy o sposobie porozumiewania się dziecka",
+            "wydłużony czas rozmowy, bez dopowiadania za dziecko"
+          ],
+          "uwaga_rozwojowa": "Mowa dziecka bywa zrozumiała dla obcych ok. 4 roku życia. To wskaźnik przesiewowy: wynik 0 albo 1 po czwartym roku jest wskazaniem do diagnozy logopedycznej. Nauczyciel pracuje nad skutecznością przekazu, nie nad głoskami.",
+          "konspekty": {
+            "A": "kon-A-II-3",
+            "B": "kon-B-II-3",
+            "C": "kon-C-II-3"
+          },
+          "pomoc_id": "II.3",
+          "arkusz_id": "II.3"
+        },
+        {
+          "nr": "II.4",
+          "pozycja": 4,
+          "wskaznik": "Realizuje głoski odpowiednio do wieku (bez licznych zniekształceń).",
+          "krok_komunikacyjny": "mówienie w sali mimo trudności z wymową — liczba wypowiedzi, nie ich czystość",
+          "opis_kroku": "Dziecko odzywa się w grupie tyle samo razy co inne dzieci, choć wymowa jeszcze się kształtuje. Krok mierzony przez nauczyciela to gotowość do mówienia; głoski stawia logopeda na osobnych zajęciach.",
+          "cele": {
+            "A": {
+              "p3": "Odezwie się w kręgu po podaniu wzoru zdania przez nauczyciela",
+              "p2": "Odezwie się w kręgu, gdy przyjdzie jego kolej, bez wzoru",
+              "p1": "Odezwie się z własnej inicjatywy w zabawie z rówieśnikami"
+            },
+            "B": {
+              "p3": "Powie zdanie w małej grupie po zapowiedzi swojej kolejki",
+              "p2": "Powie zdanie w małej grupie z własnej inicjatywy",
+              "p1": "Zabierze głos w rozmowie całej grupy, bez zachęty dorosłego"
+            },
+            "C": {
+              "p3": "Weźmie udział w zabawie słownej, korzystając ze wsparcia obrazkowego",
+              "p2": "Weźmie udział w zabawie słownej bez wsparcia obrazkowego",
+              "p1": "Wystąpi przed grupą z krótką wypowiedzią przygotowaną wcześniej"
+            }
+          },
+          "zalecenia": [
+            "zakaz poprawiania wymowy dziecka przy innych dzieciach",
+            "zapowiadanie kolejki mówienia z góry",
+            "skierowanie na diagnozę logopedyczną przy licznych zniekształceniach po czwartym roku"
+          ],
+          "dostosowania": [
+            "wcześniejsze uzgodnienie tematu wypowiedzi z dzieckiem",
+            "rysunkowa notatka jako podpora wystąpienia",
+            "możliwość wypowiedzi do dwóch osób zamiast do całej grupy"
+          ],
+          "uwaga_rozwojowa": "Porządek pojawiania się głosek jest rozwojowy: sz, ż, cz, dż i r bywają prawidłowo realizowane dopiero ok. 5–6 roku życia. Wymaganie ich wcześniej i ćwiczenie w sali daje zniekształcenia trudniejsze do usunięcia niż wada wyjściowa.",
+          "konspekty": {
+            "A": "kon-A-II-4",
+            "B": "kon-B-II-4",
+            "C": "kon-C-II-4"
+          },
+          "pomoc_id": "II.4",
+          "arkusz_id": "II.4"
+        },
+        {
+          "nr": "II.5",
+          "pozycja": 5,
+          "wskaznik": "Powtarza słowa i krótkie zdania za dorosłym.",
+          "krok_komunikacyjny": "powtórzenie usłyszanego wzoru w całości, zaraz po jego usłyszeniu",
+          "opis_kroku": "Dziecko odtwarza wzór słowny bezpośrednio po dorosłym. To pokazuje pojemność pamięci słuchowej — ile materiału dziecko utrzyma naraz — a nie poprawność wymowy.",
+          "cele": {
+            "A": {
+              "p3": "Powtórzy słowo jednosylabowe zaraz po dorosłym, w zabawie z rytmem",
+              "p2": "Powtórzy słowo dwusylabowe zaraz po dorosłym",
+              "p1": "Powtórzy dwa słowa razem zaraz po dorosłym"
+            },
+            "B": {
+              "p3": "Powtórzy zdanie trzywyrazowe, z podziałem na dwie części",
+              "p2": "Powtórzy zdanie trzywyrazowe w całości, zaraz po dorosłym",
+              "p1": "Powtórzy zdanie czterowyrazowe w całości"
+            },
+            "C": {
+              "p3": "Powtórzy zdanie czterowyrazowe po jednym usłyszeniu, z podpowiedzią obrazkową",
+              "p2": "Powtórzy zdanie pięciowyrazowe po jednym usłyszeniu",
+              "p1": "Powtórzy wiadomość dwuzdaniową i przekaże ją innej osobie"
+            }
+          },
+          "zalecenia": [
+            "skracanie materiału zamiast powtarzania tego samego wzoru przy niepowodzeniu",
+            "zabawy typu echo i wyliczanki zamiast ćwiczeń pamięciowych przy stoliku",
+            "zapisywanie raz w tygodniu długości bezbłędnie powtarzanego materiału"
+          ],
+          "dostosowania": [
+            "podział materiału na dwie części u dziecka z wąską pamięcią słuchową",
+            "wsparcie obrazkowe treści zdania",
+            "powtarzanie za kukiełką zamiast za dorosłym, gdy dziecko unika kontaktu"
+          ],
+          "uwaga_rozwojowa": "Pojemność pamięci słuchowej rośnie z wiekiem: trzylatek powtórzy zwykle trzy słowa, sześciolatek pięć. Wymaganie dłuższego materiału niż pozwala wiek daje niepowodzenia, które zniechęcają do mówienia.",
+          "konspekty": {
+            "A": "kon-A-II-5",
+            "B": "kon-B-II-5",
+            "C": "kon-C-II-5"
+          },
+          "pomoc_id": "II.5",
+          "arkusz_id": "II.5"
+        }
+      ]
+    },
+    {
+      "nr": "III",
+      "nazwa": "Słuch fonematyczny i percepcja słuchowa",
+      "icf": "b1560 · b230",
+      "pp": "PP 4.2·4.4",
+      "norma_rozwojowa": "różnicowanie dźwięków od 1 r.ż.; sylaby ok. 4 r.ż.; pierwsza głoska ok. 5–6 r.ż.",
+      "opis": "Słyszenie różnic między dźwiękami i głoskami — podstawa pod naukę czytania.",
+      "zasada_mowy": "Sylaba przed głoską, zawsze. Dziecko, które nie klaszcze sylab, nie wyodrębni pierwszej głoski — a ćwiczone ponad poziomem zaczyna zgadywać.",
+      "wskazniki": [
+        {
+          "nr": "III.1",
+          "pozycja": 1,
+          "wskaznik": "Różnicuje dźwięki z otoczenia i wskazuje kierunek dźwięku.",
+          "krok_komunikacyjny": "wskazanie źródła dźwięku — dziecko pokazuje przedmiot albo stronę, z której dźwięk przyszedł",
+          "opis_kroku": "Dziecko odróżnia dźwięki od siebie i lokalizuje je w przestrzeni. To najniższe piętro percepcji słuchowej — bez niego nie ma różnicowania głosek.",
+          "cele": {
+            "A": {
+              "p3": "Wskaże przedmiot, który zabrzmiał, gdy widzi oba przedmioty przed sobą",
+              "p2": "Wskaże przedmiot, który zabrzmiał zza parawanu, wybierając z dwóch",
+              "p1": "Wskaże przedmiot, który zabrzmiał zza parawanu, wybierając z trzech"
+            },
+            "B": {
+              "p3": "Wskaże stronę, z której przyszedł dźwięk, gdy dorosły stoi wyraźnie z boku",
+              "p2": "Wskaże stronę, z której przyszedł dźwięk, przy zamkniętych oczach",
+              "p1": "Nazwie dźwięk i wskaże jego kierunek przy zamkniętych oczach"
+            },
+            "C": {
+              "p3": "Nazwie trzy dźwięki z nagrania, mając obrazki do wyboru",
+              "p2": "Nazwie pięć dźwięków z nagrania bez obrazków",
+              "p1": "Ułoży usłyszane dźwięki w kolejności, w jakiej się pojawiły"
+            }
+          },
+          "zalecenia": [
+            "wyciszanie tła przed każdym zadaniem słuchowym",
+            "różnicowanie dźwięków wyraźnie odmiennych przed podobnymi",
+            "sprawdzenie słuchu fizycznego przy utrzymujących się pomyłkach"
+          ],
+          "dostosowania": [
+            "parawan zamiast opaski na oczy u dziecka wrażliwego dotykowo",
+            "obrazki przedmiotów jako alternatywa dla nazywania",
+            "zmniejszenie głośności u dziecka nadwrażliwego słuchowo"
+          ],
+          "uwaga_rozwojowa": "Różnicowanie dźwięków z otoczenia pojawia się w pierwszym roku życia. Trudność w tym zakresie u pięciolatka wskazuje na problem percepcji słuchowej albo na niedosłuch, a nie na opóźnienie mowy — kolejność sprawdzania jest tu odwrotna niż zwykle.",
+          "konspekty": {
+            "A": "kon-A-III-1",
+            "B": "kon-B-III-1",
+            "C": "kon-C-III-1"
+          },
+          "pomoc_id": "III.1",
+          "arkusz_id": "III.1"
+        },
+        {
+          "nr": "III.2",
+          "pozycja": 2,
+          "wskaznik": "Powtarza sekwencje sylab oraz prosty rytm.",
+          "krok_komunikacyjny": "odtworzenie usłyszanej sekwencji — dziecko powtarza sylaby albo wyklaskuje układ uderzeń",
+          "opis_kroku": "Dziecko odtwarza porządek dźwięków w czasie: ile ich było i w jakiej kolejności. To pomost między słyszeniem dźwięku a słyszeniem budowy słowa.",
+          "cele": {
+            "A": {
+              "p3": "Powtórzy dwie takie same sylaby razem z dorosłym: pa-pa",
+              "p2": "Powtórzy dwie takie same sylaby samodzielnie",
+              "p1": "Powtórzy dwie różne sylaby w kolejności: pa-tu"
+            },
+            "B": {
+              "p3": "Wyklaszcze dwa uderzenia razem z dorosłym",
+              "p2": "Wyklaszcze rytm trzech uderzeń po jednym usłyszeniu",
+              "p1": "Powtórzy trzy sylaby w kolejności i wyklaszcze rytm czterech uderzeń"
+            },
+            "C": {
+              "p3": "Powtórzy trzy sylaby, mając rytm pokazany ruchem ręki",
+              "p2": "Powtórzy cztery sylaby w kolejności po jednym usłyszeniu",
+              "p1": "Powtórzy sekwencję sylab z akcentem na wskazanej sylabie"
+            }
+          },
+          "zalecenia": [
+            "wydłużanie sekwencji o jeden element po serii trafień",
+            "wsparcie ruchem i klockiem przy gubieniu kolejności",
+            "zabawy rytmiczne w kręgu zamiast ćwiczeń przy stoliku"
+          ],
+          "dostosowania": [
+            "sekwencja dwuelementowa u dziecka z wąską pamięcią słuchową",
+            "uderzenia w bębenek zamiast klaskania u dziecka z trudnością koordynacji rąk",
+            "karta z kropkami jako stała podpowiedź długości sekwencji"
+          ],
+          "uwaga_rozwojowa": "Trzylatek powtarza zwykle dwie sylaby, pięciolatek trzy do czterech. Sekwencja dłuższa niż pojemność pamięci słuchowej daje pozorną trudność fonematyczną — dziecko słyszy dobrze, tylko nie utrzymuje całości.",
+          "konspekty": {
+            "A": "kon-A-III-2",
+            "B": "kon-B-III-2",
+            "C": "kon-C-III-2"
+          },
+          "pomoc_id": "III.2",
+          "arkusz_id": "III.2"
+        },
+        {
+          "nr": "III.3",
+          "pozycja": 3,
+          "wskaznik": "Dzieli proste słowa na sylaby (klaskanie).",
+          "krok_komunikacyjny": "podzielenie słowa na części — dziecko klaszcze albo układa klocek na każdą sylabę",
+          "opis_kroku": "Dziecko rozbija słowo na mniejsze części i pokazuje ich liczbę. To pierwszy krok analizy słuchowej i bezpośredni predyktor nauki czytania.",
+          "cele": {
+            "A": {
+              "p3": "Wyklaszcze słowo dwusylabowe razem z dorosłym",
+              "p2": "Wyklaszcze słowo dwusylabowe samodzielnie, po wzorze",
+              "p1": "Wyklaszcze słowo dwusylabowe bez wzoru i poda liczbę części"
+            },
+            "B": {
+              "p3": "Ułoży klocek na każdą sylabę słowa dwusylabowego, z pomocą dorosłego",
+              "p2": "Podzieli słowo trzysylabowe na sylaby, klaszcząc",
+              "p1": "Poda liczbę sylab w słowie trzysylabowym bez klaskania"
+            },
+            "C": {
+              "p3": "Podzieli słowo trzysylabowe, mając obrazek i klocki",
+              "p2": "Podzieli słowo czterosylabowe i poda liczbę sylab",
+              "p1": "Wskaże, które z dwóch słów ma więcej sylab, bez klaskania"
+            }
+          },
+          "zalecenia": [
+            "podział sylabowy przed jakimkolwiek ćwiczeniem głoskowym",
+            "układanie klocka na sylabę u dziecka gubiącego liczbę części",
+            "słowa z życia sali zamiast list ćwiczeniowych"
+          ],
+          "dostosowania": [
+            "uderzanie w bębenek zamiast klaskania przy trudności z koordynacją rąk",
+            "słowa dwusylabowe przez cały cykl u dziecka na poziomie III",
+            "pasek z gotową liczbą pól jako podpowiedź długości słowa"
+          ],
+          "uwaga_rozwojowa": "Dzielenie na sylaby pojawia się zwykle około czwartego roku życia, wyodrębnianie głoski dopiero po piątym. Odwrócenie tej kolejności w zajęciach jest najczęstszym błędem w przygotowaniu do czytania.",
+          "konspekty": {
+            "A": "kon-A-III-3",
+            "B": "kon-B-III-3",
+            "C": "kon-C-III-3"
+          },
+          "pomoc_id": "III.3",
+          "arkusz_id": "III.3"
+        },
+        {
+          "nr": "III.4",
+          "pozycja": 4,
+          "wskaznik": "Wyodrębnia pierwszą głoskę lub sylabę w słowie (5–6 lat).",
+          "krok_komunikacyjny": "podanie pierwszej cząstki słowa — dziecko mówi, od czego zaczyna się wyraz",
+          "opis_kroku": "Dziecko wydziela początek słowa i nazywa go osobno. To najwyższe piętro świadomości fonologicznej w przedszkolu i bezpośrednie przygotowanie do czytania.",
+          "cele": {
+            "A": {
+              "p3": "Powtórzy pierwszą sylabę słowa podaną przez dorosłego",
+              "p2": "Poda pierwszą sylabę słowa dwusylabowego, mając obrazek",
+              "p1": "Poda pierwszą sylabę słowa dwusylabowego bez obrazka"
+            },
+            "B": {
+              "p3": "Wskaże obrazek zaczynający się od podanej sylaby, wybierając z dwóch",
+              "p2": "Poda pierwszą sylabę słowa trzysylabowego",
+              "p1": "Poda pierwszą głoskę słowa zaczynającego się od samogłoski"
+            },
+            "C": {
+              "p3": "Poda pierwszą głoskę słowa zaczynającego się od samogłoski, z obrazkiem",
+              "p2": "Poda pierwszą głoskę słowa zaczynającego się od spółgłoski",
+              "p1": "Dobierze dwa słowa zaczynające się od tej samej głoski"
+            }
+          },
+          "zalecenia": [
+            "wymawianie głoski, nie nazwy litery, przez wszystkich dorosłych w sali",
+            "samogłoski i głoski przedłużalne przed zwartymi",
+            "powrót do sylab przy trzech pomyłkach z rzędu"
+          ],
+          "dostosowania": [
+            "praca wyłącznie na sylabach u dziecka poniżej piątego roku życia",
+            "lustro dla dziecka, które potrzebuje zobaczyć układ ust",
+            "wybór z dwóch obrazków zamiast samodzielnego podania głoski"
+          ],
+          "uwaga_rozwojowa": "Świadomość głoskowa jest najsilniejszym predyktorem powodzenia w nauce czytania, ale dojrzewa dopiero między piątym a szóstym rokiem życia. Brak tej umiejętności u czterolatka jest normą rozwojową, u sześciolatka — sygnałem do wsparcia przed klasą pierwszą.",
+          "konspekty": {
+            "A": "kon-A-III-4",
+            "B": "kon-B-III-4",
+            "C": "kon-C-III-4"
+          },
+          "pomoc_id": "III.4",
+          "arkusz_id": "III.4"
+        },
+        {
+          "nr": "III.5",
+          "pozycja": 5,
+          "wskaznik": "Nie myli słów podobnych brzmieniowo w codziennych sytuacjach.",
+          "krok_komunikacyjny": "wybór właściwego przedmiotu po usłyszeniu słowa różniącego się jedną głoską",
+          "opis_kroku": "Dziecko odróżnia słowa, które brzmią prawie tak samo, i sięga po ten przedmiot, o który poproszono. To różnicowanie fonemowe sprawdzane w działaniu, nie w teście.",
+          "cele": {
+            "A": {
+              "p3": "Wskaże właściwy obrazek z pary różniącej się głoską, gdy dorosły powtórzy słowo dwa razy",
+              "p2": "Wskaże właściwy obrazek z pary po jednym usłyszeniu słowa",
+              "p1": "Poda właściwy przedmiot z pary po jednym usłyszeniu"
+            },
+            "B": {
+              "p3": "Wskaże właściwy obrazek z trzech, gdy dwa brzmią podobnie",
+              "p2": "Odróżni parę słów różniących się jedną głoską w zabawie z przedmiotami",
+              "p1": "Powie, czy dwa usłyszane słowa są takie same, czy różne"
+            },
+            "C": {
+              "p3": "Powie, czy dwa słowa są takie same, mając obrazki do porównania",
+              "p2": "Powie, czy dwa słowa są takie same, bez obrazków",
+              "p1": "Poprawi zdanie, w którym dorosły użył słowa podobnego, ale niewłaściwego"
+            }
+          },
+          "zalecenia": [
+            "zapisywanie konkretnych par głosek mylonych przez dziecko",
+            "sprawdzanie różnicowania w działaniu, nie w teście przy stoliku",
+            "skierowanie na diagnozę logopedyczną przy utrzymujących się pomyłkach"
+          ],
+          "dostosowania": [
+            "wybór z dwóch obrazków zamiast porównywania samych słów",
+            "przedmioty zamiast obrazków u dziecka słabiej rozpoznającego rysunek",
+            "rezygnacja z parawanu u dziecka, które wspiera się obserwacją ust"
+          ],
+          "uwaga_rozwojowa": "Różnicowanie fonemowe dojrzewa do około szóstego roku życia; pomyłki na parach s–sz, c–cz, k–t u czterolatka mieszczą się w normie. Utrzymywanie się ich u sześciolatka wymaga sprawdzenia słuchu i konsultacji logopedycznej.",
+          "konspekty": {
+            "A": "kon-A-III-5",
+            "B": "kon-B-III-5",
+            "C": "kon-C-III-5"
+          },
+          "pomoc_id": "III.5",
+          "arkusz_id": "III.5"
+        }
+      ]
+    },
+    {
+      "nr": "IV",
+      "nazwa": "Słownictwo i gramatyka (system językowy)",
+      "icf": "b16700 · b16710",
+      "pp": "PP 3.1·4.2",
+      "norma_rozwojowa": "ok. 50 słów w 2 r.ż.; zdania proste 3 r.ż.; poprawne formy gramatyczne 5–6 r.ż.",
+      "opis": "Zasób słów, formy gramatyczne i budowa zdania — z czego dziecko składa wypowiedź.",
+      "zasada_mowy": "Nowe słowo wchodzi przez czynność, nie przez planszę. Dziecko zapamiętuje „miesza”, kiedy miesza, a nie kiedy pokazuje obrazek mieszania.",
+      "wskazniki": [
+        {
+          "nr": "IV.1",
+          "pozycja": 1,
+          "wskaznik": "Ma zasób słów adekwatny do wieku.",
+          "krok_komunikacyjny": "nazwanie przedmiotu albo czynności słowem — dziecko używa nazwy zamiast wskazania palcem",
+          "opis_kroku": "Dziecko sięga po słowo tam, gdzie wcześniej wystarczał gest. Zasobu nie liczymy z listy — liczymy nazwy używane w sali, w działaniu.",
+          "cele": {
+            "A": {
+              "p3": "Nazwie przedmiot słowem po podaniu pierwszej sylaby przez dorosłego",
+              "p2": "Nazwie przedmiot z sali samodzielnie, gdy go potrzebuje",
+              "p1": "Nazwie pięć nowych przedmiotów wprowadzonych w tygodniu"
+            },
+            "B": {
+              "p3": "Nazwie przedmiot i jedną jego cechę, z podpowiedzią obrazkową",
+              "p2": "Nazwie przedmiot, jego cechę i przeznaczenie",
+              "p1": "Poda nazwę nadrzędną dla grupy przedmiotów: to są owoce"
+            },
+            "C": {
+              "p3": "Dobierze nazwę nadrzędną do grupy obrazków, wybierając z dwóch",
+              "p2": "Poda trzy przykłady do podanej kategorii",
+              "p1": "Wyjaśni znaczenie słowa własnymi słowami"
+            }
+          },
+          "zalecenia": [
+            "pięć nowych słów w tygodniu, używanych codziennie przez wszystkich dorosłych",
+            "trzysekundowa pauza po wskazaniu palcem, zanim dorosły nazwie za dziecko",
+            "zapisywanie nazw używanych przez dziecko zamiast testowania z obrazków"
+          ],
+          "dostosowania": [
+            "podanie pierwszej sylaby jako podpowiedzi u dziecka z trudnością wydobycia słowa",
+            "obrazek przy przedmiocie u dziecka korzystającego z AAC",
+            "dwa słowa tygodnia zamiast pięciu u dziecka na poziomie III"
+          ],
+          "uwaga_rozwojowa": "Dwulatek używa około pięćdziesięciu słów, czterolatek około tysiąca pięciuset. Różnice indywidualne są duże, dlatego ważniejszy od liczby jest przyrost: brak nowych słów przez kilka tygodni jest sygnałem, nawet przy zasobie pozornie wystarczającym.",
+          "konspekty": {
+            "A": "kon-A-IV-1",
+            "B": "kon-B-IV-1",
+            "C": "kon-C-IV-1"
+          },
+          "pomoc_id": "IV.1",
+          "arkusz_id": "IV.1"
+        },
+        {
+          "nr": "IV.2",
+          "pozycja": 2,
+          "wskaznik": "Używa czasowników i określeń, nie tylko rzeczowników.",
+          "krok_komunikacyjny": "dołożenie do nazwy słowa mówiącego, co się dzieje albo jakie coś jest",
+          "opis_kroku": "Dziecko wychodzi poza nazywanie przedmiotów: mówi o czynności i o cesze. Bez czasownika nie da się zbudować zdania, więc ten krok otwiera drogę do gramatyki.",
+          "cele": {
+            "A": {
+              "p3": "Powtórzy czasownik nazywający wykonywaną właśnie czynność",
+              "p2": "Nazwie czynność, którą sam wykonuje: myję, jem, buduję",
+              "p1": "Nazwie czynność i przedmiot razem: myję ręce"
+            },
+            "B": {
+              "p3": "Poda określenie przedmiotu, wybierając z dwóch podanych przez dorosłego",
+              "p2": "Poda cechę przedmiotu bez podpowiedzi: duży, zimny, miękki",
+              "p1": "Użyje czasownika i określenia w jednym zdaniu"
+            },
+            "C": {
+              "p3": "Nazwie czynność z obrazka, mając dwa czasowniki do wyboru",
+              "p2": "Nazwie pięć różnych czynności z historyjki obrazkowej",
+              "p1": "Zastąpi czasownik ogólny „robi” czasownikiem dokładnym"
+            }
+          },
+          "zalecenia": [
+            "komentarz równoległy dorosłego przy czynnościach dnia",
+            "podawanie cech w parach przeciwieństw",
+            "osobne liczenie czasowników w zapisie zasobu słów"
+          ],
+          "dostosowania": [
+            "wybór czasownika z dwóch podanych u dziecka z trudnością wydobycia słowa",
+            "obrazki czynności na tablicy AAC u dziecka niemówiącego",
+            "jedna cecha naraz u dziecka na poziomie III"
+          ],
+          "uwaga_rozwojowa": "Czasowniki pojawiają się w mowie dziecka później niż rzeczowniki, zwykle w drugim roku życia, i to ich liczba, nie liczba rzeczowników, zapowiada budowanie zdań. Zasób złożony niemal wyłącznie z nazw przedmiotów u trzylatka wymaga uwagi.",
+          "konspekty": {
+            "A": "kon-A-IV-2",
+            "B": "kon-B-IV-2",
+            "C": "kon-C-IV-2"
+          },
+          "pomoc_id": "IV.2",
+          "arkusz_id": "IV.2"
+        },
+        {
+          "nr": "IV.3",
+          "pozycja": 3,
+          "wskaznik": "Stosuje proste formy gramatyczne (liczba, rodzaj, przypadki).",
+          "krok_komunikacyjny": "użycie właściwej końcówki — dziecko mówi „dwa kubki”, nie „dwa kubek”",
+          "opis_kroku": "Dziecko dopasowuje formę słowa do sytuacji: liczby mnogiej, rodzaju, przypadka. Formy nie tłumaczymy — podajemy wzór i czekamy, aż dziecko go użyje.",
+          "cele": {
+            "A": {
+              "p3": "Powtórzy formę liczby mnogiej podaną przez dorosłego: kubki",
+              "p2": "Użyje liczby mnogiej przy dwóch takich samych przedmiotach",
+              "p1": "Użyje liczby mnogiej i pojedynczej naprzemiennie, zależnie od liczby przedmiotów"
+            },
+            "B": {
+              "p3": "Uzupełni zdanie właściwą formą, mając wzór podany przed chwilą",
+              "p2": "Użyje właściwej formy przy prośbie: „daj mi kredkę”, nie „kredka”",
+              "p1": "Użyje właściwej formy rodzaju przy przymiotniku: „duża lalka”, „duży miś”"
+            },
+            "C": {
+              "p3": "Poprawi formę w zdaniu po usłyszeniu wzoru od dorosłego",
+              "p2": "Zbuduje zdanie z właściwą formą przypadka i rodzaju",
+              "p1": "Poprawi błędną formę w zdaniu dorosłego i uzasadni poprawkę"
+            }
+          },
+          "zalecenia": [
+            "podawanie wzoru formy zamiast tłumaczenia reguły",
+            "przekształcanie wypowiedzi dziecka bez uwagi o błędzie",
+            "tworzenie sytuacji wymagających formy: liczenie, prośba, rozdawanie"
+          ],
+          "dostosowania": [
+            "praca wyłącznie na liczbie mnogiej u dziecka na poziomie III",
+            "obrazki wspierające formę u dziecka korzystającego z AAC",
+            "wybór formy z dwóch podanych zamiast samodzielnej odpowiedzi"
+          ],
+          "uwaga_rozwojowa": "Formy gramatyczne ustalają się między trzecim a szóstym rokiem życia, a błędy typu „dwa kubek” czy „poszłem” są w tym okresie normą. Utrzymywanie się ich u sześciolatka wymaga konsultacji, ale nie ćwiczeń przy stoliku.",
+          "konspekty": {
+            "A": "kon-A-IV-3",
+            "B": "kon-B-IV-3",
+            "C": "kon-C-IV-3"
+          },
+          "pomoc_id": "IV.3",
+          "arkusz_id": "IV.3"
+        },
+        {
+          "nr": "IV.4",
+          "pozycja": 4,
+          "wskaznik": "Buduje zdania, nie tylko równoważniki i pojedyncze słowa.",
+          "krok_komunikacyjny": "wypowiedzenie zdania z czasownikiem — kto coś robi, a nie samo słowo",
+          "opis_kroku": "Dziecko składa wypowiedź z kilku słów połączonych czasownikiem. Zdanie niesie informację, której pojedyncze słowo nie przekaże bez domysłu dorosłego.",
+          "cele": {
+            "A": {
+              "p3": "Powtórzy zdanie dwuwyrazowe za dorosłym: mama je",
+              "p2": "Zbuduje zdanie dwuwyrazowe samodzielnie",
+              "p1": "Zbuduje zdanie trzywyrazowe: mama je zupę"
+            },
+            "B": {
+              "p3": "Uzupełni zdanie rozpoczęte przez dorosłego jednym słowem",
+              "p2": "Zbuduje zdanie trzywyrazowe do obrazka",
+              "p1": "Zbuduje zdanie czterowyrazowe z określeniem"
+            },
+            "C": {
+              "p3": "Zbuduje zdanie do obrazka, mając podany początek",
+              "p2": "Zbuduje zdanie złożone z „bo” albo „żeby”",
+              "p1": "Połączy dwa zdania w jedną wypowiedź o zdarzeniu"
+            }
+          },
+          "zalecenia": [
+            "rozbudowywanie wypowiedzi dziecka o jedno słowo",
+            "pytania otwarte zamiast pytań o tak i nie",
+            "zapisywanie najdłuższego zdania dziecka raz w tygodniu"
+          ],
+          "dostosowania": [
+            "zdanie dwuwyrazowe przez cały cykl u dziecka na poziomie III",
+            "klocki na słowa u dziecka gubiącego części zdania",
+            "budowanie zdania na tablicy AAC u dziecka niemówiącego"
+          ],
+          "uwaga_rozwojowa": "Zdanie dwuwyrazowe pojawia się około drugiego roku życia, zdania złożone około czwartego. Dziecko trzyletnie mówiące wyłącznie pojedynczymi słowami wymaga konsultacji logopedycznej, nawet gdy rozumie wszystko.",
+          "konspekty": {
+            "A": "kon-A-IV-4",
+            "B": "kon-B-IV-4",
+            "C": "kon-C-IV-4"
+          },
+          "pomoc_id": "IV.4",
+          "arkusz_id": "IV.4"
+        },
+        {
+          "nr": "IV.5",
+          "pozycja": 5,
+          "wskaznik": "Zadaje pytania i opowiada o tym, co robi.",
+          "krok_komunikacyjny": "postawienie pytania albo powiedzenie o własnym działaniu z własnej inicjatywy",
+          "opis_kroku": "Dziecko samo zaczyna wypowiedź: pyta o coś albo mówi, co robi. To język używany z inicjatywy dziecka, nie odpowiedź na pytanie dorosłego.",
+          "cele": {
+            "A": {
+              "p3": "Powtórzy pytanie „co to?” po wzorze dorosłego",
+              "p2": "Zapyta „co to?” o nieznany przedmiot",
+              "p1": "Zapyta o przedmiot i powie, co z nim robi"
+            },
+            "B": {
+              "p3": "Zada pytanie, mając kartę z początkiem pytania",
+              "p2": "Zada pytanie „gdzie” albo „kto” w zabawie",
+              "p1": "Opowie w dwóch zdaniach, co robi w danej chwili"
+            },
+            "C": {
+              "p3": "Zada pytanie do obrazka, mając podany początek",
+              "p2": "Zada pytanie „dlaczego” i wysłucha odpowiedzi",
+              "p1": "Opowie o swojej pracy: co zrobił, jak i po co"
+            }
+          },
+          "zalecenia": [
+            "tworzenie sytuacji zagadkowych wywołujących pytanie",
+            "odpowiadanie na pytania powtarzane, także po raz kolejny",
+            "zapisywanie pytań zadanych przez dziecko z własnej inicjatywy"
+          ],
+          "dostosowania": [
+            "karta z gotowym początkiem pytania u dziecka z trudnością rozpoczęcia wypowiedzi",
+            "pytanie wskazywane na tablicy AAC u dziecka niemówiącego",
+            "opowiadanie o pracy w parze zamiast przed grupą u dziecka wycofanego"
+          ],
+          "uwaga_rozwojowa": "Pytania „co to?” pojawiają się około drugiego roku życia, „dlaczego?” około czwartego. Dziecko, które nie zadaje pytań mimo sprawnej mowy, wymaga uwagi — brak inicjatywy językowej bywa sygnałem trudności w komunikacji, nie w mowie.",
+          "konspekty": {
+            "A": "kon-A-IV-5",
+            "B": "kon-B-IV-5",
+            "C": "kon-C-IV-5"
+          },
+          "pomoc_id": "IV.5",
+          "arkusz_id": "IV.5"
+        }
+      ]
+    },
+    {
+      "nr": "V",
+      "nazwa": "Komunikacja i budowanie wypowiedzi (pragmatyka)",
+      "icf": "d330 · d350 · d3350",
+      "pp": "PP 2.4·3.1·3.4",
+      "norma_rozwojowa": "sygnalizowanie potrzeb ok. 18 mies.; narracja ok. 4–5 r.ż.; dostosowanie wypowiedzi do rozmówcy ok. 5–6 r.ż.",
+      "opis": "Porozumiewanie się w praktyce: kontakt, prośba, opowiadanie, komunikacja wspomagająca.",
+      "zasada_mowy": "Każdy sposób porozumienia się jest komunikacją. Gest i obrazek nie opóźniają mowy — dają dziecku powód, żeby mówić, bo pokazują, że komunikat działa.",
+      "wskazniki": [
+        {
+          "nr": "V.1",
+          "pozycja": 1,
+          "wskaznik": "Nawiązuje i podtrzymuje kontakt.",
+          "krok_komunikacyjny": "zwrócenie się do drugiej osoby i pozostanie w rozmowie na dwie wymiany",
+          "opis_kroku": "Dziecko zaczepia rozmówcę i utrzymuje wymianę dłużej niż jedno zdanie. Bez tego kroku każda wypowiedź kończy się po pierwszej odpowiedzi dorosłego.",
+          "cele": {
+            "A": {
+              "p3": "Odpowie na powitanie gestem albo słowem, po wzorze dorosłego",
+              "p2": "Zwróci się do dorosłego imieniem albo dotknięciem, zanim coś powie",
+              "p1": "Odpowie na pytanie kolegi i doda jedno zdanie od siebie"
+            },
+            "B": {
+              "p3": "Utrzyma rozmowę przez jedną wymianę, z podpowiedzią dorosłego",
+              "p2": "Utrzyma rozmowę przez dwie wymiany z rówieśnikiem",
+              "p1": "Zacznie rozmowę z kolegą i zada mu pytanie"
+            },
+            "C": {
+              "p3": "Włączy się do rozmowy grupy po zaproszeniu przez dorosłego",
+              "p2": "Utrzyma rozmowę przez trzy wymiany, nie zmieniając tematu",
+              "p1": "Wróci do tematu rozmowy po przerwaniu jej przez kogoś innego"
+            }
+          },
+          "zalecenia": [
+            "rozmowa w parze przed rozmową w grupie",
+            "pauza dorosłego zamiast dopowiadania za dziecko",
+            "liczenie wymian w rozmowie zamiast długości zdań"
+          ],
+          "dostosowania": [
+            "rozmowa przy wspólnym przedmiocie u dziecka unikającego kontaktu wzrokowego",
+            "karta z gotowym pytaniem u dziecka, któremu rozmowa gaśnie",
+            "jedna wymiana jako cel przez cały cykl u dziecka na poziomie III"
+          ],
+          "uwaga_rozwojowa": "Wymiana zdań z rówieśnikiem pojawia się około trzeciego roku życia i wydłuża się z wiekiem. Dziecko rozmawiające wyłącznie z dorosłymi, a milczące wśród rówieśników, wymaga pracy nad kontaktem, nie nad zasobem słów.",
+          "konspekty": {
+            "A": "kon-A-V-1",
+            "B": "kon-B-V-1",
+            "C": "kon-C-V-1"
+          },
+          "pomoc_id": "V.1",
+          "arkusz_id": "V.1"
+        },
+        {
+          "nr": "V.2",
+          "pozycja": 2,
+          "wskaznik": "Sygnalizuje potrzeby słowem, gestem lub obrazkiem.",
+          "krok_komunikacyjny": "przekazanie potrzeby dowolnym sposobem — słowem, gestem albo kartą — zanim pojawi się płacz",
+          "opis_kroku": "Dziecko daje znać, czego potrzebuje, zanim narośnie napięcie. Sposób jest obojętny: liczy się to, że komunikat dotarł przed zachowaniem trudnym.",
+          "cele": {
+            "A": {
+              "p3": "Poda kartę potrzeby dorosłemu, gdy ten mu ją włoży do ręki",
+              "p2": "Poda kartę „proszę” albo powie słowo, gdy czegoś potrzebuje",
+              "p1": "Zasygnalizuje potrzebę słowem albo kartą, zanim zacznie płakać"
+            },
+            "B": {
+              "p3": "Wskaże potrzebę na tablicy z czterema symbolami",
+              "p2": "Poprosi o pomoc słowem, zanim odejdzie od zadania",
+              "p1": "Nazwie potrzebę i powie, kto może pomóc"
+            },
+            "C": {
+              "p3": "Zasygnalizuje potrzebę, mając tablicę symboli w zasięgu",
+              "p2": "Powie, czego potrzebuje i dlaczego, zanim przerwie zadanie",
+              "p1": "Poprosi o pomoc odpowiednią osobę, dobierając sposób do sytuacji"
+            }
+          },
+          "zalecenia": [
+            "stałe miejsce kart potrzeb w sali",
+            "natychmiastowa reakcja na każdy sygnał, także niewyraźny",
+            "uczenie sygnału w sytuacji spokojnej, nie w kryzysie"
+          ],
+          "dostosowania": [
+            "karta podawana do ręki u dziecka na poziomie III",
+            "tablica AAC zamiast pojedynczych kart u dziecka niemówiącego",
+            "gest umówiony zamiast słowa u dziecka, które milknie w napięciu"
+          ],
+          "uwaga_rozwojowa": "Sygnalizowanie potrzeb pojawia się około osiemnastego miesiąca życia, na długo przed mową zdaniową. Dziecko, które komunikuje potrzeby wyłącznie płaczem, wymaga wprowadzenia sposobu zastępczego, niezależnie od poziomu rozwoju mowy.",
+          "konspekty": {
+            "A": "kon-A-V-2",
+            "B": "kon-B-V-2",
+            "C": "kon-C-V-2"
+          },
+          "pomoc_id": "V.2",
+          "arkusz_id": "V.2"
+        },
+        {
+          "nr": "V.3",
+          "pozycja": 3,
+          "wskaznik": "Opowiada prostą historyjkę lub relacjonuje wydarzenie (narracja).",
+          "krok_komunikacyjny": "opowiedzenie zdarzenia w kolejności — co było najpierw, potem i na końcu",
+          "opis_kroku": "Dziecko układa wypowiedź z kilku zdań powiązanych czasem. Narracja jest najtrudniejszą formą wypowiedzi w przedszkolu i najlepiej zapowiada radzenie sobie z tekstem w szkole.",
+          "cele": {
+            "A": {
+              "p3": "Ułoży dwa obrazki historyjki w kolejności, z pomocą dorosłego",
+              "p2": "Opowie dwa obrazki historyjki, używając słów „najpierw” i „potem”",
+              "p1": "Opowie trzy obrazki historyjki w kolejności"
+            },
+            "B": {
+              "p3": "Opowie historyjkę trzyobrazkową, mając obrazki ułożone przez dorosłego",
+              "p2": "Ułoży i opowie historyjkę trzyobrazkową samodzielnie",
+              "p1": "Opowie o wydarzeniu z własnego dnia w trzech zdaniach"
+            },
+            "C": {
+              "p3": "Opowie wydarzenie z pomocą zdjęć zrobionych podczas zajęć",
+              "p2": "Opowie o wydarzeniu z zachowaniem kolejności i zakończenia",
+              "p1": "Opowie historię tak, żeby zrozumiał ją ktoś, kto jej nie widział"
+            }
+          },
+          "zalecenia": [
+            "układanie obrazków przed opowiadaniem",
+            "opowiadanie do osoby, która nie widziała zdarzenia",
+            "zapisywanie liczby zdań w relacji raz w tygodniu"
+          ],
+          "dostosowania": [
+            "dwa obrazki zamiast trzech u dziecka na poziomie III",
+            "zdjęcia z zajęć zamiast rysunków u dziecka słabiej czytającego rysunek",
+            "opowiadanie w parze zamiast przed grupą u dziecka wycofanego"
+          ],
+          "uwaga_rozwojowa": "Narracja z zachowaną kolejnością pojawia się około czwartego–piątego roku życia i dojrzewa jeszcze w szkole. Trudność w opowiadaniu przy sprawnej mowie zdaniowej jest sygnałem do pracy nad porządkowaniem zdarzeń, nie nad słownictwem.",
+          "konspekty": {
+            "A": "kon-A-V-3",
+            "B": "kon-B-V-3",
+            "C": "kon-C-V-3"
+          },
+          "pomoc_id": "V.3",
+          "arkusz_id": "V.3"
+        },
+        {
+          "nr": "V.4",
+          "pozycja": 4,
+          "wskaznik": "Dostosowuje wypowiedź do rozmówcy i sytuacji.",
+          "krok_komunikacyjny": "zmiana sposobu mówienia zależnie od tego, kto słucha i gdzie toczy się rozmowa",
+          "opis_kroku": "Dziecko mówi inaczej do młodszego kolegi niż do pani, inaczej w sali niż na dworze. Ten krok pokazuje, że dziecko myśli o odbiorcy, a nie tylko o tym, co chce powiedzieć.",
+          "cele": {
+            "A": {
+              "p3": "Powtórzy za dorosłym zwrot grzecznościowy w powitaniu",
+              "p2": "Użyje „proszę” i „dziękuję” w rozmowie z dorosłym",
+              "p1": "Mówi ciszej w sali, głośniej na dworze, po przypomnieniu"
+            },
+            "B": {
+              "p3": "Ściszy głos po pokazaniu karty ciszy",
+              "p2": "Dostosuje głośność do miejsca bez przypomnienia",
+              "p1": "Zwróci się inaczej do kolegi, a inaczej do dorosłego"
+            },
+            "C": {
+              "p3": "Wybierze właściwy zwrot do rozmówcy, mając dwie propozycje",
+              "p2": "Wyjaśni coś młodszemu dziecku prostszymi słowami",
+              "p1": "Dostosuje wypowiedź do rozmówcy i wyjaśni, dlaczego mówi inaczej"
+            }
+          },
+          "zalecenia": [
+            "pokazywanie różnicy na dwóch zdaniach zamiast polecenia „bądź grzeczny”",
+            "karty głośności w miejscach, gdzie zmienia się zasada",
+            "omawianie scenek po ich zakończeniu, nie w trakcie"
+          ],
+          "dostosowania": [
+            "jeden zwrot grzecznościowy naraz u dziecka na poziomie III",
+            "karta ciszy zamiast uwagi słownej u dziecka reagującego na hałas",
+            "scenka w parze zamiast przed grupą u dziecka wycofanego"
+          ],
+          "uwaga_rozwojowa": "Dostosowanie wypowiedzi do rozmówcy pojawia się około piątego–szóstego roku życia i wiąże się z rozwojem teorii umysłu. Dziecko mówiące do wszystkich tak samo nie jest niegrzeczne — jeszcze nie uwzględnia perspektywy słuchacza.",
+          "konspekty": {
+            "A": "kon-A-V-4",
+            "B": "kon-B-V-4",
+            "C": "kon-C-V-4"
+          },
+          "pomoc_id": "V.4",
+          "arkusz_id": "V.4"
+        },
+        {
+          "nr": "V.5",
+          "pozycja": 5,
+          "wskaznik": "Korzysta z komunikacji wspomagającej (gest, obrazek, AAC), gdy mowa nie wystarcza.",
+          "krok_komunikacyjny": "sięgnięcie po gest, obrazek albo tablicę AAC w miejscu, w którym słowo nie wystarczyło",
+          "opis_kroku": "Dziecko przechodzi na inny sposób porozumienia się, zamiast rezygnować z komunikatu. Cel dotyczy każdego dziecka, także mówiącego — mowa bywa niewystarczająca w hałasie, w napięciu i wobec obcych.",
+          "cele": {
+            "A": {
+              "p3": "Wskaże symbol na tablicy z czterema polami, z pomocą dorosłego",
+              "p2": "Wskaże symbol na tablicy z czterema polami samodzielnie",
+              "p1": "Użyje symbolu albo gestu, gdy dorosły nie zrozumiał słowa"
+            },
+            "B": {
+              "p3": "Skorzysta z tablicy AAC po podaniu jej przez dorosłego",
+              "p2": "Sięgnie po tablicę AAC sam, gdy słowo nie wystarczyło",
+              "p1": "Połączy dwa symbole w komunikat: chcę + pić"
+            },
+            "C": {
+              "p3": "Wskaże symbol po podpowiedzi, w sytuacji napięcia",
+              "p2": "Zbuduje komunikat z trzech symboli albo gestów",
+              "p1": "Wybierze sposób porozumienia się odpowiedni do sytuacji i rozmówcy"
+            }
+          },
+          "zalecenia": [
+            "dostępność tablicy AAC przez cały dzień, nie tylko na zajęciach",
+            "modelowanie symboli przez dorosłych podczas mówienia",
+            "te same symbole w planie dnia, na kartach pracy i w AAC"
+          ],
+          "dostosowania": [
+            "tablica czteropolowa u dziecka na poziomie III",
+            "karty przenośne na kółku dla dziecka poza salą",
+            "gest umówiony zamiast karty u dziecka z trudnością manipulacyjną"
+          ],
+          "uwaga_rozwojowa": "Komunikacja wspomagająca nie opóźnia rozwoju mowy — badania nad AAC pokazują odwrotny kierunek: dzieci korzystające z symboli mówią częściej, bo doświadczają skuteczności komunikatu. Odebranie systemu w celu wymuszenia mowy odbiera dziecku jedyny działający sposób porozumienia się.",
+          "konspekty": {
+            "A": "kon-A-V-5",
+            "B": "kon-B-V-5",
+            "C": "kon-C-V-5"
+          },
+          "pomoc_id": "V.5",
+          "arkusz_id": "V.5"
+        }
+      ]
+    }
+  ]
+}
