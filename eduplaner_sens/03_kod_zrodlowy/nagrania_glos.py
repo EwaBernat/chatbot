@@ -42,25 +42,29 @@ TIMEOUT = 180
 
 
 def wpisy() -> list[dict]:
+    """63 nagrania: 21 pomocy × 3 wersje wiekowe. Nagrywamy WYŁĄCZNIE
+    `polecenie_dla_dziecka` — instrukcji dla nauczyciela się nie nagrywa."""
     if not POMOCE.exists():
         raise SystemExit(f"Brak {POMOCE}. Uruchom najpierw: python3 03_kod_zrodlowy/eksport_json.py")
     dane = json.loads(POMOCE.read_text(encoding="utf-8"))
-    return [
-        {
-            "id": p["id"],
-            "wskaznik_id": p["wskaznik_id"],
-            "poziom_wsparcia": p["poziom_wsparcia"]["kod"],
-            "tekst": p["polecenie_dla_dziecka"],
-            "plik": p["nagranie"],
-            "czyta": "sklonowany głos autorki (dana biometryczna)",
-        }
-        for p in dane["polecenia_dla_dziecka"]
-    ]
+    lista = []
+    for pomoc in dane["pomoce"]:
+        for wersja, pol in pomoc["polecenia"].items():
+            lista.append({
+                "wskaznik": pomoc["wskaznik"],
+                "wersja_wiekowa": wersja,
+                "wiek": pol["wiek"],
+                "pomoc": pomoc["nazwa"],
+                "tekst": pol["polecenie_dla_dziecka"],
+                "plik": pol["nagranie"],
+                "czyta": "sklonowany głos autorki (dana biometryczna)",
+            })
+    return lista
 
 
 def zapisz_manifest(lista: list[dict]) -> None:
     MANIFEST.write_text(json.dumps({
-        "opis": "Manifest nagrań poleceń dla dziecka — profil sensoryczny.",
+        "opis": ("Manifest nagrań poleceń dla dziecka — profil sensoryczny. Ścieżki liczone od katalogu 04_media/, tak jak w module ABC/FBA."),
         "uwaga_prawna": (
             "Pliki audio to sklonowany głos autorki. Głos jest daną biometryczną: nie publikuj "
             "nagrań i nie używaj ich poza uzgodnionym zastosowaniem w aplikacji EduPlaner 2026."
@@ -140,7 +144,7 @@ def main() -> int:
         klucz, glos = klucz_i_glos()
         print("Głos jest daną biometryczną — nagrania zostają w uzgodnionym użyciu aplikacji.\n")
         for w in lista:
-            cel = KORZEN / w["plik"]
+            cel = KORZEN / "04_media" / w["plik"]
             cel.parent.mkdir(parents=True, exist_ok=True)
             if cel.exists() and not args.nadpisz:
                 print(f"pomijam {cel.name} (istnieje)")

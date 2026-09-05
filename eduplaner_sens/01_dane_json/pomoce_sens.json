@@ -1,1557 +1,848 @@
 {
-  "modul": {
-    "nazwa": "Profil sensoryczny — bank celów SMART (przedszkole)",
-    "kod": "SENS",
-    "wersja": "2026.1",
-    "autorka": "mgr Mirosława Ewa Jurczyszyn, pedagog specjalny, PCTP Koszalin",
-    "aplikacja": "EduPlaner 2026",
-    "druk_zrodlowy": "Profil sensoryczny (przedszkole) 2026 — obserwacja pogłębiona WOPF · SI",
-    "podstawa_merytoryczna": "Narzędzie obserwacyjne oparte na elementach Profilu Sensorycznego Winnie Dunn (Sensory Profile 2 — model czterech wzorców przetwarzania sensorycznego) oraz na teorii integracji sensorycznej A. Jean Ayres. Nie zastępuje diagnozy SI.",
-    "podstawa_prawna": [
-      "Rozp. MEN z 14.02.2017 r. w sprawie podstawy programowej wychowania przedszkolnego (Dz.U. 2017 poz. 356, ze zm.) — fizyczny obszar rozwoju.",
-      "Rozp. MEN z 9.08.2017 r. w sprawie pomocy psychologiczno-pedagogicznej (Dz.U. 2017 poz. 1591).",
-      "Rozp. MEN z 9.08.2017 r. w sprawie kształcenia specjalnego (Dz.U. 2017 poz. 1578) — zajęcia rewalidacyjne dla dzieci z orzeczeniem."
-    ],
-    "zasada_modulu": "Cel z tego banku opisuje STRATEGIĘ SENSORYCZNĄ dziecka — co dziecko ROBI, żeby poradzić sobie z bodźcem — a nie zanik objawu. „Nie będzie zatykał uszu” nie jest celem z tego modułu. „Założy słuchawki wygłuszające, zanim hałas w szatni go przeciąży” — jest. Każdy wskaźnik niesie pole `strategia_sensoryczna`; cel bez niego traci sens terapeutyczny."
-  },
-  "zasada_jezyka": "Kto co czyta, decyduje o języku. `polecenie_dla_dziecka` i `etykieta_dla_dziecka` mówi się DZIECKU — krótkimi zdaniami, bez trudnych słów; to są teksty nagrane głosem autorki. `trzy_kroki_uzycia`, `wskazowka_dla_doroslego`, `opis_dla_doroslego` i `instrukcja_slowna_doroslego` czyta NAUCZYCIEL. Nie wolno zamienić ich miejscami.",
+  "dokument": "EduPlaner 2026 · druk KC-4 · pomoce dydaktyczne do wskaźników profilu sensorycznego",
+  "opis": "Trzy kroki użycia i wskazówkę czyta DOROSŁY, polecenie mówi się DZIECKU — i to polecenie jest nagrane głosem autorki. Nagrania to dane biometryczne: nie publikuj ich poza uzgodnionym zastosowaniem.",
   "liczba_pomocy": 21,
-  "liczba_polecen": 63,
+  "liczba_nagran": 63,
   "pomoce": [
     {
-      "id": "P-SENS-01",
-      "wskaznik_id": "SENS-01",
-      "kod": "WZR-NAD",
-      "zmysl": {
-        "klucz": "wzrok",
-        "nazwa": "Wzrok",
-        "rzymska": "I",
-        "icf": "b210"
-      },
-      "sektor": {
-        "klucz": "nadwrazliwosc",
-        "nazwa": "Nadwrażliwość",
-        "skrot": "NAD",
-        "kierunek": "↑ za dużo bodźca"
-      },
+      "wskaznik": "I.1",
+      "zmysl": "I · Wzrok",
+      "sektor": "Nadwrażliwość",
       "nazwa": "Parawan stolikowy „Spokojne oczy” z kartą ZA JASNO",
-      "opis_dla_doroslego": "Składany parawan z szarego kartonu (3 pola po 25 × 30 cm) ustawiany na blacie, wraz z kartą-symbolem „ZA JASNO” w kolorze pomarańczowym. Parawan odcina boczne bodźce wzrokowe; karta daje dziecku sposób, żeby o osłonę poprosić.",
-      "trzy_kroki_uzycia": [
-        "Postaw parawan po lewej stronie blatu i połóż kartę „ZA JASNO” w zasięgu ręki dziecka.",
-        "Przy pierwszym mrużeniu oczu pokaż kartę i powiedz krótko, co robimy — nie czekaj na wycofanie.",
-        "Po zadaniu złóż parawan razem z dzieckiem i odnotuj, czy sygnał wyszedł od dziecka."
+      "co_przygotowac": [
+        "trzy pola szarego kartonu 25 × 30 cm, sklejone w parawan",
+        "karta „za jasno” 9 × 9 cm — jedna dla dziecka, jedna do planu dnia",
+        "miejsce w sali tyłem do okna, bez dekoracji na ścianie",
+        "jedna pomoc na blacie — resztę odsuwamy poza pole widzenia",
+        "daszek albo przepaska na oczy jako druga osłona do wyboru"
       ],
-      "wskazowka_dla_doroslego": "Nie zabieraj parawanu za wcześnie „bo już nie potrzebuje”. Osłona ma zostać dostępna także wtedy, gdy dziecko przez kilka dni z niej nie korzysta — to ona daje poczucie kontroli.",
-      "bezpieczenstwo": "przy skargach na ból oczu, częstym mrużeniu jednego oka lub przybliżaniu twarzy do kartki — skierowanie do okulisty przed pracą sensoryczną",
-      "etykieta_dla_dziecka": "ZA JASNO — chowam oczy",
-      "zdjecie": "04_media/eduplaner_sens/assets/pomoce_sens/p_01.jpg",
-      "arkusz_id": "A-SENS-01",
-      "symbole": [
-        "04_media/eduplaner_przedszkole/assets/symbole/k_za_jasno.jpg",
-        "04_media/eduplaner_przedszkole/assets/symbole/k_moje_miejsce.jpg",
-        "04_media/eduplaner_przedszkole/assets/symbole/k_postawa_stolik.jpg"
-      ]
+      "trzy_kroki_uzycia": [
+        "Postaw parawan po lewej stronie blatu i połóż kartę „za jasno” w zasięgu ręki dziecka.",
+        "Przy pierwszym mrużeniu oczu pokaż kartę i nazwij, co robimy — nie czekaj na wycofanie.",
+        "Po zadaniu złóż parawan razem z dzieckiem i zapisz, czy sygnał wyszedł od niego."
+      ],
+      "wskazowka_dla_doroslego": "Parawan nie jest nagrodą ani przywilejem. Wydawany „za dobre siedzenie” przestaje być narzędziem dziecka, a staje się narzędziem dorosłego — i przestaje działać.",
+      "bezpieczenstwo": "Skargi na ból oczu, mrużenie jednego oka i przybliżanie twarzy do kartki wymagają kontroli okulistycznej przed pracą sensoryczną.",
+      "zdjecie": "eduplaner_sens/assets/pomoce_sens/k_i_1.jpg",
+      "opis_zdjecia": "a low grey cardboard screen standing on a nursery table, one puzzle inside it, a small orange picture card lying within a child's reach",
+      "polecenia": {
+        "A": {
+          "wiek": "3–4 lata",
+          "polecenie_dla_dziecka": "Za jasno. Stawiamy parawan. Teraz układamy.",
+          "nagranie": "eduplaner_sens/assets/audio_sens/ai_1.mp3"
+        },
+        "B": {
+          "wiek": "5 lat",
+          "polecenie_dla_dziecka": "Popatrz na kartę. Jak jest za jasno, weź osłonę z półki i wracaj do zadania.",
+          "nagranie": "eduplaner_sens/assets/audio_sens/bi_1.mp3"
+        },
+        "C": {
+          "wiek": "6 lat",
+          "polecenie_dla_dziecka": "Zanim zaczniesz, ustaw sobie miejsce dla oczu. Powiedz mi, które wybierasz.",
+          "nagranie": "eduplaner_sens/assets/audio_sens/ci_1.mp3"
+        }
+      },
+      "arkusz_id": "I.1"
     },
     {
-      "id": "P-SENS-02",
-      "wskaznik_id": "SENS-02",
-      "kod": "WZR-POD",
-      "zmysl": {
-        "klucz": "wzrok",
-        "nazwa": "Wzrok",
-        "rzymska": "I",
-        "icf": "b210"
-      },
-      "sektor": {
-        "klucz": "podwrazliwosc",
-        "nazwa": "Podwrażliwość / poszukiwanie bodźców",
-        "skrot": "POD",
-        "kierunek": "↓ za mało bodźca"
-      },
-      "nazwa": "Butelka sensoryczna + okienko czytelnicze",
-      "opis_dla_doroslego": "Przezroczysta butelka z gliceryną i brokatem (bodziec na sygnał) oraz kartonowe okienko 6 × 3 cm do prowadzenia wzroku po obrazku. Dwie pomoce, jedna zasada: mocny bodziec ma swoje miejsce i swój czas, a zadanie ma swoje okienko.",
-      "trzy_kroki_uzycia": [
-        "Postaw butelkę na stałej półce — zawsze tej samej — i pokaż dziecku, gdzie stoi.",
-        "W zadaniu połóż okienko na pierwszym elemencie i przesuwaj je razem z dzieckiem od lewej do prawej.",
-        "Po zadaniu odnotuj, czy dziecko sięgnęło po butelkę na sygnał, czy wpatrywało się w lampę."
+      "wskaznik": "I.2",
+      "zmysl": "I · Wzrok",
+      "sektor": "Podwrażliwość / poszukiwanie bodźców",
+      "nazwa": "Butelka sensoryczna i okienko czytelnicze",
+      "co_przygotowac": [
+        "przezroczysta butelka z gliceryną i brokatem, zakręcona na stałe (klej do zakrętki)",
+        "stała półka na wysokości dziecka — zawsze ta sama",
+        "okienko czytelnicze z kartonu, 6 × 3 cm, dwie sztuki",
+        "klepsydra dwuminutowa",
+        "karta „światełka” do wymiany na przerwę"
       ],
-      "wskazowka_dla_doroslego": "Bodźca nie odbieramy — przenosimy go. Zabranie butelki „za karę” cofa cały plan: dziecko wróci do wpatrywania się w światło, bo potrzeba została ta sama.",
-      "bezpieczenstwo": "przysuwanie przedmiotów do oczu i pomijanie części obrazka wymaga wykluczenia wady wzroku — kontrola okulistyczna przed interwencją sensoryczną",
-      "etykieta_dla_dziecka": "ŚWIATEŁKA — patrzę tutaj",
-      "zdjecie": "04_media/eduplaner_sens/assets/pomoce_sens/p_02.jpg",
-      "arkusz_id": "A-SENS-02",
-      "symbole": [
-        "04_media/eduplaner_przedszkole/assets/symbole/k_swiatelka.jpg",
-        "04_media/eduplaner_przedszkole/assets/symbole/k_okienko.jpg",
-        "04_media/eduplaner_przedszkole/assets/symbole/k_patrz_tu.jpg"
-      ]
+      "trzy_kroki_uzycia": [
+        "Postaw butelkę na stałej półce i pokaż dziecku, gdzie stoi i kiedy można po nią przyjść.",
+        "W zadaniu połóż okienko na pierwszym polu i przesuwaj je razem z dzieckiem od lewej do prawej.",
+        "Po zadaniu zapisz, czy dziecko sięgnęło po bodziec na sygnał, czy wpatrywało się w lampę."
+      ],
+      "wskazowka_dla_doroslego": "Butelka musi być zakręcona na stałe, a brokat drobny. Butelka, którą da się otworzyć, przestaje być pomocą, a staje się zagrożeniem — zwłaszcza u dziecka, które wkłada rzeczy do ust.",
+      "bezpieczenstwo": "Przysuwanie przedmiotów do oczu i pomijanie części obrazka wymaga wykluczenia wady wzroku — kontrola okulistyczna przed interwencją sensoryczną.",
+      "zdjecie": "eduplaner_sens/assets/pomoce_sens/k_i_2.jpg",
+      "opis_zdjecia": "a clear sensory bottle with slowly settling glitter standing on a low shelf beside a small sand timer, and a cardboard reading window lying on a picture task",
+      "polecenia": {
+        "A": {
+          "wiek": "3–4 lata",
+          "polecenie_dla_dziecka": "Popatrz na światełka. Kiedy piasek się skończy, odkładamy butelkę.",
+          "nagranie": "eduplaner_sens/assets/audio_sens/ai_2.mp3"
+        },
+        "B": {
+          "wiek": "5 lat",
+          "polecenie_dla_dziecka": "Podaj kartę, jeśli chcesz światełka. Potem weź okienko i prowadź od lewej strony.",
+          "nagranie": "eduplaner_sens/assets/audio_sens/bi_2.mp3"
+        },
+        "C": {
+          "wiek": "6 lat",
+          "polecenie_dla_dziecka": "Powiedz mi, kiedy zrobisz sobie przerwę. Potem sprawdź, czy niczego nie pominąłeś.",
+          "nagranie": "eduplaner_sens/assets/audio_sens/ci_2.mp3"
+        }
+      },
+      "arkusz_id": "I.2"
     },
     {
-      "id": "P-SENS-03",
-      "wskaznik_id": "SENS-03",
-      "kod": "WZR-SZUM",
-      "zmysl": {
-        "klucz": "wzrok",
-        "nazwa": "Wzrok",
-        "rzymska": "I",
-        "icf": "b210"
-      },
-      "sektor": {
-        "klucz": "bialy_szum",
-        "nazwa": "Biały szum (reaktywność zmienna)",
-        "skrot": "SZUM",
-        "kierunek": "↕ raz za dużo, raz za mało"
-      },
-      "nazwa": "Termometr oczu (3 pola z klamerką)",
-      "opis_dla_doroslego": "Kartonowy pasek 10 × 30 cm z trzema polami — zielonym, żółtym i czerwonym — opisanymi obrazkiem, nie słowem. Klamerka pokazuje dzisiejszy poziom. Termometr wisi na wysokości oczu dziecka.",
-      "trzy_kroki_uzycia": [
-        "Rano, przy powitaniu, poproś dziecko o przypięcie klamerki — bez pytania „dlaczego”.",
-        "Odczytaj poziom na głos i powiedz, co z niego wynika: gdzie siadamy, jaka pomoc leży na stole.",
-        "Wieczorem przenieś odczyt do dziennika obserwacji — to on pokaże wzór zmienności."
+      "wskaznik": "I.3",
+      "zmysl": "I · Wzrok",
+      "sektor": "Biały szum (reaktywność zmienna)",
+      "nazwa": "Termometr oczu — trzy pola z klamerką",
+      "co_przygotowac": [
+        "pasek kartonu 10 × 30 cm z trzema polami: zielonym, żółtym i czerwonym",
+        "obrazek przy każdym polu — nie napis",
+        "klamerka do bielizny w kolorze dziecka",
+        "przy każdym polu rysunek dostosowania, które z niego wynika",
+        "miejsce na ścianie przy planie dnia, na wysokości oczu dziecka"
       ],
-      "wskazowka_dla_doroslego": "Nie poprawiaj wyboru dziecka, nawet gdy „widać, że dziś jest inaczej”. Termometr uczy rozpoznawania własnego stanu, a nie zgadywania odpowiedzi, której oczekuje dorosły.",
-      "bezpieczenstwo": "zmienność reakcji utrzymująca się mimo diety sensorycznej wymaga konsultacji neurologicznej i okulistycznej — może maskować napady nieświadomości",
-      "etykieta_dla_dziecka": "MOJE OCZY DZISIAJ",
-      "zdjecie": "04_media/eduplaner_sens/assets/pomoce_sens/p_03.jpg",
-      "arkusz_id": "A-SENS-03",
-      "symbole": [
-        "04_media/eduplaner_przedszkole/assets/symbole/k_termometr_oczu.jpg",
-        "04_media/eduplaner_przedszkole/assets/symbole/k_za_jasno.jpg",
-        "04_media/eduplaner_przedszkole/assets/symbole/k_moje_miejsce.jpg"
-      ]
+      "trzy_kroki_uzycia": [
+        "Powieś termometr przy planie dnia i pokaż dziecku wszystkie trzy pola pierwszego dnia.",
+        "Poproś o ustawienie klamerki przy powitaniu i odczytaj wybór na głos — bez pytania „dlaczego”.",
+        "Przenieś odczyt do dziennika obserwacji; po dwóch tygodniach pokaż dziecku cały tydzień."
+      ],
+      "wskazowka_dla_doroslego": "Odczyt przekazuj wszystkim dorosłym pracującym danego dnia z grupą. Termometr, o którym wie tylko jedna nauczycielka, działa przez pół dnia.",
+      "bezpieczenstwo": "Zmienność reakcji utrzymująca się mimo diety sensorycznej wymaga konsultacji neurologicznej i okulistycznej — może maskować napady nieświadomości.",
+      "zdjecie": "eduplaner_sens/assets/pomoce_sens/k_i_3.jpg",
+      "opis_zdjecia": "a vertical cardboard strip with three coloured fields and small pictures, a wooden clothes peg clipped to the middle field, hanging at child height next to a daily plan",
+      "polecenia": {
+        "A": {
+          "wiek": "3–4 lata",
+          "polecenie_dla_dziecka": "Jak dziś mają się twoje oczy? Przypnij klamerkę.",
+          "nagranie": "eduplaner_sens/assets/audio_sens/ai_3.mp3"
+        },
+        "B": {
+          "wiek": "5 lat",
+          "polecenie_dla_dziecka": "Ustaw dziś swój termometr, a potem wybierz miejsce przy stole.",
+          "nagranie": "eduplaner_sens/assets/audio_sens/bi_3.mp3"
+        },
+        "C": {
+          "wiek": "6 lat",
+          "polecenie_dla_dziecka": "Sprawdź termometr i powiedz mi, po czym poznajesz, że dziś jest inaczej.",
+          "nagranie": "eduplaner_sens/assets/audio_sens/ci_3.mp3"
+        }
+      },
+      "arkusz_id": "I.3"
     },
     {
-      "id": "P-SENS-04",
-      "wskaznik_id": "SENS-04",
-      "kod": "SLU-NAD",
-      "zmysl": {
-        "klucz": "sluch",
-        "nazwa": "Słuch",
-        "rzymska": "II",
-        "icf": "b230"
-      },
-      "sektor": {
-        "klucz": "nadwrazliwosc",
-        "nazwa": "Nadwrażliwość",
-        "skrot": "NAD",
-        "kierunek": "↑ za dużo bodźca"
-      },
-      "nazwa": "Słuchawki wygłuszające na wieszaku + karta ZA GŁOŚNO",
-      "opis_dla_doroslego": "Nauszniki pasywne (bez elektroniki) na wieszaku na wysokości dziecka, obok karta-symbol „ZA GŁOŚNO”. Zestaw działa tylko wtedy, gdy dziecko sięga po niego samo — wydawanie słuchawek „na prośbę dorosłego” nie buduje strategii.",
+      "wskaznik": "II.1",
+      "zmysl": "II · Słuch",
+      "sektor": "Nadwrażliwość",
+      "nazwa": "Słuchawki wygłuszające na wieszaku i karta ZA GŁOŚNO",
+      "co_przygotowac": [
+        "nauszniki pasywne, bez elektroniki, dopasowane w cichej sali",
+        "wieszak na wysokości dziecka, przy drzwiach do szatni",
+        "karta „za głośno” 9 × 9 cm — u dziecka i w planie dnia",
+        "kącik wyciszenia: miękka ściana, jedna książeczka, klepsydra",
+        "sygnał wizualny (lampka albo kartonik) zastępujący dzwonek"
+      ],
       "trzy_kroki_uzycia": [
         "Powieś słuchawki na stałym, dostępnym wieszaku i pokaż dziecku, gdzie wiszą.",
-        "Na dwie minuty przed hałaśliwą porą uprzedź tym samym zdaniem i wskaż wieszak.",
-        "Odnotuj, czy dziecko sięgnęło samo, czy dopiero po podaniu przez dorosłego."
+        "Dwie minuty przed hałaśliwą porą uprzedź tym samym zdaniem i wskaż wieszak.",
+        "Zapisz, czy dziecko sięgnęło samo, czy dopiero po podaniu przez dorosłego."
       ],
-      "wskazowka_dla_doroslego": "Słuchawki nie izolują dziecka od grupy — pozwalają w niej zostać. Zdejmowanie ich „bo już nie jest tak głośno” odbiera dziecku kontrolę i cofa efekt.",
-      "bezpieczenstwo": "nadwrażliwość słuchowa z zatykaniem uszu wymaga wykluczenia stanu zapalnego ucha i badania słuchu przed wdrożeniem diety sensorycznej",
-      "etykieta_dla_dziecka": "ZA GŁOŚNO — zakładam słuchawki",
-      "zdjecie": "04_media/eduplaner_sens/assets/pomoce_sens/p_04.jpg",
-      "arkusz_id": "A-SENS-04",
-      "symbole": [
-        "04_media/eduplaner_przedszkole/assets/symbole/k_za_glosno.jpg",
-        "04_media/eduplaner_przedszkole/assets/symbole/k_sluchawki.jpg",
-        "04_media/eduplaner_przedszkole/assets/symbole/k_kacik_wyciszenia.jpg"
-      ]
+      "wskazowka_dla_doroslego": "Dopasuj słuchawki w ciszy, nie w hałasie. Pierwsze założenie w gwarze szatni kończy się zerwaniem ich z głowy i niechęcią na kilka tygodni.",
+      "bezpieczenstwo": "Nadwrażliwość słuchowa z zatykaniem uszu wymaga wykluczenia stanu zapalnego ucha i badania słuchu przed wdrożeniem diety sensorycznej.",
+      "zdjecie": "eduplaner_sens/assets/pomoce_sens/k_ii_1.jpg",
+      "opis_zdjecia": "child-sized passive ear defenders hanging on a low hook by a cloakroom door, an orange picture card pinned beside them",
+      "polecenia": {
+        "A": {
+          "wiek": "3–4 lata",
+          "polecenie_dla_dziecka": "Za głośno. Zakładamy słuchawki. Jestem obok.",
+          "nagranie": "eduplaner_sens/assets/audio_sens/aii_1.mp3"
+        },
+        "B": {
+          "wiek": "5 lat",
+          "polecenie_dla_dziecka": "Za chwilę szatnia. Weź słuchawki z wieszaka.",
+          "nagranie": "eduplaner_sens/assets/audio_sens/bii_1.mp3"
+        },
+        "C": {
+          "wiek": "6 lat",
+          "polecenie_dla_dziecka": "Zaraz będzie głośno. Wybierz: słuchawki czy kącik wyciszenia?",
+          "nagranie": "eduplaner_sens/assets/audio_sens/cii_1.mp3"
+        }
+      },
+      "arkusz_id": "II.1"
     },
     {
-      "id": "P-SENS-05",
-      "wskaznik_id": "SENS-05",
-      "kod": "SLU-POD",
-      "zmysl": {
-        "klucz": "sluch",
-        "nazwa": "Słuch",
-        "rzymska": "II",
-        "icf": "b230"
-      },
-      "sektor": {
-        "klucz": "podwrazliwosc",
-        "nazwa": "Podwrażliwość / poszukiwanie bodźców",
-        "skrot": "POD",
-        "kierunek": "↓ za mało bodźca"
-      },
+      "wskaznik": "II.2",
+      "zmysl": "II · Słuch",
+      "sektor": "Podwrażliwość / poszukiwanie bodźców",
       "nazwa": "Kącik dźwięków z kartą wymiany",
-      "opis_dla_doroslego": "Trzy instrumenty w koszyku na stałej półce (bębenek, marakas, rura grzmotowa) i karta „CHCĘ DŹWIĘKI”. Dziecko wymienia kartę na dwie minuty grania — bodziec zostaje zaspokojony w miejscu i czasie, które nie rozbijają zabawy grupy.",
-      "trzy_kroki_uzycia": [
-        "Ustaw koszyk z instrumentami na stałej półce i pokaż dziecku kartę wymiany.",
-        "Przyjmij kartę, odlicz dwie minuty (klepsydra) i zamknij przerwę tym samym zdaniem.",
-        "Odnotuj, ile razy dziecko sięgnęło po kartę zamiast stukać w blat lub pomrukiwać."
+      "co_przygotowac": [
+        "koszyk z trzema instrumentami: bębenek, marakas, rura grzmotowa",
+        "stała półka na wysokości dziecka",
+        "karta „chcę dźwięki” do wymiany na dwie minuty grania",
+        "klepsydra dwuminutowa",
+        "karta z imieniem dziecka i symbolem „popatrz na mnie”"
       ],
-      "wskazowka_dla_doroslego": "Uciszanie („nie stukaj”) usuwa objaw i nie daje nic w zamian. Dopóki dziecko nie ma dokąd pójść po dźwięk, będzie go dobierać w czasie zajęć.",
-      "bezpieczenstwo": "brak reakcji na imię zawsze wymaga aktualnego badania słuchu (audiometria) — dopiero jego prawidłowy wynik pozwala mówić o podwrażliwości",
-      "etykieta_dla_dziecka": "CHCĘ DŹWIĘKI — idę do koszyka",
-      "zdjecie": "04_media/eduplaner_sens/assets/pomoce_sens/p_05.jpg",
-      "arkusz_id": "A-SENS-05",
-      "symbole": [
-        "04_media/eduplaner_przedszkole/assets/symbole/k_chce_dzwieki.jpg",
-        "04_media/eduplaner_przedszkole/assets/symbole/k_popatrz_na_mnie.jpg",
-        "04_media/eduplaner_przedszkole/assets/symbole/k_instrumenty.jpg"
-      ]
+      "trzy_kroki_uzycia": [
+        "Ustaw koszyk na stałej półce i pokaż dziecku kartę wymiany pierwszego dnia.",
+        "Przyjmij kartę, odwróć klepsydrę i zamknij przerwę zawsze tym samym zdaniem.",
+        "Zapisz, ile razy dziecko sięgnęło po kartę zamiast stukać w blat albo pomrukiwać."
+      ],
+      "wskazowka_dla_doroslego": "Wołaj dziecko po imieniu z odległości wyciągniętej ręki, nie z drugiego końca sali — dopóki reakcja nie jest pewna, wołanie z daleka uczy je, że imienia można nie usłyszeć.",
+      "bezpieczenstwo": "Brak reakcji na imię zawsze wymaga aktualnego badania słuchu — dopiero prawidłowy wynik audiometrii pozwala mówić o podwrażliwości.",
+      "zdjecie": "eduplaner_sens/assets/pomoce_sens/k_ii_2.jpg",
+      "opis_zdjecia": "a basket with a small drum, a maraca and a thunder tube on a low shelf, a picture exchange card and a two-minute sand timer next to it",
+      "polecenia": {
+        "A": {
+          "wiek": "3–4 lata",
+          "polecenie_dla_dziecka": "Popatrz na mnie. Jestem tutaj. Idziemy po bębenek.",
+          "nagranie": "eduplaner_sens/assets/audio_sens/aii_2.mp3"
+        },
+        "B": {
+          "wiek": "5 lat",
+          "polecenie_dla_dziecka": "Podaj kartę. Dwie minuty z instrumentem, potem wracamy.",
+          "nagranie": "eduplaner_sens/assets/audio_sens/bii_2.mp3"
+        },
+        "C": {
+          "wiek": "6 lat",
+          "polecenie_dla_dziecka": "Powiedz, kiedy zrobisz sobie dziś przerwę na dźwięki.",
+          "nagranie": "eduplaner_sens/assets/audio_sens/cii_2.mp3"
+        }
+      },
+      "arkusz_id": "II.2"
     },
     {
-      "id": "P-SENS-06",
-      "wskaznik_id": "SENS-06",
-      "kod": "SLU-SZUM",
-      "zmysl": {
-        "klucz": "sluch",
-        "nazwa": "Słuch",
-        "rzymska": "II",
-        "icf": "b230"
-      },
-      "sektor": {
-        "klucz": "bialy_szum",
-        "nazwa": "Biały szum (reaktywność zmienna)",
-        "skrot": "SZUM",
-        "kierunek": "↕ raz za dużo, raz za mało"
-      },
+      "wskaznik": "II.3",
+      "zmysl": "II · Słuch",
+      "sektor": "Biały szum (reaktywność zmienna)",
       "nazwa": "Radio uszu — tarcza z trzema poziomami",
-      "opis_dla_doroslego": "Kartonowa tarcza o średnicy 20 cm z ruchomą strzałką i trzema polami opisanymi obrazkiem: ucho przekreślone (cicho), ucho zwykłe (średnio), ucho z falami (głośno). Przy każdym polu narysowane dostosowanie, które z niego wynika.",
+      "co_przygotowac": [
+        "tarcza z kartonu, średnica 20 cm, trzy pola z obrazkami ucha",
+        "ruchoma strzałka na zapince",
+        "trzy karty dostosowań: słuchawki, miejsce z brzegu, bez wsparcia",
+        "miejsce przy planie dnia, na wysokości oczu dziecka",
+        "dziennik obserwacji z rubryką na odczyt"
+      ],
       "trzy_kroki_uzycia": [
-        "Powieś tarczę przy planie dnia, na wysokości oczu dziecka.",
+        "Powieś tarczę przy planie dnia i pokaż dziecku wszystkie trzy pola pierwszego dnia.",
         "Poproś o ustawienie strzałki przed pierwszymi zajęciami i odczytaj wybór na głos.",
         "Przekaż odczyt drugiemu nauczycielowi i zapisz go w dzienniku obserwacji."
       ],
-      "wskazowka_dla_doroslego": "Zmienność nie jest kaprysem. Jeżeli dziecko dziś nie reaguje na wołanie, a wczoraj reagowało — to jest dana do zapisania, a nie powód do upomnienia.",
-      "bezpieczenstwo": "naprzemienne reagowanie na szept i brak reakcji na głośne wołanie może wskazywać na wysiękowe zapalenie ucha — wymaga kontroli laryngologicznej",
-      "etykieta_dla_dziecka": "MOJE USZY DZISIAJ",
-      "zdjecie": "04_media/eduplaner_sens/assets/pomoce_sens/p_06.jpg",
-      "arkusz_id": "A-SENS-06",
-      "symbole": [
-        "04_media/eduplaner_przedszkole/assets/symbole/k_radio_uszu.jpg",
-        "04_media/eduplaner_przedszkole/assets/symbole/k_sluchawki.jpg",
-        "04_media/eduplaner_przedszkole/assets/symbole/k_miejsce_z_brzegu.jpg"
-      ]
+      "wskazowka_dla_doroslego": "Nie mów „wczoraj ci nie przeszkadzało”. To zdanie kończy sprawdzanie poziomu szybciej niż jakikolwiek hałas — dziecko przestaje ufać własnemu odczytowi.",
+      "bezpieczenstwo": "Naprzemienne reagowanie na szept i brak reakcji na głośne wołanie może wskazywać na wysiękowe zapalenie ucha — wymaga kontroli laryngologicznej.",
+      "zdjecie": "eduplaner_sens/assets/pomoce_sens/k_ii_3.jpg",
+      "opis_zdjecia": "a round cardboard dial with three pictogram fields showing a crossed-out ear, a plain ear and an ear with sound waves, a movable arrow pinned in the middle",
+      "polecenia": {
+        "A": {
+          "wiek": "3–4 lata",
+          "polecenie_dla_dziecka": "Sprawdzamy uszy. Przesuń strzałkę.",
+          "nagranie": "eduplaner_sens/assets/audio_sens/aii_3.mp3"
+        },
+        "B": {
+          "wiek": "5 lat",
+          "polecenie_dla_dziecka": "Ustaw radio uszu i wybierz, czego dziś potrzebujesz.",
+          "nagranie": "eduplaner_sens/assets/audio_sens/bii_3.mp3"
+        },
+        "C": {
+          "wiek": "6 lat",
+          "polecenie_dla_dziecka": "Sprawdź tarczę i powiedz mi, jeśli w ciągu dnia coś się zmieni.",
+          "nagranie": "eduplaner_sens/assets/audio_sens/cii_3.mp3"
+        }
+      },
+      "arkusz_id": "II.3"
     },
     {
-      "id": "P-SENS-07",
-      "wskaznik_id": "SENS-07",
-      "kod": "DOT-NAD",
-      "zmysl": {
-        "klucz": "dotyk",
-        "nazwa": "Dotyk",
-        "rzymska": "III",
-        "icf": "b265"
-      },
-      "sektor": {
-        "klucz": "nadwrazliwosc",
-        "nazwa": "Nadwrażliwość",
-        "skrot": "NAD",
-        "kierunek": "↑ za dużo bodźca"
-      },
-      "nazwa": "Znak „MOJE MIEJSCE” + karta NIE TERAZ",
-      "opis_dla_doroslego": "Naklejka-stopy na podłodze (koniec kolejki, brzeg dywanu) oraz karta „NIE TERAZ” z symbolem otwartej dłoni. Znak daje przewidywalność, karta — sposób odmowy inny niż odepchnięcie.",
+      "wskaznik": "III.1",
+      "zmysl": "III · Dotyk",
+      "sektor": "Nadwrażliwość",
+      "nazwa": "Znak „MOJE MIEJSCE” i karta NIE TERAZ",
+      "co_przygotowac": [
+        "para stópek do naklejenia na podłogę: przy drzwiach i na brzegu dywanu",
+        "karta „nie teraz” z symbolem otwartej dłoni — do kieszeni fartuszka",
+        "koc do docisku przed sytuacją bliskości",
+        "miejsce w kolejce zawsze na końcu albo na początku — nigdy w środku",
+        "zapasowe ubranie dziecka bez metek, przygotowane przez rodzica"
+      ],
       "trzy_kroki_uzycia": [
         "Naklej znak w dwóch miejscach: przy drzwiach do szatni i na brzegu dywanu.",
-        "Ucz karty „NIE TERAZ” na spokojnie, w zabawie — nie w momencie konfliktu.",
-        "Po każdej sytuacji z bliskością odnotuj, czy dziecko użyło znaku, karty, czy odepchnęło."
+        "Ucz karty „nie teraz” w spokojnej zabawie — nigdy w momencie konfliktu.",
+        "Po każdej sytuacji z bliskością zapisz, czy dziecko użyło znaku, karty, czy odepchnęło."
       ],
-      "wskazowka_dla_doroslego": "Uprzedzaj o dotyku zawsze — także wtedy, gdy pomagasz. Dotyk „z zaskoczenia”, nawet życzliwy, uruchamia obronę i psuje efekt tygodni pracy.",
-      "bezpieczenstwo": "gwałtowna obrona przed myciem głowy i obcinaniem paznokci bywa objawem obronności dotykowej wymagającej terapii SI — sama dieta sensoryczna nie wystarczy",
-      "etykieta_dla_dziecka": "NIE TERAZ — potrzebuję miejsca",
-      "zdjecie": "04_media/eduplaner_sens/assets/pomoce_sens/p_07.jpg",
-      "arkusz_id": "A-SENS-07",
-      "symbole": [
-        "04_media/eduplaner_przedszkole/assets/symbole/k_moje_miejsce.jpg",
-        "04_media/eduplaner_przedszkole/assets/symbole/k_nie_teraz.jpg",
-        "04_media/eduplaner_przedszkole/assets/symbole/k_kolejka.jpg"
-      ]
+      "wskazowka_dla_doroslego": "Zanim wyślesz dziecko w kolejkę, daj mu docisk: zabawę w naleśnik albo mocne przytulenie w kocu. Propriocepcja wycisza układ dotykowy i obniża próg drażliwości na kilkanaście minut.",
+      "bezpieczenstwo": "Gwałtowna obrona przed myciem głowy i obcinaniem paznokci bywa objawem obronności dotykowej wymagającej terapii SI — sama dieta sensoryczna nie wystarczy.",
+      "zdjecie": "eduplaner_sens/assets/pomoce_sens/k_iii_1.jpg",
+      "opis_zdjecia": "two footprint stickers on a nursery floor by the cloakroom door, and a small card with an open-hand symbol tucked into an apron pocket",
+      "polecenia": {
+        "A": {
+          "wiek": "3–4 lata",
+          "polecenie_dla_dziecka": "Stajemy na stópkach. Jestem obok ciebie.",
+          "nagranie": "eduplaner_sens/assets/audio_sens/aiii_1.mp3"
+        },
+        "B": {
+          "wiek": "5 lat",
+          "polecenie_dla_dziecka": "Twoje miejsce jest na stópkach. Kartę „nie teraz” masz w kieszeni.",
+          "nagranie": "eduplaner_sens/assets/audio_sens/biii_1.mp3"
+        },
+        "C": {
+          "wiek": "6 lat",
+          "polecenie_dla_dziecka": "Wybierz miejsce, zanim ustawimy się w kolejce. Powiedz, gdzie dziś stajesz.",
+          "nagranie": "eduplaner_sens/assets/audio_sens/ciii_1.mp3"
+        }
+      },
+      "arkusz_id": "III.1"
     },
     {
-      "id": "P-SENS-08",
-      "wskaznik_id": "SENS-08",
-      "kod": "DOT-POD",
-      "zmysl": {
-        "klucz": "dotyk",
-        "nazwa": "Dotyk",
-        "rzymska": "III",
-        "icf": "b265"
-      },
-      "sektor": {
-        "klucz": "podwrazliwosc",
-        "nazwa": "Podwrażliwość / poszukiwanie bodźców",
-        "skrot": "POD",
-        "kierunek": "↓ za mało bodźca"
-      },
-      "nazwa": "Skrzynka sensoryczna + gniotek kieszonkowy",
-      "opis_dla_doroslego": "Płaska skrzynka (40 × 30 cm) z sypkim materiałem i ukrytymi w nim drobiazgami oraz gniotek trzymany w kieszeni fartuszka. Skrzynka to bodziec zaplanowany, gniotek — bodziec dostępny w każdej chwili, także w kręgu.",
+      "wskaznik": "III.2",
+      "zmysl": "III · Dotyk",
+      "sektor": "Podwrażliwość / poszukiwanie bodźców",
+      "nazwa": "Skrzynka sensoryczna i gniotek kieszonkowy",
+      "co_przygotowac": [
+        "płaska skrzynka 40 × 30 cm z sypkim materiałem (ryż, kasztany, makaron)",
+        "pięć drobiazgów do ukrycia w materiale — na tyle dużych, żeby nie dało się ich połknąć",
+        "gniotek albo kawałek masy w kieszeni fartuszka, wydawany rano",
+        "klepsydra trzyminutowa",
+        "miejsce w kręgu przy brzegu, z jednym sąsiadem"
+      ],
       "trzy_kroki_uzycia": [
-        "Ustaw skrzynkę na stałym miejscu i ustal z dzieckiem porę: przed kręgiem, po obiedzie.",
-        "Włóż gniotka do kieszeni fartuszka rano — nie wydawaj go „za dobre zachowanie”.",
-        "Odnotuj, czy w kręgu ręce dziecka były na gniotku, czy na sąsiedzie."
+        "Ustaw skrzynkę na stałym miejscu i ustal z dzieckiem porę: przed kręgiem i po obiedzie.",
+        "Włóż gniotka do kieszeni fartuszka rano — nie wydawaj go za dobre zachowanie.",
+        "Zapisz, czy w kręgu ręce dziecka były na gniotku, czy na sąsiedzie."
       ],
-      "wskazowka_dla_doroslego": "Zabranie gniotka za potrącenie kolegi jest karą za potrzebę, nie za czyn — i wraca podwójnym dotykaniem po pięciu minutach.",
-      "bezpieczenstwo": "obniżone czucie bólu i temperatury wymaga codziennej kontroli skóry (oparzenia, otarcia) i informacji dla rodziców — dziecko może nie zgłosić urazu",
-      "etykieta_dla_dziecka": "RĘCE DO PRACY — mam swojego gniotka",
-      "zdjecie": "04_media/eduplaner_sens/assets/pomoce_sens/p_08.jpg",
-      "arkusz_id": "A-SENS-08",
-      "symbole": [
-        "04_media/eduplaner_przedszkole/assets/symbole/k_rece_do_pracy.jpg",
-        "04_media/eduplaner_przedszkole/assets/symbole/k_skrzynka.jpg",
-        "04_media/eduplaner_przedszkole/assets/symbole/k_gniotek.jpg"
-      ]
+      "wskazowka_dla_doroslego": "Przy obniżonym czuciu bólu sprawdzaj skórę dziecka codziennie i informuj rodziców. Dziecko może nie zgłosić otarcia ani oparzenia, a siniak zauważony po tygodniu jest kłopotem dla wszystkich.",
+      "bezpieczenstwo": "Obniżone czucie bólu i temperatury wymaga codziennej kontroli skóry i informacji dla rodziców — dziecko może nie zgłosić urazu ani oparzenia.",
+      "zdjecie": "eduplaner_sens/assets/pomoce_sens/k_iii_2.jpg",
+      "opis_zdjecia": "a shallow tray filled with rice and small hidden objects on a nursery table, a soft squeeze ball resting beside it",
+      "polecenia": {
+        "A": {
+          "wiek": "3–4 lata",
+          "polecenie_dla_dziecka": "Ręce na gniotka. Siedzimy do końca piosenki.",
+          "nagranie": "eduplaner_sens/assets/audio_sens/aiii_2.mp3"
+        },
+        "B": {
+          "wiek": "5 lat",
+          "polecenie_dla_dziecka": "Weź gniotka z kieszeni. Twoje ręce pracują tutaj.",
+          "nagranie": "eduplaner_sens/assets/audio_sens/biii_2.mp3"
+        },
+        "C": {
+          "wiek": "6 lat",
+          "polecenie_dla_dziecka": "Zaplanuj, kiedy dziś idziesz do skrzynki.",
+          "nagranie": "eduplaner_sens/assets/audio_sens/ciii_2.mp3"
+        }
+      },
+      "arkusz_id": "III.2"
     },
     {
-      "id": "P-SENS-09",
-      "wskaznik_id": "SENS-09",
-      "kod": "DOT-SZUM",
-      "zmysl": {
-        "klucz": "dotyk",
-        "nazwa": "Dotyk",
-        "rzymska": "III",
-        "icf": "b265"
-      },
-      "sektor": {
-        "klucz": "bialy_szum",
-        "nazwa": "Biały szum (reaktywność zmienna)",
-        "skrot": "SZUM",
-        "kierunek": "↕ raz za dużo, raz za mało"
-      },
+      "wskaznik": "III.3",
+      "zmysl": "III · Dotyk",
+      "sektor": "Biały szum (reaktywność zmienna)",
       "nazwa": "Mapa ubrania i skala faktur 1–2–3",
-      "opis_dla_doroslego": "Karta z sylwetką dziecka do zaznaczenia miejsc, które dziś drapią, oraz pasek ze skalą faktur: suche (piasek, ryż) — wilgotne (masa, ciastolina) — lepkie (klej, farba palcowa).",
+      "co_przygotowac": [
+        "karta z sylwetką dziecka do zaznaczania miejsc drażniących",
+        "pasek skali faktur z obrazkami: suche — wilgotne — lepkie",
+        "dwa warianty ubrania w worku, bez metek, przygotowane przez rodzica",
+        "miska z wodą i ręcznik przy stole plastycznym",
+        "materiały z trzech poziomów, dostępne równocześnie"
+      ],
       "trzy_kroki_uzycia": [
         "Rano pokaż sylwetkę i poproś o wskazanie miejsc, które dziś przeszkadzają.",
         "Przed plastyką połóż pasek skali i przyjmij wskazanie dziecka bez negocjacji.",
-        "Zapisz poziom w dzienniku i przekaż go rodzicowi przy odbiorze."
+        "Zapisz poziom w dzienniku i przekaż go rodzicowi przy odbiorze dziecka."
       ],
-      "wskazowka_dla_doroslego": "Nie podnoś poziomu „na próbę”, gdy dziecko wskazało 1. Jedno wymuszone dotknięcie kleju potrafi zamknąć plastykę na kilka tygodni.",
-      "bezpieczenstwo": "nagły wzrost drażliwości dotykowej może być objawem infekcji, gorączki lub bólu — najpierw wyklucz przyczynę medyczną",
-      "etykieta_dla_dziecka": "DZISIAJ MOGĘ TYLE",
-      "zdjecie": "04_media/eduplaner_sens/assets/pomoce_sens/p_09.jpg",
-      "arkusz_id": "A-SENS-09",
-      "symbole": [
-        "04_media/eduplaner_przedszkole/assets/symbole/k_mapa_ubrania.jpg",
-        "04_media/eduplaner_przedszkole/assets/symbole/k_skala_faktur.jpg",
-        "04_media/eduplaner_przedszkole/assets/symbole/k_plastyka.jpg"
-      ]
+      "wskazowka_dla_doroslego": "Nagły wzrost drażliwości dotykowej sprawdź najpierw medycznie: gorączka, ból ucha albo ząbkowanie podnoszą próg drażliwości bardziej niż jakikolwiek materiał plastyczny.",
+      "bezpieczenstwo": "Nagły wzrost drażliwości dotykowej może być objawem infekcji, gorączki albo bólu — najpierw wyklucz przyczynę medyczną.",
+      "zdjecie": "eduplaner_sens/assets/pomoce_sens/k_iii_3.jpg",
+      "opis_zdjecia": "a paper body outline with a few areas circled, next to a three-step texture scale strip showing sand, dough and glue",
+      "polecenia": {
+        "A": {
+          "wiek": "3–4 lata",
+          "polecenie_dla_dziecka": "Pokaż, co dziś drapie. Wybierzemy ubranie razem.",
+          "nagranie": "eduplaner_sens/assets/audio_sens/aiii_3.mp3"
+        },
+        "B": {
+          "wiek": "5 lat",
+          "polecenie_dla_dziecka": "Wskaż na pasku: jeden, dwa czy trzy?",
+          "nagranie": "eduplaner_sens/assets/audio_sens/biii_3.mp3"
+        },
+        "C": {
+          "wiek": "6 lat",
+          "polecenie_dla_dziecka": "Ustal swój poziom. Możesz zejść niżej, kiedy zechcesz.",
+          "nagranie": "eduplaner_sens/assets/audio_sens/ciii_3.mp3"
+        }
+      },
+      "arkusz_id": "III.3"
     },
     {
-      "id": "P-SENS-10",
-      "wskaznik_id": "SENS-10",
-      "kod": "SMA-NAD",
-      "zmysl": {
-        "klucz": "smak",
-        "nazwa": "Smak",
-        "rzymska": "IV",
-        "icf": "b250"
-      },
-      "sektor": {
-        "klucz": "nadwrazliwosc",
-        "nazwa": "Nadwrażliwość",
-        "skrot": "NAD",
-        "kierunek": "↑ za dużo bodźca"
-      },
-      "nazwa": "Drabina oswajania jedzenia (6 szczebli) + talerzyk do prób",
-      "opis_dla_doroslego": "Pionowa karta z sześcioma szczeblami: patrzę · dotykam widelcem · wącham · dotykam wargą · liżę · gryzę, każdy z obrazkiem. Do tego mały talerzyk na nową potrawę, stawiany zawsze z tej samej strony.",
+      "wskaznik": "IV.1",
+      "zmysl": "IV · Smak",
+      "sektor": "Nadwrażliwość",
+      "nazwa": "Drabina oswajania jedzenia i talerzyk do prób",
+      "co_przygotowac": [
+        "karta drabiny A4 pionowo, sześć szczebli z obrazkami",
+        "strzałka albo klamerka do zaznaczania szczebla",
+        "mały talerzyk do prób, zawsze stawiany z tej samej strony",
+        "produkt pewny na talerzu głównym, niezależnie od dania dnia",
+        "widelczyk i serwetka w zasięgu ręki dziecka"
+      ],
       "trzy_kroki_uzycia": [
         "Postaw talerzyk do prób obok talerza i połóż na nim jedną nową rzecz — nie trzy.",
         "Pokaż drabinę i zapytaj wyłącznie: „gdzie dziś jesteś?”. Nie proponuj wyżej.",
-        "Odnotuj szczebel; przy następnym posiłku zacznij od tego samego, nie od wyższego."
+        "Zapisz szczebel; przy następnym posiłku zacznij od tego samego, nie od wyższego."
       ],
-      "wskazowka_dla_doroslego": "Zdanie „spróbuj tylko kawałeczek” cofa dziecko na sam dół drabiny. Sukcesem jest to, że nowa potrawa leży na stole i dziecko na nią patrzy.",
-      "bezpieczenstwo": "repertuar poniżej 15 produktów, spadek masy ciała lub krztuszenie się wymagają skierowania do lekarza i logopedy/neurologopedy — to zaburzenie karmienia, nie tylko sensoryka",
-      "etykieta_dla_dziecka": "MOJA DRABINA — dziś jestem tutaj",
-      "zdjecie": "04_media/eduplaner_sens/assets/pomoce_sens/p_10.jpg",
-      "arkusz_id": "A-SENS-10",
-      "symbole": [
-        "04_media/eduplaner_przedszkole/assets/symbole/k_drabina_jedzenie.jpg",
-        "04_media/eduplaner_przedszkole/assets/symbole/k_talerzyk_prob.jpg",
-        "04_media/eduplaner_przedszkole/assets/symbole/k_posilek.jpg"
-      ]
+      "wskazowka_dla_doroslego": "Nie chwal za jedzenie. Pochwała robi z posiłku zadanie do zaliczenia i wraca odmową w dniu, w którym dziecko nie ma sił na sukces.",
+      "bezpieczenstwo": "Repertuar poniżej piętnastu produktów, spadek masy ciała albo krztuszenie się wymagają skierowania do lekarza i neurologopedy — to zaburzenie karmienia, nie sama sensoryka.",
+      "zdjecie": "eduplaner_sens/assets/pomoce_sens/k_iv_1.jpg",
+      "opis_zdjecia": "a vertical card with six pictogram rungs beside a small side plate holding one piece of unfamiliar food, next to a child's main plate",
+      "polecenia": {
+        "A": {
+          "wiek": "3–4 lata",
+          "polecenie_dla_dziecka": "Popatrz, tu jest nowe jedzenie. Nie musisz jeść.",
+          "nagranie": "eduplaner_sens/assets/audio_sens/aiv_1.mp3"
+        },
+        "B": {
+          "wiek": "5 lat",
+          "polecenie_dla_dziecka": "Pokaż na drabinie, gdzie dziś jesteś. Zrób ten jeden szczebel.",
+          "nagranie": "eduplaner_sens/assets/audio_sens/biv_1.mp3"
+        },
+        "C": {
+          "wiek": "6 lat",
+          "polecenie_dla_dziecka": "Wybierz, co dziś poznajesz. Powiedz mi, co zrobisz jutro.",
+          "nagranie": "eduplaner_sens/assets/audio_sens/civ_1.mp3"
+        }
+      },
+      "arkusz_id": "IV.1"
     },
     {
-      "id": "P-SENS-11",
-      "wskaznik_id": "SENS-11",
-      "kod": "SMA-POD",
-      "zmysl": {
-        "klucz": "smak",
-        "nazwa": "Smak",
-        "rzymska": "IV",
-        "icf": "b250"
-      },
-      "sektor": {
-        "klucz": "podwrazliwosc",
-        "nazwa": "Podwrażliwość / poszukiwanie bodźców",
-        "skrot": "POD",
-        "kierunek": "↓ za mało bodźca"
-      },
-      "nazwa": "Gryzak na sznurku + rurka i łyżeczka jednego kęsa",
-      "opis_dla_doroslego": "Silikonowy gryzak przypięty do fartuszka (mycie codziennie), wąska rurka do gęstych napojów oraz mała łyżeczka wyznaczająca wielkość kęsa. Trzy przedmioty, jedna zasada: usta dostają mocny bodziec w formie bezpiecznej.",
+      "wskaznik": "IV.2",
+      "zmysl": "IV · Smak",
+      "sektor": "Podwrażliwość / poszukiwanie bodźców",
+      "nazwa": "Gryzak na sznurku, rurka i łyżeczka jednego kęsa",
+      "co_przygotowac": [
+        "gryzak silikonowy przypinany do fartuszka, myty codziennie",
+        "wąska rurka i gęsty napój: kisiel albo jogurt pitny",
+        "chrupiąca przekąska bezpieczna dla dziecka (sprawdź alergie)",
+        "mała łyżeczka wyznaczająca wielkość kęsa",
+        "zamykane pudełko na drobne przedmioty z sali"
+      ],
       "trzy_kroki_uzycia": [
-        "Przypnij gryzak rano i pokaż dziecku, że jest jego — nie wydawaj go na prośbę.",
-        "Przed zadaniem przy stoliku podaj gęsty napój przez rurkę (1–2 minuty ssania).",
+        "Przypnij gryzak rano i powiedz dziecku, że jest jego — nie wydawaj go na prośbę.",
+        "Przed zadaniem przy stoliku podaj gęsty napój przez rurkę: jedna do dwóch minut ssania.",
         "Przy posiłku połóż małą łyżeczkę i przypominaj krótko: „jeden kęs”."
       ],
-      "wskazowka_dla_doroslego": "Zabranie gryzaka nie kończy gryzienia — przenosi je na rękawy i kredki. Gryzak myje się codziennie i wymienia przy pierwszych śladach nadgryzienia.",
-      "bezpieczenstwo": "wkładanie do ust przedmiotów niejadalnych to ryzyko zadławienia i zatrucia — wymaga stałego nadzoru, kontroli zasięgu drobnych przedmiotów oraz wykluczenia niedoboru żelaza (pica)",
-      "etykieta_dla_dziecka": "MOCNO W BUZI — mam swój gryzak",
-      "zdjecie": "04_media/eduplaner_sens/assets/pomoce_sens/p_11.jpg",
-      "arkusz_id": "A-SENS-11",
-      "symbole": [
-        "04_media/eduplaner_przedszkole/assets/symbole/k_gryzak.jpg",
-        "04_media/eduplaner_przedszkole/assets/symbole/k_rurka.jpg",
-        "04_media/eduplaner_przedszkole/assets/symbole/k_chrupiace.jpg"
-      ]
+      "wskazowka_dla_doroslego": "Sprawdź gryzak codziennie przed użyciem. Nadgryziony silikon odrywa się kawałkami i z pomocy robi się dokładnie to zagrożenie, przed którym miał chronić.",
+      "bezpieczenstwo": "Wkładanie do ust przedmiotów niejadalnych to ryzyko zadławienia i zatrucia — wymaga stałego nadzoru, kontroli zasięgu drobnych rzeczy oraz wykluczenia niedoboru żelaza (pica).",
+      "zdjecie": "eduplaner_sens/assets/pomoce_sens/k_iv_2.jpg",
+      "opis_zdjecia": "a silicone chew pendant clipped to a nursery apron, a narrow straw in a cup of thick drink and a small measuring spoon on a plate",
+      "polecenia": {
+        "A": {
+          "wiek": "3–4 lata",
+          "polecenie_dla_dziecka": "Buzia chce mocno. Bierzemy gryzak. Kredka zostaje na stole.",
+          "nagranie": "eduplaner_sens/assets/audio_sens/aiv_2.mp3"
+        },
+        "B": {
+          "wiek": "5 lat",
+          "polecenie_dla_dziecka": "Napij się przez rurkę. Potem jeden kęs, i następny.",
+          "nagranie": "eduplaner_sens/assets/audio_sens/biv_2.mp3"
+        },
+        "C": {
+          "wiek": "6 lat",
+          "polecenie_dla_dziecka": "Zaplanuj, kiedy dziś napijesz się przez rurkę i kiedy zjesz chrupiące.",
+          "nagranie": "eduplaner_sens/assets/audio_sens/civ_2.mp3"
+        }
+      },
+      "arkusz_id": "IV.2"
     },
     {
-      "id": "P-SENS-12",
-      "wskaznik_id": "SENS-12",
-      "kod": "SMA-SZUM",
-      "zmysl": {
-        "klucz": "smak",
-        "nazwa": "Smak",
-        "rzymska": "IV",
-        "icf": "b250"
-      },
-      "sektor": {
-        "klucz": "bialy_szum",
-        "nazwa": "Biały szum (reaktywność zmienna)",
-        "skrot": "SZUM",
-        "kierunek": "↕ raz za dużo, raz za mało"
-      },
+      "wskaznik": "IV.3",
+      "zmysl": "IV · Smak",
+      "sektor": "Biały szum (reaktywność zmienna)",
       "nazwa": "Trzy karty posiłku",
-      "opis_dla_doroslego": "Zestaw trzech kart: „JEM SWOJE” (produkt pewny), „PRÓBUJĘ” (szczebel drabiny), „DZIŚ TYLKO PATRZĘ” (obecność przy stole bez jedzenia nowego). Wariant wybiera dziecko, dorosły go realizuje bez komentarza.",
+      "co_przygotowac": [
+        "karta „jem swoje” — produkt pewny na talerzu",
+        "karta „próbuję” — szczebel drabiny oswajania",
+        "karta „dziś tylko patrzę” — obecność przy stole bez jedzenia nowego",
+        "podkładka z polem na kartę dnia",
+        "lista produktów pewnych uzgodniona z rodzicem"
+      ],
       "trzy_kroki_uzycia": [
         "Połóż trzy karty przy talerzu, zanim jedzenie trafi na stół.",
         "Przyjmij wybór dziecka bez pytania „dlaczego” i bez propozycji zmiany.",
-        "Zapisz wariant w dzienniku i przekaż go rodzicowi przy odbiorze."
+        "Zapisz wariant w dzienniku i przekaż go rodzicowi przy odbiorze dziecka."
       ],
-      "wskazowka_dla_doroslego": "Wariant „dziś tylko patrzę” też jest sukcesem: dziecko zostaje przy stole z grupą. Namawianie w takim dniu kosztuje więcej niż jeden pominięty posiłek.",
-      "bezpieczenstwo": "seria dni z wariantem „tylko patrzę” (powyżej 3 pod rząd) wymaga kontaktu z rodzicem i lekarzem — sprawdź ból gardła, zęby, refluks",
-      "etykieta_dla_dziecka": "JAK DZIŚ SMAKUJE",
-      "zdjecie": "04_media/eduplaner_sens/assets/pomoce_sens/p_12.jpg",
-      "arkusz_id": "A-SENS-12",
-      "symbole": [
-        "04_media/eduplaner_przedszkole/assets/symbole/k_jem_swoje.jpg",
-        "04_media/eduplaner_przedszkole/assets/symbole/k_probuje.jpg",
-        "04_media/eduplaner_przedszkole/assets/symbole/k_tylko_patrze.jpg"
-      ]
+      "wskazowka_dla_doroslego": "Trzy dni z rzędu z wariantem „tylko patrzę” to sygnał do kontaktu z rodzicem i lekarzem. Sprawdź gardło, zęby i refluks, zanim uznasz to za zmienność sensoryczną.",
+      "bezpieczenstwo": "Seria dni z wariantem „tylko patrzę” (powyżej trzech pod rząd) wymaga kontaktu z rodzicem i lekarzem — sprawdź ból gardła, zęby i refluks.",
+      "zdjecie": "eduplaner_sens/assets/pomoce_sens/k_iv_3.jpg",
+      "opis_zdjecia": "three picture cards laid beside a child's plate on a nursery table, one of them moved forward onto a placemat",
+      "polecenia": {
+        "A": {
+          "wiek": "3–4 lata",
+          "polecenie_dla_dziecka": "Wybieramy kartę. Jem swoje, próbuję czy tylko patrzę?",
+          "nagranie": "eduplaner_sens/assets/audio_sens/aiv_3.mp3"
+        },
+        "B": {
+          "wiek": "5 lat",
+          "polecenie_dla_dziecka": "Połóż kartę przed jedzeniem. Powiedz, co zjesz zamiast.",
+          "nagranie": "eduplaner_sens/assets/audio_sens/biv_3.mp3"
+        },
+        "C": {
+          "wiek": "6 lat",
+          "polecenie_dla_dziecka": "Wybierz kartę. Możesz ją zmienić w trakcie, jeśli będzie trzeba.",
+          "nagranie": "eduplaner_sens/assets/audio_sens/civ_3.mp3"
+        }
+      },
+      "arkusz_id": "IV.3"
     },
     {
-      "id": "P-SENS-13",
-      "wskaznik_id": "SENS-13",
-      "kod": "WEC-NAD",
-      "zmysl": {
-        "klucz": "wech",
-        "nazwa": "Węch",
-        "rzymska": "V",
-        "icf": "b255"
-      },
-      "sektor": {
-        "klucz": "nadwrazliwosc",
-        "nazwa": "Nadwrażliwość",
-        "skrot": "NAD",
-        "kierunek": "↑ za dużo bodźca"
-      },
-      "nazwa": "Chusteczka ratunkowa + karta BRZYDKI ZAPACH",
-      "opis_dla_doroslego": "Bawełniana chusteczka w woreczku, z dwiema kroplami zapachu wybranego przez dziecko (najczęściej cytryna lub mięta), oraz karta-symbol pozwalająca zgłosić problem bez wychodzenia.",
+      "wskaznik": "V.1",
+      "zmysl": "V · Węch",
+      "sektor": "Nadwrażliwość",
+      "nazwa": "Chusteczka ratunkowa i karta BRZYDKI ZAPACH",
+      "co_przygotowac": [
+        "bawełniana chusteczka w woreczku, wymieniana codziennie",
+        "trzy zapachy do wyboru przez dziecko: cytryna, mięta, lawenda",
+        "oznaczone miejsce przy oknie w sali i w stołówce",
+        "karta „brzydki zapach” do zgłoszenia bez wychodzenia",
+        "uzgodniona pora mopowania i wietrzenia poza czasem zajęć"
+      ],
       "trzy_kroki_uzycia": [
         "Pozwól dziecku wybrać zapach z trzech propozycji — narzucony nie zadziała.",
         "Włóż chusteczkę do kieszeni rano; przy wejściu do stołówki tylko wskaż kieszeń.",
-        "Odnotuj, czy dziecko weszło i zostało, i jak długo korzystało z chusteczki."
+        "Zapisz, czy dziecko weszło i zostało, i jak długo korzystało z chusteczki."
       ],
-      "wskazowka_dla_doroslego": "Nie mów „przecież nic nie czuć”. Podważanie doznania odbiera dziecku sens sygnalizowania i kończy się wyjściem z sali bez uprzedzenia.",
-      "bezpieczenstwo": "unikanie toalety z powodu zapachu prowadzi do zatrzymywania moczu i zaparć — wymaga natychmiastowego dostosowania i informacji dla rodzica",
-      "etykieta_dla_dziecka": "MÓJ ZAPACH — mam go w kieszeni",
-      "zdjecie": "04_media/eduplaner_sens/assets/pomoce_sens/p_13.jpg",
-      "arkusz_id": "A-SENS-13",
-      "symbole": [
-        "04_media/eduplaner_przedszkole/assets/symbole/k_brzydki_zapach.jpg",
-        "04_media/eduplaner_przedszkole/assets/symbole/k_okno.jpg",
-        "04_media/eduplaner_przedszkole/assets/symbole/k_stolowka.jpg"
-      ]
+      "wskazowka_dla_doroslego": "Sprawdź, czy dziecko nie unika toalety z powodu zapachu. Zatrzymywanie moczu i zaparcia zaczynają się właśnie tak i wymagają dostosowania od razu, nie po miesiącu obserwacji.",
+      "bezpieczenstwo": "Unikanie toalety z powodu zapachu prowadzi do zatrzymywania moczu i zaparć — wymaga natychmiastowego dostosowania i informacji dla rodzica.",
+      "zdjecie": "eduplaner_sens/assets/pomoce_sens/k_v_1.jpg",
+      "opis_zdjecia": "a small cotton handkerchief in a cloth pouch beside three labelled scent sachets on a nursery windowsill",
+      "polecenia": {
+        "A": {
+          "wiek": "3–4 lata",
+          "polecenie_dla_dziecka": "Brzydki zapach. Weź chusteczkę. Wchodzimy razem.",
+          "nagranie": "eduplaner_sens/assets/audio_sens/av_1.mp3"
+        },
+        "B": {
+          "wiek": "5 lat",
+          "polecenie_dla_dziecka": "Chusteczka jest w kieszeni. Miejsce przy oknie jest wolne.",
+          "nagranie": "eduplaner_sens/assets/audio_sens/bv_1.mp3"
+        },
+        "C": {
+          "wiek": "6 lat",
+          "polecenie_dla_dziecka": "Powiedz, gdzie dziś siadasz w stołówce.",
+          "nagranie": "eduplaner_sens/assets/audio_sens/cv_1.mp3"
+        }
+      },
+      "arkusz_id": "V.1"
     },
     {
-      "id": "P-SENS-14",
-      "wskaznik_id": "SENS-14",
-      "kod": "WEC-POD",
-      "zmysl": {
-        "klucz": "wech",
-        "nazwa": "Węch",
-        "rzymska": "V",
-        "icf": "b255"
-      },
-      "sektor": {
-        "klucz": "podwrazliwosc",
-        "nazwa": "Podwrażliwość / poszukiwanie bodźców",
-        "skrot": "POD",
-        "kierunek": "↓ za mało bodźca"
-      },
-      "nazwa": "Pudełko zapachów (5 woreczków) z kartą wymiany",
-      "opis_dla_doroslego": "Pudełko z pięcioma woreczkami z gazy: cytryna, mięta, kawa, cynamon, lawenda. Zawartość wymieniana co dwa tygodnie. Karta „CHCĘ POWĄCHAĆ” zamienia bodziec przypadkowy na zaplanowany.",
+      "wskaznik": "V.2",
+      "zmysl": "V · Węch",
+      "sektor": "Podwrażliwość / poszukiwanie bodźców",
+      "nazwa": "Pudełko zapachów z kartą wymiany",
+      "co_przygotowac": [
+        "pięć woreczków z gazy: cytryna, mięta, kawa, cynamon, lawenda",
+        "pudełko z pokrywką na stałej półce",
+        "karta „chcę powąchać” do wymiany na dwie minuty",
+        "klepsydra dwuminutowa",
+        "zamykana szafka na kleje, pisaki i środki czystości"
+      ],
       "trzy_kroki_uzycia": [
-        "Postaw pudełko na stałej półce i przedstaw wszystkie zapachy pierwszego dnia.",
+        "Zabezpiecz chemię i kleje, potem postaw pudełko na stałej półce.",
         "Przyjmuj kartę i odliczaj dwie minuty klepsydrą — koniec zawsze tym samym zdaniem.",
         "Zapisuj, po który zapach dziecko sięga najczęściej — to on działa najlepiej."
       ],
-      "wskazowka_dla_doroslego": "Środki czystości i kleje muszą zniknąć z zasięgu, zanim wprowadzisz pudełko. Sama alternatywa nie wystarczy, gdy silniejszy bodziec stoi na parapecie.",
-      "bezpieczenstwo": "wdychanie kleju i środków czystości grozi zatruciem i uszkodzeniem dróg oddechowych — zabezpieczenie chemii jest warunkiem wstępnym, nie zaleceniem",
-      "etykieta_dla_dziecka": "CHCĘ POWĄCHAĆ — idę do pudełka",
-      "zdjecie": "04_media/eduplaner_sens/assets/pomoce_sens/p_14.jpg",
-      "arkusz_id": "A-SENS-14",
-      "symbole": [
-        "04_media/eduplaner_przedszkole/assets/symbole/k_chce_powachac.jpg",
-        "04_media/eduplaner_przedszkole/assets/symbole/k_pudelko_zapachow.jpg",
-        "04_media/eduplaner_przedszkole/assets/symbole/k_stop_chemia.jpg"
-      ]
+      "wskazowka_dla_doroslego": "Wymieniaj zawartość woreczków co dwa tygodnie. Zwietrzały zapach przestaje zaspokajać potrzebę i dziecko wraca do mocniejszych źródeł — czyli do chemii.",
+      "bezpieczenstwo": "Wdychanie kleju i środków czystości grozi zatruciem i uszkodzeniem dróg oddechowych — zabezpieczenie chemii jest warunkiem wstępnym, nie zaleceniem.",
+      "zdjecie": "eduplaner_sens/assets/pomoce_sens/k_v_2.jpg",
+      "opis_zdjecia": "a lidded box on a low shelf holding five small gauze sachets labelled with pictures of lemon, mint, coffee, cinnamon and lavender",
+      "polecenia": {
+        "A": {
+          "wiek": "3–4 lata",
+          "polecenie_dla_dziecka": "Wąchamy tutaj. To jest pudełko zapachów.",
+          "nagranie": "eduplaner_sens/assets/audio_sens/av_2.mp3"
+        },
+        "B": {
+          "wiek": "5 lat",
+          "polecenie_dla_dziecka": "Podaj kartę i idź do pudełka. Dwie minuty.",
+          "nagranie": "eduplaner_sens/assets/audio_sens/bv_2.mp3"
+        },
+        "C": {
+          "wiek": "6 lat",
+          "polecenie_dla_dziecka": "Powiedz, kiedy dziś pójdziesz powąchać.",
+          "nagranie": "eduplaner_sens/assets/audio_sens/cv_2.mp3"
+        }
+      },
+      "arkusz_id": "V.2"
     },
     {
-      "id": "P-SENS-15",
-      "wskaznik_id": "SENS-15",
-      "kod": "WEC-SZUM",
-      "zmysl": {
-        "klucz": "wech",
-        "nazwa": "Węch",
-        "rzymska": "V",
-        "icf": "b255"
-      },
-      "sektor": {
-        "klucz": "bialy_szum",
-        "nazwa": "Biały szum (reaktywność zmienna)",
-        "skrot": "SZUM",
-        "kierunek": "↕ raz za dużo, raz za mało"
-      },
+      "wskaznik": "V.3",
+      "zmysl": "V · Węch",
+      "sektor": "Biały szum (reaktywność zmienna)",
       "nazwa": "Nos dnia — dwa woreczki kontrolne i karta z buźkami",
-      "opis_dla_doroslego": "Dwa woreczki o stałym, znanym zapachu (cytryna, mięta) oraz karta z trzema buźkami: mocno czuję · normalnie · nie czuję. Stałość zapachu jest tu warunkiem — inaczej porównanie z wczoraj traci sens.",
+      "co_przygotowac": [
+        "dwa woreczki o stałym zapachu: cytryna i mięta, z datą wymiany",
+        "karta A5 z trzema buźkami: mocno czuję, normalnie, nie czuję",
+        "miejsce przy wejściu do sali, na wysokości dziecka",
+        "chusteczka zapachowa i oznaczone miejsce przy oknie",
+        "dziennik obserwacji z rubryką rano/przed plastyką"
+      ],
       "trzy_kroki_uzycia": [
         "Powieś kartę i woreczki przy wejściu do sali, na wysokości dziecka.",
         "Przed posiłkiem poproś o powąchanie obu woreczków i wskazanie buźki.",
-        "Zrealizuj to, co ze wskazania wynika (chusteczka, miejsce) i zapisz wynik."
+        "Zrealizuj to, co ze wskazania wynika (chusteczka, miejsce), i zapisz wynik."
       ],
-      "wskazowka_dla_doroslego": "Woreczki wymieniaj co dwa tygodnie, zawsze na ten sam zapach. Zapach, który zwietrzał, daje fałszywe „nie czuję”.",
-      "bezpieczenstwo": "utrzymujące się „nie czuję” wymaga kontroli laryngologicznej (przerost migdałka, alergia) — brak węchu wpływa też na apetyt",
-      "etykieta_dla_dziecka": "MÓJ NOS DZISIAJ",
-      "zdjecie": "04_media/eduplaner_sens/assets/pomoce_sens/p_15.jpg",
-      "arkusz_id": "A-SENS-15",
-      "symbole": [
-        "04_media/eduplaner_przedszkole/assets/symbole/k_nos_dnia.jpg",
-        "04_media/eduplaner_przedszkole/assets/symbole/k_woreczek_zapach.jpg",
-        "04_media/eduplaner_przedszkole/assets/symbole/k_brzydki_zapach.jpg"
-      ]
+      "wskazowka_dla_doroslego": "Przy katarze odczyt „nie czuję” jest normalny i nie oznacza postępu. Zapisz obok informację o katarze — inaczej dwutygodniowe zestawienie pokaże poprawę, której nie było.",
+      "bezpieczenstwo": "Utrzymujące się „nie czuję” wymaga kontroli laryngologicznej (przerost migdałka, alergia) — brak węchu wpływa też na apetyt.",
+      "zdjecie": "eduplaner_sens/assets/pomoce_sens/k_v_3.jpg",
+      "opis_zdjecia": "two small scent sachets hanging by a nursery doorway next to a card with three simple faces indicating strong, normal and no smell",
+      "polecenia": {
+        "A": {
+          "wiek": "3–4 lata",
+          "polecenie_dla_dziecka": "Sprawdzamy nos. Powąchaj i pokaż buźkę.",
+          "nagranie": "eduplaner_sens/assets/audio_sens/av_3.mp3"
+        },
+        "B": {
+          "wiek": "5 lat",
+          "polecenie_dla_dziecka": "Powąchaj oba woreczki. Jeśli mocno czujesz, weź chusteczkę.",
+          "nagranie": "eduplaner_sens/assets/audio_sens/bv_3.mp3"
+        },
+        "C": {
+          "wiek": "6 lat",
+          "polecenie_dla_dziecka": "Sprawdź nos i powiedz, czego dziś unikasz.",
+          "nagranie": "eduplaner_sens/assets/audio_sens/cv_3.mp3"
+        }
+      },
+      "arkusz_id": "V.3"
     },
     {
-      "id": "P-SENS-16",
-      "wskaznik_id": "SENS-16",
-      "kod": "PRO-NAD",
-      "zmysl": {
-        "klucz": "propriocepcja",
-        "nazwa": "Propriocepcja",
-        "rzymska": "VI",
-        "icf": "b760"
-      },
-      "sektor": {
-        "klucz": "nadwrazliwosc",
-        "nazwa": "Nadwrażliwość",
-        "skrot": "NAD",
-        "kierunek": "↑ za dużo bodźca"
-      },
-      "nazwa": "Drabina ruchu (5 szczebli) + nakładka na kredkę",
-      "opis_dla_doroslego": "Karta z pięcioma szczeblami zadań oporowych — od najlżejszego (wycieranie stołu) do najcięższego (pchanie pudła z klockami) — oraz gumowa nakładka wyznaczająca chwyt i nacisk kredki.",
+      "wskaznik": "VI.1",
+      "zmysl": "VI · Propriocepcja",
+      "sektor": "Nadwrażliwość",
+      "nazwa": "Drabina ruchu i nakładka na kredkę",
+      "co_przygotowac": [
+        "karta drabiny A4 z pięcioma szczeblami i obrazkami zadań",
+        "pudło z klockami, koszyk, ścierka, lina — materiał do zadań oporowych",
+        "niski stolik do pracy w pozycji na brzuchu",
+        "nakładka na kredkę i kredki trójkątne",
+        "kartka z trzema polami nacisku: lekko, w sam raz, za mocno"
+      ],
       "trzy_kroki_uzycia": [
         "Ułóż z dzieckiem drabinę: pięć zadań, od najłatwiejszego do najcięższego.",
-        "Przed zajęciami ruchowymi poproś o wskazanie dzisiejszego szczebla — bez podnoszenia poprzeczki.",
-        "Po zadaniu nazwij, gdzie pracowały mięśnie („czujesz ręce?”) i odnotuj szczebel."
+        "Przed zajęciami ruchowymi poproś o wskazanie dzisiejszego szczebla — nie podnoś poprzeczki.",
+        "Po zadaniu nazwij, gdzie pracowały mięśnie, i zapisz wykonany szczebel."
       ],
-      "wskazowka_dla_doroslego": "„Spróbuj jeszcze raz, dasz radę” nie działa przy nadwrażliwości proprioceptywnej. Działa mniejszy szczebel wykonany do końca.",
-      "bezpieczenstwo": "szybka męczliwość i sztywność ciała wymagają wykluczenia przyczyn ortopedycznych i neurologicznych (obniżone napięcie mięśniowe) — konsultacja fizjoterapeuty",
-      "etykieta_dla_dziecka": "MOJA DRABINA RUCHU",
-      "zdjecie": "04_media/eduplaner_sens/assets/pomoce_sens/p_16.jpg",
-      "arkusz_id": "A-SENS-16",
-      "symbole": [
-        "04_media/eduplaner_przedszkole/assets/symbole/k_drabina_ruchu.jpg",
-        "04_media/eduplaner_przedszkole/assets/symbole/k_pchanie.jpg",
-        "04_media/eduplaner_przedszkole/assets/symbole/k_nacisk_kredki.jpg"
-      ]
+      "wskazowka_dla_doroslego": "Dobierz ciężar tak, żeby dziecko dało radę do końca. Zadanie porzucone w połowie uczy, że wysiłek się nie opłaca — i kolejny szczebel będzie trudniejszy do namówienia.",
+      "bezpieczenstwo": "Szybka męczliwość i sztywność ciała wymagają wykluczenia przyczyn ortopedycznych i neurologicznych (obniżone napięcie mięśniowe) — konsultacja fizjoterapeuty.",
+      "zdjecie": "eduplaner_sens/assets/pomoce_sens/k_vi_1.jpg",
+      "opis_zdjecia": "a card with five pictogram rungs of resistance tasks, a box of wooden blocks on a nursery floor and a triangular pencil with a rubber grip",
+      "polecenia": {
+        "A": {
+          "wiek": "3–4 lata",
+          "polecenie_dla_dziecka": "Pchamy pudło razem. Ja z jednej strony, ty z drugiej.",
+          "nagranie": "eduplaner_sens/assets/audio_sens/avi_1.mp3"
+        },
+        "B": {
+          "wiek": "5 lat",
+          "polecenie_dla_dziecka": "Wskaż szczebel na drabinie i zrób go do końca.",
+          "nagranie": "eduplaner_sens/assets/audio_sens/bvi_1.mp3"
+        },
+        "C": {
+          "wiek": "6 lat",
+          "polecenie_dla_dziecka": "Wybierz trzy zadania na dziś. Powiedz mi, gdzie poczułeś mięśnie.",
+          "nagranie": "eduplaner_sens/assets/audio_sens/cvi_1.mp3"
+        }
+      },
+      "arkusz_id": "VI.1"
     },
     {
-      "id": "P-SENS-17",
-      "wskaznik_id": "SENS-17",
-      "kod": "PRO-POD",
-      "zmysl": {
-        "klucz": "propriocepcja",
-        "nazwa": "Propriocepcja",
-        "rzymska": "VI",
-        "icf": "b760"
-      },
-      "sektor": {
-        "klucz": "podwrazliwosc",
-        "nazwa": "Podwrażliwość / poszukiwanie bodźców",
-        "skrot": "POD",
-        "kierunek": "↓ za mało bodźca"
-      },
+      "wskaznik": "VI.2",
+      "zmysl": "VI · Propriocepcja",
+      "sektor": "Podwrażliwość / poszukiwanie bodźców",
       "nazwa": "Kącik docisku: kocyk obciążeniowy, tunel, poduszka sensoryczna",
-      "opis_dla_doroslego": "Wydzielone miejsce z kocykiem obciążeniowym (do 10% masy ciała dziecka), tunelem do przeciskania i poduszką sensoryczną, plus karta „MOCNO” do wymiany. Kącik jest dostępny zawsze, nie na nagrodę.",
+      "co_przygotowac": [
+        "kocyk obciążeniowy do dziesięciu procent masy ciała dziecka",
+        "tunel do przeciskania albo dwa materace do wciskania się między nie",
+        "poduszka sensoryczna na krzesło dziecka",
+        "karta „mocno” do wymiany na trzy minuty przerwy",
+        "wydzielone miejsce w sali — kącik, nie korytarz"
+      ],
       "trzy_kroki_uzycia": [
         "Wyznacz kącik i pokaż dziecku trzy rzeczy, których może w nim użyć.",
-        "Wpisz przerwy do planu dnia (co 90 minut) — nie czekaj na przewrócenie kolegi.",
-        "Po przerwie zamknij ją tym samym zdaniem i odnotuj, czy sygnał wyszedł od dziecka."
+        "Wpisz przerwy do planu dnia co dziewięćdziesiąt minut — nie czekaj na przewrócenie kolegi.",
+        "Po przerwie zamknij ją tym samym zdaniem i zapisz, czy sygnał wyszedł od dziecka."
       ],
-      "wskazowka_dla_doroslego": "Kocyk obciążeniowy: maksymalnie 10% masy ciała, nigdy na głowę i klatkę piersiową, zawsze pod nadzorem dorosłego i nigdy podczas snu.",
-      "bezpieczenstwo": "kocyk obciążeniowy tylko pod nadzorem, do 10% masy ciała, nigdy podczas snu i nigdy na klatkę piersiową — przy wadach serca i padaczce wymaga zgody lekarza",
-      "etykieta_dla_dziecka": "MOCNO — idę po docisk",
-      "zdjecie": "04_media/eduplaner_sens/assets/pomoce_sens/p_17.jpg",
-      "arkusz_id": "A-SENS-17",
-      "symbole": [
-        "04_media/eduplaner_przedszkole/assets/symbole/k_mocno.jpg",
-        "04_media/eduplaner_przedszkole/assets/symbole/k_kocyk.jpg",
-        "04_media/eduplaner_przedszkole/assets/symbole/k_tunel.jpg"
-      ]
+      "wskazowka_dla_doroslego": "Kocyk obciążeniowy tylko pod nadzorem, nigdy podczas snu i nigdy na klatkę piersiową. Przy wadach serca i padaczce potrzebna jest zgoda lekarza — zapytaj przed pierwszym użyciem, nie po nim.",
+      "bezpieczenstwo": "Kocyk obciążeniowy tylko pod nadzorem, do dziesięciu procent masy ciała, nigdy podczas snu i nigdy na klatkę piersiową — przy wadach serca i padaczce wymaga zgody lekarza.",
+      "zdjecie": "eduplaner_sens/assets/pomoce_sens/k_vi_2.jpg",
+      "opis_zdjecia": "a nursery corner with a weighted blanket folded on a mat, a fabric crawl tunnel and an inflatable wobble cushion on a small chair",
+      "polecenia": {
+        "A": {
+          "wiek": "3–4 lata",
+          "polecenie_dla_dziecka": "Twoje ciało chce mocno. Idziemy po kocyk.",
+          "nagranie": "eduplaner_sens/assets/audio_sens/avi_2.mp3"
+        },
+        "B": {
+          "wiek": "5 lat",
+          "polecenie_dla_dziecka": "Podaj kartę „mocno” i idź do kącika. Trzy minuty.",
+          "nagranie": "eduplaner_sens/assets/audio_sens/bvi_2.mp3"
+        },
+        "C": {
+          "wiek": "6 lat",
+          "polecenie_dla_dziecka": "Powiedz, kiedy robisz dziś przerwy na docisk.",
+          "nagranie": "eduplaner_sens/assets/audio_sens/cvi_2.mp3"
+        }
+      },
+      "arkusz_id": "VI.2"
     },
     {
-      "id": "P-SENS-18",
-      "wskaznik_id": "SENS-18",
-      "kod": "PRO-SZUM",
-      "zmysl": {
-        "klucz": "propriocepcja",
-        "nazwa": "Propriocepcja",
-        "rzymska": "VI",
-        "icf": "b760"
-      },
-      "sektor": {
-        "klucz": "bialy_szum",
-        "nazwa": "Biały szum (reaktywność zmienna)",
-        "skrot": "SZUM",
-        "kierunek": "↕ raz za dużo, raz za mało"
-      },
+      "wskaznik": "VI.3",
+      "zmysl": "VI · Propriocepcja",
+      "sektor": "Biały szum (reaktywność zmienna)",
       "nazwa": "Miernik siły — trzy pola nacisku",
-      "opis_dla_doroslego": "Kartka z trzema polami: „piórko” (ledwie widoczna kreska), „w sam raz”, „za mocno” (kartka się rwie). Dziecko wykonuje trzy kreski i sprawdza, gdzie dziś jest jego ręka.",
+      "co_przygotowac": [
+        "kartka z trzema polami: piórko, w sam raz, za mocno",
+        "kredki różnej twardości i kredki trójkątne",
+        "gruby papier i podkładka antypoślizgowa",
+        "karta „dotyk jak piórko” do zabaw w parach",
+        "materiał do pracy oporowej przed zadaniem"
+      ],
       "trzy_kroki_uzycia": [
         "Połóż miernik przed zadaniem i poproś o trzy kreski — po jednej na pole.",
         "Nazwij wynik i dobierz narzędzie: cienka kredka przy „za mocno”, gruba przy „piórku”.",
         "W trakcie zadania przypomnij raz, wskazując pole „w sam raz”."
       ],
-      "wskazowka_dla_doroslego": "Nie mów „rysuj mocniej” ani „delikatniej” bez odniesienia. Dziecko nie ma wzorca — miernik daje mu ten wzorzec na papierze.",
-      "bezpieczenstwo": "duża zmienność siły przy jednoczesnym potykaniu się i upuszczaniu przedmiotów wymaga konsultacji fizjoterapeuty i terapeuty SI",
-      "etykieta_dla_dziecka": "MOJA SIŁA DZISIAJ",
-      "zdjecie": "04_media/eduplaner_sens/assets/pomoce_sens/p_18.jpg",
-      "arkusz_id": "A-SENS-18",
-      "symbole": [
-        "04_media/eduplaner_przedszkole/assets/symbole/k_miernik_sily.jpg",
-        "04_media/eduplaner_przedszkole/assets/symbole/k_piorko.jpg",
-        "04_media/eduplaner_przedszkole/assets/symbole/k_w_sam_raz.jpg"
-      ]
+      "wskazowka_dla_doroslego": "Zacznij od pracy oporowej, nie od miernika. Kilka minut pchania i noszenia porządkuje czucie na tyle, że próba na mierniku pokazuje realną siłę, a nie przypadkowy wynik.",
+      "bezpieczenstwo": "Duża zmienność siły przy jednoczesnym potykaniu się i upuszczaniu przedmiotów wymaga konsultacji fizjoterapeuty i terapeuty SI.",
+      "zdjecie": "eduplaner_sens/assets/pomoce_sens/k_vi_3.jpg",
+      "opis_zdjecia": "a sheet divided into three labelled pressure fields with a light, a medium and a torn heavy pencil stroke, beside triangular pencils",
+      "polecenia": {
+        "A": {
+          "wiek": "3–4 lata",
+          "polecenie_dla_dziecka": "Robimy trzy kreski. Piórko, w sam raz, za mocno.",
+          "nagranie": "eduplaner_sens/assets/audio_sens/avi_3.mp3"
+        },
+        "B": {
+          "wiek": "5 lat",
+          "polecenie_dla_dziecka": "Zrób próbę na mierniku. Która jest w sam raz?",
+          "nagranie": "eduplaner_sens/assets/audio_sens/bvi_3.mp3"
+        },
+        "C": {
+          "wiek": "6 lat",
+          "polecenie_dla_dziecka": "Sprawdź siłę i powiedz mi, kiedy zacznie ci uciekać.",
+          "nagranie": "eduplaner_sens/assets/audio_sens/cvi_3.mp3"
+        }
+      },
+      "arkusz_id": "VI.3"
     },
     {
-      "id": "P-SENS-19",
-      "wskaznik_id": "SENS-19",
-      "kod": "ROW-NAD",
-      "zmysl": {
-        "klucz": "rownowaga",
-        "nazwa": "Równowaga",
-        "rzymska": "VII",
-        "icf": "b235"
-      },
-      "sektor": {
-        "klucz": "nadwrazliwosc",
-        "nazwa": "Nadwrażliwość",
-        "skrot": "NAD",
-        "kierunek": "↑ za dużo bodźca"
-      },
-      "nazwa": "Drabina ruchu przedsionkowego + karta STOP",
-      "opis_dla_doroslego": "Karta z pięcioma szczeblami wchodzenia w ruch (od stóp na podłożu do zjeżdżalni) i czerwona karta STOP, która natychmiast zatrzymuje ruch. Kontrola musi zostać po stronie dziecka — inaczej drabina nie działa.",
+      "wskaznik": "VII.1",
+      "zmysl": "VII · Równowaga",
+      "sektor": "Nadwrażliwość",
+      "nazwa": "Drabina ruchu przedsionkowego i karta STOP",
+      "co_przygotowac": [
+        "karta drabiny z pięcioma szczeblami: stopy na ziemi → bujanie z podparciem → dziesięć sekund → zjeżdżalnia z asekuracją → zjeżdżalnia sama",
+        "czerwona karta „stop” do kieszeni dziecka",
+        "materiał do pracy oporowej przed ruchem: skrzynka, tunel, lina",
+        "niska huśtawka z siedziskiem dostępnym dla stóp",
+        "arkusz obserwacji z rubryką na szczebel"
+      ],
       "trzy_kroki_uzycia": [
         "Ustal z dzieckiem pięć szczebli i zapisz je obrazkami na karcie.",
-        "Przed wyjściem na plac poproś o wskazanie dzisiejszego szczebla — nigdy nie proponuj wyższego.",
-        "Zatrzymaj ruch natychmiast po słowie lub karcie STOP, bez negocjacji i bez „jeszcze chwilkę”."
+        "Przed wyjściem poproś o wskazanie dzisiejszego szczebla — nigdy nie proponuj wyższego.",
+        "Zatrzymaj ruch natychmiast po słowie albo karcie „stop”, bez „jeszcze chwilkę”."
       ],
-      "wskazowka_dla_doroslego": "Jedno rozhuśtanie wbrew dziecku kosztuje kilka tygodni pracy. Wiarygodność słowa „STOP” jest tu jedynym narzędziem, które buduje odwagę.",
-      "bezpieczenstwo": "silny lęk przedsionkowy z wymiotami i bladością wymaga konsultacji neurologicznej i terapii SI — samo oswajanie może nie wystarczyć",
-      "etykieta_dla_dziecka": "STOP — zatrzymuję ruch",
-      "zdjecie": "04_media/eduplaner_sens/assets/pomoce_sens/p_19.jpg",
-      "arkusz_id": "A-SENS-19",
-      "symbole": [
-        "04_media/eduplaner_przedszkole/assets/symbole/k_drabina_hustawka.jpg",
-        "04_media/eduplaner_przedszkole/assets/symbole/k_stop.jpg",
-        "04_media/eduplaner_przedszkole/assets/symbole/k_plac_zabaw.jpg"
-      ]
+      "wskazowka_dla_doroslego": "Zacznij od pracy oporowej: kilka minut pchania i przeciskania wycisza układ przedsionkowy i obniża lęk bardziej niż jakiekolwiek namawianie.",
+      "bezpieczenstwo": "Silny lęk przedsionkowy z wymiotami i bladością wymaga konsultacji neurologicznej i terapii SI — samo oswajanie może nie wystarczyć.",
+      "zdjecie": "eduplaner_sens/assets/pomoce_sens/k_vii_1.jpg",
+      "opis_zdjecia": "a low playground swing with a child's feet touching the ground, a red stop card tucked into a jacket pocket beside it",
+      "polecenia": {
+        "A": {
+          "wiek": "3–4 lata",
+          "polecenie_dla_dziecka": "Siadamy. Stopy na ziemi. Powiedz stop, kiedy chcesz.",
+          "nagranie": "eduplaner_sens/assets/audio_sens/avii_1.mp3"
+        },
+        "B": {
+          "wiek": "5 lat",
+          "polecenie_dla_dziecka": "Wskaż szczebel na drabinie. Karta stop jest u ciebie.",
+          "nagranie": "eduplaner_sens/assets/audio_sens/bvii_1.mp3"
+        },
+        "C": {
+          "wiek": "6 lat",
+          "polecenie_dla_dziecka": "Zaplanuj dziś swój szczebel. Pamiętasz, jak zatrzymać ruch?",
+          "nagranie": "eduplaner_sens/assets/audio_sens/cvii_1.mp3"
+        }
+      },
+      "arkusz_id": "VII.1"
     },
     {
-      "id": "P-SENS-20",
-      "wskaznik_id": "SENS-20",
-      "kod": "ROW-POD",
-      "zmysl": {
-        "klucz": "rownowaga",
-        "nazwa": "Równowaga",
-        "rzymska": "VII",
-        "icf": "b235"
-      },
-      "sektor": {
-        "klucz": "podwrazliwosc",
-        "nazwa": "Podwrażliwość / poszukiwanie bodźców",
-        "skrot": "POD",
-        "kierunek": "↓ za mało bodźca"
-      },
-      "nazwa": "Poduszka sensoryczna + karta POTRZEBUJĘ RUCHU",
-      "opis_dla_doroslego": "Dmuchana poduszka sensoryczna na krzesło (pozwala na mikroruch bez wstawania) oraz karta wymiany na trzy minuty mocnego ruchu w wyznaczonym miejscu sali.",
+      "wskaznik": "VII.2",
+      "zmysl": "VII · Równowaga",
+      "sektor": "Podwrażliwość / poszukiwanie bodźców",
+      "nazwa": "Poduszka sensoryczna i karta POTRZEBUJĘ RUCHU",
+      "co_przygotowac": [
+        "dmuchana poduszka sensoryczna na krzesło dziecka",
+        "znak na podłodze wyznaczający miejsce ruchu w sali",
+        "karta „potrzebuję ruchu” do wymiany na trzy minuty",
+        "klepsydra trzyminutowa",
+        "materac albo mata do skakania"
+      ],
       "trzy_kroki_uzycia": [
-        "Połóż poduszkę na krześle dziecka rano — to nie jest nagroda ani przywilej.",
+        "Połóż poduszkę na krześle rano — to nie jest nagroda ani przywilej.",
         "Wpisz trzy dawki ruchu do planu dnia i realizuj je, zanim dziecko zacznie wstawać.",
-        "Przyjmuj kartę bez oceny i zamykaj przerwę tym samym zdaniem."
+        "Przyjmuj kartę bez oceny i zamykaj przerwę zawsze tym samym zdaniem."
       ],
-      "wskazowka_dla_doroslego": "„Siedź spokojnie” jest poleceniem niewykonalnym przy podwrażliwości przedsionkowej. Wykonalne jest: „ruszaj się tutaj, a potem usiądź”.",
-      "bezpieczenstwo": "wspinanie się wysoko i skakanie z wysokości bez oceny ryzyka wymaga stałego nadzoru i ustalenia granic sprzętu — to najczęstsza przyczyna urazów w tej grupie",
-      "etykieta_dla_dziecka": "POTRZEBUJĘ RUCHU",
-      "zdjecie": "04_media/eduplaner_sens/assets/pomoce_sens/p_20.jpg",
-      "arkusz_id": "A-SENS-20",
-      "symbole": [
-        "04_media/eduplaner_przedszkole/assets/symbole/k_potrzebuje_ruchu.jpg",
-        "04_media/eduplaner_przedszkole/assets/symbole/k_poduszka.jpg",
-        "04_media/eduplaner_przedszkole/assets/symbole/k_skakanie.jpg"
-      ]
+      "wskazowka_dla_doroslego": "Ustal wprost granice na sprzęcie: dokąd wolno się wspinać i skąd nie wolno skakać. Dziecko, które nie czuje zawrotów głowy, nie oceni wysokości samo — to najczęstsza przyczyna urazów w tej grupie.",
+      "bezpieczenstwo": "Wspinanie się wysoko i skakanie z wysokości bez oceny ryzyka wymaga stałego nadzoru i ustalenia granic sprzętu — to najczęstsza przyczyna urazów w tej grupie.",
+      "zdjecie": "eduplaner_sens/assets/pomoce_sens/k_vii_2.jpg",
+      "opis_zdjecia": "an inflatable wobble cushion on a small nursery chair, a floor marker across the room and a three-minute sand timer",
+      "polecenia": {
+        "A": {
+          "wiek": "3–4 lata",
+          "polecenie_dla_dziecka": "Skaczemy dziesięć razy. Potem siadamy na poduszce.",
+          "nagranie": "eduplaner_sens/assets/audio_sens/avii_2.mp3"
+        },
+        "B": {
+          "wiek": "5 lat",
+          "polecenie_dla_dziecka": "Podaj kartę i idź na znak. Trzy minuty ruchu, potem stolik.",
+          "nagranie": "eduplaner_sens/assets/audio_sens/bvii_2.mp3"
+        },
+        "C": {
+          "wiek": "6 lat",
+          "polecenie_dla_dziecka": "Zaplanuj, kiedy dziś ruszasz się przed zadaniem.",
+          "nagranie": "eduplaner_sens/assets/audio_sens/cvii_2.mp3"
+        }
+      },
+      "arkusz_id": "VII.2"
     },
     {
-      "id": "P-SENS-21",
-      "wskaznik_id": "SENS-21",
-      "kod": "ROW-SZUM",
-      "zmysl": {
-        "klucz": "rownowaga",
-        "nazwa": "Równowaga",
-        "rzymska": "VII",
-        "icf": "b235"
-      },
-      "sektor": {
-        "klucz": "bialy_szum",
-        "nazwa": "Biały szum (reaktywność zmienna)",
-        "skrot": "SZUM",
-        "kierunek": "↕ raz za dużo, raz za mało"
-      },
+      "wskaznik": "VII.3",
+      "zmysl": "VII · Równowaga",
+      "sektor": "Biały szum (reaktywność zmienna)",
       "nazwa": "Licznik ruchu — suwak z trzema poziomami",
-      "opis_dla_doroslego": "Pasek 10 × 30 cm z suwakiem i trzema polami: „dużo ruchu”, „średnio”, „dziś spokojnie”, przy każdym narysowany sprzęt lub zabawa, którą z niego wybieramy.",
+      "co_przygotowac": [
+        "pasek 10 × 30 cm z suwakiem i trzema polami",
+        "rysunek sprzętu albo zabawy przy każdym polu",
+        "dwie karty ścieżek: „dużo ruchu” i „dziś spokojnie”",
+        "miejsce przy drzwiach do ogrodu, na wysokości dziecka",
+        "dziennik obserwacji z rubryką na poziom"
+      ],
       "trzy_kroki_uzycia": [
         "Powieś licznik przy drzwiach do ogrodu, na wysokości dziecka.",
         "Poproś o ustawienie suwaka przed wyjściem i odczytaj wybór na głos.",
         "Zrealizuj ścieżkę zgodną z ustawieniem i zapisz poziom w dzienniku."
       ],
-      "wskazowka_dla_doroslego": "„Wczoraj się huśtałeś, to dziś też dasz radę” jest zdaniem, które łamie zaufanie do licznika. Poziom zmienia się bez powodu — i to jest normalne w tym profilu.",
-      "bezpieczenstwo": "skrajna zmienność aktywności ruchowej z sennością lub nadmiernym pobudzeniem wymaga konsultacji pediatrycznej — sprawdź sen, żelazo i tarczycę",
-      "etykieta_dla_dziecka": "MÓJ RUCH DZISIAJ",
-      "zdjecie": "04_media/eduplaner_sens/assets/pomoce_sens/p_21.jpg",
-      "arkusz_id": "A-SENS-21",
-      "symbole": [
-        "04_media/eduplaner_przedszkole/assets/symbole/k_licznik_ruchu.jpg",
-        "04_media/eduplaner_przedszkole/assets/symbole/k_plac_zabaw.jpg",
-        "04_media/eduplaner_przedszkole/assets/symbole/k_spokojnie.jpg"
-      ]
-    }
-  ],
-  "polecenia_dla_dziecka": [
-    {
-      "id": "POL-SENS-01-III",
-      "pomoc_id": "P-SENS-01",
-      "wskaznik_id": "SENS-01",
-      "poziom_wsparcia": {
-        "kod": "III",
-        "nazwa": "Poziom III — wsparcie intensywne"
+      "wskazowka_dla_doroslego": "Daj pracę oporową przed każdym wyjściem, niezależnie od poziomu. Ustabilizowane czucie sprawia, że odczyt licznika mówi o dziecku, a nie o tym, co działo się pięć minut wcześniej.",
+      "bezpieczenstwo": "Skrajna zmienność aktywności ruchowej z sennością albo nadmiernym pobudzeniem wymaga konsultacji pediatrycznej — sprawdź sen, żelazo i tarczycę.",
+      "zdjecie": "eduplaner_sens/assets/pomoce_sens/k_vii_3.jpg",
+      "opis_zdjecia": "a cardboard slider strip with three fields showing playground equipment, hanging by a door to a nursery garden at child height",
+      "polecenia": {
+        "A": {
+          "wiek": "3–4 lata",
+          "polecenie_dla_dziecka": "Sprawdzamy ruch. Przesuń suwak.",
+          "nagranie": "eduplaner_sens/assets/audio_sens/avii_3.mp3"
+        },
+        "B": {
+          "wiek": "5 lat",
+          "polecenie_dla_dziecka": "Ustaw licznik i wybierz zabawę.",
+          "nagranie": "eduplaner_sens/assets/audio_sens/bvii_3.mp3"
+        },
+        "C": {
+          "wiek": "6 lat",
+          "polecenie_dla_dziecka": "Ustaw licznik. Możesz zmienić ścieżkę, jeśli coś się zmieni.",
+          "nagranie": "eduplaner_sens/assets/audio_sens/cvii_3.mp3"
+        }
       },
-      "polecenie_dla_dziecka": "Za jasno. Stawiamy parawan. Robimy to razem.",
-      "instrukcja_slowna_doroslego": "Widzę, że mrużysz oczy. Za jasno. Stawiam parawan i siadam obok — robimy to razem.",
-      "nagranie": "04_media/eduplaner_sens/assets/audio_sens/as_01_III.mp3",
-      "czyta": "dziecko słucha nagrania; instrukcję słowną czyta dorosły"
-    },
-    {
-      "id": "POL-SENS-01-II",
-      "pomoc_id": "P-SENS-01",
-      "wskaznik_id": "SENS-01",
-      "poziom_wsparcia": {
-        "kod": "II",
-        "nazwa": "Poziom II — wsparcie umiarkowane"
-      },
-      "polecenie_dla_dziecka": "Popatrz na kartę. Za jasno? Postaw parawan i wracaj do układanki.",
-      "instrukcja_slowna_doroslego": "Podaję ci kartę „ZA JASNO”. Wybierz: parawan czy daszek? Ja jestem obok.",
-      "nagranie": "04_media/eduplaner_sens/assets/audio_sens/as_01_II.mp3",
-      "czyta": "dziecko słucha nagrania; instrukcję słowną czyta dorosły"
-    },
-    {
-      "id": "POL-SENS-01-I",
-      "pomoc_id": "P-SENS-01",
-      "wskaznik_id": "SENS-01",
-      "poziom_wsparcia": {
-        "kod": "I",
-        "nazwa": "Poziom I — wsparcie podstawowe"
-      },
-      "polecenie_dla_dziecka": "Zanim zaczniesz, ustaw sobie miejsce dla oczu.",
-      "instrukcja_slowna_doroslego": "Karta leży w kąciku. Przygotuj sobie miejsce, zanim zaczniesz.",
-      "nagranie": "04_media/eduplaner_sens/assets/audio_sens/as_01_I.mp3",
-      "czyta": "dziecko słucha nagrania; instrukcję słowną czyta dorosły"
-    },
-    {
-      "id": "POL-SENS-02-III",
-      "pomoc_id": "P-SENS-02",
-      "wskaznik_id": "SENS-02",
-      "poziom_wsparcia": {
-        "kod": "III",
-        "nazwa": "Poziom III — wsparcie intensywne"
-      },
-      "polecenie_dla_dziecka": "Światełka są tutaj. Patrzymy razem. Liczę do dwudziestu.",
-      "instrukcja_slowna_doroslego": "Widzę, że szukasz światła. Idziemy razem po butelkę, patrzymy chwilę i wracamy do stolika.",
-      "nagranie": "04_media/eduplaner_sens/assets/audio_sens/as_02_III.mp3",
-      "czyta": "dziecko słucha nagrania; instrukcję słowną czyta dorosły"
-    },
-    {
-      "id": "POL-SENS-02-II",
-      "pomoc_id": "P-SENS-02",
-      "wskaznik_id": "SENS-02",
-      "poziom_wsparcia": {
-        "kod": "II",
-        "nazwa": "Poziom II — wsparcie umiarkowane"
-      },
-      "polecenie_dla_dziecka": "Chcesz światełka? Podaj kartę i idź do półki.",
-      "instrukcja_slowna_doroslego": "Masz kartę „ŚWIATEŁKA”. Dwie minuty przy półce, potem wracasz do zadania.",
-      "nagranie": "04_media/eduplaner_sens/assets/audio_sens/as_02_II.mp3",
-      "czyta": "dziecko słucha nagrania; instrukcję słowną czyta dorosły"
-    },
-    {
-      "id": "POL-SENS-02-I",
-      "pomoc_id": "P-SENS-02",
-      "wskaznik_id": "SENS-02",
-      "poziom_wsparcia": {
-        "kod": "I",
-        "nazwa": "Poziom I — wsparcie podstawowe"
-      },
-      "polecenie_dla_dziecka": "Weź okienko. Prowadź od lewej strony.",
-      "instrukcja_slowna_doroslego": "Zaplanuj sobie przerwę na światełka — powiedz, kiedy ją zrobisz.",
-      "nagranie": "04_media/eduplaner_sens/assets/audio_sens/as_02_I.mp3",
-      "czyta": "dziecko słucha nagrania; instrukcję słowną czyta dorosły"
-    },
-    {
-      "id": "POL-SENS-03-III",
-      "pomoc_id": "P-SENS-03",
-      "wskaznik_id": "SENS-03",
-      "poziom_wsparcia": {
-        "kod": "III",
-        "nazwa": "Poziom III — wsparcie intensywne"
-      },
-      "polecenie_dla_dziecka": "Jak dziś mają się twoje oczy? Przypinamy klamerkę razem.",
-      "instrukcja_slowna_doroslego": "Dzień dobry. Sprawdzamy oczy. Trzymam pasek, ty przypinasz klamerkę.",
-      "nagranie": "04_media/eduplaner_sens/assets/audio_sens/as_03_III.mp3",
-      "czyta": "dziecko słucha nagrania; instrukcję słowną czyta dorosły"
-    },
-    {
-      "id": "POL-SENS-03-II",
-      "pomoc_id": "P-SENS-03",
-      "wskaznik_id": "SENS-03",
-      "poziom_wsparcia": {
-        "kod": "II",
-        "nazwa": "Poziom II — wsparcie umiarkowane"
-      },
-      "polecenie_dla_dziecka": "Przypnij klamerkę. Zielone, żółte czy czerwone?",
-      "instrukcja_slowna_doroslego": "Ustaw dziś swój termometr oczu, a potem wybierz miejsce przy stole.",
-      "nagranie": "04_media/eduplaner_sens/assets/audio_sens/as_03_II.mp3",
-      "czyta": "dziecko słucha nagrania; instrukcję słowną czyta dorosły"
-    },
-    {
-      "id": "POL-SENS-03-I",
-      "pomoc_id": "P-SENS-03",
-      "wskaznik_id": "SENS-03",
-      "poziom_wsparcia": {
-        "kod": "I",
-        "nazwa": "Poziom I — wsparcie podstawowe"
-      },
-      "polecenie_dla_dziecka": "Ustaw termometr i powiedz, gdzie dziś siadasz.",
-      "instrukcja_slowna_doroslego": "Termometr wisi na miejscu. Ustaw go i powiedz mi, co z niego wynika.",
-      "nagranie": "04_media/eduplaner_sens/assets/audio_sens/as_03_I.mp3",
-      "czyta": "dziecko słucha nagrania; instrukcję słowną czyta dorosły"
-    },
-    {
-      "id": "POL-SENS-04-III",
-      "pomoc_id": "P-SENS-04",
-      "wskaznik_id": "SENS-04",
-      "poziom_wsparcia": {
-        "kod": "III",
-        "nazwa": "Poziom III — wsparcie intensywne"
-      },
-      "polecenie_dla_dziecka": "Za głośno. Zakładamy słuchawki. Jestem obok.",
-      "instrukcja_slowna_doroslego": "Słyszę, że robi się głośno. Podaję ci słuchawki i zakładamy je razem — zostajemy tutaj.",
-      "nagranie": "04_media/eduplaner_sens/assets/audio_sens/as_04_III.mp3",
-      "czyta": "dziecko słucha nagrania; instrukcję słowną czyta dorosły"
-    },
-    {
-      "id": "POL-SENS-04-II",
-      "pomoc_id": "P-SENS-04",
-      "wskaznik_id": "SENS-04",
-      "poziom_wsparcia": {
-        "kod": "II",
-        "nazwa": "Poziom II — wsparcie umiarkowane"
-      },
-      "polecenie_dla_dziecka": "Za chwilę szatnia. Weź słuchawki z wieszaka.",
-      "instrukcja_slowna_doroslego": "Za dwie minuty idziemy do szatni. Masz kartę i wieszak — weź słuchawki.",
-      "nagranie": "04_media/eduplaner_sens/assets/audio_sens/as_04_II.mp3",
-      "czyta": "dziecko słucha nagrania; instrukcję słowną czyta dorosły"
-    },
-    {
-      "id": "POL-SENS-04-I",
-      "pomoc_id": "P-SENS-04",
-      "wskaznik_id": "SENS-04",
-      "poziom_wsparcia": {
-        "kod": "I",
-        "nazwa": "Poziom I — wsparcie podstawowe"
-      },
-      "polecenie_dla_dziecka": "Zaraz będzie głośno. Zdecyduj, co robisz.",
-      "instrukcja_slowna_doroslego": "Za dwie minuty szatnia. Wybierz: słuchawki czy kącik wyciszenia?",
-      "nagranie": "04_media/eduplaner_sens/assets/audio_sens/as_04_I.mp3",
-      "czyta": "dziecko słucha nagrania; instrukcję słowną czyta dorosły"
-    },
-    {
-      "id": "POL-SENS-05-III",
-      "pomoc_id": "P-SENS-05",
-      "wskaznik_id": "SENS-05",
-      "poziom_wsparcia": {
-        "kod": "III",
-        "nazwa": "Poziom III — wsparcie intensywne"
-      },
-      "polecenie_dla_dziecka": "Popatrz na mnie. Jestem tu. Idziemy po bębenek razem.",
-      "instrukcja_slowna_doroslego": "Dotykam twojego ramienia i pokazuję kartę. Popatrz na mnie — teraz idziemy razem.",
-      "nagranie": "04_media/eduplaner_sens/assets/audio_sens/as_05_III.mp3",
-      "czyta": "dziecko słucha nagrania; instrukcję słowną czyta dorosły"
-    },
-    {
-      "id": "POL-SENS-05-II",
-      "pomoc_id": "P-SENS-05",
-      "wskaznik_id": "SENS-05",
-      "poziom_wsparcia": {
-        "kod": "II",
-        "nazwa": "Poziom II — wsparcie umiarkowane"
-      },
-      "polecenie_dla_dziecka": "Podaj kartę. Dwie minuty z instrumentem, potem wracamy.",
-      "instrukcja_slowna_doroslego": "Wołam cię po imieniu i pokazuję kartę. Podejdź do mnie.",
-      "nagranie": "04_media/eduplaner_sens/assets/audio_sens/as_05_II.mp3",
-      "czyta": "dziecko słucha nagrania; instrukcję słowną czyta dorosły"
-    },
-    {
-      "id": "POL-SENS-05-I",
-      "pomoc_id": "P-SENS-05",
-      "wskaznik_id": "SENS-05",
-      "poziom_wsparcia": {
-        "kod": "I",
-        "nazwa": "Poziom I — wsparcie podstawowe"
-      },
-      "polecenie_dla_dziecka": "Powiedz, kiedy zrobisz sobie przerwę na dźwięki.",
-      "instrukcja_slowna_doroslego": "Wołam cię po imieniu. Czekam przy stoliku.",
-      "nagranie": "04_media/eduplaner_sens/assets/audio_sens/as_05_I.mp3",
-      "czyta": "dziecko słucha nagrania; instrukcję słowną czyta dorosły"
-    },
-    {
-      "id": "POL-SENS-06-III",
-      "pomoc_id": "P-SENS-06",
-      "wskaznik_id": "SENS-06",
-      "poziom_wsparcia": {
-        "kod": "III",
-        "nazwa": "Poziom III — wsparcie intensywne"
-      },
-      "polecenie_dla_dziecka": "Sprawdzamy uszy. Ustawiam strzałkę z tobą.",
-      "instrukcja_slowna_doroslego": "Sprawdzamy, jak dziś słyszysz. Trzymam tarczę, ty przesuwasz strzałkę.",
-      "nagranie": "04_media/eduplaner_sens/assets/audio_sens/as_06_III.mp3",
-      "czyta": "dziecko słucha nagrania; instrukcję słowną czyta dorosły"
-    },
-    {
-      "id": "POL-SENS-06-II",
-      "pomoc_id": "P-SENS-06",
-      "wskaznik_id": "SENS-06",
-      "poziom_wsparcia": {
-        "kod": "II",
-        "nazwa": "Poziom II — wsparcie umiarkowane"
-      },
-      "polecenie_dla_dziecka": "Ustaw strzałkę. Co dziś wybierasz?",
-      "instrukcja_slowna_doroslego": "Ustaw dziś swoje radio uszu i weź to, co przy nim narysowane.",
-      "nagranie": "04_media/eduplaner_sens/assets/audio_sens/as_06_II.mp3",
-      "czyta": "dziecko słucha nagrania; instrukcję słowną czyta dorosły"
-    },
-    {
-      "id": "POL-SENS-06-I",
-      "pomoc_id": "P-SENS-06",
-      "wskaznik_id": "SENS-06",
-      "poziom_wsparcia": {
-        "kod": "I",
-        "nazwa": "Poziom I — wsparcie podstawowe"
-      },
-      "polecenie_dla_dziecka": "Ustaw radio uszu i powiedz, co z niego wynika.",
-      "instrukcja_slowna_doroslego": "Ustaw tarczę przed zajęciami i powiedz mi, czego dziś potrzebujesz.",
-      "nagranie": "04_media/eduplaner_sens/assets/audio_sens/as_06_I.mp3",
-      "czyta": "dziecko słucha nagrania; instrukcję słowną czyta dorosły"
-    },
-    {
-      "id": "POL-SENS-07-III",
-      "pomoc_id": "P-SENS-07",
-      "wskaznik_id": "SENS-07",
-      "poziom_wsparcia": {
-        "kod": "III",
-        "nazwa": "Poziom III — wsparcie intensywne"
-      },
-      "polecenie_dla_dziecka": "Stajemy na stópkach. Ja jestem obok ciebie.",
-      "instrukcja_slowna_doroslego": "Idziemy do szatni. Stajemy na stópkach, ja stoję obok ciebie i nikt cię nie dotknie.",
-      "nagranie": "04_media/eduplaner_sens/assets/audio_sens/as_07_III.mp3",
-      "czyta": "dziecko słucha nagrania; instrukcję słowną czyta dorosły"
-    },
-    {
-      "id": "POL-SENS-07-II",
-      "pomoc_id": "P-SENS-07",
-      "wskaznik_id": "SENS-07",
-      "poziom_wsparcia": {
-        "kod": "II",
-        "nazwa": "Poziom II — wsparcie umiarkowane"
-      },
-      "polecenie_dla_dziecka": "Twoje miejsce jest na stópkach. Masz kartę „NIE TERAZ”.",
-      "instrukcja_slowna_doroslego": "Pamiętasz swoje miejsce? Stópki przy drzwiach. Karta „NIE TERAZ” jest w kieszeni.",
-      "nagranie": "04_media/eduplaner_sens/assets/audio_sens/as_07_II.mp3",
-      "czyta": "dziecko słucha nagrania; instrukcję słowną czyta dorosły"
-    },
-    {
-      "id": "POL-SENS-07-I",
-      "pomoc_id": "P-SENS-07",
-      "wskaznik_id": "SENS-07",
-      "poziom_wsparcia": {
-        "kod": "I",
-        "nazwa": "Poziom I — wsparcie podstawowe"
-      },
-      "polecenie_dla_dziecka": "Wybierz miejsce, zanim ustawimy się w kolejce.",
-      "instrukcja_slowna_doroslego": "Za chwilę kolejka. Powiedz, gdzie dziś stajesz.",
-      "nagranie": "04_media/eduplaner_sens/assets/audio_sens/as_07_I.mp3",
-      "czyta": "dziecko słucha nagrania; instrukcję słowną czyta dorosły"
-    },
-    {
-      "id": "POL-SENS-08-III",
-      "pomoc_id": "P-SENS-08",
-      "wskaznik_id": "SENS-08",
-      "poziom_wsparcia": {
-        "kod": "III",
-        "nazwa": "Poziom III — wsparcie intensywne"
-      },
-      "polecenie_dla_dziecka": "Ręce na gniotka. Trzymamy razem. Siedzimy do końca piosenki.",
-      "instrukcja_slowna_doroslego": "Widzę, że rękom trzeba pracy. Daję ci gniotka i kładę na nim twoje dłonie — siedzę obok.",
-      "nagranie": "04_media/eduplaner_sens/assets/audio_sens/as_08_III.mp3",
-      "czyta": "dziecko słucha nagrania; instrukcję słowną czyta dorosły"
-    },
-    {
-      "id": "POL-SENS-08-II",
-      "pomoc_id": "P-SENS-08",
-      "wskaznik_id": "SENS-08",
-      "poziom_wsparcia": {
-        "kod": "II",
-        "nazwa": "Poziom II — wsparcie umiarkowane"
-      },
-      "polecenie_dla_dziecka": "Weź gniotka do ręki. Ręce pracują tutaj.",
-      "instrukcja_slowna_doroslego": "Weź gniotka z kieszeni. Twoje ręce pracują na nim, nie na koledze.",
-      "nagranie": "04_media/eduplaner_sens/assets/audio_sens/as_08_II.mp3",
-      "czyta": "dziecko słucha nagrania; instrukcję słowną czyta dorosły"
-    },
-    {
-      "id": "POL-SENS-08-I",
-      "pomoc_id": "P-SENS-08",
-      "wskaznik_id": "SENS-08",
-      "poziom_wsparcia": {
-        "kod": "I",
-        "nazwa": "Poziom I — wsparcie podstawowe"
-      },
-      "polecenie_dla_dziecka": "Przygotuj ręce, zanim usiądziemy w kręgu.",
-      "instrukcja_slowna_doroslego": "Zaplanuj, kiedy dziś idziesz do skrzynki.",
-      "nagranie": "04_media/eduplaner_sens/assets/audio_sens/as_08_I.mp3",
-      "czyta": "dziecko słucha nagrania; instrukcję słowną czyta dorosły"
-    },
-    {
-      "id": "POL-SENS-09-III",
-      "pomoc_id": "P-SENS-09",
-      "wskaznik_id": "SENS-09",
-      "poziom_wsparcia": {
-        "kod": "III",
-        "nazwa": "Poziom III — wsparcie intensywne"
-      },
-      "polecenie_dla_dziecka": "Pokaż, co dziś drapie. Wybieramy ubranie razem.",
-      "instrukcja_slowna_doroslego": "Sprawdzamy, co dziś drapie. Pokazuję sylwetkę, ty wskazujesz palcem.",
-      "nagranie": "04_media/eduplaner_sens/assets/audio_sens/as_09_III.mp3",
-      "czyta": "dziecko słucha nagrania; instrukcję słowną czyta dorosły"
-    },
-    {
-      "id": "POL-SENS-09-II",
-      "pomoc_id": "P-SENS-09",
-      "wskaznik_id": "SENS-09",
-      "poziom_wsparcia": {
-        "kod": "II",
-        "nazwa": "Poziom II — wsparcie umiarkowane"
-      },
-      "polecenie_dla_dziecka": "Wskaż na pasku: jeden, dwa czy trzy?",
-      "instrukcja_slowna_doroslego": "Zanim zaczniemy plastykę — wskaż na pasku, ile dziś zniesiesz.",
-      "nagranie": "04_media/eduplaner_sens/assets/audio_sens/as_09_II.mp3",
-      "czyta": "dziecko słucha nagrania; instrukcję słowną czyta dorosły"
-    },
-    {
-      "id": "POL-SENS-09-I",
-      "pomoc_id": "P-SENS-09",
-      "wskaznik_id": "SENS-09",
-      "poziom_wsparcia": {
-        "kod": "I",
-        "nazwa": "Poziom I — wsparcie podstawowe"
-      },
-      "polecenie_dla_dziecka": "Ustal swój poziom i powiedz, czego dziś nie chcesz dotykać.",
-      "instrukcja_slowna_doroslego": "Ustal poziom faktur i wybierz sobie materiał.",
-      "nagranie": "04_media/eduplaner_sens/assets/audio_sens/as_09_I.mp3",
-      "czyta": "dziecko słucha nagrania; instrukcję słowną czyta dorosły"
-    },
-    {
-      "id": "POL-SENS-10-III",
-      "pomoc_id": "P-SENS-10",
-      "wskaznik_id": "SENS-10",
-      "poziom_wsparcia": {
-        "kod": "III",
-        "nazwa": "Poziom III — wsparcie intensywne"
-      },
-      "polecenie_dla_dziecka": "Patrzymy na nowe jedzenie. Nie musisz jeść. Dotykam widelcem, zrób tak samo.",
-      "instrukcja_slowna_doroslego": "To jest talerzyk do prób. Nie musisz jeść. Ja dotykam widelcem — spróbuj tak samo, razem.",
-      "nagranie": "04_media/eduplaner_sens/assets/audio_sens/as_10_III.mp3",
-      "czyta": "dziecko słucha nagrania; instrukcję słowną czyta dorosły"
-    },
-    {
-      "id": "POL-SENS-10-II",
-      "pomoc_id": "P-SENS-10",
-      "wskaznik_id": "SENS-10",
-      "poziom_wsparcia": {
-        "kod": "II",
-        "nazwa": "Poziom II — wsparcie umiarkowane"
-      },
-      "polecenie_dla_dziecka": "Pokaż na drabinie, gdzie dziś jesteś. Zrób ten jeden szczebel.",
-      "instrukcja_slowna_doroslego": "Na drabinie byłeś wczoraj tutaj. Gdzie jesteś dziś?",
-      "nagranie": "04_media/eduplaner_sens/assets/audio_sens/as_10_II.mp3",
-      "czyta": "dziecko słucha nagrania; instrukcję słowną czyta dorosły"
-    },
-    {
-      "id": "POL-SENS-10-I",
-      "pomoc_id": "P-SENS-10",
-      "wskaznik_id": "SENS-10",
-      "poziom_wsparcia": {
-        "kod": "I",
-        "nazwa": "Poziom I — wsparcie podstawowe"
-      },
-      "polecenie_dla_dziecka": "Wybierz swój szczebel na dziś i powiedz mi, kiedy skończysz.",
-      "instrukcja_slowna_doroslego": "Talerzyk stoi. Zdecyduj, który szczebel robisz dziś.",
-      "nagranie": "04_media/eduplaner_sens/assets/audio_sens/as_10_I.mp3",
-      "czyta": "dziecko słucha nagrania; instrukcję słowną czyta dorosły"
-    },
-    {
-      "id": "POL-SENS-11-III",
-      "pomoc_id": "P-SENS-11",
-      "wskaznik_id": "SENS-11",
-      "poziom_wsparcia": {
-        "kod": "III",
-        "nazwa": "Poziom III — wsparcie intensywne"
-      },
-      "polecenie_dla_dziecka": "Buzia chce mocno. Bierzemy gryzak. Kredka zostaje na stole.",
-      "instrukcja_slowna_doroslego": "Widzę, że buzia szuka. Podaję gryzak i przypinam go — kredka zostaje na stole.",
-      "nagranie": "04_media/eduplaner_sens/assets/audio_sens/as_11_III.mp3",
-      "czyta": "dziecko słucha nagrania; instrukcję słowną czyta dorosły"
-    },
-    {
-      "id": "POL-SENS-11-II",
-      "pomoc_id": "P-SENS-11",
-      "wskaznik_id": "SENS-11",
-      "poziom_wsparcia": {
-        "kod": "II",
-        "nazwa": "Poziom II — wsparcie umiarkowane"
-      },
-      "polecenie_dla_dziecka": "Weź gryzak, nie rękaw. Napij się przez rurkę.",
-      "instrukcja_slowna_doroslego": "Zanim zaczniemy, napij się przez rurkę. Gryzak masz przy fartuszku.",
-      "nagranie": "04_media/eduplaner_sens/assets/audio_sens/as_11_II.mp3",
-      "czyta": "dziecko słucha nagrania; instrukcję słowną czyta dorosły"
-    },
-    {
-      "id": "POL-SENS-11-I",
-      "pomoc_id": "P-SENS-11",
-      "wskaznik_id": "SENS-11",
-      "poziom_wsparcia": {
-        "kod": "I",
-        "nazwa": "Poziom I — wsparcie podstawowe"
-      },
-      "polecenie_dla_dziecka": "Przygotuj buzię przed zadaniem — wiesz, co robić.",
-      "instrukcja_slowna_doroslego": "Zaplanuj, kiedy dziś napijesz się przez rurkę i kiedy zjesz chrupiące.",
-      "nagranie": "04_media/eduplaner_sens/assets/audio_sens/as_11_I.mp3",
-      "czyta": "dziecko słucha nagrania; instrukcję słowną czyta dorosły"
-    },
-    {
-      "id": "POL-SENS-12-III",
-      "pomoc_id": "P-SENS-12",
-      "wskaznik_id": "SENS-12",
-      "poziom_wsparcia": {
-        "kod": "III",
-        "nazwa": "Poziom III — wsparcie intensywne"
-      },
-      "polecenie_dla_dziecka": "Wybieramy kartę. Jem swoje, próbuję czy tylko patrzę?",
-      "instrukcja_slowna_doroslego": "Zanim zjemy, wybieramy kartę. Trzymam trzy, ty wskazujesz jedną.",
-      "nagranie": "04_media/eduplaner_sens/assets/audio_sens/as_12_III.mp3",
-      "czyta": "dziecko słucha nagrania; instrukcję słowną czyta dorosły"
-    },
-    {
-      "id": "POL-SENS-12-II",
-      "pomoc_id": "P-SENS-12",
-      "wskaznik_id": "SENS-12",
-      "poziom_wsparcia": {
-        "kod": "II",
-        "nazwa": "Poziom II — wsparcie umiarkowane"
-      },
-      "polecenie_dla_dziecka": "Połóż kartę przed jedzeniem.",
-      "instrukcja_slowna_doroslego": "Połóż kartę przed posiłkiem — będzie tak, jak wybierzesz.",
-      "nagranie": "04_media/eduplaner_sens/assets/audio_sens/as_12_II.mp3",
-      "czyta": "dziecko słucha nagrania; instrukcję słowną czyta dorosły"
-    },
-    {
-      "id": "POL-SENS-12-I",
-      "pomoc_id": "P-SENS-12",
-      "wskaznik_id": "SENS-12",
-      "poziom_wsparcia": {
-        "kod": "I",
-        "nazwa": "Poziom I — wsparcie podstawowe"
-      },
-      "polecenie_dla_dziecka": "Wybierz kartę i powiedz, co dziś jest inaczej.",
-      "instrukcja_slowna_doroslego": "Wybierz kartę i powiedz mi, co dziś zjesz zamiast tego.",
-      "nagranie": "04_media/eduplaner_sens/assets/audio_sens/as_12_I.mp3",
-      "czyta": "dziecko słucha nagrania; instrukcję słowną czyta dorosły"
-    },
-    {
-      "id": "POL-SENS-13-III",
-      "pomoc_id": "P-SENS-13",
-      "wskaznik_id": "SENS-13",
-      "poziom_wsparcia": {
-        "kod": "III",
-        "nazwa": "Poziom III — wsparcie intensywne"
-      },
-      "polecenie_dla_dziecka": "Brzydki zapach. Dajemy chusteczkę do nosa. Wchodzimy razem.",
-      "instrukcja_slowna_doroslego": "Czuję, że tu mocno pachnie. Podaję ci chusteczkę i wchodzimy razem, na chwilę przy oknie.",
-      "nagranie": "04_media/eduplaner_sens/assets/audio_sens/as_13_III.mp3",
-      "czyta": "dziecko słucha nagrania; instrukcję słowną czyta dorosły"
-    },
-    {
-      "id": "POL-SENS-13-II",
-      "pomoc_id": "P-SENS-13",
-      "wskaznik_id": "SENS-13",
-      "poziom_wsparcia": {
-        "kod": "II",
-        "nazwa": "Poziom II — wsparcie umiarkowane"
-      },
-      "polecenie_dla_dziecka": "Weź chusteczkę z kieszeni. Usiądź przy oknie.",
-      "instrukcja_slowna_doroslego": "Chusteczka jest w kieszeni. Miejsce przy oknie jest wolne.",
-      "nagranie": "04_media/eduplaner_sens/assets/audio_sens/as_13_II.mp3",
-      "czyta": "dziecko słucha nagrania; instrukcję słowną czyta dorosły"
-    },
-    {
-      "id": "POL-SENS-13-I",
-      "pomoc_id": "P-SENS-13",
-      "wskaznik_id": "SENS-13",
-      "poziom_wsparcia": {
-        "kod": "I",
-        "nazwa": "Poziom I — wsparcie podstawowe"
-      },
-      "polecenie_dla_dziecka": "Powiedz, gdzie dziś siadasz w stołówce.",
-      "instrukcja_slowna_doroslego": "Za chwilę stołówka. Zaplanuj, jak sobie poradzisz z zapachem.",
-      "nagranie": "04_media/eduplaner_sens/assets/audio_sens/as_13_I.mp3",
-      "czyta": "dziecko słucha nagrania; instrukcję słowną czyta dorosły"
-    },
-    {
-      "id": "POL-SENS-14-III",
-      "pomoc_id": "P-SENS-14",
-      "wskaznik_id": "SENS-14",
-      "poziom_wsparcia": {
-        "kod": "III",
-        "nazwa": "Poziom III — wsparcie intensywne"
-      },
-      "polecenie_dla_dziecka": "Wąchamy tutaj. To jest pudełko zapachów. Idziemy razem.",
-      "instrukcja_slowna_doroslego": "Widzę, że szukasz zapachu. Idziemy do pudełka — kolegi nie wąchamy, wąchamy woreczki.",
-      "nagranie": "04_media/eduplaner_sens/assets/audio_sens/as_14_III.mp3",
-      "czyta": "dziecko słucha nagrania; instrukcję słowną czyta dorosły"
-    },
-    {
-      "id": "POL-SENS-14-II",
-      "pomoc_id": "P-SENS-14",
-      "wskaznik_id": "SENS-14",
-      "poziom_wsparcia": {
-        "kod": "II",
-        "nazwa": "Poziom II — wsparcie umiarkowane"
-      },
-      "polecenie_dla_dziecka": "Podaj kartę i idź do pudełka. Dwie minuty.",
-      "instrukcja_slowna_doroslego": "Masz kartę „CHCĘ POWĄCHAĆ”. Pudełko stoi na półce.",
-      "nagranie": "04_media/eduplaner_sens/assets/audio_sens/as_14_II.mp3",
-      "czyta": "dziecko słucha nagrania; instrukcję słowną czyta dorosły"
-    },
-    {
-      "id": "POL-SENS-14-I",
-      "pomoc_id": "P-SENS-14",
-      "wskaznik_id": "SENS-14",
-      "poziom_wsparcia": {
-        "kod": "I",
-        "nazwa": "Poziom I — wsparcie podstawowe"
-      },
-      "polecenie_dla_dziecka": "Powiedz, kiedy dziś pójdziesz powąchać.",
-      "instrukcja_slowna_doroslego": "Zaplanuj sobie dziś dwie chwile przy pudełku zapachów.",
-      "nagranie": "04_media/eduplaner_sens/assets/audio_sens/as_14_I.mp3",
-      "czyta": "dziecko słucha nagrania; instrukcję słowną czyta dorosły"
-    },
-    {
-      "id": "POL-SENS-15-III",
-      "pomoc_id": "P-SENS-15",
-      "wskaznik_id": "SENS-15",
-      "poziom_wsparcia": {
-        "kod": "III",
-        "nazwa": "Poziom III — wsparcie intensywne"
-      },
-      "polecenie_dla_dziecka": "Sprawdzamy nos. Wąchamy woreczek. Którą buźkę wybierasz?",
-      "instrukcja_slowna_doroslego": "Zanim pójdziemy jeść, sprawdzimy twój nos. Podaję woreczek — powąchaj.",
-      "nagranie": "04_media/eduplaner_sens/assets/audio_sens/as_15_III.mp3",
-      "czyta": "dziecko słucha nagrania; instrukcję słowną czyta dorosły"
-    },
-    {
-      "id": "POL-SENS-15-II",
-      "pomoc_id": "P-SENS-15",
-      "wskaznik_id": "SENS-15",
-      "poziom_wsparcia": {
-        "kod": "II",
-        "nazwa": "Poziom II — wsparcie umiarkowane"
-      },
-      "polecenie_dla_dziecka": "Powąchaj oba woreczki i wskaż buźkę.",
-      "instrukcja_slowna_doroslego": "Sprawdź nos dnia. Jeśli mocno czujesz, weź chusteczkę.",
-      "nagranie": "04_media/eduplaner_sens/assets/audio_sens/as_15_II.mp3",
-      "czyta": "dziecko słucha nagrania; instrukcję słowną czyta dorosły"
-    },
-    {
-      "id": "POL-SENS-15-I",
-      "pomoc_id": "P-SENS-15",
-      "wskaznik_id": "SENS-15",
-      "poziom_wsparcia": {
-        "kod": "I",
-        "nazwa": "Poziom I — wsparcie podstawowe"
-      },
-      "polecenie_dla_dziecka": "Sprawdź nos dnia i powiedz, czego dziś potrzebujesz.",
-      "instrukcja_slowna_doroslego": "Sprawdź nos i zdecyduj, gdzie dziś siadasz.",
-      "nagranie": "04_media/eduplaner_sens/assets/audio_sens/as_15_I.mp3",
-      "czyta": "dziecko słucha nagrania; instrukcję słowną czyta dorosły"
-    },
-    {
-      "id": "POL-SENS-16-III",
-      "pomoc_id": "P-SENS-16",
-      "wskaznik_id": "SENS-16",
-      "poziom_wsparcia": {
-        "kod": "III",
-        "nazwa": "Poziom III — wsparcie intensywne"
-      },
-      "polecenie_dla_dziecka": "Pchamy pudło razem. Ja z jednej strony, ty z drugiej.",
-      "instrukcja_slowna_doroslego": "Robimy jedno zadanie, razem. Trzymam pudło z tobą — pchamy do dywanu i koniec.",
-      "nagranie": "04_media/eduplaner_sens/assets/audio_sens/as_16_III.mp3",
-      "czyta": "dziecko słucha nagrania; instrukcję słowną czyta dorosły"
-    },
-    {
-      "id": "POL-SENS-16-II",
-      "pomoc_id": "P-SENS-16",
-      "wskaznik_id": "SENS-16",
-      "poziom_wsparcia": {
-        "kod": "II",
-        "nazwa": "Poziom II — wsparcie umiarkowane"
-      },
-      "polecenie_dla_dziecka": "Wskaż szczebel na drabinie i zrób go.",
-      "instrukcja_slowna_doroslego": "Pokaż na drabinie, który szczebel robisz dziś.",
-      "nagranie": "04_media/eduplaner_sens/assets/audio_sens/as_16_II.mp3",
-      "czyta": "dziecko słucha nagrania; instrukcję słowną czyta dorosły"
-    },
-    {
-      "id": "POL-SENS-16-I",
-      "pomoc_id": "P-SENS-16",
-      "wskaznik_id": "SENS-16",
-      "poziom_wsparcia": {
-        "kod": "I",
-        "nazwa": "Poziom I — wsparcie podstawowe"
-      },
-      "polecenie_dla_dziecka": "Wybierz dziś swój szczebel i powiedz, gdzie poczułeś mięśnie.",
-      "instrukcja_slowna_doroslego": "Wybierz szczebel przed zajęciami i powiedz mi, jak poszło.",
-      "nagranie": "04_media/eduplaner_sens/assets/audio_sens/as_16_I.mp3",
-      "czyta": "dziecko słucha nagrania; instrukcję słowną czyta dorosły"
-    },
-    {
-      "id": "POL-SENS-17-III",
-      "pomoc_id": "P-SENS-17",
-      "wskaznik_id": "SENS-17",
-      "poziom_wsparcia": {
-        "kod": "III",
-        "nazwa": "Poziom III — wsparcie intensywne"
-      },
-      "polecenie_dla_dziecka": "Twoje ciało chce mocno. Idziemy po kocyk. Liczę do stu.",
-      "instrukcja_slowna_doroslego": "Widzę, że ciało szuka mocnego. Idziemy do kącika, przykrywam cię kocykiem i siedzę obok.",
-      "nagranie": "04_media/eduplaner_sens/assets/audio_sens/as_17_III.mp3",
-      "czyta": "dziecko słucha nagrania; instrukcję słowną czyta dorosły"
-    },
-    {
-      "id": "POL-SENS-17-II",
-      "pomoc_id": "P-SENS-17",
-      "wskaznik_id": "SENS-17",
-      "poziom_wsparcia": {
-        "kod": "II",
-        "nazwa": "Poziom II — wsparcie umiarkowane"
-      },
-      "polecenie_dla_dziecka": "Podaj kartę „MOCNO” i idź do kącika. Trzy minuty.",
-      "instrukcja_slowna_doroslego": "Masz kartę „MOCNO”. Kącik jest wolny — trzy minuty i wracasz.",
-      "nagranie": "04_media/eduplaner_sens/assets/audio_sens/as_17_II.mp3",
-      "czyta": "dziecko słucha nagrania; instrukcję słowną czyta dorosły"
-    },
-    {
-      "id": "POL-SENS-17-I",
-      "pomoc_id": "P-SENS-17",
-      "wskaznik_id": "SENS-17",
-      "poziom_wsparcia": {
-        "kod": "I",
-        "nazwa": "Poziom I — wsparcie podstawowe"
-      },
-      "polecenie_dla_dziecka": "Powiedz, kiedy robisz dziś przerwę na docisk.",
-      "instrukcja_slowna_doroslego": "Zaplanuj trzy przerwy na docisk. Powiedz mi, kiedy pierwsza.",
-      "nagranie": "04_media/eduplaner_sens/assets/audio_sens/as_17_I.mp3",
-      "czyta": "dziecko słucha nagrania; instrukcję słowną czyta dorosły"
-    },
-    {
-      "id": "POL-SENS-18-III",
-      "pomoc_id": "P-SENS-18",
-      "wskaznik_id": "SENS-18",
-      "poziom_wsparcia": {
-        "kod": "III",
-        "nazwa": "Poziom III — wsparcie intensywne"
-      },
-      "polecenie_dla_dziecka": "Robimy trzy kreski. Piórko, w sam raz, za mocno. Prowadzę twoją rękę.",
-      "instrukcja_slowna_doroslego": "Sprawdzamy twoją rękę. Trzy kreski — prowadzę razem z tobą.",
-      "nagranie": "04_media/eduplaner_sens/assets/audio_sens/as_18_III.mp3",
-      "czyta": "dziecko słucha nagrania; instrukcję słowną czyta dorosły"
-    },
-    {
-      "id": "POL-SENS-18-II",
-      "pomoc_id": "P-SENS-18",
-      "wskaznik_id": "SENS-18",
-      "poziom_wsparcia": {
-        "kod": "II",
-        "nazwa": "Poziom II — wsparcie umiarkowane"
-      },
-      "polecenie_dla_dziecka": "Zrób trzy kreski na mierniku. Która jest w sam raz?",
-      "instrukcja_slowna_doroslego": "Zanim zaczniesz, zrób próbę na mierniku i wskaż „w sam raz”.",
-      "nagranie": "04_media/eduplaner_sens/assets/audio_sens/as_18_II.mp3",
-      "czyta": "dziecko słucha nagrania; instrukcję słowną czyta dorosły"
-    },
-    {
-      "id": "POL-SENS-18-I",
-      "pomoc_id": "P-SENS-18",
-      "wskaznik_id": "SENS-18",
-      "poziom_wsparcia": {
-        "kod": "I",
-        "nazwa": "Poziom I — wsparcie podstawowe"
-      },
-      "polecenie_dla_dziecka": "Sprawdź siłę i wybierz kredkę na dziś.",
-      "instrukcja_slowna_doroslego": "Sprawdź miernik, dobierz kredkę i pamiętaj o dotyku jak piórko w parze.",
-      "nagranie": "04_media/eduplaner_sens/assets/audio_sens/as_18_I.mp3",
-      "czyta": "dziecko słucha nagrania; instrukcję słowną czyta dorosły"
-    },
-    {
-      "id": "POL-SENS-19-III",
-      "pomoc_id": "P-SENS-19",
-      "wskaznik_id": "SENS-19",
-      "poziom_wsparcia": {
-        "kod": "III",
-        "nazwa": "Poziom III — wsparcie intensywne"
-      },
-      "polecenie_dla_dziecka": "Siadamy na huśtawce. Stopy na ziemi. Trzymam cię. Powiedz stop, kiedy chcesz.",
-      "instrukcja_slowna_doroslego": "Siadamy razem, stopy zostają na ziemi. Ja trzymam. Kiedy powiesz stop — zatrzymuję.",
-      "nagranie": "04_media/eduplaner_sens/assets/audio_sens/as_19_III.mp3",
-      "czyta": "dziecko słucha nagrania; instrukcję słowną czyta dorosły"
-    },
-    {
-      "id": "POL-SENS-19-II",
-      "pomoc_id": "P-SENS-19",
-      "wskaznik_id": "SENS-19",
-      "poziom_wsparcia": {
-        "kod": "II",
-        "nazwa": "Poziom II — wsparcie umiarkowane"
-      },
-      "polecenie_dla_dziecka": "Wskaż szczebel na drabinie. Karta STOP jest u ciebie.",
-      "instrukcja_slowna_doroslego": "Który szczebel robisz dziś? Karta STOP jest w twojej kieszeni.",
-      "nagranie": "04_media/eduplaner_sens/assets/audio_sens/as_19_II.mp3",
-      "czyta": "dziecko słucha nagrania; instrukcję słowną czyta dorosły"
-    },
-    {
-      "id": "POL-SENS-19-I",
-      "pomoc_id": "P-SENS-19",
-      "wskaznik_id": "SENS-19",
-      "poziom_wsparcia": {
-        "kod": "I",
-        "nazwa": "Poziom I — wsparcie podstawowe"
-      },
-      "polecenie_dla_dziecka": "Wybierz dziś swój szczebel. Pamiętasz, jak zatrzymać ruch?",
-      "instrukcja_slowna_doroslego": "Zaplanuj szczebel przed wyjściem i powiedz mi, kiedy zaczynasz.",
-      "nagranie": "04_media/eduplaner_sens/assets/audio_sens/as_19_I.mp3",
-      "czyta": "dziecko słucha nagrania; instrukcję słowną czyta dorosły"
-    },
-    {
-      "id": "POL-SENS-20-III",
-      "pomoc_id": "P-SENS-20",
-      "wskaznik_id": "SENS-20",
-      "poziom_wsparcia": {
-        "kod": "III",
-        "nazwa": "Poziom III — wsparcie intensywne"
-      },
-      "polecenie_dla_dziecka": "Skaczemy dziesięć razy. Razem. Potem siadamy na poduszce.",
-      "instrukcja_slowna_doroslego": "Ciało chce ruchu. Skaczemy razem dziesięć razy, potem siadasz na poduszce.",
-      "nagranie": "04_media/eduplaner_sens/assets/audio_sens/as_20_III.mp3",
-      "czyta": "dziecko słucha nagrania; instrukcję słowną czyta dorosły"
-    },
-    {
-      "id": "POL-SENS-20-II",
-      "pomoc_id": "P-SENS-20",
-      "wskaznik_id": "SENS-20",
-      "poziom_wsparcia": {
-        "kod": "II",
-        "nazwa": "Poziom II — wsparcie umiarkowane"
-      },
-      "polecenie_dla_dziecka": "Podaj kartę i idź do znaku. Trzy minuty ruchu, potem stolik.",
-      "instrukcja_slowna_doroslego": "Masz kartę „POTRZEBUJĘ RUCHU”. Trzy minuty przy znaku i wracasz.",
-      "nagranie": "04_media/eduplaner_sens/assets/audio_sens/as_20_II.mp3",
-      "czyta": "dziecko słucha nagrania; instrukcję słowną czyta dorosły"
-    },
-    {
-      "id": "POL-SENS-20-I",
-      "pomoc_id": "P-SENS-20",
-      "wskaznik_id": "SENS-20",
-      "poziom_wsparcia": {
-        "kod": "I",
-        "nazwa": "Poziom I — wsparcie podstawowe"
-      },
-      "polecenie_dla_dziecka": "Zaplanuj, kiedy dziś ruszasz się przed zadaniem.",
-      "instrukcja_slowna_doroslego": "Powiedz, kiedy robisz dziś swoje trzy dawki ruchu.",
-      "nagranie": "04_media/eduplaner_sens/assets/audio_sens/as_20_I.mp3",
-      "czyta": "dziecko słucha nagrania; instrukcję słowną czyta dorosły"
-    },
-    {
-      "id": "POL-SENS-21-III",
-      "pomoc_id": "P-SENS-21",
-      "wskaznik_id": "SENS-21",
-      "poziom_wsparcia": {
-        "kod": "III",
-        "nazwa": "Poziom III — wsparcie intensywne"
-      },
-      "polecenie_dla_dziecka": "Sprawdzamy ruch. Przesuwamy suwak razem.",
-      "instrukcja_slowna_doroslego": "Zanim wyjdziemy, sprawdzimy twój ruch. Trzymam pasek, ty przesuwasz suwak.",
-      "nagranie": "04_media/eduplaner_sens/assets/audio_sens/as_21_III.mp3",
-      "czyta": "dziecko słucha nagrania; instrukcję słowną czyta dorosły"
-    },
-    {
-      "id": "POL-SENS-21-II",
-      "pomoc_id": "P-SENS-21",
-      "wskaznik_id": "SENS-21",
-      "poziom_wsparcia": {
-        "kod": "II",
-        "nazwa": "Poziom II — wsparcie umiarkowane"
-      },
-      "polecenie_dla_dziecka": "Ustaw suwak i wybierz zabawę.",
-      "instrukcja_slowna_doroslego": "Ustaw licznik ruchu i wybierz sprzęt, który przy nim narysowany.",
-      "nagranie": "04_media/eduplaner_sens/assets/audio_sens/as_21_II.mp3",
-      "czyta": "dziecko słucha nagrania; instrukcję słowną czyta dorosły"
-    },
-    {
-      "id": "POL-SENS-21-I",
-      "pomoc_id": "P-SENS-21",
-      "wskaznik_id": "SENS-21",
-      "poziom_wsparcia": {
-        "kod": "I",
-        "nazwa": "Poziom I — wsparcie podstawowe"
-      },
-      "polecenie_dla_dziecka": "Ustaw licznik i powiedz, co dziś wybierasz.",
-      "instrukcja_slowna_doroslego": "Ustaw licznik przed wyjściem i powiedz, co dziś robisz na placu.",
-      "nagranie": "04_media/eduplaner_sens/assets/audio_sens/as_21_I.mp3",
-      "czyta": "dziecko słucha nagrania; instrukcję słowną czyta dorosły"
+      "arkusz_id": "VII.3"
     }
   ]
 }

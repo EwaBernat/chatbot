@@ -1,4 +1,6 @@
 {
+  "dokument": "EduPlaner 2026 · druk SENS-C · cele SMART do obserwacji pogłębionej",
+  "opis": "Ciąg dalszy profilu sensorycznego. Kryterium prób i horyzont ewaluacji NIE są stałe — wynikają z punktacji danego zmysłu u konkretnego dziecka, według tabeli `progi`. Horyzont jest w trzech formach gramatycznych, bo wchodzi w trzy różne zdania.",
   "modul": {
     "nazwa": "Profil sensoryczny — bank celów SMART (przedszkole)",
     "kod": "SENS",
@@ -10,1108 +12,1125 @@
     "podstawa_prawna": [
       "Rozp. MEN z 14.02.2017 r. w sprawie podstawy programowej wychowania przedszkolnego (Dz.U. 2017 poz. 356, ze zm.) — fizyczny obszar rozwoju.",
       "Rozp. MEN z 9.08.2017 r. w sprawie pomocy psychologiczno-pedagogicznej (Dz.U. 2017 poz. 1591).",
-      "Rozp. MEN z 9.08.2017 r. w sprawie kształcenia specjalnego (Dz.U. 2017 poz. 1578) — zajęcia rewalidacyjne dla dzieci z orzeczeniem."
+      "Rozp. MEN z 9.08.2017 r. w sprawie kształcenia specjalnego (Dz.U. 2017 poz. 1578)."
     ],
-    "zasada_modulu": "Cel z tego banku opisuje STRATEGIĘ SENSORYCZNĄ dziecka — co dziecko ROBI, żeby poradzić sobie z bodźcem — a nie zanik objawu. „Nie będzie zatykał uszu” nie jest celem z tego modułu. „Założy słuchawki wygłuszające, zanim hałas w szatni go przeciąży” — jest. Każdy wskaźnik niesie pole `strategia_sensoryczna`; cel bez niego traci sens terapeutyczny."
+    "zasada_modulu": "Cel z tego banku opisuje STRATEGIĘ SENSORYCZNĄ dziecka — co dziecko robi, żeby poradzić sobie z bodźcem — a nie zanik objawu. „Nie będzie zatykał uszu” nie jest celem z tego modułu. „Założy słuchawki, zanim hałas w szatni go przeciąży” — jest. Poziom wsparcia zmienia warunki, nie strategię."
   },
-  "druk": "SENS-C — cele do obserwacji pogłębionej (profil sensoryczny)",
-  "jak_liczyc_kryterium": "Kryterium i horyzont NIE są stałe. Wynikają z sumy punktów zmysłu (0–24) z druku obserwacji: znajdź pasmo w tabeli `progi` i podstaw `proba` oraz trzy formy gramatyczne horyzontu w miejsce znaczników w polu `cel`. Horyzont jest w trzech formach, bo wchodzi w trzy różne zdania — jedna forma dawała w druku dla rodzica „weryfikacja po 4 tygodni”.",
   "przelicznik_natezenia": "natężenie (0–10) = zaokrąglone (suma zmysłu × 10 / 24)",
   "progi": [
     {
-      "zakres_sumy": [
-        0,
-        5
-      ],
-      "natezenie": "0–2",
-      "pasmo": "modulacja prawidłowa — zasób",
-      "decyzja": "cel podtrzymujący; obserwacja bez interwencji",
-      "proba": "3 z 5",
-      "horyzont": {
-        "mianownik": "12 tygodni",
-        "dopelniacz": "12 tygodni",
-        "miejscownik": "12 tygodniach"
-      }
-    },
-    {
-      "zakres_sumy": [
-        6,
-        12
-      ],
-      "natezenie": "3–5",
-      "pasmo": "modulacja częściowo zaburzona — monitorowanie",
-      "decyzja": "dieta sensoryczna wpisana do planu dnia; weryfikacja w połowie okresu",
-      "proba": "4 z 5",
-      "horyzont": {
-        "mianownik": "8 tygodni",
-        "dopelniacz": "8 tygodni",
-        "miejscownik": "8 tygodniach"
-      }
-    },
-    {
-      "zakres_sumy": [
-        13,
-        24
-      ],
-      "natezenie": "6–10",
-      "pasmo": "duża nad- lub podwrażliwość — priorytet diety sensorycznej",
-      "decyzja": "dieta sensoryczna codziennie, konsultacja terapeuty SI, krótki cykl weryfikacji",
-      "proba": "4 z 5",
+      "od_punktow": 13,
+      "ocena": "Priorytet",
+      "kryterium": "4 z 5",
       "horyzont": {
         "mianownik": "4 tygodnie",
         "dopelniacz": "4 tygodni",
         "miejscownik": "4 tygodniach"
-      }
+      },
+      "dlaczego": "duża nad- lub podwrażliwość — priorytet diety sensorycznej, konsultacja terapeuty SI"
+    },
+    {
+      "od_punktow": 6,
+      "ocena": "Do monitorowania",
+      "kryterium": "4 z 5",
+      "horyzont": {
+        "mianownik": "8 tygodni",
+        "dopelniacz": "8 tygodni",
+        "miejscownik": "8 tygodniach"
+      },
+      "dlaczego": "modulacja częściowo zaburzona — dieta sensoryczna w planie dnia"
+    },
+    {
+      "od_punktow": 0,
+      "ocena": "Zasób",
+      "kryterium": "3 z 5",
+      "horyzont": {
+        "mianownik": "12 tygodni",
+        "dopelniacz": "12 tygodni",
+        "miejscownik": "12 tygodniach"
+      },
+      "dlaczego": "modulacja prawidłowa — cel podtrzymujący, obserwacja bez interwencji"
     }
   ],
-  "zmysly": {
-    "wzrok": {
-      "rzymska": "I",
+  "liczba_celow": 21,
+  "zmysly": [
+    {
+      "nr": "I",
       "nazwa": "Wzrok",
       "icf": "b210",
-      "opis": "widzenie i przetwarzanie bodźców wzrokowych"
+      "skala": "suma 0–24",
+      "opis": "Widzenie i przetwarzanie bodźców wzrokowych: światło, ruch, nadmiar szczegółów.",
+      "zasada_si": "Nie zabieramy osłony za dobre zachowanie i nie zwiększamy bodźca „na próbę”. Dziecko ma mieć stały, dostępny sposób obniżenia dopływu bodźca wzrokowego.",
+      "wskazniki": [
+        {
+          "nr": "I.1",
+          "sektor": "Nadwrażliwość",
+          "kierunek": "↑ za dużo bodźca",
+          "deficyt": "Dziecko mruży oczy, osłania je lub odwraca wzrok przy jasnym świetle i nadmiarze bodźców wzrokowych.",
+          "strategia_sensoryczna": "osłona wzrokowa na własny sygnał",
+          "cel": "Dziecko skorzysta z osłony wzrokowej albo zmieni miejsce, zanim przerwie zadanie, w {proba} sytuacji, w ciągu {horyzont_dopelniacz}.",
+          "znaczniki": [
+            "{proba}",
+            "{horyzont_dopelniacz}",
+            "{horyzont_miejscownik}"
+          ],
+          "co_obserwowac": "Arkusz obserwacji — kolumna: zadanie wzrokowe przy stoliku. Notujemy przerwanie zadania i sięgnięcie po osłonę.",
+          "ile_sytuacji": "5 zadań wzrokowych w tygodniu",
+          "smart": [
+            {
+              "litera": "S",
+              "tresc": "Sięga po osłonę albo zmienia miejsce — czynność widoczna dla obserwatora."
+            },
+            {
+              "litera": "M",
+              "tresc": "{proba} sytuacji z pięciu obserwowanych w tygodniu."
+            },
+            {
+              "litera": "A",
+              "tresc": "Osłona stoi na stałym miejscu i jest dostępna bez pytania dorosłego."
+            },
+            {
+              "litera": "R",
+              "tresc": "Przeciążenie wzrokowe kończy zadanie wcześniej niż trudność zadania."
+            },
+            {
+              "litera": "T",
+              "tresc": "Weryfikacja po {horyzont_miejscownik}, według pasma punktacji zmysłu."
+            }
+          ],
+          "dieta_sensoryczna": [
+            "zadania wzrokowe po 3–7 minut, przeplatane patrzeniem w dal albo przerwą z zamkniętymi oczami",
+            "kącik małych bodźców: ściana bez dekoracji, jedna pomoc na blacie",
+            "przyciemnienie części sali w porze zajęć przy stolikach"
+          ],
+          "dostosowania": [
+            "miejsce tyłem do okna, z dala od migoczących świateł i wirujących zabawek",
+            "większe, wyraźne obrazki z dużym odstępem między elementami",
+            "usunięcie dekoracji z pola pracy dziecka — ze ściany i z blatu"
+          ],
+          "ryzyko": "Skargi na ból oczu, mrużenie jednego oka i przybliżanie twarzy do kartki wymagają kontroli okulistycznej przed pracą sensoryczną."
+        },
+        {
+          "nr": "I.2",
+          "sektor": "Podwrażliwość / poszukiwanie bodźców",
+          "kierunek": "↓ za mało bodźca",
+          "deficyt": "Dziecko wpatruje się w źródła światła i przedmioty błyszczące, a na obrazku gubi miejsce i pomija szczegóły.",
+          "strategia_sensoryczna": "mocny bodziec wzrokowy w wyznaczonym miejscu i prowadzenie wzroku w zadaniu",
+          "cel": "Dziecko skorzysta z zaplanowanego bodźca wzrokowego i poprowadzi wzrok w zadaniu, nie gubiąc miejsca, w {proba} sytuacji, w ciągu {horyzont_dopelniacz}.",
+          "znaczniki": [
+            "{proba}",
+            "{horyzont_dopelniacz}",
+            "{horyzont_miejscownik}"
+          ],
+          "co_obserwowac": "Arkusz obserwacji — kolumna: zadanie obrazkowe. Notujemy pominięte pola i wpatrywanie się w źródła światła.",
+          "ile_sytuacji": "5 zadań obrazkowych w tygodniu",
+          "smart": [
+            {
+              "litera": "S",
+              "tresc": "Prowadzi wzrok palcem albo okienkiem i kończy zadanie bez pominięć."
+            },
+            {
+              "litera": "M",
+              "tresc": "{proba} sytuacji z pięciu obserwowanych w tygodniu."
+            },
+            {
+              "litera": "A",
+              "tresc": "Bodziec zaplanowany stoi na półce; okienko leży przy zadaniu."
+            },
+            {
+              "litera": "R",
+              "tresc": "Dziecko nie widzi gorzej — gubi miejsce, bo szuka mocniejszego bodźca."
+            },
+            {
+              "litera": "T",
+              "tresc": "Weryfikacja po {horyzont_miejscownik}, według pasma punktacji zmysłu."
+            }
+          ],
+          "dieta_sensoryczna": [
+            "butelka sensoryczna albo tuba z brokatem na półce — dwie minuty na sygnał, dwa razy dziennie",
+            "zabawy „szukaj i pokaż” na materiale kontrastowym, czarno-białym",
+            "latarka w ciemnym namiocie — kontrolowany mocny bodziec zamiast wpatrywania się w lampę"
+          ],
+          "dostosowania": [
+            "okienko czytelnicze albo kartka zasłaniająca resztę obrazka",
+            "obrazki z wyraźnym konturem i jednym elementem na polu",
+            "przypomnienie kierunku: „prowadź od lewej” — gestem, nie słowem"
+          ],
+          "ryzyko": "Przysuwanie przedmiotów do oczu i pomijanie części obrazka wymaga wykluczenia wady wzroku — kontrola okulistyczna przed interwencją sensoryczną."
+        },
+        {
+          "nr": "I.3",
+          "sektor": "Biały szum (reaktywność zmienna)",
+          "kierunek": "↕ raz za dużo, raz za mało",
+          "deficyt": "Reakcje wzrokowe dziecka są zmienne — raz przesadne, raz brak reakcji na ten sam bodziec.",
+          "strategia_sensoryczna": "poranne sprawdzenie poziomu i dobór miejsca na dany dzień",
+          "cel": "Dziecko sprawdzi poziom wzrokowy przed pierwszym zadaniem i skorzysta z dostosowania, które z odczytu wynika, w {proba} sytuacji, w ciągu {horyzont_dopelniacz}.",
+          "znaczniki": [
+            "{proba}",
+            "{horyzont_dopelniacz}",
+            "{horyzont_miejscownik}"
+          ],
+          "co_obserwowac": "Dziennik obserwacji — rubryka poranna. Notujemy odczyt i to, co po nim ustalono.",
+          "ile_sytuacji": "5 poranków w tygodniu",
+          "smart": [
+            {
+              "litera": "S",
+              "tresc": "Ustawia termometr i bierze pomoc zgodną z odczytem."
+            },
+            {
+              "litera": "M",
+              "tresc": "{proba} dni z pięciu obserwowanych w tygodniu."
+            },
+            {
+              "litera": "A",
+              "tresc": "Termometr wisi na wysokości oczu dziecka i jest częścią powitania."
+            },
+            {
+              "litera": "R",
+              "tresc": "Stały profil w dniu obniżonej reaktywności działa przeciwko dziecku."
+            },
+            {
+              "litera": "T",
+              "tresc": "Weryfikacja po {horyzont_miejscownik}, według pasma punktacji zmysłu."
+            }
+          ],
+          "dieta_sensoryczna": [
+            "trzydzieści sekund na ustawienie termometru — stały punkt planu dnia",
+            "dwa gotowe miejsca w sali: jasne i przyciemnione, wybór należy do dziecka",
+            "krótkie sprawdzenie po odpoczynku, czy poziom się zmienił"
+          ],
+          "dostosowania": [
+            "brak automatycznych dostosowań „na stałe” — decyzja zapada codziennie",
+            "odczyt przekazywany wszystkim dorosłym pracującym tego dnia z grupą",
+            "wpis do dziennika obserwacji: poziom i to, co po nim ustalono"
+          ],
+          "ryzyko": "Zmienność reakcji utrzymująca się mimo diety sensorycznej wymaga konsultacji neurologicznej i okulistycznej — może maskować napady nieświadomości."
+        }
+      ]
     },
-    "sluch": {
-      "rzymska": "II",
+    {
+      "nr": "II",
       "nazwa": "Słuch",
       "icf": "b230",
-      "opis": "słyszenie i przetwarzanie bodźców słuchowych"
+      "skala": "suma 0–24",
+      "opis": "Słyszenie i przetwarzanie bodźców słuchowych: hałas, gwar, dźwięki tła.",
+      "zasada_si": "Ochrona słuchu nie izoluje dziecka od grupy — pozwala mu w niej zostać. Zdejmowanie słuchawek „bo już nie jest głośno” odbiera dziecku kontrolę.",
+      "wskazniki": [
+        {
+          "nr": "II.1",
+          "sektor": "Nadwrażliwość",
+          "kierunek": "↑ za dużo bodźca",
+          "deficyt": "Dziecko zatyka uszy, płacze albo ucieka przy hałasie i rozprasza się przy dźwiękach, których inni nie zauważają.",
+          "strategia_sensoryczna": "ochrona słuchu przed przeciążeniem, nie po nim",
+          "cel": "Dziecko skorzysta z ochrony słuchu albo kącika wyciszenia, zanim hałas je przeciąży, w {proba} sytuacji, w ciągu {horyzont_dopelniacz}.",
+          "znaczniki": [
+            "{proba}",
+            "{horyzont_dopelniacz}",
+            "{horyzont_miejscownik}"
+          ],
+          "co_obserwowac": "Arkusz obserwacji — kolumna: hałaśliwa pora dnia. Notujemy moment sięgnięcia i to, czy dziecko zostało w sytuacji.",
+          "ile_sytuacji": "5 hałaśliwych sytuacji w tygodniu",
+          "smart": [
+            {
+              "litera": "S",
+              "tresc": "Zakłada słuchawki albo idzie do kącika i zostaje w sytuacji."
+            },
+            {
+              "litera": "M",
+              "tresc": "{proba} sytuacji z pięciu obserwowanych w tygodniu."
+            },
+            {
+              "litera": "A",
+              "tresc": "Słuchawki wiszą w zasięgu dziecka; kącik jest wolny."
+            },
+            {
+              "litera": "R",
+              "tresc": "Ucieczka i płacz są końcem procesu — pracujemy nad jego początkiem."
+            },
+            {
+              "litera": "T",
+              "tresc": "Weryfikacja po {horyzont_miejscownik}, według pasma punktacji zmysłu."
+            }
+          ],
+          "dieta_sensoryczna": [
+            "słuchawki wygłuszające na stałym wieszaku, w zasięgu dziecka — bez proszenia dorosłego",
+            "kącik wyciszenia z miękką ścianą i jedną książeczką, dostępny bez pytania",
+            "uprzedzanie o głośnych sytuacjach dwie minuty wcześniej, zawsze tym samym zdaniem"
+          ],
+          "dostosowania": [
+            "miejsce z dala od dzwonka, suszarki i drzwi do szatni",
+            "wyjście do szatni przed resztą grupy albo po niej",
+            "sygnał wizualny zamiast dzwonka na zmianę aktywności"
+          ],
+          "ryzyko": "Nadwrażliwość słuchowa z zatykaniem uszu wymaga wykluczenia stanu zapalnego ucha i badania słuchu przed wdrożeniem diety sensorycznej."
+        },
+        {
+          "nr": "II.2",
+          "sektor": "Podwrażliwość / poszukiwanie bodźców",
+          "kierunek": "↓ za mało bodźca",
+          "deficyt": "Dziecko nie reaguje na wołanie po imieniu mimo prawidłowego słuchu i samo wytwarza głośne dźwięki.",
+          "strategia_sensoryczna": "dźwięk w kąciku instrumentów i reakcja na imię po sygnale wzrokowym",
+          "cel": "Dziecko odpowie na wołanie po imieniu do trzeciego powtórzenia i skorzysta z zaplanowanej przerwy dźwiękowej, w {proba} sytuacji, w ciągu {horyzont_dopelniacz}.",
+          "znaczniki": [
+            "{proba}",
+            "{horyzont_dopelniacz}",
+            "{horyzont_miejscownik}"
+          ],
+          "co_obserwowac": "Arkusz obserwacji — kolumna: wołanie po imieniu. Notujemy odległość, liczbę powtórzeń i sięgnięcie po kartę.",
+          "ile_sytuacji": "5 wołań dziennie",
+          "smart": [
+            {
+              "litera": "S",
+              "tresc": "Odpowiada na wołanie i korzysta z kącika dźwięków zamiast stukać."
+            },
+            {
+              "litera": "M",
+              "tresc": "{proba} sytuacji z pięciu obserwowanych dziennie."
+            },
+            {
+              "litera": "A",
+              "tresc": "Koszyk stoi na stałej półce, karta jest u dziecka."
+            },
+            {
+              "litera": "R",
+              "tresc": "Dobieranie dźwięku w czasie zajęć rozbija zabawę całej grupy."
+            },
+            {
+              "litera": "T",
+              "tresc": "Weryfikacja po {horyzont_miejscownik}, według pasma punktacji zmysłu."
+            }
+          ],
+          "dieta_sensoryczna": [
+            "kącik dźwięków: bębenek, marakas, rura grzmotowa — dwie minuty na sygnał",
+            "zabawy rytmiczne z mocnym akcentem przed zadaniem wymagającym słuchania",
+            "śpiewane polecenia zamiast mówionych w porach niskiej uwagi"
+          ],
+          "dostosowania": [
+            "wołanie po imieniu z odległości wyciągniętej ręki i z kontaktem wzrokowym",
+            "polecenie kierowane do dziecka po imieniu, nie do całej grupy",
+            "sprawdzenie zrozumienia gestem, nie pytaniem „rozumiesz?”"
+          ],
+          "ryzyko": "Brak reakcji na imię zawsze wymaga aktualnego badania słuchu — dopiero prawidłowy wynik audiometrii pozwala mówić o podwrażliwości."
+        },
+        {
+          "nr": "II.3",
+          "sektor": "Biały szum (reaktywność zmienna)",
+          "kierunek": "↕ raz za dużo, raz za mało",
+          "deficyt": "Reakcje dziecka na dźwięki są niestałe — ten sam hałas raz przeszkadza, raz pozostaje niezauważony.",
+          "strategia_sensoryczna": "sprawdzenie poziomu słuchowego przed zajęciami i dobór dostosowania na dany dzień",
+          "cel": "Dziecko sprawdzi poziom słuchowy przed zajęciami i skorzysta z dostosowania wynikającego z odczytu, w {proba} sytuacji, w ciągu {horyzont_dopelniacz}.",
+          "znaczniki": [
+            "{proba}",
+            "{horyzont_dopelniacz}",
+            "{horyzont_miejscownik}"
+          ],
+          "co_obserwowac": "Dziennik obserwacji — rubryka poranna i popołudniowa. Notujemy odczyt i wybrane dostosowanie.",
+          "ile_sytuacji": "5 poranków w tygodniu",
+          "smart": [
+            {
+              "litera": "S",
+              "tresc": "Ustawia tarczę i korzysta z wybranego dostosowania."
+            },
+            {
+              "litera": "M",
+              "tresc": "{proba} dni z pięciu obserwowanych w tygodniu."
+            },
+            {
+              "litera": "A",
+              "tresc": "Tarcza wisi przy planie dnia; dostosowania są przygotowane."
+            },
+            {
+              "litera": "R",
+              "tresc": "Zmienność progu słuchowego czyta się jako niekonsekwencję dziecka."
+            },
+            {
+              "litera": "T",
+              "tresc": "Weryfikacja po {horyzont_miejscownik}, według pasma punktacji zmysłu."
+            }
+          ],
+          "dieta_sensoryczna": [
+            "sprawdzenie poziomu dwa razy dziennie: rano i po odpoczynku",
+            "trzy gotowe dostosowania do wyboru, zawsze te same",
+            "wpis poziomu do dziennika — po dwóch tygodniach widać wzór dni trudnych"
+          ],
+          "dostosowania": [
+            "brak stałego wpisu „nadwrażliwość słuchowa” w dokumentacji grupy",
+            "polecenia sprawdzane gestem niezależnie od poziomu",
+            "informacja o poziomie przekazywana wszystkim dorosłym pracującym danego dnia"
+          ],
+          "ryzyko": "Naprzemienne reagowanie na szept i brak reakcji na głośne wołanie może wskazywać na wysiękowe zapalenie ucha — wymaga kontroli laryngologicznej."
+        }
+      ]
     },
-    "dotyk": {
-      "rzymska": "III",
+    {
+      "nr": "III",
       "nazwa": "Dotyk",
       "icf": "b265",
-      "opis": "czucie powierzchniowe, faktury, bliskość fizyczna"
+      "skala": "suma 0–24",
+      "opis": "Czucie powierzchniowe: faktury, ubranie, bliskość fizyczna, przypadkowy dotyk.",
+      "zasada_si": "Reakcja obronna na dotyk jest odruchem, nie decyzją. Uprzedzamy o każdym dotyku, także przy pomaganiu — dotyk z zaskoczenia uruchamia obronę.",
+      "wskazniki": [
+        {
+          "nr": "III.1",
+          "sektor": "Nadwrażliwość",
+          "kierunek": "↑ za dużo bodźca",
+          "deficyt": "Dziecko unika dotyku i reaguje obronnie na przypadkowe dotknięcie w kolejce, w kręgu i w zabawach grupowych.",
+          "strategia_sensoryczna": "własne miejsce chroniące plecy i sposób odmowy inny niż odepchnięcie",
+          "cel": "Dziecko zajmie ustalone miejsce i użyje karty albo słowa zamiast reakcji obronnej na dotyk, w {proba} sytuacji, w ciągu {horyzont_dopelniacz}.",
+          "znaczniki": [
+            "{proba}",
+            "{horyzont_dopelniacz}",
+            "{horyzont_miejscownik}"
+          ],
+          "co_obserwowac": "Arkusz obserwacji — kolumna: sytuacja bliskości (kolejka, krąg, zabawa w parach). Notujemy sposób reakcji.",
+          "ile_sytuacji": "5 sytuacji bliskości w tygodniu",
+          "smart": [
+            {
+              "litera": "S",
+              "tresc": "Zajmuje swoje miejsce i sygnalizuje odmowę bez odpychania."
+            },
+            {
+              "litera": "M",
+              "tresc": "{proba} sytuacji z pięciu obserwowanych w tygodniu."
+            },
+            {
+              "litera": "A",
+              "tresc": "Znak jest naklejony, karta leży w kieszeni, docisk poprzedza sytuację."
+            },
+            {
+              "litera": "R",
+              "tresc": "Reakcja obronna jest odruchem — karanie za nią pogłębia napięcie."
+            },
+            {
+              "litera": "T",
+              "tresc": "Weryfikacja po {horyzont_miejscownik}, według pasma punktacji zmysłu."
+            }
+          ],
+          "dieta_sensoryczna": [
+            "mocny docisk przed sytuacją bliskości: przytulenie w kocyk, przeciskanie przez tunel",
+            "zabawy fakturami w tempie dziecka: najpierw suche i twarde, dopiero potem mokre i lepkie",
+            "stały znak na podłodze wyznaczający „moje miejsce” w kolejce i w kręgu"
+          ],
+          "dostosowania": [
+            "pierwsze albo ostatnie miejsce w kolejce — nigdy w środku",
+            "akceptacja własnych ubrań dziecka, odcinanie metek, brak wymuszania fartuszka",
+            "uprzedzanie o każdym dotyku dorosłego, także przy pomaganiu w ubieraniu"
+          ],
+          "ryzyko": "Gwałtowna obrona przed myciem głowy i obcinaniem paznokci bywa objawem obronności dotykowej wymagającej terapii SI — sama dieta sensoryczna nie wystarczy."
+        },
+        {
+          "nr": "III.2",
+          "sektor": "Podwrażliwość / poszukiwanie bodźców",
+          "kierunek": "↓ za mało bodźca",
+          "deficyt": "Dziecko dotyka wszystkiego i wszystkich, mocno ściska i potrąca inne dzieci, a nie zauważa brudu ani drobnego bólu.",
+          "strategia_sensoryczna": "praca dla rąk we własnej pomocy zamiast dotykania innych",
+          "cel": "Dziecko skorzysta z własnej pomocy dotykowej zamiast dotykać innych dzieci, w {proba} sytuacji, w ciągu {horyzont_dopelniacz}.",
+          "znaczniki": [
+            "{proba}",
+            "{horyzont_dopelniacz}",
+            "{horyzont_miejscownik}"
+          ],
+          "co_obserwowac": "Arkusz obserwacji — kolumna: krąg i kolejka. Notujemy dotknięcia innych dzieci i użycie pomocy.",
+          "ile_sytuacji": "5 kręgów w tygodniu",
+          "smart": [
+            {
+              "litera": "S",
+              "tresc": "Trzyma ręce na własnej pomocy przez czas zajęć."
+            },
+            {
+              "litera": "M",
+              "tresc": "{proba} sytuacji z pięciu obserwowanych w tygodniu."
+            },
+            {
+              "litera": "A",
+              "tresc": "Gniotek jest w kieszeni od rana, skrzynka stoi na stałym miejscu."
+            },
+            {
+              "litera": "R",
+              "tresc": "Dziecko zbiera informację o świecie rękami — trzeba jej dać materiał."
+            },
+            {
+              "litera": "T",
+              "tresc": "Weryfikacja po {horyzont_miejscownik}, według pasma punktacji zmysłu."
+            }
+          ],
+          "dieta_sensoryczna": [
+            "skrzynka sensoryczna trzy minuty przed zajęciami wymagającymi siedzenia",
+            "gniotek albo kawałek masy w kieszeni fartuszka, dostępny bez pytania",
+            "prace z ugniataniem: ciastolina, glina, wyciskanie gąbki — codziennie"
+          ],
+          "dostosowania": [
+            "miejsce w kręgu z jednym sąsiadem, nie dwoma (brzeg półkola)",
+            "zadania z materiałem w rękach — dziecko trzyma pomoc, a nie „nic”",
+            "sprawdzanie twarzy i rąk przed wyjściem — dziecko może nie czuć brudu"
+          ],
+          "ryzyko": "Obniżone czucie bólu i temperatury wymaga codziennej kontroli skóry i informacji dla rodziców — dziecko może nie zgłosić urazu ani oparzenia."
+        },
+        {
+          "nr": "III.3",
+          "sektor": "Biały szum (reaktywność zmienna)",
+          "kierunek": "↕ raz za dużo, raz za mało",
+          "deficyt": "Tolerancja ubrania, mycia i faktur zmienia się u dziecka z dnia na dzień — ten sam bodziec raz drażni, raz jest poszukiwany.",
+          "strategia_sensoryczna": "poranne sprawdzenie tolerancji i wybór poziomu faktur na dany dzień",
+          "cel": "Dziecko wskaże swój poziom tolerancji przed zajęciami i będzie pracować materiałem z tego poziomu, w {proba} sytuacji, w ciągu {horyzont_dopelniacz}.",
+          "znaczniki": [
+            "{proba}",
+            "{horyzont_dopelniacz}",
+            "{horyzont_miejscownik}"
+          ],
+          "co_obserwowac": "Arkusz obserwacji — kolumna: przebieranie i zajęcia plastyczne. Notujemy wskazany poziom i odmowy w trakcie.",
+          "ile_sytuacji": "5 zajęć plastycznych w tygodniu",
+          "smart": [
+            {
+              "litera": "S",
+              "tresc": "Wskazuje poziom na skali i pracuje materiałem z tego poziomu."
+            },
+            {
+              "litera": "M",
+              "tresc": "{proba} sytuacji z pięciu obserwowanych w tygodniu."
+            },
+            {
+              "litera": "A",
+              "tresc": "Materiały trzech poziomów leżą na stole równocześnie."
+            },
+            {
+              "litera": "R",
+              "tresc": "Ta sama bluza bywa w poniedziałek dobra, a we wtorek nie do zniesienia."
+            },
+            {
+              "litera": "T",
+              "tresc": "Weryfikacja po {horyzont_miejscownik}, według pasma punktacji zmysłu."
+            }
+          ],
+          "dieta_sensoryczna": [
+            "docisk przed przebieraniem: mocne przytulenie w kocyk, zabawa w naleśnik",
+            "trzystopniowa skala faktur zawsze dostępna na stole plastycznym",
+            "dwa warianty ubrania przygotowane przez rodzica w worku"
+          ],
+          "dostosowania": [
+            "brak wymuszania fartuszka i rękawiczek w dniu wysokiej drażliwości",
+            "materiały suche zawsze jako alternatywa dla mokrych",
+            "informacja dla rodzica o poziomie z danego dnia — poranek w domu wygląda tak samo"
+          ],
+          "ryzyko": "Nagły wzrost drażliwości dotykowej może być objawem infekcji, gorączki albo bólu — najpierw wyklucz przyczynę medyczną."
+        }
+      ]
     },
-    "smak": {
-      "rzymska": "IV",
+    {
+      "nr": "IV",
       "nazwa": "Smak",
       "icf": "b250",
-      "opis": "smak i konsystencje pokarmów, czucie w obrębie jamy ustnej"
+      "skala": "suma 0–24",
+      "opis": "Smak i konsystencje pokarmów, czucie w obrębie jamy ustnej.",
+      "zasada_si": "Nie namawiamy do jedzenia. Sukcesem jest szczebel drabiny oswajania, nie liczba kęsów — namawianie zawęża repertuar zamiast go poszerzać.",
+      "wskazniki": [
+        {
+          "nr": "IV.1",
+          "sektor": "Nadwrażliwość",
+          "kierunek": "↑ za dużo bodźca",
+          "deficyt": "Dziecko je bardzo wąski repertuar potraw, odmawia nowych konsystencji i reaguje na niektóre odruchem wymiotnym.",
+          "strategia_sensoryczna": "drabina oswajania jedzenia — jeden szczebel zamiast jednego kęsa",
+          "cel": "Dziecko wykona szczebel drabiny oswajania przy nowej potrawie, bez namawiania, w {proba} sytuacji, w ciągu {horyzont_dopelniacz}.",
+          "znaczniki": [
+            "{proba}",
+            "{horyzont_dopelniacz}",
+            "{horyzont_miejscownik}"
+          ],
+          "co_obserwowac": "Arkusz obserwacji — kolumna: posiłek z nową potrawą. Notujemy szczebel, nie liczbę kęsów.",
+          "ile_sytuacji": "5 posiłków w tygodniu",
+          "smart": [
+            {
+              "litera": "S",
+              "tresc": "Wykonuje wskazany szczebel drabiny przy talerzyku do prób."
+            },
+            {
+              "litera": "M",
+              "tresc": "{proba} posiłków z pięciu obserwowanych w tygodniu."
+            },
+            {
+              "litera": "A",
+              "tresc": "Na talerzyku leży jedna nowa rzecz; produkt pewny jest zawsze na talerzu."
+            },
+            {
+              "litera": "R",
+              "tresc": "Namawianie zawęża repertuar zamiast go poszerzać."
+            },
+            {
+              "litera": "T",
+              "tresc": "Weryfikacja po {horyzont_miejscownik}, według pasma punktacji zmysłu."
+            }
+          ],
+          "dieta_sensoryczna": [
+            "osobny talerzyk do prób obok talerza z jedzeniem znanym — nowa potrawa nigdy nie miesza się ze znaną",
+            "przygotowanie jamy ustnej przed posiłkiem: picie przez rurkę, gryzak, chrupiąca przekąska",
+            "udział w przygotowaniu potrawy (mycie, krojenie miękkiego) — dotyk poprzedza smak"
+          ],
+          "dostosowania": [
+            "brak namawiania, komentowania i nagradzania za jedzenie",
+            "składniki podawane osobno, nie wymieszane",
+            "stałe, przewidywalne miejsce i pora posiłku"
+          ],
+          "ryzyko": "Repertuar poniżej piętnastu produktów, spadek masy ciała albo krztuszenie się wymagają skierowania do lekarza i neurologopedy — to zaburzenie karmienia, nie sama sensoryka."
+        },
+        {
+          "nr": "IV.2",
+          "sektor": "Podwrażliwość / poszukiwanie bodźców",
+          "kierunek": "↓ za mało bodźca",
+          "deficyt": "Dziecko wkłada do ust przedmioty niejadalne, gryzie przybory i przepełnia usta jedzeniem.",
+          "strategia_sensoryczna": "bezpieczny bodziec dla ust i jeden kęs na raz",
+          "cel": "Dziecko skorzysta z bezpiecznego bodźca ustnego zamiast gryźć przybory i zje, nabierając jeden kęs na raz, w {proba} sytuacji, w ciągu {horyzont_dopelniacz}.",
+          "znaczniki": [
+            "{proba}",
+            "{horyzont_dopelniacz}",
+            "{horyzont_miejscownik}"
+          ],
+          "co_obserwowac": "Arkusz obserwacji — kolumna: zajęcia przy stoliku i posiłek. Notujemy gryzienie przedmiotów i przepełnianie ust.",
+          "ile_sytuacji": "5 zadań przy stoliku w tygodniu",
+          "smart": [
+            {
+              "litera": "S",
+              "tresc": "Używa gryzaka albo rurki i je pojedynczymi kęsami."
+            },
+            {
+              "litera": "M",
+              "tresc": "{proba} sytuacji z pięciu obserwowanych w tygodniu."
+            },
+            {
+              "litera": "A",
+              "tresc": "Gryzak jest przypięty od rana; łyżeczka leży przy talerzu."
+            },
+            {
+              "litera": "R",
+              "tresc": "Gryzienie przyborów to brak czucia, nie brak dyscypliny."
+            },
+            {
+              "litera": "T",
+              "tresc": "Weryfikacja po {horyzont_miejscownik}, według pasma punktacji zmysłu."
+            }
+          ],
+          "dieta_sensoryczna": [
+            "picie gęstego napoju przez wąską rurkę przed zajęciami wymagającymi skupienia",
+            "chrupiąca przekąska (marchewka, wafel ryżowy) w połowie przedpołudnia",
+            "gryzak silikonowy na sznurku, dostępny przez cały dzień"
+          ],
+          "dostosowania": [
+            "usunięcie z zasięgu drobnych przedmiotów, które można połknąć",
+            "łyżeczka odmierzająca jeden kęs i krótkie przypomnienie „jeden kęs”",
+            "picie wody między kęsami — spowalnia jedzenie"
+          ],
+          "ryzyko": "Wkładanie do ust przedmiotów niejadalnych to ryzyko zadławienia i zatrucia — wymaga stałego nadzoru, kontroli zasięgu drobnych rzeczy oraz wykluczenia niedoboru żelaza (pica)."
+        },
+        {
+          "nr": "IV.3",
+          "sektor": "Biały szum (reaktywność zmienna)",
+          "kierunek": "↕ raz za dużo, raz za mało",
+          "deficyt": "Akceptacja smaków i konsystencji zmienia się u dziecka bez wyraźnej przyczyny — raz odmawia potrawy, którą innym razem je chętnie.",
+          "strategia_sensoryczna": "wybór wariantu posiłku przed jedzeniem, bez negocjacji",
+          "cel": "Dziecko wybierze wariant posiłku przed jedzeniem i zostanie przy stole do końca posiłku, w {proba} sytuacji, w ciągu {horyzont_dopelniacz}.",
+          "znaczniki": [
+            "{proba}",
+            "{horyzont_dopelniacz}",
+            "{horyzont_miejscownik}"
+          ],
+          "co_obserwowac": "Arkusz obserwacji — kolumna: posiłek. Notujemy wybrany wariant i odejścia od stołu.",
+          "ile_sytuacji": "5 posiłków w tygodniu",
+          "smart": [
+            {
+              "litera": "S",
+              "tresc": "Kładzie kartę wariantu i zostaje przy stole."
+            },
+            {
+              "litera": "M",
+              "tresc": "{proba} posiłków z pięciu obserwowanych w tygodniu."
+            },
+            {
+              "litera": "A",
+              "tresc": "Karty leżą przy talerzu przed podaniem jedzenia."
+            },
+            {
+              "litera": "R",
+              "tresc": "Stałą ma być procedura posiłku, nie menu."
+            },
+            {
+              "litera": "T",
+              "tresc": "Weryfikacja po {horyzont_miejscownik}, według pasma punktacji zmysłu."
+            }
+          ],
+          "dieta_sensoryczna": [
+            "stała pora, miejsce i kolejność czynności przy posiłku — zmienne jest tylko menu",
+            "zawsze jeden produkt pewny na talerzu, niezależnie od dania dnia",
+            "przygotowanie ust przed posiłkiem: rurka albo chrupiąca przekąska"
+          ],
+          "dostosowania": [
+            "brak komentarza do wyboru dziecka przy stole",
+            "informacja dla rodzica: dziś wariant „tylko patrzę” — kolacja zaplanowana z zapasem",
+            "zapis wariantu w dzienniku — po dwóch tygodniach widać, czy zmienność ma rytm"
+          ],
+          "ryzyko": "Seria dni z wariantem „tylko patrzę” (powyżej trzech pod rząd) wymaga kontaktu z rodzicem i lekarzem — sprawdź ból gardła, zęby i refluks."
+        }
+      ]
     },
-    "wech": {
-      "rzymska": "V",
+    {
+      "nr": "V",
       "nazwa": "Węch",
       "icf": "b255",
-      "opis": "zapachy i reakcje na nie"
+      "skala": "suma 0–24",
+      "opis": "Zapachy i reakcje na nie: stołówka, toaleta, środki czystości, materiały plastyczne.",
+      "zasada_si": "Nie podważamy doznania („przecież nic nie czuć”). Podważone dziecko przestaje sygnalizować i po prostu wychodzi z sali.",
+      "wskazniki": [
+        {
+          "nr": "V.1",
+          "sektor": "Nadwrażliwość",
+          "kierunek": "↑ za dużo bodźca",
+          "deficyt": "Dziecko skarży się na zapachy, których inni nie czują, i unika stołówki oraz toalety.",
+          "strategia_sensoryczna": "zapach ratunkowy w kieszeni i miejsce przy oknie",
+          "cel": "Dziecko wejdzie do pomieszczenia z intensywnym zapachem i zostanie w nim, korzystając ze swojej strategii, w {proba} sytuacji, w ciągu {horyzont_dopelniacz}.",
+          "znaczniki": [
+            "{proba}",
+            "{horyzont_dopelniacz}",
+            "{horyzont_miejscownik}"
+          ],
+          "co_obserwowac": "Arkusz obserwacji — kolumna: stołówka, toaleta, sala po sprzątaniu. Notujemy wejście i pozostanie.",
+          "ile_sytuacji": "5 sytuacji zapachowych w tygodniu",
+          "smart": [
+            {
+              "litera": "S",
+              "tresc": "Wchodzi, korzysta z chusteczki i zostaje w pomieszczeniu."
+            },
+            {
+              "litera": "M",
+              "tresc": "{proba} sytuacji z pięciu obserwowanych w tygodniu."
+            },
+            {
+              "litera": "A",
+              "tresc": "Chusteczka jest w kieszeni, miejsce przy oknie przygotowane."
+            },
+            {
+              "litera": "R",
+              "tresc": "Mdłości przy zapachu są prawdziwe — to nie jest wymówka."
+            },
+            {
+              "litera": "T",
+              "tresc": "Weryfikacja po {horyzont_miejscownik}, według pasma punktacji zmysłu."
+            }
+          ],
+          "dieta_sensoryczna": [
+            "chusteczka z dwiema kroplami wybranego zapachu w kieszeni — wymieniana codziennie",
+            "wietrzenie sali przed zajęciami i po sprzątaniu, zawsze o tej samej porze",
+            "trzydzieści sekund przy oknie po wejściu do stołówki, zanim dziecko usiądzie"
+          ],
+          "dostosowania": [
+            "miejsce przy oknie lub drzwiach, z dala od okienka wydawania posiłków i toalety",
+            "sprzątanie środkami bezzapachowymi w porze pobytu dziecka",
+            "uprzedzanie o mopowaniu i o daniach o intensywnym zapachu"
+          ],
+          "ryzyko": "Unikanie toalety z powodu zapachu prowadzi do zatrzymywania moczu i zaparć — wymaga natychmiastowego dostosowania i informacji dla rodzica."
+        },
+        {
+          "nr": "V.2",
+          "sektor": "Podwrażliwość / poszukiwanie bodźców",
+          "kierunek": "↓ za mało bodźca",
+          "deficyt": "Dziecko obwąchuje przedmioty, jedzenie i innych ludzi, a nie zauważa wyraźnych, nieprzyjemnych zapachów.",
+          "strategia_sensoryczna": "pudełko zapachów zamiast obwąchiwania ludzi i chemii",
+          "cel": "Dziecko skorzysta z pudełka zapachów zamiast obwąchiwać ludzi i sięgać po chemię, w {proba} sytuacji, w ciągu {horyzont_dopelniacz}.",
+          "znaczniki": [
+            "{proba}",
+            "{horyzont_dopelniacz}",
+            "{horyzont_miejscownik}"
+          ],
+          "co_obserwowac": "Arkusz obserwacji — kolumna: zabawa swobodna. Notujemy obwąchiwanie ludzi i sięganie po środki chemiczne.",
+          "ile_sytuacji": "5 sytuacji zabawy swobodnej w tygodniu",
+          "smart": [
+            {
+              "litera": "S",
+              "tresc": "Idzie do pudełka i wraca do zabawy."
+            },
+            {
+              "litera": "M",
+              "tresc": "{proba} sytuacji z pięciu obserwowanych w tygodniu."
+            },
+            {
+              "litera": "A",
+              "tresc": "Pudełko stoi na stałej półce; chemia jest zamknięta."
+            },
+            {
+              "litera": "R",
+              "tresc": "Dziecko szuka mocnego bodźca węchowego — musi go dostać bezpiecznie."
+            },
+            {
+              "litera": "T",
+              "tresc": "Weryfikacja po {horyzont_miejscownik}, według pasma punktacji zmysłu."
+            }
+          ],
+          "dieta_sensoryczna": [
+            "pudełko zapachów na stałej półce — dwie minuty na sygnał, dwa razy dziennie",
+            "zajęcia kulinarne z przyprawami (cynamon, wanilia) jako mocny bodziec zaplanowany",
+            "wąchanie przed jedzeniem — zapach jako element rozpoznawania potrawy"
+          ],
+          "dostosowania": [
+            "kleje, pisaki i środki czystości zamknięte i poza zasięgiem dziecka",
+            "zamiast upomnienia „nie wąchaj” — wskazanie pudełka",
+            "informacja dla wszystkich dorosłych w grupie: to potrzeba, nie zaczepka"
+          ],
+          "ryzyko": "Wdychanie kleju i środków czystości grozi zatruciem i uszkodzeniem dróg oddechowych — zabezpieczenie chemii jest warunkiem wstępnym, nie zaleceniem."
+        },
+        {
+          "nr": "V.3",
+          "sektor": "Biały szum (reaktywność zmienna)",
+          "kierunek": "↕ raz za dużo, raz za mało",
+          "deficyt": "Wrażliwość dziecka na zapachy zmienia się z dnia na dzień — ten sam zapach raz przeszkadza, raz jest niezauważany.",
+          "strategia_sensoryczna": "sprawdzenie „nosa dnia” przed posiłkiem i przed plastyką",
+          "cel": "Dziecko sprawdzi swoją dzisiejszą wrażliwość węchową przed sytuacją zapachową i skorzysta z wynikającego dostosowania, w {proba} sytuacji, w ciągu {horyzont_dopelniacz}.",
+          "znaczniki": [
+            "{proba}",
+            "{horyzont_dopelniacz}",
+            "{horyzont_miejscownik}"
+          ],
+          "co_obserwowac": "Dziennik obserwacji — rubryka przed posiłkiem i przed plastyką. Notujemy odczyt i wybraną pomoc.",
+          "ile_sytuacji": "5 posiłków w tygodniu",
+          "smart": [
+            {
+              "litera": "S",
+              "tresc": "Wącha woreczki, wskazuje buźkę, bierze pomoc."
+            },
+            {
+              "litera": "M",
+              "tresc": "{proba} sytuacji z pięciu obserwowanych w tygodniu."
+            },
+            {
+              "litera": "A",
+              "tresc": "Woreczki i karta wiszą przy wejściu, na wysokości dziecka."
+            },
+            {
+              "litera": "R",
+              "tresc": "Zmienność węchowa wiąże się z katarem i porą roku — to dana, nie kaprys."
+            },
+            {
+              "litera": "T",
+              "tresc": "Weryfikacja po {horyzont_miejscownik}, według pasma punktacji zmysłu."
+            }
+          ],
+          "dieta_sensoryczna": [
+            "dwa woreczki kontrolne (cytryna i mięta) przy wejściu do sali",
+            "sprawdzenie przed posiłkiem i przed plastyką — dwa razy dziennie",
+            "wietrzenie sali według wskazania dziecka, nie tylko według harmonogramu"
+          ],
+          "dostosowania": [
+            "brak stałego wpisu „nadwrażliwość węchowa” — decyzja zapada codziennie",
+            "informacja dla rodzica przy katarze: dziś wskazania mogą być inne",
+            "zapis wskazania w dzienniku obserwacji, razem z informacją o katarze"
+          ],
+          "ryzyko": "Utrzymujące się „nie czuję” wymaga kontroli laryngologicznej (przerost migdałka, alergia) — brak węchu wpływa też na apetyt."
+        }
+      ]
     },
-    "propriocepcja": {
-      "rzymska": "VI",
+    {
+      "nr": "VI",
       "nazwa": "Propriocepcja",
       "icf": "b760",
-      "opis": "czucie głębokie, napięcie mięśniowe, dozowanie siły"
+      "skala": "suma 0–24",
+      "opis": "Czucie głębokie: napięcie mięśniowe, dozowanie siły, docisk, praca oporowa.",
+      "zasada_si": "Docisku nie odbieramy za karę — potrzeba zostaje ta sama i wraca napieraniem na inne dzieci. Bodziec przenosimy, nie usuwamy.",
+      "wskazniki": [
+        {
+          "nr": "VI.1",
+          "sektor": "Nadwrażliwość",
+          "kierunek": "↑ za dużo bodźca",
+          "deficyt": "Dziecko unika wysiłku fizycznego, szybko się męczy i sztywno trzyma ciało przy nowych czynnościach.",
+          "strategia_sensoryczna": "drabina ruchu — wchodzenie w wysiłek własnym szczeblem",
+          "cel": "Dziecko wykona zaplanowane zadanie oporowe i doprowadzi je do końca zamiast wycofać się z wysiłku, w {proba} sytuacji, w ciągu {horyzont_dopelniacz}.",
+          "znaczniki": [
+            "{proba}",
+            "{horyzont_dopelniacz}",
+            "{horyzont_miejscownik}"
+          ],
+          "co_obserwowac": "Arkusz obserwacji — kolumna: zajęcia ruchowe i zadania w sali. Notujemy dokończone szczeble.",
+          "ile_sytuacji": "5 zajęć ruchowych w tygodniu",
+          "smart": [
+            {
+              "litera": "S",
+              "tresc": "Wykonuje zadanie oporowe od początku do końca."
+            },
+            {
+              "litera": "M",
+              "tresc": "{proba} sytuacji z pięciu obserwowanych w tygodniu."
+            },
+            {
+              "litera": "A",
+              "tresc": "Ciężar i długość serii dobiera dorosły do możliwości dziecka."
+            },
+            {
+              "litera": "R",
+              "tresc": "Wysiłek jest kosztowny, gdy informacja z mięśni jest niepewna."
+            },
+            {
+              "litera": "T",
+              "tresc": "Weryfikacja po {horyzont_miejscownik}, według pasma punktacji zmysłu."
+            }
+          ],
+          "dieta_sensoryczna": [
+            "zadania oporowe wplecione w dzień: pchanie pudła, noszenie koszyka, wycieranie stołu",
+            "praca w pozycji na brzuchu przy niskim stoliku — buduje napięcie mięśniowe",
+            "krótkie serie po dwie–trzy minuty, częściej, zamiast jednego długiego wysiłku"
+          ],
+          "dostosowania": [
+            "krzesło z podparciem stóp i blat na wysokości łokci",
+            "nakładka na kredkę i kredki trójkątne wyznaczające nacisk",
+            "brak porównywania z rówieśnikami i wyścigów na czas"
+          ],
+          "ryzyko": "Szybka męczliwość i sztywność ciała wymagają wykluczenia przyczyn ortopedycznych i neurologicznych (obniżone napięcie mięśniowe) — konsultacja fizjoterapeuty."
+        },
+        {
+          "nr": "VI.2",
+          "sektor": "Podwrażliwość / poszukiwanie bodźców",
+          "kierunek": "↓ za mało bodźca",
+          "deficyt": "Dziecko poszukuje mocnego docisku — rzuca się na podłogę, wciska w ciasne miejsca i napiera na inne dzieci.",
+          "strategia_sensoryczna": "zaplanowana przerwa proprioceptywna zamiast napierania na innych",
+          "cel": "Dziecko skorzysta z zaplanowanej przerwy proprioceptywnej i wróci do zabawy zamiast napierać na inne dzieci, w {proba} sytuacji, w ciągu {horyzont_dopelniacz}.",
+          "znaczniki": [
+            "{proba}",
+            "{horyzont_dopelniacz}",
+            "{horyzont_miejscownik}"
+          ],
+          "co_obserwowac": "Arkusz obserwacji — kolumna: zabawa swobodna i krąg. Notujemy napierania i wykorzystane przerwy.",
+          "ile_sytuacji": "5 dni w tygodniu",
+          "smart": [
+            {
+              "litera": "S",
+              "tresc": "Korzysta z docisku i wraca do zabawy."
+            },
+            {
+              "litera": "M",
+              "tresc": "{proba} dni z pięciu obserwowanych w tygodniu."
+            },
+            {
+              "litera": "A",
+              "tresc": "Kącik docisku jest dostępny bez pytania przez cały dzień."
+            },
+            {
+              "litera": "R",
+              "tresc": "Zakaz nie zaspokaja potrzeby — zaplanowany docisk tak."
+            },
+            {
+              "litera": "T",
+              "tresc": "Weryfikacja po {horyzont_miejscownik}, według pasma punktacji zmysłu."
+            }
+          ],
+          "dieta_sensoryczna": [
+            "docisk co dziewięćdziesiąt minut: kocyk obciążeniowy trzy do pięciu minut albo mocne przytulenie w zwiniętym kocu",
+            "praca oporowa: pchanie skrzynki, przeciąganie liny, przeciskanie przez tunel",
+            "ugniatanie ciastoliny albo gąbki przed siedzeniem w kręgu"
+          ],
+          "dostosowania": [
+            "poduszka sensoryczna na krześle — pozwala pracować mięśniom w czasie siedzenia",
+            "miejsce w kręgu przy brzegu, z jednym sąsiadem",
+            "przybory odporne na nacisk: kredki woskowe, gruby papier"
+          ],
+          "ryzyko": "Kocyk obciążeniowy tylko pod nadzorem, do dziesięciu procent masy ciała, nigdy podczas snu i nigdy na klatkę piersiową — przy wadach serca i padaczce wymaga zgody lekarza."
+        },
+        {
+          "nr": "VI.3",
+          "sektor": "Biały szum (reaktywność zmienna)",
+          "kierunek": "↕ raz za dużo, raz za mało",
+          "deficyt": "Dozowanie siły u dziecka jest zmienne — raz rysuje ledwie widoczną kreskę, raz rozdziera kartkę.",
+          "strategia_sensoryczna": "sprawdzenie siły na mierniku przed zadaniem",
+          "cel": "Dziecko sprawdzi siłę przed zadaniem i wykona je bez zniszczenia przyboru ani kartki, w {proba} sytuacji, w ciągu {horyzont_dopelniacz}.",
+          "znaczniki": [
+            "{proba}",
+            "{horyzont_dopelniacz}",
+            "{horyzont_miejscownik}"
+          ],
+          "co_obserwowac": "Arkusz obserwacji — kolumna: zadanie grafomotoryczne i zabawa w parze. Notujemy zniszczone kartki i zbyt mocne dotknięcia.",
+          "ile_sytuacji": "5 zadań grafomotorycznych w tygodniu",
+          "smart": [
+            {
+              "litera": "S",
+              "tresc": "Robi próbę na mierniku i dobiera narzędzie do wyniku."
+            },
+            {
+              "litera": "M",
+              "tresc": "{proba} sytuacji z pięciu obserwowanych w tygodniu."
+            },
+            {
+              "litera": "A",
+              "tresc": "Miernik i kredki różnej twardości leżą przy stanowisku."
+            },
+            {
+              "litera": "R",
+              "tresc": "Dziecko nie ma wzorca siły w ciele — musi mieć go na papierze."
+            },
+            {
+              "litera": "T",
+              "tresc": "Weryfikacja po {horyzont_miejscownik}, według pasma punktacji zmysłu."
+            }
+          ],
+          "dieta_sensoryczna": [
+            "sprawdzenie miernika siły przed każdym zadaniem grafomotorycznym",
+            "praca oporowa przed zadaniem — porządkuje czucie i zmniejsza zmienność",
+            "zabawy z dozowaniem: przelewanie wody, przenoszenie piórka na łyżce, wieża z kubków"
+          ],
+          "dostosowania": [
+            "gruby papier i kredki odporne na nacisk",
+            "podkładka antypoślizgowa pod kartkę",
+            "przypomnienie o sile przed zabawą w parze, nie po incydencie"
+          ],
+          "ryzyko": "Duża zmienność siły przy jednoczesnym potykaniu się i upuszczaniu przedmiotów wymaga konsultacji fizjoterapeuty i terapeuty SI."
+        }
+      ]
     },
-    "rownowaga": {
-      "rzymska": "VII",
+    {
+      "nr": "VII",
       "nazwa": "Równowaga",
       "icf": "b235",
-      "opis": "układ przedsionkowy — ruch, wysokość, zmiana pozycji"
-    }
-  },
-  "sektory": {
-    "nadwrazliwosc": {
-      "nazwa": "Nadwrażliwość",
-      "skrot": "NAD",
-      "kierunek": "↑ za dużo bodźca",
-      "opis": "układ nerwowy odbiera bodziec jako zbyt silny — dziecko broni się, ucieka, unika",
-      "cel_ogolny": "obniżyć próg przeciążenia: dać dziecku sposób na osłonę i wycofanie się z bodźca ZANIM nastąpi reakcja obronna"
-    },
-    "podwrazliwosc": {
-      "nazwa": "Podwrażliwość / poszukiwanie bodźców",
-      "skrot": "POD",
-      "kierunek": "↓ za mało bodźca",
-      "opis": "układ nerwowy odbiera bodziec jako zbyt słaby — dziecko dobiera go sobie samo, często w sposób nieakceptowany",
-      "cel_ogolny": "dać bodziec w formie zaplanowanej i bezpiecznej, żeby dziecko nie musiało dobierać go kosztem zabawy, przedmiotów lub innych dzieci"
-    },
-    "bialy_szum": {
-      "nazwa": "Biały szum (reaktywność zmienna)",
-      "skrot": "SZUM",
-      "kierunek": "↕ raz za dużo, raz za mało",
-      "opis": "reakcja na ten sam bodziec zmienia się z dnia na dzień — dziecko nie może przewidzieć własnej reakcji",
-      "cel_ogolny": "nauczyć rozpoznawania i sygnalizowania własnego stanu, a dorosłego — codziennego sprawdzania poziomu, zamiast zakładania stałego profilu"
-    }
-  },
-  "liczba_celow": 21,
-  "cele": [
-    {
-      "id": "SENS-01-C",
-      "wskaznik_id": "SENS-01",
-      "kod": "WZR-NAD",
-      "zmysl": {
-        "klucz": "wzrok",
-        "nazwa": "Wzrok",
-        "rzymska": "I",
-        "icf": "b210"
-      },
-      "sektor": {
-        "klucz": "nadwrazliwosc",
-        "nazwa": "Nadwrażliwość",
-        "skrot": "NAD",
-        "kierunek": "↑ za dużo bodźca"
-      },
-      "nazwa": "Osłona wzrokowa przy jasnym świetle i nadmiarze bodźców",
-      "objawy_z_druku": [
-        "Mruży oczy, osłania je lub odwraca wzrok przy jasnym świetle, słońcu, migoczących ekranach",
-        "Męczy się przy pracy wzrokowej (obrazek, książeczka, układanka) szybciej niż rówieśnicy",
-        "Przeszkadza mu ruch i nadmiar bodźców wzrokowych (dekoracje, tłum, wirujące zabawki)"
-      ],
-      "opis_dla_doroslego": "Dziecko odbiera światło i nadmiar szczegółów jako bodziec za silny. Pracę wzrokową przerywa nie z niechęci, lecz z przeciążenia — objawem jest mrużenie oczu, pocieranie ich, odwracanie głowy i narastające rozdrażnienie.",
-      "strategia_sensoryczna": "Dziecko samo sięga po osłonę wzrokową (parawan na stoliku, daszek, miejsce tyłem do okna) albo przechodzi do kącika o małej liczbie bodźców — ZANIM zacznie mrużyć oczy i wycofywać się z zadania.",
-      "sygnal_dziecka": "karta „ZA JASNO” podana dorosłemu lub położona na blacie",
-      "kontekst": "przy stoliku i w zabawie w sali, w której świeci mocne światło lub wisi dużo dekoracji",
-      "cel": "Dziecko samo sięga po osłonę wzrokową (parawan na stoliku, daszek, miejsce tyłem do okna) albo przechodzi do kącika o małej liczbie bodźców — ZANIM zacznie mrużyć oczy i wycofywać się z zadania. Kryterium: {proba} obserwowanych sytuacji w ciągu {horyzont_dopelniacz}; weryfikacja po {horyzont_miejscownik}.",
-      "znaczniki_do_podstawienia": [
-        "{proba}",
-        "{horyzont_dopelniacz}",
-        "{horyzont_miejscownik}"
-      ],
-      "wskaznik_obserwacji": "liczba sytuacji, w których dziecko użyło osłony wzrokowej zamiast przerwać zadanie",
-      "dieta_sensoryczna": [
-        "krótkie zadania wzrokowe (3–7 minut) przeplatane przerwą z zamkniętymi oczami lub patrzeniem w dal",
-        "„kącik małych bodźców” — ściana bez dekoracji, jedna pomoc na blacie",
-        "przyciemnienie części sali w porze zajęć przy stoliku"
-      ],
-      "dostosowania": [
-        "miejsce tyłem do okna i z dala od migoczących świateł oraz wirujących zabawek",
-        "większe, wyraźne obrazki z dużym odstępem między elementami",
-        "usunięcie dekoracji z pola pracy dziecka (ściana i blat)"
-      ],
-      "ryzyko": "przy skargach na ból oczu, częstym mrużeniu jednego oka lub przybliżaniu twarzy do kartki — skierowanie do okulisty przed pracą sensoryczną",
-      "pomoc_id": "P-SENS-01",
-      "arkusz_id": "A-SENS-01"
-    },
-    {
-      "id": "SENS-02-C",
-      "wskaznik_id": "SENS-02",
-      "kod": "WZR-POD",
-      "zmysl": {
-        "klucz": "wzrok",
-        "nazwa": "Wzrok",
-        "rzymska": "I",
-        "icf": "b210"
-      },
-      "sektor": {
-        "klucz": "podwrazliwosc",
-        "nazwa": "Podwrażliwość / poszukiwanie bodźców",
-        "skrot": "POD",
-        "kierunek": "↓ za mało bodźca"
-      },
-      "nazwa": "Zaplanowany bodziec wzrokowy zamiast wpatrywania się",
-      "objawy_z_druku": [
-        "Wpatruje się w źródła światła, wirujące lub błyszczące przedmioty",
-        "Przysuwa przedmioty blisko oczu, ogląda je pod kątem",
-        "Gubi miejsce na obrazku, pomija szczegóły, „nie widzi” rzeczy przed sobą"
-      ],
-      "opis_dla_doroslego": "Dziecko dobiera sobie bodziec wzrokowy samo, bo zwykły obraz jest dla niego za słaby — stąd wpatrywanie się w światło i oglądanie przedmiotów pod kątem. Skutkiem ubocznym jest gubienie się na obrazku i pomijanie szczegółów w zadaniu.",
-      "strategia_sensoryczna": "Dziecko korzysta z zaplanowanego, mocnego bodźca wzrokowego (butelka sensoryczna, tuba z brokatem, lampka światłowodowa) w wyznaczonym momencie dnia, a w zadaniu prowadzi wzrok palcem lub okienkiem czytelniczym — zamiast szukać bodźca w suficie i lampach.",
-      "sygnal_dziecka": "karta „POTRZEBUJĘ ŚWIATEŁEK” wymieniana na 2 minuty przy butelce sensorycznej",
-      "kontekst": "podczas zadań przy stoliku i w czasie zabawy swobodnej w sali",
-      "cel": "Dziecko korzysta z zaplanowanego, mocnego bodźca wzrokowego (butelka sensoryczna, tuba z brokatem, lampka światłowodowa) w wyznaczonym momencie dnia, a w zadaniu prowadzi wzrok palcem lub okienkiem czytelniczym — zamiast szukać bodźca w suficie i lampach. Kryterium: {proba} obserwowanych sytuacji w ciągu {horyzont_dopelniacz}; weryfikacja po {horyzont_miejscownik}.",
-      "znaczniki_do_podstawienia": [
-        "{proba}",
-        "{horyzont_dopelniacz}",
-        "{horyzont_miejscownik}"
-      ],
-      "wskaznik_obserwacji": "liczba zadań, w których dziecko użyło prowadzenia wzroku (palec, okienko) i nie zgubiło miejsca",
-      "dieta_sensoryczna": [
-        "butelka sensoryczna lub tuba z brokatem dostępna na półce — 2 minuty na sygnał",
-        "zabawy „szukaj i pokaż” z kontrastowym obrazkiem (czarno-biały, duże pola)",
-        "latarka w ciemnym namiocie — kontrolowany, mocny bodziec zamiast wpatrywania się w lampę"
-      ],
-      "dostosowania": [
-        "okienko czytelnicze lub kartka zasłaniająca resztę obrazka",
-        "obrazki z wyraźnym konturem i jednym elementem na polu",
-        "przypomnienie palcem: „prowadź od lewej”"
-      ],
-      "ryzyko": "przysuwanie przedmiotów do oczu i pomijanie części obrazka wymaga wykluczenia wady wzroku — kontrola okulistyczna przed interwencją sensoryczną",
-      "pomoc_id": "P-SENS-02",
-      "arkusz_id": "A-SENS-02"
-    },
-    {
-      "id": "SENS-03-C",
-      "wskaznik_id": "SENS-03",
-      "kod": "WZR-SZUM",
-      "zmysl": {
-        "klucz": "wzrok",
-        "nazwa": "Wzrok",
-        "rzymska": "I",
-        "icf": "b210"
-      },
-      "sektor": {
-        "klucz": "bialy_szum",
-        "nazwa": "Biały szum (reaktywność zmienna)",
-        "skrot": "SZUM",
-        "kierunek": "↕ raz za dużo, raz za mało"
-      },
-      "nazwa": "Codzienne sprawdzanie, jak dziś pracują oczy",
-      "objawy_z_druku": [
-        "Reakcje na światło i bodźce wzrokowe są zmienne — raz przesadne, raz brak reakcji",
-        "Raz dostrzega drobne szczegóły, innym razem nie zauważa rzeczy oczywistych"
-      ],
-      "opis_dla_doroslego": "Reaktywność wzrokowa dziecka zmienia się z dnia na dzień. Największym błędem jest przyjęcie stałego profilu („jest nadwrażliwy”) i planowanie pod niego zajęć — w dniu obniżonej reaktywności to samo dostosowanie działa przeciwko dziecku.",
-      "strategia_sensoryczna": "Dziecko codziennie rano ustawia własny „termometr oczu” (3 pola: dużo światła / średnio / mało) i na tej podstawie razem z nauczycielem wybiera miejsce i pomoc na dany dzień.",
-      "sygnal_dziecka": "przestawienie klamerki na termometrze oczu przy porannym powitaniu",
-      "kontekst": "podczas porannego powitania i przed pierwszym zadaniem przy stoliku",
-      "cel": "Dziecko codziennie rano ustawia własny „termometr oczu” (3 pola: dużo światła / średnio / mało) i na tej podstawie razem z nauczycielem wybiera miejsce i pomoc na dany dzień. Kryterium: {proba} obserwowanych sytuacji w ciągu {horyzont_dopelniacz}; weryfikacja po {horyzont_miejscownik}.",
-      "znaczniki_do_podstawienia": [
-        "{proba}",
-        "{horyzont_dopelniacz}",
-        "{horyzont_miejscownik}"
-      ],
-      "wskaznik_obserwacji": "liczba dni, w których dziecko ustawiło termometr przed pierwszym zadaniem",
-      "dieta_sensoryczna": [
-        "poranne 30 sekund na ustawienie termometru — stały punkt planu dnia",
-        "dwa gotowe miejsca w sali: jasne i przyciemnione — wybór należy do dziecka",
-        "krótkie sprawdzenie po obiedzie, czy poziom się zmienił"
-      ],
-      "dostosowania": [
-        "plan dnia z polem na termometr oczu",
-        "brak automatycznych dostosowań „na stałe” — decyzja zapada codziennie",
-        "notatka w dzienniku obserwacji: poziom i to, co po nim ustalono"
-      ],
-      "ryzyko": "zmienność reakcji utrzymująca się mimo diety sensorycznej wymaga konsultacji neurologicznej i okulistycznej — może maskować napady nieświadomości",
-      "pomoc_id": "P-SENS-03",
-      "arkusz_id": "A-SENS-03"
-    },
-    {
-      "id": "SENS-04-C",
-      "wskaznik_id": "SENS-04",
-      "kod": "SLU-NAD",
-      "zmysl": {
-        "klucz": "sluch",
-        "nazwa": "Słuch",
-        "rzymska": "II",
-        "icf": "b230"
-      },
-      "sektor": {
-        "klucz": "nadwrazliwosc",
-        "nazwa": "Nadwrażliwość",
-        "skrot": "NAD",
-        "kierunek": "↑ za dużo bodźca"
-      },
-      "nazwa": "Ochrona słuchu przed hałasem sali i szatni",
-      "objawy_z_druku": [
-        "Zatyka uszy, płacze lub ucieka przy hałasie (dzwonek, suszarka, gwar sali)",
-        "Rozprasza się przy dźwiękach, których inni nie zauważają (brzęczenie, tykanie)",
-        "Reaguje lękiem lub złością na nagłe, głośne dźwięki"
-      ],
-      "opis_dla_doroslego": "Gwar sali i szatni dezorganizuje dziecku zabawę, zanim ono samo zdąży to nazwać. Ucieczka i płacz są końcem procesu, nie jego początkiem — praca dotyczy tego, co dziecko robi na pierwszym sygnale narastania hałasu.",
-      "strategia_sensoryczna": "Dziecko zakłada słuchawki wygłuszające albo przechodzi do kącika wyciszenia ZANIM hałas je przeciąży — na podstawie zapowiedzi dorosłego („za chwilę szatnia”) lub własnego rozpoznania.",
-      "sygnal_dziecka": "karta „ZA GŁOŚNO” albo samodzielne sięgnięcie po słuchawki z wieszaka",
-      "kontekst": "w hałaśliwych porach dnia — szatnia, stołówka, zabawa swobodna w pełnej sali",
-      "cel": "Dziecko zakłada słuchawki wygłuszające albo przechodzi do kącika wyciszenia ZANIM hałas je przeciąży — na podstawie zapowiedzi dorosłego („za chwilę szatnia”) lub własnego rozpoznania. Kryterium: {proba} obserwowanych sytuacji w ciągu {horyzont_dopelniacz}; weryfikacja po {horyzont_miejscownik}.",
-      "znaczniki_do_podstawienia": [
-        "{proba}",
-        "{horyzont_dopelniacz}",
-        "{horyzont_miejscownik}"
-      ],
-      "wskaznik_obserwacji": "liczba hałaśliwych sytuacji, w których dziecko użyło ochrony słuchu zamiast uciec lub zapłakać",
-      "dieta_sensoryczna": [
-        "słuchawki wygłuszające na stałym wieszaku, w zasięgu dziecka — bez proszenia dorosłego",
-        "kącik wyciszenia z miękką ścianą i jedną książeczką, dostępny bez pytania",
-        "uprzedzanie o głośnych sytuacjach 2 minuty wcześniej, tym samym zdaniem"
-      ],
-      "dostosowania": [
-        "miejsce z dala od dzwonka, suszarki i drzwi do szatni",
-        "wyjście do szatni przed resztą grupy lub po niej",
-        "sygnał wizualny zamiast dzwonka na zmianę aktywności"
-      ],
-      "ryzyko": "nadwrażliwość słuchowa z zatykaniem uszu wymaga wykluczenia stanu zapalnego ucha i badania słuchu przed wdrożeniem diety sensorycznej",
-      "pomoc_id": "P-SENS-04",
-      "arkusz_id": "A-SENS-04"
-    },
-    {
-      "id": "SENS-05-C",
-      "wskaznik_id": "SENS-05",
-      "kod": "SLU-POD",
-      "zmysl": {
-        "klucz": "sluch",
-        "nazwa": "Słuch",
-        "rzymska": "II",
-        "icf": "b230"
-      },
-      "sektor": {
-        "klucz": "podwrazliwosc",
-        "nazwa": "Podwrażliwość / poszukiwanie bodźców",
-        "skrot": "POD",
-        "kierunek": "↓ za mało bodźca"
-      },
-      "nazwa": "Reakcja na imię i zaplanowany bodziec dźwiękowy",
-      "objawy_z_druku": [
-        "Nie reaguje na wołanie po imieniu, choć słuch ma prawidłowy",
-        "Samo wytwarza głośne dźwięki (pomrukuje, stuka, trzaska)",
-        "Potrzebuje głośnych bodźców — przybliża ucho do źródła dźwięku, pogłaśnia"
-      ],
-      "opis_dla_doroslego": "Dziecko dobiera sobie bodziec słuchowy samo — stukaniem, pomrukiwaniem, trzaskaniem — bo zwykły poziom dźwięku do niego nie dociera. Wołanie po imieniu ginie w tle. To nie jest ignorowanie dorosłego.",
-      "strategia_sensoryczna": "Dziecko korzysta z instrumentu lub „kącika dźwięków” w zaplanowanym momencie dnia, a na wołanie odpowiada po sygnale dotykowo-wzrokowym (dotknięcie ramienia i pokazanie karty), który zastępuje sam głos.",
-      "sygnal_dziecka": "podanie karty „CHCĘ DŹWIĘKI” w zamian za 2 minuty z instrumentem",
-      "kontekst": "podczas zabawy swobodnej i przy zbiórkach grupy w sali",
-      "cel": "Dziecko korzysta z instrumentu lub „kącika dźwięków” w zaplanowanym momencie dnia, a na wołanie odpowiada po sygnale dotykowo-wzrokowym (dotknięcie ramienia i pokazanie karty), który zastępuje sam głos. Kryterium: {proba} obserwowanych sytuacji w ciągu {horyzont_dopelniacz}; weryfikacja po {horyzont_miejscownik}.",
-      "znaczniki_do_podstawienia": [
-        "{proba}",
-        "{horyzont_dopelniacz}",
-        "{horyzont_miejscownik}"
-      ],
-      "wskaznik_obserwacji": "liczba wołań, na które dziecko zareagowało do trzeciego powtórzenia",
-      "dieta_sensoryczna": [
-        "„kącik dźwięków”: bębenek, marakas, rura grzmotowa — 2 minuty na sygnał",
-        "zabawy rytmiczne z mocnym akcentem przed zadaniem wymagającym słuchania",
-        "śpiewane polecenia zamiast mówionych w porach niskiej uwagi"
-      ],
-      "dostosowania": [
-        "wołanie po imieniu zawsze z podejściem na odległość wyciągniętej ręki i kontaktem wzrokowym",
-        "polecenie do dziecka po jego imieniu, nie do całej grupy",
-        "sprawdzenie zrozumienia gestem, nie pytaniem „rozumiesz?”"
-      ],
-      "ryzyko": "brak reakcji na imię zawsze wymaga aktualnego badania słuchu (audiometria) — dopiero jego prawidłowy wynik pozwala mówić o podwrażliwości",
-      "pomoc_id": "P-SENS-05",
-      "arkusz_id": "A-SENS-05"
-    },
-    {
-      "id": "SENS-06-C",
-      "wskaznik_id": "SENS-06",
-      "kod": "SLU-SZUM",
-      "zmysl": {
-        "klucz": "sluch",
-        "nazwa": "Słuch",
-        "rzymska": "II",
-        "icf": "b230"
-      },
-      "sektor": {
-        "klucz": "bialy_szum",
-        "nazwa": "Biały szum (reaktywność zmienna)",
-        "skrot": "SZUM",
-        "kierunek": "↕ raz za dużo, raz za mało"
-      },
-      "nazwa": "Sprawdzanie poziomu słuchowego przed zajęciami",
-      "objawy_z_druku": [
-        "Reakcje na dźwięki są niestałe — ten sam hałas raz przeszkadza, raz pozostaje niezauważony",
-        "Raz reaguje na szept, innym razem nie słyszy głośnego wołania"
-      ],
-      "opis_dla_doroslego": "Dziecko nie potrafi przewidzieć własnej reakcji na dźwięk, a dorosły czyta tę zmienność jako niekonsekwencję lub upór. Plan dnia musi zakładać sprawdzenie poziomu, a nie stały profil.",
-      "strategia_sensoryczna": "Dziecko przed zajęciami ustawia „radio uszu” (3 pola: cicho / średnio / głośno) i wybiera z niego dzisiejsze dostosowanie: słuchawki, miejsce z brzegu albo brak dodatkowego wsparcia.",
-      "sygnal_dziecka": "przestawienie strzałki na tarczy „radio uszu”",
-      "kontekst": "przed zajęciami dydaktycznymi i przed wyjściem do szatni",
-      "cel": "Dziecko przed zajęciami ustawia „radio uszu” (3 pola: cicho / średnio / głośno) i wybiera z niego dzisiejsze dostosowanie: słuchawki, miejsce z brzegu albo brak dodatkowego wsparcia. Kryterium: {proba} obserwowanych sytuacji w ciągu {horyzont_dopelniacz}; weryfikacja po {horyzont_miejscownik}.",
-      "znaczniki_do_podstawienia": [
-        "{proba}",
-        "{horyzont_dopelniacz}",
-        "{horyzont_miejscownik}"
-      ],
-      "wskaznik_obserwacji": "liczba dni, w których dziecko ustawiło tarczę przed pierwszymi zajęciami",
-      "dieta_sensoryczna": [
-        "sprawdzenie poziomu dwa razy dziennie: rano i po odpoczynku",
-        "trzy gotowe dostosowania do wyboru, zawsze te same",
-        "wpis poziomu do dziennika — po dwóch tygodniach widać wzór dni trudnych"
-      ],
-      "dostosowania": [
-        "brak stałego przypisania dziecku „nadwrażliwości słuchowej” w dokumentacji",
-        "polecenia zawsze sprawdzane gestem, niezależnie od poziomu",
-        "informacja o poziomie przekazywana wszystkim dorosłym pracującym tego dnia z grupą"
-      ],
-      "ryzyko": "naprzemienne reagowanie na szept i brak reakcji na głośne wołanie może wskazywać na wysiękowe zapalenie ucha — wymaga kontroli laryngologicznej",
-      "pomoc_id": "P-SENS-06",
-      "arkusz_id": "A-SENS-06"
-    },
-    {
-      "id": "SENS-07-C",
-      "wskaznik_id": "SENS-07",
-      "kod": "DOT-NAD",
-      "zmysl": {
-        "klucz": "dotyk",
-        "nazwa": "Dotyk",
-        "rzymska": "III",
-        "icf": "b265"
-      },
-      "sektor": {
-        "klucz": "nadwrazliwosc",
-        "nazwa": "Nadwrażliwość",
-        "skrot": "NAD",
-        "kierunek": "↑ za dużo bodźca"
-      },
-      "nazwa": "Bezpieczna odległość i uprzedzanie o dotyku",
-      "objawy_z_druku": [
-        "Unika dotyku, przytulania, mycia twarzy/głowy, obcinania paznokci i włosów",
-        "Przeszkadzają mu metki, szwy, niektóre faktury ubrań i materiałów plastycznych",
-        "Reaguje obronnie na przypadkowy dotyk (kolejka, ciasnota, zabawy grupowe)"
-      ],
-      "opis_dla_doroslego": "Przypadkowy dotyk w kolejce czy w kręgu dziecko odbiera jak zagrożenie — odpowiada odepchnięciem, krzykiem albo ucieczką. Reakcja obronna jest odruchem, nie decyzją; karanie za nią pogłębia napięcie.",
-      "strategia_sensoryczna": "Dziecko zajmuje ustalone miejsce chroniące plecy i boki (koniec kolejki, brzeg dywanu, krzesło przy ścianie) i korzysta z zapowiedzi dotyku — dorosły mówi, zanim dotknie, a dziecko odpowiada „tak” albo „nie teraz”.",
-      "sygnal_dziecka": "karta „NIE TERAZ” lub gest otwartej dłoni oznaczający „daj mi miejsce”",
-      "kontekst": "w kolejce do szatni i łazienki, w kręgu na dywanie i w zabawach grupowych",
-      "cel": "Dziecko zajmuje ustalone miejsce chroniące plecy i boki (koniec kolejki, brzeg dywanu, krzesło przy ścianie) i korzysta z zapowiedzi dotyku — dorosły mówi, zanim dotknie, a dziecko odpowiada „tak” albo „nie teraz”. Kryterium: {proba} obserwowanych sytuacji w ciągu {horyzont_dopelniacz}; weryfikacja po {horyzont_miejscownik}.",
-      "znaczniki_do_podstawienia": [
-        "{proba}",
-        "{horyzont_dopelniacz}",
-        "{horyzont_miejscownik}"
-      ],
-      "wskaznik_obserwacji": "liczba sytuacji z bliskością, w których dziecko użyło miejsca lub karty zamiast reakcji obronnej",
-      "dieta_sensoryczna": [
-        "mocny docisk przed sytuacją bliskości (przytulenie w kocyk, przeciskanie przez tunel) — proprioceptywne wyciszenie dotyku",
-        "zabawy fakturami w tempie dziecka: najpierw suche i twarde, dopiero potem mokre i lepkie",
-        "stały znak na podłodze wyznaczający „moje miejsce” w kolejce"
-      ],
-      "dostosowania": [
-        "pierwsze lub ostatnie miejsce w kolejce — nigdy w środku",
-        "akceptacja własnych ubrań dziecka, odcinanie metek, brak wymuszania fartuszka",
-        "uprzedzanie o każdym dotyku dorosłego, także przy pomaganiu w ubieraniu"
-      ],
-      "ryzyko": "gwałtowna obrona przed myciem głowy i obcinaniem paznokci bywa objawem obronności dotykowej wymagającej terapii SI — sama dieta sensoryczna nie wystarczy",
-      "pomoc_id": "P-SENS-07",
-      "arkusz_id": "A-SENS-07"
-    },
-    {
-      "id": "SENS-08-C",
-      "wskaznik_id": "SENS-08",
-      "kod": "DOT-POD",
-      "zmysl": {
-        "klucz": "dotyk",
-        "nazwa": "Dotyk",
-        "rzymska": "III",
-        "icf": "b265"
-      },
-      "sektor": {
-        "klucz": "podwrazliwosc",
-        "nazwa": "Podwrażliwość / poszukiwanie bodźców",
-        "skrot": "POD",
-        "kierunek": "↓ za mało bodźca"
-      },
-      "nazwa": "Zaplanowane wrażenia dotykowe zamiast dotykania wszystkiego",
-      "objawy_z_druku": [
-        "Dotyka wszystkiego i wszystkich, mocno ściska, potrąca inne dzieci",
-        "Nie zauważa brudu na twarzy/rękach, słabo czuje ból i temperaturę",
-        "Poszukuje intensywnych wrażeń dotykowych (grzebanie w materiałach, ugniatanie)"
-      ],
-      "opis_dla_doroslego": "Dziecko zbiera informację o świecie przez ręce — dotyka, ściska, grzebie. Rówieśnicy odbierają to jako zaczepki, choć intencja jest inna. Praca polega na daniu tego samego wrażenia w miejscu, w którym nikomu nie przeszkadza.",
-      "strategia_sensoryczna": "Dziecko korzysta ze skrzynki sensorycznej (ryż, kasztany, masa) i „gniotka w kieszeni” w zaplanowanych momentach dnia, a w kręgu trzyma ręce na własnej pomocy zamiast na sąsiedzie.",
-      "sygnal_dziecka": "sięgnięcie po gniotka do kieszeni fartuszka lub karta „RĘCE DO PRACY”",
-      "kontekst": "w kręgu na dywanie, w kolejce i podczas zabawy swobodnej w sali",
-      "cel": "Dziecko korzysta ze skrzynki sensorycznej (ryż, kasztany, masa) i „gniotka w kieszeni” w zaplanowanych momentach dnia, a w kręgu trzyma ręce na własnej pomocy zamiast na sąsiedzie. Kryterium: {proba} obserwowanych sytuacji w ciągu {horyzont_dopelniacz}; weryfikacja po {horyzont_miejscownik}.",
-      "znaczniki_do_podstawienia": [
-        "{proba}",
-        "{horyzont_dopelniacz}",
-        "{horyzont_miejscownik}"
-      ],
-      "wskaznik_obserwacji": "liczba sytuacji w kręgu lub kolejce bez dotykania innych dzieci, z użyciem własnej pomocy",
-      "dieta_sensoryczna": [
-        "skrzynka sensoryczna (ryż, kasztany, makaron) — 3 minuty przed zajęciami wymagającymi siedzenia",
-        "gniotek lub kawałek masy w kieszeni fartuszka, dostępny bez pytania",
-        "prace z ugniataniem: ciastolina, glina, wyciskanie gąbki — codziennie"
-      ],
-      "dostosowania": [
-        "miejsce w kręgu z jednym sąsiadem, nie dwoma (brzeg półkola)",
-        "zadania z materiałem w rękach — dziecko trzyma pomoc, a nie „nic”",
-        "sprawdzanie twarzy i rąk przed wyjściem — dziecko może nie czuć brudu"
-      ],
-      "ryzyko": "obniżone czucie bólu i temperatury wymaga codziennej kontroli skóry (oparzenia, otarcia) i informacji dla rodziców — dziecko może nie zgłosić urazu",
-      "pomoc_id": "P-SENS-08",
-      "arkusz_id": "A-SENS-08"
-    },
-    {
-      "id": "SENS-09-C",
-      "wskaznik_id": "SENS-09",
-      "kod": "DOT-SZUM",
-      "zmysl": {
-        "klucz": "dotyk",
-        "nazwa": "Dotyk",
-        "rzymska": "III",
-        "icf": "b265"
-      },
-      "sektor": {
-        "klucz": "bialy_szum",
-        "nazwa": "Biały szum (reaktywność zmienna)",
-        "skrot": "SZUM",
-        "kierunek": "↕ raz za dużo, raz za mało"
-      },
-      "nazwa": "Sprawdzanie tolerancji ubrania i faktur w danym dniu",
-      "objawy_z_druku": [
-        "Reakcje na dotyk są zmienne — ten sam bodziec raz drażni, raz jest poszukiwany",
-        "Tolerancja ubrań, mycia i przytulania zmienia się z dnia na dzień"
-      ],
-      "opis_dla_doroslego": "Ta sama bluza w poniedziałek jest w porządku, a we wtorek nie do zniesienia. Dorosły widzi w tym kaprys, dziecko przeżywa zmianę progu czucia. Bez codziennego sprawdzenia poranek kończy się konfliktem o ubranie.",
-      "strategia_sensoryczna": "Dziecko rano sprawdza „mapę ubrania” (co dziś pasuje, co drapie) i wybiera z dwóch przygotowanych wariantów, a przed pracą z materiałami wskazuje na skali, ile dziś zniesie.",
-      "sygnal_dziecka": "wskazanie pola na skali faktur (1 – suche, 2 – wilgotne, 3 – lepkie)",
-      "kontekst": "przy przebieraniu w szatni i przed zajęciami plastycznymi",
-      "cel": "Dziecko rano sprawdza „mapę ubrania” (co dziś pasuje, co drapie) i wybiera z dwóch przygotowanych wariantów, a przed pracą z materiałami wskazuje na skali, ile dziś zniesie. Kryterium: {proba} obserwowanych sytuacji w ciągu {horyzont_dopelniacz}; weryfikacja po {horyzont_miejscownik}.",
-      "znaczniki_do_podstawienia": [
-        "{proba}",
-        "{horyzont_dopelniacz}",
-        "{horyzont_miejscownik}"
-      ],
-      "wskaznik_obserwacji": "liczba dni, w których dziecko wskazało poziom przed zajęciami zamiast odmówić w trakcie",
-      "dieta_sensoryczna": [
-        "docisk przed przebieraniem (mocne przytulenie w kocyk, zabawa w naleśnik) — obniża próg drażliwości",
-        "trzystopniowa skala faktur zawsze dostępna na stole plastycznym",
-        "dwa warianty ubrania przygotowane przez rodzica w worku"
-      ],
-      "dostosowania": [
-        "brak wymuszania fartuszka i rękawiczek w dniu wysokiej drażliwości",
-        "materiały suche zawsze jako alternatywa dla mokrych",
-        "informacja dla rodzica o poziomie z danego dnia — poranek w domu wygląda tak samo"
-      ],
-      "ryzyko": "nagły wzrost drażliwości dotykowej może być objawem infekcji, gorączki lub bólu — najpierw wyklucz przyczynę medyczną",
-      "pomoc_id": "P-SENS-09",
-      "arkusz_id": "A-SENS-09"
-    },
-    {
-      "id": "SENS-10-C",
-      "wskaznik_id": "SENS-10",
-      "kod": "SMA-NAD",
-      "zmysl": {
-        "klucz": "smak",
-        "nazwa": "Smak",
-        "rzymska": "IV",
-        "icf": "b250"
-      },
-      "sektor": {
-        "klucz": "nadwrazliwosc",
-        "nazwa": "Nadwrażliwość",
-        "skrot": "NAD",
-        "kierunek": "↑ za dużo bodźca"
-      },
-      "nazwa": "Oswajanie nowej potrawy bez presji jedzenia",
-      "objawy_z_druku": [
-        "Je bardzo wąski repertuar potraw — odmawia nowych smaków i konsystencji",
-        "Reaguje odruchem wymiotnym na niektóre konsystencje jedzenia",
-        "Preferuje potrawy „bez smaku”, oddziela składniki na talerzu"
-      ],
-      "opis_dla_doroslego": "Wybiórczość pokarmowa u dziecka z nadwrażliwością smakową nie jest grymaszeniem — odruch wymiotny jest realny. Namawianie i „jeszcze jedna łyżeczka” zawężają repertuar zamiast go poszerzać.",
-      "strategia_sensoryczna": "Dziecko poznaje nową potrawę po drabinie oswajania: patrzę → dotykam widelcem → wącham → dotykam wargą → liżę → gryzę. Każdy szczebel jest sukcesem, jedzenie nie jest warunkiem.",
-      "sygnal_dziecka": "wskazanie szczebla na drabinie oswajania („dziś jestem tutaj”)",
-      "kontekst": "przy posiłku w sali lub stołówce, przy własnym talerzyku do prób",
-      "cel": "Dziecko poznaje nową potrawę po drabinie oswajania: patrzę → dotykam widelcem → wącham → dotykam wargą → liżę → gryzę. Każdy szczebel jest sukcesem, jedzenie nie jest warunkiem. Kryterium: {proba} obserwowanych sytuacji w ciągu {horyzont_dopelniacz}; weryfikacja po {horyzont_miejscownik}.",
-      "znaczniki_do_podstawienia": [
-        "{proba}",
-        "{horyzont_dopelniacz}",
-        "{horyzont_miejscownik}"
-      ],
-      "wskaznik_obserwacji": "liczba posiłków, w których dziecko wykonało wskazany szczebel drabiny (nie: zjadło)",
-      "dieta_sensoryczna": [
-        "osobny mały talerzyk „do prób” obok talerza z jedzeniem znanym — nowa potrawa nigdy nie miesza się ze znaną",
-        "przygotowanie jamy ustnej przed posiłkiem: picie przez rurkę, gryzak, chrupiąca przekąska",
-        "udział w przygotowaniu potrawy (mycie, krojenie miękkiego) — dotyk poprzedza smak"
-      ],
-      "dostosowania": [
-        "brak namawiania, komentowania i nagradzania za jedzenie",
-        "składniki podawane osobno, nie wymieszane",
-        "stałe, przewidywalne miejsce i pora posiłku"
-      ],
-      "ryzyko": "repertuar poniżej 15 produktów, spadek masy ciała lub krztuszenie się wymagają skierowania do lekarza i logopedy/neurologopedy — to zaburzenie karmienia, nie tylko sensoryka",
-      "pomoc_id": "P-SENS-10",
-      "arkusz_id": "A-SENS-10"
-    },
-    {
-      "id": "SENS-11-C",
-      "wskaznik_id": "SENS-11",
-      "kod": "SMA-POD",
-      "zmysl": {
-        "klucz": "smak",
-        "nazwa": "Smak",
-        "rzymska": "IV",
-        "icf": "b250"
-      },
-      "sektor": {
-        "klucz": "podwrazliwosc",
-        "nazwa": "Podwrażliwość / poszukiwanie bodźców",
-        "skrot": "POD",
-        "kierunek": "↓ za mało bodźca"
-      },
-      "nazwa": "Bezpieczny bodziec w jamie ustnej zamiast gryzienia przedmiotów",
-      "objawy_z_druku": [
-        "Wkłada do ust przedmioty niejadalne, liże lub gryzie zabawki i przybory",
-        "Poszukuje intensywnych smaków (ostre, kwaśne, bardzo słodkie)",
-        "Przepełnia usta jedzeniem, je łapczywie"
-      ],
-      "opis_dla_doroslego": "Jama ustna dziecka potrzebuje mocnego bodźca — stąd gryzienie rękawów, kredek i przepełnianie ust. To ryzyko połknięcia i urazu, ale też czytelna informacja: brakuje czucia, nie dyscypliny.",
-      "strategia_sensoryczna": "Dziecko korzysta z bezpiecznego gryzaka na sznurku i „mocnych” bodźców jadalnych (picie gęstego przez rurkę, chrupiące, kwaśne) w stałych momentach dnia, a przy posiłku je łyżeczką odmierzającą jeden kęs.",
-      "sygnal_dziecka": "sięgnięcie po gryzak zawieszony przy fartuszku",
-      "kontekst": "podczas zajęć przy stoliku i przy posiłkach w sali",
-      "cel": "Dziecko korzysta z bezpiecznego gryzaka na sznurku i „mocnych” bodźców jadalnych (picie gęstego przez rurkę, chrupiące, kwaśne) w stałych momentach dnia, a przy posiłku je łyżeczką odmierzającą jeden kęs. Kryterium: {proba} obserwowanych sytuacji w ciągu {horyzont_dopelniacz}; weryfikacja po {horyzont_miejscownik}.",
-      "znaczniki_do_podstawienia": [
-        "{proba}",
-        "{horyzont_dopelniacz}",
-        "{horyzont_miejscownik}"
-      ],
-      "wskaznik_obserwacji": "liczba zajęć bez gryzienia przedmiotów niejadalnych, z użyciem gryzaka lub bodźca jadalnego",
-      "dieta_sensoryczna": [
-        "picie gęstego napoju (kisiel, jogurt pitny) przez wąską rurkę przed zajęciami wymagającymi skupienia",
-        "chrupiąca przekąska (marchewka, wafel ryżowy) w połowie przedpołudnia",
-        "gryzak silikonowy na sznurku, dostępny cały czas"
-      ],
-      "dostosowania": [
-        "usunięcie z zasięgu drobnych przedmiotów, które można połknąć",
-        "łyżeczka odmierzająca jeden kęs i przypomnienie „jeden kęs, potem następny”",
-        "picie wody między kęsami — spowalnia jedzenie"
-      ],
-      "ryzyko": "wkładanie do ust przedmiotów niejadalnych to ryzyko zadławienia i zatrucia — wymaga stałego nadzoru, kontroli zasięgu drobnych przedmiotów oraz wykluczenia niedoboru żelaza (pica)",
-      "pomoc_id": "P-SENS-11",
-      "arkusz_id": "A-SENS-11"
-    },
-    {
-      "id": "SENS-12-C",
-      "wskaznik_id": "SENS-12",
-      "kod": "SMA-SZUM",
-      "zmysl": {
-        "klucz": "smak",
-        "nazwa": "Smak",
-        "rzymska": "IV",
-        "icf": "b250"
-      },
-      "sektor": {
-        "klucz": "bialy_szum",
-        "nazwa": "Biały szum (reaktywność zmienna)",
-        "skrot": "SZUM",
-        "kierunek": "↕ raz za dużo, raz za mało"
-      },
-      "nazwa": "Przewidywalny posiłek mimo zmiennej akceptacji smaków",
-      "objawy_z_druku": [
-        "Akceptacja smaków i konsystencji zmienia się bez wyraźnej przyczyny",
-        "Raz odmawia potrawy, którą innym razem je chętnie"
-      ],
-      "opis_dla_doroslego": "Ta sama zupa raz jest zjadana, raz odrzucana. Dorosły odbiera to jako granie na nerwach; dla dziecka zmienia się sam odbiór smaku i konsystencji. Stałą ma być procedura posiłku, nie menu.",
-      "strategia_sensoryczna": "Dziecko przed posiłkiem wskazuje na karcie „jak dziś smakuje” jeden z trzech wariantów (jem swoje · próbuję · dziś tylko patrzę) i według niego przebiega posiłek — bez negocjacji.",
-      "sygnal_dziecka": "położenie na stole jednej z trzech kart posiłku",
-      "kontekst": "przy każdym posiłku w przedszkolu",
-      "cel": "Dziecko przed posiłkiem wskazuje na karcie „jak dziś smakuje” jeden z trzech wariantów (jem swoje · próbuję · dziś tylko patrzę) i według niego przebiega posiłek — bez negocjacji. Kryterium: {proba} obserwowanych sytuacji w ciągu {horyzont_dopelniacz}; weryfikacja po {horyzont_miejscownik}.",
-      "znaczniki_do_podstawienia": [
-        "{proba}",
-        "{horyzont_dopelniacz}",
-        "{horyzont_miejscownik}"
-      ],
-      "wskaznik_obserwacji": "liczba posiłków rozpoczętych wyborem karty i zakończonych przy stole, bez konfliktu",
-      "dieta_sensoryczna": [
-        "stała pora, miejsce i kolejność czynności przy posiłku — zmienne jest tylko menu",
-        "zawsze jeden produkt pewny na talerzu, niezależnie od dania dnia",
-        "przygotowanie ust przed posiłkiem (rurka, chrupiące) — obniża zmienność odbioru"
-      ],
-      "dostosowania": [
-        "brak komentarza do wyboru dziecka przy stole",
-        "informacja dla rodzica: dziś wariant „tylko patrzę” — kolacja zaplanowana z zapasem",
-        "zapis wariantu w dzienniku — po dwóch tygodniach widać, czy zmienność ma rytm"
-      ],
-      "ryzyko": "seria dni z wariantem „tylko patrzę” (powyżej 3 pod rząd) wymaga kontaktu z rodzicem i lekarzem — sprawdź ból gardła, zęby, refluks",
-      "pomoc_id": "P-SENS-12",
-      "arkusz_id": "A-SENS-12"
-    },
-    {
-      "id": "SENS-13-C",
-      "wskaznik_id": "SENS-13",
-      "kod": "WEC-NAD",
-      "zmysl": {
-        "klucz": "wech",
-        "nazwa": "Węch",
-        "rzymska": "V",
-        "icf": "b255"
-      },
-      "sektor": {
-        "klucz": "nadwrazliwosc",
-        "nazwa": "Nadwrażliwość",
-        "skrot": "NAD",
-        "kierunek": "↑ za dużo bodźca"
-      },
-      "nazwa": "Pozostanie w sali mimo intensywnego zapachu",
-      "objawy_z_druku": [
-        "Skarży się na zapachy, których inni nie czują; unika stołówki, toalet",
-        "Reaguje mdłościami lub odmową na zapach jedzenia, środków czystości",
-        "Zapach potrafi wytrącić je z równowagi na długi czas"
-      ],
-      "opis_dla_doroslego": "Zapach stołówki albo płynu do podłóg potrafi wyłączyć dziecko z zajęć na godzinę. Reakcja bywa fizjologiczna — mdłości są prawdziwe. Unikanie toalety z tego powodu kończy się zatrzymywaniem moczu.",
-      "strategia_sensoryczna": "Dziecko korzysta z „zapachu ratunkowego” (chusteczka z zapachem lubianym, np. cytryny, w kieszeni) i miejsca przy oknie, zamiast wychodzić z sali albo odmawiać wejścia do stołówki.",
-      "sygnal_dziecka": "wyjęcie chusteczki zapachowej lub karta „BRZYDKI ZAPACH”",
-      "kontekst": "w stołówce, przy toalecie i w sali po sprzątaniu",
-      "cel": "Dziecko korzysta z „zapachu ratunkowego” (chusteczka z zapachem lubianym, np. cytryny, w kieszeni) i miejsca przy oknie, zamiast wychodzić z sali albo odmawiać wejścia do stołówki. Kryterium: {proba} obserwowanych sytuacji w ciągu {horyzont_dopelniacz}; weryfikacja po {horyzont_miejscownik}.",
-      "znaczniki_do_podstawienia": [
-        "{proba}",
-        "{horyzont_dopelniacz}",
-        "{horyzont_miejscownik}"
-      ],
-      "wskaznik_obserwacji": "liczba sytuacji zapachowych, w których dziecko zostało w pomieszczeniu, korzystając ze strategii",
-      "dieta_sensoryczna": [
-        "chusteczka z 2 kroplami olejku cytrynowego w kieszeni — wymieniana codziennie",
-        "wietrzenie sali przed zajęciami i po sprzątaniu, zawsze w tej samej porze",
-        "krótka przerwa przy oknie po wejściu do stołówki (30 sekund) — zanim dziecko usiądzie"
-      ],
-      "dostosowania": [
-        "miejsce przy oknie lub drzwiach, z dala od okienka wydawania posiłków i toalety",
-        "sprzątanie środkami bezzapachowymi w porze pobytu dziecka",
-        "uprzedzanie o mopowaniu i o daniach o intensywnym zapachu"
-      ],
-      "ryzyko": "unikanie toalety z powodu zapachu prowadzi do zatrzymywania moczu i zaparć — wymaga natychmiastowego dostosowania i informacji dla rodzica",
-      "pomoc_id": "P-SENS-13",
-      "arkusz_id": "A-SENS-13"
-    },
-    {
-      "id": "SENS-14-C",
-      "wskaznik_id": "SENS-14",
-      "kod": "WEC-POD",
-      "zmysl": {
-        "klucz": "wech",
-        "nazwa": "Węch",
-        "rzymska": "V",
-        "icf": "b255"
-      },
-      "sektor": {
-        "klucz": "podwrazliwosc",
-        "nazwa": "Podwrażliwość / poszukiwanie bodźców",
-        "skrot": "POD",
-        "kierunek": "↓ za mało bodźca"
-      },
-      "nazwa": "Zaplanowane wąchanie zamiast obwąchiwania ludzi i przedmiotów",
-      "objawy_z_druku": [
-        "Obwąchuje przedmioty, jedzenie, ubrania, innych ludzi",
-        "Nie zauważa wyraźnych, nieprzyjemnych zapachów",
-        "Poszukuje intensywnych zapachów (klej, pisaki, środki czystości)"
-      ],
-      "opis_dla_doroslego": "Obwąchiwanie kolegów bywa odbierane jako zaczepka, a poszukiwanie zapachu kleju i środków czystości jest realnie niebezpieczne. Dziecko szuka mocnego bodźca węchowego, którego w sali nie ma w wersji bezpiecznej.",
-      "strategia_sensoryczna": "Dziecko korzysta z pudełka zapachów (3–5 woreczków: cytryna, mięta, kawa, cynamon) w zaplanowanych momentach dnia, zamiast obwąchiwać ludzi i sięgać po chemię.",
-      "sygnal_dziecka": "karta „CHCĘ POWĄCHAĆ” wymieniana na dostęp do pudełka zapachów",
-      "kontekst": "podczas zabawy swobodnej i zajęć przy stoliku w sali",
-      "cel": "Dziecko korzysta z pudełka zapachów (3–5 woreczków: cytryna, mięta, kawa, cynamon) w zaplanowanych momentach dnia, zamiast obwąchiwać ludzi i sięgać po chemię. Kryterium: {proba} obserwowanych sytuacji w ciągu {horyzont_dopelniacz}; weryfikacja po {horyzont_miejscownik}.",
-      "znaczniki_do_podstawienia": [
-        "{proba}",
-        "{horyzont_dopelniacz}",
-        "{horyzont_miejscownik}"
-      ],
-      "wskaznik_obserwacji": "liczba dni bez obwąchiwania innych dzieci i sięgania po środki chemiczne",
-      "dieta_sensoryczna": [
-        "pudełko zapachów na stałej półce — 2 minuty na sygnał, 2 razy dziennie",
-        "zajęcia kulinarne z przyprawami (cynamon, wanilia) jako mocny bodziec zaplanowany",
-        "wąchanie przed jedzeniem — zapach jako element rozpoznawania potrawy"
-      ],
-      "dostosowania": [
-        "kleje, pisaki i środki czystości zamknięte i poza zasięgiem dziecka",
-        "zamiast upomnienia „nie wąchaj” — wskazanie pudełka",
-        "informacja dla wszystkich dorosłych w grupie: to potrzeba, nie zaczepka"
-      ],
-      "ryzyko": "wdychanie kleju i środków czystości grozi zatruciem i uszkodzeniem dróg oddechowych — zabezpieczenie chemii jest warunkiem wstępnym, nie zaleceniem",
-      "pomoc_id": "P-SENS-14",
-      "arkusz_id": "A-SENS-14"
-    },
-    {
-      "id": "SENS-15-C",
-      "wskaznik_id": "SENS-15",
-      "kod": "WEC-SZUM",
-      "zmysl": {
-        "klucz": "wech",
-        "nazwa": "Węch",
-        "rzymska": "V",
-        "icf": "b255"
-      },
-      "sektor": {
-        "klucz": "bialy_szum",
-        "nazwa": "Biały szum (reaktywność zmienna)",
-        "skrot": "SZUM",
-        "kierunek": "↕ raz za dużo, raz za mało"
-      },
-      "nazwa": "Codzienne sprawdzenie wrażliwości na zapachy",
-      "objawy_z_druku": [
-        "Reakcje na zapachy są niestałe — ten sam zapach raz przeszkadza, raz jest niezauważany",
-        "Wrażliwość na zapachy zmienia się z dnia na dzień"
-      ],
-      "opis_dla_doroslego": "Zmienność węchowa najczęściej wiąże się z katarem, alergią i porą roku, ale dla dziecka oznacza jedno: nie wie, czy dziś wytrzyma w stołówce. Sprawdzenie przed posiłkiem zajmuje pół minuty i oszczędza konflikt.",
-      "strategia_sensoryczna": "Dziecko przed posiłkiem sprawdza swój „nos dnia” na dwóch woreczkach kontrolnych i na tej podstawie decyduje, czy bierze chusteczkę ratunkową i miejsce przy oknie.",
-      "sygnal_dziecka": "wskazanie buźki przy karcie „NOS DNIA” (mocno czuję / normalnie / nie czuję)",
-      "kontekst": "przed posiłkami i przed zajęciami plastycznymi z farbami lub klejem",
-      "cel": "Dziecko przed posiłkiem sprawdza swój „nos dnia” na dwóch woreczkach kontrolnych i na tej podstawie decyduje, czy bierze chusteczkę ratunkową i miejsce przy oknie. Kryterium: {proba} obserwowanych sytuacji w ciągu {horyzont_dopelniacz}; weryfikacja po {horyzont_miejscownik}.",
-      "znaczniki_do_podstawienia": [
-        "{proba}",
-        "{horyzont_dopelniacz}",
-        "{horyzont_miejscownik}"
-      ],
-      "wskaznik_obserwacji": "liczba posiłków poprzedzonych sprawdzeniem nosa dnia",
-      "dieta_sensoryczna": [
-        "dwa woreczki kontrolne (cytryna i mięta) przy wejściu do sali",
-        "sprawdzenie przed posiłkiem i przed plastyką — dwa razy dziennie",
-        "wietrzenie sali według wskazania dziecka, nie tylko według harmonogramu"
-      ],
-      "dostosowania": [
-        "brak stałego wpisu „nadwrażliwość węchowa” — decyzja zapada codziennie",
-        "informacja dla rodzica przy katarze: dziś wskazania mogą być inne",
-        "zapis wskazania w dzienniku obserwacji"
-      ],
-      "ryzyko": "utrzymujące się „nie czuję” wymaga kontroli laryngologicznej (przerost migdałka, alergia) — brak węchu wpływa też na apetyt",
-      "pomoc_id": "P-SENS-15",
-      "arkusz_id": "A-SENS-15"
-    },
-    {
-      "id": "SENS-16-C",
-      "wskaznik_id": "SENS-16",
-      "kod": "PRO-NAD",
-      "zmysl": {
-        "klucz": "propriocepcja",
-        "nazwa": "Propriocepcja",
-        "rzymska": "VI",
-        "icf": "b760"
-      },
-      "sektor": {
-        "klucz": "nadwrazliwosc",
-        "nazwa": "Nadwrażliwość",
-        "skrot": "NAD",
-        "kierunek": "↑ za dużo bodźca"
-      },
-      "nazwa": "Udział w wysiłku fizycznym małymi krokami",
-      "objawy_z_druku": [
-        "Unika wysiłku fizycznego, wspinania, przepychania — szybko się męczy",
-        "Słabo dozuje siłę — rysuje zbyt lekko, upuszcza przedmioty",
-        "Jest ostrożne ruchowo, sztywno trzyma ciało przy nowych czynnościach"
-      ],
-      "opis_dla_doroslego": "Dziecko wycofuje się z zabaw ruchowych, bo wysiłek jest dla niego kosztowny, a informacja z mięśni niepewna. Sztywność ciała przy nowej czynności to ostrożność, nie lenistwo. Zbyt lekki nacisk kredki ma to samo źródło.",
-      "strategia_sensoryczna": "Dziecko wchodzi w wysiłek po własnej „drabinie ruchu” — od zadań z podparciem i małym obciążeniem do większych — i samo decyduje o kolejnym szczeblu, korzystając z pomocy wyznaczających siłę (kredka z nakładką, dzbanek z miarką).",
-      "sygnal_dziecka": "wskazanie szczebla na drabinie ruchu („dziś robię ten”)",
-      "kontekst": "podczas zajęć ruchowych w sali i na placu zabaw oraz przy pracy przy stoliku",
-      "cel": "Dziecko wchodzi w wysiłek po własnej „drabinie ruchu” — od zadań z podparciem i małym obciążeniem do większych — i samo decyduje o kolejnym szczeblu, korzystając z pomocy wyznaczających siłę (kredka z nakładką, dzbanek z miarką). Kryterium: {proba} obserwowanych sytuacji w ciągu {horyzont_dopelniacz}; weryfikacja po {horyzont_miejscownik}.",
-      "znaczniki_do_podstawienia": [
-        "{proba}",
-        "{horyzont_dopelniacz}",
-        "{horyzont_miejscownik}"
-      ],
-      "wskaznik_obserwacji": "liczba zajęć ruchowych, w których dziecko wykonało zaplanowany szczebel zamiast wycofać się",
-      "dieta_sensoryczna": [
-        "zadania oporowe wplecione w dzień: pchanie pudła, noszenie koszyka z klockami, wycieranie stołu",
-        "praca w pozycji na brzuchu przy niskim stoliku — buduje napięcie mięśniowe",
-        "krótkie serie (2–3 minuty) częściej, zamiast jednego długiego wysiłku"
-      ],
-      "dostosowania": [
-        "krzesło z podparciem stóp i blat na wysokości łokci",
-        "nakładka na kredkę i kredki trójkątne — wyznaczają nacisk",
-        "brak porównywania z rówieśnikami i wyścigów na czas"
-      ],
-      "ryzyko": "szybka męczliwość i sztywność ciała wymagają wykluczenia przyczyn ortopedycznych i neurologicznych (obniżone napięcie mięśniowe) — konsultacja fizjoterapeuty",
-      "pomoc_id": "P-SENS-16",
-      "arkusz_id": "A-SENS-16"
-    },
-    {
-      "id": "SENS-17-C",
-      "wskaznik_id": "SENS-17",
-      "kod": "PRO-POD",
-      "zmysl": {
-        "klucz": "propriocepcja",
-        "nazwa": "Propriocepcja",
-        "rzymska": "VI",
-        "icf": "b760"
-      },
-      "sektor": {
-        "klucz": "podwrazliwosc",
-        "nazwa": "Podwrażliwość / poszukiwanie bodźców",
-        "skrot": "POD",
-        "kierunek": "↓ za mało bodźca"
-      },
-      "nazwa": "Zaplanowana przerwa proprioceptywna zamiast napierania na innych",
-      "objawy_z_druku": [
-        "Poszukuje mocnego docisku — rzuca się na podłogę/materace, wciska w ciasne miejsca, mocno przytula",
-        "Gryzie rękawy/przybory, zaciska pięści, napiera na innych podczas zabawy",
-        "Rysuje z bardzo mocnym naciskiem, niszczy przybory"
-      ],
-      "opis_dla_doroslego": "To najczęstszy profil w grupie przedszkolnej: dziecko potrzebuje mocnego docisku i dobiera go sobie kosztem innych dzieci i przyborów. Zakaz („nie przewracaj się na kolegów”) nie zaspokaja potrzeby; zaplanowany docisk — tak.",
-      "strategia_sensoryczna": "Dziecko korzysta z zaplanowanej przerwy proprioceptywnej — docisk (kocyk obciążeniowy, poduszka, przeciskanie przez tunel), praca oporowa, ugniatanie — i wraca do zabawy, zamiast napierać na rówieśników.",
-      "sygnal_dziecka": "karta „MOCNO” wymieniana na 3 minuty przerwy proprioceptywnej",
-      "kontekst": "podczas zabawy swobodnej, w kręgu i przed zajęciami wymagającymi siedzenia",
-      "cel": "Dziecko korzysta z zaplanowanej przerwy proprioceptywnej — docisk (kocyk obciążeniowy, poduszka, przeciskanie przez tunel), praca oporowa, ugniatanie — i wraca do zabawy, zamiast napierać na rówieśników. Kryterium: {proba} obserwowanych sytuacji w ciągu {horyzont_dopelniacz}; weryfikacja po {horyzont_miejscownik}.",
-      "znaczniki_do_podstawienia": [
-        "{proba}",
-        "{horyzont_dopelniacz}",
-        "{horyzont_miejscownik}"
-      ],
-      "wskaznik_obserwacji": "liczba dni, w których dziecko użyło przerwy proprioceptywnej zamiast napierać na inne dzieci",
-      "dieta_sensoryczna": [
-        "docisk co 90 minut: kocyk obciążeniowy 3–5 minut albo mocne przytulenie w zwiniętym kocu",
-        "praca oporowa: pchanie skrzynki, przeciąganie liny, przeciskanie przez tunel",
-        "ugniatanie ciastoliny lub gąbki przed siedzeniem w kręgu"
-      ],
-      "dostosowania": [
-        "poduszka sensoryczna na krześle — pozwala pracować mięśniom w czasie siedzenia",
-        "miejsce w kręgu przy brzegu, z jednym sąsiadem",
-        "przybory odporne na nacisk (kredki woskowe, gruby papier)"
-      ],
-      "ryzyko": "kocyk obciążeniowy tylko pod nadzorem, do 10% masy ciała, nigdy podczas snu i nigdy na klatkę piersiową — przy wadach serca i padaczce wymaga zgody lekarza",
-      "pomoc_id": "P-SENS-17",
-      "arkusz_id": "A-SENS-17"
-    },
-    {
-      "id": "SENS-18-C",
-      "wskaznik_id": "SENS-18",
-      "kod": "PRO-SZUM",
-      "zmysl": {
-        "klucz": "propriocepcja",
-        "nazwa": "Propriocepcja",
-        "rzymska": "VI",
-        "icf": "b760"
-      },
-      "sektor": {
-        "klucz": "bialy_szum",
-        "nazwa": "Biały szum (reaktywność zmienna)",
-        "skrot": "SZUM",
-        "kierunek": "↕ raz za dużo, raz za mało"
-      },
-      "nazwa": "Rozpoznawanie i dozowanie siły w danym dniu",
-      "objawy_z_druku": [
-        "Dozowanie siły jest zmienne — raz za mocno, raz za słabo (rysowanie, zabawa, przybory)",
-        "Raz unika wysiłku, innym razem poszukuje mocnego docisku"
-      ],
-      "opis_dla_doroslego": "Dziecko nie ma stabilnej informacji o sile własnych ruchów — raz rozdziera kartkę, raz rysuje ledwie widoczną kreskę. Rówieśnicy odbierają zbyt mocny dotyk jako bicie, choć dziecko chciało tylko dotknąć.",
-      "strategia_sensoryczna": "Dziecko przed zadaniem sprawdza siłę na „mierniku siły” (trzy pola nacisku na papierze) i dobiera do dnia narzędzie oraz sposób dotykania kolegów („dotyk jak piórko”).",
-      "sygnal_dziecka": "wskazanie pola na mierniku siły przed zadaniem",
-      "kontekst": "przed zadaniami przy stoliku i przed zabawą w parze z rówieśnikiem",
-      "cel": "Dziecko przed zadaniem sprawdza siłę na „mierniku siły” (trzy pola nacisku na papierze) i dobiera do dnia narzędzie oraz sposób dotykania kolegów („dotyk jak piórko”). Kryterium: {proba} obserwowanych sytuacji w ciągu {horyzont_dopelniacz}; weryfikacja po {horyzont_miejscownik}.",
-      "znaczniki_do_podstawienia": [
-        "{proba}",
-        "{horyzont_dopelniacz}",
-        "{horyzont_miejscownik}"
-      ],
-      "wskaznik_obserwacji": "liczba zadań rozpoczętych sprawdzeniem siły i skończonych bez zniszczenia przyboru lub kartki",
-      "dieta_sensoryczna": [
-        "sprawdzenie miernika siły przed każdym zadaniem grafomotorycznym",
-        "praca oporowa przed zadaniem — porządkuje czucie i zmniejsza zmienność",
-        "zabawy z dozowaniem: przelewanie wody, przenoszenie piórka na łyżce, budowanie z kubków"
-      ],
-      "dostosowania": [
-        "gruby papier i kredki odporne na nacisk",
-        "podkładka antypoślizgowa pod kartkę",
-        "przypomnienie o sile przed zabawą w parze, nie po incydencie"
-      ],
-      "ryzyko": "duża zmienność siły przy jednoczesnym potykaniu się i upuszczaniu przedmiotów wymaga konsultacji fizjoterapeuty i terapeuty SI",
-      "pomoc_id": "P-SENS-18",
-      "arkusz_id": "A-SENS-18"
-    },
-    {
-      "id": "SENS-19-C",
-      "wskaznik_id": "SENS-19",
-      "kod": "ROW-NAD",
-      "zmysl": {
-        "klucz": "rownowaga",
-        "nazwa": "Równowaga",
-        "rzymska": "VII",
-        "icf": "b235"
-      },
-      "sektor": {
-        "klucz": "nadwrazliwosc",
-        "nazwa": "Nadwrażliwość",
-        "skrot": "NAD",
-        "kierunek": "↑ za dużo bodźca"
-      },
-      "nazwa": "Oswajanie ruchu i wysokości metodą małych kroków",
-      "objawy_z_druku": [
-        "Boi się huśtawek, zjeżdżalni, schodów, oderwania nóg od podłoża",
-        "Ma chorobę lokomocyjną, unika zabaw z obracaniem i zmianą pozycji głowy",
-        "Unika zajęć ruchowych, placu zabaw, jazdy na rowerku/hulajnodze"
-      ],
-      "opis_dla_doroslego": "Lęk przed oderwaniem nóg od podłoża jest reakcją układu przedsionkowego, nie tchórzostwem. Wsadzenie dziecka na huśtawkę „żeby się przekonało” utrwala lęk na miesiące. Praca idzie wyłącznie małymi krokami, z zachowaniem kontroli po stronie dziecka.",
-      "strategia_sensoryczna": "Dziecko wchodzi w ruch po własnej drabinie (stopy na podłożu → huśtanie z podparciem nóg → krótkie huśtanie → zjeżdżalnia z asekuracją), zawsze samo decyduje o wejściu i ma słowo, którym ruch zatrzymuje („stop”).",
-      "sygnal_dziecka": "słowo „STOP” lub karta STOP zatrzymująca ruch natychmiast",
-      "kontekst": "na placu zabaw i podczas zajęć ruchowych w sali",
-      "cel": "Dziecko wchodzi w ruch po własnej drabinie (stopy na podłożu → huśtanie z podparciem nóg → krótkie huśtanie → zjeżdżalnia z asekuracją), zawsze samo decyduje o wejściu i ma słowo, którym ruch zatrzymuje („stop”). Kryterium: {proba} obserwowanych sytuacji w ciągu {horyzont_dopelniacz}; weryfikacja po {horyzont_miejscownik}.",
-      "znaczniki_do_podstawienia": [
-        "{proba}",
-        "{horyzont_dopelniacz}",
-        "{horyzont_miejscownik}"
-      ],
-      "wskaznik_obserwacji": "liczba wyjść na plac zabaw, w których dziecko weszło na sprzęt na wybranym przez siebie szczeblu",
-      "dieta_sensoryczna": [
-        "przed ruchem: docisk i praca oporowa (propriocepcja wycisza układ przedsionkowy)",
-        "ruch liniowy (huśtanie przód-tył) zamiast obrotowego — obrót zostawiamy na koniec drogi",
-        "krótkie serie 10–20 sekund z przerwą na stanie obiema stopami na ziemi"
-      ],
-      "dostosowania": [
-        "brak wsadzania na sprzęt „na siłę” i brak niespodziewanego rozhuśtania",
-        "trzymanie się za ręce przy schodach, stopy zawsze widoczne dla dziecka",
-        "uprzedzanie o każdej zmianie pozycji głowy przy ubieraniu i myciu"
-      ],
-      "ryzyko": "silny lęk przedsionkowy z wymiotami i bladością wymaga konsultacji neurologicznej i terapii SI — samo oswajanie może nie wystarczyć",
-      "pomoc_id": "P-SENS-19",
-      "arkusz_id": "A-SENS-19"
-    },
-    {
-      "id": "SENS-20-C",
-      "wskaznik_id": "SENS-20",
-      "kod": "ROW-POD",
-      "zmysl": {
-        "klucz": "rownowaga",
-        "nazwa": "Równowaga",
-        "rzymska": "VII",
-        "icf": "b235"
-      },
-      "sektor": {
-        "klucz": "podwrazliwosc",
-        "nazwa": "Podwrażliwość / poszukiwanie bodźców",
-        "skrot": "POD",
-        "kierunek": "↓ za mało bodźca"
-      },
-      "nazwa": "Zaplanowany ruch zamiast ciągłego bujania się i wstawania",
-      "objawy_z_druku": [
-        "Jest w ciągłym ruchu — buja się na krześle, wstaje z miejsca co chwilę, kręci się w kółko",
-        "Poszukuje intensywnego ruchu (huśtanie, wirowanie, skakanie) i nie ma zawrotów głowy",
-        "Ryzykuje ruchowo ponad miarę — wspina się wysoko, skacze z wysokości"
-      ],
-      "opis_dla_doroslego": "Dziecko potrzebuje mocnego bodźca przedsionkowego i dobiera go sobie w czasie zajęć — bujaniem na krześle, wstawaniem, wirowaniem. Brak zawrotów głowy przy wirowaniu to sygnał podwrażliwości, a wspinanie ponad miarę — realne ryzyko urazu.",
-      "strategia_sensoryczna": "Dziecko korzysta z zaplanowanych dawek mocnego ruchu (skakanie, huśtanie, bieg z zadaniem) przed siedzeniem i w przerwach, a w czasie zajęć ma poduszkę sensoryczną, która pozwala się ruszać bez wstawania.",
-      "sygnal_dziecka": "karta „POTRZEBUJĘ RUCHU” wymieniana na 3 minuty ruchu w wyznaczonym miejscu",
-      "kontekst": "podczas zajęć przy stoliku i w kręgu na dywanie",
-      "cel": "Dziecko korzysta z zaplanowanych dawek mocnego ruchu (skakanie, huśtanie, bieg z zadaniem) przed siedzeniem i w przerwach, a w czasie zajęć ma poduszkę sensoryczną, która pozwala się ruszać bez wstawania. Kryterium: {proba} obserwowanych sytuacji w ciągu {horyzont_dopelniacz}; weryfikacja po {horyzont_miejscownik}.",
-      "znaczniki_do_podstawienia": [
-        "{proba}",
-        "{horyzont_dopelniacz}",
-        "{horyzont_miejscownik}"
-      ],
-      "wskaznik_obserwacji": "liczba zajęć, w których dziecko wstało z miejsca nie więcej niż raz, po skorzystaniu z dawki ruchu",
-      "dieta_sensoryczna": [
-        "dawka mocnego ruchu przed każdym zadaniem wymagającym siedzenia: 10 podskoków, bieg do drzwi i z powrotem, huśtanie 1 minuta",
-        "poduszka sensoryczna na krześle i możliwość klęczenia lub stania przy stoliku",
-        "zadania z ruchem wplecionym w treść (przynieś, podaj, zanieś) zamiast siedzenia bez przerwy"
-      ],
-      "dostosowania": [
-        "miejsce przy brzegu, z drogą wyjścia bez przechodzenia przez środek dywanu",
-        "krótsze bloki zadań (5–7 minut) z ruchem między nimi",
-        "jasne zasady bezpieczeństwa na sprzęcie: dokąd wolno się wspinać, skąd nie wolno skakać"
-      ],
-      "ryzyko": "wspinanie się wysoko i skakanie z wysokości bez oceny ryzyka wymaga stałego nadzoru i ustalenia granic sprzętu — to najczęstsza przyczyna urazów w tej grupie",
-      "pomoc_id": "P-SENS-20",
-      "arkusz_id": "A-SENS-20"
-    },
-    {
-      "id": "SENS-21-C",
-      "wskaznik_id": "SENS-21",
-      "kod": "ROW-SZUM",
-      "zmysl": {
-        "klucz": "rownowaga",
-        "nazwa": "Równowaga",
-        "rzymska": "VII",
-        "icf": "b235"
-      },
-      "sektor": {
-        "klucz": "bialy_szum",
-        "nazwa": "Biały szum (reaktywność zmienna)",
-        "skrot": "SZUM",
-        "kierunek": "↕ raz za dużo, raz za mało"
-      },
-      "nazwa": "Sprawdzenie poziomu ruchu przed wyjściem na plac zabaw",
-      "objawy_z_druku": [
-        "Reakcje na ruch są niestałe — raz lęk przed huśtaniem, raz poszukiwanie intensywnego ruchu",
-        "Aktywność ruchowa zmienia się skrajnie z dnia na dzień"
-      ],
-      "opis_dla_doroslego": "Ten sam sprzęt bywa w poniedziałek atrakcją, a we wtorek źródłem lęku. Planowanie zajęć ruchowych pod stały profil kończy się albo przymusem, albo brakiem ruchu — obydwa warianty szkodzą.",
-      "strategia_sensoryczna": "Dziecko przed wyjściem ustawia „licznik ruchu” (dużo ruchu / średnio / dziś spokojnie) i według niego wybiera sprzęt oraz dawkę — codziennie od nowa.",
-      "sygnal_dziecka": "przesunięcie suwaka na liczniku ruchu przed wyjściem",
-      "kontekst": "przed wyjściem na plac zabaw i przed zajęciami ruchowymi w sali",
-      "cel": "Dziecko przed wyjściem ustawia „licznik ruchu” (dużo ruchu / średnio / dziś spokojnie) i według niego wybiera sprzęt oraz dawkę — codziennie od nowa. Kryterium: {proba} obserwowanych sytuacji w ciągu {horyzont_dopelniacz}; weryfikacja po {horyzont_miejscownik}.",
-      "znaczniki_do_podstawienia": [
-        "{proba}",
-        "{horyzont_dopelniacz}",
-        "{horyzont_miejscownik}"
-      ],
-      "wskaznik_obserwacji": "liczba wyjść poprzedzonych ustawieniem licznika i zgodnym z nim wyborem zabawy",
-      "dieta_sensoryczna": [
-        "praca oporowa przed każdym wyjściem — stabilizuje odczyt niezależnie od poziomu",
-        "dwie gotowe ścieżki na placu: „dużo ruchu” i „dziś spokojnie”",
-        "sprawdzenie licznika także po odpoczynku — poziom potrafi zmienić się w ciągu dnia"
-      ],
-      "dostosowania": [
-        "brak stałego przypisania dziecku profilu ruchowego w dokumentacji",
-        "sprzęt dobierany do ustawienia z danego dnia, nie do planu z poprzedniego tygodnia",
-        "wpis poziomu do dziennika — po dwóch tygodniach widać rytm zmienności"
-      ],
-      "ryzyko": "skrajna zmienność aktywności ruchowej z sennością lub nadmiernym pobudzeniem wymaga konsultacji pediatrycznej — sprawdź sen, żelazo i tarczycę",
-      "pomoc_id": "P-SENS-21",
-      "arkusz_id": "A-SENS-21"
+      "skala": "suma 0–24",
+      "opis": "Układ przedsionkowy: ruch, wysokość, zmiana pozycji głowy, huśtanie i wirowanie.",
+      "zasada_si": "Nigdy nie wsadzamy dziecka na sprzęt i nie rozhuśtujemy z zaskoczenia. Wiarygodne „stop” jest jedynym narzędziem, które buduje odwagę.",
+      "wskazniki": [
+        {
+          "nr": "VII.1",
+          "sektor": "Nadwrażliwość",
+          "kierunek": "↑ za dużo bodźca",
+          "deficyt": "Dziecko boi się huśtawek, zjeżdżalni i oderwania nóg od podłoża, unika zabaw z obracaniem.",
+          "strategia_sensoryczna": "drabina ruchu przedsionkowego z wiarygodnym słowem „stop”",
+          "cel": "Dziecko wejdzie na sprzęt na wybranym przez siebie szczeblu i zatrzyma ruch własnym sygnałem, w {proba} sytuacji, w ciągu {horyzont_dopelniacz}.",
+          "znaczniki": [
+            "{proba}",
+            "{horyzont_dopelniacz}",
+            "{horyzont_miejscownik}"
+          ],
+          "co_obserwowac": "Arkusz obserwacji — kolumna: wyjście na plac zabaw. Notujemy szczebel i skuteczność „stop”.",
+          "ile_sytuacji": "5 wyjść na plac zabaw w tygodniu",
+          "smart": [
+            {
+              "litera": "S",
+              "tresc": "Wchodzi na sprzęt i zatrzymuje ruch sygnałem."
+            },
+            {
+              "litera": "M",
+              "tresc": "{proba} wyjść z pięciu obserwowanych w tygodniu."
+            },
+            {
+              "litera": "A",
+              "tresc": "Szczebel wybiera dziecko; praca oporowa poprzedza wyjście."
+            },
+            {
+              "litera": "R",
+              "tresc": "Wsadzenie na huśtawkę wbrew dziecku utrwala lęk na miesiące."
+            },
+            {
+              "litera": "T",
+              "tresc": "Weryfikacja po {horyzont_miejscownik}, według pasma punktacji zmysłu."
+            }
+          ],
+          "dieta_sensoryczna": [
+            "przed ruchem: docisk i praca oporowa — propriocepcja wycisza układ przedsionkowy",
+            "ruch liniowy (huśtanie przód-tył) zamiast obrotowego — obrót zostaje na koniec drogi",
+            "krótkie serie dziesięć–dwadzieścia sekund z przerwą na stanie obiema stopami na ziemi"
+          ],
+          "dostosowania": [
+            "brak wsadzania na sprzęt na siłę i brak niespodziewanego rozhuśtania",
+            "trzymanie się za ręce przy schodach, stopy zawsze widoczne dla dziecka",
+            "uprzedzanie o każdej zmianie pozycji głowy przy ubieraniu i myciu"
+          ],
+          "ryzyko": "Silny lęk przedsionkowy z wymiotami i bladością wymaga konsultacji neurologicznej i terapii SI — samo oswajanie może nie wystarczyć."
+        },
+        {
+          "nr": "VII.2",
+          "sektor": "Podwrażliwość / poszukiwanie bodźców",
+          "kierunek": "↓ za mało bodźca",
+          "deficyt": "Dziecko jest w ciągłym ruchu, buja się na krześle i wstaje z miejsca, a wirowanie nie powoduje u niego zawrotów głowy.",
+          "strategia_sensoryczna": "dawka mocnego ruchu przed siedzeniem i poduszka zamiast wstawania",
+          "cel": "Dziecko skorzysta z zaplanowanej dawki ruchu i wysiedzi zajęcia, wstając nie więcej niż raz, w {proba} sytuacji, w ciągu {horyzont_dopelniacz}.",
+          "znaczniki": [
+            "{proba}",
+            "{horyzont_dopelniacz}",
+            "{horyzont_miejscownik}"
+          ],
+          "co_obserwowac": "Arkusz obserwacji — kolumna: zadanie przy stoliku i krąg. Notujemy liczbę wstań z miejsca.",
+          "ile_sytuacji": "5 zajęć w tygodniu",
+          "smart": [
+            {
+              "litera": "S",
+              "tresc": "Wykonuje dawkę ruchu i wraca na miejsce."
+            },
+            {
+              "litera": "M",
+              "tresc": "{proba} sytuacji z pięciu obserwowanych w tygodniu."
+            },
+            {
+              "litera": "A",
+              "tresc": "Poduszka leży na krześle, znak ruchu jest wyznaczony."
+            },
+            {
+              "litera": "R",
+              "tresc": "Bujanie się i wstawanie to dobieranie bodźca, nie brak dyscypliny."
+            },
+            {
+              "litera": "T",
+              "tresc": "Weryfikacja po {horyzont_miejscownik}, według pasma punktacji zmysłu."
+            }
+          ],
+          "dieta_sensoryczna": [
+            "dawka mocnego ruchu przed każdym zadaniem wymagającym siedzenia: dziesięć podskoków, bieg do drzwi i z powrotem, minuta huśtania",
+            "poduszka sensoryczna na krześle i możliwość klęczenia albo stania przy stoliku",
+            "zadania z ruchem wplecionym w treść (przynieś, podaj, zanieś) zamiast siedzenia bez przerwy"
+          ],
+          "dostosowania": [
+            "miejsce przy brzegu, z drogą wyjścia bez przechodzenia przez środek dywanu",
+            "krótsze bloki zadań (pięć–siedem minut) z ruchem między nimi",
+            "jasne zasady bezpieczeństwa na sprzęcie: dokąd wolno się wspinać, skąd nie wolno skakać"
+          ],
+          "ryzyko": "Wspinanie się wysoko i skakanie z wysokości bez oceny ryzyka wymaga stałego nadzoru i ustalenia granic sprzętu — to najczęstsza przyczyna urazów w tej grupie."
+        },
+        {
+          "nr": "VII.3",
+          "sektor": "Biały szum (reaktywność zmienna)",
+          "kierunek": "↕ raz za dużo, raz za mało",
+          "deficyt": "Reakcje dziecka na ruch są niestałe — raz lęk przed huśtaniem, raz poszukiwanie intensywnego ruchu.",
+          "strategia_sensoryczna": "licznik ruchu ustawiany przed wyjściem na plac",
+          "cel": "Dziecko ustawi licznik ruchu przed wyjściem i wybierze zabawę zgodną z odczytem, w {proba} sytuacji, w ciągu {horyzont_dopelniacz}.",
+          "znaczniki": [
+            "{proba}",
+            "{horyzont_dopelniacz}",
+            "{horyzont_miejscownik}"
+          ],
+          "co_obserwowac": "Arkusz obserwacji — kolumna: wyjście na plac zabaw. Notujemy poziom i wybraną ścieżkę.",
+          "ile_sytuacji": "5 wyjść na plac zabaw w tygodniu",
+          "smart": [
+            {
+              "litera": "S",
+              "tresc": "Ustawia licznik i bawi się według wybranej ścieżki."
+            },
+            {
+              "litera": "M",
+              "tresc": "{proba} wyjść z pięciu obserwowanych w tygodniu."
+            },
+            {
+              "litera": "A",
+              "tresc": "Licznik wisi przy drzwiach; obie ścieżki są przygotowane."
+            },
+            {
+              "litera": "R",
+              "tresc": "Planowanie pod stały profil kończy się przymusem albo brakiem ruchu."
+            },
+            {
+              "litera": "T",
+              "tresc": "Weryfikacja po {horyzont_miejscownik}, według pasma punktacji zmysłu."
+            }
+          ],
+          "dieta_sensoryczna": [
+            "praca oporowa przed każdym wyjściem — stabilizuje odczyt niezależnie od poziomu",
+            "dwie gotowe ścieżki na placu: „dużo ruchu” i „dziś spokojnie”",
+            "sprawdzenie licznika także po odpoczynku — poziom potrafi zmienić się w ciągu dnia"
+          ],
+          "dostosowania": [
+            "brak stałego przypisania dziecku profilu ruchowego w dokumentacji",
+            "sprzęt dobierany do ustawienia z danego dnia, nie do planu z poprzedniego tygodnia",
+            "wpis poziomu do dziennika — po dwóch tygodniach widać rytm zmienności"
+          ],
+          "ryzyko": "Skrajna zmienność aktywności ruchowej z sennością albo nadmiernym pobudzeniem wymaga konsultacji pediatrycznej — sprawdź sen, żelazo i tarczycę."
+        }
+      ]
     }
   ]
 }

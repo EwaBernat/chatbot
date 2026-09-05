@@ -1,0 +1,488 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cele SMART · profil sensoryczny — EduPlaner 2026 · PCTP</title>
+<style>
+:root{--fiolet:#2D1B69;--fiolet-2:#5a4a94;--fiolet-tlo:#efeaf9;--fiolet-linia:#d9d0f0;
+  --pomarancz:#E8450A;--pomarancz-tlo:#fdece4;--pomarancz-linia:#f3cdbd;
+  --ink:#2b2733;--szary:#6f6a7d;--linia:#e4e1ec;--zebra:#faf7f2;
+  --dom:#c0392b;--dom-tlo:#fbebe9;--ist:#c8811b;--ist-tlo:#fbf3e3;--sla:#1f8a5b;--sla-tlo:#eaf6f0}
+*{box-sizing:border-box}
+html,body{margin:0;padding:0}
+body{background:#e9e7ef;color:var(--ink);font-family:'Mulish','Segoe UI',Candara,Arial,sans-serif}
+.strona{width:210mm;min-height:297mm;margin:12px auto;background:#fff;padding:11mm 12mm 8mm;
+  box-shadow:0 6px 30px rgba(45,27,105,.16);display:flex;flex-direction:column}
+.head{display:flex;align-items:center;gap:12px}
+.mark{width:38px;height:38px;border-radius:50%;background:var(--fiolet);border:2px solid #cfc4ea;color:#fff;
+  display:flex;align-items:center;justify-content:center;font-size:8.5px;font-weight:800;flex:0 0 auto}
+.mark::after{content:"PCTP"}
+.head h1{font-size:16px;margin:0;color:var(--fiolet)}
+.head .sub{font-size:8.5px;color:var(--szary);letter-spacing:.6px;text-transform:uppercase;font-weight:700;margin-top:2px}
+.head .prawa{margin-left:auto;text-align:right}
+.head .prawa b{display:inline-block;background:var(--pomarancz);color:#fff;font-size:10px;padding:4px 12px;border-radius:20px}
+.head .prawa span{display:block;font-size:8px;color:var(--szary);letter-spacing:.9px;margin-top:3px;text-transform:uppercase}
+.kreska{height:3px;border-radius:3px;margin:8px 0 0;
+  background:linear-gradient(90deg,var(--fiolet) 0%,var(--fiolet) 55%,var(--pomarancz) 55%,var(--pomarancz) 100%)}
+.metryka{display:flex;gap:8px;margin-top:9px}
+.metryka div{flex:1;background:var(--fiolet-tlo);border:1px solid var(--fiolet-linia);border-radius:8px;
+  padding:5px 10px;font-size:11px;display:flex;gap:7px;align-items:baseline}
+.metryka span{font-size:7.5px;font-weight:800;letter-spacing:.7px;color:var(--fiolet);text-transform:uppercase}
+.metryka b{flex:1;border-bottom:1.5px dotted #b7add6;font-size:11px}
+.tresc{flex:1;margin-top:10px}
+.pas{background:var(--fiolet);color:#fff;border-radius:8px;padding:6px 12px;font-size:11px;font-weight:700;
+  letter-spacing:.3px;margin-bottom:9px}
+.wstep{font-size:10.5px;line-height:1.6;background:var(--zebra);border-radius:9px;padding:10px 13px}
+.wstep b{color:var(--fiolet)}
+.dwie{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:10px}
+.karta-info{border:1px solid var(--fiolet-linia);border-radius:9px;padding:9px 12px;font-size:10px;line-height:1.55}
+.karta-info h3{margin:0 0 4px;font-size:10.5px;color:var(--fiolet);letter-spacing:.4px}
+table{width:100%;border-collapse:collapse;font-size:10px;margin-top:10px}
+th{background:var(--fiolet);color:#fff;font-size:8px;letter-spacing:.6px;text-transform:uppercase;
+  padding:5px 7px;text-align:left}
+td{border-bottom:1px solid var(--linia);padding:5px 7px;vertical-align:top}
+tr:nth-child(even) td{background:var(--zebra)}
+td.pkt{font-weight:800;color:var(--fiolet);white-space:nowrap}
+.ocena{display:inline-block;font-size:8px;font-weight:800;padding:1px 7px;border-radius:9px;
+  background:var(--sla-tlo);color:var(--sla)}
+.ocena.pri{background:var(--dom-tlo);color:var(--dom)}
+.ocena.mon{background:var(--ist-tlo);color:var(--ist)}
+.fn{display:flex;align-items:center;gap:10px;margin-bottom:7px}
+.fn .rz{width:26px;height:26px;border-radius:7px;background:var(--pomarancz);color:#fff;display:flex;
+  align-items:center;justify-content:center;font-weight:800;font-size:12px;flex:0 0 auto}
+.fn h2{margin:0;font-size:14px;color:var(--fiolet)}
+.fn .op{font-size:9px;color:var(--szary);margin-top:2px;line-height:1.4}
+.fn .bad{margin-left:auto;text-align:right;font-size:9.5px;color:var(--szary);white-space:nowrap}
+.fn .bad b{display:block;color:var(--fiolet);font-size:10px;margin-top:2px}
+.si{background:var(--pomarancz-tlo);border:1px solid var(--pomarancz-linia);border-radius:8px;
+  padding:7px 11px;font-size:9.5px;line-height:1.55;margin-bottom:9px}
+.si b{color:var(--fiolet)}
+.cel{border:1px solid var(--linia);border-radius:10px;padding:9px 12px;margin-bottom:9px;break-inside:avoid}
+.cel-h{display:flex;gap:9px;align-items:flex-start;margin-bottom:5px}
+.cel-h .nr{background:var(--fiolet);color:#fff;font-size:9px;font-weight:800;padding:2px 8px;border-radius:10px;flex:0 0 auto}
+.cel-h .def{font-size:9.5px;line-height:1.45;color:var(--szary)}
+.cel-h .def b{color:var(--fiolet);margin-right:5px}
+.strat{font-size:9px;color:var(--pomarancz);font-weight:700;margin:0 0 5px 0}
+.cel-t{font-size:10.5px;line-height:1.55;margin:0 0 6px;background:var(--fiolet-tlo);border-radius:8px;padding:7px 11px}
+.cel-t b{display:block;font-size:8px;letter-spacing:.7px;text-transform:uppercase;color:var(--fiolet);margin-bottom:3px}
+.smart{display:grid;grid-template-columns:1fr 1fr;gap:3px 10px;font-size:9px;line-height:1.4}
+.smart div{display:flex;gap:6px}
+.smart i{background:var(--fiolet-2);color:#fff;width:14px;height:14px;border-radius:4px;display:flex;
+  align-items:center;justify-content:center;font-size:8px;font-style:normal;font-weight:800;flex:0 0 auto}
+.obs{display:flex;gap:10px;align-items:center;margin-top:6px;padding-top:6px;border-top:1px dashed var(--linia);
+  font-size:9px;color:var(--szary);flex-wrap:wrap}
+.obs b{color:var(--fiolet)}
+.obs .wynik{margin-left:auto;white-space:nowrap}
+.obs .pole{display:inline-block;width:34px;border-bottom:1.5px dotted #b7add6}
+.uwagi{font-size:9px;color:var(--szary);line-height:1.5;margin-top:6px}
+.stopka{margin-top:auto;padding-top:7px;border-top:1px solid var(--linia);display:flex;
+  justify-content:space-between;font-size:8px;color:var(--szary)}
+@media print{body{background:#fff}.strona{box-shadow:none;margin:0;page-break-after:always}
+  @page{size:A4 portrait;margin:0}}
+</style>
+</head>
+<body>
+<section class="strona">
+<div class="head"><span class="mark" role="img" aria-label="Logo PCTP"></span>
+  <div><h1>EduPlaner 2026</h1><div class="sub">Profil sensoryczny · cele SMART — wprowadzenie</div></div>
+  <div class="prawa"><b>SENS · SI</b><span>narzędzie · druk SENS-C</span></div></div>
+<div class="kreska"></div>
+<div class="metryka">
+  <div><span>Dotyczy dziecka</span><b>&nbsp;</b></div>
+  <div><span>Grupa</span><b>&nbsp;</b></div>
+  <div><span>Data</span><b>&nbsp;</b> r.</div></div>
+<div class="tresc">
+  <div class="pas">Cele SMART do obserwacji pogłębionej · 21 wskaźników profilu sensorycznego</div>
+  <div class="wstep"><b>Po co ten druk.</b> Profil sensoryczny kończy się siedmioma wynikami —
+    po jednym na zmysł. Wyznaczają kierunek diety sensorycznej, ale są za szerokie na obserwację
+    pogłębioną: „wysoka nadwrażliwość słuchowa” nie mówi, w której z pięciu sytuacji hałasu liczymy
+    postęp. Ten druk rozpisuje tamte siedem wyników na <b>21 celów szczegółowych</b> — po jednym
+    do każdego sektora objawów, każdy z zachowaniem, które widać, liczbą, którą da się policzyć,
+    i terminem, w którym sprawdzamy.</div>
+  <div class="dwie">
+    <div class="karta-info"><h3>Jak czytać cel</h3>
+      Każdy cel opisuje <b>strategię sensoryczną</b> — to, co dziecko robi, gdy bodziec jest za silny
+      albo za słaby. Nie usuwamy objawu i nie żądamy, żeby dziecko przestało czuć; dajemy mu sposób,
+      żeby samo zadbało o swój układ nerwowy. Dlatego pod celem stoi rozpisanie SMART: co dokładnie
+      widać (S), ile tego liczymy (M), co to umożliwia (A), po co to dziecku (R) i kiedy
+      sprawdzamy (T).</div>
+    <div class="karta-info"><h3>Skąd kryterium i horyzont</h3>
+      Nie z podręcznika, tylko z <b>punktacji tego zmysłu u tego dziecka</b>. Zmysł w paśmie
+      priorytetowym (13 pkt i więcej z 24) jest priorytetem diety sensorycznej, więc sprawdzamy go
+      najczęściej — po 4 tygodniach, przy kryterium 4 z 5. Pasmo monitorowania (6–12 pkt) —
+      po 8 tygodniach, przy 4 z 5. Zasób (0–5 pkt) — po 12 tygodniach, przy 3 z 5.
+      Ta sama logika, co przy poziomach wsparcia w druku SENS-T.</div>
+  </div>
+  <table><thead><tr><th>Zmysł</th><th>Suma</th><th>Natężenie</th><th>Pasmo</th><th>Kryterium</th>
+    <th>Horyzont</th><th>Znaczenie dla diety sensorycznej</th></tr></thead>
+    <tbody><tr><td>I · Wzrok</td><td class="pkt">…/24</td><td class="pkt">…/10</td><td>………</td><td class="pkt">……</td><td class="pkt">……</td><td>wpisz po odczytaniu pasma z tabeli progów</td></tr><tr><td>II · Słuch</td><td class="pkt">…/24</td><td class="pkt">…/10</td><td>………</td><td class="pkt">……</td><td class="pkt">……</td><td>wpisz po odczytaniu pasma z tabeli progów</td></tr><tr><td>III · Dotyk</td><td class="pkt">…/24</td><td class="pkt">…/10</td><td>………</td><td class="pkt">……</td><td class="pkt">……</td><td>wpisz po odczytaniu pasma z tabeli progów</td></tr><tr><td>IV · Smak</td><td class="pkt">…/24</td><td class="pkt">…/10</td><td>………</td><td class="pkt">……</td><td class="pkt">……</td><td>wpisz po odczytaniu pasma z tabeli progów</td></tr><tr><td>V · Węch</td><td class="pkt">…/24</td><td class="pkt">…/10</td><td>………</td><td class="pkt">……</td><td class="pkt">……</td><td>wpisz po odczytaniu pasma z tabeli progów</td></tr><tr><td>VI · Propriocepcja</td><td class="pkt">…/24</td><td class="pkt">…/10</td><td>………</td><td class="pkt">……</td><td class="pkt">……</td><td>wpisz po odczytaniu pasma z tabeli progów</td></tr><tr><td>VII · Równowaga</td><td class="pkt">…/24</td><td class="pkt">…/10</td><td>………</td><td class="pkt">……</td><td class="pkt">……</td><td>wpisz po odczytaniu pasma z tabeli progów</td></tr></tbody></table>
+  <div class="uwagi">natężenie (0–10) = zaokrąglone (suma zmysłu × 10 / 24) · suma zmysłu bierze się z druku obserwacji
+    (7 zmysłów × 8 twierdzeń × skala 0–3).</div>
+  <table><thead><tr><th>Punktacja zmysłu</th><th>Pasmo</th><th>Kryterium</th><th>Horyzont</th>
+    <th>Znaczenie</th></tr></thead><tbody><tr><td>13 pkt i więcej</td><td><span class="ocena pri">Priorytet</span></td><td class="pkt">4 z 5</td><td class="pkt">4 tygodnie</td><td>duża nad- lub podwrażliwość — priorytet diety sensorycznej, konsultacja terapeuty SI</td></tr><tr><td>6 pkt i więcej</td><td><span class="ocena mon">Do monitorowania</span></td><td class="pkt">4 z 5</td><td class="pkt">8 tygodni</td><td>modulacja częściowo zaburzona — dieta sensoryczna w planie dnia</td></tr><tr><td>0 pkt i więcej</td><td><span class="ocena ">Zasób</span></td><td class="pkt">3 z 5</td><td class="pkt">12 tygodni</td><td>modulacja prawidłowa — cel podtrzymujący, obserwacja bez interwencji</td></tr></tbody></table>
+  <div class="uwagi"><b>Nie wszystkie 21 celów naraz.</b> Do planu bierzemy cele ze zmysłów z pasma
+    priorytetowego i jeden–dwa z pasma monitorowania; 21 celów to zapas na cały rok, nie plan
+    na wrzesień. Wynik obserwacji wpisujemy w pole przy celu, a zbiorczo — w tabelę ewaluacji
+    na ostatniej stronie.</div>
+</div>
+<div class="stopka"><span>EduPlaner 2026 · PCTP · pedagog specjalny <b>mgr Mirosława Ewa Jurczyszyn</b></span><span>Strona 1 z 9 · wprowadzenie</span></div>
+</section>
+<section class="strona">
+<div class="head"><span class="mark" role="img" aria-label="Logo PCTP"></span>
+  <div><h1>EduPlaner 2026</h1><div class="sub">Profil sensoryczny · cele SMART · zmysł I</div></div>
+  <div class="prawa"><b>SENS · SI</b><span>narzędzie · druk SENS-C</span></div></div>
+<div class="kreska"></div>
+<div class="metryka">
+  <div><span>Dotyczy dziecka</span><b>&nbsp;</b></div>
+  <div><span>Grupa</span><b>&nbsp;</b></div>
+  <div><span>Data</span><b>&nbsp;</b> r.</div></div>
+<div class="tresc">
+  <div class="fn"><span class="rz">I</span>
+    <div><h2>Wzrok <span style="font-size:9px;color:var(--szary)">b210</span></h2>
+      <div class="op">Widzenie i przetwarzanie bodźców wzrokowych: światło, ruch, nadmiar szczegółów.</div></div>
+    <div class="bad">……/24 · <span class="ocena">pasmo ………</span><b>…… z 5 · ……… tygodni</b></div></div>
+  <div class="si"><b>Zasada pracy sensorycznej</b> Nie zabieramy osłony za dobre zachowanie i nie zwiększamy bodźca „na próbę”. Dziecko ma mieć stały, dostępny sposób obniżenia dopływu bodźca wzrokowego.</div>
+  <article class="cel">
+  <div class="cel-h"><span class="nr">I.1</span>
+    <span class="def"><b>Objaw</b> Dziecko mruży oczy, osłania je lub odwraca wzrok przy jasnym świetle i nadmiarze bodźców wzrokowych.</span></div>
+  <p class="strat">strategia sensoryczna: osłona wzrokowa na własny sygnał · sektor:
+    nadwrażliwość · ↑ za dużo bodźca</p>
+  <p class="cel-t"><b>Cel SMART</b>Dziecko skorzysta z osłony wzrokowej albo zmieni miejsce, zanim przerwie zadanie, w ……… z 5 sytuacji, w ciągu ……… tygodni.</p>
+  <div class="smart"><div><i>S</i>Sięga po osłonę albo zmienia miejsce — czynność widoczna dla obserwatora.</div><div><i>M</i>……… z 5 sytuacji z pięciu obserwowanych w tygodniu.</div><div><i>A</i>Osłona stoi na stałym miejscu i jest dostępna bez pytania dorosłego.</div><div><i>R</i>Przeciążenie wzrokowe kończy zadanie wcześniej niż trudność zadania.</div><div><i>T</i>Weryfikacja po ……… tygodniach, według pasma punktacji zmysłu.</div></div>
+  <div class="obs"><span><b>Obserwacja</b> Arkusz obserwacji — kolumna: zadanie wzrokowe przy stoliku. Notujemy przerwanie zadania i sięgnięcie po osłonę. · 5 zadań wzrokowych w tygodniu</span>
+    <span class="wynik">wynik <span class="pole">&nbsp;</span>/5 · data <span class="pole">&nbsp;</span></span></div>
+</article><article class="cel">
+  <div class="cel-h"><span class="nr">I.2</span>
+    <span class="def"><b>Objaw</b> Dziecko wpatruje się w źródła światła i przedmioty błyszczące, a na obrazku gubi miejsce i pomija szczegóły.</span></div>
+  <p class="strat">strategia sensoryczna: mocny bodziec wzrokowy w wyznaczonym miejscu i prowadzenie wzroku w zadaniu · sektor:
+    podwrażliwość / poszukiwanie bodźców · ↓ za mało bodźca</p>
+  <p class="cel-t"><b>Cel SMART</b>Dziecko skorzysta z zaplanowanego bodźca wzrokowego i poprowadzi wzrok w zadaniu, nie gubiąc miejsca, w ……… z 5 sytuacji, w ciągu ……… tygodni.</p>
+  <div class="smart"><div><i>S</i>Prowadzi wzrok palcem albo okienkiem i kończy zadanie bez pominięć.</div><div><i>M</i>……… z 5 sytuacji z pięciu obserwowanych w tygodniu.</div><div><i>A</i>Bodziec zaplanowany stoi na półce; okienko leży przy zadaniu.</div><div><i>R</i>Dziecko nie widzi gorzej — gubi miejsce, bo szuka mocniejszego bodźca.</div><div><i>T</i>Weryfikacja po ……… tygodniach, według pasma punktacji zmysłu.</div></div>
+  <div class="obs"><span><b>Obserwacja</b> Arkusz obserwacji — kolumna: zadanie obrazkowe. Notujemy pominięte pola i wpatrywanie się w źródła światła. · 5 zadań obrazkowych w tygodniu</span>
+    <span class="wynik">wynik <span class="pole">&nbsp;</span>/5 · data <span class="pole">&nbsp;</span></span></div>
+</article><article class="cel">
+  <div class="cel-h"><span class="nr">I.3</span>
+    <span class="def"><b>Objaw</b> Reakcje wzrokowe dziecka są zmienne — raz przesadne, raz brak reakcji na ten sam bodziec.</span></div>
+  <p class="strat">strategia sensoryczna: poranne sprawdzenie poziomu i dobór miejsca na dany dzień · sektor:
+    biały szum (reaktywność zmienna) · ↕ raz za dużo, raz za mało</p>
+  <p class="cel-t"><b>Cel SMART</b>Dziecko sprawdzi poziom wzrokowy przed pierwszym zadaniem i skorzysta z dostosowania, które z odczytu wynika, w ……… z 5 sytuacji, w ciągu ……… tygodni.</p>
+  <div class="smart"><div><i>S</i>Ustawia termometr i bierze pomoc zgodną z odczytem.</div><div><i>M</i>……… z 5 dni z pięciu obserwowanych w tygodniu.</div><div><i>A</i>Termometr wisi na wysokości oczu dziecka i jest częścią powitania.</div><div><i>R</i>Stały profil w dniu obniżonej reaktywności działa przeciwko dziecku.</div><div><i>T</i>Weryfikacja po ……… tygodniach, według pasma punktacji zmysłu.</div></div>
+  <div class="obs"><span><b>Obserwacja</b> Dziennik obserwacji — rubryka poranna. Notujemy odczyt i to, co po nim ustalono. · 5 poranków w tygodniu</span>
+    <span class="wynik">wynik <span class="pole">&nbsp;</span>/5 · data <span class="pole">&nbsp;</span></span></div>
+</article>
+</div>
+<div class="stopka"><span>EduPlaner 2026 · PCTP · pedagog specjalny <b>mgr Mirosława Ewa Jurczyszyn</b></span><span>Strona 2 z 9 · zmysł I · wzrok</span></div>
+</section>
+<section class="strona">
+<div class="head"><span class="mark" role="img" aria-label="Logo PCTP"></span>
+  <div><h1>EduPlaner 2026</h1><div class="sub">Profil sensoryczny · cele SMART · zmysł II</div></div>
+  <div class="prawa"><b>SENS · SI</b><span>narzędzie · druk SENS-C</span></div></div>
+<div class="kreska"></div>
+<div class="metryka">
+  <div><span>Dotyczy dziecka</span><b>&nbsp;</b></div>
+  <div><span>Grupa</span><b>&nbsp;</b></div>
+  <div><span>Data</span><b>&nbsp;</b> r.</div></div>
+<div class="tresc">
+  <div class="fn"><span class="rz">II</span>
+    <div><h2>Słuch <span style="font-size:9px;color:var(--szary)">b230</span></h2>
+      <div class="op">Słyszenie i przetwarzanie bodźców słuchowych: hałas, gwar, dźwięki tła.</div></div>
+    <div class="bad">……/24 · <span class="ocena">pasmo ………</span><b>…… z 5 · ……… tygodni</b></div></div>
+  <div class="si"><b>Zasada pracy sensorycznej</b> Ochrona słuchu nie izoluje dziecka od grupy — pozwala mu w niej zostać. Zdejmowanie słuchawek „bo już nie jest głośno” odbiera dziecku kontrolę.</div>
+  <article class="cel">
+  <div class="cel-h"><span class="nr">II.1</span>
+    <span class="def"><b>Objaw</b> Dziecko zatyka uszy, płacze albo ucieka przy hałasie i rozprasza się przy dźwiękach, których inni nie zauważają.</span></div>
+  <p class="strat">strategia sensoryczna: ochrona słuchu przed przeciążeniem, nie po nim · sektor:
+    nadwrażliwość · ↑ za dużo bodźca</p>
+  <p class="cel-t"><b>Cel SMART</b>Dziecko skorzysta z ochrony słuchu albo kącika wyciszenia, zanim hałas je przeciąży, w ……… z 5 sytuacji, w ciągu ……… tygodni.</p>
+  <div class="smart"><div><i>S</i>Zakłada słuchawki albo idzie do kącika i zostaje w sytuacji.</div><div><i>M</i>……… z 5 sytuacji z pięciu obserwowanych w tygodniu.</div><div><i>A</i>Słuchawki wiszą w zasięgu dziecka; kącik jest wolny.</div><div><i>R</i>Ucieczka i płacz są końcem procesu — pracujemy nad jego początkiem.</div><div><i>T</i>Weryfikacja po ……… tygodniach, według pasma punktacji zmysłu.</div></div>
+  <div class="obs"><span><b>Obserwacja</b> Arkusz obserwacji — kolumna: hałaśliwa pora dnia. Notujemy moment sięgnięcia i to, czy dziecko zostało w sytuacji. · 5 hałaśliwych sytuacji w tygodniu</span>
+    <span class="wynik">wynik <span class="pole">&nbsp;</span>/5 · data <span class="pole">&nbsp;</span></span></div>
+</article><article class="cel">
+  <div class="cel-h"><span class="nr">II.2</span>
+    <span class="def"><b>Objaw</b> Dziecko nie reaguje na wołanie po imieniu mimo prawidłowego słuchu i samo wytwarza głośne dźwięki.</span></div>
+  <p class="strat">strategia sensoryczna: dźwięk w kąciku instrumentów i reakcja na imię po sygnale wzrokowym · sektor:
+    podwrażliwość / poszukiwanie bodźców · ↓ za mało bodźca</p>
+  <p class="cel-t"><b>Cel SMART</b>Dziecko odpowie na wołanie po imieniu do trzeciego powtórzenia i skorzysta z zaplanowanej przerwy dźwiękowej, w ……… z 5 sytuacji, w ciągu ……… tygodni.</p>
+  <div class="smart"><div><i>S</i>Odpowiada na wołanie i korzysta z kącika dźwięków zamiast stukać.</div><div><i>M</i>……… z 5 sytuacji z pięciu obserwowanych dziennie.</div><div><i>A</i>Koszyk stoi na stałej półce, karta jest u dziecka.</div><div><i>R</i>Dobieranie dźwięku w czasie zajęć rozbija zabawę całej grupy.</div><div><i>T</i>Weryfikacja po ……… tygodniach, według pasma punktacji zmysłu.</div></div>
+  <div class="obs"><span><b>Obserwacja</b> Arkusz obserwacji — kolumna: wołanie po imieniu. Notujemy odległość, liczbę powtórzeń i sięgnięcie po kartę. · 5 wołań dziennie</span>
+    <span class="wynik">wynik <span class="pole">&nbsp;</span>/5 · data <span class="pole">&nbsp;</span></span></div>
+</article><article class="cel">
+  <div class="cel-h"><span class="nr">II.3</span>
+    <span class="def"><b>Objaw</b> Reakcje dziecka na dźwięki są niestałe — ten sam hałas raz przeszkadza, raz pozostaje niezauważony.</span></div>
+  <p class="strat">strategia sensoryczna: sprawdzenie poziomu słuchowego przed zajęciami i dobór dostosowania na dany dzień · sektor:
+    biały szum (reaktywność zmienna) · ↕ raz za dużo, raz za mało</p>
+  <p class="cel-t"><b>Cel SMART</b>Dziecko sprawdzi poziom słuchowy przed zajęciami i skorzysta z dostosowania wynikającego z odczytu, w ……… z 5 sytuacji, w ciągu ……… tygodni.</p>
+  <div class="smart"><div><i>S</i>Ustawia tarczę i korzysta z wybranego dostosowania.</div><div><i>M</i>……… z 5 dni z pięciu obserwowanych w tygodniu.</div><div><i>A</i>Tarcza wisi przy planie dnia; dostosowania są przygotowane.</div><div><i>R</i>Zmienność progu słuchowego czyta się jako niekonsekwencję dziecka.</div><div><i>T</i>Weryfikacja po ……… tygodniach, według pasma punktacji zmysłu.</div></div>
+  <div class="obs"><span><b>Obserwacja</b> Dziennik obserwacji — rubryka poranna i popołudniowa. Notujemy odczyt i wybrane dostosowanie. · 5 poranków w tygodniu</span>
+    <span class="wynik">wynik <span class="pole">&nbsp;</span>/5 · data <span class="pole">&nbsp;</span></span></div>
+</article>
+</div>
+<div class="stopka"><span>EduPlaner 2026 · PCTP · pedagog specjalny <b>mgr Mirosława Ewa Jurczyszyn</b></span><span>Strona 3 z 9 · zmysł II · słuch</span></div>
+</section>
+<section class="strona">
+<div class="head"><span class="mark" role="img" aria-label="Logo PCTP"></span>
+  <div><h1>EduPlaner 2026</h1><div class="sub">Profil sensoryczny · cele SMART · zmysł III</div></div>
+  <div class="prawa"><b>SENS · SI</b><span>narzędzie · druk SENS-C</span></div></div>
+<div class="kreska"></div>
+<div class="metryka">
+  <div><span>Dotyczy dziecka</span><b>&nbsp;</b></div>
+  <div><span>Grupa</span><b>&nbsp;</b></div>
+  <div><span>Data</span><b>&nbsp;</b> r.</div></div>
+<div class="tresc">
+  <div class="fn"><span class="rz">III</span>
+    <div><h2>Dotyk <span style="font-size:9px;color:var(--szary)">b265</span></h2>
+      <div class="op">Czucie powierzchniowe: faktury, ubranie, bliskość fizyczna, przypadkowy dotyk.</div></div>
+    <div class="bad">……/24 · <span class="ocena">pasmo ………</span><b>…… z 5 · ……… tygodni</b></div></div>
+  <div class="si"><b>Zasada pracy sensorycznej</b> Reakcja obronna na dotyk jest odruchem, nie decyzją. Uprzedzamy o każdym dotyku, także przy pomaganiu — dotyk z zaskoczenia uruchamia obronę.</div>
+  <article class="cel">
+  <div class="cel-h"><span class="nr">III.1</span>
+    <span class="def"><b>Objaw</b> Dziecko unika dotyku i reaguje obronnie na przypadkowe dotknięcie w kolejce, w kręgu i w zabawach grupowych.</span></div>
+  <p class="strat">strategia sensoryczna: własne miejsce chroniące plecy i sposób odmowy inny niż odepchnięcie · sektor:
+    nadwrażliwość · ↑ za dużo bodźca</p>
+  <p class="cel-t"><b>Cel SMART</b>Dziecko zajmie ustalone miejsce i użyje karty albo słowa zamiast reakcji obronnej na dotyk, w ……… z 5 sytuacji, w ciągu ……… tygodni.</p>
+  <div class="smart"><div><i>S</i>Zajmuje swoje miejsce i sygnalizuje odmowę bez odpychania.</div><div><i>M</i>……… z 5 sytuacji z pięciu obserwowanych w tygodniu.</div><div><i>A</i>Znak jest naklejony, karta leży w kieszeni, docisk poprzedza sytuację.</div><div><i>R</i>Reakcja obronna jest odruchem — karanie za nią pogłębia napięcie.</div><div><i>T</i>Weryfikacja po ……… tygodniach, według pasma punktacji zmysłu.</div></div>
+  <div class="obs"><span><b>Obserwacja</b> Arkusz obserwacji — kolumna: sytuacja bliskości (kolejka, krąg, zabawa w parach). Notujemy sposób reakcji. · 5 sytuacji bliskości w tygodniu</span>
+    <span class="wynik">wynik <span class="pole">&nbsp;</span>/5 · data <span class="pole">&nbsp;</span></span></div>
+</article><article class="cel">
+  <div class="cel-h"><span class="nr">III.2</span>
+    <span class="def"><b>Objaw</b> Dziecko dotyka wszystkiego i wszystkich, mocno ściska i potrąca inne dzieci, a nie zauważa brudu ani drobnego bólu.</span></div>
+  <p class="strat">strategia sensoryczna: praca dla rąk we własnej pomocy zamiast dotykania innych · sektor:
+    podwrażliwość / poszukiwanie bodźców · ↓ za mało bodźca</p>
+  <p class="cel-t"><b>Cel SMART</b>Dziecko skorzysta z własnej pomocy dotykowej zamiast dotykać innych dzieci, w ……… z 5 sytuacji, w ciągu ……… tygodni.</p>
+  <div class="smart"><div><i>S</i>Trzyma ręce na własnej pomocy przez czas zajęć.</div><div><i>M</i>……… z 5 sytuacji z pięciu obserwowanych w tygodniu.</div><div><i>A</i>Gniotek jest w kieszeni od rana, skrzynka stoi na stałym miejscu.</div><div><i>R</i>Dziecko zbiera informację o świecie rękami — trzeba jej dać materiał.</div><div><i>T</i>Weryfikacja po ……… tygodniach, według pasma punktacji zmysłu.</div></div>
+  <div class="obs"><span><b>Obserwacja</b> Arkusz obserwacji — kolumna: krąg i kolejka. Notujemy dotknięcia innych dzieci i użycie pomocy. · 5 kręgów w tygodniu</span>
+    <span class="wynik">wynik <span class="pole">&nbsp;</span>/5 · data <span class="pole">&nbsp;</span></span></div>
+</article><article class="cel">
+  <div class="cel-h"><span class="nr">III.3</span>
+    <span class="def"><b>Objaw</b> Tolerancja ubrania, mycia i faktur zmienia się u dziecka z dnia na dzień — ten sam bodziec raz drażni, raz jest poszukiwany.</span></div>
+  <p class="strat">strategia sensoryczna: poranne sprawdzenie tolerancji i wybór poziomu faktur na dany dzień · sektor:
+    biały szum (reaktywność zmienna) · ↕ raz za dużo, raz za mało</p>
+  <p class="cel-t"><b>Cel SMART</b>Dziecko wskaże swój poziom tolerancji przed zajęciami i będzie pracować materiałem z tego poziomu, w ……… z 5 sytuacji, w ciągu ……… tygodni.</p>
+  <div class="smart"><div><i>S</i>Wskazuje poziom na skali i pracuje materiałem z tego poziomu.</div><div><i>M</i>……… z 5 sytuacji z pięciu obserwowanych w tygodniu.</div><div><i>A</i>Materiały trzech poziomów leżą na stole równocześnie.</div><div><i>R</i>Ta sama bluza bywa w poniedziałek dobra, a we wtorek nie do zniesienia.</div><div><i>T</i>Weryfikacja po ……… tygodniach, według pasma punktacji zmysłu.</div></div>
+  <div class="obs"><span><b>Obserwacja</b> Arkusz obserwacji — kolumna: przebieranie i zajęcia plastyczne. Notujemy wskazany poziom i odmowy w trakcie. · 5 zajęć plastycznych w tygodniu</span>
+    <span class="wynik">wynik <span class="pole">&nbsp;</span>/5 · data <span class="pole">&nbsp;</span></span></div>
+</article>
+</div>
+<div class="stopka"><span>EduPlaner 2026 · PCTP · pedagog specjalny <b>mgr Mirosława Ewa Jurczyszyn</b></span><span>Strona 4 z 9 · zmysł III · dotyk</span></div>
+</section>
+<section class="strona">
+<div class="head"><span class="mark" role="img" aria-label="Logo PCTP"></span>
+  <div><h1>EduPlaner 2026</h1><div class="sub">Profil sensoryczny · cele SMART · zmysł IV</div></div>
+  <div class="prawa"><b>SENS · SI</b><span>narzędzie · druk SENS-C</span></div></div>
+<div class="kreska"></div>
+<div class="metryka">
+  <div><span>Dotyczy dziecka</span><b>&nbsp;</b></div>
+  <div><span>Grupa</span><b>&nbsp;</b></div>
+  <div><span>Data</span><b>&nbsp;</b> r.</div></div>
+<div class="tresc">
+  <div class="fn"><span class="rz">IV</span>
+    <div><h2>Smak <span style="font-size:9px;color:var(--szary)">b250</span></h2>
+      <div class="op">Smak i konsystencje pokarmów, czucie w obrębie jamy ustnej.</div></div>
+    <div class="bad">……/24 · <span class="ocena">pasmo ………</span><b>…… z 5 · ……… tygodni</b></div></div>
+  <div class="si"><b>Zasada pracy sensorycznej</b> Nie namawiamy do jedzenia. Sukcesem jest szczebel drabiny oswajania, nie liczba kęsów — namawianie zawęża repertuar zamiast go poszerzać.</div>
+  <article class="cel">
+  <div class="cel-h"><span class="nr">IV.1</span>
+    <span class="def"><b>Objaw</b> Dziecko je bardzo wąski repertuar potraw, odmawia nowych konsystencji i reaguje na niektóre odruchem wymiotnym.</span></div>
+  <p class="strat">strategia sensoryczna: drabina oswajania jedzenia — jeden szczebel zamiast jednego kęsa · sektor:
+    nadwrażliwość · ↑ za dużo bodźca</p>
+  <p class="cel-t"><b>Cel SMART</b>Dziecko wykona szczebel drabiny oswajania przy nowej potrawie, bez namawiania, w ……… z 5 sytuacji, w ciągu ……… tygodni.</p>
+  <div class="smart"><div><i>S</i>Wykonuje wskazany szczebel drabiny przy talerzyku do prób.</div><div><i>M</i>……… z 5 posiłków z pięciu obserwowanych w tygodniu.</div><div><i>A</i>Na talerzyku leży jedna nowa rzecz; produkt pewny jest zawsze na talerzu.</div><div><i>R</i>Namawianie zawęża repertuar zamiast go poszerzać.</div><div><i>T</i>Weryfikacja po ……… tygodniach, według pasma punktacji zmysłu.</div></div>
+  <div class="obs"><span><b>Obserwacja</b> Arkusz obserwacji — kolumna: posiłek z nową potrawą. Notujemy szczebel, nie liczbę kęsów. · 5 posiłków w tygodniu</span>
+    <span class="wynik">wynik <span class="pole">&nbsp;</span>/5 · data <span class="pole">&nbsp;</span></span></div>
+</article><article class="cel">
+  <div class="cel-h"><span class="nr">IV.2</span>
+    <span class="def"><b>Objaw</b> Dziecko wkłada do ust przedmioty niejadalne, gryzie przybory i przepełnia usta jedzeniem.</span></div>
+  <p class="strat">strategia sensoryczna: bezpieczny bodziec dla ust i jeden kęs na raz · sektor:
+    podwrażliwość / poszukiwanie bodźców · ↓ za mało bodźca</p>
+  <p class="cel-t"><b>Cel SMART</b>Dziecko skorzysta z bezpiecznego bodźca ustnego zamiast gryźć przybory i zje, nabierając jeden kęs na raz, w ……… z 5 sytuacji, w ciągu ……… tygodni.</p>
+  <div class="smart"><div><i>S</i>Używa gryzaka albo rurki i je pojedynczymi kęsami.</div><div><i>M</i>……… z 5 sytuacji z pięciu obserwowanych w tygodniu.</div><div><i>A</i>Gryzak jest przypięty od rana; łyżeczka leży przy talerzu.</div><div><i>R</i>Gryzienie przyborów to brak czucia, nie brak dyscypliny.</div><div><i>T</i>Weryfikacja po ……… tygodniach, według pasma punktacji zmysłu.</div></div>
+  <div class="obs"><span><b>Obserwacja</b> Arkusz obserwacji — kolumna: zajęcia przy stoliku i posiłek. Notujemy gryzienie przedmiotów i przepełnianie ust. · 5 zadań przy stoliku w tygodniu</span>
+    <span class="wynik">wynik <span class="pole">&nbsp;</span>/5 · data <span class="pole">&nbsp;</span></span></div>
+</article><article class="cel">
+  <div class="cel-h"><span class="nr">IV.3</span>
+    <span class="def"><b>Objaw</b> Akceptacja smaków i konsystencji zmienia się u dziecka bez wyraźnej przyczyny — raz odmawia potrawy, którą innym razem je chętnie.</span></div>
+  <p class="strat">strategia sensoryczna: wybór wariantu posiłku przed jedzeniem, bez negocjacji · sektor:
+    biały szum (reaktywność zmienna) · ↕ raz za dużo, raz za mało</p>
+  <p class="cel-t"><b>Cel SMART</b>Dziecko wybierze wariant posiłku przed jedzeniem i zostanie przy stole do końca posiłku, w ……… z 5 sytuacji, w ciągu ……… tygodni.</p>
+  <div class="smart"><div><i>S</i>Kładzie kartę wariantu i zostaje przy stole.</div><div><i>M</i>……… z 5 posiłków z pięciu obserwowanych w tygodniu.</div><div><i>A</i>Karty leżą przy talerzu przed podaniem jedzenia.</div><div><i>R</i>Stałą ma być procedura posiłku, nie menu.</div><div><i>T</i>Weryfikacja po ……… tygodniach, według pasma punktacji zmysłu.</div></div>
+  <div class="obs"><span><b>Obserwacja</b> Arkusz obserwacji — kolumna: posiłek. Notujemy wybrany wariant i odejścia od stołu. · 5 posiłków w tygodniu</span>
+    <span class="wynik">wynik <span class="pole">&nbsp;</span>/5 · data <span class="pole">&nbsp;</span></span></div>
+</article>
+</div>
+<div class="stopka"><span>EduPlaner 2026 · PCTP · pedagog specjalny <b>mgr Mirosława Ewa Jurczyszyn</b></span><span>Strona 5 z 9 · zmysł IV · smak</span></div>
+</section>
+<section class="strona">
+<div class="head"><span class="mark" role="img" aria-label="Logo PCTP"></span>
+  <div><h1>EduPlaner 2026</h1><div class="sub">Profil sensoryczny · cele SMART · zmysł V</div></div>
+  <div class="prawa"><b>SENS · SI</b><span>narzędzie · druk SENS-C</span></div></div>
+<div class="kreska"></div>
+<div class="metryka">
+  <div><span>Dotyczy dziecka</span><b>&nbsp;</b></div>
+  <div><span>Grupa</span><b>&nbsp;</b></div>
+  <div><span>Data</span><b>&nbsp;</b> r.</div></div>
+<div class="tresc">
+  <div class="fn"><span class="rz">V</span>
+    <div><h2>Węch <span style="font-size:9px;color:var(--szary)">b255</span></h2>
+      <div class="op">Zapachy i reakcje na nie: stołówka, toaleta, środki czystości, materiały plastyczne.</div></div>
+    <div class="bad">……/24 · <span class="ocena">pasmo ………</span><b>…… z 5 · ……… tygodni</b></div></div>
+  <div class="si"><b>Zasada pracy sensorycznej</b> Nie podważamy doznania („przecież nic nie czuć”). Podważone dziecko przestaje sygnalizować i po prostu wychodzi z sali.</div>
+  <article class="cel">
+  <div class="cel-h"><span class="nr">V.1</span>
+    <span class="def"><b>Objaw</b> Dziecko skarży się na zapachy, których inni nie czują, i unika stołówki oraz toalety.</span></div>
+  <p class="strat">strategia sensoryczna: zapach ratunkowy w kieszeni i miejsce przy oknie · sektor:
+    nadwrażliwość · ↑ za dużo bodźca</p>
+  <p class="cel-t"><b>Cel SMART</b>Dziecko wejdzie do pomieszczenia z intensywnym zapachem i zostanie w nim, korzystając ze swojej strategii, w ……… z 5 sytuacji, w ciągu ……… tygodni.</p>
+  <div class="smart"><div><i>S</i>Wchodzi, korzysta z chusteczki i zostaje w pomieszczeniu.</div><div><i>M</i>……… z 5 sytuacji z pięciu obserwowanych w tygodniu.</div><div><i>A</i>Chusteczka jest w kieszeni, miejsce przy oknie przygotowane.</div><div><i>R</i>Mdłości przy zapachu są prawdziwe — to nie jest wymówka.</div><div><i>T</i>Weryfikacja po ……… tygodniach, według pasma punktacji zmysłu.</div></div>
+  <div class="obs"><span><b>Obserwacja</b> Arkusz obserwacji — kolumna: stołówka, toaleta, sala po sprzątaniu. Notujemy wejście i pozostanie. · 5 sytuacji zapachowych w tygodniu</span>
+    <span class="wynik">wynik <span class="pole">&nbsp;</span>/5 · data <span class="pole">&nbsp;</span></span></div>
+</article><article class="cel">
+  <div class="cel-h"><span class="nr">V.2</span>
+    <span class="def"><b>Objaw</b> Dziecko obwąchuje przedmioty, jedzenie i innych ludzi, a nie zauważa wyraźnych, nieprzyjemnych zapachów.</span></div>
+  <p class="strat">strategia sensoryczna: pudełko zapachów zamiast obwąchiwania ludzi i chemii · sektor:
+    podwrażliwość / poszukiwanie bodźców · ↓ za mało bodźca</p>
+  <p class="cel-t"><b>Cel SMART</b>Dziecko skorzysta z pudełka zapachów zamiast obwąchiwać ludzi i sięgać po chemię, w ……… z 5 sytuacji, w ciągu ……… tygodni.</p>
+  <div class="smart"><div><i>S</i>Idzie do pudełka i wraca do zabawy.</div><div><i>M</i>……… z 5 sytuacji z pięciu obserwowanych w tygodniu.</div><div><i>A</i>Pudełko stoi na stałej półce; chemia jest zamknięta.</div><div><i>R</i>Dziecko szuka mocnego bodźca węchowego — musi go dostać bezpiecznie.</div><div><i>T</i>Weryfikacja po ……… tygodniach, według pasma punktacji zmysłu.</div></div>
+  <div class="obs"><span><b>Obserwacja</b> Arkusz obserwacji — kolumna: zabawa swobodna. Notujemy obwąchiwanie ludzi i sięganie po środki chemiczne. · 5 sytuacji zabawy swobodnej w tygodniu</span>
+    <span class="wynik">wynik <span class="pole">&nbsp;</span>/5 · data <span class="pole">&nbsp;</span></span></div>
+</article><article class="cel">
+  <div class="cel-h"><span class="nr">V.3</span>
+    <span class="def"><b>Objaw</b> Wrażliwość dziecka na zapachy zmienia się z dnia na dzień — ten sam zapach raz przeszkadza, raz jest niezauważany.</span></div>
+  <p class="strat">strategia sensoryczna: sprawdzenie „nosa dnia” przed posiłkiem i przed plastyką · sektor:
+    biały szum (reaktywność zmienna) · ↕ raz za dużo, raz za mało</p>
+  <p class="cel-t"><b>Cel SMART</b>Dziecko sprawdzi swoją dzisiejszą wrażliwość węchową przed sytuacją zapachową i skorzysta z wynikającego dostosowania, w ……… z 5 sytuacji, w ciągu ……… tygodni.</p>
+  <div class="smart"><div><i>S</i>Wącha woreczki, wskazuje buźkę, bierze pomoc.</div><div><i>M</i>……… z 5 sytuacji z pięciu obserwowanych w tygodniu.</div><div><i>A</i>Woreczki i karta wiszą przy wejściu, na wysokości dziecka.</div><div><i>R</i>Zmienność węchowa wiąże się z katarem i porą roku — to dana, nie kaprys.</div><div><i>T</i>Weryfikacja po ……… tygodniach, według pasma punktacji zmysłu.</div></div>
+  <div class="obs"><span><b>Obserwacja</b> Dziennik obserwacji — rubryka przed posiłkiem i przed plastyką. Notujemy odczyt i wybraną pomoc. · 5 posiłków w tygodniu</span>
+    <span class="wynik">wynik <span class="pole">&nbsp;</span>/5 · data <span class="pole">&nbsp;</span></span></div>
+</article>
+</div>
+<div class="stopka"><span>EduPlaner 2026 · PCTP · pedagog specjalny <b>mgr Mirosława Ewa Jurczyszyn</b></span><span>Strona 6 z 9 · zmysł V · węch</span></div>
+</section>
+<section class="strona">
+<div class="head"><span class="mark" role="img" aria-label="Logo PCTP"></span>
+  <div><h1>EduPlaner 2026</h1><div class="sub">Profil sensoryczny · cele SMART · zmysł VI</div></div>
+  <div class="prawa"><b>SENS · SI</b><span>narzędzie · druk SENS-C</span></div></div>
+<div class="kreska"></div>
+<div class="metryka">
+  <div><span>Dotyczy dziecka</span><b>&nbsp;</b></div>
+  <div><span>Grupa</span><b>&nbsp;</b></div>
+  <div><span>Data</span><b>&nbsp;</b> r.</div></div>
+<div class="tresc">
+  <div class="fn"><span class="rz">VI</span>
+    <div><h2>Propriocepcja <span style="font-size:9px;color:var(--szary)">b760</span></h2>
+      <div class="op">Czucie głębokie: napięcie mięśniowe, dozowanie siły, docisk, praca oporowa.</div></div>
+    <div class="bad">……/24 · <span class="ocena">pasmo ………</span><b>…… z 5 · ……… tygodni</b></div></div>
+  <div class="si"><b>Zasada pracy sensorycznej</b> Docisku nie odbieramy za karę — potrzeba zostaje ta sama i wraca napieraniem na inne dzieci. Bodziec przenosimy, nie usuwamy.</div>
+  <article class="cel">
+  <div class="cel-h"><span class="nr">VI.1</span>
+    <span class="def"><b>Objaw</b> Dziecko unika wysiłku fizycznego, szybko się męczy i sztywno trzyma ciało przy nowych czynnościach.</span></div>
+  <p class="strat">strategia sensoryczna: drabina ruchu — wchodzenie w wysiłek własnym szczeblem · sektor:
+    nadwrażliwość · ↑ za dużo bodźca</p>
+  <p class="cel-t"><b>Cel SMART</b>Dziecko wykona zaplanowane zadanie oporowe i doprowadzi je do końca zamiast wycofać się z wysiłku, w ……… z 5 sytuacji, w ciągu ……… tygodni.</p>
+  <div class="smart"><div><i>S</i>Wykonuje zadanie oporowe od początku do końca.</div><div><i>M</i>……… z 5 sytuacji z pięciu obserwowanych w tygodniu.</div><div><i>A</i>Ciężar i długość serii dobiera dorosły do możliwości dziecka.</div><div><i>R</i>Wysiłek jest kosztowny, gdy informacja z mięśni jest niepewna.</div><div><i>T</i>Weryfikacja po ……… tygodniach, według pasma punktacji zmysłu.</div></div>
+  <div class="obs"><span><b>Obserwacja</b> Arkusz obserwacji — kolumna: zajęcia ruchowe i zadania w sali. Notujemy dokończone szczeble. · 5 zajęć ruchowych w tygodniu</span>
+    <span class="wynik">wynik <span class="pole">&nbsp;</span>/5 · data <span class="pole">&nbsp;</span></span></div>
+</article><article class="cel">
+  <div class="cel-h"><span class="nr">VI.2</span>
+    <span class="def"><b>Objaw</b> Dziecko poszukuje mocnego docisku — rzuca się na podłogę, wciska w ciasne miejsca i napiera na inne dzieci.</span></div>
+  <p class="strat">strategia sensoryczna: zaplanowana przerwa proprioceptywna zamiast napierania na innych · sektor:
+    podwrażliwość / poszukiwanie bodźców · ↓ za mało bodźca</p>
+  <p class="cel-t"><b>Cel SMART</b>Dziecko skorzysta z zaplanowanej przerwy proprioceptywnej i wróci do zabawy zamiast napierać na inne dzieci, w ……… z 5 sytuacji, w ciągu ……… tygodni.</p>
+  <div class="smart"><div><i>S</i>Korzysta z docisku i wraca do zabawy.</div><div><i>M</i>……… z 5 dni z pięciu obserwowanych w tygodniu.</div><div><i>A</i>Kącik docisku jest dostępny bez pytania przez cały dzień.</div><div><i>R</i>Zakaz nie zaspokaja potrzeby — zaplanowany docisk tak.</div><div><i>T</i>Weryfikacja po ……… tygodniach, według pasma punktacji zmysłu.</div></div>
+  <div class="obs"><span><b>Obserwacja</b> Arkusz obserwacji — kolumna: zabawa swobodna i krąg. Notujemy napierania i wykorzystane przerwy. · 5 dni w tygodniu</span>
+    <span class="wynik">wynik <span class="pole">&nbsp;</span>/5 · data <span class="pole">&nbsp;</span></span></div>
+</article><article class="cel">
+  <div class="cel-h"><span class="nr">VI.3</span>
+    <span class="def"><b>Objaw</b> Dozowanie siły u dziecka jest zmienne — raz rysuje ledwie widoczną kreskę, raz rozdziera kartkę.</span></div>
+  <p class="strat">strategia sensoryczna: sprawdzenie siły na mierniku przed zadaniem · sektor:
+    biały szum (reaktywność zmienna) · ↕ raz za dużo, raz za mało</p>
+  <p class="cel-t"><b>Cel SMART</b>Dziecko sprawdzi siłę przed zadaniem i wykona je bez zniszczenia przyboru ani kartki, w ……… z 5 sytuacji, w ciągu ……… tygodni.</p>
+  <div class="smart"><div><i>S</i>Robi próbę na mierniku i dobiera narzędzie do wyniku.</div><div><i>M</i>……… z 5 sytuacji z pięciu obserwowanych w tygodniu.</div><div><i>A</i>Miernik i kredki różnej twardości leżą przy stanowisku.</div><div><i>R</i>Dziecko nie ma wzorca siły w ciele — musi mieć go na papierze.</div><div><i>T</i>Weryfikacja po ……… tygodniach, według pasma punktacji zmysłu.</div></div>
+  <div class="obs"><span><b>Obserwacja</b> Arkusz obserwacji — kolumna: zadanie grafomotoryczne i zabawa w parze. Notujemy zniszczone kartki i zbyt mocne dotknięcia. · 5 zadań grafomotorycznych w tygodniu</span>
+    <span class="wynik">wynik <span class="pole">&nbsp;</span>/5 · data <span class="pole">&nbsp;</span></span></div>
+</article>
+</div>
+<div class="stopka"><span>EduPlaner 2026 · PCTP · pedagog specjalny <b>mgr Mirosława Ewa Jurczyszyn</b></span><span>Strona 7 z 9 · zmysł VI · propriocepcja</span></div>
+</section>
+<section class="strona">
+<div class="head"><span class="mark" role="img" aria-label="Logo PCTP"></span>
+  <div><h1>EduPlaner 2026</h1><div class="sub">Profil sensoryczny · cele SMART · zmysł VII</div></div>
+  <div class="prawa"><b>SENS · SI</b><span>narzędzie · druk SENS-C</span></div></div>
+<div class="kreska"></div>
+<div class="metryka">
+  <div><span>Dotyczy dziecka</span><b>&nbsp;</b></div>
+  <div><span>Grupa</span><b>&nbsp;</b></div>
+  <div><span>Data</span><b>&nbsp;</b> r.</div></div>
+<div class="tresc">
+  <div class="fn"><span class="rz">VII</span>
+    <div><h2>Równowaga <span style="font-size:9px;color:var(--szary)">b235</span></h2>
+      <div class="op">Układ przedsionkowy: ruch, wysokość, zmiana pozycji głowy, huśtanie i wirowanie.</div></div>
+    <div class="bad">……/24 · <span class="ocena">pasmo ………</span><b>…… z 5 · ……… tygodni</b></div></div>
+  <div class="si"><b>Zasada pracy sensorycznej</b> Nigdy nie wsadzamy dziecka na sprzęt i nie rozhuśtujemy z zaskoczenia. Wiarygodne „stop” jest jedynym narzędziem, które buduje odwagę.</div>
+  <article class="cel">
+  <div class="cel-h"><span class="nr">VII.1</span>
+    <span class="def"><b>Objaw</b> Dziecko boi się huśtawek, zjeżdżalni i oderwania nóg od podłoża, unika zabaw z obracaniem.</span></div>
+  <p class="strat">strategia sensoryczna: drabina ruchu przedsionkowego z wiarygodnym słowem „stop” · sektor:
+    nadwrażliwość · ↑ za dużo bodźca</p>
+  <p class="cel-t"><b>Cel SMART</b>Dziecko wejdzie na sprzęt na wybranym przez siebie szczeblu i zatrzyma ruch własnym sygnałem, w ……… z 5 sytuacji, w ciągu ……… tygodni.</p>
+  <div class="smart"><div><i>S</i>Wchodzi na sprzęt i zatrzymuje ruch sygnałem.</div><div><i>M</i>……… z 5 wyjść z pięciu obserwowanych w tygodniu.</div><div><i>A</i>Szczebel wybiera dziecko; praca oporowa poprzedza wyjście.</div><div><i>R</i>Wsadzenie na huśtawkę wbrew dziecku utrwala lęk na miesiące.</div><div><i>T</i>Weryfikacja po ……… tygodniach, według pasma punktacji zmysłu.</div></div>
+  <div class="obs"><span><b>Obserwacja</b> Arkusz obserwacji — kolumna: wyjście na plac zabaw. Notujemy szczebel i skuteczność „stop”. · 5 wyjść na plac zabaw w tygodniu</span>
+    <span class="wynik">wynik <span class="pole">&nbsp;</span>/5 · data <span class="pole">&nbsp;</span></span></div>
+</article><article class="cel">
+  <div class="cel-h"><span class="nr">VII.2</span>
+    <span class="def"><b>Objaw</b> Dziecko jest w ciągłym ruchu, buja się na krześle i wstaje z miejsca, a wirowanie nie powoduje u niego zawrotów głowy.</span></div>
+  <p class="strat">strategia sensoryczna: dawka mocnego ruchu przed siedzeniem i poduszka zamiast wstawania · sektor:
+    podwrażliwość / poszukiwanie bodźców · ↓ za mało bodźca</p>
+  <p class="cel-t"><b>Cel SMART</b>Dziecko skorzysta z zaplanowanej dawki ruchu i wysiedzi zajęcia, wstając nie więcej niż raz, w ……… z 5 sytuacji, w ciągu ……… tygodni.</p>
+  <div class="smart"><div><i>S</i>Wykonuje dawkę ruchu i wraca na miejsce.</div><div><i>M</i>……… z 5 sytuacji z pięciu obserwowanych w tygodniu.</div><div><i>A</i>Poduszka leży na krześle, znak ruchu jest wyznaczony.</div><div><i>R</i>Bujanie się i wstawanie to dobieranie bodźca, nie brak dyscypliny.</div><div><i>T</i>Weryfikacja po ……… tygodniach, według pasma punktacji zmysłu.</div></div>
+  <div class="obs"><span><b>Obserwacja</b> Arkusz obserwacji — kolumna: zadanie przy stoliku i krąg. Notujemy liczbę wstań z miejsca. · 5 zajęć w tygodniu</span>
+    <span class="wynik">wynik <span class="pole">&nbsp;</span>/5 · data <span class="pole">&nbsp;</span></span></div>
+</article><article class="cel">
+  <div class="cel-h"><span class="nr">VII.3</span>
+    <span class="def"><b>Objaw</b> Reakcje dziecka na ruch są niestałe — raz lęk przed huśtaniem, raz poszukiwanie intensywnego ruchu.</span></div>
+  <p class="strat">strategia sensoryczna: licznik ruchu ustawiany przed wyjściem na plac · sektor:
+    biały szum (reaktywność zmienna) · ↕ raz za dużo, raz za mało</p>
+  <p class="cel-t"><b>Cel SMART</b>Dziecko ustawi licznik ruchu przed wyjściem i wybierze zabawę zgodną z odczytem, w ……… z 5 sytuacji, w ciągu ……… tygodni.</p>
+  <div class="smart"><div><i>S</i>Ustawia licznik i bawi się według wybranej ścieżki.</div><div><i>M</i>……… z 5 wyjść z pięciu obserwowanych w tygodniu.</div><div><i>A</i>Licznik wisi przy drzwiach; obie ścieżki są przygotowane.</div><div><i>R</i>Planowanie pod stały profil kończy się przymusem albo brakiem ruchu.</div><div><i>T</i>Weryfikacja po ……… tygodniach, według pasma punktacji zmysłu.</div></div>
+  <div class="obs"><span><b>Obserwacja</b> Arkusz obserwacji — kolumna: wyjście na plac zabaw. Notujemy poziom i wybraną ścieżkę. · 5 wyjść na plac zabaw w tygodniu</span>
+    <span class="wynik">wynik <span class="pole">&nbsp;</span>/5 · data <span class="pole">&nbsp;</span></span></div>
+</article>
+</div>
+<div class="stopka"><span>EduPlaner 2026 · PCTP · pedagog specjalny <b>mgr Mirosława Ewa Jurczyszyn</b></span><span>Strona 8 z 9 · zmysł VII · równowaga</span></div>
+</section>
+<section class="strona">
+<div class="head"><span class="mark" role="img" aria-label="Logo PCTP"></span>
+  <div><h1>EduPlaner 2026</h1><div class="sub">Profil sensoryczny · ewaluacja</div></div>
+  <div class="prawa"><b>SENS · SI</b><span>narzędzie · druk SENS-C</span></div></div>
+<div class="kreska"></div>
+<div class="metryka">
+  <div><span>Dotyczy dziecka</span><b>&nbsp;</b></div>
+  <div><span>Grupa</span><b>&nbsp;</b></div>
+  <div><span>Data</span><b>&nbsp;</b> r.</div></div>
+<div class="tresc">
+  <div class="pas">Ewaluacja — trzy pomiary natężenia zaburzeń modulacji (0–10)</div>
+  <div class="wstep">Minimum trzy pomiary: start (pierwsza obserwacja) · połowa okresu · koniec.
+    Horyzont każdego zmysłu bierze się z jego pasma — zmysł priorytetowy sprawdzamy po 4 tygodniach,
+    monitorowany po 8, zasób po 12. <b>Spadek natężenia nie jest jedynym wynikiem</b>: równie ważne
+    jest to, czy dziecko sięga po strategię samo i na jakim poziomie wsparcia.</div>
+  <table><thead><tr><th>Zmysł</th><th>Start</th><th>Połowa okresu</th><th>Koniec</th>
+    <th>Analiza zmiany</th></tr></thead><tbody><tr><td>I · Wzrok</td><td class="pkt">&nbsp;</td><td class="pkt">&nbsp;</td><td class="pkt">&nbsp;</td><td>&nbsp;</td></tr><tr><td>II · Słuch</td><td class="pkt">&nbsp;</td><td class="pkt">&nbsp;</td><td class="pkt">&nbsp;</td><td>&nbsp;</td></tr><tr><td>III · Dotyk</td><td class="pkt">&nbsp;</td><td class="pkt">&nbsp;</td><td class="pkt">&nbsp;</td><td>&nbsp;</td></tr><tr><td>IV · Smak</td><td class="pkt">&nbsp;</td><td class="pkt">&nbsp;</td><td class="pkt">&nbsp;</td><td>&nbsp;</td></tr><tr><td>V · Węch</td><td class="pkt">&nbsp;</td><td class="pkt">&nbsp;</td><td class="pkt">&nbsp;</td><td>&nbsp;</td></tr><tr><td>VI · Propriocepcja</td><td class="pkt">&nbsp;</td><td class="pkt">&nbsp;</td><td class="pkt">&nbsp;</td><td>&nbsp;</td></tr><tr><td>VII · Równowaga</td><td class="pkt">&nbsp;</td><td class="pkt">&nbsp;</td><td class="pkt">&nbsp;</td><td>&nbsp;</td></tr></tbody></table>
+  <div class="dwie" style="margin-top:12px">
+    <div class="karta-info"><h3>Wnioski z ewaluacji</h3>
+      <div style="min-height:70px;border-bottom:1.5px dotted #b7add6"></div></div>
+    <div class="karta-info"><h3>Decyzja — kontynuacja / modyfikacja diety sensorycznej</h3>
+      <div style="min-height:70px;border-bottom:1.5px dotted #b7add6"></div></div>
+  </div>
+  <div class="dwie" style="margin-top:12px">
+    <div class="karta-info"><h3>Prowadzący obserwację · data i podpis</h3>
+      <div style="min-height:46px;border-bottom:1.5px dotted #b7add6"></div></div>
+    <div class="karta-info"><h3>Terapeuta SI / rodzic · data i podpis</h3>
+      <div style="min-height:46px;border-bottom:1.5px dotted #b7add6"></div></div>
+  </div>
+  <div class="uwagi">Narzędzie obserwacyjne oparte na elementach Profilu Sensorycznego Winnie Dunn (Sensory Profile 2 — model czterech wzorców przetwarzania sensorycznego) oraz na teorii integracji sensorycznej A. Jean Ayres. Nie zastępuje diagnozy SI.<br><br>
+    Rozp. MEN z 14.02.2017 r. w sprawie podstawy programowej wychowania przedszkolnego (Dz.U. 2017 poz. 356, ze zm.) — fizyczny obszar rozwoju.<br>Rozp. MEN z 9.08.2017 r. w sprawie pomocy psychologiczno-pedagogicznej (Dz.U. 2017 poz. 1591).<br>Rozp. MEN z 9.08.2017 r. w sprawie kształcenia specjalnego (Dz.U. 2017 poz. 1578).</div>
+</div>
+<div class="stopka"><span>EduPlaner 2026 · PCTP · pedagog specjalny <b>mgr Mirosława Ewa Jurczyszyn</b></span><span>Strona 9 z 9 · ewaluacja</span></div>
+</section>
+</body>
+</html>

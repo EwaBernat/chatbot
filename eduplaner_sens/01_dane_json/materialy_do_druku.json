@@ -1,757 +1,1043 @@
 {
-  "modul": {
-    "nazwa": "Profil sensoryczny — bank celów SMART (przedszkole)",
-    "kod": "SENS",
-    "wersja": "2026.1",
-    "autorka": "mgr Mirosława Ewa Jurczyszyn, pedagog specjalny, PCTP Koszalin",
-    "aplikacja": "EduPlaner 2026",
-    "druk_zrodlowy": "Profil sensoryczny (przedszkole) 2026 — obserwacja pogłębiona WOPF · SI",
-    "podstawa_merytoryczna": "Narzędzie obserwacyjne oparte na elementach Profilu Sensorycznego Winnie Dunn (Sensory Profile 2 — model czterech wzorców przetwarzania sensorycznego) oraz na teorii integracji sensorycznej A. Jean Ayres. Nie zastępuje diagnozy SI.",
-    "podstawa_prawna": [
-      "Rozp. MEN z 14.02.2017 r. w sprawie podstawy programowej wychowania przedszkolnego (Dz.U. 2017 poz. 356, ze zm.) — fizyczny obszar rozwoju.",
-      "Rozp. MEN z 9.08.2017 r. w sprawie pomocy psychologiczno-pedagogicznej (Dz.U. 2017 poz. 1591).",
-      "Rozp. MEN z 9.08.2017 r. w sprawie kształcenia specjalnego (Dz.U. 2017 poz. 1578) — zajęcia rewalidacyjne dla dzieci z orzeczeniem."
-    ],
-    "zasada_modulu": "Cel z tego banku opisuje STRATEGIĘ SENSORYCZNĄ dziecka — co dziecko ROBI, żeby poradzić sobie z bodźcem — a nie zanik objawu. „Nie będzie zatykał uszu” nie jest celem z tego modułu. „Założy słuchawki wygłuszające, zanim hałas w szatni go przeciąży” — jest. Każdy wskaźnik niesie pole `strategia_sensoryczna`; cel bez niego traci sens terapeutyczny."
+  "dokument": "EduPlaner 2026 · materiały A4 do wycięcia przy konspektach profilu sensorycznego",
+  "opis": "Etykiety kart widzi DZIECKO — pisane są prostym językiem. Opisy pod polami i wstęp czyta dorosły. Symbole pochodzą z biblioteki banku KPOF: ten sam obrazek musi być tu, na tablicy AAC i w planie dnia.",
+  "biblioteka_symboli": {
+    "katalog": "eduplaner_przedszkole/assets/symbole",
+    "przypisanych": 147,
+    "z_obrazkiem": 135,
+    "pol_celowo_pustych": 12,
+    "uwaga": "Pole puste = miejsce na własny symbol dziecka z jego tablicy AAC."
   },
-  "biblioteka_symboli": "Symbole leżą w katalogu banku KPOF i to nie jest bałagan, tylko wymóg merytoryczny: dziecko korzystające z komunikacji obrazkowej musi widzieć TEN SAM obrazek na karcie z zajęć, na tablicy AAC i w planie dnia. Jeśli wpinasz kilka modułów, biblioteka symboli ma zostać JEDNA.",
-  "sciezka_symboli": "04_media/eduplaner_przedszkole/assets/symbole",
   "liczba_arkuszy": 21,
   "arkusze": [
     {
-      "id": "A-SENS-01",
-      "wskaznik_id": "SENS-01",
-      "kod": "WZR-NAD",
-      "zmysl": {
-        "klucz": "wzrok",
-        "nazwa": "Wzrok",
-        "rzymska": "I",
-        "icf": "b210"
-      },
-      "tytul": "ZA JASNO — karty i szablon parawanu",
-      "format": "A4, druk jednostronny, karton 200 g",
-      "elementy_do_wyciecia": [
-        "karta „ZA JASNO” (9 × 9 cm) — 2 sztuki: do kącika i do planu dnia",
-        "karta „MOJE MIEJSCE” z rysunkiem stolika z parawanem",
-        "szablon parawanu 3 × (25 × 30 cm) z linią zagięcia"
-      ],
-      "symbole": [
+      "wskaznik": "I.1",
+      "tytul": "Karty do zajęć „Spokojne oczy”",
+      "wstep_dla_doroslego": "Wytnij karty wzdłuż linii i naklej na karton. W puste pola wklej symbole z biblioteki EduPlaner — te same, których dziecko używa na tablicy AAC i w planie dnia.",
+      "karty": [
         {
-          "plik": "k_za_jasno.jpg",
-          "sciezka": "04_media/eduplaner_przedszkole/assets/symbole/k_za_jasno.jpg"
+          "etykieta_dla_dziecka": "Za jasno",
+          "opis_dla_doroslego": "karta zgłoszenia — leży przy dziecku przez całe zajęcia",
+          "symbol": "prosze_cisza",
+          "plik_symbolu": "eduplaner_przedszkole/assets/symbole/k_prosze_cisza.jpg"
         },
         {
-          "plik": "k_moje_miejsce.jpg",
-          "sciezka": "04_media/eduplaner_przedszkole/assets/symbole/k_moje_miejsce.jpg"
+          "etykieta_dla_dziecka": "Moje miejsce",
+          "opis_dla_doroslego": "symbol stanowiska z parawanem, do planu dnia",
+          "symbol": "postawa_stolik",
+          "plik_symbolu": "eduplaner_przedszkole/assets/symbole/k_postawa_stolik.jpg"
         },
         {
-          "plik": "k_postawa_stolik.jpg",
-          "sciezka": "04_media/eduplaner_przedszkole/assets/symbole/k_postawa_stolik.jpg"
+          "etykieta_dla_dziecka": "Odpoczynek oczu",
+          "opis_dla_doroslego": "symbol dwuminutowej przerwy wzrokowej",
+          "symbol": "prosze_odpoczynek",
+          "plik_symbolu": "eduplaner_przedszkole/assets/symbole/k_prosze_odpoczynek.jpg"
+        },
+        {
+          "etykieta_dla_dziecka": "Układam",
+          "opis_dla_doroslego": "symbol zadania wzrokowego przy stoliku",
+          "symbol": "zabawa_ukladanka",
+          "plik_symbolu": "eduplaner_przedszkole/assets/symbole/k_zabawa_ukladanka.jpg"
         }
       ],
-      "etykieta_dla_dziecka": "ZA JASNO — chowam oczy",
-      "wstep_dla_doroslego": "Składany parawan z szarego kartonu (3 pola po 25 × 30 cm) ustawiany na blacie, wraz z kartą-symbolem „ZA JASNO” w kolorze pomarańczowym. Parawan odcina boczne bodźce wzrokowe; karta daje dziecku sposób, żeby o osłonę poprosić.",
-      "pomoc_id": "P-SENS-01"
+      "pasek_kolejnosci": [
+        {
+          "etykieta_dla_dziecka": "1 · ustawiam",
+          "symbol": "postawa_stolik",
+          "plik_symbolu": "eduplaner_przedszkole/assets/symbole/k_postawa_stolik.jpg"
+        },
+        {
+          "etykieta_dla_dziecka": "2 · układam",
+          "symbol": "zabawa_ukladanka",
+          "plik_symbolu": "eduplaner_przedszkole/assets/symbole/k_zabawa_ukladanka.jpg"
+        },
+        {
+          "etykieta_dla_dziecka": "3 · odpoczywam",
+          "symbol": "prosze_odpoczynek",
+          "plik_symbolu": "eduplaner_przedszkole/assets/symbole/k_prosze_odpoczynek.jpg"
+        }
+      ],
+      "format": "A4 pionowo, karton 200 g"
     },
     {
-      "id": "A-SENS-02",
-      "wskaznik_id": "SENS-02",
-      "kod": "WZR-POD",
-      "zmysl": {
-        "klucz": "wzrok",
-        "nazwa": "Wzrok",
-        "rzymska": "I",
-        "icf": "b210"
-      },
-      "tytul": "ŚWIATEŁKA — karta wymiany i okienko czytelnicze",
-      "format": "A4, druk jednostronny, karton 200 g",
-      "elementy_do_wyciecia": [
-        "karta „ŚWIATEŁKA” (9 × 9 cm) — do wymiany na 2 minuty przy półce",
-        "okienko czytelnicze 6 × 3 cm — szablon do wycięcia, 2 sztuki",
-        "ścieżka obrazkowa 8 pól do prowadzenia wzroku"
-      ],
-      "symbole": [
+      "wskaznik": "I.2",
+      "tytul": "Karty do zajęć „Światełka mają swoje miejsce”",
+      "wstep_dla_doroslego": "Wytnij karty i okienko czytelnicze. Okienko dotnij do wielkości elementów w zadaniach, których używasz — ma pokazywać jedno pole, nie trzy.",
+      "karty": [
         {
-          "plik": "k_swiatelka.jpg",
-          "sciezka": "04_media/eduplaner_przedszkole/assets/symbole/k_swiatelka.jpg"
+          "etykieta_dla_dziecka": "Światełka",
+          "opis_dla_doroslego": "karta wymiany na dwie minuty przy butelce sensorycznej",
+          "symbol": null,
+          "plik_symbolu": null
         },
         {
-          "plik": "k_okienko.jpg",
-          "sciezka": "04_media/eduplaner_przedszkole/assets/symbole/k_okienko.jpg"
+          "etykieta_dla_dziecka": "Patrzę tutaj",
+          "opis_dla_doroslego": "symbol prowadzenia wzroku — do zadania obrazkowego",
+          "symbol": "gest_slucham",
+          "plik_symbolu": "eduplaner_przedszkole/assets/symbole/k_gest_slucham.jpg"
         },
         {
-          "plik": "k_patrz_tu.jpg",
-          "sciezka": "04_media/eduplaner_przedszkole/assets/symbole/k_patrz_tu.jpg"
+          "etykieta_dla_dziecka": "Przerwa",
+          "opis_dla_doroslego": "symbol przerwy wzrokowej w planie dnia",
+          "symbol": "strategia_przerwa",
+          "plik_symbolu": "eduplaner_przedszkole/assets/symbole/k_strategia_przerwa.jpg"
+        },
+        {
+          "etykieta_dla_dziecka": "Sprawdzam",
+          "opis_dla_doroslego": "symbol sprawdzenia pracy na końcu zadania",
+          "symbol": "zabawa_rysowanie",
+          "plik_symbolu": "eduplaner_przedszkole/assets/symbole/k_zabawa_rysowanie.jpg"
         }
       ],
-      "etykieta_dla_dziecka": "ŚWIATEŁKA — patrzę tutaj",
-      "wstep_dla_doroslego": "Przezroczysta butelka z gliceryną i brokatem (bodziec na sygnał) oraz kartonowe okienko 6 × 3 cm do prowadzenia wzroku po obrazku. Dwie pomoce, jedna zasada: mocny bodziec ma swoje miejsce i swój czas, a zadanie ma swoje okienko.",
-      "pomoc_id": "P-SENS-02"
+      "pasek_kolejnosci": [
+        {
+          "etykieta_dla_dziecka": "1 · patrzę",
+          "symbol": "gest_slucham",
+          "plik_symbolu": "eduplaner_przedszkole/assets/symbole/k_gest_slucham.jpg"
+        },
+        {
+          "etykieta_dla_dziecka": "2 · przerwa",
+          "symbol": "strategia_przerwa",
+          "plik_symbolu": "eduplaner_przedszkole/assets/symbole/k_strategia_przerwa.jpg"
+        },
+        {
+          "etykieta_dla_dziecka": "3 · sprawdzam",
+          "symbol": "zabawa_rysowanie",
+          "plik_symbolu": "eduplaner_przedszkole/assets/symbole/k_zabawa_rysowanie.jpg"
+        }
+      ],
+      "format": "A4 pionowo, karton 200 g"
     },
     {
-      "id": "A-SENS-03",
-      "wskaznik_id": "SENS-03",
-      "kod": "WZR-SZUM",
-      "zmysl": {
-        "klucz": "wzrok",
-        "nazwa": "Wzrok",
-        "rzymska": "I",
-        "icf": "b210"
-      },
-      "tytul": "TERMOMETR OCZU — szablon do wycięcia",
-      "format": "A4, druk jednostronny, karton 200 g",
-      "elementy_do_wyciecia": [
-        "pasek termometru 10 × 30 cm z trzema polami (zielone / żółte / czerwone) i obrazkami",
-        "3 karty sytuacji do dopasowania (jasna sala, przyciemniony kącik, stolik z parawanem)",
-        "instrukcja dla nauczyciela na odwrocie — kiedy sprawdzamy poziom"
-      ],
-      "symbole": [
+      "wskaznik": "I.3",
+      "tytul": "Termometr oczu — szablon do wycięcia",
+      "wstep_dla_doroslego": "Wytnij pasek i karty sytuacji. Przy każdym polu termometru naklej symbol dostosowania, które z niego wynika — dziecko ma widzieć skutek swojego wyboru, nie tylko kolor.",
+      "karty": [
         {
-          "plik": "k_termometr_oczu.jpg",
-          "sciezka": "04_media/eduplaner_przedszkole/assets/symbole/k_termometr_oczu.jpg"
+          "etykieta_dla_dziecka": "Moje oczy dzisiaj",
+          "opis_dla_doroslego": "nagłówek termometru — do naklejenia na pasek",
+          "symbol": "sygnal_ciala",
+          "plik_symbolu": "eduplaner_przedszkole/assets/symbole/k_sygnal_ciala.jpg"
         },
         {
-          "plik": "k_za_jasno.jpg",
-          "sciezka": "04_media/eduplaner_przedszkole/assets/symbole/k_za_jasno.jpg"
+          "etykieta_dla_dziecka": "Dużo światła",
+          "opis_dla_doroslego": "pole czerwone — parawan i miejsce tyłem do okna",
+          "symbol": "karta_czerwona",
+          "plik_symbolu": "eduplaner_przedszkole/assets/symbole/k_karta_czerwona.jpg"
         },
         {
-          "plik": "k_moje_miejsce.jpg",
-          "sciezka": "04_media/eduplaner_przedszkole/assets/symbole/k_moje_miejsce.jpg"
+          "etykieta_dla_dziecka": "W sam raz",
+          "opis_dla_doroslego": "pole zielone — bez dodatkowej pomocy",
+          "symbol": "emocja_spokoj",
+          "plik_symbolu": "eduplaner_przedszkole/assets/symbole/k_emocja_spokoj.jpg"
+        },
+        {
+          "etykieta_dla_dziecka": "Zmęczone oczy",
+          "opis_dla_doroslego": "pole żółte — krótsze zadania i przerwa wzrokowa",
+          "symbol": "emocja_zmeczenie",
+          "plik_symbolu": "eduplaner_przedszkole/assets/symbole/k_emocja_zmeczenie.jpg"
         }
       ],
-      "etykieta_dla_dziecka": "MOJE OCZY DZISIAJ",
-      "wstep_dla_doroslego": "Kartonowy pasek 10 × 30 cm z trzema polami — zielonym, żółtym i czerwonym — opisanymi obrazkiem, nie słowem. Klamerka pokazuje dzisiejszy poziom. Termometr wisi na wysokości oczu dziecka.",
-      "pomoc_id": "P-SENS-03"
+      "pasek_kolejnosci": [
+        {
+          "etykieta_dla_dziecka": "1 · sprawdzam",
+          "symbol": "sygnal_ciala",
+          "plik_symbolu": "eduplaner_przedszkole/assets/symbole/k_sygnal_ciala.jpg"
+        },
+        {
+          "etykieta_dla_dziecka": "2 · wybieram",
+          "symbol": "postawa_stolik",
+          "plik_symbolu": "eduplaner_przedszkole/assets/symbole/k_postawa_stolik.jpg"
+        },
+        {
+          "etykieta_dla_dziecka": "3 · pracuję",
+          "symbol": "dzien_zajecia",
+          "plik_symbolu": "eduplaner_przedszkole/assets/symbole/k_dzien_zajecia.jpg"
+        }
+      ],
+      "format": "A4 pionowo, karton 200 g"
     },
     {
-      "id": "A-SENS-04",
-      "wskaznik_id": "SENS-04",
-      "kod": "SLU-NAD",
-      "zmysl": {
-        "klucz": "sluch",
-        "nazwa": "Słuch",
-        "rzymska": "II",
-        "icf": "b230"
-      },
-      "tytul": "ZA GŁOŚNO — karty i tabliczka wieszaka",
-      "format": "A4, druk jednostronny, karton 200 g",
-      "elementy_do_wyciecia": [
-        "karta „ZA GŁOŚNO” (9 × 9 cm) — 2 sztuki",
-        "karta „KĄCIK WYCISZENIA” z rysunkiem miejsca",
-        "tabliczka na wieszak ze słuchawkami (10 × 6 cm)"
-      ],
-      "symbole": [
+      "wskaznik": "II.1",
+      "tytul": "Karty do zajęć „Za głośno — zanim mnie zmęczy”",
+      "wstep_dla_doroslego": "Wytnij karty i tabliczkę na wieszak. Kartę „za głośno” daj też pozostałym dzieciom w grupie — pomoc, której używa tylko jedno dziecko, szybko staje się powodem do pytań.",
+      "karty": [
         {
-          "plik": "k_za_glosno.jpg",
-          "sciezka": "04_media/eduplaner_przedszkole/assets/symbole/k_za_glosno.jpg"
+          "etykieta_dla_dziecka": "Za głośno",
+          "opis_dla_doroslego": "karta zgłoszenia — u dziecka przez cały dzień",
+          "symbol": "prosze_cisza",
+          "plik_symbolu": "eduplaner_przedszkole/assets/symbole/k_prosze_cisza.jpg"
         },
         {
-          "plik": "k_sluchawki.jpg",
-          "sciezka": "04_media/eduplaner_przedszkole/assets/symbole/k_sluchawki.jpg"
+          "etykieta_dla_dziecka": "Słuchawki",
+          "opis_dla_doroslego": "tabliczka na wieszak i symbol do planu dnia",
+          "symbol": null,
+          "plik_symbolu": null
         },
         {
-          "plik": "k_kacik_wyciszenia.jpg",
-          "sciezka": "04_media/eduplaner_przedszkole/assets/symbole/k_kacik_wyciszenia.jpg"
+          "etykieta_dla_dziecka": "Kącik wyciszenia",
+          "opis_dla_doroslego": "symbol miejsca, do którego dziecko może pójść bez pytania",
+          "symbol": "prosze_odpoczynek",
+          "plik_symbolu": "eduplaner_przedszkole/assets/symbole/k_prosze_odpoczynek.jpg"
+        },
+        {
+          "etykieta_dla_dziecka": "Wracam",
+          "opis_dla_doroslego": "symbol powrotu do grupy po ustaniu hałasu",
+          "symbol": "gest_chodz",
+          "plik_symbolu": "eduplaner_przedszkole/assets/symbole/k_gest_chodz.jpg"
         }
       ],
-      "etykieta_dla_dziecka": "ZA GŁOŚNO — zakładam słuchawki",
-      "wstep_dla_doroslego": "Nauszniki pasywne (bez elektroniki) na wieszaku na wysokości dziecka, obok karta-symbol „ZA GŁOŚNO”. Zestaw działa tylko wtedy, gdy dziecko sięga po niego samo — wydawanie słuchawek „na prośbę dorosłego” nie buduje strategii.",
-      "pomoc_id": "P-SENS-04"
+      "pasek_kolejnosci": [
+        {
+          "etykieta_dla_dziecka": "1 · zgłaszam",
+          "symbol": "prosze_cisza",
+          "plik_symbolu": "eduplaner_przedszkole/assets/symbole/k_prosze_cisza.jpg"
+        },
+        {
+          "etykieta_dla_dziecka": "2 · zakładam",
+          "symbol": "prosze_odpoczynek",
+          "plik_symbolu": "eduplaner_przedszkole/assets/symbole/k_prosze_odpoczynek.jpg"
+        },
+        {
+          "etykieta_dla_dziecka": "3 · wracam",
+          "symbol": "gest_chodz",
+          "plik_symbolu": "eduplaner_przedszkole/assets/symbole/k_gest_chodz.jpg"
+        }
+      ],
+      "format": "A4 pionowo, karton 200 g"
     },
     {
-      "id": "A-SENS-05",
-      "wskaznik_id": "SENS-05",
-      "kod": "SLU-POD",
-      "zmysl": {
-        "klucz": "sluch",
-        "nazwa": "Słuch",
-        "rzymska": "II",
-        "icf": "b230"
-      },
-      "tytul": "CHCĘ DŹWIĘKI — karty wymiany i tabliczka koszyka",
-      "format": "A4, druk jednostronny, karton 200 g",
-      "elementy_do_wyciecia": [
-        "karta „CHCĘ DŹWIĘKI” (9 × 9 cm) — 2 sztuki",
-        "karta z imieniem dziecka i symbolem „POPATRZ NA MNIE”",
-        "tabliczka na koszyk z instrumentami (10 × 6 cm)"
-      ],
-      "symbole": [
+      "wskaznik": "II.2",
+      "tytul": "Karty do zajęć „Słyszę swoje imię”",
+      "wstep_dla_doroslego": "Wytnij karty i tabliczkę na koszyk. Kartę z imieniem dziecka uzupełnij zdjęciem albo symbolem, którego dziecko używa na tablicy AAC.",
+      "karty": [
         {
-          "plik": "k_chce_dzwieki.jpg",
-          "sciezka": "04_media/eduplaner_przedszkole/assets/symbole/k_chce_dzwieki.jpg"
+          "etykieta_dla_dziecka": "Popatrz na mnie",
+          "opis_dla_doroslego": "sygnał wzrokowy używany razem z wołaniem",
+          "symbol": "gest_slucham",
+          "plik_symbolu": "eduplaner_przedszkole/assets/symbole/k_gest_slucham.jpg"
         },
         {
-          "plik": "k_popatrz_na_mnie.jpg",
-          "sciezka": "04_media/eduplaner_przedszkole/assets/symbole/k_popatrz_na_mnie.jpg"
+          "etykieta_dla_dziecka": "Chcę dźwięki",
+          "opis_dla_doroslego": "karta wymiany na dwie minuty w kąciku instrumentów",
+          "symbol": "instrument_dzwonki",
+          "plik_symbolu": "eduplaner_przedszkole/assets/symbole/k_instrument_dzwonki.jpg"
         },
         {
-          "plik": "k_instrumenty.jpg",
-          "sciezka": "04_media/eduplaner_przedszkole/assets/symbole/k_instrumenty.jpg"
+          "etykieta_dla_dziecka": "Idę do ciebie",
+          "opis_dla_doroslego": "symbol podejścia do nauczyciela po wołaniu",
+          "symbol": "gest_chodz",
+          "plik_symbolu": "eduplaner_przedszkole/assets/symbole/k_gest_chodz.jpg"
+        },
+        {
+          "etykieta_dla_dziecka": "Wracam do…",
+          "opis_dla_doroslego": "pole na rysunek czynności, do której dziecko wraca",
+          "symbol": null,
+          "plik_symbolu": null
         }
       ],
-      "etykieta_dla_dziecka": "CHCĘ DŹWIĘKI — idę do koszyka",
-      "wstep_dla_doroslego": "Trzy instrumenty w koszyku na stałej półce (bębenek, marakas, rura grzmotowa) i karta „CHCĘ DŹWIĘKI”. Dziecko wymienia kartę na dwie minuty grania — bodziec zostaje zaspokojony w miejscu i czasie, które nie rozbijają zabawy grupy.",
-      "pomoc_id": "P-SENS-05"
+      "pasek_kolejnosci": [
+        {
+          "etykieta_dla_dziecka": "1 · słyszę",
+          "symbol": "gest_slucham",
+          "plik_symbolu": "eduplaner_przedszkole/assets/symbole/k_gest_slucham.jpg"
+        },
+        {
+          "etykieta_dla_dziecka": "2 · idę",
+          "symbol": "gest_chodz",
+          "plik_symbolu": "eduplaner_przedszkole/assets/symbole/k_gest_chodz.jpg"
+        },
+        {
+          "etykieta_dla_dziecka": "3 · wracam",
+          "symbol": "plan_zmiana",
+          "plik_symbolu": "eduplaner_przedszkole/assets/symbole/k_plan_zmiana.jpg"
+        }
+      ],
+      "format": "A4 pionowo, karton 200 g"
     },
     {
-      "id": "A-SENS-06",
-      "wskaznik_id": "SENS-06",
-      "kod": "SLU-SZUM",
-      "zmysl": {
-        "klucz": "sluch",
-        "nazwa": "Słuch",
-        "rzymska": "II",
-        "icf": "b230"
-      },
-      "tytul": "RADIO USZU — tarcza i strzałka do wycięcia",
-      "format": "A4, druk jednostronny, karton 200 g",
-      "elementy_do_wyciecia": [
-        "tarcza o średnicy 20 cm z trzema polami i rysunkami dostosowań",
-        "strzałka do wycięcia z otworem na zapinkę",
-        "3 karty dostosowań (słuchawki / miejsce z brzegu / bez wsparcia)"
-      ],
-      "symbole": [
+      "wskaznik": "II.3",
+      "tytul": "Radio uszu — tarcza i karty dostosowań",
+      "wstep_dla_doroslego": "Wytnij tarczę i strzałkę, połącz je zapinką. Karty dostosowań naklej przy odpowiednich polach — dziecko ma widzieć, co wynika z jego odczytu.",
+      "karty": [
         {
-          "plik": "k_radio_uszu.jpg",
-          "sciezka": "04_media/eduplaner_przedszkole/assets/symbole/k_radio_uszu.jpg"
+          "etykieta_dla_dziecka": "Moje uszy dzisiaj",
+          "opis_dla_doroslego": "nagłówek tarczy",
+          "symbol": "sygnal_ciala",
+          "plik_symbolu": "eduplaner_przedszkole/assets/symbole/k_sygnal_ciala.jpg"
         },
         {
-          "plik": "k_sluchawki.jpg",
-          "sciezka": "04_media/eduplaner_przedszkole/assets/symbole/k_sluchawki.jpg"
+          "etykieta_dla_dziecka": "Słuchawki",
+          "opis_dla_doroslego": "dostosowanie przy polu „głośno”",
+          "symbol": null,
+          "plik_symbolu": null
         },
         {
-          "plik": "k_miejsce_z_brzegu.jpg",
-          "sciezka": "04_media/eduplaner_przedszkole/assets/symbole/k_miejsce_z_brzegu.jpg"
+          "etykieta_dla_dziecka": "Miejsce z brzegu",
+          "opis_dla_doroslego": "dostosowanie przy polu „średnio”",
+          "symbol": "postawa_stolik",
+          "plik_symbolu": "eduplaner_przedszkole/assets/symbole/k_postawa_stolik.jpg"
+        },
+        {
+          "etykieta_dla_dziecka": "Dziś w sam raz",
+          "opis_dla_doroslego": "pole bez dodatkowego wsparcia",
+          "symbol": "emocja_spokoj",
+          "plik_symbolu": "eduplaner_przedszkole/assets/symbole/k_emocja_spokoj.jpg"
         }
       ],
-      "etykieta_dla_dziecka": "MOJE USZY DZISIAJ",
-      "wstep_dla_doroslego": "Kartonowa tarcza o średnicy 20 cm z ruchomą strzałką i trzema polami opisanymi obrazkiem: ucho przekreślone (cicho), ucho zwykłe (średnio), ucho z falami (głośno). Przy każdym polu narysowane dostosowanie, które z niego wynika.",
-      "pomoc_id": "P-SENS-06"
+      "pasek_kolejnosci": [
+        {
+          "etykieta_dla_dziecka": "1 · sprawdzam",
+          "symbol": "sygnal_ciala",
+          "plik_symbolu": "eduplaner_przedszkole/assets/symbole/k_sygnal_ciala.jpg"
+        },
+        {
+          "etykieta_dla_dziecka": "2 · wybieram",
+          "symbol": "plan_zmiana",
+          "plik_symbolu": "eduplaner_przedszkole/assets/symbole/k_plan_zmiana.jpg"
+        },
+        {
+          "etykieta_dla_dziecka": "3 · zajęcia",
+          "symbol": "dzien_zajecia",
+          "plik_symbolu": "eduplaner_przedszkole/assets/symbole/k_dzien_zajecia.jpg"
+        }
+      ],
+      "format": "A4 pionowo, karton 200 g"
     },
     {
-      "id": "A-SENS-07",
-      "wskaznik_id": "SENS-07",
-      "kod": "DOT-NAD",
-      "zmysl": {
-        "klucz": "dotyk",
-        "nazwa": "Dotyk",
-        "rzymska": "III",
-        "icf": "b265"
-      },
-      "tytul": "MOJE MIEJSCE — znaki na podłogę i karta NIE TERAZ",
-      "format": "A4, druk jednostronny, karton 200 g",
-      "elementy_do_wyciecia": [
-        "para stópek do wycięcia (2 komplety) — na podłogę przy szatni i na dywan",
-        "karta „NIE TERAZ” (9 × 9 cm) — 2 sztuki, jedna do kieszeni",
-        "karta „UPRZEDZAM O DOTYKU” dla dorosłego, do planu dnia"
-      ],
-      "symbole": [
+      "wskaznik": "III.1",
+      "tytul": "Karty do zajęć „Moje miejsce, mój dotyk”",
+      "wstep_dla_doroslego": "Wytnij stópki i karty. Kartę „uprzedzam o dotyku” powieś dla dorosłych — przy przewijaku, przy umywalce i w szatni, czyli tam, gdzie dotyk zdarza się najczęściej.",
+      "karty": [
         {
-          "plik": "k_moje_miejsce.jpg",
-          "sciezka": "04_media/eduplaner_przedszkole/assets/symbole/k_moje_miejsce.jpg"
+          "etykieta_dla_dziecka": "Nie teraz",
+          "opis_dla_doroslego": "karta odmowy — w kieszeni fartuszka dziecka",
+          "symbol": "gest_stop",
+          "plik_symbolu": "eduplaner_przedszkole/assets/symbole/k_gest_stop.jpg"
         },
         {
-          "plik": "k_nie_teraz.jpg",
-          "sciezka": "04_media/eduplaner_przedszkole/assets/symbole/k_nie_teraz.jpg"
+          "etykieta_dla_dziecka": "Moje miejsce",
+          "opis_dla_doroslego": "znak na podłogę: koniec kolejki, brzeg dywanu",
+          "symbol": "postawa_stolik",
+          "plik_symbolu": "eduplaner_przedszkole/assets/symbole/k_postawa_stolik.jpg"
         },
         {
-          "plik": "k_kolejka.jpg",
-          "sciezka": "04_media/eduplaner_przedszkole/assets/symbole/k_kolejka.jpg"
+          "etykieta_dla_dziecka": "Czekam",
+          "opis_dla_doroslego": "symbol czekania w kolejce bez dotykania innych",
+          "symbol": "gest_czekam",
+          "plik_symbolu": "eduplaner_przedszkole/assets/symbole/k_gest_czekam.jpg"
+        },
+        {
+          "etykieta_dla_dziecka": "Uprzedzam o dotyku",
+          "opis_dla_doroslego": "karta dla dorosłego — przy umywalce i w szatni",
+          "symbol": "gest_mowie",
+          "plik_symbolu": "eduplaner_przedszkole/assets/symbole/k_gest_mowie.jpg"
         }
       ],
-      "etykieta_dla_dziecka": "NIE TERAZ — potrzebuję miejsca",
-      "wstep_dla_doroslego": "Naklejka-stopy na podłodze (koniec kolejki, brzeg dywanu) oraz karta „NIE TERAZ” z symbolem otwartej dłoni. Znak daje przewidywalność, karta — sposób odmowy inny niż odepchnięcie.",
-      "pomoc_id": "P-SENS-07"
+      "pasek_kolejnosci": [
+        {
+          "etykieta_dla_dziecka": "1 · docisk",
+          "symbol": "sensor_ucisk",
+          "plik_symbolu": "eduplaner_przedszkole/assets/symbole/k_sensor_ucisk.jpg"
+        },
+        {
+          "etykieta_dla_dziecka": "2 · moje miejsce",
+          "symbol": "postawa_stolik",
+          "plik_symbolu": "eduplaner_przedszkole/assets/symbole/k_postawa_stolik.jpg"
+        },
+        {
+          "etykieta_dla_dziecka": "3 · idę z grupą",
+          "symbol": "gest_chodz",
+          "plik_symbolu": "eduplaner_przedszkole/assets/symbole/k_gest_chodz.jpg"
+        }
+      ],
+      "format": "A4 pionowo, karton 200 g"
     },
     {
-      "id": "A-SENS-08",
-      "wskaznik_id": "SENS-08",
-      "kod": "DOT-POD",
-      "zmysl": {
-        "klucz": "dotyk",
-        "nazwa": "Dotyk",
-        "rzymska": "III",
-        "icf": "b265"
-      },
-      "tytul": "RĘCE DO PRACY — karty i lista wypełnień skrzynki",
-      "format": "A4, druk jednostronny, karton 200 g",
-      "elementy_do_wyciecia": [
-        "karta „RĘCE DO PRACY” (9 × 9 cm) — 2 sztuki",
-        "karta „SKRZYNKA” z rysunkiem miejsca w sali",
-        "lista 8 bezpiecznych wypełnień skrzynki z uwagą o wieku i nadzorze"
-      ],
-      "symbole": [
+      "wskaznik": "III.2",
+      "tytul": "Karty do zajęć „Ręce, które mają swoją pracę”",
+      "wstep_dla_doroslego": "Wytnij karty i listę wypełnień skrzynki. Wypełnienie dobieraj do wieku: u dzieci wkładających rzeczy do ust wybieraj materiał, którego nie da się połknąć, i zostań przy skrzynce przez cały czas zabawy.",
+      "karty": [
         {
-          "plik": "k_rece_do_pracy.jpg",
-          "sciezka": "04_media/eduplaner_przedszkole/assets/symbole/k_rece_do_pracy.jpg"
+          "etykieta_dla_dziecka": "Ręce do pracy",
+          "opis_dla_doroslego": "karta zgłoszenia potrzeby pracy rękami",
+          "symbol": "sensor_gniotek",
+          "plik_symbolu": "eduplaner_przedszkole/assets/symbole/k_sensor_gniotek.jpg"
         },
         {
-          "plik": "k_skrzynka.jpg",
-          "sciezka": "04_media/eduplaner_przedszkole/assets/symbole/k_skrzynka.jpg"
+          "etykieta_dla_dziecka": "Skrzynka",
+          "opis_dla_doroslego": "symbol miejsca w sali, gdzie stoi skrzynka sensoryczna",
+          "symbol": "sensor_faktura",
+          "plik_symbolu": "eduplaner_przedszkole/assets/symbole/k_sensor_faktura.jpg"
         },
         {
-          "plik": "k_gniotek.jpg",
-          "sciezka": "04_media/eduplaner_przedszkole/assets/symbole/k_gniotek.jpg"
+          "etykieta_dla_dziecka": "Mój gniotek",
+          "opis_dla_doroslego": "symbol pomocy trzymanej w kieszeni fartuszka",
+          "symbol": "sensor_gniotek",
+          "plik_symbolu": "eduplaner_przedszkole/assets/symbole/k_sensor_gniotek.jpg"
+        },
+        {
+          "etykieta_dla_dziecka": "Siedzę w kręgu",
+          "opis_dla_doroslego": "symbol zajęć w kręgu z własną pomocą",
+          "symbol": "postawa_stolik",
+          "plik_symbolu": "eduplaner_przedszkole/assets/symbole/k_postawa_stolik.jpg"
         }
       ],
-      "etykieta_dla_dziecka": "RĘCE DO PRACY — mam swojego gniotka",
-      "wstep_dla_doroslego": "Płaska skrzynka (40 × 30 cm) z sypkim materiałem i ukrytymi w nim drobiazgami oraz gniotek trzymany w kieszeni fartuszka. Skrzynka to bodziec zaplanowany, gniotek — bodziec dostępny w każdej chwili, także w kręgu.",
-      "pomoc_id": "P-SENS-08"
+      "pasek_kolejnosci": [
+        {
+          "etykieta_dla_dziecka": "1 · skrzynka",
+          "symbol": "sensor_faktura",
+          "plik_symbolu": "eduplaner_przedszkole/assets/symbole/k_sensor_faktura.jpg"
+        },
+        {
+          "etykieta_dla_dziecka": "2 · gniotek",
+          "symbol": "sensor_gniotek",
+          "plik_symbolu": "eduplaner_przedszkole/assets/symbole/k_sensor_gniotek.jpg"
+        },
+        {
+          "etykieta_dla_dziecka": "3 · krąg",
+          "symbol": "postawa_stolik",
+          "plik_symbolu": "eduplaner_przedszkole/assets/symbole/k_postawa_stolik.jpg"
+        }
+      ],
+      "format": "A4 pionowo, karton 200 g"
     },
     {
-      "id": "A-SENS-09",
-      "wskaznik_id": "SENS-09",
-      "kod": "DOT-SZUM",
-      "zmysl": {
-        "klucz": "dotyk",
-        "nazwa": "Dotyk",
-        "rzymska": "III",
-        "icf": "b265"
-      },
-      "tytul": "DZISIAJ MOGĘ TYLE — mapa ubrania i skala faktur",
-      "format": "A4, druk jednostronny, karton 200 g",
-      "elementy_do_wyciecia": [
-        "sylwetka dziecka do zaznaczania miejsc drażniących (A4)",
-        "pasek skali faktur 1–2–3 z obrazkami materiałów",
-        "karta dla rodzica: dwa warianty ubrania w worku"
-      ],
-      "symbole": [
+      "wskaznik": "III.3",
+      "tytul": "Mapa ubrania i skala faktur",
+      "wstep_dla_doroslego": "Wytnij sylwetkę i pasek skali. Sylwetkę powieś w szatni, pasek zostaw na stałe na stole plastycznym — pomoc schowana do szafki przestaje być używana po trzech dniach.",
+      "karty": [
         {
-          "plik": "k_mapa_ubrania.jpg",
-          "sciezka": "04_media/eduplaner_przedszkole/assets/symbole/k_mapa_ubrania.jpg"
+          "etykieta_dla_dziecka": "Dzisiaj mogę tyle",
+          "opis_dla_doroslego": "nagłówek paska skali faktur",
+          "symbol": "sensor_faktura",
+          "plik_symbolu": "eduplaner_przedszkole/assets/symbole/k_sensor_faktura.jpg"
         },
         {
-          "plik": "k_skala_faktur.jpg",
-          "sciezka": "04_media/eduplaner_przedszkole/assets/symbole/k_skala_faktur.jpg"
+          "etykieta_dla_dziecka": "Suche",
+          "opis_dla_doroslego": "poziom 1 — piasek, ryż, kasztany",
+          "symbol": null,
+          "plik_symbolu": null
         },
         {
-          "plik": "k_plastyka.jpg",
-          "sciezka": "04_media/eduplaner_przedszkole/assets/symbole/k_plastyka.jpg"
+          "etykieta_dla_dziecka": "Wilgotne",
+          "opis_dla_doroslego": "poziom 2 — masa, ciastolina, glina",
+          "symbol": null,
+          "plik_symbolu": null
+        },
+        {
+          "etykieta_dla_dziecka": "Schodzę niżej",
+          "opis_dla_doroslego": "karta zmiany materiału w trakcie zajęć",
+          "symbol": "sensor_zamiana",
+          "plik_symbolu": "eduplaner_przedszkole/assets/symbole/k_sensor_zamiana.jpg"
         }
       ],
-      "etykieta_dla_dziecka": "DZISIAJ MOGĘ TYLE",
-      "wstep_dla_doroslego": "Karta z sylwetką dziecka do zaznaczenia miejsc, które dziś drapią, oraz pasek ze skalą faktur: suche (piasek, ryż) — wilgotne (masa, ciastolina) — lepkie (klej, farba palcowa).",
-      "pomoc_id": "P-SENS-09"
+      "pasek_kolejnosci": [
+        {
+          "etykieta_dla_dziecka": "1 · sprawdzam",
+          "symbol": "sygnal_ciala",
+          "plik_symbolu": "eduplaner_przedszkole/assets/symbole/k_sygnal_ciala.jpg"
+        },
+        {
+          "etykieta_dla_dziecka": "2 · wybieram",
+          "symbol": "sensor_faktura",
+          "plik_symbolu": "eduplaner_przedszkole/assets/symbole/k_sensor_faktura.jpg"
+        },
+        {
+          "etykieta_dla_dziecka": "3 · pracuję",
+          "symbol": "zabawa_rysowanie",
+          "plik_symbolu": "eduplaner_przedszkole/assets/symbole/k_zabawa_rysowanie.jpg"
+        }
+      ],
+      "format": "A4 pionowo, karton 200 g"
     },
     {
-      "id": "A-SENS-10",
-      "wskaznik_id": "SENS-10",
-      "kod": "SMA-NAD",
-      "zmysl": {
-        "klucz": "smak",
-        "nazwa": "Smak",
-        "rzymska": "IV",
-        "icf": "b250"
-      },
-      "tytul": "DRABINA OSWAJANIA — karta do wycięcia",
-      "format": "A4, druk jednostronny, karton 200 g",
-      "elementy_do_wyciecia": [
-        "drabina 6 szczebli (A4, pionowo) z obrazkami i strzałką do przesuwania",
-        "karta „TALERZYK DO PRÓB” do położenia na stole",
-        "karta dla rodzica: te same szczeble w domu"
-      ],
-      "symbole": [
+      "wskaznik": "IV.1",
+      "tytul": "Drabina oswajania jedzenia — karta do wycięcia",
+      "wstep_dla_doroslego": "Wytnij drabinę i strzałkę. Drugą drabinę przekaż rodzicowi — w domu obowiązują te same szczeble, inaczej dziecko dostaje dwie sprzeczne zasady przy jednym stole.",
+      "karty": [
         {
-          "plik": "k_drabina_jedzenie.jpg",
-          "sciezka": "04_media/eduplaner_przedszkole/assets/symbole/k_drabina_jedzenie.jpg"
+          "etykieta_dla_dziecka": "Patrzę",
+          "opis_dla_doroslego": "szczebel 1 — potrawa leży na talerzyku",
+          "symbol": "gest_slucham",
+          "plik_symbolu": "eduplaner_przedszkole/assets/symbole/k_gest_slucham.jpg"
         },
         {
-          "plik": "k_talerzyk_prob.jpg",
-          "sciezka": "04_media/eduplaner_przedszkole/assets/symbole/k_talerzyk_prob.jpg"
+          "etykieta_dla_dziecka": "Dotykam",
+          "opis_dla_doroslego": "szczeble 2 i 4 — widelcem, potem wargą",
+          "symbol": "polecenie_wez",
+          "plik_symbolu": "eduplaner_przedszkole/assets/symbole/k_polecenie_wez.jpg"
         },
         {
-          "plik": "k_posilek.jpg",
-          "sciezka": "04_media/eduplaner_przedszkole/assets/symbole/k_posilek.jpg"
+          "etykieta_dla_dziecka": "Wącham",
+          "opis_dla_doroslego": "szczebel 3 — zapach przed smakiem",
+          "symbol": null,
+          "plik_symbolu": null
+        },
+        {
+          "etykieta_dla_dziecka": "Mój talerzyk",
+          "opis_dla_doroslego": "symbol talerzyka do prób, stawianego zawsze z tej samej strony",
+          "symbol": "dzien_obiad",
+          "plik_symbolu": "eduplaner_przedszkole/assets/symbole/k_dzien_obiad.jpg"
         }
       ],
-      "etykieta_dla_dziecka": "MOJA DRABINA — dziś jestem tutaj",
-      "wstep_dla_doroslego": "Pionowa karta z sześcioma szczeblami: patrzę · dotykam widelcem · wącham · dotykam wargą · liżę · gryzę, każdy z obrazkiem. Do tego mały talerzyk na nową potrawę, stawiany zawsze z tej samej strony.",
-      "pomoc_id": "P-SENS-10"
+      "pasek_kolejnosci": [
+        {
+          "etykieta_dla_dziecka": "1 · patrzę",
+          "symbol": "gest_slucham",
+          "plik_symbolu": "eduplaner_przedszkole/assets/symbole/k_gest_slucham.jpg"
+        },
+        {
+          "etykieta_dla_dziecka": "2 · dotykam",
+          "symbol": "polecenie_wez",
+          "plik_symbolu": "eduplaner_przedszkole/assets/symbole/k_polecenie_wez.jpg"
+        },
+        {
+          "etykieta_dla_dziecka": "3 · jem swoje",
+          "symbol": "dzien_obiad",
+          "plik_symbolu": "eduplaner_przedszkole/assets/symbole/k_dzien_obiad.jpg"
+        }
+      ],
+      "format": "A4 pionowo, karton 200 g"
     },
     {
-      "id": "A-SENS-11",
-      "wskaznik_id": "SENS-11",
-      "kod": "SMA-POD",
-      "zmysl": {
-        "klucz": "smak",
-        "nazwa": "Smak",
-        "rzymska": "IV",
-        "icf": "b250"
-      },
-      "tytul": "MOCNO W BUZI — karty i plan bodźców ustnych",
-      "format": "A4, druk jednostronny, karton 200 g",
-      "elementy_do_wyciecia": [
-        "karta „GRYZAK” i karta „RURKA” (9 × 9 cm)",
-        "plan dnia z trzema polami na bodziec ustny",
-        "lista bezpiecznych chrupiących przekąsek z uwagą o alergiach"
-      ],
-      "symbole": [
+      "wskaznik": "IV.2",
+      "tytul": "Karty do zajęć „Mocno w buzi — bezpiecznie”",
+      "wstep_dla_doroslego": "Wytnij karty i plan bodźców ustnych. Plan powieś tam, gdzie dziecko je i pracuje — bodziec ustny wpisany w plan dnia działa, bodziec podawany „gdy widać, że trzeba” spóźnia się o kilka minut.",
+      "karty": [
         {
-          "plik": "k_gryzak.jpg",
-          "sciezka": "04_media/eduplaner_przedszkole/assets/symbole/k_gryzak.jpg"
+          "etykieta_dla_dziecka": "Mój gryzak",
+          "opis_dla_doroslego": "symbol gryzaka przypiętego do fartuszka",
+          "symbol": "sensor_gniotek",
+          "plik_symbolu": "eduplaner_przedszkole/assets/symbole/k_sensor_gniotek.jpg"
         },
         {
-          "plik": "k_rurka.jpg",
-          "sciezka": "04_media/eduplaner_przedszkole/assets/symbole/k_rurka.jpg"
+          "etykieta_dla_dziecka": "Rurka",
+          "opis_dla_doroslego": "symbol picia gęstego napoju przed zadaniem",
+          "symbol": null,
+          "plik_symbolu": null
         },
         {
-          "plik": "k_chrupiace.jpg",
-          "sciezka": "04_media/eduplaner_przedszkole/assets/symbole/k_chrupiace.jpg"
+          "etykieta_dla_dziecka": "Chrupiące",
+          "opis_dla_doroslego": "symbol przekąski w połowie przedpołudnia",
+          "symbol": "dzien_sniadanie",
+          "plik_symbolu": "eduplaner_przedszkole/assets/symbole/k_dzien_sniadanie.jpg"
+        },
+        {
+          "etykieta_dla_dziecka": "Jeden kęs",
+          "opis_dla_doroslego": "symbol małej łyżeczki przy posiłku",
+          "symbol": "dzien_obiad",
+          "plik_symbolu": "eduplaner_przedszkole/assets/symbole/k_dzien_obiad.jpg"
         }
       ],
-      "etykieta_dla_dziecka": "MOCNO W BUZI — mam swój gryzak",
-      "wstep_dla_doroslego": "Silikonowy gryzak przypięty do fartuszka (mycie codziennie), wąska rurka do gęstych napojów oraz mała łyżeczka wyznaczająca wielkość kęsa. Trzy przedmioty, jedna zasada: usta dostają mocny bodziec w formie bezpiecznej.",
-      "pomoc_id": "P-SENS-11"
+      "pasek_kolejnosci": [
+        {
+          "etykieta_dla_dziecka": "1 · rurka",
+          "symbol": "dzien_sniadanie",
+          "plik_symbolu": "eduplaner_przedszkole/assets/symbole/k_dzien_sniadanie.jpg"
+        },
+        {
+          "etykieta_dla_dziecka": "2 · pracuję",
+          "symbol": "dzien_zajecia",
+          "plik_symbolu": "eduplaner_przedszkole/assets/symbole/k_dzien_zajecia.jpg"
+        },
+        {
+          "etykieta_dla_dziecka": "3 · jeden kęs",
+          "symbol": "dzien_obiad",
+          "plik_symbolu": "eduplaner_przedszkole/assets/symbole/k_dzien_obiad.jpg"
+        }
+      ],
+      "format": "A4 pionowo, karton 200 g"
     },
     {
-      "id": "A-SENS-12",
-      "wskaznik_id": "SENS-12",
-      "kod": "SMA-SZUM",
-      "zmysl": {
-        "klucz": "smak",
-        "nazwa": "Smak",
-        "rzymska": "IV",
-        "icf": "b250"
-      },
-      "tytul": "JAK DZIŚ SMAKUJE — trzy karty posiłku",
-      "format": "A4, druk jednostronny, karton 200 g",
-      "elementy_do_wyciecia": [
-        "karta „JEM SWOJE”, „PRÓBUJĘ”, „DZIŚ TYLKO PATRZĘ” (po 9 × 9 cm)",
-        "podkładka na stół z polem na kartę dnia",
-        "karta informacyjna dla rodzica"
-      ],
-      "symbole": [
+      "wskaznik": "IV.3",
+      "tytul": "Trzy karty posiłku",
+      "wstep_dla_doroslego": "Wytnij karty i podkładkę. Drugi komplet przekaż rodzicowi — kolacja w domu przebiega według tych samych trzech wariantów.",
+      "karty": [
         {
-          "plik": "k_jem_swoje.jpg",
-          "sciezka": "04_media/eduplaner_przedszkole/assets/symbole/k_jem_swoje.jpg"
+          "etykieta_dla_dziecka": "Jem swoje",
+          "opis_dla_doroslego": "wariant z produktem pewnym",
+          "symbol": "dzien_obiad",
+          "plik_symbolu": "eduplaner_przedszkole/assets/symbole/k_dzien_obiad.jpg"
         },
         {
-          "plik": "k_probuje.jpg",
-          "sciezka": "04_media/eduplaner_przedszkole/assets/symbole/k_probuje.jpg"
+          "etykieta_dla_dziecka": "Próbuję",
+          "opis_dla_doroslego": "wariant ze szczeblem drabiny oswajania",
+          "symbol": "polecenie_wez",
+          "plik_symbolu": "eduplaner_przedszkole/assets/symbole/k_polecenie_wez.jpg"
         },
         {
-          "plik": "k_tylko_patrze.jpg",
-          "sciezka": "04_media/eduplaner_przedszkole/assets/symbole/k_tylko_patrze.jpg"
+          "etykieta_dla_dziecka": "Dziś tylko patrzę",
+          "opis_dla_doroslego": "wariant obecności przy stole bez jedzenia nowego",
+          "symbol": "gest_slucham",
+          "plik_symbolu": "eduplaner_przedszkole/assets/symbole/k_gest_slucham.jpg"
+        },
+        {
+          "etykieta_dla_dziecka": "Zmieniam",
+          "opis_dla_doroslego": "karta zmiany wariantu w trakcie posiłku",
+          "symbol": "sensor_zamiana",
+          "plik_symbolu": "eduplaner_przedszkole/assets/symbole/k_sensor_zamiana.jpg"
         }
       ],
-      "etykieta_dla_dziecka": "JAK DZIŚ SMAKUJE",
-      "wstep_dla_doroslego": "Zestaw trzech kart: „JEM SWOJE” (produkt pewny), „PRÓBUJĘ” (szczebel drabiny), „DZIŚ TYLKO PATRZĘ” (obecność przy stole bez jedzenia nowego). Wariant wybiera dziecko, dorosły go realizuje bez komentarza.",
-      "pomoc_id": "P-SENS-12"
+      "pasek_kolejnosci": [
+        {
+          "etykieta_dla_dziecka": "1 · wybieram",
+          "symbol": "plan_zmiana",
+          "plik_symbolu": "eduplaner_przedszkole/assets/symbole/k_plan_zmiana.jpg"
+        },
+        {
+          "etykieta_dla_dziecka": "2 · jem",
+          "symbol": "dzien_obiad",
+          "plik_symbolu": "eduplaner_przedszkole/assets/symbole/k_dzien_obiad.jpg"
+        },
+        {
+          "etykieta_dla_dziecka": "3 · zostaję",
+          "symbol": "gest_czekam",
+          "plik_symbolu": "eduplaner_przedszkole/assets/symbole/k_gest_czekam.jpg"
+        }
+      ],
+      "format": "A4 pionowo, karton 200 g"
     },
     {
-      "id": "A-SENS-13",
-      "wskaznik_id": "SENS-13",
-      "kod": "WEC-NAD",
-      "zmysl": {
-        "klucz": "wech",
-        "nazwa": "Węch",
-        "rzymska": "V",
-        "icf": "b255"
-      },
-      "tytul": "MÓJ ZAPACH — karty i woreczek na chusteczkę",
-      "format": "A4, druk jednostronny, karton 200 g",
-      "elementy_do_wyciecia": [
-        "karta „BRZYDKI ZAPACH” (9 × 9 cm)",
-        "karta „MOJE MIEJSCE PRZY OKNIE”",
-        "szablon woreczka na chusteczkę zapachową"
-      ],
-      "symbole": [
+      "wskaznik": "V.1",
+      "tytul": "Karty do zajęć „Mój zapach w kieszeni”",
+      "wstep_dla_doroslego": "Wytnij karty i szablon woreczka. Woreczek uszyj albo zszyj zszywaczem z dwóch warstw bawełny — zapach ma być wyczuwalny przy nosie, nie w całej sali.",
+      "karty": [
         {
-          "plik": "k_brzydki_zapach.jpg",
-          "sciezka": "04_media/eduplaner_przedszkole/assets/symbole/k_brzydki_zapach.jpg"
+          "etykieta_dla_dziecka": "Brzydki zapach",
+          "opis_dla_doroslego": "karta zgłoszenia bez wychodzenia z sali",
+          "symbol": "gest_stop",
+          "plik_symbolu": "eduplaner_przedszkole/assets/symbole/k_gest_stop.jpg"
         },
         {
-          "plik": "k_okno.jpg",
-          "sciezka": "04_media/eduplaner_przedszkole/assets/symbole/k_okno.jpg"
+          "etykieta_dla_dziecka": "Potrzebuję okna",
+          "opis_dla_doroslego": "karta prośby o miejsce przy oknie",
+          "symbol": "prosze_odpoczynek",
+          "plik_symbolu": "eduplaner_przedszkole/assets/symbole/k_prosze_odpoczynek.jpg"
         },
         {
-          "plik": "k_stolowka.jpg",
-          "sciezka": "04_media/eduplaner_przedszkole/assets/symbole/k_stolowka.jpg"
+          "etykieta_dla_dziecka": "Mój zapach",
+          "opis_dla_doroslego": "symbol chusteczki w kieszeni",
+          "symbol": null,
+          "plik_symbolu": null
+        },
+        {
+          "etykieta_dla_dziecka": "Stołówka",
+          "opis_dla_doroslego": "symbol pory posiłku w planie dnia",
+          "symbol": "dzien_obiad",
+          "plik_symbolu": "eduplaner_przedszkole/assets/symbole/k_dzien_obiad.jpg"
         }
       ],
-      "etykieta_dla_dziecka": "MÓJ ZAPACH — mam go w kieszeni",
-      "wstep_dla_doroslego": "Bawełniana chusteczka w woreczku, z dwiema kroplami zapachu wybranego przez dziecko (najczęściej cytryna lub mięta), oraz karta-symbol pozwalająca zgłosić problem bez wychodzenia.",
-      "pomoc_id": "P-SENS-13"
+      "pasek_kolejnosci": [
+        {
+          "etykieta_dla_dziecka": "1 · chusteczka",
+          "symbol": "prosze_pomoc",
+          "plik_symbolu": "eduplaner_przedszkole/assets/symbole/k_prosze_pomoc.jpg"
+        },
+        {
+          "etykieta_dla_dziecka": "2 · moje miejsce",
+          "symbol": "postawa_stolik",
+          "plik_symbolu": "eduplaner_przedszkole/assets/symbole/k_postawa_stolik.jpg"
+        },
+        {
+          "etykieta_dla_dziecka": "3 · jem",
+          "symbol": "dzien_obiad",
+          "plik_symbolu": "eduplaner_przedszkole/assets/symbole/k_dzien_obiad.jpg"
+        }
+      ],
+      "format": "A4 pionowo, karton 200 g"
     },
     {
-      "id": "A-SENS-14",
-      "wskaznik_id": "SENS-14",
-      "kod": "WEC-POD",
-      "zmysl": {
-        "klucz": "wech",
-        "nazwa": "Węch",
-        "rzymska": "V",
-        "icf": "b255"
-      },
-      "tytul": "PUDEŁKO ZAPACHÓW — karty i etykiety woreczków",
-      "format": "A4, druk jednostronny, karton 200 g",
-      "elementy_do_wyciecia": [
-        "karta „CHCĘ POWĄCHAĆ” (9 × 9 cm)",
-        "5 etykiet na woreczki z obrazkami (cytryna, mięta, kawa, cynamon, lawenda)",
-        "karta „TEGO NIE WĄCHAMY” z rysunkami kleju i środków czystości"
-      ],
-      "symbole": [
+      "wskaznik": "V.2",
+      "tytul": "Karty do zajęć „Pudełko zapachów”",
+      "wstep_dla_doroslego": "Wytnij karty i etykiety woreczków. Na etykietach naklej obrazek, nie napis — dziecko ma rozpoznawać zapach po obrazie, także zanim nauczy się czytać.",
+      "karty": [
         {
-          "plik": "k_chce_powachac.jpg",
-          "sciezka": "04_media/eduplaner_przedszkole/assets/symbole/k_chce_powachac.jpg"
+          "etykieta_dla_dziecka": "Chcę powąchać",
+          "opis_dla_doroslego": "karta wymiany na dwie minuty przy pudełku",
+          "symbol": null,
+          "plik_symbolu": null
         },
         {
-          "plik": "k_pudelko_zapachow.jpg",
-          "sciezka": "04_media/eduplaner_przedszkole/assets/symbole/k_pudelko_zapachow.jpg"
+          "etykieta_dla_dziecka": "Tego nie wąchamy",
+          "opis_dla_doroslego": "karta bezpieczeństwa: klej, pisaki, środki czystości",
+          "symbol": "gest_stop",
+          "plik_symbolu": "eduplaner_przedszkole/assets/symbole/k_gest_stop.jpg"
         },
         {
-          "plik": "k_stop_chemia.jpg",
-          "sciezka": "04_media/eduplaner_przedszkole/assets/symbole/k_stop_chemia.jpg"
+          "etykieta_dla_dziecka": "Moje pudełko",
+          "opis_dla_doroslego": "symbol miejsca na półce",
+          "symbol": "sensor_zamiana",
+          "plik_symbolu": "eduplaner_przedszkole/assets/symbole/k_sensor_zamiana.jpg"
+        },
+        {
+          "etykieta_dla_dziecka": "Wracam do zabawy",
+          "opis_dla_doroslego": "symbol powrotu po przerwie zapachowej",
+          "symbol": "dzien_zabawa",
+          "plik_symbolu": "eduplaner_przedszkole/assets/symbole/k_dzien_zabawa.jpg"
         }
       ],
-      "etykieta_dla_dziecka": "CHCĘ POWĄCHAĆ — idę do pudełka",
-      "wstep_dla_doroslego": "Pudełko z pięcioma woreczkami z gazy: cytryna, mięta, kawa, cynamon, lawenda. Zawartość wymieniana co dwa tygodnie. Karta „CHCĘ POWĄCHAĆ” zamienia bodziec przypadkowy na zaplanowany.",
-      "pomoc_id": "P-SENS-14"
+      "pasek_kolejnosci": [
+        {
+          "etykieta_dla_dziecka": "1 · karta",
+          "symbol": "plan_zmiana",
+          "plik_symbolu": "eduplaner_przedszkole/assets/symbole/k_plan_zmiana.jpg"
+        },
+        {
+          "etykieta_dla_dziecka": "2 · wącham",
+          "symbol": "sensor_zamiana",
+          "plik_symbolu": "eduplaner_przedszkole/assets/symbole/k_sensor_zamiana.jpg"
+        },
+        {
+          "etykieta_dla_dziecka": "3 · wracam",
+          "symbol": "dzien_zabawa",
+          "plik_symbolu": "eduplaner_przedszkole/assets/symbole/k_dzien_zabawa.jpg"
+        }
+      ],
+      "format": "A4 pionowo, karton 200 g"
     },
     {
-      "id": "A-SENS-15",
-      "wskaznik_id": "SENS-15",
-      "kod": "WEC-SZUM",
-      "zmysl": {
-        "klucz": "wech",
-        "nazwa": "Węch",
-        "rzymska": "V",
-        "icf": "b255"
-      },
-      "tytul": "NOS DNIA — karta z buźkami i etykiety woreczków",
-      "format": "A4, druk jednostronny, karton 200 g",
-      "elementy_do_wyciecia": [
-        "karta „NOS DNIA” z trzema buźkami (A5)",
-        "2 etykiety woreczków kontrolnych z datą wymiany",
-        "karta informacyjna dla rodzica o katarze i alergii"
-      ],
-      "symbole": [
+      "wskaznik": "V.3",
+      "tytul": "Nos dnia — karta z buźkami i etykiety woreczków",
+      "wstep_dla_doroslego": "Wytnij kartę i etykiety. Na etykietach wpisz datę wymiany zawartości — woreczek bez daty zostaje w pudełku pół roku i przestaje cokolwiek mierzyć.",
+      "karty": [
         {
-          "plik": "k_nos_dnia.jpg",
-          "sciezka": "04_media/eduplaner_przedszkole/assets/symbole/k_nos_dnia.jpg"
+          "etykieta_dla_dziecka": "Mój nos dzisiaj",
+          "opis_dla_doroslego": "nagłówek karty z trzema buźkami",
+          "symbol": "sygnal_ciala",
+          "plik_symbolu": "eduplaner_przedszkole/assets/symbole/k_sygnal_ciala.jpg"
         },
         {
-          "plik": "k_woreczek_zapach.jpg",
-          "sciezka": "04_media/eduplaner_przedszkole/assets/symbole/k_woreczek_zapach.jpg"
+          "etykieta_dla_dziecka": "Mocno czuję",
+          "opis_dla_doroslego": "buźka pierwsza — chusteczka i miejsce przy oknie",
+          "symbol": "karta_czerwona",
+          "plik_symbolu": "eduplaner_przedszkole/assets/symbole/k_karta_czerwona.jpg"
         },
         {
-          "plik": "k_brzydki_zapach.jpg",
-          "sciezka": "04_media/eduplaner_przedszkole/assets/symbole/k_brzydki_zapach.jpg"
+          "etykieta_dla_dziecka": "Normalnie",
+          "opis_dla_doroslego": "buźka druga — bez dodatkowej pomocy",
+          "symbol": "emocja_spokoj",
+          "plik_symbolu": "eduplaner_przedszkole/assets/symbole/k_emocja_spokoj.jpg"
+        },
+        {
+          "etykieta_dla_dziecka": "Nie czuję",
+          "opis_dla_doroslego": "buźka trzecia — sprawdź katar i zapisz w dzienniku",
+          "symbol": null,
+          "plik_symbolu": null
         }
       ],
-      "etykieta_dla_dziecka": "MÓJ NOS DZISIAJ",
-      "wstep_dla_doroslego": "Dwa woreczki o stałym, znanym zapachu (cytryna, mięta) oraz karta z trzema buźkami: mocno czuję · normalnie · nie czuję. Stałość zapachu jest tu warunkiem — inaczej porównanie z wczoraj traci sens.",
-      "pomoc_id": "P-SENS-15"
+      "pasek_kolejnosci": [
+        {
+          "etykieta_dla_dziecka": "1 · wącham",
+          "symbol": "sygnal_ciala",
+          "plik_symbolu": "eduplaner_przedszkole/assets/symbole/k_sygnal_ciala.jpg"
+        },
+        {
+          "etykieta_dla_dziecka": "2 · wybieram",
+          "symbol": "plan_zmiana",
+          "plik_symbolu": "eduplaner_przedszkole/assets/symbole/k_plan_zmiana.jpg"
+        },
+        {
+          "etykieta_dla_dziecka": "3 · jem",
+          "symbol": "dzien_obiad",
+          "plik_symbolu": "eduplaner_przedszkole/assets/symbole/k_dzien_obiad.jpg"
+        }
+      ],
+      "format": "A4 pionowo, karton 200 g"
     },
     {
-      "id": "A-SENS-16",
-      "wskaznik_id": "SENS-16",
-      "kod": "PRO-NAD",
-      "zmysl": {
-        "klucz": "propriocepcja",
-        "nazwa": "Propriocepcja",
-        "rzymska": "VI",
-        "icf": "b760"
-      },
-      "tytul": "DRABINA RUCHU — karta i pola nacisku kredki",
-      "format": "A4, druk jednostronny, karton 200 g",
-      "elementy_do_wyciecia": [
-        "drabina 5 szczebli (A4) z obrazkami zadań oporowych",
-        "karta ćwiczenia nacisku: trzy pola (lekko / średnio / mocno)",
-        "lista 10 zadań oporowych do wplecenia w dzień"
-      ],
-      "symbole": [
+      "wskaznik": "VI.1",
+      "tytul": "Drabina ruchu i pola nacisku",
+      "wstep_dla_doroslego": "Wytnij drabinę i kartę nacisku. Zadania na drabinie dobierz do swojej sali — mają być czynnościami, które dziecko wykonuje naprawdę, a nie ćwiczeniami z podręcznika.",
+      "karty": [
         {
-          "plik": "k_drabina_ruchu.jpg",
-          "sciezka": "04_media/eduplaner_przedszkole/assets/symbole/k_drabina_ruchu.jpg"
+          "etykieta_dla_dziecka": "Moja drabina",
+          "opis_dla_doroslego": "nagłówek karty z pięcioma szczeblami",
+          "symbol": "prosze_ruch",
+          "plik_symbolu": "eduplaner_przedszkole/assets/symbole/k_prosze_ruch.jpg"
         },
         {
-          "plik": "k_pchanie.jpg",
-          "sciezka": "04_media/eduplaner_przedszkole/assets/symbole/k_pchanie.jpg"
+          "etykieta_dla_dziecka": "Pcham",
+          "opis_dla_doroslego": "symbol zadania oporowego: pchanie pudła",
+          "symbol": "sensor_ucisk",
+          "plik_symbolu": "eduplaner_przedszkole/assets/symbole/k_sensor_ucisk.jpg"
         },
         {
-          "plik": "k_nacisk_kredki.jpg",
-          "sciezka": "04_media/eduplaner_przedszkole/assets/symbole/k_nacisk_kredki.jpg"
+          "etykieta_dla_dziecka": "Niosę",
+          "opis_dla_doroslego": "symbol noszenia koszyka z klockami",
+          "symbol": "zabawa_klocki",
+          "plik_symbolu": "eduplaner_przedszkole/assets/symbole/k_zabawa_klocki.jpg"
+        },
+        {
+          "etykieta_dla_dziecka": "W sam raz",
+          "opis_dla_doroslego": "pole nacisku kredki pośrodku karty",
+          "symbol": "zabawa_rysowanie",
+          "plik_symbolu": "eduplaner_przedszkole/assets/symbole/k_zabawa_rysowanie.jpg"
         }
       ],
-      "etykieta_dla_dziecka": "MOJA DRABINA RUCHU",
-      "wstep_dla_doroslego": "Karta z pięcioma szczeblami zadań oporowych — od najlżejszego (wycieranie stołu) do najcięższego (pchanie pudła z klockami) — oraz gumowa nakładka wyznaczająca chwyt i nacisk kredki.",
-      "pomoc_id": "P-SENS-16"
+      "pasek_kolejnosci": [
+        {
+          "etykieta_dla_dziecka": "1 · wybieram",
+          "symbol": "prosze_ruch",
+          "plik_symbolu": "eduplaner_przedszkole/assets/symbole/k_prosze_ruch.jpg"
+        },
+        {
+          "etykieta_dla_dziecka": "2 · pracuję",
+          "symbol": "sensor_ucisk",
+          "plik_symbolu": "eduplaner_przedszkole/assets/symbole/k_sensor_ucisk.jpg"
+        },
+        {
+          "etykieta_dla_dziecka": "3 · czuję mięśnie",
+          "symbol": "sygnal_ciala",
+          "plik_symbolu": "eduplaner_przedszkole/assets/symbole/k_sygnal_ciala.jpg"
+        }
+      ],
+      "format": "A4 pionowo, karton 200 g"
     },
     {
-      "id": "A-SENS-17",
-      "wskaznik_id": "SENS-17",
-      "kod": "PRO-POD",
-      "zmysl": {
-        "klucz": "propriocepcja",
-        "nazwa": "Propriocepcja",
-        "rzymska": "VI",
-        "icf": "b760"
-      },
-      "tytul": "MOCNO — karta wymiany i plan przerw proprioceptywnych",
-      "format": "A4, druk jednostronny, karton 200 g",
-      "elementy_do_wyciecia": [
-        "karta „MOCNO” (9 × 9 cm) — 2 sztuki",
-        "plan dnia z trzema polami na przerwę proprioceptywną",
-        "karta bezpieczeństwa kocyka obciążeniowego (10% masy ciała, nadzór, nigdy podczas snu)"
-      ],
-      "symbole": [
+      "wskaznik": "VI.2",
+      "tytul": "Karty do zajęć „Mocno i bezpiecznie”",
+      "wstep_dla_doroslego": "Wytnij karty i plan przerw. Kartę bezpieczeństwa kocyka powieś w kąciku — zasady mają być widoczne dla każdego dorosłego, także dla osoby zastępującej.",
+      "karty": [
         {
-          "plik": "k_mocno.jpg",
-          "sciezka": "04_media/eduplaner_przedszkole/assets/symbole/k_mocno.jpg"
+          "etykieta_dla_dziecka": "Mocno",
+          "opis_dla_doroslego": "karta wymiany na trzy minuty docisku",
+          "symbol": "sensor_ucisk",
+          "plik_symbolu": "eduplaner_przedszkole/assets/symbole/k_sensor_ucisk.jpg"
         },
         {
-          "plik": "k_kocyk.jpg",
-          "sciezka": "04_media/eduplaner_przedszkole/assets/symbole/k_kocyk.jpg"
+          "etykieta_dla_dziecka": "Kocyk",
+          "opis_dla_doroslego": "symbol kocyka obciążeniowego w kąciku docisku",
+          "symbol": "prosze_odpoczynek",
+          "plik_symbolu": "eduplaner_przedszkole/assets/symbole/k_prosze_odpoczynek.jpg"
         },
         {
-          "plik": "k_tunel.jpg",
-          "sciezka": "04_media/eduplaner_przedszkole/assets/symbole/k_tunel.jpg"
+          "etykieta_dla_dziecka": "Tunel",
+          "opis_dla_doroslego": "symbol przeciskania się przez tunel",
+          "symbol": "prosze_ruch",
+          "plik_symbolu": "eduplaner_przedszkole/assets/symbole/k_prosze_ruch.jpg"
+        },
+        {
+          "etykieta_dla_dziecka": "Wracam",
+          "opis_dla_doroslego": "symbol powrotu do zabawy po przerwie",
+          "symbol": "dzien_zabawa",
+          "plik_symbolu": "eduplaner_przedszkole/assets/symbole/k_dzien_zabawa.jpg"
         }
       ],
-      "etykieta_dla_dziecka": "MOCNO — idę po docisk",
-      "wstep_dla_doroslego": "Wydzielone miejsce z kocykiem obciążeniowym (do 10% masy ciała dziecka), tunelem do przeciskania i poduszką sensoryczną, plus karta „MOCNO” do wymiany. Kącik jest dostępny zawsze, nie na nagrodę.",
-      "pomoc_id": "P-SENS-17"
+      "pasek_kolejnosci": [
+        {
+          "etykieta_dla_dziecka": "1 · mocno",
+          "symbol": "sensor_ucisk",
+          "plik_symbolu": "eduplaner_przedszkole/assets/symbole/k_sensor_ucisk.jpg"
+        },
+        {
+          "etykieta_dla_dziecka": "2 · kącik",
+          "symbol": "prosze_odpoczynek",
+          "plik_symbolu": "eduplaner_przedszkole/assets/symbole/k_prosze_odpoczynek.jpg"
+        },
+        {
+          "etykieta_dla_dziecka": "3 · wracam",
+          "symbol": "dzien_zabawa",
+          "plik_symbolu": "eduplaner_przedszkole/assets/symbole/k_dzien_zabawa.jpg"
+        }
+      ],
+      "format": "A4 pionowo, karton 200 g"
     },
     {
-      "id": "A-SENS-18",
-      "wskaznik_id": "SENS-18",
-      "kod": "PRO-SZUM",
-      "zmysl": {
-        "klucz": "propriocepcja",
-        "nazwa": "Propriocepcja",
-        "rzymska": "VI",
-        "icf": "b760"
-      },
-      "tytul": "MIERNIK SIŁY — karta z trzema polami nacisku",
-      "format": "A4, druk jednostronny, karton 200 g",
-      "elementy_do_wyciecia": [
-        "karta miernika (A4) z polami: piórko / w sam raz / za mocno",
-        "karta „DOTYK JAK PIÓRKO” do zabawy w parze",
-        "lista 6 zabaw z dozowaniem siły"
-      ],
-      "symbole": [
+      "wskaznik": "VI.3",
+      "tytul": "Miernik siły i karta dotyku",
+      "wstep_dla_doroslego": "Wytnij kartę miernika i kartę dotyku. Miernik drukuj na grubszym papierze — na cienkim pole „za mocno” rozdziera się przy pierwszej próbie i przestaje być czytelnym wzorcem.",
+      "karty": [
         {
-          "plik": "k_miernik_sily.jpg",
-          "sciezka": "04_media/eduplaner_przedszkole/assets/symbole/k_miernik_sily.jpg"
+          "etykieta_dla_dziecka": "Moja siła dzisiaj",
+          "opis_dla_doroslego": "nagłówek karty miernika",
+          "symbol": "sygnal_ciala",
+          "plik_symbolu": "eduplaner_przedszkole/assets/symbole/k_sygnal_ciala.jpg"
         },
         {
-          "plik": "k_piorko.jpg",
-          "sciezka": "04_media/eduplaner_przedszkole/assets/symbole/k_piorko.jpg"
+          "etykieta_dla_dziecka": "Piórko",
+          "opis_dla_doroslego": "pole nacisku lekkiego",
+          "symbol": null,
+          "plik_symbolu": null
         },
         {
-          "plik": "k_w_sam_raz.jpg",
-          "sciezka": "04_media/eduplaner_przedszkole/assets/symbole/k_w_sam_raz.jpg"
+          "etykieta_dla_dziecka": "W sam raz",
+          "opis_dla_doroslego": "pole nacisku właściwego",
+          "symbol": "zabawa_rysowanie",
+          "plik_symbolu": "eduplaner_przedszkole/assets/symbole/k_zabawa_rysowanie.jpg"
+        },
+        {
+          "etykieta_dla_dziecka": "Dotyk jak piórko",
+          "opis_dla_doroslego": "karta do zabaw w parach",
+          "symbol": "gest_skinienie",
+          "plik_symbolu": "eduplaner_przedszkole/assets/symbole/k_gest_skinienie.jpg"
         }
       ],
-      "etykieta_dla_dziecka": "MOJA SIŁA DZISIAJ",
-      "wstep_dla_doroslego": "Kartka z trzema polami: „piórko” (ledwie widoczna kreska), „w sam raz”, „za mocno” (kartka się rwie). Dziecko wykonuje trzy kreski i sprawdza, gdzie dziś jest jego ręka.",
-      "pomoc_id": "P-SENS-18"
+      "pasek_kolejnosci": [
+        {
+          "etykieta_dla_dziecka": "1 · praca oporowa",
+          "symbol": "sensor_ucisk",
+          "plik_symbolu": "eduplaner_przedszkole/assets/symbole/k_sensor_ucisk.jpg"
+        },
+        {
+          "etykieta_dla_dziecka": "2 · próba",
+          "symbol": "sygnal_ciala",
+          "plik_symbolu": "eduplaner_przedszkole/assets/symbole/k_sygnal_ciala.jpg"
+        },
+        {
+          "etykieta_dla_dziecka": "3 · rysuję",
+          "symbol": "zabawa_rysowanie",
+          "plik_symbolu": "eduplaner_przedszkole/assets/symbole/k_zabawa_rysowanie.jpg"
+        }
+      ],
+      "format": "A4 pionowo, karton 200 g"
     },
     {
-      "id": "A-SENS-19",
-      "wskaznik_id": "SENS-19",
-      "kod": "ROW-NAD",
-      "zmysl": {
-        "klucz": "rownowaga",
-        "nazwa": "Równowaga",
-        "rzymska": "VII",
-        "icf": "b235"
-      },
-      "tytul": "DRABINA RUCHU PRZEDSIONKOWEGO — karta i STOP",
-      "format": "A4, druk jednostronny, karton 200 g",
-      "elementy_do_wyciecia": [
-        "drabina 5 szczebli (A4) z obrazkami: stopy na ziemi → huśtanie z podparciem → 10 sekund → zjeżdżalnia z asekuracją → zjeżdżalnia sama",
-        "karta „STOP” (9 × 9 cm), czerwona — 2 sztuki",
-        "karta dla dorosłego: czego nie robimy (rozhuśtanie z zaskoczenia, wsadzanie na siłę)"
-      ],
-      "symbole": [
+      "wskaznik": "VII.1",
+      "tytul": "Drabina ruchu przedsionkowego i karta STOP",
+      "wstep_dla_doroslego": "Wytnij drabinę i kartę stop. Kartę „czego nie robimy” powieś dla dorosłych przy wyjściu na plac — rozhuśtanie z zaskoczenia zdarza się najczęściej osobie, która nie zna historii dziecka.",
+      "karty": [
         {
-          "plik": "k_drabina_hustawka.jpg",
-          "sciezka": "04_media/eduplaner_przedszkole/assets/symbole/k_drabina_hustawka.jpg"
+          "etykieta_dla_dziecka": "Stop",
+          "opis_dla_doroslego": "karta zatrzymująca ruch natychmiast — u dziecka",
+          "symbol": "gest_stop",
+          "plik_symbolu": "eduplaner_przedszkole/assets/symbole/k_gest_stop.jpg"
         },
         {
-          "plik": "k_stop.jpg",
-          "sciezka": "04_media/eduplaner_przedszkole/assets/symbole/k_stop.jpg"
+          "etykieta_dla_dziecka": "Moja drabina",
+          "opis_dla_doroslego": "nagłówek karty z pięcioma szczeblami",
+          "symbol": "prosze_ruch",
+          "plik_symbolu": "eduplaner_przedszkole/assets/symbole/k_prosze_ruch.jpg"
         },
         {
-          "plik": "k_plac_zabaw.jpg",
-          "sciezka": "04_media/eduplaner_przedszkole/assets/symbole/k_plac_zabaw.jpg"
+          "etykieta_dla_dziecka": "Plac zabaw",
+          "opis_dla_doroslego": "symbol wyjścia na plac w planie dnia",
+          "symbol": "dzien_zabawa",
+          "plik_symbolu": "eduplaner_przedszkole/assets/symbole/k_dzien_zabawa.jpg"
+        },
+        {
+          "etykieta_dla_dziecka": "Czego nie robimy",
+          "opis_dla_doroslego": "karta dla dorosłego: bez wsadzania na siłę i bez rozhuśtania z zaskoczenia",
+          "symbol": "karta_czerwona",
+          "plik_symbolu": "eduplaner_przedszkole/assets/symbole/k_karta_czerwona.jpg"
         }
       ],
-      "etykieta_dla_dziecka": "STOP — zatrzymuję ruch",
-      "wstep_dla_doroslego": "Karta z pięcioma szczeblami wchodzenia w ruch (od stóp na podłożu do zjeżdżalni) i czerwona karta STOP, która natychmiast zatrzymuje ruch. Kontrola musi zostać po stronie dziecka — inaczej drabina nie działa.",
-      "pomoc_id": "P-SENS-19"
+      "pasek_kolejnosci": [
+        {
+          "etykieta_dla_dziecka": "1 · praca oporowa",
+          "symbol": "sensor_ucisk",
+          "plik_symbolu": "eduplaner_przedszkole/assets/symbole/k_sensor_ucisk.jpg"
+        },
+        {
+          "etykieta_dla_dziecka": "2 · mój szczebel",
+          "symbol": "prosze_ruch",
+          "plik_symbolu": "eduplaner_przedszkole/assets/symbole/k_prosze_ruch.jpg"
+        },
+        {
+          "etykieta_dla_dziecka": "3 · stop",
+          "symbol": "gest_stop",
+          "plik_symbolu": "eduplaner_przedszkole/assets/symbole/k_gest_stop.jpg"
+        }
+      ],
+      "format": "A4 pionowo, karton 200 g"
     },
     {
-      "id": "A-SENS-20",
-      "wskaznik_id": "SENS-20",
-      "kod": "ROW-POD",
-      "zmysl": {
-        "klucz": "rownowaga",
-        "nazwa": "Równowaga",
-        "rzymska": "VII",
-        "icf": "b235"
-      },
-      "tytul": "POTRZEBUJĘ RUCHU — karta wymiany i plan dawek",
-      "format": "A4, druk jednostronny, karton 200 g",
-      "elementy_do_wyciecia": [
-        "karta „POTRZEBUJĘ RUCHU” (9 × 9 cm) — 2 sztuki",
-        "plan dnia z trzema polami na dawkę ruchu",
-        "znak na podłogę wyznaczający miejsce ruchu w sali"
-      ],
-      "symbole": [
+      "wskaznik": "VII.2",
+      "tytul": "Karty do zajęć „Potrzebuję ruchu”",
+      "wstep_dla_doroslego": "Wytnij karty, znak na podłogę i plan dawek. Znak naklej tam, gdzie ruch nikomu nie przeszkadza — dziecko musi mieć dokąd pójść, zanim ruszy się w kręgu.",
+      "karty": [
         {
-          "plik": "k_potrzebuje_ruchu.jpg",
-          "sciezka": "04_media/eduplaner_przedszkole/assets/symbole/k_potrzebuje_ruchu.jpg"
+          "etykieta_dla_dziecka": "Potrzebuję ruchu",
+          "opis_dla_doroslego": "karta wymiany na trzy minuty ruchu",
+          "symbol": "prosze_ruch",
+          "plik_symbolu": "eduplaner_przedszkole/assets/symbole/k_prosze_ruch.jpg"
         },
         {
-          "plik": "k_poduszka.jpg",
-          "sciezka": "04_media/eduplaner_przedszkole/assets/symbole/k_poduszka.jpg"
+          "etykieta_dla_dziecka": "Moje miejsce ruchu",
+          "opis_dla_doroslego": "znak na podłogę w wyznaczonym rogu sali",
+          "symbol": "gest_chodz",
+          "plik_symbolu": "eduplaner_przedszkole/assets/symbole/k_gest_chodz.jpg"
         },
         {
-          "plik": "k_skakanie.jpg",
-          "sciezka": "04_media/eduplaner_przedszkole/assets/symbole/k_skakanie.jpg"
+          "etykieta_dla_dziecka": "Poduszka",
+          "opis_dla_doroslego": "symbol poduszki sensorycznej na krześle",
+          "symbol": "postawa_stolik",
+          "plik_symbolu": "eduplaner_przedszkole/assets/symbole/k_postawa_stolik.jpg"
+        },
+        {
+          "etykieta_dla_dziecka": "Wracam na miejsce",
+          "opis_dla_doroslego": "symbol powrotu do zadania po dawce ruchu",
+          "symbol": "dzien_zajecia",
+          "plik_symbolu": "eduplaner_przedszkole/assets/symbole/k_dzien_zajecia.jpg"
         }
       ],
-      "etykieta_dla_dziecka": "POTRZEBUJĘ RUCHU",
-      "wstep_dla_doroslego": "Dmuchana poduszka sensoryczna na krzesło (pozwala na mikroruch bez wstawania) oraz karta wymiany na trzy minuty mocnego ruchu w wyznaczonym miejscu sali.",
-      "pomoc_id": "P-SENS-20"
+      "pasek_kolejnosci": [
+        {
+          "etykieta_dla_dziecka": "1 · ruch",
+          "symbol": "prosze_ruch",
+          "plik_symbolu": "eduplaner_przedszkole/assets/symbole/k_prosze_ruch.jpg"
+        },
+        {
+          "etykieta_dla_dziecka": "2 · siadam",
+          "symbol": "postawa_stolik",
+          "plik_symbolu": "eduplaner_przedszkole/assets/symbole/k_postawa_stolik.jpg"
+        },
+        {
+          "etykieta_dla_dziecka": "3 · pracuję",
+          "symbol": "dzien_zajecia",
+          "plik_symbolu": "eduplaner_przedszkole/assets/symbole/k_dzien_zajecia.jpg"
+        }
+      ],
+      "format": "A4 pionowo, karton 200 g"
     },
     {
-      "id": "A-SENS-21",
-      "wskaznik_id": "SENS-21",
-      "kod": "ROW-SZUM",
-      "zmysl": {
-        "klucz": "rownowaga",
-        "nazwa": "Równowaga",
-        "rzymska": "VII",
-        "icf": "b235"
-      },
-      "tytul": "LICZNIK RUCHU — pasek z suwakiem",
-      "format": "A4, druk jednostronny, karton 200 g",
-      "elementy_do_wyciecia": [
-        "pasek licznika 10 × 30 cm z trzema polami i rysunkami sprzętu",
-        "suwak do wycięcia z prowadnicą",
-        "2 karty ścieżek na placu zabaw („dużo ruchu”, „dziś spokojnie”)"
-      ],
-      "symbole": [
+      "wskaznik": "VII.3",
+      "tytul": "Licznik ruchu — pasek z suwakiem i karty ścieżek",
+      "wstep_dla_doroslego": "Wytnij pasek, suwak i dwie karty ścieżek. Ścieżki opisz sprzętem, który naprawdę stoi na waszym placu — rysunek huśtawki, której nie ma, robi z licznika ćwiczenie teoretyczne.",
+      "karty": [
         {
-          "plik": "k_licznik_ruchu.jpg",
-          "sciezka": "04_media/eduplaner_przedszkole/assets/symbole/k_licznik_ruchu.jpg"
+          "etykieta_dla_dziecka": "Mój ruch dzisiaj",
+          "opis_dla_doroslego": "nagłówek paska licznika",
+          "symbol": "sygnal_ciala",
+          "plik_symbolu": "eduplaner_przedszkole/assets/symbole/k_sygnal_ciala.jpg"
         },
         {
-          "plik": "k_plac_zabaw.jpg",
-          "sciezka": "04_media/eduplaner_przedszkole/assets/symbole/k_plac_zabaw.jpg"
+          "etykieta_dla_dziecka": "Dużo ruchu",
+          "opis_dla_doroslego": "ścieżka z huśtawką, drabinkami i bieganiem",
+          "symbol": "prosze_ruch",
+          "plik_symbolu": "eduplaner_przedszkole/assets/symbole/k_prosze_ruch.jpg"
         },
         {
-          "plik": "k_spokojnie.jpg",
-          "sciezka": "04_media/eduplaner_przedszkole/assets/symbole/k_spokojnie.jpg"
+          "etykieta_dla_dziecka": "Dziś spokojnie",
+          "opis_dla_doroslego": "ścieżka z piaskownicą i zabawą przy ziemi",
+          "symbol": "emocja_spokoj",
+          "plik_symbolu": "eduplaner_przedszkole/assets/symbole/k_emocja_spokoj.jpg"
+        },
+        {
+          "etykieta_dla_dziecka": "Zmieniam ścieżkę",
+          "opis_dla_doroslego": "karta zgłoszenia zmiany w trakcie pobytu",
+          "symbol": "sensor_zamiana",
+          "plik_symbolu": "eduplaner_przedszkole/assets/symbole/k_sensor_zamiana.jpg"
         }
       ],
-      "etykieta_dla_dziecka": "MÓJ RUCH DZISIAJ",
-      "wstep_dla_doroslego": "Pasek 10 × 30 cm z suwakiem i trzema polami: „dużo ruchu”, „średnio”, „dziś spokojnie”, przy każdym narysowany sprzęt lub zabawa, którą z niego wybieramy.",
-      "pomoc_id": "P-SENS-21"
+      "pasek_kolejnosci": [
+        {
+          "etykieta_dla_dziecka": "1 · ustawiam",
+          "symbol": "sygnal_ciala",
+          "plik_symbolu": "eduplaner_przedszkole/assets/symbole/k_sygnal_ciala.jpg"
+        },
+        {
+          "etykieta_dla_dziecka": "2 · wybieram",
+          "symbol": "plan_zmiana",
+          "plik_symbolu": "eduplaner_przedszkole/assets/symbole/k_plan_zmiana.jpg"
+        },
+        {
+          "etykieta_dla_dziecka": "3 · bawię się",
+          "symbol": "dzien_zabawa",
+          "plik_symbolu": "eduplaner_przedszkole/assets/symbole/k_dzien_zabawa.jpg"
+        }
+      ],
+      "format": "A4 pionowo, karton 200 g"
     }
   ]
 }

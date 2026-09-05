@@ -3,13 +3,12 @@
 
 Autorka treści: mgr Mirosława Ewa Jurczyszyn, pedagog specjalny, PCTP Koszalin.
 
-To jest JEDYNE źródło treści merytorycznej modułu. Wszystkie pliki JSON, druki
-HTML i manifest nagrań powstają z tego pliku — nie odwrotnie. Poprawka autorki
-wchodzi tutaj i po przebudowie rozchodzi się do wszystkich materiałów.
-
-Struktura odpowiada bankowi KPOF i modułowi ABC/FBA:
-    21 wskaźników  =  7 zmysłów × 3 sektory objawów
-    189 celów      =  21 wskaźników × 3 poziomy wsparcia × 3 wersje wiekowe
+Jedyne źródło treści modułu. Struktura jest ta sama co w module ABC/FBA:
+    21 wskaźników  =  7 zmysłów × 3 sektory objawów   (I.1 … VII.3)
+    189 celów      =  21 wskaźników × 3 wersje wiekowe × 3 poziomy wsparcia
+    63 konspekty   =  21 wskaźników × 3 wersje wiekowe
+                      (jeden konspekt obsługuje trzy poziomy — poziom zmienia
+                       sekcję VI, nie przebieg zajęć)
 """
 
 MODUL = {
@@ -27,132 +26,101 @@ MODUL = {
     "podstawa_prawna": [
         "Rozp. MEN z 14.02.2017 r. w sprawie podstawy programowej wychowania przedszkolnego "
         "(Dz.U. 2017 poz. 356, ze zm.) — fizyczny obszar rozwoju.",
-        "Rozp. MEN z 9.08.2017 r. w sprawie pomocy psychologiczno-pedagogicznej "
-        "(Dz.U. 2017 poz. 1591).",
-        "Rozp. MEN z 9.08.2017 r. w sprawie kształcenia specjalnego (Dz.U. 2017 poz. 1578) — "
-        "zajęcia rewalidacyjne dla dzieci z orzeczeniem.",
+        "Rozp. MEN z 9.08.2017 r. w sprawie pomocy psychologiczno-pedagogicznej (Dz.U. 2017 poz. 1591).",
+        "Rozp. MEN z 9.08.2017 r. w sprawie kształcenia specjalnego (Dz.U. 2017 poz. 1578).",
     ],
-    # Zdanie, którego nie wolno zgubić przy wpinaniu modułu do aplikacji:
     "zasada_modulu": (
-        "Cel z tego banku opisuje STRATEGIĘ SENSORYCZNĄ dziecka — co dziecko ROBI, żeby "
+        "Cel z tego banku opisuje STRATEGIĘ SENSORYCZNĄ dziecka — co dziecko robi, żeby "
         "poradzić sobie z bodźcem — a nie zanik objawu. „Nie będzie zatykał uszu” nie jest "
-        "celem z tego modułu. „Założy słuchawki wygłuszające, zanim hałas w szatni go "
-        "przeciąży” — jest. Każdy wskaźnik niesie pole `strategia_sensoryczna`; cel bez "
-        "niego traci sens terapeutyczny."
+        "celem z tego modułu. „Założy słuchawki, zanim hałas w szatni go przeciąży” — jest. "
+        "Poziom wsparcia zmienia warunki, nie strategię."
     ),
 }
 
 # --- 7 zmysłów z druku obserwacji ------------------------------------------
 ZMYSLY = {
-    "wzrok":         {"rzymska": "I",   "nazwa": "Wzrok",         "icf": "b210",
-                      "opis": "widzenie i przetwarzanie bodźców wzrokowych"},
-    "sluch":         {"rzymska": "II",  "nazwa": "Słuch",         "icf": "b230",
-                      "opis": "słyszenie i przetwarzanie bodźców słuchowych"},
-    "dotyk":         {"rzymska": "III", "nazwa": "Dotyk",         "icf": "b265",
-                      "opis": "czucie powierzchniowe, faktury, bliskość fizyczna"},
-    "smak":          {"rzymska": "IV",  "nazwa": "Smak",          "icf": "b250",
-                      "opis": "smak i konsystencje pokarmów, czucie w obrębie jamy ustnej"},
-    "wech":          {"rzymska": "V",   "nazwa": "Węch",          "icf": "b255",
-                      "opis": "zapachy i reakcje na nie"},
-    "propriocepcja": {"rzymska": "VI",  "nazwa": "Propriocepcja", "icf": "b760",
-                      "opis": "czucie głębokie, napięcie mięśniowe, dozowanie siły"},
-    "rownowaga":     {"rzymska": "VII", "nazwa": "Równowaga",     "icf": "b235",
-                      "opis": "układ przedsionkowy — ruch, wysokość, zmiana pozycji"},
+    "I":   {"klucz": "wzrok", "nazwa": "Wzrok", "icf": "b210", "pp": "PP 1.5·4.1",
+            "opis": "Widzenie i przetwarzanie bodźców wzrokowych: światło, ruch, nadmiar szczegółów.",
+            "zasada_si": "Nie zabieramy osłony za dobre zachowanie i nie zwiększamy bodźca „na próbę”. "
+                         "Dziecko ma mieć stały, dostępny sposób obniżenia dopływu bodźca wzrokowego."},
+    "II":  {"klucz": "sluch", "nazwa": "Słuch", "icf": "b230", "pp": "PP 1.5·4.7",
+            "opis": "Słyszenie i przetwarzanie bodźców słuchowych: hałas, gwar, dźwięki tła.",
+            "zasada_si": "Ochrona słuchu nie izoluje dziecka od grupy — pozwala mu w niej zostać. "
+                         "Zdejmowanie słuchawek „bo już nie jest głośno” odbiera dziecku kontrolę."},
+    "III": {"klucz": "dotyk", "nazwa": "Dotyk", "icf": "b265", "pp": "PP 1.1·1.4",
+            "opis": "Czucie powierzchniowe: faktury, ubranie, bliskość fizyczna, przypadkowy dotyk.",
+            "zasada_si": "Reakcja obronna na dotyk jest odruchem, nie decyzją. Uprzedzamy o każdym "
+                         "dotyku, także przy pomaganiu — dotyk z zaskoczenia uruchamia obronę."},
+    "IV":  {"klucz": "smak", "nazwa": "Smak", "icf": "b250", "pp": "PP 1.1·1.2",
+            "opis": "Smak i konsystencje pokarmów, czucie w obrębie jamy ustnej.",
+            "zasada_si": "Nie namawiamy do jedzenia. Sukcesem jest szczebel drabiny oswajania, "
+                         "nie liczba kęsów — namawianie zawęża repertuar zamiast go poszerzać."},
+    "V":   {"klucz": "wech", "nazwa": "Węch", "icf": "b255", "pp": "PP 1.1·1.5",
+            "opis": "Zapachy i reakcje na nie: stołówka, toaleta, środki czystości, materiały plastyczne.",
+            "zasada_si": "Nie podważamy doznania („przecież nic nie czuć”). Podważone dziecko "
+                         "przestaje sygnalizować i po prostu wychodzi z sali."},
+    "VI":  {"klucz": "propriocepcja", "nazwa": "Propriocepcja", "icf": "b760", "pp": "PP 1.4·1.8",
+            "opis": "Czucie głębokie: napięcie mięśniowe, dozowanie siły, docisk, praca oporowa.",
+            "zasada_si": "Docisku nie odbieramy za karę — potrzeba zostaje ta sama i wraca "
+                         "napieraniem na inne dzieci. Bodziec przenosimy, nie usuwamy."},
+    "VII": {"klucz": "rownowaga", "nazwa": "Równowaga", "icf": "b235", "pp": "PP 1.4·1.8",
+            "opis": "Układ przedsionkowy: ruch, wysokość, zmiana pozycji głowy, huśtanie i wirowanie.",
+            "zasada_si": "Nigdy nie wsadzamy dziecka na sprzęt i nie rozhuśtujemy z zaskoczenia. "
+                         "Wiarygodne „stop” jest jedynym narzędziem, które buduje odwagę."},
 }
 
-# --- 3 sektory objawów (z druku: nadwrażliwość · podwrażliwość · biały szum) -
+# --- 3 sektory objawów = trzy wskaźniki w każdym zmyśle ---------------------
 SEKTORY = {
-    "nadwrazliwosc": {
-        "nazwa": "Nadwrażliwość",
-        "skrot": "NAD",
-        "kierunek": "↑ za dużo bodźca",
-        "opis": "układ nerwowy odbiera bodziec jako zbyt silny — dziecko broni się, ucieka, unika",
-        "cel_ogolny": "obniżyć próg przeciążenia: dać dziecku sposób na osłonę i wycofanie się z bodźca ZANIM nastąpi reakcja obronna",
-    },
-    "podwrazliwosc": {
-        "nazwa": "Podwrażliwość / poszukiwanie bodźców",
-        "skrot": "POD",
+    1: {"klucz": "nadwrazliwosc", "nazwa": "Nadwrażliwość", "skrot": "NAD", "kierunek": "↑ za dużo bodźca",
+        "opis": "Bodziec odbierany jako zbyt silny — dziecko broni się, ucieka, unika."},
+    2: {"klucz": "podwrazliwosc", "nazwa": "Podwrażliwość / poszukiwanie bodźców", "skrot": "POD",
         "kierunek": "↓ za mało bodźca",
-        "opis": "układ nerwowy odbiera bodziec jako zbyt słaby — dziecko dobiera go sobie samo, często w sposób nieakceptowany",
-        "cel_ogolny": "dać bodziec w formie zaplanowanej i bezpiecznej, żeby dziecko nie musiało dobierać go kosztem zabawy, przedmiotów lub innych dzieci",
-    },
-    "bialy_szum": {
-        "nazwa": "Biały szum (reaktywność zmienna)",
-        "skrot": "SZUM",
+        "opis": "Bodziec odbierany jako zbyt słaby — dziecko dobiera go sobie samo, często kosztem zabawy albo innych dzieci."},
+    3: {"klucz": "bialy_szum", "nazwa": "Biały szum (reaktywność zmienna)", "skrot": "SZUM",
         "kierunek": "↕ raz za dużo, raz za mało",
-        "opis": "reakcja na ten sam bodziec zmienia się z dnia na dzień — dziecko nie może przewidzieć własnej reakcji",
-        "cel_ogolny": "nauczyć rozpoznawania i sygnalizowania własnego stanu, a dorosłego — codziennego sprawdzania poziomu, zamiast zakładania stałego profilu",
-    },
+        "opis": "Reakcja na ten sam bodziec zmienia się z dnia na dzień — poziom sprawdza się codziennie."},
 }
 
-# --- 3 poziomy wsparcia (jak w druku FBA-T i IPET) --------------------------
-# Uwaga merytoryczna: na Poziomie I kryterium ZOSTAJE 4 z 5 — rośnie trudność
-# samego zachowania, nie liczba prób. „Za każdym razem” to w przedszkolu cel
-# nie do osiągnięcia.
+# --- 3 poziomy wsparcia -----------------------------------------------------
+# Kryterium na Poziomie I zostaje 4 z 5 — rośnie trudność samego zachowania,
+# nie liczba prób. „Za każdym razem” to w przedszkolu cel nie do osiągnięcia.
 POZIOMY = {
-    "III": {
-        "nazwa": "Poziom III — wsparcie intensywne",
-        "wsparcie": "z pełnym wsparciem dorosłego (dorosły obok przez cały czas, prowadzenie ręka w rękę, wspólne wykonanie)",
-        "podpowiedz": "fizyczna i słowna",
-        "rola_doroslego": "dorosły rozpoznaje sygnał przeciążenia za dziecko, zapowiada i wykonuje strategię razem z nim",
-        "kolejnosc": 1,
-    },
-    "II": {
-        "nazwa": "Poziom II — wsparcie umiarkowane",
-        "wsparcie": "po podpowiedzi słownej i pokazaniu karty-symbolu, z dorosłym w pobliżu",
-        "podpowiedz": "słowna i obrazkowa",
-        "rola_doroslego": "dorosły podaje kartę i nazywa stan, dziecko wykonuje strategię samo",
-        "kolejnosc": 2,
-    },
-    "I": {
-        "nazwa": "Poziom I — wsparcie podstawowe",
-        "wsparcie": "samodzielnie, po jednym przypomnieniu wizualnym (karta w kąciku, plan dnia)",
-        "podpowiedz": "wizualna",
-        "rola_doroslego": "dorosły tylko obserwuje i odnotowuje; strategię inicjuje dziecko",
-        "kolejnosc": 3,
-    },
+    "p3": {"nazwa": "Poziom III", "rzym": "III", "kryterium": "3 z 5", "horyzont": "4 tygodni",
+           "warunki": "dorosły obok, pomoc podana do ręki, strategia wykonywana razem",
+           "kolor": "czerwona"},
+    "p2": {"nazwa": "Poziom II", "rzym": "II", "kryterium": "4 z 5", "horyzont": "8 tygodni",
+           "warunki": "pomoc w zasięgu, dziecko sięga po nią samo po sygnale dorosłego",
+           "kolor": "żółta"},
+    "p1": {"nazwa": "Poziom I", "rzym": "I", "kryterium": "4 z 5", "horyzont": "12 tygodni",
+           "warunki": "dziecko rozpoznaje potrzebę samo, sytuacja jest trudniejsza",
+           "kolor": "zielona"},
 }
 
 # --- 3 wersje wiekowe -------------------------------------------------------
-WIEK = {
-    "3-4": {"nazwa": "3–4 lata", "opis": "grupa młodsza — polecenie 2–3 słowa, symbol zawsze przy słowie, czas zadania do 3 minut"},
-    "5":   {"nazwa": "5 lat",    "opis": "grupa średnia — polecenie jednozdaniowe, dziecko nazywa stan słowem, czas zadania 5–7 minut"},
-    "6":   {"nazwa": "6 lat",    "opis": "grupa zerówkowa — dziecko planuje strategię z wyprzedzeniem, czas zadania 8–10 minut"},
+WERSJE = {
+    "A": {"wiek": "3–4 lata", "czas": "10 min", "forma": "para z nauczycielem", "cykl": "4× w tygodniu",
+          "jezyk": "polecenie 2–3 słowa, symbol zawsze przy słowie"},
+    "B": {"wiek": "5 lat", "czas": "15 min", "forma": "mała grupa (3–4 dzieci)", "cykl": "3× w tygodniu",
+          "jezyk": "polecenie jednozdaniowe, dziecko nazywa swój stan słowem"},
+    "C": {"wiek": "6 lat", "czas": "20 min", "forma": "mała grupa (4–6 dzieci)", "cykl": "3× w tygodniu",
+          "jezyk": "dziecko planuje strategię z wyprzedzeniem i mówi o niej"},
 }
 
-# --- progi: kryterium i horyzont z sumy zmysłu (0–24) -----------------------
-# Suma zmysłu z druku obserwacji przelicza się na natężenie 0–10 (× 10/24).
-# Kryterium i horyzont NIE są stałe — biorą się z pasma, w którym wypadł zmysł.
+# --- progi druku SENS-C: kryterium i horyzont z sumy punktów zmysłu (0–24) ---
 PROGI = [
-    {
-        "zakres_sumy": [0, 5], "natezenie": "0–2",
-        "pasmo": "modulacja prawidłowa — zasób",
-        "decyzja": "cel podtrzymujący; obserwacja bez interwencji",
-        "proba": "3 z 5",
-        "horyzont": {"mianownik": "12 tygodni", "dopelniacz": "12 tygodni", "miejscownik": "12 tygodniach"},
-    },
-    {
-        "zakres_sumy": [6, 12], "natezenie": "3–5",
-        "pasmo": "modulacja częściowo zaburzona — monitorowanie",
-        "decyzja": "dieta sensoryczna wpisana do planu dnia; weryfikacja w połowie okresu",
-        "proba": "4 z 5",
-        "horyzont": {"mianownik": "8 tygodni", "dopelniacz": "8 tygodni", "miejscownik": "8 tygodniach"},
-    },
-    {
-        "zakres_sumy": [13, 24], "natezenie": "6–10",
-        "pasmo": "duża nad- lub podwrażliwość — priorytet diety sensorycznej",
-        "decyzja": "dieta sensoryczna codziennie, konsultacja terapeuty SI, krótki cykl weryfikacji",
-        "proba": "4 z 5",
-        "horyzont": {"mianownik": "4 tygodnie", "dopelniacz": "4 tygodni", "miejscownik": "4 tygodniach"},
-    },
+    {"od_punktow": 13, "ocena": "Priorytet", "kryterium": "4 z 5",
+     "horyzont": {"mianownik": "4 tygodnie", "dopelniacz": "4 tygodni", "miejscownik": "4 tygodniach"},
+     "dlaczego": "duża nad- lub podwrażliwość — priorytet diety sensorycznej, konsultacja terapeuty SI"},
+    {"od_punktow": 6, "ocena": "Do monitorowania", "kryterium": "4 z 5",
+     "horyzont": {"mianownik": "8 tygodni", "dopelniacz": "8 tygodni", "miejscownik": "8 tygodniach"},
+     "dlaczego": "modulacja częściowo zaburzona — dieta sensoryczna w planie dnia"},
+    {"od_punktow": 0, "ocena": "Zasób", "kryterium": "3 z 5",
+     "horyzont": {"mianownik": "12 tygodni", "dopelniacz": "12 tygodni", "miejscownik": "12 tygodniach"},
+     "dlaczego": "modulacja prawidłowa — cel podtrzymujący, obserwacja bez interwencji"},
 ]
+PRZELICZNIK = "natężenie (0–10) = zaokrąglone (suma zmysłu × 10 / 24)"
 
-TORY_ZAJEC = [
-    "rewalidacja",
-    "pomoc psychologiczno-pedagogiczna",
-    "kształcenie specjalne (IPET)",
-]
-
+TORY_ZAJEC = ["rewalidacja", "pomoc psychologiczno-pedagogiczna", "kształcenie specjalne (IPET)"]
 RODZAJE_ZAJEC = [
     "zajęcia o charakterze terapeutycznym (terapia SI)",
     "zajęcia rewalidacyjne",
@@ -164,1789 +132,3798 @@ RODZAJE_ZAJEC = [
 
 
 # ---------------------------------------------------------------------------
-# 21 WSKAŹNIKÓW = 7 zmysłów × 3 sektory objawów
+# 21 WSKAŹNIKÓW · 7 zmysłów × 3 sektory objawów
 # ---------------------------------------------------------------------------
-# `strategia_sensoryczna` to serce rekordu — to ona wchodzi w cel SMART.
-# `czynnosc` różni się wersją wiekową, `instrukcja_slowna` i `polecenia`
-# — poziomem wsparcia. Teksty z kluczy `*_dla_dziecka` mówi się DZIECKU
-# (krótko, bez trudnych słów) i to one są nagrywane głosem autorki.
+# `strategia` jest odpowiednikiem `zachowanie_zastepcze` z modułu ABC/FBA:
+# mówi, CO DZIECKO ROBI, gdy bodziec jest za silny albo za słaby. Cel bez niej
+# opisuje zanik objawu — i wtedy nie jest celem z tego banku.
+#
+# `cele` to 9 krótkich zdań na wskaźnik: trzy wersje wiekowe × trzy poziomy
+# wsparcia. Wchodzą w komórki tabeli druku SENS-T i przepisuje się je do IPET-u
+# w tym brzmieniu, dokładając kryterium i horyzont z nagłówka kolumny.
+# `symbol: None` w karcie = pole celowo puste, do wklejenia własnego symbolu.
 
 WSKAZNIKI = [
 
-# ===== I · WZROK (b210) ====================================================
+# ═══ I · WZROK ═════════════════════════════════════════════════════════════
 {
-    "id": "SENS-01", "kod": "WZR-NAD", "zmysl": "wzrok", "sektor": "nadwrazliwosc",
-    "nazwa": "Osłona wzrokowa przy jasnym świetle i nadmiarze bodźców",
-    "objawy": [
-        "Mruży oczy, osłania je lub odwraca wzrok przy jasnym świetle, słońcu, migoczących ekranach",
-        "Męczy się przy pracy wzrokowej (obrazek, książeczka, układanka) szybciej niż rówieśnicy",
-        "Przeszkadza mu ruch i nadmiar bodźców wzrokowych (dekoracje, tłum, wirujące zabawki)",
-    ],
-    "opis_dla_doroslego": (
-        "Dziecko odbiera światło i nadmiar szczegółów jako bodziec za silny. Pracę wzrokową "
-        "przerywa nie z niechęci, lecz z przeciążenia — objawem jest mrużenie oczu, "
-        "pocieranie ich, odwracanie głowy i narastające rozdrażnienie."
-    ),
-    "strategia_sensoryczna": (
-        "Dziecko samo sięga po osłonę wzrokową (parawan na stoliku, daszek, miejsce tyłem do okna) "
-        "albo przechodzi do kącika o małej liczbie bodźców — ZANIM zacznie mrużyć oczy i wycofywać się z zadania."
-    ),
-    "sygnal_dziecka": "karta „ZA JASNO” podana dorosłemu lub położona na blacie",
-    "kontekst": "przy stoliku i w zabawie w sali, w której świeci mocne światło lub wisi dużo dekoracji",
-    "czynnosc": {
-        "3-4": "postawi parawan na stoliku albo przesiądzie się na miejsce tyłem do okna i wróci do układanki",
-        "5":   "poda kartę „ZA JASNO”, wybierze osłonę (parawan albo daszek) i dokończy zadanie wzrokowe",
-        "6":   "przed zadaniem wzrokowym samo przygotuje stanowisko o małej liczbie bodźców — parawan, jedna pomoc na blacie, miejsce z dala od okna",
-    },
-    "wskaznik_obserwacji": "liczba sytuacji, w których dziecko użyło osłony wzrokowej zamiast przerwać zadanie",
-    "dieta_sensoryczna": [
-        "krótkie zadania wzrokowe (3–7 minut) przeplatane przerwą z zamkniętymi oczami lub patrzeniem w dal",
-        "„kącik małych bodźców” — ściana bez dekoracji, jedna pomoc na blacie",
-        "przyciemnienie części sali w porze zajęć przy stoliku",
-    ],
-    "dostosowania": [
-        "miejsce tyłem do okna i z dala od migoczących świateł oraz wirujących zabawek",
-        "większe, wyraźne obrazki z dużym odstępem między elementami",
-        "usunięcie dekoracji z pola pracy dziecka (ściana i blat)",
-    ],
-    "pomoc": {
-        "nazwa": "Parawan stolikowy „Spokojne oczy” z kartą ZA JASNO",
-        "opis_dla_doroslego": (
-            "Składany parawan z szarego kartonu (3 pola po 25 × 30 cm) ustawiany na blacie, "
-            "wraz z kartą-symbolem „ZA JASNO” w kolorze pomarańczowym. Parawan odcina boczne bodźce "
-            "wzrokowe; karta daje dziecku sposób, żeby o osłonę poprosić."
-        ),
-        "trzy_kroki_uzycia": [
-            "Postaw parawan po lewej stronie blatu i połóż kartę „ZA JASNO” w zasięgu ręki dziecka.",
-            "Przy pierwszym mrużeniu oczu pokaż kartę i powiedz krótko, co robimy — nie czekaj na wycofanie.",
-            "Po zadaniu złóż parawan razem z dzieckiem i odnotuj, czy sygnał wyszedł od dziecka.",
-        ],
-        "wskazowka_dla_doroslego": (
-            "Nie zabieraj parawanu za wcześnie „bo już nie potrzebuje”. Osłona ma zostać dostępna także "
-            "wtedy, gdy dziecko przez kilka dni z niej nie korzysta — to ona daje poczucie kontroli."
-        ),
-        "etykieta_dla_dziecka": "ZA JASNO — chowam oczy",
-        "polecenia": {
-            "III": "Za jasno. Stawiamy parawan. Robimy to razem.",
-            "II":  "Popatrz na kartę. Za jasno? Postaw parawan i wracaj do układanki.",
-            "I":   "Zanim zaczniesz, ustaw sobie miejsce dla oczu.",
-        },
-    },
-    "instrukcja_slowna": {
-        "III": "Widzę, że mrużysz oczy. Za jasno. Stawiam parawan i siadam obok — robimy to razem.",
-        "II":  "Podaję ci kartę „ZA JASNO”. Wybierz: parawan czy daszek? Ja jestem obok.",
-        "I":   "Karta leży w kąciku. Przygotuj sobie miejsce, zanim zaczniesz.",
-    },
-    "konspekt": {
-        "temat": "Spokojne oczy — buduję sobie miejsce do patrzenia",
-        "wprowadzenie": "zabawa „Latarka i cień” — dziecko obserwuje, jak zmienia się obraz, gdy zasłonimy źródło światła",
-        "glowna": "budowanie własnego stanowiska: parawan, jedna pomoc na blacie, wybór miejsca w sali; potem krótkie zadanie wzrokowe (układanka 6–12 elementów) przy tym stanowisku",
-        "zakonczenie": "„Pokaż, gdzie twoim oczom było dobrze” — dziecko wskazuje wybrane miejsce i dostaje kartę do kącika",
-        "metody": ["zabawa badawcza", "pokaz z objaśnieniem", "ćwiczenia praktyczne"],
-        "formy": "indywidualna, w parze z nauczycielem",
-        "ewaluacja_uwaga": "liczy się, czy dziecko samo sięgnęło po osłonę — nie to, czy dokończyło układankę",
-    },
-    "arkusz": {
-        "tytul": "ZA JASNO — karty i szablon parawanu",
-        "elementy": [
-            "karta „ZA JASNO” (9 × 9 cm) — 2 sztuki: do kącika i do planu dnia",
-            "karta „MOJE MIEJSCE” z rysunkiem stolika z parawanem",
-            "szablon parawanu 3 × (25 × 30 cm) z linią zagięcia",
-        ],
-        "symbole": ["k_za_jasno.jpg", "k_moje_miejsce.jpg", "k_postawa_stolik.jpg"],
-    },
-    "ryzyko": "przy skargach na ból oczu, częstym mrużeniu jednego oka lub przybliżaniu twarzy do kartki — skierowanie do okulisty przed pracą sensoryczną",
+ "nr": "I.1", "zmysl": "I", "sektor": 1,
+ "wskaznik": "Dziecko mruży oczy, osłania je lub odwraca wzrok przy jasnym świetle i nadmiarze bodźców wzrokowych.",
+ "objawy": [
+   "Mruży oczy, osłania je lub odwraca wzrok przy jasnym świetle, słońcu, migoczących ekranach",
+   "Męczy się przy pracy wzrokowej (obrazek, książeczka, układanka) szybciej niż rówieśnicy",
+   "Przeszkadza mu ruch i nadmiar bodźców wzrokowych (dekoracje, tłum, wirujące zabawki)",
+ ],
+ "strategia": "osłona wzrokowa na własny sygnał",
+ "opis_strategii": "Dziecko sięga po osłonę wzrokową albo przechodzi na miejsce o mniejszej liczbie bodźców, zanim zacznie mrużyć oczy i wycofywać się z zadania.",
+ "cele": {
+   "A": {"p3": "Usiądzie za parawanem postawionym przez nauczyciela i dokończy układankę",
+         "p2": "Postawi parawan na stoliku po pokazaniu karty „za jasno”",
+         "p1": "Przesiądzie się na miejsce tyłem do okna, gdy zrobi się za jasno"},
+   "B": {"p3": "Poda kartę „za jasno” i skorzysta z osłony podanej przez nauczyciela",
+         "p2": "Poda kartę „za jasno”, wybierze osłonę z półki i wróci do zadania",
+         "p1": "Powie, że jest za jasno, i samo ustawi sobie osłonę przed zadaniem"},
+   "C": {"p3": "Wskaże na karcie, co mu dziś przeszkadza, i ustawi stanowisko razem z nauczycielem",
+         "p2": "Przygotuje stanowisko o małej liczbie bodźców po przypomnieniu kartą",
+         "p1": "Przygotuje stanowisko przed zadaniem i powie, dlaczego wybrał to miejsce"},
+ },
+ "konspekt": {
+   "tytul": "Spokojne oczy",
+   "rodzaj_zajec": "Zajęcia o charakterze terapeutycznym (terapia SI) · dieta sensoryczna wzrokowa",
+   "metody": [
+     "ograniczanie pola widzenia zamiast ograniczania zadania",
+     "podpowiedź wzrokowa (karta) zamiast ponaglania słownego",
+     "próba porównawcza: to samo zadanie w dwóch miejscach sali",
+     "przekazanie dziecku decyzji o miejscu pracy",
+     "wzmocnienie za sięgnięcie po osłonę, nie za wynik zadania",
+   ],
+   "wskazowka": "Nie zabieraj parawanu „bo już nie potrzebuje”. Osłona ma zostać dostępna także w dniach, gdy dziecko z niej nie korzysta — to ona daje poczucie kontroli, a bez niej dziecko wraca do przerywania zadania.",
+   "modyfikacje": {
+     "p3": "nauczyciel stawia parawan i siada obok; dziecko nie musi jeszcze rozpoznawać sygnału",
+     "p2": "karta „za jasno” leży na blacie, parawan stoi złożony w zasięgu ręki dziecka",
+     "p1": "zadanie w jaśniejszej części sali, bez parawanu na stole — dziecko wybiera miejsce samo",
+   },
+   "warianty": {
+     "A": {"podtytul": "Osłona wzrokowa podana do ręki, przy stoliku z jedną pomocą",
+           "cel_ter": "Dziecko dokończy zadanie wzrokowe za parawanem, bez odchodzenia od stolika i bez pocierania oczu.",
+           "smart": {"S": "Siedzi za parawanem i układa — to widać, nie trzeba oceniać chęci.",
+                     "M": "Kryterium z klikniętego poziomu wsparcia — 3 z 5 albo 4 z 5 sytuacji.",
+                     "A": "Na blacie leży jedna pomoc, nie trzy — mniej bodźców niż zwykle.",
+                     "R": "Męczliwość wzrokowa kończy zadanie, zanim dziecko zdąży je zacząć rozumieć.",
+                     "T": "Ewaluacja w horyzoncie poziomu: 4, 8 albo 12 tygodni."},
+           "kryterium_obs": "Arkusz obserwacji — 5 zadań wzrokowych w tygodniu, notujemy przerwanie i sięgnięcie po osłonę.",
+           "pomoce": [
+             "parawan stolikowy z szarego kartonu, trzy pola po 25 × 30 cm",
+             "karta „za jasno” w zasięgu ręki dziecka przez całe zajęcia",
+             "układanka 6–9 elementów, duże pola, wyraźny kontur",
+             "latarka i kawałek tkaniny do zabawy wprowadzającej",
+             "jedno miejsce w sali tyłem do okna, przygotowane przed zajęciami",
+           ],
+           "przebieg": [
+             ["N — zapala latarkę i przykrywa ją tkaniną, nazywa: „mocno” i „delikatnie”.",
+              "D — patrzy na oba światła i pokazuje ręką, które jest przyjemniejsze."],
+             ["N — stawia parawan na stoliku i kładzie za nim jedną układankę.",
+              "D — siada za parawanem, widzi tylko zadanie przed sobą."],
+             ["N — kładzie kartę „za jasno” przy dziecku i mówi, do czego służy.",
+              "D — dotyka karty i wraca wzrokiem do układanki."],
+             ["N — milczy przez czas układania, nie komentuje tempa.",
+              "D — układa do końca, bez odchodzenia od stolika."],
+             ["N — nazywa to, co się udało: „skończyłeś, oczy nie bolały”.",
+              "D — pokazuje miejsce, w którym chce pracować następnym razem."],
+           ]},
+     "B": {"podtytul": "Karta „za jasno” i wybór osłony z półki",
+           "cel_ter": "Dziecko zgłosi kartą, że jest za jasno, wybierze osłonę i wróci do przerwanego zadania w ciągu minuty.",
+           "smart": {"S": "Podaje kartę i bierze osłonę — dwa ruchy, obydwa widoczne.",
+                     "M": "Kryterium z klikniętego poziomu wsparcia; liczymy sytuacje, nie minuty.",
+                     "A": "Osłony leżą na jednej półce, zawsze tej samej — wybór jest z trzech rzeczy.",
+                     "R": "Dziecko, które umie zgłosić przeciążenie, nie musi z zadania uciekać.",
+                     "T": "Ewaluacja w horyzoncie poziomu: 4, 8 albo 12 tygodni."},
+           "kryterium_obs": "Arkusz obserwacji — 5 zadań wzrokowych w tygodniu, notujemy moment zgłoszenia.",
+           "pomoce": [
+             "trzy osłony do wyboru na stałej półce: parawan, daszek, przepaska na oczy do przerwy",
+             "karta „za jasno” u każdego dziecka w grupie",
+             "dwa stanowiska: jasne przy oknie i przyciemnione z parawanem",
+             "obrazek wyszukiwankowy z dużym kontrastem",
+             "klepsydra dwuminutowa na przerwę wzrokową",
+           ],
+           "przebieg": [
+             ["N — rozdaje karty „za jasno” i pokazuje trzy osłony z półki.",
+              "D — nazywa każdą osłonę i mówi, co ona robi."],
+             ["N — daje to samo zadanie najpierw przy oknie, potem przy parawanie.",
+              "D — wykonuje obie próby i mówi, gdzie było łatwiej."],
+             ["N — prosi, żeby dziecko podało kartę, gdy poczuje, że za jasno.",
+              "D — podaje kartę i idzie po wybraną osłonę."],
+             ["N — odmierza klepsydrą dwie minuty przerwy wzrokowej.",
+              "D — odpoczywa i wraca do zadania po klepsydrze."],
+             ["N — pyta, którą osłonę dziecko chce mieć na jutro.",
+              "D — wybiera osłonę i odkłada ją na swoją półkę."],
+           ]},
+     "C": {"podtytul": "Przygotowanie własnego stanowiska przed zadaniem",
+           "cel_ter": "Dziecko przygotuje stanowisko o małej liczbie bodźców przed zadaniem i uzasadni swój wybór jednym zdaniem.",
+           "smart": {"S": "Ustawia parawan, zdejmuje zbędne pomoce z blatu, wybiera miejsce.",
+                     "M": "Kryterium z klikniętego poziomu wsparcia — liczymy zadania, przed którymi to zrobiło.",
+                     "A": "Wszystko, czego potrzebuje, stoi w sali — nie prosi o nic dorosłego.",
+                     "R": "Planowanie z wyprzedzeniem zastępuje ratowanie się w trakcie zadania.",
+                     "T": "Ewaluacja w horyzoncie poziomu: 4, 8 albo 12 tygodni."},
+           "kryterium_obs": "Arkusz obserwacji — 5 zadań wzrokowych w tygodniu, notujemy przygotowanie stanowiska przed startem.",
+           "pomoce": [
+             "parawan, daszek i podkładka bez wzoru — do wyboru przez dziecko",
+             "karta „moje miejsce” z rysunkiem gotowego stanowiska",
+             "zadanie graficzne z drobnymi elementami (labirynt, szukanie różnic)",
+             "dwa stanowiska w sali różniące się liczbą bodźców",
+             "kartka i kredka do zapisania własnego planu miejsca",
+           ],
+           "przebieg": [
+             ["N — pokazuje dwa stanowiska i pyta, czym się różnią.",
+              "D — nazywa różnicę: dekoracje, światło, liczba pomocy."],
+             ["N — prosi o przygotowanie własnego stanowiska do trudniejszego zadania.",
+              "D — ustawia parawan, zdejmuje zbędne rzeczy z blatu, wybiera miejsce."],
+             ["N — daje zadanie graficzne i odchodzi do innego dziecka.",
+              "D — pracuje samodzielnie, korzystając z przygotowanego miejsca."],
+             ["N — pyta, co pomogło i co jeszcze by zmieniło.",
+              "D — mówi jednym zdaniem, dlaczego wybrało to miejsce."],
+             ["N — zapisuje wybór dziecka na karcie „moje miejsce”.",
+              "D — wiesza kartę tam, gdzie będzie pracować jutro."],
+           ]},
+   },
+ },
+ "pomoc": {
+   "nazwa": "Parawan stolikowy „Spokojne oczy” z kartą ZA JASNO",
+   "co_przygotowac": [
+     "trzy pola szarego kartonu 25 × 30 cm, sklejone w parawan",
+     "karta „za jasno” 9 × 9 cm — jedna dla dziecka, jedna do planu dnia",
+     "miejsce w sali tyłem do okna, bez dekoracji na ścianie",
+     "jedna pomoc na blacie — resztę odsuwamy poza pole widzenia",
+     "daszek albo przepaska na oczy jako druga osłona do wyboru",
+   ],
+   "trzy_kroki_uzycia": [
+     "Postaw parawan po lewej stronie blatu i połóż kartę „za jasno” w zasięgu ręki dziecka.",
+     "Przy pierwszym mrużeniu oczu pokaż kartę i nazwij, co robimy — nie czekaj na wycofanie.",
+     "Po zadaniu złóż parawan razem z dzieckiem i zapisz, czy sygnał wyszedł od niego.",
+   ],
+   "wskazowka_dla_doroslego": "Parawan nie jest nagrodą ani przywilejem. Wydawany „za dobre siedzenie” przestaje być narzędziem dziecka, a staje się narzędziem dorosłego — i przestaje działać.",
+   "opis_zdjecia": "a low grey cardboard screen standing on a nursery table, one puzzle inside it, a small orange picture card lying within a child's reach",
+   "polecenia": {
+     "A": "Za jasno. Stawiamy parawan. Teraz układamy.",
+     "B": "Popatrz na kartę. Jak jest za jasno, weź osłonę z półki i wracaj do zadania.",
+     "C": "Zanim zaczniesz, ustaw sobie miejsce dla oczu. Powiedz mi, które wybierasz.",
+   },
+ },
+ "arkusz": {
+   "tytul": "Karty do zajęć „Spokojne oczy”",
+   "wstep_dla_doroslego": "Wytnij karty wzdłuż linii i naklej na karton. W puste pola wklej symbole z biblioteki EduPlaner — te same, których dziecko używa na tablicy AAC i w planie dnia.",
+   "karty": [
+     {"etykieta": "Za jasno", "opis": "karta zgłoszenia — leży przy dziecku przez całe zajęcia", "symbol": "prosze_cisza"},
+     {"etykieta": "Moje miejsce", "opis": "symbol stanowiska z parawanem, do planu dnia", "symbol": "postawa_stolik"},
+     {"etykieta": "Odpoczynek oczu", "opis": "symbol dwuminutowej przerwy wzrokowej", "symbol": "prosze_odpoczynek"},
+     {"etykieta": "Układam", "opis": "symbol zadania wzrokowego przy stoliku", "symbol": "zabawa_ukladanka"},
+   ],
+   "pasek_kolejnosci": [
+     {"etykieta": "1 · ustawiam", "symbol": "postawa_stolik"},
+     {"etykieta": "2 · układam", "symbol": "zabawa_ukladanka"},
+     {"etykieta": "3 · odpoczywam", "symbol": "prosze_odpoczynek"},
+   ],
+ },
+ "dieta_sensoryczna": [
+   "zadania wzrokowe po 3–7 minut, przeplatane patrzeniem w dal albo przerwą z zamkniętymi oczami",
+   "kącik małych bodźców: ściana bez dekoracji, jedna pomoc na blacie",
+   "przyciemnienie części sali w porze zajęć przy stolikach",
+ ],
+ "dostosowania": [
+   "miejsce tyłem do okna, z dala od migoczących świateł i wirujących zabawek",
+   "większe, wyraźne obrazki z dużym odstępem między elementami",
+   "usunięcie dekoracji z pola pracy dziecka — ze ściany i z blatu",
+ ],
+ "ryzyko": "Skargi na ból oczu, mrużenie jednego oka i przybliżanie twarzy do kartki wymagają kontroli okulistycznej przed pracą sensoryczną.",
+ "obserwacja": {
+   "cel": "Dziecko skorzysta z osłony wzrokowej albo zmieni miejsce, zanim przerwie zadanie, w {proba} sytuacji, w ciągu {horyzont_dopelniacz}.",
+   "co_obserwowac": "Arkusz obserwacji — kolumna: zadanie wzrokowe przy stoliku. Notujemy przerwanie zadania i sięgnięcie po osłonę.",
+   "ile_sytuacji": "5 zadań wzrokowych w tygodniu",
+   "smart": {"S": "Sięga po osłonę albo zmienia miejsce — czynność widoczna dla obserwatora.",
+             "M": "{proba} sytuacji z pięciu obserwowanych w tygodniu.",
+             "A": "Osłona stoi na stałym miejscu i jest dostępna bez pytania dorosłego.",
+             "R": "Przeciążenie wzrokowe kończy zadanie wcześniej niż trudność zadania.",
+             "T": "Weryfikacja po {horyzont_miejscownik}, według pasma punktacji zmysłu."},
+ },
 },
 {
-    "id": "SENS-02", "kod": "WZR-POD", "zmysl": "wzrok", "sektor": "podwrazliwosc",
-    "nazwa": "Zaplanowany bodziec wzrokowy zamiast wpatrywania się",
-    "objawy": [
-        "Wpatruje się w źródła światła, wirujące lub błyszczące przedmioty",
-        "Przysuwa przedmioty blisko oczu, ogląda je pod kątem",
-        "Gubi miejsce na obrazku, pomija szczegóły, „nie widzi” rzeczy przed sobą",
-    ],
-    "opis_dla_doroslego": (
-        "Dziecko dobiera sobie bodziec wzrokowy samo, bo zwykły obraz jest dla niego za słaby — "
-        "stąd wpatrywanie się w światło i oglądanie przedmiotów pod kątem. Skutkiem ubocznym jest "
-        "gubienie się na obrazku i pomijanie szczegółów w zadaniu."
-    ),
-    "strategia_sensoryczna": (
-        "Dziecko korzysta z zaplanowanego, mocnego bodźca wzrokowego (butelka sensoryczna, tuba z brokatem, "
-        "lampka światłowodowa) w wyznaczonym momencie dnia, a w zadaniu prowadzi wzrok palcem lub okienkiem "
-        "czytelniczym — zamiast szukać bodźca w suficie i lampach."
-    ),
-    "sygnal_dziecka": "karta „POTRZEBUJĘ ŚWIATEŁEK” wymieniana na 2 minuty przy butelce sensorycznej",
-    "kontekst": "podczas zadań przy stoliku i w czasie zabawy swobodnej w sali",
-    "czynnosc": {
-        "3-4": "weźmie butelkę sensoryczną z półki, popatrzy na nią przez chwilę i odłoży ją, wracając do zabawy",
-        "5":   "wymieni kartę na 2 minuty przy butelce sensorycznej, a w zadaniu poprowadzi wzrok palcem po obrazku",
-        "6":   "samo zaplanuje moment przerwy wzrokowej przed dłuższym zadaniem i użyje okienka czytelniczego, żeby nie gubić miejsca",
-    },
-    "wskaznik_obserwacji": "liczba zadań, w których dziecko użyło prowadzenia wzroku (palec, okienko) i nie zgubiło miejsca",
-    "dieta_sensoryczna": [
-        "butelka sensoryczna lub tuba z brokatem dostępna na półce — 2 minuty na sygnał",
-        "zabawy „szukaj i pokaż” z kontrastowym obrazkiem (czarno-biały, duże pola)",
-        "latarka w ciemnym namiocie — kontrolowany, mocny bodziec zamiast wpatrywania się w lampę",
-    ],
-    "dostosowania": [
-        "okienko czytelnicze lub kartka zasłaniająca resztę obrazka",
-        "obrazki z wyraźnym konturem i jednym elementem na polu",
-        "przypomnienie palcem: „prowadź od lewej”",
-    ],
-    "pomoc": {
-        "nazwa": "Butelka sensoryczna + okienko czytelnicze",
-        "opis_dla_doroslego": (
-            "Przezroczysta butelka z gliceryną i brokatem (bodziec na sygnał) oraz kartonowe okienko "
-            "6 × 3 cm do prowadzenia wzroku po obrazku. Dwie pomoce, jedna zasada: mocny bodziec ma "
-            "swoje miejsce i swój czas, a zadanie ma swoje okienko."
-        ),
-        "trzy_kroki_uzycia": [
-            "Postaw butelkę na stałej półce — zawsze tej samej — i pokaż dziecku, gdzie stoi.",
-            "W zadaniu połóż okienko na pierwszym elemencie i przesuwaj je razem z dzieckiem od lewej do prawej.",
-            "Po zadaniu odnotuj, czy dziecko sięgnęło po butelkę na sygnał, czy wpatrywało się w lampę.",
-        ],
-        "wskazowka_dla_doroslego": (
-            "Bodźca nie odbieramy — przenosimy go. Zabranie butelki „za karę” cofa cały plan: dziecko "
-            "wróci do wpatrywania się w światło, bo potrzeba została ta sama."
-        ),
-        "etykieta_dla_dziecka": "ŚWIATEŁKA — patrzę tutaj",
-        "polecenia": {
-            "III": "Światełka są tutaj. Patrzymy razem. Liczę do dwudziestu.",
-            "II":  "Chcesz światełka? Podaj kartę i idź do półki.",
-            "I":   "Weź okienko. Prowadź od lewej strony.",
-        },
-    },
-    "instrukcja_slowna": {
-        "III": "Widzę, że szukasz światła. Idziemy razem po butelkę, patrzymy chwilę i wracamy do stolika.",
-        "II":  "Masz kartę „ŚWIATEŁKA”. Dwie minuty przy półce, potem wracasz do zadania.",
-        "I":   "Zaplanuj sobie przerwę na światełka — powiedz, kiedy ją zrobisz.",
-    },
-    "konspekt": {
-        "temat": "Światełka mają swoje miejsce — wzrok, który prowadzi",
-        "wprowadzenie": "zabawa z butelką sensoryczną: „co opada najwolniej?” — wspólne patrzenie i nazywanie",
-        "glowna": "ćwiczenie prowadzenia wzroku: okienko czytelnicze na ścieżce obrazkowej (8 pól), potem wyszukiwanie 3 ukrytych elementów na obrazku kontrastowym",
-        "zakonczenie": "ustalenie z dzieckiem, gdzie w sali stoi butelka i kiedy można po nią sięgnąć",
-        "metody": ["ćwiczenia praktyczne", "zabawa dydaktyczna", "instruktaż"],
-        "formy": "indywidualna lub w parze",
-        "ewaluacja_uwaga": "cel dotyczy sięgnięcia po zaplanowany bodziec, a nie liczby znalezionych elementów",
-    },
-    "arkusz": {
-        "tytul": "ŚWIATEŁKA — karta wymiany i okienko czytelnicze",
-        "elementy": [
-            "karta „ŚWIATEŁKA” (9 × 9 cm) — do wymiany na 2 minuty przy półce",
-            "okienko czytelnicze 6 × 3 cm — szablon do wycięcia, 2 sztuki",
-            "ścieżka obrazkowa 8 pól do prowadzenia wzroku",
-        ],
-        "symbole": ["k_swiatelka.jpg", "k_okienko.jpg", "k_patrz_tu.jpg"],
-    },
-    "ryzyko": "przysuwanie przedmiotów do oczu i pomijanie części obrazka wymaga wykluczenia wady wzroku — kontrola okulistyczna przed interwencją sensoryczną",
+ "nr": "I.2", "zmysl": "I", "sektor": 2,
+ "wskaznik": "Dziecko wpatruje się w źródła światła i przedmioty błyszczące, a na obrazku gubi miejsce i pomija szczegóły.",
+ "objawy": [
+   "Wpatruje się w źródła światła, wirujące lub błyszczące przedmioty",
+   "Przysuwa przedmioty blisko oczu, ogląda je pod kątem",
+   "Gubi miejsce na obrazku, pomija szczegóły, „nie widzi” rzeczy przed sobą",
+ ],
+ "strategia": "mocny bodziec wzrokowy w wyznaczonym miejscu i prowadzenie wzroku w zadaniu",
+ "opis_strategii": "Dziecko korzysta z butelki sensorycznej w zaplanowanym momencie dnia, a w zadaniu prowadzi wzrok palcem albo okienkiem czytelniczym — zamiast szukać bodźca w lampach i suficie.",
+ "cele": {
+   "A": {"p3": "Popatrzy na butelkę sensoryczną podaną przez nauczyciela i odda ją po klepsydrze",
+         "p2": "Weźmie butelkę z półki po pokazaniu karty i wróci do zabawy",
+         "p1": "Poprowadzi wzrok palcem po obrazku, gdy nauczyciel wskaże początek"},
+   "B": {"p3": "Skorzysta z okienka czytelniczego przesuwanego przez nauczyciela",
+         "p2": "Wymieni kartę na dwie minuty przy butelce i samo poprowadzi okienko po obrazku",
+         "p1": "Wykona zadanie obrazkowe od lewej do prawej, nie gubiąc miejsca"},
+   "C": {"p3": "Zaplanuje przerwę wzrokową razem z nauczycielem i skorzysta z niej",
+         "p2": "Zaplanuje przerwę samo i użyje okienka w trudniejszym zadaniu",
+         "p1": "Wykona dłuższe zadanie wzrokowe bez okienka, sprawdzając na końcu, czy nic nie pominął"},
+ },
+ "konspekt": {
+   "tytul": "Światełka mają swoje miejsce",
+   "rodzaj_zajec": "Zajęcia korekcyjno-kompensacyjne · dieta sensoryczna wzrokowa",
+   "metody": [
+     "przeniesienie bodźca: mocny bodziec dostaje miejsce i czas",
+     "prowadzenie wzroku palcem i okienkiem czytelniczym",
+     "materiał kontrastowy zamiast materiału bogatego w szczegóły",
+     "wymiana karty na dostęp do bodźca zamiast zakazu",
+     "sprawdzanie na końcu: czy czegoś nie pominąłem",
+   ],
+   "wskazowka": "Bodźca nie odbieramy — przenosimy go. Zabranie butelki „za karę” cofa cały plan: dziecko wraca do wpatrywania się w lampę, bo potrzeba została ta sama.",
+   "modyfikacje": {
+     "p3": "nauczyciel trzyma butelkę i przesuwa okienko; dziecko tylko patrzy i pokazuje",
+     "p2": "butelka stoi na półce, okienko leży przy zadaniu — dziecko sięga samo",
+     "p1": "zadanie bez okienka, dłuższe; okienko dostępne, gdyby dziecko chciało z niego skorzystać",
+   },
+   "warianty": {
+     "A": {"podtytul": "Butelka sensoryczna na klepsydrę i pierwszy palec na obrazku",
+           "cel_ter": "Dziecko skorzysta z butelki sensorycznej przez czas klepsydry i odda ją, wracając do zabawy bez wpatrywania się w lampę.",
+           "smart": {"S": "Bierze butelkę, patrzy, oddaje — początek i koniec są widoczne.",
+                     "M": "Kryterium z klikniętego poziomu wsparcia — liczymy sytuacje w ciągu dnia.",
+                     "A": "Klepsydra pokazuje czas obrazem; dziecko nie musi go odliczać.",
+                     "R": "Wpatrywanie się w światło zabiera czas zabawie i rozmowie z dziećmi.",
+                     "T": "Ewaluacja w horyzoncie poziomu: 4, 8 albo 12 tygodni."},
+           "kryterium_obs": "Arkusz obserwacji — 5 sytuacji zabawy swobodnej w tygodniu.",
+           "pomoce": [
+             "butelka sensoryczna z brokatem i gliceryną, zakręcona na stałe",
+             "klepsydra dwuminutowa",
+             "stała półka na wysokości dziecka, tylko na butelkę",
+             "obrazek kontrastowy z trzema dużymi elementami",
+             "karta „światełka” z symbolem",
+           ],
+           "przebieg": [
+             ["N — pokazuje butelkę i odwraca ją razem z dzieckiem.",
+              "D — patrzy, jak brokat opada, i nazywa: „leci wolno”."],
+             ["N — stawia klepsydrę obok butelki.",
+              "D — patrzy na butelkę do końca klepsydry."],
+             ["N — mówi „koniec” i odstawia butelkę na półkę.",
+              "D — odkłada butelkę samo i idzie do obrazka."],
+             ["N — wskazuje palcem pierwszy element obrazka.",
+              "D — prowadzi swój palec po obrazku za nauczycielem."],
+             ["N — pokazuje, gdzie butelka stoi, i mówi, kiedy można po nią przyjść.",
+              "D — pokazuje półkę i wraca do zabawy."],
+           ]},
+     "B": {"podtytul": "Wymiana karty na przerwę i okienko czytelnicze w zadaniu",
+           "cel_ter": "Dziecko wymieni kartę na dwuminutową przerwę wzrokową, a w zadaniu obrazkowym poprowadzi okienko od lewej do prawej bez gubienia miejsca.",
+           "smart": {"S": "Podaje kartę, korzysta z przerwy, wraca i prowadzi okienko.",
+                     "M": "Kryterium z klikniętego poziomu wsparcia — liczymy zadania obrazkowe.",
+                     "A": "Okienko zasłania resztę obrazka, więc zadanie ma zawsze jedno pole.",
+                     "R": "Pominięte szczegóły biorą się z gubienia miejsca, nie z niewiedzy.",
+                     "T": "Ewaluacja w horyzoncie poziomu: 4, 8 albo 12 tygodni."},
+           "kryterium_obs": "Arkusz obserwacji — 5 zadań obrazkowych w tygodniu, notujemy pominięte pola.",
+           "pomoce": [
+             "okienko czytelnicze 6 × 3 cm, dwie sztuki",
+             "ścieżka obrazkowa z ośmioma polami",
+             "butelka sensoryczna i karta „światełka” do wymiany",
+             "klepsydra dwuminutowa",
+             "obrazek do wyszukiwania trzech ukrytych elementów",
+           ],
+           "przebieg": [
+             ["N — przypomina zasadę: karta zamienia się na dwie minuty przy butelce.",
+              "D — podaje kartę i korzysta z przerwy."],
+             ["N — kładzie ścieżkę obrazkową i okienko na pierwszym polu.",
+              "D — przesuwa okienko po kolei, od lewej do prawej."],
+             ["N — daje obrazek z trzema ukrytymi elementami.",
+              "D — szuka ich, prowadząc okienko albo palec."],
+             ["N — pyta, ile pól zostało pominiętych, i pokazuje je.",
+              "D — wraca do pominiętych pól i uzupełnia je."],
+             ["N — ustala z dzieckiem, kiedy jutro przypada przerwa przy butelce.",
+              "D — powtarza porę i odkłada kartę na swoje miejsce."],
+           ]},
+     "C": {"podtytul": "Własny plan przerwy wzrokowej i sprawdzenie na końcu",
+           "cel_ter": "Dziecko zaplanuje moment przerwy wzrokowej przed dłuższym zadaniem i po zadaniu sprawdzi, czy niczego nie pominęło.",
+           "smart": {"S": "Mówi, kiedy zrobi przerwę, i robi ją w tym momencie.",
+                     "M": "Kryterium z klikniętego poziomu wsparcia — liczymy dłuższe zadania.",
+                     "A": "Plan ma dwa punkty: kiedy przerwa i co po niej.",
+                     "R": "Zaplanowany bodziec jest tańszy niż bodziec dobierany w trakcie pracy.",
+                     "T": "Ewaluacja w horyzoncie poziomu: 4, 8 albo 12 tygodni."},
+           "kryterium_obs": "Arkusz obserwacji — 5 dłuższych zadań wzrokowych w tygodniu.",
+           "pomoce": [
+             "kartka z dwoma polami: „przerwa po…” i „potem…”",
+             "zadanie graficzne na 8–10 minut (labirynt, szukanie różnic)",
+             "okienko czytelnicze dostępne, ale nie podane",
+             "butelka sensoryczna na półce",
+             "lista kontrolna „czy sprawdziłem wszystko” z trzema polami",
+           ],
+           "przebieg": [
+             ["N — pyta, po którym etapie zadania dziecko chce zrobić przerwę.",
+              "D — zapisuje albo mówi swój plan przerwy."],
+             ["N — daje dłuższe zadanie graficzne i nie przypomina o planie.",
+              "D — pracuje i robi przerwę w zaplanowanym momencie."],
+             ["N — obserwuje, czy dziecko wraca do zadania po przerwie.",
+              "D — wraca i kończy zadanie."],
+             ["N — podaje listę kontrolną z trzema polami do sprawdzenia.",
+              "D — sprawdza swoją pracę i poprawia to, co pominęło."],
+             ["N — pyta, czy plan przerwy był dobry, czy go zmienić.",
+              "D — mówi, co zmieni w planie na następny raz."],
+           ]},
+   },
+ },
+ "pomoc": {
+   "nazwa": "Butelka sensoryczna i okienko czytelnicze",
+   "co_przygotowac": [
+     "przezroczysta butelka z gliceryną i brokatem, zakręcona na stałe (klej do zakrętki)",
+     "stała półka na wysokości dziecka — zawsze ta sama",
+     "okienko czytelnicze z kartonu, 6 × 3 cm, dwie sztuki",
+     "klepsydra dwuminutowa",
+     "karta „światełka” do wymiany na przerwę",
+   ],
+   "trzy_kroki_uzycia": [
+     "Postaw butelkę na stałej półce i pokaż dziecku, gdzie stoi i kiedy można po nią przyjść.",
+     "W zadaniu połóż okienko na pierwszym polu i przesuwaj je razem z dzieckiem od lewej do prawej.",
+     "Po zadaniu zapisz, czy dziecko sięgnęło po bodziec na sygnał, czy wpatrywało się w lampę.",
+   ],
+   "wskazowka_dla_doroslego": "Butelka musi być zakręcona na stałe, a brokat drobny. Butelka, którą da się otworzyć, przestaje być pomocą, a staje się zagrożeniem — zwłaszcza u dziecka, które wkłada rzeczy do ust.",
+   "opis_zdjecia": "a clear sensory bottle with slowly settling glitter standing on a low shelf beside a small sand timer, and a cardboard reading window lying on a picture task",
+   "polecenia": {
+     "A": "Popatrz na światełka. Kiedy piasek się skończy, odkładamy butelkę.",
+     "B": "Podaj kartę, jeśli chcesz światełka. Potem weź okienko i prowadź od lewej strony.",
+     "C": "Powiedz mi, kiedy zrobisz sobie przerwę. Potem sprawdź, czy niczego nie pominąłeś.",
+   },
+ },
+ "arkusz": {
+   "tytul": "Karty do zajęć „Światełka mają swoje miejsce”",
+   "wstep_dla_doroslego": "Wytnij karty i okienko czytelnicze. Okienko dotnij do wielkości elementów w zadaniach, których używasz — ma pokazywać jedno pole, nie trzy.",
+   "karty": [
+     {"etykieta": "Światełka", "opis": "karta wymiany na dwie minuty przy butelce sensorycznej", "symbol": None},
+     {"etykieta": "Patrzę tutaj", "opis": "symbol prowadzenia wzroku — do zadania obrazkowego", "symbol": "gest_slucham"},
+     {"etykieta": "Przerwa", "opis": "symbol przerwy wzrokowej w planie dnia", "symbol": "strategia_przerwa"},
+     {"etykieta": "Sprawdzam", "opis": "symbol sprawdzenia pracy na końcu zadania", "symbol": "zabawa_rysowanie"},
+   ],
+   "pasek_kolejnosci": [
+     {"etykieta": "1 · patrzę", "symbol": "gest_slucham"},
+     {"etykieta": "2 · przerwa", "symbol": "strategia_przerwa"},
+     {"etykieta": "3 · sprawdzam", "symbol": "zabawa_rysowanie"},
+   ],
+ },
+ "dieta_sensoryczna": [
+   "butelka sensoryczna albo tuba z brokatem na półce — dwie minuty na sygnał, dwa razy dziennie",
+   "zabawy „szukaj i pokaż” na materiale kontrastowym, czarno-białym",
+   "latarka w ciemnym namiocie — kontrolowany mocny bodziec zamiast wpatrywania się w lampę",
+ ],
+ "dostosowania": [
+   "okienko czytelnicze albo kartka zasłaniająca resztę obrazka",
+   "obrazki z wyraźnym konturem i jednym elementem na polu",
+   "przypomnienie kierunku: „prowadź od lewej” — gestem, nie słowem",
+ ],
+ "ryzyko": "Przysuwanie przedmiotów do oczu i pomijanie części obrazka wymaga wykluczenia wady wzroku — kontrola okulistyczna przed interwencją sensoryczną.",
+ "obserwacja": {
+   "cel": "Dziecko skorzysta z zaplanowanego bodźca wzrokowego i poprowadzi wzrok w zadaniu, nie gubiąc miejsca, w {proba} sytuacji, w ciągu {horyzont_dopelniacz}.",
+   "co_obserwowac": "Arkusz obserwacji — kolumna: zadanie obrazkowe. Notujemy pominięte pola i wpatrywanie się w źródła światła.",
+   "ile_sytuacji": "5 zadań obrazkowych w tygodniu",
+   "smart": {"S": "Prowadzi wzrok palcem albo okienkiem i kończy zadanie bez pominięć.",
+             "M": "{proba} sytuacji z pięciu obserwowanych w tygodniu.",
+             "A": "Bodziec zaplanowany stoi na półce; okienko leży przy zadaniu.",
+             "R": "Dziecko nie widzi gorzej — gubi miejsce, bo szuka mocniejszego bodźca.",
+             "T": "Weryfikacja po {horyzont_miejscownik}, według pasma punktacji zmysłu."},
+ },
 },
 {
-    "id": "SENS-03", "kod": "WZR-SZUM", "zmysl": "wzrok", "sektor": "bialy_szum",
-    "nazwa": "Codzienne sprawdzanie, jak dziś pracują oczy",
-    "objawy": [
-        "Reakcje na światło i bodźce wzrokowe są zmienne — raz przesadne, raz brak reakcji",
-        "Raz dostrzega drobne szczegóły, innym razem nie zauważa rzeczy oczywistych",
-    ],
-    "opis_dla_doroslego": (
-        "Reaktywność wzrokowa dziecka zmienia się z dnia na dzień. Największym błędem jest przyjęcie "
-        "stałego profilu („jest nadwrażliwy”) i planowanie pod niego zajęć — w dniu obniżonej "
-        "reaktywności to samo dostosowanie działa przeciwko dziecku."
-    ),
-    "strategia_sensoryczna": (
-        "Dziecko codziennie rano ustawia własny „termometr oczu” (3 pola: dużo światła / średnio / mało) "
-        "i na tej podstawie razem z nauczycielem wybiera miejsce i pomoc na dany dzień."
-    ),
-    "sygnal_dziecka": "przestawienie klamerki na termometrze oczu przy porannym powitaniu",
-    "kontekst": "podczas porannego powitania i przed pierwszym zadaniem przy stoliku",
-    "czynnosc": {
-        "3-4": "z pomocą dorosłego przypnie klamerkę na jednym z trzech pól termometru oczu",
-        "5":   "ustawi termometr oczu i wskaże miejsce w sali, w którym dziś chce pracować",
-        "6":   "ustawi termometr, wybierze pomoc na dany dzień i powie, po czym poznało, że dziś jest inaczej",
-    },
-    "wskaznik_obserwacji": "liczba dni, w których dziecko ustawiło termometr przed pierwszym zadaniem",
-    "dieta_sensoryczna": [
-        "poranne 30 sekund na ustawienie termometru — stały punkt planu dnia",
-        "dwa gotowe miejsca w sali: jasne i przyciemnione — wybór należy do dziecka",
-        "krótkie sprawdzenie po obiedzie, czy poziom się zmienił",
-    ],
-    "dostosowania": [
-        "plan dnia z polem na termometr oczu",
-        "brak automatycznych dostosowań „na stałe” — decyzja zapada codziennie",
-        "notatka w dzienniku obserwacji: poziom i to, co po nim ustalono",
-    ],
-    "pomoc": {
-        "nazwa": "Termometr oczu (3 pola z klamerką)",
-        "opis_dla_doroslego": (
-            "Kartonowy pasek 10 × 30 cm z trzema polami — zielonym, żółtym i czerwonym — "
-            "opisanymi obrazkiem, nie słowem. Klamerka pokazuje dzisiejszy poziom. "
-            "Termometr wisi na wysokości oczu dziecka."
-        ),
-        "trzy_kroki_uzycia": [
-            "Rano, przy powitaniu, poproś dziecko o przypięcie klamerki — bez pytania „dlaczego”.",
-            "Odczytaj poziom na głos i powiedz, co z niego wynika: gdzie siadamy, jaka pomoc leży na stole.",
-            "Wieczorem przenieś odczyt do dziennika obserwacji — to on pokaże wzór zmienności.",
-        ],
-        "wskazowka_dla_doroslego": (
-            "Nie poprawiaj wyboru dziecka, nawet gdy „widać, że dziś jest inaczej”. Termometr uczy "
-            "rozpoznawania własnego stanu, a nie zgadywania odpowiedzi, której oczekuje dorosły."
-        ),
-        "etykieta_dla_dziecka": "MOJE OCZY DZISIAJ",
-        "polecenia": {
-            "III": "Jak dziś mają się twoje oczy? Przypinamy klamerkę razem.",
-            "II":  "Przypnij klamerkę. Zielone, żółte czy czerwone?",
-            "I":   "Ustaw termometr i powiedz, gdzie dziś siadasz.",
-        },
-    },
-    "instrukcja_slowna": {
-        "III": "Dzień dobry. Sprawdzamy oczy. Trzymam pasek, ty przypinasz klamerkę.",
-        "II":  "Ustaw dziś swój termometr oczu, a potem wybierz miejsce przy stole.",
-        "I":   "Termometr wisi na miejscu. Ustaw go i powiedz mi, co z niego wynika.",
-    },
-    "konspekt": {
-        "temat": "Moje oczy dzisiaj — poziom, który zmienia się z dnia na dzień",
-        "wprowadzenie": "rozmowa z obrazkami: „raz jest za jasno, raz w sam raz” — dziecko dopasowuje buźki do sytuacji",
-        "glowna": "wykonanie własnego termometru oczu (klejenie trzech pól, przypięcie klamerki) i próbne ustawienie na dziś; potem to samo zadanie wzrokowe w dwóch miejscach sali i porównanie, gdzie było łatwiej",
-        "zakonczenie": "powieszenie termometru na stałym miejscu i ustalenie pory sprawdzania",
-        "metody": ["rozmowa kierowana", "praca plastyczno-techniczna", "ćwiczenia porównawcze"],
-        "formy": "indywidualna",
-        "ewaluacja_uwaga": "sukcesem jest ustawienie termometru, a nie zgodność odczytu z opinią dorosłego",
-    },
-    "arkusz": {
-        "tytul": "TERMOMETR OCZU — szablon do wycięcia",
-        "elementy": [
-            "pasek termometru 10 × 30 cm z trzema polami (zielone / żółte / czerwone) i obrazkami",
-            "3 karty sytuacji do dopasowania (jasna sala, przyciemniony kącik, stolik z parawanem)",
-            "instrukcja dla nauczyciela na odwrocie — kiedy sprawdzamy poziom",
-        ],
-        "symbole": ["k_termometr_oczu.jpg", "k_za_jasno.jpg", "k_moje_miejsce.jpg"],
-    },
-    "ryzyko": "zmienność reakcji utrzymująca się mimo diety sensorycznej wymaga konsultacji neurologicznej i okulistycznej — może maskować napady nieświadomości",
-},
-
-# ===== II · SŁUCH (b230) ===================================================
-{
-    "id": "SENS-04", "kod": "SLU-NAD", "zmysl": "sluch", "sektor": "nadwrazliwosc",
-    "nazwa": "Ochrona słuchu przed hałasem sali i szatni",
-    "objawy": [
-        "Zatyka uszy, płacze lub ucieka przy hałasie (dzwonek, suszarka, gwar sali)",
-        "Rozprasza się przy dźwiękach, których inni nie zauważają (brzęczenie, tykanie)",
-        "Reaguje lękiem lub złością na nagłe, głośne dźwięki",
-    ],
-    "opis_dla_doroslego": (
-        "Gwar sali i szatni dezorganizuje dziecku zabawę, zanim ono samo zdąży to nazwać. "
-        "Ucieczka i płacz są końcem procesu, nie jego początkiem — praca dotyczy tego, "
-        "co dziecko robi na pierwszym sygnale narastania hałasu."
-    ),
-    "strategia_sensoryczna": (
-        "Dziecko zakłada słuchawki wygłuszające albo przechodzi do kącika wyciszenia ZANIM hałas "
-        "je przeciąży — na podstawie zapowiedzi dorosłego („za chwilę szatnia”) lub własnego rozpoznania."
-    ),
-    "sygnal_dziecka": "karta „ZA GŁOŚNO” albo samodzielne sięgnięcie po słuchawki z wieszaka",
-    "kontekst": "w hałaśliwych porach dnia — szatnia, stołówka, zabawa swobodna w pełnej sali",
-    "czynnosc": {
-        "3-4": "założy słuchawki wygłuszające podane przez dorosłego i zostanie w szatni do końca ubierania",
-        "5":   "poda kartę „ZA GŁOŚNO”, samo zdejmie słuchawki z wieszaka i wróci do grupy w nich",
-        "6":   "po zapowiedzi hałaśliwej sytuacji samo zdecyduje, czy zakłada słuchawki, czy idzie do kącika wyciszenia, i wróci do zabawy po ustaniu hałasu",
-    },
-    "wskaznik_obserwacji": "liczba hałaśliwych sytuacji, w których dziecko użyło ochrony słuchu zamiast uciec lub zapłakać",
-    "dieta_sensoryczna": [
-        "słuchawki wygłuszające na stałym wieszaku, w zasięgu dziecka — bez proszenia dorosłego",
-        "kącik wyciszenia z miękką ścianą i jedną książeczką, dostępny bez pytania",
-        "uprzedzanie o głośnych sytuacjach 2 minuty wcześniej, tym samym zdaniem",
-    ],
-    "dostosowania": [
-        "miejsce z dala od dzwonka, suszarki i drzwi do szatni",
-        "wyjście do szatni przed resztą grupy lub po niej",
-        "sygnał wizualny zamiast dzwonka na zmianę aktywności",
-    ],
-    "pomoc": {
-        "nazwa": "Słuchawki wygłuszające na wieszaku + karta ZA GŁOŚNO",
-        "opis_dla_doroslego": (
-            "Nauszniki pasywne (bez elektroniki) na wieszaku na wysokości dziecka, obok karta-symbol "
-            "„ZA GŁOŚNO”. Zestaw działa tylko wtedy, gdy dziecko sięga po niego samo — wydawanie "
-            "słuchawek „na prośbę dorosłego” nie buduje strategii."
-        ),
-        "trzy_kroki_uzycia": [
-            "Powieś słuchawki na stałym, dostępnym wieszaku i pokaż dziecku, gdzie wiszą.",
-            "Na dwie minuty przed hałaśliwą porą uprzedź tym samym zdaniem i wskaż wieszak.",
-            "Odnotuj, czy dziecko sięgnęło samo, czy dopiero po podaniu przez dorosłego.",
-        ],
-        "wskazowka_dla_doroslego": (
-            "Słuchawki nie izolują dziecka od grupy — pozwalają w niej zostać. Zdejmowanie ich "
-            "„bo już nie jest tak głośno” odbiera dziecku kontrolę i cofa efekt."
-        ),
-        "etykieta_dla_dziecka": "ZA GŁOŚNO — zakładam słuchawki",
-        "polecenia": {
-            "III": "Za głośno. Zakładamy słuchawki. Jestem obok.",
-            "II":  "Za chwilę szatnia. Weź słuchawki z wieszaka.",
-            "I":   "Zaraz będzie głośno. Zdecyduj, co robisz.",
-        },
-    },
-    "instrukcja_slowna": {
-        "III": "Słyszę, że robi się głośno. Podaję ci słuchawki i zakładamy je razem — zostajemy tutaj.",
-        "II":  "Za dwie minuty idziemy do szatni. Masz kartę i wieszak — weź słuchawki.",
-        "I":   "Za dwie minuty szatnia. Wybierz: słuchawki czy kącik wyciszenia?",
-    },
-    "konspekt": {
-        "temat": "Za głośno — co robię, zanim hałas mnie zmęczy",
-        "wprowadzenie": "zabawa „cicho–głośno”: dziecko pokazuje ręką poziom dźwięku wydawanego przez nauczyciela",
-        "glowna": "próba ze słuchawkami w kontrolowanym hałasie (nagranie gwaru sali z tabletu, głośność narastająca): dziecko ćwiczy sięgnięcie po słuchawki na pierwszy sygnał, a nie na szczycie hałasu; potem to samo w prawdziwej szatni",
-        "zakonczenie": "ustalenie miejsca wieszaka i zdania zapowiadającego hałas („za dwie minuty szatnia”)",
-        "metody": ["ćwiczenia praktyczne", "symulacja sytuacji", "instruktaż"],
-        "formy": "indywidualna, następnie w małej grupie",
-        "ewaluacja_uwaga": "liczy się moment sięgnięcia po słuchawki — im wcześniej, tym wyższa wartość próby",
-    },
-    "arkusz": {
-        "tytul": "ZA GŁOŚNO — karty i tabliczka wieszaka",
-        "elementy": [
-            "karta „ZA GŁOŚNO” (9 × 9 cm) — 2 sztuki",
-            "karta „KĄCIK WYCISZENIA” z rysunkiem miejsca",
-            "tabliczka na wieszak ze słuchawkami (10 × 6 cm)",
-        ],
-        "symbole": ["k_za_glosno.jpg", "k_sluchawki.jpg", "k_kacik_wyciszenia.jpg"],
-    },
-    "ryzyko": "nadwrażliwość słuchowa z zatykaniem uszu wymaga wykluczenia stanu zapalnego ucha i badania słuchu przed wdrożeniem diety sensorycznej",
-},
-{
-    "id": "SENS-05", "kod": "SLU-POD", "zmysl": "sluch", "sektor": "podwrazliwosc",
-    "nazwa": "Reakcja na imię i zaplanowany bodziec dźwiękowy",
-    "objawy": [
-        "Nie reaguje na wołanie po imieniu, choć słuch ma prawidłowy",
-        "Samo wytwarza głośne dźwięki (pomrukuje, stuka, trzaska)",
-        "Potrzebuje głośnych bodźców — przybliża ucho do źródła dźwięku, pogłaśnia",
-    ],
-    "opis_dla_doroslego": (
-        "Dziecko dobiera sobie bodziec słuchowy samo — stukaniem, pomrukiwaniem, trzaskaniem — bo "
-        "zwykły poziom dźwięku do niego nie dociera. Wołanie po imieniu ginie w tle. To nie jest "
-        "ignorowanie dorosłego."
-    ),
-    "strategia_sensoryczna": (
-        "Dziecko korzysta z instrumentu lub „kącika dźwięków” w zaplanowanym momencie dnia, a na "
-        "wołanie odpowiada po sygnale dotykowo-wzrokowym (dotknięcie ramienia i pokazanie karty), "
-        "który zastępuje sam głos."
-    ),
-    "sygnal_dziecka": "podanie karty „CHCĘ DŹWIĘKI” w zamian za 2 minuty z instrumentem",
-    "kontekst": "podczas zabawy swobodnej i przy zbiórkach grupy w sali",
-    "czynnosc": {
-        "3-4": "po dotknięciu ramienia i pokazaniu karty popatrzy na dorosłego i podejdzie do niego",
-        "5":   "odpowie na wołanie po imieniu wspartym kartą, a bodziec dźwiękowy weźmie z kącika dźwięków",
-        "6":   "odpowie na samo wołanie po imieniu i samo zaplanuje moment dwuminutowej przerwy z instrumentem",
-    },
-    "wskaznik_obserwacji": "liczba wołań, na które dziecko zareagowało do trzeciego powtórzenia",
-    "dieta_sensoryczna": [
-        "„kącik dźwięków”: bębenek, marakas, rura grzmotowa — 2 minuty na sygnał",
-        "zabawy rytmiczne z mocnym akcentem przed zadaniem wymagającym słuchania",
-        "śpiewane polecenia zamiast mówionych w porach niskiej uwagi",
-    ],
-    "dostosowania": [
-        "wołanie po imieniu zawsze z podejściem na odległość wyciągniętej ręki i kontaktem wzrokowym",
-        "polecenie do dziecka po jego imieniu, nie do całej grupy",
-        "sprawdzenie zrozumienia gestem, nie pytaniem „rozumiesz?”",
-    ],
-    "pomoc": {
-        "nazwa": "Kącik dźwięków z kartą wymiany",
-        "opis_dla_doroslego": (
-            "Trzy instrumenty w koszyku na stałej półce (bębenek, marakas, rura grzmotowa) i karta "
-            "„CHCĘ DŹWIĘKI”. Dziecko wymienia kartę na dwie minuty grania — bodziec zostaje "
-            "zaspokojony w miejscu i czasie, które nie rozbijają zabawy grupy."
-        ),
-        "trzy_kroki_uzycia": [
-            "Ustaw koszyk z instrumentami na stałej półce i pokaż dziecku kartę wymiany.",
-            "Przyjmij kartę, odlicz dwie minuty (klepsydra) i zamknij przerwę tym samym zdaniem.",
-            "Odnotuj, ile razy dziecko sięgnęło po kartę zamiast stukać w blat lub pomrukiwać.",
-        ],
-        "wskazowka_dla_doroslego": (
-            "Uciszanie („nie stukaj”) usuwa objaw i nie daje nic w zamian. Dopóki dziecko nie ma "
-            "dokąd pójść po dźwięk, będzie go dobierać w czasie zajęć."
-        ),
-        "etykieta_dla_dziecka": "CHCĘ DŹWIĘKI — idę do koszyka",
-        "polecenia": {
-            "III": "Popatrz na mnie. Jestem tu. Idziemy po bębenek razem.",
-            "II":  "Podaj kartę. Dwie minuty z instrumentem, potem wracamy.",
-            "I":   "Powiedz, kiedy zrobisz sobie przerwę na dźwięki.",
-        },
-    },
-    "instrukcja_slowna": {
-        "III": "Dotykam twojego ramienia i pokazuję kartę. Popatrz na mnie — teraz idziemy razem.",
-        "II":  "Wołam cię po imieniu i pokazuję kartę. Podejdź do mnie.",
-        "I":   "Wołam cię po imieniu. Czekam przy stoliku.",
-    },
-    "konspekt": {
-        "temat": "Słyszę swoje imię — dźwięki, które mam zaplanowane",
-        "wprowadzenie": "zabawa „bęben mówi twoje imię” — rytm imienia wystukany na bębenku, dziecko odpowiada gestem",
-        "glowna": "ćwiczenie reakcji na imię w trzech odległościach (1 m, 3 m, drugi koniec sali), z sygnałem dotykowo-wzrokowym wycofywanym stopniowo; potem wymiana karty na przerwę dźwiękową",
-        "zakonczenie": "wspólne ustalenie, gdzie stoi koszyk z instrumentami i ile trwa przerwa",
-        "metody": ["zabawa rytmiczna", "ćwiczenia praktyczne", "stopniowanie trudności"],
-        "formy": "indywidualna, potem w parze z dzieckiem z grupy",
-        "ewaluacja_uwaga": "notujemy odległość, z jakiej dziecko zareagowało — to ona pokazuje postęp",
-    },
-    "arkusz": {
-        "tytul": "CHCĘ DŹWIĘKI — karty wymiany i tabliczka koszyka",
-        "elementy": [
-            "karta „CHCĘ DŹWIĘKI” (9 × 9 cm) — 2 sztuki",
-            "karta z imieniem dziecka i symbolem „POPATRZ NA MNIE”",
-            "tabliczka na koszyk z instrumentami (10 × 6 cm)",
-        ],
-        "symbole": ["k_chce_dzwieki.jpg", "k_popatrz_na_mnie.jpg", "k_instrumenty.jpg"],
-    },
-    "ryzyko": "brak reakcji na imię zawsze wymaga aktualnego badania słuchu (audiometria) — dopiero jego prawidłowy wynik pozwala mówić o podwrażliwości",
-},
-{
-    "id": "SENS-06", "kod": "SLU-SZUM", "zmysl": "sluch", "sektor": "bialy_szum",
-    "nazwa": "Sprawdzanie poziomu słuchowego przed zajęciami",
-    "objawy": [
-        "Reakcje na dźwięki są niestałe — ten sam hałas raz przeszkadza, raz pozostaje niezauważony",
-        "Raz reaguje na szept, innym razem nie słyszy głośnego wołania",
-    ],
-    "opis_dla_doroslego": (
-        "Dziecko nie potrafi przewidzieć własnej reakcji na dźwięk, a dorosły czyta tę zmienność "
-        "jako niekonsekwencję lub upór. Plan dnia musi zakładać sprawdzenie poziomu, a nie stały profil."
-    ),
-    "strategia_sensoryczna": (
-        "Dziecko przed zajęciami ustawia „radio uszu” (3 pola: cicho / średnio / głośno) i wybiera "
-        "z niego dzisiejsze dostosowanie: słuchawki, miejsce z brzegu albo brak dodatkowego wsparcia."
-    ),
-    "sygnal_dziecka": "przestawienie strzałki na tarczy „radio uszu”",
-    "kontekst": "przed zajęciami dydaktycznymi i przed wyjściem do szatni",
-    "czynnosc": {
-        "3-4": "z pomocą dorosłego przestawi strzałkę na tarczy i weźmie wskazane wsparcie",
-        "5":   "samo ustawi tarczę i wybierze jedno z trzech dostosowań na dany dzień",
-        "6":   "ustawi tarczę, wybierze dostosowanie i powie, po czym poznało, że dziś słyszy inaczej",
-    },
-    "wskaznik_obserwacji": "liczba dni, w których dziecko ustawiło tarczę przed pierwszymi zajęciami",
-    "dieta_sensoryczna": [
-        "sprawdzenie poziomu dwa razy dziennie: rano i po odpoczynku",
-        "trzy gotowe dostosowania do wyboru, zawsze te same",
-        "wpis poziomu do dziennika — po dwóch tygodniach widać wzór dni trudnych",
-    ],
-    "dostosowania": [
-        "brak stałego przypisania dziecku „nadwrażliwości słuchowej” w dokumentacji",
-        "polecenia zawsze sprawdzane gestem, niezależnie od poziomu",
-        "informacja o poziomie przekazywana wszystkim dorosłym pracującym tego dnia z grupą",
-    ],
-    "pomoc": {
-        "nazwa": "Radio uszu — tarcza z trzema poziomami",
-        "opis_dla_doroslego": (
-            "Kartonowa tarcza o średnicy 20 cm z ruchomą strzałką i trzema polami opisanymi obrazkiem: "
-            "ucho przekreślone (cicho), ucho zwykłe (średnio), ucho z falami (głośno). Przy każdym polu "
-            "narysowane dostosowanie, które z niego wynika."
-        ),
-        "trzy_kroki_uzycia": [
-            "Powieś tarczę przy planie dnia, na wysokości oczu dziecka.",
-            "Poproś o ustawienie strzałki przed pierwszymi zajęciami i odczytaj wybór na głos.",
-            "Przekaż odczyt drugiemu nauczycielowi i zapisz go w dzienniku obserwacji.",
-        ],
-        "wskazowka_dla_doroslego": (
-            "Zmienność nie jest kaprysem. Jeżeli dziecko dziś nie reaguje na wołanie, a wczoraj "
-            "reagowało — to jest dana do zapisania, a nie powód do upomnienia."
-        ),
-        "etykieta_dla_dziecka": "MOJE USZY DZISIAJ",
-        "polecenia": {
-            "III": "Sprawdzamy uszy. Ustawiam strzałkę z tobą.",
-            "II":  "Ustaw strzałkę. Co dziś wybierasz?",
-            "I":   "Ustaw radio uszu i powiedz, co z niego wynika.",
-        },
-    },
-    "instrukcja_slowna": {
-        "III": "Sprawdzamy, jak dziś słyszysz. Trzymam tarczę, ty przesuwasz strzałkę.",
-        "II":  "Ustaw dziś swoje radio uszu i weź to, co przy nim narysowane.",
-        "I":   "Ustaw tarczę przed zajęciami i powiedz mi, czego dziś potrzebujesz.",
-    },
-    "konspekt": {
-        "temat": "Moje uszy dzisiaj — poziom, który sprawdzam codziennie",
-        "wprowadzenie": "zabawa „ten sam dźwięk, dwa dni”: nagranie gwaru raz cicho, raz głośno — dziecko dopasowuje buźkę",
-        "glowna": "wykonanie tarczy „radio uszu” i próbne ustawienie; sprawdzenie na żywo, czy wybrane dostosowanie pomaga w krótkiej zabawie w hałaśliwym kąciku",
-        "zakonczenie": "powieszenie tarczy przy planie dnia i ustalenie dwóch pór sprawdzania",
-        "metody": ["rozmowa kierowana", "praca techniczna", "próba w warunkach naturalnych"],
-        "formy": "indywidualna",
-        "ewaluacja_uwaga": "sukces = ustawienie tarczy; trafność odczytu ocenia się dopiero po dwóch tygodniach wpisów",
-    },
-    "arkusz": {
-        "tytul": "RADIO USZU — tarcza i strzałka do wycięcia",
-        "elementy": [
-            "tarcza o średnicy 20 cm z trzema polami i rysunkami dostosowań",
-            "strzałka do wycięcia z otworem na zapinkę",
-            "3 karty dostosowań (słuchawki / miejsce z brzegu / bez wsparcia)",
-        ],
-        "symbole": ["k_radio_uszu.jpg", "k_sluchawki.jpg", "k_miejsce_z_brzegu.jpg"],
-    },
-    "ryzyko": "naprzemienne reagowanie na szept i brak reakcji na głośne wołanie może wskazywać na wysiękowe zapalenie ucha — wymaga kontroli laryngologicznej",
-},
-
-# ===== III · DOTYK (b265) ==================================================
-{
-    "id": "SENS-07", "kod": "DOT-NAD", "zmysl": "dotyk", "sektor": "nadwrazliwosc",
-    "nazwa": "Bezpieczna odległość i uprzedzanie o dotyku",
-    "objawy": [
-        "Unika dotyku, przytulania, mycia twarzy/głowy, obcinania paznokci i włosów",
-        "Przeszkadzają mu metki, szwy, niektóre faktury ubrań i materiałów plastycznych",
-        "Reaguje obronnie na przypadkowy dotyk (kolejka, ciasnota, zabawy grupowe)",
-    ],
-    "opis_dla_doroslego": (
-        "Przypadkowy dotyk w kolejce czy w kręgu dziecko odbiera jak zagrożenie — odpowiada "
-        "odepchnięciem, krzykiem albo ucieczką. Reakcja obronna jest odruchem, nie decyzją; "
-        "karanie za nią pogłębia napięcie."
-    ),
-    "strategia_sensoryczna": (
-        "Dziecko zajmuje ustalone miejsce chroniące plecy i boki (koniec kolejki, brzeg dywanu, "
-        "krzesło przy ścianie) i korzysta z zapowiedzi dotyku — dorosły mówi, zanim dotknie, "
-        "a dziecko odpowiada „tak” albo „nie teraz”."
-    ),
-    "sygnal_dziecka": "karta „NIE TERAZ” lub gest otwartej dłoni oznaczający „daj mi miejsce”",
-    "kontekst": "w kolejce do szatni i łazienki, w kręgu na dywanie i w zabawach grupowych",
-    "czynnosc": {
-        "3-4": "stanie na końcu kolejki na wyznaczonym znaku i przejdzie z grupą bez odpychania innych",
-        "5":   "wybierze miejsce chroniące plecy (brzeg dywanu, przy ścianie) i użyje karty „NIE TERAZ”, gdy zbliży się dotyk",
-        "6":   "zaplanuje z wyprzedzeniem swoje miejsce w kolejce i w kręgu, a o dotyku uprzedzi rówieśnika słowem",
-    },
-    "wskaznik_obserwacji": "liczba sytuacji z bliskością, w których dziecko użyło miejsca lub karty zamiast reakcji obronnej",
-    "dieta_sensoryczna": [
-        "mocny docisk przed sytuacją bliskości (przytulenie w kocyk, przeciskanie przez tunel) — proprioceptywne wyciszenie dotyku",
-        "zabawy fakturami w tempie dziecka: najpierw suche i twarde, dopiero potem mokre i lepkie",
-        "stały znak na podłodze wyznaczający „moje miejsce” w kolejce",
-    ],
-    "dostosowania": [
-        "pierwsze lub ostatnie miejsce w kolejce — nigdy w środku",
-        "akceptacja własnych ubrań dziecka, odcinanie metek, brak wymuszania fartuszka",
-        "uprzedzanie o każdym dotyku dorosłego, także przy pomaganiu w ubieraniu",
-    ],
-    "pomoc": {
-        "nazwa": "Znak „MOJE MIEJSCE” + karta NIE TERAZ",
-        "opis_dla_doroslego": (
-            "Naklejka-stopy na podłodze (koniec kolejki, brzeg dywanu) oraz karta „NIE TERAZ” "
-            "z symbolem otwartej dłoni. Znak daje przewidywalność, karta — sposób odmowy inny "
-            "niż odepchnięcie."
-        ),
-        "trzy_kroki_uzycia": [
-            "Naklej znak w dwóch miejscach: przy drzwiach do szatni i na brzegu dywanu.",
-            "Ucz karty „NIE TERAZ” na spokojnie, w zabawie — nie w momencie konfliktu.",
-            "Po każdej sytuacji z bliskością odnotuj, czy dziecko użyło znaku, karty, czy odepchnęło.",
-        ],
-        "wskazowka_dla_doroslego": (
-            "Uprzedzaj o dotyku zawsze — także wtedy, gdy pomagasz. Dotyk „z zaskoczenia”, nawet "
-            "życzliwy, uruchamia obronę i psuje efekt tygodni pracy."
-        ),
-        "etykieta_dla_dziecka": "NIE TERAZ — potrzebuję miejsca",
-        "polecenia": {
-            "III": "Stajemy na stópkach. Ja jestem obok ciebie.",
-            "II":  "Twoje miejsce jest na stópkach. Masz kartę „NIE TERAZ”.",
-            "I":   "Wybierz miejsce, zanim ustawimy się w kolejce.",
-        },
-    },
-    "instrukcja_slowna": {
-        "III": "Idziemy do szatni. Stajemy na stópkach, ja stoję obok ciebie i nikt cię nie dotknie.",
-        "II":  "Pamiętasz swoje miejsce? Stópki przy drzwiach. Karta „NIE TERAZ” jest w kieszeni.",
-        "I":   "Za chwilę kolejka. Powiedz, gdzie dziś stajesz.",
-    },
-    "konspekt": {
-        "temat": "Moje miejsce, mój dotyk — mówię, zanim ktoś mnie dotknie",
-        "wprowadzenie": "zabawa „bańka”: dziecko rysuje kredą własną bańkę na podłodze i sprawdza, jak daleko sięga ręką",
-        "glowna": "ćwiczenie kolejki w małej grupie (3 dzieci) ze znakami na podłodze; nauka i próba karty „NIE TERAZ”; na koniec krótka zabawa fakturami wybranymi przez dziecko",
-        "zakonczenie": "naklejenie znaku w prawdziwym miejscu w sali i pokazanie go całej grupie",
-        "metody": ["zabawa ruchowa", "symulacja sytuacji", "ćwiczenia praktyczne"],
-        "formy": "indywidualna, następnie w małej grupie",
-        "ewaluacja_uwaga": "notujemy sposób reakcji na bliskość, nie czas wytrwania w kolejce",
-    },
-    "arkusz": {
-        "tytul": "MOJE MIEJSCE — znaki na podłogę i karta NIE TERAZ",
-        "elementy": [
-            "para stópek do wycięcia (2 komplety) — na podłogę przy szatni i na dywan",
-            "karta „NIE TERAZ” (9 × 9 cm) — 2 sztuki, jedna do kieszeni",
-            "karta „UPRZEDZAM O DOTYKU” dla dorosłego, do planu dnia",
-        ],
-        "symbole": ["k_moje_miejsce.jpg", "k_nie_teraz.jpg", "k_kolejka.jpg"],
-    },
-    "ryzyko": "gwałtowna obrona przed myciem głowy i obcinaniem paznokci bywa objawem obronności dotykowej wymagającej terapii SI — sama dieta sensoryczna nie wystarczy",
-},
-{
-    "id": "SENS-08", "kod": "DOT-POD", "zmysl": "dotyk", "sektor": "podwrazliwosc",
-    "nazwa": "Zaplanowane wrażenia dotykowe zamiast dotykania wszystkiego",
-    "objawy": [
-        "Dotyka wszystkiego i wszystkich, mocno ściska, potrąca inne dzieci",
-        "Nie zauważa brudu na twarzy/rękach, słabo czuje ból i temperaturę",
-        "Poszukuje intensywnych wrażeń dotykowych (grzebanie w materiałach, ugniatanie)",
-    ],
-    "opis_dla_doroslego": (
-        "Dziecko zbiera informację o świecie przez ręce — dotyka, ściska, grzebie. Rówieśnicy "
-        "odbierają to jako zaczepki, choć intencja jest inna. Praca polega na daniu tego samego "
-        "wrażenia w miejscu, w którym nikomu nie przeszkadza."
-    ),
-    "strategia_sensoryczna": (
-        "Dziecko korzysta ze skrzynki sensorycznej (ryż, kasztany, masa) i „gniotka w kieszeni” "
-        "w zaplanowanych momentach dnia, a w kręgu trzyma ręce na własnej pomocy zamiast na sąsiedzie."
-    ),
-    "sygnal_dziecka": "sięgnięcie po gniotka do kieszeni fartuszka lub karta „RĘCE DO PRACY”",
-    "kontekst": "w kręgu na dywanie, w kolejce i podczas zabawy swobodnej w sali",
-    "czynnosc": {
-        "3-4": "położy ręce na własnym gniotku i zostanie w kręgu przez czas piosenki, bez dotykania sąsiada",
-        "5":   "przed kręgiem weźmie gniotka, a po zajęciach skorzysta ze skrzynki sensorycznej przez 3 minuty",
-        "6":   "samo zaplanuje dwa momenty pracy rękami w ciągu dnia i użyje ich, zanim zacznie dotykać innych dzieci",
-    },
-    "wskaznik_obserwacji": "liczba sytuacji w kręgu lub kolejce bez dotykania innych dzieci, z użyciem własnej pomocy",
-    "dieta_sensoryczna": [
-        "skrzynka sensoryczna (ryż, kasztany, makaron) — 3 minuty przed zajęciami wymagającymi siedzenia",
-        "gniotek lub kawałek masy w kieszeni fartuszka, dostępny bez pytania",
-        "prace z ugniataniem: ciastolina, glina, wyciskanie gąbki — codziennie",
-    ],
-    "dostosowania": [
-        "miejsce w kręgu z jednym sąsiadem, nie dwoma (brzeg półkola)",
-        "zadania z materiałem w rękach — dziecko trzyma pomoc, a nie „nic”",
-        "sprawdzanie twarzy i rąk przed wyjściem — dziecko może nie czuć brudu",
-    ],
-    "pomoc": {
-        "nazwa": "Skrzynka sensoryczna + gniotek kieszonkowy",
-        "opis_dla_doroslego": (
-            "Płaska skrzynka (40 × 30 cm) z sypkim materiałem i ukrytymi w nim drobiazgami oraz "
-            "gniotek trzymany w kieszeni fartuszka. Skrzynka to bodziec zaplanowany, gniotek — "
-            "bodziec dostępny w każdej chwili, także w kręgu."
-        ),
-        "trzy_kroki_uzycia": [
-            "Ustaw skrzynkę na stałym miejscu i ustal z dzieckiem porę: przed kręgiem, po obiedzie.",
-            "Włóż gniotka do kieszeni fartuszka rano — nie wydawaj go „za dobre zachowanie”.",
-            "Odnotuj, czy w kręgu ręce dziecka były na gniotku, czy na sąsiedzie.",
-        ],
-        "wskazowka_dla_doroslego": (
-            "Zabranie gniotka za potrącenie kolegi jest karą za potrzebę, nie za czyn — i wraca "
-            "podwójnym dotykaniem po pięciu minutach."
-        ),
-        "etykieta_dla_dziecka": "RĘCE DO PRACY — mam swojego gniotka",
-        "polecenia": {
-            "III": "Ręce na gniotka. Trzymamy razem. Siedzimy do końca piosenki.",
-            "II":  "Weź gniotka do ręki. Ręce pracują tutaj.",
-            "I":   "Przygotuj ręce, zanim usiądziemy w kręgu.",
-        },
-    },
-    "instrukcja_slowna": {
-        "III": "Widzę, że rękom trzeba pracy. Daję ci gniotka i kładę na nim twoje dłonie — siedzę obok.",
-        "II":  "Weź gniotka z kieszeni. Twoje ręce pracują na nim, nie na koledze.",
-        "I":   "Zaplanuj, kiedy dziś idziesz do skrzynki.",
-    },
-    "konspekt": {
-        "temat": "Ręce, które mają swoją pracę",
-        "wprowadzenie": "„co jest w skrzynce?” — wyszukiwanie 5 drobiazgów w ryżu bez patrzenia",
-        "glowna": "ćwiczenie siedzenia w kręgu z gniotkiem przez czas jednej i dwóch piosenek; porównanie z próbą bez pomocy — dziecko samo nazywa różnicę",
-        "zakonczenie": "wybór własnego gniotka i włożenie go do kieszeni fartuszka",
-        "metody": ["zabawa sensoryczna", "ćwiczenia praktyczne", "rozmowa podsumowująca"],
-        "formy": "indywidualna, następnie w kręgu grupowym",
-        "ewaluacja_uwaga": "notujemy dotknięcia innych dzieci w czasie kręgu — spadek liczby jest miarą postępu",
-    },
-    "arkusz": {
-        "tytul": "RĘCE DO PRACY — karty i lista wypełnień skrzynki",
-        "elementy": [
-            "karta „RĘCE DO PRACY” (9 × 9 cm) — 2 sztuki",
-            "karta „SKRZYNKA” z rysunkiem miejsca w sali",
-            "lista 8 bezpiecznych wypełnień skrzynki z uwagą o wieku i nadzorze",
-        ],
-        "symbole": ["k_rece_do_pracy.jpg", "k_skrzynka.jpg", "k_gniotek.jpg"],
-    },
-    "ryzyko": "obniżone czucie bólu i temperatury wymaga codziennej kontroli skóry (oparzenia, otarcia) i informacji dla rodziców — dziecko może nie zgłosić urazu",
-},
-{
-    "id": "SENS-09", "kod": "DOT-SZUM", "zmysl": "dotyk", "sektor": "bialy_szum",
-    "nazwa": "Sprawdzanie tolerancji ubrania i faktur w danym dniu",
-    "objawy": [
-        "Reakcje na dotyk są zmienne — ten sam bodziec raz drażni, raz jest poszukiwany",
-        "Tolerancja ubrań, mycia i przytulania zmienia się z dnia na dzień",
-    ],
-    "opis_dla_doroslego": (
-        "Ta sama bluza w poniedziałek jest w porządku, a we wtorek nie do zniesienia. Dorosły widzi "
-        "w tym kaprys, dziecko przeżywa zmianę progu czucia. Bez codziennego sprawdzenia poranek "
-        "kończy się konfliktem o ubranie."
-    ),
-    "strategia_sensoryczna": (
-        "Dziecko rano sprawdza „mapę ubrania” (co dziś pasuje, co drapie) i wybiera z dwóch "
-        "przygotowanych wariantów, a przed pracą z materiałami wskazuje na skali, ile dziś zniesie."
-    ),
-    "sygnal_dziecka": "wskazanie pola na skali faktur (1 – suche, 2 – wilgotne, 3 – lepkie)",
-    "kontekst": "przy przebieraniu w szatni i przed zajęciami plastycznymi",
-    "czynnosc": {
-        "3-4": "wskaże z dwóch przygotowanych bluz tę, którą dziś zakłada, i przebierze się z pomocą",
-        "5":   "sprawdzi mapę ubrania i wskaże na skali faktur, do którego poziomu dziś sięga w plastyce",
-        "6":   "samo ustali swój poziom, wybierze materiał plastyczny i powie, czego dziś nie chce dotykać",
-    },
-    "wskaznik_obserwacji": "liczba dni, w których dziecko wskazało poziom przed zajęciami zamiast odmówić w trakcie",
-    "dieta_sensoryczna": [
-        "docisk przed przebieraniem (mocne przytulenie w kocyk, zabawa w naleśnik) — obniża próg drażliwości",
-        "trzystopniowa skala faktur zawsze dostępna na stole plastycznym",
-        "dwa warianty ubrania przygotowane przez rodzica w worku",
-    ],
-    "dostosowania": [
-        "brak wymuszania fartuszka i rękawiczek w dniu wysokiej drażliwości",
-        "materiały suche zawsze jako alternatywa dla mokrych",
-        "informacja dla rodzica o poziomie z danego dnia — poranek w domu wygląda tak samo",
-    ],
-    "pomoc": {
-        "nazwa": "Mapa ubrania i skala faktur 1–2–3",
-        "opis_dla_doroslego": (
-            "Karta z sylwetką dziecka do zaznaczenia miejsc, które dziś drapią, oraz pasek ze skalą "
-            "faktur: suche (piasek, ryż) — wilgotne (masa, ciastolina) — lepkie (klej, farba palcowa)."
-        ),
-        "trzy_kroki_uzycia": [
-            "Rano pokaż sylwetkę i poproś o wskazanie miejsc, które dziś przeszkadzają.",
-            "Przed plastyką połóż pasek skali i przyjmij wskazanie dziecka bez negocjacji.",
-            "Zapisz poziom w dzienniku i przekaż go rodzicowi przy odbiorze.",
-        ],
-        "wskazowka_dla_doroslego": (
-            "Nie podnoś poziomu „na próbę”, gdy dziecko wskazało 1. Jedno wymuszone dotknięcie kleju "
-            "potrafi zamknąć plastykę na kilka tygodni."
-        ),
-        "etykieta_dla_dziecka": "DZISIAJ MOGĘ TYLE",
-        "polecenia": {
-            "III": "Pokaż, co dziś drapie. Wybieramy ubranie razem.",
-            "II":  "Wskaż na pasku: jeden, dwa czy trzy?",
-            "I":   "Ustal swój poziom i powiedz, czego dziś nie chcesz dotykać.",
-        },
-    },
-    "instrukcja_slowna": {
-        "III": "Sprawdzamy, co dziś drapie. Pokazuję sylwetkę, ty wskazujesz palcem.",
-        "II":  "Zanim zaczniemy plastykę — wskaż na pasku, ile dziś zniesiesz.",
-        "I":   "Ustal poziom faktur i wybierz sobie materiał.",
-    },
-    "konspekt": {
-        "temat": "Dzisiaj mogę tyle — dotyk, który zmienia się z dnia na dzień",
-        "wprowadzenie": "„suche, wilgotne, lepkie” — dziecko dotyka trzech materiałów i układa je w kolejności od najłatwiejszego",
-        "glowna": "wykonanie własnej mapy ubrania i paska skali; próba plastyczna na poziomie wskazanym przez dziecko, z możliwością zejścia o stopień w dół w każdej chwili",
-        "zakonczenie": "umieszczenie paska na stole plastycznym i mapy w szatni",
-        "metody": ["doświadczanie sensoryczne", "praca techniczna", "wybór kierowany"],
-        "formy": "indywidualna",
-        "ewaluacja_uwaga": "zejście o stopień w dół w trakcie zajęć jest sukcesem strategii, nie porażką dziecka",
-    },
-    "arkusz": {
-        "tytul": "DZISIAJ MOGĘ TYLE — mapa ubrania i skala faktur",
-        "elementy": [
-            "sylwetka dziecka do zaznaczania miejsc drażniących (A4)",
-            "pasek skali faktur 1–2–3 z obrazkami materiałów",
-            "karta dla rodzica: dwa warianty ubrania w worku",
-        ],
-        "symbole": ["k_mapa_ubrania.jpg", "k_skala_faktur.jpg", "k_plastyka.jpg"],
-    },
-    "ryzyko": "nagły wzrost drażliwości dotykowej może być objawem infekcji, gorączki lub bólu — najpierw wyklucz przyczynę medyczną",
+ "nr": "I.3", "zmysl": "I", "sektor": 3,
+ "wskaznik": "Reakcje wzrokowe dziecka są zmienne — raz przesadne, raz brak reakcji na ten sam bodziec.",
+ "objawy": [
+   "Reakcje na światło i bodźce wzrokowe są zmienne — raz przesadne, raz brak reakcji",
+   "Raz dostrzega drobne szczegóły, innym razem nie zauważa rzeczy oczywistych",
+ ],
+ "strategia": "poranne sprawdzenie poziomu i dobór miejsca na dany dzień",
+ "opis_strategii": "Dziecko codziennie rano ustawia „termometr oczu” i na tej podstawie wybiera z nauczycielem miejsce oraz pomoc na ten jeden dzień — zamiast pracować według stałego profilu.",
+ "cele": {
+   "A": {"p3": "Przypnie klamerkę na termometrze oczu, trzymanym przez nauczyciela",
+         "p2": "Przypnie klamerkę samo, gdy nauczyciel poda termometr",
+         "p1": "Podejdzie do termometru przy powitaniu i ustawi go bez przypomnienia"},
+   "B": {"p3": "Ustawi termometr i weźmie pomoc wskazaną przez nauczyciela",
+         "p2": "Ustawi termometr i wybierze miejsce pracy z dwóch przygotowanych",
+         "p1": "Ustawi termometr i powie, czego dziś potrzebuje przy stoliku"},
+   "C": {"p3": "Ustawi termometr i z pomocą nauczyciela nazwie, po czym poznał swój poziom",
+         "p2": "Ustawi termometr, wybierze pomoc i powie, po czym dziś poznał, że jest inaczej",
+         "p1": "Sprawdzi poziom dwa razy w ciągu dnia i zmieni miejsce, gdy poziom się zmieni"},
+ },
+ "konspekt": {
+   "tytul": "Moje oczy dzisiaj",
+   "rodzaj_zajec": "Zajęcia rozwijające kompetencje emocjonalno-społeczne · rozpoznawanie własnego stanu",
+   "metody": [
+     "codzienny pomiar zamiast stałego profilu",
+     "skala obrazkowa zamiast pytania „jak się czujesz”",
+     "wybór z dwóch przygotowanych wariantów",
+     "zapis odczytu i porównanie po dwóch tygodniach",
+     "nazywanie własnych sygnałów ciała",
+   ],
+   "wskazowka": "Nie poprawiaj wyboru dziecka, nawet gdy „widać, że dziś jest inaczej”. Termometr uczy rozpoznawania własnego stanu, a nie zgadywania odpowiedzi, której oczekuje dorosły.",
+   "modyfikacje": {
+     "p3": "nauczyciel trzyma termometr i nazywa poziomy; dziecko tylko przypina klamerkę",
+     "p2": "termometr wisi na ścianie, nauczyciel przypomina o nim gestem",
+     "p1": "bez przypomnienia; sprawdzenie poziomu jest punktem planu dnia dziecka",
+   },
+   "warianty": {
+     "A": {"podtytul": "Trzy pola i klamerka przy porannym powitaniu",
+           "cel_ter": "Dziecko przypnie klamerkę na jednym z trzech pól termometru przy powitaniu i weźmie wskazaną pomoc.",
+           "smart": {"S": "Przypina klamerkę — jeden ruch, widoczny i policzalny.",
+                     "M": "Kryterium z klikniętego poziomu wsparcia — liczymy dni.",
+                     "A": "Pola są opisane obrazkiem, nie słowem; wybór jest z trzech.",
+                     "R": "Bez pomiaru dostosowanie z wczoraj działa dziś przeciwko dziecku.",
+                     "T": "Ewaluacja w horyzoncie poziomu: 4, 8 albo 12 tygodni."},
+           "kryterium_obs": "Dziennik obserwacji — 5 poranków w tygodniu.",
+           "pomoce": [
+             "pasek termometru 10 × 30 cm z trzema polami i obrazkami",
+             "klamerka do bielizny, oznaczona kolorem dziecka",
+             "trzy karty sytuacji: jasna sala, przyciemniony kącik, stolik z parawanem",
+             "miejsce na ścianie na wysokości oczu dziecka",
+             "dziennik obserwacji z rubryką na odczyt",
+           ],
+           "przebieg": [
+             ["N — wita dziecko i pokazuje trzy pola termometru, nazywając obrazki.",
+              "D — patrzy na pola i pokazuje palcem jedno z nich."],
+             ["N — podaje klamerkę.", "D — przypina klamerkę na wybranym polu."],
+             ["N — odczytuje wybór na głos i pokazuje kartę sytuacji, która z niego wynika.",
+              "D — bierze wskazaną pomoc i idzie na wybrane miejsce."],
+             ["N — obserwuje pierwsze zadanie i nie zmienia ustawienia.",
+              "D — pracuje w warunkach, które wynikły z jego wyboru."],
+             ["N — zapisuje odczyt w dzienniku i wiesza termometr na miejscu.",
+              "D — odkłada klamerkę na swoje miejsce."],
+           ]},
+     "B": {"podtytul": "Odczyt poziomu i wybór jednego z dwóch stanowisk",
+           "cel_ter": "Dziecko ustawi termometr oczu i wybierze stanowisko pracy zgodne z ustawieniem, bez zmiany decyzji w trakcie zadania.",
+           "smart": {"S": "Ustawia termometr i siada na wybranym miejscu.",
+                     "M": "Kryterium z klikniętego poziomu wsparcia — liczymy dni z ustawieniem przed pierwszym zadaniem.",
+                     "A": "Stanowiska są gotowe przed przyjściem dzieci — wybór trwa chwilę.",
+                     "R": "Zmienność wzrokowa jest daną do zapisania, nie powodem do upomnienia.",
+                     "T": "Ewaluacja w horyzoncie poziomu: 4, 8 albo 12 tygodni."},
+           "kryterium_obs": "Dziennik obserwacji — 5 poranków w tygodniu, notujemy zgodność miejsca z odczytem.",
+           "pomoce": [
+             "termometr oczu z klamerką",
+             "dwa gotowe stanowiska: jasne przy oknie i przyciemnione z parawanem",
+             "to samo zadanie w dwóch egzemplarzach",
+             "dziennik obserwacji",
+             "karta „moje oczy dzisiaj” do planu dnia",
+           ],
+           "przebieg": [
+             ["N — prosi o ustawienie termometru przed pierwszym zadaniem.",
+              "D — ustawia klamerkę i mówi, co wybrało."],
+             ["N — pokazuje dwa stanowiska i pyta, które dziś pasuje.",
+              "D — wybiera stanowisko i siada."],
+             ["N — daje zadanie i nie komentuje wyboru miejsca.",
+              "D — wykonuje zadanie w wybranych warunkach."],
+             ["N — pyta, czy miejsce było dobre.", "D — mówi, czy jutro wybrałoby tak samo."],
+             ["N — zapisuje odczyt i przekazuje go drugiemu nauczycielowi.",
+              "D — wiesza kartę „moje oczy dzisiaj” w planie dnia."],
+           ]},
+     "C": {"podtytul": "Dwa pomiary dziennie i nazwanie własnych sygnałów",
+           "cel_ter": "Dziecko sprawdzi poziom rano i po odpoczynku, a przy zmianie poziomu zmieni miejsce pracy, nazywając powód jednym zdaniem.",
+           "smart": {"S": "Sprawdza termometr dwa razy i zmienia miejsce, gdy poziom się zmienił.",
+                     "M": "Kryterium z klikniętego poziomu wsparcia — liczymy dni z dwoma pomiarami.",
+                     "A": "Drugi pomiar wpisany jest w plan dnia po odpoczynku.",
+                     "R": "Poziom potrafi zmienić się w ciągu dnia; jeden pomiar to za mało.",
+                     "T": "Ewaluacja w horyzoncie poziomu: 4, 8 albo 12 tygodni."},
+           "kryterium_obs": "Dziennik obserwacji — 5 dni w tygodniu, dwa pomiary dziennie.",
+           "pomoce": [
+             "termometr oczu z klamerką i drugą rubryką na popołudnie",
+             "plan dnia z dwoma polami na pomiar",
+             "trzy pomoce do wyboru: parawan, daszek, podkładka bez wzoru",
+             "dziennik obserwacji z rubryką rano/po południu",
+             "kartka na własne zdanie: „poznaję po tym, że…”",
+           ],
+           "przebieg": [
+             ["N — przypomina, że dziś sprawdzamy poziom dwa razy.",
+              "D — ustawia termometr rano i zapamiętuje porę drugiego pomiaru."],
+             ["N — po odpoczynku wskazuje plan dnia, nie mówiąc nic więcej.",
+              "D — podchodzi i sprawdza poziom drugi raz."],
+             ["N — pyta, czy poziom się zmienił i co z tego wynika.",
+              "D — mówi, czy zmienia miejsce, i przenosi się, jeśli trzeba."],
+             ["N — prosi o dokończenie zdania „poznaję po tym, że…”.",
+              "D — nazywa swój sygnał ciała: pieką oczy, kręci się w głowie, nie chce mi się patrzeć."],
+             ["N — zapisuje oba odczyty i pokazuje dziecku zapis z całego tygodnia.",
+              "D — patrzy na tydzień i mówi, w które dni było inaczej."],
+           ]},
+   },
+ },
+ "pomoc": {
+   "nazwa": "Termometr oczu — trzy pola z klamerką",
+   "co_przygotowac": [
+     "pasek kartonu 10 × 30 cm z trzema polami: zielonym, żółtym i czerwonym",
+     "obrazek przy każdym polu — nie napis",
+     "klamerka do bielizny w kolorze dziecka",
+     "przy każdym polu rysunek dostosowania, które z niego wynika",
+     "miejsce na ścianie przy planie dnia, na wysokości oczu dziecka",
+   ],
+   "trzy_kroki_uzycia": [
+     "Powieś termometr przy planie dnia i pokaż dziecku wszystkie trzy pola pierwszego dnia.",
+     "Poproś o ustawienie klamerki przy powitaniu i odczytaj wybór na głos — bez pytania „dlaczego”.",
+     "Przenieś odczyt do dziennika obserwacji; po dwóch tygodniach pokaż dziecku cały tydzień.",
+   ],
+   "wskazowka_dla_doroslego": "Odczyt przekazuj wszystkim dorosłym pracującym danego dnia z grupą. Termometr, o którym wie tylko jedna nauczycielka, działa przez pół dnia.",
+   "opis_zdjecia": "a vertical cardboard strip with three coloured fields and small pictures, a wooden clothes peg clipped to the middle field, hanging at child height next to a daily plan",
+   "polecenia": {
+     "A": "Jak dziś mają się twoje oczy? Przypnij klamerkę.",
+     "B": "Ustaw dziś swój termometr, a potem wybierz miejsce przy stole.",
+     "C": "Sprawdź termometr i powiedz mi, po czym poznajesz, że dziś jest inaczej.",
+   },
+ },
+ "arkusz": {
+   "tytul": "Termometr oczu — szablon do wycięcia",
+   "wstep_dla_doroslego": "Wytnij pasek i karty sytuacji. Przy każdym polu termometru naklej symbol dostosowania, które z niego wynika — dziecko ma widzieć skutek swojego wyboru, nie tylko kolor.",
+   "karty": [
+     {"etykieta": "Moje oczy dzisiaj", "opis": "nagłówek termometru — do naklejenia na pasek", "symbol": "sygnal_ciala"},
+     {"etykieta": "Dużo światła", "opis": "pole czerwone — parawan i miejsce tyłem do okna", "symbol": "karta_czerwona"},
+     {"etykieta": "W sam raz", "opis": "pole zielone — bez dodatkowej pomocy", "symbol": "emocja_spokoj"},
+     {"etykieta": "Zmęczone oczy", "opis": "pole żółte — krótsze zadania i przerwa wzrokowa", "symbol": "emocja_zmeczenie"},
+   ],
+   "pasek_kolejnosci": [
+     {"etykieta": "1 · sprawdzam", "symbol": "sygnal_ciala"},
+     {"etykieta": "2 · wybieram", "symbol": "postawa_stolik"},
+     {"etykieta": "3 · pracuję", "symbol": "dzien_zajecia"},
+   ],
+ },
+ "dieta_sensoryczna": [
+   "trzydzieści sekund na ustawienie termometru — stały punkt planu dnia",
+   "dwa gotowe miejsca w sali: jasne i przyciemnione, wybór należy do dziecka",
+   "krótkie sprawdzenie po odpoczynku, czy poziom się zmienił",
+ ],
+ "dostosowania": [
+   "brak automatycznych dostosowań „na stałe” — decyzja zapada codziennie",
+   "odczyt przekazywany wszystkim dorosłym pracującym tego dnia z grupą",
+   "wpis do dziennika obserwacji: poziom i to, co po nim ustalono",
+ ],
+ "ryzyko": "Zmienność reakcji utrzymująca się mimo diety sensorycznej wymaga konsultacji neurologicznej i okulistycznej — może maskować napady nieświadomości.",
+ "obserwacja": {
+   "cel": "Dziecko sprawdzi poziom wzrokowy przed pierwszym zadaniem i skorzysta z dostosowania, które z odczytu wynika, w {proba} sytuacji, w ciągu {horyzont_dopelniacz}.",
+   "co_obserwowac": "Dziennik obserwacji — rubryka poranna. Notujemy odczyt i to, co po nim ustalono.",
+   "ile_sytuacji": "5 poranków w tygodniu",
+   "smart": {"S": "Ustawia termometr i bierze pomoc zgodną z odczytem.",
+             "M": "{proba} dni z pięciu obserwowanych w tygodniu.",
+             "A": "Termometr wisi na wysokości oczu dziecka i jest częścią powitania.",
+             "R": "Stały profil w dniu obniżonej reaktywności działa przeciwko dziecku.",
+             "T": "Weryfikacja po {horyzont_miejscownik}, według pasma punktacji zmysłu."},
+ },
 },
 
-# ===== IV · SMAK (b250) ====================================================
+# ═══ II · SŁUCH ════════════════════════════════════════════════════════════
 {
-    "id": "SENS-10", "kod": "SMA-NAD", "zmysl": "smak", "sektor": "nadwrazliwosc",
-    "nazwa": "Oswajanie nowej potrawy bez presji jedzenia",
-    "objawy": [
-        "Je bardzo wąski repertuar potraw — odmawia nowych smaków i konsystencji",
-        "Reaguje odruchem wymiotnym na niektóre konsystencje jedzenia",
-        "Preferuje potrawy „bez smaku”, oddziela składniki na talerzu",
-    ],
-    "opis_dla_doroslego": (
-        "Wybiórczość pokarmowa u dziecka z nadwrażliwością smakową nie jest grymaszeniem — "
-        "odruch wymiotny jest realny. Namawianie i „jeszcze jedna łyżeczka” zawężają repertuar "
-        "zamiast go poszerzać."
-    ),
-    "strategia_sensoryczna": (
-        "Dziecko poznaje nową potrawę po drabinie oswajania: patrzę → dotykam widelcem → wącham → "
-        "dotykam wargą → liżę → gryzę. Każdy szczebel jest sukcesem, jedzenie nie jest warunkiem."
-    ),
-    "sygnal_dziecka": "wskazanie szczebla na drabinie oswajania („dziś jestem tutaj”)",
-    "kontekst": "przy posiłku w sali lub stołówce, przy własnym talerzyku do prób",
-    "czynnosc": {
-        "3-4": "z pomocą dorosłego położy nową potrawę na osobnym talerzyku i dotknie jej widelcem",
-        "5":   "przejdzie o jeden szczebel drabiny oswajania w stosunku do poprzedniego posiłku z tą potrawą",
-        "6":   "samo wskaże szczebel, na którym dziś jest, i wykona go bez namawiania przez dorosłego",
-    },
-    "wskaznik_obserwacji": "liczba posiłków, w których dziecko wykonało wskazany szczebel drabiny (nie: zjadło)",
-    "dieta_sensoryczna": [
-        "osobny mały talerzyk „do prób” obok talerza z jedzeniem znanym — nowa potrawa nigdy nie miesza się ze znaną",
-        "przygotowanie jamy ustnej przed posiłkiem: picie przez rurkę, gryzak, chrupiąca przekąska",
-        "udział w przygotowaniu potrawy (mycie, krojenie miękkiego) — dotyk poprzedza smak",
-    ],
-    "dostosowania": [
-        "brak namawiania, komentowania i nagradzania za jedzenie",
-        "składniki podawane osobno, nie wymieszane",
-        "stałe, przewidywalne miejsce i pora posiłku",
-    ],
-    "pomoc": {
-        "nazwa": "Drabina oswajania jedzenia (6 szczebli) + talerzyk do prób",
-        "opis_dla_doroslego": (
-            "Pionowa karta z sześcioma szczeblami: patrzę · dotykam widelcem · wącham · dotykam wargą · "
-            "liżę · gryzę, każdy z obrazkiem. Do tego mały talerzyk na nową potrawę, stawiany zawsze "
-            "z tej samej strony."
-        ),
-        "trzy_kroki_uzycia": [
-            "Postaw talerzyk do prób obok talerza i połóż na nim jedną nową rzecz — nie trzy.",
-            "Pokaż drabinę i zapytaj wyłącznie: „gdzie dziś jesteś?”. Nie proponuj wyżej.",
-            "Odnotuj szczebel; przy następnym posiłku zacznij od tego samego, nie od wyższego.",
-        ],
-        "wskazowka_dla_doroslego": (
-            "Zdanie „spróbuj tylko kawałeczek” cofa dziecko na sam dół drabiny. Sukcesem jest to, "
-            "że nowa potrawa leży na stole i dziecko na nią patrzy."
-        ),
-        "etykieta_dla_dziecka": "MOJA DRABINA — dziś jestem tutaj",
-        "polecenia": {
-            "III": "Patrzymy na nowe jedzenie. Nie musisz jeść. Dotykam widelcem, zrób tak samo.",
-            "II":  "Pokaż na drabinie, gdzie dziś jesteś. Zrób ten jeden szczebel.",
-            "I":   "Wybierz swój szczebel na dziś i powiedz mi, kiedy skończysz.",
-        },
-    },
-    "instrukcja_slowna": {
-        "III": "To jest talerzyk do prób. Nie musisz jeść. Ja dotykam widelcem — spróbuj tak samo, razem.",
-        "II":  "Na drabinie byłeś wczoraj tutaj. Gdzie jesteś dziś?",
-        "I":   "Talerzyk stoi. Zdecyduj, który szczebel robisz dziś.",
-    },
-    "konspekt": {
-        "temat": "Moja drabina — poznaję jedzenie bez jedzenia",
-        "wprowadzenie": "zabawa „co to jest?” — rozpoznawanie warzyw po kształcie i zapachu, bez próbowania",
-        "glowna": "wykonanie własnej drabiny oswajania (6 szczebli, naklejki), a potem jedna próba na talerzyku z nową potrawą — dziecko wybiera szczebel samo",
-        "zakonczenie": "przypięcie drabiny w miejscu posiłku i ustalenie, że nikt nie namawia",
-        "metody": ["zabawa badawcza", "praca plastyczna", "próba w warunkach naturalnych"],
-        "formy": "indywidualna, przy stole",
-        "ewaluacja_uwaga": "mierzymy szczebel drabiny, nigdy liczbę zjedzonych kęsów",
-    },
-    "arkusz": {
-        "tytul": "DRABINA OSWAJANIA — karta do wycięcia",
-        "elementy": [
-            "drabina 6 szczebli (A4, pionowo) z obrazkami i strzałką do przesuwania",
-            "karta „TALERZYK DO PRÓB” do położenia na stole",
-            "karta dla rodzica: te same szczeble w domu",
-        ],
-        "symbole": ["k_drabina_jedzenie.jpg", "k_talerzyk_prob.jpg", "k_posilek.jpg"],
-    },
-    "ryzyko": "repertuar poniżej 15 produktów, spadek masy ciała lub krztuszenie się wymagają skierowania do lekarza i logopedy/neurologopedy — to zaburzenie karmienia, nie tylko sensoryka",
+ "nr": "II.1", "zmysl": "II", "sektor": 1,
+ "wskaznik": "Dziecko zatyka uszy, płacze albo ucieka przy hałasie i rozprasza się przy dźwiękach, których inni nie zauważają.",
+ "objawy": [
+   "Zatyka uszy, płacze lub ucieka przy hałasie (dzwonek, suszarka, gwar sali)",
+   "Rozprasza się przy dźwiękach, których inni nie zauważają (brzęczenie, tykanie)",
+   "Reaguje lękiem lub złością na nagłe, głośne dźwięki",
+ ],
+ "strategia": "ochrona słuchu przed przeciążeniem, nie po nim",
+ "opis_strategii": "Dziecko zakłada słuchawki wygłuszające albo przechodzi do kącika wyciszenia po zapowiedzi hałaśliwej sytuacji — zanim hałas je przeciąży.",
+ "cele": {
+   "A": {"p3": "Założy słuchawki podane przez nauczyciela i zostanie w szatni do końca ubierania",
+         "p2": "Weźmie słuchawki z wieszaka po zapowiedzi „za chwilę szatnia”",
+         "p1": "Pójdzie do kącika wyciszenia, gdy w sali zrobi się gwarno"},
+   "B": {"p3": "Poda kartę „za głośno” i przyjmie słuchawki od nauczyciela",
+         "p2": "Poda kartę, samo zdejmie słuchawki z wieszaka i wróci z nimi do grupy",
+         "p1": "Zgłosi słowem, że jest za głośno, i wybierze słuchawki albo kącik"},
+   "C": {"p3": "Po zapowiedzi hałasu wybierze strategię wskazaną wspólnie z nauczycielem",
+         "p2": "Po zapowiedzi hałasu samo zdecyduje: słuchawki czy kącik wyciszenia",
+         "p1": "Zostanie w hałaśliwej sytuacji, korzystając z wybranej strategii, i wróci do zabawy po ustaniu hałasu"},
+ },
+ "konspekt": {
+   "tytul": "Za głośno — zanim mnie zmęczy",
+   "rodzaj_zajec": "Zajęcia o charakterze terapeutycznym (terapia SI) · ochrona słuchu",
+   "metody": [
+     "uprzedzanie o hałasie tym samym zdaniem, dwie minuty wcześniej",
+     "próba w kontrolowanym hałasie przed próbą w sytuacji prawdziwej",
+     "sygnał wizualny zamiast dzwonka",
+     "dostępność pomocy bez proszenia dorosłego",
+     "wzmocnienie za wczesne sięgnięcie, nie za wytrzymanie hałasu",
+   ],
+   "wskazowka": "Słuchawki nie izolują dziecka od grupy — pozwalają w niej zostać. Zdejmowanie ich „bo już nie jest tak głośno” odbiera dziecku kontrolę i cofa efekt kilku tygodni pracy.",
+   "modyfikacje": {
+     "p3": "nauczyciel podaje słuchawki do ręki i zostaje obok przez całą hałaśliwą sytuację",
+     "p2": "słuchawki wiszą na wieszaku, nauczyciel tylko zapowiada hałas i wskazuje wieszak",
+     "p1": "bez zapowiedzi w połowie sytuacji — dziecko rozpoznaje narastanie hałasu samo",
+   },
+   "warianty": {
+     "A": {"podtytul": "Słuchawki podane do ręki przed wyjściem do szatni",
+           "cel_ter": "Dziecko zostanie w szatni w słuchawkach do końca ubierania, bez ucieczki i bez płaczu.",
+           "smart": {"S": "Zakłada słuchawki i zostaje w pomieszczeniu — obie rzeczy widoczne.",
+                     "M": "Kryterium z klikniętego poziomu wsparcia — liczymy hałaśliwe sytuacje.",
+                     "A": "Słuchawki są lekkie, pasywne, dopasowane wcześniej poza hałasem.",
+                     "R": "Ucieczka z szatni kończy się szukaniem dziecka, a nie nauką ubierania.",
+                     "T": "Ewaluacja w horyzoncie poziomu: 4, 8 albo 12 tygodni."},
+           "kryterium_obs": "Arkusz obserwacji — 5 hałaśliwych sytuacji w tygodniu (szatnia, stołówka, zabawa swobodna).",
+           "pomoce": [
+             "nauszniki pasywne, dopasowane wcześniej w cichej sali",
+             "wieszak na słuchawki na wysokości dziecka, przy drzwiach",
+             "karta „za głośno” z symbolem",
+             "nagranie gwaru sali na tablecie, do próby w kontrolowanym hałasie",
+             "kącik wyciszenia z miękką ścianą i jedną książeczką",
+           ],
+           "przebieg": [
+             ["N — w cichej sali pokazuje słuchawki i zakłada je sobie, potem dziecku.",
+              "D — pozwala założyć słuchawki i słucha, jak zmienia się dźwięk."],
+             ["N — włącza nagranie gwaru cicho, potem głośniej.",
+              "D — pokazuje ręką, kiedy robi się za głośno."],
+             ["N — podaje słuchawki w momencie sygnału dziecka.",
+              "D — zakłada słuchawki i zostaje przy zabawie."],
+             ["N — mówi zdanie zapowiadające: „za dwie minuty idziemy do szatni”.",
+              "D — idzie do szatni w słuchawkach, trzymając nauczyciela za rękę."],
+             ["N — po ubraniu nazywa, co się udało: „zostałeś, hałas nie wygrał”.",
+              "D — odwiesza słuchawki na swój wieszak."],
+           ]},
+     "B": {"podtytul": "Karta „za głośno” i własne sięgnięcie po ochronę",
+           "cel_ter": "Dziecko zgłosi kartą, że jest za głośno, samo weźmie słuchawki z wieszaka i wróci do grupy w ciągu minuty.",
+           "smart": {"S": "Podaje kartę, idzie po słuchawki, wraca — trzy widoczne kroki.",
+                     "M": "Kryterium z klikniętego poziomu wsparcia; notujemy moment zgłoszenia.",
+                     "A": "Wieszak jest w zasięgu dziecka; nie trzeba prosić dorosłego.",
+                     "R": "Im wcześniejsze zgłoszenie, tym mniejszy koszt hałasu dla całego dnia.",
+                     "T": "Ewaluacja w horyzoncie poziomu: 4, 8 albo 12 tygodni."},
+           "kryterium_obs": "Arkusz obserwacji — 5 hałaśliwych sytuacji w tygodniu, notujemy moment sięgnięcia.",
+           "pomoce": [
+             "słuchawki na wieszaku przy drzwiach",
+             "karty „za głośno” dla całej małej grupy",
+             "nagranie gwaru szatni z narastającą głośnością",
+             "sygnał wizualny (lampka) zastępujący dzwonek",
+             "kącik wyciszenia dostępny bez pytania",
+           ],
+           "przebieg": [
+             ["N — rozdaje karty i ćwiczy z grupą zgłoszenie w ciszy.",
+              "D — podaje kartę na próbę, bez hałasu."],
+             ["N — włącza nagranie gwaru i obserwuje, kto zgłasza się pierwszy.",
+              "D — podaje kartę na pierwszym narastaniu, nie na szczycie."],
+             ["N — wskazuje wieszak.", "D — idzie po słuchawki i zakłada je samo."],
+             ["N — prowadzi krótką zabawę grupową przy włączonym nagraniu.",
+              "D — bierze udział w zabawie w słuchawkach."],
+             ["N — ustala z grupą zdanie zapowiadające hałas i miejsce wieszaka.",
+              "D — powtarza zdanie i pokazuje, gdzie wiszą słuchawki."],
+           ]},
+     "C": {"podtytul": "Wybór strategii po zapowiedzi i powrót po ustaniu hałasu",
+           "cel_ter": "Dziecko po zapowiedzi hałaśliwej sytuacji wybierze strategię, zostanie w sytuacji i wróci do zabawy po ustaniu hałasu.",
+           "smart": {"S": "Wybiera słuchawki albo kącik, zostaje, wraca — trzy etapy do odnotowania.",
+                     "M": "Kryterium z klikniętego poziomu wsparcia — liczymy sytuacje z powrotem do grupy.",
+                     "A": "Obie strategie są przygotowane; wybór jest z dwóch, nie z pięciu.",
+                     "R": "Powrót do grupy jest częścią celu — inaczej kącik staje się ucieczką.",
+                     "T": "Ewaluacja w horyzoncie poziomu: 4, 8 albo 12 tygodni."},
+           "kryterium_obs": "Arkusz obserwacji — 5 hałaśliwych sytuacji w tygodniu, notujemy powrót do grupy.",
+           "pomoce": [
+             "słuchawki i kącik wyciszenia — obie strategie gotowe",
+             "karta wyboru z dwoma polami: słuchawki / kącik",
+             "klepsydra pięciominutowa do kącika",
+             "plan dnia z zaznaczonymi hałaśliwymi porami",
+             "kartka na własne zdanie: „wracam, kiedy…”",
+           ],
+           "przebieg": [
+             ["N — pokazuje w planie dnia, kiedy dziś będzie głośno.",
+              "D — nazywa te pory i mówi, która jest dla niego najtrudniejsza."],
+             ["N — przed hałaśliwą porą podaje kartę wyboru.",
+              "D — wybiera strategię i przygotowuje ją."],
+             ["N — nie przypomina w trakcie sytuacji.",
+              "D — korzysta z wybranej strategii i zostaje w sytuacji."],
+             ["N — po ustaniu hałasu wskazuje grupę bez słów.",
+              "D — wraca do zabawy z grupą."],
+             ["N — pyta, po czym dziecko poznało, że można wrócić.",
+              "D — dokańcza zdanie „wracam, kiedy…” i zapisuje je na karcie."],
+           ]},
+   },
+ },
+ "pomoc": {
+   "nazwa": "Słuchawki wygłuszające na wieszaku i karta ZA GŁOŚNO",
+   "co_przygotowac": [
+     "nauszniki pasywne, bez elektroniki, dopasowane w cichej sali",
+     "wieszak na wysokości dziecka, przy drzwiach do szatni",
+     "karta „za głośno” 9 × 9 cm — u dziecka i w planie dnia",
+     "kącik wyciszenia: miękka ściana, jedna książeczka, klepsydra",
+     "sygnał wizualny (lampka albo kartonik) zastępujący dzwonek",
+   ],
+   "trzy_kroki_uzycia": [
+     "Powieś słuchawki na stałym, dostępnym wieszaku i pokaż dziecku, gdzie wiszą.",
+     "Dwie minuty przed hałaśliwą porą uprzedź tym samym zdaniem i wskaż wieszak.",
+     "Zapisz, czy dziecko sięgnęło samo, czy dopiero po podaniu przez dorosłego.",
+   ],
+   "wskazowka_dla_doroslego": "Dopasuj słuchawki w ciszy, nie w hałasie. Pierwsze założenie w gwarze szatni kończy się zerwaniem ich z głowy i niechęcią na kilka tygodni.",
+   "opis_zdjecia": "child-sized passive ear defenders hanging on a low hook by a cloakroom door, an orange picture card pinned beside them",
+   "polecenia": {
+     "A": "Za głośno. Zakładamy słuchawki. Jestem obok.",
+     "B": "Za chwilę szatnia. Weź słuchawki z wieszaka.",
+     "C": "Zaraz będzie głośno. Wybierz: słuchawki czy kącik wyciszenia?",
+   },
+ },
+ "arkusz": {
+   "tytul": "Karty do zajęć „Za głośno — zanim mnie zmęczy”",
+   "wstep_dla_doroslego": "Wytnij karty i tabliczkę na wieszak. Kartę „za głośno” daj też pozostałym dzieciom w grupie — pomoc, której używa tylko jedno dziecko, szybko staje się powodem do pytań.",
+   "karty": [
+     {"etykieta": "Za głośno", "opis": "karta zgłoszenia — u dziecka przez cały dzień", "symbol": "prosze_cisza"},
+     {"etykieta": "Słuchawki", "opis": "tabliczka na wieszak i symbol do planu dnia", "symbol": None},
+     {"etykieta": "Kącik wyciszenia", "opis": "symbol miejsca, do którego dziecko może pójść bez pytania", "symbol": "prosze_odpoczynek"},
+     {"etykieta": "Wracam", "opis": "symbol powrotu do grupy po ustaniu hałasu", "symbol": "gest_chodz"},
+   ],
+   "pasek_kolejnosci": [
+     {"etykieta": "1 · zgłaszam", "symbol": "prosze_cisza"},
+     {"etykieta": "2 · zakładam", "symbol": "prosze_odpoczynek"},
+     {"etykieta": "3 · wracam", "symbol": "gest_chodz"},
+   ],
+ },
+ "dieta_sensoryczna": [
+   "słuchawki wygłuszające na stałym wieszaku, w zasięgu dziecka — bez proszenia dorosłego",
+   "kącik wyciszenia z miękką ścianą i jedną książeczką, dostępny bez pytania",
+   "uprzedzanie o głośnych sytuacjach dwie minuty wcześniej, zawsze tym samym zdaniem",
+ ],
+ "dostosowania": [
+   "miejsce z dala od dzwonka, suszarki i drzwi do szatni",
+   "wyjście do szatni przed resztą grupy albo po niej",
+   "sygnał wizualny zamiast dzwonka na zmianę aktywności",
+ ],
+ "ryzyko": "Nadwrażliwość słuchowa z zatykaniem uszu wymaga wykluczenia stanu zapalnego ucha i badania słuchu przed wdrożeniem diety sensorycznej.",
+ "obserwacja": {
+   "cel": "Dziecko skorzysta z ochrony słuchu albo kącika wyciszenia, zanim hałas je przeciąży, w {proba} sytuacji, w ciągu {horyzont_dopelniacz}.",
+   "co_obserwowac": "Arkusz obserwacji — kolumna: hałaśliwa pora dnia. Notujemy moment sięgnięcia i to, czy dziecko zostało w sytuacji.",
+   "ile_sytuacji": "5 hałaśliwych sytuacji w tygodniu",
+   "smart": {"S": "Zakłada słuchawki albo idzie do kącika i zostaje w sytuacji.",
+             "M": "{proba} sytuacji z pięciu obserwowanych w tygodniu.",
+             "A": "Słuchawki wiszą w zasięgu dziecka; kącik jest wolny.",
+             "R": "Ucieczka i płacz są końcem procesu — pracujemy nad jego początkiem.",
+             "T": "Weryfikacja po {horyzont_miejscownik}, według pasma punktacji zmysłu."},
+ },
 },
 {
-    "id": "SENS-11", "kod": "SMA-POD", "zmysl": "smak", "sektor": "podwrazliwosc",
-    "nazwa": "Bezpieczny bodziec w jamie ustnej zamiast gryzienia przedmiotów",
-    "objawy": [
-        "Wkłada do ust przedmioty niejadalne, liże lub gryzie zabawki i przybory",
-        "Poszukuje intensywnych smaków (ostre, kwaśne, bardzo słodkie)",
-        "Przepełnia usta jedzeniem, je łapczywie",
-    ],
-    "opis_dla_doroslego": (
-        "Jama ustna dziecka potrzebuje mocnego bodźca — stąd gryzienie rękawów, kredek i "
-        "przepełnianie ust. To ryzyko połknięcia i urazu, ale też czytelna informacja: brakuje "
-        "czucia, nie dyscypliny."
-    ),
-    "strategia_sensoryczna": (
-        "Dziecko korzysta z bezpiecznego gryzaka na sznurku i „mocnych” bodźców jadalnych "
-        "(picie gęstego przez rurkę, chrupiące, kwaśne) w stałych momentach dnia, a przy posiłku "
-        "je łyżeczką odmierzającą jeden kęs."
-    ),
-    "sygnal_dziecka": "sięgnięcie po gryzak zawieszony przy fartuszku",
-    "kontekst": "podczas zajęć przy stoliku i przy posiłkach w sali",
-    "czynnosc": {
-        "3-4": "użyje gryzaka zamiast rękawa lub kredki przy zadaniu przy stoliku",
-        "5":   "przed zadaniem napije się gęstego napoju przez rurkę, a przy posiłku nabierze jeden kęs łyżeczką",
-        "6":   "samo zaplanuje trzy momenty bodźca ustnego w ciągu dnia i utrzyma jeden kęs na raz przez cały posiłek",
-    },
-    "wskaznik_obserwacji": "liczba zajęć bez gryzienia przedmiotów niejadalnych, z użyciem gryzaka lub bodźca jadalnego",
-    "dieta_sensoryczna": [
-        "picie gęstego napoju (kisiel, jogurt pitny) przez wąską rurkę przed zajęciami wymagającymi skupienia",
-        "chrupiąca przekąska (marchewka, wafel ryżowy) w połowie przedpołudnia",
-        "gryzak silikonowy na sznurku, dostępny cały czas",
-    ],
-    "dostosowania": [
-        "usunięcie z zasięgu drobnych przedmiotów, które można połknąć",
-        "łyżeczka odmierzająca jeden kęs i przypomnienie „jeden kęs, potem następny”",
-        "picie wody między kęsami — spowalnia jedzenie",
-    ],
-    "pomoc": {
-        "nazwa": "Gryzak na sznurku + rurka i łyżeczka jednego kęsa",
-        "opis_dla_doroslego": (
-            "Silikonowy gryzak przypięty do fartuszka (mycie codziennie), wąska rurka do gęstych "
-            "napojów oraz mała łyżeczka wyznaczająca wielkość kęsa. Trzy przedmioty, jedna zasada: "
-            "usta dostają mocny bodziec w formie bezpiecznej."
-        ),
-        "trzy_kroki_uzycia": [
-            "Przypnij gryzak rano i pokaż dziecku, że jest jego — nie wydawaj go na prośbę.",
-            "Przed zadaniem przy stoliku podaj gęsty napój przez rurkę (1–2 minuty ssania).",
-            "Przy posiłku połóż małą łyżeczkę i przypominaj krótko: „jeden kęs”.",
-        ],
-        "wskazowka_dla_doroslego": (
-            "Zabranie gryzaka nie kończy gryzienia — przenosi je na rękawy i kredki. Gryzak myje się "
-            "codziennie i wymienia przy pierwszych śladach nadgryzienia."
-        ),
-        "etykieta_dla_dziecka": "MOCNO W BUZI — mam swój gryzak",
-        "polecenia": {
-            "III": "Buzia chce mocno. Bierzemy gryzak. Kredka zostaje na stole.",
-            "II":  "Weź gryzak, nie rękaw. Napij się przez rurkę.",
-            "I":   "Przygotuj buzię przed zadaniem — wiesz, co robić.",
-        },
-    },
-    "instrukcja_slowna": {
-        "III": "Widzę, że buzia szuka. Podaję gryzak i przypinam go — kredka zostaje na stole.",
-        "II":  "Zanim zaczniemy, napij się przez rurkę. Gryzak masz przy fartuszku.",
-        "I":   "Zaplanuj, kiedy dziś napijesz się przez rurkę i kiedy zjesz chrupiące.",
-    },
-    "konspekt": {
-        "temat": "Mocno w buzi — bezpieczne bodźce dla ust",
-        "wprowadzenie": "zabawa „kto dmuchnie dalej” — dmuchanie przez rurkę na piłeczkę z waty",
-        "glowna": "ćwiczenie ssania gęstego napoju przez wąską rurkę, gryzienia chrupiącej przekąski i używania gryzaka podczas krótkiego zadania przy stoliku; potem posiłek z łyżeczką jednego kęsa",
-        "zakonczenie": "przypięcie gryzaka i ustalenie trzech pór bodźca ustnego w planie dnia",
-        "metody": ["ćwiczenia oralno-motoryczne", "zabawa", "ćwiczenia praktyczne"],
-        "formy": "indywidualna",
-        "ewaluacja_uwaga": "notujemy gryzienie przedmiotów niejadalnych — spadek liczby jest miarą skuteczności",
-    },
-    "arkusz": {
-        "tytul": "MOCNO W BUZI — karty i plan bodźców ustnych",
-        "elementy": [
-            "karta „GRYZAK” i karta „RURKA” (9 × 9 cm)",
-            "plan dnia z trzema polami na bodziec ustny",
-            "lista bezpiecznych chrupiących przekąsek z uwagą o alergiach",
-        ],
-        "symbole": ["k_gryzak.jpg", "k_rurka.jpg", "k_chrupiace.jpg"],
-    },
-    "ryzyko": "wkładanie do ust przedmiotów niejadalnych to ryzyko zadławienia i zatrucia — wymaga stałego nadzoru, kontroli zasięgu drobnych przedmiotów oraz wykluczenia niedoboru żelaza (pica)",
+ "nr": "II.2", "zmysl": "II", "sektor": 2,
+ "wskaznik": "Dziecko nie reaguje na wołanie po imieniu mimo prawidłowego słuchu i samo wytwarza głośne dźwięki.",
+ "objawy": [
+   "Nie reaguje na wołanie po imieniu, choć słuch ma prawidłowy",
+   "Samo wytwarza głośne dźwięki (pomrukuje, stuka, trzaska)",
+   "Potrzebuje głośnych bodźców — przybliża ucho do źródła dźwięku, pogłaśnia",
+ ],
+ "strategia": "dźwięk w kąciku instrumentów i reakcja na imię po sygnale wzrokowym",
+ "opis_strategii": "Dziecko korzysta z kącika dźwięków w zaplanowanych porach, a na wołanie odpowiada po sygnale dotykowo-wzrokowym, który stopniowo się wycofuje.",
+ "cele": {
+   "A": {"p3": "Popatrzy na nauczyciela po dotknięciu ramienia i pokazaniu karty",
+         "p2": "Podejdzie do nauczyciela, który woła po imieniu i pokazuje kartę",
+         "p1": "Podejdzie do nauczyciela wołającego z odległości dwóch metrów"},
+   "B": {"p3": "Odpowie na wołanie wsparte kartą i weźmie instrument podany przez nauczyciela",
+         "p2": "Odpowie na wołanie po imieniu i wymieni kartę na dwie minuty w kąciku dźwięków",
+         "p1": "Odpowie na wołanie z drugiego końca sali, do trzeciego powtórzenia"},
+   "C": {"p3": "Odpowie na wołanie i skorzysta z przerwy dźwiękowej zaplanowanej z nauczycielem",
+         "p2": "Odpowie na samo wołanie po imieniu i samo zaplanuje przerwę dźwiękową",
+         "p1": "Odpowie na wołanie w czasie hałaśliwej zabawy i wróci do przerwanej czynności"},
+ },
+ "konspekt": {
+   "tytul": "Słyszę swoje imię",
+   "rodzaj_zajec": "Zajęcia korekcyjno-kompensacyjne · dieta sensoryczna słuchowa",
+   "metody": [
+     "sygnał dotykowo-wzrokowy wycofywany stopniowo",
+     "rytm imienia wystukany na instrumencie",
+     "stopniowanie odległości wołania: 1 m, 3 m, drugi koniec sali",
+     "wymiana karty na dostęp do mocnego dźwięku",
+     "polecenie kierowane do dziecka po imieniu, nie do całej grupy",
+   ],
+   "wskazowka": "Uciszanie („nie stukaj”) usuwa objaw i nie daje nic w zamian. Dopóki dziecko nie ma dokąd pójść po dźwięk, będzie go dobierać w czasie zajęć — najczęściej w najcichszym momencie.",
+   "modyfikacje": {
+     "p3": "wołanie zawsze z dotknięciem ramienia i pokazaniem karty, z odległości jednego metra",
+     "p2": "wołanie z karty, bez dotyku, z odległości trzech metrów",
+     "p1": "samo wołanie po imieniu, z drugiego końca sali, przy zabawie grupy w tle",
+   },
+   "warianty": {
+     "A": {"podtytul": "Rytm imienia i sygnał dotykowo-wzrokowy",
+           "cel_ter": "Dziecko popatrzy na nauczyciela i podejdzie do niego po dotknięciu ramienia i pokazaniu karty, bez powtarzania wołania więcej niż trzy razy.",
+           "smart": {"S": "Podnosi wzrok i podchodzi — dwie reakcje do odnotowania.",
+                     "M": "Kryterium z klikniętego poziomu wsparcia — liczymy wołania.",
+                     "A": "Sygnał jest dotykowy i wzrokowy, więc nie ginie w gwarze sali.",
+                     "R": "Brak reakcji na imię bywa czytany jako opór, a jest kwestią progu.",
+                     "T": "Ewaluacja w horyzoncie poziomu: 4, 8 albo 12 tygodni."},
+           "kryterium_obs": "Arkusz obserwacji — 5 wołań dziennie w zabawie swobodnej.",
+           "pomoce": [
+             "bębenek do wystukania rytmu imienia",
+             "karta z imieniem dziecka i symbolem „popatrz na mnie”",
+             "koszyk z trzema instrumentami na stałej półce",
+             "karta „chcę dźwięki” do wymiany",
+             "klepsydra dwuminutowa",
+           ],
+           "przebieg": [
+             ["N — wystukuje na bębenku rytm imienia dziecka i nazywa je.",
+              "D — słucha i powtarza rytm klaśnięciem."],
+             ["N — dotyka ramienia dziecka i pokazuje kartę „popatrz na mnie”.",
+              "D — podnosi wzrok na nauczyciela."],
+             ["N — woła po imieniu z odległości jednego metra.",
+              "D — podchodzi do nauczyciela."],
+             ["N — pokazuje koszyk z instrumentami i klepsydrę.",
+              "D — wybiera instrument i gra do końca klepsydry."],
+             ["N — mówi „koniec” i wskazuje półkę.",
+              "D — odkłada instrument i wraca do zabawy."],
+           ]},
+     "B": {"podtytul": "Wołanie z trzech odległości i wymiana karty na dźwięk",
+           "cel_ter": "Dziecko odpowie na wołanie po imieniu z trzech metrów do trzeciego powtórzenia i skorzysta z dwuminutowej przerwy dźwiękowej po wymianie karty.",
+           "smart": {"S": "Odpowiada na wołanie i wymienia kartę — obie czynności widoczne.",
+                     "M": "Kryterium z klikniętego poziomu wsparcia; notujemy odległość wołania.",
+                     "A": "Odległość rośnie o metr dopiero po tygodniu skutecznych prób.",
+                     "R": "Dziecko z zaspokojoną potrzebą dźwięku łatwiej słyszy polecenie.",
+                     "T": "Ewaluacja w horyzoncie poziomu: 4, 8 albo 12 tygodni."},
+           "kryterium_obs": "Arkusz obserwacji — 5 wołań dziennie, notujemy odległość i liczbę powtórzeń.",
+           "pomoce": [
+             "koszyk instrumentów: bębenek, marakas, rura grzmotowa",
+             "karty „chcę dźwięki” dla całej małej grupy",
+             "klepsydra dwuminutowa",
+             "taśma na podłodze oznaczająca odległości 1 m i 3 m",
+             "karta z imieniem i symbolem „popatrz na mnie”",
+           ],
+           "przebieg": [
+             ["N — przypomina zasadę wymiany karty na dwie minuty grania.",
+              "D — podaje kartę i gra do końca klepsydry."],
+             ["N — woła po imieniu z jednego metra, potem z trzech.",
+              "D — odpowiada z obu odległości."],
+             ["N — woła w czasie, gdy gra muzyka w tle.",
+              "D — odpowiada mimo dźwięku w tle."],
+             ["N — prosi o wykonanie jednego polecenia po wołaniu.",
+              "D — wykonuje polecenie i wraca do zabawy."],
+             ["N — ustala z dzieckiem porę przerwy dźwiękowej na jutro.",
+              "D — pokazuje tę porę na planie dnia."],
+           ]},
+     "C": {"podtytul": "Reakcja na samo imię i własny plan przerw dźwiękowych",
+           "cel_ter": "Dziecko odpowie na samo wołanie po imieniu z drugiego końca sali i wróci do przerwanej czynności po wykonaniu polecenia.",
+           "smart": {"S": "Odpowiada, wykonuje polecenie, wraca do swojej czynności.",
+                     "M": "Kryterium z klikniętego poziomu wsparcia — liczymy wołania w hałasie.",
+                     "A": "Przerwy dźwiękowe są zaplanowane, więc potrzeba nie narasta w trakcie zajęć.",
+                     "R": "Powrót do przerwanej czynności jest trudniejszy niż sama reakcja na imię.",
+                     "T": "Ewaluacja w horyzoncie poziomu: 4, 8 albo 12 tygodni."},
+           "kryterium_obs": "Arkusz obserwacji — 5 wołań dziennie w czasie zabawy grupowej.",
+           "pomoce": [
+             "plan dnia z trzema polami na przerwę dźwiękową",
+             "koszyk instrumentów na stałej półce",
+             "zadanie, do którego dziecko ma wrócić po wołaniu",
+             "karta „wracam do…” z polem na rysunek",
+             "klepsydra dwuminutowa",
+           ],
+           "przebieg": [
+             ["N — prosi o zaplanowanie trzech przerw dźwiękowych na dziś.",
+              "D — wpisuje albo zaznacza je w planie dnia."],
+             ["N — woła dziecko po imieniu w czasie zabawy grupy.",
+              "D — odpowiada bez sygnału dotykowego i podchodzi."],
+             ["N — daje krótkie polecenie i wskazuje, dokąd dziecko wróci.",
+              "D — wykonuje polecenie i zaznacza na karcie, do czego wraca."],
+             ["N — obserwuje powrót, nie przypomina.",
+              "D — wraca do przerwanej czynności."],
+             ["N — sprawdza z dzieckiem, czy przerwy dźwiękowe zostały zrealizowane.",
+              "D — mówi, która przerwa najbardziej pomogła."],
+           ]},
+   },
+ },
+ "pomoc": {
+   "nazwa": "Kącik dźwięków z kartą wymiany",
+   "co_przygotowac": [
+     "koszyk z trzema instrumentami: bębenek, marakas, rura grzmotowa",
+     "stała półka na wysokości dziecka",
+     "karta „chcę dźwięki” do wymiany na dwie minuty grania",
+     "klepsydra dwuminutowa",
+     "karta z imieniem dziecka i symbolem „popatrz na mnie”",
+   ],
+   "trzy_kroki_uzycia": [
+     "Ustaw koszyk na stałej półce i pokaż dziecku kartę wymiany pierwszego dnia.",
+     "Przyjmij kartę, odwróć klepsydrę i zamknij przerwę zawsze tym samym zdaniem.",
+     "Zapisz, ile razy dziecko sięgnęło po kartę zamiast stukać w blat albo pomrukiwać.",
+   ],
+   "wskazowka_dla_doroslego": "Wołaj dziecko po imieniu z odległości wyciągniętej ręki, nie z drugiego końca sali — dopóki reakcja nie jest pewna, wołanie z daleka uczy je, że imienia można nie usłyszeć.",
+   "opis_zdjecia": "a basket with a small drum, a maraca and a thunder tube on a low shelf, a picture exchange card and a two-minute sand timer next to it",
+   "polecenia": {
+     "A": "Popatrz na mnie. Jestem tutaj. Idziemy po bębenek.",
+     "B": "Podaj kartę. Dwie minuty z instrumentem, potem wracamy.",
+     "C": "Powiedz, kiedy zrobisz sobie dziś przerwę na dźwięki.",
+   },
+ },
+ "arkusz": {
+   "tytul": "Karty do zajęć „Słyszę swoje imię”",
+   "wstep_dla_doroslego": "Wytnij karty i tabliczkę na koszyk. Kartę z imieniem dziecka uzupełnij zdjęciem albo symbolem, którego dziecko używa na tablicy AAC.",
+   "karty": [
+     {"etykieta": "Popatrz na mnie", "opis": "sygnał wzrokowy używany razem z wołaniem", "symbol": "gest_slucham"},
+     {"etykieta": "Chcę dźwięki", "opis": "karta wymiany na dwie minuty w kąciku instrumentów", "symbol": "instrument_dzwonki"},
+     {"etykieta": "Idę do ciebie", "opis": "symbol podejścia do nauczyciela po wołaniu", "symbol": "gest_chodz"},
+     {"etykieta": "Wracam do…", "opis": "pole na rysunek czynności, do której dziecko wraca", "symbol": None},
+   ],
+   "pasek_kolejnosci": [
+     {"etykieta": "1 · słyszę", "symbol": "gest_slucham"},
+     {"etykieta": "2 · idę", "symbol": "gest_chodz"},
+     {"etykieta": "3 · wracam", "symbol": "plan_zmiana"},
+   ],
+ },
+ "dieta_sensoryczna": [
+   "kącik dźwięków: bębenek, marakas, rura grzmotowa — dwie minuty na sygnał",
+   "zabawy rytmiczne z mocnym akcentem przed zadaniem wymagającym słuchania",
+   "śpiewane polecenia zamiast mówionych w porach niskiej uwagi",
+ ],
+ "dostosowania": [
+   "wołanie po imieniu z odległości wyciągniętej ręki i z kontaktem wzrokowym",
+   "polecenie kierowane do dziecka po imieniu, nie do całej grupy",
+   "sprawdzenie zrozumienia gestem, nie pytaniem „rozumiesz?”",
+ ],
+ "ryzyko": "Brak reakcji na imię zawsze wymaga aktualnego badania słuchu — dopiero prawidłowy wynik audiometrii pozwala mówić o podwrażliwości.",
+ "obserwacja": {
+   "cel": "Dziecko odpowie na wołanie po imieniu do trzeciego powtórzenia i skorzysta z zaplanowanej przerwy dźwiękowej, w {proba} sytuacji, w ciągu {horyzont_dopelniacz}.",
+   "co_obserwowac": "Arkusz obserwacji — kolumna: wołanie po imieniu. Notujemy odległość, liczbę powtórzeń i sięgnięcie po kartę.",
+   "ile_sytuacji": "5 wołań dziennie",
+   "smart": {"S": "Odpowiada na wołanie i korzysta z kącika dźwięków zamiast stukać.",
+             "M": "{proba} sytuacji z pięciu obserwowanych dziennie.",
+             "A": "Koszyk stoi na stałej półce, karta jest u dziecka.",
+             "R": "Dobieranie dźwięku w czasie zajęć rozbija zabawę całej grupy.",
+             "T": "Weryfikacja po {horyzont_miejscownik}, według pasma punktacji zmysłu."},
+ },
 },
 {
-    "id": "SENS-12", "kod": "SMA-SZUM", "zmysl": "smak", "sektor": "bialy_szum",
-    "nazwa": "Przewidywalny posiłek mimo zmiennej akceptacji smaków",
-    "objawy": [
-        "Akceptacja smaków i konsystencji zmienia się bez wyraźnej przyczyny",
-        "Raz odmawia potrawy, którą innym razem je chętnie",
-    ],
-    "opis_dla_doroslego": (
-        "Ta sama zupa raz jest zjadana, raz odrzucana. Dorosły odbiera to jako granie na nerwach; "
-        "dla dziecka zmienia się sam odbiór smaku i konsystencji. Stałą ma być procedura posiłku, "
-        "nie menu."
-    ),
-    "strategia_sensoryczna": (
-        "Dziecko przed posiłkiem wskazuje na karcie „jak dziś smakuje” jeden z trzech wariantów "
-        "(jem swoje · próbuję · dziś tylko patrzę) i według niego przebiega posiłek — bez negocjacji."
-    ),
-    "sygnal_dziecka": "położenie na stole jednej z trzech kart posiłku",
-    "kontekst": "przy każdym posiłku w przedszkolu",
-    "czynnosc": {
-        "3-4": "z pomocą dorosłego wybierze jedną z trzech kart i zostanie przy stole do końca posiłku",
-        "5":   "samo położy kartę przed posiłkiem i zje zgodnie z wybranym wariantem",
-        "6":   "wybierze kartę, powie, co dziś jest inaczej, i zaproponuje, co zje zamiast odrzuconej potrawy",
-    },
-    "wskaznik_obserwacji": "liczba posiłków rozpoczętych wyborem karty i zakończonych przy stole, bez konfliktu",
-    "dieta_sensoryczna": [
-        "stała pora, miejsce i kolejność czynności przy posiłku — zmienne jest tylko menu",
-        "zawsze jeden produkt pewny na talerzu, niezależnie od dania dnia",
-        "przygotowanie ust przed posiłkiem (rurka, chrupiące) — obniża zmienność odbioru",
-    ],
-    "dostosowania": [
-        "brak komentarza do wyboru dziecka przy stole",
-        "informacja dla rodzica: dziś wariant „tylko patrzę” — kolacja zaplanowana z zapasem",
-        "zapis wariantu w dzienniku — po dwóch tygodniach widać, czy zmienność ma rytm",
-    ],
-    "pomoc": {
-        "nazwa": "Trzy karty posiłku",
-        "opis_dla_doroslego": (
-            "Zestaw trzech kart: „JEM SWOJE” (produkt pewny), „PRÓBUJĘ” (szczebel drabiny), "
-            "„DZIŚ TYLKO PATRZĘ” (obecność przy stole bez jedzenia nowego). Wariant wybiera dziecko, "
-            "dorosły go realizuje bez komentarza."
-        ),
-        "trzy_kroki_uzycia": [
-            "Połóż trzy karty przy talerzu, zanim jedzenie trafi na stół.",
-            "Przyjmij wybór dziecka bez pytania „dlaczego” i bez propozycji zmiany.",
-            "Zapisz wariant w dzienniku i przekaż go rodzicowi przy odbiorze.",
-        ],
-        "wskazowka_dla_doroslego": (
-            "Wariant „dziś tylko patrzę” też jest sukcesem: dziecko zostaje przy stole z grupą. "
-            "Namawianie w takim dniu kosztuje więcej niż jeden pominięty posiłek."
-        ),
-        "etykieta_dla_dziecka": "JAK DZIŚ SMAKUJE",
-        "polecenia": {
-            "III": "Wybieramy kartę. Jem swoje, próbuję czy tylko patrzę?",
-            "II":  "Połóż kartę przed jedzeniem.",
-            "I":   "Wybierz kartę i powiedz, co dziś jest inaczej.",
-        },
-    },
-    "instrukcja_slowna": {
-        "III": "Zanim zjemy, wybieramy kartę. Trzymam trzy, ty wskazujesz jedną.",
-        "II":  "Połóż kartę przed posiłkiem — będzie tak, jak wybierzesz.",
-        "I":   "Wybierz kartę i powiedz mi, co dziś zjesz zamiast tego.",
-    },
-    "konspekt": {
-        "temat": "Jak dziś smakuje — posiłek, który zawsze wygląda tak samo",
-        "wprowadzenie": "rozmowa z obrazkami: „raz smakuje, raz nie” — dziecko dopasowuje buźki do potraw",
-        "glowna": "wykonanie trzech kart posiłku i próba przy prawdziwym posiłku: dziecko wybiera kartę, dorosły realizuje wariant bez komentarza",
-        "zakonczenie": "ustalenie miejsca kart przy stole i przekazanie informacji rodzicowi",
-        "metody": ["rozmowa kierowana", "praca plastyczna", "próba w warunkach naturalnych"],
-        "formy": "indywidualna, przy stole grupowym",
-        "ewaluacja_uwaga": "sukces = wybór karty i pozostanie przy stole; ilość zjedzonego nie jest kryterium",
-    },
-    "arkusz": {
-        "tytul": "JAK DZIŚ SMAKUJE — trzy karty posiłku",
-        "elementy": [
-            "karta „JEM SWOJE”, „PRÓBUJĘ”, „DZIŚ TYLKO PATRZĘ” (po 9 × 9 cm)",
-            "podkładka na stół z polem na kartę dnia",
-            "karta informacyjna dla rodzica",
-        ],
-        "symbole": ["k_jem_swoje.jpg", "k_probuje.jpg", "k_tylko_patrze.jpg"],
-    },
-    "ryzyko": "seria dni z wariantem „tylko patrzę” (powyżej 3 pod rząd) wymaga kontaktu z rodzicem i lekarzem — sprawdź ból gardła, zęby, refluks",
-},
-
-# ===== V · WĘCH (b255) =====================================================
-{
-    "id": "SENS-13", "kod": "WEC-NAD", "zmysl": "wech", "sektor": "nadwrazliwosc",
-    "nazwa": "Pozostanie w sali mimo intensywnego zapachu",
-    "objawy": [
-        "Skarży się na zapachy, których inni nie czują; unika stołówki, toalet",
-        "Reaguje mdłościami lub odmową na zapach jedzenia, środków czystości",
-        "Zapach potrafi wytrącić je z równowagi na długi czas",
-    ],
-    "opis_dla_doroslego": (
-        "Zapach stołówki albo płynu do podłóg potrafi wyłączyć dziecko z zajęć na godzinę. "
-        "Reakcja bywa fizjologiczna — mdłości są prawdziwe. Unikanie toalety z tego powodu "
-        "kończy się zatrzymywaniem moczu."
-    ),
-    "strategia_sensoryczna": (
-        "Dziecko korzysta z „zapachu ratunkowego” (chusteczka z zapachem lubianym, np. cytryny, "
-        "w kieszeni) i miejsca przy oknie, zamiast wychodzić z sali albo odmawiać wejścia do stołówki."
-    ),
-    "sygnal_dziecka": "wyjęcie chusteczki zapachowej lub karta „BRZYDKI ZAPACH”",
-    "kontekst": "w stołówce, przy toalecie i w sali po sprzątaniu",
-    "czynnosc": {
-        "3-4": "przyłoży do nosa chusteczkę podaną przez dorosłego i wejdzie do stołówki z grupą",
-        "5":   "samo wyjmie chusteczkę, usiądzie przy oknie i zostanie przy stole do końca posiłku",
-        "6":   "przed wejściem zapowie, którego miejsca dziś potrzebuje, i skorzysta z chusteczki bez przypomnienia",
-    },
-    "wskaznik_obserwacji": "liczba sytuacji zapachowych, w których dziecko zostało w pomieszczeniu, korzystając ze strategii",
-    "dieta_sensoryczna": [
-        "chusteczka z 2 kroplami olejku cytrynowego w kieszeni — wymieniana codziennie",
-        "wietrzenie sali przed zajęciami i po sprzątaniu, zawsze w tej samej porze",
-        "krótka przerwa przy oknie po wejściu do stołówki (30 sekund) — zanim dziecko usiądzie",
-    ],
-    "dostosowania": [
-        "miejsce przy oknie lub drzwiach, z dala od okienka wydawania posiłków i toalety",
-        "sprzątanie środkami bezzapachowymi w porze pobytu dziecka",
-        "uprzedzanie o mopowaniu i o daniach o intensywnym zapachu",
-    ],
-    "pomoc": {
-        "nazwa": "Chusteczka ratunkowa + karta BRZYDKI ZAPACH",
-        "opis_dla_doroslego": (
-            "Bawełniana chusteczka w woreczku, z dwiema kroplami zapachu wybranego przez dziecko "
-            "(najczęściej cytryna lub mięta), oraz karta-symbol pozwalająca zgłosić problem bez wychodzenia."
-        ),
-        "trzy_kroki_uzycia": [
-            "Pozwól dziecku wybrać zapach z trzech propozycji — narzucony nie zadziała.",
-            "Włóż chusteczkę do kieszeni rano; przy wejściu do stołówki tylko wskaż kieszeń.",
-            "Odnotuj, czy dziecko weszło i zostało, i jak długo korzystało z chusteczki.",
-        ],
-        "wskazowka_dla_doroslego": (
-            "Nie mów „przecież nic nie czuć”. Podważanie doznania odbiera dziecku sens sygnalizowania "
-            "i kończy się wyjściem z sali bez uprzedzenia."
-        ),
-        "etykieta_dla_dziecka": "MÓJ ZAPACH — mam go w kieszeni",
-        "polecenia": {
-            "III": "Brzydki zapach. Dajemy chusteczkę do nosa. Wchodzimy razem.",
-            "II":  "Weź chusteczkę z kieszeni. Usiądź przy oknie.",
-            "I":   "Powiedz, gdzie dziś siadasz w stołówce.",
-        },
-    },
-    "instrukcja_slowna": {
-        "III": "Czuję, że tu mocno pachnie. Podaję ci chusteczkę i wchodzimy razem, na chwilę przy oknie.",
-        "II":  "Chusteczka jest w kieszeni. Miejsce przy oknie jest wolne.",
-        "I":   "Za chwilę stołówka. Zaplanuj, jak sobie poradzisz z zapachem.",
-    },
-    "konspekt": {
-        "temat": "Mój zapach w kieszeni — zostaję, mimo że pachnie",
-        "wprowadzenie": "„zgadnij, co pachnie” — trzy woreczki zapachowe, dziecko wybiera swój ulubiony",
-        "glowna": "przygotowanie chusteczki ratunkowej i próba wejścia do stołówki poza porą posiłku, potem podczas posiłku, z miejscem przy oknie",
-        "zakonczenie": "ustalenie stałego miejsca w stołówce i pory wymiany chusteczki",
-        "metody": ["doświadczanie sensoryczne", "wybór kierowany", "próba w warunkach naturalnych"],
-        "formy": "indywidualna",
-        "ewaluacja_uwaga": "mierzymy pozostanie w pomieszczeniu, nie ilość zjedzonego posiłku",
-    },
-    "arkusz": {
-        "tytul": "MÓJ ZAPACH — karty i woreczek na chusteczkę",
-        "elementy": [
-            "karta „BRZYDKI ZAPACH” (9 × 9 cm)",
-            "karta „MOJE MIEJSCE PRZY OKNIE”",
-            "szablon woreczka na chusteczkę zapachową",
-        ],
-        "symbole": ["k_brzydki_zapach.jpg", "k_okno.jpg", "k_stolowka.jpg"],
-    },
-    "ryzyko": "unikanie toalety z powodu zapachu prowadzi do zatrzymywania moczu i zaparć — wymaga natychmiastowego dostosowania i informacji dla rodzica",
-},
-{
-    "id": "SENS-14", "kod": "WEC-POD", "zmysl": "wech", "sektor": "podwrazliwosc",
-    "nazwa": "Zaplanowane wąchanie zamiast obwąchiwania ludzi i przedmiotów",
-    "objawy": [
-        "Obwąchuje przedmioty, jedzenie, ubrania, innych ludzi",
-        "Nie zauważa wyraźnych, nieprzyjemnych zapachów",
-        "Poszukuje intensywnych zapachów (klej, pisaki, środki czystości)",
-    ],
-    "opis_dla_doroslego": (
-        "Obwąchiwanie kolegów bywa odbierane jako zaczepka, a poszukiwanie zapachu kleju i środków "
-        "czystości jest realnie niebezpieczne. Dziecko szuka mocnego bodźca węchowego, którego "
-        "w sali nie ma w wersji bezpiecznej."
-    ),
-    "strategia_sensoryczna": (
-        "Dziecko korzysta z pudełka zapachów (3–5 woreczków: cytryna, mięta, kawa, cynamon) "
-        "w zaplanowanych momentach dnia, zamiast obwąchiwać ludzi i sięgać po chemię."
-    ),
-    "sygnal_dziecka": "karta „CHCĘ POWĄCHAĆ” wymieniana na dostęp do pudełka zapachów",
-    "kontekst": "podczas zabawy swobodnej i zajęć przy stoliku w sali",
-    "czynnosc": {
-        "3-4": "podejdzie do pudełka zapachów wskazanego przez dorosłego i powącha woreczek zamiast kolegi",
-        "5":   "wymieni kartę na dostęp do pudełka i wróci do zabawy po dwóch minutach",
-        "6":   "samo zaplanuje dwa momenty wąchania w ciągu dnia i skorzysta z nich, zanim zacznie obwąchiwać innych",
-    },
-    "wskaznik_obserwacji": "liczba dni bez obwąchiwania innych dzieci i sięgania po środki chemiczne",
-    "dieta_sensoryczna": [
-        "pudełko zapachów na stałej półce — 2 minuty na sygnał, 2 razy dziennie",
-        "zajęcia kulinarne z przyprawami (cynamon, wanilia) jako mocny bodziec zaplanowany",
-        "wąchanie przed jedzeniem — zapach jako element rozpoznawania potrawy",
-    ],
-    "dostosowania": [
-        "kleje, pisaki i środki czystości zamknięte i poza zasięgiem dziecka",
-        "zamiast upomnienia „nie wąchaj” — wskazanie pudełka",
-        "informacja dla wszystkich dorosłych w grupie: to potrzeba, nie zaczepka",
-    ],
-    "pomoc": {
-        "nazwa": "Pudełko zapachów (5 woreczków) z kartą wymiany",
-        "opis_dla_doroslego": (
-            "Pudełko z pięcioma woreczkami z gazy: cytryna, mięta, kawa, cynamon, lawenda. "
-            "Zawartość wymieniana co dwa tygodnie. Karta „CHCĘ POWĄCHAĆ” zamienia bodziec "
-            "przypadkowy na zaplanowany."
-        ),
-        "trzy_kroki_uzycia": [
-            "Postaw pudełko na stałej półce i przedstaw wszystkie zapachy pierwszego dnia.",
-            "Przyjmuj kartę i odliczaj dwie minuty klepsydrą — koniec zawsze tym samym zdaniem.",
-            "Zapisuj, po który zapach dziecko sięga najczęściej — to on działa najlepiej.",
-        ],
-        "wskazowka_dla_doroslego": (
-            "Środki czystości i kleje muszą zniknąć z zasięgu, zanim wprowadzisz pudełko. "
-            "Sama alternatywa nie wystarczy, gdy silniejszy bodziec stoi na parapecie."
-        ),
-        "etykieta_dla_dziecka": "CHCĘ POWĄCHAĆ — idę do pudełka",
-        "polecenia": {
-            "III": "Wąchamy tutaj. To jest pudełko zapachów. Idziemy razem.",
-            "II":  "Podaj kartę i idź do pudełka. Dwie minuty.",
-            "I":   "Powiedz, kiedy dziś pójdziesz powąchać.",
-        },
-    },
-    "instrukcja_slowna": {
-        "III": "Widzę, że szukasz zapachu. Idziemy do pudełka — kolegi nie wąchamy, wąchamy woreczki.",
-        "II":  "Masz kartę „CHCĘ POWĄCHAĆ”. Pudełko stoi na półce.",
-        "I":   "Zaplanuj sobie dziś dwie chwile przy pudełku zapachów.",
-    },
-    "konspekt": {
-        "temat": "Pudełko zapachów — wąchanie, które ma swoje miejsce",
-        "wprowadzenie": "„zgadnij po zapachu” — rozpoznawanie trzech przypraw z zawiązanymi oczami",
-        "glowna": "przygotowanie własnych woreczków zapachowych (napełnianie, wiązanie, opisanie obrazkiem) i ćwiczenie wymiany karty na dostęp; rozmowa o tym, czego się nie wącha (klej, chemia)",
-        "zakonczenie": "ustawienie pudełka na półce i ustalenie dwóch pór w planie dnia",
-        "metody": ["zabawa badawcza", "praca techniczna", "rozmowa o bezpieczeństwie"],
-        "formy": "indywidualna lub w parze",
-        "ewaluacja_uwaga": "notujemy obwąchiwanie ludzi i sięganie po chemię — to te liczby mają spadać",
-    },
-    "arkusz": {
-        "tytul": "PUDEŁKO ZAPACHÓW — karty i etykiety woreczków",
-        "elementy": [
-            "karta „CHCĘ POWĄCHAĆ” (9 × 9 cm)",
-            "5 etykiet na woreczki z obrazkami (cytryna, mięta, kawa, cynamon, lawenda)",
-            "karta „TEGO NIE WĄCHAMY” z rysunkami kleju i środków czystości",
-        ],
-        "symbole": ["k_chce_powachac.jpg", "k_pudelko_zapachow.jpg", "k_stop_chemia.jpg"],
-    },
-    "ryzyko": "wdychanie kleju i środków czystości grozi zatruciem i uszkodzeniem dróg oddechowych — zabezpieczenie chemii jest warunkiem wstępnym, nie zaleceniem",
-},
-{
-    "id": "SENS-15", "kod": "WEC-SZUM", "zmysl": "wech", "sektor": "bialy_szum",
-    "nazwa": "Codzienne sprawdzenie wrażliwości na zapachy",
-    "objawy": [
-        "Reakcje na zapachy są niestałe — ten sam zapach raz przeszkadza, raz jest niezauważany",
-        "Wrażliwość na zapachy zmienia się z dnia na dzień",
-    ],
-    "opis_dla_doroslego": (
-        "Zmienność węchowa najczęściej wiąże się z katarem, alergią i porą roku, ale dla dziecka "
-        "oznacza jedno: nie wie, czy dziś wytrzyma w stołówce. Sprawdzenie przed posiłkiem "
-        "zajmuje pół minuty i oszczędza konflikt."
-    ),
-    "strategia_sensoryczna": (
-        "Dziecko przed posiłkiem sprawdza swój „nos dnia” na dwóch woreczkach kontrolnych i na tej "
-        "podstawie decyduje, czy bierze chusteczkę ratunkową i miejsce przy oknie."
-    ),
-    "sygnal_dziecka": "wskazanie buźki przy karcie „NOS DNIA” (mocno czuję / normalnie / nie czuję)",
-    "kontekst": "przed posiłkami i przed zajęciami plastycznymi z farbami lub klejem",
-    "czynnosc": {
-        "3-4": "powącha woreczek kontrolny z dorosłym i wskaże jedną z dwóch buziek",
-        "5":   "samo sprawdzi nos dnia i weźmie chusteczkę, jeśli wskazał „mocno czuję”",
-        "6":   "sprawdzi nos dnia, wybierze miejsce i powie, czego dziś unika",
-    },
-    "wskaznik_obserwacji": "liczba posiłków poprzedzonych sprawdzeniem nosa dnia",
-    "dieta_sensoryczna": [
-        "dwa woreczki kontrolne (cytryna i mięta) przy wejściu do sali",
-        "sprawdzenie przed posiłkiem i przed plastyką — dwa razy dziennie",
-        "wietrzenie sali według wskazania dziecka, nie tylko według harmonogramu",
-    ],
-    "dostosowania": [
-        "brak stałego wpisu „nadwrażliwość węchowa” — decyzja zapada codziennie",
-        "informacja dla rodzica przy katarze: dziś wskazania mogą być inne",
-        "zapis wskazania w dzienniku obserwacji",
-    ],
-    "pomoc": {
-        "nazwa": "Nos dnia — dwa woreczki kontrolne i karta z buźkami",
-        "opis_dla_doroslego": (
-            "Dwa woreczki o stałym, znanym zapachu (cytryna, mięta) oraz karta z trzema buźkami: "
-            "mocno czuję · normalnie · nie czuję. Stałość zapachu jest tu warunkiem — inaczej "
-            "porównanie z wczoraj traci sens."
-        ),
-        "trzy_kroki_uzycia": [
-            "Powieś kartę i woreczki przy wejściu do sali, na wysokości dziecka.",
-            "Przed posiłkiem poproś o powąchanie obu woreczków i wskazanie buźki.",
-            "Zrealizuj to, co ze wskazania wynika (chusteczka, miejsce) i zapisz wynik.",
-        ],
-        "wskazowka_dla_doroslego": (
-            "Woreczki wymieniaj co dwa tygodnie, zawsze na ten sam zapach. Zapach, który zwietrzał, "
-            "daje fałszywe „nie czuję”."
-        ),
-        "etykieta_dla_dziecka": "MÓJ NOS DZISIAJ",
-        "polecenia": {
-            "III": "Sprawdzamy nos. Wąchamy woreczek. Którą buźkę wybierasz?",
-            "II":  "Powąchaj oba woreczki i wskaż buźkę.",
-            "I":   "Sprawdź nos dnia i powiedz, czego dziś potrzebujesz.",
-        },
-    },
-    "instrukcja_slowna": {
-        "III": "Zanim pójdziemy jeść, sprawdzimy twój nos. Podaję woreczek — powąchaj.",
-        "II":  "Sprawdź nos dnia. Jeśli mocno czujesz, weź chusteczkę.",
-        "I":   "Sprawdź nos i zdecyduj, gdzie dziś siadasz.",
-    },
-    "konspekt": {
-        "temat": "Mój nos dzisiaj — sprawdzam, zanim wejdę",
-        "wprowadzenie": "porównanie dwóch woreczków: „który mocniejszy?” — dziecko ustawia je w kolejności",
-        "glowna": "wykonanie karty z buźkami i pierwsze sprawdzenie przed prawdziwym posiłkiem; realizacja wynikającego dostosowania i porównanie z dniem poprzednim",
-        "zakonczenie": "powieszenie karty i woreczków przy wejściu, ustalenie dwóch pór sprawdzania",
-        "metody": ["doświadczanie sensoryczne", "praca plastyczna", "ćwiczenia porównawcze"],
-        "formy": "indywidualna",
-        "ewaluacja_uwaga": "sukces = sprawdzenie przed sytuacją zapachową; trafność ocenia się po dwóch tygodniach wpisów",
-    },
-    "arkusz": {
-        "tytul": "NOS DNIA — karta z buźkami i etykiety woreczków",
-        "elementy": [
-            "karta „NOS DNIA” z trzema buźkami (A5)",
-            "2 etykiety woreczków kontrolnych z datą wymiany",
-            "karta informacyjna dla rodzica o katarze i alergii",
-        ],
-        "symbole": ["k_nos_dnia.jpg", "k_woreczek_zapach.jpg", "k_brzydki_zapach.jpg"],
-    },
-    "ryzyko": "utrzymujące się „nie czuję” wymaga kontroli laryngologicznej (przerost migdałka, alergia) — brak węchu wpływa też na apetyt",
-},
-
-# ===== VI · PROPRIOCEPCJA (b760) ===========================================
-{
-    "id": "SENS-16", "kod": "PRO-NAD", "zmysl": "propriocepcja", "sektor": "nadwrazliwosc",
-    "nazwa": "Udział w wysiłku fizycznym małymi krokami",
-    "objawy": [
-        "Unika wysiłku fizycznego, wspinania, przepychania — szybko się męczy",
-        "Słabo dozuje siłę — rysuje zbyt lekko, upuszcza przedmioty",
-        "Jest ostrożne ruchowo, sztywno trzyma ciało przy nowych czynnościach",
-    ],
-    "opis_dla_doroslego": (
-        "Dziecko wycofuje się z zabaw ruchowych, bo wysiłek jest dla niego kosztowny, a informacja "
-        "z mięśni niepewna. Sztywność ciała przy nowej czynności to ostrożność, nie lenistwo. "
-        "Zbyt lekki nacisk kredki ma to samo źródło."
-    ),
-    "strategia_sensoryczna": (
-        "Dziecko wchodzi w wysiłek po własnej „drabinie ruchu” — od zadań z podparciem i małym "
-        "obciążeniem do większych — i samo decyduje o kolejnym szczeblu, korzystając z pomocy "
-        "wyznaczających siłę (kredka z nakładką, dzbanek z miarką)."
-    ),
-    "sygnal_dziecka": "wskazanie szczebla na drabinie ruchu („dziś robię ten”)",
-    "kontekst": "podczas zajęć ruchowych w sali i na placu zabaw oraz przy pracy przy stoliku",
-    "czynnosc": {
-        "3-4": "wykona jedno zadanie z oporem (pchanie pudła z klockami po podłodze) z pomocą dorosłego",
-        "5":   "wykona dwa kolejne szczeble drabiny ruchu i użyje nakładki na kredkę przy rysowaniu",
-        "6":   "samo wskaże szczebel, wykona go i powie, w której części ciała poczuło pracę mięśni",
-    },
-    "wskaznik_obserwacji": "liczba zajęć ruchowych, w których dziecko wykonało zaplanowany szczebel zamiast wycofać się",
-    "dieta_sensoryczna": [
-        "zadania oporowe wplecione w dzień: pchanie pudła, noszenie koszyka z klockami, wycieranie stołu",
-        "praca w pozycji na brzuchu przy niskim stoliku — buduje napięcie mięśniowe",
-        "krótkie serie (2–3 minuty) częściej, zamiast jednego długiego wysiłku",
-    ],
-    "dostosowania": [
-        "krzesło z podparciem stóp i blat na wysokości łokci",
-        "nakładka na kredkę i kredki trójkątne — wyznaczają nacisk",
-        "brak porównywania z rówieśnikami i wyścigów na czas",
-    ],
-    "pomoc": {
-        "nazwa": "Drabina ruchu (5 szczebli) + nakładka na kredkę",
-        "opis_dla_doroslego": (
-            "Karta z pięcioma szczeblami zadań oporowych — od najlżejszego (wycieranie stołu) "
-            "do najcięższego (pchanie pudła z klockami) — oraz gumowa nakładka wyznaczająca chwyt "
-            "i nacisk kredki."
-        ),
-        "trzy_kroki_uzycia": [
-            "Ułóż z dzieckiem drabinę: pięć zadań, od najłatwiejszego do najcięższego.",
-            "Przed zajęciami ruchowymi poproś o wskazanie dzisiejszego szczebla — bez podnoszenia poprzeczki.",
-            "Po zadaniu nazwij, gdzie pracowały mięśnie („czujesz ręce?”) i odnotuj szczebel.",
-        ],
-        "wskazowka_dla_doroslego": (
-            "„Spróbuj jeszcze raz, dasz radę” nie działa przy nadwrażliwości proprioceptywnej. "
-            "Działa mniejszy szczebel wykonany do końca."
-        ),
-        "etykieta_dla_dziecka": "MOJA DRABINA RUCHU",
-        "polecenia": {
-            "III": "Pchamy pudło razem. Ja z jednej strony, ty z drugiej.",
-            "II":  "Wskaż szczebel na drabinie i zrób go.",
-            "I":   "Wybierz dziś swój szczebel i powiedz, gdzie poczułeś mięśnie.",
-        },
-    },
-    "instrukcja_slowna": {
-        "III": "Robimy jedno zadanie, razem. Trzymam pudło z tobą — pchamy do dywanu i koniec.",
-        "II":  "Pokaż na drabinie, który szczebel robisz dziś.",
-        "I":   "Wybierz szczebel przed zajęciami i powiedz mi, jak poszło.",
-    },
-    "konspekt": {
-        "temat": "Moja drabina ruchu — wysiłek w moim tempie",
-        "wprowadzenie": "zabawa „ciężkie i lekkie” — dziecko porównuje dwa koszyki i nazywa różnicę",
-        "glowna": "ułożenie własnej drabiny ruchu z pięciu zadań oporowych i wykonanie dwóch najniższych szczebli; ćwiczenie nacisku kredki na papierze z trzema polami (lekko / średnio / mocno)",
-        "zakonczenie": "powieszenie drabiny w sali i wybór szczebla na jutro",
-        "metody": ["ćwiczenia oporowe", "zabawa porównawcza", "ćwiczenia grafomotoryczne"],
-        "formy": "indywidualna",
-        "ewaluacja_uwaga": "notujemy dokończone szczeble, nie czas ani liczbę powtórzeń",
-    },
-    "arkusz": {
-        "tytul": "DRABINA RUCHU — karta i pola nacisku kredki",
-        "elementy": [
-            "drabina 5 szczebli (A4) z obrazkami zadań oporowych",
-            "karta ćwiczenia nacisku: trzy pola (lekko / średnio / mocno)",
-            "lista 10 zadań oporowych do wplecenia w dzień",
-        ],
-        "symbole": ["k_drabina_ruchu.jpg", "k_pchanie.jpg", "k_nacisk_kredki.jpg"],
-    },
-    "ryzyko": "szybka męczliwość i sztywność ciała wymagają wykluczenia przyczyn ortopedycznych i neurologicznych (obniżone napięcie mięśniowe) — konsultacja fizjoterapeuty",
-},
-{
-    "id": "SENS-17", "kod": "PRO-POD", "zmysl": "propriocepcja", "sektor": "podwrazliwosc",
-    "nazwa": "Zaplanowana przerwa proprioceptywna zamiast napierania na innych",
-    "objawy": [
-        "Poszukuje mocnego docisku — rzuca się na podłogę/materace, wciska w ciasne miejsca, mocno przytula",
-        "Gryzie rękawy/przybory, zaciska pięści, napiera na innych podczas zabawy",
-        "Rysuje z bardzo mocnym naciskiem, niszczy przybory",
-    ],
-    "opis_dla_doroslego": (
-        "To najczęstszy profil w grupie przedszkolnej: dziecko potrzebuje mocnego docisku i dobiera "
-        "go sobie kosztem innych dzieci i przyborów. Zakaz („nie przewracaj się na kolegów”) nie "
-        "zaspokaja potrzeby; zaplanowany docisk — tak."
-    ),
-    "strategia_sensoryczna": (
-        "Dziecko korzysta z zaplanowanej przerwy proprioceptywnej — docisk (kocyk obciążeniowy, "
-        "poduszka, przeciskanie przez tunel), praca oporowa, ugniatanie — i wraca do zabawy, "
-        "zamiast napierać na rówieśników."
-    ),
-    "sygnal_dziecka": "karta „MOCNO” wymieniana na 3 minuty przerwy proprioceptywnej",
-    "kontekst": "podczas zabawy swobodnej, w kręgu i przed zajęciami wymagającymi siedzenia",
-    "czynnosc": {
-        "3-4": "z pomocą dorosłego skorzysta z kocyka obciążeniowego przez 3 minuty i wróci do zabawy",
-        "5":   "poda kartę „MOCNO”, wykona przerwę proprioceptywną i wróci do zabawy bez napierania na dzieci",
-        "6":   "samo zaplanuje trzy przerwy w ciągu dnia i skorzysta z nich, zanim napięcie zamieni się w przewracanie kolegów",
-    },
-    "wskaznik_obserwacji": "liczba dni, w których dziecko użyło przerwy proprioceptywnej zamiast napierać na inne dzieci",
-    "dieta_sensoryczna": [
-        "docisk co 90 minut: kocyk obciążeniowy 3–5 minut albo mocne przytulenie w zwiniętym kocu",
-        "praca oporowa: pchanie skrzynki, przeciąganie liny, przeciskanie przez tunel",
-        "ugniatanie ciastoliny lub gąbki przed siedzeniem w kręgu",
-    ],
-    "dostosowania": [
-        "poduszka sensoryczna na krześle — pozwala pracować mięśniom w czasie siedzenia",
-        "miejsce w kręgu przy brzegu, z jednym sąsiadem",
-        "przybory odporne na nacisk (kredki woskowe, gruby papier)",
-    ],
-    "pomoc": {
-        "nazwa": "Kącik docisku: kocyk obciążeniowy, tunel, poduszka sensoryczna",
-        "opis_dla_doroslego": (
-            "Wydzielone miejsce z kocykiem obciążeniowym (do 10% masy ciała dziecka), tunelem do "
-            "przeciskania i poduszką sensoryczną, plus karta „MOCNO” do wymiany. Kącik jest dostępny "
-            "zawsze, nie na nagrodę."
-        ),
-        "trzy_kroki_uzycia": [
-            "Wyznacz kącik i pokaż dziecku trzy rzeczy, których może w nim użyć.",
-            "Wpisz przerwy do planu dnia (co 90 minut) — nie czekaj na przewrócenie kolegi.",
-            "Po przerwie zamknij ją tym samym zdaniem i odnotuj, czy sygnał wyszedł od dziecka.",
-        ],
-        "wskazowka_dla_doroslego": (
-            "Kocyk obciążeniowy: maksymalnie 10% masy ciała, nigdy na głowę i klatkę piersiową, "
-            "zawsze pod nadzorem dorosłego i nigdy podczas snu."
-        ),
-        "etykieta_dla_dziecka": "MOCNO — idę po docisk",
-        "polecenia": {
-            "III": "Twoje ciało chce mocno. Idziemy po kocyk. Liczę do stu.",
-            "II":  "Podaj kartę „MOCNO” i idź do kącika. Trzy minuty.",
-            "I":   "Powiedz, kiedy robisz dziś przerwę na docisk.",
-        },
-    },
-    "instrukcja_slowna": {
-        "III": "Widzę, że ciało szuka mocnego. Idziemy do kącika, przykrywam cię kocykiem i siedzę obok.",
-        "II":  "Masz kartę „MOCNO”. Kącik jest wolny — trzy minuty i wracasz.",
-        "I":   "Zaplanuj trzy przerwy na docisk. Powiedz mi, kiedy pierwsza.",
-    },
-    "konspekt": {
-        "temat": "Mocno i bezpiecznie — docisk, który mam zaplanowany",
-        "wprowadzenie": "zabawa „naleśnik” — zawijanie dziecka w koc i mocne, równomierne dociskanie dłońmi",
-        "glowna": "obwód proprioceptywny: przeciskanie przez tunel, pchanie skrzynki z klockami, przeciąganie liny, ugniatanie ciastoliny; po obwodzie próba siedzenia w kręgu przez czas dwóch piosenek",
-        "zakonczenie": "wyznaczenie kącika docisku i wpisanie trzech przerw do planu dnia",
-        "metody": ["ćwiczenia proprioceptywne", "obwód stacyjny", "ćwiczenia praktyczne"],
-        "formy": "indywidualna, następnie w małej grupie",
-        "ewaluacja_uwaga": "notujemy liczbę napierań na inne dzieci — to ona ma spadać po wprowadzeniu przerw",
-    },
-    "arkusz": {
-        "tytul": "MOCNO — karta wymiany i plan przerw proprioceptywnych",
-        "elementy": [
-            "karta „MOCNO” (9 × 9 cm) — 2 sztuki",
-            "plan dnia z trzema polami na przerwę proprioceptywną",
-            "karta bezpieczeństwa kocyka obciążeniowego (10% masy ciała, nadzór, nigdy podczas snu)",
-        ],
-        "symbole": ["k_mocno.jpg", "k_kocyk.jpg", "k_tunel.jpg"],
-    },
-    "ryzyko": "kocyk obciążeniowy tylko pod nadzorem, do 10% masy ciała, nigdy podczas snu i nigdy na klatkę piersiową — przy wadach serca i padaczce wymaga zgody lekarza",
-},
-{
-    "id": "SENS-18", "kod": "PRO-SZUM", "zmysl": "propriocepcja", "sektor": "bialy_szum",
-    "nazwa": "Rozpoznawanie i dozowanie siły w danym dniu",
-    "objawy": [
-        "Dozowanie siły jest zmienne — raz za mocno, raz za słabo (rysowanie, zabawa, przybory)",
-        "Raz unika wysiłku, innym razem poszukuje mocnego docisku",
-    ],
-    "opis_dla_doroslego": (
-        "Dziecko nie ma stabilnej informacji o sile własnych ruchów — raz rozdziera kartkę, raz "
-        "rysuje ledwie widoczną kreskę. Rówieśnicy odbierają zbyt mocny dotyk jako bicie, choć "
-        "dziecko chciało tylko dotknąć."
-    ),
-    "strategia_sensoryczna": (
-        "Dziecko przed zadaniem sprawdza siłę na „mierniku siły” (trzy pola nacisku na papierze) "
-        "i dobiera do dnia narzędzie oraz sposób dotykania kolegów („dotyk jak piórko”)."
-    ),
-    "sygnal_dziecka": "wskazanie pola na mierniku siły przed zadaniem",
-    "kontekst": "przed zadaniami przy stoliku i przed zabawą w parze z rówieśnikiem",
-    "czynnosc": {
-        "3-4": "z pomocą dorosłego zrobi próbę na trzech polach nacisku i zacznie rysować",
-        "5":   "samo sprawdzi miernik siły, dobierze kredkę i przypomni sobie „dotyk jak piórko” przed zabawą w parze",
-        "6":   "sprawdzi siłę, dobierze narzędzie i samo skoryguje nacisk w trakcie zadania, gdy zauważy, że jest za mocny",
-    },
-    "wskaznik_obserwacji": "liczba zadań rozpoczętych sprawdzeniem siły i skończonych bez zniszczenia przyboru lub kartki",
-    "dieta_sensoryczna": [
-        "sprawdzenie miernika siły przed każdym zadaniem grafomotorycznym",
-        "praca oporowa przed zadaniem — porządkuje czucie i zmniejsza zmienność",
-        "zabawy z dozowaniem: przelewanie wody, przenoszenie piórka na łyżce, budowanie z kubków",
-    ],
-    "dostosowania": [
-        "gruby papier i kredki odporne na nacisk",
-        "podkładka antypoślizgowa pod kartkę",
-        "przypomnienie o sile przed zabawą w parze, nie po incydencie",
-    ],
-    "pomoc": {
-        "nazwa": "Miernik siły — trzy pola nacisku",
-        "opis_dla_doroslego": (
-            "Kartka z trzema polami: „piórko” (ledwie widoczna kreska), „w sam raz”, „za mocno” "
-            "(kartka się rwie). Dziecko wykonuje trzy kreski i sprawdza, gdzie dziś jest jego ręka."
-        ),
-        "trzy_kroki_uzycia": [
-            "Połóż miernik przed zadaniem i poproś o trzy kreski — po jednej na pole.",
-            "Nazwij wynik i dobierz narzędzie: cienka kredka przy „za mocno”, gruba przy „piórku”.",
-            "W trakcie zadania przypomnij raz, wskazując pole „w sam raz”.",
-        ],
-        "wskazowka_dla_doroslego": (
-            "Nie mów „rysuj mocniej” ani „delikatniej” bez odniesienia. Dziecko nie ma wzorca — "
-            "miernik daje mu ten wzorzec na papierze."
-        ),
-        "etykieta_dla_dziecka": "MOJA SIŁA DZISIAJ",
-        "polecenia": {
-            "III": "Robimy trzy kreski. Piórko, w sam raz, za mocno. Prowadzę twoją rękę.",
-            "II":  "Zrób trzy kreski na mierniku. Która jest w sam raz?",
-            "I":   "Sprawdź siłę i wybierz kredkę na dziś.",
-        },
-    },
-    "instrukcja_slowna": {
-        "III": "Sprawdzamy twoją rękę. Trzy kreski — prowadzę razem z tobą.",
-        "II":  "Zanim zaczniesz, zrób próbę na mierniku i wskaż „w sam raz”.",
-        "I":   "Sprawdź miernik, dobierz kredkę i pamiętaj o dotyku jak piórko w parze.",
-    },
-    "konspekt": {
-        "temat": "Moja siła dzisiaj — mocno, delikatnie, w sam raz",
-        "wprowadzenie": "zabawa „piórko i kamień” — dotykanie dłoni dorosłego raz lekko, raz mocno, z nazywaniem",
-        "glowna": "próba na mierniku siły i dobór narzędzia; zabawy z dozowaniem (przenoszenie piórka, przelewanie wody, wieża z kubków); ćwiczenie „dotyk jak piórko” w parze z rówieśnikiem",
-        "zakonczenie": "przypięcie miernika przy stoliku i ustalenie, że sprawdzamy przed każdym rysowaniem",
-        "metody": ["ćwiczenia dozowania siły", "zabawa w parze", "ćwiczenia grafomotoryczne"],
-        "formy": "indywidualna, potem w parze",
-        "ewaluacja_uwaga": "notujemy zniszczone kartki i przybory oraz zbyt mocne dotknięcia rówieśników",
-    },
-    "arkusz": {
-        "tytul": "MIERNIK SIŁY — karta z trzema polami nacisku",
-        "elementy": [
-            "karta miernika (A4) z polami: piórko / w sam raz / za mocno",
-            "karta „DOTYK JAK PIÓRKO” do zabawy w parze",
-            "lista 6 zabaw z dozowaniem siły",
-        ],
-        "symbole": ["k_miernik_sily.jpg", "k_piorko.jpg", "k_w_sam_raz.jpg"],
-    },
-    "ryzyko": "duża zmienność siły przy jednoczesnym potykaniu się i upuszczaniu przedmiotów wymaga konsultacji fizjoterapeuty i terapeuty SI",
+ "nr": "II.3", "zmysl": "II", "sektor": 3,
+ "wskaznik": "Reakcje dziecka na dźwięki są niestałe — ten sam hałas raz przeszkadza, raz pozostaje niezauważony.",
+ "objawy": [
+   "Reakcje na dźwięki są niestałe — ten sam hałas raz przeszkadza, raz pozostaje niezauważony",
+   "Raz reaguje na szept, innym razem nie słyszy głośnego wołania",
+ ],
+ "strategia": "sprawdzenie poziomu słuchowego przed zajęciami i dobór dostosowania na dany dzień",
+ "opis_strategii": "Dziecko przed zajęciami ustawia tarczę „radio uszu” i wybiera z niej jedno z trzech gotowych dostosowań — decyzja zapada codziennie od nowa.",
+ "cele": {
+   "A": {"p3": "Przestawi strzałkę na tarczy razem z nauczycielem i weźmie wskazaną pomoc",
+         "p2": "Przestawi strzałkę samo, gdy nauczyciel poda tarczę",
+         "p1": "Ustawi tarczę przed zajęciami bez przypomnienia"},
+   "B": {"p3": "Ustawi tarczę i skorzysta z dostosowania wybranego wspólnie z nauczycielem",
+         "p2": "Ustawi tarczę i wybierze jedno z trzech dostosowań na dany dzień",
+         "p1": "Ustawi tarczę i powie, czego dziś potrzebuje w hałaśliwej porze"},
+   "C": {"p3": "Ustawi tarczę i z pomocą nauczyciela nazwie, po czym poznał swój poziom",
+         "p2": "Ustawi tarczę dwa razy dziennie i dobierze dostosowanie do każdego odczytu",
+         "p1": "Uprzedzi nauczyciela, gdy poziom zmieni się w ciągu dnia, i zmieni dostosowanie"},
+ },
+ "konspekt": {
+   "tytul": "Moje uszy dzisiaj",
+   "rodzaj_zajec": "Zajęcia rozwijające kompetencje emocjonalno-społeczne · rozpoznawanie własnego stanu",
+   "metody": [
+     "codzienny pomiar zamiast stałego wpisu w dokumentacji",
+     "trzy gotowe dostosowania, zawsze te same",
+     "porównanie tego samego dźwięku w dwóch dniach",
+     "zapis odczytu i przekazanie go wszystkim dorosłym w grupie",
+     "nazywanie własnych sygnałów: co słyszę, gdy jest za dużo",
+   ],
+   "wskazowka": "Zmienność nie jest kaprysem. Jeżeli dziecko dziś nie reaguje na wołanie, a wczoraj reagowało — to jest dana do zapisania, a nie powód do upomnienia.",
+   "modyfikacje": {
+     "p3": "nauczyciel trzyma tarczę i nazywa poziomy; dziecko przesuwa strzałkę",
+     "p2": "tarcza wisi przy planie dnia; nauczyciel przypomina o niej gestem",
+     "p1": "dwa pomiary dziennie, bez przypomnienia; drugi po odpoczynku",
+   },
+   "warianty": {
+     "A": {"podtytul": "Tarcza z trzema poziomami przy wejściu do sali",
+           "cel_ter": "Dziecko przestawi strzałkę na tarczy przed pierwszymi zajęciami i weźmie pomoc narysowaną przy wybranym polu.",
+           "smart": {"S": "Przesuwa strzałkę i bierze pomoc — dwie widoczne czynności.",
+                     "M": "Kryterium z klikniętego poziomu wsparcia — liczymy dni.",
+                     "A": "Pola opisane są uchem przekreślonym, zwykłym i z falami — bez napisów.",
+                     "R": "Dostosowanie z wczoraj bywa dziś dokładnie tym, co przeszkadza.",
+                     "T": "Ewaluacja w horyzoncie poziomu: 4, 8 albo 12 tygodni."},
+           "kryterium_obs": "Dziennik obserwacji — 5 poranków w tygodniu.",
+           "pomoce": [
+             "tarcza o średnicy 20 cm z ruchomą strzałką i trzema polami",
+             "trzy karty dostosowań: słuchawki, miejsce z brzegu, bez wsparcia",
+             "miejsce na ścianie przy wejściu, na wysokości dziecka",
+             "nagranie gwaru sali do zabawy porównawczej",
+             "dziennik obserwacji",
+           ],
+           "przebieg": [
+             ["N — pokazuje tarczę i nazywa trzy pola obrazkami.",
+              "D — dotyka każdego pola i powtarza nazwę."],
+             ["N — włącza nagranie gwaru raz cicho, raz głośno.",
+              "D — pokazuje, które brzmienie dziś przeszkadza."],
+             ["N — prosi o ustawienie strzałki.", "D — przestawia strzałkę na wybrane pole."],
+             ["N — pokazuje kartę dostosowania przy tym polu.",
+              "D — bierze wskazaną pomoc i idzie na zajęcia."],
+             ["N — zapisuje odczyt i wiesza tarczę na miejscu.",
+              "D — pokazuje, gdzie tarcza wisi."],
+           ]},
+     "B": {"podtytul": "Wybór jednego z trzech dostosowań na dany dzień",
+           "cel_ter": "Dziecko ustawi tarczę i wybierze jedno z trzech dostosowań, korzystając z niego przez całe zajęcia.",
+           "smart": {"S": "Ustawia tarczę, wybiera dostosowanie, używa go do końca zajęć.",
+                     "M": "Kryterium z klikniętego poziomu wsparcia — liczymy dni z ustawieniem przed zajęciami.",
+                     "A": "Dostosowania są trzy i zawsze te same — wybór jest prosty.",
+                     "R": "Dziecko, które wybiera samo, nie musi bronić się przed cudzą decyzją.",
+                     "T": "Ewaluacja w horyzoncie poziomu: 4, 8 albo 12 tygodni."},
+           "kryterium_obs": "Dziennik obserwacji — 5 poranków w tygodniu, notujemy korzystanie z wybranego dostosowania.",
+           "pomoce": [
+             "tarcza „radio uszu” ze strzałką",
+             "trzy karty dostosowań w koszyku",
+             "słuchawki, miejsce z brzegu przygotowane, kącik wyciszenia",
+             "dziennik obserwacji",
+             "plan dnia z polem na odczyt",
+           ],
+           "przebieg": [
+             ["N — prosi o ustawienie tarczy przed zajęciami.",
+              "D — ustawia strzałkę i mówi, co wybrało."],
+             ["N — podaje koszyk z trzema kartami dostosowań.",
+              "D — wybiera jedną kartę i przygotowuje pomoc."],
+             ["N — prowadzi zajęcia, nie komentując wyboru.",
+              "D — korzysta z wybranego dostosowania do końca zajęć."],
+             ["N — pyta, czy dostosowanie pomogło.",
+              "D — mówi, czy jutro wybierze to samo."],
+             ["N — zapisuje odczyt i przekazuje go drugiemu nauczycielowi.",
+              "D — wiesza kartę odczytu w planie dnia."],
+           ]},
+     "C": {"podtytul": "Dwa pomiary dziennie i zgłoszenie zmiany poziomu",
+           "cel_ter": "Dziecko sprawdzi poziom słuchowy dwa razy dziennie i zgłosi nauczycielowi zmianę poziomu, zmieniając dostosowanie.",
+           "smart": {"S": "Sprawdza tarczę dwa razy i zgłasza zmianę słowem.",
+                     "M": "Kryterium z klikniętego poziomu wsparcia — liczymy dni z dwoma pomiarami.",
+                     "A": "Drugi pomiar jest punktem planu dnia, nie dodatkowym poleceniem.",
+                     "R": "Poziom zmienia się w ciągu dnia — po odpoczynku i po hałaśliwej porze.",
+                     "T": "Ewaluacja w horyzoncie poziomu: 4, 8 albo 12 tygodni."},
+           "kryterium_obs": "Dziennik obserwacji — 5 dni w tygodniu, dwa pomiary dziennie.",
+           "pomoce": [
+             "tarcza z dwiema rubrykami: rano i po południu",
+             "plan dnia z dwoma polami na pomiar",
+             "trzy dostosowania gotowe przez cały dzień",
+             "kartka na zdanie „poznaję po tym, że…”",
+             "dziennik obserwacji z rubryką porównawczą",
+           ],
+           "przebieg": [
+             ["N — przypomina, że dziś sprawdzamy poziom dwa razy.",
+              "D — ustawia tarczę rano i zapamiętuje porę drugiego pomiaru."],
+             ["N — po odpoczynku wskazuje plan dnia bez słów.",
+              "D — sprawdza poziom drugi raz."],
+             ["N — pyta, czy poziom się zmienił.",
+              "D — mówi o zmianie i zmienia dostosowanie."],
+             ["N — prosi o dokończenie zdania „poznaję po tym, że…”.",
+              "D — nazywa swój sygnał: dzwoni w uszach, wszystko jest za blisko, nie słyszę imienia."],
+             ["N — pokazuje zapis z całego tygodnia.",
+              "D — wskazuje dni, w których poziom był inny."],
+           ]},
+   },
+ },
+ "pomoc": {
+   "nazwa": "Radio uszu — tarcza z trzema poziomami",
+   "co_przygotowac": [
+     "tarcza z kartonu, średnica 20 cm, trzy pola z obrazkami ucha",
+     "ruchoma strzałka na zapince",
+     "trzy karty dostosowań: słuchawki, miejsce z brzegu, bez wsparcia",
+     "miejsce przy planie dnia, na wysokości oczu dziecka",
+     "dziennik obserwacji z rubryką na odczyt",
+   ],
+   "trzy_kroki_uzycia": [
+     "Powieś tarczę przy planie dnia i pokaż dziecku wszystkie trzy pola pierwszego dnia.",
+     "Poproś o ustawienie strzałki przed pierwszymi zajęciami i odczytaj wybór na głos.",
+     "Przekaż odczyt drugiemu nauczycielowi i zapisz go w dzienniku obserwacji.",
+   ],
+   "wskazowka_dla_doroslego": "Nie mów „wczoraj ci nie przeszkadzało”. To zdanie kończy sprawdzanie poziomu szybciej niż jakikolwiek hałas — dziecko przestaje ufać własnemu odczytowi.",
+   "opis_zdjecia": "a round cardboard dial with three pictogram fields showing a crossed-out ear, a plain ear and an ear with sound waves, a movable arrow pinned in the middle",
+   "polecenia": {
+     "A": "Sprawdzamy uszy. Przesuń strzałkę.",
+     "B": "Ustaw radio uszu i wybierz, czego dziś potrzebujesz.",
+     "C": "Sprawdź tarczę i powiedz mi, jeśli w ciągu dnia coś się zmieni.",
+   },
+ },
+ "arkusz": {
+   "tytul": "Radio uszu — tarcza i karty dostosowań",
+   "wstep_dla_doroslego": "Wytnij tarczę i strzałkę, połącz je zapinką. Karty dostosowań naklej przy odpowiednich polach — dziecko ma widzieć, co wynika z jego odczytu.",
+   "karty": [
+     {"etykieta": "Moje uszy dzisiaj", "opis": "nagłówek tarczy", "symbol": "sygnal_ciala"},
+     {"etykieta": "Słuchawki", "opis": "dostosowanie przy polu „głośno”", "symbol": None},
+     {"etykieta": "Miejsce z brzegu", "opis": "dostosowanie przy polu „średnio”", "symbol": "postawa_stolik"},
+     {"etykieta": "Dziś w sam raz", "opis": "pole bez dodatkowego wsparcia", "symbol": "emocja_spokoj"},
+   ],
+   "pasek_kolejnosci": [
+     {"etykieta": "1 · sprawdzam", "symbol": "sygnal_ciala"},
+     {"etykieta": "2 · wybieram", "symbol": "plan_zmiana"},
+     {"etykieta": "3 · zajęcia", "symbol": "dzien_zajecia"},
+   ],
+ },
+ "dieta_sensoryczna": [
+   "sprawdzenie poziomu dwa razy dziennie: rano i po odpoczynku",
+   "trzy gotowe dostosowania do wyboru, zawsze te same",
+   "wpis poziomu do dziennika — po dwóch tygodniach widać wzór dni trudnych",
+ ],
+ "dostosowania": [
+   "brak stałego wpisu „nadwrażliwość słuchowa” w dokumentacji grupy",
+   "polecenia sprawdzane gestem niezależnie od poziomu",
+   "informacja o poziomie przekazywana wszystkim dorosłym pracującym danego dnia",
+ ],
+ "ryzyko": "Naprzemienne reagowanie na szept i brak reakcji na głośne wołanie może wskazywać na wysiękowe zapalenie ucha — wymaga kontroli laryngologicznej.",
+ "obserwacja": {
+   "cel": "Dziecko sprawdzi poziom słuchowy przed zajęciami i skorzysta z dostosowania wynikającego z odczytu, w {proba} sytuacji, w ciągu {horyzont_dopelniacz}.",
+   "co_obserwowac": "Dziennik obserwacji — rubryka poranna i popołudniowa. Notujemy odczyt i wybrane dostosowanie.",
+   "ile_sytuacji": "5 poranków w tygodniu",
+   "smart": {"S": "Ustawia tarczę i korzysta z wybranego dostosowania.",
+             "M": "{proba} dni z pięciu obserwowanych w tygodniu.",
+             "A": "Tarcza wisi przy planie dnia; dostosowania są przygotowane.",
+             "R": "Zmienność progu słuchowego czyta się jako niekonsekwencję dziecka.",
+             "T": "Weryfikacja po {horyzont_miejscownik}, według pasma punktacji zmysłu."},
+ },
 },
 
-# ===== VII · RÓWNOWAGA / UKŁAD PRZEDSIONKOWY (b235) ========================
+# ═══ III · DOTYK ═══════════════════════════════════════════════════════════
 {
-    "id": "SENS-19", "kod": "ROW-NAD", "zmysl": "rownowaga", "sektor": "nadwrazliwosc",
-    "nazwa": "Oswajanie ruchu i wysokości metodą małych kroków",
-    "objawy": [
-        "Boi się huśtawek, zjeżdżalni, schodów, oderwania nóg od podłoża",
-        "Ma chorobę lokomocyjną, unika zabaw z obracaniem i zmianą pozycji głowy",
-        "Unika zajęć ruchowych, placu zabaw, jazdy na rowerku/hulajnodze",
-    ],
-    "opis_dla_doroslego": (
-        "Lęk przed oderwaniem nóg od podłoża jest reakcją układu przedsionkowego, nie tchórzostwem. "
-        "Wsadzenie dziecka na huśtawkę „żeby się przekonało” utrwala lęk na miesiące. Praca idzie "
-        "wyłącznie małymi krokami, z zachowaniem kontroli po stronie dziecka."
-    ),
-    "strategia_sensoryczna": (
-        "Dziecko wchodzi w ruch po własnej drabinie (stopy na podłożu → huśtanie z podparciem nóg → "
-        "krótkie huśtanie → zjeżdżalnia z asekuracją), zawsze samo decyduje o wejściu i ma słowo, "
-        "którym ruch zatrzymuje („stop”)."
-    ),
-    "sygnal_dziecka": "słowo „STOP” lub karta STOP zatrzymująca ruch natychmiast",
-    "kontekst": "na placu zabaw i podczas zajęć ruchowych w sali",
-    "czynnosc": {
-        "3-4": "usiądzie na huśtawce z nogami opartymi o podłoże i pobuja się przez 10 sekund z dorosłym obok",
-        "5":   "wykona jeden kolejny szczebel drabiny ruchu przedsionkowego, korzystając ze słowa „STOP”",
-        "6":   "samo zaplanuje szczebel na dziś, wejdzie na sprzęt i zatrzyma ruch własnym słowem, gdy poczuje, że to za dużo",
-    },
-    "wskaznik_obserwacji": "liczba wyjść na plac zabaw, w których dziecko weszło na sprzęt na wybranym przez siebie szczeblu",
-    "dieta_sensoryczna": [
-        "przed ruchem: docisk i praca oporowa (propriocepcja wycisza układ przedsionkowy)",
-        "ruch liniowy (huśtanie przód-tył) zamiast obrotowego — obrót zostawiamy na koniec drogi",
-        "krótkie serie 10–20 sekund z przerwą na stanie obiema stopami na ziemi",
-    ],
-    "dostosowania": [
-        "brak wsadzania na sprzęt „na siłę” i brak niespodziewanego rozhuśtania",
-        "trzymanie się za ręce przy schodach, stopy zawsze widoczne dla dziecka",
-        "uprzedzanie o każdej zmianie pozycji głowy przy ubieraniu i myciu",
-    ],
-    "pomoc": {
-        "nazwa": "Drabina ruchu przedsionkowego + karta STOP",
-        "opis_dla_doroslego": (
-            "Karta z pięcioma szczeblami wchodzenia w ruch (od stóp na podłożu do zjeżdżalni) "
-            "i czerwona karta STOP, która natychmiast zatrzymuje ruch. Kontrola musi zostać "
-            "po stronie dziecka — inaczej drabina nie działa."
-        ),
-        "trzy_kroki_uzycia": [
-            "Ustal z dzieckiem pięć szczebli i zapisz je obrazkami na karcie.",
-            "Przed wyjściem na plac poproś o wskazanie dzisiejszego szczebla — nigdy nie proponuj wyższego.",
-            "Zatrzymaj ruch natychmiast po słowie lub karcie STOP, bez negocjacji i bez „jeszcze chwilkę”.",
-        ],
-        "wskazowka_dla_doroslego": (
-            "Jedno rozhuśtanie wbrew dziecku kosztuje kilka tygodni pracy. Wiarygodność słowa „STOP” "
-            "jest tu jedynym narzędziem, które buduje odwagę."
-        ),
-        "etykieta_dla_dziecka": "STOP — zatrzymuję ruch",
-        "polecenia": {
-            "III": "Siadamy na huśtawce. Stopy na ziemi. Trzymam cię. Powiedz stop, kiedy chcesz.",
-            "II":  "Wskaż szczebel na drabinie. Karta STOP jest u ciebie.",
-            "I":   "Wybierz dziś swój szczebel. Pamiętasz, jak zatrzymać ruch?",
-        },
-    },
-    "instrukcja_slowna": {
-        "III": "Siadamy razem, stopy zostają na ziemi. Ja trzymam. Kiedy powiesz stop — zatrzymuję.",
-        "II":  "Który szczebel robisz dziś? Karta STOP jest w twojej kieszeni.",
-        "I":   "Zaplanuj szczebel przed wyjściem i powiedz mi, kiedy zaczynasz.",
-    },
-    "konspekt": {
-        "temat": "Krok po kroku na huśtawkę — ruch, który zatrzymuję sam",
-        "wprowadzenie": "praca oporowa przed ruchem: pchanie skrzynki i przeciskanie przez tunel (wyciszenie przedsionkowe)",
-        "glowna": "ułożenie drabiny ruchu przedsionkowego z pięciu szczebli i wykonanie dwóch najniższych na placu zabaw; ćwiczenie słowa „STOP” w zabawie — dorosły zatrzymuje się natychmiast, za każdym razem",
-        "zakonczenie": "wybór szczebla na następne wyjście i schowanie karty STOP do kieszeni dziecka",
-        "metody": ["stopniowanie trudności", "ćwiczenia proprioceptywne", "próba w warunkach naturalnych"],
-        "formy": "indywidualna",
-        "ewaluacja_uwaga": "sukcesem jest wejście na wybrany szczebel i skuteczne użycie STOP — nie wysokość sprzętu",
-    },
-    "arkusz": {
-        "tytul": "DRABINA RUCHU PRZEDSIONKOWEGO — karta i STOP",
-        "elementy": [
-            "drabina 5 szczebli (A4) z obrazkami: stopy na ziemi → huśtanie z podparciem → 10 sekund → zjeżdżalnia z asekuracją → zjeżdżalnia sama",
-            "karta „STOP” (9 × 9 cm), czerwona — 2 sztuki",
-            "karta dla dorosłego: czego nie robimy (rozhuśtanie z zaskoczenia, wsadzanie na siłę)",
-        ],
-        "symbole": ["k_drabina_hustawka.jpg", "k_stop.jpg", "k_plac_zabaw.jpg"],
-    },
-    "ryzyko": "silny lęk przedsionkowy z wymiotami i bladością wymaga konsultacji neurologicznej i terapii SI — samo oswajanie może nie wystarczyć",
+ "nr": "III.1", "zmysl": "III", "sektor": 1,
+ "wskaznik": "Dziecko unika dotyku i reaguje obronnie na przypadkowe dotknięcie w kolejce, w kręgu i w zabawach grupowych.",
+ "objawy": [
+   "Unika dotyku, przytulania, mycia twarzy/głowy, obcinania paznokci i włosów",
+   "Przeszkadzają mu metki, szwy, niektóre faktury ubrań i materiałów plastycznych",
+   "Reaguje obronnie na przypadkowy dotyk (kolejka, ciasnota, zabawy grupowe)",
+ ],
+ "strategia": "własne miejsce chroniące plecy i sposób odmowy inny niż odepchnięcie",
+ "opis_strategii": "Dziecko zajmuje ustalone miejsce w kolejce i w kręgu, a gdy zbliża się dotyk, używa karty „nie teraz” albo gestu otwartej dłoni zamiast odpychać.",
+ "cele": {
+   "A": {"p3": "Stanie na znaku na końcu kolejki, trzymając nauczyciela za rękę",
+         "p2": "Stanie na swoim znaku w kolejce po jego wskazaniu",
+         "p1": "Zajmie miejsce na brzegu dywanu, gdy grupa siada w kręgu"},
+   "B": {"p3": "Pokaże kartę „nie teraz” podaną przez nauczyciela, gdy zbliży się dotyk",
+         "p2": "Użyje karty „nie teraz” samo, zamiast odepchnąć kolegę",
+         "p1": "Powie „nie teraz” i odsunie się, zostając w zabawie grupowej"},
+   "C": {"p3": "Wybierze miejsce w kolejce razem z nauczycielem przed wyjściem",
+         "p2": "Zaplanuje swoje miejsce w kolejce i w kręgu przed zajęciami",
+         "p1": "Uprzedzi rówieśnika słowem, zanim dojdzie do dotyku w zabawie"},
+ },
+ "konspekt": {
+   "tytul": "Moje miejsce, mój dotyk",
+   "rodzaj_zajec": "Zajęcia rozwijające kompetencje emocjonalno-społeczne · profilaktyka reakcji obronnych",
+   "metody": [
+     "docisk proprioceptywny przed sytuacją bliskości",
+     "znak na podłodze wyznaczający własne miejsce",
+     "nauka karty odmowy w spokoju, nie w konflikcie",
+     "uprzedzanie o dotyku przez dorosłego za każdym razem",
+     "stopniowanie faktur: od suchych i twardych do mokrych i lepkich",
+   ],
+   "wskazowka": "Uprzedzaj o dotyku zawsze — także wtedy, gdy pomagasz w ubieraniu. Dotyk z zaskoczenia, nawet życzliwy, uruchamia obronę i psuje efekt tygodni pracy.",
+   "modyfikacje": {
+     "p3": "nauczyciel stoi między dzieckiem a grupą i trzyma je za rękę przez całą kolejkę",
+     "p2": "znak na podłodze i karta w kieszeni; nauczyciel jest w pobliżu, ale nie dotyka",
+     "p1": "kolejka bez znaku, w normalnym tłoku — dziecko wybiera miejsce samo",
+   },
+   "warianty": {
+     "A": {"podtytul": "Znak na podłodze i przejście przez szatnię bez odpychania",
+           "cel_ter": "Dziecko stanie na swoim znaku w kolejce i przejdzie z grupą do szatni, nie odpychając innych dzieci.",
+           "smart": {"S": "Stoi na znaku i idzie z grupą — obie rzeczy widoczne.",
+                     "M": "Kryterium z klikniętego poziomu wsparcia — liczymy przejścia w kolejce.",
+                     "A": "Znak jest zawsze w tym samym miejscu: na końcu, nie w środku.",
+                     "R": "Odepchnięcie w kolejce jest odruchem obronnym, nie agresją.",
+                     "T": "Ewaluacja w horyzoncie poziomu: 4, 8 albo 12 tygodni."},
+           "kryterium_obs": "Arkusz obserwacji — 5 przejść w kolejce w tygodniu.",
+           "pomoce": [
+             "naklejka-stopy na podłodze przy drzwiach do szatni",
+             "druga naklejka na brzegu dywanu",
+             "koc do zabawy w naleśnik (docisk przed kolejką)",
+             "karta „nie teraz” z symbolem otwartej dłoni",
+             "kreda albo taśma do narysowania własnej bańki",
+           ],
+           "przebieg": [
+             ["N — zawija dziecko w koc i mocno, równomiernie dociska dłońmi.",
+              "D — leży w kocu i mówi „jeszcze” albo „koniec”."],
+             ["N — rysuje na podłodze bańkę i pokazuje, jak daleko sięga ręka.",
+              "D — staje w swojej bańce i sprawdza odległość."],
+             ["N — nakleja znak-stopy przy drzwiach i nazywa go „twoje miejsce”.",
+              "D — staje na znaku."],
+             ["N — ustawia dwoje dzieci przed nim i prowadzi kolejkę wolno.",
+              "D — idzie w kolejce, stojąc na swoim miejscu."],
+             ["N — nazywa, co się udało: „przeszedłeś, nikt cię nie potrącił”.",
+              "D — pokazuje swój znak i wraca do zabawy."],
+           ]},
+     "B": {"podtytul": "Karta „nie teraz” zamiast odepchnięcia",
+           "cel_ter": "Dziecko użyje karty „nie teraz” w sytuacji zbliżającego się dotyku i zostanie w zabawie grupowej.",
+           "smart": {"S": "Pokazuje kartę i zostaje w zabawie — zamiast odepchnąć i odejść.",
+                     "M": "Kryterium z klikniętego poziomu wsparcia — liczymy sytuacje bliskości.",
+                     "A": "Karta leży w kieszeni fartuszka, nie u nauczyciela.",
+                     "R": "Dziecko z narzędziem odmowy nie musi bronić się ciałem.",
+                     "T": "Ewaluacja w horyzoncie poziomu: 4, 8 albo 12 tygodni."},
+           "kryterium_obs": "Arkusz obserwacji — 5 sytuacji bliskości w tygodniu (krąg, kolejka, zabawa w parach).",
+           "pomoce": [
+             "karty „nie teraz” dla wszystkich dzieci w małej grupie",
+             "znak na brzegu dywanu",
+             "zabawa w parach wymagająca podania przedmiotu, nie dotknięcia",
+             "koc do docisku przed zajęciami",
+             "materiały o różnych fakturach: piasek, ryż, gąbka",
+           ],
+           "przebieg": [
+             ["N — rozdaje karty i ćwiczy z grupą odmowę bez konfliktu.",
+              "D — pokazuje kartę na próbę i nazywa, co ona znaczy."],
+             ["N — prowadzi zabawę w kręgu z podawaniem przedmiotu.",
+              "D — siedzi na brzegu i podaje przedmiot bez dotykania rąk sąsiada."],
+             ["N — celowo tworzy sytuację ciasnoty przy stole.",
+              "D — pokazuje kartę „nie teraz” zamiast odepchnąć."],
+             ["N — proponuje krótką zabawę fakturami do wyboru.",
+              "D — wybiera fakturę i bawi się nią tyle, ile chce."],
+             ["N — ustala, gdzie karta leży na co dzień.",
+              "D — wkłada kartę do kieszeni fartuszka."],
+           ]},
+     "C": {"podtytul": "Planowanie miejsca i uprzedzanie rówieśnika słowem",
+           "cel_ter": "Dziecko zaplanuje swoje miejsce przed zajęciami i uprzedzi rówieśnika słowem, zanim dojdzie do dotyku.",
+           "smart": {"S": "Mówi, gdzie siada, i uprzedza kolegę zdaniem.",
+                     "M": "Kryterium z klikniętego poziomu wsparcia — liczymy zajęcia grupowe.",
+                     "A": "Zdanie jest krótkie i ustalone wcześniej: „poczekaj, nie dotykaj”.",
+                     "R": "Uprzedzenie zapobiega sytuacji, której nie da się już cofnąć.",
+                     "T": "Ewaluacja w horyzoncie poziomu: 4, 8 albo 12 tygodni."},
+           "kryterium_obs": "Arkusz obserwacji — 5 zajęć grupowych w tygodniu.",
+           "pomoce": [
+             "plan sali z zaznaczonymi miejscami w kręgu",
+             "karta ze zdaniem „poczekaj, nie dotykaj”",
+             "zabawa zespołowa wymagająca bliskości (budowanie wieży w parach)",
+             "koc obciążeniowy do docisku przed zajęciami",
+             "kartka na własne zasady: „lubię dotyk, kiedy…”",
+           ],
+           "przebieg": [
+             ["N — pokazuje plan sali i pyta, gdzie dziecko chce dziś siedzieć.",
+              "D — wybiera miejsce i uzasadnia wybór."],
+             ["N — uczy zdania uprzedzającego i ćwiczy je w parze.",
+              "D — mówi zdanie do kolegi w spokojnej sytuacji."],
+             ["N — prowadzi zabawę w parach wymagającą bliskości.",
+              "D — uprzedza kolegę, zanim ten się zbliży."],
+             ["N — pyta, co było najtrudniejsze.",
+              "D — nazywa sytuację, w której najtrudniej znieść dotyk."],
+             ["N — zapisuje z dzieckiem zasadę „lubię dotyk, kiedy…”.",
+              "D — dokańcza zdanie i wiesza kartkę w swojej szafce."],
+           ]},
+   },
+ },
+ "pomoc": {
+   "nazwa": "Znak „MOJE MIEJSCE” i karta NIE TERAZ",
+   "co_przygotowac": [
+     "para stópek do naklejenia na podłogę: przy drzwiach i na brzegu dywanu",
+     "karta „nie teraz” z symbolem otwartej dłoni — do kieszeni fartuszka",
+     "koc do docisku przed sytuacją bliskości",
+     "miejsce w kolejce zawsze na końcu albo na początku — nigdy w środku",
+     "zapasowe ubranie dziecka bez metek, przygotowane przez rodzica",
+   ],
+   "trzy_kroki_uzycia": [
+     "Naklej znak w dwóch miejscach: przy drzwiach do szatni i na brzegu dywanu.",
+     "Ucz karty „nie teraz” w spokojnej zabawie — nigdy w momencie konfliktu.",
+     "Po każdej sytuacji z bliskością zapisz, czy dziecko użyło znaku, karty, czy odepchnęło.",
+   ],
+   "wskazowka_dla_doroslego": "Zanim wyślesz dziecko w kolejkę, daj mu docisk: zabawę w naleśnik albo mocne przytulenie w kocu. Propriocepcja wycisza układ dotykowy i obniża próg drażliwości na kilkanaście minut.",
+   "opis_zdjecia": "two footprint stickers on a nursery floor by the cloakroom door, and a small card with an open-hand symbol tucked into an apron pocket",
+   "polecenia": {
+     "A": "Stajemy na stópkach. Jestem obok ciebie.",
+     "B": "Twoje miejsce jest na stópkach. Kartę „nie teraz” masz w kieszeni.",
+     "C": "Wybierz miejsce, zanim ustawimy się w kolejce. Powiedz, gdzie dziś stajesz.",
+   },
+ },
+ "arkusz": {
+   "tytul": "Karty do zajęć „Moje miejsce, mój dotyk”",
+   "wstep_dla_doroslego": "Wytnij stópki i karty. Kartę „uprzedzam o dotyku” powieś dla dorosłych — przy przewijaku, przy umywalce i w szatni, czyli tam, gdzie dotyk zdarza się najczęściej.",
+   "karty": [
+     {"etykieta": "Nie teraz", "opis": "karta odmowy — w kieszeni fartuszka dziecka", "symbol": "gest_stop"},
+     {"etykieta": "Moje miejsce", "opis": "znak na podłogę: koniec kolejki, brzeg dywanu", "symbol": "postawa_stolik"},
+     {"etykieta": "Czekam", "opis": "symbol czekania w kolejce bez dotykania innych", "symbol": "gest_czekam"},
+     {"etykieta": "Uprzedzam o dotyku", "opis": "karta dla dorosłego — przy umywalce i w szatni", "symbol": "gest_mowie"},
+   ],
+   "pasek_kolejnosci": [
+     {"etykieta": "1 · docisk", "symbol": "sensor_ucisk"},
+     {"etykieta": "2 · moje miejsce", "symbol": "postawa_stolik"},
+     {"etykieta": "3 · idę z grupą", "symbol": "gest_chodz"},
+   ],
+ },
+ "dieta_sensoryczna": [
+   "mocny docisk przed sytuacją bliskości: przytulenie w kocyk, przeciskanie przez tunel",
+   "zabawy fakturami w tempie dziecka: najpierw suche i twarde, dopiero potem mokre i lepkie",
+   "stały znak na podłodze wyznaczający „moje miejsce” w kolejce i w kręgu",
+ ],
+ "dostosowania": [
+   "pierwsze albo ostatnie miejsce w kolejce — nigdy w środku",
+   "akceptacja własnych ubrań dziecka, odcinanie metek, brak wymuszania fartuszka",
+   "uprzedzanie o każdym dotyku dorosłego, także przy pomaganiu w ubieraniu",
+ ],
+ "ryzyko": "Gwałtowna obrona przed myciem głowy i obcinaniem paznokci bywa objawem obronności dotykowej wymagającej terapii SI — sama dieta sensoryczna nie wystarczy.",
+ "obserwacja": {
+   "cel": "Dziecko zajmie ustalone miejsce i użyje karty albo słowa zamiast reakcji obronnej na dotyk, w {proba} sytuacji, w ciągu {horyzont_dopelniacz}.",
+   "co_obserwowac": "Arkusz obserwacji — kolumna: sytuacja bliskości (kolejka, krąg, zabawa w parach). Notujemy sposób reakcji.",
+   "ile_sytuacji": "5 sytuacji bliskości w tygodniu",
+   "smart": {"S": "Zajmuje swoje miejsce i sygnalizuje odmowę bez odpychania.",
+             "M": "{proba} sytuacji z pięciu obserwowanych w tygodniu.",
+             "A": "Znak jest naklejony, karta leży w kieszeni, docisk poprzedza sytuację.",
+             "R": "Reakcja obronna jest odruchem — karanie za nią pogłębia napięcie.",
+             "T": "Weryfikacja po {horyzont_miejscownik}, według pasma punktacji zmysłu."},
+ },
 },
 {
-    "id": "SENS-20", "kod": "ROW-POD", "zmysl": "rownowaga", "sektor": "podwrazliwosc",
-    "nazwa": "Zaplanowany ruch zamiast ciągłego bujania się i wstawania",
-    "objawy": [
-        "Jest w ciągłym ruchu — buja się na krześle, wstaje z miejsca co chwilę, kręci się w kółko",
-        "Poszukuje intensywnego ruchu (huśtanie, wirowanie, skakanie) i nie ma zawrotów głowy",
-        "Ryzykuje ruchowo ponad miarę — wspina się wysoko, skacze z wysokości",
-    ],
-    "opis_dla_doroslego": (
-        "Dziecko potrzebuje mocnego bodźca przedsionkowego i dobiera go sobie w czasie zajęć — "
-        "bujaniem na krześle, wstawaniem, wirowaniem. Brak zawrotów głowy przy wirowaniu to "
-        "sygnał podwrażliwości, a wspinanie ponad miarę — realne ryzyko urazu."
-    ),
-    "strategia_sensoryczna": (
-        "Dziecko korzysta z zaplanowanych dawek mocnego ruchu (skakanie, huśtanie, bieg z zadaniem) "
-        "przed siedzeniem i w przerwach, a w czasie zajęć ma poduszkę sensoryczną, która pozwala "
-        "się ruszać bez wstawania."
-    ),
-    "sygnal_dziecka": "karta „POTRZEBUJĘ RUCHU” wymieniana na 3 minuty ruchu w wyznaczonym miejscu",
-    "kontekst": "podczas zajęć przy stoliku i w kręgu na dywanie",
-    "czynnosc": {
-        "3-4": "wykona z dorosłym 10 podskoków przed zajęciami i usiądzie na poduszce sensorycznej na czas piosenki",
-        "5":   "poda kartę „POTRZEBUJĘ RUCHU”, wykona zaplanowaną dawkę ruchu i wróci na miejsce bez wstawania w trakcie zadania",
-        "6":   "samo zaplanuje trzy dawki ruchu w ciągu dnia i wysiedzi zajęcia, korzystając z poduszki zamiast wstawać",
-    },
-    "wskaznik_obserwacji": "liczba zajęć, w których dziecko wstało z miejsca nie więcej niż raz, po skorzystaniu z dawki ruchu",
-    "dieta_sensoryczna": [
-        "dawka mocnego ruchu przed każdym zadaniem wymagającym siedzenia: 10 podskoków, bieg do drzwi i z powrotem, huśtanie 1 minuta",
-        "poduszka sensoryczna na krześle i możliwość klęczenia lub stania przy stoliku",
-        "zadania z ruchem wplecionym w treść (przynieś, podaj, zanieś) zamiast siedzenia bez przerwy",
-    ],
-    "dostosowania": [
-        "miejsce przy brzegu, z drogą wyjścia bez przechodzenia przez środek dywanu",
-        "krótsze bloki zadań (5–7 minut) z ruchem między nimi",
-        "jasne zasady bezpieczeństwa na sprzęcie: dokąd wolno się wspinać, skąd nie wolno skakać",
-    ],
-    "pomoc": {
-        "nazwa": "Poduszka sensoryczna + karta POTRZEBUJĘ RUCHU",
-        "opis_dla_doroslego": (
-            "Dmuchana poduszka sensoryczna na krzesło (pozwala na mikroruch bez wstawania) oraz karta "
-            "wymiany na trzy minuty mocnego ruchu w wyznaczonym miejscu sali."
-        ),
-        "trzy_kroki_uzycia": [
-            "Połóż poduszkę na krześle dziecka rano — to nie jest nagroda ani przywilej.",
-            "Wpisz trzy dawki ruchu do planu dnia i realizuj je, zanim dziecko zacznie wstawać.",
-            "Przyjmuj kartę bez oceny i zamykaj przerwę tym samym zdaniem.",
-        ],
-        "wskazowka_dla_doroslego": (
-            "„Siedź spokojnie” jest poleceniem niewykonalnym przy podwrażliwości przedsionkowej. "
-            "Wykonalne jest: „ruszaj się tutaj, a potem usiądź”."
-        ),
-        "etykieta_dla_dziecka": "POTRZEBUJĘ RUCHU",
-        "polecenia": {
-            "III": "Skaczemy dziesięć razy. Razem. Potem siadamy na poduszce.",
-            "II":  "Podaj kartę i idź do znaku. Trzy minuty ruchu, potem stolik.",
-            "I":   "Zaplanuj, kiedy dziś ruszasz się przed zadaniem.",
-        },
-    },
-    "instrukcja_slowna": {
-        "III": "Ciało chce ruchu. Skaczemy razem dziesięć razy, potem siadasz na poduszce.",
-        "II":  "Masz kartę „POTRZEBUJĘ RUCHU”. Trzy minuty przy znaku i wracasz.",
-        "I":   "Powiedz, kiedy robisz dziś swoje trzy dawki ruchu.",
-    },
-    "konspekt": {
-        "temat": "Potrzebuję ruchu — dawka, którą mam zaplanowaną",
-        "wprowadzenie": "„skacz, kręć się, zatrzymaj” — zabawa z sygnałem zatrzymania i sprawdzeniem, czy kręci się w głowie",
-        "glowna": "ustalenie trzech dawek ruchu (podskoki, bieg z zadaniem, huśtanie) i wypróbowanie każdej przed krótkim zadaniem przy stoliku; porównanie: zadanie po ruchu i bez ruchu",
-        "zakonczenie": "wpisanie dawek do planu dnia i położenie poduszki na krześle",
-        "metody": ["zabawa ruchowa", "ćwiczenia porównawcze", "planowanie z dzieckiem"],
-        "formy": "indywidualna, potem w grupie",
-        "ewaluacja_uwaga": "notujemy liczbę wstań z miejsca w czasie zadania — porównanie z dniem bez dawek ruchu",
-    },
-    "arkusz": {
-        "tytul": "POTRZEBUJĘ RUCHU — karta wymiany i plan dawek",
-        "elementy": [
-            "karta „POTRZEBUJĘ RUCHU” (9 × 9 cm) — 2 sztuki",
-            "plan dnia z trzema polami na dawkę ruchu",
-            "znak na podłogę wyznaczający miejsce ruchu w sali",
-        ],
-        "symbole": ["k_potrzebuje_ruchu.jpg", "k_poduszka.jpg", "k_skakanie.jpg"],
-    },
-    "ryzyko": "wspinanie się wysoko i skakanie z wysokości bez oceny ryzyka wymaga stałego nadzoru i ustalenia granic sprzętu — to najczęstsza przyczyna urazów w tej grupie",
+ "nr": "III.2", "zmysl": "III", "sektor": 2,
+ "wskaznik": "Dziecko dotyka wszystkiego i wszystkich, mocno ściska i potrąca inne dzieci, a nie zauważa brudu ani drobnego bólu.",
+ "objawy": [
+   "Dotyka wszystkiego i wszystkich, mocno ściska, potrąca inne dzieci",
+   "Nie zauważa brudu na twarzy/rękach, słabo czuje ból i temperaturę",
+   "Poszukuje intensywnych wrażeń dotykowych (grzebanie w materiałach, ugniatanie)",
+ ],
+ "strategia": "praca dla rąk we własnej pomocy zamiast dotykania innych",
+ "opis_strategii": "Dziecko korzysta ze skrzynki sensorycznej w zaplanowanych porach i trzyma ręce na własnym gniotku w kręgu — zamiast zbierać wrażenia dotykiem rówieśników.",
+ "cele": {
+   "A": {"p3": "Położy ręce na gniotku podanym przez nauczyciela i zostanie w kręgu przez czas piosenki",
+         "p2": "Weźmie gniotka z kieszeni, gdy nauczyciel wskaże kieszeń",
+         "p1": "Usiądzie w kręgu z gniotkiem w rękach, bez dotykania sąsiada"},
+   "B": {"p3": "Skorzysta ze skrzynki sensorycznej przygotowanej przez nauczyciela przed zajęciami",
+         "p2": "Przed kręgiem weźmie gniotka, a po zajęciach skorzysta ze skrzynki przez trzy minuty",
+         "p1": "Przejdzie całe zajęcia w kręgu, korzystając z własnej pomocy zamiast dotykać dzieci"},
+   "C": {"p3": "Zaplanuje z nauczycielem dwa momenty pracy rękami w ciągu dnia",
+         "p2": "Zaplanuje dwa momenty samo i skorzysta z nich przed zajęciami przy stoliku",
+         "p1": "Skorzysta ze swojej pomocy, zanim zacznie dotykać innych, i powie, po czym to poznał"},
+ },
+ "konspekt": {
+   "tytul": "Ręce, które mają swoją pracę",
+   "rodzaj_zajec": "Zajęcia o charakterze terapeutycznym (terapia SI) · dieta sensoryczna dotykowa",
+   "metody": [
+     "przeniesienie bodźca do własnej pomocy zamiast zakazu dotykania",
+     "skrzynka sensoryczna przed zadaniem wymagającym siedzenia",
+     "porównanie: krąg z pomocą i bez pomocy",
+     "codzienna kontrola skóry i twarzy przy obniżonym czuciu",
+     "miejsce w kręgu z jednym sąsiadem, nie dwoma",
+   ],
+   "wskazowka": "Zabranie gniotka za potrącenie kolegi jest karą za potrzebę, nie za czyn — i wraca podwójnym dotykaniem po pięciu minutach. Pomoc zostaje, zmienia się miejsce dziecka w kręgu.",
+   "modyfikacje": {
+     "p3": "nauczyciel podaje gniotka i kładzie na nim dłonie dziecka; siedzi obok",
+     "p2": "gniotek w kieszeni fartuszka, nauczyciel wskazuje kieszeń gestem",
+     "p1": "krąg pełny, dwoje sąsiadów; dziecko samo sięga po pomoc w razie potrzeby",
+   },
+   "warianty": {
+     "A": {"podtytul": "Gniotek w rękach przez czas jednej piosenki",
+           "cel_ter": "Dziecko zostanie w kręgu przez czas jednej piosenki z rękami na własnym gniotku, bez dotykania sąsiada.",
+           "smart": {"S": "Trzyma ręce na gniotku i siedzi w kręgu — jedno i drugie widoczne.",
+                     "M": "Kryterium z klikniętego poziomu wsparcia — liczymy kręgi.",
+                     "A": "Piosenka trwa dwie minuty; czas jest krótki i słyszalny.",
+                     "R": "Dotykanie rówieśników bywa odbierane jako zaczepka, choć nią nie jest.",
+                     "T": "Ewaluacja w horyzoncie poziomu: 4, 8 albo 12 tygodni."},
+           "kryterium_obs": "Arkusz obserwacji — 5 kręgów w tygodniu, notujemy dotknięcia innych dzieci.",
+           "pomoce": [
+             "gniotek albo kawałek masy w kieszeni fartuszka",
+             "skrzynka sensoryczna 40 × 30 cm z ryżem i drobiazgami",
+             "miejsce w kręgu przy brzegu, z jednym sąsiadem",
+             "piosenka o stałej długości (2 minuty)",
+             "miska z wodą i ręcznik do sprawdzenia rąk po zabawie",
+           ],
+           "przebieg": [
+             ["N — chowa w skrzynce pięć drobiazgów i prosi o ich znalezienie bez patrzenia.",
+              "D — grzebie w ryżu i wyjmuje przedmioty."],
+             ["N — daje dziecku gniotka i kładzie na nim jego dłonie.",
+              "D — ugniata gniotka obiema rękami."],
+             ["N — zaprasza do kręgu i sadza dziecko na brzegu.",
+              "D — siada z gniotkiem w rękach."],
+             ["N — włącza piosenkę i prowadzi zabawę.",
+              "D — zostaje w kręgu do końca piosenki."],
+             ["N — sprawdza z dzieckiem ręce i twarz.",
+              "D — myje ręce i chowa gniotka do kieszeni."],
+           ]},
+     "B": {"podtytul": "Skrzynka przed zajęciami i porównanie dwóch kręgów",
+           "cel_ter": "Dziecko skorzysta ze skrzynki sensorycznej przed zajęciami i przejdzie krąg z własną pomocą, bez dotykania innych dzieci.",
+           "smart": {"S": "Idzie do skrzynki, wraca, siedzi z pomocą w rękach.",
+                     "M": "Kryterium z klikniętego poziomu wsparcia — liczymy kręgi.",
+                     "A": "Skrzynka stoi na stałym miejscu i jest dostępna o ustalonej porze.",
+                     "R": "Ręce zajęte pracą nie szukają jej u sąsiada.",
+                     "T": "Ewaluacja w horyzoncie poziomu: 4, 8 albo 12 tygodni."},
+           "kryterium_obs": "Arkusz obserwacji — 5 kręgów w tygodniu, porównanie z dniem bez skrzynki.",
+           "pomoce": [
+             "skrzynka sensoryczna z ryżem, kasztanami albo makaronem",
+             "gniotki dla całej małej grupy",
+             "klepsydra trzyminutowa",
+             "dwa kręgi w czasie zajęć: jeden po skrzynce, jeden bez",
+             "karta „ręce do pracy” z symbolem",
+           ],
+           "przebieg": [
+             ["N — zaprasza do skrzynki na trzy minuty przed zajęciami.",
+              "D — pracuje rękami w materiale do końca klepsydry."],
+             ["N — prowadzi pierwszy krąg zaraz po skrzynce.",
+              "D — siedzi z gniotkiem, nie dotyka sąsiadów."],
+             ["N — prowadzi drugi krąg bez wcześniejszej skrzynki.",
+              "D — porównuje, jak było łatwiej."],
+             ["N — pyta o różnicę i nazywa ją wprost.",
+              "D — mówi, po którym kręgu było mu łatwiej wysiedzieć."],
+             ["N — ustala porę skrzynki na jutro.",
+              "D — pokazuje tę porę w planie dnia."],
+           ]},
+     "C": {"podtytul": "Własny plan pracy rękami i rozpoznanie sygnału",
+           "cel_ter": "Dziecko zaplanuje dwa momenty pracy rękami w ciągu dnia i skorzysta z nich, zanim zacznie dotykać innych dzieci.",
+           "smart": {"S": "Planuje pory i korzysta z nich w zaplanowanym czasie.",
+                     "M": "Kryterium z klikniętego poziomu wsparcia — liczymy dni.",
+                     "A": "Pomoce są dostępne przez cały dzień, bez proszenia dorosłego.",
+                     "R": "Uprzedzenie potrzeby kosztuje mniej niż jej gaszenie po konflikcie.",
+                     "T": "Ewaluacja w horyzoncie poziomu: 4, 8 albo 12 tygodni."},
+           "kryterium_obs": "Arkusz obserwacji — 5 dni w tygodniu, notujemy dotknięcia innych dzieci i skorzystanie z pomocy.",
+           "pomoce": [
+             "plan dnia z dwoma polami na pracę rękami",
+             "skrzynka sensoryczna i gniotek",
+             "ciastolina albo glina do ugniatania",
+             "kartka na zdanie „poznaję po tym, że…”",
+             "arkusz obserwacji do wspólnego oglądania z dzieckiem",
+           ],
+           "przebieg": [
+             ["N — prosi o zaplanowanie dwóch momentów pracy rękami.",
+              "D — zaznacza je w planie dnia."],
+             ["N — obserwuje pierwszą porę i nie przypomina.",
+              "D — idzie do skrzynki w zaplanowanym czasie."],
+             ["N — prowadzi zajęcia grupowe wymagające siedzenia.",
+              "D — korzysta z gniotka zamiast dotykać sąsiadów."],
+             ["N — pyta, po czym dziecko poznaje, że rękom trzeba pracy.",
+              "D — dokańcza zdanie „poznaję po tym, że…”."],
+             ["N — pokazuje zapis z tygodnia.",
+              "D — wskazuje dni, w których pomoc zadziałała."],
+           ]},
+   },
+ },
+ "pomoc": {
+   "nazwa": "Skrzynka sensoryczna i gniotek kieszonkowy",
+   "co_przygotowac": [
+     "płaska skrzynka 40 × 30 cm z sypkim materiałem (ryż, kasztany, makaron)",
+     "pięć drobiazgów do ukrycia w materiale — na tyle dużych, żeby nie dało się ich połknąć",
+     "gniotek albo kawałek masy w kieszeni fartuszka, wydawany rano",
+     "klepsydra trzyminutowa",
+     "miejsce w kręgu przy brzegu, z jednym sąsiadem",
+   ],
+   "trzy_kroki_uzycia": [
+     "Ustaw skrzynkę na stałym miejscu i ustal z dzieckiem porę: przed kręgiem i po obiedzie.",
+     "Włóż gniotka do kieszeni fartuszka rano — nie wydawaj go za dobre zachowanie.",
+     "Zapisz, czy w kręgu ręce dziecka były na gniotku, czy na sąsiedzie.",
+   ],
+   "wskazowka_dla_doroslego": "Przy obniżonym czuciu bólu sprawdzaj skórę dziecka codziennie i informuj rodziców. Dziecko może nie zgłosić otarcia ani oparzenia, a siniak zauważony po tygodniu jest kłopotem dla wszystkich.",
+   "opis_zdjecia": "a shallow tray filled with rice and small hidden objects on a nursery table, a soft squeeze ball resting beside it",
+   "polecenia": {
+     "A": "Ręce na gniotka. Siedzimy do końca piosenki.",
+     "B": "Weź gniotka z kieszeni. Twoje ręce pracują tutaj.",
+     "C": "Zaplanuj, kiedy dziś idziesz do skrzynki.",
+   },
+ },
+ "arkusz": {
+   "tytul": "Karty do zajęć „Ręce, które mają swoją pracę”",
+   "wstep_dla_doroslego": "Wytnij karty i listę wypełnień skrzynki. Wypełnienie dobieraj do wieku: u dzieci wkładających rzeczy do ust wybieraj materiał, którego nie da się połknąć, i zostań przy skrzynce przez cały czas zabawy.",
+   "karty": [
+     {"etykieta": "Ręce do pracy", "opis": "karta zgłoszenia potrzeby pracy rękami", "symbol": "sensor_gniotek"},
+     {"etykieta": "Skrzynka", "opis": "symbol miejsca w sali, gdzie stoi skrzynka sensoryczna", "symbol": "sensor_faktura"},
+     {"etykieta": "Mój gniotek", "opis": "symbol pomocy trzymanej w kieszeni fartuszka", "symbol": "sensor_gniotek"},
+     {"etykieta": "Siedzę w kręgu", "opis": "symbol zajęć w kręgu z własną pomocą", "symbol": "postawa_stolik"},
+   ],
+   "pasek_kolejnosci": [
+     {"etykieta": "1 · skrzynka", "symbol": "sensor_faktura"},
+     {"etykieta": "2 · gniotek", "symbol": "sensor_gniotek"},
+     {"etykieta": "3 · krąg", "symbol": "postawa_stolik"},
+   ],
+ },
+ "dieta_sensoryczna": [
+   "skrzynka sensoryczna trzy minuty przed zajęciami wymagającymi siedzenia",
+   "gniotek albo kawałek masy w kieszeni fartuszka, dostępny bez pytania",
+   "prace z ugniataniem: ciastolina, glina, wyciskanie gąbki — codziennie",
+ ],
+ "dostosowania": [
+   "miejsce w kręgu z jednym sąsiadem, nie dwoma (brzeg półkola)",
+   "zadania z materiałem w rękach — dziecko trzyma pomoc, a nie „nic”",
+   "sprawdzanie twarzy i rąk przed wyjściem — dziecko może nie czuć brudu",
+ ],
+ "ryzyko": "Obniżone czucie bólu i temperatury wymaga codziennej kontroli skóry i informacji dla rodziców — dziecko może nie zgłosić urazu ani oparzenia.",
+ "obserwacja": {
+   "cel": "Dziecko skorzysta z własnej pomocy dotykowej zamiast dotykać innych dzieci, w {proba} sytuacji, w ciągu {horyzont_dopelniacz}.",
+   "co_obserwowac": "Arkusz obserwacji — kolumna: krąg i kolejka. Notujemy dotknięcia innych dzieci i użycie pomocy.",
+   "ile_sytuacji": "5 kręgów w tygodniu",
+   "smart": {"S": "Trzyma ręce na własnej pomocy przez czas zajęć.",
+             "M": "{proba} sytuacji z pięciu obserwowanych w tygodniu.",
+             "A": "Gniotek jest w kieszeni od rana, skrzynka stoi na stałym miejscu.",
+             "R": "Dziecko zbiera informację o świecie rękami — trzeba jej dać materiał.",
+             "T": "Weryfikacja po {horyzont_miejscownik}, według pasma punktacji zmysłu."},
+ },
 },
 {
-    "id": "SENS-21", "kod": "ROW-SZUM", "zmysl": "rownowaga", "sektor": "bialy_szum",
-    "nazwa": "Sprawdzenie poziomu ruchu przed wyjściem na plac zabaw",
-    "objawy": [
-        "Reakcje na ruch są niestałe — raz lęk przed huśtaniem, raz poszukiwanie intensywnego ruchu",
-        "Aktywność ruchowa zmienia się skrajnie z dnia na dzień",
-    ],
-    "opis_dla_doroslego": (
-        "Ten sam sprzęt bywa w poniedziałek atrakcją, a we wtorek źródłem lęku. Planowanie zajęć "
-        "ruchowych pod stały profil kończy się albo przymusem, albo brakiem ruchu — obydwa "
-        "warianty szkodzą."
-    ),
-    "strategia_sensoryczna": (
-        "Dziecko przed wyjściem ustawia „licznik ruchu” (dużo ruchu / średnio / dziś spokojnie) "
-        "i według niego wybiera sprzęt oraz dawkę — codziennie od nowa."
-    ),
-    "sygnal_dziecka": "przesunięcie suwaka na liczniku ruchu przed wyjściem",
-    "kontekst": "przed wyjściem na plac zabaw i przed zajęciami ruchowymi w sali",
-    "czynnosc": {
-        "3-4": "z pomocą dorosłego ustawi suwak i wybierze jedną z dwóch zabaw",
-        "5":   "samo ustawi licznik i wybierze sprzęt zgodny z ustawieniem",
-        "6":   "ustawi licznik, wybierze sprzęt i powie, po czym poznało, że dziś ma inaczej niż wczoraj",
-    },
-    "wskaznik_obserwacji": "liczba wyjść poprzedzonych ustawieniem licznika i zgodnym z nim wyborem zabawy",
-    "dieta_sensoryczna": [
-        "praca oporowa przed każdym wyjściem — stabilizuje odczyt niezależnie od poziomu",
-        "dwie gotowe ścieżki na placu: „dużo ruchu” i „dziś spokojnie”",
-        "sprawdzenie licznika także po odpoczynku — poziom potrafi zmienić się w ciągu dnia",
-    ],
-    "dostosowania": [
-        "brak stałego przypisania dziecku profilu ruchowego w dokumentacji",
-        "sprzęt dobierany do ustawienia z danego dnia, nie do planu z poprzedniego tygodnia",
-        "wpis poziomu do dziennika — po dwóch tygodniach widać rytm zmienności",
-    ],
-    "pomoc": {
-        "nazwa": "Licznik ruchu — suwak z trzema poziomami",
-        "opis_dla_doroslego": (
-            "Pasek 10 × 30 cm z suwakiem i trzema polami: „dużo ruchu”, „średnio”, „dziś spokojnie”, "
-            "przy każdym narysowany sprzęt lub zabawa, którą z niego wybieramy."
-        ),
-        "trzy_kroki_uzycia": [
-            "Powieś licznik przy drzwiach do ogrodu, na wysokości dziecka.",
-            "Poproś o ustawienie suwaka przed wyjściem i odczytaj wybór na głos.",
-            "Zrealizuj ścieżkę zgodną z ustawieniem i zapisz poziom w dzienniku.",
-        ],
-        "wskazowka_dla_doroslego": (
-            "„Wczoraj się huśtałeś, to dziś też dasz radę” jest zdaniem, które łamie zaufanie do "
-            "licznika. Poziom zmienia się bez powodu — i to jest normalne w tym profilu."
-        ),
-        "etykieta_dla_dziecka": "MÓJ RUCH DZISIAJ",
-        "polecenia": {
-            "III": "Sprawdzamy ruch. Przesuwamy suwak razem.",
-            "II":  "Ustaw suwak i wybierz zabawę.",
-            "I":   "Ustaw licznik i powiedz, co dziś wybierasz.",
-        },
-    },
-    "instrukcja_slowna": {
-        "III": "Zanim wyjdziemy, sprawdzimy twój ruch. Trzymam pasek, ty przesuwasz suwak.",
-        "II":  "Ustaw licznik ruchu i wybierz sprzęt, który przy nim narysowany.",
-        "I":   "Ustaw licznik przed wyjściem i powiedz, co dziś robisz na placu.",
-    },
-    "konspekt": {
-        "temat": "Mój ruch dzisiaj — sprawdzam, zanim wyjdę",
-        "wprowadzenie": "rozmowa z obrazkami: „raz chcę się huśtać, raz nie” — dopasowanie buziek do sprzętu",
-        "glowna": "wykonanie licznika ruchu z suwakiem i pierwsze ustawienie przed wyjściem; realizacja wybranej ścieżki na placu i porównanie z wczorajszą",
-        "zakonczenie": "powieszenie licznika przy drzwiach do ogrodu i ustalenie pory sprawdzania",
-        "metody": ["rozmowa kierowana", "praca techniczna", "próba w warunkach naturalnych"],
-        "formy": "indywidualna",
-        "ewaluacja_uwaga": "sukces = ustawienie licznika i zgodny z nim wybór; nie porównujemy poziomów między dniami",
-    },
-    "arkusz": {
-        "tytul": "LICZNIK RUCHU — pasek z suwakiem",
-        "elementy": [
-            "pasek licznika 10 × 30 cm z trzema polami i rysunkami sprzętu",
-            "suwak do wycięcia z prowadnicą",
-            "2 karty ścieżek na placu zabaw („dużo ruchu”, „dziś spokojnie”)",
-        ],
-        "symbole": ["k_licznik_ruchu.jpg", "k_plac_zabaw.jpg", "k_spokojnie.jpg"],
-    },
-    "ryzyko": "skrajna zmienność aktywności ruchowej z sennością lub nadmiernym pobudzeniem wymaga konsultacji pediatrycznej — sprawdź sen, żelazo i tarczycę",
+ "nr": "III.3", "zmysl": "III", "sektor": 3,
+ "wskaznik": "Tolerancja ubrania, mycia i faktur zmienia się u dziecka z dnia na dzień — ten sam bodziec raz drażni, raz jest poszukiwany.",
+ "objawy": [
+   "Reakcje na dotyk są zmienne — ten sam bodziec raz drażni, raz jest poszukiwany",
+   "Tolerancja ubrań, mycia i przytulania zmienia się z dnia na dzień",
+ ],
+ "strategia": "poranne sprawdzenie tolerancji i wybór poziomu faktur na dany dzień",
+ "opis_strategii": "Dziecko rano sprawdza mapę ubrania, a przed zajęciami plastycznymi wskazuje na skali, do którego poziomu faktur dziś sięga.",
+ "cele": {
+   "A": {"p3": "Wskaże jedną z dwóch bluz przygotowanych przez nauczyciela i przebierze się z pomocą",
+         "p2": "Wskaże miejsce, które dziś drapie, i zmieni tę część ubrania",
+         "p1": "Wybierze ubranie z worka i przebierze się samo"},
+   "B": {"p3": "Wskaże poziom na skali faktur podanej przez nauczyciela",
+         "p2": "Sprawdzi mapę ubrania i wskaże poziom faktur przed zajęciami plastycznymi",
+         "p1": "Wybierze materiał plastyczny zgodny ze swoim poziomem i zacznie pracę"},
+   "C": {"p3": "Ustali swój poziom razem z nauczycielem i powie, czego dziś nie chce dotykać",
+         "p2": "Ustali poziom samo, wybierze materiał i powie, czego dziś unika",
+         "p1": "Zejdzie o stopień niżej w trakcie zajęć, gdy poczuje, że to za dużo, zamiast przerwać pracę"},
+ },
+ "konspekt": {
+   "tytul": "Dzisiaj mogę tyle",
+   "rodzaj_zajec": "Zajęcia korekcyjno-kompensacyjne · rozpoznawanie własnej tolerancji dotykowej",
+   "metody": [
+     "codzienny pomiar tolerancji zamiast stałej listy zakazów",
+     "trzystopniowa skala faktur: suche, wilgotne, lepkie",
+     "docisk przed przebieraniem",
+     "prawo do zejścia o stopień niżej w trakcie zajęć",
+     "informacja dla rodzica o poziomie z danego dnia",
+   ],
+   "wskazowka": "Nie podnoś poziomu „na próbę”, gdy dziecko wskazało 1. Jedno wymuszone dotknięcie kleju potrafi zamknąć plastykę na kilka tygodni — a odzyskanie zaufania trwa dłużej niż jedne zajęcia.",
+   "modyfikacje": {
+     "p3": "nauczyciel podaje skalę i nazywa poziomy; dziecko tylko wskazuje",
+     "p2": "skala leży na stole plastycznym; dziecko wskazuje przed rozpoczęciem pracy",
+     "p1": "bez przypomnienia; dziecko samo ustala poziom i może go obniżyć w trakcie",
+   },
+   "warianty": {
+     "A": {"podtytul": "Dwie bluzy do wyboru i mapa miejsc, które drapią",
+           "cel_ter": "Dziecko wskaże, co dziś drapie, wybierze ubranie z dwóch przygotowanych i przebierze się bez płaczu.",
+           "smart": {"S": "Wskazuje miejsce na sylwetce i wybiera ubranie.",
+                     "M": "Kryterium z klikniętego poziomu wsparcia — liczymy poranki.",
+                     "A": "W worku są zawsze dwa warianty ubrania, przygotowane przez rodzica.",
+                     "R": "Poranny konflikt o ubranie psuje dziecku cały dzień w przedszkolu.",
+                     "T": "Ewaluacja w horyzoncie poziomu: 4, 8 albo 12 tygodni."},
+           "kryterium_obs": "Arkusz obserwacji — 5 przebierań w tygodniu.",
+           "pomoce": [
+             "karta z sylwetką dziecka do zaznaczania miejsc drażniących",
+             "dwa warianty ubrania w worku, bez metek",
+             "koc do docisku przed przebieraniem",
+             "trzy materiały do porównania: piasek, masa, klej",
+             "pasek skali faktur 1–2–3",
+           ],
+           "przebieg": [
+             ["N — zawija dziecko w koc i dociska równomiernie dłońmi.",
+              "D — leży i mówi, kiedy wystarczy."],
+             ["N — pokazuje sylwetkę i pyta, co dziś drapie.",
+              "D — wskazuje palcem miejsca na sylwetce."],
+             ["N — wyjmuje z worka dwie bluzy.", "D — wskazuje tę, którą dziś zakłada."],
+             ["N — pomaga się przebrać, zapowiadając każdy dotyk.",
+              "D — przebiera się bez płaczu."],
+             ["N — pokazuje trzy materiały i pyta, który dziś jest w porządku.",
+              "D — dotyka wybranego materiału i bawi się nim chwilę."],
+           ]},
+     "B": {"podtytul": "Skala faktur 1–2–3 przed zajęciami plastycznymi",
+           "cel_ter": "Dziecko wskaże na skali poziom faktur przed zajęciami plastycznymi i będzie pracować materiałem z tego poziomu.",
+           "smart": {"S": "Wskazuje poziom i bierze materiał z tego poziomu.",
+                     "M": "Kryterium z klikniętego poziomu wsparcia — liczymy zajęcia plastyczne.",
+                     "A": "Materiały z trzech poziomów leżą na stole, wszystkie naraz.",
+                     "R": "Wskazanie przed zajęciami jest tańsze niż odmowa w ich trakcie.",
+                     "T": "Ewaluacja w horyzoncie poziomu: 4, 8 albo 12 tygodni."},
+           "kryterium_obs": "Arkusz obserwacji — 5 zajęć plastycznych w tygodniu.",
+           "pomoce": [
+             "pasek skali faktur z obrazkami: suche, wilgotne, lepkie",
+             "materiały z każdego poziomu: piasek i ryż, masa i ciastolina, klej i farba palcowa",
+             "miska z wodą i ręcznik w zasięgu ręki",
+             "rękawiczki lateksowe jako opcja, nigdy jako wymóg",
+             "karta „dzisiaj mogę tyle”",
+           ],
+           "przebieg": [
+             ["N — układa materiały trzech poziomów na stole.",
+              "D — dotyka po kolei i układa je od najłatwiejszego."],
+             ["N — kładzie pasek skali i prosi o wskazanie.",
+              "D — wskazuje poziom na dziś."],
+             ["N — daje zadanie plastyczne materiałem z tego poziomu.",
+              "D — pracuje wybranym materiałem."],
+             ["N — przypomina, że wodę i ręcznik ma w zasięgu ręki.",
+              "D — myje ręce, kiedy chce, bez pytania."],
+             ["N — zapisuje poziom i przekazuje go rodzicowi.",
+              "D — odkłada pasek na stół plastyczny."],
+           ]},
+     "C": {"podtytul": "Zejście o stopień niżej zamiast przerwania pracy",
+           "cel_ter": "Dziecko obniży poziom faktury w trakcie zajęć, gdy poczuje, że to za dużo, i dokończy pracę innym materiałem.",
+           "smart": {"S": "Zmienia materiał i kończy pracę — zamiast wyjść od stołu.",
+                     "M": "Kryterium z klikniętego poziomu wsparcia — liczymy zajęcia plastyczne.",
+                     "A": "Materiał z niższego poziomu leży obok przez cały czas zajęć.",
+                     "R": "Zejście o stopień niżej jest sukcesem strategii, nie porażką dziecka.",
+                     "T": "Ewaluacja w horyzoncie poziomu: 4, 8 albo 12 tygodni."},
+           "kryterium_obs": "Arkusz obserwacji — 5 zajęć plastycznych w tygodniu, notujemy dokończenie pracy.",
+           "pomoce": [
+             "materiały dwóch sąsiednich poziomów na stole przez cały czas",
+             "pasek skali faktur",
+             "karta „schodzę niżej” z symbolem",
+             "praca plastyczna dająca się dokończyć dwoma materiałami",
+             "kartka na zdanie „przestaję, kiedy…”",
+           ],
+           "przebieg": [
+             ["N — pokazuje, że na stole są materiały dwóch poziomów.",
+              "D — wybiera ten, od którego zaczyna."],
+             ["N — mówi wprost, że wolno zejść niżej w każdej chwili.",
+              "D — powtarza zasadę własnymi słowami."],
+             ["N — prowadzi zajęcia i nie komentuje zmiany materiału.",
+              "D — zmienia materiał, gdy czuje, że to za dużo."],
+             ["N — pyta, w którym momencie zmiana była potrzebna.",
+              "D — dokańcza zdanie „przestaję, kiedy…”."],
+             ["N — zapisuje poziom początkowy i końcowy.",
+              "D — ogląda swój tydzień na arkuszu."],
+           ]},
+   },
+ },
+ "pomoc": {
+   "nazwa": "Mapa ubrania i skala faktur 1–2–3",
+   "co_przygotowac": [
+     "karta z sylwetką dziecka do zaznaczania miejsc drażniących",
+     "pasek skali faktur z obrazkami: suche — wilgotne — lepkie",
+     "dwa warianty ubrania w worku, bez metek, przygotowane przez rodzica",
+     "miska z wodą i ręcznik przy stole plastycznym",
+     "materiały z trzech poziomów, dostępne równocześnie",
+   ],
+   "trzy_kroki_uzycia": [
+     "Rano pokaż sylwetkę i poproś o wskazanie miejsc, które dziś przeszkadzają.",
+     "Przed plastyką połóż pasek skali i przyjmij wskazanie dziecka bez negocjacji.",
+     "Zapisz poziom w dzienniku i przekaż go rodzicowi przy odbiorze dziecka.",
+   ],
+   "wskazowka_dla_doroslego": "Nagły wzrost drażliwości dotykowej sprawdź najpierw medycznie: gorączka, ból ucha albo ząbkowanie podnoszą próg drażliwości bardziej niż jakikolwiek materiał plastyczny.",
+   "opis_zdjecia": "a paper body outline with a few areas circled, next to a three-step texture scale strip showing sand, dough and glue",
+   "polecenia": {
+     "A": "Pokaż, co dziś drapie. Wybierzemy ubranie razem.",
+     "B": "Wskaż na pasku: jeden, dwa czy trzy?",
+     "C": "Ustal swój poziom. Możesz zejść niżej, kiedy zechcesz.",
+   },
+ },
+ "arkusz": {
+   "tytul": "Mapa ubrania i skala faktur",
+   "wstep_dla_doroslego": "Wytnij sylwetkę i pasek skali. Sylwetkę powieś w szatni, pasek zostaw na stałe na stole plastycznym — pomoc schowana do szafki przestaje być używana po trzech dniach.",
+   "karty": [
+     {"etykieta": "Dzisiaj mogę tyle", "opis": "nagłówek paska skali faktur", "symbol": "sensor_faktura"},
+     {"etykieta": "Suche", "opis": "poziom 1 — piasek, ryż, kasztany", "symbol": None},
+     {"etykieta": "Wilgotne", "opis": "poziom 2 — masa, ciastolina, glina", "symbol": None},
+     {"etykieta": "Schodzę niżej", "opis": "karta zmiany materiału w trakcie zajęć", "symbol": "sensor_zamiana"},
+   ],
+   "pasek_kolejnosci": [
+     {"etykieta": "1 · sprawdzam", "symbol": "sygnal_ciala"},
+     {"etykieta": "2 · wybieram", "symbol": "sensor_faktura"},
+     {"etykieta": "3 · pracuję", "symbol": "zabawa_rysowanie"},
+   ],
+ },
+ "dieta_sensoryczna": [
+   "docisk przed przebieraniem: mocne przytulenie w kocyk, zabawa w naleśnik",
+   "trzystopniowa skala faktur zawsze dostępna na stole plastycznym",
+   "dwa warianty ubrania przygotowane przez rodzica w worku",
+ ],
+ "dostosowania": [
+   "brak wymuszania fartuszka i rękawiczek w dniu wysokiej drażliwości",
+   "materiały suche zawsze jako alternatywa dla mokrych",
+   "informacja dla rodzica o poziomie z danego dnia — poranek w domu wygląda tak samo",
+ ],
+ "ryzyko": "Nagły wzrost drażliwości dotykowej może być objawem infekcji, gorączki albo bólu — najpierw wyklucz przyczynę medyczną.",
+ "obserwacja": {
+   "cel": "Dziecko wskaże swój poziom tolerancji przed zajęciami i będzie pracować materiałem z tego poziomu, w {proba} sytuacji, w ciągu {horyzont_dopelniacz}.",
+   "co_obserwowac": "Arkusz obserwacji — kolumna: przebieranie i zajęcia plastyczne. Notujemy wskazany poziom i odmowy w trakcie.",
+   "ile_sytuacji": "5 zajęć plastycznych w tygodniu",
+   "smart": {"S": "Wskazuje poziom na skali i pracuje materiałem z tego poziomu.",
+             "M": "{proba} sytuacji z pięciu obserwowanych w tygodniu.",
+             "A": "Materiały trzech poziomów leżą na stole równocześnie.",
+             "R": "Ta sama bluza bywa w poniedziałek dobra, a we wtorek nie do zniesienia.",
+             "T": "Weryfikacja po {horyzont_miejscownik}, według pasma punktacji zmysłu."},
+ },
+},
+
+# ═══ IV · SMAK ═════════════════════════════════════════════════════════════
+{
+ "nr": "IV.1", "zmysl": "IV", "sektor": 1,
+ "wskaznik": "Dziecko je bardzo wąski repertuar potraw, odmawia nowych konsystencji i reaguje na niektóre odruchem wymiotnym.",
+ "objawy": [
+   "Je bardzo wąski repertuar potraw — odmawia nowych smaków i konsystencji",
+   "Reaguje odruchem wymiotnym na niektóre konsystencje jedzenia",
+   "Preferuje potrawy „bez smaku”, oddziela składniki na talerzu",
+ ],
+ "strategia": "drabina oswajania jedzenia — jeden szczebel zamiast jednego kęsa",
+ "opis_strategii": "Dziecko poznaje nową potrawę po drabinie: patrzę → dotykam widelcem → wącham → dotykam wargą → liżę → gryzę. Każdy szczebel jest sukcesem, jedzenie nie jest warunkiem.",
+ "cele": {
+   "A": {"p3": "Zostanie przy stole, gdy nowa potrawa leży na osobnym talerzyku podanym przez nauczyciela",
+         "p2": "Dotknie nowej potrawy widelcem po pokazaniu drabiny",
+         "p1": "Powącha nową potrawę na swoim talerzyku do prób"},
+   "B": {"p3": "Wskaże szczebel drabiny razem z nauczycielem i wykona go",
+         "p2": "Wskaże swój dzisiejszy szczebel i wykona go bez namawiania",
+         "p1": "Przejdzie o jeden szczebel wyżej niż przy poprzednim posiłku z tą potrawą"},
+   "C": {"p3": "Ustali z nauczycielem, którą potrawę dziś poznaje, i wykona wskazany szczebel",
+         "p2": "Wybierze potrawę do poznania i szczebel na dziś, i wykona go samodzielnie",
+         "p1": "Poprosi o nową potrawę na talerzyk do prób i powie, na którym szczeblu jest"},
+ },
+ "konspekt": {
+   "tytul": "Moja drabina — poznaję jedzenie bez jedzenia",
+   "rodzaj_zajec": "Zajęcia o charakterze terapeutycznym (terapia SI) · praca nad wybiórczością pokarmową",
+   "metody": [
+     "drabina oswajania: sześć szczebli, każdy osobnym sukcesem",
+     "osobny talerzyk do prób, nigdy mieszanie z jedzeniem znanym",
+     "przygotowanie jamy ustnej przed posiłkiem",
+     "udział w przygotowaniu potrawy — dotyk poprzedza smak",
+     "całkowity brak namawiania, komentowania i nagradzania",
+   ],
+   "wskazowka": "Zdanie „spróbuj tylko kawałeczek” cofa dziecko na sam dół drabiny. Sukcesem jest to, że nowa potrawa leży na stole i dziecko na nią patrzy — reszta przyjdzie w swoim czasie.",
+   "modyfikacje": {
+     "p3": "nauczyciel stawia talerzyk i wykonuje szczebel przy dziecku, pokazując na sobie",
+     "p2": "drabina leży przy talerzu; dziecko wskazuje szczebel po pytaniu „gdzie dziś jesteś”",
+     "p1": "bez pytania — dziecko samo wskazuje szczebel i wykonuje go przed posiłkiem",
+   },
+   "warianty": {
+     "A": {"podtytul": "Talerzyk do prób i pierwszy szczebel: patrzę",
+           "cel_ter": "Dziecko zostanie przy stole z nową potrawą na osobnym talerzyku i wykona pierwszy szczebel drabiny.",
+           "smart": {"S": "Zostaje przy stole i patrzy albo dotyka widelcem.",
+                     "M": "Kryterium z klikniętego poziomu wsparcia — liczymy posiłki.",
+                     "A": "Na talerzyku leży jedna nowa rzecz, nie trzy.",
+                     "R": "Odruch wymiotny jest prawdziwy — namawianie zawęża repertuar.",
+                     "T": "Ewaluacja w horyzoncie poziomu: 4, 8 albo 12 tygodni."},
+           "kryterium_obs": "Arkusz obserwacji — 5 posiłków w tygodniu, notujemy szczebel drabiny.",
+           "pomoce": [
+             "mały talerzyk do prób, zawsze z tej samej strony talerza",
+             "drabina oswajania z sześcioma szczeblami i obrazkami",
+             "jedna nowa potrawa dziennie, pokrojona na małe kawałki",
+             "widelczyk dziecięcy do dotykania potrawy",
+             "produkt pewny na talerzu głównym",
+           ],
+           "przebieg": [
+             ["N — pokazuje drabinę i nazywa pierwszy szczebel: „patrzę”.",
+              "D — patrzy na drabinę i na nową potrawę."],
+             ["N — stawia talerzyk do prób z jedną nową rzeczą.",
+              "D — zostaje przy stole, potrawa leży obok."],
+             ["N — dotyka potrawy własnym widelcem, nie namawiając.",
+              "D — dotyka potrawy widelcem albo tylko patrzy."],
+             ["N — nazywa szczebel, na którym dziecko dziś jest.",
+              "D — pokazuje ten szczebel na drabinie."],
+             ["N — kończy posiłek bez komentarza o jedzeniu.",
+              "D — odchodzi od stołu bez presji."],
+           ]},
+     "B": {"podtytul": "Wskazanie szczebla i wykonanie go bez namawiania",
+           "cel_ter": "Dziecko wskaże swój dzisiejszy szczebel drabiny i wykona go, bez namawiania ze strony dorosłego.",
+           "smart": {"S": "Wskazuje szczebel i wykonuje dokładnie ten jeden ruch.",
+                     "M": "Kryterium z klikniętego poziomu wsparcia — liczymy posiłki.",
+                     "A": "Szczebel wybiera dziecko; dorosły nie proponuje wyższego.",
+                     "R": "Poznawanie potrawy zaczyna się od patrzenia, nie od kęsa.",
+                     "T": "Ewaluacja w horyzoncie poziomu: 4, 8 albo 12 tygodni."},
+           "kryterium_obs": "Arkusz obserwacji — 5 posiłków w tygodniu, notujemy wskazany i wykonany szczebel.",
+           "pomoce": [
+             "drabina oswajania przypięta przy miejscu dziecka",
+             "strzałka do przesuwania po szczeblach",
+             "talerzyk do prób i produkt pewny",
+             "zajęcia kulinarne: mycie i krojenie miękkich warzyw",
+             "arkusz obserwacji z rubryką na szczebel",
+           ],
+           "przebieg": [
+             ["N — zaprasza do mycia i krojenia warzyw przed posiłkiem.",
+              "D — myje i kroi, dotykając potrawy rękami."],
+             ["N — stawia talerzyk do prób i pyta: „gdzie dziś jesteś?”.",
+              "D — przesuwa strzałkę na wybrany szczebel."],
+             ["N — milczy, gdy dziecko wykonuje szczebel.",
+              "D — wykonuje szczebel: wącha, dotyka wargą albo liże."],
+             ["N — zapisuje szczebel bez oceniania.",
+              "D — kończy posiłek swoim produktem pewnym."],
+             ["N — mówi, że jutro zaczynamy od tego samego szczebla.",
+              "D — powtarza, na którym szczeblu jest."],
+           ]},
+     "C": {"podtytul": "Wybór potrawy do poznania i własne tempo drabiny",
+           "cel_ter": "Dziecko wybierze potrawę do poznania, wskaże szczebel i wykona go samodzielnie, mówiąc, co zrobi jutro.",
+           "smart": {"S": "Wybiera potrawę, wskazuje szczebel, wykonuje go.",
+                     "M": "Kryterium z klikniętego poziomu wsparcia — liczymy posiłki.",
+                     "A": "Wybór jest z dwóch potraw, obie leżą na stole.",
+                     "R": "Dziecko, które decyduje o tempie, przestaje bronić się przed stołem.",
+                     "T": "Ewaluacja w horyzoncie poziomu: 4, 8 albo 12 tygodni."},
+           "kryterium_obs": "Arkusz obserwacji — 5 posiłków w tygodniu, notujemy wybór i szczebel.",
+           "pomoce": [
+             "dwie nowe potrawy do wyboru, obie na osobnych talerzykach",
+             "drabina ze strzałką i miejscem na zapis jutrzejszego szczebla",
+             "karta „jutro zrobię…” z polem na rysunek",
+             "zajęcia kulinarne z przygotowaniem potrawy",
+             "arkusz obserwacji do wspólnego oglądania",
+           ],
+           "przebieg": [
+             ["N — stawia dwie nowe potrawy i pyta, którą dziś poznajemy.",
+              "D — wybiera potrawę i stawia ją na swoim talerzyku."],
+             ["N — pyta o szczebel na dziś.", "D — wskazuje szczebel i wykonuje go."],
+             ["N — nie komentuje i nie proponuje wyższego szczebla.",
+              "D — kończy próbę w swoim tempie."],
+             ["N — pyta, co dziecko zrobi jutro z tą potrawą.",
+              "D — zapisuje albo rysuje jutrzejszy szczebel."],
+             ["N — pokazuje zapis z tygodnia.",
+              "D — widzi, ile szczebli przeszło przez pięć dni."],
+           ]},
+   },
+ },
+ "pomoc": {
+   "nazwa": "Drabina oswajania jedzenia i talerzyk do prób",
+   "co_przygotowac": [
+     "karta drabiny A4 pionowo, sześć szczebli z obrazkami",
+     "strzałka albo klamerka do zaznaczania szczebla",
+     "mały talerzyk do prób, zawsze stawiany z tej samej strony",
+     "produkt pewny na talerzu głównym, niezależnie od dania dnia",
+     "widelczyk i serwetka w zasięgu ręki dziecka",
+   ],
+   "trzy_kroki_uzycia": [
+     "Postaw talerzyk do prób obok talerza i połóż na nim jedną nową rzecz — nie trzy.",
+     "Pokaż drabinę i zapytaj wyłącznie: „gdzie dziś jesteś?”. Nie proponuj wyżej.",
+     "Zapisz szczebel; przy następnym posiłku zacznij od tego samego, nie od wyższego.",
+   ],
+   "wskazowka_dla_doroslego": "Nie chwal za jedzenie. Pochwała robi z posiłku zadanie do zaliczenia i wraca odmową w dniu, w którym dziecko nie ma sił na sukces.",
+   "opis_zdjecia": "a vertical card with six pictogram rungs beside a small side plate holding one piece of unfamiliar food, next to a child's main plate",
+   "polecenia": {
+     "A": "Popatrz, tu jest nowe jedzenie. Nie musisz jeść.",
+     "B": "Pokaż na drabinie, gdzie dziś jesteś. Zrób ten jeden szczebel.",
+     "C": "Wybierz, co dziś poznajesz. Powiedz mi, co zrobisz jutro.",
+   },
+ },
+ "arkusz": {
+   "tytul": "Drabina oswajania jedzenia — karta do wycięcia",
+   "wstep_dla_doroslego": "Wytnij drabinę i strzałkę. Drugą drabinę przekaż rodzicowi — w domu obowiązują te same szczeble, inaczej dziecko dostaje dwie sprzeczne zasady przy jednym stole.",
+   "karty": [
+     {"etykieta": "Patrzę", "opis": "szczebel 1 — potrawa leży na talerzyku", "symbol": "gest_slucham"},
+     {"etykieta": "Dotykam", "opis": "szczeble 2 i 4 — widelcem, potem wargą", "symbol": "polecenie_wez"},
+     {"etykieta": "Wącham", "opis": "szczebel 3 — zapach przed smakiem", "symbol": None},
+     {"etykieta": "Mój talerzyk", "opis": "symbol talerzyka do prób, stawianego zawsze z tej samej strony", "symbol": "dzien_obiad"},
+   ],
+   "pasek_kolejnosci": [
+     {"etykieta": "1 · patrzę", "symbol": "gest_slucham"},
+     {"etykieta": "2 · dotykam", "symbol": "polecenie_wez"},
+     {"etykieta": "3 · jem swoje", "symbol": "dzien_obiad"},
+   ],
+ },
+ "dieta_sensoryczna": [
+   "osobny talerzyk do prób obok talerza z jedzeniem znanym — nowa potrawa nigdy nie miesza się ze znaną",
+   "przygotowanie jamy ustnej przed posiłkiem: picie przez rurkę, gryzak, chrupiąca przekąska",
+   "udział w przygotowaniu potrawy (mycie, krojenie miękkiego) — dotyk poprzedza smak",
+ ],
+ "dostosowania": [
+   "brak namawiania, komentowania i nagradzania za jedzenie",
+   "składniki podawane osobno, nie wymieszane",
+   "stałe, przewidywalne miejsce i pora posiłku",
+ ],
+ "ryzyko": "Repertuar poniżej piętnastu produktów, spadek masy ciała albo krztuszenie się wymagają skierowania do lekarza i neurologopedy — to zaburzenie karmienia, nie sama sensoryka.",
+ "obserwacja": {
+   "cel": "Dziecko wykona szczebel drabiny oswajania przy nowej potrawie, bez namawiania, w {proba} sytuacji, w ciągu {horyzont_dopelniacz}.",
+   "co_obserwowac": "Arkusz obserwacji — kolumna: posiłek z nową potrawą. Notujemy szczebel, nie liczbę kęsów.",
+   "ile_sytuacji": "5 posiłków w tygodniu",
+   "smart": {"S": "Wykonuje wskazany szczebel drabiny przy talerzyku do prób.",
+             "M": "{proba} posiłków z pięciu obserwowanych w tygodniu.",
+             "A": "Na talerzyku leży jedna nowa rzecz; produkt pewny jest zawsze na talerzu.",
+             "R": "Namawianie zawęża repertuar zamiast go poszerzać.",
+             "T": "Weryfikacja po {horyzont_miejscownik}, według pasma punktacji zmysłu."},
+ },
+},
+{
+ "nr": "IV.2", "zmysl": "IV", "sektor": 2,
+ "wskaznik": "Dziecko wkłada do ust przedmioty niejadalne, gryzie przybory i przepełnia usta jedzeniem.",
+ "objawy": [
+   "Wkłada do ust przedmioty niejadalne, liże lub gryzie zabawki i przybory",
+   "Poszukuje intensywnych smaków (ostre, kwaśne, bardzo słodkie)",
+   "Przepełnia usta jedzeniem, je łapczywie",
+ ],
+ "strategia": "bezpieczny bodziec dla ust i jeden kęs na raz",
+ "opis_strategii": "Dziecko korzysta z gryzaka i mocnych bodźców jadalnych w stałych porach dnia, a przy posiłku nabiera jeden kęs łyżeczką odmierzającą.",
+ "cele": {
+   "A": {"p3": "Weźmie gryzak podany przez nauczyciela zamiast rękawa albo kredki",
+         "p2": "Sięgnie po gryzak przypięty do fartuszka, gdy nauczyciel wskaże go gestem",
+         "p1": "Użyje gryzaka przy zadaniu przy stoliku, nie wkładając do ust przyborów"},
+   "B": {"p3": "Napije się gęstego napoju przez rurkę podaną przez nauczyciela przed zadaniem",
+         "p2": "Napije się przez rurkę przed zadaniem i użyje łyżeczki jednego kęsa przy posiłku",
+         "p1": "Zje posiłek, nabierając jeden kęs na raz, bez przepełniania ust"},
+   "C": {"p3": "Zaplanuje z nauczycielem trzy momenty bodźca ustnego w ciągu dnia",
+         "p2": "Zaplanuje trzy momenty samo i skorzysta z nich przed zajęciami",
+         "p1": "Utrzyma jeden kęs na raz przez cały posiłek i samo poprosi o wodę między kęsami"},
+ },
+ "konspekt": {
+   "tytul": "Mocno w buzi — bezpiecznie",
+   "rodzaj_zajec": "Zajęcia o charakterze terapeutycznym (terapia SI) · stymulacja oralno-motoryczna",
+   "metody": [
+     "bezpieczny gryzak zamiast zakazu gryzienia",
+     "ssanie gęstego napoju przez wąską rurkę przed zadaniem",
+     "chrupiąca przekąska jako mocny bodziec jadalny",
+     "łyżeczka odmierzająca wielkość kęsa",
+     "usuwanie z zasięgu drobnych przedmiotów",
+   ],
+   "wskazowka": "Zabranie gryzaka nie kończy gryzienia — przenosi je na rękawy i kredki. Gryzak myje się codziennie i wymienia przy pierwszych śladach nadgryzienia.",
+   "modyfikacje": {
+     "p3": "nauczyciel podaje gryzak i rurkę; przybory leżą poza zasięgiem dziecka",
+     "p2": "gryzak przypięty do fartuszka, rurka i napój przygotowane przed zajęciami",
+     "p1": "gryzak dostępny, ale nie wskazywany; dziecko sięga po niego samo",
+   },
+   "warianty": {
+     "A": {"podtytul": "Gryzak zamiast rękawa przy zadaniu przy stoliku",
+           "cel_ter": "Dziecko użyje gryzaka podczas zadania przy stoliku, nie wkładając do ust kredek ani rękawa.",
+           "smart": {"S": "Bierze gryzak do ust zamiast przyboru — czynność widoczna.",
+                     "M": "Kryterium z klikniętego poziomu wsparcia — liczymy zadania przy stoliku.",
+                     "A": "Gryzak wisi przy fartuszku i jest dostępny bez pytania.",
+                     "R": "Wkładanie do ust przedmiotów niejadalnych to ryzyko zadławienia.",
+                     "T": "Ewaluacja w horyzoncie poziomu: 4, 8 albo 12 tygodni."},
+           "kryterium_obs": "Arkusz obserwacji — 5 zadań przy stoliku w tygodniu.",
+           "pomoce": [
+             "gryzak silikonowy na sznurku, myty codziennie",
+             "wąska rurka i gęsty napój (kisiel, jogurt pitny)",
+             "chrupiąca przekąska: marchewka albo wafel ryżowy",
+             "zadanie przy stoliku na 5 minut",
+             "pudełko na drobne przedmioty, zamykane",
+           ],
+           "przebieg": [
+             ["N — proponuje zabawę w dmuchanie waty przez rurkę.",
+              "D — dmucha i śledzi, dokąd doleci wata."],
+             ["N — podaje gęsty napój przez wąską rurkę.",
+              "D — pije, mocno zasysając."],
+             ["N — przypina gryzak do fartuszka i pokazuje, do czego służy.",
+              "D — bierze gryzak do ust."],
+             ["N — daje krótkie zadanie przy stoliku.",
+              "D — pracuje, korzystając z gryzaka zamiast kredki."],
+             ["N — chowa drobne przedmioty do pudełka po zajęciach.",
+              "D — pomaga zamknąć pudełko i odkłada gryzak."],
+           ]},
+     "B": {"podtytul": "Rurka przed zadaniem i łyżeczka jednego kęsa przy posiłku",
+           "cel_ter": "Dziecko przygotuje usta przed zadaniem, pijąc przez rurkę, i zje posiłek, nabierając jeden kęs na raz.",
+           "smart": {"S": "Pije przez rurkę i nabiera pojedyncze kęsy.",
+                     "M": "Kryterium z klikniętego poziomu wsparcia — liczymy posiłki.",
+                     "A": "Łyżeczka wyznacza wielkość kęsa, więc zasada jest widoczna.",
+                     "R": "Przepełnianie ust grozi zakrztuszeniem i psuje odbiór smaku.",
+                     "T": "Ewaluacja w horyzoncie poziomu: 4, 8 albo 12 tygodni."},
+           "kryterium_obs": "Arkusz obserwacji — 5 posiłków w tygodniu, notujemy przepełnianie ust.",
+           "pomoce": [
+             "mała łyżeczka odmierzająca jeden kęs",
+             "wąska rurka i gęsty napój",
+             "kubek wody przy talerzu",
+             "chrupiąca przekąska w połowie przedpołudnia",
+             "gryzak przy fartuszku",
+           ],
+           "przebieg": [
+             ["N — podaje gęsty napój przez rurkę przed zajęciami.",
+              "D — pije przez minutę, mocno zasysając."],
+             ["N — kładzie przy talerzu małą łyżeczkę i kubek wody.",
+              "D — nabiera pierwszy kęs małą łyżeczką."],
+             ["N — przypomina krótko: „jeden kęs”, bez dłuższych zdań.",
+              "D — je pojedynczymi kęsami, popijając wodą."],
+             ["N — podaje chrupiącą przekąskę po posiłku.",
+              "D — gryzie przekąskę, mocno pracując szczęką."],
+             ["N — zapisuje, ile razy doszło do przepełnienia ust.",
+              "D — odkłada łyżeczkę na swoje miejsce."],
+           ]},
+     "C": {"podtytul": "Własny plan trzech bodźców ustnych w ciągu dnia",
+           "cel_ter": "Dziecko zaplanuje trzy momenty bodźca ustnego, skorzysta z nich i utrzyma jeden kęs na raz przez cały posiłek.",
+           "smart": {"S": "Realizuje zaplanowane bodźce i je pojedynczymi kęsami.",
+                     "M": "Kryterium z klikniętego poziomu wsparcia — liczymy dni.",
+                     "A": "Rurka, przekąska i gryzak są przygotowane od rana.",
+                     "R": "Zaspokojona potrzeba ustna zmniejsza gryzienie przyborów w czasie zajęć.",
+                     "T": "Ewaluacja w horyzoncie poziomu: 4, 8 albo 12 tygodni."},
+           "kryterium_obs": "Arkusz obserwacji — 5 dni w tygodniu, notujemy gryzienie przedmiotów niejadalnych.",
+           "pomoce": [
+             "plan dnia z trzema polami na bodziec ustny",
+             "rurka, gęsty napój i chrupiąca przekąska",
+             "mała łyżeczka i kubek wody przy posiłku",
+             "lista bezpiecznych przekąsek z uwagą o alergiach",
+             "arkusz obserwacji do wspólnego oglądania",
+           ],
+           "przebieg": [
+             ["N — prosi o zaplanowanie trzech momentów bodźca ustnego.",
+              "D — zaznacza je w planie dnia."],
+             ["N — obserwuje pierwszą porę, nie przypomina.",
+              "D — pije przez rurkę w zaplanowanym czasie."],
+             ["N — prowadzi zajęcia przy stoliku.",
+              "D — pracuje bez gryzienia przyborów."],
+             ["N — przy posiłku kładzie łyżeczkę i wodę.",
+              "D — je pojedynczymi kęsami przez cały posiłek."],
+             ["N — pokazuje zapis z tygodnia.",
+              "D — mówi, który bodziec pomaga mu najbardziej."],
+           ]},
+   },
+ },
+ "pomoc": {
+   "nazwa": "Gryzak na sznurku, rurka i łyżeczka jednego kęsa",
+   "co_przygotowac": [
+     "gryzak silikonowy przypinany do fartuszka, myty codziennie",
+     "wąska rurka i gęsty napój: kisiel albo jogurt pitny",
+     "chrupiąca przekąska bezpieczna dla dziecka (sprawdź alergie)",
+     "mała łyżeczka wyznaczająca wielkość kęsa",
+     "zamykane pudełko na drobne przedmioty z sali",
+   ],
+   "trzy_kroki_uzycia": [
+     "Przypnij gryzak rano i powiedz dziecku, że jest jego — nie wydawaj go na prośbę.",
+     "Przed zadaniem przy stoliku podaj gęsty napój przez rurkę: jedna do dwóch minut ssania.",
+     "Przy posiłku połóż małą łyżeczkę i przypominaj krótko: „jeden kęs”.",
+   ],
+   "wskazowka_dla_doroslego": "Sprawdź gryzak codziennie przed użyciem. Nadgryziony silikon odrywa się kawałkami i z pomocy robi się dokładnie to zagrożenie, przed którym miał chronić.",
+   "opis_zdjecia": "a silicone chew pendant clipped to a nursery apron, a narrow straw in a cup of thick drink and a small measuring spoon on a plate",
+   "polecenia": {
+     "A": "Buzia chce mocno. Bierzemy gryzak. Kredka zostaje na stole.",
+     "B": "Napij się przez rurkę. Potem jeden kęs, i następny.",
+     "C": "Zaplanuj, kiedy dziś napijesz się przez rurkę i kiedy zjesz chrupiące.",
+   },
+ },
+ "arkusz": {
+   "tytul": "Karty do zajęć „Mocno w buzi — bezpiecznie”",
+   "wstep_dla_doroslego": "Wytnij karty i plan bodźców ustnych. Plan powieś tam, gdzie dziecko je i pracuje — bodziec ustny wpisany w plan dnia działa, bodziec podawany „gdy widać, że trzeba” spóźnia się o kilka minut.",
+   "karty": [
+     {"etykieta": "Mój gryzak", "opis": "symbol gryzaka przypiętego do fartuszka", "symbol": "sensor_gniotek"},
+     {"etykieta": "Rurka", "opis": "symbol picia gęstego napoju przed zadaniem", "symbol": None},
+     {"etykieta": "Chrupiące", "opis": "symbol przekąski w połowie przedpołudnia", "symbol": "dzien_sniadanie"},
+     {"etykieta": "Jeden kęs", "opis": "symbol małej łyżeczki przy posiłku", "symbol": "dzien_obiad"},
+   ],
+   "pasek_kolejnosci": [
+     {"etykieta": "1 · rurka", "symbol": "dzien_sniadanie"},
+     {"etykieta": "2 · pracuję", "symbol": "dzien_zajecia"},
+     {"etykieta": "3 · jeden kęs", "symbol": "dzien_obiad"},
+   ],
+ },
+ "dieta_sensoryczna": [
+   "picie gęstego napoju przez wąską rurkę przed zajęciami wymagającymi skupienia",
+   "chrupiąca przekąska (marchewka, wafel ryżowy) w połowie przedpołudnia",
+   "gryzak silikonowy na sznurku, dostępny przez cały dzień",
+ ],
+ "dostosowania": [
+   "usunięcie z zasięgu drobnych przedmiotów, które można połknąć",
+   "łyżeczka odmierzająca jeden kęs i krótkie przypomnienie „jeden kęs”",
+   "picie wody między kęsami — spowalnia jedzenie",
+ ],
+ "ryzyko": "Wkładanie do ust przedmiotów niejadalnych to ryzyko zadławienia i zatrucia — wymaga stałego nadzoru, kontroli zasięgu drobnych rzeczy oraz wykluczenia niedoboru żelaza (pica).",
+ "obserwacja": {
+   "cel": "Dziecko skorzysta z bezpiecznego bodźca ustnego zamiast gryźć przybory i zje, nabierając jeden kęs na raz, w {proba} sytuacji, w ciągu {horyzont_dopelniacz}.",
+   "co_obserwowac": "Arkusz obserwacji — kolumna: zajęcia przy stoliku i posiłek. Notujemy gryzienie przedmiotów i przepełnianie ust.",
+   "ile_sytuacji": "5 zadań przy stoliku w tygodniu",
+   "smart": {"S": "Używa gryzaka albo rurki i je pojedynczymi kęsami.",
+             "M": "{proba} sytuacji z pięciu obserwowanych w tygodniu.",
+             "A": "Gryzak jest przypięty od rana; łyżeczka leży przy talerzu.",
+             "R": "Gryzienie przyborów to brak czucia, nie brak dyscypliny.",
+             "T": "Weryfikacja po {horyzont_miejscownik}, według pasma punktacji zmysłu."},
+ },
+},
+{
+ "nr": "IV.3", "zmysl": "IV", "sektor": 3,
+ "wskaznik": "Akceptacja smaków i konsystencji zmienia się u dziecka bez wyraźnej przyczyny — raz odmawia potrawy, którą innym razem je chętnie.",
+ "objawy": [
+   "Akceptacja smaków i konsystencji zmienia się bez wyraźnej przyczyny",
+   "Raz odmawia potrawy, którą innym razem je chętnie",
+ ],
+ "strategia": "wybór wariantu posiłku przed jedzeniem, bez negocjacji",
+ "opis_strategii": "Dziecko przed posiłkiem wybiera jedną z trzech kart — jem swoje, próbuję, dziś tylko patrzę — i posiłek przebiega według tego wyboru.",
+ "cele": {
+   "A": {"p3": "Wskaże jedną z trzech kart trzymanych przez nauczyciela i zostanie przy stole",
+         "p2": "Położy wybraną kartę przy talerzu, gdy nauczyciel poda trzy karty",
+         "p1": "Wybierze kartę przed posiłkiem i zostanie przy stole do końca"},
+   "B": {"p3": "Wybierze kartę razem z nauczycielem i zje zgodnie z wariantem",
+         "p2": "Sam położy kartę przed posiłkiem i zje zgodnie z wybranym wariantem",
+         "p1": "Wybierze kartę i zaproponuje, co zje zamiast odrzuconej potrawy"},
+   "C": {"p3": "Wybierze kartę i z pomocą nauczyciela nazwie, co dziś jest inaczej",
+         "p2": "Wybierze kartę i powie, co dziś jest inaczej niż wczoraj",
+         "p1": "Zgłosi zmianę wariantu w trakcie posiłku, zamiast odejść od stołu"},
+ },
+ "konspekt": {
+   "tytul": "Jak dziś smakuje",
+   "rodzaj_zajec": "Zajęcia rozwijające kompetencje emocjonalno-społeczne · przewidywalność posiłku",
+   "metody": [
+     "stała procedura posiłku przy zmiennym menu",
+     "trzy karty wariantów, zawsze te same",
+     "brak komentarza do wyboru dziecka",
+     "przygotowanie ust przed posiłkiem",
+     "informacja dla rodzica o wariancie z danego dnia",
+   ],
+   "wskazowka": "Wariant „dziś tylko patrzę” też jest sukcesem: dziecko zostaje przy stole z grupą. Namawianie w takim dniu kosztuje więcej niż jeden pominięty posiłek.",
+   "modyfikacje": {
+     "p3": "nauczyciel trzyma trzy karty i nazywa warianty; dziecko wskazuje jedną",
+     "p2": "karty leżą przy talerzu przed podaniem jedzenia; dziecko wybiera samo",
+     "p1": "dziecko może zmienić wariant w trakcie posiłku, zgłaszając to kartą",
+   },
+   "warianty": {
+     "A": {"podtytul": "Trzy karty i pozostanie przy stole",
+           "cel_ter": "Dziecko wybierze jedną z trzech kart posiłku i zostanie przy stole do końca posiłku.",
+           "smart": {"S": "Wskazuje kartę i siedzi przy stole — obie rzeczy widoczne.",
+                     "M": "Kryterium z klikniętego poziomu wsparcia — liczymy posiłki.",
+                     "A": "Karty są trzy i zawsze te same; wybór trwa chwilę.",
+                     "R": "Obecność przy stole z grupą jest osobną umiejętnością, niezależną od jedzenia.",
+                     "T": "Ewaluacja w horyzoncie poziomu: 4, 8 albo 12 tygodni."},
+           "kryterium_obs": "Arkusz obserwacji — 5 posiłków w tygodniu.",
+           "pomoce": [
+             "trzy karty posiłku: jem swoje, próbuję, dziś tylko patrzę",
+             "podkładka z polem na kartę dnia",
+             "produkt pewny na talerzu",
+             "stałe miejsce i pora posiłku",
+             "karta informacyjna dla rodzica",
+           ],
+           "przebieg": [
+             ["N — pokazuje trzy karty i nazywa każdą krótkim zdaniem.",
+              "D — patrzy na karty i dotyka tej, którą rozumie."],
+             ["N — kładzie karty przy talerzu przed podaniem jedzenia.",
+              "D — wskazuje jedną kartę."],
+             ["N — realizuje wybrany wariant bez komentarza.",
+              "D — je albo tylko siedzi, zgodnie z wyborem."],
+             ["N — kończy posiłek w tym samym momencie co grupa.",
+              "D — zostaje przy stole do końca."],
+             ["N — zapisuje wariant i przekazuje go rodzicowi.",
+              "D — odkłada kartę na podkładkę."],
+           ]},
+     "B": {"podtytul": "Własny wybór wariantu i propozycja zamiany",
+           "cel_ter": "Dziecko położy kartę przed posiłkiem, zje zgodnie z wariantem i zaproponuje, co zje zamiast odrzuconej potrawy.",
+           "smart": {"S": "Kładzie kartę i mówi, co zje zamiast.",
+                     "M": "Kryterium z klikniętego poziomu wsparcia — liczymy posiłki.",
+                     "A": "Produkt pewny jest zawsze dostępny, niezależnie od dania dnia.",
+                     "R": "Propozycja zamiany zastępuje odmowę i kończy negocjację przy stole.",
+                     "T": "Ewaluacja w horyzoncie poziomu: 4, 8 albo 12 tygodni."},
+           "kryterium_obs": "Arkusz obserwacji — 5 posiłków w tygodniu, notujemy wariant i propozycję.",
+           "pomoce": [
+             "trzy karty posiłku dla całej małej grupy",
+             "lista produktów pewnych uzgodniona z rodzicem",
+             "rurka i gęsty napój przed posiłkiem",
+             "podkładka z polem na kartę",
+             "arkusz obserwacji z rubryką na wariant",
+           ],
+           "przebieg": [
+             ["N — podaje gęsty napój przez rurkę przed posiłkiem.",
+              "D — pije i przygotowuje usta."],
+             ["N — rozkłada karty przed podaniem jedzenia.",
+              "D — kładzie wybraną kartę przy talerzu."],
+             ["N — podaje posiłek i nie komentuje wyboru.",
+              "D — je zgodnie z wybranym wariantem."],
+             ["N — pyta, co dziecko zje zamiast odrzuconej potrawy.",
+              "D — proponuje produkt z listy pewnych."],
+             ["N — zapisuje wariant i propozycję.",
+              "D — odnosi talerz i odkłada kartę."],
+           ]},
+     "C": {"podtytul": "Zmiana wariantu w trakcie zamiast odejścia od stołu",
+           "cel_ter": "Dziecko zgłosi kartą zmianę wariantu w trakcie posiłku i zostanie przy stole zamiast od niego odejść.",
+           "smart": {"S": "Zgłasza zmianę i zostaje — dwie rzeczy widoczne dla obserwatora.",
+                     "M": "Kryterium z klikniętego poziomu wsparcia — liczymy posiłki.",
+                     "A": "Karty leżą przy talerzu przez cały posiłek, nie tylko na początku.",
+                     "R": "Odejście od stołu jest tym, co chcemy zastąpić, a nie tym, co karzemy.",
+                     "T": "Ewaluacja w horyzoncie poziomu: 4, 8 albo 12 tygodni."},
+           "kryterium_obs": "Arkusz obserwacji — 5 posiłków w tygodniu, notujemy odejścia od stołu.",
+           "pomoce": [
+             "trzy karty posiłku leżące przy talerzu przez cały czas",
+             "produkt pewny na talerzu",
+             "kartka na zdanie „dziś jest inaczej, bo…”",
+             "arkusz obserwacji do wspólnego oglądania",
+             "karta informacyjna dla rodzica",
+           ],
+           "przebieg": [
+             ["N — przypomina, że wariant można zmienić w trakcie posiłku.",
+              "D — powtarza zasadę własnymi słowami."],
+             ["N — podaje posiłek i obserwuje bez komentowania.",
+              "D — je zgodnie z wybranym wariantem."],
+             ["N — czeka na zgłoszenie, nie uprzedza go.",
+              "D — zgłasza kartą zmianę wariantu i zostaje przy stole."],
+             ["N — pyta, co dziś jest inaczej.",
+              "D — dokańcza zdanie „dziś jest inaczej, bo…”."],
+             ["N — pokazuje zapis z tygodnia i porównuje dni.",
+              "D — wskazuje dni, w których było najtrudniej."],
+           ]},
+   },
+ },
+ "pomoc": {
+   "nazwa": "Trzy karty posiłku",
+   "co_przygotowac": [
+     "karta „jem swoje” — produkt pewny na talerzu",
+     "karta „próbuję” — szczebel drabiny oswajania",
+     "karta „dziś tylko patrzę” — obecność przy stole bez jedzenia nowego",
+     "podkładka z polem na kartę dnia",
+     "lista produktów pewnych uzgodniona z rodzicem",
+   ],
+   "trzy_kroki_uzycia": [
+     "Połóż trzy karty przy talerzu, zanim jedzenie trafi na stół.",
+     "Przyjmij wybór dziecka bez pytania „dlaczego” i bez propozycji zmiany.",
+     "Zapisz wariant w dzienniku i przekaż go rodzicowi przy odbiorze dziecka.",
+   ],
+   "wskazowka_dla_doroslego": "Trzy dni z rzędu z wariantem „tylko patrzę” to sygnał do kontaktu z rodzicem i lekarzem. Sprawdź gardło, zęby i refluks, zanim uznasz to za zmienność sensoryczną.",
+   "opis_zdjecia": "three picture cards laid beside a child's plate on a nursery table, one of them moved forward onto a placemat",
+   "polecenia": {
+     "A": "Wybieramy kartę. Jem swoje, próbuję czy tylko patrzę?",
+     "B": "Połóż kartę przed jedzeniem. Powiedz, co zjesz zamiast.",
+     "C": "Wybierz kartę. Możesz ją zmienić w trakcie, jeśli będzie trzeba.",
+   },
+ },
+ "arkusz": {
+   "tytul": "Trzy karty posiłku",
+   "wstep_dla_doroslego": "Wytnij karty i podkładkę. Drugi komplet przekaż rodzicowi — kolacja w domu przebiega według tych samych trzech wariantów.",
+   "karty": [
+     {"etykieta": "Jem swoje", "opis": "wariant z produktem pewnym", "symbol": "dzien_obiad"},
+     {"etykieta": "Próbuję", "opis": "wariant ze szczeblem drabiny oswajania", "symbol": "polecenie_wez"},
+     {"etykieta": "Dziś tylko patrzę", "opis": "wariant obecności przy stole bez jedzenia nowego", "symbol": "gest_slucham"},
+     {"etykieta": "Zmieniam", "opis": "karta zmiany wariantu w trakcie posiłku", "symbol": "sensor_zamiana"},
+   ],
+   "pasek_kolejnosci": [
+     {"etykieta": "1 · wybieram", "symbol": "plan_zmiana"},
+     {"etykieta": "2 · jem", "symbol": "dzien_obiad"},
+     {"etykieta": "3 · zostaję", "symbol": "gest_czekam"},
+   ],
+ },
+ "dieta_sensoryczna": [
+   "stała pora, miejsce i kolejność czynności przy posiłku — zmienne jest tylko menu",
+   "zawsze jeden produkt pewny na talerzu, niezależnie od dania dnia",
+   "przygotowanie ust przed posiłkiem: rurka albo chrupiąca przekąska",
+ ],
+ "dostosowania": [
+   "brak komentarza do wyboru dziecka przy stole",
+   "informacja dla rodzica: dziś wariant „tylko patrzę” — kolacja zaplanowana z zapasem",
+   "zapis wariantu w dzienniku — po dwóch tygodniach widać, czy zmienność ma rytm",
+ ],
+ "ryzyko": "Seria dni z wariantem „tylko patrzę” (powyżej trzech pod rząd) wymaga kontaktu z rodzicem i lekarzem — sprawdź ból gardła, zęby i refluks.",
+ "obserwacja": {
+   "cel": "Dziecko wybierze wariant posiłku przed jedzeniem i zostanie przy stole do końca posiłku, w {proba} sytuacji, w ciągu {horyzont_dopelniacz}.",
+   "co_obserwowac": "Arkusz obserwacji — kolumna: posiłek. Notujemy wybrany wariant i odejścia od stołu.",
+   "ile_sytuacji": "5 posiłków w tygodniu",
+   "smart": {"S": "Kładzie kartę wariantu i zostaje przy stole.",
+             "M": "{proba} posiłków z pięciu obserwowanych w tygodniu.",
+             "A": "Karty leżą przy talerzu przed podaniem jedzenia.",
+             "R": "Stałą ma być procedura posiłku, nie menu.",
+             "T": "Weryfikacja po {horyzont_miejscownik}, według pasma punktacji zmysłu."},
+ },
+},
+
+# ═══ V · WĘCH ══════════════════════════════════════════════════════════════
+{
+ "nr": "V.1", "zmysl": "V", "sektor": 1,
+ "wskaznik": "Dziecko skarży się na zapachy, których inni nie czują, i unika stołówki oraz toalety.",
+ "objawy": [
+   "Skarży się na zapachy, których inni nie czują; unika stołówki, toalet",
+   "Reaguje mdłościami lub odmową na zapach jedzenia, środków czystości",
+   "Zapach potrafi wytrącić je z równowagi na długi czas",
+ ],
+ "strategia": "zapach ratunkowy w kieszeni i miejsce przy oknie",
+ "opis_strategii": "Dziecko korzysta z chusteczki z zapachem, który samo wybrało, i siada przy oknie — zamiast wychodzić z sali albo odmawiać wejścia do stołówki.",
+ "cele": {
+   "A": {"p3": "Przyłoży do nosa chusteczkę podaną przez nauczyciela i wejdzie do stołówki",
+         "p2": "Weźmie chusteczkę z kieszeni, gdy nauczyciel wskaże kieszeń, i wejdzie z grupą",
+         "p1": "Wejdzie do stołówki z grupą i usiądzie na swoim miejscu przy oknie"},
+   "B": {"p3": "Wyjmie chusteczkę i usiądzie na miejscu wskazanym przez nauczyciela",
+         "p2": "Sam wyjmie chusteczkę, usiądzie przy oknie i zostanie do końca posiłku",
+         "p1": "Zostanie w stołówce do końca posiłku, korzystając z chusteczki, gdy będzie trzeba"},
+   "C": {"p3": "Powie razem z nauczycielem, którego miejsca dziś potrzebuje",
+         "p2": "Przed wejściem zapowie, którego miejsca dziś potrzebuje, i zajmie je",
+         "p1": "Zostanie w pomieszczeniu z intensywnym zapachem i wróci do zajęć po jego ustaniu"},
+ },
+ "konspekt": {
+   "tytul": "Mój zapach w kieszeni",
+   "rodzaj_zajec": "Zajęcia o charakterze terapeutycznym (terapia SI) · dieta sensoryczna węchowa",
+   "metody": [
+     "zapach wybrany przez dziecko, nie narzucony",
+     "krótka przerwa przy oknie po wejściu, zanim dziecko usiądzie",
+     "wietrzenie sali o stałej porze",
+     "uprzedzanie o mopowaniu i o daniach o intensywnym zapachu",
+     "próba poza porą posiłku przed próbą w czasie posiłku",
+   ],
+   "wskazowka": "Nie mów „przecież nic nie czuć”. Podważenie doznania odbiera dziecku sens sygnalizowania i kończy się wyjściem z sali bez uprzedzenia — zwykle wtedy, gdy nikt nie patrzy.",
+   "modyfikacje": {
+     "p3": "nauczyciel podaje chusteczkę i wchodzi razem z dzieckiem, zostaje przy nim przy oknie",
+     "p2": "chusteczka w kieszeni, miejsce przy oknie zajęte wcześniej i oznaczone",
+     "p1": "zwykłe miejsce przy stole, chusteczka dostępna — dziecko decyduje samo",
+   },
+   "warianty": {
+     "A": {"podtytul": "Wybór zapachu i pierwsze wejście do stołówki",
+           "cel_ter": "Dziecko wejdzie do stołówki z grupą, korzystając z chusteczki zapachowej, i zostanie przy stole.",
+           "smart": {"S": "Wchodzi i zostaje — obie rzeczy widoczne dla obserwatora.",
+                     "M": "Kryterium z klikniętego poziomu wsparcia — liczymy wejścia do stołówki.",
+                     "A": "Zapach wybrało dziecko z trzech propozycji; chusteczka jest w kieszeni.",
+                     "R": "Odmowa wejścia do stołówki oznacza pominięty posiłek, nie tylko trudny moment.",
+                     "T": "Ewaluacja w horyzoncie poziomu: 4, 8 albo 12 tygodni."},
+           "kryterium_obs": "Arkusz obserwacji — 5 wejść do stołówki w tygodniu.",
+           "pomoce": [
+             "trzy woreczki zapachowe do wyboru: cytryna, mięta, lawenda",
+             "bawełniana chusteczka i woreczek do kieszeni",
+             "miejsce przy oknie, oznaczone kartą",
+             "karta „brzydki zapach” z symbolem",
+             "krótka wizyta w stołówce poza porą posiłku",
+           ],
+           "przebieg": [
+             ["N — podaje trzy woreczki zapachowe do powąchania.",
+              "D — wybiera zapach, który mu odpowiada."],
+             ["N — skrapla chusteczkę wybranym zapachem i chowa ją do kieszeni dziecka.",
+              "D — sprawdza, czy chusteczkę łatwo wyjąć."],
+             ["N — idzie z dzieckiem do pustej stołówki poza porą posiłku.",
+              "D — wchodzi, rozgląda się, wychodzi bez pośpiechu."],
+             ["N — wchodzi z dzieckiem w porze posiłku i staje z nim przy oknie.",
+              "D — stoi chwilę przy oknie i siada na swoim miejscu."],
+             ["N — nazywa, co się udało: „wszedłeś i zostałeś”.",
+              "D — pokazuje kieszeń z chusteczką."],
+           ]},
+     "B": {"podtytul": "Chusteczka i miejsce przy oknie przez cały posiłek",
+           "cel_ter": "Dziecko wyjmie chusteczkę samo, usiądzie przy oknie i zostanie w stołówce do końca posiłku.",
+           "smart": {"S": "Wyjmuje chusteczkę, siada, zostaje do końca.",
+                     "M": "Kryterium z klikniętego poziomu wsparcia — liczymy posiłki w stołówce.",
+                     "A": "Miejsce przy oknie jest zajęte dla dziecka przed wejściem grupy.",
+                     "R": "Zapach potrafi wytrącić dziecko z równowagi na resztę dnia.",
+                     "T": "Ewaluacja w horyzoncie poziomu: 4, 8 albo 12 tygodni."},
+           "kryterium_obs": "Arkusz obserwacji — 5 posiłków w stołówce w tygodniu.",
+           "pomoce": [
+             "chusteczka zapachowa wymieniana codziennie",
+             "oznaczone miejsce przy oknie",
+             "karta „brzydki zapach” do zgłoszenia bez wychodzenia",
+             "wietrzenie stołówki przed wejściem grupy",
+             "arkusz obserwacji",
+           ],
+           "przebieg": [
+             ["N — przypomina przed wyjściem, gdzie dziecko ma chusteczkę.",
+              "D — sprawdza kieszeń i idzie z grupą."],
+             ["N — wskazuje miejsce przy oknie.",
+              "D — siada na swoim miejscu i wyjmuje chusteczkę."],
+             ["N — nie komentuje korzystania z chusteczki.",
+              "D — korzysta z niej, kiedy potrzebuje."],
+             ["N — podaje kartę „brzydki zapach” jako sposób zgłoszenia.",
+              "D — zgłasza kartą zamiast wychodzić."],
+             ["N — zapisuje, czy dziecko zostało do końca.",
+              "D — wychodzi razem z grupą."],
+           ]},
+     "C": {"podtytul": "Zapowiedź własnej potrzeby przed wejściem",
+           "cel_ter": "Dziecko przed wejściem zapowie, którego miejsca dziś potrzebuje, i zostanie w pomieszczeniu do końca.",
+           "smart": {"S": "Mówi, gdzie siada, i realizuje to.",
+                     "M": "Kryterium z klikniętego poziomu wsparcia — liczymy sytuacje zapachowe.",
+                     "A": "Miejsca są dwa i oba możliwe do zajęcia bez przesadzania grupy.",
+                     "R": "Zapowiedź jest tańsza niż wyjście z sali w połowie posiłku.",
+                     "T": "Ewaluacja w horyzoncie poziomu: 4, 8 albo 12 tygodni."},
+           "kryterium_obs": "Arkusz obserwacji — 5 sytuacji zapachowych w tygodniu (stołówka, toaleta, sprzątanie).",
+           "pomoce": [
+             "plan sali i stołówki z zaznaczonymi dwoma miejscami",
+             "chusteczka zapachowa",
+             "kalendarz sprzątania z porą mopowania",
+             "karta „potrzebuję okna” z symbolem",
+             "kartka na zdanie „najtrudniejszy jest zapach…”",
+           ],
+           "przebieg": [
+             ["N — pokazuje plan i pyta, którego miejsca dziecko dziś potrzebuje.",
+              "D — wskazuje miejsce i mówi dlaczego."],
+             ["N — wchodzi z grupą, nie przypominając o chusteczce.",
+              "D — zajmuje zapowiedziane miejsce."],
+             ["N — obserwuje i nie komentuje.",
+              "D — zostaje do końca, korzystając z chusteczki w razie potrzeby."],
+             ["N — pyta o najtrudniejszy zapach dnia.",
+              "D — dokańcza zdanie „najtrudniejszy jest zapach…”."],
+             ["N — ustala z woźną porę mopowania poza czasem zajęć.",
+              "D — zaznacza tę porę w swoim planie dnia."],
+           ]},
+   },
+ },
+ "pomoc": {
+   "nazwa": "Chusteczka ratunkowa i karta BRZYDKI ZAPACH",
+   "co_przygotowac": [
+     "bawełniana chusteczka w woreczku, wymieniana codziennie",
+     "trzy zapachy do wyboru przez dziecko: cytryna, mięta, lawenda",
+     "oznaczone miejsce przy oknie w sali i w stołówce",
+     "karta „brzydki zapach” do zgłoszenia bez wychodzenia",
+     "uzgodniona pora mopowania i wietrzenia poza czasem zajęć",
+   ],
+   "trzy_kroki_uzycia": [
+     "Pozwól dziecku wybrać zapach z trzech propozycji — narzucony nie zadziała.",
+     "Włóż chusteczkę do kieszeni rano; przy wejściu do stołówki tylko wskaż kieszeń.",
+     "Zapisz, czy dziecko weszło i zostało, i jak długo korzystało z chusteczki.",
+   ],
+   "wskazowka_dla_doroslego": "Sprawdź, czy dziecko nie unika toalety z powodu zapachu. Zatrzymywanie moczu i zaparcia zaczynają się właśnie tak i wymagają dostosowania od razu, nie po miesiącu obserwacji.",
+   "opis_zdjecia": "a small cotton handkerchief in a cloth pouch beside three labelled scent sachets on a nursery windowsill",
+   "polecenia": {
+     "A": "Brzydki zapach. Weź chusteczkę. Wchodzimy razem.",
+     "B": "Chusteczka jest w kieszeni. Miejsce przy oknie jest wolne.",
+     "C": "Powiedz, gdzie dziś siadasz w stołówce.",
+   },
+ },
+ "arkusz": {
+   "tytul": "Karty do zajęć „Mój zapach w kieszeni”",
+   "wstep_dla_doroslego": "Wytnij karty i szablon woreczka. Woreczek uszyj albo zszyj zszywaczem z dwóch warstw bawełny — zapach ma być wyczuwalny przy nosie, nie w całej sali.",
+   "karty": [
+     {"etykieta": "Brzydki zapach", "opis": "karta zgłoszenia bez wychodzenia z sali", "symbol": "gest_stop"},
+     {"etykieta": "Potrzebuję okna", "opis": "karta prośby o miejsce przy oknie", "symbol": "prosze_odpoczynek"},
+     {"etykieta": "Mój zapach", "opis": "symbol chusteczki w kieszeni", "symbol": None},
+     {"etykieta": "Stołówka", "opis": "symbol pory posiłku w planie dnia", "symbol": "dzien_obiad"},
+   ],
+   "pasek_kolejnosci": [
+     {"etykieta": "1 · chusteczka", "symbol": "prosze_pomoc"},
+     {"etykieta": "2 · moje miejsce", "symbol": "postawa_stolik"},
+     {"etykieta": "3 · jem", "symbol": "dzien_obiad"},
+   ],
+ },
+ "dieta_sensoryczna": [
+   "chusteczka z dwiema kroplami wybranego zapachu w kieszeni — wymieniana codziennie",
+   "wietrzenie sali przed zajęciami i po sprzątaniu, zawsze o tej samej porze",
+   "trzydzieści sekund przy oknie po wejściu do stołówki, zanim dziecko usiądzie",
+ ],
+ "dostosowania": [
+   "miejsce przy oknie lub drzwiach, z dala od okienka wydawania posiłków i toalety",
+   "sprzątanie środkami bezzapachowymi w porze pobytu dziecka",
+   "uprzedzanie o mopowaniu i o daniach o intensywnym zapachu",
+ ],
+ "ryzyko": "Unikanie toalety z powodu zapachu prowadzi do zatrzymywania moczu i zaparć — wymaga natychmiastowego dostosowania i informacji dla rodzica.",
+ "obserwacja": {
+   "cel": "Dziecko wejdzie do pomieszczenia z intensywnym zapachem i zostanie w nim, korzystając ze swojej strategii, w {proba} sytuacji, w ciągu {horyzont_dopelniacz}.",
+   "co_obserwowac": "Arkusz obserwacji — kolumna: stołówka, toaleta, sala po sprzątaniu. Notujemy wejście i pozostanie.",
+   "ile_sytuacji": "5 sytuacji zapachowych w tygodniu",
+   "smart": {"S": "Wchodzi, korzysta z chusteczki i zostaje w pomieszczeniu.",
+             "M": "{proba} sytuacji z pięciu obserwowanych w tygodniu.",
+             "A": "Chusteczka jest w kieszeni, miejsce przy oknie przygotowane.",
+             "R": "Mdłości przy zapachu są prawdziwe — to nie jest wymówka.",
+             "T": "Weryfikacja po {horyzont_miejscownik}, według pasma punktacji zmysłu."},
+ },
+},
+{
+ "nr": "V.2", "zmysl": "V", "sektor": 2,
+ "wskaznik": "Dziecko obwąchuje przedmioty, jedzenie i innych ludzi, a nie zauważa wyraźnych, nieprzyjemnych zapachów.",
+ "objawy": [
+   "Obwąchuje przedmioty, jedzenie, ubrania, innych ludzi",
+   "Nie zauważa wyraźnych, nieprzyjemnych zapachów",
+   "Poszukuje intensywnych zapachów (klej, pisaki, środki czystości)",
+ ],
+ "strategia": "pudełko zapachów zamiast obwąchiwania ludzi i chemii",
+ "opis_strategii": "Dziecko korzysta z pudełka zapachów w zaplanowanych porach dnia, zamiast obwąchiwać rówieśników i sięgać po klej oraz środki czystości.",
+ "cele": {
+   "A": {"p3": "Powącha woreczek podany przez nauczyciela zamiast obwąchiwać kolegę",
+         "p2": "Podejdzie do pudełka zapachów wskazanego przez nauczyciela",
+         "p1": "Podejdzie do pudełka zapachów, gdy poczuje potrzebę wąchania"},
+   "B": {"p3": "Wymieni kartę na dostęp do pudełka podany przez nauczyciela",
+         "p2": "Wymieni kartę na dwie minuty przy pudełku i wróci do zabawy",
+         "p1": "Skorzysta z pudełka i wróci do zabawy bez obwąchiwania dzieci"},
+   "C": {"p3": "Zaplanuje z nauczycielem dwa momenty wąchania w ciągu dnia",
+         "p2": "Zaplanuje dwa momenty samo i skorzysta z nich przed zajęciami",
+         "p1": "Skorzysta z pudełka, zanim zacznie obwąchiwać innych, i powie, czego nie wolno wąchać"},
+ },
+ "konspekt": {
+   "tytul": "Pudełko zapachów",
+   "rodzaj_zajec": "Zajęcia korekcyjno-kompensacyjne · dieta sensoryczna węchowa",
+   "metody": [
+     "przeniesienie bodźca do bezpiecznego materiału",
+     "wymiana karty na dostęp zamiast zakazu",
+     "zajęcia kulinarne z przyprawami jako mocny bodziec zaplanowany",
+     "rozmowa o bezpieczeństwie: czego się nie wącha",
+     "zabezpieczenie chemii przed wprowadzeniem pomocy",
+   ],
+   "wskazowka": "Kleje, pisaki i środki czystości muszą zniknąć z zasięgu, zanim wprowadzisz pudełko. Sama alternatywa nie wystarczy, gdy silniejszy bodziec stoi na parapecie.",
+   "modyfikacje": {
+     "p3": "nauczyciel podaje woreczki po kolei i trzyma pudełko; dziecko tylko wącha",
+     "p2": "pudełko na półce, karta wymiany u dziecka, klepsydra odmierza czas",
+     "p1": "pudełko dostępne bez wymiany karty; dziecko planuje pory samo",
+   },
+   "warianty": {
+     "A": {"podtytul": "Pięć woreczków i pierwsze wąchanie w wyznaczonym miejscu",
+           "cel_ter": "Dziecko powącha woreczek z pudełka zamiast obwąchiwać rówieśnika i wróci do zabawy.",
+           "smart": {"S": "Idzie do pudełka i wącha woreczek — czynność zamiast czynności.",
+                     "M": "Kryterium z klikniętego poziomu wsparcia — liczymy sytuacje.",
+                     "A": "Pudełko stoi na stałej półce, w zasięgu dziecka.",
+                     "R": "Obwąchiwanie kolegów bywa odbierane jako zaczepka.",
+                     "T": "Ewaluacja w horyzoncie poziomu: 4, 8 albo 12 tygodni."},
+           "kryterium_obs": "Arkusz obserwacji — 5 sytuacji zabawy swobodnej w tygodniu.",
+           "pomoce": [
+             "pudełko z pięcioma woreczkami z gazy: cytryna, mięta, kawa, cynamon, lawenda",
+             "stała półka na wysokości dziecka",
+             "karta „chcę powąchać”",
+             "klepsydra dwuminutowa",
+             "zamykana szafka na kleje i środki czystości",
+           ],
+           "przebieg": [
+             ["N — zamyka kleje i środki czystości w szafce przy dziecku.",
+              "D — patrzy i powtarza: „tego nie wąchamy”."],
+             ["N — podaje pięć woreczków po kolei i nazywa zapachy.",
+              "D — wącha każdy i pokazuje ulubiony."],
+             ["N — stawia pudełko na półce i pokazuje, gdzie stoi.",
+              "D — podchodzi do półki i bierze woreczek."],
+             ["N — odwraca klepsydrę.", "D — wącha do końca klepsydry i odkłada woreczek."],
+             ["N — wraca z dzieckiem do zabawy.",
+              "D — bawi się dalej, nie obwąchując dzieci."],
+           ]},
+     "B": {"podtytul": "Wymiana karty na dwie minuty przy pudełku",
+           "cel_ter": "Dziecko wymieni kartę na dwie minuty przy pudełku zapachów i wróci do zabawy bez obwąchiwania rówieśników.",
+           "smart": {"S": "Podaje kartę, korzysta z pudełka, wraca do zabawy.",
+                     "M": "Kryterium z klikniętego poziomu wsparcia — liczymy dni.",
+                     "A": "Karta i pudełko są dostępne przez cały dzień.",
+                     "R": "Zaplanowany bodziec zapachowy zmniejsza sięganie po chemię.",
+                     "T": "Ewaluacja w horyzoncie poziomu: 4, 8 albo 12 tygodni."},
+           "kryterium_obs": "Arkusz obserwacji — 5 dni w tygodniu, notujemy obwąchiwanie ludzi.",
+           "pomoce": [
+             "pudełko zapachów z wymianą zawartości co dwa tygodnie",
+             "karty „chcę powąchać” dla małej grupy",
+             "klepsydra dwuminutowa",
+             "zajęcia kulinarne z cynamonem i wanilią",
+             "karta „tego nie wąchamy” z rysunkami kleju i chemii",
+           ],
+           "przebieg": [
+             ["N — prowadzi zajęcia kulinarne z przyprawami.",
+              "D — wącha przyprawy i nazywa je."],
+             ["N — przypomina zasadę wymiany karty.",
+              "D — podaje kartę i idzie do pudełka."],
+             ["N — odwraca klepsydrę i odchodzi.",
+              "D — wącha wybrane woreczki przez dwie minuty."],
+             ["N — pokazuje kartę „tego nie wąchamy”.",
+              "D — wymienia, czego nie wolno wąchać."],
+             ["N — zapisuje, ile razy dziecko skorzystało z pudełka.",
+              "D — wraca do zabawy z grupą."],
+           ]},
+     "C": {"podtytul": "Własny plan wąchania i zasady bezpieczeństwa",
+           "cel_ter": "Dziecko zaplanuje dwa momenty wąchania w ciągu dnia i skorzysta z nich, zanim zacznie obwąchiwać innych.",
+           "smart": {"S": "Planuje pory i realizuje je przed pojawieniem się obwąchiwania.",
+                     "M": "Kryterium z klikniętego poziomu wsparcia — liczymy dni.",
+                     "A": "Pudełko jest dostępne, plan dnia ma dwa pola na wąchanie.",
+                     "R": "Wdychanie kleju grozi zatruciem — alternatywa musi być mocna i dostępna.",
+                     "T": "Ewaluacja w horyzoncie poziomu: 4, 8 albo 12 tygodni."},
+           "kryterium_obs": "Arkusz obserwacji — 5 dni w tygodniu, notujemy sięganie po chemię.",
+           "pomoce": [
+             "plan dnia z dwoma polami na wąchanie",
+             "pudełko zapachów i etykiety woreczków",
+             "karta „tego nie wąchamy”",
+             "zamykana szafka na materiały chemiczne",
+             "kartka na własną listę ulubionych zapachów",
+           ],
+           "przebieg": [
+             ["N — prosi o zaplanowanie dwóch momentów wąchania.",
+              "D — zaznacza je w planie dnia."],
+             ["N — obserwuje pierwszą porę bez przypominania.",
+              "D — idzie do pudełka w zaplanowanym czasie."],
+             ["N — prowadzi zajęcia plastyczne z klejem pod nadzorem.",
+              "D — pracuje klejem, nie wąchając go."],
+             ["N — rozmawia o tym, co jest bezpieczne, a co nie.",
+              "D — układa własną listę ulubionych zapachów."],
+             ["N — pokazuje zapis z tygodnia.",
+              "D — mówi, który zapach działa na niego najlepiej."],
+           ]},
+   },
+ },
+ "pomoc": {
+   "nazwa": "Pudełko zapachów z kartą wymiany",
+   "co_przygotowac": [
+     "pięć woreczków z gazy: cytryna, mięta, kawa, cynamon, lawenda",
+     "pudełko z pokrywką na stałej półce",
+     "karta „chcę powąchać” do wymiany na dwie minuty",
+     "klepsydra dwuminutowa",
+     "zamykana szafka na kleje, pisaki i środki czystości",
+   ],
+   "trzy_kroki_uzycia": [
+     "Zabezpiecz chemię i kleje, potem postaw pudełko na stałej półce.",
+     "Przyjmuj kartę i odliczaj dwie minuty klepsydrą — koniec zawsze tym samym zdaniem.",
+     "Zapisuj, po który zapach dziecko sięga najczęściej — to on działa najlepiej.",
+   ],
+   "wskazowka_dla_doroslego": "Wymieniaj zawartość woreczków co dwa tygodnie. Zwietrzały zapach przestaje zaspokajać potrzebę i dziecko wraca do mocniejszych źródeł — czyli do chemii.",
+   "opis_zdjecia": "a lidded box on a low shelf holding five small gauze sachets labelled with pictures of lemon, mint, coffee, cinnamon and lavender",
+   "polecenia": {
+     "A": "Wąchamy tutaj. To jest pudełko zapachów.",
+     "B": "Podaj kartę i idź do pudełka. Dwie minuty.",
+     "C": "Powiedz, kiedy dziś pójdziesz powąchać.",
+   },
+ },
+ "arkusz": {
+   "tytul": "Karty do zajęć „Pudełko zapachów”",
+   "wstep_dla_doroslego": "Wytnij karty i etykiety woreczków. Na etykietach naklej obrazek, nie napis — dziecko ma rozpoznawać zapach po obrazie, także zanim nauczy się czytać.",
+   "karty": [
+     {"etykieta": "Chcę powąchać", "opis": "karta wymiany na dwie minuty przy pudełku", "symbol": None},
+     {"etykieta": "Tego nie wąchamy", "opis": "karta bezpieczeństwa: klej, pisaki, środki czystości", "symbol": "gest_stop"},
+     {"etykieta": "Moje pudełko", "opis": "symbol miejsca na półce", "symbol": "sensor_zamiana"},
+     {"etykieta": "Wracam do zabawy", "opis": "symbol powrotu po przerwie zapachowej", "symbol": "dzien_zabawa"},
+   ],
+   "pasek_kolejnosci": [
+     {"etykieta": "1 · karta", "symbol": "plan_zmiana"},
+     {"etykieta": "2 · wącham", "symbol": "sensor_zamiana"},
+     {"etykieta": "3 · wracam", "symbol": "dzien_zabawa"},
+   ],
+ },
+ "dieta_sensoryczna": [
+   "pudełko zapachów na stałej półce — dwie minuty na sygnał, dwa razy dziennie",
+   "zajęcia kulinarne z przyprawami (cynamon, wanilia) jako mocny bodziec zaplanowany",
+   "wąchanie przed jedzeniem — zapach jako element rozpoznawania potrawy",
+ ],
+ "dostosowania": [
+   "kleje, pisaki i środki czystości zamknięte i poza zasięgiem dziecka",
+   "zamiast upomnienia „nie wąchaj” — wskazanie pudełka",
+   "informacja dla wszystkich dorosłych w grupie: to potrzeba, nie zaczepka",
+ ],
+ "ryzyko": "Wdychanie kleju i środków czystości grozi zatruciem i uszkodzeniem dróg oddechowych — zabezpieczenie chemii jest warunkiem wstępnym, nie zaleceniem.",
+ "obserwacja": {
+   "cel": "Dziecko skorzysta z pudełka zapachów zamiast obwąchiwać ludzi i sięgać po chemię, w {proba} sytuacji, w ciągu {horyzont_dopelniacz}.",
+   "co_obserwowac": "Arkusz obserwacji — kolumna: zabawa swobodna. Notujemy obwąchiwanie ludzi i sięganie po środki chemiczne.",
+   "ile_sytuacji": "5 sytuacji zabawy swobodnej w tygodniu",
+   "smart": {"S": "Idzie do pudełka i wraca do zabawy.",
+             "M": "{proba} sytuacji z pięciu obserwowanych w tygodniu.",
+             "A": "Pudełko stoi na stałej półce; chemia jest zamknięta.",
+             "R": "Dziecko szuka mocnego bodźca węchowego — musi go dostać bezpiecznie.",
+             "T": "Weryfikacja po {horyzont_miejscownik}, według pasma punktacji zmysłu."},
+ },
+},
+{
+ "nr": "V.3", "zmysl": "V", "sektor": 3,
+ "wskaznik": "Wrażliwość dziecka na zapachy zmienia się z dnia na dzień — ten sam zapach raz przeszkadza, raz jest niezauważany.",
+ "objawy": [
+   "Reakcje na zapachy są niestałe — ten sam zapach raz przeszkadza, raz jest niezauważany",
+   "Wrażliwość na zapachy zmienia się z dnia na dzień",
+ ],
+ "strategia": "sprawdzenie „nosa dnia” przed posiłkiem i przed plastyką",
+ "opis_strategii": "Dziecko wącha dwa woreczki kontrolne o stałym zapachu i wskazuje buźkę, a z odczytu wynika, czy bierze chusteczkę i miejsce przy oknie.",
+ "cele": {
+   "A": {"p3": "Powącha woreczek kontrolny razem z nauczycielem i wskaże buźkę",
+         "p2": "Powącha oba woreczki i wskaże buźkę, gdy nauczyciel poda kartę",
+         "p1": "Sprawdzi nos dnia przed posiłkiem bez przypomnienia"},
+   "B": {"p3": "Sprawdzi nos dnia i weźmie pomoc wskazaną przez nauczyciela",
+         "p2": "Sprawdzi nos dnia i weźmie chusteczkę, jeśli wskazał „mocno czuję”",
+         "p1": "Sprawdzi nos dnia i wybierze miejsce w stołówce zgodne z odczytem"},
+   "C": {"p3": "Sprawdzi nos dnia i z pomocą nauczyciela powie, czego dziś unika",
+         "p2": "Sprawdzi nos dnia, wybierze miejsce i powie, czego dziś unika",
+         "p1": "Sprawdzi nos dnia dwa razy i zgłosi zmianę wrażliwości w ciągu dnia"},
+ },
+ "konspekt": {
+   "tytul": "Mój nos dzisiaj",
+   "rodzaj_zajec": "Zajęcia rozwijające kompetencje emocjonalno-społeczne · rozpoznawanie własnego stanu",
+   "metody": [
+     "dwa woreczki kontrolne o stałym, znanym zapachu",
+     "skala trzech buziek zamiast pytania o samopoczucie",
+     "codzienny pomiar przed sytuacją zapachową",
+     "zapis odczytu i porównanie po dwóch tygodniach",
+     "informacja dla rodzica przy katarze i alergii",
+   ],
+   "wskazowka": "Woreczki wymieniaj co dwa tygodnie, zawsze na ten sam zapach. Zapach, który zwietrzał, daje fałszywe „nie czuję” i cała skala przestaje cokolwiek mierzyć.",
+   "modyfikacje": {
+     "p3": "nauczyciel podaje woreczki i nazywa buźki; dziecko wskazuje palcem",
+     "p2": "woreczki wiszą przy wejściu; dziecko sprawdza po przypomnieniu gestem",
+     "p1": "dwa pomiary dziennie, bez przypomnienia; drugi przed plastyką",
+   },
+   "warianty": {
+     "A": {"podtytul": "Dwa woreczki kontrolne i trzy buźki",
+           "cel_ter": "Dziecko powącha oba woreczki kontrolne i wskaże buźkę odpowiadającą dzisiejszej wrażliwości.",
+           "smart": {"S": "Wącha i wskazuje buźkę — dwa widoczne ruchy.",
+                     "M": "Kryterium z klikniętego poziomu wsparcia — liczymy posiłki.",
+                     "A": "Woreczki mają stały zapach; buźki są trzy.",
+                     "R": "Bez pomiaru dziecko wchodzi do stołówki bez potrzebnego dostosowania.",
+                     "T": "Ewaluacja w horyzoncie poziomu: 4, 8 albo 12 tygodni."},
+           "kryterium_obs": "Arkusz obserwacji — 5 posiłków w tygodniu.",
+           "pomoce": [
+             "dwa woreczki kontrolne: cytryna i mięta, z datą wymiany",
+             "karta z trzema buźkami: mocno czuję, normalnie, nie czuję",
+             "miejsce przy wejściu do sali, na wysokości dziecka",
+             "chusteczka zapachowa w kieszeni",
+             "dziennik obserwacji",
+           ],
+           "przebieg": [
+             ["N — podaje woreczek cytrynowy, potem miętowy.",
+              "D — wącha oba i pokazuje mocniejszy."],
+             ["N — pokazuje kartę z trzema buźkami i nazywa je.",
+              "D — wskazuje buźkę na dziś."],
+             ["N — mówi, co z wyboru wynika: chusteczka albo nie.",
+              "D — bierze chusteczkę, jeśli tak wynikło."],
+             ["N — idzie z dzieckiem do stołówki.",
+              "D — siada na miejscu zgodnym z odczytem."],
+             ["N — zapisuje odczyt w dzienniku.",
+              "D — odwiesza woreczki na miejsce."],
+           ]},
+     "B": {"podtytul": "Odczyt przed posiłkiem i dobór dostosowania",
+           "cel_ter": "Dziecko sprawdzi nos dnia przed posiłkiem i weźmie chusteczkę, jeśli odczyt wskazuje „mocno czuję”.",
+           "smart": {"S": "Sprawdza, wskazuje, bierze pomoc zgodną z odczytem.",
+                     "M": "Kryterium z klikniętego poziomu wsparcia — liczymy posiłki.",
+                     "A": "Woreczki wiszą przy wejściu; chusteczka leży obok.",
+                     "R": "Wrażliwość węchowa zmienia się z katarem i porą roku.",
+                     "T": "Ewaluacja w horyzoncie poziomu: 4, 8 albo 12 tygodni."},
+           "kryterium_obs": "Arkusz obserwacji — 5 posiłków w tygodniu, notujemy zgodność pomocy z odczytem.",
+           "pomoce": [
+             "woreczki kontrolne i karta z buźkami przy wejściu",
+             "chusteczki zapachowe w koszyku",
+             "oznaczone miejsce przy oknie",
+             "dziennik obserwacji z rubryką na odczyt",
+             "karta informacyjna dla rodzica o katarze i alergii",
+           ],
+           "przebieg": [
+             ["N — wskazuje woreczki przed wyjściem do stołówki.",
+              "D — wącha i wskazuje buźkę."],
+             ["N — nie komentuje odczytu.",
+              "D — bierze chusteczkę albo idzie bez niej."],
+             ["N — obserwuje posiłek.",
+              "D — korzysta z pomocy, gdy jej potrzebuje."],
+             ["N — pyta, czy odczyt się sprawdził.",
+              "D — mówi, czy dziś było tak, jak wskazało rano."],
+             ["N — zapisuje odczyt i przekazuje informację rodzicowi.",
+              "D — odwiesza woreczki na miejsce."],
+           ]},
+     "C": {"podtytul": "Dwa pomiary dziennie i zgłoszenie zmiany",
+           "cel_ter": "Dziecko sprawdzi nos dnia rano i przed plastyką, a zmianę wrażliwości zgłosi nauczycielowi.",
+           "smart": {"S": "Sprawdza dwa razy i zgłasza zmianę słowem.",
+                     "M": "Kryterium z klikniętego poziomu wsparcia — liczymy dni z dwoma pomiarami.",
+                     "A": "Drugi pomiar wpisany jest w plan dnia przed plastyką.",
+                     "R": "Zapach farby i kleju bywa trudniejszy niż zapach jedzenia.",
+                     "T": "Ewaluacja w horyzoncie poziomu: 4, 8 albo 12 tygodni."},
+           "kryterium_obs": "Arkusz obserwacji — 5 dni w tygodniu, dwa pomiary dziennie.",
+           "pomoce": [
+             "woreczki kontrolne i karta z buźkami",
+             "plan dnia z dwoma polami na pomiar",
+             "materiały plastyczne bezzapachowe jako alternatywa",
+             "chusteczka zapachowa",
+             "kartka na zdanie „dziś czuję mocniej niż wczoraj, bo…”",
+           ],
+           "przebieg": [
+             ["N — przypomina, że dziś mierzymy dwa razy.",
+              "D — sprawdza nos rano i zapamiętuje drugą porę."],
+             ["N — przed plastyką wskazuje plan dnia bez słów.",
+              "D — sprawdza nos drugi raz."],
+             ["N — pokazuje materiały pachnące i bezzapachowe.",
+              "D — wybiera materiał zgodny ze swoim odczytem."],
+             ["N — pyta o zmianę w ciągu dnia.",
+              "D — zgłasza zmianę i mówi, co z niej wynika."],
+             ["N — pokazuje zapis z tygodnia.",
+              "D — wskazuje dni z największą wrażliwością."],
+           ]},
+   },
+ },
+ "pomoc": {
+   "nazwa": "Nos dnia — dwa woreczki kontrolne i karta z buźkami",
+   "co_przygotowac": [
+     "dwa woreczki o stałym zapachu: cytryna i mięta, z datą wymiany",
+     "karta A5 z trzema buźkami: mocno czuję, normalnie, nie czuję",
+     "miejsce przy wejściu do sali, na wysokości dziecka",
+     "chusteczka zapachowa i oznaczone miejsce przy oknie",
+     "dziennik obserwacji z rubryką rano/przed plastyką",
+   ],
+   "trzy_kroki_uzycia": [
+     "Powieś kartę i woreczki przy wejściu do sali, na wysokości dziecka.",
+     "Przed posiłkiem poproś o powąchanie obu woreczków i wskazanie buźki.",
+     "Zrealizuj to, co ze wskazania wynika (chusteczka, miejsce), i zapisz wynik.",
+   ],
+   "wskazowka_dla_doroslego": "Przy katarze odczyt „nie czuję” jest normalny i nie oznacza postępu. Zapisz obok informację o katarze — inaczej dwutygodniowe zestawienie pokaże poprawę, której nie było.",
+   "opis_zdjecia": "two small scent sachets hanging by a nursery doorway next to a card with three simple faces indicating strong, normal and no smell",
+   "polecenia": {
+     "A": "Sprawdzamy nos. Powąchaj i pokaż buźkę.",
+     "B": "Powąchaj oba woreczki. Jeśli mocno czujesz, weź chusteczkę.",
+     "C": "Sprawdź nos i powiedz, czego dziś unikasz.",
+   },
+ },
+ "arkusz": {
+   "tytul": "Nos dnia — karta z buźkami i etykiety woreczków",
+   "wstep_dla_doroslego": "Wytnij kartę i etykiety. Na etykietach wpisz datę wymiany zawartości — woreczek bez daty zostaje w pudełku pół roku i przestaje cokolwiek mierzyć.",
+   "karty": [
+     {"etykieta": "Mój nos dzisiaj", "opis": "nagłówek karty z trzema buźkami", "symbol": "sygnal_ciala"},
+     {"etykieta": "Mocno czuję", "opis": "buźka pierwsza — chusteczka i miejsce przy oknie", "symbol": "karta_czerwona"},
+     {"etykieta": "Normalnie", "opis": "buźka druga — bez dodatkowej pomocy", "symbol": "emocja_spokoj"},
+     {"etykieta": "Nie czuję", "opis": "buźka trzecia — sprawdź katar i zapisz w dzienniku", "symbol": None},
+   ],
+   "pasek_kolejnosci": [
+     {"etykieta": "1 · wącham", "symbol": "sygnal_ciala"},
+     {"etykieta": "2 · wybieram", "symbol": "plan_zmiana"},
+     {"etykieta": "3 · jem", "symbol": "dzien_obiad"},
+   ],
+ },
+ "dieta_sensoryczna": [
+   "dwa woreczki kontrolne (cytryna i mięta) przy wejściu do sali",
+   "sprawdzenie przed posiłkiem i przed plastyką — dwa razy dziennie",
+   "wietrzenie sali według wskazania dziecka, nie tylko według harmonogramu",
+ ],
+ "dostosowania": [
+   "brak stałego wpisu „nadwrażliwość węchowa” — decyzja zapada codziennie",
+   "informacja dla rodzica przy katarze: dziś wskazania mogą być inne",
+   "zapis wskazania w dzienniku obserwacji, razem z informacją o katarze",
+ ],
+ "ryzyko": "Utrzymujące się „nie czuję” wymaga kontroli laryngologicznej (przerost migdałka, alergia) — brak węchu wpływa też na apetyt.",
+ "obserwacja": {
+   "cel": "Dziecko sprawdzi swoją dzisiejszą wrażliwość węchową przed sytuacją zapachową i skorzysta z wynikającego dostosowania, w {proba} sytuacji, w ciągu {horyzont_dopelniacz}.",
+   "co_obserwowac": "Dziennik obserwacji — rubryka przed posiłkiem i przed plastyką. Notujemy odczyt i wybraną pomoc.",
+   "ile_sytuacji": "5 posiłków w tygodniu",
+   "smart": {"S": "Wącha woreczki, wskazuje buźkę, bierze pomoc.",
+             "M": "{proba} sytuacji z pięciu obserwowanych w tygodniu.",
+             "A": "Woreczki i karta wiszą przy wejściu, na wysokości dziecka.",
+             "R": "Zmienność węchowa wiąże się z katarem i porą roku — to dana, nie kaprys.",
+             "T": "Weryfikacja po {horyzont_miejscownik}, według pasma punktacji zmysłu."},
+ },
+},
+
+# ═══ VI · PROPRIOCEPCJA ════════════════════════════════════════════════════
+{
+ "nr": "VI.1", "zmysl": "VI", "sektor": 1,
+ "wskaznik": "Dziecko unika wysiłku fizycznego, szybko się męczy i sztywno trzyma ciało przy nowych czynnościach.",
+ "objawy": [
+   "Unika wysiłku fizycznego, wspinania, przepychania — szybko się męczy",
+   "Słabo dozuje siłę — rysuje zbyt lekko, upuszcza przedmioty",
+   "Jest ostrożne ruchowo, sztywno trzyma ciało przy nowych czynnościach",
+ ],
+ "strategia": "drabina ruchu — wchodzenie w wysiłek własnym szczeblem",
+ "opis_strategii": "Dziecko wchodzi w wysiłek po własnej drabinie zadań oporowych, od najlżejszego do najcięższego, i samo decyduje o kolejnym szczeblu.",
+ "cele": {
+   "A": {"p3": "Popchnie pudło z klockami razem z nauczycielem, trzymając je z drugiej strony",
+         "p2": "Popchnie pudło z klockami do wyznaczonego miejsca po pokazaniu drabiny",
+         "p1": "Wykona jedno zadanie oporowe wybrane z drabiny i doprowadzi je do końca"},
+   "B": {"p3": "Wykona szczebel wskazany przez nauczyciela i użyje nakładki na kredkę",
+         "p2": "Wskaże swój szczebel na drabinie ruchu i wykona go do końca",
+         "p1": "Wykona dwa kolejne szczeble drabiny w czasie zajęć ruchowych"},
+   "C": {"p3": "Wybierze szczebel razem z nauczycielem i nazwie, gdzie poczuł mięśnie",
+         "p2": "Wybierze szczebel samo, wykona go i powie, w której części ciała czuł pracę",
+         "p1": "Zaplanuje trzy zadania oporowe na dzień i wykona je bez przypomnienia"},
+ },
+ "konspekt": {
+   "tytul": "Moja drabina ruchu",
+   "rodzaj_zajec": "Zajęcia rewalidacyjne · budowanie napięcia mięśniowego i dozowania siły",
+   "metody": [
+     "stopniowanie wysiłku po drabinie ułożonej z dzieckiem",
+     "krótkie serie zamiast jednego długiego wysiłku",
+     "praca w pozycji na brzuchu przy niskim stoliku",
+     "nakładka na kredkę i pola nacisku zamiast poleceń „mocniej”",
+     "nazywanie miejsca pracy mięśni po każdym zadaniu",
+   ],
+   "wskazowka": "„Spróbuj jeszcze raz, dasz radę” nie działa przy nadwrażliwości proprioceptywnej. Działa mniejszy szczebel wykonany do końca — i to on buduje gotowość na następny.",
+   "modyfikacje": {
+     "p3": "nauczyciel wykonuje zadanie razem z dzieckiem, przejmując połowę ciężaru",
+     "p2": "drabina leży na widoku; dziecko wskazuje szczebel przed zajęciami",
+     "p1": "dwa szczeble pod rząd, bez przerwy między nimi",
+   },
+   "warianty": {
+     "A": {"podtytul": "Jedno zadanie oporowe wykonane razem",
+           "cel_ter": "Dziecko wykona jedno zadanie oporowe z nauczycielem i doprowadzi je do końca, bez wycofania się w trakcie.",
+           "smart": {"S": "Pcha pudło do wyznaczonego miejsca — początek i koniec są widoczne.",
+                     "M": "Kryterium z klikniętego poziomu wsparcia — liczymy zajęcia ruchowe.",
+                     "A": "Ciężar dobiera dorosły: pudło ma być trudne, nie za ciężkie.",
+                     "R": "Wycofanie z ruchu bierze się z kosztu wysiłku, nie z niechęci.",
+                     "T": "Ewaluacja w horyzoncie poziomu: 4, 8 albo 12 tygodni."},
+           "kryterium_obs": "Arkusz obserwacji — 5 zajęć ruchowych w tygodniu.",
+           "pomoce": [
+             "pudło z klockami, ciężar dobrany do dziecka",
+             "taśma na podłodze wyznaczająca metę",
+             "karta drabiny ruchu z pięcioma szczeblami",
+             "dwa koszyki: lekki i ciężki, do zabawy porównawczej",
+             "nakładka na kredkę i kartka z trzema polami nacisku",
+           ],
+           "przebieg": [
+             ["N — daje do potrzymania dwa koszyki: lekki i ciężki.",
+              "D — porównuje je i nazywa różnicę."],
+             ["N — pokazuje drabinę i nazywa pierwszy szczebel.",
+              "D — patrzy na drabinę i wskazuje pierwsze zadanie."],
+             ["N — pcha pudło razem z dzieckiem, przejmując połowę ciężaru.",
+              "D — pcha pudło do taśmy na podłodze."],
+             ["N — pyta, gdzie dziecko czuje mięśnie.",
+              "D — pokazuje ręce albo nogi."],
+             ["N — daje kredkę z nakładką i kartkę z polami nacisku.",
+              "D — rysuje w polu „w sam raz”."],
+           ]},
+     "B": {"podtytul": "Wybór szczebla i dwa zadania oporowe",
+           "cel_ter": "Dziecko wskaże swój szczebel na drabinie ruchu i wykona dwa zadania oporowe w czasie zajęć.",
+           "smart": {"S": "Wskazuje szczebel i wykonuje dwa zadania.",
+                     "M": "Kryterium z klikniętego poziomu wsparcia — liczymy zajęcia ruchowe.",
+                     "A": "Szczeble układa dziecko, więc żaden nie jest dla niego za wysoki.",
+                     "R": "Wysiłek w krótkich seriach kosztuje mniej niż jedno długie ćwiczenie.",
+                     "T": "Ewaluacja w horyzoncie poziomu: 4, 8 albo 12 tygodni."},
+           "kryterium_obs": "Arkusz obserwacji — 5 zajęć ruchowych w tygodniu, notujemy dokończone szczeble.",
+           "pomoce": [
+             "karta drabiny ruchu z pięcioma zadaniami i obrazkami",
+             "pudło z klockami, koszyk, ścierka do stołu, lina",
+             "niski stolik do pracy w pozycji na brzuchu",
+             "kredki trójkątne i nakładki",
+             "arkusz obserwacji z rubryką na szczeble",
+           ],
+           "przebieg": [
+             ["N — układa z dzieckiem drabinę: pięć zadań od najlżejszego.",
+              "D — porządkuje obrazki zadań."],
+             ["N — prosi o wskazanie dzisiejszego szczebla.",
+              "D — wskazuje szczebel i zaczyna zadanie."],
+             ["N — odmierza krótką serię: dwie do trzech minut.",
+              "D — kończy serię i odpoczywa."],
+             ["N — proponuje drugie zadanie z tego samego poziomu.",
+              "D — wykonuje drugie zadanie."],
+             ["N — pyta o miejsce pracy mięśni i zapisuje szczeble.",
+              "D — nazywa część ciała, w której czuł wysiłek."],
+           ]},
+     "C": {"podtytul": "Trzy zadania oporowe wplecione w dzień",
+           "cel_ter": "Dziecko zaplanuje trzy zadania oporowe na dzień i wykona je bez przypomnienia, nazywając pracę mięśni.",
+           "smart": {"S": "Planuje trzy zadania i wykonuje je w ciągu dnia.",
+                     "M": "Kryterium z klikniętego poziomu wsparcia — liczymy dni.",
+                     "A": "Zadania są częścią dnia grupy: noszenie, wycieranie, pchanie.",
+                     "R": "Napięcie mięśniowe buduje się codziennie, nie na jednych zajęciach.",
+                     "T": "Ewaluacja w horyzoncie poziomu: 4, 8 albo 12 tygodni."},
+           "kryterium_obs": "Arkusz obserwacji — 5 dni w tygodniu, notujemy wykonane zadania.",
+           "pomoce": [
+             "lista dziesięciu zadań oporowych z życia grupy",
+             "plan dnia z trzema polami na zadanie",
+             "karta „gdzie czuję mięśnie” z sylwetką",
+             "kredki trójkątne i pola nacisku",
+             "arkusz obserwacji do wspólnego oglądania",
+           ],
+           "przebieg": [
+             ["N — pokazuje listę dziesięciu zadań oporowych.",
+              "D — wybiera trzy na dziś i wpisuje je w plan dnia."],
+             ["N — nie przypomina o zadaniach w ciągu dnia.",
+              "D — wykonuje je w zaplanowanych momentach."],
+             ["N — po każdym zadaniu pyta o miejsce pracy mięśni.",
+              "D — zaznacza je na sylwetce."],
+             ["N — daje zadanie grafomotoryczne na koniec.",
+              "D — rysuje, dobierając nacisk do pola „w sam raz”."],
+             ["N — pokazuje zapis z tygodnia.",
+              "D — mówi, które zadanie było najprzyjemniejsze."],
+           ]},
+   },
+ },
+ "pomoc": {
+   "nazwa": "Drabina ruchu i nakładka na kredkę",
+   "co_przygotowac": [
+     "karta drabiny A4 z pięcioma szczeblami i obrazkami zadań",
+     "pudło z klockami, koszyk, ścierka, lina — materiał do zadań oporowych",
+     "niski stolik do pracy w pozycji na brzuchu",
+     "nakładka na kredkę i kredki trójkątne",
+     "kartka z trzema polami nacisku: lekko, w sam raz, za mocno",
+   ],
+   "trzy_kroki_uzycia": [
+     "Ułóż z dzieckiem drabinę: pięć zadań, od najłatwiejszego do najcięższego.",
+     "Przed zajęciami ruchowymi poproś o wskazanie dzisiejszego szczebla — nie podnoś poprzeczki.",
+     "Po zadaniu nazwij, gdzie pracowały mięśnie, i zapisz wykonany szczebel.",
+   ],
+   "wskazowka_dla_doroslego": "Dobierz ciężar tak, żeby dziecko dało radę do końca. Zadanie porzucone w połowie uczy, że wysiłek się nie opłaca — i kolejny szczebel będzie trudniejszy do namówienia.",
+   "opis_zdjecia": "a card with five pictogram rungs of resistance tasks, a box of wooden blocks on a nursery floor and a triangular pencil with a rubber grip",
+   "polecenia": {
+     "A": "Pchamy pudło razem. Ja z jednej strony, ty z drugiej.",
+     "B": "Wskaż szczebel na drabinie i zrób go do końca.",
+     "C": "Wybierz trzy zadania na dziś. Powiedz mi, gdzie poczułeś mięśnie.",
+   },
+ },
+ "arkusz": {
+   "tytul": "Drabina ruchu i pola nacisku",
+   "wstep_dla_doroslego": "Wytnij drabinę i kartę nacisku. Zadania na drabinie dobierz do swojej sali — mają być czynnościami, które dziecko wykonuje naprawdę, a nie ćwiczeniami z podręcznika.",
+   "karty": [
+     {"etykieta": "Moja drabina", "opis": "nagłówek karty z pięcioma szczeblami", "symbol": "prosze_ruch"},
+     {"etykieta": "Pcham", "opis": "symbol zadania oporowego: pchanie pudła", "symbol": "sensor_ucisk"},
+     {"etykieta": "Niosę", "opis": "symbol noszenia koszyka z klockami", "symbol": "zabawa_klocki"},
+     {"etykieta": "W sam raz", "opis": "pole nacisku kredki pośrodku karty", "symbol": "zabawa_rysowanie"},
+   ],
+   "pasek_kolejnosci": [
+     {"etykieta": "1 · wybieram", "symbol": "prosze_ruch"},
+     {"etykieta": "2 · pracuję", "symbol": "sensor_ucisk"},
+     {"etykieta": "3 · czuję mięśnie", "symbol": "sygnal_ciala"},
+   ],
+ },
+ "dieta_sensoryczna": [
+   "zadania oporowe wplecione w dzień: pchanie pudła, noszenie koszyka, wycieranie stołu",
+   "praca w pozycji na brzuchu przy niskim stoliku — buduje napięcie mięśniowe",
+   "krótkie serie po dwie–trzy minuty, częściej, zamiast jednego długiego wysiłku",
+ ],
+ "dostosowania": [
+   "krzesło z podparciem stóp i blat na wysokości łokci",
+   "nakładka na kredkę i kredki trójkątne wyznaczające nacisk",
+   "brak porównywania z rówieśnikami i wyścigów na czas",
+ ],
+ "ryzyko": "Szybka męczliwość i sztywność ciała wymagają wykluczenia przyczyn ortopedycznych i neurologicznych (obniżone napięcie mięśniowe) — konsultacja fizjoterapeuty.",
+ "obserwacja": {
+   "cel": "Dziecko wykona zaplanowane zadanie oporowe i doprowadzi je do końca zamiast wycofać się z wysiłku, w {proba} sytuacji, w ciągu {horyzont_dopelniacz}.",
+   "co_obserwowac": "Arkusz obserwacji — kolumna: zajęcia ruchowe i zadania w sali. Notujemy dokończone szczeble.",
+   "ile_sytuacji": "5 zajęć ruchowych w tygodniu",
+   "smart": {"S": "Wykonuje zadanie oporowe od początku do końca.",
+             "M": "{proba} sytuacji z pięciu obserwowanych w tygodniu.",
+             "A": "Ciężar i długość serii dobiera dorosły do możliwości dziecka.",
+             "R": "Wysiłek jest kosztowny, gdy informacja z mięśni jest niepewna.",
+             "T": "Weryfikacja po {horyzont_miejscownik}, według pasma punktacji zmysłu."},
+ },
+},
+{
+ "nr": "VI.2", "zmysl": "VI", "sektor": 2,
+ "wskaznik": "Dziecko poszukuje mocnego docisku — rzuca się na podłogę, wciska w ciasne miejsca i napiera na inne dzieci.",
+ "objawy": [
+   "Poszukuje mocnego docisku — rzuca się na podłogę/materace, wciska w ciasne miejsca, mocno przytula",
+   "Gryzie rękawy/przybory, zaciska pięści, napiera na innych podczas zabawy",
+   "Rysuje z bardzo mocnym naciskiem, niszczy przybory",
+ ],
+ "strategia": "zaplanowana przerwa proprioceptywna zamiast napierania na innych",
+ "opis_strategii": "Dziecko korzysta z kącika docisku — kocyk obciążeniowy, tunel, praca oporowa — w stałych porach dnia i wraca do zabawy, zamiast dobierać docisk kosztem rówieśników.",
+ "cele": {
+   "A": {"p3": "Skorzysta z kocyka obciążeniowego podanego przez nauczyciela i wróci do zabawy",
+         "p2": "Pójdzie do kącika docisku, gdy nauczyciel pokaże kartę „mocno”",
+         "p1": "Pójdzie do kącika docisku w zaplanowanej porze i wróci do zabawy"},
+   "B": {"p3": "Poda kartę „mocno” i skorzysta z przerwy prowadzonej przez nauczyciela",
+         "p2": "Poda kartę „mocno”, wykona przerwę proprioceptywną i wróci do zabawy",
+         "p1": "Skorzysta z przerwy, zanim napięcie zamieni się w napieranie na dzieci"},
+   "C": {"p3": "Zaplanuje trzy przerwy razem z nauczycielem i skorzysta z nich",
+         "p2": "Zaplanuje trzy przerwy samo i zrealizuje je w ciągu dnia",
+         "p1": "Rozpozna narastające napięcie i skorzysta z docisku, zanim dojdzie do konfliktu"},
+ },
+ "konspekt": {
+   "tytul": "Mocno i bezpiecznie",
+   "rodzaj_zajec": "Zajęcia o charakterze terapeutycznym (terapia SI) · dieta proprioceptywna",
+   "metody": [
+     "docisk co dziewięćdziesiąt minut, wpisany w plan dnia",
+     "obwód proprioceptywny: tunel, pchanie, przeciąganie, ugniatanie",
+     "poduszka sensoryczna pozwalająca pracować mięśniom w czasie siedzenia",
+     "wymiana karty na przerwę zamiast upomnienia",
+     "kącik docisku dostępny zawsze, nie na nagrodę",
+   ],
+   "wskazowka": "Kocyk obciążeniowy: najwyżej dziesięć procent masy ciała dziecka, nigdy na głowę i klatkę piersiową, zawsze pod nadzorem dorosłego i nigdy podczas snu.",
+   "modyfikacje": {
+     "p3": "nauczyciel prowadzi przerwę i przykrywa dziecko kocykiem, licząc czas na głos",
+     "p2": "kącik gotowy, karta „mocno” u dziecka, klepsydra odmierza trzy minuty",
+     "p1": "przerwy zaplanowane przez dziecko; nauczyciel tylko zapisuje ich wykorzystanie",
+   },
+   "warianty": {
+     "A": {"podtytul": "Kocyk obciążeniowy i powrót do zabawy",
+           "cel_ter": "Dziecko skorzysta z kocyka obciążeniowego przez trzy minuty i wróci do zabawy bez napierania na inne dzieci.",
+           "smart": {"S": "Idzie do kącika, korzysta z docisku, wraca do zabawy.",
+                     "M": "Kryterium z klikniętego poziomu wsparcia — liczymy dni.",
+                     "A": "Kącik jest wyznaczony i wolny; kocyk waży dziesięć procent masy dziecka.",
+                     "R": "Napieranie na dzieci to dobieranie docisku, nie agresja.",
+                     "T": "Ewaluacja w horyzoncie poziomu: 4, 8 albo 12 tygodni."},
+           "kryterium_obs": "Arkusz obserwacji — 5 dni w tygodniu, notujemy napierania na dzieci.",
+           "pomoce": [
+             "kocyk obciążeniowy do dziesięciu procent masy ciała dziecka",
+             "tunel do przeciskania",
+             "poduszka sensoryczna na krzesło",
+             "karta „mocno” z symbolem",
+             "klepsydra trzyminutowa",
+           ],
+           "przebieg": [
+             ["N — zawija dziecko w koc i mocno dociska dłońmi (zabawa w naleśnik).",
+              "D — leży i mówi, kiedy wystarczy."],
+             ["N — pokazuje kącik docisku i trzy rzeczy, których można w nim użyć.",
+              "D — wybiera jedną i próbuje."],
+             ["N — przykrywa dziecko kocykiem i odwraca klepsydrę.",
+              "D — leży pod kocykiem do końca klepsydry."],
+             ["N — zaprasza z powrotem do zabawy.",
+              "D — wraca do grupy."],
+             ["N — wpisuje przerwę do planu dnia razem z dzieckiem.",
+              "D — pokazuje, kiedy będzie następna."],
+           ]},
+     "B": {"podtytul": "Obwód proprioceptywny i krąg po przerwie",
+           "cel_ter": "Dziecko zgłosi kartą potrzebę docisku, wykona przerwę proprioceptywną i wysiedzi krąg bez napierania na sąsiadów.",
+           "smart": {"S": "Podaje kartę, wykonuje obwód, siedzi w kręgu.",
+                     "M": "Kryterium z klikniętego poziomu wsparcia — liczymy kręgi.",
+                     "A": "Obwód ma cztery stacje i trwa pięć minut.",
+                     "R": "Docisk przed siedzeniem skraca drogę do wysiedzenia zajęć.",
+                     "T": "Ewaluacja w horyzoncie poziomu: 4, 8 albo 12 tygodni."},
+           "kryterium_obs": "Arkusz obserwacji — 5 kręgów w tygodniu, notujemy napierania.",
+           "pomoce": [
+             "tunel, skrzynka z klockami, lina, ciastolina — cztery stacje",
+             "karty „mocno” dla małej grupy",
+             "poduszki sensoryczne na krzesła",
+             "klepsydra pięciominutowa",
+             "arkusz obserwacji",
+           ],
+           "przebieg": [
+             ["N — rozstawia cztery stacje obwodu i pokazuje kolejność.",
+              "D — przechodzi obwód: tunel, pchanie, lina, ugniatanie."],
+             ["N — zaprasza do kręgu zaraz po obwodzie.",
+              "D — siada na poduszce sensorycznej."],
+             ["N — prowadzi krąg przez czas dwóch piosenek.",
+              "D — siedzi, nie napierając na sąsiadów."],
+             ["N — przypomina o karcie „mocno” na wypadek napięcia.",
+              "D — używa karty, gdy potrzebuje przerwy."],
+             ["N — zapisuje przerwy i napierania.",
+              "D — odkłada poduszkę na swoje miejsce."],
+           ]},
+     "C": {"podtytul": "Rozpoznanie napięcia przed konfliktem",
+           "cel_ter": "Dziecko rozpozna narastające napięcie i skorzysta z docisku, zanim dojdzie do napierania na inne dzieci.",
+           "smart": {"S": "Idzie po docisk przed konfliktem, nie po nim.",
+                     "M": "Kryterium z klikniętego poziomu wsparcia — liczymy dni bez konfliktu z napieraniem.",
+                     "A": "Kącik jest dostępny bez pytania przez cały dzień.",
+                     "R": "Przerwa przed konfliktem kosztuje trzy minuty; po konflikcie — pół godziny.",
+                     "T": "Ewaluacja w horyzoncie poziomu: 4, 8 albo 12 tygodni."},
+           "kryterium_obs": "Arkusz obserwacji — 5 dni w tygodniu, notujemy konflikty z napieraniem.",
+           "pomoce": [
+             "plan dnia z trzema polami na przerwę proprioceptywną",
+             "kącik docisku z kocykiem, tunelem i poduszką",
+             "karta sylwetki do zaznaczania napięcia w ciele",
+             "kartka na zdanie „poznaję po tym, że…”",
+             "arkusz obserwacji do wspólnego oglądania",
+           ],
+           "przebieg": [
+             ["N — prosi o zaplanowanie trzech przerw w ciągu dnia.",
+              "D — zaznacza je w planie dnia."],
+             ["N — rozmawia o sygnałach ciała przed napięciem.",
+              "D — zaznacza na sylwetce, gdzie czuje napięcie."],
+             ["N — obserwuje zabawę swobodną i nie interweniuje przedwcześnie.",
+              "D — idzie po docisk, zanim zacznie napierać na kolegów."],
+             ["N — pyta o sygnał, który dziecko rozpoznało.",
+              "D — dokańcza zdanie „poznaję po tym, że…”."],
+             ["N — pokazuje zapis z tygodnia.",
+              "D — porównuje dni z przerwami i bez nich."],
+           ]},
+   },
+ },
+ "pomoc": {
+   "nazwa": "Kącik docisku: kocyk obciążeniowy, tunel, poduszka sensoryczna",
+   "co_przygotowac": [
+     "kocyk obciążeniowy do dziesięciu procent masy ciała dziecka",
+     "tunel do przeciskania albo dwa materace do wciskania się między nie",
+     "poduszka sensoryczna na krzesło dziecka",
+     "karta „mocno” do wymiany na trzy minuty przerwy",
+     "wydzielone miejsce w sali — kącik, nie korytarz",
+   ],
+   "trzy_kroki_uzycia": [
+     "Wyznacz kącik i pokaż dziecku trzy rzeczy, których może w nim użyć.",
+     "Wpisz przerwy do planu dnia co dziewięćdziesiąt minut — nie czekaj na przewrócenie kolegi.",
+     "Po przerwie zamknij ją tym samym zdaniem i zapisz, czy sygnał wyszedł od dziecka.",
+   ],
+   "wskazowka_dla_doroslego": "Kocyk obciążeniowy tylko pod nadzorem, nigdy podczas snu i nigdy na klatkę piersiową. Przy wadach serca i padaczce potrzebna jest zgoda lekarza — zapytaj przed pierwszym użyciem, nie po nim.",
+   "opis_zdjecia": "a nursery corner with a weighted blanket folded on a mat, a fabric crawl tunnel and an inflatable wobble cushion on a small chair",
+   "polecenia": {
+     "A": "Twoje ciało chce mocno. Idziemy po kocyk.",
+     "B": "Podaj kartę „mocno” i idź do kącika. Trzy minuty.",
+     "C": "Powiedz, kiedy robisz dziś przerwy na docisk.",
+   },
+ },
+ "arkusz": {
+   "tytul": "Karty do zajęć „Mocno i bezpiecznie”",
+   "wstep_dla_doroslego": "Wytnij karty i plan przerw. Kartę bezpieczeństwa kocyka powieś w kąciku — zasady mają być widoczne dla każdego dorosłego, także dla osoby zastępującej.",
+   "karty": [
+     {"etykieta": "Mocno", "opis": "karta wymiany na trzy minuty docisku", "symbol": "sensor_ucisk"},
+     {"etykieta": "Kocyk", "opis": "symbol kocyka obciążeniowego w kąciku docisku", "symbol": "prosze_odpoczynek"},
+     {"etykieta": "Tunel", "opis": "symbol przeciskania się przez tunel", "symbol": "prosze_ruch"},
+     {"etykieta": "Wracam", "opis": "symbol powrotu do zabawy po przerwie", "symbol": "dzien_zabawa"},
+   ],
+   "pasek_kolejnosci": [
+     {"etykieta": "1 · mocno", "symbol": "sensor_ucisk"},
+     {"etykieta": "2 · kącik", "symbol": "prosze_odpoczynek"},
+     {"etykieta": "3 · wracam", "symbol": "dzien_zabawa"},
+   ],
+ },
+ "dieta_sensoryczna": [
+   "docisk co dziewięćdziesiąt minut: kocyk obciążeniowy trzy do pięciu minut albo mocne przytulenie w zwiniętym kocu",
+   "praca oporowa: pchanie skrzynki, przeciąganie liny, przeciskanie przez tunel",
+   "ugniatanie ciastoliny albo gąbki przed siedzeniem w kręgu",
+ ],
+ "dostosowania": [
+   "poduszka sensoryczna na krześle — pozwala pracować mięśniom w czasie siedzenia",
+   "miejsce w kręgu przy brzegu, z jednym sąsiadem",
+   "przybory odporne na nacisk: kredki woskowe, gruby papier",
+ ],
+ "ryzyko": "Kocyk obciążeniowy tylko pod nadzorem, do dziesięciu procent masy ciała, nigdy podczas snu i nigdy na klatkę piersiową — przy wadach serca i padaczce wymaga zgody lekarza.",
+ "obserwacja": {
+   "cel": "Dziecko skorzysta z zaplanowanej przerwy proprioceptywnej i wróci do zabawy zamiast napierać na inne dzieci, w {proba} sytuacji, w ciągu {horyzont_dopelniacz}.",
+   "co_obserwowac": "Arkusz obserwacji — kolumna: zabawa swobodna i krąg. Notujemy napierania i wykorzystane przerwy.",
+   "ile_sytuacji": "5 dni w tygodniu",
+   "smart": {"S": "Korzysta z docisku i wraca do zabawy.",
+             "M": "{proba} dni z pięciu obserwowanych w tygodniu.",
+             "A": "Kącik docisku jest dostępny bez pytania przez cały dzień.",
+             "R": "Zakaz nie zaspokaja potrzeby — zaplanowany docisk tak.",
+             "T": "Weryfikacja po {horyzont_miejscownik}, według pasma punktacji zmysłu."},
+ },
+},
+{
+ "nr": "VI.3", "zmysl": "VI", "sektor": 3,
+ "wskaznik": "Dozowanie siły u dziecka jest zmienne — raz rysuje ledwie widoczną kreskę, raz rozdziera kartkę.",
+ "objawy": [
+   "Dozowanie siły jest zmienne — raz za mocno, raz za słabo (rysowanie, zabawa, przybory)",
+   "Raz unika wysiłku, innym razem poszukuje mocnego docisku",
+ ],
+ "strategia": "sprawdzenie siły na mierniku przed zadaniem",
+ "opis_strategii": "Dziecko przed zadaniem robi trzy próbne kreski na mierniku siły i dobiera do dnia narzędzie oraz sposób dotykania rówieśników.",
+ "cele": {
+   "A": {"p3": "Zrobi trzy kreski na mierniku, prowadzone przez nauczyciela",
+         "p2": "Zrobi trzy kreski samo i wskaże pole „w sam raz”",
+         "p1": "Sprawdzi siłę przed rysowaniem i weźmie kredkę dobraną do wyniku"},
+   "B": {"p3": "Sprawdzi miernik i użyje narzędzia wskazanego przez nauczyciela",
+         "p2": "Sprawdzi miernik, dobierze kredkę i przypomni sobie „dotyk jak piórko”",
+         "p1": "Wykona zadanie grafomotoryczne bez rozdarcia kartki i bez zbyt lekkiej kreski"},
+   "C": {"p3": "Sprawdzi siłę i skoryguje nacisk po wskazaniu nauczyciela",
+         "p2": "Skoryguje nacisk samo w trakcie zadania, gdy zauważy, że jest za mocny",
+         "p1": "Dostosuje siłę dotyku w zabawie w parze i zgłosi, gdy siła mu ucieka"},
+ },
+ "konspekt": {
+   "tytul": "Moja siła dzisiaj",
+   "rodzaj_zajec": "Zajęcia korekcyjno-kompensacyjne · dozowanie siły i grafomotoryka",
+   "metody": [
+     "trzy pola nacisku jako wzorzec zamiast poleceń „mocniej”, „delikatniej”",
+     "praca oporowa przed zadaniem — porządkuje czucie",
+     "zabawy z dozowaniem: przelewanie, przenoszenie piórka, wieża z kubków",
+     "ćwiczenie „dotyk jak piórko” w parze z rówieśnikiem",
+     "korekta nacisku w trakcie zadania, nie po nim",
+   ],
+   "wskazowka": "Nie mów „rysuj mocniej” ani „delikatniej” bez odniesienia. Dziecko nie ma wzorca w ciele — miernik daje mu ten wzorzec na papierze, w miejscu, do którego może wrócić wzrokiem.",
+   "modyfikacje": {
+     "p3": "nauczyciel prowadzi rękę dziecka przy próbie na mierniku",
+     "p2": "miernik leży przy zadaniu; dziecko robi próbę samo przed startem",
+     "p1": "bez miernika na stole; dziecko sprawdza siłę na pamięć i koryguje w trakcie",
+   },
+   "warianty": {
+     "A": {"podtytul": "Trzy kreski i wybór kredki",
+           "cel_ter": "Dziecko wykona trzy próbne kreski na mierniku i zacznie rysować kredką dobraną do wyniku.",
+           "smart": {"S": "Robi trzy kreski i bierze kredkę — obie czynności widoczne.",
+                     "M": "Kryterium z klikniętego poziomu wsparcia — liczymy zadania grafomotoryczne.",
+                     "A": "Miernik ma trzy pola i mieści się na jednej kartce.",
+                     "R": "Rozdarta kartka kończy zadanie i zniechęca do rysowania.",
+                     "T": "Ewaluacja w horyzoncie poziomu: 4, 8 albo 12 tygodni."},
+           "kryterium_obs": "Arkusz obserwacji — 5 zadań grafomotorycznych w tygodniu.",
+           "pomoce": [
+             "karta miernika z trzema polami: piórko, w sam raz, za mocno",
+             "kredki różnej twardości i gruby papier",
+             "podkładka antypoślizgowa",
+             "piórko i kamień do zabawy porównawczej",
+             "kubki do budowania wieży",
+           ],
+           "przebieg": [
+             ["N — dotyka dłoni dziecka raz piórkiem, raz mocno.",
+              "D — nazywa różnicę: lekko i mocno."],
+             ["N — kładzie miernik i prowadzi rękę dziecka przy pierwszej kresce.",
+              "D — robi trzy kreski, po jednej na pole."],
+             ["N — pyta, która kreska jest „w sam raz”.",
+              "D — wskazuje środkowe pole."],
+             ["N — podaje kredkę dobraną do wyniku.",
+              "D — rysuje na grubym papierze."],
+             ["N — proponuje wieżę z kubków na koniec.",
+              "D — buduje wieżę, dozując siłę."],
+           ]},
+     "B": {"podtytul": "Miernik przed zadaniem i dotyk jak piórko w parze",
+           "cel_ter": "Dziecko sprawdzi siłę przed zadaniem i wykona je bez rozdarcia kartki, a w zabawie w parze użyje „dotyku jak piórko”.",
+           "smart": {"S": "Sprawdza miernik, rysuje, dotyka kolegi delikatnie.",
+                     "M": "Kryterium z klikniętego poziomu wsparcia — liczymy zadania i zabawy w parach.",
+                     "A": "Zasada dotyku jest krótka i ćwiczona wcześniej na dłoni nauczyciela.",
+                     "R": "Zbyt mocny dotyk rówieśnicy odbierają jako bicie, choć intencja była inna.",
+                     "T": "Ewaluacja w horyzoncie poziomu: 4, 8 albo 12 tygodni."},
+           "kryterium_obs": "Arkusz obserwacji — 5 zadań i 5 zabaw w parach w tygodniu.",
+           "pomoce": [
+             "miernik siły i kredki trójkątne",
+             "karta „dotyk jak piórko”",
+             "zabawa w parach z podawaniem przedmiotu",
+             "kubek z wodą do przelewania",
+             "arkusz obserwacji",
+           ],
+           "przebieg": [
+             ["N — daje pracę oporową na rozgrzewkę: pchanie skrzynki.",
+              "D — pcha skrzynkę przez salę."],
+             ["N — kładzie miernik przed zadaniem.",
+              "D — robi próbę i dobiera kredkę."],
+             ["N — daje zadanie grafomotoryczne.",
+              "D — rysuje bez rozdarcia kartki."],
+             ["N — przypomina zasadę „dotyk jak piórko” przed zabawą w parze.",
+              "D — dotyka kolegi delikatnie w zabawie."],
+             ["N — zapisuje zniszczone kartki i zbyt mocne dotknięcia.",
+              "D — ogląda swoje kreski z całego tygodnia."],
+           ]},
+     "C": {"podtytul": "Korekta nacisku w trakcie i zgłoszenie, gdy siła ucieka",
+           "cel_ter": "Dziecko skoryguje nacisk w trakcie zadania i zgłosi nauczycielowi moment, w którym siła mu ucieka.",
+           "smart": {"S": "Zmienia nacisk w trakcie i mówi o tym.",
+                     "M": "Kryterium z klikniętego poziomu wsparcia — liczymy zadania.",
+                     "A": "Miernik jest w zasięgu, ale nie leży na stole — dziecko sięga po niego samo.",
+                     "R": "Korekta w trakcie ratuje pracę; korekta po zadaniu już nic nie zmienia.",
+                     "T": "Ewaluacja w horyzoncie poziomu: 4, 8 albo 12 tygodni."},
+           "kryterium_obs": "Arkusz obserwacji — 5 zadań grafomotorycznych w tygodniu, notujemy korekty.",
+           "pomoce": [
+             "zadanie grafomotoryczne na 8–10 minut",
+             "miernik siły na półce, nie na stole",
+             "karta „siła mi ucieka” do zgłoszenia",
+             "praca oporowa dostępna w trakcie zajęć",
+             "kartka na zdanie „czuję to, kiedy…”",
+           ],
+           "przebieg": [
+             ["N — daje pracę oporową przed zadaniem.",
+              "D — wykonuje ją i siada do stolika."],
+             ["N — daje dłuższe zadanie i nie przypomina o mierniku.",
+              "D — pracuje i sprawdza siłę, gdy uzna to za potrzebne."],
+             ["N — obserwuje moment, w którym nacisk rośnie.",
+              "D — koryguje nacisk sam albo zgłasza kartą."],
+             ["N — pyta, po czym dziecko poznaje ucieczkę siły.",
+              "D — dokańcza zdanie „czuję to, kiedy…”."],
+             ["N — pokazuje prace z tygodnia.",
+              "D — porównuje kreski z różnych dni."],
+           ]},
+   },
+ },
+ "pomoc": {
+   "nazwa": "Miernik siły — trzy pola nacisku",
+   "co_przygotowac": [
+     "kartka z trzema polami: piórko, w sam raz, za mocno",
+     "kredki różnej twardości i kredki trójkątne",
+     "gruby papier i podkładka antypoślizgowa",
+     "karta „dotyk jak piórko” do zabaw w parach",
+     "materiał do pracy oporowej przed zadaniem",
+   ],
+   "trzy_kroki_uzycia": [
+     "Połóż miernik przed zadaniem i poproś o trzy kreski — po jednej na pole.",
+     "Nazwij wynik i dobierz narzędzie: cienka kredka przy „za mocno”, gruba przy „piórku”.",
+     "W trakcie zadania przypomnij raz, wskazując pole „w sam raz”.",
+   ],
+   "wskazowka_dla_doroslego": "Zacznij od pracy oporowej, nie od miernika. Kilka minut pchania i noszenia porządkuje czucie na tyle, że próba na mierniku pokazuje realną siłę, a nie przypadkowy wynik.",
+   "opis_zdjecia": "a sheet divided into three labelled pressure fields with a light, a medium and a torn heavy pencil stroke, beside triangular pencils",
+   "polecenia": {
+     "A": "Robimy trzy kreski. Piórko, w sam raz, za mocno.",
+     "B": "Zrób próbę na mierniku. Która jest w sam raz?",
+     "C": "Sprawdź siłę i powiedz mi, kiedy zacznie ci uciekać.",
+   },
+ },
+ "arkusz": {
+   "tytul": "Miernik siły i karta dotyku",
+   "wstep_dla_doroslego": "Wytnij kartę miernika i kartę dotyku. Miernik drukuj na grubszym papierze — na cienkim pole „za mocno” rozdziera się przy pierwszej próbie i przestaje być czytelnym wzorcem.",
+   "karty": [
+     {"etykieta": "Moja siła dzisiaj", "opis": "nagłówek karty miernika", "symbol": "sygnal_ciala"},
+     {"etykieta": "Piórko", "opis": "pole nacisku lekkiego", "symbol": None},
+     {"etykieta": "W sam raz", "opis": "pole nacisku właściwego", "symbol": "zabawa_rysowanie"},
+     {"etykieta": "Dotyk jak piórko", "opis": "karta do zabaw w parach", "symbol": "gest_skinienie"},
+   ],
+   "pasek_kolejnosci": [
+     {"etykieta": "1 · praca oporowa", "symbol": "sensor_ucisk"},
+     {"etykieta": "2 · próba", "symbol": "sygnal_ciala"},
+     {"etykieta": "3 · rysuję", "symbol": "zabawa_rysowanie"},
+   ],
+ },
+ "dieta_sensoryczna": [
+   "sprawdzenie miernika siły przed każdym zadaniem grafomotorycznym",
+   "praca oporowa przed zadaniem — porządkuje czucie i zmniejsza zmienność",
+   "zabawy z dozowaniem: przelewanie wody, przenoszenie piórka na łyżce, wieża z kubków",
+ ],
+ "dostosowania": [
+   "gruby papier i kredki odporne na nacisk",
+   "podkładka antypoślizgowa pod kartkę",
+   "przypomnienie o sile przed zabawą w parze, nie po incydencie",
+ ],
+ "ryzyko": "Duża zmienność siły przy jednoczesnym potykaniu się i upuszczaniu przedmiotów wymaga konsultacji fizjoterapeuty i terapeuty SI.",
+ "obserwacja": {
+   "cel": "Dziecko sprawdzi siłę przed zadaniem i wykona je bez zniszczenia przyboru ani kartki, w {proba} sytuacji, w ciągu {horyzont_dopelniacz}.",
+   "co_obserwowac": "Arkusz obserwacji — kolumna: zadanie grafomotoryczne i zabawa w parze. Notujemy zniszczone kartki i zbyt mocne dotknięcia.",
+   "ile_sytuacji": "5 zadań grafomotorycznych w tygodniu",
+   "smart": {"S": "Robi próbę na mierniku i dobiera narzędzie do wyniku.",
+             "M": "{proba} sytuacji z pięciu obserwowanych w tygodniu.",
+             "A": "Miernik i kredki różnej twardości leżą przy stanowisku.",
+             "R": "Dziecko nie ma wzorca siły w ciele — musi mieć go na papierze.",
+             "T": "Weryfikacja po {horyzont_miejscownik}, według pasma punktacji zmysłu."},
+ },
+},
+
+# ═══ VII · RÓWNOWAGA ═══════════════════════════════════════════════════════
+{
+ "nr": "VII.1", "zmysl": "VII", "sektor": 1,
+ "wskaznik": "Dziecko boi się huśtawek, zjeżdżalni i oderwania nóg od podłoża, unika zabaw z obracaniem.",
+ "objawy": [
+   "Boi się huśtawek, zjeżdżalni, schodów, oderwania nóg od podłoża",
+   "Ma chorobę lokomocyjną, unika zabaw z obracaniem i zmianą pozycji głowy",
+   "Unika zajęć ruchowych, placu zabaw, jazdy na rowerku/hulajnodze",
+ ],
+ "strategia": "drabina ruchu przedsionkowego z wiarygodnym słowem „stop”",
+ "opis_strategii": "Dziecko wchodzi w ruch po własnej drabinie — od stóp na podłożu do zjeżdżalni — i w każdej chwili zatrzymuje ruch słowem „stop”, które dorosły respektuje natychmiast.",
+ "cele": {
+   "A": {"p3": "Usiądzie na huśtawce z nogami na podłożu, trzymane przez nauczyciela",
+         "p2": "Pobuja się przez dziesięć sekund z nogami opartymi o podłoże",
+         "p1": "Wejdzie na sprzęt wybrany z drabiny i zejdzie z niego samo"},
+   "B": {"p3": "Wykona szczebel wskazany przez nauczyciela, używając słowa „stop”",
+         "p2": "Wskaże swój szczebel na drabinie ruchu i wykona go, zatrzymując ruch słowem",
+         "p1": "Wykona kolejny szczebel drabiny bez asekuracji dotykowej"},
+   "C": {"p3": "Wybierze szczebel razem z nauczycielem i powie, kiedy chce przerwać",
+         "p2": "Zaplanuje szczebel przed wyjściem i zatrzyma ruch własnym słowem, gdy poczuje, że to za dużo",
+         "p1": "Skorzysta ze sprzętu na placu zabaw razem z rówieśnikami, w swoim tempie"},
+ },
+ "konspekt": {
+   "tytul": "Krok po kroku na huśtawkę",
+   "rodzaj_zajec": "Zajęcia rewalidacyjne · oswajanie układu przedsionkowego",
+   "metody": [
+     "praca oporowa przed ruchem — propriocepcja wycisza układ przedsionkowy",
+     "ruch liniowy przed obrotowym",
+     "krótkie serie dziesięć–dwadzieścia sekund z przerwą na stopy na ziemi",
+     "wiarygodne „stop”: dorosły zatrzymuje ruch natychmiast, za każdym razem",
+     "decyzja o wejściu zawsze po stronie dziecka",
+   ],
+   "wskazowka": "Jedno rozhuśtanie wbrew dziecku kosztuje kilka tygodni pracy. Wiarygodność słowa „stop” jest tu jedynym narzędziem, które buduje odwagę — i jedynym, które da się stracić w sekundę.",
+   "modyfikacje": {
+     "p3": "nauczyciel trzyma dziecko i sprzęt; ruch tylko wtedy, gdy stopy mogą dotknąć podłoża",
+     "p2": "asekuracja ręką na plecach; dziecko decyduje o długości serii",
+     "p1": "bez asekuracji dotykowej; nauczyciel stoi obok i tylko obserwuje",
+   },
+   "warianty": {
+     "A": {"podtytul": "Stopy na podłożu i dziesięć sekund bujania",
+           "cel_ter": "Dziecko usiądzie na huśtawce z nogami opartymi o podłoże i pobuja się przez dziesięć sekund, zatrzymując ruch, kiedy zechce.",
+           "smart": {"S": "Siada i buja się — z możliwością zatrzymania w każdej chwili.",
+                     "M": "Kryterium z klikniętego poziomu wsparcia — liczymy wyjścia na plac zabaw.",
+                     "A": "Stopy zostają na ziemi, więc dziecko nie traci punktu podparcia.",
+                     "R": "Lęk przedsionkowy jest reakcją układu nerwowego, nie tchórzostwem.",
+                     "T": "Ewaluacja w horyzoncie poziomu: 4, 8 albo 12 tygodni."},
+           "kryterium_obs": "Arkusz obserwacji — 5 wyjść na plac zabaw w tygodniu.",
+           "pomoce": [
+             "huśtawka z niskim siedziskiem, dostępna dla stóp dziecka",
+             "karta „stop” czerwona, w kieszeni dziecka",
+             "skrzynka z klockami do pracy oporowej przed ruchem",
+             "tunel do przeciskania",
+             "karta drabiny ruchu przedsionkowego z pięcioma szczeblami",
+           ],
+           "przebieg": [
+             ["N — proponuje pchanie skrzynki i przeciskanie przez tunel.",
+              "D — wykonuje pracę oporową przed wyjściem na plac."],
+             ["N — pokazuje kartę „stop” i obiecuje, że zatrzyma ruch od razu.",
+              "D — próbuje karty na sucho: mówi „stop”, nauczyciel zatrzymuje się."],
+             ["N — sadza dziecko na niskiej huśtawce, stopy zostają na ziemi.",
+              "D — siedzi i odpycha się stopami."],
+             ["N — buja bardzo lekko i liczy do dziesięciu.",
+              "D — buja się, mówiąc „stop”, kiedy chce przerwać."],
+             ["N — kończy zawsze, gdy dziecko powie „stop”.",
+              "D — schodzi z huśtawki samo."],
+           ]},
+     "B": {"podtytul": "Własny szczebel drabiny i „stop”, które działa",
+           "cel_ter": "Dziecko wskaże szczebel drabiny ruchu przedsionkowego, wykona go i zatrzyma ruch własnym słowem.",
+           "smart": {"S": "Wskazuje szczebel, wykonuje go, zatrzymuje ruch słowem.",
+                     "M": "Kryterium z klikniętego poziomu wsparcia — liczymy wyjścia na plac zabaw.",
+                     "A": "Szczeble układa dziecko; kolejny wchodzi dopiero po tygodniu.",
+                     "R": "Kontrola po stronie dziecka jest warunkiem, żeby w ogóle spróbowało.",
+                     "T": "Ewaluacja w horyzoncie poziomu: 4, 8 albo 12 tygodni."},
+           "kryterium_obs": "Arkusz obserwacji — 5 wyjść na plac zabaw w tygodniu, notujemy szczeble.",
+           "pomoce": [
+             "karta drabiny z pięcioma szczeblami i obrazkami sprzętu",
+             "karta „stop” u dziecka",
+             "huśtawka, zjeżdżalnia i sprzęt do wspinania",
+             "materiał do pracy oporowej przed ruchem",
+             "arkusz obserwacji",
+           ],
+           "przebieg": [
+             ["N — układa z dzieckiem pięć szczebli drabiny.",
+              "D — porządkuje obrazki od najłatwiejszego."],
+             ["N — daje pracę oporową przed wyjściem.",
+              "D — pcha skrzynkę i przeciska się przez tunel."],
+             ["N — pyta o dzisiejszy szczebel.",
+              "D — wskazuje szczebel i wchodzi na sprzęt."],
+             ["N — asekuruje ręką na plecach i zatrzymuje na „stop”.",
+              "D — korzysta ze sprzętu i mówi „stop”, kiedy chce."],
+             ["N — zapisuje szczebel i pyta o plan na jutro.",
+              "D — wybiera szczebel na następne wyjście."],
+           ]},
+     "C": {"podtytul": "Plac zabaw razem z rówieśnikami, we własnym tempie",
+           "cel_ter": "Dziecko zaplanuje szczebel przed wyjściem i skorzysta ze sprzętu razem z rówieśnikami, zatrzymując ruch, gdy poczuje, że to za dużo.",
+           "smart": {"S": "Planuje, wchodzi na sprzęt przy innych dzieciach, zatrzymuje ruch sam.",
+                     "M": "Kryterium z klikniętego poziomu wsparcia — liczymy wyjścia.",
+                     "A": "Obecność rówieśników jest dodatkowym bodźcem — szczebel dobieramy niższy.",
+                     "R": "Zabawa na placu z grupą jest celem całej tej pracy, nie dodatkiem.",
+                     "T": "Ewaluacja w horyzoncie poziomu: 4, 8 albo 12 tygodni."},
+           "kryterium_obs": "Arkusz obserwacji — 5 wyjść na plac zabaw w tygodniu, notujemy udział w zabawie grupowej.",
+           "pomoce": [
+             "drabina ruchu przedsionkowego z zapisem szczebli",
+             "karta „stop” i ustalone zdanie zatrzymujące zabawę",
+             "sprzęt na placu: huśtawka, zjeżdżalnia, drabinki",
+             "materiał do pracy oporowej",
+             "kartka na zdanie „daję radę, kiedy…”",
+           ],
+           "przebieg": [
+             ["N — pyta o szczebel przed wyjściem i o to, kto będzie obok.",
+              "D — planuje szczebel i wybiera kolegę do zabawy."],
+             ["N — nie asekuruje dotykiem, stoi obok.",
+              "D — wchodzi na sprzęt przy innych dzieciach."],
+             ["N — respektuje „stop” natychmiast, także gdy mówi je inne dziecko.",
+              "D — zatrzymuje ruch, gdy czuje, że to za dużo."],
+             ["N — pyta, co pomogło dziś najbardziej.",
+              "D — dokańcza zdanie „daję radę, kiedy…”."],
+             ["N — zapisuje szczebel i pokazuje postęp z tygodni.",
+              "D — porównuje, od czego zaczynał."],
+           ]},
+   },
+ },
+ "pomoc": {
+   "nazwa": "Drabina ruchu przedsionkowego i karta STOP",
+   "co_przygotowac": [
+     "karta drabiny z pięcioma szczeblami: stopy na ziemi → bujanie z podparciem → dziesięć sekund → zjeżdżalnia z asekuracją → zjeżdżalnia sama",
+     "czerwona karta „stop” do kieszeni dziecka",
+     "materiał do pracy oporowej przed ruchem: skrzynka, tunel, lina",
+     "niska huśtawka z siedziskiem dostępnym dla stóp",
+     "arkusz obserwacji z rubryką na szczebel",
+   ],
+   "trzy_kroki_uzycia": [
+     "Ustal z dzieckiem pięć szczebli i zapisz je obrazkami na karcie.",
+     "Przed wyjściem poproś o wskazanie dzisiejszego szczebla — nigdy nie proponuj wyższego.",
+     "Zatrzymaj ruch natychmiast po słowie albo karcie „stop”, bez „jeszcze chwilkę”.",
+   ],
+   "wskazowka_dla_doroslego": "Zacznij od pracy oporowej: kilka minut pchania i przeciskania wycisza układ przedsionkowy i obniża lęk bardziej niż jakiekolwiek namawianie.",
+   "opis_zdjecia": "a low playground swing with a child's feet touching the ground, a red stop card tucked into a jacket pocket beside it",
+   "polecenia": {
+     "A": "Siadamy. Stopy na ziemi. Powiedz stop, kiedy chcesz.",
+     "B": "Wskaż szczebel na drabinie. Karta stop jest u ciebie.",
+     "C": "Zaplanuj dziś swój szczebel. Pamiętasz, jak zatrzymać ruch?",
+   },
+ },
+ "arkusz": {
+   "tytul": "Drabina ruchu przedsionkowego i karta STOP",
+   "wstep_dla_doroslego": "Wytnij drabinę i kartę stop. Kartę „czego nie robimy” powieś dla dorosłych przy wyjściu na plac — rozhuśtanie z zaskoczenia zdarza się najczęściej osobie, która nie zna historii dziecka.",
+   "karty": [
+     {"etykieta": "Stop", "opis": "karta zatrzymująca ruch natychmiast — u dziecka", "symbol": "gest_stop"},
+     {"etykieta": "Moja drabina", "opis": "nagłówek karty z pięcioma szczeblami", "symbol": "prosze_ruch"},
+     {"etykieta": "Plac zabaw", "opis": "symbol wyjścia na plac w planie dnia", "symbol": "dzien_zabawa"},
+     {"etykieta": "Czego nie robimy", "opis": "karta dla dorosłego: bez wsadzania na siłę i bez rozhuśtania z zaskoczenia", "symbol": "karta_czerwona"},
+   ],
+   "pasek_kolejnosci": [
+     {"etykieta": "1 · praca oporowa", "symbol": "sensor_ucisk"},
+     {"etykieta": "2 · mój szczebel", "symbol": "prosze_ruch"},
+     {"etykieta": "3 · stop", "symbol": "gest_stop"},
+   ],
+ },
+ "dieta_sensoryczna": [
+   "przed ruchem: docisk i praca oporowa — propriocepcja wycisza układ przedsionkowy",
+   "ruch liniowy (huśtanie przód-tył) zamiast obrotowego — obrót zostaje na koniec drogi",
+   "krótkie serie dziesięć–dwadzieścia sekund z przerwą na stanie obiema stopami na ziemi",
+ ],
+ "dostosowania": [
+   "brak wsadzania na sprzęt na siłę i brak niespodziewanego rozhuśtania",
+   "trzymanie się za ręce przy schodach, stopy zawsze widoczne dla dziecka",
+   "uprzedzanie o każdej zmianie pozycji głowy przy ubieraniu i myciu",
+ ],
+ "ryzyko": "Silny lęk przedsionkowy z wymiotami i bladością wymaga konsultacji neurologicznej i terapii SI — samo oswajanie może nie wystarczyć.",
+ "obserwacja": {
+   "cel": "Dziecko wejdzie na sprzęt na wybranym przez siebie szczeblu i zatrzyma ruch własnym sygnałem, w {proba} sytuacji, w ciągu {horyzont_dopelniacz}.",
+   "co_obserwowac": "Arkusz obserwacji — kolumna: wyjście na plac zabaw. Notujemy szczebel i skuteczność „stop”.",
+   "ile_sytuacji": "5 wyjść na plac zabaw w tygodniu",
+   "smart": {"S": "Wchodzi na sprzęt i zatrzymuje ruch sygnałem.",
+             "M": "{proba} wyjść z pięciu obserwowanych w tygodniu.",
+             "A": "Szczebel wybiera dziecko; praca oporowa poprzedza wyjście.",
+             "R": "Wsadzenie na huśtawkę wbrew dziecku utrwala lęk na miesiące.",
+             "T": "Weryfikacja po {horyzont_miejscownik}, według pasma punktacji zmysłu."},
+ },
+},
+{
+ "nr": "VII.2", "zmysl": "VII", "sektor": 2,
+ "wskaznik": "Dziecko jest w ciągłym ruchu, buja się na krześle i wstaje z miejsca, a wirowanie nie powoduje u niego zawrotów głowy.",
+ "objawy": [
+   "Jest w ciągłym ruchu — buja się na krześle, wstaje z miejsca co chwilę, kręci się w kółko",
+   "Poszukuje intensywnego ruchu (huśtanie, wirowanie, skakanie) i nie ma zawrotów głowy",
+   "Ryzykuje ruchowo ponad miarę — wspina się wysoko, skacze z wysokości",
+ ],
+ "strategia": "dawka mocnego ruchu przed siedzeniem i poduszka zamiast wstawania",
+ "opis_strategii": "Dziecko korzysta z zaplanowanych dawek ruchu przed zajęciami wymagającymi siedzenia, a w ich trakcie ma poduszkę sensoryczną, która pozwala się ruszać bez wstawania.",
+ "cele": {
+   "A": {"p3": "Wykona dziesięć podskoków z nauczycielem i usiądzie na poduszce sensorycznej",
+         "p2": "Wykona dawkę ruchu po pokazaniu karty i usiądzie na poduszce",
+         "p1": "Wysiedzi czas jednej piosenki na poduszce sensorycznej"},
+   "B": {"p3": "Skorzysta z dawki ruchu prowadzonej przez nauczyciela przed zadaniem",
+         "p2": "Poda kartę „potrzebuję ruchu”, wykona dawkę i wróci na miejsce",
+         "p1": "Wysiedzi zadanie przy stoliku, wstając nie więcej niż raz"},
+   "C": {"p3": "Zaplanuje trzy dawki ruchu razem z nauczycielem",
+         "p2": "Zaplanuje trzy dawki samo i skorzysta z nich przed zajęciami",
+         "p1": "Wysiedzi zajęcia grupowe, korzystając z poduszki zamiast wstawać, i zgłosi potrzebę ruchu słowem"},
+ },
+ "konspekt": {
+   "tytul": "Potrzebuję ruchu",
+   "rodzaj_zajec": "Zajęcia o charakterze terapeutycznym (terapia SI) · dieta przedsionkowa",
+   "metody": [
+     "dawka mocnego ruchu przed każdym zadaniem wymagającym siedzenia",
+     "poduszka sensoryczna zamiast polecenia „siedź spokojnie”",
+     "zadania z ruchem wplecionym w treść: przynieś, podaj, zanieś",
+     "porównanie: zadanie po ruchu i bez ruchu",
+     "jasne granice bezpieczeństwa na sprzęcie",
+   ],
+   "wskazowka": "„Siedź spokojnie” jest poleceniem niewykonalnym przy podwrażliwości przedsionkowej. Wykonalne jest: „ruszaj się tutaj, a potem usiądź” — i tylko to buduje wysiedzenie zajęć.",
+   "modyfikacje": {
+     "p3": "nauczyciel prowadzi dawkę ruchu razem z dzieckiem i odlicza powtórzenia",
+     "p2": "karta wymiany u dziecka, znak na podłodze wyznacza miejsce ruchu",
+     "p1": "dawki zaplanowane przez dziecko; w trakcie zajęć tylko poduszka sensoryczna",
+   },
+   "warianty": {
+     "A": {"podtytul": "Dziesięć podskoków i poduszka na czas piosenki",
+           "cel_ter": "Dziecko wykona dawkę ruchu przed zajęciami i wysiedzi czas jednej piosenki na poduszce sensorycznej.",
+           "smart": {"S": "Skacze, siada, zostaje na miejscu przez piosenkę.",
+                     "M": "Kryterium z klikniętego poziomu wsparcia — liczymy zajęcia.",
+                     "A": "Piosenka trwa dwie minuty; poduszka pozwala się ruszać siedząc.",
+                     "R": "Wstawanie co chwilę rozbija zajęcia dziecku i całej grupie.",
+                     "T": "Ewaluacja w horyzoncie poziomu: 4, 8 albo 12 tygodni."},
+           "kryterium_obs": "Arkusz obserwacji — 5 zajęć w tygodniu, notujemy liczbę wstań.",
+           "pomoce": [
+             "poduszka sensoryczna na krzesło",
+             "znak na podłodze wyznaczający miejsce ruchu",
+             "karta „potrzebuję ruchu”",
+             "piosenka o stałej długości",
+             "materac do skakania",
+           ],
+           "przebieg": [
+             ["N — proponuje zabawę „skacz, kręć się, zatrzymaj”.",
+              "D — skacze i zatrzymuje się na sygnał."],
+             ["N — sprawdza, czy dziecku kręci się w głowie.",
+              "D — mówi, czy coś czuje po wirowaniu."],
+             ["N — odlicza dziesięć podskoków razem z dzieckiem.",
+              "D — wykonuje podskoki na materacu."],
+             ["N — kładzie poduszkę na krześle i włącza piosenkę.",
+              "D — siedzi na poduszce do końca piosenki."],
+             ["N — pokazuje znak na podłodze i nazywa go miejscem ruchu.",
+              "D — pokazuje, gdzie może się ruszać."],
+           ]},
+     "B": {"podtytul": "Karta wymiany na trzy minuty ruchu",
+           "cel_ter": "Dziecko zgłosi kartą potrzebę ruchu, wykona dawkę i wróci na miejsce, wstając w trakcie zadania nie więcej niż raz.",
+           "smart": {"S": "Podaje kartę, rusza się w wyznaczonym miejscu, wraca.",
+                     "M": "Kryterium z klikniętego poziomu wsparcia — liczymy zadania przy stoliku.",
+                     "A": "Dawka trwa trzy minuty i ma swoje miejsce w sali.",
+                     "R": "Zaplanowany ruch zastępuje ruch dobierany w trakcie zadania.",
+                     "T": "Ewaluacja w horyzoncie poziomu: 4, 8 albo 12 tygodni."},
+           "kryterium_obs": "Arkusz obserwacji — 5 zadań przy stoliku w tygodniu, notujemy wstania.",
+           "pomoce": [
+             "karty „potrzebuję ruchu” dla małej grupy",
+             "znak na podłodze i klepsydra trzyminutowa",
+             "poduszki sensoryczne na krzesła",
+             "zadanie przy stoliku na 7 minut",
+             "arkusz obserwacji",
+           ],
+           "przebieg": [
+             ["N — prowadzi dawkę ruchu dla całej grupy przed zadaniem.",
+              "D — skacze i biega w wyznaczonym miejscu."],
+             ["N — daje zadanie przy stoliku.",
+              "D — pracuje, siedząc na poduszce."],
+             ["N — przyjmuje kartę bez oceniania.",
+              "D — podaje kartę i idzie na znak na podłodze."],
+             ["N — odwraca klepsydrę i zamyka przerwę tym samym zdaniem.",
+              "D — wraca do stolika po trzech minutach."],
+             ["N — zapisuje liczbę wstań i porównuje z dniem bez dawek.",
+              "D — ogląda różnicę na arkuszu."],
+           ]},
+     "C": {"podtytul": "Trzy dawki w planie dnia i zgłoszenie potrzeby słowem",
+           "cel_ter": "Dziecko zaplanuje trzy dawki ruchu, wysiedzi zajęcia grupowe na poduszce i zgłosi potrzebę ruchu słowem.",
+           "smart": {"S": "Planuje dawki, siedzi na poduszce, zgłasza potrzebę słowem.",
+                     "M": "Kryterium z klikniętego poziomu wsparcia — liczymy zajęcia grupowe.",
+                     "A": "Dawki wpisane są w plan dnia; poduszka leży na krześle od rana.",
+                     "R": "Zgłoszenie słowem zastępuje wyjście z miejsca w połowie zajęć.",
+                     "T": "Ewaluacja w horyzoncie poziomu: 4, 8 albo 12 tygodni."},
+           "kryterium_obs": "Arkusz obserwacji — 5 zajęć grupowych w tygodniu.",
+           "pomoce": [
+             "plan dnia z trzema polami na dawkę ruchu",
+             "poduszka sensoryczna",
+             "zasady bezpieczeństwa na sprzęcie: dokąd wolno się wspinać",
+             "kartka na zdanie „czuję, że muszę się ruszyć, kiedy…”",
+             "arkusz obserwacji do wspólnego oglądania",
+           ],
+           "przebieg": [
+             ["N — prosi o zaplanowanie trzech dawek ruchu.",
+              "D — zaznacza je w planie dnia."],
+             ["N — omawia zasady bezpieczeństwa na sprzęcie.",
+              "D — powtarza, skąd nie wolno skakać."],
+             ["N — prowadzi zajęcia grupowe.",
+              "D — siedzi na poduszce i zgłasza potrzebę ruchu słowem."],
+             ["N — pyta o sygnał ciała przed potrzebą ruchu.",
+              "D — dokańcza zdanie „czuję, że muszę się ruszyć, kiedy…”."],
+             ["N — pokazuje zapis z tygodnia.",
+              "D — porównuje dni z dawkami i bez nich."],
+           ]},
+   },
+ },
+ "pomoc": {
+   "nazwa": "Poduszka sensoryczna i karta POTRZEBUJĘ RUCHU",
+   "co_przygotowac": [
+     "dmuchana poduszka sensoryczna na krzesło dziecka",
+     "znak na podłodze wyznaczający miejsce ruchu w sali",
+     "karta „potrzebuję ruchu” do wymiany na trzy minuty",
+     "klepsydra trzyminutowa",
+     "materac albo mata do skakania",
+   ],
+   "trzy_kroki_uzycia": [
+     "Połóż poduszkę na krześle rano — to nie jest nagroda ani przywilej.",
+     "Wpisz trzy dawki ruchu do planu dnia i realizuj je, zanim dziecko zacznie wstawać.",
+     "Przyjmuj kartę bez oceny i zamykaj przerwę zawsze tym samym zdaniem.",
+   ],
+   "wskazowka_dla_doroslego": "Ustal wprost granice na sprzęcie: dokąd wolno się wspinać i skąd nie wolno skakać. Dziecko, które nie czuje zawrotów głowy, nie oceni wysokości samo — to najczęstsza przyczyna urazów w tej grupie.",
+   "opis_zdjecia": "an inflatable wobble cushion on a small nursery chair, a floor marker across the room and a three-minute sand timer",
+   "polecenia": {
+     "A": "Skaczemy dziesięć razy. Potem siadamy na poduszce.",
+     "B": "Podaj kartę i idź na znak. Trzy minuty ruchu, potem stolik.",
+     "C": "Zaplanuj, kiedy dziś ruszasz się przed zadaniem.",
+   },
+ },
+ "arkusz": {
+   "tytul": "Karty do zajęć „Potrzebuję ruchu”",
+   "wstep_dla_doroslego": "Wytnij karty, znak na podłogę i plan dawek. Znak naklej tam, gdzie ruch nikomu nie przeszkadza — dziecko musi mieć dokąd pójść, zanim ruszy się w kręgu.",
+   "karty": [
+     {"etykieta": "Potrzebuję ruchu", "opis": "karta wymiany na trzy minuty ruchu", "symbol": "prosze_ruch"},
+     {"etykieta": "Moje miejsce ruchu", "opis": "znak na podłogę w wyznaczonym rogu sali", "symbol": "gest_chodz"},
+     {"etykieta": "Poduszka", "opis": "symbol poduszki sensorycznej na krześle", "symbol": "postawa_stolik"},
+     {"etykieta": "Wracam na miejsce", "opis": "symbol powrotu do zadania po dawce ruchu", "symbol": "dzien_zajecia"},
+   ],
+   "pasek_kolejnosci": [
+     {"etykieta": "1 · ruch", "symbol": "prosze_ruch"},
+     {"etykieta": "2 · siadam", "symbol": "postawa_stolik"},
+     {"etykieta": "3 · pracuję", "symbol": "dzien_zajecia"},
+   ],
+ },
+ "dieta_sensoryczna": [
+   "dawka mocnego ruchu przed każdym zadaniem wymagającym siedzenia: dziesięć podskoków, bieg do drzwi i z powrotem, minuta huśtania",
+   "poduszka sensoryczna na krześle i możliwość klęczenia albo stania przy stoliku",
+   "zadania z ruchem wplecionym w treść (przynieś, podaj, zanieś) zamiast siedzenia bez przerwy",
+ ],
+ "dostosowania": [
+   "miejsce przy brzegu, z drogą wyjścia bez przechodzenia przez środek dywanu",
+   "krótsze bloki zadań (pięć–siedem minut) z ruchem między nimi",
+   "jasne zasady bezpieczeństwa na sprzęcie: dokąd wolno się wspinać, skąd nie wolno skakać",
+ ],
+ "ryzyko": "Wspinanie się wysoko i skakanie z wysokości bez oceny ryzyka wymaga stałego nadzoru i ustalenia granic sprzętu — to najczęstsza przyczyna urazów w tej grupie.",
+ "obserwacja": {
+   "cel": "Dziecko skorzysta z zaplanowanej dawki ruchu i wysiedzi zajęcia, wstając nie więcej niż raz, w {proba} sytuacji, w ciągu {horyzont_dopelniacz}.",
+   "co_obserwowac": "Arkusz obserwacji — kolumna: zadanie przy stoliku i krąg. Notujemy liczbę wstań z miejsca.",
+   "ile_sytuacji": "5 zajęć w tygodniu",
+   "smart": {"S": "Wykonuje dawkę ruchu i wraca na miejsce.",
+             "M": "{proba} sytuacji z pięciu obserwowanych w tygodniu.",
+             "A": "Poduszka leży na krześle, znak ruchu jest wyznaczony.",
+             "R": "Bujanie się i wstawanie to dobieranie bodźca, nie brak dyscypliny.",
+             "T": "Weryfikacja po {horyzont_miejscownik}, według pasma punktacji zmysłu."},
+ },
+},
+{
+ "nr": "VII.3", "zmysl": "VII", "sektor": 3,
+ "wskaznik": "Reakcje dziecka na ruch są niestałe — raz lęk przed huśtaniem, raz poszukiwanie intensywnego ruchu.",
+ "objawy": [
+   "Reakcje na ruch są niestałe — raz lęk przed huśtaniem, raz poszukiwanie intensywnego ruchu",
+   "Aktywność ruchowa zmienia się skrajnie z dnia na dzień",
+ ],
+ "strategia": "licznik ruchu ustawiany przed wyjściem na plac",
+ "opis_strategii": "Dziecko przed wyjściem ustawia licznik ruchu i według niego wybiera sprzęt oraz dawkę — codziennie od nowa, bez porównywania z wczoraj.",
+ "cele": {
+   "A": {"p3": "Przesunie suwak licznika razem z nauczycielem i wybierze jedną z dwóch zabaw",
+         "p2": "Przesunie suwak samo i weźmie zabawę wskazaną przy tym polu",
+         "p1": "Ustawi licznik przed wyjściem bez przypomnienia"},
+   "B": {"p3": "Ustawi licznik i skorzysta ze sprzętu wybranego z nauczycielem",
+         "p2": "Ustawi licznik i wybierze sprzęt zgodny z ustawieniem",
+         "p1": "Ustawi licznik i utrzyma wybraną ścieżkę zabawy do końca wyjścia"},
+   "C": {"p3": "Ustawi licznik i z pomocą nauczyciela nazwie, po czym poznał swój poziom",
+         "p2": "Ustawi licznik, wybierze sprzęt i powie, po czym poznał, że dziś jest inaczej",
+         "p1": "Zgłosi zmianę poziomu w trakcie pobytu na placu i zmieni ścieżkę zabawy"},
+ },
+ "konspekt": {
+   "tytul": "Mój ruch dzisiaj",
+   "rodzaj_zajec": "Zajęcia rozwijające kompetencje emocjonalno-społeczne · rozpoznawanie własnego stanu",
+   "metody": [
+     "codzienne ustawienie licznika przed wyjściem",
+     "dwie gotowe ścieżki zabawy na placu: dużo ruchu i dziś spokojnie",
+     "praca oporowa przed wyjściem — stabilizuje odczyt",
+     "zapis poziomu i porównanie po dwóch tygodniach",
+     "nazywanie własnych sygnałów ciała",
+   ],
+   "wskazowka": "„Wczoraj się huśtałeś, to dziś też dasz radę” łamie zaufanie do licznika. Poziom zmienia się bez powodu i to jest normalne w tym profilu — zdanie o wczoraj zamyka dziecku drogę do zgłoszenia zmiany.",
+   "modyfikacje": {
+     "p3": "nauczyciel trzyma licznik i nazywa pola; dziecko przesuwa suwak",
+     "p2": "licznik wisi przy drzwiach do ogrodu; dziecko ustawia go po przypomnieniu gestem",
+     "p1": "bez przypomnienia; dziecko zgłasza też zmianę poziomu w trakcie pobytu",
+   },
+   "warianty": {
+     "A": {"podtytul": "Suwak i wybór jednej z dwóch zabaw",
+           "cel_ter": "Dziecko przesunie suwak licznika przed wyjściem i wybierze zabawę zgodną z ustawieniem.",
+           "smart": {"S": "Przesuwa suwak i idzie do wybranej zabawy.",
+                     "M": "Kryterium z klikniętego poziomu wsparcia — liczymy wyjścia.",
+                     "A": "Pola opisane są rysunkiem sprzętu; wybór jest z dwóch zabaw.",
+                     "R": "Ten sam sprzęt bywa w poniedziałek atrakcją, a we wtorek źródłem lęku.",
+                     "T": "Ewaluacja w horyzoncie poziomu: 4, 8 albo 12 tygodni."},
+           "kryterium_obs": "Arkusz obserwacji — 5 wyjść na plac zabaw w tygodniu.",
+           "pomoce": [
+             "pasek licznika 10 × 30 cm z suwakiem i trzema polami",
+             "rysunki sprzętu przy każdym polu",
+             "dwie gotowe ścieżki zabawy na placu",
+             "materiał do pracy oporowej przed wyjściem",
+             "dziennik obserwacji",
+           ],
+           "przebieg": [
+             ["N — pokazuje obrazki sprzętu i pyta, co dziś wygląda dobrze.",
+              "D — dopasowuje buźki do obrazków sprzętu."],
+             ["N — daje pracę oporową przed wyjściem.",
+              "D — pcha skrzynkę albo niesie koszyk."],
+             ["N — podaje licznik i prosi o ustawienie suwaka.",
+              "D — przesuwa suwak na wybrane pole."],
+             ["N — pokazuje dwie zabawy przypisane do tego pola.",
+              "D — wybiera jedną i idzie się bawić."],
+             ["N — zapisuje poziom i wiesza licznik przy drzwiach.",
+              "D — pokazuje, gdzie licznik wisi."],
+           ]},
+     "B": {"podtytul": "Ścieżka zabawy zgodna z licznikiem",
+           "cel_ter": "Dziecko ustawi licznik przed wyjściem i utrzyma wybraną ścieżkę zabawy do końca pobytu na placu.",
+           "smart": {"S": "Ustawia licznik i trzyma się wybranej ścieżki.",
+                     "M": "Kryterium z klikniętego poziomu wsparcia — liczymy wyjścia.",
+                     "A": "Ścieżki są dwie, obie przygotowane przed wyjściem grupy.",
+                     "R": "Wybór własnej ścieżki chroni przed przekroczeniem możliwości danego dnia.",
+                     "T": "Ewaluacja w horyzoncie poziomu: 4, 8 albo 12 tygodni."},
+           "kryterium_obs": "Arkusz obserwacji — 5 wyjść w tygodniu, notujemy zgodność zabawy z odczytem.",
+           "pomoce": [
+             "licznik ruchu z suwakiem",
+             "dwie karty ścieżek: „dużo ruchu” i „dziś spokojnie”",
+             "sprzęt przypisany do każdej ścieżki",
+             "praca oporowa przed wyjściem",
+             "dziennik obserwacji",
+           ],
+           "przebieg": [
+             ["N — prosi o ustawienie licznika przed wyjściem.",
+              "D — ustawia suwak i mówi, co wybrało."],
+             ["N — podaje kartę ścieżki zgodną z odczytem.",
+              "D — bierze kartę i idzie na plac."],
+             ["N — nie zmienia ścieżki w trakcie i nie namawia na inny sprzęt.",
+              "D — bawi się według swojej ścieżki."],
+             ["N — pyta, czy ścieżka pasowała.",
+              "D — mówi, czy jutro wybierze tak samo."],
+             ["N — zapisuje poziom w dzienniku.",
+              "D — odwiesza kartę ścieżki na miejsce."],
+           ]},
+     "C": {"podtytul": "Zgłoszenie zmiany poziomu w trakcie pobytu",
+           "cel_ter": "Dziecko zgłosi zmianę poziomu ruchu w trakcie pobytu na placu i zmieni ścieżkę zabawy zamiast rezygnować.",
+           "smart": {"S": "Zgłasza zmianę i przechodzi na inną ścieżkę.",
+                     "M": "Kryterium z klikniętego poziomu wsparcia — liczymy wyjścia.",
+                     "A": "Obie ścieżki są dostępne przez cały pobyt na placu.",
+                     "R": "Poziom potrafi zmienić się w ciągu jednego wyjścia — po biegu albo po upadku.",
+                     "T": "Ewaluacja w horyzoncie poziomu: 4, 8 albo 12 tygodni."},
+           "kryterium_obs": "Arkusz obserwacji — 5 wyjść w tygodniu, notujemy zgłoszone zmiany.",
+           "pomoce": [
+             "licznik ruchu i dwie karty ścieżek",
+             "karta „zmieniam ścieżkę”",
+             "praca oporowa dostępna także na placu (pchanie, noszenie)",
+             "kartka na zdanie „zmienia mi się, kiedy…”",
+             "dziennik obserwacji do wspólnego oglądania",
+           ],
+           "przebieg": [
+             ["N — przypomina, że ścieżkę można zmienić w trakcie.",
+              "D — powtarza zasadę własnymi słowami."],
+             ["N — wychodzi z grupą i obserwuje bez ingerencji.",
+              "D — bawi się według ustawionego poziomu."],
+             ["N — czeka na zgłoszenie zamiast je uprzedzać.",
+              "D — zgłasza zmianę i przechodzi na drugą ścieżkę."],
+             ["N — pyta, po czym dziecko poznało zmianę.",
+              "D — dokańcza zdanie „zmienia mi się, kiedy…”."],
+             ["N — pokazuje zapis z dwóch tygodni.",
+              "D — wskazuje dni, w których poziom był skrajnie inny."],
+           ]},
+   },
+ },
+ "pomoc": {
+   "nazwa": "Licznik ruchu — suwak z trzema poziomami",
+   "co_przygotowac": [
+     "pasek 10 × 30 cm z suwakiem i trzema polami",
+     "rysunek sprzętu albo zabawy przy każdym polu",
+     "dwie karty ścieżek: „dużo ruchu” i „dziś spokojnie”",
+     "miejsce przy drzwiach do ogrodu, na wysokości dziecka",
+     "dziennik obserwacji z rubryką na poziom",
+   ],
+   "trzy_kroki_uzycia": [
+     "Powieś licznik przy drzwiach do ogrodu, na wysokości dziecka.",
+     "Poproś o ustawienie suwaka przed wyjściem i odczytaj wybór na głos.",
+     "Zrealizuj ścieżkę zgodną z ustawieniem i zapisz poziom w dzienniku.",
+   ],
+   "wskazowka_dla_doroslego": "Daj pracę oporową przed każdym wyjściem, niezależnie od poziomu. Ustabilizowane czucie sprawia, że odczyt licznika mówi o dziecku, a nie o tym, co działo się pięć minut wcześniej.",
+   "opis_zdjecia": "a cardboard slider strip with three fields showing playground equipment, hanging by a door to a nursery garden at child height",
+   "polecenia": {
+     "A": "Sprawdzamy ruch. Przesuń suwak.",
+     "B": "Ustaw licznik i wybierz zabawę.",
+     "C": "Ustaw licznik. Możesz zmienić ścieżkę, jeśli coś się zmieni.",
+   },
+ },
+ "arkusz": {
+   "tytul": "Licznik ruchu — pasek z suwakiem i karty ścieżek",
+   "wstep_dla_doroslego": "Wytnij pasek, suwak i dwie karty ścieżek. Ścieżki opisz sprzętem, który naprawdę stoi na waszym placu — rysunek huśtawki, której nie ma, robi z licznika ćwiczenie teoretyczne.",
+   "karty": [
+     {"etykieta": "Mój ruch dzisiaj", "opis": "nagłówek paska licznika", "symbol": "sygnal_ciala"},
+     {"etykieta": "Dużo ruchu", "opis": "ścieżka z huśtawką, drabinkami i bieganiem", "symbol": "prosze_ruch"},
+     {"etykieta": "Dziś spokojnie", "opis": "ścieżka z piaskownicą i zabawą przy ziemi", "symbol": "emocja_spokoj"},
+     {"etykieta": "Zmieniam ścieżkę", "opis": "karta zgłoszenia zmiany w trakcie pobytu", "symbol": "sensor_zamiana"},
+   ],
+   "pasek_kolejnosci": [
+     {"etykieta": "1 · ustawiam", "symbol": "sygnal_ciala"},
+     {"etykieta": "2 · wybieram", "symbol": "plan_zmiana"},
+     {"etykieta": "3 · bawię się", "symbol": "dzien_zabawa"},
+   ],
+ },
+ "dieta_sensoryczna": [
+   "praca oporowa przed każdym wyjściem — stabilizuje odczyt niezależnie od poziomu",
+   "dwie gotowe ścieżki na placu: „dużo ruchu” i „dziś spokojnie”",
+   "sprawdzenie licznika także po odpoczynku — poziom potrafi zmienić się w ciągu dnia",
+ ],
+ "dostosowania": [
+   "brak stałego przypisania dziecku profilu ruchowego w dokumentacji",
+   "sprzęt dobierany do ustawienia z danego dnia, nie do planu z poprzedniego tygodnia",
+   "wpis poziomu do dziennika — po dwóch tygodniach widać rytm zmienności",
+ ],
+ "ryzyko": "Skrajna zmienność aktywności ruchowej z sennością albo nadmiernym pobudzeniem wymaga konsultacji pediatrycznej — sprawdź sen, żelazo i tarczycę.",
+ "obserwacja": {
+   "cel": "Dziecko ustawi licznik ruchu przed wyjściem i wybierze zabawę zgodną z odczytem, w {proba} sytuacji, w ciągu {horyzont_dopelniacz}.",
+   "co_obserwowac": "Arkusz obserwacji — kolumna: wyjście na plac zabaw. Notujemy poziom i wybraną ścieżkę.",
+   "ile_sytuacji": "5 wyjść na plac zabaw w tygodniu",
+   "smart": {"S": "Ustawia licznik i bawi się według wybranej ścieżki.",
+             "M": "{proba} wyjść z pięciu obserwowanych w tygodniu.",
+             "A": "Licznik wisi przy drzwiach; obie ścieżki są przygotowane.",
+             "R": "Planowanie pod stały profil kończy się przymusem albo brakiem ruchu.",
+             "T": "Weryfikacja po {horyzont_miejscownik}, według pasma punktacji zmysłu."},
+ },
 },
 ]
 
 assert len(WSKAZNIKI) == 21, f"oczekiwano 21 wskaźników, jest {len(WSKAZNIKI)}"
-
-
-# --- kryterium i horyzont dla druku SENS-T (z poziomu wsparcia) -------------
-# W druku SENS-C kryterium i horyzont biorą się z PUNKTACJI zmysłu (tabela PROGI).
-# W druku SENS-T — z POZIOMU WSPARCIA. To dwie różne drogi i nie wolno ich mylić.
-# Na Poziomie I kryterium zostaje 4 z 5; rośnie trudność zachowania, nie liczba prób.
-KRYTERIA_POZIOMOW = {
-    "III": {"proba": "3 z 5",
-            "horyzont": {"mianownik": "4 tygodnie", "dopelniacz": "4 tygodni", "miejscownik": "4 tygodniach"},
-            "uzasadnienie": "krótki cykl, bo wsparcie jest wycofywane stopniowo i wymaga częstej weryfikacji"},
-    "II":  {"proba": "4 z 5",
-            "horyzont": {"mianownik": "6 tygodni", "dopelniacz": "6 tygodni", "miejscownik": "6 tygodniach"},
-            "uzasadnienie": "dziecko wykonuje strategię samo, dorosły podaje sygnał — potrzeba więcej powtórzeń"},
-    "I":   {"proba": "4 z 5",
-            "horyzont": {"mianownik": "8 tygodni", "dopelniacz": "8 tygodni", "miejscownik": "8 tygodniach"},
-            "uzasadnienie": "strategię inicjuje dziecko; kryterium zostaje 4 z 5, rośnie trudność samego zachowania"},
-}
-
-# Domyślne przypisanie do toru i rodzaju zajęć (nauczyciel może zmienić w druku).
-DOMYSLNE_ZAJECIA = {
-    "tor": "pomoc psychologiczno-pedagogiczna",
-    "rodzaj": "zajęcia o charakterze terapeutycznym (terapia SI)",
-}

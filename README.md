@@ -112,23 +112,23 @@ a wygenerowane `*.mp3`, `*.srt` i `narracja*.txt` nie trafiają do repozytorium.
 ## 🧩 Moduł `eduplaner_sens` — bank celów SMART do profilu sensorycznego
 
 W `eduplaner_sens/` znajduje się bank celów SMART do **profilu sensorycznego dziecka
-w przedszkolu** (EduPlaner 2026, PCTP Koszalin), zbudowany według tego samego wzoru
-co bank KPOF i moduł ABC/FBA: `01_dane_json` do wpięcia, gotowe druki HTML, kod źródłowy
-i media.
+w przedszkolu** (EduPlaner 2026, PCTP Koszalin), zbudowany **według wzoru modułu ABC/FBA**:
+`01_dane_json` do wpięcia, gotowe druki HTML, kod źródłowy i media.
 
-**189 celów SMART** (21 wskaźników × 3 poziomy wsparcia × 3 wersje wiekowe) ·
-21 celów do obserwacji pogłębionej · 63 konspekty zajęć (KC-3) · 21 pomocy dydaktycznych ·
-63 polecenia dla dziecka z nagraniami głosem autorki · 63 instrukcje słowne dorosłego ·
+**189 celów SMART** — 21 wskaźników (7 zmysłów × 3 sektory objawów, `I.1`…`VII.3`) × 3 wersje
+wiekowe × 3 poziomy wsparcia · 21 celów do obserwacji pogłębionej · 63 konspekty zajęć (KC-3) ·
+21 pomocy dydaktycznych · 63 polecenia dla dziecka z nagraniami głosem autorki ·
 21 arkuszy A4 do wycięcia.
 
-Wskaźniki wynikają wprost z druku obserwacji: **7 zmysłów × 3 sektory objawów**
-(nadwrażliwość · podwrażliwość · biały szum).
+Druk **SENS-T** to jedna tabela wszystkich celów: wiersz — wskaźnik, kolumna — poziom
+wsparcia, zakładki — wersje wiekowe. Kliknięcie w cel otwiera konspekt zajęć z wyróżnionym
+tym poziomem, a cel edukacyjny konspekt czyta **na żywo z komórki tabeli**.
 
 ```bash
 cd eduplaner_sens
-python3 03_kod_zrodlowy/eksport_json.py        # siedem plików JSON do wpięcia
-python3 03_kod_zrodlowy/build_tabela.py        # druk SENS-T (189 celów, filtr, notatki)
-python3 03_kod_zrodlowy/build_cele_sens.py     # druk SENS-C (formularz celów)
+python3 03_kod_zrodlowy/eksport_json.py        # sześć plików JSON do wpięcia
+python3 03_kod_zrodlowy/build_tabela.py        # druk SENS-T (tabela + 63 konspekty)
+python3 03_kod_zrodlowy/build_cele_sens.py     # druk SENS-C (cele do obserwacji)
 python3 03_kod_zrodlowy/nagrania_glos.py --generuj   # 63 nagrania głosem autorki
 ```
 
