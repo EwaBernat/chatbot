@@ -199,7 +199,7 @@ def konspekty() -> dict:
                 "pozycja": w["pozycja"],
                 "tytul": k["tytul"],
                 "podtytul": wa["podtytul"],
-                "sfera": (f"KOMPONENT {w['komponent']} · {z['nazwa'].upper()} · pozycja {w['pozycja']} · "
+                "sfera": (f"KOMPONENT {w['komponent']} · {z['nazwa'].upper()} · "
                           f"krok mentalizacji: {w['krok_mentalizacji']} (ICF {z['icf']} · {z['pp']})"),
                 "czas": wu["czas"],
                 "forma": wu["forma"],

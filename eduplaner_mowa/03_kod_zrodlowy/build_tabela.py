@@ -168,29 +168,32 @@ td.g:hover .mkt-add,.mkt-add:focus{opacity:1}
 .kcard{max-width:900px;margin:0 auto;background:#fff;border-radius:12px;padding:24px 28px;position:relative}
 .kclose{position:absolute;top:12px;right:14px;width:28px;height:28px;border-radius:50%;
         border:1px solid var(--linia);background:#fff;cursor:pointer;font-size:14px;color:var(--szary)}
-.khead{display:flex;align-items:center;gap:12px;margin-bottom:12px}
+.khead{display:flex;align-items:center;gap:12px;margin-bottom:8px}
 .khead .kw{font-size:16px;font-weight:800;color:var(--fiolet)}
 .khead .ks{font-size:9.5px;color:var(--szary);margin-top:2px;letter-spacing:.4px}
-.kpill{margin-left:auto;background:var(--pomarancz);color:#fff;font-size:9.5px;font-weight:700;
-       padding:5px 12px;border-radius:20px;white-space:nowrap}
-.kmeta{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin:10px 0}
-.kmeta .field{background:var(--fiolet-tlo);border:1px solid var(--fiolet-linia);border-radius:8px;
-              padding:5px 10px;font-size:10px}
-.kmeta .field b{display:block;font-size:7.5px;letter-spacing:.7px;text-transform:uppercase;
-                color:var(--fiolet);margin-bottom:2px}
-.kmeta .dots{display:block;border-bottom:1.5px dotted #b7add6;height:12px}
-.ktitle{margin:12px 0 6px}
-.kp{display:inline-block;background:var(--fiolet);color:#fff;font-size:8.5px;font-weight:700;
-    letter-spacing:.8px;text-transform:uppercase;padding:3px 10px;border-radius:12px}
-.ksfera{font-size:9px;color:var(--szary);margin-top:6px;letter-spacing:.3px;text-transform:uppercase;
+.kpill{margin-left:auto;background:var(--fiolet);color:#fff;font-size:9.5px;font-weight:700;
+       padding:5px 14px;border-radius:20px;white-space:nowrap}
+.kmeta{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin:6px 0}
+.kmeta .field{padding:2px 0;font-size:11px;font-weight:700;color:var(--ink)}
+.kmeta .field b{display:block;font-size:8px;letter-spacing:.9px;text-transform:uppercase;
+                color:var(--szary);font-weight:800;margin-bottom:3px}
+.kmeta .dots{display:block;border-bottom:1.5px dotted #b7add6;height:11px;margin-top:2px}
+/* Poziom wsparcia siedzi w żółtej pigułce — jak w druku FBA, żeby na kartce
+   od razu było widać, którego poziomu dotyczy ten konspekt. */
+.kon-poz{display:inline-block;background:var(--p2-tlo);color:var(--p2);border-radius:12px;
+         padding:2px 10px;font-size:10.5px;font-weight:800}
+.ktitle{margin:9px 0 6px;text-align:center}
+.kp{display:inline-block;background:var(--pomarancz);color:#fff;font-size:8.5px;font-weight:700;
+    letter-spacing:.8px;text-transform:uppercase;padding:3px 12px;border-radius:12px}
+.ksfera{font-size:9px;color:var(--szary);margin-top:4px;letter-spacing:.3px;text-transform:uppercase;
         font-weight:700}
-.ktitle h3{margin:4px 0 2px;font-size:18px;color:var(--fiolet)}
+.ktitle h3{margin:4px 0 2px;font-size:19px;color:var(--fiolet)}
 .kpod{font-size:11px;color:var(--szary)}
 .kkrok{background:var(--pomarancz-tlo);border:1px solid var(--pomarancz-linia);border-radius:9px;
-            padding:8px 12px;font-size:10.5px;margin:8px 0}
+            padding:7px 12px;font-size:10.5px;margin:6px 0}
 .kkrok b{color:var(--fiolet)}
-.kkrok span{display:block;color:var(--szary);font-size:9.5px;margin-top:2px}
-.ksec{display:flex;align-items:center;gap:8px;margin:14px 0 5px}
+.kkrok span{display:block;color:var(--szary);font-size:9.5px;margin-top:1px}
+.ksec{display:flex;align-items:center;gap:8px;margin:9px 0 4px}
 .ksec .sq{min-width:20px;height:20px;padding:0 5px;border-radius:5px;background:var(--pomarancz);color:#fff;
           display:flex;align-items:center;justify-content:center;font-weight:800;font-size:10px}
 .ksec h4{margin:0;font-size:11px;letter-spacing:.7px;text-transform:uppercase;color:var(--fiolet)}
@@ -215,11 +218,11 @@ td.g:hover .mkt-add,.mkt-add:focus{opacity:1}
 .kdwie{display:grid;grid-template-columns:1fr 1fr;gap:14px}
 .klista{margin:0;padding-left:16px;font-size:10px;line-height:1.5}
 .krodzaj{font-size:10.5px;background:var(--fiolet-tlo);border-radius:8px;padding:7px 11px}
-.kkurs{font-size:9.5px;color:var(--szary);font-style:italic;margin:6px 0}
+.kkurs{font-size:9.5px;color:var(--szary);font-style:italic;margin:4px 0}
 table.ktab{margin-top:4px;font-size:10px}
 table.ktab thead th{background:var(--fiolet-2)}
 table.ktab td.lp{font-weight:800;color:var(--fiolet);text-align:center}
-.kmods{display:grid;grid-template-columns:repeat(3,1fr);gap:9px;margin-top:5px}
+.kmods{display:grid;grid-template-columns:repeat(3,1fr);gap:9px;margin-top:4px}
 .kmod{border-radius:9px;padding:8px 10px;font-size:9.5px;border:1px solid}
 .kmod b{display:block;margin-bottom:4px;font-size:10px}
 .kmod.m3{background:var(--p3-tlo);border-color:var(--p3-linia);color:var(--p3)}
@@ -228,13 +231,13 @@ table.ktab td.lp{font-weight:800;color:var(--fiolet);text-align:center}
 .kmod .klista{color:var(--ink)}
 .kmod.wyb{outline:2px solid var(--fiolet);outline-offset:2px}
 .kwsk{background:var(--fiolet-tlo);border-left:3px solid var(--fiolet);border-radius:0 8px 8px 0;
-      padding:8px 12px;font-size:10px;line-height:1.55;margin-top:9px}
+      padding:8px 11px;font-size:10px;line-height:1.5;margin-top:6px}
 .pom{border:1px solid var(--linia);border-radius:10px;overflow:hidden;margin-top:6px}
 .pom-head{background:var(--fiolet-tlo);padding:8px 12px;display:flex;align-items:center;gap:9px}
 .pom-head h5{margin:0;font-size:12px;color:var(--fiolet)}
 .pom-head .wiek{margin-left:auto;font-size:9px;color:var(--szary);font-weight:700}
-.pom-cialo{display:block;padding:12px}
-.pom-foto{margin:0 0 10px;border:1px solid var(--fiolet-linia);border-radius:9px;background:#fbfaff;
+.pom-cialo{display:grid;grid-template-columns:1fr 1fr;gap:6mm;align-items:start;padding:5mm}
+.pom-foto{margin:0;border:1px solid var(--fiolet-linia);border-radius:9px;background:#fbfaff;
           overflow:hidden;display:flex;flex-direction:column}
 .pom-foto .kadr{width:100%;aspect-ratio:16/9;background-size:contain;background-repeat:no-repeat;background-position:center}
 .pom-foto figcaption{padding:6px 9px;font-size:9px;line-height:1.4;color:var(--szary)}
@@ -250,14 +253,14 @@ table.ktab td.lp{font-weight:800;color:var(--fiolet);text-align:center}
           padding:3px 10px;font:700 9px/1 inherit;cursor:pointer;margin-top:5px}
 .pom-play small{font-weight:400;color:var(--szary)}
 .pom-plik{display:block;font-family:ui-monospace,Consolas,monospace;font-size:7.5px;color:var(--szary);margin-top:3px}
-.karty{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-top:6px}
-.karta{border:1px dashed var(--fiolet-linia);border-radius:9px;padding:8px;text-align:center;font-size:9px}
-.karta .pole{height:52px;border-radius:7px;background:#fbfaff;border:1px solid var(--linia);margin-bottom:5px;
-             display:flex;align-items:center;justify-content:center;color:var(--szary);font-size:7.5px;
-             padding:4px;line-height:1.3;background-size:cover;background-position:center}
-.karta .et{font-weight:800;color:var(--fiolet);font-size:10px}
+.karty{display:grid;grid-template-columns:1fr 1fr;gap:9mm;margin-top:8px}
+.karta{border:1.5px dashed var(--fiolet-linia);border-radius:4mm;padding:5mm;text-align:center;font-size:9.5px}
+.karta .pole{height:34mm;border-radius:3mm;background:#fff;border:1px solid var(--linia);margin-bottom:4mm;
+             display:flex;align-items:center;justify-content:center;color:var(--szary);font-size:8px;
+             padding:4mm;line-height:1.35}
+.karta .et{font-weight:800;color:var(--fiolet);font-size:15px}
 .karta .op{color:var(--szary);margin-top:2px;line-height:1.35}
-.pasek{display:flex;gap:8px;margin-top:8px}
+.pasek{display:grid;grid-template-columns:repeat(3,1fr);gap:6mm;margin-top:9mm}
 .pasek .pole-k{flex:1;border:1px solid var(--fiolet-linia);border-radius:8px;padding:6px;text-align:center;
                font-size:9px;font-weight:700;color:var(--fiolet);background:var(--fiolet-tlo)}
 .formularz{display:grid;gap:8px;font-size:11px}
@@ -272,6 +275,19 @@ table.ktab td.lp{font-weight:800;color:var(--fiolet);text-align:center}
 .fbtn.mocny{background:var(--fiolet);color:#fff;border-color:var(--fiolet)}
 .fbtn.usun{color:var(--p3);border-color:var(--p3-linia)}
 .komunikat{font-size:10px;color:var(--szary);margin-right:auto;align-self:center}
+
+/* ——— trzy kartki na konspekt, według wzoru druku FBA ———
+   Kartka pierwsza to sam konspekt; pomoc dydaktyczna, materiał do wycięcia
+   i historyjka dostają własne kartki. Wcześniej wszystko szło jednym ciągiem
+   i drukarka dzieliła to w przypadkowym miejscu — w środku karty do wycięcia. */
+/* Każda kartka wygląda na ekranie jak osobna biała karta — tak jak konspekt.
+   W druku dostaje własną stronę A4 (reguła break-before w @media print). */
+.kstrona{max-width:900px;margin:14px auto 0;background:#fff;border-radius:12px;padding:22px 28px}
+.kstopka{margin-top:14px}
+.kzapowiedz{font-size:9.5px;color:var(--szary);font-style:italic;margin:6px 0 0}
+.mat-head{display:flex;align-items:center;gap:10px;margin-bottom:6px}
+.mat-head h5{margin:0;font-size:12px;color:var(--fiolet)}
+.mat-head .kp{background:var(--pomarancz)}
 /* Ten próg jest dla wąskiego EKRANU — telefonu i podzielonego okna.
    Bez słowa `screen` łapał też wydruk: A4 pionowo to 794 px, czyli mniej niż 900,
    więc drukowany konspekt dostawał układ mobilny — cztery karty jedna pod drugą,
@@ -324,9 +340,17 @@ table.ktab td.lp{font-weight:800;color:var(--fiolet);text-align:center}
   html.druk-konspektu .ark{display:none !important}
   html.druk-konspektu .kmodal.open{display:block !important;position:static;background:none;
     padding:0;overflow:visible}
-  html.druk-konspektu .kcard{box-shadow:none;max-width:none;padding:0;border-radius:0;page:kon;zoom:.95}
+  html.druk-konspektu .kcard{box-shadow:none;max-width:none;padding:0;border-radius:0;page:kon;zoom:.89}
   html.druk-konspektu .kclose{display:none}
+  /* Każdy konspekt zaczyna własną kartkę. Bez tego kolejny wchodził w dolną
+     połowę strony z materiałem do wycięcia — a tę stronę się tnie nożyczkami. */
+  html.druk-konspektu .kmodal.open{break-before:page}
   .pom,.kmod,.karta,.pom-foto,.hist figure,.hist .hwiersz{break-inside:avoid}
+  /* Bez page:kon strony pomocy poszłyby na domyślną kartkę @page — a ta jest
+     pozioma, bo służy tabeli celów. Konspekt i wszystko pod nim ma być pionowe. */
+  .kstrona{break-before:page;margin:0;padding:0;border-radius:0;max-width:none;page:kon}
+  .kstopka{display:none !important}
+  .karta,.pasek .pole-k{break-inside:avoid}
 }
 """
 
@@ -519,6 +543,15 @@ def pole_zdjecia(pomoc: dict) -> str:
 
 
 
+def strona_historyjki(h) -> str:
+    """Historyjka obrazkowa idzie na osobną kartkę — tak jak karty do wycięcia.
+    Wcześniej doklejała się do materiału i drukarka dzieliła ją w środku wiersza."""
+    blok = blok_historyjki(h)
+    if not blok:
+        return ""
+    return f'<section class="kstrona hist-strona">{blok}</section>'
+
+
 def blok_historyjki(h: dict | None) -> str:
     """Historyjka obrazkowa, drabina albo skala — tam, gdzie pomoc ich wymaga.
     Kolejność pól niesie znaczenie, więc numerujemy je i nie pozwalamy im się
@@ -568,7 +601,7 @@ def karta_pomocy(kon: dict, pomoc: dict, arkusz: dict) -> str:
         for k in arkusz["karty"])
     pasek = "".join(f'<div class="pole-k">{e(p["etykieta_dla_dziecka"])}</div>'
                     for p in arkusz["pasek_kolejnosci"])
-    return f"""<section class="pom">
+    return f"""<section class="kstrona pom">
   <div class="pom-head"><span class="kp">Pomoc dydaktyczna · druk KC-4</span>
     <h5>{e(pomoc['nazwa'])}</h5><span class="wiek">{e(kon['wiek'])}</span></div>
   <div class="pom-cialo">
@@ -578,8 +611,6 @@ def karta_pomocy(kon: dict, pomoc: dict, arkusz: dict) -> str:
       <ul>{''.join(f'<li>{e(x)}</li>' for x in pomoc['co_przygotowac'])}</ul>
       <h6>Jak użyć — trzy kroki</h6>
       <ol>{''.join(f'<li>{e(x)}</li>' for x in pomoc['trzy_kroki_uzycia'])}</ol>
-      <h6>Wskazówka dla dorosłego</h6>
-      <p style="font-size:10px;line-height:1.5;margin:0">{e(pomoc['wskazowka_dla_doroslego'])}</p>
       <div class="pom-dziecko"><span class="lab">Polecenie dla dziecka · {e(pol['wiek'])}</span>
         „{e(pol['polecenie_dla_dziecka'])}”
         <button type="button" class="pom-play" data-audio="{e(zrodlo_audio(pol['nagranie']))}">
@@ -587,15 +618,18 @@ def karta_pomocy(kon: dict, pomoc: dict, arkusz: dict) -> str:
         <span class="pom-plik">nagranie: {e(pol['nagranie'].rsplit('/', 1)[-1])}</span></div>
     </div>
   </div>
-  <div style="padding:0 12px 12px">
-    <h6 style="font-size:9px;letter-spacing:.6px;text-transform:uppercase;color:var(--fiolet);margin:4px 0 2px">
-      Arkusz A4 do wycięcia · {e(arkusz['tytul'])}</h6>
-    <p class="kkurs" style="margin:2px 0 6px">{e(arkusz['wstep_dla_doroslego'])}</p>
-    {blok_historyjki(pomoc.get('historyjka'))}
-    <div class="karty">{karty}</div>
-    <div class="pasek">{pasek}</div>
-  </div>
-</section>"""
+  <div class="kwsk" style="margin:0 5mm 5mm"><b>Wskazówka dla dorosłego:</b>
+    {e(pomoc['wskazowka_dla_doroslego'])}</div>
+</section>
+
+<section class="kstrona mat">
+  <div class="mat-head"><span class="kp">Materiał do wydruku · A4</span>
+    <h5>{e(arkusz['tytul'])}</h5></div>
+  <p class="kkurs">{e(arkusz['wstep_dla_doroslego'])}</p>
+  <div class="karty">{karty}</div>
+  <div class="pasek">{pasek}</div>
+</section>
+{strona_historyjki(pomoc.get('historyjka'))}"""
 
 
 def modal_konspektu(kon: dict, pomoc: dict, arkusz: dict, wskaznik: dict, poziomy: list[dict]) -> str:
@@ -673,14 +707,17 @@ def modal_konspektu(kon: dict, pomoc: dict, arkusz: dict, wskaznik: dict, poziom
       progresu w dwóch kolejnych sesjach; przy pełnym sukcesie przechodzi się o poziom wyżej.
       Kliknięty poziom jest wyróżniony.</p>
     <div class="kmods">{mody}</div>
-    <div class="kwsk"><b>Wskazówka dla prowadzącego:</b> {e(kon['wskazowka'])}</div>
-    <div class="kwsk" style="border-left-color:var(--pomarancz);background:var(--pomarancz-tlo)">
-      <b>Bezpieczeństwo:</b> {e(kon['bezpieczenstwo'])}</div>
+    <div class="kdwie">
+      <div class="kwsk"><b>Wskazówka dla prowadzącego:</b> {e(kon['wskazowka'])}</div>
+      <div class="kwsk" style="border-left-color:var(--pomarancz);background:var(--pomarancz-tlo)">
+        <b>Bezpieczeństwo:</b> {e(kon['bezpieczenstwo'])}</div></div>
 
     <div class="ksec"><span class="sq">VII</span><h4>Materiały do wydruku</h4><span class="line"></span></div>
-    <p class="kkurs">Karta pomocy z poleceniem nagranym głosem autorki, a pod nią materiał
-      do wycięcia — cztery karty i pasek kolejności, A4 pionowo.</p>
-    {karta_pomocy(kon, pomoc, arkusz)}
+    <p class="kzapowiedz">Karta pomocy z ilustracją i poleceniem nagranym jej głosem,
+      a pod nią materiał do wycięcia — cztery karty i pasek kolejności, A4 pionowo.</p>
+  </div>
+  {karta_pomocy(kon, pomoc, arkusz)}
+  <div class="kcard kstopka">
     <div class="fprzyciski">
       <span class="komunikat">Cel edukacyjny czyta się na żywo z tabeli — po poprawce autorki
         konspekt pokazuje nową treść bez przebudowy.</span>
