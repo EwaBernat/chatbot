@@ -71,6 +71,26 @@ na krótkie materiały i też jest tu obsługiwane. `--zapomnij` czyści pamię�
 Reguła kciuka: **scena, plansze, montaż i „zrób z tego ładny materiał" → A**;
 **stały format, jej głos z ElevenLabs, powtarzalny render → B**.
 
+## Oficjalne skille HeyGen w tym repozytorium
+
+W `.claude/skills/` leżą też trzy skille od HeyGen (MIT, wersja 3.2.0): `heygen-video`
+(render przez Video Agent v3), `heygen-avatar` (tworzenie awatara) i `heygen-translate`
+(dubbing z zachowaniem twarzy i głosu). Podział pracy jest taki:
+
+- **Ten skill decyduje, kto mówi i co mówi.** Zasada nadrzędna, ustalenie zamówienia,
+  scenariusz po polsku i akceptacja przed renderem — to zostaje tutaj.
+- **`heygen-video` wykonuje render**, gdy w sesji jest złącze MCP, CLI `heygen` albo wtyczka
+  OpenClaw. Prowadzi Frame Check, dobór ujęcia i rozmowę z Video Agentem lepiej niż surowe
+  API. Wywołaj go po akceptacji scenariusza i przekaż mu gotowy tekst.
+- **`heygen-avatar` zakłada awatara**, gdy konto go jeszcze nie ma. Zapisuje tożsamość do
+  pliku `AVATAR-<IMIE>.md` w katalogu głównym — `heygen-video` czyta go przed katalogiem
+  HeyGen, więc taki plik jest drugą (obok pamięci tego skilla) kotwicą tożsamości.
+
+Uwaga o wersjach API: `heygen-video` **zakazuje** wywołań `POST /v2/video/generate`, z których
+korzysta `heygen_awatar.py` — HeyGen uznaje v2 za przestarzałe. Dlatego skrypt REST (etap 3b)
+jest teraz **drogą zapasową**: na wypadek, gdy nie ma ani MCP, ani CLI, albo gdy potrzebujesz
+awatara mówiącego głosem z ElevenLabs, czego oficjalne skille nie obsługują.
+
 Trzecia droga bywa właściwsza: materiał o **liczbach** (raport, frekwencja, wyniki) prowadzi
 skill `dane-i-glos` — tam narracja powstaje z profilu danych, więc film nie zmyśli żadnej
 liczby. Tutaj wracasz na etapie renderu.
@@ -114,7 +134,15 @@ claude mcp add --transport http -s user heygen https://mcp.heygen.com/mcp/v1/  #
 ```
 
 Potem `/mcp` w Claude Code → logowanie OAuth w przeglądarce → `heygen` ze statusem
-`connected`.
+`connected`. Droga bez złącza MCP — CLI HeyGen, które `heygen-video` obsługuje tak samo:
+
+```bash
+curl -fsSL https://static.heygen.ai/cli/install.sh | bash
+heygen auth login
+```
+
+Mając którąkolwiek z nich, **oddaj render skillowi `heygen-video`** wraz z zaakceptowanym
+tekstem — i przypilnuj, żeby wybór awatara nie wrócił do galerii. Prompt budujesz tak samo:
 
 Prompt do agenta buduj według `references/prompt-agenta.md` — szablon i przykłady. Trzy rzeczy
 muszą w nim być zawsze:
@@ -126,7 +154,11 @@ muszą w nim być zawsze:
 Gotowy film ląduje na app.heygen.com → **Projects**. Podaj jej link, a nie tylko informację,
 że render ruszył.
 
-## Etap 3b — Render przez API (pełna kontrola)
+## Etap 3b — Render przez API (droga zapasowa, pełna kontrola)
+
+Sięgaj po nią, gdy nie ma ani złącza MCP, ani CLI `heygen`, albo gdy awatar ma mówić głosem
+z ElevenLabs (etap 3c). Skrypt woła `POST /v2/video/generate`, które HeyGen uznaje za
+przestarzałe — działa, ale pomija Frame Check i korektę kadru z pipeline'u v3.
 
 ```bash
 export HEYGEN_API_KEY="..."
@@ -196,3 +228,6 @@ zaakceptowała, i nie dokładaj do niego zdań „od siebie" po akceptacji.
 - `scripts/skonfiguruj_awatara.py` — pamięć skilla: awatar i głos HeyGen
 - `.claude/skills/dane-i-glos/scripts/heygen_awatar.py` — render przez API
 - `.claude/skills/dane-i-glos/references/heygen.md` — API, kredyty, kody błędów
+- `.claude/skills/heygen-video/` — oficjalny skill HeyGen: render przez Video Agent v3
+- `.claude/skills/heygen-avatar/` — zakładanie awatara i plik tożsamości `AVATAR-<IMIE>.md`
+- `.claude/skills/heygen-translate/` — dubbing gotowego filmu na inny język
