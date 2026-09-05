@@ -1,0 +1,811 @@
+{
+  "dokument": "EduPlaner 2026 · druk FBA-C · cele SMART do obserwacji pogłębionej",
+  "opis": "Ciąg dalszy karty ABC/FBA. Kryterium prób i horyzont ewaluacji NIE są stałe — wynikają z punktacji danej funkcji u konkretnego dziecka, według tabeli `progi`.",
+  "progi": [
+    {
+      "od_punktow": 10,
+      "ocena": "Dominująca",
+      "kryterium": "8 z 10",
+      "horyzont": {
+        "dopelniacz": "4 tygodni",
+        "miejscownik": "4 tygodniach",
+        "mianownik": "4 tygodnie"
+      },
+      "dlaczego": "priorytet planu PBS"
+    },
+    {
+      "od_punktow": 5,
+      "ocena": "Istotna",
+      "kryterium": "7 z 10",
+      "horyzont": {
+        "dopelniacz": "8 tygodni",
+        "miejscownik": "8 tygodniach",
+        "mianownik": "8 tygodni"
+      },
+      "dlaczego": "do uwzględnienia"
+    },
+    {
+      "od_punktow": 0,
+      "ocena": "Słaba",
+      "kryterium": "6 z 10",
+      "horyzont": {
+        "dopelniacz": "12 tygodni",
+        "miejscownik": "12 tygodniach",
+        "mianownik": "12 tygodni"
+      },
+      "dlaczego": "drugorzędna"
+    }
+  ],
+  "funkcje": [
+    {
+      "nr": "I",
+      "nazwa": "Ucieczka / unikanie",
+      "skrot": "Ucieczka",
+      "opis": "Zachowanie nasila się przy trudnych i nielubianych zadaniach, a wygasa po ich odpuszczeniu.",
+      "zasada_pbs": "Nie zwalniamy z zadania po zachowaniu trudnym — inaczej wzmacniamy ucieczkę. Zamiast tego: krótsze partie, stopniowanie trudności i przerwa „na prośbę”.",
+      "wskazniki": [
+        {
+          "nr": "I.1",
+          "deficyt": "Zachowanie pojawia się, gdy uczennica ma wykonać trudne lub nielubiane zadanie.",
+          "cel": "Uczennica rozpocznie trudne zadanie w ciągu 1 minuty od polecenia, korzystając z karty „zacznij od jednego kroku”, w {proba} sytuacji, w ciągu {horyzont}.",
+          "co_obserwowac": "Rejestr ABC — kolumna A: polecenie zadania pisemnego.",
+          "ile_sytuacji": "10 poleceń w tygodniu",
+          "smart": [
+            {
+              "litera": "S",
+              "tresc": "Bierze przybory i wykonuje pierwszy krok zadania."
+            },
+            {
+              "litera": "M",
+              "tresc": "1 minuta od polecenia; {proba} sytuacji."
+            },
+            {
+              "litera": "A",
+              "tresc": "Karta zdejmuje decyzję, od czego zacząć."
+            },
+            {
+              "litera": "R",
+              "tresc": "Rozpoczęcie jest warunkiem korzystania z lekcji."
+            },
+            {
+              "litera": "T",
+              "tresc": "Weryfikacja po {po}."
+            }
+          ]
+        },
+        {
+          "nr": "I.2",
+          "deficyt": "Zachowanie nasila się przy poleceniach lub wymaganiach.",
+          "cel": "Uczennica wykona polecenie po jednokrotnym powtórzeniu i zapowiedzi „za dwie minuty kończymy”, bez zachowania trudnego, w {proba} poleceń, w ciągu {horyzont}.",
+          "co_obserwowac": "Rejestr poleceń — liczymy wykonane po pierwszym powtórzeniu.",
+          "ile_sytuacji": "10 poleceń w tygodniu",
+          "smart": [
+            {
+              "litera": "S",
+              "tresc": "Wykonuje polecenie bez odmowy, krzyku i wyjścia z ławki."
+            },
+            {
+              "litera": "M",
+              "tresc": "Jedno powtórzenie; {proba} poleceń."
+            },
+            {
+              "litera": "A",
+              "tresc": "Zapowiedź czasu uprzedza o końcu, nie zaskakuje."
+            },
+            {
+              "litera": "R",
+              "tresc": "Polecenia wracają na każdej lekcji, u każdego dorosłego."
+            },
+            {
+              "litera": "T",
+              "tresc": "Weryfikacja po {po}."
+            }
+          ]
+        },
+        {
+          "nr": "I.3",
+          "deficyt": "Po zachowaniu uczennica zostaje zwolniona z zadania lub wyprowadzona.",
+          "cel": "Uczennica wróci do przerwanego zadania po trzyminutowej przerwie i wykona ustaloną, skróconą część, w {proba} przerw, w ciągu {horyzont}.",
+          "co_obserwowac": "Rejestr ABC — kolumna C: co następuje po przerwie.",
+          "ile_sytuacji": "każda przerwa w tygodniu",
+          "smart": [
+            {
+              "litera": "S",
+              "tresc": "Wraca do ławki i kończy uzgodnioną część zadania."
+            },
+            {
+              "litera": "M",
+              "tresc": "3 minuty przerwy; {proba} przerw."
+            },
+            {
+              "litera": "A",
+              "tresc": "Skrócona część jest wykonalna po wzburzeniu."
+            },
+            {
+              "litera": "R",
+              "tresc": "Powrót do zadania przerywa błędne koło ucieczki."
+            },
+            {
+              "litera": "T",
+              "tresc": "Weryfikacja po {po}."
+            }
+          ]
+        },
+        {
+          "nr": "I.4",
+          "deficyt": "Zachowanie rzadziej występuje, gdy zadanie jest łatwe lub atrakcyjne.",
+          "cel": "Uczennica podejmie zadanie trudniejsze ustawione po dwóch łatwych (zasada „dwa łatwe, jedno trudne”), w {proba} serii, w ciągu {horyzont}.",
+          "co_obserwowac": "Karta serii zadań — zaznaczamy podjęcie trzeciego.",
+          "ile_sytuacji": "5 serii w tygodniu",
+          "smart": [
+            {
+              "litera": "S",
+              "tresc": "Zaczyna trzecie, trudniejsze zadanie w serii."
+            },
+            {
+              "litera": "M",
+              "tresc": "Serie 2 + 1; {proba} serii."
+            },
+            {
+              "litera": "A",
+              "tresc": "Dwa sukcesy z rzędu budują gotowość na trudność."
+            },
+            {
+              "litera": "R",
+              "tresc": "Trudniejszych zadań nie da się z lekcji usunąć."
+            },
+            {
+              "litera": "T",
+              "tresc": "Weryfikacja po {po}."
+            }
+          ]
+        },
+        {
+          "nr": "I.5",
+          "deficyt": "Po „odpuszczeniu” zadania zachowanie ustaje — ucieczka działa.",
+          "cel": "Uczennica poprosi o przerwę kartą „przerwa” albo słowami, zamiast przerywać zadanie zachowaniem trudnym, w {proba} sytuacji narastania oporu, w ciągu {horyzont}.",
+          "co_obserwowac": "Rejestr ABC — czy przed zachowaniem pojawiła się prośba.",
+          "ile_sytuacji": "wszystkie sytuacje oporu",
+          "smart": [
+            {
+              "litera": "S",
+              "tresc": "Podnosi kartę „przerwa” albo mówi: „potrzebuję przerwy”."
+            },
+            {
+              "litera": "M",
+              "tresc": "{proba} sytuacji narastania oporu."
+            },
+            {
+              "litera": "A",
+              "tresc": "Karta leży na ławce przez całą lekcję."
+            },
+            {
+              "litera": "R",
+              "tresc": "Prośba o przerwę pełni tę samą funkcję, co ucieczka."
+            },
+            {
+              "litera": "T",
+              "tresc": "Weryfikacja po {po}."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "nr": "II",
+      "nazwa": "Sensoryczne / autostymulacja",
+      "skrot": "Sensoryczne",
+      "opis": "Zachowanie pojawia się także w samotności, dostarcza wrażeń i trudno je przerwać.",
+      "zasada_pbs": "Zaplanowane przerwy sensoryczne i akceptowalne źródła stymulacji (dieta sensoryczna), nauka sygnalizowania potrzeby regulacji, współpraca z terapeutą SI.",
+      "wskazniki": [
+        {
+          "nr": "II.1",
+          "deficyt": "Zachowanie pojawia się także, gdy uczennica jest sama.",
+          "cel": "Uczennica sięgnie po ustalony przedmiot do regulacji (gniotek, taśma na nodze krzesła) podczas pracy samodzielnej, w {proba} dziesięciominutowych odcinków pracy, w ciągu {horyzont}.",
+          "co_obserwowac": "Arkusz próbek czasowych — co 10 minut pracy samodzielnej.",
+          "ile_sytuacji": "10 odcinków w tygodniu",
+          "smart": [
+            {
+              "litera": "S",
+              "tresc": "Sięga po przedmiot z ustalonego miejsca i wraca do zadania."
+            },
+            {
+              "litera": "M",
+              "tresc": "Odcinki po 10 minut; {proba} odcinków."
+            },
+            {
+              "litera": "A",
+              "tresc": "Przedmiot jest w zasięgu ręki, bez proszenia."
+            },
+            {
+              "litera": "R",
+              "tresc": "Praca samodzielna to najdłuższy odcinek dnia bez dorosłego."
+            },
+            {
+              "litera": "T",
+              "tresc": "Weryfikacja po {po}."
+            }
+          ]
+        },
+        {
+          "nr": "II.2",
+          "deficyt": "Zachowanie wydaje się dostarczać przyjemnych wrażeń (ruch, dźwięk, dotyk).",
+          "cel": "Uczennica wskaże na karcie diety sensorycznej, jakiego wrażenia potrzebuje (ruch, ucisk, dźwięk), i skorzysta z odpowiadającej mu formy, w {proba} przerw sensorycznych, w ciągu {horyzont}.",
+          "co_obserwowac": "Karta diety sensorycznej — zapis wyboru i formy.",
+          "ile_sytuacji": "wszystkie przerwy sensoryczne",
+          "smart": [
+            {
+              "litera": "S",
+              "tresc": "Wskazuje pole na karcie i wybiera formę z tego pola."
+            },
+            {
+              "litera": "M",
+              "tresc": "Trzy rodzaje wrażeń; {proba} przerw."
+            },
+            {
+              "litera": "A",
+              "tresc": "Karta ma po dwie propozycje na każde wrażenie."
+            },
+            {
+              "litera": "R",
+              "tresc": "Nazwane wrażenie można zaspokoić inaczej niż zachowaniem trudnym."
+            },
+            {
+              "litera": "T",
+              "tresc": "Weryfikacja po {po}."
+            }
+          ]
+        },
+        {
+          "nr": "II.3",
+          "deficyt": "Zachowanie występuje niezależnie od reakcji otoczenia.",
+          "cel": "Uczennica skorzysta z zaplanowanej przerwy sensorycznej po sygnale minutnika, bez przypominania dorosłego, w {proba} zaplanowanych przerw, w ciągu {horyzont}.",
+          "co_obserwowac": "Plan przerw — odhaczenie przerwy wziętej samodzielnie.",
+          "ile_sytuacji": "4 przerwy dziennie",
+          "smart": [
+            {
+              "litera": "S",
+              "tresc": "Po sygnale wstaje i idzie do miejsca przerwy."
+            },
+            {
+              "litera": "M",
+              "tresc": "{proba} zaplanowanych przerw, bez przypomnienia."
+            },
+            {
+              "litera": "A",
+              "tresc": "Minutnik stoi na ławce, sygnał jest ten sam co dzień."
+            },
+            {
+              "litera": "R",
+              "tresc": "Przerwa uprzedzająca jest tańsza niż przerywanie zachowania."
+            },
+            {
+              "litera": "T",
+              "tresc": "Weryfikacja po {po}."
+            }
+          ]
+        },
+        {
+          "nr": "II.4",
+          "deficyt": "Zachowanie nasila się przy nudzie lub braku aktywności.",
+          "cel": "Uczennica wybierze zajęcie z listy trzech aktywności „gdy skończę wcześniej” i zajmie się nim przez 5 minut, w {proba} sytuacji oczekiwania, w ciągu {horyzont}.",
+          "co_obserwowac": "Rejestr ABC — kolumna A: koniec zadania przed czasem.",
+          "ile_sytuacji": "wszystkie sytuacje oczekiwania",
+          "smart": [
+            {
+              "litera": "S",
+              "tresc": "Wybiera z listy i pracuje przy wybranym zajęciu."
+            },
+            {
+              "litera": "M",
+              "tresc": "5 minut; {proba} sytuacji oczekiwania."
+            },
+            {
+              "litera": "A",
+              "tresc": "Lista wisi przy ławce, wybór jest z trzech, nie z wielu."
+            },
+            {
+              "litera": "R",
+              "tresc": "Puste minuty po zadaniu wracają na każdej lekcji."
+            },
+            {
+              "litera": "T",
+              "tresc": "Weryfikacja po {po}."
+            }
+          ]
+        },
+        {
+          "nr": "II.5",
+          "deficyt": "Zachowanie trudno przerwać uwagą lub poleceniem.",
+          "cel": "Uczennica zakończy autostymulację w ciągu 30 sekund od umówionego sygnału („stop — zamiana”) i przejdzie do formy zastępczej, w {proba} sygnałów, w ciągu {horyzont}.",
+          "co_obserwowac": "Rejestr ABC — czas od sygnału do zakończenia.",
+          "ile_sytuacji": "wszystkie sygnały w tygodniu",
+          "smart": [
+            {
+              "litera": "S",
+              "tresc": "Odkłada to, czym się stymuluje, i bierze formę zastępczą."
+            },
+            {
+              "litera": "M",
+              "tresc": "30 sekund od sygnału; {proba} sygnałów."
+            },
+            {
+              "litera": "A",
+              "tresc": "Sygnał jest wzrokowo-dotykowy, nie słowny — słowa nie docierają."
+            },
+            {
+              "litera": "R",
+              "tresc": "Przerwanie bez konfrontacji chroni relację z dorosłym."
+            },
+            {
+              "litera": "T",
+              "tresc": "Weryfikacja po {po}."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "nr": "III",
+      "nazwa": "Uwaga",
+      "skrot": "Uwaga",
+      "opis": "Zachowanie pojawia się, gdy dorosły jest zajęty, przynosi uwagę (upomnienie) i nasila się przy publiczności.",
+      "zasada_pbs": "Uwaga „z wyprzedzeniem” i pozytywna za zachowania pożądane, nauka właściwego sposobu proszenia o uwagę, minimalna reakcja na zachowanie trudne, spójny plan wzmocnień.",
+      "wskazniki": [
+        {
+          "nr": "III.1",
+          "deficyt": "Zachowanie pojawia się, gdy dorosły zajmuje się czymś innym.",
+          "cel": "Uczennica położy na ławce kartę „potrzebuję pomocy” i poczeka 2 minuty, gdy nauczyciel zajmuje się kimś innym, w {proba} sytuacji, w ciągu {horyzont}.",
+          "co_obserwowac": "Rejestr ABC — kolumna A: dorosły zajęty innym uczniem.",
+          "ile_sytuacji": "wszystkie takie sytuacje",
+          "smart": [
+            {
+              "litera": "S",
+              "tresc": "Kładzie kartę i zostaje przy ławce do podejścia dorosłego."
+            },
+            {
+              "litera": "M",
+              "tresc": "2 minuty czekania; {proba} sytuacji."
+            },
+            {
+              "litera": "A",
+              "tresc": "Karta działa bez mówienia i bez podchodzenia do nauczyciela."
+            },
+            {
+              "litera": "R",
+              "tresc": "Nauczyciel bywa zajęty na każdej lekcji — tego nie da się usunąć."
+            },
+            {
+              "litera": "T",
+              "tresc": "Weryfikacja po {po}."
+            }
+          ]
+        },
+        {
+          "nr": "III.2",
+          "deficyt": "Po zachowaniu uczennica otrzymuje uwagę (upomnienie, rozmowę).",
+          "cel": "Uczennica poprosi o uwagę dorosłego przez podniesienie ręki, zamiast zachowaniem trudnym, w {proba} sytuacji potrzeby kontaktu, w ciągu {horyzont}.",
+          "co_obserwowac": "Rejestr ABC — którą drogą uczennica uzyskała uwagę.",
+          "ile_sytuacji": "wszystkie sytuacje kontaktu",
+          "smart": [
+            {
+              "litera": "S",
+              "tresc": "Podnosi rękę i czeka na podejście albo skinienie."
+            },
+            {
+              "litera": "M",
+              "tresc": "{proba} sytuacji potrzeby kontaktu."
+            },
+            {
+              "litera": "A",
+              "tresc": "Dorosły odpowiada na rękę od razu, na zachowanie trudne — minimalnie."
+            },
+            {
+              "litera": "R",
+              "tresc": "To zachowanie zastępcze o tej samej funkcji: uwaga."
+            },
+            {
+              "litera": "T",
+              "tresc": "Weryfikacja po {po}."
+            }
+          ]
+        },
+        {
+          "nr": "III.3",
+          "deficyt": "Zachowanie nasila się w grupie lub przy publiczności.",
+          "cel": "Uczennica zgłosi się do wypowiedzi w ustalonym momencie zajęć („runda”), nie przerywając innym, w {proba} zajęć grupowych, w ciągu {horyzont}.",
+          "co_obserwowac": "Karta zajęć grupowych — zgłoszenia i wejścia w słowo.",
+          "ile_sytuacji": "wszystkie zajęcia grupowe",
+          "smart": [
+            {
+              "litera": "S",
+              "tresc": "Mówi w swojej kolejce w rundzie, bez wchodzenia w słowo."
+            },
+            {
+              "litera": "M",
+              "tresc": "{proba} zajęć grupowych."
+            },
+            {
+              "litera": "A",
+              "tresc": "Runda gwarantuje jej głos — nie musi go zdobywać."
+            },
+            {
+              "litera": "R",
+              "tresc": "Praca w grupie to codzienna forma zajęć w klasie III."
+            },
+            {
+              "litera": "T",
+              "tresc": "Weryfikacja po {po}."
+            }
+          ]
+        },
+        {
+          "nr": "III.4",
+          "deficyt": "Zachowanie ustaje, gdy uczennica dostanie indywidualną uwagę.",
+          "cel": "Uczennica skorzysta z zaplanowanych 2 minut uwagi „z wyprzedzeniem” na początku lekcji i wróci do zadania po sygnale, w {proba} lekcji, w ciągu {horyzont}.",
+          "co_obserwowac": "Plan lekcji — odhaczenie rozmowy i powrotu do zadania.",
+          "ile_sytuacji": "wszystkie lekcje",
+          "smart": [
+            {
+              "litera": "S",
+              "tresc": "Rozmawia 2 minuty i po sygnale siada do zadania."
+            },
+            {
+              "litera": "M",
+              "tresc": "2 minuty na starcie; {proba} lekcji."
+            },
+            {
+              "litera": "A",
+              "tresc": "Uwaga dana z góry jest tańsza niż odzyskiwana po wybuchu."
+            },
+            {
+              "litera": "R",
+              "tresc": "Zapobiega zachowaniu, zamiast na nie reagować."
+            },
+            {
+              "litera": "T",
+              "tresc": "Weryfikacja po {po}."
+            }
+          ]
+        },
+        {
+          "nr": "III.5",
+          "deficyt": "Uczennica patrzy na reakcję dorosłego w trakcie zachowania.",
+          "cel": "Uczennica nawiąże kontakt z dorosłym umówionym gestem (uniesiona dłoń), zamiast sprawdzać jego reakcję zachowaniem trudnym, w {proba} obserwowanych sytuacji, w ciągu {horyzont}.",
+          "co_obserwowac": "Rejestr ABC — czy przed zachowaniem pojawił się gest.",
+          "ile_sytuacji": "wszystkie obserwowane sytuacje",
+          "smart": [
+            {
+              "litera": "S",
+              "tresc": "Unosi dłoń i czeka na skinienie dorosłego."
+            },
+            {
+              "litera": "M",
+              "tresc": "{proba} obserwowanych sytuacji."
+            },
+            {
+              "litera": "A",
+              "tresc": "Gest jest krótszy niż podejście i nie przerywa lekcji."
+            },
+            {
+              "litera": "R",
+              "tresc": "Sprawdzanie reakcji to prośba o kontakt, nie prowokacja."
+            },
+            {
+              "litera": "T",
+              "tresc": "Weryfikacja po {po}."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "nr": "IV",
+      "nazwa": "Dostęp do przedmiotu / aktywności",
+      "skrot": "Dostęp",
+      "opis": "Zachowanie nasila się przy odmowie lub zabraniu przedmiotu, a wygasa po jego uzyskaniu.",
+      "zasada_pbs": "Nauka proszenia i czekania (odraczanie gratyfikacji), jasne zasady dostępu, system żetonowy; przedmiotu nie wydajemy bezpośrednio po zachowaniu trudnym.",
+      "wskazniki": [
+        {
+          "nr": "IV.1",
+          "deficyt": "Zachowanie pojawia się, gdy uczennica nie może dostać tego, czego chce.",
+          "cel": "Uczennica przyjmie odmowę i wybierze jedną z dwóch zaproponowanych alternatyw, w {proba} odmów, w ciągu {horyzont}.",
+          "co_obserwowac": "Rejestr ABC — kolumna A: odmowa dorosłego.",
+          "ile_sytuacji": "wszystkie odmowy",
+          "smart": [
+            {
+              "litera": "S",
+              "tresc": "Wskazuje jedną z dwóch propozycji i zajmuje się nią."
+            },
+            {
+              "litera": "M",
+              "tresc": "Dwie alternatywy; {proba} odmów."
+            },
+            {
+              "litera": "A",
+              "tresc": "Wybór zostawia jej sprawczość mimo odmowy."
+            },
+            {
+              "litera": "R",
+              "tresc": "Odmowa jest nieusuwalną częścią dnia w szkole."
+            },
+            {
+              "litera": "T",
+              "tresc": "Weryfikacja po {po}."
+            }
+          ]
+        },
+        {
+          "nr": "IV.2",
+          "deficyt": "Zachowanie nasila się przy odmowie lub zabraniu przedmiotu.",
+          "cel": "Uczennica odda przedmiot po zapowiedzi „jeszcze dwie minuty” i sygnale minutnika, w {proba} sytuacji kończenia aktywności, w ciągu {horyzont}.",
+          "co_obserwowac": "Rejestr ABC — zapowiedź, sygnał, reakcja.",
+          "ile_sytuacji": "wszystkie zakończenia aktywności",
+          "smart": [
+            {
+              "litera": "S",
+              "tresc": "Odkłada przedmiot na ustalone miejsce po sygnale."
+            },
+            {
+              "litera": "M",
+              "tresc": "2 minuty zapowiedzi; {proba} sytuacji."
+            },
+            {
+              "litera": "A",
+              "tresc": "Zapowiedź zamienia zabranie w zakończenie."
+            },
+            {
+              "litera": "R",
+              "tresc": "Zabieranie przedmiotu bez uprzedzenia było wyzwalaczem."
+            },
+            {
+              "litera": "T",
+              "tresc": "Weryfikacja po {po}."
+            }
+          ]
+        },
+        {
+          "nr": "IV.3",
+          "deficyt": "Po zachowaniu uczennica otrzymuje pożądany przedmiot lub aktywność.",
+          "cel": "Uczennica poprosi o przedmiot pełnym zwrotem („poproszę o…”), zamiast sięgać po niego zachowaniem trudnym, w {proba} sytuacji, w ciągu {horyzont}.",
+          "co_obserwowac": "Rejestr ABC — którą drogą uczennica uzyskała przedmiot.",
+          "ile_sytuacji": "wszystkie sytuacje",
+          "smart": [
+            {
+              "litera": "S",
+              "tresc": "Mówi „poproszę o…” i czeka na odpowiedź."
+            },
+            {
+              "litera": "M",
+              "tresc": "{proba} sytuacji, w których czegoś chce."
+            },
+            {
+              "litera": "A",
+              "tresc": "Zwrot jest krótki i ten sam u wszystkich dorosłych."
+            },
+            {
+              "litera": "R",
+              "tresc": "Prośba pełni tę samą funkcję, co zachowanie trudne."
+            },
+            {
+              "litera": "T",
+              "tresc": "Weryfikacja po {po}."
+            }
+          ]
+        },
+        {
+          "nr": "IV.4",
+          "deficyt": "Zachowanie ustaje, gdy uczennica dostanie to, czego chciała.",
+          "cel": "Uczennica poczeka na przedmiot 3 minuty, korzystając z wizualnego licznika, w {proba} sytuacji odroczenia, w ciągu {horyzont}.",
+          "co_obserwowac": "Karta odroczeń — czas czekania i wynik.",
+          "ile_sytuacji": "5 odroczeń w tygodniu",
+          "smart": [
+            {
+              "litera": "S",
+              "tresc": "Zostaje przy swojej ławce do końca odliczania."
+            },
+            {
+              "litera": "M",
+              "tresc": "3 minuty; {proba} sytuacji odroczenia."
+            },
+            {
+              "litera": "A",
+              "tresc": "Licznik pokazuje koniec czekania — czas przestaje być nieznany."
+            },
+            {
+              "litera": "R",
+              "tresc": "Czekanie jest warunkiem pracy w grupie 25 osób."
+            },
+            {
+              "litera": "T",
+              "tresc": "Weryfikacja po {po}."
+            }
+          ]
+        },
+        {
+          "nr": "IV.5",
+          "deficyt": "Zachowanie występuje przy oczekiwaniu na coś atrakcyjnego.",
+          "cel": "Uczennica wykona ustaloną czynność „w międzyczasie” (zadanie z żetonem) w czasie oczekiwania na atrakcyjną aktywność, w {proba} sytuacji oczekiwania, w ciągu {horyzont}.",
+          "co_obserwowac": "Karta żetonowa — żeton za czynność w międzyczasie.",
+          "ile_sytuacji": "wszystkie sytuacje oczekiwania",
+          "smart": [
+            {
+              "litera": "S",
+              "tresc": "Bierze zadanie z pudełka i pracuje przy nim do sygnału."
+            },
+            {
+              "litera": "M",
+              "tresc": "{proba} sytuacji oczekiwania."
+            },
+            {
+              "litera": "A",
+              "tresc": "Żeton łączy czekanie z nagrodą, nie z pustką."
+            },
+            {
+              "litera": "R",
+              "tresc": "Oczekiwanie na atrakcję wraca przy każdej wycieczce i przerwie."
+            },
+            {
+              "litera": "T",
+              "tresc": "Weryfikacja po {po}."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "nr": "V",
+      "nazwa": "Regulacja emocji / napięcie",
+      "skrot": "Regulacja emocji",
+      "opis": "Zachowanie wybucha przy zmianie lub przeciążeniu, z objawami napięcia, i jest trudne do przewidzenia.",
+      "zasada_pbs": "Przewidywalność (plan dnia, uprzedzanie zmian), strefa wyciszenia i strategie regulacji (oddech, przerwa), wsparcie dorosłego przy pierwszych sygnałach napięcia.",
+      "wskazniki": [
+        {
+          "nr": "V.1",
+          "deficyt": "Zachowanie pojawia się przy zmianie, niespodziance lub przeciążeniu.",
+          "cel": "Uczennica przejdzie do zmienionej aktywności po uprzedzeniu i pokazaniu zmiany na planie dnia, bez zachowania trudnego, w {proba} zapowiedzianych zmian, w ciągu {horyzont}.",
+          "co_obserwowac": "Plan dnia — zapis zmiany i reakcji.",
+          "ile_sytuacji": "wszystkie zmiany planu",
+          "smart": [
+            {
+              "litera": "S",
+              "tresc": "Ogląda zmianę na planie i przechodzi do nowej aktywności."
+            },
+            {
+              "litera": "M",
+              "tresc": "{proba} zapowiedzianych zmian."
+            },
+            {
+              "litera": "A",
+              "tresc": "Plan dnia wisi na wysokości jej wzroku, karty się przekładają."
+            },
+            {
+              "litera": "R",
+              "tresc": "Zmiana planu w szkole jest nie do uniknięcia."
+            },
+            {
+              "litera": "T",
+              "tresc": "Weryfikacja po {po}."
+            }
+          ]
+        },
+        {
+          "nr": "V.2",
+          "deficyt": "Zachowaniu towarzyszą objawy napięcia (płacz, pobudzenie).",
+          "cel": "Uczennica nazwie swoje napięcie na termometrze emocji (zielony — żółty — czerwony) przy pierwszych objawach, w {proba} sytuacji, w ciągu {horyzont}.",
+          "co_obserwowac": "Termometr emocji — zapis wskazań w ciągu dnia.",
+          "ile_sytuacji": "wszystkie sytuacje napięcia",
+          "smart": [
+            {
+              "litera": "S",
+              "tresc": "Wskazuje kolor na termometrze i mówi, co czuje."
+            },
+            {
+              "litera": "M",
+              "tresc": "Trzy poziomy; {proba} sytuacji napięcia."
+            },
+            {
+              "litera": "A",
+              "tresc": "Termometr leży na ławce, wskazanie nie wymaga słów."
+            },
+            {
+              "litera": "R",
+              "tresc": "Nazwane napięcie daje się obniżyć, zanim wybuchnie."
+            },
+            {
+              "litera": "T",
+              "tresc": "Weryfikacja po {po}."
+            }
+          ]
+        },
+        {
+          "nr": "V.3",
+          "deficyt": "Zachowanie występuje w sytuacjach stresu lub przebodźcowania.",
+          "cel": "Uczennica skorzysta ze strefy wyciszenia przez 5 minut, na własną prośbę albo propozycję dorosłego, w {proba} sytuacji przebodźcowania, w ciągu {horyzont}.",
+          "co_obserwowac": "Rejestr strefy wyciszenia — kto zainicjował i jak długo.",
+          "ile_sytuacji": "wszystkie sytuacje przebodźcowania",
+          "smart": [
+            {
+              "litera": "S",
+              "tresc": "Idzie do strefy i zostaje tam do końca odliczania."
+            },
+            {
+              "litera": "M",
+              "tresc": "5 minut; {proba} sytuacji przebodźcowania."
+            },
+            {
+              "litera": "A",
+              "tresc": "Strefa jest w sali, wejście nie wymaga zgody za każdym razem."
+            },
+            {
+              "litera": "R",
+              "tresc": "Wyjście z bodźców przerywa narastanie, zanim dojdzie do wybuchu."
+            },
+            {
+              "litera": "T",
+              "tresc": "Weryfikacja po {po}."
+            }
+          ]
+        },
+        {
+          "nr": "V.4",
+          "deficyt": "Zachowanie ustaje po wyciszeniu lub odzyskaniu równowagi.",
+          "cel": "Uczennica wróci do zajęć w ciągu 5 minut od zakończenia strategii wyciszenia, w {proba} sytuacji, w ciągu {horyzont}.",
+          "co_obserwowac": "Rejestr strefy wyciszenia — czas powrotu do zajęć.",
+          "ile_sytuacji": "wszystkie wyciszenia",
+          "smart": [
+            {
+              "litera": "S",
+              "tresc": "Wraca do ławki i podejmuje bieżące zadanie."
+            },
+            {
+              "litera": "M",
+              "tresc": "5 minut od końca strategii; {proba} sytuacji."
+            },
+            {
+              "litera": "A",
+              "tresc": "Po powrocie dostaje zadanie skrócone, nie zaległe w całości."
+            },
+            {
+              "litera": "R",
+              "tresc": "Bez powrotu wyciszenie staje się ucieczką z lekcji."
+            },
+            {
+              "litera": "T",
+              "tresc": "Weryfikacja po {po}."
+            }
+          ]
+        },
+        {
+          "nr": "V.5",
+          "deficyt": "Zachowanie jest trudne do przewidzenia, wybucha nagle.",
+          "cel": "Uczennica zasygnalizuje czerwoną kartą pierwszy sygnał napięcia, zanim dojdzie do wybuchu, w {proba} obserwowanych narastań, w ciągu {horyzont}.",
+          "co_obserwowac": "Rejestr ABC — sygnał ucznia przed zachowaniem (tak/nie).",
+          "ile_sytuacji": "wszystkie narastania napięcia",
+          "smart": [
+            {
+              "litera": "S",
+              "tresc": "Podnosi czerwoną kartę przed wybuchem, nie po nim."
+            },
+            {
+              "litera": "M",
+              "tresc": "{proba} obserwowanych narastań napięcia."
+            },
+            {
+              "litera": "A",
+              "tresc": "Karta jest zawsze w tym samym miejscu ławki."
+            },
+            {
+              "litera": "R",
+              "tresc": "To jedyny cel, który skraca fazę nagłego wybuchu."
+            },
+            {
+              "litera": "T",
+              "tresc": "Weryfikacja po {po}."
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

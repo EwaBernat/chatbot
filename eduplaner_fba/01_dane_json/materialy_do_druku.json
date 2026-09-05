@@ -1,0 +1,1263 @@
+{
+  "dokument": "EduPlaner 2026 · materiały A4 do wycięcia przy konspektach FBA",
+  "opis": "Etykiety kart i pasków widzi DZIECKO — pisane są prostym językiem. Opisy pod polami i wstęp czyta dorosły. Symbole pochodzą z biblioteki banku KPOF: ten sam obrazek musi być tu, na tablicy AAC i w planie dnia.",
+  "biblioteka_symboli": {
+    "katalog": "eduplaner_przedszkole/assets/symbole",
+    "przypisanych": 172,
+    "z_obrazkiem": 172,
+    "pol_celowo_pustych": 3
+  },
+  "liczba_arkuszy": 25,
+  "arkusze": [
+    {
+      "wskaznik": "I.1",
+      "tytul": "Karty do zajęć „Jeden krok i już zaczynam”",
+      "wstep_dla_doroslego": "Wytnij karty wzdłuż linii. W puste pola wklej symbole z biblioteki EduPlaner — te same, których dziecko używa na tablicy AAC i w planie dnia. Symbol, który zmienia wygląd między materiałami, przestaje być dla dziecka słowem.",
+      "karty": [
+        {
+          "etykieta_dla_dziecka": "Najpierw",
+          "opis_dla_doroslego": "symbol zadania — tego, które dziecko ma wykonać",
+          "symbol": "postawa_stolik",
+          "plik_symbolu": "eduplaner_przedszkole/assets/symbole/k_postawa_stolik.jpg"
+        },
+        {
+          "etykieta_dla_dziecka": "Potem",
+          "opis_dla_doroslego": "symbol zabawy albo aktywności po zadaniu",
+          "symbol": "dzien_zabawa",
+          "plik_symbolu": "eduplaner_przedszkole/assets/symbole/k_dzien_zabawa.jpg"
+        },
+        {
+          "etykieta_dla_dziecka": "Pierwszy krok",
+          "opis_dla_doroslego": "symbol jednej czynności: weź, włóż, połóż",
+          "symbol": "polecenie_wez",
+          "plik_symbolu": "eduplaner_przedszkole/assets/symbole/k_polecenie_wez.jpg"
+        },
+        {
+          "etykieta_dla_dziecka": "Przerwa",
+          "opis_dla_doroslego": "symbol przerwy — leży przy dziecku przez całe zajęcia",
+          "symbol": "strategia_przerwa",
+          "plik_symbolu": "eduplaner_przedszkole/assets/symbole/k_strategia_przerwa.jpg"
+        }
+      ],
+      "pasek_kolejnosci": [
+        {
+          "etykieta_dla_dziecka": "1 · biorę",
+          "symbol": "polecenie_wez",
+          "plik_symbolu": "eduplaner_przedszkole/assets/symbole/k_polecenie_wez.jpg"
+        },
+        {
+          "etykieta_dla_dziecka": "2 · wkładam",
+          "symbol": "polecenie_poloz",
+          "plik_symbolu": "eduplaner_przedszkole/assets/symbole/k_polecenie_poloz.jpg"
+        },
+        {
+          "etykieta_dla_dziecka": "3 · gotowe",
+          "symbol": "gest_brawo",
+          "plik_symbolu": "eduplaner_przedszkole/assets/symbole/k_gest_brawo.jpg"
+        }
+      ],
+      "format": "A4 pionowo",
+      "historyjka": null
+    },
+    {
+      "wskaznik": "I.2",
+      "tytul": "Karty do zajęć „Słyszę, robię, kończę”",
+      "wstep_dla_doroslego": "Wytnij karty i pasek. Krążki z paska zdejmuje dziecko po każdym wykonanym poleceniu — widzi wtedy, ile zostało, zamiast słyszeć „jeszcze chwilę”. Symbole wklej z biblioteki EduPlaner.",
+      "karty": [
+        {
+          "etykieta_dla_dziecka": "Słucham",
+          "opis_dla_doroslego": "symbol słuchania — dorosły mówi, dziecko patrzy",
+          "symbol": "gest_slucham",
+          "plik_symbolu": "eduplaner_przedszkole/assets/symbole/k_gest_slucham.jpg"
+        },
+        {
+          "etykieta_dla_dziecka": "Robię",
+          "opis_dla_doroslego": "symbol czynności z polecenia",
+          "symbol": "polecenie_wez",
+          "plik_symbolu": "eduplaner_przedszkole/assets/symbole/k_polecenie_wez.jpg"
+        },
+        {
+          "etykieta_dla_dziecka": "Koniec",
+          "opis_dla_doroslego": "symbol zakończenia — koszyk, ptaszek albo pusty stolik",
+          "symbol": "gest_brawo",
+          "plik_symbolu": "eduplaner_przedszkole/assets/symbole/k_gest_brawo.jpg"
+        },
+        {
+          "etykieta_dla_dziecka": "Przerwa",
+          "opis_dla_doroslego": "symbol przerwy na prośbę",
+          "symbol": "strategia_przerwa",
+          "plik_symbolu": "eduplaner_przedszkole/assets/symbole/k_strategia_przerwa.jpg"
+        }
+      ],
+      "pasek_kolejnosci": [
+        {
+          "etykieta_dla_dziecka": "zostały 3",
+          "symbol": "strategia_czesci",
+          "plik_symbolu": "eduplaner_przedszkole/assets/symbole/k_strategia_czesci.jpg"
+        },
+        {
+          "etykieta_dla_dziecka": "zostały 2",
+          "symbol": "strategia_czesci",
+          "plik_symbolu": "eduplaner_przedszkole/assets/symbole/k_strategia_czesci.jpg"
+        },
+        {
+          "etykieta_dla_dziecka": "została 1",
+          "symbol": "gest_brawo",
+          "plik_symbolu": "eduplaner_przedszkole/assets/symbole/k_gest_brawo.jpg"
+        }
+      ],
+      "format": "A4 pionowo",
+      "historyjka": null
+    },
+    {
+      "wskaznik": "I.3",
+      "tytul": "Karty do zajęć „Przerwa i powrót”",
+      "wstep_dla_doroslego": "Wytnij karty. Kartę „wracam” dziecko kładzie na swoim zadaniu, wychodząc na przerwę — to widoczna umowa, że zadanie na nie czeka. Symbole wklej z biblioteki EduPlaner.",
+      "karty": [
+        {
+          "etykieta_dla_dziecka": "Przerwa",
+          "opis_dla_doroslego": "symbol przerwy — miejsce, do którego dziecko idzie",
+          "symbol": "strategia_przerwa",
+          "plik_symbolu": "eduplaner_przedszkole/assets/symbole/k_strategia_przerwa.jpg"
+        },
+        {
+          "etykieta_dla_dziecka": "Wracam",
+          "opis_dla_doroslego": "symbol powrotu — kładziony na zadaniu",
+          "symbol": "gest_chodz",
+          "plik_symbolu": "eduplaner_przedszkole/assets/symbole/k_gest_chodz.jpg"
+        },
+        {
+          "etykieta_dla_dziecka": "Dokończę",
+          "opis_dla_doroslego": "symbol jednej części zadania do dokończenia",
+          "symbol": "strategia_czesci",
+          "plik_symbolu": "eduplaner_przedszkole/assets/symbole/k_strategia_czesci.jpg"
+        },
+        {
+          "etykieta_dla_dziecka": "Gotowe",
+          "opis_dla_doroslego": "symbol zakończenia całości",
+          "symbol": "gest_brawo",
+          "plik_symbolu": "eduplaner_przedszkole/assets/symbole/k_gest_brawo.jpg"
+        }
+      ],
+      "pasek_kolejnosci": [
+        {
+          "etykieta_dla_dziecka": "idę na przerwę",
+          "symbol": "strategia_przerwa",
+          "plik_symbolu": "eduplaner_przedszkole/assets/symbole/k_strategia_przerwa.jpg"
+        },
+        {
+          "etykieta_dla_dziecka": "kończy się czas",
+          "symbol": "gest_czekam",
+          "plik_symbolu": "eduplaner_przedszkole/assets/symbole/k_gest_czekam.jpg"
+        },
+        {
+          "etykieta_dla_dziecka": "wracam do zadania",
+          "symbol": "gest_chodz",
+          "plik_symbolu": "eduplaner_przedszkole/assets/symbole/k_gest_chodz.jpg"
+        }
+      ],
+      "format": "A4 pionowo",
+      "historyjka": null
+    },
+    {
+      "wskaznik": "I.4",
+      "tytul": "Karty do zajęć „Dwa łatwe, jedno trudne”",
+      "wstep_dla_doroslego": "Wytnij karty i pasek serii. Na kartach zadań wklej symbole konkretnych czynności z biblioteki EduPlaner — dziecko ma widzieć, co go czeka, zanim usiądzie do stolika.",
+      "karty": [
+        {
+          "etykieta_dla_dziecka": "Zadanie 1 · łatwe",
+          "opis_dla_doroslego": "symbol czynności, którą dziecko umie na pewno",
+          "symbol": "zabawa_ukladanka",
+          "plik_symbolu": "eduplaner_przedszkole/assets/symbole/k_zabawa_ukladanka.jpg"
+        },
+        {
+          "etykieta_dla_dziecka": "Zadanie 2 · łatwe",
+          "opis_dla_doroslego": "symbol drugiej czynności pewnej",
+          "symbol": "zabawa_klocki",
+          "plik_symbolu": "eduplaner_przedszkole/assets/symbole/k_zabawa_klocki.jpg"
+        },
+        {
+          "etykieta_dla_dziecka": "Zadanie 3 · trudne",
+          "opis_dla_doroslego": "symbol czynności o stopień trudniejszej",
+          "symbol": null,
+          "plik_symbolu": null
+        },
+        {
+          "etykieta_dla_dziecka": "Poradzę sobie",
+          "opis_dla_doroslego": "miejsce na znak dziecka po podjęciu trudnego zadania",
+          "symbol": "emocja_duma",
+          "plik_symbolu": "eduplaner_przedszkole/assets/symbole/k_emocja_duma.jpg"
+        }
+      ],
+      "pasek_kolejnosci": [
+        {
+          "etykieta_dla_dziecka": "1 · łatwe",
+          "symbol": "zabawa_ukladanka",
+          "plik_symbolu": "eduplaner_przedszkole/assets/symbole/k_zabawa_ukladanka.jpg"
+        },
+        {
+          "etykieta_dla_dziecka": "2 · łatwe",
+          "symbol": "zabawa_klocki",
+          "plik_symbolu": "eduplaner_przedszkole/assets/symbole/k_zabawa_klocki.jpg"
+        },
+        {
+          "etykieta_dla_dziecka": "3 · trudne",
+          "symbol": "strategia_czesci",
+          "plik_symbolu": "eduplaner_przedszkole/assets/symbole/k_strategia_czesci.jpg"
+        }
+      ],
+      "format": "A4 pionowo",
+      "historyjka": null
+    },
+    {
+      "wskaznik": "I.5",
+      "tytul": "Karty do zajęć „Karta przerwy zamiast ucieczki”",
+      "wstep_dla_doroslego": "Wytnij karty. Karta „przerwa” ma być jedna i ma leżeć zawsze w tym samym miejscu — dziecko musi wiedzieć, gdzie jej szukać, zanim zrobi się trudno. Symbole wklej z biblioteki EduPlaner.",
+      "karty": [
+        {
+          "etykieta_dla_dziecka": "Przerwa",
+          "opis_dla_doroslego": "symbol przerwy — karta główna, zawsze na stoliku",
+          "symbol": "strategia_przerwa",
+          "plik_symbolu": "eduplaner_przedszkole/assets/symbole/k_strategia_przerwa.jpg"
+        },
+        {
+          "etykieta_dla_dziecka": "Chcę odpocząć",
+          "opis_dla_doroslego": "symbol odpoczynku: koc, poduszka, kącik",
+          "symbol": "prosze_odpoczynek",
+          "plik_symbolu": "eduplaner_przedszkole/assets/symbole/k_prosze_odpoczynek.jpg"
+        },
+        {
+          "etykieta_dla_dziecka": "Chcę się poruszać",
+          "opis_dla_doroslego": "symbol ruchu: skakanie, chodzenie, huśtawka",
+          "symbol": "prosze_ruch",
+          "plik_symbolu": "eduplaner_przedszkole/assets/symbole/k_prosze_ruch.jpg"
+        },
+        {
+          "etykieta_dla_dziecka": "Wracam",
+          "opis_dla_doroslego": "symbol powrotu do zadania",
+          "symbol": "gest_chodz",
+          "plik_symbolu": "eduplaner_przedszkole/assets/symbole/k_gest_chodz.jpg"
+        }
+      ],
+      "pasek_kolejnosci": [
+        {
+          "etykieta_dla_dziecka": "proszę o przerwę",
+          "symbol": "strategia_przerwa",
+          "plik_symbolu": "eduplaner_przedszkole/assets/symbole/k_strategia_przerwa.jpg"
+        },
+        {
+          "etykieta_dla_dziecka": "odpoczywam",
+          "symbol": "prosze_odpoczynek",
+          "plik_symbolu": "eduplaner_przedszkole/assets/symbole/k_prosze_odpoczynek.jpg"
+        },
+        {
+          "etykieta_dla_dziecka": "wracam",
+          "symbol": "gest_chodz",
+          "plik_symbolu": "eduplaner_przedszkole/assets/symbole/k_gest_chodz.jpg"
+        }
+      ],
+      "format": "A4 pionowo",
+      "historyjka": null
+    },
+    {
+      "wskaznik": "II.1",
+      "tytul": "Karty do zajęć „Coś do rąk, kiedy trzeba”",
+      "wstep_dla_doroslego": "Wytnij karty i przyklej je na pudełku regulacyjnym oraz na podkładce dziecka. W pola wklej zdjęcia albo symbole konkretnych przedmiotów z biblioteki EduPlaner — dziecko ma poznać swój przedmiot, nie kategorię.",
+      "karty": [
+        {
+          "etykieta_dla_dziecka": "Ściskam",
+          "opis_dla_doroslego": "symbol gniotka albo piłeczki",
+          "symbol": "sensor_gniotek",
+          "plik_symbolu": "eduplaner_przedszkole/assets/symbole/k_sensor_gniotek.jpg"
+        },
+        {
+          "etykieta_dla_dziecka": "Ciągnę",
+          "opis_dla_doroslego": "symbol taśmy elastycznej przy krześle",
+          "symbol": "sensor_tasma",
+          "plik_symbolu": "eduplaner_przedszkole/assets/symbole/k_sensor_tasma.jpg"
+        },
+        {
+          "etykieta_dla_dziecka": "Dotykam",
+          "opis_dla_doroslego": "symbol materiału o wyraźnej fakturze",
+          "symbol": "sensor_faktura",
+          "plik_symbolu": "eduplaner_przedszkole/assets/symbole/k_sensor_faktura.jpg"
+        },
+        {
+          "etykieta_dla_dziecka": "Odkładam",
+          "opis_dla_doroslego": "symbol miejsca, w którym przedmiot czeka po zadaniu",
+          "symbol": "polecenie_poloz",
+          "plik_symbolu": "eduplaner_przedszkole/assets/symbole/k_polecenie_poloz.jpg"
+        }
+      ],
+      "pasek_kolejnosci": [
+        {
+          "etykieta_dla_dziecka": "biorę",
+          "symbol": "polecenie_wez",
+          "plik_symbolu": "eduplaner_przedszkole/assets/symbole/k_polecenie_wez.jpg"
+        },
+        {
+          "etykieta_dla_dziecka": "pracuję",
+          "symbol": "postawa_stolik",
+          "plik_symbolu": "eduplaner_przedszkole/assets/symbole/k_postawa_stolik.jpg"
+        },
+        {
+          "etykieta_dla_dziecka": "odkładam",
+          "symbol": "polecenie_poloz",
+          "plik_symbolu": "eduplaner_przedszkole/assets/symbole/k_polecenie_poloz.jpg"
+        }
+      ],
+      "format": "A4 pionowo",
+      "historyjka": null
+    },
+    {
+      "wskaznik": "II.2",
+      "tytul": "Karta diety sensorycznej do zajęć „Czego mi teraz trzeba”",
+      "wstep_dla_doroslego": "Wytnij karty wrażeń i powieś je na wysokości wzroku dziecka. W pola wklej symbole form, które są u was naprawdę dostępne — karta z formą, której nie ma w sali, uczy dziecko, że wskazywanie nic nie daje.",
+      "karty": [
+        {
+          "etykieta_dla_dziecka": "Ruch",
+          "opis_dla_doroslego": "symbol huśtania, skakania albo chodzenia",
+          "symbol": "prosze_ruch",
+          "plik_symbolu": "eduplaner_przedszkole/assets/symbole/k_prosze_ruch.jpg"
+        },
+        {
+          "etykieta_dla_dziecka": "Ucisk",
+          "opis_dla_doroslego": "symbol koca obciążeniowego, poduszki, mocnego przytulenia",
+          "symbol": "sensor_ucisk",
+          "plik_symbolu": "eduplaner_przedszkole/assets/symbole/k_sensor_ucisk.jpg"
+        },
+        {
+          "etykieta_dla_dziecka": "Cisza",
+          "opis_dla_doroslego": "symbol słuchawek albo kącika wyciszenia",
+          "symbol": "prosze_cisza",
+          "plik_symbolu": "eduplaner_przedszkole/assets/symbole/k_prosze_cisza.jpg"
+        },
+        {
+          "etykieta_dla_dziecka": "Pomogło?",
+          "opis_dla_doroslego": "dwie buźki do zaznaczenia po skorzystaniu z formy",
+          "symbol": "emocja_radosc",
+          "plik_symbolu": "eduplaner_przedszkole/assets/symbole/k_emocja_radosc.jpg"
+        }
+      ],
+      "pasek_kolejnosci": [
+        {
+          "etykieta_dla_dziecka": "wskazuję",
+          "symbol": "gest_mowie",
+          "plik_symbolu": "eduplaner_przedszkole/assets/symbole/k_gest_mowie.jpg"
+        },
+        {
+          "etykieta_dla_dziecka": "korzystam",
+          "symbol": "prosze_ruch",
+          "plik_symbolu": "eduplaner_przedszkole/assets/symbole/k_prosze_ruch.jpg"
+        },
+        {
+          "etykieta_dla_dziecka": "sprawdzam",
+          "symbol": "emocja_radosc",
+          "plik_symbolu": "eduplaner_przedszkole/assets/symbole/k_emocja_radosc.jpg"
+        }
+      ],
+      "format": "A4 pionowo",
+      "historyjka": null
+    },
+    {
+      "wskaznik": "II.3",
+      "tytul": "Plan przerw do zajęć „Przerwa, zanim będzie za dużo”",
+      "wstep_dla_doroslego": "Wytnij karty i pasek przerw. Pasek zostaje przy dziecku na cały dzień — odhaczona przerwa jest widocznym dowodem, że plan działa. Symbole wklej z biblioteki EduPlaner.",
+      "karty": [
+        {
+          "etykieta_dla_dziecka": "Przerwa 1",
+          "opis_dla_doroslego": "symbol pory dnia: po śniadaniu",
+          "symbol": "dzien_sniadanie",
+          "plik_symbolu": "eduplaner_przedszkole/assets/symbole/k_dzien_sniadanie.jpg"
+        },
+        {
+          "etykieta_dla_dziecka": "Przerwa 2",
+          "opis_dla_doroslego": "symbol pory dnia: przed zajęciami",
+          "symbol": "dzien_zajecia",
+          "plik_symbolu": "eduplaner_przedszkole/assets/symbole/k_dzien_zajecia.jpg"
+        },
+        {
+          "etykieta_dla_dziecka": "Przerwa 3",
+          "opis_dla_doroslego": "symbol pory dnia: po obiedzie",
+          "symbol": "dzien_obiad",
+          "plik_symbolu": "eduplaner_przedszkole/assets/symbole/k_dzien_obiad.jpg"
+        },
+        {
+          "etykieta_dla_dziecka": "Moje miejsce",
+          "opis_dla_doroslego": "symbol miejsca, w którym odbywa się przerwa",
+          "symbol": "postawa_stolik",
+          "plik_symbolu": "eduplaner_przedszkole/assets/symbole/k_postawa_stolik.jpg"
+        }
+      ],
+      "pasek_kolejnosci": [
+        {
+          "etykieta_dla_dziecka": "słyszę minutnik",
+          "symbol": "instrument_dzwonki",
+          "plik_symbolu": "eduplaner_przedszkole/assets/symbole/k_instrument_dzwonki.jpg"
+        },
+        {
+          "etykieta_dla_dziecka": "idę",
+          "symbol": "gest_chodz",
+          "plik_symbolu": "eduplaner_przedszkole/assets/symbole/k_gest_chodz.jpg"
+        },
+        {
+          "etykieta_dla_dziecka": "odhaczam",
+          "symbol": "gest_brawo",
+          "plik_symbolu": "eduplaner_przedszkole/assets/symbole/k_gest_brawo.jpg"
+        }
+      ],
+      "format": "A4 pionowo",
+      "historyjka": null
+    },
+    {
+      "wskaznik": "II.4",
+      "tytul": "Karty do zajęć „Skończyłem — i co teraz”",
+      "wstep_dla_doroslego": "Wytnij karty i powieś je przy stoliku dziecka. Wklej symbole zajęć, które są w sali naprawdę dostępne bez pytania dorosłego — lista z zajęciem wymagającym zgody nie działa w momencie, w którym jest potrzebna.",
+      "karty": [
+        {
+          "etykieta_dla_dziecka": "Wybór 1",
+          "opis_dla_doroslego": "symbol pierwszego zajęcia po skończonej pracy",
+          "symbol": "zabawa_ukladanka",
+          "plik_symbolu": "eduplaner_przedszkole/assets/symbole/k_zabawa_ukladanka.jpg"
+        },
+        {
+          "etykieta_dla_dziecka": "Wybór 2",
+          "opis_dla_doroslego": "symbol drugiego zajęcia",
+          "symbol": "zabawa_rysowanie",
+          "plik_symbolu": "eduplaner_przedszkole/assets/symbole/k_zabawa_rysowanie.jpg"
+        },
+        {
+          "etykieta_dla_dziecka": "Wybór 3",
+          "opis_dla_doroslego": "symbol trzeciego zajęcia",
+          "symbol": "zabawa_ksiazki",
+          "plik_symbolu": "eduplaner_przedszkole/assets/symbole/k_zabawa_ksiazki.jpg"
+        },
+        {
+          "etykieta_dla_dziecka": "Sprzątam",
+          "opis_dla_doroslego": "symbol odłożenia materiałów na miejsce",
+          "symbol": "dzien_sprzatanie",
+          "plik_symbolu": "eduplaner_przedszkole/assets/symbole/k_dzien_sprzatanie.jpg"
+        }
+      ],
+      "pasek_kolejnosci": [
+        {
+          "etykieta_dla_dziecka": "kończę",
+          "symbol": "gest_brawo",
+          "plik_symbolu": "eduplaner_przedszkole/assets/symbole/k_gest_brawo.jpg"
+        },
+        {
+          "etykieta_dla_dziecka": "wybieram",
+          "symbol": "zabawa_ukladanka",
+          "plik_symbolu": "eduplaner_przedszkole/assets/symbole/k_zabawa_ukladanka.jpg"
+        },
+        {
+          "etykieta_dla_dziecka": "zajmuję się",
+          "symbol": "postawa_stolik",
+          "plik_symbolu": "eduplaner_przedszkole/assets/symbole/k_postawa_stolik.jpg"
+        }
+      ],
+      "format": "A4 pionowo",
+      "historyjka": null
+    },
+    {
+      "wskaznik": "II.5",
+      "tytul": "Karty do zajęć „Stop i zamiana”",
+      "wstep_dla_doroslego": "Wytnij kartę sygnału i karty form zastępczych. Forma zastępcza musi dawać to samo wrażenie co zachowanie, które zamieniamy — dobierz ją z terapeutą SI i wklej jej symbol z biblioteki EduPlaner.",
+      "karty": [
+        {
+          "etykieta_dla_dziecka": "Stop",
+          "opis_dla_doroslego": "symbol zatrzymania — ten sam gest, ten sam obrazek",
+          "symbol": "gest_stop",
+          "plik_symbolu": "eduplaner_przedszkole/assets/symbole/k_gest_stop.jpg"
+        },
+        {
+          "etykieta_dla_dziecka": "Zamiana",
+          "opis_dla_doroslego": "symbol formy zastępczej dającej to samo wrażenie",
+          "symbol": "sensor_zamiana",
+          "plik_symbolu": "eduplaner_przedszkole/assets/symbole/k_sensor_zamiana.jpg"
+        },
+        {
+          "etykieta_dla_dziecka": "Ruch",
+          "opis_dla_doroslego": "symbol formy ruchowej, gdy zachowanie daje ruch",
+          "symbol": "prosze_ruch",
+          "plik_symbolu": "eduplaner_przedszkole/assets/symbole/k_prosze_ruch.jpg"
+        },
+        {
+          "etykieta_dla_dziecka": "Dźwięk",
+          "opis_dla_doroslego": "symbol formy dźwiękowej, gdy zachowanie daje dźwięk",
+          "symbol": "instrument_dzwonki",
+          "plik_symbolu": "eduplaner_przedszkole/assets/symbole/k_instrument_dzwonki.jpg"
+        }
+      ],
+      "pasek_kolejnosci": [
+        {
+          "etykieta_dla_dziecka": "widzę kartę",
+          "symbol": "gest_stop",
+          "plik_symbolu": "eduplaner_przedszkole/assets/symbole/k_gest_stop.jpg"
+        },
+        {
+          "etykieta_dla_dziecka": "kończę",
+          "symbol": "gest_stop",
+          "plik_symbolu": "eduplaner_przedszkole/assets/symbole/k_gest_stop.jpg"
+        },
+        {
+          "etykieta_dla_dziecka": "biorę zamianę",
+          "symbol": "sensor_zamiana",
+          "plik_symbolu": "eduplaner_przedszkole/assets/symbole/k_sensor_zamiana.jpg"
+        }
+      ],
+      "format": "A4 pionowo",
+      "historyjka": null
+    },
+    {
+      "wskaznik": "III.1",
+      "tytul": "Karty do zajęć „Kartka, kiedy nauczyciel jest zajęty”",
+      "wstep_dla_doroslego": "Wytnij karty. Karta „potrzebuję pomocy” leży na stoliku dziecka przez całe zajęcia, w tym samym rogu. Symbole wklej z biblioteki EduPlaner.",
+      "karty": [
+        {
+          "etykieta_dla_dziecka": "Potrzebuję pomocy",
+          "opis_dla_doroslego": "symbol prośby o pomoc — karta główna",
+          "symbol": "prosze_pomoc",
+          "plik_symbolu": "eduplaner_przedszkole/assets/symbole/k_prosze_pomoc.jpg"
+        },
+        {
+          "etykieta_dla_dziecka": "Czekam",
+          "opis_dla_doroslego": "symbol czekania: klepsydra albo zegar",
+          "symbol": "gest_czekam",
+          "plik_symbolu": "eduplaner_przedszkole/assets/symbole/k_gest_czekam.jpg"
+        },
+        {
+          "etykieta_dla_dziecka": "W międzyczasie",
+          "opis_dla_doroslego": "symbol zadania, które robię, czekając",
+          "symbol": "zabawa_ukladanka",
+          "plik_symbolu": "eduplaner_przedszkole/assets/symbole/k_zabawa_ukladanka.jpg"
+        },
+        {
+          "etykieta_dla_dziecka": "Już idę",
+          "opis_dla_doroslego": "symbol dla dorosłego: potwierdzenie, że widzi kartę",
+          "symbol": "gest_chodz",
+          "plik_symbolu": "eduplaner_przedszkole/assets/symbole/k_gest_chodz.jpg"
+        }
+      ],
+      "pasek_kolejnosci": [
+        {
+          "etykieta_dla_dziecka": "kładę kartę",
+          "symbol": "prosze_pomoc",
+          "plik_symbolu": "eduplaner_przedszkole/assets/symbole/k_prosze_pomoc.jpg"
+        },
+        {
+          "etykieta_dla_dziecka": "czekam",
+          "symbol": "gest_czekam",
+          "plik_symbolu": "eduplaner_przedszkole/assets/symbole/k_gest_czekam.jpg"
+        },
+        {
+          "etykieta_dla_dziecka": "dostaję pomoc",
+          "symbol": "gest_skinienie",
+          "plik_symbolu": "eduplaner_przedszkole/assets/symbole/k_gest_skinienie.jpg"
+        }
+      ],
+      "format": "A4 pionowo",
+      "historyjka": null
+    },
+    {
+      "wskaznik": "III.2",
+      "tytul": "Karty do zajęć „Ręka w górę zamiast hałasu”",
+      "wstep_dla_doroslego": "Wytnij karty i tabelkę żetonów. Żeton dziecko dostaje za skorzystanie z ręki, a nie za brak zachowania trudnego — nagradzamy to, co ma się pojawić, nie to, czego ma nie być.",
+      "karty": [
+        {
+          "etykieta_dla_dziecka": "Ręka w górę",
+          "opis_dla_doroslego": "symbol podniesionej ręki",
+          "symbol": "strategia_pomoc",
+          "plik_symbolu": "eduplaner_przedszkole/assets/symbole/k_strategia_pomoc.jpg"
+        },
+        {
+          "etykieta_dla_dziecka": "Widzę cię",
+          "opis_dla_doroslego": "symbol skinienia — odpowiedź dorosłego",
+          "symbol": "gest_skinienie",
+          "plik_symbolu": "eduplaner_przedszkole/assets/symbole/k_gest_skinienie.jpg"
+        },
+        {
+          "etykieta_dla_dziecka": "Czekam chwilę",
+          "opis_dla_doroslego": "symbol krótkiego czekania po zgłoszeniu",
+          "symbol": "gest_czekam",
+          "plik_symbolu": "eduplaner_przedszkole/assets/symbole/k_gest_czekam.jpg"
+        },
+        {
+          "etykieta_dla_dziecka": "Mój żeton",
+          "opis_dla_doroslego": "pole na żeton za skorzystanie z ręki",
+          "symbol": "zeton_diament",
+          "plik_symbolu": "eduplaner_przedszkole/assets/symbole/k_zeton_diament.jpg"
+        }
+      ],
+      "pasek_kolejnosci": [
+        {
+          "etykieta_dla_dziecka": "podnoszę rękę",
+          "symbol": "strategia_pomoc",
+          "plik_symbolu": "eduplaner_przedszkole/assets/symbole/k_strategia_pomoc.jpg"
+        },
+        {
+          "etykieta_dla_dziecka": "dostaję skinienie",
+          "symbol": "gest_skinienie",
+          "plik_symbolu": "eduplaner_przedszkole/assets/symbole/k_gest_skinienie.jpg"
+        },
+        {
+          "etykieta_dla_dziecka": "rozmawiamy",
+          "symbol": "gest_mowie",
+          "plik_symbolu": "eduplaner_przedszkole/assets/symbole/k_gest_mowie.jpg"
+        }
+      ],
+      "format": "A4 pionowo",
+      "historyjka": null
+    },
+    {
+      "wskaznik": "III.3",
+      "tytul": "Karty do zajęć „Moja kolej w rundzie”",
+      "wstep_dla_doroslego": "Wytnij karty i pasek. Pasek „mówię — słucham” dziecko trzyma przy sobie w czasie rundy i przesuwa znacznik. Symbole wklej z biblioteki EduPlaner.",
+      "karty": [
+        {
+          "etykieta_dla_dziecka": "Mówię",
+          "opis_dla_doroslego": "symbol mówienia — trzymam maskotkę",
+          "symbol": "gest_mowie",
+          "plik_symbolu": "eduplaner_przedszkole/assets/symbole/k_gest_mowie.jpg"
+        },
+        {
+          "etykieta_dla_dziecka": "Słucham",
+          "opis_dla_doroslego": "symbol słuchania — patrzę na mówiącego",
+          "symbol": "gest_slucham",
+          "plik_symbolu": "eduplaner_przedszkole/assets/symbole/k_gest_slucham.jpg"
+        },
+        {
+          "etykieta_dla_dziecka": "Moja kolej",
+          "opis_dla_doroslego": "symbol kolejki z zaznaczonym miejscem dziecka",
+          "symbol": "gest_czekam",
+          "plik_symbolu": "eduplaner_przedszkole/assets/symbole/k_gest_czekam.jpg"
+        },
+        {
+          "etykieta_dla_dziecka": "Koniec rundy",
+          "opis_dla_doroslego": "symbol zakończenia — maskotka wraca do nauczyciela",
+          "symbol": "gest_brawo",
+          "plik_symbolu": "eduplaner_przedszkole/assets/symbole/k_gest_brawo.jpg"
+        }
+      ],
+      "pasek_kolejnosci": [
+        {
+          "etykieta_dla_dziecka": "słucham",
+          "symbol": "gest_slucham",
+          "plik_symbolu": "eduplaner_przedszkole/assets/symbole/k_gest_slucham.jpg"
+        },
+        {
+          "etykieta_dla_dziecka": "moja kolej",
+          "symbol": "gest_mowie",
+          "plik_symbolu": "eduplaner_przedszkole/assets/symbole/k_gest_mowie.jpg"
+        },
+        {
+          "etykieta_dla_dziecka": "słucham dalej",
+          "symbol": "gest_slucham",
+          "plik_symbolu": "eduplaner_przedszkole/assets/symbole/k_gest_slucham.jpg"
+        }
+      ],
+      "format": "A4 pionowo",
+      "historyjka": null
+    },
+    {
+      "wskaznik": "III.4",
+      "tytul": "Karty do zajęć „Dwie minuty tylko dla mnie”",
+      "wstep_dla_doroslego": "Wytnij karty i wklej je w plan dnia dziecka. Karta „następna rozmowa” zostaje u dziecka po zakończeniu tej — widoczna zapowiedź działa lepiej niż obietnica powiedziana raz.",
+      "karty": [
+        {
+          "etykieta_dla_dziecka": "Rozmowa",
+          "opis_dla_doroslego": "symbol rozmowy: dwa krzesła, dwie osoby",
+          "symbol": "gest_mowie",
+          "plik_symbolu": "eduplaner_przedszkole/assets/symbole/k_gest_mowie.jpg"
+        },
+        {
+          "etykieta_dla_dziecka": "Dwie minuty",
+          "opis_dla_doroslego": "symbol minutnika ustawionego na czas rozmowy",
+          "symbol": "gest_czekam",
+          "plik_symbolu": "eduplaner_przedszkole/assets/symbole/k_gest_czekam.jpg"
+        },
+        {
+          "etykieta_dla_dziecka": "Wracam do zadania",
+          "opis_dla_doroslego": "symbol powrotu na miejsce",
+          "symbol": "postawa_stolik",
+          "plik_symbolu": "eduplaner_przedszkole/assets/symbole/k_postawa_stolik.jpg"
+        },
+        {
+          "etykieta_dla_dziecka": "Następna rozmowa",
+          "opis_dla_doroslego": "symbol pory dnia, o której będzie następna",
+          "symbol": "dzien_zajecia",
+          "plik_symbolu": "eduplaner_przedszkole/assets/symbole/k_dzien_zajecia.jpg"
+        }
+      ],
+      "pasek_kolejnosci": [
+        {
+          "etykieta_dla_dziecka": "rozmawiam",
+          "symbol": "gest_mowie",
+          "plik_symbolu": "eduplaner_przedszkole/assets/symbole/k_gest_mowie.jpg"
+        },
+        {
+          "etykieta_dla_dziecka": "słyszę minutnik",
+          "symbol": "instrument_dzwonki",
+          "plik_symbolu": "eduplaner_przedszkole/assets/symbole/k_instrument_dzwonki.jpg"
+        },
+        {
+          "etykieta_dla_dziecka": "wracam",
+          "symbol": "postawa_stolik",
+          "plik_symbolu": "eduplaner_przedszkole/assets/symbole/k_postawa_stolik.jpg"
+        }
+      ],
+      "format": "A4 pionowo",
+      "historyjka": null
+    },
+    {
+      "wskaznik": "III.5",
+      "tytul": "Karty do zajęć „Umówiony znak”",
+      "wstep_dla_doroslego": "Wytnij karty. Gest ustal z dzieckiem i narysuj go na karcie razem z nim — znak wymyślony wspólnie działa lepiej niż narzucony. Symbole pozostałych kart wklej z biblioteki EduPlaner.",
+      "karty": [
+        {
+          "etykieta_dla_dziecka": "Mój znak",
+          "opis_dla_doroslego": "miejsce na rysunek umówionego gestu",
+          "symbol": null,
+          "plik_symbolu": null
+        },
+        {
+          "etykieta_dla_dziecka": "Widzę cię",
+          "opis_dla_doroslego": "symbol skinienia dorosłego",
+          "symbol": "gest_skinienie",
+          "plik_symbolu": "eduplaner_przedszkole/assets/symbole/k_gest_skinienie.jpg"
+        },
+        {
+          "etykieta_dla_dziecka": "Zobacz, co zrobiłem",
+          "opis_dla_doroslego": "symbol pokazywania własnej pracy",
+          "symbol": "emocja_duma",
+          "plik_symbolu": "eduplaner_przedszkole/assets/symbole/k_emocja_duma.jpg"
+        },
+        {
+          "etykieta_dla_dziecka": "Poczekam",
+          "opis_dla_doroslego": "symbol krótkiego czekania na spojrzenie",
+          "symbol": "gest_czekam",
+          "plik_symbolu": "eduplaner_przedszkole/assets/symbole/k_gest_czekam.jpg"
+        }
+      ],
+      "pasek_kolejnosci": [
+        {
+          "etykieta_dla_dziecka": "daję znak",
+          "symbol": "strategia_pomoc",
+          "plik_symbolu": "eduplaner_przedszkole/assets/symbole/k_strategia_pomoc.jpg"
+        },
+        {
+          "etykieta_dla_dziecka": "dostaję skinienie",
+          "symbol": "gest_skinienie",
+          "plik_symbolu": "eduplaner_przedszkole/assets/symbole/k_gest_skinienie.jpg"
+        },
+        {
+          "etykieta_dla_dziecka": "pracuję dalej",
+          "symbol": "postawa_stolik",
+          "plik_symbolu": "eduplaner_przedszkole/assets/symbole/k_postawa_stolik.jpg"
+        }
+      ],
+      "format": "A4 pionowo",
+      "historyjka": null
+    },
+    {
+      "wskaznik": "IV.1",
+      "tytul": "Karty do zajęć „Nie teraz — a co zamiast”",
+      "wstep_dla_doroslego": "Wytnij karty. Karty alternatyw pokazuj razem z odmową, nie po niej — dziecko ma zobaczyć wyjście w tej samej chwili, w której słyszy „nie”. Symbole wklej z biblioteki EduPlaner.",
+      "karty": [
+        {
+          "etykieta_dla_dziecka": "Nie teraz",
+          "opis_dla_doroslego": "symbol odmowy z miejscem na porę, kiedy będzie można",
+          "symbol": "gest_stop",
+          "plik_symbolu": "eduplaner_przedszkole/assets/symbole/k_gest_stop.jpg"
+        },
+        {
+          "etykieta_dla_dziecka": "Mogę to",
+          "opis_dla_doroslego": "symbol pierwszej alternatywy",
+          "symbol": "zabawa_klocki",
+          "plik_symbolu": "eduplaner_przedszkole/assets/symbole/k_zabawa_klocki.jpg"
+        },
+        {
+          "etykieta_dla_dziecka": "Albo to",
+          "opis_dla_doroslego": "symbol drugiej alternatywy",
+          "symbol": "zabawa_rysowanie",
+          "plik_symbolu": "eduplaner_przedszkole/assets/symbole/k_zabawa_rysowanie.jpg"
+        },
+        {
+          "etykieta_dla_dziecka": "Jak się czuję",
+          "opis_dla_doroslego": "buźki: złość, smutek, spokój",
+          "symbol": "emocja_spokoj",
+          "plik_symbolu": "eduplaner_przedszkole/assets/symbole/k_emocja_spokoj.jpg"
+        }
+      ],
+      "pasek_kolejnosci": [
+        {
+          "etykieta_dla_dziecka": "słyszę „nie”",
+          "symbol": "gest_stop",
+          "plik_symbolu": "eduplaner_przedszkole/assets/symbole/k_gest_stop.jpg"
+        },
+        {
+          "etykieta_dla_dziecka": "wybieram",
+          "symbol": "zabawa_klocki",
+          "plik_symbolu": "eduplaner_przedszkole/assets/symbole/k_zabawa_klocki.jpg"
+        },
+        {
+          "etykieta_dla_dziecka": "robię",
+          "symbol": "postawa_stolik",
+          "plik_symbolu": "eduplaner_przedszkole/assets/symbole/k_postawa_stolik.jpg"
+        }
+      ],
+      "format": "A4 pionowo",
+      "historyjka": null
+    },
+    {
+      "wskaznik": "IV.2",
+      "tytul": "Karty do zajęć „Jeszcze dwie minuty i oddaję”",
+      "wstep_dla_doroslego": "Wytnij karty i pasek. Kartę „jeszcze dwie minuty” pokazuj razem z nastawieniem minutnika — to samo dziecko widzi i słyszy. Symbole wklej z biblioteki EduPlaner.",
+      "karty": [
+        {
+          "etykieta_dla_dziecka": "Jeszcze dwie minuty",
+          "opis_dla_doroslego": "symbol minutnika z zapowiedzią końca",
+          "symbol": "gest_czekam",
+          "plik_symbolu": "eduplaner_przedszkole/assets/symbole/k_gest_czekam.jpg"
+        },
+        {
+          "etykieta_dla_dziecka": "Koniec",
+          "opis_dla_doroslego": "symbol sygnału końca zabawy",
+          "symbol": "gest_stop",
+          "plik_symbolu": "eduplaner_przedszkole/assets/symbole/k_gest_stop.jpg"
+        },
+        {
+          "etykieta_dla_dziecka": "Tu odkładam",
+          "opis_dla_doroslego": "symbol miejsca, na które wraca przedmiot",
+          "symbol": "polecenie_poloz",
+          "plik_symbolu": "eduplaner_przedszkole/assets/symbole/k_polecenie_poloz.jpg"
+        },
+        {
+          "etykieta_dla_dziecka": "Wróci jutro",
+          "opis_dla_doroslego": "symbol następnego dnia",
+          "symbol": "dzien_powrot",
+          "plik_symbolu": "eduplaner_przedszkole/assets/symbole/k_dzien_powrot.jpg"
+        }
+      ],
+      "pasek_kolejnosci": [
+        {
+          "etykieta_dla_dziecka": "gram",
+          "symbol": "zabawa_auta",
+          "plik_symbolu": "eduplaner_przedszkole/assets/symbole/k_zabawa_auta.jpg"
+        },
+        {
+          "etykieta_dla_dziecka": "zapowiedź",
+          "symbol": "gest_czekam",
+          "plik_symbolu": "eduplaner_przedszkole/assets/symbole/k_gest_czekam.jpg"
+        },
+        {
+          "etykieta_dla_dziecka": "odkładam",
+          "symbol": "polecenie_poloz",
+          "plik_symbolu": "eduplaner_przedszkole/assets/symbole/k_polecenie_poloz.jpg"
+        }
+      ],
+      "format": "A4 pionowo",
+      "historyjka": null
+    },
+    {
+      "wskaznik": "IV.3",
+      "tytul": "Karty do zajęć „Poproszę o to”",
+      "wstep_dla_doroslego": "Wytnij karty przedmiotów. Wklej symbole rzeczy, o które dziecko naprawdę najczęściej się dopomina — karta z przedmiotem nieużywanym nie zostanie użyta w momencie, w którym jest potrzebna.",
+      "karty": [
+        {
+          "etykieta_dla_dziecka": "Poproszę o…",
+          "opis_dla_doroslego": "karta zwrotu z pustym polem na symbol przedmiotu",
+          "symbol": "polecenie_daj",
+          "plik_symbolu": "eduplaner_przedszkole/assets/symbole/k_polecenie_daj.jpg"
+        },
+        {
+          "etykieta_dla_dziecka": "Przedmiot 1",
+          "opis_dla_doroslego": "symbol rzeczy najczęściej pożądanej",
+          "symbol": "zabawa_auta",
+          "plik_symbolu": "eduplaner_przedszkole/assets/symbole/k_zabawa_auta.jpg"
+        },
+        {
+          "etykieta_dla_dziecka": "Przedmiot 2",
+          "opis_dla_doroslego": "symbol drugiej rzeczy",
+          "symbol": "zabawa_ksiazki",
+          "plik_symbolu": "eduplaner_przedszkole/assets/symbole/k_zabawa_ksiazki.jpg"
+        },
+        {
+          "etykieta_dla_dziecka": "Dziękuję",
+          "opis_dla_doroslego": "symbol podziękowania po otrzymaniu",
+          "symbol": "gest_dziekuje",
+          "plik_symbolu": "eduplaner_przedszkole/assets/symbole/k_gest_dziekuje.jpg"
+        }
+      ],
+      "pasek_kolejnosci": [
+        {
+          "etykieta_dla_dziecka": "proszę",
+          "symbol": "polecenie_daj",
+          "plik_symbolu": "eduplaner_przedszkole/assets/symbole/k_polecenie_daj.jpg"
+        },
+        {
+          "etykieta_dla_dziecka": "czekam",
+          "symbol": "gest_czekam",
+          "plik_symbolu": "eduplaner_przedszkole/assets/symbole/k_gest_czekam.jpg"
+        },
+        {
+          "etykieta_dla_dziecka": "dostaję",
+          "symbol": "gest_dziekuje",
+          "plik_symbolu": "eduplaner_przedszkole/assets/symbole/k_gest_dziekuje.jpg"
+        }
+      ],
+      "format": "A4 pionowo",
+      "historyjka": null
+    },
+    {
+      "wskaznik": "IV.4",
+      "tytul": "Karty do zajęć „Czekam z licznikiem”",
+      "wstep_dla_doroslego": "Wytnij karty i pasek czekania. Na karcie „dostanę o…” zaznacz porę razem z dzieckiem — zapisany termin jest umową, a nie obietnicą. Symbole wklej z biblioteki EduPlaner.",
+      "karty": [
+        {
+          "etykieta_dla_dziecka": "Chcę to",
+          "opis_dla_doroslego": "symbol przedmiotu, na który dziecko czeka",
+          "symbol": "polecenie_daj",
+          "plik_symbolu": "eduplaner_przedszkole/assets/symbole/k_polecenie_daj.jpg"
+        },
+        {
+          "etykieta_dla_dziecka": "Dostanę o…",
+          "opis_dla_doroslego": "symbol pory dnia z miejscem na zaznaczenie",
+          "symbol": "gest_czekam",
+          "plik_symbolu": "eduplaner_przedszkole/assets/symbole/k_gest_czekam.jpg"
+        },
+        {
+          "etykieta_dla_dziecka": "W tym czasie",
+          "opis_dla_doroslego": "symbol zajęcia na czas czekania",
+          "symbol": "zabawa_ukladanka",
+          "plik_symbolu": "eduplaner_przedszkole/assets/symbole/k_zabawa_ukladanka.jpg"
+        },
+        {
+          "etykieta_dla_dziecka": "Doczekałem",
+          "opis_dla_doroslego": "pole na znak po udanym czekaniu",
+          "symbol": "emocja_duma",
+          "plik_symbolu": "eduplaner_przedszkole/assets/symbole/k_emocja_duma.jpg"
+        }
+      ],
+      "pasek_kolejnosci": [
+        {
+          "etykieta_dla_dziecka": "proszę",
+          "symbol": "polecenie_daj",
+          "plik_symbolu": "eduplaner_przedszkole/assets/symbole/k_polecenie_daj.jpg"
+        },
+        {
+          "etykieta_dla_dziecka": "czekam",
+          "symbol": "gest_czekam",
+          "plik_symbolu": "eduplaner_przedszkole/assets/symbole/k_gest_czekam.jpg"
+        },
+        {
+          "etykieta_dla_dziecka": "dostaję",
+          "symbol": "gest_brawo",
+          "plik_symbolu": "eduplaner_przedszkole/assets/symbole/k_gest_brawo.jpg"
+        }
+      ],
+      "format": "A4 pionowo",
+      "historyjka": null
+    },
+    {
+      "wskaznik": "IV.5",
+      "tytul": "Karty do zajęć „Co robię, zanim się zacznie”",
+      "wstep_dla_doroslego": "Wytnij karty i pasek czasu. Zadania „w międzyczasie” przygotuj wcześniej i trzymaj w jednym pudełku — szukanie zajęcia w momencie oczekiwania przychodzi zawsze o minutę za późno.",
+      "karty": [
+        {
+          "etykieta_dla_dziecka": "Czekam na",
+          "opis_dla_doroslego": "symbol atrakcji, na którą dziecko czeka",
+          "symbol": "gest_czekam",
+          "plik_symbolu": "eduplaner_przedszkole/assets/symbole/k_gest_czekam.jpg"
+        },
+        {
+          "etykieta_dla_dziecka": "W międzyczasie 1",
+          "opis_dla_doroslego": "symbol pierwszego krótkiego zadania",
+          "symbol": "zabawa_rysowanie",
+          "plik_symbolu": "eduplaner_przedszkole/assets/symbole/k_zabawa_rysowanie.jpg"
+        },
+        {
+          "etykieta_dla_dziecka": "W międzyczasie 2",
+          "opis_dla_doroslego": "symbol drugiego zadania",
+          "symbol": "zabawa_ukladanka",
+          "plik_symbolu": "eduplaner_przedszkole/assets/symbole/k_zabawa_ukladanka.jpg"
+        },
+        {
+          "etykieta_dla_dziecka": "Mój żeton",
+          "opis_dla_doroslego": "pole na żeton za wypełnione oczekiwanie",
+          "symbol": "zeton_diament",
+          "plik_symbolu": "eduplaner_przedszkole/assets/symbole/k_zeton_diament.jpg"
+        }
+      ],
+      "pasek_kolejnosci": [
+        {
+          "etykieta_dla_dziecka": "dużo czasu",
+          "symbol": "gest_czekam",
+          "plik_symbolu": "eduplaner_przedszkole/assets/symbole/k_gest_czekam.jpg"
+        },
+        {
+          "etykieta_dla_dziecka": "trochę czasu",
+          "symbol": "zabawa_ukladanka",
+          "plik_symbolu": "eduplaner_przedszkole/assets/symbole/k_zabawa_ukladanka.jpg"
+        },
+        {
+          "etykieta_dla_dziecka": "zaczynamy",
+          "symbol": "gest_brawo",
+          "plik_symbolu": "eduplaner_przedszkole/assets/symbole/k_gest_brawo.jpg"
+        }
+      ],
+      "format": "A4 pionowo",
+      "historyjka": null
+    },
+    {
+      "wskaznik": "V.1",
+      "tytul": "Karty do zajęć „Zmiana, o której wiem wcześniej”",
+      "wstep_dla_doroslego": "Wytnij karty i wpinaj je w plan dnia dziecka. Karta „zmiana” ma być jedna i zawsze ta sama — dziecko rozpoznaje ją szybciej niż zdanie, które słyszy. Symbole wklej z biblioteki EduPlaner.",
+      "karty": [
+        {
+          "etykieta_dla_dziecka": "Zmiana",
+          "opis_dla_doroslego": "symbol zmiany — karta wstawiana w plan dnia",
+          "symbol": "plan_zmiana",
+          "plik_symbolu": "eduplaner_przedszkole/assets/symbole/k_plan_zmiana.jpg"
+        },
+        {
+          "etykieta_dla_dziecka": "Za pięć minut",
+          "opis_dla_doroslego": "symbol odliczania: zostało pięć minut",
+          "symbol": "gest_czekam",
+          "plik_symbolu": "eduplaner_przedszkole/assets/symbole/k_gest_czekam.jpg"
+        },
+        {
+          "etykieta_dla_dziecka": "Teraz to",
+          "opis_dla_doroslego": "symbol nowej aktywności",
+          "symbol": "dzien_zajecia",
+          "plik_symbolu": "eduplaner_przedszkole/assets/symbole/k_dzien_zajecia.jpg"
+        },
+        {
+          "etykieta_dla_dziecka": "Jak się czuję",
+          "opis_dla_doroslego": "buźki do zaznaczenia po zmianie",
+          "symbol": "emocja_spokoj",
+          "plik_symbolu": "eduplaner_przedszkole/assets/symbole/k_emocja_spokoj.jpg"
+        }
+      ],
+      "pasek_kolejnosci": [
+        {
+          "etykieta_dla_dziecka": "wiem wcześniej",
+          "symbol": "plan_zmiana",
+          "plik_symbolu": "eduplaner_przedszkole/assets/symbole/k_plan_zmiana.jpg"
+        },
+        {
+          "etykieta_dla_dziecka": "odliczam",
+          "symbol": "gest_czekam",
+          "plik_symbolu": "eduplaner_przedszkole/assets/symbole/k_gest_czekam.jpg"
+        },
+        {
+          "etykieta_dla_dziecka": "przechodzę",
+          "symbol": "gest_chodz",
+          "plik_symbolu": "eduplaner_przedszkole/assets/symbole/k_gest_chodz.jpg"
+        }
+      ],
+      "format": "A4 pionowo",
+      "historyjka": null
+    },
+    {
+      "wskaznik": "V.2",
+      "tytul": "Termometr emocji do zajęć „Zanim zrobi się czerwono”",
+      "wstep_dla_doroslego": "Wytnij termometr i karty. Termometr zostaje na stoliku dziecka na stałe. W pola przy kolorze żółtym wklej symbole strategii, które u was działają — kolor bez wyjścia jest tylko etykietą.",
+      "karty": [
+        {
+          "etykieta_dla_dziecka": "Zielony",
+          "opis_dla_doroslego": "symbol spokoju — mogę pracować",
+          "symbol": "emocja_spokoj",
+          "plik_symbolu": "eduplaner_przedszkole/assets/symbole/k_emocja_spokoj.jpg"
+        },
+        {
+          "etykieta_dla_dziecka": "Żółty",
+          "opis_dla_doroslego": "symbol napięcia — potrzebuję strategii",
+          "symbol": "emocja_zmeczenie",
+          "plik_symbolu": "eduplaner_przedszkole/assets/symbole/k_emocja_zmeczenie.jpg"
+        },
+        {
+          "etykieta_dla_dziecka": "Czerwony",
+          "opis_dla_doroslego": "symbol wybuchu — potrzebuję pomocy dorosłego",
+          "symbol": "emocja_zlosc",
+          "plik_symbolu": "eduplaner_przedszkole/assets/symbole/k_emocja_zlosc.jpg"
+        },
+        {
+          "etykieta_dla_dziecka": "Co mi pomaga",
+          "opis_dla_doroslego": "symbol tego, co pomaga przy żółtym",
+          "symbol": "strategia_oddech",
+          "plik_symbolu": "eduplaner_przedszkole/assets/symbole/k_strategia_oddech.jpg"
+        }
+      ],
+      "pasek_kolejnosci": [
+        {
+          "etykieta_dla_dziecka": "sprawdzam",
+          "symbol": "emocja_spokoj",
+          "plik_symbolu": "eduplaner_przedszkole/assets/symbole/k_emocja_spokoj.jpg"
+        },
+        {
+          "etykieta_dla_dziecka": "nazywam",
+          "symbol": "gest_mowie",
+          "plik_symbolu": "eduplaner_przedszkole/assets/symbole/k_gest_mowie.jpg"
+        },
+        {
+          "etykieta_dla_dziecka": "wybieram, co mi pomaga",
+          "symbol": "strategia_oddech",
+          "plik_symbolu": "eduplaner_przedszkole/assets/symbole/k_strategia_oddech.jpg"
+        }
+      ],
+      "format": "A4 pionowo",
+      "historyjka": null
+    },
+    {
+      "wskaznik": "V.3",
+      "tytul": "Karty do zajęć „Kącik, w którym robi się ciszej”",
+      "wstep_dla_doroslego": "Wytnij karty i powieś je w kąciku wyciszenia. Formy na kartach mają być naprawdę dostępne w tym kąciku — karta z formą, której tam nie ma, uczy dziecko, że kącik nie działa. Symbole wklej z biblioteki EduPlaner.",
+      "karty": [
+        {
+          "etykieta_dla_dziecka": "Idę do kącika",
+          "opis_dla_doroslego": "symbol wejścia — karta kładziona przy wejściu",
+          "symbol": "strategia_przerwa",
+          "plik_symbolu": "eduplaner_przedszkole/assets/symbole/k_strategia_przerwa.jpg"
+        },
+        {
+          "etykieta_dla_dziecka": "Oddech",
+          "opis_dla_doroslego": "symbol ćwiczenia oddechowego",
+          "symbol": "strategia_oddech",
+          "plik_symbolu": "eduplaner_przedszkole/assets/symbole/k_strategia_oddech.jpg"
+        },
+        {
+          "etykieta_dla_dziecka": "Ciężki koc",
+          "opis_dla_doroslego": "symbol ucisku",
+          "symbol": "sensor_ucisk",
+          "plik_symbolu": "eduplaner_przedszkole/assets/symbole/k_sensor_ucisk.jpg"
+        },
+        {
+          "etykieta_dla_dziecka": "Cisza",
+          "opis_dla_doroslego": "symbol słuchawek wygłuszających",
+          "symbol": "prosze_cisza",
+          "plik_symbolu": "eduplaner_przedszkole/assets/symbole/k_prosze_cisza.jpg"
+        }
+      ],
+      "pasek_kolejnosci": [
+        {
+          "etykieta_dla_dziecka": "wchodzę",
+          "symbol": "gest_chodz",
+          "plik_symbolu": "eduplaner_przedszkole/assets/symbole/k_gest_chodz.jpg"
+        },
+        {
+          "etykieta_dla_dziecka": "wyciszam się",
+          "symbol": "strategia_oddech",
+          "plik_symbolu": "eduplaner_przedszkole/assets/symbole/k_strategia_oddech.jpg"
+        },
+        {
+          "etykieta_dla_dziecka": "wychodzę",
+          "symbol": "gest_brawo",
+          "plik_symbolu": "eduplaner_przedszkole/assets/symbole/k_gest_brawo.jpg"
+        }
+      ],
+      "format": "A4 pionowo",
+      "historyjka": null
+    },
+    {
+      "wskaznik": "V.4",
+      "tytul": "Karty do zajęć „Wracam do grupy”",
+      "wstep_dla_doroslego": "Wytnij karty. Karta „moje miejsce” wskazuje, dokąd dziecko wraca — powrót do konkretnego miejsca jest łatwiejszy niż powrót „do grupy”. Symbole wklej z biblioteki EduPlaner.",
+      "karty": [
+        {
+          "etykieta_dla_dziecka": "Wracam",
+          "opis_dla_doroslego": "symbol powrotu z kącika",
+          "symbol": "gest_chodz",
+          "plik_symbolu": "eduplaner_przedszkole/assets/symbole/k_gest_chodz.jpg"
+        },
+        {
+          "etykieta_dla_dziecka": "Moje miejsce",
+          "opis_dla_doroslego": "symbol konkretnego miejsca w sali",
+          "symbol": "postawa_stolik",
+          "plik_symbolu": "eduplaner_przedszkole/assets/symbole/k_postawa_stolik.jpg"
+        },
+        {
+          "etykieta_dla_dziecka": "Kończę zadanie",
+          "opis_dla_doroslego": "symbol skróconej części zadania",
+          "symbol": "gest_brawo",
+          "plik_symbolu": "eduplaner_przedszkole/assets/symbole/k_gest_brawo.jpg"
+        },
+        {
+          "etykieta_dla_dziecka": "Naprawiam",
+          "opis_dla_doroslego": "symbol przeprosin albo posprzątania",
+          "symbol": "umiem_pomagam",
+          "plik_symbolu": "eduplaner_przedszkole/assets/symbole/k_umiem_pomagam.jpg"
+        }
+      ],
+      "pasek_kolejnosci": [
+        {
+          "etykieta_dla_dziecka": "kończę wyciszenie",
+          "symbol": "strategia_oddech",
+          "plik_symbolu": "eduplaner_przedszkole/assets/symbole/k_strategia_oddech.jpg"
+        },
+        {
+          "etykieta_dla_dziecka": "wracam",
+          "symbol": "gest_chodz",
+          "plik_symbolu": "eduplaner_przedszkole/assets/symbole/k_gest_chodz.jpg"
+        },
+        {
+          "etykieta_dla_dziecka": "kończę zadanie",
+          "symbol": "gest_brawo",
+          "plik_symbolu": "eduplaner_przedszkole/assets/symbole/k_gest_brawo.jpg"
+        }
+      ],
+      "format": "A4 pionowo",
+      "historyjka": null
+    },
+    {
+      "wskaznik": "V.5",
+      "tytul": "Karty do zajęć „Czerwona karta, zanim wybuchnie”",
+      "wstep_dla_doroslego": "Wytnij czerwoną kartę i karty sygnałów. Sygnały ciała uzupełnij razem z dzieckiem — to mają być jego sygnały, nie lista z podręcznika. Symbole pozostałych kart wklej z biblioteki EduPlaner.",
+      "karty": [
+        {
+          "etykieta_dla_dziecka": "Czerwona karta",
+          "opis_dla_doroslego": "duże czerwone pole — sygnał dziecka do dorosłego",
+          "symbol": "karta_czerwona",
+          "plik_symbolu": "eduplaner_przedszkole/assets/symbole/k_karta_czerwona.jpg"
+        },
+        {
+          "etykieta_dla_dziecka": "Mój znak 1",
+          "opis_dla_doroslego": "miejsce na pierwszy sygnał ciała dziecka",
+          "symbol": "sygnal_ciala",
+          "plik_symbolu": "eduplaner_przedszkole/assets/symbole/k_sygnal_ciala.jpg"
+        },
+        {
+          "etykieta_dla_dziecka": "Mój znak 2",
+          "opis_dla_doroslego": "miejsce na drugi sygnał",
+          "symbol": null,
+          "plik_symbolu": null
+        },
+        {
+          "etykieta_dla_dziecka": "Co robimy",
+          "opis_dla_doroslego": "symbol reakcji dorosłego: podejście, przerwa, kącik",
+          "symbol": "prosze_pomoc",
+          "plik_symbolu": "eduplaner_przedszkole/assets/symbole/k_prosze_pomoc.jpg"
+        }
+      ],
+      "pasek_kolejnosci": [
+        {
+          "etykieta_dla_dziecka": "zauważam",
+          "symbol": "sygnal_ciala",
+          "plik_symbolu": "eduplaner_przedszkole/assets/symbole/k_sygnal_ciala.jpg"
+        },
+        {
+          "etykieta_dla_dziecka": "pokazuję kartę",
+          "symbol": "karta_czerwona",
+          "plik_symbolu": "eduplaner_przedszkole/assets/symbole/k_karta_czerwona.jpg"
+        },
+        {
+          "etykieta_dla_dziecka": "dostaję pomoc",
+          "symbol": "prosze_pomoc",
+          "plik_symbolu": "eduplaner_przedszkole/assets/symbole/k_prosze_pomoc.jpg"
+        }
+      ],
+      "format": "A4 pionowo",
+      "historyjka": null
+    }
+  ]
+}

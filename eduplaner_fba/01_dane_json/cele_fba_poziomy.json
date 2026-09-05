@@ -1,0 +1,731 @@
+{
+  "dokument": "EduPlaner 2026 · druk FBA-T · cele SMART wiek × poziom wsparcia",
+  "opis": "Poziom wsparcia zmienia warunki zadania, nie funkcję zachowania. Kryterium na Poziomie I zostaje 4 z 5 — rośnie trudność zachowania, nie liczba prób.",
+  "poziomy_wsparcia": [
+    {
+      "klucz": "p3",
+      "nazwa": "Poziom III",
+      "kryterium": "3 z 5",
+      "horyzont": "4 tygodni",
+      "warunki": "podpora dorosłego, pomoc podana do ręki",
+      "rzym": "III",
+      "kolor_oceny": "czerwona"
+    },
+    {
+      "klucz": "p2",
+      "nazwa": "Poziom II",
+      "kryterium": "4 z 5",
+      "horyzont": "8 tygodni",
+      "warunki": "pomoc w zasięgu, dziecko sięga po nią samo",
+      "rzym": "II",
+      "kolor_oceny": "żółta"
+    },
+    {
+      "klucz": "p1",
+      "nazwa": "Poziom I",
+      "kryterium": "4 z 5",
+      "horyzont": "12 tygodni",
+      "warunki": "bez pomocy przedmiotowej, zachowanie trudniejsze",
+      "rzym": "I",
+      "kolor_oceny": "zielona"
+    }
+  ],
+  "wersje_wiekowe": [
+    {
+      "klucz": "A",
+      "wiek": "3–4 lata",
+      "czas": "10 min",
+      "forma": "para z nauczycielem",
+      "cykl": "4× w tygodniu"
+    },
+    {
+      "klucz": "B",
+      "wiek": "5 lat",
+      "czas": "15 min",
+      "forma": "mała grupa (3–4 dzieci)",
+      "cykl": "3× w tygodniu"
+    },
+    {
+      "klucz": "C",
+      "wiek": "6 lat",
+      "czas": "20 min",
+      "forma": "mała grupa (4–6 dzieci)",
+      "cykl": "3× w tygodniu"
+    }
+  ],
+  "funkcje": [
+    {
+      "nr": "I",
+      "nazwa": "Ucieczka / unikanie",
+      "wskazniki": [
+        {
+          "nr": "I.1",
+          "wskaznik": "Zachowanie pojawia się, gdy dziecko ma wykonać trudne lub nielubiane zadanie.",
+          "zachowanie_zastepcze": "rozpoczęcie zadania",
+          "cele": {
+            "A": {
+              "p3": "Weźmie do ręki pierwszy element zadania podany przez nauczyciela",
+              "p2": "Rozpocznie zadanie po pokazaniu karty „najpierw praca, potem zabawa”",
+              "p1": "Rozpocznie zadanie po jednym poleceniu i wykona pierwszy krok samo"
+            },
+            "B": {
+              "p3": "Rozpocznie zadanie, gdy nauczyciel wykona pierwszy krok razem z nim",
+              "p2": "Rozpocznie zadanie w ciągu minuty po wskazaniu pierwszego kroku na karcie",
+              "p1": "Rozpocznie trudne zadanie w ciągu minuty i wykona dwa kroki bez podpowiedzi"
+            },
+            "C": {
+              "p3": "Rozpocznie trudne zadanie po wybraniu, od którego z dwóch kroków zaczyna",
+              "p2": "Rozpocznie trudne zadanie w ciągu minuty i powie, co robi jako pierwsze",
+              "p1": "Rozpocznie trudne zadanie i doprowadzi je do końca, prosząc o pomoc zamiast przerywać"
+            }
+          },
+          "pozycja": 1,
+          "opis_kroku": "Zachowanie nasila się przy trudnych i nielubianych zadaniach, a wygasa po ich odpuszczeniu."
+        },
+        {
+          "nr": "I.2",
+          "wskaznik": "Zachowanie nasila się przy poleceniach lub wymaganiach.",
+          "zachowanie_zastepcze": "wykonanie polecenia",
+          "cele": {
+            "A": {
+              "p3": "Wykona polecenie pokazane gestem i obrazkiem, przy dorosłym obok",
+              "p2": "Wykona polecenie po jednym powtórzeniu i pokazaniu obrazka",
+              "p1": "Wykona polecenie usłyszane raz, bez pokazywania obrazka"
+            },
+            "B": {
+              "p3": "Wykona polecenie po powtórzeniu i zapowiedzi „jeszcze dwie rzeczy i koniec”",
+              "p2": "Wykona polecenie po jednym powtórzeniu, bez odmowy i odchodzenia od stolika",
+              "p1": "Wykona dwa polecenia po kolei, usłyszane raz"
+            },
+            "C": {
+              "p3": "Wykona polecenie po powtórzeniu i pokazaniu, ile zostało do końca",
+              "p2": "Wykona polecenie po jednym powtórzeniu i powie, kiedy skończy",
+              "p1": "Wykona serię trzech poleceń zapowiedzianych naraz, bez przypominania"
+            }
+          },
+          "pozycja": 2,
+          "opis_kroku": "Zachowanie nasila się przy trudnych i nielubianych zadaniach, a wygasa po ich odpuszczeniu."
+        },
+        {
+          "nr": "I.3",
+          "wskaznik": "Po zachowaniu dziecko zostaje zwolnione z zadania albo odprowadzone.",
+          "zachowanie_zastepcze": "powrót do zadania po przerwie",
+          "cele": {
+            "A": {
+              "p3": "Wróci do stolika po przerwie, prowadzone za rękę przez nauczyciela",
+              "p2": "Wróci do stolika po sygnale dźwiękowym i dokończy jeden element",
+              "p1": "Wróci do stolika po przerwie i dokończy zadanie zaczęte przed nią"
+            },
+            "B": {
+              "p3": "Wróci do zadania po trzyminutowej przerwie i wykona jedną, wskazaną część",
+              "p2": "Wróci do zadania po przerwie i dokończy połowę tego, co zostało",
+              "p1": "Wróci do zadania po przerwie i dokończy je w całości"
+            },
+            "C": {
+              "p3": "Wróci do zadania po przerwie i powie, co zostało do zrobienia",
+              "p2": "Wróci do zadania po przerwie i dokończy je bez przypominania",
+              "p1": "Samo zdecyduje o końcu przerwy w umówionym czasie i wróci do zadania"
+            }
+          },
+          "pozycja": 3,
+          "opis_kroku": "Zachowanie nasila się przy trudnych i nielubianych zadaniach, a wygasa po ich odpuszczeniu."
+        },
+        {
+          "nr": "I.4",
+          "wskaznik": "Zachowanie rzadziej występuje, gdy zadanie jest łatwe lub atrakcyjne.",
+          "zachowanie_zastepcze": "podjęcie trudniejszego zadania",
+          "cele": {
+            "A": {
+              "p3": "Podejmie trudniejsze zadanie ułożone po dwóch łatwych, z pomocą dorosłego",
+              "p2": "Podejmie trudniejsze zadanie po dwóch łatwych, po pokazaniu, co ma zrobić",
+              "p1": "Podejmie trudniejsze zadanie po dwóch łatwych, bez pokazywania"
+            },
+            "B": {
+              "p3": "Wykona serię „dwa łatwe, jedno trudne” przy nauczycielu siedzącym obok",
+              "p2": "Wykona serię „dwa łatwe, jedno trudne”, prosząc o pomoc przy trudnym",
+              "p1": "Wykona serię „dwa łatwe, jedno trudne” samodzielnie"
+            },
+            "C": {
+              "p3": "Wybierze z dwóch zadań to trudniejsze przynajmniej raz w serii",
+              "p2": "Wykona trudniejsze zadanie po dwóch łatwych i oceni, co było łatwe, a co trudne",
+              "p1": "Zaplanuje kolejność zadań tak, by trudne wypadło w środku, i wykona ją"
+            }
+          },
+          "pozycja": 4,
+          "opis_kroku": "Zachowanie nasila się przy trudnych i nielubianych zadaniach, a wygasa po ich odpuszczeniu."
+        },
+        {
+          "nr": "I.5",
+          "wskaznik": "Po „odpuszczeniu” zadania zachowanie ustaje — ucieczka działa.",
+          "zachowanie_zastepcze": "prośba o przerwę",
+          "cele": {
+            "A": {
+              "p3": "Poda nauczycielowi kartę „przerwa” podaną do ręki, zamiast odejść od stolika",
+              "p2": "Weźmie ze stolika kartę „przerwa” i pokaże ją, zamiast odejść od stolika",
+              "p1": "Poprosi o przerwę słowem „przerwa”, zamiast odejść od stolika"
+            },
+            "B": {
+              "p3": "Pokaże kartę „przerwa” po przypomnieniu, zamiast przerwać zadanie krzykiem",
+              "p2": "Pokaże kartę „przerwa” samo, zanim przerwie zadanie",
+              "p1": "Poprosi o przerwę słowami i wróci do zadania po jej końcu"
+            },
+            "C": {
+              "p3": "Pokaże kartę „przerwa” przy pierwszym sygnale zmęczenia zadaniem",
+              "p2": "Poprosi o przerwę słowami i powie, ile jej potrzebuje",
+              "p1": "Poprosi o przerwę, ustali z nauczycielem jej długość i dotrzyma umowy"
+            }
+          },
+          "pozycja": 5,
+          "opis_kroku": "Zachowanie nasila się przy trudnych i nielubianych zadaniach, a wygasa po ich odpuszczeniu."
+        }
+      ],
+      "icf": "d210·d240",
+      "pp": "2.6·2.11",
+      "opis": "Zachowanie nasila się przy trudnych i nielubianych zadaniach, a wygasa po ich odpuszczeniu.",
+      "zasada_pbs": "Nie zwalniamy z zadania po zachowaniu trudnym — inaczej wzmacniamy ucieczkę. Zamiast tego: krótsze partie, stopniowanie trudności i przerwa „na prośbę”."
+    },
+    {
+      "nr": "II",
+      "nazwa": "Sensoryczne / autostymulacja",
+      "wskazniki": [
+        {
+          "nr": "II.1",
+          "wskaznik": "Zachowanie pojawia się także wtedy, gdy dziecko jest samo.",
+          "zachowanie_zastepcze": "korzystanie z przedmiotu do regulacji",
+          "cele": {
+            "A": {
+              "p3": "Weźmie gniotek podany przez nauczyciela i ściśnie go zamiast machać rękami",
+              "p2": "Sięgnie po gniotek z pudełka przy stoliku w czasie pracy samodzielnej",
+              "p1": "Sięgnie po wybrany przedmiot do regulacji i odłoży go po skończeniu zadania"
+            },
+            "B": {
+              "p3": "Skorzysta z taśmy na nodze krzesła po przypomnieniu dorosłego",
+              "p2": "Skorzysta z taśmy albo gniotka samo, w czasie pracy przy stoliku",
+              "p1": "Wybierze przedmiot do regulacji i użyje go, nie przerywając zadania"
+            },
+            "C": {
+              "p3": "Wskaże na karcie, czego potrzebuje, i skorzysta z podanej formy",
+              "p2": "Samo sięgnie po formę regulacji z kącika wyciszenia i wróci do zadania",
+              "p1": "Wybierze formę regulacji i powie, dlaczego akurat tej potrzebuje"
+            }
+          },
+          "pozycja": 1,
+          "opis_kroku": "Zachowanie pojawia się także w samotności, dostarcza wrażeń i trudno je przerwać."
+        },
+        {
+          "nr": "II.2",
+          "wskaznik": "Zachowanie wydaje się dostarczać przyjemnych wrażeń (ruch, dźwięk, dotyk).",
+          "zachowanie_zastepcze": "nazwanie potrzeby sensorycznej",
+          "cele": {
+            "A": {
+              "p3": "Wskaże na dwóch obrazkach, czy chce się kołysać, czy ściskać",
+              "p2": "Wskaże na karcie z trzema obrazkami, jakiego wrażenia potrzebuje",
+              "p1": "Powie albo pokaże, czego potrzebuje: ruchu, ucisku czy ciszy"
+            },
+            "B": {
+              "p3": "Wskaże wrażenie na karcie diety sensorycznej po pytaniu dorosłego",
+              "p2": "Wskaże wrażenie na karcie samo i wybierze jedną z dwóch form",
+              "p1": "Nazwie słowem, jakiego wrażenia potrzebuje, i wybierze formę"
+            },
+            "C": {
+              "p3": "Wskaże na karcie potrzebne wrażenie i wybierze formę z tego pola",
+              "p2": "Nazwie potrzebę i wybierze formę, która nie przeszkadza innym dzieciom",
+              "p1": "Zaplanuje z nauczycielem, które wrażenia dostanie w ciągu dnia i kiedy"
+            }
+          },
+          "pozycja": 2,
+          "opis_kroku": "Zachowanie pojawia się także w samotności, dostarcza wrażeń i trudno je przerwać."
+        },
+        {
+          "nr": "II.3",
+          "wskaznik": "Zachowanie występuje niezależnie od reakcji otoczenia.",
+          "zachowanie_zastepcze": "zaplanowana przerwa sensoryczna",
+          "cele": {
+            "A": {
+              "p3": "Pójdzie do kącika wyciszenia prowadzone za rękę, gdy zadzwoni minutnik",
+              "p2": "Pójdzie do kącika wyciszenia po sygnale minutnika, za dorosłym",
+              "p1": "Pójdzie do kącika wyciszenia po sygnale minutnika samo"
+            },
+            "B": {
+              "p3": "Skorzysta z zaplanowanej przerwy sensorycznej po jednym przypomnieniu",
+              "p2": "Skorzysta z zaplanowanej przerwy po sygnale, bez przypominania",
+              "p1": "Skorzysta z przerwy i wróci do zajęć po jej zakończeniu, bez wołania"
+            },
+            "C": {
+              "p3": "Skorzysta z przerwy po sygnale i odhaczy ją na swoim planie dnia",
+              "p2": "Weźmie przerwę we własnym czasie, gdy poczuje, że jej potrzebuje",
+              "p1": "Zaplanuje przerwy na swoim planie dnia i skorzysta z nich zgodnie z planem"
+            }
+          },
+          "pozycja": 3,
+          "opis_kroku": "Zachowanie pojawia się także w samotności, dostarcza wrażeń i trudno je przerwać."
+        },
+        {
+          "nr": "II.4",
+          "wskaznik": "Zachowanie nasila się przy nudzie albo braku aktywności.",
+          "zachowanie_zastepcze": "zajęcie się czymś w wolnej chwili",
+          "cele": {
+            "A": {
+              "p3": "Wybierze zabawkę z dwóch podanych, gdy skończy zadanie",
+              "p2": "Wybierze zajęcie z tacki „skończyłem” i zajmie się nim przez dwie minuty",
+              "p1": "Wybierze zajęcie z półki i zajmie się nim przez pięć minut"
+            },
+            "B": {
+              "p3": "Wybierze z trzech obrazków, co robi po skończeniu zadania",
+              "p2": "Wybierze zajęcie z listy „gdy skończę wcześniej” i zajmie się nim pięć minut",
+              "p1": "Zajmie się wybranym zajęciem do końca pracy grupy, bez przypominania"
+            },
+            "C": {
+              "p3": "Wybierze zajęcie z listy i powie, co wybrało",
+              "p2": "Zajmie się wybranym zajęciem pięć minut i nie przeszkadza pracującym dzieciom",
+              "p1": "Zaproponuje własne zajęcie na czas oczekiwania i doprowadzi je do końca"
+            }
+          },
+          "pozycja": 4,
+          "opis_kroku": "Zachowanie pojawia się także w samotności, dostarcza wrażeń i trudno je przerwać."
+        },
+        {
+          "nr": "II.5",
+          "wskaznik": "Zachowanie trudno przerwać uwagą albo poleceniem.",
+          "zachowanie_zastepcze": "zamiana na formę zastępczą",
+          "cele": {
+            "A": {
+              "p3": "Przerwie kręcenie się, gdy nauczyciel położy dłoń na jego dłoni i pokaże zabawkę",
+              "p2": "Przerwie autostymulację po pokazaniu karty „stop — zamiana”",
+              "p1": "Przerwie autostymulację po pokazaniu karty i weźmie formę zastępczą"
+            },
+            "B": {
+              "p3": "Zakończy autostymulację w ciągu minuty od sygnału wzrokowo-dotykowego",
+              "p2": "Zakończy autostymulację w ciągu 30 sekund od sygnału i weźmie gniotek",
+              "p1": "Zakończy autostymulację po samym sygnale wzrokowym i wróci do zajęć"
+            },
+            "C": {
+              "p3": "Zakończy autostymulację po sygnale i przejdzie do formy zastępczej",
+              "p2": "Zamieni autostymulację na formę zastępczą, gdy samo to zauważy",
+              "p1": "Powie, kiedy trudno mu przestać, i poprosi o pomoc w zamianie"
+            }
+          },
+          "pozycja": 5,
+          "opis_kroku": "Zachowanie pojawia się także w samotności, dostarcza wrażeń i trudno je przerwać."
+        }
+      ],
+      "icf": "b147·d240",
+      "pp": "9.3·2.12",
+      "opis": "Zachowanie pojawia się także w samotności, dostarcza wrażeń i trudno je przerwać.",
+      "zasada_pbs": "Zaplanowane przerwy sensoryczne i akceptowalne źródła stymulacji (dieta sensoryczna), nauka sygnalizowania potrzeby regulacji, współpraca z terapeutą SI."
+    },
+    {
+      "nr": "III",
+      "nazwa": "Uwaga",
+      "wskazniki": [
+        {
+          "nr": "III.1",
+          "wskaznik": "Zachowanie pojawia się, gdy dorosły zajmuje się czymś innym.",
+          "zachowanie_zastepcze": "czekanie na uwagę",
+          "cele": {
+            "A": {
+              "p3": "Poczeka 30 sekund przy zajętym dorosłym, trzymając kartę „czekam”",
+              "p2": "Położy kartę „potrzebuję pomocy” i poczeka minutę",
+              "p1": "Położy kartę i poczeka dwie minuty przy swoim stoliku"
+            },
+            "B": {
+              "p3": "Położy kartę „potrzebuję pomocy” po przypomnieniu i poczeka minutę",
+              "p2": "Położy kartę samo i poczeka dwie minuty, nie odchodząc od stolika",
+              "p1": "Poczeka trzy minuty, zajmując się zadaniem do czasu podejścia nauczyciela"
+            },
+            "C": {
+              "p3": "Położy kartę i poczeka dwie minuty przy zadaniu",
+              "p2": "Poczeka trzy minuty i w tym czasie zrobi kolejny krok zadania",
+              "p1": "Poczeka do końca rozmowy nauczyciela z innym dzieckiem, nie przerywając jej"
+            }
+          },
+          "pozycja": 1,
+          "opis_kroku": "Zachowanie pojawia się, gdy dorosły jest zajęty, przynosi uwagę (upomnienie) i nasila się przy publiczności."
+        },
+        {
+          "nr": "III.2",
+          "wskaznik": "Po zachowaniu dziecko otrzymuje uwagę (upomnienie, rozmowę).",
+          "zachowanie_zastepcze": "akceptowalna prośba o uwagę",
+          "cele": {
+            "A": {
+              "p3": "Dotknie ramienia nauczyciela zamiast krzyczeć, po przypomnieniu gestu",
+              "p2": "Podniesie rękę albo pokaże kartę, żeby zawołać nauczyciela",
+              "p1": "Podniesie rękę i poczeka, aż nauczyciel podejdzie"
+            },
+            "B": {
+              "p3": "Podniesie rękę po przypomnieniu, zamiast zaczepiać inne dzieci",
+              "p2": "Podniesie rękę samo i poczeka na skinienie nauczyciela",
+              "p1": "Poprosi o uwagę słowami: „czy możesz do mnie podejść”"
+            },
+            "C": {
+              "p3": "Podniesie rękę i poczeka, zamiast zachowania trudnego",
+              "p2": "Poprosi o uwagę słowami i powie, w czym potrzebuje pomocy",
+              "p1": "Poczeka na swoją kolej w rozmowie i poprosi o uwagę w przerwie zajęć"
+            }
+          },
+          "pozycja": 2,
+          "opis_kroku": "Zachowanie pojawia się, gdy dorosły jest zajęty, przynosi uwagę (upomnienie) i nasila się przy publiczności."
+        },
+        {
+          "nr": "III.3",
+          "wskaznik": "Zachowanie nasila się w grupie albo przy publiczności.",
+          "zachowanie_zastepcze": "wypowiedź w swojej kolejce",
+          "cele": {
+            "A": {
+              "p3": "Powie jedno słowo w rundzie, gdy dostanie do ręki maskotkę mówiącego",
+              "p2": "Powie zdanie w rundzie, trzymając maskotkę, i odda ją dalej",
+              "p1": "Poczeka na swoją kolej w rundzie i powie zdanie bez maskotki"
+            },
+            "B": {
+              "p3": "Poczeka na swoją kolej w rundzie z podpowiedzią wzrokową nauczyciela",
+              "p2": "Poczeka na swoją kolej i nie wchodzi w słowo innym dzieciom",
+              "p1": "Poprowadzi rundę: poda głos następnej osobie i samo poczeka na swoją"
+            },
+            "C": {
+              "p3": "Zgłosi się do wypowiedzi w rundzie i poczeka na kolej",
+              "p2": "Wypowie się w kolejce i wysłucha do końca dziecka przed sobą",
+              "p1": "Wypowie się na forum grupy i odniesie się do tego, co powiedziało inne dziecko"
+            }
+          },
+          "pozycja": 3,
+          "opis_kroku": "Zachowanie pojawia się, gdy dorosły jest zajęty, przynosi uwagę (upomnienie) i nasila się przy publiczności."
+        },
+        {
+          "nr": "III.4",
+          "wskaznik": "Zachowanie ustaje, gdy dziecko dostanie indywidualną uwagę.",
+          "zachowanie_zastepcze": "uwaga „z wyprzedzeniem”",
+          "cele": {
+            "A": {
+              "p3": "Skorzysta z minuty uwagi na powitanie i przejdzie do zabawy za dorosłym",
+              "p2": "Skorzysta z dwóch minut uwagi na początku dnia i przejdzie do zabawy",
+              "p1": "Skorzysta z uwagi na powitanie i wróci do zabawy po sygnale"
+            },
+            "B": {
+              "p3": "Skorzysta z zaplanowanej rozmowy na starcie zajęć i wróci do stolika z dorosłym",
+              "p2": "Skorzysta z dwóch minut rozmowy i wróci do zadania po sygnale",
+              "p1": "Skorzysta z rozmowy i samo wróci do zadania, bez przypominania"
+            },
+            "C": {
+              "p3": "Skorzysta z dwóch minut uwagi na początku zajęć i wróci do pracy",
+              "p2": "Poprosi o rozmowę w umówionym momencie dnia zamiast w trakcie zajęć",
+              "p1": "Umówi się z nauczycielem na porę rozmowy i dotrzyma tej umowy"
+            }
+          },
+          "pozycja": 4,
+          "opis_kroku": "Zachowanie pojawia się, gdy dorosły jest zajęty, przynosi uwagę (upomnienie) i nasila się przy publiczności."
+        },
+        {
+          "nr": "III.5",
+          "wskaznik": "Dziecko patrzy na reakcję dorosłego w trakcie zachowania.",
+          "zachowanie_zastepcze": "umówiony gest zamiast sprawdzania",
+          "cele": {
+            "A": {
+              "p3": "Poszuka wzrokiem nauczyciela i pokaże kartę zamiast rzucić zabawką",
+              "p2": "Uniesie dłoń, żeby dorosły na nie spojrzał",
+              "p1": "Uniesie dłoń i poczeka na skinienie, zamiast sprawdzać reakcję zachowaniem"
+            },
+            "B": {
+              "p3": "Uniesie dłoń po przypomnieniu, zamiast zaczepiać, żeby dorosły zareagował",
+              "p2": "Uniesie dłoń samo i poczeka na odpowiedź",
+              "p1": "Powie, że chce pokazać, co zrobiło, zamiast zwracać uwagę zachowaniem"
+            },
+            "C": {
+              "p3": "Uniesie dłoń zamiast sprawdzania reakcji dorosłego",
+              "p2": "Pokaże swoją pracę nauczycielowi w umówionym momencie",
+              "p1": "Powie wprost, że chce pochwały albo uwagi, zamiast zachowania trudnego"
+            }
+          },
+          "pozycja": 5,
+          "opis_kroku": "Zachowanie pojawia się, gdy dorosły jest zajęty, przynosi uwagę (upomnienie) i nasila się przy publiczności."
+        }
+      ],
+      "icf": "d240·d710",
+      "pp": "2.11·1.6",
+      "opis": "Zachowanie pojawia się, gdy dorosły jest zajęty, przynosi uwagę (upomnienie) i nasila się przy publiczności.",
+      "zasada_pbs": "Uwaga „z wyprzedzeniem” i pozytywna za zachowania pożądane, nauka właściwego sposobu proszenia o uwagę, minimalna reakcja na zachowanie trudne, spójny plan wzmocnień."
+    },
+    {
+      "nr": "IV",
+      "nazwa": "Dostęp do przedmiotu / aktywności",
+      "wskazniki": [
+        {
+          "nr": "IV.1",
+          "wskaznik": "Zachowanie pojawia się, gdy dziecko nie może dostać tego, czego chce.",
+          "zachowanie_zastepcze": "przyjęcie odmowy",
+          "cele": {
+            "A": {
+              "p3": "Wybierze jedną z dwóch zabawek podanych po odmowie",
+              "p2": "Wybierze jedną z dwóch propozycji po odmowie i zajmie się nią",
+              "p1": "Przyjmie odmowę i wybierze inne zajęcie samo"
+            },
+            "B": {
+              "p3": "Wybierze z dwóch propozycji po odmowie, przy dorosłym obok",
+              "p2": "Przyjmie odmowę i wybierze jedną z dwóch alternatyw samo",
+              "p1": "Przyjmie odmowę i zaproponuje, czym zajmie się zamiast tego"
+            },
+            "C": {
+              "p3": "Wybierze jedną z dwóch alternatyw po odmowie",
+              "p2": "Przyjmie odmowę, powie, że jest mu przykro, i wybierze inne zajęcie",
+              "p1": "Przyjmie odmowę i zapyta, kiedy będzie mogło dostać to, o co prosiło"
+            }
+          },
+          "pozycja": 1,
+          "opis_kroku": "Zachowanie nasila się przy odmowie lub zabraniu przedmiotu, a wygasa po jego uzyskaniu."
+        },
+        {
+          "nr": "IV.2",
+          "wskaznik": "Zachowanie nasila się przy odmowie albo zabraniu przedmiotu.",
+          "zachowanie_zastepcze": "oddanie przedmiotu po zapowiedzi",
+          "cele": {
+            "A": {
+              "p3": "Odda zabawkę do ręki nauczyciela po zapowiedzi i sygnale minutnika",
+              "p2": "Odłoży zabawkę na półkę po sygnale minutnika",
+              "p1": "Odłoży zabawkę po sygnale i przejdzie do następnej aktywności"
+            },
+            "B": {
+              "p3": "Odda przedmiot po zapowiedzi „jeszcze dwie minuty” i przypomnieniu",
+              "p2": "Odda przedmiot po zapowiedzi i sygnale, bez przypominania",
+              "p1": "Odda przedmiot i samo odłoży go na miejsce po zakończeniu zabawy"
+            },
+            "C": {
+              "p3": "Odda przedmiot po zapowiedzi i sygnale minutnika",
+              "p2": "Zakończy zabawę w zapowiedzianym czasie i odłoży przedmiot",
+              "p1": "Samo ustawi minutnik na koniec zabawy i dotrzyma tego czasu"
+            }
+          },
+          "pozycja": 2,
+          "opis_kroku": "Zachowanie nasila się przy odmowie lub zabraniu przedmiotu, a wygasa po jego uzyskaniu."
+        },
+        {
+          "nr": "IV.3",
+          "wskaznik": "Po zachowaniu dziecko otrzymuje pożądany przedmiot albo aktywność.",
+          "zachowanie_zastepcze": "prośba o przedmiot",
+          "cele": {
+            "A": {
+              "p3": "Poda kartę z obrazkiem przedmiotu zamiast go wyrywać",
+              "p2": "Pokaże kartę albo powie „proszę” zamiast wyrywać przedmiot",
+              "p1": "Powie „poproszę” i poczeka na odpowiedź"
+            },
+            "B": {
+              "p3": "Poprosi o przedmiot słowem „proszę” po przypomnieniu",
+              "p2": "Poprosi pełnym zwrotem „poproszę o…” i poczeka",
+              "p1": "Poprosi pełnym zwrotem i przyjmie odpowiedź, także odmowną"
+            },
+            "C": {
+              "p3": "Poprosi o przedmiot pełnym zwrotem zamiast sięgać po niego",
+              "p2": "Poprosi o przedmiot i powie, do czego jest mu potrzebny",
+              "p1": "Poprosi kolegę o przedmiot i umówi się z nim, kiedy go odda"
+            }
+          },
+          "pozycja": 3,
+          "opis_kroku": "Zachowanie nasila się przy odmowie lub zabraniu przedmiotu, a wygasa po jego uzyskaniu."
+        },
+        {
+          "nr": "IV.4",
+          "wskaznik": "Zachowanie ustaje, gdy dziecko dostanie to, czego chciało.",
+          "zachowanie_zastepcze": "czekanie na przedmiot",
+          "cele": {
+            "A": {
+              "p3": "Poczeka 30 sekund na przedmiot, trzymając kartę „czekam”",
+              "p2": "Poczeka minutę na przedmiot z wizualnym licznikiem",
+              "p1": "Poczeka dwie minuty na przedmiot, zajmując się czymś innym"
+            },
+            "B": {
+              "p3": "Poczeka dwie minuty z licznikiem, przy dorosłym obok",
+              "p2": "Poczeka trzy minuty na przedmiot, korzystając z licznika",
+              "p1": "Poczeka trzy minuty bez licznika, zajęte innym zadaniem"
+            },
+            "C": {
+              "p3": "Poczeka trzy minuty na przedmiot z wizualnym licznikiem",
+              "p2": "Poczeka do końca zajęć na przedmiot i wróci po niego",
+              "p1": "Umówi się z nauczycielem, kiedy dostanie przedmiot, i doczeka do tej pory"
+            }
+          },
+          "pozycja": 4,
+          "opis_kroku": "Zachowanie nasila się przy odmowie lub zabraniu przedmiotu, a wygasa po jego uzyskaniu."
+        },
+        {
+          "nr": "IV.5",
+          "wskaznik": "Zachowanie występuje przy oczekiwaniu na coś atrakcyjnego.",
+          "zachowanie_zastepcze": "czynność „w międzyczasie”",
+          "cele": {
+            "A": {
+              "p3": "Zajmie się zabawką podaną na czas czekania na atrakcję",
+              "p2": "Weźmie zadanie z pudełka „w międzyczasie” i zajmie się nim",
+              "p1": "Zajmie się zadaniem w międzyczasie do sygnału rozpoczęcia atrakcji"
+            },
+            "B": {
+              "p3": "Wykona zadanie z pudełka po przypomnieniu dorosłego",
+              "p2": "Wykona zadanie w międzyczasie i dostanie żeton",
+              "p1": "Wykona dwa zadania w międzyczasie, bez przypominania"
+            },
+            "C": {
+              "p3": "Wykona zadanie „w międzyczasie” w czasie czekania na atrakcję",
+              "p2": "Wybierze sobie zajęcie na czas czekania i doprowadzi je do końca",
+              "p1": "Zaplanuje, czym zajmie się w czasie czekania, i wykona ten plan"
+            }
+          },
+          "pozycja": 5,
+          "opis_kroku": "Zachowanie nasila się przy odmowie lub zabraniu przedmiotu, a wygasa po jego uzyskaniu."
+        }
+      ],
+      "icf": "d240·d720",
+      "pp": "1.4·2.10",
+      "opis": "Zachowanie nasila się przy odmowie lub zabraniu przedmiotu, a wygasa po jego uzyskaniu.",
+      "zasada_pbs": "Nauka proszenia i czekania (odraczanie gratyfikacji), jasne zasady dostępu, system żetonowy; przedmiotu nie wydajemy bezpośrednio po zachowaniu trudnym."
+    },
+    {
+      "nr": "V",
+      "nazwa": "Regulacja emocji / napięcie",
+      "wskazniki": [
+        {
+          "nr": "V.1",
+          "wskaznik": "Zachowanie pojawia się przy zmianie, niespodziance albo przeciążeniu.",
+          "zachowanie_zastepcze": "przejście do zmienionej aktywności",
+          "cele": {
+            "A": {
+              "p3": "Przejdzie do nowej aktywności za dorosłym, po pokazaniu obrazka zmiany",
+              "p2": "Przejdzie do nowej aktywności po przełożeniu karty na planie dnia",
+              "p1": "Przejdzie do zmienionej aktywności po zapowiedzi, bez płaczu"
+            },
+            "B": {
+              "p3": "Przejdzie do zmienionej aktywności po uprzedzeniu i pokazaniu zmiany",
+              "p2": "Przejdzie do zmienionej aktywności po samej zapowiedzi słownej",
+              "p1": "Przyjmie zmianę planu i powie, co teraz będzie robić"
+            },
+            "C": {
+              "p3": "Przejdzie do zmienionej aktywności po pokazaniu zmiany na planie",
+              "p2": "Przyjmie niezapowiedzianą zmianę i zapyta, co będzie dalej",
+              "p1": "Zaproponuje, jak przestawić plan po zmianie, i przejdzie do nowej aktywności"
+            }
+          },
+          "pozycja": 1,
+          "opis_kroku": "Zachowanie wybucha przy zmianie lub przeciążeniu, z objawami napięcia, i jest trudne do przewidzenia."
+        },
+        {
+          "nr": "V.2",
+          "wskaznik": "Zachowaniu towarzyszą objawy napięcia (płacz, pobudzenie).",
+          "zachowanie_zastepcze": "nazwanie napięcia",
+          "cele": {
+            "A": {
+              "p3": "Wskaże buźkę pokazującą, jak się czuje, z dwóch podanych",
+              "p2": "Wskaże kolor na termometrze emocji: zielony albo czerwony",
+              "p1": "Wskaże jeden z trzech kolorów termometru i nazwie emocję słowem"
+            },
+            "B": {
+              "p3": "Wskaże kolor na termometrze po pytaniu dorosłego",
+              "p2": "Wskaże kolor samo, przy pierwszych objawach napięcia",
+              "p1": "Nazwie emocję słowem i powie, co mu pomoże"
+            },
+            "C": {
+              "p3": "Wskaże kolor na termometrze przy pierwszych objawach napięcia",
+              "p2": "Nazwie emocję i jej powód: „złoszczę się, bo…”",
+              "p1": "Rozpozna napięcie, zanim urośnie, i powie, czego potrzebuje, żeby je obniżyć"
+            }
+          },
+          "pozycja": 2,
+          "opis_kroku": "Zachowanie wybucha przy zmianie lub przeciążeniu, z objawami napięcia, i jest trudne do przewidzenia."
+        },
+        {
+          "nr": "V.3",
+          "wskaznik": "Zachowanie występuje w sytuacjach stresu albo przebodźcowania.",
+          "zachowanie_zastepcze": "skorzystanie ze strefy wyciszenia",
+          "cele": {
+            "A": {
+              "p3": "Pójdzie do kącika wyciszenia prowadzone za rękę i zostanie tam minutę",
+              "p2": "Pójdzie do kącika wyciszenia po pokazaniu karty i zostanie trzy minuty",
+              "p1": "Pójdzie do kącika wyciszenia samo, gdy zrobi się głośno"
+            },
+            "B": {
+              "p3": "Skorzysta z kącika wyciszenia po propozycji dorosłego, przez trzy minuty",
+              "p2": "Skorzysta z kącika wyciszenia na własną prośbę, przez pięć minut",
+              "p1": "Poprosi o wyciszenie i wybierze formę: oddech, koc albo słuchawki"
+            },
+            "C": {
+              "p3": "Skorzysta z kącika wyciszenia po propozycji dorosłego",
+              "p2": "Poprosi o wyciszenie samo i wybierze formę, która mu pomaga",
+              "p1": "Skorzysta ze strategii oddechowej przy stoliku, bez wychodzenia z zajęć"
+            }
+          },
+          "pozycja": 3,
+          "opis_kroku": "Zachowanie wybucha przy zmianie lub przeciążeniu, z objawami napięcia, i jest trudne do przewidzenia."
+        },
+        {
+          "nr": "V.4",
+          "wskaznik": "Zachowanie ustaje po wyciszeniu albo odzyskaniu równowagi.",
+          "zachowanie_zastepcze": "powrót do zajęć",
+          "cele": {
+            "A": {
+              "p3": "Wróci do grupy za dorosłym po wyciszeniu",
+              "p2": "Wróci do grupy po sygnale, w ciągu dwóch minut",
+              "p1": "Wróci do grupy samo i włączy się w zabawę"
+            },
+            "B": {
+              "p3": "Wróci do zajęć po wyciszeniu, przy dorosłym obok",
+              "p2": "Wróci do zajęć w ciągu trzech minut od zakończenia wyciszenia",
+              "p1": "Wróci do zajęć i dokończy zadanie przerwane przed wyciszeniem"
+            },
+            "C": {
+              "p3": "Wróci do zajęć w ciągu pięciu minut od zakończenia strategii",
+              "p2": "Wróci do zajęć i powie, co pomogło mu się uspokoić",
+              "p1": "Wróci do zajęć i naprawi to, co się wydarzyło — przeprosi albo posprząta"
+            }
+          },
+          "pozycja": 4,
+          "opis_kroku": "Zachowanie wybucha przy zmianie lub przeciążeniu, z objawami napięcia, i jest trudne do przewidzenia."
+        },
+        {
+          "nr": "V.5",
+          "wskaznik": "Zachowanie jest trudne do przewidzenia, wybucha nagle.",
+          "zachowanie_zastepcze": "sygnał przed wybuchem",
+          "cele": {
+            "A": {
+              "p3": "Pokaże czerwoną kartę podaną przez dorosłego, gdy zaczyna się złościć",
+              "p2": "Sięgnie po czerwoną kartę ze stolika przy pierwszych oznakach złości",
+              "p1": "Pokaże czerwoną kartę, zanim zacznie krzyczeć"
+            },
+            "B": {
+              "p3": "Pokaże czerwoną kartę po zauważeniu przez dorosłego pierwszych sygnałów",
+              "p2": "Pokaże czerwoną kartę samo, zanim dojdzie do wybuchu",
+              "p1": "Powie „robi się czerwono” i poprosi o pomoc, zanim wybuchnie"
+            },
+            "C": {
+              "p3": "Pokaże czerwoną kartę przy pierwszym sygnale napięcia",
+              "p2": "Nazwie pierwszy sygnał napięcia i poprosi o przerwę",
+              "p1": "Rozpozna swój sygnał ostrzegawczy i samo użyje strategii, zanim wybuchnie"
+            }
+          },
+          "pozycja": 5,
+          "opis_kroku": "Zachowanie wybucha przy zmianie lub przeciążeniu, z objawami napięcia, i jest trudne do przewidzenia."
+        }
+      ],
+      "icf": "d230·d240",
+      "pp": "2.12·1.4",
+      "opis": "Zachowanie wybucha przy zmianie lub przeciążeniu, z objawami napięcia, i jest trudne do przewidzenia.",
+      "zasada_pbs": "Przewidywalność (plan dnia, uprzedzanie zmian), strefa wyciszenia i strategie regulacji (oddech, przerwa), wsparcie dorosłego przy pierwszych sygnałach napięcia."
+    }
+  ],
+  "modul": {
+    "nazwa": "Analiza funkcjonalna zachowania i plan pozytywnego wsparcia (FBA/PBS)",
+    "kod": "FBA",
+    "wersja": "2026",
+    "autorka": "mgr Mirosława Ewa Jurczyszyn, pedagog specjalny, PCTP Koszalin",
+    "aplikacja": "EduPlaner 2026",
+    "druk_zrodlowy": "Kwestionariusz funkcji zachowania — przedszkole",
+    "podstawa_merytoryczna": "Analiza funkcjonalna zachowania (FBA) i plan pozytywnego wsparcia zachowań (PBS); ICF-CY",
+    "podstawa_prawna": "Rozporządzenie MEN z 9 sierpnia 2017 r. w sprawie warunków organizowania kształcenia, wychowania i opieki dla dzieci i młodzieży niepełnosprawnych",
+    "zasada_modulu": "Cel opisuje zachowanie zastępcze, nie brak zachowania trudnego. Plan PBS uczy innej drogi do tej samej potrzeby, zamiast tę potrzebę dziecku odbierać. „Nie będzie uciekał od stolika” nie jest celem z tego modułu; „poprosi o przerwę kartą, zanim wyjdzie od stolika” — jest.",
+    "granica_kompetencji": "Ten moduł jest dla nauczyciela i pedagoga prowadzącego plan wsparcia w grupie. Zachowania z ryzykiem urazu, autoagresja i agresja wymagająca interwencji fizycznej NIE MAJĄ TU CELÓW — przy nich plan pisze zespół z udziałem psychologa, a nauczyciel prowadzi rejestr ABC i zgłasza rzecz zespołowi."
+  },
+  "liczba_celow": 225,
+  "rodzaje_zajec": [
+    "Zajęcia rozwijające kompetencje emocjonalno-społeczne · elementy diety sensorycznej",
+    "Zajęcia rozwijające kompetencje emocjonalno-społeczne · realizacja planu PBS",
+    "Zajęcia rozwijające kompetencje społeczne · realizacja planu PBS"
+  ],
+  "tory_zajec": [
+    "Zajęcia rozwijające kompetencje emocjonalno-społeczne · elementy diety sensorycznej",
+    "Zajęcia rozwijające kompetencje emocjonalno-społeczne · realizacja planu PBS",
+    "Zajęcia rozwijające kompetencje społeczne · realizacja planu PBS"
+  ]
+}

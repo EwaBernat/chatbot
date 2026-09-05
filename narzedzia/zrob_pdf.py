@@ -3,6 +3,7 @@
 """Składa gotowe PDF-y modułu EduPlaner — takie, jak wygląda ekran.
 
     python3 narzedzia/zrob_pdf.py mowa
+    python3 narzedzia/zrob_pdf.py fba
     python3 narzedzia/zrob_pdf.py tom --katalog ~/Pulpit/PDF
 
 Po co to jest: wydruk z przeglądarki zależy od jej ustawień — nagłówka z adresem
@@ -130,7 +131,7 @@ async def zloz(modul: str, katalog: pathlib.Path) -> int:
 
 def main() -> int:
     ap = argparse.ArgumentParser(description="Gotowe PDF-y modułu EduPlaner 2026")
-    ap.add_argument("modul", choices=["mowa", "tom", "sens"], help="który moduł złożyć")
+    ap.add_argument("modul", choices=["mowa", "tom", "sens", "fba"], help="który moduł złożyć")
     ap.add_argument("--katalog", default=None,
                     help="katalog docelowy (domyślnie /tmp/<modul>_pdf — POZA repozytorium, "
                          "bo PDF-y odtwarza ten skrypt)")

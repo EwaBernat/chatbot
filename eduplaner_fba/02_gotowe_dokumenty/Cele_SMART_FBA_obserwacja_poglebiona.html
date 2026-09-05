@@ -1,0 +1,664 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Cele SMART do obserwacji pogłębionej (ABC / FBA)</title>
+<link rel="stylesheet" media="print" onload="this.media='all'"
+  href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&display=swap">
+<style>:root{--logo:url(data:image/jpeg;base64,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)}
+:root{
+  --ink:#2D1B69; --indigo:#4F3AA8; --violet:#6C4CC4; --accent:#E8450A;
+  --on-accent:#FFFFFF; --tekst:#241C3A; --szary:#5B5470;
+  --paper:#FFFFFF; --soft:#F6F3FC; --field:#EFEAF9;
+  --line:#DCD4F0; --line-2:#C9BEEA; --tlo:#EDE9F6;
+}
+*{box-sizing:border-box}
+body{margin:0; background:var(--tlo); color:var(--tekst);
+  font:13px/1.5 "DM Sans",Arial,Helvetica,sans-serif; padding:26px 0}
+.strona{width:726px; min-height:1054px; margin:0 auto 26px; background:var(--paper);
+  padding:0; display:flex; flex-direction:column; box-shadow:0 2px 14px rgba(45,27,105,.13)}
+.tresc{flex:1 1 auto; padding:0 4px}
+
+/* nagłówek i stopka — układ przepisany z karty ABC/FBA */
+.head{display:flex; align-items:flex-start; gap:12px; border-bottom:2px solid var(--line-2);
+  padding:12px 4px 9px; margin-bottom:10px}
+.mark{flex:0 0 auto; width:38px; height:38px; border-radius:50%;
+  background:center/cover no-repeat var(--soft); background-image:var(--logo);
+  box-shadow:0 0 0 1px var(--line-2)}
+.head h1{margin:0; font-size:14px; font-weight:700; color:var(--ink); letter-spacing:.01em}
+.head .sub{font-size:9.5px; letter-spacing:.16em; text-transform:uppercase; color:var(--szary); margin-top:3px}
+.head .prawa{margin-left:auto; text-align:right}
+.head .prawa b{display:block; font-size:10px; letter-spacing:.1em; color:var(--accent); text-transform:uppercase}
+.head .prawa span{font-size:8.5px; letter-spacing:.18em; text-transform:uppercase; color:var(--szary)}
+.metryka{display:flex; gap:10px; align-items:stretch; margin:0 4px 11px; font-size:10px}
+.metryka div{flex:1 1 auto; border-bottom:1px solid var(--line-2); padding:4px 2px 5px;
+  display:flex; gap:8px; align-items:baseline}
+.metryka span{font-size:8.5px; letter-spacing:.13em; text-transform:uppercase; color:var(--szary); white-space:nowrap}
+.metryka b{font-size:12px; color:var(--ink); font-weight:700}
+.stopka{margin-top:auto; border-top:1px solid var(--line); padding:8px 4px 12px;
+  display:flex; justify-content:space-between; font-size:8.5px; color:var(--szary); letter-spacing:.04em}
+
+/* wspólne elementy treści */
+.pas{background:var(--ink); color:#fff; border-radius:7px; padding:9px 14px; margin:0 0 12px;
+  font-size:10px; letter-spacing:.16em; text-transform:uppercase; text-align:center}
+h2{margin:0 0 8px; font-size:15px; color:var(--ink)}
+p{margin:0 0 9px}
+.wstep{background:var(--soft); border-left:4px solid var(--violet); border-radius:0 8px 8px 0;
+  padding:11px 14px; font-size:11.5px; line-height:1.6; margin-bottom:12px}
+.wstep b{color:var(--ink)}
+.dwie{display:grid; grid-template-columns:1fr 1fr; gap:11px; margin-bottom:12px}
+.karta-info{border:1px solid var(--line); border-radius:9px; padding:11px 13px; font-size:11px; line-height:1.55}
+.karta-info h3{margin:0 0 6px; font-size:11.5px; color:var(--accent);
+  letter-spacing:.06em; text-transform:uppercase}
+table{width:100%; border-collapse:collapse; font-size:11px}
+th{background:var(--field); color:var(--ink); text-align:left; font-size:9px; letter-spacing:.1em;
+  text-transform:uppercase; padding:7px 8px; border:1px solid var(--line)}
+td{padding:6px 8px; border:1px solid var(--line); vertical-align:top}
+tbody tr:nth-child(even) td{background:var(--soft)}
+.pkt{font-weight:700; color:var(--ink); text-align:center; white-space:nowrap}
+.ocena{font-weight:700; white-space:nowrap}
+.ocena.dom{color:var(--accent)}
+.pole{border-bottom:1px dotted var(--line-2); min-width:54px; display:inline-block}
+
+/* nagłówek funkcji */
+.fn{display:flex; align-items:center; gap:11px; margin:0 0 8px}
+.fn .rz{flex:0 0 auto; width:32px; height:32px; border-radius:6px; background:var(--accent);
+  color:var(--on-accent); font:700 13px/32px "DM Sans",Arial,sans-serif; text-align:center}
+.fn h2{margin:0; font-size:15px}
+.fn .op{font-size:10px; color:var(--szary); margin-top:2px}
+.fn .bad{margin-left:auto; text-align:right; font-size:9.5px; letter-spacing:.08em;
+  text-transform:uppercase; color:var(--szary)}
+.fn .bad b{display:block; font-size:12px; color:var(--ink); letter-spacing:0; text-transform:none}
+.pbs{background:var(--soft); border-radius:8px; padding:7px 11px; font-size:10px;
+  line-height:1.45; margin-bottom:7px}
+.pbs b{color:var(--accent); letter-spacing:.08em; text-transform:uppercase; font-size:9px}
+
+/* karta jednego celu */
+.cel{border:1px solid var(--line); border-radius:9px; padding:5px 10px 6px; margin-bottom:5px;
+  break-inside:avoid}
+.cel-h{display:flex; align-items:baseline; gap:9px; margin-bottom:4px}
+.cel-h .nr{flex:0 0 auto; background:var(--ink); color:#fff; border-radius:4px; padding:2px 7px;
+  font:700 9.5px/1.4 "DM Sans",Arial,sans-serif; letter-spacing:.04em}
+.cel-h .def{font-size:10px; color:var(--szary); line-height:1.35}
+.cel-h .def b{color:var(--ink); font-size:9px; letter-spacing:.1em; text-transform:uppercase}
+.cel-t{margin:0 0 5px; font-size:11px; line-height:1.42; color:var(--tekst);
+  border-left:3px solid var(--accent); padding-left:9px}
+.cel-t b{color:var(--accent); font-size:9px; letter-spacing:.1em; text-transform:uppercase;
+  display:block; margin-bottom:1px}
+.smart{display:grid; grid-template-columns:repeat(5,1fr); gap:4px; margin-bottom:5px}
+.smart div{background:var(--soft); border-radius:5px; padding:4px 5px; font-size:8px; line-height:1.32}
+.smart i{display:block; font-style:normal; font-weight:700; color:var(--accent); font-size:9.5px; margin-bottom:1px}
+.obs{display:flex; gap:10px; align-items:baseline; font-size:9.2px; color:var(--szary);
+  border-top:1px dashed var(--line); padding-top:3px}
+.obs b{color:var(--ink); font-size:8.5px; letter-spacing:.09em; text-transform:uppercase}
+.obs .wynik{margin-left:auto; white-space:nowrap; color:var(--ink)}
+
+/* podpisy */
+.podpisy{display:grid; grid-template-columns:1fr 1fr; gap:36px; margin:20px 4px 12px}
+.podpisy div{border-top:1px solid var(--line-2); padding-top:6px; text-align:center;
+  font-size:9px; letter-spacing:.12em; text-transform:uppercase; color:var(--szary)}
+.podstawa{border:1px solid var(--line); border-radius:8px; padding:10px 13px;
+  font-size:9px; line-height:1.55; color:var(--szary)}
+.podstawa b{color:var(--ink)}
+
+@media print{
+  @page{size:A4 portrait; margin:9mm}
+  body{background:#fff; padding:0}
+  .strona{width:auto; min-height:0; margin:0; box-shadow:none; break-after:page}
+  .strona:last-child{break-after:auto}
+}
+</style>
+</head>
+<body>
+<section class="strona">
+  <div class="head">
+    <span class="mark" role="img" aria-label="Logo PCTP"></span>
+    <div>
+      <h1>EduPlaner 2026</h1>
+      <div class="sub">ABC / FBA · Cele SMART — wprowadzenie</div>
+    </div>
+    <div class="prawa"><b>ABC · PBS</b><span>narzędzie · druk FBA-C</span></div>
+  </div>
+  <div class="metryka">
+    <div><span>Dotyczy ucznia</span><b>&nbsp;</b></div>
+    <div><span>Klasa</span><b>&nbsp;</b></div>
+    <div><span>Data</span><b>&nbsp;</b> r.</div>
+  </div>
+  <div class="tresc">
+    <div class="pas">Cele SMART do obserwacji pogłębionej · 25 wskaźników z kwestionariusza funkcji</div>
+    <div class="wstep">
+      <b>Po co ten druk.</b> Karta ABC / FBA kończy się pięcioma celami SMART — po jednym na funkcję
+      zachowania. Wyznaczają kierunek planu PBS, ale są za szerokie na obserwację pogłębioną:
+      „skorzysta z ustalonej strategii wyciszenia” nie mówi, w której z pięciu sytuacji napięcia
+      liczymy postęp. Ten druk rozpisuje tamte pięć celów na <b>25 celów szczegółowych</b> —
+      po jednym do każdego wskaźnika kwestionariusza, każdy z zachowaniem, które widać, liczbą,
+      którą da się policzyć, i terminem, w którym sprawdzamy.
+    </div>
+    <div class="dwie">
+      <div class="karta-info">
+        <h3>Jak czytać cel</h3>
+        Każdy cel opisuje <b>zachowanie zastępcze</b> — takie, które pełni tę samą funkcję,
+        co zachowanie trudne, tylko jest akceptowalne. Nie odbieramy dziecku funkcji
+        (ucieczki, uwagi, regulacji), uczymy innej drogi do niej. Dlatego pod celem stoi
+        rozpisanie SMART: co dokładnie widać (S), ile tego liczymy (M), co to umożliwia (A),
+        po co to dziecku (R) i kiedy sprawdzamy (T).
+      </div>
+      <div class="karta-info">
+        <h3>Skąd kryterium i horyzont</h3>
+        Nie z podręcznika, tylko z <b>punktacji funkcji u tego ucznia</b>. Funkcja dominująca
+        (10–15 pkt) jest priorytetem planu, więc sprawdzamy ją najczęściej — po 4 tygodniach,
+        przy kryterium 8 z 10. Funkcja istotna (5–9 pkt) — po 8 tygodniach, przy 7 z 10.
+        Funkcja słaba (0–4 pkt) — po 12 tygodniach, przy 6 z 10. Ta sama logika, co przy
+        poziomach wsparcia w banku celów SMART.
+      </div>
+    </div>
+    <table><thead><tr><th>Funkcja zachowania</th><th>Wynik</th><th>Ocena</th><th>Kryterium</th><th>Horyzont</th><th>Znaczenie dla planu</th></tr></thead><tbody><tr><td>I · Ucieczka / unikanie</td><td class="pkt">7/15</td><td class="ocena">Istotna</td><td class="pkt">7 z 10</td><td class="pkt">8 tygodni</td><td>do uwzględnienia</td></tr><tr><td>II · Sensoryczne / autostymulacja</td><td class="pkt">7/15</td><td class="ocena">Istotna</td><td class="pkt">7 z 10</td><td class="pkt">8 tygodni</td><td>do uwzględnienia</td></tr><tr><td>III · Uwaga</td><td class="pkt">7/15</td><td class="ocena">Istotna</td><td class="pkt">7 z 10</td><td class="pkt">8 tygodni</td><td>do uwzględnienia</td></tr><tr><td>IV · Dostęp do przedmiotu / aktywności</td><td class="pkt">7/15</td><td class="ocena">Istotna</td><td class="pkt">7 z 10</td><td class="pkt">8 tygodni</td><td>do uwzględnienia</td></tr><tr><td>V · Regulacja emocji / napięcie</td><td class="pkt">7/15</td><td class="ocena">Istotna</td><td class="pkt">7 z 10</td><td class="pkt">8 tygodni</td><td>do uwzględnienia</td></tr></tbody></table>
+    <div class="dwie" style="margin-top:12px">
+      <div class="karta-info">
+        <h3>Cel, który da się obserwować</h3>
+        <p style="margin-bottom:6px"><b style="color:var(--indigo)">Dobrze:</b> „Uczennica poprosi
+        o uwagę dorosłego przez podniesienie ręki, zamiast zachowaniem trudnym, w 8 z 10 sytuacji
+        potrzeby kontaktu, w ciągu 4 tygodni.”</p>
+        <p style="margin:0"><b style="color:var(--accent)">Źle:</b> „Poprawa umiejętności proszenia
+        o uwagę.” — nie widać zachowania, nie ma czego policzyć, więc nie da się zrobić ewaluacji
+        ani napisać, czy cel został osiągnięty.</p>
+      </div>
+      <div class="karta-info">
+        <h3>Jak liczyć „8 z 10”</h3>
+        Liczymy <b>sytuacje, w których zachowanie mogło wystąpić</b>, nie dni i nie lekcje.
+        Dziesięć kolejnych sytuacji z rejestru ABC daje jeden wynik; przy wskaźnikach rzadkich
+        (zmiana planu, odmowa) zbiera się to przez dwa–trzy tygodnie i to jest w porządku —
+        lepszy wynik z dziesięciu prawdziwych sytuacji niż z dziesięciu wywołanych na próbę.
+        Wynik zapisujemy w polu przy celu, w dniu, w którym domknęła się dziesiątka.
+      </div>
+    </div>
+    <div class="wstep">
+      <b>Czego ten druk nie zastępuje.</b> Cel wpisujemy do pracy dopiero wtedy, gdy wskaźnik
+      został oceniony na 2 albo 3 — przy ocenie 0 lub 1 nie ma czego obserwować. Wybieramy
+      zwykle <b>trzy do pięciu celów</b> naraz, zaczynając od funkcji dominującej; 25 celów to
+      zapas na cały rok, nie plan na wrzesień. Wynik obserwacji wpisujemy w pole przy celu,
+      a zbiorczo — w tabelę ewaluacji na ostatniej stronie.
+    </div>
+  </div>
+  <div class="stopka"><span>EduPlaner 2026 · PCTP · pedagog specjalny mgr Mirosława Ewa Jurczyszyn</span><span>Strona 1 z 8 · wprowadzenie</span></div>
+</section>
+<section class="strona">
+  <div class="head">
+    <span class="mark" role="img" aria-label="Logo PCTP"></span>
+    <div>
+      <h1>EduPlaner 2026</h1>
+      <div class="sub">ABC / FBA · Cele SMART · funkcja I</div>
+    </div>
+    <div class="prawa"><b>ABC · PBS</b><span>narzędzie · druk FBA-C</span></div>
+  </div>
+  <div class="metryka">
+    <div><span>Dotyczy ucznia</span><b>&nbsp;</b></div>
+    <div><span>Klasa</span><b>&nbsp;</b></div>
+    <div><span>Data</span><b>&nbsp;</b> r.</div>
+  </div>
+  <div class="tresc">
+    <div class="fn">
+      <span class="rz">I</span>
+      <div><h2>Ucieczka / unikanie</h2><div class="op">Zachowanie nasila się przy trudnych i nielubianych zadaniach, a wygasa po ich odpuszczeniu.</div></div>
+      <div class="bad">7/15 · <span class="ocena">Istotna</span>
+        <b>7 z 10 sytuacji · 8 tygodni</b></div>
+    </div>
+    <div class="pbs"><b>Zalecenia PBS</b> Nie zwalniamy z zadania po zachowaniu trudnym — inaczej wzmacniamy ucieczkę. Zamiast tego: krótsze partie, stopniowanie trudności i przerwa „na prośbę”.</div>
+    <article class="cel">
+      <div class="cel-h">
+        <span class="nr">I.1</span>
+        <span class="def"><b>Deficyt</b> Zachowanie pojawia się, gdy uczennica ma wykonać trudne lub nielubiane zadanie.</span>
+      </div>
+      <p class="cel-t"><b>Cel SMART</b>Uczennica rozpocznie trudne zadanie w ciągu 1 minuty od polecenia, korzystając z karty „zacznij od jednego kroku”, w 7 z 10 sytuacji, w ciągu 8 tygodni.</p>
+      <div class="smart"><div><i>S</i>Bierze przybory i wykonuje pierwszy krok zadania.</div><div><i>M</i>1 minuta od polecenia; 7 z 10 sytuacji.</div><div><i>A</i>Karta zdejmuje decyzję, od czego zacząć.</div><div><i>R</i>Rozpoczęcie jest warunkiem korzystania z lekcji.</div><div><i>T</i>Weryfikacja po 8 tygodniach.</div></div>
+      <div class="obs">
+        <span><b>Obserwacja</b> Rejestr ABC — kolumna A: polecenie zadania pisemnego. · 10 poleceń w tygodniu</span>
+        <span class="wynik">wynik <span class="pole">&nbsp;</span>/10 · data <span class="pole">&nbsp;</span></span>
+      </div>
+    </article>
+    <article class="cel">
+      <div class="cel-h">
+        <span class="nr">I.2</span>
+        <span class="def"><b>Deficyt</b> Zachowanie nasila się przy poleceniach lub wymaganiach.</span>
+      </div>
+      <p class="cel-t"><b>Cel SMART</b>Uczennica wykona polecenie po jednokrotnym powtórzeniu i zapowiedzi „za dwie minuty kończymy”, bez zachowania trudnego, w 7 z 10 poleceń, w ciągu 8 tygodni.</p>
+      <div class="smart"><div><i>S</i>Wykonuje polecenie bez odmowy, krzyku i wyjścia z ławki.</div><div><i>M</i>Jedno powtórzenie; 7 z 10 poleceń.</div><div><i>A</i>Zapowiedź czasu uprzedza o końcu, nie zaskakuje.</div><div><i>R</i>Polecenia wracają na każdej lekcji, u każdego dorosłego.</div><div><i>T</i>Weryfikacja po 8 tygodniach.</div></div>
+      <div class="obs">
+        <span><b>Obserwacja</b> Rejestr poleceń — liczymy wykonane po pierwszym powtórzeniu. · 10 poleceń w tygodniu</span>
+        <span class="wynik">wynik <span class="pole">&nbsp;</span>/10 · data <span class="pole">&nbsp;</span></span>
+      </div>
+    </article>
+    <article class="cel">
+      <div class="cel-h">
+        <span class="nr">I.3</span>
+        <span class="def"><b>Deficyt</b> Po zachowaniu uczennica zostaje zwolniona z zadania lub wyprowadzona.</span>
+      </div>
+      <p class="cel-t"><b>Cel SMART</b>Uczennica wróci do przerwanego zadania po trzyminutowej przerwie i wykona ustaloną, skróconą część, w 7 z 10 przerw, w ciągu 8 tygodni.</p>
+      <div class="smart"><div><i>S</i>Wraca do ławki i kończy uzgodnioną część zadania.</div><div><i>M</i>3 minuty przerwy; 7 z 10 przerw.</div><div><i>A</i>Skrócona część jest wykonalna po wzburzeniu.</div><div><i>R</i>Powrót do zadania przerywa błędne koło ucieczki.</div><div><i>T</i>Weryfikacja po 8 tygodniach.</div></div>
+      <div class="obs">
+        <span><b>Obserwacja</b> Rejestr ABC — kolumna C: co następuje po przerwie. · każda przerwa w tygodniu</span>
+        <span class="wynik">wynik <span class="pole">&nbsp;</span>/10 · data <span class="pole">&nbsp;</span></span>
+      </div>
+    </article>
+    <article class="cel">
+      <div class="cel-h">
+        <span class="nr">I.4</span>
+        <span class="def"><b>Deficyt</b> Zachowanie rzadziej występuje, gdy zadanie jest łatwe lub atrakcyjne.</span>
+      </div>
+      <p class="cel-t"><b>Cel SMART</b>Uczennica podejmie zadanie trudniejsze ustawione po dwóch łatwych (zasada „dwa łatwe, jedno trudne”), w 7 z 10 serii, w ciągu 8 tygodni.</p>
+      <div class="smart"><div><i>S</i>Zaczyna trzecie, trudniejsze zadanie w serii.</div><div><i>M</i>Serie 2 + 1; 7 z 10 serii.</div><div><i>A</i>Dwa sukcesy z rzędu budują gotowość na trudność.</div><div><i>R</i>Trudniejszych zadań nie da się z lekcji usunąć.</div><div><i>T</i>Weryfikacja po 8 tygodniach.</div></div>
+      <div class="obs">
+        <span><b>Obserwacja</b> Karta serii zadań — zaznaczamy podjęcie trzeciego. · 5 serii w tygodniu</span>
+        <span class="wynik">wynik <span class="pole">&nbsp;</span>/10 · data <span class="pole">&nbsp;</span></span>
+      </div>
+    </article>
+    <article class="cel">
+      <div class="cel-h">
+        <span class="nr">I.5</span>
+        <span class="def"><b>Deficyt</b> Po „odpuszczeniu” zadania zachowanie ustaje — ucieczka działa.</span>
+      </div>
+      <p class="cel-t"><b>Cel SMART</b>Uczennica poprosi o przerwę kartą „przerwa” albo słowami, zamiast przerywać zadanie zachowaniem trudnym, w 7 z 10 sytuacji narastania oporu, w ciągu 8 tygodni.</p>
+      <div class="smart"><div><i>S</i>Podnosi kartę „przerwa” albo mówi: „potrzebuję przerwy”.</div><div><i>M</i>7 z 10 sytuacji narastania oporu.</div><div><i>A</i>Karta leży na ławce przez całą lekcję.</div><div><i>R</i>Prośba o przerwę pełni tę samą funkcję, co ucieczka.</div><div><i>T</i>Weryfikacja po 8 tygodniach.</div></div>
+      <div class="obs">
+        <span><b>Obserwacja</b> Rejestr ABC — czy przed zachowaniem pojawiła się prośba. · wszystkie sytuacje oporu</span>
+        <span class="wynik">wynik <span class="pole">&nbsp;</span>/10 · data <span class="pole">&nbsp;</span></span>
+      </div>
+    </article>
+  </div>
+  <div class="stopka"><span>EduPlaner 2026 · PCTP · pedagog specjalny mgr Mirosława Ewa Jurczyszyn</span><span>Strona 2 z 8 · funkcja I · ucieczka</span></div>
+</section>
+<section class="strona">
+  <div class="head">
+    <span class="mark" role="img" aria-label="Logo PCTP"></span>
+    <div>
+      <h1>EduPlaner 2026</h1>
+      <div class="sub">ABC / FBA · Cele SMART · funkcja II</div>
+    </div>
+    <div class="prawa"><b>ABC · PBS</b><span>narzędzie · druk FBA-C</span></div>
+  </div>
+  <div class="metryka">
+    <div><span>Dotyczy ucznia</span><b>&nbsp;</b></div>
+    <div><span>Klasa</span><b>&nbsp;</b></div>
+    <div><span>Data</span><b>&nbsp;</b> r.</div>
+  </div>
+  <div class="tresc">
+    <div class="fn">
+      <span class="rz">II</span>
+      <div><h2>Sensoryczne / autostymulacja</h2><div class="op">Zachowanie pojawia się także w samotności, dostarcza wrażeń i trudno je przerwać.</div></div>
+      <div class="bad">7/15 · <span class="ocena">Istotna</span>
+        <b>7 z 10 sytuacji · 8 tygodni</b></div>
+    </div>
+    <div class="pbs"><b>Zalecenia PBS</b> Zaplanowane przerwy sensoryczne i akceptowalne źródła stymulacji (dieta sensoryczna), nauka sygnalizowania potrzeby regulacji, współpraca z terapeutą SI.</div>
+    <article class="cel">
+      <div class="cel-h">
+        <span class="nr">II.1</span>
+        <span class="def"><b>Deficyt</b> Zachowanie pojawia się także, gdy uczennica jest sama.</span>
+      </div>
+      <p class="cel-t"><b>Cel SMART</b>Uczennica sięgnie po ustalony przedmiot do regulacji (gniotek, taśma na nodze krzesła) podczas pracy samodzielnej, w 7 z 10 dziesięciominutowych odcinków pracy, w ciągu 8 tygodni.</p>
+      <div class="smart"><div><i>S</i>Sięga po przedmiot z ustalonego miejsca i wraca do zadania.</div><div><i>M</i>Odcinki po 10 minut; 7 z 10 odcinków.</div><div><i>A</i>Przedmiot jest w zasięgu ręki, bez proszenia.</div><div><i>R</i>Praca samodzielna to najdłuższy odcinek dnia bez dorosłego.</div><div><i>T</i>Weryfikacja po 8 tygodniach.</div></div>
+      <div class="obs">
+        <span><b>Obserwacja</b> Arkusz próbek czasowych — co 10 minut pracy samodzielnej. · 10 odcinków w tygodniu</span>
+        <span class="wynik">wynik <span class="pole">&nbsp;</span>/10 · data <span class="pole">&nbsp;</span></span>
+      </div>
+    </article>
+    <article class="cel">
+      <div class="cel-h">
+        <span class="nr">II.2</span>
+        <span class="def"><b>Deficyt</b> Zachowanie wydaje się dostarczać przyjemnych wrażeń (ruch, dźwięk, dotyk).</span>
+      </div>
+      <p class="cel-t"><b>Cel SMART</b>Uczennica wskaże na karcie diety sensorycznej, jakiego wrażenia potrzebuje (ruch, ucisk, dźwięk), i skorzysta z odpowiadającej mu formy, w 7 z 10 przerw sensorycznych, w ciągu 8 tygodni.</p>
+      <div class="smart"><div><i>S</i>Wskazuje pole na karcie i wybiera formę z tego pola.</div><div><i>M</i>Trzy rodzaje wrażeń; 7 z 10 przerw.</div><div><i>A</i>Karta ma po dwie propozycje na każde wrażenie.</div><div><i>R</i>Nazwane wrażenie można zaspokoić inaczej niż zachowaniem trudnym.</div><div><i>T</i>Weryfikacja po 8 tygodniach.</div></div>
+      <div class="obs">
+        <span><b>Obserwacja</b> Karta diety sensorycznej — zapis wyboru i formy. · wszystkie przerwy sensoryczne</span>
+        <span class="wynik">wynik <span class="pole">&nbsp;</span>/10 · data <span class="pole">&nbsp;</span></span>
+      </div>
+    </article>
+    <article class="cel">
+      <div class="cel-h">
+        <span class="nr">II.3</span>
+        <span class="def"><b>Deficyt</b> Zachowanie występuje niezależnie od reakcji otoczenia.</span>
+      </div>
+      <p class="cel-t"><b>Cel SMART</b>Uczennica skorzysta z zaplanowanej przerwy sensorycznej po sygnale minutnika, bez przypominania dorosłego, w 7 z 10 zaplanowanych przerw, w ciągu 8 tygodni.</p>
+      <div class="smart"><div><i>S</i>Po sygnale wstaje i idzie do miejsca przerwy.</div><div><i>M</i>7 z 10 zaplanowanych przerw, bez przypomnienia.</div><div><i>A</i>Minutnik stoi na ławce, sygnał jest ten sam co dzień.</div><div><i>R</i>Przerwa uprzedzająca jest tańsza niż przerywanie zachowania.</div><div><i>T</i>Weryfikacja po 8 tygodniach.</div></div>
+      <div class="obs">
+        <span><b>Obserwacja</b> Plan przerw — odhaczenie przerwy wziętej samodzielnie. · 4 przerwy dziennie</span>
+        <span class="wynik">wynik <span class="pole">&nbsp;</span>/10 · data <span class="pole">&nbsp;</span></span>
+      </div>
+    </article>
+    <article class="cel">
+      <div class="cel-h">
+        <span class="nr">II.4</span>
+        <span class="def"><b>Deficyt</b> Zachowanie nasila się przy nudzie lub braku aktywności.</span>
+      </div>
+      <p class="cel-t"><b>Cel SMART</b>Uczennica wybierze zajęcie z listy trzech aktywności „gdy skończę wcześniej” i zajmie się nim przez 5 minut, w 7 z 10 sytuacji oczekiwania, w ciągu 8 tygodni.</p>
+      <div class="smart"><div><i>S</i>Wybiera z listy i pracuje przy wybranym zajęciu.</div><div><i>M</i>5 minut; 7 z 10 sytuacji oczekiwania.</div><div><i>A</i>Lista wisi przy ławce, wybór jest z trzech, nie z wielu.</div><div><i>R</i>Puste minuty po zadaniu wracają na każdej lekcji.</div><div><i>T</i>Weryfikacja po 8 tygodniach.</div></div>
+      <div class="obs">
+        <span><b>Obserwacja</b> Rejestr ABC — kolumna A: koniec zadania przed czasem. · wszystkie sytuacje oczekiwania</span>
+        <span class="wynik">wynik <span class="pole">&nbsp;</span>/10 · data <span class="pole">&nbsp;</span></span>
+      </div>
+    </article>
+    <article class="cel">
+      <div class="cel-h">
+        <span class="nr">II.5</span>
+        <span class="def"><b>Deficyt</b> Zachowanie trudno przerwać uwagą lub poleceniem.</span>
+      </div>
+      <p class="cel-t"><b>Cel SMART</b>Uczennica zakończy autostymulację w ciągu 30 sekund od umówionego sygnału („stop — zamiana”) i przejdzie do formy zastępczej, w 7 z 10 sygnałów, w ciągu 8 tygodni.</p>
+      <div class="smart"><div><i>S</i>Odkłada to, czym się stymuluje, i bierze formę zastępczą.</div><div><i>M</i>30 sekund od sygnału; 7 z 10 sygnałów.</div><div><i>A</i>Sygnał jest wzrokowo-dotykowy, nie słowny — słowa nie docierają.</div><div><i>R</i>Przerwanie bez konfrontacji chroni relację z dorosłym.</div><div><i>T</i>Weryfikacja po 8 tygodniach.</div></div>
+      <div class="obs">
+        <span><b>Obserwacja</b> Rejestr ABC — czas od sygnału do zakończenia. · wszystkie sygnały w tygodniu</span>
+        <span class="wynik">wynik <span class="pole">&nbsp;</span>/10 · data <span class="pole">&nbsp;</span></span>
+      </div>
+    </article>
+  </div>
+  <div class="stopka"><span>EduPlaner 2026 · PCTP · pedagog specjalny mgr Mirosława Ewa Jurczyszyn</span><span>Strona 3 z 8 · funkcja II · sensoryczne</span></div>
+</section>
+<section class="strona">
+  <div class="head">
+    <span class="mark" role="img" aria-label="Logo PCTP"></span>
+    <div>
+      <h1>EduPlaner 2026</h1>
+      <div class="sub">ABC / FBA · Cele SMART · funkcja III</div>
+    </div>
+    <div class="prawa"><b>ABC · PBS</b><span>narzędzie · druk FBA-C</span></div>
+  </div>
+  <div class="metryka">
+    <div><span>Dotyczy ucznia</span><b>&nbsp;</b></div>
+    <div><span>Klasa</span><b>&nbsp;</b></div>
+    <div><span>Data</span><b>&nbsp;</b> r.</div>
+  </div>
+  <div class="tresc">
+    <div class="fn">
+      <span class="rz">III</span>
+      <div><h2>Uwaga</h2><div class="op">Zachowanie pojawia się, gdy dorosły jest zajęty, przynosi uwagę (upomnienie) i nasila się przy publiczności.</div></div>
+      <div class="bad">7/15 · <span class="ocena">Istotna</span>
+        <b>7 z 10 sytuacji · 8 tygodni</b></div>
+    </div>
+    <div class="pbs"><b>Zalecenia PBS</b> Uwaga „z wyprzedzeniem” i pozytywna za zachowania pożądane, nauka właściwego sposobu proszenia o uwagę, minimalna reakcja na zachowanie trudne, spójny plan wzmocnień.</div>
+    <article class="cel">
+      <div class="cel-h">
+        <span class="nr">III.1</span>
+        <span class="def"><b>Deficyt</b> Zachowanie pojawia się, gdy dorosły zajmuje się czymś innym.</span>
+      </div>
+      <p class="cel-t"><b>Cel SMART</b>Uczennica położy na ławce kartę „potrzebuję pomocy” i poczeka 2 minuty, gdy nauczyciel zajmuje się kimś innym, w 7 z 10 sytuacji, w ciągu 8 tygodni.</p>
+      <div class="smart"><div><i>S</i>Kładzie kartę i zostaje przy ławce do podejścia dorosłego.</div><div><i>M</i>2 minuty czekania; 7 z 10 sytuacji.</div><div><i>A</i>Karta działa bez mówienia i bez podchodzenia do nauczyciela.</div><div><i>R</i>Nauczyciel bywa zajęty na każdej lekcji — tego nie da się usunąć.</div><div><i>T</i>Weryfikacja po 8 tygodniach.</div></div>
+      <div class="obs">
+        <span><b>Obserwacja</b> Rejestr ABC — kolumna A: dorosły zajęty innym uczniem. · wszystkie takie sytuacje</span>
+        <span class="wynik">wynik <span class="pole">&nbsp;</span>/10 · data <span class="pole">&nbsp;</span></span>
+      </div>
+    </article>
+    <article class="cel">
+      <div class="cel-h">
+        <span class="nr">III.2</span>
+        <span class="def"><b>Deficyt</b> Po zachowaniu uczennica otrzymuje uwagę (upomnienie, rozmowę).</span>
+      </div>
+      <p class="cel-t"><b>Cel SMART</b>Uczennica poprosi o uwagę dorosłego przez podniesienie ręki, zamiast zachowaniem trudnym, w 7 z 10 sytuacji potrzeby kontaktu, w ciągu 8 tygodni.</p>
+      <div class="smart"><div><i>S</i>Podnosi rękę i czeka na podejście albo skinienie.</div><div><i>M</i>7 z 10 sytuacji potrzeby kontaktu.</div><div><i>A</i>Dorosły odpowiada na rękę od razu, na zachowanie trudne — minimalnie.</div><div><i>R</i>To zachowanie zastępcze o tej samej funkcji: uwaga.</div><div><i>T</i>Weryfikacja po 8 tygodniach.</div></div>
+      <div class="obs">
+        <span><b>Obserwacja</b> Rejestr ABC — którą drogą uczennica uzyskała uwagę. · wszystkie sytuacje kontaktu</span>
+        <span class="wynik">wynik <span class="pole">&nbsp;</span>/10 · data <span class="pole">&nbsp;</span></span>
+      </div>
+    </article>
+    <article class="cel">
+      <div class="cel-h">
+        <span class="nr">III.3</span>
+        <span class="def"><b>Deficyt</b> Zachowanie nasila się w grupie lub przy publiczności.</span>
+      </div>
+      <p class="cel-t"><b>Cel SMART</b>Uczennica zgłosi się do wypowiedzi w ustalonym momencie zajęć („runda”), nie przerywając innym, w 7 z 10 zajęć grupowych, w ciągu 8 tygodni.</p>
+      <div class="smart"><div><i>S</i>Mówi w swojej kolejce w rundzie, bez wchodzenia w słowo.</div><div><i>M</i>7 z 10 zajęć grupowych.</div><div><i>A</i>Runda gwarantuje jej głos — nie musi go zdobywać.</div><div><i>R</i>Praca w grupie to codzienna forma zajęć w klasie III.</div><div><i>T</i>Weryfikacja po 8 tygodniach.</div></div>
+      <div class="obs">
+        <span><b>Obserwacja</b> Karta zajęć grupowych — zgłoszenia i wejścia w słowo. · wszystkie zajęcia grupowe</span>
+        <span class="wynik">wynik <span class="pole">&nbsp;</span>/10 · data <span class="pole">&nbsp;</span></span>
+      </div>
+    </article>
+    <article class="cel">
+      <div class="cel-h">
+        <span class="nr">III.4</span>
+        <span class="def"><b>Deficyt</b> Zachowanie ustaje, gdy uczennica dostanie indywidualną uwagę.</span>
+      </div>
+      <p class="cel-t"><b>Cel SMART</b>Uczennica skorzysta z zaplanowanych 2 minut uwagi „z wyprzedzeniem” na początku lekcji i wróci do zadania po sygnale, w 7 z 10 lekcji, w ciągu 8 tygodni.</p>
+      <div class="smart"><div><i>S</i>Rozmawia 2 minuty i po sygnale siada do zadania.</div><div><i>M</i>2 minuty na starcie; 7 z 10 lekcji.</div><div><i>A</i>Uwaga dana z góry jest tańsza niż odzyskiwana po wybuchu.</div><div><i>R</i>Zapobiega zachowaniu, zamiast na nie reagować.</div><div><i>T</i>Weryfikacja po 8 tygodniach.</div></div>
+      <div class="obs">
+        <span><b>Obserwacja</b> Plan lekcji — odhaczenie rozmowy i powrotu do zadania. · wszystkie lekcje</span>
+        <span class="wynik">wynik <span class="pole">&nbsp;</span>/10 · data <span class="pole">&nbsp;</span></span>
+      </div>
+    </article>
+    <article class="cel">
+      <div class="cel-h">
+        <span class="nr">III.5</span>
+        <span class="def"><b>Deficyt</b> Uczennica patrzy na reakcję dorosłego w trakcie zachowania.</span>
+      </div>
+      <p class="cel-t"><b>Cel SMART</b>Uczennica nawiąże kontakt z dorosłym umówionym gestem (uniesiona dłoń), zamiast sprawdzać jego reakcję zachowaniem trudnym, w 7 z 10 obserwowanych sytuacji, w ciągu 8 tygodni.</p>
+      <div class="smart"><div><i>S</i>Unosi dłoń i czeka na skinienie dorosłego.</div><div><i>M</i>7 z 10 obserwowanych sytuacji.</div><div><i>A</i>Gest jest krótszy niż podejście i nie przerywa lekcji.</div><div><i>R</i>Sprawdzanie reakcji to prośba o kontakt, nie prowokacja.</div><div><i>T</i>Weryfikacja po 8 tygodniach.</div></div>
+      <div class="obs">
+        <span><b>Obserwacja</b> Rejestr ABC — czy przed zachowaniem pojawił się gest. · wszystkie obserwowane sytuacje</span>
+        <span class="wynik">wynik <span class="pole">&nbsp;</span>/10 · data <span class="pole">&nbsp;</span></span>
+      </div>
+    </article>
+  </div>
+  <div class="stopka"><span>EduPlaner 2026 · PCTP · pedagog specjalny mgr Mirosława Ewa Jurczyszyn</span><span>Strona 4 z 8 · funkcja III · uwaga</span></div>
+</section>
+<section class="strona">
+  <div class="head">
+    <span class="mark" role="img" aria-label="Logo PCTP"></span>
+    <div>
+      <h1>EduPlaner 2026</h1>
+      <div class="sub">ABC / FBA · Cele SMART · funkcja IV</div>
+    </div>
+    <div class="prawa"><b>ABC · PBS</b><span>narzędzie · druk FBA-C</span></div>
+  </div>
+  <div class="metryka">
+    <div><span>Dotyczy ucznia</span><b>&nbsp;</b></div>
+    <div><span>Klasa</span><b>&nbsp;</b></div>
+    <div><span>Data</span><b>&nbsp;</b> r.</div>
+  </div>
+  <div class="tresc">
+    <div class="fn">
+      <span class="rz">IV</span>
+      <div><h2>Dostęp do przedmiotu / aktywności</h2><div class="op">Zachowanie nasila się przy odmowie lub zabraniu przedmiotu, a wygasa po jego uzyskaniu.</div></div>
+      <div class="bad">7/15 · <span class="ocena">Istotna</span>
+        <b>7 z 10 sytuacji · 8 tygodni</b></div>
+    </div>
+    <div class="pbs"><b>Zalecenia PBS</b> Nauka proszenia i czekania (odraczanie gratyfikacji), jasne zasady dostępu, system żetonowy; przedmiotu nie wydajemy bezpośrednio po zachowaniu trudnym.</div>
+    <article class="cel">
+      <div class="cel-h">
+        <span class="nr">IV.1</span>
+        <span class="def"><b>Deficyt</b> Zachowanie pojawia się, gdy uczennica nie może dostać tego, czego chce.</span>
+      </div>
+      <p class="cel-t"><b>Cel SMART</b>Uczennica przyjmie odmowę i wybierze jedną z dwóch zaproponowanych alternatyw, w 7 z 10 odmów, w ciągu 8 tygodni.</p>
+      <div class="smart"><div><i>S</i>Wskazuje jedną z dwóch propozycji i zajmuje się nią.</div><div><i>M</i>Dwie alternatywy; 7 z 10 odmów.</div><div><i>A</i>Wybór zostawia jej sprawczość mimo odmowy.</div><div><i>R</i>Odmowa jest nieusuwalną częścią dnia w szkole.</div><div><i>T</i>Weryfikacja po 8 tygodniach.</div></div>
+      <div class="obs">
+        <span><b>Obserwacja</b> Rejestr ABC — kolumna A: odmowa dorosłego. · wszystkie odmowy</span>
+        <span class="wynik">wynik <span class="pole">&nbsp;</span>/10 · data <span class="pole">&nbsp;</span></span>
+      </div>
+    </article>
+    <article class="cel">
+      <div class="cel-h">
+        <span class="nr">IV.2</span>
+        <span class="def"><b>Deficyt</b> Zachowanie nasila się przy odmowie lub zabraniu przedmiotu.</span>
+      </div>
+      <p class="cel-t"><b>Cel SMART</b>Uczennica odda przedmiot po zapowiedzi „jeszcze dwie minuty” i sygnale minutnika, w 7 z 10 sytuacji kończenia aktywności, w ciągu 8 tygodni.</p>
+      <div class="smart"><div><i>S</i>Odkłada przedmiot na ustalone miejsce po sygnale.</div><div><i>M</i>2 minuty zapowiedzi; 7 z 10 sytuacji.</div><div><i>A</i>Zapowiedź zamienia zabranie w zakończenie.</div><div><i>R</i>Zabieranie przedmiotu bez uprzedzenia było wyzwalaczem.</div><div><i>T</i>Weryfikacja po 8 tygodniach.</div></div>
+      <div class="obs">
+        <span><b>Obserwacja</b> Rejestr ABC — zapowiedź, sygnał, reakcja. · wszystkie zakończenia aktywności</span>
+        <span class="wynik">wynik <span class="pole">&nbsp;</span>/10 · data <span class="pole">&nbsp;</span></span>
+      </div>
+    </article>
+    <article class="cel">
+      <div class="cel-h">
+        <span class="nr">IV.3</span>
+        <span class="def"><b>Deficyt</b> Po zachowaniu uczennica otrzymuje pożądany przedmiot lub aktywność.</span>
+      </div>
+      <p class="cel-t"><b>Cel SMART</b>Uczennica poprosi o przedmiot pełnym zwrotem („poproszę o…”), zamiast sięgać po niego zachowaniem trudnym, w 7 z 10 sytuacji, w ciągu 8 tygodni.</p>
+      <div class="smart"><div><i>S</i>Mówi „poproszę o…” i czeka na odpowiedź.</div><div><i>M</i>7 z 10 sytuacji, w których czegoś chce.</div><div><i>A</i>Zwrot jest krótki i ten sam u wszystkich dorosłych.</div><div><i>R</i>Prośba pełni tę samą funkcję, co zachowanie trudne.</div><div><i>T</i>Weryfikacja po 8 tygodniach.</div></div>
+      <div class="obs">
+        <span><b>Obserwacja</b> Rejestr ABC — którą drogą uczennica uzyskała przedmiot. · wszystkie sytuacje</span>
+        <span class="wynik">wynik <span class="pole">&nbsp;</span>/10 · data <span class="pole">&nbsp;</span></span>
+      </div>
+    </article>
+    <article class="cel">
+      <div class="cel-h">
+        <span class="nr">IV.4</span>
+        <span class="def"><b>Deficyt</b> Zachowanie ustaje, gdy uczennica dostanie to, czego chciała.</span>
+      </div>
+      <p class="cel-t"><b>Cel SMART</b>Uczennica poczeka na przedmiot 3 minuty, korzystając z wizualnego licznika, w 7 z 10 sytuacji odroczenia, w ciągu 8 tygodni.</p>
+      <div class="smart"><div><i>S</i>Zostaje przy swojej ławce do końca odliczania.</div><div><i>M</i>3 minuty; 7 z 10 sytuacji odroczenia.</div><div><i>A</i>Licznik pokazuje koniec czekania — czas przestaje być nieznany.</div><div><i>R</i>Czekanie jest warunkiem pracy w grupie 25 osób.</div><div><i>T</i>Weryfikacja po 8 tygodniach.</div></div>
+      <div class="obs">
+        <span><b>Obserwacja</b> Karta odroczeń — czas czekania i wynik. · 5 odroczeń w tygodniu</span>
+        <span class="wynik">wynik <span class="pole">&nbsp;</span>/10 · data <span class="pole">&nbsp;</span></span>
+      </div>
+    </article>
+    <article class="cel">
+      <div class="cel-h">
+        <span class="nr">IV.5</span>
+        <span class="def"><b>Deficyt</b> Zachowanie występuje przy oczekiwaniu na coś atrakcyjnego.</span>
+      </div>
+      <p class="cel-t"><b>Cel SMART</b>Uczennica wykona ustaloną czynność „w międzyczasie” (zadanie z żetonem) w czasie oczekiwania na atrakcyjną aktywność, w 7 z 10 sytuacji oczekiwania, w ciągu 8 tygodni.</p>
+      <div class="smart"><div><i>S</i>Bierze zadanie z pudełka i pracuje przy nim do sygnału.</div><div><i>M</i>7 z 10 sytuacji oczekiwania.</div><div><i>A</i>Żeton łączy czekanie z nagrodą, nie z pustką.</div><div><i>R</i>Oczekiwanie na atrakcję wraca przy każdej wycieczce i przerwie.</div><div><i>T</i>Weryfikacja po 8 tygodniach.</div></div>
+      <div class="obs">
+        <span><b>Obserwacja</b> Karta żetonowa — żeton za czynność w międzyczasie. · wszystkie sytuacje oczekiwania</span>
+        <span class="wynik">wynik <span class="pole">&nbsp;</span>/10 · data <span class="pole">&nbsp;</span></span>
+      </div>
+    </article>
+  </div>
+  <div class="stopka"><span>EduPlaner 2026 · PCTP · pedagog specjalny mgr Mirosława Ewa Jurczyszyn</span><span>Strona 5 z 8 · funkcja IV · dostęp</span></div>
+</section>
+<section class="strona">
+  <div class="head">
+    <span class="mark" role="img" aria-label="Logo PCTP"></span>
+    <div>
+      <h1>EduPlaner 2026</h1>
+      <div class="sub">ABC / FBA · Cele SMART · funkcja V</div>
+    </div>
+    <div class="prawa"><b>ABC · PBS</b><span>narzędzie · druk FBA-C</span></div>
+  </div>
+  <div class="metryka">
+    <div><span>Dotyczy ucznia</span><b>&nbsp;</b></div>
+    <div><span>Klasa</span><b>&nbsp;</b></div>
+    <div><span>Data</span><b>&nbsp;</b> r.</div>
+  </div>
+  <div class="tresc">
+    <div class="fn">
+      <span class="rz">V</span>
+      <div><h2>Regulacja emocji / napięcie</h2><div class="op">Zachowanie wybucha przy zmianie lub przeciążeniu, z objawami napięcia, i jest trudne do przewidzenia.</div></div>
+      <div class="bad">7/15 · <span class="ocena">Istotna</span>
+        <b>7 z 10 sytuacji · 8 tygodni</b></div>
+    </div>
+    <div class="pbs"><b>Zalecenia PBS</b> Przewidywalność (plan dnia, uprzedzanie zmian), strefa wyciszenia i strategie regulacji (oddech, przerwa), wsparcie dorosłego przy pierwszych sygnałach napięcia.</div>
+    <article class="cel">
+      <div class="cel-h">
+        <span class="nr">V.1</span>
+        <span class="def"><b>Deficyt</b> Zachowanie pojawia się przy zmianie, niespodziance lub przeciążeniu.</span>
+      </div>
+      <p class="cel-t"><b>Cel SMART</b>Uczennica przejdzie do zmienionej aktywności po uprzedzeniu i pokazaniu zmiany na planie dnia, bez zachowania trudnego, w 7 z 10 zapowiedzianych zmian, w ciągu 8 tygodni.</p>
+      <div class="smart"><div><i>S</i>Ogląda zmianę na planie i przechodzi do nowej aktywności.</div><div><i>M</i>7 z 10 zapowiedzianych zmian.</div><div><i>A</i>Plan dnia wisi na wysokości jej wzroku, karty się przekładają.</div><div><i>R</i>Zmiana planu w szkole jest nie do uniknięcia.</div><div><i>T</i>Weryfikacja po 8 tygodniach.</div></div>
+      <div class="obs">
+        <span><b>Obserwacja</b> Plan dnia — zapis zmiany i reakcji. · wszystkie zmiany planu</span>
+        <span class="wynik">wynik <span class="pole">&nbsp;</span>/10 · data <span class="pole">&nbsp;</span></span>
+      </div>
+    </article>
+    <article class="cel">
+      <div class="cel-h">
+        <span class="nr">V.2</span>
+        <span class="def"><b>Deficyt</b> Zachowaniu towarzyszą objawy napięcia (płacz, pobudzenie).</span>
+      </div>
+      <p class="cel-t"><b>Cel SMART</b>Uczennica nazwie swoje napięcie na termometrze emocji (zielony — żółty — czerwony) przy pierwszych objawach, w 7 z 10 sytuacji, w ciągu 8 tygodni.</p>
+      <div class="smart"><div><i>S</i>Wskazuje kolor na termometrze i mówi, co czuje.</div><div><i>M</i>Trzy poziomy; 7 z 10 sytuacji napięcia.</div><div><i>A</i>Termometr leży na ławce, wskazanie nie wymaga słów.</div><div><i>R</i>Nazwane napięcie daje się obniżyć, zanim wybuchnie.</div><div><i>T</i>Weryfikacja po 8 tygodniach.</div></div>
+      <div class="obs">
+        <span><b>Obserwacja</b> Termometr emocji — zapis wskazań w ciągu dnia. · wszystkie sytuacje napięcia</span>
+        <span class="wynik">wynik <span class="pole">&nbsp;</span>/10 · data <span class="pole">&nbsp;</span></span>
+      </div>
+    </article>
+    <article class="cel">
+      <div class="cel-h">
+        <span class="nr">V.3</span>
+        <span class="def"><b>Deficyt</b> Zachowanie występuje w sytuacjach stresu lub przebodźcowania.</span>
+      </div>
+      <p class="cel-t"><b>Cel SMART</b>Uczennica skorzysta ze strefy wyciszenia przez 5 minut, na własną prośbę albo propozycję dorosłego, w 7 z 10 sytuacji przebodźcowania, w ciągu 8 tygodni.</p>
+      <div class="smart"><div><i>S</i>Idzie do strefy i zostaje tam do końca odliczania.</div><div><i>M</i>5 minut; 7 z 10 sytuacji przebodźcowania.</div><div><i>A</i>Strefa jest w sali, wejście nie wymaga zgody za każdym razem.</div><div><i>R</i>Wyjście z bodźców przerywa narastanie, zanim dojdzie do wybuchu.</div><div><i>T</i>Weryfikacja po 8 tygodniach.</div></div>
+      <div class="obs">
+        <span><b>Obserwacja</b> Rejestr strefy wyciszenia — kto zainicjował i jak długo. · wszystkie sytuacje przebodźcowania</span>
+        <span class="wynik">wynik <span class="pole">&nbsp;</span>/10 · data <span class="pole">&nbsp;</span></span>
+      </div>
+    </article>
+    <article class="cel">
+      <div class="cel-h">
+        <span class="nr">V.4</span>
+        <span class="def"><b>Deficyt</b> Zachowanie ustaje po wyciszeniu lub odzyskaniu równowagi.</span>
+      </div>
+      <p class="cel-t"><b>Cel SMART</b>Uczennica wróci do zajęć w ciągu 5 minut od zakończenia strategii wyciszenia, w 7 z 10 sytuacji, w ciągu 8 tygodni.</p>
+      <div class="smart"><div><i>S</i>Wraca do ławki i podejmuje bieżące zadanie.</div><div><i>M</i>5 minut od końca strategii; 7 z 10 sytuacji.</div><div><i>A</i>Po powrocie dostaje zadanie skrócone, nie zaległe w całości.</div><div><i>R</i>Bez powrotu wyciszenie staje się ucieczką z lekcji.</div><div><i>T</i>Weryfikacja po 8 tygodniach.</div></div>
+      <div class="obs">
+        <span><b>Obserwacja</b> Rejestr strefy wyciszenia — czas powrotu do zajęć. · wszystkie wyciszenia</span>
+        <span class="wynik">wynik <span class="pole">&nbsp;</span>/10 · data <span class="pole">&nbsp;</span></span>
+      </div>
+    </article>
+    <article class="cel">
+      <div class="cel-h">
+        <span class="nr">V.5</span>
+        <span class="def"><b>Deficyt</b> Zachowanie jest trudne do przewidzenia, wybucha nagle.</span>
+      </div>
+      <p class="cel-t"><b>Cel SMART</b>Uczennica zasygnalizuje czerwoną kartą pierwszy sygnał napięcia, zanim dojdzie do wybuchu, w 7 z 10 obserwowanych narastań, w ciągu 8 tygodni.</p>
+      <div class="smart"><div><i>S</i>Podnosi czerwoną kartę przed wybuchem, nie po nim.</div><div><i>M</i>7 z 10 obserwowanych narastań napięcia.</div><div><i>A</i>Karta jest zawsze w tym samym miejscu ławki.</div><div><i>R</i>To jedyny cel, który skraca fazę nagłego wybuchu.</div><div><i>T</i>Weryfikacja po 8 tygodniach.</div></div>
+      <div class="obs">
+        <span><b>Obserwacja</b> Rejestr ABC — sygnał ucznia przed zachowaniem (tak/nie). · wszystkie narastania napięcia</span>
+        <span class="wynik">wynik <span class="pole">&nbsp;</span>/10 · data <span class="pole">&nbsp;</span></span>
+      </div>
+    </article>
+  </div>
+  <div class="stopka"><span>EduPlaner 2026 · PCTP · pedagog specjalny mgr Mirosława Ewa Jurczyszyn</span><span>Strona 6 z 8 · funkcja V · regulacja emocji</span></div>
+</section>
+<section class="strona">
+  <div class="head">
+    <span class="mark" role="img" aria-label="Logo PCTP"></span>
+    <div>
+      <h1>EduPlaner 2026</h1>
+      <div class="sub">ABC / FBA · Tabela ewaluacji · część 1</div>
+    </div>
+    <div class="prawa"><b>ABC · PBS</b><span>narzędzie · druk FBA-C</span></div>
+  </div>
+  <div class="metryka">
+    <div><span>Dotyczy ucznia</span><b>&nbsp;</b></div>
+    <div><span>Klasa</span><b>&nbsp;</b></div>
+    <div><span>Data</span><b>&nbsp;</b> r.</div>
+  </div>
+  <div class="tresc">
+    <div class="pas">Tabela ewaluacji · 15 celów · I ucieczka · II sensoryczne · III uwaga</div>
+    <table><thead><tr><th>Nr</th><th>Cel — zachowanie zastępcze</th><th>Kryt.</th><th>Horyzont</th><th>Data startu</th><th>Wynik</th><th>Osiągnięty</th></tr></thead><tbody><tr><td class="pkt">I.1</td><td>Uczennica rozpocznie trudne zadanie w ciągu 1 minuty od polecenia, korzystając z karty „zacznij od jednego kroku”</td><td class="pkt">7 z 10</td><td class="pkt">8 tygodni</td><td></td><td></td><td></td></tr><tr><td class="pkt">I.2</td><td>Uczennica wykona polecenie po jednokrotnym powtórzeniu i zapowiedzi „za dwie minuty kończymy”, bez zachowania trudnego</td><td class="pkt">7 z 10</td><td class="pkt">8 tygodni</td><td></td><td></td><td></td></tr><tr><td class="pkt">I.3</td><td>Uczennica wróci do przerwanego zadania po trzyminutowej przerwie i wykona ustaloną, skróconą część</td><td class="pkt">7 z 10</td><td class="pkt">8 tygodni</td><td></td><td></td><td></td></tr><tr><td class="pkt">I.4</td><td>Uczennica podejmie zadanie trudniejsze ustawione po dwóch łatwych (zasada „dwa łatwe, jedno trudne”)</td><td class="pkt">7 z 10</td><td class="pkt">8 tygodni</td><td></td><td></td><td></td></tr><tr><td class="pkt">I.5</td><td>Uczennica poprosi o przerwę kartą „przerwa” albo słowami, zamiast przerywać zadanie zachowaniem trudnym</td><td class="pkt">7 z 10</td><td class="pkt">8 tygodni</td><td></td><td></td><td></td></tr><tr><td class="pkt">II.1</td><td>Uczennica sięgnie po ustalony przedmiot do regulacji (gniotek, taśma na nodze krzesła) podczas pracy samodzielnej</td><td class="pkt">7 z 10</td><td class="pkt">8 tygodni</td><td></td><td></td><td></td></tr><tr><td class="pkt">II.2</td><td>Uczennica wskaże na karcie diety sensorycznej, jakiego wrażenia potrzebuje (ruch, ucisk, dźwięk), i skorzysta z odpowiadającej mu formy</td><td class="pkt">7 z 10</td><td class="pkt">8 tygodni</td><td></td><td></td><td></td></tr><tr><td class="pkt">II.3</td><td>Uczennica skorzysta z zaplanowanej przerwy sensorycznej po sygnale minutnika, bez przypominania dorosłego</td><td class="pkt">7 z 10</td><td class="pkt">8 tygodni</td><td></td><td></td><td></td></tr><tr><td class="pkt">II.4</td><td>Uczennica wybierze zajęcie z listy trzech aktywności „gdy skończę wcześniej” i zajmie się nim przez 5 minut</td><td class="pkt">7 z 10</td><td class="pkt">8 tygodni</td><td></td><td></td><td></td></tr><tr><td class="pkt">II.5</td><td>Uczennica zakończy autostymulację w ciągu 30 sekund od umówionego sygnału („stop — zamiana”) i przejdzie do formy zastępczej</td><td class="pkt">7 z 10</td><td class="pkt">8 tygodni</td><td></td><td></td><td></td></tr><tr><td class="pkt">III.1</td><td>Uczennica położy na ławce kartę „potrzebuję pomocy” i poczeka 2 minuty, gdy nauczyciel zajmuje się kimś innym</td><td class="pkt">7 z 10</td><td class="pkt">8 tygodni</td><td></td><td></td><td></td></tr><tr><td class="pkt">III.2</td><td>Uczennica poprosi o uwagę dorosłego przez podniesienie ręki, zamiast zachowaniem trudnym</td><td class="pkt">7 z 10</td><td class="pkt">8 tygodni</td><td></td><td></td><td></td></tr><tr><td class="pkt">III.3</td><td>Uczennica zgłosi się do wypowiedzi w ustalonym momencie zajęć („runda”), nie przerywając innym</td><td class="pkt">7 z 10</td><td class="pkt">8 tygodni</td><td></td><td></td><td></td></tr><tr><td class="pkt">III.4</td><td>Uczennica skorzysta z zaplanowanych 2 minut uwagi „z wyprzedzeniem” na początku lekcji i wróci do zadania po sygnale</td><td class="pkt">7 z 10</td><td class="pkt">8 tygodni</td><td></td><td></td><td></td></tr><tr><td class="pkt">III.5</td><td>Uczennica nawiąże kontakt z dorosłym umówionym gestem (uniesiona dłoń), zamiast sprawdzać jego reakcję zachowaniem trudnym</td><td class="pkt">7 z 10</td><td class="pkt">8 tygodni</td><td></td><td></td><td></td></tr></tbody></table>
+  </div>
+  <div class="stopka"><span>EduPlaner 2026 · PCTP · pedagog specjalny mgr Mirosława Ewa Jurczyszyn</span><span>Strona 7 z 8 · ewaluacja I–III</span></div>
+</section>
+<section class="strona">
+  <div class="head">
+    <span class="mark" role="img" aria-label="Logo PCTP"></span>
+    <div>
+      <h1>EduPlaner 2026</h1>
+      <div class="sub">ABC / FBA · Tabela ewaluacji · część 2 i podpisy</div>
+    </div>
+    <div class="prawa"><b>ABC · PBS</b><span>narzędzie · druk FBA-C</span></div>
+  </div>
+  <div class="metryka">
+    <div><span>Dotyczy ucznia</span><b>&nbsp;</b></div>
+    <div><span>Klasa</span><b>&nbsp;</b></div>
+    <div><span>Data</span><b>&nbsp;</b> r.</div>
+  </div>
+  <div class="tresc">
+    <div class="pas">Tabela ewaluacji · 10 celów · IV dostęp · V regulacja emocji</div>
+    <table><thead><tr><th>Nr</th><th>Cel — zachowanie zastępcze</th><th>Kryt.</th><th>Horyzont</th><th>Data startu</th><th>Wynik</th><th>Osiągnięty</th></tr></thead><tbody><tr><td class="pkt">IV.1</td><td>Uczennica przyjmie odmowę i wybierze jedną z dwóch zaproponowanych alternatyw</td><td class="pkt">7 z 10</td><td class="pkt">8 tygodni</td><td></td><td></td><td></td></tr><tr><td class="pkt">IV.2</td><td>Uczennica odda przedmiot po zapowiedzi „jeszcze dwie minuty” i sygnale minutnika</td><td class="pkt">7 z 10</td><td class="pkt">8 tygodni</td><td></td><td></td><td></td></tr><tr><td class="pkt">IV.3</td><td>Uczennica poprosi o przedmiot pełnym zwrotem („poproszę o…”), zamiast sięgać po niego zachowaniem trudnym</td><td class="pkt">7 z 10</td><td class="pkt">8 tygodni</td><td></td><td></td><td></td></tr><tr><td class="pkt">IV.4</td><td>Uczennica poczeka na przedmiot 3 minuty, korzystając z wizualnego licznika</td><td class="pkt">7 z 10</td><td class="pkt">8 tygodni</td><td></td><td></td><td></td></tr><tr><td class="pkt">IV.5</td><td>Uczennica wykona ustaloną czynność „w międzyczasie” (zadanie z żetonem) w czasie oczekiwania na atrakcyjną aktywność</td><td class="pkt">7 z 10</td><td class="pkt">8 tygodni</td><td></td><td></td><td></td></tr><tr><td class="pkt">V.1</td><td>Uczennica przejdzie do zmienionej aktywności po uprzedzeniu i pokazaniu zmiany na planie dnia, bez zachowania trudnego</td><td class="pkt">7 z 10</td><td class="pkt">8 tygodni</td><td></td><td></td><td></td></tr><tr><td class="pkt">V.2</td><td>Uczennica nazwie swoje napięcie na termometrze emocji (zielony — żółty — czerwony) przy pierwszych objawach</td><td class="pkt">7 z 10</td><td class="pkt">8 tygodni</td><td></td><td></td><td></td></tr><tr><td class="pkt">V.3</td><td>Uczennica skorzysta ze strefy wyciszenia przez 5 minut, na własną prośbę albo propozycję dorosłego</td><td class="pkt">7 z 10</td><td class="pkt">8 tygodni</td><td></td><td></td><td></td></tr><tr><td class="pkt">V.4</td><td>Uczennica wróci do zajęć w ciągu 5 minut od zakończenia strategii wyciszenia</td><td class="pkt">7 z 10</td><td class="pkt">8 tygodni</td><td></td><td></td><td></td></tr><tr><td class="pkt">V.5</td><td>Uczennica zasygnalizuje czerwoną kartą pierwszy sygnał napięcia, zanim dojdzie do wybuchu</td><td class="pkt">7 z 10</td><td class="pkt">8 tygodni</td><td></td><td></td><td></td></tr></tbody></table>
+    <div class="podpisy"><div>Podpis oceniającego</div><div>Podpis koordynatora</div></div>
+    <div class="podstawa">
+      <b>Podstawa.</b> Cele szczegółowe do analizy funkcjonalnej zachowania (FBA) i programu
+      pozytywnego wsparcia (PBS) — element wielospecjalistycznej oceny poziomu funkcjonowania
+      (WOPF). Model A-B-C (Antecedent–Behaviour–Consequence). Kryterium i horyzont wynikają
+      z punktacji kwestionariusza funkcji (0–15 pkt); wynik kwestionariusza wskazuje
+      przypuszczalną funkcję i nie zastępuje pełnej diagnozy. Podstawa prawna: ustawa
+      z 14.12.2016 r. — Prawo oświatowe (Dz.U. 2024 poz. 737, ze zm.), art. 127; rozp. MEN
+      z 9.08.2017 r. w sprawie zasad organizacji i udzielania pomocy psychologiczno-pedagogicznej
+      (Dz.U. 2017 poz. 1591, ze zm.); rozp. MEN z 9.08.2017 r. (Dz.U. 2017 poz. 1578, ze zm.) —
+      zintegrowane działania nauczycieli i specjalistów. Wszystkie pola są edytowalne.
+    </div>
+  </div>
+  <div class="stopka"><span>EduPlaner 2026 · PCTP · pedagog specjalny mgr Mirosława Ewa Jurczyszyn</span><span>Strona 8 z 8 · ewaluacja IV–V</span></div>
+</section>
+</body>
+</html>
