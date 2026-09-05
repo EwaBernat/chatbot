@@ -225,6 +225,7 @@ zaakceptowała, i nie dokładaj do niego zdań „od siebie" po akceptacji.
 - `references/mcp.md` — dodanie złącza HeyGen, OAuth, zasięgi, diagnostyka połączenia
 - `references/prompt-agenta.md` — szablon promptu do Video Agenta i gotowe przykłady
 - `references/scenariusz.md` — zasady pisania pod awatara po polsku, wzorce i długości
+- `references/lokalnie.md` — uruchomienie u siebie: CLI HeyGen, logowanie, render krok po kroku
 - `scripts/skonfiguruj_awatara.py` — pamięć skilla: awatar i głos HeyGen
 - `.claude/skills/dane-i-glos/scripts/heygen_awatar.py` — render przez API
 - `.claude/skills/dane-i-glos/references/heygen.md` — API, kredyty, kody błędów
