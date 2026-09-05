@@ -2,7 +2,7 @@
   "opis": "Manifest nagrań poleceń dla dziecka — teoria umysłu (ToM). Ścieżki liczone od katalogu 04_media/, tak jak w module ABC/FBA.",
   "uwaga_prawna": "Pliki audio to sklonowany głos autorki. Głos jest daną biometryczną: nie publikuj nagrań i nie używaj ich poza uzgodnionym zastosowaniem w aplikacji EduPlaner 2026.",
   "parametry": {
-    "model": "eleven_multilingual_v2",
+    "model": "eleven_v3",
     "format_zrodlowy": "mp3_44100_64",
     "bitrate_docelowy": "40k",
     "kanaly": "mono"
@@ -14,7 +14,8 @@
       "wersja_wiekowa": "A",
       "wiek": "3–4 lata",
       "pomoc": "Cztery karty emocji i tablica emocji",
-      "tekst": "Popatrz. To jest smutna buźka. Pokaż mi smutną buźkę.",
+      "tekst": "[warmly] Popatrz… To jest smutna buźka… Pokaż mi smutną buźkę.",
+      "tekst_drukowany": "Popatrz. To jest smutna buźka. Pokaż mi smutną buźkę.",
       "plik": "eduplaner_tom/assets/audio_tom/ai_1.mp3",
       "czyta": "sklonowany głos autorki (dana biometryczna)"
     },
@@ -23,7 +24,8 @@
       "wersja_wiekowa": "B",
       "wiek": "5 lat",
       "pomoc": "Cztery karty emocji i tablica emocji",
-      "tekst": "Jaka to emocja? Możesz popatrzeć na tablicę.",
+      "tekst": "[warmly] Jaka to emocja? … Możesz popatrzeć na tablicę.",
+      "tekst_drukowany": "Jaka to emocja? Możesz popatrzeć na tablicę.",
       "plik": "eduplaner_tom/assets/audio_tom/bi_1.mp3",
       "czyta": "sklonowany głos autorki (dana biometryczna)"
     },
@@ -32,7 +34,8 @@
       "wersja_wiekowa": "C",
       "wiek": "6 lat",
       "pomoc": "Cztery karty emocji i tablica emocji",
-      "tekst": "Co czuje bohater? Powiedz mi też, jak mocno to czuje.",
+      "tekst": "[warmly] Co czuje bohater? … Powiedz mi też, jak mocno to czuje.",
+      "tekst_drukowany": "Co czuje bohater? Powiedz mi też, jak mocno to czuje.",
       "plik": "eduplaner_tom/assets/audio_tom/ci_1.mp3",
       "czyta": "sklonowany głos autorki (dana biometryczna)"
     },
@@ -41,7 +44,8 @@
       "wersja_wiekowa": "A",
       "wiek": "3–4 lata",
       "pomoc": "Zestaw fotografii twarzy i lustro",
-      "tekst": "Popatrz na buźki. Która jest smutna?",
+      "tekst": "[warmly] Popatrz na buźki… Która jest smutna?",
+      "tekst_drukowany": "Popatrz na buźki. Która jest smutna?",
       "plik": "eduplaner_tom/assets/audio_tom/ai_2.mp3",
       "czyta": "sklonowany głos autorki (dana biometryczna)"
     },
@@ -50,7 +54,8 @@
       "wersja_wiekowa": "B",
       "wiek": "5 lat",
       "pomoc": "Zestaw fotografii twarzy i lustro",
-      "tekst": "Jaka to emocja? Popatrz na oczy i na usta.",
+      "tekst": "[warmly] Jaka to emocja? … Popatrz na oczy i na usta.",
+      "tekst_drukowany": "Jaka to emocja? Popatrz na oczy i na usta.",
       "plik": "eduplaner_tom/assets/audio_tom/bi_2.mp3",
       "czyta": "sklonowany głos autorki (dana biometryczna)"
     },
@@ -59,7 +64,8 @@
       "wersja_wiekowa": "C",
       "wiek": "6 lat",
       "pomoc": "Zestaw fotografii twarzy i lustro",
-      "tekst": "Co czuje twój kolega? Zapytaj go, czy tak jest.",
+      "tekst": "[warmly] Co czuje twój kolega? … Zapytaj go, czy tak jest.",
+      "tekst_drukowany": "Co czuje twój kolega? Zapytaj go, czy tak jest.",
       "plik": "eduplaner_tom/assets/audio_tom/ci_2.mp3",
       "czyta": "sklonowany głos autorki (dana biometryczna)"
     },
@@ -68,7 +74,8 @@
       "wersja_wiekowa": "A",
       "wiek": "3–4 lata",
       "pomoc": "Historyjki „czuje, bo…” i karta ramy zdania",
-      "tekst": "Popatrz. Dlaczego on płacze?",
+      "tekst": "[warmly] Popatrz… Dlaczego on płacze?",
+      "tekst_drukowany": "Popatrz. Dlaczego on płacze?",
       "plik": "eduplaner_tom/assets/audio_tom/ai_3.mp3",
       "czyta": "sklonowany głos autorki (dana biometryczna)"
     },
@@ -77,7 +84,8 @@
       "wersja_wiekowa": "B",
       "wiek": "5 lat",
       "pomoc": "Historyjki „czuje, bo…” i karta ramy zdania",
-      "tekst": "Dokończ: czuje…, bo…",
+      "tekst": "[warmly] Dokończ: czuje…, bo…",
+      "tekst_drukowany": "Dokończ: czuje…, bo…",
       "plik": "eduplaner_tom/assets/audio_tom/bi_3.mp3",
       "czyta": "sklonowany głos autorki (dana biometryczna)"
     },
@@ -86,7 +94,8 @@
       "wersja_wiekowa": "C",
       "wiek": "6 lat",
       "pomoc": "Historyjki „czuje, bo…” i karta ramy zdania",
-      "tekst": "Jak myślisz, dlaczego kolega tak się czuje? Zapytaj go.",
+      "tekst": "[warmly] Jak myślisz, dlaczego kolega tak się czuje? … Zapytaj go.",
+      "tekst_drukowany": "Jak myślisz, dlaczego kolega tak się czuje? Zapytaj go.",
       "plik": "eduplaner_tom/assets/audio_tom/ci_3.mp3",
       "czyta": "sklonowany głos autorki (dana biometryczna)"
     },
@@ -95,7 +104,8 @@
       "wersja_wiekowa": "A",
       "wiek": "3–4 lata",
       "pomoc": "Termometr emocji z klamerką i karty potrzeb",
-      "tekst": "Jak się dziś czujesz? Przypnij klamerkę.",
+      "tekst": "[warmly] Jak się dziś czujesz? … Przypnij klamerkę.",
+      "tekst_drukowany": "Jak się dziś czujesz? Przypnij klamerkę.",
       "plik": "eduplaner_tom/assets/audio_tom/ai_4.mp3",
       "czyta": "sklonowany głos autorki (dana biometryczna)"
     },
@@ -104,7 +114,8 @@
       "wersja_wiekowa": "B",
       "wiek": "5 lat",
       "pomoc": "Termometr emocji z klamerką i karty potrzeb",
-      "tekst": "Powiedz, jak się czujesz. Czego dziś potrzebujesz?",
+      "tekst": "[warmly] Powiedz, jak się czujesz… Czego dziś potrzebujesz?",
+      "tekst_drukowany": "Powiedz, jak się czujesz. Czego dziś potrzebujesz?",
       "plik": "eduplaner_tom/assets/audio_tom/bi_4.mp3",
       "czyta": "sklonowany głos autorki (dana biometryczna)"
     },
@@ -113,7 +124,8 @@
       "wersja_wiekowa": "C",
       "wiek": "6 lat",
       "pomoc": "Termometr emocji z klamerką i karty potrzeb",
-      "tekst": "Nazwij emocję i powiedz, jak mocno ją czujesz. Poproś o to, czego ci trzeba.",
+      "tekst": "[warmly] Nazwij emocję i powiedz, jak mocno ją czujesz… Poproś o to, czego ci trzeba.",
+      "tekst_drukowany": "Nazwij emocję i powiedz, jak mocno ją czujesz. Poproś o to, czego ci trzeba.",
       "plik": "eduplaner_tom/assets/audio_tom/ci_4.mp3",
       "czyta": "sklonowany głos autorki (dana biometryczna)"
     },
@@ -122,7 +134,8 @@
       "wersja_wiekowa": "A",
       "wiek": "3–4 lata",
       "pomoc": "Karta „pomagam” i maskotka pocieszanka",
-      "tekst": "Popatrz, Ola płacze. Idziemy razem. Podaj jej misia.",
+      "tekst": "[warmly] Popatrz, Ola płacze… Idziemy razem… Podaj jej misia.",
+      "tekst_drukowany": "Popatrz, Ola płacze. Idziemy razem. Podaj jej misia.",
       "plik": "eduplaner_tom/assets/audio_tom/ai_5.mp3",
       "czyta": "sklonowany głos autorki (dana biometryczna)"
     },
@@ -131,7 +144,8 @@
       "wersja_wiekowa": "B",
       "wiek": "5 lat",
       "pomoc": "Karta „pomagam” i maskotka pocieszanka",
-      "tekst": "Popatrz na kartę. Jak dziś pomożesz koledze?",
+      "tekst": "[warmly] Popatrz na kartę… Jak dziś pomożesz koledze?",
+      "tekst_drukowany": "Popatrz na kartę. Jak dziś pomożesz koledze?",
       "plik": "eduplaner_tom/assets/audio_tom/bi_5.mp3",
       "czyta": "sklonowany głos autorki (dana biometryczna)"
     },
@@ -140,7 +154,8 @@
       "wersja_wiekowa": "C",
       "wiek": "6 lat",
       "pomoc": "Karta „pomagam” i maskotka pocieszanka",
-      "tekst": "Zapytaj kolegę, czego potrzebuje. Potem zrób to, o co poprosi.",
+      "tekst": "[warmly] Zapytaj kolegę, czego potrzebuje… Potem zrób to, o co poprosi.",
+      "tekst_drukowany": "Zapytaj kolegę, czego potrzebuje. Potem zrób to, o co poprosi.",
       "plik": "eduplaner_tom/assets/audio_tom/ci_5.mp3",
       "czyta": "sklonowany głos autorki (dana biometryczna)"
     },
@@ -149,7 +164,8 @@
       "wersja_wiekowa": "A",
       "wiek": "3–4 lata",
       "pomoc": "Tablica „co kto lubi”",
-      "tekst": "Popatrz na tablicę. Co lubi Ola?",
+      "tekst": "[warmly] Popatrz na tablicę… Co lubi Ola?",
+      "tekst_drukowany": "Popatrz na tablicę. Co lubi Ola?",
       "plik": "eduplaner_tom/assets/audio_tom/aii_1.mp3",
       "czyta": "sklonowany głos autorki (dana biometryczna)"
     },
@@ -158,7 +174,8 @@
       "wersja_wiekowa": "B",
       "wiek": "5 lat",
       "pomoc": "Tablica „co kto lubi”",
-      "tekst": "Co wybierze Ola? A ty co wybierasz?",
+      "tekst": "[warmly] Co wybierze Ola? … A ty co wybierasz?",
+      "tekst_drukowany": "Co wybierze Ola? A ty co wybierasz?",
       "plik": "eduplaner_tom/assets/audio_tom/bii_1.mp3",
       "czyta": "sklonowany głos autorki (dana biometryczna)"
     },
@@ -167,7 +184,8 @@
       "wersja_wiekowa": "C",
       "wiek": "6 lat",
       "pomoc": "Tablica „co kto lubi”",
-      "tekst": "Z kim się dziś bawisz? Zaproponuj zabawę, którą on lubi.",
+      "tekst": "[warmly] Z kim się dziś bawisz? … Zaproponuj zabawę, którą on lubi.",
+      "tekst_drukowany": "Z kim się dziś bawisz? Zaproponuj zabawę, którą on lubi.",
       "plik": "eduplaner_tom/assets/audio_tom/cii_1.mp3",
       "czyta": "sklonowany głos autorki (dana biometryczna)"
     },
@@ -176,7 +194,8 @@
       "wersja_wiekowa": "A",
       "wiek": "3–4 lata",
       "pomoc": "Pacynka o własnym upodobaniu i kartoniki prognoz",
-      "tekst": "Po co sięgnie pacynka? Pokaż.",
+      "tekst": "[warmly] Po co sięgnie pacynka? … Pokaż.",
+      "tekst_drukowany": "Po co sięgnie pacynka? Pokaż.",
       "plik": "eduplaner_tom/assets/audio_tom/aii_2.mp3",
       "czyta": "sklonowany głos autorki (dana biometryczna)"
     },
@@ -185,7 +204,8 @@
       "wersja_wiekowa": "B",
       "wiek": "5 lat",
       "pomoc": "Pacynka o własnym upodobaniu i kartoniki prognoz",
-      "tekst": "Co wybierze Ola? Zapytaj ją potem, czy tak jest.",
+      "tekst": "[warmly] Co wybierze Ola? … Zapytaj ją potem, czy tak jest.",
+      "tekst_drukowany": "Co wybierze Ola? Zapytaj ją potem, czy tak jest.",
       "plik": "eduplaner_tom/assets/audio_tom/bii_2.mp3",
       "czyta": "sklonowany głos autorki (dana biometryczna)"
     },
@@ -194,7 +214,8 @@
       "wersja_wiekowa": "C",
       "wiek": "6 lat",
       "pomoc": "Pacynka o własnym upodobaniu i kartoniki prognoz",
-      "tekst": "Co wybierze kolega i dlaczego? Dokończ: wybierze…, bo lubi…",
+      "tekst": "[warmly] Co wybierze kolega i dlaczego? … Dokończ: wybierze…, bo lubi…",
+      "tekst_drukowany": "Co wybierze kolega i dlaczego? Dokończ: wybierze…, bo lubi…",
       "plik": "eduplaner_tom/assets/audio_tom/cii_2.mp3",
       "czyta": "sklonowany głos autorki (dana biometryczna)"
     },
@@ -203,7 +224,8 @@
       "wersja_wiekowa": "A",
       "wiek": "3–4 lata",
       "pomoc": "Historyjki w dwóch zakończeniach i karty emocji",
-      "tekst": "Dostała lody. Jaka jest buźka? A teraz nie dostała.",
+      "tekst": "[warmly] Dostała lody… Jaka jest buźka? … A teraz nie dostała.",
+      "tekst_drukowany": "Dostała lody. Jaka jest buźka? A teraz nie dostała.",
       "plik": "eduplaner_tom/assets/audio_tom/aii_3.mp3",
       "czyta": "sklonowany głos autorki (dana biometryczna)"
     },
@@ -212,7 +234,8 @@
       "wersja_wiekowa": "B",
       "wiek": "5 lat",
       "pomoc": "Historyjki w dwóch zakończeniach i karty emocji",
-      "tekst": "Jak się czuje bohater? A jak, kiedy nie dostał?",
+      "tekst": "[warmly] Jak się czuje bohater? … A jak, kiedy nie dostał?",
+      "tekst_drukowany": "Jak się czuje bohater? A jak, kiedy nie dostał?",
       "plik": "eduplaner_tom/assets/audio_tom/bii_3.mp3",
       "czyta": "sklonowany głos autorki (dana biometryczna)"
     },
@@ -221,7 +244,8 @@
       "wersja_wiekowa": "C",
       "wiek": "6 lat",
       "pomoc": "Historyjki w dwóch zakończeniach i karty emocji",
-      "tekst": "Kto się dziś rozczaruje przy podziale? Jak podzielić, żeby było znośnie?",
+      "tekst": "[warmly] Kto się dziś rozczaruje przy podziale? … Jak podzielić, żeby było znośnie?",
+      "tekst_drukowany": "Kto się dziś rozczaruje przy podziale? Jak podzielić, żeby było znośnie?",
       "plik": "eduplaner_tom/assets/audio_tom/cii_3.mp3",
       "czyta": "sklonowany głos autorki (dana biometryczna)"
     },
@@ -230,7 +254,8 @@
       "wersja_wiekowa": "A",
       "wiek": "3–4 lata",
       "pomoc": "Karty zabaw i klepsydra do dzielenia czasu",
-      "tekst": "Co lubi Ola? Podaj jej to.",
+      "tekst": "[warmly] Co lubi Ola? … Podaj jej to.",
+      "tekst_drukowany": "Co lubi Ola? Podaj jej to.",
       "plik": "eduplaner_tom/assets/audio_tom/aii_4.mp3",
       "czyta": "sklonowany głos autorki (dana biometryczna)"
     },
@@ -239,7 +264,8 @@
       "wersja_wiekowa": "B",
       "wiek": "5 lat",
       "pomoc": "Karty zabaw i klepsydra do dzielenia czasu",
-      "tekst": "W co pobawicie się razem? Sprawdź, co lubi kolega.",
+      "tekst": "[warmly] W co pobawicie się razem? … Sprawdź, co lubi kolega.",
+      "tekst_drukowany": "W co pobawicie się razem? Sprawdź, co lubi kolega.",
       "plik": "eduplaner_tom/assets/audio_tom/bii_4.mp3",
       "czyta": "sklonowany głos autorki (dana biometryczna)"
     },
@@ -248,7 +274,8 @@
       "wersja_wiekowa": "C",
       "wiek": "6 lat",
       "pomoc": "Karty zabaw i klepsydra do dzielenia czasu",
-      "tekst": "Zapytaj oboje, co lubią. Zaproponuj coś dla wszystkich.",
+      "tekst": "[warmly] Zapytaj oboje, co lubią… Zaproponuj coś dla wszystkich.",
+      "tekst_drukowany": "Zapytaj oboje, co lubią. Zaproponuj coś dla wszystkich.",
       "plik": "eduplaner_tom/assets/audio_tom/cii_4.mp3",
       "czyta": "sklonowany głos autorki (dana biometryczna)"
     },
@@ -257,7 +284,8 @@
       "wersja_wiekowa": "A",
       "wiek": "3–4 lata",
       "pomoc": "Karta pytania „a co ty lubisz?” i pudełko skarbów",
-      "tekst": "Powiedz, co lubisz. Pokaż to koledze.",
+      "tekst": "[warmly] Powiedz, co lubisz… Pokaż to koledze.",
+      "tekst_drukowany": "Powiedz, co lubisz. Pokaż to koledze.",
       "plik": "eduplaner_tom/assets/audio_tom/aii_5.mp3",
       "czyta": "sklonowany głos autorki (dana biometryczna)"
     },
@@ -266,7 +294,8 @@
       "wersja_wiekowa": "B",
       "wiek": "5 lat",
       "pomoc": "Karta pytania „a co ty lubisz?” i pudełko skarbów",
-      "tekst": "Zapytaj kolegę: a co ty lubisz? Potem powtórz jego odpowiedź.",
+      "tekst": "[warmly] Zapytaj kolegę: a co ty lubisz? … Potem powtórz jego odpowiedź.",
+      "tekst_drukowany": "Zapytaj kolegę: a co ty lubisz? Potem powtórz jego odpowiedź.",
       "plik": "eduplaner_tom/assets/audio_tom/bii_5.mp3",
       "czyta": "sklonowany głos autorki (dana biometryczna)"
     },
@@ -275,7 +304,8 @@
       "wersja_wiekowa": "C",
       "wiek": "6 lat",
       "pomoc": "Karta pytania „a co ty lubisz?” i pudełko skarbów",
-      "tekst": "Zapytaj nowego kolegę, co lubi. Potem zapytaj dlaczego.",
+      "tekst": "[warmly] Zapytaj nowego kolegę, co lubi… Potem zapytaj dlaczego.",
+      "tekst_drukowany": "Zapytaj nowego kolegę, co lubi. Potem zapytaj dlaczego.",
       "plik": "eduplaner_tom/assets/audio_tom/cii_5.mp3",
       "czyta": "sklonowany głos autorki (dana biometryczna)"
     },
@@ -284,7 +314,8 @@
       "wersja_wiekowa": "A",
       "wiek": "3–4 lata",
       "pomoc": "Kosz przedmiotów niedookreślonych",
-      "tekst": "Popatrz, to mój telefon. Halo! Weź swój.",
+      "tekst": "[warmly] Popatrz, to mój telefon… Halo! … Weź swój.",
+      "tekst_drukowany": "Popatrz, to mój telefon. Halo! Weź swój.",
       "plik": "eduplaner_tom/assets/audio_tom/aiii_1.mp3",
       "czyta": "sklonowany głos autorki (dana biometryczna)"
     },
@@ -293,7 +324,8 @@
       "wersja_wiekowa": "B",
       "wiek": "5 lat",
       "pomoc": "Kosz przedmiotów niedookreślonych",
-      "tekst": "Co to może być? Pokaż mi.",
+      "tekst": "[warmly] Co to może być? … Pokaż mi.",
+      "tekst_drukowany": "Co to może być? Pokaż mi.",
       "plik": "eduplaner_tom/assets/audio_tom/biii_1.mp3",
       "czyta": "sklonowany głos autorki (dana biometryczna)"
     },
@@ -302,7 +334,8 @@
       "wersja_wiekowa": "C",
       "wiek": "6 lat",
       "pomoc": "Kosz przedmiotów niedookreślonych",
-      "tekst": "Pokaż koledze, co robisz — bez zabawki, samą ręką.",
+      "tekst": "[warmly] Pokaż koledze, co robisz — bez zabawki, samą ręką.",
+      "tekst_drukowany": "Pokaż koledze, co robisz — bez zabawki, samą ręką.",
       "plik": "eduplaner_tom/assets/audio_tom/ciii_1.mp3",
       "czyta": "sklonowany głos autorki (dana biometryczna)"
     },
@@ -311,7 +344,8 @@
       "wersja_wiekowa": "A",
       "wiek": "3–4 lata",
       "pomoc": "Kącik tematyczny z rekwizytami ról",
-      "tekst": "Jestem lekarzem. Załóż fartuch. Zbadamy misia.",
+      "tekst": "[warmly] Jestem lekarzem… Załóż fartuch… Zbadamy misia.",
+      "tekst_drukowany": "Jestem lekarzem. Załóż fartuch. Zbadamy misia.",
       "plik": "eduplaner_tom/assets/audio_tom/aiii_2.mp3",
       "czyta": "sklonowany głos autorki (dana biometryczna)"
     },
@@ -320,7 +354,8 @@
       "wersja_wiekowa": "B",
       "wiek": "5 lat",
       "pomoc": "Kącik tematyczny z rekwizytami ról",
-      "tekst": "Kim jesteś w tej zabawie? Powiedz coś do kolegi ze swojej roli.",
+      "tekst": "[warmly] Kim jesteś w tej zabawie? … Powiedz coś do kolegi ze swojej roli.",
+      "tekst_drukowany": "Kim jesteś w tej zabawie? Powiedz coś do kolegi ze swojej roli.",
       "plik": "eduplaner_tom/assets/audio_tom/biii_2.mp3",
       "czyta": "sklonowany głos autorki (dana biometryczna)"
     },
@@ -329,7 +364,8 @@
       "wersja_wiekowa": "C",
       "wiek": "6 lat",
       "pomoc": "Kącik tematyczny z rekwizytami ról",
-      "tekst": "Zamieniamy się rolami. Teraz ty jesteś pacjentem.",
+      "tekst": "[warmly] Zamieniamy się rolami… Teraz ty jesteś pacjentem.",
+      "tekst_drukowany": "Zamieniamy się rolami. Teraz ty jesteś pacjentem.",
       "plik": "eduplaner_tom/assets/audio_tom/ciii_2.mp3",
       "czyta": "sklonowany głos autorki (dana biometryczna)"
     },
@@ -338,7 +374,8 @@
       "wersja_wiekowa": "A",
       "wiek": "3–4 lata",
       "pomoc": "Karty dołączania do zabawy",
-      "tekst": "Popatrz, w co się bawią. Zrób tak samo.",
+      "tekst": "[warmly] Popatrz, w co się bawią… Zrób tak samo.",
+      "tekst_drukowany": "Popatrz, w co się bawią. Zrób tak samo.",
       "plik": "eduplaner_tom/assets/audio_tom/aiii_3.mp3",
       "czyta": "sklonowany głos autorki (dana biometryczna)"
     },
@@ -347,7 +384,8 @@
       "wersja_wiekowa": "B",
       "wiek": "5 lat",
       "pomoc": "Karty dołączania do zabawy",
-      "tekst": "W co się bawią? Zapytaj, czy możesz się przyłączyć.",
+      "tekst": "[warmly] W co się bawią? … Zapytaj, czy możesz się przyłączyć.",
+      "tekst_drukowany": "W co się bawią? Zapytaj, czy możesz się przyłączyć.",
       "plik": "eduplaner_tom/assets/audio_tom/biii_3.mp3",
       "czyta": "sklonowany głos autorki (dana biometryczna)"
     },
@@ -356,7 +394,8 @@
       "wersja_wiekowa": "C",
       "wiek": "6 lat",
       "pomoc": "Karty dołączania do zabawy",
-      "tekst": "Dołącz i dołóż swój pomysł — taki, który pasuje do ich zabawy.",
+      "tekst": "[warmly] Dołącz i dołóż swój pomysł — taki, który pasuje do ich zabawy.",
+      "tekst_drukowany": "Dołącz i dołóż swój pomysł — taki, który pasuje do ich zabawy.",
       "plik": "eduplaner_tom/assets/audio_tom/ciii_3.mp3",
       "czyta": "sklonowany głos autorki (dana biometryczna)"
     },
@@ -365,7 +404,8 @@
       "wersja_wiekowa": "A",
       "wiek": "3–4 lata",
       "pomoc": "Pary „na niby” i „naprawdę” oraz karty ramy",
-      "tekst": "Które jabłko można zjeść? A to jest na niby.",
+      "tekst": "[warmly] Które jabłko można zjeść? … A to jest na niby.",
+      "tekst_drukowany": "Które jabłko można zjeść? A to jest na niby.",
       "plik": "eduplaner_tom/assets/audio_tom/aiii_4.mp3",
       "czyta": "sklonowany głos autorki (dana biometryczna)"
     },
@@ -374,7 +414,8 @@
       "wersja_wiekowa": "B",
       "wiek": "5 lat",
       "pomoc": "Pary „na niby” i „naprawdę” oraz karty ramy",
-      "tekst": "Kolega udaje wilka. Powiedz mu, że to na niby.",
+      "tekst": "[warmly] Kolega udaje wilka… Powiedz mu, że to na niby.",
+      "tekst_drukowany": "Kolega udaje wilka. Powiedz mu, że to na niby.",
       "plik": "eduplaner_tom/assets/audio_tom/biii_4.mp3",
       "czyta": "sklonowany głos autorki (dana biometryczna)"
     },
@@ -383,7 +424,8 @@
       "wersja_wiekowa": "C",
       "wiek": "6 lat",
       "pomoc": "Pary „na niby” i „naprawdę” oraz karty ramy",
-      "tekst": "To był żart czy naprawdę? Po czym to poznajesz?",
+      "tekst": "[warmly] To był żart czy naprawdę? … Po czym to poznajesz?",
+      "tekst_drukowany": "To był żart czy naprawdę? Po czym to poznajesz?",
       "plik": "eduplaner_tom/assets/audio_tom/ciii_4.mp3",
       "czyta": "sklonowany głos autorki (dana biometryczna)"
     },
@@ -392,7 +434,8 @@
       "wersja_wiekowa": "A",
       "wiek": "3–4 lata",
       "pomoc": "Listwa scenariusza i karta trzech pomysłów",
-      "tekst": "Co najpierw, a co potem? Ułóż obrazki.",
+      "tekst": "[warmly] Co najpierw, a co potem? … Ułóż obrazki.",
+      "tekst_drukowany": "Co najpierw, a co potem? Ułóż obrazki.",
       "plik": "eduplaner_tom/assets/audio_tom/aiii_5.mp3",
       "czyta": "sklonowany głos autorki (dana biometryczna)"
     },
@@ -401,7 +444,8 @@
       "wersja_wiekowa": "B",
       "wiek": "5 lat",
       "pomoc": "Listwa scenariusza i karta trzech pomysłów",
-      "tekst": "Opowiedz koledze, jak będziemy się bawić.",
+      "tekst": "[warmly] Opowiedz koledze, jak będziemy się bawić.",
+      "tekst_drukowany": "Opowiedz koledze, jak będziemy się bawić.",
       "plik": "eduplaner_tom/assets/audio_tom/biii_5.mp3",
       "czyta": "sklonowany głos autorki (dana biometryczna)"
     },
@@ -410,7 +454,8 @@
       "wersja_wiekowa": "C",
       "wiek": "6 lat",
       "pomoc": "Listwa scenariusza i karta trzech pomysłów",
-      "tekst": "Twój pomysł i jego pomysł. Jak zrobić, żeby zmieściły się oba?",
+      "tekst": "[warmly] Twój pomysł i jego pomysł… Jak zrobić, żeby zmieściły się oba?",
+      "tekst_drukowany": "Twój pomysł i jego pomysł. Jak zrobić, żeby zmieściły się oba?",
       "plik": "eduplaner_tom/assets/audio_tom/ciii_5.mp3",
       "czyta": "sklonowany głos autorki (dana biometryczna)"
     },
@@ -419,7 +464,8 @@
       "wersja_wiekowa": "A",
       "wiek": "3–4 lata",
       "pomoc": "Chmurki myśli i przedmioty spornych opinii",
-      "tekst": "Ona myśli: pyszne. A ta myśli: niedobre. Co myśli ta pierwsza?",
+      "tekst": "[warmly] Ona myśli: pyszne… A ta myśli: niedobre… Co myśli ta pierwsza?",
+      "tekst_drukowany": "Ona myśli: pyszne. A ta myśli: niedobre. Co myśli ta pierwsza?",
       "plik": "eduplaner_tom/assets/audio_tom/aiv_1.mp3",
       "czyta": "sklonowany głos autorki (dana biometryczna)"
     },
@@ -428,7 +474,8 @@
       "wersja_wiekowa": "B",
       "wiek": "5 lat",
       "pomoc": "Chmurki myśli i przedmioty spornych opinii",
-      "tekst": "Co myśli kolega o tej zabawce? A co myślisz ty?",
+      "tekst": "[warmly] Co myśli kolega o tej zabawce? … A co myślisz ty?",
+      "tekst_drukowany": "Co myśli kolega o tej zabawce? A co myślisz ty?",
       "plik": "eduplaner_tom/assets/audio_tom/biv_1.mp3",
       "czyta": "sklonowany głos autorki (dana biometryczna)"
     },
@@ -437,7 +484,8 @@
       "wersja_wiekowa": "C",
       "wiek": "6 lat",
       "pomoc": "Chmurki myśli i przedmioty spornych opinii",
-      "tekst": "Dlaczego wy dwoje myślicie inaczej o tym samym?",
+      "tekst": "[warmly] Dlaczego wy dwoje myślicie inaczej o tym samym?",
+      "tekst_drukowany": "Dlaczego wy dwoje myślicie inaczej o tym samym?",
       "plik": "eduplaner_tom/assets/audio_tom/civ_1.mp3",
       "czyta": "sklonowany głos autorki (dana biometryczna)"
     },
@@ -446,7 +494,8 @@
       "wersja_wiekowa": "A",
       "wiek": "3–4 lata",
       "pomoc": "Pacynka z opaską i karty „wie / nie wie”",
-      "tekst": "Która pacynka widziała? Ta wie, gdzie jest miś.",
+      "tekst": "[warmly] Która pacynka widziała? … Ta wie, gdzie jest miś.",
+      "tekst_drukowany": "Która pacynka widziała? Ta wie, gdzie jest miś.",
       "plik": "eduplaner_tom/assets/audio_tom/aiv_2.mp3",
       "czyta": "sklonowany głos autorki (dana biometryczna)"
     },
@@ -455,7 +504,8 @@
       "wersja_wiekowa": "B",
       "wiek": "5 lat",
       "pomoc": "Pacynka z opaską i karty „wie / nie wie”",
-      "tekst": "Czy kolega wie, gdzie to schowaliśmy? Dlaczego nie wie?",
+      "tekst": "[warmly] Czy kolega wie, gdzie to schowaliśmy? … Dlaczego nie wie?",
+      "tekst_drukowany": "Czy kolega wie, gdzie to schowaliśmy? Dlaczego nie wie?",
       "plik": "eduplaner_tom/assets/audio_tom/biv_2.mp3",
       "czyta": "sklonowany głos autorki (dana biometryczna)"
     },
@@ -464,7 +514,8 @@
       "wersja_wiekowa": "C",
       "wiek": "6 lat",
       "pomoc": "Pacynka z opaską i karty „wie / nie wie”",
-      "tekst": "Kolegi tu nie było. Opowiedz mu, co się stało.",
+      "tekst": "[warmly] Kolegi tu nie było… Opowiedz mu, co się stało.",
+      "tekst_drukowany": "Kolegi tu nie było. Opowiedz mu, co się stało.",
       "plik": "eduplaner_tom/assets/audio_tom/civ_2.mp3",
       "czyta": "sklonowany głos autorki (dana biometryczna)"
     },
@@ -473,7 +524,8 @@
       "wersja_wiekowa": "A",
       "wiek": "3–4 lata",
       "pomoc": "Pudełka niespodziewanej zawartości",
-      "tekst": "Co jest w pudełku? Otwórzmy. A co miało być w środku?",
+      "tekst": "[warmly] Co jest w pudełku? … Otwórzmy… A co miało być w środku?",
+      "tekst_drukowany": "Co jest w pudełku? Otwórzmy. A co miało być w środku?",
       "plik": "eduplaner_tom/assets/audio_tom/aiv_3.mp3",
       "czyta": "sklonowany głos autorki (dana biometryczna)"
     },
@@ -482,7 +534,8 @@
       "wersja_wiekowa": "B",
       "wiek": "5 lat",
       "pomoc": "Pudełka niespodziewanej zawartości",
-      "tekst": "Zaraz wejdzie kolega. Co on pomyśli, że jest w pudełku?",
+      "tekst": "[warmly] Zaraz wejdzie kolega… Co on pomyśli, że jest w pudełku?",
+      "tekst_drukowany": "Zaraz wejdzie kolega. Co on pomyśli, że jest w pudełku?",
       "plik": "eduplaner_tom/assets/audio_tom/biv_3.mp3",
       "czyta": "sklonowany głos autorki (dana biometryczna)"
     },
@@ -491,7 +544,8 @@
       "wersja_wiekowa": "C",
       "wiek": "6 lat",
       "pomoc": "Pudełka niespodziewanej zawartości",
-      "tekst": "Przygotuj swoje pudełko. Co pomyśli kolega i dlaczego?",
+      "tekst": "[warmly] Przygotuj swoje pudełko… Co pomyśli kolega i dlaczego?",
+      "tekst_drukowany": "Przygotuj swoje pudełko. Co pomyśli kolega i dlaczego?",
       "plik": "eduplaner_tom/assets/audio_tom/civ_3.mp3",
       "czyta": "sklonowany głos autorki (dana biometryczna)"
     },
@@ -500,7 +554,8 @@
       "wersja_wiekowa": "A",
       "wiek": "3–4 lata",
       "pomoc": "Zestaw Sally-Anne: pacynki, koszyk, pudełko",
-      "tekst": "Popatrz. Ala chowa piłkę do koszyka. Gdzie ją schowała?",
+      "tekst": "[warmly] Popatrz… Ala chowa piłkę do koszyka… Gdzie ją schowała?",
+      "tekst_drukowany": "Popatrz. Ala chowa piłkę do koszyka. Gdzie ją schowała?",
       "plik": "eduplaner_tom/assets/audio_tom/aiv_4.mp3",
       "czyta": "sklonowany głos autorki (dana biometryczna)"
     },
@@ -509,7 +564,8 @@
       "wersja_wiekowa": "B",
       "wiek": "5 lat",
       "pomoc": "Zestaw Sally-Anne: pacynki, koszyk, pudełko",
-      "tekst": "Gdzie piłka jest naprawdę? A gdzie Ala będzie jej szukać?",
+      "tekst": "[warmly] Gdzie piłka jest naprawdę? … A gdzie Ala będzie jej szukać?",
+      "tekst_drukowany": "Gdzie piłka jest naprawdę? A gdzie Ala będzie jej szukać?",
       "plik": "eduplaner_tom/assets/audio_tom/biv_4.mp3",
       "czyta": "sklonowany głos autorki (dana biometryczna)"
     },
@@ -518,7 +574,8 @@
       "wersja_wiekowa": "C",
       "wiek": "6 lat",
       "pomoc": "Zestaw Sally-Anne: pacynki, koszyk, pudełko",
-      "tekst": "Gdzie będzie szukać? Powiedz dlaczego.",
+      "tekst": "[warmly] Gdzie będzie szukać? … Powiedz dlaczego.",
+      "tekst_drukowany": "Gdzie będzie szukać? Powiedz dlaczego.",
       "plik": "eduplaner_tom/assets/audio_tom/civ_4.mp3",
       "czyta": "sklonowany głos autorki (dana biometryczna)"
     },
@@ -527,7 +584,8 @@
       "wersja_wiekowa": "A",
       "wiek": "3–4 lata",
       "pomoc": "Karty prognozy i karta „uprzedzam”",
-      "tekst": "Dokąd pójdzie pacynka? Pokaż.",
+      "tekst": "[warmly] Dokąd pójdzie pacynka? … Pokaż.",
+      "tekst_drukowany": "Dokąd pójdzie pacynka? Pokaż.",
       "plik": "eduplaner_tom/assets/audio_tom/aiv_5.mp3",
       "czyta": "sklonowany głos autorki (dana biometryczna)"
     },
@@ -536,7 +594,8 @@
       "wersja_wiekowa": "B",
       "wiek": "5 lat",
       "pomoc": "Karty prognozy i karta „uprzedzam”",
-      "tekst": "Kolega nie wie, że przestawiliśmy kredki. Co zrobi?",
+      "tekst": "[warmly] Kolega nie wie, że przestawiliśmy kredki… Co zrobi?",
+      "tekst_drukowany": "Kolega nie wie, że przestawiliśmy kredki. Co zrobi?",
       "plik": "eduplaner_tom/assets/audio_tom/biv_5.mp3",
       "czyta": "sklonowany głos autorki (dana biometryczna)"
     },
@@ -545,7 +604,8 @@
       "wersja_wiekowa": "C",
       "wiek": "6 lat",
       "pomoc": "Karty prognozy i karta „uprzedzam”",
-      "tekst": "Uprzedź kolegę, zanim zacznie szukać w starym miejscu.",
+      "tekst": "[warmly] Uprzedź kolegę, zanim zacznie szukać w starym miejscu.",
+      "tekst_drukowany": "Uprzedź kolegę, zanim zacznie szukać w starym miejscu.",
       "plik": "eduplaner_tom/assets/audio_tom/civ_5.mp3",
       "czyta": "sklonowany głos autorki (dana biometryczna)"
     },
@@ -554,7 +614,8 @@
       "wersja_wiekowa": "A",
       "wiek": "3–4 lata",
       "pomoc": "Sylwetka z dwoma polami: twarz i serce",
-      "tekst": "Jaką ma minę? A co czuje w środku? Połóż karty.",
+      "tekst": "[warmly] Jaką ma minę? … A co czuje w środku? … Połóż karty.",
+      "tekst_drukowany": "Jaką ma minę? A co czuje w środku? Połóż karty.",
       "plik": "eduplaner_tom/assets/audio_tom/av_1.mp3",
       "czyta": "sklonowany głos autorki (dana biometryczna)"
     },
@@ -563,7 +624,8 @@
       "wersja_wiekowa": "B",
       "wiek": "5 lat",
       "pomoc": "Sylwetka z dwoma polami: twarz i serce",
-      "tekst": "Kolega mówi, że nic mu nie jest. Jak myślisz, co czuje?",
+      "tekst": "[warmly] Kolega mówi, że nic mu nie jest… Jak myślisz, co czuje?",
+      "tekst_drukowany": "Kolega mówi, że nic mu nie jest. Jak myślisz, co czuje?",
       "plik": "eduplaner_tom/assets/audio_tom/bv_1.mp3",
       "czyta": "sklonowany głos autorki (dana biometryczna)"
     },
@@ -572,7 +634,8 @@
       "wersja_wiekowa": "C",
       "wiek": "6 lat",
       "pomoc": "Sylwetka z dwoma polami: twarz i serce",
-      "tekst": "Dlaczego ktoś ukrywa smutek? Powiedz mu o tym cicho, na osobności.",
+      "tekst": "[warmly] Dlaczego ktoś ukrywa smutek? … Powiedz mu o tym cicho, na osobności.",
+      "tekst_drukowany": "Dlaczego ktoś ukrywa smutek? Powiedz mu o tym cicho, na osobności.",
       "plik": "eduplaner_tom/assets/audio_tom/cv_1.mp3",
       "czyta": "sklonowany głos autorki (dana biometryczna)"
     },
@@ -581,7 +644,8 @@
       "wersja_wiekowa": "A",
       "wiek": "3–4 lata",
       "pomoc": "Karty „chciał” i „niechcący”",
-      "tekst": "Chciał czy niechcący? Pokaż kartę.",
+      "tekst": "[warmly] Chciał czy niechcący? … Pokaż kartę.",
+      "tekst_drukowany": "Chciał czy niechcący? Pokaż kartę.",
       "plik": "eduplaner_tom/assets/audio_tom/av_2.mp3",
       "czyta": "sklonowany głos autorki (dana biometryczna)"
     },
@@ -590,7 +654,8 @@
       "wersja_wiekowa": "B",
       "wiek": "5 lat",
       "pomoc": "Karty „chciał” i „niechcący”",
-      "tekst": "Jak myślisz, kolega zrobił to specjalnie? Co teraz zrobisz?",
+      "tekst": "[warmly] Jak myślisz, kolega zrobił to specjalnie? … Co teraz zrobisz?",
+      "tekst_drukowany": "Jak myślisz, kolega zrobił to specjalnie? Co teraz zrobisz?",
       "plik": "eduplaner_tom/assets/audio_tom/bv_2.mp3",
       "czyta": "sklonowany głos autorki (dana biometryczna)"
     },
@@ -599,7 +664,8 @@
       "wersja_wiekowa": "C",
       "wiek": "6 lat",
       "pomoc": "Karty „chciał” i „niechcący”",
-      "tekst": "Po czym poznajesz, że niechcący? Przyjmiesz przeprosiny?",
+      "tekst": "[warmly] Po czym poznajesz, że niechcący? … Przyjmiesz przeprosiny?",
+      "tekst_drukowany": "Po czym poznajesz, że niechcący? Przyjmiesz przeprosiny?",
       "plik": "eduplaner_tom/assets/audio_tom/cv_2.mp3",
       "czyta": "sklonowany głos autorki (dana biometryczna)"
     },
@@ -608,7 +674,8 @@
       "wersja_wiekowa": "A",
       "wiek": "3–4 lata",
       "pomoc": "Karty „pomaga” i „przeszkadza” oraz karta propozycji",
-      "tekst": "Która pacynka pomaga? Pokaż.",
+      "tekst": "[warmly] Która pacynka pomaga? … Pokaż.",
+      "tekst_drukowany": "Która pacynka pomaga? Pokaż.",
       "plik": "eduplaner_tom/assets/audio_tom/av_3.mp3",
       "czyta": "sklonowany głos autorki (dana biometryczna)"
     },
@@ -617,7 +684,8 @@
       "wersja_wiekowa": "B",
       "wiek": "5 lat",
       "pomoc": "Karty „pomaga” i „przeszkadza” oraz karta propozycji",
-      "tekst": "Kolega chce pomóc. Powiesz „dziękuję” czy „poradzę sobie”?",
+      "tekst": "[warmly] Kolega chce pomóc… Powiesz „dziękuję” czy „poradzę sobie”?",
+      "tekst_drukowany": "Kolega chce pomóc. Powiesz „dziękuję” czy „poradzę sobie”?",
       "plik": "eduplaner_tom/assets/audio_tom/bv_3.mp3",
       "czyta": "sklonowany głos autorki (dana biometryczna)"
     },
@@ -626,7 +694,8 @@
       "wersja_wiekowa": "C",
       "wiek": "6 lat",
       "pomoc": "Karty „pomaga” i „przeszkadza” oraz karta propozycji",
-      "tekst": "Zapytaj kolegę, czy chce pomocy, zanim mu pomożesz.",
+      "tekst": "[warmly] Zapytaj kolegę, czy chce pomocy, zanim mu pomożesz.",
+      "tekst_drukowany": "Zapytaj kolegę, czy chce pomocy, zanim mu pomożesz.",
       "plik": "eduplaner_tom/assets/audio_tom/cv_3.mp3",
       "czyta": "sklonowany głos autorki (dana biometryczna)"
     },
@@ -635,7 +704,8 @@
       "wersja_wiekowa": "A",
       "wiek": "3–4 lata",
       "pomoc": "Karta trzech rodzajów pomocy",
-      "tekst": "Koledze brakuje kredki. Podaj mu ją.",
+      "tekst": "[warmly] Koledze brakuje kredki… Podaj mu ją.",
+      "tekst_drukowany": "Koledze brakuje kredki. Podaj mu ją.",
       "plik": "eduplaner_tom/assets/audio_tom/av_4.mp3",
       "czyta": "sklonowany głos autorki (dana biometryczna)"
     },
@@ -644,7 +714,8 @@
       "wersja_wiekowa": "B",
       "wiek": "5 lat",
       "pomoc": "Karta trzech rodzajów pomocy",
-      "tekst": "Czego kolega teraz potrzebuje? Wybierz z karty.",
+      "tekst": "[warmly] Czego kolega teraz potrzebuje? … Wybierz z karty.",
+      "tekst_drukowany": "Czego kolega teraz potrzebuje? Wybierz z karty.",
       "plik": "eduplaner_tom/assets/audio_tom/bv_4.mp3",
       "czyta": "sklonowany głos autorki (dana biometryczna)"
     },
@@ -653,7 +724,8 @@
       "wersja_wiekowa": "C",
       "wiek": "6 lat",
       "pomoc": "Karta trzech rodzajów pomocy",
-      "tekst": "To za ciężkie dla jednej osoby. Kogo poprosisz o pomoc?",
+      "tekst": "[warmly] To za ciężkie dla jednej osoby… Kogo poprosisz o pomoc?",
+      "tekst_drukowany": "To za ciężkie dla jednej osoby. Kogo poprosisz o pomoc?",
       "plik": "eduplaner_tom/assets/audio_tom/cv_4.mp3",
       "czyta": "sklonowany głos autorki (dana biometryczna)"
     },
@@ -662,7 +734,8 @@
       "wersja_wiekowa": "A",
       "wiek": "3–4 lata",
       "pomoc": "Karta trzech kroków sporu i klepsydra",
-      "tekst": "Teraz ty, potem kolega. Popatrz na klepsydrę.",
+      "tekst": "[warmly] Teraz ty, potem kolega… Popatrz na klepsydrę.",
+      "tekst_drukowany": "Teraz ty, potem kolega. Popatrz na klepsydrę.",
       "plik": "eduplaner_tom/assets/audio_tom/av_5.mp3",
       "czyta": "sklonowany głos autorki (dana biometryczna)"
     },
@@ -671,7 +744,8 @@
       "wersja_wiekowa": "B",
       "wiek": "5 lat",
       "pomoc": "Karta trzech kroków sporu i klepsydra",
-      "tekst": "Co ty czujesz? Czego chce kolega? Co zrobimy?",
+      "tekst": "[warmly] Co ty czujesz? … Czego chce kolega? … Co zrobimy?",
+      "tekst_drukowany": "Co ty czujesz? Czego chce kolega? Co zrobimy?",
       "plik": "eduplaner_tom/assets/audio_tom/bv_5.mp3",
       "czyta": "sklonowany głos autorki (dana biometryczna)"
     },
@@ -680,7 +754,8 @@
       "wersja_wiekowa": "C",
       "wiek": "6 lat",
       "pomoc": "Karta trzech kroków sporu i klepsydra",
-      "tekst": "Pomóż im się dogadać. Zapytaj każdego, czego chce.",
+      "tekst": "[warmly] Pomóż im się dogadać… Zapytaj każdego, czego chce.",
+      "tekst_drukowany": "Pomóż im się dogadać. Zapytaj każdego, czego chce.",
       "plik": "eduplaner_tom/assets/audio_tom/cv_5.mp3",
       "czyta": "sklonowany głos autorki (dana biometryczna)"
     }

@@ -35,7 +35,8 @@ POMOCE = KORZEN / "01_dane_json" / "pomoce_tom.json"
 MANIFEST = KORZEN / "01_dane_json" / "nagrania_tom.json"
 
 API = "https://api.elevenlabs.io"
-MODEL = "eleven_multilingual_v2"          # najlepszy dla polszczyzny
+MODEL = "eleven_v3"                       # ekspresyjny; czyta znacznik [warmly] jako reżyserię,
+                                          # nie jako tekst — sprawdzone transkrypcją nagrania
 FORMAT_ZRODLOWY = "mp3_44100_64"
 BITRATE_DOCELOWY = "40k"                  # 40 kbps mono — głośnik tabletu w sali
 TIMEOUT = 180
@@ -55,7 +56,8 @@ def wpisy() -> list[dict]:
                 "wersja_wiekowa": wersja,
                 "wiek": pol["wiek"],
                 "pomoc": pomoc["nazwa"],
-                "tekst": pol["polecenie_dla_dziecka"],
+                "tekst": pol.get("polecenie_do_nagrania", pol["polecenie_dla_dziecka"]),
+                "tekst_drukowany": pol["polecenie_dla_dziecka"],
                 "plik": pol["nagranie"],
                 "czyta": "sklonowany głos autorki (dana biometryczna)",
             })

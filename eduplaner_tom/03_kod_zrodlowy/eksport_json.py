@@ -49,6 +49,21 @@ def sciezka_zdjecia(w) -> str:
     return f"{KAT_POMOCY}/k_{RZYM[komponent]}_{nr}.jpg"
 
 
+def tekst_do_nagrania(polecenie: str) -> str:
+    """Zapis polecenia pod lektora — to NIE jest tekst, który dziecko widzi.
+
+    Węzeł TTS nie ma pokręteł tempa ani ekspresji: jedno i drugie ustawia się
+    treścią. Dlatego kropka między krokami zamienia się w wielokropek (dłuższa,
+    słyszalna pauza — dziecko ma czas wykonać krok), a znacznik [warmly] mówi
+    modelowi eleven_v3, jakim tonem czytać. Znacznik nie jest wypowiadany na głos;
+    sprawdzone transkrypcją nagrania.
+
+    Drukowany tekst zostaje czysty — patrz `polecenie_dla_dziecka`.
+    """
+    mowione = polecenie.replace(". ", "… ").replace("? ", "? … ").replace("! ", "! … ")
+    return f"[warmly] {mowione}"
+
+
 def plik_symbolu(symbol) -> str | None:
     return f"{KAT_SYMBOLI}/k_{symbol}.jpg" if symbol else None
 
@@ -224,6 +239,7 @@ def pomoce() -> dict:
             "polecenia": {
                 wersja: {"wiek": dz.WERSJE[wersja]["wiek"],
                          "polecenie_dla_dziecka": p["polecenia"][wersja],
+                         "polecenie_do_nagrania": tekst_do_nagrania(p["polecenia"][wersja]),
                          "nagranie": sciezka_audio(w, wersja)}
                 for wersja in dz.WERSJE
             },

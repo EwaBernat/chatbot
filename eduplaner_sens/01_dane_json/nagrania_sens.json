@@ -2,7 +2,7 @@
   "opis": "Manifest nagrań poleceń dla dziecka — profil sensoryczny. Ścieżki liczone od katalogu 04_media/, tak jak w module ABC/FBA.",
   "uwaga_prawna": "Pliki audio to sklonowany głos autorki. Głos jest daną biometryczną: nie publikuj nagrań i nie używaj ich poza uzgodnionym zastosowaniem w aplikacji EduPlaner 2026.",
   "parametry": {
-    "model": "eleven_multilingual_v2",
+    "model": "eleven_v3",
     "format_zrodlowy": "mp3_44100_64",
     "bitrate_docelowy": "40k",
     "kanaly": "mono"
@@ -14,7 +14,8 @@
       "wersja_wiekowa": "A",
       "wiek": "3–4 lata",
       "pomoc": "Parawan stolikowy „Spokojne oczy” z kartą ZA JASNO",
-      "tekst": "Za jasno. Stawiamy parawan. Teraz układamy.",
+      "tekst": "[warmly] Za jasno… Stawiamy parawan… Teraz układamy.",
+      "tekst_drukowany": "Za jasno. Stawiamy parawan. Teraz układamy.",
       "plik": "eduplaner_sens/assets/audio_sens/ai_1.mp3",
       "czyta": "sklonowany głos autorki (dana biometryczna)"
     },
@@ -23,7 +24,8 @@
       "wersja_wiekowa": "B",
       "wiek": "5 lat",
       "pomoc": "Parawan stolikowy „Spokojne oczy” z kartą ZA JASNO",
-      "tekst": "Popatrz na kartę. Jak jest za jasno, weź osłonę z półki i wracaj do zadania.",
+      "tekst": "[warmly] Popatrz na kartę… Jak jest za jasno, weź osłonę z półki i wracaj do zadania.",
+      "tekst_drukowany": "Popatrz na kartę. Jak jest za jasno, weź osłonę z półki i wracaj do zadania.",
       "plik": "eduplaner_sens/assets/audio_sens/bi_1.mp3",
       "czyta": "sklonowany głos autorki (dana biometryczna)"
     },
@@ -32,7 +34,8 @@
       "wersja_wiekowa": "C",
       "wiek": "6 lat",
       "pomoc": "Parawan stolikowy „Spokojne oczy” z kartą ZA JASNO",
-      "tekst": "Zanim zaczniesz, ustaw sobie miejsce dla oczu. Powiedz mi, które wybierasz.",
+      "tekst": "[warmly] Zanim zaczniesz, ustaw sobie miejsce dla oczu… Powiedz mi, które wybierasz.",
+      "tekst_drukowany": "Zanim zaczniesz, ustaw sobie miejsce dla oczu. Powiedz mi, które wybierasz.",
       "plik": "eduplaner_sens/assets/audio_sens/ci_1.mp3",
       "czyta": "sklonowany głos autorki (dana biometryczna)"
     },
@@ -41,7 +44,8 @@
       "wersja_wiekowa": "A",
       "wiek": "3–4 lata",
       "pomoc": "Butelka sensoryczna i okienko czytelnicze",
-      "tekst": "Popatrz na światełka. Kiedy piasek się skończy, odkładamy butelkę.",
+      "tekst": "[warmly] Popatrz na światełka… Kiedy piasek się skończy, odkładamy butelkę.",
+      "tekst_drukowany": "Popatrz na światełka. Kiedy piasek się skończy, odkładamy butelkę.",
       "plik": "eduplaner_sens/assets/audio_sens/ai_2.mp3",
       "czyta": "sklonowany głos autorki (dana biometryczna)"
     },
@@ -50,7 +54,8 @@
       "wersja_wiekowa": "B",
       "wiek": "5 lat",
       "pomoc": "Butelka sensoryczna i okienko czytelnicze",
-      "tekst": "Podaj kartę, jeśli chcesz światełka. Potem weź okienko i prowadź od lewej strony.",
+      "tekst": "[warmly] Podaj kartę, jeśli chcesz światełka… Potem weź okienko i prowadź od lewej strony.",
+      "tekst_drukowany": "Podaj kartę, jeśli chcesz światełka. Potem weź okienko i prowadź od lewej strony.",
       "plik": "eduplaner_sens/assets/audio_sens/bi_2.mp3",
       "czyta": "sklonowany głos autorki (dana biometryczna)"
     },
@@ -59,7 +64,8 @@
       "wersja_wiekowa": "C",
       "wiek": "6 lat",
       "pomoc": "Butelka sensoryczna i okienko czytelnicze",
-      "tekst": "Powiedz mi, kiedy zrobisz sobie przerwę. Potem sprawdź, czy niczego nie brakuje.",
+      "tekst": "[warmly] Powiedz mi, kiedy zrobisz sobie przerwę… Potem sprawdź, czy niczego nie brakuje.",
+      "tekst_drukowany": "Powiedz mi, kiedy zrobisz sobie przerwę. Potem sprawdź, czy niczego nie brakuje.",
       "plik": "eduplaner_sens/assets/audio_sens/ci_2.mp3",
       "czyta": "sklonowany głos autorki (dana biometryczna)"
     },
@@ -68,7 +74,8 @@
       "wersja_wiekowa": "A",
       "wiek": "3–4 lata",
       "pomoc": "Termometr oczu — trzy pola z klamerką",
-      "tekst": "Jak dziś mają się twoje oczy? Przypnij klamerkę.",
+      "tekst": "[warmly] Jak dziś mają się twoje oczy? … Przypnij klamerkę.",
+      "tekst_drukowany": "Jak dziś mają się twoje oczy? Przypnij klamerkę.",
       "plik": "eduplaner_sens/assets/audio_sens/ai_3.mp3",
       "czyta": "sklonowany głos autorki (dana biometryczna)"
     },
@@ -77,7 +84,8 @@
       "wersja_wiekowa": "B",
       "wiek": "5 lat",
       "pomoc": "Termometr oczu — trzy pola z klamerką",
-      "tekst": "Ustaw dziś swój termometr, a potem wybierz miejsce przy stole.",
+      "tekst": "[warmly] Ustaw dziś swój termometr, a potem wybierz miejsce przy stole.",
+      "tekst_drukowany": "Ustaw dziś swój termometr, a potem wybierz miejsce przy stole.",
       "plik": "eduplaner_sens/assets/audio_sens/bi_3.mp3",
       "czyta": "sklonowany głos autorki (dana biometryczna)"
     },
@@ -86,7 +94,8 @@
       "wersja_wiekowa": "C",
       "wiek": "6 lat",
       "pomoc": "Termometr oczu — trzy pola z klamerką",
-      "tekst": "Sprawdź termometr i powiedz mi, po czym poznajesz, że dziś jest inaczej.",
+      "tekst": "[warmly] Sprawdź termometr i powiedz mi, po czym poznajesz, że dziś jest inaczej.",
+      "tekst_drukowany": "Sprawdź termometr i powiedz mi, po czym poznajesz, że dziś jest inaczej.",
       "plik": "eduplaner_sens/assets/audio_sens/ci_3.mp3",
       "czyta": "sklonowany głos autorki (dana biometryczna)"
     },
@@ -95,7 +104,8 @@
       "wersja_wiekowa": "A",
       "wiek": "3–4 lata",
       "pomoc": "Słuchawki wygłuszające na wieszaku i karta ZA GŁOŚNO",
-      "tekst": "Za głośno. Zakładamy słuchawki. Jestem obok.",
+      "tekst": "[warmly] Za głośno… Zakładamy słuchawki… Jestem obok.",
+      "tekst_drukowany": "Za głośno. Zakładamy słuchawki. Jestem obok.",
       "plik": "eduplaner_sens/assets/audio_sens/aii_1.mp3",
       "czyta": "sklonowany głos autorki (dana biometryczna)"
     },
@@ -104,7 +114,8 @@
       "wersja_wiekowa": "B",
       "wiek": "5 lat",
       "pomoc": "Słuchawki wygłuszające na wieszaku i karta ZA GŁOŚNO",
-      "tekst": "Za chwilę szatnia. Weź słuchawki z wieszaka.",
+      "tekst": "[warmly] Za chwilę szatnia… Weź słuchawki z wieszaka.",
+      "tekst_drukowany": "Za chwilę szatnia. Weź słuchawki z wieszaka.",
       "plik": "eduplaner_sens/assets/audio_sens/bii_1.mp3",
       "czyta": "sklonowany głos autorki (dana biometryczna)"
     },
@@ -113,7 +124,8 @@
       "wersja_wiekowa": "C",
       "wiek": "6 lat",
       "pomoc": "Słuchawki wygłuszające na wieszaku i karta ZA GŁOŚNO",
-      "tekst": "Zaraz będzie głośno. Wybierz: słuchawki czy kącik wyciszenia?",
+      "tekst": "[warmly] Zaraz będzie głośno… Wybierz: słuchawki czy kącik wyciszenia?",
+      "tekst_drukowany": "Zaraz będzie głośno. Wybierz: słuchawki czy kącik wyciszenia?",
       "plik": "eduplaner_sens/assets/audio_sens/cii_1.mp3",
       "czyta": "sklonowany głos autorki (dana biometryczna)"
     },
@@ -122,7 +134,8 @@
       "wersja_wiekowa": "A",
       "wiek": "3–4 lata",
       "pomoc": "Kącik dźwięków z kartą wymiany",
-      "tekst": "Popatrz na mnie. Jestem tutaj. Idziemy po bębenek.",
+      "tekst": "[warmly] Popatrz na mnie… Jestem tutaj… Idziemy po bębenek.",
+      "tekst_drukowany": "Popatrz na mnie. Jestem tutaj. Idziemy po bębenek.",
       "plik": "eduplaner_sens/assets/audio_sens/aii_2.mp3",
       "czyta": "sklonowany głos autorki (dana biometryczna)"
     },
@@ -131,7 +144,8 @@
       "wersja_wiekowa": "B",
       "wiek": "5 lat",
       "pomoc": "Kącik dźwięków z kartą wymiany",
-      "tekst": "Podaj kartę. Dwie minuty z instrumentem, potem wracamy.",
+      "tekst": "[warmly] Podaj kartę… Dwie minuty z instrumentem, potem wracamy.",
+      "tekst_drukowany": "Podaj kartę. Dwie minuty z instrumentem, potem wracamy.",
       "plik": "eduplaner_sens/assets/audio_sens/bii_2.mp3",
       "czyta": "sklonowany głos autorki (dana biometryczna)"
     },
@@ -140,7 +154,8 @@
       "wersja_wiekowa": "C",
       "wiek": "6 lat",
       "pomoc": "Kącik dźwięków z kartą wymiany",
-      "tekst": "Powiedz, kiedy zrobisz sobie dziś przerwę na dźwięki.",
+      "tekst": "[warmly] Powiedz, kiedy zrobisz sobie dziś przerwę na dźwięki.",
+      "tekst_drukowany": "Powiedz, kiedy zrobisz sobie dziś przerwę na dźwięki.",
       "plik": "eduplaner_sens/assets/audio_sens/cii_2.mp3",
       "czyta": "sklonowany głos autorki (dana biometryczna)"
     },
@@ -149,7 +164,8 @@
       "wersja_wiekowa": "A",
       "wiek": "3–4 lata",
       "pomoc": "Radio uszu — tarcza z trzema poziomami",
-      "tekst": "Sprawdzamy uszy. Przesuń strzałkę.",
+      "tekst": "[warmly] Sprawdzamy uszy… Przesuń strzałkę.",
+      "tekst_drukowany": "Sprawdzamy uszy. Przesuń strzałkę.",
       "plik": "eduplaner_sens/assets/audio_sens/aii_3.mp3",
       "czyta": "sklonowany głos autorki (dana biometryczna)"
     },
@@ -158,7 +174,8 @@
       "wersja_wiekowa": "B",
       "wiek": "5 lat",
       "pomoc": "Radio uszu — tarcza z trzema poziomami",
-      "tekst": "Ustaw radio uszu i wybierz, czego dziś potrzebujesz.",
+      "tekst": "[warmly] Ustaw radio uszu i wybierz, czego dziś potrzebujesz.",
+      "tekst_drukowany": "Ustaw radio uszu i wybierz, czego dziś potrzebujesz.",
       "plik": "eduplaner_sens/assets/audio_sens/bii_3.mp3",
       "czyta": "sklonowany głos autorki (dana biometryczna)"
     },
@@ -167,7 +184,8 @@
       "wersja_wiekowa": "C",
       "wiek": "6 lat",
       "pomoc": "Radio uszu — tarcza z trzema poziomami",
-      "tekst": "Sprawdź tarczę i powiedz mi, jeśli w ciągu dnia coś się zmieni.",
+      "tekst": "[warmly] Sprawdź tarczę i powiedz mi, jeśli w ciągu dnia coś się zmieni.",
+      "tekst_drukowany": "Sprawdź tarczę i powiedz mi, jeśli w ciągu dnia coś się zmieni.",
       "plik": "eduplaner_sens/assets/audio_sens/cii_3.mp3",
       "czyta": "sklonowany głos autorki (dana biometryczna)"
     },
@@ -176,7 +194,8 @@
       "wersja_wiekowa": "A",
       "wiek": "3–4 lata",
       "pomoc": "Znak „MOJE MIEJSCE” i karta NIE TERAZ",
-      "tekst": "Stajemy na stópkach. Jestem obok ciebie.",
+      "tekst": "[warmly] Stajemy na stópkach… Jestem obok ciebie.",
+      "tekst_drukowany": "Stajemy na stópkach. Jestem obok ciebie.",
       "plik": "eduplaner_sens/assets/audio_sens/aiii_1.mp3",
       "czyta": "sklonowany głos autorki (dana biometryczna)"
     },
@@ -185,7 +204,8 @@
       "wersja_wiekowa": "B",
       "wiek": "5 lat",
       "pomoc": "Znak „MOJE MIEJSCE” i karta NIE TERAZ",
-      "tekst": "Twoje miejsce jest na stópkach. Kartę „nie teraz” masz w kieszeni.",
+      "tekst": "[warmly] Twoje miejsce jest na stópkach… Kartę „nie teraz” masz w kieszeni.",
+      "tekst_drukowany": "Twoje miejsce jest na stópkach. Kartę „nie teraz” masz w kieszeni.",
       "plik": "eduplaner_sens/assets/audio_sens/biii_1.mp3",
       "czyta": "sklonowany głos autorki (dana biometryczna)"
     },
@@ -194,7 +214,8 @@
       "wersja_wiekowa": "C",
       "wiek": "6 lat",
       "pomoc": "Znak „MOJE MIEJSCE” i karta NIE TERAZ",
-      "tekst": "Wybierz miejsce, zanim ustawimy się w kolejce. Powiedz, gdzie dziś stajesz.",
+      "tekst": "[warmly] Wybierz miejsce, zanim ustawimy się w kolejce… Powiedz, gdzie dziś stajesz.",
+      "tekst_drukowany": "Wybierz miejsce, zanim ustawimy się w kolejce. Powiedz, gdzie dziś stajesz.",
       "plik": "eduplaner_sens/assets/audio_sens/ciii_1.mp3",
       "czyta": "sklonowany głos autorki (dana biometryczna)"
     },
@@ -203,7 +224,8 @@
       "wersja_wiekowa": "A",
       "wiek": "3–4 lata",
       "pomoc": "Skrzynka sensoryczna i gniotek kieszonkowy",
-      "tekst": "Ręce na gniotka. Siedzimy do końca piosenki.",
+      "tekst": "[warmly] Ręce na gniotka… Siedzimy do końca piosenki.",
+      "tekst_drukowany": "Ręce na gniotka. Siedzimy do końca piosenki.",
       "plik": "eduplaner_sens/assets/audio_sens/aiii_2.mp3",
       "czyta": "sklonowany głos autorki (dana biometryczna)"
     },
@@ -212,7 +234,8 @@
       "wersja_wiekowa": "B",
       "wiek": "5 lat",
       "pomoc": "Skrzynka sensoryczna i gniotek kieszonkowy",
-      "tekst": "Weź gniotka z kieszeni. Twoje ręce pracują tutaj.",
+      "tekst": "[warmly] Weź gniotka z kieszeni… Twoje ręce pracują tutaj.",
+      "tekst_drukowany": "Weź gniotka z kieszeni. Twoje ręce pracują tutaj.",
       "plik": "eduplaner_sens/assets/audio_sens/biii_2.mp3",
       "czyta": "sklonowany głos autorki (dana biometryczna)"
     },
@@ -221,7 +244,8 @@
       "wersja_wiekowa": "C",
       "wiek": "6 lat",
       "pomoc": "Skrzynka sensoryczna i gniotek kieszonkowy",
-      "tekst": "Zaplanuj, kiedy dziś idziesz do skrzynki.",
+      "tekst": "[warmly] Zaplanuj, kiedy dziś idziesz do skrzynki.",
+      "tekst_drukowany": "Zaplanuj, kiedy dziś idziesz do skrzynki.",
       "plik": "eduplaner_sens/assets/audio_sens/ciii_2.mp3",
       "czyta": "sklonowany głos autorki (dana biometryczna)"
     },
@@ -230,7 +254,8 @@
       "wersja_wiekowa": "A",
       "wiek": "3–4 lata",
       "pomoc": "Mapa ubrania i skala faktur 1–2–3",
-      "tekst": "Pokaż, co dziś drapie. Wybierzemy ubranie razem.",
+      "tekst": "[warmly] Pokaż, co dziś drapie… Wybierzemy ubranie razem.",
+      "tekst_drukowany": "Pokaż, co dziś drapie. Wybierzemy ubranie razem.",
       "plik": "eduplaner_sens/assets/audio_sens/aiii_3.mp3",
       "czyta": "sklonowany głos autorki (dana biometryczna)"
     },
@@ -239,7 +264,8 @@
       "wersja_wiekowa": "B",
       "wiek": "5 lat",
       "pomoc": "Mapa ubrania i skala faktur 1–2–3",
-      "tekst": "Wskaż na pasku: jeden, dwa czy trzy?",
+      "tekst": "[warmly] Wskaż na pasku: jeden, dwa czy trzy?",
+      "tekst_drukowany": "Wskaż na pasku: jeden, dwa czy trzy?",
       "plik": "eduplaner_sens/assets/audio_sens/biii_3.mp3",
       "czyta": "sklonowany głos autorki (dana biometryczna)"
     },
@@ -248,7 +274,8 @@
       "wersja_wiekowa": "C",
       "wiek": "6 lat",
       "pomoc": "Mapa ubrania i skala faktur 1–2–3",
-      "tekst": "Ustal swój poziom. Możesz zejść niżej, kiedy zechcesz.",
+      "tekst": "[warmly] Ustal swój poziom… Możesz zejść niżej, kiedy zechcesz.",
+      "tekst_drukowany": "Ustal swój poziom. Możesz zejść niżej, kiedy zechcesz.",
       "plik": "eduplaner_sens/assets/audio_sens/ciii_3.mp3",
       "czyta": "sklonowany głos autorki (dana biometryczna)"
     },
@@ -257,7 +284,8 @@
       "wersja_wiekowa": "A",
       "wiek": "3–4 lata",
       "pomoc": "Drabina oswajania jedzenia i talerzyk do prób",
-      "tekst": "Popatrz, tu jest nowe jedzenie. Nie musisz jeść.",
+      "tekst": "[warmly] Popatrz, tu jest nowe jedzenie… Nie musisz jeść.",
+      "tekst_drukowany": "Popatrz, tu jest nowe jedzenie. Nie musisz jeść.",
       "plik": "eduplaner_sens/assets/audio_sens/aiv_1.mp3",
       "czyta": "sklonowany głos autorki (dana biometryczna)"
     },
@@ -266,7 +294,8 @@
       "wersja_wiekowa": "B",
       "wiek": "5 lat",
       "pomoc": "Drabina oswajania jedzenia i talerzyk do prób",
-      "tekst": "Pokaż na drabinie, gdzie dziś jesteś. Zrób ten jeden szczebel.",
+      "tekst": "[warmly] Pokaż na drabinie, gdzie dziś jesteś… Zrób ten jeden szczebel.",
+      "tekst_drukowany": "Pokaż na drabinie, gdzie dziś jesteś. Zrób ten jeden szczebel.",
       "plik": "eduplaner_sens/assets/audio_sens/biv_1.mp3",
       "czyta": "sklonowany głos autorki (dana biometryczna)"
     },
@@ -275,7 +304,8 @@
       "wersja_wiekowa": "C",
       "wiek": "6 lat",
       "pomoc": "Drabina oswajania jedzenia i talerzyk do prób",
-      "tekst": "Wybierz, co dziś poznajesz. Powiedz mi, co zrobisz jutro.",
+      "tekst": "[warmly] Wybierz, co dziś poznajesz… Powiedz mi, co zrobisz jutro.",
+      "tekst_drukowany": "Wybierz, co dziś poznajesz. Powiedz mi, co zrobisz jutro.",
       "plik": "eduplaner_sens/assets/audio_sens/civ_1.mp3",
       "czyta": "sklonowany głos autorki (dana biometryczna)"
     },
@@ -284,7 +314,8 @@
       "wersja_wiekowa": "A",
       "wiek": "3–4 lata",
       "pomoc": "Gryzak na sznurku, rurka i łyżeczka jednego kęsa",
-      "tekst": "Buzia chce mocno. Bierzemy gryzak. Kredka zostaje na stole.",
+      "tekst": "[warmly] Buzia chce mocno… Bierzemy gryzak… Kredka zostaje na stole.",
+      "tekst_drukowany": "Buzia chce mocno. Bierzemy gryzak. Kredka zostaje na stole.",
       "plik": "eduplaner_sens/assets/audio_sens/aiv_2.mp3",
       "czyta": "sklonowany głos autorki (dana biometryczna)"
     },
@@ -293,7 +324,8 @@
       "wersja_wiekowa": "B",
       "wiek": "5 lat",
       "pomoc": "Gryzak na sznurku, rurka i łyżeczka jednego kęsa",
-      "tekst": "Napij się przez rurkę. Potem jeden kęs, i następny.",
+      "tekst": "[warmly] Napij się przez rurkę… Potem jeden kęs, i następny.",
+      "tekst_drukowany": "Napij się przez rurkę. Potem jeden kęs, i następny.",
       "plik": "eduplaner_sens/assets/audio_sens/biv_2.mp3",
       "czyta": "sklonowany głos autorki (dana biometryczna)"
     },
@@ -302,7 +334,8 @@
       "wersja_wiekowa": "C",
       "wiek": "6 lat",
       "pomoc": "Gryzak na sznurku, rurka i łyżeczka jednego kęsa",
-      "tekst": "Zaplanuj, kiedy dziś napijesz się przez rurkę i kiedy zjesz chrupiące.",
+      "tekst": "[warmly] Zaplanuj, kiedy dziś napijesz się przez rurkę i kiedy zjesz chrupiące.",
+      "tekst_drukowany": "Zaplanuj, kiedy dziś napijesz się przez rurkę i kiedy zjesz chrupiące.",
       "plik": "eduplaner_sens/assets/audio_sens/civ_2.mp3",
       "czyta": "sklonowany głos autorki (dana biometryczna)"
     },
@@ -311,7 +344,8 @@
       "wersja_wiekowa": "A",
       "wiek": "3–4 lata",
       "pomoc": "Trzy karty posiłku",
-      "tekst": "Wybieramy kartę. Jem swoje, próbuję czy tylko patrzę?",
+      "tekst": "[warmly] Wybieramy kartę… Jem swoje, próbuję czy tylko patrzę?",
+      "tekst_drukowany": "Wybieramy kartę. Jem swoje, próbuję czy tylko patrzę?",
       "plik": "eduplaner_sens/assets/audio_sens/aiv_3.mp3",
       "czyta": "sklonowany głos autorki (dana biometryczna)"
     },
@@ -320,7 +354,8 @@
       "wersja_wiekowa": "B",
       "wiek": "5 lat",
       "pomoc": "Trzy karty posiłku",
-      "tekst": "Połóż kartę przed jedzeniem. Powiedz, co zjesz zamiast.",
+      "tekst": "[warmly] Połóż kartę przed jedzeniem… Powiedz, co zjesz zamiast.",
+      "tekst_drukowany": "Połóż kartę przed jedzeniem. Powiedz, co zjesz zamiast.",
       "plik": "eduplaner_sens/assets/audio_sens/biv_3.mp3",
       "czyta": "sklonowany głos autorki (dana biometryczna)"
     },
@@ -329,7 +364,8 @@
       "wersja_wiekowa": "C",
       "wiek": "6 lat",
       "pomoc": "Trzy karty posiłku",
-      "tekst": "Wybierz kartę. Możesz ją zmienić w trakcie, jeśli będzie trzeba.",
+      "tekst": "[warmly] Wybierz kartę… Możesz ją zmienić w trakcie, jeśli będzie trzeba.",
+      "tekst_drukowany": "Wybierz kartę. Możesz ją zmienić w trakcie, jeśli będzie trzeba.",
       "plik": "eduplaner_sens/assets/audio_sens/civ_3.mp3",
       "czyta": "sklonowany głos autorki (dana biometryczna)"
     },
@@ -338,7 +374,8 @@
       "wersja_wiekowa": "A",
       "wiek": "3–4 lata",
       "pomoc": "Chusteczka ratunkowa i karta BRZYDKI ZAPACH",
-      "tekst": "Brzydki zapach. Weź chusteczkę. Wchodzimy razem.",
+      "tekst": "[warmly] Brzydki zapach… Weź chusteczkę… Wchodzimy razem.",
+      "tekst_drukowany": "Brzydki zapach. Weź chusteczkę. Wchodzimy razem.",
       "plik": "eduplaner_sens/assets/audio_sens/av_1.mp3",
       "czyta": "sklonowany głos autorki (dana biometryczna)"
     },
@@ -347,7 +384,8 @@
       "wersja_wiekowa": "B",
       "wiek": "5 lat",
       "pomoc": "Chusteczka ratunkowa i karta BRZYDKI ZAPACH",
-      "tekst": "Chusteczka jest w kieszeni. Miejsce przy oknie jest wolne.",
+      "tekst": "[warmly] Chusteczka jest w kieszeni… Miejsce przy oknie jest wolne.",
+      "tekst_drukowany": "Chusteczka jest w kieszeni. Miejsce przy oknie jest wolne.",
       "plik": "eduplaner_sens/assets/audio_sens/bv_1.mp3",
       "czyta": "sklonowany głos autorki (dana biometryczna)"
     },
@@ -356,7 +394,8 @@
       "wersja_wiekowa": "C",
       "wiek": "6 lat",
       "pomoc": "Chusteczka ratunkowa i karta BRZYDKI ZAPACH",
-      "tekst": "Powiedz, gdzie dziś siadasz w stołówce.",
+      "tekst": "[warmly] Powiedz, gdzie dziś siadasz w stołówce.",
+      "tekst_drukowany": "Powiedz, gdzie dziś siadasz w stołówce.",
       "plik": "eduplaner_sens/assets/audio_sens/cv_1.mp3",
       "czyta": "sklonowany głos autorki (dana biometryczna)"
     },
@@ -365,7 +404,8 @@
       "wersja_wiekowa": "A",
       "wiek": "3–4 lata",
       "pomoc": "Pudełko zapachów z kartą wymiany",
-      "tekst": "Wąchamy tutaj. To jest pudełko zapachów.",
+      "tekst": "[warmly] Wąchamy tutaj… To jest pudełko zapachów.",
+      "tekst_drukowany": "Wąchamy tutaj. To jest pudełko zapachów.",
       "plik": "eduplaner_sens/assets/audio_sens/av_2.mp3",
       "czyta": "sklonowany głos autorki (dana biometryczna)"
     },
@@ -374,7 +414,8 @@
       "wersja_wiekowa": "B",
       "wiek": "5 lat",
       "pomoc": "Pudełko zapachów z kartą wymiany",
-      "tekst": "Podaj kartę i idź do pudełka. Dwie minuty.",
+      "tekst": "[warmly] Podaj kartę i idź do pudełka… Dwie minuty.",
+      "tekst_drukowany": "Podaj kartę i idź do pudełka. Dwie minuty.",
       "plik": "eduplaner_sens/assets/audio_sens/bv_2.mp3",
       "czyta": "sklonowany głos autorki (dana biometryczna)"
     },
@@ -383,7 +424,8 @@
       "wersja_wiekowa": "C",
       "wiek": "6 lat",
       "pomoc": "Pudełko zapachów z kartą wymiany",
-      "tekst": "Powiedz, kiedy dziś pójdziesz powąchać.",
+      "tekst": "[warmly] Powiedz, kiedy dziś pójdziesz powąchać.",
+      "tekst_drukowany": "Powiedz, kiedy dziś pójdziesz powąchać.",
       "plik": "eduplaner_sens/assets/audio_sens/cv_2.mp3",
       "czyta": "sklonowany głos autorki (dana biometryczna)"
     },
@@ -392,7 +434,8 @@
       "wersja_wiekowa": "A",
       "wiek": "3–4 lata",
       "pomoc": "Nos dnia — dwa woreczki kontrolne i karta z buźkami",
-      "tekst": "Sprawdzamy nos. Powąchaj i pokaż buźkę.",
+      "tekst": "[warmly] Sprawdzamy nos… Powąchaj i pokaż buźkę.",
+      "tekst_drukowany": "Sprawdzamy nos. Powąchaj i pokaż buźkę.",
       "plik": "eduplaner_sens/assets/audio_sens/av_3.mp3",
       "czyta": "sklonowany głos autorki (dana biometryczna)"
     },
@@ -401,7 +444,8 @@
       "wersja_wiekowa": "B",
       "wiek": "5 lat",
       "pomoc": "Nos dnia — dwa woreczki kontrolne i karta z buźkami",
-      "tekst": "Powąchaj oba woreczki. Jeśli mocno czujesz, weź chusteczkę.",
+      "tekst": "[warmly] Powąchaj oba woreczki… Jeśli mocno czujesz, weź chusteczkę.",
+      "tekst_drukowany": "Powąchaj oba woreczki. Jeśli mocno czujesz, weź chusteczkę.",
       "plik": "eduplaner_sens/assets/audio_sens/bv_3.mp3",
       "czyta": "sklonowany głos autorki (dana biometryczna)"
     },
@@ -410,7 +454,8 @@
       "wersja_wiekowa": "C",
       "wiek": "6 lat",
       "pomoc": "Nos dnia — dwa woreczki kontrolne i karta z buźkami",
-      "tekst": "Sprawdź nos i powiedz, czego dziś unikasz.",
+      "tekst": "[warmly] Sprawdź nos i powiedz, czego dziś unikasz.",
+      "tekst_drukowany": "Sprawdź nos i powiedz, czego dziś unikasz.",
       "plik": "eduplaner_sens/assets/audio_sens/cv_3.mp3",
       "czyta": "sklonowany głos autorki (dana biometryczna)"
     },
@@ -419,7 +464,8 @@
       "wersja_wiekowa": "A",
       "wiek": "3–4 lata",
       "pomoc": "Drabina ruchu i nakładka na kredkę",
-      "tekst": "Pchamy pudło razem. Ja z jednej strony, ty z drugiej.",
+      "tekst": "[warmly] Pchamy pudło razem… Ja z jednej strony, ty z drugiej.",
+      "tekst_drukowany": "Pchamy pudło razem. Ja z jednej strony, ty z drugiej.",
       "plik": "eduplaner_sens/assets/audio_sens/avi_1.mp3",
       "czyta": "sklonowany głos autorki (dana biometryczna)"
     },
@@ -428,7 +474,8 @@
       "wersja_wiekowa": "B",
       "wiek": "5 lat",
       "pomoc": "Drabina ruchu i nakładka na kredkę",
-      "tekst": "Wskaż szczebel na drabinie i zrób go do końca.",
+      "tekst": "[warmly] Wskaż szczebel na drabinie i zrób go do końca.",
+      "tekst_drukowany": "Wskaż szczebel na drabinie i zrób go do końca.",
       "plik": "eduplaner_sens/assets/audio_sens/bvi_1.mp3",
       "czyta": "sklonowany głos autorki (dana biometryczna)"
     },
@@ -437,7 +484,8 @@
       "wersja_wiekowa": "C",
       "wiek": "6 lat",
       "pomoc": "Drabina ruchu i nakładka na kredkę",
-      "tekst": "Wybierz trzy zadania na dziś. Powiedz mi, gdzie czujesz mięśnie.",
+      "tekst": "[warmly] Wybierz trzy zadania na dziś… Powiedz mi, gdzie czujesz mięśnie.",
+      "tekst_drukowany": "Wybierz trzy zadania na dziś. Powiedz mi, gdzie czujesz mięśnie.",
       "plik": "eduplaner_sens/assets/audio_sens/cvi_1.mp3",
       "czyta": "sklonowany głos autorki (dana biometryczna)"
     },
@@ -446,7 +494,8 @@
       "wersja_wiekowa": "A",
       "wiek": "3–4 lata",
       "pomoc": "Kącik docisku: kocyk obciążeniowy, tunel, poduszka sensoryczna",
-      "tekst": "Twoje ciało chce mocno. Idziemy po kocyk.",
+      "tekst": "[warmly] Twoje ciało chce mocno… Idziemy po kocyk.",
+      "tekst_drukowany": "Twoje ciało chce mocno. Idziemy po kocyk.",
       "plik": "eduplaner_sens/assets/audio_sens/avi_2.mp3",
       "czyta": "sklonowany głos autorki (dana biometryczna)"
     },
@@ -455,7 +504,8 @@
       "wersja_wiekowa": "B",
       "wiek": "5 lat",
       "pomoc": "Kącik docisku: kocyk obciążeniowy, tunel, poduszka sensoryczna",
-      "tekst": "Podaj kartę „mocno” i idź do kącika. Trzy minuty.",
+      "tekst": "[warmly] Podaj kartę „mocno” i idź do kącika… Trzy minuty.",
+      "tekst_drukowany": "Podaj kartę „mocno” i idź do kącika. Trzy minuty.",
       "plik": "eduplaner_sens/assets/audio_sens/bvi_2.mp3",
       "czyta": "sklonowany głos autorki (dana biometryczna)"
     },
@@ -464,7 +514,8 @@
       "wersja_wiekowa": "C",
       "wiek": "6 lat",
       "pomoc": "Kącik docisku: kocyk obciążeniowy, tunel, poduszka sensoryczna",
-      "tekst": "Powiedz, kiedy robisz dziś przerwy na docisk.",
+      "tekst": "[warmly] Powiedz, kiedy robisz dziś przerwy na docisk.",
+      "tekst_drukowany": "Powiedz, kiedy robisz dziś przerwy na docisk.",
       "plik": "eduplaner_sens/assets/audio_sens/cvi_2.mp3",
       "czyta": "sklonowany głos autorki (dana biometryczna)"
     },
@@ -473,7 +524,8 @@
       "wersja_wiekowa": "A",
       "wiek": "3–4 lata",
       "pomoc": "Miernik siły — trzy pola nacisku",
-      "tekst": "Robimy trzy kreski. Piórko, w sam raz, za mocno.",
+      "tekst": "[warmly] Robimy trzy kreski… Piórko, w sam raz, za mocno.",
+      "tekst_drukowany": "Robimy trzy kreski. Piórko, w sam raz, za mocno.",
       "plik": "eduplaner_sens/assets/audio_sens/avi_3.mp3",
       "czyta": "sklonowany głos autorki (dana biometryczna)"
     },
@@ -482,7 +534,8 @@
       "wersja_wiekowa": "B",
       "wiek": "5 lat",
       "pomoc": "Miernik siły — trzy pola nacisku",
-      "tekst": "Zrób próbę na mierniku. Która jest w sam raz?",
+      "tekst": "[warmly] Zrób próbę na mierniku… Która jest w sam raz?",
+      "tekst_drukowany": "Zrób próbę na mierniku. Która jest w sam raz?",
       "plik": "eduplaner_sens/assets/audio_sens/bvi_3.mp3",
       "czyta": "sklonowany głos autorki (dana biometryczna)"
     },
@@ -491,7 +544,8 @@
       "wersja_wiekowa": "C",
       "wiek": "6 lat",
       "pomoc": "Miernik siły — trzy pola nacisku",
-      "tekst": "Sprawdź siłę i powiedz mi, kiedy zacznie ci uciekać.",
+      "tekst": "[warmly] Sprawdź siłę i powiedz mi, kiedy zacznie ci uciekać.",
+      "tekst_drukowany": "Sprawdź siłę i powiedz mi, kiedy zacznie ci uciekać.",
       "plik": "eduplaner_sens/assets/audio_sens/cvi_3.mp3",
       "czyta": "sklonowany głos autorki (dana biometryczna)"
     },
@@ -500,7 +554,8 @@
       "wersja_wiekowa": "A",
       "wiek": "3–4 lata",
       "pomoc": "Drabina ruchu przedsionkowego i karta STOP",
-      "tekst": "Siadamy. Stopy na ziemi. Powiedz stop, kiedy chcesz.",
+      "tekst": "[warmly] Siadamy… Stopy na ziemi… Powiedz stop, kiedy chcesz.",
+      "tekst_drukowany": "Siadamy. Stopy na ziemi. Powiedz stop, kiedy chcesz.",
       "plik": "eduplaner_sens/assets/audio_sens/avii_1.mp3",
       "czyta": "sklonowany głos autorki (dana biometryczna)"
     },
@@ -509,7 +564,8 @@
       "wersja_wiekowa": "B",
       "wiek": "5 lat",
       "pomoc": "Drabina ruchu przedsionkowego i karta STOP",
-      "tekst": "Wskaż szczebel na drabinie. Karta stop jest u ciebie.",
+      "tekst": "[warmly] Wskaż szczebel na drabinie… Karta stop jest u ciebie.",
+      "tekst_drukowany": "Wskaż szczebel na drabinie. Karta stop jest u ciebie.",
       "plik": "eduplaner_sens/assets/audio_sens/bvii_1.mp3",
       "czyta": "sklonowany głos autorki (dana biometryczna)"
     },
@@ -518,7 +574,8 @@
       "wersja_wiekowa": "C",
       "wiek": "6 lat",
       "pomoc": "Drabina ruchu przedsionkowego i karta STOP",
-      "tekst": "Zaplanuj dziś swój szczebel. Pamiętasz, jak zatrzymać ruch?",
+      "tekst": "[warmly] Zaplanuj dziś swój szczebel… Pamiętasz, jak zatrzymać ruch?",
+      "tekst_drukowany": "Zaplanuj dziś swój szczebel. Pamiętasz, jak zatrzymać ruch?",
       "plik": "eduplaner_sens/assets/audio_sens/cvii_1.mp3",
       "czyta": "sklonowany głos autorki (dana biometryczna)"
     },
@@ -527,7 +584,8 @@
       "wersja_wiekowa": "A",
       "wiek": "3–4 lata",
       "pomoc": "Poduszka sensoryczna i karta POTRZEBUJĘ RUCHU",
-      "tekst": "Skaczemy dziesięć razy. Potem siadamy na poduszce.",
+      "tekst": "[warmly] Skaczemy dziesięć razy… Potem siadamy na poduszce.",
+      "tekst_drukowany": "Skaczemy dziesięć razy. Potem siadamy na poduszce.",
       "plik": "eduplaner_sens/assets/audio_sens/avii_2.mp3",
       "czyta": "sklonowany głos autorki (dana biometryczna)"
     },
@@ -536,7 +594,8 @@
       "wersja_wiekowa": "B",
       "wiek": "5 lat",
       "pomoc": "Poduszka sensoryczna i karta POTRZEBUJĘ RUCHU",
-      "tekst": "Podaj kartę i idź na znak. Trzy minuty ruchu, potem stolik.",
+      "tekst": "[warmly] Podaj kartę i idź na znak… Trzy minuty ruchu, potem stolik.",
+      "tekst_drukowany": "Podaj kartę i idź na znak. Trzy minuty ruchu, potem stolik.",
       "plik": "eduplaner_sens/assets/audio_sens/bvii_2.mp3",
       "czyta": "sklonowany głos autorki (dana biometryczna)"
     },
@@ -545,7 +604,8 @@
       "wersja_wiekowa": "C",
       "wiek": "6 lat",
       "pomoc": "Poduszka sensoryczna i karta POTRZEBUJĘ RUCHU",
-      "tekst": "Zaplanuj, kiedy dziś ruszasz się przed zadaniem.",
+      "tekst": "[warmly] Zaplanuj, kiedy dziś ruszasz się przed zadaniem.",
+      "tekst_drukowany": "Zaplanuj, kiedy dziś ruszasz się przed zadaniem.",
       "plik": "eduplaner_sens/assets/audio_sens/cvii_2.mp3",
       "czyta": "sklonowany głos autorki (dana biometryczna)"
     },
@@ -554,7 +614,8 @@
       "wersja_wiekowa": "A",
       "wiek": "3–4 lata",
       "pomoc": "Licznik ruchu — suwak z trzema poziomami",
-      "tekst": "Sprawdzamy ruch. Przesuń suwak.",
+      "tekst": "[warmly] Sprawdzamy ruch… Przesuń suwak.",
+      "tekst_drukowany": "Sprawdzamy ruch. Przesuń suwak.",
       "plik": "eduplaner_sens/assets/audio_sens/avii_3.mp3",
       "czyta": "sklonowany głos autorki (dana biometryczna)"
     },
@@ -563,7 +624,8 @@
       "wersja_wiekowa": "B",
       "wiek": "5 lat",
       "pomoc": "Licznik ruchu — suwak z trzema poziomami",
-      "tekst": "Ustaw licznik i wybierz zabawę.",
+      "tekst": "[warmly] Ustaw licznik i wybierz zabawę.",
+      "tekst_drukowany": "Ustaw licznik i wybierz zabawę.",
       "plik": "eduplaner_sens/assets/audio_sens/bvii_3.mp3",
       "czyta": "sklonowany głos autorki (dana biometryczna)"
     },
@@ -572,7 +634,8 @@
       "wersja_wiekowa": "C",
       "wiek": "6 lat",
       "pomoc": "Licznik ruchu — suwak z trzema poziomami",
-      "tekst": "Ustaw licznik. Możesz zmienić ścieżkę, jeśli coś się zmieni.",
+      "tekst": "[warmly] Ustaw licznik… Możesz zmienić ścieżkę, jeśli coś się zmieni.",
+      "tekst_drukowany": "Ustaw licznik. Możesz zmienić ścieżkę, jeśli coś się zmieni.",
       "plik": "eduplaner_sens/assets/audio_sens/cvii_3.mp3",
       "czyta": "sklonowany głos autorki (dana biometryczna)"
     }
