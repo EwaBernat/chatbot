@@ -13,6 +13,7 @@ Czyta wyłącznie pliki z 01_dane_json/. Zapisuje jeden samodzielny plik HTML.
 """
 from __future__ import annotations
 
+import argparse
 import base64
 import html
 import json
@@ -25,6 +26,14 @@ WYJSCIE = KORZEN / "02_gotowe_dokumenty" / "Tabela_celow_SENS_wiek_poziom.html"
 MEDIA = "../04_media"          # ścieżki mediów liczone od 02_gotowe_dokumenty/
 MEDIA_KAT = KORZEN / "04_media"   # ten sam katalog na dysku — do wklejania plików w dokument
 WSPOLNE = KORZEN.parent / "media_wspolne"   # biblioteka symboli, jedna dla wszystkich modułów
+
+
+def sciezka_w_opisie(p: pathlib.Path) -> str:
+    """Skrót ścieżki w komunikacie — względem modułu, gdy plik w nim leży."""
+    try:
+        return str(p.relative_to(KORZEN))
+    except ValueError:
+        return str(p)
 
 
 def e(t) -> str:
@@ -1029,17 +1038,27 @@ def main() -> int:
 </body>
 </html>
 """
-    WYJSCIE.parent.mkdir(parents=True, exist_ok=True)
-    WYJSCIE.write_text(doc, encoding="utf-8")
-    print(f"zapisano {WYJSCIE.relative_to(KORZEN)} ({WYJSCIE.stat().st_size // 1024} KB · "
+    wyjscie = pathlib.Path(globals().get("CEL", WYJSCIE))
+    wyjscie.parent.mkdir(parents=True, exist_ok=True)
+    wyjscie.write_text(doc, encoding="utf-8")
+    print(f"zapisano {sciezka_w_opisie(wyjscie)} ({wyjscie.stat().st_size // 1024} KB · "
           f"{cele['liczba_celow']} celów · {konspekty['liczba']} konspektów)")
     return 0
 
 
 if __name__ == "__main__":
-    # --z-glosem wkleja nagrania w dokument (dana biometryczna — plik do użytku
-    # własnego autorki, nie do repozytorium). Bez tej opcji dokument linkuje mp3
-    # z katalogu 04_media i wersja w repozytorium nie zawiera głosu.
-    if "--z-glosem" in sys.argv:
-        globals()["WKLEJ_GLOS"] = True
+    ap = argparse.ArgumentParser(description="Tabela celów SENS z konspektami")
+    ap.add_argument("--wyjscie", default=str(WYJSCIE), help="plik docelowy")
+    ap.add_argument("--z-glosem", action="store_true", dest="z_glosem",
+                    help="wklej nagrania w dokument (dana biometryczna — plik tylko do "
+                         "użytku własnego autorki, nie do repozytorium)")
+    args = ap.parse_args()
+    # Wersja z głosem MUSI iść poza 02_gotowe_dokumenty: ten katalog jest w
+    # repozytorium, a nagranie to sklonowany głos autorki. Zamiast liczyć na
+    # pamięć wywołującego, pilnuje tego program.
+    if args.z_glosem and pathlib.Path(args.wyjscie).resolve() == WYJSCIE.resolve():
+        raise SystemExit("--z-glosem wymaga --wyjscie poza 02_gotowe_dokumenty: "
+                         "ten katalog trafia do repozytorium, a nagrania to dane biometryczne.")
+    globals()["WKLEJ_GLOS"] = args.z_glosem
+    globals()["CEL"] = args.wyjscie
     raise SystemExit(main())

@@ -30,6 +30,14 @@ MODUL = {"kod": "TOM", "nazwa": "Teoria umysłu (ToM)", "plik_celow": "cele_tom_
          "plik_pomocy": "pomoce_tom.json", "grupa": "komponenty"}
 
 
+def sciezka_w_opisie(p: pathlib.Path) -> str:
+    """Skrót ścieżki w komunikacie — względem modułu, gdy plik w nim leży."""
+    try:
+        return str(p.relative_to(KORZEN))
+    except ValueError:
+        return str(p)
+
+
 def e(t) -> str:
     return html.escape(str(t if t is not None else ""))
 
@@ -316,6 +324,11 @@ def main() -> int:
                     help="wklej nagrania w dokument (dana biometryczna — plik tylko do użytku "
                          "własnego autorki, nie do repozytorium)")
     args = ap.parse_args()
+    # Wersja z głosem MUSI iść poza 02_gotowe_dokumenty: ten katalog trafia do
+    # repozytorium, a nagranie to sklonowany głos autorki.
+    if args.z_glosem and pathlib.Path(args.wyjscie).resolve() == WYJSCIE.resolve():
+        raise SystemExit("--z-glosem wymaga --wyjscie poza 02_gotowe_dokumenty: "
+                         "ten katalog trafia do repozytorium, a nagrania to dane biometryczne.")
     globals()["WKLEJ_GLOS"] = args.z_glosem
 
     materialy = wczytaj("materialy_do_druku.json")
@@ -344,7 +357,7 @@ def main() -> int:
         f'<style>{STYL}</style>\n</head>\n<body>\n' + "\n".join(strony) +
         '\n<script>' + SKRYPT + '</script>\n</body>\n</html>\n',
         encoding="utf-8")
-    print(f"zapisano {wyjscie.relative_to(KORZEN)} "
+    print(f"zapisano {sciezka_w_opisie(wyjscie)} "
           f"({wyjscie.stat().st_size // 1024} KB · {len(strony)} kart pracy A4)")
     return 0
 
