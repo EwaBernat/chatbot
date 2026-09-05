@@ -249,6 +249,7 @@ table.ktab td.lp{font-weight:800;color:var(--fiolet);text-align:center}
 .pom-play{border:1px solid var(--pomarancz-linia);background:#fff;color:var(--pomarancz);border-radius:999px;
           padding:3px 10px;font:700 9px/1 inherit;cursor:pointer;margin-top:5px}
 .pom-play small{font-weight:400;color:var(--szary)}
+.pom-plik{display:block;font-family:ui-monospace,Consolas,monospace;font-size:7.5px;color:var(--szary);margin-top:3px}
 .karty{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-top:6px}
 .karta{border:1px dashed var(--fiolet-linia);border-radius:9px;padding:8px;text-align:center;font-size:9px}
 .karta .pole{height:52px;border-radius:7px;background:#fbfaff;border:1px solid var(--linia);margin-bottom:5px;
@@ -580,7 +581,8 @@ def karta_pomocy(kon: dict, pomoc: dict, arkusz: dict) -> str:
       <div class="pom-dziecko"><span class="lab">Polecenie dla dziecka · {e(pol['wiek'])}</span>
         „{e(pol['polecenie_dla_dziecka'])}”
         <button type="button" class="pom-play" data-audio="{e(zrodlo_audio(pol['nagranie']))}">
-          ▶ posłuchaj głosem autorki <small>{e(pol['nagranie'].rsplit('/', 1)[-1])}</small></button></div>
+          ▶ posłuchaj głosem autorki</button>
+        <span class="pom-plik">nagranie: {e(pol['nagranie'].rsplit('/', 1)[-1])}</span></div>
     </div>
   </div>
   <div style="padding:0 12px 12px">
