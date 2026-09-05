@@ -91,3 +91,18 @@ bez wskazanej podstawy prawnej).
 Ustalenie wspólne dla obu skryptów: numeracja ustępów § 6 rozporządzenia o kształceniu specjalnym nie jest
 potwierdzona w ogłoszonym tekście, więc w obu dokumentach cytujemy „§ 6 rozporządzenia” i opisujemy obowiązek
 słowami.
+
+## Dogrywki do materiału filmowego — przedszkole
+
+Ustalenia audytu przełożone na produkcję filmu (moduły M1–M6):
+
+- `DOGRYWKI_film_PRZEDSZKOLE_po_audycie_2026-09-05.docx` — karta dogrywek (8 stron): moduł, plansza,
+  po której następuje cięcie, gotowy tekst do przeczytania, treść nowej planszy, czas
+- `dogrywki-narracja.txt` — sam tekst do nagrania i do napisów, jeden fragment na blok
+- `dogrywki_film_przedszkole.py` — generator obu plików
+
+**9 dogrywek, ~5:44 materiału.** Wszystkie są wstawkami między istniejące plansze — żadne nagrane
+zdanie nie wymaga powtórzenia. Moduły M2 i M5 bez zmian. Do wymiany 5 plansz z podstawą prawną
+(zmiana wyłącznie graficzna).
+
+Tempo dogrywek policzone z istniejącego filmu: 5753 słowa / 53:57 = **107 słów na minutę**.
