@@ -106,3 +106,42 @@ do awatara i sklonowanego głosu służy `HEYGEN_API_KEY` oraz `scripts/heygen_a
 
 Klucz API trzymaj wyłącznie w zmiennej środowiskowej — `.gitignore` blokuje `.env`,
 a wygenerowane `*.mp3`, `*.srt` i `narracja*.txt` nie trafiają do repozytorium.
+
+---
+
+## 🎬 Skill `awatar-ewa` — film, w którym mówi Twój awatar
+
+W `.claude/skills/awatar-ewa/` leży skill do materiałów z awatarem HeyGen:
+**zamówienie → scenariusz → akceptacja → render → plik**. Twarz i głos ustalasz raz;
+skill nigdy nie renderuje filmu cudzym awatarem ani cudzym głosem.
+
+1. **Kim jest awatar** — jednorazowo, potem tylko z tego korzystasz:
+
+   ```bash
+   export HEYGEN_API_KEY="..."          # app.heygen.com → Settings → Subscriptions & API
+   python3 .claude/skills/awatar-ewa/scripts/skonfiguruj_awatara.py            # szuka „Ewa"
+   python3 .claude/skills/awatar-ewa/scripts/skonfiguruj_awatara.py --pokaz
+   ```
+
+   Skrypt zapisuje `avatar_id` i `voice_id` w tej samej pamięci co `dane-i-glos`
+   (`~/.config/dane-i-glos/konfiguracja.json`, poza repozytorium). Przy kilku pasujących
+   awatarach nie zgaduje — wypisuje kandydatów i czeka na `--awatar-id`.
+
+2. **Złącze MCP HeyGen** — Video Agent pisze scenariusz, składa sceny i renderuje:
+
+   ```bash
+   claude mcp add --transport http -s user heygen https://mcp.heygen.com/mcp/v1/
+   ```
+
+   Potem `/mcp` w Claude Code i logowanie OAuth. Prompt zawsze nazywa awatara po imieniu —
+   bez tego agent dobiera postać z galerii. Szablon: `references/prompt-agenta.md`,
+   podłączenie i diagnostyka: `references/mcp.md`.
+
+3. **Render przez API** — gdy potrzebujesz kadru, tła i formatu co do piksela:
+
+   ```bash
+   python3 .claude/skills/dane-i-glos/scripts/heygen_awatar.py narracja.txt --czekaj -o film.mp4
+   ```
+
+   Awatar i głos idą z pamięci z punktu 1. Materiał o liczbach prowadzi skill `dane-i-glos`
+   (profil danych → narracja → głos → awatar).
