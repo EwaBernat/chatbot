@@ -399,20 +399,56 @@ footer p + p{margin-top:6px}
 @media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
 </style>
 
+<style>
+:root{
+  --paper:#F7F4FB; --surface:#FFFFFF; --surface-2:#F0EAF8;
+  --ink:#241A38; --ink-2:#4C4166; --muted:#71678C;
+  --line:#E0D6EF; --line-soft:#EDE7F6;
+  --brand:#55377D; --brand-soft:#EDE5F7;
+  --accent:#C0561A; --accent-soft:#FBEADD;
+  --good:#2A6B4F; --bad:#A8261A; --on-track:#FFFFFF;
+  --shadow:0 1px 2px rgba(36,26,56,.06);
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --paper:#17122B; --surface:#201936; --surface-2:#291F44;
+    --ink:#F2EEF9; --ink-2:#CCC3E0; --muted:#9A90B6;
+    --line:#362A56; --line-soft:#2C2249;
+    --brand:#B79AE6; --brand-soft:#2A2048;
+    --accent:#F09355; --accent-soft:#362320;
+    --good:#5CC79C; --bad:#FF9A8F; --on-track:#1A1330;
+    --shadow:0 1px 2px rgba(0,0,0,.35);
+  }
+}
+:root[data-theme="dark"]{
+  --paper:#17122B; --surface:#201936; --surface-2:#291F44;
+  --ink:#F2EEF9; --ink-2:#CCC3E0; --muted:#9A90B6;
+  --line:#362A56; --line-soft:#2C2249;
+  --brand:#B79AE6; --brand-soft:#2A2048;
+  --accent:#F09355; --accent-soft:#362320;
+  --good:#5CC79C; --bad:#FF9A8F; --on-track:#1A1330;
+  --shadow:0 1px 2px rgba(0,0,0,.35);
+}
+.mark .logo{
+  width:34px;height:34px;border-radius:50%;display:block;flex:none;
+  box-shadow:0 0 0 1px var(--line);
+}
+.mark{gap:12px;align-items:center}
+.hero .rule{background:linear-gradient(90deg,var(--track) 0 60%,#CBA242 60% 100%)}
+</style>
+
 </head>
 <body>
 <div class="topbar">
   <div class="topbar-in">
     <div class="mark">
+      <img class="logo" alt="PCTP" src="data:image/webp;base64,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">
       <b>EduPlaner 2026</b>
       <span>PCTP · plan szkolenia rady pedagogicznej · przedszkole</span>
     </div>
     <div class="navs">
       
-      <div class="switch" role="radiogroup" aria-label="Widok">
-        <button role="radio" data-view="plan" aria-checked="true">Plan</button>
-        <button role="radio" data-view="warsztat" aria-checked="false">Warsztat</button>
-      </div>
+      
     </div>
   </div>
 </div>
@@ -432,7 +468,7 @@ footer p + p{margin-top:6px}
       <dl class="facts">
         <div class="fact"><dt>Adresat</dt><dd>Rada pedagogiczna przedszkola, specjaliści, dyrektor</dd></div>
         <div class="fact"><dt>Materiał filmowy</dt><dd><strong class="mono">53:57</strong> · sześć modułów (M1–M6)</dd></div>
-        <div class="fact"><dt>Wariant warsztatowy</dt><dd><strong>ok. 3 h 35 min</strong> z jedną przerwą</dd></div>
+        <!--FACT-A-START--><div class="fact"><dt>Forma</dt><dd><strong>Wariant A — projekcja</strong> + skrypt dla nauczycieli</dd></div><!--FACT-A-END-->
         <div class="fact"><dt>Materiały</dt><dd>Skrypt dla nauczycieli (wydanie 2 po audycie) + druki</dd></div>
         <div class="fact"><dt>Narzędzie wiodące</dt><dd>KPOF — Kwestionariusz Przedszkolnej Oceny Funkcjonalnej</dd></div>
         <div class="fact"><dt>Miara skuteczności</dt><dd>Opinia dla poradni złożona z druków, które już są w teczce</dd></div>
@@ -589,53 +625,46 @@ footer p + p{margin-top:6px}
     </div>
   </section>
 
+
+  <!--HARM-A-START-->
   <section class="block">
     <div class="wrap">
       <header>
         <span class="eyebrow">Organizacja</span>
-        <h2>Harmonogram spotkania</h2>
-        <p>Wariant warsztatowy: projekcja modułu, potem praca na własnych drukach. Minuty przy ćwiczeniach są propozycją — czas filmu jest stały.</p>
+        <h2>Porządek projekcji</h2>
+        <p>Wariant A: rada ogląda całość jednym ciągiem, ze skryptem na stołach. Timecode wskazuje początek modułu w nagraniu — po nim wracamy do zdania, które umknęło.</p>
       </header>
-
       <div class="tablewrap">
         <table>
-          <thead>
-            <tr><th>Blok</th><th>Film</th><th>Ćwiczenie</th><th>Razem</th></tr>
-          </thead>
+          <thead><tr><th>Moduł</th><th>Tytuł</th><th>Plik</th><th>Czas</th><th>Od → do</th><th>Co uczestnik z tego wynosi</th></tr></thead>
           <tbody>
-            <tr><td>Otwarcie — cel szkolenia, zasada Strażnika Prawa</td><td class="num">—</td><td class="num">10 min</td><td class="num">10 min</td></tr>
-            <tr><td>M1 · Podstawa prawna</td><td class="num">9:30</td><td class="num">15 min</td><td class="num">25 min</td></tr>
-            <tr><td>M2 · Obieg dokumentów</td><td class="num">5:36</td><td class="num">10 min</td><td class="num">16 min</td></tr>
-            <tr><td>M3 · Metryczka dziecka</td><td class="num">5:45</td><td class="num">15 min</td><td class="num">21 min</td></tr>
-            <tr class="pause"><td>Przerwa</td><td class="num">—</td><td class="num">—</td><td class="num">15 min</td></tr>
-            <tr><td>M4 · KPOF — liczenie i odczyt profilu</td><td class="num">10:08</td><td class="num">30 min</td><td class="num">40 min</td></tr>
-            <tr><td>M5 · Obserwacja pogłębiona</td><td class="num">9:46</td><td class="num">20 min</td><td class="num">30 min</td></tr>
-            <tr><td>M6 · WOPF, IPET, cele, ewaluacja</td><td class="num">13:12</td><td class="num">30 min</td><td class="num">43 min</td></tr>
-            <tr><td>Zamknięcie — kalendarz roku i zadania wdrożeniowe</td><td class="num">—</td><td class="num">15 min</td><td class="num">15 min</td></tr>
-            <tr class="total"><td>Razem</td><td class="num">53:57</td><td class="num">2 h 25 min</td><td class="num">ok. 3 h 35 min</td></tr>
+            <tr><td class="num">1</td><td>Podstawa prawna — co obowiązuje od 1 września 2026 r.</td><td class="num">M1</td><td class="num">9:30</td><td class="num">00:00 → 09:30</td><td>Wie, z czego wynika każdy druk, i cytuje obowiązujące teksty jednolite.</td></tr><tr><td class="num">2</td><td>Obieg dokumentów — jak jeden wynika z drugiego</td><td class="num">M2</td><td class="num">5:36</td><td class="num">09:30 → 15:06</td><td>Zna sześć przystanków i wie, który dokument zasila który.</td></tr><tr><td class="num">3</td><td>Metryczka dziecka — pierwszy dokument września</td><td class="num">M3</td><td class="num">5:45</td><td class="num">15:06 → 20:51</td><td>Wypełnia metryczkę bez danych nadmiarowych i odczytuje z niej trzy odpowiedzi.</td></tr><tr><td class="num">4</td><td>KPOF — budowa narzędzia, skala, liczenie wyniku, odczyt profilu</td><td class="num">M4</td><td class="num">10:08</td><td class="num">20:51 → 30:59</td><td>Liczy średnią obszaru z pominięciem N i czyta profil dziewięciu obszarów.</td></tr><tr><td class="num">5</td><td>Obserwacja pogłębiona — ABC, sensoryka, teoria umysłu, karta mowy</td><td class="num">M5</td><td class="num">9:46</td><td class="num">30:59 → 40:45</td><td>Rozpoznaje regułę przekierowania i wybiera właściwe narzędzie.</td></tr><tr><td class="num">6</td><td>WOPF, IPET, cele SMART, ewaluacja i opinia dla poradni</td><td class="num">M6</td><td class="num">13:12</td><td class="num">40:45 → 53:57</td><td>Buduje cel mierzalny i planuje ewaluację w kalendarzu roku.</td></tr>
+            <tr class="total"><td class="num">—</td><td>Razem</td><td class="num">—</td><td class="num">53:57</td><td class="num">—</td><td>—</td></tr>
           </tbody>
         </table>
       </div>
-
       <div class="variants" style="margin-top:24px">
         <div class="variant">
-          <h4>Wariant A — projekcja</h4>
-          <span class="dur">54 min</span>
-          <p>Same nagrania, bez ćwiczeń. Na radę sierpniową, jako wprowadzenie przed rokiem szkolnym. Skrypt rozdany do lektury własnej.</p>
+          <h4>Przed projekcją</h4>
+          <span class="dur">15 minut</span>
+          <p>Rozdaj skrypt dla nauczycieli — każdy moduł ma w nim podstawę prawną, pełną transkrypcję i instrukcję przygotowania dokumentu. Zapowiedz jedno zdanie: każdy druk ma swój przepis, a my go poznamy.</p>
         </div>
         <div class="variant">
-          <h4>Wariant B — warsztat</h4>
-          <span class="dur">ok. 3 h 35 min</span>
-          <p>Harmonogram powyżej. Uczestnicy przychodzą z własnymi drukami i wychodzą z policzonym arkuszem oraz jednym celem mierzalnym.</p>
+          <h4>Przerwa</h4>
+          <span class="dur">10–15 minut</span>
+          <p>Najlepsze miejsce: po module 3, czyli po 20:51 — wtedy kończy się blok o dokumentach formalnych, a zaczyna o narzędziu obserwacji.</p>
         </div>
         <div class="variant">
-          <h4>Wariant C — dwa spotkania</h4>
-          <span class="dur">2 × ok. 1 h 50 min</span>
-          <p>Spotkanie pierwsze: moduły 1–3 (przepis, obieg, metryczka). Między spotkaniami wrześniowa obserwacja. Spotkanie drugie: moduły 4–6 na zebranych danych.</p>
+          <h4>Po projekcji</h4>
+          <span class="dur">10–15 minut</span>
+          <p>Pytania i ustalenia organizacyjne: kto pełni funkcję Strażnika Prawa, do kiedy powstaje zarządzenie dyrektora, kiedy wypełniamy wrześniowy arkusz. Protokół rady i lista obecności są dowodem odbycia szkolenia.</p>
         </div>
       </div>
+      <p class="note"><b>Co dalej.</b> Wariant A daje wiedzę. Umiejętność daje dopiero praca na własnych drukach — ćwiczenia do każdego modułu (liczenie arkusza, karta decyzyjna, cel mierzalny) przygotowujemy jako moduł warsztatowy do dołożenia w kolejnym kroku, po pierwszej projekcji w przedszkola.</p>
     </div>
   </section>
+  <!--HARM-A-END-->
+  
 
   <section class="block">
     <div class="wrap">
@@ -702,27 +731,7 @@ footer p + p{margin-top:6px}
 
 </div>
 
-<div id="view-warsztat" data-track="p" hidden>
-  <div class="wk-intro">
-    <div class="wrap">
-      <div class="kicker"><span class="dot"></span><span class="eyebrow" id="wk-eyebrow"></span></div>
-      <h1 id="wk-title"></h1>
-      <p class="lead">Moduł warsztatowy dokłada się do filmu: po projekcji każdego modułu zatrzymujemy nagranie i uruchamiamy ćwiczenie z tej strony. Odpowiedzi zapisują się w przeglądarce uczestnika i nie opuszczają jego urządzenia. Klucz odsłania prowadzący — dopiero gdy minie czas ćwiczenia.</p>
-      <div class="wk-bar">
-        <span class="stat">Ćwiczenia <b id="wk-count"></b></span>
-        <span class="stat">Czas ćwiczeń <b id="wk-time"></b></span>
-        <span class="stat">Zamknięte <b id="wk-done"></b></span>
-        <span class="progress"><i id="wk-progress"></i></span>
-        <button class="btn" data-variant="quiet" id="wk-clear">Wyczyść odpowiedzi</button>
-      </div>
-      <p class="wk-druki" id="wk-druki"></p>
-    </div>
-  </div>
-  <div class="wrap">
-    <div class="ex-list" id="ex-list"></div>
-    <div class="summary" id="wk-summary"></div>
-  </div>
-</div>
+
 
 <footer>
   <div class="wrap">
@@ -731,633 +740,7 @@ footer p + p{margin-top:6px}
   </div>
 </footer>
 
-<script>
-(function () {
-  'use strict';
 
-  /* ============================ DANE WARSZTATU ============================ */
-
-  var PUB = {
-    ks: 't.j. Dz.U. 2020 poz. 1309',
-    pp: 't.j. Dz.U. 2023 poz. 1798',
-    dok: 't.j. Dz.U. 2024 poz. 50',
-    orz: 'Dz.U. 2026 poz. 428',
-    pods: 'Dz.U. 2026 poz. 378',
-    po: 't.j. Dz.U. 2026 poz. 820',
-    swiad: 'Dz.U. 2023 poz. 1120',
-    ocen: 'Dz.U. 2019 poz. 373',
-    dost: 't.j. Dz.U. 2024 poz. 1411',
-    indyw: 'Dz.U. 2017 poz. 1616',
-    org: 't.j. Dz.U. 2023 poz. 2736'
-  };
-
-  var PYTANIA = [
-    'Kogo wezwać? Co podać? Od kiedy liczyć termin?',
-    'GDZIE radzi sobie dobrze, a gdzie potrzebuje wsparcia?',
-    'DLACZEGO to zachowanie się powtarza?',
-    'Jaki jest całościowy obraz funkcjonowania?',
-    'Co robimy, kto, w jakim wymiarze i do kiedy?',
-    'Czy zadziałało i co dalej?',
-    'Jak organizujemy pomoc bez orzeczenia?'
-  ];
-
-  var DATA = {
-    p: {
-      eyebrow: 'Warsztat · ścieżka przedszkolna · 6 ćwiczeń',
-      title: 'Sześć ćwiczeń do sześciu modułów',
-      time: '2 h 00 min',
-      druki: 'Metryczka dziecka · KPOF (wersje A, B, C) · karta decyzyjna · karta ABC · profil sensoryczny · karta obserwacji rozwoju mowy i komunikacji · obserwacja teorii umysłu · WOPF · IPET · karta celu SMART · karta ewaluacji · opinia o funkcjonowaniu dziecka · rejestr kontaktów (sekcja XI metryczki)',
-      ex: [
-        {
-          id: 'p1', tag: 'Ćwiczenie 1 · po module M1 · film 9:30', min: 15,
-          title: 'Audyt publikatorów w naszych drukach',
-          forma: 'Zespoły 3–4 osoby', mat: 'Po jednym wzorze druku z placówki na osobę',
-          druk: 'Wszystkie druki przedszkolne — stopka z podstawą prawną',
-          zasila: 'Zarządzenie dyrektora — wykaz druków obowiązujących w przedszkolu',
-          polecenie: 'Najpierw wspólnie: dopasujcie do każdego aktu obowiązujący publikator. Potem każdy bierze swój druk i sprawdza stopkę — czy stoi w niej tekst jednolity, czy publikator pierwotny.',
-          w: [
-            { t: 'match', label: 'Dopasuj obowiązujący publikator', rows: [
-              { q: 'Kształcenie specjalne — WOPF i IPET (rozp. MEN z 9 sierpnia 2017 r.)', opts: ['Dz.U. 2017 poz. 1578', PUB.ks, PUB.pp], a: 1 },
-              { q: 'Pomoc psychologiczno-pedagogiczna (rozp. MEN z 9 sierpnia 2017 r.)', opts: [PUB.pp, 'Dz.U. 2017 poz. 1591', PUB.ks], a: 0 },
-              { q: 'Dokumentacja przebiegu wychowania przedszkolnego (rozp. MEN z 25 sierpnia 2017 r.)', opts: [PUB.pp, PUB.dok, PUB.org], a: 1 },
-              { q: 'Podstawa programowa wychowania przedszkolnego (rozp. ME z 11 marca 2026 r.)', opts: [PUB.orz, PUB.pods, PUB.swiad], a: 1 },
-              { q: 'Orzeczenia i opinie zespołów orzekających (rozp. ME z 2 marca 2026 r.)', opts: [PUB.pods, PUB.po, PUB.orz], a: 2 },
-              { q: 'Prawo oświatowe (ustawa z 14 grudnia 2016 r.)', opts: [PUB.po, PUB.dok, PUB.orz], a: 0 },
-              { q: 'Wzór informacji o gotowości dziecka do podjęcia nauki w szkole', opts: [PUB.swiad, PUB.org, PUB.pods], a: 0 }
-            ] },
-            { t: 'text', label: 'Które nasze druki wymagają poprawki i kto ją wprowadza?', rows: 3,
-              ph: 'np. karta obserwacji — stopka z publikatorem pierwotnym; poprawia koordynator do 15 września' }
-          ],
-          klucz: '<p>Pozycje <em>1578</em> i <em>1591</em> to publikatory pierwotne. Służą do rozpoznania, o który akt chodzi, a nie do cytowania — w dokumencie dziecka wpisujemy wyłącznie obowiązujące teksty jednolite: <em>1309</em> dla kształcenia specjalnego i <em>1798</em> dla pomocy psychologiczno-pedagogicznej. Dwa różne akty, ta sama data 9 sierpnia 2017 r.</p><p>Rozporządzenie MEN z 7 września 2017 r. o orzekaniu zostało uchylone 14 kwietnia 2026 r. Tego publikatora nie wolno już cytować jako obowiązującego.</p><p>Teksty jednolite bywają ogłaszane w trakcie roku szkolnego, dlatego publikator sprawdzamy w ISAP przed każdym cyklem dokumentacyjnym. To zadanie Strażnika Prawa.</p>',
-          produkt: 'Lista druków do poprawy i wyznaczony Strażnik Prawa.'
-        },
-        {
-          id: 'p2', tag: 'Ćwiczenie 2 · po module M2 · film 5:36', min: 10,
-          title: 'Sześć przystanków — na jakie pytanie odpowiada każdy dokument',
-          forma: 'W parach', mat: 'Schemat obiegu — sześć przystanków',
-          druk: 'Metryczka · KPOF · karta decyzyjna · WOPF · IPET · karta ewaluacji',
-          zasila: 'Załącznik do zarządzenia dyrektora — obieg dokumentacji dziecka',
-          polecenie: 'Przypiszcie każdemu dokumentowi pytanie, na które on odpowiada. Potem nazwijcie przystanek, który w naszym przedszkolu działa najsłabiej.',
-          w: [
-            { t: 'match', label: 'Dokument → pytanie', rows: [
-              { q: 'Metryczka dziecka', opts: PYTANIA.slice(0, 6), a: 0 },
-              { q: 'Kwestionariusz KPOF', opts: PYTANIA.slice(0, 6), a: 1 },
-              { q: 'Obserwacja pogłębiona (ABC, sensoryka, mowa, ToM)', opts: PYTANIA.slice(0, 6), a: 2 },
-              { q: 'Wielospecjalistyczna ocena poziomu funkcjonowania', opts: PYTANIA.slice(0, 6), a: 3 },
-              { q: 'Indywidualny program edukacyjno-terapeutyczny', opts: PYTANIA.slice(0, 6), a: 4 },
-              { q: 'Karta ewaluacji celu', opts: PYTANIA.slice(0, 6), a: 5 }
-            ] },
-            { t: 'text', label: 'Który przystanek jest u nas najsłabszy i co go blokuje?', rows: 3,
-              ph: 'np. obserwacja pogłębiona — brak karty decyzyjnej, decyzja zależy od tego, kto patrzy na arkusz' }
-          ],
-          klucz: '<p>Każdy dokument bierze dane z poprzedniego. Jeśli pominiemy etap, następny trzeba wypełniać z pamięci — a dokumentacja wypełniana z pamięci nie służy ani dziecku, ani nam.</p><p>Opinia dla poradni stoi obok obiegu i nie powstaje od zera: mocne strony bierzemy z kwestionariusza, opis trudności z obserwacji pogłębionej, efekty wsparcia z karty ewaluacji, przebieg współpracy z rejestru w metryczce. Dlatego dziesięć dni jest terminem realnym.</p>',
-          produkt: 'Schemat obiegu z zaznaczonym najsłabszym ogniwem — materiał do zarządzenia dyrektora.'
-        },
-        {
-          id: 'p3', tag: 'Ćwiczenie 3 · po module M3 · film 5:45', min: 15,
-          title: 'Metryczka: trzy pytania w kilkanaście sekund',
-          forma: 'Indywidualnie, potem porównanie w parach', mat: 'Metryczka dziecka — sekcje I–VII i XI',
-          druk: 'Metryczka dziecka (druk wewnętrzny, zarządzenie dyrektora)',
-          zasila: 'Wszystkie kolejne druki — dziedziczenie danych; sekcja XI zasila opinię dla poradni',
-          polecenie: 'Zaznacz pozycje, których do metryczki nie wpisujemy. Potem sprawdź swój druk testem odczytu: czy w kilkanaście sekund odpowie na trzy pytania?',
-          w: [
-            { t: 'pick', label: 'Zaznacz pozycje, których NIE wpisujemy do metryczki', items: [
-              { s: 'numer PESEL dziecka', sel: true, why: 'Jest w księdze dzieci — nie powielamy go w kolejnym dokumencie (zasada minimalizacji danych).' },
-              { s: 'data i miejsce urodzenia', sel: false, why: 'Sekcja I — wpisujemy z dokumentów rekrutacyjnych.' },
-              { s: 'numer w księdze dzieci', sel: false, why: 'Przepisujemy z ewidencji przedszkola.' },
-              { s: 'miejsce pracy rodziców', sel: true, why: 'Skrypt nie wymienia tego pola wprost — wniosek z zasady minimalizacji: zbieramy tylko dane potrzebne do realizacji zadań przedszkola.' },
-              { s: 'osoby upoważnione do odbioru i kolejność powiadamiania', sel: false, why: 'Sekcje IV–V, wyłącznie na piśmie; zmianę rodzic zgłasza pisemnie, a poprzedni wpis zostaje z datą wykreślenia.' },
-              { s: 'produkty wykluczone z diety i sposób ich zastępowania', sel: false, why: 'Sekcja VI — informacja operacyjna, musi być dostępna natychmiast.' },
-              { s: 'kopia dokumentacji medycznej dziecka', sel: true, why: 'Dane o zdrowiu to dane szczególnej kategorii — w druku zapisujemy tylko informację niezbędną do organizacji i bezpieczeństwa, a zaświadczenie zostaje w teczce.' },
-              { s: 'numer i data orzeczenia oraz podstawa jego wydania', sel: false, why: 'Sekcja VII — data uruchamia trzydziestodniowy termin na program.' }
-            ] },
-            { t: 'check', label: 'Test odczytu — czy nasza metryczka odpowiada na te pytania w kilkanaście sekund?', items: [
-              'Kogo wezwać?', 'Co podać?', 'Od kiedy liczyć termin?'
-            ] },
-            { t: 'text', label: 'Co trzeba zmienić w naszym druku, żeby test przeszedł?', rows: 3, ph: '' }
-          ],
-          klucz: '<p>Metryczka jest dokumentem operacyjnym, nie archiwalnym. Nauczycielka na zastępstwie ma otworzyć jedną kartę, a nie szukać po segregatorach.</p><p>W polu zaleceń dotyczących postępowania zapisujemy konkretnie: <em>kto podaje lek, na jakiej podstawie, gdzie lek jest przechowywany i kogo powiadamiamy w jakiej kolejności</em>. „Na jakiej podstawie” nie oznacza przepisu ustawy — dla przedszkola takiego przepisu nie ma. Oznacza trzy dokumenty: pisemne upoważnienie rodziców ze wskazaniem leku, dawki i godzin, dobrowolną pisemną zgodę nauczyciela oraz procedurę przyjętą zarządzeniem dyrektora. Bez tego kompletu leku nie podajemy, a nauczyciel nie ma obowiązku jego podania.</p>',
-          produkt: 'Uzgodniony zakres danych w metryczce i lista pól do usunięcia.'
-        },
-        {
-          id: 'p4', tag: 'Ćwiczenie 4 · po module M4 · film 10:08', min: 30,
-          title: 'Policz obszar KPOF i odczytaj profil',
-          forma: 'Indywidualnie na własnym arkuszu', mat: 'Wypełniony arkusz KPOF — wersja A (3–4 lata), B (5 lat) albo C (6 lat)',
-          druk: 'KPOF — Kwestionariusz Przedszkolnej Oceny Funkcjonalnej',
-          zasila: 'WOPF — blok „funkcjonowanie w dziewięciu obszarach” i blok mocnych stron',
-          polecenie: 'Policz średnią jednego obszaru: suma punktów podzielona przez liczbę twierdzeń ocenionych, z pominięciem pozycji N. Kalkulator jest wypełniony przykładem z filmu — nadpisz go swoimi liczbami.',
-          w: [
-            { t: 'kpof' },
-            { t: 'text', label: 'Reguła nadrzędna — wypisz twierdzenia ocenione na 1 lub 2, także w obszarach zielonych', rows: 3,
-              ph: 'np. tw. 12 — komunikuje potrzeby słowem, gestem lub innym czytelnym sygnałem: ocena 2' },
-            { t: 'text', label: 'Trzy arkusze obok siebie: gdzie rozbieżność nauczyciel–rodzic jest największa i o czym mówi?', rows: 2, ph: '' }
-          ],
-          klucz: '<p>Wynik ogólny to średnia ze średnich obszarów. Obszar szósty — życie domowe — ma charakter opisowy i nie wlicza się do wyniku ogólnego. Litera N nie obniża wyniku, bo nie wlicza się do średniej.</p><p>Profil czytamy w trzech krokach: najpierw kolor, potem kształt (profil płaski i niski to trudność globalna, profil z jednym głębokim wcięciem to trudność wybiórcza i konkretny moduł pogłębiony), na końcu wracamy do pojedynczych twierdzeń ocenionych nisko.</p><p>Trzech profili nie uśredniamy. Rozbieżność jest informacją: jeśli w domu jest wyżej niż w przedszkolu, szukamy barier w sali; jeśli w przedszkolu wyżej niż w domu, dzielimy się z rodzicami sprawdzonymi rutynami.</p>',
-          produkt: 'Policzony arkusz, naniesiony profil i lista twierdzeń objętych regułą nadrzędną.'
-        },
-        {
-          id: 'p5', tag: 'Ćwiczenie 5 · po module M5 · film 9:46', min: 20,
-          title: 'Reguły przekierowania i zapis ABC bez interpretacji',
-          forma: 'Zespoły 3–4 osoby', mat: 'Karta decyzyjna + karta obserwacji zachowania ABC',
-          druk: 'Karta decyzyjna · ABC · profil sensoryczny · karta mowy · obserwacja teorii umysłu',
-          zasila: 'WOPF — bloki „trudności i ich uwarunkowania” oraz „bariery i ułatwienia”',
-          polecenie: 'Zaznaczcie reguły, które zadziałały u wybranego dziecka — wystarczy jedna. Potem zapiszcie jedno zdarzenie w trzech kolumnach, tak żeby każde zdanie dało się nagrać kamerą.',
-          w: [
-            { t: 'rules', label: 'Sześć reguł przekierowania — zaznacz spełnione', items: [
-              { k: 'R1', s: 'Średnia któregokolwiek obszaru poniżej 2', tool: 'Narzędzie właściwe dla obszaru — ABC, profil sensoryczny, karta mowy albo obserwacja teorii umysłu' },
-              { k: 'R2', s: 'Dwa lub więcej twierdzeń ocenionych na 1 lub 2 w tym samym obszarze', tool: 'Narzędzie właściwe dla obszaru — obszar porozumiewania się: karta obserwacji rozwoju mowy i komunikacji' },
-              { k: 'R3', s: 'Rozbieżność między oceniającymi 1,5 punktu lub więcej', tool: 'Rozmowa z rodzicem i obserwacja w środowisku o wyższym wyniku' },
-              { k: 'R4', s: 'Sygnał zdrowotny z metryczki, np. nadwrażliwość sensoryczna', tool: 'Profil sensoryczny' },
-              { k: 'R5', s: 'Zachowanie powtarzalne zagrażające dziecku lub innym', tool: 'Model ABC — uruchamiamy natychmiast' },
-              { k: 'R6', s: 'Brak poprawy mimo udzielanej pomocy przez ok. 3 miesiące', tool: 'Karta ewaluacji celu + narzędzie właściwe dla obszaru' }
-            ] },
-            { t: 'text', label: 'A — poprzednik: co działo się bezpośrednio przed zachowaniem', rows: 2, ph: '' },
-            { t: 'text', label: 'B — zachowanie: opis obserwowalny, z czasem trwania i liczbą', rows: 2, ph: '' },
-            { t: 'text', label: 'C — następstwo: co stało się potem, w tym reakcja dorosłych', rows: 2, ph: '' }
-          ],
-          klucz: '<p>Zapis wzorcowy z filmu: <em>Nauczycielka ogłosiła sprzątanie zabawek. Dziecko od sześciu minut budowało wieżę z klocków. Rzuciło dwa klocki w kierunku półki i krzyczało przez około czterdzieści sekund. Nauczycielka przykucnęła obok i nie odbierała klocków. Po dwóch minutach dziecko dokończyło wieżę.</em></p><p>Każde zdanie da się sprawdzić, żadne nie zawiera interpretacji. Funkcję zachowania — uzyskanie uwagi, uzyskanie przedmiotu, uniknięcie trudnego zadania albo regulacja pobudzenia — nazywa zespół po analizie 10–15 zapisów, a nie po jednym zdarzeniu.</p><p>Kartę decyzyjną wpinamy do teczki również wtedy, gdy decyzja brzmi „nie uruchamiamy”. Zapis decyzji odmownej jest równie ważny jak zapis decyzji pozytywnej.</p>',
-          produkt: 'Karta decyzyjna dla jednego dziecka — także w wariancie odmownym.'
-        },
-        {
-          id: 'p6', tag: 'Ćwiczenie 6 · po module M6 · film 13:12', min: 30,
-          title: 'Z „rozwijania samodzielności” na cel mierzalny',
-          forma: 'Indywidualnie, omówienie w zespole', mat: 'WOPF i IPET jednego dziecka + karta celu SMART',
-          druk: 'Karta celu SMART (jedna karta na cel) — wpinana do IPET',
-          zasila: 'Karta ewaluacji · opinia o funkcjonowaniu dziecka dla poradni',
-          polecenie: 'Zbuduj cel z pięciu elementów. Sprawdzian jest jeden: dwie różne osoby, patrząc na to samo dziecko, mają ocenić ten cel tak samo.',
-          w: [
-            { t: 'smart', who: 'Dziecko' },
-            { t: 'text', label: 'Kiedy sprawdzamy — co wpisujemy do kalendarza (listopad · styczeń · marzec · maj)?', rows: 2, ph: '' }
-          ],
-          klucz: '<p>Cel z filmu: <em>Zosia podczas przygotowania do wyjścia na dwór założy samodzielnie buty na rzepy w czterech z pięciu kolejnych dni, przy najwyżej jednej podpowiedzi słownej, do 19 grudnia. Pomiar: karta obserwacji szatni.</em></p><p>Drugi przykład: <em>Lena podejmie wspólną zabawę w parze z wyznaczonym rówieśnikiem, przyjmując przydzieloną rolę, przez co najmniej pięć minut, w trzech z pięciu dni w tygodniu, przy wprowadzeniu do zabawy przez dorosłego, do końca kwietnia. Pomiar: karta obserwacji zabawy swobodnej.</em></p><p>Nazwa SMART nie pada w rozporządzeniu ani razu i nie ma obowiązku jej używania. Wymagana jest ocena efektywności — a ocenić ją można tylko wtedy, gdy cel ma kryterium. Nazwa jest dowolna, mierzalność jest konieczna.</p><p>Po każdym pomiarze zespół podejmuje jedną z czterech decyzji: zamykamy cel · kontynuujemy i przesuwamy termin bez obniżania kryterium · modyfikujemy metodę i sprawdzamy bariery · spotkanie z rodzicami i rozważenie wystąpienia do poradni.</p>',
-          produkt: 'Jeden gotowy cel mierzalny i wpisany do kalendarza termin ewaluacji.'
-        }
-      ]
-    },
-
-
-    
-  };
-
-  var STENY = {
-    n: [[10, 238, 260], [9, 218, 237], [8, 197, 217], [7, 175, 196], [6, 154, 174], [5, 135, 153], [4, 113, 134], [3, 91, 112], [2, 72, 90], [1, 52, 71]],
-    r: [[10, 233, 260], [9, 214, 232], [8, 194, 213], [7, 172, 193], [6, 151, 171], [5, 132, 150], [4, 110, 131], [3, 90, 109], [2, 70, 89], [1, 52, 69]]
-  };
-
-  /* ============================ PAMIĘĆ ============================ */
-
-  var STORE = 'eduplaner-warsztat-p-v1';
-  var saved = (function () {
-    try { return JSON.parse(localStorage.getItem(STORE) || '{}') || {}; } catch (e) { return {}; }
-  })();
-  function persist() { try { localStorage.setItem(STORE, JSON.stringify(saved)); } catch (e) {} }
-  function val(k) { return typeof saved[k] === 'string' ? saved[k] : ''; }
-  function on(k) { return saved[k] === '1'; }
-  function esc(t) {
-    return String(t).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
-  }
-
-  /* ============================ WIDOKI ============================ */
-
-  var state = { track: 'p', view: 'plan' };
-  var viewPlan = document.getElementById('view-plan');
-  var viewWk = document.getElementById('view-warsztat');
-  var panelP = document.getElementById('panel-p');
-  var panelS = document.getElementById('panel-s');
-  var list = document.getElementById('ex-list');
-
-  function applyHash() {
-    var h = location.hash.replace('#', '');
-    if (h.indexOf('warsztat') === 0) { state.view = 'warsztat'; }
-    else if (h === 'plan') { state.view = 'plan'; }
-  }
-
-  function hash() {
-    return state.view === 'warsztat' ? '#warsztat' : '#plan';
-  }
-
-  function render(scroll) {
-    document.querySelectorAll('[data-track][role="radio"]').forEach(function (b) {
-      b.setAttribute('aria-checked', String(b.dataset.track === state.track));
-    });
-    document.querySelectorAll('[data-view][role="radio"]').forEach(function (b) {
-      b.setAttribute('aria-checked', String(b.dataset.view === state.view));
-    });
-    viewPlan.hidden = state.view !== 'plan';
-    viewWk.hidden = state.view !== 'warsztat';
-    if (panelP) { panelP.hidden = state.track !== 'p'; }
-    if (panelS) { panelS.hidden = state.track !== 's'; }
-    if (state.view === 'warsztat') { renderWorkshop(); }
-    if (history.replaceState) { history.replaceState(null, '', hash()); }
-    if (scroll) { window.scrollTo(0, 0); }
-  }
-
-  /* ============================ RENDER WARSZTATU ============================ */
-
-  function mmss(sec) {
-    var m = Math.floor(Math.abs(sec) / 60), s = Math.abs(sec) % 60;
-    return (sec < 0 ? '−' : '') + m + ':' + (s < 10 ? '0' : '') + s;
-  }
-
-  function widgetHtml(ex, wi, w) {
-    var base = ex.id + '.' + wi;
-    var h = '<div class="widget" data-w="' + w.t + '" data-base="' + base + '">';
-    var i;
-
-    if (w.t === 'text') {
-      h += '<label class="field"><span class="lbl">' + w.label + '</span>' +
-        '<textarea rows="' + (w.rows || 3) + '" data-k="' + base + '" placeholder="' + esc(w.ph || '') + '">' + esc(val(base)) + '</textarea>' +
-        '<div class="print-echo">' + esc(val(base)) + '</div></label>';
-    }
-
-    if (w.t === 'check') {
-      h += '<div class="qz"><div class="qz-h">' + w.label + '</div>';
-      for (i = 0; i < w.items.length; i++) {
-        h += '<label class="opt"><input type="checkbox" data-k="' + base + '.' + i + '"' + (on(base + '.' + i) ? ' checked' : '') + '>' +
-          '<span>' + w.items[i] + '</span></label>';
-      }
-      h += '</div>';
-    }
-
-    if (w.t === 'pick') {
-      h += '<div class="qz"><div class="qz-h">' + w.label + '</div>';
-      for (i = 0; i < w.items.length; i++) {
-        h += '<label class="opt" data-sel="' + (w.items[i].sel ? '1' : '0') + '"><input type="checkbox" data-k="' + base + '.' + i + '"' + (on(base + '.' + i) ? ' checked' : '') + '>' +
-          '<span>' + w.items[i].s + '<span class="why" hidden>' + w.items[i].why + '</span></span></label>';
-      }
-      h += '<div class="qz-foot"><button class="btn" data-act="check-pick">Sprawdź</button><span class="verdict"></span></div></div>';
-    }
-
-    if (w.t === 'match') {
-      h += '<div class="qz"><div class="qz-h">' + w.label + '</div>';
-      for (i = 0; i < w.rows.length; i++) {
-        var r = w.rows[i], k = base + '.' + i, cur = val(k);
-        h += '<div class="qz-row" data-a="' + r.a + '"><p>' + r.q + '<span class="fix" hidden></span></p><select data-k="' + k + '"><option value="">— wybierz —</option>';
-        for (var j = 0; j < r.opts.length; j++) {
-          h += '<option value="' + j + '"' + (cur === String(j) ? ' selected' : '') + '>' + r.opts[j] + '</option>';
-        }
-        h += '</select></div>';
-      }
-      h += '<div class="qz-foot"><button class="btn" data-act="check-match">Sprawdź</button><span class="verdict"></span></div></div>';
-    }
-
-    if (w.t === 'rules') {
-      h += '<div class="qz"><div class="qz-h">' + w.label + '</div>';
-      for (i = 0; i < w.items.length; i++) {
-        h += '<label class="opt"><input type="checkbox" data-k="' + base + '.' + i + '"' + (on(base + '.' + i) ? ' checked' : '') +
-          ' data-tool="' + esc(w.items[i].tool) + '" data-rk="' + w.items[i].k + '">' +
-          '<span><b class="mono">' + w.items[i].k + '</b> · ' + w.items[i].s + '</span></label>';
-      }
-      h += '</div><div class="rule-out"></div>';
-    }
-
-    if (w.t === 'kpof') {
-      h += '<div class="calc"><div class="calc-grid">' +
-        '<label class="field"><span class="lbl">Suma punktów obszaru</span><input type="number" min="0" step="1" data-k="' + base + '.suma" value="' + esc(val(base + '.suma') || '11') + '"></label>' +
-        '<label class="field"><span class="lbl">Liczba twierdzeń ocenionych (bez N)</span><input type="number" min="1" step="1" data-k="' + base + '.n" value="' + esc(val(base + '.n') || '4') + '"></label>' +
-        '<label class="field"><span class="lbl">Obszar (nazwa)</span><input type="text" data-k="' + base + '.nazwa" value="' + esc(val(base + '.nazwa')) + '" placeholder="np. III. Porozumiewanie się"></label>' +
-        '</div><div class="calc-out"></div></div>';
-    }
-
-    if (w.t === 'kszof') {
-      h += '<div class="calc"><div class="qz-h" style="border:0;padding:0 0 12px">Krok 1 — obszar na wspólnej skali 0–20</div><div class="calc-grid">' +
-        '<label class="field"><span class="lbl">Suma punktów obszaru</span><input type="number" min="0" step="1" data-k="' + base + '.o' + '" value="' + esc(val(base + '.o') || '23') + '"></label>' +
-        '<label class="field"><span class="lbl">Maksimum obszaru</span><input type="number" min="1" step="1" data-k="' + base + '.max" value="' + esc(val(base + '.max') || '75') + '"></label>' +
-        '<label class="field"><span class="lbl">Obszar (nazwa)</span><input type="text" data-k="' + base + '.nazwa" value="' + esc(val(base + '.nazwa')) + '" placeholder="np. I. Uczenie się"></label>' +
-        '</div><div class="calc-out" data-out="obszar"></div>' +
-        '<div class="qz-h" style="border:0;padding:20px 0 12px">Krok 2 — wynik ogólny i sten (normy klas I–III)</div><div class="calc-grid">' +
-        '<label class="field"><span class="lbl">Wynik ogólny (max 260)</span><input type="number" min="0" step="1" data-k="' + base + '.sum" value="' + esc(val(base + '.sum') || '114') + '"></label>' +
-        '<label class="field"><span class="lbl">Kto wypełniał arkusz</span><select data-k="' + base + '.rola">' +
-        '<option value="n"' + (val(base + '.rola') === 'r' ? '' : ' selected') + '>nauczyciel / wychowawca</option>' +
-        '<option value="r"' + (val(base + '.rola') === 'r' ? ' selected' : '') + '>rodzic</option></select></label>' +
-        '<label class="field"><span class="lbl">Liczba pozycji N</span><input type="number" min="0" step="1" data-k="' + base + '.nn" value="' + esc(val(base + '.nn') || '0') + '"></label>' +
-        '</div><div class="calc-out" data-out="sten"></div></div>';
-    }
-
-    if (w.t === 'smart') {
-      var f = [
-        ['kto', 'Kto', w.who === 'Uczeń' ? 'Zofia' : 'Zosia'],
-        ['syt', 'W jakiej sytuacji', w.who === 'Uczeń' ? 'na lekcjach języka polskiego' : 'podczas przygotowania do wyjścia na dwór'],
-        ['zach', 'Jakie obserwowalne zachowanie', w.who === 'Uczeń' ? 'przepisze z tablicy zdanie do ośmiu wyrazów bez opuszczeń liter' : 'założy samodzielnie buty na rzepy'],
-        ['kryt', 'Kryterium — ile razy z ilu prób', 'w 4 z 5 kolejnych prób'],
-        ['wsp', 'Przy jakim wsparciu', w.who === 'Uczeń' ? 'przy zadaniu podzielonym na trzy części i czasie wydłużonym o połowę' : 'przy najwyżej jednej podpowiedzi słownej'],
-        ['term', 'Do kiedy', 'do 18 grudnia 2026 r.'],
-        ['pom', 'Sposób pomiaru', w.who === 'Uczeń' ? 'karta obserwacji przepisywania, raz w tygodniu' : 'karta obserwacji szatni']
-      ];
-      h += '<div class="calc"><div class="calc-grid">';
-      for (i = 0; i < f.length; i++) {
-        h += '<label class="field"><span class="lbl">' + f[i][1] + '</span><input type="text" data-k="' + base + '.' + f[i][0] + '" data-part="' + f[i][0] + '" value="' + esc(val(base + '.' + f[i][0])) + '" placeholder="' + esc(f[i][2]) + '"></label>';
-      }
-      h += '</div><div class="smart-preview"></div>' +
-        '<div class="badges"><span class="badge" data-b="S">S</span><span class="badge" data-b="M">M</span>' +
-        '<span class="badge" data-b="A">A</span><span class="badge" data-b="R">R</span><span class="badge" data-b="T">T</span>' +
-        '<span class="badge-note">A i R ocenia zespół — zaznacz poniżej</span></div>' +
-        '<label class="opt" style="border:0;padding:10px 0 0"><input type="checkbox" data-k="' + base + '.A" data-flag="A"' + (on(base + '.A') ? ' checked' : '') + '><span>A — osiągalny: to jeden krok od tego, co robi dziś</span></label>' +
-        '<label class="opt" style="border:0;padding:0"><input type="checkbox" data-k="' + base + '.R" data-flag="R"' + (on(base + '.R') ? ' checked' : '') + '><span>R — istotny: wynika z oceny i zwiększa uczestnictwo</span></label>' +
-        '</div>';
-    }
-
-    return h + '</div>';
-  }
-
-  function exHtml(ex) {
-    var h = '<article class="ex" id="ex-' + ex.id + '" data-id="' + ex.id + '" data-min="' + ex.min + '" data-done="' + (on(ex.id + '.done') ? '1' : '0') + '">';
-    h += '<div class="ex-top"><div><span class="ex-id">' + ex.tag + '</span><h3>' + ex.title + '</h3>' +
-      '<div class="ex-meta"><span><b>Forma:</b> ' + ex.forma + '</span><span><b>Materiały:</b> ' + ex.mat + '</span></div>' +
-      '<div class="ex-druk"><span><b>Druk EduPlaner 2026:</b> ' + ex.druk + '</span><span><b>Zasila:</b> ' + ex.zasila + '</span></div></div>' +
-      '<div class="timer" data-state="idle"><span class="clock">' + mmss(ex.min * 60) + '</span>' +
-      '<button class="btn" data-act="timer-start">Start</button>' +
-      '<button class="btn" data-variant="quiet" data-act="timer-reset">Od nowa</button></div></div>';
-    h += '<p class="polecenie">' + ex.polecenie + '</p>';
-    h += '<div class="widgets">';
-    for (var i = 0; i < ex.w.length; i++) { h += widgetHtml(ex, i, ex.w[i]); }
-    h += '</div>';
-    h += '<div class="key" data-open="0"><button data-act="key">Pokaż klucz i omówienie</button>' +
-      '<div class="key-body" hidden>' + ex.klucz + '</div></div>';
-    h += '<div class="ex-foot"><span class="produkt"><b>Co zostaje po ćwiczeniu:</b> ' + ex.produkt + '</span>' +
-      '<label class="done-toggle"><input type="checkbox" data-k="' + ex.id + '.done" data-done="1"' + (on(ex.id + '.done') ? ' checked' : '') + '> Ćwiczenie zamknięte</label></div>';
-    return h + '</article>';
-  }
-
-  function renderWorkshop() {
-    Object.keys(timers).forEach(function (k) { clearInterval(timers[k].h); delete timers[k]; });
-    var d = DATA[state.track];
-    viewWk.setAttribute('data-track', state.track);
-    document.getElementById('wk-eyebrow').textContent = d.eyebrow;
-    document.getElementById('wk-title').textContent = d.title;
-    document.getElementById('wk-count').textContent = d.ex.length;
-    document.getElementById('wk-time').textContent = d.time;
-    document.getElementById('wk-druki').innerHTML = '<b>Druki EduPlaner 2026 w tym warsztacie:</b> ' + d.druki;
-    var html = '';
-    for (var i = 0; i < d.ex.length; i++) { html += exHtml(d.ex[i]); }
-    list.innerHTML = html;
-    list.querySelectorAll('.widget').forEach(refresh);
-    updateProgress();
-    updateSummary();
-  }
-
-  /* ============================ OBLICZENIA ============================ */
-
-  function num(w, k) {
-    var el = w.querySelector('[data-k$=".' + k + '"]');
-    return el ? parseFloat(el.value) : NaN;
-  }
-
-  function lvlTag(label, code) {
-    return '<span class="lvl" data-l="' + code + '">' + label + '</span>';
-  }
-
-  function refresh(w) {
-    var t = w.dataset.w, base = w.dataset.base, out;
-
-    if (t === 'kpof') {
-      out = w.querySelector('.calc-out');
-      var suma = num(w, 'suma'), n = num(w, 'n');
-      if (!isFinite(suma) || !isFinite(n) || n <= 0) {
-        out.innerHTML = '<span class="tag">Podaj sumę punktów i liczbę ocenionych twierdzeń.</span>';
-        return;
-      }
-      var sr = suma / n;
-      var lv = sr >= 4 ? ['zasób — mocna strona', 'zasob'] : sr >= 3 ? ['Poziom I — w granicach oczekiwań', 'I']
-        : sr >= 2 ? ['Poziom II — obserwacja pogłębiona', 'II'] : ['Poziom III — ocena wielospecjalistyczna i konsultacja z poradnią', 'III'];
-      out.innerHTML = '<span class="big">' + sr.toFixed(2).replace('.', ',') + '</span>' +
-        '<span class="tag">średnia obszaru = ' + suma + ' ÷ ' + n + '</span>' + lvlTag(lv[0], lv[1]);
-      return;
-    }
-
-    if (t === 'kszof') {
-      out = w.querySelector('[data-out="obszar"]');
-      var o = num(w, 'o'), mx = num(w, 'max');
-      if (!isFinite(o) || !isFinite(mx) || mx <= 0) {
-        out.innerHTML = '<span class="tag">Podaj sumę punktów obszaru i jego maksimum.</span>';
-      } else {
-        var sc = Math.round((o / mx) * 20);
-        var lw = sc >= 18 ? ['zasób', 'zasob'] : sc >= 14 ? ['Poziom I — wsparcie minimalne', 'I']
-          : sc >= 9 ? ['Poziom II — wsparcie umiarkowane', 'II'] : ['Poziom III — wsparcie znaczne', 'III'];
-        out.innerHTML = '<span class="big">' + sc + ' / 20</span><span class="tag">(' + o + ' ÷ ' + mx + ') × 20</span>' + lvlTag(lw[0], lw[1]);
-      }
-
-      out = w.querySelector('[data-out="sten"]');
-      var sum = num(w, 'sum'), nn = num(w, 'nn');
-      var rolaEl = w.querySelector('[data-k$=".rola"]');
-      var rola = rolaEl ? rolaEl.value : 'n';
-      if (isFinite(nn) && nn > 5) {
-        out.innerHTML = '<span class="tag">Arkusz niepełny — więcej niż pięć pozycji N. Wyniku ogólnego nie przeliczamy na steny; odczytujemy sam profil obszarowy i zaznaczamy w druku, że arkusz jest niepełny.</span>';
-      } else if (!isFinite(sum)) {
-        out.innerHTML = '<span class="tag">Podaj wynik ogólny arkusza.</span>';
-      } else {
-        var band = null, tab = STENY[rola === 'r' ? 'r' : 'n'];
-        for (var i = 0; i < tab.length; i++) { if (sum >= tab[i][1] && sum <= tab[i][2]) { band = tab[i]; break; } }
-        if (!band) {
-          out.innerHTML = '<span class="tag">Wynik poza zakresem norm (52–260 punktów). Sprawdź sumowanie.</span>';
-        } else {
-          var st = band[0];
-          var opis = st >= 8 ? ['wynik wysoki — zasób', 'zasob'] : st >= 5 ? ['wynik przeciętny — typowe funkcjonowanie', 'I']
-            : ['wynik niski — sygnał trudności', 'III'];
-          out.innerHTML = '<span class="big">sten ' + st + '</span>' +
-            '<span class="tag">' + sum + ' / 260 · kolumna: ' + (rola === 'r' ? 'rodzic' : 'nauczyciel') + ' (' + band[1] + '–' + band[2] + ')</span>' + lvlTag(opis[0], opis[1]);
-        }
-      }
-      return;
-    }
-
-    if (t === 'smart') {
-      var g = function (k) { var el = w.querySelector('[data-part="' + k + '"]'); return el && el.value.trim() ? el.value.trim() : ''; };
-      var span = function (v, ph) { return v ? esc(v) : '<span class="gap">' + ph + '</span>'; };
-      w.querySelector('.smart-preview').innerHTML =
-        span(g('kto'), 'kto') + ' ' + span(g('syt'), 'w jakiej sytuacji') + ' ' + span(g('zach'), 'wykona jakie zachowanie') + ' ' +
-        span(g('kryt'), 'w ilu próbach') + ', ' + span(g('wsp'), 'przy jakim wsparciu') + ', ' + span(g('term'), 'do kiedy') +
-        '. Pomiar: ' + span(g('pom'), 'czym mierzymy') + '.';
-      var okS = !!(g('syt') && g('zach')), okM = !!g('kryt'), okT = !!(g('term') && g('pom'));
-      w.querySelector('[data-b="S"]').setAttribute('data-on', okS ? '1' : '0');
-      w.querySelector('[data-b="M"]').setAttribute('data-on', okM ? '1' : '0');
-      w.querySelector('[data-b="T"]').setAttribute('data-on', okT ? '1' : '0');
-      w.querySelector('[data-b="A"]').setAttribute('data-on', on(base + '.A') ? '1' : '0');
-      w.querySelector('[data-b="R"]').setAttribute('data-on', on(base + '.R') ? '1' : '0');
-      return;
-    }
-
-    if (t === 'rules') {
-      var picked = [];
-      w.querySelectorAll('input[data-rk]').forEach(function (c) {
-        if (c.checked) { picked.push('<b class="mono">' + c.dataset.rk + '</b> → ' + esc(c.dataset.tool)); }
-      });
-      w.querySelector('.rule-out').innerHTML = picked.length
-        ? 'Zadziałały reguły — uruchamiamy obserwację pogłębioną i zakładamy kartę decyzyjną:<ul><li>' + picked.join('</li><li>') + '</li></ul>'
-        : 'Żadna reguła nie została spełniona — obserwacji pogłębionej nie uruchamiamy. Kartę decyzyjną wpinamy do teczki także z tą decyzją, wraz z uzasadnieniem.';
-      return;
-    }
-  }
-
-  function updateProgress() {
-    var d = DATA[state.track], done = 0;
-    for (var i = 0; i < d.ex.length; i++) { if (on(d.ex[i].id + '.done')) { done++; } }
-    document.getElementById('wk-done').textContent = done + ' z ' + d.ex.length;
-    document.getElementById('wk-progress').style.width = Math.round((done / d.ex.length) * 100) + '%';
-  }
-
-  function updateSummary() {
-    var d = DATA[state.track], rows = '';
-    d.ex.forEach(function (ex) {
-      ex.w.forEach(function (w, wi) {
-        var base = ex.id + '.' + wi;
-        if (w.t === 'text' && val(base)) {
-          rows += '<dt>' + esc(ex.title) + ' — ' + esc(w.label) + '</dt><dd>' + esc(val(base)) + '</dd>';
-        }
-        if (w.t === 'smart') {
-          var parts = ['kto', 'syt', 'zach', 'kryt', 'wsp', 'term', 'pom'];
-          var filled = parts.filter(function (k) { return val(base + '.' + k); });
-          if (filled.length) {
-            var g = function (k) { return val(base + '.' + k).trim() || '…'; };
-            rows += '<dt>' + esc(ex.title) + ' — cel mierzalny</dt><dd>' +
-              esc(g('kto') + ' ' + g('syt') + ' ' + g('zach') + ' ' + g('kryt') + ', ' + g('wsp') + ', ' + g('term') + '. Pomiar: ' + g('pom') + '.') +
-              '</dd>';
-          }
-        }
-      });
-    });
-    document.getElementById('wk-summary').innerHTML =
-      '<h3>Podsumowanie warsztatu</h3>' +
-      '<p class="hint">Wszystko, co wpisali Państwo w polach otwartych. Zaznacz i skopiuj, żeby wkleić do protokołu rady albo do własnych notatek. Zapis żyje wyłącznie w tej przeglądarce.</p>' +
-      (rows ? '<dl>' + rows + '</dl>' : '<p class="empty">Jeszcze nic tu nie ma — pojawi się, gdy zaczną Państwo wypełniać pola.</p>');
-  }
-
-  /* ============================ ZDARZENIA ============================ */
-
-  document.addEventListener('click', function (e) {
-    var b = e.target.closest('[data-track][role="radio"]');
-    if (b) { state.track = b.dataset.track; render(true); return; }
-    var v = e.target.closest('[data-view][role="radio"]');
-    if (v) { state.view = v.dataset.view; render(true); return; }
-  });
-
-  document.getElementById('wk-clear').addEventListener('click', function () {
-    if (!window.confirm('Usunąć wszystkie odpowiedzi zapisane w tej przeglądarce?')) { return; }
-    saved = {};
-    persist();
-    renderWorkshop();
-  });
-
-  var timers = {};
-
-  list.addEventListener('click', function (e) {
-    var act = e.target.closest('[data-act]');
-    if (!act) { return; }
-    var kind = act.dataset.act;
-    var ex = act.closest('.ex');
-
-    if (kind === 'key') {
-      var key = act.parentNode, body = key.querySelector('.key-body');
-      var open = key.getAttribute('data-open') === '1';
-      key.setAttribute('data-open', open ? '0' : '1');
-      body.hidden = open;
-      act.textContent = open ? 'Pokaż klucz i omówienie' : 'Ukryj klucz';
-      return;
-    }
-
-    if (kind === 'check-pick') {
-      var qz = act.closest('.qz'), okc = 0, all = 0, marked = 0, should = 0;
-      qz.querySelectorAll('.opt').forEach(function (o) {
-        if (o.querySelector('input').checked) { marked++; }
-        if (o.dataset.sel === '1') { should++; }
-      });
-      if (marked === 0) {
-        qz.querySelector('.verdict').innerHTML = 'Najpierw zaznacz odpowiedzi — prawidłowych pozycji jest <b>' + should + '</b>.';
-        return;
-      }
-      qz.querySelectorAll('.opt').forEach(function (o) {
-        var want = o.dataset.sel === '1', has = o.querySelector('input').checked;
-        o.setAttribute('data-v', want === has ? 'ok' : 'no');
-        o.querySelector('.why').hidden = false;
-        all++;
-        if (want === has) { okc++; }
-      });
-      qz.querySelector('.verdict').innerHTML = 'Poprawnie <b>' + okc + ' z ' + all + '</b> pozycji · zaznaczonych ' + marked + ' z ' + should + ' prawidłowych.';
-      return;
-    }
-
-    if (kind === 'check-match') {
-      var qm = act.closest('.qz'), okm = 0, ans = 0, all = 0;
-      qm.querySelectorAll('.qz-row').forEach(function (r) {
-        var sel = r.querySelector('select').value;
-        all++;
-        if (sel === '') { r.removeAttribute('data-v'); return; }
-        ans++;
-        var good = sel === r.dataset.a;
-        r.setAttribute('data-v', good ? 'ok' : 'no');
-        var fix = r.querySelector('.fix');
-        if (good) { fix.hidden = true; okm++; }
-        else {
-          fix.textContent = 'Prawidłowo: ' + r.querySelector('select').options[parseInt(r.dataset.a, 10) + 1].text;
-          fix.hidden = false;
-        }
-      });
-      qm.querySelector('.verdict').innerHTML = ans === 0
-        ? 'Najpierw wybierz odpowiedzi.'
-        : 'Poprawnie <b>' + okm + ' z ' + ans + '</b> (uzupełnionych ' + ans + ' z ' + all + ').';
-      return;
-    }
-
-    if (kind === 'timer-start' || kind === 'timer-reset') {
-      var id = ex.dataset.id, total = parseInt(ex.dataset.min, 10) * 60;
-      var box = ex.querySelector('.timer'), clock = box.querySelector('.clock');
-      var startBtn = ex.querySelector('[data-act="timer-start"]');
-      if (timers[id]) { clearInterval(timers[id].h); }
-
-      if (kind === 'timer-reset') {
-        delete timers[id];
-        clock.textContent = mmss(total);
-        box.setAttribute('data-state', 'idle');
-        startBtn.textContent = 'Start';
-        return;
-      }
-      if (timers[id] && timers[id].running) {
-        timers[id].running = false;
-        box.setAttribute('data-state', 'idle');
-        startBtn.textContent = 'Wznów';
-        return;
-      }
-      var left = timers[id] ? timers[id].left : total;
-      timers[id] = { left: left, running: true, h: 0 };
-      startBtn.textContent = 'Pauza';
-      box.setAttribute('data-state', 'run');
-      timers[id].h = setInterval(function () {
-        timers[id].left--;
-        clock.textContent = mmss(timers[id].left);
-        if (timers[id].left <= 0) { box.setAttribute('data-state', 'over'); }
-      }, 1000);
-      return;
-    }
-  });
-
-  function handle(e) {
-    var el = e.target;
-    if (!el.dataset || !el.dataset.k) { return; }
-    if (el.type === 'checkbox') { saved[el.dataset.k] = el.checked ? '1' : '0'; }
-    else { saved[el.dataset.k] = el.value; }
-    persist();
-
-    if (el.dataset.done) {
-      var ex = el.closest('.ex');
-      ex.setAttribute('data-done', el.checked ? '1' : '0');
-      updateProgress();
-    }
-    var echo = el.parentNode ? el.parentNode.querySelector('.print-echo') : null;
-    if (echo && el.tagName === 'TEXTAREA') { echo.textContent = el.value; }
-    var w = el.closest('.widget');
-    if (w) { refresh(w); }
-    updateSummary();
-  }
-
-  list.addEventListener('input', handle);
-  list.addEventListener('change', handle);
-
-  window.addEventListener('hashchange', function () { applyHash(); render(false); });
-
-  applyHash();
-  render(false);
-})();
-</script>
 
 </body>
 </html>

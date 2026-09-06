@@ -4,8 +4,13 @@ Dwa gotowe pliki do wgrania na stronę internetową:
 
 | Plik | Zawartość |
 |---|---|
-| `przedszkole.html` | Plan szkolenia + moduł warsztatowy, ścieżka przedszkolna (6 modułów, KPOF) |
-| `szkola.html` | Plan szkolenia + moduł warsztatowy, ścieżka szkolna (7 modułów, KSzOF) |
+| `przedszkole.html` | Plan szkolenia, ścieżka przedszkolna (6 modułów, KPOF) — **Wariant A: projekcja** |
+| `szkola.html` | Plan szkolenia, ścieżka szkolna (7 modułów, KSzOF) — **Wariant A: projekcja** |
+
+Kolorystyka wzięta z logo PCTP: fiolet pola `#55377D`, lawenda obręczy `#E7DAF3`,
+pomarańcz płatków `#EA7A35` (w tekście przyciemniony do `#C0561A`, żeby trzymał
+kontrast), złoto łodyg `#CBA242` w kresce pod nagłówkiem. Logo jest wbudowane
+w plik jako obraz w treści — nie trzeba go wgrywać osobno.
 
 Każdy plik jest **samodzielny**: cały układ, style i mechanika ćwiczeń są w środku.
 Jedyne, co strona pobiera z zewnątrz, to kroje pisma z Google Fonts — bez internetu
@@ -27,19 +32,23 @@ strony nie zadziała — edytor usunie style i skrypt.
 **Osadzenie w istniejącej podstronie:** `<iframe src="szkolenia/szkola.html"
 style="width:100%;height:90vh;border:0"></iframe>`.
 
-## Co robi moduł warsztatowy
+## Wariant A — co jest na stronie
 
-Po projekcji każdego modułu filmowego uczestnicy przechodzą na zakładkę
-**Warsztat** i wykonują ćwiczenie przypisane do tego modułu: licznik czasu bloku,
-pola odpowiedzi, kalkulatory (średnia KPOF, przeliczenie obszaru KSzOF na skalę
-0–20 i sten z tabeli norm), kreator celu mierzalnego, karta decyzyjna z regułami
-przekierowania oraz quizy sprawdzające z uzasadnieniem przy każdej pozycji.
+Strona prowadzi projekcję: cele szkolenia, program modułów z timecodami,
+**porządek projekcji** (który moduł, jaki plik, od której minuty, co uczestnik
+z niego wynosi), wskazówki na przed projekcją / przerwę / po projekcji,
+podstawy prawne, materiały i kalendarz dokumentacji na rok szkolny.
 
-Klucz odpowiedzi odsłania prowadzący przyciskiem **Pokaż klucz i omówienie**.
+Pliki nie zawierają skryptu — to czysty HTML ze stylami. Nic się nie zepsuje
+na serwerze i nie ma czego blokować.
 
-Odpowiedzi zapisują się w pamięci przeglądarki uczestnika (`localStorage`) —
-nie trafiają na serwer i nie są widoczne dla nikogo innego. Na dole strony jest
-„Podsumowanie warsztatu” do skopiowania, a wydruk strony daje wypełnioną kartę pracy.
+## Moduł warsztatowy — na później
+
+Interaktywne ćwiczenia do każdego modułu (kalkulator KPOF, przeliczanie KSzOF
+na skalę 0–20 i steny, kreator celu mierzalnego, karta decyzyjna z regułami
+przekierowania, quizy z kluczem) są gotowe w pliku źródłowym `index.html`.
+Żeby dołożyć je do plików na stronę, zmień w `build.py` wartość `'wariant': 'A'`
+na `'wariant': 'AB'` i przebuduj.
 
 ## Zmiany w treści
 

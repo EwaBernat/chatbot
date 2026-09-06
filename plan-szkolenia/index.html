@@ -391,6 +391,7 @@ footer p + p{margin-top:6px}
 <div class="topbar">
   <div class="topbar-in">
     <div class="mark">
+      <!--LOGO-->
       <b>EduPlaner 2026</b>
       <span>PCTP · plan szkolenia rady pedagogicznej</span>
     </div>
@@ -399,10 +400,10 @@ footer p + p{margin-top:6px}
         <button role="radio" data-track="p" aria-checked="true">Przedszkole</button>
         <button role="radio" data-track="s" aria-checked="false">Szkoła podstawowa</button>
       </div><!--SWITCH-END-->
-      <div class="switch" role="radiogroup" aria-label="Widok">
+      <!--VIEW-START--><div class="switch" role="radiogroup" aria-label="Widok">
         <button role="radio" data-view="plan" aria-checked="true">Plan</button>
         <button role="radio" data-view="warsztat" aria-checked="false">Warsztat</button>
-      </div>
+      </div><!--VIEW-END-->
     </div>
   </div>
 </div>
@@ -422,7 +423,7 @@ footer p + p{margin-top:6px}
       <dl class="facts">
         <div class="fact"><dt>Adresat</dt><dd>Rada pedagogiczna przedszkola, specjaliści, dyrektor</dd></div>
         <div class="fact"><dt>Materiał filmowy</dt><dd><strong class="mono">53:57</strong> · sześć modułów (M1–M6)</dd></div>
-        <div class="fact"><dt>Wariant warsztatowy</dt><dd><strong>ok. 3 h 35 min</strong> z jedną przerwą</dd></div>
+        <!--FACT-A-START--><div class="fact"><dt>Forma</dt><dd><strong>Wariant A — projekcja</strong> + skrypt dla nauczycieli</dd></div><!--FACT-A-END--><!--FACT-BC-START--><div class="fact"><dt>Wariant warsztatowy</dt><dd><strong>ok. 3 h 35 min</strong> z jedną przerwą</dd></div><!--FACT-BC-END-->
         <div class="fact"><dt>Materiały</dt><dd>Skrypt dla nauczycieli (wydanie 2 po audycie) + druki</dd></div>
         <div class="fact"><dt>Narzędzie wiodące</dt><dd>KPOF — Kwestionariusz Przedszkolnej Oceny Funkcjonalnej</dd></div>
         <div class="fact"><dt>Miara skuteczności</dt><dd>Opinia dla poradni złożona z druków, które już są w teczce</dd></div>
@@ -579,6 +580,46 @@ footer p + p{margin-top:6px}
     </div>
   </section>
 
+
+  <!--HARM-A-START-->
+  <section class="block">
+    <div class="wrap">
+      <header>
+        <span class="eyebrow">Organizacja</span>
+        <h2>Porządek projekcji</h2>
+        <p>Wariant A: rada ogląda całość jednym ciągiem, ze skryptem na stołach. Timecode wskazuje początek modułu w nagraniu — po nim wracamy do zdania, które umknęło.</p>
+      </header>
+      <div class="tablewrap">
+        <table>
+          <thead><tr><th>Moduł</th><th>Tytuł</th><th>Plik</th><th>Czas</th><th>Od → do</th><th>Co uczestnik z tego wynosi</th></tr></thead>
+          <tbody>
+            <tr><td class="num">1</td><td>Podstawa prawna — co obowiązuje od 1 września 2026 r.</td><td class="num">M1</td><td class="num">9:30</td><td class="num">00:00 → 09:30</td><td>Wie, z czego wynika każdy druk, i cytuje obowiązujące teksty jednolite.</td></tr><tr><td class="num">2</td><td>Obieg dokumentów — jak jeden wynika z drugiego</td><td class="num">M2</td><td class="num">5:36</td><td class="num">09:30 → 15:06</td><td>Zna sześć przystanków i wie, który dokument zasila który.</td></tr><tr><td class="num">3</td><td>Metryczka dziecka — pierwszy dokument września</td><td class="num">M3</td><td class="num">5:45</td><td class="num">15:06 → 20:51</td><td>Wypełnia metryczkę bez danych nadmiarowych i odczytuje z niej trzy odpowiedzi.</td></tr><tr><td class="num">4</td><td>KPOF — budowa narzędzia, skala, liczenie wyniku, odczyt profilu</td><td class="num">M4</td><td class="num">10:08</td><td class="num">20:51 → 30:59</td><td>Liczy średnią obszaru z pominięciem N i czyta profil dziewięciu obszarów.</td></tr><tr><td class="num">5</td><td>Obserwacja pogłębiona — ABC, sensoryka, teoria umysłu, karta mowy</td><td class="num">M5</td><td class="num">9:46</td><td class="num">30:59 → 40:45</td><td>Rozpoznaje regułę przekierowania i wybiera właściwe narzędzie.</td></tr><tr><td class="num">6</td><td>WOPF, IPET, cele SMART, ewaluacja i opinia dla poradni</td><td class="num">M6</td><td class="num">13:12</td><td class="num">40:45 → 53:57</td><td>Buduje cel mierzalny i planuje ewaluację w kalendarzu roku.</td></tr>
+            <tr class="total"><td class="num">—</td><td>Razem</td><td class="num">—</td><td class="num">53:57</td><td class="num">—</td><td>—</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="variants" style="margin-top:24px">
+        <div class="variant">
+          <h4>Przed projekcją</h4>
+          <span class="dur">15 minut</span>
+          <p>Rozdaj skrypt dla nauczycieli — każdy moduł ma w nim podstawę prawną, pełną transkrypcję i instrukcję przygotowania dokumentu. Zapowiedz jedno zdanie: każdy druk ma swój przepis, a my go poznamy.</p>
+        </div>
+        <div class="variant">
+          <h4>Przerwa</h4>
+          <span class="dur">10–15 minut</span>
+          <p>Najlepsze miejsce: po module 3, czyli po 20:51 — wtedy kończy się blok o dokumentach formalnych, a zaczyna o narzędziu obserwacji.</p>
+        </div>
+        <div class="variant">
+          <h4>Po projekcji</h4>
+          <span class="dur">10–15 minut</span>
+          <p>Pytania i ustalenia organizacyjne: kto pełni funkcję Strażnika Prawa, do kiedy powstaje zarządzenie dyrektora, kiedy wypełniamy wrześniowy arkusz. Protokół rady i lista obecności są dowodem odbycia szkolenia.</p>
+        </div>
+      </div>
+      <p class="note"><b>Co dalej.</b> Wariant A daje wiedzę. Umiejętność daje dopiero praca na własnych drukach — ćwiczenia do każdego modułu (liczenie arkusza, karta decyzyjna, cel mierzalny) przygotowujemy jako moduł warsztatowy do dołożenia w kolejnym kroku, po pierwszej projekcji w przedszkola.</p>
+    </div>
+  </section>
+  <!--HARM-A-END-->
+  <!--HARM-BC-START-->
   <section class="block">
     <div class="wrap">
       <header>
@@ -626,6 +667,7 @@ footer p + p{margin-top:6px}
       </div>
     </div>
   </section>
+  <!--HARM-BC-END-->
 
   <section class="block">
     <div class="wrap">
@@ -702,7 +744,7 @@ footer p + p{margin-top:6px}
       <dl class="facts">
         <div class="fact"><dt>Adresat</dt><dd>Rada pedagogiczna, wychowawcy, nauczyciele przedmiotów, specjaliści, dyrektor</dd></div>
         <div class="fact"><dt>Materiał filmowy</dt><dd><strong class="mono">71:40</strong> · siedem modułów (S1–S7)</dd></div>
-        <div class="fact"><dt>Wariant warsztatowy</dt><dd><strong>ok. 4 h 40 min</strong> z dwiema przerwami</dd></div>
+        <!--FACT-A-START--><div class="fact"><dt>Forma</dt><dd><strong>Wariant A — projekcja</strong> + skrypt dla nauczycieli</dd></div><!--FACT-A-END--><!--FACT-BC-START--><div class="fact"><dt>Wariant warsztatowy</dt><dd><strong>ok. 4 h 40 min</strong> z dwiema przerwami</dd></div><!--FACT-BC-END-->
         <div class="fact"><dt>Materiały</dt><dd>Skrypt (64 strony) + 18 druków + wzór zarządzenia dyrektora</dd></div>
         <div class="fact"><dt>Narzędzie wiodące</dt><dd>KSzOF — 52 twierdzenia, 9 obszarów ICF, 260 punktów</dd></div>
         <div class="fact"><dt>Miara skuteczności</dt><dd>Opinia dla poradni w 10 dni, bez zbierania nowych danych</dd></div>
@@ -878,6 +920,46 @@ footer p + p{margin-top:6px}
     </div>
   </section>
 
+
+  <!--HARM-A-START-->
+  <section class="block">
+    <div class="wrap">
+      <header>
+        <span class="eyebrow">Organizacja</span>
+        <h2>Porządek projekcji</h2>
+        <p>Wariant A: rada ogląda całość jednym ciągiem, ze skryptem na stołach. Timecode wskazuje początek modułu w nagraniu — po nim wracamy do zdania, które umknęło.</p>
+      </header>
+      <div class="tablewrap">
+        <table>
+          <thead><tr><th>Moduł</th><th>Tytuł</th><th>Plik</th><th>Czas</th><th>Od → do</th><th>Co uczestnik z tego wynosi</th></tr></thead>
+          <tbody>
+            <tr><td class="num">1</td><td>Podstawa prawna — co obowiązuje w szkole od 1 września 2026 r.</td><td class="num">S1</td><td class="num">10:40</td><td class="num">00:00 → 10:40</td><td>Rozdziela dwie ścieżki i wie, gdzie sprawdzić publikator.</td></tr><tr><td class="num">2</td><td>Dlaczego szkoła musi zmienić dokumentację</td><td class="num">S2</td><td class="num">12:20</td><td class="num">10:40 → 23:00</td><td>Umie uzasadnić zmianę przed radą, rodzicem i organem prowadzącym.</td></tr><tr><td class="num">3</td><td>Obieg dokumentów w szkole</td><td class="num">S3</td><td class="num">6:10</td><td class="num">23:00 → 29:10</td><td>Zna siedem przystanków i rozgałęzienie IPET / PWES.</td></tr><tr><td class="num">4</td><td>Metryczka i teczka ucznia</td><td class="num">S4</td><td class="num">6:30</td><td class="num">29:10 → 35:40</td><td>Odnotowuje datę wpływu orzeczenia i usuwa dane nadmiarowe.</td></tr><tr><td class="num">5</td><td>KSzOF — skala, steny, liczenie wyniku, odczyt profilu</td><td class="num">S5</td><td class="num">11:20</td><td class="num">35:40 → 47:00</td><td>Przelicza obszar na skalę 0–20 i odczytuje sten z właściwej kolumny.</td></tr><tr><td class="num">6</td><td>Obserwacja pogłębiona — ABC i FBA, sensoryka, teoria umysłu, mowa</td><td class="num">S6</td><td class="num">10:30</td><td class="num">47:00 → 57:30</td><td>Stosuje siedem reguł i planuje zachowanie zastępcze.</td></tr><tr><td class="num">7</td><td>WOPF-SP, IPET, PWES, cele, ewaluacja i opinia dla poradni</td><td class="num">S7</td><td class="num">14:10</td><td class="num">57:30 → 71:40</td><td>Sprawdza program kartą ośmiu elementów i pisze cel mierzalny.</td></tr>
+            <tr class="total"><td class="num">—</td><td>Razem</td><td class="num">—</td><td class="num">71:40</td><td class="num">—</td><td>—</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="variants" style="margin-top:24px">
+        <div class="variant">
+          <h4>Przed projekcją</h4>
+          <span class="dur">15 minut</span>
+          <p>Rozdaj skrypt dla nauczycieli — każdy moduł ma w nim podstawę prawną, pełną transkrypcję i instrukcję przygotowania dokumentu. Zapowiedz jedno zdanie: każdy druk ma swój przepis, a my go poznamy.</p>
+        </div>
+        <div class="variant">
+          <h4>Przerwa</h4>
+          <span class="dur">10–15 minut</span>
+          <p>Najlepsze miejsce: po module 2, czyli po 23:00 — wtedy kończy się część „dlaczego”, a zaczyna „jak”.</p>
+        </div>
+        <div class="variant">
+          <h4>Po projekcji</h4>
+          <span class="dur">10–15 minut</span>
+          <p>Pytania i ustalenia organizacyjne: kto pełni funkcję Strażnika Prawa, do kiedy powstaje zarządzenie dyrektora, kiedy wypełniamy wrześniowy arkusz. Protokół rady i lista obecności są dowodem odbycia szkolenia.</p>
+        </div>
+      </div>
+      <p class="note"><b>Co dalej.</b> Wariant A daje wiedzę. Umiejętność daje dopiero praca na własnych drukach — ćwiczenia do każdego modułu (liczenie arkusza, karta decyzyjna, cel mierzalny) przygotowujemy jako moduł warsztatowy do dołożenia w kolejnym kroku, po pierwszej projekcji w szkoły.</p>
+    </div>
+  </section>
+  <!--HARM-A-END-->
+  <!--HARM-BC-START-->
   <section class="block">
     <div class="wrap">
       <header>
@@ -927,6 +1009,7 @@ footer p + p{margin-top:6px}
       </div>
     </div>
   </section>
+  <!--HARM-BC-END-->
 
   <section class="block">
     <div class="wrap">
@@ -1045,6 +1128,7 @@ footer p + p{margin-top:6px}
 <!--TRACK-S-END-->
 </div>
 
+<!--WK-START-->
 <div id="view-warsztat" data-track="p" hidden>
   <div class="wk-intro">
     <div class="wrap">
@@ -1066,6 +1150,7 @@ footer p + p{margin-top:6px}
     <div class="summary" id="wk-summary"></div>
   </div>
 </div>
+<!--WK-END-->
 
 <footer>
   <div class="wrap">
