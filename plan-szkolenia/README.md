@@ -12,7 +12,7 @@ pomarańcz płatków `#EA7A35` (w tekście przyciemniony do `#C0561A`, żeby trz
 kontrast), złoto łodyg `#CBA242` w kresce pod nagłówkiem. Logo jest wbudowane
 w plik jako obraz w treści — nie trzeba go wgrywać osobno.
 
-Każdy plik jest **samodzielny**: cały układ, style i mechanika ćwiczeń są w środku.
+Każdy plik jest **samodzielny**: cały układ, style i logo są w środku.
 Jedyne, co strona pobiera z zewnątrz, to kroje pisma z Google Fonts — bez internetu
 strona nadal działa, tylko pokaże pismo systemowe.
 
@@ -27,7 +27,7 @@ strona nadal działa, tylko pokaże pismo systemowe.
 
 **WordPress:** wgraj pliki przez FTP albo menedżer plików (nie przez bibliotekę
 mediów, która nie przyjmuje HTML) i podlinkuj. Wklejenie całego pliku do edytora
-strony nie zadziała — edytor usunie style i skrypt.
+strony nie zadziała — edytor usunie style.
 
 **Osadzenie w istniejącej podstronie:** `<iframe src="szkolenia/szkola.html"
 style="width:100%;height:90vh;border:0"></iframe>`.
