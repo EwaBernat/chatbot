@@ -4,6 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="robots" content="noindex,nofollow">
+<meta name="straznik" content="narzedzie">
 <title>Zaświadczenia ze szkoleń — EduPlaner 2026</title>
 <style>
 :root{
@@ -42,13 +43,15 @@ input:focus,select:focus,textarea:focus{outline:2px solid var(--orange);outline-
 .btn:hover{background:var(--orange-ink)}
 .btn.ghost{background:#fff;color:var(--plum);border:1px solid var(--plum-line)}
 .btn.ghost:hover{background:var(--plum-soft)}
+.btn.sm{padding:9px 14px;font-size:14px;border-radius:9px}
+.row{display:flex;gap:10px;flex-wrap:wrap;align-items:center}
 .licznik{font-size:14.5px;color:var(--ink-2)}
 .licznik b{color:var(--plum)}
 .uwaga{background:var(--plum-soft);border:1px solid var(--plum-line);border-radius:12px;padding:12px 15px;
   font-size:14px;color:var(--ink-2);margin:14px 0 0}
 .podglad-tyt{margin:30px 0 10px;font-size:15px;font-weight:700;color:var(--plum);text-transform:uppercase;letter-spacing:.08em}
 #wydruk{background:var(--paper-2);border:1px solid var(--line);border-radius:14px;padding:20px;overflow:auto}
-#wydruk .zas{transform-origin:top left;box-shadow:0 20px 50px -30px rgba(34,27,58,.7);margin:0 auto 20px}
+#wydruk .zas,#wydruk .rejestr,#wydruk .klauzula{transform-origin:top left;box-shadow:0 20px 50px -30px rgba(34,27,58,.7);margin:0 auto 20px}
 
 /* ---------- jedno zaświadczenie ------------------------------------- */
 .zas{width:210mm;height:297mm;background:#fff;color:#1A1430;font-family:var(--druk);
@@ -103,15 +106,25 @@ input:focus,select:focus,textarea:focus{outline:2px solid var(--orange);outline-
 .rejestr td.podpis-kol{width:52mm}
 .rejestr .stopa{margin-top:9mm;display:flex;justify-content:space-between;font-size:10pt;color:#3A3552}
 
+/* ---------- klauzula informacyjna ----------------------------------- */
+.klauzula{width:210mm;height:297mm;background:#fff;color:#1A1430;font-family:var(--font);padding:16mm 18mm}
+.klauzula h2{font-size:15pt;color:var(--plum);margin:0 0 1mm}
+.klauzula .kto{font-size:10pt;color:#4A4560;margin:0 0 6mm}
+.klauzula ol{margin:0;padding-left:6mm;font-size:9.5pt;line-height:1.55;color:#2A2440}
+.klauzula li{margin-bottom:2.6mm}
+.klauzula li b{color:var(--plum)}
+.klauzula ul{margin:1.5mm 0 0;padding-left:5mm}
+.klauzula .stopa{margin-top:7mm;padding-top:4mm;border-top:.3mm solid #D9D3E6;font-size:8.5pt;color:#4A4560;line-height:1.5}
+
 /* ---------- druk ----------------------------------------------------- */
 @page{size:A4 portrait;margin:0}
 @media print{
   .panel{display:none !important}
   body{background:#fff}
   #wydruk{background:#fff;border:0;padding:0;overflow:visible}
-  #wydruk .zas,#wydruk .rejestr{box-shadow:none;margin:0;transform:none !important}
-  .zas,.rejestr{break-after:page;page-break-after:always}
-  .zas:last-child,.rejestr:last-child{break-after:auto;page-break-after:auto}
+  #wydruk .zas,#wydruk .rejestr,#wydruk .klauzula{box-shadow:none;margin:0;transform:none !important}
+  .zas,.rejestr,.klauzula{break-after:page;page-break-after:always}
+  .zas:last-child,.rejestr:last-child,.klauzula:last-child{break-after:auto;page-break-after:auto}
 }
 </style>
 </head>
@@ -168,6 +181,25 @@ input:focus,select:focus,textarea:focus{outline:2px solid var(--orange);outline-
         będzie „ukończył(a)". Sprawdź nietypowe imiona.</span></label>
     <label class="check"><input type="checkbox" id="rejestr" checked>
       <span>Dołącz na końcu listę wydanych zaświadczeń — do dokumentacji placówki, z miejscem na podpis odbioru.</span></label>
+  </fieldset>
+
+  <fieldset>
+    <legend>Ochrona danych (RODO)</legend>
+    <div class="grid">
+      <div class="pole"><label for="rodo-kontakt">Kontakt w sprawie danych osobowych</label>
+        <input id="rodo-kontakt" placeholder="np. kontakt@eduplaner2026.pl"></div>
+      <div class="pole"><label for="rodo-okres">Jak długo przechowujecie listę zaświadczeń</label>
+        <input id="rodo-okres" value="5 lat od końca roku, w którym wydano zaświadczenie"></div>
+    </div>
+    <label class="check"><input type="checkbox" id="klauzula" checked>
+      <span>Dołącz klauzulę informacyjną dla uczestników — jedna kartka na końcu wydruku.</span></label>
+    <div class="row" style="margin-top:12px">
+      <button class="btn ghost sm" type="button" id="kopiuj">Kopiuj klauzulę do maila</button>
+      <span class="hint" id="kopiuj-stan"></span>
+    </div>
+    <p class="hint"><b>Zasada minimalizacji:</b> na zaświadczeniu wystarczy imię i nazwisko, temat,
+      wymiar godzin, data i numer. PESEL, data urodzenia i adres nie są do niczego potrzebne —
+      nie zbieraj ich i nie drukuj. Nazwa placówki jest opcjonalna.</p>
   </fieldset>
 
   <fieldset>
@@ -233,7 +265,7 @@ input:focus,select:focus,textarea:focus{outline:2px solid var(--orange);outline-
 
   /* ---------- pola zapamiętywane na tym komputerze ------------------- */
   var PAMIEC = ['org-nazwa','org-adres','org-nip','org-kontakt','wzor','od',
-                'miejscowosc','prowadzaca','funkcja','dopisek','godziny','forma'];
+                'miejscowosc','prowadzaca','funkcja','dopisek','godziny','forma','rodo-kontakt','rodo-okres'];
   function wczytaj(){
     try {
       var d = JSON.parse(localStorage.getItem('zaswiadczenia') || '{}');
@@ -362,10 +394,62 @@ input:focus,select:focus,textarea:focus{outline:2px solid var(--orange);outline-
       +   esc($('godziny').value) + ' godzin · forma: ' + esc($('forma').value) + '</p>'
       + '<table><thead><tr><th>Lp.</th><th>Numer zaświadczenia</th><th>Imię i nazwisko</th>'
       +   '<th>Placówka</th><th>Podpis odbioru</th></tr></thead><tbody>' + wiersze + '</tbody></table>'
+      + '<p class="opis" style="margin-top:6mm;font-size:8.5pt">Dane w tym zestawieniu przetwarza '
+      +   esc($('org-nazwa').value) + ' w celu udokumentowania wydania zaświadczeń '
+      +   '(art. 6 ust. 1 lit. f RODO). Klauzula informacyjna dla uczestników: '
+      +   esc($('rodo-kontakt').value.trim() || $('org-kontakt').value.trim()) + '.</p>'
       + '<div class="stopa"><span>' + esc($('miejscowosc').value) + ', '
       +   esc(dataSlownie($('data-wyst').value)) + '</span>'
       +   '<span>' + esc($('prowadzaca').value) + '</span></div>'
       + '</section>';
+  }
+
+  /* Klauzula informacyjna z art. 13 i 14 RODO. Art. 14 dlatego, że przy szkoleniu
+     dla rady pedagogicznej nazwiska podaje placówka, a nie sam uczestnik — wtedy
+     trzeba powiedzieć, skąd mamy jego dane. Projekt do sprawdzenia przez prawnika. */
+  function punktyKlauzuli(){
+    var adm = $('org-nazwa').value + ($('org-adres').value ? ', ' + $('org-adres').value : '');
+    var kontakt = $('rodo-kontakt').value.trim() || $('org-kontakt').value.trim();
+    return [
+      ['Administrator danych', adm + '. Kontakt w sprawie danych osobowych: ' + kontakt + '.'],
+      ['Po co przetwarzamy dane i na jakiej podstawie', null, [
+        'przeprowadzenie szkolenia i wydanie zaświadczenia — art. 6 ust. 1 lit. b RODO (wykonanie umowy), a gdy zgłasza Państwa placówka — art. 6 ust. 1 lit. f RODO (wykonanie umowy zawartej z placówką i wystawienie dokumentu na Państwa nazwisko),',
+        'prowadzenie listy wydanych zaświadczeń, żeby móc potwierdzić wydanie dokumentu i wystawić duplikat — art. 6 ust. 1 lit. f RODO,',
+        'rozliczenia podatkowe i księgowe — art. 6 ust. 1 lit. c RODO,',
+        'dochodzenie lub obrona roszczeń — art. 6 ust. 1 lit. f RODO.'
+      ]],
+      ['Jakie dane', 'Imię i nazwisko, numer i data zaświadczenia, temat oraz wymiar szkolenia, a jeżeli zostały podane — nazwa placówki i adres e-mail. Nie zbieramy numeru PESEL, daty urodzenia ani adresu zamieszkania: do wydania zaświadczenia nie są potrzebne.'],
+      ['Skąd mamy dane', 'Od Państwa albo od placówki, która zgłosiła Państwa na szkolenie (art. 14 RODO).'],
+      ['Komu przekazujemy', 'Dostawcy poczty elektronicznej i hostingu, biuru rachunkowemu, a przy płatności online — operatorowi płatności. Danych nie przekazujemy poza Europejski Obszar Gospodarczy i nie sprzedajemy ich nikomu.'],
+      ['Jak długo', ($('rodo-okres').value.trim() || '5 lat od końca roku, w którym wydano zaświadczenie') + '. Dokumenty księgowe — 5 lat od końca roku podatkowego, w którym upłynął termin płatności podatku.'],
+      ['Państwa prawa', 'Dostęp do danych i ich kopia, sprostowanie, usunięcie, ograniczenie przetwarzania, przenoszenie danych oraz sprzeciw wobec przetwarzania opartego na prawnie uzasadnionym interesie. Przysługuje też skarga do Prezesa Urzędu Ochrony Danych Osobowych, ul. Stawki 2, 00-193 Warszawa.'],
+      ['Czy trzeba podać dane', 'Podanie imienia i nazwiska jest dobrowolne, ale bez nich nie wystawimy zaświadczenia. Pozostałe dane są nieobowiązkowe.'],
+      ['Decyzje automatyczne', 'Dane nie służą do zautomatyzowanego podejmowania decyzji ani do profilowania.']
+    ];
+  }
+
+  function klauzulaHTML(){
+    var poz = punktyKlauzuli().map(function(p){
+      var tresc = p[1] ? ' ' + esc(p[1]) : '';
+      var lista = p[2] ? '<ul>' + p[2].map(function(x){ return '<li>' + esc(x) + '</li>'; }).join('') + '</ul>' : '';
+      return '<li><b>' + esc(p[0]) + '.</b>' + tresc + lista + '</li>';
+    }).join('');
+    return '<section class="klauzula"><h2>Klauzula informacyjna — uczestnicy szkoleń</h2>'
+      + '<p class="kto">Dotyczy szkolenia: ' + esc(tytulSzkolenia())
+      + ' · ' + esc(dataSlownie($('data-szk').value)) + '</p>'
+      + '<ol>' + poz + '</ol>'
+      + '<div class="stopa">Informacja przekazana na podstawie art. 13 i 14 rozporządzenia Parlamentu Europejskiego '
+      + 'i Rady (UE) 2016/679 z 27 kwietnia 2016 r. (RODO).</div></section>';
+  }
+
+  function klauzulaTekst(){
+    return 'KLAUZULA INFORMACYJNA — UCZESTNICY SZKOLEŃ\n\n'
+      + punktyKlauzuli().map(function(p,i){
+          var t = (i+1) + '. ' + p[0] + '.' + (p[1] ? ' ' + p[1] : '');
+          if(p[2]) t += '\n   - ' + p[2].join('\n   - ');
+          return t;
+        }).join('\n')
+      + '\n\nPodstawa: art. 13 i 14 RODO.';
   }
 
   function odswiez(){
@@ -376,13 +460,14 @@ input:focus,select:focus,textarea:focus{outline:2px solid var(--orange);outline-
         + 'Wpisz listę uczestników — tu pojawi się podgląd zaświadczeń.</p>';
     } else {
       box.innerHTML = osoby.map(zaswiadczenie).join('')
-        + ($('rejestr').checked ? listaWydanych(osoby) : '');
+        + ($('rejestr').checked ? listaWydanych(osoby) : '')
+        + ($('klauzula').checked ? klauzulaHTML() : '');
       skaluj();
     }
     var ile = osoby.length;
     $('licznik').innerHTML = ile
       ? '<b>' + ile + '</b> ' + (ile === 1 ? 'zaświadczenie' : (ile < 5 ? 'zaświadczenia' : 'zaświadczeń'))
-        + ' · ' + (ile + ($('rejestr').checked ? 1 : 0)) + ' stron A4'
+        + ' · ' + (ile + ($('rejestr').checked ? 1 : 0) + ($('klauzula').checked ? 1 : 0)) + ' stron A4'
       : 'Lista uczestników jest pusta.';
     zapamietaj();
   }
@@ -423,7 +508,19 @@ input:focus,select:focus,textarea:focus{outline:2px solid var(--orange);outline-
   ['lista','zakres','godziny','forma','data-szk','miejsce-szk','wzor','od','miejscowosc',
    'data-wyst','prowadzaca','funkcja','dopisek','szk-wlasny','org-nazwa','org-adres','org-nip','org-kontakt']
     .forEach(function(id){ $(id).addEventListener('input', odswiez); });
-  ['odmiana','rejestr'].forEach(function(id){ $(id).addEventListener('change', odswiez); });
+  ['odmiana','rejestr','klauzula'].forEach(function(id){ $(id).addEventListener('change', odswiez); });
+  ['rodo-kontakt','rodo-okres'].forEach(function(id){ $(id).addEventListener('input', odswiez); });
+
+  $('kopiuj').addEventListener('click', function(){
+    var t = klauzulaTekst();
+    var stan = $('kopiuj-stan');
+    if(navigator.clipboard && navigator.clipboard.writeText){
+      navigator.clipboard.writeText(t).then(function(){ stan.textContent = 'Skopiowane — wklej do maila z zapisem.'; },
+        function(){ stan.textContent = 'Przeglądarka nie pozwoliła skopiować. Klauzula jest na ostatniej kartce wydruku.'; });
+    } else {
+      stan.textContent = 'Ta przeglądarka nie kopiuje do schowka. Klauzula jest na ostatniej kartce wydruku.';
+    }
+  });
 
   $('odswiez').addEventListener('click', odswiez);
   $('drukuj').addEventListener('click', function(){

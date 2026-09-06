@@ -200,7 +200,8 @@ function naRgb(s, pod) {
         opis: (document.querySelector('meta[name=description]') || {}).content || null,
         canonical: !!document.querySelector('link[rel=canonical]'),
         og: [...document.querySelectorAll('meta[property^="og:"]')].map(m => m.getAttribute('property')),
-        viewport: !!document.querySelector('meta[name=viewport]')
+        viewport: !!document.querySelector('meta[name=viewport]'),
+        narzedzie: ((document.querySelector('meta[name=straznik]') || {}).content || '') === 'narzedzie'
       },
       naglowki, obrazy, formularze, martwe, bezNazwy, male, czyt, probki,
       skrypty, style, ramki, bledyJs: [],
@@ -227,7 +228,17 @@ function naRgb(s, pod) {
   const t = d.tekst;
   const maLink = (frazy) => d.linkiTekst.some(l => frazy.some(f => l.includes(f)));
 
+  /* Narzędzia autorki (panel filmów, wydruk zaświadczeń) nie są stroną sprzedażową:
+     nie mają stopki z NIP-em, nie sprzedają i nie mają się indeksować. Sprawdzamy
+     w nich to, co dotyczy każdej strony — czytelność, dostępność, wygląd, błędy
+     skryptu — i pomijamy prawo handlowe, SEO i sprzedaż. Deklaruje to sama strona:
+     <meta name="straznik" content="narzedzie">. */
+  const narzedzie = d.meta.narzedzie;
+  if (narzedzie) dodaj('INFO', 'zakres', 'Strona zgłasza się jako narzędzie wewnętrzne',
+    'Pomijam reguły sklepu: dokumenty prawne, dane sprzedawcy, SEO i sprzedaż.');
+
   /* --- 1. PRAWO --- */
+  if (!narzedzie) {
   if (!maLink(['regulamin'])) blad('prawo', 'Brak linku do regulaminu', 'Regulamin musi być dostępny przed zakupem, najlepiej w stopce i przy formularzu.');
   if (!maLink(['polityka prywatn', 'polityka-prywatn', 'prywatnoś'])) blad('prawo', 'Brak linku do polityki prywatności', 'Obowiązek informacyjny z art. 13 RODO.');
   if (!maLink(['odstąpieni', 'odstapieni', 'zwrot'])) ostrzez('prawo', 'Brak linku do formularza odstąpienia', 'Wzór oświadczenia musi być łatwo dostępny i wysyłany z potwierdzeniem zamówienia.');
@@ -282,6 +293,8 @@ function naRgb(s, pod) {
     blad('prawo', 'Skrypty śledzące bez banera cookies: ' + sledzace.join(', '), 'Zgoda musi być zebrana przed załadowaniem skryptu.');
   if (!sledzace.length && !/cookie|ciasteczk/.test(t))
     dodaj('INFO', 'prawo', 'Brak skryptów śledzących — baner cookies nie jest wymagany', 'Warto napisać to wprost w polityce prywatności.');
+
+  } /* koniec reguł sklepu: prawo, formularz, Omnibus, cookies */
 
   /* --- 2. DOSTĘPNOŚĆ --- */
   if (!d.lang) blad('dostępność', 'Brak atrybutu lang', 'Czytnik ekranu nie wie, w jakim języku czytać.');
@@ -340,6 +353,7 @@ function naRgb(s, pod) {
   }
 
   /* --- 5. SEO --- */
+  if (!narzedzie) {
   if (!d.title) blad('seo', 'Brak tytułu strony');
   else if (d.title.length > 65) ostrzez('seo', 'Tytuł dłuższy niż 65 znaków (' + d.title.length + ')');
   if (!d.meta.opis) blad('seo', 'Brak meta description');
@@ -356,6 +370,8 @@ function naRgb(s, pod) {
     uzupelnij('sprzedaż', 'Brak dowodu, że ktoś już z tego korzysta', 'Nazwa placówki, funkcja osoby i konkretne zdanie robią więcej niż cała sekcja opisu.');
   if (!/zł|pln/.test(t)) blad('sprzedaż', 'Na stronie nie ma ani jednej kwoty');
   if (d.dlugoscTekstu > 12000) ostrzez('sprzedaż', 'Bardzo dużo tekstu (' + d.dlugoscTekstu + ' znaków)', 'Powyżej mniej więcej 7 000 znaków strona główna zaczyna męczyć.');
+
+  } /* koniec reguł SEO i sprzedaży */
 
   /* --- 7. BEZPIECZEŃSTWO --- */
   const zaufane = ['fonts.googleapis.com','fonts.gstatic.com','cdnjs.cloudflare.com','cdn.jsdelivr.net'];

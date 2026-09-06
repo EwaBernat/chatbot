@@ -38,6 +38,17 @@ odnośników do plików, których nie ma, formularzy bez `action`, kluczy i hase
 w kodzie, obrazów, których nikt nie używa. Zwraca **BLOKADY** — rzeczy, przy
 których publikacja jest przedwczesna.
 
+**Narzędzie wewnętrzne to nie sklep.** Panel do wgrywania filmów albo wydruku
+zaświadczeń nie ma stopki z NIP-em, nie sprzedaje i nie ma się indeksować.
+Taka strona deklaruje to sama:
+
+```html
+<meta name="straznik" content="narzedzie">
+```
+
+Kontroler pomija wtedy prawo handlowe, SEO i sprzedaż, a sprawdza to, co dotyczy
+każdej strony: czytelność, dostępność, kontrast, wygląd i błędy skryptu.
+
 Oba zwracają trzy poziomy:
 
 | Poziom | Znaczenie | Co zrobić |
