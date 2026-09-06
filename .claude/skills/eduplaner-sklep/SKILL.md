@@ -130,7 +130,13 @@ tylko naruszenie:
 
 Kontroler `gotowosc.js` wypisze to za każdym razem; tu jest pełna lista przyczyn:
 
-- NIP, REGON, pełny adres rejestrowy → stopka i wszystkie trzy dokumenty
+- ~~NIP, REGON, adres rejestrowy~~ — podane: Mirosława Ewa Jurczyszyn prowadząca
+  działalność pod firmą Pomorskie Centrum Terapii Pedagogicznej, CEIDG,
+  ul. Żołnierzy 8 Dywizji 13, 75-692 Koszalin, NIP 6691051752, REGON 330231014.
+  Sprzedawcą jest **jednoosobowa działalność**, nie spółka cywilna o tej samej
+  nazwie, która figuruje w rejestrach pod innym numerem — w umowie stroną jest
+  osoba fizyczna działająca pod firmą, nie „Centrum".
+- nazwa banku i numer konta → umowa § 5 i regulamin
 - termin płatności faktury, nazwa operatora płatności → regulamin § 5
 - terminy dostarczenia plików i wysyłki, koszt dostawy → regulamin § 6
 - data wejścia regulaminu w życie

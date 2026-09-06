@@ -118,7 +118,11 @@ po cichu. To pierwsza rzecz do wymiany.
 Miejsca oznaczone w dokumentach prawnych jako `do uzupełnienia` oraz w stopce
 na pomarańczowo:
 
-- NIP, REGON, pełny adres rejestrowy
+- ~~NIP, REGON, adres rejestrowy~~ — wpisane 6 września 2026:
+  Mirosława Ewa Jurczyszyn prowadząca działalność gospodarczą pod firmą
+  Pomorskie Centrum Terapii Pedagogicznej Mirosława Ewa Jurczyszyn (CEIDG),
+  ul. Żołnierzy 8 Dywizji 13, 75-692 Koszalin, NIP 6691051752, REGON 330231014
+- nazwa banku i numer konta do przelewu (umowa § 5, regulamin)
 - godziny kontaktu telefonicznego, termin płatności faktury, nazwa operatora płatności
 - terminy dostarczenia plików i wysyłki towarów, koszt dostawy
 - data wejścia w życie regulaminu
