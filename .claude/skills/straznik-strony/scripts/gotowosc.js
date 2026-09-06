@@ -198,6 +198,70 @@ if (zewnetrzne.size) {
     'Każde źródło to zależność, która może zniknąć, zwolnić albo wymusić baner cookies.');
 }
 
+/* ---------- 6b. płatne pliki i nagrania w katalogu publicznym --------- */
+/* Płatny PDF pod stałym adresem to koniec sprzedaży tej pozycji: pierwszy
+   kupujący wysyła link całej radzie pedagogicznej. To samo dotyczy nagrań
+   wgranych obok strony. Zasady opisuje references/zabezpieczenia.md
+   w skillu eduplaner-sklep. */
+
+/* Bezpłatne wolno trzymać jawnie. Rozpoznajemy je po nazwie albo po wpisie
+   w pliku `.bezplatne` leżącym w tym samym katalogu — jedna nazwa w wierszu,
+   wiersze zaczynające się od # to komentarze. */
+const WOLNE = /(demo|probka|próbka|podglad|podgląd|fragment|bezplatn|bezpłatn|regulamin|polityka|formularz|umowa|zalacznik|załącznik|wzor|wzór)/i;
+
+function zadeklarowaneJakoWolne(plik) {
+  const lista = path.join(path.dirname(plik), '.bezplatne');
+  if (!fs.existsSync(lista)) return false;
+  return fs.readFileSync(lista, 'utf8').split(/\r?\n/)
+    .map(w => w.trim()).filter(w => w && !w.startsWith('#'))
+    .includes(path.basename(plik));
+}
+
+const doPobrania = pliki(katalog, /\.(pdf|epub|mp4|webm|mov|m4v|zip)$/i)
+  .filter(f => !/(^|\/)(dist|node_modules|\.git)(\/|$)/.test(wzgledna(f)));
+
+const platne = doPobrania.filter(f =>
+  !WOLNE.test(path.basename(f)) && !zadeklarowaneJakoWolne(f));
+if (platne.length) {
+  blokada('sprzedaż', platne.length + '× plik do pobrania w katalogu publicznym',
+    platne.map(wzgledna).slice(0, 6).join(', '),
+    'Każdy zna adres, kto raz go dostanie. Płatne pliki wydaje się przez punkt ' +
+    'końcowy sprawdzający token (72 h, 5 pobrań) i ze znakiem wodnym nadawanym ' +
+    'przy pobraniu — nigdy spod stałego adresu w katalogu strony.');
+}
+
+for (const [p2, s2] of tresci) {
+  const tekst = bezKomentarzy(s2);
+
+  // odnośnik wymuszający zapis pliku
+  if (/<a\b[^>]*\bdownload\b/i.test(bezSkryptow(tekst))) {
+    ostrzez('sprzedaż', 'Odnośnik z atrybutem download', wzgledna(p2),
+      'Przy materiale płatnym atrybut download podaje plik na tacy. Przy bezpłatnym jest w porządku.');
+  }
+
+  // nagranie serwowane jako zwykły plik z tego samego serwera
+  const re = /<video\b[^>]*\bsrc\s*=\s*["']([^"']+)["']/gi;
+  let m;
+  while ((m = re.exec(tekst))) {
+    if (!/^https?:\/\//i.test(m[1])) {
+      ostrzez('sprzedaż', 'Nagranie serwowane jako plik z tego samego serwera: ' + m[1],
+        wzgledna(p2),
+        'Adres pliku da się wysłać dalej i pobrać jednym poleceniem. Nagrania płatne ' +
+        'wymagają hostingu z podpisanymi, wygasającymi adresami i ograniczeniem do domeny.');
+    }
+  }
+
+  // odtwarzacz oddający przycisk pobierania
+  const reV = /<video\b[^>]*>/gi;
+  while ((m = reV.exec(tekst))) {
+    if (!/controlslist/i.test(m[0])) {
+      ostrzez('sprzedaż', 'Odtwarzacz <video> bez controlslist="nodownload"', wzgledna(p2),
+        'Przeglądarka pokazuje wtedy przycisk pobierania w odtwarzaczu. To nie jest ' +
+        'zabezpieczenie, ale nie ma powodu podawać pliku samemu.');
+    }
+  }
+}
+
 /* ---------- 7. obrazy nieużywane ------------------------------------- */
 
 const uzywane = new Set();

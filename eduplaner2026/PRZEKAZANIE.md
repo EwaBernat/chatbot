@@ -113,6 +113,39 @@ po cichu. To pierwsza rzecz do wymiany.
 - Stopka: dane sprzedawcy, linki do regulaminu, polityki, formularza odstąpienia
   i nota o prawach autorskich.
 
+## Zabezpieczenie broszur i nagrań
+
+**Najważniejsza zasada: płatny plik nigdy nie leży w katalogu strony.** Jeden adres
+wysłany dalej to koniec sprzedaży tej pozycji. Kontroler `gotowosc.js` zgłasza to
+jako blokadę — nie da się o tym zapomnieć. Plik bezpłatny wpisuje się do listy
+`.bezplatne` w jego katalogu i wtedy przechodzi bez uwag.
+
+Płatne broszury wydaje się **linkiem wygasającym** (72 h, najwyżej 5 pobrań) i ze
+**znakiem wodnym nadawanym przy pobraniu**: imię i nazwisko albo nazwa placówki,
+adres e-mail, numer zamówienia, data — dyskretnie, w stopce, szarym drukiem. To
+jedyne zabezpieczenie, które naprawdę działa, bo działa na człowieka, nie na plik.
+Egzemplarz ze swoim nazwiskiem rozsyła się dużo rzadziej niż anonimowy.
+
+Blokowania drukowania w PDF **nie stosujemy** — zdejmuje je darmowe narzędzie
+w minutę, a przeszkadza tym, którzy kupili broszurę właśnie po to, żeby ją
+wydrukować i pracować z dzieckiem.
+
+**Nagrania.** Filmy bezpłatne ze strony mogą stać na YouTube — mają się rozchodzić.
+Nagrania płatnych szkoleń nigdy: adres z YouTube da się przesłać dalej, a film
+pobrać jednym poleceniem. Potrzebny jest hosting z podpisanym adresem wygasającym,
+ograniczeniem odtwarzania do domeny eduplaner2026.pl i znakiem wodnym z adresem
+e-mail widza na obrazie.
+
+**Czego nie da się zrobić i czego nie wolno obiecać.** Nagrania ekranu nie da się
+zablokować — kto ogląda film, może go nagrać telefonem. Na stronie nie może więc
+paść zdanie „pliki są zabezpieczone przed kopiowaniem" ani „nagrań nie można
+pobrać". To obietnica niemożliwa do dotrzymania. Prawda brzmi inaczej i wystarcza:
+egzemplarz jest imienny, a licencja obejmuje zespół placówki.
+
+W odtwarzaczu na stronie zrobione jest to, co da się zrobić bez backendu: znika
+przycisk pobierania, wyłączone jest menu prawego przycisku, YouTube osadzany jest
+w wersji bez ciasteczek. To progi zwalniające, nie zamki — i tak trzeba o nich mówić.
+
 ## VAT a czekanie na przelew
 
 Pytanie właścicielki: przy 20 programach VAT to ponad 14 tysięcy złotych, a na

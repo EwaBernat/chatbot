@@ -170,7 +170,8 @@ function graj(url){
   var r=rozpoznaj(url);
   if(r.typ==='yt') vframe.innerHTML='<iframe src="https://www.youtube-nocookie.com/embed/'+r.id+'?autoplay=1&rel=0" allow="autoplay; fullscreen" allowfullscreen></iframe>';
   else if(r.typ==='vm') vframe.innerHTML='<iframe src="https://player.vimeo.com/video/'+r.id+'?autoplay=1" allow="autoplay; fullscreen" allowfullscreen></iframe>';
-  else vframe.innerHTML='<video src="'+url.replace(/"/g,'&quot;')+'" controls autoplay playsinline></video>';
+  else vframe.innerHTML='<video src="'+url.replace(/"/g,'&quot;')+'" controls autoplay playsinline '
+    +'controlslist="nodownload noremoteplayback" disablepictureinpicture oncontextmenu="return false"></video>';
   vbox.classList.add('on');
 }
 function stop(){ vbox.classList.remove('on'); vframe.innerHTML=''; }

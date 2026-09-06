@@ -1777,12 +1777,21 @@ FILMY.forEach(function(f){ VIDEO[f.id] = f.url || ''; });
 (function(){
   var box=document.getElementById('vbox'), frame=document.getElementById('vframe');
   if(!box) return;
+  /* Odtwarzacz bez przycisku pobierania.
+     Uczciwie: nie da się zablokować nagrywania ekranu i nie udajemy, że się da.
+     Można za to nie podawać pliku na tacy — usunąć przycisk „pobierz" z odtwarzacza,
+     wyłączyć menu prawego przycisku i nie wystawiać nagrań płatnych jako zwykłych
+     plików pod stałym adresem. Prawdziwą ochroną jest hosting z podpisanymi,
+     wygasającymi adresami i znak wodny z adresem e-mail widza —
+     patrz references/zabezpieczenia.md w skillu eduplaner-sklep. */
   function embed(url){
     var yt=url.match(/(?:youtube\.com\/(?:watch\?v=|embed\/|live\/)|youtu\.be\/)([\w-]{6,})/);
-    if(yt) return '<iframe src="https://www.youtube-nocookie.com/embed/'+yt[1]+'?autoplay=1&rel=0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen title="Film EduPlaner 2026"></iframe>';
+    if(yt) return '<iframe src="https://www.youtube-nocookie.com/embed/'+yt[1]+'?autoplay=1&rel=0&modestbranding=1" allow="autoplay; fullscreen" allowfullscreen title="Film EduPlaner 2026"></iframe>';
     var vm=url.match(/vimeo\.com\/(?:video\/)?(\d+)/);
-    if(vm) return '<iframe src="https://player.vimeo.com/video/'+vm[1]+'?autoplay=1" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen title="Film EduPlaner 2026"></iframe>';
-    return '<video src="'+url+'" controls autoplay playsinline></video>';
+    if(vm) return '<iframe src="https://player.vimeo.com/video/'+vm[1]+'?autoplay=1&dnt=1" allow="autoplay; fullscreen" allowfullscreen title="Film EduPlaner 2026"></iframe>';
+    return '<video src="'+url+'" controls autoplay playsinline '
+      + 'controlslist="nodownload noremoteplayback" disablepictureinpicture disableremoteplayback '
+      + 'oncontextmenu="return false"></video>';
   }
   function open(url){ frame.innerHTML=embed(url); box.classList.add('on'); document.body.style.overflow='hidden'; box.querySelector('.close').focus(); }
   function close(){ box.classList.remove('on'); frame.innerHTML=''; document.body.style.overflow=''; }

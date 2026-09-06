@@ -100,12 +100,17 @@ po cichu, bez śladu i bez potwierdzenia. To pierwsza rzecz do wymiany.
 | Koszyk | jedna pozycja na raz | wiele pozycji w jednym zamówieniu |
 | Dostarczanie plików | ręcznie mailem | linki wygasające (72 h / 5 pobrań) |
 | Znak wodny w PDF | brak | przy pobraniu: nabywca, data, numer zamówienia |
+| Nagrania płatnych szkoleń | brak | hosting z podpisanym adresem, blokadą domeny i znakiem wodnym widza |
 | Adresy produktowe | `#pozycja-<id>` | `/broszury/<slug>`, mapa witryny |
 | Wysyłka towarów | brak | koszty, formy dostawy, adres, czas realizacji |
 | Baner cookies | niepotrzebny | konieczny, zanim wejdzie analityka albo piksel |
 
 Kontrakty punktów końcowych, model zamówienia, przebieg płatności, znak wodny
 i obowiązki RODO — `references/backend.md`.
+
+Zabezpieczenie broszur i nagrań — co da się zrobić, czego nie da się zrobić
+i czego nie wolno obiecać klientowi — `references/zabezpieczenia.md`. **Przeczytaj
+ten plik, zanim wgrasz na serwer pierwszą płatną broszurę albo nagranie szkolenia.**
 
 **Kolejność, którą polecam:** zapis zamówień i potwierdzenie mailem (bez tego
 sprzedaż jest dziurawa) → płatności online → linki wygasające i znak wodny →
