@@ -13,7 +13,11 @@ przy każdym wdrożeniu warto potwierdzić, czy nic się nie przesunęło.
 6. Kto jest kim: konsument, przedsiębiorca na prawach konsumenta, B2B
 7. Omnibus i opinie
 8. Cookies i RODO
-9. Najczęstsze błędy
+9. Licencja na oprogramowanie
+10. Fakturowanie i płatności
+11. Zwroty i odstąpienie poza obrotem konsumenckim
+12. Umowa z jednostką publiczną
+13. Najczęstsze błędy
 
 ## 1. Trzy dokumenty obowiązkowe
 
@@ -154,7 +158,107 @@ klienta i dane nigdy do Ciebie nie trafiają, nie jesteś procesorem i umowa
 powierzenia nie jest potrzebna — ale trzeba to napisać wprost, bo to pierwsze
 pytanie każdego dyrektora.
 
-## 9. Najczęstsze błędy
+## 9. Licencja na oprogramowanie
+
+Sprzedaż programu to nie sprzedaż rzeczy — to licencja. Zasady bierze się z ustawy
+o prawie autorskim i prawach pokrewnych, nie z przepisów o sprzedaży.
+
+**Forma i czas.** Licencja niewyłączna nie wymaga formy pisemnej; wyłączna — tak,
+pod rygorem nieważności (art. 67 ust. 5). Licencja bez wskazanego okresu wygasa
+po pięciu latach (art. 66). Licencję na czas nieoznaczony można wypowiedzieć
+(art. 68) — subskrypcja roczna omija ten kłopot, bo sama się kończy.
+
+**Pola eksploatacji.** Umowa obejmuje wyłącznie pola w niej wymienione (art. 41
+ust. 2). „Korzystanie z programu" to za mało: napisz, na ilu stanowiskach, przez
+kogo, w jakim celu i na jakim terytorium.
+
+**Czego nie da się zabronić.** Art. 75 ust. 2 i 3 daje użytkownikowi prawo do
+sporządzenia kopii zapasowej, obserwowania i testowania działania programu oraz
+dekompilacji w celu uzyskania interoperacyjności. Art. 76: **postanowienia umowne
+sprzeczne z tymi przepisami są nieważne**. Zakaz „dekompilacji, dezasemblacji
+i badania kodu" bez zastrzeżenia art. 75 ust. 2 i 3 jest w tej części martwy —
+lepiej dopisać zastrzeżenie, niż zostawić klauzulę, którą sąd i tak przekreśli.
+
+**Wygaśnięcie licencji.** Zapis „po roku program blokuje edycję" ma sens tylko
+wtedy, gdy program to potrafi. Przy instalacji lokalnej u klienta wskaż mechanizm
+(klucz z datą ważności) — inaczej jest to obietnica bez pokrycia. Dane wprowadzone
+przez klienta należą do klienta: zapewnij wgląd i eksport także po wygaśnięciu.
+
+**Wsparcie techniczne a RODO.** Jeżeli umowa deklaruje, że dostawca nie jest
+podmiotem przetwarzającym, a jednocześnie obiecuje wsparcie przy eksploatacji,
+dopisz warunek: gdy pomoc wymaga dostępu do danych, strony zawierają umowę
+powierzenia (art. 28 RODO) przed rozpoczęciem czynności. Bez tego deklaracja
+przestaje być prawdziwa w dniu pierwszej zdalnej pomocy.
+
+## 10. Fakturowanie i płatności
+
+**KSeF.** Od 2026 r. faktury ustrukturyzowane w Krajowym Systemie e-Faktur są
+obowiązkowe (najwięksi podatnicy od 1 lutego, pozostali od 1 kwietnia — datę
+potwierdź u księgowej, bo terminy były przesuwane). W praktyce zmienia to dwie
+rzeczy w umowie: fakturę wystawia się przez KSeF, a moment doręczenia to
+przydzielenie numeru KSeF, nie wysyłka e-mailem. Zapis „14 dni od doręczenia
+faktury" trzeba do tego dopasować.
+
+**Jednostki publiczne.** Ustawa z 9 listopada 2018 r. o elektronicznym fakturowaniu
+w zamówieniach publicznych nakłada na zamawiających obowiązek odbioru faktur przez
+Platformę Elektronicznego Fakturowania.
+
+**Terminy.** W transakcjach handlowych, w których dłużnikiem jest podmiot publiczny,
+termin zapłaty nie może przekroczyć 30 dni (podmioty lecznicze — 60). Odsetki
+ustawowe za opóźnienie w transakcjach handlowych oraz rekompensata za koszty
+odzyskiwania należności (równowartość 40, 70 albo 100 euro zależnie od kwoty)
+przysługują z mocy ustawy, nawet gdy umowa o nich milczy.
+
+**Nabywca i odbiorca.** W samorządzie fakturę wystawia się na gminę (nabywca,
+NIP gminy), a szkoła jest odbiorcą. Umowa musi rozróżniać oba podmioty, inaczej
+faktura wraca do korekty i płatność się opóźnia.
+
+**Podzielona płatność** dotyczy transakcji od 15 000 zł brutto przy towarach
+i usługach z załącznika nr 15 do ustawy o VAT — przy pojedynczej subskrypcji
+zwykle nie wystąpi, przy pakiecie dla zespołu szkół warto sprawdzić.
+
+## 11. Zwroty i odstąpienie poza obrotem konsumenckim
+
+Jednostka budżetowa, szkoła i organ prowadzący **nie są konsumentami** ani
+przedsiębiorcami na prawach konsumenta. Nie mają czternastu dni na odstąpienie
+i można wobec nich wyłączyć rękojmię (art. 558 § 1 KC). To nie znaczy jednak,
+że da się wyłączyć wszystko:
+
+- **Art. 558 § 2 KC** — wyłączenie rękojmi jest bezskuteczne, gdy sprzedawca
+  podstępnie zataił wadę.
+- **Art. 473 § 2 KC** — nie można z góry wyłączyć odpowiedzialności za szkodę
+  wyrządzoną umyślnie.
+- **Art. 491 KC** — przy zwłoce drugiej strony prawo odstąpienia wynika z ustawy.
+  Klauzula „w żadnym wypadku nie przysługuje odstąpienie" idzie w tej części
+  za daleko; bezpieczniej dopisać: „powyższe nie wyłącza uprawnień Zamawiającego
+  w razie niewykonania lub nienależytego wykonania Umowy przez Licencjodawcę".
+
+Klauzula bezzwrotności ma sens i jest dopuszczalna, gdy dotyczy przyczyn leżących
+po stronie kupującego (zmiana organizacji pracy, rezygnacja zespołu). Rozciągnięta
+na wszystko — także na wady po stronie sprzedawcy — osłabia całą umowę, bo sąd
+wykreśli nadmiar, a przy okazji przyjrzy się reszcie.
+
+## 12. Umowa z jednostką publiczną
+
+- **Zamówienia publiczne**: poniżej 130 000 zł netto ustawy Prawo zamówień
+  publicznych *nie stosuje się* (art. 2 ust. 1 pkt 1) — to nie jest „wyłączenie
+  przez strony", tylko brak zastosowania z mocy ustawy. Wartość szacuje zamawiający,
+  z uwzględnieniem zamówień podobnych w roku budżetowym.
+- **Finanse publiczne**: art. 44 ust. 3 (celowość i oszczędność wydatku),
+  art. 54 (kontrola wstępna głównego księgowego). W samorządzie czynność powodująca
+  zobowiązanie pieniężne wymaga **kontrasygnaty skarbnika** (art. 46 ust. 3 ustawy
+  o samorządzie gminnym). Wzór umowy powinien mieć na to miejsce — brak podpisu
+  księgowego wstrzymuje płatność, choćby umowa była poprawna.
+- **Pełnomocnictwo**: dyrektor działa na podstawie pełnomocnictwa organu
+  prowadzącego. Warto dołączyć jego kopię jako załącznik.
+- **Forma**: pisemna albo elektroniczna z podpisem kwalifikowanym. Skan podpisu
+  nie jest podpisem elektronicznym; przy ePUAP liczy się podpis zaufany.
+- **Cytowanie przepisów**: nie przyklejaj do ustawy numeru tekstu jednolitego
+  („t.j. Dz. U. z 2023 r. poz. 1605"), jeśli nie sprawdzasz go przy każdej wersji
+  wzoru. Nieaktualny publikator wygląda gorzej niż jego brak — wystarczy nazwa
+  i data uchwalenia ustawy.
+
+## 13. Najczęstsze błędy
 
 1. Regulamin skopiowany z innego sklepu, opisujący towary, których nie sprzedajesz.
 2. Jedna zbiorcza zgoda zamiast kilku osobnych.
@@ -165,3 +269,7 @@ pytanie każdego dyrektora.
    gdzie analityka ładuje się od pierwszej sekundy.
 7. Te same zasady zwrotu dla pliku PDF i dla paczki z kurierem.
 8. Promocja bez najniższej ceny z 30 dni.
+9. Zakaz dekompilacji bez zastrzeżenia art. 75 ust. 2 i 3 ustawy o prawie autorskim.
+10. Klauzula bezzwrotności rozciągnięta także na wady po stronie sprzedawcy.
+11. Umowa z samorządem bez miejsca na kontrasygnatę skarbnika albo podpis księgowego.
+12. Termin płatności liczony od „doręczenia faktury", gdy fakturę i tak wystawia KSeF.

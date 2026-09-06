@@ -104,6 +104,12 @@ Sprzedaż w Polsce wymaga trzech dokumentów i kilku elementów w interfejsie.
   (bo kupuje to instytucja na fakturę), napisz to w regulaminie, powiedz na stronie
   i **sprawdź po stronie serwera**. Wyszarzona pozycja na liście nie jest
   zabezpieczeniem — jest podpowiedzią.
+- **Sprzedaż instytucji na umowę**: gdy kupującym jest szkoła albo organ prowadzący,
+  wzór umowy i protokół odbioru mają być do wglądu **przed** zamówieniem, a nie
+  dopiero po. Umowa licencyjna rządzi się prawem autorskim, nie przepisami
+  o sprzedaży rzeczy: są w niej uprawnienia, których nie wolno wyłączyć (art. 75
+  ust. 2 i 3), fakturowanie przez KSeF i miejsce na podpis księgowego. Szczegóły
+  w `references/prawo.md`, rozdziały 9–12.
 - **Cookies**: baner jest potrzebny dopiero wtedy, gdy strona ładuje analitykę
   lub marketing. Strona bez skryptów śledzących nie potrzebuje banera i lepiej
   napisać to wprost, niż dokładać okienko dla ozdoby.
