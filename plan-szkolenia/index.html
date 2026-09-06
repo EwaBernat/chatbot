@@ -18,6 +18,8 @@
   --accent:#C93B08;
   --accent-soft:#FBEADF;
   --good:#1C6B4E;
+  --bad:#A8261A;
+  --on-track:#FFFFFF;
   --shadow:0 1px 2px rgba(25,19,48,.05);
   --track:var(--brand);
   --track-soft:var(--brand-soft);
@@ -38,6 +40,8 @@
     --accent:#FF8354;
     --accent-soft:#33202A;
     --good:#5CC79C;
+    --bad:#FF9A8F;
+    --on-track:#171226;
     --shadow:0 1px 2px rgba(0,0,0,.3);
   }
 }
@@ -55,6 +59,8 @@
   --accent:#FF8354;
   --accent-soft:#33202A;
   --good:#5CC79C;
+  --bad:#FF9A8F;
+  --on-track:#171226;
   --shadow:0 1px 2px rgba(0,0,0,.3);
 }
 
@@ -63,6 +69,7 @@
 [data-track="s"]{--track:var(--brand);--track-soft:var(--brand-soft)}
 
 *{box-sizing:border-box}
+[hidden]{display:none!important}
 body{
   margin:0;
   background:var(--paper);
@@ -99,13 +106,14 @@ a{color:var(--track);text-underline-offset:.18em}
 .mark{display:flex;align-items:baseline;gap:10px;min-width:0}
 .mark b{font-family:Newsreader,Georgia,serif;font-weight:600;font-size:17px;letter-spacing:.01em}
 .mark span{font-size:12px;color:var(--muted)}
+.navs{display:flex;flex-wrap:wrap;gap:10px;align-items:center}
 .switch{display:flex;gap:4px;background:var(--surface-2);border:1px solid var(--line);border-radius:999px;padding:3px}
 .switch button{
   font:inherit;font-size:13.5px;font-weight:500;
   border:0;background:transparent;color:var(--ink-2);
   padding:6px 15px;border-radius:999px;cursor:pointer;white-space:nowrap;
 }
-.switch button[aria-selected="true"]{background:var(--surface);color:var(--ink);box-shadow:var(--shadow)}
+.switch button[aria-checked="true"]{background:var(--surface);color:var(--ink);box-shadow:var(--shadow)}
 .switch button:hover{color:var(--ink)}
 
 /* ---------- nagłówek ścieżki ---------- */
@@ -231,8 +239,147 @@ tr.total td{border-top:2px solid var(--track);font-weight:600;background:var(--t
 footer{border-top:1px solid var(--line);padding:22px 0 46px;font-size:13.4px;color:var(--muted)}
 footer p + p{margin-top:6px}
 
+/* ---------- moduł warsztatowy ---------- */
+.wk-intro{padding:46px 0 0}
+.wk-intro h1{font-size:clamp(28px,4.2vw,40px);letter-spacing:-.015em;max-width:19ch}
+.wk-intro .lead{margin-top:14px;max-width:66ch;font-size:17px;color:var(--ink-2)}
+.wk-bar{
+  display:flex;flex-wrap:wrap;gap:14px 22px;align-items:center;
+  margin-top:26px;padding:14px 18px;border:1px solid var(--line);background:var(--surface);
+}
+.wk-bar .stat{font-size:13.6px;color:var(--muted);white-space:nowrap}
+.wk-bar .stat b{font-family:"IBM Plex Mono",monospace;font-size:14.5px;color:var(--ink);font-weight:500}
+.progress{height:6px;background:var(--surface-2);border:1px solid var(--line);flex:1 1 140px;min-width:120px;position:relative;overflow:hidden}
+.progress i{position:absolute;top:0;bottom:0;left:0;background:var(--track);width:0;transition:width .2s ease}
+
+.btn{
+  font:inherit;font-size:13.4px;font-weight:500;line-height:1.2;
+  border:1px solid var(--line);background:var(--surface);color:var(--ink);
+  padding:8px 14px;border-radius:5px;cursor:pointer;
+}
+.btn:hover{border-color:var(--muted)}
+.btn[data-variant="primary"]{background:var(--track);border-color:var(--track);color:var(--on-track)}
+.btn[data-variant="primary"]:hover{filter:brightness(1.08)}
+.btn[data-variant="quiet"]{background:transparent;border-color:transparent;color:var(--muted);padding:8px 4px;text-decoration:underline;text-underline-offset:.2em}
+.btn[data-variant="quiet"]:hover{color:var(--ink)}
+
+.ex-list{margin:26px 0 0}
+.ex{border-top:1px solid var(--line);padding:28px 0}
+.ex:last-of-type{border-bottom:1px solid var(--line)}
+.ex[data-done="1"] .ex-id::after{content:" · zamknięte";color:var(--good)}
+.ex-top{display:flex;flex-wrap:wrap;gap:14px 24px;align-items:flex-start;justify-content:space-between}
+.ex-top > div:first-child{flex:1 1 420px;min-width:0}
+.timer{flex:0 0 auto}
+.ex-id{font-family:"IBM Plex Mono",monospace;font-size:11px;letter-spacing:.11em;text-transform:uppercase;color:var(--track)}
+.ex h3{font-size:20.5px;margin-top:7px;max-width:36ch}
+.ex-meta{display:flex;flex-wrap:wrap;gap:4px 18px;margin-top:9px;font-size:13.4px;color:var(--muted)}
+.ex-meta b{font-weight:500;color:var(--ink-2)}
+.ex-druk{
+  display:flex;flex-direction:column;gap:3px;margin-top:10px;padding-left:13px;
+  border-left:2px solid var(--track-soft);font-size:13.4px;color:var(--muted);max-width:64ch;
+}
+.ex-druk b{font-family:"IBM Plex Mono",monospace;font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--track);font-weight:400;margin-right:6px}
+.wk-druki{margin-top:14px;font-size:13.6px;color:var(--muted);max-width:88ch;line-height:1.55}
+.wk-druki b{font-family:"IBM Plex Mono",monospace;font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--track);font-weight:400;display:block;margin-bottom:3px}
+.timer{display:flex;align-items:center;gap:9px}
+.timer .clock{font-family:"IBM Plex Mono",monospace;font-size:25px;font-variant-numeric:tabular-nums;color:var(--ink);min-width:4.6ch;text-align:right}
+.timer[data-state="over"] .clock{color:var(--accent)}
+.timer[data-state="run"] .clock{color:var(--track)}
+.polecenie{margin-top:16px;max-width:72ch;font-size:15.4px;color:var(--ink-2)}
+.widgets{margin-top:20px;display:flex;flex-direction:column;gap:20px}
+
+.field{display:block}
+.field .lbl{display:block;font-family:"IBM Plex Mono",monospace;font-size:10.5px;letter-spacing:.11em;text-transform:uppercase;color:var(--muted);margin-bottom:6px}
+.field textarea,.field input[type="text"],.field input[type="number"],.field select{
+  font:inherit;font-size:14.8px;width:100%;
+  background:var(--surface);color:var(--ink);border:1px solid var(--line);border-radius:4px;
+  padding:9px 11px;
+}
+.field textarea{resize:vertical;line-height:1.55}
+.field input:focus,.field textarea:focus,.field select:focus{border-color:var(--track)}
+.print-echo{display:none}
+
+.qz{border:1px solid var(--line);background:var(--surface)}
+.qz-h{font-family:"IBM Plex Mono",monospace;font-size:10.5px;letter-spacing:.11em;text-transform:uppercase;color:var(--muted);padding:11px 16px;border-bottom:1px solid var(--line);background:var(--surface-2)}
+.qz-row{display:grid;gap:8px 18px;padding:11px 16px;border-bottom:1px solid var(--line-soft);align-items:center}
+@media(min-width:760px){.qz-row{grid-template-columns:1fr 19rem}}
+.qz-row:last-of-type{border-bottom:0}
+.qz-row p{font-size:14.8px}
+.qz-row select{font:inherit;font-size:14.4px;width:100%;background:var(--surface);color:var(--ink);border:1px solid var(--line);border-radius:4px;padding:7px 9px}
+.qz-row[data-v="ok"]{background:color-mix(in srgb,var(--good) 8%,transparent)}
+.qz-row[data-v="no"]{background:color-mix(in srgb,var(--bad) 8%,transparent)}
+.opt{display:flex;gap:11px;align-items:flex-start;padding:9px 16px;border-bottom:1px solid var(--line-soft);font-size:14.8px;cursor:pointer}
+.opt:last-of-type{border-bottom:0}
+.opt input{margin-top:4px;accent-color:var(--track);flex:none}
+.opt[data-v="ok"]{background:color-mix(in srgb,var(--good) 8%,transparent)}
+.opt[data-v="no"]{background:color-mix(in srgb,var(--bad) 8%,transparent)}
+.opt .why{display:block;font-size:12.8px;color:var(--muted);margin-top:2px}
+.qz-foot{display:flex;flex-wrap:wrap;gap:12px;align-items:center;padding:12px 16px;border-top:1px solid var(--line)}
+.verdict{font-size:13.8px;color:var(--ink-2)}
+.verdict b{font-family:"IBM Plex Mono",monospace;color:var(--ink)}
+
+.calc{border:1px solid var(--line);background:var(--surface);padding:16px}
+.calc-grid{display:grid;gap:14px;grid-template-columns:repeat(auto-fit,minmax(150px,1fr))}
+.calc-out{
+  margin-top:14px;padding:13px 15px;background:var(--surface-2);border-left:3px solid var(--track);
+  font-size:15px;display:flex;flex-wrap:wrap;gap:6px 22px;align-items:baseline;
+}
+.calc-out .big{font-family:"IBM Plex Mono",monospace;font-size:22px;color:var(--ink)}
+.calc-out .tag{font-size:13.4px;color:var(--ink-2)}
+.lvl{display:inline-block;padding:2px 9px;border-radius:999px;font-size:12.6px;font-weight:500;border:1px solid}
+.lvl[data-l="zasob"]{color:var(--good);border-color:color-mix(in srgb,var(--good) 45%,transparent);background:color-mix(in srgb,var(--good) 10%,transparent)}
+.lvl[data-l="I"]{color:var(--good);border-color:color-mix(in srgb,var(--good) 35%,transparent);background:transparent}
+.lvl[data-l="II"]{color:#8A5A00;border-color:#D9A441;background:color-mix(in srgb,#D9A441 14%,transparent)}
+.lvl[data-l="III"]{color:var(--bad);border-color:color-mix(in srgb,var(--bad) 45%,transparent);background:color-mix(in srgb,var(--bad) 10%,transparent)}
+.lvl[data-l="brak"]{color:var(--muted);border-color:var(--line)}
+:root[data-theme="dark"] .lvl[data-l="II"],
+:root:not([data-theme="light"]) .lvl[data-l="II"]{color:#E8B75C;border-color:#7A5A18}
+@media(prefers-color-scheme: light){:root:not([data-theme="dark"]) .lvl[data-l="II"]{color:#8A5A00;border-color:#D9A441}}
+
+.smart-preview{
+  margin-top:14px;padding:14px 16px;border-left:3px solid var(--track);background:var(--surface-2);
+  font-family:Newsreader,Georgia,serif;font-size:18px;line-height:1.45;
+}
+.smart-preview .gap{color:var(--muted);font-style:italic}
+.badges{display:flex;gap:6px;margin-top:12px;flex-wrap:wrap}
+.badge{
+  font-family:"IBM Plex Mono",monospace;font-size:12px;width:26px;height:26px;
+  display:grid;place-items:center;border:1px solid var(--line);color:var(--muted);border-radius:4px;
+}
+.badge[data-on="1"]{background:var(--track);border-color:var(--track);color:var(--on-track)}
+.badge-note{font-size:13px;color:var(--muted);align-self:center}
+
+.rule-out{margin-top:12px;padding:12px 15px;background:var(--surface-2);border-left:3px solid var(--track);font-size:14.6px}
+.rule-out ul{margin:6px 0 0;padding-left:18px}
+.rule-out li{margin-bottom:3px}
+
+.key{margin-top:18px;border:1px dashed var(--line);padding:0}
+.key > button{width:100%;text-align:left;background:transparent;border:0;font:inherit;font-size:13.6px;font-weight:500;color:var(--track);padding:11px 16px;cursor:pointer}
+.key .key-body{padding:0 16px 16px;font-size:14.8px;color:var(--ink-2);max-width:74ch}
+.key .key-body p + p{margin-top:9px}
+.key .key-body em{color:var(--ink);font-style:normal;font-weight:500}
+.key[data-open="1"]{border-style:solid;background:var(--surface)}
+
+.ex-foot{display:flex;flex-wrap:wrap;gap:14px 20px;align-items:center;margin-top:18px}
+.ex-foot .produkt{font-size:14.2px;color:var(--muted);flex:1 1 260px}
+.ex-foot .produkt b{color:var(--ink-2);font-weight:500}
+.done-toggle{display:flex;gap:8px;align-items:center;font-size:13.6px;color:var(--ink-2);cursor:pointer}
+.done-toggle input{accent-color:var(--track)}
+
+.summary{margin:0 0 60px;border:1px solid var(--line);background:var(--surface);padding:22px 24px}
+.summary h3{font-size:19px}
+.summary .hint{font-size:13.8px;color:var(--muted);margin-top:6px}
+.summary dl{margin:18px 0 0}
+.summary dt{font-family:"IBM Plex Mono",monospace;font-size:11px;letter-spacing:.09em;text-transform:uppercase;color:var(--track);margin-top:14px}
+.summary dd{margin:4px 0 0;font-size:14.8px;color:var(--ink-2);white-space:pre-wrap}
+.summary .empty{font-size:14.6px;color:var(--muted);margin-top:14px}
+
 @media print{
   .topbar{position:static;background:none}
+  .timer,.btn,.wk-bar .progress,.done-toggle{display:none}
+  .key{border-style:solid}
+  .field textarea{display:none}
+  .print-echo{display:block;min-height:2.6em;border-bottom:1px solid var(--line);font-size:14.6px;white-space:pre-wrap}
   .switch{display:none}
   section.block{page-break-inside:auto}
   .mod{page-break-inside:avoid}
@@ -246,15 +393,22 @@ footer p + p{margin-top:6px}
       <b>EduPlaner 2026</b>
       <span>PCTP · plan szkolenia rady pedagogicznej</span>
     </div>
-    <div class="switch" role="tablist" aria-label="Wybór ścieżki szkolenia">
-      <button role="tab" id="tab-p" aria-controls="panel-p" aria-selected="true">Przedszkole</button>
-      <button role="tab" id="tab-s" aria-controls="panel-s" aria-selected="false">Szkoła podstawowa</button>
+    <div class="navs">
+      <div class="switch" role="radiogroup" aria-label="Ścieżka szkolenia">
+        <button role="radio" data-track="p" aria-checked="true">Przedszkole</button>
+        <button role="radio" data-track="s" aria-checked="false">Szkoła podstawowa</button>
+      </div>
+      <div class="switch" role="radiogroup" aria-label="Widok">
+        <button role="radio" data-view="plan" aria-checked="true">Plan</button>
+        <button role="radio" data-view="warsztat" aria-checked="false">Warsztat</button>
+      </div>
     </div>
   </div>
 </div>
 
 <!-- ============================ PRZEDSZKOLE ============================ -->
-<main id="panel-p" role="tabpanel" aria-labelledby="tab-p" data-track="p">
+<div id="view-plan">
+<main id="panel-p" data-track="p" aria-label="Plan szkolenia — przedszkole">
 
   <div class="hero">
     <div class="wrap">
@@ -532,7 +686,7 @@ footer p + p{margin-top:6px}
 </main>
 
 <!-- ============================ SZKOŁA ============================ -->
-<main id="panel-s" role="tabpanel" aria-labelledby="tab-s" data-track="s" hidden>
+<main id="panel-s" data-track="s" aria-label="Plan szkolenia — szkoła podstawowa" hidden>
 
   <div class="hero">
     <div class="wrap">
@@ -745,7 +899,7 @@ footer p + p{margin-top:6px}
             <tr><td>S6 · Obserwacja pogłębiona</td><td class="num">10:30</td><td class="num">25 min</td><td class="num">36 min</td></tr>
             <tr><td>S7 · Ocena, program, plan wsparcia, cele</td><td class="num">14:10</td><td class="num">35 min</td><td class="num">49 min</td></tr>
             <tr><td>Zamknięcie — checklista 30 / 60 / 90 dni</td><td class="num">—</td><td class="num">15 min</td><td class="num">15 min</td></tr>
-            <tr class="total"><td>Razem</td><td class="num">71:40</td><td class="num">2 h 45 min</td><td class="num">ok. 4 h 40 min</td></tr>
+            <tr class="total"><td>Razem</td><td class="num">71:40</td><td class="num">3 h</td><td class="num">ok. 4 h 40 min</td></tr>
           </tbody>
         </table>
       </div>
@@ -884,6 +1038,29 @@ footer p + p{margin-top:6px}
     </div>
   </div>
 </main>
+</div>
+
+<div id="view-warsztat" data-track="p" hidden>
+  <div class="wk-intro">
+    <div class="wrap">
+      <div class="kicker"><span class="dot"></span><span class="eyebrow" id="wk-eyebrow"></span></div>
+      <h1 id="wk-title"></h1>
+      <p class="lead">Moduł warsztatowy dokłada się do filmu: po projekcji każdego modułu zatrzymujemy nagranie i uruchamiamy ćwiczenie z tej strony. Odpowiedzi zapisują się w przeglądarce uczestnika i nie opuszczają jego urządzenia. Klucz odsłania prowadzący — dopiero gdy minie czas ćwiczenia.</p>
+      <div class="wk-bar">
+        <span class="stat">Ćwiczenia <b id="wk-count"></b></span>
+        <span class="stat">Czas ćwiczeń <b id="wk-time"></b></span>
+        <span class="stat">Zamknięte <b id="wk-done"></b></span>
+        <span class="progress"><i id="wk-progress"></i></span>
+        <button class="btn" data-variant="quiet" id="wk-clear">Wyczyść odpowiedzi</button>
+      </div>
+      <p class="wk-druki" id="wk-druki"></p>
+    </div>
+  </div>
+  <div class="wrap">
+    <div class="ex-list" id="ex-list"></div>
+    <div class="summary" id="wk-summary"></div>
+  </div>
+</div>
 
 <footer>
   <div class="wrap">
@@ -894,29 +1071,777 @@ footer p + p{margin-top:6px}
 
 <script>
 (function () {
-  var tabs = [document.getElementById('tab-p'), document.getElementById('tab-s')];
-  var panels = [document.getElementById('panel-p'), document.getElementById('panel-s')];
+  'use strict';
 
-  function show(i, focus) {
-    tabs.forEach(function (t, j) { t.setAttribute('aria-selected', String(j === i)); });
-    panels.forEach(function (p, j) { p.hidden = j !== i; });
-    if (focus) { tabs[i].focus(); }
-    if (history.replaceState) {
-      history.replaceState(null, '', i === 1 ? '#szkola' : '#przedszkole');
+  /* ============================ DANE WARSZTATU ============================ */
+
+  var PUB = {
+    ks: 't.j. Dz.U. 2020 poz. 1309',
+    pp: 't.j. Dz.U. 2023 poz. 1798',
+    dok: 't.j. Dz.U. 2024 poz. 50',
+    orz: 'Dz.U. 2026 poz. 428',
+    pods: 'Dz.U. 2026 poz. 378',
+    po: 't.j. Dz.U. 2026 poz. 820',
+    swiad: 'Dz.U. 2023 poz. 1120',
+    ocen: 'Dz.U. 2019 poz. 373',
+    dost: 't.j. Dz.U. 2024 poz. 1411',
+    indyw: 'Dz.U. 2017 poz. 1616',
+    org: 't.j. Dz.U. 2023 poz. 2736'
+  };
+
+  var PYTANIA = [
+    'Kogo wezwać? Co podać? Od kiedy liczyć termin?',
+    'GDZIE radzi sobie dobrze, a gdzie potrzebuje wsparcia?',
+    'DLACZEGO to zachowanie się powtarza?',
+    'Jaki jest całościowy obraz funkcjonowania?',
+    'Co robimy, kto, w jakim wymiarze i do kiedy?',
+    'Czy zadziałało i co dalej?',
+    'Jak organizujemy pomoc bez orzeczenia?'
+  ];
+
+  var DATA = {
+    p: {
+      eyebrow: 'Warsztat · ścieżka przedszkolna · 6 ćwiczeń',
+      title: 'Sześć ćwiczeń do sześciu modułów',
+      time: '2 h 00 min',
+      druki: 'Metryczka dziecka · KPOF (wersje A, B, C) · karta decyzyjna · karta ABC · profil sensoryczny · karta obserwacji rozwoju mowy i komunikacji · obserwacja teorii umysłu · WOPF · IPET · karta celu SMART · karta ewaluacji · opinia o funkcjonowaniu dziecka · rejestr kontaktów (sekcja XI metryczki)',
+      ex: [
+        {
+          id: 'p1', tag: 'Ćwiczenie 1 · po module M1 · film 9:30', min: 15,
+          title: 'Audyt publikatorów w naszych drukach',
+          forma: 'Zespoły 3–4 osoby', mat: 'Po jednym wzorze druku z placówki na osobę',
+          druk: 'Wszystkie druki przedszkolne — stopka z podstawą prawną',
+          zasila: 'Zarządzenie dyrektora — wykaz druków obowiązujących w przedszkolu',
+          polecenie: 'Najpierw wspólnie: dopasujcie do każdego aktu obowiązujący publikator. Potem każdy bierze swój druk i sprawdza stopkę — czy stoi w niej tekst jednolity, czy publikator pierwotny.',
+          w: [
+            { t: 'match', label: 'Dopasuj obowiązujący publikator', rows: [
+              { q: 'Kształcenie specjalne — WOPF i IPET (rozp. MEN z 9 sierpnia 2017 r.)', opts: ['Dz.U. 2017 poz. 1578', PUB.ks, PUB.pp], a: 1 },
+              { q: 'Pomoc psychologiczno-pedagogiczna (rozp. MEN z 9 sierpnia 2017 r.)', opts: [PUB.pp, 'Dz.U. 2017 poz. 1591', PUB.ks], a: 0 },
+              { q: 'Dokumentacja przebiegu wychowania przedszkolnego (rozp. MEN z 25 sierpnia 2017 r.)', opts: [PUB.pp, PUB.dok, PUB.org], a: 1 },
+              { q: 'Podstawa programowa wychowania przedszkolnego (rozp. ME z 11 marca 2026 r.)', opts: [PUB.orz, PUB.pods, PUB.swiad], a: 1 },
+              { q: 'Orzeczenia i opinie zespołów orzekających (rozp. ME z 2 marca 2026 r.)', opts: [PUB.pods, PUB.po, PUB.orz], a: 2 },
+              { q: 'Prawo oświatowe (ustawa z 14 grudnia 2016 r.)', opts: [PUB.po, PUB.dok, PUB.orz], a: 0 },
+              { q: 'Wzór informacji o gotowości dziecka do podjęcia nauki w szkole', opts: [PUB.swiad, PUB.org, PUB.pods], a: 0 }
+            ] },
+            { t: 'text', label: 'Które nasze druki wymagają poprawki i kto ją wprowadza?', rows: 3,
+              ph: 'np. karta obserwacji — stopka z publikatorem pierwotnym; poprawia koordynator do 15 września' }
+          ],
+          klucz: '<p>Pozycje <em>1578</em> i <em>1591</em> to publikatory pierwotne. Służą do rozpoznania, o który akt chodzi, a nie do cytowania — w dokumencie dziecka wpisujemy wyłącznie obowiązujące teksty jednolite: <em>1309</em> dla kształcenia specjalnego i <em>1798</em> dla pomocy psychologiczno-pedagogicznej. Dwa różne akty, ta sama data 9 sierpnia 2017 r.</p><p>Rozporządzenie MEN z 7 września 2017 r. o orzekaniu zostało uchylone 14 kwietnia 2026 r. Tego publikatora nie wolno już cytować jako obowiązującego.</p><p>Teksty jednolite bywają ogłaszane w trakcie roku szkolnego, dlatego publikator sprawdzamy w ISAP przed każdym cyklem dokumentacyjnym. To zadanie Strażnika Prawa.</p>',
+          produkt: 'Lista druków do poprawy i wyznaczony Strażnik Prawa.'
+        },
+        {
+          id: 'p2', tag: 'Ćwiczenie 2 · po module M2 · film 5:36', min: 10,
+          title: 'Sześć przystanków — na jakie pytanie odpowiada każdy dokument',
+          forma: 'W parach', mat: 'Schemat obiegu — sześć przystanków',
+          druk: 'Metryczka · KPOF · karta decyzyjna · WOPF · IPET · karta ewaluacji',
+          zasila: 'Załącznik do zarządzenia dyrektora — obieg dokumentacji dziecka',
+          polecenie: 'Przypiszcie każdemu dokumentowi pytanie, na które on odpowiada. Potem nazwijcie przystanek, który w naszym przedszkolu działa najsłabiej.',
+          w: [
+            { t: 'match', label: 'Dokument → pytanie', rows: [
+              { q: 'Metryczka dziecka', opts: PYTANIA.slice(0, 6), a: 0 },
+              { q: 'Kwestionariusz KPOF', opts: PYTANIA.slice(0, 6), a: 1 },
+              { q: 'Obserwacja pogłębiona (ABC, sensoryka, mowa, ToM)', opts: PYTANIA.slice(0, 6), a: 2 },
+              { q: 'Wielospecjalistyczna ocena poziomu funkcjonowania', opts: PYTANIA.slice(0, 6), a: 3 },
+              { q: 'Indywidualny program edukacyjno-terapeutyczny', opts: PYTANIA.slice(0, 6), a: 4 },
+              { q: 'Karta ewaluacji celu', opts: PYTANIA.slice(0, 6), a: 5 }
+            ] },
+            { t: 'text', label: 'Który przystanek jest u nas najsłabszy i co go blokuje?', rows: 3,
+              ph: 'np. obserwacja pogłębiona — brak karty decyzyjnej, decyzja zależy od tego, kto patrzy na arkusz' }
+          ],
+          klucz: '<p>Każdy dokument bierze dane z poprzedniego. Jeśli pominiemy etap, następny trzeba wypełniać z pamięci — a dokumentacja wypełniana z pamięci nie służy ani dziecku, ani nam.</p><p>Opinia dla poradni stoi obok obiegu i nie powstaje od zera: mocne strony bierzemy z kwestionariusza, opis trudności z obserwacji pogłębionej, efekty wsparcia z karty ewaluacji, przebieg współpracy z rejestru w metryczce. Dlatego dziesięć dni jest terminem realnym.</p>',
+          produkt: 'Schemat obiegu z zaznaczonym najsłabszym ogniwem — materiał do zarządzenia dyrektora.'
+        },
+        {
+          id: 'p3', tag: 'Ćwiczenie 3 · po module M3 · film 5:45', min: 15,
+          title: 'Metryczka: trzy pytania w kilkanaście sekund',
+          forma: 'Indywidualnie, potem porównanie w parach', mat: 'Metryczka dziecka — sekcje I–VII i XI',
+          druk: 'Metryczka dziecka (druk wewnętrzny, zarządzenie dyrektora)',
+          zasila: 'Wszystkie kolejne druki — dziedziczenie danych; sekcja XI zasila opinię dla poradni',
+          polecenie: 'Zaznacz pozycje, których do metryczki nie wpisujemy. Potem sprawdź swój druk testem odczytu: czy w kilkanaście sekund odpowie na trzy pytania?',
+          w: [
+            { t: 'pick', label: 'Zaznacz pozycje, których NIE wpisujemy do metryczki', items: [
+              { s: 'numer PESEL dziecka', sel: true, why: 'Jest w księdze dzieci — nie powielamy go w kolejnym dokumencie (zasada minimalizacji danych).' },
+              { s: 'data i miejsce urodzenia', sel: false, why: 'Sekcja I — wpisujemy z dokumentów rekrutacyjnych.' },
+              { s: 'numer w księdze dzieci', sel: false, why: 'Przepisujemy z ewidencji przedszkola.' },
+              { s: 'miejsce pracy rodziców', sel: true, why: 'Dana niepotrzebna do realizacji zadań przedszkola — zbieramy tylko to, co potrzebne.' },
+              { s: 'osoby upoważnione do odbioru i kolejność powiadamiania', sel: false, why: 'Sekcje IV–V, wyłącznie na piśmie; zmianę rodzic zgłasza pisemnie, a poprzedni wpis zostaje z datą wykreślenia.' },
+              { s: 'produkty wykluczone z diety i sposób ich zastępowania', sel: false, why: 'Sekcja VI — informacja operacyjna, musi być dostępna natychmiast.' },
+              { s: 'kopia dokumentacji medycznej dziecka', sel: true, why: 'W druku zapisujemy tylko informację niezbędną do organizacji i bezpieczeństwa; zaświadczenie zostaje w teczce.' },
+              { s: 'numer i data orzeczenia oraz podstawa jego wydania', sel: false, why: 'Sekcja VII — data uruchamia trzydziestodniowy termin na program.' }
+            ] },
+            { t: 'check', label: 'Test odczytu — czy nasza metryczka odpowiada na te pytania w kilkanaście sekund?', items: [
+              'Kogo wezwać?', 'Co podać?', 'Od kiedy liczyć termin?'
+            ] },
+            { t: 'text', label: 'Co trzeba zmienić w naszym druku, żeby test przeszedł?', rows: 3, ph: '' }
+          ],
+          klucz: '<p>Metryczka jest dokumentem operacyjnym, nie archiwalnym. Nauczycielka na zastępstwie ma otworzyć jedną kartę, a nie szukać po segregatorach.</p><p>W polu zaleceń dotyczących postępowania zapisujemy konkretnie: <em>kto podaje lek, na jakiej podstawie, gdzie lek jest przechowywany i kogo powiadamiamy w jakiej kolejności</em>. „Na jakiej podstawie” nie oznacza przepisu ustawy — dla przedszkola takiego przepisu nie ma. Oznacza trzy dokumenty: pisemne upoważnienie rodziców ze wskazaniem leku, dawki i godzin, dobrowolną pisemną zgodę nauczyciela oraz procedurę przyjętą zarządzeniem dyrektora. Bez tego kompletu leku nie podajemy, a nauczyciel nie ma obowiązku jego podania.</p>',
+          produkt: 'Uzgodniony zakres danych w metryczce i lista pól do usunięcia.'
+        },
+        {
+          id: 'p4', tag: 'Ćwiczenie 4 · po module M4 · film 10:08', min: 30,
+          title: 'Policz obszar KPOF i odczytaj profil',
+          forma: 'Indywidualnie na własnym arkuszu', mat: 'Wypełniony arkusz KPOF — wersja A (3–4 lata), B (5 lat) albo C (6 lat)',
+          druk: 'KPOF — Kwestionariusz Przedszkolnej Oceny Funkcjonalnej',
+          zasila: 'WOPF — blok „funkcjonowanie w dziewięciu obszarach” i blok mocnych stron',
+          polecenie: 'Policz średnią jednego obszaru: suma punktów podzielona przez liczbę twierdzeń ocenionych, z pominięciem pozycji N. Kalkulator jest wypełniony przykładem z filmu — nadpisz go swoimi liczbami.',
+          w: [
+            { t: 'kpof' },
+            { t: 'text', label: 'Reguła nadrzędna — wypisz twierdzenia ocenione na 1 lub 2, także w obszarach zielonych', rows: 3,
+              ph: 'np. tw. 12 — komunikuje potrzeby słowem, gestem lub innym czytelnym sygnałem: ocena 2' },
+            { t: 'text', label: 'Trzy arkusze obok siebie: gdzie rozbieżność nauczyciel–rodzic jest największa i o czym mówi?', rows: 2, ph: '' }
+          ],
+          klucz: '<p>Wynik ogólny to średnia ze średnich obszarów. Obszar szósty — życie domowe — ma charakter opisowy i nie wlicza się do wyniku ogólnego. Litera N nie obniża wyniku, bo nie wlicza się do średniej.</p><p>Profil czytamy w trzech krokach: najpierw kolor, potem kształt (profil płaski i niski to trudność globalna, profil z jednym głębokim wcięciem to trudność wybiórcza i konkretny moduł pogłębiony), na końcu wracamy do pojedynczych twierdzeń ocenionych nisko.</p><p>Trzech profili nie uśredniamy. Rozbieżność jest informacją: jeśli w domu jest wyżej niż w przedszkolu, szukamy barier w sali; jeśli w przedszkolu wyżej niż w domu, dzielimy się z rodzicami sprawdzonymi rutynami.</p>',
+          produkt: 'Policzony arkusz, naniesiony profil i lista twierdzeń objętych regułą nadrzędną.'
+        },
+        {
+          id: 'p5', tag: 'Ćwiczenie 5 · po module M5 · film 9:46', min: 20,
+          title: 'Reguły przekierowania i zapis ABC bez interpretacji',
+          forma: 'Zespoły 3–4 osoby', mat: 'Karta decyzyjna + karta obserwacji zachowania ABC',
+          druk: 'Karta decyzyjna · ABC · profil sensoryczny · karta mowy · obserwacja teorii umysłu',
+          zasila: 'WOPF — bloki „trudności i ich uwarunkowania” oraz „bariery i ułatwienia”',
+          polecenie: 'Zaznaczcie reguły, które zadziałały u wybranego dziecka — wystarczy jedna. Potem zapiszcie jedno zdarzenie w trzech kolumnach, tak żeby każde zdanie dało się nagrać kamerą.',
+          w: [
+            { t: 'rules', label: 'Sześć reguł przekierowania — zaznacz spełnione', items: [
+              { k: 'R1', s: 'Średnia któregokolwiek obszaru poniżej 2', tool: 'Narzędzie właściwe dla obszaru — ABC, profil sensoryczny, karta mowy albo obserwacja teorii umysłu' },
+              { k: 'R2', s: 'Dwa lub więcej twierdzeń ocenionych na 1 lub 2 w tym samym obszarze', tool: 'Narzędzie właściwe dla obszaru — obszar porozumiewania się: karta obserwacji rozwoju mowy i komunikacji' },
+              { k: 'R3', s: 'Rozbieżność między oceniającymi 1,5 punktu lub więcej', tool: 'Rozmowa z rodzicem i obserwacja w środowisku o wyższym wyniku' },
+              { k: 'R4', s: 'Sygnał zdrowotny z metryczki, np. nadwrażliwość sensoryczna', tool: 'Profil sensoryczny' },
+              { k: 'R5', s: 'Zachowanie powtarzalne zagrażające dziecku lub innym', tool: 'Model ABC — uruchamiamy natychmiast' },
+              { k: 'R6', s: 'Brak poprawy mimo udzielanej pomocy przez ok. 3 miesiące', tool: 'Karta ewaluacji celu + narzędzie właściwe dla obszaru' }
+            ] },
+            { t: 'text', label: 'A — poprzednik: co działo się bezpośrednio przed zachowaniem', rows: 2, ph: '' },
+            { t: 'text', label: 'B — zachowanie: opis obserwowalny, z czasem trwania i liczbą', rows: 2, ph: '' },
+            { t: 'text', label: 'C — następstwo: co stało się potem, w tym reakcja dorosłych', rows: 2, ph: '' }
+          ],
+          klucz: '<p>Zapis wzorcowy z filmu: <em>Nauczycielka ogłosiła sprzątanie zabawek. Dziecko od sześciu minut budowało wieżę z klocków. Rzuciło dwa klocki w kierunku półki i krzyczało przez około czterdzieści sekund. Nauczycielka przykucnęła obok i nie odbierała klocków. Po dwóch minutach dziecko dokończyło wieżę.</em></p><p>Każde zdanie da się sprawdzić, żadne nie zawiera interpretacji. Funkcję zachowania — uzyskanie uwagi, uzyskanie przedmiotu, uniknięcie trudnego zadania albo regulacja pobudzenia — nazywa zespół po analizie 10–15 zapisów, a nie po jednym zdarzeniu.</p><p>Kartę decyzyjną wpinamy do teczki również wtedy, gdy decyzja brzmi „nie uruchamiamy”. Zapis decyzji odmownej jest równie ważny jak zapis decyzji pozytywnej.</p>',
+          produkt: 'Karta decyzyjna dla jednego dziecka — także w wariancie odmownym.'
+        },
+        {
+          id: 'p6', tag: 'Ćwiczenie 6 · po module M6 · film 13:12', min: 30,
+          title: 'Z „rozwijania samodzielności” na cel mierzalny',
+          forma: 'Indywidualnie, omówienie w zespole', mat: 'WOPF i IPET jednego dziecka + karta celu SMART',
+          druk: 'Karta celu SMART (jedna karta na cel) — wpinana do IPET',
+          zasila: 'Karta ewaluacji · opinia o funkcjonowaniu dziecka dla poradni',
+          polecenie: 'Zbuduj cel z pięciu elementów. Sprawdzian jest jeden: dwie różne osoby, patrząc na to samo dziecko, mają ocenić ten cel tak samo.',
+          w: [
+            { t: 'smart', who: 'Dziecko' },
+            { t: 'text', label: 'Kiedy sprawdzamy — co wpisujemy do kalendarza (listopad · styczeń · marzec · maj)?', rows: 2, ph: '' }
+          ],
+          klucz: '<p>Cel z filmu: <em>Zosia podczas przygotowania do wyjścia na dwór założy samodzielnie buty na rzepy w czterech z pięciu kolejnych dni, przy najwyżej jednej podpowiedzi słownej, do 19 grudnia. Pomiar: karta obserwacji szatni.</em></p><p>Drugi przykład: <em>Lena podejmie wspólną zabawę w parze z wyznaczonym rówieśnikiem, przyjmując przydzieloną rolę, przez co najmniej pięć minut, w trzech z pięciu dni w tygodniu, przy wprowadzeniu do zabawy przez dorosłego, do końca kwietnia. Pomiar: karta obserwacji zabawy swobodnej.</em></p><p>Nazwa SMART nie pada w rozporządzeniu ani razu i nie ma obowiązku jej używania. Wymagana jest ocena efektywności — a ocenić ją można tylko wtedy, gdy cel ma kryterium. Nazwa jest dowolna, mierzalność jest konieczna.</p><p>Po każdym pomiarze zespół podejmuje jedną z czterech decyzji: zamykamy cel · kontynuujemy i przesuwamy termin bez obniżania kryterium · modyfikujemy metodę i sprawdzamy bariery · spotkanie z rodzicami i rozważenie wystąpienia do poradni.</p>',
+          produkt: 'Jeden gotowy cel mierzalny i wpisany do kalendarza termin ewaluacji.'
+        }
+      ]
+    },
+
+    s: {
+      eyebrow: 'Warsztat · ścieżka szkolna · 7 ćwiczeń',
+      title: 'Siedem ćwiczeń do siedmiu modułów',
+      time: '2 h 35 min',
+      druki: '1 KD-SP · 2 ABC-SP · 3 FBA-SP · 4 PS-SP · 5 KM-SP · 6 ToM-SP · 7 KFU-SP · 8 MG-SP · 9 AR-SP · 10 NP-SP · 11 KDP-SP · 12 AD-E8 · 13 SMART-SP · 14 OE-SP · 15 PWES · 16 KP-SP · 17 AUD-SP · 18 RK-SP',
+      ex: [
+        {
+          id: 's1', tag: 'Ćwiczenie 1 · po module S1 · film 10:40', min: 15,
+          title: 'Audyt publikatorów i obsada nauczyciela współorganizującego',
+          forma: 'Zespoły 3–4 osoby', mat: 'Po jednym wzorze druku ze szkoły na osobę',
+          druk: 'Arkusz audytu dokumentacji (druk 17 · AUD-SP) — pozycje 1 i 15',
+          zasila: 'Zarządzenie dyrektora — załącznik nr 3: wykaz 18 druków',
+          polecenie: 'Dopasujcie obowiązujące publikatory, a potem sprawdźcie, w których sytuacjach zatrudnienie nauczyciela współorganizującego jest obowiązkiem, a nie decyzją dyrektora.',
+          w: [
+            { t: 'match', label: 'Dopasuj obowiązujący publikator', rows: [
+              { q: 'Kształcenie specjalne — § 5, § 6, § 7 (rozp. MEN z 9 sierpnia 2017 r.)', opts: ['Dz.U. 2017 poz. 1578', PUB.ks, PUB.pp], a: 1 },
+              { q: 'Pomoc psychologiczno-pedagogiczna, w tym zindywidualizowana ścieżka (§ 12)', opts: [PUB.pp, 'Dz.U. 2017 poz. 1591', PUB.ks], a: 0 },
+              { q: 'Dokumentacja przebiegu nauczania (rozp. MEN z 25 sierpnia 2017 r.)', opts: [PUB.pp, PUB.dok, PUB.org], a: 1 },
+              { q: 'Ocenianie, klasyfikowanie i promowanie (rozp. MEN z 22 lutego 2019 r.)', opts: [PUB.ocen, PUB.indyw, PUB.dost], a: 0 },
+              { q: 'Orzeczenia i opinie zespołów orzekających (rozp. ME z 2 marca 2026 r.)', opts: [PUB.pods, PUB.orz, PUB.po], a: 1 },
+              { q: 'Zapewnianie dostępności osobom ze szczególnymi potrzebami', opts: [PUB.dost, PUB.dok, PUB.ocen], a: 0 },
+              { q: 'Indywidualne nauczanie (rozp. MEN z 9 sierpnia 2017 r.)', opts: [PUB.ks, PUB.indyw, PUB.pp], a: 1 }
+            ] },
+            { t: 'pick', label: 'Kiedy nauczyciel współorganizujący kształcenie jest OBOWIĄZKIEM w szkole ogólnodostępnej — zaznacz', items: [
+              { s: 'uczeń z autyzmem, w tym z zespołem Aspergera', sel: true, why: '§ 7 rozporządzenia o kształceniu specjalnym — zatrudnia się dodatkowo.' },
+              { s: 'uczeń z niepełnosprawnościami sprzężonymi', sel: true, why: '§ 7 — obowiązek, nie dobra wola dyrektora.' },
+              { s: 'uczeń niedostosowany społecznie', sel: true, why: '§ 7 — ta sama podstawa.' },
+              { s: 'uczeń z opinią poradni o specyficznych trudnościach w uczeniu się', sel: false, why: 'Opinia nie daje kształcenia specjalnego; uczeń idzie ścieżką pomocy psychologiczno-pedagogicznej.' },
+              { s: 'uczeń objęty zindywidualizowaną ścieżką kształcenia', sel: false, why: 'Ścieżki nie stosuje się wobec ucznia objętego kształceniem specjalnym; to inna instytucja, na wniosek rodziców i opinię publicznej poradni.' }
+            ] }
+          ],
+          klucz: '<p>W dokumencie ucznia cytujemy obowiązujący tekst jednolity, nigdy publikator pierwotny — najczęstszy błąd to „Dz.U. 2017 poz. 1578” zamiast „t.j. Dz.U. 2020 poz. 1309”.</p><p>Wymiar pracy nauczyciela współorganizującego zapisujemy w programie, w konkretnych godzinach i konkretnych zajęciach — to jednocześnie dowód wydatkowania środków naliczonych na kształcenie specjalne.</p><p>Terminy i katalog dostosowań egzaminacyjnych ogłasza corocznie komunikat dyrektora CKE — sprawdzamy go osobno, bo zmienia się co roku.</p>',
+          produkt: 'Mapa „akt prawny → co z niego wynika → gdzie to widać w druku”.'
+        },
+        {
+          id: 's2', tag: 'Ćwiczenie 2 · po module S2 · film 12:20', min: 20,
+          title: 'Przepisz zdanie na język funkcjonalny',
+          forma: 'Indywidualnie, potem czytanie na głos w parach', mat: 'Fragment własnej oceny wielospecjalistycznej',
+          druk: 'WOPF-SP — sekcje XI–XIII (synteza rozpoznania)',
+          zasila: 'Opinia o funkcjonowaniu ucznia — punkty 3 i 4',
+          polecenie: 'Weź zdanie: „Uczennica ma trudności w koncentracji uwagi wynikające z zaburzeń rozwojowych, wymaga stałej pomocy nauczyciela”. Napisz je jeszcze raz tak, żeby odpowiadało na cztery pytania. Potem zrób to samo z jednym zdaniem z własnej dokumentacji.',
+          w: [
+            { t: 'text', label: 'Zapis funkcjonalny — to samo zdanie, ta sama wiedza', rows: 5,
+              ph: 'Co uczeń robi · w jakich warunkach · przy jakim wsparciu · jak często' },
+            { t: 'check', label: 'Sprawdź swój zapis — czy odpowiada na cztery pytania?', items: [
+              'CO uczeń robi — zachowanie, które można zobaczyć i policzyć, a nie cecha',
+              'W JAKICH WARUNKACH — przedmiot, pora dnia, wielkość grupy, poziom hałasu, rodzaj zadania',
+              'PRZY JAKIM WSPARCIU — samodzielnie, po podpowiedzi słownej, po pokazie, z pomocą dorosłego',
+              'JAK CZĘSTO — liczba prób, dni w tygodniu, epizody, czas trwania'
+            ] },
+            { t: 'text', label: 'Zdanie z własnej dokumentacji — wersja funkcjonalna', rows: 4, ph: '' }
+          ],
+          klucz: '<p>Zapis wzorcowy z filmu: <em>Zofia pracuje samodzielnie przy zadaniu na karcie pracy przez około osiem minut, jeśli siedzi w pierwszej ławce i zadanie jest podzielone na trzy kroki oznaczone piktogramami. Przy pracy z tablicą utrzymuje uwagę około dwóch minut i wymaga wtedy podpowiedzi słownej średnio cztery razy na lekcji. W klasie o podwyższonym hałasie czas ten skraca się do minuty. Od września skróciła się liczba podpowiedzi z sześciu do czterech.</em></p><p>To ta sama uczennica i ta sama wiedza tej samej nauczycielki. Różnica polega wyłącznie na tym, że drugi zapis odpowiada na cztery pytania — i dopiero z niego da się zbudować cel, dostosowanie i ocenę efektywności.</p><p>Dwa dalsze przykłady z załącznika B: „jest niesamodzielna” → <em>przygotowuje przybory na lekcję po jednej podpowiedzi słownej w 4 z 5 dni</em>; „zachowuje się agresywnie” → <em>trzykrotnie odepchnęła kolegę, za każdym razem w kolejce do szatni, przy zbliżeniu na odległość mniejszą niż pół metra; po wprowadzeniu wyjścia dwie minuty przed dzwonkiem zdarzenia nie wystąpiły przez dwa tygodnie</em>.</p>',
+          produkt: 'Dwa zdania przepisane na język funkcjonalny — wzorzec dla całej rady.'
+        },
+        {
+          id: 's3', tag: 'Ćwiczenie 3 · po module S3 · film 6:10', min: 10,
+          title: 'Siedem przystanków i rozgałęzienie',
+          forma: 'W parach', mat: 'Wykaz 18 druków z załącznika C',
+          druk: 'Druki 1–18 — każdy ma w nagłówku, kto wypełnia i co zasila',
+          zasila: 'Cała teczka ucznia — obieg siedmiu przystanków',
+          polecenie: 'Przypiszcie każdemu dokumentowi pytanie, na które odpowiada. Zwróćcie uwagę na rozgałęzienie: ten sam kwestionariusz obsługuje obie ścieżki, rozdzielają się dopiero na etapie oceny.',
+          w: [
+            { t: 'match', label: 'Dokument → pytanie', rows: [
+              { q: 'Metryczka i teczka ucznia', opts: PYTANIA, a: 0 },
+              { q: 'Kwestionariusz KSzOF', opts: PYTANIA, a: 1 },
+              { q: 'Obserwacja pogłębiona (ABC i FBA, sensoryka, mowa, ToM)', opts: PYTANIA, a: 2 },
+              { q: 'WOPF-SP — ocena scalająca', opts: PYTANIA, a: 3 },
+              { q: 'IPET — program edukacyjno-terapeutyczny', opts: PYTANIA, a: 4 },
+              { q: 'PWES — plan wsparcia edukacyjnego', opts: PYTANIA, a: 6 },
+              { q: 'Karta ewaluacji celu', opts: PYTANIA, a: 5 }
+            ] },
+            { t: 'text', label: 'Ilu naszych uczniów idzie ścieżką PWES i kto ten dokument sporządza?', rows: 2, ph: '' }
+          ],
+          klucz: '<p>Rozgałęzienie zapisane jest w sekcji I a druku oceny: uczeń z orzeczeniem idzie do programu, uczeń bez orzeczenia do planu wsparcia. Jeden druk, dwie ścieżki.</p><p>Plan wsparcia ma tę samą logikę co program: rozpoznana potrzeba, cel z kryterium, forma pomocy, osoba prowadząca, wymiar godzin, okres i termin oceny efektywności. Różni się podstawą prawną i tym, że nie wymaga orzeczenia. To dokument, którego w większości szkół po prostu nie ma — a bez niego ocena efektywności pomocy nie ma do czego się odnieść.</p><p>Przystanek siódmy jest sezonowy: karta przekazania w czerwcu klasy III i karta dostosowań egzaminacyjnych w listopadzie klasy VIII.</p>',
+          produkt: 'Schemat obiegu z policzoną liczbą uczniów na każdej ścieżce.'
+        },
+        {
+          id: 's4', tag: 'Ćwiczenie 4 · po module S4 · film 6:30', min: 15,
+          title: 'Metryczka ucznia — dane nadmiarowe i data, od której biegnie termin',
+          forma: 'Indywidualnie', mat: 'Metryczka ucznia — sekcje I–VIII',
+          druk: 'Metryczka ucznia + rejestr kontaktów z rodzicami (druk 18 · RK-SP)',
+          zasila: 'Wszystkie druki pochodne — dziedziczą dane zamiast je powielać',
+          polecenie: 'Zaznacz pozycje, których do metryczki nie wpisujemy, a potem sprawdź, czy w naszym druku w ogóle istnieje pole na datę wpływu orzeczenia do szkoły.',
+          w: [
+            { t: 'pick', label: 'Zaznacz pozycje, których NIE wpisujemy do metryczki ucznia', items: [
+              { s: 'numer PESEL', sel: true, why: 'Jest w księdze uczniów i w dokumentacji przebiegu nauczania.' },
+              { s: 'adres zamieszkania', sel: true, why: 'Najczęstszy nadmiar w szkolnych drukach — dane zostają w dokumentacji przebiegu nauczania.' },
+              { s: 'miejsce urodzenia i obywatelstwo', sel: true, why: 'Nie są potrzebne do organizacji kształcenia.' },
+              { s: 'dane o miejscu pracy rodziców', sel: true, why: 'Przetwarzanie ponad cel.' },
+              { s: 'kopia dokumentacji medycznej', sel: true, why: 'Zaświadczenie zostaje w teczce; w druku tylko informacja niezbędna do organizacji i bezpieczeństwa.' },
+              { s: 'klasa lub oddział, etap edukacyjny, wychowawca', sel: false, why: 'Sekcja I — dane ucznia w zakresie minimalnym.' },
+              { s: 'data wpływu orzeczenia do szkoły', sel: false, why: 'Sekcja II — to jedyne miejsce, w którym ta data jest zapisana, a od niej biegnie 30 dni na program.' },
+              { s: 'sposób powrotu ucznia do domu i upoważnienia', sel: false, why: 'Sekcja IV — pole, którego nie ma w przedszkolu.' }
+            ] },
+            { t: 'text', label: 'Czy nasz druk ma pole „data wpływu orzeczenia”? Jeśli nie — kto je dopisuje i gdzie?', rows: 2, ph: '' }
+          ],
+          klucz: '<p>Metryczka jest gotowa wtedy, gdy w kilkanaście sekund odczytamy z niej trzy odpowiedzi: kogo wezwać, co podać, od kiedy liczyć termin.</p><p>Termin liczymy od daty wpływu orzeczenia do szkoły — nie od daty wydania orzeczenia przez poradnię i nie od dnia, w którym zespół znalazł czas. Dlatego datę wpływu rejestruje sekretariat i odnotowuje się ją w metryczce.</p><p>Sekcja VI to audyt: spis dokumentów o uczniu, które już posiadamy. Pokazuje, czego nie musimy zbierać po raz drugi.</p>',
+          produkt: 'Metryczka zgodna z zasadą minimalizacji danych i wykaz zawartości teczki.'
+        },
+        {
+          id: 's5', tag: 'Ćwiczenie 5 · po module S5 · film 11:20', min: 35,
+          title: 'Policz KSzOF: obszar na skali 0–20 i sten wyniku ogólnego',
+          forma: 'Indywidualnie, sprawdzenie w parach', mat: 'Wypełniony arkusz KSzOF — I–III, IV–VI albo VII–VIII',
+          druk: 'KSzOF + arkusz rodzica (druk 9 · AR-SP) i nauczyciela przedmiotu (druk 10 · NP-SP)',
+          zasila: 'WOPF-SP — sekcja V i V a (dziewięć obszarów, mocne strony, trudności)',
+          polecenie: 'Najpierw przelicz jeden obszar na wspólną skalę 0–20, bo obszary mają różną liczbę twierdzeń. Potem odczytaj sten wyniku ogólnego z właściwej kolumny norm — osobnej dla nauczyciela i osobnej dla rodzica. Kalkulator jest wypełniony przykładem z filmu.',
+          w: [
+            { t: 'kszof' },
+            { t: 'text', label: 'Reguła nadrzędna — wypisz twierdzenia ocenione na 1 lub 2, niezależnie od wyniku obszaru i stena', rows: 3, ph: '' },
+            { t: 'text', label: 'Rozbieżność wychowawca–rodzic albo nauczyciel–nauczyciel: gdzie jest największa i czym różnią się te lekcje?', rows: 2, ph: '' }
+          ],
+          klucz: '<p>Wzór: <em>wynik obszaru w skali 0–20 = (suma punktów obszaru ÷ maksimum obszaru) × 20</em>, zaokrąglone do pełnego punktu. Progi: 18–20 zasób · 14–17 Poziom I · 9–13 Poziom II · 0–8 Poziom III. Progi i sposób przeliczania są decyzją rady pedagogicznej wpisaną do procedury szkoły — nie wynikają wprost z przepisu.</p><p>W przykładzie z filmu: obszar I — 23 z 75 punktów, czyli 6 na skali 0–20, Poziom III. Wynik ogólny 114 z 260 to w kolumnie nauczyciela sten 4, czyli wynik niski. Rekomendowany ogólny poziom wsparcia to Poziom II, ale w czterech obszarach uczennica wymaga wsparcia znacznego — i ten zapis wędruje wprost do programu.</p><p>Przy więcej niż pięciu pozycjach N wyniku ogólnego nie przeliczamy na steny: normy zbudowano dla arkusza wypełnionego w całości. Odczytujemy sam profil obszarowy i zaznaczamy w druku, że arkusz jest niepełny. To uczciwsze niż wynik stenowy policzony z połowy danych.</p>',
+          produkt: 'Policzony arkusz, profil dziewięciu obszarów i lista twierdzeń objętych regułą nadrzędną.'
+        },
+        {
+          id: 's6', tag: 'Ćwiczenie 6 · po module S6 · film 10:30', min: 25,
+          title: 'Siedem reguł, zapis ABC i zachowanie zastępcze',
+          forma: 'Zespoły uczniowskie', mat: 'Karta decyzyjna (druk 1 · KD-SP), wyniki KSzOF jednego ucznia',
+          druk: 'Druki 2–7: ABC-SP · FBA-SP · PS-SP · KM-SP · ToM-SP · KFU-SP',
+          zasila: 'WOPF-SP — sekcje VI–IX (zachowanie, poznanie społeczne, mowa, sensoryka)',
+          polecenie: 'Zaznaczcie reguły, które zadziałały. Zapiszcie jedno zdarzenie w trzech kolumnach. Na końcu nazwijcie funkcję zachowania i wskażcie zachowanie zastępcze, którego będziemy ucznia uczyć.',
+          w: [
+            { t: 'rules', label: 'Siedem reguł przekierowania — zaznacz spełnione', items: [
+              { k: 'R1', s: 'Wynik któregokolwiek obszaru ≤ 8 pkt w skali 0–20 (Poziom III)', tool: 'Narzędzie właściwe dla obszaru — druki 2–7' },
+              { k: 'R2', s: 'Dwa lub więcej twierdzeń ocenionych na 1 lub 2 w tym samym obszarze', tool: 'Narzędzie właściwe dla obszaru — obszar I lub VIII: karta funkcji uczenia się (druk 7 · KFU-SP)' },
+              { k: 'R3', s: 'Rozbieżność między oceniającymi ≥ 2 steny w wyniku ogólnym', tool: 'Rozmowa z rodzicem + ankieta i wywiad środowiskowy (druk 9 · AR-SP)' },
+              { k: 'R4', s: 'Sygnał zdrowotny z metryczki (nadwrażliwość sensoryczna, choroba przewlekła)', tool: 'Profil sensoryczny ucznia (druk 4)' },
+              { k: 'R5', s: 'Zachowanie powtarzalne zagrażające uczniowi lub innym', tool: 'ABC + arkusz analizy funkcjonalnej (druki 2 i 3) — natychmiast' },
+              { k: 'R6', s: 'Brak poprawy mimo udzielanej pomocy przez ok. 3 miesiące', tool: 'Karta oceny efektywności (druk 14 · OE-SP) + narzędzie właściwe dla obszaru' },
+              { k: 'R7', s: 'Nagła zmiana: obniżenie ocen w ≥ 3 przedmiotach albo nieobecności > 20% w miesiącu', tool: 'Wywiad z uczniem i rodzicem (druk 9 · AR-SP), ocena efektywności (druk 14 · OE-SP), konsultacja psychologa' }
+            ] },
+            { t: 'text', label: 'A — poprzednik · B — zachowanie (czas, liczba) · C — następstwo', rows: 4,
+              ph: 'Jedno zdarzenie, trzy kolumny. Zakaz interpretacji: piszemy to, co da się nagrać kamerą.' },
+            { t: 'text', label: 'Hipoteza funkcji i zachowanie zastępcze — czego uczymy i jak je honorujemy', rows: 3,
+              ph: 'np. funkcja: uniknięcie trudnego zadania → uczymy karty „proszę o przerwę”, honorujemy natychmiast, każdy nauczyciel tak samo' }
+          ],
+          klucz: '<p>Zapis wzorcowy: <em>Na trzeciej lekcji matematyki nauczyciel polecił przepisać z tablicy zadanie o sześciu linijkach. Uczeń pisał przez około dwie minuty, po czym odłożył ołówek, położył głowę na ławce i przestał reagować na polecenia przez około sześć minut. Nauczyciel podszedł, podzielił zadanie na trzy części i zaznaczył pierwszą. Uczeń przepisał zaznaczoną część.</em></p><p>Zapis wadliwy, spotykany najczęściej: „uczeń zniechęcił się, bo nie chciało mu się pracować, i zamanifestował swoją niechęć do przedmiotu” — trzy interpretacje w jednym zdaniu i ani jednego faktu, który dałoby się policzyć.</p><p>Zbieramy 10–15 zapisów w ciągu 2–3 tygodni, z różnych lekcji i różnych pór dnia. Bez zaplanowanego zachowania zastępczego plan nie działa: jeżeli uczeń krzykiem unika trudnego zadania, a my mu tego zabronimy, odbieramy mu jedyny działający sposób i nie dajemy nic w zamian.</p>',
+          produkt: 'Karta decyzyjna i hipoteza funkcji z zaplanowanym zachowaniem zastępczym.'
+        },
+        {
+          id: 's7', tag: 'Ćwiczenie 7 · po module S7 · film 14:10', min: 35,
+          title: 'Karta kontrolna ośmiu elementów, cel mierzalny i dostosowania przedmiotowe',
+          forma: 'Zespoły uczniowskie', mat: 'Jeden program ucznia z orzeczeniem + ankieta „Mój głos” (druk 8 · MG-SP)',
+          druk: 'IPET · PWES (druk 15) · karta celu (druk 13 · SMART-SP) · karta dostosowań przedmiotowych (druk 11 · KDP-SP)',
+          zasila: 'Karta oceny efektywności udzielanej pomocy (druk 14 · OE-SP)',
+          polecenie: 'Sprawdźcie swój program listą ośmiu elementów — brak choćby jednego oznacza dokument niepełny w rozumieniu rozporządzenia. Potem zbudujcie jeden cel mierzalny i zapiszcie dostosowania dla swojego przedmiotu.',
+          w: [
+            { t: 'check', label: 'Osiem obowiązkowych elementów programu — karta kontrolna § 6 ust. 1', items: [
+              'Zakres i sposób dostosowania wymagań edukacyjnych — metody i formy pracy',
+              'Zintegrowane działania nauczycieli i specjalistów',
+              'Formy i okres udzielania pomocy psychologiczno-pedagogicznej oraz wymiar godzin',
+              'Działania wspierające rodziców i zakres współdziałania z poradniami oraz instytucjami',
+              'Zajęcia rewalidacyjne, resocjalizacyjne i socjoterapeutyczne oraz doradztwo zawodowe',
+              'Zakres współpracy nauczycieli i specjalistów z rodzicami ucznia',
+              'Rodzaj i sposób dostosowania warunków organizacji kształcenia',
+              'Przy komunikacji wspomagającej — zajęcia indywidualne lub w grupie do 5 osób'
+            ] },
+            { t: 'smart', who: 'Uczeń' },
+            { t: 'text', label: 'Druki sezonowe — kto zakłada kartę dostosowań egzaminacyjnych (druk 12 · AD-E8) w listopadzie klasy VIII i kartę przekazania (druk 16 · KP-SP) w czerwcu klasy III?', rows: 2, ph: '' },
+            { t: 'text', label: 'Mój przedmiot — co zmieniam: sposób podania treści · czas · przestrzeń · sposób sprawdzania wiedzy · pomoce', rows: 4,
+              ph: 'np. na sprawdzianach z geografii: polecenia czytane na głos, mapa konturowa z pogrubionymi granicami, czas wydłużony o połowę, ocena za treść bez uwzględniania błędów zapisu' }
+          ],
+          klucz: '<p>Kartę kontrolną wypełnia koordynator przed podpisaniem programu. Przy każdym zaleceniu z orzeczenia i z oceny zapisujemy sposób realizacji: forma, kto prowadzi, wymiar godzin, od kiedy. Brak tej kolumny to najczęstsze uchybienie stwierdzane w kontrolach dokumentacji kształcenia specjalnego.</p><p>Cel z filmu: <em>Zofia na lekcjach języka polskiego przepisze z tablicy zdanie o długości do ośmiu wyrazów bez opuszczeń liter w czterech z pięciu kolejnych prób, przy zadaniu podzielonym na trzy części oznaczone piktogramami i czasie wydłużonym o połowę, do 18 grudnia 2026 r. Pomiar: karta obserwacji przepisywania, raz w tygodniu.</em></p><p>Kryterium nie brzmi „w stu procentach”. Cel osiągalny to jeden krok od tego, co uczeń robi dziś, a nie stan docelowy za trzy lata.</p><p>Dostosowania zapisujemy przedmiotowo. Zapis „wydłużenie czasu pracy” w programie ucznia klasy szóstej nie mówi nic nauczycielowi geografii — dlatego każdy nauczyciel dostaje we wrześniu jedną kartę dostosowań na swój przedmiot.</p>',
+          produkt: 'Sprawdzony program, jeden cel mierzalny i karta dostosowań na jeden przedmiot.'
+        }
+      ]
     }
-    window.scrollTo({ top: 0, behavior: 'auto' });
+  };
+
+  var STENY = {
+    n: [[10, 238, 260], [9, 218, 237], [8, 197, 217], [7, 175, 196], [6, 154, 174], [5, 135, 153], [4, 113, 134], [3, 91, 112], [2, 72, 90], [1, 52, 71]],
+    r: [[10, 233, 260], [9, 214, 232], [8, 194, 213], [7, 172, 193], [6, 151, 171], [5, 132, 150], [4, 110, 131], [3, 90, 109], [2, 70, 89], [1, 52, 69]]
+  };
+
+  /* ============================ PAMIĘĆ ============================ */
+
+  var STORE = 'eduplaner-warsztat-v1';
+  var saved = (function () {
+    try { return JSON.parse(localStorage.getItem(STORE) || '{}') || {}; } catch (e) { return {}; }
+  })();
+  function persist() { try { localStorage.setItem(STORE, JSON.stringify(saved)); } catch (e) {} }
+  function val(k) { return typeof saved[k] === 'string' ? saved[k] : ''; }
+  function on(k) { return saved[k] === '1'; }
+  function esc(t) {
+    return String(t).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
   }
 
-  tabs.forEach(function (t, i) {
-    t.addEventListener('click', function () { show(i, false); });
-    t.addEventListener('keydown', function (e) {
-      if (e.key === 'ArrowRight' || e.key === 'ArrowLeft') {
-        e.preventDefault();
-        show(i === 0 ? 1 : 0, true);
-      }
+  /* ============================ WIDOKI ============================ */
+
+  var state = { track: 'p', view: 'plan' };
+  var viewPlan = document.getElementById('view-plan');
+  var viewWk = document.getElementById('view-warsztat');
+  var panelP = document.getElementById('panel-p');
+  var panelS = document.getElementById('panel-s');
+  var list = document.getElementById('ex-list');
+
+  function applyHash() {
+    var h = location.hash.replace('#', '');
+    if (h === 'szkola') { state.track = 's'; state.view = 'plan'; }
+    else if (h === 'warsztat-szkola') { state.track = 's'; state.view = 'warsztat'; }
+    else if (h === 'warsztat-przedszkole' || h === 'warsztat') { state.view = 'warsztat'; }
+  }
+
+  function hash() {
+    if (state.view === 'warsztat') { return state.track === 's' ? '#warsztat-szkola' : '#warsztat-przedszkole'; }
+    return state.track === 's' ? '#szkola' : '#przedszkole';
+  }
+
+  function render(scroll) {
+    document.querySelectorAll('[data-track][role="radio"]').forEach(function (b) {
+      b.setAttribute('aria-checked', String(b.dataset.track === state.track));
     });
+    document.querySelectorAll('[data-view][role="radio"]').forEach(function (b) {
+      b.setAttribute('aria-checked', String(b.dataset.view === state.view));
+    });
+    viewPlan.hidden = state.view !== 'plan';
+    viewWk.hidden = state.view !== 'warsztat';
+    panelP.hidden = state.track !== 'p';
+    panelS.hidden = state.track !== 's';
+    if (state.view === 'warsztat') { renderWorkshop(); }
+    if (history.replaceState) { history.replaceState(null, '', hash()); }
+    if (scroll) { window.scrollTo(0, 0); }
+  }
+
+  /* ============================ RENDER WARSZTATU ============================ */
+
+  function mmss(sec) {
+    var m = Math.floor(Math.abs(sec) / 60), s = Math.abs(sec) % 60;
+    return (sec < 0 ? '−' : '') + m + ':' + (s < 10 ? '0' : '') + s;
+  }
+
+  function widgetHtml(ex, wi, w) {
+    var base = ex.id + '.' + wi;
+    var h = '<div class="widget" data-w="' + w.t + '" data-base="' + base + '">';
+    var i;
+
+    if (w.t === 'text') {
+      h += '<label class="field"><span class="lbl">' + w.label + '</span>' +
+        '<textarea rows="' + (w.rows || 3) + '" data-k="' + base + '" placeholder="' + esc(w.ph || '') + '">' + esc(val(base)) + '</textarea>' +
+        '<div class="print-echo">' + esc(val(base)) + '</div></label>';
+    }
+
+    if (w.t === 'check') {
+      h += '<div class="qz"><div class="qz-h">' + w.label + '</div>';
+      for (i = 0; i < w.items.length; i++) {
+        h += '<label class="opt"><input type="checkbox" data-k="' + base + '.' + i + '"' + (on(base + '.' + i) ? ' checked' : '') + '>' +
+          '<span>' + w.items[i] + '</span></label>';
+      }
+      h += '</div>';
+    }
+
+    if (w.t === 'pick') {
+      h += '<div class="qz"><div class="qz-h">' + w.label + '</div>';
+      for (i = 0; i < w.items.length; i++) {
+        h += '<label class="opt" data-sel="' + (w.items[i].sel ? '1' : '0') + '"><input type="checkbox" data-k="' + base + '.' + i + '"' + (on(base + '.' + i) ? ' checked' : '') + '>' +
+          '<span>' + w.items[i].s + '<span class="why" hidden>' + w.items[i].why + '</span></span></label>';
+      }
+      h += '<div class="qz-foot"><button class="btn" data-act="check-pick">Sprawdź</button><span class="verdict"></span></div></div>';
+    }
+
+    if (w.t === 'match') {
+      h += '<div class="qz"><div class="qz-h">' + w.label + '</div>';
+      for (i = 0; i < w.rows.length; i++) {
+        var r = w.rows[i], k = base + '.' + i, cur = val(k);
+        h += '<div class="qz-row" data-a="' + r.a + '"><p>' + r.q + '</p><select data-k="' + k + '"><option value="">— wybierz —</option>';
+        for (var j = 0; j < r.opts.length; j++) {
+          h += '<option value="' + j + '"' + (cur === String(j) ? ' selected' : '') + '>' + r.opts[j] + '</option>';
+        }
+        h += '</select></div>';
+      }
+      h += '<div class="qz-foot"><button class="btn" data-act="check-match">Sprawdź</button><span class="verdict"></span></div></div>';
+    }
+
+    if (w.t === 'rules') {
+      h += '<div class="qz"><div class="qz-h">' + w.label + '</div>';
+      for (i = 0; i < w.items.length; i++) {
+        h += '<label class="opt"><input type="checkbox" data-k="' + base + '.' + i + '"' + (on(base + '.' + i) ? ' checked' : '') +
+          ' data-tool="' + esc(w.items[i].tool) + '" data-rk="' + w.items[i].k + '">' +
+          '<span><b class="mono">' + w.items[i].k + '</b> · ' + w.items[i].s + '</span></label>';
+      }
+      h += '</div><div class="rule-out"></div>';
+    }
+
+    if (w.t === 'kpof') {
+      h += '<div class="calc"><div class="calc-grid">' +
+        '<label class="field"><span class="lbl">Suma punktów obszaru</span><input type="number" min="0" step="1" data-k="' + base + '.suma" value="' + esc(val(base + '.suma') || '11') + '"></label>' +
+        '<label class="field"><span class="lbl">Liczba twierdzeń ocenionych (bez N)</span><input type="number" min="1" step="1" data-k="' + base + '.n" value="' + esc(val(base + '.n') || '4') + '"></label>' +
+        '<label class="field"><span class="lbl">Obszar (nazwa)</span><input type="text" data-k="' + base + '.nazwa" value="' + esc(val(base + '.nazwa')) + '" placeholder="np. III. Porozumiewanie się"></label>' +
+        '</div><div class="calc-out"></div></div>';
+    }
+
+    if (w.t === 'kszof') {
+      h += '<div class="calc"><div class="qz-h" style="border:0;padding:0 0 12px">Krok 1 — obszar na wspólnej skali 0–20</div><div class="calc-grid">' +
+        '<label class="field"><span class="lbl">Suma punktów obszaru</span><input type="number" min="0" step="1" data-k="' + base + '.o' + '" value="' + esc(val(base + '.o') || '23') + '"></label>' +
+        '<label class="field"><span class="lbl">Maksimum obszaru</span><input type="number" min="1" step="1" data-k="' + base + '.max" value="' + esc(val(base + '.max') || '75') + '"></label>' +
+        '<label class="field"><span class="lbl">Obszar (nazwa)</span><input type="text" data-k="' + base + '.nazwa" value="' + esc(val(base + '.nazwa')) + '" placeholder="np. I. Uczenie się"></label>' +
+        '</div><div class="calc-out" data-out="obszar"></div>' +
+        '<div class="qz-h" style="border:0;padding:20px 0 12px">Krok 2 — wynik ogólny i sten (normy klas I–III)</div><div class="calc-grid">' +
+        '<label class="field"><span class="lbl">Wynik ogólny (max 260)</span><input type="number" min="0" step="1" data-k="' + base + '.sum" value="' + esc(val(base + '.sum') || '114') + '"></label>' +
+        '<label class="field"><span class="lbl">Kto wypełniał arkusz</span><select data-k="' + base + '.rola">' +
+        '<option value="n"' + (val(base + '.rola') === 'r' ? '' : ' selected') + '>nauczyciel / wychowawca</option>' +
+        '<option value="r"' + (val(base + '.rola') === 'r' ? ' selected' : '') + '>rodzic</option></select></label>' +
+        '<label class="field"><span class="lbl">Liczba pozycji N</span><input type="number" min="0" step="1" data-k="' + base + '.nn" value="' + esc(val(base + '.nn') || '0') + '"></label>' +
+        '</div><div class="calc-out" data-out="sten"></div></div>';
+    }
+
+    if (w.t === 'smart') {
+      var f = [
+        ['kto', 'Kto', w.who === 'Uczeń' ? 'Zofia' : 'Zosia'],
+        ['syt', 'W jakiej sytuacji', w.who === 'Uczeń' ? 'na lekcjach języka polskiego' : 'podczas przygotowania do wyjścia na dwór'],
+        ['zach', 'Jakie obserwowalne zachowanie', w.who === 'Uczeń' ? 'przepisze z tablicy zdanie do ośmiu wyrazów bez opuszczeń liter' : 'założy samodzielnie buty na rzepy'],
+        ['kryt', 'Kryterium — ile razy z ilu prób', 'w 4 z 5 kolejnych prób'],
+        ['wsp', 'Przy jakim wsparciu', w.who === 'Uczeń' ? 'przy zadaniu podzielonym na trzy części i czasie wydłużonym o połowę' : 'przy najwyżej jednej podpowiedzi słownej'],
+        ['term', 'Do kiedy', 'do 18 grudnia 2026 r.'],
+        ['pom', 'Sposób pomiaru', w.who === 'Uczeń' ? 'karta obserwacji przepisywania, raz w tygodniu' : 'karta obserwacji szatni']
+      ];
+      h += '<div class="calc"><div class="calc-grid">';
+      for (i = 0; i < f.length; i++) {
+        h += '<label class="field"><span class="lbl">' + f[i][1] + '</span><input type="text" data-k="' + base + '.' + f[i][0] + '" data-part="' + f[i][0] + '" value="' + esc(val(base + '.' + f[i][0])) + '" placeholder="' + esc(f[i][2]) + '"></label>';
+      }
+      h += '</div><div class="smart-preview"></div>' +
+        '<div class="badges"><span class="badge" data-b="S">S</span><span class="badge" data-b="M">M</span>' +
+        '<span class="badge" data-b="A">A</span><span class="badge" data-b="R">R</span><span class="badge" data-b="T">T</span>' +
+        '<span class="badge-note">A i R ocenia zespół — zaznacz poniżej</span></div>' +
+        '<label class="opt" style="border:0;padding:10px 0 0"><input type="checkbox" data-k="' + base + '.A" data-flag="A"' + (on(base + '.A') ? ' checked' : '') + '><span>A — osiągalny: to jeden krok od tego, co robi dziś</span></label>' +
+        '<label class="opt" style="border:0;padding:0"><input type="checkbox" data-k="' + base + '.R" data-flag="R"' + (on(base + '.R') ? ' checked' : '') + '><span>R — istotny: wynika z oceny i zwiększa uczestnictwo</span></label>' +
+        '</div>';
+    }
+
+    return h + '</div>';
+  }
+
+  function exHtml(ex) {
+    var h = '<article class="ex" id="ex-' + ex.id + '" data-id="' + ex.id + '" data-min="' + ex.min + '" data-done="' + (on(ex.id + '.done') ? '1' : '0') + '">';
+    h += '<div class="ex-top"><div><span class="ex-id">' + ex.tag + '</span><h3>' + ex.title + '</h3>' +
+      '<div class="ex-meta"><span><b>Forma:</b> ' + ex.forma + '</span><span><b>Materiały:</b> ' + ex.mat + '</span></div>' +
+      '<div class="ex-druk"><span><b>Druk EduPlaner 2026:</b> ' + ex.druk + '</span><span><b>Zasila:</b> ' + ex.zasila + '</span></div></div>' +
+      '<div class="timer" data-state="idle"><span class="clock">' + mmss(ex.min * 60) + '</span>' +
+      '<button class="btn" data-act="timer-start">Start</button>' +
+      '<button class="btn" data-variant="quiet" data-act="timer-reset">Od nowa</button></div></div>';
+    h += '<p class="polecenie">' + ex.polecenie + '</p>';
+    h += '<div class="widgets">';
+    for (var i = 0; i < ex.w.length; i++) { h += widgetHtml(ex, i, ex.w[i]); }
+    h += '</div>';
+    h += '<div class="key" data-open="0"><button data-act="key">Pokaż klucz i omówienie</button>' +
+      '<div class="key-body" hidden>' + ex.klucz + '</div></div>';
+    h += '<div class="ex-foot"><span class="produkt"><b>Co zostaje po ćwiczeniu:</b> ' + ex.produkt + '</span>' +
+      '<label class="done-toggle"><input type="checkbox" data-k="' + ex.id + '.done" data-done="1"' + (on(ex.id + '.done') ? ' checked' : '') + '> Ćwiczenie zamknięte</label></div>';
+    return h + '</article>';
+  }
+
+  function renderWorkshop() {
+    var d = DATA[state.track];
+    viewWk.setAttribute('data-track', state.track);
+    document.getElementById('wk-eyebrow').textContent = d.eyebrow;
+    document.getElementById('wk-title').textContent = d.title;
+    document.getElementById('wk-count').textContent = d.ex.length;
+    document.getElementById('wk-time').textContent = d.time;
+    document.getElementById('wk-druki').innerHTML = '<b>Druki EduPlaner 2026 w tym warsztacie:</b> ' + d.druki;
+    var html = '';
+    for (var i = 0; i < d.ex.length; i++) { html += exHtml(d.ex[i]); }
+    list.innerHTML = html;
+    list.querySelectorAll('.widget').forEach(refresh);
+    updateProgress();
+    updateSummary();
+  }
+
+  /* ============================ OBLICZENIA ============================ */
+
+  function num(w, k) {
+    var el = w.querySelector('[data-k$=".' + k + '"]');
+    return el ? parseFloat(el.value) : NaN;
+  }
+
+  function lvlTag(label, code) {
+    return '<span class="lvl" data-l="' + code + '">' + label + '</span>';
+  }
+
+  function refresh(w) {
+    var t = w.dataset.w, base = w.dataset.base, out;
+
+    if (t === 'kpof') {
+      out = w.querySelector('.calc-out');
+      var suma = num(w, 'suma'), n = num(w, 'n');
+      if (!isFinite(suma) || !isFinite(n) || n <= 0) {
+        out.innerHTML = '<span class="tag">Podaj sumę punktów i liczbę ocenionych twierdzeń.</span>';
+        return;
+      }
+      var sr = suma / n;
+      var lv = sr >= 4 ? ['zasób — mocna strona', 'zasob'] : sr >= 3 ? ['Poziom I — w granicach oczekiwań', 'I']
+        : sr >= 2 ? ['Poziom II — obserwacja pogłębiona', 'II'] : ['Poziom III — ocena wielospecjalistyczna i konsultacja z poradnią', 'III'];
+      out.innerHTML = '<span class="big">' + sr.toFixed(2).replace('.', ',') + '</span>' +
+        '<span class="tag">średnia obszaru = ' + suma + ' ÷ ' + n + '</span>' + lvlTag(lv[0], lv[1]);
+      return;
+    }
+
+    if (t === 'kszof') {
+      out = w.querySelector('[data-out="obszar"]');
+      var o = num(w, 'o'), mx = num(w, 'max');
+      if (!isFinite(o) || !isFinite(mx) || mx <= 0) {
+        out.innerHTML = '<span class="tag">Podaj sumę punktów obszaru i jego maksimum.</span>';
+      } else {
+        var sc = Math.round((o / mx) * 20);
+        var lw = sc >= 18 ? ['zasób', 'zasob'] : sc >= 14 ? ['Poziom I — wsparcie minimalne', 'I']
+          : sc >= 9 ? ['Poziom II — wsparcie umiarkowane', 'II'] : ['Poziom III — wsparcie znaczne', 'III'];
+        out.innerHTML = '<span class="big">' + sc + ' / 20</span><span class="tag">(' + o + ' ÷ ' + mx + ') × 20</span>' + lvlTag(lw[0], lw[1]);
+      }
+
+      out = w.querySelector('[data-out="sten"]');
+      var sum = num(w, 'sum'), nn = num(w, 'nn');
+      var rolaEl = w.querySelector('[data-k$=".rola"]');
+      var rola = rolaEl ? rolaEl.value : 'n';
+      if (isFinite(nn) && nn > 5) {
+        out.innerHTML = '<span class="tag">Arkusz niepełny — więcej niż pięć pozycji N. Wyniku ogólnego nie przeliczamy na steny; odczytujemy sam profil obszarowy i zaznaczamy w druku, że arkusz jest niepełny.</span>';
+      } else if (!isFinite(sum)) {
+        out.innerHTML = '<span class="tag">Podaj wynik ogólny arkusza.</span>';
+      } else {
+        var band = null, tab = STENY[rola === 'r' ? 'r' : 'n'];
+        for (var i = 0; i < tab.length; i++) { if (sum >= tab[i][1] && sum <= tab[i][2]) { band = tab[i]; break; } }
+        if (!band) {
+          out.innerHTML = '<span class="tag">Wynik poza zakresem norm (52–260 punktów). Sprawdź sumowanie.</span>';
+        } else {
+          var st = band[0];
+          var opis = st >= 8 ? ['wynik wysoki — zasób', 'zasob'] : st >= 5 ? ['wynik przeciętny — typowe funkcjonowanie', 'I']
+            : ['wynik niski — sygnał trudności', 'III'];
+          out.innerHTML = '<span class="big">sten ' + st + '</span>' +
+            '<span class="tag">' + sum + ' / 260 · kolumna: ' + (rola === 'r' ? 'rodzic' : 'nauczyciel') + ' (' + band[1] + '–' + band[2] + ')</span>' + lvlTag(opis[0], opis[1]);
+        }
+      }
+      return;
+    }
+
+    if (t === 'smart') {
+      var g = function (k) { var el = w.querySelector('[data-part="' + k + '"]'); return el && el.value.trim() ? el.value.trim() : ''; };
+      var span = function (v, ph) { return v ? esc(v) : '<span class="gap">' + ph + '</span>'; };
+      w.querySelector('.smart-preview').innerHTML =
+        span(g('kto'), 'kto') + ' ' + span(g('syt'), 'w jakiej sytuacji') + ' ' + span(g('zach'), 'wykona jakie zachowanie') + ' ' +
+        span(g('kryt'), 'w ilu próbach') + ', ' + span(g('wsp'), 'przy jakim wsparciu') + ', ' + span(g('term'), 'do kiedy') +
+        '. Pomiar: ' + span(g('pom'), 'czym mierzymy') + '.';
+      var okS = !!(g('syt') && g('zach')), okM = !!g('kryt'), okT = !!(g('term') && g('pom'));
+      w.querySelector('[data-b="S"]').setAttribute('data-on', okS ? '1' : '0');
+      w.querySelector('[data-b="M"]').setAttribute('data-on', okM ? '1' : '0');
+      w.querySelector('[data-b="T"]').setAttribute('data-on', okT ? '1' : '0');
+      w.querySelector('[data-b="A"]').setAttribute('data-on', on(base + '.A') ? '1' : '0');
+      w.querySelector('[data-b="R"]').setAttribute('data-on', on(base + '.R') ? '1' : '0');
+      return;
+    }
+
+    if (t === 'rules') {
+      var picked = [];
+      w.querySelectorAll('input[data-rk]').forEach(function (c) {
+        if (c.checked) { picked.push('<b class="mono">' + c.dataset.rk + '</b> → ' + esc(c.dataset.tool)); }
+      });
+      w.querySelector('.rule-out').innerHTML = picked.length
+        ? 'Zadziałały reguły — uruchamiamy obserwację pogłębioną i zakładamy kartę decyzyjną:<ul><li>' + picked.join('</li><li>') + '</li></ul>'
+        : 'Żadna reguła nie została spełniona — obserwacji pogłębionej nie uruchamiamy. Kartę decyzyjną wpinamy do teczki także z tą decyzją, wraz z uzasadnieniem.';
+      return;
+    }
+  }
+
+  function updateProgress() {
+    var d = DATA[state.track], done = 0;
+    for (var i = 0; i < d.ex.length; i++) { if (on(d.ex[i].id + '.done')) { done++; } }
+    document.getElementById('wk-done').textContent = done + ' z ' + d.ex.length;
+    document.getElementById('wk-progress').style.width = Math.round((done / d.ex.length) * 100) + '%';
+  }
+
+  function updateSummary() {
+    var d = DATA[state.track], rows = '';
+    d.ex.forEach(function (ex) {
+      ex.w.forEach(function (w, wi) {
+        var base = ex.id + '.' + wi;
+        if (w.t === 'text' && val(base)) {
+          rows += '<dt>' + esc(ex.title) + ' — ' + esc(w.label) + '</dt><dd>' + esc(val(base)) + '</dd>';
+        }
+        if (w.t === 'smart') {
+          var el = list.querySelector('.widget[data-base="' + base + '"] .smart-preview');
+          var any = ['kto', 'syt', 'zach', 'kryt', 'wsp', 'term', 'pom'].some(function (k) { return val(base + '.' + k); });
+          if (el && any) { rows += '<dt>' + esc(ex.title) + ' — cel mierzalny</dt><dd>' + esc(el.textContent) + '</dd>'; }
+        }
+      });
+    });
+    document.getElementById('wk-summary').innerHTML =
+      '<h3>Podsumowanie warsztatu</h3>' +
+      '<p class="hint">Wszystko, co wpisali Państwo w polach otwartych. Zaznacz i skopiuj, żeby wkleić do protokołu rady albo do własnych notatek. Zapis żyje wyłącznie w tej przeglądarce.</p>' +
+      (rows ? '<dl>' + rows + '</dl>' : '<p class="empty">Jeszcze nic tu nie ma — pojawi się, gdy zaczną Państwo wypełniać pola.</p>');
+  }
+
+  /* ============================ ZDARZENIA ============================ */
+
+  document.addEventListener('click', function (e) {
+    var b = e.target.closest('[data-track][role="radio"]');
+    if (b) { state.track = b.dataset.track; render(true); return; }
+    var v = e.target.closest('[data-view][role="radio"]');
+    if (v) { state.view = v.dataset.view; render(true); return; }
   });
 
-  if (location.hash === '#szkola') { show(1, false); }
+  document.getElementById('wk-clear').addEventListener('click', function () {
+    if (!window.confirm('Usunąć wszystkie odpowiedzi zapisane w tej przeglądarce?')) { return; }
+    saved = {};
+    persist();
+    renderWorkshop();
+  });
+
+  var timers = {};
+
+  list.addEventListener('click', function (e) {
+    var act = e.target.closest('[data-act]');
+    if (!act) { return; }
+    var kind = act.dataset.act;
+    var ex = act.closest('.ex');
+
+    if (kind === 'key') {
+      var key = act.parentNode, body = key.querySelector('.key-body');
+      var open = key.getAttribute('data-open') === '1';
+      key.setAttribute('data-open', open ? '0' : '1');
+      body.hidden = open;
+      act.textContent = open ? 'Pokaż klucz i omówienie' : 'Ukryj klucz';
+      return;
+    }
+
+    if (kind === 'check-pick') {
+      var qz = act.closest('.qz'), okc = 0, all = 0;
+      qz.querySelectorAll('.opt').forEach(function (o) {
+        var want = o.dataset.sel === '1', has = o.querySelector('input').checked;
+        o.setAttribute('data-v', want === has ? 'ok' : 'no');
+        o.querySelector('.why').hidden = false;
+        all++;
+        if (want === has) { okc++; }
+      });
+      qz.querySelector('.verdict').innerHTML = 'Poprawnie <b>' + okc + ' z ' + all + '</b>.';
+      return;
+    }
+
+    if (kind === 'check-match') {
+      var qm = act.closest('.qz'), okm = 0, ans = 0, all = 0;
+      qm.querySelectorAll('.qz-row').forEach(function (r) {
+        var sel = r.querySelector('select').value;
+        all++;
+        if (sel === '') { r.removeAttribute('data-v'); return; }
+        ans++;
+        var good = sel === r.dataset.a;
+        r.setAttribute('data-v', good ? 'ok' : 'no');
+        if (good) { okm++; }
+      });
+      qm.querySelector('.verdict').innerHTML = ans === 0
+        ? 'Najpierw wybierz odpowiedzi.'
+        : 'Poprawnie <b>' + okm + ' z ' + ans + '</b> (uzupełnionych ' + ans + ' z ' + all + ').';
+      return;
+    }
+
+    if (kind === 'timer-start' || kind === 'timer-reset') {
+      var id = ex.dataset.id, total = parseInt(ex.dataset.min, 10) * 60;
+      var box = ex.querySelector('.timer'), clock = box.querySelector('.clock');
+      var startBtn = ex.querySelector('[data-act="timer-start"]');
+      if (timers[id]) { clearInterval(timers[id].h); }
+
+      if (kind === 'timer-reset') {
+        delete timers[id];
+        clock.textContent = mmss(total);
+        box.setAttribute('data-state', 'idle');
+        startBtn.textContent = 'Start';
+        return;
+      }
+      if (timers[id] && timers[id].running) {
+        timers[id].running = false;
+        box.setAttribute('data-state', 'idle');
+        startBtn.textContent = 'Wznów';
+        return;
+      }
+      var left = timers[id] ? timers[id].left : total;
+      timers[id] = { left: left, running: true, h: 0 };
+      startBtn.textContent = 'Pauza';
+      box.setAttribute('data-state', 'run');
+      timers[id].h = setInterval(function () {
+        timers[id].left--;
+        clock.textContent = mmss(timers[id].left);
+        if (timers[id].left <= 0) { box.setAttribute('data-state', 'over'); }
+      }, 1000);
+      return;
+    }
+  });
+
+  function handle(e) {
+    var el = e.target;
+    if (!el.dataset || !el.dataset.k) { return; }
+    if (el.type === 'checkbox') { saved[el.dataset.k] = el.checked ? '1' : '0'; }
+    else { saved[el.dataset.k] = el.value; }
+    persist();
+
+    if (el.dataset.done) {
+      var ex = el.closest('.ex');
+      ex.setAttribute('data-done', el.checked ? '1' : '0');
+      updateProgress();
+    }
+    var echo = el.parentNode ? el.parentNode.querySelector('.print-echo') : null;
+    if (echo && el.tagName === 'TEXTAREA') { echo.textContent = el.value; }
+    var w = el.closest('.widget');
+    if (w) { refresh(w); }
+    updateSummary();
+  }
+
+  list.addEventListener('input', handle);
+  list.addEventListener('change', handle);
+
+  window.addEventListener('hashchange', function () { applyHash(); render(false); });
+
+  applyHash();
+  render(false);
 })();
 </script>
