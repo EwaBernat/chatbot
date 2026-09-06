@@ -217,6 +217,27 @@ faktura wraca do korekty i płatność się opóźnia.
 i usługach z załącznika nr 15 do ustawy o VAT — przy pojedynczej subskrypcji
 zwykle nie wystąpi, przy pakiecie dla zespołu szkół warto sprawdzić.
 
+**Biała lista podatników VAT** (art. 96b ustawy o VAT). Przy płatności powyżej
+15 000 zł brutto na rzecz czynnego podatnika VAT nabywca musi przelać na rachunek
+z wykazu prowadzonego przez Szefa KAS — inaczej traci koszt podatkowy i odpowiada
+solidarnie za VAT sprzedawcy. Na białej liście są wyłącznie **rachunki rozliczeniowe
+zgłoszone do urzędu skarbowego**, nigdy prywatne konta osobiste. Skarbnik jednostki
+sprawdza to także poniżej progu, bo to rutyna przed każdym przelewem.
+
+W umowie warto to ująć jako oświadczenie sprzedawcy plus zasadę zmiany rachunku:
+nowy numer wyłącznie pisemnie na adres z komparycji, a zapłata na numer z umowy —
+do czasu doręczenia takiego powiadomienia — zwalnia ze zobowiązania. To nie jest
+formalność: podszywanie się pod kontrahenta i podmiana numeru konta w mailu
+z fakturą jest jednym z najczęstszych oszustw wobec jednostek budżetowych.
+
+**Nazwa pakietu to nie nazwa banku.** W umowie i na fakturze podaje się bank
+i numer rachunku. Nazwy taryf („Platinum", „Premium", „Konto Przekorzystne")
+nie wchodzą do dokumentu.
+
+**Numer rachunku sprawdzaj sumą kontrolną**, zanim trafi do umowy. Polski numer
+ma 26 cyfr; dopisanie z przodu „PL" daje IBAN, którego reszta z dzielenia przez 97
+musi wynosić 1. Przestawienie dwóch cyfr przy przepisywaniu wychodzi natychmiast.
+
 ## 11. Zwroty i odstąpienie poza obrotem konsumenckim
 
 Jednostka budżetowa, szkoła i organ prowadzący **nie są konsumentami** ani

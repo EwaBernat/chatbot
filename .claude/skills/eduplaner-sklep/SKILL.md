@@ -137,8 +137,11 @@ Kontroler `gotowosc.js` wypisze to za każdym razem; tu jest pełna lista przycz
   nazwie, która figuruje w rejestrach pod innym numerem — w umowie stroną jest
   osoba fizyczna działająca pod firmą, nie „Centrum".
 - nazwa banku i numer konta → umowa § 5 i regulamin
-- termin płatności faktury, nazwa operatora płatności → regulamin § 5
-- terminy dostarczenia plików i wysyłki, koszt dostawy → regulamin § 6
+- nazwa operatora płatności → regulamin § 5
+- ~~terminy dostarczenia, koszt dostawy~~ — cała oferta jest elektroniczna:
+  link do pobrania w ciągu 1 dnia roboczego, **bez kosztów dostawy**. Gdyby
+  kiedyś doszedł towar wysyłany pocztą, wraca § 6 regulaminu, koszt dostawy
+  przy cenie i inne zasady odstąpienia.
 - data wejścia regulaminu w życie
 - `img/hero-biurko.webp`, `img/autorka.webp`
 - adresy nagrań (przez `panel-filmow.html`), adres Facebooka i bloga (`LINKS`)
