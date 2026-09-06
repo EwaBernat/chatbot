@@ -132,22 +132,25 @@ export const Zakreslany: React.FC<{
           extrapolateLeft: 'clamp',
           extrapolateRight: 'clamp',
         });
+        // Zakreślacz jako tło, nie jako pudełko obok tekstu — dzięki temu fragment
+        // łamie się razem ze zdaniem, a każda linia dostaje własne pociągnięcie.
         return (
-          <span key={i} style={{ position: 'relative', whiteSpace: 'nowrap', fontWeight: 700 }}>
-            <span
-              style={{
-                position: 'absolute',
-                left: -6,
-                right: 0,
-                bottom: -2,
-                top: '18%',
-                width: `calc(${szerokosc}% + 12px)`,
-                background: KOLOR.zaznaczenie,
-                borderRadius: 4,
-                zIndex: 0,
-              }}
-            />
-            <span style={{ position: 'relative', zIndex: 1, color: KOLOR.fiolet }}>{czesc}</span>
+          <span
+            key={i}
+            style={{
+              fontWeight: 700,
+              color: KOLOR.fiolet,
+              backgroundImage: `linear-gradient(${KOLOR.zaznaczenie}, ${KOLOR.zaznaczenie})`,
+              backgroundRepeat: 'no-repeat',
+              backgroundSize: `${szerokosc}% 100%`,
+              boxDecorationBreak: 'clone',
+              WebkitBoxDecorationBreak: 'clone',
+              borderRadius: 4,
+              padding: '0.06em 0.14em',
+              margin: '0 -0.06em',
+            }}
+          >
+            {czesc}
           </span>
         );
       })}

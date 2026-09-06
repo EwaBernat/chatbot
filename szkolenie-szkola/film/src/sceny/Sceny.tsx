@@ -196,6 +196,9 @@ const Punkty: React.FC<{ s: Extract<Scena, { typ: 'punkty' }>; etykieta: string 
 const Cytat: React.FC<{ s: Extract<Scena, { typ: 'cytat' }>; etykieta: string }> = ({ s, etykieta }) => {
   const k = useCurrentFrame();
   const w = wejscie(k, 16, 26);
+  // Długi cytat dostaje mniejsze pismo — inaczej ramka zeszłaby na pasek napisów.
+  const dlugosc = s.tresc.replace(/\*\*/g, '').length;
+  const pismo = dlugosc > 420 ? 30 : dlugosc > 260 ? 34 : 40;
   return (
     <AbsoluteFill>
       <NaglowekSceny etykieta={etykieta} tytul={s.naglowek} />
@@ -229,7 +232,7 @@ const Cytat: React.FC<{ s: Extract<Scena, { typ: 'cytat' }>; etykieta: string }>
         >
           §
         </div>
-        <div style={{ fontFamily: KROJ, fontSize: 40, lineHeight: 1.44, color: KOLOR.atrament, position: 'relative' }}>
+        <div style={{ fontFamily: KROJ, fontSize: pismo, lineHeight: 1.44, color: KOLOR.atrament, position: 'relative' }}>
           <Zakreslany tekst={s.tresc} start={26} />
         </div>
         <div style={{ marginTop: 34, fontFamily: KROJ, fontSize: 25, color: KOLOR.szary, letterSpacing: 0.6 }}>
