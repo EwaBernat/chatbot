@@ -48,6 +48,21 @@ def bez_numeru(etykieta: str) -> str:
     return re.sub(r"^\s*\d+\s*·\s*", "", str(etykieta))
 
 
+def logo_pctp() -> str:
+    """Znak PCTP wklejony w dokument jako data: URI.
+
+    W nagłówku stał do tej pory fioletowy krążek z napisem „PCTP” zrobiony
+    w CSS. To był znacznik zastępczy, nie logo — materiał firmowany jej
+    nazwiskiem ma nosić ten sam znak, co reszta ekosystemu EduPlaner.
+    Plik leży raz, w media_wspolne/, i idzie do środka dokumentu, żeby
+    ten działał z dysku, bez internetu.
+    """
+    p = KORZEN.parent / "media_wspolne" / "logo_pctp.png"
+    if not p.exists():
+        return ""
+    return "data:image/png;base64," + base64.b64encode(p.read_bytes()).decode()
+
+
 def e(t) -> str:
     return html.escape(str(t if t is not None else ""))
 
@@ -85,7 +100,10 @@ body{background:#e9e7ef;color:var(--ink);font-family:'Mulish','Segoe UI',Candara
 .head{display:flex;align-items:center;gap:12px}
 .mark{width:36px;height:36px;border-radius:50%;background:var(--fiolet);border:2px solid #cfc4ea;color:#fff;
   display:flex;align-items:center;justify-content:center;font-size:8px;font-weight:800;flex:0 0 auto}
-.mark::after{content:"PCTP"}
+/* Znak wchodzi jako tło kółka; gdy pliku nie ma, zostaje sam fiolet
+   i dokument nadal się składa — brak nie ma wysypywać budowania. */
+.mark{background:center/cover no-repeat var(--fiolet);background-image:var(--logo)}
+.mark::after{content:""}
 .head h1{font-size:15px;margin:0;color:var(--fiolet)}
 .head .sub{font-size:8px;color:var(--szary);letter-spacing:.6px;text-transform:uppercase;font-weight:700;margin-top:2px}
 .head .prawa{margin-left:auto;text-align:right}
@@ -429,7 +447,7 @@ def main() -> int:
         '<!DOCTYPE html>\n<html lang="pl">\n<head>\n<meta charset="UTF-8">\n'
         '<meta name="viewport" content="width=device-width, initial-scale=1.0">\n'
         f'<title>Karty pracy · {e(MODUL["nazwa"])} — EduPlaner 2026 · PCTP</title>\n'
-        f'<style>{STYL}</style>\n</head>\n<body>\n' + "\n".join(strony) +
+        f'<style>:root{{--logo:url({logo_pctp()})}}{STYL}</style>\n</head>\n<body>\n' + "\n".join(strony) +
         '\n<script>' + SKRYPT + '</script>\n</body>\n</html>\n',
         encoding="utf-8")
     print(f"zapisano {sciezka_w_opisie(wyjscie)} "

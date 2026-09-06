@@ -17,6 +17,7 @@ Zapisują się z prefiksem `uczen_`, który jest wpisany do .gitignore.
 from __future__ import annotations
 
 import argparse
+import base64
 import html
 import json
 import pathlib
@@ -27,6 +28,21 @@ KORZEN = pathlib.Path(__file__).resolve().parent.parent
 DANE = KORZEN / "01_dane_json" / "cele_tom_obserwacja.json"
 KATALOG = KORZEN / "02_gotowe_dokumenty"
 KOLEJNOSC = ["I", "II", "III", "IV", "V"]
+
+
+def logo_pctp() -> str:
+    """Znak PCTP wklejony w dokument jako data: URI.
+
+    W nagłówku stał do tej pory fioletowy krążek z napisem „PCTP” zrobiony
+    w CSS. To był znacznik zastępczy, nie logo — materiał firmowany jej
+    nazwiskiem ma nosić ten sam znak, co reszta ekosystemu EduPlaner.
+    Plik leży raz, w media_wspolne/, i idzie do środka dokumentu, żeby
+    ten działał z dysku, bez internetu.
+    """
+    p = KORZEN.parent / "media_wspolne" / "logo_pctp.png"
+    if not p.exists():
+        return ""
+    return "data:image/png;base64," + base64.b64encode(p.read_bytes()).decode()
 
 
 def e(t) -> str:
@@ -69,7 +85,10 @@ body{background:#e9e7ef;color:var(--ink);font-family:'Mulish','Segoe UI',Candara
 .head{display:flex;align-items:center;gap:12px}
 .mark{width:38px;height:38px;border-radius:50%;background:var(--fiolet);border:2px solid #cfc4ea;color:#fff;
   display:flex;align-items:center;justify-content:center;font-size:8.5px;font-weight:800;flex:0 0 auto}
-.mark::after{content:"PCTP"}
+/* Znak wchodzi jako tło kółka; gdy pliku nie ma, zostaje sam fiolet
+   i dokument nadal się składa — brak nie ma wysypywać budowania. */
+.mark{background:center/cover no-repeat var(--fiolet);background-image:var(--logo)}
+.mark::after{content:""}
 .head h1{font-size:16px;margin:0;color:var(--fiolet)}
 .head .sub{font-size:8.5px;color:var(--szary);letter-spacing:.6px;text-transform:uppercase;font-weight:700;margin-top:2px}
 .head .prawa{margin-left:auto;text-align:right}
@@ -347,7 +366,7 @@ def main() -> int:
     wyjscie.write_text(
         f'<!DOCTYPE html>\n<html lang="pl">\n<head>\n<meta charset="UTF-8">\n'
         f'<meta name="viewport" content="width=device-width, initial-scale=1.0">\n'
-        f"<title>{e(tytul)}</title>\n<style>{STYL}</style>\n</head>\n<body>\n"
+        f"<title>{e(tytul)}</title>\n<style>:root{{--logo:url({logo_pctp()})}}{STYL}</style>\n</head>\n<body>\n"
         + "\n".join(strony) + "\n</body>\n</html>\n", encoding="utf-8")
     print(f"zapisano {wyjscie.relative_to(KORZEN)} ({wyjscie.stat().st_size // 1024} KB · {ile} stron)")
     if args.uczen:

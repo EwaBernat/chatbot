@@ -46,6 +46,21 @@ def bez_numeru(etykieta: str) -> str:
     return re.sub(r"^\s*\d+\s*·\s*", "", str(etykieta))
 
 
+def logo_pctp() -> str:
+    """Znak PCTP wklejony w dokument jako data: URI.
+
+    W nagłówku stał do tej pory fioletowy krążek z napisem „PCTP” zrobiony
+    w CSS. To był znacznik zastępczy, nie logo — materiał firmowany jej
+    nazwiskiem ma nosić ten sam znak, co reszta ekosystemu EduPlaner.
+    Plik leży raz, w media_wspolne/, i idzie do środka dokumentu, żeby
+    ten działał z dysku, bez internetu.
+    """
+    p = KORZEN.parent / "media_wspolne" / "logo_pctp.png"
+    if not p.exists():
+        return ""
+    return "data:image/png;base64," + base64.b64encode(p.read_bytes()).decode()
+
+
 def e(t) -> str:
     return html.escape(str(t if t is not None else ""))
 
@@ -91,7 +106,10 @@ body{background:#e9e7ef;color:var(--ink);padding:18px 12px;
 .mark{width:40px;height:40px;border-radius:50%;background:var(--fiolet);border:2px solid #cfc4ea;
       display:flex;align-items:center;justify-content:center;color:#fff;font-size:9px;font-weight:800;
       letter-spacing:.4px;flex:0 0 auto}
-.mark::after{content:"PCTP"}
+/* Znak wchodzi jako tło kółka; gdy pliku nie ma, zostaje sam fiolet
+   i dokument nadal się składa — brak nie ma wysypywać budowania. */
+.mark{background:center/cover no-repeat var(--fiolet);background-image:var(--logo)}
+.mark::after{content:""}
 .head h1{font-size:19px;margin:0;color:var(--fiolet);letter-spacing:.2px}
 .head .sub{font-size:9.5px;color:var(--szary);letter-spacing:.6px;text-transform:uppercase;
            font-weight:700;margin-top:2px}
@@ -1081,7 +1099,7 @@ def main() -> int:
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Tabela celów SMART · teoria umysłu (przedszkole) — EduPlaner 2026 · PCTP</title>
-<style>{STYL}
+<style>:root{{--logo:url({logo_pctp()})}}{STYL}
 {styl_zdjec(pomoce["pomoce"])}
 {styl_obrazkow(pomoce["pomoce"], materialy["arkusze"])}</style>
 </head>

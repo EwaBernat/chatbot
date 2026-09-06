@@ -194,6 +194,9 @@ eduplaner_tom/04_media/**/*.pdf
 # Rysunki odtwarza kod z arkuszy generatora; repozytorium trzyma opisy, nie pliki.
 media_wspolne/**/*.jpg
 media_wspolne/**/*.png
+# Znak PCTP jest wyjątkiem: to nie materiał dziecka, tylko logo, którego
+# potrzebuje każdy build. Bez niego świeży klon składa druki bez znaku.
+!media_wspolne/logo_pctp.png
 
 # EduPlaner — moduł rozwoju mowy (MOWA)
 eduplaner_mowa/02_gotowe_dokumenty/uczen_*
@@ -208,3 +211,7 @@ eduplaner_fba/04_media/**/*.mp3
 eduplaner_fba/04_media/**/*.jpg
 eduplaner_fba/04_media/**/*.png
 eduplaner_fba/04_media/**/*.pdf
+
+# PDF-y odtwarza narzedzia/zrob_pdf.py w kilkanaście sekund — 96 MB w historii
+# repozytorium nie daje nic, czego nie da się złożyć poleceniem.
+eduplaner_*/02_gotowe_dokumenty/pdf/
