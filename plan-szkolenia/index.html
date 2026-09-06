@@ -1,0 +1,922 @@
+<title>Plan szkolenia EduPlaner 2026</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400&family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;1,400&family=IBM+Plex+Mono:wght@400;500&display=swap">
+
+<style>
+:root{
+  --paper:#F7F6FA;
+  --surface:#FFFFFF;
+  --surface-2:#F1EFF7;
+  --ink:#191330;
+  --ink-2:#453D63;
+  --muted:#6E6788;
+  --line:#DCD6E8;
+  --line-soft:#E8E4F1;
+  --brand:#2D1B69;
+  --brand-soft:#ECE7F8;
+  --accent:#C93B08;
+  --accent-soft:#FBEADF;
+  --good:#1C6B4E;
+  --shadow:0 1px 2px rgba(25,19,48,.05);
+  --track:var(--brand);
+  --track-soft:var(--brand-soft);
+  --maxw:1120px;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --paper:#131020;
+    --surface:#1B1731;
+    --surface-2:#221D3C;
+    --ink:#F0EDF9;
+    --ink-2:#C8C2DE;
+    --muted:#9A93B6;
+    --line:#302949;
+    --line-soft:#282243;
+    --brand:#AD9BF7;
+    --brand-soft:#251F42;
+    --accent:#FF8354;
+    --accent-soft:#33202A;
+    --good:#5CC79C;
+    --shadow:0 1px 2px rgba(0,0,0,.3);
+  }
+}
+:root[data-theme="dark"]{
+  --paper:#131020;
+  --surface:#1B1731;
+  --surface-2:#221D3C;
+  --ink:#F0EDF9;
+  --ink-2:#C8C2DE;
+  --muted:#9A93B6;
+  --line:#302949;
+  --line-soft:#282243;
+  --brand:#AD9BF7;
+  --brand-soft:#251F42;
+  --accent:#FF8354;
+  --accent-soft:#33202A;
+  --good:#5CC79C;
+  --shadow:0 1px 2px rgba(0,0,0,.3);
+}
+
+/* Ścieżka przedszkolna prowadzona pomarańczem, szkolna fioletem. */
+[data-track="p"]{--track:var(--accent);--track-soft:var(--accent-soft)}
+[data-track="s"]{--track:var(--brand);--track-soft:var(--brand-soft)}
+
+*{box-sizing:border-box}
+body{
+  margin:0;
+  background:var(--paper);
+  color:var(--ink);
+  font-family:"IBM Plex Sans","Segoe UI",system-ui,sans-serif;
+  font-size:16px;
+  line-height:1.6;
+  -webkit-font-smoothing:antialiased;
+}
+h1,h2,h3,h4{font-family:Newsreader,"Iowan Old Style",Georgia,serif;font-weight:600;text-wrap:balance;margin:0;line-height:1.18}
+p{margin:0}
+a{color:var(--track);text-underline-offset:.18em}
+:focus-visible{outline:2px solid var(--track);outline-offset:3px;border-radius:2px}
+
+.wrap{max-width:var(--maxw);margin:0 auto;padding:0 24px}
+.mono{font-family:"IBM Plex Mono",ui-monospace,SFMono-Regular,monospace;font-variant-numeric:tabular-nums}
+.eyebrow{
+  font-family:"IBM Plex Mono",monospace;font-size:11px;letter-spacing:.14em;
+  text-transform:uppercase;color:var(--muted);
+}
+
+/* ---------- pasek górny ---------- */
+.topbar{
+  position:sticky;top:0;z-index:20;
+  background:var(--paper);
+  background:color-mix(in srgb,var(--paper) 96%,transparent);
+  backdrop-filter:blur(8px);
+  border-bottom:1px solid var(--line);
+}
+.topbar-in{
+  max-width:var(--maxw);margin:0 auto;padding:10px 24px;
+  display:flex;flex-wrap:wrap;gap:16px;align-items:center;justify-content:space-between;
+}
+.mark{display:flex;align-items:baseline;gap:10px;min-width:0}
+.mark b{font-family:Newsreader,Georgia,serif;font-weight:600;font-size:17px;letter-spacing:.01em}
+.mark span{font-size:12px;color:var(--muted)}
+.switch{display:flex;gap:4px;background:var(--surface-2);border:1px solid var(--line);border-radius:999px;padding:3px}
+.switch button{
+  font:inherit;font-size:13.5px;font-weight:500;
+  border:0;background:transparent;color:var(--ink-2);
+  padding:6px 15px;border-radius:999px;cursor:pointer;white-space:nowrap;
+}
+.switch button[aria-selected="true"]{background:var(--surface);color:var(--ink);box-shadow:var(--shadow)}
+.switch button:hover{color:var(--ink)}
+
+/* ---------- nagłówek ścieżki ---------- */
+.hero{padding:52px 0 34px;border-bottom:1px solid var(--line)}
+.hero .kicker{display:flex;align-items:center;gap:10px;margin-bottom:18px}
+.kicker .dot{width:9px;height:9px;border-radius:50%;background:var(--track)}
+.hero h1{font-size:clamp(32px,5vw,48px);letter-spacing:-.015em;max-width:16ch}
+.hero .lead{margin-top:16px;max-width:62ch;font-size:17.5px;color:var(--ink-2)}
+.hero .rule{margin-top:26px;height:3px;width:64px;background:var(--track)}
+
+/* ---------- karta szkolenia ---------- */
+.facts{
+  display:grid;gap:0;margin:28px 0 0;
+  grid-template-columns:1fr;
+  border:1px solid var(--line);background:var(--surface);
+}
+@media(min-width:560px){.facts{grid-template-columns:1fr 1fr}}
+@media(min-width:960px){.facts{grid-template-columns:1fr 1fr 1fr}}
+.fact{padding:16px 18px;border-right:1px solid var(--line-soft);border-bottom:1px solid var(--line-soft)}
+.fact dt{font-family:"IBM Plex Mono",monospace;font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
+.fact dd{margin:6px 0 0;font-size:15px;line-height:1.45}
+.fact dd strong{font-weight:600}
+
+/* ---------- sekcje ---------- */
+section.block{padding:46px 0;border-bottom:1px solid var(--line)}
+.block > .wrap > header{margin-bottom:26px;max-width:70ch}
+.block h2{font-size:clamp(23px,3vw,30px);letter-spacing:-.01em}
+.block h2 + p{margin-top:10px;color:var(--ink-2);max-width:66ch}
+
+/* cele */
+.goals{display:grid;gap:1px;background:var(--line-soft);border:1px solid var(--line)}
+@media(min-width:760px){.goals{grid-template-columns:1fr 1fr}}
+.goal{background:var(--surface);padding:18px 20px;display:flex;gap:14px;align-items:flex-start}
+.goal .n{font-family:"IBM Plex Mono",monospace;font-size:12px;color:var(--track);padding-top:3px}
+.goal p{font-size:15.2px}
+
+/* moduły */
+.modules{border-top:1px solid var(--line)}
+.mod{
+  display:grid;gap:0 26px;padding:24px 0;border-bottom:1px solid var(--line);
+  grid-template-columns:1fr;
+}
+@media(min-width:900px){
+  .mod{grid-template-columns:8.5rem minmax(0,1.12fr) minmax(0,1fr)}
+}
+.mod-rail{display:flex;flex-direction:column;gap:4px;padding-top:3px}
+.mod-num{font-family:Newsreader,Georgia,serif;font-size:27px;color:var(--track);line-height:1}
+.mod-time{font-family:"IBM Plex Mono",monospace;font-size:12.5px;color:var(--ink-2)}
+.mod-file{font-family:"IBM Plex Mono",monospace;font-size:11px;color:var(--muted)}
+.mod-main h3{font-size:19.5px;margin-bottom:8px}
+.mod-main p{font-size:15.2px;color:var(--ink-2)}
+.mod-main ul{margin:10px 0 0;padding-left:18px;font-size:14.8px;color:var(--ink-2)}
+.mod-main li{margin-bottom:4px}
+.mod-side{
+  margin-top:18px;border-left:3px solid var(--track-soft);padding-left:16px;
+  display:flex;flex-direction:column;gap:14px;
+}
+@media(min-width:900px){.mod-side{margin-top:0}}
+.mod-side .lbl{font-family:"IBM Plex Mono",monospace;font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);display:block;margin-bottom:3px}
+.mod-side p{font-size:14.6px;color:var(--ink-2)}
+.mod-side .out{color:var(--ink)}
+
+/* harmonogram */
+.tablewrap{overflow-x:auto;border:1px solid var(--line);background:var(--surface)}
+table{border-collapse:collapse;width:100%;min-width:560px;font-size:14.6px}
+th,td{text-align:left;padding:11px 16px;border-bottom:1px solid var(--line-soft);vertical-align:top}
+thead th{
+  font-family:"IBM Plex Mono",monospace;font-size:10.5px;letter-spacing:.11em;text-transform:uppercase;
+  color:var(--muted);font-weight:400;background:var(--surface-2);border-bottom:1px solid var(--line);
+}
+tbody tr:last-child td{border-bottom:0}
+td.num{font-family:"IBM Plex Mono",monospace;font-variant-numeric:tabular-nums;white-space:nowrap;color:var(--ink-2)}
+tr.pause td{background:var(--surface-2);color:var(--muted);font-style:italic}
+tr.total td{border-top:2px solid var(--track);font-weight:600;background:var(--track-soft)}
+
+/* warianty */
+.variants{display:grid;gap:16px;grid-template-columns:repeat(auto-fit,minmax(240px,1fr))}
+.variant{border:1px solid var(--line);background:var(--surface);padding:18px 20px}
+.variant h4{font-size:17px;margin-bottom:6px}
+.variant .dur{font-family:"IBM Plex Mono",monospace;font-size:12.5px;color:var(--track);display:block;margin-bottom:8px}
+.variant p{font-size:14.6px;color:var(--ink-2)}
+
+/* podstawy prawne */
+.laws{list-style:none;margin:0;padding:0;display:grid;gap:0}
+.laws li{padding:13px 0;border-bottom:1px solid var(--line-soft);display:grid;gap:2px 20px}
+@media(min-width:820px){.laws li{grid-template-columns:20rem 1fr;align-items:baseline}}
+.laws b{font-weight:600;font-size:15px}
+.laws span{font-size:14.5px;color:var(--ink-2)}
+.laws .pub{font-family:"IBM Plex Mono",monospace;font-size:13px}
+
+.note{
+  margin-top:24px;border-left:3px solid var(--accent);background:var(--accent-soft);
+  padding:14px 18px;font-size:14.6px;color:var(--ink-2);
+}
+.note b{color:var(--ink)}
+
+/* druki */
+.forms{display:grid;gap:1px;background:var(--line-soft);border:1px solid var(--line)}
+@media(min-width:720px){.forms{grid-template-columns:1fr 1fr}}
+@media(min-width:1000px){.forms{grid-template-columns:1fr 1fr 1fr}}
+.form{background:var(--surface);padding:13px 16px}
+.form .sig{font-family:"IBM Plex Mono",monospace;font-size:11px;color:var(--track);display:block}
+.form p{font-size:14.4px;margin-top:2px}
+.form small{display:block;margin-top:4px;font-size:12.6px;color:var(--muted);line-height:1.45}
+
+/* wdrożenie */
+.phases{display:grid;gap:20px;grid-template-columns:repeat(auto-fit,minmax(260px,1fr))}
+.phase{border-top:3px solid var(--track);padding-top:14px}
+.phase h4{font-size:17px}
+.phase .when{font-family:"IBM Plex Mono",monospace;font-size:11.5px;color:var(--muted);display:block;margin:2px 0 10px}
+.phase ol{margin:0;padding-left:19px;font-size:14.6px;color:var(--ink-2)}
+.phase li{margin-bottom:6px}
+
+/* zasady / stopka */
+.creed{padding:52px 0}
+.creed blockquote{
+  margin:0;font-family:Newsreader,Georgia,serif;font-size:clamp(21px,3.2vw,29px);
+  line-height:1.35;max-width:26ch;color:var(--ink);
+}
+.creed blockquote span{display:block}
+.creed blockquote span + span{margin-top:8px;color:var(--track)}
+.creed .meta{margin-top:26px;font-size:14px;color:var(--muted);max-width:62ch}
+footer{border-top:1px solid var(--line);padding:22px 0 46px;font-size:13.4px;color:var(--muted)}
+footer p + p{margin-top:6px}
+
+@media print{
+  .topbar{position:static;background:none}
+  .switch{display:none}
+  section.block{page-break-inside:auto}
+  .mod{page-break-inside:avoid}
+}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+</style>
+
+<div class="topbar">
+  <div class="topbar-in">
+    <div class="mark">
+      <b>EduPlaner 2026</b>
+      <span>PCTP · plan szkolenia rady pedagogicznej</span>
+    </div>
+    <div class="switch" role="tablist" aria-label="Wybór ścieżki szkolenia">
+      <button role="tab" id="tab-p" aria-controls="panel-p" aria-selected="true">Przedszkole</button>
+      <button role="tab" id="tab-s" aria-controls="panel-s" aria-selected="false">Szkoła podstawowa</button>
+    </div>
+  </div>
+</div>
+
+<!-- ============================ PRZEDSZKOLE ============================ -->
+<main id="panel-p" role="tabpanel" aria-labelledby="tab-p" data-track="p">
+
+  <div class="hero">
+    <div class="wrap">
+      <div class="kicker"><span class="dot"></span><span class="eyebrow">Ścieżka przedszkolna · rok szkolny 2026/2027</span></div>
+      <h1>Dokumentacja przedszkolna od 1 września 2026</h1>
+      <p class="lead">Szkolenie rady pedagogicznej oparte na sześciu modułach filmowych i skrypcie dla nauczycieli. Prowadzi jedną drogą: od przepisu, przez metryczkę i kwestionariusz KPOF, do oceny wielospecjalistycznej, programu i opinii dla poradni wydawanej w dziesięć dni.</p>
+      <div class="rule"></div>
+
+      <dl class="facts">
+        <div class="fact"><dt>Adresat</dt><dd>Rada pedagogiczna przedszkola, specjaliści, dyrektor</dd></div>
+        <div class="fact"><dt>Materiał filmowy</dt><dd><strong class="mono">53:57</strong> · sześć modułów (M1–M6)</dd></div>
+        <div class="fact"><dt>Wariant warsztatowy</dt><dd><strong>ok. 3 h 35 min</strong> z jedną przerwą</dd></div>
+        <div class="fact"><dt>Materiały</dt><dd>Skrypt dla nauczycieli (wydanie 2 po audycie) + druki</dd></div>
+        <div class="fact"><dt>Narzędzie wiodące</dt><dd>KPOF — Kwestionariusz Przedszkolnej Oceny Funkcjonalnej</dd></div>
+        <div class="fact"><dt>Miara skuteczności</dt><dd>Opinia dla poradni złożona z druków, które już są w teczce</dd></div>
+      </dl>
+    </div>
+  </div>
+
+  <section class="block">
+    <div class="wrap">
+      <header>
+        <span class="eyebrow">Cele</span>
+        <h2>Po szkoleniu uczestnik potrafi</h2>
+        <p>Cele sformułowano tak, jak cele w programie dziecka: przez zachowanie, które da się zobaczyć i sprawdzić.</p>
+      </header>
+      <div class="goals">
+        <div class="goal"><span class="n">01</span><p>Wskazać podstawę prawną każdego druku prowadzonego w przedszkolu i odróżnić publikator pierwotny od obowiązującego tekstu jednolitego.</p></div>
+        <div class="goal"><span class="n">02</span><p>Opisać obieg sześciu przystanków i powiedzieć, który dokument zasila który — bez zaglądania do schematu.</p></div>
+        <div class="goal"><span class="n">03</span><p>Wypełnić metryczkę bez danych nadmiarowych i odczytać z niej w kilkanaście sekund: kogo wezwać, co podać, od kiedy liczyć termin.</p></div>
+        <div class="goal"><span class="n">04</span><p>Policzyć wynik KPOF z pominięciem pozycji N, odczytać profil dziewięciu obszarów i zastosować regułę nadrzędną.</p></div>
+        <div class="goal"><span class="n">05</span><p>Rozpoznać, która z sześciu reguł przekierowania zadziałała, i wybrać właściwe narzędzie obserwacji pogłębionej.</p></div>
+        <div class="goal"><span class="n">06</span><p>Zamienić zapis „rozwijanie samodzielności” w cel mierzalny z kryterium, terminem i sposobem pomiaru.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="block">
+    <div class="wrap">
+      <header>
+        <span class="eyebrow">Program</span>
+        <h2>Sześć modułów</h2>
+        <p>Każdy moduł ma ten sam porządek: po co dokument powstaje, jak go stworzyć, jak go wypełnić krok po kroku. Timecode wskazuje początek modułu w nagraniu.</p>
+      </header>
+
+      <div class="modules">
+
+        <article class="mod">
+          <div class="mod-rail">
+            <span class="mod-num">1</span>
+            <span class="mod-time">00:00 → 09:30</span>
+            <span class="mod-file">M1.mp4</span>
+          </div>
+          <div class="mod-main">
+            <h3>Podstawa prawna — co obowiązuje od 1 września 2026 r.</h3>
+            <p>Dziewięć obszarów nowej podstawy programowej zamiast czterech. Ocena funkcjonalna jako etap poprzedzający orzeczenie. Opinia o funkcjonowaniu dziecka wydawana w dziesięć dni. Rotacyjna funkcja Strażnika Prawa.</p>
+            <ul>
+              <li>Nie zaczynamy od zera — aktualizujemy przy najbliższej ocenie.</li>
+              <li>Publikatory pierwotne służą do rozpoznania aktu, nie do cytowania.</li>
+            </ul>
+          </div>
+          <div class="mod-side">
+            <div><span class="lbl">Ćwiczenie</span><p>Przegląd wzorów druków używanych w placówce — w każdym sprawdzamy, czy w podstawie prawnej stoi obowiązujący tekst jednolity.</p></div>
+            <div><span class="lbl">Produkt modułu</span><p class="out">Lista druków do poprawy + wyznaczony Strażnik Prawa i rytm zmiany funkcji.</p></div>
+          </div>
+        </article>
+
+        <article class="mod">
+          <div class="mod-rail">
+            <span class="mod-num">2</span>
+            <span class="mod-time">09:30 → 15:06</span>
+            <span class="mod-file">M2.mp4</span>
+          </div>
+          <div class="mod-main">
+            <h3>Obieg dokumentów — jak jeden wynika z drugiego</h3>
+            <p>Sześć przystanków: metryczka → KPOF → obserwacja pogłębiona → wielospecjalistyczna ocena → indywidualny program → ewaluacja. Obok obiegu stoi opinia dla poradni, składana z tego, co już mamy.</p>
+            <ul>
+              <li>Dokumentacja wypełniana z pamięci nie służy ani dziecku, ani nam.</li>
+            </ul>
+          </div>
+          <div class="mod-side">
+            <div><span class="lbl">Ćwiczenie</span><p>Zespoły układają sześć przystanków w kolejności i przy każdym wpisują, z którego dokumentu biorą dane i który zasilają.</p></div>
+            <div><span class="lbl">Produkt modułu</span><p class="out">Schemat obiegu gotowy do załączenia do zarządzenia dyrektora.</p></div>
+          </div>
+        </article>
+
+        <article class="mod">
+          <div class="mod-rail">
+            <span class="mod-num">3</span>
+            <span class="mod-time">15:06 → 20:51</span>
+            <span class="mod-file">M3.mp4</span>
+          </div>
+          <div class="mod-main">
+            <h3>Metryczka dziecka — pierwszy dokument września</h3>
+            <p>Sekcje I–VII i XI na przykładzie. PESEL-u nie powielamy — jest w księdze dzieci. Sekcja VII uruchamia trzydziestodniowy termin na program. Sekcja XI zasili później opinię dla poradni.</p>
+            <ul>
+              <li>Lek podajemy wyłącznie przy komplecie trzech dokumentów: upoważnienie rodziców, pisemna zgoda nauczyciela, procedura dyrektora.</li>
+            </ul>
+          </div>
+          <div class="mod-side">
+            <div><span class="lbl">Ćwiczenie</span><p>Wypełnienie metryczki dla dziecka z przykładu, a potem test odczytu: trzy pytania w kilkanaście sekund.</p></div>
+            <div><span class="lbl">Produkt modułu</span><p class="out">Uzgodniony zakres danych w metryczce — i lista pól, które usuwamy jako nadmiarowe.</p></div>
+          </div>
+        </article>
+
+        <article class="mod">
+          <div class="mod-rail">
+            <span class="mod-num">4</span>
+            <span class="mod-time">20:51 → 30:59</span>
+            <span class="mod-file">M4.mp4</span>
+          </div>
+          <div class="mod-main">
+            <h3>KPOF — budowa narzędzia, skala, liczenie wyniku, odczyt profilu</h3>
+            <p>Trzy wersje arkusza: A (3–4 lata, 42 twierdzenia), B i C (po 44). Skala 1–5 plus N. Średnia obszaru liczona bez pozycji N. Progi: 4–5 zasób · 3–3,9 poziom I · 2–2,9 poziom II · poniżej 2 poziom III.</p>
+            <ul>
+              <li>Reguła nadrzędna: każde twierdzenie ocenione na 1 lub 2 idzie do analizy zespołu, niezależnie od średniej.</li>
+              <li>Trzy arkusze na jedno dziecko — nauczyciel, rodzic, specjalista — i nie uśredniamy ich.</li>
+            </ul>
+          </div>
+          <div class="mod-side">
+            <div><span class="lbl">Ćwiczenie</span><p>Obliczenie średniej obszaru na danych z przykładu (11 pkt z czterech ocenionych twierdzeń = 2,75), naniesienie profilu i wskazanie kolorów.</p></div>
+            <div><span class="lbl">Produkt modułu</span><p class="out">Policzony arkusz próbny i wpis do procedury: kto wypełnia, do kiedy, kto zbiera.</p></div>
+          </div>
+        </article>
+
+        <article class="mod">
+          <div class="mod-rail">
+            <span class="mod-num">5</span>
+            <span class="mod-time">30:59 → 40:45</span>
+            <span class="mod-file">M5.mp4</span>
+          </div>
+          <div class="mod-main">
+            <h3>Obserwacja pogłębiona — ABC, profil sensoryczny, teoria umysłu, karta mowy</h3>
+            <p>Sześć reguł przekierowania — wystarczy jedna. Cztery narzędzia, każde odpowiada na inne pytanie. Karta mowy: 25 wskaźników w skali 0–2, pięć obszarów po 0–10 punktów (8–10 zasób, 4–7 wsparcie, 0–3 priorytet).</p>
+            <ul>
+              <li>Granica kompetencji: nauczyciel opisuje wzorzec, rozpoznanie należy do specjalisty.</li>
+            </ul>
+          </div>
+          <div class="mod-side">
+            <div><span class="lbl">Ćwiczenie</span><p>Zapis ABC bez interpretacji — uczestnicy poprawiają zdanie zawierające ocenę na zapis, który da się nagrać kamerą.</p></div>
+            <div><span class="lbl">Produkt modułu</span><p class="out">Karta decyzyjna wypełniona dla jednego dziecka — również w wariancie „nie uruchamiamy”.</p></div>
+          </div>
+        </article>
+
+        <article class="mod">
+          <div class="mod-rail">
+            <span class="mod-num">6</span>
+            <span class="mod-time">40:45 → 53:57</span>
+            <span class="mod-file">M6.mp4</span>
+          </div>
+          <div class="mod-main">
+            <h3>WOPF, IPET, cele SMART, ewaluacja i opinia dla poradni</h3>
+            <p>Siedem bloków oceny i źródło każdego z nich. Program dla dziecka z orzeczeniem: do 30 września albo 30 dni od złożenia orzeczenia. Cztery decyzje po każdym pomiarze. Opinia dla poradni: siedem punktów, dziesięć dni.</p>
+            <ul>
+              <li>Nazwa SMART jest dowolna — mierzalność jest konieczna, bo ocena efektywności jest wymagana.</li>
+              <li>Punkt o mocnych stronach piszemy pierwszy i co najmniej tak obszernie jak punkt o trudnościach.</li>
+            </ul>
+          </div>
+          <div class="mod-side">
+            <div><span class="lbl">Ćwiczenie</span><p>Przepisanie zapisu „rozwijanie samodzielności w czynnościach samoobsługowych” na cel z zachowaniem, liczbą prób, poziomem wsparcia, datą i sposobem pomiaru.</p></div>
+            <div><span class="lbl">Produkt modułu</span><p class="out">Jeden gotowy cel mierzalny na uczestnika + wpisane do kalendarza terminy ewaluacji.</p></div>
+          </div>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <section class="block">
+    <div class="wrap">
+      <header>
+        <span class="eyebrow">Organizacja</span>
+        <h2>Harmonogram spotkania</h2>
+        <p>Wariant warsztatowy: projekcja modułu, potem praca na własnych drukach. Minuty przy ćwiczeniach są propozycją — czas filmu jest stały.</p>
+      </header>
+
+      <div class="tablewrap">
+        <table>
+          <thead>
+            <tr><th>Blok</th><th>Film</th><th>Ćwiczenie</th><th>Razem</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Otwarcie — cel szkolenia, zasada Strażnika Prawa</td><td class="num">—</td><td class="num">10 min</td><td class="num">10 min</td></tr>
+            <tr><td>M1 · Podstawa prawna</td><td class="num">9:30</td><td class="num">15 min</td><td class="num">25 min</td></tr>
+            <tr><td>M2 · Obieg dokumentów</td><td class="num">5:36</td><td class="num">10 min</td><td class="num">16 min</td></tr>
+            <tr><td>M3 · Metryczka dziecka</td><td class="num">5:45</td><td class="num">15 min</td><td class="num">21 min</td></tr>
+            <tr class="pause"><td>Przerwa</td><td class="num">—</td><td class="num">—</td><td class="num">15 min</td></tr>
+            <tr><td>M4 · KPOF — liczenie i odczyt profilu</td><td class="num">10:08</td><td class="num">30 min</td><td class="num">40 min</td></tr>
+            <tr><td>M5 · Obserwacja pogłębiona</td><td class="num">9:46</td><td class="num">20 min</td><td class="num">30 min</td></tr>
+            <tr><td>M6 · WOPF, IPET, cele, ewaluacja</td><td class="num">13:12</td><td class="num">30 min</td><td class="num">43 min</td></tr>
+            <tr><td>Zamknięcie — kalendarz roku i zadania wdrożeniowe</td><td class="num">—</td><td class="num">15 min</td><td class="num">15 min</td></tr>
+            <tr class="total"><td>Razem</td><td class="num">53:57</td><td class="num">2 h 25 min</td><td class="num">ok. 3 h 35 min</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="variants" style="margin-top:24px">
+        <div class="variant">
+          <h4>Wariant A — projekcja</h4>
+          <span class="dur">54 min</span>
+          <p>Same nagrania, bez ćwiczeń. Na radę sierpniową, jako wprowadzenie przed rokiem szkolnym. Skrypt rozdany do lektury własnej.</p>
+        </div>
+        <div class="variant">
+          <h4>Wariant B — warsztat</h4>
+          <span class="dur">ok. 3 h 35 min</span>
+          <p>Harmonogram powyżej. Uczestnicy przychodzą z własnymi drukami i wychodzą z policzonym arkuszem oraz jednym celem mierzalnym.</p>
+        </div>
+        <div class="variant">
+          <h4>Wariant C — dwa spotkania</h4>
+          <span class="dur">2 × ok. 1 h 50 min</span>
+          <p>Spotkanie pierwsze: moduły 1–3 (przepis, obieg, metryczka). Między spotkaniami wrześniowa obserwacja. Spotkanie drugie: moduły 4–6 na zebranych danych.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="block">
+    <div class="wrap">
+      <header>
+        <span class="eyebrow">Podstawa prawna szkolenia</span>
+        <h2>Akty, do których odsyłają moduły</h2>
+      </header>
+      <ul class="laws">
+        <li><b>Podstawa programowa wychowania przedszkolnego</b><span>rozporządzenie ME z 11 marca 2026 r. — <span class="pub">Dz.U. 2026 poz. 378</span>, od 1.09.2026; akt zmieniony <span class="pub">Dz.U. 2026 poz. 958</span> (zmiana nie dotyczy załącznika nr 1)</span></li>
+        <li><b>Orzeczenia i opinie zespołów orzekających</b><span>rozporządzenie ME z 2 marca 2026 r. — <span class="pub">Dz.U. 2026 poz. 428</span>; § 7 ust. 6–7 i § 8 od 1.09.2026; § 7 ust. 3 — opinia w terminie 10 dni od otrzymania prośby przez dyrektora</span></li>
+        <li><b>Pomoc psychologiczno-pedagogiczna</b><span>rozporządzenie MEN z 9 sierpnia 2017 r. — <span class="pub">t.j. Dz.U. 2023 poz. 1798</span></span></li>
+        <li><b>Kształcenie specjalne (WOPF, IPET)</b><span>rozporządzenie MEN z 9 sierpnia 2017 r. — <span class="pub">t.j. Dz.U. 2020 poz. 1309</span>, § 6</span></li>
+        <li><b>Dokumentacja przebiegu nauczania</b><span>rozporządzenie MEN z 25 sierpnia 2017 r. — <span class="pub">t.j. Dz.U. 2024 poz. 50</span>; arkusze obserwacji jako dokumentacja badań i czynności uzupełniających</span></li>
+        <li><b>Prawo oświatowe · RODO</b><span>ustawa z 14 grudnia 2016 r. — <span class="pub">t.j. Dz.U. 2026 poz. 820</span>; rozporządzenie (UE) 2016/679, art. 5 ust. 1 lit. c i art. 9</span></li>
+        <li><b>Organizacja przedszkoli</b><span>rozporządzenie MEN z 28 lutego 2019 r. — <span class="pub">t.j. Dz.U. 2023 poz. 2736</span>; dane sekcji II metryczki</span></li>
+        <li><b>Świadectwa i druki</b><span>rozporządzenie MEiN z 7 czerwca 2023 r. — <span class="pub">Dz.U. 2023 poz. 1120</span>; wzór informacji o gotowości dziecka do podjęcia nauki w szkole</span></li>
+      </ul>
+      <p class="note"><b>Zasada Strażnika Prawa.</b> Publikator sprawdzamy w Internetowym Systemie Aktów Prawnych bezpośrednio przed wpisaniem go do dokumentu dziecka. Teksty jednolite bywają ogłaszane w trakcie roku szkolnego, a druk z nieaktualnym publikatorem jest drukiem wadliwym.</p>
+    </div>
+  </section>
+
+  <section class="block">
+    <div class="wrap">
+      <header>
+        <span class="eyebrow">Po szkoleniu</span>
+        <h2>Kalendarz dokumentacji na rok szkolny</h2>
+        <p>Zadania wdrożeniowe rozpisane na miesiące. Uczestnicy wychodzą ze szkolenia z tą tabelą wpisaną do kalendarza placówki.</p>
+      </header>
+      <div class="tablewrap">
+        <table>
+          <thead><tr><th>Miesiąc</th><th>Co robimy</th><th>Dokument</th></tr></thead>
+          <tbody>
+            <tr><td class="num">sierpień / wrzesień</td><td>Zakładamy teczkę dziecka, uzupełniamy metryczkę, zbieramy zgody rodziców.</td><td>Metryczka dziecka</td></tr>
+            <tr><td class="num">wrzesień</td><td>KPOF dla wszystkich dzieci; trzylatki obowiązkowo.</td><td>KPOF — wersja A, B albo C</td></tr>
+            <tr><td class="num">do 30 września</td><td>IPET dla dziecka rozpoczynającego kształcenie z orzeczeniem; pierwsza ocena wielospecjalistyczna.</td><td>WOPF + IPET</td></tr>
+            <tr><td class="num">wrzesień / październik</td><td>Obserwacja pogłębiona tam, gdzie zadziałała reguła przekierowania.</td><td>Karta decyzyjna + wybrane narzędzie</td></tr>
+            <tr><td class="num">listopad</td><td>Krótki przegląd wskaźników — 15 minut na dziecko, notatka w dzienniku.</td><td>Karta celu SMART</td></tr>
+            <tr><td class="num">styczeń</td><td>Druga ocena wielospecjalistyczna; ewaluacja półroczna celów; ocena efektywności pomocy.</td><td>WOPF + IPET + karta ewaluacji</td></tr>
+            <tr><td class="num">marzec</td><td>Krótki przegląd wskaźników.</td><td>Karta celu SMART</td></tr>
+            <tr><td class="num">do końca kwietnia</td><td>Informacja o gotowości szkolnej dla dzieci realizujących roczne przygotowanie.</td><td>Wzór — Dz.U. 2023 poz. 1120</td></tr>
+            <tr><td class="num">maj</td><td>KPOF po raz drugi; trzecia, zalecana ocena wielospecjalistyczna.</td><td>KPOF + WOPF</td></tr>
+            <tr><td class="num">czerwiec</td><td>Ocena efektywności udzielanej pomocy na zakończenie form.</td><td>Karta ewaluacji</td></tr>
+            <tr><td class="num">cały rok</td><td>Opinia dla poradni na prośbę przewodniczącego zespołu orzekającego — w terminie 10 dni.</td><td>Opinia o funkcjonowaniu dziecka</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <div class="creed">
+    <div class="wrap">
+      <blockquote>
+        <span>Każdy druk ma swój przepis.</span>
+        <span>Obserwacja wyprzedza pismo z poradni.</span>
+        <span>Cel ma liczbę, a ewaluacja ma konsekwencję.</span>
+      </blockquote>
+      <p class="meta">Cztery pytania języka funkcjonalnego do każdego zdania w dokumentacji: co dziecko robi · w jakich warunkach · przy jakim wsparciu · jak często.</p>
+    </div>
+  </div>
+</main>
+
+<!-- ============================ SZKOŁA ============================ -->
+<main id="panel-s" role="tabpanel" aria-labelledby="tab-s" data-track="s" hidden>
+
+  <div class="hero">
+    <div class="wrap">
+      <div class="kicker"><span class="dot"></span><span class="eyebrow">Ścieżka szkolna · rok szkolny 2026/2027</span></div>
+      <h1>Kształcenie specjalne i pomoc pp w szkole podstawowej</h1>
+      <p class="lead">Szkolenie rady pedagogicznej oparte na siedmiu modułach filmowych, skrypcie i osiemnastu drukach do powielenia. Rozdziela dwie ścieżki — uczeń z orzeczeniem idzie do programu, uczeń bez orzeczenia do planu wsparcia — i prowadzi obie tym samym kwestionariuszem obserwacji.</p>
+      <div class="rule"></div>
+
+      <dl class="facts">
+        <div class="fact"><dt>Adresat</dt><dd>Rada pedagogiczna, wychowawcy, nauczyciele przedmiotów, specjaliści, dyrektor</dd></div>
+        <div class="fact"><dt>Materiał filmowy</dt><dd><strong class="mono">71:40</strong> · siedem modułów (S1–S7)</dd></div>
+        <div class="fact"><dt>Wariant warsztatowy</dt><dd><strong>ok. 4 h 40 min</strong> z dwiema przerwami</dd></div>
+        <div class="fact"><dt>Materiały</dt><dd>Skrypt (64 strony) + 18 druków + wzór zarządzenia dyrektora</dd></div>
+        <div class="fact"><dt>Narzędzie wiodące</dt><dd>KSzOF — 52 twierdzenia, 9 obszarów ICF, 260 punktów</dd></div>
+        <div class="fact"><dt>Miara skuteczności</dt><dd>Opinia dla poradni w 10 dni, bez zbierania nowych danych</dd></div>
+      </dl>
+    </div>
+  </div>
+
+  <section class="block">
+    <div class="wrap">
+      <header>
+        <span class="eyebrow">Cele</span>
+        <h2>Po szkoleniu uczestnik potrafi</h2>
+        <p>Siedem celów odpowiadających siedmiu modułom — każdy sprawdzalny na własnej dokumentacji uczestnika.</p>
+      </header>
+      <div class="goals">
+        <div class="goal"><span class="n">01</span><p>Wskazać podstawę prawną każdego druku i rozdzielić dwie ścieżki dokumentacyjne: kształcenie specjalne oraz pomoc psychologiczno-pedagogiczną.</p></div>
+        <div class="goal"><span class="n">02</span><p>Uzasadnić zmianę dokumentacji przed radą i przed rodzicem — dziesięcioma powodami, z których każdy ma swoją podstawę.</p></div>
+        <div class="goal"><span class="n">03</span><p>Zapisać funkcjonowanie ucznia językiem funkcjonalnym: co robi, w jakich warunkach, przy jakim wsparciu, jak często.</p></div>
+        <div class="goal"><span class="n">04</span><p>Wypełnić metryczkę bez danych nadmiarowych i odnotować datę wpływu orzeczenia, od której biegnie trzydzieści dni.</p></div>
+        <div class="goal"><span class="n">05</span><p>Policzyć KSzOF: wynik ogólny, sten z właściwej kolumny norm i przeliczenie każdego obszaru na skalę 0–20.</p></div>
+        <div class="goal"><span class="n">06</span><p>Zastosować siedem reguł przekierowania i zamknąć analizę ABC arkuszem funkcjonalnym z zachowaniem zastępczym.</p></div>
+        <div class="goal"><span class="n">07</span><p>Sprawdzić program kartą kontrolną ośmiu elementów i zapisać dostosowania przedmiotowo, a nie ogólnie.</p></div>
+        <div class="goal"><span class="n">08</span><p>Sporządzić plan wsparcia edukacyjnego dla ucznia bez orzeczenia — dokument, którego w większości szkół po prostu nie ma.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="block">
+    <div class="wrap">
+      <header>
+        <span class="eyebrow">Program</span>
+        <h2>Siedem modułów</h2>
+        <p>Moduł drugi jest inny niż pozostałe — nie omawia druku, tylko odpowiada na pytanie „po co to zmieniać”. To on decyduje o tym, czy reszta szkolenia zostanie wdrożona.</p>
+      </header>
+
+      <div class="modules">
+
+        <article class="mod">
+          <div class="mod-rail">
+            <span class="mod-num">1</span>
+            <span class="mod-time">00:00 → 10:40</span>
+            <span class="mod-file">S1.mp4</span>
+          </div>
+          <div class="mod-main">
+            <h3>Podstawa prawna — co obowiązuje w szkole od 1 września 2026 r.</h3>
+            <p>Dwie ścieżki organizujące całą dokumentację. Osiem elementów programu, ocena co najmniej dwa razy w roku, nauczyciel współorganizujący jako obowiązek, a nie dobra wola dyrektora. Zindywidualizowana ścieżka kształcenia i jej granice.</p>
+            <ul>
+              <li>Dostosowanie wymagań na podstawie rozpoznania nauczycieli wymaga, by to rozpoznanie było zapisane.</li>
+              <li>Przy ocenie zachowania uwzględnia się wpływ stwierdzonych zaburzeń.</li>
+            </ul>
+          </div>
+          <div class="mod-side">
+            <div><span class="lbl">Ćwiczenie</span><p>Audyt publikatorów w drukach szkoły oraz sprawdzenie obsady nauczyciela współorganizującego tam, gdzie jest obowiązkowa.</p></div>
+            <div><span class="lbl">Produkt modułu</span><p class="out">Mapa „akt prawny → co z niego wynika → gdzie to widać w druku”.</p></div>
+          </div>
+        </article>
+
+        <article class="mod">
+          <div class="mod-rail">
+            <span class="mod-num">2</span>
+            <span class="mod-time">10:40 → 23:00</span>
+            <span class="mod-file">S2.mp4</span>
+          </div>
+          <div class="mod-main">
+            <h3>Dlaczego szkoła musi zmienić dokumentację — uzasadnienie i zakres zmian</h3>
+            <p>Dziesięć powodów, z których każdy ma podstawę: adresat dokumentacji, termin dziesięciu dni, ocena jako dokument scalający, cel z kryterium, sposób realizacji zaleceń, rozliczenie środków, uzasadnienie dostosowań, prawa rodziców, ciągłość III → IV, egzamin ósmoklasisty.</p>
+            <ul>
+              <li>Zmieniamy język, nie objętość. Zmieniamy strukturę, nie liczbę druków.</li>
+              <li>Czego nie zmieniamy: dokumentów już sporządzonych — zostają jako historia wsparcia.</li>
+            </ul>
+          </div>
+          <div class="mod-side">
+            <div><span class="lbl">Ćwiczenie</span><p>Przepisanie zdania „ma trudności w koncentracji uwagi, wymaga stałej pomocy nauczyciela” na zapis odpowiadający na cztery pytania.</p></div>
+            <div><span class="lbl">Produkt modułu</span><p class="out">Tabela argumentacyjna dla dyrektora — do wykorzystania na radzie i w rozmowie z organem prowadzącym.</p></div>
+          </div>
+        </article>
+
+        <article class="mod">
+          <div class="mod-rail">
+            <span class="mod-num">3</span>
+            <span class="mod-time">23:00 → 29:10</span>
+            <span class="mod-file">S3.mp4</span>
+          </div>
+          <div class="mod-main">
+            <h3>Obieg dokumentów w szkole — jak jeden wynika z drugiego</h3>
+            <p>Siedem przystanków i jedno rozgałęzienie. Metryczka → KSzOF → obserwacja pogłębiona → ocena → IPET albo PWES → ewaluacja → dokumenty przejścia i egzaminu. Opinia dla poradni stoi obok obiegu i składa się z druków 1–6.</p>
+          </div>
+          <div class="mod-side">
+            <div><span class="lbl">Ćwiczenie</span><p>Każdy zespół dostaje jeden przystanek i odpowiada: na jakie pytanie odpowiada ten dokument i który druk zasila.</p></div>
+            <div><span class="lbl">Produkt modułu</span><p class="out">Schemat obiegu jako załącznik do zarządzenia dyrektora.</p></div>
+          </div>
+        </article>
+
+        <article class="mod">
+          <div class="mod-rail">
+            <span class="mod-num">4</span>
+            <span class="mod-time">29:10 → 35:40</span>
+            <span class="mod-file">S4.mp4</span>
+          </div>
+          <div class="mod-main">
+            <h3>Metryczka i teczka ucznia — pierwszy dokument września</h3>
+            <p>Osiem sekcji, w tym pole, o którym zapomina się najczęściej: data wpływu orzeczenia do szkoły. Sekcja III przesądza ścieżkę — IPET albo PWES — i oszczędza zespołowi godziny dyskusji w styczniu.</p>
+            <ul>
+              <li>Czego nie wpisujemy: PESEL, adresu zamieszkania, miejsca pracy rodziców, kopii dokumentacji medycznej.</li>
+            </ul>
+          </div>
+          <div class="mod-side">
+            <div><span class="lbl">Ćwiczenie</span><p>Porównanie własnego druku z listą „czego nie wpisujemy” i wykreślenie pól nadmiarowych.</p></div>
+            <div><span class="lbl">Produkt modułu</span><p class="out">Metryczka w wersji zgodnej z zasadą minimalizacji danych + wykaz zawartości teczki.</p></div>
+          </div>
+        </article>
+
+        <article class="mod">
+          <div class="mod-rail">
+            <span class="mod-num">5</span>
+            <span class="mod-time">35:40 → 47:00</span>
+            <span class="mod-file">S5.mp4</span>
+          </div>
+          <div class="mod-main">
+            <h3>KSzOF — budowa narzędzia, skala, steny, liczenie wyniku, odczyt profilu</h3>
+            <p>52 twierdzenia w dziewięciu obszarach ICF (d110–d920), maksimum 260 punktów. Trzy wersje: I–III, IV–VI, VII–VIII; decyduje wiek rozwojowy, nie metrykalny. Tabela norm ma osobne kolumny dla nauczyciela i dla rodzica.</p>
+            <ul>
+              <li>Wynik obszaru w skali 0–20 = (suma ÷ maksimum) × 20. Progi: 18–20 zasób · 14–17 poziom I · 9–13 poziom II · ≤ 8 poziom III.</li>
+              <li>Powyżej pięciu pozycji N wyniku ogólnego nie przeliczamy na steny — czytamy sam profil obszarowy.</li>
+            </ul>
+          </div>
+          <div class="mod-side">
+            <div><span class="lbl">Ćwiczenie</span><p>Policzenie przykładu z dokumentacji wzorcowej: 114 / 260 punktów → sten 4 w kolumnie nauczyciela; obszar I 23 / 75 → 6 punktów na skali 0–20, poziom III.</p></div>
+            <div><span class="lbl">Produkt modułu</span><p class="out">Policzony arkusz próbny, naniesiony profil dziewięciu obszarów i lista twierdzeń objętych regułą nadrzędną.</p></div>
+          </div>
+        </article>
+
+        <article class="mod">
+          <div class="mod-rail">
+            <span class="mod-num">6</span>
+            <span class="mod-time">47:00 → 57:30</span>
+            <span class="mod-file">S6.mp4</span>
+          </div>
+          <div class="mod-main">
+            <h3>Obserwacja pogłębiona — ABC i FBA, profil sensoryczny, teoria umysłu, karta mowy</h3>
+            <p>Siedem reguł przekierowania, w tym reguła szkolna: nagła zmiana funkcjonowania — obniżenie ocen w co najmniej trzech przedmiotach albo nieobecności powyżej 20% w miesiącu. Profil sensoryczny czytamy w trzech miejscach: korytarz na przerwie, stołówka, sala gimnastyczna.</p>
+            <ul>
+              <li>Bez zaplanowanego zachowania zastępczego plan nie działa — odbieramy uczniowi jedyny działający sposób i nie dajemy nic w zamian.</li>
+            </ul>
+          </div>
+          <div class="mod-side">
+            <div><span class="lbl">Ćwiczenie</span><p>Odróżnienie zapisu poprawnego od wadliwego („zniechęcił się, bo nie chciało mu się pracować”), a potem hipoteza funkcji i zachowanie zastępcze do niej.</p></div>
+            <div><span class="lbl">Produkt modułu</span><p class="out">Karta decyzyjna (druk KD-SP) dla jednego ucznia — wraz z uzasadnieniem decyzji odmownej.</p></div>
+          </div>
+        </article>
+
+        <article class="mod">
+          <div class="mod-rail">
+            <span class="mod-num">7</span>
+            <span class="mod-time">57:30 → 71:40</span>
+            <span class="mod-file">S7.mp4</span>
+          </div>
+          <div class="mod-main">
+            <h3>WOPF-SP, IPET, PWES, cele SMART, ewaluacja i opinia dla poradni</h3>
+            <p>Ocena w 23 sekcjach z jawnymi źródłami. Osiem obowiązkowych elementów programu jako lista kontrolna każdej kontroli. Plan wsparcia dla ucznia bez orzeczenia. Cztery decyzje po każdym pomiarze. Opinia dla poradni: siedem punktów, dziesięć dni.</p>
+            <ul>
+              <li>Dostosowania zapisujemy przedmiotowo — „wydłużenie czasu pracy” nie mówi nic nauczycielowi geografii.</li>
+              <li>W drugim etapie opinia napisana wyłącznie przez wychowawcę jest opinią niepełną.</li>
+            </ul>
+          </div>
+          <div class="mod-side">
+            <div><span class="lbl">Ćwiczenie</span><p>Karta kontrolna ośmiu elementów na własnym programie ucznia + jeden cel przepisany z „doskonalenie techniki pisania” na cel z kryterium i datą pomiaru.</p></div>
+            <div><span class="lbl">Produkt modułu</span><p class="out">Sprawdzony IPET, jeden cel mierzalny i karta dostosowań przedmiotowych na jeden przedmiot.</p></div>
+          </div>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <section class="block">
+    <div class="wrap">
+      <header>
+        <span class="eyebrow">Organizacja</span>
+        <h2>Harmonogram spotkania</h2>
+        <p>Moduły 1–4 można poprowadzić dla całej rady, moduły 5–7 zyskują, gdy uczestnicy pracują w zespołach uczniowskich, z własną dokumentacją na stole.</p>
+      </header>
+
+      <div class="tablewrap">
+        <table>
+          <thead>
+            <tr><th>Blok</th><th>Film</th><th>Ćwiczenie</th><th>Razem</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Otwarcie — cel szkolenia, dwie ścieżki, Strażnik Prawa</td><td class="num">—</td><td class="num">10 min</td><td class="num">10 min</td></tr>
+            <tr><td>S1 · Podstawa prawna w szkole</td><td class="num">10:40</td><td class="num">15 min</td><td class="num">26 min</td></tr>
+            <tr><td>S2 · Dlaczego zmieniamy dokumentację</td><td class="num">12:20</td><td class="num">20 min</td><td class="num">32 min</td></tr>
+            <tr class="pause"><td>Przerwa</td><td class="num">—</td><td class="num">—</td><td class="num">10 min</td></tr>
+            <tr><td>S3 · Obieg dokumentów</td><td class="num">6:10</td><td class="num">10 min</td><td class="num">16 min</td></tr>
+            <tr><td>S4 · Metryczka i teczka ucznia</td><td class="num">6:30</td><td class="num">15 min</td><td class="num">22 min</td></tr>
+            <tr><td>S5 · KSzOF — liczenie, steny, profil</td><td class="num">11:20</td><td class="num">35 min</td><td class="num">46 min</td></tr>
+            <tr class="pause"><td>Przerwa</td><td class="num">—</td><td class="num">—</td><td class="num">15 min</td></tr>
+            <tr><td>S6 · Obserwacja pogłębiona</td><td class="num">10:30</td><td class="num">25 min</td><td class="num">36 min</td></tr>
+            <tr><td>S7 · Ocena, program, plan wsparcia, cele</td><td class="num">14:10</td><td class="num">35 min</td><td class="num">49 min</td></tr>
+            <tr><td>Zamknięcie — checklista 30 / 60 / 90 dni</td><td class="num">—</td><td class="num">15 min</td><td class="num">15 min</td></tr>
+            <tr class="total"><td>Razem</td><td class="num">71:40</td><td class="num">2 h 45 min</td><td class="num">ok. 4 h 40 min</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="variants" style="margin-top:24px">
+        <div class="variant">
+          <h4>Wariant A — projekcja</h4>
+          <span class="dur">72 min</span>
+          <p>Same nagrania na radę sierpniową. Skrypt i druki rozdane do lektury własnej, ćwiczenia przeniesione na zespoły przedmiotowe.</p>
+        </div>
+        <div class="variant">
+          <h4>Wariant B — warsztat</h4>
+          <span class="dur">ok. 4 h 40 min</span>
+          <p>Harmonogram powyżej. Wymaga wcześniejszego rozdania druków 1–18 i przyniesienia przez uczestników jednej teczki ucznia.</p>
+        </div>
+        <div class="variant">
+          <h4>Wariant C — trzy spotkania</h4>
+          <span class="dur">3 × ok. 1 h 35 min</span>
+          <p>I: moduły 1–2 (przepis i uzasadnienie) dla całej rady. II: moduły 3–5 dla wychowawców i specjalistów. III: moduły 6–7 dla zespołów uczniowskich.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="block">
+    <div class="wrap">
+      <header>
+        <span class="eyebrow">Podstawa prawna szkolenia</span>
+        <h2>Akty, do których odsyłają moduły</h2>
+      </header>
+      <ul class="laws">
+        <li><b>Prawo oświatowe</b><span>ustawa z 14 grudnia 2016 r., art. 1 pkt 5–7 (dostosowanie treści, metod i organizacji) oraz art. 127 (kształcenie specjalne)</span></li>
+        <li><b>Kształcenie specjalne</b><span>rozporządzenie MEN z 9 sierpnia 2017 r. — <span class="pub">t.j. Dz.U. 2020 poz. 1309</span>: § 5 rewalidacja, § 6 WOPFU i IPET, § 7 nauczyciel współorganizujący</span></li>
+        <li><b>Pomoc psychologiczno-pedagogiczna</b><span>rozporządzenie MEN z 9 sierpnia 2017 r. — <span class="pub">t.j. Dz.U. 2023 poz. 1798</span>; § 12 — zindywidualizowana ścieżka kształcenia</span></li>
+        <li><b>Orzeczenia i opinie zespołów orzekających</b><span>rozporządzenie ME z 2 marca 2026 r. — <span class="pub">Dz.U. 2026 poz. 428</span>: § 7 ust. 2–3 (opinia w 10 dni), § 7 ust. 6–7 i § 8 od 1.09.2026</span></li>
+        <li><b>Dokumentacja przebiegu nauczania</b><span>rozporządzenie MEN z 25 sierpnia 2017 r. — <span class="pub">t.j. Dz.U. 2024 poz. 50</span>: księga uczniów, dzienniki, arkusze ocen, dokumentacja badań i czynności uzupełniających</span></li>
+        <li><b>Ocenianie, klasyfikowanie i promowanie</b><span>rozporządzenie MEN z 22 lutego 2019 r. — <span class="pub">Dz.U. 2019 poz. 373 ze zm.</span>: dostosowanie wymagań, ocena zachowania, zwolnienia</span></li>
+        <li><b>Indywidualne nauczanie</b><span>rozporządzenie MEN z 9 sierpnia 2017 r. — <span class="pub">Dz.U. 2017 poz. 1616 ze zm.</span></span></li>
+        <li><b>Egzamin ósmoklasisty</b><span>komunikat dyrektora Centralnej Komisji Egzaminacyjnej na dany rok — terminy i katalog dostosowań</span></li>
+        <li><b>Dostępność · finansowanie · RODO</b><span>ustawa z 19 lipca 2019 r. (<span class="pub">t.j. Dz.U. 2024 poz. 1411</span>); ustawa o finansowaniu zadań oświatowych, art. 8 ust. 16–17; rozporządzenie (UE) 2016/679, art. 5 ust. 1 lit. c i art. 9</span></li>
+      </ul>
+      <p class="note"><b>Zasada Strażnika Prawa.</b> Przed wpisaniem podstawy prawnej do dokumentu ucznia sprawdzamy publikator w Internetowym Systemie Aktów Prawnych — dotyczy to również terminów i katalogu dostosowań ogłaszanych corocznie w komunikacie dyrektora CKE. W dokumencie ucznia cytujemy obowiązujący tekst jednolity, nigdy publikator pierwotny.</p>
+    </div>
+  </section>
+
+  <section class="block">
+    <div class="wrap">
+      <header>
+        <span class="eyebrow">Materiały</span>
+        <h2>Osiemnaście druków do powielenia</h2>
+        <p>Druki nie powielają danych osobowych — dziedziczą je z metryczki. Każdy ma nagłówek z informacją, kto go wypełnia, kiedy i który dokument zasila.</p>
+      </header>
+      <div class="forms">
+        <div class="form"><span class="sig">1 · KD-SP</span><p>Karta decyzyjna obserwacji pogłębionej</p><small>gdy zadziałała którakolwiek z siedmiu reguł</small></div>
+        <div class="form"><span class="sig">2 · ABC-SP</span><p>Karta obserwacji zachowania — model ABC</p><small>zachowanie powtarzalne lub zagrażające</small></div>
+        <div class="form"><span class="sig">3 · FBA-SP</span><p>Arkusz analizy funkcjonalnej zachowania</p><small>po zebraniu 10–15 zapisów ABC</small></div>
+        <div class="form"><span class="sig">4 · PS-SP</span><p>Profil sensoryczny ucznia</p><small>sygnał z metryczki albo niskie wyniki w obszarach IV i V</small></div>
+        <div class="form"><span class="sig">5 · KM-SP</span><p>Karta obserwacji rozwoju mowy i komunikacji</p><small>niski wynik w obszarze III</small></div>
+        <div class="form"><span class="sig">6 · ToM-SP</span><p>Obserwacja poznania społecznego i teorii umysłu</p><small>niski obszar VII przy zachowanych I i IV</small></div>
+        <div class="form"><span class="sig">7 · KFU-SP</span><p>Karta obserwacji funkcji uczenia się</p><small>niski wynik w obszarze I lub VIII</small></div>
+        <div class="form"><span class="sig">8 · MG-SP</span><p>Ankieta „Mój głos” — perspektywa ucznia</p><small>zawsze przed zespołem</small></div>
+        <div class="form"><span class="sig">9 · AR-SP</span><p>Ankieta dla rodzica i wywiad środowiskowy</p><small>wrzesień, równolegle z arkuszem wychowawcy</small></div>
+        <div class="form"><span class="sig">10 · NP-SP</span><p>Arkusz informacji od nauczyciela przedmiotu</p><small>II etap — przed każdą oceną</small></div>
+        <div class="form"><span class="sig">11 · KDP-SP</span><p>Karta dostosowań przedmiotowych</p><small>jedna karta na przedmiot</small></div>
+        <div class="form"><span class="sig">12 · AD-E8</span><p>Karta dostosowań warunków egzaminu</p><small>listopad klasy VIII</small></div>
+        <div class="form"><span class="sig">13 · SMART-SP</span><p>Karta celu i ewaluacji</p><small>przy każdym celu z IPET lub PWES</small></div>
+        <div class="form"><span class="sig">14 · OE-SP</span><p>Karta oceny efektywności udzielanej pomocy</p><small>styczeń i czerwiec</small></div>
+        <div class="form"><span class="sig">15 · PWES</span><p>Plan wsparcia edukacyjnego ucznia</p><small>uczeń bez orzeczenia objęty pomocą pp</small></div>
+        <div class="form"><span class="sig">16 · KP-SP</span><p>Karta przekazania informacji o uczniu (III → IV)</p><small>czerwiec klasy III</small></div>
+        <div class="form"><span class="sig">17 · AUD-SP</span><p>Arkusz audytu dokumentacji</p><small>sierpień — raz w roku, przed radą</small></div>
+        <div class="form"><span class="sig">18 · RK-SP</span><p>Rejestr kontaktów z rodzicami</p><small>prowadzony na bieżąco przez cały rok</small></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="block">
+    <div class="wrap">
+      <header>
+        <span class="eyebrow">Po szkoleniu</span>
+        <h2>Wdrożenie 30 / 60 / 90 dni</h2>
+        <p>Wdrożenie nie polega na przepisaniu dokumentacji, lecz na uruchomieniu obiegu, w którym każdy druk zasila następny. Przy każdym zadaniu jest wskazany dowód wykonania.</p>
+      </header>
+      <div class="phases">
+        <div class="phase">
+          <h4>Porządkowanie podstaw</h4>
+          <span class="when">pierwsze 30 dni</span>
+          <ol>
+            <li>Audyt wzorów druków — publikatory i teksty jednolite <em>(Strażnik Prawa)</em></li>
+            <li>Szkolenie rady pedagogicznej — siedem części skryptu <em>(dyrektor)</em></li>
+            <li>Zarządzenie dyrektora wraz z czterema załącznikami</li>
+            <li>Wyznaczenie koordynatorów zespołów i Strażnika Prawa</li>
+            <li>Teczki uczniów i metryczki, w tym daty wpływu orzeczeń</li>
+            <li>KSzOF dla wszystkich uczniów oddziałów — pomiar bazowy</li>
+            <li>IPET do 30 września + sprawdzenie obsady nauczyciela współorganizującego</li>
+          </ol>
+        </div>
+        <div class="phase">
+          <h4>Obserwacja pogłębiona i dostosowania</h4>
+          <span class="when">dni 31–60</span>
+          <ol>
+            <li>Analiza profili KSzOF i zastosowanie siedmiu reguł przekierowania</li>
+            <li>Uruchomienie obserwacji pogłębionej tam, gdzie reguła zadziałała</li>
+            <li>Karty dostosowań przedmiotowych przekazane nauczycielom za potwierdzeniem</li>
+            <li>Arkusze informacji od nauczycieli przedmiotów (klasy IV–VIII)</li>
+            <li>Plany wsparcia (PWES) dla uczniów bez orzeczenia</li>
+            <li>Ankiety „Mój głos” z uczniami objętymi wsparciem</li>
+            <li>Listopad: przegląd wskaźników i karty dostosowań egzaminacyjnych w klasach VIII</li>
+          </ol>
+        </div>
+        <div class="phase">
+          <h4>Pierwsza pełna ewaluacja</h4>
+          <span class="when">dni 61–90</span>
+          <ol>
+            <li>Druga ocena wielospecjalistyczna (styczeń) na druku z jawnymi źródłami</li>
+            <li>Modyfikacja programów i planów po ocenie</li>
+            <li>Ocena efektywności udzielanej pomocy</li>
+            <li>Przekazanie rodzicom kopii ocen i programów — z potwierdzeniem</li>
+            <li>Powtórny audyt kompletności teczek</li>
+            <li>Podsumowanie wdrożenia na radzie: co działa, co poprawiamy</li>
+            <li>Terminy: przegląd marcowy, ocena majowa, karty przekazania w czerwcu</li>
+          </ol>
+        </div>
+      </div>
+      <p class="note"><b>Po czym poznamy, że się udało.</b> W dowolnym dniu roku, po otrzymaniu prośby z poradni, zespół sporządza rzetelną opinię o funkcjonowaniu ucznia w ciągu dziesięciu dni — nie zbierając żadnych nowych danych, tylko składając ją z druków, które już są w teczce. Druga miara: nauczyciel, który we wrześniu po raz pierwszy wchodzi do klasy z uczniem objętym wsparciem, dostaje jedną kartę dostosowań na swój przedmiot i wie z niej, co ma robić — bez czytania dwudziestostronicowego programu.</p>
+    </div>
+  </section>
+
+  <div class="creed">
+    <div class="wrap">
+      <blockquote>
+        <span>Każdy druk ma swój przepis.</span>
+        <span>Obserwacja wyprzedza pismo z poradni.</span>
+        <span>Cel ma liczbę, a ewaluacja ma konsekwencję.</span>
+      </blockquote>
+      <p class="meta">Cztery pytania języka funkcjonalnego do każdego zdania w dokumentacji: co uczeń robi · w jakich warunkach · przy jakim wsparciu · jak często.</p>
+    </div>
+  </div>
+</main>
+
+<footer>
+  <div class="wrap">
+    <p>EduPlaner 2026 · PCTP — plan szkolenia rady pedagogicznej na rok szkolny 2026/2027. Materiał opracowany na podstawie skryptów dla nauczycieli: <em>Dokumentacja przedszkolna</em> (wydanie 2 po audycie podstaw prawnych) oraz <em>Szkoła podstawowa — kształcenie specjalne i pomoc psychologiczno-pedagogiczna</em>.</p>
+    <p>Materiał szkoleniowy. Przed wpisaniem podstawy prawnej do dokumentu dziecka lub ucznia sprawdź publikator w Internetowym Systemie Aktów Prawnych.</p>
+  </div>
+</footer>
+
+<script>
+(function () {
+  var tabs = [document.getElementById('tab-p'), document.getElementById('tab-s')];
+  var panels = [document.getElementById('panel-p'), document.getElementById('panel-s')];
+
+  function show(i, focus) {
+    tabs.forEach(function (t, j) { t.setAttribute('aria-selected', String(j === i)); });
+    panels.forEach(function (p, j) { p.hidden = j !== i; });
+    if (focus) { tabs[i].focus(); }
+    if (history.replaceState) {
+      history.replaceState(null, '', i === 1 ? '#szkola' : '#przedszkole');
+    }
+    window.scrollTo({ top: 0, behavior: 'auto' });
+  }
+
+  tabs.forEach(function (t, i) {
+    t.addEventListener('click', function () { show(i, false); });
+    t.addEventListener('keydown', function (e) {
+      if (e.key === 'ArrowRight' || e.key === 'ArrowLeft') {
+        e.preventDefault();
+        show(i === 0 ? 1 : 0, true);
+      }
+    });
+  });
+
+  if (location.hash === '#szkola') { show(1, false); }
+})();
+</script>
