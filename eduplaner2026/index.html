@@ -1516,7 +1516,8 @@ svg.ck{flex:none;width:18px;height:18px;margin-top:3px}
             <option value="app-pakiet" data-rodzaj="usluga" data-inst="1" data-person="0" data-price="na zapytanie">Aplikacja + warsztat wdrożeniowy (pakiet)</option>
           </optgroup>
           <optgroup label="Szkolenia">
-            <option value="szk-przedszkole" data-inst="1" data-person="1" data-rodzaj="usluga" data-price="1500 zł brutto · do 20 osób (1219,51 zł netto + VAT 23%)" data-price-osoba="300 zł brutto · 1 osoba (243,90 zł netto + VAT 23%)">Szkolenie: WOPF i IPET po nowemu — dokumentacja przedszkolna</option>
+            <option value="szk-przedszkole" data-inst="1" data-person="1" data-rodzaj="usluga" data-price="1500 zł brutto · do 20 osób (1219,51 zł netto + VAT 23%)" data-price-osoba="300 zł brutto · 1 osoba (243,90 zł netto + VAT 23%)">Szkolenie: WOPF i IPET po nowemu w przedszkolu</option>
+            <option value="szk-szkola" data-inst="1" data-person="1" data-rodzaj="usluga" data-price="1500 zł brutto · do 20 osób (1219,51 zł netto + VAT 23%)" data-price-osoba="300 zł brutto · 1 osoba (243,90 zł netto + VAT 23%)">Szkolenie: WOPF i IPET po nowemu w szkole</option>
             <option value="szk-a-d" data-inst="1" data-person="1" data-rodzaj="usluga" data-price="1500 zł brutto · do 20 osób (1219,51 zł netto + VAT 23%)" data-price-osoba="300 zł brutto · 1 osoba (243,90 zł netto + VAT 23%)">Szkolenie: Nowa ocena funkcjonalna od A do D</option>
             <option value="szk-wdrozenie" data-inst="1" data-person="0" data-rodzaj="usluga" data-price="1500 zł brutto · do 20 osób (1219,51 zł netto + VAT 23%)">Szkolenie: Wdrożenie EduPlaner 2026 w Twojej placówce</option>
             <option value="szk-obserwacja" data-inst="1" data-person="1" data-rodzaj="usluga" data-price="1500 zł brutto · do 20 osób (1219,51 zł netto + VAT 23%)" data-price-osoba="300 zł brutto · 1 osoba (243,90 zł netto + VAT 23%)">Szkolenie: Obserwacja pogłębiona: cztery narzędzia</option>
@@ -1970,7 +1971,7 @@ var OFERTA = [
       "pasy": []
     },
     "fmt": "Nagranie 54 min · rada pedagogiczna",
-    "tytul": "WOPF i IPET po nowemu — dokumentacja przedszkolna",
+    "tytul": "WOPF i IPET po nowemu w przedszkolu",
     "opis": "Szkolenie rady pedagogicznej przedszkola o nowej wielospecjalistycznej ocenie poziomu funkcjonowania (WOPF) i indywidualnym programie edukacyjno-terapeutycznym (IPET) — w kształcie obowiązującym od 1 września 2026. Sześć modułów filmowych i skrypt dla nauczycieli prowadzą jedną drogą: od przepisu, przez metryczkę i kwestionariusz KPOF, po WOPF, IPET i opinię dla poradni wydawaną w dziesięć dni.",
     "punkty": [
       "WOPF i IPET po nowemu: siedem bloków oceny, źródło każdego z nich, cele mierzalne i ewaluacja",
@@ -2031,9 +2032,84 @@ var OFERTA = [
     "netto": "Rada: 1219,51 zł netto + 280,49 zł VAT 23% · Osoba: 243,90 zł netto + 56,10 zł VAT 23%"
   },
   {
-    "id": "szk-a-d",
+    "id": "szk-szkola",
     "typ": "szkolenie",
     "polecane": true,
+    "hot": false,
+    "badge": "Dla szkół",
+    "okladka": {
+      "wariant": "alt",
+      "ser": "Szkolenie rady · siedem modułów",
+      "ttl": "WOPF i IPET po nowemu",
+      "sub": "szkoła podstawowa · od 1 września 2026",
+      "pasy": []
+    },
+    "fmt": "Nagranie 72 min · rada pedagogiczna",
+    "tytul": "WOPF i IPET po nowemu w szkole",
+    "opis": "Szkolenie rady pedagogicznej szkoły podstawowej o nowej wielospecjalistycznej ocenie poziomu funkcjonowania (WOPF) i indywidualnym programie edukacyjno-terapeutycznym (IPET) — oraz o planie wsparcia dla ucznia bez orzeczenia, którego w większości szkół po prostu nie ma. Siedem modułów filmowych, skrypt i osiemnaście druków do powielenia.",
+    "punkty": [
+      "WOPF i IPET po nowemu: dwadzieścia trzy sekcje oceny i karta kontrolna ośmiu elementów programu",
+      "Dwie ścieżki: uczeń z orzeczeniem do IPET, uczeń bez orzeczenia do planu wsparcia",
+      "KSzOF: 52 twierdzenia, dziewięć obszarów ICF, steny i przeliczenie obszaru na skalę 0–20"
+    ],
+    "spec": "2 h · nagranie 72 min + omówienie",
+    "ceny": [
+      [
+        "Cała rada",
+        "1500 zł",
+        "brutto · do 20 osób · faktura"
+      ],
+      [
+        "Indywidualnie",
+        "300 zł",
+        "brutto · 1 osoba · dostęp do nagrania"
+      ]
+    ],
+    "zaswiadczenie": true,
+    "tagi": [
+      "Szkoła podstawowa",
+      "KSzOF",
+      "WOPF",
+      "IPET",
+      "Rada pedagogiczna",
+      "Nagranie"
+    ],
+    "cta": "Zamów szkolenie dla rady",
+    "primary": true,
+    "buyer": "",
+    "wiecej": [
+      "Rozdzielić dwie ścieżki dokumentacyjne: kształcenie specjalne i pomoc psychologiczno-pedagogiczną",
+      "Uzasadnić zmianę dokumentacji przed radą, rodzicem i organem prowadzącym — dziesięcioma powodami z podstawą prawną",
+      "Zapisać funkcjonowanie ucznia językiem funkcjonalnym: co robi, w jakich warunkach, przy jakim wsparciu, jak często",
+      "Policzyć KSzOF: wynik ogólny, sten z właściwej kolumny norm i przeliczenie obszaru na skalę 0–20",
+      "Sprawdzić IPET kartą kontrolną ośmiu elementów i zapisać dostosowania przedmiotowo, a nie ogólnie",
+      "Sporządzić plan wsparcia edukacyjnego dla ucznia bez orzeczenia"
+    ],
+    "poziom": "podstawowy",
+    "tryb": "na zamówienie",
+    "dlaKogo": "Rada pedagogiczna szkoły podstawowej: wychowawcy, nauczyciele przedmiotów, specjaliści i dyrektor",
+    "program": [
+      "S1 · 00:00–10:40 — Podstawa prawna: dwie ścieżki, osiem elementów programu, nauczyciel współorganizujący",
+      "S2 · 10:40–23:00 — Dlaczego szkoła musi zmienić dokumentację: dziesięć powodów, każdy z podstawą",
+      "S3 · 23:00–29:10 — Obieg dokumentów: siedem przystanków i rozgałęzienie IPET albo plan wsparcia",
+      "S4 · 29:10–35:40 — Metryczka i teczka ucznia: data wpływu orzeczenia i dane, których nie wpisujemy",
+      "S5 · 35:40–47:00 — KSzOF: 52 twierdzenia, dziewięć obszarów ICF, steny, liczenie wyniku i odczyt profilu",
+      "S6 · 47:00–57:30 — Obserwacja pogłębiona: ABC i FBA, profil sensoryczny, teoria umysłu, karta mowy",
+      "S7 · 57:30–71:40 — WOPF i IPET po nowemu, plan wsparcia, cele mierzalne, ewaluacja i opinia dla poradni"
+    ],
+    "zawiera": [
+      "Nagranie siedmiu modułów (71:40) z podziałem na timecode",
+      "Skrypt dla nauczycieli — 64 strony: podstawa prawna, transkrypcja i instrukcja do każdego druku",
+      "Osiemnaście druków do powielenia — od karty decyzyjnej po arkusz nauczyciela przedmiotu",
+      "Wzór zarządzenia dyrektora wraz ze schematem obiegu dokumentów",
+      "Ćwiczenie i produkt do każdego modułu, do pracy na własnej dokumentacji"
+    ],
+    "netto": "Rada: 1219,51 zł netto + 280,49 zł VAT 23% · Osoba: 243,90 zł netto + 56,10 zł VAT 23%"
+  },
+  {
+    "id": "szk-a-d",
+    "typ": "szkolenie",
+    "polecane": false,
     "hot": false,
     "badge": "",
     "okladka": {
