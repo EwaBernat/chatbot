@@ -90,6 +90,7 @@ po cichu, bez śladu i bez potwierdzenia. To pierwsza rzecz do wymiany.
 |---|---|---|
 | Zapis zamówień | brak | baza, numer zamówienia, potwierdzenie mailem |
 | Płatności | brak | bramka dla osób prywatnych; faktura przelewowa dla placówek zostaje |
+| Fakturowanie | ręcznie | dane z zamówienia do programu księgowego przez API; KSeF wystawia program, nie sklep |
 | Koszyk | jedna pozycja na raz | wiele pozycji w jednym zamówieniu |
 | Dostarczanie plików | ręcznie mailem | linki wygasające (72 h / 5 pobrań) |
 | Znak wodny w PDF | brak | przy pobraniu: nabywca, data, numer zamówienia |

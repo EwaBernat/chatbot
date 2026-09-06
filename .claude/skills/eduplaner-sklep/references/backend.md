@@ -27,7 +27,8 @@ zamowienie
   kupujacy         inst | person
   pozycje[]        { id, nazwa, ilosc, cenaNetto, vat, cenaBrutto }  ← z katalogu serwera
   kwoty            netto, vat, brutto (suma policzona na serwerze)
-  dane             placówka: nazwa, adres, NIP · osoba: imię i nazwisko, adres do faktury
+  nabywca          placówka: nazwa, adres, NIP organu prowadzącego · osoba: imię, nazwisko, adres
+  odbiorca         nazwa i adres placówki, gdy inny niż nabywca (samorząd — patrz „Faktura")
   kontakt          e-mail, telefon
   zgody[]          { rodzaj, tresc, znacznikCzasu }  ← pełna treść, nie samo „true"
   status           nowe → oplacone → zrealizowane → anulowane
@@ -73,6 +74,77 @@ regulamin i politykę w załączniku lub pod trwałym adresem. To jest wymóg
   Nigdy w pliku, który pobiera przeglądarka. `gotowosc.js` to sprawdza.
 - Dostęp otwierasz po potwierdzeniu z webhooka, nie po powrocie użytkownika na
   stronę „dziękujemy" — ten powrót da się sfałszować adresem.
+
+## Faktura po złożeniu zamówienia
+
+Pytanie brzmi „czy faktura wystawi się sama". Odpowiedź: **fakturę wystawia
+program księgowy, nie ta strona** — a strona podaje mu dane. Nie odwrotnie.
+
+Powód jest prawny, nie techniczny. Faktura dla placówki to od 2026 r. faktura
+ustrukturyzowana w KSeF. Numer nadaje jej Ministerstwo Finansów w momencie
+przyjęcia, a nie sklep w momencie zamówienia. Sklep, który „generuje fakturę PDF"
+i wysyła ją mailem, wystawia dokument, który w świetle przepisów fakturą nie jest.
+
+### Droga, którą polecam
+
+```
+formularz  →  serwer sklepu           →  program księgowy (API)  →  KSeF
+              zapisuje zamówienie         tworzy fakturę             nadaje numer
+              liczy kwoty z katalogu      wysyła do KSeF             i datę doręczenia
+                        ↓                                                 ↓
+              e-mail: potwierdzenie zamówienia            e-mail: faktura + numer KSeF
+              (od razu, zawsze)                           (gdy KSeF potwierdzi)
+```
+
+Program księgowy z API i obsługą KSeF (Fakturownia, wFirma, iFirma, inFakt —
+wybór należy do księgowej, nie do programisty) robi całą trudną część: numerację,
+JPK, KSeF, archiwum. Integracja to jedno wywołanie API na zamówienie.
+
+**Nie buduj własnego integratora KSeF.** Uwierzytelnienie certyfikatem albo
+tokenem, sesje, schematy FA(3), obsługa odrzuceń, tryb awaryjny przy niedostępności
+systemu — to miesiące pracy i stałe utrzymanie po każdej zmianie schematu.
+Jednoosobowa działalność sprzedająca kilkadziesiąt subskrypcji rocznie nie ma
+z czego tego utrzymywać.
+
+**Dwa e-maile, nie jeden.** Potwierdzenie zamówienia idzie natychmiast i zawsze —
+to wymóg trwałego nośnika i jedyna rzecz, którą klient dostaje od razu. Faktura
+idzie osobno, gdy wróci numer KSeF. Kto połączy jedno z drugim, ten przy awarii
+KSeF nie wyśle nawet potwierdzenia.
+
+### Czego formularz jeszcze nie zbiera
+
+Automat wystawi poprawną fakturę tylko z kompletu danych. Dziś formularz ma
+**jedno pole „Nazwa placówki (nabywca na fakturze)" i jeden NIP** — a umowa
+subskrypcji rozróżnia dwa podmioty:
+
+| Rola | Kto to jest | Co idzie na fakturę |
+|---|---|---|
+| Nabywca | organ prowadzący (gmina, powiat, osoba prowadząca) | nazwa, adres, **NIP nabywcy** |
+| Odbiorca | szkoła lub przedszkole | nazwa i adres placówki, bez NIP |
+
+W samorządzie to prawie zawsze dwa różne podmioty. Faktura wystawiona na szkołę
+z NIP-em gminy — albo odwrotnie — wraca do korekty i płatność stoi. Zanim
+fakturowanie się zautomatyzuje, formularz musi zbierać oba komplety, z podpowiedzią
+„jeśli placówka rozlicza się sama, wpisz te same dane".
+
+Placówka może też wymagać faktury przez **PEF** (Platforma Elektronicznego
+Fakturowania) — to osobny kanał od KSeF i osobne pole w zamówieniu: numer PEPPOL
+albo identyfikator jednostki.
+
+### Osoba prywatna to inny przypadek
+
+KSeF obejmuje obrót między firmami. Sprzedaż broszury nauczycielowi jako
+konsumentowi jest poza nim: dokument wystawia się zwykłą drogą i wysyła mailem,
+a faktura należy się na żądanie zgłoszone w terminie z ustawy o VAT. W praktyce
+prościej wystawiać ją każdemu — pole „chcę fakturę" i tak trzeba obsłużyć, a przy
+cenie 30 zł spór o to nikomu się nie opłaca.
+
+### Co da się zrobić dziś, bez backendu
+
+Formularz składa gotową treść zamówienia. Wystarczy, że będzie zawierał wszystkie
+pola faktury w stałej kolejności — wtedy wystawienie dokumentu w programie
+księgowym to przeklejenie, nie przepisywanie. To nie jest automat, ale usuwa
+najczęstszy błąd: fakturę z literówką w nazwie gminy.
 
 ## Pliki płatne: linki i znak wodny
 
