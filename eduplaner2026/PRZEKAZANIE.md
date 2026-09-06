@@ -113,6 +113,51 @@ po cichu. To pierwsza rzecz do wymiany.
 - Stopka: dane sprzedawcy, linki do regulaminu, polityki, formularza odstąpienia
   i nota o prawach autorskich.
 
+## VAT a czekanie na przelew
+
+Pytanie właścicielki: przy 20 programach VAT to ponad 14 tysięcy złotych, a na
+pieniądze czeka się dwa tygodnie. Czy trzeba wyłożyć ten VAT z własnej kieszeni?
+
+**Przy dzisiejszym modelu sprzedaży — nie.** Klucz aktywacyjny wydaje się dopiero
+po zaksięgowaniu wpłaty (§ 5 umowy), więc zapłata zawsze wyprzedza wykonanie usługi.
+Obowiązek w VAT powstaje z chwilą wykonania usługi, a jeżeli zapłata przyszła
+wcześniej — z chwilą jej otrzymania. W obu wariantach pieniądze są już na koncie,
+zanim VAT staje się wymagalny. Sam VAT płaci się do 25. dnia następnego miesiąca
+(albo po kwartale przy rozliczeniu kwartalnym), więc między wpływem a zapłatą
+podatku zostaje co najmniej kilkanaście dni.
+
+**Rachunek dla 20 subskrypcji:** 76 000 zł brutto = 61 788,60 zł netto
++ 14 211,40 zł VAT.
+
+**Jedyne miejsce, w którym ten komfort znika**, to zapis z § 5 ust. 6 pozwalający
+wydać klucz wcześniej, przed zapłatą, „jeżeli Licencjodawca uzna to za uzasadnione
+organizacją roku szkolnego". Wydanie klucza jest wykonaniem usługi — od tej chwili
+VAT jest należny, choćby przelew nie przyszedł. Przy dwudziestu placówkach naraz
+to jest właśnie te 14 tysięcy z własnych środków. Zapis jest wygodny sprzedażowo
+i warto go zostawić, ale trzeba wiedzieć, ile kosztuje, i stosować go pojedynczo,
+nie hurtowo we wrześniu.
+
+**Podatek dochodowy działa inaczej i to on jest realnym ryzykiem.** Przychód
+powstaje w dacie wykonania usługi, nie później niż w dniu wystawienia faktury
+albo otrzymania zapłaty — czyli faktura z 14-dniowym terminem tworzy przychód
+w miesiącu wystawienia, także wtedy, gdy placówka jeszcze nie zapłaciła.
+Od 2025 r. mali przedsiębiorcy mogą wybrać **kasowy PIT** — przychód dopiero po
+otrzymaniu zapłaty. To jest narzędzie dokładnie na ten problem.
+
+Gdyby model sprzedaży kiedyś się zmienił i klucz zaczął wychodzić przed zapłatą,
+odpowiednikiem po stronie VAT jest **metoda kasowa dla małego podatnika**: podatek
+płaci się po otrzymaniu pieniędzy. Wybór zgłasza się z wyprzedzeniem i wiąże się
+z rozliczeniem kwartalnym oraz z odroczeniem odliczeń po stronie zakupów.
+
+Trzy rzeczy do potwierdzenia u księgowego — **żadnej z nich nie rozstrzyga ten
+dokument ani programista**:
+
+1. czy roczna subskrypcja jest usługą wykonaną jednorazowo w dacie wydania klucza,
+   czy usługą ciągłą rozliczaną w okresach — od tego zależy moment powstania
+   obowiązku podatkowego;
+2. czy opłaca się kasowy PIT przy jej skali i formie opodatkowania;
+3. czy przejść na rozliczenie kwartalne VAT.
+
 ## Numer licencji
 
 Każda subskrypcja dostaje własny numer w schemacie **EP/0001/2026** — kolejny
@@ -133,7 +178,12 @@ co i kiedy zostało wydane.
 
 ## Faktury: czy trzeba kupować program
 
-**Nie trzeba.** Ministerstwo Finansów udostępnia bezpłatnie Aplikację Podatnika
+**Nie trzeba — i nie trzeba już wybierać.** Księgowość prowadzi wFirma i to ona
+wystawia faktury. Obsługuje KSeF i ma API, więc pokrywa też przyszłą automatyzację;
+przy podłączaniu backendu trzeba tylko ustalić z księgowym, czy pakiet obejmuje
+dostęp do API i kto generuje klucze. Żadnego drugiego programu nie kupujemy.
+
+Gdyby wFirma kiedyś odpadła: Ministerstwo Finansów udostępnia bezpłatnie Aplikację Podatnika
 KSeF (przeglądarkowa), e-mikrofirmę i aplikację mobilną. Wystawiają, odbierają
 i przechowują faktury ustrukturyzowane. Przy kilkudziesięciu fakturach rocznie
 to wystarcza w zupełności.
@@ -141,14 +191,12 @@ to wystarcza w zupełności.
 Jednorazowo trzeba załatwić uwierzytelnienie w KSeF — profil zaufany, podpis
 kwalifikowany albo certyfikat — i przy okazji nadać uprawnienia księgowej.
 
-Program płatny (Fakturownia, wFirma, iFirma, inFakt) kupuje się nie z powodu
-przepisów, tylko dla trzech rzeczy: **API** (bez niego sklep nie ma się z czym
-połączyć i automatyczne fakturowanie jest niemożliwe), szablonów faktur
-odnawianych co rok oraz wspólnej pracy z księgową.
-
-Kolejność: najpierw zapytać księgową, czego używa — bardzo często ma już program
-z KSeF i API, więc wystarczy dostęp. Do czasu powstania backendu wystarcza
-darmowe narzędzie MF. Abonament wykupuje się dopiero razem z integracją.
+Płatny program daje trzy rzeczy, których darmowe narzędzie MF nie ma: **API**
+(bez niego sklep nie ma się z czym połączyć i automatyczne fakturowanie jest
+niemożliwe), szablony faktur odnawianych co rok oraz wspólną pracę z księgowym.
+Wszystkie trzy są już dostępne w wFirmie — do sprawdzenia zostaje tylko, czy
+bieżący pakiet obejmuje API. To pytanie na moment podłączania backendu, nie
+wcześniej: abonament za API, którego nic nie wywołuje, to wyrzucone pieniądze.
 
 Do potwierdzenia u księgowej, bo terminy KSeF były przesuwane: od kiedy dokładnie
 obowiązuje wystawianie w KSeF i czy sprzedaż osobom prywatnym w ogóle przez niego

@@ -85,6 +85,27 @@ ustrukturyzowana w KSeF. Numer nadaje jej Ministerstwo Finansów w momencie
 przyjęcia, a nie sklep w momencie zamówienia. Sklep, który „generuje fakturę PDF"
 i wysyła ją mailem, wystawia dokument, który w świetle przepisów fakturą nie jest.
 
+### Program jest wybrany: wFirma
+
+Księgowy właścicielki prowadzi jej księgowość w **wFirmie**. To przesądza wybór —
+nie szukaj alternatyw i nie proponuj kolejnego abonamentu. wFirma obsługuje KSeF
+i udostępnia API (`api2.wfirma.pl`), więc pokrywa całą ścieżkę opisaną niżej.
+
+Zanim zaczniesz integrację, ustal z księgowym trzy rzeczy — każda potrafi
+zablokować wdrożenie na tydzień:
+
+1. **Czy pakiet obejmuje dostęp do API.** Bywa ograniczony do wyższych planów.
+2. **Klucze dostępowe do API** — generuje je właściciel konta. Trzymaj je
+   w zmiennych środowiskowych serwera, nigdy w repozytorium ani w kodzie,
+   który pobiera przeglądarka. `gotowosc.js` to sprawdza.
+3. **Kto wystawia faktury dziś** — właścicielka czy księgowy. Jeżeli księgowy,
+   automat musi tworzyć faktury w tym samym koncie, a nie obok niego, inaczej
+   powstaną dwie numeracje i księgowość się rozjedzie.
+
+Zakres integracji trzymaj minimalny: utworzenie faktury z danymi zamówienia
+i odczyt jej numeru oraz statusu. Numeracji, JPK, KSeF i archiwum nie dotykaj —
+to robi wFirma i robi to lepiej.
+
 ### Droga, którą polecam
 
 ```
