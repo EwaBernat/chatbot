@@ -129,13 +129,13 @@ podatku zostaje co najmniej kilkanaście dni.
 **Rachunek dla 20 subskrypcji:** 76 000 zł brutto = 61 788,60 zł netto
 + 14 211,40 zł VAT.
 
-**Jedyne miejsce, w którym ten komfort znika**, to zapis z § 5 ust. 6 pozwalający
-wydać klucz wcześniej, przed zapłatą, „jeżeli Licencjodawca uzna to za uzasadnione
-organizacją roku szkolnego". Wydanie klucza jest wykonaniem usługi — od tej chwili
-VAT jest należny, choćby przelew nie przyszedł. Przy dwudziestu placówkach naraz
-to jest właśnie te 14 tysięcy z własnych środków. Zapis jest wygodny sprzedażowo
-i warto go zostawić, ale trzeba wiedzieć, ile kosztuje, i stosować go pojedynczo,
-nie hurtowo we wrześniu.
+**Ta kolejność jest zasadą bez wyjątku i tak stanowi umowa:** klucz aktywacyjny
+nie wychodzi przed zaksięgowaniem wpłaty. § 5 ust. 6 mówi to wprost. Wcześniejsza
+wersja umowy dopuszczała wydanie klucza po podpisaniu, przed zapłatą — zapis został
+usunięty na wyraźne polecenie właścicielki i **nie wolno go przywracać**. Wydanie
+klucza jest wykonaniem usługi: od tej chwili VAT jest należny, choćby przelew nie
+przyszedł. Przy dwudziestu placówkach naraz to jest 14 211,40 zł z własnych środków
+za coś, za co jeszcze nikt nie zapłacił.
 
 **Podatek dochodowy działa inaczej i to on jest realnym ryzykiem.** Przychód
 powstaje w dacie wykonania usługi, nie później niż w dniu wystawienia faktury
@@ -144,10 +144,10 @@ w miesiącu wystawienia, także wtedy, gdy placówka jeszcze nie zapłaciła.
 Od 2025 r. mali przedsiębiorcy mogą wybrać **kasowy PIT** — przychód dopiero po
 otrzymaniu zapłaty. To jest narzędzie dokładnie na ten problem.
 
-Gdyby model sprzedaży kiedyś się zmienił i klucz zaczął wychodzić przed zapłatą,
-odpowiednikiem po stronie VAT jest **metoda kasowa dla małego podatnika**: podatek
-płaci się po otrzymaniu pieniędzy. Wybór zgłasza się z wyprzedzeniem i wiąże się
-z rozliczeniem kwartalnym oraz z odroczeniem odliczeń po stronie zakupów.
+Odpowiednikiem po stronie VAT jest **metoda kasowa dla małego podatnika** —
+podatek po otrzymaniu pieniędzy. Przy dzisiejszym modelu nie jest potrzebna, bo
+zapłata i tak wyprzedza wykonanie usługi; warto o niej pamiętać tylko wtedy, gdyby
+sprzedaż kiedyś ruszyła w innym trybie.
 
 Trzy rzeczy do potwierdzenia u księgowego — **żadnej z nich nie rozstrzyga ten
 dokument ani programista**:
