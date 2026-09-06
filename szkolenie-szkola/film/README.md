@@ -80,3 +80,22 @@ Pliki: `public/glos/<id ujęcia>.mp3`. Gdy plik istnieje, `zbuduj_scenariusz.py`
 4. Nagraj głos skillem `glos-ewy`, wrzuć MP3 do `public/glos/`, wyrównaj głośność.
 5. `python3 zbuduj_scenariusz.py` jeszcze raz — czasy scen wskoczą na zmierzone.
 6. Render.
+
+## Stan produkcji
+
+| Moduł | Ujęć | Długość | Głos | Render |
+|---|---:|---:|---|---|
+| S1 · Podstawa prawna | 27 | 16:02 | **nagrany** | **gotowy** |
+| S2 · Dlaczego zmieniamy | 20 | 14:24 | do nagrania | — |
+| S3 · Obieg dokumentów | 15 | 8:35 | do nagrania | — |
+| S4 · Metryczka i teczka ucznia | 14 | 7:45 | do nagrania | — |
+| S5 · KSzOF | 20 | 13:12 | do nagrania | — |
+| S6 · Obserwacja pogłębiona | 19 | 11:32 | do nagrania | — |
+| S7 · WOPF-SP, IPET, PWES | 25 | 17:25 | do nagrania | — |
+
+Razem **140 ujęć, około 89 minut**. Plansze wszystkich modułów są gotowe i można je
+obejrzeć w `npm run studio` już teraz — czasy scen są wtedy szacowane z tempa
+107 słów na minutę, a po nagraniu wskakują na zmierzone.
+
+Koszt dogrania sześciu pozostałych modułów: **56 443 znaki ≈ 9,31 USD** w ElevenLabs.
+Czas renderu: około **2,5 godziny** dla całej reszty.
