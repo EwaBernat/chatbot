@@ -172,6 +172,14 @@ tylko naruszenie:
   i § 4 regulaminu. Backend musi to sprawdzić po swojej stronie, nie ufając polu.
 - Ceny podawane brutto, z rozbiciem netto + VAT. Stawka 23% na wszystko, co dziś
   jest w ofercie. Stawki potwierdza księgowa, nie kod.
+- **Szkolenie „na zamówienie" sprzedaje się wyłącznie radom, „otwarte" także osobom
+  prywatnym.** Powód nie jest cenowy, tylko dowodowy: przy radzie udział potwierdza
+  protokół rady i lista obecności, przy terminie otwartym — sama sesja na żywo.
+  Nagranie sprzedane jednej osobie nie potwierdza niczego, dopóki nie ma platformy
+  z kontami, progiem obejrzenia i zapisem odtworzeń. Zaświadczenie poświadczające
+  zakup zamiast udziału jest bezwartościowe i psuje sprzedaż dyrektorowi, który raz
+  takie zobaczy. Dostęp indywidualny do nagrań wraca dopiero z platformą —
+  `references/zabezpieczenia.md`.
 - **Klucz aktywacyjny wychodzi wyłącznie po zaksięgowaniu wpłaty. Bez wyjątków.**
   Umowa § 5 ust. 6 mówi to wprost; wcześniejsza wersja dopuszczała wydanie klucza
   po podpisaniu, przed zapłatą — właścicielka kazała ten zapis usunąć i **nie wolno

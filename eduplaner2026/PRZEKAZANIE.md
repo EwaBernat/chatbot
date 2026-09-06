@@ -113,6 +113,23 @@ po cichu. To pierwsza rzecz do wymiany.
 - Stopka: dane sprzedawcy, linki do regulaminu, polityki, formularza odstąpienia
   i nota o prawach autorskich.
 
+## Które szkolenia dla kogo
+
+**Szkolenia „na zamówienie" sprzedajemy wyłącznie radom pedagogicznym.**
+**Szkolenia „z terminem otwartym" także osobom prywatnym**, za 300 zł.
+
+Powód nie jest cenowy, tylko dowodowy. Przy radzie udział potwierdza protokół
+rady, lista obecności i projekcja. Przy terminie otwartym — sama sesja na żywo.
+Nagranie sprzedane pojedynczej osobie nie potwierdza niczego, dopóki nie ma
+platformy z własnymi kontami, progiem obejrzenia i zapisem odtworzeń: link idzie
+dalej, a zaświadczenie poświadcza zakup zamiast udziału.
+
+Zaświadczenie bez pokrycia psuje sprzedaż na długo — dyrektor, który raz zobaczy
+takie w teczce nauczyciela, drugi raz od nas nie kupi.
+
+Dostęp indywidualny do nagrań wraca razem z platformą: 30 dni, jedno konto =
+jedna sesja, znak wodny z adresem e-mail widza, próg obejrzenia i test.
+
 ## Lista uczestników szkolenia a RODO
 
 Placówka przysyła listę uczestników do zaświadczeń. **Nie trzeba zbierać zgód od
