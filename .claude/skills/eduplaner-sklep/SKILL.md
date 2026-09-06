@@ -30,6 +30,18 @@ skryptem, osobno — to też są strony.
 Zasady, których pilnuje kontroler, opisuje skill `straznik-strony`. Czytaj je,
 zanim zaczniesz dyskutować z jego wynikiem.
 
+Do tego jest `pdf_strony.js` — składa całą stronę w jeden PDF, z tekstem
+zostającym tekstem. Przed drukiem przewija stronę (obrazy wczytują się leniwie),
+wyciąga pozycje z okien katalogów do sekcji, rozkłada wycieczkę po ekranach na
+wszystkie zrzuty i rozwija pytania, więc PDF zawiera całą ofertę, a nie trzy
+pozycje z dziesięciu:
+
+```bash
+node pdf_strony.js                                 # A4, tryb jasny
+node pdf_strony.js --wyjscie oferta.pdf --poziomo  # kartka pozioma
+node pdf_strony.js --bez-katalogow                 # tylko to, co widać na stronie
+```
+
 ## Mapa projektu
 
 ```

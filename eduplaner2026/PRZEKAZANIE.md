@@ -21,6 +21,13 @@ node ../.claude/skills/straznik-strony/scripts/straznik.js index.html --ciemny
 
 Stan docelowy: zero blokad i zero błędów w obu trybach.
 
+Oferta w jednym pliku PDF — do maila, do wydruku na spotkanie:
+
+```bash
+node pdf_strony.js                      # eduplaner2026-strona.pdf, A4
+node pdf_strony.js --wyjscie oferta.pdf --poziomo
+```
+
 ## Czym to jest dzisiaj
 
 Jedna statyczna strona sprzedażowa (`index.html`), bez frameworka, bez kroku budowania.
