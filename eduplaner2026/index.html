@@ -400,7 +400,7 @@ svg.ck{flex:none;width:18px;height:18px;margin-top:3px}
 @media (max-width:520px){.offer-grid.cols-4{grid-template-columns:1fr}}
 .offer{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:26px;display:flex;flex-direction:column;gap:12px;position:relative}
 .offer.hot{border-color:var(--plum);box-shadow:var(--shadow)}
-.offer .badge{position:absolute;top:-12px;left:22px;background:var(--plum);color:#fff;font-size:11.5px;letter-spacing:.1em;text-transform:uppercase;font-weight:600;padding:5px 10px;border-radius:99px}
+.offer .badge{position:absolute;top:-12px;left:22px;right:22px;width:max-content;max-width:calc(100% - 44px);background:var(--plum);color:#fff;font-size:11.5px;letter-spacing:.1em;text-transform:uppercase;font-weight:600;padding:5px 10px;border-radius:99px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 .offer .fmt{font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-3);font-weight:600}
 .offer h3{font-size:21px;line-height:1.15}
 .offer p{color:var(--ink-2);font-size:15px}
@@ -1518,6 +1518,7 @@ svg.ck{flex:none;width:18px;height:18px;margin-top:3px}
           <optgroup label="Szkolenia">
             <option value="szk-przedszkole" data-inst="1" data-person="0" data-rodzaj="usluga" data-price="1500 zł brutto · do 20 osób (1219,51 zł netto + VAT 23%)">Szkolenie: WOPF i IPET po nowemu w przedszkolu</option>
             <option value="szk-szkola" data-inst="1" data-person="0" data-rodzaj="usluga" data-price="1500 zł brutto · do 20 osób (1219,51 zł netto + VAT 23%)">Szkolenie: WOPF i IPET po nowemu w szkole podstawowej (klasy 1–3, 4–6, 7–8)</option>
+            <option value="szk-ponadpodstawowa" data-inst="1" data-person="0" data-rodzaj="usluga" data-price="1500 zł brutto · do 20 osób (1219,51 zł netto + VAT 23%)">Szkolenie: WOPF i IPET po nowemu w szkole ponadpodstawowej</option>
             <option value="szk-a-d" data-inst="1" data-person="1" data-rodzaj="usluga" data-price="1500 zł brutto · do 20 osób (1219,51 zł netto + VAT 23%)" data-price-osoba="300 zł brutto · 1 osoba (243,90 zł netto + VAT 23%)">Szkolenie: Nowa ocena funkcjonalna od A do D</option>
             <option value="szk-wdrozenie" data-inst="1" data-person="0" data-rodzaj="usluga" data-price="1500 zł brutto · do 20 osób (1219,51 zł netto + VAT 23%)">Szkolenie: Wdrożenie EduPlaner 2026 w Twojej placówce</option>
             <option value="szk-obserwacja" data-inst="1" data-person="1" data-rodzaj="usluga" data-price="1500 zł brutto · do 20 osób (1219,51 zł netto + VAT 23%)" data-price-osoba="300 zł brutto · 1 osoba (243,90 zł netto + VAT 23%)">Szkolenie: Obserwacja pogłębiona: cztery narzędzia</option>
@@ -1962,7 +1963,7 @@ var OFERTA = [
     "typ": "szkolenie",
     "polecane": true,
     "hot": true,
-    "badge": "Dla przedszkoli",
+    "badge": "Przedszkole",
     "okladka": {
       "wariant": "",
       "ser": "Szkolenie rady · sześć modułów",
@@ -2033,7 +2034,7 @@ var OFERTA = [
     "typ": "szkolenie",
     "polecane": true,
     "hot": false,
-    "badge": "Dla szkół",
+    "badge": "Podstawowa",
     "okladka": {
       "wariant": "alt",
       "ser": "Szkolenie rady · siedem modułów",
@@ -2095,6 +2096,78 @@ var OFERTA = [
     ],
     "zawiera": [
       "Plan szkolenia — siedem modułów z timecode'ami",
+      "Druk metryczki ucznia",
+      "Druk WOPF — wielospecjalistycznej oceny poziomu funkcjonowania",
+      "Druk IPET",
+      "Druk opinii o funkcjonowaniu ucznia dla poradni",
+      "Transkrypcja szkolenia",
+      "Nagranie odtwarzane w trakcie szkolenia — dostęp obejmuje czas jego trwania; wracamy do fragmentu, który umknął"
+    ],
+    "netto": "Rada: 1219,51 zł netto + 280,49 zł VAT 23%"
+  },
+  {
+    "id": "szk-ponadpodstawowa",
+    "typ": "szkolenie",
+    "polecane": true,
+    "hot": false,
+    "badge": "Ponadpodstawowa",
+    "okladka": {
+      "wariant": "pale",
+      "ser": "Szkolenie rady pedagogicznej",
+      "ttl": "WOPF i IPET po nowemu",
+      "sub": "szkoła ponadpodstawowa · od 1 września 2026",
+      "pasy": []
+    },
+    "fmt": "Projekcja z omówieniem · tylko dla rad",
+    "tytul": "WOPF i IPET po nowemu w szkole ponadpodstawowej",
+    "opis": "Szkolenie rady pedagogicznej szkoły ponadpodstawowej o nowej wielospecjalistycznej ocenie poziomu funkcjonowania (WOPF) i indywidualnym programie edukacyjno-terapeutycznym (IPET) — w kształcie obowiązującym od 1 września 2026. Ta sama ścieżka co w szkole podstawowej, prowadzona dla ucznia starszego: z naciskiem na samodzielność, edukację i życie w społeczności.",
+    "punkty": [
+      "WOPF i IPET po nowemu dla ucznia starszego — z planem wsparcia dla ucznia bez orzeczenia",
+      "KSzOF w wersji dla etapu ponadpodstawowego i profil biopsychospołeczny ICF: zasoby i bariery",
+      "Ewaluacja i raport ewaluacyjny — cztery decyzje po każdym pomiarze"
+    ],
+    "spec": "2 h · projekcja z omówieniem",
+    "ceny": [
+      [
+        "Cała rada",
+        "1500 zł",
+        "brutto · do 20 osób · faktura"
+      ]
+    ],
+    "zaswiadczenie": true,
+    "tagi": [
+      "Szkoła ponadpodstawowa",
+      "KSzOF",
+      "WOPF",
+      "IPET",
+      "ICF",
+      "Rada pedagogiczna"
+    ],
+    "cta": "Zamów szkolenie dla rady",
+    "primary": true,
+    "buyer": "inst",
+    "wiecej": [
+      "Rozdzielić dwie ścieżki dokumentacyjne: kształcenie specjalne i pomoc psychologiczno-pedagogiczną",
+      "Zapisać funkcjonowanie ucznia językiem funkcjonalnym: co robi, w jakich warunkach, przy jakim wsparciu, jak często",
+      "Policzyć KSzOF w wersji dla etapu ponadpodstawowego i odczytać profil dziewięciu obszarów",
+      "Opisać zasoby i bariery ucznia w modelu biopsychospołecznym ICF",
+      "Napisać cel mierzalny dotyczący samodzielności, nauki albo funkcjonowania w społeczności — z kryterium, terminem i sposobem pomiaru",
+      "Sporządzić plan wsparcia edukacyjnego dla ucznia bez orzeczenia oraz raport ewaluacyjny"
+    ],
+    "poziom": "podstawowy",
+    "tryb": "na zamówienie",
+    "dlaKogo": "Rada pedagogiczna szkoły ponadpodstawowej: wychowawcy, nauczyciele przedmiotów, specjaliści i dyrektor",
+    "program": [
+      "Podstawa prawna na etapie ponadpodstawowym: dwie ścieżki, osiem elementów programu, rewalidacja i pomoc psychologiczno-pedagogiczna",
+      "Obieg dokumentów: metryczka → KSzOF → obserwacja pogłębiona → WOPF → IPET albo plan wsparcia → ewaluacja",
+      "Metryczka i teczka ucznia: data wpływu orzeczenia, dane, których nie wpisujemy",
+      "KSzOF dla etapu ponadpodstawowego: dziewięć obszarów, skala, wynik i odczyt profilu",
+      "Profil biopsychospołeczny ICF — zasoby i bariery jako podstawa doboru wsparcia",
+      "Obserwacja pogłębiona dobrana do wieku ucznia: ABC, profil sensoryczny, teoria umysłu, ocena rozwoju mowy",
+      "WOPF i IPET po nowemu, plan wsparcia, cele mierzalne, ewaluacja, raport ewaluacyjny i opinia dla poradni"
+    ],
+    "zawiera": [
+      "Plan szkolenia z podziałem na moduły",
       "Druk metryczki ucznia",
       "Druk WOPF — wielospecjalistycznej oceny poziomu funkcjonowania",
       "Druk IPET",
