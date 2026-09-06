@@ -1,6 +1,6 @@
 ---
 name: straznik-strony
-description: Strażnik zasad dla stron sprzedażowych i sklepów w Polsce — sprawdza i poprawia stronę pod kątem prawnym (regulamin, RODO, prawo konsumenckie, Omnibus, cookies), dostępności WCAG, czytelności, wizualnym, sprzedażowym i bezpieczeństwa. Uruchamiaj ZAWSZE, gdy użytkownik prosi o audyt strony, sprawdzenie zgodności, „czy strona jest OK", „czego brakuje na stronie", RODO na stronie, regulamin sklepu, politykę prywatności, dostępność, WCAG, zgodność z prawem konsumenckim, przygotowanie strony do sprzedaży albo do wdrożenia. Wyzwalaj także przy: audyt UX, sprawdź stopkę, checkout, koszyk, zgody w formularzu, prawo odstąpienia, treści cyfrowe, znak wodny PDF, Core Web Vitals, kontrast, alt, meta tagi. Używaj również wtedy, gdy budujesz nową stronę sprzedażową od zera — wtedy zasady służą jako specyfikacja, a nie jako kontrola po fakcie.
+description: Strażnik zasad dla stron sprzedażowych i sklepów w Polsce — sprawdza i poprawia stronę pod kątem prawnym (regulamin, RODO, prawo konsumenckie, Omnibus, cookies), dostępności WCAG, czytelności, wizualnym, sprzedażowym i bezpieczeństwa. Uruchamiaj ZAWSZE, gdy użytkownik prosi o audyt strony, sprawdzenie zgodności, „czy strona jest OK", „czego brakuje na stronie", RODO na stronie, regulamin sklepu, politykę prywatności, dostępność, WCAG, zgodność z prawem konsumenckim, przygotowanie strony do sprzedaży albo do wdrożenia. Wyzwalaj także przy: audyt UX, sprawdź stopkę, checkout, koszyk, zgody w formularzu, prawo odstąpienia, treści cyfrowe, znak wodny PDF, zabezpieczenie plików płatnych, ochrona nagrań przed pobraniem, biała lista VAT, KSeF i fakturowanie, licencja na oprogramowanie, Core Web Vitals, kontrast, alt, meta tagi. Używaj również wtedy, gdy budujesz nową stronę sprzedażową od zera — wtedy zasady służą jako specyfikacja, a nie jako kontrola po fakcie.
 ---
 
 # Strażnik strony
@@ -37,6 +37,14 @@ w dokumentach prawnych, oznaczeń „do uzupełnienia", banerów „projekt doku
 odnośników do plików, których nie ma, formularzy bez `action`, kluczy i haseł
 w kodzie, obrazów, których nikt nie używa. Zwraca **BLOKADY** — rzeczy, przy
 których publikacja jest przedwczesna.
+
+Sprawdza też **płatne pliki wystawione pod stałym adresem**: PDF, nagranie albo
+archiwum leżące w katalogu strony to blokada, bo pierwszy kupujący wyśle ten adres
+dalej i sprzedaż pozycji się kończy. Plik bezpłatny deklaruje się w pliku
+`.bezplatne` w jego katalogu — jedna nazwa w wierszu, `#` zaczyna komentarz.
+Osobno ostrzega o odnośniku z atrybutem `download`, o nagraniu serwowanym jako
+plik z tego samego serwera i o odtwarzaczu `<video>` bez
+`controlslist="nodownload"`.
 
 **Narzędzie wewnętrzne to nie sklep.** Panel do wgrywania filmów albo wydruku
 zaświadczeń nie ma stopki z NIP-em, nie sprzedaje i nie ma się indeksować.

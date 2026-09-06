@@ -1,6 +1,6 @@
 ---
 name: eduplaner-sklep
-description: Praca nad serwisem sprzedażowym eduplaner2026.pl (PCTP Koszalin) — dokładanie pozycji do oferty, budowa brakującego backendu sklepu i wdrożenie strony na serwer. Uruchamiaj ZAWSZE przy zadaniach dotyczących tego serwisu: „dodaj broszurę / szkolenie / pomoc dydaktyczną do oferty", „zmień cenę", „podłącz formularz zamówienia", „koszyk", „płatności online", „Przelewy24 / Stripe", „zapis zamówień", „wygasające linki do pobrania", „znak wodny w PDF", „adresy produktowe zamiast hasha", „wystaw stronę na serwer", „publikacja", „domena", „co jeszcze trzeba zrobić przed sprzedażą". Wyzwalaj także przy pytaniach o strukturę tego kodu: OFERTA, FILMY, EKRANY, build_single.py, panel filmów. Nie używaj do samych dokumentów edukacyjnych (WOPF, IPET, Baza Uczniów) — te obsługują skille eduplaner-pctp i ipet-raport-pctp.
+description: Praca nad serwisem sprzedażowym eduplaner2026.pl (PCTP Koszalin) — oferta, umowa subskrypcji, backend sklepu i wdrożenie. Uruchamiaj ZAWSZE przy zadaniach dotyczących tego serwisu: „dodaj broszurę / szkolenie / pomoc dydaktyczną do oferty", „zmień cenę", „podłącz formularz zamówienia", „koszyk", „płatności online", „Przelewy24 / Stripe", „zapis zamówień", „wystaw stronę na serwer", „publikacja", „domena", „co jeszcze trzeba zrobić przed sprzedażą". Wyzwalaj także przy: umowa subskrypcji, protokół zdawczo-odbiorczy, numer licencji, klucz aktywacyjny, faktura, KSeF, wFirma, nabywca i odbiorca faktury, biała lista VAT, dane rejestrowe PCTP, zabezpieczenie broszur i nagrań, znak wodny w PDF, wygasające linki do pobrania, ochrona filmów przed pobraniem, adresy produktowe zamiast hasza. Wyzwalaj przy pytaniach o strukturę tego kodu: OFERTA, FILMY, EKRANY, build_single.py, panel filmów. Nie używaj do samych dokumentów edukacyjnych (WOPF, IPET, Baza Uczniów) — te obsługują skille eduplaner-pctp i ipet-raport-pctp.
 ---
 
 # EduPlaner 2026 — serwis sprzedażowy
@@ -49,10 +49,14 @@ index.html                  cała strona: HTML + CSS + JS w jednym pliku, bez fr
 regulamin.html              projekt regulaminu (czeka na prawnika)
 polityka-prywatnosci.html   projekt polityki
 formularz-odstapienia.html  wzór oświadczenia
+umowa-subskrypcji.html      umowa dla placówki + Załącznik nr 1 (protokół zdawczo-odbiorczy)
 panel-filmow.html           narzędzie autorki: dodaje nagrania bez kodu
+zaswiadczenia.html          narzędzie autorki: zaświadczenia, rejestr, materiały, zadania
 broszury/                   publikacje: źródło HTML + złożony PDF
+broszury/.bezplatne         lista plików, które wolno trzymać jawnie — reszta to blokada
 img/                        .webp na serwer, .jpg to źródła, og.jpg do social mediów
 build_single.py             skleja stronę z obrazami w jeden plik (podgląd, nie wdrożenie)
+pdf_strony.js               składa całą stronę w jeden PDF do wysłania dyrektorowi
 PRZEKAZANIE.md              ta sama treść dla człowieka, który nie czyta skilli
 ANALIZA.md                  historia decyzji projektowych — czytaj, zanim coś cofniesz
 ```
@@ -98,11 +102,11 @@ po cichu, bez śladu i bez potwierdzenia. To pierwsza rzecz do wymiany.
 | Płatności | brak | bramka dla osób prywatnych; faktura przelewowa dla placówek zostaje |
 | Fakturowanie | ręcznie | dane z zamówienia do programu księgowego przez API; KSeF wystawia program, nie sklep |
 | Koszyk | jedna pozycja na raz | wiele pozycji w jednym zamówieniu |
-| Dostarczanie plików | ręcznie mailem | linki wygasające (72 h / 5 pobrań) |
+| Dostarczanie plików | ręcznie mailem | linki wygasające (72 h / 5 pobrań) — `references/zabezpieczenia.md` |
 | Znak wodny w PDF | brak | przy pobraniu: nabywca, data, numer zamówienia |
 | Nagrania płatnych szkoleń | brak | hosting z podpisanym adresem, blokadą domeny i znakiem wodnym widza |
 | Adresy produktowe | `#pozycja-<id>` | `/broszury/<slug>`, mapa witryny |
-| Wysyłka towarów | brak | koszty, formy dostawy, adres, czas realizacji |
+| Wysyłka towarów | nie dotyczy | cała oferta jest do pobrania; gdyby doszedł towar, wraca § 6 regulaminu |
 | Baner cookies | niepotrzebny | konieczny, zanim wejdzie analityka albo piksel |
 
 Kontrakty punktów końcowych, model zamówienia, przebieg płatności, znak wodny
@@ -112,10 +116,41 @@ Zabezpieczenie broszur i nagrań — co da się zrobić, czego nie da się zrobi
 i czego nie wolno obiecać klientowi — `references/zabezpieczenia.md`. **Przeczytaj
 ten plik, zanim wgrasz na serwer pierwszą płatną broszurę albo nagranie szkolenia.**
 
-**Kolejność, którą polecam:** zapis zamówień i potwierdzenie mailem (bez tego
-sprzedaż jest dziurawa) → płatności online → linki wygasające i znak wodny →
-koszyk → adresy produktowe. Koszyk jest niżej, niż podpowiada odruch: przy
-ofercie kilkunastu pozycji ludzie i tak kupują po jednej.
+**Kolejność, którą polecam:** zapis zamówień i potwierdzenie mailem → płatności
+online dla osób prywatnych → przypomnienia o przedłużeniu → linki wygasające
+i znak wodny → koszyk → adresy produktowe.
+
+Kolejność wynika z wad dzisiejszego modelu, wypisanych od najkosztowniejszej:
+
+1. **Zamówienie może przepaść bez śladu.** `mailto:` na telefonie bez
+   skonfigurowanej poczty nie robi nic — dyrektor klika, nie widzi błędu, właścicielka
+   nie dostaje maila. Drugi skutek: zgody na regulamin nigdzie się nie zapisują,
+   więc w sporze o odstąpienie nie ma dowodu, co klient widział.
+2. **Od zamówienia do dostępu mija 3–5 tygodni**: faktura → księgowość gminy →
+   14 dni terminu → księgowanie → klucz. Zamówienie z 1 września daje dostęp koło
+   25 września, a kupują we wrześniu, bo wtedy robi się WOPF-y. To konsekwencja
+   reguły „klucz po wpłacie" i reguła zostaje — ale łagodzi się ją wersją
+   demonstracyjną na czas oczekiwania i sprzedażą w czerwcu, gdy placówki planują
+   budżet. **Nie łagodzi się jej wydaniem klucza przed zapłatą.**
+3. **Faktura tworzy przychód w PIT, także niezapłacona.** VAT jest bezpieczny,
+   bo usługę wykonuje się po wpłacie; podatek dochodowy nie. Lekarstwem jest
+   kasowy PIT — decyzja księgowego, nie programisty.
+4. **Osoba prywatna praktycznie nie kupi broszury za 30 zł**, skoro musi napisać
+   maila, czekać na fakturę i zrobić przelew. To zakup impulsowy: albo domyka się
+   BLIK-iem w minutę, albo nie domyka wcale. Ta część oferty nie sprzedaje się
+   dziś z powodu formy płatności, nie ceny.
+5. **Jedna pozycja na jedno zamówienie** — szkoła biorąca aplikację, dwa szkolenia
+   i broszury wysyła trzy zamówienia i generuje trzy faktury dla tej samej
+   księgowości, która ma zapłacić.
+6. **Nic nie przypomina o przedłużeniu.** Licencja wygasa po 12 miesiącach cicho,
+   a wydana we wrześniu wygasa w wakacje. To najtańszy przychód, jaki ta firma
+   może mieć, i dziś wycieka bez śladu. Dlatego przypomnienia stoją w kolejności
+   wyżej niż koszyk.
+7. **Broszury bez znaku wodnego i linku wygasającego** — pierwsza sprzedaż
+   w placówce bywa ostatnią. Patrz `references/zabezpieczenia.md`.
+
+Koszyk jest nisko, niżej niż podpowiada odruch: przy ofercie kilkunastu pozycji
+ludzie i tak kupują po jednej.
 
 ## Reguły, które muszą przetrwać każdą przebudowę
 
@@ -137,6 +172,18 @@ tylko naruszenie:
   i § 4 regulaminu. Backend musi to sprawdzić po swojej stronie, nie ufając polu.
 - Ceny podawane brutto, z rozbiciem netto + VAT. Stawka 23% na wszystko, co dziś
   jest w ofercie. Stawki potwierdza księgowa, nie kod.
+- **Klucz aktywacyjny wychodzi wyłącznie po zaksięgowaniu wpłaty. Bez wyjątków.**
+  Umowa § 5 ust. 6 mówi to wprost; wcześniejsza wersja dopuszczała wydanie klucza
+  po podpisaniu, przed zapłatą — właścicielka kazała ten zapis usunąć i **nie wolno
+  go przywracać**, ani w umowie, ani w kodzie. Powód jest podwójny: wydanie klucza
+  jest wykonaniem usługi, więc VAT staje się należny (przy 20 subskrypcjach to
+  14 211,40 zł przed otrzymaniem pieniędzy), a data wydania klucza rozpoczyna
+  bieg 12-miesięcznej licencji, więc dwa możliwe momenty wydania robią z niej
+  kwestię sporną. Backend nie może mieć ścieżki „wydaj dostęp przed płatnością",
+  także w trybie testowym na produkcji.
+- **Każda licencja ma numer** w schemacie `EP/0001/2026`, ten sam w wiadomości
+  z kluczem, w protokole zdawczo-odbiorczym i w bazie. Szczegóły w
+  `references/backend.md`, rozdział „Numer licencji".
 
 ## Czego brakuje po stronie właścicielki
 
