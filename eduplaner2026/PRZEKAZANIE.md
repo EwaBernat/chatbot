@@ -113,6 +113,29 @@ po cichu. To pierwsza rzecz do wymiany.
 - Stopka: dane sprzedawcy, linki do regulaminu, polityki, formularza odstąpienia
   i nota o prawach autorskich.
 
+## Faktury: czy trzeba kupować program
+
+**Nie trzeba.** Ministerstwo Finansów udostępnia bezpłatnie Aplikację Podatnika
+KSeF (przeglądarkowa), e-mikrofirmę i aplikację mobilną. Wystawiają, odbierają
+i przechowują faktury ustrukturyzowane. Przy kilkudziesięciu fakturach rocznie
+to wystarcza w zupełności.
+
+Jednorazowo trzeba załatwić uwierzytelnienie w KSeF — profil zaufany, podpis
+kwalifikowany albo certyfikat — i przy okazji nadać uprawnienia księgowej.
+
+Program płatny (Fakturownia, wFirma, iFirma, inFakt) kupuje się nie z powodu
+przepisów, tylko dla trzech rzeczy: **API** (bez niego sklep nie ma się z czym
+połączyć i automatyczne fakturowanie jest niemożliwe), szablonów faktur
+odnawianych co rok oraz wspólnej pracy z księgową.
+
+Kolejność: najpierw zapytać księgową, czego używa — bardzo często ma już program
+z KSeF i API, więc wystarczy dostęp. Do czasu powstania backendu wystarcza
+darmowe narzędzie MF. Abonament wykupuje się dopiero razem z integracją.
+
+Do potwierdzenia u księgowej, bo terminy KSeF były przesuwane: od kiedy dokładnie
+obowiązuje wystawianie w KSeF i czy sprzedaż osobom prywatnym w ogóle przez niego
+idzie (obowiązek dotyczy obrotu między firmami).
+
 ## Formularz zamówienia: nabywca i odbiorca
 
 Placówka zamawiająca podaje **dwa komplety danych**, bo w samorządzie to dwa różne
