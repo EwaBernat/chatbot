@@ -69,7 +69,7 @@ PLAN_1 = [
  ('S1-02', [1], {
    'typ': 'tytulModulu', 'numer': '1', 'czas': '10:40',
    'tytul': 'Podstawa prawna',
-   'podtytul': 'Z czego wynika każdy dokument, który wypełniamy w szkole od 1 września 2026 roku.',
+   'podtytul': 'Z czego wynika każdy dokument, który wypełniamy w szkole od 1 września 2026 roku?',
  }),
  ('S1-03', [2], {
    'typ': 'punkty', 'nadtytul': 'PYTANIE, KTÓRE PADA NAJCZĘŚCIEJ',
@@ -135,7 +135,7 @@ PLAN_1 = [
  }),
  ('S1-10', [10], {
    'typ': 'punkty', 'nadtytul': 'TERMINY PROGRAMU',
-   'naglowek': 'Kiedy IPET musi być gotowy',
+   'naglowek': 'Kiedy IPET musi być gotowy?',
    'punkty': [
      '**Do 30 września** — dla ucznia, który rozpoczyna kształcenie z orzeczeniem w danym roku szkolnym.',
      '**30 dni od złożenia orzeczenia** w szkole — niezależnie od miesiąca.',
@@ -183,7 +183,7 @@ PLAN_1 = [
    ],
  }),
  ('S1-15', [17], {
-   'typ': 'punkty', 'nadtytul': 'CO TO OZNACZA DLA SZKOŁY',
+   'typ': 'punkty', 'nadtytul': 'CO TO OZNACZA DLA SZKOŁY?',
    'naglowek': 'Dwie zmiany, które nas dotyczą',
    'punkty': [
      '**Ocena funkcjonalna** ucznia staje się obowiązkowym etapem **poprzedzającym wydanie orzeczenia**.',
@@ -208,7 +208,7 @@ PLAN_1 = [
  }),
  ('S1-18', [20], {
    'typ': 'punkty', 'nadtytul': 'SEDNO CAŁEGO SZKOLENIA',
-   'naglowek': 'Dlaczego wrzesień, a nie kwiecień',
+   'naglowek': 'Dlaczego wrzesień, a nie kwiecień?',
    'punkty': [
      'Dziesięć dni to bardzo mało, jeśli obserwację **zaczynamy dopiero po wpłynięciu prośby**.',
      'Ucznia klasy szóstej uczy **dziewięcioro nauczycieli** i żaden nie widzi go przez cały dzień.',
@@ -218,7 +218,7 @@ PLAN_1 = [
  }),
  ('S1-19', [21, 22], {
    'typ': 'punkty', 'nadtytul': 'AKT CZWARTY · DOKUMENTACJA PRZEBIEGU NAUCZANIA',
-   'naglowek': 'Gdzie mieszczą się nasze arkusze obserwacji',
+   'naglowek': 'Gdzie mieszczą się nasze arkusze obserwacji?',
    'punkty': [
      'Rozporządzenie z **25 sierpnia 2017 r.** wymienia księgę uczniów, dziennik lekcyjny, dzienniki zajęć i arkusze ocen.',
      'Wymienia też **dokumentację badań i czynności uzupełniających** prowadzonych przez nauczycieli i specjalistów.',
@@ -233,7 +233,7 @@ PLAN_1 = [
  }),
  ('S1-21', [24, 25], {
    'typ': 'punkty', 'nadtytul': 'AKT PIĄTY · OCENIANIE — PRZEPIS CZYSTO SZKOLNY',
-   'naglowek': 'Na jakiej podstawie dostosowujemy wymagania',
+   'naglowek': 'Na jakiej podstawie dostosowujemy wymagania?',
    'punkty': [
      'Uczeń z orzeczeniem → podstawą jest **orzeczenie i program**.',
      'Uczeń z opinią poradni → podstawą jest **opinia**.',
@@ -250,7 +250,7 @@ PLAN_1 = [
  }),
  ('S1-23', [27], {
    'typ': 'tabela', 'nadtytul': 'PODSTAWA PROGRAMOWA WCHODZI ETAPAMI',
-   'naglowek': 'Którą podstawę wpisujemy w programie ucznia',
+   'naglowek': 'Którą podstawę wpisujemy w programie ucznia?',
    'naglowki': ['KOGO DOTYCZY', 'KTÓRA PODSTAWA OD 1.09.2026'], 'szerokosci': [52, 48],
    'wiersze': [
      ['Klasy I i IV', 'Nowa — **Dz.U. 2026 poz. 378**'],
@@ -314,7 +314,7 @@ PLAN_3 = [
      'A dokumentacja wypełniana z pamięci **nie służy ani uczniowi, ani nam**.',
    ],
  }),
- ('S3-03', [3, 4, 5], {
+ ('S3-03', [3, 4], {
    'typ': 'obieg', 'naglowek': 'Siedem przystanków i jedno rozgałęzienie',
    'przystanki': [
      {'nazwa': 'Metryczka i teczka', 'opis': 'Kto, od kiedy, z jakim dokumentem'},
@@ -330,7 +330,7 @@ PLAN_3 = [
    'typ': 'punkty', 'nadtytul': 'PRZYSTANEK PIERWSZY',
    'naglowek': 'Metryczka ucznia — co przekazuje dalej',
    'punkty': [
-     'Czy uczeń **posiada orzeczenie, opinię lub inną formę wsparcia — i od kiedy**.',
+     'Czy uczeń **posiada orzeczenie, opinię lub inną formę wsparcia — i od kiedy**?',
      '**Data wpływu orzeczenia** uruchamia trzydziestodniowy termin na program.',
      'Sygnały zdrowotne: nadwrażliwość sensoryczna, choroba przewlekła — **wrócą przy decyzji o obserwacji**.',
    ],
@@ -350,19 +350,19 @@ PLAN_3 = [
    'naglowek': 'Obserwacja pogłębiona — cztery narzędzia',
    'naglowki': ['NARZĘDZIE', 'NA CO ODPOWIADA'], 'szerokosci': [46, 54],
    'wiersze': [
-     ['Model ABC + analiza funkcjonalna', 'Co poprzedza zachowanie i co je utrzymuje'],
-     ['Profil sensoryczny', 'Co w otoczeniu przeciąża, a co reguluje'],
-     ['Karta rozwoju mowy i komunikacji', 'Jak uczeń rozumie i jak się porozumiewa'],
-     ['Poznanie społeczne i teoria umysłu', 'Jak czyta intencje innych'],
+     ['Model ABC + analiza funkcjonalna', 'Co poprzedza zachowanie i co je utrzymuje?'],
+     ['Profil sensoryczny', 'Co w otoczeniu przeciąża, a co reguluje?'],
+     ['Karta rozwoju mowy i komunikacji', 'Jak uczeń rozumie i jak się porozumiewa?'],
+     ['Poznanie społeczne i teoria umysłu', 'Jak czyta intencje innych?'],
    ],
  }),
- ('S3-07', [9], {
+ ('S3-07', [10], {
    'typ': 'druk', 'nadtytul': 'EDUPLANER 2026 · MODUŁ WOPF',
    'naglowek': 'Narzędzia obserwacji w aplikacji',
    'plik': 'druki/szkolap_wopf.png',
    'opis': 'Menu modułu WOPF w trybie szkoły podstawowej — kolejność druków odpowiada obiegowi',
  }),
- ('S3-08', [10, 11], {
+ ('S3-08', [11], {
    'typ': 'punkty', 'nadtytul': 'PRZYSTANEK CZWARTY · WOPF-SP',
    'naglowek': 'Ocena scala wszystko, co zebraliśmy',
    'punkty': [
@@ -455,7 +455,7 @@ PLAN_4 = [
                'nadmiarowych i co odczytać z niego w kilkanaście sekund.',
  }),
  ('S4-02', [2], {
-   'typ': 'punkty', 'nadtytul': 'CZYM JEST METRYCZKA',
+   'typ': 'punkty', 'nadtytul': 'CZYM JEST METRYCZKA?',
    'naglowek': 'Karta danych, które i tak musimy posiadać',
    'punkty': [
      'Dane identyfikacyjne **w zakresie minimalnym**, kontakty do rodziców, zdrowie istotne dla funkcjonowania w szkole.',
@@ -529,7 +529,7 @@ PLAN_4 = [
      'Zaświadczenie lekarskie zostaje **w teczce**, a nie w treści druku.',
    ],
  }),
- ('S4-11', [16, 17, 18], {
+ ('S4-11', [16, 17], {
    'typ': 'tabela', 'nadtytul': 'SEKCJE VI–VIII',
    'naglowek': 'Trzy sekcje, które pracują przez cały rok',
    'naglowki': ['SEKCJA', 'CO DAJE'], 'szerokosci': [40, 60],
@@ -539,7 +539,7 @@ PLAN_4 = [
      ['VIII · Wykaz dokumentacji', 'Spis zawartości teczki z datami — **co jest i czego brakuje**'],
    ],
  }),
- ('S4-12', [17], {
+ ('S4-12', [18], {
    'typ': 'druk', 'nadtytul': 'EDUPLANER 2026 · MODUŁ METRYCZKA',
    'naglowek': 'Metryczka i teczka w aplikacji',
    'plik': 'druki/szkolap_metryczka.png',
@@ -547,7 +547,7 @@ PLAN_4 = [
  }),
  ('S4-13', [19, 20], {
    'typ': 'punkty', 'nadtytul': 'TRZY DOBRE PRAKTYKI',
-   'naglowek': 'Czego pilnujemy przez cały rok',
+   'naglowek': 'Czego pilnujemy przez cały rok?',
    'punkty': [
      'Zbieramy **tylko te dane, które są potrzebne** do realizacji zadań szkoły.',
      'Aktualizujemy metryczkę **przy każdej zmianie zgłoszonej przez rodzica, z datą**.',
@@ -567,11 +567,11 @@ PLAN_4 = [
 PLAN_2 = [
  ('S2-01', [0, 1], {
    'typ': 'tytulModulu', 'numer': '2', 'czas': '12:20',
-   'tytul': 'Dlaczego szkoła musi zmienić dokumentację',
+   'tytul': 'Dlaczego szkoła musi zmienić dokumentację?',
    'podtytul': 'Prowadzimy dokumentację od lat, kuratorium nigdy nic nie zarzuciło. '
                'Po co to zmieniać? Pytanie zasługuje na uczciwą odpowiedź.',
  }),
- ('S2-02', [2, 3], {
+ ('S2-02', [2], {
    'typ': 'punkty', 'nadtytul': 'ZACZNĘ OD TEGO, CZEGO NIE POWIEM',
    'naglowek': 'Trzy zdania, które nie padną',
    'punkty': [
@@ -581,7 +581,7 @@ PLAN_2 = [
    ],
  }),
  ('S2-03', [3], {
-   'typ': 'domkniecie', 'naglowek': 'Co się naprawdę zmienia',
+   'typ': 'domkniecie', 'naglowek': 'Co się naprawdę zmienia?',
    'zdania': [
      'Zmienia się **nie objętość dokumentacji, lecz jej język i jej funkcja**.',
      'Dokument napisany w starym języku **przestaje działać w nowym obiegu**.',
@@ -618,10 +618,10 @@ PLAN_2 = [
    'naglowek': 'Cztery pytania języka funkcjonalnego',
    'naglowki': ['PYTANIE', 'W PRZYKŁADZIE'], 'szerokosci': [34, 66],
    'wiersze': [
-     ['Co uczeń robi', 'Pracuje samodzielnie przy karcie pracy'],
-     ['W jakich warunkach', 'Pierwsza ławka, cicha sala, zadanie w trzech krokach'],
-     ['Przy jakim wsparciu', 'Podpowiedź słowna, piktogramy'],
-     ['Jak często', 'Osiem minut · cztery podpowiedzi na lekcji'],
+     ['Co uczeń robi?', 'Pracuje samodzielnie przy karcie pracy'],
+     ['W jakich warunkach?', 'Pierwsza ławka, cicha sala, zadanie w trzech krokach'],
+     ['Przy jakim wsparciu?', 'Podpowiedź słowna, piktogramy'],
+     ['Jak często?', 'Osiem minut · cztery podpowiedzi na lekcji'],
    ],
  }),
  ('S2-08', [9, 10], {
@@ -709,7 +709,7 @@ PLAN_2 = [
  }),
  ('S2-17', [22, 23, 24], {
    'typ': 'tabela', 'nadtytul': 'CZĘŚĆ PRAKTYCZNA · ZMIANY 1–3',
-   'naglowek': 'Co dokładnie zmieniamy',
+   'naglowek': 'Co dokładnie zmieniamy?',
    'naglowki': ['CO', 'NA CO'], 'szerokosci': [34, 66],
    'wiersze': [
      ['Narzędzie obserwacji', 'Kwestionariusz z kodami i skalą — **KSzOF I–III, IV–VI, VII–VIII**'],
@@ -730,14 +730,14 @@ PLAN_2 = [
  }),
  ('S2-19', [29, 30, 31], {
    'typ': 'punkty', 'nadtytul': 'ZMIANA ÓSMA I RZECZ RÓWNIE WAŻNA',
-   'naglowek': 'Czego nie zmieniamy',
+   'naglowek': 'Czego nie zmieniamy?',
    'punkty': [
      'Ślad współpracy — rejestr kontaktów, potwierdzenie kopii, udział rodzica — **stały element teczki**.',
      '**Nie przepisujemy** dokumentów już sporządzonych i **nie unieważniamy** dotychczasowych ocen i programów.',
      '**Nie zwiększamy liczby druków** — wprowadzamy je po to, żeby te same dane wpisywać raz, a nie w pięciu miejscach.',
    ],
  }),
- ('S2-20', [32, 33], {
+ ('S2-20', [32, 33, 34], {
    'typ': 'domkniecie', 'naglowek': 'Podsumowanie części drugiej',
    'zdania': [
      'Program i ocenę aktualizujemy **przy najbliższej ocenie**, a dotychczasowe zapisy zostają jako **historia wsparcia**.',
@@ -759,7 +759,7 @@ PLAN_5 = [
                'odczyt stenów i odczyt profilu ucznia.',
  }),
  ('S5-02', [2], {
-   'typ': 'punkty', 'nadtytul': 'CZYM JEST KWESTIONARIUSZ',
+   'typ': 'punkty', 'nadtytul': 'CZYM JEST KWESTIONARIUSZ?',
    'naglowek': 'Narzędzie kryterialne, nie diagnoza',
    'punkty': [
      'Opisuje funkcjonowanie ucznia w **dziewięciu obszarach ICF**, w codziennych sytuacjach szkolnych i domowych.',
@@ -818,23 +818,18 @@ PLAN_5 = [
    'zrodlo': 'To uczciwsze niż wynik stenowy policzony z połowy danych',
  }),
  ('S5-08', [11, 12], {
-   'typ': 'punkty', 'nadtytul': 'OSIEM ZASAD RZETELNEJ OBSERWACJI · 1–4',
-   'naglowek': 'Jak wypełniamy arkusz',
-   'punkty': [
-     'Wypełniamy **cały arkusz**, wszystkie dziewięć obszarów — **nie dzielimy ich** między oceniających.',
-     'Oceniamy na podstawie **dwóch do czterech tygodni** obserwacji, nie jednego dnia.',
-     'Wypełniamy **samodzielnie**, bez konsultowania ocen przed spotkaniem zespołu.',
-     'Oceniamy **to, co uczeń robi**, a nie to, co potrafiłby zrobić.',
-   ],
- }),
- ('S5-09', [12], {
-   'typ': 'punkty', 'nadtytul': 'OSIEM ZASAD · 5–8',
-   'naglowek': 'Co dopisujemy i komu oddajemy',
-   'punkty': [
-     'Odnosimy się do **oczekiwań rozwojowych dla wieku** ucznia.',
-     'Zapisujemy **obserwacje jakościowe** — konkretne przykłady, zwłaszcza przy ocenach skrajnych.',
-     'W drugim etapie zbieramy oceny od **co najmniej trzech nauczycieli przedmiotów**.',
-     'Arkusz wraca do koordynatora **w umówionym terminie** — wyniki omawiamy wspólnie z rodzicami.',
+   'typ': 'tabela', 'nadtytul': 'OSIEM ZASAD RZETELNEJ OBSERWACJI',
+   'naglowek': 'Jak wypełniamy arkusz?',
+   'naglowki': ['', ''], 'szerokosci': [50, 50],
+   'wiersze': [
+     ['**Cały arkusz** — wszystkie dziewięć obszarów, nie dzielimy ich między oceniających',
+      'Odnosimy się do **oczekiwań rozwojowych dla wieku** ucznia'],
+     ['**Dwa do czterech tygodni** obserwacji, nie jeden dzień',
+      '**Obserwacje jakościowe** — konkretne przykłady przy ocenach skrajnych'],
+     ['**Samodzielnie**, bez konsultowania ocen przed spotkaniem zespołu',
+      'W drugim etapie **co najmniej trzech nauczycieli przedmiotów**'],
+     ['Oceniamy **to, co uczeń robi**, a nie to, co potrafiłby zrobić',
+      'Arkusz wraca do koordynatora **w umówionym terminie**'],
    ],
  }),
  ('S5-10', [13, 14], {
@@ -957,7 +952,7 @@ PLAN_6 = [
  }),
  ('S6-03', [3, 4], {
    'typ': 'tabela', 'nadtytul': 'SIEDEM REGUŁ PRZEKIEROWANIA · WYSTARCZY JEDNA',
-   'naglowek': 'Kiedy zespół siada nad kartą decyzyjną',
+   'naglowek': 'Kiedy zespół siada nad kartą decyzyjną?',
    'naglowki': ['REGUŁA', 'PRÓG'], 'szerokosci': [46, 54],
    'wiersze': [
      ['Wynik obszaru', '**8 punktów lub mniej** na skali 0–20 (poziom III)'],
@@ -970,7 +965,7 @@ PLAN_6 = [
    ],
  }),
  ('S6-04', [5], {
-   'typ': 'domkniecie', 'naglowek': 'Po co reguły, skoro przepis ich nie wymienia',
+   'typ': 'domkniecie', 'naglowek': 'Po co reguły, skoro przepis ich nie wymienia?',
    'zdania': [
      'Reguły są **naszą decyzją jako rady pedagogicznej**, wpisaną do procedury szkoły.',
      'Przepis wymaga **rozpoznawania potrzeb i oceny efektywności**.',
@@ -1002,7 +997,7 @@ PLAN_6 = [
    'zrodlo': 'Trzy interpretacje w jednym zdaniu i ani jednego faktu, który dałoby się policzyć',
  }),
  ('S6-08', [11], {
-   'typ': 'punkty', 'nadtytul': 'JAK PROWADZIMY ABC',
+   'typ': 'punkty', 'nadtytul': 'JAK PROWADZIMY ABC?',
    'naglowek': 'Dane najpierw, interpretacja później',
    'punkty': [
      'Zbieramy **10–15 zapisów w ciągu dwóch, trzech tygodni**, z różnych lekcji i różnych pór dnia.',
@@ -1030,7 +1025,7 @@ PLAN_6 = [
  }),
  ('S6-11', [15], {
    'typ': 'tabela', 'nadtytul': 'TRZY WZORCE',
-   'naglowek': 'Co widzimy w klasie',
+   'naglowek': 'Co widzimy w klasie?',
    'naglowki': ['WZORZEC', 'PRZYKŁADY'], 'szerokosci': [30, 70],
    'wiersze': [
      ['Nadreaktywność', 'Zakrywa uszy przy dzwonku, unika tłoku, nie znosi metek'],
@@ -1056,7 +1051,7 @@ PLAN_6 = [
    ],
  }),
  ('S6-14', [20], {
-   'typ': 'punkty', 'nadtytul': 'KIEDY TAKA OBSERWACJA JEST POTRZEBNA',
+   'typ': 'punkty', 'nadtytul': 'KIEDY TAKA OBSERWACJA JEST POTRZEBNA?',
    'naglowek': 'Sześć sygnałów',
    'punkty': [
      'Obszar wzajemnych kontaktów **wyraźnie niższy** przy zachowanych obszarach uczenia się i poruszania.',
@@ -1067,7 +1062,7 @@ PLAN_6 = [
  }),
  ('S6-15', [21, 22], {
    'typ': 'punkty', 'nadtytul': 'WIEK MA ZASADNICZE ZNACZENIE',
-   'naglowek': 'Co obserwujemy w szkole podstawowej',
+   'naglowek': 'Co obserwujemy w szkole podstawowej?',
    'punkty': [
      'Fałszywe przekonanie **pierwszego rzędu** — od około czwartego roku życia.',
      '**Drugiego rzędu** („co Ola myśli, że Kuba myśli") — od około szóstego, siódmego roku.',
@@ -1132,7 +1127,7 @@ PLAN_7 = [
    'zrodlo': 'Rozporządzenie MEN z 9 sierpnia 2017 r. · t.j. Dz.U. 2020 poz. 1309, § 6',
  }),
  ('S7-03', [4], {
-   'typ': 'punkty', 'nadtytul': 'DLACZEGO OCENA JEST TAK WAŻNA',
+   'typ': 'punkty', 'nadtytul': 'DLACZEGO OCENA JEST TAK WAŻNA?',
    'naglowek': 'Cztery funkcje',
    'punkty': [
      'Wyznacza **punkt startu**, bez którego cele byłyby zgadywaniem.',
@@ -1165,7 +1160,7 @@ PLAN_7 = [
  }),
  ('S7-06', [8, 9, 10], {
    'typ': 'punkty', 'nadtytul': 'IPET · TERMINY I PRAWA RODZICÓW',
-   'naglowek': 'Kiedy program i co należy rodzicom',
+   'naglowek': 'Kiedy program i co należy rodzicom?',
    'punkty': [
      '**Do 30 września** albo **30 dni od złożenia orzeczenia** w szkole.',
      'Rodzice mają prawo **uczestniczyć w spotkaniach zespołu** oraz **otrzymać kopię programu i oceny**.',
@@ -1174,7 +1169,7 @@ PLAN_7 = [
  }),
  ('S7-07', [11], {
    'typ': 'tabela', 'nadtytul': 'OSIEM ELEMENTÓW · LISTA KONTROLNA KAŻDEJ KONTROLI',
-   'naglowek': 'Co musi znaleźć się w programie',
+   'naglowek': 'Co musi znaleźć się w programie?',
    'naglowki': ['ELEMENT', 'ELEMENT'], 'szerokosci': [50, 50],
    'wiersze': [
      ['Zakres i sposób dostosowania wymagań', 'Zajęcia rewalidacyjne i socjoterapeutyczne'],
@@ -1184,7 +1179,7 @@ PLAN_7 = [
    ],
  }),
  ('S7-08', [12], {
-   'typ': 'sciezki', 'naglowek': 'Skąd biorą się zapisy programu',
+   'typ': 'sciezki', 'naglowek': 'Skąd biorą się zapisy programu?',
    'lewa': {'tytul': 'Orzeczenie', 'kroki': [
      'Mówi, **co uczniowi zalecono**', 'Zalecenia przepisujemy jedno po drugim',
      'Przy każdym: forma, kto, wymiar']},
@@ -1255,7 +1250,7 @@ PLAN_7 = [
    ],
  }),
  ('S7-16', [24], {
-   'typ': 'domkniecie', 'naglowek': 'Co natomiast jest wymagane',
+   'typ': 'domkniecie', 'naglowek': 'Co natomiast jest wymagane?',
    'zdania': [
      '**Ocena efektywności** — zespół dokonuje jej co najmniej dwa razy w roku.',
      'Ocenić efektywność można tylko wtedy, gdy cel ma **kryterium, do którego da się porównać wynik**.',
@@ -1264,14 +1259,14 @@ PLAN_7 = [
  }),
  ('S7-17', [25, 26], {
    'typ': 'tabela', 'nadtytul': 'PIĘĆ LITER',
-   'naglowek': 'Co znaczy każda z nich w celu ucznia',
+   'naglowek': 'Co znaczy każda z nich w celu ucznia?',
    'naglowki': ['LITERA', 'PYTANIE'], 'szerokosci': [16, 84],
    'wiersze': [
-     ['S', 'Jakie zachowanie i w jakiej sytuacji'],
-     ['M', 'Ile razy z ilu prób i przy jakim wsparciu'],
-     ['A', '**Jeden krok od tego, co uczeń robi dziś**'],
+     ['S', 'Jakie zachowanie i w jakiej sytuacji?'],
+     ['M', 'Ile razy z ilu prób i przy jakim wsparciu?'],
+     ['A', '**Jeden krok od tego, co uczeń robi dziś?**'],
      ['R', 'Wynika z oceny i zwiększa uczestnictwo ucznia'],
-     ['T', 'Do kiedy i kiedy sprawdzamy'],
+     ['T', 'Do kiedy i kiedy sprawdzamy?'],
    ],
  }),
  ('S7-18', [27], {
@@ -1292,7 +1287,7 @@ PLAN_7 = [
  }),
  ('S7-20', [30, 31, 32], {
    'typ': 'tabela', 'nadtytul': 'EWALUACJA · KALENDARZ ROKU',
-   'naglowek': 'Ile razy w roku i kiedy',
+   'naglowek': 'Ile razy w roku i kiedy?',
    'naglowki': ['CO', 'KIEDY'], 'szerokosci': [52, 48],
    'wiersze': [
      ['Ocena wielospecjalistyczna', 'Wrzesień i styczeń, **zalecana trzecia w maju**'],
@@ -1304,7 +1299,7 @@ PLAN_7 = [
  }),
  ('S7-21', [33, 34], {
    'typ': 'tabela', 'nadtytul': 'CZTERY DECYZJE PO POMIARZE',
-   'naglowek': 'Co robimy z wynikiem',
+   'naglowek': 'Co robimy z wynikiem?',
    'naglowki': ['WYNIK', 'DECYZJA'], 'szerokosci': [34, 66],
    'wiersze': [
      ['Cel osiągnięty', 'Zamykamy i stawiamy kolejny'],
@@ -1323,7 +1318,7 @@ PLAN_7 = [
    ],
  }),
  ('S7-23', [38, 39], {
-   'typ': 'punkty', 'nadtytul': 'JAK PISZEMY',
+   'typ': 'punkty', 'nadtytul': 'JAK PISZEMY?',
    'naglowek': 'Językiem funkcjonalnym i sprawdzalnym',
    'punkty': [
      'Opisujemy **zachowania, ich częstotliwość i kontekst**.',
