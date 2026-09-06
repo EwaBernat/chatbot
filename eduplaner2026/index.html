@@ -352,6 +352,13 @@ svg.ck{flex:none;width:18px;height:18px;margin-top:3px}
 .stage ul{margin:6px 0 0;padding:16px 0 0;list-style:none;display:flex;flex-direction:column;gap:8px;border-top:1px solid var(--line)}
 .stage li{font-size:15.5px;line-height:1.45;display:flex;gap:11px;align-items:flex-start}
 .stage li::before{content:"";flex:none;width:6px;height:6px;border-radius:50%;background:var(--orange-btn);margin-top:9px}
+.stage .wiecej{margin-top:auto;align-self:flex-start;background:none;border:0;padding:8px 0 0;color:var(--plum-text);font:600 14.5px var(--body);cursor:pointer;text-decoration:underline;text-underline-offset:3px}
+.stage .wiecej:hover{color:var(--orange-ink)}
+.etap-okno .lead{font-size:17px;line-height:1.55;color:var(--ink-2);margin:0 0 18px}
+.lista-modulu{margin:0;padding:0;list-style:none;counter-reset:mod;display:flex;flex-direction:column;gap:14px}
+.lista-modulu li{counter-increment:mod;position:relative;padding-left:40px;font-size:16px;line-height:1.55}
+.lista-modulu li::before{content:counter(mod);position:absolute;left:0;top:-1px;width:26px;height:26px;border-radius:50%;background:var(--plum-soft);color:var(--plum-text);font:700 13px var(--body);display:flex;align-items:center;justify-content:center}
+.etap-nota{margin:22px 0 0;padding-top:16px;border-top:1px solid var(--line);font-size:14.5px;color:var(--ink-3)}
 
 /* filmy ------------------------------------------------------------- */
 .videos{display:grid;grid-template-columns:minmax(0,7fr) minmax(0,5fr);gap:32px;align-items:start}
@@ -1192,7 +1199,8 @@ svg.ck{flex:none;width:18px;height:18px;margin-top:3px}
         <div class="stage-body">
           <h3>Przedszkole</h3>
           <p>Ocena funkcjonalna dziecka oparta na&nbsp;kwestionariuszu KPOF i&nbsp;plan wsparcia gotowy przed pierwszym zebraniem zespołu.</p>
-          <ul><li>KPOF: kwestionariusz funkcjonowania dziecka w&nbsp;przedszkolu, oparty na&nbsp;nowej podstawie programowej — wynik podsumowuje średnia, nie sten</li><li>Obserwacja pogłębiona w&nbsp;razie potrzeby: druk ABC, Profil Sensoryczny, ocena ToM, kwestionariusz oceny rozwoju mowy</li><li>IPET albo plan wsparcia (PEWS) z&nbsp;celami SMART</li></ul>
+          <ul><li>KPOF — wynik podsumowuje średnia, nie sten</li><li>IPET albo plan wsparcia (PEWS) z&nbsp;celami SMART</li></ul>
+          <button class="wiecej" type="button" data-etap="przedszkole">Co jest w&nbsp;module</button>
         </div>
       </article>
       <article class="stage">
@@ -1200,7 +1208,8 @@ svg.ck{flex:none;width:18px;height:18px;margin-top:3px}
         <div class="stage-body">
           <h3>Szkoła podstawowa</h3>
           <p>KSzOF w&nbsp;wariantach dla klas I–III i&nbsp;IV–VIII, obserwacja pogłębiona i&nbsp;trzy poziomy wsparcia.</p>
-          <ul><li>KSzOF: dziewięć obszarów, sten, poziom wsparcia</li><li>Do obserwacji pogłębionej: arkusz ABC, FBA, profil sensoryczny, ocena ToM dostosowana do wieku ucznia, ocena poziomu rozwoju mowy</li><li>Dziennik realizacji, ewaluacja i&nbsp;baza wiedzy z&nbsp;konspektami do&nbsp;rewalidacji i&nbsp;pomocy psychologiczno-pedagogicznej</li></ul>
+          <ul><li>KSzOF: dziewięć obszarów, sten, poziom wsparcia</li><li>Obserwacja pogłębiona: ABC, FBA, sensoryka, ToM, mowa</li></ul>
+          <button class="wiecej" type="button" data-etap="podstawowa">Co jest w&nbsp;module</button>
         </div>
       </article>
       <article class="stage">
@@ -1208,7 +1217,8 @@ svg.ck{flex:none;width:18px;height:18px;margin-top:3px}
         <div class="stage-body">
           <h3>Szkoła ponadpodstawowa</h3>
           <p>Ta sama ścieżka dla ucznia starszego, z&nbsp;naciskiem na samodzielność, edukację i&nbsp;życie w&nbsp;społeczności.</p>
-          <ul><li>Kwestionariusz KSzOF odpowiedni dla etapu ponadpodstawowego</li><li>Profil biopsychospołeczny ICF: zasoby i&nbsp;bariery</li><li>IPET / PEWS i&nbsp;raport ewaluacyjny, baza konspektów do&nbsp;rewalidacji i&nbsp;pomocy psychologiczno-pedagogicznej</li></ul>
+          <ul><li>KSzOF odpowiedni dla etapu ponadpodstawowego</li><li>Druki obserwacji dobrane do&nbsp;wieku ucznia</li></ul>
+          <button class="wiecej" type="button" data-etap="ponadpodstawowa">Co jest w&nbsp;module</button>
         </div>
       </article>
     </div>
@@ -2745,6 +2755,58 @@ var OFERTA = [
 
 
 
+
+/* Karty etapów pokazują dwa najważniejsze punkty, a pełną zawartość modułu
+   otwierają w oknie — inaczej sekcja rośnie do trzech ścian tekstu i nikt
+   nie porówna etapów jednym spojrzeniem. */
+(function(){
+  var ETAPY = {
+    przedszkole: { nr:'Moduł 1', nazwa:'Przedszkole',
+      lead:'Ocena funkcjonalna dziecka oparta na kwestionariuszu KPOF i plan wsparcia gotowy przed pierwszym zebraniem zespołu.',
+      punkty:[
+        'KPOF — kwestionariusz funkcjonowania dziecka w przedszkolu, oparty na nowej podstawie programowej. Wynik podsumowuje średnia, nie sten.',
+        'Obserwacja pogłębiona w razie potrzeby: druk ABC, profil sensoryczny, ocena ToM, kwestionariusz oceny rozwoju mowy.',
+        'IPET albo plan wsparcia (PEWS) z celami SMART.',
+        'Dziennik realizacji i ewaluacja.',
+        'Baza wiedzy z konspektami do rewalidacji i pomocy psychologiczno-pedagogicznej.'
+      ]},
+    podstawowa: { nr:'Moduł 2', nazwa:'Szkoła podstawowa',
+      lead:'KSzOF w wariantach dla klas I–III i IV–VIII, obserwacja pogłębiona i trzy poziomy wsparcia.',
+      punkty:[
+        'KSzOF: dziewięć obszarów, pięciostopniowa skala, wynik przeliczony na sten i poziom wsparcia.',
+        'Do obserwacji pogłębionej: arkusz ABC, FBA, profil sensoryczny, ocena ToM dostosowana do wieku ucznia, ocena poziomu rozwoju mowy.',
+        'IPET dla ucznia z orzeczeniem albo PEWS dla ucznia bez orzeczenia — oba z celami SMART.',
+        'Dziennik realizacji i ewaluacja.',
+        'Baza wiedzy z konspektami do rewalidacji i pomocy psychologiczno-pedagogicznej.'
+      ]},
+    ponadpodstawowa: { nr:'Moduł 3', nazwa:'Szkoła ponadpodstawowa',
+      lead:'Ta sama ścieżka dla ucznia starszego, z naciskiem na samodzielność, edukację i życie w społeczności.',
+      punkty:[
+        'Kwestionariusz KSzOF odpowiedni dla etapu ponadpodstawowego.',
+        'Profil biopsychospołeczny ICF: zasoby i bariery.',
+        'Druki obserwacji pogłębionej dobrane do wieku ucznia: ABC, profil sensoryczny, ocena ToM, ocena poziomu rozwoju mowy.',
+        'IPET albo PEWS, dziennik realizacji, ewaluacja i raport ewaluacyjny.',
+        'Baza konspektów do rewalidacji i pomocy psychologiczno-pedagogicznej.'
+      ]}
+  };
+
+  document.addEventListener('click', function(e){
+    var b = e.target.closest ? e.target.closest('[data-etap]') : null;
+    if(!b) return;
+    var d = ETAPY[b.dataset.etap];
+    if(!d) return;
+    var esc = OKNO.esc;
+    OKNO.brew.textContent = d.nr;
+    OKNO.tytul.textContent = d.nazwa;
+    OKNO.wroc.hidden = true;
+    OKNO.body.innerHTML = '<div class="etap-okno"><p class="lead">' + esc(d.lead) + '</p>'
+      + '<ol class="lista-modulu">' + d.punkty.map(function(t){
+          return '<li>' + esc(t) + '</li>'; }).join('') + '</ol>'
+      + '<p class="etap-nota">Subskrypcja obejmuje moduł etapu, który prowadzi Państwa placówka, '
+      + 'oraz moduły wspólne: zespół, druki, bazę wiedzy i użytkowników.</p></div>';
+    OKNO.otworz();
+  });
+})();
 
 /* Pasek u góry: płaski, dopóki stoimy na samej górze strony, uniesiony —
    z warstwowym cieniem i mocniejszą linią — gdy treść pod niego wjeżdża. */
