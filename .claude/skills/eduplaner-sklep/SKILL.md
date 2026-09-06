@@ -72,6 +72,12 @@ szkolenia albo pomocy dydaktycznej to **cztery miejsca**, nie jedno:
 2. **`<option>` w formularzu zamówienia** — z `data-rodzaj` (`plik` / `usluga` /
    `towar` / `bezplatne`), `data-inst`, `data-person` i `data-price`.
    Szkolenia mają dwie ceny, więc dodatkowo `data-price-osoba`.
+
+   Sam formularz rozróżnia **nabywcę** (na kogo faktura — w samorządzie gmina)
+   i **odbiorcę** (placówka pracująca w programie). Checkbox `#odb-ten-sam` chowa
+   drugi blok, gdy placówka rozlicza się sama. Nie scalaj tych pól z powrotem:
+   faktura wystawiona na szkołę z NIP-em gminy wraca do korekty. Szczegóły
+   w `references/backend.md`, rozdział „Faktura po złożeniu zamówienia".
 3. **`polecane: true`**, jeśli ma stać na stronie. Sekcja pokazuje najwyżej trzy
    pozycje (`NA_STRONIE`), reszta mieszka w katalogu pod kafelkiem „Pełny katalog".
 4. **Kontrolery** — obie komendy wyżej.
@@ -137,7 +143,10 @@ Kontroler `gotowosc.js` wypisze to za każdym razem; tu jest pełna lista przycz
   Sprzedawcą jest **jednoosobowa działalność**, nie spółka cywilna o tej samej
   nazwie, która figuruje w rejestrach pod innym numerem — w umowie stroną jest
   osoba fizyczna działająca pod firmą, nie „Centrum".
-- nazwa banku i numer konta → umowa § 5 i regulamin
+- ~~nazwa banku i numer konta~~ — Erste Bank, numer podany; we wzorze umowy
+  publikowanym na stronie zostaje **celowo puste miejsce**, numer trafia tylko
+  do egzemplarza wysyłanego placówce i na fakturę. Rachunek jest na białej liście,
+  co umowa § 5 stwierdza wprost.
 - nazwa operatora płatności → regulamin § 5
 - ~~terminy dostarczenia, koszt dostawy~~ — cała oferta jest elektroniczna:
   link do pobrania w ciągu 1 dnia roboczego, **bez kosztów dostawy**. Gdyby

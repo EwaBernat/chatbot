@@ -113,6 +113,19 @@ po cichu. To pierwsza rzecz do wymiany.
 - Stopka: dane sprzedawcy, linki do regulaminu, polityki, formularza odstąpienia
   i nota o prawach autorskich.
 
+## Formularz zamówienia: nabywca i odbiorca
+
+Placówka zamawiająca podaje **dwa komplety danych**, bo w samorządzie to dwa różne
+podmioty: fakturę wystawia się na organ prowadzący (gmina, powiat) z jego NIP-em,
+a szkoła jest odbiorcą. Faktura wystawiona na szkołę z NIP-em gminy wraca do korekty
+i płatność stoi. Gdy placówka rozlicza się sama, wystarczy zaznaczyć checkbox
+„Placówka rozlicza się sama" — drugi blok znika, a w zamówieniu pojawia się adnotacja
+„ten sam podmiot co nabywca".
+
+W wiadomości z zamówieniem dane przychodzą w stałym układzie: NABYWCA (faktura),
+potem ODBIORCA (placówka). Dzięki temu wystawienie faktury w programie księgowym
+to przeklejenie, nie przepisywanie.
+
 ## Do uzupełnienia przez właścicielkę
 
 Miejsca oznaczone w dokumentach prawnych jako `do uzupełnienia` oraz w stopce

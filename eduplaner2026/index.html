@@ -770,6 +770,12 @@ svg.ck{flex:none;width:18px;height:18px;margin-top:3px}
 .field input:focus,.field select:focus,.field textarea:focus{outline:none;border-color:var(--plum);box-shadow:0 0 0 3px color-mix(in srgb,var(--plum) 18%,transparent)}
 .field textarea{min-height:76px;resize:vertical}
 .row{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.grupa{border:1.5px solid var(--line);border-radius:12px;padding:16px 16px 4px;margin:0 0 14px;background:var(--paper-2)}
+.grupa legend{font-size:13px;font-weight:700;color:var(--plum-text);letter-spacing:.02em;
+ padding:0 8px;margin-left:-4px}
+.grupa .fld-note{margin:2px 0 14px}
+.zgoda-lite{margin:0 0 14px;font-size:14.5px;color:var(--ink-2)}
+.grupa[hidden]{display:none}
 @media (max-width:560px){.row{grid-template-columns:1fr}}
 .summary{display:flex;justify-content:space-between;align-items:center;gap:16px;background:var(--paper-2);border-radius:10px;padding:14px 16px;margin:6px 0 16px;font-size:14.5px;color:var(--ink-2)}
 .summary b{color:var(--ink);display:block;font-size:15.5px}
@@ -1533,12 +1539,27 @@ svg.ck{flex:none;width:18px;height:18px;margin-top:3px}
 
       <div id="f-inst">
         <p class="fld-note">Zamówienie wysyłamy razem z&nbsp;danymi do faktury — dzięki temu księgowość dostaje komplet od razu.</p>
-        <div class="field"><label for="inst-name">Nazwa placówki (nabywca na fakturze)</label><input id="inst-name" name="inst-name" type="text" autocomplete="organization" placeholder="np. Szkoła Podstawowa nr 4 w Koszalinie"></div>
-        <div class="field"><label for="inst-addr">Adres do faktury</label><input id="inst-addr" name="inst-addr" type="text" autocomplete="street-address" placeholder="ulica, kod pocztowy, miejscowość"></div>
-        <div class="row">
-          <div class="field"><label for="inst-nip">NIP</label><input id="inst-nip" name="inst-nip" type="text" inputmode="numeric" placeholder="000-000-00-00"></div>
-          <div class="field"><label for="inst-stage">Etapy w&nbsp;placówce</label><select id="inst-stage" name="inst-stage"><option>Przedszkole</option><option>Szkoła podstawowa</option><option>Szkoła ponadpodstawowa</option><option>Kilka etapów (zespół szkół)</option><option>Poradnia / inna</option></select></div>
-        </div>
+
+        <fieldset class="grupa">
+          <legend>Nabywca — na kogo wystawiamy fakturę</legend>
+          <p class="fld-note">W&nbsp;samorządzie nabywcą jest zwykle <b>organ prowadzący</b> (gmina, powiat), a&nbsp;nie szkoła. Placówka niepubliczna albo rozliczająca się samodzielnie wpisuje tu własne dane.</p>
+          <div class="field"><label for="inst-name">Nazwa nabywcy</label><input id="inst-name" name="inst-name" type="text" autocomplete="organization" placeholder="np. Gmina Miasto Koszalin"></div>
+          <div class="field"><label for="inst-addr">Adres nabywcy</label><input id="inst-addr" name="inst-addr" type="text" autocomplete="street-address" placeholder="ulica, kod pocztowy, miejscowość"></div>
+          <div class="field"><label for="inst-nip">NIP nabywcy</label><input id="inst-nip" name="inst-nip" type="text" inputmode="numeric" placeholder="000-000-00-00"></div>
+        </fieldset>
+
+        <label class="zgoda zgoda-lite" for="odb-ten-sam">
+          <input type="checkbox" id="odb-ten-sam">
+          <span>Placówka rozlicza się sama — odbiorcą faktury jest ten sam podmiot co nabywca.</span>
+        </label>
+
+        <fieldset class="grupa" id="grupa-odbiorca">
+          <legend>Odbiorca — placówka, która będzie pracować w&nbsp;programie</legend>
+          <div class="field"><label for="odb-name">Nazwa placówki</label><input id="odb-name" name="odb-name" type="text" placeholder="np. Szkoła Podstawowa nr 4 w Koszalinie"></div>
+          <div class="field"><label for="odb-addr">Adres placówki</label><input id="odb-addr" name="odb-addr" type="text" placeholder="ulica, kod pocztowy, miejscowość"></div>
+        </fieldset>
+
+        <div class="field"><label for="inst-stage">Etapy w&nbsp;placówce</label><select id="inst-stage" name="inst-stage"><option>Przedszkole</option><option>Szkoła podstawowa</option><option>Szkoła ponadpodstawowa</option><option>Kilka etapów (zespół szkół)</option><option>Poradnia / inna</option></select></div>
       </div>
       <div id="f-person" hidden>
         <div class="field"><label for="person-name">Imię i&nbsp;nazwisko</label><input id="person-name" name="person-name" type="text" autocomplete="name" placeholder="np. Anna Kowalska"></div>
@@ -3137,6 +3158,19 @@ var OFERTA = [
   var sumP=document.getElementById('sum-product'), sumPay=document.getElementById('sum-pay'), sumPrice=document.getElementById('sum-price');
   var submit=document.getElementById('submit-btn'), done=document.getElementById('done');
   var uwagaOsoba=document.getElementById('uwaga-osoba');
+  var tenSam=document.getElementById('odb-ten-sam'), grupaOdb=document.getElementById('grupa-odbiorca');
+
+  /* Nabywca to ten, na kogo idzie faktura (w samorządzie: gmina). Odbiorca to
+     placówka, która pracuje w programie. Gdy to jeden podmiot, drugi blok znika —
+     ale dane i tak trafiają do zamówienia, żeby faktura była kompletna. */
+  function odbiorcaTenSam(){ return tenSam.checked; }
+  function odswiezOdbiorce(){
+    grupaOdb.hidden = odbiorcaTenSam();
+    if(grupaOdb.hidden){
+      document.getElementById('odb-name').classList.remove('err');
+    }
+  }
+  tenSam.addEventListener('change', odswiezOdbiorce);
 
   function buyer(){ return form.querySelector('input[name="buyer"]:checked').value; }
   function setBuyer(v){ var r=form.querySelector('input[name="buyer"][value="'+v+'"]'); if(r){ r.checked=true; } }
@@ -3202,7 +3236,9 @@ var OFERTA = [
     e.preventDefault();
     var email=document.getElementById('email');
     if(buyer()==='inst'){
-      var need=[['inst-name','Podaj nazwę placówki — to nabywca na fakturze.'],['inst-nip','Podaj NIP placówki.']];
+      var need=[['inst-name','Podaj nazwę nabywcy — to podmiot, na który wystawimy fakturę.'],
+                ['inst-nip','Podaj NIP nabywcy.']];
+      if(!odbiorcaTenSam()){ need.push(['odb-name','Podaj nazwę placówki albo zaznacz, że rozlicza się sama.']); }
       for(var n=0;n<need.length;n++){
         var f=document.getElementById(need[n][0]);
         if(!f.value.trim()){ f.classList.add('err'); f.focus();
@@ -3229,7 +3265,15 @@ var OFERTA = [
     if(!email.value||!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(email.value)){ email.focus(); email.reportValidity ? (email.setCustomValidity('Podaj adres e-mail, na który wyślemy potwierdzenie.'),email.reportValidity(),email.setCustomValidity('')) : alert('Podaj adres e-mail.'); return; }
     var b=buyer(), opt=product.options[product.selectedIndex];
     var who = b==='inst'
-      ? 'Placówka (nabywca): '+(document.getElementById('inst-name').value||'—')+'\nAdres do faktury: '+(document.getElementById('inst-addr').value||'—')+'\nNIP: '+(document.getElementById('inst-nip').value||'—')+'\nEtapy: '+document.getElementById('inst-stage').value+'\nPłatność: faktura przelewowa, dostęp po opłaceniu'
+      ? 'NABYWCA (faktura)\n  Nazwa: '+(document.getElementById('inst-name').value||'—')
+        +'\n  Adres: '+(document.getElementById('inst-addr').value||'—')
+        +'\n  NIP: '+(document.getElementById('inst-nip').value||'—')
+        +'\n\nODBIORCA (placówka)\n'+(odbiorcaTenSam()
+            ? '  ten sam podmiot co nabywca'
+            : '  Nazwa: '+(document.getElementById('odb-name').value||'—')
+              +'\n  Adres: '+(document.getElementById('odb-addr').value||'—'))
+        +'\n  Etapy: '+document.getElementById('inst-stage').value
+        +'\n\nPłatność: faktura przelewowa, dostęp po opłaceniu'
       : 'Osoba indywidualna: '+(document.getElementById('person-name').value||'—')+'\nPłatność: online (proszę o link do płatności)';
     var body='ZAMÓWIENIE — EduPlaner 2026\n\nPozycja: '+opt.textContent+'\nCena: '+cena(opt,buyer())+'\n\n'+who+'\nE-mail: '+email.value+'\nTelefon: '+(document.getElementById('phone').value||'—')+'\n\nUwagi:\n'+(document.getElementById('note').value||'—')
       +'\n\nZGODY\nRegulamin i polityka prywatności: zaakceptowane'
@@ -3241,6 +3285,7 @@ var OFERTA = [
   });
 
   refresh();
+  odswiezOdbiorce();
 })();
 </script>
 
