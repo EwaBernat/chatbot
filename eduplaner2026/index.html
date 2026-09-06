@@ -37,7 +37,7 @@
   --orange:#E8450A;--orange-btn:#D63E08;--orange-ink:#C43705;--orange-soft:#FDE9E0;
   --paper:#FBF8F3;--paper-2:#F4EFE8;--card:#FFFFFF;
   --ink:#221B3A;--ink-2:#5B5471;--ink-3:#6A6377;--line:#E4DED6;
-  --on-plum:#E9E4F2;--on-plum-2:#ADA4BF;--on-plum-3:#D2CBE0;--on-plum-line:rgba(255,255,255,.13);--ok:#186B42;--ok-tlo:#E4F1E9;--ok-linia:#BCDECB;
+  --on-plum:#E9E4F2;--on-plum-2:#ADA4BF;--on-plum-3:#D2CBE0;--on-plum-line:rgba(255,255,255,.13);--ok:#186B42;--ok-tlo:#E4F1E9;--ok-linia:#BCDECB;--linia-baner:.62;
   --shadow:0 18px 40px -24px rgba(45,27,105,.35);--radius:14px;
   --display:"Bricolage Grotesque","Segoe UI",Arial,sans-serif;
   --body:"IBM Plex Sans","Segoe UI",Arial,sans-serif;
@@ -49,7 +49,7 @@
     --orange:#F0602B;--orange-btn:#C63A0A;--orange-ink:#FF7A47;--orange-soft:#3A1F17;
     --paper:#15102A;--paper-2:#1C1536;--card:#211A3E;
     --ink:#F1ECFA;--ink-2:#B9B0D0;--ink-3:#A29AC0;--line:#332A55;
-    --on-plum:#E9E4F2;--on-plum-2:#ADA4BF;--on-plum-3:#D2CBE0;--on-plum-line:rgba(255,255,255,.13);--ok:#4CC98A;--ok-tlo:#16301F;--ok-linia:#22503A;
+    --on-plum:#E9E4F2;--on-plum-2:#ADA4BF;--on-plum-3:#D2CBE0;--on-plum-line:rgba(255,255,255,.13);--ok:#4CC98A;--ok-tlo:#16301F;--ok-linia:#22503A;--linia-baner:1;
     --shadow:0 18px 40px -24px rgba(0,0,0,.7);color-scheme:dark;
   }
 }
@@ -58,7 +58,7 @@
   --orange:#F0602B;--orange-btn:#C63A0A;--orange-ink:#FF7A47;--orange-soft:#3A1F17;
   --paper:#15102A;--paper-2:#1C1536;--card:#211A3E;
   --ink:#F1ECFA;--ink-2:#B9B0D0;--ink-3:#A29AC0;--line:#332A55;
-  --on-plum:#E9E4F2;--on-plum-2:#ADA4BF;--on-plum-3:#D2CBE0;--on-plum-line:rgba(255,255,255,.13);--ok:#4CC98A;--ok-tlo:#16301F;--ok-linia:#22503A;
+  --on-plum:#E9E4F2;--on-plum-2:#ADA4BF;--on-plum-3:#D2CBE0;--on-plum-line:rgba(255,255,255,.13);--ok:#4CC98A;--ok-tlo:#16301F;--ok-linia:#22503A;--linia-baner:1;
   --shadow:0 18px 40px -24px rgba(0,0,0,.7);color-scheme:dark;
 }
 
@@ -99,7 +99,11 @@ svg.ck{flex:none;width:18px;height:18px;margin-top:3px}
 .btn svg{width:18px;height:18px;flex:none}
 
 /* nagłówek ---------------------------------------------------------- */
-.site-header{position:sticky;top:0;z-index:20;background:color-mix(in srgb,var(--paper) 88%,transparent);backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+/* Baner oddziela włos w barwach marki: gaśnie na brzegach, mocniejszy w środku,
+   pod nim ledwie widoczny cień. --plum-text jest ciemny w trybie jasnym i jasny
+   w ciemnym, więc linia sama dostosowuje się do obu motywów. */
+.site-header{position:sticky;top:0;z-index:20;background:color-mix(in srgb,var(--paper) 88%,transparent);backdrop-filter:blur(12px);border-bottom:0;box-shadow:0 14px 28px -26px rgba(45,27,105,.55)}
+.site-header::after{content:"";position:absolute;left:0;right:0;bottom:0;height:1px;pointer-events:none;opacity:var(--linia-baner);background:linear-gradient(90deg,transparent 0%,color-mix(in srgb,var(--plum-text) 42%,transparent) 16%,color-mix(in srgb,var(--orange) 62%,transparent) 50%,color-mix(in srgb,var(--plum-text) 42%,transparent) 84%,transparent 100%)}
 .site-header .wrap{display:flex;align-items:center;gap:28px;min-height:72px;padding-block:10px}
 .brand{display:flex;align-items:center;gap:12px;text-decoration:none;margin-right:auto;min-width:0}
 .brand img{width:44px;height:44px;border-radius:50%;flex:none}
@@ -978,7 +982,7 @@ svg.ck{flex:none;width:18px;height:18px;margin-top:3px}
       <span class="alert"><i></i>WOPF · IPET / PEWS · ocena funkcjonalna od roku szkolnego 2026/2027</span>
       <h1><em>WOPF i&nbsp;IPET</em> w&nbsp;jednej aplikacji.</h1>
       <p class="lead">
-<b>Cały zespół gotowy na nową ocenę funkcjonalną.</b> Program prowadzi Was od zgłoszenia ucznia,
+<b>Cały zespół gotowy na nową ocenę funkcjonalną.</b> Program prowadzi Państwa od zgłoszenia ucznia,
         przez WOPF na kwestionariuszu KPOF w&nbsp;przedszkolu albo KSzOF w&nbsp;szkole, po IPET albo PEWS i&nbsp;ewaluację. Wpisujesz dane raz,
         a na końcu dostajesz gotowe druki A4, pod którymi podpisze się cały zespół.
       </p>
@@ -1354,7 +1358,7 @@ svg.ck{flex:none;width:18px;height:18px;margin-top:3px}
         <p class="eyebrow">Bądźmy w kontakcie</p>
         <h2>Jak rozwija się EduPlaner 2026</h2>
       </div>
-      <p class="lead">Nie prowadzę infolinii i&nbsp;nie obiecuję odpowiedzi na każdy komentarz. Dzielę się tym, co dla Was najcenniejsze: w&nbsp;którą stronę idzie aplikacja, co wynika z&nbsp;wymagań w&nbsp;edukacji i&nbsp;jakie pomysły z&nbsp;praktyki wchodzą do programu.</p>
+      <p class="lead">Nie prowadzę infolinii i&nbsp;nie obiecuję odpowiedzi na każdy komentarz. Dzielę się tym, co dla Państwa najcenniejsze: w&nbsp;którą stronę idzie aplikacja, co wynika z&nbsp;wymagań w&nbsp;edukacji i&nbsp;jakie pomysły z&nbsp;praktyki wchodzą do programu.</p>
     </div>
 
     <div class="comm-grid">
@@ -1413,7 +1417,7 @@ svg.ck{flex:none;width:18px;height:18px;margin-top:3px}
                   <details open><summary>Kiedy zespół dostaje dostęp?</summary><p>Po zaksięgowaniu wpłaty, zwykle tego samego dnia roboczego. Zamówienie i&nbsp;faktura idą pierwsze, żeby księgowość miała komplet dokumentów, a&nbsp;dostęp otwieramy zaraz po opłaceniu.</p></details>
       <details><summary>Czy trzeba coś instalować?</summary><p>Nauczyciele — nie. Program uruchamiamy raz na serwerze placówki, a&nbsp;zespół otwiera go w&nbsp;przeglądarce jak zwykłą stronę, bez instalowania czegokolwiek na swoich komputerach.</p></details>
       <details><summary>Ile osób może korzystać z&nbsp;aplikacji?</summary><p>Cały zespół placówki: dyrektor, wychowawcy, specjaliści. Subskrypcja jest na placówkę, nie na osobę, więc nie liczysz stanowisk.</p></details>
-      <details><summary>Co z&nbsp;danymi uczniów i&nbsp;RODO?</summary><p>Dane zostają u&nbsp;Was. Aplikacja pracuje na serwerze placówki, więc dokumentacja uczniów nie jest przesyłana do nas ani do zewnętrznej chmury, a&nbsp;administratorem danych pozostaje dyrektor. Zgody i&nbsp;klauzule RODO są częścią metryczki, a&nbsp;podstawa prawna jest wpisana w&nbsp;każdy druk.</p></details>
+      <details><summary>Co z&nbsp;danymi uczniów i&nbsp;RODO?</summary><p>Dane zostają u&nbsp;Państwa. Aplikacja pracuje na serwerze placówki, więc dokumentacja uczniów nie jest przesyłana do nas ani do zewnętrznej chmury, a&nbsp;administratorem danych pozostaje dyrektor. Zgody i&nbsp;klauzule RODO są częścią metryczki, a&nbsp;podstawa prawna jest wpisana w&nbsp;każdy druk.</p></details>
       <details><summary>Co, gdy przepisy znów się zmienią?</summary><p>Aktualizujemy wzory w&nbsp;aplikacji. Nie szukasz nowych druków i&nbsp;nie poprawiasz starych, zmiana pojawia się u&nbsp;Ciebie w&nbsp;ramach subskrypcji.</p></details>
       <details><summary>Czy mogę zobaczyć aplikację przed zakupem?</summary><p>Tak. Umów 20-minutowy pokaz online, w&nbsp;którym przechodzimy ścieżkę jednego ucznia od metryczki po druk IPET. Wcześniej obejrzyj nagrania szkoleniowe.</p></details>
       <details><summary>Jestem nauczycielem. Czy kupię aplikację prywatnie?</summary><p>Nie. Aplikacja pracuje na serwerze placówki i&nbsp;prowadzi dokumentację uczniów, więc zamawia ją placówka na&nbsp;fakturę, a&nbsp;administratorem danych jest dyrektor. Prywatnie kupisz szkolenie (300&nbsp;zł brutto za osobę) i&nbsp;broszury PDF.</p></details>
@@ -1941,7 +1945,7 @@ var OFERTA = [
     },
     "fmt": "Online · warsztat z aplikacją",
     "tytul": "Wdrożenie EduPlaner 2026 w Twojej placówce",
-    "opis": "Pracujemy na Waszych prawdziwych przypadkach, w Waszej aplikacji. Po warsztacie pierwszy uczeń ma komplet dokumentów.",
+    "opis": "Pracujemy na Państwa prawdziwych przypadkach, w Państwa aplikacji. Po warsztacie pierwszy uczeń ma komplet dokumentów.",
     "punkty": [
       "Metryczka, WOPF i plan dla realnego ucznia",
       "Podział ról w zespole i pulpit dyrektora",

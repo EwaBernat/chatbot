@@ -1,0 +1,443 @@
+<!doctype html>
+<html lang="pl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>Zaświadczenia ze szkoleń — EduPlaner 2026</title>
+<style>
+:root{
+  --plum:#2D1B69;--plum-soft:#EDE8F7;--plum-line:#D7CFEA;--plum-2:#4A3391;
+  --orange:#E8450A;--orange-ink:#C43705;--orange-soft:#FDE9E0;
+  --paper:#FBF8F3;--paper-2:#F4EFE8;--card:#FFFFFF;
+  --ink:#221B3A;--ink-2:#5B5471;--ink-3:#6A6377;--line:#E4DED6;--ok:#186B42;
+  --font:"Segoe UI",system-ui,-apple-system,Roboto,Arial,sans-serif;
+  --druk:"Times New Roman",Georgia,serif;
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--paper);color:var(--ink);font:16px/1.55 var(--font)}
+
+/* ---------- panel (tylko na ekranie) ------------------------------- */
+.panel{max-width:1040px;margin:0 auto;padding:30px 22px 90px}
+h1{font-size:29px;margin:0 0 6px;color:var(--plum);letter-spacing:-.01em}
+.sub{color:var(--ink-2);margin:0 0 24px;max-width:70ch}
+fieldset{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:18px 22px 22px;margin:0 0 16px;
+  box-shadow:0 16px 30px -28px rgba(34,27,58,.5)}
+legend{font-weight:700;color:var(--plum);padding:0 8px;font-size:17px}
+.grid{display:grid;gap:14px;grid-template-columns:repeat(auto-fit,minmax(210px,1fr))}
+.pole{display:flex;flex-direction:column;gap:5px}
+.pole.szer{grid-column:1/-1}
+label{font-size:13.5px;font-weight:600;color:var(--ink-2)}
+input,select,textarea{font:15px/1.5 var(--font);color:var(--ink);background:#fff;
+  border:1px solid var(--plum-line);border-radius:10px;padding:10px 12px;width:100%}
+textarea{resize:vertical;min-height:120px}
+input:focus,select:focus,textarea:focus{outline:2px solid var(--orange);outline-offset:1px;border-color:var(--orange)}
+.hint{font-size:13px;color:var(--ink-3);margin:5px 0 0}
+.check{display:flex;gap:9px;align-items:flex-start;font-size:14.5px;color:var(--ink-2);margin-top:4px}
+.check input{width:18px;height:18px;flex:none;margin-top:2px;accent-color:var(--orange)}
+.pasek{position:sticky;bottom:0;background:color-mix(in srgb,var(--paper) 92%,transparent);backdrop-filter:blur(8px);
+  border-top:1px solid var(--line);padding:14px 0;margin-top:22px;display:flex;gap:12px;align-items:center;flex-wrap:wrap}
+.btn{display:inline-flex;align-items:center;gap:8px;border:0;cursor:pointer;font:600 15px var(--font);
+  border-radius:11px;padding:12px 20px;background:var(--orange);color:#fff}
+.btn:hover{background:var(--orange-ink)}
+.btn.ghost{background:#fff;color:var(--plum);border:1px solid var(--plum-line)}
+.btn.ghost:hover{background:var(--plum-soft)}
+.licznik{font-size:14.5px;color:var(--ink-2)}
+.licznik b{color:var(--plum)}
+.uwaga{background:var(--plum-soft);border:1px solid var(--plum-line);border-radius:12px;padding:12px 15px;
+  font-size:14px;color:var(--ink-2);margin:14px 0 0}
+.podglad-tyt{margin:30px 0 10px;font-size:15px;font-weight:700;color:var(--plum);text-transform:uppercase;letter-spacing:.08em}
+#wydruk{background:var(--paper-2);border:1px solid var(--line);border-radius:14px;padding:20px;overflow:auto}
+#wydruk .zas{transform-origin:top left;box-shadow:0 20px 50px -30px rgba(34,27,58,.7);margin:0 auto 20px}
+
+/* ---------- jedno zaświadczenie ------------------------------------- */
+.zas{width:210mm;height:297mm;background:#fff;color:#1A1430;font-family:var(--druk);
+  padding:14mm;position:relative;overflow:hidden}
+.zas .ramka{position:absolute;inset:9mm;border:1.4mm solid var(--plum);border-radius:2mm}
+.zas .ramka::after{content:"";position:absolute;inset:1.6mm;border:.35mm solid var(--orange);border-radius:1mm}
+.zas .tresc{position:relative;height:100%;padding:9mm 11mm;display:flex;flex-direction:column;text-align:center}
+
+.zas .rdzen{flex:1;display:flex;flex-direction:column;justify-content:center;padding-bottom:6mm}
+.zas .naglowek{display:flex;align-items:center;justify-content:center;gap:5mm;margin-bottom:7mm}
+.zas .kwiat{width:17mm;height:17mm;flex:none}
+.zas .org{text-align:left;font-family:var(--font)}
+.zas .org b{display:block;font-size:12pt;color:var(--plum);letter-spacing:.02em;line-height:1.25}
+.zas .org span{display:block;font-size:8.5pt;color:#4A4560;line-height:1.4}
+
+.zas h2{font-family:var(--font);font-size:26pt;letter-spacing:.22em;color:var(--plum);margin:0;font-weight:700}
+.zas .kreska{width:46mm;height:.8mm;background:var(--orange);margin:3mm auto 2mm;border-radius:1mm}
+.zas .numer{font-family:var(--font);font-size:9.5pt;color:#4A4560;letter-spacing:.06em;margin:0 0 8mm}
+
+.zas .formulka{font-size:13pt;color:#3A3552;margin:0 0 3mm}
+.zas .osoba{font-size:23pt;font-weight:700;color:var(--plum);margin:0 0 2mm;line-height:1.2}
+.zas .placowka{font-size:11pt;color:#4A4560;font-style:italic;margin:0 0 6mm}
+.zas .tytul{font-size:17pt;font-weight:700;color:#1A1430;margin:0 0 4mm;line-height:1.35;padding:0 4mm}
+.zas .dane{font-size:12pt;color:#3A3552;margin:0 0 2mm;line-height:1.6}
+
+.zas .zakres{margin:6mm 4mm 0;text-align:left;border-top:.3mm solid #D9D3E6;padding-top:4mm}
+.zas .zakres b{font-family:var(--font);display:block;font-size:9.5pt;letter-spacing:.1em;text-transform:uppercase;
+  color:var(--plum);margin-bottom:2mm;text-align:center}
+.zas .zakres ul{margin:0;padding:0 0 0 5mm;columns:2;column-gap:8mm;font-size:10.5pt;line-height:1.5;color:#3A3552}
+.zas .zakres li{margin-bottom:1mm;break-inside:avoid}
+
+.zas .dopisek{font-size:9.5pt;color:#4A4560;margin:5mm 4mm 0;line-height:1.5;font-style:italic}
+
+.zas .stopa{margin-top:auto;display:flex;justify-content:space-between;align-items:flex-end;gap:10mm;padding-top:10mm}
+.zas .stopa div{flex:1;font-size:10.5pt;color:#3A3552}
+.zas .podpis{text-align:center}
+.zas .podpis .linia{border-bottom:.3mm solid #6A6377;height:12mm;margin-bottom:2mm}
+.zas .podpis b{display:block;font-size:11pt;color:#1A1430}
+.zas .podpis span{display:block;font-size:9pt;color:#4A4560}
+.zas .wystawienie{text-align:left}
+.zas .metryka{position:absolute;left:11mm;right:11mm;bottom:3mm;font-family:var(--font);font-size:7.5pt;
+  color:#6A6377;display:flex;justify-content:space-between;gap:6mm}
+
+/* ---------- lista wydanych zaświadczeń ------------------------------ */
+.rejestr{width:210mm;height:297mm;background:#fff;color:#1A1430;font-family:var(--font);padding:18mm 16mm}
+.rejestr h2{font-size:16pt;color:var(--plum);margin:0 0 2mm}
+.rejestr .opis{font-size:10pt;color:#4A4560;margin:0 0 7mm;line-height:1.5}
+.rejestr table{width:100%;border-collapse:collapse;font-size:10pt}
+.rejestr th{background:var(--plum-soft);color:var(--plum);text-align:left;font-size:9pt;letter-spacing:.04em;
+  text-transform:uppercase;padding:3mm 2.5mm;border:.25mm solid var(--plum-line)}
+.rejestr td{padding:3.4mm 2.5mm;border:.25mm solid #D9D3E6;vertical-align:middle}
+.rejestr td.podpis-kol{width:52mm}
+.rejestr .stopa{margin-top:9mm;display:flex;justify-content:space-between;font-size:10pt;color:#3A3552}
+
+/* ---------- druk ----------------------------------------------------- */
+@page{size:A4 portrait;margin:0}
+@media print{
+  .panel{display:none !important}
+  body{background:#fff}
+  #wydruk{background:#fff;border:0;padding:0;overflow:visible}
+  #wydruk .zas,#wydruk .rejestr{box-shadow:none;margin:0;transform:none !important}
+  .zas,.rejestr{break-after:page;page-break-after:always}
+  .zas:last-child,.rejestr:last-child{break-after:auto;page-break-after:auto}
+}
+</style>
+</head>
+<body>
+
+<div class="panel">
+  <h1>Zaświadczenia ze szkoleń</h1>
+  <p class="sub">Wpisujesz listę uczestników, wybierasz szkolenie i drukujesz komplet zaświadczeń —
+    każde na osobnej kartce A4. Dla rady pedagogicznej to jeden wydruk zamiast dwudziestu.</p>
+
+  <fieldset>
+    <legend>Organizator</legend>
+    <div class="grid">
+      <div class="pole szer"><label for="org-nazwa">Nazwa</label>
+        <input id="org-nazwa" value="Pomorskie Centrum Terapii Pedagogicznej"></div>
+      <div class="pole szer"><label for="org-adres">Adres</label>
+        <input id="org-adres" placeholder="ul. …, 75-000 Koszalin"></div>
+      <div class="pole"><label for="org-nip">NIP</label><input id="org-nip" placeholder="000-000-00-00"></div>
+      <div class="pole"><label for="org-kontakt">Kontakt na stopce</label>
+        <input id="org-kontakt" value="kontakt@eduplaner2026.pl · 662 888 403"></div>
+    </div>
+    <p class="hint">Wpisujesz raz — przeglądarka zapamięta te dane na tym komputerze.</p>
+  </fieldset>
+
+  <fieldset>
+    <legend>Szkolenie</legend>
+    <div class="grid">
+      <div class="pole szer"><label for="szk">Temat</label><select id="szk"></select></div>
+      <div class="pole szer" id="szk-wlasny-box" hidden><label for="szk-wlasny">Własny temat szkolenia</label>
+        <input id="szk-wlasny" placeholder="Pełny tytuł szkolenia"></div>
+      <div class="pole"><label for="godziny">Liczba godzin</label><input id="godziny" value="2"></div>
+      <div class="pole"><label for="forma">Forma</label>
+        <select id="forma">
+          <option value="online">online</option>
+          <option value="stacjonarnie">stacjonarnie</option>
+          <option value="hybrydowo">hybrydowo</option>
+        </select></div>
+      <div class="pole"><label for="data-szk">Data szkolenia</label><input id="data-szk" type="date"></div>
+      <div class="pole"><label for="miejsce-szk">Miejsce (dla stacjonarnych)</label>
+        <input id="miejsce-szk" placeholder="np. Przedszkole nr 5 w Koszalinie"></div>
+      <div class="pole szer"><label for="zakres">Zakres szkolenia — jeden punkt w wierszu (opcjonalnie)</label>
+        <textarea id="zakres" placeholder="Podstawa prawna, KPOF i KSzOF, ICF, skala i sten&#10;Trzy poziomy wsparcia, IPET i PEWS"></textarea></div>
+    </div>
+  </fieldset>
+
+  <fieldset>
+    <legend>Uczestnicy</legend>
+    <div class="pole">
+      <label for="lista">Jedna osoba w wierszu. Po średniku możesz dopisać placówkę.</label>
+      <textarea id="lista" placeholder="Anna Kowalska; Przedszkole nr 5 w Koszalinie&#10;Piotr Nowak; Przedszkole nr 5 w Koszalinie&#10;Maria Wiśniewska"></textarea>
+    </div>
+    <label class="check"><input type="checkbox" id="odmiana" checked>
+      <span>Odmieniaj formę „ukończyła / ukończył" według imienia. Wyłączone — na wszystkich zaświadczeniach
+        będzie „ukończył(a)". Sprawdź nietypowe imiona.</span></label>
+    <label class="check"><input type="checkbox" id="rejestr" checked>
+      <span>Dołącz na końcu listę wydanych zaświadczeń — do dokumentacji placówki, z miejscem na podpis odbioru.</span></label>
+  </fieldset>
+
+  <fieldset>
+    <legend>Numeracja i podpis</legend>
+    <div class="grid">
+      <div class="pole"><label for="wzor">Wzór numeru</label><input id="wzor" value="{nr}/{rok}/PCTP"></div>
+      <div class="pole"><label for="od">Numer pierwszego zaświadczenia</label><input id="od" type="number" min="1" value="1"></div>
+      <div class="pole"><label for="miejscowosc">Miejscowość wystawienia</label><input id="miejscowosc" value="Koszalin"></div>
+      <div class="pole"><label for="data-wyst">Data wystawienia</label><input id="data-wyst" type="date"></div>
+      <div class="pole"><label for="prowadzaca">Podpisuje</label><input id="prowadzaca" value="Mirosława Ewa Jurczyszyn"></div>
+      <div class="pole"><label for="funkcja">Funkcja</label><input id="funkcja" value="pedagog specjalny, prowadząca szkolenie"></div>
+      <div class="pole szer"><label for="dopisek">Dopisek na dole zaświadczenia (opcjonalnie)</label>
+        <input id="dopisek" placeholder="np. podstawa prawna albo informacja o formie doskonalenia"></div>
+    </div>
+    <p class="hint">We wzorze numeru działają: <b>{nr}</b> — kolejny numer, <b>{rok}</b> — rok, <b>{mm}</b> — miesiąc.</p>
+  </fieldset>
+
+  <div class="pasek">
+    <button class="btn" type="button" id="drukuj">Drukuj / zapisz PDF</button>
+    <button class="btn ghost" type="button" id="odswiez">Odśwież podgląd</button>
+    <button class="btn ghost" type="button" id="wyczysc">Wyczyść listę osób</button>
+    <span class="licznik" id="licznik"></span>
+  </div>
+
+  <div class="uwaga">
+    <b>Przy drukowaniu:</b> w oknie drukowania wybierz papier A4, marginesy „brak" i wyłącz
+    „nagłówki i stopki", żeby przeglądarka nie dopisała adresu pliku na kartce.
+    Zamiast drukarki możesz wybrać „Zapisz jako PDF".<br><br>
+    <b>Dane osobowe:</b> lista uczestników nie jest nigdzie zapisywana — znika po zamknięciu karty.
+    Zapamiętywane są tylko dane organizatora, podpis i numeracja.
+  </div>
+
+  <p class="podglad-tyt">Podgląd</p>
+</div>
+
+<div id="wydruk"></div>
+
+<script>
+(function(){
+  'use strict';
+
+  /* Tematy z oferty — te same tytuły co na stronie, żeby zaświadczenie
+     zgadzało się z tym, co uczestnik kupił. */
+  var SZKOLENIA = [
+    ['Nowa ocena funkcjonalna od A do D', 2],
+    ['Wdrożenie EduPlaner 2026 w Twojej placówce', 2],
+    ['Obserwacja pogłębiona: cztery narzędzia', 2],
+    ['Echolalia — jak rozumieć jej funkcje', 2],
+    ['Teoria umysłu w praktyce szkolnej', 2],
+    ['Emocje w spektrum: radość, smutek, złość, wstyd, lęk', 2],
+    ['Sala, która uczy każde dziecko', 2],
+    ['Spektrum autyzmu bez tajemnic — szkolenie dla rady', 2],
+    ['IPET i PEWS: cele SMART, których nie pisze się co roku od nowa', 2],
+    ['Dokumentacja bez nadgodzin — organizacja pracy zespołu', 2]
+  ];
+
+  var MIESIACE = ['stycznia','lutego','marca','kwietnia','maja','czerwca',
+                  'lipca','sierpnia','września','października','listopada','grudnia'];
+
+  var $ = function(id){ return document.getElementById(id); };
+  var esc = function(t){ return String(t==null?'':t)
+    .replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;'); };
+
+  /* ---------- pola zapamiętywane na tym komputerze ------------------- */
+  var PAMIEC = ['org-nazwa','org-adres','org-nip','org-kontakt','wzor','od',
+                'miejscowosc','prowadzaca','funkcja','dopisek','godziny','forma'];
+  function wczytaj(){
+    try {
+      var d = JSON.parse(localStorage.getItem('zaswiadczenia') || '{}');
+      PAMIEC.forEach(function(k){ if(d[k] != null && $(k)) $(k).value = d[k]; });
+    } catch(e){ /* pierwsze uruchomienie albo zablokowana pamięć przeglądarki */ }
+  }
+  function zapamietaj(){
+    try {
+      var d = {};
+      PAMIEC.forEach(function(k){ if($(k)) d[k] = $(k).value; });
+      localStorage.setItem('zaswiadczenia', JSON.stringify(d));
+    } catch(e){ /* tryb prywatny — trudno, po prostu nie zapamiętamy */ }
+  }
+
+  /* ---------- pomocnicze -------------------------------------------- */
+  function dataSlownie(iso){
+    if(!iso) return '';
+    var cz = iso.split('-');
+    if(cz.length !== 3) return iso;
+    return parseInt(cz[2],10) + ' ' + MIESIACE[parseInt(cz[1],10)-1] + ' ' + cz[0] + ' r.';
+  }
+  function dzisiaj(){
+    var d = new Date(), m = String(d.getMonth()+1).padStart(2,'0'), dz = String(d.getDate()).padStart(2,'0');
+    return d.getFullYear() + '-' + m + '-' + dz;
+  }
+  /* Imiona żeńskie w polszczyźnie prawie zawsze kończą się na „a".
+     Prawie — dlatego jest przełącznik i prośba o sprawdzenie listy. */
+  function kobieta(imie){ return /a$/i.test(imie.trim().split(/\s+/)[0] || ''); }
+
+  function numer(i){
+    var iso = $('data-wyst').value || dzisiaj();
+    return $('wzor').value
+      .replace('{nr}', String((parseInt($('od').value,10) || 1) + i))
+      .replace('{rok}', iso.split('-')[0])
+      .replace('{mm}', iso.split('-')[1]);
+  }
+
+  function uczestnicy(){
+    return $('lista').value.split('\n').map(function(w){
+      var cz = w.split(';');
+      return { imie: (cz[0]||'').trim(), placowka: (cz[1]||'').trim() };
+    }).filter(function(u){ return u.imie.length > 1; });
+  }
+
+  function tytulSzkolenia(){
+    return $('szk').value === '__inne' ? $('szk-wlasny').value.trim() : $('szk').value;
+  }
+
+  /* ---------- składanie wydruku ------------------------------------- */
+  var KWIAT = '<svg class="kwiat" viewBox="0 0 100 100" aria-hidden="true">'
+    + '<path d="M50 60v36" stroke="#C9A227" stroke-width="4" fill="none" stroke-linecap="round"/>'
+    + '<path d="M50 80c-10-3-19-8-27-15M50 80c10-3 19-8 27-15" stroke="#C9A227" stroke-width="3.5" fill="none" stroke-linecap="round"/>'
+    + '<ellipse cx="22" cy="52" rx="7.5" ry="16" fill="#A48FD6" transform="rotate(-58 22 52)"/>'
+    + '<ellipse cx="78" cy="52" rx="7.5" ry="16" fill="#A48FD6" transform="rotate(58 78 52)"/>'
+    + '<ellipse cx="35" cy="41" rx="8.5" ry="18" fill="#F0A57E" transform="rotate(-26 35 41)"/>'
+    + '<ellipse cx="65" cy="41" rx="8.5" ry="18" fill="#F0A57E" transform="rotate(26 65 41)"/>'
+    + '<ellipse cx="50" cy="35" rx="9.5" ry="21" fill="#E8632A"/>'
+    + '<circle cx="50" cy="57" r="4.5" fill="#FBF8F3"/></svg>';
+
+  function zaswiadczenie(u, i){
+    var tytul = tytulSzkolenia();
+    var forma = $('forma').value;
+    var miejsce = $('miejsce-szk').value.trim();
+    var gdzie = forma === 'online' ? 'w formie online'
+              : (miejsce ? 'w formie stacjonarnej, ' + esc(miejsce) : 'w formie stacjonarnej');
+    if(forma === 'hybrydowo') gdzie = 'w formie hybrydowej' + (miejsce ? ', ' + esc(miejsce) : '');
+
+    var czas = $('godziny').value.trim();
+    var odm = $('odmiana').checked
+      ? (kobieta(u.imie) ? 'ukończyła' : 'ukończył')
+      : 'ukończył(a)';
+    var tytulOsoby = $('odmiana').checked ? (kobieta(u.imie) ? 'Pani' : 'Pan') : 'Pani / Pan';
+
+    var punkty = $('zakres').value.split('\n').map(function(w){ return w.trim(); })
+      .filter(function(w){ return w.length > 1; });
+    var zakres = punkty.length
+      ? '<div class="zakres"><b>Zakres szkolenia</b><ul>'
+        + punkty.map(function(w){ return '<li>' + esc(w) + '</li>'; }).join('') + '</ul></div>'
+      : '';
+
+    var dopisek = $('dopisek').value.trim()
+      ? '<p class="dopisek">' + esc($('dopisek').value.trim()) + '</p>' : '';
+
+    return '<article class="zas">'
+      + '<div class="ramka"></div>'
+      + '<div class="tresc">'
+      +   '<div class="naglowek">' + KWIAT
+      +     '<span class="org"><b>' + esc($('org-nazwa').value) + '</b>'
+      +       ($('org-adres').value ? '<span>' + esc($('org-adres').value) + '</span>' : '')
+      +       '<span>EduPlaner 2026 · szkolenia dla placówek i specjalistów</span></span>'
+      +   '</div>'
+      +   '<div class="rdzen">'
+      +   '<h2>ZAŚWIADCZENIE</h2><div class="kreska"></div>'
+      +   '<p class="numer">nr ' + esc(numer(i)) + '</p>'
+      +   '<p class="formulka">Zaświadcza się, że ' + tytulOsoby + '</p>'
+      +   '<p class="osoba">' + esc(u.imie) + '</p>'
+      +   (u.placowka ? '<p class="placowka">' + esc(u.placowka) + '</p>' : '')
+      +   '<p class="formulka">' + odm + ' szkolenie</p>'
+      +   '<p class="tytul">\u201E' + esc(tytul) + '\u201D</p>'
+      +   '<p class="dane">w wymiarze ' + esc(czas) + ' godzin dydaktycznych, ' + gdzie + '<br>'
+      +     'przeprowadzone ' + esc(dataSlownie($('data-szk').value)) + '</p>'
+      +   zakres + dopisek
+      +   '</div>'
+      +   '<div class="stopa">'
+      +     '<div class="wystawienie">' + esc($('miejscowosc').value) + ', '
+      +       esc(dataSlownie($('data-wyst').value)) + '</div>'
+      +     '<div class="podpis"><span class="linia"></span>'
+      +       '<b>' + esc($('prowadzaca').value) + '</b>'
+      +       '<span>' + esc($('funkcja').value) + '</span></div>'
+      +   '</div>'
+      + '</div>'
+      + '<div class="metryka"><span>' + esc($('org-kontakt').value) + '</span>'
+      +   '<span>' + ($('org-nip').value ? 'NIP ' + esc($('org-nip').value) : '') + '</span></div>'
+      + '</article>';
+  }
+
+  function listaWydanych(osoby){
+    var wiersze = osoby.map(function(u,i){
+      return '<tr><td>' + (i+1) + '</td><td>' + esc(numer(i)) + '</td><td>' + esc(u.imie) + '</td>'
+        + '<td>' + esc(u.placowka) + '</td><td class="podpis-kol"></td></tr>';
+    }).join('');
+    return '<section class="rejestr">'
+      + '<h2>Lista wydanych zaświadczeń</h2>'
+      + '<p class="opis">Szkolenie: <b>' + esc(tytulSzkolenia()) + '</b><br>'
+      +   'Termin: ' + esc(dataSlownie($('data-szk').value)) + ' · wymiar: '
+      +   esc($('godziny').value) + ' godzin · forma: ' + esc($('forma').value) + '</p>'
+      + '<table><thead><tr><th>Lp.</th><th>Numer zaświadczenia</th><th>Imię i nazwisko</th>'
+      +   '<th>Placówka</th><th>Podpis odbioru</th></tr></thead><tbody>' + wiersze + '</tbody></table>'
+      + '<div class="stopa"><span>' + esc($('miejscowosc').value) + ', '
+      +   esc(dataSlownie($('data-wyst').value)) + '</span>'
+      +   '<span>' + esc($('prowadzaca').value) + '</span></div>'
+      + '</section>';
+  }
+
+  function odswiez(){
+    var osoby = uczestnicy();
+    var box = $('wydruk');
+    if(!osoby.length){
+      box.innerHTML = '<p style="padding:26px;color:#5B5471;text-align:center">'
+        + 'Wpisz listę uczestników — tu pojawi się podgląd zaświadczeń.</p>';
+    } else {
+      box.innerHTML = osoby.map(zaswiadczenie).join('')
+        + ($('rejestr').checked ? listaWydanych(osoby) : '');
+      skaluj();
+    }
+    var ile = osoby.length;
+    $('licznik').innerHTML = ile
+      ? '<b>' + ile + '</b> ' + (ile === 1 ? 'zaświadczenie' : (ile < 5 ? 'zaświadczenia' : 'zaświadczeń'))
+        + ' · ' + (ile + ($('rejestr').checked ? 1 : 0)) + ' stron A4'
+      : 'Lista uczestników jest pusta.';
+    zapamietaj();
+  }
+
+  /* Kartka A4 jest szersza niż kolumna podglądu — zmniejszamy ją tylko na ekranie.
+     Wydruk zawsze idzie w skali 1:1, bo reguła @media print zdejmuje transform. */
+  function skaluj(){
+    var box = $('wydruk');
+    var dostepne = box.clientWidth - 40;
+    var kartka = box.querySelector('.zas, .rejestr');
+    if(!kartka) return;
+    var s = Math.min(1, dostepne / kartka.offsetWidth);
+    [].forEach.call(box.querySelectorAll('.zas, .rejestr'), function(el){
+      el.style.transform = 'scale(' + s + ')';
+      el.style.marginBottom = (20 - el.offsetHeight * (1 - s)) + 'px';
+    });
+  }
+
+  /* ---------- start -------------------------------------------------- */
+  $('szk').innerHTML = SZKOLENIA.map(function(s){
+      return '<option value="' + esc(s[0]) + '">' + esc(s[0]) + '</option>';
+    }).join('') + '<option value="__inne">Inne szkolenie — wpiszę tytuł</option>';
+
+  wczytaj();
+  if(!$('data-szk').value) $('data-szk').value = dzisiaj();
+  if(!$('data-wyst').value) $('data-wyst').value = dzisiaj();
+
+  $('szk').addEventListener('change', function(){
+    var wlasny = this.value === '__inne';
+    $('szk-wlasny-box').hidden = !wlasny;
+    if(!wlasny){
+      var s = SZKOLENIA.filter(function(x){ return x[0] === this.value; }, this)[0];
+      if(s) $('godziny').value = s[1];
+    }
+    odswiez();
+  });
+
+  ['lista','zakres','godziny','forma','data-szk','miejsce-szk','wzor','od','miejscowosc',
+   'data-wyst','prowadzaca','funkcja','dopisek','szk-wlasny','org-nazwa','org-adres','org-nip','org-kontakt']
+    .forEach(function(id){ $(id).addEventListener('input', odswiez); });
+  ['odmiana','rejestr'].forEach(function(id){ $(id).addEventListener('change', odswiez); });
+
+  $('odswiez').addEventListener('click', odswiez);
+  $('drukuj').addEventListener('click', function(){
+    if(!uczestnicy().length){ alert('Najpierw wpisz choć jednego uczestnika.'); return; }
+    odswiez();
+    window.print();
+  });
+  $('wyczysc').addEventListener('click', function(){
+    if(confirm('Usunąć całą listę uczestników?')){ $('lista').value = ''; odswiez(); }
+  });
+  window.addEventListener('resize', skaluj);
+
+  odswiez();
+})();
+</script>
+</body>
+</html>

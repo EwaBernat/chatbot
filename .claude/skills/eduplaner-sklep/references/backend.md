@@ -88,6 +88,55 @@ rozsyła plik całej radzie pedagogicznej i sprzedaż się kończy.
 - Licencja z regulaminu § 7: osoba prywatna drukuje na własny użytek zawodowy,
   placówka na potrzeby swojego zespołu. Znak wodny ma to przypominać, nie straszyć.
 
+## Zaświadczenie tylko dla tych, którzy naprawdę byli
+
+Zaświadczenie ma wartość dokładnie tak długo, jak długo znaczy, że ktoś odbył
+szkolenie. Sam zakup nie jest udziałem — a przy nagraniu „odtworzone" nie jest
+tym samym co „obejrzane". Warunek trzeba **mierzyć i zapisać**, zanim system
+wystawi dokument.
+
+**Szkolenie na żywo:**
+
+- Raport uczestnictwa z platformy (Zoom, Teams, Meet) daje czas wejścia i wyjścia.
+  Próg: udział w co najmniej 80% czasu.
+- Kod obecności podawany na wizji dwa lub trzy razy, w losowych momentach,
+  wpisywany przez uczestnika w formularzu. Kto wyszedł po dziesięciu minutach,
+  nie zdobędzie kompletu.
+- Ankieta po szkoleniu jako warunek wydania dokumentu. Przy okazji zbiera opinie,
+  które można — za zgodą — pokazać na stronie.
+
+**Nagranie:**
+
+- Postęp odtwarzania zapisywany na serwerze (sygnał co 15 s), próg 90% materiału.
+  Liczy się czas obejrzany, nie czas otwartej karty.
+- Przewijanie do przodu zablokowane przy pierwszym odtworzeniu; cofanie wolne.
+- Pytania kontrolne wplecione w nagranie co kilkanaście minut — jedyny sposób,
+  by odróżnić oglądanie od puszczenia filmu w tle.
+- Test końcowy: kilka pytań, próg zaliczenia, dwa podejścia.
+- Jedno konto = jedna sesja naraz, znak wodny z adresem e-mail na obrazie.
+
+**Zapis w bazie** (bez tego nie ma czego udowodnić przy kontroli ani przy sporze):
+
+```
+uczestnictwo
+  zamowienie, uczestnik, szkolenie
+  obecnosc      { procentCzasu, kodyObecnosci[], zrodlo: 'zoom'|'kody' }
+  nagranie      { procentObejrzany, ostatniSygnal }
+  test          { wynik, podejscia, dataZaliczenia }
+  zaswiadczenie { numer, dataWydania, plik }
+```
+
+**Zanim to wejdzie w życie**, warunek musi być napisany tam, gdzie uczestnik go
+przeczyta przed zapłatą: w opisie szkolenia, w regulaminie i w potwierdzeniu
+zamówienia. Dziś strona obiecuje w pytaniach, że *każdy uczestnik dostaje
+zaświadczenie imienne* — wprowadzenie progu bez zmiany tego zdania byłoby
+obietnicą złamaną po fakcie.
+
+**Co działa już teraz, bez backendu:** kod obecności podany na żywo plus krótka
+ankieta, a potem wydruk kompletu zaświadczeń w `zaswiadczenia.html`. To narzędzie
+drukuje też listę wydanych dokumentów z miejscem na podpis odbioru — razem
+z raportem z platformy jest to komplet dowodów uczestnictwa.
+
 ## Koszyk
 
 Dziś jedna pozycja na raz i to nie jest dramat: przy kilkunastu pozycjach ludzie
