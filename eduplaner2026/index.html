@@ -102,7 +102,14 @@ svg.ck{flex:none;width:18px;height:18px;margin-top:3px}
 /* Baner oddziela włos w barwach marki: gaśnie na brzegach, mocniejszy w środku,
    pod nim ledwie widoczny cień. --plum-text jest ciemny w trybie jasnym i jasny
    w ciemnym, więc linia sama dostosowuje się do obu motywów. */
-.site-header{position:sticky;top:0;z-index:20;background:color-mix(in srgb,var(--paper) 88%,transparent);backdrop-filter:blur(12px);border-bottom:0;box-shadow:0 14px 28px -26px rgba(45,27,105,.55)}
+.site-header{position:sticky;top:0;z-index:20;background:color-mix(in srgb,var(--paper) 88%,transparent);backdrop-filter:blur(12px);border-bottom:0;
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.55), 0 14px 28px -26px rgba(45,27,105,.5);
+  transition:box-shadow .25s ease, background-color .25s ease}
+/* Po odjechaniu od góry pasek unosi się nad treścią: mocniejszy, warstwowy cień
+   i gęstsze tło. Na samej górze zostaje płaski, żeby nie kłócił się z nagłówkiem. */
+.site-header.uniesiony{background:color-mix(in srgb,var(--paper) 95%,transparent);
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.6), 0 2px 5px -3px rgba(45,27,105,.28), 0 22px 34px -26px rgba(45,27,105,.6)}
+.site-header.uniesiony::after{opacity:calc(var(--linia-baner) + .25)}
 .site-header::after{content:"";position:absolute;left:0;right:0;bottom:0;height:1px;pointer-events:none;opacity:var(--linia-baner);background:linear-gradient(90deg,transparent 0%,color-mix(in srgb,var(--plum-text) 42%,transparent) 16%,color-mix(in srgb,var(--orange) 62%,transparent) 50%,color-mix(in srgb,var(--plum-text) 42%,transparent) 84%,transparent 100%)}
 .site-header .wrap{display:flex;align-items:center;gap:28px;min-height:72px;padding-block:10px}
 .brand{display:flex;align-items:center;gap:12px;text-decoration:none;margin-right:auto;min-width:0}
@@ -113,6 +120,8 @@ svg.ck{flex:none;width:18px;height:18px;margin-top:3px}
 .nav a{text-decoration:none;font-weight:500;font-size:15.5px;color:var(--ink-2);padding:6px 0;border-bottom:2px solid transparent}
 .nav a:hover{color:var(--ink);border-color:var(--orange)}
 .site-header .btn{padding:12px 18px;font-size:15px}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]) .site-header,:root:not([data-theme="light"]) .site-header.uniesiony{box-shadow:inset 0 1px 0 rgba(255,255,255,.07), 0 22px 34px -26px rgba(0,0,0,.75)}}
+:root[data-theme="dark"] .site-header,:root[data-theme="dark"] .site-header.uniesiony{box-shadow:inset 0 1px 0 rgba(255,255,255,.07), 0 22px 34px -26px rgba(0,0,0,.75)}
 .site-header .tel{font-size:14.5px;font-weight:600;color:var(--ink-2);text-decoration:none;white-space:nowrap}
 @media (max-width:1060px){.nav,.site-header .tel{display:none}}
 @media (max-width:520px){
@@ -474,6 +483,21 @@ svg.ck{flex:none;width:18px;height:18px;margin-top:3px}
 .prowadzaca b{display:block;font-size:15px;color:var(--ink)}
 .prowadzaca span{font-size:13.5px;color:var(--ink-2);line-height:1.5}
 .offer.zwiezla h3{margin-bottom:auto}
+/* krótka karta szkolenia: jedna linia parametrów, jedna linia cen, jedno wejście */
+.szk-karta{padding:22px;gap:10px}
+.szk-karta .cover{margin:-4px 0 2px}
+.szk-karta h3{font-size:19px}
+.linia-meta{margin:0;font-size:13px;line-height:1.5;color:var(--ink-3)}
+.cena-linia{margin-top:auto;padding-top:14px;border-top:1px solid var(--line);
+  display:flex;align-items:baseline;gap:16px;flex-wrap:wrap}
+.cena-linia span{display:flex;align-items:baseline;gap:6px}
+.cena-linia b{font-family:var(--display);font-size:21px;font-weight:700;color:var(--plum-text);
+  font-variant-numeric:tabular-nums;white-space:nowrap}
+.cena-linia i{font-style:normal;font-size:12px;color:var(--ink-3)}
+.cena-linia em{font-style:normal;font-size:11.5px;letter-spacing:.08em;text-transform:uppercase;
+  color:var(--ink-3);margin-left:auto}
+.szk-karta .btn{margin-top:12px;width:100%;justify-content:center}
+
 .offer.zwiezla .prices{margin-top:16px;grid-template-columns:1fr;gap:8px}
 .offer.zwiezla .prices div{display:grid;grid-template-columns:auto 1fr;align-items:baseline;column-gap:10px;padding:9px 12px}
 .offer.zwiezla .prices small{margin:0}
@@ -982,9 +1006,9 @@ svg.ck{flex:none;width:18px;height:18px;margin-top:3px}
       <span class="alert"><i></i>WOPF · IPET / PEWS · ocena funkcjonalna od roku szkolnego 2026/2027</span>
       <h1><em>WOPF i&nbsp;IPET</em> w&nbsp;jednej aplikacji.</h1>
       <p class="lead">
-<b>Cały zespół gotowy na nową ocenę funkcjonalną.</b> Program prowadzi Państwa od zgłoszenia,
-        przez WOPF na kwestionariuszu KPOF w&nbsp;przedszkolu albo KSzOF w&nbsp;szkole, po IPET albo PEWS i&nbsp;ewaluację. Dane wpisuje się raz,
-        a na końcu wychodzą gotowe druki A4, pod którymi podpisze się cały zespół.
+<b>Cały zespół gotowy na nową ocenę funkcjonalną.</b> Prowadzimy Państwa krok po kroku:
+        zgłoszenie dziecka, WOPF na właściwym kwestionariuszu, plan wsparcia IPET albo PEWS, ewaluacja.
+        Dane wpisuje się raz, a gotowe druki A4 czekają na podpis — pierwszy komplet zespół zrobi tego samego dnia.
       </p>
       <div class="hero-actions">
         <a class="btn btn-primary btn-lg" href="#zamow" data-order="app" data-buyer="inst">Zamów dla swojej placówki</a>
@@ -2702,6 +2726,24 @@ var OFERTA = [
 
 
 
+/* Pasek u góry: płaski, dopóki stoimy na samej górze strony, uniesiony —
+   z warstwowym cieniem i mocniejszą linią — gdy treść pod niego wjeżdża. */
+(function(){
+  var pasek = document.querySelector('.site-header');
+  if(!pasek) return;
+  var czeka = false;
+  function sprawdz(){
+    czeka = false;
+    pasek.classList.toggle('uniesiony', (window.scrollY || document.documentElement.scrollTop) > 8);
+  }
+  addEventListener('scroll', function(){
+    if(czeka) return;
+    czeka = true;
+    requestAnimationFrame(sprawdz);
+  }, { passive: true });
+  sprawdz();
+})();
+
 /* --- szkolenia i broszury: karty, katalog, szczegóły --------------- */
 (function(){
   var esc=OKNO.esc;
@@ -2749,20 +2791,49 @@ var OFERTA = [
     if(o.poziom) el.push('<span>poziom '+esc(o.poziom)+'</span>');
     return el.length ? '<div class="meta">'+el.join('')+'</div>' : '';
   }
+  /* Karta szkolenia jest wizytówką, nie ulotką: okładka, tytuł, jedna linia
+     parametrów, cena i jedno wejście dalej. Opis, program, „co dostajesz"
+     i rozbicie na netto czekają w oknie po kliknięciu — tak samo jak na
+     platformach szkoleniowych, gdzie w siatce widać dziesięć pozycji naraz,
+     a nie dwie i pół. */
+  function liniaMeta(o){
+    if(o.typ!=='szkolenie') return '';
+    var el=[];
+    if(o.spec) el.push(esc(o.spec.split('·')[0].trim()));
+    if(o.tryb) el.push(o.tryb==='otwarte' ? 'termin otwarty' : 'na zamówienie');
+    if(o.poziom) el.push('poziom ' + esc(o.poziom));
+    if(o.zaswiadczenie) el.push('zaświadczenie');
+    return el.length ? '<p class="linia-meta">' + el.join(' · ') + '</p>' : '';
+  }
+
+  function liniaCeny(o){
+    return '<div class="cena-linia">' + o.ceny.map(function(c){
+      return '<span><b>' + esc(c[1]) + '</b><i>' + esc(c[0]).toLowerCase() + '</i></span>';
+    }).join('') + '<em>brutto</em></div>';
+  }
+
   function karta(o){
-    var srodek = '';
+    if(o.typ === 'szkolenie'){
+      return '<article class="offer szk-karta'+(o.hot?' hot':'')+'">'
+        + (o.badge?'<span class="badge">'+esc(o.badge)+'</span>':'')
+        + glowa(o)
+        + '<span class="fmt">'+esc(o.fmt)+'</span>'
+        + '<h3>'+esc(o.tytul)+'</h3>'
+        + liniaMeta(o)
+        + liniaCeny(o)
+        + '<button class="btn '+(o.primary?'btn-primary':'btn-ghost')+'" type="button" data-poz="'+esc(o.id)+'">'
+        + 'Program i zapis</button>'
+        + '</article>';
+    }
     return '<article class="offer'+(o.hot?' hot':'')+' zwiezla">'
       + (o.badge?'<span class="badge">'+esc(o.badge)+'</span>':'')
       + glowa(o)
       + '<span class="fmt">'+esc(o.fmt)+'</span>'
       + '<h3>'+esc(o.tytul)+'</h3>'
-      + meta(o) + srodek
-      + (o.zaswiadczenie ? '<div class="zasw">'+ZASW+'Zaświadczenie dla uczestnika</div>' : '')
       + ceny(o) + netto(o,true)
       + '<a class="btn '+(o.primary?'btn-primary':'btn-ghost')+'" href="#zamow" data-order="'+esc(o.id)+'"'
       + (o.buyer?' data-buyer="'+esc(o.buyer)+'"':'')+'>'+esc(o.cta)+'</a>'
-      + '<button class="more" type="button" data-poz="'+esc(o.id)+'">'
-      + (o.typ==='szkolenie'?'Program szkolenia':'Co jest w środku')+'</button>'
+      + '<button class="more" type="button" data-poz="'+esc(o.id)+'">Co jest w środku</button>'
       + '</article>';
   }
 
