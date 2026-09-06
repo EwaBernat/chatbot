@@ -62,7 +62,7 @@ input:focus,select:focus,textarea:focus{outline:2px solid var(--orange);outline-
 
 .zas .rdzen{flex:1;display:flex;flex-direction:column;justify-content:center;padding-bottom:6mm}
 .zas .naglowek{display:flex;align-items:center;justify-content:center;gap:5mm;margin-bottom:7mm}
-.zas .kwiat{width:17mm;height:17mm;flex:none}
+.zas .godlo{width:20mm;height:20mm;flex:none}
 .zas .org{text-align:left;font-family:var(--font)}
 .zas .org b{display:block;font-size:12pt;color:var(--plum);letter-spacing:.02em;line-height:1.25}
 .zas .org span{display:block;font-size:8.5pt;color:#4A4560;line-height:1.4}
@@ -105,6 +105,12 @@ input:focus,select:focus,textarea:focus{outline:2px solid var(--orange);outline-
 .rejestr td{padding:3.4mm 2.5mm;border:.25mm solid #D9D3E6;vertical-align:middle}
 .rejestr td.podpis-kol{width:52mm}
 .rejestr .stopa{margin-top:9mm;display:flex;justify-content:space-between;font-size:10pt;color:#3A3552}
+
+/* szyld z godłem na stronach towarzyszących */
+.szyld{display:flex;align-items:center;gap:4mm;margin-bottom:7mm}
+.szyld .godlo{width:14mm;height:14mm;flex:none}
+.szyld b{display:block;font-size:11pt;color:var(--plum);line-height:1.25}
+.szyld span span{display:block;font-size:8.5pt;color:#4A4560}
 
 /* ---------- klauzula informacyjna ----------------------------------- */
 .klauzula{width:210mm;height:297mm;background:#fff;color:#1A1430;font-family:var(--font);padding:16mm 18mm}
@@ -315,15 +321,9 @@ input:focus,select:focus,textarea:focus{outline:2px solid var(--orange);outline-
   }
 
   /* ---------- składanie wydruku ------------------------------------- */
-  var KWIAT = '<svg class="kwiat" viewBox="0 0 100 100" aria-hidden="true">'
-    + '<path d="M50 60v36" stroke="#C9A227" stroke-width="4" fill="none" stroke-linecap="round"/>'
-    + '<path d="M50 80c-10-3-19-8-27-15M50 80c10-3 19-8 27-15" stroke="#C9A227" stroke-width="3.5" fill="none" stroke-linecap="round"/>'
-    + '<ellipse cx="22" cy="52" rx="7.5" ry="16" fill="#A48FD6" transform="rotate(-58 22 52)"/>'
-    + '<ellipse cx="78" cy="52" rx="7.5" ry="16" fill="#A48FD6" transform="rotate(58 78 52)"/>'
-    + '<ellipse cx="35" cy="41" rx="8.5" ry="18" fill="#F0A57E" transform="rotate(-26 35 41)"/>'
-    + '<ellipse cx="65" cy="41" rx="8.5" ry="18" fill="#F0A57E" transform="rotate(26 65 41)"/>'
-    + '<ellipse cx="50" cy="35" rx="9.5" ry="21" fill="#E8632A"/>'
-    + '<circle cx="50" cy="57" r="4.5" fill="#FBF8F3"/></svg>';
+  /* Prawdziwe godło PCTP — ten sam plik, który stoi w nagłówku strony.
+     Wpisane w kod, żeby narzędzie działało po skopiowaniu na inny komputer. */
+  var LOGO = '<img class="godlo" alt="" src="data:image/webp;base64,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">';
 
   function zaswiadczenie(u, i){
     var tytul = tytulSzkolenia();
@@ -352,7 +352,7 @@ input:focus,select:focus,textarea:focus{outline:2px solid var(--orange);outline-
     return '<article class="zas">'
       + '<div class="ramka"></div>'
       + '<div class="tresc">'
-      +   '<div class="naglowek">' + KWIAT
+      +   '<div class="naglowek">' + LOGO
       +     '<span class="org"><b>' + esc($('org-nazwa').value) + '</b>'
       +       ($('org-adres').value ? '<span>' + esc($('org-adres').value) + '</span>' : '')
       +       '<span>EduPlaner 2026 · szkolenia dla placówek i specjalistów</span></span>'
@@ -388,6 +388,8 @@ input:focus,select:focus,textarea:focus{outline:2px solid var(--orange);outline-
         + '<td>' + esc(u.placowka) + '</td><td class="podpis-kol"></td></tr>';
     }).join('');
     return '<section class="rejestr">'
+      + '<div class="szyld">' + LOGO + '<span><b>' + esc($('org-nazwa').value) + '</b>'
+      +   ($('org-adres').value ? '<span>' + esc($('org-adres').value) + '</span>' : '') + '</span></div>'
       + '<h2>Lista wydanych zaświadczeń</h2>'
       + '<p class="opis">Szkolenie: <b>' + esc(tytulSzkolenia()) + '</b><br>'
       +   'Termin: ' + esc(dataSlownie($('data-szk').value)) + ' · wymiar: '
@@ -434,7 +436,10 @@ input:focus,select:focus,textarea:focus{outline:2px solid var(--orange);outline-
       var lista = p[2] ? '<ul>' + p[2].map(function(x){ return '<li>' + esc(x) + '</li>'; }).join('') + '</ul>' : '';
       return '<li><b>' + esc(p[0]) + '.</b>' + tresc + lista + '</li>';
     }).join('');
-    return '<section class="klauzula"><h2>Klauzula informacyjna — uczestnicy szkoleń</h2>'
+    return '<section class="klauzula">'
+      + '<div class="szyld">' + LOGO + '<span><b>' + esc($('org-nazwa').value) + '</b>'
+      +   ($('org-adres').value ? '<span>' + esc($('org-adres').value) + '</span>' : '') + '</span></div>'
+      + '<h2>Klauzula informacyjna — uczestnicy szkoleń</h2>'
       + '<p class="kto">Dotyczy szkolenia: ' + esc(tytulSzkolenia())
       + ' · ' + esc(dataSlownie($('data-szk').value)) + '</p>'
       + '<ol>' + poz + '</ol>'
