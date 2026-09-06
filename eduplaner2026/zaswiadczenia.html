@@ -254,6 +254,11 @@ input:focus,select:focus,textarea:focus{outline:2px solid var(--orange);outline-
     </div>
     <label class="check"><input type="checkbox" id="klauzula" checked>
       <span>Dołącz klauzulę informacyjną dla uczestników — jedna kartka na końcu wydruku.</span></label>
+    <p class="hint"><b>Kiedy ją przekazać:</b> najpóźniej przy pierwszym kontakcie z uczestnikiem,
+      czyli razem z zaświadczeniem albo z materiałami rozdawanymi na radzie. To jedyny obowiązek,
+      jaki mamy wobec uczestników zgłoszonych przez placówkę — <b>zgód od nauczycieli nie zbieramy</b>.
+      Zgoda pracownika wobec dyrektora nie jest w pełni dobrowolna, więc byłaby słabszą podstawą
+      niż ta, którą mamy: wykonanie umowy z placówką i wystawienie imiennego zaświadczenia.</p>
     <div class="row" style="margin-top:12px">
       <button class="btn ghost sm" type="button" id="kopiuj">Kopiuj klauzulę do maila</button>
       <span class="hint" id="kopiuj-stan"></span>
@@ -547,7 +552,8 @@ input:focus,select:focus,textarea:focus{outline:2px solid var(--orange);outline-
      dla rady pedagogicznej nazwiska podaje placówka, a nie sam uczestnik — wtedy
      trzeba powiedzieć, skąd mamy jego dane. Projekt do sprawdzenia przez prawnika. */
   function punktyKlauzuli(){
-    var adm = $('org-nazwa').value + ($('org-adres').value ? ', ' + $('org-adres').value : '');
+    var adm = $('org-nazwa').value + ($('org-adres').value ? ', ' + $('org-adres').value : '')
+            + ($('org-nip').value ? ', NIP ' + $('org-nip').value : '');
     var kontakt = $('rodo-kontakt').value.trim() || $('org-kontakt').value.trim();
     return [
       ['Administrator danych', adm + '. Kontakt w sprawie danych osobowych: ' + kontakt + '.'],
@@ -558,11 +564,16 @@ input:focus,select:focus,textarea:focus{outline:2px solid var(--orange);outline-
         'dochodzenie lub obrona roszczeń — art. 6 ust. 1 lit. f RODO.'
       ]],
       ['Jakie dane', 'Imię i nazwisko, numer i data zaświadczenia, temat oraz wymiar szkolenia, a jeżeli zostały podane — nazwa placówki i adres e-mail. Nie zbieramy numeru PESEL, daty urodzenia ani adresu zamieszkania: do wydania zaświadczenia nie są potrzebne.'],
-      ['Skąd mamy dane', 'Od Państwa albo od placówki, która zgłosiła Państwa na szkolenie (art. 14 RODO).'],
+      ['Skąd mamy dane', 'Od Państwa albo od placówki, która zgłosiła Państwa na szkolenie (art. 14 RODO). '
+        + 'W tym drugim przypadku placówka i administrator wskazany w punkcie 1 są odrębnymi administratorami: '
+        + 'placówka udostępnia nam imię, nazwisko i stanowisko, a my przetwarzamy je we własnym celu — '
+        + 'żeby przeprowadzić szkolenie i wystawić Państwu imienne zaświadczenie.'],
       ['Komu przekazujemy', 'Dostawcy poczty elektronicznej i hostingu, biuru rachunkowemu, a przy płatności online — operatorowi płatności. Danych nie przekazujemy poza Europejski Obszar Gospodarczy i nie sprzedajemy ich nikomu.'],
       ['Jak długo', ($('rodo-okres').value.trim() || '5 lat od końca roku, w którym wydano zaświadczenie') + '. Dokumenty księgowe — 5 lat od końca roku podatkowego, w którym upłynął termin płatności podatku.'],
       ['Państwa prawa', 'Dostęp do danych i ich kopia, sprostowanie, usunięcie, ograniczenie przetwarzania, przenoszenie danych oraz sprzeciw wobec przetwarzania opartego na prawnie uzasadnionym interesie. Przysługuje też skarga do Prezesa Urzędu Ochrony Danych Osobowych, ul. Stawki 2, 00-193 Warszawa.'],
-      ['Czy trzeba podać dane', 'Podanie imienia i nazwiska jest dobrowolne, ale bez nich nie wystawimy zaświadczenia. Pozostałe dane są nieobowiązkowe.'],
+      ['Czy trzeba podać dane', 'Podanie imienia i nazwiska jest dobrowolne, ale bez nich nie wystawimy zaświadczenia. '
+        + 'Pozostałe dane są nieobowiązkowe. Nie prosimy o zgodę na przetwarzanie danych i nie jest ona potrzebna — '
+        + 'przetwarzamy je na podstawach wskazanych w punkcie 2.'],
       ['Decyzje automatyczne', 'Dane nie służą do zautomatyzowanego podejmowania decyzji ani do profilowania.']
     ];
   }
