@@ -1,5 +1,5 @@
 import React from 'react';
-import { AbsoluteFill, Audio, Sequence, staticFile } from 'remotion';
+import { AbsoluteFill, Audio, OffthreadVideo, Sequence, staticFile } from 'remotion';
 import { FPS, KADR, KOLOR } from './marka';
 import { PasekNapisow, Stopka, Tlo } from './elementy';
 import { RysujScene } from './sceny/Sceny';
@@ -24,6 +24,29 @@ export const podzielNaNapisy = (tekst: string, klatki: number) => {
 
 export const klatkiUjecia = (u: Ujecie) => Math.max(Math.round(u.sekundy * FPS), FPS);
 
+/**
+ * Okienko z awatarem HeyGen w lewym dolnym rogu — równo z paskiem napisów.
+ * Awatar niesie własny dźwięk, więc w takim ujęciu nie dokładamy ścieżki lektora.
+ */
+const OkienkoAwatara: React.FC<{ plik: string }> = ({ plik }) => (
+  <div
+    style={{
+      position: 'absolute',
+      left: KADR.margines,
+      top: KADR.pasekNapisowGora,
+      width: 300,
+      height: 169,
+      borderRadius: 14,
+      overflow: 'hidden',
+      border: `1px solid ${KOLOR.ramka}`,
+      boxShadow: '0 12px 34px rgba(45,27,105,0.18)',
+      background: KOLOR.kartka,
+    }}
+  >
+    <OffthreadVideo src={staticFile(`awatar/${plik}`)} style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+  </div>
+);
+
 const Ujecie: React.FC<{ ujecie: Ujecie; etykieta: string }> = ({ ujecie, etykieta }) => {
   const klatki = klatkiUjecia(ujecie);
   const napisy = podzielNaNapisy(ujecie.narracja, klatki);
@@ -31,7 +54,11 @@ const Ujecie: React.FC<{ ujecie: Ujecie; etykieta: string }> = ({ ujecie, etykie
     <AbsoluteFill>
       <Tlo />
       <RysujScene scena={ujecie.scena} etykieta={etykieta} />
-      {ujecie.glos ? <Audio src={staticFile(`glos/${ujecie.glos}`)} /> : null}
+      {ujecie.awatar ? (
+        <OkienkoAwatara plik={ujecie.awatar} />
+      ) : ujecie.glos ? (
+        <Audio src={staticFile(`glos/${ujecie.glos}`)} />
+      ) : null}
       {napisy.map((n, i) => (
         <Sequence key={i} from={n.od} durationInFrames={n.dlugosc}>
           <PasekNapisow tekst={n.tekst} />

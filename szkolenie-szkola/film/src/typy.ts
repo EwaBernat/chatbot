@@ -22,6 +22,8 @@ export type Ujecie = {
   sekundy: number;
   /** Nazwa pliku MP3 w public/glos, jeśli nagranie już jest. */
   glos?: string;
+  /** Nazwa pliku MP4 w public/awatar — ujęcie z awatarem HeyGen w rogu kadru. */
+  awatar?: string;
 };
 
 export type Modul = {
