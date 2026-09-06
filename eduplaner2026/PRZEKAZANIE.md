@@ -113,6 +113,31 @@ po cichu. To pierwsza rzecz do wymiany.
 - Stopka: dane sprzedawcy, linki do regulaminu, polityki, formularza odstąpienia
   i nota o prawach autorskich.
 
+## Lista uczestników szkolenia a RODO
+
+Placówka przysyła listę uczestników do zaświadczeń. **Nie trzeba zbierać zgód od
+nauczycieli** — i lepiej ich nie zbierać. Zgoda pracownika wobec dyrektora nie
+jest w pełni dobrowolna, więc jako podstawa jest słabsza niż to, co i tak Pani ma:
+prawnie uzasadniony interes, czyli wykonanie umowy z placówką i wydanie imiennych
+zaświadczeń.
+
+Placówka i PCTP są **dwoma odrębnymi administratorami**. Umowa powierzenia nie
+jest potrzebna, bo nie przetwarza Pani danych w imieniu szkoły, tylko we własnym
+celu.
+
+Jedyny obowiązek: **nota informacyjna z art. 14 RODO** — dane dostaje Pani od
+placówki, a nie od uczestnika, więc informacja musi do niego dotrzeć przy
+pierwszym kontakcie. Najprościej na odwrocie zaświadczenia albo rozdana przez
+dyrektora razem z materiałami.
+
+Na liście wystarczą **imię, nazwisko i stanowisko**. Żadnych PESEL-i, dat urodzenia
+ani adresów. Adresy e-mail tylko wtedy, gdy każdy uczestnik dostaje własny dostęp
+do nagrania — przy projekcji na radzie nie są potrzebne.
+
+Przy projekcji loguje się jeden organizator i to jest wariant właściwy. Wspólne
+hasło do indywidualnego dostępu jest wykluczone: niszczy dowód, że konkretna osoba
+obejrzała szkolenie, i wypuszcza nagranie poza radę.
+
 ## Zabezpieczenie broszur i nagrań
 
 **Najważniejsza zasada: płatny plik nigdy nie leży w katalogu strony.** Jeden adres

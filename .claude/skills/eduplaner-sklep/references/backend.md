@@ -217,6 +217,42 @@ rozsyła plik całej radzie pedagogicznej i sprzedaż się kończy.
 - Licencja z regulaminu § 7: osoba prywatna drukuje na własny użytek zawodowy,
   placówka na potrzeby swojego zespołu. Znak wodny ma to przypominać, nie straszyć.
 
+## Lista uczestników od placówki — bez zgód, z notą informacyjną
+
+Placówka zamawia szkolenie dla rady i przysyła listę uczestników do zaświadczeń.
+Odruch podpowiada „zbierzmy od każdego zgodę RODO". To jest błąd i trzeba go
+znać, bo prowadzi do gorszej podstawy prawnej niż ta, którą i tak się ma.
+
+**Zgoda pracownika jest wątpliwa z definicji.** Musi być dobrowolna, a między
+dyrektorem a nauczycielem jest stosunek podległości — nauczyciel nie może
+swobodnie odmówić udziału w szkoleniu rady. Podstawą jest **prawnie uzasadniony
+interes** (art. 6 ust. 1 lit. f RODO): wykonanie umowy z placówką i wydanie
+imiennych zaświadczeń. Nikt niczego nie podpisuje.
+
+**Dwaj odrębni administratorzy, nie powierzenie.** Placówka *udostępnia* dane,
+PCTP przetwarza je we własnym celu. Umowa powierzenia nie jest potrzebna;
+w umowie i regulaminie wystarczy zdanie, że strony są odrębnymi administratorami.
+Kto tu podpisze powierzenie, ten opisze stan, który nie istnieje.
+
+**Obowiązek informacyjny z art. 14 RODO** — dane pochodzą nie od uczestnika,
+tylko od placówki, więc nota informacyjna musi do niego dotrzeć przy pierwszym
+kontakcie. Najprościej: dyrektor rozdaje ją z materiałami albo stoi na odwrocie
+zaświadczenia. To jedyny obowiązek, którego nie wolno pominąć.
+
+**Zakres listy zależy od formy dostępu:**
+
+| Forma | Kto się loguje | Co jest na liście |
+|---|---|---|
+| Projekcja na radzie | organizator, jeden ekran | imię, nazwisko, stanowisko |
+| Indywidualny dostęp do nagrania | każdy uczestnik osobno | dodatkowo adres e-mail |
+
+Przy projekcji **nie zakładamy kont uczestnikom** — nie ma czego zakładać.
+Przy dostępie indywidualnym wspólne hasło jest wykluczone: niszczy dowód, że
+konkretna osoba obejrzała szkolenie, i wypuszcza nagranie poza radę.
+
+Nigdy nie przyjmuj na liście PESEL-u, daty urodzenia ani adresu zamieszkania.
+Do zaświadczenia potrzebne jest imię, nazwisko i stanowisko — nic więcej.
+
 ## Zaświadczenie tylko dla tych, którzy naprawdę byli
 
 Zaświadczenie ma wartość dokładnie tak długo, jak długo znaczy, że ktoś odbył
