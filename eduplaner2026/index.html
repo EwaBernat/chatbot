@@ -1249,7 +1249,7 @@ svg.ck{flex:none;width:18px;height:18px;margin-top:3px}
     </div>
     <div class="offer-grid cols-4" id="lista-broszur"></div>
     <noscript><p class="ask-note">Katalog wczytuje się skryptem przeglądarki. Jeśli go nie widzisz, włącz obsługę JavaScriptu albo napisz na <a href="mailto:kontakt@eduplaner2026.pl">kontakt@eduplaner2026.pl</a> — odeślemy pełną ofertę z cenami.</p></noscript>
-    <p class="ask-note">Ceny broszur podane w&nbsp;kwocie brutto — tyle płacisz. Pod spodem kwota netto i&nbsp;VAT, czyli to, co księgowość zobaczy na fakturze.</p>
+    <p class="ask-note">Ceny broszur podane w&nbsp;kwocie brutto — tyle płacisz. Kwotę netto i&nbsp;VAT, czyli to, co księgowość zobaczy na fakturze, pokazujemy w&nbsp;oknie z&nbsp;opisem broszury.</p>
     <div class="offer-note">
       <p><b>Broszury to dobry początek. Aplikacja to koniec przepisywania.</b> W&nbsp;subskrypcji EduPlaner 2026 ta sama wiedza jest wbudowana w&nbsp;druki, które wypełniają się z&nbsp;danych ucznia.</p>
       <a class="btn btn-primary" href="#cennik">Zobacz subskrypcję</a>
@@ -2797,19 +2797,29 @@ var OFERTA = [
      platformach szkoleniowych, gdzie w siatce widać dziesięć pozycji naraz,
      a nie dwie i pół. */
   function liniaMeta(o){
-    if(o.typ!=='szkolenie') return '';
     var el=[];
-    if(o.spec) el.push(esc(o.spec.split('·')[0].trim()));
-    if(o.tryb) el.push(o.tryb==='otwarte' ? 'termin otwarty' : 'na zamówienie');
-    if(o.poziom) el.push('poziom ' + esc(o.poziom));
-    if(o.zaswiadczenie) el.push('zaświadczenie');
+    if(o.typ==='szkolenie'){
+      if(o.spec) el.push(esc(o.spec.split('·')[0].trim()));
+      if(o.tryb) el.push(o.tryb==='otwarte' ? 'termin otwarty' : 'na zamówienie');
+      if(o.poziom) el.push('poziom ' + esc(o.poziom));
+      if(o.zaswiadczenie) el.push('zaświadczenie');
+    } else if(o.spec){
+      el.push(esc(o.spec));
+    }
     return el.length ? '<p class="linia-meta">' + el.join(' · ') + '</p>' : '';
   }
 
+  /* Broszura kosztuje tyle samo placówkę co osobę prywatną, więc dwie identyczne
+     kwoty obok siebie tylko zabierały miejsce. Gdy ceny są równe, zostaje jedna. */
   function liniaCeny(o){
-    return '<div class="cena-linia">' + o.ceny.map(function(c){
-      return '<span><b>' + esc(c[1]) + '</b><i>' + esc(c[0]).toLowerCase() + '</i></span>';
-    }).join('') + '<em>brutto</em></div>';
+    var kwoty = o.ceny.map(function(c){ return c[1]; });
+    var jedna = kwoty.every(function(k){ return k === kwoty[0]; });
+    var tresc = jedna
+      ? '<span><b>' + esc(kwoty[0]) + '</b></span>'
+      : o.ceny.map(function(c){
+          return '<span><b>' + esc(c[1]) + '</b><i>' + esc(c[0]).toLowerCase() + '</i></span>';
+        }).join('');
+    return '<div class="cena-linia">' + tresc + '<em>brutto</em></div>';
   }
 
   function karta(o){
@@ -2825,12 +2835,16 @@ var OFERTA = [
         + 'Program i zapis</button>'
         + '</article>';
     }
-    return '<article class="offer'+(o.hot?' hot':'')+' zwiezla">'
+    /* Broszura ma dwa różne zamiary: kupić od razu albo najpierw zajrzeć.
+       Zostają więc dwa wejścia, ale bez podwójnych cen i rozliczenia VAT —
+       te czekają w oknie, tak jak opis i spis treści. */
+    return '<article class="offer szk-karta'+(o.hot?' hot':'')+'">'
       + (o.badge?'<span class="badge">'+esc(o.badge)+'</span>':'')
       + glowa(o)
       + '<span class="fmt">'+esc(o.fmt)+'</span>'
       + '<h3>'+esc(o.tytul)+'</h3>'
-      + ceny(o) + netto(o,true)
+      + liniaMeta(o)
+      + liniaCeny(o)
       + '<a class="btn '+(o.primary?'btn-primary':'btn-ghost')+'" href="#zamow" data-order="'+esc(o.id)+'"'
       + (o.buyer?' data-buyer="'+esc(o.buyer)+'"':'')+'>'+esc(o.cta)+'</a>'
       + '<button class="more" type="button" data-poz="'+esc(o.id)+'">Co jest w środku</button>'
