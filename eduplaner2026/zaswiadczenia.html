@@ -51,7 +51,8 @@ input:focus,select:focus,textarea:focus{outline:2px solid var(--orange);outline-
   font-size:14px;color:var(--ink-2);margin:14px 0 0}
 .podglad-tyt{margin:30px 0 10px;font-size:15px;font-weight:700;color:var(--plum);text-transform:uppercase;letter-spacing:.08em}
 #wydruk{background:var(--paper-2);border:1px solid var(--line);border-radius:14px;padding:20px;overflow:auto}
-#wydruk .zas,#wydruk .rejestr,#wydruk .klauzula{transform-origin:top left;box-shadow:0 20px 50px -30px rgba(34,27,58,.7);margin:0 auto 20px}
+#wydruk .zas,#wydruk .rejestr,#wydruk .klauzula,#wydruk .arkusz{transform-origin:top left;box-shadow:0 20px 50px -30px rgba(34,27,58,.7);margin:0 auto 20px;background:#fff}
+.etykieta{margin:26px 0 10px;font-size:13px;font-weight:700;color:var(--plum);text-transform:uppercase;letter-spacing:.08em}
 
 /* ---------- jedno zaświadczenie ------------------------------------- */
 .zas{width:210mm;height:297mm;background:#fff;color:#1A1430;font-family:var(--druk);
@@ -112,6 +113,32 @@ input:focus,select:focus,textarea:focus{outline:2px solid var(--orange);outline-
 .szyld b{display:block;font-size:11pt;color:var(--plum);line-height:1.25}
 .szyld span span{display:block;font-size:8.5pt;color:#4A4560}
 
+/* ---------- arkusze: program, materiały, zadania ---------------------
+   W przeciwieństwie do zaświadczenia te kartki mogą się rozlać na kilka
+   stron, więc mają wysokość minimalną, nie sztywną. */
+.arkusz{width:210mm;min-height:297mm;background:#fff;color:#1A1430;font-family:var(--font);padding:18mm 18mm 20mm}
+.arkusz h2{font-size:17pt;color:var(--plum);margin:0 0 1mm}
+.arkusz .kto{font-size:10pt;color:#4A4560;margin:0 0 6mm;line-height:1.5}
+.arkusz .kto b{color:#1A1430}
+.arkusz h3{font-size:11.5pt;color:var(--plum);margin:6mm 0 2mm}
+.arkusz p{font-size:10.5pt;line-height:1.6;color:#2A2440;margin:0 0 3mm}
+.arkusz ol.plan{margin:0;padding:0;list-style:none;counter-reset:krok}
+.arkusz ol.plan li{counter-increment:krok;position:relative;padding:0 0 3.5mm 11mm;font-size:11pt;line-height:1.5;break-inside:avoid}
+.arkusz ol.plan li::before{content:counter(krok);position:absolute;left:0;top:-.5mm;width:7mm;height:7mm;border-radius:50%;
+  background:var(--plum-soft);color:var(--plum);font-size:9pt;font-weight:700;display:flex;align-items:center;justify-content:center}
+.arkusz .zadanie{border:.3mm solid #D9D3E6;border-left:1.2mm solid var(--orange);border-radius:1.5mm;
+  padding:4mm 5mm;margin-bottom:4mm;break-inside:avoid}
+.arkusz .zadanie b{display:block;font-size:10.5pt;color:var(--plum);margin-bottom:1.5mm}
+.arkusz .zadanie .miejsce{border-bottom:.25mm dotted #B9B2CC;height:7mm;margin-top:2mm}
+.arkusz .kryterium{background:var(--plum-soft);border-radius:2mm;padding:4mm 5mm;font-size:10pt;line-height:1.55;margin:5mm 0}
+.arkusz .zaliczenie{margin-top:8mm;border:.3mm solid #D9D3E6;border-radius:2mm;padding:5mm 6mm;break-inside:avoid}
+.arkusz .zaliczenie b{display:block;font-size:10.5pt;color:var(--plum);margin-bottom:3mm}
+.arkusz .zaliczenie .pola{display:flex;gap:8mm}
+.arkusz .zaliczenie .pola div{flex:1;font-size:9pt;color:#4A4560}
+.arkusz .zaliczenie .linia{display:block;border-bottom:.3mm solid #6A6377;height:9mm;margin-bottom:1.5mm}
+.arkusz .stopka{margin-top:9mm;padding-top:3mm;border-top:.3mm solid #D9D3E6;font-size:8.5pt;color:#6A6377;
+  display:flex;justify-content:space-between;gap:6mm}
+
 /* ---------- klauzula informacyjna ----------------------------------- */
 .klauzula{width:210mm;height:297mm;background:#fff;color:#1A1430;font-family:var(--font);padding:16mm 18mm}
 .klauzula h2{font-size:15pt;color:var(--plum);margin:0 0 1mm}
@@ -128,9 +155,16 @@ input:focus,select:focus,textarea:focus{outline:2px solid var(--orange);outline-
   .panel{display:none !important}
   body{background:#fff}
   #wydruk{background:#fff;border:0;padding:0;overflow:visible}
-  #wydruk .zas,#wydruk .rejestr,#wydruk .klauzula{box-shadow:none;margin:0;transform:none !important}
-  .zas,.rejestr,.klauzula{break-after:page;page-break-after:always}
-  .zas:last-child,.rejestr:last-child,.klauzula:last-child{break-after:auto;page-break-after:auto}
+  #wydruk .zas,#wydruk .rejestr,#wydruk .klauzula,#wydruk .arkusz{box-shadow:none;margin:0;transform:none !important}
+  .zas,.rejestr,.klauzula,.arkusz{break-after:page;page-break-after:always}
+  .etykieta{display:none !important}
+
+  /* Dwa komplety wychodzą osobno: zaświadczenia z programem i podpisem
+     prowadzącej, a materiały z transkrypcją i zadaniami — inny adresat,
+     inna liczba kartek, często inny moment. */
+  body[data-druk="zaswiadczenia"] .komplet-materialy{display:none !important}
+  body[data-druk="materialy"] .komplet-zaswiadczenia{display:none !important}
+  .komplet > *:last-child{break-after:auto;page-break-after:auto}
 }
 </style>
 </head>
@@ -171,9 +205,30 @@ input:focus,select:focus,textarea:focus{outline:2px solid var(--orange);outline-
       <div class="pole"><label for="data-szk">Data szkolenia</label><input id="data-szk" type="date"></div>
       <div class="pole"><label for="miejsce-szk">Miejsce (dla stacjonarnych)</label>
         <input id="miejsce-szk" placeholder="np. Przedszkole nr 5 w Koszalinie"></div>
-      <div class="pole szer"><label for="zakres">Zakres szkolenia — jeden punkt w wierszu (opcjonalnie)</label>
-        <textarea id="zakres" placeholder="Podstawa prawna, KPOF i KSzOF, ICF, skala i sten&#10;Trzy poziomy wsparcia, IPET i PEWS"></textarea></div>
+      <div class="pole szer"><label for="zakres">Program szkolenia — jeden punkt w wierszu</label>
+        <textarea id="zakres" placeholder="Podstawa prawna, KPOF i KSzOF, ICF, skala i sten&#10;Trzy poziomy wsparcia, IPET i PEWS&#10;Obserwacja pogłębiona: ABC, sensoryka, ToM&#10;Pytania uczestników i podsumowanie"></textarea></div>
     </div>
+    <label class="check"><input type="checkbox" id="program" checked>
+      <span>Program na drugiej stronie zaświadczenia — do druku dwustronnego.
+        Wtedy samo zaświadczenie zostaje czyste: tytuł, wymiar i data.</span></label>
+  </fieldset>
+
+  <fieldset>
+    <legend>Materiały dla uczestnika</legend>
+    <div class="pole szer">
+      <label for="transkrypcja">Skrót szkolenia (transkrypcja). Wiersz zaczynający się od <b>##</b> jest śródtytułem.</label>
+      <textarea id="transkrypcja" style="min-height:200px" placeholder="## Po co nowa ocena funkcjonalna&#10;Od roku szkolnego 2026/2027 zespół opisuje funkcjonowanie dziecka…&#10;&#10;## Dziewięć obszarów&#10;Każdy obszar oceniamy w skali…"></textarea>
+    </div>
+    <div class="pole szer" style="margin-top:14px">
+      <label for="zadania">Zadania do wykonania — jedno w wierszu</label>
+      <textarea id="zadania" placeholder="Wypełnij kwestionariusz dla jednego dziecka ze swojej grupy&#10;Wypisz trzy cele SMART do planu wsparcia&#10;Zaznacz, których narzędzi obserwacji użyjesz i dlaczego"></textarea>
+    </div>
+    <div class="pole szer" style="margin-top:14px">
+      <label for="kryterium">Kryterium zaliczenia</label>
+      <input id="kryterium" value="Zadania uznaje się za zaliczone po odesłaniu wypełnionych arkuszy w ciągu 14 dni od szkolenia.">
+    </div>
+    <p class="hint">Materiały drukują się osobnym przyciskiem — mają innego adresata i inną liczbę kartek
+      niż zaświadczenia. Puste pola po prostu znikają z wydruku.</p>
   </fieldset>
 
   <fieldset>
@@ -224,7 +279,8 @@ input:focus,select:focus,textarea:focus{outline:2px solid var(--orange);outline-
   </fieldset>
 
   <div class="pasek">
-    <button class="btn" type="button" id="drukuj">Drukuj / zapisz PDF</button>
+    <button class="btn" type="button" id="drukuj">Drukuj zaświadczenia</button>
+    <button class="btn ghost" type="button" id="drukuj-mat">Materiały dla uczestnika (PDF)</button>
     <button class="btn ghost" type="button" id="odswiez">Odśwież podgląd</button>
     <button class="btn ghost" type="button" id="wyczysc">Wyczyść listę osób</button>
     <span class="licznik" id="licznik"></span>
@@ -271,7 +327,7 @@ input:focus,select:focus,textarea:focus{outline:2px solid var(--orange);outline-
 
   /* ---------- pola zapamiętywane na tym komputerze ------------------- */
   var PAMIEC = ['org-nazwa','org-adres','org-nip','org-kontakt','wzor','od',
-                'miejscowosc','prowadzaca','funkcja','dopisek','godziny','forma','rodo-kontakt','rodo-okres'];
+                'miejscowosc','prowadzaca','funkcja','dopisek','godziny','forma','rodo-kontakt','rodo-okres','kryterium'];
   function wczytaj(){
     try {
       var d = JSON.parse(localStorage.getItem('zaswiadczenia') || '{}');
@@ -339,12 +395,11 @@ input:focus,select:focus,textarea:focus{outline:2px solid var(--orange);outline-
       : 'ukończył(a)';
     var tytulOsoby = $('odmiana').checked ? (kobieta(u.imie) ? 'Pani' : 'Pan') : 'Pani / Pan';
 
-    var punkty = $('zakres').value.split('\n').map(function(w){ return w.trim(); })
-      .filter(function(w){ return w.length > 1; });
-    var zakres = punkty.length
-      ? '<div class="zakres"><b>Zakres szkolenia</b><ul>'
-        + punkty.map(function(w){ return '<li>' + esc(w) + '</li>'; }).join('') + '</ul></div>'
-      : '';
+    /* Program stoi albo na drugiej stronie, albo w skrócie na zaświadczeniu —
+       nigdy w obu miejscach naraz. */
+    var zakres = ($('program').checked || !punkty().length) ? ''
+      : '<div class="zakres"><b>Zakres szkolenia</b><ul>'
+        + punkty().map(function(w){ return '<li>' + esc(w) + '</li>'; }).join('') + '</ul></div>';
 
     var dopisek = $('dopisek').value.trim()
       ? '<p class="dopisek">' + esc($('dopisek').value.trim()) + '</p>' : '';
@@ -382,10 +437,91 @@ input:focus,select:focus,textarea:focus{outline:2px solid var(--orange);outline-
       + '</article>';
   }
 
+  function wiersze(id){
+    return $(id).value.split('\n').map(function(w){ return w.trim(); })
+      .filter(function(w){ return w.length > 1; });
+  }
+  function punkty(){ return wiersze('zakres'); }
+
+  function szyld(){
+    return '<div class="szyld">' + LOGO + '<span><b>' + esc($('org-nazwa').value) + '</b>'
+      + ($('org-adres').value ? '<span>' + esc($('org-adres').value) + '</span>' : '') + '</span></div>';
+  }
+  function metryczkaSzkolenia(u){
+    return '<p class="kto">Szkolenie: <b>' + esc(tytulSzkolenia()) + '</b><br>'
+      + esc(dataSlownie($('data-szk').value)) + ' · ' + esc($('godziny').value) + ' godzin · '
+      + esc($('forma').value)
+      + (u ? '<br>Uczestnik: <b>' + esc(u.imie) + '</b>' : '') + '</p>';
+  }
+  function stopkaArkusza(){
+    return '<div class="stopka"><span>' + esc($('prowadzaca').value) + ' · '
+      + esc($('funkcja').value) + '</span><span>' + esc($('org-kontakt').value) + '</span></div>';
+  }
+
+  /* Druga strona zaświadczenia: co dokładnie było na szkoleniu. Dyrektor
+     dołącza to do dokumentacji doskonalenia zawodowego nauczyciela. */
+  function programHTML(u){
+    if(!punkty().length) return '';
+    return '<section class="arkusz">' + szyld()
+      + '<h2>Program szkolenia</h2>' + metryczkaSzkolenia(u)
+      + '<ol class="plan">' + punkty().map(function(w){ return '<li>' + esc(w) + '</li>'; }).join('') + '</ol>'
+      + stopkaArkusza() + '</section>';
+  }
+
+  /* Materiały: skrót tego, co padło na szkoleniu, i zadania do odesłania. */
+  function transkrypcjaHTML(){
+    var linie = $('transkrypcja').value.split('\n');
+    var html = '', akapit = [];
+    function domknij(){
+      if(akapit.length){ html += '<p>' + esc(akapit.join(' ')) + '</p>'; akapit = []; }
+    }
+    linie.forEach(function(w){
+      var t = w.trim();
+      if(!t){ domknij(); return; }
+      if(t.indexOf('##') === 0){ domknij(); html += '<h3>' + esc(t.replace(/^##\s*/, '')) + '</h3>'; return; }
+      akapit.push(t);
+    });
+    domknij();
+    return html;
+  }
+
+  function materialyHTML(u){
+    var zad = wiersze('zadania');
+    var skrot = $('transkrypcja').value.trim();
+    if(!skrot && !zad.length) return '';
+    var html = '';
+
+    if(skrot){
+      html += '<section class="arkusz">' + szyld()
+        + '<h2>Materiały ze szkolenia — skrót</h2>' + metryczkaSzkolenia(u)
+        + transkrypcjaHTML() + stopkaArkusza() + '</section>';
+    }
+    if(zad.length){
+      html += '<section class="arkusz">' + szyld()
+        + '<h2>Zadania do wykonania</h2>' + metryczkaSzkolenia(u)
+        + zad.map(function(t,i){
+            return '<div class="zadanie"><b>Zadanie ' + (i+1) + '</b>' + esc(t)
+              + '<div class="miejsce"></div><div class="miejsce"></div></div>';
+          }).join('')
+        + ($('kryterium').value.trim()
+            ? '<div class="kryterium"><b>Kryterium zaliczenia.</b> ' + esc($('kryterium').value.trim()) + '</div>' : '')
+        + '<div class="zaliczenie"><b>Zaliczenie zadań</b><div class="pola">'
+        +   '<div><span class="linia"></span>data sprawdzenia</div>'
+        +   '<div><span class="linia"></span>podpis prowadzącej</div>'
+        +   '<div><span class="linia"></span>zaliczone / do poprawy</div>'
+        + '</div></div>'
+        + stopkaArkusza() + '</section>';
+    }
+    return html;
+  }
+
   function listaWydanych(osoby){
-    var wiersze = osoby.map(function(u,i){
+    var maZadania = wiersze('zadania').length > 0;
+    var wierszeTab = osoby.map(function(u,i){
       return '<tr><td>' + (i+1) + '</td><td>' + esc(numer(i)) + '</td><td>' + esc(u.imie) + '</td>'
-        + '<td>' + esc(u.placowka) + '</td><td class="podpis-kol"></td></tr>';
+        + '<td>' + esc(u.placowka) + '</td>'
+        + (maZadania ? '<td style="width:22mm"></td>' : '')
+        + '<td class="podpis-kol"></td></tr>';
     }).join('');
     return '<section class="rejestr">'
       + '<div class="szyld">' + LOGO + '<span><b>' + esc($('org-nazwa').value) + '</b>'
@@ -395,7 +531,8 @@ input:focus,select:focus,textarea:focus{outline:2px solid var(--orange);outline-
       +   'Termin: ' + esc(dataSlownie($('data-szk').value)) + ' · wymiar: '
       +   esc($('godziny').value) + ' godzin · forma: ' + esc($('forma').value) + '</p>'
       + '<table><thead><tr><th>Lp.</th><th>Numer zaświadczenia</th><th>Imię i nazwisko</th>'
-      +   '<th>Placówka</th><th>Podpis odbioru</th></tr></thead><tbody>' + wiersze + '</tbody></table>'
+      +   '<th>Placówka</th>' + (maZadania ? '<th>Zadania</th>' : '') + '<th>Podpis odbioru</th></tr></thead>'
+      +   '<tbody>' + wierszeTab + '</tbody></table>'
       + '<p class="opis" style="margin-top:6mm;font-size:8.5pt">Dane w tym zestawieniu przetwarza '
       +   esc($('org-nazwa').value) + ' w celu udokumentowania wydania zaświadczeń '
       +   '(art. 6 ust. 1 lit. f RODO). Klauzula informacyjna dla uczestników: '
@@ -464,16 +601,30 @@ input:focus,select:focus,textarea:focus{outline:2px solid var(--orange);outline-
       box.innerHTML = '<p style="padding:26px;color:#5B5471;text-align:center">'
         + 'Wpisz listę uczestników — tu pojawi się podgląd zaświadczeń.</p>';
     } else {
-      box.innerHTML = osoby.map(zaswiadczenie).join('')
+      var zasw = osoby.map(function(u,i){
+        return zaswiadczenie(u,i) + ($('program').checked ? programHTML(u) : '');
+      }).join('')
         + ($('rejestr').checked ? listaWydanych(osoby) : '')
         + ($('klauzula').checked ? klauzulaHTML() : '');
+      var mat = osoby.map(materialyHTML).join('');
+      box.innerHTML = '<p class="etykieta">Zaświadczenia</p>'
+        + '<div class="komplet komplet-zaswiadczenia">' + zasw + '</div>'
+        + (mat ? '<p class="etykieta">Materiały dla uczestnika</p>'
+               + '<div class="komplet komplet-materialy">' + mat + '</div>' : '');
       skaluj();
     }
     var ile = osoby.length;
-    $('licznik').innerHTML = ile
-      ? '<b>' + ile + '</b> ' + (ile === 1 ? 'zaświadczenie' : (ile < 5 ? 'zaświadczenia' : 'zaświadczeń'))
-        + ' · ' + (ile + ($('rejestr').checked ? 1 : 0) + ($('klauzula').checked ? 1 : 0)) + ' stron A4'
-      : 'Lista uczestników jest pusta.';
+    if(ile){
+      var stronZas = ile * (1 + ($('program').checked && punkty().length ? 1 : 0))
+        + ($('rejestr').checked ? 1 : 0) + ($('klauzula').checked ? 1 : 0);
+      var arkuszyMat = ($('transkrypcja').value.trim() ? 1 : 0) + (wiersze('zadania').length ? 1 : 0);
+      $('licznik').innerHTML = '<b>' + ile + '</b> '
+        + (ile === 1 ? 'zaświadczenie' : (ile < 5 ? 'zaświadczenia' : 'zaświadczeń'))
+        + ' · zaświadczenia: ' + stronZas + ' stron A4'
+        + (arkuszyMat ? ' · materiały: co najmniej ' + (arkuszyMat * ile) + ' stron' : '');
+    } else {
+      $('licznik').textContent = 'Lista uczestników jest pusta.';
+    }
     zapamietaj();
   }
 
@@ -482,10 +633,10 @@ input:focus,select:focus,textarea:focus{outline:2px solid var(--orange);outline-
   function skaluj(){
     var box = $('wydruk');
     var dostepne = box.clientWidth - 40;
-    var kartka = box.querySelector('.zas, .rejestr');
+    var kartka = box.querySelector('.zas, .rejestr, .klauzula, .arkusz');
     if(!kartka) return;
     var s = Math.min(1, dostepne / kartka.offsetWidth);
-    [].forEach.call(box.querySelectorAll('.zas, .rejestr'), function(el){
+    [].forEach.call(box.querySelectorAll('.zas, .rejestr, .klauzula, .arkusz'), function(el){
       el.style.transform = 'scale(' + s + ')';
       el.style.marginBottom = (20 - el.offsetHeight * (1 - s)) + 'px';
     });
@@ -513,7 +664,8 @@ input:focus,select:focus,textarea:focus{outline:2px solid var(--orange);outline-
   ['lista','zakres','godziny','forma','data-szk','miejsce-szk','wzor','od','miejscowosc',
    'data-wyst','prowadzaca','funkcja','dopisek','szk-wlasny','org-nazwa','org-adres','org-nip','org-kontakt']
     .forEach(function(id){ $(id).addEventListener('input', odswiez); });
-  ['odmiana','rejestr','klauzula'].forEach(function(id){ $(id).addEventListener('change', odswiez); });
+  ['odmiana','rejestr','klauzula','program'].forEach(function(id){ $(id).addEventListener('change', odswiez); });
+  ['transkrypcja','zadania','kryterium'].forEach(function(id){ $(id).addEventListener('input', odswiez); });
   ['rodo-kontakt','rodo-okres'].forEach(function(id){ $(id).addEventListener('input', odswiez); });
 
   $('kopiuj').addEventListener('click', function(){
@@ -528,10 +680,19 @@ input:focus,select:focus,textarea:focus{outline:2px solid var(--orange);outline-
   });
 
   $('odswiez').addEventListener('click', odswiez);
-  $('drukuj').addEventListener('click', function(){
+  function drukuj(co){
     if(!uczestnicy().length){ alert('Najpierw wpisz choć jednego uczestnika.'); return; }
     odswiez();
+    document.body.dataset.druk = co;
     window.print();
+  }
+  $('drukuj').addEventListener('click', function(){ drukuj('zaswiadczenia'); });
+  $('drukuj-mat').addEventListener('click', function(){
+    if(!$('transkrypcja').value.trim() && !wiersze('zadania').length){
+      alert('Materiały są puste. Wpisz skrót szkolenia albo zadania do wykonania.');
+      return;
+    }
+    drukuj('materialy');
   });
   $('wyczysc').addEventListener('click', function(){
     if(confirm('Usunąć całą listę uczestników?')){ $('lista').value = ''; odswiez(); }
