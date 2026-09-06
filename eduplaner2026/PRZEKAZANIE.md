@@ -113,6 +113,24 @@ po cichu. To pierwsza rzecz do wymiany.
 - Stopka: dane sprzedawcy, linki do regulaminu, polityki, formularza odstąpienia
   i nota o prawach autorskich.
 
+## Numer licencji
+
+Każda subskrypcja dostaje własny numer w schemacie **EP/0001/2026** — kolejny
+numer w roku i rok wydania. Ten sam wzór co przy zaświadczeniach ze szkoleń.
+
+Numer wpisuje się w trzech miejscach i wszędzie ma być ten sam: w wiadomości
+przekazującej klucz aktywacyjny, w protokole zdawczo-odbiorczym (Załącznik nr 1
+do umowy, punkt 3 — tabela z numerem, datą wydania i datą ważności) oraz — gdy
+powstanie backend — w bazie licencji.
+
+**Licencja liczy się od dnia wydania klucza**, nie od podpisania umowy i nie od
+zapłaty. Tak stanowi § 2 umowy. Data wygaśnięcia to dzień poprzedzający pierwszą
+rocznicę wydania klucza.
+
+Podpisany protokół jest jedynym dokumentem, który wiąże numer licencji z konkretną
+placówką i datą. Bez niego przy przedłużeniu albo reklamacji nie ma czym wykazać,
+co i kiedy zostało wydane.
+
 ## Faktury: czy trzeba kupować program
 
 **Nie trzeba.** Ministerstwo Finansów udostępnia bezpłatnie Aplikację Podatnika

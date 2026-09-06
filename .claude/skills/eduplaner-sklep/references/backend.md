@@ -146,6 +146,42 @@ pola faktury w stałej kolejności — wtedy wystawienie dokumentu w programie
 księgowym to przeklejenie, nie przepisywanie. To nie jest automat, ale usuwa
 najczęstszy błąd: fakturę z literówką w nazwie gminy.
 
+## Numer licencji
+
+Każda subskrypcja dostaje własny numer. Bez niego nie da się odpowiedzieć na
+pytanie „czy ta szkoła ma ważną licencję i do kiedy" — a to pytanie przychodzi
+przy przedłużeniu, przy reklamacji i przy kontroli.
+
+Schemat: **`EP/0001/2026`** — kolejny numer w roku, rok wydania. Ten sam wzór co
+w zaświadczeniach ze szkoleń, więc właścicielka nie musi pamiętać dwóch.
+
+Numer wędruje przez trzy miejsca i wszędzie musi być ten sam:
+
+1. **wiadomość z kluczem aktywacyjnym** — numer licencji, data wydania, data ważności;
+2. **protokół zdawczo-odbiorczy** (Załącznik nr 1 do umowy) — tabela w punkcie 3,
+   podpisana przez dyrektora; to jedyny dokument wiążący numer z placówką i datą;
+3. **baza po stronie serwera**, gdy powstanie:
+
+```
+licencja
+  numer          EP/0001/2026 — kolejny, niepowtarzalny
+  zamowienie     numer zamówienia, z którego wynika
+  placowka       nazwa i adres odbiorcy (nie nabywcy — patrz „Faktura")
+  klucz          skrót klucza aktywacyjnego, nigdy sam klucz jawnie
+  wydana         data przekazania klucza
+  wazna_do       dzień poprzedzający pierwszą rocznicę wydania
+  status         aktywna → wygasla → przedluzona
+```
+
+Data wygaśnięcia liczy się **od wydania klucza**, nie od podpisania umowy ani od
+zapłaty — tak stanowi § 2 umowy. Kto policzy ją inaczej, ten skróci albo wydłuży
+licencję o kilka tygodni i nie będzie umiał tego obronić.
+
+Przypomnienie o przedłużeniu wysyła się na 30 dni przed wygaśnięciem. Rok szkolny
+kończy się w czerwcu, a licencje wydane we wrześniu wygasają w środku wakacji —
+bez przypomnienia szkoła zorientuje się dopiero 1 września, gdy program przestanie
+generować dokumenty.
+
 ## Pliki płatne: linki i znak wodny
 
 Broszury to PDF-y, które kosztują 30–50 zł. Bez zabezpieczenia pierwszy kupujący
