@@ -106,3 +106,21 @@ do awatara i sklonowanego głosu służy `HEYGEN_API_KEY` oraz `scripts/heygen_a
 
 Klucz API trzymaj wyłącznie w zmiennej środowiskowej — `.gitignore` blokuje `.env`,
 a wygenerowane `*.mp3`, `*.srt` i `narracja*.txt` nie trafiają do repozytorium.
+
+---
+
+## 📋 Czynności nauczycieli w ramach wynagrodzenia
+
+W `dokumenty/` znajduje się wykaz czynności nauczycieli realizowanych w ramach czasu pracy
+i ustalonego wynagrodzenia (art. 42 ust. 2 Karty Nauczyciela), przygotowany dla PCTP Koszalin
+na rok szkolny 2026/2027:
+
+- `czynnosci-nauczycieli-w-ramach-wynagrodzenia.docx` — wersja Word do druku i podpisu
+  (strona tytułowa z logo, 7 rozdziałów, wzór przydziału czynności i lista kontrolna specjalisty),
+- `czynnosci-nauczycieli-w-ramach-wynagrodzenia.pdf` — ta sama treść jako PDF,
+- `czynnosci-nauczycieli-w-ramach-wynagrodzenia.md` — wersja tekstowa do czytania w GitHubie
+  i do wklejenia do bazy wiedzy chatbota,
+- `generuj_czynnosci_docx.js` — generator pliku Word (instrukcja w nagłówku skryptu).
+
+Wykaz ma charakter pomocniczy: przed wdrożeniem trzeba go dopasować do statutu placówki,
+regulaminu wynagradzania organu prowadzącego i aktualnego tekstu jednolitego ustawy.
