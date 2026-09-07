@@ -49,6 +49,7 @@ index.html                  cała strona: HTML + CSS + JS w jednym pliku, bez fr
 regulamin.html              projekt regulaminu (czeka na prawnika)
 polityka-prywatnosci.html   projekt polityki
 formularz-odstapienia.html  wzór oświadczenia
+zamowienie-osoba-prywatna.html  druk zamówienia dla konsumenta + dane do faktury
 umowa-subskrypcji.html      umowa dla placówki + Załącznik nr 1 (protokół zdawczo-odbiorczy)
 panel-filmow.html           narzędzie autorki: dodaje nagrania bez kodu
 zaswiadczenia.html          narzędzie autorki: zaświadczenia, rejestr, materiały, zadania
@@ -192,6 +193,19 @@ tylko naruszenie:
   bieg 12-miesięcznej licencji, więc dwa możliwe momenty wydania robią z niej
   kwestię sporną. Backend nie może mieć ścieżki „wydaj dostęp przed płatnością",
   także w trybie testowym na produkcji.
+- **Sprzedaż osobie prywatnej idzie wyłącznie przelewem albo bramką, nigdy
+  gotówką.** To nie jest preferencja, tylko warunek zwolnienia z kasy
+  fiskalnej: zapłata w całości na rachunek plus ewidencja wiążąca wpłatę
+  z zamówieniem. Pierwsza transakcja gotówkowa albo terminalem tworzy
+  obowiązek posiadania kasy z całą jej obsługą. Backend nie ma ścieżki
+  „gotówka na miejscu", a tytuł płatności i raport bramki muszą nieść numer
+  zamówienia — bez tego odpada warunek ewidencji.
+- **Faktura wychodzi do każdego zamówienia, także konsumenckiego**, choć
+  konsumentowi należy się dopiero na żądanie (art. 106b ust. 3 ustawy o VAT).
+  Faktura imienna nie ma NIP-u i nie da się go dopisać później, więc wybór
+  „osoba prywatna / placówka" jest rozstrzygnięciem, nie podpowiedzią.
+  Kolejność wysyłki: potwierdzenie płatności → materiał → faktura PDF,
+  w jednej wiadomości.
 - **Każda licencja ma numer** w schemacie `EP/0001/2026`, ten sam w wiadomości
   z kluczem, w protokole zdawczo-odbiorczym i w bazie. Szczegóły w
   `references/backend.md`, rozdział „Numer licencji".

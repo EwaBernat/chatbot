@@ -39,6 +39,7 @@ index.html                    strona główna — wszystko w jednym pliku
 regulamin.html                projekt regulaminu (do zatwierdzenia przez prawnika)
 polityka-prywatnosci.html     projekt polityki prywatności
 formularz-odstapienia.html    wzór oświadczenia
+zamowienie-osoba-prywatna.html  druk zamówienia i danych do faktury imiennej
 panel-filmow.html             narzędzie autorki: dodawanie nagrań bez kodu
 img/                          zrzuty i zdjęcia (.webp do publikacji, .jpg jako źródła)
 broszury/                     publikacje: źródło HTML + złożony PDF
@@ -390,6 +391,18 @@ który się zmienia.
 
 Krok 4 jest nierozdzielny: **nic nie wychodzi przed zapłatą**, tak samo jak przy
 kluczu do aplikacji. Przy płatności online nie boli, bo dzieje się w minutę.
+
+### Druk do wypełnienia
+
+`zamowienie-osoba-prywatna.html` — jedna strona do wydruku: kolejność pięciu
+kroków, pola na dane do faktury imiennej, trzy oświadczenia z kratkami do
+zaznaczenia i dane sprzedawcy. Otwiera się z sekcji „Dokumenty" i ze stopki
+formularza; ma własny przycisk „Wydrukuj ten druk" i arkusz do druku, więc
+wychodzi czysta kartka bez menu.
+
+Druk nie jest obowiązkowy — formularz na stronie zbiera dokładnie te same pola.
+Przydaje się, gdy ktoś zamawia telefonicznie albo mailem: wtedy adres do faktury
+jest w jednym miejscu i nie trzeba go dopytywać.
 
 ### Co trzeba ustalić z księgową
 

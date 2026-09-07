@@ -657,6 +657,9 @@ svg.ck{flex:none;width:18px;height:18px;margin-top:3px}
 .zgoda.err input{outline:2px solid var(--orange);outline-offset:2px}
 .ask-note{margin-top:22px;font-size:14.5px;color:var(--ink-3)}
 .uwaga-kupujacy{margin:-4px 0 18px;padding:10px 14px;border-radius:10px;background:var(--ok-tlo);border:1px solid var(--ok-linia);font-size:13.5px;line-height:1.5;color:var(--ink)}
+/* Wariant neutralny: zasada platnosci to informacja, nie potwierdzenie.
+   Dwa zielone pola pod soba czytaly sie jak dwa komunikaty o sukcesie. */
+.uwaga-kupujacy.zasada{background:var(--plum-soft);border-color:var(--plum-line)}
 .offer-note{margin-top:24px;display:flex;justify-content:space-between;gap:24px;flex-wrap:wrap;align-items:center;padding:20px 24px;background:var(--plum-soft);border:1px solid var(--plum-line);border-radius:var(--radius)}
 .offer-note p{font-size:15px;color:var(--ink-2);max-width:62ch}
 .offer-note p b{color:var(--ink)}
@@ -1477,11 +1480,12 @@ svg.ck{flex:none;width:18px;height:18px;margin-top:3px}
         <div class="who"><i><svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 4-6 8-6s8 2 8 6"/></svg></i><div><b>Osoba indywidualna</b><span>nauczyciel, specjalista, rodzic, student</span></div></div>
         <p class="for">Szkolenia i&nbsp;broszury. <b>Płacisz online, dostęp od razu po zaksięgowaniu płatności.</b> Aplikacji nie kupisz prywatnie — zamawia ją placówka na&nbsp;fakturę.</p>
         <ol>
-          <li><b>Wybierasz broszurę lub szkolenie</b>Przycisk „Kup” albo „Zapisz się” przy wybranej pozycji.</li>
-          <li><b>Płacisz online</b>BLIK, karta lub szybki przelew. Faktura imienna na życzenie.</li>
-          <li><b>Odbierasz</b>Link do pliku PDF lub potwierdzenie miejsca na szkoleniu trafia na Twój e-mail.</li>
+          <li><b>Wybierasz pozycję i&nbsp;zaznaczasz „osoba indywidualna”</b>Przycisk „Kup” albo „Zapisz się” przy wybranej pozycji.</li>
+          <li><b>Podajesz dane do faktury</b>Imię, nazwisko, adres i&nbsp;e-mail. Bez NIP-u — to faktura imienna.</li>
+          <li><b>Płacisz online</b>BLIK, karta albo szybki przelew. Gotówki nie przyjmujemy.</li>
+          <li><b>Odbierasz jednego maila</b>Link do pliku (wygasa po&nbsp;72&nbsp;h) albo dostęp do&nbsp;szkolenia, a&nbsp;w&nbsp;załączniku faktura PDF.</li>
         </ol>
-        <div class="pay"><span class="ok">BLIK · karta · Przelewy24</span><span>PDF od razu</span><span>Faktura imienna</span><span>Zaświadczenie ze szkolenia</span></div>
+        <div class="pay"><span class="ok">BLIK · karta · Przelewy24</span><span>Faktura do&nbsp;każdego zamówienia</span><span>Bez gotówki</span><span>Zaświadczenie ze szkolenia</span></div>
       </div>
     </div>
   </div>
@@ -1665,6 +1669,14 @@ svg.ck{flex:none;width:18px;height:18px;margin-top:3px}
         </a>
       </li>
       <li>
+        <a href="zamowienie-osoba-prywatna.html" target="_blank" rel="noopener">
+          <span class="dok-ikona"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 2h9l4 4v16H6z"/><path d="M15 2v4h4"/><path d="M9 12h6M9 16h6M9 8h2"/></svg></span>
+          <span class="dok-nazwa">Zamówienie — osoba prywatna</span>
+          <span class="dok-opis">Druk dla nauczyciela, specjalisty i&nbsp;rodzica: dane do&nbsp;faktury imiennej, oświadczenia i&nbsp;kolejność „płatność&nbsp;→ materiał&nbsp;→ faktura”. Do&nbsp;wydruku, gdy zamówienie idzie mailem albo na&nbsp;papierze.</span>
+          <span class="dok-cta">Otwórz druk</span>
+        </a>
+      </li>
+      <li>
         <a href="formularz-odstapienia.html" target="_blank" rel="noopener">
           <span class="dok-ikona"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 14 4 9l5-5"/><path d="M4 9h11a5 5 0 0 1 5 5v6"/></svg></span>
           <span class="dok-nazwa">Formularz odstąpienia</span>
@@ -1722,7 +1734,7 @@ svg.ck{flex:none;width:18px;height:18px;margin-top:3px}
             <option value="szk-szkola" data-inst="1" data-person="0" data-rodzaj="usluga" data-price="1500 zł brutto · do 20 osób (1219,51 zł netto + VAT 23%)">Szkolenie: WOPF i IPET po nowemu w szkole podstawowej (klasy 1–3, 4–6, 7–8)</option>
             <option value="szk-ponadpodstawowa" data-inst="1" data-person="0" data-rodzaj="usluga" data-price="1500 zł brutto · do 20 osób (1219,51 zł netto + VAT 23%)">Szkolenie: WOPF i IPET po nowemu w szkole ponadpodstawowej</option>
             <option value="szk-obserwacja" data-inst="1" data-person="1" data-rodzaj="usluga" data-price="1000 zł brutto · do 20 osób (813,01 zł netto + VAT 23%)" data-price-osoba="300 zł brutto · 1 osoba (243,90 zł netto + VAT 23%)">Szkolenie: Obserwacja pogłębiona: cztery narzędzia</option>
-            <option value="szk-tom" data-inst="1" data-person="1" data-rodzaj="usluga" data-price="1500 zł brutto · do 20 osób (1219,51 zł netto + VAT 23%)" data-price-osoba="300 zł brutto · 1 osoba (243,90 zł netto + VAT 23%)">Szkolenie: Teoria umysłu w praktyce szkolnej</option>
+            <option value="szk-tom" data-inst="1" data-person="1" data-rodzaj="usluga" data-price="1000 zł brutto · do 20 osób (813,01 zł netto + VAT 23%)" data-price-osoba="300 zł brutto · 1 osoba (243,90 zł netto + VAT 23%)">Szkolenie: Teoria umysłu w praktyce szkolnej</option>
             <option value="szk-autyzm" data-inst="1" data-person="0" data-rodzaj="usluga" data-price="1000 zł brutto · do 20 osób (813,01 zł netto + VAT 23%)">Szkolenie: Autyzm — „dziwne, niepojęte dziecko” w placówce ogólnodostępnej</option>
           </optgroup>
           <optgroup label="Broszury (PDF)">
@@ -1760,14 +1772,27 @@ svg.ck{flex:none;width:18px;height:18px;margin-top:3px}
         <div class="field"><label for="inst-stage">Etapy w&nbsp;placówce</label><select id="inst-stage" name="inst-stage"><option>Przedszkole</option><option>Szkoła podstawowa</option><option>Szkoła ponadpodstawowa</option><option>Kilka etapów (zespół szkół)</option><option>Poradnia / inna</option></select></div>
       </div>
       <div id="f-person" hidden>
-        <div class="field"><label for="person-name">Imię i&nbsp;nazwisko</label><input id="person-name" name="person-name" type="text" autocomplete="name" placeholder="np. Anna Kowalska"></div>
+        <p class="fld-note">Fakturę wystawiamy <b>każdemu zamówieniu</b>, także bez proszenia o&nbsp;nią. Przychodzi PDF-em razem z&nbsp;materiałem, zaraz po zaksięgowaniu płatności.</p>
+
+        <fieldset class="grupa">
+          <legend>Dane do faktury — osoba prywatna</legend>
+          <p class="fld-note">Osoba prywatna <b>nie podaje NIP-u</b>. Jeśli kupujesz na&nbsp;firmę lub placówkę, wróć wyżej i&nbsp;zaznacz „Placówka edukacyjna” — NIP-u nie da się dopisać do&nbsp;faktury po&nbsp;jej wystawieniu.</p>
+          <div class="field"><label for="person-name">Imię i&nbsp;nazwisko</label><input id="person-name" name="person-name" type="text" autocomplete="name" placeholder="np. Anna Kowalska"></div>
+          <div class="field"><label for="person-street">Ulica i&nbsp;numer</label><input id="person-street" name="person-street" type="text" autocomplete="address-line1" placeholder="np. Kwiatowa 12/3"></div>
+          <div class="row">
+            <div class="field"><label for="person-zip">Kod pocztowy</label><input id="person-zip" name="person-zip" type="text" inputmode="numeric" autocomplete="postal-code" placeholder="00-000"></div>
+            <div class="field"><label for="person-city">Miejscowość</label><input id="person-city" name="person-city" type="text" autocomplete="address-level2" placeholder="np. Koszalin"></div>
+          </div>
+        </fieldset>
+
+        <p class="uwaga-kupujacy zasada"><b>Płatność wyłącznie online:</b> BLIK, karta albo szybki przelew. <b>Gotówki nie przyjmujemy</b> — także na&nbsp;miejscu, przed szkoleniem czy po&nbsp;nim. Dzięki temu każda wpłata ma potwierdzenie bankowe i&nbsp;do&nbsp;każdej wychodzi faktura.</p>
       </div>
 
       <div class="row">
         <div class="field"><label for="email">E-mail</label><input id="email" name="email" type="email" autocomplete="email" required placeholder="na ten adres wyślemy potwierdzenie"></div>
         <div class="field"><label for="phone">Telefon (opcjonalnie)</label><input id="phone" name="phone" type="tel" autocomplete="tel" placeholder="na wypadek pytań"></div>
       </div>
-      <div class="field"><label for="note">Uwagi (opcjonalnie)</label><textarea id="note" name="note" placeholder="np. liczba osób na szkoleniu, preferowany termin, dane do faktury"></textarea></div>
+      <div class="field"><label for="note">Uwagi (opcjonalnie)</label><textarea id="note" name="note" placeholder="np. liczba osób na szkoleniu, preferowany termin"></textarea></div>
 
       <div class="summary">
         <div><span>Zamawiasz</span><b id="sum-product">Aplikacja EduPlaner 2026 — roczna subskrypcja</b></div>
@@ -1786,7 +1811,7 @@ svg.ck{flex:none;width:18px;height:18px;margin-top:3px}
       </div>
 
       <button class="btn btn-primary btn-lg" type="submit" id="submit-btn">Zamawiam z&nbsp;obowiązkiem zapłaty</button>
-      <p class="legal">Dane przetwarza PCTP Koszalin w&nbsp;celu obsługi zamówienia i&nbsp;wystawienia faktury. Szczegóły w&nbsp;<a href="polityka-prywatnosci.html">polityce prywatności</a>. Placówka zamawiająca aplikację podpisuje <a href="umowa-subskrypcji.html">umowę subskrypcji</a>. Zasady zwrotów i&nbsp;reklamacji opisuje <a href="regulamin.html">regulamin</a>; wzór oświadczenia znajdziesz w&nbsp;<a href="formularz-odstapienia.html">formularzu odstąpienia</a>. Możesz też napisać bezpośrednio: <a href="mailto:kontakt@eduplaner2026.pl">kontakt@eduplaner2026.pl</a>.</p>
+      <p class="legal">Dane przetwarza PCTP Koszalin w&nbsp;celu obsługi zamówienia i&nbsp;wystawienia faktury. Szczegóły w&nbsp;<a href="polityka-prywatnosci.html">polityce prywatności</a>. Placówka zamawiająca aplikację podpisuje <a href="umowa-subskrypcji.html">umowę subskrypcji</a>. Zasady zwrotów i&nbsp;reklamacji opisuje <a href="regulamin.html">regulamin</a>; wzór oświadczenia znajdziesz w&nbsp;<a href="formularz-odstapienia.html">formularzu odstąpienia</a>. Osoba prywatna może też wypełnić <a href="zamowienie-osoba-prywatna.html">druk zamówienia z&nbsp;danymi do faktury</a>. Możesz też napisać bezpośrednio: <a href="mailto:kontakt@eduplaner2026.pl">kontakt@eduplaner2026.pl</a>.</p>
       <div class="done" id="done" hidden><b>Zamówienie przygotowane.</b>Otworzyliśmy Twój program pocztowy z&nbsp;gotową treścią zamówienia. Wyślij wiadomość, a&nbsp;my odeślemy potwierdzenie.</div>
     </form>
   </div>
@@ -1808,7 +1833,7 @@ svg.ck{flex:none;width:18px;height:18px;margin-top:3px}
       </div>
       <div><h4>Oferta</h4><ul><li><a href="#aplikacja">Aplikacja</a></li><li><a href="#szkolenia">Szkolenia</a></li><li><a href="#broszury">Broszury</a></li><li><a href="#cennik">Cennik</a></li><li><a href="#jak-kupic">Jak kupić</a></li></ul></div>
       <div><h4>Poznaj</h4><ul><li><a href="#spolecznosc">Blog i&nbsp;grupa na Facebooku</a></li><li><a href="#filmy">Nagrania szkoleniowe</a></li><li><a href="#porownanie">Arkusze czy aplikacja</a></li><li><a href="#autorka">O&nbsp;autorce</a></li><li><a href="mailto:kontakt@eduplaner2026.pl?subject=Analiza%20potrzeb">Formularz analizy potrzeb</a></li></ul></div>
-      <div class="contact"><h4>Sprzedawca</h4><ul><li><b>Pomorskie Centrum Terapii Pedagogicznej</b></li><li>ul. Żołnierzy 8 Dywizji 13 · 75-692 Koszalin</li><li>NIP 6691051752 · REGON 330231014</li><li><a href="mailto:kontakt@eduplaner2026.pl">kontakt@eduplaner2026.pl</a></li><li><a href="tel:+48662888403">662 888 403</a> <small>· dni robocze 10:00–14:00</small></li></ul></div><div class="contact"><h4>Dokumenty</h4><ul><li><a href="umowa-subskrypcji.html">Wzór umowy subskrypcji</a></li><li><a href="regulamin.html">Regulamin sklepu</a></li><li><a href="polityka-prywatnosci.html">Polityka prywatności</a></li><li><a href="formularz-odstapienia.html">Formularz odstąpienia</a></li><li><a href="regulamin.html#reklamacje">Reklamacje i zwroty</a></li></ul></div>
+      <div class="contact"><h4>Sprzedawca</h4><ul><li><b>Pomorskie Centrum Terapii Pedagogicznej</b></li><li>ul. Żołnierzy 8 Dywizji 13 · 75-692 Koszalin</li><li>NIP 6691051752 · REGON 330231014</li><li><a href="mailto:kontakt@eduplaner2026.pl">kontakt@eduplaner2026.pl</a></li><li><a href="tel:+48662888403">662 888 403</a> <small>· dni robocze 10:00–14:00</small></li></ul></div><div class="contact"><h4>Dokumenty</h4><ul><li><a href="umowa-subskrypcji.html">Wzór umowy subskrypcji</a></li><li><a href="regulamin.html">Regulamin sklepu</a></li><li><a href="polityka-prywatnosci.html">Polityka prywatności</a></li><li><a href="formularz-odstapienia.html">Formularz odstąpienia</a></li><li><a href="zamowienie-osoba-prywatna.html">Zamówienie — osoba prywatna</a></li><li><a href="regulamin.html#reklamacje">Reklamacje i zwroty</a></li></ul></div>
     </div>
     <div class="foot-bottom"><span>© 2026 PCTP Koszalin · EduPlaner 2026 · Mirosława Ewa Jurczyszyn, pedagog specjalny</span><span>Wszelkie prawa zastrzeżone. Kopiowanie, powielanie i&nbsp;redystrybucja materiałów bez zgody autorki zabronione.</span></div>
   </div>
@@ -2402,7 +2427,7 @@ var OFERTA = [
       "Od obserwacji do celu SMART w planie",
       "Arkusze do pobrania"
     ],
-    "spec": "2 h · terminy otwarte co miesiąc",
+    "spec": "1 h · terminy otwarte co miesiąc",
     "ceny": [
       [
         "Cała rada",
@@ -2466,7 +2491,7 @@ var OFERTA = [
     "ceny": [
       [
         "Cała rada",
-        "1500 zł",
+        "1000 zł",
         "brutto · do 20 osób · faktura"
       ],
       [
@@ -2498,7 +2523,7 @@ var OFERTA = [
     "zawiera": [
       "Scenariusz zajęć i gra planszowa do wykorzystania"
     ],
-    "netto": "Rada: 1219,51 zł netto + 280,49 zł VAT 23% · Osoba: 243,90 zł netto + 56,10 zł VAT 23%"
+    "netto": "Rada: 813,01 zł netto + 186,99 zł VAT 23% · Osoba: 243,90 zł netto + 56,10 zł VAT 23%"
   },
 
 
@@ -3275,7 +3300,7 @@ var OFERTA = [
     sumP.textContent=opt.textContent;
     sumPrice.textContent=cena(opt,b);
     if(b==='inst'){ sumPay.textContent='Faktura · przelew · dostęp po wpłacie'; submit.textContent='Zamawiam z obowiązkiem zapłaty'; }
-    else { sumPay.textContent='Płatność online · BLIK · karta'; submit.textContent='Zamawiam z obowiązkiem zapłaty'; }
+    else { sumPay.textContent='Płatność online · BLIK · karta · faktura PDF po wpłacie'; submit.textContent='Zamawiam z obowiązkiem zapłaty'; }
     zgodaCyfrowa(b,opt);
   }
 
@@ -3312,17 +3337,32 @@ var OFERTA = [
   form.addEventListener('submit',function(e){
     e.preventDefault();
     var email=document.getElementById('email');
+    /* Faktura wychodzi do każdego zamówienia, także prywatnego — więc adres
+       nabywcy jest wymagany po obu stronach. Bez niego dokument jest wadliwy,
+       a poprawić go można tylko korektą. */
+    var need;
     if(buyer()==='inst'){
-      var need=[['inst-name','Podaj nazwę nabywcy — to podmiot, na który wystawimy fakturę.'],
-                ['inst-nip','Podaj NIP nabywcy.']];
+      need=[['inst-name','Podaj nazwę nabywcy — to podmiot, na który wystawimy fakturę.'],
+            ['inst-nip','Podaj NIP nabywcy.']];
       if(!odbiorcaTenSam()){ need.push(['odb-name','Podaj nazwę placówki albo zaznacz, że rozlicza się sama.']); }
-      for(var n=0;n<need.length;n++){
-        var f=document.getElementById(need[n][0]);
-        if(!f.value.trim()){ f.classList.add('err'); f.focus();
-          if(f.setCustomValidity){ f.setCustomValidity(need[n][1]); f.reportValidity(); f.setCustomValidity(''); } else { alert(need[n][1]); }
-          return; }
-        f.classList.remove('err');
-      }
+    } else {
+      need=[['person-name','Podaj imię i nazwisko — na nie wystawimy fakturę.'],
+            ['person-street','Podaj ulicę i numer — faktura musi mieć adres nabywcy.'],
+            ['person-zip','Podaj kod pocztowy.'],
+            ['person-city','Podaj miejscowość.']];
+    }
+    for(var n=0;n<need.length;n++){
+      var f=document.getElementById(need[n][0]);
+      if(!f.value.trim()){ f.classList.add('err'); f.focus();
+        if(f.setCustomValidity){ f.setCustomValidity(need[n][1]); f.reportValidity(); f.setCustomValidity(''); } else { alert(need[n][1]); }
+        return; }
+      f.classList.remove('err');
+    }
+    var kod=document.getElementById('person-zip');
+    if(buyer()==='person' && !/^\d{2}-?\d{3}$/.test(kod.value.trim())){
+      kod.classList.add('err'); kod.focus();
+      if(kod.setCustomValidity){ kod.setCustomValidity('Kod pocztowy ma postać 00-000.'); kod.reportValidity(); kod.setCustomValidity(''); } else { alert('Kod pocztowy ma postać 00-000.'); }
+      return;
     }
     var reg=document.getElementById('zgoda-regulamin'), regBox=reg.closest('.zgoda');
     if(!reg.checked){
@@ -3351,7 +3391,14 @@ var OFERTA = [
               +'\n  Adres: '+(document.getElementById('odb-addr').value||'—'))
         +'\n  Etapy: '+document.getElementById('inst-stage').value
         +'\n\nPłatność: faktura przelewowa, dostęp po opłaceniu'
-      : 'Osoba indywidualna: '+(document.getElementById('person-name').value||'—')+'\nPłatność: online (proszę o link do płatności)';
+      : 'NABYWCA (faktura imienna — osoba prywatna)'
+        +'\n  Imię i nazwisko: '+(document.getElementById('person-name').value||'—')
+        +'\n  Ulica i numer: '+(document.getElementById('person-street').value||'—')
+        +'\n  Kod i miejscowość: '+(document.getElementById('person-zip').value||'—')+' '+(document.getElementById('person-city').value||'—')
+        +'\n  NIP: nie dotyczy (sprzedaż konsumencka)'
+        +'\n\nPłatność: online — BLIK, karta albo szybki przelew. Proszę o link do płatności.'
+        +'\nGotówka: nie przyjmujemy.'
+        +'\nFaktura: PDF na adres e-mail, razem z materiałem, po zaksięgowaniu wpłaty.';
     var body='ZAMÓWIENIE — EduPlaner 2026\n\nPozycja: '+opt.textContent+'\nCena: '+cena(opt,buyer())+'\n\n'+who+'\nE-mail: '+email.value+'\nTelefon: '+(document.getElementById('phone').value||'—')+'\n\nUwagi:\n'+(document.getElementById('note').value||'—')
       +'\n\nZGODY\nRegulamin i polityka prywatności: zaakceptowane'
       +(boxCyfrowa.hidden?'' : '\nZgoda na dostarczenie przed upływem terminu odstąpienia: '+(polCyfrowa.checked?'TAK':'nie'))
