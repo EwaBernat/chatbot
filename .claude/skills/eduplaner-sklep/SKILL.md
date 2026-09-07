@@ -53,6 +53,7 @@ zamowienie-osoba-prywatna.html  druk zamówienia dla konsumenta + dane do faktur
 umowa-subskrypcji.html      umowa dla placówki + Załącznik nr 1 (protokół zdawczo-odbiorczy)
 panel-filmow.html           narzędzie autorki: dodaje nagrania bez kodu
 zaswiadczenia.html          narzędzie autorki: zaświadczenia, rejestr, materiały, zadania
+grafiki.html                narzędzie autorki: grafiki na Facebooka i bloga (6 formatów)
 broszury/                   publikacje: źródło HTML + złożony PDF
 broszury/.bezplatne         lista plików, które wolno trzymać jawnie — reszta to blokada
 img/                        .webp na serwer, .jpg to źródła, og.jpg do social mediów

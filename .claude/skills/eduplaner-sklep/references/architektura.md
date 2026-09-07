@@ -165,6 +165,19 @@ Każda z nich kosztowała godzinę szukania. Wszystkie są w kodzie do dziś mo�
    przerwie skrypt, wszystkie wcześniejsze zmiany przepadają bez śladu. Zapisuj
    po każdej sensownej porcji albo pracuj na kopii.
 
+6. **`scrollIntoView` przy pierwszym rysowaniu.** Pasek zakładek w sekcji
+   „Ekrany" wyśrodkowywał aktywną zakładkę tym wywołaniem. Na telefonie pasek
+   zawsze się nie mieści, więc przewijana była **cała strona** — witryna
+   otwierała się w połowie, u dołu sekcji „Ekrany", a nagłówka nikt nie widział.
+   Pasek przewijamy teraz sami (`lista.scrollTo`), a przewijanie płynne włącza
+   się dopiero przy kliknięciu użytkownika, nie przy `pokaz(0)`.
+7. **Kontrast na półprzezroczystym tle nad gradientem.** Kontroler nie umie
+   złożyć koloru, gdy tło elementu to `rgba(255,255,255,.05)`, a pod spodem jest
+   gradient sekcji — zgłasza wtedy błąd, choć na oko jest dobrze. Panele
+   w sekcji `.path` mają własne **nieprzezroczyste** tokeny (`--baza-tlo`,
+   `--baza-karta`), po jednym na motyw. Rób tak samo przy każdej nowej karcie
+   na ciemnym tle: przezroczystość ładnie wygląda i uniemożliwia sprawdzenie.
+
 ## Obrazy
 
 WebP, 46–102 KB, 1600×1000 dla zrzutów i 1200×750 dla zdjęć sal. Pliki `.jpg`
