@@ -113,6 +113,25 @@ po cichu. To pierwsza rzecz do wymiany.
 - Stopka: dane sprzedawcy, linki do regulaminu, polityki, formularza odstąpienia
   i nota o prawach autorskich.
 
+## Co jest w Bazie wiedzy
+
+Dziesiąty moduł aplikacji, opisany na stronie własnym panelem w sekcji
+„Aplikacja". Zawiera:
+
+- **bazę celów SMART** do wyboru zależnie od potrzeb dziecka, z możliwością
+  dopisywania własnych celów, które zostają w bazie placówki;
+- **konspekty zajęć** do rewalidacji i pomocy psychologiczno-pedagogicznej;
+- **wzory druków i pism** — opinie, regulaminy, procedury — poukładane
+  w kąciku dyrektora i kąciku nauczyciela;
+- **szkolenia do wykorzystania na wewnętrzne rady pedagogiczne.**
+
+Ostatni punkt trzeba czytać razem z rozdziałem niżej. Szkolenia z bazy placówka
+prowadzi **sama, dla własnego zespołu, bez zaświadczeń** — to materiał wliczony
+w subskrypcję. Szkolenia z oferty prowadzi autorka i po nich wychodzi
+zaświadczenie. Na stronie ta granica jest napisana wprost pod panelem Bazy
+wiedzy i **nie wolno jej zacierać**: dyrektor, który uzna, że w subskrypcji ma
+te same szkolenia co w cenniku, nie kupi ani jednego.
+
 ## Które szkolenia dla kogo
 
 **Szkolenia „na zamówienie" sprzedajemy wyłącznie radom pedagogicznym.**

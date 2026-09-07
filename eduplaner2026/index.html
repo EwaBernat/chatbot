@@ -33,7 +33,7 @@
    fiolet #2D1B69 · pomarańcz #E8450A · papier #FBF8F3
 ------------------------------------------------------------------- */
 :root{
-  --plum:#2D1B69;--plum-text:#2D1B69;--plum-deep:#2A1E45;--plum-deep-2:#332747;--plum-soft:#EDE8F7;--plum-line:#D7CFEA;
+  --plum:#2D1B69;--plum-text:#2D1B69;--plum-deep:#2A1E45;--baza-tlo:#362A4F;--baza-karta:#403358;--plum-deep-2:#332747;--plum-soft:#EDE8F7;--plum-line:#D7CFEA;
   --orange:#E8450A;--orange-btn:#D63E08;--orange-ink:#C43705;--orange-soft:#FDE9E0;
   --paper:#FBF8F3;--paper-2:#F4EFE8;--card:#FFFFFF;
   --ink:#221B3A;--ink-2:#5B5471;--ink-3:#6A6377;--line:#E4DED6;
@@ -45,7 +45,7 @@
 }
 @media (prefers-color-scheme: dark){
   :root:not([data-theme="light"]){
-    --plum:#3A2686;--plum-text:#C3B5EC;--plum-deep:#1E1735;--plum-deep-2:#272040;--plum-soft:#231A45;--plum-line:#3E3168;
+    --plum:#3A2686;--plum-text:#C3B5EC;--plum-deep:#1E1735;--baza-tlo:#2A2440;--baza-karta:#352F4A;--plum-deep-2:#272040;--plum-soft:#231A45;--plum-line:#3E3168;
     --orange:#F0602B;--orange-btn:#C63A0A;--orange-ink:#FF7A47;--orange-soft:#3A1F17;
     --paper:#15102A;--paper-2:#1C1536;--card:#211A3E;
     --ink:#F1ECFA;--ink-2:#B9B0D0;--ink-3:#A29AC0;--line:#332A55;
@@ -54,7 +54,7 @@
   }
 }
 :root[data-theme="dark"]{
-  --plum:#3A2686;--plum-text:#C3B5EC;--plum-deep:#1E1735;--plum-deep-2:#272040;--plum-soft:#231A45;--plum-line:#3E3168;
+  --plum:#3A2686;--plum-text:#C3B5EC;--plum-deep:#1E1735;--baza-tlo:#2A2440;--baza-karta:#352F4A;--plum-deep-2:#272040;--plum-soft:#231A45;--plum-line:#3E3168;
   --orange:#F0602B;--orange-btn:#C63A0A;--orange-ink:#FF7A47;--orange-soft:#3A1F17;
   --paper:#15102A;--paper-2:#1C1536;--card:#211A3E;
   --ink:#F1ECFA;--ink-2:#B9B0D0;--ink-3:#A29AC0;--line:#332A55;
@@ -328,6 +328,31 @@ svg.ck{flex:none;width:18px;height:18px;margin-top:3px}
 .modules li{background:rgba(255,255,255,.05);border:1px solid var(--on-plum-line);border-radius:10px;padding:13px 16px;font-size:14.5px;line-height:1.4;color:var(--on-plum-3)}
 .modules li b{display:block;color:#F0ECF7;font-weight:600;margin-bottom:3px;font-size:15px}
 .modules li span{color:var(--on-plum-2);font-size:13px;letter-spacing:.004em}
+/* Baza wiedzy dostala wlasny panel, bo to jedyny modul, ktory placowka
+   otwiera codziennie i z ktorego cos wyjmuje. Jako jeden z dziesieciu
+   zetonow wyzej gubil sie i wygladal na dodatek. */
+.baza{margin-top:44px;background:var(--baza-tlo);border:1px solid var(--on-plum-line);
+  border-radius:18px;padding:30px 32px 26px;position:relative;overflow:hidden}
+.baza::before{content:'';position:absolute;inset:0 auto 0 0;width:3px;
+  background:linear-gradient(180deg,var(--orange),rgba(232,69,10,0))}
+.baza-head{display:flex;gap:16px;align-items:flex-start;margin-bottom:22px}
+.baza-ic{flex:none;width:42px;height:42px;border-radius:12px;display:grid;place-items:center;
+  background:rgba(232,69,10,.16);border:1px solid rgba(232,69,10,.34)}
+.baza-ic svg{width:21px;height:21px;fill:none;stroke:#FF9166;stroke-width:1.7;
+  stroke-linecap:round;stroke-linejoin:round}
+.baza-head h3{font-size:20px;color:#F6F3FB;margin:0 0 6px}
+.baza-head p{font-size:16px;color:var(--on-plum-2);line-height:1.6;max-width:62ch;margin:0}
+.baza-lista{list-style:none;margin:0;padding:0;display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:14px}
+.baza-lista li{background:var(--baza-karta);border:1px solid var(--on-plum-line);
+  border-radius:12px;padding:15px 17px}
+.baza-lista b{display:block;color:#F0ECF7;font-weight:600;font-size:15.5px;margin-bottom:5px}
+.baza-lista span{display:block;color:var(--on-plum-2);font-size:14px;line-height:1.55}
+.baza-nota{margin:20px 0 0;font-size:14.5px;color:var(--on-plum-2);line-height:1.6;
+  padding-top:16px;border-top:1px solid var(--on-plum-line)}
+.baza-nota a{color:#FFB08C;text-decoration:underline;text-underline-offset:3px}
+.baza-nota a:hover{color:#fff}
+@media (max-width:560px){.baza{padding:24px 20px 22px}.baza-head{gap:13px}}
 .path-cta{margin-top:48px;display:flex;justify-content:space-between;align-items:center;gap:24px;flex-wrap:wrap}
 .path-cta p{font-size:17.5px;color:var(--on-plum-3);max-width:56ch;line-height:1.62;letter-spacing:.004em}
 .path-cta p b{color:#F6F3FB}
@@ -1228,6 +1253,23 @@ svg.ck{flex:none;width:18px;height:18px;margin-top:3px}
       </ul>
     </div>
 
+    <div class="baza">
+      <div class="baza-head">
+        <span class="baza-ic" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M4 5.5A1.5 1.5 0 0 1 5.5 4H10a2 2 0 0 1 2 2v13a2 2 0 0 0-2-2H5.5A1.5 1.5 0 0 1 4 15.5z"/><path d="M20 5.5A1.5 1.5 0 0 0 18.5 4H14a2 2 0 0 0-2 2v13a2 2 0 0 1 2-2h4.5a1.5 1.5 0 0 0 1.5-1.5z"/></svg></span>
+        <div>
+          <h3>Baza wiedzy — gotowa do&nbsp;użycia od&nbsp;pierwszego dnia</h3>
+          <p>Dziesiąty moduł nie jest dodatkiem. To&nbsp;z&nbsp;niego zespół bierze cele, konspekty i&nbsp;druki, zamiast pisać je za&nbsp;każdym razem od&nbsp;zera.</p>
+        </div>
+      </div>
+      <ul class="baza-lista">
+        <li><b>Baza celów SMART</b><span>Cele do&nbsp;wyboru, zależnie od&nbsp;potrzeb dziecka. Własne dopisujesz sama i&nbsp;zostają w&nbsp;bazie placówki na&nbsp;kolejne lata.</span></li>
+        <li><b>Konspekty zajęć</b><span>Do&nbsp;rewalidacji i&nbsp;pomocy psychologiczno-pedagogicznej. Wybierasz gotowy i&nbsp;dopasowujesz do&nbsp;dziecka.</span></li>
+        <li><b>Wzory druków i&nbsp;pism</b><span>Opinie, regulaminy, procedury — poukładane w&nbsp;kąciku dyrektora i&nbsp;kąciku nauczyciela.</span></li>
+        <li><b>Szkolenia na&nbsp;radę pedagogiczną</b><span>Materiały do&nbsp;samodzielnego poprowadzenia wewnętrznej rady szkoleniowej we&nbsp;własnej placówce.</span></li>
+      </ul>
+      <p class="baza-nota">Szkolenia z&nbsp;bazy placówka prowadzi sama, dla&nbsp;własnego zespołu. Szkolenia z&nbsp;zaświadczeniem prowadzi autorka — te&nbsp;są <a href="#szkolenia">w&nbsp;osobnej ofercie</a>.</p>
+    </div>
+
     <div class="path-cta">
       <p><b>Jeden WOPF, dwa tryby.</b> Ta sama ocena prowadzi do IPET dla ucznia z&nbsp;orzeczeniem albo do PEWS dla ucznia bez orzeczenia. Zespół uczy się jednego narzędzia i&nbsp;pracuje w&nbsp;nim przez cały rok.</p>
       <a class="btn btn-primary" href="#zamow" data-order="app" data-buyer="inst">Zamów aplikację</a>
@@ -1992,7 +2034,7 @@ var EKRANY = [
   {plik:"img/app-zespol.webp", tytul:"Zespół",
    opis:"Skład, role i zadania, terminy z wyprzedzeniem, protokoły, podpisy i uprawnienia zgodne z RODO."},
   {plik:"img/app-baza-wiedzy.webp", tytul:"Baza wiedzy",
-   opis:"Kącik dyrektora i nauczyciela, konspekty rewalidacji i pomocy psychologiczno-pedagogicznej, wzory pism, podstawa prawna."}
+   opis:"Baza celów SMART do wyboru i dopisywania własnych, konspekty rewalidacji i pomocy psychologiczno-pedagogicznej, wzory druków, opinii i regulaminów w kąciku dyrektora i nauczyciela, szkolenia na wewnętrzne rady pedagogiczne."}
 ];
 
 (function(){
@@ -2806,7 +2848,7 @@ var OFERTA = [
         'Obserwacja pogłębiona w razie potrzeby: druk ABC, profil sensoryczny, ocena ToM, kwestionariusz oceny rozwoju mowy.',
         'IPET albo plan wsparcia (PEWS) z celami SMART.',
         'Dziennik realizacji i ewaluacja.',
-        'Baza wiedzy z konspektami do rewalidacji i pomocy psychologiczno-pedagogicznej.'
+        'Baza wiedzy: cele SMART do wyboru i własne, konspekty rewalidacji i pomocy psychologiczno-pedagogicznej, wzory druków, szkolenia na radę pedagogiczną.'
       ]},
     podstawowa: { nr:'Moduł 2', nazwa:'Szkoła podstawowa',
       lead:'KSzOF w wariantach dla klas I–III i IV–VIII, obserwacja pogłębiona i trzy poziomy wsparcia.',
@@ -2815,7 +2857,7 @@ var OFERTA = [
         'Do obserwacji pogłębionej: arkusz ABC, FBA, profil sensoryczny, ocena ToM dostosowana do wieku ucznia, ocena poziomu rozwoju mowy.',
         'IPET dla ucznia z orzeczeniem albo PEWS dla ucznia bez orzeczenia — oba z celami SMART.',
         'Dziennik realizacji i ewaluacja.',
-        'Baza wiedzy z konspektami do rewalidacji i pomocy psychologiczno-pedagogicznej.'
+        'Baza wiedzy: cele SMART do wyboru i własne, konspekty rewalidacji i pomocy psychologiczno-pedagogicznej, wzory druków, szkolenia na radę pedagogiczną.'
       ]},
     ponadpodstawowa: { nr:'Moduł 3', nazwa:'Szkoła ponadpodstawowa',
       lead:'Ta sama ścieżka dla ucznia starszego, z naciskiem na samodzielność, edukację i życie w społeczności.',
@@ -2824,7 +2866,7 @@ var OFERTA = [
         'Profil biopsychospołeczny ICF: zasoby i bariery.',
         'Druki obserwacji pogłębionej dobrane do wieku ucznia: ABC, profil sensoryczny, ocena ToM, ocena poziomu rozwoju mowy.',
         'IPET albo PEWS, dziennik realizacji, ewaluacja i raport ewaluacyjny.',
-        'Baza konspektów do rewalidacji i pomocy psychologiczno-pedagogicznej.'
+        'Baza wiedzy: cele SMART do wyboru i własne, konspekty rewalidacji i pomocy psychologiczno-pedagogicznej, wzory druków, szkolenia na radę pedagogiczną.'
       ]}
   };
 
