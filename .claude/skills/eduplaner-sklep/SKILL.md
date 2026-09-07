@@ -171,7 +171,10 @@ tylko naruszenie:
   broszury i pomoce. Pilnuje tego formularz, mówi o tym strona w sześciu miejscach
   i § 4 regulaminu. Backend musi to sprawdzić po swojej stronie, nie ufając polu.
 - Ceny podawane brutto, z rozbiciem netto + VAT. Stawka 23% na wszystko, co dziś
-  jest w ofercie. Stawki potwierdza księgowa, nie kod.
+  jest w ofercie — to **założenie robocze**. Przy szkoleniach możliwe jest zwolnienie
+  (art. 43 ust. 1 pkt 26 lit. a albo pkt 29 lit. c ustawy o VAT), przy broszurach
+  z ISBN stawka 5%. Nie zmieniaj stawek bez pisemnego potwierdzenia od księgowej;
+  szczegóły i skutki uboczne w `PRZEKAZANIE.md`, rozdział „Stawki VAT".
 - **Szkolenie „na zamówienie" sprzedaje się wyłącznie radom, „otwarte" także osobom
   prywatnym.** Powód nie jest cenowy, tylko dowodowy: przy radzie udział potwierdza
   protokół rady i lista obecności, przy terminie otwartym — sama sesja na żywo.

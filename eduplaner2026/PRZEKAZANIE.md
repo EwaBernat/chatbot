@@ -188,6 +188,37 @@ W odtwarzaczu na stronie zrobione jest to, co da się zrobić bez backendu: znik
 przycisk pobierania, wyłączone jest menu prawego przycisku, YouTube osadzany jest
 w wersji bez ciasteczek. To progi zwalniające, nie zamki — i tak trzeba o nich mówić.
 
+## Stawki VAT — do potwierdzenia u księgowej
+
+Na stronie stoi **23% przy wszystkim**. To jest założenie robocze, nie ustalenie
+podatkowe, i przy dwóch kategoriach może być za wysokie.
+
+| Co sprzedajemy | Co stoi na stronie | Co warto sprawdzić |
+|---|---|---|
+| Szkolenia dla rad | 23% | **możliwe zwolnienie** — art. 43 ust. 1 pkt 26 lit. a albo pkt 29 lit. c ustawy o VAT |
+| Broszury (PDF) | 23% | **5%**, jeżeli publikacja ma ISBN — stawka obniżona obejmuje też książki dostarczane elektronicznie |
+| Pomoce dydaktyczne | 23% | 23%, chyba że to publikacja książkowa; wtedy 5% |
+| Podkasty | — | 23% jako usługa elektroniczna; 5% tylko dla audiobooka z ISBN |
+
+**Szkolenia to najważniejsze pytanie.** Dwie drogi do zwolnienia:
+
+- **art. 43 ust. 1 pkt 26 lit. a** — usługi kształcenia świadczone przez jednostkę
+  objętą systemem oświaty. Dotyczy, jeżeli PCTP jest wpisane do rejestru
+  niepublicznych placówek doskonalenia nauczycieli.
+- **art. 43 ust. 1 pkt 29 lit. c** — kształcenie zawodowe finansowane w co najmniej
+  70% ze środków publicznych. Szkolenie opłacone z budżetu szkoły bywa tak
+  kwalifikowane, ale to jest właśnie ten obszar, w którym organy podatkowe bywają
+  różnego zdania — tu warto wystąpić o interpretację indywidualną.
+
+**Skutek uboczny zwolnienia:** od zakupów związanych ze sprzedażą zwolnioną nie
+odlicza się VAT-u, a przy sprzedaży mieszanej (zwolnione szkolenia + opodatkowane
+broszury i aplikacja) wchodzi proporcja. Zwolnienie nie zawsze się opłaca i to
+też liczy księgowa, nie strona.
+
+**Do czasu rozstrzygnięcia nie zmieniamy stawek na stronie.** Kwoty brutto zostają
+takie, jakie są; zmienia się wyłącznie rozbicie netto + VAT, jeśli księgowa
+potwierdzi inną stawkę.
+
 ## VAT a czekanie na przelew
 
 Pytanie właścicielki: przy 20 programach VAT to ponad 14 tysięcy złotych, a na
