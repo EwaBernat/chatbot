@@ -448,6 +448,13 @@ svg.ck{flex:none;width:18px;height:18px;margin-top:3px}
    dzięki czemu karta ma wysokość zbliżoną do kart szkoleń. Napisy skalują się
    razem z nią i mają twarde ograniczenie wierszy: przy dłuższym tytule tekst
    ma się zmniejszyć, a nie wyjechać poza okładkę. */
+/* Ramka jak przy szkoleniach: wyraźniejsza obwódka i cień, dzięki którym
+   karta jest przedmiotem na stole, a nie prostokątem w siatce. */
+.bro-karta{border-color:var(--plum-line);box-shadow:0 12px 28px -24px rgba(45,27,105,.55);
+  transition:border-color .18s ease, box-shadow .18s ease, transform .18s ease}
+.bro-karta:hover{border-color:var(--plum);transform:translateY(-2px);
+  box-shadow:0 20px 36px -24px rgba(45,27,105,.6)}
+@media (prefers-reduced-motion: reduce){.bro-karta{transition:none}.bro-karta:hover{transform:none}}
 .bro-karta .cover{width:74%;margin-inline:auto;padding:13px}
 .bro-karta .cover .ser{font-size:8.5px;letter-spacing:.13em;padding-right:26px;line-height:1.35;
   display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}
@@ -2534,7 +2541,7 @@ var OFERTA = [
       ]
     ],
     "cta": "Kup",
-    "primary": false,
+    "primary": true,
     "buyer": "",
     "wiecej": [],
     "netto": "24,39 zł netto + 5,61 zł VAT 23%",
@@ -2577,7 +2584,7 @@ var OFERTA = [
       ]
     ],
     "cta": "Kup",
-    "primary": false,
+    "primary": true,
     "buyer": "",
     "wiecej": [],
     "netto": "24,39 zł netto + 5,61 zł VAT 23%",
@@ -2621,7 +2628,7 @@ var OFERTA = [
       ]
     ],
     "cta": "Kup",
-    "primary": false,
+    "primary": true,
     "buyer": "",
     "wiecej": [],
     "netto": "40,65 zł netto + 9,35 zł VAT 23%",
@@ -2678,7 +2685,7 @@ var OFERTA = [
       ]
     ],
     "cta": "Kup",
-    "primary": false,
+    "primary": true,
     "buyer": "",
     "wiecej": [],
     "netto": "24,39 zł netto + 5,61 zł VAT 23%",
@@ -2723,7 +2730,7 @@ var OFERTA = [
     ],
     "netto": "24,39 zł netto + 5,61 zł VAT 23%",
     "cta": "Kup",
-    "primary": false,
+    "primary": true,
     "buyer": "",
     "wiecej": [],
     "tagi": [
