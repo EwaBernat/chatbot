@@ -61,7 +61,13 @@ Systemowego ffmpeg nie trzeba — `imageio-ffmpeg` przynosi własny.
 
 ## Droga A — nowa scena z Ewą (jej głos + jej twarz)
 
-Ewa mówi coś nowego. Cały łańcuch to skill `dane-i-glos` plus dwa kroki na końcu:
+Ewa mówi coś nowego. **Sam render prowadzi skill `awatar-ewa`** (zamówienie, scenariusz,
+akceptacja, render przez złącze MCP HeyGen, CLI `heygen` albo skrypt REST). Ten skill
+dokłada dwie rzeczy: kartę postaci przed scenariuszem i wycięcie po renderze. Zamawiając
+render pod planszę, slajd albo Remotion, poproś o **jednolite zielone tło** (`#00FF00`)
+albo eksport WebM z przezroczystością — patrz niżej, dlaczego nie fiolet.
+
+Łańcuch z głosem z ElevenLabs (skrypt REST, gdy awatar ma mówić klonem z `dane-i-glos`):
 
 ```
 scenariusz (references/narracja.md w dane-i-glos)
@@ -76,8 +82,11 @@ klucz na fiolecie wyciąłby ją razem z tłem. Zielony `#00FF00` nie występuje
 Jeśli użytkowniczka eksportuje z aplikacji HeyGen, niech wybierze **WebM z przezroczystym
 tłem** — wtedy `wytnij_postac.py` tylko przepakowuje, bez kluczowania.
 
-`heygen_awatar.py` bierze awatara z pamięci skilla (`zapamietaj_awatara.py`), więc nie
-pytaj o `avatar_id` przy każdej scenie. Jeśli pamięć jest pusta, zapytaj raz i zapamiętaj.
+`heygen_awatar.py` bierze awatara z pamięci skilla (`zapamietaj_awatara.py` albo
+`skonfiguruj_awatara.py` z `awatar-ewa` — ta sama pamięć), więc nie pytaj o `avatar_id`
+przy każdej scenie. Jeśli pamięć jest pusta, zapytaj raz i zapamiętaj. Skrypt REST woła
+API v2, które HeyGen uznaje za przestarzałe; to droga zapasowa i jedyna, w której awatar
+mówi głosem z ElevenLabs. Bez tego wymogu render zlecaj przez `awatar-ewa` / `heygen-video`.
 
 Uwaga na sieć: w środowisku zdalnym polityka sieciowa może blokować ElevenLabs i HeyGen
 (`403` z proxy). Wtedy wszystko, co nie wymaga API, i tak zrób — scenariusz, plansze,
@@ -170,11 +179,14 @@ Identyfikator awatara HeyGen leży w tej samej pamięci co głos ElevenLabs
 
 ```bash
 python3 .../zapamietaj_awatara.py --pokaz
-python3 .../zapamietaj_awatara.py --szukaj Ewa                 # wymaga HEYGEN_API_KEY
+python3 .../zapamietaj_awatara.py --szukaj Ewa                 # wymaga HEYGEN_API_KEY; przez skill awatar-ewa
 python3 .../zapamietaj_awatara.py --avatar-id <id> --nazwa "Ewa PCTP"
+heygen avatar list --ownership private --limit 50              # CLI HeyGen, bez klucza — skopiuj id
 ```
 
-Od tej chwili `heygen_awatar.py` z `dane-i-glos` używa Ewy bez `--avatar-id`.
+Od tej chwili `heygen_awatar.py` z `dane-i-glos` i skill `awatar-ewa` używają Ewy bez
+`--avatar-id`. Pamięć leży na komputerze, na którym uruchamiasz skrypty — w kontenerze
+zdalnym znika po sesji, więc zapis rób u siebie (`awatar-ewa/references/lokalnie.md`).
 
 ## Oddawanie pracy
 

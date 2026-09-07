@@ -72,16 +72,20 @@ def ustal(z_wiersza, zmienna: str, klucz: str, domyslna=None):
 def opisz() -> str:
     dane = wczytaj()
     if not dane:
-        return (f"Skill nie ma jeszcze zapamietanego glosu.\n"
+        return (f"Pamiec jest pusta — nie ma ani glosu, ani awatara.\n"
                 f"  (spodziewany plik: {SCIEZKA})\n"
-                f"  Ustaw go: python3 skonfiguruj_glos.py <plik audio lub wideo>")
+                f"  Glos:   python3 skonfiguruj_glos.py <plik audio lub wideo>\n"
+                f"  Awatar: python3 skonfiguruj_awatara.py   (skill awatar-ewa)\n"
+                f"          python3 zapamietaj_awatara.py --avatar-id <id>   (skill awatar-ewa-pctp)")
     linie = [f"Zapamietane w {SCIEZKA}:"]
     etykiety = {
         "elevenlabs_voice_id": "glos ElevenLabs",
         "elevenlabs_voice_name": "  nazwa",
         "heygen_avatar_id": "awatar HeyGen",
         "heygen_avatar_name": "  nazwa",
+        "heygen_avatar_rodzaj": "  rodzaj",
         "heygen_voice_id": "glos HeyGen",
+        "heygen_voice_name": "  nazwa",
         "postac": "postac",
         "utworzono": "zapisano",
         "awatar_zapisano": "awatar zapisano",

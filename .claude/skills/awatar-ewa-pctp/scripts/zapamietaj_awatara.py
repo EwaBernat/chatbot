@@ -8,7 +8,7 @@ Od tej chwili `heygen_awatar.py` bierze awatara Ewy sam.
 Kluczy API ten plik nie przyjmuje — te zostaja w zmiennych srodowiskowych.
 
 Przyklady:
-    python3 zapamietaj_awatara.py --szukaj Ewa          # znajdz awatara na koncie HeyGen (wymaga HEYGEN_API_KEY)
+    python3 zapamietaj_awatara.py --szukaj Ewa          # znajdz i zapamietaj (przez skill awatar-ewa; wymaga HEYGEN_API_KEY)
     python3 zapamietaj_awatara.py --avatar-id <id>      # zapamietaj
     python3 zapamietaj_awatara.py --pokaz
     python3 zapamietaj_awatara.py --zapomnij
@@ -24,6 +24,7 @@ from datetime import date
 from pathlib import Path
 
 SKRYPTY_DANE_I_GLOS = Path(__file__).resolve().parents[2] / "dane-i-glos" / "scripts"
+SKONFIGURUJ_AWATARA = Path(__file__).resolve().parents[2] / "awatar-ewa" / "scripts" / "skonfiguruj_awatara.py"
 sys.path.insert(0, str(SKRYPTY_DANE_I_GLOS))
 import konfiguracja                                    # noqa: E402
 
@@ -45,6 +46,11 @@ def main() -> int:
         print(konfiguracja.opisz())
         return 0
     if a.szukaj:
+        if SKONFIGURUJ_AWATARA.exists():
+            # skill awatar-ewa: wypisuje awatary i glosy, sprawdza siec, przy jednym trafieniu
+            # zapisuje od razu — ta sama pamiec, wiec wynik sluzy obu skillom
+            return subprocess.run([sys.executable, str(SKONFIGURUJ_AWATARA),
+                                   "--szukaj", a.szukaj]).returncode
         skrypt = SKRYPTY_DANE_I_GLOS / "heygen_awatar.py"
         return subprocess.run([sys.executable, str(skrypt), "--awatary", "--szukaj", a.szukaj]).returncode
     if a.zapomnij:
