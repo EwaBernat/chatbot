@@ -450,6 +450,10 @@ svg.ck{flex:none;width:18px;height:18px;margin-top:3px}
    ma się zmniejszyć, a nie wyjechać poza okładkę. */
 /* Ramka jak przy szkoleniach: wyraźniejsza obwódka i cień, dzięki którym
    karta jest przedmiotem na stole, a nie prostokątem w siatce. */
+/* Plansza szkolenia w oknie: pełna szerokość kolumny, własna ramka. */
+.poz-plansza{margin:0 0 20px;border:1px solid var(--line);border-radius:12px;overflow:hidden;
+  background:var(--paper-2);box-shadow:0 14px 30px -24px rgba(45,27,105,.55)}
+.poz-plansza img{display:block;width:100%;height:auto}
 .bro-karta{border-color:var(--plum-line);box-shadow:0 12px 28px -24px rgba(45,27,105,.55);
   transition:border-color .18s ease, box-shadow .18s ease, transform .18s ease}
 .bro-karta:hover{border-color:var(--plum);transform:translateY(-2px);
@@ -3090,7 +3094,12 @@ var OFERTA = [
     OKNO.wroc.onclick=function(){ location.hash='katalog-'+o.typ; };
     var kol = (o.typ!=='szkolenie' && o.okladka) ? 'poz-main' : '';
     var szkolenie = o.typ==='szkolenie';
-    var lewa='<div>'+(kol?'<div class="'+kol+'">'+glowa(o)+'<div><p>'+esc(o.opis)+'</p></div></div>':glowa(o)+'<p>'+esc(o.opis)+'</p>')
+    /* Jeśli pozycja ma własną planszę (infografikę ze szkolenia), pokazujemy ją
+       na górze okna zamiast rysowanej okładki — plansza mówi więcej niż kafelek. */
+    var plansza = o.grafika
+      ? '<figure class="poz-plansza"><img src="'+esc(o.grafika)+'" alt="'+esc(o.grafikaOpis||o.tytul)+'" loading="lazy"></figure>'
+      : '';
+    var lewa='<div>'+plansza+(kol?'<div class="'+kol+'">'+glowa(o)+'<div><p>'+esc(o.opis)+'</p></div></div>':(plansza?'':glowa(o))+'<p>'+esc(o.opis)+'</p>')
       + (szkolenie && o.program && o.program.length
           ? '<h4>Program szkolenia</h4><ul class="program">'
             + o.program.map(function(t){ return '<li>'+esc(t)+'</li>'; }).join('') + '</ul>'
