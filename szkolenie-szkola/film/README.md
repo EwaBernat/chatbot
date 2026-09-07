@@ -1,8 +1,19 @@
-# Film szkoleniowy dla szkoły podstawowej — EduPlaner 2026 · PCTP
+# Filmy szkoleniowe — EduPlaner 2026 · PCTP
 
-Projekt Remotion, który zamienia **skrypt dla nauczycieli** w film: plansze, tabele,
+Projekt Remotion, który zamienia **skrypty dla nauczycieli** w filmy: plansze, tabele,
 zakreślenia, najazdy kamery i zrzuty prawdziwych druków z aplikacji EduPlaner —
 z narracją **głosem autorki** (ElevenLabs, skill `glos-ewy`).
+
+Dwa szkolenia dzielą tę samą oprawę i ten sam zestaw scen:
+
+* **szkoła podstawowa** — moduły `S1`…`S7`, scenariusz `src/scenariusz.json`,
+  budowany przez `zbuduj_scenariusz.py` ze skryptu `../build_skrypt_szkola.py`;
+* **przedszkole** — moduły `P1`…`P6`, scenariusz `src/scenariusz-przedszkole.json`,
+  budowany przez `zbuduj_scenariusz_przedszkole.py` wprost z pliku
+  `../Skrypt_dla_nauczycieli_PRZEDSZKOLE_wydanie2_po_audycie.docx`.
+
+Stopka filmu bierze nazwę placówki z numeru modułu, więc slajd `P…` sam podpisuje
+się „przedszkole”, a `S…` — „szkoła podstawowa”.
 
 ## Skąd bierze się treść
 
@@ -95,6 +106,26 @@ Pliki: `public/glos/<id ujęcia>.mp3`. Gdy plik istnieje, `zbuduj_scenariusz.py`
 
 Razem **139 ujęć, 1 godzina 25 minut**. Szkolenie jest kompletne: wszystkie moduły
 mają narrację głosem Ewy wyrównaną do −20,7 LUFS i wyrenderowany film 1080p.
+
+### Przedszkole
+
+| Moduł | Ujęć | Długość | Głos | Render |
+|---|---:|---:|---|---|
+| P1 · Podstawa prawna | 22 | 10:15 | **nagrany** | **gotowy** |
+| P2 · Obieg dokumentów | 12 | 5:37 | **nagrany** | **gotowy** |
+| P3 · Metryczka dziecka | 13 | 5:50 | **nagrany** | **gotowy** |
+| P4 · KPOF | 22 | 10:37 | **nagrany** | w renderze |
+| P5 · Obserwacja pogłębiona | 24 | 9:41 | **nagrany** | w kolejce |
+| P6 · WOPF, IPET, ewaluacja | 30 | 13:39 | **nagrany** | w kolejce |
+
+Razem **123 ujęcia, 55 minut 39 sekund**. Narracja jest kompletna — wszystkie 123
+ujęcia mają nagranie wyrównane do −20,7 LUFS; rendery idą po kolei skryptem
+z katalogu roboczego.
+
+Zrzuty druków przedszkolnych leżą w `public/druki-przedszkole/` i pochodzą z trybu
+`przedszkole` aplikacji (`npx vite --mode przedszkole`). W tym trybie aplikacja ma
+komplet druków: KPOF w trzech wersjach wiekowych, profil ICF, ABC, FBA, profil
+sensoryczny, mowę, teorię umysłu, WOPF, IPET, ewaluację i opinię do poradni.
 
 Gotowe pliki leżą w `gotowe/` i **nie są w repozytorium** — kontener jest ulotny,
 więc po jego wygaśnięciu trzeba je odtworzyć poleceniem `npx remotion render S<n>`
