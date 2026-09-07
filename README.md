@@ -89,6 +89,41 @@ MP3 jest i nagraniem audio, i ścieżką dźwiękową filmu.
    to droga domyślna. Zapasowo `--voice-id` każe HeyGen przeczytać scenariusz głosem
    z konta HeyGen (gdy nie masz jeszcze klonu w ElevenLabs).
 
+---
+
+## 🧑‍🏫 Skill `awatar-ewa-pctp` — postać Ewy do filmów i prezentacji
+
+W `.claude/skills/awatar-ewa-pctp/` jest postać **Ewa PCTP** — awatar HeyGen autorki,
+gotowy do wywołania w filmach i prezentacjach, zawsze z jej własnym głosem z `dane-i-glos`.
+
+Skill ma od ręki wyciętą postać (bez API): `assets/ewa_pctp.png` (przezroczyste tło)
+i `assets/ewa_pctp_intro.webm` (intro z kanałem alfa). Kartę postaci — wygląd, kadr,
+strój, ton — opisuje `references/postac.md`.
+
+```bash
+pip install -r .claude/skills/awatar-ewa-pctp/requirements.txt
+S=.claude/skills/awatar-ewa-pctp/scripts
+
+# sama postać z dowolnego klipu HeyGen (szachownica, zielone tło albo alfa)
+python3 $S/wytnij_postac.py intro.mp4 --webm ewa.webm --png ewa.png --czas 6
+
+# Ewa w filmie: na kolorze marki, planszy albo ekranie aplikacji
+python3 $S/wstaw_ewe.py ewa.webm -o film.mp4
+python3 $S/wstaw_ewe.py ewa.webm --tlo plansza.png --uklad rog --kolo -o film.mp4
+
+# Ewa w prezentacji: obraz na slajdach albo mówiący klip
+python3 $S/ewa_do_prezentacji.py szkolenie.pptx --obraz ewa.png --slajdy 1,8 --pozycja prawa
+python3 $S/ewa_do_prezentacji.py szkolenie.pptx --klip 1=ewa_wstep.mp4 --pozycja srodek
+
+# pamięć awatara HeyGen (ta sama co głos ElevenLabs, poza repozytorium)
+python3 $S/zapamietaj_awatara.py --avatar-id <id> --nazwa "Ewa PCTP"
+```
+
+Nowa scena z Ewą: scenariusz → `elevenlabs_tts.py` (jej klon głosu) →
+`heygen_awatar.py --audio glos.mp3 --tlo "#00FF00"` → `wytnij_postac.py --tlo "#00FF00"` →
+`wstaw_ewe.py` albo `ewa_do_prezentacji.py`. Zielone tło, bo fiolet marki wyciąłby
+marynarkę Ewy.
+
 ### Złącze ElevenLabs
 
 `.mcp.json` w katalogu głównym podłącza serwer MCP ElevenLabs do sesji Claude Code

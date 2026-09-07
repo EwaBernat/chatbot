@@ -80,8 +80,11 @@ def opisz() -> str:
         "elevenlabs_voice_id": "glos ElevenLabs",
         "elevenlabs_voice_name": "  nazwa",
         "heygen_avatar_id": "awatar HeyGen",
+        "heygen_avatar_name": "  nazwa",
         "heygen_voice_id": "glos HeyGen",
+        "postac": "postac",
         "utworzono": "zapisano",
+        "awatar_zapisano": "awatar zapisano",
     }
     for klucz, wartosc in dane.items():
         linie.append(f"  {etykiety.get(klucz, klucz):<18} {wartosc}")
