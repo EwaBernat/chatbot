@@ -279,6 +279,10 @@ z długości MP3 — poprawiona narracja sama zmienia długość filmu.
 Zanim wyrenderujesz, **otwórz `public/film.json` i sprawdź treść scen**: tytuł, główną
 liczbę i podpisy. Skrypt wypełnia je zachowawczo, bo nie zna kontekstu.
 
+Na życzenie użytkowniczki film z wykresami może prowadzić Ewa: `--awatar ewa.webm
+--awatar-uklad rog` (klip z alfą ze skilla `awatar-ewa-pctp`). Bez prośby awatara
+nie dodawaj — film z danych domyślnie pokazuje liczby, nie twarz.
+
 Typy scen (`--typy`, po jednym na akapit): `tytul`, `liczba`, `wykres`, `wniosek`.
 Wykres bierze słupki z sekcji `grupy` profilu, więc profiler musi być uruchomiony
 z `--grupuj` i `--agreguj`.

@@ -77,6 +77,23 @@ w PowerPoint (Odtwarzanie → Start: Automatycznie). Keynote i Google Slides imp
 taki plik, ale Google Slides nie odtwarza osadzonego wideo — tam trzeba podlinkować
 klip z Dysku.
 
+## Remotion (`dane-i-glos/assets/remotion/src/Awatar.tsx`)
+
+Komponent `Awatar` renderuje `<OffthreadVideo transparent>` z klipu w `public/`.
+Wpis w `film.json`:
+
+```json
+"awatar": {"plik": "ewa.webm", "uklad": "rog", "odSek": 0, "doSek": 13, "skala": 0.42, "dzwiek": false}
+```
+
+`uklad`: `pelny` (środek, cała wysokość), `rog` (42 %, prawy dolny), `lewa` / `prawa`
+(90 %, przy krawędzi). Lista wpisów daje kilka odcinków z Ewą. Bez `doSek` klip gra do
+końca; `Root.tsx` czyta jego długość przez `getVideoMetadata` i wydłuża film, gdy trzeba.
+
+W Remotion Studio (podgląd) przeglądarka odtwarza WebM z alfą natywnie; przy renderze
+Remotion wyciąga klatki z przezroczystością — wolniej, ale poprawnie. Klip MP4 bez alfy
+pokaże się w prostokącie ze swoim tłem: zawsze podawaj WebM z `wytnij_postac.py`.
+
 ## Błędy, które wyglądają jak coś innego
 
 | Objaw | Przyczyna | Co zrobić |
@@ -87,3 +104,5 @@ klip z Dysku.
 | `403` z proxy przy HeyGen / ElevenLabs | blokada sieciowa środowiska, nie klucz | zrób resztę bez API, render na komputerze użytkowniczki |
 | `Nie moge otworzyc` w `wytnij_postac.py` | OpenCV nie czyta tego kontenera | `ffmpeg -i plik -c:v libx264 plik.mp4` i ponownie |
 | PowerPoint: „nie można odtworzyć multimediów" | kodek inny niż H.264/AAC | `wstaw_ewe.py` zawsze daje H.264 + AAC; sprawdź źródło |
+| Remotion: Ewa w czarnym prostokącie | klip bez alfy albo brak `transparent` | WebM z `wytnij_postac.py`; komponent `Awatar` ma `transparent` |
+| Remotion: głos Ewy podwójny | klip z dźwiękiem i `film.audio` naraz | szablon wycisza klip, gdy jest `audio`; ręcznie: `"dzwiek": false` |

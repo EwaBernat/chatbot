@@ -68,10 +68,18 @@ i zaproponuj cięcie na ekran zamiast gestu.
 - Scena Ewy trwa **14–22 s na jeden ekran** (35–55 słów). Dłuższy tekst → tnij na sceny,
   między którymi zmienia się plansza.
 
-Tekstu intro z pliku źródłowego skill nie transkrybował (w środowisku zdalnym nie było
-dostępu do modelu). Jeśli potrzebny jest dokładny tekst intro, przepisz go z nagrania
-(`mcp__ElevenLabs__creative_transcribe_audio` albo `mcp__elevenlabs__speech_to_text`)
-i dopisz tutaj — to nagranie 13 s, koszt pomijalny, ale wymaga zgody użytkowniczki.
+## Tekst intro (wzorzec, 13 s)
+
+Transkrypcja nagrania źródłowego (ElevenLabs Scribe, polski, 12,98 s mowy):
+
+> Dzień dobry. Mam na imię Ewa i będę Twoją przewodniczką po systemie EduPlaner 2026.
+> Zapraszam na dzisiejsze szkolenie z nowoczesnego zarządzania dokumentacją szkolną.
+
+Trzy zdania, 27 słów, ok. 125 słów na minutę — Ewa mówi odrobinę wolniej niż lektor
+raportowy, z pauzą po powitaniu. To jest jej **standardowe otwarcie szkolenia**;
+do nowych materiałów pisz w tym samym rejestrze: imię, rola („przewodniczka po systemie"),
+zaproszenie, temat. Ten sam tekst leży w `assets/intro_tekst.txt`, a jego nagranie
+z obrazem w `assets/ewa_pctp_intro.webm`.
 
 ## Parametry techniczne wzorca
 

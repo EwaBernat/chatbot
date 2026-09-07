@@ -1,6 +1,6 @@
 import React from 'react';
 import {Composition, staticFile} from 'remotion';
-import {getAudioDurationInSeconds} from '@remotion/media-utils';
+import {getAudioDurationInSeconds, getVideoMetadata} from '@remotion/media-utils';
 import {RaportWideo, type Props} from './RaportWideo';
 import {parsujSrt, type Napis} from './srt';
 import film from '../public/film.json';
@@ -43,6 +43,20 @@ export const RemotionRoot: React.FC = () => (
         } catch {
           // zostaje długość wynikająca ze scen
         }
+      }
+
+      // Ewa (awatar) też wydłuża film: do końca swojego klipu albo do doSek.
+      const awatary = Array.isArray(dane.awatar) ? dane.awatar : dane.awatar ? [dane.awatar] : [];
+      for (const a of awatary) {
+        let koniec = a.doSek;
+        if (koniec == null) {
+          try {
+            koniec = (a.odSek ?? 0) + (await getVideoMetadata(staticFile(a.plik))).durationInSeconds;
+          } catch {
+            koniec = a.odSek ?? 0;
+          }
+        }
+        sekundy = Math.max(sekundy, koniec);
       }
 
       return {

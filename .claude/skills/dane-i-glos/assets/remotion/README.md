@@ -27,6 +27,7 @@ npx remotion render RaportWideo out/film.mp4
 | słupki wykresu | sekcja `grupy` z profilu (`--grupuj` + `--agreguj`) |
 | napisy na ekranie | `napisy.srt` — znaczniki czasu z ElevenLabs |
 | treść scen | `public/film.json` — plik do ręcznej poprawki |
+| Ewa (awatar) | `--awatar ewa.webm` → wpis `awatar` w `film.json`, komponent `src/Awatar.tsx` |
 
 Poprawianie treści: edytuj `public/film.json`. Poprawianie narracji: zmień
 `narracja.txt`, przegeneruj MP3 i SRT, złóż projekt jeszcze raz — długość filmu

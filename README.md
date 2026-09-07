@@ -115,6 +115,10 @@ python3 $S/wstaw_ewe.py ewa.webm --tlo plansza.png --uklad rog --kolo -o film.mp
 python3 $S/ewa_do_prezentacji.py szkolenie.pptx --obraz ewa.png --slajdy 1,8 --pozycja prawa
 python3 $S/ewa_do_prezentacji.py szkolenie.pptx --klip 1=ewa_wstep.mp4 --pozycja srodek
 
+# Ewa w filmie Remotion z wykresami (tylko na życzenie)
+python3 .claude/skills/dane-i-glos/scripts/przygotuj_remotion.py ~/moj-film --profil profil.json \
+        --narracja narracja.txt --audio glos.mp3 --awatar ewa.webm --awatar-uklad rog
+
 # pamięć awatara HeyGen (ta sama co głos ElevenLabs, poza repozytorium)
 python3 $S/zapamietaj_awatara.py --avatar-id <id> --nazwa "Ewa PCTP"
 ```

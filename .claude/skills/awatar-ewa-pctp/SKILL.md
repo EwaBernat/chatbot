@@ -1,6 +1,6 @@
 ---
 name: awatar-ewa-pctp
-description: Postać „Ewa PCTP" — filmowy awatar użytkowniczki (autorki EduPlaner 2026, PCTP Koszalin) do wywoływania w filmach i prezentacjach, zawsze z jej własnym głosem. Skill trzyma kartę postaci (wygląd, kadr, strój, ton), gotową wyciętą postać (PNG i klip WebM z przezroczystym tłem) oraz skrypty, które wycinają Ewę z dowolnego klipu HeyGen, nakładają ją na plansze, ekrany aplikacji i filmy, wstawiają do prezentacji PPTX i pamiętają jej awatara HeyGen. Użyj ZAWSZE, gdy prosi o: „wstaw Ewę", „dodaj awatara do filmu/prezentacji", „Ewa niech to powie", „nagraj z moją postacią", „Ewa PCTP", „Agent Ewa", „postać Ewy", „awatar w rogu", „pobierz samą postać", „wytnij mnie z tła", „Ewa na planszy", „intro z Ewą", „mój awatar do filmów", a także gdy wgrywa film z awatarem HeyGen i chce z niego korzystać dalej. Wyzwalaj przy hasłach: awatar, postać, HeyGen, przezroczyste tło, alfa, WebM, PNG postaci, prezentacja z awatarem, film z Ewą. Głos i dane liczbowe obsługuje skill dane-i-glos — ten skill dodaje do nich twarz.
+description: Postać „Ewa PCTP" — filmowy awatar użytkowniczki (autorki EduPlaner 2026, PCTP Koszalin) do wywoływania w filmach i prezentacjach, zawsze z jej własnym głosem. Skill trzyma kartę postaci (wygląd, kadr, strój, ton), gotową wyciętą postać (PNG i klip WebM z przezroczystym tłem) oraz skrypty, które wycinają Ewę z dowolnego klipu HeyGen, nakładają ją na plansze, ekrany aplikacji i filmy, wstawiają do prezentacji PPTX i do kompozycji Remotion (na żądanie, przełącznikiem --awatar) i pamiętają jej awatara HeyGen. Użyj ZAWSZE, gdy prosi o: „wstaw Ewę", „dodaj awatara do filmu/prezentacji", „Ewa niech to powie", „nagraj z moją postacią", „Ewa PCTP", „Agent Ewa", „postać Ewy", „awatar w rogu", „pobierz samą postać", „wytnij mnie z tła", „Ewa na planszy", „intro z Ewą", „mój awatar do filmów", „Ewa w Remotion", „awatar w filmie z wykresami", a także gdy wgrywa film z awatarem HeyGen i chce z niego korzystać dalej. Wyzwalaj przy hasłach: awatar, postać, HeyGen, Remotion, przezroczyste tło, alfa, WebM, PNG postaci, prezentacja z awatarem, film z Ewą. Głos i dane liczbowe obsługuje skill dane-i-glos — ten skill dodaje do nich twarz.
 ---
 
 # Awatar „Ewa PCTP"
@@ -35,6 +35,7 @@ zanim opiszesz Ewę w scenariuszu albo zlecisz jej nową scenę.
 |---|---|---|
 | `assets/ewa_pctp.png` | wycięta postać, 772×1026 px, przezroczyste tło | slajdy, plansze, miniatury, strona |
 | `assets/ewa_pctp_intro.webm` | intro (13 s) z kanałem alfa, z oryginalnym dźwiękiem | wstawka wideo, test układów, czołówka |
+| `assets/intro_tekst.txt` | tekst intro („Dzień dobry. Mam na imię Ewa…") | wzorzec rejestru, gotowa czołówka szkolenia |
 | `assets/ewa_kadr.jpg` | kadr wzorcowy 1280 px | wzorzec wyglądu i kadru |
 | `assets/ewa_gesty.jpg` | cztery klatki gestów | wzorzec ruchu rąk i mimiki |
 
@@ -52,6 +53,7 @@ renderować.
 | „Wstaw Ewę do filmu / na planszę / na ekran aplikacji" | **B** `wstaw_ewe.py` |
 | „Ewa w rogu prezentacji", „awatar na slajdach" | **C** `ewa_do_prezentacji.py` |
 | „Intro z Ewą" | `assets/ewa_pctp_intro.webm` → `wstaw_ewe.py --tlo plansza.png` |
+| „Ewa w Remotion", „awatar w filmie z wykresami" | **D** `przygotuj_remotion.py --awatar ewa.webm` |
 | „Zapamiętaj mojego awatara" | `zapamietaj_awatara.py --avatar-id <id>` |
 
 Zależności skryptów (jednorazowo): `pip install -r .claude/skills/awatar-ewa-pctp/requirements.txt`.
@@ -128,6 +130,39 @@ Do prezentacji budowanych od zera (skill `pptx`) wstaw `assets/ewa_pctp.png` jak
 obraz — to najprostsza droga, gdy Ewa ma tylko „być", a nie mówić. Głos do slajdów robi
 `dane-i-glos` (MP3 z jej klonem); klip z mówiącą Ewą powstaje drogą A.
 
+## Droga D — Ewa w Remotion (na żądanie)
+
+Szablon filmu z danych (`dane-i-glos/assets/remotion`) ma wbudowany komponent `Awatar`.
+Ewa **nie pojawia się sama** — tylko gdy użytkowniczka o nią poprosi; wtedy dodaj
+przełącznik `--awatar` do składania projektu:
+
+```bash
+python3 .claude/skills/dane-i-glos/scripts/przygotuj_remotion.py ~/moj-film \
+        --profil profil.json --narracja narracja.txt --audio glos.mp3 --napisy napisy.srt \
+        --awatar ewa.webm --awatar-uklad rog            # albo pelny / lewa / prawa
+        # --awatar-od 0 --awatar-do 13 --awatar-skala 0.5
+cd ~/moj-film && npm install && npx remotion render RaportWideo out/film.mp4
+```
+
+Skrypt kopiuje klip do `public/` i dopisuje do `film.json` wpis `awatar` (`plik`,
+`uklad`, `odSek`, opcjonalnie `doSek`, `skala`, `margines`, `dzwiek`). Kilka odcinków
+z Ewą to lista `awatar: [...]` w `film.json` — np. powitanie w układzie `pelny` od zera
+do trzynastej sekundy i pożegnanie w rogu od pięćdziesiątej. Długość filmu sama
+uwzględnia koniec klipu Ewy.
+
+Zasady, których pilnuje szablon:
+
+- klip musi być **WebM z alfą** (`wytnij_postac.py --webm`); `OffthreadVideo transparent`
+  odczytuje przezroczystość, więc Ewa stoi na tle sceny, nie w prostokącie,
+- gdy film ma `audio` (narracja z ElevenLabs), klip Ewy jest **wyciszony** — inaczej
+  głos byłby podwójny; bez `audio` Ewa mówi własną ścieżką z klipu,
+- układy i proporcje są te same co w `wstaw_ewe.py`, więc ffmpeg i Remotion dają
+  ten sam kadr.
+
+Przezroczysty render jest wolniejszy (Remotion wyciąga klatki jako PNG); 13 s Ewy
+w 1080p to kilka dodatkowych minut. W kontenerze bez przeglądarki dodaj
+`--browser-executable` wskazujący `headless_shell` (patrz `dane-i-glos/assets/remotion/README.md`).
+
 ## Pamięć awatara
 
 Identyfikator awatara HeyGen leży w tej samej pamięci co głos ElevenLabs
@@ -151,7 +186,7 @@ nie istnieje — nie oddawaj go.
 ## Materiały
 
 - `references/postac.md` — karta postaci: wygląd, strój, kadr, gest, ton, parametry techniczne
-- `references/produkcja.md` — eksport z HeyGen, kluczowanie, alfa w różnych formatach, kody błędów
+- `references/produkcja.md` — eksport z HeyGen, kluczowanie, alfa w różnych formatach, Remotion, kody błędów
 - `assets/` — gotowa postać (PNG, WebM z alfą) i kadry wzorcowe
 - `scripts/wytnij_postac.py` — sama postać z klipu (szachownica / kolor / alfa → WebM, MOV, PNG, sekwencja)
 - `scripts/wstaw_ewe.py` — Ewa na tle, planszy albo filmie (układy, kółko, napisy, pion)
