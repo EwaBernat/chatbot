@@ -54,7 +54,9 @@ export const NaglowekSceny: React.FC<{
   nadtytul?: string;
   tytul: string;
   start?: number;
-}> = ({ etykieta, nadtytul, tytul, start = 0 }) => {
+  /** Stopień pisma tytułu; domyślnie 60. Sceny z ciasnym kadrem podają mniejszy. */
+  rozmiar?: number;
+}> = ({ etykieta, nadtytul, tytul, start = 0, rozmiar = 60 }) => {
   const klatka = useCurrentFrame();
   const w = wejscie(klatka, start, 20);
   return (
@@ -98,7 +100,7 @@ export const NaglowekSceny: React.FC<{
       <div
         style={{
           fontFamily: KROJ,
-          fontSize: 60,
+          fontSize: rozmiar,
           lineHeight: 1.1,
           color: KOLOR.fiolet,
           fontWeight: 700,

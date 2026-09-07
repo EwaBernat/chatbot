@@ -70,6 +70,8 @@ const Ujecie: React.FC<{ ujecie: Ujecie; etykieta: string }> = ({ ujecie, etykie
 
 export const Modul: React.FC<{ modul: ModulTyp }> = ({ modul }) => {
   let kursor = 0;
+  // S1…S7 to szkolenie dla szkoły podstawowej, P1…P6 dla przedszkola.
+  const placowka = modul.id.startsWith('P') ? 'przedszkole' : 'szkoła podstawowa';
   return (
     <AbsoluteFill style={{ backgroundColor: KOLOR.tlo }}>
       {modul.ujecia.map((u) => {
@@ -79,7 +81,7 @@ export const Modul: React.FC<{ modul: ModulTyp }> = ({ modul }) => {
         return (
           <Sequence key={u.id} from={od} durationInFrames={klatki}>
             <Ujecie ujecie={u} etykieta={`CZĘŚĆ ${modul.numer} · ${modul.tytul.toUpperCase()}`} />
-            <Stopka lewa="EduPlaner 2026 · PCTP Koszalin · szkoła podstawowa" prawa={`${u.id}`} />
+            <Stopka lewa={`EduPlaner 2026 · PCTP Koszalin · ${placowka}`} prawa={`${u.id}`} />
           </Sequence>
         );
       })}

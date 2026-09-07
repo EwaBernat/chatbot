@@ -4,6 +4,8 @@ import { KADR, KOLOR, KROJ } from '../marka';
 import { NaglowekSceny, wejscie, Zakreslany, ZnakPctp } from '../elementy';
 import type { Scena } from '../typy';
 
+const SZEROKOSC_TRESCI = KADR.szerokosc - 2 * KADR.margines;
+
 const OBSZAR = { left: KADR.margines, right: KADR.margines, top: 300 };
 
 /** Delikatny najazd kamery na całą scenę — kadr żyje, ale nie kręci się w kółko. */
@@ -249,7 +251,19 @@ const Tabela: React.FC<{ s: Extract<Scena, { typ: 'tabela' }>; etykieta: string 
   const k = useCurrentFrame();
   const kolumny = s.naglowki.length;
   const szer = s.szerokosci ?? Array(kolumny).fill(100 / kolumny);
-  const wysoko = s.wiersze.length > 5;
+  // Ile linii zajmie wiersz przy danym stopniu pisma — szacunek po liczbie znaków.
+  const linieWiersza = (wiersz: string[], pismo: number) =>
+    Math.max(
+      1,
+      ...wiersz.map((komorka, c) => {
+        const swiatlo = (szer[c] / 100) * SZEROKOSC_TRESCI - 48;
+        const znakiWLinii = Math.max(8, swiatlo / (pismo * 0.5));
+        return Math.ceil(komorka.replace(/\*\*/g, '').length / znakiWLinii);
+      }),
+    );
+  const linie = s.wiersze.reduce((suma, w) => suma + linieWiersza(w, 29), 0);
+  // Kompaktujemy, gdy wierszy jest dużo albo gdy zawijanie tekstu wypchnęłoby tabelę na pasek napisów.
+  const wysoko = s.wiersze.length > 5 || s.wiersze.length * 40 + linie * 38 > 470;
   return (
     <AbsoluteFill>
       <NaglowekSceny etykieta={etykieta} nadtytul={s.nadtytul} tytul={s.naglowek} />
@@ -334,7 +348,12 @@ const Druk: React.FC<{ s: Extract<Scena, { typ: 'druk' }>; etykieta: string }> =
   const w = wejscie(k, 8, 24);
   return (
     <AbsoluteFill>
-      <NaglowekSceny etykieta={etykieta} nadtytul={s.nadtytul} tytul={s.naglowek} />
+      <NaglowekSceny
+        etykieta={etykieta}
+        nadtytul={s.nadtytul}
+        tytul={s.naglowek}
+        rozmiar={s.naglowek.length > 46 ? 44 : 60}
+      />
       <div
         style={{
           position: 'absolute',
