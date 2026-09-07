@@ -259,8 +259,15 @@ svg.ck{flex:none;width:18px;height:18px;margin-top:3px}
 .stakes h2{font-size:clamp(30px,3.6vw,42px)}
 .stakes .lead{margin-top:18px;font-size:17px}
 .stakes ul{list-style:none;margin:0;padding:0;display:flex;flex-direction:column}
-.stakes li{display:grid;grid-template-columns:auto 1fr;gap:18px;padding:20px 0;border-top:1px solid var(--line)}
-.stakes li:last-child{border-bottom:1px solid var(--line)}
+/* Pod każdym wierszem cienka pomarańczowa kreska, gasnąca w prawo. Szara
+   ramka dzieliła listę na kratki; ta prowadzi wzrok w dół i trzyma kolor marki
+   bez krzyczenia. */
+.stakes li{display:grid;grid-template-columns:auto 1fr;gap:18px;padding:20px 0 22px;position:relative}
+.stakes li::after{content:"";position:absolute;left:0;right:0;bottom:0;height:1px;pointer-events:none;
+  background:linear-gradient(90deg,
+    color-mix(in srgb,var(--orange) 45%,transparent) 0%,
+    color-mix(in srgb,var(--orange) 26%,transparent) 52%,
+    transparent 100%)}
 .stakes li .was{font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-3);font-weight:600;width:110px;padding-top:4px}
 .stakes li b{display:block;font-family:var(--display);font-size:19px;font-weight:700;margin-bottom:4px}
 .stakes li p{color:var(--ink-2);font-size:15.5px}
