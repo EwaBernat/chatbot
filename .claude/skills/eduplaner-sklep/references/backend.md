@@ -160,6 +160,42 @@ a faktura należy się na żądanie zgłoszone w terminie z ustawy o VAT. W prak
 prościej wystawiać ją każdemu — pole „chcę fakturę" i tak trzeba obsłużyć, a przy
 cenie 30 zł spór o to nikomu się nie opłaca.
 
+### Kasa fiskalna: nie, dopóki płaci się przelewem
+
+Sprzedaż konsumentowi rejestruje się na kasie, ale zwolnienie obejmuje sprzedaż
+opłacaną w całości na rachunek bankowy, gdy z ewidencji wynika, czego zapłata
+dotyczyła i od kogo pochodzi (rozporządzenie MF o zwolnieniach z kas — pozycje
+o sprzedaży wysyłkowej i o usługach opłacanych przelewem). Bramka płatnicza
+spełnia oba warunki: pieniądze idą na rachunek, a raport transakcji wiąże wpłatę
+z numerem zamówienia.
+
+Wnioski dla backendu, twarde:
+
+- **Nie budować przyjmowania gotówki ani płatności terminalem na miejscu.**
+  Pierwsza taka transakcja tworzy obowiązek posiadania kasy fiskalnej z całą
+  jego obsługą. Jeśli właścicielka kiedyś tego zażąda, to jest decyzja z jej
+  księgową, nie funkcja do dorzucenia.
+- **Tytuł płatności i raport bramki muszą nieść numer zamówienia.** Bez tego
+  odpada warunek ewidencji i zwolnienie przestaje działać. To nie jest kosmetyka.
+- Zwolnienie nie obejmuje dostawy zapisanych nośników danych. Pliki do pobrania
+  są bezpieczne; płyta albo pendrive wysłany pocztą — nie.
+
+### Faktura konsumencka
+
+Konsumentowi faktura należy się na żądanie zgłoszone w ciągu 3 miesięcy od końca
+miesiąca dostawy albo zapłaty (art. 106b ust. 3 ustawy o VAT). Wystawiamy jednak
+zawsze i automatycznie — pole „chcę fakturę" i tak trzeba obsłużyć, a dokument
+w załączniku ucina korespondencję.
+
+Faktura konsumencka nie ma NIP-u i **nie da się go dopisać później**. Dlatego
+wybór „osoba prywatna / placówka" stoi na początku formularza i backend musi go
+traktować jako rozstrzygnięty, a nie jako podpowiedź.
+
+Kolejność wysyłki jest nierozdzielna: potwierdzenie płatności → link wygasający
+albo dostęp → faktura PDF, wszystko w jednej wiadomości. Ścieżki „wyślij plik,
+faktura później" nie budujemy, tak samo jak nie budujemy wydania klucza przed
+wpłatą.
+
 ### Co da się zrobić dziś, bez backendu
 
 Formularz składa gotową treść zamówienia. Wystarczy, że będzie zawierał wszystkie

@@ -327,6 +327,81 @@ Do potwierdzenia u księgowej, bo terminy KSeF były przesuwane: od kiedy dokła
 obowiązuje wystawianie w KSeF i czy sprzedaż osobom prywatnym w ogóle przez niego
 idzie (obowiązek dotyczy obrotu między firmami).
 
+## Zamówienie osoby prywatnej: faktura czy paragon
+
+Osoba prywatna kupuje u nas szkolenie z terminem otwartym, broszurę albo pomoc
+dydaktyczną. Aplikacji nie kupuje — ta idzie wyłącznie do placówek.
+
+### Paragonu nie wystawiamy, o ile pieniądze idą przelewem
+
+Sprzedaż osobie fizycznej co do zasady rejestruje się na kasie fiskalnej. Jest
+jednak zwolnienie, które pasuje do nas w całości: **gdy zapłata w całości wpływa
+na rachunek bankowy, a z ewidencji wynika, czego dotyczyła i od kogo pochodzi,
+kasy nie trzeba** (rozporządzenie Ministra Finansów o zwolnieniach z kas
+rejestrujących, pozycje o sprzedaży wysyłkowej i usługach opłacanych przelewem).
+
+Dlatego cała sprzedaż dla osób prywatnych ma iść przez bramkę płatniczą albo
+przelew — **nigdy gotówką i nigdy terminalem na miejscu**. Zapłata gotówką za
+szkolenie w szkole to pierwsza sprzedaż, przy której kasa fiskalna staje się
+obowiązkowa, a z nią serwis, przeglądy i raporty dobowe.
+
+Drugi warunek to ewidencja. Bramka płatnicza daje raport transakcji z numerem
+zamówienia i danymi kupującego — i to jest właśnie ta ewidencja. Sam wyciąg
+bankowy z tytułem „opłata" nie wystarczy; tytuł musi wskazywać numer zamówienia.
+
+Jeszcze jedno ograniczenie: zwolnienie nie obejmuje sprzedaży **zapisanych
+nośników danych** — płyty, pendrive'a z materiałami. Broszura do pobrania jest
+plikiem, nie nośnikiem, więc jest bezpieczna. Gdyby kiedyś doszła pomoc
+dydaktyczna wysyłana pocztą z płytą — pytanie wraca do księgowej.
+
+### Fakturę wystawiamy zawsze, choć nie musimy
+
+Konsumentowi faktura należy się **na żądanie**, zgłoszone najpóźniej w ciągu
+3 miesięcy od końca miesiąca, w którym dostarczyliśmy plik albo dostaliśmy zapłatę
+(art. 106b ust. 3 ustawy o VAT). Obowiązku wystawiania z urzędu nie ma.
+
+Mimo to wystawiamy każdemu i automatycznie. Powód jest prosty: pole „chcę fakturę"
+i tak trzeba obsłużyć, wFirma robi dokument jednym kliknięciem, a klient, który
+dostaje fakturę PDF razem z plikiem, nie pisze maila z pytaniem „a gdzie
+potwierdzenie". Przy cenie 30 zł ten mail kosztuje więcej niż faktura.
+
+Faktura dla konsumenta ma imię, nazwisko i adres — **bez NIP-u**. Dlatego
+formularz pyta na samym początku, czy kupuje osoba prywatna czy placówka:
+NIP-u nie da się dopisać później do faktury wystawionej konsumentowi.
+
+### Faktury konsumenckie a KSeF
+
+KSeF obejmuje obrót między firmami. Sprzedaż osobie prywatnej idzie poza nim —
+faktura wychodzi zwykłą drogą, PDF-em na maila. **Do potwierdzenia u księgowej**,
+bo przepisy o KSeF były zmieniane kilka razy i to jest dokładnie ten szczegół,
+który się zmienia.
+
+### Jak to ma działać po kolei
+
+1. Kupujący wybiera pozycję i zaznacza „kupuję jako osoba prywatna".
+2. Podaje imię, nazwisko, adres i e-mail. Zaznacza dwie osobne zgody:
+   regulamin oraz — przy pliku do pobrania — zgodę na dostarczenie treści
+   cyfrowej przed upływem 14 dni i utratę prawa odstąpienia.
+3. Płaci online (BLIK, karta, szybki przelew). Pieniądze wpływają na rachunek.
+4. Dopiero po potwierdzeniu płatności system wysyła **jednego maila**: link do
+   pobrania (wygasający) albo dostęp do szkolenia, plus faktura PDF w załączniku.
+5. Zamówienie, treść obu zgód i godzina zapłaty zostają w bazie — to dowód
+   w ewentualnym sporze o odstąpienie.
+
+Krok 4 jest nierozdzielny: **nic nie wychodzi przed zapłatą**, tak samo jak przy
+kluczu do aplikacji. Przy płatności online nie boli, bo dzieje się w minutę.
+
+### Co trzeba ustalić z księgową
+
+- czy potwierdza zwolnienie z kasy fiskalnej przy sprzedaży wyłącznie przelewem
+  i przez bramkę (i czy nic się w rozporządzeniu nie zmieniło na 2026);
+- czy faktury konsumenckie mają iść do KSeF, czy zostają poza nim;
+- czy pakiet wFirmy obejmuje API, żeby faktura wystawiała się sama po zapłacie.
+
+Do czasu tych odpowiedzi sprzedaż osobom prywatnym można prowadzić ręcznie:
+przelew na konto, faktura wystawiona w wFirmie, plik wysłany mailem. Nie wolno
+tylko przyjmować gotówki.
+
 ## Formularz zamówienia: nabywca i odbiorca
 
 Placówka zamawiająca podaje **dwa komplety danych**, bo w samorządzie to dwa różne
