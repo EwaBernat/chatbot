@@ -342,12 +342,23 @@ function page(title, tag, children, last) {
  * ========================================================================== */
 function page01() {
   return page("CZĘŚĆ WSTĘPNA — DANE OSOBY UCZĄCEJ SIĘ", "Część wstępna", [
-    spacer(60),
+    spacer(220),
+
+    /* --- TYTUŁ GŁÓWNY — wyśrodkowany, wersaliki (standard druków PCTP) --- */
+    p([r("IPET 2026 · WOPF (ICF) · STANDARD 2026", { size: 15, bold: true, color: BRAND.orange, cs: 16 })],
+      { align: AlignmentType.CENTER, after: 180 }),
+    p([r("INDYWIDUALNY PROGRAM", { size: 52, bold: true, color: BRAND.purple })],
+      { align: AlignmentType.CENTER, after: 40, line: 560 }),
+    new Paragraph({
+      alignment: AlignmentType.CENTER,
+      spacing: { after: 0, line: 560 },
+      border: { bottom: { style: BorderStyle.SINGLE, size: 22, color: BRAND.orange, space: 10 } },
+      children: [r("EDUKACYJNO-TERAPEUTYCZNY", { size: 52, bold: true, color: BRAND.purple })],
+    }),
+    p([r("SYNTEZA ZINTEGROWANA  ·  WERSJA PRZEDSZKOLNA", { size: 19, color: BRAND.orange, cs: 10 })],
+      { align: AlignmentType.CENTER, before: 150, after: 240 }),
+
     panel([
-      p([r("IPET 2026 · WOPF (ICF) · STANDARD 2026", { size: 12, bold: true, color: BRAND.orange, cs: 14 })], { after: 70 }),
-      p([r("Indywidualny Program", { size: 30, bold: true, color: BRAND.purple })], { after: 0, line: 300 }),
-      p([r("Edukacyjno-Terapeutyczny", { size: 30, bold: true, color: BRAND.purple })], { after: 70, line: 300 }),
-      p([r("SYNTEZA ZINTEGROWANA", { size: 13, bold: true, color: BRAND.mute, cs: 16 })], { after: 120 }),
       p([r("Dokument opracowywany dla dziecka objętego wychowaniem przedszkolnym, posiadającego orzeczenie o potrzebie kształcenia specjalnego. Stanowi syntezę wszystkich obserwacji (KPOF → obserwacje pogłębione) w logiczną całość, bez powielania. Określa zakres i sposób dostosowania wymagań, zintegrowane działania nauczycieli i specjalistów oraz formy pomocy.",
         { size: 14, color: BRAND.ink })], { after: 80, line: 250 }),
       p([r("Podstawa prawna: ", { size: 13, bold: true, color: BRAND.amber }),
