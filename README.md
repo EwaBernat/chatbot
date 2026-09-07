@@ -122,5 +122,19 @@ na rok szkolny 2026/2027:
   i do wklejenia do bazy wiedzy chatbota,
 - `generuj_czynnosci_docx.js` — generator pliku Word (instrukcja w nagłówku skryptu).
 
+Ten wykaz jest napisany dla reżimu Karty Nauczyciela (pensum, art. 42) i służy jako odniesienie.
+
+### Szkoła specjalna — nauczyciele na Kodeksie pracy, 6 godzin dziennie
+
+Tabela porównawcza czynności **nauczyciela edukacji wczesnoszkolnej (kl. I–III)** i **nauczyciela
+przedmiotów (kl. IV–VIII)** w szkole podstawowej specjalnej, dla nauczycieli zatrudnionych na podstawie
+Kodeksu pracy w wymiarze 6 godzin dziennie (bez pensum i godzin ponadwymiarowych z Karty Nauczyciela):
+
+- `czynnosci-nauczycieli-szkoly-specjalnej.docx` / `.pdf` — A4 poziomo: ramy zatrudnienia,
+  62 czynności w 11 obszarach z oznaczeniem, kto je wykonuje, przykładowy rozkład 6-godzinnego dnia
+  i kalendarz roku szkolnego,
+- `czynnosci-nauczycieli-szkoly-specjalnej.md` — ta sama treść w Markdownie,
+- `generuj_tabela_szkola_specjalna.js` — generator obu plików (`node ... logo.png plik.docx plik.md`).
+
 Wykaz ma charakter pomocniczy: przed wdrożeniem trzeba go dopasować do statutu placówki,
 regulaminu wynagradzania organu prowadzącego i aktualnego tekstu jednolitego ustawy.
