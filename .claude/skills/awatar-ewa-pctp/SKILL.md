@@ -204,3 +204,4 @@ nie istnieje — nie oddawaj go.
 - `scripts/wstaw_ewe.py` — Ewa na tle, planszy albo filmie (układy, kółko, napisy, pion)
 - `scripts/ewa_do_prezentacji.py` — Ewa na slajdach PPTX (obraz albo klip)
 - `scripts/zapamietaj_awatara.py` — pamięć awatara HeyGen
+- `scripts/spakuj_skill.py` — buduje samodzielny pakiet `.skill` (postać + render + skrypty) do wgrania na claude.ai; treść pakietu: `pakiet/SKILL.md`

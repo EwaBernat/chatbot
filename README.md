@@ -123,6 +123,11 @@ python3 .claude/skills/dane-i-glos/scripts/przygotuj_remotion.py ~/moj-film --pr
 python3 $S/zapamietaj_awatara.py --avatar-id <id> --nazwa "Ewa PCTP"
 ```
 
+Pakiet do wgrania na claude.ai (jeden samodzielny Skill „awatar-ewa" z postacią, renderem
+i skryptami): `python3 .claude/skills/awatar-ewa-pctp/scripts/spakuj_skill.py ~/pakiety`
+daje `awatar-ewa.skill` (ok. 5 MB; `--bez-webm` ok. 1,5 MB). Wgranie: Ustawienia →
+Możliwości → Skills → Prześlij plik.
+
 Podział ról: `awatar-ewa` **renderuje** film, w którym Ewa mówi (MCP HeyGen, CLI, REST);
 `awatar-ewa-pctp` trzyma **postać** i wstawia ją tam, gdzie ma się pojawić. Oba piszą do
 jednej pamięci awatara. Uruchomienie u siebie krok po kroku: `.claude/skills/awatar-ewa/references/lokalnie.md`.
