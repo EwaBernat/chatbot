@@ -128,7 +128,9 @@ svg.ck{flex:none;width:18px;height:18px;margin-top:3px}
 .site-header.uniesiony::after{opacity:calc(var(--linia-baner) + .25)}
 .site-header::after{content:"";position:absolute;left:0;right:0;bottom:0;height:1px;pointer-events:none;opacity:var(--linia-baner);background:linear-gradient(90deg,transparent 0%,color-mix(in srgb,var(--plum-text) 42%,transparent) 16%,color-mix(in srgb,var(--orange) 62%,transparent) 50%,color-mix(in srgb,var(--plum-text) 42%,transparent) 84%,transparent 100%)}
 .site-header .wrap{display:flex;align-items:center;gap:28px;min-height:72px;padding-block:10px}
-.brand{display:flex;align-items:center;gap:12px;text-decoration:none;margin-right:auto;min-width:0}
+/* Nazwa marki nie zawija się i nie może się kurczyć — inaczej wyjeżdża
+   poza swoje pole i menu wchodzi jej na wiersz. Miejsce oddaje nawigacja. */
+.brand{display:flex;align-items:center;gap:12px;text-decoration:none;margin-right:auto;flex:none}
 .brand img{width:44px;height:44px;border-radius:50%;flex:none;
   box-shadow:0 0 0 1px color-mix(in srgb,var(--plum) 20%,transparent), 0 6px 14px -9px rgba(45,27,105,.7);
   transition:transform .2s ease, box-shadow .2s ease}
@@ -136,7 +138,19 @@ svg.ck{flex:none;width:18px;height:18px;margin-top:3px}
   box-shadow:0 0 0 1px color-mix(in srgb,var(--plum) 34%,transparent), 0 10px 18px -10px rgba(45,27,105,.75)}
 .brand-name{font-family:var(--display);font-weight:800;font-size:21px;letter-spacing:-.01em;line-height:1.05;white-space:nowrap}
 .brand-sub{display:block;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-3);margin-top:4px;font-weight:600}
-.nav{display:flex;gap:22px}
+/* Ośmiu pozycji menu, telefonu i przycisku nie da się zmieścić obok siebie
+   na każdym ekranie — poniżej 1400 px odstępy i pismo maleją, zamiast
+   pozwolić nawigacji zjechać na nazwę marki. */
+.nav{display:flex;gap:22px;flex-wrap:nowrap}
+/* Im węższy ekran, tym mniej pozycji w pasku — po kolei znika to, co najłatwiej
+   znaleźć gdzie indziej: telefon (jest w stopce i na pasku telefonu), potem Blog,
+   Pytania i Dokumenty. Lepiej pokazać mniej niż wypchnąć przycisk poza ekran. */
+@media (max-width:1500px){.nav{gap:15px}.nav a{font-size:14.5px;padding:9px 8px}
+  .site-header .wrap{gap:18px}.site-header .btn{padding:11px 15px;font-size:14.5px}}
+@media (max-width:1360px){.site-header .tel{display:none}}
+@media (max-width:1260px){.nav{gap:10px}.nav a{font-size:14px;padding:8px 7px}
+  .nav a[href="#spolecznosc"]{display:none}}
+@media (max-width:1160px){.nav a[href="#faq"],.nav a[href="#dokumenty"]{display:none}}
 .nav a{position:relative;text-decoration:none;font-weight:500;font-size:15.5px;color:var(--ink-2);
   padding:9px 11px;border-radius:9px;border-bottom:0;
   transition:color .18s ease, background-color .18s ease}
@@ -173,8 +187,17 @@ svg.ck{flex:none;width:18px;height:18px;margin-top:3px}
 .hero-facts div:last-child{border:0;margin:0;padding:0}
 .hero-facts b{display:block;font-family:var(--display);font-size:30px;font-weight:700;color:var(--plum-text);line-height:1;font-variant-numeric:tabular-nums}
 .hero-facts span{display:block;font-size:14px;color:var(--ink-2);margin-top:6px;line-height:1.35}
-.alert{display:inline-flex;align-items:center;gap:10px;background:var(--orange-soft);color:var(--orange-ink);border:1px solid color-mix(in srgb,var(--orange) 35%,transparent);border-radius:99px;padding:7px 14px 7px 9px;font-size:13.5px;font-weight:600;margin-bottom:22px}
-.alert i{width:8px;height:8px;border-radius:50%;background:var(--orange-btn);display:inline-block;box-shadow:0 0 0 4px color-mix(in srgb,var(--orange) 22%,transparent)}
+/* Plakietka nad nagłówkiem: pomarańczowy żeton z datą i spokojne zdanie obok.
+   Wcześniej całość była miękkopomarańczowa i czytała się jak ostrzeżenie —
+   teraz data jest sygnałem, a reszta informacją. */
+.alert{display:inline-flex;align-items:center;gap:11px;background:var(--card);
+  border:1px solid var(--line);border-radius:99px;padding:5px 18px 5px 5px;
+  font-size:14px;font-weight:600;color:var(--ink-2);margin-bottom:24px;max-width:100%;
+  box-shadow:0 6px 18px -14px rgba(45,27,105,.55)}
+.alert b{flex:none;background:var(--orange);color:#fff;border-radius:99px;
+  padding:6px 13px;font-size:12.5px;letter-spacing:.04em;font-weight:700;white-space:nowrap}
+@media (max-width:560px){.alert{border-radius:16px;padding:5px 14px 5px 5px;font-size:13px;align-items:flex-start}
+  .alert b{margin-top:1px}}
 @media (max-width:980px){.hero .wrap{grid-template-columns:1fr;gap:48px}}
 @media (max-width:560px){.hero-facts{flex-direction:column;gap:18px}.hero-facts div{border:0;padding:0;margin:0}}
 
@@ -1112,7 +1135,7 @@ svg.ck{flex:none;width:18px;height:18px;margin-top:3px}
   <span class="blob peach"></span><span class="blob lav"></span>
   <div class="wrap">
     <div>
-      <span class="alert"><i></i>WOPF · IPET / PEWS · ocena funkcjonalna od roku szkolnego 2026/2027</span>
+      <span class="alert"><b>Od 1 września 2026</b><span>WOPF, IPET i&nbsp;PEWS na&nbsp;nowej ocenie funkcjonalnej</span></span>
       <h1><em>WOPF i&nbsp;IPET</em> w&nbsp;jednej aplikacji.</h1>
       <p class="lead">
 <b>Cały zespół gotowy na nową ocenę funkcjonalną.</b> Prowadzimy Państwa krok po kroku:
@@ -1984,7 +2007,7 @@ var EKRANY = [
   }).join('');
   var taby=lista.querySelectorAll('button');
 
-  function pokaz(i){
+  function pokaz(i,start){
     akt=(i+EKRANY.length)%EKRANY.length;
     var e=EKRANY[akt];
     taby.forEach(function(b,k){ b.setAttribute('aria-selected',k===akt); b.tabIndex=k===akt?0:-1; });
@@ -1999,10 +2022,17 @@ var EKRANY = [
     var fig=widok.querySelector('.shot');
     fig.addEventListener('click',function(){ OKNO.obraz(e); });
     fig.addEventListener('keydown',function(ev){ if(ev.key==='Enter'||ev.key===' '){ ev.preventDefault(); OKNO.obraz(e); } });
-    if(lista.scrollWidth>lista.clientWidth) taby[akt].scrollIntoView({block:'nearest',inline:'center',behavior:'smooth'});
+    /* Pasek zakladek przewijamy sami. scrollIntoView przy pierwszym rysowaniu
+       przewijal cala strone az tutaj - na telefonie strona otwierala sie w polowie. */
+    if(lista.scrollWidth>lista.clientWidth){
+      var b=taby[akt], cel=b.offsetLeft-(lista.clientWidth-b.offsetWidth)/2;
+      var plynnie=start&&!matchMedia('(prefers-reduced-motion: reduce)').matches;
+      if(lista.scrollTo) lista.scrollTo({left:Math.max(0,cel),behavior:plynnie?'smooth':'auto'});
+      else lista.scrollLeft=Math.max(0,cel);
+    }
   }
 
-  taby.forEach(function(b,i){ b.addEventListener('click',function(){ pokaz(i); }); });
+  taby.forEach(function(b,i){ b.addEventListener('click',function(){ pokaz(i,true); }); });
   lista.addEventListener('keydown',function(e){
     var k=e.key, poz=akt;
     if(k==='ArrowDown'||k==='ArrowRight') poz=akt+1;
@@ -2010,10 +2040,10 @@ var EKRANY = [
     else if(k==='Home') poz=0;
     else if(k==='End') poz=EKRANY.length-1;
     else return;
-    e.preventDefault(); pokaz(poz); taby[akt].focus();
+    e.preventDefault(); pokaz(poz,true); taby[akt].focus();
   });
   document.querySelectorAll('[data-ekran]').forEach(function(b){
-    b.addEventListener('click',function(){ pokaz(akt+Number(b.dataset.ekran)); });
+    b.addEventListener('click',function(){ pokaz(akt+Number(b.dataset.ekran),true); });
   });
   pokaz(0);
 })();
