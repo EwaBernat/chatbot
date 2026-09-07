@@ -444,6 +444,19 @@ svg.ck{flex:none;width:18px;height:18px;margin-top:3px}
 .cover{aspect-ratio:1/1.15;margin:-6px 0 4px;border-radius:8px;position:relative;overflow:hidden;background:linear-gradient(165deg,#3A2686 0%,var(--plum) 55%,var(--plum-deep) 100%);color:var(--on-plum);padding:16px;display:flex;flex-direction:column;box-shadow:0 12px 24px -16px rgba(45,27,105,.6)}
 .cover.alt{background:linear-gradient(165deg,#FF7A47 0%,var(--orange) 55%,#B33205 100%)}
 .cover.cover-szk{aspect-ratio:16/9}
+/* Okładka broszury zostaje pionowa — tak wygląda publikacja — ale jest węższa,
+   dzięki czemu karta ma wysokość zbliżoną do kart szkoleń. Napisy skalują się
+   razem z nią i mają twarde ograniczenie wierszy: przy dłuższym tytule tekst
+   ma się zmniejszyć, a nie wyjechać poza okładkę. */
+.bro-karta .cover{width:74%;margin-inline:auto;padding:13px}
+.bro-karta .cover .ser{font-size:8.5px;letter-spacing:.13em;padding-right:26px;line-height:1.35;
+  display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}
+.bro-karta .cover .ttl{font-size:15.5px;line-height:1.12;
+  display:-webkit-box;-webkit-line-clamp:4;-webkit-box-orient:vertical;overflow:hidden}
+.bro-karta .cover .sub{font-size:9px;margin-top:6px;line-height:1.3;
+  display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.bro-karta .cover .pasy{margin-top:7px}
+.bro-karta .cover .lg{transform:scale(.8);transform-origin:top right}
 .cover.cover-szk .ttl{font-size:17px}
 .poz .cover.cover-szk{aspect-ratio:16/9;width:100%}
 @media (max-width:620px){.poz-main:has(.cover-szk){grid-template-columns:1fr}}
@@ -3005,19 +3018,17 @@ var OFERTA = [
         + 'Program i zapis</button>'
         + '</article>';
     }
-    /* Broszura ma dwa różne zamiary: kupić od razu albo najpierw zajrzeć.
-       Zostają więc dwa wejścia, ale bez podwójnych cen i rozliczenia VAT —
-       te czekają w oknie, tak jak opis i spis treści. */
-    return '<article class="offer szk-karta'+(o.hot?' hot':'')+'">'
+    /* Broszura: okładka, tytuł, cena i jedno wejście — tak samo jak szkolenie.
+       Nadtytuł pomijamy, bo powtarza to, co stoi na okładce. Opis, spis treści
+       i rozliczenie VAT czekają w oknie razem z przyciskiem zamówienia. */
+    return '<article class="offer szk-karta bro-karta'+(o.hot?' hot':'')+'">'
       + (o.badge?'<span class="badge">'+esc(o.badge)+'</span>':'')
       + glowa(o)
-      + '<span class="fmt">'+esc(o.fmt)+'</span>'
       + '<h3>'+esc(o.tytul)+'</h3>'
       + liniaMeta(o)
       + liniaCeny(o)
-      + '<a class="btn '+(o.primary?'btn-primary':'btn-ghost')+'" href="#zamow" data-order="'+esc(o.id)+'"'
-      + (o.buyer?' data-buyer="'+esc(o.buyer)+'"':'')+'>'+esc(o.cta)+'</a>'
-      + '<button class="more" type="button" data-poz="'+esc(o.id)+'">Co jest w środku</button>'
+      + '<button class="btn '+(o.primary?'btn-primary':'btn-ghost')+'" type="button" data-poz="'+esc(o.id)+'">'
+      + 'Zobacz i zamów</button>'
       + '</article>';
   }
 
