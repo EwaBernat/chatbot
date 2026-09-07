@@ -1117,7 +1117,7 @@ PLAN_6 = [
    'naglowek': 'Opis zachowania, które chcemy zobaczyć za kilka tygodni',
    'punkty': [
      'Zapisany tak, żeby **dwie różne osoby**, patrząc na to samo dziecko, **oceniły go tak samo**.',
-     'Zapis *rozwijanie samodzielności* wyraża intencję, ale **nie wskazuje, co ma się wydarzyć**.',
+     'Zapis „rozwijanie samodzielności” wyraża intencję, ale **nie wskazuje, co ma się wydarzyć**.',
      'Cel SMART **planuje działanie i jednocześnie przygotowuje ewaluację** — '
      'kryterium zapisane w celu jest gotowym wskaźnikiem.',
    ],
