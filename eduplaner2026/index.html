@@ -680,6 +680,35 @@ svg.ck{flex:none;width:18px;height:18px;margin-top:3px}
 
 /* pasek zaufania ----------------------------------------------------- */
 .trust-strip{padding:68px 0 64px;background:var(--paper);border-top:1px solid var(--line)}
+
+/* Dokumenty: cztery kafelki-odnośniki. Dyrektor czyta umowę przed decyzją,
+   więc nie chowamy ich w stopce — dostają własną sekcję nad formularzem. */
+.dokumenty{background:var(--paper-2);border-top:1px solid var(--line)}
+.dok-lista{list-style:none;margin:0;padding:0;display:grid;gap:18px;
+  grid-template-columns:repeat(2,minmax(0,1fr))}
+@media (max-width:760px){.dok-lista{grid-template-columns:1fr}}
+.dok-lista a{display:grid;grid-template-columns:44px minmax(0,1fr);grid-template-rows:auto auto auto;
+  gap:4px 16px;height:100%;text-decoration:none;background:var(--card);
+  border:1px solid var(--line);border-radius:var(--radius);padding:22px 24px;
+  box-shadow:0 1px 2px rgba(45,27,105,.04);
+  transition:border-color .18s ease, box-shadow .18s ease, transform .18s ease}
+.dok-lista a:hover{border-color:var(--plum-line);transform:translateY(-2px);
+  box-shadow:0 16px 30px -22px rgba(45,27,105,.55)}
+.dok-lista a:focus-visible{outline:3px solid var(--orange);outline-offset:3px}
+.dok-ikona{grid-row:1/4;width:44px;height:44px;border-radius:12px;display:flex;align-items:center;justify-content:center;
+  background:var(--plum-soft);color:var(--plum-text)}
+.dok-ikona svg{width:23px;height:23px;fill:none;stroke:currentColor;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}
+.dok-nazwa{font-family:var(--display);font-weight:700;font-size:18.5px;color:var(--ink);line-height:1.25}
+.dok-opis{font-size:15px;color:var(--ink-2);line-height:1.55}
+.dok-cta{margin-top:8px;font-size:14.5px;font-weight:600;color:var(--plum-text)}
+.dok-lista a:hover .dok-cta{color:var(--orange-ink)}
+.dok-cta::after{content:" →"}
+.dok-nota{margin-top:26px;background:var(--card);border:1px solid var(--line);
+  border-left:4px solid var(--orange);border-radius:var(--radius);padding:24px 26px}
+.dok-nota h3{font-family:var(--display);font-size:19px;margin:0 0 10px;color:var(--ink)}
+.dok-nota p{margin:0 0 10px;font-size:15.5px;color:var(--ink-2);line-height:1.6}
+.dok-nota p:last-child{margin-bottom:0}
+@media (prefers-reduced-motion: reduce){.dok-lista a{transition:none}.dok-lista a:hover{transform:none}}
 .trust-strip .eyebrow{margin-bottom:26px}
 .trust-strip ul{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:26px 40px}
 @media (max-width:900px){.trust-strip ul{grid-template-columns:repeat(2,minmax(0,1fr))}}
@@ -1038,6 +1067,7 @@ svg.ck{flex:none;width:18px;height:18px;margin-top:3px}
       <a href="#cennik">Cennik</a>
       <a href="#spolecznosc">Blog</a>
       <a href="#faq">Pytania</a>
+      <a href="#dokumenty">Dokumenty</a>
     </nav>
     <a class="tel" href="tel:+48662888403">662 888 403</a>
     <a class="btn btn-primary" href="#zamow" data-order="app" data-buyer="inst">Zamów aplikację</a>
@@ -1501,6 +1531,57 @@ svg.ck{flex:none;width:18px;height:18px;margin-top:3px}
       <details><summary>Co się dzieje po roku? Czy dokumenty zostają w placówce?</summary><p>Subskrypcja trwa 12 miesięcy i wygasa sama — nie odnawia się automatycznie i nie trzeba jej wypowiadać. Po wygaśnięciu program przestaje generować nowe dokumenty, ale <b>dane zostają u&nbsp;Państwa</b>: dokumentacja uczniów jest na serwerze placówki, można ją przeglądać i&nbsp;wyeksportować. Tak samo mówi <a href="umowa-subskrypcji.html">umowa subskrypcji</a> w&nbsp;§&nbsp;2.</p></details>
       <details><summary>Jestem nauczycielem. Czy kupię aplikację prywatnie?</summary><p>Nie. Aplikacja pracuje na serwerze placówki i&nbsp;prowadzi dokumentację uczniów, więc zamawia ją placówka na&nbsp;fakturę, a&nbsp;administratorem danych jest dyrektor. Prywatnie kupisz szkolenie (300&nbsp;zł brutto za osobę) i&nbsp;broszury PDF.</p></details>
       <details><summary>Czy dostanę zaświadczenie ze szkolenia?</summary><p>Tak, każdy uczestnik dostaje zaświadczenie imienne. Placówka dostaje komplet dla całej rady.</p></details>
+    </div>
+  </div>
+</section>
+
+<!-- DOKUMENTY ------------------------------------------------------ -->
+<section class="section dokumenty" id="dokumenty">
+  <div class="wrap">
+    <div class="section-head">
+      <div><p class="eyebrow">Dokumenty</p><h2>Wszystko do wglądu przed zamówieniem</h2></div>
+      <p class="lead">Dyrektor i&nbsp;organ prowadzący czytają umowę zanim podejmą decyzję, a&nbsp;nie po jej podpisaniu. Każdy dokument otwiera się w&nbsp;nowej karcie i&nbsp;można go wydrukować.</p>
+    </div>
+
+    <ul class="dok-lista">
+      <li>
+        <a href="umowa-subskrypcji.html" target="_blank" rel="noopener">
+          <span class="dok-ikona"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8l-5-5Z"/><path d="M14 3v5h5"/><path d="M9 13h6M9 17h4"/></svg></span>
+          <span class="dok-nazwa">Umowa subskrypcji licencyjnej</span>
+          <span class="dok-opis">Wzór umowy dla placówki wraz z&nbsp;protokołem zdawczo-odbiorczym (Załącznik nr&nbsp;1). Zawiera przedmiot licencji, okres 12&nbsp;miesięcy, warunki płatności i&nbsp;zasady ochrony danych.</span>
+          <span class="dok-cta">Otwórz wzór umowy</span>
+        </a>
+      </li>
+      <li>
+        <a href="polityka-prywatnosci.html" target="_blank" rel="noopener">
+          <span class="dok-ikona"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3 5 6v6c0 4.5 3 7.9 7 9 4-1.1 7-4.5 7-9V6l-7-3Z"/><path d="m9 12 2 2 4-4"/></svg></span>
+          <span class="dok-nazwa">Polityka prywatności</span>
+          <span class="dok-opis">Kto jest administratorem, jakie dane zbieramy przy zamówieniu i&nbsp;szkoleniu, jak długo je trzymamy i&nbsp;jakie prawa przysługują osobom, których dotyczą.</span>
+          <span class="dok-cta">Otwórz politykę</span>
+        </a>
+      </li>
+      <li>
+        <a href="regulamin.html" target="_blank" rel="noopener">
+          <span class="dok-ikona"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 5.5A2.5 2.5 0 0 1 6.5 3H20v15H6.5A2.5 2.5 0 0 0 4 20.5v-15Z"/><path d="M8 8h8M8 12h6"/></svg></span>
+          <span class="dok-nazwa">Regulamin sklepu</span>
+          <span class="dok-opis">Zasady zamawiania, płatności i&nbsp;dostarczania, licencja na&nbsp;materiały, reklamacje oraz prawo odstąpienia od&nbsp;umowy.</span>
+          <span class="dok-cta">Otwórz regulamin</span>
+        </a>
+      </li>
+      <li>
+        <a href="formularz-odstapienia.html" target="_blank" rel="noopener">
+          <span class="dok-ikona"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 14 4 9l5-5"/><path d="M4 9h11a5 5 0 0 1 5 5v6"/></svg></span>
+          <span class="dok-nazwa">Formularz odstąpienia</span>
+          <span class="dok-opis">Wzór oświadczenia dla&nbsp;konsumenta, który rezygnuje z&nbsp;zakupu w&nbsp;ciągu 14&nbsp;dni. Do&nbsp;wypełnienia i&nbsp;odesłania.</span>
+          <span class="dok-cta">Otwórz formularz</span>
+        </a>
+      </li>
+    </ul>
+
+    <div class="dok-nota">
+      <h3>Umowa powierzenia danych nie jest potrzebna</h3>
+      <p>Aplikacja pracuje na&nbsp;serwerze placówki, więc dokumentacja uczniów nie trafia do&nbsp;nas ani do&nbsp;zewnętrznej chmury. Nie przetwarzamy danych uczniów w&nbsp;Państwa imieniu, a&nbsp;administratorem pozostaje dyrektor — <b>nie ma czego powierzać</b>. Zasady ochrony danych opisuje § 6 umowy subskrypcji.</p>
+      <p>Przy szkoleniu placówka przekazuje nam jedynie <b>listę uczestników do&nbsp;zaświadczeń</b>: imię, nazwisko i&nbsp;stanowisko. Nie zbieramy zgód od&nbsp;nauczycieli — podstawą jest wykonanie umowy zawartej z&nbsp;placówką. Uczestnicy dostają klauzulę informacyjną razem z&nbsp;zaświadczeniem.</p>
     </div>
   </div>
 </section>
