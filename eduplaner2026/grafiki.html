@@ -1,0 +1,390 @@
+<!doctype html>
+<html lang="pl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="straznik" content="narzedzie">
+<meta name="robots" content="noindex">
+<title>Grafiki na Facebooka i bloga — EduPlaner 2026</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,800&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --plum:#2D1B69;--plum-soft:#EDE8F7;--plum-line:#D7CFEA;
+  --orange:#E8450A;--orange-ink:#C43705;
+  --paper:#FBF8F3;--paper-2:#F4EFE8;--card:#FFFFFF;
+  --ink:#221B3A;--ink-2:#5B5471;--ink-3:#6A6377;--line:#E4DED6;
+  --radius:14px;
+  --display:"Bricolage Grotesque","Segoe UI",Arial,sans-serif;
+  --body:"IBM Plex Sans","Segoe UI",Arial,sans-serif;
+  color-scheme:light;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --plum:#3A2686;--plum-soft:#231A45;--plum-line:#3E3168;
+  --orange:#F0602B;--orange-ink:#FF7A47;
+  --paper:#15102A;--paper-2:#1C1536;--card:#211A3E;
+  --ink:#F1ECFA;--ink-2:#B9B0D0;--ink-3:#A29AC0;--line:#332A55;color-scheme:dark;}}
+*{box-sizing:border-box}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--body);font-size:16px;line-height:1.6}
+.wrap{max-width:1240px;margin:0 auto;padding:0 24px}
+header{border-bottom:1px solid var(--line);background:var(--card)}
+header .wrap{display:flex;align-items:center;gap:14px;min-height:70px}
+header img{width:40px;height:40px;border-radius:50%}
+header b{font-family:var(--display);font-size:19px}
+header span{color:var(--ink-3);font-size:13px;display:block}
+header a{margin-left:auto;color:var(--plum);font-weight:600;text-decoration:none;font-size:14.5px}
+h1{font-family:var(--display);font-size:30px;margin:28px 0 6px;line-height:1.15}
+.sub{color:var(--ink-2);margin:0 0 26px;max-width:70ch}
+.uklad{display:grid;grid-template-columns:340px minmax(0,1fr);gap:28px;align-items:start;padding-bottom:60px}
+@media (max-width:900px){.uklad{grid-template-columns:1fr}}
+fieldset{border:1px solid var(--line);border-radius:var(--radius);padding:16px 18px 6px;margin:0 0 16px;background:var(--card)}
+legend{font-size:12.5px;letter-spacing:.1em;text-transform:uppercase;font-weight:700;color:var(--plum);padding:0 6px}
+.pole{display:flex;flex-direction:column;gap:5px;margin-bottom:12px}
+.pole label{font-size:12.5px;font-weight:600;color:var(--ink-2)}
+.pole input,.pole select,.pole textarea{font:inherit;font-size:14.5px;padding:9px 11px;border:1.5px solid var(--line);
+  border-radius:9px;background:var(--paper);color:var(--ink);width:100%}
+.pole textarea{min-height:64px;resize:vertical}
+.pole input:focus,.pole select:focus,.pole textarea:focus{outline:none;border-color:var(--plum);box-shadow:0 0 0 3px rgba(45,27,105,.16)}
+.check{display:grid;grid-template-columns:22px 1fr;gap:9px;align-items:start;margin-bottom:10px;font-size:14px;cursor:pointer}
+.check input{width:22px;height:22px;accent-color:var(--orange);margin:0}
+.hint{font-size:12.5px;color:var(--ink-3);line-height:1.5;margin:2px 0 12px}
+.btn{font:inherit;font-weight:600;font-size:15px;padding:11px 18px;border-radius:10px;border:1.5px solid var(--plum);
+  background:var(--plum);color:#fff;cursor:pointer}
+.btn.ghost{background:transparent;color:var(--plum);}
+.btn:hover{filter:brightness(1.08)}
+.btn:focus-visible{outline:3px solid var(--orange);outline-offset:2px}
+.rzad{display:flex;gap:10px;flex-wrap:wrap;align-items:center}
+.podglad{background:var(--paper-2);border:1px solid var(--line);border-radius:var(--radius);padding:22px;text-align:center}
+.podglad canvas{max-width:100%;height:auto;border-radius:8px;box-shadow:0 18px 40px -24px rgba(45,27,105,.5);background:#fff}
+.miara{font-size:13px;color:var(--ink-3);margin:12px 0 0}
+.stan{font-size:13.5px;color:var(--plum);min-height:20px;margin-left:4px}
+footer{border-top:1px solid var(--line);padding:20px 0 46px;color:var(--ink-3);font-size:13.5px}
+</style>
+</head>
+<body>
+<header><div class="wrap">
+  <img src="data:image/webp;base64,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" alt="">
+  <span><b>Grafiki na Facebooka i bloga</b><span>EduPlaner 2026 · PCTP Koszalin</span></span>
+  <a href="index.html">← Wróć na stronę</a>
+</div></header>
+
+<main class="wrap">
+  <h1>Składasz grafikę, pobierasz plik, wrzucasz na Facebooka</h1>
+  <p class="sub">Wszystko w kolorach EduPlanera i w rozmiarach, których wymagają serwisy.
+    Nic nie instalujesz, nic nie wysyłasz na zewnątrz — plik powstaje w Twojej przeglądarce.</p>
+
+  <div class="uklad">
+    <div>
+      <fieldset>
+        <legend>Format</legend>
+        <div class="pole"><label for="format">Do czego</label>
+          <select id="format"></select></div>
+        <p class="hint" id="opis-formatu"></p>
+      </fieldset>
+
+      <fieldset>
+        <legend>Wygląd</legend>
+        <div class="pole"><label for="motyw">Kolory</label>
+          <select id="motyw">
+            <option value="jasny">Jasny — papier i fiolet</option>
+            <option value="fiolet">Fioletowy — mocny, na start</option>
+            <option value="pomarancz">Pomarańczowy — dla nowości</option>
+          </select></div>
+        <div class="pole"><label for="uklad">Układ</label>
+          <select id="uklad">
+            <option value="tytul">Tytuł z nadtytułem</option>
+            <option value="cytat">Cytat</option>
+            <option value="liczba">Liczba, która robi wrażenie</option>
+          </select></div>
+        <label class="check"><input type="checkbox" id="kwiat" checked><span>Kwiat EduPlanera w rogu</span></label>
+        <label class="check"><input type="checkbox" id="logo" checked><span>Logo i nazwa</span></label>
+        <label class="check"><input type="checkbox" id="pasek" checked><span>Pomarańczowy pasek u góry</span></label>
+      </fieldset>
+
+      <fieldset>
+        <legend>Treść</legend>
+        <div class="pole"><label for="nad">Nadtytuł</label>
+          <input id="nad" value="Od 1 września 2026"></div>
+        <div class="pole"><label for="tytul">Tytuł</label>
+          <textarea id="tytul">WOPF i IPET po nowemu</textarea></div>
+        <div class="pole"><label for="pod">Podtytuł</label>
+          <textarea id="pod">Szkolenie rady pedagogicznej — przedszkole, szkoła podstawowa i ponadpodstawowa</textarea></div>
+        <div class="pole"><label for="stopka">Stopka</label>
+          <input id="stopka" value="eduplaner2026.pl"></div>
+      </fieldset>
+
+      <div class="rzad">
+        <button class="btn" type="button" id="pobierz">Pobierz PNG</button>
+        <button class="btn ghost" type="button" id="kopiuj">Kopiuj do schowka</button>
+      </div>
+      <p class="stan" id="stan"></p>
+    </div>
+
+    <div class="podglad">
+      <canvas id="plotno" width="1200" height="630"></canvas>
+      <p class="miara" id="miara"></p>
+    </div>
+  </div>
+</main>
+
+<footer><div class="wrap">Narzędzie wewnętrzne PCTP. Nie indeksuje się i nie jest częścią oferty.</div></footer>
+<script>
+/* ------------------------------------------------------------------
+   Grafiki EduPlanera. Rysujemy bezpośrednio na płótnie, bez żadnej
+   biblioteki: dzięki temu narzędzie działa z pliku na dysku, nie wymaga
+   internetu poza czcionkami i nie zestarzeje się razem z cudzym kodem.
+   Logo siedzi w pliku jako data URI — obraz z dysku „zabrudziłby" płótno
+   i pobieranie PNG przestałoby działać.
+------------------------------------------------------------------- */
+'use strict';
+var LOGO = 'data:image/webp;base64,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';
+
+var FORMATY = [
+  { id:'fb-okladka', nazwa:'Facebook — okładka strony', w:1640, h:624,
+    opis:'Facebook przycina okładkę na telefonie, dlatego tekst trzymamy w środku. To, co widać zawsze, to pas 820 × 312 pikseli pośrodku.' },
+  { id:'fb-profil', nazwa:'Facebook — zdjęcie profilowe', w:720, h:720,
+    opis:'Wyświetla się jako koło, więc rogi zostają puste. Najlepiej sprawdza się samo logo albo bardzo krótki napis.' },
+  { id:'fb-post', nazwa:'Facebook — post poziomy', w:1200, h:630,
+    opis:'Standardowy post z linkiem. Ten sam rozmiar działa jako obrazek podglądu strony w wyszukiwarce.' },
+  { id:'fb-kwadrat', nazwa:'Facebook i Instagram — kwadrat', w:1080, h:1080,
+    opis:'Zajmuje najwięcej miejsca w przewijanej tablicy. Najlepszy do cytatów i pojedynczych liczb.' },
+  { id:'blog-naglowek', nazwa:'Blog — nagłówek wpisu', w:1600, h:840,
+    opis:'Grafika na górze wpisu. Szeroka, więc tytuł może być dłuższy niż na kwadracie.' },
+  { id:'blog-cytat', nazwa:'Blog — grafika cytatu', w:1080, h:1080,
+    opis:'Do wyróżnienia zdania w środku wpisu albo do udostępnienia razem z linkiem.' }
+];
+
+var MOTYWY = {
+  jasny:     { tlo:['#FBF8F3','#F1EAF7'], tekst:'#221B3A', nadtytul:'#C43705', pod:'#5B5471', pasek:'#E8450A', marka:'#2D1B69', kwiat:.16 },
+  fiolet:    { tlo:['#2D1B69','#1E1341'], tekst:'#FFFFFF', nadtytul:'#FFB08A', pod:'#D2CBE0', pasek:'#E8450A', marka:'#EDE8F7', kwiat:.20 },
+  pomarancz: { tlo:['#E8450A','#B8300A'], tekst:'#FFFFFF', nadtytul:'#FFE2D2', pod:'#FFE2D2', pasek:'#2D1B69', marka:'#FFFFFF', kwiat:.22 }
+};
+
+var $ = function(id){ return document.getElementById(id); };
+var plotno = $('plotno'), ctx = plotno.getContext('2d');
+var logoImg = new Image();
+var logoGotowe = false;
+logoImg.onload = function(){ logoGotowe = true; rysuj(); };
+logoImg.src = LOGO;
+
+/* lista formatów */
+FORMATY.forEach(function(f){
+  var o = document.createElement('option');
+  o.value = f.id; o.textContent = f.nazwa + ' · ' + f.w + ' × ' + f.h;
+  $('format').appendChild(o);
+});
+$('format').value = 'fb-post';
+
+function format(){ 
+  var id = $('format').value;
+  for (var i=0;i<FORMATY.length;i++){ if (FORMATY[i].id===id) return FORMATY[i]; }
+  return FORMATY[0];
+}
+
+/* ---------- rysowanie -------------------------------------------- */
+
+/* Zawijanie tekstu do zadanej szerokości, z automatycznym zmniejszaniem
+   stopnia pisma, dopóki nie zmieści się w wyznaczonej liczbie wierszy. */
+function zawin(tekst, maxSzer, rozmiar, waga, rodzina, maxWierszy){
+  var linie, r = rozmiar;
+  while (r > 12){
+    ctx.font = waga + ' ' + r + 'px ' + rodzina;
+    linie = [];
+    var slowa = String(tekst).split(/\s+/).filter(Boolean), biezaca = '';
+    for (var i=0;i<slowa.length;i++){
+      var probna = biezaca ? biezaca + ' ' + slowa[i] : slowa[i];
+      if (ctx.measureText(probna).width > maxSzer && biezaca){ linie.push(biezaca); biezaca = slowa[i]; }
+      else { biezaca = probna; }
+    }
+    if (biezaca) linie.push(biezaca);
+    if (linie.length <= maxWierszy) break;
+    r -= 2;
+  }
+  return { linie: linie || [], rozmiar: r };
+}
+
+/* Blok tekstu ze znaną wysokością — dzięki temu można złożyć całość
+   od góry do dołu i wyśrodkować ją w pionie, zamiast zgadywać odstępy. */
+function blok(tekst, szer, rozmiar, waga, rodzina, maxWierszy, interlinia){
+  var z = zawin(tekst, szer, rozmiar, waga, rodzina, maxWierszy);
+  return { linie:z.linie, rozmiar:z.rozmiar, waga:waga, rodzina:rodzina, interlinia:interlinia,
+           wysokosc: z.linie.length * z.rozmiar * interlinia };
+}
+
+function rysujBlok(b, x, gora, kolor){
+  ctx.fillStyle = kolor;
+  ctx.font = b.waga + ' ' + b.rozmiar + 'px ' + b.rodzina;
+  for (var i=0;i<b.linie.length;i++){
+    ctx.fillText(b.linie[i], x, gora + i*b.rozmiar*b.interlinia + b.rozmiar*0.80);
+  }
+  return gora + b.wysokosc;
+}
+
+/* Kwiat z logo strony, przerysowany wektorowo — ta sama forma, co w SVG. */
+function kwiat(cx, cy, skala, alfa){
+  ctx.save();
+  ctx.globalAlpha = alfa;
+  ctx.translate(cx, cy); ctx.scale(skala, skala); ctx.translate(-50, -50);
+  ctx.lineCap = 'round'; ctx.strokeStyle = '#C9A227';
+  ctx.lineWidth = 4;   ctx.beginPath(); ctx.moveTo(50,60); ctx.lineTo(50,96); ctx.stroke();
+  ctx.lineWidth = 3.5; ctx.beginPath();
+  ctx.moveTo(50,80); ctx.bezierCurveTo(40,77,31,72,23,65);
+  ctx.moveTo(50,80); ctx.bezierCurveTo(60,77,69,72,77,65); ctx.stroke();
+  function platek(x,y,rx,ry,kat,kolor){
+    ctx.save(); ctx.translate(x,y); ctx.rotate(kat*Math.PI/180);
+    ctx.fillStyle = kolor; ctx.beginPath(); ctx.ellipse(0,0,rx,ry,0,0,Math.PI*2); ctx.fill(); ctx.restore();
+  }
+  platek(22,52,7.5,16,-58,'#A48FD6'); platek(78,52,7.5,16,58,'#A48FD6');
+  platek(35,41,8.5,18,-26,'#F0A57E'); platek(65,41,8.5,18,26,'#F0A57E');
+  platek(50,35,9.5,21,0,'#E8632A');
+  ctx.fillStyle = '#FBF8F3'; ctx.beginPath(); ctx.arc(50,57,4.5,0,Math.PI*2); ctx.fill();
+  ctx.restore();
+}
+
+function stopkaMarki(m, x, dolnaLinia, skala){
+  var napis = $('stopka').value.trim();
+  var pokazLogo = $('logo').checked;
+  var wys = Math.round(46*skala);
+  if (pokazLogo && logoGotowe){
+    ctx.save();
+    ctx.beginPath(); ctx.arc(x + wys/2, dolnaLinia - wys/2, wys/2, 0, Math.PI*2); ctx.clip();
+    ctx.drawImage(logoImg, x, dolnaLinia - wys, wys, wys);
+    ctx.restore();
+    x += wys + Math.round(16*skala);
+  }
+  ctx.fillStyle = m.marka;
+  ctx.font = '600 ' + Math.round(26*skala) + 'px "Bricolage Grotesque", Arial, sans-serif';
+  ctx.fillText('EduPlaner 2026', x, dolnaLinia - (napis ? Math.round(20*skala) : Math.round(14*skala)));
+  if (napis){
+    ctx.fillStyle = m.pod;
+    ctx.font = '500 ' + Math.round(19*skala) + 'px "IBM Plex Sans", Arial, sans-serif';
+    ctx.fillText(napis, x, dolnaLinia - Math.round(1*skala));
+  }
+}
+
+function rysuj(){
+  var f = format(), m = MOTYWY[$('motyw').value], u = $('uklad').value;
+  plotno.width = f.w; plotno.height = f.h;
+  var skala = Math.min(f.w, f.h) / 700;
+
+  var g = ctx.createLinearGradient(0, 0, f.w, f.h);
+  g.addColorStop(0, m.tlo[0]); g.addColorStop(1, m.tlo[1]);
+  ctx.fillStyle = g; ctx.fillRect(0, 0, f.w, f.h);
+
+  if ($('kwiat').checked) kwiat(f.w - 120*skala, f.h - 100*skala, 3.2*skala, m.kwiat);
+  if ($('pasek').checked){ ctx.fillStyle = m.pasek; ctx.fillRect(0, 0, f.w, Math.max(6, Math.round(10*skala))); }
+
+  /* Okładkę Facebook przycina na telefonie, więc treść trzymamy w bezpiecznym
+     pasie pośrodku. Zdjęcie profilowe jest kołem — zostawiamy większy margines. */
+  var margines = Math.round(64*skala);
+  var lewy = margines, szer = f.w - margines*2;
+  if (f.id === 'fb-okladka'){ szer = Math.min(szer, Math.round(f.w*0.56)); lewy = Math.round((f.w - szer)/2); }
+  if (f.id === 'fb-profil'){ szer = f.w - Math.round(150*skala); lewy = Math.round(75*skala); }
+
+  ctx.textBaseline = 'alphabetic';
+
+  /* Pole na treść: od paska u góry do stopki na dole. */
+  var goraPola = Math.round(70*skala);
+  var stopkaWys = ($('logo').checked || $('stopka').value.trim()) ? Math.round(96*skala) : Math.round(40*skala);
+  var dolPola = f.h - stopkaWys;
+
+  var bloki = [], odstepy = [];
+  if (u === 'cytat'){
+    bloki.push({ b: blok($('tytul').value, szer, Math.round(60*skala), '600', '"Bricolage Grotesque", Arial, sans-serif', 5, 1.24), kolor:m.tekst });
+    odstepy.push(Math.round(24*skala));
+    if ($('pod').value.trim())
+      bloki.push({ b: blok($('pod').value, szer, Math.round(27*skala), '500', '"IBM Plex Sans", Arial, sans-serif', 3, 1.4), kolor:m.pod });
+  } else if (u === 'liczba'){
+    if ($('nad').value.trim()){
+      bloki.push({ b: blok($('nad').value.toUpperCase(), szer, Math.round(23*skala), '600', '"IBM Plex Sans", Arial, sans-serif', 2, 1.35), kolor:m.nadtytul });
+      odstepy.push(Math.round(18*skala));
+    }
+    bloki.push({ b: blok(($('tytul').value.split(/\s+/)[0]||''), szer, Math.round(180*skala), '800', '"Bricolage Grotesque", Arial, sans-serif', 1, 1.02), kolor:m.tekst });
+    odstepy.push(Math.round(16*skala));
+    if ($('pod').value.trim())
+      bloki.push({ b: blok($('pod').value, szer, Math.round(33*skala), '600', '"IBM Plex Sans", Arial, sans-serif', 3, 1.35), kolor:m.pod });
+  } else {
+    if ($('nad').value.trim()){
+      bloki.push({ b: blok($('nad').value.toUpperCase(), szer, Math.round(23*skala), '600', '"IBM Plex Sans", Arial, sans-serif', 2, 1.35), kolor:m.nadtytul, kreska:true });
+      odstepy.push(Math.round(30*skala));
+    }
+    bloki.push({ b: blok($('tytul').value, szer, Math.round(80*skala), '800', '"Bricolage Grotesque", Arial, sans-serif', 4, 1.14), kolor:m.tekst });
+    odstepy.push(Math.round(24*skala));
+    if ($('pod').value.trim())
+      bloki.push({ b: blok($('pod').value, szer, Math.round(29*skala), '500', '"IBM Plex Sans", Arial, sans-serif', 3, 1.42), kolor:m.pod });
+  }
+
+  var razem = 0;
+  for (var i=0;i<bloki.length;i++){ razem += bloki[i].b.wysokosc; if (i < odstepy.length && i < bloki.length-1) razem += odstepy[i]; }
+  if (u === 'cytat') razem += Math.round(112*skala);  // miejsce na znak cudzysłowu nad tekstem
+
+  var top = Math.max(goraPola, Math.round(goraPola + (dolPola - goraPola - razem)/2));
+
+  if (u === 'cytat'){
+    ctx.fillStyle = m.nadtytul;
+    ctx.font = '800 ' + Math.round(130*skala) + 'px "Bricolage Grotesque", Georgia, serif';
+    ctx.fillText('„', lewy - Math.round(6*skala), top + Math.round(88*skala));
+    top += Math.round(112*skala);
+  }
+
+  for (var j=0;j<bloki.length;j++){
+    var poz = bloki[j];
+    var dol = rysujBlok(poz.b, lewy, top, poz.kolor);
+    if (poz.kreska){
+      ctx.font = poz.b.waga + ' ' + poz.b.rozmiar + 'px ' + poz.b.rodzina;
+      var szerNad = Math.min(ctx.measureText(poz.b.linie[0] || '').width, szer);
+      ctx.fillStyle = poz.kolor;
+      ctx.fillRect(lewy, dol + Math.round(10*skala), szerNad, Math.max(2, Math.round(3*skala)));
+    }
+    top = dol + (j < odstepy.length ? odstepy[j] : 0);
+  }
+
+  if ($('logo').checked || $('stopka').value.trim()) stopkaMarki(m, lewy, f.h - Math.round(48*skala), skala);
+
+  $('miara').textContent = f.nazwa + ' · ' + f.w + ' × ' + f.h + ' px';
+  $('opis-formatu').textContent = f.opis;
+}
+
+/* ---------- pobieranie ------------------------------------------- */
+
+function nazwaPliku(){
+  var t = $('tytul').value.toLowerCase()
+    .replace(/[ąćęłńóśźż]/g, function(z){ return {'ą':'a','ć':'c','ę':'e','ł':'l','ń':'n','ó':'o','ś':'s','ź':'z','ż':'z'}[z]; })
+    .replace(/[^a-z0-9]+/g,'-').replace(/^-|-$/g,'').slice(0,40) || 'grafika';
+  return 'eduplaner-' + format().id + '-' + t + '.png';
+}
+
+$('pobierz').addEventListener('click', function(){
+  plotno.toBlob(function(blob){
+    var a = document.createElement('a');
+    a.href = URL.createObjectURL(blob);
+    a.download = nazwaPliku();
+    document.body.appendChild(a); a.click(); a.remove();
+    setTimeout(function(){ URL.revokeObjectURL(a.href); }, 4000);
+    $('stan').textContent = 'Zapisano ' + nazwaPliku();
+  }, 'image/png');
+});
+
+$('kopiuj').addEventListener('click', function(){
+  if (!navigator.clipboard || !window.ClipboardItem){
+    $('stan').textContent = 'Ta przeglądarka nie kopiuje obrazów — użyj przycisku Pobierz PNG.';
+    return;
+  }
+  plotno.toBlob(function(blob){
+    navigator.clipboard.write([new ClipboardItem({'image/png': blob})])
+      .then(function(){ $('stan').textContent = 'Skopiowano. Wklej na Facebooku klawiszami Ctrl+V.'; })
+      .catch(function(){ $('stan').textContent = 'Nie udało się skopiować — użyj przycisku Pobierz PNG.'; });
+  }, 'image/png');
+});
+
+['format','motyw','uklad','nad','tytul','pod','stopka','kwiat','logo','pasek'].forEach(function(id){
+  $(id).addEventListener('input', rysuj);
+  $(id).addEventListener('change', rysuj);
+});
+
+if (document.fonts && document.fonts.ready) document.fonts.ready.then(rysuj);
+rysuj();
+</script>
+</body>
+</html>
