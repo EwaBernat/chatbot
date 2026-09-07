@@ -1297,6 +1297,14 @@ def zbuduj():
               'sekundy': zmierzone or sekundy_z_tekstu(tekst),
               **({'glos': f'{ident}.mp3'} if zmierzone else {}),
             })
+        # Karta tytułowa zapowiada czas trwania modułu. Dopóki nie ma nagrań,
+        # zostaje szacunek wpisany w planie; po nagraniu bierzemy sumę zmierzoną,
+        # żeby zapowiedź na ekranie zgadzała się z długością pliku.
+        laczne = sum(u['sekundy'] for u in ujecia)
+        for u in ujecia:
+            if u['scena']['typ'] == 'tytulModulu':
+                u['scena'] = dict(u['scena'], czas=f'{int(laczne) // 60}:{int(laczne) % 60:02d}')
+
         moduly.append({
           'id': f'P{numer}',
           'numer': str(numer),
