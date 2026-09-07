@@ -114,13 +114,12 @@ mają narrację głosem Ewy wyrównaną do −20,7 LUFS i wyrenderowany film 108
 | P1 · Podstawa prawna | 22 | 10:15 | **nagrany** | **gotowy** |
 | P2 · Obieg dokumentów | 12 | 5:37 | **nagrany** | **gotowy** |
 | P3 · Metryczka dziecka | 13 | 5:50 | **nagrany** | **gotowy** |
-| P4 · KPOF | 22 | 10:37 | **nagrany** | w renderze |
-| P5 · Obserwacja pogłębiona | 24 | 9:41 | **nagrany** | w kolejce |
-| P6 · WOPF, IPET, ewaluacja | 30 | 13:39 | **nagrany** | w kolejce |
+| P4 · KPOF | 22 | 10:38 | **nagrany** | **gotowy** |
+| P5 · Obserwacja pogłębiona | 24 | 9:41 | **nagrany** | **gotowy** |
+| P6 · WOPF, IPET, ewaluacja | 30 | 13:40 | **nagrany** | **gotowy** |
 
-Razem **123 ujęcia, 55 minut 39 sekund**. Narracja jest kompletna — wszystkie 123
-ujęcia mają nagranie wyrównane do −20,7 LUFS; rendery idą po kolei skryptem
-z katalogu roboczego.
+Razem **123 ujęcia, 55 minut 40 sekund**. Szkolenie przedszkolne jest kompletne:
+wszystkie ujęcia mają narrację wyrównaną do −20,7 LUFS i wyrenderowany film 1080p.
 
 Zrzuty druków przedszkolnych leżą w `public/druki-przedszkole/` i pochodzą z trybu
 `przedszkole` aplikacji (`npx vite --mode przedszkole`). W tym trybie aplikacja ma
