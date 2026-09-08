@@ -48,6 +48,7 @@ declare global {
   interface Window {
     kpofRecompute?: () => void;
     tomRecompute?: () => void;
+    kszofRecompute?: () => void;
   }
 }
 
@@ -221,20 +222,20 @@ export const OryginalnyDruk: React.FC<Props> = ({plik, kroki, kamera, wykresyOdS
       }
     }
 
-    (window.kpofRecompute ?? window.tomRecompute)?.();
+    (window.kpofRecompute ?? window.tomRecompute ?? window.kszofRecompute)?.();
 
     // Wykresy: rosną od momentu, w którym narracja o nich mówi.
     if (wykresyOdSek !== undefined) {
       const p = easeInOut(Math.max(0, Math.min(1, (sek - wykresyOdSek) / 1.1)));
-      root.querySelectorAll<SVGElement>('.barchart rect').forEach((r) => {
+      root.querySelectorAll<SVGElement>('.barchart rect, rect[id^="kbar-"]').forEach((r) => {
         r.style.transformBox = 'fill-box';
         r.style.transformOrigin = 'bottom';
         r.style.transform = `scaleY(${p})`;
       });
-      root.querySelectorAll<SVGElement>('.barchart text, .radarchart circle').forEach((t) => {
+      root.querySelectorAll<SVGElement>('.barchart text, .radarchart circle, text[id^="kbarv-"], circle[id^="krdot-"]').forEach((t) => {
         t.style.opacity = String(p);
       });
-      root.querySelectorAll<SVGElement>('.radarchart polygon:last-of-type').forEach((pg) => {
+      root.querySelectorAll<SVGElement>('.radarchart polygon:last-of-type, polygon#kradar-poly').forEach((pg) => {
         pg.style.transformBox = 'fill-box';
         pg.style.transformOrigin = 'center';
         pg.style.transform = `scale(${0.05 + 0.95 * p})`;

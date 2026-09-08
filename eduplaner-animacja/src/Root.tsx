@@ -16,6 +16,8 @@ import {IpetPromo, type FilmIpet} from './ipet/IpetPromo';
 import ipet from '../public/ipet.json';
 import {MetryczkaSpPromo, type FilmSp} from './sp/MetryczkaSpPromo';
 import spMetryczka from '../public/sp-metryczka.json';
+import {KszofPromo, type FilmKszof} from './sp/KszofPromo';
+import spKszof from '../public/sp-kszof.json';
 
 const FPS = 30;
 
@@ -146,6 +148,26 @@ export const RemotionRoot: React.FC = () => (
       width={1920}
       height={1080}
       defaultProps={{film: spMetryczka as unknown as FilmSp}}
+      calculateMetadata={async ({props}) => {
+        let sekundy = props.film.dlugosc;
+        if (props.film.audio) {
+          try {
+            sekundy = Math.max(sekundy, await getAudioDurationInSeconds(staticFile(props.film.audio)));
+          } catch {
+            // bez nagrania długość bierze się z napisów
+          }
+        }
+        return {durationInFrames: Math.max(1, Math.round(sekundy * FPS))};
+      }}
+    />
+    <Composition
+      id="KszofPromo"
+      component={KszofPromo}
+      durationInFrames={60 * FPS}
+      fps={FPS}
+      width={1920}
+      height={1080}
+      defaultProps={{film: spKszof as unknown as FilmKszof}}
       calculateMetadata={async ({props}) => {
         let sekundy = props.film.dlugosc;
         if (props.film.audio) {
