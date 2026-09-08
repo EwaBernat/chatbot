@@ -21,10 +21,13 @@ export type Krok =
 
 /** Selektor z opcjonalnym przedrostkiem strony: "@3 .fields .fv" = trzecia .page w druku. */
 const wybierz = (root: ParentNode, sel: string): Element | null => {
-  const m = /^@(\d+)\s+(.*)$/.exec(sel);
+  // "@3 .fg .blankline #4" = czwarte (od zera) dopasowanie w trzeciej stronie (.page albo .sheet)
+  const m = /^(?:@(\d+)\s+)?(.*?)(?:\s+#(\d+))?$/.exec(sel);
   if (!m) return root.querySelector(sel);
-  const pg = root.querySelectorAll('.page')[Number(m[1]) - 1];
-  return pg ? pg.querySelector(m[2]) : null;
+  const zakres: ParentNode | null = m[1] ? root.querySelectorAll('.page, .sheet')[Number(m[1]) - 1] ?? null : root;
+  if (!zakres) return null;
+  if (m[3] !== undefined) return zakres.querySelectorAll(m[2])[Number(m[3])] ?? null;
+  return zakres.querySelector(m[2]);
 };
 
 export type Ujecie = {sek: number; selektor: string; skala: number; przesun?: number; czas?: number};
@@ -36,6 +39,7 @@ type Props = {
   wykresyOdSek?: number;
   odSek: number; // początek tej sceny w sekundach filmu
   szerokosc?: number; // szerokość dokumentu w px (A4 = 794; strony WWW np. 1200)
+  css?: string; // dodatkowe reguły CSS tylko na czas filmu (np. ukrycie przycisków „Dodaj wiersz”)
 };
 
 const SZEROKOSC_DOKUMENTU = 794; // 210 mm przy 96 dpi
@@ -49,7 +53,7 @@ declare global {
 
 const easeInOut = (t: number) => (t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2);
 
-export const OryginalnyDruk: React.FC<Props> = ({plik, kroki, kamera, wykresyOdSek, odSek, szerokosc}) => {
+export const OryginalnyDruk: React.FC<Props> = ({plik, kroki, kamera, wykresyOdSek, odSek, szerokosc, css}) => {
   const SZER = szerokosc ?? SZEROKOSC_DOKUMENTU;
   const frame = useCurrentFrame();
   const {fps} = useVideoConfig();
@@ -318,7 +322,7 @@ export const OryginalnyDruk: React.FC<Props> = ({plik, kroki, kamera, wykresyOdS
 
   return (
     <AbsoluteFill style={{background: `linear-gradient(135deg, #EFEBF7 0%, ${MARKA.tloCieple} 100%)`, overflow: 'hidden'}}>
-      {html ? <style dangerouslySetInnerHTML={{__html: html.css}} /> : null}
+      {html ? <style dangerouslySetInnerHTML={{__html: html.css + '\n' + (css ?? '')}} /> : null}
       <div ref={kameraRef} style={{position: 'absolute', left: 0, top: 0, width: SZER, transformOrigin: '0 0', willChange: 'transform'}}>
         <div ref={kontener} className="druk-oryginalny" dangerouslySetInnerHTML={{__html: html?.body ?? ''}} />
         <div ref={kursorRef} style={{position: 'absolute', left: 0, top: 0, width: 26, height: 34, opacity: 0, pointerEvents: 'none', transformOrigin: '0 0'}}>

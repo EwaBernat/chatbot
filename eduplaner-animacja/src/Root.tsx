@@ -14,6 +14,8 @@ import {CelePromo, type FilmCele} from './cele/CelePromo';
 import cele from '../public/cele.json';
 import {IpetPromo, type FilmIpet} from './ipet/IpetPromo';
 import ipet from '../public/ipet.json';
+import {MetryczkaSpPromo, type FilmSp} from './sp/MetryczkaSpPromo';
+import spMetryczka from '../public/sp-metryczka.json';
 
 const FPS = 30;
 
@@ -124,6 +126,26 @@ export const RemotionRoot: React.FC = () => (
       width={1920}
       height={1080}
       defaultProps={{film: cele as unknown as FilmCele}}
+      calculateMetadata={async ({props}) => {
+        let sekundy = props.film.dlugosc;
+        if (props.film.audio) {
+          try {
+            sekundy = Math.max(sekundy, await getAudioDurationInSeconds(staticFile(props.film.audio)));
+          } catch {
+            // bez nagrania długość bierze się z napisów
+          }
+        }
+        return {durationInFrames: Math.max(1, Math.round(sekundy * FPS))};
+      }}
+    />
+    <Composition
+      id="MetryczkaSpPromo"
+      component={MetryczkaSpPromo}
+      durationInFrames={60 * FPS}
+      fps={FPS}
+      width={1920}
+      height={1080}
+      defaultProps={{film: spMetryczka as unknown as FilmSp}}
       calculateMetadata={async ({props}) => {
         let sekundy = props.film.dlugosc;
         if (props.film.audio) {

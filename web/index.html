@@ -466,6 +466,65 @@
     </div>
   </section>
 
+  <!-- ====== SZKOŁA PODSTAWOWA ====== -->
+  <section class="hero" id="sp-metryczka" style="margin-top:72px">
+    <div>
+      <div class="eyebrow">Szkoła podstawowa · przystanek pierwszy · teczka ucznia</div>
+      <h1>Metryczka ucznia</h1>
+      <p class="lead">Nowa seria dla szkoły podstawowej. Odpowiedź na pytanie „czy nasza dokumentacja może zostać jak w zeszłym roku?” z podstawą prawną, zmiany w prawie oświatowym i w orzecznictwie na rok 2026/2027, a potem pierwszy druk — Metryczka ucznia wypełniana na oryginalnym druku z aplikacji. Na końcu „Strażnik prawa”.</p>
+      <div class="akcje">
+        <button class="btn btn-glowny" id="wiecej-sp-metryczka" aria-expanded="false" aria-controls="panel-sp-metryczka">Więcej</button>
+        <a class="btn btn-drugi" href="media/Metryczka_SP_2026_Zofia_Lewandowska_wypelniona.html" target="_blank" rel="noopener">Wypełniona metryczka (HTML)</a>
+        <a class="btn btn-drugi" href="media/Metryczka_SP_2026_Zofia_Lewandowska_wypelniona.pdf" target="_blank" rel="noopener">Wypełniona metryczka (PDF)</a>
+        <a class="btn btn-drugi" href="media/Metryczka_SP_2026_druk_pusty.html" target="_blank" rel="noopener">Pusty druk (aktualne przepisy)</a>
+      </div>
+    </div>
+    <div class="ikonka-wrap">
+      <button class="ikonka" id="ikonka-sp-metryczka" aria-label="Odtwórz animację Metryczka ucznia — szkoła podstawowa">
+        <span class="obwod"></span>
+        <span class="kartka">
+          <span class="linia"></span><span class="linia"></span><span class="linia"></span><span class="linia"></span>
+          <span class="ptaszek">✓</span>
+        </span>
+        <span class="play"><span></span></span>
+      </button>
+    </div>
+  </section>
+
+  <section class="panel" id="panel-sp-metryczka" aria-hidden="true">
+    <div class="wnetrze">
+      <div class="panel-karta">
+        <div class="odtwarzacz">
+          <video id="film-sp-metryczka" preload="metadata" playsinline controls poster="media/plakat-sp-metryczka.jpg">
+            <source src="media/eduplaner-sp-metryczka.mp4" type="video/mp4">
+            Twoja przeglądarka nie odtwarza wideo MP4.
+          </video>
+          <span class="glos">🎙 narracja: Mirosława Ewa Jurczyszyn</span>
+        </div>
+        <div class="tekst">
+          <div class="pod">Skrypt dla nauczycieli · szkoła podstawowa · części 1, 2 i 4</div>
+          <h2>Nie zaczynamy od zera — aktualizujemy</h2>
+          <p>Od 1 września 2026 zmienia się nie objętość dokumentacji, lecz jej język (ICF) i funkcja (jeden dokument zasila drugi; opinia dla poradni w 10 dni). Dokument w starym języku przestaje działać w nowym obiegu.</p>
+          <ul>
+            <li>Pięć powodów aktualizacji z podstawą prawną (z dziesięciu w skrypcie) i czego nie zmieniamy</li>
+            <li>Zmiany w przepisach: orzekanie (Dz.U. 2026 poz. 428), Prawo oświatowe t.j. 2026 poz. 820, kształcenie specjalne t.j. 2020 poz. 1309, pomoc pp t.j. 2023 poz. 1798, dokumentacja t.j. 2024 poz. 50</li>
+            <li>Metryczka ucznia na oryginalnym druku: 6 stron, 15 sekcji — dane minimalne, data wpływu orzeczenia, zespół, audyt źródeł, zdrowie, synteza, dostępność, głos ucznia, zgody, teczka, podpisy</li>
+            <li>Strażnik prawa: w sekcji XIV poprawiono publikator Prawa oświatowego i dopisano rozporządzenie o dokumentacji</li>
+          </ul>
+          <div class="haslo">Każdy druk ma swój przepis — i my go znamy.</div>
+          <details class="skrypt" open>
+            <summary>Podstawa prawna (wg skryptu dla szkoły podstawowej)</summary>
+            <p>Orzeczenia i opinie — rozp. ME z 2.03.2026 r. (Dz.U. 2026 poz. 428): § 7 ust. 2–3 opinia szkoły w 10 dni, § 7 ust. 6–7 i § 8 ocena funkcjonalna w języku ICF. Prawo oświatowe — t.j. Dz.U. 2026 poz. 820 (art. 1, art. 127). Kształcenie specjalne — t.j. Dz.U. 2020 poz. 1309 (§ 6 WOPFU i IPET, § 7 nauczyciel współorganizujący). Pomoc pp — t.j. Dz.U. 2023 poz. 1798. Dokumentacja przebiegu nauczania — t.j. Dz.U. 2024 poz. 50. Finansowanie — art. 8 ust. 16–17 ustawy o finansowaniu zadań oświatowych. RODO — art. 5 ust. 1 lit. c, art. 6, art. 9. Pełna tabela: <a href="media/sp-metryczka-straznik-prawa.md" target="_blank" rel="noopener">Strażnik prawa (md)</a>.</p>
+          </details>
+          <details class="skrypt">
+            <summary>Tekst narracji (do nagrania)</summary>
+            <p id="skrypt-sp-metryczka"></p>
+          </details>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <section class="siatka" aria-label="Druki modułu Metryczka">
     <div class="karta"><div class="ik">📥</div><div><b>Zgłoszenie - placówka</b><small>Wewnętrzne zgłoszenie dziecka do objęcia wsparciem.</small><br><span class="odz">wejście ścieżki</span></div></div>
     <div class="karta"><div class="ik">👥</div><div><b>Zgłoszenie - rodzica</b><small>Zgłoszenie / wniosek od rodzica lub opiekuna.</small></div></div>
@@ -614,6 +673,26 @@
       var el = document.getElementById('skrypt-cele');
       if (t) { el.textContent = t; } else { el.parentElement.hidden = true; }
     }).catch(function () { document.getElementById('skrypt-cele').parentElement.hidden = true; });
+  })();
+
+  // Szkoła podstawowa · Metryczka ucznia — siódmy panel.
+  (function () {
+    var b = document.getElementById('wiecej-sp-metryczka'), ik = document.getElementById('ikonka-sp-metryczka');
+    var pn = document.getElementById('panel-sp-metryczka'), f = document.getElementById('film-sp-metryczka');
+    var o = false;
+    function otw(play) {
+      o = true; pn.setAttribute('aria-hidden', 'false'); b.setAttribute('aria-expanded', 'true'); b.textContent = 'Mniej';
+      if (play) { f.muted = false; var p = f.play(); if (p && p.catch) { p.catch(function () {}); } }
+      setTimeout(function () { pn.scrollIntoView({behavior: 'smooth', block: 'start'}); }, 120);
+    }
+    function zam() { o = false; pn.setAttribute('aria-hidden', 'true'); b.setAttribute('aria-expanded', 'false'); b.textContent = 'Więcej'; f.pause(); }
+    b.addEventListener('click', function () { o ? zam() : otw(true); });
+    ik.addEventListener('click', function () { o ? f.play() : otw(true); });
+    if (location.hash === '#sp-metryczka') { otw(false); }
+    fetch('media/sp-metryczka-scenariusz.txt').then(function (r) { return r.ok ? r.text() : ''; }).then(function (t) {
+      var el = document.getElementById('skrypt-sp-metryczka');
+      if (t) { el.textContent = t; } else { el.parentElement.hidden = true; }
+    }).catch(function () { document.getElementById('skrypt-sp-metryczka').parentElement.hidden = true; });
   })();
 
   // Pełny tekst narracji do wglądu (ten sam, który czyta lektorka).
