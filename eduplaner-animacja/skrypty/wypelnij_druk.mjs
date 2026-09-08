@@ -13,7 +13,7 @@ await page.evaluate(() => document.fonts.ready);
 const brak = await page.evaluate(({K, Z}) => {
   const wybierz = (sel) => { const m = /^(?:@(\d+)\s+)?(.*?)(?:\s+#(\d+))?$/.exec(sel); const z = m[1] ? document.querySelectorAll('.page, .sheet')[Number(m[1]) - 1] : document; if (!z) return null; return m[3] !== undefined ? z.querySelectorAll(m[2])[Number(m[3])] : z.querySelector(m[2]); };
   const brak = [];
-  for (const k of K) { const el = wybierz(k.sel); if (!el) { brak.push(k.sel); continue; } if (k.k) { const c = el.querySelector('.chk'); (c ?? el).classList.add('on'); if (el.classList.contains('opt')) el.classList.add('on'); } else el.textContent = k.t; }
+  for (const k of K) { const el = wybierz(k.sel); if (!el) { brak.push(k.sel); continue; } if (k.click) { el.click(); } else if (k.k) { const c = el.querySelector('.chk'); (c ?? el).classList.add('on'); if (el.classList.contains('opt')) el.classList.add('on'); } else el.textContent = k.t; }
   for (const [a, b] of Z) { document.body.innerHTML = document.body.innerHTML.split(a).join(b); }
   document.querySelectorAll('.addrow, .delcell, .printcell, .delrow').forEach((e) => e.remove());
   return brak;

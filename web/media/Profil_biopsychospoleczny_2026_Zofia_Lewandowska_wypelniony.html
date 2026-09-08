@@ -1,0 +1,824 @@
+<!DOCTYPE html><html lang="pl"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><link rel="preconnect" href="https://fonts.googleapis.com"><link href="https://fonts.googleapis.com/css2?family=Mulish:wght@400;600;700;800&amp;family=Lora:wght@600;700&amp;display=swap" rel="stylesheet"><title>Profil biopsychospołeczny ucznia</title><style>
+@page{size:A4;margin:0}
+*{box-sizing:border-box}
+html,body{margin:0;padding:0}
+body{font-family:'Mulish',sans-serif;font-size:10.6px;color:#2b2733;line-height:1.5;background:#fff;
+ -webkit-print-color-adjust:exact;print-color-adjust:exact}
+/* ===== strona A4 z ramką ===== */
+.page{width:210mm;height:297mm;padding:7mm 8mm;position:relative;overflow:hidden}
+@media print{.page{page-break-after:always}}
+.frame{position:absolute;inset:5mm;border:1.4px solid #cfc4e8;border-radius:14px;pointer-events:none}
+.inner{position:relative;height:100%;display:flex;flex-direction:column;padding:2mm 3mm}
+/* nagłówek strony */
+.phead{display:flex;align-items:flex-start;gap:9px;padding:2mm 1mm 0}
+.phead .logo{width:34px;height:34px;border-radius:50%;background:#2D1B69;color:#fff;display:flex;align-items:center;
+ justify-content:center;font-weight:800;font-size:9px;letter-spacing:.4px;flex:0 0 auto}
+.phead .bl{flex:0 0 auto;white-space:nowrap}
+.phead .bl .t1{font-size:15px;font-weight:800;color:#2D1B69;line-height:1.1}
+.phead .bl .t2{font-size:6.8px;font-weight:800;letter-spacing:1.4px;text-transform:uppercase;color:#8a7fb0;margin-top:2px}
+/* prawa kolumna nigdy nie wchodzi na napis „EduPlaner 2026" — własny limit szerokości */
+.phead .br{margin-left:auto;text-align:right;flex:0 1 auto;min-width:0;max-width:54%;padding-left:12px}
+.phead .kodchip{display:inline-block;background:#E8450A;color:#fff;border-radius:9px;padding:3.5px 12px;
+ font-weight:800;font-size:9px;letter-spacing:.6px}
+.phead .br .t3{font-size:6.4px;font-weight:800;letter-spacing:1.2px;text-transform:uppercase;color:#8a7fb0;margin-top:4px}
+/* metryczka na każdej stronie */
+.pmeta{display:flex;gap:6px;margin:4mm 0 4mm}
+.pmeta .m{flex:1.4;background:#efeaf9;border:1px solid #ddd3f1;border-radius:9px;padding:5px 10px;display:flex;
+ align-items:baseline;gap:7px}
+.pmeta .m.sm{flex:1}
+.pmeta .ml{font-size:6.6px;font-weight:800;letter-spacing:.8px;text-transform:uppercase;color:#6C4CC4;white-space:nowrap}
+.pmeta .mv{flex:1;border-bottom:1.2px dotted #a294cc;min-height:12px;font-size:10px;font-weight:700;color:#2b2540}
+.pmeta .mr{font-size:9px;color:#6f6a7d}
+/* treść i stopka */
+.pbody{flex:1;overflow:hidden;display:flex;flex-direction:column}
+/* rubryki opisowe rozciągają się, aby pięknie wypełnić kartę (linie/pola rosną równomiernie) */
+.pbody .blk{flex:0 0 auto}
+.pbody .blk:has(> .ta){flex:1 1 auto;display:flex;flex-direction:column}
+.pbody .blk:has(> .ta)>.ta{flex:1}
+/* karta wykresu (.blk.cgb) rozciąga się tylko wtedy, gdy na stronie nie ma innego bloku
+   zdolnego przejąć wolną wysokość (.blk.stx — rubryka opisowa, para, tabela "fill").
+   Jeśli taki blok jest — przed wykresem albo po nim — to on rośnie, a wykres zachowuje
+   naturalny rozmiar; dzięki temu w ramce wykresu nie powstaje biała przestrzeń. */
+.pbody .blk.stx ~ .blk.cgb{flex:0 0 auto}
+.pbody .blk.cgb:has(~ .blk.stx){flex:0 0 auto}
+.pbody .blk:has(> .pair){flex:1 1 auto;display:flex;flex-direction:column}
+.pbody .blk:has(> .pair)>.pair{flex:1}
+.pbody .blk:has(> .lvl){flex:.35 1 auto;display:flex;flex-direction:column}
+.pbody .blk:has(> .lvl)>.lvl{flex:1}
+/* strona, na której skala nasilenia stoi RAZEM z tabelą (klasyfikacja zachowań):
+   wolną wysokość przejmuje tabela (wiersze rosną), a kolorowe ramki poziomów
+   zostają zwarte — bez pustej przestrzeni w środku ramek. */
+.pbody:has(.lvl):has(> .blk > table) .blk:has(> .lvl){flex:0 0 auto}
+.pbody:has(.lvl):has(> .blk > table) > .blk:has(> table){
+ flex:1 1 auto;display:flex;flex-direction:column;min-height:0}
+.pbody:has(.lvl):has(> .blk > table) > .blk:has(> table) > table{flex:1 1 auto;height:100%}
+/* tabela oznaczona "fill" rozciąga się na całą wolną wysokość strony */
+.pbody .blk:has(> .zajw){flex:1 1 auto;display:flex;flex-direction:column}
+.pbody .blk:has(> .zajw)>.zajw{flex:1}
+.zajw table.ztab{flex:1}
+.pbody .blk:has(> table.tbfill){flex:1 1 auto;display:flex;flex-direction:column}
+.pbody .blk:has(> table.tbfill)>table.tbfill{flex:1}
+/* automatyczny „opis wyników" pod tabelą zbiorczą też przejmuje wolną wysokość strony */
+.pbody > .ta{flex:1 1 auto}
+/* strona bez bloku rozciągliwego (same ramki, listy i pola): wolną wysokość rozdzielamy
+   równomiernie między odstępy, żeby nie zostawała jedna duża biała przestrzeń u dołu */
+.pbody:not(:has(.blk.stx)):not(:has(.blk.cgb)):not(:has(.lvl)):not(:has(.pair)){justify-content:space-between}
+/* strona z tabelami twierdzeń: wolną wysokość przejmują SAME TABELE (wiersze rosną
+   równomiernie), a nie odstępy — dzięki temu w ramce nie ma pustych pasów, a między
+   obszarami zostaje jeden, stały odstęp. Bez tego karta oddycha „dziurami". */
+.pbody:not(:has(.blk.stx)):not(:has(.blk.cgb)):not(:has(.lvl)):not(:has(.pair)):has(> .blk > table){justify-content:flex-start}
+.pbody:not(:has(.blk.stx)):not(:has(.blk.cgb)):not(:has(.lvl)):not(:has(.pair)) > .blk:has(> table){
+ flex:1 1 auto;display:flex;flex-direction:column;min-height:0}
+.pbody:not(:has(.blk.stx)):not(:has(.blk.cgb)):not(:has(.lvl)):not(:has(.pair)) > .blk:has(> table) > table{
+ flex:1 1 auto;height:100%}
+/* strona zbudowana z nagłówków sekcji i list wyboru (Karta Dostosowań, procedura):
+   wolną wysokość oddajemy PRZED nagłówki sekcji, a nie pomiędzy wszystkie bloki.
+   Dzięki temu nagłówek zostaje przyklejony do swojej listy (grupa trzyma się razem),
+   a oddech powstaje tam, gdzie ma sens — na granicy sekcji. */
+.pbody:not(:has(.blk.stx)):not(:has(.blk.cgb)):not(:has(.lvl)):not(:has(.pair)):not(:has(> .blk > table)):has(> .blk > .sec){justify-content:flex-start}
+/* …a samą wolną wysokość przejmują LISTY WYBORU (pola rosną równomiernie), tak jak
+   na stronach z tabelami. Dzięki temu karta jest zapełniona treścią, a nie pustymi pasami. */
+.pbody:not(:has(.blk.stx)):not(:has(.blk.cgb)):not(:has(.lvl)):not(:has(.pair)):not(:has(> .blk > table)):has(> .blk > .sec) > .blk:has(> .checks){
+ flex:1 1 auto;display:flex;flex-direction:column;min-height:0}
+.pbody:not(:has(.blk.stx)):not(:has(.blk.cgb)):not(:has(.lvl)):not(:has(.pair)):not(:has(> .blk > table)):has(> .blk > .sec) > .blk > .checks{
+ flex:1 1 auto;align-content:stretch;align-items:center}
+/* pole wyboru rośnie, ale z umiarem — reszta wolnej wysokości zostaje odstępem
+   między polami, żeby ramki nie robiły się nieproporcjonalnie grube */
+.pbody:not(:has(.blk.stx)):not(:has(.blk.cgb)):not(:has(.lvl)):not(:has(.pair)):not(:has(> .blk > table)):has(> .blk > .sec) > .blk > .checks .c{align-items:center;max-height:34px}
+.pbody:not(:has(.blk.stx)):not(:has(.blk.cgb)):not(:has(.lvl)):not(:has(.pair)):not(:has(> .blk > table)):has(> .blk > .sec) > .blk > .checks .bx{margin-top:0}
+.ta{display:flex;flex-direction:column}
+.ta .ln{flex:1 0 14px}
+.pfoot{display:flex;align-items:center;border-top:1px solid #e0d8f0;padding:2.5mm 1mm 0;margin-top:2mm;
+ font-size:7.2px;color:#8a8498;letter-spacing:.3px}
+.pfoot .r{margin-left:auto;color:#E8450A;font-weight:800}
+.pfoot .r b{color:#2D1B69}
+/* ===== strona tytułowa ===== */
+.tt-kick{text-align:center;margin:1mm 0 3mm}
+.tt-kick span{display:inline-block;background:#E8450A;color:#fff;border-radius:14px;padding:4px 16px;
+ font-size:8px;font-weight:800;letter-spacing:1.8px;text-transform:uppercase}
+.tt-h1{font-size:21.5px;line-height:1.22;color:#2D1B69;text-align:center;margin:0 auto 3mm;max-width:168mm;font-weight:800}
+.tt-sub{display:flex;align-items:center;gap:8px;justify-content:center;margin-bottom:4mm}
+.tt-sub .dots{flex:0 1 34mm;border-top:2px dotted #E8450A}
+.tt-sub .tx{font-size:8px;font-weight:800;letter-spacing:2px;text-transform:uppercase;color:#E8450A;white-space:nowrap}
+/* ===== bloki ===== */
+.blk{margin:0 0 7px}
+.lead{border:1px solid #e0d6f2;border-left:4.5px solid #E8450A;border-radius:0 11px 11px 0;background:#fff;
+ padding:9px 13px;box-shadow:0 1px 5px rgba(45,27,105,.05)}
+/* hierarchia tytułów — poziom 1: tytuł kroku (lead) */
+.lead b.tl{display:block;font-size:15px;color:#2D1B69;margin-bottom:3px;font-weight:800;letter-spacing:.2px}
+.lead p{margin:0;font-size:10.1px;color:#3d384c;line-height:1.55}
+.howto{background:#f6f3fc;border:1px solid #ddd3f1;border-radius:11px;padding:8px 12px}
+.howto .mini{font-size:7.2px;font-weight:800;letter-spacing:1.2px;text-transform:uppercase;color:#6C4CC4;margin-bottom:3px}
+.howto p{margin:0;font-size:9.9px;color:#3d384c;line-height:1.5}
+.sec{display:flex;align-items:center;gap:8px;margin:4px 0 2px}
+.sec .n{min-width:22px;height:22px;border-radius:7px;background:#E8450A;color:#fff;display:flex;align-items:center;
+ justify-content:center;font-weight:800;font-size:10px;padding:0 6px}
+.sec h2{margin:0;font-size:13px;color:#2D1B69;font-weight:800;letter-spacing:.6px;text-transform:uppercase;white-space:nowrap}
+.sec .rl{flex:1;border-top:1.6px solid #e4ddf4;margin-left:4px}
+.sec .tag{border:1.4px solid #f0b48a;color:#E8450A;background:#fff7f2;border-radius:12px;padding:2px 10px;
+ font-size:7.2px;font-weight:800;letter-spacing:.5px;text-transform:uppercase;max-width:62mm;text-align:center;line-height:1.3}
+.sec h2{white-space:normal}
+/* hierarchia tytułów — poziom 3: podsekcje literowe (A, B, C…) podporządkowane
+   sekcji rzymskiej: mniejszy znacznik w fiolecie, mniejszy tytuł, cieńsza linia.
+   Dzięki temu widać od razu, który tytuł jest nadrzędny, a który mu podlega. */
+.sec.s2{margin:3px 0 1px}
+.sec.s2 .n{min-width:18px;height:18px;border-radius:6px;background:#6C4CC4;font-size:9px}
+.sec.s2 h2{font-size:11px;letter-spacing:.5px;color:#4B3A8C}
+.sec.s2 .rl{border-top:1.2px solid #ece5f8}
+.subhead{display:flex;align-items:center;gap:7px;font-size:9.3px;font-weight:800;letter-spacing:1px;
+ text-transform:uppercase;color:#2D1B69;margin:6px 0 4px}
+.subhead::before{content:'';width:8px;height:8px;border-radius:2.5px;background:#E8450A;display:inline-block;flex:0 0 auto}
+.fields{display:grid;grid-template-columns:1fr 1fr;gap:6px}
+.fields .f{background:#efeaf9;border:1px solid #ddd3f1;border-radius:9px;padding:6px 10px}
+.fields .fl{font-size:7.4px;font-weight:800;letter-spacing:.7px;text-transform:uppercase;color:#6C4CC4;
+ margin-bottom:3px;line-height:1.35}
+.fields .fv{border-bottom:1.2px dotted #a294cc;min-height:14px;font-size:10.6px;font-weight:700;color:#2b2540}
+.chkh{display:flex;align-items:center;gap:6px;font-size:8.6px;font-weight:800;letter-spacing:.9px;
+ color:#2D1B69;text-transform:uppercase;margin:0 0 4px}
+.chkh::before{content:'';width:6px;height:6px;border-radius:2px;background:#E8450A;display:inline-block;flex:0 0 auto}
+.checks{display:grid;grid-template-columns:1fr 1fr;gap:3px 12px}
+.checks .c{display:flex;align-items:flex-start;gap:8px;font-size:10px;color:#3d384c;line-height:1.4;
+ padding:3px 8px;border-radius:8px;background:#f9f7fd;border:1.3px solid #cfc2e8;box-shadow:0 1px 3px rgba(45,27,105,.07)}
+.checks .bx{width:11px;height:11px;flex:0 0 auto;border:1.7px solid #6C4CC4;border-radius:3.5px;margin-top:1.5px;background:#fff}
+.scale{display:flex;flex-wrap:wrap;gap:5px}
+.scale .s{display:flex;align-items:center;gap:6px;background:#fff;border:1px solid #e4ddf4;border-radius:14px;
+ padding:3px 10px 3px 4px;font-size:9.3px;color:#3d384c;font-weight:700}
+.scale .sn{width:16px;height:16px;border-radius:50%;color:#fff;display:flex;align-items:center;
+ justify-content:center;font-weight:800;font-size:8.3px;flex:0 0 auto}
+/* pasek podsumowania obszaru — pod tabelą ocen, w kolorze akcentu (pomarańcz),
+   żeby wynik obszaru był widoczny od razu, a nie tylko w nagłówku tabeli */
+.asum{display:flex;align-items:stretch;gap:5px;margin:5px 0 0;padding:4.5px 8px;
+ background:linear-gradient(180deg,#FFF4E9 0%,#FFE6D3 100%);
+ border:1.3px solid #F2BC96;border-left:4px solid #E8450A;border-radius:10px;
+ box-shadow:0 1px 0 rgba(255,255,255,.9),0 2px 6px rgba(232,69,10,.13)}
+.asum .as-t{display:flex;align-items:center;flex:1 1 auto;min-width:0;
+ font-size:8.1px;font-weight:800;letter-spacing:.9px;text-transform:uppercase;color:#A8330A}
+.asum .as-c{display:flex;align-items:center;gap:7px;flex:0 0 auto;background:#fff;
+ border:1px solid #F0C4A6;border-radius:8px;padding:2.5px 9px;
+ box-shadow:inset 0 1px 0 rgba(255,255,255,.9)}
+.asum .as-c b{font-size:7.4px;font-weight:800;letter-spacing:.7px;text-transform:uppercase;color:#96613f}
+.asum .as-c i{font-style:normal;font-size:11.4px;font-weight:800;color:#2D1B69;white-space:nowrap}
+.asum .as-lv i{color:#E8450A}
+/* legenda pod wykresem słupkowym — pełne nazwy obszarów zwykłym tekstem HTML,
+   bo tekst wewnątrz SVG skaluje się razem z wykresem i w wąskiej karcie znika */
+.cgleg{display:grid;grid-template-columns:repeat(3,1fr);gap:2px 6px;margin:6px 0 0;
+ padding:5px 7px;background:#faf8ff;border:1px solid #e4dcf4;border-radius:8px}
+.cgleg .cgl-i{display:flex;align-items:baseline;gap:4px;font-size:7.2px;font-weight:700;
+ color:#2D1B69;line-height:1.25;letter-spacing:.1px}
+.cgleg .cgl-i b{flex:0 0 auto;min-width:15px;color:#E8450A;font-size:7.6px;font-weight:800}
+/* nazwy DOKŁADNIE pod słupkami (do 6 obszarów) — rząd o proporcjach osi wykresu */
+.cgnm{display:flex;margin:1px 0 0}
+.cgnm span{flex:1 1 0;min-width:0;text-align:center;font-size:7.4px;font-weight:800;color:#2D1B69;
+ line-height:1.2;letter-spacing:.1px;padding:0 1px;hyphens:auto;overflow-wrap:anywhere}
+/* tabela ocen */
+table.rt{width:100%;border-collapse:separate;border-spacing:0;border:1.5px solid #b2a2d8;border-radius:10px;overflow:hidden;box-shadow:0 4px 14px rgba(45,27,105,.22),0 2px 4px rgba(45,27,105,.12)}
+table.rt thead th{background:linear-gradient(180deg,#4a35a0,#2D1B69);box-shadow:inset 0 1.5px 0 rgba(255,255,255,.25),inset 0 -1px 0 rgba(0,0,0,.18);color:#fff;font-size:8.4px;font-weight:800;letter-spacing:.6px;
+ text-transform:uppercase;padding:5.5px 8px;text-align:left}
+table.rt thead th.oc,table.rt thead th.icfh{text-align:center}
+table.rt td{border-top:1.2px solid #cfc3e8;padding:5.5px 8px;font-size:10px;color:#2f2a3e;vertical-align:middle}
+table.rt tbody tr:nth-child(even) td{background:#fbfaff}
+/* Lp. — liczba porządkowa MUSI mieścić się w JEDNEJ linii (nie „1" i „6" pod sobą)
+   i stać na tym samym poziomie co treść twierdzenia obok. */
+td.nr{width:11mm;text-align:center;vertical-align:middle;font-weight:800;color:#E8450A;font-size:11px;
+ border-right:1.2px solid #cfc3e8;white-space:nowrap;overflow-wrap:normal;word-break:keep-all;hyphens:none;
+ padding-left:2px;padding-right:2px;line-height:1.15}
+table.rt thead th:first-child{border-right:1.2px solid rgba(255,255,255,.35);
+ white-space:nowrap;overflow-wrap:normal;word-break:keep-all;hyphens:none;
+ padding-left:3px;padding-right:3px;text-align:center;vertical-align:middle}
+td.oc{white-space:nowrap;text-align:center;width:36mm}
+td.oc i{display:inline-flex;width:15px;height:15px;border-radius:50%;border:1.7px solid;font-style:normal;
+ font-size:7.8px;font-weight:800;align-items:center;justify-content:center;margin:0 1.4px;vertical-align:middle;background:#fff}
+td.oc i.nn{border-color:#9aa0ab;color:#9aa0ab}
+/* kolumna ICF oddzielona pionową linią od kolumny ocen — kod klasyfikacji
+   to inna informacja niż ocena punktowa i nie może się z nią zlewać */
+td.icf{width:17mm;text-align:center;font-size:7.6px;color:#E8450A;font-weight:800;line-height:1.35;background:#f3eefb;
+ border-left:1.6px solid #b2a2d8}
+table.rt thead th.icfh{border-left:1.6px solid rgba(255,255,255,.45)}
+/* zwykła tabela */
+table.tb{width:100%;border-collapse:separate;border-spacing:0;border:1.5px solid #b2a2d8;border-radius:10px;overflow:hidden;box-shadow:0 4px 14px rgba(45,27,105,.22),0 2px 4px rgba(45,27,105,.12)}
+table.tb th{background:linear-gradient(180deg,#4a35a0,#2D1B69);box-shadow:inset 0 1.5px 0 rgba(255,255,255,.25),inset 0 -1px 0 rgba(0,0,0,.18);color:#fff;font-size:8.4px;font-weight:800;letter-spacing:.4px;text-transform:uppercase;
+ padding:5.5px 8px;text-align:left}
+table.tb td{border-top:1.2px solid #cfc3e8;border-left:1px solid #ddd1f0;padding:5.5px 8px;font-size:9.9px;color:#2f2a3e;min-height:12px}
+table.tb td:first-child{border-left:none}
+table.tb tbody tr:nth-child(even) td{background:#fbfaff}
+table.tb td:empty::after{content:'';display:block;min-height:11px;border-bottom:1.2px dotted #b5a8d8;margin-top:3px}
+table.tb td .ln{height:15px;border-bottom:1.2px dotted #b5a8d8}
+table.tb td .ln+.ln{margin-top:2px}
+/* pola opisowe */
+.ta{border:1px solid #cfc2e8;border-radius:11px;background:#fff;padding:6px 10px 8px;box-shadow:0 2px 6px rgba(45,27,105,.10)}
+.ta .tl{display:flex;align-items:center;gap:6px;font-size:8.4px;font-weight:800;letter-spacing:.5px;
+ text-transform:uppercase;color:#2D1B69;margin-bottom:5px;line-height:1.4}
+.ta .tl::before{content:'';width:7px;height:7px;border-radius:2px;background:#2D1B69;display:inline-block;flex:0 0 auto}
+.ta .ln{height:16px;border-bottom:1.2px dotted #b5a8d8}
+.note{font-size:8.6px;color:#6f6a7d;background:#f9f7fd;border-left:3px solid #c9bfe6;border-radius:0 8px 8px 0;
+ padding:5px 10px;line-height:1.5}
+/* bloki poziomów wsparcia (zielony/żółty/czerwony — jak w druku szkolnym) */
+.lvl{border:1px solid;border-radius:12px;padding:8px 12px;margin:0;box-shadow:0 2px 7px rgba(45,27,105,.12)}
+.lvl-t{display:flex;align-items:center;gap:7px;font-size:8.8px;font-weight:800;letter-spacing:.7px;
+ text-transform:uppercase;margin-bottom:4px}
+.lvl-dot{width:9px;height:9px;border-radius:50%;display:inline-block;flex:0 0 auto}
+.lvl-x{font-size:9.5px;line-height:1.48;color:#2f2a3e;outline:none}
+.lvl-x[contenteditable]:focus{background:rgba(255,255,255,.75);border-radius:6px}
+/* wybór poziomu wsparcia — kafle z gotowym opisem (klik w arkuszu interaktywnym) */
+.pick{display:flex;gap:6px;align-items:stretch}
+.pick .pk{flex:1;min-width:0;display:flex;align-items:center;gap:7px;border:1.4px solid;border-radius:11px;
+ padding:5px 9px;line-height:1.2;
+ box-shadow:0 2px 6px rgba(45,27,105,.13),inset 0 1.5px 0 rgba(255,255,255,.85)}
+.pick .pkb{width:12px;height:12px;border-radius:50%;border:2.2px solid;flex:0 0 auto;background:#fff;
+ box-shadow:inset 0 1px 2px rgba(45,27,105,.18)}
+.pick .pkt{font-size:8.5px;font-weight:800;letter-spacing:.55px;text-transform:uppercase}
+.pick .pks{display:block;font-size:7.3px;font-weight:700;letter-spacing:.1px;text-transform:none;opacity:.8;
+ margin-top:1.5px}
+table.syn{width:100%;border-collapse:separate;border-spacing:0;border:1.5px solid #b2a2d8;border-radius:10px;overflow:hidden;box-shadow:0 4px 14px rgba(45,27,105,.22),0 2px 4px rgba(45,27,105,.12)}
+table.syn th{background:linear-gradient(180deg,#4a35a0,#2D1B69);box-shadow:inset 0 1.5px 0 rgba(255,255,255,.25),inset 0 -1px 0 rgba(0,0,0,.18);color:#fff;font-size:8.2px;font-weight:800;
+ letter-spacing:.5px;text-transform:uppercase;padding:6.5px 9px;text-align:left}
+table.syn td{border-top:1.2px solid #cfc3e8;border-left:1px solid #ddd1f0;padding:7px 9px;height:22mm;vertical-align:top;
+ font-size:9.6px;color:#8a8498}
+table.syn td .ln{height:15px;border-bottom:1.2px dotted #b5a8d8}
+/* cele SMART — delikatna boczna linia w kolorze (ta sama linia i styl co karty) */
+.ta-smart-e{border-left:4.5px solid #E8450A;border-radius:0 11px 11px 0}
+.ta-smart-t{border-left:4.5px solid #6C4CC4;border-radius:0 11px 11px 0}
+.ta-smart-e .tl,.ta-smart-t .tl{color:#2D1B69}
+/* baner „Zalecenia dla poziomu dziecka" — otwarcie karty zaleceń */
+.zalban{display:flex;align-items:center;gap:10px;background:linear-gradient(120deg,#2D1B69,#4A2FA0);
+ color:#fff;border-radius:13px;padding:8px 14px;box-shadow:0 4px 14px rgba(45,27,105,.30),inset 0 1.5px 0 rgba(255,255,255,.22)}
+.zalban .zb-ic{font-size:16px}
+.zalban .zb-t{flex:1;font-size:11.5px;font-weight:800;letter-spacing:.8px;text-transform:uppercase;line-height:1.3}
+.zalban .zb-chip{background:#E8450A;color:#fff;border-radius:11px;padding:3px 12px;font-size:8.6px;font-weight:800;
+ letter-spacing:.6px;text-transform:uppercase;white-space:nowrap;box-shadow:inset 0 1px 0 rgba(255,255,255,.25)}
+/* rubryki w dwóch kolumnach (jak w druku szkolnym) */
+.pair{display:flex;gap:6px;align-items:stretch}
+.pair .pc{flex:1;min-width:0;display:flex}
+.pair .pc>*{flex:1}
+.pair .ta{display:flex;flex-direction:column}
+.pair .ta .ed{flex:1}
+/* wykresy obok siebie (słupkowy + radarowy) — jak w druku szkolnym */
+.duo{display:flex;gap:8px;align-items:stretch}
+.duo-a{flex:1.35;min-width:0}
+.duo-b{flex:1;min-width:0}
+.duo .ta{height:100%}
+.duo svg{width:100%!important;height:auto}
+/* szybki odczyt: szeroka kolumna opisu po lewej, średnia węższa */
+table.qtab td:first-child,table.qtab th:first-child{width:56%}
+table.qtab td:nth-child(2),table.qtab th:nth-child(2){width:20%;text-align:center}
+table.qtab td:nth-child(3),table.qtab th:nth-child(3){text-align:center}
+table.qtab td:nth-child(2){font-weight:800;color:#2D1B69}
+/* kwalifikacja wg oceniających: szeroki opis po lewej, wartości wyśrodkowane */
+table.ktab td:first-child,table.ktab th:first-child{width:42%;font-weight:700;color:#2D1B69}
+table.ktab td:not(:first-child),table.ktab th:not(:first-child){text-align:center}
+table.ktab td:not(:first-child){font-weight:700}
+.sign{display:flex;gap:16mm;margin:8mm 8mm 2mm}
+.sign>div{flex:1;text-align:center;font-size:8.4px;color:#5a5470;font-weight:700}
+.sign .sl{border-bottom:1.4px solid #8f86ad;height:10mm;margin-bottom:5px}
+.legal{font-size:7.2px;color:#8a8498;line-height:1.5;border-top:1px solid #e4e0f0;padding-top:6px}
+/* ── delikatny relief 3D tabel (wspólny dla wszystkich druków EduPlaner) ───── */
+table.rt,table.tb,table.syn{
+ border:1.4px solid #a596d2;border-radius:12px;
+ background:linear-gradient(180deg,#fff 0%,#f8f5fe 100%);
+ box-shadow:0 1px 0 rgba(255,255,255,.95),0 2px 5px rgba(45,27,105,.10),
+            0 9px 22px rgba(45,27,105,.17)}
+table.rt thead th,table.tb th,table.syn th{
+ background:linear-gradient(180deg,#5c46bb 0%,#3f2c90 46%,#2D1B69 100%);
+ box-shadow:inset 0 1.6px 0 rgba(255,255,255,.38),inset 0 -2px 0 rgba(232,69,10,.60),
+            inset 0 -7px 9px -6px rgba(0,0,0,.35);
+ text-shadow:0 1px 1.2px rgba(0,0,0,.38)}
+table.rt tbody tr:nth-child(odd) td,table.tb tbody tr:nth-child(odd) td{
+ background:linear-gradient(180deg,#fff 0%,#fdfcff 100%)}
+table.rt tbody tr:nth-child(even) td,table.tb tbody tr:nth-child(even) td{
+ background:linear-gradient(180deg,#f8f5ff 0%,#f1ecfb 100%)}
+table.rt tbody td,table.tb tbody td,table.syn tbody td{
+ box-shadow:inset 0 1px 0 rgba(255,255,255,.88)}
+table.rt tbody tr:last-child td,table.tb tbody tr:last-child td{
+ box-shadow:inset 0 1px 0 rgba(255,255,255,.88),inset 0 -2px 4px -2px rgba(45,27,105,.14)}
+table.tb td:first-child,table.rt td:first-child{box-shadow:inset 1px 1px 0 rgba(255,255,255,.9)}
+td.nr{background:linear-gradient(180deg,#f6f2fe,#ece5fa)!important;
+ text-shadow:0 1px 0 rgba(255,255,255,.9)}
+table.tb td .ln,table.rt td .ln,table.syn td .ln,.ta .ln{
+ box-shadow:0 1px 0 rgba(255,255,255,.85)}
+/* ── stabilna siatka tabel: podczas pisania kolumny NIE przesuwają się w bok,
+      wiersz może się wyłącznie wydłużać w dół ──────────────────────────────── */
+table.rt,table.tb,table.syn,table.qtab,table.ktab{table-layout:fixed;width:100%}
+table.rt th,table.rt td,table.tb th,table.tb td,table.syn th,table.syn td,
+table.qtab th,table.qtab td,table.ktab th,table.ktab td{
+ overflow-wrap:break-word;hyphens:auto}
+table td .ed,table td [contenteditable]{
+ display:block;width:100%;max-width:100%;box-sizing:border-box;
+ white-space:pre-wrap;overflow-wrap:break-word;word-break:break-word}
+table td[contenteditable],table th[contenteditable]{
+ max-width:100%;box-sizing:border-box;white-space:pre-wrap;vertical-align:top;
+ overflow-wrap:break-word;word-break:break-word}
+
+/* --- panel profilu (blok „profile") --- */
+.prof{display:flex;flex-direction:column;gap:6px}
+.prof .duo{align-items:stretch}
+.prof .duo-a{flex:1 1 62%}
+.prof .duo-b{flex:1 1 38%}
+.prof .duo-b svg{max-width:47mm}
+.pzchip{display:inline-block;border:1.4px solid #d9d0ec;border-radius:10px;padding:1px 7px;
+ font-size:7.4px;font-weight:800;letter-spacing:.35px;text-transform:uppercase;
+ background:#fff;color:#8a83a3;min-width:16mm}
+table.ptab td{padding:3.4px 8px}
+table.ptab th{padding:4px 8px}
+table.ptab td.pk2{text-align:center;font-weight:800;color:#E8450A;font-size:9.6px}
+table.ptab td.pn{font-size:9.2px;font-weight:700;color:#2D1B69}
+table.ptab td.pi{text-align:center;font-size:7.6px;color:#E8450A;font-weight:800;background:#f6f2fd}
+table.ptab td.pv{text-align:center;font-weight:800;color:#2D1B69;font-size:11px;background:#fbf9ff}
+table.ptab td.pv .ed{display:block;min-height:12px;text-align:center;border:none;background:none}
+table.ptab td.pz{text-align:center}
+.bands{display:flex;gap:6px}
+.bands .bd{flex:1;border:1.4px solid;border-radius:11px;padding:5px 9px;
+ box-shadow:0 2px 6px rgba(45,27,105,.13),inset 0 1.5px 0 rgba(255,255,255,.85)}
+.bands .bd .r1{font-size:9.4px;font-weight:800;letter-spacing:.4px}
+.bands .bd .r2{font-size:8.4px;font-weight:800;text-transform:uppercase;color:#2D1B69;margin:1px 0 2px}
+.bands .bd .r3{font-size:7.6px;font-weight:700;color:#5a5470;line-height:1.35}
+.pbody .blk:has(> .prof){flex:1 1 auto;display:flex;flex-direction:column}
+.pbody .blk:has(> .prof)>.prof{flex:1}
+.prof .prof-desc{flex:1 1 auto;display:flex;flex-direction:column}
+.prof .prof-desc .pdesc{flex:1 1 auto;font-size:9px;line-height:1.5;color:#2b2740}
+</style><style>body{background:#efecf6}.page{background:#fff;margin:10px auto;box-shadow:0 4px 18px rgba(45,27,105,.13)}.edtag{margin-left:auto;font-size:6.6px;color:#b58a2c;background:#fff6dd;border:1px solid #eeddb0;border-radius:9px;padding:1px 7px;letter-spacing:.3px;font-weight:800}.ta .tl{display:flex;align-items:center;gap:6px}.ed{border:1.2px dashed #e0d2b8;border-radius:8px;background:#fffdf4;padding:7px 10px;font-size:9.6px;line-height:1.48;color:#3d384c;min-height:24px;outline:none}.ed:focus{background:#fff;border-color:#E8450A;border-style:solid}.fv[contenteditable],.mv[contenteditable]{outline:none}.fv[contenteditable]:focus,.mv[contenteditable]:focus{background:#fff;border-bottom-color:#E8450A}td.oc i{cursor:pointer}td.oc i:hover{transform:scale(1.15)}.bx{cursor:pointer}.pick .pk{cursor:pointer;transition:box-shadow .12s,transform .12s}.pick .pk:hover{transform:translateY(-1px);box-shadow:0 4px 12px rgba(45,27,105,.24)}@media print{.pick .pk{transform:none}}.itoolbar{position:fixed;top:0;left:0;right:0;z-index:50;background:#2D1B69;color:#fff;display:flex;align-items:center;gap:14px;padding:10px 18px;font-size:12.5px;box-shadow:0 3px 12px rgba(0,0,0,.25)}.itoolbar b{color:#ffcf9e}.itoolbar .sp{flex:1;font-size:11px;opacity:.85}.itoolbar button{background:#E8450A;color:#fff;border:none;border-radius:9px;padding:9px 16px;font-size:12.5px;font-weight:800;cursor:pointer;font-family:inherit}body{padding-top:46px}@media print{.itoolbar{display:none!important}body{padding-top:0;background:#fff}.page{margin:0;box-shadow:none}.edtag{display:none!important}.ed{border:none;background:#fff;padding:2px 0}}.synbox{border:1.6px solid #2D1B69;border-radius:12px;padding:8px 11px 9px;background:linear-gradient(180deg,#f4f1fc 0%,#fff 62%);box-shadow:inset 0 1.5px 0 rgba(255,255,255,.9),0 2px 7px rgba(45,27,105,.12)}.synbox .syn-h{font-family:Lora,serif;font-weight:700;font-size:10.6px;color:#2D1B69;margin-bottom:3px;letter-spacing:.1px}.synbox .syn-d{font-size:8.5px;line-height:1.46;color:#4a4560;text-align:justify}.synbox .syn-lab{margin-top:7px;font-size:8.3px;font-weight:800;letter-spacing:.5px;text-transform:uppercase;color:#E8450A}.synbox .syn-sum{margin-top:5px;font-size:8.7px;font-weight:800;color:#2D1B69;background:#fff;border:1px solid #ded6f2;border-left:3px solid #E8450A;border-radius:8px;padding:4px 8px}.synbox .syn-ta{display:block;width:100%;box-sizing:border-box;height:40px;resize:none;margin-top:5px;font-family:ui-monospace,Consolas,monospace;font-size:7.6px;line-height:1.34;color:#3d384c;border:1.2px dashed #b9a9e0;border-radius:8px;background:#fff;padding:5px 7px;outline:none}.synbox .syn-ta:focus{border-color:#E8450A;border-style:solid}.synbox .syn-r{display:flex;align-items:center;gap:8px;margin-top:6px;flex-wrap:wrap}.synbtn{display:inline-block;background:#E8450A;color:#fff;border:none;border-radius:9px;padding:6px 12px;font-size:9px;font-weight:800;cursor:pointer;font-family:inherit;line-height:1.2}.synbtn.alt{background:#2D1B69}.synbox .syn-m{font-size:8.2px;color:#5c5470;flex:1;min-width:120px}.synbox .syn-p{display:none}@media print{.synbox .syn-ta,.synbox .syn-r,.synbox .syn-sum{display:none}.synbox .syn-p{display:block;margin-top:5px;font-size:8.2px;color:#5c5470;font-style:italic}.synbox{background:#fff;box-shadow:none}}.zajw{display:flex;flex-direction:column}.zsw{display:flex;flex-wrap:wrap;align-items:center;gap:5px;margin-bottom:5px}.zsw .zsl{font-size:8.3px;font-weight:800;letter-spacing:.4px;text-transform:uppercase;color:#E8450A;width:100%}.zsb{border:1.3px solid #cdbff0;background:#f7f4fe;color:#2D1B69;border-radius:9px;padding:5px 9px;font-size:8.6px;font-weight:700;cursor:pointer;font-family:inherit;line-height:1.25;box-shadow:inset 0 1px 0 rgba(255,255,255,.9)}.zsb.on{background:#2D1B69;color:#fff;border-color:#2D1B69;box-shadow:0 2px 6px rgba(45,27,105,.24)}.zsum{margin-top:5px;font-size:8.7px;line-height:1.5;font-weight:700;color:#2D1B69;background:#fff;border:1px solid #ded6f2;border-left:3px solid #E8450A;border-radius:8px;padding:5px 9px;text-align:justify}@media print{.zsw{display:none}.zsum{box-shadow:none}}</style><script>
+var KB=[];
+var STEN=false;
+var FN=false;
+var BND=[0.667, 0.334];
+function fnOf(s,mx){if(s==null)return null;var m=mx||15;
+ if(s>=m*2/3)return {lab:"dominuj\u0105ca",col:"#C62828",band:1};
+ if(s>=m/3)return {lab:"istotna",col:"#E8B800",band:2};
+ return {lab:"s\u0142aba",col:"#2E7D32",band:3};}
+function stenOf(a){if(a==null)return null;var v=Math.round(1+(a-1)*2.25);
+ return Math.max(1,Math.min(10,v));}
+function fmtv(a){return a==null?"":(STEN?String(stenOf(a)):fmt(a));}
+function valOf(a){return a==null?null:(STEN?stenOf(a):a);}
+function pozOf(avg){if(avg==null)return null;
+ if(STEN){var sv=stenOf(avg);
+  if(sv>=8)return {lab:"Poziom I",col:"#2E7D32",band:1};
+  if(sv>=5)return {lab:"Poziom II",col:"#E8B800",band:2};
+  return {lab:"Poziom III",col:"#C62828",band:3};}
+ if(avg>=4)return {lab:"Zas\u00f3b",col:"#2E7D32",band:0};
+ if(avg>=3)return {lab:"Poziom I",col:"#7CB342",band:1};if(avg>=2)return {lab:"Poziom II",col:"#E8B800",band:2};
+ return {lab:"Poziom III",col:"#C62828",band:3};}
+function fmt(x){return x==null?"":(Math.round(x*10)/10).toFixed(1).replace(".",",");}
+function fracOf(avg,mv){if(avg==null)return null;var f=avg/mv;
+ if(f>=BND[0])return {lab:"wysoki",col:"#2E7D32",band:1};
+ if(f>=BND[1])return {lab:"\u015bredni",col:"#E8B800",band:2};
+ return {lab:"niski",col:"#C62828",band:3};}
+function areaStats(){var out=[];var rts=document.querySelectorAll("table.rt");
+ if(!rts.length){var qt0=document.querySelector("table.qtab");
+  if(qt0){qt0.querySelectorAll("tbody tr").forEach(function(r){var td=r.querySelectorAll("td");
+   var raw=td.length>1?td[1].textContent.replace(",",".").replace(/[^0-9.]/g,""):"";
+   var v=parseFloat(raw);var avg=(isNaN(v)||v<=0||v>5)?null:v;
+   out.push({sum:avg||0,cnt:avg==null?0:1,max:5,mv:5,avg:avg,pz:pozOf(avg),low:0,q:1});});}
+  return out;}
+ rts.forEach(function(tb){
+ var rows=tb.querySelectorAll("tbody tr");var s=0,c=0,low=0;
+ var mv=0;var fr=tb.querySelector("tbody tr td.oc");
+ if(fr)fr.querySelectorAll("i").forEach(function(x){var t=parseInt(x.textContent);if(!isNaN(t)&&t>mv)mv=t;});
+ if(!mv)mv=5;
+ rows.forEach(function(r){var sel=r.querySelector("td.oc i.sel");
+  if(sel&&sel.textContent!=="N"){var v=parseInt(sel.textContent);if(!isNaN(v)){s+=v;c++;if(v<=2)low++;}}});
+ var max=rows.length*mv;var avg=c?s/c:null;
+ var pz=FN?fnOf(c?s:null,max):((mv===5)?pozOf(avg):fracOf(avg,mv));
+ var rs=tb.querySelector(".rsum");
+ if(rs){if(!rs.dataset.tpl)rs.dataset.tpl=rs.textContent;
+  rs.textContent=c?("\u03a3 "+s+" / "+max+" pkt \u00b7 "+(STEN?("sten "+stenOf(avg)):("\u015brednia "+fmt(avg)))+(pz?" \u00b7 "+pz.lab:"")):rs.dataset.tpl;}
+ var as=tb.parentElement?tb.parentElement.querySelector(".asum"):null;
+ if(as){var pt=as.querySelector(".as-pt"),stt=as.querySelector(".as-st"),pzz=as.querySelector(".as-pz");
+  if(pt)pt.textContent=(c?s:"\u2026")+" / "+max;
+  if(stt)stt.textContent=c?(STEN?String(stenOf(avg)):fmt(avg)):"\u2026";
+  if(pzz){pzz.textContent=(c&&pz)?pz.lab:"\u2026";pzz.style.color=(c&&pz)?pz.col:"#E8450A";}}
+ out.push({sum:s,cnt:c,max:max,mv:mv,avg:avg,pz:pz,low:low});});
+ return out;}
+function updateCharts(){var st=areaStats();
+ var svg=document.getElementById("cgSVG");
+ if(svg){var top=parseFloat(svg.dataset.top),bot=parseFloat(svg.dataset.bot);var mx=parseFloat(svg.dataset.max||"5");
+  var SUMAX=function(d){return FN||(d&&d.max&&mx===d.max);};
+  var cgv=function(d){return SUMAX(d)?d.sum:valOf(d.avg);};
+  var cgt=function(d){return SUMAX(d)?String(d.sum):fmtv(d.avg);};
+  svg.querySelectorAll(".cg-bar").forEach(function(bar){var i=parseInt(bar.dataset.i);var d=st[i];
+   if(d&&d.avg!=null){var h=(cgv(d)/mx)*(bot-top);bar.setAttribute("y",bot-h);bar.setAttribute("height",h);
+    bar.setAttribute("fill",d.pz?d.pz.col:"#4A2FA0");}else{bar.setAttribute("height",0);bar.setAttribute("y",bot);}});
+  svg.querySelectorAll(".cg-val").forEach(function(tx){var i=parseInt(tx.dataset.i);var d=st[i];
+   if(d&&d.avg!=null){var h=(cgv(d)/mx)*(bot-top);tx.setAttribute("y",bot-h-4);tx.textContent=cgt(d);}
+   else tx.textContent="";});}
+ var rd=document.getElementById("rdSVG");
+ if(rd){var n=parseInt(rd.dataset.n),R=parseFloat(rd.dataset.r),cx=parseFloat(rd.dataset.cx),cy=parseFloat(rd.dataset.cy);
+  var pts=[];var any=false;
+  for(var i=0;i<n;i++){var d=st[i];var f=(d&&d.avg!=null)?(STEN?(stenOf(d.avg)/10):(d.avg/(d.mv||5))):0;if(d&&d.avg!=null)any=true;
+   var x=cx+R*f*Math.sin(2*Math.PI*i/n),y=cy-R*f*Math.cos(2*Math.PI*i/n);pts.push(x.toFixed(1)+","+y.toFixed(1));
+   var dot=rd.querySelector(".rd-dot[data-i=\""+i+"\"]");
+   if(dot){dot.setAttribute("cx",x);dot.setAttribute("cy",y);dot.setAttribute("r",(d&&d.avg!=null)?3:0);}}
+  var poly=document.getElementById("rdPoly");if(poly)poly.setAttribute("points",any?pts.join(" "):"");}
+ var NAMES=[];
+ var qt=document.querySelector("table.qtab");
+ var QM=!!(st.length&&st[0].q);
+ if(qt){qt.querySelectorAll("tbody tr").forEach(function(r,i){var d=st[i];var td=r.querySelectorAll("td");
+  if(td.length>2){NAMES.push(td[0].textContent.trim().replace(/\s*\u00b7\s*[a-z]\d[0-9a-z\u2013\u2014.\-\u00b7 ]*$/i,"").trim());
+   if(QM){td[2].innerHTML=(d&&d.pz)?("<b style=\"color:"+d.pz.col+"\">"+d.pz.lab+"</b>"):"";return;}
+   if(d&&d.avg!=null){td[1].textContent=STEN?(stenOf(d.avg)+" / 10"):(fmt(d.avg)+" / "+(d.mv||5));
+   td[2].innerHTML=d.pz?("<b style=\"color:"+d.pz.col+"\">"+d.pz.lab+"</b>"):("\u03a3 "+d.sum+" / "+d.max);}
+  else{td[1].textContent="";td[2].textContent="";}}});}
+ var tot=0,totc=0,lowAll=0,gmax=0,avs=[];st.forEach(function(d){tot+=d.sum;totc+=d.cnt;lowAll+=d.low;gmax+=d.max;if(d.avg!=null)avs.push(d.avg);});
+ var gavg=avs.length?avs.reduce(function(a,b){return a+b;},0)/avs.length:null;
+ var gpz=pozOf(gavg);
+ document.querySelectorAll(".fields .f").forEach(function(f){
+  var l=(f.querySelector(".fl")||{}).textContent||"";var v=f.querySelector(".fv");
+  if(!v||v.dataset.man==="1")return;var ll=l.toLowerCase();
+  if(ll.indexOf("wynik og\u00f3lny")>=0&&!QM){v.textContent=totc?(tot+" / "+gmax+" pkt \u00b7 "+Math.round(tot/gmax*100)+"%"):"\u00a0";}
+  else if(ll.indexOf("sten og")>=0){v.textContent=gavg!=null?(stenOf(gavg)+" / 10"):"\u00a0";}
+  else if(ll.indexOf("\u015brednia og\u00f3lna")>=0){v.textContent=gavg!=null?(fmt(gavg)+" / 5"):"\u00a0";}
+  else if(ll.indexOf("poziom wsparcia")>=0&&ll.indexOf("obszar")<0){v.textContent=gpz?gpz.lab:"\u00a0";}});
+ /* opis wynik\u00f3w — propozycja (edytowalna) */
+ if(!NAMES.length){document.querySelectorAll("table.rt thead th:nth-child(2)").forEach(function(th){
+  var t=th.textContent.split("\u03a3")[0].replace(/[\s\u00a0\u00b7]+$/,"").trim();NAMES.push(t.length>42?t.slice(0,41)+"\u2026":t);});}
+ var anchor=qt;
+ if(!anchor){var cg=document.getElementById("cgSVG");if(cg)anchor=cg.closest(".blk")?cg.closest(".ta"):null;}
+ var box=document.getElementById("autoOpis");
+ if(!box&&anchor){var ta=document.createElement("div");ta.className="ta";
+  ta.innerHTML='<div class="tl">Opis wynik\u00f3w — propozycja z ocen<span class="edtag">\u270e uzupe\u0142nia si\u0119 automatycznie \u2014 kliknij i edytuj</span></div><div class="ed" id="autoOpis" contenteditable="true" spellcheck="false"></div>';
+  (anchor.closest(".blk")||anchor).after(ta);box=document.getElementById("autoOpis");}
+ if(box&&box.dataset.man!=="1"){
+  if(!avs.length){box.textContent="Zaznacz oceny w arkuszu \u2014 propozycja opisu wynik\u00f3w u\u0142o\u017cy si\u0119 tu automatycznie.";}
+  else if(st.length&&st[0].mv!==5){var kod=(document.querySelector(".kodchip")||{}).textContent||"";
+   var hi=[],mid=[],lo=[];st.forEach(function(d,i){if(d.avg==null)return;var nm=(NAMES[i]||("obszar "+(i+1)))+" (\u03a3 "+d.sum+"/"+d.max+")";
+    if(d.pz.band===1)hi.push(nm);else if(d.pz.band===2)mid.push(nm);else lo.push(nm);});
+   var t2="";
+   if(kod.indexOf("FBA")>=0){t2="Wg rejestru ABC i kwestionariusza FBA: ";
+    if(hi.length)t2+="funkcja dominuj\u0105ca (wysokie nasilenie): "+hi.join(", ")+" \u2014 priorytet pozytywnego planu wsparcia (PBS): modyfikacja poprzednik\u00f3w i nauka zachowania zast\u0119pczego pe\u0142ni\u0105cego t\u0119 sam\u0105 funkcj\u0119. ";
+    if(mid.length)t2+="Funkcje istotne \u2014 do uwzgl\u0119dnienia: "+mid.join(", ")+". ";
+    if(lo.length)t2+="Funkcje s\u0142abe (drugorz\u0119dne): "+lo.join(", ")+".";}
+   else{t2="Wg obserwacji pog\u0142\u0119bionej: ";
+    if(hi.length)t2+="obszary opanowane / zasoby: "+hi.join(", ")+" \u2014 warto na nich opiera\u0107 codzienn\u0105 prac\u0119. ";
+    if(mid.length)t2+="Obszary cz\u0119\u015bciowo opanowane: "+mid.join(", ")+" \u2014 wymagaj\u0105 wsparcia i \u0107wicze\u0144 w codziennych sytuacjach. ";
+    if(lo.length)t2+="Obszary priorytetowe (najni\u017csze wyniki): "+lo.join(", ")+" \u2014 kierunek pracy terapeutycznej i dalszej obserwacji.";}
+   box.textContent=t2;}
+  else{var gr=[[],[],[],[]];st.forEach(function(d,i){if(d.avg!=null)gr[d.pz.band].push((NAMES[i]||("obszar "+(i+1)))+(STEN?(" (sten "+stenOf(d.avg)+")"):(" (\u015br. "+fmt(d.avg)+")")));});
+   var t=QM?("\u015arednia og\u00f3lna z przeniesionych wynik\u00f3w KPOF: "+fmt(gavg)+" / 5 \u2014 "+gpz.lab+". ")
+     :("Wynik og\u00f3lny: "+tot+" / "+gmax+" pkt ("+Math.round(tot/gmax*100)+"%), "+(STEN?("sten og\u00f3lny "+stenOf(gavg)+" / 10"):("\u015brednia og\u00f3lna "+fmt(gavg)))+" \u2014 "+gpz.lab+". ");
+   if(gr[0].length)t+="Zasoby (\u015br. \u2265 4,0): "+gr[0].join(", ")+" \u2014 mocne strony, na kt\u00f3rych warto opiera\u0107 codzienn\u0105 prac\u0119. ";
+   if(gr[1].length)t+=(STEN?"Wynik wysoki (Poziom I, sten 8\u201310): ":"Rozw\u00f3j w granicach oczekiwa\u0144 (Poziom I): ")+gr[1].join(", ")+" \u2014 bie\u017c\u0105ca praca i monitorowanie. ";
+   if(gr[2].length)t+="Wsparcia dodatkowego wymagaj\u0105 (Poziom II, "+(STEN?"sten 5\u20137":"\u015br. 2,0\u20132,9")+"): "+gr[2].join(", ")+" \u2014 dzia\u0142ania wspieraj\u0105ce "+(STEN?"w szkole":"w przedszkolu")+" + modu\u0142 pog\u0142\u0119biaj\u0105cy. ";
+   if(gr[3].length)t+="Obszary priorytetowe (Poziom III, "+(STEN?"sten 1\u20134":"\u015br. < 2,0")+"): "+gr[3].join(", ")+" \u2014 wskazane modu\u0142y pog\u0142\u0119biaj\u0105ce, WOPF i konsultacja z poradni\u0105 PP. ";
+   if(lowAll)t+="Twierdzenia ocenione na 1\u20132 ("+lowAll+" poz.) podlegaj\u0105 analizie jako\u015bciowej zespo\u0142u \u2014 niezale\u017cnie od "+(STEN?"sten\u00f3w.":"\u015brednich.")+"";
+   box.textContent=t;}}
+ try{fillAuto(st,NAMES,gavg,gpz);}catch(e){}
+ try{syncUpdate(st);}catch(e){}
+}
+function esch(s){return String(s).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;");}
+function fillAuto(st,NAMES,gavg,gpz){
+ if(!KB||!KB.length)return;
+ var nm=function(i){return NAMES[i]||("obszar "+(i+1));};
+ var band=function(i){var d=st[i];return (d&&d.avg!=null&&d.pz)?d.pz.band:null;};
+ var vt=document.querySelector('table[data-af="va"]');
+ if(vt){vt.querySelectorAll("tbody tr").forEach(function(r,i){
+  var k=KB[i];if(!k)return;var td=r.querySelectorAll("td");if(td.length<3)return;
+  var b=band(i);
+  if(td[1].dataset.man!=="1")td[1].textContent=(b==null)?"":k.m[b];
+  if(td[2].dataset.man!=="1")td[2].textContent=(b==null)?"":k.t[b];});}
+ var boxes=document.querySelectorAll(".ed[data-auto]");
+ if(!boxes.length)return;
+ var g=[[],[],[],[]],ix=[[],[],[],[]],bi=null,wi=null;
+ st.forEach(function(d,i){if(!d||d.avg==null||!d.pz)return;
+  g[d.pz.band].push(nm(i)+" (\u015br. "+fmt(d.avg)+")");ix[d.pz.band].push(i);
+  if(bi===null||d.avg>st[bi].avg)bi=i;if(wi===null||d.avg<st[wi].avg)wi=i;});
+ var any=(bi!==null);
+ var low=ix[2].concat(ix[3]);
+ var T={};
+ if(!any){var pusto="Wpisz \u015brednie obszar\u00f3w w sekcji V \u2014 propozycja opisu u\u0142o\u017cy si\u0119 tutaj automatycznie i pozostanie do edycji.";
+  T.obraz=pusto;T.zasoby=pusto;T.wsparcie=pusto;T.kierunki=pusto;}
+ else{
+  var t="Ocen\u0119 funkcjonaln\u0105 przeprowadzono w dziewi\u0119ciu obszarach ICF na podstawie "
+   +"Kwestionariusza Profilu Oceny Funkcjonalnej (KPOF); \u015brednie przeniesiono do sekcji V. "
+   +"<b>\u015arednia og\u00f3lna wynosi "+fmt(gavg)+" / 5, co odpowiada poziomowi: "+gpz.lab+".</b><br>";
+  if(g[0].length)t+="<b>Zas\u00f3b (\u015br. 4,0\u20135,0)</b> \u2014 "+g[0].length+" obsz.: "+esch(g[0].join(", "))+".<br>";
+  if(g[1].length)t+="<b>Poziom I \u2014 rozw\u00f3j w granicach oczekiwa\u0144 (\u015br. 3,0\u20133,9)</b> \u2014 "+g[1].length+" obsz.: "+esch(g[1].join(", "))+".<br>";
+  if(g[2].length)t+="<b>Poziom II \u2014 wsparcie dodatkowe w przedszkolu (\u015br. 2,0\u20132,9)</b> \u2014 "+g[2].length+" obsz.: "+esch(g[2].join(", "))+".<br>";
+  if(g[3].length)t+="<b>Poziom III \u2014 wsparcie specjalistyczne, priorytet (\u015br. poni\u017cej 2,0)</b> \u2014 "+g[3].length+" obsz.: "+esch(g[3].join(", "))+".<br>";
+  t+="Najwy\u017cszy wynik dziecko uzyska\u0142o w obszarze "+esch(nm(bi))+" (\u015br. "+fmt(st[bi].avg)+"), najni\u017cszy w obszarze "
+   +esch(nm(wi))+" (\u015br. "+fmt(st[wi].avg)+"). Zgodnie z regu\u0142\u0105 nadrz\u0119dn\u0105 o rekomendowanym poziomie wsparcia "
+   +"decyduje najni\u017cszy wynik obszarowy, a nie sama \u015brednia og\u00f3lna.";
+  T.obraz=t;
+  var res=ix[0].concat(ix[1]);var t2="";
+  if(!res.length){t2="\u017baden obszar nie osi\u0105gn\u0105\u0142 poziomu zasobu ani Poziomu I, dlatego jako punkt oparcia "
+   +"przyjmuje si\u0119 obszar o najwy\u017cszym wyniku.<br>";res=[bi];}
+  res.forEach(function(i){var b=band(i);if(b==null||!KB[i])return;
+   t2+="<b>"+esch(nm(i))+" (\u015br. "+fmt(st[i].avg)+")</b> \u2014 "+esch(KB[i].m[b])+"<br>";});
+  t2+="Te umiej\u0119tno\u015bci s\u0105 punktem oparcia dla wszystkich dzia\u0142a\u0144 wspieraj\u0105cych \u2014 nowe zadania "
+   +"planuje si\u0119 tak, aby zaczyna\u0142y si\u0119 od tego, co dziecko ju\u017c potrafi, i od aktywno\u015bci, kt\u00f3re lubi.";
+  T.zasoby=t2;
+  var t3="";
+  if(!low.length){t3="\u017baden obszar nie wymaga obecnie wsparcia dodatkowego \u2014 wszystkie wyniki mieszcz\u0105 si\u0119 "
+   +"na poziomie zasobu lub Poziomu I. Wskazane jest bie\u017c\u0105ce monitorowanie rozwoju i powt\u00f3rzenie oceny "
+   +"w terminie ustalonym w sekcji XVII.";}
+  else{low.forEach(function(i){var b=band(i);if(b==null||!KB[i])return;
+    t3+="<b>"+esch(nm(i))+" (\u015br. "+fmt(st[i].avg)+" \u00b7 "+st[i].pz.lab+")</b> \u2014 "+esch(KB[i].t[b])+"<br>";});
+   t3+="Trudno\u015bci obserwowano w naturalnych sytuacjach dnia: podczas zaj\u0119\u0107 kierowanych, zabawy swobodnej, "
+    +"posi\u0142ku, ubierania si\u0119 i pobytu w ogrodzie przedszkolnym \u2014 opis nale\u017cy uzupe\u0142ni\u0107 o konkretne "
+    +"zdarzenia i reakcje dziecka.";}
+  T.wsparcie=t3;
+  var ks=[];low.forEach(function(i){if(KB[i]&&ks.indexOf(KB[i].k)<0)ks.push(KB[i].k);});
+  var t4=ks.length?("<b>Kierunki pracy wynikaj\u0105ce z wynik\u00f3w:</b> "+esch(ks.join("; "))+".<br>")
+   :("<b>Kierunki pracy:</b> podtrzymywanie osi\u0105gni\u0119tego poziomu, wzbogacanie zabawy i zada\u0144 o wi\u0119ksz\u0105 "
+     +"z\u0142o\u017cono\u015b\u0107, dalsza obserwacja w codziennych sytuacjach.<br>");
+  if(g[3].length)t4+="<b>Rekomendowane formy:</b> ze wzgl\u0119du na obszary na Poziomie III wskazane jest wsparcie "
+   +"specjalistyczne \u2014 w \u015acie\u017cce A (dziecko z orzeczeniem) zaj\u0119cia rewalidacyjne oraz zaj\u0119cia "
+   +"specjalistyczne wskazane w sekcji XV, w \u015acie\u017cce B zaj\u0119cia specjalistyczne w ramach pomocy "
+   +"psychologiczno-pedagogicznej i konsultacja z poradni\u0105 psychologiczno-pedagogiczn\u0105.<br>";
+  else if(g[2].length)t4+="<b>Rekomendowane formy:</b> pomoc psychologiczno-pedagogiczna udzielana w przedszkolu "
+   +"w formach wskazanych w sekcji XV, bez zmiany dotychczasowego trybu wsparcia.<br>";
+  else t4+="<b>Rekomendowane formy:</b> bie\u017c\u0105ca praca w grupie i obserwacja \u2014 wyniki nie wskazuj\u0105 obecnie "
+   +"na potrzeb\u0119 dodatkowych form pomocy.<br>";
+  t4+="<b>Wsp\u00f3\u0142praca z rodzicami:</b> przekazanie wynik\u00f3w oceny i uzgodnienie jednolitych sposob\u00f3w "
+   +"post\u0119powania w domu i w przedszkolu (te same komunikaty, ten sam spos\u00f3b zapowiadania zmian, wsp\u00f3lne "
+   +"utrwalanie umiej\u0119tno\u015bci \u0107wiczonych na zaj\u0119ciach), ustalenie sposobu bie\u017c\u0105cego kontaktu oraz "
+   +"terminu oceny efektywno\u015bci wsparcia (sekcja XVII).";
+  T.kierunki=t4;}
+ boxes.forEach(function(el){if(el.dataset.man==="1")return;
+  var k=el.dataset.auto;if(T[k]!=null)el.innerHTML=T[k];});}
+function selOc(el){var was=el.classList.contains("sel");el.parentElement.querySelectorAll("i").forEach(function(s){s.classList.remove("sel");s.style.background="#fff";s.style.color=s.style.borderColor||"";});if(!was){el.classList.add("sel");var c=el.style.borderColor||"#9aa0ab";el.style.background=c;el.style.color="#fff";}try{updateCharts();}catch(e){}}
+document.addEventListener("input",function(ev){var t=ev.target;if(t.classList&&t.classList.contains("fv"))t.dataset.man="1";if(t.id==="autoOpis")t.dataset.man="1";if(t.dataset&&t.dataset.auto!==undefined)t.dataset.man="1";if(t.classList&&t.classList.contains("ed")&&t.id)t.dataset.man="1";if(t.tagName==="TD"&&t.closest("table[data-af]"))t.dataset.man="1";if(t.closest&&t.closest("table.qtab")){try{updateCharts();}catch(e){}}});
+/* przykladowe oceny — kliknij kolko, aby zmienic */
+var EXAMPLE=[[3,4,3,4,3],[3,3,2,3,3],[2,1,2,2,1],[4,4,5,4,4],[4,4,3,4,5],[3,3,2],[4,3,4,4,3],[3,2,3,3,2],[3,3,4,3]];
+window.addEventListener("load",function(){try{
+ var tabs=document.querySelectorAll("table.rt");
+ tabs.forEach(function(tb,ti){var rows=tb.querySelectorAll("tbody tr");
+  rows.forEach(function(r,ri){var cs=r.querySelectorAll("td.oc i");
+   var nn=cs.length&&cs[cs.length-1].textContent==="N"?cs.length-1:cs.length;if(!nn)return;
+   var vals=EXAMPLE[ti]||[];var v=vals[ri];if(!v||v>nn)v=(((ti*2+ri)%nn)+1);
+   var el=cs[v-1];if(!el||el.classList.contains("sel"))return;
+   el.classList.add("sel");var c=el.style.borderColor||"#9aa0ab";el.style.background=c;el.style.color="#fff";});});
+ updateCharts();}catch(e){}});
+function selPk(el){var row=el.parentElement;var was=el.classList.contains("sel");
+ row.querySelectorAll(".pk").forEach(function(p){p.classList.remove("sel");
+  p.style.boxShadow="0 2px 6px rgba(45,27,105,.13),inset 0 1.5px 0 rgba(255,255,255,.85)";
+  var d=p.querySelector(".pkb");if(d)d.style.background="#fff";});
+ var box=document.getElementById(el.dataset.tgt||"");
+ if(was){if(box&&box.dataset.man!=="1"){box.innerHTML=box.dataset.empty||"";box.dataset.pk="";}
+  setPozField(el,"");return;}
+ el.classList.add("sel");
+ el.style.boxShadow="0 3px 10px rgba(45,27,105,.28),inset 0 0 0 1.6px "+el.dataset.col;
+ var dot=el.querySelector(".pkb");if(dot)dot.style.background=el.dataset.col;
+ if(box&&box.dataset.man!=="1"){if(!box.dataset.empty)box.dataset.empty=box.innerHTML;
+  box.innerHTML=el.dataset.desc||"";box.dataset.pk="1";}
+ setPozField(el,el.dataset.lab||"");}
+function setPozField(el,val){var pg=el.closest(".page")||document;
+ pg.querySelectorAll(".fields .f").forEach(function(f){
+  var l=((f.querySelector(".fl")||{}).textContent||"").toLowerCase();
+  var v=f.querySelector(".fv");if(!v||v.dataset.man==="1")return;
+  if(l.indexOf("ustalony poziom wsparcia")>=0)v.textContent=val||"\u00a0";});}
+function selBx(el){el.textContent=el.textContent==="\u2713"?"":"\u2713";el.style.background=el.textContent?"#2D1B69":"#fff";el.style.color="#fff";el.style.fontSize="8px";el.style.textAlign="center";el.style.lineHeight="11px";}
+function syncMeta(el,idx){var v=el.textContent;document.querySelectorAll(".pmeta").forEach(function(pm){var f=pm.querySelectorAll(".mv")[idx];if(f&&f!==el&&f.textContent!==v)f.textContent=v;});if(typeof syncUpdate==="function"){clearTimeout(syncMeta._t);syncMeta._t=setTimeout(function(){syncUpdate();},250);}}
+var KOD="BIO";
+var WAR="";
+function syncMsg(t){var e=document.getElementById("synMsg");if(e)e.textContent=t;}
+function syncMsg2(t){var e=document.getElementById("synMsg2")||document.getElementById("synMsg");
+ if(e)e.textContent=t;}
+function syncProf(){return document.querySelector('.prof[data-id="kpof"]')
+  ||document.querySelector('.prof[data-id="kszof"]');}
+function syncNum(t){t=(t||"").replace(",",".").replace(/[^0-9.]/g,"");
+ if(!t)return null;var v=parseFloat(t);return isNaN(v)?null:v;}
+function syncFld(key){var r=null;document.querySelectorAll(".fields .f").forEach(function(f){
+  if(r!==null)return;var l=((f.querySelector(".fl")||{}).textContent||"").toLowerCase();
+  if(l.indexOf(key)<0)return;var v=f.querySelector(".fv");if(!v)return;
+  var x=(v.textContent||"").trim();if(x)r=x;});return r;}
+function syncVals(st){var sr=[],low=0,cnt=0,any=false;
+ (st||[]).forEach(function(d){var v=(d.avg==null)?null:Math.round(d.avg*100)/100;
+  sr.push(v);if(v!=null)any=true;low+=(d.low||0);cnt+=(d.cnt||0);});
+ if(!any){var p=syncProf();if(p){sr=[];any=false;
+  p.querySelectorAll(".pved").forEach(function(sp){var v=syncNum(sp.textContent);
+   sr.push(v);if(v!=null)any=true;});}}
+ var fc=syncNum(syncFld("liczba ocenionych twierdze"));if(fc!=null)cnt=fc;
+ var fl=syncNum(syncFld("ocenionych na 1"));if(fl!=null)low=fl;
+ return {sr:sr,low:low,cnt:cnt,any:any};}
+var SYNC_CARRY={low:null,cnt:null,wariant:"",sr:null,
+ zesp:null,dost:null,zint:null,konsp:null,pozw:""};
+var SYNC_TABS=["zesp","dost","zint","konsp"];
+function syncTabGet(k){var t=document.querySelector('table[data-sync="'+k+'"]');
+ if(!t)return null;var rows=[],any=false;
+ t.querySelectorAll("tbody tr").forEach(function(r){var c=[];
+  r.querySelectorAll("td").forEach(function(td){
+   c.push((td.textContent||"").replace(/\u00a0/g," ").trim());});
+  if(c.join("").trim())any=true;rows.push(c);});
+ return any?rows:null;}
+function syncTabSet(k,rows){if(!rows||!rows.length)return 0;
+ var t=document.querySelector('table[data-sync="'+k+'"]');if(!t)return 0;
+ var trs=t.querySelectorAll("tbody tr"),n=0;
+ for(var i=0;i<trs.length&&i<rows.length;i++){
+  var td=trs[i].querySelectorAll("td");
+  for(var j=0;j<td.length&&j<rows[i].length;j++){
+   if(td[j].dataset.man==="1")continue;
+   if(!rows[i][j])continue;
+   if(td[j].textContent.trim()===rows[i][j])continue;
+   td[j].textContent=rows[i][j];n++;}}
+ return n;}
+document.addEventListener("input",function(e){var t=e.target;
+ if(t&&t.closest&&t.closest("table[data-sync]")&&t.tagName==="TD")t.dataset.man="1";},true);
+function syncPayload(st){var v=syncVals(st);
+ var w=WAR||syncFld("wariant kpof")||SYNC_CARRY.wariant||"";
+ var lo=v.low,cn=v.cnt;
+ if(!cn&&SYNC_CARRY.cnt!=null)cn=SYNC_CARRY.cnt;
+ if(!lo&&SYNC_CARRY.low!=null)lo=SYNC_CARRY.low;
+ var sr=(v.any?v.sr:(SYNC_CARRY.sr?SYNC_CARRY.sr.slice():[]))||[];
+ while(sr.length<9)sr.push(null);
+ var pk={app:"EduPlaner2026",typ:"KPOF",kod:KOD,wariant:w,meta:syncMetaGet(),
+  sr:sr,low:lo,cnt:cn};
+ SYNC_TABS.forEach(function(k){var r=syncTabGet(k)||SYNC_CARRY[k];if(r)pk[k]=r;});
+ var pz=syncFld("poziom wsparcia ustalony")||syncFld("poziom wsparcia (i / ii / iii)")
+  ||SYNC_CARRY.pozw||"";
+ if(pz)pk.pozw=pz;
+ return pk;}
+function syncMetaGet(){var out=["","",""];var pm=document.querySelector(".pmeta");
+ if(pm)pm.querySelectorAll(".mv").forEach(function(x,i){
+  if(i<3)out[i]=(x.textContent||"").replace(/\u00a0/g," ").trim();});
+ return out;}
+function syncUpdate(st){var o=document.getElementById("synOut");if(!o)return;
+ if(!st){try{st=areaStats();}catch(e){st=[];}}
+ var p=syncPayload(st);if(document.activeElement!==o)o.value=JSON.stringify(p);
+ var s=document.getElementById("synSum");if(!s)return;
+ var n=0,sum=0;p.sr.forEach(function(v){if(v!=null){n++;sum+=v;}});
+ if(!n){var m=(p.meta||[]).filter(function(x){return x&&x.trim();});
+  s.textContent=m.length?("Do przeniesienia: metryczka \u2014 "+m.join(" \u00b7 ")+".")
+   :"Uzupe\u0142nij dane \u2014 tu pojawi si\u0119 podsumowanie gotowe do przeniesienia.";return;}
+ var g=sum/n,pz=pozOf(g);
+ s.textContent="Do przeniesienia: "+n+" z 9 obszar\u00f3w \u00b7 \u015brednia og\u00f3lna "
+  +fmt(g)+" / 5 \u2014 "+(pz?pz.lab:"")+" \u00b7 twierdze\u0144 ocenionych: "+p.cnt
+  +" \u00b7 ocen 1\u20132: "+p.low+".";}
+function syncCopy(){var o=document.getElementById("synOut");if(!o)return;
+ var ok=false;o.removeAttribute("readonly");o.focus();o.select();
+ try{o.setSelectionRange(0,999999);}catch(e){}
+ try{ok=document.execCommand("copy");}catch(e){}
+ o.setAttribute("readonly","readonly");o.blur();
+ if(!ok&&navigator.clipboard){try{navigator.clipboard.writeText(o.value);ok=true;}catch(e){}}
+ syncMsg2(ok?"Skopiowano. Otw\u00f3rz interaktywny druk WOPF, sekcja V, i wklej kod w polu przeniesienia wynik\u00f3w."
+  :"Zaznacz tekst w ramce i skopiuj r\u0119cznie (Ctrl+C).");}
+function syncSave(){var o=document.getElementById("synOut");if(!o)return;
+ var m=syncMetaGet();
+ var nm="KPOF_wynik_"+((m[0]||"dziecko").replace(/[^0-9A-Za-z\u00c0-\u017f]+/g,"_"))+".json";
+ try{var bl=new Blob([o.value],{type:"application/json;charset=utf-8"});
+  var a=document.createElement("a");a.href=URL.createObjectURL(bl);a.download=nm;
+  document.body.appendChild(a);a.click();
+  setTimeout(function(){URL.revokeObjectURL(a.href);a.remove();},1500);
+  syncMsg2("Zapisano plik "+nm+" \u2014 wczytaj go w druku WOPF (przycisk \u201eWczytaj plik wyniku\u201d).");}
+ catch(e){syncMsg2("Nie uda\u0142o si\u0119 zapisa\u0107 pliku \u2014 u\u017cyj przycisku kopiowania.");}}
+function syncFile(inp){var f=inp.files&&inp.files[0];if(!f)return;
+ var r=new FileReader();r.onload=function(){syncApply(String(r.result));};
+ r.readAsText(f,"utf-8");inp.value="";}
+function syncApply(txt){var o=null;
+ try{o=JSON.parse(String(txt||"").trim());}catch(e){}
+ if(!o){syncMsg("Nie uda\u0142o si\u0119 odczyta\u0107 danych \u2014 wklej ca\u0142y kod skopiowany w arkuszu KPOF.");return;}
+ if(o.app!=="EduPlaner2026"||!o.sr||!o.sr.length){syncMsg("To nie s\u0105 wyniki z arkusza KPOF.");return;}
+ if(o.low!=null)SYNC_CARRY.low=o.low;
+ if(o.cnt!=null)SYNC_CARRY.cnt=o.cnt;
+ if(o.wariant)SYNC_CARRY.wariant=o.wariant;
+ var hasSr=false;o.sr.forEach(function(v){if(v!=null)hasSr=true;});
+ if(hasSr)SYNC_CARRY.sr=o.sr.slice();
+ var tn=0;
+ SYNC_TABS.forEach(function(k){if(o[k]&&o[k].length){
+  SYNC_CARRY[k]=o[k];tn+=syncTabSet(k,o[k]);}});
+ if(o.pozw)SYNC_CARRY.pozw=o.pozw;
+ var qt=document.querySelector("table.qtab");
+ var n=0;
+ if(qt){qt.querySelectorAll("tbody tr").forEach(function(r,i){
+  var td=r.querySelectorAll("td");if(td.length<2)return;
+  var v=o.sr[i];if(v==null)return;if(td[1].dataset.man==="1")return;
+  td[1].textContent=fmt(v);n++;});}
+ if(o.meta&&o.meta.length){document.querySelectorAll(".pmeta").forEach(function(pm){
+  pm.querySelectorAll(".mv").forEach(function(f,ix){var v=o.meta[ix];if(v)f.textContent=v;});});}
+ document.querySelectorAll(".fields .f").forEach(function(f){
+  var l=((f.querySelector(".fl")||{}).textContent||"").toLowerCase();
+  var v=f.querySelector(".fv");if(!v||v.dataset.man==="1")return;
+  if(l.indexOf("ocenionych na 1")>=0){if(o.low!=null)v.textContent=String(o.low);}
+  else if(l.indexOf("liczba ocenionych twierdze")>=0){if(o.cnt!=null)v.textContent=String(o.cnt);}
+  else if(l.indexOf("wariant kpof")>=0){if(o.wariant)v.textContent=o.wariant;}
+  else if(l.indexOf("poziom wsparcia ustalony")>=0){if(o.pozw)v.textContent=o.pozw;}
+  else if(l.indexOf("data wype")>=0){if(o.meta&&o.meta[2])v.textContent=o.meta[2];}});
+ var pf=syncProf();
+ if(pf){pf.querySelectorAll(".pved").forEach(function(sp,i){
+  var v=o.sr[i];if(v==null)return;if(sp.dataset.man==="1")return;
+  sp.textContent=fmt(v);if(!n||n<=i)n=i+1;});
+  try{window.profRedraw();}catch(e){}}
+ try{updateCharts();}catch(e){}
+ try{syncUpdate();}catch(e){}
+ var dn=0;try{if(window.docApply)dn=window.docApply(o)||0;}catch(e){}
+ if(dn&&!n)n=dn;
+ var tx=tn?(" Przeniesiono te\u017c "+tn+" pozycji z tabel zespo\u0142u, dostosowa\u0144, dzia\u0142a\u0144 i konspekt\u00f3w."):"";
+ if(!hasSr){syncMsg("Przeniesiono metryczk\u0119 \u2014 imi\u0119 dziecka, grup\u0119 i dat\u0119. Kod nie zawiera\u0142 jeszcze \u015brednich obszar\u00f3w."+tx);return;}
+ if(!n){syncMsg("Kod odczytany, ale w tym druku nie ma miejsca na \u015brednie obszar\u00f3w \u2014 przeniesiono metryczk\u0119 i dane liczbowe, kt\u00f3re druk podaje dalej bez zmian."+tx);return;}
+ syncMsg("Przeniesiono "+n+" z 9 obszar\u00f3w"+(o.wariant?(" \u00b7 KPOF "+o.wariant):"")
+  +" \u2014 poziomy wsparcia, wykresy i opisy przeliczy\u0142y si\u0119 automatycznie."+tx);}
+(function(){
+ function pbands(p){try{var a=JSON.parse(p.dataset.bands||"[]");a.sort(function(x,y){return y.lo-x.lo;});return a;}catch(e){return [];}}
+ function bandOf(bs,v){if(!bs.length)return null;
+  for(var i=0;i<bs.length;i++){if(v>=bs[i].lo-0.001)return bs[i];}
+  return bs[bs.length-1];}
+ function num(t){t=(t||"").replace(",",".").replace(/[^0-9.]/g,"");if(!t)return null;var v=parseFloat(t);return isNaN(v)?null:v;}
+ function f1(v){return (Math.round(v*10)/10).toString().replace(".",",");}
+ function drawProf(p){
+  var max=parseFloat(p.dataset.max)||10,bs=pbands(p);
+  var UNIT=p.dataset.unit||"pkt",DEC=p.dataset.dec==="1";
+  var f1=function(v){return (DEC?(Math.round(v*10)/10).toFixed(1)
+   :(Math.round(v*10)/10).toString()).replace(".",",");};
+  var vals=[],codes=[],names=[],filled=0,sum=0;
+  p.querySelectorAll("table.ptab td.pv").forEach(function(td){
+   var i=+td.dataset.i,v=num((td.textContent||"").trim());
+   if(v!==null){if(v<0)v=0;if(v>max)v=max;filled++;sum+=v;}
+   vals[i]=v;var tr=td.parentElement;
+   var kc=tr.querySelector(".pk2"),nc=tr.querySelector(".pn");
+   codes[i]=kc?kc.textContent:"";names[i]=nc?nc.textContent:"";
+   var ch=tr.querySelector(".pzchip"),b=(v===null)?null:bandOf(bs,v);
+   if(ch){if(b){ch.textContent=b.lab;ch.style.color=b.col;ch.style.borderColor=b.col;}
+    else{ch.textContent="\u00a0";ch.style.color="#8a83a3";ch.style.borderColor="#d9d0ec";}}
+   var vc=tr.querySelector(".pv");if(vc&&b)vc.style.color=b.col;else if(vc)vc.style.color="#2D1B69";});
+  var bar=p.querySelector("svg.pg-bar");
+  if(bar){bar.querySelectorAll(".pb-bar").forEach(function(r){
+   var i=+r.dataset.i,v=vals[i],tp=parseFloat(r.dataset.top),bt=parseFloat(r.dataset.bot);
+   var h=(v===null)?0:(v/max)*(bt-tp);var b=(v===null)?null:bandOf(bs,v);
+   r.setAttribute("y",(bt-h).toFixed(1));r.setAttribute("height",h.toFixed(1));
+   r.setAttribute("fill",b?b.col:"#2D1B69");});
+   bar.querySelectorAll(".pb-val").forEach(function(t){
+    var i=+t.dataset.i,v=vals[i];if(v===null){t.textContent="";return;}
+    var rr=bar.querySelector('.pb-bar[data-i="'+i+'"]');
+    var tp=parseFloat(rr.dataset.top),bt=parseFloat(rr.dataset.bot);
+    var h=(v/max)*(bt-tp);var y=bt-h-5;var inside=false;
+    if(y<tp+10){y=bt-h+11;inside=true;}
+    t.setAttribute("y",y.toFixed(1));t.textContent=f1(v);
+    t.setAttribute("fill",inside?"#fff":"#2D1B69");});}
+  var rd=p.querySelector("svg.pg-rad");
+  if(rd){var n=+rd.dataset.n,R=+rd.dataset.r,cx=+rd.dataset.cx,cy=+rd.dataset.cy,pts=[];
+   for(var i=0;i<n;i++){var v=vals[i];var a=-Math.PI/2+2*Math.PI*i/n;
+    var rr=(v===null)?0:R*(v/max);var x=cx+rr*Math.cos(a),y=cy+rr*Math.sin(a);
+    if(v!==null)pts.push(x.toFixed(1)+","+y.toFixed(1));
+    var d=rd.querySelector('.pr-dot[data-i="'+i+'"]');
+    if(d){d.setAttribute("cx",x.toFixed(1));d.setAttribute("cy",y.toFixed(1));
+     d.setAttribute("r",(v===null)?0:3.2);}}
+   var pg=rd.querySelector(".pr-poly");
+   if(pg)pg.setAttribute("points",(filled===n&&n>2)?pts.join(" "):"");}
+  var dsc=p.querySelector(".pdesc");
+  if(dsc&&dsc.dataset.man!=="1"){
+   if(!filled){dsc.innerHTML="";return;}
+   var avg=Math.round((sum/filled)*10)/10,ab=bandOf(bs,avg);
+   var idx=[];for(var j=0;j<vals.length;j++)if(vals[j]!==null)idx.push(j);
+   var srt=idx.slice().sort(function(a,b){return vals[b]-vals[a];});
+   function nm(j){return codes[j]+" — "+names[j]+" ("+f1(vals[j])+" "+UNIT+")";}
+   var hi=srt.slice(0,2).map(nm).join("; ");
+   var lo=srt.slice(-2).reverse().map(nm).join("; ");
+   var cnt=[];bs.forEach(function(b){var c=idx.filter(function(j){
+    var bb=bandOf(bs,vals[j]);return bb&&bb.lab===b.lab;}).length;
+    if(c)cnt.push(c+" \u00d7 "+b.lab);});
+   var rng=vals[srt[0]]-vals[srt[srt.length-1]];
+   var HT=parseFloat(p.dataset.hthr);if(isNaN(HT))HT=3;
+   var harm=(rng>=HT)?("Rozpi\u0119to\u015b\u0107 wynik\u00f3w wynosi "+f1(rng)+" "+UNIT+" \u2014 profil jest <b>nieharmonijny</b>; "+
+    "r\u00f3\u017cnice mi\u0119dzy obszarami s\u0105 na tyle du\u017ce, \u017ce wymagaj\u0105 zr\u00f3\u017cnicowanego doboru form i intensywno\u015bci wsparcia."):
+    ("Rozpi\u0119to\u015b\u0107 wynik\u00f3w wynosi "+f1(rng)+" "+UNIT+" \u2014 profil jest <b>wyr\u00f3wnany</b>; "+
+    "funkcjonowanie w poszczeg\u00f3lnych obszarach przebiega na zbli\u017conym poziomie.");
+   var wsel=(p.dataset.tend==="hi")?srt.slice(0,2):srt.slice(-2).reverse();
+   var wn=wsel.map(function(j){return codes[j];}).join(", ");
+   var HL=p.dataset.hilab||"Najmocniejsze strony",LL=p.dataset.lolab||"Obszary najs\u0142absze";
+   var TL=p.dataset.tail||"wyznaczaj\u0105 priorytet oddzia\u0142ywa\u0144.";
+   dsc.innerHTML="Wype\u0142niono <b>"+filled+" z "+vals.length+"</b> obszar\u00f3w. \u015arednia profilu: <b>"+f1(avg)+
+    " "+UNIT+"</b>"+(ab?(" (poziom: <b>"+ab.lab+"</b>)"):"")+". "+HL+": "+hi+". "+LL+": "+lo+
+    ". Rozk\u0142ad poziom\u00f3w: "+cnt.join("; ")+". "+harm+
+    " Obszary "+wn+" "+TL;}}
+ window.profRedraw=function(){document.querySelectorAll(".prof").forEach(drawProf);};
+ document.addEventListener("input",function(e){var t=e.target;if(!t||!t.classList)return;
+  if(t.classList.contains("pved")){var p=t.closest(".prof");if(p)drawProf(p);
+   try{syncUpdate();}catch(e){}}
+  else if(t.classList.contains("pdesc")){t.dataset.man="1";}});
+ window.addEventListener("load",function(){try{window.profRedraw();}catch(e){}
+  try{syncUpdate();}catch(e){}});
+})();
+</script></head><body><div class="itoolbar no-print"><b>✍ BIO — arkusz interaktywny</b><span class="sp">Wypełniony przykładowymi ocenami — kliknij kółko, aby zmienić · średnie, wykresy i opis wyników liczą się same · żółte ramki to wzory opisów — kliknij i edytuj</span><button onclick="window.print()">🖨 Drukuj / Zapisz PDF</button></div><div class="page"><div class="frame"></div><div class="inner">
+<div class="phead"><div class="logo">PCTP</div>
+ <div class="bl"><div class="t1">EduPlaner 2026</div><div class="t2">BIO · szkoła podstawowa</div></div>
+ <div class="br"><span class="kodchip">BIO</span><div class="t3">obserwacja zasobów, barier i ułatwiaczy · model ICF · szkoła podstawowa · 2026</div></div></div>
+<div class="pmeta">
+ <div class="m"><span class="ml">Dotyczy ucznia</span><span class="mv med" contenteditable="true" spellcheck="false" oninput="syncMeta(this,0)">&nbsp;</span></div>
+ <div class="m sm"><span class="ml">Klasa</span><span class="mv med" contenteditable="true" spellcheck="false" oninput="syncMeta(this,1)">&nbsp;</span></div>
+ <div class="m sm"><span class="ml">Data</span><span class="mv med" contenteditable="true" spellcheck="false" oninput="syncMeta(this,2)">&nbsp;</span><span class="mr">r.</span></div>
+</div>
+<div class="pbody"><div class="tt-kick"><span>Narzędzie obserwacji · arkusz do wypełnienia</span></div><div class="tt-h1">Profil biopsychospołeczny ucznia</div><div class="tt-sub"><span class="dots"></span><span class="tx">obserwacja zasobów, barier i ułatwiaczy · model ICF · szkoła podstawowa · 2026</span><span class="dots"></span></div><div class="blk"><div class="howto"><div class="mini">✍ Jak wypełnić</div><p>Zaznacz czynniki istotne dla ucznia w czterech obszarach modelu ICF: biologicznym, środowiskowym, psychologicznym i społecznym. To obserwacja (nie diagnoza) — opisujemy zasoby ucznia oraz bariery i ułatwiacze w otoczeniu szkolnym: na lekcjach, na przerwach i w domu. Na końcu, w syntezie, znajdziesz szare przykłady wypełnienia — kliknij i nadpisz je własnym opisem. Wszystkie pola są edytowalne; profil wczytuje się do metryczki i do WOPF.</p></div></div><div class="blk"><div class="lead"><b class="tl">O narzędziu — po co, na czym oparte i autorzy</b><p>Na czym oparte. Narzędzie obserwacyjne oparte na elementach Międzynarodowej Klasyfikacji Funkcjonowania, Niepełnosprawności i Zdrowia (ICF, WHO 2001) oraz na modelu biopsychospołecznym (George L. Engel, 1977). Ujęcie zgodne z modelem oceny funkcjonalnej: Gajdzica Z. i in., „Ocena funkcjonalna w szkole dla każdego" (2024). Po co i kiedy. To obserwacja pogłębiona uzupełniająca WOPF/KSzOF — porządkuje informacje o uczniu, gdy jego funkcjonowanie zależy od wielu współdziałających czynników (zdrowie, otoczenie, emocje, sytuacja rodzinna). Pokazuje nie tylko „co uczeń robi", ale co mu pomaga, a co utrudnia. Nie zastępuje diagnozy specjalistycznej.</p></div></div><div class="blk"><div class="note">Podstawa programowa. Obserwacja odnosi się do wymagań podstawy programowej kształcenia ogólnego dla szkoły podstawowej (Rozp. MEN z 14.02.2017 r., Dz.U. 2017 poz. 356, ze zm.) oraz do czterech obszarów modelu ICF: biologicznego, środowiskowego, psychologicznego i społecznego.</div></div><div class="blk"><div class="sec"><span class="n">I</span><h2>Metryczka ucznia</h2><span class="rl"></span></div></div><div class="blk"><div class="fields"><div class="f"><div class="fl">Imię i nazwisko ucznia</div><div class="fv" contenteditable="true" spellcheck="false">Zofia Lewandowska</div></div><div class="f"><div class="fl">Data urodzenia / wiek</div><div class="fv" contenteditable="true" spellcheck="false">14.03.2017 · 9 lat</div></div><div class="f"><div class="fl">Klasa / oddział · etap edukacyjny</div><div class="fv" contenteditable="true" spellcheck="false">III A · I etap edukacyjny</div></div><div class="f"><div class="fl">Wychowawca klasy · oceniający (nauczyciel / specjalista)</div><div class="fv" contenteditable="true" spellcheck="false">mgr Katarzyna Wiśniewska (wychowawczyni) · mgr Anna Nowak (pedagog specjalny)</div></div><div class="f"><div class="fl">Źródła (obserwacja na lekcjach · wywiad z rodzicem · informacje od nauczycieli)</div><div class="fv" contenteditable="true" spellcheck="false">obserwacja na lekcjach i przerwach 01–22.09.2026 · wywiad z rodzicem 05.09.2026 · informacje od nauczycieli</div></div><div class="f"><div class="fl">Okres obserwacji (od – do) · data</div><div class="fv" contenteditable="true" spellcheck="false">22.09.2026</div></div></div></div><div class="blk"><div class="sec"><span class="n">II</span><h2>Czynniki biologiczne</h2><span class="rl"></span><span class="tag">Funkcje i struktury ciała</span></div></div><div class="blk"><div class="subhead">STAN ZDROWIA I LECZENIE</div></div><div class="blk"><div class="checks"><div class="c"><span class="bx" onclick="selBx(this)"></span><span>Cukrzyca (pomiar cukru, pompa)</span></div><div class="c"><span class="bx" onclick="selBx(this)"></span><span>Padaczka (epilepsja) — napady</span></div><div class="c"><span class="bx" onclick="selBx(this)" style="background: rgb(45, 27, 105); color: rgb(255, 255, 255); font-size: 8px; text-align: center; line-height: 11px;">✓</span><span>Alergie / astma (wydolność)</span></div><div class="c"><span class="bx" onclick="selBx(this)"></span><span>Leki (psychotropowe, przewlekłe)</span></div><div class="c"><span class="bx" onclick="selBx(this)"></span><span>Częste infekcje / niska odporność</span></div><div class="c"><span class="bx" onclick="selBx(this)"></span><span>Choroba przewlekła (inna)</span></div></div></div><div class="blk"><div class="subhead">ROZWÓJ FIZYCZNY I MOTORYCZNY</div></div><div class="blk"><div class="checks"><div class="c"><span class="bx" onclick="selBx(this)" style="background: rgb(45, 27, 105); color: rgb(255, 255, 255); font-size: 8px; text-align: center; line-height: 11px;">✓</span><span>Motoryka duża: niezgrabność, męczliwość</span></div><div class="c"><span class="bx" onclick="selBx(this)" style="background: rgb(45, 27, 105); color: rgb(255, 255, 255); font-size: 8px; text-align: center; line-height: 11px;">✓</span><span>Motoryka mała: precyzja, pisanie, tempo notowania</span></div><div class="c"><span class="bx" onclick="selBx(this)"></span><span>Wady postawy (skolioza itp.)</span></div><div class="c"><span class="bx" onclick="selBx(this)"></span><span>Drżenie rąk / napięcie mięśniowe</span></div></div></div></div>
+<div class="pfoot"><span>EduPlaner 2026 · PCTP · szkoła podstawowa</span>
+ <span class="r"><b>Strona 1 z 3</b> · BIO</span></div>
+</div></div><div class="page"><div class="frame"></div><div class="inner">
+<div class="phead"><div class="logo">PCTP</div>
+ <div class="bl"><div class="t1">EduPlaner 2026</div><div class="t2">BIO · szkoła podstawowa</div></div>
+ <div class="br"><span class="kodchip">BIO</span><div class="t3">obserwacja zasobów, barier i ułatwiaczy · model ICF · szkoła podstawowa · 2026</div></div></div>
+<div class="pmeta">
+ <div class="m"><span class="ml">Dotyczy ucznia</span><span class="mv med" contenteditable="true" spellcheck="false" oninput="syncMeta(this,0)">&nbsp;</span></div>
+ <div class="m sm"><span class="ml">Klasa</span><span class="mv med" contenteditable="true" spellcheck="false" oninput="syncMeta(this,1)">&nbsp;</span></div>
+ <div class="m sm"><span class="ml">Data</span><span class="mv med" contenteditable="true" spellcheck="false" oninput="syncMeta(this,2)">&nbsp;</span><span class="mr">r.</span></div>
+</div>
+<div class="pbody"><div class="blk"><div class="subhead">FUNKCJE ZMYSŁOWE I NEUROLOGICZNE</div></div><div class="blk"><div class="checks"><div class="c"><span class="bx" onclick="selBx(this)"></span><span>Wzrok: słabowidzenie, czytanie z tablicy</span></div><div class="c"><span class="bx" onclick="selBx(this)"></span><span>Słuch: niedosłuch</span></div><div class="c"><span class="bx" onclick="selBx(this)"></span><span>Zaburzenia przetwarzania słuchowego (APD)</span></div><div class="c"><span class="bx" onclick="selBx(this)"></span><span>Mózgowe porażenie dziecięce (MPD)</span></div><div class="c"><span class="bx" onclick="selBx(this)"></span><span>Tiki nerwowe</span></div><div class="c"><span class="bx" onclick="selBx(this)"></span><span>Migreny / bóle głowy</span></div></div></div><div class="blk"><div class="subhead">FIZJOLOGIA</div></div><div class="blk"><div class="checks"><div class="c"><span class="bx" onclick="selBx(this)"></span><span>Zaburzenia snu (senność w dzień)</span></div><div class="c"><span class="bx" onclick="selBx(this)"></span><span>Zaburzenia łaknienia / wybiórczość</span></div><div class="c"><span class="bx" onclick="selBx(this)"></span><span>Kontrola potrzeb fizjologicznych</span></div></div></div><div class="blk"><div class="note">Zaznacz czynniki istotne dla ucznia. Pola wyboru są edytowalne — kliknij, aby zaznaczyć.</div></div><div class="blk"><div class="sec"><span class="n">III</span><h2>Czynniki środowiskowe</h2><span class="rl"></span><span class="tag">Bariery i ułatwiacze</span></div></div><div class="blk"><div class="subhead">DOSTĘPNOŚĆ SZKOŁY</div></div><div class="blk"><div class="checks"><div class="c"><span class="bx" onclick="selBx(this)"></span><span>Bariery architektoniczne (schody)</span></div><div class="c"><span class="bx" onclick="selBx(this)" style="background: rgb(45, 27, 105); color: rgb(255, 255, 255); font-size: 8px; text-align: center; line-height: 11px;">✓</span><span>Sala lekcyjna: oświetlenie, akustyka</span></div><div class="c"><span class="bx" onclick="selBx(this)"></span><span>Niedostosowane toalety / szatnie</span></div><div class="c"><span class="bx" onclick="selBx(this)" style="background: rgb(45, 27, 105); color: rgb(255, 255, 255); font-size: 8px; text-align: center; line-height: 11px;">✓</span><span>Brak stref wyciszenia</span></div></div></div><div class="blk"><div class="subhead">ZASOBY I ORGANIZACJA</div></div><div class="blk"><div class="checks"><div class="c"><span class="bx" onclick="selBx(this)"></span><span>Brak pomocy dydaktycznych</span></div><div class="c"><span class="bx" onclick="selBx(this)"></span><span>Materiały niedostosowane</span></div><div class="c"><span class="bx" onclick="selBx(this)" style="background: rgb(45, 27, 105); color: rgb(255, 255, 255); font-size: 8px; text-align: center; line-height: 11px;">✓</span><span>Zbyt liczna klasa</span></div><div class="c"><span class="bx" onclick="selBx(this)"></span><span>Brak elastyczności metod</span></div></div></div><div class="blk"><div class="subhead">NAUCZYCIELE I KADRA ORAZ KLASA I RÓWIEŚNICY</div></div><div class="blk"><div class="checks"><div class="c"><span class="bx" onclick="selBx(this)"></span><span>Brak wiedzy o uczniu</span></div><div class="c"><span class="bx" onclick="selBx(this)"></span><span>Niespójność działań zespołu</span></div><div class="c"><span class="bx" onclick="selBx(this)"></span><span>Brak akceptacji / wykluczenie</span></div><div class="c"><span class="bx" onclick="selBx(this)"></span><span>Zachowania przemocowe w klasie</span></div><div class="c"><span class="bx" onclick="selBx(this)"></span><span>Brak wsparcia rówieśniczego</span></div><div class="c"><span class="bx" onclick="selBx(this)" style="background: rgb(45, 27, 105); color: rgb(255, 255, 255); font-size: 8px; text-align: center; line-height: 11px;">✓</span><span>Wsparcie i akceptacja rówieśników (ułatwiacz)</span></div></div></div><div class="blk"><div class="sec"><span class="n">IV</span><h2>Czynniki psychologiczne</h2><span class="rl"></span><span class="tag">Funkcje mentalne</span></div></div><div class="blk"><div class="subhead">ROZWÓJ POZNAWCZY</div></div><div class="blk"><div class="checks"><div class="c"><span class="bx" onclick="selBx(this)" style="background: rgb(45, 27, 105); color: rgb(255, 255, 255); font-size: 8px; text-align: center; line-height: 11px;">✓</span><span>Uwaga: dekoncentracja, trudności</span></div><div class="c"><span class="bx" onclick="selBx(this)"></span><span>Pamięć: bieżąca lub trwała</span></div><div class="c"><span class="bx" onclick="selBx(this)"></span><span>Styl: preferencja jednego kanału (wzrok itp.)</span></div><div class="c"><span class="bx" onclick="selBx(this)" style="background: rgb(45, 27, 105); color: rgb(255, 255, 255); font-size: 8px; text-align: center; line-height: 11px;">✓</span><span>Tempo: wolne / nierówne</span></div></div></div><div class="blk"><div class="subhead">EMOCJE I MOTYWACJA</div></div><div class="blk"><div class="checks"><div class="c"><span class="bx" onclick="selBx(this)"></span><span>Emocje: wybuchowość, wycofanie</span></div><div class="c"><span class="bx" onclick="selBx(this)" style="background: rgb(45, 27, 105); color: rgb(255, 255, 255); font-size: 8px; text-align: center; line-height: 11px;">✓</span><span>Lęk: szkolny, społeczny, przed oceną i odpowiedzią</span></div><div class="c"><span class="bx" onclick="selBx(this)"></span><span>Samoocena: zaniżona / bezradność</span></div><div class="c"><span class="bx" onclick="selBx(this)"></span><span>Motywacja: tylko zewnętrzna</span></div></div></div><div class="blk"><div class="sec"><span class="n">V</span><h2>Czynniki społeczne</h2><span class="rl"></span><span class="tag">Aktywność i uczestniczenie</span></div></div><div class="blk"><div class="subhead">RODZINA I DOM</div></div><div class="blk"><div class="checks"><div class="c"><span class="bx" onclick="selBx(this)"></span><span>Brak współpracy / roszczeniowość</span></div><div class="c"><span class="bx" onclick="selBx(this)"></span><span>Sytuacja kryzysowa (rozwód, choroba)</span></div><div class="c"><span class="bx" onclick="selBx(this)"></span><span>Niespójność wychowawcza</span></div><div class="c"><span class="bx" onclick="selBx(this)" style="background: rgb(45, 27, 105); color: rgb(255, 255, 255); font-size: 8px; text-align: center; line-height: 11px;">✓</span><span>Wsparcie i zaangażowanie rodziny (ułatwiacz)</span></div></div></div></div>
+<div class="pfoot"><span>EduPlaner 2026 · PCTP · szkoła podstawowa</span>
+ <span class="r"><b>Strona 2 z 3</b> · BIO</span></div>
+</div></div><div class="page"><div class="frame"></div><div class="inner">
+<div class="phead"><div class="logo">PCTP</div>
+ <div class="bl"><div class="t1">EduPlaner 2026</div><div class="t2">BIO · szkoła podstawowa</div></div>
+ <div class="br"><span class="kodchip">BIO</span><div class="t3">obserwacja zasobów, barier i ułatwiaczy · model ICF · szkoła podstawowa · 2026</div></div></div>
+<div class="pmeta">
+ <div class="m"><span class="ml">Dotyczy ucznia</span><span class="mv med" contenteditable="true" spellcheck="false" oninput="syncMeta(this,0)">&nbsp;</span></div>
+ <div class="m sm"><span class="ml">Klasa</span><span class="mv med" contenteditable="true" spellcheck="false" oninput="syncMeta(this,1)">&nbsp;</span></div>
+ <div class="m sm"><span class="ml">Data</span><span class="mv med" contenteditable="true" spellcheck="false" oninput="syncMeta(this,2)">&nbsp;</span><span class="mr">r.</span></div>
+</div>
+<div class="pbody"><div class="blk"><div class="subhead">SYTUACJA BYTOWA I RELACJE</div></div><div class="blk"><div class="checks"><div class="c"><span class="bx" onclick="selBx(this)"></span><span>Trudne warunki / brak miejsca do nauki w domu</span></div><div class="c"><span class="bx" onclick="selBx(this)"></span><span>Ubóstwo / zaniedbania</span></div><div class="c"><span class="bx" onclick="selBx(this)"></span><span>Izolacja społeczna (brak zajęć dodatkowych, absencja)</span></div></div></div><div class="blk"><div class="sec"><span class="n">VI</span><h2>Synteza profilu — zasoby, bariery i ułatwiacze</h2><span class="rl"></span></div></div><div class="blk stx"><div class="ta"><div class="tl">ZASOBY I MOCNE STRONY UCZNIA<span class="edtag">✎ podpowiedź — kliknij i edytuj</span></div><div class="ed" contenteditable="true" spellcheck="false">Zasoby: pamięć wzrokowa i czytanie globalne (ok. 20 wyrazów), zainteresowanie przyrodą, sprawność ruchowa w znanych zadaniach, jedna stała koleżanka (Ola), zaangażowani rodzice i spójne rutyny domowe, akceptacja klasy.</div></div></div><div class="blk stx"><div class="ta"><div class="tl">BARIERY (CO UTRUDNIA FUNKCJONOWANIE)<span class="edtag">✎ podpowiedź — kliknij i edytuj</span></div><div class="ed" contenteditable="true" spellcheck="false">Bariery: nadwrażliwość słuchowa — hałas w klasie, na stołówce i korytarzu skraca czas pracy z ok. 8 do 1 minuty; brak strefy wyciszenia w pobliżu sali; zbyt liczna klasa (26 uczniów); zadania wieloetapowe bez wsparcia wizualnego; lęk przed odpowiedzią przy tablicy; wolne tempo pisania (motoryka mała).</div></div></div><div class="blk stx"><div class="ta"><div class="tl">UŁATWIACZE W OTOCZENIU — DO WYKORZYSTANIA I WZMACNIANIA<span class="edtag">✎ podpowiedź — kliknij i edytuj</span></div><div class="ed" contenteditable="true" spellcheck="false">Ułatwiacze: pierwsza ławka przy nauczycielu, słuchawki wyciszające dostępne bez proszenia, zadania w 3 krokach z piktogramami, karta „proszę o przerwę”, nauczyciel współorganizujący (mgr Ewa Sikora), strefa wyciszenia w sali 12, przewidywalny plan dnia z zapowiedzią zmian, współpraca z rodzicami co 4 tygodnie.</div></div></div><div class="blk"><div class="sign"><div><div class="sl"></div>Sporządził(a) — nauczyciel / specjalista · data</div><div><div class="sl"></div>Koordynator zespołu · data</div></div></div><div class="blk"><div class="legal"><b>Podstawa prawna:</b> PODSTAWA. Narzędzie obserwacyjne oparte na elementach Międzynarodowej Klasyfikacji Funkcjonowania (ICF, WHO 2001) i modelu biopsychospołecznym (Engel, 1977); ujęcie: Gajdzica Z. i in., „Ocena funkcjonalna w szkole dla każdego" (2024). Odnosi się do wymagań podstawy programowej kształcenia ogólnego dla szkoły podstawowej (Rozp. MEN z 14.02.2017 r., Dz.U. 2017 poz. 356, ze zm.). Obserwacja pogłębiona wspierająca WOPF — nie zastępuje diagnozy specjalistycznej. PODSTAWA PRAWNA: ustawa z 14.12.2016 r. — Prawo oświatowe (t.j. Dz.U. 2026 poz. 820), art. 127; rozp. MEN z 9.08.2017 r. w sprawie zasad organizacji i udzielania pomocy psychologiczno-pedagogicznej (t.j. Dz.U. 2023 poz. 1798); rozp. MEN z 9.08.2017 r. w sprawie warunków organizowania kształcenia, wychowania i opieki dla uczniów niepełnosprawnych (t.j. Dz.U. 2020 poz. 1309) — § 6: wielospecjalistyczna ocena poziomu funkcjonowania ucznia.</div></div></div>
+<div class="pfoot"><span>EduPlaner 2026 · PCTP · szkoła podstawowa</span>
+ <span class="r"><b>Strona 3 z 3</b> · BIO</span></div>
+</div></div></body></html>

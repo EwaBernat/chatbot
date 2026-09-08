@@ -18,6 +18,8 @@ import {MetryczkaSpPromo, type FilmSp} from './sp/MetryczkaSpPromo';
 import spMetryczka from '../public/sp-metryczka.json';
 import {KszofPromo, type FilmKszof} from './sp/KszofPromo';
 import spKszof from '../public/sp-kszof.json';
+import {ObserwacjaPromo, type FilmObs} from './sp/ObserwacjaPromo';
+import spObs from '../public/sp-obserwacja.json';
 
 const FPS = 30;
 
@@ -168,6 +170,26 @@ export const RemotionRoot: React.FC = () => (
       width={1920}
       height={1080}
       defaultProps={{film: spKszof as unknown as FilmKszof}}
+      calculateMetadata={async ({props}) => {
+        let sekundy = props.film.dlugosc;
+        if (props.film.audio) {
+          try {
+            sekundy = Math.max(sekundy, await getAudioDurationInSeconds(staticFile(props.film.audio)));
+          } catch {
+            // bez nagrania długość bierze się z napisów
+          }
+        }
+        return {durationInFrames: Math.max(1, Math.round(sekundy * FPS))};
+      }}
+    />
+    <Composition
+      id="ObserwacjaPromo"
+      component={ObserwacjaPromo}
+      durationInFrames={60 * FPS}
+      fps={FPS}
+      width={1920}
+      height={1080}
+      defaultProps={{film: spObs as unknown as FilmObs}}
       calculateMetadata={async ({props}) => {
         let sekundy = props.film.dlugosc;
         if (props.film.audio) {
