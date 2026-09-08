@@ -1,0 +1,16 @@
+import {chromium} from 'playwright-core';
+import {resolve} from 'node:path';
+import {pathToFileURL} from 'node:url';
+const exe='/opt/pw-browsers/chromium_headless_shell-1194/chrome-linux/headless_shell';
+const browser=await chromium.launch({executablePath:exe,args:['--no-sandbox']});
+const page=await browser.newPage({viewport:{width:1240,height:1400}});
+await page.goto(pathToFileURL(resolve(process.argv[2])).href,{waitUntil:'load'});
+await page.evaluate(()=>document.fonts.ready);
+await page.evaluate(()=>window.scrollTo(0,900)); await page.screenshot({path:process.argv[3]+'_tab.png'});
+await page.click('#w-A tr[data-nr="30"] td.g[data-lvl="p3"]'); await page.waitForTimeout(300);
+await page.screenshot({path:process.argv[3]+'_kon1.png'});
+await page.evaluate(()=>document.querySelector('.kmodal.open').scrollTo(0,900)); await page.screenshot({path:process.argv[3]+'_kon2.png'});
+await page.click('[data-kreator-z]:not([hidden])', {force:true}).catch(()=>{});
+await page.evaluate(()=>{const m=document.querySelector('.kmodal.open');const b=m&&m.querySelector('[data-kreator-z]');b&&b.click();}); await page.waitForTimeout(300);
+await page.screenshot({path:process.argv[3]+'_kre.png'});
+await browser.close();
