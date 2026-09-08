@@ -136,5 +136,15 @@ Kodeksu pracy w wymiarze 6 godzin dziennie (bez pensum i godzin ponadwymiarowych
 - `czynnosci-nauczycieli-szkoly-specjalnej.md` — ta sama treść w Markdownie,
 - `generuj_tabela_szkola_specjalna.js` — generator obu plików (`node ... logo.png plik.docx plik.md`).
 
+### Druk „Zakres czynności i obowiązków” — nauczyciel edukacji wczesnoszkolnej
+
+Gotowy do podpisu druk dla konkretnych nauczycieli (Kodeks pracy, 30 godzin tygodniowo): dane
+stanowiska, 47 obowiązków z podstawą prawną w tabeli, miejsce na czynności przydzielone indywidualnie,
+zakres odpowiedzialności, oświadczenie i podpisy. Jeden plik zawiera osobny egzemplarz dla każdej osoby.
+
+- `druk-zakres-czynnosci-edukacja-wczesnoszkolna.docx` / `.pdf` — egzemplarze dla Karoliny P. i Karoliny B.,
+- `generuj_druk_edukacja_wczesnoszkolna.js` — generator; nazwiska podaje się jako argumenty:
+  `node dokumenty/generuj_druk_edukacja_wczesnoszkolna.js logo.png plik.docx "Imię Nazwisko" "Imię Nazwisko"`.
+
 Wykaz ma charakter pomocniczy: przed wdrożeniem trzeba go dopasować do statutu placówki,
 regulaminu wynagradzania organu prowadzącego i aktualnego tekstu jednolitego ustawy.
