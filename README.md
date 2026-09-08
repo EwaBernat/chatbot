@@ -146,5 +146,15 @@ zakres odpowiedzialności, oświadczenie i podpisy. Jeden plik zawiera osobny eg
 - `generuj_druk_edukacja_wczesnoszkolna.js` — generator; nazwiska podaje się jako argumenty:
   `node dokumenty/generuj_druk_edukacja_wczesnoszkolna.js logo.png plik.docx "Imię Nazwisko" "Imię Nazwisko"`.
 
+### Druk „Zakres czynności i obowiązków” — język angielski, informatyka, wychowanie fizyczne
+
+Ten sam układ druku dla nauczyciela przedmiotów w szkole specjalnej (Kodeks pracy, 30 godzin
+tygodniowo): obowiązki wspólne plus osobne bloki dla języka obcego (w tym egzamin ósmoklasisty),
+pracowni komputerowej i bezpieczeństwa cyfrowego oraz wychowania fizycznego (BHP na zajęciach
+ruchowych, zwolnienia lekarskie, ocenianie wysiłku).
+
+- `druk-zakres-czynnosci-angielski-informatyka-wf.docx` / `.pdf` — egzemplarz dla Kacpra K.,
+- `generuj_druk_angielski_informatyka_wf.js` — generator; nazwiska jako argumenty, jak wyżej.
+
 Wykaz ma charakter pomocniczy: przed wdrożeniem trzeba go dopasować do statutu placówki,
 regulaminu wynagradzania organu prowadzącego i aktualnego tekstu jednolitego ustawy.
