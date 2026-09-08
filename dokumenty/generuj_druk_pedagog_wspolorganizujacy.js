@@ -203,7 +203,7 @@ function egzemplarz(nazwisko, logo, pierwszy) {
 const logo = fs.readFileSync(LOGO);
 const naglowek = new Header({ children: [new Paragraph({
   tabStops: [{ type: TabStopType.RIGHT, position: SZER }], border: { bottom: { style: BorderStyle.SINGLE, size: 6, color: FIOLET, space: 4 } }, spacing: { after: 160 },
-  children: [new ImageRun({ type: "png", data: logo, transformation: { width: 22, height: 22 } }), run("   " + PLACOWKA, { size: 15, color: SZARY }), run("\tZakres czynności – pedagog szkolny, nauczyciel współorganizujący (kl. III) – " + ROK, { size: 15, color: FIOLET })],
+  children: [new ImageRun({ type: "png", data: logo, transformation: { width: 22, height: 22 } }), run("   " + PLACOWKA, { size: 15, color: SZARY }), run("\tZakres czynności – pedagog szkolny, współorganizujący kl. III – " + ROK, { size: 15, color: FIOLET })],
 })] });
 const stopka = new Footer({ children: [new Paragraph({
   alignment: AlignmentType.CENTER, spacing: { before: 80 }, border: { top: { style: BorderStyle.SINGLE, size: 6, color: POMARANCZ, space: 4 } },
