@@ -1,6 +1,7 @@
 import React, {useEffect, useLayoutEffect, useRef, useState} from 'react';
 import {AbsoluteFill, continueRender, delayRender, staticFile, useCurrentFrame, useVideoConfig} from 'remotion';
 import {MARKA} from '../marka';
+import {znajdz, zaznaczBx, type WopfKrok} from './wopfResolver';
 
 /**
  * Animacja NA ORYGINALNYM DRUKU. Komponent wczytuje prawdziwy plik HTML kwestionariusza
@@ -13,7 +14,16 @@ export type Krok =
   | {sek: number; typ: 'ocena'; obszar: string; wiersz: number; wartosc: string; tabela?: string}
   | {sek: number; typ: 'klik'; selektor: string}
   | {sek: number; typ: 'tekst'; selektor: string; tekst: string; tempo?: number}
-  | {sek: number; typ: 'wyroznij'; selektor: string; doSek: number};
+  | {sek: number; typ: 'wyroznij'; selektor: string; doSek: number}
+  | {sek: number; typ: 'dane'; krok: WopfKrok; tempo?: number};
+
+/** Selektor z opcjonalnym przedrostkiem strony: "@3 .fields .fv" = trzecia .page w druku. */
+const wybierz = (root: ParentNode, sel: string): Element | null => {
+  const m = /^@(\d+)\s+(.*)$/.exec(sel);
+  if (!m) return root.querySelector(sel);
+  const pg = root.querySelectorAll('.page')[Number(m[1]) - 1];
+  return pg ? pg.querySelector(m[2]) : null;
+};
 
 export type Ujecie = {sek: number; selektor: string; skala: number; przesun?: number; czas?: number};
 
@@ -55,7 +65,8 @@ export const OryginalnyDruk: React.FC<Props> = ({plik, kroki, kamera, wykresyOdS
       .then(async (zrodlo) => {
         const css = [...zrodlo.matchAll(/<style[^>]*>([\s\S]*?)<\/style>/g)].map((m) => m[1]).join('\n');
         const cialo = zrodlo.replace(/^[\s\S]*?<body[^>]*>/, '').replace(/<\/body>[\s\S]*$/, '');
-        const skrypt = [...cialo.matchAll(/<script[^>]*>([\s\S]*?)<\/script>/g)].map((m) => m[1]).join('\n');
+        // skrypty z całego pliku (WOPF trzyma swój w <head>), bez zewnętrznych src
+        const skrypt = [...zrodlo.matchAll(/<script(?![^>]*\bsrc=)[^>]*>([\s\S]*?)<\/script>/g)].map((m) => m[1]).join('\n');
         const body = cialo.replace(/<script[\s\S]*?<\/script>/g, '');
         if (!aktywny) return;
         setHtml({css, body, skrypt});
@@ -67,22 +78,30 @@ export const OryginalnyDruk: React.FC<Props> = ({plik, kroki, kamera, wykresyOdS
 
   // Po wstawieniu HTML: uruchom oryginalny skrypt druku (liczy sumy, średnie, rysuje wykresy) i poczekaj na fonty.
   useEffect(() => {
+    if (!html) return;
+    document.fonts.ready.then(() => continueRender(uchwyt));
+  }, [html, uchwyt]);
+
+  /** Skrypt druku uruchamiamy synchronicznie, ZANIM pierwszy raz nałożymy kroki — inaczej zdarzenia „input" trafiłyby w pustkę. */
+  const uruchomSkrypt = () => {
     if (!html || skryptUruchomiony.current) return;
     skryptUruchomiony.current = true;
     try {
       // eslint-disable-next-line no-new-func
       new Function(html.skrypt)();
+      // druki czekające na „load" (np. WOPF) dostają je teraz — DOM jest już wstawiony
+      window.dispatchEvent(new Event('load'));
     } catch (e) {
       // skrypt druku nie jest niezbędny do wyświetlenia — wyniki policzymy bez niego
       console.warn('Skrypt druku nie uruchomił się', e);
     }
-    document.fonts.ready.then(() => continueRender(uchwyt));
-  }, [html, uchwyt]);
+  };
 
   // Każda klatka: stan druku wynika wyłącznie z czasu (deterministycznie), więc najpierw zerujemy, potem nakładamy kroki.
   useLayoutEffect(() => {
     const root = kontener.current;
     if (!root || !html) return;
+    uruchomSkrypt();
 
     // Zerujemy tylko tabele, których dotykają kroki — przykładowe wartości w pozostałych zostają jak w druku.
     const tabele = new Set<string>();
@@ -94,6 +113,14 @@ export const OryginalnyDruk: React.FC<Props> = ({plik, kroki, kamera, wykresyOdS
       el.textContent = '';
       el.removeAttribute('data-anim-tekst');
     });
+    // kroki 'dane': zerujemy dotykane pola oryginalnego druku (tekst i pola .bx)
+    for (const k of kroki) {
+      if (k.typ !== 'dane') continue;
+      for (const el of znajdz(root, k.krok)) {
+        if (k.krok.bx) zaznaczBx(el, false);
+        else el.textContent = '';
+      }
+    }
     root.querySelectorAll<HTMLElement>('[data-anim-wyr]').forEach((el) => {
       el.style.boxShadow = '';
       el.style.borderRadius = '';
@@ -107,9 +134,33 @@ export const OryginalnyDruk: React.FC<Props> = ({plik, kroki, kamera, wykresyOdS
     let nastepny: {el: Element; sek: number} | null = null;
 
     for (const k of kroki) {
+      if (k.typ === 'dane') {
+        const els = znajdz(root, k.krok);
+        if (!els.length) continue;
+        if (sek >= k.sek) {
+          for (const el of els) {
+            if (k.krok.bx) zaznaczBx(el, true);
+            else {
+              const tempo = k.tempo ?? 22;
+              const tekst = k.krok.tekst ?? '';
+              const n = Math.min(tekst.length, Math.floor((sek - k.sek) * tempo));
+              el.textContent = tekst.slice(0, n);
+              (el as HTMLElement).dataset.man = '1'; // pole wpisane ręcznie — automat arkusza go nie nadpisze
+              if (k.krok.qtab !== undefined) el.dispatchEvent(new Event('input', {bubbles: true}));
+            }
+          }
+          if (k.sek > ostatniCzas) {
+            ostatniCzas = k.sek;
+            ostatniCel = els[0];
+          }
+        } else if (!nastepny || k.sek < nastepny.sek) {
+          nastepny = {el: els[0], sek: k.sek};
+        }
+        continue;
+      }
       if (k.typ === 'wyroznij') {
         if (sek >= k.sek && sek < k.doSek) {
-          const el = root.querySelector<HTMLElement>(k.selektor);
+          const el = wybierz(root, k.selektor) as HTMLElement | null;
           if (el) {
             const p = Math.min(1, (sek - k.sek) / 0.35);
             el.style.boxShadow = `0 0 0 ${3 * p}px ${MARKA.pomarancz}, 0 0 ${24 * p}px rgba(232,69,10,0.35)`;
@@ -125,7 +176,7 @@ export const OryginalnyDruk: React.FC<Props> = ({plik, kroki, kamera, wykresyOdS
         const wiersz = tabela?.children[k.wiersz];
         el = wiersz?.querySelector(`.rc[data-v="${k.wartosc}"]`) ?? null;
       } else {
-        el = root.querySelector(k.selektor);
+        el = wybierz(root, k.selektor);
       }
       if (!el) continue;
       if (sek >= k.sek) {
@@ -178,7 +229,7 @@ export const OryginalnyDruk: React.FC<Props> = ({plik, kroki, kamera, wykresyOdS
     const skalaPoprzednia = skalaRef.current;
     const rootRect = root.getBoundingClientRect();
     const celY = (u: Ujecie) => {
-      const el = root.querySelector(u.selektor);
+      const el = wybierz(root, u.selektor);
       if (!el) return 0;
       const r = el.getBoundingClientRect();
       return (r.top - rootRect.top) / skalaPoprzednia + (u.przesun ?? 0);

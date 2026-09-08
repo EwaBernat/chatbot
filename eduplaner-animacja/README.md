@@ -76,3 +76,25 @@ do `public/pog/*.png` (150 dpi), a podświetlenia stoją na współrzędnych z P
 python3 skrypty/wyrownaj.py pog       # public/pog-narracja.mp3 + pog-scenariusz.txt → public/pog.json
 npx remotion render PogPromo out/eduplaner-pog.mp4
 ```
+
+## Film 4 — WOPF wypełniony na ORYGINALNYM arkuszu (`WopfPromo`) + Strażnik prawa
+
+Jeden plik danych `public/wopf-dane.json` (151 kroków: metryczka, ścieżka A z orzeczeniem
+i zaleceniami poradni, zespół, mapa dokumentów, średnie KPOF, wyniki obserwacji pogłębionej,
+potrzeby, przyczyny, zakres wsparcia, zajęcia, decyzja, przeniesienie do IPET, opinia) zasila
+dwie rzeczy:
+
+1. `node skrypty/wypelnij_wopf.mjs` — wypełnia oryginalny arkusz w prawdziwej przeglądarce
+   (własny skrypt arkusza liczy poziomy, wykresy i opisy) i zapisuje
+   `out/wopf/WOPF_2026_Zofia_Lewandowska_wypelniony.html` oraz `.pdf` (A4). Style, linie
+   i ramki druku pozostają nietknięte.
+2. `WopfPromo` — animacja, w której te same kroki wpisują się w druk klatka po klatce
+   (`src/kpof/OryginalnyDruk.tsx`, kroki typu `dane`, wspólny tłumacz kroków
+   `skrypty/wopf_resolver.js` ≡ `src/kpof/wopfResolver.ts`).
+
+Bez nagrania (limit ElevenLabs) czasy napisów liczy `python3 skrypty/napisy_z_tekstu.py wopf`;
+po dograniu głosu do `public/wopf-narracja.mp3` wystarczy `python3 skrypty/wyrownaj.py wopf`
+i wpisać `"audio": "wopf-narracja.mp3"` w `public/wopf.json`.
+
+**Strażnik prawa** — każdy akt cytowany w druku sprawdzony wobec skryptu szkolenia (wyd. 2 po
+audycie z 5.09.2026): tabela w `public/wopf-straznik-prawa.md` i scena w filmie.
