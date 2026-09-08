@@ -3,7 +3,7 @@ Weryfikacja wg „Skryptu dla nauczycieli · szkoła podstawowa” (EduPlaner 20
 
 ## 1. Odpowiedź na pytanie nauczycieli: „Czy nasza dokumentacja może zostać jak w zeszłym roku?”
 
-> „Mamy teczki, oceny wielospecjalistyczne i programy. Kuratorium nigdy nic nam nie zarzuciło. Czy naprawdę musimy to zmieniać?”
+> „Mamy teczki, oceny wielospecjalistyczne i programy. Czy naprawdę musimy to zmieniać?”
 
 **Odpowiedź: nie zaczynamy od zera, ale aktualizujemy.** Dotychczasowe arkusze, oceny i programy pozostają ważnym źródłem danych o uczniu. Od 1 września 2026 r. zmienia się nie objętość dokumentacji, lecz jej **język** (opis funkcjonowania w kategoriach aktywności i uczestniczenia — ICF) i jej **funkcja** (jeden dokument zasila drugi, a szkoła w 10 dni przekazuje poradni opinię o funkcjonowaniu ucznia). Dokument napisany w starym języku przestaje działać w nowym obiegu.
 

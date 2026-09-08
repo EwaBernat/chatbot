@@ -59,7 +59,7 @@ const Pytanie: React.FC<{pyt: number; odp: number; nie: number; jezyk: number}> 
     <Naglowek kicker="Pytanie nauczycieli szkoły specjalnej" tytul="Czy nasza dokumentacja może zostać jak w zeszłym roku?" />
     <div style={{position: 'absolute', left: 120, right: 120, top: 250}}>
       <Karta od={pyt} style={{fontSize: 30, lineHeight: 1.45, fontStyle: 'italic', borderLeft: `8px solid #F6A57E`}}>
-        „Mamy teczki, oceny wielospecjalistyczne i programy. Kuratorium nigdy nic nam nie zarzuciło. Czy naprawdę musimy to zmieniać?”
+        „Mamy teczki, oceny wielospecjalistyczne i programy. Czy naprawdę musimy to zmieniać?”
       </Karta>
       <div style={{display: 'flex', gap: 26, marginTop: 26}}>
         <Karta od={odp} akcent style={{flex: 1.1, boxShadow: '0 24px 60px rgba(232,69,10,0.45)'}}>
