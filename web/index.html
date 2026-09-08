@@ -348,6 +348,65 @@
     </div>
   </section>
 
+  <section class="hero" id="ipet" style="margin-top:72px">
+    <div>
+      <div class="eyebrow">Przystanek piąty · od oceny do zobowiązania</div>
+      <h1>IPET</h1>
+      <p class="lead">Indywidualny Program Edukacyjno-Terapeutyczny na oryginalnym druku (42 strony): dane z KPOF, WOPF i obserwacji pogłębionej, „Mój głos” dziecka, zalecenia z orzeczenia z sposobem realizacji, cele mierzalne w sześciu sferach, zajęcia rewalidacyjne, zespół, ewaluacja i karta kontrolna. Na końcu wymagana zawartość programu według § 6 i „Strażnik prawa”.</p>
+      <div class="akcje">
+        <button class="btn btn-glowny" id="wiecej-ipet" aria-expanded="false" aria-controls="panel-ipet">Więcej</button>
+        <a class="btn btn-drugi" href="media/IPET_2026_Zofia_Lewandowska_wypelniony.html" target="_blank" rel="noopener">Otwórz wypełniony IPET</a>
+        <a class="btn btn-drugi" href="media/IPET_2026_Zofia_Lewandowska_wypelniony.pdf" target="_blank" rel="noopener">PDF</a>
+        <a class="btn btn-drugi" href="media/IPET_2026_druk_pusty.pdf" target="_blank" rel="noopener">Pusty druk</a>
+      </div>
+    </div>
+    <div class="ikonka-wrap">
+      <button class="ikonka" id="ikonka-ipet" aria-label="Odtwórz animację IPET">
+        <span class="obwod"></span>
+        <span class="kartka">
+          <span class="linia"></span><span class="linia"></span><span class="linia"></span><span class="linia"></span>
+          <span class="ptaszek">✓</span>
+        </span>
+        <span class="play"><span></span></span>
+      </button>
+    </div>
+  </section>
+
+  <section class="panel" id="panel-ipet" aria-hidden="true">
+    <div class="wnetrze">
+      <div class="panel-karta">
+        <div class="odtwarzacz">
+          <video id="film-ipet" preload="metadata" playsinline controls poster="media/plakat-ipet.jpg">
+            <source src="media/eduplaner-ipet.mp4" type="video/mp4">
+            Twoja przeglądarka nie odtwarza wideo MP4.
+          </video>
+          <span class="glos">🎙 narracja: Mirosława Ewa Jurczyszyn</span>
+        </div>
+        <div class="tekst">
+          <div class="pod">Dziecko z orzeczeniem · § 6 ust. 1 pkt 1–8 · t.j. Dz.U. 2020 poz. 1309</div>
+          <h2>IPET wypełniony na oryginalnym druku</h2>
+          <p>Zofia, grupa Biedronki — orzeczenie nr PPP.4223.87.2026. Program do 30.09.2026, ocena okresowa 29.01.2027 i 18.06.2027. Wszystkie dane zaciągnięte z WOPF, KPOF, karty ABC·FBA, teorii umysłu, kwestionariusza mowy i profilu sensorycznego.</p>
+          <ul>
+            <li>„Mój głos” — perspektywa dziecka (nowy model 2026/27)</li>
+            <li>Zalecenia z orzeczenia i z WOPF z sposobem realizacji, kto i w jakim wymiarze</li>
+            <li>Cele mierzalne w 6 sferach, programy rewalidacyjne P1–P3 (ToM, ABC/FBA, kompetencje)</li>
+            <li>Nauczyciel współorganizujący (§ 7 ust. 2), rewalidacja 2 × 30 min, logopedia, SI</li>
+            <li>Karta kontrolna + wykaz wymaganej zawartości IPET (str. 41–42) + Strażnik prawa</li>
+          </ul>
+          <div class="haslo">Mniej dokumentów. Więcej edukacji.</div>
+          <details class="skrypt" open>
+            <summary>Co musi zawierać IPET — § 6 ust. 1 (wg skryptu, wyd. 2 po audycie)</summary>
+            <p>1) zakres i sposób dostosowania programu wychowania przedszkolnego; 2) zintegrowane działania nauczycieli i specjalistów (w tym AAC, działania rewalidacyjne); 3) formy, okres i wymiar godzin pomocy pp ustalone przez dyrektora; 4) działania wspierające rodziców i współdziałanie z poradnią, PDN, NGO, instytucjami; 5) zajęcia rewalidacyjne i inne zajęcia odpowiednie do potrzeb; 6) zakres współpracy nauczycieli i specjalistów z rodzicami; 7) dostosowanie warunków organizacji kształcenia i technologie wspomagające; 8) wybrane zajęcia indywidualnie lub w grupie do 5 dzieci. Do tego: program po WOPF z zaleceniami z orzeczenia (ust. 4), termin 30 IX / 30 dni (ust. 5), ocena co najmniej 2× w roku, prawa rodziców, autyzm: AAC + TUS (ust. 2) i nauczyciel współorganizujący (§ 7 ust. 2). <a href="media/ipet-straznik-prawa.md" target="_blank" rel="noopener">Pełna tabela Strażnika prawa</a>.</p>
+          </details>
+          <details class="skrypt">
+            <summary>Tekst narracji (do nagrania)</summary>
+            <p id="skrypt-ipet"></p>
+          </details>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <section class="siatka" aria-label="Druki modułu Metryczka">
     <div class="karta"><div class="ik">📥</div><div><b>Zgłoszenie - placówka</b><small>Wewnętrzne zgłoszenie dziecka do objęcia wsparciem.</small><br><span class="odz">wejście ścieżki</span></div></div>
     <div class="karta"><div class="ik">👥</div><div><b>Zgłoszenie - rodzica</b><small>Zgłoszenie / wniosek od rodzica lub opiekuna.</small></div></div>
@@ -456,6 +515,26 @@
       var el = document.getElementById('skrypt-wopf');
       if (t) { el.textContent = t; } else { el.parentElement.hidden = true; }
     }).catch(function () { document.getElementById('skrypt-wopf').parentElement.hidden = true; });
+  })();
+
+  // IPET — ten sam mechanizm dla piątego panelu.
+  (function () {
+    var b = document.getElementById('wiecej-ipet'), ik = document.getElementById('ikonka-ipet');
+    var pn = document.getElementById('panel-ipet'), f = document.getElementById('film-ipet');
+    var o = false;
+    function otw(play) {
+      o = true; pn.setAttribute('aria-hidden', 'false'); b.setAttribute('aria-expanded', 'true'); b.textContent = 'Mniej';
+      if (play) { f.muted = false; var p = f.play(); if (p && p.catch) { p.catch(function () {}); } }
+      setTimeout(function () { pn.scrollIntoView({behavior: 'smooth', block: 'start'}); }, 120);
+    }
+    function zam() { o = false; pn.setAttribute('aria-hidden', 'true'); b.setAttribute('aria-expanded', 'false'); b.textContent = 'Więcej'; f.pause(); }
+    b.addEventListener('click', function () { o ? zam() : otw(true); });
+    ik.addEventListener('click', function () { o ? f.play() : otw(true); });
+    if (location.hash === '#ipet') { otw(false); }
+    fetch('media/ipet-scenariusz.txt').then(function (r) { return r.ok ? r.text() : ''; }).then(function (t) {
+      var el = document.getElementById('skrypt-ipet');
+      if (t) { el.textContent = t; } else { el.parentElement.hidden = true; }
+    }).catch(function () { document.getElementById('skrypt-ipet').parentElement.hidden = true; });
   })();
 
   // Pełny tekst narracji do wglądu (ten sam, który czyta lektorka).

@@ -98,3 +98,20 @@ i wpisać `"audio": "wopf-narracja.mp3"` w `public/wopf.json`.
 
 **Strażnik prawa** — każdy akt cytowany w druku sprawdzony wobec skryptu szkolenia (wyd. 2 po
 audycie z 5.09.2026): tabela w `public/wopf-straznik-prawa.md` i scena w filmie.
+
+## Film 5 — IPET na ORYGINALNYM druku (`IpetPromo`) + wymagana zawartość § 6
+
+Druk IPET (42 strony: 40 wg wzoru autorki + 2 strony podstawy prawnej) buduje
+`python3 skrypty/zbuduj_ipet.py` → `public/ipet.html` (pusty, z atrybutami `data-k` na każdym
+polu — po nich animacja wpisuje dane) oraz `python3 skrypty/zbuduj_ipet.py --wypelnij` →
+`out/ipet/IPET_2026_Zofia_Lewandowska_wypelniony.html`. Dane dziecka: `skrypty/ipet_dane.py`
+(z `public/wopf-dane.json`, KPOF, karty ABC·FBA, ToM, kwestionariusza mowy, profilu sensorycznego).
+PDF i zrzuty stron: `node skrypty/drukuj_pdf.mjs <html> <pdf> [katalog_png]`.
+
+Kroki animacji: `public/ipet-kroki.json` (fazy → okna czasu zdań w `src/ipet/IpetPromo.tsx`);
+narracja `public/ipet-narracja.mp3` (klon głosu autorki, eleven_v3), wyrównanie
+`python3 skrypty/wyrownaj.py ipet` → `public/ipet.json`; render `bash out/finalizuj_ipet.sh`.
+
+Podstawa prawna: strona 41 druku = § 6 ust. 1 pkt 1–8, ust. 2–5, ocena okresowa, prawa rodziców,
+§ 7 ust. 2 (t.j. Dz.U. 2020 poz. 1309); strona 42 i `public/ipet-straznik-prawa.md` = Strażnik prawa.
+Wzór autorki cytował pierwotne publikatory z 2017 r. — w druku zastąpiono je wg skryptu (wyd. 2 po audycie).
