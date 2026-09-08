@@ -323,7 +323,7 @@ export const OryginalnyDruk: React.FC<Props> = ({plik, kroki, kamera, wykresyOdS
   return (
     <AbsoluteFill style={{background: `linear-gradient(135deg, #EFEBF7 0%, ${MARKA.tloCieple} 100%)`, overflow: 'hidden'}}>
       {html ? <style dangerouslySetInnerHTML={{__html: html.css + '\n' + (css ?? '')}} /> : null}
-      <div ref={kameraRef} style={{position: 'absolute', left: 0, top: 0, width: SZER, transformOrigin: '0 0', willChange: 'transform'}}>
+      <div ref={kameraRef} style={{position: 'absolute', left: 0, top: 0, width: SZER, transformOrigin: '0 0'}}>
         <div ref={kontener} className="druk-oryginalny" dangerouslySetInnerHTML={{__html: html?.body ?? ''}} />
         <div ref={kursorRef} style={{position: 'absolute', left: 0, top: 0, width: 26, height: 34, opacity: 0, pointerEvents: 'none', transformOrigin: '0 0'}}>
           <svg width="26" height="34" viewBox="0 0 26 34" style={{filter: 'drop-shadow(0 3px 4px rgba(0,0,0,0.35))'}}>

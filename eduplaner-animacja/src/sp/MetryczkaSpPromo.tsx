@@ -242,27 +242,41 @@ export const MetryczkaSpPromo: React.FC<Props> = ({film}) => {
     ...rozloz('podpisy', z(28) + 5.4, 0.6, 60, jestBlank),
     ...rozloz('podpisy', z(28) + 7.0, 0.25, 100, (k) => !jestBlank(k)),
   ];
+  // Powiększenie ~2× (jak w filmie przedszkolnym: jedna sekcja na ekran, czcionka ok. 24 px w kadrze 1080p)
+  const S = 2.05;
   const kamera: Ujecie[] = [
-    {sek: 0, selektor: '.sheet #0', skala: 0.9, przesun: 560},
-    {sek: z(17), selektor: '@1 .sec #0', skala: 1.55, przesun: 150},
-    {sek: z(18), selektor: '@1 .sec #1', skala: 1.55, przesun: 175},
-    {sek: z(19), selektor: '@2 .sec #0', skala: 1.55, przesun: 140},
-    {sek: z(20), selektor: '@1 .blankline #2', skala: 1.9, przesun: -40},
-    {sek: z(21), selektor: '@2 .sec #1', skala: 1.5, przesun: 190},
-    {sek: z(21) + 6.5, selektor: '@2 .sec #2', skala: 1.6, przesun: 60},
-    {sek: z(22), selektor: '@3 .sec #0', skala: 1.5, przesun: 200},
-    {sek: z(23), selektor: '@3 .sec #1', skala: 1.55, przesun: 110},
-    {sek: z(24), selektor: '@3 .box #0', skala: 1.55, przesun: 30},
-    {sek: z(25), selektor: '@3 .sec #2', skala: 1.55, przesun: 110},
-    {sek: z(26), selektor: '@4 .sec #0', skala: 1.45, przesun: 190},
-    {sek: z(26) + 4.4, selektor: '@4 .sec #1', skala: 1.55, przesun: 120},
-    {sek: z(27), selektor: '@4 .sec #2', skala: 1.45, przesun: 190},
-    {sek: z(28), selektor: '@5 .sec #0', skala: 1.45, przesun: 130},
-    {sek: z(28) + 2.0, selektor: '@5 .sec #1', skala: 1.45, przesun: 170},
-    {sek: z(28) + 5.2, selektor: '@6 .sec #1', skala: 1.45, przesun: 210},
-    {sek: z(29), selektor: '.sheet #0', skala: 0.9, przesun: 560},
+    {sek: 0, selektor: '@1 .eyebrow', skala: 1.75, przesun: 150},
+    {sek: z(17), selektor: '@1 .sec #0', skala: S, przesun: 205},
+    {sek: z(18), selektor: '@1 .sec #1', skala: S, przesun: 215},
+    {sek: z(19), selektor: '@2 .sec #0', skala: S, przesun: 175},
+    {sek: z(20), selektor: '@1 .blankline #2', skala: 2.3, przesun: -30},
+    {sek: z(21), selektor: '@2 .sec #1', skala: 1.9, przesun: 225},
+    {sek: z(21) + 6.5, selektor: '@2 .sec #2', skala: S, przesun: 80},
+    {sek: z(22), selektor: '@3 .sec #0', skala: 1.95, przesun: 225},
+    {sek: z(23), selektor: '@3 .sec #1', skala: S, przesun: 150},
+    {sek: z(24), selektor: '@3 .box #0', skala: S, przesun: 20},
+    {sek: z(25), selektor: '@3 .sec #2', skala: S, przesun: 110},
+    {sek: z(26), selektor: '@4 .sec #0', skala: 1.9, przesun: 220},
+    {sek: z(26) + 4.4, selektor: '@4 .sec #1', skala: S, przesun: 130},
+    {sek: z(27), selektor: '@4 .sec #2', skala: 1.9, przesun: 220},
+    {sek: z(28), selektor: '@5 .sec #0', skala: S, przesun: 150},
+    {sek: z(28) + 2.0, selektor: '@5 .sec #1', skala: 1.9, przesun: 200},
+    {sek: z(28) + 5.2, selektor: '@6 .sec #1', skala: 1.9, przesun: 230},
+    {sek: z(29), selektor: '@1 .eyebrow', skala: 1.75, przesun: 150},
   ];
-  const cssFilmu = '.addrow,.delrow,.delcell,.printcell{display:none!important}';
+  // Tylko na czas filmu: wyraźniejsze ramki i linie (plik druku pozostaje bez zmian)
+  const cssFilmu = [
+    '.addrow,.delrow,.delcell,.printcell{display:none!important}',
+    '.druk-oryginalny .sheet{--hair:#b3a9d8;box-shadow:0 10px 40px rgba(45,27,105,0.18)}',
+    '.druk-oryginalny .fg,.druk-oryginalny .box,.druk-oryginalny .opt{border-width:1.3px}',
+    '.druk-oryginalny .fg .blankline,.druk-oryginalny .dline{border-bottom-color:#9a8ecb}',
+    '.druk-oryginalny table.tbl td{border-top-color:#cfc8e6}',
+    // Układ pól wypełnianych (jak po inicjalizacji skryptu druku) — niezależnie od momentu uruchomienia skryptu przy renderze
+    '.druk-oryginalny .blankline,.druk-oryginalny .dline,.druk-oryginalny .blank,.druk-oryginalny .box{overflow-wrap:break-word;word-break:normal;white-space:normal}',
+    '.druk-oryginalny .dline,.druk-oryginalny .blank{display:inline-block;max-width:100%;height:auto;min-height:15px;min-width:40px;box-sizing:border-box;vertical-align:top}',
+    '.druk-oryginalny .fg .blankline,.druk-oryginalny .blankline{display:block;width:100%;max-width:100%;height:auto;min-height:15px;box-sizing:border-box}',
+    '.druk-oryginalny table.tbl td .dline{display:block;width:100%;max-width:100%}',
+  ].join('\n');
 
   type Scena = {id: string; od: number; do: number; el: (od: number) => React.ReactNode};
   const sceny: Scena[] = [
