@@ -177,5 +177,17 @@ oraz blok wychowawstwa (koordynacja IPET i WOPF, ocena zachowania, dokumentacja 
   (nazwisko do uzupełnienia),
 - `generuj_druk_matematyka_wychowawstwo.js` — generator; nazwiska jako argumenty, jak wyżej.
 
+### Druk „Zakres czynności i obowiązków” — język polski, wychowawstwo klasy IV, rewalidacja logopedyczna
+
+Druk dla nauczyciela języka polskiego, wychowawcy klasy IV, prowadzącego zajęcia rewalidacyjne
+o charakterze logopedycznym (Kodeks pracy, 30 godzin tygodniowo): obowiązki wspólne oraz bloki
+języka polskiego (czytanie ze zrozumieniem, lektury dostosowane, egzamin ósmoklasisty), logopedii
+(diagnoza, program terapii, AAC, higiena zajęć, dziennik) i wychowawstwa klasy IV (adaptacja po
+klasie III, koordynacja IPET i WOPF, ocena zachowania).
+
+- `druk-zakres-czynnosci-jezyk-polski-wychowawstwo-4-logopedia.docx` / `.pdf` — egzemplarz
+  z pustym polem na imię i nazwisko,
+- `generuj_druk_jezyk_polski_logopedia.js` — generator; nazwiska jako argumenty, jak wyżej.
+
 Wykaz ma charakter pomocniczy: przed wdrożeniem trzeba go dopasować do statutu placówki,
 regulaminu wynagradzania organu prowadzącego i aktualnego tekstu jednolitego ustawy.
