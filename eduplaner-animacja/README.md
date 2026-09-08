@@ -59,3 +59,20 @@ Harmonogram scen (kliknięcia, kamera, wykresy) liczy się z czasów zdań w `pu
 (indeksy zdań w `zbudujHarmonogram`). Wersje B (5 lat) i C (6 lat) leżą w `public/` — wystarczy
 zmienić `plik` w `kpof.json`. Zakończenie: podstawa prawna części KPOF wg skryptu szkolenia
 (wydanie 2 po audycie).
+
+## Film 3 — Obserwacja pogłębiona na ORYGINALNYCH drukach (`PogPromo`)
+
+Treść z części 5 skryptu szkolenia: kiedy uruchamiamy obserwację pogłębioną (sześć reguł
+przekierowania, karta decyzyjna), dlaczego obserwacja, a nie diagnoza (granica kompetencji),
+cztery narzędzia, profil biopsychospołeczny, czego się dowiadujemy i podstawa prawna.
+
+Druki PDF (ABC, profil sensoryczny, ToM, profil biopsychospołeczny) są wyrenderowane 1:1
+do `public/pog/*.png` (150 dpi), a podświetlenia stoją na współrzędnych z PDF
+(`public/pog/kotwice.json`, wyszukane po tekście przez PyMuPDF). Komponent
+`src/pog/DrukPdf.tsx` prowadzi po nich kamerę. Karta rozwoju mowy (HTML) jest wypełniana
+„na żywo” przez `OryginalnyDruk` (wartości z przykładu w skrypcie: 8 · 6 · 3).
+
+```bash
+python3 skrypty/wyrownaj.py pog       # public/pog-narracja.mp3 + pog-scenariusz.txt → public/pog.json
+npx remotion render PogPromo out/eduplaner-pog.mp4
+```

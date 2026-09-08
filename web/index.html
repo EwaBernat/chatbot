@@ -34,6 +34,7 @@
   .podpowiedz { font-size: 14px; color: #8A83A0; }
 
   /* ---- mała ikonka z animacją (pętla CSS) ---- */
+  .ikonka-pog { background: var(--fiolet-jasny); box-shadow: 0 22px 50px rgba(91,63,168,.35); }
   .ikonka-kpof { background: var(--pomarancz); box-shadow: 0 22px 50px rgba(232,69,10,.35); }
   .ikonka-kpof .obwod { border-color: rgba(45,27,105,.5); }
   .ikonka { position: relative; width: 168px; height: 168px; border-radius: 50%; background: var(--fiolet); box-shadow: 0 22px 50px rgba(45,27,105,.35); cursor: pointer; border: 0; padding: 0; display: grid; place-items: center; overflow: hidden; transition: transform .25s ease, box-shadow .25s ease; }
@@ -230,6 +231,64 @@
     </div>
   </section>
 
+
+  <section class="hero" id="pog" style="margin-top:72px">
+    <div>
+      <div class="eyebrow" style="color:var(--fiolet-jasny)">Przystanek trzeci · kiedy KPOF wskaże kierunek</div>
+      <h1>Obserwacja pogłębiona</h1>
+      <p class="lead">Cztery narzędzia na oryginalnych drukach: model ABC, profil sensoryczny, obserwacja teorii umysłu i karta rozwoju mowy, spięte profilem biopsychospołecznym. Sześć reguł przekierowania, granica kompetencji, wnioski do WOPF i opinii dla poradni.</p>
+      <div class="akcje">
+        <button class="btn btn-glowny" id="wiecej-pog" aria-expanded="false" aria-controls="panel-pog">Więcej</button>
+        <span class="podpowiedz">🔊 animacja na oryginalnych drukach, z narracją</span>
+      </div>
+    </div>
+    <div class="ikonka-wrap">
+      <button class="ikonka ikonka-pog" id="ikonka-pog" aria-label="Odtwórz animację o obserwacji pogłębionej">
+        <span class="obwod"></span>
+        <span class="kartka">
+          <span class="linia"></span><span class="linia"></span><span class="linia"></span><span class="linia"></span>
+          <span class="ptaszek">✓</span>
+        </span>
+        <span class="play"><span></span></span>
+      </button>
+    </div>
+  </section>
+
+  <section class="panel" id="panel-pog" aria-hidden="true">
+    <div class="wnetrze">
+      <div class="panel-karta" style="border-left-color:var(--fiolet-jasny)">
+        <div class="odtwarzacz">
+          <video id="film-pog" preload="metadata" playsinline controls poster="media/plakat-pog.jpg">
+            <source src="media/eduplaner-pog.mp4" type="video/mp4">
+            Twoja przeglądarka nie odtwarza wideo MP4.
+          </video>
+          <span class="glos">🎙 narracja: Mirosława Ewa Jurczyszyn</span>
+        </div>
+        <div class="tekst">
+          <div class="pod">Kwestionariusz mówi GDZIE · obserwacja pogłębiona odpowiada DLACZEGO</div>
+          <h2>Obserwacja, nie diagnoza</h2>
+          <p>Uruchamiamy ją z przesłanką, nie „na wszelki wypadek”: wystarczy jedna z sześciu reguł przekierowania, a zespół siada nad kartą decyzyjną. Nauczyciel opisuje to, co widzi i słyszy; rozpoznanie należy do specjalisty.</p>
+          <ul>
+            <li>Model ABC — poprzednik, zachowanie, następstwo; wykres funkcji zachowania</li>
+            <li>Profil sensoryczny — siedem układów, trzy wzorce reakcji</li>
+            <li>Obserwacja teorii umysłu — pragnienia, przekonania, zabawa „na niby”</li>
+            <li>Karta rozwoju mowy — 5 obszarów, skala 0–2, wynik liczy się sam</li>
+            <li>Profil biopsychospołeczny — zasoby, bariery, ułatwiacze</li>
+          </ul>
+          <div class="haslo">Mniej dokumentów. Więcej edukacji.</div>
+          <details class="skrypt" open>
+            <summary>Podstawa prawna (wg skryptu szkolenia, wyd. 2 po audycie)</summary>
+            <p>Rozpoznawanie indywidualnych potrzeb i możliwości psychofizycznych dziecka oraz ocena efektywności udzielanej pomocy — rozporządzenie o pomocy psychologiczno-pedagogicznej (t.j. Dz.U. 2023 poz. 1798). Wystąpienie do poradni, gdy mimo udzielanej pomocy nie ma poprawy — za zgodą rodziców, wniosek dyrektora. Reguły przekierowania i karta decyzyjna nie wynikają wprost z przepisu — to decyzja rady pedagogicznej wpisana do procedury placówki.</p>
+          </details>
+          <details class="skrypt">
+            <summary>Pełny tekst narracji</summary>
+            <p id="skrypt-pog"></p>
+          </details>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <section class="siatka" aria-label="Druki modułu Metryczka">
     <div class="karta"><div class="ik">📥</div><div><b>Zgłoszenie - placówka</b><small>Wewnętrzne zgłoszenie dziecka do objęcia wsparciem.</small><br><span class="odz">wejście ścieżki</span></div></div>
     <div class="karta"><div class="ik">👥</div><div><b>Zgłoszenie - rodzica</b><small>Zgłoszenie / wniosek od rodzica lub opiekuna.</small></div></div>
@@ -298,6 +357,26 @@
       var el = document.getElementById('skrypt-kpof');
       if (t) { el.textContent = t; } else { el.parentElement.hidden = true; }
     }).catch(function () { document.getElementById('skrypt-kpof').parentElement.hidden = true; });
+  })();
+
+  // Obserwacja pogłębiona — trzeci panel.
+  (function () {
+    var b = document.getElementById('wiecej-pog'), ik = document.getElementById('ikonka-pog');
+    var pn = document.getElementById('panel-pog'), f = document.getElementById('film-pog');
+    var o = false;
+    function otw(play) {
+      o = true; pn.setAttribute('aria-hidden', 'false'); b.setAttribute('aria-expanded', 'true'); b.textContent = 'Mniej';
+      if (play) { f.muted = false; var p = f.play(); if (p && p.catch) { p.catch(function () {}); } }
+      setTimeout(function () { pn.scrollIntoView({behavior: 'smooth', block: 'start'}); }, 120);
+    }
+    function zam() { o = false; pn.setAttribute('aria-hidden', 'true'); b.setAttribute('aria-expanded', 'false'); b.textContent = 'Więcej'; f.pause(); }
+    b.addEventListener('click', function () { o ? zam() : otw(true); });
+    ik.addEventListener('click', function () { o ? f.play() : otw(true); });
+    if (location.hash === '#pog') { otw(false); }
+    fetch('media/pog-scenariusz.txt').then(function (r) { return r.ok ? r.text() : ''; }).then(function (t) {
+      var el = document.getElementById('skrypt-pog');
+      if (t) { el.textContent = t; } else { el.parentElement.hidden = true; }
+    }).catch(function () { document.getElementById('skrypt-pog').parentElement.hidden = true; });
   })();
 
   // Pełny tekst narracji do wglądu (ten sam, który czyta lektorka).

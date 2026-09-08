@@ -10,7 +10,7 @@ import {MARKA} from '../marka';
  */
 
 export type Krok =
-  | {sek: number; typ: 'ocena'; obszar: string; wiersz: number; wartosc: string}
+  | {sek: number; typ: 'ocena'; obszar: string; wiersz: number; wartosc: string; tabela?: string}
   | {sek: number; typ: 'klik'; selektor: string}
   | {sek: number; typ: 'tekst'; selektor: string; tekst: string; tempo?: number}
   | {sek: number; typ: 'wyroznij'; selektor: string; doSek: number};
@@ -30,6 +30,7 @@ const SZEROKOSC_DOKUMENTU = 794; // 210 mm przy 96 dpi
 declare global {
   interface Window {
     kpofRecompute?: () => void;
+    tomRecompute?: () => void;
   }
 }
 
@@ -83,7 +84,12 @@ export const OryginalnyDruk: React.FC<Props> = ({plik, kroki, kamera, wykresyOdS
     const root = kontener.current;
     if (!root || !html) return;
 
-    root.querySelectorAll('.rc.on, .chk.on, .opt.on').forEach((el) => el.classList.remove('on'));
+    // Zerujemy tylko tabele, których dotykają kroki — przykładowe wartości w pozostałych zostają jak w druku.
+    const tabele = new Set<string>();
+    for (const k of kroki) if (k.typ === 'ocena') tabele.add(k.tabela ?? `#area-${k.obszar}`);
+    if (tabele.size === 0) root.querySelectorAll('.rc.on').forEach((el) => el.classList.remove('on'));
+    tabele.forEach((t) => root.querySelectorAll(`${t} .rc.on`).forEach((el) => el.classList.remove('on')));
+    root.querySelectorAll('.chk.on, .opt.on').forEach((el) => el.classList.remove('on'));
     root.querySelectorAll<HTMLElement>('[data-anim-tekst]').forEach((el) => {
       el.textContent = '';
       el.removeAttribute('data-anim-tekst');
@@ -115,7 +121,7 @@ export const OryginalnyDruk: React.FC<Props> = ({plik, kroki, kamera, wykresyOdS
       }
       let el: Element | null = null;
       if (k.typ === 'ocena') {
-        const tabela = root.querySelector(`#area-${k.obszar} tbody`);
+        const tabela = root.querySelector(`${k.tabela ?? `#area-${k.obszar}`} tbody`);
         const wiersz = tabela?.children[k.wiersz];
         el = wiersz?.querySelector(`.rc[data-v="${k.wartosc}"]`) ?? null;
       } else {
@@ -143,7 +149,7 @@ export const OryginalnyDruk: React.FC<Props> = ({plik, kroki, kamera, wykresyOdS
       }
     }
 
-    if (window.kpofRecompute) window.kpofRecompute();
+    (window.kpofRecompute ?? window.tomRecompute)?.();
 
     // Wykresy: rosną od momentu, w którym narracja o nich mówi.
     if (wykresyOdSek !== undefined) {

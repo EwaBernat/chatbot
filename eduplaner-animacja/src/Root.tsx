@@ -6,6 +6,8 @@ import film from '../public/film.json';
 import kpof from '../public/kpof.json';
 import {KpofPromo, type FilmKpof} from './kpof/KpofPromo';
 import type {Film} from './typy';
+import {PogPromo, type FilmPog} from './pog/PogPromo';
+import pog from '../public/pog.json';
 
 const FPS = 30;
 
@@ -50,5 +52,23 @@ export const RemotionRoot: React.FC = () => (
       return {durationInFrames: Math.max(1, Math.round(sekundy * FPS))};
     }}
   />
+    <Composition
+      id="PogPromo"
+      component={PogPromo}
+      durationInFrames={60 * FPS}
+      fps={FPS}
+      width={1920}
+      height={1080}
+      defaultProps={{film: pog as unknown as FilmPog}}
+      calculateMetadata={async ({props}) => {
+        let sekundy = props.film.dlugosc;
+        try {
+          sekundy = Math.max(sekundy, await getAudioDurationInSeconds(staticFile(props.film.audio)));
+        } catch {
+          // brak nagrania nie wywraca renderu
+        }
+        return {durationInFrames: Math.max(1, Math.round(sekundy * FPS))};
+      }}
+    />
   </>
 );
