@@ -1,0 +1,229 @@
+# -*- coding: utf-8 -*-
+"""Konspekty jako osobny zeszyt na każdą grupę wiekową.
+
+Po co: w banku konspekt otwiera się kliknięciem — świetnie przy planowaniu
+przy komputerze, bezużytecznie, gdy chce się mieć konspekty pod ręką albo
+wydrukować komplet. Dotąd istniały tylko jako 27 osobnych PDF-ów (obszar ×
+wiek), czyli w praktyce nie do znalezienia.
+
+Zeszyt zawiera komplet konspektów jednej wersji, w kolejności obszarów,
+każdy z pomocą dydaktyczną w sekcji VII. Jest samowystarczalny — zdjęcia
+i nagrania siedzą w środku.
+
+Uruchomienie: python3 src/build_konspekty.py
+"""
+
+import datetime
+import os
+
+from build import (CSS, LOGO_URI, KONSPEKTY, WERSJE, esc,
+                   render_konspekty_modale, style_pomocy, audio_pomocy)
+from karty_druk import ma_karty, style_kart
+
+KORZEN = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+
+PLIKI = {"A": "Konspekty_3-4_lata.html", "B": "Konspekty_5_lat.html",
+         "C": "Konspekty_6_lat.html",    "U": "Konspekty_uzupelnienia.html"}
+
+# Wersje, które mają pomoce dydaktyczne — tylko ich media osadzamy w zeszycie.
+# Wersje spoza słownika dostają pustą listę, czyli żadnych mediów pomocy.
+WIEK_POMOCY = {"A": ["3–4 lata"], "B": ["5 lat"], "C": ["6 lat"], "U": ["uzupełnienia"]}
+
+# Modale konspektów pokazujemy statycznie, jeden pod drugim. Te same reguły
+# stosuje bank przy druku (html.print-konspekt) — tutaj obowiązują na stałe.
+CSS_DOK = """
+@page{size:A4 portrait; margin:9mm}
+body{background:var(--paper)}
+.zeszyt{max-width:960px; margin:0 auto; padding:26px 18px 60px}
+.kmodal{position:static; display:block; background:none; padding:0; overflow:visible; inset:auto}
+.kcard{box-shadow:none; max-width:none; margin:0 0 30px; border:1px solid var(--line)}
+.kclose,.kfoot,.kesc{display:none !important}
+/* Trzy poziomy wsparcia naraz — inaczej niż w banku, gdzie widać jeden,
+   ten kliknięty. Przy dwóch kolumnach obok siebie kolumna z celem
+   edukacyjnym rosła trzykrotnie, a kolumna z celem terapeutycznym
+   zostawała z jednym blokiem i pustką na pół strony. Dlatego w zeszycie
+   cel terapeutyczny idzie na górę na całą szerokość, a trzy poziomy
+   ustawiają się pod nim w rzędzie. */
+.kvar{display:flex !important; flex-direction:column}
+.kcele{grid-template-columns:1fr !important; gap:12px}
+.kcel.ter{order:-1}
+.kcel.edu{display:grid !important; grid-template-columns:repeat(3,1fr);
+  gap:10px; align-items:start}
+.kcel.edu .kchead{grid-column:1/-1}
+.kcel.edu .kvar{border-radius:10px; border:1px solid var(--line); padding:2px 0 0}
+.zal-strefa{display:block !important}
+.zal-akcje{display:none !important}
+.kmodal + .kmodal{break-before:page; page-break-before:always}
+.spis{margin:18px 0 6px}
+.spis-obszar{display:flex; align-items:center; gap:10px; margin:16px 0 8px;
+  font:700 10.5px/1 "DM Sans",Arial,sans-serif; letter-spacing:.14em;
+  text-transform:uppercase; color:var(--accent)}
+.spis-obszar::after{content:""; flex:1; height:2px; border-radius:2px;
+  background:color-mix(in srgb, var(--accent) 28%, transparent)}
+/* Wykaz rozwijany kliknięciem, tak samo jak w banku. Pasek w kolorze akcentu —
+   zwinięty wykaz w szarej belce nauczyciel przeoczy. */
+details.spis{border:1px solid var(--accent); border-radius:14px; overflow:hidden; background:#FFF}
+details.spis > summary{cursor:pointer; list-style:none; display:flex; align-items:center; gap:10px;
+  padding:14px 18px; background:var(--accent); color:var(--on-accent);
+  font:700 13px/1 "DM Sans",Arial,sans-serif}
+details.spis > summary::-webkit-details-marker{display:none}
+details.spis > summary::before{content:"▸"; font-size:14px}
+details.spis[open] > summary::before{content:"▾"}
+details.spis > summary .ile{margin-left:auto; font-weight:400; opacity:.86; font-size:11.5px}
+details.spis > summary .zwin{display:none}
+details.spis[open] > summary .zwin{display:inline}
+details.spis[open] > summary .rozwin{display:none}
+.spis-tresc{padding:6px 18px 16px}
+.spis-obszar:first-child{margin-top:2px}
+.spis-siatka{display:grid; grid-template-columns:repeat(auto-fill,minmax(232px,1fr)); gap:7px}
+.spis a{display:flex; align-items:center; gap:9px; min-height:42px;
+  text-decoration:none; border:1px solid var(--line); border-radius:10px; padding:8px 11px;
+  color:var(--ink); background:#FFF; font:700 11px/1 "DM Sans",Arial,sans-serif}
+.spis a:hover{border-color:var(--accent); color:var(--accent)}
+.spis a b{flex:0 0 42px; color:var(--violet);
+  font:700 10.5px/1 "JetBrains Mono",ui-monospace,"Courier New",monospace}
+.spis a .tyt{flex:1 1 auto}
+.spis a:hover b{color:var(--accent)}
+.spis a .ma{flex:0 0 auto; color:var(--accent); font-size:10px; margin-left:4px}
+.spis-legenda{font-size:12px; color:var(--muted); margin:2px 0 0}
+.spis-legenda i{color:var(--accent); font-style:normal; font-size:9px; vertical-align:2px}
+.wstep{max-width:62ch; color:var(--muted); font-size:13px; line-height:1.65; margin:10px 0 0}
+@media print{
+  .spis,details.spis,.spis-obszar,.spis-siatka,.spis-tresc,.wstep,.dochead,.twotone{display:none !important}
+  .zeszyt{max-width:none; padding:0}
+  .kcard{border:none; margin:0}
+  .au-btn{display:none !important}
+  /* Bank chowa przy druku wszystkie modale — konspekt drukuje się tam osobno,
+     po kliknięciu. W zeszycie modale SĄ dokumentem, więc reguła banku musi
+     zostać cofnięta; bez tego cały zeszyt wychodził z drukarki jako jedna
+     pusta strona. Ta sama przyczyna ukrywała arkusze do wydruku. */
+  .kmodal{display:block !important; position:static !important; background:none !important;
+    padding:0 !important; overflow:visible !important; inset:auto !important}
+  .zal-strefa{display:block !important}
+  .zal{break-inside:avoid; page-break-inside:avoid}
+}
+"""
+
+JS_DOK = """
+/* Odtwarzanie polecenia z karty pomocy — jedna ścieżka naraz, druk wycisza. */
+(function(){
+  let biezacy=null;
+  const swiec=(id,wl)=>document.querySelectorAll(`.au-btn[data-au="${id}"]`)
+                              .forEach(b=>b.classList.toggle('gra',wl));
+  function stop(){
+    if(biezacy){biezacy.pause(); biezacy.currentTime=0; swiec(biezacy.id,false);}
+    biezacy=null;
+  }
+  document.querySelectorAll('.au-btn').forEach(b=>b.addEventListener('click',()=>{
+    const id=b.dataset.au;
+    if(biezacy&&biezacy.id===id&&!biezacy.paused){stop(); return;}
+    stop();
+    const a=document.getElementById(id); if(!a) return;
+    biezacy=a; swiec(id,true); a.currentTime=0; a.play().catch(()=>{});
+    a.onended=()=>{swiec(id,false); biezacy=null;};
+  }));
+  window.addEventListener('beforeprint',stop);
+  document.addEventListener('keydown',e=>{if(e.key==='Escape') stop();});
+})();
+"""
+
+
+def dokument(mod):
+    w = mod.WERSJA
+    dzis = datetime.date.today().strftime("%d.%m.%Y")
+
+    nry = {K["nr"] for (wk, _), K in KONSPEKTY.items() if wk == w["kod"]}
+    spis, ile = [], 0
+    # Spis idzie obszarami, a w obszarze — równą siatką. Wcześniej było to
+    # czterdzieści kilka pigułek jedna za drugą, każda innej szerokości; rzędy
+    # nie trzymały pionu i spis czytało się gorzej niż listę bez formatowania.
+    for a in mod.AREAS:
+        w_obszarze = []
+        for it in a["items"]:
+            K = KONSPEKTY.get((w["kod"], it["n"]))
+            if not K:
+                continue
+            ile += 1
+            # kropka w spisie: konspekt niesie materiał do wydruku. Bez niej
+            # nauczyciel musi otwierać kolejne konspekty, żeby sprawdzić, gdzie
+            # coś jest — a to była pierwsza rzecz, o którą pytano po dodaniu arkuszy.
+            znak = '<span class="ma" title="ma materiał do wydruku">●</span>' if ma_karty(K["nr"]) else ""
+            w_obszarze.append(f'    <a href="#kon-{w["kod"]}-{it["n"]}">'
+                              f'<b>{esc(K["nr"])}</b><span class="tyt">{esc(K["tytul"])}</span>{znak}</a>')
+        if w_obszarze:
+            spis.append(f'  <div class="spis-obszar">{a["rom"]} · {esc(a["name"].split(" (")[0])}</div>\n'
+                        f'  <div class="spis-siatka">\n' + "\n".join(w_obszarze) + "\n  </div>")
+
+    z_materialem = sum(1 for (wk, _), K in KONSPEKTY.items()
+                       if wk == w["kod"] and ma_karty(K["nr"]))
+    zdanie_o_pomocach = (
+        "W sekcji VII znajdziesz kartę pomocy dydaktycznej ze zdjęciem i poleceniem "
+        "nagranym głosem nauczycielki, a przy części konspektów także arkusze "
+        "do wydrukowania i wycięcia."
+        if WIEK_POMOCY.get(w["kod"]) else
+        "Konspekty z kropką w spisie mają w sekcji VII gotowy materiał do wydruku.")
+
+    # W banku konspekt pokazuje jeden poziom — ten, który nauczyciel kliknął
+    # w tabeli. Zeszyt pokazuje wszystkie trzy naraz, więc nagłówek o „klikniętym
+    # poziomie" byłby tu mylący. Podmieniamy go na opis zgodny z tym, co widać.
+    tresc = render_konspekty_modale(w["kod"]).replace(
+        "Cel edukacyjny — z banku KC-1, wg klikniętego poziomu",
+        "Cel edukacyjny — z banku KC-1 · trzy poziomy wsparcia")
+
+    return f"""<title>Konspekty zajęć · {esc(w['etykieta'])}</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" media="print" onload="this.media='all'"
+      href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,700&family=JetBrains+Mono:wght@400;700&display=swap">
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,700&family=JetBrains+Mono:wght@400;700&display=swap"></noscript>
+<style>:root{{--logo:url({LOGO_URI})}}
+{CSS}
+{CSS_DOK}</style>
+{style_pomocy(WIEK_POMOCY.get(w['kod'], []))}{audio_pomocy(WIEK_POMOCY.get(w['kod'], []))}{style_kart(nry)}
+
+<div class="zeszyt">
+<div class="dochead">
+  <span class="mark" role="img" aria-label="Logo PCTP"></span>
+  <div>
+    <div class="wordmark">EduPlaner 2026</div>
+    <div class="wordsub">Konspekty zajęć ·<br>{esc(w['etykieta'])}</div>
+  </div>
+  <div class="right">
+    <span class="badge">Nauczyciel · zespół</span>
+    <div class="badge-sub">Druk KC-3 · {dzis}</div>
+  </div>
+</div>
+<div class="twotone"><i></i><i></i></div>
+
+<p class="wstep">{ile} konspektów — komplet dla tej grupy wiekowej, w kolejności obszarów.
+Każdy pokazuje wszystkie trzy poziomy wsparcia naraz. {zdanie_o_pomocach}
+Przy druku każdy konspekt zaczyna nową stronę A4.</p>
+
+<details class="spis">
+  <summary>Wykaz konspektów<span class="rozwin"> — kliknij, aby rozwinąć</span><span class="zwin"> — kliknij, aby zwinąć</span><span class="ile">{ile} konspektów · ● z materiałem do wydruku</span></summary>
+  <div class="spis-tresc">
+{chr(10).join(spis)}
+  </div>
+</details>
+<p class="spis-legenda"><i>●</i> — konspekt ma w sekcji VII gotowy materiał do wydruku
+({z_materialem} z {ile}).</p>
+
+{tresc}
+
+<div class="docfoot">
+  <span>EduPlaner 2026 · Konspekty zajęć · {esc(w['etykieta'])}</span>
+  <span class="mono">PCTP Koszalin · druk KC-3</span>
+</div>
+</div>
+<script>{JS_DOK}</script>
+"""
+
+
+if __name__ == "__main__":
+    for mod in WERSJE:
+        kod = mod.WERSJA["kod"]
+        if kod not in PLIKI:
+            continue
+        sciezka = os.path.join(KORZEN, PLIKI[kod])
+        open(sciezka, "w", encoding="utf-8").write(dokument(mod))
+        print(f"zapisano: {PLIKI[kod]} · {os.path.getsize(sciezka)/1024/1024:.2f} MB")

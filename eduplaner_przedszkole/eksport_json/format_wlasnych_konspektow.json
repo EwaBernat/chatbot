@@ -1,0 +1,72 @@
+{
+  "opis": "Format pliku, który zapisuje i wczytuje panel „Moje konspekty” w banku celów. Ten sam kształt trzyma przeglądarka w localStorage.",
+  "klucz_localstorage": "eduplaner2026.moje-konspekty.v1",
+  "pola_rekordu": {
+    "id": "identyfikator nadawany przy zapisie, unikalny",
+    "wersja": "kod wersji wiekowej: A | B | C | U",
+    "nr": "numer twierdzenia w tej wersji (liczba)",
+    "poziom": "p3 | p2 | p1 — poziom wsparcia, do którego konspekt należy",
+    "twierdzenie/icf/pp/obszar/rzym/etykieta": "kontekst celu, przepisany przy zapisie",
+    "tytul": "wymagany",
+    "podtytul/czas/forma/cykl/rodzaj/wskazowka": "pola tekstowe",
+    "ter": "cel terapeutyczny",
+    "kryt": "kryterium pomiaru",
+    "pomoce/metody/mod3/mod2/mod1": "listy tekstów",
+    "przebieg": "lista par [czynność nauczyciela, reakcja dziecka]",
+    "utworzono/zmieniono": "znaczniki czasu ISO 8601"
+  },
+  "uwaga": "Cel edukacyjny NIE jest przechowywany w rekordzie — bank czyta go na żywo z tabeli po (wersja, nr, poziom). Dzięki temu poprawka celu w banku nie zostawia w konspekcie starej wersji.",
+  "przyklad": {
+    "dokument": "EduPlaner 2026 · moje konspekty",
+    "wersjaZapisu": 1,
+    "zapisano": "2026-08-31T10:00:00.000Z",
+    "konspekty": [
+      {
+        "id": "mkprzyklad1",
+        "wersja": "A",
+        "nr": 1,
+        "poziom": "p2",
+        "twierdzenie": "Przygląda się i przysłuchuje z zainteresowaniem temu, co pokazuje i mówi nauczyciel",
+        "icf": "d110–d115",
+        "pp": "3.5",
+        "obszar": "Uczenie się i stosowanie wiedzy",
+        "rzym": "I",
+        "etykieta": "3–4 lata",
+        "tytul": "Kącik uważnego słuchania",
+        "podtytul": "Krótkie polecenia i sygnał dźwiękowy",
+        "czas": "20 min",
+        "forma": "para dzieci",
+        "cykl": "2× w tygodniu",
+        "ter": "Dziecko wykona dwuelementowe polecenie po jednym powtórzeniu w 3 z 5 prób w ciągu 8 tygodni.",
+        "kryt": "arkusz obserwacji · 5 prób w tygodniu",
+        "pomoce": [
+          "bębenek",
+          "karty z obrazkami czynności"
+        ],
+        "metody": [
+          "modelowanie",
+          "polecenie z sygnałem"
+        ],
+        "rodzaj": "Zajęcia rozwijające kompetencje emocjonalno-społeczne",
+        "przebieg": [
+          [
+            "N — uderza w bębenek i podaje polecenie.",
+            "D — zatrzymuje się i patrzy na nauczyciela."
+          ]
+        ],
+        "mod3": [
+          "polecenie z obrazkiem"
+        ],
+        "mod2": [
+          "polecenie jednoelementowe"
+        ],
+        "mod1": [
+          "trzyelementowe polecenie"
+        ],
+        "wskazowka": "Sygnał dźwiękowy daje dziecku sekundę na przełączenie uwagi.",
+        "utworzono": "2026-08-31T10:00:00.000Z",
+        "zmieniono": "2026-08-31T10:00:00.000Z"
+      }
+    ]
+  }
+}

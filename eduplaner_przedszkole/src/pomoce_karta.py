@@ -1,0 +1,163 @@
+# -*- coding: utf-8 -*-
+"""Renderowanie kart pomocy dydaktycznych — wspólne dla wszystkich wersji.
+
+Każda wersja wiekowa (A, B, C) trzyma własny rejestr pomocy i własny katalog
+mediów, ale karta wygląda tak samo: zdjęcie poglądowe, lista rzeczy do
+przygotowania, trzy kroki użycia, nagrane polecenie i wskazówka. Ten moduł
+zna układ karty; moduły `pomoce_a`, `pomoce_b`… znają tylko treść.
+
+Media osadzamy raz — zdjęcia w klasach CSS `.pf-<kod>`, nagrania w jednym
+`<audio id="pa-<kod>">` — bo karta może pojawić się w dokumencie wielokrotnie.
+"""
+
+import base64
+from pathlib import Path
+
+_KORZEN = Path(__file__).resolve().parent.parent
+
+# Zestawy zarejestrowane przez moduły pomocy, w kolejności dodania.
+ZESTAWY = []
+
+
+class Zestaw:
+    """Jeden rejestr pomocy: treść + katalogi mediów + etykieta wieku."""
+
+    def __init__(self, pomoce, katalog_foto, katalog_audio, wiek, dokument=""):
+        self.pomoce = pomoce
+        self.dokument = dokument        # plik, w którym karty tego zestawu są wydane
+        self.foto = _KORZEN / "assets" / katalog_foto
+        self.audio = _KORZEN / "assets" / katalog_audio
+        self.wiek = wiek
+        ZESTAWY.append(self)
+
+    # Zdjęcie i nagranie mogą jeszcze nie istnieć — zestaw powstaje w całości
+    # jako tekst, a media dochodzą partiami. Karta bez zdjęcia pokazuje wtedy
+    # neutralne pole, karta bez nagrania nie pokazuje przycisku odtwarzania.
+    # Bez tego cały dokument przestawał się budować przez jeden brakujący plik.
+    def ma_foto(self, kod):
+        return (self.foto / f"k_{kod}.jpg").exists()
+
+    def ma_dzwiek(self, kod):
+        return (self.audio / f"{kod}.mp3").exists()
+
+    def _foto(self, kod):
+        dane = base64.b64encode((self.foto / f"k_{kod}.jpg").read_bytes()).decode()
+        return f"data:image/jpeg;base64,{dane}"
+
+    def _dzwiek(self, kod):
+        dane = base64.b64encode((self.audio / f"{kod}.mp3").read_bytes()).decode()
+        return f"data:audio/mpeg;base64,{dane}"
+
+    def style(self):
+        return "\n".join(f'.pf-{k}{{background-image:url({self._foto(k)})}}'
+                         for k in self.pomoce if self.ma_foto(k))
+
+    def audio_tagi(self):
+        return "".join(f'<audio id="pa-{k}" preload="none" src="{self._dzwiek(k)}"></audio>'
+                       for k in self.pomoce if self.ma_dzwiek(k))
+
+    def braki(self):
+        """(bez zdjęcia, bez nagrania) — do raportu po przebudowie."""
+        return ([k for k in self.pomoce if not self.ma_foto(k)],
+                [k for k in self.pomoce if not self.ma_dzwiek(k)])
+
+    def karta(self, kod, esc):
+        nr, tytul, przygotuj, kroki, tekst, wskaz = self.pomoce[kod]
+        lista = "\n".join(f'      <li>{esc(x)}</li>' for x in przygotuj)
+        krok = "\n".join(f'      <li><span class="pk-n">{i}</span>{esc(x)}</li>'
+                         for i, x in enumerate(kroki, 1))
+        przycisk = (f'<button type="button" class="au-btn" data-au="pa-{kod}"'
+                    f' aria-label="Posłuchaj polecenia">'
+                    f'<span aria-hidden="true">▶</span> Posłuchaj polecenia</button>'
+                    if self.ma_dzwiek(kod) else
+                    '<span class="au-brak">Polecenie do przeczytania dziecku</span>')
+        return f'''<section class="zal pomoc" id="pom-{kod}" data-poziom="p1">
+  <header class="zal-head">
+    <span class="mark" role="img" aria-label="Logo PCTP"></span>
+    <div>
+      <div class="zal-w">EduPlaner 2026</div>
+      <div class="zal-s">Pomoc dydaktyczna · konspekt {esc(nr)} · {self.wiek}</div>
+    </div>
+    <span class="zal-pill p1">druk KC-4</span>
+  </header>
+  <div class="zal-tytul">
+    <span class="zal-kp">Tak ma wyglądać ta pomoc</span>
+    <h3>{esc(tytul)}</h3>
+  </div>
+  <div class="pf {"pf-" + kod if self.ma_foto(kod) else "pf-brak"}" role="img"
+    aria-label="Zdjęcie poglądowe pomocy: {esc(tytul)}"></div>
+  <div class="pomoc-dwie">
+    <div><h4 class="pomoc-h">Co przygotować</h4>
+    <ul class="klista pomoc-lista">
+{lista}
+    </ul></div>
+    <div><h4 class="pomoc-h">Jak użyć — trzy kroki</h4>
+    <ol class="pomoc-kroki">
+{krok}
+    </ol></div>
+  </div>
+  <div class="pomoc-glos">
+    {przycisk}
+    <p class="pomoc-tekst">„{esc(tekst)}"</p>
+  </div>
+  <div class="callout rule pomoc-wsk"><span class="cap">Wskazówka</span>{esc(wskaz)}</div>
+  <div class="zal-stopka">
+    <span><b>Konspekt {esc(nr)}</b> · pomoc dydaktyczna</span>
+    <span class="mono">EduPlaner 2026 · PCTP · druk KC-4</span>
+  </div>
+</section>'''
+
+
+# Styl pól zastępczych — karta bez zdjęcia albo bez nagrania nadal ma się
+# drukować sensownie, a nie zostawiać dziury w układzie.
+UKLAD_BRAKI = """
+.pf-brak{background:repeating-linear-gradient(135deg,#F4F1F7 0 12px,#EDE9F2 12px 24px)}
+.au-brak{display:inline-block;padding:7px 13px;border:1px dashed #B9A9CE;border-radius:999px;
+ font:700 11px/1 "DM Sans",Arial,sans-serif;color:#6B5B8A;letter-spacing:.02em}
+"""
+
+
+def _wybor(wieki):
+    """Zestawy do osadzenia. `None` — wszystkie (bank celów); lista grup
+    wiekowych — tylko one; lista pusta — żadnych.
+
+    Zeszyt konspektów dla 3–4 lat nie ma po co nieść zdjęć i nagrań z wersji
+    dla 5-latków, a zeszyt dla wersji bez pomocy — żadnych. Bez tego rozróżnienia
+    każdy zeszyt ważył tyle samo, niezależnie od tego, co faktycznie pokazuje.
+    """
+    if wieki is None:
+        return [z for z in ZESTAWY if z.pomoce]
+    return [z for z in ZESTAWY if z.pomoce and z.wiek in wieki]
+
+
+def style_pomocy(wieki=None):
+    """Zdjęcia osadzone raz, w klasach CSS."""
+    regu = "\n".join(z.style() for z in _wybor(wieki))
+    return f"<style>{UKLAD_BRAKI}{regu}</style>"
+
+
+def audio_pomocy(wieki=None):
+    return "".join(z.audio_tagi() for z in _wybor(wieki))
+
+
+def pomoce_dla(nr, esc):
+    """Karta pomocy dla konspektu o tym numerze albo pusty string."""
+    for z in ZESTAWY:
+        for kod, dane in z.pomoce.items():
+            if dane[0] == nr:
+                return z.karta(kod, esc)
+    return ""
+
+
+def wskaz_pomoc(nr):
+    """Gdzie szukać pomocy do konspektu: (kod, tytuł, wiek, plik) albo None.
+
+    Bank celów sam kart nie nosi — ważą tyle, że dokument przestawał się
+    otwierać płynnie. Zamiast tego konspekt wskazuje kartę w zeszycie pomocy
+    dla swojej grupy wiekowej.
+    """
+    for z in ZESTAWY:
+        for kod, dane in z.pomoce.items():
+            if dane[0] == nr:
+                return kod, dane[1], z.wiek, z.dokument
+    return None
