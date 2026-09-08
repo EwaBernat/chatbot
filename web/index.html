@@ -407,6 +407,64 @@
     </div>
   </section>
 
+  <section class="hero" id="cele" style="margin-top:72px">
+    <div>
+      <div class="eyebrow">Przystanek szósty · cel ma liczbę</div>
+      <h1>Cele SMART</h1>
+      <p class="lead">Jak wyglądają i jak powstają cele SMART, jak korzystać z gotowego banku (tabela celów do karty teorii umysłu — 225 celów) i z nowej tabeli celów do KPOF (390 celów), a także jak samodzielnie ułożyć cel zgodny z obserwacją i zaleceniem w kreatorze. Na końcu ewaluacja i „Strażnik prawa”.</p>
+      <div class="akcje">
+        <button class="btn btn-glowny" id="wiecej-cele" aria-expanded="false" aria-controls="panel-cele">Więcej</button>
+        <a class="btn btn-drugi" href="media/kpof-cele.html" target="_blank" rel="noopener">Tabela celów KPOF + kreator</a>
+        <a class="btn btn-drugi" href="media/tom-cele.html" target="_blank" rel="noopener">Tabela celów ToM (konspekty)</a>
+      </div>
+    </div>
+    <div class="ikonka-wrap">
+      <button class="ikonka" id="ikonka-cele" aria-label="Odtwórz animację Cele SMART">
+        <span class="obwod"></span>
+        <span class="kartka">
+          <span class="linia"></span><span class="linia"></span><span class="linia"></span><span class="linia"></span>
+          <span class="ptaszek">✓</span>
+        </span>
+        <span class="play"><span></span></span>
+      </button>
+    </div>
+  </section>
+
+  <section class="panel" id="panel-cele" aria-hidden="true">
+    <div class="wnetrze">
+      <div class="panel-karta">
+        <div class="odtwarzacz">
+          <video id="film-cele" preload="metadata" playsinline controls poster="media/plakat-cele.jpg">
+            <source src="media/eduplaner-cele.mp4" type="video/mp4">
+            Twoja przeglądarka nie odtwarza wideo MP4.
+          </video>
+          <span class="glos">🎙 narracja: Mirosława Ewa Jurczyszyn</span>
+        </div>
+        <div class="tekst">
+          <div class="pod">Formuła ze skryptu · S M A R T · trzy poziomy wsparcia</div>
+          <h2>Od obserwacji do celu, który ma liczbę</h2>
+          <p>Dziecko, w konkretnej sytuacji, wykona obserwowalne zachowanie, w określonej liczbie prób, przy określonym wsparciu, do określonej daty, z określonym sposobem pomiaru. Poziom wsparcia zmienia warunki, nie krok.</p>
+          <ul>
+            <li>Pięć liter SMART i formuła celu — przykłady ze skryptu (buty na rzepy, zabawa w parze)</li>
+            <li>Tabela celów ToM: 225 celów, kliknięcie otwiera konspekt zajęć</li>
+            <li>Nowa tabela celów KPOF: 130 twierdzeń × 3 poziomy = 390 celów, reguła „ocena 1–2”</li>
+            <li>Kreator własnego celu: składa zdanie i sprawdza S·M·A·R·T, „Moje cele”, kopiowanie do IPET</li>
+            <li>Ewaluacja: cztery decyzje zespołu · Strażnik prawa: § 6 (t.j. 2020/1309), § 20 (t.j. 2023/1798)</li>
+          </ul>
+          <div class="haslo">Cel ma liczbę, a ewaluacja ma konsekwencję.</div>
+          <details class="skrypt" open>
+            <summary>Podstawa prawna (wg skryptu szkolenia, wyd. 2 po audycie)</summary>
+            <p>Nazwa SMART nie pada w rozporządzeniu ani razu — nie ma obowiązku używania skrótu. Wymagana jest ocena efektywności: § 6 rozp. MEN z 9.08.2017 r. w sprawie kształcenia specjalnego (t.j. Dz.U. 2020 poz. 1309) — wielospecjalistyczna ocena co najmniej 2× w roku; § 20 rozp. MEN z 9.08.2017 r. w sprawie pomocy pp (t.j. Dz.U. 2023 poz. 1798) — ocena efektywności udzielanej pomocy. Twierdzenia KPOF odsyłają do podstawy programowej (rozp. ME z 11.03.2026 r., Dz.U. 2026 poz. 378) i kodów ICF. „Nazwa jest dowolna, mierzalność jest konieczna.”</p>
+          </details>
+          <details class="skrypt">
+            <summary>Tekst narracji (do nagrania)</summary>
+            <p id="skrypt-cele"></p>
+          </details>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <section class="siatka" aria-label="Druki modułu Metryczka">
     <div class="karta"><div class="ik">📥</div><div><b>Zgłoszenie - placówka</b><small>Wewnętrzne zgłoszenie dziecka do objęcia wsparciem.</small><br><span class="odz">wejście ścieżki</span></div></div>
     <div class="karta"><div class="ik">👥</div><div><b>Zgłoszenie - rodzica</b><small>Zgłoszenie / wniosek od rodzica lub opiekuna.</small></div></div>
@@ -535,6 +593,26 @@
       var el = document.getElementById('skrypt-ipet');
       if (t) { el.textContent = t; } else { el.parentElement.hidden = true; }
     }).catch(function () { document.getElementById('skrypt-ipet').parentElement.hidden = true; });
+  })();
+
+  // Cele SMART — szósty panel.
+  (function () {
+    var b = document.getElementById('wiecej-cele'), ik = document.getElementById('ikonka-cele');
+    var pn = document.getElementById('panel-cele'), f = document.getElementById('film-cele');
+    var o = false;
+    function otw(play) {
+      o = true; pn.setAttribute('aria-hidden', 'false'); b.setAttribute('aria-expanded', 'true'); b.textContent = 'Mniej';
+      if (play) { f.muted = false; var p = f.play(); if (p && p.catch) { p.catch(function () {}); } }
+      setTimeout(function () { pn.scrollIntoView({behavior: 'smooth', block: 'start'}); }, 120);
+    }
+    function zam() { o = false; pn.setAttribute('aria-hidden', 'true'); b.setAttribute('aria-expanded', 'false'); b.textContent = 'Więcej'; f.pause(); }
+    b.addEventListener('click', function () { o ? zam() : otw(true); });
+    ik.addEventListener('click', function () { o ? f.play() : otw(true); });
+    if (location.hash === '#cele') { otw(false); }
+    fetch('media/cele-scenariusz.txt').then(function (r) { return r.ok ? r.text() : ''; }).then(function (t) {
+      var el = document.getElementById('skrypt-cele');
+      if (t) { el.textContent = t; } else { el.parentElement.hidden = true; }
+    }).catch(function () { document.getElementById('skrypt-cele').parentElement.hidden = true; });
   })();
 
   // Pełny tekst narracji do wglądu (ten sam, który czyta lektorka).

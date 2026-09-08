@@ -15,7 +15,9 @@ export type Krok =
   | {sek: number; typ: 'klik'; selektor: string}
   | {sek: number; typ: 'tekst'; selektor: string; tekst: string; tempo?: number}
   | {sek: number; typ: 'wyroznij'; selektor: string; doSek: number}
-  | {sek: number; typ: 'dane'; krok: WopfKrok; tempo?: number};
+  | {sek: number; typ: 'dane'; krok: WopfKrok; tempo?: number}
+  | {sek: number; typ: 'zdarzenie'; selektor: string; zdarzenie?: 'click'; doSek?: number}
+  | {sek: number; typ: 'klasa'; selektor: string; klasa: string; doSek?: number};
 
 /** Selektor z opcjonalnym przedrostkiem strony: "@3 .fields .fv" = trzecia .page w druku. */
 const wybierz = (root: ParentNode, sel: string): Element | null => {
@@ -33,6 +35,7 @@ type Props = {
   kamera: Ujecie[];
   wykresyOdSek?: number;
   odSek: number; // początek tej sceny w sekundach filmu
+  szerokosc?: number; // szerokość dokumentu w px (A4 = 794; strony WWW np. 1200)
 };
 
 const SZEROKOSC_DOKUMENTU = 794; // 210 mm przy 96 dpi
@@ -46,7 +49,8 @@ declare global {
 
 const easeInOut = (t: number) => (t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2);
 
-export const OryginalnyDruk: React.FC<Props> = ({plik, kroki, kamera, wykresyOdSek, odSek}) => {
+export const OryginalnyDruk: React.FC<Props> = ({plik, kroki, kamera, wykresyOdSek, odSek, szerokosc}) => {
+  const SZER = szerokosc ?? SZEROKOSC_DOKUMENTU;
   const frame = useCurrentFrame();
   const {fps} = useVideoConfig();
   const sek = odSek + frame / fps;
@@ -121,6 +125,8 @@ export const OryginalnyDruk: React.FC<Props> = ({plik, kroki, kamera, wykresyOdS
         else el.textContent = '';
       }
     }
+    if (kroki.some((k) => k.typ === 'zdarzenie')) document.dispatchEvent(new KeyboardEvent('keydown', {key: 'Escape', bubbles: true}));
+    for (const k of kroki) if (k.typ === 'klasa') wybierz(root, k.selektor)?.classList.remove(k.klasa);
     root.querySelectorAll<HTMLElement>('[data-anim-wyr]').forEach((el) => {
       el.style.boxShadow = '';
       el.style.borderRadius = '';
@@ -156,6 +162,17 @@ export const OryginalnyDruk: React.FC<Props> = ({plik, kroki, kamera, wykresyOdS
         } else if (!nastepny || k.sek < nastepny.sek) {
           nastepny = {el: els[0], sek: k.sek};
         }
+        continue;
+      }
+      if (k.typ === 'zdarzenie') {
+        if (sek >= k.sek && (k.doSek === undefined || sek < k.doSek)) {
+          const el = wybierz(root, k.selektor);
+          el?.dispatchEvent(new MouseEvent(k.zdarzenie ?? 'click', {bubbles: true, cancelable: true}));
+        }
+        continue;
+      }
+      if (k.typ === 'klasa') {
+        if (sek >= k.sek && (k.doSek === undefined || sek < k.doSek)) wybierz(root, k.selektor)?.classList.add(k.klasa);
         continue;
       }
       if (k.typ === 'wyroznij') {
@@ -259,7 +276,7 @@ export const OryginalnyDruk: React.FC<Props> = ({plik, kroki, kamera, wykresyOdS
       }
     }
     skalaRef.current = skala;
-    const tx = 960 - (SZEROKOSC_DOKUMENTU / 2) * skala;
+    const tx = 960 - (SZER / 2) * skala;
     const ty = 540 - y * skala;
     if (kameraRef.current) kameraRef.current.style.transform = `translate(${tx}px, ${ty}px) scale(${skala})`;
 
@@ -302,7 +319,7 @@ export const OryginalnyDruk: React.FC<Props> = ({plik, kroki, kamera, wykresyOdS
   return (
     <AbsoluteFill style={{background: `linear-gradient(135deg, #EFEBF7 0%, ${MARKA.tloCieple} 100%)`, overflow: 'hidden'}}>
       {html ? <style dangerouslySetInnerHTML={{__html: html.css}} /> : null}
-      <div ref={kameraRef} style={{position: 'absolute', left: 0, top: 0, width: SZEROKOSC_DOKUMENTU, transformOrigin: '0 0', willChange: 'transform'}}>
+      <div ref={kameraRef} style={{position: 'absolute', left: 0, top: 0, width: SZER, transformOrigin: '0 0', willChange: 'transform'}}>
         <div ref={kontener} className="druk-oryginalny" dangerouslySetInnerHTML={{__html: html?.body ?? ''}} />
         <div ref={kursorRef} style={{position: 'absolute', left: 0, top: 0, width: 26, height: 34, opacity: 0, pointerEvents: 'none', transformOrigin: '0 0'}}>
           <svg width="26" height="34" viewBox="0 0 26 34" style={{filter: 'drop-shadow(0 3px 4px rgba(0,0,0,0.35))'}}>

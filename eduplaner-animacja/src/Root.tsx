@@ -10,6 +10,8 @@ import {PogPromo, type FilmPog} from './pog/PogPromo';
 import pog from '../public/pog.json';
 import {WopfPromo, type FilmWopf} from './wopf/WopfPromo';
 import wopf from '../public/wopf.json';
+import {CelePromo, type FilmCele} from './cele/CelePromo';
+import cele from '../public/cele.json';
 import {IpetPromo, type FilmIpet} from './ipet/IpetPromo';
 import ipet from '../public/ipet.json';
 
@@ -102,6 +104,26 @@ export const RemotionRoot: React.FC = () => (
       width={1920}
       height={1080}
       defaultProps={{film: ipet as unknown as FilmIpet}}
+      calculateMetadata={async ({props}) => {
+        let sekundy = props.film.dlugosc;
+        if (props.film.audio) {
+          try {
+            sekundy = Math.max(sekundy, await getAudioDurationInSeconds(staticFile(props.film.audio)));
+          } catch {
+            // bez nagrania długość bierze się z napisów
+          }
+        }
+        return {durationInFrames: Math.max(1, Math.round(sekundy * FPS))};
+      }}
+    />
+    <Composition
+      id="CelePromo"
+      component={CelePromo}
+      durationInFrames={60 * FPS}
+      fps={FPS}
+      width={1920}
+      height={1080}
+      defaultProps={{film: cele as unknown as FilmCele}}
       calculateMetadata={async ({props}) => {
         let sekundy = props.film.dlugosc;
         if (props.film.audio) {
