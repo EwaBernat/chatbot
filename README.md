@@ -189,5 +189,17 @@ klasie III, koordynacja IPET i WOPF, ocena zachowania).
   z pustym polem na imię i nazwisko,
 - `generuj_druk_jezyk_polski_logopedia.js` — generator; nazwiska jako argumenty, jak wyżej.
 
+### Druk „Zakres czynności i obowiązków” — pedagog szkolny i nauczyciel współorganizujący (klasa III)
+
+Druk dla osoby łączącej dwie role w jednym etacie (Kodeks pracy, 30 godzin tygodniowo z podziałem
+godzin między role): pedagog szkolny (diagnoza i pomoc psychologiczno-pedagogiczna, profilaktyka,
+interwencja, standardy ochrony małoletnich, Niebieska Karta, dziennik pedagoga) oraz nauczyciel
+współorganizujący kształcenie w oddziale klasy III (zadania z § 7 rozporządzenia o kształceniu
+specjalnym, wsparcie uczniów z orzeczeniem, udział w IPET i WOPF).
+
+- `druk-zakres-czynnosci-pedagog-wspolorganizujacy-3.docx` / `.pdf` — egzemplarz dla Sary
+  (nazwisko do uzupełnienia),
+- `generuj_druk_pedagog_wspolorganizujacy.js` — generator; nazwiska jako argumenty, jak wyżej.
+
 Wykaz ma charakter pomocniczy: przed wdrożeniem trzeba go dopasować do statutu placówki,
 regulaminu wynagradzania organu prowadzącego i aktualnego tekstu jednolitego ustawy.
