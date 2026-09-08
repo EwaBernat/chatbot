@@ -1,0 +1,49 @@
+EduPlaner 2026 · PRZEDSZKOLE — pakiet filmów i druków (stan: 8.09.2026)
+Autorka i narracja: Mirosława Ewa Jurczyszyn · PCTP Koszalin
+
+00_Film_laczony/
+  EduPlaner_Przedszkole_KPOF_Obserwacja_WOPF.mp4 — trzy nagrania przedszkolne w jednym pliku
+  (KPOF 2:52 → Obserwacja pogłębiona 3:02 → WOPF 3:25; razem 9:19, 1920×1080, głos + napisy w obrazie)
+
+01_Metryczka/ · 02_KPOF/ · 03_Obserwacja_poglebiona/ · 04_WOPF/
+  *_film.mp4       — gotowy film (1920×1080, 30 kl./s, dźwięk AAC)
+  *_narracja.mp3   — sama ścieżka głosu (głos sklonowany z nagrań autorki, ElevenLabs)
+  *_scenariusz.txt — tekst narracji, zdanie po zdaniu
+  *_napisy.srt     — napisy zsynchronizowane z głosem (do YouTube / odtwarzaczy)
+  *_plakat.jpg     — kadr tytułowy (miniatura do strony / YouTube)
+
+04_WOPF/ dodatkowo:
+  WOPF_2026_Zofia_Lewandowska_wypelniony.html / .pdf — wypełniony druk WOPF (20 stron) z zaleceniami z orzeczenia,
+      na druku z ZAKTUALIZOWANYMI PRZEPISAMI (8.09.2026)
+  WOPF_Straznik_prawa.md — tabela weryfikacji przepisów wg skryptu szkolenia (wyd. 2 po audycie z 5.09.2026)
+  WOPF_dane_wypelnienia.json — 151 kroków wpisanych danych (do powtórnego wypełnienia)
+
+05_Strona_WWW/
+  index.html + media/ — strona z czterema sekcjami (Metryczka, KPOF, Obserwacja pogłębiona, WOPF),
+  przyciski „Więcej/Mniej”, filmy, plakaty, scenariusze. Otwórz index.html w przeglądarce.
+
+06_Druki_oryginalne/
+  KPOF 3–4 / 5 / 6 lat (html + pdf), Karta obserwacji rozwoju mowy, Analiza zachowania ABC·FBA, Teoria umysłu,
+  Profil sensoryczny, Profil biopsychospołeczny, WOPF (pdf + pusty arkusz interaktywny html),
+  Skrypt dla nauczycieli PRZEDSZKOLE wyd. 2 po audycie (docx).
+  WOPF_arkusz_interaktywny_pusty.html                   — druk w wersji 9 (przed aktualizacją)
+  WOPF_arkusz_interaktywny_pusty_AKTUALNE_PRZEPISY.html — druk w wersji 10: ten sam układ, ramki i linie;
+      zmieniono WYŁĄCZNIE nieaktualne publikatory (66 miejsc):
+      Dz.U. 2017 poz. 1578 → t.j. Dz.U. 2020 poz. 1309 (kształcenie specjalne)
+      Dz.U. 2017 poz. 1591 → t.j. Dz.U. 2023 poz. 1798 (pomoc psychologiczno-pedagogiczna)
+      Prawo oświatowe t.j. 2024 poz. 737 / 2017 poz. 59 → t.j. Dz.U. 2026 poz. 820
+      rozp. MEN z 7.09.2017 r. (poz. 1743) → rozp. ME z 2.03.2026 r., § 7 ust. 2–3 (Dz.U. 2026 poz. 428)
+      podstawa programowa 2017 (poz. 356) → rozp. ME z 11.03.2026 r. (Dz.U. 2026 poz. 378)
+      dokumentacja 2017 poz. 1646 → t.j. Dz.U. 2024 poz. 50
+
+Uwagi:
+  · W filmie WOPF (nagranym przed aktualizacją) stopki druku pokazują jeszcze stare publikatory — są to
+    drobne napisy 7 pt, w kadrze praktycznie nieczytelne. Narracja filmu podaje już aktualne przepisy.
+  · Sekcja IV druku WOPF nadal cytuje ustawę o opiece zdrowotnej nad uczniami (Dz.U. 2019 poz. 1078);
+    wg skryptu dotyczy ona uczniów, nie przedszkola — zostawiono bez zmian na życzenie autorki (tylko
+    nieaktualne przepisy). Do decyzji autorki.
+  · W druku KPOF Zofii widnieje data urodzenia 30.06.2015 — niezgodna z wiekiem 4 lat (do poprawy w danych).
+  · Profil biopsychospołeczny (PDF) cytuje jeszcze podstawę programową z 2017 r.
+
+Źródła w repozytorium (gałąź claude/ipet-main-screen-animation-1iwvp1):
+  eduplaner-animacja/ (projekt Remotion, skrypty, druki), web/ (strona). Film łączony nie jest w repozytorium.
