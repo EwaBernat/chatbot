@@ -167,5 +167,15 @@ dla matematyki, przyrody i biologii (BHP doświadczeń), zajęć rewalidacyjnych
   (nazwisko do uzupełnienia),
 - `generuj_druk_matematyka_przyroda_biologia.js` — generator; nazwiska jako argumenty, jak wyżej.
 
+### Druk „Zakres czynności i obowiązków” — matematyka i wychowawstwo klasy VI c
+
+Druk dla drugiej nauczycielki matematyki, wychowawczyni klasy VI c (Kodeks pracy, pełny etat
+30 godzin tygodniowo): obowiązki wspólne, blok matematyki (w tym pracownia i egzamin ósmoklasisty)
+oraz blok wychowawstwa (koordynacja IPET i WOPF, ocena zachowania, dokumentacja oddziału).
+
+- `druk-zakres-czynnosci-matematyka-wychowawstwo-6c.docx` / `.pdf` — egzemplarz dla Moniki
+  (nazwisko do uzupełnienia),
+- `generuj_druk_matematyka_wychowawstwo.js` — generator; nazwiska jako argumenty, jak wyżej.
+
 Wykaz ma charakter pomocniczy: przed wdrożeniem trzeba go dopasować do statutu placówki,
 regulaminu wynagradzania organu prowadzącego i aktualnego tekstu jednolitego ustawy.
