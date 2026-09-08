@@ -156,5 +156,16 @@ ruchowych, zwolnienia lekarskie, ocenianie wysiłku).
 - `druk-zakres-czynnosci-angielski-informatyka-wf.docx` / `.pdf` — egzemplarz dla Kacpra K.,
 - `generuj_druk_angielski_informatyka_wf.js` — generator; nazwiska jako argumenty, jak wyżej.
 
+### Druk „Zakres czynności i obowiązków” — matematyka, przyroda, biologia, wychowawstwo, rewalidacja
+
+Druk dla nauczycielki przedmiotów matematyczno-przyrodniczych, która jest wychowawczynią klasy VI
+i prowadzi zajęcia rewalidacyjne (Kodeks pracy, 30 godzin tygodniowo): obowiązki wspólne oraz bloki
+dla matematyki, przyrody i biologii (BHP doświadczeń), zajęć rewalidacyjnych (program, dziennik,
+60-minutowa godzina) i wychowawstwa (koordynacja IPET, ocena zachowania, dokumentacja oddziału).
+
+- `druk-zakres-czynnosci-matematyka-przyroda-biologia.docx` / `.pdf` — egzemplarz dla Agaty
+  (nazwisko do uzupełnienia),
+- `generuj_druk_matematyka_przyroda_biologia.js` — generator; nazwiska jako argumenty, jak wyżej.
+
 Wykaz ma charakter pomocniczy: przed wdrożeniem trzeba go dopasować do statutu placówki,
 regulaminu wynagradzania organu prowadzącego i aktualnego tekstu jednolitego ustawy.
