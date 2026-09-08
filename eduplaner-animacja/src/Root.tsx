@@ -3,12 +3,33 @@ import {Composition, staticFile} from 'remotion';
 import {getAudioDurationInSeconds} from '@remotion/media-utils';
 import {EduPlanerPromo, type Props} from './EduPlanerPromo';
 import film from '../public/film.json';
+import kpof from '../public/kpof.json';
+import {KpofPromo, type FilmKpof} from './kpof/KpofPromo';
 import type {Film} from './typy';
 
 const FPS = 30;
 
 /** Długość filmu bierze się z nagrania — poprawiona narracja sama zmienia długość. */
 export const RemotionRoot: React.FC = () => (
+  <>
+  <Composition
+    id="KpofPromo"
+    component={KpofPromo}
+    durationInFrames={60 * FPS}
+    fps={FPS}
+    width={1920}
+    height={1080}
+    defaultProps={{film: kpof as unknown as FilmKpof}}
+    calculateMetadata={async ({props}) => {
+      let sekundy = props.film.dlugosc;
+      try {
+        sekundy = Math.max(sekundy, await getAudioDurationInSeconds(staticFile(props.film.audio)));
+      } catch {
+        // zostaje długość z pliku
+      }
+      return {durationInFrames: Math.max(1, Math.round(sekundy * FPS)), props: {film: {...props.film, dlugosc: sekundy}}};
+    }}
+  />
   <Composition
     id="EduPlanerPromo"
     component={EduPlanerPromo}
@@ -29,4 +50,5 @@ export const RemotionRoot: React.FC = () => (
       return {durationInFrames: Math.max(1, Math.round(sekundy * FPS))};
     }}
   />
+  </>
 );

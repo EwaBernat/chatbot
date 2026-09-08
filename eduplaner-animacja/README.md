@@ -39,3 +39,23 @@ wpisują się same, panel „zasila cały system”) → `Druk2` (III–V, wybó
 wychowawca trafia do tabeli) → `Druk4` (VIII–X, stempel „teczka gotowa”) → `Final` (ścieżka, hasła, CTA).
 
 Marka: fiolet `#2D1B69`, pomarańcz `#E8450A`, morski `#2F8F8A` (ekran modułu), Arial.
+
+## Film 2 — KPOF na ORYGINALNYM druku (`KpofPromo`)
+
+Kompozycja `KpofPromo` nie odwzorowuje druku — wczytuje prawdziwy plik `public/kpof_3_4.html`
+(Kwestionariusz Przedszkolnej Oceny Funkcjonalnej, wersja A) i uruchamia jego własny skrypt
+liczący wyniki. Komponent `src/kpof/OryginalnyDruk.tsx` klatka po klatce „obsługuje” druk jak
+użytkownik: klika kółka ocen 1–5/N, zaznacza pola, wpisuje tekst, a kamera jedzie po arkuszu
+A4 do miejsc, o których mówi narracja. Sumy, średnie, poziomy, wykres słupkowy i mapa radarowa
+liczą się z oryginalnego skryptu druku. Oceny (`OCENY` w `src/kpof/KpofPromo.tsx`) są dobrane
+tak, żeby profil pokazał wszystkie kolory: zasób, Poziom I, II i III.
+
+```bash
+python3 skrypty/wyrownaj.py kpof      # public/kpof-narracja.mp3 + kpof-scenariusz.txt → public/kpof.json
+npx remotion render KpofPromo out/eduplaner-kpof.mp4
+```
+
+Harmonogram scen (kliknięcia, kamera, wykresy) liczy się z czasów zdań w `public/kpof.json`
+(indeksy zdań w `zbudujHarmonogram`). Wersje B (5 lat) i C (6 lat) leżą w `public/` — wystarczy
+zmienić `plik` w `kpof.json`. Zakończenie: podstawa prawna części KPOF wg skryptu szkolenia
+(wydanie 2 po audycie).

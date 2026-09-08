@@ -224,7 +224,9 @@ export const Kratka: React.FC<{tekst: string; zaznacz?: boolean; od: number; sty
 };
 
 /** Kursor myszy poruszający się między punktami [x,y] w zadanych klatkach. */
-export const Kursor: React.FC<{punkty: {klatka: number; x: number; y: number}[]; klik?: number}> = ({punkty, klik}) => {
+export const Kursor: React.FC<{punkty: {klatka: number; x: number; y: number}[]; klik?: number; klik2?: number}> = ({punkty, klik: klik1, klik2}) => {
+  const frame0 = useCurrentFrame();
+  const klik = klik2 !== undefined && frame0 >= klik2 - 1 ? klik2 : klik1;
   const frame = useCurrentFrame();
   const xs = punkty.map((p) => p.x);
   const ys = punkty.map((p) => p.y);

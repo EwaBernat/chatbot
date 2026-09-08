@@ -34,6 +34,8 @@
   .podpowiedz { font-size: 14px; color: #8A83A0; }
 
   /* ---- mała ikonka z animacją (pętla CSS) ---- */
+  .ikonka-kpof { background: var(--pomarancz); box-shadow: 0 22px 50px rgba(232,69,10,.35); }
+  .ikonka-kpof .obwod { border-color: rgba(45,27,105,.5); }
   .ikonka { position: relative; width: 168px; height: 168px; border-radius: 50%; background: var(--fiolet); box-shadow: 0 22px 50px rgba(45,27,105,.35); cursor: pointer; border: 0; padding: 0; display: grid; place-items: center; overflow: hidden; transition: transform .25s ease, box-shadow .25s ease; }
   .ikonka:hover { transform: scale(1.05); box-shadow: 0 30px 60px rgba(45,27,105,.45); }
   .ikonka .kartka { width: 92px; height: 116px; background: #fff; border-radius: 10px; position: relative; overflow: hidden; box-shadow: 0 8px 20px rgba(0,0,0,.25); }
@@ -170,6 +172,64 @@
     </div>
   </section>
 
+
+  <section class="hero" id="kpof" style="margin-top:72px">
+    <div>
+      <div class="eyebrow" style="color:var(--pomarancz)">Kwestionariusz · dzieci z przedszkola</div>
+      <h1>KPOF</h1>
+      <p class="lead">Kwestionariusz Przedszkolnej Oceny Funkcjonalnej — 42 twierdzenia w 9 obszarach ICF, skala 1–5 i N, wyniki i profil liczą się same. Wersje A (3–4 lata), B (5 lat) i C (6 lat).</p>
+      <div class="akcje">
+        <button class="btn btn-glowny" id="wiecej-kpof" aria-expanded="false" aria-controls="panel-kpof">Więcej</button>
+        <span class="podpowiedz">🔊 animacja na oryginalnym druku, z narracją</span>
+      </div>
+    </div>
+    <div class="ikonka-wrap">
+      <button class="ikonka ikonka-kpof" id="ikonka-kpof" aria-label="Odtwórz animację o kwestionariuszu KPOF">
+        <span class="obwod"></span>
+        <span class="kartka">
+          <span class="linia"></span><span class="linia"></span><span class="linia"></span><span class="linia"></span>
+          <span class="ptaszek">✓</span>
+        </span>
+        <span class="play"><span></span></span>
+      </button>
+    </div>
+  </section>
+
+  <section class="panel" id="panel-kpof" aria-hidden="true">
+    <div class="wnetrze">
+      <div class="panel-karta" style="border-left-color:var(--pomarancz)">
+        <div class="odtwarzacz">
+          <video id="film-kpof" preload="metadata" playsinline controls poster="media/plakat-kpof.jpg">
+            <source src="media/eduplaner-kpof.mp4" type="video/mp4">
+            Twoja przeglądarka nie odtwarza wideo MP4.
+          </video>
+          <span class="glos">🎙 narracja: Mirosława Ewa Jurczyszyn</span>
+        </div>
+        <div class="tekst">
+          <div class="pod">Metryczka · KPOF · WOPFU · IPET · Ewaluacja</div>
+          <h2>Ty obserwujesz i zaznaczasz, resztę liczy EduPlaner</h2>
+          <p>Przełączasz się na kwestionariusz jednym kliknięciem i wybierasz wersję dla wieku dziecka. Metryczka jest już wypełniona — dane przyszły z teczki. Zaznaczasz tylko, kto ocenia: nauczyciel, rodzic czy specjalista.</p>
+          <ul>
+            <li>Skala 1–5 i N (brak możliwości obserwacji — nie obniża wyniku)</li>
+            <li>42 twierdzenia w 9 obszarach ICF (d1–d9)</li>
+            <li>Prawa kolumna druku: monitoring podstawy programowej i kodów ICF</li>
+            <li>Suma, średnia i poziom obszaru liczą się same</li>
+            <li>Podsumowanie: wynik ogólny, kwalifikacja, wykres słupkowy i mapa radarowa</li>
+          </ul>
+          <div class="haslo">Mniej dokumentów. Więcej edukacji.</div>
+          <details class="skrypt" open>
+            <summary>Podstawa prawna kwestionariusza (wg skryptu szkolenia, wyd. 2 po audycie)</summary>
+            <p>Rozpoznawanie potrzeb dziecka przez nauczycieli — rozporządzenie o pomocy psychologiczno-pedagogicznej (t.j. Dz.U. 2023 poz. 1798). Arkusz obserwacji jako dokumentacja badań i czynności uzupełniających — rozporządzenie o dokumentacji (t.j. Dz.U. 2024 poz. 50). Podstawa programowa wychowania przedszkolnego — Dz.U. 2026 poz. 378 (dziewięć obszarów osiągnięć dziecka; każde twierdzenie odsyła do punktu podstawy). ICF (WHO 2001) — rozporządzenie o orzekaniu (Dz.U. 2026 poz. 428) nakazuje opisywać funkcjonowanie w kategoriach aktywności i uczestniczenia.</p>
+          </details>
+          <details class="skrypt">
+            <summary>Pełny tekst narracji</summary>
+            <p id="skrypt-kpof"></p>
+          </details>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <section class="siatka" aria-label="Druki modułu Metryczka">
     <div class="karta"><div class="ik">📥</div><div><b>Zgłoszenie - placówka</b><small>Wewnętrzne zgłoszenie dziecka do objęcia wsparciem.</small><br><span class="odz">wejście ścieżki</span></div></div>
     <div class="karta"><div class="ik">👥</div><div><b>Zgłoszenie - rodzica</b><small>Zgłoszenie / wniosek od rodzica lub opiekuna.</small></div></div>
@@ -219,6 +279,26 @@
   // Link z #wiecej otwiera panel od razu (bez dźwięku — przeglądarka wymaga kliknięcia).
   if (location.hash === '#wiecej') { otworz(false); }
   ikonka.addEventListener('click', function () { otwarte ? film.play() : otworz(true); });
+
+  // KPOF — ten sam mechanizm dla drugiego panelu.
+  (function () {
+    var b = document.getElementById('wiecej-kpof'), ik = document.getElementById('ikonka-kpof');
+    var pn = document.getElementById('panel-kpof'), f = document.getElementById('film-kpof');
+    var o = false;
+    function otw(play) {
+      o = true; pn.setAttribute('aria-hidden', 'false'); b.setAttribute('aria-expanded', 'true'); b.textContent = 'Mniej';
+      if (play) { f.muted = false; var p = f.play(); if (p && p.catch) { p.catch(function () {}); } }
+      setTimeout(function () { pn.scrollIntoView({behavior: 'smooth', block: 'start'}); }, 120);
+    }
+    function zam() { o = false; pn.setAttribute('aria-hidden', 'true'); b.setAttribute('aria-expanded', 'false'); b.textContent = 'Więcej'; f.pause(); }
+    b.addEventListener('click', function () { o ? zam() : otw(true); });
+    ik.addEventListener('click', function () { o ? f.play() : otw(true); });
+    if (location.hash === '#kpof') { otw(false); }
+    fetch('media/kpof-scenariusz.txt').then(function (r) { return r.ok ? r.text() : ''; }).then(function (t) {
+      var el = document.getElementById('skrypt-kpof');
+      if (t) { el.textContent = t; } else { el.parentElement.hidden = true; }
+    }).catch(function () { document.getElementById('skrypt-kpof').parentElement.hidden = true; });
+  })();
 
   // Pełny tekst narracji do wglądu (ten sam, który czyta lektorka).
   fetch('media/scenariusz-narracji.txt').then(function (r) { return r.ok ? r.text() : ''; }).then(function (t) {

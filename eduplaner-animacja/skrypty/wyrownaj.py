@@ -7,9 +7,12 @@ na sylabę) było jak najrówniejsze. Granice scen i napisów wychodzą z nagran
 nie z ręcznych szacunków.
 
 Użycie (z katalogu eduplaner-animacja):
-    python3 skrypty/wyrownaj.py            # public/narracja.mp3 + scenariusz → public/film.json
+    python3 skrypty/wyrownaj.py            # public/narracja.mp3 + scenariusz → public/film.json (Metryczka)
+    python3 skrypty/wyrownaj.py kpof       # public/kpof-narracja.mp3 + kpof-scenariusz → public/kpof.json
 """
 from __future__ import annotations
+
+import sys
 
 import json
 import re
@@ -98,9 +101,22 @@ def dopasuj(zd: list[str], odc: list[tuple[float, float]]) -> list[tuple[float, 
 
 
 def main() -> None:
+    global MP3, SCENARIUSZ, FILM
+    film = sys.argv[1] if len(sys.argv) > 1 else "metryczka"
+    if film == "kpof":
+        MP3 = KATALOG / "public" / "kpof-narracja.mp3"
+        SCENARIUSZ = KATALOG / "public" / "kpof-scenariusz.txt"
+        FILM = KATALOG / "public" / "kpof.json"
     zd = zdania(SCENARIUSZ.read_text(encoding="utf-8"))
     odc, dl = odcinki_mowy()
     wyr = dopasuj(zd, odc)
+    if film == "kpof":
+        for (a, b, z) in wyr:
+            print(f"{a:6.2f} {b:6.2f} {(b - a) / sylaby(z):.3f} s/syl  {z[:90]}")
+        napisy = [{"odSek": round(a, 2), "doSek": round(b + 0.15, 2), "tekst": z} for a, b, z in wyr]
+        FILM.write_text(json.dumps({"audio": "kpof-narracja.mp3", "plik": "kpof_3_4.html", "napisy": napisy, "dlugosc": round(dl, 2)}, ensure_ascii=False, indent=1), encoding="utf-8")
+        print(f"\nZapisano {FILM} — {len(napisy)} napisów, {dl:.1f} s (sceny KPOF liczą się z czasów zdań w src/kpof/KpofPromo.tsx)")
+        return
     ostatni = max(i for _, _, i, _ in SCENY)
     if len(zd) != ostatni + 1:
         for i, z in enumerate(zd):
