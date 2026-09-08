@@ -60,7 +60,7 @@ td.wsk .kzn2{display:block;color:var(--szary);font-size:9px}
 .smartck div b{display:block;font-size:12px;color:var(--szary)}
 .smartck div.ok{border-color:var(--p1-linia);background:var(--p1-tlo);color:var(--p1)}.smartck div.ok b{color:var(--p1)}
 .kmodal.on{display:block}
-@media print{.kreatorbtn,.moje button,.chipbtn,.fprzyciski .fbtn,.kclose{display:none!important}.fprzyciski{justify-content:flex-start}}
+@media print{.kreatorbtn,.moje button,.chipbtn,.fprzyciski .fbtn,.kclose{display:none!important}.fprzyciski{justify-content:flex-start}.druk-konspektu .kmodal.open~.kmodal.open{break-before:page;page-break-before:always}.druk-konspektu .kcard{break-inside:auto}.ktab tr,.kmod,.kcel{break-inside:avoid}}
 """
 
 def wsk_row(w, wiek, t, k):
