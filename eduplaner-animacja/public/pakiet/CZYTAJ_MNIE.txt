@@ -2,10 +2,11 @@ EduPlaner 2026 · PRZEDSZKOLE — pakiet filmów i druków (stan: 8.09.2026)
 Autorka i narracja: Mirosława Ewa Jurczyszyn · PCTP Koszalin
 
 00_Film_laczony/
-  EduPlaner_Przedszkole_KPOF_Obserwacja_WOPF.mp4 — trzy nagrania przedszkolne w jednym pliku
-  (KPOF 2:52 → Obserwacja pogłębiona 3:02 → WOPF 3:25; razem 9:19, 1920×1080, głos + napisy w obrazie)
+  EduPlaner_Przedszkole_WSZYSTKIE_5_filmow.mp4 — wszystkie nagrania w jednym pliku
+  (Metryczka 2:19 → KPOF 2:52 → Obserwacja pogłębiona 3:02 → WOPF 3:25 → IPET 4:55; razem 16:33, 1920×1080, głos + napisy w obrazie)
+  EduPlaner_Przedszkole_KPOF_Obserwacja_WOPF.mp4 — trzy nagrania przedszkolne (9:19)
 
-01_Metryczka/ · 02_KPOF/ · 03_Obserwacja_poglebiona/ · 04_WOPF/
+01_Metryczka/ · 02_KPOF/ · 03_Obserwacja_poglebiona/ · 04_WOPF/ · 05_IPET/
   *_film.mp4       — gotowy film (1920×1080, 30 kl./s, dźwięk AAC)
   *_narracja.mp3   — sama ścieżka głosu (głos sklonowany z nagrań autorki, ElevenLabs)
   *_scenariusz.txt — tekst narracji, zdanie po zdaniu
@@ -18,14 +19,21 @@ Autorka i narracja: Mirosława Ewa Jurczyszyn · PCTP Koszalin
   WOPF_Straznik_prawa.md — tabela weryfikacji przepisów wg skryptu szkolenia (wyd. 2 po audycie z 5.09.2026)
   WOPF_dane_wypelnienia.json — 151 kroków wpisanych danych (do powtórnego wypełnienia)
 
+05_IPET/
+  IPET_2026_Zofia_Lewandowska_wypelniony.html / .pdf — IPET na oryginalnym druku (42 strony) z danymi z WOPF, KPOF
+      i obserwacji pogłębionej; str. 41–42 = wymagana zawartość programu (§ 6) i Strażnik prawa
+  IPET_2026_druk_pusty.html / .pdf — pusty druk (do wypełnienia)
+  EduPlaner_IPET_film.mp4 · _narracja.mp3 · _scenariusz.txt · _napisy.srt · _plakat.jpg — film szkoleniowy o IPET
+  IPET_Straznik_prawa.md — wykaz § 6 ust. 1 pkt 1–8 i publikatorów; IPET_dane_wypelnienia.py — dane wpisane do druku
+
 05_Strona_WWW/
-  index.html + media/ — strona z czterema sekcjami (Metryczka, KPOF, Obserwacja pogłębiona, WOPF),
+  index.html + media/ — strona z pięcioma sekcjami (Metryczka, KPOF, Obserwacja pogłębiona, WOPF, IPET),
   przyciski „Więcej/Mniej”, filmy, plakaty, scenariusze. Otwórz index.html w przeglądarce.
 
 06_Druki_oryginalne/
   KPOF 3–4 / 5 / 6 lat (html + pdf), Karta obserwacji rozwoju mowy, Analiza zachowania ABC·FBA, Teoria umysłu,
   Profil sensoryczny, Profil biopsychospołeczny, WOPF (pdf + pusty arkusz interaktywny html),
-  Skrypt dla nauczycieli PRZEDSZKOLE wyd. 2 po audycie (docx).
+  Skrypt dla nauczycieli PRZEDSZKOLE wyd. 2 po audycie (docx), IPET_wzor_autorki_2026.pdf (wzór, wg którego zbudowano druk).
   WOPF_arkusz_interaktywny_pusty.html                   — druk w wersji 9 (przed aktualizacją)
   WOPF_arkusz_interaktywny_pusty_AKTUALNE_PRZEPISY.html — druk w wersji 10: ten sam układ, ramki i linie;
       zmieniono WYŁĄCZNIE nieaktualne publikatory (66 miejsc):
