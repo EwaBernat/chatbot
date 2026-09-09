@@ -7,7 +7,7 @@ import {OryginalnyDruk, type Krok, type Ujecie} from '../kpof/OryginalnyDruk';
 import type {Napis} from '../typy';
 import krokiJson from '../../public/wopfu-kroki.json';
 
-/** Film „Szkoła podstawowa · WOPF-SP” — narracja: dosłowne fragmenty skryptu (część 3: przystanek czwarty; część 7: pkt 03–08 i „Jak przygotować WOPF-SP”) + Strażnik prawa. */
+/** Film „Szkoła podstawowa · WOPF-SP” — narracja: dosłowne fragmenty skryptu (przystanek czwarty + „Jak przygotować ocenę”) i Strażnik prawa. */
 export type FilmWopfu = {audio: string | null; napisy: Napis[]; dlugosc: number};
 export type Props = {film: FilmWopfu};
 type KrokJson = {sel: string; t?: string; k?: number};
@@ -162,29 +162,28 @@ const PRAWO: [string, string, string][] = [
   ['Rozp. o kształceniu specjalnym — publikator', 'pierwotny Dz.U. 2017 poz. 1578 (5 miejsc) → wyłącznie t.j. Dz.U. 2020 poz. 1309', 'POPRAWIONO'],
   ['Rozp. o pomocy psychologiczno-pedagogicznej', 'Dz.U. 2017 poz. 1591 i t.j. 2020 poz. 1280 (3 miejsca) → t.j. Dz.U. 2023 poz. 1798', 'POPRAWIONO'],
   ['Rozp. ME z 2.03.2026 r. o orzeczeniach i opiniach', 'opis funkcjonowania wg ICF, opinia dla poradni w 10 dni — Dz.U. 2026 poz. 428', 'ZGODNE'],
-  ['Skrypt (23 sekcje) a druk autorki (I–XIX, 21 stron)', 'numeracja sekcji obserwacji pogłębionej według druku: X ABC · XI sensoryka · XII ToM · XII b mowa', 'UWAGA'],
 ];
 const Straznik: React.FC<{od: number[]}> = ({od}) => {
   const frame = useCurrentFrame();
   const tarcza = useWejscie(0, {damping: 10, stiffness: 120});
   return (
     <Tlo>
-      <div style={{position: 'absolute', left: 0, right: 0, top: 40, display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 26}}>
+      <div style={{position: 'absolute', left: 0, right: 0, top: 50, display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 26}}>
         <div style={{width: 96, height: 96, borderRadius: '50%', background: MARKA.pomarancz, display: 'grid', placeItems: 'center', fontSize: 52, transform: `scale(${tarcza * (1 + 0.03 * Math.sin(frame / 8))})`, boxShadow: '0 16px 40px rgba(232,69,10,0.5)'}}>⚖</div>
         <Pojaw od={2}>
           <div style={{fontSize: 56, fontWeight: 800, color: '#fff', lineHeight: 1}}>Strażnik prawa · WOPF-SP</div>
-          <div style={{fontSize: 20, color: 'rgba(255,255,255,0.75)', marginTop: 8, letterSpacing: 1.5}}>podstawa istnienia druku i publikatory — sprawdzone ze skryptem szkolenia dla szkoły podstawowej (części 3 i 7)</div>
+          <div style={{fontSize: 20, color: 'rgba(255,255,255,0.75)', marginTop: 8, letterSpacing: 1.5}}>podstawa istnienia druku i publikatory — stan prawny na rok szkolny 2026/2027</div>
         </Pojaw>
       </div>
-      <div style={{position: 'absolute', left: 90, right: 90, top: 180, background: 'rgba(255,255,255,0.07)', border: '1.5px solid rgba(255,255,255,0.25)', borderRadius: 20, overflow: 'hidden'}}>
+      <div style={{position: 'absolute', left: 90, right: 90, top: 205, background: 'rgba(255,255,255,0.07)', border: '1.5px solid rgba(255,255,255,0.25)', borderRadius: 20, overflow: 'hidden'}}>
         {PRAWO.map(([a, b, c], i) => {
           const w = Math.max(0, Math.min(1, (frame - od[i]) / 10));
-          const kolor = c === 'POPRAWIONO' ? MARKA.pomarancz : c === 'UWAGA' ? '#b8860b' : '#2F8F8A';
+          const kolor = c === 'POPRAWIONO' ? MARKA.pomarancz : c === 'PODSTAWA' ? '#4A3AA0' : '#2F8F8A';
           return (
-            <div key={a} style={{display: 'grid', gridTemplateColumns: '1fr 2.3fr 170px', padding: '15px 26px', borderTop: i ? '1px solid rgba(255,255,255,0.12)' : 'none', opacity: w, transform: `translateX(${(1 - w) * -20}px)`, color: '#fff', fontSize: 21.5, lineHeight: 1.32, alignItems: 'center', gap: 20}}>
+            <div key={a} style={{display: 'grid', gridTemplateColumns: '1fr 2.3fr 180px', padding: '20px 28px', borderTop: i ? '1px solid rgba(255,255,255,0.12)' : 'none', opacity: w, transform: `translateX(${(1 - w) * -20}px)`, color: '#fff', fontSize: 23, lineHeight: 1.35, alignItems: 'center', gap: 20}}>
               <div style={{fontWeight: 800}}>{a}</div>
               <div style={{color: 'rgba(255,255,255,0.9)'}}>{b}</div>
-              <div style={{textAlign: 'center'}}><span style={{display: 'inline-block', background: kolor, color: '#fff', fontWeight: 800, fontSize: 15, padding: '6px 14px', borderRadius: 999}}>{c}</span></div>
+              <div style={{textAlign: 'center'}}><span style={{display: 'inline-block', background: kolor, color: '#fff', fontWeight: 800, fontSize: 16, padding: '7px 15px', borderRadius: 999}}>{c}</span></div>
             </div>
           );
         })}
@@ -203,7 +202,7 @@ const Final: React.FC<{haslo: number; logo: number}> = ({haslo, logo}) => (
       </Pojaw>
       <Pojaw od={haslo}>
         <div style={{fontSize: 38, color: '#fff', fontWeight: 700, marginTop: 22}}>Mniej dokumentów. Więcej edukacji.</div>
-        <div style={{marginTop: 30, fontSize: 19, color: 'rgba(255,255,255,0.7)', letterSpacing: 2, textAlign: 'center'}}>SZKOŁA PODSTAWOWA · WOPF-SP · SKRYPT CZĘŚĆ 3 I 7 · STRAŻNIK PRAWA<br />PCTP KOSZALIN · kontakt@eduplaner2026.pl · 662 888 403</div>
+        <div style={{marginTop: 30, fontSize: 19, color: 'rgba(255,255,255,0.7)', letterSpacing: 2, textAlign: 'center'}}>SZKOŁA PODSTAWOWA · WOPF-SP · STRAŻNIK PRAWA<br />PCTP KOSZALIN · kontakt@eduplaner2026.pl · 662 888 403</div>
       </Pojaw>
     </div>
   </Tlo>
@@ -221,16 +220,33 @@ const PasekPostepu: React.FC = () => {
   return <div style={{position: 'absolute', left: 0, bottom: 0, height: 6, width: `${(100 * frame) / durationInFrames}%`, background: MARKA.pomarancz}} />;
 };
 
+/** Film pokazuje druk w powiększeniu — linie, ramki i siatki tabel muszą być wyraźne także po kompresji wideo. */
 const CSS_FILMU = [
   '.addrow,.delrow,.delcell,.printcell{display:none!important}',
-  '.druk-oryginalny .sheet{box-shadow:0 10px 40px rgba(45,27,105,0.18)}',
-  '.druk-oryginalny .blankline,.druk-oryginalny .blank{height:auto!important;min-height:15px;overflow-wrap:anywhere;white-space:normal;display:block;max-width:100%;box-sizing:border-box}',
-  '.druk-oryginalny .dline{display:block!important;width:100%!important;min-width:0!important;height:auto!important;min-height:15px;overflow-wrap:anywhere;white-space:normal}',
+  '.druk-oryginalny .sheet{box-shadow:0 14px 50px rgba(45,27,105,0.22)!important}',
+  '.druk-oryginalny table.tbl{border:2.2px solid #2D1B69!important;border-radius:9px}',
+  '.druk-oryginalny .tbl thead th{border-bottom:2.2px solid #2D1B69!important;font-size:10.5px!important;letter-spacing:.5px!important}',
+  '.druk-oryginalny .tbl td{border-top:1.4px solid #9d90c8!important}',
+  '.druk-oryginalny .tbl td + td,.druk-oryginalny .tbl th + th{border-left:1.4px solid #9d90c8!important}',
+  '.druk-oryginalny .opt{border:1.6px solid #b3a6dd!important}',
+  '.druk-oryginalny .opt.on{border-color:#E8450A!important;background:#fdece4!important}',
+  '.druk-oryginalny .chk{border:2.2px solid #6f5fae!important}',
+  '.druk-oryginalny .box{border:1.6px solid #b3a6dd!important}',
+  '.druk-oryginalny .legal{border:1.4px solid #c3b8e4!important}',
+  '.druk-oryginalny .sec{border-bottom:1.6px solid #d9d0f0;padding-bottom:3px}',
+  '.druk-oryginalny .blankline,.druk-oryginalny .blank{border-bottom:1.8px dotted #8f81c2!important;height:auto!important;min-height:15px;overflow-wrap:anywhere;white-space:normal;display:block;max-width:100%;box-sizing:border-box}',
+  '.druk-oryginalny .dline{border-bottom:1.6px dotted #8f81c2!important;display:block!important;width:100%!important;min-width:0!important;height:auto!important;min-height:15px;overflow-wrap:anywhere;white-space:normal}',
   '.druk-oryginalny .fg .v,.druk-oryginalny .field .val,.druk-oryginalny td.ex,.druk-oryginalny .box{overflow-wrap:anywhere;white-space:normal}',
-  '.druk-oryginalny [data-anim-tekst]{color:#2b2733!important}',
+  '.druk-oryginalny [data-anim-tekst]{color:#1b1730!important}',
 ].join('\n');
 
 const arkusz = (sel: string) => Number(/^@(\d+)/.exec(sel)?.[1] ?? 0);
+/** Ujęcie „element od góry kadru”: kamera centruje na (górna krawędź + przesunięcie). */
+const U = (sek: number, selektor: string, skala: number, gora = 22, czas = 0.75): Ujecie => ({sek, selektor, skala, przesun: Math.round(1080 / skala / 2 - gora), czas});
+/** Ujęcie z jawnym przesunięciem (do wyśrodkowania małych elementów). */
+const Uc = (sek: number, selektor: string, skala: number, przesun: number, czas = 0.75): Ujecie => ({sek, selektor, skala, przesun, czas});
+
+const TYTUL = '@1 .eyebrow + div';
 
 export const WopfuPromo: React.FC<Props> = ({film}) => {
   const {fps} = useVideoConfig();
@@ -243,90 +259,121 @@ export const WopfuPromo: React.FC<Props> = ({film}) => {
   const koniec = film.dlugosc;
   const L = (od: number) => lok(od);
 
-  // --- przegląd druku (zdania 18–27): pusty druk, kamera prowadzi po sekcjach
-  const przegladKamera: Ujecie[] = [
-    {sek: 0, selektor: '@1 .sec #0', skala: 1.45, przesun: -60},
-    {sek: z(19), selektor: '@7 table.tbl', skala: 1.75, przesun: 150},
-    {sek: z(20), selektor: '@1 .sec #0', skala: 1.8, przesun: 140},
-    {sek: z(20) + 6.5, selektor: '@1 .sec #1', skala: 1.9, przesun: 70},
-    {sek: z(21), selektor: '@1 #tblZespol', skala: 1.9, przesun: 60},
-    {sek: z(21) + 3, selektor: '@2 #gNarzedzia', skala: 1.8, przesun: 90},
-    {sek: z(21) + 6, selektor: '@3 #gMedyczne', skala: 1.8, przesun: 100},
-    {sek: z(22), selektor: '@4 table.tbl', skala: 1.8, przesun: 210},
-    {sek: z(22) + 5, selektor: '@5 table.tbl', skala: 1.75, przesun: 230},
-    {sek: z(23), selektor: '@10 table.tbl', skala: 1.8, przesun: 150},
-    {sek: z(23) + 3, selektor: '@12 table.tbl', skala: 1.8, przesun: 140},
-    {sek: z(23) + 6, selektor: '@13 table.tbl', skala: 1.75, przesun: 200},
-    {sek: z(23) + 8.7, selektor: '@11 table.tbl', skala: 1.75, przesun: 200},
-    {sek: z(24), selektor: '@6 .box #0', skala: 1.75, przesun: 170},
-    {sek: z(24) + 5, selektor: '@7 table.tbl', skala: 1.75, przesun: 240},
-    {sek: z(25), selektor: '@8 #gOsobyWsparcia', skala: 1.8, przesun: 170},
-    {sek: z(26), selektor: '@16 .sec #0', skala: 1.75, przesun: 250},
-    {sek: z(26) + 3.5, selektor: '@15 table.tbl', skala: 1.75, przesun: 220},
-    {sek: z(27), selektor: '@18 .box #0', skala: 1.7, przesun: 200},
-    {sek: z(27) + 4, selektor: '@19 .box #0', skala: 1.7, przesun: 190},
+  /* ---------- scena „przegląd druku” (zdania 18–27) ---------- */
+  const P: [number, string, number, number][] = [
+    // [sekunda, selektor, skala, „od góry”]
+    [z(18), TYTUL, 2.5, 150],
+    [z(19), '@2 #gNarzedzia', 2.4, 22],
+    [z(20), '@1 .sec #0', 2.35, 22],
+    [z(20) + 7.0, '@1 .sec #1', 2.45, 22],
+    [z(21), '@1 #tblZespol', 2.45, 22],
+    [z(21) + 3.0, '@2 #gKonteksty', 2.45, 22],
+    [z(21) + 6.0, '@3 #gMedyczne', 2.4, 22],
+    [z(22), '@4 table.tbl', 2.35, 22],
+    [z(22) + 5.5, '@5 table.tbl', 2.35, 22],
+    [z(23), '@10 table.tbl', 2.4, 22],
+    [z(23) + 2.9, '@12 table.tbl', 2.4, 22],
+    [z(23) + 5.7, '@13 table.tbl', 2.35, 22],
+    [z(23) + 8.6, '@11 table.tbl', 2.35, 22],
+    [z(24), '@6 .box #0', 2.4, 40],
+    [z(24) + 5.0, '@7 table.tbl', 2.35, 22],
+    [z(25), '@8 #gOsobyWsparcia', 2.4, 22],
+    [z(26), '@16 .sec #0', 2.3, 22],
+    [z(26) + 3.5, '@15 table.tbl', 2.35, 22],
+    [z(27), '@18 .box #0', 2.3, 22],
+    [z(27) + 4.0, '@19 .box #0', 2.3, 22],
+  ];
+  const przegladKamera: Ujecie[] = P.map(([s, sel, sk, g], i) => (i === 0 ? Uc(s, sel, sk, 30) : U(s, sel, sk, g)));
+  const przegladKroki: Krok[] = [
+    {sek: 0, typ: 'tekst', selektor: '@1 .fg .v #1', tekst: '14.03.2017', tempo: 999},
+    // ramka wokół omawianego elementu — trwa do następnego ujęcia
+    ...P.map(([s, sel], i): Krok => ({sek: s + 0.45, doSek: (P[i + 1]?.[0] ?? granica(28)) - 0.2, typ: 'wyroznij', selektor: sel})),
   ];
 
-  // --- pełne wypełnianie (zdania 34–50): jedna scena, harmonogram arkuszy w sekundach filmu
+  /* ---------- scena „pełne wypełnianie” (zdania 34–50) ---------- */
   const T = {
-    zespol: z(35) + 0.3, dane1: z(37) + 0.4, tryb1: z(37) + 7.2,
-    s2opt: z(38) + 0.4, s2tbl: z(38) + 5.2, s3: z(40) + 0.3,
-    s4: z(41) + 0.5, s5: z(42) + 0.3,
-    s10: z(43) + 0.1, s12: z(43) + 2.6, s13: z(43) + 5.1, s11: z(43) + 7.6, s14: z(43) + 10.1,
-    s6: z(44) + 0.1, s7: z(44) + 2.7,
-    s9opt: z(45) + 0.1, s9box: z(46) + 0.1, s8: z(47) + 0.4,
-    s16: z(48) + 0.1, s18: z(49) + 0.1, s19: z(49) + 3.3,
-    s17: z(50) + 0.1, s15: z(50) + 1.9, s21: z(50) + 3.4,
+    zespol: z(35) + 0.3,
+    dane1: z(37) + 0.3,
+    tryb1: z(37) + 7.0,
+    s2narz: z(38) + 0.3,
+    s2ctx: z(38) + 4.4,
+    s2kont: z(40) + 0.2,
+    s3: z(40) + 2.6,
+    s4: z(41) + 0.4,
+    s5: z(42) + 0.2,
+    s6: z(42) + 2.4,
+    s10: z(43) + 0.1,
+    s12: z(43) + 3.2,
+    s13: z(43) + 6.3,
+    s11: z(43) + 9.4,
+    s14: z(43) + 11.0,
+    s7: z(44) + 0.2,
+    s9opt: z(45) + 0.2,
+    s9box: z(46) + 0.2,
+    s8: z(47) + 0.2,
+    s16: z(48) + 0.1,
+    s15: z(48) + 1.6,
+    s18: z(49) + 0.2,
+    s19: z(49) + 3.2,
+    s17: z(50) + 0.2,
+    s21: z(50) + 2.5,
   };
-
   const start = (k: KrokJson): number => {
     const a = arkusz(k.sel);
     if (/\.student \.blank/.test(k.sel)) return 0;
     if (a === 1) return /\.dline/.test(k.sel) ? T.zespol : /\.opt|\.fg \.v #4|\.blankline #4/.test(k.sel) ? T.tryb1 : T.dane1;
-    if (a === 2) return /\.opt|\.blankline/.test(k.sel) ? T.s2opt : T.s2tbl;
+    if (a === 2) return /\.dline/.test(k.sel) ? T.s2kont : /\.opt #(?:[6-9]|1[0-3])$/.test(k.sel) ? T.s2narz : T.s2ctx;
     if (a === 9) return /\.opt/.test(k.sel) ? T.s9opt : T.s9box;
     const m: Record<number, number> = {3: T.s3, 4: T.s4, 5: T.s5, 6: T.s6, 7: T.s7, 8: T.s8, 10: T.s10, 11: T.s11, 12: T.s12, 13: T.s13, 14: T.s14, 15: T.s15, 16: T.s16, 17: T.s17, 18: T.s18, 19: T.s19, 21: T.s21};
     return m[a] ?? 0;
   };
-  const ODSTEP: Record<number, number> = {1: 0.42, 2: 0.16, 3: 0.22, 4: 0.5, 5: 0.19, 6: 0.55, 7: 0.3, 8: 0.11, 9: 0.5, 10: 0.11, 11: 0.1, 12: 0.18, 13: 0.09, 14: 0.12, 15: 0.08, 16: 0.35, 17: 0.16, 18: 0.55, 19: 0.4, 21: 0.22};
-  const TEMPO: Record<number, number> = {1: 45, 2: 110, 3: 120, 4: 30, 5: 150, 6: 230, 7: 230, 8: 260, 9: 220, 10: 220, 11: 260, 12: 200, 13: 260, 14: 260, 15: 300, 16: 260, 17: 320, 18: 320, 19: 320, 21: 60};
+  const ODSTEP: Record<string, number> = {'1:zespol': 0.55, '1:dane': 0.9, '1:tryb': 1.2, '2:narz': 0.5, '2:ctx': 0.42, '2:kont': 0.28, '3': 0.18, '4': 0.8, '5': 0.12, '6': 0.4, '7': 0.6, '8': 0.2, '9:opt': 0.8, '9:box': 1.3, '10': 0.14, '11': 0.07, '12': 0.19, '13': 0.14, '14': 0.1, '15': 0.06, '16': 0.28, '17': 0.2, '18': 0.55, '19': 0.65, '21': 0.25};
+  const TEMPO: Record<number, number> = {1: 42, 2: 320, 3: 400, 4: 22, 5: 600, 6: 900, 7: 300, 8: 350, 9: 300, 10: 500, 11: 700, 12: 300, 13: 500, 14: 700, 15: 900, 16: 900, 17: 800, 18: 700, 19: 700, 21: 60};
+  const grupa = (k: KrokJson): string => {
+    const a = arkusz(k.sel);
+    if (a === 1) return /\.dline/.test(k.sel) ? '1:zespol' : /\.opt|\.fg \.v #4|\.blankline #4/.test(k.sel) ? '1:tryb' : '1:dane';
+    if (a === 2) return /\.dline/.test(k.sel) ? '2:kont' : /\.opt #(?:[6-9]|1[0-3])$/.test(k.sel) ? '2:narz' : '2:ctx';
+    if (a === 9) return /\.opt/.test(k.sel) ? '9:opt' : '9:box';
+    return String(a);
+  };
   const licznik: Record<string, number> = {};
   const wypKroki: Krok[] = KROKI.map((k): Krok => {
     const a = arkusz(k.sel);
     const s0 = start(k);
-    const klucz = `${a}:${s0}`;
-    const i = licznik[klucz] ?? 0;
-    licznik[klucz] = i + 1;
-    const sek = s0 === 0 ? 0 : s0 + i * (ODSTEP[a] ?? 0.2);
+    const g = grupa(k);
+    const i = licznik[g] ?? 0;
+    licznik[g] = i + 1;
+    const sek = s0 === 0 ? 0 : s0 + i * (ODSTEP[g] ?? 0.2);
     if (k.k) return {sek, typ: 'klik', selektor: k.sel};
-    return {sek, typ: 'tekst', selektor: k.sel, tekst: k.t ?? '', tempo: s0 === 0 ? 999 : TEMPO[a] ?? 120};
+    return {sek, typ: 'tekst', selektor: k.sel, tekst: k.t ?? '', tempo: s0 === 0 ? 999 : TEMPO[a] ?? 300};
   });
-  const wypKamera: Ujecie[] = [
-    {sek: 0, selektor: '@1 #tblZespol', skala: 1.9, przesun: 60},
-    {sek: z(37), selektor: '@1 .sec #0', skala: 1.8, przesun: 150, czas: 0.7},
-    {sek: T.tryb1 - 0.3, selektor: '@1 .sec #1', skala: 1.9, przesun: 70, czas: 0.7},
-    {sek: z(38), selektor: '@2 #gKonteksty', skala: 1.8, przesun: 120, czas: 0.7},
-    {sek: T.s2tbl - 0.3, selektor: '@2 #tblKontekst', skala: 1.8, przesun: 100, czas: 0.7},
-    {sek: z(40), selektor: '@3 #gMedyczne', skala: 1.8, przesun: 180, czas: 0.7},
-    {sek: z(41), selektor: '@4 table.tbl', skala: 1.8, przesun: 210, czas: 0.7},
-    {sek: z(42), selektor: '@5 table.tbl', skala: 1.75, przesun: 240, czas: 0.7},
-    {sek: T.s10 - 0.2, selektor: '@10 table.tbl', skala: 1.8, przesun: 150, czas: 0.7},
-    {sek: T.s12 - 0.2, selektor: '@12 table.tbl', skala: 1.8, przesun: 150, czas: 0.7},
-    {sek: T.s13 - 0.2, selektor: '@13 table.tbl', skala: 1.75, przesun: 210, czas: 0.7},
-    {sek: T.s11 - 0.2, selektor: '@11 table.tbl', skala: 1.75, przesun: 200, czas: 0.7},
-    {sek: T.s14 - 0.2, selektor: '@14 #gLogo', skala: 1.8, przesun: 160, czas: 0.7},
-    {sek: z(44), selektor: '@6 .box #0', skala: 1.75, przesun: 190, czas: 0.7},
-    {sek: T.s7 - 0.2, selektor: '@7 table.tbl', skala: 1.75, przesun: 250, czas: 0.7},
-    {sek: z(45), selektor: '@9 #gCzynniki', skala: 1.8, przesun: 130, czas: 0.7},
-    {sek: z(46), selektor: '@9 .box #0', skala: 1.9, przesun: 110, czas: 0.7},
-    {sek: T.s8 - 0.2, selektor: '@8 #gOsobyWsparcia', skala: 1.75, przesun: 200, czas: 0.7},
-    {sek: z(48), selektor: '@16 .sec #0', skala: 1.75, przesun: 250, czas: 0.7},
-    {sek: z(49), selektor: '@18 .box #0', skala: 1.7, przesun: 200, czas: 0.7},
-    {sek: T.s19 - 0.2, selektor: '@19 .box #0', skala: 1.7, przesun: 190, czas: 0.7},
-    {sek: T.s17 - 0.2, selektor: '@17 .box #0', skala: 1.65, przesun: 190, czas: 0.7},
-    {sek: T.s15 - 0.2, selektor: '@15 table.tbl', skala: 1.7, przesun: 220, czas: 0.7},
-    {sek: T.s21 - 0.2, selektor: '@21 .sec #0', skala: 1.7, przesun: 250, czas: 0.7},
+  const W: [number, string, number, number][] = [
+    [0, '@1 #tblZespol', 2.45, 22],
+    [T.dane1 - 0.4, '@1 .sec #0', 2.35, 22],
+    [T.tryb1 - 0.4, '@1 .sec #1', 2.45, 22],
+    [T.s2narz - 0.3, '@2 #gNarzedzia', 2.4, 22],
+    [T.s2ctx - 0.3, '@2 #gKonteksty', 2.45, 22],
+    [T.s2kont - 0.3, '@2 #tblKontekst', 2.3, 22],
+    [T.s3 - 0.3, '@3 #gMedyczne', 2.4, 22],
+    [T.s4 - 0.3, '@4 table.tbl', 2.35, 22],
+    [T.s5 - 0.2, '@5 table.tbl', 2.35, 22],
+    [T.s6 - 0.2, '@6 .box #0', 2.4, 40],
+    [T.s10 - 0.1, '@10 table.tbl', 2.4, 22],
+    [T.s12 - 0.2, '@12 table.tbl', 2.4, 22],
+    [T.s13 - 0.2, '@13 table.tbl', 2.35, 22],
+    [T.s11 - 0.2, '@11 table.tbl', 2.35, 22],
+    [T.s7 - 0.2, '@7 table.tbl', 2.35, 22],
+    [T.s9opt - 0.2, '@9 #gCzynniki', 2.35, 22],
+    [T.s9box - 0.2, '@9 .box #0', 2.3, 40],
+    [T.s8 - 0.2, '@8 #gOsobyWsparcia', 2.4, 22],
+    [T.s16 - 0.1, '@16 .sec #0', 2.3, 22],
+    [T.s18 - 0.2, '@18 .box #0', 2.3, 22],
+    [T.s19 - 0.2, '@19 .box #0', 2.3, 22],
+    [T.s17 - 0.2, '@17 .sec #0', 2.25, 22],
+    [T.s21 - 0.2, '@21 .sec #1', 2.3, 22],
   ];
+  const wypKamera: Ujecie[] = W.map(([s, sel, sk, g], i) => (i === 8 || i === 15 ? Uc(s, sel, sk, g) : U(s, sel, sk, g)));
+  const wypRamki: Krok[] = W.map(([s, sel], i): Krok => ({sek: s + 0.5, doSek: (W[i + 1]?.[0] ?? granica(51)) - 0.2, typ: 'wyroznij', selektor: sel}));
 
   type Scena = {id: string; od: number; do: number; el: (od: number) => React.ReactNode};
   const sceny: Scena[] = [
@@ -335,11 +382,11 @@ export const WopfuPromo: React.FC<Props> = ({film}) => {
     {id: 'rozgalezienie', od: granica(5), do: granica(10), el: (od) => <Rozgalezienie sekcja={L(od)(z(6))} ipet={L(od)(z(7))} pwes={L(od)(z(8))} jeden={L(od)(z(9))} />},
     {id: 'podstawa', od: granica(10), do: granica(13), el: (od) => <Podstawa rozp={L(od)(z(11))} dwa={L(od)(z(12))} />},
     {id: 'dlaczego', od: granica(13), do: granica(18), el: (od) => <Dlaczego od={[14, 15, 16, 17].map((i) => L(od)(z(i)))} />},
-    {id: 'przeglad', od: granica(18), do: granica(28), el: (od) => <OryginalnyDruk plik="wopfu.html" kroki={[{sek: 0, typ: 'tekst', selektor: '@1 .fg .v #1', tekst: '14.03.2017', tempo: 999}]} kamera={przegladKamera} odSek={od} css={CSS_FILMU} />},
+    {id: 'przeglad', od: granica(18), do: granica(28), el: (od) => <OryginalnyDruk plik="wopfu.html" kroki={przegladKroki} kamera={przegladKamera} odSek={od} css={CSS_FILMU} />},
     {id: 'zrodla', od: granica(28), do: granica(34), el: (od) => <Zrodla od={[29, 30, 31, 32, 33].map((i) => L(od)(z(i)))} />},
-    {id: 'wypelnianie', od: granica(34), do: granica(52), el: (od) => <OryginalnyDruk plik="wopfu.html" kroki={wypKroki} kamera={wypKamera} odSek={od} css={CSS_FILMU} />},
-    {id: 'straznik', od: granica(52), do: granica(58), el: (od) => <Straznik od={[52, 53, 54, 55, 56, 57].map((i) => L(od)(z(i)))} />},
-    {id: 'final', od: granica(58), do: koniec, el: (od) => <Final logo={L(od)(z(59))} haslo={L(od)(z(60))} />},
+    {id: 'wypelnianie', od: granica(34), do: granica(51), el: (od) => <OryginalnyDruk plik="wopfu.html" kroki={[...wypKroki, ...wypRamki]} kamera={wypKamera} odSek={od} css={CSS_FILMU} />},
+    {id: 'straznik', od: granica(51), do: granica(57), el: (od) => <Straznik od={[52, 53, 54, 55, 56].map((i) => L(od)(z(i)))} />},
+    {id: 'final', od: granica(57), do: koniec, el: (od) => <Final logo={L(od)(z(58))} haslo={L(od)(z(59))} />},
   ];
 
   return (

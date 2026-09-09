@@ -53,7 +53,11 @@ const Intro: React.FC<{sub: number; cel: number}> = ({sub, cel}) => (
 
 const IcfPlansza: React.FC<{kryt: number; kod: number; icf: number; model: number; dwoje: number}> = ({kryt, kod, icf, model, dwoje}) => (
   <Tlo>
-    <Naglowek kicker="Narzędzie kryterialne · ten sam język, co dokumentacja poradni" tytul="ICF — Międzynarodowa Klasyfikacja Funkcjonowania, Niepełnosprawności i Zdrowia" />
+    <Pojaw od={0} style={{position: 'absolute', left: 120, right: 120, top: 62, textAlign: 'center'}}>
+      <div style={{fontSize: 19, letterSpacing: 4, color: 'rgba(255,255,255,0.7)', textTransform: 'uppercase'}}>Narzędzie kryterialne · ten sam język, co dokumentacja poradni</div>
+      <div style={{fontSize: 60, fontWeight: 800, color: '#fff', marginTop: 8, letterSpacing: -1, lineHeight: 1.05}}>ICF</div>
+      <div style={{fontSize: 34, fontWeight: 700, color: '#fff', marginTop: 4, lineHeight: 1.2}}>Międzynarodowa Klasyfikacja Funkcjonowania, Niepełnosprawności i Zdrowia</div>
+    </Pojaw>
     <div style={{position: 'absolute', left: 110, right: 110, top: 215}}>
       <div style={{display: 'flex', gap: 22}}>
         <Karta od={kryt} style={{flex: 1, fontSize: 25, lineHeight: 1.4}}>Kwestionariusz opisuje funkcjonowanie ucznia w <b style={{color: '#F6A57E'}}>dziewięciu obszarach</b> ICF — w codziennych sytuacjach szkolnych i domowych.</Karta>
