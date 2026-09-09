@@ -5,6 +5,20 @@ Weryfikacja wobec druku autorki `KSzOF_4_6.html` (KSzOF-IV-VI, 28 stron) · EduP
 
 Kwestionariusz Szkolnej Oceny Funkcjonalnej (KSzOF) — Z. Gajdzica, E. Widawska, S. Byra, E. Domagała-Zyśk, B. Jachimczak, R. Piotrowicz, E. Neroj, **Katowice–Kraków 2024**, opracowany w ramach modelu oceny funkcjonalnej dla edukacji włączającej. Przypis źródłowy znajduje się w samym druku autorki, na stronie 8 („Wynik i kwalifikacja”).
 
+### Broszura ORE — gdzie ją pobrać
+
+**Ocena funkcjonalna w szkole dla każdego. Założenia, pomiar, zastosowanie**
+Z. Gajdzica, E. Widawska, S. Byra, E. Domagała-Zyśk, B. Jachimczak, R. Piotrowicz, E. Neroj
+AT Wydawnictwo, Katowice–Kraków 2024 · e-book ORE, grudzień 2024 · 189 s., format B5 · ISBN 978-83-66445-35-2
+
+- strona publikacji w ORE: https://ore.edu.pl/2024/12/ocena-funkcjonalna-w-szkole-dla-kazdego-zalozenia-pomiar-zastosowanie/
+- plik PDF (e-book): https://ore.edu.pl/wp-content/uploads/2024/12/ocena-funkcjonalna-w-szkole-dla-kazdego-e-book-2024.pdf
+
+Tom towarzyszący, opisujący budowę i procedurę stosowania samego kwestionariusza:
+**Ocena funkcjonalna w edukacji włączającej. Założenia teoretyczne i procedura stosowania Kwestionariusza Szkolnej Oceny Funkcjonalnej** — https://mwm.us.edu.pl/wp-content/uploads/2024/10/E-BOOK-Ocena-funkcjonalna.pdf
+
+Publikacja opisuje model wsparcia ucznia powiązany z oceną funkcjonalną prowadzoną w szkole, w czterech etapach: konstrukcja narzędzia i założenia teoretyczne, etap 2 — obserwacja funkcjonalna, etap 3 — spotkanie zespołu konsultacyjnego, etap 4 — monitorowanie postępów wsparcia. KSzOF jest w niej narzędziem przesiewowej oceny funkcjonalnej w zakresie aktywności i uczestniczenia ucznia.
+
 Skala stenowa to standardowe narzędzie psychometryczne: dziesięć jednostek, średnia **5,5**, odchylenie standardowe **2**. Klasyczny wzór: `sten = 5,5 + 2 × (X − M) / SD`, gdzie M i SD pochodzą z próby normalizacyjnej.
 
 ## 2. Wzór użyty w filmie — odczytany wprost z druku autorki
