@@ -4,9 +4,12 @@ Pakiet do nauki angielskiego: 10 zdań potrzebnych, żeby się przedstawić.
 
 ## Co jest w środku
 
-- **`angielski-dla-maksia.html`** — gotowe fiszki. Jeden plik, otwiera się
+- **`angielski-dla-maksia.html`** — fiszki na ekran. Jeden plik, otwiera się
   w przeglądarce (też na telefonie), działa bez internetu — nagrania są
   wbudowane w plik jako `data:` URI.
+- **`Fiszki-Angielski-dla-Maksia.pdf`** — te same fiszki do druku i wycięcia:
+  4 strony A4, po 8 kart na stronie, dwustronnie.
+- **`druk/`** — skrypty, którymi PDF powstał.
 Osobnych plików MP3 tu nie ma — repozytorium ignoruje `*.mp3`
 (`.gitignore`), a nagrania i tak siedzą w środku HTML-a.
 
@@ -56,3 +59,39 @@ tylko wolniej.
 Przykładowe odpowiedzi zawierają dane zastępcze: nazwisko *Nowak*,
 miasto *Koszalin*, zainteresowania *muzyka, sport, gry*. Maks powinien
 wstawić swoje — tekst jest w tablicy `CARDS` w pliku HTML.
+
+
+## Fiszki papierowe (PDF)
+
+16 kart o wymiarach 95 × 68 mm, po 8 na stronie A4.
+
+- karty **01–03** — powitania (zielona plakietka)
+- karty **04–10** — pytania o ciebie (granatowa)
+- karty **11–15** — gotowe odpowiedzi (pomarańczowa)
+- karta **16** — ściąga: jak czytać zapis i które powitanie o której porze
+
+Przód karty jest po polsku, tył po angielsku razem z zapisem fonetycznym
+i IPA. Strony w PDF idą naprzemiennie przód–tył–przód–tył.
+
+### Jak drukować
+
+1. Drukuj **dwustronnie**, obrót **wzdłuż dłuższej krawędzi** (domyślne
+   ustawienie w większości drukarek). Tyły są dlatego odbite w poziomie,
+   żeby po wydruku trafiły dokładnie na swoje przody.
+2. Skalowanie ustaw na **100% / rozmiar rzeczywisty**, nie „dopasuj do strony”
+   — inaczej karty wyjdą mniejsze niż linie cięcia.
+3. Tnij po przerywanych liniach. Grubszy papier (160–200 g) trzyma się lepiej,
+   ale zwykły też zadziała.
+
+### Jak przebudować PDF
+
+```bash
+cd druk
+python3 fetch_fonts.py     # pobiera fonty i zapisuje fonts.css
+python3 build.py           # składa arkusze -> fiszki-druk.html
+npm install playwright
+node render.mjs            # renderuje ../Fiszki-Angielski-dla-Maksia.pdf
+```
+
+Treść kart siedzi w liście `CARDS` na górze `build.py`. Gwiazdki w polu `say`
+zaznaczają sylabę akcentowaną: `gud *MOR*-ning`.
