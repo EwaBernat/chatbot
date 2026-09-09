@@ -4,7 +4,7 @@ import {readFileSync, writeFileSync, mkdirSync} from 'node:fs';
 import {resolve} from 'node:path';
 import {pathToFileURL} from 'node:url';
 const [html, kroki, outHtml, outPdf, pngdir, zamiany] = process.argv.slice(2);
-const K = JSON.parse(readFileSync(kroki, 'utf8')).kroki;
+const KJ = JSON.parse(readFileSync(kroki, "utf8")); const K = Array.isArray(KJ) ? KJ : KJ.kroki;
 const Z = zamiany ? JSON.parse(readFileSync(zamiany, 'utf8')) : [];
 const browser = await chromium.launch({executablePath: '/opt/pw-browsers/chromium_headless_shell-1194/chrome-linux/headless_shell', args: ['--no-sandbox']});
 const page = await browser.newPage({viewport: {width: 900, height: 1300}});
