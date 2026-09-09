@@ -1,15 +1,34 @@
 # Rajmund i Arystoteles — pakiet dla Maksymiliana
 
+## Część pierwsza — życie i hasła Arystotelesa
+
 | Plik | Co to jest |
 |---|---|
-| `Rajmund-i-Arystoteles-do-druku.pdf` | **Wersja do druku.** A4, 52 strony, duża czcionka, 6 ilustracji, każdy rozdział na nowej stronie. |
+| `Rajmund-i-Arystoteles-do-druku.pdf` | **Wersja do druku.** A4, 52 strony, 6 ilustracji, każdy rozdział na nowej stronie. |
 | `rajmund-i-arystoteles.md` | Tekst źródłowy (37 rozdziałów, słowniczek 41 pojęć, 45 pytań). |
-| `rajmund-i-arystoteles.html` | Wersja HTML, z której powstaje PDF. |
-| `obrazy/` | Sześć ilustracji (JPG, 1280×720). |
 | `audio/scenariusz/` | 37 plików tekstowych — scenariusz do nagrania, po jednym na rozdział. |
+
+## Część druga — w czym może mi pomóc filozofia
+
+| Plik | Co to jest |
+|---|---|
+| `Rajmund-i-Arystoteles-czesc-2-do-druku.pdf` | **Wersja do druku.** A4, 41 stron, 5 ilustracji. |
+| `rajmund-i-arystoteles-czesc-2.md` | Tekst źródłowy (31 rozdziałów, słowniczek 23 pojęć, 45 pytań). |
+| `audio/scenariusz-czesc-2/` | 31 plików tekstowych — scenariusz do nagrania. |
+
+Część druga odpowiada na pytanie Rajmunda: w czym filozofia może pomóc, gdy
+zawodzi pamięć, gdy nie rozumie się pytań, gdy hałas boli, gdy lekki dotyk nie
+dociera, gdy trudno odczytać cudze emocje i gdy ludzie mówią jedno, a robią drugie.
+
+## Wspólne
+
+| Plik | Co to jest |
+|---|---|
+| `obrazy/` | Jedenaście ilustracji (JPG, 1280×720). |
 | `audio/README.md` | Jak nagrać audiobook **Twoim głosem** (czego brakuje i dwa polecenia). |
-| `skrypty/zbuduj_pdf.py` | Buduje PDF na nowo po każdej zmianie tekstu. |
-| `skrypty/nagraj_audiobook.sh` | Nagrywa 37 plików MP3 + napisy SRT Twoim głosem. |
+| `skrypty/zbuduj_pdf.py` | Buduje PDF-y na nowo po każdej zmianie tekstu. |
+| `skrypty/przygotuj_scenariusz.py` | Dzieli opowiadanie na pliki do nagrania. |
+| `skrypty/nagraj_audiobook.sh` | Nagrywa pliki MP3 + napisy SRT Twoim głosem. |
 
 ## Druk
 
@@ -21,7 +40,8 @@ strony przy krótkich rozdziałach zostaje na notatki.
 ## Przebudowa PDF po zmianie tekstu
 
 ```bash
-python3 opowiadania/skrypty/zbuduj_pdf.py
+python3 opowiadania/skrypty/zbuduj_pdf.py            # obie części
+python3 opowiadania/skrypty/zbuduj_pdf.py 2          # tylko część druga
 ```
 
 ## Audiobook

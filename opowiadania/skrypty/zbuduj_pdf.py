@@ -2,7 +2,8 @@
 """Buduje wersję do druku (HTML -> PDF) z pliku rajmund-i-arystoteles.md.
 
 Uruchomienie:
-    python3 opowiadania/skrypty/zbuduj_pdf.py
+    python3 opowiadania/skrypty/zbuduj_pdf.py            # obie czesci
+    python3 opowiadania/skrypty/zbuduj_pdf.py 2          # tylko czesc druga
 Wymaga: chromium (headless) do wydruku PDF.
 """
 import html
@@ -12,18 +13,44 @@ import sys
 from pathlib import Path
 
 KATALOG = Path(__file__).resolve().parent.parent
-ZRODLO = KATALOG / "rajmund-i-arystoteles.md"
-HTML_OUT = KATALOG / "rajmund-i-arystoteles.html"
-PDF_OUT = KATALOG / "Rajmund-i-Arystoteles-do-druku.pdf"
 CHROMIUM = "/opt/pw-browsers/chromium-1194/chrome-linux/chrome"
 
-# ilustracja wstawiana na początku rozdziału o danym numerze
-ILUSTRACJE = {
-    2: ("obrazy/02-strych.jpg", "Strych, deszcz za oknem i stara księga bez okładki."),
-    8: ("obrazy/03-likejon.jpg", "Likejon. Perypatetycy myśleli, spacerując pod kolumnami."),
-    11: ("obrazy/04-zoladz.jpg", "Żołądź to dąb w możności. Dąb to żołądź w akcie."),
-    22: ("obrazy/05-waga.jpg", "Złoty środek. Dobra cecha leży między za dużo i za mało."),
-    36: ("obrazy/06-szpital.jpg", "Rajmund przyniósł babci rysunek dębu."),
+KSIAZKI = {
+    "1": {
+        "zrodlo": "rajmund-i-arystoteles.md",
+        "html": "rajmund-i-arystoteles.html",
+        "pdf": "Rajmund-i-Arystoteles-do-druku.pdf",
+        "tytul": "Rajmund<br>i Arystoteles",
+        "podtytul": ("Opowiadanie o życiu i hasłach Arystotelesa.<br>"
+                     "O tym, jak używać ich w zwykłym dniu.<br>"
+                     "I o pytaniach, na które nikt nie zna odpowiedzi."),
+        "okladka": "obrazy/01-okladka.jpg",
+        "ile_rozdzialow": "trzydzieści siedem",
+        "ilustracje": {
+            2: ("obrazy/02-strych.jpg", "Strych, deszcz za oknem i stara księga bez okładki."),
+            8: ("obrazy/03-likejon.jpg", "Likejon. Perypatetycy myśleli, spacerując pod kolumnami."),
+            11: ("obrazy/04-zoladz.jpg", "Żołądź to dąb w możności. Dąb to żołądź w akcie."),
+            22: ("obrazy/05-waga.jpg", "Złoty środek. Dobra cecha leży między za dużo i za mało."),
+            36: ("obrazy/06-szpital.jpg", "Rajmund przyniósł babci rysunek dębu."),
+        },
+    },
+    "2": {
+        "zrodlo": "rajmund-i-arystoteles-czesc-2.md",
+        "html": "rajmund-i-arystoteles-czesc-2.html",
+        "pdf": "Rajmund-i-Arystoteles-czesc-2-do-druku.pdf",
+        "tytul": "Rajmund<br>i Arystoteles<br><span class=\"czesc\">część druga</span>",
+        "podtytul": ("W czym może mi pomóc filozofia?<br>"
+                     "O pamięci, o pytaniach, o hałasie i o dotyku.<br>"
+                     "O emocjach i o ludziach, którzy mówią jedno, a robią drugie."),
+        "okladka": "obrazy/07-okladka-2.jpg",
+        "ile_rozdzialow": "trzydzieści jeden",
+        "ilustracje": {
+            1: ("obrazy/08-dab-okno.jpg", "Dąb rośnie powoli. Ale rośnie."),
+            4: ("obrazy/09-wosk.jpg", "Pamięć to ślad, jak odcisk pieczęci w wosku."),
+            19: ("obrazy/10-uscisk.jpg", "Przytul mnie mocniej, wtedy to czuję."),
+            30: ("obrazy/11-lawka.jpg", "Ławka o zmierzchu. Zeszyt został otwarty."),
+        },
+    },
 }
 
 STYL = """
@@ -45,13 +72,14 @@ em { font-style: italic; }
 .okladka-tekst { padding: 18mm 22mm 0 22mm; }
 .okladka h1 { font-size: 34pt; line-height: 1.15; margin: 0 0 6mm 0; color: #3E4E2C; }
 .okladka .podtytul { font-size: 14pt; color: #7A4A22; margin: 0 0 12mm 0; line-height: 1.5; }
+.okladka h1 .czesc { font-size: 20pt; color: #7A4A22; font-weight: 400; }
 .okladka .dla { font-size: 13pt; color: #444; }
 
 /* --- strony --- */
 .strona { page-break-before: always; }
 h2.rozdzial { font-size: 17pt; color: #3E4E2C; margin: 0 0 6mm 0; line-height: 1.3;
   padding-bottom: 3mm; border-bottom: 2px solid #D8CDB6; }
-h2.rozdzial .nr { display: inline-block; min-width: 11mm; color: #B5651D; font-weight: 700; }
+h2.rozdzial .nr { display: inline-block; min-width: 11mm; padding-right: 2mm; color: #B5651D; font-weight: 700; }
 h1.dzial { font-size: 24pt; color: #3E4E2C; margin: 0 0 8mm 0; }
 h3 { font-size: 14pt; color: #7A4A22; margin: 8mm 0 4mm 0; }
 
@@ -84,7 +112,8 @@ ul.zwykla li { margin-bottom: 2.5mm; }
 
 def cudzyslowy(t: str) -> str:
     """Zamienia proste cudzyslowy na polskie: "tak" -> „tak"."""
-    return re.sub(r'"([^"]*)"', lambda m: "\u201e" + m.group(1) + "\u201d", t)
+    t = re.sub(r'"([^"]*)"', lambda m: "\u201e" + m.group(1) + "\u201d", t)
+    return t.replace(" - ", " \u2013 ")           # myslnik dialogowy
 
 
 def inline(t: str) -> str:
@@ -111,7 +140,7 @@ def akapity(blok: str) -> str:
     return "\n".join(out)
 
 
-def zbuduj_html(md: str) -> str:
+def zbuduj_html(md: str, cfg: dict) -> str:
     tresc = md.split("---", 1)[1] if md.startswith("# ") else md
     opowiadanie, reszta = tresc.split("\n# Słowniczek nowych pojęć", 1)
     slownik_md, pytania_md = reszta.split("\n# 45 pytań", 1)
@@ -120,6 +149,8 @@ def zbuduj_html(md: str) -> str:
     rozdzialy = []
     for kawalek in czesci[1:]:
         naglowek, tekst = kawalek.split("\n", 1)
+        if not re.match(r"^\d+\.\s", naglowek):
+            continue                      # np. podtytul ksiazki, nie rozdzial
         nr, tytul = naglowek.split(". ", 1)
         rozdzialy.append((int(nr), tytul.strip(), tekst.split("\n---")[0]))
 
@@ -128,12 +159,10 @@ def zbuduj_html(md: str) -> str:
     # okładka
     czesci_html.append(
         '<section class="okladka">'
-        '<img src="obrazy/01-okladka.jpg" alt="">'
+        f'<img src="{cfg["okladka"]}" alt="">'
         '<div class="okladka-tekst">'
-        "<h1>Rajmund<br>i Arystoteles</h1>"
-        '<p class="podtytul">Opowiadanie o życiu i hasłach Arystotelesa.<br>'
-        "O tym, jak używać ich w zwykłym dniu.<br>"
-        "I o pytaniach, na które nikt nie zna odpowiedzi.</p>"
+        f'<h1>{cfg["tytul"]}</h1>'
+        f'<p class="podtytul">{cfg["podtytul"]}</p>' 
         '<p class="dla">Dla Maksymiliana</p>'
         "</div></section>"
     )
@@ -150,7 +179,7 @@ def zbuduj_html(md: str) -> str:
         "Jedno zdanie mówi jedną rzecz.</p>"
         "<p>Każde trudne słowo jest wyjaśnione zaraz po tym, jak się pojawi. "
         "Wszystkie trudne słowa są jeszcze raz zebrane w słowniczku na końcu.</p>"
-        "<p>Rozdziałów jest trzydzieści siedem. Każdy zaczyna się na nowej stronie. "
+        f"<p>Rozdziałów jest {cfg['ile_rozdzialow']}. Każdy zaczyna się na nowej stronie. "
         "Można czytać po jednym rozdziale dziennie. Nie trzeba czytać wszystkiego naraz.</p>"
         "<p>Na końcu jest 45 pytań. Pytania są w czterech grupach. "
         "Grupa mówi, jakiej odpowiedzi można się spodziewać. "
@@ -164,8 +193,8 @@ def zbuduj_html(md: str) -> str:
     # rozdziały
     for nr, tytul, tekst in rozdzialy:
         obraz = ""
-        if nr in ILUSTRACJE:
-            plik, podpis = ILUSTRACJE[nr]
+        if nr in cfg["ilustracje"]:
+            plik, podpis = cfg["ilustracje"][nr]
             obraz = f'<figure><img src="{plik}" alt=""><figcaption>{html.escape(podpis)}</figcaption></figure>'
         czesci_html.append(
             '<section class="strona">'
@@ -235,19 +264,29 @@ def ponumeruj(pdf: Path) -> None:
 
 
 def main() -> int:
-    HTML_OUT.write_text(zbuduj_html(ZRODLO.read_text(encoding="utf-8")), encoding="utf-8")
-    print(f"HTML: {HTML_OUT}")
-    wynik = subprocess.run(
-        [CHROMIUM, "--headless", "--disable-gpu", "--no-sandbox",
-         "--no-pdf-header-footer", "--run-all-compositor-stages-before-draw",
-         f"--print-to-pdf={PDF_OUT}", HTML_OUT.as_uri()],
-        capture_output=True, text=True,
-    )
-    if not PDF_OUT.exists():
-        print(wynik.stderr[-2000:], file=sys.stderr)
-        return 1
-    ponumeruj(PDF_OUT)
-    print(f"PDF: {PDF_OUT} ({PDF_OUT.stat().st_size // 1024} KB)")
+    wybor = sys.argv[1] if len(sys.argv) > 1 else "wszystkie"
+    klucze = list(KSIAZKI) if wybor == "wszystkie" else [wybor]
+    for klucz in klucze:
+        cfg = KSIAZKI.get(klucz)
+        if cfg is None:
+            print(f"Nie znam czesci '{klucz}'. Dostepne: {', '.join(KSIAZKI)} albo 'wszystkie'.")
+            return 2
+        zrodlo = KATALOG / cfg["zrodlo"]
+        html_out = KATALOG / cfg["html"]
+        pdf_out = KATALOG / cfg["pdf"]
+        html_out.write_text(zbuduj_html(zrodlo.read_text(encoding="utf-8"), cfg), encoding="utf-8")
+        print(f"HTML: {html_out}")
+        wynik = subprocess.run(
+            [CHROMIUM, "--headless", "--disable-gpu", "--no-sandbox",
+             "--no-pdf-header-footer", "--run-all-compositor-stages-before-draw",
+             f"--print-to-pdf={pdf_out}", html_out.as_uri()],
+            capture_output=True, text=True,
+        )
+        if not pdf_out.exists():
+            print(wynik.stderr[-2000:], file=sys.stderr)
+            return 1
+        ponumeruj(pdf_out)
+        print(f"PDF: {pdf_out} ({pdf_out.stat().st_size // 1024} KB)")
     return 0
 
 
