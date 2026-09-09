@@ -23,7 +23,9 @@ import spObs from '../public/sp-obserwacja.json';
 import {WopfuPromo, type FilmWopfu} from './sp/WopfuPromo';
 import spWopfu from '../public/sp-wopfu.json';
 import {IpetPromo as IpetSpPromo, type FilmIpet as FilmIpetSp} from './sp/IpetPromo';
+import {LiczeniePromo, type FilmLiczenie} from './sp/LiczeniePromo';
 import spIpetSp from '../public/sp-ipet.json';
+import spLiczenie from '../public/sp-liczenie.json';
 
 const FPS = 30;
 
@@ -234,6 +236,26 @@ export const RemotionRoot: React.FC = () => (
       width={1920}
       height={1080}
       defaultProps={{film: spIpetSp as unknown as FilmIpetSp}}
+      calculateMetadata={async ({props}) => {
+        let sekundy = props.film.dlugosc;
+        if (props.film.audio) {
+          try {
+            sekundy = Math.max(sekundy, await getAudioDurationInSeconds(staticFile(props.film.audio)));
+          } catch {
+            // bez nagrania długość bierze się z napisów
+          }
+        }
+        return {durationInFrames: Math.max(1, Math.round(sekundy * FPS))};
+      }}
+    />
+    <Composition
+      id="SpLiczeniePromo"
+      component={LiczeniePromo}
+      durationInFrames={60 * FPS}
+      fps={FPS}
+      width={1920}
+      height={1080}
+      defaultProps={{film: spLiczenie as unknown as FilmLiczenie}}
       calculateMetadata={async ({props}) => {
         let sekundy = props.film.dlugosc;
         if (props.film.audio) {

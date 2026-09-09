@@ -775,6 +775,65 @@
     </div>
   </section>
 
+  <section class="hero" id="sp-liczenie" style="margin-top:72px">
+    <div>
+      <div class="eyebrow">Szkoła podstawowa · przystanek szósty · liczenie</div>
+      <h1>Jak policzyć KSzOF ręcznie — średnia, sten i poziom wsparcia</h1>
+      <p class="lead">Krok po kroku, na kartce, bez arkusza kalkulacyjnego. W filmie: wzór na średnią obszaru, skąd biorą się steny i z czego wynikają, oraz co oznacza kwalifikacja do poziomu wsparcia I, II i III. Wszystkie rachunki idą na oryginalnym druku KSzOF-IV-VI: sumy, badge stenowe, wykres i tabela poziomów liczą się na ekranie same, dokładnie tak, jak w druku. Na końcu „Strażnik prawa”.</p>
+      <div class="akcje">
+        <button class="btn btn-glowny" id="wiecej-sp-liczenie" aria-expanded="false" aria-controls="panel-sp-liczenie">Więcej</button>
+        <a class="btn btn-drugi" href="media/sp-liczenie-straznik-prawa.md" target="_blank" rel="noopener">Strażnik prawa — wzór, progi i granica przepisu (md)</a>
+      </div>
+    </div>
+    <div class="ikonka-wrap">
+      <button class="ikonka" id="ikonka-sp-liczenie" aria-label="Odtwórz animację: jak policzyć KSzOF">
+        <span class="obwod"></span>
+        <span class="kartka">
+          <span class="linia"></span><span class="linia"></span><span class="linia"></span><span class="linia"></span>
+          <span class="ptaszek">✓</span>
+        </span>
+        <span class="play"><span></span></span>
+      </button>
+    </div>
+  </section>
+
+  <section class="panel" id="panel-sp-liczenie" aria-hidden="true">
+    <div class="wnetrze">
+      <div class="panel-karta">
+        <div class="odtwarzacz">
+          <video id="film-sp-liczenie" preload="metadata" playsinline controls poster="media/plakat-sp-liczenie.jpg">
+            <source src="media/eduplaner-sp-liczenie.mp4" type="video/mp4">
+            Twoja przeglądarka nie odtwarza wideo MP4.
+          </video>
+          <span class="glos">🎙 narracja: Mirosława Ewa Jurczyszyn</span>
+        </div>
+        <div class="tekst">
+          <div class="pod">Moduł liczenia KSzOF · 17:08 · rachunki policzone na druku autorki KSzOF-IV-VI (28 stron) + Strażnik prawa</div>
+          <h2>Pięć kroków, jedna kartka</h2>
+          <p>Kwestionariusz ma 52 pozycje w 9 obszarach, każda oceniana od 1 do 5, więc wynik mieści się między 52 a 260 punktami. Film pokazuje całą drogę od zaznaczonych kółek do decyzji zespołu — na przykładzie wypełnionego arkusza Zofii Lewandowskiej.</p>
+          <ul>
+            <li><b>Krok 1 · suma obszaru</b> — obszar I (uczenie się) ma 14 twierdzeń, wszystkie ocenione na 3: 14 × 3 = <b>42 z 70</b>. W filmie kółka zaznaczają się jedno po drugim, a badge Σ w druku liczy się na żywo.</li>
+            <li><b>Krok 2 · średnia</b> — suma ÷ liczba <i>ocenionych</i> twierdzeń: 42 ÷ 14 = <b>3,00</b>. Pozycji pustych nie wliczamy ani do sumy, ani do dzielnika, więc brak obserwacji nie obniża wyniku.</li>
+            <li><b>Krok 3 · pozycja na skali</b> — najniższy możliwy wynik to nie zero, tylko liczba twierdzeń. Dlatego liczymy, jaką część drogi od minimum do maksimum uczeń pokonał: <b>pozycja = (średnia − 1) ÷ 4</b>.</li>
+            <li><b>Krok 4 · sten</b> — trzy przedziały, trzy wzory (stałe 0,31 · 0,68 · 0,37 · 0,32 pochodzą z narzędzia). Obszar I: pozycja 0,50 → sten 6.</li>
+            <li><b>Krok 5 · poziom wsparcia</b> — sten 8–10 to Poziom I, 5–7 Poziom II, 1–4 Poziom III. Poziom ustalamy dla każdego obszaru osobno.</li>
+          </ul>
+          <p><b>Najkrótsza droga:</b> progi można wyrazić wprost w średniej. Średnia poniżej <b>2,23</b> to Poziom III, od 2,23 do <b>3,73</b> Poziom II, 3,73 i wyżej Poziom I. Jedno spojrzenie na średnią i poziom wsparcia gotowy.</p>
+          <p><b>Skąd biorą się steny:</b> sten to standard ten, skala znormalizowana o dziesięciu jednostkach, średniej 5,5 i odchyleniu standardowym 2. Stała 0,68 to udział wyników mieszczących się w rozkładzie normalnym w granicach jednego odchylenia od średniej — klasyczna granica wyniku przeciętnego. W KSzOF wysoki sten to dobry wynik: oznacza mniej wsparcia, a nie więcej.</p>
+          <div class="haslo">Suma, średnia, pozycja na skali, sten i poziom wsparcia.</div>
+          <details class="skrypt" open>
+            <summary>Strażnik prawa — gdzie kończy się przepis, a zaczyna narzędzie</summary>
+            <p>Narzędzie: Kwestionariusz Szkolnej Oceny Funkcjonalnej — Z. Gajdzica, E. Widawska, S. Byra, E. Domagała-Zyśk, B. Jachimczak, R. Piotrowicz, E. Neroj (Katowice–Kraków 2024), model oceny funkcjonalnej dla edukacji włączającej. Rozpoznawanie indywidualnych potrzeb ucznia i formy pomocy — rozp. MEN o pomocy psychologiczno-pedagogicznej, t.j. Dz.U. 2023 poz. 1798. WOPFU i IPET dla ucznia z orzeczeniem — § 6 rozp. MEN o kształceniu specjalnym, t.j. Dz.U. 2020 poz. 1309. <b>Uwaga:</b> sam wzór przeliczania punktów na steny i progi poziomów wsparcia nie wynikają z przepisu — pochodzą z narzędzia. Przepis wymaga rozpoznania potrzeb i udzielenia pomocy, a sposób liczenia wpisujemy do procedury szkoły. Decyzję o poziomie zespół dokumentuje protokołem posiedzenia — bez uchwały rady pedagogicznej. Pełna tabela kontrolna: <a href="media/sp-liczenie-straznik-prawa.md" target="_blank" rel="noopener">Strażnik prawa (md)</a>.</p>
+          </details>
+          <details class="skrypt">
+            <summary>Tekst narracji (do nagrania)</summary>
+            <p id="skrypt-sp-liczenie"></p>
+          </details>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <section class="siatka" aria-label="Druki modułu Metryczka">
     <div class="karta"><div class="ik">📥</div><div><b>Zgłoszenie - placówka</b><small>Wewnętrzne zgłoszenie dziecka do objęcia wsparciem.</small><br><span class="odz">wejście ścieżki</span></div></div>
     <div class="karta"><div class="ik">👥</div><div><b>Zgłoszenie - rodzica</b><small>Zgłoszenie / wniosek od rodzica lub opiekuna.</small></div></div>
@@ -1023,6 +1082,26 @@
       var el = document.getElementById('skrypt-sp-ipet');
       if (t) { el.textContent = t; } else { el.parentElement.hidden = true; }
     }).catch(function () { document.getElementById('skrypt-sp-ipet').parentElement.hidden = true; });
+  })();
+
+  // Szkoła podstawowa · liczenie KSzOF — dwunasty panel.
+  (function () {
+    var b = document.getElementById('wiecej-sp-liczenie'), ik = document.getElementById('ikonka-sp-liczenie');
+    var pn = document.getElementById('panel-sp-liczenie'), f = document.getElementById('film-sp-liczenie');
+    var o = false;
+    function otw(play) {
+      o = true; pn.setAttribute('aria-hidden', 'false'); b.setAttribute('aria-expanded', 'true'); b.textContent = 'Mniej';
+      if (play) { f.muted = false; var p = f.play(); if (p && p.catch) { p.catch(function () {}); } }
+      setTimeout(function () { pn.scrollIntoView({behavior: 'smooth', block: 'start'}); }, 120);
+    }
+    function zam() { o = false; pn.setAttribute('aria-hidden', 'true'); b.setAttribute('aria-expanded', 'false'); b.textContent = 'Więcej'; f.pause(); }
+    b.addEventListener('click', function () { o ? zam() : otw(true); });
+    ik.addEventListener('click', function () { o ? f.play() : otw(true); });
+    if (location.hash === '#sp-liczenie') { otw(false); }
+    fetch('media/sp-liczenie-scenariusz.txt').then(function (r) { return r.ok ? r.text() : ''; }).then(function (t) {
+      var el = document.getElementById('skrypt-sp-liczenie');
+      if (t) { el.textContent = t; } else { el.parentElement.hidden = true; }
+    }).catch(function () { document.getElementById('skrypt-sp-liczenie').parentElement.hidden = true; });
   })();
 
   // Pełny tekst narracji do wglądu (ten sam, który czyta lektorka).
