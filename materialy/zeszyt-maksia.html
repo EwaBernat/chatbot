@@ -1,0 +1,1006 @@
+<title>Zeszyt Maksia</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@700;800&family=Nunito:wght@400;600;700;800&family=Caveat:wght@500;600&display=swap">
+<style>
+  :root {
+    --paper: #FBF8EE;
+    --paper-deep: #F3EFE0;
+    --grid: rgba(34, 71, 179, 0.11);
+    --margin: #E0616E;
+    --ink: #1E2A5A;
+    --ink-soft: #4B5680;
+    --pencil: #6E7590;
+    --blue: #2247B3;
+    --blue-soft: rgba(34, 71, 179, 0.10);
+    --red: #C42B3B;
+    --red-soft: rgba(196, 43, 59, 0.08);
+    --marker: rgba(255, 224, 102, 0.75);
+    --green: #2E7D4F;
+    --green-soft: rgba(46, 125, 79, 0.12);
+    --white: #FFFFFF;
+    --line: rgba(30, 42, 90, 0.16);
+    --shadow: 0 8px 24px rgba(30, 42, 90, 0.10);
+    --illo-a: #2247B3;
+    --illo-b: #F0A03C;
+    --illo-c: #D9DEEA;
+    --illo-d: #E0616E;
+    --illo-e: #6DB37A;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --paper: #171A22;
+      --paper-deep: #11141B;
+      --grid: rgba(143, 168, 255, 0.10);
+      --margin: #E0616E;
+      --ink: #E7EAF4;
+      --ink-soft: #B7BED4;
+      --pencil: #98A0B8;
+      --blue: #8FA8FF;
+      --blue-soft: rgba(143, 168, 255, 0.14);
+      --red: #FF7B88;
+      --red-soft: rgba(255, 123, 136, 0.10);
+      --marker: rgba(245, 200, 66, 0.30);
+      --green: #7ED09A;
+      --green-soft: rgba(126, 208, 154, 0.14);
+      --white: #1F242F;
+      --line: rgba(231, 234, 244, 0.16);
+      --shadow: 0 8px 24px rgba(0, 0, 0, 0.35);
+      --illo-a: #8FA8FF;
+      --illo-b: #F0B25A;
+      --illo-c: #3A4152;
+      --illo-d: #FF7B88;
+      --illo-e: #7ED09A;
+    }
+  }
+  :root[data-theme="dark"] {
+    --paper: #171A22;
+    --paper-deep: #11141B;
+    --grid: rgba(143, 168, 255, 0.10);
+    --margin: #E0616E;
+    --ink: #E7EAF4;
+    --ink-soft: #B7BED4;
+    --pencil: #98A0B8;
+    --blue: #8FA8FF;
+    --blue-soft: rgba(143, 168, 255, 0.14);
+    --red: #FF7B88;
+    --red-soft: rgba(255, 123, 136, 0.10);
+    --marker: rgba(245, 200, 66, 0.30);
+    --green: #7ED09A;
+    --green-soft: rgba(126, 208, 154, 0.14);
+    --white: #1F242F;
+    --line: rgba(231, 234, 244, 0.16);
+    --shadow: 0 8px 24px rgba(0, 0, 0, 0.35);
+    --illo-a: #8FA8FF;
+    --illo-b: #F0B25A;
+    --illo-c: #3A4152;
+    --illo-d: #FF7B88;
+    --illo-e: #7ED09A;
+  }
+
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    background: var(--paper-deep);
+    color: var(--ink);
+    font-family: "Nunito", "Segoe UI", system-ui, sans-serif;
+    font-size: 17px;
+    line-height: 1.55;
+  }
+  .page {
+    max-width: 860px;
+    margin: 24px auto 64px;
+    background:
+      linear-gradient(var(--grid) 1px, transparent 1px) 0 0 / 24px 24px,
+      linear-gradient(90deg, var(--grid) 1px, transparent 1px) 0 0 / 24px 24px,
+      var(--paper);
+    border: 1px solid var(--line);
+    border-radius: 6px;
+    box-shadow: var(--shadow);
+    position: relative;
+    padding: 0 40px 48px 96px;
+  }
+  .page::before {
+    content: "";
+    position: absolute;
+    top: 0; bottom: 0; left: 72px;
+    width: 2px;
+    background: var(--margin);
+    opacity: .7;
+  }
+  h1, h2, h3 { font-family: "Baloo 2", "Nunito", sans-serif; text-wrap: balance; margin: 0; }
+
+  /* header */
+  .head { padding: 40px 0 20px; display: grid; gap: 14px; }
+  .eyebrow {
+    font-size: 12px; letter-spacing: .14em; text-transform: uppercase;
+    color: var(--pencil); font-weight: 800;
+  }
+  h1 { font-size: 46px; line-height: 1.05; color: var(--blue); font-weight: 800; }
+  h1 .mark {
+    background: linear-gradient(transparent 55%, var(--marker) 55%, var(--marker) 92%, transparent 92%);
+    padding: 0 4px;
+  }
+  .lead { max-width: 60ch; color: var(--ink-soft); font-size: 18px; }
+  .lead strong { color: var(--ink); }
+
+  .toolbar {
+    display: flex; flex-wrap: wrap; gap: 10px 14px; align-items: center;
+    padding: 12px 0 8px;
+  }
+  .stars {
+    display: inline-flex; align-items: center; gap: 8px;
+    background: var(--white); border: 1px solid var(--line); border-radius: 999px;
+    padding: 6px 14px 6px 10px; font-weight: 800; font-variant-numeric: tabular-nums;
+  }
+  .stars svg { width: 20px; height: 20px; }
+  button, .btn {
+    font: inherit; font-weight: 800; font-size: 15px;
+    border-radius: 999px; padding: 8px 16px; cursor: pointer;
+    border: 2px solid var(--blue); background: var(--white); color: var(--blue);
+    transition: transform .08s ease, background .15s ease;
+  }
+  button:hover { background: var(--blue-soft); }
+  button:active { transform: translateY(1px); }
+  button:focus-visible, input:focus-visible, summary:focus-visible {
+    outline: 3px solid var(--illo-b); outline-offset: 2px;
+  }
+  button.primary { background: var(--blue); color: var(--paper); }
+  button.primary:hover { filter: brightness(1.08); }
+  button.tutor-toggle { border-color: var(--red); color: var(--red); }
+  button.tutor-toggle:hover { background: var(--red-soft); }
+  body.tutor button.tutor-toggle { background: var(--red); color: var(--paper); }
+  button.ghost { border-color: var(--line); color: var(--ink-soft); }
+
+  nav.chips {
+    position: sticky; top: 0; z-index: 5;
+    display: flex; flex-wrap: wrap; gap: 8px;
+    padding: 12px 0;
+    background: var(--paper);
+    border-bottom: 1px dashed var(--line);
+    margin-bottom: 8px;
+  }
+  nav.chips a {
+    text-decoration: none; color: var(--ink); font-weight: 800; font-size: 14px;
+    border: 1.5px solid var(--line); background: var(--white); border-radius: 999px;
+    padding: 5px 12px; display: inline-flex; gap: 8px; align-items: center;
+  }
+  nav.chips a .n {
+    font-variant-numeric: tabular-nums; color: var(--pencil); font-weight: 700; font-size: 12.5px;
+  }
+  nav.chips a:hover { border-color: var(--blue); }
+
+  /* sections */
+  section.topic { padding: 28px 0 8px; scroll-margin-top: 64px; }
+  .topic-head { display: flex; gap: 16px; align-items: flex-end; margin-bottom: 8px; }
+  .topic-head h2 { font-size: 32px; color: var(--blue); line-height: 1.1; }
+  .topic-head .tag {
+    font-size: 12px; letter-spacing: .12em; text-transform: uppercase; font-weight: 800;
+    color: var(--pencil); padding-bottom: 6px;
+  }
+  .topic-intro {
+    font-family: "Caveat", "Comic Sans MS", cursive; font-size: 24px; line-height: 1.3;
+    color: var(--red); max-width: 62ch; margin: 0 0 8px;
+    transform: rotate(-0.6deg); transform-origin: left;
+  }
+
+  /* task */
+  .task {
+    position: relative;
+    padding: 20px 0 22px;
+    border-top: 1px dashed var(--line);
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    gap: 12px 24px;
+    align-items: start;
+  }
+  .task:first-of-type { border-top: none; }
+  .task .num {
+    position: absolute; left: -68px; top: 22px;
+    width: 40px; height: 40px; border-radius: 50%;
+    background: var(--blue); color: var(--paper);
+    font-family: "Baloo 2", sans-serif; font-weight: 800; font-size: 20px;
+    display: grid; place-items: center;
+    box-shadow: 0 3px 0 rgba(0,0,0,.15);
+  }
+  .task.done .num { background: var(--green); }
+  .task .q {
+    font-size: 19px; line-height: 1.5; max-width: 58ch; margin: 0;
+    font-weight: 600;
+  }
+  .task .q b { color: var(--blue); font-weight: 800; }
+  .task .illo {
+    grid-row: 1 / span 3;
+    grid-column: 2;
+    width: 230px; max-width: 100%;
+    background: var(--white); border: 1px solid var(--line); border-radius: 10px;
+    padding: 10px; display: grid; place-items: center;
+  }
+  .task .illo svg { width: auto; max-width: 100%; height: auto; max-height: 190px; display: block; }
+  .task .illo figcaption {
+    font-size: 12.5px; color: var(--pencil); font-weight: 700; text-align: center; margin-top: 6px;
+  }
+  .answer {
+    display: flex; flex-wrap: wrap; gap: 8px; align-items: center;
+  }
+  .answer label { font-weight: 800; color: var(--ink-soft); font-size: 15px; }
+  .answer input {
+    font: inherit; font-size: 18px; font-weight: 700; color: var(--blue);
+    background: transparent; border: none; border-bottom: 2px solid var(--blue);
+    padding: 4px 8px; min-width: 150px; width: 190px;
+    font-family: "Caveat", "Nunito", cursive; font-size: 24px;
+  }
+  .answer input::placeholder { color: var(--pencil); font-family: "Nunito", sans-serif; font-size: 14px; font-weight: 600; }
+  .feedback { min-height: 26px; font-weight: 800; font-size: 15.5px; }
+  .feedback.ok { color: var(--green); }
+  .feedback.no { color: var(--red); }
+  .kidhint {
+    display: none;
+    background: var(--blue-soft); border-left: 4px solid var(--blue);
+    padding: 8px 12px; border-radius: 0 8px 8px 0; font-size: 15.5px;
+  }
+  .kidhint.show { display: block; }
+  .kidhint b { color: var(--blue); }
+
+  /* tutor notes: red pen */
+  details.tutor {
+    grid-column: 1 / -1;
+    border: 1.5px dashed var(--red);
+    border-radius: 10px;
+    background: var(--red-soft);
+    padding: 0;
+  }
+  details.tutor summary {
+    cursor: pointer; list-style: none;
+    display: flex; align-items: center; gap: 10px;
+    padding: 8px 14px;
+    font-weight: 800; color: var(--red); font-size: 14px;
+    letter-spacing: .06em; text-transform: uppercase;
+  }
+  details.tutor summary::-webkit-details-marker { display: none; }
+  details.tutor summary svg { width: 16px; height: 16px; flex: none; }
+  details.tutor summary .open-only { display: none; }
+  details.tutor[open] summary .closed-only { display: none; }
+  details.tutor[open] summary .open-only { display: inline; }
+  details.tutor summary .hintlabel { margin-left: auto; font-weight: 700; letter-spacing: 0; text-transform: none; color: var(--pencil); }
+  .tutor-body {
+    padding: 4px 18px 16px;
+    font-family: "Caveat", "Comic Sans MS", cursive;
+    font-size: 22px; line-height: 1.3; color: var(--red);
+    display: grid; gap: 10px;
+  }
+  .tutor-body .ans {
+    font-size: 26px; font-weight: 600;
+    background: var(--marker); display: inline-block; padding: 0 8px; border-radius: 4px;
+    width: max-content; max-width: 100%;
+  }
+  .tutor-body h4 {
+    margin: 6px 0 0; font-family: "Nunito", sans-serif; font-size: 12px;
+    letter-spacing: .12em; text-transform: uppercase; color: var(--pencil);
+  }
+  .tutor-body ol, .tutor-body ul { margin: 0; padding-left: 26px; display: grid; gap: 3px; }
+  .tutor-body li::marker { font-family: "Nunito", sans-serif; font-weight: 800; font-size: 15px; }
+  .tutor-body .mistake { color: var(--ink-soft); }
+  .tutor-body .mistake b { color: var(--red); }
+
+  /* footer */
+  .foot {
+    margin-top: 40px; padding-top: 18px; border-top: 2px solid var(--line);
+    color: var(--ink-soft); font-size: 15px; display: grid; gap: 8px; max-width: 64ch;
+  }
+  .foot .sig { font-family: "Caveat", cursive; font-size: 24px; color: var(--red); }
+
+  @media (max-width: 720px) {
+    .page { margin: 0; border-radius: 0; padding: 0 18px 40px 64px; }
+    .page::before { left: 46px; }
+    .task .num { left: -50px; width: 34px; height: 34px; font-size: 17px; }
+    .task { grid-template-columns: 1fr; }
+    .task .illo { grid-row: 2; grid-column: 1; width: 100%; max-width: 280px; }
+    h1 { font-size: 36px; }
+    .topic-head h2 { font-size: 27px; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    * { transition: none !important; animation: none !important; }
+  }
+  @media print {
+    body { background: #fff; color: #000; font-size: 13px; }
+    .page { box-shadow: none; border: none; margin: 0; max-width: none; background: #fff; }
+    .toolbar, nav.chips, .feedback, .kidhint-btn, .check-btn { display: none !important; }
+    .answer input { border-bottom: 1px solid #000; width: 220px; }
+    details.tutor:not([open]) { display: none; }
+    details.tutor { break-inside: avoid; }
+    .task { break-inside: avoid; }
+    section.topic { break-before: page; }
+    section.topic:first-of-type { break-before: auto; }
+  }
+</style>
+
+<div class="page">
+  <header class="head">
+    <div class="eyebrow">Powtórka · klasa 3–4 · 25 zadań na myślenie</div>
+    <h1>Zeszyt <span class="mark">Maksia</span></h1>
+    <p class="lead">
+      <strong>Cześć, Maksiu!</strong> Tu nie chodzi o to, żeby liczyć szybko. Chodzi o to, żeby
+      <em>rozumieć</em>, co się dzieje z liczbami. Czytaj zadanie dwa razy, rysuj, kiedy trzeba,
+      i pamiętaj: pomyłka to tylko wskazówka, gdzie jeszcze poszperać.
+    </p>
+    <div class="toolbar">
+      <span class="stars" id="stars">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="#F0A03C" d="M12 2.5l2.9 6.2 6.8.8-5 4.6 1.3 6.7L12 17.5l-6 3.3 1.3-6.7-5-4.6 6.8-.8z"/></svg>
+        <span id="stars-count">0</span> / 25 gwiazdek
+      </span>
+      <button class="tutor-toggle" id="tutor-btn" type="button">Tryb prowadzącego</button>
+      <button class="ghost" type="button" onclick="window.print()">Drukuj</button>
+      <button class="ghost" id="reset-btn" type="button">Wyczyść odpowiedzi</button>
+    </div>
+  </header>
+
+  <nav class="chips" id="chips" aria-label="Działy"></nav>
+
+  <main id="main"></main>
+
+  <footer class="foot">
+    <div class="sig">Dla prowadzącego:</div>
+    <p>
+      Każde zadanie ma schowaną ramkę „Dla prowadzącego” z odpowiedzią, tłumaczeniem krok po kroku
+      w języku, którym warto mówić do Maksia, pytaniami naprowadzającymi na wypadek zacięcia
+      i najczęstszym błędem. Przycisk „Tryb prowadzącego” otwiera wszystkie ramki naraz
+      (przydatne przed wydrukiem klucza). Postępy zapisują się w tej przeglądarce.
+    </p>
+    <p>
+      Kolejność działów jest celowa: czas wymaga liczenia „do pełnej godziny”, co wraca w dodawaniu
+      (do pełnej dziesiątki i setki), mnożenie i dzielenie są pokazane jako para, a ułamki
+      domykają całość, wracając do zegara i do dzielenia.
+    </p>
+  </footer>
+</div>
+
+<script>
+(function () {
+  /* ---------- SVG illustrations ---------- */
+  const A = 'var(--illo-a)', B = 'var(--illo-b)', C = 'var(--illo-c)', D = 'var(--illo-d)', E = 'var(--illo-e)', INK = 'var(--ink)', PEN = 'var(--pencil)';
+
+  function clock(h, m, opts = {}) {
+    const r = 52, cx = 60, cy = 60;
+    let s = `<svg viewBox="0 0 120 120" role="img" aria-label="Zegar pokazuje ${h}:${String(m).padStart(2,'0')}">`;
+    s += `<circle cx="${cx}" cy="${cy}" r="${r + 4}" fill="${C}"/>`;
+    s += `<circle cx="${cx}" cy="${cy}" r="${r}" fill="var(--white)" stroke="${INK}" stroke-width="2"/>`;
+    if (opts.sector) {
+      const [from, to] = opts.sector; // minutes
+      const a1 = (from / 60) * 2 * Math.PI - Math.PI / 2, a2 = (to / 60) * 2 * Math.PI - Math.PI / 2;
+      const x1 = cx + r * Math.cos(a1), y1 = cy + r * Math.sin(a1), x2 = cx + r * Math.cos(a2), y2 = cy + r * Math.sin(a2);
+      const large = (to - from) > 30 ? 1 : 0;
+      s += `<path d="M${cx},${cy} L${x1},${y1} A${r},${r} 0 ${large} 1 ${x2},${y2} Z" fill="${B}" opacity=".55"/>`;
+    }
+    for (let i = 0; i < 60; i++) {
+      const a = (i / 60) * 2 * Math.PI, big = i % 5 === 0;
+      const r1 = big ? r - 8 : r - 4;
+      s += `<line x1="${cx + r1 * Math.sin(a)}" y1="${cy - r1 * Math.cos(a)}" x2="${cx + (r - 1) * Math.sin(a)}" y2="${cy - (r - 1) * Math.cos(a)}" stroke="${INK}" stroke-width="${big ? 2 : 1}" opacity="${big ? 1 : .5}"/>`;
+    }
+    [[12, 0, -1], [3, 1, 0], [6, 0, 1], [9, -1, 0]].forEach(([n, dx, dy]) => {
+      s += `<text x="${cx + dx * 34}" y="${cy + dy * 34 + 5}" text-anchor="middle" font-family="Baloo 2, sans-serif" font-weight="800" font-size="14" fill="${INK}">${n}</text>`;
+    });
+    const ma = (m / 60) * 2 * Math.PI, ha = ((h % 12) / 12 + m / 720) * 2 * Math.PI;
+    s += `<line x1="${cx}" y1="${cy}" x2="${cx + 26 * Math.sin(ha)}" y2="${cy - 26 * Math.cos(ha)}" stroke="${INK}" stroke-width="4.5" stroke-linecap="round"/>`;
+    s += `<line x1="${cx}" y1="${cy}" x2="${cx + 40 * Math.sin(ma)}" y2="${cy - 40 * Math.cos(ma)}" stroke="${A}" stroke-width="3" stroke-linecap="round"/>`;
+    s += `<circle cx="${cx}" cy="${cy}" r="3.5" fill="${D}"/>`;
+    return s + '</svg>';
+  }
+
+  // grid of dots; opts: rowColors[], crossLast (n), highlightRow, total (partial last row)
+  function dots(rows, cols, opts = {}) {
+    const g = 22, pad = 8, w = cols * g + pad * 2, h = rows * g + pad * 2;
+    const total = opts.total ?? rows * cols;
+    let s = `<svg viewBox="0 0 ${w} ${h}" role="img" aria-label="${opts.label || ''}">`;
+    if (opts.highlightRow !== undefined) {
+      s += `<rect x="${pad - 4}" y="${pad + opts.highlightRow * g - 3}" width="${cols * g + 8}" height="${g + 6}" rx="8" fill="${B}" opacity=".4"/>`;
+    }
+    let k = 0;
+    for (let r = 0; r < rows; r++) for (let c = 0; c < cols; c++) {
+      if (k >= total) break;
+      const x = pad + c * g + g / 2, y = pad + r * g + g / 2;
+      const fill = opts.rowColors ? opts.rowColors[r] : (opts.fill || A);
+      const crossed = opts.crossLast && k >= total - opts.crossLast;
+      s += `<circle cx="${x}" cy="${y}" r="7" fill="${crossed ? C : fill}"/>`;
+      if (crossed) s += `<path d="M${x - 5},${y - 5} L${x + 5},${y + 5} M${x + 5},${y - 5} L${x - 5},${y + 5}" stroke="${D}" stroke-width="2.2" stroke-linecap="round"/>`;
+      k++;
+    }
+    if (opts.groupRows) {
+      for (let r = 0; r < rows; r++) {
+        s += `<rect x="${pad - 3}" y="${pad + r * g - 1}" width="${cols * g + 6}" height="${g + 2}" rx="11" fill="none" stroke="${PEN}" stroke-dasharray="3 3"/>`;
+      }
+    }
+    return s + '</svg>';
+  }
+
+  function pyramid() {
+    const rows = [['?'], ['?', '?'], ['7', '5', '9']];
+    const bw = 46, bh = 34, gap = 6, W = 3 * bw + 2 * gap + 8, H = 3 * bh + 2 * gap + 8;
+    let s = `<svg viewBox="0 0 ${W} ${H}" role="img" aria-label="Piramida liczbowa z 7, 5 i 9 na dole">`;
+    rows.forEach((row, ri) => {
+      const rowW = row.length * bw + (row.length - 1) * gap;
+      const x0 = (W - rowW) / 2, y = 4 + ri * (bh + gap);
+      row.forEach((v, ci) => {
+        const x = x0 + ci * (bw + gap), unknown = v === '?';
+        s += `<rect x="${x}" y="${y}" width="${bw}" height="${bh}" rx="6" fill="${unknown ? 'var(--white)' : B}" stroke="${INK}" stroke-width="1.5"/>`;
+        s += `<text x="${x + bw / 2}" y="${y + bh / 2 + 7}" text-anchor="middle" font-family="Baloo 2, sans-serif" font-weight="800" font-size="20" fill="${unknown ? A : INK}">${v}</text>`;
+      });
+    });
+    return s + '</svg>';
+  }
+
+  function shelves() {
+    let s = `<svg viewBox="0 0 200 110" role="img" aria-label="Dwie półki z książkami">`;
+    const draw = (y, n, label) => {
+      for (let i = 0; i < n; i++) {
+        const hh = 22 + ((i * 7) % 9), col = [A, B, D, E][i % 4];
+        s += `<rect x="${10 + i * 12}" y="${y - hh}" width="10" height="${hh}" rx="1.5" fill="${col}"/>`;
+      }
+      s += `<rect x="4" y="${y}" width="192" height="4" rx="1" fill="${INK}"/>`;
+      s += `<text x="196" y="${y - 8}" text-anchor="end" font-family="Baloo 2, sans-serif" font-weight="800" font-size="13" fill="${INK}">${label}</text>`;
+    };
+    draw(46, 10, '245');
+    draw(100, 12, '245 + 38');
+    return s + '</svg>';
+  }
+
+  function bigText(lines, label) {
+    const H = 26 + lines.length * 34;
+    let s = `<svg viewBox="0 0 200 ${H}" role="img" aria-label="${label}">`;
+    lines.forEach((t, i) => {
+      s += `<text x="100" y="${34 + i * 34}" text-anchor="middle" font-family="Baloo 2, sans-serif" font-weight="800" font-size="26" fill="${INK}">${t}</text>`;
+    });
+    return s + '</svg>';
+  }
+
+  // repeated chips with a label (tickets, buses, price tags)
+  function chips(n, label, opts = {}) {
+    const cols = opts.cols || Math.min(n, 4), rows = Math.ceil(n / cols);
+    const w = 44, h = 30, gap = 6, W = cols * (w + gap) + 4, H = rows * (h + gap) + 4;
+    let s = `<svg viewBox="0 0 ${W} ${H}" role="img" aria-label="${n} × ${label}">`;
+    for (let i = 0; i < n; i++) {
+      const x = 4 + (i % cols) * (w + gap), y = 4 + Math.floor(i / cols) * (h + gap);
+      s += `<rect x="${x}" y="${y}" width="${w}" height="${h}" rx="${opts.round ? 15 : 5}" fill="${opts.fill || B}" stroke="${INK}" stroke-width="1.5"/>`;
+      s += `<text x="${x + w / 2}" y="${y + h / 2 + 5}" text-anchor="middle" font-family="Baloo 2, sans-serif" font-weight="800" font-size="13" fill="${INK}">${label}</text>`;
+    }
+    return s + '</svg>';
+  }
+
+  function spiders(n) {
+    const cols = 4, rows = Math.ceil(n / cols), cell = 44;
+    let s = `<svg viewBox="0 0 ${cols * cell} ${rows * cell}" role="img" aria-label="${n} pająków">`;
+    for (let i = 0; i < n; i++) {
+      const cx = (i % cols) * cell + cell / 2, cy = Math.floor(i / cols) * cell + cell / 2;
+      for (let k = 0; k < 8; k++) {
+        const side = k < 4 ? -1 : 1, j = k % 4, y1 = cy - 9 + j * 6, dir = j < 2 ? -1 : 1;
+        s += `<path d="M${cx},${y1} l${side * 10},${dir * 3} l${side * 5},${dir * 7}" fill="none" stroke="${INK}" stroke-width="1.6" stroke-linecap="round"/>`;
+      }
+      s += `<ellipse cx="${cx}" cy="${cy + 2}" rx="8" ry="10" fill="${INK}"/><circle cx="${cx}" cy="${cy - 10}" r="5" fill="${INK}"/>`;
+      s += `<circle cx="${cx - 2}" cy="${cy - 11}" r="1.2" fill="${B}"/><circle cx="${cx + 2}" cy="${cy - 11}" r="1.2" fill="${B}"/>`;
+    }
+    return s + '</svg>';
+  }
+
+  function pizza(slices, eaten) {
+    const cx = 60, cy = 60, r = 52;
+    let s = `<svg viewBox="0 0 120 120" role="img" aria-label="Pizza pokrojona na ${slices} kawałków, ${eaten} zjedzone">`;
+    for (let i = 0; i < slices; i++) {
+      const a1 = (i / slices) * 2 * Math.PI - Math.PI / 2, a2 = ((i + 1) / slices) * 2 * Math.PI - Math.PI / 2;
+      const gone = i < eaten;
+      s += `<path d="M${cx},${cy} L${cx + r * Math.cos(a1)},${cy + r * Math.sin(a1)} A${r},${r} 0 0 1 ${cx + r * Math.cos(a2)},${cy + r * Math.sin(a2)} Z" fill="${gone ? 'var(--white)' : B}" stroke="${INK}" stroke-width="1.5" stroke-dasharray="${gone ? '3 3' : '0'}"/>`;
+      if (!gone) {
+        const am = (a1 + a2) / 2;
+        s += `<circle cx="${cx + r * 0.62 * Math.cos(am)}" cy="${cy + r * 0.62 * Math.sin(am)}" r="4" fill="${D}"/>`;
+      }
+    }
+    return s + '</svg>';
+  }
+
+  // one or two horizontal bars; each {parts, shaded, label}
+  function bars(list) {
+    const W = 200, bh = 30, gap = 22, H = list.length * (bh + gap);
+    let s = `<svg viewBox="0 0 ${W} ${H}" role="img" aria-label="Paski ułamkowe">`;
+    list.forEach((b, i) => {
+      const y = i * (bh + gap) + 14, pw = (W - 4) / b.parts;
+      s += `<text x="2" y="${y - 4}" font-family="Nunito, sans-serif" font-weight="800" font-size="11" fill="${PEN}">${b.label}</text>`;
+      for (let p = 0; p < b.parts; p++) {
+        s += `<rect x="${2 + p * pw}" y="${y}" width="${pw}" height="${bh}" fill="${p < b.shaded ? (b.color || A) : 'var(--white)'}" stroke="${INK}" stroke-width="1.5"/>`;
+      }
+    });
+    return s + '</svg>';
+  }
+
+  // timeline: segments [{len (minutes), label, kind}] scaled; start label
+  function timeline(segs, opts = {}) {
+    const W = 220, total = segs.reduce((a, b) => a + b.len, 0), scale = (W - 20) / total;
+    let s = `<svg viewBox="0 0 ${W} 70" role="img" aria-label="${opts.label || 'Oś czasu'}">`;
+    let x = 10;
+    s += `<line x1="10" y1="40" x2="${W - 10}" y2="40" stroke="${INK}" stroke-width="2"/>`;
+    segs.forEach((sg, i) => {
+      const w = sg.len * scale;
+      s += `<rect x="${x}" y="${sg.kind === 'break' ? 30 : 24}" width="${w}" height="${sg.kind === 'break' ? 10 : 16}" fill="${sg.kind === 'break' ? C : (sg.kind === 'mark' ? D : A)}" opacity="${sg.kind === 'break' ? 1 : .85}"/>`;
+      if (sg.label) s += `<text x="${x + w / 2}" y="${sg.kind === 'break' ? 60 : 16}" text-anchor="middle" font-family="Nunito, sans-serif" font-weight="800" font-size="10" fill="${INK}">${sg.label}</text>`;
+      x += w;
+    });
+    (opts.ticks || []).forEach(t => {
+      const tx = 10 + t.at * scale;
+      s += `<line x1="${tx}" y1="34" x2="${tx}" y2="46" stroke="${INK}" stroke-width="2"/>`;
+      s += `<text x="${tx}" y="60" text-anchor="middle" font-family="Baloo 2, sans-serif" font-weight="800" font-size="11" fill="${INK}">${t.label}</text>`;
+    });
+    return s + '</svg>';
+  }
+
+  /* ---------- answer checking helpers ---------- */
+  const nums = s => (s.match(/\d+/g) || []).map(Number);
+  const low = s => s.toLowerCase().replace(/\s+/g, ' ').trim();
+  const isTime = (...ok) => s => { const j = parseInt((s.match(/\d+/g) || []).join(''), 10); return ok.includes(j); };
+  const isNum = n => s => { const a = nums(s); return a.length > 0 && a[0] === n; };
+  const hasNums = (...need) => s => { const a = nums(s); return need.every(n => a.includes(n)); };
+  const hasWord = (...w) => s => { const l = low(s); return w.some(x => l.includes(x)); };
+  const frac = (a, b) => s => { const l = low(s).replace(/\s/g, ''); return l === `${a}/${b}` || l === `${a}:${b}`; };
+
+  /* ---------- content ---------- */
+  const SECTIONS = [
+    {
+      id: 'czas', name: 'Czas', tag: 'Dział 1',
+      intro: 'Zegar to też liczenie. Godzina ma 60 minut, kwadrans to 15, pół godziny to 30. Najlepszy trik: zawsze najpierw dojdź do pełnej godziny.',
+      tasks: [
+        {
+          q: 'Maksiu wychodzi z domu o <b>7:45</b>. Droga do szkoły zajmuje mu <b>20 minut</b>. O której godzinie będzie w szkole?',
+          illo: clock(7, 45), cap: 'Jest 7:45',
+          hint: 'Najpierw dojdź do pełnej godziny. Ile minut brakuje od 7:45 do 8:00?',
+          ans: 'O 8:05', check: isTime(805),
+          teach: [
+            'Popatrz na zegar: jest 7:45. Do pełnej ósmej brakuje 15 minut, bo 45 + 15 = 60.',
+            'Mamy 20 minut drogi. Zużyjemy 15 na dojście do 8:00 i zostaje jeszcze 5 (20 − 15 = 5).',
+            '8:00 i 5 minut to 8:05. Maksiu jest w szkole o 8:05.'
+          ],
+          stuck: ['Ile minut ma godzina?', 'Narysuj na zegarze, gdzie będzie duża wskazówka o 8:00. Ile kresek jej brakuje?'],
+          mistake: 'Dziecko dodaje 45 + 20 = 65 i pisze „7:65”. Przypomnij: minuty kończą się na 59, potem zaczyna się nowa godzina.'
+        },
+        {
+          q: 'Film w kinie zaczyna się o <b>16:30</b> i trwa <b>1 godzinę i 45 minut</b>. O której godzinie się skończy?',
+          illo: clock(16, 30), cap: 'Początek: 16:30',
+          hint: 'Podziel czas filmu na kawałki: najpierw cała godzina, potem minuty.',
+          ans: 'O 18:15', check: isTime(1815, 615),
+          teach: [
+            'Najpierw dodaj całą godzinę: 16:30 + 1 godzina = 17:30.',
+            'Teraz 45 minut. Rozbij je: 30 minut doprowadzi nas do 18:00, zostaje jeszcze 15.',
+            '18:00 + 15 minut = 18:15. Koniec filmu o 18:15.'
+          ],
+          stuck: ['Ile brakuje od 17:30 do pełnej godziny?', 'Jeśli dodasz najpierw godzinę, a minuty zostawisz na potem, czy będzie łatwiej?'],
+          mistake: 'Dziecko dodaje 30 + 45 = 75 minut i nie wie, co dalej. Pokaż na zegarze, że 75 minut to 1 godzina i 15 minut.'
+        },
+        {
+          q: 'Zegar pokazuje godzinę <b>3:20</b>. Ile minut minie, zanim wybije pełna godzina <b>4:00</b>?',
+          illo: clock(3, 20), cap: 'Jest 3:20',
+          hint: 'Godzina ma 60 minut. Ile minut już minęło od 3:00?',
+          ans: '40 minut', check: isNum(40),
+          teach: [
+            'Od 3:00 minęło już 20 minut. Widać to po dużej wskazówce na czwórce: 4 × 5 = 20.',
+            'Cała godzina to 60 minut. 60 − 20 = 40.',
+            'Sprawdź: 20 + 40 = 60. Zgadza się, do 4:00 zostało 40 minut.'
+          ],
+          stuck: ['Policz po pięć od czwórki do dwunastki na tarczy. Ile kroków po 5 zrobisz?'],
+          mistake: 'Mylenie liczby na tarczy (4) z minutami (20). Każda liczba na zegarze to 5 minut dla dużej wskazówki.'
+        },
+        {
+          q: 'Kasia, Ola i Bartek przyszli na urodziny Maksia. Kasia przyszła o <b>15:00</b>. Ola przyszła <b>10 minut po Kasi</b>. Bartek przyszedł <b>5 minut przed Olą</b>. Kto przyszedł jako drugi i o której godzinie?',
+          illo: timeline([{ len: 5 }, { len: 5 }, { len: 5 }, { len: 5 }], { ticks: [{ at: 0, label: '15:00' }, { at: 5, label: '?' }, { at: 10, label: '?' }, { at: 15, label: '15:15' }] }), cap: 'Ustaw gości na osi czasu',
+          hint: 'Zacznij od tego, co wiesz na pewno: Kasia o 15:00. Kogo możesz policzyć jako następnego?',
+          ans: 'Bartek, o 15:05', check: hasWord('bartek', 'bartk'),
+          teach: [
+            'Ustawmy fakty po kolei. Kasia: 15:00. To wiemy od razu.',
+            'Ola przyszła 10 minut po Kasi: 15:00 + 10 = 15:10.',
+            'Bartek przyszedł 5 minut przed Olą: 15:10 − 5 = 15:05.',
+            'Kolejność: Kasia (15:00), Bartek (15:05), Ola (15:10). Drugi był Bartek.'
+          ],
+          stuck: ['O kim mówi zdanie z Olą? Od kogo liczymy jej godzinę?', 'Narysuj oś czasu i wpisz imiona w kolejności, w jakiej je poznajesz.'],
+          mistake: 'Dziecko liczy Bartka od Kasi (15:00 − 5 = 14:55) zamiast od Oli. Podkreśl palcem słowa „przed Olą”.'
+        },
+        {
+          q: 'Lekcja trwa <b>45 minut</b>, a przerwa <b>10 minut</b>. Pierwsza lekcja zaczyna się o <b>8:00</b>. O której godzinie zaczyna się <b>trzecia</b> lekcja?',
+          illo: timeline([{ len: 45, label: 'lekcja 1' }, { len: 10, kind: 'break' }, { len: 45, label: 'lekcja 2' }, { len: 10, kind: 'break' }, { len: 20, label: 'lekcja 3', kind: 'mark' }], { ticks: [{ at: 0, label: '8:00' }, { at: 110, label: '?' }] }), cap: 'Lekcja, przerwa, lekcja, przerwa…',
+          hint: 'Zapisz po kolei: lekcja, przerwa, lekcja, przerwa. Kiedy zaczyna się trzecia lekcja?',
+          ans: 'O 9:50', check: isTime(950),
+          teach: [
+            'Lekcja 1: 8:00 – 8:45. Przerwa: 8:45 – 8:55.',
+            'Lekcja 2 zaczyna się o 8:55. Dodaj 45 minut: najpierw 5 minut do 9:00, zostaje 40. Koniec o 9:40.',
+            'Przerwa: 9:40 – 9:50. Trzecia lekcja zaczyna się o 9:50.',
+            'Sprytny sposób: lekcja z przerwą to 55 minut. Dwa takie bloki to 110 minut, czyli 1 godzina i 50 minut. 8:00 + 1:50 = 9:50.'
+          ],
+          stuck: ['Ile trwa lekcja razem z przerwą?', 'Ile takich bloków minie, zanim zacznie się trzecia lekcja: dwa czy trzy?'],
+          mistake: 'Dziecko liczy trzy lekcje zamiast dwóch i podaje 10:45. Trzecia lekcja dopiero się zaczyna, więc minęły tylko dwie.'
+        }
+      ]
+    },
+    {
+      id: 'dodawanie', name: 'Dodawanie', tag: 'Dział 2',
+      intro: 'Dodawanie lubi okrągłe liczby. Szukaj par, które dają dziesiątkę albo setkę, i dopełniaj do nich, tak jak dopełniałeś do pełnej godziny.',
+      tasks: [
+        {
+          q: 'Maksiu ma w skarbonce <b>128 zł</b>. Na urodziny dostał <b>45 zł</b> od babci i <b>27 zł</b> od dziadka. Ile pieniędzy ma teraz w skarbonce?',
+          illo: bigText(['128 zł', '+ 45 zł', '+ 27 zł'], 'Skarbonka: 128, 45 i 27 złotych'), cap: 'Skarbonka Maksia',
+          hint: 'Najpierw dodaj to, co dostał od babci i dziadka. Potem dołóż to do skarbonki.',
+          ans: '200 zł', check: isNum(200),
+          teach: [
+            'Babcia i dziadek razem: 45 + 27. Rozbij 27 na 25 i 2: 45 + 25 = 70, a 70 + 2 = 72.',
+            'Teraz skarbonka: 128 + 72. Zauważ parę: 28 + 72 = 100! Więc 128 + 72 = 200.',
+            'Maksiu ma równe 200 zł.'
+          ],
+          stuck: ['Ile brakuje od 128 do 130? A od 130 do 200?', 'Czy 28 i 72 to para, która daje setkę?'],
+          mistake: 'Liczenie w słupku bez przeniesienia (np. 128 + 72 = 190). Pokaż, że 8 + 2 = 10, jedynka wędruje do dziesiątek.'
+        },
+        {
+          q: '<b>Piramida liczbowa.</b> Każda cegła to suma dwóch cegieł pod nią. Na dole leżą <b>7, 5 i 9</b>. Jaka liczba znajdzie się na samej górze?',
+          illo: pyramid(), cap: 'Cegła = suma dwóch pod nią',
+          hint: 'Zacznij od dołu. 7 + 5 to lewa cegła w środkowym rzędzie. A prawa?',
+          ans: '26', check: isNum(26),
+          teach: [
+            'Środkowy rząd: lewa cegła to 7 + 5 = 12, prawa to 5 + 9 = 14.',
+            'Szczyt: 12 + 14 = 26.',
+            'Ciekawostka: piątka ze środka liczy się dwa razy, bo podpiera obie cegły. Dlatego 7 + 5 + 5 + 9 = 26.'
+          ],
+          stuck: ['Które dwie cegły leżą pod lewą pustą cegłą?', 'Ile cegieł jest w środkowym rzędzie i ile w górnym?'],
+          mistake: 'Dodanie tylko 7 + 5 + 9 = 21. Wyjaśnij, że środkowa piątka „pracuje” dla obu cegieł wyżej.'
+        },
+        {
+          q: 'W bibliotece na pierwszej półce stoi <b>245 książek</b>, a na drugiej <b>o 38 więcej</b>. Ile książek stoi na obu półkach razem?',
+          illo: shelves(), cap: 'Druga półka: o 38 więcej',
+          hint: '„O 38 więcej” to nie jest liczba książek na drugiej półce. Trzeba ją dopiero policzyć.',
+          ans: '528 książek', check: isNum(528),
+          teach: [
+            'Druga półka: 245 + 38. Sprytnie: 245 + 40 = 285, a potem odejmij 2, bo dodałeś o 2 za dużo. Wynik: 283.',
+            'Razem: 245 + 283. Setki: 200 + 200 = 400. Dziesiątki: 40 + 80 = 120. Jedności: 5 + 3 = 8.',
+            '400 + 120 + 8 = 528. Na obu półkach jest 528 książek.'
+          ],
+          stuck: ['Czy wiemy od razu, ile książek jest na drugiej półce?', 'Co znaczy „o 38 więcej niż 245”?'],
+          mistake: 'Dziecko liczy 245 + 38 = 283 i podaje to jako odpowiedź. To dopiero druga półka, pytanie jest o obie.'
+        },
+        {
+          q: 'Maksiu pomyślał sobie liczbę. Dodał do niej <b>15</b> i wyszło mu <b>42</b>. Jaką liczbę pomyślał?',
+          illo: bigText(['? + 15 = 42'], 'Zagadka: jakaś liczba plus 15 daje 42'), cap: 'Zagadka „na odwrót”',
+          hint: 'Cofnij się! Skoro dodano 15, to co trzeba zrobić, żeby wrócić do początku?',
+          ans: '27', check: isNum(27),
+          teach: [
+            'To zagadka na odwrót. Coś + 15 = 42. Żeby znaleźć to coś, odejmujemy: 42 − 15.',
+            '42 − 15: najpierw odejmij 12, żeby dojść do 30, potem jeszcze 3. Wynik: 27.',
+            'Sprawdź: 27 + 15 = 42. Zgadza się! Dodawanie i odejmowanie to para, jedno cofa drugie.'
+          ],
+          stuck: ['Spróbuj zgadywać: 20 + 15 to ile? Za mało? To spróbuj większej liczby.', 'Jaka operacja cofa dodawanie?'],
+          mistake: 'Dziecko dodaje 42 + 15 = 57. Zapytaj: czy 57 + 15 da 42?'
+        },
+        {
+          q: 'Oblicz sprytnie, w pamięci: <b>199 + 199 + 199</b> = ?',
+          illo: chips(3, '199 zł', { cols: 3 }), cap: 'Trzy prawie-dwusetki',
+          hint: '199 to prawie 200. Policz z dwusetkami, a potem napraw różnicę.',
+          ans: '597', check: isNum(597),
+          teach: [
+            'Każde 199 to 200 minus 1.',
+            'Trzy dwusetki: 200 + 200 + 200 = 600.',
+            'Ale trzy razy dodaliśmy o 1 za dużo, więc 600 − 3 = 597.',
+            'To samo działa w sklepie: 4,99 zł to 5 zł minus grosz. Zaokrąglij i napraw.'
+          ],
+          stuck: ['Ile to 200 + 200 + 200?', 'O ile 199 różni się od 200? A trzy takie różnice?'],
+          mistake: 'Odjęcie tylko jedynki (wynik 599). Każde z trzech 199 „pożyczyło” swoją jedynkę, trzeba oddać trzy.'
+        }
+      ]
+    },
+    {
+      id: 'mnozenie', name: 'Mnożenie', tag: 'Dział 3',
+      intro: 'Mnożenie to szybkie dodawanie tego samego. 4 × 6 to cztery szóstki. Kiedy wynik nie chce wyskoczyć z głowy, rozbij liczbę na łatwiejsze kawałki.',
+      tasks: [
+        {
+          q: 'W klasie Maksia ławki stoją w <b>4 rzędach</b>, a w każdym rzędzie jest <b>6 ławek</b>. Ile ławek jest w klasie?',
+          illo: dots(4, 6, { label: '4 rzędy po 6 ławek' }), cap: '4 rzędy po 6',
+          hint: 'Policz jeden rząd. Ile jest takich rzędów?',
+          ans: '24 ławki', check: isNum(24),
+          teach: [
+            'Jeden rząd to 6 ławek. Cztery rzędy to 6 + 6 + 6 + 6.',
+            'Zamiast dodawać cztery razy, mnożymy: 4 × 6 = 24.',
+            'Obróć obrazek! 6 rzędów po 4 to też 24. Mnożenie działa w obie strony.'
+          ],
+          stuck: ['Ile ławek jest w dwóch rzędach? A w czterech, czyli dwa razy tyle?'],
+          mistake: 'Dodanie 4 + 6 = 10. Pokaż na kropkach, że rzędów jest cztery, a nie cztery ławki.'
+        },
+        {
+          q: 'Pająk ma <b>8 nóg</b>. W kącie piwnicy mieszka <b>7 pająków</b>. Ile nóg mają razem wszystkie pająki?',
+          illo: spiders(7), cap: '7 pająków po 8 nóg',
+          hint: 'Jeden pająk to 8 nóg. Dwa pająki to 16. Co dalej?',
+          ans: '56 nóg', check: isNum(56),
+          teach: [
+            'Każdy pająk ma tyle samo nóg, więc mnożymy: 7 × 8.',
+            'Jeśli 7 × 8 nie siedzi w głowie: 5 × 8 = 40 i 2 × 8 = 16, razem 56.',
+            'Trik do zapamiętania: „pięć, sześć, siedem, osiem”, czyli 56 = 7 × 8. Cyfry idą po kolei!'
+          ],
+          stuck: ['Ile nóg ma 5 pająków? A 2 pająki? Dodaj obie liczby.'],
+          mistake: 'Pomylenie 7 × 8 z 7 × 7 = 49. Sprawdź dodawaniem: 49 + 7 = 56, więc siedem ósemek to 56.'
+        },
+        {
+          q: 'Maksiu ma <b>3 koszulki</b> (czerwoną, niebieską i zieloną) i <b>4 pary spodni</b>. Na ile różnych sposobów może się ubrać?',
+          illo: dots(3, 4, { rowColors: [D, A, E], label: '3 koszulki × 4 pary spodni' }), cap: 'Każda kropka to jeden strój',
+          hint: 'Weź jedną koszulkę. Z iloma spodniami możesz ją założyć? A teraz następną koszulkę.',
+          ans: '12 sposobów', check: isNum(12),
+          teach: [
+            'Czerwona koszulka pasuje do każdych z 4 spodni, to 4 zestawy.',
+            'To samo z niebieską (4) i zieloną (4). Razem 4 + 4 + 4, czyli 3 × 4 = 12.',
+            'Narysuj tabelkę: koszulki w rzędach, spodnie w kolumnach. Każda kratka to jeden strój.'
+          ],
+          stuck: ['Ile strojów zrobisz z samą czerwoną koszulką?', 'Ile jest koszulek? Więc ile razy po tyle?'],
+          mistake: 'Dodanie 3 + 4 = 7. Pokaż w tabelce, że zestawów jest więcej niż samych ubrań.'
+        },
+        {
+          q: 'Jedno pudełko kredek ma <b>12 kredek</b>. Pani kupiła <b>5</b> takich pudełek, ale <b>4 kredki</b> złamały się w drodze do szkoły. Ile całych kredek dojechało?',
+          illo: dots(5, 12, { crossLast: 4, label: '5 pudełek po 12 kredek, 4 złamane' }), cap: '5 pudełek po 12, 4 złamane',
+          hint: 'Najpierw policz wszystkie kredki, potem odejmij złamane.',
+          ans: '56 kredek', check: isNum(56),
+          teach: [
+            'Wszystkie kredki: 5 × 12. Rozbij 12 na 10 i 2: 5 × 10 = 50, 5 × 2 = 10, razem 60.',
+            'Złamane: 4. Całych zostało 60 − 4 = 56.',
+            'Dwa kroki: najpierw mnożenie, potem odejmowanie. W zadaniach z treścią to bardzo częste.'
+          ],
+          stuck: ['Ile kredek byłoby w 5 pudełkach, gdyby żadna się nie złamała?'],
+          mistake: 'Odjęcie 4 od 12 przed mnożeniem (8 × 5 = 40). Złamały się 4 kredki w ogóle, a nie po 4 w każdym pudełku.'
+        },
+        {
+          q: 'Znajdź brakujące liczby: <b>7 × ▢ = 63</b> oraz <b>8 × 6 = ▢ × 4</b>.',
+          illo: bigText(['7 × ▢ = 63', '8 × 6 = ▢ × 4'], 'Dwa równania z okienkami'), cap: 'Znak = to waga',
+          hint: 'Pierwsze: ile siódemek mieści się w 63? Drugie: najpierw policz lewą stronę.',
+          ans: '9 i 12', check: hasNums(9, 12),
+          teach: [
+            '7 × ▢ = 63. Szukamy w tabliczce siódemki: 7 × 9 = 63. W okienku jest 9.',
+            '8 × 6 = 48. Więc ▢ × 4 = 48. Ile czwórek to 48? 12 × 4 = 48. W okienku jest 12.',
+            'Znak równości to waga: obie strony muszą ważyć tyle samo.'
+          ],
+          stuck: ['Wyrecytuj tabliczkę siódemki, aż dojdziesz do 63.', 'Co stoi po lewej stronie znaku równości? Policz to najpierw.'],
+          mistake: 'W drugim równaniu dziecko wpisuje 48 do okienka (pomija „× 4”). Podkreśl, że okienko jest jeszcze mnożone przez 4.'
+        }
+      ]
+    },
+    {
+      id: 'dzielenie', name: 'Dzielenie', tag: 'Dział 4',
+      intro: 'Dzielenie to sprawiedliwy podział. Zawsze pytaj: „ile razy po ile?”. I zawsze sprawdzaj mnożeniem, bo dzielenie i mnożenie to para.',
+      tasks: [
+        {
+          q: 'Mama ma <b>24 cukierki</b> i chce je sprawiedliwie rozdać <b>6 dzieciom</b>. Ile cukierków dostanie każde dziecko?',
+          illo: dots(6, 4, { groupRows: true, fill: D, label: '24 cukierki w 6 grupach' }), cap: '6 dzieci, 24 cukierki',
+          hint: 'Rozdawaj po jednym: każde dziecko dostaje jeden, drugi, trzeci… aż skończą się cukierki.',
+          ans: '4 cukierki', check: isNum(4),
+          teach: [
+            'Dzielenie to rozdawanie po równo: 24 : 6.',
+            'Pytamy: 6 razy ile daje 24? 6 × 4 = 24. Więc każde dziecko dostaje 4.',
+            'Sprawdzenie zawsze mnożeniem: 4 × 6 = 24. Nic nie zginęło i nic nie zostało.'
+          ],
+          stuck: ['Narysuj 6 kółek (dzieci) i rozdawaj kreski po jednej, aż rozdasz 24.'],
+          mistake: 'Odejmowanie 24 − 6 = 18. Dzielenie to nie zabranie raz, tylko rozdawanie do końca.'
+        },
+        {
+          q: 'Za bilety do kina rodzina zapłaciła <b>45 zł</b>. Wszystkie bilety kosztowały tyle samo, a było ich <b>5</b>. Ile kosztował jeden bilet?',
+          illo: chips(5, '? zł', { cols: 5 }), cap: '5 biletów za 45 zł',
+          hint: '5 biletów po ile złotych da razem 45 zł?',
+          ans: '9 zł', check: isNum(9),
+          teach: [
+            '45 : 5. Szukamy liczby, która pomnożona przez 5 daje 45.',
+            '5 × 9 = 45. Jeden bilet kosztował 9 zł.',
+            'Podpowiedź na piątki: liczby, które dzielą się przez 5, kończą się na 0 albo na 5.'
+          ],
+          stuck: ['5 × 10 to ile? Za dużo? To spróbuj o jeden mniej.'],
+          mistake: 'Wynik 8 (bo 5 × 8 = 40). Sprawdź mnożeniem: brakuje 5 zł do 45.'
+        },
+        {
+          q: 'Maksiu ma <b>26 kredek</b> i pakuje je do pudełek <b>po 4 kredki</b>. Ile pudełek zapełni i ile kredek mu zostanie?',
+          illo: dots(7, 4, { total: 26, groupRows: true, label: '26 kredek w pudełkach po 4' }), cap: 'Pakujemy po 4',
+          hint: 'Odkładaj po 4. Ile pełnych czwórek zrobisz z 26?',
+          ans: '6 pudełek, zostaną 2 kredki', check: hasNums(6, 2),
+          teach: [
+            'Ile czwórek mieści się w 26? 4 × 6 = 24, więc 6 pełnych pudełek.',
+            '26 − 24 = 2. Dwie kredki nie mają pełnego pudełka. To jest reszta.',
+            'Zapis: 26 : 4 = 6 r 2. Sprawdzenie: 6 × 4 + 2 = 26.'
+          ],
+          stuck: ['4 × 7 to ile? Więcej niż 26? To spróbuj 4 × 6.'],
+          mistake: 'Zaokrąglenie do 7 pudełek. Siódme pudełko byłoby niepełne, a pytanie brzmi „ile zapełni”.'
+        },
+        {
+          q: 'Pewna liczba podzielona przez <b>7</b> daje <b>8</b>. Jaka to liczba?',
+          illo: bigText(['▢ : 7 = 8'], 'Jakaś liczba podzielona przez 7 daje 8'), cap: 'Cofnij dzielenie',
+          hint: 'Cofnij dzielenie. Dzielenie i mnożenie to para, jedno odwraca drugie.',
+          ans: '56', check: isNum(56),
+          teach: [
+            '▢ : 7 = 8. Skoro coś podzielone na 7 części daje po 8, to całość to 7 × 8.',
+            '7 × 8 = 56.',
+            'Sprawdź: 56 : 7 = 8. Tak!'
+          ],
+          stuck: ['Wyobraź sobie 7 talerzy, na każdym 8 ciasteczek. Ile ciasteczek było razem?'],
+          mistake: 'Próba dzielenia 8 : 7 albo odejmowania. Zapytaj, czy jego wynik podzielony przez 7 naprawdę daje 8.'
+        },
+        {
+          q: 'Na wycieczkę jedzie <b>40 uczniów</b>. Do jednego busa mieści się <b>9 osób</b>. Ile busów trzeba zamówić, żeby wszyscy pojechali?',
+          illo: chips(5, '9 os.', { cols: 5, round: true, fill: E }), cap: 'Ile busów po 9 osób?',
+          hint: 'Podziel 40 przez 9. Co zrobić z resztą? Czy te dzieci mogą zostać?',
+          ans: '5 busów', check: isNum(5),
+          teach: [
+            '40 : 9 = 4 r 4, bo 9 × 4 = 36, a 40 − 36 = 4.',
+            'Cztery busy zabiorą 36 osób. Zostają 4 dzieci, a one też muszą jechać!',
+            'Trzeba zamówić 5 busów. W zadaniach o busach, pudełkach czy windach resztę zawsze „dopychamy” do góry.'
+          ],
+          stuck: ['Ile osób zabiorą 4 busy? Czy to wszyscy?'],
+          mistake: 'Odpowiedź „4 busy, 4 dzieci zostają”. Zapytaj: czy zostawimy kolegów na parkingu?'
+        }
+      ]
+    },
+    {
+      id: 'ulamki', name: 'Ułamki', tag: 'Dział 5',
+      intro: 'Ułamek to kawałek całości. Dolna liczba mówi, na ile równych części pocięto, górna mówi, ile z nich bierzesz. Rysuj, zawsze rysuj!',
+      tasks: [
+        {
+          q: 'Pizza została pokrojona na <b>8 równych kawałków</b>. Maksiu zjadł <b>3</b> kawałki. Jaka część pizzy została?',
+          illo: pizza(8, 3), cap: '8 kawałków, 3 zjedzone',
+          hint: 'Ile kawałków zostało? Z ilu wszystkich?',
+          ans: '5/8', check: frac(5, 8),
+          teach: [
+            'Cała pizza to 8 kawałków, czyli 8/8.',
+            'Zjedzone: 3/8. Zostało 8 − 3 = 5 kawałków, czyli 5/8.',
+            'Dolna liczba (mianownik) się nie zmienia. To wciąż pizza pocięta na 8.'
+          ],
+          stuck: ['Policz na obrazku kawałki, które nie są zjedzone.'],
+          mistake: 'Dziecko pisze 3/8 (to, co zjedzone) albo 5/3. Górna liczba: ile mamy, dolna: z ilu.'
+        },
+        {
+          q: 'Maksiu i Zuzia mają dwie takie same tabliczki czekolady. Maksiu zjadł <b>1/2</b> swojej, a Zuzia <b>1/4</b> swojej. Kto zjadł więcej?',
+          illo: bars([{ parts: 2, shaded: 1, label: 'Maksiu: 1/2' }, { parts: 4, shaded: 1, label: 'Zuzia: 1/4', color: D }]), cap: 'Ta sama czekolada, inne kawałki',
+          hint: 'Spójrz na paski. Który pokolorowany kawałek jest większy?',
+          ans: 'Maksiu (1/2 to więcej niż 1/4)', check: hasWord('maks'),
+          teach: [
+            '1/2 to czekolada podzielona na 2 części. Każda część jest duża.',
+            '1/4 to czekolada podzielona na 4 części. Każda część jest mniejsza.',
+            'Im większa liczba na dole, tym mniejszy kawałek! 1/2 > 1/4, więc Maksiu zjadł więcej.'
+          ],
+          stuck: ['Wolisz podzielić się ciastem z jedną osobą czy z trzema? Kiedy dostaniesz więcej?'],
+          mistake: 'Myślenie, że 1/4 jest większe, bo 4 > 2. Pokaż paski jeden nad drugim.'
+        },
+        {
+          q: 'W koszyku jest <b>18 jabłek</b>. Maksiu oddał babci <b>1/3</b> jabłek. Ile jabłek dostała babcia?',
+          illo: dots(3, 6, { highlightRow: 0, fill: E, label: '18 jabłek w trzech rzędach' }), cap: '18 jabłek, jedna trzecia',
+          hint: 'Podziel jabłka na 3 równe grupy. Babcia dostaje jedną grupę.',
+          ans: '6 jabłek', check: isNum(6),
+          teach: [
+            '1/3 z 18 to 18 podzielone na 3 równe części: 18 : 3 = 6.',
+            'Babcia dostała 6 jabłek.',
+            'Ułamek z liczby to dzielenie przez dolną liczbę. A 2/3 z 18 to dwie takie grupy, czyli 12.'
+          ],
+          stuck: ['Ułóż 18 kółek w 3 równych rzędach. Ile jest w jednym rzędzie?'],
+          mistake: 'Odjęcie 18 − 3 = 15. „Jedna trzecia” to nie „trzy jabłka”.'
+        },
+        {
+          q: 'Godzina ma <b>60 minut</b>. Maksiu grał na komputerze <b>3/4 godziny</b>. Ile to minut?',
+          illo: clock(12, 45, { sector: [0, 45] }), cap: 'Trzy ćwiartki tarczy',
+          hint: 'Najpierw policz 1/4 godziny. Potem weź trzy takie kawałki.',
+          ans: '45 minut', check: isNum(45),
+          teach: [
+            '1/4 godziny to 60 : 4 = 15 minut. To jest kwadrans.',
+            '3/4 to trzy kwadranse: 3 × 15 = 45 minut.',
+            'Na zegarze duża wskazówka przechodzi trzy ćwiartki tarczy, od dwunastki aż do dziewiątki.'
+          ],
+          stuck: ['Ile to jeden kwadrans?', 'Ile kwadransów jest w 3/4 godziny?'],
+          mistake: 'Wynik 30 (pół godziny). Zapytaj: ile ćwiartek to połowa? A ile ćwiartek mamy tutaj?'
+        },
+        {
+          q: 'Ala zjadła <b>2/6</b> czekolady, a Ola <b>1/3</b> takiej samej czekolady. Która dziewczynka zjadła więcej?',
+          illo: bars([{ parts: 6, shaded: 2, label: 'Ala: 2/6' }, { parts: 3, shaded: 1, label: 'Ola: 1/3', color: D }]), cap: 'Porównaj długości',
+          hint: 'Narysuj obie czekolady tej samej długości i pokoloruj. Porównaj pokolorowane części.',
+          ans: 'Tyle samo (2/6 = 1/3)', check: hasWord('tyle samo', 'tak samo', 'równo', 'obie', 'nikt', 'żadna', 'zadna', 'po równo'),
+          teach: [
+            'Popatrz na paski: 2 kawałki z 6 i 1 kawałek z 3 mają tę samą długość.',
+            '2/6 to to samo co 1/3, tylko pocięte drobniej. Podziel górę i dół przez 2: 2/6 = 1/3.',
+            'Obie zjadły tyle samo. Takie ułamki nazywamy równymi (równoważnymi).'
+          ],
+          stuck: ['Jeśli każdy z trzech kawałków pokroisz na pół, ile będzie kawałków? Ile z nich to była jedna trzecia?'],
+          mistake: 'Odpowiedź „Ala, bo 2 > 1”. Ułamki porównujemy całym kawałkiem, a nie samą górną liczbą.'
+        }
+      ]
+    }
+  ];
+
+  /* ---------- render ---------- */
+  const main = document.getElementById('main');
+  const chipsEl = document.getElementById('chips');
+  const lockIcon = '<svg viewBox="0 0 16 16" aria-hidden="true"><rect x="3" y="7" width="10" height="7" rx="1.5" fill="currentColor"/><path d="M5 7V5a3 3 0 0 1 6 0v2" fill="none" stroke="currentColor" stroke-width="1.6"/></svg>';
+  const openIcon = '<svg viewBox="0 0 16 16" aria-hidden="true"><rect x="3" y="7" width="10" height="7" rx="1.5" fill="currentColor"/><path d="M5 7V5a3 3 0 0 1 6 0" fill="none" stroke="currentColor" stroke-width="1.6"/></svg>';
+
+  let n = 0;
+  SECTIONS.forEach(sec => {
+    const secEl = document.createElement('section');
+    secEl.className = 'topic'; secEl.id = sec.id;
+    secEl.innerHTML = `<div class="topic-head"><h2>${sec.name}</h2><span class="tag">${sec.tag} · 5 zadań</span></div><p class="topic-intro">${sec.intro}</p>`;
+    sec.tasks.forEach((t, i) => {
+      n++;
+      const id = `${sec.id}-${i + 1}`;
+      const art = document.createElement('article');
+      art.className = 'task'; art.id = id; art.dataset.n = n;
+      art.innerHTML = `
+        <div class="num" aria-label="Zadanie ${n}">${n}</div>
+        <p class="q">${t.q}</p>
+        <figure class="illo">${t.illo}<figcaption>${t.cap}</figcaption></figure>
+        <div class="answer">
+          <label for="in-${id}">Odpowiedź:</label>
+          <input id="in-${id}" type="text" autocomplete="off" placeholder="wpisz tutaj">
+          <button type="button" class="primary check-btn">Sprawdź</button>
+          <button type="button" class="ghost kidhint-btn">Podpowiedź</button>
+        </div>
+        <div class="feedback" aria-live="polite"></div>
+        <div class="kidhint"><b>Podpowiedź:</b> ${t.hint}</div>
+        <details class="tutor">
+          <summary><span class="closed-only">${lockIcon}</span><span class="open-only">${openIcon}</span> Dla prowadzącego <span class="hintlabel">odpowiedź i jak tłumaczyć</span></summary>
+          <div class="tutor-body">
+            <div class="ans">Odpowiedź: ${t.ans}</div>
+            <h4>Jak to wytłumaczyć Maksiowi</h4>
+            <ol>${t.teach.map(x => `<li>${x}</li>`).join('')}</ol>
+            <h4>Jeśli się zatnie, zapytaj</h4>
+            <ul>${t.stuck.map(x => `<li>${x}</li>`).join('')}</ul>
+            <h4>Najczęstszy błąd</h4>
+            <div class="mistake">${t.mistake}</div>
+          </div>
+        </details>`;
+      const input = art.querySelector('input'), fb = art.querySelector('.feedback');
+      let tries = 0;
+      const check = () => {
+        const v = input.value.trim();
+        if (!v) { fb.className = 'feedback no'; fb.textContent = 'Wpisz najpierw swoją odpowiedź.'; return; }
+        if (t.check(v)) {
+          fb.className = 'feedback ok'; fb.textContent = `Brawo, Maksiu! ★ ${t.ans}.`;
+          art.classList.add('done'); save(id, v); updateStars();
+        } else {
+          tries++;
+          fb.className = 'feedback no';
+          fb.textContent = tries < 2 ? 'Jeszcze nie. Przeczytaj zadanie raz jeszcze i spróbuj inaczej.' : 'Blisko? Kliknij „Podpowiedź” albo narysuj to zadanie.';
+          if (tries >= 2) art.querySelector('.kidhint').classList.add('show');
+        }
+      };
+      art.querySelector('.check-btn').addEventListener('click', check);
+      input.addEventListener('keydown', e => { if (e.key === 'Enter') check(); });
+      art.querySelector('.kidhint-btn').addEventListener('click', () => art.querySelector('.kidhint').classList.toggle('show'));
+      secEl.appendChild(art);
+    });
+    main.appendChild(secEl);
+    const a = document.createElement('a');
+    a.href = `#${sec.id}`; a.innerHTML = `${sec.name} <span class="n" data-sec="${sec.id}">0/5</span>`;
+    chipsEl.appendChild(a);
+  });
+
+  /* ---------- progress ---------- */
+  const KEY = 'zeszyt-maksia-v1';
+  function load() { try { return JSON.parse(localStorage.getItem(KEY) || '{}'); } catch (e) { return {}; } }
+  function save(id, v) { try { const d = load(); d[id] = v; localStorage.setItem(KEY, JSON.stringify(d)); } catch (e) {} }
+  function updateStars() {
+    const done = document.querySelectorAll('.task.done').length;
+    document.getElementById('stars-count').textContent = done;
+    SECTIONS.forEach(s => {
+      const c = document.querySelectorAll(`#${s.id} .task.done`).length;
+      chipsEl.querySelector(`[data-sec="${s.id}"]`).textContent = `${c}/5`;
+    });
+  }
+  const saved = load();
+  Object.keys(saved).forEach(id => {
+    const art = document.getElementById(id);
+    if (!art) return;
+    art.querySelector('input').value = saved[id];
+    art.classList.add('done');
+    const fb = art.querySelector('.feedback'); fb.className = 'feedback ok'; fb.textContent = 'Rozwiązane ★';
+  });
+  updateStars();
+
+  document.getElementById('reset-btn').addEventListener('click', () => {
+    if (!confirm('Wyczyścić wszystkie odpowiedzi Maksia?')) return;
+    try { localStorage.removeItem(KEY); } catch (e) {}
+    document.querySelectorAll('.task').forEach(a => {
+      a.classList.remove('done'); a.querySelector('input').value = '';
+      const fb = a.querySelector('.feedback'); fb.className = 'feedback'; fb.textContent = '';
+      a.querySelector('.kidhint').classList.remove('show');
+    });
+    updateStars();
+  });
+
+  document.getElementById('tutor-btn').addEventListener('click', () => {
+    const on = document.body.classList.toggle('tutor');
+    document.querySelectorAll('details.tutor').forEach(d => { d.open = on; });
+  });
+})();
+</script>
