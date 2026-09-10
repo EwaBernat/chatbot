@@ -7,6 +7,18 @@ który wie, jak powinna wyglądać dobra dokumentacja, i nie ma z czego urwać n
 **Teza filmu (jedno zdanie):** „Szybko albo dokładnie" to fałszywy wybór — dokumentacja jest
 szybka wtedy, gdy jest dokładna, bo każdy krok korzysta z poprzedniego.
 
+**Kto mówi:** **Ewa** — awatar Pomorskiego Centrum Terapii Pedagogicznej. Mówi w imieniu zespołu
+(„przygotowaliśmy", „zbudowaliśmy"), nigdy w imieniu jednej osoby. **W całym filmie nie pojawia się
+żadne imię i nazwisko** — ani w narracji, ani na ekranie, ani w napisach końcowych.
+
+**Podpis w kadrze:** stały, drobny podpis w **prawym dolnym rogu**, obecny przez cały film:
+
+> **Ewa** · Pomorskie Centrum Terapii Pedagogicznej
+
+W scenach 1 i 9, gdzie awatar jest duży, podpis zostaje w tym samym rogu — na jasnej płytce
+pod okienkiem awatara, żeby nic nie zasłaniał. Awatar w scenach 2–8: małe okienko, prawy dolny róg,
+podpis bezpośrednio pod nim.
+
 **Osnowa wizualna:** pasek pięciu kroków ze ścieżki dziecka —
 **METRYCZKA** (ważne dane) → **OBSERWACJA** (narzędziowe) → **WOPFU** (synteza informacji) →
 **IPET** (realizacja) → **EWALUACJA** (ocena). Pasek jest bohaterem drugiego planu: wraca w każdej
@@ -24,8 +36,8 @@ trzytaktowym rytmie — widz po drugiej scenie zna rytm i zaczyna słuchać tre�
 > **Wymóg** — czego wymaga dokumentacja (nowa i ta wcześniejsza, wciąż obowiązująca)
 > **EduPlaner** — co bierze na siebie, żeby jedno nie wykluczało drugiego
 
-**Dwa liczniki w kadrze** (prawy górny róg, drobne, nienachalne) — całe „szybko i dokładnie"
-w jednym obrazie. Przez film jeden rośnie, drugi maleje:
+**Dwa liczniki w kadrze** (lewy górny róg, drobne, nienachalne — prawy dolny należy do podpisu) —
+całe „szybko i dokładnie" w jednym obrazie. Przez film jeden rośnie, drugi maleje:
 
 - **KOMPLETNOŚĆ** — ile elementów dokumentacji jest domkniętych (rośnie: 0 → 5 kroków)
 - **PRZEPISYWANIE** — ile razy trzeba wpisać te same dane ponownie (maleje: zostaje 1 raz)
@@ -55,14 +67,16 @@ Tempo narracji: ok. 2,4 słowa na sekundę — spokojnie, z oddechem po każdym 
 **Na ekranie:** białe tło. Po lewej pojawia się słowo **SZYBKO**, po prawej **DOKŁADNIE**.
 Między nimi wjeżdża pomarańczowe „albo" — i po chwili przekreśla się, a na jego miejsce
 wskakuje **„i"**. Pod spodem wyjeżdża od dołu pasek pięciu kroków — jeszcze szary, uśpiony.
+W prawym dolnym rogu: awatar Ewa i podpis PCTP.
 
 **Narracja:**
 > Dokumentacja stawia nauczyciela przed wyborem, którego nie da się wygrać: zrobić szybko
-> albo zrobić dokładnie. Nazywam się Mirosława Jurczyszyn, jestem pedagogiem specjalnym.
-> Zbudowałam EduPlaner 2026 wokół przekonania, że ten wybór jest fałszywy. Dokumentacja jest
-> szybka wtedy, gdy jest dokładna — bo każdy krok korzysta z poprzedniego.
+> albo zrobić dokładnie. Jesteśmy zespołem Pomorskiego Centrum Terapii Pedagogicznej —
+> praktykami, którzy tę dokumentację prowadzą codziennie. Przygotowaliśmy EduPlaner 2026 wokół
+> przekonania, że ten wybór jest fałszywy. Dokumentacja jest szybka wtedy, gdy jest dokładna —
+> bo każdy krok korzysta z poprzedniego.
 
-**Awatar (HeyGen):** duży, pół kadru. Ciepły, spokojny ton — to obietnica, nie sprzedaż.
+**Awatar (HeyGen):** duży, prawy dolny obszar kadru. Ciepły, spokojny ton — to obietnica, nie sprzedaż.
 
 ---
 
@@ -76,7 +90,7 @@ Pomarańczowa obwódka pokazuje po kolei trzy pola, które później wrócą w I
 > Krok pierwszy: metryczka. Nauczyciel ma dziesięć minut i teczkę dziecka. Wymóg jest twardy:
 > dane bazowe, numer i data orzeczenia, okres obowiązywania, zgody, ochrona danych. EduPlaner
 > pyta o to raz i tylko raz. Te same dane wrócą w każdym kolejnym dokumencie — już wpisane,
-> bez ryzyka, że w trzech miejscach będą trzy różne daty.
+> bez ryzyka, że w trzech miejscach znajdą się trzy różne daty.
 
 **Takty na ekranie:** Nauczyciel: dziesięć minut · Wymóg: dane, orzeczenie, zgody, RODO ·
 EduPlaner: wpisujesz raz
@@ -92,8 +106,8 @@ Obok skala 1–5, na której zaznaczenia zapalają się jedno po drugim, aż kom
 **Narracja:**
 > Krok drugi: obserwacja. Nauczyciel patrzy na dziecko w klasie, na przerwie, w świetlicy — i nie ma
 > wtedy czasu wymyślać kwestionariusza. Wymóg mówi: ocena ma być wielospecjalistyczna i opisywać
-> funkcjonowanie, a nie rozpoznanie. EduPlaner podaje gotowe narzędzia: KSzOF, analizę ABC, teorię
-> umysłu, profil sensoryczny. Pani rola to obserwacja i skala. Narzędzie już czeka.
+> funkcjonowanie, a nie rozpoznanie. Przygotowaliśmy gotowe narzędzia: KSzOF, analizę ABC, teorię
+> umysłu, profil sensoryczny. Zostaje obserwacja i skala. Narzędzie już czeka.
 
 **Takty:** Nauczyciel: patrzy, nie wymyśla · Wymóg: ocena funkcjonowania, wielospecjalistyczna ·
 EduPlaner: narzędzie gotowe przed lekcją
@@ -108,10 +122,10 @@ i zbiegają się w jeden dokument. Kolejność w dokumencie widoczna wprost: **n
 potem trudności, na końcu wnioski dla zespołu.**
 
 **Narracja:**
-> Krok trzeci: WOPFU. Tutaj większość zespołów traci wieczory, bo pisze od nowa to, co już wiedzą.
+> Krok trzeci: WOPFU. Tutaj większość zespołów traci wieczory, bo pisze od nowa to, co już wie.
 > A WOPFU nie jest pisaniem — jest syntezą. Wymóg: wspólna ocena zespołu, mocne strony przed
 > trudnościami, wnioski, które da się przełożyć na działanie. EduPlaner składa to z tego, co już
-> Państwo wprowadzili, w układzie zgodnym z wytycznymi. Zespół nie zaczyna od pustej strony —
+> zostało wprowadzone, w układzie zgodnym z wytycznymi. Zespół nie zaczyna od pustej strony —
 > zaczyna od rozmowy o dziecku.
 
 **Takty:** Nauczyciel: nie pisze od nowa · Wymóg: synteza zespołu, mocne strony najpierw ·
@@ -145,7 +159,7 @@ Strzałka domyka pętlę i wraca na początek paska — do metryczki następnego
 **Narracja:**
 > Krok piąty: ewaluacja. Zwykle wygląda jak śledztwo: co my właściwie założyliśmy w październiku.
 > Wymóg: co najmniej dwa razy w roku szkolnym ocena efektywności udzielanej pomocy i wnioski
-> do dalszej pracy. W EduPlanerze ewaluacja jest odczytem, bo wskaźnik ustalili Państwo wcześniej,
+> do dalszej pracy. W EduPlanerze ewaluacja jest odczytem, bo wskaźnik został ustalony wcześniej,
 > przy celu. A wnioski z czerwca stają się punktem wyjścia na wrzesień. Pętla się zamyka.
 
 **Takty:** Nauczyciel: odczytuje, nie odtwarza · Wymóg: ocena efektywności i wnioski ·
@@ -162,7 +176,7 @@ z 9 sierpnia 2017 r. · RODO**. Obok drobny podpis: „aktualizowane przy każde
 **Narracja:**
 > I rzecz, która w tym zawodzie kosztuje najwięcej spokoju: przepisy się zmieniają, a te wcześniejsze
 > dalej obowiązują. Nauczyciel nie ma czasu tego pilnować. Dokumenty w EduPlanerze stoją na
-> obowiązujących ramach i są poprawiane, kiedy zmienia się prawo — a Państwo pracują dalej na tych
+> obowiązujących ramach, a my poprawiamy je, kiedy zmienia się prawo — Państwo pracują dalej na tych
 > samych pięciu krokach. Zmiana przepisu jest naszą pracą, nie Państwa nadgodziną.
 
 ---
@@ -174,7 +188,7 @@ nazwa wpisywana ręką użytkownika. Pasek delikatnie przesuwa się w lewo, robi
 
 **Narracja:**
 > EduPlaner 2026 jest projektem otwartym. Jeśli w Państwa placówce ścieżka wygląda inaczej albo
-> potrzebny jest dokument, którego tu nie ma — dopisujemy go. Najlepiej wie, czego potrzebuje
+> potrzebny jest dokument, którego tu nie ma — dopisujemy go razem. Najlepiej wie, czego potrzebuje
 > placówka, ten, kto w niej pracuje.
 
 ---
@@ -182,27 +196,32 @@ nazwa wpisywana ręką użytkownika. Pasek delikatnie przesuwa się w lewo, robi
 ## SCENA 9 · ZAPROSZENIE — 2:48–3:00
 
 **Na ekranie:** białe tło, pasek pięciu kroków jako sygnatura pod tekstem.
-Hasło i jedno wezwanie: **formularz analizy potrzeb**. Miejsce na kod QR. Pod spodem kontakt.
+Hasło i jedno wezwanie: **formularz analizy potrzeb**. Miejsce na kod QR. Pod spodem kontakt,
+w prawym dolnym rogu ten sam podpis: Ewa · Pomorskie Centrum Terapii Pedagogicznej.
 
 **Narracja:**
-> Proszę wypełnić formularz analizy potrzeb i napisać, czego potrzebuje Państwa placówka.
+> Prosimy wypełnić formularz analizy potrzeb i napisać, czego potrzebuje Państwa placówka.
 > Zrobimy to szybko. I dokładnie. EduPlaner 2026 — mniej dokumentów, więcej edukacji.
 
-**Ekran końcowy:** kontakt@eduplaner2026.pl · 662 888 403
+**Ekran końcowy:** Pomorskie Centrum Terapii Pedagogicznej · kontakt@eduplaner2026.pl · 662 888 403
 
 ---
 
 ## Uwagi produkcyjne
 
-1. **Nie podaję oszczędności w minutach ani godzinach.** W scenariuszu nie ma zdania w rodzaju
+1. **Bez imienia i nazwiska w materiale.** Narratorem jest awatar Ewa, występujący jako głos zespołu
+   PCTP; jedyna sygnatura w kadrze jest instytucjonalna (prawy dolny róg, przez cały film).
+   Ten sam podpis warto stosować w kolejnych filmach — wtedy seria wygląda spójnie i nic się
+   nie powtarza w formie osobistej.
+2. **Nie podaję oszczędności w minutach ani godzinach.** W scenariuszu nie ma zdania w rodzaju
    „zamiast sześciu godzin — czterdzieści minut", bo nie mam Państwa realnych danych i nie zamierzam
-   ich wymyślać. Jeśli mają Państwo takie liczby z własnej praktyki (choćby z jednej placówki),
-   wstawię je w scenach 3, 4 i 6 — będą najsilniejszym argumentem w całym filmie.
-2. **Cytaty z przepisów są sformułowane opisowo**, nie jako paragrafy. Przed publikacją warto,
-   żeby ktoś z Państwa zespołu potwierdził brzmienie wymogów w scenach 5 i 6 — wtedy dopiszemy
-   dokładne jednostki redakcyjne.
-3. **Nazwy kroków biorę wprost z aplikacji** (METRYCZKA · OBSERWACJA · WOPFU · IPET · EWALUACJA),
+   ich wymyślać. Jeśli są takie liczby z praktyki — choćby z jednej placówki — wstawię je w scenach
+   3, 4 i 6; będą najsilniejszym argumentem w całym filmie.
+3. **Cytaty z przepisów są sformułowane opisowo**, nie jako paragrafy. Przed publikacją warto,
+   żeby ktoś z zespołu potwierdził brzmienie wymogów w scenach 5 i 6 — wtedy dopiszemy dokładne
+   jednostki redakcyjne.
+4. **Nazwy kroków biorę wprost z aplikacji** (METRYCZKA · OBSERWACJA · WOPFU · IPET · EWALUACJA),
    razem z podpisami z paska. Jeśli któryś podpis ma brzmieć inaczej — zmieniamy w scenariuszu
    i w kadrze jednocześnie.
-4. **Wersje krótsze z tego samego materiału:** spot 40 s = scena 1 + scena 5 + scena 9;
+5. **Wersje krótsze z tego samego materiału:** spot 40 s = scena 1 + scena 5 + scena 9;
    pięć osobnych filmików po 25 s = po jednym na każdy krok (dobre na kolejne dni w social mediach).
