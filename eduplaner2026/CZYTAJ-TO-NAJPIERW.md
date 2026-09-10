@@ -7,6 +7,33 @@ narzędzia dla właścicielki i komplet zasad, które trzeba znać, zanim się c
 zmieni. Właścicielka to **Mirosława Ewa Jurczyszyn, PCTP Koszalin** — nie programuje.
 Każda zmiana, która wymaga od niej edycji kodu, jest zmianą źle zrobioną.
 
+## Co zmieniło się w tej paczce (10 września 2026)
+
+Jeżeli dostałeś wcześniejszą wersję, to jest różnica:
+
+- **`umowa-subskrypcji.html` — nowy § 4 „Zakres odpowiedzialności za dokumentację".**
+  Oznaczony **zieloną oprawą** z etykietą „Nowy zapis" i notatką dla Ciebie.
+  Zieleń jest tymczasowa: po akceptacji prawnika usuwa się `<div class="nowe">`
+  razem z etykietą i notatką, zostawiając nagłówek i listę. **Uwaga: paragrafy
+  poniżej przesunęły się o jeden** (dawny § 4 → § 5, § 5 → § 6, § 6 → § 7,
+  § 7 → § 8). Odwołania w dokumentacji zostały poprawione; odwołanie wewnętrzne
+  do „§ 2 ust. 3 lit. c" jest nadal aktualne.
+- **`index.html` — zdjęcie w hero.** `img/hero-biurko.webp` zastępuje makietę
+  laptopa. Kiedy plik się wczyta, JS dokłada klasę `has-photo` na `.hero-stage`
+  i makieta znika. Karta „Druk IPET gotowy do PDF" **musi zostać poza `.device`** —
+  wewnątrz znikała razem z laptopem.
+- **`index.html` — sekcja „Co się zmieniło" ma piąty wiersz** o opinii
+  o funkcjonowaniu (obowiązek od 1 września 2026) i **przycisk `[data-przepis]`**,
+  który otwiera okno z podstawą prawną. Treść okna jest w JS jako stała `TRESC`
+  — tam się ją edytuje, nie w HTML.
+- **Formularz zamówienia** zbiera komplet danych do faktury imiennej dla osoby
+  prywatnej (imię i nazwisko, ulica, kod, miejscowość) i mówi wprost, że
+  **gotówki nie przyjmujemy**. To warunek zwolnienia z kasy fiskalnej, nie
+  preferencja — patrz reguła 3 niżej.
+- **Nowy plik `zamowienie-osoba-prywatna.html`** — druk zamówienia dla konsumenta.
+- **Ceny szkoleń:** „Obserwacja pogłębiona" trwa 1 godzinę i kosztuje 1000 zł
+  brutto dla rady, „Teoria umysłu" też 1000 zł.
+
 ## Pierwsze pół godziny
 
 ```bash
