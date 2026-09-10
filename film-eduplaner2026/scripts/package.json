@@ -1,0 +1,9 @@
+{
+  "name": "eduplaner2026-film-dokumenty",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Generator storyboardu i narracji filmu z scenariusz.json",
+  "scripts": { "start": "node generuj_dokumenty.mjs" },
+  "dependencies": { "docx": "^9.5.1" }
+}

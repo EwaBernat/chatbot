@@ -1,0 +1,25 @@
+{
+  "name": "eduplaner2026-film-3min",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Film promocyjny „Dlaczego warto mieć EduPlaner 2026\" — 3 min, prawdziwe zrzuty druków (marka PCTP)",
+  "scripts": {
+    "zrzuty": "node scripts/kopiuj-zrzuty.mjs",
+    "start": "npm run zrzuty && remotion studio",
+    "render": "npm run zrzuty && remotion render Film out/EduPlaner2026_3min.mp4",
+    "render-glos": "npm run zrzuty && remotion render Film out/EduPlaner2026_3min.mp4 --props=./props-glos.json",
+    "still": "npm run zrzuty && remotion still Film out/klatka.png --frame=2400",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@remotion/cli": "4.0.400",
+    "@remotion/media-utils": "4.0.400",
+    "react": "19.2.0",
+    "react-dom": "19.2.0",
+    "remotion": "4.0.400"
+  },
+  "devDependencies": {
+    "@types/react": "19.2.0",
+    "typescript": "5.9.3"
+  }
+}

@@ -1,0 +1,255 @@
+{
+  "tytul": "Dlaczego warto mieć EduPlaner 2026",
+  "podtytul": "Film promocyjny · 3 minuty · 16:9 · PCTP Koszalin",
+  "fps": 30,
+  "szerokosc": 1920,
+  "wysokosc": 1080,
+  "uwaga_o_danych": "Wszystkie widoczne dane ucznia są PRZYKŁADOWE (Jan Kowalski, dane fikcyjne). Zrzuty pochodzą z prawdziwych druków i modułów EduPlaner 2026.",
+  "sceny": [
+    {
+      "nr": 1,
+      "id": "powitanie",
+      "tytul": "POWITANIE",
+      "od": 0,
+      "czas": 18,
+      "typ": "plansza",
+      "plansza": {
+        "nadtytul": "EDUPLANER 2026 · PCTP KOSZALIN",
+        "tytul": "Cała dokumentacja placówki\nw jednej cyfrowej szafie",
+        "haslo": "Mniej dokumentów. Więcej edukacji."
+      },
+      "zrzuty": [],
+      "animacja": [
+        "Tło: gradient fioletowy #2D1B69 → #1a0f42, delikatnie przesuwający się (30 s pętla).",
+        "Nadtytuł wjeżdża z góry (fade + 20 px), po 6 klatkach tytuł słowo po słowie (stagger 3 kl.).",
+        "Pod tytułem pomarańczowa linia rozjeżdża się od środka do 260 px (spring).",
+        "Hasło pojawia się na 12. sekundzie, lekki scale 0.96 → 1."
+      ],
+      "narracja": "Dzień dobry. Nazywam się Mirosława Jurczyszyn, jestem pedagogiem specjalnym. Stworzyłam EduPlaner 2026 — cyfrową szafę, w której cała dokumentacja przedszkola i szkoły jest w jednym miejscu. Przez najbliższe trzy minuty pokażę Państwu prawdziwe druki z aplikacji, a nie slajdy z obietnicami.",
+      "heygen": "Awatar DUŻY (pół kadru lub centralnie). Plansza jako tło. Ciepły polski głos AI."
+    },
+    {
+      "nr": 2,
+      "id": "wopf-karta",
+      "tytul": "OBSERWACJA I OCENA WOPF",
+      "od": 18,
+      "czas": 20,
+      "typ": "ekran",
+      "podpis": "Obserwacje WOPF · osoba, miejsce, narzędzie, skala 1–5",
+      "zrzuty": [
+        "zajecia_01_obserwacje_wopf.png",
+        "zajecia_01b_oceny_wypelnione.png"
+      ],
+      "animacja": [
+        "Wejście: zajecia_01_obserwacje_wopf.png, spokojny zoom 1.02 → 1.06 (bez przesuwania — dymki muszą trafiać w te same miejsca).",
+        "Trzy dymki-podpisy pojawiają się kolejno (2 s, 4 s, 6 s) obok realnych rzędów wyboru: „1 — osoba obserwująca”, „2 — miejsce obserwacji”, „3 — narzędzie: KSzOF · ABC · ToM · Sensoryka”; każdy gaśnie po 4 s.",
+        "10 s: cięcie z przenikaniem na zajecia_01b_oceny_wypelnione.png — wypełniona tabela oceny 1–5 (9 wymiarów KSzOF).",
+        "Zbliżenie na kolorowe kropki skali; w prawym górnym rogu licznik dobija do 9/9 wymiarów."
+      ],
+      "narracja": "Zaczynamy tam, gdzie zaczyna się każda ścieżka dziecka — od obserwacji. Wybiera Pani osobę obserwującą, miejsce i narzędzie, a aplikacja podaje gotowe wymiary oceny: KSzOF, ABC, teorię umysłu i profil sensoryczny. Potem tylko skala od jednego do pięciu. Nie tworzy Pani kwestionariusza — Pani obserwuje dziecko.",
+      "heygen": "Awatar mały, prawy dolny róg. Ekran aplikacji w tle.",
+      "licznik": {
+        "do": 9,
+        "opis": "wymiarów KSzOF ocenionych"
+      }
+    },
+    {
+      "nr": 3,
+      "id": "wopf-druk",
+      "tytul": "GOTOWY DRUK WOPF",
+      "od": 38,
+      "czas": 18,
+      "typ": "kartkowanie",
+      "podpis": "WOPF · dokument A4 · 11 stron",
+      "licznik": {
+        "do": 11,
+        "opis": "stron gotowego WOPF"
+      },
+      "zrzuty": [
+        "druk_WOPF_Raport_s01.png",
+        "druk_WOPF_Raport_s02.png",
+        "druk_WOPF_Raport_s03.png",
+        "druk_WOPF_Raport_s04.png",
+        "druk_WOPF_Raport_s05.png",
+        "druk_WOPF_Raport_s06.png",
+        "druk_WOPF_Raport_s07.png",
+        "druk_WOPF_Raport_s08.png",
+        "druk_WOPF_Raport_s09.png",
+        "druk_WOPF_Raport_s10.png",
+        "druk_WOPF_Raport_s11.png"
+      ],
+      "animacja": [
+        "Strony A4 jako talia kart: każda wjeżdża z prawej z lekką rotacją (−2°…+2°) co 12 klatek.",
+        "Licznik w prawym górnym rogu odlicza 1 → 11 razem z kartkowaniem.",
+        "Ostatnie 4 s: talia składa się w jeden stos, zoom na stronę 5 (mocne strony i wnioski)."
+      ],
+      "narracja": "Kiedy kończy Pani obserwację, dokument jest już gotowy. Jedenaście stron Wielospecjalistycznej Oceny Poziomu Funkcjonowania: mocne strony przed trudnościami, wnioski dla zespołu, miejsce na podpisy. To ten sam dokument, który do tej pory pisała Pani od zera przez dwa wieczory.",
+      "heygen": "Awatar mały, prawy dolny róg."
+    },
+    {
+      "nr": 4,
+      "id": "cele-smart",
+      "tytul": "CELE SMART Z BIBLIOTEKI",
+      "od": 56,
+      "czas": 20,
+      "typ": "ekran",
+      "podpis": "Moduł Realizacji Zajęć · cele SMART · KSzOF + ICF",
+      "licznik": {
+        "do": 120,
+        "opis": "pozycji w bibliotece"
+      },
+      "zrzuty": [
+        "zajecia_02b_cele_z_ocen.png",
+        "zajecia_03b_baza_rekomendacje.png",
+        "zajecia_04b_program_wypelniony.png"
+      ],
+      "animacja": [
+        "0–7 s: zajecia_02b_cele_z_ocen.png — cel z plakietką „WYGENEROWANY Z WOPF” i „PRIORYTET WYSOKI” podświetla się obwódką #E8450A.",
+        "7–13 s: whip-pan w lewo na zajecia_03b_baza_rekomendacje.png; licznik nabija 0 → 120 pozycji biblioteki.",
+        "13–20 s: przejście na zajecia_04b_program_wypelniony.png — program ucznia z realnymi ćwiczeniami; podpis „program ucznia składa się sam”."
+      ],
+      "narracja": "Z oceny rodzą się cele. Moduł podaje propozycje celów SMART przypisane do obszarów KSzOF i kodów ICF — razem z metodami pracy i dostosowaniami. Wybiera Pani, poprawia własnymi słowami, dodaje swoje. Sto dwadzieścia pozycji w bibliotece czeka, żeby nie zaczynać od pustej strony.",
+      "heygen": "Awatar mały, prawy dolny róg. Wskazówka: przewijaj wolno."
+    },
+    {
+      "nr": 5,
+      "id": "ipet-zywy",
+      "tytul": "IPET NA ŻYWO (SERCE FILMU)",
+      "od": 76,
+      "czas": 20,
+      "typ": "polaczenie",
+      "podpis": "Cele z modułu → sekcja III druku IPET",
+      "zrzuty": [
+        "zajecia_02b_cele_z_ocen.png",
+        "druk_IPET_Plan_s03.png",
+        "zajecia_12b_druk_ipet_gora.png"
+      ],
+      "animacja": [
+        "Kadr dzielony: lewa połowa = moduł (zajecia_02b_cele_z_ocen.png), prawa = prawdziwa strona A4 druku IPET (druk_IPET_Plan_s03.png).",
+        "Trzy „pigułki” z treścią celu odrywają się od lewej strony i po łuku (Bezier) wlatują w wiersze tabeli III po prawej — co 2.5 s.",
+        "Każde wlądowanie: wiersz tabeli błyska bladym fioletem, po prawej dopisuje się podstawa prawna.",
+        "Ostatnie 5 s: prawa strona rozjeżdża się na cały kadr, zoom na nagłówek „III. Cele edukacyjno-terapeutyczne (KSzOF · ICF · SMART)”.",
+        "Wariant alternatywny (jeśli wolisz nagranie ekranu): nagraj zakładkę ⑫ Druk IPET i klik „↻ Odśwież z modułu” — efekt masz na zrzucie zajecia_12b_druk_ipet_gora.png."
+      ],
+      "narracja": "I tu dzieje się rzecz najważniejsza. Cele, które właśnie Pani wybrała, wpadają na żywo do druku IPET — do sekcji trzeciej, razem z podstawą prawną. Zmienia Pani cel w module, a druk zmienia się w tej samej sekundzie. Jedno źródło prawdy zamiast czterech wersji tego samego pliku.",
+      "heygen": "Awatar mały, prawy dolny róg. Najważniejsza scena — mów spokojnie."
+    },
+    {
+      "nr": 6,
+      "id": "raport",
+      "tytul": "RAPORT DLA RODZICA I DYREKCJI",
+      "od": 96,
+      "czas": 16,
+      "typ": "kartkowanie",
+      "podpis": "Raport Ucznia · 5 stron syntezy",
+      "licznik": {
+        "do": 5,
+        "opis": "stron syntezy"
+      },
+      "zrzuty": [
+        "druk_Raport_Ucznia_s01.png",
+        "druk_Raport_Ucznia_s02.png",
+        "druk_Raport_Ucznia_s03.png",
+        "druk_Raport_Ucznia_s04.png",
+        "druk_Raport_Ucznia_s05.png"
+      ],
+      "animacja": [
+        "Pięć stron rozkłada się w wachlarz (rotacja −8°…+8°) w ciągu 5 s.",
+        "8 s: wachlarz zsuwa się, zostaje strona 2 (profil ucznia i skrót funkcjonowania w 8 obszarach), zoom na tabelę.",
+        "Podpis-kontra po lewej: „5 stron zamiast 30”."
+      ],
+      "narracja": "Dla rodziców i dla dyrekcji jest osobna, krótka synteza — Raport Ucznia. Pięć stron zamiast trzydziestu. Ten sam zestaw danych, inny język i inny poziom szczegółu. Rozmowa z rodzicem zaczyna się od konkretu, a nie od szukania kartek.",
+      "heygen": "Awatar mały, prawy dolny róg."
+    },
+    {
+      "nr": 7,
+      "id": "baza",
+      "tytul": "BAZA UCZNIÓW — WIDOK DYREKTORA",
+      "od": 112,
+      "czas": 18,
+      "typ": "ekran",
+      "podpis": "Baza Uczniów · rejestr xlsx · metryki obszarów, ABC, sensoryka",
+      "zrzuty": [
+        "druk_Baza_rejestr.png",
+        "druk_Baza_obszary.png",
+        "zajecia_11_pomoce.png"
+      ],
+      "animacja": [
+        "Start w zbliżeniu na jeden wiersz rejestru (skala 2.0) i przez 6 s odjazd do pełnej tabeli — „od jednego ucznia do całej placówki” (4 przykładowych uczniów).",
+        "6–12 s: przejście na druk_Baza_obszary.png — metryki funkcjonowania w 8 obszarach (KSzOF · ToM · ABC · Sensoryka).",
+        "12–18 s: cięcie na zajecia_11_pomoce.png, podpis „pomoce i materiały pod ręką”."
+      ],
+      "narracja": "Wszystko spina się w Bazie Uczniów — rejestrze w Excelu z metrykami obszarów, analizą ABC i profilem sensorycznym. Dyrektor widzi całą placówkę w jednym arkuszu, bez zbierania informacji od każdego specjalisty osobno.",
+      "heygen": "Awatar mały, prawy dolny róg."
+    },
+    {
+      "nr": 8,
+      "id": "ewaluacja-otwartosc",
+      "tytul": "EWALUACJA I OTWARTY PROJEKT",
+      "od": 130,
+      "czas": 20,
+      "typ": "ekran",
+      "podpis": "Ewaluacja programu · dodaj własne · integracja",
+      "zrzuty": [
+        "zajecia_10_ewaluacja.png",
+        "zajecia_05_dodaj_wlasne.png",
+        "zajecia_06_integracja.png"
+      ],
+      "animacja": [
+        "0–8 s: zajecia_10_ewaluacja.png z wolnym przewinięciem w dół (parallaks 6 %).",
+        "8–14 s: zajecia_05_dodaj_wlasne.png; kursor-atrapa wpisuje własny cel (efekt maszyny do pisania w nakładce).",
+        "14–20 s: zajecia_06_integracja.png; trzy hasła wskakują od dołu: „Dodawaj”, „Modyfikuj”, „Proponuj”."
+      ],
+      "narracja": "Rok nie kończy się na planie. Ewaluacja pokazuje, co realnie się zmieniło i co robimy dalej. A jeśli czegoś tu brakuje — dopisuje to Pani sama. EduPlaner 2026 jest projektem otwartym: zmienia się prawo, zmienia się aplikacja, bo współtworzą ją praktycy.",
+      "heygen": "Awatar mały, prawy dolny róg."
+    },
+    {
+      "nr": 9,
+      "id": "subskrypcja",
+      "tytul": "CO SKŁADA SIĘ NA SUBSKRYPCJĘ",
+      "od": 150,
+      "czas": 16,
+      "typ": "lista",
+      "lista": [
+        "Przygotowanie merytoryczne — dokumenty tworzone przez praktyków",
+        "Ciągły rozwój techniczny — nowe funkcje i moduły",
+        "Utrzymanie: bezpieczeństwo danych, kopie zapasowe, stabilność",
+        "Aktualizacje przy zmianach przepisów",
+        "Wsparcie techniczne i merytoryczne",
+        "Jasne zasady subskrypcji — bez ukrytych kosztów"
+      ],
+      "zrzuty": [],
+      "animacja": [
+        "Tło: gradient fioletowy. Sześć wierszy wjeżdża od lewej co 8 klatek (spring), pomarańczowy znak ✔ dorysowuje się ścieżką SVG.",
+        "Na 13 s pod listą pojawia się dopisek: „a ponad to — Państwa głos: rozwój wg formularza analizy potrzeb”."
+      ],
+      "narracja": "Zaufanie zaczyna się od jasności. Roczna subskrypcja to przygotowanie merytoryczne, ciągły rozwój techniczny, utrzymanie i bezpieczeństwo danych, aktualizacje przy zmianach przepisów, wsparcie techniczne i merytoryczne oraz przejrzyste zasady. Bez ukrytych kosztów.",
+      "heygen": "Awatar mały lub schowany — lista musi być czytelna."
+    },
+    {
+      "nr": 10,
+      "id": "zaproszenie",
+      "tytul": "ZAPROSZENIE (FINAŁ)",
+      "od": 166,
+      "czas": 14,
+      "typ": "final",
+      "plansza": {
+        "nadtytul": "JEDEN KROK",
+        "tytul": "Wypełnij formularz\nanalizy potrzeb",
+        "haslo": "Mniej dokumentów. Więcej edukacji.",
+        "kontakt": [
+          "kontakt@eduplaner2026.pl",
+          "662 888 403"
+        ]
+      },
+      "zrzuty": [],
+      "animacja": [
+        "Ostatni ekran aplikacji rozmywa się i cofa (scale 1 → 0.9), na wierzchu wjeżdża plansza CTA.",
+        "Miejsce na kod QR po prawej (pusty kwadrat 320 × 320 px — wstaw własny kod lub logo).",
+        "Kontakt pojawia się na 8 s, hasło końcowe na 11 s i zostaje do końca."
+      ],
+      "narracja": "Wyobraźcie sobie ten rok inaczej: dokumentacja uporządkowana, a Państwa czas tam, gdzie naprawdę trzeba. Wypełnijcie formularz analizy potrzeb i powiedzcie nam, czego potrzebuje Wasza placówka. EduPlaner 2026. Mniej dokumentów. Więcej edukacji.",
+      "heygen": "Awatar DUŻY (klamra z Sceną 1). Na końcu 2 s samej planszy z kontaktem."
+    }
+  ]
+}

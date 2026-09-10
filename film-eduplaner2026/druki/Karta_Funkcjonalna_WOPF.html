@@ -1,0 +1,1362 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>EduPlaner2026-MJ-PCTP · Karta Funkcjonalna WOPF</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,500;9..144,600;9..144,700;9..144,800&family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --purple:#2d1b69; --purple-soft:#4a3a8a; --purple-mist:#f3f1fb; --purple-deep:#1a0f3e;
+  --orange:#e8450a; --orange-soft:#f47140; --orange-mist:#fef0e8;
+  --ink:#1a1530; --paper:#fbf9f4; --rule:#d8d2c5; --muted:#6b6378; --line:#a89e8c;
+  --green:#0d7d5c; --red:#b8350d; --amber:#c47a10; --teal:#2b6e6e;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{background:#e8e5dc;color:var(--ink);font-family:'DM Sans',sans-serif;font-size:14px;line-height:1.55;-webkit-font-smoothing:antialiased}
+.app{max-width:1320px;margin:0 auto;padding:24px 24px 140px}
+
+/* MASTHEAD */
+.masthead{background:var(--paper);border:1px solid var(--rule);padding:22px 28px 0;margin-bottom:14px;position:relative}
+.masthead::before{content:"";position:absolute;left:0;top:0;bottom:0;width:6px;background:var(--purple)}
+.masthead::after{content:"";position:absolute;left:6px;top:0;width:6px;height:34px;background:var(--orange)}
+.masthead-top{display:flex;align-items:center;gap:18px;padding-bottom:18px;border-bottom:1px solid var(--rule)}
+.brand-mark{width:54px;height:54px;background:var(--purple);color:var(--paper);display:grid;place-items:center;font-family:'Fraunces',serif;font-weight:700;font-size:28px;position:relative;flex-shrink:0}
+.brand-mark::after{content:"";position:absolute;right:-7px;bottom:-7px;width:18px;height:18px;background:var(--orange)}
+.brand-text h1{font-family:'Fraunces',serif;font-weight:400;font-size:26px;color:var(--purple);letter-spacing:-0.025em;line-height:1}
+.brand-text h1 em{font-style:italic;color:var(--orange);font-weight:600}
+.brand-text h1 .sep{color:var(--rule);font-style:normal;margin:0 8px;font-weight:300}
+.brand-text small{display:block;font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:0.18em;text-transform:uppercase;color:var(--muted);margin-top:7px}
+.brand-actions{margin-left:auto;display:flex;gap:8px}
+
+button{font-family:'DM Sans',sans-serif;font-size:12px;font-weight:600;letter-spacing:0.04em;border:1px solid var(--rule);background:var(--paper);color:var(--ink);padding:9px 16px;cursor:pointer;transition:all .15s}
+button:hover{border-color:var(--purple);color:var(--purple)}
+button.primary{background:var(--purple);color:var(--paper);border-color:var(--purple)}
+button.primary:hover{background:var(--orange);border-color:var(--orange)}
+button.tiny{padding:5px 10px;font-size:10px}
+button.ghost{background:transparent}
+
+/* TAB NAV */
+.tab-nav{display:flex;padding:0;margin:0}
+.tab-btn{flex:1;padding:16px 20px;background:transparent;border:none;border-top:3px solid transparent;cursor:pointer;text-align:left;display:flex;align-items:center;gap:14px;transition:all .2s}
+.tab-btn:hover{background:var(--purple-mist)}
+.tab-btn.active{background:var(--purple-mist);border-top-color:var(--orange)}
+.tab-num{width:36px;height:36px;border:1px solid var(--rule);background:var(--paper);display:grid;place-items:center;font-family:'Fraunces',serif;font-size:18px;font-weight:500;color:var(--muted);flex-shrink:0;transition:all .2s}
+.tab-btn:hover .tab-num{border-color:var(--purple);color:var(--purple)}
+.tab-btn.active .tab-num{background:var(--purple);color:var(--paper);border-color:var(--purple)}
+.tab-info{display:flex;flex-direction:column;align-items:flex-start;line-height:1.2}
+.tab-eyebrow{font-family:'JetBrains Mono',monospace;font-size:9px;letter-spacing:0.18em;text-transform:uppercase;color:var(--muted);margin-bottom:4px}
+.tab-btn.active .tab-eyebrow{color:var(--orange)}
+.tab-label{font-family:'Fraunces',serif;font-size:16px;font-weight:500;color:var(--purple);letter-spacing:-0.01em}
+.tab-meta{font-family:'JetBrains Mono',monospace;font-size:9px;color:var(--muted);margin-top:3px;letter-spacing:0.06em}
+
+/* STUDENT BANNER */
+.student-banner{background:var(--paper);border:1px solid var(--rule);padding:14px 24px;margin-bottom:18px;display:grid;grid-template-columns:repeat(5,1fr);gap:8px 18px}
+.student-banner label{display:flex;flex-direction:column;gap:3px}
+.student-banner span{font-family:'JetBrains Mono',monospace;font-size:9px;letter-spacing:0.14em;text-transform:uppercase;color:var(--muted)}
+.student-banner input{border:none;border-bottom:1px dotted var(--line);background:transparent;font-family:'DM Sans',sans-serif;font-size:13px;color:var(--purple);padding:3px 2px}
+.student-banner input:focus{outline:none;border-bottom-color:var(--orange)}
+
+/* TAB CONTENT */
+.tab-content{display:none}
+.tab-content.active{display:block;animation:fadeIn 0.25s ease-out}
+@keyframes fadeIn{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
+
+/* JUMP NAV */
+.jump-nav{background:var(--paper);border:1px solid var(--rule);padding:12px 18px;margin-bottom:18px;display:flex;flex-wrap:wrap;gap:6px;align-items:center;position:sticky;top:0;z-index:10;box-shadow:0 2px 12px rgba(45,27,105,0.08)}
+.jump-nav .lbl{font-family:'JetBrains Mono',monospace;font-size:9px;letter-spacing:0.2em;text-transform:uppercase;color:var(--muted);margin-right:8px}
+.jump-nav a{font-family:'DM Sans',sans-serif;font-size:11px;font-weight:500;color:var(--purple);text-decoration:none;padding:5px 10px;border:1px solid var(--rule);transition:all .12s}
+.jump-nav a:hover{background:var(--purple);color:var(--paper);border-color:var(--purple)}
+
+/* CARD */
+.card{background:var(--paper);border:1px solid var(--rule);margin-bottom:18px;scroll-margin-top:80px}
+.card-head{display:grid;grid-template-columns:60px 1fr auto;align-items:center;padding:18px 24px;border-bottom:1px solid var(--rule);gap:18px;background:linear-gradient(to right, var(--purple-mist) 0%, transparent 70%)}
+.card-icon{width:44px;height:44px;background:var(--purple);color:var(--paper);display:grid;place-items:center;font-family:'Fraunces',serif;font-weight:600;font-size:20px;position:relative}
+.card-icon::after{content:"";position:absolute;right:-5px;bottom:-5px;width:12px;height:12px;background:var(--orange)}
+.card-titles h3{font-family:'Fraunces',serif;font-weight:500;font-size:21px;color:var(--purple);letter-spacing:-0.015em;line-height:1.05}
+.card-titles p{font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:0.16em;text-transform:uppercase;color:var(--orange);margin-top:6px}
+.card-titles p b{color:var(--muted);font-weight:400}
+.card-body{padding:20px 24px}
+
+/* FIELDS */
+.field-grid{display:grid;gap:14px 18px}
+.field-grid.cols-2{grid-template-columns:1fr 1fr}
+.field-grid.cols-3{grid-template-columns:1fr 1fr 1fr}
+.field{display:flex;flex-direction:column;gap:4px}
+.field-label{font-family:'JetBrains Mono',monospace;font-size:9px;letter-spacing:0.16em;text-transform:uppercase;color:var(--muted)}
+.field input, .field select{border:none;border-bottom:1px dotted var(--line);background:transparent;font-family:'DM Sans',sans-serif;font-size:13px;color:var(--purple);padding:4px 2px;width:100%}
+.field input:focus, .field select:focus{outline:none;border-bottom-color:var(--orange)}
+textarea{width:100%;padding:10px 12px;border:1px solid var(--rule);background:rgba(255,255,255,0.5);font-family:'DM Sans',sans-serif;font-size:13px;line-height:1.55;color:var(--ink);resize:vertical}
+textarea:focus{outline:none;border-color:var(--orange)}
+textarea.italic{font-family:'Fraunces',serif;font-style:italic;color:var(--purple-deep)}
+.eyebrow{font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:0.2em;text-transform:uppercase;color:var(--orange);margin-bottom:4px}
+.lede{font-family:'Fraunces',serif;font-style:italic;font-size:12px;color:var(--muted);margin-bottom:14px;max-width:140ch}
+
+/* ============ AREA CARD (UNIFIED: obs + banks) ============ */
+.area-unit{margin-bottom:18px;border:1px solid var(--rule);background:rgba(255,255,255,0.4);scroll-margin-top:80px}
+.area-unit-head{display:flex;align-items:center;justify-content:space-between;padding:14px 22px;background:var(--purple);color:var(--paper);position:relative;cursor:pointer}
+.area-unit-head::after{content:"";position:absolute;right:0;top:0;bottom:0;width:6px;background:var(--orange)}
+.area-unit-head h4{font-family:'Fraunces',serif;font-weight:500;font-size:18px;letter-spacing:-0.015em;display:flex;align-items:baseline;gap:12px}
+.area-unit-head h4 .num{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:0.2em;opacity:0.75}
+.area-unit-head .meta{display:flex;align-items:center;gap:14px;font-family:'JetBrains Mono',monospace;font-size:9px;letter-spacing:0.14em;text-transform:uppercase;opacity:0.9}
+.area-unit-head .meta b{color:var(--orange-soft);font-weight:600}
+.area-unit-head::before{content:"−";margin-right:12px;font-family:'JetBrains Mono',monospace;font-size:20px;color:var(--orange);width:16px;display:inline-block;text-align:center}
+.area-unit:not(.open) .area-unit-head::before{content:"+"}
+.area-unit-body{padding:0;display:none}
+.area-unit.open .area-unit-body{display:block}
+
+/* TWO-COLUMN LAYOUT inside area unit */
+.area-grid{display:grid;grid-template-columns:1fr 1fr;gap:0}
+@media screen and (max-width:1100px){.area-grid{grid-template-columns:1fr}}
+
+.area-pane{padding:20px 24px}
+.area-pane.left{background:linear-gradient(to bottom right, rgba(45,27,105,0.04) 0%, transparent 80%);border-right:1px solid var(--rule)}
+@media screen and (max-width:1100px){.area-pane.left{border-right:none;border-bottom:1px solid var(--rule)}}
+.area-pane-head{margin-bottom:14px;padding-bottom:8px;border-bottom:2px solid var(--purple);position:relative}
+.area-pane-head::after{content:"";position:absolute;left:0;bottom:-2px;width:36px;height:2px;background:var(--orange)}
+.area-pane-head h5{font-family:'Fraunces',serif;font-weight:500;font-size:15px;color:var(--purple);letter-spacing:-0.01em;display:flex;align-items:baseline;justify-content:space-between}
+.area-pane-head h5 .num{font-family:'JetBrains Mono',monospace;font-size:9px;letter-spacing:0.2em;color:var(--orange);font-weight:600}
+
+.obs-block{margin-bottom:12px}
+.obs-block label{display:block;font-family:'JetBrains Mono',monospace;font-size:9px;letter-spacing:0.16em;text-transform:uppercase;color:var(--muted);margin-bottom:4px}
+.obs-block textarea{min-height:46px}
+.obs-pair{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:12px}
+.obs-pair-3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px;margin-bottom:12px}
+.obs-pair textarea, .obs-pair-3 textarea{min-height:40px;font-size:12px}
+
+.scale-pair{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:12px}
+.scale-group{display:flex;gap:3px;margin-top:3px}
+.scale-btn{flex:1;padding:5px 4px;border:1px solid var(--rule);background:var(--paper);font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:0.04em;cursor:pointer;text-align:center;color:var(--muted);transition:all 0.12s}
+.scale-btn:hover{border-color:var(--purple);color:var(--purple)}
+.scale-btn.active{background:var(--purple);color:var(--paper);border-color:var(--purple)}
+.scale-btn.active.warm{background:var(--orange);border-color:var(--orange)}
+.scale-btn.active.cool{background:var(--teal);border-color:var(--teal)}
+
+/* BANKS in right pane */
+.banks-stack{display:flex;flex-direction:column;gap:12px}
+.bank{border:1px solid var(--rule);background:rgba(255,255,255,0.6);padding:11px 14px;display:flex;flex-direction:column}
+.bank-head{display:flex;align-items:baseline;justify-content:space-between;padding-bottom:7px;margin-bottom:8px;border-bottom:1px solid var(--rule)}
+.bank-head h6{font-family:'Fraunces',serif;font-weight:500;font-size:13px;color:var(--purple);letter-spacing:-0.005em;display:flex;align-items:baseline;gap:7px}
+.bank-head h6 b{font-family:'JetBrains Mono',monospace;font-size:8px;letter-spacing:0.16em;font-weight:600;padding:1px 6px;color:var(--paper)}
+.bank-head span{font-family:'JetBrains Mono',monospace;font-size:9px;color:var(--muted);letter-spacing:0.1em}
+.bank-head span b{color:var(--orange);font-weight:600}
+.bank.diff .bank-head{border-bottom-color:var(--red)}
+.bank.diff h6{color:var(--red)}
+.bank.diff h6 b{background:var(--red)}
+.bank.goals .bank-head{border-bottom-color:var(--green)}
+.bank.goals h6{color:var(--green)}
+.bank.goals h6 b{background:var(--green)}
+.bank.exercises .bank-head{border-bottom-color:var(--orange)}
+.bank.exercises h6{color:var(--orange)}
+.bank.exercises h6 b{background:var(--orange)}
+.bank-list{flex:1;display:flex;flex-direction:column;gap:2px;margin-bottom:8px;max-height:230px;overflow-y:auto;padding-right:4px}
+.bank-list::-webkit-scrollbar{width:5px}
+.bank-list::-webkit-scrollbar-thumb{background:var(--line);border-radius:3px}
+.item{display:flex;gap:7px;padding:4px 6px;cursor:pointer;font-size:11.5px;line-height:1.35;color:var(--ink);border:1px solid transparent;transition:all .12s}
+.item:hover{background:rgba(45,27,105,0.04);border-color:var(--rule)}
+.item input{margin-top:3px;cursor:pointer;flex-shrink:0;accent-color:var(--orange);width:12px;height:12px}
+.item.checked{background:var(--purple-mist);border-color:var(--purple-soft)}
+.item.checked label{color:var(--purple);font-weight:500}
+.item label{cursor:pointer;flex:1}
+.item.custom{background:var(--orange-mist);border-color:var(--orange-soft)}
+.item.custom .badge{display:inline-block;font-family:'JetBrains Mono',monospace;font-size:7.5px;background:var(--orange);color:var(--paper);padding:1px 4px;letter-spacing:0.1em;margin-right:5px;vertical-align:middle}
+.item .remove{background:none;border:none;color:var(--muted);cursor:pointer;font-size:13px;padding:0 3px;line-height:1}
+.item .remove:hover{color:var(--red)}
+.add-custom{display:flex;gap:4px;margin-top:auto}
+.add-custom input{flex:1;padding:5px 7px;border:1px solid var(--rule);font-family:'DM Sans',sans-serif;font-size:11px;background:var(--paper)}
+.add-custom input:focus{outline:none;border-color:var(--orange)}
+.add-custom button{padding:5px 9px;font-size:10px;font-weight:600}
+
+/* SYNTHESIS section at bottom of area */
+.syn-strip{
+  padding:16px 24px;
+  background:linear-gradient(to right, var(--purple-mist) 0%, var(--orange-mist) 100%);
+  border-top:1px solid var(--rule);
+  display:grid;grid-template-columns:auto 1fr auto;gap:14px;align-items:start;
+}
+.syn-strip-icon{
+  width:32px;height:32px;background:var(--orange);color:var(--paper);
+  display:grid;place-items:center;font-family:'Fraunces',serif;font-weight:600;font-size:14px;
+  margin-top:2px;
+}
+.syn-strip-body{flex:1}
+.syn-strip-body label{display:block;font-family:'JetBrains Mono',monospace;font-size:9px;letter-spacing:0.18em;text-transform:uppercase;color:var(--purple);font-weight:600;margin-bottom:4px}
+.syn-strip-body label .pulled{color:var(--green);font-weight:700;margin-left:8px}
+.syn-strip-body textarea{min-height:58px;font-family:'Fraunces',serif;font-style:italic;color:var(--purple-deep);font-size:13px;background:rgba(255,255,255,0.7)}
+.syn-strip-action button{
+  background:var(--purple);color:var(--paper);border-color:var(--purple);font-weight:600;
+  font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:0.08em;padding:8px 14px;
+  white-space:nowrap;
+}
+.syn-strip-action button:hover{background:var(--orange);border-color:var(--orange);color:var(--paper)}
+.syn-strip-action button.has-data{background:var(--green);border-color:var(--green)}
+.syn-strip-action button.has-data::before{content:"✓ "}
+
+/* ABC */
+.abc-entries{display:flex;flex-direction:column;gap:10px;margin-bottom:14px}
+.abc-entry{display:grid;grid-template-columns:38px 1fr auto;align-items:start;border:1px solid var(--rule);background:rgba(255,255,255,0.5)}
+.abc-num{background:var(--orange);color:var(--paper);display:grid;place-items:center;font-family:'Fraunces',serif;font-size:18px;font-weight:600;align-self:stretch}
+.abc-body{padding:12px 16px;display:grid;grid-template-columns:1fr 1fr 1fr 1fr 1fr;gap:10px 14px}
+.abc-body label{display:block;font-family:'JetBrains Mono',monospace;font-size:8px;letter-spacing:0.16em;text-transform:uppercase;color:var(--muted);margin-bottom:3px}
+.abc-body label b{display:inline-block;color:var(--paper);padding:1px 5px;font-size:8px;letter-spacing:0.16em;margin-right:5px}
+.abc-body label b.a{background:var(--teal)}
+.abc-body label b.b{background:var(--red)}
+.abc-body label b.c{background:var(--amber)}
+.abc-body label b.f{background:var(--green)}
+.abc-body textarea{min-height:42px;font-size:12px}
+.abc-rm{align-self:stretch;background:transparent;border:none;border-left:1px solid var(--rule);padding:0 14px;font-size:18px;color:var(--muted);cursor:pointer}
+.abc-rm:hover{color:var(--red);background:var(--orange-mist)}
+.abc-add{width:100%;padding:14px;border:2px dashed var(--rule);background:transparent;font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:0.14em;text-transform:uppercase;color:var(--muted);cursor:pointer;transition:all 0.15s}
+.abc-add:hover{border-color:var(--orange);color:var(--orange);background:var(--orange-mist)}
+
+/* SENS */
+.sens-grid{display:grid;grid-template-columns:1fr;gap:8px}
+.sens-row{display:grid;grid-template-columns:170px 1fr 1.5fr;gap:14px;align-items:center;padding:8px 14px;border:1px solid var(--rule);background:rgba(255,255,255,0.4)}
+.sens-name{display:flex;flex-direction:column;gap:2px}
+.sens-name b{font-family:'Fraunces',serif;font-size:14px;color:var(--purple);font-weight:500}
+.sens-name small{font-family:'JetBrains Mono',monospace;font-size:9px;color:var(--muted);letter-spacing:0.1em}
+.sens-rating{display:flex;gap:3px}
+.sens-rating button{flex:1;padding:5px 6px;font-size:9.5px;font-weight:600;letter-spacing:0.04em;border:1px solid var(--rule);background:var(--paper);color:var(--muted)}
+.sens-rating button.active.high{background:var(--red);border-color:var(--red);color:var(--paper)}
+.sens-rating button.active.norm{background:var(--green);border-color:var(--green);color:var(--paper)}
+.sens-rating button.active.low{background:var(--teal);border-color:var(--teal);color:var(--paper)}
+.sens-rating button.active.seek{background:var(--orange);border-color:var(--orange);color:var(--paper)}
+.sens-note input{width:100%;padding:5px 8px;border:1px solid var(--rule);background:var(--paper);font-family:'DM Sans',sans-serif;font-size:12px;color:var(--ink)}
+.sens-note input:focus{outline:none;border-color:var(--orange)}
+
+/* CONTEXTS */
+.contexts-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:8px}
+.context-chip{display:flex;align-items:center;gap:8px;padding:8px 12px;border:1px solid var(--rule);background:rgba(255,255,255,0.4);cursor:pointer;font-size:12px;transition:all 0.12s}
+.context-chip input{accent-color:var(--orange);cursor:pointer}
+.context-chip.checked{background:var(--purple-mist);border-color:var(--purple-soft);color:var(--purple);font-weight:500}
+.context-chip:hover{border-color:var(--purple)}
+
+/* TEAM */
+.team-list{display:flex;flex-direction:column;gap:8px;margin-bottom:12px}
+.team-row{display:grid;grid-template-columns:30px 1fr 1fr 1fr auto;gap:10px;align-items:center;padding:8px 12px;border:1px solid var(--rule);background:rgba(255,255,255,0.4)}
+.team-row span{font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--orange);font-weight:600}
+.team-row input{padding:5px 8px;border:1px solid var(--rule);background:var(--paper);font-size:12px}
+.team-row input:focus{outline:none;border-color:var(--orange)}
+.team-row .abc-rm{padding:0 10px;border-left:none;border:1px solid var(--rule)}
+
+/* ACTION BAR */
+.action-bar{position:sticky;bottom:18px;background:var(--purple);color:var(--paper);padding:14px 24px;display:flex;align-items:center;gap:12px;box-shadow:0 8px 32px rgba(45,27,105,0.3);border:1px solid var(--purple-deep);margin-top:18px}
+.action-bar::before{content:"";position:absolute;left:0;top:0;bottom:0;width:6px;background:var(--orange)}
+.action-bar-info{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:0.08em}
+.action-bar-info b{color:var(--orange)}
+.action-bar-actions{margin-left:auto;display:flex;gap:8px}
+.action-bar button{background:var(--paper);color:var(--purple);border-color:var(--paper);font-weight:600}
+.action-bar button:hover{background:var(--orange);color:var(--paper);border-color:var(--orange)}
+
+/* ============ PRINT PREVIEW ============ */
+.preview-host{background:white;padding:25mm 18mm;max-width:210mm;margin:0 auto;box-shadow:0 6px 32px rgba(45,27,105,0.12);min-height:80vh}
+
+.pv-cover{border-bottom:2px solid var(--purple);padding-bottom:16px;margin-bottom:22px;position:relative}
+.pv-cover::after{content:"";position:absolute;left:0;bottom:-2px;width:64px;height:2px;background:var(--orange)}
+.pv-org{display:flex;align-items:center;gap:14px;margin-bottom:14px}
+.pv-mark{width:42px;height:42px;background:var(--purple);color:white;display:grid;place-items:center;font-family:'Fraunces',serif;font-weight:700;font-size:21px;position:relative;flex-shrink:0}
+.pv-mark::after{content:"";position:absolute;right:-5px;bottom:-5px;width:13px;height:13px;background:var(--orange)}
+.pv-org-name{font-family:'Fraunces',serif;font-size:13px;font-weight:500;color:var(--purple);letter-spacing:-0.01em;line-height:1.1}
+.pv-org-name small{display:block;font-family:'DM Sans',sans-serif;font-size:8px;letter-spacing:0.14em;text-transform:uppercase;color:var(--muted);margin-top:3px;font-weight:400}
+.pv-tag{font-family:'JetBrains Mono',monospace;font-size:8.5pt;letter-spacing:0.2em;text-transform:uppercase;color:var(--orange);margin-bottom:10px}
+.pv-tag::before{content:"";display:inline-block;width:22px;height:1px;background:var(--orange);vertical-align:middle;margin-right:10px;margin-bottom:3px}
+.pv-title{font-family:'Fraunces',serif;font-size:26pt;color:var(--purple);font-weight:400;letter-spacing:-0.025em;line-height:1.05;margin-bottom:10px;max-width:170mm}
+.pv-title em{font-style:italic;color:var(--orange);font-weight:500}
+.pv-subtitle{font-family:'Fraunces',serif;font-style:italic;font-size:11pt;color:var(--purple-soft);line-height:1.4;max-width:155mm}
+
+.pv-meta{display:grid;grid-template-columns:repeat(4,1fr);gap:12px 18px;padding:14px 0 16px;margin-bottom:20px;border-bottom:1px solid var(--rule)}
+.pv-meta dt{font-family:'JetBrains Mono',monospace;font-size:7.5pt;letter-spacing:0.14em;text-transform:uppercase;color:var(--muted);margin-bottom:3px}
+.pv-meta dd{font-family:'Fraunces',serif;font-size:11pt;color:var(--purple);border-bottom:1px dotted var(--line);padding:2px 2px 3px;min-height:20px;line-height:1.4;word-wrap:break-word}
+
+.pv-section{margin-bottom:22px}
+.pv-section-head{display:flex;align-items:baseline;gap:10px;padding-bottom:7px;margin-bottom:14px;border-bottom:2px solid var(--purple);position:relative}
+.pv-section-head::after{content:"";position:absolute;left:0;bottom:-2px;width:48px;height:2px;background:var(--orange)}
+.pv-section-num{font-family:'JetBrains Mono',monospace;font-size:8.5pt;color:var(--orange);letter-spacing:0.18em;font-weight:600}
+.pv-section-title{font-family:'Fraunces',serif;font-size:16pt;color:var(--purple);font-weight:500;letter-spacing:-0.018em;flex:1;line-height:1.15}
+
+.pv-area{margin-bottom:14px;border:1px solid var(--rule);page-break-inside:auto}
+.pv-area-head{background:var(--purple);color:white;padding:8px 16px;display:flex;align-items:baseline;justify-content:space-between;position:relative;gap:14px}
+.pv-area-head::after{content:"";position:absolute;right:0;top:0;bottom:0;width:5px;background:var(--orange)}
+.pv-area-name{font-family:'Fraunces',serif;font-size:12pt;font-weight:500;letter-spacing:-0.01em;flex:1}
+.pv-area-name span{font-family:'JetBrains Mono',monospace;font-size:7pt;opacity:0.7;margin-right:10px}
+.pv-area-src{font-family:'JetBrains Mono',monospace;font-size:7pt;letter-spacing:0.16em;text-transform:uppercase;opacity:0.85;margin-right:12px;white-space:nowrap}
+.pv-area-body{padding:12px 18px 14px;font-size:9.5pt}
+
+.pv-block{margin-bottom:10px}
+.pv-block-label{font-family:'JetBrains Mono',monospace;font-size:7.5pt;letter-spacing:0.16em;text-transform:uppercase;color:var(--orange);margin-bottom:5px;font-weight:600}
+.pv-block-content{font-family:'DM Sans',sans-serif;font-size:9.5pt;color:var(--ink);line-height:1.5;word-wrap:break-word}
+.pv-block-content.italic{font-family:'Fraunces',serif;font-style:italic;color:var(--purple-deep)}
+.pv-obsfield{padding:4px 0 4px 12px;border-left:2px solid var(--purple-mist);margin-bottom:6px;line-height:1.5}
+.pv-obsfield b{font-family:'JetBrains Mono',monospace;font-size:7.5pt;letter-spacing:0.12em;text-transform:uppercase;color:var(--muted);font-weight:600;display:block;margin-bottom:2px}
+
+.pv-scale{display:inline-flex;gap:4px;margin-top:3px;flex-wrap:wrap}
+.pv-scale span{display:inline-block;padding:2px 9px;font-family:'JetBrains Mono',monospace;font-size:7.5pt;letter-spacing:0.1em;color:var(--muted);border:1px solid var(--rule);line-height:1.3;white-space:nowrap}
+.pv-scale span.active{background:var(--purple);color:white;border-color:var(--purple);font-weight:600}
+.pv-scale span.active.warm{background:var(--orange);border-color:var(--orange)}
+
+.pv-list{list-style:none;padding:0;margin:4px 0}
+.pv-list li{padding:3px 0 3px 18px;position:relative;line-height:1.5;font-size:9.5pt;page-break-inside:avoid;word-wrap:break-word}
+.pv-list.diff li::before{content:"▸";position:absolute;left:0;color:var(--red);font-size:9pt;top:3px;font-weight:bold}
+.pv-list.goals li::before{content:"✓";position:absolute;left:0;color:var(--green);font-size:10pt;top:2px;font-weight:bold}
+.pv-list.ex li::before{content:"●";position:absolute;left:0;color:var(--orange);font-size:7pt;top:5px}
+
+.pv-syn{background:var(--purple-mist);border-left:3px solid var(--orange);padding:10px 14px;margin-top:10px;font-family:'Fraunces',serif;font-style:italic;font-size:10pt;color:var(--purple-deep);line-height:1.55;white-space:pre-wrap;word-wrap:break-word}
+.pv-syn::before{content:"SYNTEZA · ";font-family:'JetBrains Mono',monospace;font-style:normal;font-size:7.5pt;letter-spacing:0.18em;color:var(--orange);font-weight:600}
+
+.pv-context-chips{display:flex;flex-wrap:wrap;gap:4px;margin-top:4px}
+.pv-context-chip{display:inline-block;padding:3px 9px;background:var(--purple);color:white;font-size:8.5pt;font-weight:500;line-height:1.3}
+
+.pv-abc-table, .pv-sens-table, .pv-team-table{width:100%;border-collapse:collapse;font-size:9pt;margin-top:6px;table-layout:fixed}
+.pv-abc-table thead th, .pv-sens-table thead th, .pv-team-table thead th{background:var(--purple);color:white;padding:6px 8px;font-family:'JetBrains Mono',monospace;font-size:7.5pt;letter-spacing:0.14em;text-transform:uppercase;font-weight:500;text-align:left;border:1px solid var(--purple-deep);line-height:1.3}
+.pv-abc-table tbody td, .pv-sens-table tbody td, .pv-team-table tbody td{border:1px solid var(--rule);padding:7px 9px;vertical-align:top;line-height:1.45;word-wrap:break-word;overflow-wrap:break-word;hyphens:auto}
+.pv-abc-table tbody tr:nth-child(even) td{background:rgba(45,27,105,0.025)}
+.pv-abc-n{background:var(--orange) !important;color:white !important;text-align:center !important;font-family:'Fraunces',serif !important;font-weight:600;font-size:11pt;width:26px;vertical-align:middle !important}
+.pv-sens-table td.sens-label{font-family:'Fraunces',serif;color:var(--purple);font-weight:500;font-size:10pt;width:34%}
+.pv-sens-table td.sens-rating{width:22%;text-align:center;font-family:'JetBrains Mono',monospace;font-size:8.5pt;font-weight:600;vertical-align:middle}
+.pv-sens-table td.sens-rating.high{background:var(--red);color:white}
+.pv-sens-table td.sens-rating.norm{background:var(--green);color:white}
+.pv-sens-table td.sens-rating.low{background:var(--teal);color:white}
+.pv-sens-table td.sens-rating.seek{background:var(--orange);color:white}
+.pv-team-table th:first-child, .pv-team-table td:first-child{width:8%}
+.pv-team-table th:nth-child(2), .pv-team-table td:nth-child(2){width:34%}
+.pv-team-table th:nth-child(3), .pv-team-table td:nth-child(3){width:30%}
+.pv-team-table th:nth-child(4), .pv-team-table td:nth-child(4){width:28%}
+
+.pv-pills-wopf{display:flex;flex-wrap:wrap;gap:4px;list-style:none;padding:0;margin:4px 0}
+.pv-pills-wopf li{display:inline-block;padding:4px 10px;background:var(--purple);color:white;font-size:9pt;line-height:1.3}
+
+.pv-conclusion{background:var(--purple-mist);border-left:3px solid var(--orange);padding:12px 16px;font-family:'Fraunces',serif;font-style:italic;font-size:10.5pt;color:var(--purple-deep);line-height:1.6;margin-top:8px;word-wrap:break-word}
+.pv-conclusion-label{font-family:'JetBrains Mono',monospace;font-style:normal;font-size:8pt;letter-spacing:0.16em;text-transform:uppercase;color:var(--orange);font-weight:600;margin-bottom:6px;display:block}
+
+.pv-sig-grid{margin-top:26px;display:grid;grid-template-columns:1fr 1fr 1fr;gap:18px 26px;page-break-inside:avoid}
+.pv-sig{text-align:center}
+.pv-sig-line{border-bottom:1px solid var(--ink);height:30px;margin-bottom:6px}
+.pv-sig-label{font-family:'JetBrains Mono',monospace;font-size:7pt;letter-spacing:0.14em;text-transform:uppercase;color:var(--muted);line-height:1.3}
+.pv-sig-label b{display:block;font-family:'Fraunces',serif;font-style:italic;font-size:9.5pt;color:var(--purple);font-weight:500;text-transform:none;letter-spacing:0;margin-bottom:3px}
+
+.pv-footer{margin-top:22px;border-top:1px solid var(--rule);padding-top:8px;font-family:'JetBrains Mono',monospace;font-size:7pt;letter-spacing:0.14em;text-transform:uppercase;color:var(--muted);display:flex;justify-content:space-between;gap:14px}
+.pv-footer b{color:var(--orange)}
+
+/* ============ DRUK NA TELEFONIE — responsywny podgląd ============ */
+@media screen and (max-width:700px){
+  .preview-host{padding:14px 12px;max-width:100%;margin:0;box-shadow:none;border:1px solid var(--rule)}
+  
+  /* karta tytułowa */
+  .pv-cover{padding-bottom:12px;margin-bottom:16px}
+  .pv-org{gap:10px;margin-bottom:10px}
+  .pv-mark{width:36px;height:36px;font-size:18px}
+  .pv-org-name{font-size:11px}
+  .pv-org-name small{font-size:7px}
+  .pv-tag{font-size:8pt;letter-spacing:0.16em}
+  .pv-title{font-size:19pt;line-height:1.05;max-width:100%}
+  .pv-subtitle{font-size:10pt;line-height:1.4}
+  
+  /* dane ucznia — 2 kolumny zamiast 4 */
+  .pv-meta{grid-template-columns:1fr 1fr;gap:10px 14px;padding:12px 0 14px;margin-bottom:16px}
+  .pv-meta dd{font-size:10.5pt;min-height:18px}
+  
+  /* sekcje */
+  .pv-section{margin-bottom:18px}
+  .pv-section-head{padding-bottom:6px;margin-bottom:10px}
+  .pv-section-title{font-size:14pt;line-height:1.2}
+  .pv-section-num{font-size:8pt}
+  
+  /* karty obszarów */
+  .pv-area{margin-bottom:12px}
+  .pv-area-head{padding:7px 12px;flex-wrap:wrap;gap:6px}
+  .pv-area-name{font-size:11pt;width:100%}
+  .pv-area-name span{font-size:8pt;margin-right:8px}
+  .pv-area-src{font-size:7pt;margin-right:0;width:100%;opacity:0.75}
+  .pv-area-body{padding:10px 12px 12px;font-size:10pt}
+  
+  /* bloki obserwacji */
+  .pv-block{margin-bottom:9px}
+  .pv-block-label{font-size:7.5pt}
+  .pv-block-content{font-size:10pt;line-height:1.5}
+  .pv-obsfield{padding:4px 0 4px 10px;font-size:10pt;line-height:1.5}
+  .pv-obsfield b{font-size:7.5pt}
+  
+  /* listy z punktami */
+  .pv-list li{padding:3px 0 3px 16px;font-size:10pt;line-height:1.5}
+  
+  /* tabele — scroll w poziomie */
+  .pv-abc-table, .pv-team-table{display:block;overflow-x:auto;white-space:normal;-webkit-overflow-scrolling:touch}
+  .pv-abc-table thead, .pv-team-table thead{display:table-header-group}
+  .pv-abc-table tbody td, .pv-team-table tbody td{font-size:8.5pt;padding:6px 7px;min-width:80px}
+  .pv-abc-table thead th, .pv-team-table thead th{font-size:7pt;padding:5px 7px;min-width:80px}
+  .pv-abc-n{min-width:32px !important;font-size:10pt}
+  
+  /* tabela sensoryki — kompaktowo */
+  .pv-sens-table{font-size:9pt}
+  .pv-sens-table td{padding:6px 7px}
+  .pv-sens-table td.sens-label{font-size:9.5pt;width:38%}
+  .pv-sens-table td.sens-rating{width:24%;font-size:7.5pt}
+  
+  /* pojemniki i pigułki */
+  .pv-context-chip{font-size:8pt;padding:3px 8px}
+  .pv-pills-wopf li{font-size:8.5pt;padding:3px 9px}
+  
+  /* synteza i wnioski */
+  .pv-syn{padding:9px 12px;font-size:10pt;line-height:1.6}
+  .pv-conclusion{padding:10px 14px;font-size:10pt;line-height:1.6}
+  
+  /* skala */
+  .pv-scale{gap:3px}
+  .pv-scale span{padding:2px 7px;font-size:7.5pt}
+  
+  /* sygnatury — kolumna */
+  .pv-sig-grid{grid-template-columns:1fr;gap:18px;margin-top:22px}
+  .pv-sig-line{height:34px}
+  
+  /* stopka */
+  .pv-footer{flex-direction:column;gap:6px;align-items:flex-start;font-size:6.5pt;line-height:1.5}
+}
+
+@media screen and (max-width:380px){
+  /* bardzo wąskie ekrany — 1 kolumna danych */
+  .pv-meta{grid-template-columns:1fr}
+  .pv-title{font-size:17pt}
+}
+
+/* gdy aplikacja w preview, lepsze tło dla mobilki */
+@media screen and (max-width:700px){
+  body{background:#ecebe6}
+  .app{padding:10px 10px 130px}
+  .action-bar{flex-wrap:wrap;gap:8px;padding:10px 14px;bottom:8px}
+  .action-bar-info{font-size:10px;width:100%;border-bottom:1px solid rgba(255,255,255,0.15);padding-bottom:8px}
+  .action-bar-actions{margin-left:0;width:100%;justify-content:flex-end;flex-wrap:wrap}
+  .action-bar button{padding:7px 12px;font-size:11px}
+  .masthead{padding:14px 16px 0}
+  .masthead-top{flex-wrap:wrap;padding-bottom:14px}
+  .brand-text h1{font-size:18px}
+  .brand-actions{margin-left:0;width:100%;justify-content:flex-end;flex-wrap:wrap}
+  .tab-nav{flex-direction:column}
+  .tab-btn{padding:12px 14px;border-top:none;border-left:3px solid transparent}
+  .tab-btn.active{border-top:none;border-left-color:var(--orange)}
+  .tab-num{width:32px;height:32px;font-size:15px}
+  .tab-label{font-size:14px}
+  .tab-meta{font-size:8px}
+  .student-banner{padding:12px 14px;grid-template-columns:1fr;gap:8px 0}
+  .jump-nav{padding:10px 12px;gap:5px}
+  .jump-nav a{font-size:10px;padding:4px 8px}
+  .card-head{grid-template-columns:44px 1fr;padding:14px 16px;gap:12px}
+  .card-head > div[style]{grid-column:1/-1;flex-wrap:wrap}
+  .card-icon{width:36px;height:36px;font-size:17px}
+  .card-titles h3{font-size:17px;line-height:1.15}
+  .card-body{padding:14px 16px}
+  .contexts-grid{grid-template-columns:1fr}
+  .area-unit-head{padding:11px 16px;flex-wrap:wrap;gap:8px}
+  .area-unit-head h4{font-size:15px}
+  .area-unit-head .meta{font-size:8px;letter-spacing:0.1em;width:100%}
+  .area-pane{padding:14px 16px}
+  .area-pane-head h5{font-size:13px}
+  .syn-strip{grid-template-columns:1fr;padding:14px 16px;gap:10px}
+  .syn-strip-icon{width:28px;height:28px;font-size:13px}
+  .syn-strip-action{width:100%}
+  .syn-strip-action button{width:100%}
+  .bank-list{max-height:180px}
+  .item{font-size:12px;padding:5px 6px}
+  .team-row{grid-template-columns:24px 1fr;gap:8px;padding:8px 10px}
+  .team-row input{font-size:12px}
+  .team-row .abc-rm{grid-column:1/-1;justify-self:end;padding:4px 12px}
+}
+
+@page{size:A4;margin:18mm 16mm 16mm 16mm}
+@media print{
+  body{background:white;font-size:10pt}
+  .app .masthead,.app .student-banner,.app .jump-nav,.tab-content:not(#tab-print),.action-bar{display:none}
+  .app{padding:0;max-width:none}
+  #tab-print.tab-content{display:block !important}
+  .preview-host{padding:0;box-shadow:none;max-width:none;min-height:0}
+  .pv-section{page-break-inside:auto}
+  .pv-section-head{page-break-after:avoid}
+  .pv-area{page-break-inside:avoid}
+  .pv-area:nth-of-type(n+3){page-break-before:auto}
+  .pv-syn,.pv-conclusion{page-break-inside:avoid}
+  .pv-sig-grid{page-break-inside:avoid;page-break-before:auto}
+  .pv-footer{page-break-inside:avoid}
+  table{page-break-inside:auto}
+  tr{page-break-inside:avoid;page-break-after:auto}
+  thead{display:table-header-group}
+}
+
+@media screen and (max-width:1100px){
+  .student-banner{grid-template-columns:repeat(2,1fr)}
+  .field-grid.cols-3{grid-template-columns:1fr}
+  .obs-pair, .obs-pair-3{grid-template-columns:1fr}
+  .scale-pair{grid-template-columns:1fr}
+  .abc-body{grid-template-columns:1fr !important}
+  .sens-row{grid-template-columns:1fr}
+}
+</style>
+</head>
+<body>
+
+<div class="app" id="app">
+
+<header class="masthead">
+  <div class="masthead-top">
+    <div class="brand-mark">P</div>
+    <div class="brand-text">
+      <h1>EduPlaner2026<span class="sep">·</span><em>MJ-PCTP</em><span class="sep">·</span>Karta Funkcjonalna WOPF</h1>
+      <small>Obserwacja + wybór z banków + synteza · jedna karta na każdy obszar funkcjonowania</small>
+    </div>
+    <div class="brand-actions">
+      <button onclick="exportJSON()">Eksport JSON</button>
+      <button onclick="document.getElementById('fileInput').click()">Import</button>
+      <button class="primary" onclick="window.print()">Drukuj</button>
+    </div>
+  </div>
+  <nav class="tab-nav">
+    <button class="tab-btn active" data-tab="praca" onclick="switchTab('praca')">
+      <div class="tab-num">01</div>
+      <div class="tab-info">
+        <div class="tab-eyebrow">Praca</div>
+        <div class="tab-label">Obserwacja + Synteza WOPF</div>
+        <div class="tab-meta">Wszystko w jednym przepływie · per obszar</div>
+      </div>
+    </button>
+    <button class="tab-btn" data-tab="print" onclick="switchTab('print')">
+      <div class="tab-num">02</div>
+      <div class="tab-info">
+        <div class="tab-eyebrow">Wynik</div>
+        <div class="tab-label">Druk dokumentu</div>
+        <div class="tab-meta">Połączony raport WOPF + obserwacja</div>
+      </div>
+    </button>
+  </nav>
+</header>
+
+<section class="student-banner">
+  <label><span>Imię i nazwisko</span><input type="text" data-stu="name"></label>
+  <label><span>Data urodzenia</span><input type="text" data-stu="dob"></label>
+  <label><span>Klasa / grupa</span><input type="text" data-stu="class"></label>
+  <label><span>Nr orzeczenia</span><input type="text" data-stu="orzeczenie"></label>
+  <label><span>Diagnoza wiodąca</span><input type="text" data-stu="diagnosis"></label>
+  <label><span>Etap edukacyjny</span><input type="text" data-stu="stage"></label>
+  <label><span>Koordynator</span><input type="text" data-stu="coordinator"></label>
+  <label><span>Data WOPF</span><input type="text" data-stu="date"></label>
+  <label><span>Okres obserwacji od – do</span><input type="text" data-stu="period"></label>
+  <label><span>Rok szkolny</span><input type="text" data-stu="year" value="2025/2026"></label>
+</section>
+
+<!-- ============ TAB PRACA ============ -->
+<div class="tab-content active" id="tab-praca">
+
+<nav class="jump-nav">
+  <span class="lbl">Przejdź do →</span>
+  <a href="#sec-team">Zespół</a>
+  <a href="#sec-ctx">Kontekst</a>
+  <a href="#sec-areas">Obszary funkcjonowania</a>
+  <a href="#sec-abc">ABC</a>
+  <a href="#sec-sens">Sensoryka</a>
+  <a href="#sec-mf">Metody i formy</a>
+  <a href="#sec-wnioski">Wnioski</a>
+  <span style="margin-left:auto;display:flex;gap:6px">
+    <button class="tiny" onclick="toggleAllAreas(true)">Rozwiń obszary</button>
+    <button class="tiny" onclick="toggleAllAreas(false)">Zwiń obszary</button>
+  </span>
+</nav>
+
+<section class="card" id="sec-team">
+  <div class="card-head">
+    <div class="card-icon">Z</div>
+    <div class="card-titles"><h3>Zespół specjalistów obserwujących</h3><p>01 <b>· skład zespołu</b></p></div>
+  </div>
+  <div class="card-body">
+    <div class="team-list" id="teamList"></div>
+    <button class="tiny" onclick="addTeam()">+ Dodaj specjalistę</button>
+  </div>
+</section>
+
+<section class="card" id="sec-ctx">
+  <div class="card-head">
+    <div class="card-icon">K</div>
+    <div class="card-titles"><h3>Kontekst i metoda obserwacji</h3><p>02 <b>· warunki obserwacji</b></p></div>
+  </div>
+  <div class="card-body">
+    <div class="eyebrow">Konteksty — zaznacz wszystkie obserwowane sytuacje</div>
+    <div class="contexts-grid" id="contextsGrid"></div>
+    <div style="margin-top:16px">
+      <div class="eyebrow">Metoda obserwacji</div>
+      <div class="field-grid cols-3">
+        <div class="field"><span class="field-label">Typ obserwacji</span>
+          <select data-obs="obsType">
+            <option value="">— wybierz —</option>
+            <option>Ciągła (continuous)</option>
+            <option>Próbkowanie czasowe</option>
+            <option>Rejestracja zdarzeń</option>
+            <option>Skanowanie (scan sampling)</option>
+            <option>Anegdotyczna</option>
+            <option>Strukturalna</option>
+            <option>Naturalistyczna</option>
+            <option>Uczestnicząca</option>
+          </select>
+        </div>
+        <div class="field"><span class="field-label">Narzędzia diagnostyczne</span><input type="text" data-obs="tools" placeholder="KSzOF, ABC, ToM, PEP-3..."></div>
+        <div class="field"><span class="field-label">Łączny czas obserwacji</span><input type="text" data-obs="totalTime" placeholder="np. 12 godzin / 6 sesji"></div>
+      </div>
+    </div>
+    <div style="margin-top:14px">
+      <div class="eyebrow">Cel obserwacji</div>
+      <textarea data-obs="purpose" class="italic" style="min-height:56px" placeholder="Co zespół chciał zdiagnozować podczas tych sesji..."></textarea>
+    </div>
+  </div>
+</section>
+
+<section class="card" id="sec-areas">
+  <div class="card-head">
+    <div class="card-icon">F</div>
+    <div class="card-titles"><h3>Obszary funkcjonowania — obserwacja + wybór z banków + synteza</h3><p>03 <b>· serce dokumentu</b></p></div>
+  </div>
+  <div class="card-body">
+    <p class="lede">Każdy z 8 obszarów = jedna karta funkcjonalna z dwiema kolumnami: <b style="color:var(--purple)">LEWA</b> — pola obserwacyjne (co zaobserwowano), <b style="color:var(--orange)">PRAWA</b> — banki do wyboru (trudności, cele SMART, ćwiczenia). Pod każdym obszarem pasek syntezy z przyciskiem "Wczytaj z obserwacji".</p>
+    <div id="areasContainer"></div>
+  </div>
+</section>
+
+<section class="card" id="sec-abc">
+  <div class="card-head">
+    <div class="card-icon">A</div>
+    <div class="card-titles"><h3>Analiza ABC zachowań trudnych</h3><p>04 <b>· Antecedent · Behavior · Consequence · Function</b></p></div>
+  </div>
+  <div class="card-body">
+    <p class="lede">Dla każdego zaobserwowanego zachowania trudnego: poprzedzający kontekst (A), opis (B), konsekwencje (C), hipoteza funkcji.</p>
+    <div class="abc-entries" id="abcEntries"></div>
+    <button class="abc-add" onclick="addABC()">+ Dodaj wpis ABC</button>
+  </div>
+</section>
+
+<section class="card" id="sec-sens">
+  <div class="card-head">
+    <div class="card-icon">S</div>
+    <div class="card-titles"><h3>Profil sensoryczny</h3><p>05 <b>· modulacja w każdym kanale</b></p></div>
+  </div>
+  <div class="card-body">
+    <p class="lede">NW = nadwrażliwy · N = w normie · PW = podwrażliwy · PS = poszukujący stymulacji.</p>
+    <div class="sens-grid" id="sensGrid"></div>
+  </div>
+</section>
+
+<section class="card" id="sec-mf">
+  <div class="card-head">
+    <div class="card-icon">M</div>
+    <div class="card-titles"><h3>Metody i formy pracy</h3><p>06 <b>· ogólne dla wszystkich obszarów</b></p></div>
+  </div>
+  <div class="card-body">
+    <div class="banks-stack" style="display:grid;grid-template-columns:1fr 1fr;gap:14px">
+      <div class="bank">
+        <div class="bank-head"><h6>Metody pracy</h6><span><b id="methodsCount">0</b> zaznaczonych</span></div>
+        <div class="bank-list" id="methodsList"></div>
+        <div class="add-custom"><input id="methodsCustom" placeholder="Własna metoda…"><button onclick="addMFCustom('methods')">Dodaj</button></div>
+      </div>
+      <div class="bank">
+        <div class="bank-head"><h6>Formy organizacyjne</h6><span><b id="formsCount">0</b> zaznaczonych</span></div>
+        <div class="bank-list" id="formsList"></div>
+        <div class="add-custom"><input id="formsCustom" placeholder="Własna forma…"><button onclick="addMFCustom('forms')">Dodaj</button></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="card" id="sec-wnioski">
+  <div class="card-head">
+    <div class="card-icon">W</div>
+    <div class="card-titles"><h3>Wnioski końcowe i hipotezy</h3><p>07 <b>· synteza dla zespołu i rodziców</b></p></div>
+  </div>
+  <div class="card-body">
+    <div class="obs-pair">
+      <div class="obs-block"><label>Mocne strony — synteza całościowa</label><textarea data-obs="strengths" style="min-height:80px"></textarea></div>
+      <div class="obs-block"><label>Obszary trudności — synteza całościowa</label><textarea data-obs="difficulties" style="min-height:80px"></textarea></div>
+    </div>
+    <div style="margin-top:14px"><div class="eyebrow">Hipotezy diagnostyczne zespołu</div>
+      <textarea data-obs="hypotheses" class="italic" style="min-height:70px"></textarea></div>
+    <div style="margin-top:14px"><div class="eyebrow">Rekomendacje dla rodziców i nauczycieli</div>
+      <textarea data-obs="recommendations" style="min-height:70px"></textarea></div>
+    <div style="margin-top:14px"><div class="eyebrow">Uwagi ogólne i plan dalszej pracy</div>
+      <textarea data-wopf="generalNotes" class="italic" style="min-height:90px"></textarea></div>
+  </div>
+</section>
+
+</div>
+
+<!-- ============ TAB PRINT ============ -->
+<div class="tab-content" id="tab-print">
+  <div class="preview-host" id="printHost"></div>
+</div>
+
+<div class="action-bar">
+  <div class="action-bar-info">EduPlaner2026-MJ-PCTP · Karta WOPF · Auto-zapis: <b>aktywny</b></div>
+  <div class="action-bar-actions">
+    <button onclick="resetAll()">Wyczyść</button>
+    <button onclick="switchTab('print')">Podgląd druku</button>
+    <button class="primary" onclick="window.print()" style="background:var(--orange);color:white;border-color:var(--orange)">Drukuj raport</button>
+  </div>
+</div>
+
+</div>
+
+<input type="file" id="fileInput" accept=".json" style="display:none">
+
+<script>
+// ============ OBSZARY (z bankami) ============
+const AREAS = [
+  {id:'poznaw', code:'A', name:'Funkcjonowanie poznawcze', source:'KSzOF',
+   fields:['uwaga','pamiec','myslenie','tempo'],
+   difficulties:['Krótkotrwała koncentracja uwagi (poniżej 5 minut na zadaniu)','Trudności z przerzutnością i podzielnością uwagi','Osłabiona pamięć krótkotrwała i operacyjna','Wolne tempo pracy umysłowej','Trudności z planowaniem i organizacją działania','Słabe rozumienie poleceń złożonych','Trudności z myśleniem przyczynowo-skutkowym','Osłabione funkcje wykonawcze (hamowanie reakcji)','Trudności z myśleniem abstrakcyjnym','Sztywność poznawcza, trudność przełączania zadań','Trudności z uogólnianiem i transferem umiejętności','Męczliwość poznawcza','Trudności z rozpoznawaniem własnych błędów','Słaba świadomość metakognitywna'],
+   goals:['Uczeń wydłuży czas skupienia uwagi z … do … minut w okresie semestru','Uczeń wykona dwuetapowe polecenie ustne w 8/10 prób','Uczeń zapamięta i odtworzy sekwencję 5 elementów w 7/10 prób','Uczeń zaplanuje zadanie złożone z 3 kroków przy minimalnym wsparciu','Uczeń rozwiąże zagadkę przyczynowo-skutkową w 80% prób','Uczeń samodzielnie zorganizuje miejsce pracy w 4/5 dni','Uczeń zakwalifikuje obiekty do kategorii nadrzędnej w 8/10 prób','Uczeń ukończy zadanie z użyciem timera w 7/10 sytuacji','Uczeń zastosuje strategię "stop-pomyśl-działaj" w 5/7 prób','Uczeń rozpozna swój błąd i podejmie korektę w 6/10 zadań'],
+   exercises:['Treningi uwagi z tablicą Schultego','Sekwencje wzrokowe i słuchowe','Gry pamięciowe (Memory, Simon Says)','Klasyfikacje, kategoryzacje obrazków','Układanki i puzzle ze stopniowaniem','Mapy myśli i schematy','Plany dzienne i checklisty graficzne','Gry logiczne (warcaby, Rush Hour, Set)','Zagadki przyczynowo-skutkowe','Ćwiczenia "Co nie pasuje?", "Co się zmieniło?"','Piasek kinetyczny dla regulacji uwagi','Techniki pomodoro adaptowane']
+  },
+  {id:'spol', code:'B', name:'Funkcjonowanie społeczne', source:'KSzOF · ToM',
+   fields:['relacje','wspolpraca','normy','konflikty'],
+   difficulties:['Trudności z nawiązywaniem kontaktów rówieśniczych','Ograniczona współpraca w grupie','Niski poziom rozumienia norm społecznych','Trudności z odczytywaniem komunikatów niewerbalnych','Wycofanie społeczne','Brak rozumienia perspektywy drugiej osoby','Trudności z czekaniem na swoją kolej','Problemy z przegrywaniem i rywalizacją','Konflikty z rówieśnikami, agresja','Naruszanie granic osobistych','Trudności z rozumieniem ironii, żartów','Słabe rozumienie ról społecznych','Brak umiejętności proszenia o pomoc'],
+   goals:['Uczeń nawiąże i utrzyma interakcję z rówieśnikiem przez min. 5 minut w 4/5 sytuacjach','Uczeń poprosi rówieśnika o włączenie do zabawy w 3/5 sytuacji','Uczeń zastosuje formuły grzecznościowe w 8/10 prób','Uczeń poczeka na swoją kolej w 4/5 prób','Uczeń rozpozna emocję rówieśnika z mimiki w 8/10 prób','Uczeń zaproponuje rozwiązanie konfliktu bez pomocy dorosłego w 3/5 sytuacji','Uczeń poprosi o pomoc pełnym zdaniem w 7/10 sytuacji','Uczeń przyjmie przegraną bez wybuchu w 4/5 prób','Uczeń wykona zadanie zespołowe w parze w 8/10 prób'],
+   exercises:['Trening Umiejętności Społecznych (TUS) wg Goldsteina','Scenki i odgrywanie ról społecznych','Historyjki społeczne (Carol Gray)','Gry planszowe ze zmianą kolejności','Komiksowe rozmowy (comic strip conversations)','Ćwiczenia "Co byś zrobił, gdyby…?"','Mapa emocji i koło reakcji społecznych','Wspólne projekty grupowe z podziałem ról','Karty z sytuacjami społecznymi','Filmoterapia z analizą zachowań']
+  },
+  {id:'emo', code:'C', name:'Funkcjonowanie emocjonalne', source:'KSzOF',
+   fields:['rozpoznawanie','regulacja','tolerancja','reakcje'],
+   difficulties:['Trudności z rozpoznawaniem własnych emocji','Słabe nazywanie emocji innych','Niska tolerancja na frustrację','Wybuchy emocjonalne nieproporcjonalne','Trudności z samoregulacją','Lęki sytuacyjne (społeczne, separacyjne)','Obniżony nastrój, przygnębienie','Nadmierna reaktywność emocjonalna','Niska samoocena','Trudności z radzeniem sobie ze zmianą','Brak strategii radzenia sobie ze stresem','Tendencja do ruminacji'],
+   goals:['Uczeń nazwie emocję używając min. 6 nazw uczuć w 8/10 sytuacji','Uczeń zastosuje technikę oddechu 4-7-8 w 5/7 prób','Uczeń poprosi o przerwę przy narastającym napięciu w 4/5 sytuacji','Uczeń wskaże intensywność stanu na skali 1-5 w 8/10 prób','Uczeń zastosuje strategię regulacji w 6/8 sytuacji','Uczeń wytrwa w zadaniu mimo trudności min. 10 min w 4/5 sytuacji','Uczeń zaakceptuje zmianę planu bez wybuchu w 3/5 sytuacji','Uczeń wyrazi pozytywną opinię o sobie codziennie przez tydzień','Uczeń poprosi o wsparcie emocjonalne werbalnie w 5/7 sytuacji'],
+   exercises:['Termometr emocji i koło uczuć (Plutchik)','Karty emocji z mimiką twarzy','Dziennik emocji (Mood Tracker)','Bajkoterapia i książeczki terapeutyczne','Techniki mindfulness adaptowane','Słoik wdzięczności / pudełko sukcesów','Kącik wyciszenia','Techniki uziemienia 5-4-3-2-1','Plastelina, glina, piasek','Muzyka relaksacyjna','Ćwiczenia dramowe z emocjami']
+  },
+  {id:'kom', code:'D', name:'Komunikacja i mowa', source:'KSzOF',
+   fields:['mowa_czynna','mowa_bierna','niewerbalna','pragmatyka'],
+   difficulties:['Opóźniony rozwój mowy / mowa nieczytelna','Mały zasób słownictwa','Trudności gramatyczne','Mowa echolaliczna','Trudności z inicjowaniem rozmowy','Brak kontaktu wzrokowego','Trudności z utrzymaniem tematu','Problemy z pragmatyką','Trudności z poleceniami wielostopniowymi','Brak rozumienia metafor, idiomów','Konieczność wsparcia AAC','Wady wymowy'],
+   goals:['Uczeń powtórzy poprawnie głoski problematyczne w 80% prób','Uczeń utworzy zdanie 4-5 wyrazowe w 8/10 prób','Uczeń zainicjuje rozmowę pełnym zdaniem w 5/7 sytuacji','Uczeń odpowie na pytania "kto, co, gdzie, kiedy, dlaczego" w 8/10 prób','Uczeń utrzyma temat przez 3 wymiany w 4/5 prób','Uczeń użyje 3 nowych słów dziennie spontanicznie','Uczeń zastosuje symbol AAC do wyrażenia potrzeby w 8/10 sytuacji','Uczeń opowie historię z 3-elementowej historyjki'],
+   exercises:['Ćwiczenia oddechowe i fonacyjne','Gimnastyka aparatu artykulacyjnego','Karty obrazkowe do nazywania','Opowiadanie historyjek obrazkowych','Gra "Tabu" w wersji terapeutycznej','Symbolizatory PCS, PECS, Boardmaker','Trening pragmatyki: scenki konwersacyjne','Książeczki "wczoraj-dziś-jutro"','Łamańce językowe','Komunikator w sytuacjach naturalnych']
+  },
+  {id:'beh', code:'E', name:'Funkcjonowanie behawioralne', source:'ABC',
+   fields:['zachowania','stereotypie','adaptacja','reakcje_zmiane'],
+   difficulties:['Zachowania agresywne wobec siebie','Zachowania agresywne wobec innych','Wybuchy (meltdown) powyżej 10 min','Zachowania stereotypowe','Krzyk, wokalizacje','Ucieczki z sali','Niszczenie przedmiotów','Zachowania opozycyjne','Sztywność rytuałów','Zaburzenia snu i rytmu','Trudności z toaletą','Pica (jedzenie niejadalnych)','Selektywność jedzeniowa, neofobia'],
+   goals:['Uczeń zmniejszy częstość zachowania trudnego z … do … epizodów tygodniowo','Uczeń skróci czas wybuchu z … min do … min','Uczeń zastosuje zachowanie zastępcze w 5/7 sytuacji','Uczeń poprosi o przerwę zamiast zachowania trudnego w 6/8 sytuacji','Uczeń wskaże źródło dyskomfortu kartami w 7/10 sytuacji','Uczeń zaakceptuje "nie" bez eskalacji w 5/7 sytuacji','Uczeń spełni polecenie w 30 sek. w 8/10 sytuacji','Uczeń skorzysta z pokoju wyciszenia samodzielnie w 4/6 sytuacji'],
+   exercises:['System wzmocnień pozytywnych (token economy)','Arkusz ABC','Plan zachowań pozytywnych (PBS)','Karty zachowań akceptowalnych z piktogramami','Wzmocnienie zachowań alternatywnych (DRA, DRI, DRO)','Wizualne kontrakty zachowania','Procedura przejść z kartą "teraz-potem"','Trening tolerancji odraczania','Monitoring zachowań — wykresy']
+  },
+  {id:'tom', code:'F', name:'Teoria umysłu i empatia', source:'ToM',
+   fields:['rozpoznawanie_emocji','perspektywa','intencje','metafory'],
+   difficulties:['Trudność rozpoznawania emocji z mimiki','Brak rozumienia, że inni mają odmienne myśli','Trudność z fałszywymi przekonaniami (Sally-Anne)','Brak rozumienia intencji innych','Trudność z żartami, ironią, sarkazmem','Brak rozumienia metafor','Trudność z empatią poznawczą','Trudność z empatią emocjonalną','Brak rozumienia kłamstwa','Trudność z przewidywaniem zachowań','Brak rozumienia faux pas','Trudność z rozumieniem stanów wiedzy'],
+   goals:['Uczeń rozpozna 6 podstawowych emocji w 9/10 prób','Uczeń rozwiąże klasyczne zadanie Sally-Anne w 4/5 prób','Uczeń przewidzi zachowanie postaci w 7/10 zadań','Uczeń rozróżni żart od stwierdzenia w 6/8 sytuacji','Uczeń wyjaśni intencję postaci w 7/10 prób','Uczeń wymieni 3 powody emocji u innych','Uczeń rozpozna faux pas w 5/7 przykładów','Uczeń wskaże perspektywę wzrokową w 8/10 prób'],
+   exercises:['Zadania Sally-Anne i wersje rozszerzone','Historyjki Happé (strange stories)','Karty z mimiką emocji i intencjami','Komiksy z dymkami myśli','Filmoterapia ToM','Reading the Mind in the Eyes','Test fałszywego pudełka (Smarties)','Symulacje sytuacji społecznych']
+  },
+  {id:'sen', code:'G', name:'Profil sensoryczno-motoryczny', source:'Sensoryka',
+   fields:['motoryka_duza','motoryka_mala','grafomotoryka','planowanie_motor'],
+   difficulties:['Nadwrażliwość słuchowa','Podwrażliwość słuchowa','Nadwrażliwość dotykowa (metki)','Podwrażliwość dotykowa','Nadwrażliwość wzrokowa','Nadwrażliwość węchowa / smakowa','Zaburzenia układu przedsionkowego','Poszukiwanie stymulacji przedsionkowej','Zaburzenia propriocepcji','Dyspraksja','Trudności z motoryką małą','Trudności grafomotoryczne','Trudności z integracją bilateralną'],
+   goals:['Uczeń wytrzyma w środowisku hałaśliwym 10 min w 4/5 prób','Uczeń skorzysta ze słuchawek wygłuszających w 6/8 sytuacji','Uczeń wykona ćwiczenie proprioceptywne 3× dziennie','Uczeń dotknie 4 wybranych faktur bez wycofania','Uczeń skorzysta z diety sensorycznej codziennie','Uczeń wykona sekwencję ruchową naprzemienną w 8/10 prób','Uczeń wskaże stan pobudzenia (1-5) w 8/10 sytuacji','Uczeń wykona zadanie z planowaniem motorycznym w 3 krokach'],
+   exercises:['Dieta sensoryczna indywidualna','Szczotkowanie metodą Wilbarger','Ćwiczenia proprioceptywne','Trampolina, beczka, deska Bobath','Tor przeszkód SI','Słuchawki wygłuszające','Kocyk obciążeniowy, kamizelka utility','Piłki sensoryczne, woreczki','Plastelina, masa solna, piasek kinetyczny','Aktywności oralne (gryzaki, bańki)']
+  },
+  {id:'samo', code:'H', name:'Samoobsługa i samodzielność', source:'KSzOF',
+   fields:['ubieranie','jedzenie','higiena','organizacja'],
+   difficulties:['Trudności z samodzielnym ubieraniem','Trudności z używaniem sztućców','Brak samodzielności w toalecie','Trudności z higieną osobistą','Problemy z organizacją stanowiska','Trudności z pakowaniem plecaka','Brak orientacji w czasie','Trudności z poruszaniem po szkole','Brak proszenia o pomoc','Brak orientacji w pieniądzu','Trudności z dbaniem o rzeczy'],
+   goals:['Uczeń ubierze się w wyznaczonym czasie w 8/10 prób','Uczeń korzysta z toalety samodzielnie w 9/10 sytuacji','Uczeń umyje ręce wg 6-etapowej procedury w 8/10 prób','Uczeń spakuje plecak wg listy w 4/5 dni','Uczeń odczyta godzinę z zegara analogowego w 8/10 prób','Uczeń przyniesie właściwy podręcznik wg planu','Uczeń zje używając sztućców w 4/5 posiłków','Uczeń poprosi o pomoc dorosłego w 8/10 zdarzeń'],
+   exercises:['Plan dnia z piktogramami','Karty zadań samoobsługowych krok po kroku','Ćwiczenia zapinania, sznurowania','Manipulacje z klamerkami, koralikami','Treningi czystości ze wzmocnieniem','Czek-listy graficzne na ubieranie','Trening orientacji w czasie','Symulacje zakupów','Karty "co zrobić, gdy…"']
+  }
+];
+
+const CONTEXTS = ['Lekcje obowiązkowe','Przerwy między lekcjami','Czas wolny / zabawa swobodna','Zajęcia w małej grupie','Praca indywidualna','Aktywności ruchowe','Stołówka / posiłki','Świetlica','Sytuacje przejściowe','Zajęcia rewalidacyjne','Wycieczki / wyjścia','Sytuacje nieustrukturyzowane','Praca przy stoliku','Zajęcia plastyczne / manualne','WF / zajęcia ruchowe','Toaleta / higiena'];
+
+const SENS_CHANNELS = [
+  {id:'slu', name:'Słuch', desc:'Bodźce słuchowe'},
+  {id:'wzr', name:'Wzrok', desc:'Bodźce wzrokowe'},
+  {id:'dot', name:'Dotyk', desc:'Czucie powierzchowne'},
+  {id:'pro', name:'Propriocepcja', desc:'Czucie głębokie'},
+  {id:'prz', name:'Układ przedsionkowy', desc:'Równowaga, ruch'},
+  {id:'sma', name:'Smak', desc:'Bodźce smakowe'},
+  {id:'wec', name:'Węch', desc:'Bodźce węchowe'},
+  {id:'ora', name:'Sfera oralna', desc:'Czucie w jamie ustnej'}
+];
+
+const FIELD_LABELS = {
+  uwaga:'Uwaga · koncentracja', pamiec:'Pamięć', myslenie:'Myślenie · funkcje wykonawcze', tempo:'Tempo pracy umysłowej',
+  relacje:'Relacje z rówieśnikami', wspolpraca:'Współpraca w grupie', normy:'Rozumienie norm', konflikty:'Rozwiązywanie konfliktów',
+  rozpoznawanie:'Rozpoznawanie emocji', regulacja:'Samoregulacja', tolerancja:'Tolerancja na frustrację', reakcje:'Reakcje emocjonalne',
+  mowa_czynna:'Mowa czynna', mowa_bierna:'Mowa bierna (rozumienie)', niewerbalna:'Komunikacja niewerbalna', pragmatyka:'Pragmatyka',
+  zachowania:'Zachowania trudne', stereotypie:'Stereotypie', adaptacja:'Adaptacja do reguł', reakcje_zmiane:'Reakcja na zmianę',
+  rozpoznawanie_emocji:'Rozpoznawanie emocji u innych', perspektywa:'Przyjmowanie perspektywy', intencje:'Rozumienie intencji', metafory:'Metafory · ironia',
+  motoryka_duza:'Motoryka duża', motoryka_mala:'Motoryka mała', grafomotoryka:'Grafomotoryka', planowanie_motor:'Planowanie motoryczne',
+  ubieranie:'Ubieranie · rozbieranie', jedzenie:'Jedzenie · sztućce', higiena:'Higiena osobista', organizacja:'Organizacja przestrzeni'
+};
+
+const METHODS_BANK = ['Metoda Dobrego Startu (M. Bogdanowicz)','Metoda Ruchu Rozwijającego W. Sherborne','Metoda Knill\'ów','Metoda Domana (czytanie globalne)','Metoda werbo-tonalna','Stymulacja polisensoryczna (Snoezelen)','Terapia behawioralna (TEACCH)','Stosowana Analiza Zachowania (ABA)','Trening Umiejętności Społecznych (TUS)','Terapia integracji sensorycznej (SI)','Terapia ręki','Terapia logopedyczna','Trening Słuchowy Tomatisa','Metoda Affolter','Komunikacja alternatywna (AAC, PECS, MAKATON)','Drama i pedagogika zabawy','Arteterapia','Muzykoterapia','Biblioterapia / bajkoterapia','Hipoterapia / dogoterapia','Metody multisensoryczne','Edukacja matematyczna Gruszczyk-Kolczyńskiej','Metoda Klanza','Mindfulness adaptowany'];
+
+const FORMS_BANK = ['Praca indywidualna z uczniem','Praca w parach (peer tutoring)','Praca w małej grupie (3-5 osób)','Praca z całą klasą','Praca w domu z rodzicem','Zajęcia rewalidacyjne indywidualne','Zajęcia rewalidacyjne grupowe','Konsultacje z rodzicami','Konsultacje z poradnią PP','Współpraca z lekarzem prowadzącym','Spotkania zespołu raz w semestrze','Wsparcie nauczyciela wspomagającego','Indywidualizacja zadań w klasie','Dostosowanie tempa i czasu','Praca w "swoim miejscu"','Stacje edukacyjne','Praca metodą projektu','Zajęcia w terenie / wyjścia','Wsparcie asystenta'];
+
+const FREQ = ['nigdy','rzadko','czasem','często','zawsze'];
+const INTENS = ['1','2','3','4','5'];
+const FUNC_LABELS = {ucieczka:'Ucieczka od zadania',unikanie:'Unikanie sytuacji',uwaga:'Uzyskanie uwagi',dostep:'Dostęp do przedmiotu',sensor:'Stymulacja sensoryczna',regul:'Regulacja emocji',kom:'Funkcja komunikacyjna',wiele:'Wielofunkcyjne'};
+
+// ============ STATE ============
+const KEY = 'wopf_unified_v1';
+
+function defaultState(){
+  const s = {
+    student:{year:'2025/2026'},
+    team:[{role:'Koordynator',name:'',spec:''},{role:'Wychowawca',name:'',spec:''},{role:'Psycholog',name:'',spec:''}],
+    obs:{contexts:[],obsType:'',tools:'',totalTime:'',purpose:'',strengths:'',difficulties:'',hypotheses:'',recommendations:''},
+    areas:{}, abc:[], sens:{},
+    wopf:{methods:[],methodsCustom:[],forms:[],formsCustom:[],generalNotes:''}
+  };
+  AREAS.forEach(a=>{
+    s.areas[a.id]={
+      // OBS
+      observations:{}, strengths:'', difficulties:'', triggers:'', frequency:2, intensity:3, notes:'',
+      // BANKS
+      diff:[], goals:[], exercises:[], diffCustom:[], goalsCustom:[], exercisesCustom:[],
+      // SYN
+      summary:'', linkedFromObs:false
+    };
+    a.fields.forEach(f=>{s.areas[a.id].observations[f]='';});
+  });
+  SENS_CHANNELS.forEach(c=>{s.sens[c.id]={rating:'',note:''};});
+  return s;
+}
+
+let state = (function(){
+  try{const r = localStorage.getItem(KEY); if(r) return mergeDeep(defaultState(), JSON.parse(r));}catch(e){}
+  return defaultState();
+})();
+
+function mergeDeep(t, s){
+  if(typeof t!=='object'||t===null) return s;
+  if(typeof s!=='object'||s===null) return t;
+  if(Array.isArray(s)) return s;
+  const o = {...t};
+  for(const k in s){
+    if(k in t && typeof t[k]==='object' && !Array.isArray(t[k])) o[k] = mergeDeep(t[k], s[k]);
+    else o[k] = s[k];
+  }
+  return o;
+}
+
+function save(){try{localStorage.setItem(KEY, JSON.stringify(state));}catch(e){}}
+function esc(s){return (s==null?'':String(s)).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));}
+
+// ============ TABS ============
+function switchTab(name){
+  document.querySelectorAll('.tab-content').forEach(el=>el.classList.toggle('active', el.id==='tab-'+name));
+  document.querySelectorAll('.tab-btn').forEach(el=>el.classList.toggle('active', el.dataset.tab===name));
+  if(name==='print') buildPrintView();
+  window.scrollTo({top:0});
+}
+
+// ============ STUDENT ============
+function wireStudent(){
+  document.querySelectorAll('[data-stu]').forEach(inp=>{
+    const f = inp.dataset.stu;
+    if(state.student[f]) inp.value = state.student[f];
+    inp.addEventListener('input', ()=>{state.student[f]=inp.value;save();});
+  });
+}
+
+// ============ TEAM ============
+function renderTeam(){
+  const host = document.getElementById('teamList');
+  host.innerHTML = state.team.map((t,i)=>`
+    <div class="team-row">
+      <span>${String(i+1).padStart(2,'0')}</span>
+      <input type="text" placeholder="Imię i nazwisko" value="${esc(t.name)}" oninput="state.team[${i}].name=this.value;save()">
+      <input type="text" placeholder="Specjalność" value="${esc(t.spec)}" oninput="state.team[${i}].spec=this.value;save()">
+      <input type="text" placeholder="Funkcja w zespole" value="${esc(t.role)}" oninput="state.team[${i}].role=this.value;save()">
+      <button class="abc-rm" onclick="rmTeam(${i})">×</button>
+    </div>
+  `).join('');
+}
+function addTeam(){state.team.push({role:'',name:'',spec:''});save();renderTeam();}
+function rmTeam(i){state.team.splice(i,1);save();renderTeam();}
+
+// ============ CONTEXTS ============
+function renderContexts(){
+  const host = document.getElementById('contextsGrid');
+  host.innerHTML = CONTEXTS.map((c,i)=>{
+    const checked = state.obs.contexts.includes(i);
+    return `<label class="context-chip ${checked?'checked':''}"><input type="checkbox" ${checked?'checked':''} onchange="toggleContext(${i},this.checked,this.parentElement)">${c}</label>`;
+  }).join('');
+}
+function toggleContext(i,on,el){
+  if(on){if(!state.obs.contexts.includes(i))state.obs.contexts.push(i);el.classList.add('checked');}
+  else{state.obs.contexts = state.obs.contexts.filter(x=>x!==i);el.classList.remove('checked');}
+  save();
+}
+
+// ============ AREAS (UNIFIED) ============
+function renderAreas(){
+  const host = document.getElementById('areasContainer');
+  host.innerHTML = AREAS.map(area=>renderArea(area)).join('');
+
+  // wire observation textareas
+  host.querySelectorAll('textarea[data-oarea]').forEach(t=>{
+    const a = t.dataset.oarea, sub = t.dataset.sub;
+    t.addEventListener('input',()=>{
+      if(['strengths','difficulties','triggers','notes','summary'].includes(sub)) state.areas[a][sub] = t.value;
+      else state.areas[a].observations[sub] = t.value;
+      save();
+    });
+  });
+  // wire bank items
+  wireBankItems();
+  renderAllCustom();
+}
+
+function renderArea(area){
+  const a = state.areas[area.id];
+  return `
+  <div class="area-unit open" id="area-${area.id}">
+    <div class="area-unit-head" onclick="this.parentElement.classList.toggle('open')">
+      <h4><span class="num">${area.code}</span> ${area.name}</h4>
+      <div class="meta">
+        <span>źródło: <b>${area.source}</b></span>
+        <span>zaznaczeń: <b id="cnt-total-${area.id}">${(a.diff||[]).length+(a.goals||[]).length+(a.exercises||[]).length+(a.diffCustom||[]).length+(a.goalsCustom||[]).length+(a.exercisesCustom||[]).length}</b></span>
+      </div>
+    </div>
+    <div class="area-unit-body">
+      <div class="area-grid">
+
+        <!-- LEFT: OBSERVATION -->
+        <div class="area-pane left">
+          <div class="area-pane-head">
+            <h5>Obserwacja funkcjonalna<span class="num">CO ZAOBSERWOWANO</span></h5>
+          </div>
+          <div class="obs-pair">
+            ${area.fields.slice(0,2).map(f=>`
+              <div class="obs-block">
+                <label>${FIELD_LABELS[f]}</label>
+                <textarea data-oarea="${area.id}" data-sub="${f}">${esc(a.observations[f])}</textarea>
+              </div>
+            `).join('')}
+          </div>
+          <div class="obs-pair">
+            ${area.fields.slice(2,4).map(f=>`
+              <div class="obs-block">
+                <label>${FIELD_LABELS[f]}</label>
+                <textarea data-oarea="${area.id}" data-sub="${f}">${esc(a.observations[f])}</textarea>
+              </div>
+            `).join('')}
+          </div>
+          <div class="obs-pair-3">
+            <div class="obs-block"><label>Mocne strony</label><textarea data-oarea="${area.id}" data-sub="strengths">${esc(a.strengths)}</textarea></div>
+            <div class="obs-block"><label>Trudności</label><textarea data-oarea="${area.id}" data-sub="difficulties">${esc(a.difficulties)}</textarea></div>
+            <div class="obs-block"><label>Wyzwalacze</label><textarea data-oarea="${area.id}" data-sub="triggers">${esc(a.triggers)}</textarea></div>
+          </div>
+          <div class="scale-pair">
+            <div class="obs-block"><label>Częstotliwość trudności</label>
+              <div class="scale-group">${FREQ.map((f,i)=>`<button class="scale-btn cool ${a.frequency===i?'active':''}" onclick="setScale('${area.id}','frequency',${i})">${f}</button>`).join('')}</div>
+            </div>
+            <div class="obs-block"><label>Intensywność (1-5)</label>
+              <div class="scale-group">${INTENS.map((v,i)=>`<button class="scale-btn warm ${a.intensity===i?'active':''}" onclick="setScale('${area.id}','intensity',${i})">${v}</button>`).join('')}</div>
+            </div>
+          </div>
+          <div class="obs-block"><label>Uwagi obserwacyjne</label><textarea data-oarea="${area.id}" data-sub="notes" class="italic">${esc(a.notes)}</textarea></div>
+        </div>
+
+        <!-- RIGHT: BANKS -->
+        <div class="area-pane">
+          <div class="area-pane-head">
+            <h5>Wybór z banków profesjonalnych<span class="num">CO ZASTOSOWAĆ</span></h5>
+          </div>
+          <div class="banks-stack">
+            ${renderBank(area, 'diff', 'Trudności i deficyty', '!', area.difficulties)}
+            ${renderBank(area, 'goals', 'Cele SMART', '✓', area.goals)}
+            ${renderBank(area, 'exercises', 'Tematy ćwiczeń', '●', area.exercises)}
+          </div>
+        </div>
+
+      </div>
+
+      <!-- BOTTOM: SYNTHESIS STRIP -->
+      <div class="syn-strip">
+        <div class="syn-strip-icon">∑</div>
+        <div class="syn-strip-body">
+          <label>Synteza obszaru — podsumowanie diagnostyczne ${a.linkedFromObs?'<span class="pulled">· wczytane z obserwacji</span>':''}</label>
+          <textarea data-oarea="${area.id}" data-sub="summary">${esc(a.summary)}</textarea>
+        </div>
+        <div class="syn-strip-action">
+          <button class="${a.linkedFromObs?'has-data':''}" onclick="importFromObs('${area.id}')">${a.linkedFromObs?'Odśwież':'⇩ Wczytaj z obserwacji'}</button>
+        </div>
+      </div>
+    </div>
+  </div>`;
+}
+
+function renderBank(area, kind, title, sym, items){
+  return `
+    <div class="bank ${kind}">
+      <div class="bank-head">
+        <h6><b>${sym}</b>${title}</h6>
+        <span><b id="cnt-${area.id}-${kind}">${(state.areas[area.id][kind]||[]).length + (state.areas[area.id][kind+'Custom']||[]).length}</b> / ${items.length}+</span>
+      </div>
+      <div class="bank-list" id="list-${area.id}-${kind}">
+        ${items.map((txt,i)=>{
+          const checked = (state.areas[area.id][kind]||[]).includes(i);
+          return `<div class="item ${checked?'checked':''}" data-area="${area.id}" data-kind="${kind}" data-idx="${i}">
+            <input type="checkbox" ${checked?'checked':''}>
+            <label>${txt}</label>
+          </div>`;
+        }).join('')}
+        <div id="custom-${area.id}-${kind}"></div>
+      </div>
+      <div class="add-custom"><input id="add-${area.id}-${kind}" placeholder="Dodaj własną..."><button onclick="addAreaCustom('${area.id}','${kind}')">Dodaj</button></div>
+    </div>
+  `;
+}
+
+function wireBankItems(){
+  document.querySelectorAll('.item[data-area]').forEach(it=>{
+    const a = it.dataset.area, k = it.dataset.kind, i = parseInt(it.dataset.idx);
+    const chk = it.querySelector('input');
+    it.addEventListener('click', e=>{if(e.target.tagName==='INPUT')return;chk.checked=!chk.checked;toggleBankItem(a,k,i,chk.checked,it);});
+    chk.addEventListener('change', ()=>toggleBankItem(a,k,i,chk.checked,it));
+  });
+}
+function toggleBankItem(area, kind, idx, on, el){
+  const arr = state.areas[area][kind] || (state.areas[area][kind] = []);
+  if(on){if(!arr.includes(idx))arr.push(idx);el.classList.add('checked');}
+  else{state.areas[area][kind] = arr.filter(x=>x!==idx);el.classList.remove('checked');}
+  save();
+  updateBankCount(area, kind);
+}
+function updateBankCount(area, kind){
+  const cnt = (state.areas[area][kind]||[]).length + (state.areas[area][kind+'Custom']||[]).length;
+  const el = document.getElementById(`cnt-${area}-${kind}`); if(el) el.textContent = cnt;
+  // total
+  const a = state.areas[area];
+  const total = (a.diff||[]).length+(a.goals||[]).length+(a.exercises||[]).length+(a.diffCustom||[]).length+(a.goalsCustom||[]).length+(a.exercisesCustom||[]).length;
+  const tEl = document.getElementById(`cnt-total-${area}`); if(tEl) tEl.textContent = total;
+}
+function addAreaCustom(areaId, kind){
+  const inp = document.getElementById(`add-${areaId}-${kind}`);
+  const val = inp.value.trim(); if(!val) return;
+  state.areas[areaId][kind+'Custom'].push(val);
+  inp.value = ''; save(); renderAllCustom(); updateBankCount(areaId, kind);
+}
+function rmAreaCustom(areaId, kind, idx){
+  state.areas[areaId][kind+'Custom'].splice(idx, 1);
+  save(); renderAllCustom(); updateBankCount(areaId, kind);
+}
+function renderAllCustom(){
+  AREAS.forEach(area=>{
+    ['diff','goals','exercises'].forEach(k=>{
+      const host = document.getElementById(`custom-${area.id}-${k}`); if(!host) return;
+      host.innerHTML = (state.areas[area.id][k+'Custom']||[]).map((txt,i)=>`
+        <div class="item custom checked"><span class="badge">+</span><label>${esc(txt)}</label><button class="remove" onclick="rmAreaCustom('${area.id}','${k}',${i})">×</button></div>
+      `).join('');
+    });
+  });
+}
+
+function setScale(area,kind,i){state.areas[area][kind]=i;save();renderAreas();}
+function toggleAllAreas(open){document.querySelectorAll('.area-unit').forEach(el=>{if(open)el.classList.add('open');else el.classList.remove('open');});}
+
+// ============ DATA FLOW ============
+function importFromObs(areaId){
+  const o = state.areas[areaId];
+  const area = AREAS.find(x=>x.id===areaId);
+  const parts = [];
+  area.fields.forEach(f=>{ if(o.observations[f]) parts.push(`${FIELD_LABELS[f]}: ${o.observations[f]}`); });
+  if(o.strengths) parts.push(`MOCNE STRONY: ${o.strengths}`);
+  if(o.difficulties) parts.push(`TRUDNOŚCI: ${o.difficulties}`);
+  if(o.triggers) parts.push(`Wyzwalacze: ${o.triggers}`);
+  parts.push(`[Częstotliwość: ${FREQ[o.frequency]} · Intensywność: ${INTENS[o.intensity]}/5]`);
+  if(o.notes) parts.push(`Uwagi: ${o.notes}`);
+  const synthesis = parts.length>1 ? parts.join('\n\n') : 'Brak danych obserwacyjnych — uzupełnij pola po lewej stronie obszaru.';
+  state.areas[areaId].summary = synthesis;
+  state.areas[areaId].linkedFromObs = true;
+  save();
+  renderAreas();
+}
+
+// ============ ABC ============
+function renderABC(){
+  const host = document.getElementById('abcEntries');
+  host.innerHTML = state.abc.map((e,i)=>`
+    <div class="abc-entry">
+      <div class="abc-num">${i+1}</div>
+      <div class="abc-body">
+        <div><label><b class="b">B</b>Zachowanie</label><textarea data-abc="${i}" data-f="behavior">${esc(e.behavior)}</textarea></div>
+        <div><label><b class="a">A</b>Poprzedzający</label><textarea data-abc="${i}" data-f="antecedent">${esc(e.antecedent)}</textarea></div>
+        <div><label><b class="c">C</b>Konsekwencja</label><textarea data-abc="${i}" data-f="consequence">${esc(e.consequence)}</textarea></div>
+        <div><label><b class="f">F</b>Funkcja</label>
+          <select data-abc="${i}" data-f="func">
+            <option value="">— wybierz —</option>
+            ${Object.entries(FUNC_LABELS).map(([k,v])=>`<option value="${k}" ${e.func===k?'selected':''}>${v}</option>`).join('')}
+          </select>
+        </div>
+        <div><label>Częstotliwość</label><textarea data-abc="${i}" data-f="freq">${esc(e.freq)}</textarea></div>
+      </div>
+      <button class="abc-rm" onclick="rmABC(${i})">×</button>
+    </div>
+  `).join('');
+  host.querySelectorAll('[data-abc]').forEach(el=>{
+    const i = parseInt(el.dataset.abc), f = el.dataset.f;
+    el.addEventListener('input',()=>{state.abc[i][f]=el.value;save();});
+    el.addEventListener('change',()=>{state.abc[i][f]=el.value;save();});
+  });
+}
+function addABC(){state.abc.push({behavior:'',antecedent:'',consequence:'',func:'',freq:''});save();renderABC();}
+function rmABC(i){state.abc.splice(i,1);save();renderABC();}
+
+// ============ SENS ============
+function renderSens(){
+  const host = document.getElementById('sensGrid');
+  const R = [{k:'high',l:'NW',f:'Nadwrażliwy'},{k:'norm',l:'N',f:'W normie'},{k:'low',l:'PW',f:'Podwrażliwy'},{k:'seek',l:'PS',f:'Poszukujący'}];
+  host.innerHTML = SENS_CHANNELS.map(c=>{
+    const s = state.sens[c.id];
+    return `<div class="sens-row">
+      <div class="sens-name"><b>${c.name}</b><small>${c.desc}</small></div>
+      <div class="sens-rating">${R.map(r=>`<button class="${s.rating===r.k?'active '+r.k:''}" onclick="setSens('${c.id}','${r.k}')" title="${r.f}">${r.l}</button>`).join('')}</div>
+      <div class="sens-note"><input type="text" placeholder="Obserwacja..." value="${esc(s.note)}" oninput="state.sens['${c.id}'].note=this.value;save()"></div>
+    </div>`;
+  }).join('');
+}
+function setSens(id,k){state.sens[id].rating = state.sens[id].rating===k ? '' : k;save();renderSens();}
+
+// ============ OBS META ============
+function wireObsMeta(){
+  document.querySelectorAll('[data-obs]').forEach(el=>{
+    const f = el.dataset.obs;
+    if(state.obs[f]!==undefined) el.value = state.obs[f];
+    el.addEventListener('input',()=>{state.obs[f]=el.value;save();});
+    el.addEventListener('change',()=>{state.obs[f]=el.value;save();});
+  });
+}
+
+// ============ METHODS / FORMS ============
+function renderMethodsForms(){
+  const m = document.getElementById('methodsList');
+  m.innerHTML = METHODS_BANK.map((t,i)=>{
+    const checked = state.wopf.methods.includes(i);
+    return `<div class="item ${checked?'checked':''}" data-mf="methods" data-idx="${i}"><input type="checkbox" ${checked?'checked':''}><label>${t}</label></div>`;
+  }).join('') + '<div id="custom-methods-host"></div>';
+  const f = document.getElementById('formsList');
+  f.innerHTML = FORMS_BANK.map((t,i)=>{
+    const checked = state.wopf.forms.includes(i);
+    return `<div class="item ${checked?'checked':''}" data-mf="forms" data-idx="${i}"><input type="checkbox" ${checked?'checked':''}><label>${t}</label></div>`;
+  }).join('') + '<div id="custom-forms-host"></div>';
+  document.querySelectorAll('.item[data-mf]').forEach(it=>{
+    const k = it.dataset.mf, i = parseInt(it.dataset.idx);
+    const chk = it.querySelector('input');
+    it.addEventListener('click', e=>{if(e.target.tagName==='INPUT')return;chk.checked=!chk.checked;toggleMF(k,i,chk.checked,it);});
+    chk.addEventListener('change', ()=>toggleMF(k,i,chk.checked,it));
+  });
+  renderMFCustom();
+  updateMFCounts();
+}
+function toggleMF(k,i,on,el){
+  const arr = state.wopf[k];
+  if(on){if(!arr.includes(i))arr.push(i);el.classList.add('checked');}
+  else{state.wopf[k] = arr.filter(x=>x!==i);el.classList.remove('checked');}
+  save(); updateMFCounts();
+}
+function addMFCustom(k){
+  const inp = document.getElementById(k+'Custom'); const v = inp.value.trim(); if(!v) return;
+  state.wopf[k+'Custom'].push(v); inp.value=''; save(); renderMFCustom(); updateMFCounts();
+}
+function rmMFCustom(k,i){state.wopf[k+'Custom'].splice(i,1);save();renderMFCustom();updateMFCounts();}
+function renderMFCustom(){
+  ['methods','forms'].forEach(k=>{
+    const host = document.getElementById('custom-'+k+'-host'); if(!host) return;
+    host.innerHTML = (state.wopf[k+'Custom']||[]).map((t,i)=>`
+      <div class="item custom checked"><span class="badge">+</span><label>${esc(t)}</label><button class="remove" onclick="rmMFCustom('${k}',${i})">×</button></div>
+    `).join('');
+  });
+}
+function updateMFCounts(){
+  document.getElementById('methodsCount').textContent = state.wopf.methods.length + state.wopf.methodsCustom.length;
+  document.getElementById('formsCount').textContent = state.wopf.forms.length + state.wopf.formsCustom.length;
+}
+
+// ============ WOPF META ============
+function wireWopfMeta(){
+  document.querySelectorAll('[data-wopf]').forEach(el=>{
+    const f = el.dataset.wopf;
+    if(state.wopf[f]!==undefined) el.value = state.wopf[f];
+    el.addEventListener('input',()=>{state.wopf[f]=el.value;save();});
+  });
+}
+
+// ============ PRINT VIEW ============
+function buildPrintView(){
+  const s = state.student;
+  const dl = (k,v) => `<div><dt>${k}</dt><dd>${esc(v||'')||'&nbsp;'}</dd></div>`;
+
+  let h = `
+    <header class="pv-cover">
+      <div class="pv-org">
+        <div class="pv-mark">P</div>
+        <div class="pv-org-name">EduPlaner2026-MJ-PCTP<small>Karta funkcjonalna WOPF · KSzOF · ABC · ToM · Sensoryka</small></div>
+      </div>
+      <div class="pv-tag">WOPF · Karta funkcjonalna · 2026</div>
+      <h1 class="pv-title">Wielospecjalistyczna<br>Ocena <em>Poziomu</em> Funkcjonowania</h1>
+      <div class="pv-subtitle">Karta funkcjonalna ucznia — obserwacja, wybór z banków profesjonalnych i synteza dla każdego z 8 obszarów funkcjonowania</div>
+    </header>
+
+    <dl class="pv-meta">
+      ${dl('Imię i nazwisko',s.name)}${dl('Data urodzenia',s.dob)}${dl('Klasa / grupa',s.class)}${dl('Etap edukacyjny',s.stage)}
+      ${dl('Nr orzeczenia',s.orzeczenie)}${dl('Diagnoza wiodąca',s.diagnosis)}${dl('Koordynator',s.coordinator)}${dl('Rok szkolny',s.year)}
+      ${dl('Okres obserwacji',s.period)}${dl('Data WOPF',s.date)}
+    </dl>
+  `;
+
+  // 01 zespół
+  const teamRows = state.team.filter(t=>t.name||t.spec||t.role).map((t,i)=>`<tr><td class="pv-abc-n">${i+1}</td><td>${esc(t.name)}</td><td>${esc(t.spec)}</td><td>${esc(t.role)}</td></tr>`).join('');
+  if(teamRows){
+    h += `<section class="pv-section">
+      <div class="pv-section-head"><span class="pv-section-num">01</span><h2 class="pv-section-title">Zespół specjalistów</h2></div>
+      <table class="pv-team-table"><thead><tr><th>Lp.</th><th>Imię i nazwisko</th><th>Specjalność</th><th>Funkcja</th></tr></thead><tbody>${teamRows}</tbody></table>
+    </section>`;
+  }
+
+  // 02 kontekst
+  const ctxs = state.obs.contexts.map(i=>CONTEXTS[i]);
+  if(ctxs.length || state.obs.obsType || state.obs.tools || state.obs.purpose){
+    h += `<section class="pv-section"><div class="pv-section-head"><span class="pv-section-num">02</span><h2 class="pv-section-title">Kontekst i metoda obserwacji</h2></div>`;
+    if(ctxs.length) h += `<div class="pv-block"><div class="pv-block-label">Konteksty obserwacji</div><div class="pv-context-chips">${ctxs.map(c=>`<span class="pv-context-chip">${esc(c)}</span>`).join('')}</div></div>`;
+    if(state.obs.obsType||state.obs.tools||state.obs.totalTime){
+      h += `<dl class="pv-meta" style="grid-template-columns:repeat(3,1fr);border:none;padding:6px 0">${dl('Typ obserwacji',state.obs.obsType)}${dl('Narzędzia',state.obs.tools)}${dl('Łączny czas',state.obs.totalTime)}</dl>`;
+    }
+    if(state.obs.purpose) h += `<div class="pv-block"><div class="pv-block-label">Cel obserwacji</div><div class="pv-block-content italic">${esc(state.obs.purpose)}</div></div>`;
+    h += `</section>`;
+  }
+
+  // 03 OBSZARY (UNIFIED)
+  const usedAreas = AREAS.filter(a=>{
+    const s = state.areas[a.id];
+    return Object.values(s.observations).some(v=>v) || s.strengths || s.difficulties || s.triggers || s.notes || s.summary
+      || (s.diff||[]).length || (s.goals||[]).length || (s.exercises||[]).length
+      || (s.diffCustom||[]).length || (s.goalsCustom||[]).length || (s.exercisesCustom||[]).length;
+  });
+  if(usedAreas.length){
+    h += `<section class="pv-section"><div class="pv-section-head"><span class="pv-section-num">03</span><h2 class="pv-section-title">Obszary funkcjonowania — obserwacja i synteza</h2></div>`;
+    usedAreas.forEach(area=>{
+      const a = state.areas[area.id];
+      const diffs = [...(a.diff||[]).map(i=>area.difficulties[i]), ...(a.diffCustom||[])];
+      const goals = [...(a.goals||[]).map(i=>area.goals[i]), ...(a.goalsCustom||[])];
+      const exs = [...(a.exercises||[]).map(i=>area.exercises[i]), ...(a.exercisesCustom||[])];
+
+      h += `<div class="pv-area">
+        <div class="pv-area-head">
+          <span class="pv-area-name"><span>${area.code}</span>${esc(area.name)}</span>
+          <span class="pv-area-src">źródło: ${esc(area.source)}</span>
+        </div>
+        <div class="pv-area-body">`;
+
+      // OBSERVATION subsection
+      const hasObs = Object.values(a.observations).some(v=>v) || a.strengths || a.difficulties || a.triggers || a.notes;
+      if(hasObs){
+        h += `<div class="pv-block"><div class="pv-block-label">Obserwacja</div>`;
+        area.fields.forEach(f=>{
+          if(a.observations[f]) h += `<div class="pv-obsfield"><b>${FIELD_LABELS[f]}</b>${esc(a.observations[f])}</div>`;
+        });
+        if(a.strengths) h += `<div class="pv-obsfield"><b style="color:var(--green)">Mocne strony</b>${esc(a.strengths)}</div>`;
+        if(a.difficulties) h += `<div class="pv-obsfield"><b style="color:var(--red)">Trudności</b>${esc(a.difficulties)}</div>`;
+        if(a.triggers) h += `<div class="pv-obsfield"><b style="color:var(--amber)">Wyzwalacze</b>${esc(a.triggers)}</div>`;
+        h += `<div style="display:flex;gap:22px;margin:8px 0 6px;flex-wrap:wrap">
+          <div><div class="pv-block-label">Częstotliwość</div><div class="pv-scale">${FREQ.map((f,i)=>`<span class="${a.frequency===i?'active':''}">${f}</span>`).join('')}</div></div>
+          <div><div class="pv-block-label">Intensywność</div><div class="pv-scale">${INTENS.map((v,i)=>`<span class="${a.intensity===i?'active warm':''}">${v}</span>`).join('')}</div></div>
+        </div>`;
+        if(a.notes) h += `<div class="pv-obsfield"><b>Uwagi</b><span style="font-family:'Fraunces',serif;font-style:italic;color:var(--purple-deep)">${esc(a.notes)}</span></div>`;
+        h += `</div>`;
+      }
+
+      // BANKS SELECTIONS
+      if(diffs.length) h += `<div class="pv-block"><div class="pv-block-label" style="color:var(--red)">Trudności i deficyty — wybór</div><ul class="pv-list diff">${diffs.map(t=>`<li>${esc(t)}</li>`).join('')}</ul></div>`;
+      if(goals.length) h += `<div class="pv-block"><div class="pv-block-label" style="color:var(--green)">Cele SMART — wybór</div><ul class="pv-list goals">${goals.map(t=>`<li>${esc(t)}</li>`).join('')}</ul></div>`;
+      if(exs.length) h += `<div class="pv-block"><div class="pv-block-label" style="color:var(--orange)">Tematy ćwiczeń — wybór</div><ul class="pv-list ex">${exs.map(t=>`<li>${esc(t)}</li>`).join('')}</ul></div>`;
+
+      // SYNTHESIS
+      if(a.summary) h += `<div class="pv-syn">${esc(a.summary)}</div>`;
+
+      h += `</div></div>`;
+    });
+    h += `</section>`;
+  }
+
+  // 04 ABC
+  const abcRows = state.abc.filter(e=>e.behavior||e.antecedent||e.consequence);
+  if(abcRows.length){
+    h += `<section class="pv-section"><div class="pv-section-head"><span class="pv-section-num">04</span><h2 class="pv-section-title">Analiza ABC zachowań trudnych</h2></div>
+      <table class="pv-abc-table"><colgroup><col style="width:5%"><col style="width:21%"><col style="width:25%"><col style="width:21%"><col style="width:16%"><col style="width:12%"></colgroup><thead><tr><th>#</th><th>A · Poprzedzający</th><th>B · Zachowanie</th><th>C · Konsekwencja</th><th>Funkcja</th><th>Częstotliwość</th></tr></thead>
+      <tbody>${abcRows.map((e,i)=>`<tr><td class="pv-abc-n">${i+1}</td><td>${esc(e.antecedent)}</td><td>${esc(e.behavior)}</td><td>${esc(e.consequence)}</td><td><b>${esc(FUNC_LABELS[e.func]||e.func||'')}</b></td><td>${esc(e.freq)}</td></tr>`).join('')}</tbody></table></section>`;
+  }
+
+  // 05 sensoryka
+  const sensRows = SENS_CHANNELS.filter(c=>state.sens[c.id].rating || state.sens[c.id].note);
+  if(sensRows.length){
+    const RF = {high:'Nadwrażliwy',norm:'W normie',low:'Podwrażliwy',seek:'Poszukujący'};
+    h += `<section class="pv-section"><div class="pv-section-head"><span class="pv-section-num">05</span><h2 class="pv-section-title">Profil sensoryczny</h2></div>
+      <table class="pv-sens-table"><thead><tr><th>Kanał sensoryczny</th><th style="text-align:center">Modulacja</th><th>Obserwacja</th></tr></thead>
+      <tbody>${sensRows.map(c=>{const r=state.sens[c.id];return `<tr><td class="sens-label">${esc(c.name)} <small style="font-family:'JetBrains Mono',monospace;font-size:7.5pt;color:var(--muted)">· ${esc(c.desc)}</small></td><td class="sens-rating ${r.rating||''}">${RF[r.rating]||'—'}</td><td>${esc(r.note)}</td></tr>`;}).join('')}</tbody></table></section>`;
+  }
+
+  // 06 metody / formy
+  const methods = [...state.wopf.methods.map(i=>METHODS_BANK[i]), ...state.wopf.methodsCustom];
+  const forms = [...state.wopf.forms.map(i=>FORMS_BANK[i]), ...state.wopf.formsCustom];
+  if(methods.length || forms.length){
+    h += `<section class="pv-section"><div class="pv-section-head"><span class="pv-section-num">06</span><h2 class="pv-section-title">Metody i formy pracy</h2></div>`;
+    if(methods.length) h += `<div class="pv-block"><div class="pv-block-label">Metody pracy</div><ul class="pv-pills-wopf">${methods.map(t=>`<li>${esc(t)}</li>`).join('')}</ul></div>`;
+    if(forms.length) h += `<div class="pv-block" style="margin-top:8px"><div class="pv-block-label">Formy organizacyjne</div><ul class="pv-pills-wopf">${forms.map(t=>`<li>${esc(t)}</li>`).join('')}</ul></div>`;
+    h += `</section>`;
+  }
+
+  // 07 wnioski
+  if(state.obs.strengths||state.obs.difficulties||state.obs.hypotheses||state.obs.recommendations||state.wopf.generalNotes){
+    h += `<section class="pv-section"><div class="pv-section-head"><span class="pv-section-num">07</span><h2 class="pv-section-title">Wnioski końcowe i hipotezy</h2></div>`;
+    if(state.obs.strengths) h += `<div class="pv-block"><div class="pv-block-label" style="color:var(--green)">Mocne strony — synteza całościowa</div><div class="pv-block-content">${esc(state.obs.strengths)}</div></div>`;
+    if(state.obs.difficulties) h += `<div class="pv-block"><div class="pv-block-label" style="color:var(--red)">Trudności — synteza całościowa</div><div class="pv-block-content">${esc(state.obs.difficulties)}</div></div>`;
+    if(state.obs.hypotheses) h += `<div class="pv-conclusion"><span class="pv-conclusion-label">Hipotezy diagnostyczne</span>${esc(state.obs.hypotheses)}</div>`;
+    if(state.obs.recommendations) h += `<div class="pv-block" style="margin-top:8px"><div class="pv-block-label">Rekomendacje</div><div class="pv-block-content">${esc(state.obs.recommendations)}</div></div>`;
+    if(state.wopf.generalNotes) h += `<div class="pv-conclusion" style="margin-top:8px"><span class="pv-conclusion-label">Plan dalszej pracy</span>${esc(state.wopf.generalNotes)}</div>`;
+    h += `</section>`;
+  }
+
+  // sygnatury
+  h += `<section class="pv-sig-grid">
+    <div class="pv-sig"><div class="pv-sig-line"></div><div class="pv-sig-label"><b>Koordynator zespołu</b>podpis i pieczęć</div></div>
+    <div class="pv-sig"><div class="pv-sig-line"></div><div class="pv-sig-label"><b>Wychowawca</b>podpis</div></div>
+    <div class="pv-sig"><div class="pv-sig-line"></div><div class="pv-sig-label"><b>Specjalista wiodący</b>podpis</div></div>
+    <div class="pv-sig"><div class="pv-sig-line"></div><div class="pv-sig-label"><b>Psycholog</b>podpis</div></div>
+    <div class="pv-sig"><div class="pv-sig-line"></div><div class="pv-sig-label"><b>Pedagog specjalny</b>podpis</div></div>
+    <div class="pv-sig"><div class="pv-sig-line"></div><div class="pv-sig-label"><b>Rodzic / opiekun prawny</b>data i podpis</div></div>
+  </section>`;
+
+  h += `<footer class="pv-footer">
+    <span>EduPlaner2026-MJ-PCTP · Karta Funkcjonalna WOPF · ${esc(s.year||'2025/2026')}</span>
+    <span>Dokument poufny · RODO · <b>WOPF/${esc(s.date||'……')}</b></span>
+  </footer>`;
+
+  document.getElementById('printHost').innerHTML = h;
+}
+window.addEventListener('beforeprint', buildPrintView);
+
+// ============ I/O ============
+function exportJSON(){
+  const blob = new Blob([JSON.stringify(state,null,2)], {type:'application/json'});
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement('a');
+  const name = (state.student.name||'WOPF').replace(/\s+/g,'_');
+  a.href = url; a.download = `WOPF_Karta_${name}_${new Date().toISOString().slice(0,10)}.json`;
+  a.click(); URL.revokeObjectURL(url);
+}
+document.getElementById('fileInput').addEventListener('change', e=>{
+  const f = e.target.files[0]; if(!f) return;
+  const r = new FileReader();
+  r.onload = ()=>{try{state=mergeDeep(defaultState(),JSON.parse(r.result));save();renderAll();}catch(err){alert('Błąd JSON');}};
+  r.readAsText(f);
+});
+function resetAll(){if(!confirm('Wyczyścić wszystkie dane?'))return;state=defaultState();save();renderAll();}
+
+function renderAll(){
+  wireStudent();
+  renderTeam();
+  renderContexts();
+  wireObsMeta();
+  renderAreas();
+  renderABC();
+  renderSens();
+  renderMethodsForms();
+  wireWopfMeta();
+}
+
+renderAll();
+</script>
+</body>
+</html>
