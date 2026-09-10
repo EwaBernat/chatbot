@@ -264,7 +264,9 @@ svg.ck{flex:none;width:18px;height:18px;margin-top:3px}
   background:linear-gradient(200deg,rgba(45,27,105,.06),transparent 34%),radial-gradient(120% 80% at 50% 108%,rgba(26,15,66,.30),transparent 62%)}
 .hero-stage.has-photo .device,.hero-stage.has-photo .deck{display:none}
 .hero-stage.has-photo .photo{display:block}
-.hero-stage.has-photo .livedot{bottom:16px;right:16px}
+/* Bez makiety laptopa scena nie potrzebuje jego wysokosci — inaczej pod
+   zdjeciem zostaje pusty fioletowy pas, a karta odrywa sie od kadru. */
+.hero-stage.has-photo{min-height:0;padding-bottom:34px}
 .hero-stage.has-photo .float{bottom:-30px;left:-38px}
 @media (max-width:980px){.hero-stage.has-photo .float{left:0;bottom:-16px}}
 
@@ -1185,7 +1187,7 @@ svg.ck{flex:none;width:18px;height:18px;margin-top:3px}
     <div class="app-wrap hero-stage">
     <svg class="kw " aria-hidden="true"><use href="#kwiat"/></svg><svg class="kw kw-2" aria-hidden="true"><use href="#kwiat"/></svg>
     <figure class="photo">
-      <img src="img/hero-biurko.webp" alt="EduPlaner 2026 otwarty na monitorze w sali przedszkolnej, obok notatnik WOPF i kubek PCTP"
+      <img src="img/hero-biurko.webp" alt="Specjalistka przy biurku pracuje w EduPlanerze 2026 — na monitorze pulpit dyrektora z listem autorki i modułami ścieżki dziecka"
            onload="this.closest('.hero-stage').classList.add('has-photo')" onerror="this.closest('figure').remove()">
     </figure>
     <div class="device laptop">
@@ -1198,8 +1200,10 @@ svg.ck{flex:none;width:18px;height:18px;margin-top:3px}
       <span class="livedot"><i></i>Działa w przeglądarce</span>
     </div>
     <span class="deck" aria-hidden="true"><span class="pad"></span></span>
-    <div class="float" aria-hidden="true"><span class="doc"></span><div><b>Druk IPET gotowy do PDF</b><span>metryczka i cele SMART z WOPF</span></div></div>
     </div>
+    <!-- Karta stoi poza .device celowo: przy wczytanym zdjeciu makieta laptopa
+         znika (display:none), a ta karta ma zostac nad zdjeciem. -->
+    <div class="float" aria-hidden="true"><span class="doc"></span><div><b>Druk IPET gotowy do PDF</b><span>metryczka i cele SMART z WOPF</span></div></div>
   </div>
 </section>
 
