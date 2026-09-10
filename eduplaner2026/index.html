@@ -1084,7 +1084,18 @@ svg.ck{flex:none;width:18px;height:18px;margin-top:3px}
 .przepis-cta{display:flex;gap:12px;flex-wrap:wrap;align-items:center;padding-top:20px;border-top:1px solid var(--line)}
 .przepis-zrodlo{font-size:13px;color:var(--ink-3);margin:16px 0 0}
 /* Przycisk rozwijajacy w sekcji „Co sie zmienilo" */
-.zmiany-wiecej{margin-top:22px}
+.zmiany-wiecej{margin-top:26px;background:var(--orange-soft);border:2px solid var(--orange);
+  color:var(--orange-ink);padding:15px 22px;font-size:16.5px;font-weight:700;
+  box-shadow:0 12px 28px -18px rgba(232,69,10,.65);white-space:normal;text-align:left;align-items:center}
+.zmiany-wiecej:hover{background:var(--orange);color:#fff;border-color:var(--orange)}
+.zmiany-wiecej .waz{flex:none;background:var(--orange);color:#fff;border-radius:6px;
+  padding:4px 9px;font-size:11px;letter-spacing:.1em;text-transform:uppercase;font-weight:800}
+.zmiany-wiecej:hover .waz{background:#fff;color:var(--orange-ink)}
+.zmiany-wiecej svg{width:18px;height:18px;flex:none;fill:none;stroke:currentColor;
+  stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round;transition:transform .15s ease}
+.zmiany-wiecej:hover svg{transform:translateX(3px)}
+@media (prefers-reduced-motion: reduce){.zmiany-wiecej svg,.zmiany-wiecej:hover svg{transition:none;transform:none}}
+@media (max-width:560px){.zmiany-wiecej{font-size:15.5px;padding:14px 18px;gap:8px}}
 @media (max-width:520px){.sheet-top{padding:12px 14px;gap:10px}.sheet-top h3{font-size:17px}.sheet-btn .et{display:none}.sheet-btn{padding:10px 13px}}
 @media (max-width:760px){.sheet-body{padding:18px}}
 .sheet-body .big{width:100%;height:auto;display:block;border-radius:12px;border:1px solid var(--plum-line);
@@ -1253,7 +1264,7 @@ svg.ck{flex:none;width:18px;height:18px;margin-top:3px}
       <h2>Nowe przepisy obejmą każdą placówkę. Od Państwa zależy, ile godzin zespołu pochłoną.</h2>
       <p class="lead">Od września 2026 każda szkoła i&nbsp;przedszkole prowadzi ocenę funkcjonalną według nowych zasad. Zespoły, które robią to w&nbsp;arkuszach, przepisują te same dane po kilka razy.</p>
       <div class="punch"><b>EduPlaner 2026 był budowany od początku pod nowe przepisy.</b></div>
-      <button class="btn btn-ghost zmiany-wiecej" type="button" data-przepis>Co dokładnie obowiązuje od&nbsp;1&nbsp;września 2026?</button>
+      <button class="btn zmiany-wiecej" type="button" data-przepis><span class="waz">Ważne</span><span>Co dokładnie obowiązuje od&nbsp;1&nbsp;września 2026?</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h13M13 6l6 6-6 6"/></svg></button>
     </div>
     <ul>
       <li><span class="was">Dotychczas</span><div><b>Orzeczenie i&nbsp;luźne arkusze</b><p>Każdy specjalista miał swój druk. Dane ucznia przepisywane do WOPF, potem do IPET, potem do ewaluacji.</p></div></li>
