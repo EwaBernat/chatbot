@@ -295,6 +295,9 @@ svg.ck{flex:none;width:18px;height:18px;margin-top:3px}
     transparent 100%)}
 .stakes li .was{font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-3);font-weight:600;width:110px;padding-top:4px}
 .stakes li b{display:block;font-family:var(--display);font-size:19px;font-weight:700;margin-bottom:4px}
+/* Wyroznienie w akapicie wiersza, nie kolejny naglowek — bez tego kazde <b>
+   w opisie lamie sie do wlasnej linii. */
+.stakes li p b{display:inline;font-family:inherit;font-size:inherit;margin:0}
 .stakes li p{color:var(--ink-2);font-size:15.5px}
 .stakes .punch{margin-top:28px;padding:22px 26px;border-left:4px solid var(--orange);background:var(--card);border-radius:0 12px 12px 0;font-size:17px}
 .stakes .punch b{color:var(--ink)}
@@ -1056,6 +1059,32 @@ svg.ck{flex:none;width:18px;height:18px;margin-top:3px}
   font:600 14px var(--body);cursor:pointer;display:inline-flex;gap:8px;align-items:center}
 .sheet-btn:hover{background:var(--plum-soft)}
 .sheet-body{flex:1;overflow:auto;padding:26px;-webkit-overflow-scrolling:touch}
+/* Okno z nowymi przepisami. Tabela jest waska i dwukolumnowa, wiec na telefonie
+   nie przewija sie w bok tylko sklada na dwa wiersze. */
+.przepis-lead{font-size:16.5px;line-height:1.65;color:var(--ink-2);margin:0 0 18px;max-width:66ch}
+.przepis-lead b{color:var(--ink)}
+.przepis-akt{background:var(--plum-soft);border:1px solid var(--plum-line);border-radius:12px;
+  padding:14px 18px;margin:0 0 20px;font-size:15px;line-height:1.6;color:var(--ink-2)}
+.przepis-akt b{color:var(--plum-text,var(--plum))}
+.przepis-tab{width:100%;border-collapse:collapse;margin:0 0 20px;font-size:15px}
+.przepis-tab th{text-align:left;vertical-align:top;width:33%;padding:12px 16px 12px 0;
+  color:var(--ink);font-weight:700;font-size:14.5px;border-bottom:1px solid var(--line)}
+.przepis-tab td{padding:12px 0;color:var(--ink-2);line-height:1.55;border-bottom:1px solid var(--line)}
+@media (max-width:620px){.przepis-tab,.przepis-tab tbody,.przepis-tab tr,.przepis-tab th,.przepis-tab td{display:block;width:auto}
+  .przepis-tab th{border:0;padding:14px 0 2px}.przepis-tab td{padding:0 0 14px}}
+.przepis-uwaga{font-size:14.5px;line-height:1.6;color:var(--ink-3);margin:0 0 26px;
+  padding-left:14px;border-left:3px solid var(--orange)}
+.przepis-h3{font-family:var(--display);font-size:19px;color:var(--plum-text,var(--plum));margin:26px 0 10px}
+.przepis-lista{list-style:none;margin:0 0 22px;padding:0;display:grid;gap:12px}
+.przepis-lista li{display:grid;grid-template-columns:auto 1fr;gap:12px;font-size:15.5px;line-height:1.55;color:var(--ink-2)}
+.przepis-lista b{color:var(--ink)}
+.przepis-lista .ptak{width:22px;height:22px;border-radius:50%;background:var(--ok-tlo);border:1px solid var(--ok-linia);
+  display:grid;place-items:center;flex:none;margin-top:1px}
+.przepis-lista .ptak svg{width:12px;height:12px;fill:none;stroke:var(--ok);stroke-width:2.4;stroke-linecap:round;stroke-linejoin:round}
+.przepis-cta{display:flex;gap:12px;flex-wrap:wrap;align-items:center;padding-top:20px;border-top:1px solid var(--line)}
+.przepis-zrodlo{font-size:13px;color:var(--ink-3);margin:16px 0 0}
+/* Przycisk rozwijajacy w sekcji „Co sie zmienilo" */
+.zmiany-wiecej{margin-top:22px}
 @media (max-width:520px){.sheet-top{padding:12px 14px;gap:10px}.sheet-top h3{font-size:17px}.sheet-btn .et{display:none}.sheet-btn{padding:10px 13px}}
 @media (max-width:760px){.sheet-body{padding:18px}}
 .sheet-body .big{width:100%;height:auto;display:block;border-radius:12px;border:1px solid var(--plum-line);
@@ -1224,12 +1253,14 @@ svg.ck{flex:none;width:18px;height:18px;margin-top:3px}
       <h2>Nowe przepisy obejmą każdą placówkę. Od Państwa zależy, ile godzin zespołu pochłoną.</h2>
       <p class="lead">Od września 2026 każda szkoła i&nbsp;przedszkole prowadzi ocenę funkcjonalną według nowych zasad. Zespoły, które robią to w&nbsp;arkuszach, przepisują te same dane po kilka razy.</p>
       <div class="punch"><b>EduPlaner 2026 był budowany od początku pod nowe przepisy.</b></div>
+      <button class="btn btn-ghost zmiany-wiecej" type="button" data-przepis>Co dokładnie obowiązuje od&nbsp;1&nbsp;września 2026?</button>
     </div>
     <ul>
       <li><span class="was">Dotychczas</span><div><b>Orzeczenie i&nbsp;luźne arkusze</b><p>Każdy specjalista miał swój druk. Dane ucznia przepisywane do WOPF, potem do IPET, potem do ewaluacji.</p></div></li>
       <li><span class="was">Od 2026/27</span><div><b>Ocena funkcjonalna na KPOF i&nbsp;KSzOF, oparta na ICF</b><p>W&nbsp;KPOF wynik podsumowuje średnia, w&nbsp;KSzOF — sten przeliczony z&nbsp;dziewięciu obszarów w&nbsp;skali 1–5. Profil biopsychospołeczny w&nbsp;modelu ICF pokazuje zasoby i&nbsp;bariery obok siebie.</p></div></li>
       <li><span class="was">Od 2026/27</span><div><b>Trzy poziomy wsparcia i&nbsp;dwa tryby planu</b><p>Kwalifikacja do poziomu I, II lub III. IPET dla ucznia z&nbsp;orzeczeniem, PEWS dla ucznia bez orzeczenia. Oba z&nbsp;celami SMART.</p></div></li>
       <li><span class="was">Od 2026/27</span><div><b>Obserwacja pogłębiona, gdy trzeba</b><p>Dziennik ABC, profil sensoryczny, kwestionariusz mowy, teoria umysłu. Zespół musi wiedzieć, kiedy po nie sięgnąć.</p></div></li>
+      <li><span class="was">Od 1 IX 2026</span><div><b>Opinia o&nbsp;funkcjonowaniu — nowy obowiązek placówki</b><p>Poradnia zwraca się do dyrektora, a&nbsp;zespół ma <b>dziesięć dni</b> na&nbsp;opinię opisaną w&nbsp;języku ICF. Przy uczniu z&nbsp;orzeczeniem opinia musi zawierać aktualną WOPFU.</p></div></li>
     </ul>
   </div>
 </section>
@@ -2117,6 +2148,56 @@ var EKRANY = [
     b.addEventListener('click',function(){ pokaz(akt+Number(b.dataset.ekran),true); });
   });
   pokaz(0);
+})();
+
+/* Okno „Co dokładnie obowiązuje od 1 września 2026". Treść merytoryczną podała
+   autorka; tabela i wnioski praktyczne są tu, a nie na stronie głównej, bo
+   dyrektor czyta to raz — przed decyzją, nie przy każdym przewinięciu. */
+(function(){
+  var przycisk=document.querySelector('[data-przepis]'); if(!przycisk) return;
+  var TRESC =
+    '<p class="przepis-lead">Nowe przepisy obejmują <b>każdą placówkę</b> — publiczną i niepubliczną, przedszkole, szkołę podstawową i ponadpodstawową. Nie ma progu wielkości ani okresu przejściowego dla mniejszych zespołów.</p>'
+  + '<p class="przepis-akt"><b>Rozporządzenie Ministra Edukacji z 2 marca 2026 r.</b> w sprawie orzeczeń i opinii wydawanych przez zespoły orzekające w publicznych poradniach psychologiczno-pedagogicznych (Dz.U. 2026 poz. 428) wprowadza <b>opinię o funkcjonowaniu dziecka lub ucznia</b>.</p>'
+  + '<table class="przepis-tab"><tbody>'
+  + '<tr><th>Kiedy</th><td>Gdy przewodniczący zespołu orzekającego poradni zwróci się do dyrektora — przy wniosku o orzeczenie lub opinię.</td></tr>'
+  + '<tr><th>Kto sporządza</th><td>Zespół nauczycieli i specjalistów pracujących z uczniem. Koordynuje dyrektor, wychowawca albo pedagog.</td></tr>'
+  + '<tr><th>Termin</th><td><b>10 dni</b> od otrzymania prośby poradni.</td></tr>'
+  + '<tr><th>Wymóg ICF</th><td>Opis musi odnosić się do <b>aktywności i uczestniczenia</b> zgodnie z klasyfikacją ICF.</td></tr>'
+  + '<tr><th>Uczeń z orzeczeniem o potrzebie kształcenia specjalnego</th><td>Opinia ma zawierać <b>aktualną WOPFU</b> — wielospecjalistyczną ocenę poziomu funkcjonowania ucznia.</td></tr>'
+  + '</tbody></table>'
+  + '<p class="przepis-uwaga">Rozporządzenie weszło w życie 14 kwietnia 2026 r., ale przepisy o opinii o funkcjonowaniu obowiązują <b>dopiero od 1 września 2026 r.</b></p>'
+  + '<h3 class="przepis-h3">Co to znaczy dla zespołu</h3>'
+  + '<p class="przepis-lead">Dziesięć dni liczy się od prośby poradni, nie od początku roku. W tym czasie zespół musi zebrać obserwacje kilku osób, przełożyć je na język aktywności i uczestniczenia, a przy uczniu z orzeczeniem dołożyć WOPFU, która jest <b>aktualna</b>, a nie sprzed dwóch lat. Zespół pracujący w arkuszach zaczyna za każdym razem od pustej kartki.</p>'
+  + '<h3 class="przepis-h3">Co z tego robi EduPlaner 2026</h3>'
+  + '<ul class="przepis-lista">'
+  + poz('WOPF jest już w języku ICF', 'Profil biopsychospołeczny — zasoby i bariery, aktywność i uczestniczenie — powstaje przy ocenie funkcjonalnej, nie dopiero na prośbę poradni.')
+  + poz('WOPFU jest zawsze aktualna', 'Ewaluacja półroczna i roczna utrzymują ocenę w bieżącym stanie. W dniu prośby jest gotowa, nie do zrobienia.')
+  + poz('Druk opinii dla poradni jest w Bazie wiedzy', 'Wzór wypełnia się danymi wpisanymi wcześniej — metryczka, obszary funkcjonowania, zalecenia. Bez przepisywania między dokumentami.')
+  + poz('Dziesięć dni przestaje być problemem', 'Nie dlatego, że termin jest długi, tylko dlatego, że zespół nie zaczyna od zera.')
+  + '</ul>'
+  + '<div class="przepis-cta">'
+  + '<a class="btn btn-primary" href="#zamow" data-order="app" data-buyer="inst">Zamów dla swojej placówki</a>'
+  + '<a class="btn btn-ghost" href="#szkolenia">Szkolenia o nowej ocenie</a>'
+  + '</div>'
+  + '<p class="przepis-zrodlo">Stan prawny na dzień publikacji strony. Podstawę prawną warto sprawdzić w Dzienniku Ustaw przed powołaniem się na nią w dokumentacji placówki.</p>';
+
+  function poz(tytul,opis){
+    return '<li><span class="ptak" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="m5 13 4 4L19 7"/></svg></span>'
+      +'<span><b>'+tytul+'</b> '+opis+'</span></li>';
+  }
+
+  przycisk.addEventListener('click',function(){
+    OKNO.brew.textContent='Podstawa prawna';
+    OKNO.tytul.textContent='Co dokładnie obowiązuje od 1 września 2026 r.';
+    OKNO.wroc.hidden=true;
+    OKNO.body.innerHTML=TRESC;
+    /* Przyciski w oknie prowadza na strone pod okno, wiec okno musi sie zamknac —
+       inaczej klikniecie wyglada, jakby nic nie zrobilo. */
+    OKNO.body.querySelectorAll('.przepis-cta a').forEach(function(a){
+      a.addEventListener('click',function(){ OKNO.zamknij(); });
+    });
+    OKNO.otworz();
+  });
 })();
 
 /* --- okno: powiększenie ekranu, katalog, szczegóły ---------------- */
