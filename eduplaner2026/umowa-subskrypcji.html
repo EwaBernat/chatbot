@@ -37,6 +37,18 @@ li{margin-bottom:7px}
  border-radius:11px;padding:16px 18px;margin:0 0 30px}
 .szkic b{color:var(--orange-ink)}
 .szkic p{margin:0;font-size:15px;color:#7C2E10}
+/* Zapis dodany po ostatniej wersji umowy. Zielona oprawa zostaje do czasu,
+   az prawnik go zatwierdzi, a osoba prowadzaca dokument przeniesie go do
+   tresci na stale — wtedy usuwa sie klase .nowe i te etykiete. */
+.nowe{background:#EAF6EF;border:1px solid #B9DFC8;border-left:5px solid #1E7A46;
+ border-radius:11px;padding:6px 20px 14px;margin:26px 0 0}
+.nowe h2{margin-top:18px;color:#14603A}
+.nowe .etykieta{display:inline-block;background:#1E7A46;color:#fff;font-size:11.5px;
+ letter-spacing:.09em;text-transform:uppercase;font-weight:700;border-radius:6px;
+ padding:4px 10px;margin-top:14px}
+.nowe .dla-arka{margin:10px 0 0;font-size:13.5px;color:#14603A;line-height:1.55}
+@media print{.nowe{background:#fff;border-color:#999;border-left-color:#333}
+ .nowe .etykieta{background:#333}}
 .puste{background:var(--plum-soft);border:1px dashed var(--plum-line);border-radius:5px;
  padding:1px 7px;color:var(--plum);font-weight:600;font-size:.94em;white-space:nowrap}
 .box{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:20px 22px;margin:18px 0}
@@ -134,7 +146,19 @@ zwana dalej <b>Zamawiającym</b>.</p>
 <li>Na podstawie art. 558 § 1 Kodeksu cywilnego Strony wyłączają odpowiedzialność Licencjodawcy z tytułu rękojmi za wady fizyczne oprogramowania w pełnym zakresie dopuszczonym przez prawo. Wyłączenie to nie obejmuje wad, które Licencjodawca podstępnie zataił (art. 558 § 2 Kodeksu cywilnego), ani szkody wyrządzonej umyślnie.</li>
 </ol>
 
-<h2>§ 4. Prawa autorskie i zasady korzystania z licencji</h2>
+<div class="nowe">
+<span class="etykieta">Nowy zapis · wrzesień 2026</span>
+<h2>§ 4. Zakres odpowiedzialności za dokumentację</h2>
+<ol>
+<li>Oprogramowanie jest narzędziem wspierającym pracę zespołu i <b>nie zastępuje oceny merytorycznej</b> nauczycieli i specjalistów placówki.</li>
+<li>Za treść merytoryczną dokumentów sporządzonych w oprogramowaniu — w szczególności za opis funkcjonowania dziecka, wnioski, zalecenia oraz dobór celów — <b>odpowiada wyłącznie Zamawiający</b> oraz osoby, które dokument sporządziły i podpisały. Licencjodawca nie uczestniczy w sporządzaniu dokumentacji, nie ma do niej dostępu i nie weryfikuje jej treści.</li>
+<li>Licencjodawca odpowiada za <b>zgodność struktury formularzy</b> generowanych przez oprogramowanie z przepisami prawa oświatowego obowiązującymi w dniu udostępnienia aktualizacji oraz za <b>poprawność obliczeń</b> wykonywanych przez oprogramowanie. Stwierdzoną niezgodność Licencjodawca usuwa w drodze aktualizacji.</li>
+<li>Wydanie dokumentu następuje przez jego podpisanie przez dyrektora placówki, który przed podpisaniem sprawdza jego treść.</li>
+</ol>
+<p class="dla-arka"><b>Notatka dla osoby aktualizującej dokument:</b> ten paragraf dodano po sporządzeniu pierwszej wersji umowy. Zielona oprawa i ta notatka są tymczasowe — po akceptacji prawnika należy usunąć <code>&lt;div class="nowe"&gt;</code> wraz z etykietą i notatką, zostawiając sam nagłówek i listę. Wstawienie tego paragrafu przesunęło numerację: dawny § 4 to dziś § 5, § 5 → § 6, § 6 → § 7, § 7 → § 8. Odwołanie w § 7 ust. 3 do „§ 2 ust. 3 lit. c” pozostaje aktualne — § 2 nie był przenumerowany.</p>
+</div>
+
+<h2>§ 5. Prawa autorskie i zasady korzystania z licencji</h2>
 <ol>
 <li>Licencjodawca oświadcza, że przysługują mu wyłączne i nieograniczone autorskie prawa majątkowe do oprogramowania „EduPlaner 2026”.</li>
 <li>Licencja uprawnia Zamawiającego do zainstalowania i używania oprogramowania na stanowiskach komputerowych użytkowanych przez placówkę, wyłącznie na jej wewnętrzne potrzeby dydaktyczno-terapeutyczne i organizacyjne.</li>
@@ -147,7 +171,7 @@ zwana dalej <b>Zamawiającym</b>.</p>
 </li>
 </ol>
 
-<h2>§ 5. Wynagrodzenie, fakturowanie i warunki płatności</h2>
+<h2>§ 6. Wynagrodzenie, fakturowanie i warunki płatności</h2>
 <ol>
 <li>Za realizację przedmiotu Umowy (udzielenie rocznej subskrypcji oprogramowania na okres 12 miesięcy) Zamawiający zapłaci Licencjodawcy wynagrodzenie w kwocie <b>3 800,00 zł brutto</b> (słownie: trzy tysiące osiemset złotych 00/100 brutto), na które składa się kwota 3 089,43 zł netto oraz podatek od towarów i usług w stawce 23% w wysokości 710,57 zł.</li>
 <li>Wynagrodzenie, o którym mowa w ust. 1, ma charakter ryczałtowy i obejmuje wszelkie koszty związane z realizacją Umowy.</li>
@@ -162,14 +186,14 @@ numer rachunku: <span class="wpisz" style="min-width:30ch">&nbsp;</span><br>
 <li>W razie opóźnienia w zapłacie Licencjodawcy przysługują odsetki ustawowe za opóźnienie w transakcjach handlowych.</li>
 </ol>
 
-<h2>§ 6. Bezpieczeństwo danych i ochrona prywatności (RODO)</h2>
+<h2>§ 7. Bezpieczeństwo danych i ochrona prywatności (RODO)</h2>
 <ol>
 <li>Oprogramowanie „EduPlaner 2026” działa w architekturze lokalnej, co oznacza, że wszelkie dane osobowe uczniów, informacje o orzeczeniach, arkuszach wielospecjalistycznej oceny oraz IPE są wprowadzane, przetwarzane i archiwizowane wyłącznie w pamięci urządzeń lub w lokalnej sieci Zamawiającego.</li>
 <li>Licencjodawca nie posiada dostępu do bazy danych uczniów placówki, nie gromadzi ich na serwerach zewnętrznych i nie występuje jako podmiot przetwarzający (procesor) w rozumieniu art. 28 rozporządzenia Parlamentu Europejskiego i Rady (UE) 2016/679 (RODO). Administratorem wszelkich danych osobowych przetwarzanych w oprogramowaniu pozostaje Dyrektor placówki Zamawiającego.</li>
 <li>Jeżeli udzielenie wsparcia technicznego, o którym mowa w § 2 ust. 3 lit. c, wymagałoby dostępu Licencjodawcy do danych osobowych przetwarzanych w oprogramowaniu, Strony zawrą umowę powierzenia przetwarzania danych osobowych (art. 28 RODO) przed rozpoczęciem tych czynności. Do czasu jej zawarcia wsparcie jest świadczone bez dostępu do danych.</li>
 </ol>
 
-<h2>§ 7. Postanowienia końcowe</h2>
+<h2>§ 8. Postanowienia końcowe</h2>
 <ol>
 <li>Wszelkie zmiany i uzupełnienia niniejszej Umowy wymagają zachowania formy pisemnej lub elektronicznej (podpis kwalifikowany / ePUAP) pod rygorem nieważności.</li>
 <li>W sprawach nieunormowanych niniejszą Umową zastosowanie mają właściwe przepisy Kodeksu cywilnego oraz ustawy o prawie autorskim i prawach pokrewnych.</li>

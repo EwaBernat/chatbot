@@ -256,7 +256,7 @@ podatku zostaje co najmniej kilkanaście dni.
 + 14 211,40 zł VAT.
 
 **Ta kolejność jest zasadą bez wyjątku i tak stanowi umowa:** klucz aktywacyjny
-nie wychodzi przed zaksięgowaniem wpłaty. § 5 ust. 6 mówi to wprost. Wcześniejsza
+nie wychodzi przed zaksięgowaniem wpłaty. § 6 ust. 6 mówi to wprost. Wcześniejsza
 wersja umowy dopuszczała wydanie klucza po podpisaniu, przed zapłatą — zapis został
 usunięty na wyraźne polecenie właścicielki i **nie wolno go przywracać**. Wydanie
 klucza jest wykonaniem usługi: od tej chwili VAT jest należny, choćby przelew nie

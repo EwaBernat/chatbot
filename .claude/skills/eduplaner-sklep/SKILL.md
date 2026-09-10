@@ -186,7 +186,7 @@ tylko naruszenie:
   takie zobaczy. Dostęp indywidualny do nagrań wraca dopiero z platformą —
   `references/zabezpieczenia.md`.
 - **Klucz aktywacyjny wychodzi wyłącznie po zaksięgowaniu wpłaty. Bez wyjątków.**
-  Umowa § 5 ust. 6 mówi to wprost; wcześniejsza wersja dopuszczała wydanie klucza
+  Umowa § 6 ust. 6 mówi to wprost; wcześniejsza wersja dopuszczała wydanie klucza
   po podpisaniu, przed zapłatą — właścicielka kazała ten zapis usunąć i **nie wolno
   go przywracać**, ani w umowie, ani w kodzie. Powód jest podwójny: wydanie klucza
   jest wykonaniem usługi, więc VAT staje się należny (przy 20 subskrypcjach to
@@ -224,7 +224,7 @@ Kontroler `gotowosc.js` wypisze to za każdym razem; tu jest pełna lista przycz
 - ~~nazwa banku i numer konta~~ — Erste Bank, numer podany; we wzorze umowy
   publikowanym na stronie zostaje **celowo puste miejsce**, numer trafia tylko
   do egzemplarza wysyłanego placówce i na fakturę. Rachunek jest na białej liście,
-  co umowa § 5 stwierdza wprost.
+  co umowa § 6 stwierdza wprost.
 - nazwa operatora płatności → regulamin § 5
 - ~~terminy dostarczenia, koszt dostawy~~ — cała oferta jest elektroniczna:
   link do pobrania w ciągu 1 dnia roboczego, **bez kosztów dostawy**. Gdyby
