@@ -143,7 +143,7 @@
   .meter{display:flex;align-items:center;gap:6px}
   .meter i{flex:0 0 46px;height:6px;border-radius:3px;background:var(--lav);position:relative;overflow:hidden}
   .meter i::after{content:"";position:absolute;left:0;top:0;bottom:0;width:var(--w);background:var(--purple);border-radius:3px}
-  .lvl{display:inline-block;font-size:12px;font-weight:800;padding:2px 8px;border-radius:999px;white-space:nowrap}
+  .lvl{display:inline-block;font-size:13px;font-weight:800;padding:2px 8px;border-radius:999px;white-space:nowrap}
   .lvl.l1{background:#E6F4EC;color:var(--green)} .lvl.l2{background:#FBF1DC;color:#9A6A0A} .lvl.l3{background:#FBE6E3;color:var(--red)}
   .legend{display:flex;gap:14px;justify-content:flex-end;font-size:12px;color:var(--muted);margin-top:6px}
   .res{border:1px solid var(--line);border-left:4px solid var(--c,var(--purple));border-radius:8px;padding:8px 12px 9px;background:#fff;margin-bottom:8px;break-inside:avoid}
@@ -165,7 +165,7 @@
   .stnote{font-size:12px;color:var(--muted);margin-top:6px;line-height:1.45}
   .stnote b{color:var(--purple)}
 
-  .st{display:flex;flex-direction:column;gap:2px;font-size:12px;color:var(--muted);white-space:nowrap}
+  .st{display:flex;flex-direction:column;gap:2px;font-size:13px;color:var(--muted);white-space:nowrap}
   .st span{display:flex;align-items:center;gap:5px}
   .st .cb{width:11px;height:11px;margin:0}
   .src{font-size:12px;color:var(--orange);font-weight:800}
@@ -197,14 +197,20 @@
   }
   @media print{
     html,body{background:#fff}
-    .page{margin:0;box-shadow:none;width:auto;min-height:0;padding:0;break-before:page}
+    .page{margin:0;box-shadow:none;width:auto;min-height:0;padding:0;break-before:auto}
+    .page.brk{break-before:page}
     .page:first-of-type{break-before:auto}
+    .page:not(.brk) .hdr,.page:not(.brk) .fields,.op-page:not(.brk) .op-head{display:none}
+    .page:not(.brk){padding-top:6mm}
     .footer{display:none}
-    @page{size:A4;margin:14mm 14mm 18mm;
-      @bottom-left{content:"[Nazwa placówki] · Ocena Funkcjonalna · dokument poufny (RODO)";font:9px "Mulish","Segoe UI",Arial,sans-serif;color:#6B6378}
+    @page{size:A4;margin:16mm 14mm 18mm;
+      @top-left{content:"[Nazwa przedszkola / szkoły] · Ocena Funkcjonalna – podsumowanie WOPF i IPET";font:9px "Mulish","Segoe UI",Arial,sans-serif;color:#7D6FB0}
+      @top-right{content:"Dotyczy dziecka: ............................................  Grupa / klasa: ..............";font:9px "Mulish","Segoe UI",Arial,sans-serif;color:#7D6FB0}
+      @bottom-left{content:"[Nazwa placówki] · dokument poufny (RODO)";font:9px "Mulish","Segoe UI",Arial,sans-serif;color:#6B6378}
       @bottom-right{content:"Strona " counter(page) " z " counter(pages);font:9px "Mulish","Segoe UI",Arial,sans-serif;color:#6B6378}}
-    .tool,.step,.box,.note,.res,.stat,.lvlbox > div,.varbox > div,.toc > div{break-inside:avoid} table.grid tr,table.op tr,table.meta tr{break-inside:avoid}
-    .sec,.sub9,.op-sec,h2,h3,h4{break-after:avoid}
+    .tool,.step,.box,.note,.res,.stat,.lvlbox > div,.varbox > div,.toc > div,.parent,.signbox,.sigs{break-inside:avoid} table.grid tr,table.op tr,table.meta tr{break-inside:avoid}
+    .sec,.sub9,.op-sec,h2,h3,h4,.partband,.lawref{break-after:avoid}
+    table.grid thead,table.grid tr:first-child{break-after:avoid}
 
     .tool,.step,.box,.note,.res,.stat{break-inside:avoid} table.grid tr{break-inside:avoid}
   }

@@ -65,7 +65,7 @@ EXTRA_CSS = '''
   .op-sec .r{font-weight:800;color:var(--orange);font-size:16px;min-width:26px}
   .op-sec h3{margin:0;font-size:16px;color:var(--purple);font-weight:800;text-transform:uppercase;letter-spacing:.04em}
   .op-sec::after{content:"";flex:1;height:1px;background:var(--line)}
-  table.op{width:100%;border-collapse:collapse;font-size:12px}
+  table.op{width:100%;border-collapse:collapse;font-size:16px}
   table.op td,table.op th{border:1px solid var(--line);padding:4px 8px;vertical-align:top;line-height:1.4}
   table.op th{background:var(--lav);color:var(--purple);font-size:12px;letter-spacing:.1em;text-transform:uppercase;text-align:left}
   table.op td.k{width:31%;font-weight:700;color:var(--purple);background:var(--lav2)}
@@ -80,7 +80,7 @@ EXTRA_CSS = '''
   .op-dir .sig{border-top:1px solid var(--purple);padding-top:5px;text-align:center;font-size:16px;color:var(--purple);font-weight:700}
   .op-dir .sig small{display:block;font-weight:400;color:var(--muted);font-size:12px}
   .op-note{font-size:12px;color:var(--muted);margin-top:10px;line-height:1.5;border-top:1px dashed var(--line);padding-top:6px}
-  @media print{ .op-page{page:opinia} @page opinia{ @bottom-left{content:"Załącznik – opinia o funkcjonowaniu dziecka / ucznia · dokument poufny (RODO)";font:9px Arial,sans-serif;color:#6B6378} } }
+  @media print{ .op-page{page:opinia} @page opinia{ @top-left{content:"Opinia o funkcjonowaniu dziecka / ucznia – załącznik";font:9px Arial,sans-serif;color:#7D6FB0} @top-right{content:"[Imię i nazwisko dziecka / ucznia]";font:9px Arial,sans-serif;color:#7D6FB0} @bottom-left{content:"Załącznik – opinia o funkcjonowaniu dziecka / ucznia · dokument poufny (RODO)";font:9px Arial,sans-serif;color:#6B6378} } }
   .lawref{display:inline-block;font-size:12px;font-weight:700;color:var(--purple);background:var(--lav);border-radius:4px;padding:3px 9px;margin:-6px 0 10px}
   table.grid td.act{font-weight:800;color:var(--purple)} table.grid td.dz{white-space:nowrap;color:var(--orange);font-weight:800;font-size:12px}
   .flow5{display:grid;grid-template-columns:repeat(5,1fr);gap:8px;margin:8px 0 12px}
@@ -109,8 +109,8 @@ def sub(tag, title, note='', color='var(--orange)'):
 def lead(ref, text): return f'  <p class="lead2">{("<b>"+ref+"</b> ") if ref else ""}{text}</p>\n'
 def cb(on=False): return f'<i class="cb{" on" if on else ""}"></i>'
 def status(): return '<div class="st"><span><i class="cb"></i>wdrożone</span><span><i class="cb"></i>w trakcie</span><span><i class="cb"></i>planowane</span></div>'
-def page(name, cap, body, cls='', pid=''):
-    pages.append((name, f'<section class="page {cls}"{(" id="+chr(34)+pid+chr(34)) if pid else ""}>\n'+hdr(cap)+body))
+def page(name, cap, body, cls='', pid='', brk=False):
+    pages.append((name, f'<section class="page {cls}{" brk" if brk else ""}"{(" id="+chr(34)+pid+chr(34)) if pid else ""}>\n'+hdr(cap)+body))
 def band(part, h, sub_):
     cls = ' p3' if part=='III' else ''
     return f'''  <div class="partband{cls}">
@@ -126,7 +126,7 @@ b+=sec(4, s['title'], s.get('law'))+lead(s['ref'],s['lead'])
 def t4(rows):
     return '  <table class="grid">\n    <tr><th>Obszar (ICF)</th><th class="plus">✓ Mocne strony, zasoby i uzdolnienia</th><th class="minus">▸ Trudności, ograniczenia i bariery</th></tr>\n'+''.join(f'    <tr><td class="area">{a}</td><td class="plus">{x}</td><td class="minus">{y}</td></tr>\n' for a,x,y in rows)+'  </table>\n'
 b+=sub('A',s['titleA'],'wypełnić dla dziecka w przedszkolu')+t4(s['rows'])
-page('Funkcjonowanie A','Część II · Funkcjonowanie w placówce · przedszkole',b)
+page('Funkcjonowanie A','Część II · Funkcjonowanie w placówce · przedszkole',b,brk=True)
 b=sec(4, s['title']+' · cd.', None)+sub('B',s['titleB'],'wypełnić dla ucznia szkoły',"var(--blue)")+t4(s['rowsSzkola'])
 page('Funkcjonowanie B','Część II · Funkcjonowanie w placówce · szkoła',b)
 
@@ -164,11 +164,11 @@ page('Wyniki arkuszy','Część II · Wyniki arkuszy specjalistycznych',b)
 
 # ---------- 7 Mój głos ----------
 s=D['s7']; b=sec(7, s['title'], s.get('law'))+lead('',s['lead'])
-b+='  <div class="lbl" style="font-size:12px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:var(--purple)">Sposób pozyskania głosu dziecka – zaznaczono</div>\n  <div class="cbl">'+''.join(f'<span>{cb(on)}{t}</span>' for t,on in s['sposoby'])+'</div>\n'
+b+='  <div class="lbl" style="font-size:16px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:var(--purple)">Sposób pozyskania głosu dziecka – zaznaczono</div>\n  <div class="cbl">'+''.join(f'<span>{cb(on)}{t}</span>' for t,on in s['sposoby'])+'</div>\n'
 b+='  <div class="voice">\n'+''.join(f'    <div class="box{" wide" if i==3 else ""}" style="--c:var(--{c})"><div class="lbl">{t}</div><p>{v}</p></div>\n' for i,(c,t,v) in enumerate(s['pola']))+'  </div>\n'
-b+='  <div class="lbl" style="font-size:12px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:var(--purple)">Co mi najbardziej pomaga – zaznaczono</div>\n  <div class="cbl">'+''.join(f'<span>{cb(on)}{t}</span>' for t,on in s['pomaga'])+'</div>\n'
+b+='  <div class="lbl" style="font-size:16px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:var(--purple)">Co mi najbardziej pomaga – zaznaczono</div>\n  <div class="cbl">'+''.join(f'<span>{cb(on)}{t}</span>' for t,on in s['pomaga'])+'</div>\n'
 cols=['#2E9D52','#7EB800','#DFA22E','#E77309','#BF382A']
-b+='  <div class="lbl" style="font-size:12px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:var(--purple)">Jak się dziś czuję – wskazanie dziecka</div>\n  <div class="mood">'+''.join(f'<div class="{"sel" if i==s["nastrojWybor"] else ""}"><i style="background:{cols[i]}"></i>{n}</div>' for i,n in enumerate(s['nastroj']))+'</div>\n'
+b+='  <div class="lbl" style="font-size:16px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:var(--purple)">Jak się dziś czuję – wskazanie dziecka</div>\n  <div class="mood">'+''.join(f'<div class="{"sel" if i==s["nastrojWybor"] else ""}"><i style="background:{cols[i]}"></i>{n}</div>' for i,n in enumerate(s['nastroj']))+'</div>\n'
 b+=f'  <div class="box" style="--c:var(--blue)"><div class="lbl">Preferowany sposób komunikacji dziecka i wskazówki do rozmowy</div><p class="just" style="margin:0">{s["komunikacja"]}</p></div>\n'
 b+=f'  <p class="stnote"><b>Podstawa.</b> {s["podstawa"]}</p>\n'
 page('Mój głos','Część II · Mój głos',b)
@@ -206,7 +206,7 @@ def kvtable(rows, c1='Zakres', c2='Sposób dostosowania'):
 b=band('III','Program wsparcia i organizacja','dostosowania · zintegrowane działania · zajęcia · dodatkowa osoba · rodzice i poradnia · ocena efektywności')
 b+=sec(11, s['title'], s.get('law'))+lead('',s['lead'].replace('☐',cb()))
 b+=sub('A',s['A']['title'])+kvtable(s['A']['rows'])
-page('Dostosowanie programu','Część III · Dostosowanie programu',b)
+page('Dostosowanie programu','Część III · Dostosowanie programu',b,brk=True)
 b=sub('B',s['B']['title'],'',"var(--blue)")+kvtable(s['B']['rows'],'Obszar organizacji','Sposób dostosowania')
 b+=sub('C',s['C']['title'],'',"var(--purple)")+kvtable(s['C']['rows'],'Obszar','Narzędzia i sposób wykorzystania')
 page('Organizacja i technologie','Część III · Organizacja i technologie',b)
@@ -281,7 +281,7 @@ def okcell(v):
     if v.startswith('✓'): return f'<td class="ok">{v}</td>'
     if v.startswith('—'): return f'<td class="no">{v}</td>'
     return f'<td>{v}</td>'
-lp2='<section class="page">\n'+hdr('Jak czytać raport · dwa warianty')+'''
+lp2='<section class="page brk">\n'+hdr('Jak czytać raport · dwa warianty')+'''
   <div class="sec"><span class="n">?</span><h2>Jak czytać ten raport</h2></div>
   <p class="lead2">Pięć kroków od obserwacji do oceny efektów. <b>Część I–II</b> to opinia placówki, którą otrzymuje rodzic i zespół orzekający poradni. <b>Część III</b> to organizacja wsparcia w placówce – co, kto, kiedy i ile.</p>
   <div class="flow5">'''+''.join(f'<div><div class="p">CZĘŚĆ {p}</div><h4>{h}</h4><p>{t}</p></div>' for p,h,t in pr['jakczytac'])+'''</div>
@@ -306,7 +306,7 @@ lp3='<section class="page">\n'+hdr('Podstawy prawne')+'''
 op=D['opinia']; pl=D['placowka']
 def opsec(r,t): return f'  <div class="op-sec"><span class="r">{r}</span><h3>{t}</h3></div>\n'
 def ophead(): return f'''  <div class="op-head">
-    <div class="op-stamp"><b>{pl['nazwa']}</b>{pl['adres']}<br><span style="font-size:12px">(pieczęć placówki)</span></div>
+    <div class="op-stamp"><b>{pl['nazwa']}</b>{pl['adres']}<br><span style="font-size:16px">(pieczęć placówki)</span></div>
     <div class="op-right">{pl['miejscowosc']}, dnia <span class="fill"></span><br>Znak sprawy: <span class="fill"></span><br>Zespół orzekający: <span class="fill">[Nazwa Poradni Psychologiczno-Pedagogicznej]</span></div>
   </div>
 '''
@@ -355,7 +355,7 @@ toc = D['toc']
 tochtml = '  <div class="toc">\n    <h5>'+toc['I']['title']+'</h5>\n'+''.join(f'    <div><div class="k">{n}</div><h4>{t}</h4><p>{d}</p></div>\n' for n,t,d in toc['I']['items'])+'  </div>\n'
 for part in ('II','III'):
     tochtml += f'  <div class="toc" style="grid-template-columns:repeat(7,1fr);margin-top:8px">\n    <h5>{toc[part]["title"]}</h5>\n'
-    tochtml += ''.join(f'    <div style="padding:7px 8px 6px"><div class="k" style="font-size:18px">{n}</div><h4 style="font-size:12px;margin:3px 0 0">{t}</h4></div>\n' for n,t in toc[part]['items'])+'  </div>\n'
+    tochtml += ''.join(f'    <div style="padding:7px 8px 6px"><div class="k" style="font-size:18px">{n}</div><h4 style="font-size:16px;margin:3px 0 0">{t}</h4></div>\n' for n,t in toc[part]['items'])+'  </div>\n'
 p1 = re.sub(r'Strona <b>\\d+</b> z \\{\\{TOTAL\\}\\} · ', '', P1).replace('{{TOC}}\n', tochtml)
 cut = p1.index('<!-- ======================= STRONA 2')
 p1 = p1[:cut] + lp2 + f'  <div class="footer"><span>[Nazwa placówki] · dokument poufny (RODO) <i class="gen">· sporządzono w EduPlaner 2026</i></span><span>Jak czytać · warianty</span></div>\n</section>\n\n' + lp3 + f'  <div class="footer"><span>[Nazwa placówki] · dokument poufny (RODO) <i class="gen">· sporządzono w EduPlaner 2026</i></span><span>Podstawy prawne</span></div>\n</section>\n\n' + p1[cut:]
@@ -364,7 +364,7 @@ for i,(name,inner) in enumerate(pages + [('OP:'+n, x) for n,x in opages]):
     n = 6+i
     if name.startswith('OP:'):
         name = name[3:]
-        body += '<section class="page op-page">\n' + inner + f'  <div class="footer"><span>Załącznik – opinia o funkcjonowaniu dziecka / ucznia · dokument poufny (RODO)</span><span>{name}</span></div>\n</section>\n\n'
+        body += '<section class="page op-page' + (' brk' if i == len(pages) else '') + '">\n' + inner + f'  <div class="footer"><span>Załącznik – opinia o funkcjonowaniu dziecka / ucznia · dokument poufny (RODO)</span><span>{name}</span></div>\n</section>\n\n'
         continue
     body += inner + f'  <div class="footer"><span>[Nazwa placówki] · dokument poufny (RODO) <i class="gen">· sporządzono w EduPlaner 2026</i></span><span>{name}</span></div>\n</section>\n\n'
 

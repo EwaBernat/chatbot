@@ -35,7 +35,8 @@ Pliki raportów: `eduplaner2026/raport_oceny_funkcjonalnej/`. **Jedno źródło 
 ## Czytelność
 
 - **Czcionka treści minimum 12 pt** (HTML/PDF: 16 px dla akapitów, tabel, list; Word: 24 half-points). Etykiety, nagłówki tabel i noty minimum 9–10 pt (HTML ≥ 12 px, Word ≥ 18–20 half-points). Autorka wielokrotnie prosiła o większą czcionkę – w razie wątpliwości powiększać, nie zmniejszać.
-- Druk ciągły: każda sekcja zaczyna się na nowej stronie, ale może zajmować kilka stron; numer strony liczy przeglądarka (`@page` margin boxes w Chromium) lub Word.
+- **Druk ciągły bez pustych stron:** sekcje płyną jedna po drugiej; nowa strona tylko po okładce, na początku Części II i III (PDF) i przed załącznikiem z opinią. Kontekst strony (placówka, dziecko) w marginesie: PDF przez `@page` margin boxes (Chromium), Word przez nagłówek sekcji. Numer strony liczy przeglądarka / Word.
+- **Jednolita czcionka w Wordzie:** treść i tabele 24 half-points (12 pt), etykiety 20 (10 pt), nagłówki sekcji 28 (14 pt); nie mieszać rozmiarów w treści.
 
 ## Styl graficzny
 

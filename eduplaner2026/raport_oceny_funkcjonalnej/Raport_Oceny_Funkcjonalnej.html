@@ -152,7 +152,7 @@
   .meter{display:flex;align-items:center;gap:6px}
   .meter i{flex:0 0 46px;height:6px;border-radius:3px;background:var(--lav);position:relative;overflow:hidden}
   .meter i::after{content:"";position:absolute;left:0;top:0;bottom:0;width:var(--w);background:var(--purple);border-radius:3px}
-  .lvl{display:inline-block;font-size:12px;font-weight:800;padding:2px 8px;border-radius:999px;white-space:nowrap}
+  .lvl{display:inline-block;font-size:13px;font-weight:800;padding:2px 8px;border-radius:999px;white-space:nowrap}
   .lvl.l1{background:#E6F4EC;color:var(--green)} .lvl.l2{background:#FBF1DC;color:#9A6A0A} .lvl.l3{background:#FBE6E3;color:var(--red)}
   .legend{display:flex;gap:14px;justify-content:flex-end;font-size:12px;color:var(--muted);margin-top:6px}
   .res{border:1px solid var(--line);border-left:4px solid var(--c,var(--purple));border-radius:8px;padding:8px 12px 9px;background:#fff;margin-bottom:8px;break-inside:avoid}
@@ -174,7 +174,7 @@
   .stnote{font-size:12px;color:var(--muted);margin-top:6px;line-height:1.45}
   .stnote b{color:var(--purple)}
 
-  .st{display:flex;flex-direction:column;gap:2px;font-size:12px;color:var(--muted);white-space:nowrap}
+  .st{display:flex;flex-direction:column;gap:2px;font-size:13px;color:var(--muted);white-space:nowrap}
   .st span{display:flex;align-items:center;gap:5px}
   .st .cb{width:11px;height:11px;margin:0}
   .src{font-size:12px;color:var(--orange);font-weight:800}
@@ -252,7 +252,7 @@
   .op-sec .r{font-weight:800;color:var(--orange);font-size:16px;min-width:26px}
   .op-sec h3{margin:0;font-size:16px;color:var(--purple);font-weight:800;text-transform:uppercase;letter-spacing:.04em}
   .op-sec::after{content:"";flex:1;height:1px;background:var(--line)}
-  table.op{width:100%;border-collapse:collapse;font-size:12px}
+  table.op{width:100%;border-collapse:collapse;font-size:16px}
   table.op td,table.op th{border:1px solid var(--line);padding:4px 8px;vertical-align:top;line-height:1.4}
   table.op th{background:var(--lav);color:var(--purple);font-size:12px;letter-spacing:.1em;text-transform:uppercase;text-align:left}
   table.op td.k{width:31%;font-weight:700;color:var(--purple);background:var(--lav2)}
@@ -267,7 +267,7 @@
   .op-dir .sig{border-top:1px solid var(--purple);padding-top:5px;text-align:center;font-size:16px;color:var(--purple);font-weight:700}
   .op-dir .sig small{display:block;font-weight:400;color:var(--muted);font-size:12px}
   .op-note{font-size:12px;color:var(--muted);margin-top:10px;line-height:1.5;border-top:1px dashed var(--line);padding-top:6px}
-  @media print{ .op-page{page:opinia} @page opinia{ @bottom-left{content:"Załącznik – opinia o funkcjonowaniu dziecka / ucznia · dokument poufny (RODO)";font:9px Arial,sans-serif;color:#6B6378} } }
+  @media print{ .op-page{page:opinia} @page opinia{ @top-left{content:"Opinia o funkcjonowaniu dziecka / ucznia – załącznik";font:9px Arial,sans-serif;color:#7D6FB0} @top-right{content:"[Imię i nazwisko dziecka / ucznia]";font:9px Arial,sans-serif;color:#7D6FB0} @bottom-left{content:"Załącznik – opinia o funkcjonowaniu dziecka / ucznia · dokument poufny (RODO)";font:9px Arial,sans-serif;color:#6B6378} } }
   .lawref{display:inline-block;font-size:12px;font-weight:700;color:var(--purple);background:var(--lav);border-radius:4px;padding:3px 9px;margin:-6px 0 10px}
   table.grid td.act{font-weight:800;color:var(--purple)} table.grid td.dz{white-space:nowrap;color:var(--orange);font-weight:800;font-size:12px}
   .flow5{display:grid;grid-template-columns:repeat(5,1fr);gap:8px;margin:8px 0 12px}
@@ -290,14 +290,20 @@
   }
   @media print{
     html,body{background:#fff}
-    .page{margin:0;box-shadow:none;width:auto;min-height:0;padding:0;break-before:page}
+    .page{margin:0;box-shadow:none;width:auto;min-height:0;padding:0;break-before:auto}
+    .page.brk{break-before:page}
     .page:first-of-type{break-before:auto}
+    .page:not(.brk) .hdr,.page:not(.brk) .fields,.op-page:not(.brk) .op-head{display:none}
+    .page:not(.brk){padding-top:6mm}
     .footer{display:none}
-    @page{size:A4;margin:14mm 14mm 18mm;
-      @bottom-left{content:"[Nazwa placówki] · Ocena Funkcjonalna · dokument poufny (RODO)";font:9px "Mulish","Segoe UI",Arial,sans-serif;color:#6B6378}
+    @page{size:A4;margin:16mm 14mm 18mm;
+      @top-left{content:"[Nazwa przedszkola / szkoły] · Ocena Funkcjonalna – podsumowanie WOPF i IPET";font:9px "Mulish","Segoe UI",Arial,sans-serif;color:#7D6FB0}
+      @top-right{content:"Dotyczy dziecka: ............................................  Grupa / klasa: ..............";font:9px "Mulish","Segoe UI",Arial,sans-serif;color:#7D6FB0}
+      @bottom-left{content:"[Nazwa placówki] · dokument poufny (RODO)";font:9px "Mulish","Segoe UI",Arial,sans-serif;color:#6B6378}
       @bottom-right{content:"Strona " counter(page) " z " counter(pages);font:9px "Mulish","Segoe UI",Arial,sans-serif;color:#6B6378}}
-    .tool,.step,.box,.note,.res,.stat,.lvlbox > div,.varbox > div,.toc > div{break-inside:avoid} table.grid tr,table.op tr,table.meta tr{break-inside:avoid}
-    .sec,.sub9,.op-sec,h2,h3,h4{break-after:avoid}
+    .tool,.step,.box,.note,.res,.stat,.lvlbox > div,.varbox > div,.toc > div,.parent,.signbox,.sigs{break-inside:avoid} table.grid tr,table.op tr,table.meta tr{break-inside:avoid}
+    .sec,.sub9,.op-sec,h2,h3,h4,.partband,.lawref{break-after:avoid}
+    table.grid thead,table.grid tr:first-child{break-after:avoid}
 
     .tool,.step,.box,.note,.res,.stat{break-inside:avoid} table.grid tr{break-inside:avoid}
   }
@@ -352,22 +358,22 @@
   </div>
   <div class="toc" style="grid-template-columns:repeat(7,1fr);margin-top:8px">
     <h5>Część II · Wyniki oceny funkcjonalnej</h5>
-    <div style="padding:7px 8px 6px"><div class="k" style="font-size:18px">4</div><h4 style="font-size:12px;margin:3px 0 0">Funkcjonowanie w placówce</h4></div>
-    <div style="padding:7px 8px 6px"><div class="k" style="font-size:18px">5</div><h4 style="font-size:12px;margin:3px 0 0">Wyniki liczbowe KPOF / KSzOF</h4></div>
-    <div style="padding:7px 8px 6px"><div class="k" style="font-size:18px">6</div><h4 style="font-size:12px;margin:3px 0 0">Wyniki arkuszy specjalistycznych</h4></div>
-    <div style="padding:7px 8px 6px"><div class="k" style="font-size:18px">7</div><h4 style="font-size:12px;margin:3px 0 0">Mój głos – perspektywa dziecka</h4></div>
-    <div style="padding:7px 8px 6px"><div class="k" style="font-size:18px">8</div><h4 style="font-size:12px;margin:3px 0 0">Działania dotychczas podjęte</h4></div>
-    <div style="padding:7px 8px 6px"><div class="k" style="font-size:18px">9</div><h4 style="font-size:12px;margin:3px 0 0">Potrzeby i cele (9 domen)</h4></div>
-    <div style="padding:7px 8px 6px"><div class="k" style="font-size:18px">10</div><h4 style="font-size:12px;margin:3px 0 0">Wnioski Zespołu</h4></div>
+    <div style="padding:7px 8px 6px"><div class="k" style="font-size:18px">4</div><h4 style="font-size:16px;margin:3px 0 0">Funkcjonowanie w placówce</h4></div>
+    <div style="padding:7px 8px 6px"><div class="k" style="font-size:18px">5</div><h4 style="font-size:16px;margin:3px 0 0">Wyniki liczbowe KPOF / KSzOF</h4></div>
+    <div style="padding:7px 8px 6px"><div class="k" style="font-size:18px">6</div><h4 style="font-size:16px;margin:3px 0 0">Wyniki arkuszy specjalistycznych</h4></div>
+    <div style="padding:7px 8px 6px"><div class="k" style="font-size:18px">7</div><h4 style="font-size:16px;margin:3px 0 0">Mój głos – perspektywa dziecka</h4></div>
+    <div style="padding:7px 8px 6px"><div class="k" style="font-size:18px">8</div><h4 style="font-size:16px;margin:3px 0 0">Działania dotychczas podjęte</h4></div>
+    <div style="padding:7px 8px 6px"><div class="k" style="font-size:18px">9</div><h4 style="font-size:16px;margin:3px 0 0">Potrzeby i cele (9 domen)</h4></div>
+    <div style="padding:7px 8px 6px"><div class="k" style="font-size:18px">10</div><h4 style="font-size:16px;margin:3px 0 0">Wnioski Zespołu</h4></div>
   </div>
   <div class="toc" style="grid-template-columns:repeat(7,1fr);margin-top:8px">
     <h5>Część III · Program wsparcia i organizacja</h5>
-    <div style="padding:7px 8px 6px"><div class="k" style="font-size:18px">11</div><h4 style="font-size:12px;margin:3px 0 0">Dostosowanie programu, organizacji i technologii</h4></div>
-    <div style="padding:7px 8px 6px"><div class="k" style="font-size:18px">12</div><h4 style="font-size:12px;margin:3px 0 0">Zintegrowane działania nauczycieli i specjalistów</h4></div>
-    <div style="padding:7px 8px 6px"><div class="k" style="font-size:18px">13</div><h4 style="font-size:12px;margin:3px 0 0">Zajęcia: rewalidacja, PPP, zalecenia poradni</h4></div>
-    <div style="padding:7px 8px 6px"><div class="k" style="font-size:18px">14</div><h4 style="font-size:12px;margin:3px 0 0">Uzasadnienie wsparcia dodatkowej osoby</h4></div>
-    <div style="padding:7px 8px 6px"><div class="k" style="font-size:18px">15</div><h4 style="font-size:12px;margin:3px 0 0">Współpraca z rodzicami i poradnią</h4></div>
-    <div style="padding:7px 8px 6px"><div class="k" style="font-size:18px">16</div><h4 style="font-size:12px;margin:3px 0 0">Terminy oceny efektywności · podpisy</h4></div>
+    <div style="padding:7px 8px 6px"><div class="k" style="font-size:18px">11</div><h4 style="font-size:16px;margin:3px 0 0">Dostosowanie programu, organizacji i technologii</h4></div>
+    <div style="padding:7px 8px 6px"><div class="k" style="font-size:18px">12</div><h4 style="font-size:16px;margin:3px 0 0">Zintegrowane działania nauczycieli i specjalistów</h4></div>
+    <div style="padding:7px 8px 6px"><div class="k" style="font-size:18px">13</div><h4 style="font-size:16px;margin:3px 0 0">Zajęcia: rewalidacja, PPP, zalecenia poradni</h4></div>
+    <div style="padding:7px 8px 6px"><div class="k" style="font-size:18px">14</div><h4 style="font-size:16px;margin:3px 0 0">Uzasadnienie wsparcia dodatkowej osoby</h4></div>
+    <div style="padding:7px 8px 6px"><div class="k" style="font-size:18px">15</div><h4 style="font-size:16px;margin:3px 0 0">Współpraca z rodzicami i poradnią</h4></div>
+    <div style="padding:7px 8px 6px"><div class="k" style="font-size:18px">16</div><h4 style="font-size:16px;margin:3px 0 0">Terminy oceny efektywności · podpisy</h4></div>
   </div>
   <div class="chips">
     <span class="chip l">ICF</span><span class="chip o">KSzOF</span><span class="chip">ABC</span>
@@ -377,7 +383,7 @@
   <div class="footer"><span>[Nazwa placówki] · dokument poufny (RODO) <i class="gen">· sporządzono w EduPlaner 2026</i></span><span>Strona <b>1</b> z {{TOTAL}} · Okładka</span></div>
 </section>
 
-<section class="page">
+<section class="page brk">
   <div class="hdr">
     <div class="l"><div class="logo">§</div><div><div class="name">[Nazwa przedszkola / szkoły]</div><div class="cap">Ocena Funkcjonalna · Jak czytać raport · dwa warianty</div></div></div>
     <div class="r"><span class="pill">Ocena funkcjonalna · 2026</span><div class="cap">Dokument dla rodzica i poradni</div></div>
@@ -441,7 +447,7 @@
 </section>
 
 <!-- ======================= STRONA 2 · METRYCZKA + PROCEDURA ======================= -->
-<section class="page">
+<section class="page brk">
   <div class="hdr">
     <div class="l"><div class="logo">§</div><div><div class="name">[Nazwa przedszkola / szkoły]</div><div class="cap">Ocena Funkcjonalna · Metryczka i obserwacja wstępna</div></div></div>
     <div class="r"><span class="pill">Ocena funkcjonalna · 2026</span><div class="cap">Dokument dla rodzica i poradni</div></div>
@@ -536,7 +542,7 @@
   <div class="footer"><span>[Nazwa placówki] · dokument poufny (RODO) <i class="gen">· sporządzono w EduPlaner 2026</i></span><span>Strona <b>3</b> z {{TOTAL}} · Narzędzia</span></div>
 </section>
 
-<section class="page ">
+<section class="page  brk">
   <div class="hdr">
     <div class="l"><div class="logo">§</div><div><div class="name">[Nazwa przedszkola / szkoły]</div><div class="cap">Ocena Funkcjonalna · Część II · Funkcjonowanie w placówce · przedszkole</div></div></div>
     <div class="r"><span class="pill">Ocena funkcjonalna · 2026</span><div class="cap">Dokument dla rodzica i poradni</div></div>
@@ -666,7 +672,7 @@
   <div class="sec"><span class="n">7</span><h2>Mój głos – perspektywa dziecka / ucznia</h2></div>
   <div class="lawref">§ Podstawa prawna: § 8 ust. 3 pkt 3 rozp. ME z 2.03.2026 (poz. 428) – informacje od dziecka w sposób dostosowany do wieku · ICF: czynniki osobowe</div>
   <p class="lead2">Głos dziecka pozyskano w sposób dostosowany do jego możliwości komunikacyjnych: w naturalnych sytuacjach, przez proste pytania, obrazki, piktogramy i informacje od rodziców. Zapisano autentyczną perspektywę dziecka – jego słowami lub przez wskazanie.</p>
-  <div class="lbl" style="font-size:12px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:var(--purple)">Sposób pozyskania głosu dziecka – zaznaczono</div>
+  <div class="lbl" style="font-size:16px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:var(--purple)">Sposób pozyskania głosu dziecka – zaznaczono</div>
   <div class="cbl"><span><i class="cb on"></i>Rozmowa dostosowana do możliwości dziecka</span><span><i class="cb on"></i>Obserwacja w naturalnych sytuacjach</span><span><i class="cb on"></i>Wybór z obrazków / piktogramów / kart wyboru</span><span><i class="cb on"></i>Komunikacja wspomagająca i alternatywna (AAC)</span><span><i class="cb"></i>Odczytanie z gestu, mimiki, zabawy, rysunku</span><span><i class="cb on"></i>Informacje od rodziców / opiekunów</span><span><i class="cb on"></i>Skala buziek / termometr emocji</span><span><i class="cb"></i>Wskazanie „tak / nie” na symbolach</span></div>
   <div class="voice">
     <div class="box" style="--c:var(--green)"><div class="lbl">Moje mocne strony i supermoce</div><p>„Umiem układać klocki i znam wszystkie planety. Pamiętam, gdzie co leży.”</p></div>
@@ -674,9 +680,9 @@
     <div class="box" style="--c:var(--orange)"><div class="lbl">Moje ulubione zabawy i czynności</div><p>klocki konstrukcyjne, tablet z aplikacją o kosmosie, huśtanie się, oglądanie map</p></div>
     <div class="box wide" style="--c:var(--purple)"><div class="lbl">Moje marzenie / czego bym chciał(a)</div><p>„Żeby kolega bawił się ze mną w rakiety i żeby nie było apeli.”</p></div>
   </div>
-  <div class="lbl" style="font-size:12px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:var(--purple)">Co mi najbardziej pomaga – zaznaczono</div>
+  <div class="lbl" style="font-size:16px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:var(--purple)">Co mi najbardziej pomaga – zaznaczono</div>
   <div class="cbl"><span><i class="cb on"></i>cisza</span><span><i class="cb on"></i>czas</span><span><i class="cb on"></i>ruch</span><span><i class="cb on"></i>piktogramy</span><span><i class="cb on"></i>praca na komputerze / tablecie</span><span><i class="cb on"></i>przerwy</span><span><i class="cb on"></i>wsparcie nauczyciela</span><span><i class="cb on"></i>przewidywalny plan dnia</span><span><i class="cb on"></i>słuchawki</span><span><i class="cb"></i>moje własne miejsce</span></div>
-  <div class="lbl" style="font-size:12px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:var(--purple)">Jak się dziś czuję – wskazanie dziecka</div>
+  <div class="lbl" style="font-size:16px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:var(--purple)">Jak się dziś czuję – wskazanie dziecka</div>
   <div class="mood"><div class=""><i style="background:#2E9D52"></i>Super</div><div class="sel"><i style="background:#7EB800"></i>Dobrze</div><div class=""><i style="background:#DFA22E"></i>Tak sobie</div><div class=""><i style="background:#E77309"></i>Słabo</div><div class=""><i style="background:#BF382A"></i>Źle</div></div>
   <div class="box" style="--c:var(--blue)"><div class="lbl">Preferowany sposób komunikacji dziecka i wskazówki do rozmowy</div><p class="just" style="margin:0">Mowa proste zdania + tablica wyboru (piktogramy); rozumie polecenia wsparte gestem; potrzebuje chwili na odpowiedź; nie lubi pytań „dlaczego”. Wskazówki do rozmowy: jedno pytanie na raz, obrazek lub wybór z dwóch, bez metafor i żartów.</p></div>
   <p class="stnote"><b>Podstawa.</b> Uwzględnienie perspektywy dziecka wspiera indywidualizację i podmiotowe traktowanie zgodnie z modelem ICF. „Mój głos” to element nowego modelu 2026/27.</p>
@@ -780,7 +786,7 @@
   <div class="footer"><span>[Nazwa placówki] · dokument poufny (RODO) <i class="gen">· sporządzono w EduPlaner 2026</i></span><span>Decyzja Zespołu</span></div>
 </section>
 
-<section class="page ">
+<section class="page  brk">
   <div class="hdr">
     <div class="l"><div class="logo">§</div><div><div class="name">[Nazwa przedszkola / szkoły]</div><div class="cap">Ocena Funkcjonalna · Część III · Dostosowanie programu</div></div></div>
     <div class="r"><span class="pill">Ocena funkcjonalna · 2026</span><div class="cap">Dokument dla rodzica i poradni</div></div>
@@ -1030,9 +1036,9 @@
   <div class="footer"><span>[Nazwa placówki] · dokument poufny (RODO) <i class="gen">· sporządzono w EduPlaner 2026</i></span><span>Ocena efektywności i podpisy</span></div>
 </section>
 
-<section class="page op-page">
+<section class="page op-page brk">
   <div class="op-head">
-    <div class="op-stamp"><b>[Nazwa przedszkola / szkoły]</b>[Adres placówki, tel., e-mail]<br><span style="font-size:12px">(pieczęć placówki)</span></div>
+    <div class="op-stamp"><b>[Nazwa przedszkola / szkoły]</b>[Adres placówki, tel., e-mail]<br><span style="font-size:16px">(pieczęć placówki)</span></div>
     <div class="op-right">[Miejscowość], dnia <span class="fill"></span><br>Znak sprawy: <span class="fill"></span><br>Zespół orzekający: <span class="fill">[Nazwa Poradni Psychologiczno-Pedagogicznej]</span></div>
   </div>
   <div class="op-title"><h1>Opinia o funkcjonowaniu dziecka / ucznia</h1><div class="s">w przedszkolu / szkole – dla zespołu orzekającego poradni psychologiczno-pedagogicznej</div></div>
@@ -1058,7 +1064,7 @@
 
 <section class="page op-page">
   <div class="op-head">
-    <div class="op-stamp"><b>[Nazwa przedszkola / szkoły]</b>[Adres placówki, tel., e-mail]<br><span style="font-size:12px">(pieczęć placówki)</span></div>
+    <div class="op-stamp"><b>[Nazwa przedszkola / szkoły]</b>[Adres placówki, tel., e-mail]<br><span style="font-size:16px">(pieczęć placówki)</span></div>
     <div class="op-right">[Miejscowość], dnia <span class="fill"></span><br>Znak sprawy: <span class="fill"></span><br>Zespół orzekający: <span class="fill">[Nazwa Poradni Psychologiczno-Pedagogicznej]</span></div>
   </div>
   <div class="op-sec"><span class="r">3.</span><h3>Informacja o funkcjonowaniu dziecka / ucznia w placówce – trudności, mocne strony i uzdolnienia (§ 7 ust. 6 pkt 3, ust. 7 pkt 1)</h3></div>
@@ -1077,7 +1083,7 @@
 
 <section class="page op-page">
   <div class="op-head">
-    <div class="op-stamp"><b>[Nazwa przedszkola / szkoły]</b>[Adres placówki, tel., e-mail]<br><span style="font-size:12px">(pieczęć placówki)</span></div>
+    <div class="op-stamp"><b>[Nazwa przedszkola / szkoły]</b>[Adres placówki, tel., e-mail]<br><span style="font-size:16px">(pieczęć placówki)</span></div>
     <div class="op-right">[Miejscowość], dnia <span class="fill"></span><br>Znak sprawy: <span class="fill"></span><br>Zespół orzekający: <span class="fill">[Nazwa Poradni Psychologiczno-Pedagogicznej]</span></div>
   </div>
   <div class="op-sec"><span class="r">3.</span><h3>Informacja o funkcjonowaniu dziecka / ucznia w placówce – trudności, mocne strony i uzdolnienia (§ 7 ust. 6 pkt 3, ust. 7 pkt 1) · cd.</h3></div>
@@ -1100,7 +1106,7 @@
 
 <section class="page op-page">
   <div class="op-head">
-    <div class="op-stamp"><b>[Nazwa przedszkola / szkoły]</b>[Adres placówki, tel., e-mail]<br><span style="font-size:12px">(pieczęć placówki)</span></div>
+    <div class="op-stamp"><b>[Nazwa przedszkola / szkoły]</b>[Adres placówki, tel., e-mail]<br><span style="font-size:16px">(pieczęć placówki)</span></div>
     <div class="op-right">[Miejscowość], dnia <span class="fill"></span><br>Znak sprawy: <span class="fill"></span><br>Zespół orzekający: <span class="fill">[Nazwa Poradni Psychologiczno-Pedagogicznej]</span></div>
   </div>
   <div class="op-sec"><span class="r">5.</span><h3>Załączniki ewaluacyjne (§ 7 ust. 6 pkt 4–5)</h3></div>
@@ -1121,7 +1127,7 @@
 
 <section class="page op-page">
   <div class="op-head">
-    <div class="op-stamp"><b>[Nazwa przedszkola / szkoły]</b>[Adres placówki, tel., e-mail]<br><span style="font-size:12px">(pieczęć placówki)</span></div>
+    <div class="op-stamp"><b>[Nazwa przedszkola / szkoły]</b>[Adres placówki, tel., e-mail]<br><span style="font-size:16px">(pieczęć placówki)</span></div>
     <div class="op-right">[Miejscowość], dnia <span class="fill"></span><br>Znak sprawy: <span class="fill"></span><br>Zespół orzekający: <span class="fill">[Nazwa Poradni Psychologiczno-Pedagogicznej]</span></div>
   </div>
   <div class="op-sec"><span class="r">8.</span><h3>Informacje uzupełniające dla zespołu orzekającego – fakultatywne, na potrzeby oceny funkcjonowania (§ 8 ust. 2–3)</h3></div>
