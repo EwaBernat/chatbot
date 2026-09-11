@@ -1594,7 +1594,10 @@ if(REMOTION){ // Remotion: ?dur=<sekundy MP3>&srt=napisy.srt  → sceny w rytmie
   if(srtUrl){ fetch(srtUrl).then(r=>r.ok?r.text():Promise.reject()).then(txt=>{ zastosujSrt(txt); go(); }).catch(go); } else go();
 } else {
   seek(isFinite(t0)?t0:0);
-  fontsReady.then(()=>{ camCache.clear(); render(T); readyResolve(true); if(Q.get('auto')!=='0' && !matchMedia('(prefers-reduced-motion: reduce)').matches) setTimeout(play, 600); });
+  // domyślne nagranie Twoim głosem (narracja.mp3 obok filmu) – jeśli jest, film gra z dźwiękiem po kliknięciu „Odtwórz”
+  const domyslneAudio = Q.get('audio') || 'narracja.mp3';
+  fetch(domyslneAudio, {method:'HEAD'}).then(r=>{ if(!r.ok) throw 0; audio.src=domyslneAudio; audio.addEventListener('loadedmetadata', ()=>{ if(!SRT){ const k=audio.duration/total(); S.forEach(s=>s.dur0*=k); ustawCzasy(null); } $('#f-st-mp3').textContent='Nagranie Twoim głosem (ElevenLabs) jest wczytane: '+Math.round(audio.duration)+' s. Kliknij „Odtwórz”.'; $('#f-st-mp3').classList.add('ok'); render(T); }, {once:true}); }).catch(()=>{ if(Q.get('auto')!=='0' && !matchMedia('(prefers-reduced-motion: reduce)').matches) setTimeout(play, 600); });
+  fontsReady.then(()=>{ camCache.clear(); render(T); readyResolve(true); });
 }
 })();
 
