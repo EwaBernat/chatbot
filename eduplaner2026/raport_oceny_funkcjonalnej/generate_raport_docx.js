@@ -66,22 +66,22 @@ const section = (n, title) => new Paragraph({
 // =============== STRONA 1 · OKŁADKA ===============
 const cover = [
   ...pageHeader('Raport Oceny Funkcjonalnej · Okładka'),
-  P([ run('  OPINIA PRZEDSZKOLA / SZKOŁY · DLA ZESPOŁU ORZEKAJĄCEGO · DLA RODZICA  ', { size:14, bold:true, color:C.white, bg:C.orange, spacing:12 }) ], { align:AlignmentType.CENTER, before:120, after:200 }),
-  P([ run('OCENA FUNKCJONALNA · ICF · PRZEDSZKOLE · SZKOŁA', { size:15, color:C.purple, spacing:50 }) ], { align:AlignmentType.CENTER, after:120 }),
-  P([ run('Raport Oceny', { size:56, bold:true, color:C.purple }) ], { align:AlignmentType.CENTER, after:0, line:640, lineRule:'exact' }),
-  P([ run('Funkcjonalnej', { size:56, bold:true, color:C.purple }) ], { align:AlignmentType.CENTER, after:140, line:640, lineRule:'exact' }),
-  P([ run('OBSERWACJA WSTĘPNA I POGŁĘBIONA · OBSZARY ICF', { size:15, bold:true, color:C.orange, spacing:44 }) ], { align:AlignmentType.CENTER, after:260 }),
-  P([ run('z dnia  ', { size:20, color:C.muted }), run('………………………………………………', { size:20, color:'B6A6DF' }) ], { align:AlignmentType.CENTER, after:300 }),
+  P([ run('  OPINIA PRZEDSZKOLA / SZKOŁY · DLA ZESPOŁU ORZEKAJĄCEGO · DLA RODZICA  ', { size:14, bold:true, color:C.white, bg:C.orange, spacing:12 }) ], { align:AlignmentType.CENTER, before:40, after:120 }),
+  P([ run('OCENA FUNKCJONALNA · ICF · PRZEDSZKOLE · SZKOŁA', { size:15, color:C.purple, spacing:50 }) ], { align:AlignmentType.CENTER, after:60 }),
+  P([ run('Raport Oceny', { size:52, bold:true, color:C.purple }) ], { align:AlignmentType.CENTER, after:0, line:600, lineRule:'exact' }),
+  P([ run('Funkcjonalnej', { size:52, bold:true, color:C.purple }) ], { align:AlignmentType.CENTER, after:80, line:600, lineRule:'exact' }),
+  P([ run('OBSERWACJA WSTĘPNA I POGŁĘBIONA · OBSZARY ICF', { size:15, bold:true, color:C.orange, spacing:44 }) ], { align:AlignmentType.CENTER, after:140 }),
+  P([ run('z dnia  ', { size:20, color:C.muted }), run('………………………………………………', { size:20, color:'B6A6DF' }) ], { align:AlignmentType.CENTER, after:160 }),
 
   // zespół
   box([
     label('Opracowany przez Zespół w składzie'),
     tbl([Math.floor((CW-480)/2), Math.floor((CW-480)/2)], [0,1,2].map(r => row([0,1].map(c => {
       const n = r*2+c+1, w = Math.floor((CW-480)/2);
-      return cell(P([ run(n+'.', { bold:true, color:C.orange, size:20 }), run('  ' + '.'.repeat(58), { size:16, color:'B6A6DF' }) ], { after:0 }), { width:w, borders:noBorders, margins:{ top:70, bottom:70, left:0, right:200 } });
+      return cell(P([ run(n+'.', { bold:true, color:C.orange, size:20 }), run('  ' + '.'.repeat(58), { size:16, color:'B6A6DF' }) ], { after:0 }), { width:w, borders:noBorders, margins:{ top:40, bottom:40, left:0, right:200 } });
     }))))
   ], C.orange),
-  empty(180),
+  empty(100),
 
   // podstawa prawna
   box([
@@ -99,21 +99,32 @@ const cover = [
       ], { width:CW-480-700, borders:noBorders, margins:{ top:0, bottom:0, left:200, right:0 } })
     ]) ])
   ], C.purple, { bg:C.lav2 }),
-  empty(220),
+  empty(120),
 
   // zawartość raportu
-  P([ run('■ ', { size:14, color:C.purple }), run('ZAWARTOŚĆ RAPORTU', { size:13, bold:true, color:C.purple, spacing:14 }) ], { after:100 }),
+  P([ run('■ ', { size:14, color:C.purple }), run('CZĘŚĆ I · PODSTAWA, METRYCZKA I NARZĘDZIA', { size:12, bold:true, color:C.purple, spacing:14 }) ], { after:80 }),
   tbl([3302,3302,3302], [ row([
     ['1','Metryczka bazowa','dane dziecka, wariant wsparcia, podstawa formalna, zdrowie i farmakoterapia'],
     ['2','Obserwacja wstępna','procedura wrześniowej obserwacji Kwestionariuszem Oceny Funkcjonalnej w obszarach ICF'],
     ['3','Obserwacja pogłębiona','wskazania i narzędzia: ABC, Profil Biopsychospołeczny, Profil Sensoryczny, mowa i AAC, ToM']
   ].map(t => cell([
-    P([ run(t[0], { size:32, bold:true, color:C.orange }) ], { after:40 }),
-    P([ run(t[1], { size:19, bold:true, color:C.purple }) ], { after:50 }),
-    P([ run(t[2], { size:15, color:C.muted }) ], { after:0, line:250 })
-  ], { width:3302, borders:{ top:{ style:BorderStyle.SINGLE, size:24, color:C.orange }, bottom:ln(), left:ln(), right:ln() }, margins:{ top:140, bottom:150, left:180, right:180 } })) ) ]),
-  empty(200),
-  P(['ICF','KSzOF','ABC','Profil Sensoryczny','AAC','ToM'].flatMap((t,i)=>[ run('  '+t+'  ', { size:14, bold:true, color:[C.purple,C.orange,C.purple,C.purple,C.purple,C.orange][i], bg:[C.lav,C.orangeMist,C.white,C.lav,C.white,C.orangeMist][i] }), run('   ', { size:14 }) ]), { align:AlignmentType.CENTER, after:0 }),
+    P([ run(t[0], { size:28, bold:true, color:C.orange }) ], { after:30 }),
+    P([ run(t[1], { size:18, bold:true, color:C.purple }) ], { after:40 }),
+    P([ run(t[2], { size:14, color:C.muted }) ], { after:0, line:240 })
+  ], { width:3302, borders:{ top:{ style:BorderStyle.SINGLE, size:24, color:C.orange }, bottom:ln(), left:ln(), right:ln() }, margins:{ top:90, bottom:100, left:160, right:160 } })) ) ]),
+  empty(90),
+  P([ run('■ ', { size:14, color:C.purple }), run('CZĘŚĆ II · WYNIKI ILOŚCIOWE I JAKOŚCIOWE, OCENA POGŁĘBIONA, KIERUNKI WSPARCIA W IPE', { size:12, bold:true, color:C.purple, spacing:14 }) ], { after:80 }),
+  tbl([1981,1981,1981,1981,1982], [ row([
+    ['4','Funkcjonowanie w placówce','mocne strony, uzdolnienia i trudności'],
+    ['5','Wyniki liczbowe','KPOF / KSzOF w 9 domenach ICF'],
+    ['6','Analiza jakościowa','opis barier i zalecenia do IPE'],
+    ['7','Obserwacja pogłębiona','wyniki arkuszy specjalistycznych'],
+    ['8','Podjęte działania','zakres wsparcia i efektywność']
+  ].map((t,i) => cell([
+    P([ run(t[0], { size:26, bold:true, color:C.orange }) ], { after:30 }),
+    P([ run(t[1], { size:16, bold:true, color:C.purple }) ], { after:40, line:230 }),
+    P([ run(t[2], { size:13, color:C.muted }) ], { after:0, line:230 })
+  ], { width:i===4?1982:1981, borders:{ top:{ style:BorderStyle.SINGLE, size:24, color:C.orange }, bottom:ln(), left:ln(), right:ln() }, margins:{ top:80, bottom:90, left:130, right:110 } })) ) ]),
   new Paragraph({ children:[ new PageBreak() ] })
 ];
 
@@ -213,6 +224,129 @@ const footerPara = new Paragraph({
   children:[ run('EduPlaner 2026 · PCTP', { size:12, color:C.muted }), run('   ·   RODO · Dokument poufny', { size:12, color:C.muted }), run('\t'), run('Strona ', { size:12, color:C.muted }), new TextRun({ children:[PageNumber.CURRENT], font:FONT, size:12, bold:true, color:C.orange }), run(' z ', { size:12, color:C.muted }), new TextRun({ children:[PageNumber.TOTAL_PAGES], font:FONT, size:12, bold:true, color:C.purple }), run(' · Raport Oceny Funkcjonalnej', { size:12, color:C.muted }) ]
 });
 
+
+// =============== CZĘŚĆ II · WYNIKI ARKUSZY ===============
+const gridHead = (cols, widths, colors=[]) => row(cols.map((t,i) => cell(P([ run(t, { size:13, bold:true, color:colors[i]||C.purple, caps:true, spacing:10 }) ], { after:0 }), { width:widths[i], bg:C.lav, borders:{ top:ln(), bottom:ln(), left:ln(), right:ln() }, margins:{ top:100, bottom:100, left:140, right:120 } })));
+const gcell = (children, width, o={}) => cell(Array.isArray(children)?children:[children], { width, bg:o.bg, borders:{ top:ln(C.line2), bottom:ln(C.line2), right:ln(C.line2), left: o.edge ? { style:BorderStyle.SINGLE, size:24, color:o.edge } : ln(C.line2) }, margins:{ top:100, bottom:100, left:140, right:120 } });
+const txt = (t, o={}) => P([ run(t, { size:o.size||16, bold:o.bold, color:o.color }) ], { after:0, line:250 });
+const bullets = (items) => items.map(t => new Paragraph({ spacing:{ before:0, after:40, line:245 }, indent:{ left:200, hanging:200 }, children:[ run('•  ', { size:16, color:C.orange, bold:true }), run(t, { size:16 }) ] }));
+const lead2 = (ref, t) => P([ ...(ref ? [run(ref+' ', { size:16, bold:true, color:C.purple })] : []), run(t, { size:16, color:C.muted }) ], { after:140, line:260, align:AlignmentType.JUSTIFIED });
+
+const rows4 = [
+ ['Aktywność poznawcza i uczenie się','Bardzo dobra pamięć wzrokowa; szybkie zapamiętywanie schematów graficznych; wąskie, ale głębokie zainteresowania tematyczne; wysoka motywacja do pracy z ulubionymi pomocami dydaktycznymi.','Trudności z przerzutnością i podzielnością uwagi; szybka męczliwość przy instrukcjach wieloetapowych; problem z uogólnianiem (generalizacją) wiedzy; wymagane stałe tempo i pomoce wizualne.'],
+ ['Komunikacja i porozumiewanie się','Prawidłowe rozumienie prostych, jednoznacznych komunikatów słownych wspartych gestem; sygnalizowanie podstawowych potrzeb fizjologicznych.','Dosłowne rozumienie wypowiedzi (trudność z metaforą i żartem); echolalie odroczone; trudności w inicjowaniu dialogu i naprzemienności wypowiedzi w grupie rówieśniczej; potrzeba wsparcia AAC.'],
+ ['Relacje społeczne i emocje','Chęć przebywania w pobliżu grupy; pozytywna reakcja na stałych, przewidywalnych dorosłych; przestrzeganie czytelnych zasad wizualnych.','Trudności w odczytywaniu emocji i intencji innych (słaba teoria umysłu); niska tolerancja frustracji w sytuacjach przegranej lub nagłej zmiany; tendencja do wycofywania się lub zachowań trudnych.'],
+ ['Motoryka i sprawność fizyczna','Sprawność w zakresie motoryki dużej (bieganie, wspinanie się); chętne uczestnictwo w zabawach ruchowych w otwartej przestrzeni.','Obniżona precyzja motoryki małej i koordynacji wzrokowo-ruchowej; nieprawidłowy chwyt pisarski / narzędzi; wzmożone lub obniżone napięcie posturalne; męczliwość ręki wiodącej.'],
+ ['Samoobsługa i autonomia','Samodzielność w zakresie podstawowych nawyków higienicznych i toaletowych; znajomość własnej szafki i osobistych przyborów.','Opór sensoryczny przy myciu rąk (wrażliwość na fakturę mydła/wodę); wybiórczość pokarmowa; problem z ubieraniem odzieży wierzchniej ze skomplikowanymi zapięciami; potrzeba nadzoru dorosłego.']
+];
+const W4 = [1900, 4003, 4003];
+const table4 = tbl(W4, [ gridHead(['Obszar obserwacji','✓ Mocne strony, zasoby i uzdolnienia','▸ Trudności, ograniczenia i bariery'], W4, [C.purple, C.green, C.red]),
+  ...rows4.map(r => row([ gcell(txt(r[0], { bold:true, color:C.purple }), W4[0]), gcell(txt(r[1]), W4[1], { edge:C.green }), gcell(txt(r[2]), W4[2], { edge:C.red }) ])) ]);
+
+const dom = [
+ ['d1','Uczenie się i stosowanie wiedzy','2,4','12','4',2,'Średni','Wymaga podziału zadań na etapy i wsparcia wizualnego.'],
+ ['d2','Ogólne zadania i wymagania','1,8','9','3',3,'Wysoki','Brak elastyczności, silny stres przy nagłych zmianach.'],
+ ['d3','Komunikacja i porozumiewanie się','2,0','10','4',2,'Średni','Echolalie, konieczność wdrażania schematów AAC.'],
+ ['d4','Poruszanie się i motoryka','3,2','16','6',1,'Niski','Ogólna motoryka dobra; obniżona grafomotoryka.'],
+ ['d5','Dbanie o siebie i samoobsługa','2,2','11','4',2,'Średni','Wybiórczość sensoryczna przy posiłkach i toalecie.'],
+ ['d6','Życie domowe / Obowiązki placówki','2,8','14','5',1,'Niski','Sprząta kącik zabaw po bezpośrednim przypomnieniu.'],
+ ['d7','Relacje i kontakty międzyludzkie','1,6','8','3',3,'Wysoki','Bariery w interakcjach rówieśniczych, konflikty, wycofanie.'],
+ ['d8','Główne dziedziny życia (Edukacja)','2,0','10','4',2,'Średni','Wymaga dostosowania metod i stałego nadzoru nauczyciela.'],
+ ['d9','Życie społecznościowe i obywatelskie','1,8','9','3',3,'Wysoki','Trudność w uczestnictwie w apelach i wyjściach zbiorowych.']
+];
+const LVL = { 1:{ bg:'E6F4EC', fg:C.green }, 2:{ bg:'FBF1DC', fg:'9A6A0A' }, 3:{ bg:'FBE6E3', fg:C.red } };
+const W5 = [600, 2500, 1500, 800, 1700, 2806];
+const statTile = (l, v, sub, width, top=C.orange) => cell([
+  P([ run(l, { size:12, bold:true, color:C.lavText, spacing:12 }) ], { after:40 }),
+  P([ run(v, { size:26, bold:true, color:C.purple }), run(sub ? '  '+sub : '', { size:15, color:C.muted }) ], { after:0 })
+], { width, borders:{ top:{ style:BorderStyle.SINGLE, size:24, color:top }, bottom:ln(), left:ln(), right:ln() }, margins:{ top:110, bottom:120, left:160, right:120 } });
+const SWT = Math.floor(CW/4);
+const stats5 = tbl([SWT,SWT,SWT,SWT], [ row([ statTile('NARZĘDZIE BAZOWE','KPOF','/ KSzOF',SWT), statTile('PUNKTY SUROWE','68','/ 180 pkt',SWT), statTile('ŚREDNIA / STEN','Śr: 2,1','· Sten 4',SWT), statTile('OGÓLNY POZIOM WSPARCIA','Poziom 2','(Umiarkowany)',SWT,C.amber) ]) ]);
+const table5 = tbl(W5, [ gridHead(['Kod','Domena ICF','Punkty / śr.','Sten','Poziom wsparcia','Wskaźnik funkcjonalny'], W5),
+  ...dom.map(d => row([
+    gcell(txt(d[0], { bold:true, color:C.orange }), W5[0]),
+    gcell(txt(d[1], { bold:true }), W5[1]),
+    gcell(txt('Śr: '+d[2]+' ('+d[3]+' pkt)'), W5[2]),
+    gcell(txt('Sten '+d[4]), W5[3]),
+    gcell(P([ run(' Poziom '+d[5]+' · '+d[6]+' ', { size:14, bold:true, color:LVL[d[5]].fg, bg:LVL[d[5]].bg }) ], { after:0 }), W5[4]),
+    gcell(txt(d[7]), W5[5])
+  ])) ]);
+const legend5 = P([ run('Poziom 1 · Niski', { size:13, bold:true, color:LVL[1].fg, bg:LVL[1].bg }), run('    ', { size:13 }), run('Poziom 2 · Średni', { size:13, bold:true, color:LVL[2].fg, bg:LVL[2].bg }), run('    ', { size:13 }), run('Poziom 3 · Wysoki', { size:13, bold:true, color:LVL[3].fg, bg:LVL[3].bg }) ], { align:AlignmentType.RIGHT, before:100, after:0 });
+
+const rows6 = [
+ ['Uczenie się i stosowanie wiedzy','d1, d2','Dziecko/uczeń przyswaja wiedzę głównie kanałem wzrokowym. Występuje trudność w samodzielnej organizacji pracy, rozumieniu poleceń złożonych oraz transferze wiedzy. Przebodźcowanie powoduje dekoncentrację i rezygnację z zadania.',['Wprowadzenie planów aktywności w formie piktogramów / checklist.','Dzielenie instrukcji na pojedyncze, sekwencyjne kroki.','Stosowanie pomocy sensorycznych (stoper, zegar time-timer).','Wydłużenie czasu na realizację zadań pisemnych i wykonawczych.']],
+ ['Komunikacja i porozumiewanie się','d3','Wypowiedzi cechują się trudnościami pragmatycznymi, obecnością echolalii oraz dosłownością interpretacji. W chwilach przeciążenia emocjonalnego następuje mutyzm wybiórczy lub krzyk zamiast komunikacji intencjonalnej.',['Wdrożenie tablic wyboru i skryptów dialogowych AAC.','Unikanie metafor, sarkazmu, dwuznaczności w komunikatach personelu.','Trening komunikacji funkcjonalnej (FCT – sygnalizowanie: „chcę przerwę”, „nie rozumiem”).','Indywidualna terapia logopedyczna/neurologopedyczna (2x w tyg.).']],
+ ['Relacje i interakcje międzyludzkie','d7, d9','Trudności w inicjowaniu i podtrzymywaniu zabawy naprzemiennej. Brak umiejętności rozpoznawania sygnałów niewerbalnych wysyłanych przez rówieśników. Częste nieporozumienia prowadzące do zachowań oporowych.',['Udział w Treningu Umiejętności Społecznych (TUS) w małej grupie.','Modelowanie zachowań prospołecznych z wykorzystaniem Historyjek Społecznych (Social Stories).','Asystowanie w zabawach grupowych na zasadzie rówieśnika-mentora.','Jasne, wizualne zasady panujące w klasie/grupie.']],
+ ['Dbanie o siebie i motoryka','d4, d5, d6','Samoobsługa zaburzona przez silne reakcje nadwrażliwości na bodźce dotykowe (ubrania, mokre ręce) i zapachowe. Spowolniona koordynacja ruchowa i trudności z planowaniem motorycznym (dyspraksja).',['Dostosowanie przyborów (nakładki ergonomiczne na ołówki, nożyczki sprężynowe).','Stała kolejność czynności toaletowych wsparta paskiem wizualnym.','Indywidualne ćwiczenia rewalidacyjne ukierunkowane na motorykę małą i dużą.']]
+];
+const W6 = [1900, 3900, 4106];
+const table6 = tbl(W6, [ gridHead(['Domena ICF','Opis funkcjonowania i bariery','Zalecenia do IPE (metody / dostosowania)'], W6, [C.purple, C.purple, C.orange]),
+  ...rows6.map(r => row([ gcell([ txt(r[0], { bold:true, color:C.purple }), txt(r[1], { size:14, color:C.orange, bold:true }) ], W6[0]), gcell(txt(r[2]), W6[1]), gcell(bullets(r[3]), W6[2]) ])) ]);
+
+const res7 = [
+ [C.red,'Arkusz Obserwacji Behawioralnej ABC',[['Zidentyfikowano '],['14 epizodów',1],[' zachowań trudnych. '],['Bodźce wyzwalające (A): ',1],['trudne polecenia pisemne, hałas, niespodziewane przejścia między aktywnościami. '],['Topografia zachowania (B): ',1],['głośny krzyk, odmowa zejścia z dywanu, odpychanie kart pracy. '],['Funkcja (C): ',1],['ucieczka przed przeciążeniem sensorycznym / zadaniem trudnym poznawczo.']],'protokół wyprzedzający i nauka komunikatu zastępczego.'],
+ [C.blue,'Profil Sensoryczny (Kwestionariusz Przetwarzania)',[['Reaktywność mieszana. '],['Układ słuchowy',1],[' – silna nadwrażliwość na nagłe dźwięki i gwar korytarza (zalecane słuchawki); '],['układ dotykowy',1],[' – obronność dotykowa na faktury klejące i mokre; '],['układ proprioceptywny i przedsionkowy',1],[' – poszukiwanie stymulacji dociskowej i ruchowej (huśtanie, kołysanie się).']],null],
+ [C.purple,'Profil Biopsychospołeczny',[['Uwarunkowania biologiczne: ',1],['spektrum autyzmu, zaburzenia snu wpływają na zmęczenie poranne. '],['Uwarunkowania psychologiczne: ',1],['silny lęk przed zmianą schematu, sztywność poznawcza. '],['Czynniki środowiskowe: ',1],['wysokie zaangażowanie rodziny, pozytywna reakcja na stałą kadrę.']],null],
+ [C.orange,'Arkusz Oceny Rozwoju Mowy i Komunikacji',[['Zasób słownika biernego w normie wiekowej; wąski zasób czynny w sytuacjach swobodnych. Występują '],['echolalie natychmiastowe',1],[' i trudności pragmatyczne (brak intonacji, trudność w podtrzymaniu dialogu).']],'schematy dialogowe i piktogramy wspierające.'],
+ [C.green,'Arkusz Poziomu Rozwoju Teorii Umysłu (ToM)',[['Poziom rozwoju ToM '],['poniżej normy wiekowej',1],['. Trudność w zadaniach z fałszywym przekonaniem (False Belief Task) oraz w rozpoznawaniu perspektywy i intencji innych osób. Trudności te generują konflikty rówieśnicze przez błędną interpretację zachowań kolegów.']],null]
+];
+const resCards = res7.flatMap(([color, title, parts, rec]) => [
+  tbl([CW], [ row([ cell([
+    P([ run(title, { size:18, bold:true, color:C.purple }) ], { after:50 }),
+    P(parts.map(pt => run(pt[0], { size:16, bold:!!pt[1], color: pt[1] ? color : C.ink })), { after: rec ? 50 : 0, line:255, align:AlignmentType.JUSTIFIED }),
+    ...(rec ? [ P([ run('Zalecenie: ', { size:16, bold:true, color:C.orange }), run(rec, { size:16, color:C.purple }) ], { after:0 }) ] : [])
+  ], { width:CW, borders:{ top:ln(), bottom:ln(), right:ln(), left:{ style:BorderStyle.SINGLE, size:32, color } }, margins:{ top:110, bottom:120, left:220, right:180 } }) ]) ]),
+  empty(90)
+]);
+
+const rows8 = [
+ ['Dostosowania środowiskowe i dydaktyczne','Wyznaczenie strefy wyciszenia w sali; zredukowanie bodźców wzrokowych na tablicach ściennych; zastosowanie słuchawek wygłuszających podczas pracy stolikowej; wprowadzenie indywidualnego planu dnia na rzepy.','Spadek liczby epizodów trudnych zachowań o ok. 40%; wydłużenie czasu skupienia na pojedynczym zadaniu z 3 do 8 minut.'],
+ ['Pomoc psychologiczno-pedagogiczna i rewalidacja','Zajęcia rozwijające kompetencje emocjonalno-społeczne (TUS – 1x w tyg.); indywidualne zajęcia logopedyczne (1x w tyg.); ćwiczenia integracji sensorycznej (SI) na sali gimnastycznej.','Lepsze tolerowanie obecności innych dzieci w trakcie zajęć kierowanych; pierwsze próby proszenia o przerwę za pomocą gestu/piktogramu.'],
+ ['Współpraca z domem rodzinnym','Cotygodniowe konsultacje z rodzicami; zeszyt korespondencji dom-placówka; ujednolicenie systemu komunikatów i nagród behawioralnych.','Wysoka spójność w reakcjach dorosłych na zachowania trudne; wzrost poczucia bezpieczeństwa u dziecka.']
+];
+const W8 = [2000, 4300, 3606];
+const table8 = tbl(W8, [ gridHead(['Rodzaj wsparcia','Zakres wdrożonych działań i metody','Efektywność i obserwowane zmiany'], W8, [C.purple, C.purple, C.green]),
+  ...rows8.map(r => row([ gcell(txt(r[0], { bold:true, color:C.purple }), W8[0]), gcell(txt(r[1]), W8[1]), gcell(txt(r[2]), W8[2], { edge:C.green }) ])) ]);
+
+const parentBox = tbl([CW], [ row([ cell(P([ run('Informacja dla rodzica. ', { size:17, bold:true, color:C.orange }), run('Niniejszy raport stanowi opinię placówki o funkcjonowaniu dziecka i jest przekazywany rodzicowi oraz zespołowi orzekającemu poradni. Wyniki obserwacji służą zaplanowaniu wsparcia, a nie ocenie dziecka. Zachęcamy do rozmowy z Zespołem o każdej części dokumentu.', { size:17 }) ], { after:0, line:270 }), { width:CW, bg:C.paper, borders:{ top:ln(C.line2), bottom:ln(C.line2), left:ln(C.line2), right:ln(C.line2) }, margins:{ top:120, bottom:120, left:220, right:220 } }) ]) ]);
+
+const part2 = [
+  new Paragraph({ children:[ new PageBreak() ] }),
+  ...pageHeader('Raport Oceny Funkcjonalnej · Część II · Funkcjonowanie w placówce'),
+  P([ run('  RAPORT OCENY FUNKCJONALNEJ DZIECKA / UCZNIA · CZĘŚĆ II  ', { size:13, bold:true, color:C.white, bg:C.orange, spacing:10 }) ], { align:AlignmentType.CENTER, after:120 }),
+  P([ run('Wyniki ilościowe i jakościowe, ocena pogłębiona oraz kierunki wsparcia w IPE', { size:28, bold:true, color:C.purple }) ], { align:AlignmentType.CENTER, after:60, line:300 }),
+  P([ run('WYNIKI POSZCZEGÓLNYCH ARKUSZY OBSERWACJI · § 7 UST. 6', { size:13, bold:true, color:C.orange, spacing:36 }) ], { align:AlignmentType.CENTER, after:60 }),
+  section('4','Informacja o funkcjonowaniu w placówce – trudności, mocne strony i uzdolnienia'),
+  lead2('§ 7 ust. 6 pkt 3.','Syntetyczne zestawienie potencjału rozwojowego oraz barier zidentyfikowanych w toku codziennej aktywności przez nauczycieli, wychowawców i specjalistów prowadzących zajęcia z dzieckiem/uczniem:'),
+  table4,
+  new Paragraph({ children:[ new PageBreak() ] }),
+  ...pageHeader('Raport Oceny Funkcjonalnej · Część II · Wyniki liczbowe'),
+  section('5','Aktualna wielospecjalistyczna ocena poziomu funkcjonowania – wyniki liczbowe'),
+  lead2('§ 7 ust. 6 pkt 4.','Zestawienie parametrów ilościowych uzyskanych z narzędzia bazowego (KPOF dla przedszkola / KSzOF dla szkoły) w 9 obszarach Międzynarodowej Klasyfikacji ICF:'),
+  stats5,
+  empty(140),
+  table5,
+  legend5,
+  new Paragraph({ children:[ new PageBreak() ] }),
+  ...pageHeader('Raport Oceny Funkcjonalnej · Część II · Analiza jakościowa'),
+  section('6','Analiza jakościowa obszarów obserwacji oraz zalecenia do IPE'),
+  lead2('','Szczegółowa diagnoza funkcjonalna powiązana bezpośrednio ze sformułowanymi rekomendacjami do Indywidualnego Programu Edukacyjnego (IPE):'),
+  table6,
+  new Paragraph({ children:[ new PageBreak() ] }),
+  ...pageHeader('Raport Oceny Funkcjonalnej · Część II · Obserwacja pogłębiona'),
+  section('7','Wyniki obserwacji pogłębionej (narzędzia specjalistyczne)'),
+  ...resCards,
+  new Paragraph({ children:[ new PageBreak() ] }),
+  ...pageHeader('Raport Oceny Funkcjonalnej · Część II · Podjęte działania i podpisy'),
+  section('8','Informacja o działaniach podjętych w celu poprawy funkcjonowania'),
+  lead2('§ 7 ust. 6 pkt 6.',''),
+  table8,
+  empty(140),
+  parentBox,
+  empty(60),
+  sigs
+];
+
 const children = [
   ...cover,
   ...pageHeader('Raport Oceny Funkcjonalnej · Metryczka i obserwacja wstępna'),
@@ -229,10 +363,7 @@ const children = [
   section('3','Wskazania do obserwacji pogłębionej i zastosowane narzędzia'),
   P([ run('W związku ze zidentyfikowanymi w toku oceny wstępnej trudnościami w funkcjonowaniu – w szczególności w zakresie ', { size:18 }), run('trudnych zachowań', { size:18, bold:true, color:C.purple }), run(', ', { size:18 }), run('rozwoju funkcji poznawczych', { size:18, bold:true, color:C.purple }), run(', ', { size:18 }), run('przetwarzania bodźców', { size:18, bold:true, color:C.purple }), run(' oraz ', { size:18 }), run('komunikacji', { size:18, bold:true, color:C.purple }), run(' – przeprowadzono obserwację pogłębioną z wykorzystaniem następujących narzędzi specjalistycznych:', { size:18 }) ], { after:180, line:290, align:AlignmentType.JUSTIFIED }),
   ...tools,
-  empty(120),
-  tbl([CW], [ row([ cell(P([ run('Informacja dla rodzica. ', { size:17, bold:true, color:C.orange }), run('Niniejszy raport stanowi opinię placówki o funkcjonowaniu dziecka i jest przekazywany rodzicowi oraz zespołowi orzekającemu poradni. Wyniki obserwacji służą zaplanowaniu wsparcia, a nie ocenie dziecka. Zachęcamy do rozmowy z Zespołem o każdej części dokumentu.', { size:17 }) ], { after:0, line:270 }), { width:CW, bg:C.paper, borders:{ top:ln(C.line2), bottom:ln(C.line2), left:ln(C.line2), right:ln(C.line2) }, margins:{ top:120, bottom:120, left:220, right:220 } }) ]) ]),
-  empty(60),
-  sigs
+  ...part2
 ];
 
 const doc = new Document({

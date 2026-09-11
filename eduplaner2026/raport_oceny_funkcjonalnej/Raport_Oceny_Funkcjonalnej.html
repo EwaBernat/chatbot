@@ -63,7 +63,7 @@
   .toc h5::before{content:"";width:8px;height:8px;border-radius:2px;background:var(--purple)}
   .toc > div{border:1px solid var(--line);border-radius:8px;padding:10px 12px;background:#fff;border-top:3px solid var(--orange)}
   .toc .k{font-size:22px;font-weight:800;color:var(--orange);line-height:1}
-  .toc h4{margin:5px 0 3px;font-size:12px;color:var(--purple);font-weight:800}
+  .toc h4{margin:5px 0 3px;font-size:11.5px;color:var(--purple);font-weight:800}
   .toc p{margin:0;font-size:10.5px;color:var(--muted);line-height:1.45}
   .chips{display:flex;gap:6px;flex-wrap:wrap;justify-content:center;margin-top:16px}
   .chip{font-size:9px;font-weight:800;letter-spacing:.06em;padding:4px 10px;border-radius:999px;border:1px solid var(--line);background:#fff;color:var(--purple)}
@@ -124,10 +124,48 @@
   .footer{position:absolute;left:14mm;right:14mm;bottom:10mm;display:flex;justify-content:space-between;font-size:9px;color:var(--muted);border-top:1px solid var(--line2);padding-top:6px}
   .footer b{color:var(--orange)}
 
+
+  /* ---- CZĘŚĆ II ---- */
+  .partband{margin:18px 0 6px;text-align:center}
+  .partband .badge{font-size:8.5px}
+  .partband h2{margin:8px 0 2px;font-size:20px;font-weight:800;color:var(--purple)}
+  .partband .sub{font-size:9px;letter-spacing:.2em}
+  .lead2{font-size:11px;line-height:1.55;margin:0 0 10px;text-align:justify;color:var(--muted)}
+  .lead2 b{color:var(--purple)}
+  table.grid{width:100%;border-collapse:separate;border-spacing:0;font-size:10.5px;border:1px solid var(--line);border-radius:8px;overflow:hidden}
+  table.grid th{background:var(--lav);color:var(--purple);font-size:8px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;text-align:left;padding:8px 10px;border-bottom:1px solid var(--line);vertical-align:bottom}
+  table.grid td{padding:8px 10px;border-bottom:1px solid var(--line2);vertical-align:top;line-height:1.45}
+  table.grid tr:last-child td{border-bottom:0}
+  table.grid td.area{font-weight:800;color:var(--purple);width:19%}
+  table.grid td.plus{border-left:3px solid var(--green)}
+  table.grid td.minus{border-left:3px solid var(--red)}
+  table.grid th.plus{color:var(--green)} table.grid th.minus{color:var(--red)}
+  table.grid td.code{font-weight:800;color:var(--orange);width:30px}
+  table.grid td.num{white-space:nowrap}
+  table.grid ul{margin:0;padding-left:14px} table.grid li{margin:0 0 3px}
+  .stats{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin:10px 0 12px}
+  .stat{border:1px solid var(--line);border-radius:8px;padding:9px 12px;background:#fff;border-top:3px solid var(--orange)}
+  .stat .l{font-size:8px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:var(--lav-text)}
+  .stat .v{font-size:19px;font-weight:800;color:var(--purple);line-height:1.15;margin-top:3px}
+  .stat .v small{font-size:10px;font-weight:600;color:var(--muted)}
+  .stat.warn{border-top-color:var(--amber)}
+  .meter{display:flex;align-items:center;gap:6px}
+  .meter i{flex:0 0 46px;height:6px;border-radius:3px;background:var(--lav);position:relative;overflow:hidden}
+  .meter i::after{content:"";position:absolute;left:0;top:0;bottom:0;width:var(--w);background:var(--purple);border-radius:3px}
+  .lvl{display:inline-block;font-size:9px;font-weight:800;padding:2px 8px;border-radius:999px;white-space:nowrap}
+  .lvl.l1{background:#E6F4EC;color:var(--green)} .lvl.l2{background:#FBF1DC;color:#9A6A0A} .lvl.l3{background:#FBE6E3;color:var(--red)}
+  .legend{display:flex;gap:14px;justify-content:flex-end;font-size:9px;color:var(--muted);margin-top:6px}
+  .res{border:1px solid var(--line);border-left:4px solid var(--c,var(--purple));border-radius:8px;padding:8px 12px 9px;background:#fff;margin-bottom:8px;break-inside:avoid}
+  .res h4{margin:0 0 3px;font-size:11.5px;color:var(--purple);font-weight:800}
+  .res p{margin:0;font-size:10.5px;line-height:1.5;text-align:justify}
+  .res b{color:var(--c,var(--purple))}
+  .res .rec{margin-top:4px;font-size:10.5px;color:var(--purple)} .res .rec b{color:var(--orange)}
+
   @media screen and (max-width:760px){
     .page{width:auto;min-height:0;margin:0;padding:18px 16px 36px;box-shadow:none}
     h1.title{font-size:26px}
-    .fields,.team ol,.tools,.flow,.toc{grid-template-columns:1fr}
+    .fields,.team ol,.tools,.flow,.toc,.stats{grid-template-columns:1fr}
+    table.grid{display:block;overflow-x:auto}
     .step:not(:last-child)::after{display:none}
     .sigs{grid-template-columns:1fr} .sig.wide{max-width:100%}
     .footer{position:static;margin-top:22px}
@@ -139,7 +177,7 @@
     .page{margin:0;box-shadow:none;width:auto;min-height:0;padding:11mm 13mm 16mm}
     .page + .page{page-break-before:always}
     @page{size:A4;margin:0}
-    .tool,.step,.box,.note{break-inside:avoid}
+    .tool,.step,.box,.note,.res,.stat{break-inside:avoid} table.grid tr{break-inside:avoid}
   }
 </style>
 </head>
@@ -184,18 +222,25 @@
   </div>
 
   <div class="toc">
-    <h5>Zawartość raportu</h5>
+    <h5>Część I · Podstawa, metryczka i narzędzia</h5>
     <div><div class="k">1</div><h4>Metryczka bazowa</h4><p>dane dziecka, wariant wsparcia, podstawa formalna, zdrowie i farmakoterapia</p></div>
     <div><div class="k">2</div><h4>Obserwacja wstępna</h4><p>procedura wrześniowej obserwacji Kwestionariuszem Oceny Funkcjonalnej w obszarach ICF</p></div>
     <div><div class="k">3</div><h4>Obserwacja pogłębiona</h4><p>wskazania i narzędzia: ABC, Profil Biopsychospołeczny, Profil Sensoryczny, mowa i AAC, ToM</p></div>
   </div>
-
+  <div class="toc" style="grid-template-columns:repeat(5,1fr);margin-top:10px">
+    <h5>Część II · Wyniki ilościowe i jakościowe, ocena pogłębiona, kierunki wsparcia w IPE</h5>
+    <div><div class="k">4</div><h4>Funkcjonowanie w placówce</h4><p>mocne strony, uzdolnienia i trudności</p></div>
+    <div><div class="k">5</div><h4>Wyniki liczbowe</h4><p>KPOF / KSzOF w 9 domenach ICF</p></div>
+    <div><div class="k">6</div><h4>Analiza jakościowa</h4><p>opis barier i zalecenia do IPE</p></div>
+    <div><div class="k">7</div><h4>Obserwacja pogłębiona</h4><p>wyniki arkuszy specjalistycznych</p></div>
+    <div><div class="k">8</div><h4>Podjęte działania</h4><p>zakres wsparcia i efektywność</p></div>
+  </div>
   <div class="chips">
     <span class="chip l">ICF</span><span class="chip o">KSzOF</span><span class="chip">ABC</span>
     <span class="chip l">Profil Sensoryczny</span><span class="chip">AAC</span><span class="chip o">ToM</span>
   </div>
 
-  <div class="footer"><span>EduPlaner 2026 · PCTP</span><span>Strona <b>1</b> z 3 · Okładka</span></div>
+  <div class="footer"><span>EduPlaner 2026 · PCTP</span><span>Strona <b>1</b> z 8 · Okładka</span></div>
 </section>
 
 <!-- ======================= STRONA 2 · METRYCZKA + PROCEDURA ======================= -->
@@ -243,7 +288,7 @@
     <div>Czynniki osobowe<small>—</small></div>
   </div>
 
-  <div class="footer"><span>EduPlaner 2026 · PCTP</span><span>Strona <b>2</b> z 3 · Metryczka</span></div>
+  <div class="footer"><span>EduPlaner 2026 · PCTP</span><span>Strona <b>2</b> z 8 · Metryczka</span></div>
 </section>
 
 <!-- ======================= STRONA 3 · NARZĘDZIA ======================= -->
@@ -290,6 +335,142 @@
     </div>
   </div>
 
+  <div class="footer"><span>EduPlaner 2026 · PCTP</span><span>Strona <b>3</b> z 8 · Narzędzia</span></div>
+</section>
+
+<!-- ======================= STRONA 4 · CZĘŚĆ II · SEKCJA 4 ======================= -->
+<section class="page">
+  <div class="hdr">
+    <div class="l"><div class="logo">PCTP</div><div><div class="name">EduPlaner 2026</div><div class="cap">Raport Oceny Funkcjonalnej · Część II · Funkcjonowanie w placówce</div></div></div>
+    <div class="r"><span class="pill">Raport · 2026</span><div class="cap">Dokument dla rodzica · 2026</div></div>
+  </div>
+  <div class="fields">
+    <div class="field"><label>Dotyczy dziecka</label><span></span></div>
+    <div class="field"><label>Grupa / klasa</label><span></span></div>
+    <div class="field"><label>Data</label><span></span><i class="r">r.</i></div>
+  </div>
+
+  <div class="partband">
+    <span class="badge">Raport Oceny Funkcjonalnej dziecka / ucznia · Część II</span>
+    <h2>Wyniki ilościowe i jakościowe, ocena pogłębiona oraz kierunki wsparcia w IPE</h2>
+    <div class="sub">Wyniki poszczególnych arkuszy obserwacji · § 7 ust. 6</div>
+  </div>
+  <div class="sec"><span class="n">4</span><h2>Informacja o funkcjonowaniu w placówce – trudności, mocne strony i uzdolnienia</h2></div>
+  <p class="lead2"><b>§ 7 ust. 6 pkt 3.</b> Syntetyczne zestawienie potencjału rozwojowego oraz barier zidentyfikowanych w toku codziennej aktywności przez nauczycieli, wychowawców i specjalistów prowadzących zajęcia z dzieckiem/uczniem:</p>
+  <table class="grid">
+    <tr><th>Obszar obserwacji</th><th class="plus">✓ Mocne strony, zasoby i uzdolnienia</th><th class="minus">▸ Trudności, ograniczenia i bariery</th></tr>
+    <tr><td class="area">Aktywność poznawcza i uczenie się</td><td class="plus">Bardzo dobra pamięć wzrokowa; szybkie zapamiętywanie schematów graficznych; wąskie, ale głębokie zainteresowania tematyczne; wysoka motywacja do pracy z ulubionymi pomocami dydaktycznymi.</td><td class="minus">Trudności z przerzutnością i podzielnością uwagi; szybka męczliwość przy instrukcjach wieloetapowych; problem z uogólnianiem (generalizacją) wiedzy; wymagane stałe tempo i pomoce wizualne.</td></tr>
+    <tr><td class="area">Komunikacja i porozumiewanie się</td><td class="plus">Prawidłowe rozumienie prostych, jednoznacznych komunikatów słownych wspartych gestem; sygnalizowanie podstawowych potrzeb fizjologicznych.</td><td class="minus">Dosłowne rozumienie wypowiedzi (trudność z metaforą i żartem); echolalie odroczone; trudności w inicjowaniu dialogu i naprzemienności wypowiedzi w grupie rówieśniczej; potrzeba wsparcia AAC.</td></tr>
+    <tr><td class="area">Relacje społeczne i emocje</td><td class="plus">Chęć przebywania w pobliżu grupy; pozytywna reakcja na stałych, przewidywalnych dorosłych; przestrzeganie czytelnych zasad wizualnych.</td><td class="minus">Trudności w odczytywaniu emocji i intencji innych (słaba teoria umysłu); niska tolerancja frustracji w sytuacjach przegranej lub nagłej zmiany; tendencja do wycofywania się lub zachowań trudnych.</td></tr>
+    <tr><td class="area">Motoryka i sprawność fizyczna</td><td class="plus">Sprawność w zakresie motoryki dużej (bieganie, wspinanie się); chętne uczestnictwo w zabawach ruchowych w otwartej przestrzeni.</td><td class="minus">Obniżona precyzja motoryki małej i koordynacji wzrokowo-ruchowej; nieprawidłowy chwyt pisarski / narzędzi; wzmożone lub obniżone napięcie posturalne; męczliwość ręki wiodącej.</td></tr>
+    <tr><td class="area">Samoobsługa i autonomia</td><td class="plus">Samodzielność w zakresie podstawowych nawyków higienicznych i toaletowych; znajomość własnej szafki i osobistych przyborów.</td><td class="minus">Opór sensoryczny przy myciu rąk (wrażliwość na fakturę mydła/wodę); wybiórczość pokarmowa; problem z ubieraniem odzieży wierzchniej ze skomplikowanymi zapięciami; potrzeba nadzoru dorosłego.</td></tr>
+  </table>
+  <div class="footer"><span>EduPlaner 2026 · PCTP</span><span>Strona <b>4</b> z 8 · Funkcjonowanie</span></div>
+</section>
+
+<!-- ======================= STRONA 5 · SEKCJA 5 ======================= -->
+<section class="page">
+  <div class="hdr">
+    <div class="l"><div class="logo">PCTP</div><div><div class="name">EduPlaner 2026</div><div class="cap">Raport Oceny Funkcjonalnej · Część II · Wyniki liczbowe</div></div></div>
+    <div class="r"><span class="pill">Raport · 2026</span><div class="cap">Dokument dla rodzica · 2026</div></div>
+  </div>
+  <div class="fields">
+    <div class="field"><label>Dotyczy dziecka</label><span></span></div>
+    <div class="field"><label>Grupa / klasa</label><span></span></div>
+    <div class="field"><label>Data</label><span></span><i class="r">r.</i></div>
+  </div>
+
+  <div class="sec"><span class="n">5</span><h2>Aktualna wielospecjalistyczna ocena poziomu funkcjonowania – wyniki liczbowe</h2></div>
+  <p class="lead2"><b>§ 7 ust. 6 pkt 4.</b> Zestawienie parametrów ilościowych uzyskanych z narzędzia bazowego (KPOF dla przedszkola / KSzOF dla szkoły) w 9 obszarach Międzynarodowej Klasyfikacji ICF:</p>
+  <div class="stats">
+    <div class="stat"><div class="l">Narzędzie bazowe</div><div class="v">KPOF <small>/ KSzOF</small></div></div>
+    <div class="stat"><div class="l">Punkty surowe</div><div class="v">68 <small>/ 180 pkt</small></div></div>
+    <div class="stat"><div class="l">Średnia / sten</div><div class="v">Śr: 2,1 <small>· Sten 4</small></div></div>
+    <div class="stat warn"><div class="l">Ogólny poziom wsparcia</div><div class="v">Poziom 2 <small>(Umiarkowany)</small></div></div>
+  </div>
+  <table class="grid">
+    <tr><th>Kod</th><th>Domena ICF</th><th>Punkty / śr.</th><th>Sten</th><th>Poziom wsparcia</th><th>Wskaźnik funkcjonalny</th></tr>
+    <tr><td class="code">d1</td><td><b>Uczenie się i stosowanie wiedzy</b></td><td class="num"><div class="meter"><i style="--w:48%"></i><span>Śr: 2,4 (12 pkt)</span></div></td><td class="num">Sten 4</td><td><span class="lvl l2">Poziom 2 · Średni</span></td><td>Wymaga podziału zadań na etapy i wsparcia wizualnego.</td></tr>
+    <tr><td class="code">d2</td><td><b>Ogólne zadania i wymagania</b></td><td class="num"><div class="meter"><i style="--w:36%"></i><span>Śr: 1,8 (9 pkt)</span></div></td><td class="num">Sten 3</td><td><span class="lvl l3">Poziom 3 · Wysoki</span></td><td>Brak elastyczności, silny stres przy nagłych zmianach.</td></tr>
+    <tr><td class="code">d3</td><td><b>Komunikacja i porozumiewanie się</b></td><td class="num"><div class="meter"><i style="--w:40%"></i><span>Śr: 2,0 (10 pkt)</span></div></td><td class="num">Sten 4</td><td><span class="lvl l2">Poziom 2 · Średni</span></td><td>Echolalie, konieczność wdrażania schematów AAC.</td></tr>
+    <tr><td class="code">d4</td><td><b>Poruszanie się i motoryka</b></td><td class="num"><div class="meter"><i style="--w:64%"></i><span>Śr: 3,2 (16 pkt)</span></div></td><td class="num">Sten 6</td><td><span class="lvl l1">Poziom 1 · Niski</span></td><td>Ogólna motoryka dobra; obniżona grafomotoryka.</td></tr>
+    <tr><td class="code">d5</td><td><b>Dbanie o siebie i samoobsługa</b></td><td class="num"><div class="meter"><i style="--w:44%"></i><span>Śr: 2,2 (11 pkt)</span></div></td><td class="num">Sten 4</td><td><span class="lvl l2">Poziom 2 · Średni</span></td><td>Wybiórczość sensoryczna przy posiłkach i toalecie.</td></tr>
+    <tr><td class="code">d6</td><td><b>Życie domowe / Obowiązki placówki</b></td><td class="num"><div class="meter"><i style="--w:55%"></i><span>Śr: 2,8 (14 pkt)</span></div></td><td class="num">Sten 5</td><td><span class="lvl l1">Poziom 1 · Niski</span></td><td>Sprząta kącik zabaw po bezpośrednim przypomnieniu.</td></tr>
+    <tr><td class="code">d7</td><td><b>Relacje i kontakty międzyludzkie</b></td><td class="num"><div class="meter"><i style="--w:32%"></i><span>Śr: 1,6 (8 pkt)</span></div></td><td class="num">Sten 3</td><td><span class="lvl l3">Poziom 3 · Wysoki</span></td><td>Bariery w interakcjach rówieśniczych, konflikty, wycofanie.</td></tr>
+    <tr><td class="code">d8</td><td><b>Główne dziedziny życia (Edukacja)</b></td><td class="num"><div class="meter"><i style="--w:40%"></i><span>Śr: 2,0 (10 pkt)</span></div></td><td class="num">Sten 4</td><td><span class="lvl l2">Poziom 2 · Średni</span></td><td>Wymaga dostosowania metod i stałego nadzoru nauczyciela.</td></tr>
+    <tr><td class="code">d9</td><td><b>Życie społecznościowe i obywatelskie</b></td><td class="num"><div class="meter"><i style="--w:36%"></i><span>Śr: 1,8 (9 pkt)</span></div></td><td class="num">Sten 3</td><td><span class="lvl l3">Poziom 3 · Wysoki</span></td><td>Trudność w uczestnictwie w apelach i wyjściach zbiorowych.</td></tr>
+  </table>
+  <div class="legend"><span>Pasek: średnia w skali 0–5</span><span><span class="lvl l1">Poziom 1 · Niski</span></span><span><span class="lvl l2">Poziom 2 · Średni</span></span><span><span class="lvl l3">Poziom 3 · Wysoki</span></span></div>
+  <div class="footer"><span>EduPlaner 2026 · PCTP</span><span>Strona <b>5</b> z 8 · Wyniki liczbowe</span></div>
+</section>
+
+<!-- ======================= STRONA 6 · SEKCJA 6 ======================= -->
+<section class="page">
+  <div class="hdr">
+    <div class="l"><div class="logo">PCTP</div><div><div class="name">EduPlaner 2026</div><div class="cap">Raport Oceny Funkcjonalnej · Część II · Analiza jakościowa</div></div></div>
+    <div class="r"><span class="pill">Raport · 2026</span><div class="cap">Dokument dla rodzica · 2026</div></div>
+  </div>
+  <div class="fields">
+    <div class="field"><label>Dotyczy dziecka</label><span></span></div>
+    <div class="field"><label>Grupa / klasa</label><span></span></div>
+    <div class="field"><label>Data</label><span></span><i class="r">r.</i></div>
+  </div>
+
+  <div class="sec"><span class="n">6</span><h2>Analiza jakościowa obszarów obserwacji oraz zalecenia do IPE</h2></div>
+  <p class="lead2">Szczegółowa diagnoza funkcjonalna powiązana bezpośrednio ze sformułowanymi rekomendacjami do <b>Indywidualnego Programu Edukacyjnego (IPE)</b>:</p>
+  <table class="grid">
+    <tr><th>Domena ICF</th><th>Opis funkcjonowania i bariery</th><th style="color:var(--orange)">Zalecenia do IPE (metody / dostosowania)</th></tr>
+    <tr><td class="area">Uczenie się i stosowanie wiedzy<br><span style="color:var(--orange);font-size:9px">d1, d2</span></td><td>Dziecko/uczeń przyswaja wiedzę głównie kanałem wzrokowym. Występuje trudność w samodzielnej organizacji pracy, rozumieniu poleceń złożonych oraz transferze wiedzy. Przebodźcowanie powoduje dekoncentrację i rezygnację z zadania.</td><td><ul><li>Wprowadzenie planów aktywności w formie piktogramów / checklist.</li><li>Dzielenie instrukcji na pojedyncze, sekwencyjne kroki.</li><li>Stosowanie pomocy sensorycznych (stoper, zegar time-timer).</li><li>Wydłużenie czasu na realizację zadań pisemnych i wykonawczych.</li></ul></td></tr>
+    <tr><td class="area">Komunikacja i porozumiewanie się<br><span style="color:var(--orange);font-size:9px">d3</span></td><td>Wypowiedzi cechują się trudnościami pragmatycznymi, obecnością echolalii oraz dosłownością interpretacji. W chwilach przeciążenia emocjonalnego następuje mutyzm wybiórczy lub krzyk zamiast komunikacji intencjonalnej.</td><td><ul><li>Wdrożenie tablic wyboru i skryptów dialogowych AAC.</li><li>Unikanie metafor, sarkazmu, dwuznaczności w komunikatach personelu.</li><li>Trening komunikacji funkcjonalnej (FCT – sygnalizowanie: „chcę przerwę”, „nie rozumiem”).</li><li>Indywidualna terapia logopedyczna/neurologopedyczna (2x w tyg.).</li></ul></td></tr>
+    <tr><td class="area">Relacje i interakcje międzyludzkie<br><span style="color:var(--orange);font-size:9px">d7, d9</span></td><td>Trudności w inicjowaniu i podtrzymywaniu zabawy naprzemiennej. Brak umiejętności rozpoznawania sygnałów niewerbalnych wysyłanych przez rówieśników. Częste nieporozumienia prowadzące do zachowań oporowych.</td><td><ul><li>Udział w Treningu Umiejętności Społecznych (TUS) w małej grupie.</li><li>Modelowanie zachowań prospołecznych z wykorzystaniem Historyjek Społecznych (Social Stories).</li><li>Asystowanie w zabawach grupowych na zasadzie rówieśnika-mentora.</li><li>Jasne, wizualne zasady panujące w klasie/grupie.</li></ul></td></tr>
+    <tr><td class="area">Dbanie o siebie i motoryka<br><span style="color:var(--orange);font-size:9px">d4, d5, d6</span></td><td>Samoobsługa zaburzona przez silne reakcje nadwrażliwości na bodźce dotykowe (ubrania, mokre ręce) i zapachowe. Spowolniona koordynacja ruchowa i trudności z planowaniem motorycznym (dyspraksja).</td><td><ul><li>Dostosowanie przyborów (nakładki ergonomiczne na ołówki, nożyczki sprężynowe).</li><li>Stała kolejność czynności toaletowych wsparta paskiem wizualnym.</li><li>Indywidualne ćwiczenia rewalidacyjne ukierunkowane na motorykę małą i dużą.</li></ul></td></tr>
+  </table>
+  <div class="footer"><span>EduPlaner 2026 · PCTP</span><span>Strona <b>6</b> z 8 · Analiza jakościowa</span></div>
+</section>
+
+<!-- ======================= STRONA 7 · SEKCJE 7–8 + PODPISY ======================= -->
+<section class="page">
+  <div class="hdr">
+    <div class="l"><div class="logo">PCTP</div><div><div class="name">EduPlaner 2026</div><div class="cap">Raport Oceny Funkcjonalnej · Część II · Obserwacja pogłębiona</div></div></div>
+    <div class="r"><span class="pill">Raport · 2026</span><div class="cap">Dokument dla rodzica · 2026</div></div>
+  </div>
+  <div class="fields">
+    <div class="field"><label>Dotyczy dziecka</label><span></span></div>
+    <div class="field"><label>Grupa / klasa</label><span></span></div>
+    <div class="field"><label>Data</label><span></span><i class="r">r.</i></div>
+  </div>
+
+  <div class="sec"><span class="n">7</span><h2>Wyniki obserwacji pogłębionej (narzędzia specjalistyczne)</h2></div>
+  <div class="res" style="--c:var(--red)"><h4>Arkusz Obserwacji Behawioralnej ABC</h4><p>Zidentyfikowano <b>14 epizodów</b> zachowań trudnych. <b>Bodźce wyzwalające (A):</b> trudne polecenia pisemne, hałas, niespodziewane przejścia między aktywnościami. <b>Topografia zachowania (B):</b> głośny krzyk, odmowa zejścia z dywanu, odpychanie kart pracy. <b>Funkcja (C):</b> ucieczka przed przeciążeniem sensorycznym / zadaniem trudnym poznawczo.</p><div class="rec"><b>Zalecenie:</b> protokół wyprzedzający i nauka komunikatu zastępczego.</div></div>
+  <div class="res" style="--c:var(--blue)"><h4>Profil Sensoryczny (Kwestionariusz Przetwarzania)</h4><p>Reaktywność mieszana. <b>Układ słuchowy</b> – silna nadwrażliwość na nagłe dźwięki i gwar korytarza (zalecane słuchawki); <b>układ dotykowy</b> – obronność dotykowa na faktury klejące i mokre; <b>układ proprioceptywny i przedsionkowy</b> – poszukiwanie stymulacji dociskowej i ruchowej (huśtanie, kołysanie się).</p></div>
+  <div class="res" style="--c:var(--purple)"><h4>Profil Biopsychospołeczny</h4><p><b>Uwarunkowania biologiczne:</b> spektrum autyzmu, zaburzenia snu wpływają na zmęczenie poranne. <b>Uwarunkowania psychologiczne:</b> silny lęk przed zmianą schematu, sztywność poznawcza. <b>Czynniki środowiskowe:</b> wysokie zaangażowanie rodziny, pozytywna reakcja na stałą kadrę.</p></div>
+  <div class="res" style="--c:var(--orange)"><h4>Arkusz Oceny Rozwoju Mowy i Komunikacji</h4><p>Zasób słownika biernego w normie wiekowej; wąski zasób czynny w sytuacjach swobodnych. Występują <b>echolalie natychmiastowe</b> i trudności pragmatyczne (brak intonacji, trudność w podtrzymaniu dialogu).</p><div class="rec"><b>Zalecenie:</b> schematy dialogowe i piktogramy wspierające.</div></div>
+  <div class="res" style="--c:var(--green)"><h4>Arkusz Poziomu Rozwoju Teorii Umysłu (ToM)</h4><p>Poziom rozwoju ToM <b>poniżej normy wiekowej</b>. Trudność w zadaniach z fałszywym przekonaniem (False Belief Task) oraz w rozpoznawaniu perspektywy i intencji innych osób. Trudności te generują konflikty rówieśnicze przez błędną interpretację zachowań kolegów.</p></div>
+
+  <div class="footer"><span>EduPlaner 2026 · PCTP</span><span>Strona <b>7</b> z 8 · Obserwacja pogłębiona</span></div>
+</section>
+
+<!-- ======================= STRONA 8 · SEKCJA 8 + PODPISY ======================= -->
+<section class="page">
+  <div class="hdr">
+    <div class="l"><div class="logo">PCTP</div><div><div class="name">EduPlaner 2026</div><div class="cap">Raport Oceny Funkcjonalnej · Część II · Podjęte działania i podpisy</div></div></div>
+    <div class="r"><span class="pill">Raport · 2026</span><div class="cap">Dokument dla rodzica · 2026</div></div>
+  </div>
+  <div class="fields">
+    <div class="field"><label>Dotyczy dziecka</label><span></span></div>
+    <div class="field"><label>Grupa / klasa</label><span></span></div>
+    <div class="field"><label>Data</label><span></span><i class="r">r.</i></div>
+  </div>
+
+  <div class="sec"><span class="n">8</span><h2>Informacja o działaniach podjętych w celu poprawy funkcjonowania</h2></div>
+  <p class="lead2"><b>§ 7 ust. 6 pkt 6.</b></p>
+  <table class="grid">
+    <tr><th>Rodzaj wsparcia</th><th>Zakres wdrożonych działań i metody</th><th class="plus">Efektywność i obserwowane zmiany</th></tr>
+    <tr><td class="area">Dostosowania środowiskowe i dydaktyczne</td><td>Wyznaczenie strefy wyciszenia w sali; zredukowanie bodźców wzrokowych na tablicach ściennych; zastosowanie słuchawek wygłuszających podczas pracy stolikowej; wprowadzenie indywidualnego planu dnia na rzepy.</td><td class="plus">Spadek liczby epizodów trudnych zachowań o ok. 40%; wydłużenie czasu skupienia na pojedynczym zadaniu z 3 do 8 minut.</td></tr>
+    <tr><td class="area">Pomoc psychologiczno-pedagogiczna i rewalidacja</td><td>Zajęcia rozwijające kompetencje emocjonalno-społeczne (TUS – 1x w tyg.); indywidualne zajęcia logopedyczne (1x w tyg.); ćwiczenia integracji sensorycznej (SI) na sali gimnastycznej.</td><td class="plus">Lepsze tolerowanie obecności innych dzieci w trakcie zajęć kierowanych; pierwsze próby proszenia o przerwę za pomocą gestu/piktogramu.</td></tr>
+    <tr><td class="area">Współpraca z domem rodzinnym</td><td>Cotygodniowe konsultacje z rodzicami; zeszyt korespondencji dom-placówka; ujednolicenie systemu komunikatów i nagród behawioralnych.</td><td class="plus">Wysoka spójność w reakcjach dorosłych na zachowania trudne; wzrost poczucia bezpieczeństwa u dziecka.</td></tr>
+  </table>
+
   <div class="parent"><b>Informacja dla rodzica.</b> Niniejszy raport stanowi opinię placówki o funkcjonowaniu dziecka i jest przekazywany rodzicowi oraz zespołowi orzekającemu poradni. Wyniki obserwacji służą zaplanowaniu wsparcia, a nie ocenie dziecka. Zachęcamy do rozmowy z Zespołem o każdej części dokumentu.</div>
 
   <div class="sigs">
@@ -298,8 +479,7 @@
     <div class="sig">Specjalista<small>podpis i data</small></div>
     <div class="sig wide">Rodzic / opiekun prawny – zapoznałam/em się z raportem<small>podpis i data</small></div>
   </div>
-
-  <div class="footer"><span>EduPlaner 2026 · PCTP</span><span>Strona <b>3</b> z 3 · Narzędzia</span></div>
+  <div class="footer"><span>EduPlaner 2026 · PCTP</span><span>Strona <b>8</b> z 8 · Podpisy</span></div>
 </section>
 
 </body>
