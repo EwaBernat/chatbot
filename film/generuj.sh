@@ -2,7 +2,8 @@
 # Potok produkcji filmu: narracja → Twój głos (ElevenLabs) → Twój awatar (HeyGen) → MP4 (Remotion).
 # Uruchamiaj z katalogu repozytorium:  bash film/generuj.sh [etap]
 #   etapy: glos | awatar | remotion | wszystko (domyślnie)
-# Klucze wyłącznie w zmiennych środowiskowych: ELEVENLABS_API_KEY, HEYGEN_API_KEY, HEYGEN_AVATAR_ID.
+# Klucze wyłącznie w zmiennych środowiskowych: ELEVENLABS_API_KEY, HEYGEN_API_KEY, HEYGEN_AVATAR_ID,
+# HEYGEN_VOICE_ID (głos „Ewa - narracja PL” z konta HeyGen: python3 $SK/heygen_awatar.py --glosy --jezyk polish).
 set -euo pipefail
 cd "$(dirname "$0")/.."
 SK=.claude/skills/dane-i-glos/scripts
@@ -18,9 +19,18 @@ glos() {
 }
 
 awatar() {
+  # Wariant A (domyślny dla tego filmu): HeyGen czyta narrację głosem „Ewa - narracja PL” z Twojego konta
+  # HeyGen – tym samym, którym mówi intro Ewy PCTP. Ścieżkę dźwięku wyciągamy z filmu do narracja.mp3.
   : "${HEYGEN_AVATAR_ID:?Ustaw HEYGEN_AVATAR_ID (python3 $SK/heygen_awatar.py --awatary)}"
-  python3 "$SK/heygen_awatar.py" --audio "$OUT/narracja.mp3" --avatar-id "$HEYGEN_AVATAR_ID" \
-          --styl circle --tlo "#2D1B69" --czekaj -o "$OUT/awatar.mp4"
+  if [ -n "${HEYGEN_VOICE_ID:-}" ]; then
+    python3 "$SK/heygen_awatar.py" film/narracja.txt --avatar-id "$HEYGEN_AVATAR_ID" --voice-id "$HEYGEN_VOICE_ID" \
+            --styl circle --tlo "#2D1B69" --czekaj -o "$OUT/awatar.mp4"
+    ffmpeg -y -i "$OUT/awatar.mp4" -vn -acodec libmp3lame -q:a 2 "$OUT/narracja.mp3"
+  else
+    # Wariant B: usta do gotowego MP3 z ElevenLabs (etap glos)
+    python3 "$SK/heygen_awatar.py" --audio "$OUT/narracja.mp3" --avatar-id "$HEYGEN_AVATAR_ID" \
+            --styl circle --tlo "#2D1B69" --czekaj -o "$OUT/awatar.mp4"
+  fi
 }
 
 remotion() {
@@ -40,7 +50,7 @@ case "$ETAP" in
   glos) glos ;;
   awatar) awatar ;;
   remotion) remotion ;;
-  wszystko) glos; awatar; remotion ;;
+  wszystko) if [ -n "${HEYGEN_VOICE_ID:-}" ]; then awatar; else glos; awatar; fi; remotion ;;
   *) echo "etap: glos | awatar | remotion | wszystko"; exit 2 ;;
 esac
 echo "gotowe → $OUT"
