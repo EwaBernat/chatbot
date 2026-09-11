@@ -68,8 +68,7 @@ const cover = [
   ...pageHeader('Raport Oceny Funkcjonalnej · Okładka'),
   P([ run('  OPINIA PRZEDSZKOLA / SZKOŁY · DLA ZESPOŁU ORZEKAJĄCEGO · DLA RODZICA  ', { size:14, bold:true, color:C.white, bg:C.orange, spacing:12 }) ], { align:AlignmentType.CENTER, before:40, after:120 }),
   P([ run('OCENA FUNKCJONALNA · ICF · PRZEDSZKOLE · SZKOŁA', { size:15, color:C.purple, spacing:50 }) ], { align:AlignmentType.CENTER, after:60 }),
-  P([ run('Raport Oceny', { size:52, bold:true, color:C.purple }) ], { align:AlignmentType.CENTER, after:0, line:600, lineRule:'exact' }),
-  P([ run('Funkcjonalnej', { size:52, bold:true, color:C.purple }) ], { align:AlignmentType.CENTER, after:80, line:600, lineRule:'exact' }),
+  P([ run('Raport Oceny Funkcjonalnej', { size:52, bold:true, color:C.purple }) ], { align:AlignmentType.CENTER, after:80, line:600, lineRule:'exact' }),
   P([ run('OBSERWACJA WSTĘPNA I POGŁĘBIONA · OBSZARY ICF', { size:15, bold:true, color:C.orange, spacing:44 }) ], { align:AlignmentType.CENTER, after:140 }),
   P([ run('z dnia  ', { size:20, color:C.muted }), run('………………………………………………', { size:20, color:'B6A6DF' }) ], { align:AlignmentType.CENTER, after:160 }),
 
