@@ -154,12 +154,22 @@ def main() -> int:
     ap.add_argument("--stopka", default="PCTP Koszalin · EduPlaner 2026")
     ap.add_argument("--typy", default="tytul,liczba,wykres,wniosek",
                     help="typy scen po przecinku, po jednym na akapit narracji")
+    ap.add_argument("--awatar", type=Path,
+                    help="klip WebM z alfa z postacia Ewa PCTP (skill awatar-ewa-pctp)")
+    ap.add_argument("--awatar-uklad", dest="awatar_uklad", default="rog",
+                    choices=("pelny", "rog", "lewa", "prawa"))
+    ap.add_argument("--awatar-od", dest="awatar_od", type=float, default=0.0,
+                    help="sekunda, od ktorej widac Ewe")
+    ap.add_argument("--awatar-do", dest="awatar_do", type=float,
+                    help="sekunda, do ktorej widac Ewe (domyslnie do konca jej klipu)")
+    ap.add_argument("--awatar-skala", dest="awatar_skala", type=float,
+                    help="wysokosc Ewy jako ulamek wysokosci kadru (domyslnie wg ukladu)")
     ap.add_argument("--nadpisz", action="store_true",
                     help="nadpisz istniejacy katalog projektu")
     a = ap.parse_args()
 
     for etykieta, sciezka in (("profil", a.profil), ("narracja", a.narracja),
-                              ("audio", a.audio), ("napisy", a.napisy)):
+                              ("audio", a.audio), ("napisy", a.napisy), ("awatar", a.awatar)):
         if sciezka and not sciezka.exists():
             print(f"Nie ma pliku ({etykieta}): {sciezka}", file=sys.stderr)
             return 1
@@ -200,6 +210,17 @@ def main() -> int:
     if a.napisy:
         shutil.copy(a.napisy, publiczne / a.napisy.name)
         film["napisy"] = a.napisy.name
+    if a.awatar:
+        if a.awatar.suffix.lower() != ".webm":
+            print("Uwaga: awatar powinien byc WebM z kanalem alfa (wytnij_postac.py --webm); "
+                  "inny format da Ewe w prostokacie z tlem.", file=sys.stderr)
+        shutil.copy(a.awatar, publiczne / a.awatar.name)
+        awatar = {"plik": a.awatar.name, "uklad": a.awatar_uklad, "odSek": a.awatar_od}
+        if a.awatar_do is not None:
+            awatar["doSek"] = a.awatar_do
+        if a.awatar_skala is not None:
+            awatar["skala"] = a.awatar_skala
+        film["awatar"] = awatar
     (publiczne / "film.json").write_text(
         json.dumps(film, ensure_ascii=False, indent=2), encoding="utf-8")
 
@@ -207,6 +228,10 @@ def main() -> int:
     print(f"  scen: {len(film['sceny'])}, dlugosc: {calosc:.1f} s")
     for s in film["sceny"]:
         print(f"    {s['odSek']:>6.1f}–{s['doSek']:>6.1f} s  {s['typ']}")
+    if a.awatar:
+        print(f"  Ewa: {a.awatar.name}, uklad {a.awatar_uklad}, od {a.awatar_od:.1f} s"
+              + (f" do {a.awatar_do:.1f} s" if a.awatar_do is not None else " do konca klipu")
+              + (" (wyciszona, glos z --audio)" if a.audio else " (z wlasnym dzwiekiem)"))
     print(f"\nPodejrzyj i popraw tresc scen: {publiczne / 'film.json'}")
     print(f"\nDalej:\n  cd {a.katalog}\n  npm install\n  npx remotion studio"
           f"        # podglad na zywo\n"

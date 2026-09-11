@@ -6,6 +6,7 @@ import {Liczba} from './sceny/Liczba';
 import {Wykres} from './sceny/Wykres';
 import {Wniosek} from './sceny/Wniosek';
 import {Napisy} from './Napisy';
+import {Awatar} from './Awatar';
 import type {Film} from './typy';
 import type {Napis} from './srt';
 
@@ -42,6 +43,11 @@ export const RaportWideo: React.FC<Props> = ({film, napisy}) => {
           </Sequence>
         );
       })}
+
+      {(Array.isArray(film.awatar) ? film.awatar : film.awatar ? [film.awatar] : []).map((a, i) => (
+        // Gdy narracja idzie z film.audio, klip Ewy jest wyciszony — inaczej głos byłby podwójny.
+        <Awatar key={`awatar-${i}`} awatar={a} wyciszony={Boolean(film.audio)} />
+      ))}
 
       {napisy.length > 0 ? <Napisy napisy={napisy} /> : null}
 

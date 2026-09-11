@@ -225,6 +225,11 @@ python3 .claude/skills/dane-i-glos/scripts/heygen_awatar.py --awatary
 python3 .claude/skills/dane-i-glos/scripts/heygen_awatar.py --glosy --jezyk polish
 ```
 
+Awatar użytkowniczki to postać **Ewa PCTP** — jej kartę (wygląd, kadr, strój, ton) i
+skrypty do wycinania z tła, nakładania na plansze oraz wstawiania do prezentacji ma skill
+`awatar-ewa-pctp`. Identyfikator awatara zapamiętuje `zapamietaj_awatara.py` z tego skilla
+w tej samej pamięci co głos, więc `--avatar-id` zwykle jest zbędne.
+
 Dopiero mając `avatar_id` generuj film. Dwie drogi — **domyślna jest B**:
 
 ```bash
@@ -238,6 +243,10 @@ python3 .../heygen_awatar.py narracja.txt --avatar-id <id> --voice-id <id> --cze
 Wariant A wybieraj tylko wtedy, gdy nie ma klonu w ElevenLabs, a w HeyGen jest jej głos —
 albo gdy sama o to poprosi. W wariancie B napisy bierz z `--srt` z etapu 4a: są dokładniejsze
 niż wypalane `--napisy` i da się je poprawić.
+
+Gdy Ewa ma trafić na planszę, ekran aplikacji albo slajd, renderuj na zielonym tle
+(`--tlo "#00FF00"`) i wytnij ją skryptem `wytnij_postac.py` ze skilla `awatar-ewa-pctp` —
+fiolet marki wyciąłby jej marynarkę.
 
 Przydatne: `--tlo "#2D1B69"` (fiolet PCTP), `--styl circle`, `--szerokosc 1080 --wysokosc 1920`
 (pion pod Reels), `--napisy` (wypala napisy w obrazie), `--suchy-bieg` (podgląd zapytania bez
@@ -269,6 +278,10 @@ z długości MP3 — poprawiona narracja sama zmienia długość filmu.
 
 Zanim wyrenderujesz, **otwórz `public/film.json` i sprawdź treść scen**: tytuł, główną
 liczbę i podpisy. Skrypt wypełnia je zachowawczo, bo nie zna kontekstu.
+
+Na życzenie użytkowniczki film z wykresami może prowadzić Ewa: `--awatar ewa.webm
+--awatar-uklad rog` (klip z alfą ze skilla `awatar-ewa-pctp`). Bez prośby awatara
+nie dodawaj — film z danych domyślnie pokazuje liczby, nie twarz.
 
 Typy scen (`--typy`, po jednym na akapit): `tytul`, `liczba`, `wykres`, `wniosek`.
 Wykres bierze słupki z sekcji `grupy` profilu, więc profiler musi być uruchomiony
