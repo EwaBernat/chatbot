@@ -44,9 +44,9 @@ const box = (children, edge=C.orange, o={}) => tbl([CW], [ row([ cell(children, 
 // ---- nagłówek strony (wzór IPET) ----
 const pageHeader = (caption) => [
   tbl([700, 6200, 3006], [ row([
-    cell(P([ run('PCTP', { size:12, bold:true, color:C.white }) ], { align:AlignmentType.CENTER, after:0 }), { width:700, bg:C.purple, borders:noBorders, vAlign:VerticalAlign.CENTER, margins:{ top:120, bottom:120, left:40, right:40 } }),
-    cell([ P([ run('EduPlaner 2026', { size:26, bold:true, color:C.purple }) ], { after:20 }), P([ run(caption, { size:12, color:C.muted, caps:true, spacing:14 }) ], { after:0 }) ], { width:6200, borders:noBorders, vAlign:VerticalAlign.CENTER, margins:{ top:0, bottom:0, left:160, right:0 } }),
-    cell([ P([ run('  RAPORT · 2026  ', { size:13, bold:true, color:C.white, bg:C.orange, spacing:10 }) ], { align:AlignmentType.RIGHT, after:60 }), P([ run('DOKUMENT DLA RODZICA · 2026', { size:11, color:C.muted, spacing:14 }) ], { align:AlignmentType.RIGHT, after:0 }) ], { width:3006, borders:noBorders, vAlign:VerticalAlign.CENTER, margins:{ top:0, bottom:0, left:0, right:0 } })
+    cell(P([ run('§', { size:22, bold:true, color:C.white }) ], { align:AlignmentType.CENTER, after:0 }), { width:700, bg:C.purple, borders:noBorders, vAlign:VerticalAlign.CENTER, margins:{ top:120, bottom:120, left:40, right:40 } }),
+    cell([ P([ run('[Nazwa przedszkola / szkoły]', { size:24, bold:true, color:C.purple }) ], { after:20 }), P([ run(caption, { size:12, color:C.muted, caps:true, spacing:14 }) ], { after:0 }) ], { width:6200, borders:noBorders, vAlign:VerticalAlign.CENTER, margins:{ top:0, bottom:0, left:160, right:0 } }),
+    cell([ P([ run('  OCENA FUNKCJONALNA · 2026  ', { size:13, bold:true, color:C.white, bg:C.orange, spacing:10 }) ], { align:AlignmentType.RIGHT, after:60 }), P([ run('DOKUMENT DLA RODZICA I PORADNI', { size:11, color:C.muted, spacing:14 }) ], { align:AlignmentType.RIGHT, after:0 }) ], { width:3006, borders:noBorders, vAlign:VerticalAlign.CENTER, margins:{ top:0, bottom:0, left:0, right:0 } })
   ]) ]),
   new Paragraph({ spacing:{ before:60, after:160 }, border:{ bottom:{ style:BorderStyle.SINGLE, size:12, color:C.purple, space:1 } }, children:[] }),
   // lawendowe pola
@@ -210,7 +210,7 @@ const sigs = tbl([SGW,SGW,SGW], [
 const footerPara = new Paragraph({
   spacing:{ before:60, after:0 }, border:{ top:{ style:BorderStyle.SINGLE, size:4, color:C.line2, space:4 } },
   tabStops:[{ type:TabStopType.RIGHT, position:CW }],
-  children:[ run('EduPlaner 2026 · PCTP', { size:12, color:C.muted }), run('   ·   RODO · Dokument poufny', { size:12, color:C.muted }), run('\t'), run('Strona ', { size:12, color:C.muted }), new TextRun({ children:[PageNumber.CURRENT], font:FONT, size:12, bold:true, color:C.orange }), run(' z ', { size:12, color:C.muted }), new TextRun({ children:[PageNumber.TOTAL_PAGES], font:FONT, size:12, bold:true, color:C.purple }), run(' · Ocena Funkcjonalna', { size:12, color:C.muted }) ]
+  children:[ run('[Nazwa placówki] · dokument poufny (RODO)', { size:12, color:C.muted }), run('   · sporządzono w EduPlaner 2026', { size:9, color:'B6A6DF' }), run('\t'), run('Strona ', { size:12, color:C.muted }), new TextRun({ children:[PageNumber.CURRENT], font:FONT, size:12, bold:true, color:C.orange }), run(' z ', { size:12, color:C.muted }), new TextRun({ children:[PageNumber.TOTAL_PAGES], font:FONT, size:12, bold:true, color:C.purple }), run(' · Ocena Funkcjonalna', { size:12, color:C.muted }) ]
 });
 
 
@@ -244,11 +244,15 @@ const half = Math.floor(CW/2);
 
 // ---- 4 ----
 const s4 = D.s4, W4 = [1900, 4003, 4003];
-const part4 = [ pb(), ...pageHeader('Ocena Funkcjonalna · Część II · Funkcjonowanie w placówce'),
+const t4 = (rows) => tbl(W4, [ gridHead(['Obszar (ICF)','✓ Mocne strony, zasoby i uzdolnienia','▸ Trudności, ograniczenia i bariery'], W4, [C.purple, C.green, C.red]),
+    ...rows.map(r => row([ gcell(txt(r[0], { bold:true, color:C.purple, size:15 }), W4[0], { pad:60 }), gcell(txt(r[1], { size:15 }), W4[1], { edge:C.green, pad:60 }), gcell(txt(r[2], { size:15 }), W4[2], { edge:C.red, pad:60 }) ])) ]);
+const part4 = [ pb(), ...pageHeader('Ocena Funkcjonalna · Część II · Funkcjonowanie w placówce · przedszkole'),
   ...bandW('II','Wyniki oceny funkcjonalnej','obserwacja · wyniki liczbowe · arkusze · głos dziecka · analiza · decyzja Zespołu'),
   ...secL('4', s4.title, s4.law), lead2(s4.ref, s4.lead),
-  tbl(W4, [ gridHead(['Obszar obserwacji','✓ Mocne strony, zasoby i uzdolnienia','▸ Trudności, ograniczenia i bariery'], W4, [C.purple, C.green, C.red]),
-    ...s4.rows.map(r => row([ gcell(txt(r[0], { bold:true, color:C.purple }), W4[0]), gcell(txt(r[1]), W4[1], { edge:C.green }), gcell(txt(r[2]), W4[2], { edge:C.red }) ])) ]) ];
+  sub9('A', s4.titleA, 'wypełnić dla dziecka w przedszkolu', C.orange), t4(s4.rows),
+  pb(), ...pageHeader('Ocena Funkcjonalna · Część II · Funkcjonowanie w placówce · szkoła'),
+  section('4', s4.title+' · cd.'),
+  sub9('B', s4.titleB, 'wypełnić dla ucznia szkoły', C.blue), t4(s4.rowsSzkola) ];
 
 // ---- 5 ----
 const s5 = D.s5, W5 = [600, 2500, 1500, 800, 1700, 2806], SWT = Math.floor(CW/4);
@@ -403,6 +407,58 @@ const lawPage = [
   pb()
 ];
 
+
+// =============== ZAŁĄCZNIK · OPINIA dla zespołu orzekającego ===============
+const OP = D.opinia, PL = D.placowka;
+const opHead = () => [ tbl([half, CW-half], [ row([
+    cell([ P([ run(PL.nazwa, { size:17, bold:true, color:C.purple }) ], { after:20 }), P([ run(PL.adres, { size:13, color:C.muted }) ], { after:20 }), P([ run('(pieczęć placówki)', { size:11, color:C.muted }) ], { after:0 }) ], { width:half, borders:{ top:{ style:BorderStyle.DASHED, size:4, color:C.line }, bottom:{ style:BorderStyle.DASHED, size:4, color:C.line }, left:{ style:BorderStyle.DASHED, size:4, color:C.line }, right:{ style:BorderStyle.DASHED, size:4, color:C.line } }, margins:{ top:120, bottom:120, left:180, right:180 } }),
+    cell([ P([ run(PL.miejscowosc+', dnia ………………………', { size:14, color:C.muted }) ], { align:AlignmentType.RIGHT, after:40 }), P([ run('Znak sprawy: ………………………', { size:14, color:C.muted }) ], { align:AlignmentType.RIGHT, after:40 }), P([ run('Zespół orzekający: [Nazwa Poradni Psychologiczno-Pedagogicznej]', { size:14, color:C.muted }) ], { align:AlignmentType.RIGHT, after:0 }) ], { width:CW-half, borders:noBorders, margins:{ top:60, bottom:60, left:200, right:0 } })
+  ]) ]), empty(160) ];
+const opSec = (n, t) => new Paragraph({ spacing:{ before:180, after:100 }, keepNext:true, border:{ bottom:{ style:BorderStyle.SINGLE, size:4, color:C.line, space:4 } }, children:[ run(n+'  ', { size:18, bold:true, color:C.orange }), run(t.toUpperCase(), { size:17, bold:true, color:C.purple, spacing:8 }) ] });
+const opKV = (rows) => tbl([3000, CW-3000], rows.map(([k,v]) => row([ gcell(txt(k, { bold:true, color:C.purple, size:14 }), 3000, { bg:C.lav2, pad:55 }), gcell(txt(v.replace(/☐/g,'☐'), { size:14 }), CW-3000, { pad:55 }) ])));
+const WO = [2100, 3000, 3000, 1806];
+const opICF = (rows) => tbl(WO, [ gridHead(['Obszar (ICF)','Mocne strony i uzdolnienia','Trudności','Poziom potrzeby wsparcia'], WO, [C.purple, C.green, C.red, C.purple]),
+  ...rows.map(r => row([ gcell(txt(r[0], { bold:true, color:C.purple, size:13 }), WO[0], { bg:C.lav2, pad:45 }), gcell(txt(r[1], { size:13 }), WO[1], { pad:45 }), gcell(txt(r[2], { size:13 }), WO[2], { pad:45 }), gcell(txt(r[3], { bold:true, color:C.purple, size:13 }), WO[3], { pad:45 }) ])) ]);
+const opBul = (items, color=C.orange) => items.map(x => new Paragraph({ spacing:{ before:0, after:40, line:245 }, indent:{ left:220, hanging:220 }, children:[ run('•  ', { size:14, color, bold:true }), run(x, { size:14 }) ] }));
+const WI = [2100, 3600, 1600, 2606];
+const opinionPages = [
+  pb(), ...opHead(),
+  P([ run(OP.title, { size:40, bold:true, color:C.purple }) ], { align:AlignmentType.CENTER, after:40, line:480, lineRule:'exact' }),
+  P([ run(OP.sub.toUpperCase(), { size:13, bold:true, color:C.orange, spacing:30 }) ], { align:AlignmentType.CENTER, after:140 }),
+  tbl([CW], [ row([ cell([ P([ run('Podstawa prawna: ', { size:13, bold:true, color:C.purple }), run(OP.podstawa, { size:13, color:C.muted }) ], { after:40, line:240, align:AlignmentType.JUSTIFIED }), P([ run('Tryb: ', { size:13, bold:true, color:C.purple }), run(OP.procedura, { size:13, color:C.muted }) ], { after:0, line:240, align:AlignmentType.JUSTIFIED }) ], { width:CW, margins:{ top:100, bottom:100, left:180, right:180 } }) ]) ]),
+  opSec('1.', 'Data wydania opinii i dane dziecka / ucznia (§ 7 ust. 6 pkt 1–2)'), opKV(OP.dane),
+  opSec('2.', OP.podstawaOpinii.title), opKV(OP.podstawaOpinii.rows),
+  pb(), ...opHead(),
+  opSec('3.', OP.II.title), lead2('', OP.II.lead),
+  sub9('A', OP.II.titleA, '', C.orange), opICF(OP.II.rows),
+  pb(), ...opHead(),
+  opSec('3.', OP.II.title+' · cd.'),
+  sub9('B', OP.II.titleB, '', C.blue), opICF(OP.II.rowsSzkola),
+  P([ run(OP.II.wynik, { size:14, bold:true, color:C.purple }) ], { before:80, after:0 }),
+  opSec('4.', OP.III.title), ...opBul(OP.III.items),
+  pb(), ...opHead(),
+  opSec('5.', OP.zal.title), ...OP.zal.items.map(([t,on]) => P([ chk(on), run(t, { size:14 }) ], { after:40 })),
+  opSec('6.', OP.IV.title),
+  tbl(WI, [ gridHead(['Działanie / forma pomocy','Zakres i wymiar','Okres udzielania','Efekty'], WI), ...OP.IV.rows.map(r => row([ gcell(txt(r[0], { bold:true, color:C.purple, size:13 }), WI[0], { bg:C.lav2, pad:50 }), gcell(txt(r[1], { size:13 }), WI[1], { pad:50 }), gcell(txt(r[2], { size:13 }), WI[2], { pad:50 }), gcell(txt(r[3], { size:13 }), WI[3], { pad:50 }) ])) ]),
+  opSec('7.', OP.VI.title), ...opBul(OP.VI.dalsza, C.green),
+  pb(), ...opHead(),
+  opSec('8.', OP.uzup.title), lead2('', OP.uzup.lead),
+  P([ run(OP.uzup.funkcje, { size:13 }) ], { after:100, line:240, align:AlignmentType.JUSTIFIED }),
+  tbl([half, CW-half], [ gridHead(['Ułatwienia w środowisku placówki (co pomaga)','Bariery (co utrudnia)'], [half, CW-half], [C.green, C.red]), row([ gcell(opBul(OP.uzup.ulatwienia, C.green), half, { pad:60 }), gcell(opBul(OP.uzup.bariery, C.red), CW-half, { pad:60 }) ]) ]),
+  P([ run('Informacje od dziecka i rodziców (§ 8 ust. 3 pkt 1 i 3): ', { size:13, bold:true, color:C.purple }), run(OP.uzup.glos, { size:13 }) ], { before:80, after:60, line:240, align:AlignmentType.JUSTIFIED }),
+  sub9('!', OP.uzup.rekTitle, '', C.blue), cbGrid(OP.VI.items.map(([t,on]) => [t,on])),
+  P([ run('Uzasadnienie: ', { size:13, bold:true, color:C.purple }), run(OP.VI.uzasadnienie, { size:13 }) ], { before:40, after:0, line:240, align:AlignmentType.JUSTIFIED }),
+  opSec('9.', OP.podpisy.osoby),
+  tbl([half, CW-half], (() => { const rows=[]; for (let i=0;i<OP.sporzadzili.length;i+=2) rows.push(row([0,1].map(j => { const it=OP.sporzadzili[i+j]; return cell(it ? [ P([ run(it[0]+': ', { size:13, bold:true, color:C.purple }), run(it[1], { size:13 }) ], { after:10 }), P([ run('podpis: ………………………………………', { size:12, color:C.muted }) ], { after:0 }) ] : [empty()], { width:half, borders:noBorders, margins:{ top:40, bottom:40, left:0, right:200 } }); }))); return rows; })()),
+  tbl([Math.floor(CW/2), CW-Math.floor(CW/2)], [ row([ sigCell(OP.podpisy.dyrektor+' · podpis i pieczęć · data', Math.floor(CW/2), undefined, 360), cell([ P([ run(OP.podpisy.kopia, { size:12, color:C.muted }) ], { after:0, line:240 }) ], { width:CW-Math.floor(CW/2), borders:noBorders, vAlign:VerticalAlign.BOTTOM, margins:{ top:360, bottom:20, left:220, right:120 } }) ]) ]),
+  P([ run(OP.zalaczniki+' Opinia zawiera dane dotyczące zdrowia (art. 9 RODO) – dokument poufny.', { size:12, color:C.muted }) ], { before:100, after:0, line:240, border:{ top:{ style:BorderStyle.DASHED, size:4, color:C.line, space:6 } } })
+];
+const opinionFooter = new Paragraph({
+  spacing:{ before:60, after:0 }, border:{ top:{ style:BorderStyle.SINGLE, size:4, color:C.line2, space:4 } },
+  tabStops:[{ type:TabStopType.RIGHT, position:CW }],
+  children:[ run('Załącznik – opinia o funkcjonowaniu dziecka / ucznia · dokument poufny (RODO)', { size:12, color:C.muted }), run('\t'), run('Strona ', { size:12, color:C.muted }), new TextRun({ children:[PageNumber.CURRENT], font:FONT, size:12, bold:true, color:C.orange }), run(' z ', { size:12, color:C.muted }), new TextRun({ children:[PageNumber.TOTAL_PAGES], font:FONT, size:12, bold:true, color:C.purple }) ]
+});
+
 const children = [
   ...cover,
   ...lawPage,
@@ -423,13 +479,20 @@ const children = [
   ...part2
 ];
 
+const ONLY_OPINIA = process.argv.includes('--opinia');
+const opinionSection = {
+  properties:{ page:{ size:A4, margin:MARGINS }, type: ONLY_OPINIA ? undefined : 'nextPage' },
+  footers:{ default: new Footer({ children:[ opinionFooter ] }) },
+  children: ONLY_OPINIA ? opinionPages.slice(1) : opinionPages.slice(1)
+};
 const doc = new Document({
-  creator: 'EduPlaner2026-MJ-PCTP', title: 'Ocena Funkcjonalna – podsumowanie WOPF i IPET', description: 'Opinia przedszkola/szkoły dla zespołu orzekającego i rodzica (obszary ICF)',
+  creator: 'EduPlaner2026-MJ-PCTP', title: ONLY_OPINIA ? 'Opinia o funkcjonowaniu dziecka / ucznia' : 'Ocena Funkcjonalna – podsumowanie WOPF i IPET', description: 'Opinia przedszkola/szkoły dla zespołu orzekającego i rodzica (obszary ICF)',
   styles:{ default:{ document:{ run:{ font:FONT, size:20, color:C.ink } } } },
-  sections:[{
+  sections: ONLY_OPINIA ? [ opinionSection ] : [ {
     properties:{ page:{ size:A4, margin:MARGINS } },
     footers:{ default: new Footer({ children:[ footerPara ] }) },
     children
-  }]
+  }, opinionSection ]
 });
-Packer.toBuffer(doc).then(buf => { fs.writeFileSync(process.argv[2] || 'Raport_Oceny_Funkcjonalnej.docx', buf); console.log('OK', buf.length); });
+const outName = process.argv.find(a => a.endsWith('.docx')) || (ONLY_OPINIA ? 'Opinia_dla_poradni.docx' : 'Raport_Oceny_Funkcjonalnej.docx');
+Packer.toBuffer(doc).then(buf => { fs.writeFileSync(outName, buf); console.log('OK', outName, buf.length); });

@@ -235,6 +235,38 @@
   table.grid td.ok{color:var(--green);font-weight:800} table.grid td.no{color:var(--red);font-weight:800}
   .rek{display:grid;grid-template-columns:1fr 1fr;gap:5px 14px;font-size:10.5px;margin:6px 0 8px}
   .rek span{display:flex;align-items:flex-start;gap:7px}
+  .gen{font-style:normal;font-size:7.5px;color:#B6A6DF}
+  .logo{font-size:16px;font-weight:800}
+  /* ---- OPINIA dla zespołu orzekającego (czysty druk) ---- */
+  .op-head{display:grid;grid-template-columns:1fr 1fr;gap:16px;align-items:start;margin-bottom:14px}
+  .op-stamp{border:1px dashed var(--line);border-radius:8px;min-height:56px;padding:8px 12px;font-size:9.5px;color:var(--muted)}
+  .op-stamp b{display:block;color:var(--purple);font-size:11px}
+  .op-right{text-align:right;font-size:10.5px;color:var(--muted);line-height:1.6}
+  .op-right .fill{display:inline-block;min-width:150px;border-bottom:1px solid #B6A6DF}
+  .op-title{text-align:center;margin:10px 0 4px}
+  .op-title h1{margin:0;font-size:21px;font-weight:800;color:var(--purple);letter-spacing:.01em}
+  .op-title .s{font-size:10.5px;color:var(--orange);font-weight:700;letter-spacing:.16em;text-transform:uppercase;margin-top:4px}
+  .op-law{font-size:9px;color:var(--muted);text-align:justify;border:1px solid var(--line);border-radius:8px;padding:6px 10px;margin:6px 0 8px;line-height:1.45}
+  .op-law b{color:var(--purple)}
+  .op-sec{display:flex;align-items:center;gap:8px;margin:9px 0 5px}
+  .op-sec .r{font-weight:800;color:var(--orange);font-size:12px;min-width:26px}
+  .op-sec h3{margin:0;font-size:12px;color:var(--purple);font-weight:800;text-transform:uppercase;letter-spacing:.04em}
+  .op-sec::after{content:"";flex:1;height:1px;background:var(--line)}
+  table.op{width:100%;border-collapse:collapse;font-size:9.8px}
+  table.op td,table.op th{border:1px solid var(--line);padding:4px 8px;vertical-align:top;line-height:1.4}
+  table.op th{background:var(--lav);color:var(--purple);font-size:8.5px;letter-spacing:.1em;text-transform:uppercase;text-align:left}
+  table.op td.k{width:31%;font-weight:700;color:var(--purple);background:var(--lav2)}
+  table.op td.lv{white-space:nowrap;font-weight:700;color:var(--purple)}
+  ul.op{margin:2px 0 0;padding-left:16px;font-size:10px;line-height:1.45} ul.op li{margin-bottom:2px}
+  .op-cb{display:grid;grid-template-columns:1fr 1fr;gap:4px 14px;font-size:10.5px;margin:4px 0 6px}
+  .op-cb span{display:flex;gap:7px;align-items:flex-start}
+  .op-sign{display:grid;grid-template-columns:1fr 1fr;gap:14px 24px;margin-top:18px}
+  .op-sign .sig{text-align:left;padding-top:4px}
+  .op-sign .sig small{font-size:9px}
+  .op-dir{margin-top:22px;display:grid;grid-template-columns:1fr 1fr;gap:24px}
+  .op-dir .sig{border-top:1px solid var(--purple);padding-top:5px;text-align:center;font-size:10.5px;color:var(--purple);font-weight:700}
+  .op-dir .sig small{display:block;font-weight:400;color:var(--muted);font-size:9px}
+  .op-note{font-size:9.5px;color:var(--muted);margin-top:10px;line-height:1.5;border-top:1px dashed var(--line);padding-top:6px}
   .lawref{display:inline-block;font-size:9px;font-weight:700;color:var(--purple);background:var(--lav);border-radius:4px;padding:3px 9px;margin:-6px 0 10px}
   table.grid td.act{font-weight:800;color:var(--purple)} table.grid td.dz{white-space:nowrap;color:var(--orange);font-weight:800;font-size:9.5px}
   .flow5{display:grid;grid-template-columns:repeat(5,1fr);gap:8px;margin:8px 0 12px}
@@ -247,7 +279,7 @@
   @media screen and (max-width:760px){
     .page{width:auto;min-height:0;margin:0;padding:18px 16px 36px;box-shadow:none}
     h1.title{font-size:22px;white-space:normal}
-    .fields,.team ol,.tools,.flow,.toc,.stats,.hours,.voice,.lvlbox,.kv,.cbl,.flow5{grid-template-columns:1fr !important}
+    .fields,.team ol,.tools,.flow,.toc,.stats,.hours,.voice,.lvlbox,.kv,.cbl,.flow5,.op-head,.op-cb,.op-sign,.op-dir{grid-template-columns:1fr !important}
     table.grid{display:block;overflow-x:auto}
     .step:not(:last-child)::after{display:none}
     .sigs{grid-template-columns:1fr} .sig.wide{max-width:100%}
@@ -270,8 +302,8 @@
 <!-- ======================= STRONA 1 · OKŁADKA ======================= -->
 <section class="page">
   <div class="hdr">
-    <div class="l"><div class="logo">PCTP</div><div><div class="name">EduPlaner 2026</div><div class="cap">Ocena Funkcjonalna · Okładka</div></div></div>
-    <div class="r"><span class="pill">Raport · 2026</span><div class="cap">Dokument dla rodzica · 2026</div></div>
+    <div class="l"><div class="logo">§</div><div><div class="name">[Nazwa przedszkola / szkoły]</div><div class="cap">Ocena Funkcjonalna · Okładka</div></div></div>
+    <div class="r"><span class="pill">Ocena funkcjonalna · 2026</span><div class="cap">Dokument dla rodzica i poradni</div></div>
   </div>
   <div class="fields">
     <div class="field"><label>Dotyczy dziecka</label><span></span></div>
@@ -335,13 +367,13 @@
     <span class="chip l">Profil Sensoryczny</span><span class="chip">AAC</span><span class="chip o">ToM</span>
   </div>
 
-  <div class="footer"><span>EduPlaner 2026 · PCTP</span><span>Strona <b>1</b> z 22 · Okładka</span></div>
+  <div class="footer"><span>[Nazwa placówki] · dokument poufny (RODO) <i class="gen">· sporządzono w EduPlaner 2026</i></span><span>Strona <b>1</b> z 28 · Okładka</span></div>
 </section>
 
 <section class="page">
   <div class="hdr">
-    <div class="l"><div class="logo">PCTP</div><div><div class="name">EduPlaner 2026</div><div class="cap">Ocena Funkcjonalna · Jak czytać raport · dwa warianty</div></div></div>
-    <div class="r"><span class="pill">Raport · 2026</span><div class="cap">Dokument dla rodzica · 2026</div></div>
+    <div class="l"><div class="logo">§</div><div><div class="name">[Nazwa przedszkola / szkoły]</div><div class="cap">Ocena Funkcjonalna · Jak czytać raport · dwa warianty</div></div></div>
+    <div class="r"><span class="pill">Ocena funkcjonalna · 2026</span><div class="cap">Dokument dla rodzica i poradni</div></div>
   </div>
   <div class="fields">
     <div class="field"><label>Dotyczy dziecka</label><span></span></div>
@@ -371,13 +403,13 @@
     <tr><td class="code">14</td><td>Dodatkowa osoba (nauczyciel współorganizujący)</td><td class="ok">✓ uzasadnienie</td><td class="no">— (wniosek w 10 B)</td></tr>
     <tr><td class="code">15–16</td><td>Rodzice, poradnia, terminy oceny, podpisy</td><td class="ok">✓</td><td class="ok">✓</td></tr>
   </table>
-  <div class="footer"><span>EduPlaner 2026 · PCTP</span><span>Strona <b>2</b> z 22 · Jak czytać · warianty</span></div>
+  <div class="footer"><span>[Nazwa placówki] · dokument poufny (RODO) <i class="gen">· sporządzono w EduPlaner 2026</i></span><span>Strona <b>2</b> z 28 · Jak czytać · warianty</span></div>
 </section>
 
 <section class="page">
   <div class="hdr">
-    <div class="l"><div class="logo">PCTP</div><div><div class="name">EduPlaner 2026</div><div class="cap">Ocena Funkcjonalna · Podstawy prawne</div></div></div>
-    <div class="r"><span class="pill">Raport · 2026</span><div class="cap">Dokument dla rodzica · 2026</div></div>
+    <div class="l"><div class="logo">§</div><div><div class="name">[Nazwa przedszkola / szkoły]</div><div class="cap">Ocena Funkcjonalna · Podstawy prawne</div></div></div>
+    <div class="r"><span class="pill">Ocena funkcjonalna · 2026</span><div class="cap">Dokument dla rodzica i poradni</div></div>
   </div>
   <div class="fields">
     <div class="field"><label>Dotyczy dziecka</label><span></span></div>
@@ -389,7 +421,7 @@
   <p class="lead2">Raport łączy trzy obowiązki placówki: opinię dla zespołu orzekającego poradni (Część I–II), wielospecjalistyczną ocenę poziomu funkcjonowania (Część II) oraz elementy indywidualnego programu edukacyjno-terapeutycznego (Część III). Każda sekcja raportu wskazuje przepis, z którego wynika.</p>
   <table class="grid small">
     <tr><th style="width:30%">Akt prawny</th><th style="width:11%">Publikacja</th><th>Zakres zastosowania w raporcie</th><th style="width:12%">Sekcje</th></tr>
-    <tr><td class="act">Rozporządzenie Ministra Edukacji z 2 marca 2026 r. w sprawie orzeczeń i opinii wydawanych przez zespoły orzekające w publicznych poradniach psychologiczno-pedagogicznych</td><td class="dz">Dz. U. z 2026 r. poz. 428</td><td>§ 7 ust. 6–7 (od 1.09.2026): struktura opinii przedszkola/szkoły dla zespołu orzekającego – odrębne obszary ICF dla przedszkola i szkoły; opinia przekazywana rodzicowi.</td><td><span class="ref-pill">sekcje 1–10</span></td></tr>
+    <tr><td class="act">Rozporządzenie Ministra Edukacji z 2 marca 2026 r. w sprawie orzeczeń i opinii wydawanych przez zespoły orzekające w publicznych poradniach psychologiczno-pedagogicznych</td><td class="dz">Dz. U. z 2026 r. poz. 428</td><td>§ 7 ust. 2–7 (od 1.09.2026): opinia dyrektora o funkcjonowaniu – 10 dni, kopia dla rodziców; 7 elementów opinii (ust. 6), obszary ICF: przedszkole 5, uczeń 7 (ust. 7). § 8: ocena funkcjonowania przez zespół poradni (bariery i ułatwienia, funkcje ciała, informacje od rodziców, nauczycieli i dziecka).</td><td><span class="ref-pill">sekcje 1–10, załącznik</span></td></tr>
     <tr><td class="act">Ustawa z 14 grudnia 2016 r. – Prawo oświatowe</td><td class="dz">Dz. U. z 2024 r. poz. 737 ze zm.</td><td>art. 127: kształcenie specjalne, IPET, wielospecjalistyczna ocena poziomu funkcjonowania, udział rodziców w pracach zespołu.</td><td><span class="ref-pill">Część II–III</span></td></tr>
     <tr><td class="act">Rozporządzenie MEN z 9 sierpnia 2017 r. w sprawie warunków organizowania kształcenia, wychowania i opieki dla dzieci i młodzieży niepełnosprawnych (kształcenie specjalne)</td><td class="dz">Dz. U. z 2020 r. poz. 1309</td><td>§ 6 ust. 1 pkt 1–8: treść IPET – dostosowanie programu, zintegrowane działania, formy i okres PPP, wsparcie rodziców i współdziałanie z poradniami, rewalidacja, współpraca z rodzicami, organizacja kształcenia i technologie; § 6 ust. 9–10: okresowa WOPF i ocena efektywności; § 7: dodatkowa osoba.</td><td><span class="ref-pill">sekcje 4, 8–16</span></td></tr>
     <tr><td class="act">Rozporządzenie MEN z 9 sierpnia 2017 r. w sprawie zasad organizacji i udzielania pomocy psychologiczno-pedagogicznej</td><td class="dz">Dz. U. z 2023 r. poz. 1798</td><td>Formy pomocy (logopedyczne, korekcyjno-kompensacyjne, emocjonalno-społeczne, inne specjalistyczne, porady i konsultacje); godzina zajęć 45 min; informowanie rodziców o formach, okresie i wymiarze.</td><td><span class="ref-pill">sekcje 13 B, 15</span></td></tr>
@@ -398,15 +430,14 @@
     <tr><td class="act">ICF – Międzynarodowa Klasyfikacja Funkcjonowania, Niepełnosprawności i Zdrowia (WHO) · model oceny funkcjonalnej 2026/27</td><td class="dz">ramy merytoryczne</td><td>Domeny d1–d9, czynniki środowiskowe i osobowe; narzędzia KPOF (przedszkole) / KSzOF (szkoła); głos dziecka.</td><td><span class="ref-pill">sekcje 2–7, 9</span></td></tr>
     <tr><td class="act">RODO – rozporządzenie (UE) 2016/679</td><td class="dz">Dz. Urz. UE L 119</td><td>art. 9: dane o zdrowiu – dokument poufny, udostępniany rodzicowi i poradni za zgodą rodzica.</td><td><span class="ref-pill">cały dokument</span></td></tr>
   </table>
-  <div class="parent" style="margin-top:12px"><b>Dla rodzica.</b> Numery paragrafów wskazują, z jakiego przepisu wynika każda część raportu. Przy każdej sekcji 4–16 znajduje się plakietka „§ Podstawa prawna”.</div>
-  <div class="footer"><span>EduPlaner 2026 · PCTP</span><span>Strona <b>3</b> z 22 · Podstawy prawne</span></div>
+  <div class="footer"><span>[Nazwa placówki] · dokument poufny (RODO) <i class="gen">· sporządzono w EduPlaner 2026</i></span><span>Strona <b>3</b> z 28 · Podstawy prawne</span></div>
 </section>
 
 <!-- ======================= STRONA 2 · METRYCZKA + PROCEDURA ======================= -->
 <section class="page">
   <div class="hdr">
-    <div class="l"><div class="logo">PCTP</div><div><div class="name">EduPlaner 2026</div><div class="cap">Ocena Funkcjonalna · Metryczka i obserwacja wstępna</div></div></div>
-    <div class="r"><span class="pill">Raport · 2026</span><div class="cap">Dokument dla rodzica · 2026</div></div>
+    <div class="l"><div class="logo">§</div><div><div class="name">[Nazwa przedszkola / szkoły]</div><div class="cap">Ocena Funkcjonalna · Metryczka i obserwacja wstępna</div></div></div>
+    <div class="r"><span class="pill">Ocena funkcjonalna · 2026</span><div class="cap">Dokument dla rodzica i poradni</div></div>
   </div>
   <div class="fields">
     <div class="field"><label>Dotyczy dziecka</label><span></span></div>
@@ -447,14 +478,14 @@
     <div>Czynniki osobowe<small>—</small></div>
   </div>
 
-  <div class="footer"><span>EduPlaner 2026 · PCTP</span><span>Strona <b>4</b> z 22 · Metryczka</span></div>
+  <div class="footer"><span>[Nazwa placówki] · dokument poufny (RODO) <i class="gen">· sporządzono w EduPlaner 2026</i></span><span>Strona <b>4</b> z 28 · Metryczka</span></div>
 </section>
 
 <!-- ======================= STRONA 3 · NARZĘDZIA ======================= -->
 <section class="page">
   <div class="hdr">
-    <div class="l"><div class="logo">PCTP</div><div><div class="name">EduPlaner 2026</div><div class="cap">Ocena Funkcjonalna · Obserwacja pogłębiona</div></div></div>
-    <div class="r"><span class="pill">Raport · 2026</span><div class="cap">Dokument dla rodzica · 2026</div></div>
+    <div class="l"><div class="logo">§</div><div><div class="name">[Nazwa przedszkola / szkoły]</div><div class="cap">Ocena Funkcjonalna · Obserwacja pogłębiona</div></div></div>
+    <div class="r"><span class="pill">Ocena funkcjonalna · 2026</span><div class="cap">Dokument dla rodzica i poradni</div></div>
   </div>
   <div class="fields">
     <div class="field"><label>Dotyczy dziecka</label><span></span></div>
@@ -495,13 +526,13 @@
   </div>
   </div>
 
-  <div class="footer"><span>EduPlaner 2026 · PCTP</span><span>Strona <b>5</b> z 22 · Narzędzia</span></div>
+  <div class="footer"><span>[Nazwa placówki] · dokument poufny (RODO) <i class="gen">· sporządzono w EduPlaner 2026</i></span><span>Strona <b>5</b> z 28 · Narzędzia</span></div>
 </section>
 
 <section class="page ">
   <div class="hdr">
-    <div class="l"><div class="logo">PCTP</div><div><div class="name">EduPlaner 2026</div><div class="cap">Ocena Funkcjonalna · Część II · Funkcjonowanie w placówce</div></div></div>
-    <div class="r"><span class="pill">Raport · 2026</span><div class="cap">Dokument dla rodzica · 2026</div></div>
+    <div class="l"><div class="logo">§</div><div><div class="name">[Nazwa przedszkola / szkoły]</div><div class="cap">Ocena Funkcjonalna · Część II · Funkcjonowanie w placówce · przedszkole</div></div></div>
+    <div class="r"><span class="pill">Ocena funkcjonalna · 2026</span><div class="cap">Dokument dla rodzica i poradni</div></div>
   </div>
   <div class="fields">
     <div class="field"><label>Dotyczy dziecka</label><span></span></div>
@@ -514,23 +545,49 @@
     <div class="sub">obserwacja w placówce · wyniki liczbowe · arkusze specjalistyczne · głos dziecka · analiza · decyzja Zespołu</div>
   </div>
   <div class="sec"><span class="n">4</span><h2>Informacja o funkcjonowaniu w placówce – trudności, mocne strony i uzdolnienia</h2></div>
-  <div class="lawref">§ Podstawa prawna: § 7 ust. 6 pkt 3 rozp. z 2.03.2026 (poz. 428) · § 6 ust. 10 pkt 1 i 3 rozp. o kształceniu specjalnym</div>
-  <p class="lead2"><b>§ 7 ust. 6 pkt 3.</b> Syntetyczne zestawienie potencjału rozwojowego oraz barier zidentyfikowanych w toku codziennej aktywności przez nauczycieli, wychowawców i specjalistów – w pięciu obszarach w kolejności z rozporządzenia; kody wskazują domeny ICF, które w sekcji 5 otrzymują wynik liczbowy:</p>
+  <div class="lawref">§ Podstawa prawna: § 7 ust. 6 pkt 3 i ust. 7 pkt 1 rozp. ME z 2.03.2026 (poz. 428) · § 6 ust. 10 rozp. o kształceniu specjalnym</div>
+  <p class="lead2"><b>§ 7 ust. 6 pkt 3.</b> Informacja o funkcjonowaniu w placówce, w tym o trudnościach oraz mocnych stronach i uzdolnieniach rozpoznanych przez nauczycieli, wychowawców i specjalistów – w obszarach aktywności i uczestniczenia (ICF) dokładnie w kolejności z rozporządzenia; wypełnia się tabelę właściwą dla etapu. Kody wskazują domeny ICF z sekcji 5.</p>
+  <div class="sub9" style="--c:var(--orange)"><span class="tag9">A</span><h3>A · Dziecko do ukończenia wychowania przedszkolnego – 5 obszarów (§ 7 ust. 7 pkt 1 lit. a)</h3><small>· wypełnić dla dziecka w przedszkolu</small></div>
   <table class="grid">
-    <tr><th>Obszar obserwacji</th><th class="plus">✓ Mocne strony, zasoby i uzdolnienia</th><th class="minus">▸ Trudności, ograniczenia i bariery</th></tr>
-    <tr><td class="area">1 · Uczenie się i stosowanie wiedzy (aktywność poznawcza) · d1, d2, d8</td><td class="plus">Bardzo dobra pamięć wzrokowa; szybkie zapamiętywanie schematów graficznych; wąskie, ale głębokie zainteresowania tematyczne; wysoka motywacja do pracy z ulubionymi pomocami dydaktycznymi.</td><td class="minus">Trudności z przerzutnością i podzielnością uwagi; szybka męczliwość przy instrukcjach wieloetapowych; problem z uogólnianiem wiedzy; silny stres przy nagłych zmianach planu; wymaga dostosowania metod, tempa i stałego nadzoru nauczyciela.</td></tr>
-    <tr><td class="area">2 · Przystosowanie społeczne i emocjonalne (zachowania społeczne, relacje, emocje) · d7, d9</td><td class="plus">Chęć przebywania w pobliżu grupy; pozytywna reakcja na stałych, przewidywalnych dorosłych; przestrzeganie czytelnych zasad wizualnych.</td><td class="minus">Trudności w odczytywaniu emocji i intencji innych (teoria umysłu); niska tolerancja frustracji przy przegranej lub nagłej zmianie; tendencja do wycofywania się lub zachowań trudnych, zwłaszcza w apelach i wyjściach zbiorowych.</td></tr>
-    <tr><td class="area">3 · Porozumiewanie się (komunikacja) · d3</td><td class="plus">Prawidłowe rozumienie prostych, jednoznacznych komunikatów słownych wspartych gestem; sygnalizowanie podstawowych potrzeb fizjologicznych.</td><td class="minus">Dosłowne rozumienie wypowiedzi (trudność z metaforą i żartem); echolalie odroczone; trudności w inicjowaniu dialogu i naprzemienności wypowiedzi w grupie rówieśniczej; potrzeba wsparcia AAC.</td></tr>
-    <tr><td class="area">4 · Aktywność ruchowa i poruszanie się (motoryka i sprawność fizyczna) · d4</td><td class="plus">Sprawność w zakresie motoryki dużej (bieganie, wspinanie się); chętne uczestnictwo w zabawach ruchowych w otwartej przestrzeni.</td><td class="minus">Obniżona precyzja motoryki małej i koordynacji wzrokowo-ruchowej; nieprawidłowy chwyt pisarski / narzędzi; wzmożone lub obniżone napięcie posturalne; męczliwość ręki wiodącej.</td></tr>
-    <tr><td class="area">5 · Dbanie o siebie – samoobsługa i autonomia · d5, d6</td><td class="plus">Samodzielność w zakresie podstawowych nawyków higienicznych i toaletowych; znajomość własnej szafki i osobistych przyborów; sprząta kącik po przypomnieniu.</td><td class="minus">Opór sensoryczny przy myciu rąk (wrażliwość na fakturę mydła/wodę); wybiórczość pokarmowa; problem z ubieraniem odzieży o skomplikowanych zapięciach; nie inicjuje obowiązków samodzielnie; potrzeba nadzoru dorosłego.</td></tr>
+    <tr><th>Obszar (ICF)</th><th class="plus">✓ Mocne strony, zasoby i uzdolnienia</th><th class="minus">▸ Trudności, ograniczenia i bariery</th></tr>
+    <tr><td class="area">1 · Uczenie się i stosowanie wiedzy · d1, d2, d8</td><td class="plus">Bardzo dobra pamięć wzrokowa; szybkie zapamiętywanie schematów graficznych; wąskie, ale głębokie zainteresowania tematyczne; wysoka motywacja do pracy z ulubionymi pomocami dydaktycznymi.</td><td class="minus">Trudności z przerzutnością i podzielnością uwagi; szybka męczliwość przy instrukcjach wieloetapowych; problem z uogólnianiem wiedzy; silny stres przy nagłych zmianach planu; wymaga dostosowania metod, tempa i stałego nadzoru nauczyciela.</td></tr>
+    <tr><td class="area">2 · Zachowania społeczne we wzajemnych kontaktach – przystosowanie społeczne i emocjonalne · d7, d9</td><td class="plus">Chęć przebywania w pobliżu grupy; pozytywna reakcja na stałych, przewidywalnych dorosłych; przestrzeganie czytelnych zasad wizualnych.</td><td class="minus">Trudności w odczytywaniu emocji i intencji innych (teoria umysłu); niska tolerancja frustracji przy przegranej lub nagłej zmianie; tendencja do wycofywania się lub zachowań trudnych, zwłaszcza w apelach i wyjściach zbiorowych.</td></tr>
+    <tr><td class="area">3 · Porozumiewanie się · d3</td><td class="plus">Prawidłowe rozumienie prostych, jednoznacznych komunikatów słownych wspartych gestem; sygnalizowanie podstawowych potrzeb fizjologicznych.</td><td class="minus">Dosłowne rozumienie wypowiedzi (trudność z metaforą i żartem); echolalie odroczone; trudności w inicjowaniu dialogu i naprzemienności wypowiedzi w grupie rówieśniczej; potrzeba wsparcia AAC.</td></tr>
+    <tr><td class="area">4 · Aktywność ruchowa – poruszanie się · d4</td><td class="plus">Sprawność w zakresie motoryki dużej (bieganie, wspinanie się); chętne uczestnictwo w zabawach ruchowych w otwartej przestrzeni.</td><td class="minus">Obniżona precyzja motoryki małej i koordynacji wzrokowo-ruchowej; nieprawidłowy chwyt pisarski / narzędzi; wzmożone lub obniżone napięcie posturalne; męczliwość ręki wiodącej.</td></tr>
+    <tr><td class="area">5 · Dbanie o siebie · d5, d6</td><td class="plus">Samodzielność w zakresie podstawowych nawyków higienicznych i toaletowych; znajomość własnej szafki i osobistych przyborów; sprząta kącik po przypomnieniu.</td><td class="minus">Opór sensoryczny przy myciu rąk (wrażliwość na fakturę mydła/wodę); wybiórczość pokarmowa; problem z ubieraniem odzieży o skomplikowanych zapięciach; nie inicjuje obowiązków samodzielnie; potrzeba nadzoru dorosłego.</td></tr>
   </table>
-  <div class="footer"><span>EduPlaner 2026 · PCTP</span><span>Strona <b>6</b> z 22 · Funkcjonowanie</span></div>
+  <div class="footer"><span>[Nazwa placówki] · dokument poufny (RODO) <i class="gen">· sporządzono w EduPlaner 2026</i></span><span>Strona <b>6</b> z 28 · Funkcjonowanie A</span></div>
+</section>
+
+<section class="page ">
+  <div class="hdr">
+    <div class="l"><div class="logo">§</div><div><div class="name">[Nazwa przedszkola / szkoły]</div><div class="cap">Ocena Funkcjonalna · Część II · Funkcjonowanie w placówce · szkoła</div></div></div>
+    <div class="r"><span class="pill">Ocena funkcjonalna · 2026</span><div class="cap">Dokument dla rodzica i poradni</div></div>
+  </div>
+  <div class="fields">
+    <div class="field"><label>Dotyczy dziecka</label><span></span></div>
+    <div class="field"><label>Grupa / klasa</label><span></span></div>
+    <div class="field"><label>Data</label><span></span><i class="r">r.</i></div>
+  </div>
+  <div class="sec"><span class="n">4</span><h2>Informacja o funkcjonowaniu w placówce – trudności, mocne strony i uzdolnienia · cd.</h2></div>
+  <div class="sub9" style="--c:var(--blue)"><span class="tag9">B</span><h3>B · Uczeń – 7 obszarów (§ 7 ust. 7 pkt 1 lit. b)</h3><small>· wypełnić dla ucznia szkoły</small></div>
+  <table class="grid">
+    <tr><th>Obszar (ICF)</th><th class="plus">✓ Mocne strony, zasoby i uzdolnienia</th><th class="minus">▸ Trudności, ograniczenia i bariery</th></tr>
+    <tr><td class="area">1 · Uczenie się i stosowanie wiedzy · d1, d8</td><td class="plus">Bardzo dobra pamięć wzrokowa; szybkie zapamiętywanie schematów graficznych; głębokie zainteresowania tematyczne; zaangażowanie przy zadaniach z obrazem.</td><td class="minus">Przerzutność i podzielność uwagi; instrukcje wieloetapowe; uogólnianie wiedzy; szybka męczliwość przy zadaniach pisemnych; wymaga dostosowania metod i nadzoru nauczyciela.</td></tr>
+    <tr><td class="area">2 · Ogólne zadania i obowiązki · d2</td><td class="plus">Realizuje zadania o stałej strukturze; przestrzega czytelnych zasad wizualnych.</td><td class="minus">Trudność w samodzielnej organizacji pracy i zadaniach wieloetapowych; silny stres przy nagłych zmianach planu i przejściach między aktywnościami.</td></tr>
+    <tr><td class="area">3 · Porozumiewanie się · d3</td><td class="plus">Rozumie proste, jednoznaczne komunikaty wsparte gestem; sygnalizuje podstawowe potrzeby.</td><td class="minus">Dosłowność, echolalie, trudności w inicjowaniu dialogu i naprzemienności; potrzeba wsparcia AAC.</td></tr>
+    <tr><td class="area">4 · Motoryka, poruszanie się, w tym mobilność i aktywność manualna · d4</td><td class="plus">Sprawna motoryka duża (bieganie, wspinanie); chętny udział w zabawach ruchowych.</td><td class="minus">Obniżona precyzja motoryki małej i koordynacji wzrokowo-ruchowej; nieprawidłowy chwyt; męczliwość ręki wiodącej.</td></tr>
+    <tr><td class="area">5 · Dbanie o siebie, samoobsługa i samodzielność · d5</td><td class="plus">Samodzielność w podstawowych nawykach higienicznych i toaletowych; zna swoje rzeczy i przybory.</td><td class="minus">Opór sensoryczny przy myciu rąk; wybiórczość pokarmowa; trudne zapięcia; potrzeba nadzoru dorosłego.</td></tr>
+    <tr><td class="area">6 · Życie domowe · d6</td><td class="plus">Sprząta kącik i pełni dyżur po przypomnieniu.</td><td class="minus">Nie inicjuje obowiązków samodzielnie; trudność w doprowadzaniu czynności do końca.</td></tr>
+    <tr><td class="area">7 · Wzajemne kontakty i związki międzyludzkie, życie w społeczności szkolnej i lokalnej · d7, d9</td><td class="plus">Chęć przebywania w pobliżu grupy; pozytywna reakcja na stałych, przewidywalnych dorosłych. Uczestniczy w wydarzeniach grupowych po przygotowaniu i z możliwością wyjścia.</td><td class="minus">Trudności w odczytywaniu emocji i intencji innych; niska tolerancja frustracji; konflikty rówieśnicze wynikające z błędnej interpretacji zachowań. Przeciążenie sensoryczne w apelach, uroczystościach i wyjściach zbiorowych – wycofanie lub zachowania trudne.</td></tr>
+  </table>
+  <div class="footer"><span>[Nazwa placówki] · dokument poufny (RODO) <i class="gen">· sporządzono w EduPlaner 2026</i></span><span>Strona <b>7</b> z 28 · Funkcjonowanie B</span></div>
 </section>
 
 <section class="page kszof" id="sek5">
   <div class="hdr">
-    <div class="l"><div class="logo">PCTP</div><div><div class="name">EduPlaner 2026</div><div class="cap">Ocena Funkcjonalna · Część II · Wyniki liczbowe</div></div></div>
-    <div class="r"><span class="pill">Raport · 2026</span><div class="cap">Dokument dla rodzica · 2026</div></div>
+    <div class="l"><div class="logo">§</div><div><div class="name">[Nazwa przedszkola / szkoły]</div><div class="cap">Ocena Funkcjonalna · Część II · Wyniki liczbowe</div></div></div>
+    <div class="r"><span class="pill">Ocena funkcjonalna · 2026</span><div class="cap">Dokument dla rodzica i poradni</div></div>
   </div>
   <div class="fields">
     <div class="field"><label>Dotyczy dziecka</label><span></span></div>
@@ -538,7 +595,7 @@
     <div class="field"><label>Data</label><span></span><i class="r">r.</i></div>
   </div>
   <div class="sec"><span class="n">5</span><h2>Aktualna wielospecjalistyczna ocena poziomu funkcjonowania – wyniki liczbowe</h2></div>
-  <div class="lawref">§ Podstawa prawna: § 7 ust. 6 pkt 4 rozp. z 2.03.2026 (poz. 428) · ICF d1–d9</div>
+  <div class="lawref">§ Podstawa prawna: § 7 ust. 6 pkt 4 rozp. ME z 2.03.2026 (poz. 428) – aktualna WOPF · ICF d1–d9</div>
   <p class="lead2"><b>§ 7 ust. 6 pkt 4.</b> Zestawienie parametrów ilościowych uzyskanych z narzędzia bazowego (KPOF dla przedszkola / KSzOF dla szkoły) w 9 obszarach Międzynarodowej Klasyfikacji ICF:</p>
   <div class="switch">
     <span class="t">Narzędzie bazowe</span>
@@ -565,13 +622,13 @@
   </table>
   <div class="legend"><span>Pasek: średnia w skali 0–5</span><span><span class="lvl l1">Poziom 1 · Niski</span></span><span><span class="lvl l2">Poziom 2 · Średni</span></span><span><span class="lvl l3">Poziom 3 · Wysoki</span></span></div>
   <p class="stnote"><b>Zasada:</b> <span class="only-kpof">wybrano KPOF (przedszkole) – narzędzie nie posiada norm stenowych, dlatego w raporcie nie podaje się stenów; interpretacja wyłącznie na podstawie punktów, średniej i poziomu wsparcia.</span><span class="only-kszof">wybrano KSzOF (szkoła) – steny podaje się wyłącznie w kolumnie „Sten” dla poszczególnych domen; średniej nigdy nie opisuje się stenem.</span></p>
-  <div class="footer"><span>EduPlaner 2026 · PCTP</span><span>Strona <b>7</b> z 22 · Wyniki liczbowe</span></div>
+  <div class="footer"><span>[Nazwa placówki] · dokument poufny (RODO) <i class="gen">· sporządzono w EduPlaner 2026</i></span><span>Strona <b>8</b> z 28 · Wyniki liczbowe</span></div>
 </section>
 
 <section class="page ">
   <div class="hdr">
-    <div class="l"><div class="logo">PCTP</div><div><div class="name">EduPlaner 2026</div><div class="cap">Ocena Funkcjonalna · Część II · Wyniki arkuszy specjalistycznych</div></div></div>
-    <div class="r"><span class="pill">Raport · 2026</span><div class="cap">Dokument dla rodzica · 2026</div></div>
+    <div class="l"><div class="logo">§</div><div><div class="name">[Nazwa przedszkola / szkoły]</div><div class="cap">Ocena Funkcjonalna · Część II · Wyniki arkuszy specjalistycznych</div></div></div>
+    <div class="r"><span class="pill">Ocena funkcjonalna · 2026</span><div class="cap">Dokument dla rodzica i poradni</div></div>
   </div>
   <div class="fields">
     <div class="field"><label>Dotyczy dziecka</label><span></span></div>
@@ -579,20 +636,20 @@
     <div class="field"><label>Data</label><span></span><i class="r">r.</i></div>
   </div>
   <div class="sec"><span class="n">6</span><h2>Wyniki obserwacji pogłębionej (narzędzia specjalistyczne)</h2></div>
-  <div class="lawref">§ Podstawa prawna: § 7 ust. 6 pkt 4–5 rozp. z 2.03.2026 (poz. 428) · § 6 ust. 10 pkt 3 rozp. o kształceniu specjalnym</div>
+  <div class="lawref">§ Podstawa prawna: § 7 ust. 6 rozp. ME z 2.03.2026 (poz. 428) – wyniki działań diagnostycznych w placówce · § 8 ust. 2 pkt 2 (funkcje i struktury ciała)</div>
   <p class="lead2">Wyniki narzędzi wskazanych w sekcji 3, w tej samej kolejności. Każdy wynik kończy się wnioskiem, który wraca w celach (sekcja 9) i w programie (Część III).</p>
   <div class="res" style="--c:var(--purple)"><h4>Profil Biopsychospołeczny</h4><p><b>Uwarunkowania biologiczne: </b>spektrum autyzmu, zaburzenia snu wpływają na zmęczenie poranne. <b>Uwarunkowania psychologiczne: </b>silny lęk przed zmianą schematu, sztywność poznawcza. <b>Czynniki środowiskowe: </b>wysokie zaangażowanie rodziny, pozytywna reakcja na stałą kadrę.</p></div>
   <div class="res" style="--c:var(--red)"><h4>Arkusz Obserwacji Behawioralnej ABC</h4><p>Zidentyfikowano <b>14 epizodów</b> zachowań trudnych. <b>Bodźce wyzwalające (A): </b>trudne polecenia pisemne, hałas, niespodziewane przejścia między aktywnościami. <b>Topografia zachowania (B): </b>głośny krzyk, odmowa zejścia z dywanu, odpychanie kart pracy. <b>Funkcja (C): </b>ucieczka przed przeciążeniem sensorycznym / zadaniem trudnym poznawczo.</p><div class="rec"><b>Zalecenie:</b> protokół wyprzedzający i nauka komunikatu zastępczego.</div></div>
   <div class="res" style="--c:var(--blue)"><h4>Profil Sensoryczny (Kwestionariusz Przetwarzania)</h4><p>Reaktywność mieszana. <b>Układ słuchowy</b> – silna nadwrażliwość na nagłe dźwięki i gwar korytarza (zalecane słuchawki); <b>układ dotykowy</b> – obronność dotykowa na faktury klejące i mokre; <b>układ proprioceptywny i przedsionkowy</b> – poszukiwanie stymulacji dociskowej i ruchowej (huśtanie, kołysanie się).</p></div>
   <div class="res" style="--c:var(--orange)"><h4>Arkusz Oceny Rozwoju Mowy i Komunikacji</h4><p>Zasób słownika biernego w normie wiekowej; wąski zasób czynny w sytuacjach swobodnych. Występują <b>echolalie natychmiastowe</b> i trudności pragmatyczne (brak intonacji, trudność w podtrzymaniu dialogu).</p><div class="rec"><b>Zalecenie:</b> schematy dialogowe i piktogramy wspierające.</div></div>
   <div class="res" style="--c:var(--green)"><h4>Arkusz Poziomu Rozwoju Teorii Umysłu (ToM)</h4><p>Poziom rozwoju ToM <b>poniżej normy wiekowej</b>. Trudność w zadaniach z fałszywym przekonaniem (False Belief Task) oraz w rozpoznawaniu perspektywy i intencji innych osób. Trudności te generują konflikty rówieśnicze przez błędną interpretację zachowań kolegów.</p></div>
-  <div class="footer"><span>EduPlaner 2026 · PCTP</span><span>Strona <b>8</b> z 22 · Wyniki arkuszy</span></div>
+  <div class="footer"><span>[Nazwa placówki] · dokument poufny (RODO) <i class="gen">· sporządzono w EduPlaner 2026</i></span><span>Strona <b>9</b> z 28 · Wyniki arkuszy</span></div>
 </section>
 
 <section class="page ">
   <div class="hdr">
-    <div class="l"><div class="logo">PCTP</div><div><div class="name">EduPlaner 2026</div><div class="cap">Ocena Funkcjonalna · Część II · Mój głos</div></div></div>
-    <div class="r"><span class="pill">Raport · 2026</span><div class="cap">Dokument dla rodzica · 2026</div></div>
+    <div class="l"><div class="logo">§</div><div><div class="name">[Nazwa przedszkola / szkoły]</div><div class="cap">Ocena Funkcjonalna · Część II · Mój głos</div></div></div>
+    <div class="r"><span class="pill">Ocena funkcjonalna · 2026</span><div class="cap">Dokument dla rodzica i poradni</div></div>
   </div>
   <div class="fields">
     <div class="field"><label>Dotyczy dziecka</label><span></span></div>
@@ -600,7 +657,7 @@
     <div class="field"><label>Data</label><span></span><i class="r">r.</i></div>
   </div>
   <div class="sec"><span class="n">7</span><h2>Mój głos – perspektywa dziecka / ucznia</h2></div>
-  <div class="lawref">§ Podstawa prawna: model oceny funkcjonalnej 2026/27 · ICF: czynniki osobowe · art. 127 Prawa oświatowego (podmiotowość ucznia)</div>
+  <div class="lawref">§ Podstawa prawna: § 8 ust. 3 pkt 3 rozp. ME z 2.03.2026 (poz. 428) – informacje od dziecka w sposób dostosowany do wieku · ICF: czynniki osobowe</div>
   <p class="lead2">Głos dziecka pozyskano w sposób dostosowany do jego możliwości komunikacyjnych: w naturalnych sytuacjach, przez proste pytania, obrazki, piktogramy i informacje od rodziców. Zapisano autentyczną perspektywę dziecka – jego słowami lub przez wskazanie.</p>
   <div class="lbl" style="font-size:8.5px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:var(--purple)">Sposób pozyskania głosu dziecka – zaznaczono</div>
   <div class="cbl"><span><i class="cb on"></i>Rozmowa dostosowana do możliwości dziecka</span><span><i class="cb on"></i>Obserwacja w naturalnych sytuacjach</span><span><i class="cb on"></i>Wybór z obrazków / piktogramów / kart wyboru</span><span><i class="cb on"></i>Komunikacja wspomagająca i alternatywna (AAC)</span><span><i class="cb"></i>Odczytanie z gestu, mimiki, zabawy, rysunku</span><span><i class="cb on"></i>Informacje od rodziców / opiekunów</span><span><i class="cb on"></i>Skala buziek / termometr emocji</span><span><i class="cb"></i>Wskazanie „tak / nie” na symbolach</span></div>
@@ -616,13 +673,13 @@
   <div class="mood"><div class=""><i style="background:#2E9D52"></i>Super</div><div class="sel"><i style="background:#7EB800"></i>Dobrze</div><div class=""><i style="background:#DFA22E"></i>Tak sobie</div><div class=""><i style="background:#E77309"></i>Słabo</div><div class=""><i style="background:#BF382A"></i>Źle</div></div>
   <div class="box" style="--c:var(--blue)"><div class="lbl">Preferowany sposób komunikacji dziecka i wskazówki do rozmowy</div><p class="just" style="margin:0">Mowa proste zdania + tablica wyboru (piktogramy); rozumie polecenia wsparte gestem; potrzebuje chwili na odpowiedź; nie lubi pytań „dlaczego”. Wskazówki do rozmowy: jedno pytanie na raz, obrazek lub wybór z dwóch, bez metafor i żartów.</p></div>
   <p class="stnote"><b>Podstawa.</b> Uwzględnienie perspektywy dziecka wspiera indywidualizację i podmiotowe traktowanie zgodnie z modelem ICF. „Mój głos” to element nowego modelu 2026/27.</p>
-  <div class="footer"><span>EduPlaner 2026 · PCTP</span><span>Strona <b>9</b> z 22 · Mój głos</span></div>
+  <div class="footer"><span>[Nazwa placówki] · dokument poufny (RODO) <i class="gen">· sporządzono w EduPlaner 2026</i></span><span>Strona <b>10</b> z 28 · Mój głos</span></div>
 </section>
 
 <section class="page ">
   <div class="hdr">
-    <div class="l"><div class="logo">PCTP</div><div><div class="name">EduPlaner 2026</div><div class="cap">Ocena Funkcjonalna · Część II · Działania dotychczas podjęte</div></div></div>
-    <div class="r"><span class="pill">Raport · 2026</span><div class="cap">Dokument dla rodzica · 2026</div></div>
+    <div class="l"><div class="logo">§</div><div><div class="name">[Nazwa przedszkola / szkoły]</div><div class="cap">Ocena Funkcjonalna · Część II · Działania dotychczas podjęte</div></div></div>
+    <div class="r"><span class="pill">Ocena funkcjonalna · 2026</span><div class="cap">Dokument dla rodzica i poradni</div></div>
   </div>
   <div class="fields">
     <div class="field"><label>Dotyczy dziecka</label><span></span></div>
@@ -630,7 +687,7 @@
     <div class="field"><label>Data</label><span></span><i class="r">r.</i></div>
   </div>
   <div class="sec"><span class="n">8</span><h2>Informacja o działaniach dotychczas podjętych w celu poprawy funkcjonowania</h2></div>
-  <div class="lawref">§ Podstawa prawna: § 7 ust. 6 pkt 6 rozp. z 2.03.2026 (poz. 428) · § 6 ust. 10 pkt 2 rozp. o kształceniu specjalnym</div>
+  <div class="lawref">§ Podstawa prawna: § 7 ust. 6 pkt 6 rozp. ME z 2.03.2026 (poz. 428) · § 6 ust. 10 pkt 2 rozp. o kształceniu specjalnym</div>
   <p class="lead2"><b>§ 7 ust. 6 pkt 6.</b> Działania wdrożone w placówce przed sporządzeniem raportu oraz ich obserwowana efektywność (podstawa do zaplanowania programu wsparcia w Części III):</p>
   <table class="grid">
     <tr><th>Rodzaj wsparcia</th><th>Zakres wdrożonych działań i metody</th><th class="plus">Efektywność i obserwowane zmiany</th></tr>
@@ -639,13 +696,13 @@
     <tr><td class="area">Współpraca z domem rodzinnym</td><td>Cotygodniowe konsultacje z rodzicami; zeszyt korespondencji dom-placówka; ujednolicenie systemu komunikatów i nagród behawioralnych.</td><td class="plus">Wysoka spójność w reakcjach dorosłych na zachowania trudne; wzrost poczucia bezpieczeństwa u dziecka.</td></tr>
   </table>
   <div class="parent"><b>Informacja dla rodzica.</b> Wyniki z sekcji 4–8 są podstawą analizy (sekcja 9) i decyzji Zespołu o poziomie wsparcia (sekcja 10). Część III opisuje, jak placówka zorganizuje wsparcie w tym roku szkolnym.</div>
-  <div class="footer"><span>EduPlaner 2026 · PCTP</span><span>Strona <b>10</b> z 22 · Podjęte działania</span></div>
+  <div class="footer"><span>[Nazwa placówki] · dokument poufny (RODO) <i class="gen">· sporządzono w EduPlaner 2026</i></span><span>Strona <b>11</b> z 28 · Podjęte działania</span></div>
 </section>
 
 <section class="page ">
   <div class="hdr">
-    <div class="l"><div class="logo">PCTP</div><div><div class="name">EduPlaner 2026</div><div class="cap">Ocena Funkcjonalna · Część II · Analiza jakościowa</div></div></div>
-    <div class="r"><span class="pill">Raport · 2026</span><div class="cap">Dokument dla rodzica · 2026</div></div>
+    <div class="l"><div class="logo">§</div><div><div class="name">[Nazwa przedszkola / szkoły]</div><div class="cap">Ocena Funkcjonalna · Część II · Analiza jakościowa</div></div></div>
+    <div class="r"><span class="pill">Ocena funkcjonalna · 2026</span><div class="cap">Dokument dla rodzica i poradni</div></div>
   </div>
   <div class="fields">
     <div class="field"><label>Dotyczy dziecka</label><span></span></div>
@@ -653,7 +710,7 @@
     <div class="field"><label>Data</label><span></span><i class="r">r.</i></div>
   </div>
   <div class="sec"><span class="n">9</span><h2>Analiza jakościowa 9 domen ICF – potrzeby i cele na rok szkolny</h2></div>
-  <div class="lawref">§ Podstawa prawna: § 7 ust. 6 pkt 4 rozp. z 2.03.2026 (poz. 428) · § 6 ust. 10 rozp. o kształceniu specjalnym</div>
+  <div class="lawref">§ Podstawa prawna: § 7 ust. 6 pkt 7 rozp. ME z 2.03.2026 (poz. 428) – wnioski do dalszej pracy · § 6 ust. 10 rozp. o kształceniu specjalnym</div>
   <p class="lead2">Co dziecko robi dziś (opis i bariery) i co ma się zmienić do końca roku szkolnego (cel). Sposób osiągnięcia celów – metody, zajęcia, osoby, technologie – opisuje wyłącznie Część III, aby nic nie było zapisane dwa razy.</p>
   <table class="grid">
     <tr><th>Domena ICF</th><th>Opis funkcjonowania i bariery</th><th style="color:var(--orange)">Cel na rok szkolny – co ma się zmienić</th></tr>
@@ -663,13 +720,13 @@
     <tr><td class="area">Poruszanie się i motoryka<br><span style="color:var(--orange);font-size:9px">d4</span></td><td>Motoryka duża prawidłowa (bieganie, wspinanie). Obniżona precyzja motoryki małej, koordynacji wzrokowo-ruchowej i planowania motorycznego (dyspraksja); nieprawidłowy chwyt pisarski i narzędzi.</td><td><ul class="tick" style="margin:0"><li>Prawidłowy chwyt trójpalcowy przy pisaniu/rysowaniu przez 5 min.</li><li>Wycina po linii prostej nożyczkami sprężynowymi.</li></ul></td></tr>
     <tr><td class="area">Dbanie o siebie i samoobsługa<br><span style="color:var(--orange);font-size:9px">d5</span></td><td>Samoobsługa zaburzona przez silne reakcje nadwrażliwości na bodźce dotykowe (ubrania, mokre ręce) i zapachowe; wybiórczość pokarmowa; trudność z odzieżą o skomplikowanych zapięciach.</td><td><ul class="tick" style="margin:0"><li>Myje ręce w pełnej sekwencji z paskiem wizualnym bez oporu.</li><li>Próbuje 2 nowe produkty w miesiącu.</li></ul></td></tr>
   </table>
-  <div class="footer"><span>EduPlaner 2026 · PCTP</span><span>Strona <b>11</b> z 22 · Analiza d1–d5</span></div>
+  <div class="footer"><span>[Nazwa placówki] · dokument poufny (RODO) <i class="gen">· sporządzono w EduPlaner 2026</i></span><span>Strona <b>12</b> z 28 · Analiza d1–d5</span></div>
 </section>
 
 <section class="page ">
   <div class="hdr">
-    <div class="l"><div class="logo">PCTP</div><div><div class="name">EduPlaner 2026</div><div class="cap">Ocena Funkcjonalna · Część II · Analiza jakościowa · cd.</div></div></div>
-    <div class="r"><span class="pill">Raport · 2026</span><div class="cap">Dokument dla rodzica · 2026</div></div>
+    <div class="l"><div class="logo">§</div><div><div class="name">[Nazwa przedszkola / szkoły]</div><div class="cap">Ocena Funkcjonalna · Część II · Analiza jakościowa · cd.</div></div></div>
+    <div class="r"><span class="pill">Ocena funkcjonalna · 2026</span><div class="cap">Dokument dla rodzica i poradni</div></div>
   </div>
   <div class="fields">
     <div class="field"><label>Dotyczy dziecka</label><span></span></div>
@@ -684,13 +741,13 @@
     <tr><td class="area">Główne dziedziny życia (Edukacja)<br><span style="color:var(--orange);font-size:9px">d8</span></td><td>Uczestnictwo w zajęciach edukacyjnych wymaga dostosowania metod, tempa i form pracy oraz stałego nadzoru nauczyciela. Szybka męczliwość przy zadaniach pisemnych i instrukcjach wieloetapowych.</td><td><ul class="tick" style="margin:0"><li>Wykonuje dostosowaną kartę pracy w czasie zajęć z jednym wsparciem nauczyciela.</li><li>Utrzymuje uwagę na zadaniu 10 min.</li></ul></td></tr>
     <tr><td class="area">Życie społecznościowe i obywatelskie<br><span style="color:var(--orange);font-size:9px">d9</span></td><td>Trudność w uczestnictwie w apelach, uroczystościach i wyjściach zbiorowych z powodu przeciążenia sensorycznego i tłumu – wycofanie lub zachowania trudne.</td><td><ul class="tick" style="margin:0"><li>Uczestniczy w apelu przez 10 min z możliwością wyjścia; w czerwcu 20 min.</li><li>Bierze udział w wyjściu grupowym po przygotowaniu bez wycofania.</li></ul></td></tr>
   </table>
-  <div class="footer"><span>EduPlaner 2026 · PCTP</span><span>Strona <b>12</b> z 22 · Analiza d6–d9</span></div>
+  <div class="footer"><span>[Nazwa placówki] · dokument poufny (RODO) <i class="gen">· sporządzono w EduPlaner 2026</i></span><span>Strona <b>13</b> z 28 · Analiza d6–d9</span></div>
 </section>
 
 <section class="page ">
   <div class="hdr">
-    <div class="l"><div class="logo">PCTP</div><div><div class="name">EduPlaner 2026</div><div class="cap">Ocena Funkcjonalna · Część II · Decyzja Zespołu</div></div></div>
-    <div class="r"><span class="pill">Raport · 2026</span><div class="cap">Dokument dla rodzica · 2026</div></div>
+    <div class="l"><div class="logo">§</div><div><div class="name">[Nazwa przedszkola / szkoły]</div><div class="cap">Ocena Funkcjonalna · Część II · Decyzja Zespołu</div></div></div>
+    <div class="r"><span class="pill">Ocena funkcjonalna · 2026</span><div class="cap">Dokument dla rodzica i poradni</div></div>
   </div>
   <div class="fields">
     <div class="field"><label>Dotyczy dziecka</label><span></span></div>
@@ -698,7 +755,7 @@
     <div class="field"><label>Data</label><span></span><i class="r">r.</i></div>
   </div>
   <div class="sec"><span class="n">10</span><h2>Wnioski Zespołu: poziom wsparcia i rekomendacje dla zespołu orzekającego</h2></div>
-  <div class="lawref">§ Podstawa prawna: art. 127 Prawa oświatowego · § 7 ust. 6–7 rozp. z 2.03.2026 (poz. 428) · § 6 ust. 2–3 rozp. o kształceniu specjalnym</div>
+  <div class="lawref">§ Podstawa prawna: art. 127 Prawa oświatowego · § 7 ust. 6 pkt 7 rozp. ME z 2.03.2026 (poz. 428) · § 6 ust. 2–3 rozp. o kształceniu specjalnym</div>
   <p class="lead2">Na podstawie wyników KPOF/KSzOF (sekcja 5), arkuszy (sekcja 6), głosu dziecka (sekcja 7), dotychczasowych działań (sekcja 8) i celów (sekcja 9) Zespół ustala poziom wsparcia (A) oraz formułuje rekomendacje dla zespołu orzekającego poradni (B):</p>
   <div class="sub9" style="--c:var(--orange)"><span class="tag9">A</span><h3>Poziom wsparcia ustalony przez Zespół</h3></div>
   <div class="lvlbox">
@@ -713,13 +770,13 @@
   <div class="rek"><span><i class="cb on"></i><span>Potrzeba kształcenia specjalnego (wydanie / aktualizacja orzeczenia)</span></span><span><i class="cb"></i><span>Kontynuacja obecnego orzeczenia bez zmian</span></span><span><i class="cb on"></i><span>Zajęcia rewalidacyjne – wnioskowany zakres: komunikacja i AAC, umiejętności społeczne, motoryka mała</span></span><span><i class="cb on"></i><span>Wsparcie dodatkowej osoby: nauczyciel współorganizujący kształcenie</span></span><span><i class="cb"></i><span>Indywidualne nauczanie / zindywidualizowana ścieżka kształcenia</span></span><span><i class="cb"></i><span>Wczesne wspomaganie rozwoju (dziecko przed rozpoczęciem nauki w szkole)</span></span><span><i class="cb"></i><span>Opinia w sprawie odroczenia obowiązku szkolnego</span></span><span><i class="cb"></i><span>Inne: ……………………………………</span></span></div>
   <div class="note" style="margin:0 0 8px"><b>Uzasadnienie rekomendacji.</b> Rekomendacje wynikają z poziomu wysokiego w domenach d2, d7 i d9, potrzeby stałej komunikacji wspomagającej (d3) oraz funkcji ucieczkowej zachowań trudnych (ABC), którą kontroluje obecność przewidywalnego dorosłego.</div>
   <div class="signbox"><b>Data posiedzenia Zespołu:</b> <span class="ph">[Data posiedzenia Zespołu]</span> &nbsp;·&nbsp; Rodzic uczestniczył w posiedzeniu Zespołu i otrzymał kopię raportu. &nbsp;·&nbsp; <b>Podpisy Zespołu i rodzica:</b> na końcu dokumentu (sekcja 16).</div>
-  <div class="footer"><span>EduPlaner 2026 · PCTP</span><span>Strona <b>13</b> z 22 · Decyzja Zespołu</span></div>
+  <div class="footer"><span>[Nazwa placówki] · dokument poufny (RODO) <i class="gen">· sporządzono w EduPlaner 2026</i></span><span>Strona <b>14</b> z 28 · Decyzja Zespołu</span></div>
 </section>
 
 <section class="page ">
   <div class="hdr">
-    <div class="l"><div class="logo">PCTP</div><div><div class="name">EduPlaner 2026</div><div class="cap">Ocena Funkcjonalna · Część III · Dostosowanie programu</div></div></div>
-    <div class="r"><span class="pill">Raport · 2026</span><div class="cap">Dokument dla rodzica · 2026</div></div>
+    <div class="l"><div class="logo">§</div><div><div class="name">[Nazwa przedszkola / szkoły]</div><div class="cap">Ocena Funkcjonalna · Część III · Dostosowanie programu</div></div></div>
+    <div class="r"><span class="pill">Ocena funkcjonalna · 2026</span><div class="cap">Dokument dla rodzica i poradni</div></div>
   </div>
   <div class="fields">
     <div class="field"><label>Dotyczy dziecka</label><span></span></div>
@@ -732,7 +789,7 @@
     <div class="sub">dostosowania · zintegrowane działania · zajęcia · dodatkowa osoba · rodzice i poradnia · ocena efektywności</div>
   </div>
   <div class="sec"><span class="n">11</span><h2>Zakres i sposób dostosowania programu, organizacji kształcenia i technologii</h2></div>
-  <div class="lawref">§ Podstawa prawna: § 6 ust. 1 pkt 1 i 7 rozp. o kształceniu specjalnym · rozp. ME z 11.03.2026 o podstawie programowej (Dz. U. 2026 poz. 378)</div>
+  <div class="lawref">§ Podstawa prawna: § 7 ust. 7 pkt 2 rozp. ME z 2.03.2026 (poz. 428) · § 6 ust. 1 pkt 1 i 7 rozp. o kształceniu specjalnym · rozp. ME z 11.03.2026 o podstawie programowej (poz. 378)</div>
   <p class="lead2">Dostosowania wynikają z analizy jakościowej (sekcja 9) i decyzji o poziomie wsparcia (sekcja 10). Dotyczą: <i class="cb"></i> programu wychowania przedszkolnego  <i class="cb"></i> podstawy programowej kształcenia ogólnego (szkoła).</p>
   <div class="sub9" style="--c:var(--orange)"><span class="tag9">A</span><h3>Zakres i sposób dostosowania programu wychowania przedszkolnego / podstawy programowej (nowa podstawa 2026 – Dz. U. 2026 poz. 378)</h3></div>
   <table class="grid">
@@ -744,13 +801,13 @@
     <tr><td class="area">Tempo i czas pracy</td><td>Zadania krótsze, z przerwą sensoryczną po 8–10 min pracy; wydłużony czas na zadania pisemne i wykonawcze; brak przymusu dokończenia w tempie grupy.</td></tr>
     <tr><td class="area">Wymagania wobec zachowania</td><td>Jasne, wizualne zasady; ostrzeżenie przed zmianą; nauka komunikatu zastępczego zamiast karania; brak wymogu udziału w apelach w pełnym wymiarze (stopniowe wydłużanie).</td></tr>
   </table>
-  <div class="footer"><span>EduPlaner 2026 · PCTP</span><span>Strona <b>14</b> z 22 · Dostosowanie programu</span></div>
+  <div class="footer"><span>[Nazwa placówki] · dokument poufny (RODO) <i class="gen">· sporządzono w EduPlaner 2026</i></span><span>Strona <b>15</b> z 28 · Dostosowanie programu</span></div>
 </section>
 
 <section class="page ">
   <div class="hdr">
-    <div class="l"><div class="logo">PCTP</div><div><div class="name">EduPlaner 2026</div><div class="cap">Ocena Funkcjonalna · Część III · Organizacja i technologie</div></div></div>
-    <div class="r"><span class="pill">Raport · 2026</span><div class="cap">Dokument dla rodzica · 2026</div></div>
+    <div class="l"><div class="logo">§</div><div><div class="name">[Nazwa przedszkola / szkoły]</div><div class="cap">Ocena Funkcjonalna · Część III · Organizacja i technologie</div></div></div>
+    <div class="r"><span class="pill">Ocena funkcjonalna · 2026</span><div class="cap">Dokument dla rodzica i poradni</div></div>
   </div>
   <div class="fields">
     <div class="field"><label>Dotyczy dziecka</label><span></span></div>
@@ -773,15 +830,15 @@
     <tr><td class="area">Struktura i czas</td><td>Time-timer / aplikacja z wizualnym odliczaniem; cyfrowy plan dnia z odhaczaniem; przypomnienia dźwiękowe zamiast poleceń słownych.</td></tr>
     <tr><td class="area">Uczenie się</td><td>Materiały z obrazem i dźwiękiem; nagrane instrukcje do odtworzenia; aplikacje do ćwiczeń grafomotorycznych i emocji (rozpoznawanie mimiki).</td></tr>
     <tr><td class="area">Regulacja sensoryczna</td><td>Słuchawki wygłuszające; aplikacje z muzyką relaksacyjną / białym szumem w strefie wyciszenia.</td></tr>
-    <tr><td class="area">Współpraca i monitoring</td><td>EduPlaner 2026 – wspólny zapis obserwacji i postępów; dziennik elektroniczny / aplikacja do kontaktu z rodzicami; rejestr ABC w formie cyfrowej.</td></tr>
+    <tr><td class="area">Współpraca i monitoring</td><td>Aplikacja do dokumentacji wsparcia – wspólny zapis obserwacji i postępów; dziennik elektroniczny / aplikacja do kontaktu z rodzicami; rejestr ABC w formie cyfrowej.</td></tr>
   </table>
-  <div class="footer"><span>EduPlaner 2026 · PCTP</span><span>Strona <b>15</b> z 22 · Organizacja i technologie</span></div>
+  <div class="footer"><span>[Nazwa placówki] · dokument poufny (RODO) <i class="gen">· sporządzono w EduPlaner 2026</i></span><span>Strona <b>16</b> z 28 · Organizacja i technologie</span></div>
 </section>
 
 <section class="page ">
   <div class="hdr">
-    <div class="l"><div class="logo">PCTP</div><div><div class="name">EduPlaner 2026</div><div class="cap">Ocena Funkcjonalna · Część III · Zintegrowane działania</div></div></div>
-    <div class="r"><span class="pill">Raport · 2026</span><div class="cap">Dokument dla rodzica · 2026</div></div>
+    <div class="l"><div class="logo">§</div><div><div class="name">[Nazwa przedszkola / szkoły]</div><div class="cap">Ocena Funkcjonalna · Część III · Zintegrowane działania</div></div></div>
+    <div class="r"><span class="pill">Ocena funkcjonalna · 2026</span><div class="cap">Dokument dla rodzica i poradni</div></div>
   </div>
   <div class="fields">
     <div class="field"><label>Dotyczy dziecka</label><span></span></div>
@@ -798,14 +855,14 @@
     <tr><td class="area">Uczestnictwo społeczne</td><td>Organizuje zabawy z rówieśnikiem-mentorem; wprowadza wizualne zasady grupy.</td><td>Psycholog: TUS w małej grupie; pedagog: ToM w rewalidacji.</td><td>Umiejętności z TUS ćwiczone w grupie w tym samym tygodniu.</td></tr>
     <tr><td class="area">Samodzielność i motoryka</td><td>Pasek wizualny czynności; dostosowane przybory; czas na samoobsługę.</td><td>Terapeuta pedagogiczny: motoryka mała; terapeuta SI: obronność dotykowa.</td><td>Ten sam pasek czynności w sali, na zajęciach i w domu.</td></tr>
   </table>
-  <div class="note" style="margin-top:10px"><b>Koordynacja.</b> Koordynator Zespołu zwołuje spotkanie zespołu raz w miesiącu (30 min): przegląd celów, rejestru ABC, postępów w AAC; ustalenia zapisywane w EduPlaner 2026 i przekazywane rodzicom.</div>
-  <div class="footer"><span>EduPlaner 2026 · PCTP</span><span>Strona <b>16</b> z 22 · Zintegrowane działania</span></div>
+  <div class="note" style="margin-top:10px"><b>Koordynacja.</b> Koordynator Zespołu zwołuje spotkanie zespołu raz w miesiącu (30 min): przegląd celów, rejestru ABC, postępów w AAC; ustalenia zapisywane w dokumentacji wsparcia i przekazywane rodzicom.</div>
+  <div class="footer"><span>[Nazwa placówki] · dokument poufny (RODO) <i class="gen">· sporządzono w EduPlaner 2026</i></span><span>Strona <b>17</b> z 28 · Zintegrowane działania</span></div>
 </section>
 
 <section class="page ">
   <div class="hdr">
-    <div class="l"><div class="logo">PCTP</div><div><div class="name">EduPlaner 2026</div><div class="cap">Ocena Funkcjonalna · Część III · Zajęcia: rewalidacja</div></div></div>
-    <div class="r"><span class="pill">Raport · 2026</span><div class="cap">Dokument dla rodzica · 2026</div></div>
+    <div class="l"><div class="logo">§</div><div><div class="name">[Nazwa przedszkola / szkoły]</div><div class="cap">Ocena Funkcjonalna · Część III · Zajęcia: rewalidacja</div></div></div>
+    <div class="r"><span class="pill">Ocena funkcjonalna · 2026</span><div class="cap">Dokument dla rodzica i poradni</div></div>
   </div>
   <div class="fields">
     <div class="field"><label>Dotyczy dziecka</label><span></span></div>
@@ -827,13 +884,13 @@
     <tr><td class="area">Rewalidacja: usprawnianie motoryki małej i grafomotoryki</td><td>chwyt pisarski, koordynacja wzrokowo-ruchowa, planowanie ruchu</td><td style="color:var(--purple);font-weight:700">Terapeuta pedagogiczny</td><td>indywidualnie</td><td class="time">1 × 30 min<small>30 min / tydz.</small></td></tr>
     <tr class="sum"><td colspan="4">Razem zajęcia rewalidacyjne</td><td class="time">2 godz. zegarowe<small>2 × 60 min = 120 min / tydz.</small></td></tr>
   </table>
-  <div class="footer"><span>EduPlaner 2026 · PCTP</span><span>Strona <b>17</b> z 22 · Zajęcia: rewalidacja</span></div>
+  <div class="footer"><span>[Nazwa placówki] · dokument poufny (RODO) <i class="gen">· sporządzono w EduPlaner 2026</i></span><span>Strona <b>18</b> z 28 · Zajęcia: rewalidacja</span></div>
 </section>
 
 <section class="page ">
   <div class="hdr">
-    <div class="l"><div class="logo">PCTP</div><div><div class="name">EduPlaner 2026</div><div class="cap">Ocena Funkcjonalna · Część III · Zajęcia: pomoc psychologiczno-pedagogiczna</div></div></div>
-    <div class="r"><span class="pill">Raport · 2026</span><div class="cap">Dokument dla rodzica · 2026</div></div>
+    <div class="l"><div class="logo">§</div><div><div class="name">[Nazwa przedszkola / szkoły]</div><div class="cap">Ocena Funkcjonalna · Część III · Zajęcia: pomoc psychologiczno-pedagogiczna</div></div></div>
+    <div class="r"><span class="pill">Ocena funkcjonalna · 2026</span><div class="cap">Dokument dla rodzica i poradni</div></div>
   </div>
   <div class="fields">
     <div class="field"><label>Dotyczy dziecka</label><span></span></div>
@@ -850,13 +907,13 @@
     <tr><td class="area">Porady i konsultacje dla rodziców</td><td>ujednolicenie oddziaływań dom–placówka, instruktaż AAC i ABC</td><td style="color:var(--purple);font-weight:700">Psycholog / koordynator</td><td>rodzice · gabinet lub online</td><td class="time" style="white-space:normal">1 × 30 min · piątek 15:00</td><td>cały rok szkolny</td></tr>
     <tr class="sum"><td colspan="5">Razem pomoc psychologiczno-pedagogiczna</td><td class="time">4 zajęcia × 45 min<small>+ konsultacje 30 min = 210 min / tydz.</small></td></tr>
   </table>
-  <div class="footer"><span>EduPlaner 2026 · PCTP</span><span>Strona <b>18</b> z 22 · Zajęcia: PPP</span></div>
+  <div class="footer"><span>[Nazwa placówki] · dokument poufny (RODO) <i class="gen">· sporządzono w EduPlaner 2026</i></span><span>Strona <b>19</b> z 28 · Zajęcia: PPP</span></div>
 </section>
 
 <section class="page ">
   <div class="hdr">
-    <div class="l"><div class="logo">PCTP</div><div><div class="name">EduPlaner 2026</div><div class="cap">Ocena Funkcjonalna · Część III · Realizacja zaleceń poradni</div></div></div>
-    <div class="r"><span class="pill">Raport · 2026</span><div class="cap">Dokument dla rodzica · 2026</div></div>
+    <div class="l"><div class="logo">§</div><div><div class="name">[Nazwa przedszkola / szkoły]</div><div class="cap">Ocena Funkcjonalna · Część III · Realizacja zaleceń poradni</div></div></div>
+    <div class="r"><span class="pill">Ocena funkcjonalna · 2026</span><div class="cap">Dokument dla rodzica i poradni</div></div>
   </div>
   <div class="fields">
     <div class="field"><label>Dotyczy dziecka</label><span></span></div>
@@ -876,13 +933,13 @@
     <tr><td class="code">7</td><td><b>Stałość i przewidywalność otoczenia</b></td><td>Organizacja dnia, technologie (time-timer, plan cyfrowy)</td><td><span class="ref-pill">sekcja 11 B–C</span></td><td><div class="st"><span><i class="cb"></i>wdrożone</span><span><i class="cb"></i>w trakcie</span><span><i class="cb"></i>planowane</span></div></td></tr>
     <tr><td class="code">8</td><td><b>Współpraca z rodzicami i ujednolicenie oddziaływań</b></td><td>Zakres współpracy, działania wspierające rodziców, poradnia</td><td><span class="ref-pill">sekcja 15</span></td><td><div class="st"><span><i class="cb"></i>wdrożone</span><span><i class="cb"></i>w trakcie</span><span><i class="cb"></i>planowane</span></div></td></tr>
   </table>
-  <div class="footer"><span>EduPlaner 2026 · PCTP</span><span>Strona <b>19</b> z 22 · Zalecenia poradni</span></div>
+  <div class="footer"><span>[Nazwa placówki] · dokument poufny (RODO) <i class="gen">· sporządzono w EduPlaner 2026</i></span><span>Strona <b>20</b> z 28 · Zalecenia poradni</span></div>
 </section>
 
 <section class="page ">
   <div class="hdr">
-    <div class="l"><div class="logo">PCTP</div><div><div class="name">EduPlaner 2026</div><div class="cap">Ocena Funkcjonalna · Część III · Dodatkowa osoba</div></div></div>
-    <div class="r"><span class="pill">Raport · 2026</span><div class="cap">Dokument dla rodzica · 2026</div></div>
+    <div class="l"><div class="logo">§</div><div><div class="name">[Nazwa przedszkola / szkoły]</div><div class="cap">Ocena Funkcjonalna · Część III · Dodatkowa osoba</div></div></div>
+    <div class="r"><span class="pill">Ocena funkcjonalna · 2026</span><div class="cap">Dokument dla rodzica i poradni</div></div>
   </div>
   <div class="fields">
     <div class="field"><label>Dotyczy dziecka</label><span></span></div>
@@ -897,13 +954,13 @@
   <div class="box" style="--c:var(--green);margin-top:10px"><div class="lbl">Zadania dodatkowej osoby</div><ul class="tick"><li>Modelowanie użycia tablicy AAC i komunikatu zastępczego w sytuacjach trudnych.</li><li>Uprzedzanie o zmianach i prowadzenie protokołu wyprzedzającego przed przejściami.</li><li>Dekodowanie poleceń nauczyciela na pojedyncze kroki i piktogramy.</li><li>Wsparcie w wydarzeniach grupowych (apele, wyjścia) z możliwością wycofania do strefy wyciszenia.</li><li>Prowadzenie rejestru ABC i przekazywanie obserwacji Zespołowi.</li><li>Stopniowe wycofywanie się z pomocy w czynnościach opanowanych (budowanie samodzielności).</li></ul></div>
   <div class="note" style="margin-top:10px"><b>Ocena zasadności.</b> Zasadność wsparcia dodatkowej osoby oceniana w terminach z sekcji 16; kryterium zmniejszenia wymiaru: spadek epizodów ABC poniżej 3 miesięcznie i samodzielne przejścia między aktywnościami w 80% sytuacji.</div>
   <p class="stnote"><b>Wariant B:</b> W Wariancie B (bez orzeczenia) sekcji nie wypełnia się – potrzebę dodatkowej osoby zgłasza się jako rekomendację w sekcji 10 B.</p>
-  <div class="footer"><span>EduPlaner 2026 · PCTP</span><span>Strona <b>20</b> z 22 · Dodatkowa osoba</span></div>
+  <div class="footer"><span>[Nazwa placówki] · dokument poufny (RODO) <i class="gen">· sporządzono w EduPlaner 2026</i></span><span>Strona <b>21</b> z 28 · Dodatkowa osoba</span></div>
 </section>
 
 <section class="page ">
   <div class="hdr">
-    <div class="l"><div class="logo">PCTP</div><div><div class="name">EduPlaner 2026</div><div class="cap">Ocena Funkcjonalna · Część III · Współpraca z rodzicami i poradnią</div></div></div>
-    <div class="r"><span class="pill">Raport · 2026</span><div class="cap">Dokument dla rodzica · 2026</div></div>
+    <div class="l"><div class="logo">§</div><div><div class="name">[Nazwa przedszkola / szkoły]</div><div class="cap">Ocena Funkcjonalna · Część III · Współpraca z rodzicami i poradnią</div></div></div>
+    <div class="r"><span class="pill">Ocena funkcjonalna · 2026</span><div class="cap">Dokument dla rodzica i poradni</div></div>
   </div>
   <div class="fields">
     <div class="field"><label>Dotyczy dziecka</label><span></span></div>
@@ -932,13 +989,13 @@
     <tr><td class="area">Współpraca z lekarzem / terapeutami zewnętrznymi</td><td>ujednolicenie zaleceń (sen, farmakoterapia, terapia SI poza placówką)</td><td style="color:var(--purple);font-weight:700">Koordynator, za zgodą rodzica</td><td>w razie potrzeby</td></tr>
     <tr><td class="area">Instytucje wspierające rodzinę</td><td>PCPR, OPS, organizacje pozarządowe – informacja i pośrednictwo</td><td style="color:var(--purple);font-weight:700">Pedagog</td><td>w razie potrzeby</td></tr>
   </table>
-  <div class="footer"><span>EduPlaner 2026 · PCTP</span><span>Strona <b>21</b> z 22 · Rodzice i poradnia</span></div>
+  <div class="footer"><span>[Nazwa placówki] · dokument poufny (RODO) <i class="gen">· sporządzono w EduPlaner 2026</i></span><span>Strona <b>22</b> z 28 · Rodzice i poradnia</span></div>
 </section>
 
 <section class="page ">
   <div class="hdr">
-    <div class="l"><div class="logo">PCTP</div><div><div class="name">EduPlaner 2026</div><div class="cap">Ocena Funkcjonalna · Część III · Ocena efektywności · podpisy</div></div></div>
-    <div class="r"><span class="pill">Raport · 2026</span><div class="cap">Dokument dla rodzica · 2026</div></div>
+    <div class="l"><div class="logo">§</div><div><div class="name">[Nazwa przedszkola / szkoły]</div><div class="cap">Ocena Funkcjonalna · Część III · Ocena efektywności · podpisy</div></div></div>
+    <div class="r"><span class="pill">Ocena funkcjonalna · 2026</span><div class="cap">Dokument dla rodzica i poradni</div></div>
   </div>
   <div class="fields">
     <div class="field"><label>Dotyczy dziecka</label><span></span></div>
@@ -951,7 +1008,7 @@
   <table class="grid">
     <tr><th style="width:16%">Termin</th><th>Zakres oceny</th><th style="width:24%">Narzędzia</th><th style="width:16%">Odpowiedzialny</th><th style="width:11%">Status</th></tr>
     <tr><td class="area">Wrzesień 2026</td><td>Ocena wstępna i pogłębiona – niniejszy raport</td><td>KPOF/KSzOF, ABC, profil sensoryczny, mowa, ToM</td><td>Zespół, koordynator</td><td><span class="status-pill done">wykonano</span></td></tr>
-    <tr><td class="area">Na bieżąco (co miesiąc)</td><td>Monitoring: rejestr ABC, słownik AAC, postępy w celach</td><td>Rejestr ABC, karta postępów w EduPlaner 2026</td><td>Koordynator, dodatkowa osoba</td><td><span class="status-pill now">w trakcie</span></td></tr>
+    <tr><td class="area">Na bieżąco (co miesiąc)</td><td>Monitoring: rejestr ABC, słownik AAC, postępy w celach</td><td>Rejestr ABC, karta postępów</td><td>Koordynator, dodatkowa osoba</td><td><span class="status-pill now">w trakcie</span></td></tr>
     <tr><td class="area">Styczeń 2027</td><td>Ocena śródroczna (WOPF) – modyfikacja celów i wymiaru zajęć, decyzja o kontynuacji SI</td><td>KPOF/KSzOF (wybrane domeny), ABC, obserwacja</td><td>Zespół z udziałem rodzica</td><td><span class="status-pill plan">planowane</span></td></tr>
     <tr><td class="area">Czerwiec 2027</td><td>Ocena końcoworoczna – efektywność programu, wnioski do IPET na kolejny rok, ocena zasadności dodatkowej osoby</td><td>Pełny KPOF/KSzOF, arkusze, opinia rodzica i dziecka („Mój głos”)</td><td>Zespół z udziałem rodzica</td><td><span class="status-pill plan">planowane</span></td></tr>
     <tr><td class="area">Wrzesień 2027</td><td>Nowa ocena funkcjonalna na kolejny rok szkolny (WOPF); opinia dla zespołu orzekającego – na wniosek rodzica</td><td>KPOF/KSzOF, arkusze, dokumentacja roku</td><td>Zespół</td><td><span class="status-pill plan">planowane</span></td></tr>
@@ -963,7 +1020,122 @@
     <div class="sig">Specjalista<small>podpis i data</small></div>
     <div class="sig wide">Rodzic / opiekun prawny – zapoznałam/em się z raportem i uczestniczyłam/em w ustaleniu poziomu wsparcia<small>podpis i data</small></div>
   </div>
-  <div class="footer"><span>EduPlaner 2026 · PCTP</span><span>Strona <b>22</b> z 22 · Ocena efektywności i podpisy</span></div>
+  <div class="footer"><span>[Nazwa placówki] · dokument poufny (RODO) <i class="gen">· sporządzono w EduPlaner 2026</i></span><span>Strona <b>23</b> z 28 · Ocena efektywności i podpisy</span></div>
+</section>
+
+<section class="page">
+  <div class="op-head">
+    <div class="op-stamp"><b>[Nazwa przedszkola / szkoły]</b>[Adres placówki, tel., e-mail]<br><span style="font-size:8.5px">(pieczęć placówki)</span></div>
+    <div class="op-right">[Miejscowość], dnia <span class="fill"></span><br>Znak sprawy: <span class="fill"></span><br>Zespół orzekający: <span class="fill">[Nazwa Poradni Psychologiczno-Pedagogicznej]</span></div>
+  </div>
+  <div class="op-title"><h1>Opinia o funkcjonowaniu dziecka / ucznia</h1><div class="s">w przedszkolu / szkole – dla zespołu orzekającego poradni psychologiczno-pedagogicznej</div></div>
+  <div class="op-law"><b>Podstawa prawna:</b> § 7 ust. 2–7 rozporządzenia Ministra Edukacji z dnia 2 marca 2026 r. w sprawie orzeczeń i opinii wydawanych przez zespoły orzekające działające w publicznych poradniach psychologiczno-pedagogicznych (Dz. U. z 2026 r. poz. 428).<br><b>Tryb:</b> Opinię wydaje dyrektor na prośbę przewodniczącego zespołu orzekającego (§ 7 ust. 2) lub wnioskodawcy (ust. 4), w terminie 10 dni od dnia otrzymania prośby (ust. 3). Opinia uwzględnia wyniki obserwacji funkcjonowania dziecka/ucznia i działań diagnostycznych prowadzonych w placówce (ust. 6). Kopię opinii przekazuje się rodzicom dziecka lub ucznia albo pełnoletniemu uczniowi (ust. 5).</div>
+  <div class="op-sec"><span class="r">1.</span><h3>Data wydania opinii i dane dziecka / ucznia (§ 7 ust. 6 pkt 1–2)</h3></div>
+  <table class="op">
+    <tr><td class="k">Data wydania opinii (pkt 1)</td><td>[Data wydania]</td></tr>
+    <tr><td class="k">Imię i nazwisko dziecka / ucznia (pkt 2)</td><td>[Imię i Nazwisko]</td></tr>
+    <tr><td class="k">Data urodzenia · PESEL</td><td>[Data urodzenia] · [PESEL]</td></tr>
+    <tr><td class="k">Przedszkole / szkoła (nazwa, adres) · grupa / oddział</td><td>[Nazwa i adres placówki] · [grupa / klasa] · <i class="cb"></i> dziecko do ukończenia wychowania przedszkolnego  <i class="cb"></i> uczeń</td></tr>
+    <tr><td class="k">Rodzice / opiekunowie prawni (pełnoletni uczeń)</td><td>[Imiona i nazwiska, adres do korespondencji]</td></tr>
+    <tr><td class="k">Prośba o wydanie opinii</td><td><i class="cb"></i> przewodniczący zespołu orzekającego (§ 7 ust. 2)  <i class="cb"></i> wnioskodawca (§ 7 ust. 4) · z dnia [Data otrzymania] · znak [Znak sprawy] · termin: 10 dni</td></tr>
+    <tr><td class="k">Dotychczasowe orzeczenie / opinia poradni</td><td><i class="cb"></i> brak  <i class="cb"></i> [Orzeczenie / Opinia] nr [Numer] z dnia [Data], wydane przez [Nazwa Poradni]</td></tr>
+  </table>
+  <div class="op-sec"><span class="r">2.</span><h3>Podstawa opinii – wyniki obserwacji i działań diagnostycznych prowadzonych w placówce (§ 7 ust. 6)</h3></div>
+  <table class="op">
+    <tr><td class="k">Okres obserwacji</td><td>wrzesień [rok] – [miesiąc rok]; obserwacja wstępna i pogłębiona w naturalnych sytuacjach (zajęcia kierowane, zabawa swobodna, posiłki, przejścia, wydarzenia grupowe)</td></tr>
+    <tr><td class="k">Narzędzia i działania diagnostyczne</td><td>Kwestionariusz Przedszkolnej / Szkolnej Oceny Funkcjonalnej (KPOF / KSzOF – 9 domen ICF); Profil Biopsychospołeczny; Arkusz Obserwacji Behawioralnej ABC; Profil Sensoryczny; Arkusz Oceny Rozwoju Mowy i Komunikacji; Arkusz Poziomu Rozwoju Teorii Umysłu (ToM); analiza dokumentacji pomocy psychologiczno-pedagogicznej</td></tr>
+    <tr><td class="k">Osoby rozpoznające trudności, mocne strony i uzdolnienia</td><td>wychowawca / nauczyciele oddziału, pedagog specjalny, psycholog, logopeda, terapeuta SI (imiona i nazwiska w części 9); informacje uzupełniające od rodziców i od dziecka w formie dostosowanej do jego rozwoju</td></tr>
+  </table>
+  <div class="footer"><span>Załącznik – opinia o funkcjonowaniu dziecka / ucznia · dokument poufny (RODO)</span><span>Strona <b>24</b> z 28 · Opinia · dane i podstawa</span></div>
+</section>
+
+<section class="page">
+  <div class="op-head">
+    <div class="op-stamp"><b>[Nazwa przedszkola / szkoły]</b>[Adres placówki, tel., e-mail]<br><span style="font-size:8.5px">(pieczęć placówki)</span></div>
+    <div class="op-right">[Miejscowość], dnia <span class="fill"></span><br>Znak sprawy: <span class="fill"></span><br>Zespół orzekający: <span class="fill">[Nazwa Poradni Psychologiczno-Pedagogicznej]</span></div>
+  </div>
+  <div class="op-sec"><span class="r">3.</span><h3>Informacja o funkcjonowaniu dziecka / ucznia w placówce – trudności, mocne strony i uzdolnienia (§ 7 ust. 6 pkt 3, ust. 7 pkt 1)</h3></div>
+  <p class="lead2" style="font-size:10px;margin-bottom:4px">Aktywność i uczestniczenie zgodnie z obszarami ICF, adekwatnie do wieku i poziomu rozwoju psychofizycznego. Wypełnia się tabelę A (dziecko do ukończenia wychowania przedszkolnego – 5 obszarów) albo B (uczeń – 7 obszarów). Poziom potrzeby wsparcia: średnia z KPOF / KSzOF w skali 0–5 (steny wyłącznie dla KSzOF).</p>
+  <div class="sub9" style="--c:var(--orange);margin:8px 0 5px"><span class="tag9">A</span><h3 style="font-size:11px">A · Dziecko do ukończenia wychowania przedszkolnego – 5 obszarów (ust. 7 pkt 1 lit. a)</h3></div>
+  <table class="op">
+    <tr><th style="width:23%">Obszar (ICF)</th><th style="color:var(--green)">Mocne strony i uzdolnienia</th><th style="color:var(--red)">Trudności</th><th style="width:17%">Poziom potrzeby wsparcia</th></tr>
+    <tr><td class="k">1 · Uczenie się i stosowanie wiedzy</td><td>pamięć wzrokowa, schematy graficzne, zainteresowania tematyczne, motywacja do pracy z ulubionymi pomocami</td><td>przerzutność i podzielność uwagi, instrukcje wieloetapowe, uogólnianie wiedzy, stres przy zmianie planu, potrzeba nadzoru nauczyciela</td><td class="lv" style="white-space:normal">d1 śr. 2,4 · d2 śr. 1,8 · d8 śr. 2,0 – poziom średni / wysoki</td></tr>
+    <tr><td class="k">2 · Zachowania społeczne we wzajemnych kontaktach – przystosowanie społeczne i emocjonalne</td><td>chęć przebywania blisko grupy, reakcja na stałych dorosłych, przestrzeganie zasad wizualnych</td><td>odczytywanie emocji i intencji, tolerancja frustracji, wycofanie lub zachowania trudne w apelach i wyjściach</td><td class="lv" style="white-space:normal">d7 śr. 1,6 · d9 śr. 1,8 – poziom wysoki</td></tr>
+    <tr><td class="k">3 · Porozumiewanie się</td><td>rozumienie prostych komunikatów wspartych gestem, sygnalizowanie potrzeb</td><td>dosłowność, echolalie, inicjowanie i naprzemienność dialogu, potrzeba AAC</td><td class="lv" style="white-space:normal">d3 śr. 2,0 – poziom średni</td></tr>
+    <tr><td class="k">4 · Aktywność ruchowa – poruszanie się</td><td>motoryka duża, chętny udział w zabawach ruchowych</td><td>motoryka mała, koordynacja wzrokowo-ruchowa, chwyt, napięcie posturalne</td><td class="lv" style="white-space:normal">d4 śr. 3,2 – poziom niski</td></tr>
+    <tr><td class="k">5 · Dbanie o siebie</td><td>podstawowe nawyki higieniczne i toaletowe, znajomość swoich rzeczy, obowiązki po przypomnieniu</td><td>opór sensoryczny przy myciu rąk, wybiórczość pokarmowa, trudne zapięcia, brak inicjowania obowiązków</td><td class="lv" style="white-space:normal">d5 śr. 2,2 · d6 śr. 2,8 – poziom średni / niski</td></tr>
+  </table>
+  <div class="footer"><span>Załącznik – opinia o funkcjonowaniu dziecka / ucznia · dokument poufny (RODO)</span><span>Strona <b>25</b> z 28 · Opinia · funkcjonowanie A</span></div>
+</section>
+
+<section class="page">
+  <div class="op-head">
+    <div class="op-stamp"><b>[Nazwa przedszkola / szkoły]</b>[Adres placówki, tel., e-mail]<br><span style="font-size:8.5px">(pieczęć placówki)</span></div>
+    <div class="op-right">[Miejscowość], dnia <span class="fill"></span><br>Znak sprawy: <span class="fill"></span><br>Zespół orzekający: <span class="fill">[Nazwa Poradni Psychologiczno-Pedagogicznej]</span></div>
+  </div>
+  <div class="op-sec"><span class="r">3.</span><h3>Informacja o funkcjonowaniu dziecka / ucznia w placówce – trudności, mocne strony i uzdolnienia (§ 7 ust. 6 pkt 3, ust. 7 pkt 1) · cd.</h3></div>
+  <div class="sub9" style="--c:var(--blue);margin:8px 0 5px"><span class="tag9">B</span><h3 style="font-size:11px">B · Uczeń – 7 obszarów (ust. 7 pkt 1 lit. b)</h3></div>
+  <table class="op">
+    <tr><th style="width:23%">Obszar (ICF)</th><th style="color:var(--green)">Mocne strony i uzdolnienia</th><th style="color:var(--red)">Trudności</th><th style="width:17%">Poziom potrzeby wsparcia</th></tr>
+    <tr><td class="k">1 · Uczenie się i stosowanie wiedzy</td><td>pamięć wzrokowa, schematy graficzne, zainteresowania, zaangażowanie przy zadaniach z obrazem</td><td>uwaga, instrukcje wieloetapowe, uogólnianie, męczliwość przy pisaniu, potrzeba nadzoru</td><td class="lv" style="white-space:normal">d1 śr. 2,4 · d8 śr. 2,0 – średni</td></tr>
+    <tr><td class="k">2 · Ogólne zadania i obowiązki</td><td>zadania o stałej strukturze, zasady wizualne</td><td>organizacja pracy, zadania wieloetapowe, stres przy zmianach</td><td class="lv" style="white-space:normal">d2 śr. 1,8 – wysoki</td></tr>
+    <tr><td class="k">3 · Porozumiewanie się</td><td>rozumienie prostych komunikatów z gestem, sygnalizowanie potrzeb</td><td>dosłowność, echolalie, inicjowanie dialogu, potrzeba AAC</td><td class="lv" style="white-space:normal">d3 śr. 2,0 – średni</td></tr>
+    <tr><td class="k">4 · Motoryka, poruszanie się, w tym mobilność i aktywność manualna</td><td>motoryka duża, zabawy ruchowe</td><td>motoryka mała, koordynacja, chwyt</td><td class="lv" style="white-space:normal">d4 śr. 3,2 – niski</td></tr>
+    <tr><td class="k">5 · Dbanie o siebie, samoobsługa i samodzielność</td><td>higiena i toaleta, znajomość swoich rzeczy</td><td>opór sensoryczny przy myciu rąk, wybiórczość pokarmowa, zapięcia</td><td class="lv" style="white-space:normal">d5 śr. 2,2 – średni</td></tr>
+    <tr><td class="k">6 · Życie domowe</td><td>dyżur i sprzątanie po przypomnieniu</td><td>brak inicjowania, niedoprowadzanie do końca</td><td class="lv" style="white-space:normal">d6 śr. 2,8 – niski</td></tr>
+    <tr><td class="k">7 · Wzajemne kontakty i związki międzyludzkie, życie w społeczności szkolnej i lokalnej</td><td>bliskość grupy, reakcja na stałych dorosłych; udział w wydarzeniach po przygotowaniu</td><td>odczytywanie emocji i intencji, tolerancja frustracji, konflikty; przeciążenie w apelach i wyjściach – wycofanie lub zachowania trudne</td><td class="lv" style="white-space:normal">d7 śr. 1,6 · d9 śr. 1,8 – wysoki</td></tr>
+  </table>
+  <p class="stnote" style="margin-top:4px"><b>Wynik ogólny: 68 / 180 pkt, średnia 2,1 (skala 0–5) – umiarkowana potrzeba wsparcia; trzy domeny na poziomie wysokim (d2, d7, d9).</b></p>
+  <div class="op-sec"><span class="r">4.</span><h3>Zakres i rodzaj trudności w realizacji programu wychowania przedszkolnego / programów nauczania realizowanych w oddziale (§ 7 ust. 7 pkt 2)</h3></div>
+  <ul class="op"><li>Program wychowania przedszkolnego / programy nauczania: [nazwa programu, oddział].</li><li>Rozumienie poleceń złożonych i samodzielna organizacja pracy – wymaga instrukcji krok po kroku wspartych obrazem; bez dostosowania rezygnuje z zadania.</li><li>Utrzymanie uwagi na zadaniu (obecnie do 8 min po dostosowaniu środowiska) i szybka męczliwość przy zadaniach pisemnych i wykonawczych.</li><li>Uczestnictwo w zajęciach grupowych, apelach i wyjściach – przeciążenie sensoryczne prowadzi do wycofania lub zachowań trudnych.</li><li>Komunikacja z rówieśnikami i nauczycielem w sytuacjach swobodnych – potrzeba wsparcia AAC i skryptów dialogowych.</li><li>Grafomotoryka, czynności manualne (chwyt, wycinanie) oraz samoobsługa przy posiłkach i toalecie – realizowane w wydłużonym czasie z dostosowanymi przyborami.</li><li>Wprowadzone dostosowania w toku realizacji programu: plany aktywności, instrukcje jednoetapowe, wydłużony czas, przerwy sensoryczne, ocena postępu względem samego siebie.</li></ul>
+  <div class="footer"><span>Załącznik – opinia o funkcjonowaniu dziecka / ucznia · dokument poufny (RODO)</span><span>Strona <b>26</b> z 28 · Opinia · funkcjonowanie B · program</span></div>
+</section>
+
+<section class="page">
+  <div class="op-head">
+    <div class="op-stamp"><b>[Nazwa przedszkola / szkoły]</b>[Adres placówki, tel., e-mail]<br><span style="font-size:8.5px">(pieczęć placówki)</span></div>
+    <div class="op-right">[Miejscowość], dnia <span class="fill"></span><br>Znak sprawy: <span class="fill"></span><br>Zespół orzekający: <span class="fill">[Nazwa Poradni Psychologiczno-Pedagogicznej]</span></div>
+  </div>
+  <div class="op-sec"><span class="r">5.</span><h3>Załączniki ewaluacyjne (§ 7 ust. 6 pkt 4–5)</h3></div>
+  <div class="op-cb" style="grid-template-columns:1fr"><span><i class="cb on"></i><span>Aktualna wielospecjalistyczna ocena poziomu funkcjonowania dziecka / ucznia (WOPF) – dziecko / uczeń objęty kształceniem specjalnym (pkt 4)</span></span><span><i class="cb"></i><span>Aktualna okresowa ocena funkcjonowania – dziecko / uczeń objęty zajęciami rewalidacyjno-wychowawczymi (pkt 5)</span></span><span><i class="cb"></i><span>Nie dotyczy – dziecko / uczeń nieobjęty kształceniem specjalnym ani zajęciami rewalidacyjno-wychowawczymi</span></span></div>
+  <div class="op-sec"><span class="r">6.</span><h3>Działania podjęte przez nauczycieli, wychowawców i specjalistów w celu poprawy funkcjonowania; formy i zakres pomocy w ramach wczesnego wspomagania rozwoju lub pomocy psychologiczno-pedagogicznej, okres ich udzielania oraz efekty (§ 7 ust. 6 pkt 6)</h3></div>
+  <table class="op">
+    <tr><th style="width:21%">Działanie / forma pomocy</th><th>Zakres i wymiar</th><th style="width:15%">Okres udzielania</th><th style="width:26%">Efekty</th></tr>
+    <tr><td class="k">Dostosowania środowiskowe i dydaktyczne</td><td>strefa wyciszenia, redukcja bodźców, słuchawki wygłuszające, wizualny plan dnia, instrukcje krok po kroku</td><td>od IX 2025 · codziennie · nadal</td><td>spadek epizodów zachowań trudnych o ok. 40%; wydłużenie skupienia z 3 do 8 min</td></tr>
+    <tr><td class="k">Pomoc psychologiczno-pedagogiczna</td><td>zajęcia rozwijające kompetencje emocjonalno-społeczne 1 × 45 min; logopedyczne 1 × 45 min; korekcyjno-kompensacyjne 1 × 45 min; integracja sensoryczna 1 × 45 min; porady i konsultacje dla rodziców 1 × 30 min tygodniowo</td><td>od X 2025 · 10 miesięcy · nadal</td><td>lepsze tolerowanie obecności dzieci w zajęciach kierowanych; pierwsze prośby o przerwę gestem / piktogramem</td></tr>
+    <tr><td class="k">Zajęcia rewalidacyjne (dziecko z orzeczeniem)</td><td>2 godz. tygodniowo: komunikacja i AAC, umiejętności społeczne i ToM, motoryka mała</td><td>od IX 2025 · 1 rok szkolny</td><td>wzrost liczby komunikatów intencjonalnych; poprawa chwytu</td></tr>
+    <tr><td class="k">Wczesne wspomaganie rozwoju (WWRD)</td><td><i class="cb"></i> nie dotyczy  <i class="cb"></i> realizowane w: [placówka] – zakres: [zakres]</td><td>[od – do]</td><td>[efekty]</td></tr>
+    <tr><td class="k">Współpraca z rodzicami</td><td>konsultacje cotygodniowe, zeszyt korespondencji, wspólny system komunikatów i wzmocnień, instruktaż AAC w domu</td><td>od IX 2025 · nadal</td><td>spójne reakcje dorosłych; wzrost poczucia bezpieczeństwa dziecka</td></tr>
+  </table>
+  <div class="op-sec"><span class="r">7.</span><h3>Wnioski dotyczące dalszej pracy z dzieckiem / uczniem mające na celu poprawę funkcjonowania (§ 7 ust. 6 pkt 7)</h3></div>
+  <ul class="op"><li>Utrzymanie struktury dnia, strefy wyciszenia i przygotowania do wydarzeń grupowych; stopniowe wydłużanie udziału.</li><li>Rozwijanie komunikacji funkcjonalnej z tablicą AAC w placówce i w domu; trening komunikatu zastępczego zamiast zachowania trudnego.</li><li>Trening umiejętności społecznych i teorii umysłu w małej grupie z przeniesieniem na zabawy swobodne (rówieśnik-mentor).</li><li>Usprawnianie motoryki małej i samoobsługi z dostosowanymi przyborami i paskiem wizualnym czynności.</li><li>Ocena efektów w styczniu i czerwcu; aktualizacja programu wspólnie z rodzicami.</li></ul>
+  <div class="footer"><span>Załącznik – opinia o funkcjonowaniu dziecka / ucznia · dokument poufny (RODO)</span><span>Strona <b>27</b> z 28 · Opinia · pomoc i wnioski</span></div>
+</section>
+
+<section class="page">
+  <div class="op-head">
+    <div class="op-stamp"><b>[Nazwa przedszkola / szkoły]</b>[Adres placówki, tel., e-mail]<br><span style="font-size:8.5px">(pieczęć placówki)</span></div>
+    <div class="op-right">[Miejscowość], dnia <span class="fill"></span><br>Znak sprawy: <span class="fill"></span><br>Zespół orzekający: <span class="fill">[Nazwa Poradni Psychologiczno-Pedagogicznej]</span></div>
+  </div>
+  <div class="op-sec"><span class="r">8.</span><h3>Informacje uzupełniające dla zespołu orzekającego – fakultatywne, na potrzeby oceny funkcjonowania (§ 8 ust. 2–3)</h3></div>
+  <p class="lead2" style="font-size:10px;margin-bottom:6px">Zespół orzekający dokonuje własnej oceny funkcjonowania (§ 8); poniższe informacje placówka przekazuje dodatkowo, aby ją ułatwić.</p>
+  <p class="just" style="margin:0 0 6px;font-size:10px">Funkcje i struktury ciała (§ 8 ust. 2 pkt 2): zdrowie psychiczne – lęk przed zmianą, sztywność poznawcza, zaburzenia snu; percepcja – nadwrażliwość słuchowa i dotykowa, poszukiwanie stymulacji przedsionkowej; motoryka – obniżona precyzja motoryki małej, nieprawidłowy chwyt; mowa – echolalie, trudności pragmatyczne, korzysta z gestu i piktogramów; funkcje poznawcze – bardzo dobra pamięć wzrokowa, trudności z uwagą i uogólnianiem; funkcje emocjonalno-społeczne – teoria umysłu poniżej normy wiekowej, zachowania trudne o funkcji ucieczkowej; cechy indywidualne – głębokie zainteresowania, pozytywna reakcja na strukturę i stałych dorosłych.</p>
+  <table class="op">
+    <tr><th style="color:var(--green);width:50%">Ułatwienia w środowisku placówki (co pomaga)</th><th style="color:var(--red)">Bariery (co utrudnia)</th></tr>
+    <tr><td><ul class="op" style="margin:0"><li>stały skład kadry i przewidywalny plan dnia (wizualny)</li><li>strefa wyciszenia w sali, słuchawki wygłuszające, przerwy sensoryczne</li><li>tablica wyboru AAC dostępna w sali i w domu</li><li>rówieśnik-mentor w zabawach; jasne zasady wizualne</li><li>zaangażowani rodzice, spójny system komunikatów dom–placówka</li></ul></td><td><ul class="op" style="margin:0"><li>hałas korytarza, gwar w szatni i na stołówce</li><li>apele, uroczystości i wyjścia zbiorowe bez przygotowania</li><li>polecenia wieloetapowe podawane wyłącznie słownie</li><li>nagłe zmiany planu, zastępstwa, zmiana sali</li><li>faktury klejące i mokre podczas zajęć plastycznych</li></ul></td></tr>
+  </table>
+  <p class="just" style="margin:6px 0;font-size:10px"><b style="color:var(--purple)">Informacje od dziecka i rodziców (§ 8 ust. 3 pkt 1 i 3):</b> Informacje od dziecka (w formie dostosowanej do rozwoju) i od rodziców: lubi klocki, tablet z aplikacją o kosmosie i huśtanie; najtrudniejsze są hałas, zmiany planu i mokre ręce; pomagają cisza, plan dnia, słuchawki i wsparcie nauczyciela. Rodzice potwierdzają obraz funkcjonowania i wskazują potrzebę stałej kadry.</p>
+  <div class="sub9" style="--c:var(--blue);margin:8px 0 5px"><span class="tag9">!</span><h3 style="font-size:11px">Stanowisko placówki w sprawie potrzeb dziecka / ucznia (dla zespołu orzekającego)</h3></div>
+  <div class="op-cb"><span><i class="cb on"></i><span>Potrzeba kształcenia specjalnego (wydanie / aktualizacja orzeczenia) z uwagi na autyzm</span></span><span><i class="cb on"></i><span>Zajęcia rewalidacyjne – wnioskowany zakres: komunikacja i AAC, umiejętności społeczne, motoryka mała</span></span><span><i class="cb on"></i><span>Wsparcie dodatkowej osoby – nauczyciel współorganizujący kształcenie (zajęcia kierowane, przejścia, wydarzenia grupowe)</span></span><span><i class="cb on"></i><span>Kontynuacja pomocy psychologiczno-pedagogicznej w dotychczasowych formach</span></span><span><i class="cb"></i><span>Indywidualne nauczanie / zindywidualizowana ścieżka kształcenia</span></span><span><i class="cb"></i><span>Wczesne wspomaganie rozwoju</span></span><span><i class="cb"></i><span>Inne: ……………………………………………</span></span></div>
+  <p class="just" style="margin:0;font-size:10px"><b style="color:var(--purple)">Uzasadnienie:</b> Wysoka potrzeba wsparcia w domenach d2, d7 i d9, potrzeba stałej komunikacji wspomagającej oraz ucieczkowa funkcja zachowań trudnych, którą kontroluje obecność przewidywalnego dorosłego. Dotychczasowe działania przyniosły mierzalną poprawę, co uzasadnia ich kontynuację i rozszerzenie w ramach kształcenia specjalnego.</p>
+  <div class="op-sec"><span class="r">9.</span><h3>Osoby, które rozpoznały trudności, mocne strony i uzdolnienia (nauczyciele, wychowawcy, specjaliści prowadzący zajęcia)</h3></div>
+  <div class="op-sign"><div class="sig" style="border-top:0;text-align:left"><b style="color:var(--purple)">Wychowawca / nauczyciel:</b> [Imię i nazwisko]<br><small>podpis: ………………………………………</small></div><div class="sig" style="border-top:0;text-align:left"><b style="color:var(--purple)">Pedagog specjalny:</b> [Imię i nazwisko]<br><small>podpis: ………………………………………</small></div><div class="sig" style="border-top:0;text-align:left"><b style="color:var(--purple)">Psycholog:</b> [Imię i nazwisko]<br><small>podpis: ………………………………………</small></div><div class="sig" style="border-top:0;text-align:left"><b style="color:var(--purple)">Logopeda:</b> [Imię i nazwisko]<br><small>podpis: ………………………………………</small></div></div>
+  <div class="op-dir">
+    <div class="sig">Dyrektor przedszkola / szkoły<small>podpis i pieczęć · data</small></div>
+    <div class="sig" style="border-top:0;text-align:left;font-weight:400;color:var(--muted);font-size:9.5px">Kopię opinii przekazano rodzicom / pełnoletniemu uczniowi (§ 7 ust. 5) dnia ……………… · podpis rodzica / ucznia: ………………………………</div>
+  </div>
+  <p class="op-note">Załączniki: ocena funkcjonalna (raport, część I–III), arkusze obserwacji, dokumentacja pomocy psychologiczno-pedagogicznej – do wglądu zespołu orzekającego za zgodą rodzica. Opinia zawiera dane dotyczące zdrowia (art. 9 RODO) – dokument poufny.</p>
+  <div class="footer"><span>Załącznik – opinia o funkcjonowaniu dziecka / ucznia · dokument poufny (RODO)</span><span>Strona <b>28</b> z 28 · Opinia · informacje uzupełniające i podpisy</span></div>
 </section>
 
 <script>

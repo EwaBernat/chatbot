@@ -12,6 +12,15 @@ Pliki raportów: `eduplaner2026/raport_oceny_funkcjonalnej/`. **Jedno źródło 
 - **Dwa cele dokumentu, jeden układ:** Wariant A (orzeczenie) = WOPF + elementy IPET; Wariant B (bez orzeczenia) = opinia dla zespołu orzekającego + plan PPP; rewalidacja (13 A) i dodatkowa osoba (14) w Wariancie B tylko jako rekomendacja w 10 B.
 - Nazewnictwo: zawsze **IPET** (nie „IPE”). Sumy godzin: rewalidacja w godzinach zegarowych (60 min), PPP jako liczba zajęć × 45 min + konsultacje – nie mieszać jednostek.
 
+## Opinia o funkcjonowaniu dziecka / ucznia dla poradni (§ 7 rozp. ME z 2.03.2026, poz. 428) – wymagania zapamiętane na życzenie autorki
+
+- **Procedura:** przewodniczący zespołu orzekającego (lub rodzic / wnioskodawca) zwraca się do dyrektora; dyrektor wydaje opinię w **10 dni**; **kopia obowiązkowo dla rodziców / pełnoletniego ucznia**.
+- **Treść obowiązkowa (§ 7 ust. 6 pkt 1–7, tekst oryginalny):** 1 data wydania · 2 imię i nazwisko · 3 informacja o funkcjonowaniu w placówce (trudności, mocne strony, uzdolnienia rozpoznane przez nauczycieli, wychowawców, specjalistów) · 4 aktualna WOPF (kształcenie specjalne) · 5 aktualna okresowa ocena (zajęcia rewalidacyjno-wychowawcze) · 6 działania podjęte, formy i zakres pomocy (WWR / PPP), okres udzielania, efekty · 7 wnioski dotyczące dalszej pracy. Opinia uwzględnia wyniki obserwacji i działań diagnostycznych w placówce. Ust. 7: pkt 3 dotyczy aktywności i uczestniczenia (ICF) oraz zakresu i rodzaju trudności w realizacji programu wychowania przedszkolnego / programów nauczania w oddziale.
+- **Załączniki ewaluacyjne:** dziecko z orzeczeniem – aktualna **WOPFU**; dziecko objęte zajęciami rewalidacyjno-wychowawczymi – aktualna **okresowa ocena funkcjonowania**.
+- **Obszary ICF (§ 7 ust. 7 pkt 1, dokładne brzmienie):** dziecko do ukończenia wychowania przedszkolnego – 5: uczenie się i stosowanie wiedzy · zachowania społeczne we wzajemnych kontaktach – przystosowanie społeczne i emocjonalne · porozumiewanie się · aktywność ruchowa – poruszanie się · dbanie o siebie. Uczeń – **7**: uczenie się i stosowanie wiedzy · ogólne zadania i obowiązki · porozumiewanie się · motoryka, poruszanie się, w tym mobilność i aktywność manualna · dbanie o siebie, samoobsługa i samodzielność · życie domowe · wzajemne kontakty i związki międzyludzkie, życie w społeczności szkolnej i lokalnej.
+- **§ 8 to ocena zespołu PORADNI, nie opinia placówki:** bariery i ułatwienia, funkcje i struktury ciała, informacje od rodziców, nauczycieli i dziecka, nagrania rodziców, transmisja / nagranie za zgodą. W opinii placówki te treści są tylko fakultatywną częścią „informacje uzupełniające”.
+- **Bez reklam:** druk dla poradni i rodzica bez brandowania (nagłówek = nazwa placówki; dopuszczalna jedynie drobna sygnatura „sporządzono w EduPlaner 2026” w stopce). Opinia jako osobny, czysty załącznik na końcu raportu (i osobny plik `Opinia_dla_poradni.docx`); sekcja 4 raportu ma tabelę A (przedszkole 5) i B (uczeń 7).
+
 ## Zasady merytoryczne – Raport Oceny Funkcjonalnej (zapamiętane na życzenie autorki)
 
 - **Narzędzie bazowe zależy od etapu:** przedszkole = **KPOF**, szkoła = **KSzOF**.

@@ -48,6 +48,38 @@ EXTRA_CSS = '''
   table.grid td.ok{color:var(--green);font-weight:800} table.grid td.no{color:var(--red);font-weight:800}
   .rek{display:grid;grid-template-columns:1fr 1fr;gap:5px 14px;font-size:10.5px;margin:6px 0 8px}
   .rek span{display:flex;align-items:flex-start;gap:7px}
+  .gen{font-style:normal;font-size:7.5px;color:#B6A6DF}
+  .logo{font-size:16px;font-weight:800}
+  /* ---- OPINIA dla zespołu orzekającego (czysty druk) ---- */
+  .op-head{display:grid;grid-template-columns:1fr 1fr;gap:16px;align-items:start;margin-bottom:14px}
+  .op-stamp{border:1px dashed var(--line);border-radius:8px;min-height:56px;padding:8px 12px;font-size:9.5px;color:var(--muted)}
+  .op-stamp b{display:block;color:var(--purple);font-size:11px}
+  .op-right{text-align:right;font-size:10.5px;color:var(--muted);line-height:1.6}
+  .op-right .fill{display:inline-block;min-width:150px;border-bottom:1px solid #B6A6DF}
+  .op-title{text-align:center;margin:10px 0 4px}
+  .op-title h1{margin:0;font-size:21px;font-weight:800;color:var(--purple);letter-spacing:.01em}
+  .op-title .s{font-size:10.5px;color:var(--orange);font-weight:700;letter-spacing:.16em;text-transform:uppercase;margin-top:4px}
+  .op-law{font-size:9px;color:var(--muted);text-align:justify;border:1px solid var(--line);border-radius:8px;padding:6px 10px;margin:6px 0 8px;line-height:1.45}
+  .op-law b{color:var(--purple)}
+  .op-sec{display:flex;align-items:center;gap:8px;margin:9px 0 5px}
+  .op-sec .r{font-weight:800;color:var(--orange);font-size:12px;min-width:26px}
+  .op-sec h3{margin:0;font-size:12px;color:var(--purple);font-weight:800;text-transform:uppercase;letter-spacing:.04em}
+  .op-sec::after{content:"";flex:1;height:1px;background:var(--line)}
+  table.op{width:100%;border-collapse:collapse;font-size:9.8px}
+  table.op td,table.op th{border:1px solid var(--line);padding:4px 8px;vertical-align:top;line-height:1.4}
+  table.op th{background:var(--lav);color:var(--purple);font-size:8.5px;letter-spacing:.1em;text-transform:uppercase;text-align:left}
+  table.op td.k{width:31%;font-weight:700;color:var(--purple);background:var(--lav2)}
+  table.op td.lv{white-space:nowrap;font-weight:700;color:var(--purple)}
+  ul.op{margin:2px 0 0;padding-left:16px;font-size:10px;line-height:1.45} ul.op li{margin-bottom:2px}
+  .op-cb{display:grid;grid-template-columns:1fr 1fr;gap:4px 14px;font-size:10.5px;margin:4px 0 6px}
+  .op-cb span{display:flex;gap:7px;align-items:flex-start}
+  .op-sign{display:grid;grid-template-columns:1fr 1fr;gap:14px 24px;margin-top:18px}
+  .op-sign .sig{text-align:left;padding-top:4px}
+  .op-sign .sig small{font-size:9px}
+  .op-dir{margin-top:22px;display:grid;grid-template-columns:1fr 1fr;gap:24px}
+  .op-dir .sig{border-top:1px solid var(--purple);padding-top:5px;text-align:center;font-size:10.5px;color:var(--purple);font-weight:700}
+  .op-dir .sig small{display:block;font-weight:400;color:var(--muted);font-size:9px}
+  .op-note{font-size:9.5px;color:var(--muted);margin-top:10px;line-height:1.5;border-top:1px dashed var(--line);padding-top:6px}
   .lawref{display:inline-block;font-size:9px;font-weight:700;color:var(--purple);background:var(--lav);border-radius:4px;padding:3px 9px;margin:-6px 0 10px}
   table.grid td.act{font-weight:800;color:var(--purple)} table.grid td.dz{white-space:nowrap;color:var(--orange);font-weight:800;font-size:9.5px}
   .flow5{display:grid;grid-template-columns:repeat(5,1fr);gap:8px;margin:8px 0 12px}
@@ -61,8 +93,8 @@ EXTRA_CSS = '''
 pages = []  # list of (name, inner_html)
 def hdr(cap):
     return f'''  <div class="hdr">
-    <div class="l"><div class="logo">PCTP</div><div><div class="name">EduPlaner 2026</div><div class="cap">Ocena Funkcjonalna · {cap}</div></div></div>
-    <div class="r"><span class="pill">Raport · 2026</span><div class="cap">Dokument dla rodzica · 2026</div></div>
+    <div class="l"><div class="logo">§</div><div><div class="name">[Nazwa przedszkola / szkoły]</div><div class="cap">Ocena Funkcjonalna · {cap}</div></div></div>
+    <div class="r"><span class="pill">Ocena funkcjonalna · 2026</span><div class="cap">Dokument dla rodzica i poradni</div></div>
   </div>
   <div class="fields">
     <div class="field"><label>Dotyczy dziecka</label><span></span></div>
@@ -87,12 +119,15 @@ def band(part, h, sub_):
   </div>
 '''
 
-# ---------- 4 ----------
+# ---------- 4 (2 strony: A przedszkole / B szkoła) ----------
 s=D['s4']; b=band('II','Wyniki oceny funkcjonalnej','obserwacja w placówce · wyniki liczbowe · arkusze specjalistyczne · głos dziecka · analiza · decyzja Zespołu')
 b+=sec(4, s['title'], s.get('law'))+lead(s['ref'],s['lead'])
-b+='  <table class="grid">\n    <tr><th>Obszar obserwacji</th><th class="plus">✓ Mocne strony, zasoby i uzdolnienia</th><th class="minus">▸ Trudności, ograniczenia i bariery</th></tr>\n'
-b+=''.join(f'    <tr><td class="area">{a}</td><td class="plus">{x}</td><td class="minus">{y}</td></tr>\n' for a,x,y in s['rows'])+'  </table>\n'
-page('Funkcjonowanie','Część II · Funkcjonowanie w placówce',b)
+def t4(rows):
+    return '  <table class="grid">\n    <tr><th>Obszar (ICF)</th><th class="plus">✓ Mocne strony, zasoby i uzdolnienia</th><th class="minus">▸ Trudności, ograniczenia i bariery</th></tr>\n'+''.join(f'    <tr><td class="area">{a}</td><td class="plus">{x}</td><td class="minus">{y}</td></tr>\n' for a,x,y in rows)+'  </table>\n'
+b+=sub('A',s['titleA'],'wypełnić dla dziecka w przedszkolu')+t4(s['rows'])
+page('Funkcjonowanie A','Część II · Funkcjonowanie w placówce · przedszkole',b)
+b=sec(4, s['title']+' · cd.', None)+sub('B',s['titleB'],'wypełnić dla ucznia szkoły',"var(--blue)")+t4(s['rowsSzkola'])
+page('Funkcjonowanie B','Część II · Funkcjonowanie w placówce · szkoła',b)
 
 # ---------- 5 ----------
 s=D['s5']; b=sec(5, s['title'], s.get('law'))+lead(s['ref'],s['lead'])
@@ -265,10 +300,56 @@ lp3='<section class="page">\n'+hdr('Podstawy prawne')+'''
   <table class="grid small">
     <tr><th style="width:30%">Akt prawny</th><th style="width:11%">Publikacja</th><th>Zakres zastosowania w raporcie</th><th style="width:12%">Sekcje</th></tr>
 '''+''.join(f'    <tr><td class="act">{a}</td><td class="dz">{b}</td><td>{c}</td><td><span class="ref-pill">{d}</span></td></tr>\n' for a,b,c,d in pr['rows'])+'''  </table>
-  <div class="parent" style="margin-top:12px"><b>Dla rodzica.</b> Numery paragrafów wskazują, z jakiego przepisu wynika każda część raportu. Przy każdej sekcji 4–16 znajduje się plakietka „§ Podstawa prawna”.</div>
 '''
+# ---------- ZAŁĄCZNIK · OPINIA dla zespołu orzekającego ----------
+op=D['opinia']; pl=D['placowka']
+def opsec(r,t): return f'  <div class="op-sec"><span class="r">{r}</span><h3>{t}</h3></div>\n'
+def ophead(): return f'''  <div class="op-head">
+    <div class="op-stamp"><b>{pl['nazwa']}</b>{pl['adres']}<br><span style="font-size:8.5px">(pieczęć placówki)</span></div>
+    <div class="op-right">{pl['miejscowosc']}, dnia <span class="fill"></span><br>Znak sprawy: <span class="fill"></span><br>Zespół orzekający: <span class="fill">[Nazwa Poradni Psychologiczno-Pedagogicznej]</span></div>
+  </div>
+'''
+opages=[]
+def optable(rows):
+    return '  <table class="op">\n    <tr><th style="width:23%">Obszar (ICF)</th><th style="color:var(--green)">Mocne strony i uzdolnienia</th><th style="color:var(--red)">Trudności</th><th style="width:17%">Poziom potrzeby wsparcia</th></tr>\n'+''.join(f'    <tr><td class="k">{a}</td><td>{x}</td><td>{y}</td><td class="lv" style="white-space:normal">{z}</td></tr>\n' for a,x,y,z in rows)+'  </table>\n'
+def opsub(tag,t,color='var(--orange)'): return f'  <div class="sub9" style="--c:{color};margin:8px 0 5px"><span class="tag9">{tag}</span><h3 style="font-size:11px">{t}</h3></div>\n'
+def opkv(rows): return '  <table class="op">\n'+''.join(f'    <tr><td class="k">{k}</td><td>{v.replace("☐",cb())}</td></tr>\n' for k,v in rows)+'  </table>\n'
+# strona 1: nagłówek, dane (pkt 1–2), podstawa opinii
+b=ophead()+f'''  <div class="op-title"><h1>{op['title']}</h1><div class="s">{op['sub']}</div></div>
+  <div class="op-law"><b>Podstawa prawna:</b> {op['podstawa']}<br><b>Tryb:</b> {op['procedura']}</div>
+'''+opsec('1.','Data wydania opinii i dane dziecka / ucznia (§ 7 ust. 6 pkt 1–2)')+opkv(op['dane'])
+b+=opsec('2.',op['podstawaOpinii']['title'])+opkv(op['podstawaOpinii']['rows'])
+opages.append(('Opinia · dane i podstawa',b))
+# strona 2: funkcjonowanie A (przedszkole)
+b=ophead()+opsec('3.',op['II']['title'])+f'  <p class="lead2" style="font-size:10px;margin-bottom:4px">{op["II"]["lead"]}</p>\n'
+b+=opsub('A',op['II']['titleA'])+optable(op['II']['rows'])
+opages.append(('Opinia · funkcjonowanie A',b))
+# strona 3: funkcjonowanie B (uczeń) + trudności w programie
+b=ophead()+opsec('3.',op['II']['title']+' · cd.')+opsub('B',op['II']['titleB'],'var(--blue)')+optable(op['II']['rowsSzkola'])+f'  <p class="stnote" style="margin-top:4px"><b>{op["II"]["wynik"]}</b></p>\n'
+b+=opsec('4.',op['III']['title'])+'  <ul class="op">'+''.join(f'<li>{x}</li>' for x in op['III']['items'])+'</ul>\n'
+opages.append(('Opinia · funkcjonowanie B · program',b))
+# strona 4: załączniki, działania i pomoc, wnioski
+b=ophead()+opsec('5.',op['zal']['title'])+'  <div class="op-cb" style="grid-template-columns:1fr">'+''.join(f'<span>{cb(on)}<span>{t}</span></span>' for t,on in op['zal']['items'])+'</div>\n'
+b+=opsec('6.',op['IV']['title'])+'  <table class="op">\n    <tr><th style="width:21%">Działanie / forma pomocy</th><th>Zakres i wymiar</th><th style="width:15%">Okres udzielania</th><th style="width:26%">Efekty</th></tr>\n'+''.join(f'    <tr><td class="k">{a}</td><td>{x.replace("☐",cb())}</td><td>{t}</td><td>{y}</td></tr>\n' for a,x,t,y in op['IV']['rows'])+'  </table>\n'
+b+=opsec('7.',op['VI']['title'])+'  <ul class="op">'+''.join(f'<li>{x}</li>' for x in op['VI']['dalsza'])+'</ul>\n'
+opages.append(('Opinia · pomoc i wnioski',b))
+# strona 5: informacje uzupełniające (§ 8) + podpisy
+u=op['uzup']
+b=ophead()+opsec('8.',u['title'])+f'  <p class="lead2" style="font-size:10px;margin-bottom:6px">{u["lead"]}</p>\n'
+b+=f'  <p class="just" style="margin:0 0 6px;font-size:10px">{u["funkcje"]}</p>\n'
+b+='  <table class="op">\n    <tr><th style="color:var(--green);width:50%">Ułatwienia w środowisku placówki (co pomaga)</th><th style="color:var(--red)">Bariery (co utrudnia)</th></tr>\n    <tr><td><ul class="op" style="margin:0">'+''.join(f'<li>{x}</li>' for x in u['ulatwienia'])+'</ul></td><td><ul class="op" style="margin:0">'+''.join(f'<li>{x}</li>' for x in u['bariery'])+'</ul></td></tr>\n  </table>\n'
+b+=f'  <p class="just" style="margin:6px 0;font-size:10px"><b style="color:var(--purple)">Informacje od dziecka i rodziców (§ 8 ust. 3 pkt 1 i 3):</b> {u["glos"]}</p>\n'
+b+=opsub('!',u['rekTitle'],'var(--blue)')+'  <div class="op-cb">'+''.join(f'<span>{cb(on)}<span>{t}</span></span>' for t,on in op['VI']['items'])+'</div>\n'+f'  <p class="just" style="margin:0;font-size:10px"><b style="color:var(--purple)">Uzasadnienie:</b> {op["VI"]["uzasadnienie"]}</p>\n'
+b+=opsec('9.',op['podpisy']['osoby'])+'  <div class="op-sign">'+''.join(f'<div class="sig" style="border-top:0;text-align:left"><b style="color:var(--purple)">{r}:</b> {n}<br><small>podpis: ………………………………………</small></div>' for r,n in op['sporzadzili'])+'</div>\n'
+b+=f'''  <div class="op-dir">
+    <div class="sig">{op['podpisy']['dyrektor']}<small>podpis i pieczęć · data</small></div>
+    <div class="sig" style="border-top:0;text-align:left;font-weight:400;color:var(--muted);font-size:9.5px">{op['podpisy']['kopia']}</div>
+  </div>
+'''+f'  <p class="op-note">{op["zalaczniki"]} Opinia zawiera dane dotyczące zdrowia (art. 9 RODO) – dokument poufny.</p>\n'
+opages.append(('Opinia · informacje uzupełniające i podpisy',b))
+
 # ---------- składanie ----------
-TOTAL = 5 + len(pages)
+TOTAL = 5 + len(pages) + len(opages)
 toc = D['toc']
 tochtml = '  <div class="toc">\n    <h5>'+toc['I']['title']+'</h5>\n'+''.join(f'    <div><div class="k">{n}</div><h4>{t}</h4><p>{d}</p></div>\n' for n,t,d in toc['I']['items'])+'  </div>\n'
 for part in ('II','III'):
@@ -276,11 +357,15 @@ for part in ('II','III'):
     tochtml += ''.join(f'    <div style="padding:7px 8px 6px"><div class="k" style="font-size:16px">{n}</div><h4 style="font-size:9.5px;margin:3px 0 0">{t}</h4></div>\n' for n,t in toc[part]['items'])+'  </div>\n'
 p1 = P1.replace('{{TOTAL}}', str(TOTAL)).replace('{{TOC}}\n', tochtml).replace('Strona <b>3</b> z','Strona <b>5</b> z').replace('Strona <b>2</b> z','Strona <b>4</b> z')
 cut = p1.index('<!-- ======================= STRONA 2')
-p1 = p1[:cut] + lp2 + f'  <div class="footer"><span>EduPlaner 2026 · PCTP</span><span>Strona <b>2</b> z {TOTAL} · Jak czytać · warianty</span></div>\n</section>\n\n' + lp3 + f'  <div class="footer"><span>EduPlaner 2026 · PCTP</span><span>Strona <b>3</b> z {TOTAL} · Podstawy prawne</span></div>\n</section>\n\n' + p1[cut:]
+p1 = p1[:cut] + lp2 + f'  <div class="footer"><span>[Nazwa placówki] · dokument poufny (RODO) <i class="gen">· sporządzono w EduPlaner 2026</i></span><span>Strona <b>2</b> z {TOTAL} · Jak czytać · warianty</span></div>\n</section>\n\n' + lp3 + f'  <div class="footer"><span>[Nazwa placówki] · dokument poufny (RODO) <i class="gen">· sporządzono w EduPlaner 2026</i></span><span>Strona <b>3</b> z {TOTAL} · Podstawy prawne</span></div>\n</section>\n\n' + p1[cut:]
 body = p1
-for i,(name,inner) in enumerate(pages):
+for i,(name,inner) in enumerate(pages + [('OP:'+n, x) for n,x in opages]):
     n = 6+i
-    body += inner + f'  <div class="footer"><span>EduPlaner 2026 · PCTP</span><span>Strona <b>{n}</b> z {TOTAL} · {name}</span></div>\n</section>\n\n'
+    if name.startswith('OP:'):
+        name = name[3:]
+        body += '<section class="page">\n' + inner + f'  <div class="footer"><span>Załącznik – opinia o funkcjonowaniu dziecka / ucznia · dokument poufny (RODO)</span><span>Strona <b>{n}</b> z {TOTAL} · {name}</span></div>\n</section>\n\n'
+        continue
+    body += inner + f'  <div class="footer"><span>[Nazwa placówki] · dokument poufny (RODO) <i class="gen">· sporządzono w EduPlaner 2026</i></span><span>Strona <b>{n}</b> z {TOTAL} · {name}</span></div>\n</section>\n\n'
 
 JS='''<script>
 (function(){
@@ -304,7 +389,7 @@ HEAD = '''<!doctype html>
 <style>
 '''
 css = CSS.replace('\n  @media screen and (max-width:760px){', EXTRA_CSS+'\n  @media screen and (max-width:760px){',1)
-css = css.replace('.fields,.team ol,.tools,.flow,.toc,.stats,.hours{grid-template-columns:1fr}','.fields,.team ol,.tools,.flow,.toc,.stats,.hours,.voice,.lvlbox,.kv,.cbl,.flow5{grid-template-columns:1fr !important}')
+css = css.replace('.fields,.team ol,.tools,.flow,.toc,.stats,.hours{grid-template-columns:1fr}','.fields,.team ol,.tools,.flow,.toc,.stats,.hours,.voice,.lvlbox,.kv,.cbl,.flow5,.op-head,.op-cb,.op-sign,.op-dir{grid-template-columns:1fr !important}')
 out = HEAD+css+'\n</style>\n</head>\n<body>\n\n'+body+JS+'\n</body>\n</html>\n'
 open('Raport_Oceny_Funkcjonalnej.html','w',encoding='utf-8').write(out)
 print('pages', TOTAL)
