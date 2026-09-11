@@ -14,71 +14,71 @@
     --sans:"Mulish","Segoe UI","DM Sans",Arial,sans-serif;
   }
   *{box-sizing:border-box}
-  html,body{margin:0;background:#ECE9F3;color:var(--ink);font-family:var(--sans);font-size:13px;line-height:1.5}
-  .page{background:#fff;width:210mm;min-height:297mm;margin:12mm auto;padding:12mm 14mm 18mm;box-shadow:0 12px 40px rgba(45,27,105,.12);position:relative}
+  html,body{margin:0;background:#ECE9F3;color:var(--ink);font-family:var(--sans);font-size:16px;line-height:1.5}
+  .page{background:#fff;width:210mm;min-height:0;margin:12mm auto;padding:12mm 14mm 14mm;box-shadow:0 12px 40px rgba(45,27,105,.12);position:relative}
 
   /* ---- nagłówek strony (wzór IPET) ---- */
   .hdr{display:flex;justify-content:space-between;align-items:center;border-bottom:2px solid var(--purple);padding-bottom:8px}
   .hdr .l{display:flex;gap:10px;align-items:center}
-  .logo{width:36px;height:36px;border-radius:50%;background:var(--purple);color:#fff;display:grid;place-items:center;font-size:9px;font-weight:800;letter-spacing:.04em}
-  .hdr .name{font-size:17px;font-weight:800;color:var(--purple);line-height:1.05}
-  .hdr .cap{font-size:8.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);margin-top:2px}
+  .logo{width:36px;height:36px;border-radius:50%;background:var(--purple);color:#fff;display:grid;place-items:center;font-size:11px;font-weight:800;letter-spacing:.04em}
+  .hdr .name{font-size:18px;font-weight:800;color:var(--purple);line-height:1.05}
+  .hdr .cap{font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);margin-top:2px}
   .hdr .r{text-align:right}
-  .pill{display:inline-block;background:var(--orange);color:#fff;font-size:9px;font-weight:800;letter-spacing:.08em;padding:4px 12px;border-radius:999px;text-transform:uppercase}
+  .pill{display:inline-block;background:var(--orange);color:#fff;font-size:11px;font-weight:800;letter-spacing:.08em;padding:4px 12px;border-radius:999px;text-transform:uppercase}
   .hdr .r .cap{margin-top:5px}
 
   .fields{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:10px;margin:12px 0 0}
   .field{background:var(--lav);border-radius:8px;padding:7px 12px;display:flex;align-items:baseline;gap:10px;min-height:32px}
-  .field label{font-size:8px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:var(--lav-text);white-space:nowrap}
+  .field label{font-size:11px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:var(--lav-text);white-space:nowrap}
   .field span{flex:1;border-bottom:1px solid #B6A6DF;height:14px}
-  .field .r{font-size:11px;color:var(--muted)}
+  .field .r{font-size:16px;color:var(--muted)}
 
   /* ---- tytuł wyśrodkowany ---- */
   .titleblock{text-align:center;margin:26px 0 18px}
-  .badge{display:inline-block;background:var(--orange);color:#fff;font-size:9px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;padding:5px 14px;border-radius:4px}
-  .kicker{font-size:9.5px;letter-spacing:.32em;text-transform:uppercase;color:var(--purple);font-weight:600;margin:12px 0 8px}
-  h1.title{font-size:34px;white-space:nowrap;line-height:1.1;font-weight:800;color:var(--purple);margin:0 0 8px;letter-spacing:-.005em}
-  .sub{font-size:10.5px;letter-spacing:.3em;text-transform:uppercase;color:var(--orange);font-weight:700}
-  .intro{text-align:justify;font-size:11.5px;line-height:1.6;margin:16px auto 0;color:var(--ink)}
+  .badge{display:inline-block;background:var(--orange);color:#fff;font-size:11px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;padding:5px 14px;border-radius:4px}
+  .kicker{font-size:11px;letter-spacing:.32em;text-transform:uppercase;color:var(--purple);font-weight:600;margin:12px 0 8px}
+  h1.title{font-size:37px;white-space:nowrap;line-height:1.1;font-weight:800;color:var(--purple);margin:0 0 8px;letter-spacing:-.005em}
+  .sub{font-size:16px;letter-spacing:.3em;text-transform:uppercase;color:var(--orange);font-weight:700}
+  .intro{text-align:justify;font-size:16px;line-height:1.6;margin:16px auto 0;color:var(--ink)}
   .intro b{color:var(--purple)}
-  .date-line{display:flex;justify-content:center;align-items:baseline;gap:10px;font-size:12px;color:var(--muted);margin:16px 0 22px}
+  .date-line{display:flex;justify-content:center;align-items:baseline;gap:10px;font-size:16px;color:var(--muted);margin:16px 0 22px}
   .date-line .fill{flex:0 0 220px;border-bottom:1px solid #B6A6DF;height:14px}
 
   /* ---- ramki (wzór IPET: białe, obrys lawendowy, kolorowa lewa krawędź) ---- */
   .box{background:#fff;border:1px solid var(--line);border-left:4px solid var(--c,var(--orange));border-radius:8px;padding:10px 14px 12px;break-inside:avoid}
-  .box .lbl{font-size:8.5px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:var(--purple);margin-bottom:6px}
+  .box .lbl{font-size:11px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:var(--purple);margin-bottom:6px}
   .team{--c:var(--orange);margin-bottom:12px}
   .team ol{margin:0;padding:0;list-style:none;display:grid;grid-template-columns:1fr 1fr;gap:9px 24px;counter-reset:m}
-  .team li{counter-increment:m;display:flex;align-items:flex-end;gap:8px;font-size:12px}
+  .team li{counter-increment:m;display:flex;align-items:flex-end;gap:8px;font-size:16px}
   .team li::before{content:counter(m) ".";color:var(--orange);font-weight:800;min-width:16px}
   .team li span{flex:1;border-bottom:1px solid #B6A6DF;height:16px}
 
   .legal{--c:var(--purple);display:grid;grid-template-columns:40px 1fr;gap:12px;align-items:start;background:var(--lav2)}
-  .legal .ico{width:38px;height:38px;border-radius:50%;background:var(--lav);color:var(--orange);display:grid;place-items:center;font-size:20px;font-weight:800;margin-top:2px}
-  .legal p{margin:0;font-size:11.5px;line-height:1.6;text-align:justify}
+  .legal .ico{width:38px;height:38px;border-radius:50%;background:var(--lav);color:var(--orange);display:grid;place-items:center;font-size:23px;font-weight:800;margin-top:2px}
+  .legal p{margin:0;font-size:16px;line-height:1.6;text-align:justify}
   .legal .ref{color:var(--purple);font-weight:700}
 
   .toc{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:14px}
-  .toc h5{grid-column:1/-1;margin:0;font-size:8.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--purple);font-weight:800;display:flex;align-items:center;gap:8px}
+  .toc h5{grid-column:1/-1;margin:0;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--purple);font-weight:800;display:flex;align-items:center;gap:8px}
   .toc h5::before{content:"";width:8px;height:8px;border-radius:2px;background:var(--purple)}
   .toc > div{border:1px solid var(--line);border-radius:8px;padding:10px 12px;background:#fff;border-top:3px solid var(--orange)}
-  .toc .k{font-size:22px;font-weight:800;color:var(--orange);line-height:1}
-  .toc h4{margin:5px 0 3px;font-size:11.5px;color:var(--purple);font-weight:800}
-  .toc p{margin:0;font-size:10.5px;color:var(--muted);line-height:1.45}
+  .toc .k{font-size:25px;font-weight:800;color:var(--orange);line-height:1}
+  .toc h4{margin:5px 0 3px;font-size:16px;color:var(--purple);font-weight:800}
+  .toc p{margin:0;font-size:16px;color:var(--muted);line-height:1.45}
   .chips{display:flex;gap:6px;flex-wrap:wrap;justify-content:center;margin-top:16px}
-  .chip{font-size:9px;font-weight:800;letter-spacing:.06em;padding:4px 10px;border-radius:999px;border:1px solid var(--line);background:#fff;color:var(--purple)}
+  .chip{font-size:11px;font-weight:800;letter-spacing:.06em;padding:4px 10px;border-radius:999px;border:1px solid var(--line);background:#fff;color:var(--purple)}
   .chip.o{background:var(--orangeMist);border-color:transparent;color:var(--orange)}
   .chip.l{background:var(--lav);border-color:transparent}
 
   /* ---- nagłówki sekcji: pomarańczowy numer + fiolet + linia ---- */
   .sec{display:flex;align-items:center;gap:10px;margin:22px 0 12px}
-  .sec .n{width:22px;height:22px;border-radius:5px;background:var(--orange);color:#fff;font-weight:800;font-size:12px;display:grid;place-items:center}
-  .sec h2{margin:0;font-size:14px;letter-spacing:.06em;text-transform:uppercase;color:var(--purple);font-weight:800}
+  .sec .n{width:22px;height:22px;border-radius:5px;background:var(--orange);color:#fff;font-weight:800;font-size:16px;display:grid;place-items:center}
+  .sec h2{margin:0;font-size:17px;letter-spacing:.06em;text-transform:uppercase;color:var(--purple);font-weight:800}
   .sec::after{content:"";flex:1;height:1px;background:var(--line)}
 
   /* ---- metryczka ---- */
-  table.meta{width:100%;border-collapse:separate;border-spacing:0;font-size:12px;border:1px solid var(--line);border-radius:8px;overflow:hidden}
-  table.meta th{width:30%;text-align:left;vertical-align:top;padding:10px 12px;background:var(--lav);color:var(--purple);font-weight:800;font-size:8.5px;letter-spacing:.1em;text-transform:uppercase;border-bottom:1px solid var(--line)}
+  table.meta{width:100%;border-collapse:separate;border-spacing:0;font-size:16px;border:1px solid var(--line);border-radius:8px;overflow:hidden}
+  table.meta th{width:30%;text-align:left;vertical-align:top;padding:10px 12px;background:var(--lav);color:var(--purple);font-weight:800;font-size:11px;letter-spacing:.1em;text-transform:uppercase;border-bottom:1px solid var(--line)}
   table.meta td{padding:9px 12px;border-bottom:1px solid var(--line2);vertical-align:top;background:#fff}
   table.meta tr:last-child th,table.meta tr:last-child td{border-bottom:0}
   .ph{color:var(--muted);font-style:italic}
@@ -90,50 +90,50 @@
   /* ---- procedura ---- */
   .flow{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin:12px 0 14px}
   .step{border:1px solid var(--line);border-radius:8px;padding:10px 12px;background:#fff;position:relative}
-  .step .k{width:22px;height:22px;border-radius:50%;background:var(--lav);color:var(--orange);font-weight:800;font-size:11px;display:grid;place-items:center;margin-bottom:6px}
-  .step h4{margin:0 0 3px;font-size:11.5px;color:var(--purple);font-weight:800}
-  .step p{margin:0;font-size:10.5px;color:var(--muted);line-height:1.4}
+  .step .k{width:22px;height:22px;border-radius:50%;background:var(--lav);color:var(--orange);font-weight:800;font-size:16px;display:grid;place-items:center;margin-bottom:6px}
+  .step h4{margin:0 0 3px;font-size:16px;color:var(--purple);font-weight:800}
+  .step p{margin:0;font-size:16px;color:var(--muted);line-height:1.4}
   .step:not(:last-child)::after{content:"›";position:absolute;right:-9px;top:40%;color:var(--orange);font-size:18px;font-weight:800;background:#fff}
-  .note{background:var(--lav2);border:1px solid var(--line);border-left:4px solid var(--orange);padding:12px 16px;border-radius:8px;font-size:12px;line-height:1.6;text-align:justify}
+  .note{background:var(--lav2);border:1px solid var(--line);border-left:4px solid var(--orange);padding:12px 16px;border-radius:8px;font-size:16px;line-height:1.6;text-align:justify}
   .note b{color:var(--orange)}
-  .icf{display:flex;gap:8px;margin-top:14px;font-size:10px}
+  .icf{display:flex;gap:8px;margin-top:14px;font-size:16px}
   .icf div{flex:1;text-align:center;padding:8px 6px;border-radius:8px;background:var(--lav);color:var(--purple);font-weight:700}
   .icf div small{display:block;color:var(--lav-text);font-weight:600;margin-top:1px}
 
   /* ---- narzędzia ---- */
-  .lead{font-size:12px;line-height:1.6;margin:0 0 12px;text-align:justify}
+  .lead{font-size:16px;line-height:1.6;margin:0 0 12px;text-align:justify}
   .lead b{color:var(--purple)}
   .tools{display:grid;grid-template-columns:1fr 1fr;gap:10px}
   .tool{border:1px solid var(--line);border-left:4px solid var(--c,var(--purple));border-radius:8px;padding:10px 14px 12px;background:#fff;break-inside:avoid}
-  .tool .tag{font-size:8.5px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:var(--c,var(--purple))}
-  .tool h4{margin:3px 0 5px;font-size:13px;color:var(--purple);font-weight:800;line-height:1.25}
-  .tool p{margin:0;font-size:11px;line-height:1.5}
+  .tool .tag{font-size:11px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:var(--c,var(--purple))}
+  .tool h4{margin:3px 0 5px;font-size:17px;color:var(--purple);font-weight:800;line-height:1.25}
+  .tool p{margin:0;font-size:16px;line-height:1.5}
   .tool.wide{grid-column:1/-1}
   .abc{display:flex;gap:8px;margin-top:9px}
-  .abc span{flex:1;text-align:center;font-size:10px;padding:6px 4px;border-radius:8px;background:var(--orangeMist);color:var(--red);font-weight:700}
-  .abc span b{display:block;font-size:16px;line-height:1.1;font-weight:800}
+  .abc span{flex:1;text-align:center;font-size:16px;padding:6px 4px;border-radius:8px;background:var(--orangeMist);color:var(--red);font-weight:700}
+  .abc span b{display:block;font-size:18px;line-height:1.1;font-weight:800}
 
-  .parent{margin-top:14px;background:var(--paper);border:1px solid var(--line2);border-radius:8px;padding:10px 14px;font-size:11.5px;line-height:1.55}
+  .parent{margin-top:14px;background:var(--paper);border:1px solid var(--line2);border-radius:8px;padding:10px 14px;font-size:16px;line-height:1.55}
   .parent b{color:var(--orange)}
 
   /* ---- podpisy ---- */
   .sigs{display:grid;grid-template-columns:1fr 1fr 1fr;gap:20px;margin-top:22px}
-  .sig{border-top:1px solid var(--purple);padding-top:5px;text-align:center;font-size:10.5px;color:var(--purple);font-weight:700}
-  .sig small{display:block;font-weight:400;color:var(--muted);font-size:9px}
+  .sig{border-top:1px solid var(--purple);padding-top:5px;text-align:center;font-size:16px;color:var(--purple);font-weight:700}
+  .sig small{display:block;font-weight:400;color:var(--muted);font-size:11px}
   .sig.wide{grid-column:1/-1;max-width:60%;margin:0 auto;width:100%}
-  .footer{position:absolute;left:14mm;right:14mm;bottom:10mm;display:flex;justify-content:space-between;font-size:9px;color:var(--muted);border-top:1px solid var(--line2);padding-top:6px}
+  .footer{position:static;margin-top:18px;display:flex;justify-content:space-between;font-size:11px;color:var(--muted);border-top:1px solid var(--line2);padding-top:6px}
   .footer b{color:var(--orange)}
 
 
   /* ---- CZĘŚĆ II ---- */
   .partband{margin:18px 0 6px;text-align:center}
-  .partband .badge{font-size:8.5px}
-  .partband h2{margin:8px 0 2px;font-size:20px;font-weight:800;color:var(--purple)}
-  .partband .sub{font-size:9px;letter-spacing:.2em}
-  .lead2{font-size:11px;line-height:1.55;margin:0 0 10px;text-align:justify;color:var(--muted)}
+  .partband .badge{font-size:11px}
+  .partband h2{margin:8px 0 2px;font-size:23px;font-weight:800;color:var(--purple)}
+  .partband .sub{font-size:11px;letter-spacing:.2em}
+  .lead2{font-size:16px;line-height:1.55;margin:0 0 10px;text-align:justify;color:var(--muted)}
   .lead2 b{color:var(--purple)}
-  table.grid{width:100%;border-collapse:separate;border-spacing:0;font-size:10.5px;border:1px solid var(--line);border-radius:8px;overflow:hidden}
-  table.grid th{background:var(--lav);color:var(--purple);font-size:8px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;text-align:left;padding:8px 10px;border-bottom:1px solid var(--line);vertical-align:bottom}
+  table.grid{width:100%;border-collapse:separate;border-spacing:0;font-size:16px;border:1px solid var(--line);border-radius:8px;overflow:hidden}
+  table.grid th{background:var(--lav);color:var(--purple);font-size:11px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;text-align:left;padding:8px 10px;border-bottom:1px solid var(--line);vertical-align:bottom}
   table.grid td{padding:8px 10px;border-bottom:1px solid var(--line2);vertical-align:top;line-height:1.45}
   table.grid tr:last-child td{border-bottom:0}
   table.grid td.area{font-weight:800;color:var(--purple);width:19%}
@@ -145,25 +145,25 @@
   table.grid ul{margin:0;padding-left:14px} table.grid li{margin:0 0 3px}
   .stats{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin:10px 0 12px}
   .stat{border:1px solid var(--line);border-radius:8px;padding:9px 12px;background:#fff;border-top:3px solid var(--orange)}
-  .stat .l{font-size:8px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:var(--lav-text)}
-  .stat .v{font-size:19px;font-weight:800;color:var(--purple);line-height:1.15;margin-top:3px}
-  .stat .v small{font-size:10px;font-weight:600;color:var(--muted)}
+  .stat .l{font-size:11px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:var(--lav-text)}
+  .stat .v{font-size:22px;font-weight:800;color:var(--purple);line-height:1.15;margin-top:3px}
+  .stat .v small{font-size:16px;font-weight:600;color:var(--muted)}
   .stat.warn{border-top-color:var(--amber)}
   .meter{display:flex;align-items:center;gap:6px}
   .meter i{flex:0 0 46px;height:6px;border-radius:3px;background:var(--lav);position:relative;overflow:hidden}
   .meter i::after{content:"";position:absolute;left:0;top:0;bottom:0;width:var(--w);background:var(--purple);border-radius:3px}
-  .lvl{display:inline-block;font-size:9px;font-weight:800;padding:2px 8px;border-radius:999px;white-space:nowrap}
+  .lvl{display:inline-block;font-size:11px;font-weight:800;padding:2px 8px;border-radius:999px;white-space:nowrap}
   .lvl.l1{background:#E6F4EC;color:var(--green)} .lvl.l2{background:#FBF1DC;color:#9A6A0A} .lvl.l3{background:#FBE6E3;color:var(--red)}
-  .legend{display:flex;gap:14px;justify-content:flex-end;font-size:9px;color:var(--muted);margin-top:6px}
+  .legend{display:flex;gap:14px;justify-content:flex-end;font-size:11px;color:var(--muted);margin-top:6px}
   .res{border:1px solid var(--line);border-left:4px solid var(--c,var(--purple));border-radius:8px;padding:8px 12px 9px;background:#fff;margin-bottom:8px;break-inside:avoid}
-  .res h4{margin:0 0 3px;font-size:11.5px;color:var(--purple);font-weight:800}
-  .res p{margin:0;font-size:10.5px;line-height:1.5;text-align:justify}
+  .res h4{margin:0 0 3px;font-size:16px;color:var(--purple);font-weight:800}
+  .res p{margin:0;font-size:16px;line-height:1.5;text-align:justify}
   .res b{color:var(--c,var(--purple))}
-  .res .rec{margin-top:4px;font-size:10.5px;color:var(--purple)} .res .rec b{color:var(--orange)}
+  .res .rec{margin-top:4px;font-size:16px;color:var(--purple)} .res .rec b{color:var(--orange)}
 
   /* ---- wybór narzędzia bazowego: KPOF (przedszkole, bez stenów) / KSzOF (szkoła, ze stenami) ---- */
-  .switch{display:flex;gap:8px;align-items:center;margin:0 0 10px;font-size:10.5px}
-  .switch .t{font-size:8.5px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:var(--lav-text);margin-right:4px}
+  .switch{display:flex;gap:8px;align-items:center;margin:0 0 10px;font-size:16px}
+  .switch .t{font-size:11px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:var(--lav-text);margin-right:4px}
   .switch label{display:flex;gap:6px;align-items:center;border:1px solid var(--line);border-radius:999px;padding:4px 12px;cursor:pointer;background:#fff;font-weight:700;color:var(--purple)}
   .switch input{accent-color:var(--orange);margin:0}
   .switch label:has(input:checked){background:var(--orangeMist);border-color:transparent;color:var(--orange)}
@@ -171,114 +171,115 @@
   .page.kpof .sten{display:none}
   .page.kpof .only-kszof{display:none}
   .page.kszof .only-kpof{display:none}
-  .stnote{font-size:9.5px;color:var(--muted);margin-top:6px;line-height:1.45}
+  .stnote{font-size:11px;color:var(--muted);margin-top:6px;line-height:1.45}
   .stnote b{color:var(--purple)}
 
-  .st{display:flex;flex-direction:column;gap:2px;font-size:9px;color:var(--muted);white-space:nowrap}
+  .st{display:flex;flex-direction:column;gap:2px;font-size:11px;color:var(--muted);white-space:nowrap}
   .st span{display:flex;align-items:center;gap:5px}
   .st .cb{width:11px;height:11px;margin:0}
-  .src{font-size:9px;color:var(--orange);font-weight:800}
+  .src{font-size:11px;color:var(--orange);font-weight:800}
 
   /* ---- sekcja 9: rewalidacja / PPP / pozostałe ---- */
   .sub9{display:flex;align-items:center;gap:8px;margin:10px 0 6px}
-  .sub9 .tag9{font-size:9px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:#fff;padding:3px 9px;border-radius:4px;background:var(--c,var(--orange))}
-  .sub9 h3{margin:0;font-size:12px;color:var(--purple);font-weight:800}
-  .sub9 small{color:var(--muted);font-size:9.5px;font-weight:500}
+  .sub9 .tag9{font-size:11px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:#fff;padding:3px 9px;border-radius:4px;background:var(--c,var(--orange))}
+  .sub9 h3{margin:0;font-size:16px;color:var(--purple);font-weight:800}
+  .sub9 small{color:var(--muted);font-size:11px;font-weight:500}
   table.grid.rew td.area{border-left:3px solid var(--orange);width:auto}
   table.grid.ppp td.area{border-left:3px solid var(--blue);width:auto}
   table.grid tr.sum td{background:var(--lav);font-weight:800;color:var(--purple);border-top:1px solid var(--line)}
   table.grid td.time{white-space:nowrap;font-weight:800;color:var(--purple)}
-  table.grid td.time small{display:block;font-weight:600;color:var(--muted);font-size:9px}
+  table.grid td.time small{display:block;font-weight:600;color:var(--muted);font-size:11px}
   .hours{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:0 0 6px}
-  .hours .stat .v{font-size:17px}
+  .hours .stat .v{font-size:18px}
   .hours .stat.b{border-top-color:var(--blue)}
 
   /* ---- rozszerzenia: części II–III ---- */
   .partband.p3 .badge{background:var(--purple)}
-  .cbl{display:grid;grid-template-columns:1fr 1fr;gap:5px 14px;font-size:10.5px;margin:6px 0 10px}
+  .cbl{display:grid;grid-template-columns:1fr 1fr;gap:5px 14px;font-size:16px;margin:6px 0 10px}
   .cbl span{display:flex;align-items:center;gap:7px}
   .cbl .cb{margin:0}
   .cb.on{background:var(--orange);border-color:var(--orange);position:relative}
   .cb.on::after{content:"";position:absolute;left:4px;top:1px;width:4px;height:8px;border:solid #fff;border-width:0 2px 2px 0;transform:rotate(45deg)}
   .voice{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:8px 0}
-  .voice .box{padding:8px 12px 10px} .voice .box p{margin:0;font-size:11px;line-height:1.5;font-style:italic;color:var(--ink)}
+  .voice .box{padding:8px 12px 10px} .voice .box p{margin:0;font-size:16px;line-height:1.5;font-style:italic;color:var(--ink)}
   .voice .box.wide{grid-column:1/-1}
-  .mood{display:flex;gap:14px;align-items:center;margin:6px 0 10px;font-size:9.5px;color:var(--muted)}
+  .mood{display:flex;gap:14px;align-items:center;margin:6px 0 10px;font-size:11px;color:var(--muted)}
   .mood div{display:flex;flex-direction:column;align-items:center;gap:3px}
   .mood i{width:20px;height:20px;border-radius:50%;display:block;border:2px solid transparent}
   .mood .sel i{outline:2px solid var(--orange);outline-offset:2px}
   .lvlbox{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin:8px 0 12px}
   .lvlbox > div{border:1px solid var(--line);border-radius:8px;padding:10px 12px;display:grid;grid-template-columns:18px 1fr;gap:8px;align-items:start}
   .lvlbox > div.sel{background:var(--orangeMist);border-color:var(--orange)}
-  .lvlbox h4{margin:0 0 3px;font-size:11.5px;color:var(--purple);font-weight:800}
-  .lvlbox p{margin:0;font-size:10px;color:var(--muted);line-height:1.4}
+  .lvlbox h4{margin:0 0 3px;font-size:16px;color:var(--purple);font-weight:800}
+  .lvlbox p{margin:0;font-size:16px;color:var(--muted);line-height:1.4}
   .kv{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin:8px 0}
   .kv div{background:var(--lav);border-radius:8px;padding:8px 10px}
-  .kv .l{font-size:8px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:var(--lav-text)}
-  .kv .v{font-size:11px;font-weight:800;color:var(--purple);margin-top:2px;line-height:1.3}
-  .just{text-align:justify;font-size:11px;line-height:1.6;margin:6px 0}
-  ul.tick{margin:4px 0 0;padding-left:0;list-style:none;font-size:11px;line-height:1.5}
+  .kv .l{font-size:11px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:var(--lav-text)}
+  .kv .v{font-size:16px;font-weight:800;color:var(--purple);margin-top:2px;line-height:1.3}
+  .just{text-align:justify;font-size:16px;line-height:1.6;margin:6px 0}
+  ul.tick{margin:4px 0 0;padding-left:0;list-style:none;font-size:16px;line-height:1.5}
   ul.tick li{padding-left:16px;position:relative;margin-bottom:3px}
   ul.tick li::before{content:"✓";position:absolute;left:0;color:var(--green);font-weight:800}
-  .status-pill{display:inline-block;font-size:9px;font-weight:800;padding:2px 8px;border-radius:999px;white-space:nowrap}
+  .status-pill{display:inline-block;font-size:11px;font-weight:800;padding:2px 8px;border-radius:999px;white-space:nowrap}
   .status-pill.done{background:#E6F4EC;color:var(--green)} .status-pill.now{background:#FBF1DC;color:#9A6A0A} .status-pill.plan{background:var(--lav);color:var(--purple)}
-  .ref-pill{display:inline-block;font-size:9px;font-weight:800;color:var(--orange);background:var(--orangeMist);padding:2px 7px;border-radius:4px;white-space:nowrap}
-  .signbox{border:1px dashed var(--line);border-radius:8px;padding:8px 12px;font-size:10.5px;color:var(--muted);margin-top:8px}
+  .ref-pill{display:inline-block;font-size:11px;font-weight:800;color:var(--orange);background:var(--orangeMist);padding:2px 7px;border-radius:4px;white-space:nowrap}
+  .signbox{border:1px dashed var(--line);border-radius:8px;padding:8px 12px;font-size:16px;color:var(--muted);margin-top:8px}
   .signbox b{color:var(--purple)}
-  table.grid.small td{font-size:9.6px;padding:6px 8px;line-height:1.4} table.grid.small th{padding:6px 8px}
+  table.grid.small td{font-size:11px;padding:6px 8px;line-height:1.4} table.grid.small th{padding:6px 8px}
   table.grid.tight td{padding:6px 9px}
-  .hours.tight .stat{padding:6px 10px} .hours.tight .stat .v{font-size:14px}
+  .hours.tight .stat{padding:6px 10px} .hours.tight .stat .v{font-size:17px}
   .varbox{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:8px 0 10px}
-  .varbox > div{border:1px solid var(--line);border-radius:8px;padding:9px 12px;font-size:10.5px;line-height:1.5;display:grid;grid-template-columns:22px 1fr;gap:8px;align-items:start}
-  .varbox .tag9{font-size:10px;padding:2px 0;width:22px;text-align:center;border-radius:4px;color:#fff;font-weight:800}
+  .varbox > div{border:1px solid var(--line);border-radius:8px;padding:9px 12px;font-size:16px;line-height:1.5;display:grid;grid-template-columns:22px 1fr;gap:8px;align-items:start}
+  .varbox .tag9{font-size:16px;padding:2px 0;width:22px;text-align:center;border-radius:4px;color:#fff;font-weight:800}
   .varbox b{color:var(--purple)}
   table.grid td.ok{color:var(--green);font-weight:800} table.grid td.no{color:var(--red);font-weight:800}
-  .rek{display:grid;grid-template-columns:1fr 1fr;gap:5px 14px;font-size:10.5px;margin:6px 0 8px}
+  .rek{display:grid;grid-template-columns:1fr 1fr;gap:5px 14px;font-size:16px;margin:6px 0 8px}
   .rek span{display:flex;align-items:flex-start;gap:7px}
-  .gen{font-style:normal;font-size:7.5px;color:#B6A6DF}
-  .logo{font-size:16px;font-weight:800}
+  .gen{font-style:normal;font-size:11px;color:#B6A6DF}
+  .logo{font-size:18px;font-weight:800}
   /* ---- OPINIA dla zespołu orzekającego (czysty druk) ---- */
   .op-head{display:grid;grid-template-columns:1fr 1fr;gap:16px;align-items:start;margin-bottom:14px}
-  .op-stamp{border:1px dashed var(--line);border-radius:8px;min-height:56px;padding:8px 12px;font-size:9.5px;color:var(--muted)}
-  .op-stamp b{display:block;color:var(--purple);font-size:11px}
-  .op-right{text-align:right;font-size:10.5px;color:var(--muted);line-height:1.6}
+  .op-stamp{border:1px dashed var(--line);border-radius:8px;min-height:56px;padding:8px 12px;font-size:11px;color:var(--muted)}
+  .op-stamp b{display:block;color:var(--purple);font-size:16px}
+  .op-right{text-align:right;font-size:16px;color:var(--muted);line-height:1.6}
   .op-right .fill{display:inline-block;min-width:150px;border-bottom:1px solid #B6A6DF}
   .op-title{text-align:center;margin:10px 0 4px}
-  .op-title h1{margin:0;font-size:21px;font-weight:800;color:var(--purple);letter-spacing:.01em}
-  .op-title .s{font-size:10.5px;color:var(--orange);font-weight:700;letter-spacing:.16em;text-transform:uppercase;margin-top:4px}
-  .op-law{font-size:9px;color:var(--muted);text-align:justify;border:1px solid var(--line);border-radius:8px;padding:6px 10px;margin:6px 0 8px;line-height:1.45}
+  .op-title h1{margin:0;font-size:24px;font-weight:800;color:var(--purple);letter-spacing:.01em}
+  .op-title .s{font-size:16px;color:var(--orange);font-weight:700;letter-spacing:.16em;text-transform:uppercase;margin-top:4px}
+  .op-law{font-size:11px;color:var(--muted);text-align:justify;border:1px solid var(--line);border-radius:8px;padding:6px 10px;margin:6px 0 8px;line-height:1.45}
   .op-law b{color:var(--purple)}
   .op-sec{display:flex;align-items:center;gap:8px;margin:9px 0 5px}
-  .op-sec .r{font-weight:800;color:var(--orange);font-size:12px;min-width:26px}
-  .op-sec h3{margin:0;font-size:12px;color:var(--purple);font-weight:800;text-transform:uppercase;letter-spacing:.04em}
+  .op-sec .r{font-weight:800;color:var(--orange);font-size:16px;min-width:26px}
+  .op-sec h3{margin:0;font-size:16px;color:var(--purple);font-weight:800;text-transform:uppercase;letter-spacing:.04em}
   .op-sec::after{content:"";flex:1;height:1px;background:var(--line)}
-  table.op{width:100%;border-collapse:collapse;font-size:9.8px}
+  table.op{width:100%;border-collapse:collapse;font-size:11px}
   table.op td,table.op th{border:1px solid var(--line);padding:4px 8px;vertical-align:top;line-height:1.4}
-  table.op th{background:var(--lav);color:var(--purple);font-size:8.5px;letter-spacing:.1em;text-transform:uppercase;text-align:left}
+  table.op th{background:var(--lav);color:var(--purple);font-size:11px;letter-spacing:.1em;text-transform:uppercase;text-align:left}
   table.op td.k{width:31%;font-weight:700;color:var(--purple);background:var(--lav2)}
   table.op td.lv{white-space:nowrap;font-weight:700;color:var(--purple)}
-  ul.op{margin:2px 0 0;padding-left:16px;font-size:10px;line-height:1.45} ul.op li{margin-bottom:2px}
-  .op-cb{display:grid;grid-template-columns:1fr 1fr;gap:4px 14px;font-size:10.5px;margin:4px 0 6px}
+  ul.op{margin:2px 0 0;padding-left:16px;font-size:16px;line-height:1.45} ul.op li{margin-bottom:2px}
+  .op-cb{display:grid;grid-template-columns:1fr 1fr;gap:4px 14px;font-size:16px;margin:4px 0 6px}
   .op-cb span{display:flex;gap:7px;align-items:flex-start}
   .op-sign{display:grid;grid-template-columns:1fr 1fr;gap:14px 24px;margin-top:18px}
   .op-sign .sig{text-align:left;padding-top:4px}
-  .op-sign .sig small{font-size:9px}
+  .op-sign .sig small{font-size:11px}
   .op-dir{margin-top:22px;display:grid;grid-template-columns:1fr 1fr;gap:24px}
-  .op-dir .sig{border-top:1px solid var(--purple);padding-top:5px;text-align:center;font-size:10.5px;color:var(--purple);font-weight:700}
-  .op-dir .sig small{display:block;font-weight:400;color:var(--muted);font-size:9px}
-  .op-note{font-size:9.5px;color:var(--muted);margin-top:10px;line-height:1.5;border-top:1px dashed var(--line);padding-top:6px}
-  .lawref{display:inline-block;font-size:9px;font-weight:700;color:var(--purple);background:var(--lav);border-radius:4px;padding:3px 9px;margin:-6px 0 10px}
-  table.grid td.act{font-weight:800;color:var(--purple)} table.grid td.dz{white-space:nowrap;color:var(--orange);font-weight:800;font-size:9.5px}
+  .op-dir .sig{border-top:1px solid var(--purple);padding-top:5px;text-align:center;font-size:16px;color:var(--purple);font-weight:700}
+  .op-dir .sig small{display:block;font-weight:400;color:var(--muted);font-size:11px}
+  .op-note{font-size:11px;color:var(--muted);margin-top:10px;line-height:1.5;border-top:1px dashed var(--line);padding-top:6px}
+  @media print{ .op-page{page:opinia} @page opinia{ @bottom-left{content:"Załącznik – opinia o funkcjonowaniu dziecka / ucznia · dokument poufny (RODO)";font:9px Arial,sans-serif;color:#6B6378} } }
+  .lawref{display:inline-block;font-size:11px;font-weight:700;color:var(--purple);background:var(--lav);border-radius:4px;padding:3px 9px;margin:-6px 0 10px}
+  table.grid td.act{font-weight:800;color:var(--purple)} table.grid td.dz{white-space:nowrap;color:var(--orange);font-weight:800;font-size:11px}
   .flow5{display:grid;grid-template-columns:repeat(5,1fr);gap:8px;margin:8px 0 12px}
   .flow5 > div{border:1px solid var(--line);border-radius:8px;padding:8px 10px;position:relative}
-  .flow5 .p{font-size:8px;font-weight:800;letter-spacing:.12em;color:var(--orange)}
-  .flow5 h4{margin:2px 0 2px;font-size:11px;color:var(--purple);font-weight:800}
-  .flow5 p{margin:0;font-size:9.5px;color:var(--muted);line-height:1.35}
+  .flow5 .p{font-size:11px;font-weight:800;letter-spacing:.12em;color:var(--orange)}
+  .flow5 h4{margin:2px 0 2px;font-size:16px;color:var(--purple);font-weight:800}
+  .flow5 p{margin:0;font-size:11px;color:var(--muted);line-height:1.35}
   .flow5 > div:not(:last-child)::after{content:"›";position:absolute;right:-8px;top:36%;color:var(--orange);font-weight:800;background:#fff}
 
   @media screen and (max-width:760px){
     .page{width:auto;min-height:0;margin:0;padding:18px 16px 36px;box-shadow:none}
-    h1.title{font-size:22px;white-space:normal}
+    h1.title{font-size:25px;white-space:normal}
     .fields,.team ol,.tools,.flow,.toc,.stats,.hours,.voice,.lvlbox,.kv,.cbl,.flow5,.op-head,.op-cb,.op-sign,.op-dir{grid-template-columns:1fr !important}
     table.grid{display:block;overflow-x:auto}
     .step:not(:last-child)::after{display:none}
@@ -289,9 +290,15 @@
   }
   @media print{
     html,body{background:#fff}
-    .page{margin:0;box-shadow:none;width:auto;min-height:0;padding:11mm 13mm 16mm}
-    .page + .page{page-break-before:always}
-    @page{size:A4;margin:0}
+    .page{margin:0;box-shadow:none;width:auto;min-height:0;padding:0;break-before:page}
+    .page:first-of-type{break-before:auto}
+    .footer{display:none}
+    @page{size:A4;margin:14mm 14mm 18mm;
+      @bottom-left{content:"[Nazwa placówki] · Ocena Funkcjonalna · dokument poufny (RODO)";font:9px "Mulish","Segoe UI",Arial,sans-serif;color:#6B6378}
+      @bottom-right{content:"Strona " counter(page) " z " counter(pages);font:9px "Mulish","Segoe UI",Arial,sans-serif;color:#6B6378}}
+    .tool,.step,.box,.note,.res,.stat,.lvlbox > div,.varbox > div,.toc > div{break-inside:avoid} table.grid tr,table.op tr,table.meta tr{break-inside:avoid}
+    .sec,.sub9,.op-sec,h2,h3,h4{break-after:avoid}
+
     .tool,.step,.box,.note,.res,.stat{break-inside:avoid} table.grid tr{break-inside:avoid}
   }
 
@@ -345,29 +352,29 @@
   </div>
   <div class="toc" style="grid-template-columns:repeat(7,1fr);margin-top:8px">
     <h5>Część II · Wyniki oceny funkcjonalnej</h5>
-    <div style="padding:7px 8px 6px"><div class="k" style="font-size:16px">4</div><h4 style="font-size:9.5px;margin:3px 0 0">Funkcjonowanie w placówce</h4></div>
-    <div style="padding:7px 8px 6px"><div class="k" style="font-size:16px">5</div><h4 style="font-size:9.5px;margin:3px 0 0">Wyniki liczbowe KPOF / KSzOF</h4></div>
-    <div style="padding:7px 8px 6px"><div class="k" style="font-size:16px">6</div><h4 style="font-size:9.5px;margin:3px 0 0">Wyniki arkuszy specjalistycznych</h4></div>
-    <div style="padding:7px 8px 6px"><div class="k" style="font-size:16px">7</div><h4 style="font-size:9.5px;margin:3px 0 0">Mój głos – perspektywa dziecka</h4></div>
-    <div style="padding:7px 8px 6px"><div class="k" style="font-size:16px">8</div><h4 style="font-size:9.5px;margin:3px 0 0">Działania dotychczas podjęte</h4></div>
-    <div style="padding:7px 8px 6px"><div class="k" style="font-size:16px">9</div><h4 style="font-size:9.5px;margin:3px 0 0">Potrzeby i cele (9 domen)</h4></div>
-    <div style="padding:7px 8px 6px"><div class="k" style="font-size:16px">10</div><h4 style="font-size:9.5px;margin:3px 0 0">Wnioski Zespołu</h4></div>
+    <div style="padding:7px 8px 6px"><div class="k" style="font-size:18px">4</div><h4 style="font-size:11px;margin:3px 0 0">Funkcjonowanie w placówce</h4></div>
+    <div style="padding:7px 8px 6px"><div class="k" style="font-size:18px">5</div><h4 style="font-size:11px;margin:3px 0 0">Wyniki liczbowe KPOF / KSzOF</h4></div>
+    <div style="padding:7px 8px 6px"><div class="k" style="font-size:18px">6</div><h4 style="font-size:11px;margin:3px 0 0">Wyniki arkuszy specjalistycznych</h4></div>
+    <div style="padding:7px 8px 6px"><div class="k" style="font-size:18px">7</div><h4 style="font-size:11px;margin:3px 0 0">Mój głos – perspektywa dziecka</h4></div>
+    <div style="padding:7px 8px 6px"><div class="k" style="font-size:18px">8</div><h4 style="font-size:11px;margin:3px 0 0">Działania dotychczas podjęte</h4></div>
+    <div style="padding:7px 8px 6px"><div class="k" style="font-size:18px">9</div><h4 style="font-size:11px;margin:3px 0 0">Potrzeby i cele (9 domen)</h4></div>
+    <div style="padding:7px 8px 6px"><div class="k" style="font-size:18px">10</div><h4 style="font-size:11px;margin:3px 0 0">Wnioski Zespołu</h4></div>
   </div>
   <div class="toc" style="grid-template-columns:repeat(7,1fr);margin-top:8px">
     <h5>Część III · Program wsparcia i organizacja</h5>
-    <div style="padding:7px 8px 6px"><div class="k" style="font-size:16px">11</div><h4 style="font-size:9.5px;margin:3px 0 0">Dostosowanie programu, organizacji i technologii</h4></div>
-    <div style="padding:7px 8px 6px"><div class="k" style="font-size:16px">12</div><h4 style="font-size:9.5px;margin:3px 0 0">Zintegrowane działania nauczycieli i specjalistów</h4></div>
-    <div style="padding:7px 8px 6px"><div class="k" style="font-size:16px">13</div><h4 style="font-size:9.5px;margin:3px 0 0">Zajęcia: rewalidacja, PPP, zalecenia poradni</h4></div>
-    <div style="padding:7px 8px 6px"><div class="k" style="font-size:16px">14</div><h4 style="font-size:9.5px;margin:3px 0 0">Uzasadnienie wsparcia dodatkowej osoby</h4></div>
-    <div style="padding:7px 8px 6px"><div class="k" style="font-size:16px">15</div><h4 style="font-size:9.5px;margin:3px 0 0">Współpraca z rodzicami i poradnią</h4></div>
-    <div style="padding:7px 8px 6px"><div class="k" style="font-size:16px">16</div><h4 style="font-size:9.5px;margin:3px 0 0">Terminy oceny efektywności · podpisy</h4></div>
+    <div style="padding:7px 8px 6px"><div class="k" style="font-size:18px">11</div><h4 style="font-size:11px;margin:3px 0 0">Dostosowanie programu, organizacji i technologii</h4></div>
+    <div style="padding:7px 8px 6px"><div class="k" style="font-size:18px">12</div><h4 style="font-size:11px;margin:3px 0 0">Zintegrowane działania nauczycieli i specjalistów</h4></div>
+    <div style="padding:7px 8px 6px"><div class="k" style="font-size:18px">13</div><h4 style="font-size:11px;margin:3px 0 0">Zajęcia: rewalidacja, PPP, zalecenia poradni</h4></div>
+    <div style="padding:7px 8px 6px"><div class="k" style="font-size:18px">14</div><h4 style="font-size:11px;margin:3px 0 0">Uzasadnienie wsparcia dodatkowej osoby</h4></div>
+    <div style="padding:7px 8px 6px"><div class="k" style="font-size:18px">15</div><h4 style="font-size:11px;margin:3px 0 0">Współpraca z rodzicami i poradnią</h4></div>
+    <div style="padding:7px 8px 6px"><div class="k" style="font-size:18px">16</div><h4 style="font-size:11px;margin:3px 0 0">Terminy oceny efektywności · podpisy</h4></div>
   </div>
   <div class="chips">
     <span class="chip l">ICF</span><span class="chip o">KSzOF</span><span class="chip">ABC</span>
     <span class="chip l">Profil Sensoryczny</span><span class="chip">AAC</span><span class="chip o">ToM</span>
   </div>
 
-  <div class="footer"><span>[Nazwa placówki] · dokument poufny (RODO) <i class="gen">· sporządzono w EduPlaner 2026</i></span><span>Strona <b>1</b> z 28 · Okładka</span></div>
+  <div class="footer"><span>[Nazwa placówki] · dokument poufny (RODO) <i class="gen">· sporządzono w EduPlaner 2026</i></span><span>Strona <b>1</b> z {{TOTAL}} · Okładka</span></div>
 </section>
 
 <section class="page">
@@ -403,7 +410,7 @@
     <tr><td class="code">14</td><td>Dodatkowa osoba (nauczyciel współorganizujący)</td><td class="ok">✓ uzasadnienie</td><td class="no">— (wniosek w 10 B)</td></tr>
     <tr><td class="code">15–16</td><td>Rodzice, poradnia, terminy oceny, podpisy</td><td class="ok">✓</td><td class="ok">✓</td></tr>
   </table>
-  <div class="footer"><span>[Nazwa placówki] · dokument poufny (RODO) <i class="gen">· sporządzono w EduPlaner 2026</i></span><span>Strona <b>2</b> z 28 · Jak czytać · warianty</span></div>
+  <div class="footer"><span>[Nazwa placówki] · dokument poufny (RODO) <i class="gen">· sporządzono w EduPlaner 2026</i></span><span>Jak czytać · warianty</span></div>
 </section>
 
 <section class="page">
@@ -430,7 +437,7 @@
     <tr><td class="act">ICF – Międzynarodowa Klasyfikacja Funkcjonowania, Niepełnosprawności i Zdrowia (WHO) · model oceny funkcjonalnej 2026/27</td><td class="dz">ramy merytoryczne</td><td>Domeny d1–d9, czynniki środowiskowe i osobowe; narzędzia KPOF (przedszkole) / KSzOF (szkoła); głos dziecka.</td><td><span class="ref-pill">sekcje 2–7, 9</span></td></tr>
     <tr><td class="act">RODO – rozporządzenie (UE) 2016/679</td><td class="dz">Dz. Urz. UE L 119</td><td>art. 9: dane o zdrowiu – dokument poufny, udostępniany rodzicowi i poradni za zgodą rodzica.</td><td><span class="ref-pill">cały dokument</span></td></tr>
   </table>
-  <div class="footer"><span>[Nazwa placówki] · dokument poufny (RODO) <i class="gen">· sporządzono w EduPlaner 2026</i></span><span>Strona <b>3</b> z 28 · Podstawy prawne</span></div>
+  <div class="footer"><span>[Nazwa placówki] · dokument poufny (RODO) <i class="gen">· sporządzono w EduPlaner 2026</i></span><span>Podstawy prawne</span></div>
 </section>
 
 <!-- ======================= STRONA 2 · METRYCZKA + PROCEDURA ======================= -->
@@ -478,7 +485,7 @@
     <div>Czynniki osobowe<small>—</small></div>
   </div>
 
-  <div class="footer"><span>[Nazwa placówki] · dokument poufny (RODO) <i class="gen">· sporządzono w EduPlaner 2026</i></span><span>Strona <b>4</b> z 28 · Metryczka</span></div>
+  <div class="footer"><span>[Nazwa placówki] · dokument poufny (RODO) <i class="gen">· sporządzono w EduPlaner 2026</i></span><span>Strona <b>2</b> z {{TOTAL}} · Metryczka</span></div>
 </section>
 
 <!-- ======================= STRONA 3 · NARZĘDZIA ======================= -->
@@ -526,7 +533,7 @@
   </div>
   </div>
 
-  <div class="footer"><span>[Nazwa placówki] · dokument poufny (RODO) <i class="gen">· sporządzono w EduPlaner 2026</i></span><span>Strona <b>5</b> z 28 · Narzędzia</span></div>
+  <div class="footer"><span>[Nazwa placówki] · dokument poufny (RODO) <i class="gen">· sporządzono w EduPlaner 2026</i></span><span>Strona <b>3</b> z {{TOTAL}} · Narzędzia</span></div>
 </section>
 
 <section class="page ">
@@ -556,7 +563,7 @@
     <tr><td class="area">4 · Aktywność ruchowa – poruszanie się · d4</td><td class="plus">Sprawność w zakresie motoryki dużej (bieganie, wspinanie się); chętne uczestnictwo w zabawach ruchowych w otwartej przestrzeni.</td><td class="minus">Obniżona precyzja motoryki małej i koordynacji wzrokowo-ruchowej; nieprawidłowy chwyt pisarski / narzędzi; wzmożone lub obniżone napięcie posturalne; męczliwość ręki wiodącej.</td></tr>
     <tr><td class="area">5 · Dbanie o siebie · d5, d6</td><td class="plus">Samodzielność w zakresie podstawowych nawyków higienicznych i toaletowych; znajomość własnej szafki i osobistych przyborów; sprząta kącik po przypomnieniu.</td><td class="minus">Opór sensoryczny przy myciu rąk (wrażliwość na fakturę mydła/wodę); wybiórczość pokarmowa; problem z ubieraniem odzieży o skomplikowanych zapięciach; nie inicjuje obowiązków samodzielnie; potrzeba nadzoru dorosłego.</td></tr>
   </table>
-  <div class="footer"><span>[Nazwa placówki] · dokument poufny (RODO) <i class="gen">· sporządzono w EduPlaner 2026</i></span><span>Strona <b>6</b> z 28 · Funkcjonowanie A</span></div>
+  <div class="footer"><span>[Nazwa placówki] · dokument poufny (RODO) <i class="gen">· sporządzono w EduPlaner 2026</i></span><span>Funkcjonowanie A</span></div>
 </section>
 
 <section class="page ">
@@ -581,7 +588,7 @@
     <tr><td class="area">6 · Życie domowe · d6</td><td class="plus">Sprząta kącik i pełni dyżur po przypomnieniu.</td><td class="minus">Nie inicjuje obowiązków samodzielnie; trudność w doprowadzaniu czynności do końca.</td></tr>
     <tr><td class="area">7 · Wzajemne kontakty i związki międzyludzkie, życie w społeczności szkolnej i lokalnej · d7, d9</td><td class="plus">Chęć przebywania w pobliżu grupy; pozytywna reakcja na stałych, przewidywalnych dorosłych. Uczestniczy w wydarzeniach grupowych po przygotowaniu i z możliwością wyjścia.</td><td class="minus">Trudności w odczytywaniu emocji i intencji innych; niska tolerancja frustracji; konflikty rówieśnicze wynikające z błędnej interpretacji zachowań. Przeciążenie sensoryczne w apelach, uroczystościach i wyjściach zbiorowych – wycofanie lub zachowania trudne.</td></tr>
   </table>
-  <div class="footer"><span>[Nazwa placówki] · dokument poufny (RODO) <i class="gen">· sporządzono w EduPlaner 2026</i></span><span>Strona <b>7</b> z 28 · Funkcjonowanie B</span></div>
+  <div class="footer"><span>[Nazwa placówki] · dokument poufny (RODO) <i class="gen">· sporządzono w EduPlaner 2026</i></span><span>Funkcjonowanie B</span></div>
 </section>
 
 <section class="page kszof" id="sek5">
@@ -622,7 +629,7 @@
   </table>
   <div class="legend"><span>Pasek: średnia w skali 0–5</span><span><span class="lvl l1">Poziom 1 · Niski</span></span><span><span class="lvl l2">Poziom 2 · Średni</span></span><span><span class="lvl l3">Poziom 3 · Wysoki</span></span></div>
   <p class="stnote"><b>Zasada:</b> <span class="only-kpof">wybrano KPOF (przedszkole) – narzędzie nie posiada norm stenowych, dlatego w raporcie nie podaje się stenów; interpretacja wyłącznie na podstawie punktów, średniej i poziomu wsparcia.</span><span class="only-kszof">wybrano KSzOF (szkoła) – steny podaje się wyłącznie w kolumnie „Sten” dla poszczególnych domen; średniej nigdy nie opisuje się stenem.</span></p>
-  <div class="footer"><span>[Nazwa placówki] · dokument poufny (RODO) <i class="gen">· sporządzono w EduPlaner 2026</i></span><span>Strona <b>8</b> z 28 · Wyniki liczbowe</span></div>
+  <div class="footer"><span>[Nazwa placówki] · dokument poufny (RODO) <i class="gen">· sporządzono w EduPlaner 2026</i></span><span>Wyniki liczbowe</span></div>
 </section>
 
 <section class="page ">
@@ -643,7 +650,7 @@
   <div class="res" style="--c:var(--blue)"><h4>Profil Sensoryczny (Kwestionariusz Przetwarzania)</h4><p>Reaktywność mieszana. <b>Układ słuchowy</b> – silna nadwrażliwość na nagłe dźwięki i gwar korytarza (zalecane słuchawki); <b>układ dotykowy</b> – obronność dotykowa na faktury klejące i mokre; <b>układ proprioceptywny i przedsionkowy</b> – poszukiwanie stymulacji dociskowej i ruchowej (huśtanie, kołysanie się).</p></div>
   <div class="res" style="--c:var(--orange)"><h4>Arkusz Oceny Rozwoju Mowy i Komunikacji</h4><p>Zasób słownika biernego w normie wiekowej; wąski zasób czynny w sytuacjach swobodnych. Występują <b>echolalie natychmiastowe</b> i trudności pragmatyczne (brak intonacji, trudność w podtrzymaniu dialogu).</p><div class="rec"><b>Zalecenie:</b> schematy dialogowe i piktogramy wspierające.</div></div>
   <div class="res" style="--c:var(--green)"><h4>Arkusz Poziomu Rozwoju Teorii Umysłu (ToM)</h4><p>Poziom rozwoju ToM <b>poniżej normy wiekowej</b>. Trudność w zadaniach z fałszywym przekonaniem (False Belief Task) oraz w rozpoznawaniu perspektywy i intencji innych osób. Trudności te generują konflikty rówieśnicze przez błędną interpretację zachowań kolegów.</p></div>
-  <div class="footer"><span>[Nazwa placówki] · dokument poufny (RODO) <i class="gen">· sporządzono w EduPlaner 2026</i></span><span>Strona <b>9</b> z 28 · Wyniki arkuszy</span></div>
+  <div class="footer"><span>[Nazwa placówki] · dokument poufny (RODO) <i class="gen">· sporządzono w EduPlaner 2026</i></span><span>Wyniki arkuszy</span></div>
 </section>
 
 <section class="page ">
@@ -659,7 +666,7 @@
   <div class="sec"><span class="n">7</span><h2>Mój głos – perspektywa dziecka / ucznia</h2></div>
   <div class="lawref">§ Podstawa prawna: § 8 ust. 3 pkt 3 rozp. ME z 2.03.2026 (poz. 428) – informacje od dziecka w sposób dostosowany do wieku · ICF: czynniki osobowe</div>
   <p class="lead2">Głos dziecka pozyskano w sposób dostosowany do jego możliwości komunikacyjnych: w naturalnych sytuacjach, przez proste pytania, obrazki, piktogramy i informacje od rodziców. Zapisano autentyczną perspektywę dziecka – jego słowami lub przez wskazanie.</p>
-  <div class="lbl" style="font-size:8.5px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:var(--purple)">Sposób pozyskania głosu dziecka – zaznaczono</div>
+  <div class="lbl" style="font-size:11px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:var(--purple)">Sposób pozyskania głosu dziecka – zaznaczono</div>
   <div class="cbl"><span><i class="cb on"></i>Rozmowa dostosowana do możliwości dziecka</span><span><i class="cb on"></i>Obserwacja w naturalnych sytuacjach</span><span><i class="cb on"></i>Wybór z obrazków / piktogramów / kart wyboru</span><span><i class="cb on"></i>Komunikacja wspomagająca i alternatywna (AAC)</span><span><i class="cb"></i>Odczytanie z gestu, mimiki, zabawy, rysunku</span><span><i class="cb on"></i>Informacje od rodziców / opiekunów</span><span><i class="cb on"></i>Skala buziek / termometr emocji</span><span><i class="cb"></i>Wskazanie „tak / nie” na symbolach</span></div>
   <div class="voice">
     <div class="box" style="--c:var(--green)"><div class="lbl">Moje mocne strony i supermoce</div><p>„Umiem układać klocki i znam wszystkie planety. Pamiętam, gdzie co leży.”</p></div>
@@ -667,13 +674,13 @@
     <div class="box" style="--c:var(--orange)"><div class="lbl">Moje ulubione zabawy i czynności</div><p>klocki konstrukcyjne, tablet z aplikacją o kosmosie, huśtanie się, oglądanie map</p></div>
     <div class="box wide" style="--c:var(--purple)"><div class="lbl">Moje marzenie / czego bym chciał(a)</div><p>„Żeby kolega bawił się ze mną w rakiety i żeby nie było apeli.”</p></div>
   </div>
-  <div class="lbl" style="font-size:8.5px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:var(--purple)">Co mi najbardziej pomaga – zaznaczono</div>
+  <div class="lbl" style="font-size:11px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:var(--purple)">Co mi najbardziej pomaga – zaznaczono</div>
   <div class="cbl"><span><i class="cb on"></i>cisza</span><span><i class="cb on"></i>czas</span><span><i class="cb on"></i>ruch</span><span><i class="cb on"></i>piktogramy</span><span><i class="cb on"></i>praca na komputerze / tablecie</span><span><i class="cb on"></i>przerwy</span><span><i class="cb on"></i>wsparcie nauczyciela</span><span><i class="cb on"></i>przewidywalny plan dnia</span><span><i class="cb on"></i>słuchawki</span><span><i class="cb"></i>moje własne miejsce</span></div>
-  <div class="lbl" style="font-size:8.5px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:var(--purple)">Jak się dziś czuję – wskazanie dziecka</div>
+  <div class="lbl" style="font-size:11px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:var(--purple)">Jak się dziś czuję – wskazanie dziecka</div>
   <div class="mood"><div class=""><i style="background:#2E9D52"></i>Super</div><div class="sel"><i style="background:#7EB800"></i>Dobrze</div><div class=""><i style="background:#DFA22E"></i>Tak sobie</div><div class=""><i style="background:#E77309"></i>Słabo</div><div class=""><i style="background:#BF382A"></i>Źle</div></div>
   <div class="box" style="--c:var(--blue)"><div class="lbl">Preferowany sposób komunikacji dziecka i wskazówki do rozmowy</div><p class="just" style="margin:0">Mowa proste zdania + tablica wyboru (piktogramy); rozumie polecenia wsparte gestem; potrzebuje chwili na odpowiedź; nie lubi pytań „dlaczego”. Wskazówki do rozmowy: jedno pytanie na raz, obrazek lub wybór z dwóch, bez metafor i żartów.</p></div>
   <p class="stnote"><b>Podstawa.</b> Uwzględnienie perspektywy dziecka wspiera indywidualizację i podmiotowe traktowanie zgodnie z modelem ICF. „Mój głos” to element nowego modelu 2026/27.</p>
-  <div class="footer"><span>[Nazwa placówki] · dokument poufny (RODO) <i class="gen">· sporządzono w EduPlaner 2026</i></span><span>Strona <b>10</b> z 28 · Mój głos</span></div>
+  <div class="footer"><span>[Nazwa placówki] · dokument poufny (RODO) <i class="gen">· sporządzono w EduPlaner 2026</i></span><span>Mój głos</span></div>
 </section>
 
 <section class="page ">
@@ -696,7 +703,7 @@
     <tr><td class="area">Współpraca z domem rodzinnym</td><td>Cotygodniowe konsultacje z rodzicami; zeszyt korespondencji dom-placówka; ujednolicenie systemu komunikatów i nagród behawioralnych.</td><td class="plus">Wysoka spójność w reakcjach dorosłych na zachowania trudne; wzrost poczucia bezpieczeństwa u dziecka.</td></tr>
   </table>
   <div class="parent"><b>Informacja dla rodzica.</b> Wyniki z sekcji 4–8 są podstawą analizy (sekcja 9) i decyzji Zespołu o poziomie wsparcia (sekcja 10). Część III opisuje, jak placówka zorganizuje wsparcie w tym roku szkolnym.</div>
-  <div class="footer"><span>[Nazwa placówki] · dokument poufny (RODO) <i class="gen">· sporządzono w EduPlaner 2026</i></span><span>Strona <b>11</b> z 28 · Podjęte działania</span></div>
+  <div class="footer"><span>[Nazwa placówki] · dokument poufny (RODO) <i class="gen">· sporządzono w EduPlaner 2026</i></span><span>Podjęte działania</span></div>
 </section>
 
 <section class="page ">
@@ -714,13 +721,13 @@
   <p class="lead2">Co dziecko robi dziś (opis i bariery) i co ma się zmienić do końca roku szkolnego (cel). Sposób osiągnięcia celów – metody, zajęcia, osoby, technologie – opisuje wyłącznie Część III, aby nic nie było zapisane dwa razy.</p>
   <table class="grid">
     <tr><th>Domena ICF</th><th>Opis funkcjonowania i bariery</th><th style="color:var(--orange)">Cel na rok szkolny – co ma się zmienić</th></tr>
-    <tr><td class="area">Uczenie się i stosowanie wiedzy<br><span style="color:var(--orange);font-size:9px">d1</span></td><td>Dziecko/uczeń przyswaja wiedzę głównie kanałem wzrokowym. Występuje trudność w rozumieniu poleceń złożonych oraz w transferze (uogólnianiu) wiedzy. Przebodźcowanie powoduje dekoncentrację i rezygnację z zadania.</td><td><ul class="tick" style="margin:0"><li>Wykonuje samodzielnie zadanie 3-etapowe z planem obrazkowym w 4 na 5 prób.</li><li>Przenosi wyuczoną umiejętność na nowy materiał przy jednej podpowiedzi.</li></ul></td></tr>
-    <tr><td class="area">Ogólne zadania i wymagania<br><span style="color:var(--orange);font-size:9px">d2</span></td><td>Trudność w samodzielnej organizacji pracy i realizacji zadań wieloetapowych. Brak elastyczności – silny stres przy nagłych zmianach planu i przejściach między aktywnościami.</td><td><ul class="tick" style="margin:0"><li>Przechodzi między aktywnościami po zapowiedzi bez epizodu trudnego w 80% sytuacji.</li><li>Samodzielnie odhacza kroki planu dnia.</li></ul></td></tr>
-    <tr><td class="area">Komunikacja i porozumiewanie się<br><span style="color:var(--orange);font-size:9px">d3</span></td><td>Wypowiedzi cechują się trudnościami pragmatycznymi, obecnością echolalii oraz dosłownością interpretacji. W chwilach przeciążenia emocjonalnego następuje mutyzm wybiórczy lub krzyk zamiast komunikacji intencjonalnej.</td><td><ul class="tick" style="margin:0"><li>Prosi o przerwę lub pomoc komunikatem (mowa lub tablica AAC) zamiast krzyku w 4 na 5 sytuacji.</li><li>Podtrzymuje dialog 3 wymiany w scenariuszu.</li></ul></td></tr>
-    <tr><td class="area">Poruszanie się i motoryka<br><span style="color:var(--orange);font-size:9px">d4</span></td><td>Motoryka duża prawidłowa (bieganie, wspinanie). Obniżona precyzja motoryki małej, koordynacji wzrokowo-ruchowej i planowania motorycznego (dyspraksja); nieprawidłowy chwyt pisarski i narzędzi.</td><td><ul class="tick" style="margin:0"><li>Prawidłowy chwyt trójpalcowy przy pisaniu/rysowaniu przez 5 min.</li><li>Wycina po linii prostej nożyczkami sprężynowymi.</li></ul></td></tr>
-    <tr><td class="area">Dbanie o siebie i samoobsługa<br><span style="color:var(--orange);font-size:9px">d5</span></td><td>Samoobsługa zaburzona przez silne reakcje nadwrażliwości na bodźce dotykowe (ubrania, mokre ręce) i zapachowe; wybiórczość pokarmowa; trudność z odzieżą o skomplikowanych zapięciach.</td><td><ul class="tick" style="margin:0"><li>Myje ręce w pełnej sekwencji z paskiem wizualnym bez oporu.</li><li>Próbuje 2 nowe produkty w miesiącu.</li></ul></td></tr>
+    <tr><td class="area">Uczenie się i stosowanie wiedzy<br><span style="color:var(--orange);font-size:11px">d1</span></td><td>Dziecko/uczeń przyswaja wiedzę głównie kanałem wzrokowym. Występuje trudność w rozumieniu poleceń złożonych oraz w transferze (uogólnianiu) wiedzy. Przebodźcowanie powoduje dekoncentrację i rezygnację z zadania.</td><td><ul class="tick" style="margin:0"><li>Wykonuje samodzielnie zadanie 3-etapowe z planem obrazkowym w 4 na 5 prób.</li><li>Przenosi wyuczoną umiejętność na nowy materiał przy jednej podpowiedzi.</li></ul></td></tr>
+    <tr><td class="area">Ogólne zadania i wymagania<br><span style="color:var(--orange);font-size:11px">d2</span></td><td>Trudność w samodzielnej organizacji pracy i realizacji zadań wieloetapowych. Brak elastyczności – silny stres przy nagłych zmianach planu i przejściach między aktywnościami.</td><td><ul class="tick" style="margin:0"><li>Przechodzi między aktywnościami po zapowiedzi bez epizodu trudnego w 80% sytuacji.</li><li>Samodzielnie odhacza kroki planu dnia.</li></ul></td></tr>
+    <tr><td class="area">Komunikacja i porozumiewanie się<br><span style="color:var(--orange);font-size:11px">d3</span></td><td>Wypowiedzi cechują się trudnościami pragmatycznymi, obecnością echolalii oraz dosłownością interpretacji. W chwilach przeciążenia emocjonalnego następuje mutyzm wybiórczy lub krzyk zamiast komunikacji intencjonalnej.</td><td><ul class="tick" style="margin:0"><li>Prosi o przerwę lub pomoc komunikatem (mowa lub tablica AAC) zamiast krzyku w 4 na 5 sytuacji.</li><li>Podtrzymuje dialog 3 wymiany w scenariuszu.</li></ul></td></tr>
+    <tr><td class="area">Poruszanie się i motoryka<br><span style="color:var(--orange);font-size:11px">d4</span></td><td>Motoryka duża prawidłowa (bieganie, wspinanie). Obniżona precyzja motoryki małej, koordynacji wzrokowo-ruchowej i planowania motorycznego (dyspraksja); nieprawidłowy chwyt pisarski i narzędzi.</td><td><ul class="tick" style="margin:0"><li>Prawidłowy chwyt trójpalcowy przy pisaniu/rysowaniu przez 5 min.</li><li>Wycina po linii prostej nożyczkami sprężynowymi.</li></ul></td></tr>
+    <tr><td class="area">Dbanie o siebie i samoobsługa<br><span style="color:var(--orange);font-size:11px">d5</span></td><td>Samoobsługa zaburzona przez silne reakcje nadwrażliwości na bodźce dotykowe (ubrania, mokre ręce) i zapachowe; wybiórczość pokarmowa; trudność z odzieżą o skomplikowanych zapięciach.</td><td><ul class="tick" style="margin:0"><li>Myje ręce w pełnej sekwencji z paskiem wizualnym bez oporu.</li><li>Próbuje 2 nowe produkty w miesiącu.</li></ul></td></tr>
   </table>
-  <div class="footer"><span>[Nazwa placówki] · dokument poufny (RODO) <i class="gen">· sporządzono w EduPlaner 2026</i></span><span>Strona <b>12</b> z 28 · Analiza d1–d5</span></div>
+  <div class="footer"><span>[Nazwa placówki] · dokument poufny (RODO) <i class="gen">· sporządzono w EduPlaner 2026</i></span><span>Analiza d1–d5</span></div>
 </section>
 
 <section class="page ">
@@ -736,12 +743,12 @@
   <div class="sec"><span class="n">9</span><h2>Analiza jakościowa 9 domen ICF – potrzeby i cele na rok szkolny · cd.</h2></div>
   <table class="grid">
     <tr><th>Domena ICF</th><th>Opis funkcjonowania i bariery</th><th style="color:var(--orange)">Cel na rok szkolny – co ma się zmienić</th></tr>
-    <tr><td class="area">Życie domowe / Obowiązki placówki<br><span style="color:var(--orange);font-size:9px">d6</span></td><td>Wykonuje obowiązki grupowe (sprzątanie kącika zabaw, dyżury) po bezpośrednim przypomnieniu. Trudność w samodzielnym inicjowaniu czynności i doprowadzaniu ich do końca.</td><td><ul class="tick" style="margin:0"><li>Rozpoczyna i kończy dyżur po jednym przypomnieniu.</li><li>Sprząta swoje miejsce pracy samodzielnie w 4 na 5 dni.</li></ul></td></tr>
-    <tr><td class="area">Relacje i kontakty międzyludzkie<br><span style="color:var(--orange);font-size:9px">d7</span></td><td>Trudności w inicjowaniu i podtrzymywaniu zabawy naprzemiennej. Brak umiejętności rozpoznawania sygnałów niewerbalnych wysyłanych przez rówieśników. Częste nieporozumienia prowadzące do zachowań oporowych.</td><td><ul class="tick" style="margin:0"><li>Inicjuje zabawę z jednym rówieśnikiem raz dziennie.</li><li>Rozpoznaje 4 podstawowe emocje na twarzach kolegów i nazywa je.</li></ul></td></tr>
-    <tr><td class="area">Główne dziedziny życia (Edukacja)<br><span style="color:var(--orange);font-size:9px">d8</span></td><td>Uczestnictwo w zajęciach edukacyjnych wymaga dostosowania metod, tempa i form pracy oraz stałego nadzoru nauczyciela. Szybka męczliwość przy zadaniach pisemnych i instrukcjach wieloetapowych.</td><td><ul class="tick" style="margin:0"><li>Wykonuje dostosowaną kartę pracy w czasie zajęć z jednym wsparciem nauczyciela.</li><li>Utrzymuje uwagę na zadaniu 10 min.</li></ul></td></tr>
-    <tr><td class="area">Życie społecznościowe i obywatelskie<br><span style="color:var(--orange);font-size:9px">d9</span></td><td>Trudność w uczestnictwie w apelach, uroczystościach i wyjściach zbiorowych z powodu przeciążenia sensorycznego i tłumu – wycofanie lub zachowania trudne.</td><td><ul class="tick" style="margin:0"><li>Uczestniczy w apelu przez 10 min z możliwością wyjścia; w czerwcu 20 min.</li><li>Bierze udział w wyjściu grupowym po przygotowaniu bez wycofania.</li></ul></td></tr>
+    <tr><td class="area">Życie domowe / Obowiązki placówki<br><span style="color:var(--orange);font-size:11px">d6</span></td><td>Wykonuje obowiązki grupowe (sprzątanie kącika zabaw, dyżury) po bezpośrednim przypomnieniu. Trudność w samodzielnym inicjowaniu czynności i doprowadzaniu ich do końca.</td><td><ul class="tick" style="margin:0"><li>Rozpoczyna i kończy dyżur po jednym przypomnieniu.</li><li>Sprząta swoje miejsce pracy samodzielnie w 4 na 5 dni.</li></ul></td></tr>
+    <tr><td class="area">Relacje i kontakty międzyludzkie<br><span style="color:var(--orange);font-size:11px">d7</span></td><td>Trudności w inicjowaniu i podtrzymywaniu zabawy naprzemiennej. Brak umiejętności rozpoznawania sygnałów niewerbalnych wysyłanych przez rówieśników. Częste nieporozumienia prowadzące do zachowań oporowych.</td><td><ul class="tick" style="margin:0"><li>Inicjuje zabawę z jednym rówieśnikiem raz dziennie.</li><li>Rozpoznaje 4 podstawowe emocje na twarzach kolegów i nazywa je.</li></ul></td></tr>
+    <tr><td class="area">Główne dziedziny życia (Edukacja)<br><span style="color:var(--orange);font-size:11px">d8</span></td><td>Uczestnictwo w zajęciach edukacyjnych wymaga dostosowania metod, tempa i form pracy oraz stałego nadzoru nauczyciela. Szybka męczliwość przy zadaniach pisemnych i instrukcjach wieloetapowych.</td><td><ul class="tick" style="margin:0"><li>Wykonuje dostosowaną kartę pracy w czasie zajęć z jednym wsparciem nauczyciela.</li><li>Utrzymuje uwagę na zadaniu 10 min.</li></ul></td></tr>
+    <tr><td class="area">Życie społecznościowe i obywatelskie<br><span style="color:var(--orange);font-size:11px">d9</span></td><td>Trudność w uczestnictwie w apelach, uroczystościach i wyjściach zbiorowych z powodu przeciążenia sensorycznego i tłumu – wycofanie lub zachowania trudne.</td><td><ul class="tick" style="margin:0"><li>Uczestniczy w apelu przez 10 min z możliwością wyjścia; w czerwcu 20 min.</li><li>Bierze udział w wyjściu grupowym po przygotowaniu bez wycofania.</li></ul></td></tr>
   </table>
-  <div class="footer"><span>[Nazwa placówki] · dokument poufny (RODO) <i class="gen">· sporządzono w EduPlaner 2026</i></span><span>Strona <b>13</b> z 28 · Analiza d6–d9</span></div>
+  <div class="footer"><span>[Nazwa placówki] · dokument poufny (RODO) <i class="gen">· sporządzono w EduPlaner 2026</i></span><span>Analiza d6–d9</span></div>
 </section>
 
 <section class="page ">
@@ -770,7 +777,7 @@
   <div class="rek"><span><i class="cb on"></i><span>Potrzeba kształcenia specjalnego (wydanie / aktualizacja orzeczenia)</span></span><span><i class="cb"></i><span>Kontynuacja obecnego orzeczenia bez zmian</span></span><span><i class="cb on"></i><span>Zajęcia rewalidacyjne – wnioskowany zakres: komunikacja i AAC, umiejętności społeczne, motoryka mała</span></span><span><i class="cb on"></i><span>Wsparcie dodatkowej osoby: nauczyciel współorganizujący kształcenie</span></span><span><i class="cb"></i><span>Indywidualne nauczanie / zindywidualizowana ścieżka kształcenia</span></span><span><i class="cb"></i><span>Wczesne wspomaganie rozwoju (dziecko przed rozpoczęciem nauki w szkole)</span></span><span><i class="cb"></i><span>Opinia w sprawie odroczenia obowiązku szkolnego</span></span><span><i class="cb"></i><span>Inne: ……………………………………</span></span></div>
   <div class="note" style="margin:0 0 8px"><b>Uzasadnienie rekomendacji.</b> Rekomendacje wynikają z poziomu wysokiego w domenach d2, d7 i d9, potrzeby stałej komunikacji wspomagającej (d3) oraz funkcji ucieczkowej zachowań trudnych (ABC), którą kontroluje obecność przewidywalnego dorosłego.</div>
   <div class="signbox"><b>Data posiedzenia Zespołu:</b> <span class="ph">[Data posiedzenia Zespołu]</span> &nbsp;·&nbsp; Rodzic uczestniczył w posiedzeniu Zespołu i otrzymał kopię raportu. &nbsp;·&nbsp; <b>Podpisy Zespołu i rodzica:</b> na końcu dokumentu (sekcja 16).</div>
-  <div class="footer"><span>[Nazwa placówki] · dokument poufny (RODO) <i class="gen">· sporządzono w EduPlaner 2026</i></span><span>Strona <b>14</b> z 28 · Decyzja Zespołu</span></div>
+  <div class="footer"><span>[Nazwa placówki] · dokument poufny (RODO) <i class="gen">· sporządzono w EduPlaner 2026</i></span><span>Decyzja Zespołu</span></div>
 </section>
 
 <section class="page ">
@@ -801,7 +808,7 @@
     <tr><td class="area">Tempo i czas pracy</td><td>Zadania krótsze, z przerwą sensoryczną po 8–10 min pracy; wydłużony czas na zadania pisemne i wykonawcze; brak przymusu dokończenia w tempie grupy.</td></tr>
     <tr><td class="area">Wymagania wobec zachowania</td><td>Jasne, wizualne zasady; ostrzeżenie przed zmianą; nauka komunikatu zastępczego zamiast karania; brak wymogu udziału w apelach w pełnym wymiarze (stopniowe wydłużanie).</td></tr>
   </table>
-  <div class="footer"><span>[Nazwa placówki] · dokument poufny (RODO) <i class="gen">· sporządzono w EduPlaner 2026</i></span><span>Strona <b>15</b> z 28 · Dostosowanie programu</span></div>
+  <div class="footer"><span>[Nazwa placówki] · dokument poufny (RODO) <i class="gen">· sporządzono w EduPlaner 2026</i></span><span>Dostosowanie programu</span></div>
 </section>
 
 <section class="page ">
@@ -832,7 +839,7 @@
     <tr><td class="area">Regulacja sensoryczna</td><td>Słuchawki wygłuszające; aplikacje z muzyką relaksacyjną / białym szumem w strefie wyciszenia.</td></tr>
     <tr><td class="area">Współpraca i monitoring</td><td>Aplikacja do dokumentacji wsparcia – wspólny zapis obserwacji i postępów; dziennik elektroniczny / aplikacja do kontaktu z rodzicami; rejestr ABC w formie cyfrowej.</td></tr>
   </table>
-  <div class="footer"><span>[Nazwa placówki] · dokument poufny (RODO) <i class="gen">· sporządzono w EduPlaner 2026</i></span><span>Strona <b>16</b> z 28 · Organizacja i technologie</span></div>
+  <div class="footer"><span>[Nazwa placówki] · dokument poufny (RODO) <i class="gen">· sporządzono w EduPlaner 2026</i></span><span>Organizacja i technologie</span></div>
 </section>
 
 <section class="page ">
@@ -856,7 +863,7 @@
     <tr><td class="area">Samodzielność i motoryka</td><td>Pasek wizualny czynności; dostosowane przybory; czas na samoobsługę.</td><td>Terapeuta pedagogiczny: motoryka mała; terapeuta SI: obronność dotykowa.</td><td>Ten sam pasek czynności w sali, na zajęciach i w domu.</td></tr>
   </table>
   <div class="note" style="margin-top:10px"><b>Koordynacja.</b> Koordynator Zespołu zwołuje spotkanie zespołu raz w miesiącu (30 min): przegląd celów, rejestru ABC, postępów w AAC; ustalenia zapisywane w dokumentacji wsparcia i przekazywane rodzicom.</div>
-  <div class="footer"><span>[Nazwa placówki] · dokument poufny (RODO) <i class="gen">· sporządzono w EduPlaner 2026</i></span><span>Strona <b>17</b> z 28 · Zintegrowane działania</span></div>
+  <div class="footer"><span>[Nazwa placówki] · dokument poufny (RODO) <i class="gen">· sporządzono w EduPlaner 2026</i></span><span>Zintegrowane działania</span></div>
 </section>
 
 <section class="page ">
@@ -884,7 +891,7 @@
     <tr><td class="area">Rewalidacja: usprawnianie motoryki małej i grafomotoryki</td><td>chwyt pisarski, koordynacja wzrokowo-ruchowa, planowanie ruchu</td><td style="color:var(--purple);font-weight:700">Terapeuta pedagogiczny</td><td>indywidualnie</td><td class="time">1 × 30 min<small>30 min / tydz.</small></td></tr>
     <tr class="sum"><td colspan="4">Razem zajęcia rewalidacyjne</td><td class="time">2 godz. zegarowe<small>2 × 60 min = 120 min / tydz.</small></td></tr>
   </table>
-  <div class="footer"><span>[Nazwa placówki] · dokument poufny (RODO) <i class="gen">· sporządzono w EduPlaner 2026</i></span><span>Strona <b>18</b> z 28 · Zajęcia: rewalidacja</span></div>
+  <div class="footer"><span>[Nazwa placówki] · dokument poufny (RODO) <i class="gen">· sporządzono w EduPlaner 2026</i></span><span>Zajęcia: rewalidacja</span></div>
 </section>
 
 <section class="page ">
@@ -907,7 +914,7 @@
     <tr><td class="area">Porady i konsultacje dla rodziców</td><td>ujednolicenie oddziaływań dom–placówka, instruktaż AAC i ABC</td><td style="color:var(--purple);font-weight:700">Psycholog / koordynator</td><td>rodzice · gabinet lub online</td><td class="time" style="white-space:normal">1 × 30 min · piątek 15:00</td><td>cały rok szkolny</td></tr>
     <tr class="sum"><td colspan="5">Razem pomoc psychologiczno-pedagogiczna</td><td class="time">4 zajęcia × 45 min<small>+ konsultacje 30 min = 210 min / tydz.</small></td></tr>
   </table>
-  <div class="footer"><span>[Nazwa placówki] · dokument poufny (RODO) <i class="gen">· sporządzono w EduPlaner 2026</i></span><span>Strona <b>19</b> z 28 · Zajęcia: PPP</span></div>
+  <div class="footer"><span>[Nazwa placówki] · dokument poufny (RODO) <i class="gen">· sporządzono w EduPlaner 2026</i></span><span>Zajęcia: PPP</span></div>
 </section>
 
 <section class="page ">
@@ -933,7 +940,7 @@
     <tr><td class="code">7</td><td><b>Stałość i przewidywalność otoczenia</b></td><td>Organizacja dnia, technologie (time-timer, plan cyfrowy)</td><td><span class="ref-pill">sekcja 11 B–C</span></td><td><div class="st"><span><i class="cb"></i>wdrożone</span><span><i class="cb"></i>w trakcie</span><span><i class="cb"></i>planowane</span></div></td></tr>
     <tr><td class="code">8</td><td><b>Współpraca z rodzicami i ujednolicenie oddziaływań</b></td><td>Zakres współpracy, działania wspierające rodziców, poradnia</td><td><span class="ref-pill">sekcja 15</span></td><td><div class="st"><span><i class="cb"></i>wdrożone</span><span><i class="cb"></i>w trakcie</span><span><i class="cb"></i>planowane</span></div></td></tr>
   </table>
-  <div class="footer"><span>[Nazwa placówki] · dokument poufny (RODO) <i class="gen">· sporządzono w EduPlaner 2026</i></span><span>Strona <b>20</b> z 28 · Zalecenia poradni</span></div>
+  <div class="footer"><span>[Nazwa placówki] · dokument poufny (RODO) <i class="gen">· sporządzono w EduPlaner 2026</i></span><span>Zalecenia poradni</span></div>
 </section>
 
 <section class="page ">
@@ -954,7 +961,7 @@
   <div class="box" style="--c:var(--green);margin-top:10px"><div class="lbl">Zadania dodatkowej osoby</div><ul class="tick"><li>Modelowanie użycia tablicy AAC i komunikatu zastępczego w sytuacjach trudnych.</li><li>Uprzedzanie o zmianach i prowadzenie protokołu wyprzedzającego przed przejściami.</li><li>Dekodowanie poleceń nauczyciela na pojedyncze kroki i piktogramy.</li><li>Wsparcie w wydarzeniach grupowych (apele, wyjścia) z możliwością wycofania do strefy wyciszenia.</li><li>Prowadzenie rejestru ABC i przekazywanie obserwacji Zespołowi.</li><li>Stopniowe wycofywanie się z pomocy w czynnościach opanowanych (budowanie samodzielności).</li></ul></div>
   <div class="note" style="margin-top:10px"><b>Ocena zasadności.</b> Zasadność wsparcia dodatkowej osoby oceniana w terminach z sekcji 16; kryterium zmniejszenia wymiaru: spadek epizodów ABC poniżej 3 miesięcznie i samodzielne przejścia między aktywnościami w 80% sytuacji.</div>
   <p class="stnote"><b>Wariant B:</b> W Wariancie B (bez orzeczenia) sekcji nie wypełnia się – potrzebę dodatkowej osoby zgłasza się jako rekomendację w sekcji 10 B.</p>
-  <div class="footer"><span>[Nazwa placówki] · dokument poufny (RODO) <i class="gen">· sporządzono w EduPlaner 2026</i></span><span>Strona <b>21</b> z 28 · Dodatkowa osoba</span></div>
+  <div class="footer"><span>[Nazwa placówki] · dokument poufny (RODO) <i class="gen">· sporządzono w EduPlaner 2026</i></span><span>Dodatkowa osoba</span></div>
 </section>
 
 <section class="page ">
@@ -989,7 +996,7 @@
     <tr><td class="area">Współpraca z lekarzem / terapeutami zewnętrznymi</td><td>ujednolicenie zaleceń (sen, farmakoterapia, terapia SI poza placówką)</td><td style="color:var(--purple);font-weight:700">Koordynator, za zgodą rodzica</td><td>w razie potrzeby</td></tr>
     <tr><td class="area">Instytucje wspierające rodzinę</td><td>PCPR, OPS, organizacje pozarządowe – informacja i pośrednictwo</td><td style="color:var(--purple);font-weight:700">Pedagog</td><td>w razie potrzeby</td></tr>
   </table>
-  <div class="footer"><span>[Nazwa placówki] · dokument poufny (RODO) <i class="gen">· sporządzono w EduPlaner 2026</i></span><span>Strona <b>22</b> z 28 · Rodzice i poradnia</span></div>
+  <div class="footer"><span>[Nazwa placówki] · dokument poufny (RODO) <i class="gen">· sporządzono w EduPlaner 2026</i></span><span>Rodzice i poradnia</span></div>
 </section>
 
 <section class="page ">
@@ -1020,12 +1027,12 @@
     <div class="sig">Specjalista<small>podpis i data</small></div>
     <div class="sig wide">Rodzic / opiekun prawny – zapoznałam/em się z raportem i uczestniczyłam/em w ustaleniu poziomu wsparcia<small>podpis i data</small></div>
   </div>
-  <div class="footer"><span>[Nazwa placówki] · dokument poufny (RODO) <i class="gen">· sporządzono w EduPlaner 2026</i></span><span>Strona <b>23</b> z 28 · Ocena efektywności i podpisy</span></div>
+  <div class="footer"><span>[Nazwa placówki] · dokument poufny (RODO) <i class="gen">· sporządzono w EduPlaner 2026</i></span><span>Ocena efektywności i podpisy</span></div>
 </section>
 
-<section class="page">
+<section class="page op-page">
   <div class="op-head">
-    <div class="op-stamp"><b>[Nazwa przedszkola / szkoły]</b>[Adres placówki, tel., e-mail]<br><span style="font-size:8.5px">(pieczęć placówki)</span></div>
+    <div class="op-stamp"><b>[Nazwa przedszkola / szkoły]</b>[Adres placówki, tel., e-mail]<br><span style="font-size:11px">(pieczęć placówki)</span></div>
     <div class="op-right">[Miejscowość], dnia <span class="fill"></span><br>Znak sprawy: <span class="fill"></span><br>Zespół orzekający: <span class="fill">[Nazwa Poradni Psychologiczno-Pedagogicznej]</span></div>
   </div>
   <div class="op-title"><h1>Opinia o funkcjonowaniu dziecka / ucznia</h1><div class="s">w przedszkolu / szkole – dla zespołu orzekającego poradni psychologiczno-pedagogicznej</div></div>
@@ -1046,17 +1053,17 @@
     <tr><td class="k">Narzędzia i działania diagnostyczne</td><td>Kwestionariusz Przedszkolnej / Szkolnej Oceny Funkcjonalnej (KPOF / KSzOF – 9 domen ICF); Profil Biopsychospołeczny; Arkusz Obserwacji Behawioralnej ABC; Profil Sensoryczny; Arkusz Oceny Rozwoju Mowy i Komunikacji; Arkusz Poziomu Rozwoju Teorii Umysłu (ToM); analiza dokumentacji pomocy psychologiczno-pedagogicznej</td></tr>
     <tr><td class="k">Osoby rozpoznające trudności, mocne strony i uzdolnienia</td><td>wychowawca / nauczyciele oddziału, pedagog specjalny, psycholog, logopeda, terapeuta SI (imiona i nazwiska w części 9); informacje uzupełniające od rodziców i od dziecka w formie dostosowanej do jego rozwoju</td></tr>
   </table>
-  <div class="footer"><span>Załącznik – opinia o funkcjonowaniu dziecka / ucznia · dokument poufny (RODO)</span><span>Strona <b>24</b> z 28 · Opinia · dane i podstawa</span></div>
+  <div class="footer"><span>Załącznik – opinia o funkcjonowaniu dziecka / ucznia · dokument poufny (RODO)</span><span>Opinia · dane i podstawa</span></div>
 </section>
 
-<section class="page">
+<section class="page op-page">
   <div class="op-head">
-    <div class="op-stamp"><b>[Nazwa przedszkola / szkoły]</b>[Adres placówki, tel., e-mail]<br><span style="font-size:8.5px">(pieczęć placówki)</span></div>
+    <div class="op-stamp"><b>[Nazwa przedszkola / szkoły]</b>[Adres placówki, tel., e-mail]<br><span style="font-size:11px">(pieczęć placówki)</span></div>
     <div class="op-right">[Miejscowość], dnia <span class="fill"></span><br>Znak sprawy: <span class="fill"></span><br>Zespół orzekający: <span class="fill">[Nazwa Poradni Psychologiczno-Pedagogicznej]</span></div>
   </div>
   <div class="op-sec"><span class="r">3.</span><h3>Informacja o funkcjonowaniu dziecka / ucznia w placówce – trudności, mocne strony i uzdolnienia (§ 7 ust. 6 pkt 3, ust. 7 pkt 1)</h3></div>
-  <p class="lead2" style="font-size:10px;margin-bottom:4px">Aktywność i uczestniczenie zgodnie z obszarami ICF, adekwatnie do wieku i poziomu rozwoju psychofizycznego. Wypełnia się tabelę A (dziecko do ukończenia wychowania przedszkolnego – 5 obszarów) albo B (uczeń – 7 obszarów). Poziom potrzeby wsparcia: średnia z KPOF / KSzOF w skali 0–5 (steny wyłącznie dla KSzOF).</p>
-  <div class="sub9" style="--c:var(--orange);margin:8px 0 5px"><span class="tag9">A</span><h3 style="font-size:11px">A · Dziecko do ukończenia wychowania przedszkolnego – 5 obszarów (ust. 7 pkt 1 lit. a)</h3></div>
+  <p class="lead2" style="font-size:16px;margin-bottom:4px">Aktywność i uczestniczenie zgodnie z obszarami ICF, adekwatnie do wieku i poziomu rozwoju psychofizycznego. Wypełnia się tabelę A (dziecko do ukończenia wychowania przedszkolnego – 5 obszarów) albo B (uczeń – 7 obszarów). Poziom potrzeby wsparcia: średnia z KPOF / KSzOF w skali 0–5 (steny wyłącznie dla KSzOF).</p>
+  <div class="sub9" style="--c:var(--orange);margin:8px 0 5px"><span class="tag9">A</span><h3 style="font-size:16px">A · Dziecko do ukończenia wychowania przedszkolnego – 5 obszarów (ust. 7 pkt 1 lit. a)</h3></div>
   <table class="op">
     <tr><th style="width:23%">Obszar (ICF)</th><th style="color:var(--green)">Mocne strony i uzdolnienia</th><th style="color:var(--red)">Trudności</th><th style="width:17%">Poziom potrzeby wsparcia</th></tr>
     <tr><td class="k">1 · Uczenie się i stosowanie wiedzy</td><td>pamięć wzrokowa, schematy graficzne, zainteresowania tematyczne, motywacja do pracy z ulubionymi pomocami</td><td>przerzutność i podzielność uwagi, instrukcje wieloetapowe, uogólnianie wiedzy, stres przy zmianie planu, potrzeba nadzoru nauczyciela</td><td class="lv" style="white-space:normal">d1 śr. 2,4 · d2 śr. 1,8 · d8 śr. 2,0 – poziom średni / wysoki</td></tr>
@@ -1065,16 +1072,16 @@
     <tr><td class="k">4 · Aktywność ruchowa – poruszanie się</td><td>motoryka duża, chętny udział w zabawach ruchowych</td><td>motoryka mała, koordynacja wzrokowo-ruchowa, chwyt, napięcie posturalne</td><td class="lv" style="white-space:normal">d4 śr. 3,2 – poziom niski</td></tr>
     <tr><td class="k">5 · Dbanie o siebie</td><td>podstawowe nawyki higieniczne i toaletowe, znajomość swoich rzeczy, obowiązki po przypomnieniu</td><td>opór sensoryczny przy myciu rąk, wybiórczość pokarmowa, trudne zapięcia, brak inicjowania obowiązków</td><td class="lv" style="white-space:normal">d5 śr. 2,2 · d6 śr. 2,8 – poziom średni / niski</td></tr>
   </table>
-  <div class="footer"><span>Załącznik – opinia o funkcjonowaniu dziecka / ucznia · dokument poufny (RODO)</span><span>Strona <b>25</b> z 28 · Opinia · funkcjonowanie A</span></div>
+  <div class="footer"><span>Załącznik – opinia o funkcjonowaniu dziecka / ucznia · dokument poufny (RODO)</span><span>Opinia · funkcjonowanie A</span></div>
 </section>
 
-<section class="page">
+<section class="page op-page">
   <div class="op-head">
-    <div class="op-stamp"><b>[Nazwa przedszkola / szkoły]</b>[Adres placówki, tel., e-mail]<br><span style="font-size:8.5px">(pieczęć placówki)</span></div>
+    <div class="op-stamp"><b>[Nazwa przedszkola / szkoły]</b>[Adres placówki, tel., e-mail]<br><span style="font-size:11px">(pieczęć placówki)</span></div>
     <div class="op-right">[Miejscowość], dnia <span class="fill"></span><br>Znak sprawy: <span class="fill"></span><br>Zespół orzekający: <span class="fill">[Nazwa Poradni Psychologiczno-Pedagogicznej]</span></div>
   </div>
   <div class="op-sec"><span class="r">3.</span><h3>Informacja o funkcjonowaniu dziecka / ucznia w placówce – trudności, mocne strony i uzdolnienia (§ 7 ust. 6 pkt 3, ust. 7 pkt 1) · cd.</h3></div>
-  <div class="sub9" style="--c:var(--blue);margin:8px 0 5px"><span class="tag9">B</span><h3 style="font-size:11px">B · Uczeń – 7 obszarów (ust. 7 pkt 1 lit. b)</h3></div>
+  <div class="sub9" style="--c:var(--blue);margin:8px 0 5px"><span class="tag9">B</span><h3 style="font-size:16px">B · Uczeń – 7 obszarów (ust. 7 pkt 1 lit. b)</h3></div>
   <table class="op">
     <tr><th style="width:23%">Obszar (ICF)</th><th style="color:var(--green)">Mocne strony i uzdolnienia</th><th style="color:var(--red)">Trudności</th><th style="width:17%">Poziom potrzeby wsparcia</th></tr>
     <tr><td class="k">1 · Uczenie się i stosowanie wiedzy</td><td>pamięć wzrokowa, schematy graficzne, zainteresowania, zaangażowanie przy zadaniach z obrazem</td><td>uwaga, instrukcje wieloetapowe, uogólnianie, męczliwość przy pisaniu, potrzeba nadzoru</td><td class="lv" style="white-space:normal">d1 śr. 2,4 · d8 śr. 2,0 – średni</td></tr>
@@ -1088,12 +1095,12 @@
   <p class="stnote" style="margin-top:4px"><b>Wynik ogólny: 68 / 180 pkt, średnia 2,1 (skala 0–5) – umiarkowana potrzeba wsparcia; trzy domeny na poziomie wysokim (d2, d7, d9).</b></p>
   <div class="op-sec"><span class="r">4.</span><h3>Zakres i rodzaj trudności w realizacji programu wychowania przedszkolnego / programów nauczania realizowanych w oddziale (§ 7 ust. 7 pkt 2)</h3></div>
   <ul class="op"><li>Program wychowania przedszkolnego / programy nauczania: [nazwa programu, oddział].</li><li>Rozumienie poleceń złożonych i samodzielna organizacja pracy – wymaga instrukcji krok po kroku wspartych obrazem; bez dostosowania rezygnuje z zadania.</li><li>Utrzymanie uwagi na zadaniu (obecnie do 8 min po dostosowaniu środowiska) i szybka męczliwość przy zadaniach pisemnych i wykonawczych.</li><li>Uczestnictwo w zajęciach grupowych, apelach i wyjściach – przeciążenie sensoryczne prowadzi do wycofania lub zachowań trudnych.</li><li>Komunikacja z rówieśnikami i nauczycielem w sytuacjach swobodnych – potrzeba wsparcia AAC i skryptów dialogowych.</li><li>Grafomotoryka, czynności manualne (chwyt, wycinanie) oraz samoobsługa przy posiłkach i toalecie – realizowane w wydłużonym czasie z dostosowanymi przyborami.</li><li>Wprowadzone dostosowania w toku realizacji programu: plany aktywności, instrukcje jednoetapowe, wydłużony czas, przerwy sensoryczne, ocena postępu względem samego siebie.</li></ul>
-  <div class="footer"><span>Załącznik – opinia o funkcjonowaniu dziecka / ucznia · dokument poufny (RODO)</span><span>Strona <b>26</b> z 28 · Opinia · funkcjonowanie B · program</span></div>
+  <div class="footer"><span>Załącznik – opinia o funkcjonowaniu dziecka / ucznia · dokument poufny (RODO)</span><span>Opinia · funkcjonowanie B · program</span></div>
 </section>
 
-<section class="page">
+<section class="page op-page">
   <div class="op-head">
-    <div class="op-stamp"><b>[Nazwa przedszkola / szkoły]</b>[Adres placówki, tel., e-mail]<br><span style="font-size:8.5px">(pieczęć placówki)</span></div>
+    <div class="op-stamp"><b>[Nazwa przedszkola / szkoły]</b>[Adres placówki, tel., e-mail]<br><span style="font-size:11px">(pieczęć placówki)</span></div>
     <div class="op-right">[Miejscowość], dnia <span class="fill"></span><br>Znak sprawy: <span class="fill"></span><br>Zespół orzekający: <span class="fill">[Nazwa Poradni Psychologiczno-Pedagogicznej]</span></div>
   </div>
   <div class="op-sec"><span class="r">5.</span><h3>Załączniki ewaluacyjne (§ 7 ust. 6 pkt 4–5)</h3></div>
@@ -1109,33 +1116,33 @@
   </table>
   <div class="op-sec"><span class="r">7.</span><h3>Wnioski dotyczące dalszej pracy z dzieckiem / uczniem mające na celu poprawę funkcjonowania (§ 7 ust. 6 pkt 7)</h3></div>
   <ul class="op"><li>Utrzymanie struktury dnia, strefy wyciszenia i przygotowania do wydarzeń grupowych; stopniowe wydłużanie udziału.</li><li>Rozwijanie komunikacji funkcjonalnej z tablicą AAC w placówce i w domu; trening komunikatu zastępczego zamiast zachowania trudnego.</li><li>Trening umiejętności społecznych i teorii umysłu w małej grupie z przeniesieniem na zabawy swobodne (rówieśnik-mentor).</li><li>Usprawnianie motoryki małej i samoobsługi z dostosowanymi przyborami i paskiem wizualnym czynności.</li><li>Ocena efektów w styczniu i czerwcu; aktualizacja programu wspólnie z rodzicami.</li></ul>
-  <div class="footer"><span>Załącznik – opinia o funkcjonowaniu dziecka / ucznia · dokument poufny (RODO)</span><span>Strona <b>27</b> z 28 · Opinia · pomoc i wnioski</span></div>
+  <div class="footer"><span>Załącznik – opinia o funkcjonowaniu dziecka / ucznia · dokument poufny (RODO)</span><span>Opinia · pomoc i wnioski</span></div>
 </section>
 
-<section class="page">
+<section class="page op-page">
   <div class="op-head">
-    <div class="op-stamp"><b>[Nazwa przedszkola / szkoły]</b>[Adres placówki, tel., e-mail]<br><span style="font-size:8.5px">(pieczęć placówki)</span></div>
+    <div class="op-stamp"><b>[Nazwa przedszkola / szkoły]</b>[Adres placówki, tel., e-mail]<br><span style="font-size:11px">(pieczęć placówki)</span></div>
     <div class="op-right">[Miejscowość], dnia <span class="fill"></span><br>Znak sprawy: <span class="fill"></span><br>Zespół orzekający: <span class="fill">[Nazwa Poradni Psychologiczno-Pedagogicznej]</span></div>
   </div>
   <div class="op-sec"><span class="r">8.</span><h3>Informacje uzupełniające dla zespołu orzekającego – fakultatywne, na potrzeby oceny funkcjonowania (§ 8 ust. 2–3)</h3></div>
-  <p class="lead2" style="font-size:10px;margin-bottom:6px">Zespół orzekający dokonuje własnej oceny funkcjonowania (§ 8); poniższe informacje placówka przekazuje dodatkowo, aby ją ułatwić.</p>
-  <p class="just" style="margin:0 0 6px;font-size:10px">Funkcje i struktury ciała (§ 8 ust. 2 pkt 2): zdrowie psychiczne – lęk przed zmianą, sztywność poznawcza, zaburzenia snu; percepcja – nadwrażliwość słuchowa i dotykowa, poszukiwanie stymulacji przedsionkowej; motoryka – obniżona precyzja motoryki małej, nieprawidłowy chwyt; mowa – echolalie, trudności pragmatyczne, korzysta z gestu i piktogramów; funkcje poznawcze – bardzo dobra pamięć wzrokowa, trudności z uwagą i uogólnianiem; funkcje emocjonalno-społeczne – teoria umysłu poniżej normy wiekowej, zachowania trudne o funkcji ucieczkowej; cechy indywidualne – głębokie zainteresowania, pozytywna reakcja na strukturę i stałych dorosłych.</p>
+  <p class="lead2" style="font-size:16px;margin-bottom:6px">Zespół orzekający dokonuje własnej oceny funkcjonowania (§ 8); poniższe informacje placówka przekazuje dodatkowo, aby ją ułatwić.</p>
+  <p class="just" style="margin:0 0 6px;font-size:16px">Funkcje i struktury ciała (§ 8 ust. 2 pkt 2): zdrowie psychiczne – lęk przed zmianą, sztywność poznawcza, zaburzenia snu; percepcja – nadwrażliwość słuchowa i dotykowa, poszukiwanie stymulacji przedsionkowej; motoryka – obniżona precyzja motoryki małej, nieprawidłowy chwyt; mowa – echolalie, trudności pragmatyczne, korzysta z gestu i piktogramów; funkcje poznawcze – bardzo dobra pamięć wzrokowa, trudności z uwagą i uogólnianiem; funkcje emocjonalno-społeczne – teoria umysłu poniżej normy wiekowej, zachowania trudne o funkcji ucieczkowej; cechy indywidualne – głębokie zainteresowania, pozytywna reakcja na strukturę i stałych dorosłych.</p>
   <table class="op">
     <tr><th style="color:var(--green);width:50%">Ułatwienia w środowisku placówki (co pomaga)</th><th style="color:var(--red)">Bariery (co utrudnia)</th></tr>
     <tr><td><ul class="op" style="margin:0"><li>stały skład kadry i przewidywalny plan dnia (wizualny)</li><li>strefa wyciszenia w sali, słuchawki wygłuszające, przerwy sensoryczne</li><li>tablica wyboru AAC dostępna w sali i w domu</li><li>rówieśnik-mentor w zabawach; jasne zasady wizualne</li><li>zaangażowani rodzice, spójny system komunikatów dom–placówka</li></ul></td><td><ul class="op" style="margin:0"><li>hałas korytarza, gwar w szatni i na stołówce</li><li>apele, uroczystości i wyjścia zbiorowe bez przygotowania</li><li>polecenia wieloetapowe podawane wyłącznie słownie</li><li>nagłe zmiany planu, zastępstwa, zmiana sali</li><li>faktury klejące i mokre podczas zajęć plastycznych</li></ul></td></tr>
   </table>
-  <p class="just" style="margin:6px 0;font-size:10px"><b style="color:var(--purple)">Informacje od dziecka i rodziców (§ 8 ust. 3 pkt 1 i 3):</b> Informacje od dziecka (w formie dostosowanej do rozwoju) i od rodziców: lubi klocki, tablet z aplikacją o kosmosie i huśtanie; najtrudniejsze są hałas, zmiany planu i mokre ręce; pomagają cisza, plan dnia, słuchawki i wsparcie nauczyciela. Rodzice potwierdzają obraz funkcjonowania i wskazują potrzebę stałej kadry.</p>
-  <div class="sub9" style="--c:var(--blue);margin:8px 0 5px"><span class="tag9">!</span><h3 style="font-size:11px">Stanowisko placówki w sprawie potrzeb dziecka / ucznia (dla zespołu orzekającego)</h3></div>
+  <p class="just" style="margin:6px 0;font-size:16px"><b style="color:var(--purple)">Informacje od dziecka i rodziców (§ 8 ust. 3 pkt 1 i 3):</b> Informacje od dziecka (w formie dostosowanej do rozwoju) i od rodziców: lubi klocki, tablet z aplikacją o kosmosie i huśtanie; najtrudniejsze są hałas, zmiany planu i mokre ręce; pomagają cisza, plan dnia, słuchawki i wsparcie nauczyciela. Rodzice potwierdzają obraz funkcjonowania i wskazują potrzebę stałej kadry.</p>
+  <div class="sub9" style="--c:var(--blue);margin:8px 0 5px"><span class="tag9">!</span><h3 style="font-size:16px">Stanowisko placówki w sprawie potrzeb dziecka / ucznia (dla zespołu orzekającego)</h3></div>
   <div class="op-cb"><span><i class="cb on"></i><span>Potrzeba kształcenia specjalnego (wydanie / aktualizacja orzeczenia) z uwagi na autyzm</span></span><span><i class="cb on"></i><span>Zajęcia rewalidacyjne – wnioskowany zakres: komunikacja i AAC, umiejętności społeczne, motoryka mała</span></span><span><i class="cb on"></i><span>Wsparcie dodatkowej osoby – nauczyciel współorganizujący kształcenie (zajęcia kierowane, przejścia, wydarzenia grupowe)</span></span><span><i class="cb on"></i><span>Kontynuacja pomocy psychologiczno-pedagogicznej w dotychczasowych formach</span></span><span><i class="cb"></i><span>Indywidualne nauczanie / zindywidualizowana ścieżka kształcenia</span></span><span><i class="cb"></i><span>Wczesne wspomaganie rozwoju</span></span><span><i class="cb"></i><span>Inne: ……………………………………………</span></span></div>
-  <p class="just" style="margin:0;font-size:10px"><b style="color:var(--purple)">Uzasadnienie:</b> Wysoka potrzeba wsparcia w domenach d2, d7 i d9, potrzeba stałej komunikacji wspomagającej oraz ucieczkowa funkcja zachowań trudnych, którą kontroluje obecność przewidywalnego dorosłego. Dotychczasowe działania przyniosły mierzalną poprawę, co uzasadnia ich kontynuację i rozszerzenie w ramach kształcenia specjalnego.</p>
+  <p class="just" style="margin:0;font-size:16px"><b style="color:var(--purple)">Uzasadnienie:</b> Wysoka potrzeba wsparcia w domenach d2, d7 i d9, potrzeba stałej komunikacji wspomagającej oraz ucieczkowa funkcja zachowań trudnych, którą kontroluje obecność przewidywalnego dorosłego. Dotychczasowe działania przyniosły mierzalną poprawę, co uzasadnia ich kontynuację i rozszerzenie w ramach kształcenia specjalnego.</p>
   <div class="op-sec"><span class="r">9.</span><h3>Osoby, które rozpoznały trudności, mocne strony i uzdolnienia (nauczyciele, wychowawcy, specjaliści prowadzący zajęcia)</h3></div>
   <div class="op-sign"><div class="sig" style="border-top:0;text-align:left"><b style="color:var(--purple)">Wychowawca / nauczyciel:</b> [Imię i nazwisko]<br><small>podpis: ………………………………………</small></div><div class="sig" style="border-top:0;text-align:left"><b style="color:var(--purple)">Pedagog specjalny:</b> [Imię i nazwisko]<br><small>podpis: ………………………………………</small></div><div class="sig" style="border-top:0;text-align:left"><b style="color:var(--purple)">Psycholog:</b> [Imię i nazwisko]<br><small>podpis: ………………………………………</small></div><div class="sig" style="border-top:0;text-align:left"><b style="color:var(--purple)">Logopeda:</b> [Imię i nazwisko]<br><small>podpis: ………………………………………</small></div></div>
   <div class="op-dir">
     <div class="sig">Dyrektor przedszkola / szkoły<small>podpis i pieczęć · data</small></div>
-    <div class="sig" style="border-top:0;text-align:left;font-weight:400;color:var(--muted);font-size:9.5px">Kopię opinii przekazano rodzicom / pełnoletniemu uczniowi (§ 7 ust. 5) dnia ……………… · podpis rodzica / ucznia: ………………………………</div>
+    <div class="sig" style="border-top:0;text-align:left;font-weight:400;color:var(--muted);font-size:11px">Kopię opinii przekazano rodzicom / pełnoletniemu uczniowi (§ 7 ust. 5) dnia ……………… · podpis rodzica / ucznia: ………………………………</div>
   </div>
   <p class="op-note">Załączniki: ocena funkcjonalna (raport, część I–III), arkusze obserwacji, dokumentacja pomocy psychologiczno-pedagogicznej – do wglądu zespołu orzekającego za zgodą rodzica. Opinia zawiera dane dotyczące zdrowia (art. 9 RODO) – dokument poufny.</p>
-  <div class="footer"><span>Załącznik – opinia o funkcjonowaniu dziecka / ucznia · dokument poufny (RODO)</span><span>Strona <b>28</b> z 28 · Opinia · informacje uzupełniające i podpisy</span></div>
+  <div class="footer"><span>Załącznik – opinia o funkcjonowaniu dziecka / ucznia · dokument poufny (RODO)</span><span>Opinia · informacje uzupełniające i podpisy</span></div>
 </section>
 
 <script>

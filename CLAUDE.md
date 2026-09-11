@@ -32,6 +32,11 @@ Pliki raportów: `eduplaner2026/raport_oceny_funkcjonalnej/`. **Jedno źródło 
 
 - **Tytuł druku:** „Ocena Funkcjonalna” z podtytułem „Raport – podsumowanie WOPF i IPET · obszary ICF”. Nagłówki stron: „Ocena Funkcjonalna · …”.
 
+## Czytelność
+
+- **Czcionka treści minimum 12 pt** (HTML/PDF: 16 px dla akapitów, tabel, list; Word: 24 half-points). Drobne mogą być tylko etykiety, plakietki i stopki (≥ 9 pt).
+- Druk ciągły: każda sekcja zaczyna się na nowej stronie, ale może zajmować kilka stron; numer strony liczy przeglądarka (`@page` margin boxes w Chromium) lub Word.
+
 ## Styl graficzny
 
 Wzór IPET EduPlaner 2026: biały papier, lawendowe pola `#EFE9F9`, linie `#D9D0F0`, fiolet `#2D1B69` tylko w akcentach, pomarańczowe plakietki `#E74509`, tytuł wyśrodkowany w jednej linii, nagłówek strony z polami „Dotyczy dziecka / Grupa / Data”. Word: Arial, A4. Nie zmieniać struktury druku bez wyraźnego polecenia.

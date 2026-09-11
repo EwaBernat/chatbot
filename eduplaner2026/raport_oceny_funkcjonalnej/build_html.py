@@ -8,85 +8,86 @@ P1 = open('part1_pages.html', encoding='utf-8').read()
 EXTRA_CSS = '''
   /* ---- rozszerzenia: części II–III ---- */
   .partband.p3 .badge{background:var(--purple)}
-  .cbl{display:grid;grid-template-columns:1fr 1fr;gap:5px 14px;font-size:10.5px;margin:6px 0 10px}
+  .cbl{display:grid;grid-template-columns:1fr 1fr;gap:5px 14px;font-size:16px;margin:6px 0 10px}
   .cbl span{display:flex;align-items:center;gap:7px}
   .cbl .cb{margin:0}
   .cb.on{background:var(--orange);border-color:var(--orange);position:relative}
   .cb.on::after{content:"";position:absolute;left:4px;top:1px;width:4px;height:8px;border:solid #fff;border-width:0 2px 2px 0;transform:rotate(45deg)}
   .voice{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:8px 0}
-  .voice .box{padding:8px 12px 10px} .voice .box p{margin:0;font-size:11px;line-height:1.5;font-style:italic;color:var(--ink)}
+  .voice .box{padding:8px 12px 10px} .voice .box p{margin:0;font-size:16px;line-height:1.5;font-style:italic;color:var(--ink)}
   .voice .box.wide{grid-column:1/-1}
-  .mood{display:flex;gap:14px;align-items:center;margin:6px 0 10px;font-size:9.5px;color:var(--muted)}
+  .mood{display:flex;gap:14px;align-items:center;margin:6px 0 10px;font-size:11px;color:var(--muted)}
   .mood div{display:flex;flex-direction:column;align-items:center;gap:3px}
   .mood i{width:20px;height:20px;border-radius:50%;display:block;border:2px solid transparent}
   .mood .sel i{outline:2px solid var(--orange);outline-offset:2px}
   .lvlbox{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin:8px 0 12px}
   .lvlbox > div{border:1px solid var(--line);border-radius:8px;padding:10px 12px;display:grid;grid-template-columns:18px 1fr;gap:8px;align-items:start}
   .lvlbox > div.sel{background:var(--orangeMist);border-color:var(--orange)}
-  .lvlbox h4{margin:0 0 3px;font-size:11.5px;color:var(--purple);font-weight:800}
-  .lvlbox p{margin:0;font-size:10px;color:var(--muted);line-height:1.4}
+  .lvlbox h4{margin:0 0 3px;font-size:16px;color:var(--purple);font-weight:800}
+  .lvlbox p{margin:0;font-size:16px;color:var(--muted);line-height:1.4}
   .kv{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin:8px 0}
   .kv div{background:var(--lav);border-radius:8px;padding:8px 10px}
-  .kv .l{font-size:8px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:var(--lav-text)}
-  .kv .v{font-size:11px;font-weight:800;color:var(--purple);margin-top:2px;line-height:1.3}
-  .just{text-align:justify;font-size:11px;line-height:1.6;margin:6px 0}
-  ul.tick{margin:4px 0 0;padding-left:0;list-style:none;font-size:11px;line-height:1.5}
+  .kv .l{font-size:11px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:var(--lav-text)}
+  .kv .v{font-size:16px;font-weight:800;color:var(--purple);margin-top:2px;line-height:1.3}
+  .just{text-align:justify;font-size:16px;line-height:1.6;margin:6px 0}
+  ul.tick{margin:4px 0 0;padding-left:0;list-style:none;font-size:16px;line-height:1.5}
   ul.tick li{padding-left:16px;position:relative;margin-bottom:3px}
   ul.tick li::before{content:"✓";position:absolute;left:0;color:var(--green);font-weight:800}
-  .status-pill{display:inline-block;font-size:9px;font-weight:800;padding:2px 8px;border-radius:999px;white-space:nowrap}
+  .status-pill{display:inline-block;font-size:11px;font-weight:800;padding:2px 8px;border-radius:999px;white-space:nowrap}
   .status-pill.done{background:#E6F4EC;color:var(--green)} .status-pill.now{background:#FBF1DC;color:#9A6A0A} .status-pill.plan{background:var(--lav);color:var(--purple)}
-  .ref-pill{display:inline-block;font-size:9px;font-weight:800;color:var(--orange);background:var(--orangeMist);padding:2px 7px;border-radius:4px;white-space:nowrap}
-  .signbox{border:1px dashed var(--line);border-radius:8px;padding:8px 12px;font-size:10.5px;color:var(--muted);margin-top:8px}
+  .ref-pill{display:inline-block;font-size:11px;font-weight:800;color:var(--orange);background:var(--orangeMist);padding:2px 7px;border-radius:4px;white-space:nowrap}
+  .signbox{border:1px dashed var(--line);border-radius:8px;padding:8px 12px;font-size:16px;color:var(--muted);margin-top:8px}
   .signbox b{color:var(--purple)}
-  table.grid.small td{font-size:9.6px;padding:6px 8px;line-height:1.4} table.grid.small th{padding:6px 8px}
+  table.grid.small td{font-size:11px;padding:6px 8px;line-height:1.4} table.grid.small th{padding:6px 8px}
   table.grid.tight td{padding:6px 9px}
-  .hours.tight .stat{padding:6px 10px} .hours.tight .stat .v{font-size:14px}
+  .hours.tight .stat{padding:6px 10px} .hours.tight .stat .v{font-size:17px}
   .varbox{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:8px 0 10px}
-  .varbox > div{border:1px solid var(--line);border-radius:8px;padding:9px 12px;font-size:10.5px;line-height:1.5;display:grid;grid-template-columns:22px 1fr;gap:8px;align-items:start}
-  .varbox .tag9{font-size:10px;padding:2px 0;width:22px;text-align:center;border-radius:4px;color:#fff;font-weight:800}
+  .varbox > div{border:1px solid var(--line);border-radius:8px;padding:9px 12px;font-size:16px;line-height:1.5;display:grid;grid-template-columns:22px 1fr;gap:8px;align-items:start}
+  .varbox .tag9{font-size:16px;padding:2px 0;width:22px;text-align:center;border-radius:4px;color:#fff;font-weight:800}
   .varbox b{color:var(--purple)}
   table.grid td.ok{color:var(--green);font-weight:800} table.grid td.no{color:var(--red);font-weight:800}
-  .rek{display:grid;grid-template-columns:1fr 1fr;gap:5px 14px;font-size:10.5px;margin:6px 0 8px}
+  .rek{display:grid;grid-template-columns:1fr 1fr;gap:5px 14px;font-size:16px;margin:6px 0 8px}
   .rek span{display:flex;align-items:flex-start;gap:7px}
-  .gen{font-style:normal;font-size:7.5px;color:#B6A6DF}
-  .logo{font-size:16px;font-weight:800}
+  .gen{font-style:normal;font-size:11px;color:#B6A6DF}
+  .logo{font-size:18px;font-weight:800}
   /* ---- OPINIA dla zespołu orzekającego (czysty druk) ---- */
   .op-head{display:grid;grid-template-columns:1fr 1fr;gap:16px;align-items:start;margin-bottom:14px}
-  .op-stamp{border:1px dashed var(--line);border-radius:8px;min-height:56px;padding:8px 12px;font-size:9.5px;color:var(--muted)}
-  .op-stamp b{display:block;color:var(--purple);font-size:11px}
-  .op-right{text-align:right;font-size:10.5px;color:var(--muted);line-height:1.6}
+  .op-stamp{border:1px dashed var(--line);border-radius:8px;min-height:56px;padding:8px 12px;font-size:11px;color:var(--muted)}
+  .op-stamp b{display:block;color:var(--purple);font-size:16px}
+  .op-right{text-align:right;font-size:16px;color:var(--muted);line-height:1.6}
   .op-right .fill{display:inline-block;min-width:150px;border-bottom:1px solid #B6A6DF}
   .op-title{text-align:center;margin:10px 0 4px}
-  .op-title h1{margin:0;font-size:21px;font-weight:800;color:var(--purple);letter-spacing:.01em}
-  .op-title .s{font-size:10.5px;color:var(--orange);font-weight:700;letter-spacing:.16em;text-transform:uppercase;margin-top:4px}
-  .op-law{font-size:9px;color:var(--muted);text-align:justify;border:1px solid var(--line);border-radius:8px;padding:6px 10px;margin:6px 0 8px;line-height:1.45}
+  .op-title h1{margin:0;font-size:24px;font-weight:800;color:var(--purple);letter-spacing:.01em}
+  .op-title .s{font-size:16px;color:var(--orange);font-weight:700;letter-spacing:.16em;text-transform:uppercase;margin-top:4px}
+  .op-law{font-size:11px;color:var(--muted);text-align:justify;border:1px solid var(--line);border-radius:8px;padding:6px 10px;margin:6px 0 8px;line-height:1.45}
   .op-law b{color:var(--purple)}
   .op-sec{display:flex;align-items:center;gap:8px;margin:9px 0 5px}
-  .op-sec .r{font-weight:800;color:var(--orange);font-size:12px;min-width:26px}
-  .op-sec h3{margin:0;font-size:12px;color:var(--purple);font-weight:800;text-transform:uppercase;letter-spacing:.04em}
+  .op-sec .r{font-weight:800;color:var(--orange);font-size:16px;min-width:26px}
+  .op-sec h3{margin:0;font-size:16px;color:var(--purple);font-weight:800;text-transform:uppercase;letter-spacing:.04em}
   .op-sec::after{content:"";flex:1;height:1px;background:var(--line)}
-  table.op{width:100%;border-collapse:collapse;font-size:9.8px}
+  table.op{width:100%;border-collapse:collapse;font-size:11px}
   table.op td,table.op th{border:1px solid var(--line);padding:4px 8px;vertical-align:top;line-height:1.4}
-  table.op th{background:var(--lav);color:var(--purple);font-size:8.5px;letter-spacing:.1em;text-transform:uppercase;text-align:left}
+  table.op th{background:var(--lav);color:var(--purple);font-size:11px;letter-spacing:.1em;text-transform:uppercase;text-align:left}
   table.op td.k{width:31%;font-weight:700;color:var(--purple);background:var(--lav2)}
   table.op td.lv{white-space:nowrap;font-weight:700;color:var(--purple)}
-  ul.op{margin:2px 0 0;padding-left:16px;font-size:10px;line-height:1.45} ul.op li{margin-bottom:2px}
-  .op-cb{display:grid;grid-template-columns:1fr 1fr;gap:4px 14px;font-size:10.5px;margin:4px 0 6px}
+  ul.op{margin:2px 0 0;padding-left:16px;font-size:16px;line-height:1.45} ul.op li{margin-bottom:2px}
+  .op-cb{display:grid;grid-template-columns:1fr 1fr;gap:4px 14px;font-size:16px;margin:4px 0 6px}
   .op-cb span{display:flex;gap:7px;align-items:flex-start}
   .op-sign{display:grid;grid-template-columns:1fr 1fr;gap:14px 24px;margin-top:18px}
   .op-sign .sig{text-align:left;padding-top:4px}
-  .op-sign .sig small{font-size:9px}
+  .op-sign .sig small{font-size:11px}
   .op-dir{margin-top:22px;display:grid;grid-template-columns:1fr 1fr;gap:24px}
-  .op-dir .sig{border-top:1px solid var(--purple);padding-top:5px;text-align:center;font-size:10.5px;color:var(--purple);font-weight:700}
-  .op-dir .sig small{display:block;font-weight:400;color:var(--muted);font-size:9px}
-  .op-note{font-size:9.5px;color:var(--muted);margin-top:10px;line-height:1.5;border-top:1px dashed var(--line);padding-top:6px}
-  .lawref{display:inline-block;font-size:9px;font-weight:700;color:var(--purple);background:var(--lav);border-radius:4px;padding:3px 9px;margin:-6px 0 10px}
-  table.grid td.act{font-weight:800;color:var(--purple)} table.grid td.dz{white-space:nowrap;color:var(--orange);font-weight:800;font-size:9.5px}
+  .op-dir .sig{border-top:1px solid var(--purple);padding-top:5px;text-align:center;font-size:16px;color:var(--purple);font-weight:700}
+  .op-dir .sig small{display:block;font-weight:400;color:var(--muted);font-size:11px}
+  .op-note{font-size:11px;color:var(--muted);margin-top:10px;line-height:1.5;border-top:1px dashed var(--line);padding-top:6px}
+  @media print{ .op-page{page:opinia} @page opinia{ @bottom-left{content:"Załącznik – opinia o funkcjonowaniu dziecka / ucznia · dokument poufny (RODO)";font:9px Arial,sans-serif;color:#6B6378} } }
+  .lawref{display:inline-block;font-size:11px;font-weight:700;color:var(--purple);background:var(--lav);border-radius:4px;padding:3px 9px;margin:-6px 0 10px}
+  table.grid td.act{font-weight:800;color:var(--purple)} table.grid td.dz{white-space:nowrap;color:var(--orange);font-weight:800;font-size:11px}
   .flow5{display:grid;grid-template-columns:repeat(5,1fr);gap:8px;margin:8px 0 12px}
   .flow5 > div{border:1px solid var(--line);border-radius:8px;padding:8px 10px;position:relative}
-  .flow5 .p{font-size:8px;font-weight:800;letter-spacing:.12em;color:var(--orange)}
-  .flow5 h4{margin:2px 0 2px;font-size:11px;color:var(--purple);font-weight:800}
-  .flow5 p{margin:0;font-size:9.5px;color:var(--muted);line-height:1.35}
+  .flow5 .p{font-size:11px;font-weight:800;letter-spacing:.12em;color:var(--orange)}
+  .flow5 h4{margin:2px 0 2px;font-size:16px;color:var(--purple);font-weight:800}
+  .flow5 p{margin:0;font-size:11px;color:var(--muted);line-height:1.35}
   .flow5 > div:not(:last-child)::after{content:"›";position:absolute;right:-8px;top:36%;color:var(--orange);font-weight:800;background:#fff}
 '''
 
@@ -163,11 +164,11 @@ page('Wyniki arkuszy','Część II · Wyniki arkuszy specjalistycznych',b)
 
 # ---------- 7 Mój głos ----------
 s=D['s7']; b=sec(7, s['title'], s.get('law'))+lead('',s['lead'])
-b+='  <div class="lbl" style="font-size:8.5px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:var(--purple)">Sposób pozyskania głosu dziecka – zaznaczono</div>\n  <div class="cbl">'+''.join(f'<span>{cb(on)}{t}</span>' for t,on in s['sposoby'])+'</div>\n'
+b+='  <div class="lbl" style="font-size:11px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:var(--purple)">Sposób pozyskania głosu dziecka – zaznaczono</div>\n  <div class="cbl">'+''.join(f'<span>{cb(on)}{t}</span>' for t,on in s['sposoby'])+'</div>\n'
 b+='  <div class="voice">\n'+''.join(f'    <div class="box{" wide" if i==3 else ""}" style="--c:var(--{c})"><div class="lbl">{t}</div><p>{v}</p></div>\n' for i,(c,t,v) in enumerate(s['pola']))+'  </div>\n'
-b+='  <div class="lbl" style="font-size:8.5px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:var(--purple)">Co mi najbardziej pomaga – zaznaczono</div>\n  <div class="cbl">'+''.join(f'<span>{cb(on)}{t}</span>' for t,on in s['pomaga'])+'</div>\n'
+b+='  <div class="lbl" style="font-size:11px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:var(--purple)">Co mi najbardziej pomaga – zaznaczono</div>\n  <div class="cbl">'+''.join(f'<span>{cb(on)}{t}</span>' for t,on in s['pomaga'])+'</div>\n'
 cols=['#2E9D52','#7EB800','#DFA22E','#E77309','#BF382A']
-b+='  <div class="lbl" style="font-size:8.5px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:var(--purple)">Jak się dziś czuję – wskazanie dziecka</div>\n  <div class="mood">'+''.join(f'<div class="{"sel" if i==s["nastrojWybor"] else ""}"><i style="background:{cols[i]}"></i>{n}</div>' for i,n in enumerate(s['nastroj']))+'</div>\n'
+b+='  <div class="lbl" style="font-size:11px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:var(--purple)">Jak się dziś czuję – wskazanie dziecka</div>\n  <div class="mood">'+''.join(f'<div class="{"sel" if i==s["nastrojWybor"] else ""}"><i style="background:{cols[i]}"></i>{n}</div>' for i,n in enumerate(s['nastroj']))+'</div>\n'
 b+=f'  <div class="box" style="--c:var(--blue)"><div class="lbl">Preferowany sposób komunikacji dziecka i wskazówki do rozmowy</div><p class="just" style="margin:0">{s["komunikacja"]}</p></div>\n'
 b+=f'  <p class="stnote"><b>Podstawa.</b> {s["podstawa"]}</p>\n'
 page('Mój głos','Część II · Mój głos',b)
@@ -182,7 +183,7 @@ page('Podjęte działania','Część II · Działania dotychczas podjęte',b)
 # ---------- 9 (2 strony) ----------
 s=D['s9']
 thead='  <table class="grid">\n    <tr><th>Domena ICF</th><th>Opis funkcjonowania i bariery</th><th style="color:var(--orange)">Cel na rok szkolny – co ma się zmienić</th></tr>\n'
-def rows9(sel): return ''.join(f'    <tr><td class="area">{n}<br><span style="color:var(--orange);font-size:9px">{k}</span></td><td>{d}</td><td><ul class="tick" style="margin:0">'+''.join(f'<li>{x}</li>' for x in r)+'</ul></td></tr>\n' for k,n,d,r in sel)
+def rows9(sel): return ''.join(f'    <tr><td class="area">{n}<br><span style="color:var(--orange);font-size:11px">{k}</span></td><td>{d}</td><td><ul class="tick" style="margin:0">'+''.join(f'<li>{x}</li>' for x in r)+'</ul></td></tr>\n' for k,n,d,r in sel)
 page('Analiza d1–d5','Część II · Analiza jakościowa', sec(9, s['title'], s.get('law'))+lead('',s['lead'])+thead+rows9(s['rows'][:5])+'  </table>\n')
 page('Analiza d6–d9','Część II · Analiza jakościowa · cd.', sec(9,s['title']+' · cd.')+thead+rows9(s['rows'][5:])+'  </table>\n')
 
@@ -305,14 +306,14 @@ lp3='<section class="page">\n'+hdr('Podstawy prawne')+'''
 op=D['opinia']; pl=D['placowka']
 def opsec(r,t): return f'  <div class="op-sec"><span class="r">{r}</span><h3>{t}</h3></div>\n'
 def ophead(): return f'''  <div class="op-head">
-    <div class="op-stamp"><b>{pl['nazwa']}</b>{pl['adres']}<br><span style="font-size:8.5px">(pieczęć placówki)</span></div>
+    <div class="op-stamp"><b>{pl['nazwa']}</b>{pl['adres']}<br><span style="font-size:11px">(pieczęć placówki)</span></div>
     <div class="op-right">{pl['miejscowosc']}, dnia <span class="fill"></span><br>Znak sprawy: <span class="fill"></span><br>Zespół orzekający: <span class="fill">[Nazwa Poradni Psychologiczno-Pedagogicznej]</span></div>
   </div>
 '''
 opages=[]
 def optable(rows):
     return '  <table class="op">\n    <tr><th style="width:23%">Obszar (ICF)</th><th style="color:var(--green)">Mocne strony i uzdolnienia</th><th style="color:var(--red)">Trudności</th><th style="width:17%">Poziom potrzeby wsparcia</th></tr>\n'+''.join(f'    <tr><td class="k">{a}</td><td>{x}</td><td>{y}</td><td class="lv" style="white-space:normal">{z}</td></tr>\n' for a,x,y,z in rows)+'  </table>\n'
-def opsub(tag,t,color='var(--orange)'): return f'  <div class="sub9" style="--c:{color};margin:8px 0 5px"><span class="tag9">{tag}</span><h3 style="font-size:11px">{t}</h3></div>\n'
+def opsub(tag,t,color='var(--orange)'): return f'  <div class="sub9" style="--c:{color};margin:8px 0 5px"><span class="tag9">{tag}</span><h3 style="font-size:16px">{t}</h3></div>\n'
 def opkv(rows): return '  <table class="op">\n'+''.join(f'    <tr><td class="k">{k}</td><td>{v.replace("☐",cb())}</td></tr>\n' for k,v in rows)+'  </table>\n'
 # strona 1: nagłówek, dane (pkt 1–2), podstawa opinii
 b=ophead()+f'''  <div class="op-title"><h1>{op['title']}</h1><div class="s">{op['sub']}</div></div>
@@ -321,7 +322,7 @@ b=ophead()+f'''  <div class="op-title"><h1>{op['title']}</h1><div class="s">{op[
 b+=opsec('2.',op['podstawaOpinii']['title'])+opkv(op['podstawaOpinii']['rows'])
 opages.append(('Opinia · dane i podstawa',b))
 # strona 2: funkcjonowanie A (przedszkole)
-b=ophead()+opsec('3.',op['II']['title'])+f'  <p class="lead2" style="font-size:10px;margin-bottom:4px">{op["II"]["lead"]}</p>\n'
+b=ophead()+opsec('3.',op['II']['title'])+f'  <p class="lead2" style="font-size:16px;margin-bottom:4px">{op["II"]["lead"]}</p>\n'
 b+=opsub('A',op['II']['titleA'])+optable(op['II']['rows'])
 opages.append(('Opinia · funkcjonowanie A',b))
 # strona 3: funkcjonowanie B (uczeń) + trudności w programie
@@ -335,15 +336,15 @@ b+=opsec('7.',op['VI']['title'])+'  <ul class="op">'+''.join(f'<li>{x}</li>' for
 opages.append(('Opinia · pomoc i wnioski',b))
 # strona 5: informacje uzupełniające (§ 8) + podpisy
 u=op['uzup']
-b=ophead()+opsec('8.',u['title'])+f'  <p class="lead2" style="font-size:10px;margin-bottom:6px">{u["lead"]}</p>\n'
-b+=f'  <p class="just" style="margin:0 0 6px;font-size:10px">{u["funkcje"]}</p>\n'
+b=ophead()+opsec('8.',u['title'])+f'  <p class="lead2" style="font-size:16px;margin-bottom:6px">{u["lead"]}</p>\n'
+b+=f'  <p class="just" style="margin:0 0 6px;font-size:16px">{u["funkcje"]}</p>\n'
 b+='  <table class="op">\n    <tr><th style="color:var(--green);width:50%">Ułatwienia w środowisku placówki (co pomaga)</th><th style="color:var(--red)">Bariery (co utrudnia)</th></tr>\n    <tr><td><ul class="op" style="margin:0">'+''.join(f'<li>{x}</li>' for x in u['ulatwienia'])+'</ul></td><td><ul class="op" style="margin:0">'+''.join(f'<li>{x}</li>' for x in u['bariery'])+'</ul></td></tr>\n  </table>\n'
-b+=f'  <p class="just" style="margin:6px 0;font-size:10px"><b style="color:var(--purple)">Informacje od dziecka i rodziców (§ 8 ust. 3 pkt 1 i 3):</b> {u["glos"]}</p>\n'
-b+=opsub('!',u['rekTitle'],'var(--blue)')+'  <div class="op-cb">'+''.join(f'<span>{cb(on)}<span>{t}</span></span>' for t,on in op['VI']['items'])+'</div>\n'+f'  <p class="just" style="margin:0;font-size:10px"><b style="color:var(--purple)">Uzasadnienie:</b> {op["VI"]["uzasadnienie"]}</p>\n'
+b+=f'  <p class="just" style="margin:6px 0;font-size:16px"><b style="color:var(--purple)">Informacje od dziecka i rodziców (§ 8 ust. 3 pkt 1 i 3):</b> {u["glos"]}</p>\n'
+b+=opsub('!',u['rekTitle'],'var(--blue)')+'  <div class="op-cb">'+''.join(f'<span>{cb(on)}<span>{t}</span></span>' for t,on in op['VI']['items'])+'</div>\n'+f'  <p class="just" style="margin:0;font-size:16px"><b style="color:var(--purple)">Uzasadnienie:</b> {op["VI"]["uzasadnienie"]}</p>\n'
 b+=opsec('9.',op['podpisy']['osoby'])+'  <div class="op-sign">'+''.join(f'<div class="sig" style="border-top:0;text-align:left"><b style="color:var(--purple)">{r}:</b> {n}<br><small>podpis: ………………………………………</small></div>' for r,n in op['sporzadzili'])+'</div>\n'
 b+=f'''  <div class="op-dir">
     <div class="sig">{op['podpisy']['dyrektor']}<small>podpis i pieczęć · data</small></div>
-    <div class="sig" style="border-top:0;text-align:left;font-weight:400;color:var(--muted);font-size:9.5px">{op['podpisy']['kopia']}</div>
+    <div class="sig" style="border-top:0;text-align:left;font-weight:400;color:var(--muted);font-size:11px">{op['podpisy']['kopia']}</div>
   </div>
 '''+f'  <p class="op-note">{op["zalaczniki"]} Opinia zawiera dane dotyczące zdrowia (art. 9 RODO) – dokument poufny.</p>\n'
 opages.append(('Opinia · informacje uzupełniające i podpisy',b))
@@ -354,18 +355,18 @@ toc = D['toc']
 tochtml = '  <div class="toc">\n    <h5>'+toc['I']['title']+'</h5>\n'+''.join(f'    <div><div class="k">{n}</div><h4>{t}</h4><p>{d}</p></div>\n' for n,t,d in toc['I']['items'])+'  </div>\n'
 for part in ('II','III'):
     tochtml += f'  <div class="toc" style="grid-template-columns:repeat(7,1fr);margin-top:8px">\n    <h5>{toc[part]["title"]}</h5>\n'
-    tochtml += ''.join(f'    <div style="padding:7px 8px 6px"><div class="k" style="font-size:16px">{n}</div><h4 style="font-size:9.5px;margin:3px 0 0">{t}</h4></div>\n' for n,t in toc[part]['items'])+'  </div>\n'
-p1 = P1.replace('{{TOTAL}}', str(TOTAL)).replace('{{TOC}}\n', tochtml).replace('Strona <b>3</b> z','Strona <b>5</b> z').replace('Strona <b>2</b> z','Strona <b>4</b> z')
+    tochtml += ''.join(f'    <div style="padding:7px 8px 6px"><div class="k" style="font-size:18px">{n}</div><h4 style="font-size:11px;margin:3px 0 0">{t}</h4></div>\n' for n,t in toc[part]['items'])+'  </div>\n'
+p1 = re.sub(r'Strona <b>\\d+</b> z \\{\\{TOTAL\\}\\} · ', '', P1).replace('{{TOC}}\n', tochtml)
 cut = p1.index('<!-- ======================= STRONA 2')
-p1 = p1[:cut] + lp2 + f'  <div class="footer"><span>[Nazwa placówki] · dokument poufny (RODO) <i class="gen">· sporządzono w EduPlaner 2026</i></span><span>Strona <b>2</b> z {TOTAL} · Jak czytać · warianty</span></div>\n</section>\n\n' + lp3 + f'  <div class="footer"><span>[Nazwa placówki] · dokument poufny (RODO) <i class="gen">· sporządzono w EduPlaner 2026</i></span><span>Strona <b>3</b> z {TOTAL} · Podstawy prawne</span></div>\n</section>\n\n' + p1[cut:]
+p1 = p1[:cut] + lp2 + f'  <div class="footer"><span>[Nazwa placówki] · dokument poufny (RODO) <i class="gen">· sporządzono w EduPlaner 2026</i></span><span>Jak czytać · warianty</span></div>\n</section>\n\n' + lp3 + f'  <div class="footer"><span>[Nazwa placówki] · dokument poufny (RODO) <i class="gen">· sporządzono w EduPlaner 2026</i></span><span>Podstawy prawne</span></div>\n</section>\n\n' + p1[cut:]
 body = p1
 for i,(name,inner) in enumerate(pages + [('OP:'+n, x) for n,x in opages]):
     n = 6+i
     if name.startswith('OP:'):
         name = name[3:]
-        body += '<section class="page">\n' + inner + f'  <div class="footer"><span>Załącznik – opinia o funkcjonowaniu dziecka / ucznia · dokument poufny (RODO)</span><span>Strona <b>{n}</b> z {TOTAL} · {name}</span></div>\n</section>\n\n'
+        body += '<section class="page op-page">\n' + inner + f'  <div class="footer"><span>Załącznik – opinia o funkcjonowaniu dziecka / ucznia · dokument poufny (RODO)</span><span>{name}</span></div>\n</section>\n\n'
         continue
-    body += inner + f'  <div class="footer"><span>[Nazwa placówki] · dokument poufny (RODO) <i class="gen">· sporządzono w EduPlaner 2026</i></span><span>Strona <b>{n}</b> z {TOTAL} · {name}</span></div>\n</section>\n\n'
+    body += inner + f'  <div class="footer"><span>[Nazwa placówki] · dokument poufny (RODO) <i class="gen">· sporządzono w EduPlaner 2026</i></span><span>{name}</span></div>\n</section>\n\n'
 
 JS='''<script>
 (function(){
