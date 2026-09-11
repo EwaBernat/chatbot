@@ -119,7 +119,7 @@ const cover = [
     ['6','Analiza jakościowa','opis barier i zalecenia do IPE'],
     ['7','Obserwacja pogłębiona','wyniki arkuszy specjalistycznych'],
     ['8','Podjęte działania','zakres wsparcia i efektywność'],
-    ['9','Zalecenia poradni','sposoby realizacji w placówce']
+    ['9','Zalecenia poradni','rewalidacja · PPP · realizacja']
   ].map((t,i) => cell([
     P([ run(t[0], { size:26, bold:true, color:C.orange }) ], { after:30 }),
     P([ run(t[1], { size:15, bold:true, color:C.purple }) ], { after:40, line:220 }),
@@ -321,20 +321,37 @@ const table8 = tbl(W8, [ gridHead(['Rodzaj wsparcia','Zakres wdrożonych działa
   ...rows8.map(r => row([ gcell(txt(r[0], { bold:true, color:C.purple }), W8[0]), gcell(txt(r[1]), W8[1]), gcell(txt(r[2]), W8[2], { edge:C.green }) ])) ]);
 
 
-const zal = [
- ['Zajęcia rewalidacyjne rozwijające kompetencje społeczno-komunikacyjne (2 godz. tyg.)','Rewalidacja indywidualna 2 × 30 min tygodniowo: trening komunikacji funkcjonalnej, rozpoznawanie emocji, historyjki społeczne; zadania generalizowane w grupie.','Pedagog specjalny · 2 × 30 min / tydz.'],
- ['Terapia logopedyczna z elementami komunikacji wspomagającej (AAC)','Indywidualne zajęcia logopedyczne; wdrożenie tablic wyboru i skryptów dialogowych w sali; szkolenie kadry z obsługi pomocy AAC.','Logopeda / neurologopeda · 1 × 30 min / tydz.'],
- ['Terapia integracji sensorycznej i dieta sensoryczna w ciągu dnia','Zajęcia SI na sali gimnastycznej; przerwy sensoryczne wpisane w plan dnia; słuchawki wygłuszające; strefa wyciszenia w sali.','Terapeuta SI · 1 × 45 min / tydz.; nauczyciele codziennie'],
- ['Wsparcie nauczyciela współorganizującego kształcenie','Obecność nauczyciela współorganizującego w czasie zajęć kierowanych i przejść między aktywnościami; pomoc w dekodowaniu poleceń.','Nauczyciel współorganizujący · zgodnie z arkuszem organizacji'],
- ['Dostosowanie wymagań edukacyjnych oraz form i metod pracy','Karty pracy z jednym poleceniem, większa czcionka, ograniczenie bodźców; wydłużony czas; ocenianie wysiłku i postępu; instrukcje wsparte piktogramami.','Wychowawca i nauczyciele przedmiotów · na bieżąco'],
- ['Trening umiejętności społecznych (TUS) w małej grupie','Zajęcia TUS w grupie 3–5 osób: naprzemienność, rozpoznawanie intencji, radzenie sobie z przegraną; rówieśnik-mentor w zabawach swobodnych.','Psycholog / pedagog · 1 × 45 min / tydz.'],
- ['Zapewnienie stałości, przewidywalności i struktury otoczenia','Wizualny plan dnia na rzepy; zapowiadanie zmian; stały skład kadry; protokół wyprzedzający przed wydarzeniami grupowymi.','Wychowawca · codziennie'],
- ['Ścisła współpraca z rodzicami i ujednolicenie oddziaływań','Cotygodniowe konsultacje; zeszyt korespondencji dom–placówka; wspólny system komunikatów i wzmocnień; udział rodziców w ewaluacji IPET.','Koordynator zespołu · 1 × / tydz.']
+const rew = [
+ ['Rewalidacja: rozwijanie kompetencji komunikacyjnych i wdrażanie AAC','tablice wyboru, skrypty dialogowe, trening komunikacji funkcjonalnej (FCT)','Pedagog specjalny / neurologopeda','indywidualnie','1 × 60 min','60 min / tydz.'],
+ ['Rewalidacja: trening umiejętności społecznych i teorii umysłu (ToM)','rozpoznawanie emocji i intencji, historyjki społeczne, naprzemienność','Pedagog specjalny','indywidualnie / w parze','1 × 30 min','30 min / tydz.'],
+ ['Rewalidacja: usprawnianie motoryki małej i grafomotoryki','chwyt pisarski, koordynacja wzrokowo-ruchowa, planowanie ruchu','Terapeuta pedagogiczny','indywidualnie','1 × 30 min','30 min / tydz.']
 ];
+const ppp = [
+ ['Zajęcia logopedyczne','artykulacja, pragmatyka wypowiedzi, redukcja echolalii, dialog','Logopeda','indywidualnie','1 × 45 min','45 min / tydz.'],
+ ['Zajęcia rozwijające kompetencje emocjonalno-społeczne (TUS)','naprzemienność, radzenie sobie z przegraną, odczytywanie sygnałów rówieśników','Psycholog','grupa 3–5 osób','1 × 45 min','45 min / tydz.'],
+ ['Zajęcia korekcyjno-kompensacyjne','uwaga, pamięć, uogólnianie wiedzy, organizacja pracy','Terapeuta pedagogiczny','grupa do 5 osób','1 × 45 min','45 min / tydz.'],
+ ['Zajęcia specjalistyczne: integracja sensoryczna (SI)','modulacja sensoryczna, dieta sensoryczna, przerwy sensoryczne','Terapeuta SI','indywidualnie','1 × 45 min','45 min / tydz.'],
+ ['Porady i konsultacje dla rodziców','ujednolicenie oddziaływań dom–placówka, zeszyt korespondencji','Psycholog / koordynator','rodzice','1 × 30 min','30 min / tydz.']
+];
+const inne = [
+ ['Wsparcie nauczyciela współorganizującego kształcenie','Obecność w czasie zajęć kierowanych i przejść między aktywnościami; pomoc w dekodowaniu poleceń.','Nauczyciel współorganizujący · wg arkusza organizacji'],
+ ['Dostosowanie wymagań edukacyjnych oraz form i metod pracy','Karty pracy z jednym poleceniem, większa czcionka, ograniczenie bodźców; wydłużony czas; ocenianie wysiłku i postępu.','Wychowawca i nauczyciele · na bieżąco'],
+ ['Zapewnienie stałości, przewidywalności i struktury otoczenia','Wizualny plan dnia; zapowiadanie zmian; stały skład kadry; protokół wyprzedzający przed wydarzeniami grupowymi; strefa wyciszenia i słuchawki.','Wychowawca · codziennie'],
+ ['Ścisła współpraca z rodzicami i ujednolicenie oddziaływań','Cotygodniowe konsultacje; wspólny system komunikatów i wzmocnień; udział rodziców w ewaluacji IPET.','Koordynator zespołu · 1 × / tydz.']
+];
+const WZ = [3000, 2800, 1500, 1300, 1306];
+const sub9 = (tag, title, note, color) => new Paragraph({ spacing:{ before:200, after:100 }, keepNext:true, children:[ run(' '+tag+' ', { size:16, bold:true, color:C.white, bg:color }), run('   '+title, { size:18, bold:true, color:C.purple }), run(note ? '   · '+note : '', { size:14, color:C.muted }) ] });
+const zajTable = (rows, edge, sumLabel, sumVal, sumSub) => tbl(WZ, [ gridHead(['Rodzaj zajęć','Zakres / cel','Prowadzący','Forma','Wymiar tyg.'], WZ),
+  ...rows.map(r => row([ gcell(txt(r[0], { bold:true, color:C.purple, size:15 }), WZ[0], { edge }), gcell(txt(r[1], { size:15 }), WZ[1]), gcell(txt(r[2], { bold:true, color:C.purple, size:15 }), WZ[2]), gcell(txt(r[3], { size:15 }), WZ[3]), gcell([ txt(r[4], { bold:true, color:C.purple, size:15 }), txt(r[5], { size:12, color:C.muted }) ], WZ[4]) ])),
+  row([ cell(txt(sumLabel, { bold:true, color:C.purple, size:15 }), { width:WZ[0]+WZ[1]+WZ[2]+WZ[3], span:4, bg:C.lav, borders:{ top:ln(), bottom:ln(), left:ln(), right:ln() }, margins:{ top:80, bottom:80, left:140, right:120 } }), cell([ txt(sumVal, { bold:true, color:C.purple, size:15 }), txt(sumSub, { size:12, color:C.muted }) ], { width:WZ[4], bg:C.lav, borders:{ top:ln(), bottom:ln(), left:ln(), right:ln() }, margins:{ top:80, bottom:80, left:140, right:120 } }) ])
+]);
+const hoursTiles = tbl([Math.floor(CW/2), CW-Math.floor(CW/2)], [ row([ statTile('A · ZAJĘCIA REWALIDACYJNE · RAZEM','2 godz.','= 120 min / tydz. · 3 rodzaje zajęć', Math.floor(CW/2)), statTile('B · POMOC PSYCHOLOGICZNO-PEDAGOGICZNA · RAZEM','3 godz. 30 min','= 210 min / tydz. · 5 form pomocy', CW-Math.floor(CW/2), C.blue) ]) ]);
+const tableRew = zajTable(rew, C.orange, 'Razem zajęcia rewalidacyjne', '2 godz.', '120 min / tydz.');
+const tablePpp = zajTable(ppp, C.blue, 'Razem pomoc psychologiczno-pedagogiczna', '3 godz. 30 min', '210 min / tydz.');
 const W9 = [400, 2550, 3500, 2200, 1256];
 const statusCell = () => gcell(['wdrożone','w trakcie','planowane'].map(t => P([ run('☐ ', { size:15, color:'B6A6DF' }), run(t, { size:12, color:C.muted }) ], { after:0, line:220 })), W9[4]);
 const table9 = tbl(W9, [ gridHead(['Lp.','Zalecenie poradni (z orzeczenia / opinii)','Sposób realizacji w placówce','Realizator / wymiar','Status'], W9, [C.purple, C.purple, C.orange, C.purple, C.purple]),
-  ...zal.map((z,i) => row([ gcell(txt(String(i+1), { bold:true, color:C.orange, size:15 }), W9[0]), gcell(txt(z[0], { bold:true, size:15 }), W9[1]), gcell(txt(z[1], { size:15 }), W9[2]), gcell(txt(z[2], { bold:true, color:C.purple, size:15 }), W9[3]), statusCell() ])) ]);
+  ...inne.map((z,i) => row([ gcell(txt(String(i+1), { bold:true, color:C.orange, size:15 }), W9[0]), gcell(txt(z[0], { bold:true, size:15 }), W9[1]), gcell(txt(z[1], { size:15 }), W9[2]), gcell(txt(z[2], { bold:true, color:C.purple, size:15 }), W9[3]), statusCell() ])) ]);
 
 const parentBox = tbl([CW], [ row([ cell(P([ run('Informacja dla rodzica. ', { size:17, bold:true, color:C.orange }), run('Niniejszy raport stanowi opinię placówki o funkcjonowaniu dziecka i jest przekazywany rodzicowi oraz zespołowi orzekającemu poradni. Wyniki obserwacji służą zaplanowaniu wsparcia, a nie ocenie dziecka. Zachęcamy do rozmowy z Zespołem o każdej części dokumentu.', { size:17 }) ], { after:0, line:270 }), { width:CW, bg:C.paper, borders:{ top:ln(C.line2), bottom:ln(C.line2), left:ln(C.line2), right:ln(C.line2) }, margins:{ top:120, bottom:120, left:220, right:220 } }) ]) ]);
 
@@ -375,9 +392,18 @@ const part2 = [
   empty(140),
   parentBox,
   new Paragraph({ children:[ new PageBreak() ] }),
-  ...pageHeader('Raport Oceny Funkcjonalnej · Część II · Zalecenia poradni i podpisy'),
+  ...pageHeader('Raport Oceny Funkcjonalnej · Część II · Zalecenia poradni · zajęcia'),
   section('9','Zalecenia z poradni i sposoby ich realizacji w placówce'),
-  P([ run('Zalecenia zawarte w ', { size:16, color:C.muted }), run('orzeczeniu / opinii poradni psychologiczno-pedagogicznej', { size:16, bold:true, color:C.purple }), run(' nr ', { size:16, color:C.muted }), ph('[Numer]'), run(' z dnia ', { size:16, color:C.muted }), ph('[Data]'), run(' oraz przyjęte przez Zespół sposoby ich realizacji, realizatorzy i wymiar wsparcia:', { size:16, color:C.muted }) ], { after:100, line:260, align:AlignmentType.JUSTIFIED }),
+  P([ run('Zalecenia zawarte w ', { size:16, color:C.muted }), run('orzeczeniu / opinii poradni psychologiczno-pedagogicznej', { size:16, bold:true, color:C.purple }), run(' nr ', { size:16, color:C.muted }), ph('[Numer]'), run(' z dnia ', { size:16, color:C.muted }), ph('[Data]'), run(' oraz przyjęte przez Zespół sposoby ich realizacji. Zajęcia przydzielone dziecku/uczniowi zestawiono w podziale na ', { size:16, color:C.muted }), run('rewalidację', { size:16, bold:true, color:C.purple }), run(' (kształcenie specjalne) i ', { size:16, color:C.muted }), run('pomoc psychologiczno-pedagogiczną', { size:16, bold:true, color:C.purple }), run(':', { size:16, color:C.muted }) ], { after:100, line:260, align:AlignmentType.JUSTIFIED }),
+  hoursTiles,
+  sub9('A','Zajęcia rewalidacyjne przydzielone dziecku / uczniowi','kształcenie specjalne · na podstawie orzeczenia', C.orange),
+  tableRew,
+  sub9('B','Zajęcia z zakresu pomocy psychologiczno-pedagogicznej','rodzaj, forma i wymiar czasowy', C.blue),
+  tablePpp,
+  P([ run('Uwaga: ', { size:13, bold:true, color:C.purple }), run('godzina rewalidacji = 60 min; godzina zajęć PPP = 45 min (w przedszkolu czas dostosowany do możliwości dziecka).', { size:13, color:C.muted }) ], { before:60, after:0 }),
+  new Paragraph({ children:[ new PageBreak() ] }),
+  ...pageHeader('Raport Oceny Funkcjonalnej · Część II · Zalecenia poradni · realizacja i podpisy'),
+  sub9('C','Pozostałe zalecenia poradni i sposoby ich realizacji w placówce','', C.purple),
   table9,
   sigs
 ];
