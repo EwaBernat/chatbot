@@ -143,13 +143,15 @@ SCENY = [
         ],
     },
     {  # 7
-        "id": "funkcjonowanie", "tytul": "4 · Funkcjonowanie w placówce", "strona": 6, "foto": "klocki",
+        "id": "funkcjonowanie", "tytul": "4 · Funkcjonowanie: 5 obszarów (przedszkole) i 7 (uczeń)", "strona": 6, "foto": "klocki",
         "prawo": [p("428", "§ 7 ust. 6 pkt 3 · ust. 7 pkt 1 lit. a – 5 obszarów"), p("ks", "§ 6 ust. 10 – WOPF")],
         "kroki": [
-            {"f": 0.00, "fd": 0.22, "typ": "kamera", "sel": "table.grid", "pad": 16, "zoom": 1.1},
-            {"f": 0.03, "fd": 0.92, "typ": "wpisz", "sel": "table.grid td.plus, table.grid td.minus"},
-            {"f": 0.40, "fd": 0.25, "typ": "kamera", "sel": "table.grid tr:nth-child(3)", "pad": 20, "zoom": 1.45},
-            {"f": 0.75, "fd": 0.22, "typ": "kamera", "sel": "table.grid", "pad": 16, "zoom": 1.1},
+            {"f": 0.00, "fd": 0.20, "typ": "kamera", "sel": "table.grid", "pad": 16, "zoom": 1.1},
+            {"f": 0.02, "fd": 0.50, "typ": "wpisz", "sel": "table.grid td.plus, table.grid td.minus"},
+            {"f": 0.28, "fd": 0.20, "typ": "kamera", "sel": "table.grid tr:nth-child(3)", "pad": 20, "zoom": 1.45},
+            {"f": 0.60, "fd": 0.00, "typ": "strona", "nr": 7},
+            {"f": 0.60, "fd": 0.20, "typ": "kamera", "strona": 7, "sel": "table.grid", "pad": 16, "zoom": 1.1},
+            {"f": 0.61, "fd": 0.38, "typ": "wpisz", "strona": 7, "sel": "table.grid td.plus, table.grid td.minus"},
         ],
     },
     {  # 8
@@ -191,16 +193,19 @@ SCENY = [
         ],
     },
     {  # 11
-        "id": "dzialania", "tytul": "8–9 · Działania i cele", "strona": 11, "foto": "sluchawki",
+        "id": "dzialania", "tytul": "8–9 · Działania i cele w 9 domenach ICF", "strona": 11, "foto": "sluchawki",
         "prawo": [p("428", "§ 7 ust. 6 pkt 6 – działania i efekty"), p("428", "§ 7 ust. 6 pkt 7 – wnioski do dalszej pracy"), p("ks", "§ 6 ust. 10 – cele w WOPF")],
         "kroki": [
             {"f": 0.00, "fd": 0.20, "typ": "kamera", "sel": "table.grid", "pad": 16, "zoom": 1.15},
             {"f": 0.02, "fd": 0.40, "typ": "wpisz", "sel": "table.grid tr td:not(.area)"},
             {"f": 0.22, "fd": 0.20, "typ": "kamera", "sel": "table.grid tr:nth-child(2) td.plus", "pad": 24, "zoom": 1.6},
-            {"f": 0.50, "fd": 0.00, "typ": "strona", "nr": 12},
-            {"f": 0.50, "fd": 0.22, "typ": "kamera", "strona": 12, "sel": "table.grid", "pad": 16, "zoom": 1.1},
-            {"f": 0.52, "fd": 0.46, "typ": "wpisz", "strona": 12, "sel": "ul.tick li"},
-            {"f": 0.74, "fd": 0.22, "typ": "kamera", "strona": 12, "sel": "table.grid tr:nth-child(4)", "pad": 20, "zoom": 1.5},
+            {"f": 0.40, "fd": 0.00, "typ": "strona", "nr": 12},
+            {"f": 0.40, "fd": 0.20, "typ": "kamera", "strona": 12, "sel": "table.grid", "pad": 16, "zoom": 1.1},
+            {"f": 0.41, "fd": 0.28, "typ": "wpisz", "strona": 12, "sel": "ul.tick li"},
+            {"f": 0.55, "fd": 0.15, "typ": "kamera", "strona": 12, "sel": "table.grid tr:nth-child(4)", "pad": 20, "zoom": 1.5},
+            {"f": 0.72, "fd": 0.00, "typ": "strona", "nr": 13},
+            {"f": 0.72, "fd": 0.20, "typ": "kamera", "strona": 13, "sel": "table.grid", "pad": 16, "zoom": 1.1},
+            {"f": 0.73, "fd": 0.26, "typ": "wpisz", "strona": 13, "sel": "ul.tick li"},
         ],
     },
     {  # 12
@@ -262,7 +267,9 @@ SCENY = [
             {"f": 0.40, "fd": 0.05, "typ": "zaznacz", "sel": "table.op tr:nth-child(4) .cb:nth-of-type(1)"},
             {"f": 0.55, "fd": 0.05, "typ": "zaznacz", "sel": "table.op tr:nth-child(6) .cb:nth-of-type(1)"},
             {"f": 0.66, "fd": 0.05, "typ": "zaznacz", "sel": "table.op tr:nth-child(7) .cb:nth-of-type(2)"},
-            {"f": 0.78, "fd": 0.20, "typ": "kamera", "sel": ".op-law", "pad": 24, "zoom": 1.4},
+            {"f": 0.72, "fd": 0.12, "typ": "kamera", "sel": ".op-law", "pad": 24, "zoom": 1.4},
+            {"f": 0.82, "fd": 0.00, "typ": "strona", "nr": 25},
+            {"f": 0.82, "fd": 0.18, "typ": "kamera", "strona": 25, "sel": "table.op", "pad": 12, "zoom": 1.15},
         ],
     },
     {  # 16
@@ -442,6 +449,8 @@ body{margin:0;background:var(--f-ui-bg);color:var(--f-ui-ink);font-family:var(--
 .f-av video{width:100%;height:100%;object-fit:cover;display:none}
 .f-av.has video{display:block}
 .f-av .ph{position:absolute;inset:0;display:grid;place-items:center;text-align:center;padding:12%;color:var(--f-muted)}
+.f-av .ph .ewa{position:absolute;left:0;top:0;width:100%;height:100%;object-fit:cover;object-position:50% 12%;transform:scale(1.28);transform-origin:50% 22%;padding:0}
+.f-av .disc{background:radial-gradient(circle at 50% 30%,#4A3596,#1A1240 72%)}
 .f-av.has .ph{display:none}
 .f-av .ph svg{width:44%;height:auto;opacity:.9}
 .f-av .ph b{display:block;font-size:calc(var(--ad)*.06px);color:var(--f-ink);margin-top:6px;line-height:1.2}
@@ -770,12 +779,7 @@ def buduj():
         <div class="ring2"></div><div class="ring"></div>
         <div class="disc">
           <video playsinline preload="auto"></video>
-          <div class="ph">
-            <div>
-              <svg viewBox="0 0 120 120" aria-hidden="true"><circle cx="60" cy="44" r="22" fill="#5B3FA8"/><path d="M18 108c4-24 20-36 42-36s38 12 42 36" fill="#5B3FA8"/><circle cx="60" cy="44" r="22" fill="none" stroke="#E8450A" stroke-width="3"/></svg>
-              <b>Twój awatar HeyGen</b><small>wczytaj awatar.mp4 poniżej sceny</small>
-            </div>
-          </div>
+          <div class="ph"><img class="ewa" src="awatar/ewa_pctp.png" alt="Ewa PCTP – awatar autorki"></div>
         </div>
         <div class="talk"><i></i><i></i><i></i><i></i><i></i></div>
       </div>
@@ -799,7 +803,7 @@ def buduj():
   <div class="f-grid">
     <div class="f-card"><h3><i>1</i>Twój głos · ElevenLabs</h3><p>Nagranie narracji Twoim sklonowanym głosem. Wczytany plik MP3 staje się zegarem filmu, a sceny rozciągają się do jego długości.</p><input type="file" id="f-file-mp3" accept="audio/*"><div class="st" id="f-st-mp3">Bez nagrania film gra w ciszy, w tempie ok. 150 słów na minutę.</div></div>
     <div class="f-card"><h3><i>2</i>Napisy · SRT</h3><p>Plik z ElevenLabs (<code>--srt</code>). Sceny dosuwają się do początków zdań, a napisy mają prawdziwe znaczniki czasu.</p><input type="file" id="f-file-srt" accept=".srt,text/plain"><div class="st" id="f-st-srt">Bez SRT napisy liczone są z długości zdań.</div></div>
-    <div class="f-card"><h3><i>3</i>Twój awatar · HeyGen</h3><p>Film MP4 z awatarem mówiącym do tego samego MP3 (<code>heygen_awatar.py --audio</code>, tło fioletowe, kadr <code>circle</code>). Gra w kole i na pełnym ekranie.</p><input type="file" id="f-file-mp4" accept="video/mp4,video/webm"><label class="sw" style="margin-top:6px"><input type="checkbox" id="f-mute-av" checked> wycisz dźwięk awatara (głos gra z MP3)</label><div class="st" id="f-st-mp4">Bez pliku widać miejsce na awatar.</div></div>
+    <div class="f-card"><h3><i>3</i>Twój awatar · HeyGen</h3><p>Film MP4 z awatarem mówiącym do tego samego MP3 (<code>heygen_awatar.py --audio</code>, tło fioletowe, kadr <code>circle</code>). Gra w kole i na pełnym ekranie.</p><input type="file" id="f-file-mp4" accept="video/mp4,video/webm"><label class="sw" style="margin-top:6px"><input type="checkbox" id="f-mute-av" checked> wycisz dźwięk awatara (głos gra z MP3)</label><div class="st" id="f-st-mp4">Bez pliku w kole stoi Ewa PCTP (postać ze skilla awatar-ewa).</div></div>
     <div class="f-card"><h3><i>4</i>Zdjęcia</h3><p>Kliknij zdjęcie na scenie, aby podmienić je własnym. Podmiana zapamiętuje się w tej przeglądarce. Skróty: spacja – odtwarzanie, strzałki – sceny.</p><div class="st">Render do MP4: <code>film/remotion</code> (patrz README).</div></div>
   </div>
 
