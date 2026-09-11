@@ -61,7 +61,7 @@ EXTRA_CSS = '''
 pages = []  # list of (name, inner_html)
 def hdr(cap):
     return f'''  <div class="hdr">
-    <div class="l"><div class="logo">PCTP</div><div><div class="name">EduPlaner 2026</div><div class="cap">Raport Oceny Funkcjonalnej · {cap}</div></div></div>
+    <div class="l"><div class="logo">PCTP</div><div><div class="name">EduPlaner 2026</div><div class="cap">Ocena Funkcjonalna · {cap}</div></div></div>
     <div class="r"><span class="pill">Raport · 2026</span><div class="cap">Dokument dla rodzica · 2026</div></div>
   </div>
   <div class="fields">
@@ -81,7 +81,7 @@ def page(name, cap, body, cls='', pid=''):
 def band(part, h, sub_):
     cls = ' p3' if part=='III' else ''
     return f'''  <div class="partband{cls}">
-    <span class="badge">Raport Oceny Funkcjonalnej dziecka / ucznia · Część {part}</span>
+    <span class="badge">Ocena Funkcjonalna dziecka / ucznia · podsumowanie WOPF i IPET · Część {part}</span>
     <h2>{h}</h2>
     <div class="sub">{sub_}</div>
   </div>
@@ -262,7 +262,7 @@ lp2='<section class="page">\n'+hdr('Jak czytać raport · dwa warianty')+'''
 lp3='<section class="page">\n'+hdr('Podstawy prawne')+'''
   <div class="sec"><span class="n">§</span><h2>'''+pr['title']+'''</h2></div>
   <p class="lead2">'''+pr['lead']+'''</p>
-  <table class="grid">
+  <table class="grid small">
     <tr><th style="width:30%">Akt prawny</th><th style="width:11%">Publikacja</th><th>Zakres zastosowania w raporcie</th><th style="width:12%">Sekcje</th></tr>
 '''+''.join(f'    <tr><td class="act">{a}</td><td class="dz">{b}</td><td>{c}</td><td><span class="ref-pill">{d}</span></td></tr>\n' for a,b,c,d in pr['rows'])+'''  </table>
   <div class="parent" style="margin-top:12px"><b>Dla rodzica.</b> Numery paragrafów wskazują, z jakiego przepisu wynika każda część raportu. Przy każdej sekcji 4–16 znajduje się plakietka „§ Podstawa prawna”.</div>
@@ -298,7 +298,7 @@ HEAD = '''<!doctype html>
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Raport Oceny Funkcjonalnej · EduPlaner 2026</title>
+<title>Ocena Funkcjonalna · podsumowanie WOPF i IPET · EduPlaner 2026</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Mulish:wght@400;600;700;800&display=swap" rel="stylesheet">
 <style>
