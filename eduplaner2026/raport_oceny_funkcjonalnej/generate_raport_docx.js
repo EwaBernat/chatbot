@@ -46,14 +46,14 @@ const box = (children, edge=C.orange, o={}) => tbl([CW], [ row([ cell(children, 
 const pageHeader = (caption) => [
   tbl([700, 6200, 3006], [ row([
     cell(P([ run('§', { size:24, bold:true, color:C.white }) ], { align:AlignmentType.CENTER, after:0 }), { width:700, bg:C.purple, borders:noBorders, vAlign:VerticalAlign.CENTER, margins:{ top:120, bottom:120, left:40, right:40 } }),
-    cell([ P([ run('[Nazwa przedszkola / szkoły]', { size:30, bold:true, color:C.purple }) ], { after:20 }), P([ run(caption, { size:18, color:C.muted, caps:true, spacing:14 }) ], { after:0 }) ], { width:6200, borders:noBorders, vAlign:VerticalAlign.CENTER, margins:{ top:0, bottom:0, left:160, right:0 } }),
-    cell([ P([ run('  OCENA FUNKCJONALNA · 2026  ', { size:18, bold:true, color:C.white, bg:C.orange, spacing:10 }) ], { align:AlignmentType.RIGHT, after:60 }), P([ run('DOKUMENT DLA RODZICA I PORADNI', { size:18, color:C.muted, spacing:14 }) ], { align:AlignmentType.RIGHT, after:0 }) ], { width:3006, borders:noBorders, vAlign:VerticalAlign.CENTER, margins:{ top:0, bottom:0, left:0, right:0 } })
+    cell([ P([ run('[Nazwa przedszkola / szkoły]', { size:30, bold:true, color:C.purple }) ], { after:20 }), P([ run(caption, { size:14, color:C.muted, caps:true, spacing:12 }) ], { after:0 }) ], { width:6200, borders:noBorders, vAlign:VerticalAlign.CENTER, margins:{ top:0, bottom:0, left:160, right:0 } }),
+    cell([ P([ run('  OCENA FUNKCJONALNA · 2026  ', { size:14, bold:true, color:C.white, bg:C.orange, spacing:8 }) ], { align:AlignmentType.RIGHT, after:60 }), P([ run('DOKUMENT DLA RODZICA I PORADNI', { size:13, color:C.muted, spacing:10 }) ], { align:AlignmentType.RIGHT, after:0 }) ], { width:3006, borders:noBorders, vAlign:VerticalAlign.CENTER, margins:{ top:0, bottom:0, left:0, right:0 } })
   ]) ]),
   new Paragraph({ spacing:{ before:60, after:160 }, border:{ bottom:{ style:BorderStyle.SINGLE, size:18, color:C.purple, space:1 } }, children:[] }),
   // lawendowe pola
   tbl([3900, 2900, 2906], [ row([
     ['DOTYCZY DZIECKA', 3900], ['GRUPA / KLASA', 2900], ['DATA', 2906]
-  ].map(([t,w]) => cell(P([ run(t, { size:18, bold:true, color:C.lavText, spacing:14 }), run('  ' + '.'.repeat(w===3900?52:30), { size:18, color:'B6A6DF' }), run(t==='DATA'?'  r.':'', { size:18, color:C.muted }) ], { after:0 }), { width:w, bg:C.lav, borders:{ top:ln(C.white,12), bottom:ln(C.white,12), left:ln(C.white,12), right:ln(C.white,12) }, margins:{ top:110, bottom:110, left:180, right:120 } })) ) ]),
+  ].map(([t,w]) => cell(P([ run(t, { size:15, bold:true, color:C.lavText, spacing:12 }), run('  ' + '.'.repeat(w===3900?40:22), { size:15, color:'B6A6DF' }), run(t==='DATA'?'  r.':'', { size:18, color:C.muted }) ], { after:0 }), { width:w, bg:C.lav, borders:{ top:ln(C.white,12), bottom:ln(C.white,12), left:ln(C.white,12), right:ln(C.white,12) }, margins:{ top:110, bottom:110, left:180, right:120 } })) ) ]),
   empty(120)
 ];
 
