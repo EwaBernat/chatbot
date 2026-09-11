@@ -336,6 +336,7 @@ const statusCell = (w) => gcell(['wdrożone','w trakcie','planowane'].map(t => P
 const part13 = [ pb(), ...pageHeader('Raport Oceny Funkcjonalnej · Część III · Zajęcia: rewalidacja i PPP'), section('13', s13.title), lead2('', s13.lead),
   tbl([half, CW-half], [ row([ statTile('A · ZAJĘCIA REWALIDACYJNE · RAZEM', s13.sumRew[0], '= '+s13.sumRew[1]+' · '+s13.sumRew[2], half), statTile('B · POMOC PSYCHOLOGICZNO-PEDAGOGICZNA · RAZEM', s13.sumPpp[0], '= '+s13.sumPpp[1]+' · '+s13.sumPpp[2], CW-half, C.blue) ]) ]),
   sub9('A','Zajęcia rewalidacyjne przydzielone dziecku / uczniowi','kształcenie specjalne · na podstawie orzeczenia', C.orange), zajTable(s13.rew, C.orange, 'Razem zajęcia rewalidacyjne', s13.sumRew[0], s13.sumRew[1]),
+  pb(), ...pageHeader('Raport Oceny Funkcjonalnej · Część III · Pomoc psychologiczno-pedagogiczna'),
   sub9('B','Zajęcia z zakresu pomocy psychologiczno-pedagogicznej','forma · czas · termin · okres udzielania · miejsce', C.blue), pppTable,
   pb(), ...pageHeader('Raport Oceny Funkcjonalnej · Część III · Realizacja zaleceń poradni'),
   P([ run('Uwaga: ', { size:13, bold:true, color:C.purple }), run(s13.uwaga, { size:13, color:C.muted }) ], { after:60 }),
