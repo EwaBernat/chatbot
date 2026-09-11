@@ -1,254 +1,247 @@
+// Raport Oceny Funkcjonalnej · EduPlaner 2026 (PCTP Koszalin)
+// Styl graficzny wg wzoru IPET: biały papier, lawendowe pola, fiolet w akcentach, pomarańczowe plakietki.
+// Użycie: npm i docx@9 && node generate_raport_docx.js Raport_Oceny_Funkcjonalnej.docx
 const fs = require('fs');
 const {
   Document, Packer, Paragraph, TextRun, Table, TableRow, TableCell,
-  AlignmentType, LevelFormat, HeadingLevel, BorderStyle, WidthType,
-  ShadingType, PageBreak, TabStopType, Header, Footer, PageNumber, VerticalAlign
+  AlignmentType, BorderStyle, WidthType, ShadingType, PageBreak, TabStopType,
+  Header, Footer, PageNumber, VerticalAlign
 } = require('docx');
 
 const FONT = 'Arial';
-const COLOR = { purple:'2D1B69', orange:'E8450A', green:'0D7D5C', red:'B8350D', amber:'C47A10', teal:'2B6E6E',
-  muted:'6B6378', rule:'D8D2C5', paper:'FBF9F4', ink:'1A1530', purpleMist:'F3F1FB', orangeMist:'FEF0E8', tealMist:'E4F0F0', greenMist:'E6F4EF' };
+const C = { purple:'2D1B69', orange:'E74509', green:'2E7D45', red:'BF382A', blue:'2D6BB3',
+  ink:'1A1530', muted:'6B6378', lavText:'7D6FB0', lav:'EFE9F9', lav2:'FAFAFF', line:'D9D0F0', line2:'E3E1EC',
+  paper:'FAF6F1', orangeMist:'FDECE3', white:'FFFFFF' };
 const A4 = { width: 11906, height: 16838 };
-const MARGINS = { top: 1440, right: 1080, bottom: 1440, left: 1080 };
-const CW = 9746;
+const MARGINS = { top: 1100, right: 1000, bottom: 1250, left: 1000 };
+const CW = 11906 - 2000; // 9906
 
-const run = (text, o={}) => new TextRun({ text, font: FONT, size: o.size||20, bold: !!o.bold, italics: !!o.italic, color: o.color||COLOR.ink, allCaps: !!o.caps, characterSpacing: o.spacing });
-const para = (text, o={}) => new Paragraph({ spacing:{ before:o.before||0, after:o.after??120, line:o.line||280, lineRule:o.lineRule }, alignment:o.align||AlignmentType.LEFT, keepNext:o.keepNext, children:[ run(text, o) ] });
-const runs = (children, o={}) => new Paragraph({ spacing:{ before:o.before||0, after:o.after??120, line:o.line||280 }, alignment:o.align||AlignmentType.LEFT, children });
+const run = (text, o={}) => new TextRun({ text, font: FONT, size: o.size||20, bold: !!o.bold, italics: !!o.italic, color: o.color||C.ink, allCaps: !!o.caps, characterSpacing: o.spacing, shading: o.bg ? { fill:o.bg, type:ShadingType.CLEAR, color:'auto' } : undefined });
+const P = (children, o={}) => new Paragraph({ spacing:{ before:o.before||0, after:o.after??120, line:o.line||276, lineRule:o.lineRule }, alignment:o.align||AlignmentType.LEFT, keepNext:o.keepNext, children });
 const empty = (after=0) => new Paragraph({ spacing:{before:0, after}, children:[] });
 const NOB = { style: BorderStyle.NIL };
 const noBorders = { top:NOB, bottom:NOB, left:NOB, right:NOB };
-const thin = { style: BorderStyle.SINGLE, size: 4, color: COLOR.rule };
-const thinBorders = { top:thin, bottom:thin, left:thin, right:thin };
+const ln = (color=C.line, size=4) => ({ style: BorderStyle.SINGLE, size, color });
+const lineBorders = { top:ln(), bottom:ln(), left:ln(), right:ln() };
 
 const cell = (children, o={}) => new TableCell({
   width:{ size:o.width, type:WidthType.DXA },
   shading: o.bg ? { fill:o.bg, type:ShadingType.CLEAR, color:'auto' } : undefined,
-  margins: o.margins || { top:120, bottom:120, left:160, right:160 },
-  borders: o.borders || thinBorders,
+  margins: o.margins || { top:120, bottom:120, left:180, right:180 },
+  borders: o.borders || lineBorders,
   verticalAlign: o.vAlign || VerticalAlign.TOP,
   columnSpan: o.span,
   children: Array.isArray(children) ? children : [children]
 });
-const tcell = (text, o={}) => cell(new Paragraph({ spacing:{before:0,after:0,line:260}, alignment:o.align||AlignmentType.LEFT, children:[run(text,{size:o.size||18, bold:o.bold, italic:o.italic, color:o.color, caps:o.caps})] }), o);
+const tbl = (widths, rows, o={}) => new Table({ width:{ size: widths.reduce((a,b)=>a+b,0), type:WidthType.DXA }, columnWidths: widths, alignment:o.align, rows });
+const row = (cells) => new TableRow({ children: cells, cantSplit:true });
+const ph = (t) => run(t, { italic:true, color:C.muted, size:18 });
+const label = (t, o={}) => P([ run(t, { size:o.size||13, bold:true, color:o.color||C.purple, caps:true, spacing:o.spacing??12 }) ], { after:o.after??60 });
 
-// ---- nagłówek sekcji: "1  Metryczka bazowa" z linią purpurową ----
+// ---- pudełko wzór IPET: obrys lawendowy + kolorowa lewa krawędź ----
+const box = (children, edge=C.orange, o={}) => tbl([CW], [ row([ cell(children, { width:CW, bg:o.bg||C.white, borders:{ top:ln(), bottom:ln(), right:ln(), left:{ style:BorderStyle.SINGLE, size:32, color:edge } }, margins:{ top:130, bottom:130, left:240, right:240 } }) ]) ]);
+
+// ---- nagłówek strony (wzór IPET) ----
+const pageHeader = (caption) => [
+  tbl([700, 6200, 3006], [ row([
+    cell(P([ run('PCTP', { size:12, bold:true, color:C.white }) ], { align:AlignmentType.CENTER, after:0 }), { width:700, bg:C.purple, borders:noBorders, vAlign:VerticalAlign.CENTER, margins:{ top:120, bottom:120, left:40, right:40 } }),
+    cell([ P([ run('EduPlaner 2026', { size:26, bold:true, color:C.purple }) ], { after:20 }), P([ run(caption, { size:12, color:C.muted, caps:true, spacing:14 }) ], { after:0 }) ], { width:6200, borders:noBorders, vAlign:VerticalAlign.CENTER, margins:{ top:0, bottom:0, left:160, right:0 } }),
+    cell([ P([ run('  RAPORT · 2026  ', { size:13, bold:true, color:C.white, bg:C.orange, spacing:10 }) ], { align:AlignmentType.RIGHT, after:60 }), P([ run('DOKUMENT DLA RODZICA · 2026', { size:11, color:C.muted, spacing:14 }) ], { align:AlignmentType.RIGHT, after:0 }) ], { width:3006, borders:noBorders, vAlign:VerticalAlign.CENTER, margins:{ top:0, bottom:0, left:0, right:0 } })
+  ]) ]),
+  new Paragraph({ spacing:{ before:60, after:160 }, border:{ bottom:{ style:BorderStyle.SINGLE, size:12, color:C.purple, space:1 } }, children:[] }),
+  // lawendowe pola
+  tbl([3900, 2900, 2906], [ row([
+    ['DOTYCZY DZIECKA', 3900], ['GRUPA / KLASA', 2900], ['DATA', 2906]
+  ].map(([t,w]) => cell(P([ run(t, { size:12, bold:true, color:C.lavText, spacing:14 }), run('  ' + '.'.repeat(w===3900?52:30), { size:14, color:'B6A6DF' }), run(t==='DATA'?'  r.':'', { size:14, color:C.muted }) ], { after:0 }), { width:w, bg:C.lav, borders:{ top:ln(C.white,12), bottom:ln(C.white,12), left:ln(C.white,12), right:ln(C.white,12) }, margins:{ top:110, bottom:110, left:180, right:120 } })) ) ]),
+  empty(120)
+];
+
+// ---- nagłówek sekcji: pomarańczowy numer + fiolet + linia ----
 const section = (n, title) => new Paragraph({
-  spacing:{ before:360, after:200 }, keepNext:true,
-  border:{ bottom:{ style:BorderStyle.SINGLE, size:12, color:COLOR.purple, space:4 } },
-  children:[ run(n+'  ', {size:36, bold:true, color:COLOR.orange}), run(title, {size:28, bold:true, color:COLOR.purple}) ]
+  spacing:{ before:200, after:140 }, keepNext:true,
+  border:{ bottom:{ style:BorderStyle.SINGLE, size:4, color:C.line, space:6 } },
+  children:[ run(' '+n+' ', { size:20, bold:true, color:C.white, bg:C.orange }), run('   ', { size:20 }), run(title.toUpperCase(), { size:22, bold:true, color:C.purple, spacing:10 }) ]
 });
 
-// ---- pudełko: tło purpurowe + lewa krawędź pomarańczowa ----
-const boxPara = (children, o={}) => new Paragraph({
-  spacing:{ before:o.before||0, after:o.after??0, line:300 },
-  shading:{ fill:o.bg||COLOR.purpleMist, type:ShadingType.CLEAR, color:'auto' },
-  border:{ left:{ style:BorderStyle.SINGLE, size:24, color:o.edge||COLOR.orange, space:10 } },
-  indent:{ left:60, right:60 },
-  children
-});
-
-const ph = (t) => run(t, { italic:true, color:COLOR.muted, size:18 });
-const checkbox = (labelRuns) => new Paragraph({ spacing:{before:40,after:40,line:260}, children:[ run('☐  ', {size:22, color:COLOR.purple}), ...labelRuns ] });
-
-// =============== OKŁADKA ===============
+// =============== STRONA 1 · OKŁADKA ===============
 const cover = [
-  // logo + marka
-  new Table({ width:{size:CW,type:WidthType.DXA}, columnWidths:[900, CW-900], rows:[ new TableRow({ children:[
-    cell(new Paragraph({ alignment:AlignmentType.CENTER, spacing:{before:0,after:0}, children:[run('E',{size:40,bold:true,color:'FFFFFF'})] }), { width:900, bg:COLOR.purple, borders:noBorders, vAlign:VerticalAlign.CENTER, margins:{top:160,bottom:160,left:100,right:100} }),
-    cell([
-      new Paragraph({ spacing:{before:0,after:20}, children:[run('EduPlaner 2026',{size:30,bold:true,color:COLOR.purple})] }),
-      new Paragraph({ spacing:{before:0,after:0}, children:[run('PCTP KOSZALIN  ·  EDUPLANER2026-MJ-PCTP',{size:14,color:COLOR.muted})] })
-    ], { width:CW-900, borders:noBorders, vAlign:VerticalAlign.CENTER, margins:{top:0,bottom:0,left:200,right:0} })
-  ]}) ]}),
-  empty(360),
-  new Paragraph({ spacing:{before:0,after:240}, border:{ left:{ style:BorderStyle.SINGLE, size:24, color:COLOR.orange, space:10 } }, children:[ run('DOKUMENT DLA RODZICA I ZESPOŁU ORZEKAJĄCEGO', {size:16, bold:true, color:COLOR.orange, spacing:20}) ] }),
-  para('Raport Oceny', { size:64, bold:true, color:COLOR.purple, after:0, line:760, lineRule:'exact' }),
-  para('Funkcjonalnej', { size:64, bold:true, color:COLOR.purple, after:160, line:760, lineRule:'exact' }),
-  para('opinia przedszkola / szkoły o funkcjonowaniu dziecka w obszarach ICF', { size:24, color:COLOR.ink, after:360 }),
-  runs([ run('z dnia  ', {color:COLOR.muted}), run('………………………………………………', {color:COLOR.muted}) ], { after:420 }),
+  ...pageHeader('Raport Oceny Funkcjonalnej · Okładka'),
+  P([ run('  OPINIA PRZEDSZKOLA / SZKOŁY · DLA ZESPOŁU ORZEKAJĄCEGO · DLA RODZICA  ', { size:14, bold:true, color:C.white, bg:C.orange, spacing:12 }) ], { align:AlignmentType.CENTER, before:120, after:200 }),
+  P([ run('OCENA FUNKCJONALNA · ICF · PRZEDSZKOLE · SZKOŁA', { size:15, color:C.purple, spacing:50 }) ], { align:AlignmentType.CENTER, after:120 }),
+  P([ run('Raport Oceny', { size:56, bold:true, color:C.purple }) ], { align:AlignmentType.CENTER, after:0, line:640, lineRule:'exact' }),
+  P([ run('Funkcjonalnej', { size:56, bold:true, color:C.purple }) ], { align:AlignmentType.CENTER, after:140, line:640, lineRule:'exact' }),
+  P([ run('OBSERWACJA WSTĘPNA I POGŁĘBIONA · OBSZARY ICF', { size:15, bold:true, color:C.orange, spacing:44 }) ], { align:AlignmentType.CENTER, after:260 }),
+  P([ run('z dnia  ', { size:20, color:C.muted }), run('………………………………………………', { size:20, color:'B6A6DF' }) ], { align:AlignmentType.CENTER, after:300 }),
 
   // zespół
-  new Table({ width:{size:CW,type:WidthType.DXA}, columnWidths:[CW], rows:[ new TableRow({ children:[ cell([
-    new Paragraph({ spacing:{before:0,after:140}, children:[run('Opracowany przez Zespół w składzie', {size:24,bold:true,color:COLOR.purple})] }),
-    new Table({ width:{size:CW-500,type:WidthType.DXA}, columnWidths:[(CW-500)/2,(CW-500)/2], rows:[0,1,2].map(r => new TableRow({ children:[0,1].map(c => {
-      const n = r*2+c+1;
-      return cell(new Paragraph({ spacing:{before:60,after:60}, tabStops:[{type:TabStopType.RIGHT, position:(CW-500)/2-300, leader:'dot'}], children:[ run(n+'.  ', {bold:true,color:COLOR.orange,size:20}), run('\t', {color:COLOR.muted}) ] }), { width:(CW-500)/2, borders:noBorders, bg:COLOR.purpleMist, margins:{top:40,bottom:40,left:80,right:80} });
-    }) })) })
-  ], { width:CW, bg:COLOR.purpleMist, borders:{ ...noBorders, left:{ style:BorderStyle.SINGLE, size:36, color:COLOR.orange } }, margins:{top:240,bottom:240,left:300,right:240} }) ]}) ]}),
-  empty(320),
+  box([
+    label('Opracowany przez Zespół w składzie'),
+    tbl([Math.floor((CW-480)/2), Math.floor((CW-480)/2)], [0,1,2].map(r => row([0,1].map(c => {
+      const n = r*2+c+1, w = Math.floor((CW-480)/2);
+      return cell(P([ run(n+'.', { bold:true, color:C.orange, size:20 }), run('  ' + '.'.repeat(58), { size:16, color:'B6A6DF' }) ], { after:0 }), { width:w, borders:noBorders, margins:{ top:70, bottom:70, left:0, right:200 } });
+    }))))
+  ], C.orange),
+  empty(180),
 
   // podstawa prawna
-  new Table({ width:{size:CW,type:WidthType.DXA}, columnWidths:[800, CW-800], rows:[ new TableRow({ children:[
-    cell(new Paragraph({ alignment:AlignmentType.CENTER, spacing:{before:0,after:0}, children:[run('§',{size:44,bold:true,color:COLOR.orange})] }), { width:800, bg:COLOR.paper, borders:{ top:thin, bottom:thin, left:thin, right:NOB }, vAlign:VerticalAlign.TOP, margins:{top:240,bottom:200,left:100,right:100} }),
-    cell([
-      new Paragraph({ spacing:{before:0,after:100}, children:[run('Podstawa prawna',{size:24,bold:true,color:COLOR.purple})] }),
-      new Paragraph({ spacing:{before:0,after:0,line:290}, alignment:AlignmentType.JUSTIFIED, children:[
-        run('Zgodnie z Rozporządzeniem Ministra Edukacji z dnia 2 marca 2026 r. w sprawie orzeczeń i opinii wydawanych przez zespoły orzekające działające w publicznych poradniach psychologiczno-pedagogicznych ', {size:18}),
-        run('(Dz. U. z 2026 r. poz. 428)', {size:18, bold:true, color:COLOR.purple}),
-        run(', a w szczególności wchodzącymi w życie z dniem 1 września 2026 r. przepisami ', {size:18}),
-        run('§ 7 ust. 6 i ust. 7', {size:18, bold:true, color:COLOR.purple}),
-        run(', opinia przedszkola/szkoły wydawana dla zespołu poradni (i przekazywana rodzicowi) musi mieć ściśle określoną strukturę opartą na obszarach ICF: odrębnych dla dziecka w wieku przedszkolnym oraz dla ucznia szkoły.', {size:18})
-      ] })
-    ], { width:CW-800, bg:COLOR.paper, borders:{ top:thin, bottom:thin, right:thin, left:NOB }, margins:{top:200,bottom:200,left:100,right:240} })
-  ]}) ]}),
-  empty(240),
+  box([
+    tbl([700, CW-480-700], [ row([
+      cell(P([ run('§', { size:40, bold:true, color:C.orange }) ], { align:AlignmentType.CENTER, after:0 }), { width:700, bg:C.lav, borders:noBorders, vAlign:VerticalAlign.TOP, margins:{ top:80, bottom:80, left:40, right:40 } }),
+      cell([
+        label('Podstawa prawna'),
+        P([
+          run('Zgodnie z Rozporządzeniem Ministra Edukacji z dnia 2 marca 2026 r. w sprawie orzeczeń i opinii wydawanych przez zespoły orzekające działające w publicznych poradniach psychologiczno-pedagogicznych ', { size:18 }),
+          run('(Dz. U. z 2026 r. poz. 428)', { size:18, bold:true, color:C.purple }),
+          run(', a w szczególności wchodzącymi w życie z dniem 1 września 2026 r. przepisami ', { size:18 }),
+          run('§ 7 ust. 6 i ust. 7', { size:18, bold:true, color:C.purple }),
+          run(', opinia przedszkola/szkoły wydawana dla zespołu poradni (i przekazywana rodzicowi) musi mieć ściśle określoną strukturę opartą na obszarach ICF: odrębnych dla dziecka w wieku przedszkolnym oraz dla ucznia szkoły.', { size:18 })
+        ], { align:AlignmentType.JUSTIFIED, after:0, line:290 })
+      ], { width:CW-480-700, borders:noBorders, margins:{ top:0, bottom:0, left:200, right:0 } })
+    ]) ])
+  ], C.purple, { bg:C.lav2 }),
+  empty(220),
 
   // zawartość raportu
-  para('ZAWARTOŚĆ RAPORTU', { size:14, bold:true, color:COLOR.muted, after:120, spacing:20 }),
-  new Table({ width:{size:CW,type:WidthType.DXA}, columnWidths:[3150,3150,3446], rows:[ new TableRow({ children:[
+  P([ run('■ ', { size:14, color:C.purple }), run('ZAWARTOŚĆ RAPORTU', { size:13, bold:true, color:C.purple, spacing:14 }) ], { after:100 }),
+  tbl([3302,3302,3302], [ row([
     ['1','Metryczka bazowa','dane dziecka, wariant wsparcia, podstawa formalna, zdrowie i farmakoterapia'],
     ['2','Obserwacja wstępna','procedura wrześniowej obserwacji Kwestionariuszem Oceny Funkcjonalnej w obszarach ICF'],
     ['3','Obserwacja pogłębiona','wskazania i narzędzia: ABC, Profil Biopsychospołeczny, Profil Sensoryczny, mowa i AAC, ToM']
-  ].map((t,i) => cell([
-    new Paragraph({ spacing:{before:0,after:40}, children:[run(t[0],{size:36,bold:true,color:COLOR.orange})] }),
-    new Paragraph({ spacing:{before:0,after:60}, children:[run(t[1],{size:20,bold:true,color:COLOR.purple})] }),
-    new Paragraph({ spacing:{before:0,after:0,line:250}, children:[run(t[2],{size:16,color:COLOR.muted})] })
-  ], { width:[3150,3150,3446][i], borders:{ top:{style:BorderStyle.SINGLE,size:36,color:COLOR.orange}, bottom:thin, left:thin, right:thin }, margins:{top:160,bottom:160,left:180,right:180} })) }) ]}),
+  ].map(t => cell([
+    P([ run(t[0], { size:32, bold:true, color:C.orange }) ], { after:40 }),
+    P([ run(t[1], { size:19, bold:true, color:C.purple }) ], { after:50 }),
+    P([ run(t[2], { size:15, color:C.muted }) ], { after:0, line:250 })
+  ], { width:3302, borders:{ top:{ style:BorderStyle.SINGLE, size:24, color:C.orange }, bottom:ln(), left:ln(), right:ln() }, margins:{ top:140, bottom:150, left:180, right:180 } })) ) ]),
   empty(200),
-  runs(['ICF','KSzOF','ABC','Profil Sensoryczny','AAC','ToM'].flatMap((t,i)=>[ run(' '+t+' ', {size:16, bold:true, color:[COLOR.purple,COLOR.orange,COLOR.green,COLOR.teal,COLOR.purple,COLOR.orange][i]}), run('   ', {size:16}) ]), { after:0 }),
+  P(['ICF','KSzOF','ABC','Profil Sensoryczny','AAC','ToM'].flatMap((t,i)=>[ run('  '+t+'  ', { size:14, bold:true, color:[C.purple,C.orange,C.purple,C.purple,C.purple,C.orange][i], bg:[C.lav,C.orangeMist,C.white,C.lav,C.white,C.orangeMist][i] }), run('   ', { size:14 }) ]), { align:AlignmentType.CENTER, after:0 }),
   new Paragraph({ children:[ new PageBreak() ] })
 ];
 
-// =============== SEKCJA 1 · METRYCZKA ===============
+// =============== STRONA 2 · METRYCZKA + PROCEDURA ===============
 const LW = 3000, RW = CW-LW;
-const metaRow = (label, valueChildren, shade) => new TableRow({ children:[
-  tcell(label, { width:LW, bg:COLOR.purple, color:'FFFFFF', bold:true, size:15, caps:true }),
-  cell(valueChildren, { width:RW, bg: shade ? COLOR.paper : 'FFFFFF' })
-]});
-const vp = (children) => new Paragraph({ spacing:{before:0,after:0,line:270}, children });
-const meta = new Table({ width:{size:CW,type:WidthType.DXA}, columnWidths:[LW,RW], rows:[
-  metaRow('Imię i nazwisko', vp([ph('[Imię i Nazwisko dziecka / ucznia]')])),
-  metaRow('Data urodzenia', vp([ph('[Data urodzenia]')]), true),
-  metaRow('Placówka / Oddział', vp([ph('[Nazwa przedszkola / szkoły, grupa / klasa]')])),
+const vp = (children) => P(children, { after:0, line:270 });
+const checkbox = (children) => P([ run('☐  ', { size:22, color:'B6A6DF' }), ...children ], { before:30, after:30, line:260 });
+const metaRow = (lbl, valueChildren) => row([
+  cell(P([ run(lbl, { size:13, bold:true, color:C.purple, caps:true, spacing:10 }) ], { after:0 }), { width:LW, bg:C.lav, borders:{ top:ln(), bottom:ln(), left:ln(), right:ln() }, margins:{ top:100, bottom:100, left:180, right:120 } }),
+  cell(valueChildren, { width:RW, borders:{ top:ln(C.line2), bottom:ln(C.line2), left:ln(C.line2), right:ln() }, margins:{ top:90, bottom:90, left:180, right:180 } })
+]);
+const meta = tbl([LW,RW], [
+  metaRow('Imię i nazwisko', vp([ ph('[Imię i Nazwisko dziecka / ucznia]') ])),
+  metaRow('Data urodzenia', vp([ ph('[Data urodzenia]') ])),
+  metaRow('Placówka / Oddział', vp([ ph('[Nazwa przedszkola / szkoły, grupa / klasa]') ])),
   metaRow('Wariant wsparcia', [
-    checkbox([ run('Wariant A', {bold:true,color:COLOR.purple,size:18}), run(' – wsparcie na podstawie orzeczenia o potrzebie kształcenia specjalnego', {size:18}) ]),
-    checkbox([ run('Wariant B', {bold:true,color:COLOR.purple,size:18}), run(' – wsparcie w ramach pomocy psychologiczno-pedagogicznej (bez orzeczenia)', {size:18}) ])
-  ], true),
-  metaRow('Jednostka / Podstawa formalna', vp([ run('Na podstawie dołączonego dokumentu: ',{size:18}), ph('[Orzeczenie / Opinia]'), run(' nr ',{size:18}), ph('[Numer]'), run(' z dnia ',{size:18}), ph('[Data]'), run(', wydanego przez: ',{size:18}), ph('[Nazwa Poradni]'), run(', z uwagi na: ',{size:18}), ph('[np. autyzm, w tym zespół Aspergera / niepełnosprawność ruchowa / inne]') ])),
+    checkbox([ run('Wariant A', { bold:true, color:C.purple, size:18 }), run(' – wsparcie na podstawie orzeczenia o potrzebie kształcenia specjalnego', { size:18 }) ]),
+    checkbox([ run('Wariant B', { bold:true, color:C.purple, size:18 }), run(' – wsparcie w ramach pomocy psychologiczno-pedagogicznej (bez orzeczenia)', { size:18 }) ])
+  ]),
+  metaRow('Jednostka / Podstawa formalna', vp([ run('Na podstawie dołączonego dokumentu: ', { size:18 }), ph('[Orzeczenie / Opinia]'), run(' nr ', { size:18 }), ph('[Numer]'), run(' z dnia ', { size:18 }), ph('[Data]'), run(', wydanego przez: ', { size:18 }), ph('[Nazwa Poradni]'), run(', z uwagi na: ', { size:18 }), ph('[np. autyzm, w tym zespół Aspergera / niepełnosprawność ruchowa / inne]') ])),
   metaRow('Schorzenia przewlekłe', [
-    checkbox([ run('Brak', {size:18}) ]),
-    checkbox([ run('Występują: ', {size:18}), ph('[np. cukrzyca, astma, epilepsja]') ])
-  ], true),
-  metaRow('Farmakoterapia i wskazania lekarza', vp([ run('Zgodnie ze wskazaniami lekarza dziecko/uczeń ',{size:18}), run('stale / doraźnie',{size:18,bold:true}), run(' przyjmuje leki: ',{size:18}), ph('[Nazwa leków, zalecenia postępowania / Nie dotyczy]') ]))
-]});
+    checkbox([ run('Brak', { size:18 }) ]),
+    checkbox([ run('Występują: ', { size:18 }), ph('[np. cukrzyca, astma, epilepsja]') ])
+  ]),
+  metaRow('Farmakoterapia i wskazania lekarza', vp([ run('Zgodnie ze wskazaniami lekarza dziecko/uczeń ', { size:18 }), run('stale / doraźnie', { size:18, bold:true }), run(' przyjmuje leki: ', { size:18 }), ph('[Nazwa leków, zalecenia postępowania / Nie dotyczy]') ]))
+]);
 
-// =============== SEKCJA 2 · PROCEDURA ===============
 const steps = [
-  ['①','Zgłoszenie','zgłaszane trudności w funkcjonowaniu oraz wniosek rodzica'],
-  ['②','Dokumentacja','posiadana opinia / orzeczenie poradni psychologiczno-pedagogicznej'],
-  ['③','Obserwacja · wrzesień','Kwestionariusz Przedszkolnej / Szkolnej Oceny Funkcjonalnej'],
-  ['④','Analiza ICF','obszary zgodne z Międzynarodową Klasyfikacją Funkcjonowania']
+  ['1','Zgłoszenie','zgłaszane trudności w funkcjonowaniu oraz wniosek rodzica'],
+  ['2','Dokumentacja','posiadana opinia / orzeczenie poradni psychologiczno-pedagogicznej'],
+  ['3','Obserwacja · wrzesień','Kwestionariusz Przedszkolnej / Szkolnej Oceny Funkcjonalnej'],
+  ['4','Analiza ICF','obszary zgodne z Międzynarodową Klasyfikacją Funkcjonowania']
 ];
 const SW = Math.floor(CW/4);
-const flow = new Table({ width:{size:SW*4,type:WidthType.DXA}, columnWidths:[SW,SW,SW,SW], rows:[ new TableRow({ children: steps.map(s => cell([
-  new Paragraph({ spacing:{before:0,after:40}, children:[run(s[0],{size:34,bold:true,color:COLOR.orange})] }),
-  new Paragraph({ spacing:{before:0,after:60}, children:[run(s[1],{size:18,bold:true,color:COLOR.purple})] }),
-  new Paragraph({ spacing:{before:0,after:0,line:240}, children:[run(s[2],{size:15,color:COLOR.muted})] })
-], { width:SW, margins:{top:140,bottom:140,left:140,right:140} })) }) ]});
+const flow = tbl([SW,SW,SW,SW], [ row(steps.map(s => cell([
+  P([ run(' '+s[0]+' ', { size:18, bold:true, color:C.orange, bg:C.lav }) ], { after:60 }),
+  P([ run(s[1], { size:17, bold:true, color:C.purple }) ], { after:50 }),
+  P([ run(s[2], { size:15, color:C.muted }) ], { after:0, line:240 })
+], { width:SW, margins:{ top:100, bottom:100, left:150, right:150 } }))) ]);
 
-const icfRow = new Table({ width:{size:CW,type:WidthType.DXA}, columnWidths:[1949,1949,1949,1949,1950], rows:[ new TableRow({ children:[
+const icfRow = tbl([1981,1981,1981,1981,1982], [ row([
   ['Funkcje ciała','b'],['Struktury ciała','s'],['Aktywność i uczestnictwo','d'],['Czynniki środowiskowe','e'],['Czynniki osobowe','—']
 ].map((t,i) => cell([
-  new Paragraph({ alignment:AlignmentType.CENTER, spacing:{before:0,after:20}, children:[run(t[0],{size:15,bold:true,color:COLOR.purple})] }),
-  new Paragraph({ alignment:AlignmentType.CENTER, spacing:{before:0,after:0}, children:[run(t[1],{size:14,color:COLOR.muted})] })
-], { width: i===4?1950:1949, bg:COLOR.paper, borders:{ top:{style:BorderStyle.DASHED,size:4,color:COLOR.rule}, bottom:{style:BorderStyle.DASHED,size:4,color:COLOR.rule}, left:{style:BorderStyle.DASHED,size:4,color:COLOR.rule}, right:{style:BorderStyle.DASHED,size:4,color:COLOR.rule} }, margins:{top:120,bottom:120,left:80,right:80}, vAlign:VerticalAlign.CENTER })) }) ]});
+  P([ run(t[0], { size:15, bold:true, color:C.purple }) ], { align:AlignmentType.CENTER, after:20 }),
+  P([ run(t[1], { size:14, bold:true, color:C.lavText }) ], { align:AlignmentType.CENTER, after:0 })
+], { width:i===4?1982:1981, bg:C.lav, borders:{ top:ln(C.white,12), bottom:ln(C.white,12), left:ln(C.white,12), right:ln(C.white,12) }, margins:{ top:110, bottom:110, left:80, right:80 }, vAlign:VerticalAlign.CENTER }))) ]);
 
-// =============== SEKCJA 3 · NARZĘDZIA ===============
+// =============== STRONA 3 · NARZĘDZIA ===============
 const toolCell = (tag, title, desc, color, width, extra=[]) => cell([
-  new Paragraph({ spacing:{before:0,after:40}, children:[run(tag.toUpperCase(),{size:13,bold:true,color, spacing:15})] }),
-  new Paragraph({ spacing:{before:0,after:80,line:250}, children:[run(title,{size:21,bold:true,color:COLOR.purple})] }),
-  new Paragraph({ spacing:{before:0,after:0,line:255}, children:[run(desc,{size:17})] }),
+  P([ run(tag.toUpperCase(), { size:13, bold:true, color, spacing:14 }) ], { after:40 }),
+  P([ run(title, { size:20, bold:true, color:C.purple }) ], { after:70, line:250 }),
+  P([ run(desc, { size:17 }) ], { after:0, line:255 }),
   ...extra
-], { width, borders:{ top:{style:BorderStyle.SINGLE,size:36,color}, bottom:thin, left:thin, right:thin }, margins:{top:160,bottom:180,left:180,right:180} });
+], { width, borders:{ top:ln(), bottom:ln(), right:ln(), left:{ style:BorderStyle.SINGLE, size:32, color } }, margins:{ top:120, bottom:130, left:220, right:180 } });
 
 const HW = CW/2;
-const abcRow = new Table({ width:{size:CW-360,type:WidthType.DXA}, columnWidths:[3128,3128,3130], rows:[ new TableRow({ children:[
+const abcRow = tbl([3100,3100,3100], [ row([
   ['A','bodźce wyzwalające'],['B','forma zachowania'],['C','funkcja i skutki podtrzymujące']
-].map((t,i) => cell([
-  new Paragraph({ alignment:AlignmentType.CENTER, spacing:{before:0,after:20}, children:[run(t[0],{size:28,bold:true,color:COLOR.red})] }),
-  new Paragraph({ alignment:AlignmentType.CENTER, spacing:{before:0,after:0}, children:[run(t[1],{size:15,bold:true,color:COLOR.red})] })
-], { width:[3128,3128,3130][i], bg:COLOR.orangeMist, borders:{ top:NOB, bottom:NOB, left:{style:BorderStyle.SINGLE,size:24,color:'FFFFFF'}, right:{style:BorderStyle.SINGLE,size:24,color:'FFFFFF'} }, margins:{top:100,bottom:100,left:60,right:60} })) }) ]});
+].map(t => cell([
+  P([ run(t[0], { size:26, bold:true, color:C.red }) ], { align:AlignmentType.CENTER, after:10 }),
+  P([ run(t[1], { size:15, bold:true, color:C.red }) ], { align:AlignmentType.CENTER, after:0 })
+], { width:3100, bg:C.orangeMist, borders:{ top:NOB, bottom:NOB, left:ln(C.white,24), right:ln(C.white,24) }, margins:{ top:90, bottom:90, left:60, right:60 } }))) ]);
 
 const tools = [
-  new Table({ width:{size:CW,type:WidthType.DXA}, columnWidths:[CW], rows:[ new TableRow({ children:[
-    toolCell('Zachowania trudne','Arkusz Obserwacji Behawioralnej ABC','Zastosowany z uwagi na występowanie zachowań trudnych – identyfikacja bodźców wyzwalających, formy zachowania oraz funkcji i skutków podtrzymujących.', COLOR.red, CW, [ empty(120), abcRow ])
-  ]}) ]}),
-  empty(160),
-  new Table({ width:{size:CW,type:WidthType.DXA}, columnWidths:[HW,HW], rows:[
-    new TableRow({ children:[
-      toolCell('Całościowy obraz','Profil Biopsychospołeczny','Ujęcie funkcjonowania dziecka w wymiarze biologicznym, psychologicznym i społecznym – zgodnie z modelem ICF.', COLOR.purple, HW),
-      toolCell('Przetwarzanie bodźców','Profil Sensoryczny','Ocena reaktywności sensorycznej (nadwrażliwości, podwrażliwości, poszukiwania stymulacji) i wpływu bodźców środowiskowych na dysregulację dziecka.', COLOR.teal, HW)
-    ]}),
-    new TableRow({ children:[
-      toolCell('Komunikacja','Arkusz Oceny Rozwoju Mowy i Komunikacji','Zastosowany w związku ze specyficznymi trudnościami w nadawaniu i rozumieniu mowy, echolaliami lub potrzebą wdrożenia / rozwijania AAC.', COLOR.orange, HW),
-      toolCell('Funkcje poznawcze i społeczne','Arkusz Poziomu Rozwoju Teorii Umysłu (ToM)','Zbadanie poziomu rozumienia stanów mentalnych, intencji, perspektywy i emocji innych osób w sytuacjach społecznych.', COLOR.green, HW)
-    ]})
-  ]})
+  tbl([CW], [ row([ toolCell('Zachowania trudne','Arkusz Obserwacji Behawioralnej ABC','Zastosowany z uwagi na występowanie zachowań trudnych – identyfikacja bodźców wyzwalających, formy zachowania oraz funkcji i skutków podtrzymujących.', C.red, CW, [ empty(110), abcRow ]) ]) ]),
+  empty(100),
+  tbl([HW,HW], [
+    row([
+      toolCell('Całościowy obraz','Profil Biopsychospołeczny','Ujęcie funkcjonowania dziecka w wymiarze biologicznym, psychologicznym i społecznym – zgodnie z modelem ICF.', C.purple, HW),
+      toolCell('Przetwarzanie bodźców','Profil Sensoryczny','Ocena reaktywności sensorycznej (nadwrażliwości, podwrażliwości, poszukiwania stymulacji) i wpływu bodźców środowiskowych na dysregulację dziecka.', C.blue, HW)
+    ]),
+    row([
+      toolCell('Komunikacja','Arkusz Oceny Rozwoju Mowy i Komunikacji','Zastosowany w związku ze specyficznymi trudnościami w nadawaniu i rozumieniu mowy, echolaliami lub potrzebą wdrożenia / rozwijania AAC.', C.orange, HW),
+      toolCell('Funkcje poznawcze i społeczne','Arkusz Poziomu Rozwoju Teorii Umysłu (ToM)','Zbadanie poziomu rozumienia stanów mentalnych, intencji, perspektywy i emocji innych osób w sytuacjach społecznych.', C.green, HW)
+    ])
+  ])
 ];
 
-// =============== PODPISY ===============
 const sigCell = (role, width, span) => new TableCell({
   width:{ size:width, type:WidthType.DXA }, columnSpan: span,
-  margins:{ top:900, bottom:80, left:200, right:200 },
-  borders:noBorders,
+  margins:{ top:560, bottom:40, left:220, right:220 }, borders:noBorders,
   children:[
-    new Paragraph({ alignment:AlignmentType.CENTER, spacing:{before:0,after:0}, border:{ top:{ style:BorderStyle.SINGLE, size:8, color:COLOR.ink, space:6 } }, children:[run(role,{size:16,italic:true,bold:true,color:COLOR.purple})] }),
-    new Paragraph({ alignment:AlignmentType.CENTER, spacing:{before:20,after:0}, children:[run('podpis i data',{size:12,color:COLOR.muted})] })
+    new Paragraph({ alignment:AlignmentType.CENTER, spacing:{ before:0, after:0 }, border:{ top:{ style:BorderStyle.SINGLE, size:6, color:C.purple, space:5 } }, children:[ run(role, { size:16, bold:true, color:C.purple }) ] }),
+    new Paragraph({ alignment:AlignmentType.CENTER, spacing:{ before:10, after:0 }, children:[ run('podpis i data', { size:12, color:C.muted }) ] })
   ]
 });
 const SGW = Math.floor(CW/3);
-const sigs = new Table({ width:{size:SGW*3,type:WidthType.DXA}, columnWidths:[SGW,SGW,SGW], rows:[
-  new TableRow({ children:[ sigCell('Koordynator Zespołu',SGW), sigCell('Dyrektor placówki',SGW), sigCell('Specjalista',SGW) ] }),
-  new TableRow({ children:[ sigCell('Rodzic / opiekun prawny – zapoznałam/em się z raportem', SGW*3, 3) ] })
-]});
+const sigs = tbl([SGW,SGW,SGW], [
+  row([ sigCell('Koordynator Zespołu',SGW), sigCell('Dyrektor placówki',SGW), sigCell('Specjalista',SGW) ]),
+  row([ sigCell('Rodzic / opiekun prawny – zapoznałam/em się z raportem', SGW*3, 3) ])
+]);
 
-// =============== HEADER / FOOTER ===============
-const headerPara = new Paragraph({
-  spacing:{before:0,after:0}, border:{ bottom:{ style:BorderStyle.SINGLE, size:8, color:COLOR.purple, space:4 } },
-  tabStops:[{ type:TabStopType.RIGHT, position:9740 }],
-  children:[ run('EduPlaner2026-MJ-PCTP',{size:16,bold:true,color:COLOR.purple}), run('  ·  ',{size:16,color:COLOR.rule}), run('RAPORT OCENY FUNKCJONALNEJ',{size:16,bold:true,color:COLOR.orange}), run('\t'), run('Dziecko / uczeń: ',{size:14,color:COLOR.muted}), run('…………………………',{size:14,italic:true,color:COLOR.purple}) ]
-});
+// =============== STOPKA ===============
 const footerPara = new Paragraph({
-  spacing:{before:60,after:0}, border:{ top:{ style:BorderStyle.SINGLE, size:4, color:COLOR.rule, space:4 } },
-  tabStops:[{ type:TabStopType.RIGHT, position:9740 }],
-  children:[ run('Raport Oceny Funkcjonalnej · EduPlaner 2026',{size:12,color:COLOR.muted}), run('   ·   ',{size:12,color:COLOR.rule}), run('RODO · Dokument poufny',{size:12,color:COLOR.muted}), run('\t'), run('Strona ',{size:12,color:COLOR.muted}), new TextRun({ children:[PageNumber.CURRENT], font:FONT, size:12, bold:true, color:COLOR.orange }), run(' z ',{size:12,color:COLOR.muted}), new TextRun({ children:[PageNumber.TOTAL_PAGES], font:FONT, size:12, bold:true, color:COLOR.purple }) ]
-});
-const coverFooter = new Paragraph({
-  spacing:{before:0,after:0}, border:{ top:{ style:BorderStyle.SINGLE, size:4, color:COLOR.rule, space:4 } },
-  tabStops:[{ type:TabStopType.RIGHT, position:9740 }],
-  children:[ run('Karta Funkcjonalna · rok szkolny 2026/2027',{size:12,color:COLOR.muted}), run('\t'), run('RODO · Dokument poufny',{size:12,color:COLOR.muted}) ]
+  spacing:{ before:60, after:0 }, border:{ top:{ style:BorderStyle.SINGLE, size:4, color:C.line2, space:4 } },
+  tabStops:[{ type:TabStopType.RIGHT, position:CW }],
+  children:[ run('EduPlaner 2026 · PCTP', { size:12, color:C.muted }), run('   ·   RODO · Dokument poufny', { size:12, color:C.muted }), run('\t'), run('Strona ', { size:12, color:C.muted }), new TextRun({ children:[PageNumber.CURRENT], font:FONT, size:12, bold:true, color:C.orange }), run(' z ', { size:12, color:C.muted }), new TextRun({ children:[PageNumber.TOTAL_PAGES], font:FONT, size:12, bold:true, color:C.purple }), run(' · Raport Oceny Funkcjonalnej', { size:12, color:C.muted }) ]
 });
 
-// =============== DOKUMENT ===============
 const children = [
   ...cover,
+  ...pageHeader('Raport Oceny Funkcjonalnej · Metryczka i obserwacja wstępna'),
   section('1','Metryczka bazowa'),
   meta,
   section('2','Podstawa i procedura obserwacji wstępnej'),
   flow,
-  empty(200),
-  boxPara([ run('Z uwagi na zgłaszane trudności w funkcjonowaniu, wniosek rodzica oraz posiadaną dokumentację (w tym opinię/orzeczenie poradni), w placówce przeprowadzono ',{size:19,color:COLOR.purple}), run('we wrześniu',{size:19,bold:true,color:COLOR.orange}), run(' obserwację poziomu funkcjonowania z wykorzystaniem ',{size:19,color:COLOR.purple}), run('Kwestionariusza Przedszkolnej / Szkolnej Oceny Funkcjonalnej',{size:19,bold:true,color:COLOR.orange}), run(', analizującego funkcjonowanie w obszarach zgodnych z Międzynarodową Klasyfikacją Funkcjonowania, Niepełnosprawności i Zdrowia (ICF).',{size:19,color:COLOR.purple}) ], { before:0, after:0 }),
-  empty(220),
+  empty(100),
+  box([ P([ run('Z uwagi na zgłaszane trudności w funkcjonowaniu, wniosek rodzica oraz posiadaną dokumentację (w tym opinię/orzeczenie poradni), w placówce przeprowadzono ', { size:18 }), run('we wrześniu', { size:18, bold:true, color:C.orange }), run(' obserwację poziomu funkcjonowania z wykorzystaniem ', { size:18 }), run('Kwestionariusza Przedszkolnej / Szkolnej Oceny Funkcjonalnej', { size:18, bold:true, color:C.orange }), run(', analizującego funkcjonowanie w obszarach zgodnych z Międzynarodową Klasyfikacją Funkcjonowania, Niepełnosprawności i Zdrowia (ICF).', { size:18 }) ], { align:AlignmentType.JUSTIFIED, after:0, line:290 }) ], C.orange, { bg:C.lav2 }),
+  empty(120),
   icfRow,
   new Paragraph({ children:[ new PageBreak() ] }),
+  ...pageHeader('Raport Oceny Funkcjonalnej · Obserwacja pogłębiona'),
   section('3','Wskazania do obserwacji pogłębionej i zastosowane narzędzia'),
-  runs([ run('W związku ze zidentyfikowanymi w toku oceny wstępnej trudnościami w funkcjonowaniu – w szczególności w zakresie ',{size:19}), run('trudnych zachowań',{size:19,bold:true}), run(', ',{size:19}), run('rozwoju funkcji poznawczych',{size:19,bold:true}), run(', ',{size:19}), run('przetwarzania bodźców',{size:19,bold:true}), run(' oraz ',{size:19}), run('komunikacji',{size:19,bold:true}), run(' – przeprowadzono obserwację pogłębioną z wykorzystaniem następujących narzędzi specjalistycznych:',{size:19}) ], { after:200, line:290, align:AlignmentType.JUSTIFIED }),
+  P([ run('W związku ze zidentyfikowanymi w toku oceny wstępnej trudnościami w funkcjonowaniu – w szczególności w zakresie ', { size:18 }), run('trudnych zachowań', { size:18, bold:true, color:C.purple }), run(', ', { size:18 }), run('rozwoju funkcji poznawczych', { size:18, bold:true, color:C.purple }), run(', ', { size:18 }), run('przetwarzania bodźców', { size:18, bold:true, color:C.purple }), run(' oraz ', { size:18 }), run('komunikacji', { size:18, bold:true, color:C.purple }), run(' – przeprowadzono obserwację pogłębioną z wykorzystaniem następujących narzędzi specjalistycznych:', { size:18 }) ], { after:180, line:290, align:AlignmentType.JUSTIFIED }),
   ...tools,
-  empty(240),
-  boxPara([ run('Informacja dla rodzica. ',{size:18,bold:true,color:COLOR.orange}), run('Niniejszy raport stanowi opinię placówki o funkcjonowaniu dziecka i jest przekazywany rodzicowi oraz zespołowi orzekającemu poradni. Wyniki obserwacji służą zaplanowaniu wsparcia, a nie ocenie dziecka. Zachęcamy do rozmowy z Zespołem o każdej części dokumentu.',{size:18}) ], { bg:COLOR.orangeMist, edge:COLOR.orange }),
-  empty(200),
+  empty(120),
+  tbl([CW], [ row([ cell(P([ run('Informacja dla rodzica. ', { size:17, bold:true, color:C.orange }), run('Niniejszy raport stanowi opinię placówki o funkcjonowaniu dziecka i jest przekazywany rodzicowi oraz zespołowi orzekającemu poradni. Wyniki obserwacji służą zaplanowaniu wsparcia, a nie ocenie dziecka. Zachęcamy do rozmowy z Zespołem o każdej części dokumentu.', { size:17 }) ], { after:0, line:270 }), { width:CW, bg:C.paper, borders:{ top:ln(C.line2), bottom:ln(C.line2), left:ln(C.line2), right:ln(C.line2) }, margins:{ top:120, bottom:120, left:220, right:220 } }) ]) ]),
+  empty(60),
   sigs
 ];
 
 const doc = new Document({
   creator: 'EduPlaner2026-MJ-PCTP', title: 'Raport Oceny Funkcjonalnej', description: 'Opinia przedszkola/szkoły dla zespołu orzekającego i rodzica (obszary ICF)',
-  styles:{ default:{ document:{ run:{ font:FONT, size:20, color:COLOR.ink } } } },
+  styles:{ default:{ document:{ run:{ font:FONT, size:20, color:C.ink } } } },
   sections:[{
-    properties:{ titlePage:true, page:{ size:A4, margin:MARGINS } },
-    headers:{ first: new Header({ children:[ empty() ] }), default: new Header({ children:[ headerPara ] }) },
-    footers:{ first: new Footer({ children:[ coverFooter ] }), default: new Footer({ children:[ footerPara ] }) },
+    properties:{ page:{ size:A4, margin:MARGINS } },
+    footers:{ default: new Footer({ children:[ footerPara ] }) },
     children
   }]
 });
-Packer.toBuffer(doc).then(buf => { fs.writeFileSync(process.argv[2], buf); console.log('OK', buf.length); });
+Packer.toBuffer(doc).then(buf => { fs.writeFileSync(process.argv[2] || 'Raport_Oceny_Funkcjonalnej.docx', buf); console.log('OK', buf.length); });

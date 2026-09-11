@@ -5,140 +5,141 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Raport Oceny Funkcjonalnej · EduPlaner 2026</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,700&family=DM+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Mulish:wght@400;600;700;800&display=swap" rel="stylesheet">
 <style>
   :root{
-    --purple:#2D1B69; --orange:#E8450A; --green:#0D7D5C; --red:#B8350D;
-    --amber:#C47A10; --teal:#2B6E6E; --muted:#6B6378; --rule:#D8D2C5;
-    --paper:#FBF9F4; --ink:#1A1530; --purpleMist:#F3F1FB; --orangeMist:#FEF0E8;
-    --serif:"Fraunces",Georgia,"Times New Roman",serif;
-    --sans:"DM Sans","Segoe UI",Arial,sans-serif;
-    --mono:"JetBrains Mono",Consolas,monospace;
+    --purple:#2D1B69; --orange:#E74509; --green:#2E7D45; --red:#BF382A; --blue:#2D6BB3; --teal:#2B6E6E; --amber:#DFA22E;
+    --ink:#1A1530; --muted:#6B6378; --lav-text:#7D6FB0;
+    --lav:#EFE9F9; --lav2:#FAFAFF; --line:#D9D0F0; --line2:#E3E1EC; --paper:#FAF6F1; --orangeMist:#FDECE3;
+    --sans:"Mulish","Segoe UI","DM Sans",Arial,sans-serif;
   }
   *{box-sizing:border-box}
-  html,body{margin:0;background:#EAE6DE;color:var(--ink);font-family:var(--sans);font-size:14px;line-height:1.5}
-  .page{background:#fff;width:210mm;min-height:297mm;margin:12mm auto;padding:16mm 18mm 20mm;box-shadow:0 12px 40px rgba(45,27,105,.14);position:relative}
-  .page + .page{page-break-before:always}
+  html,body{margin:0;background:#ECE9F3;color:var(--ink);font-family:var(--sans);font-size:13px;line-height:1.5}
+  .page{background:#fff;width:210mm;min-height:297mm;margin:12mm auto;padding:12mm 14mm 18mm;box-shadow:0 12px 40px rgba(45,27,105,.12);position:relative}
 
-  /* ---- pasek marki ---- */
-  .brandbar{display:flex;justify-content:space-between;align-items:center;border-bottom:2px solid var(--purple);padding-bottom:6px;margin-bottom:22px;font-size:11px;letter-spacing:.06em;text-transform:uppercase}
-  .brandbar b{color:var(--purple)} .brandbar .doc{color:var(--orange);font-weight:700}
-  .brandbar .right{color:var(--muted);letter-spacing:.02em;text-transform:none}
+  /* ---- nagłówek strony (wzór IPET) ---- */
+  .hdr{display:flex;justify-content:space-between;align-items:center;border-bottom:2px solid var(--purple);padding-bottom:8px}
+  .hdr .l{display:flex;gap:10px;align-items:center}
+  .logo{width:36px;height:36px;border-radius:50%;background:var(--purple);color:#fff;display:grid;place-items:center;font-size:9px;font-weight:800;letter-spacing:.04em}
+  .hdr .name{font-size:17px;font-weight:800;color:var(--purple);line-height:1.05}
+  .hdr .cap{font-size:8.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);margin-top:2px}
+  .hdr .r{text-align:right}
+  .pill{display:inline-block;background:var(--orange);color:#fff;font-size:9px;font-weight:800;letter-spacing:.08em;padding:4px 12px;border-radius:999px;text-transform:uppercase}
+  .hdr .r .cap{margin-top:5px}
 
-  /* ---- okładka ---- */
-  .cover-top{display:flex;gap:14px;align-items:center;margin-bottom:34px}
-  .logo{width:52px;height:52px;border-radius:14px;background:linear-gradient(135deg,var(--purple),#4B33A6);display:grid;place-items:center;color:#fff;font-family:var(--serif);font-weight:700;font-size:22px;box-shadow:inset 0 0 0 2px rgba(255,255,255,.12)}
-  .logo::after{content:"";position:absolute}
-  .brandname{font-family:var(--serif);font-weight:700;font-size:19px;color:var(--purple);line-height:1.1}
-  .brandsub{font-size:11px;color:var(--muted);letter-spacing:.08em;text-transform:uppercase;margin-top:3px}
-  .eyebrow{display:inline-block;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--orange);font-weight:700;border-left:4px solid var(--orange);padding-left:10px;margin-bottom:14px}
-  h1.title{font-family:var(--serif);font-weight:700;font-size:44px;line-height:1.02;color:var(--purple);margin:0 0 10px;letter-spacing:-.01em}
-  .title-sub{font-family:var(--serif);font-size:20px;color:var(--ink);font-weight:500;margin:0 0 26px}
-  .date-line{display:flex;align-items:baseline;gap:12px;font-size:14px;color:var(--muted);margin-bottom:34px}
-  .date-line .fill{flex:0 0 200px;border-bottom:1px dotted var(--muted);height:16px}
+  .fields{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:10px;margin:12px 0 0}
+  .field{background:var(--lav);border-radius:8px;padding:7px 12px;display:flex;align-items:baseline;gap:10px;min-height:32px}
+  .field label{font-size:8px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:var(--lav-text);white-space:nowrap}
+  .field span{flex:1;border-bottom:1px solid #B6A6DF;height:14px}
+  .field .r{font-size:11px;color:var(--muted)}
 
-  .team{background:var(--purpleMist);border-left:5px solid var(--orange);padding:18px 22px;border-radius:0 12px 12px 0;margin-bottom:26px}
-  .team h3{margin:0 0 12px;font-family:var(--serif);font-size:17px;color:var(--purple)}
-  .team ol{margin:0;padding:0;list-style:none;display:grid;grid-template-columns:1fr 1fr;gap:10px 28px;counter-reset:m}
-  .team li{counter-increment:m;display:flex;align-items:flex-end;gap:10px;font-size:13px;color:var(--muted)}
-  .team li::before{content:counter(m);width:24px;height:24px;border-radius:50%;background:var(--purple);color:#fff;display:grid;place-items:center;font-weight:700;font-size:12px;flex:0 0 24px}
-  .team li span{flex:1;border-bottom:1px dotted var(--muted);height:20px}
+  /* ---- tytuł wyśrodkowany ---- */
+  .titleblock{text-align:center;margin:26px 0 18px}
+  .badge{display:inline-block;background:var(--orange);color:#fff;font-size:9px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;padding:5px 14px;border-radius:4px}
+  .kicker{font-size:9.5px;letter-spacing:.32em;text-transform:uppercase;color:var(--purple);font-weight:600;margin:12px 0 8px}
+  h1.title{font-size:34px;line-height:1.1;font-weight:800;color:var(--purple);margin:0 0 8px;letter-spacing:-.005em}
+  .sub{font-size:10.5px;letter-spacing:.3em;text-transform:uppercase;color:var(--orange);font-weight:700}
+  .intro{text-align:justify;font-size:11.5px;line-height:1.6;margin:16px auto 0;color:var(--ink)}
+  .intro b{color:var(--purple)}
+  .date-line{display:flex;justify-content:center;align-items:baseline;gap:10px;font-size:12px;color:var(--muted);margin:16px 0 22px}
+  .date-line .fill{flex:0 0 220px;border-bottom:1px solid #B6A6DF;height:14px}
 
-  .legal{display:grid;grid-template-columns:44px 1fr;gap:14px;border:1px solid var(--rule);border-radius:12px;padding:16px 18px;background:var(--paper)}
-  .legal .ico{width:44px;height:44px;border-radius:10px;background:var(--orangeMist);color:var(--orange);display:grid;place-items:center;font-size:22px}
-  .legal h3{margin:0 0 6px;font-family:var(--serif);font-size:16px;color:var(--purple)}
-  .legal p{margin:0;font-size:12.5px;line-height:1.55;color:var(--ink)}
-  .legal .ref{font-family:var(--mono);font-size:11px;color:var(--purple);background:#fff;border:1px solid var(--rule);border-radius:6px;padding:2px 6px;white-space:nowrap}
+  /* ---- ramki (wzór IPET: białe, obrys lawendowy, kolorowa lewa krawędź) ---- */
+  .box{background:#fff;border:1px solid var(--line);border-left:4px solid var(--c,var(--orange));border-radius:8px;padding:10px 14px 12px;break-inside:avoid}
+  .box .lbl{font-size:8.5px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:var(--purple);margin-bottom:6px}
+  .team{--c:var(--orange);margin-bottom:12px}
+  .team ol{margin:0;padding:0;list-style:none;display:grid;grid-template-columns:1fr 1fr;gap:9px 24px;counter-reset:m}
+  .team li{counter-increment:m;display:flex;align-items:flex-end;gap:8px;font-size:12px}
+  .team li::before{content:counter(m) ".";color:var(--orange);font-weight:800;min-width:16px}
+  .team li span{flex:1;border-bottom:1px solid #B6A6DF;height:16px}
 
-  .cover-foot{position:absolute;left:18mm;right:18mm;bottom:14mm;display:flex;justify-content:space-between;font-size:11px;color:var(--muted);border-top:1px solid var(--rule);padding-top:8px}
-  .chips{display:flex;gap:8px;flex-wrap:wrap;margin-top:22px}
-  .chip{font-size:11px;font-weight:600;padding:5px 11px;border-radius:999px;border:1px solid var(--rule);background:#fff;color:var(--purple)}
+  .legal{--c:var(--purple);display:grid;grid-template-columns:40px 1fr;gap:12px;align-items:start;background:var(--lav2)}
+  .legal .ico{width:38px;height:38px;border-radius:50%;background:var(--lav);color:var(--orange);display:grid;place-items:center;font-size:20px;font-weight:800;margin-top:2px}
+  .legal p{margin:0;font-size:11.5px;line-height:1.6;text-align:justify}
+  .legal .ref{color:var(--purple);font-weight:700}
+
+  .toc{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:14px}
+  .toc h5{grid-column:1/-1;margin:0;font-size:8.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--purple);font-weight:800;display:flex;align-items:center;gap:8px}
+  .toc h5::before{content:"";width:8px;height:8px;border-radius:2px;background:var(--purple)}
+  .toc > div{border:1px solid var(--line);border-radius:8px;padding:10px 12px;background:#fff;border-top:3px solid var(--orange)}
+  .toc .k{font-size:22px;font-weight:800;color:var(--orange);line-height:1}
+  .toc h4{margin:5px 0 3px;font-size:12px;color:var(--purple);font-weight:800}
+  .toc p{margin:0;font-size:10.5px;color:var(--muted);line-height:1.45}
+  .chips{display:flex;gap:6px;flex-wrap:wrap;justify-content:center;margin-top:16px}
+  .chip{font-size:9px;font-weight:800;letter-spacing:.06em;padding:4px 10px;border-radius:999px;border:1px solid var(--line);background:#fff;color:var(--purple)}
   .chip.o{background:var(--orangeMist);border-color:transparent;color:var(--orange)}
-  .chip.g{background:#E6F4EF;border-color:transparent;color:var(--green)}
-  .chip.t{background:#E4F0F0;border-color:transparent;color:var(--teal)}
+  .chip.l{background:var(--lav);border-color:transparent}
 
-  .toc{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:26px}
-  .toc > div{border:1px solid var(--rule);border-radius:12px;padding:14px 14px 12px;background:#fff;border-top:5px solid var(--orange)}
-  .toc .k{font-family:var(--serif);font-size:26px;font-weight:700;color:var(--orange);line-height:1}
-  .toc h4{margin:6px 0 4px;font-family:var(--serif);font-size:14px;color:var(--purple)}
-  .toc p{margin:0;font-size:11.5px;color:var(--muted);line-height:1.45}
-  .toc h5{margin:0 0 8px;grid-column:1/-1;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);font-weight:700}
-
-  /* ---- sekcje ---- */
-  .sec{display:flex;align-items:center;gap:12px;margin:26px 0 14px}
-  .sec .n{font-family:var(--serif);font-size:30px;font-weight:700;color:var(--orange);line-height:1}
-  .sec h2{margin:0;font-family:var(--serif);font-size:21px;color:var(--purple);font-weight:700}
-  .sec::after{content:"";flex:1;height:2px;background:linear-gradient(90deg,var(--purple),transparent)}
-  .sec .n{min-width:36px}
+  /* ---- nagłówki sekcji: pomarańczowy numer + fiolet + linia ---- */
+  .sec{display:flex;align-items:center;gap:10px;margin:22px 0 12px}
+  .sec .n{width:22px;height:22px;border-radius:5px;background:var(--orange);color:#fff;font-weight:800;font-size:12px;display:grid;place-items:center}
+  .sec h2{margin:0;font-size:14px;letter-spacing:.06em;text-transform:uppercase;color:var(--purple);font-weight:800}
+  .sec::after{content:"";flex:1;height:1px;background:var(--line)}
 
   /* ---- metryczka ---- */
-  table.meta{width:100%;border-collapse:collapse;font-size:13px}
-  table.meta th{width:31%;text-align:left;vertical-align:top;padding:11px 14px;background:var(--purple);color:#fff;font-weight:600;font-size:11px;letter-spacing:.06em;text-transform:uppercase;border-bottom:1px solid rgba(255,255,255,.18)}
-  table.meta th:first-child{border-radius:0}
-  table.meta td{padding:10px 14px;border-bottom:1px solid var(--rule);vertical-align:top;background:#fff}
-  table.meta tr:nth-child(even) td{background:var(--paper)}
+  table.meta{width:100%;border-collapse:separate;border-spacing:0;font-size:12px;border:1px solid var(--line);border-radius:8px;overflow:hidden}
+  table.meta th{width:30%;text-align:left;vertical-align:top;padding:10px 12px;background:var(--lav);color:var(--purple);font-weight:800;font-size:8.5px;letter-spacing:.1em;text-transform:uppercase;border-bottom:1px solid var(--line)}
+  table.meta td{padding:9px 12px;border-bottom:1px solid var(--line2);vertical-align:top;background:#fff}
+  table.meta tr:last-child th,table.meta tr:last-child td{border-bottom:0}
   .ph{color:var(--muted);font-style:italic}
-  .variant{display:flex;flex-direction:column;gap:8px}
-  .opt{display:flex;gap:10px;align-items:flex-start}
-  .box{width:16px;height:16px;border:2px solid var(--purple);border-radius:4px;flex:0 0 16px;margin-top:2px}
+  .variant{display:flex;flex-direction:column;gap:7px}
+  .opt{display:flex;gap:9px;align-items:flex-start}
+  .cb{width:14px;height:14px;border:1.5px solid #B6A6DF;border-radius:3px;flex:0 0 14px;margin-top:2px;background:#fff}
   .opt b{color:var(--purple)}
-  .kv{font-family:var(--mono);font-size:12px;color:var(--purple);background:var(--purpleMist);padding:1px 6px;border-radius:4px}
 
   /* ---- procedura ---- */
-  .flow{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin:14px 0 18px}
-  .step{border:1px solid var(--rule);border-radius:12px;padding:12px 12px 12px;background:#fff;position:relative}
-  .step .k{font-family:var(--serif);font-size:26px;font-weight:700;color:var(--orange);line-height:1;margin-bottom:6px}
-  .step h4{margin:0 0 4px;font-size:12.5px;color:var(--purple)}
-  .step p{margin:0;font-size:11.5px;color:var(--muted);line-height:1.4}
-  .step:not(:last-child)::after{content:"›";position:absolute;right:-9px;top:38%;color:var(--orange);font-size:20px;font-weight:700;background:#fff}
-  .note{background:var(--purpleMist);border-left:5px solid var(--orange);padding:14px 18px;border-radius:0 10px 10px 0;font-size:13px;line-height:1.6;color:var(--purple)}
+  .flow{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin:12px 0 14px}
+  .step{border:1px solid var(--line);border-radius:8px;padding:10px 12px;background:#fff;position:relative}
+  .step .k{width:22px;height:22px;border-radius:50%;background:var(--lav);color:var(--orange);font-weight:800;font-size:11px;display:grid;place-items:center;margin-bottom:6px}
+  .step h4{margin:0 0 3px;font-size:11.5px;color:var(--purple);font-weight:800}
+  .step p{margin:0;font-size:10.5px;color:var(--muted);line-height:1.4}
+  .step:not(:last-child)::after{content:"›";position:absolute;right:-9px;top:40%;color:var(--orange);font-size:18px;font-weight:800;background:#fff}
+  .note{background:var(--lav2);border:1px solid var(--line);border-left:4px solid var(--orange);padding:12px 16px;border-radius:8px;font-size:12px;line-height:1.6;text-align:justify}
   .note b{color:var(--orange)}
+  .icf{display:flex;gap:8px;margin-top:14px;font-size:10px}
+  .icf div{flex:1;text-align:center;padding:8px 6px;border-radius:8px;background:var(--lav);color:var(--purple);font-weight:700}
+  .icf div small{display:block;color:var(--lav-text);font-weight:600;margin-top:1px}
 
   /* ---- narzędzia ---- */
-  .lead{font-size:13px;line-height:1.6;margin:0 0 14px}
-  .tools{display:grid;grid-template-columns:1fr 1fr;gap:12px}
-  .tool{border:1px solid var(--rule);border-radius:12px;padding:14px 16px;background:#fff;border-top:5px solid var(--c,var(--purple));break-inside:avoid}
-  .tool .tag{font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--c,var(--purple))}
-  .tool h4{margin:4px 0 6px;font-family:var(--serif);font-size:15.5px;color:var(--purple);line-height:1.2}
-  .tool p{margin:0;font-size:12px;line-height:1.5;color:var(--ink)}
+  .lead{font-size:12px;line-height:1.6;margin:0 0 12px;text-align:justify}
+  .lead b{color:var(--purple)}
+  .tools{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+  .tool{border:1px solid var(--line);border-left:4px solid var(--c,var(--purple));border-radius:8px;padding:10px 14px 12px;background:#fff;break-inside:avoid}
+  .tool .tag{font-size:8.5px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:var(--c,var(--purple))}
+  .tool h4{margin:3px 0 5px;font-size:13px;color:var(--purple);font-weight:800;line-height:1.25}
+  .tool p{margin:0;font-size:11px;line-height:1.5}
   .tool.wide{grid-column:1/-1}
-  .abc{display:flex;gap:8px;margin-top:10px}
-  .abc span{flex:1;text-align:center;font-size:11px;padding:6px 4px;border-radius:8px;background:var(--orangeMist);color:var(--red);font-weight:600}
-  .abc span b{display:block;font-family:var(--serif);font-size:18px;line-height:1}
+  .abc{display:flex;gap:8px;margin-top:9px}
+  .abc span{flex:1;text-align:center;font-size:10px;padding:6px 4px;border-radius:8px;background:var(--orangeMist);color:var(--red);font-weight:700}
+  .abc span b{display:block;font-size:16px;line-height:1.1;font-weight:800}
 
-  /* ---- ICF pas ---- */
-  .icf{display:flex;gap:10px;margin-top:20px;font-size:11px}
-  .icf div{flex:1;text-align:center;padding:9px 6px;border-radius:10px;background:var(--paper);border:1px dashed var(--rule);color:var(--purple);font-weight:600}
-  .icf div small{display:block;color:var(--muted);font-weight:400;margin-top:2px}
-
-  /* ---- rodzic ---- */
-  .parent{margin-top:20px;background:var(--orangeMist);border-radius:12px;padding:14px 18px;font-size:12.5px;line-height:1.55;display:grid;grid-template-columns:36px 1fr;gap:12px;align-items:start}
-  .parent .i{font-size:22px}
+  .parent{margin-top:14px;background:var(--paper);border:1px solid var(--line2);border-radius:8px;padding:10px 14px;font-size:11.5px;line-height:1.55}
   .parent b{color:var(--orange)}
 
   /* ---- podpisy ---- */
-  .sigs{display:grid;grid-template-columns:1fr 1fr 1fr;gap:26px;margin-top:34px}
-  .sig{border-top:1.5px solid var(--ink);padding-top:6px;text-align:center;font-size:11.5px;color:var(--purple);font-style:italic;font-weight:600}
-  .sig small{display:block;font-style:normal;font-weight:400;color:var(--muted);font-size:10px}
+  .sigs{display:grid;grid-template-columns:1fr 1fr 1fr;gap:24px;margin-top:30px}
+  .sig{border-top:1px solid var(--purple);padding-top:5px;text-align:center;font-size:10.5px;color:var(--purple);font-weight:700}
+  .sig small{display:block;font-weight:400;color:var(--muted);font-size:9px}
   .sig.wide{grid-column:1/-1;max-width:60%;margin:0 auto;width:100%}
-  .footer{position:absolute;left:18mm;right:18mm;bottom:12mm;display:flex;justify-content:space-between;font-size:10.5px;color:var(--muted);border-top:1px solid var(--rule);padding-top:6px}
+  .footer{position:absolute;left:14mm;right:14mm;bottom:10mm;display:flex;justify-content:space-between;font-size:9px;color:var(--muted);border-top:1px solid var(--line2);padding-top:6px}
   .footer b{color:var(--orange)}
 
-  /* ---- mobile ---- */
   @media screen and (max-width:760px){
-    .page{width:auto;min-height:0;margin:0;padding:22px 18px 40px;box-shadow:none}
-    h1.title{font-size:32px}
-    .team ol,.tools,.flow,.toc{grid-template-columns:1fr}
+    .page{width:auto;min-height:0;margin:0;padding:18px 16px 36px;box-shadow:none}
+    h1.title{font-size:26px}
+    .fields,.team ol,.tools,.flow,.toc{grid-template-columns:1fr}
     .step:not(:last-child)::after{display:none}
     .sigs{grid-template-columns:1fr} .sig.wide{max-width:100%}
-    .cover-foot,.footer{position:static;margin-top:24px}
-    table.meta th{width:38%}
+    .footer{position:static;margin-top:22px}
+    .hdr{flex-direction:column;align-items:flex-start;gap:8px} .hdr .r{text-align:left}
+    table.meta th{width:36%}
   }
   @media print{
     html,body{background:#fff}
-    .page{margin:0;box-shadow:none;width:auto;min-height:0;padding:14mm 16mm 18mm}
+    .page{margin:0;box-shadow:none;width:auto;min-height:0;padding:11mm 13mm 16mm}
+    .page + .page{page-break-before:always}
     @page{size:A4;margin:0}
-    .tool,.step,.legal,.team,.note{break-inside:avoid}
+    .tool,.step,.box,.note{break-inside:avoid}
   }
 </style>
 </head>
@@ -146,22 +147,27 @@
 
 <!-- ======================= STRONA 1 · OKŁADKA ======================= -->
 <section class="page">
-  <div class="cover-top">
-    <div class="logo">E</div>
-    <div>
-      <div class="brandname">EduPlaner 2026</div>
-      <div class="brandsub">PCTP Koszalin · EduPlaner2026-MJ-PCTP</div>
-    </div>
+  <div class="hdr">
+    <div class="l"><div class="logo">PCTP</div><div><div class="name">EduPlaner 2026</div><div class="cap">Raport Oceny Funkcjonalnej · Okładka</div></div></div>
+    <div class="r"><span class="pill">Raport · 2026</span><div class="cap">Dokument dla rodzica · 2026</div></div>
+  </div>
+  <div class="fields">
+    <div class="field"><label>Dotyczy dziecka</label><span></span></div>
+    <div class="field"><label>Grupa / klasa</label><span></span></div>
+    <div class="field"><label>Data</label><span></span><i class="r">r.</i></div>
   </div>
 
-  <div class="eyebrow">Dokument dla rodzica i zespołu orzekającego</div>
-  <h1 class="title">Raport Oceny<br>Funkcjonalnej</h1>
-  <p class="title-sub">opinia przedszkola / szkoły o funkcjonowaniu dziecka w obszarach ICF</p>
+  <div class="titleblock">
+    <span class="badge">Opinia przedszkola / szkoły · dla zespołu orzekającego · dla rodzica</span>
+    <div class="kicker">Ocena funkcjonalna · ICF · Przedszkole · Szkoła</div>
+    <h1 class="title">Raport Oceny<br>Funkcjonalnej</h1>
+    <div class="sub">Obserwacja wstępna i pogłębiona · obszary ICF</div>
+  </div>
 
   <div class="date-line">z dnia <span class="fill"></span></div>
 
-  <div class="team">
-    <h3>Opracowany przez Zespół w składzie</h3>
+  <div class="box team">
+    <div class="lbl">Opracowany przez Zespół w składzie</div>
     <ol>
       <li><span></span></li><li><span></span></li>
       <li><span></span></li><li><span></span></li>
@@ -169,11 +175,11 @@
     </ol>
   </div>
 
-  <div class="legal">
+  <div class="box legal">
     <div class="ico">§</div>
     <div>
-      <h3>Podstawa prawna</h3>
-      <p>Zgodnie z Rozporządzeniem Ministra Edukacji z dnia 2 marca 2026 r. w sprawie orzeczeń i opinii wydawanych przez zespoły orzekające działające w publicznych poradniach psychologiczno-pedagogicznych <span class="ref">Dz. U. z 2026 r. poz. 428</span>, a w szczególności wchodzącymi w życie z dniem 1 września 2026 r. przepisami <span class="ref">§ 7 ust. 6 i ust. 7</span>, opinia przedszkola/szkoły wydawana dla zespołu poradni (i przekazywana rodzicowi) musi mieć ściśle określoną strukturę opartą na obszarach ICF: odrębnych dla dziecka w wieku przedszkolnym oraz dla ucznia szkoły.</p>
+      <div class="lbl">Podstawa prawna</div>
+      <p>Zgodnie z Rozporządzeniem Ministra Edukacji z dnia 2 marca 2026 r. w sprawie orzeczeń i opinii wydawanych przez zespoły orzekające działające w publicznych poradniach psychologiczno-pedagogicznych <span class="ref">(Dz. U. z 2026 r. poz. 428)</span>, a w szczególności wchodzącymi w życie z dniem 1 września 2026 r. przepisami <span class="ref">§ 7 ust. 6 i ust. 7</span>, opinia przedszkola/szkoły wydawana dla zespołu poradni (i przekazywana rodzicowi) musi mieć ściśle określoną strukturę opartą na obszarach ICF: odrębnych dla dziecka w wieku przedszkolnym oraz dla ucznia szkoły.</p>
     </div>
   </div>
 
@@ -185,16 +191,24 @@
   </div>
 
   <div class="chips">
-    <span class="chip">ICF</span><span class="chip o">KSzOF</span><span class="chip g">ABC</span>
-    <span class="chip t">Profil Sensoryczny</span><span class="chip">AAC</span><span class="chip o">ToM</span>
+    <span class="chip l">ICF</span><span class="chip o">KSzOF</span><span class="chip">ABC</span>
+    <span class="chip l">Profil Sensoryczny</span><span class="chip">AAC</span><span class="chip o">ToM</span>
   </div>
 
-  <div class="cover-foot"><span>Karta Funkcjonalna · rok szkolny 2026/2027</span><span>RODO · Dokument poufny</span></div>
+  <div class="footer"><span>EduPlaner 2026 · PCTP</span><span>Strona <b>1</b> z 3 · Okładka</span></div>
 </section>
 
 <!-- ======================= STRONA 2 · METRYCZKA + PROCEDURA ======================= -->
 <section class="page">
-  <div class="brandbar"><span><b>EduPlaner2026-MJ-PCTP</b> &nbsp;·&nbsp; <span class="doc">Raport Oceny Funkcjonalnej</span></span><span class="right">Dziecko / uczeń: <i>…………………………</i></span></div>
+  <div class="hdr">
+    <div class="l"><div class="logo">PCTP</div><div><div class="name">EduPlaner 2026</div><div class="cap">Raport Oceny Funkcjonalnej · Metryczka i obserwacja wstępna</div></div></div>
+    <div class="r"><span class="pill">Raport · 2026</span><div class="cap">Dokument dla rodzica · 2026</div></div>
+  </div>
+  <div class="fields">
+    <div class="field"><label>Dotyczy dziecka</label><span></span></div>
+    <div class="field"><label>Grupa / klasa</label><span></span></div>
+    <div class="field"><label>Data</label><span></span><i class="r">r.</i></div>
+  </div>
 
   <div class="sec"><span class="n">1</span><h2>Metryczka bazowa</h2></div>
   <table class="meta">
@@ -202,26 +216,25 @@
     <tr><th>Data urodzenia</th><td><span class="ph">[Data urodzenia]</span></td></tr>
     <tr><th>Placówka / Oddział</th><td><span class="ph">[Nazwa przedszkola / szkoły, grupa / klasa]</span></td></tr>
     <tr><th>Wariant wsparcia</th><td class="variant">
-      <div class="opt"><span class="box"></span><div><b>Wariant A</b> – wsparcie na podstawie orzeczenia o potrzebie kształcenia specjalnego</div></div>
-      <div class="opt"><span class="box"></span><div><b>Wariant B</b> – wsparcie w ramach pomocy psychologiczno-pedagogicznej (bez orzeczenia)</div></div>
+      <div class="opt"><span class="cb"></span><div><b>Wariant A</b> – wsparcie na podstawie orzeczenia o potrzebie kształcenia specjalnego</div></div>
+      <div class="opt"><span class="cb"></span><div><b>Wariant B</b> – wsparcie w ramach pomocy psychologiczno-pedagogicznej (bez orzeczenia)</div></div>
     </td></tr>
     <tr><th>Jednostka / Podstawa formalna</th><td>Na podstawie dołączonego dokumentu: <span class="ph">[Orzeczenie / Opinia]</span> nr <span class="ph">[Numer]</span> z dnia <span class="ph">[Data]</span>, wydanego przez: <span class="ph">[Nazwa Poradni]</span>, z uwagi na: <span class="ph">[np. autyzm, w tym zespół Aspergera / niepełnosprawność ruchowa / inne]</span></td></tr>
     <tr><th>Schorzenia przewlekłe</th><td class="variant">
-      <div class="opt"><span class="box"></span><div>Brak</div></div>
-      <div class="opt"><span class="box"></span><div>Występują: <span class="ph">[np. cukrzyca, astma, epilepsja]</span></div></div>
+      <div class="opt"><span class="cb"></span><div>Brak</div></div>
+      <div class="opt"><span class="cb"></span><div>Występują: <span class="ph">[np. cukrzyca, astma, epilepsja]</span></div></div>
     </td></tr>
     <tr><th>Farmakoterapia i wskazania lekarza</th><td>Zgodnie ze wskazaniami lekarza dziecko/uczeń <b>stale / doraźnie</b> przyjmuje leki: <span class="ph">[Nazwa leków, zalecenia postępowania / Nie dotyczy]</span></td></tr>
   </table>
 
   <div class="sec"><span class="n">2</span><h2>Podstawa i procedura obserwacji wstępnej</h2></div>
   <div class="flow">
-    <div class="step"><div class="k">①</div><h4>Zgłoszenie</h4><p>zgłaszane trudności w funkcjonowaniu oraz wniosek rodzica</p></div>
-    <div class="step"><div class="k">②</div><h4>Dokumentacja</h4><p>posiadana opinia / orzeczenie poradni psychologiczno-pedagogicznej</p></div>
-    <div class="step"><div class="k">③</div><h4>Obserwacja · wrzesień</h4><p>Kwestionariusz Przedszkolnej / Szkolnej Oceny Funkcjonalnej</p></div>
-    <div class="step"><div class="k">④</div><h4>Analiza ICF</h4><p>obszary zgodne z Międzynarodową Klasyfikacją Funkcjonowania</p></div>
+    <div class="step"><div class="k">1</div><h4>Zgłoszenie</h4><p>zgłaszane trudności w funkcjonowaniu oraz wniosek rodzica</p></div>
+    <div class="step"><div class="k">2</div><h4>Dokumentacja</h4><p>posiadana opinia / orzeczenie poradni psychologiczno-pedagogicznej</p></div>
+    <div class="step"><div class="k">3</div><h4>Obserwacja · wrzesień</h4><p>Kwestionariusz Przedszkolnej / Szkolnej Oceny Funkcjonalnej</p></div>
+    <div class="step"><div class="k">4</div><h4>Analiza ICF</h4><p>obszary zgodne z Międzynarodową Klasyfikacją Funkcjonowania</p></div>
   </div>
   <div class="note">Z uwagi na zgłaszane trudności w funkcjonowaniu, wniosek rodzica oraz posiadaną dokumentację (w tym opinię/orzeczenie poradni), w placówce przeprowadzono <b>we wrześniu</b> obserwację poziomu funkcjonowania z wykorzystaniem <b>Kwestionariusza Przedszkolnej / Szkolnej Oceny Funkcjonalnej</b>, analizującego funkcjonowanie w obszarach zgodnych z Międzynarodową Klasyfikacją Funkcjonowania, Niepełnosprawności i Zdrowia (ICF).</div>
-
   <div class="icf">
     <div>Funkcje ciała<small>b</small></div>
     <div>Struktury ciała<small>s</small></div>
@@ -230,12 +243,20 @@
     <div>Czynniki osobowe<small>—</small></div>
   </div>
 
-  <div class="footer"><span>Raport Oceny Funkcjonalnej · EduPlaner 2026 · RODO · Dokument poufny</span><span>Strona <b>2</b> z 3</span></div>
+  <div class="footer"><span>EduPlaner 2026 · PCTP</span><span>Strona <b>2</b> z 3 · Metryczka</span></div>
 </section>
 
 <!-- ======================= STRONA 3 · NARZĘDZIA ======================= -->
 <section class="page">
-  <div class="brandbar"><span><b>EduPlaner2026-MJ-PCTP</b> &nbsp;·&nbsp; <span class="doc">Raport Oceny Funkcjonalnej</span></span><span class="right">Dziecko / uczeń: <i>…………………………</i></span></div>
+  <div class="hdr">
+    <div class="l"><div class="logo">PCTP</div><div><div class="name">EduPlaner 2026</div><div class="cap">Raport Oceny Funkcjonalnej · Obserwacja pogłębiona</div></div></div>
+    <div class="r"><span class="pill">Raport · 2026</span><div class="cap">Dokument dla rodzica · 2026</div></div>
+  </div>
+  <div class="fields">
+    <div class="field"><label>Dotyczy dziecka</label><span></span></div>
+    <div class="field"><label>Grupa / klasa</label><span></span></div>
+    <div class="field"><label>Data</label><span></span><i class="r">r.</i></div>
+  </div>
 
   <div class="sec"><span class="n">3</span><h2>Wskazania do obserwacji pogłębionej i zastosowane narzędzia</h2></div>
   <p class="lead">W związku ze zidentyfikowanymi w toku oceny wstępnej trudnościami w funkcjonowaniu – w szczególności w zakresie <b>trudnych zachowań</b>, <b>rozwoju funkcji poznawczych</b>, <b>przetwarzania bodźców</b> oraz <b>komunikacji</b> – przeprowadzono obserwację pogłębioną z wykorzystaniem następujących narzędzi specjalistycznych:</p>
@@ -252,7 +273,7 @@
       <h4>Profil Biopsychospołeczny</h4>
       <p>Ujęcie funkcjonowania dziecka w wymiarze biologicznym, psychologicznym i społecznym – zgodnie z modelem ICF.</p>
     </div>
-    <div class="tool" style="--c:var(--teal)">
+    <div class="tool" style="--c:var(--blue)">
       <div class="tag">Przetwarzanie bodźców</div>
       <h4>Profil Sensoryczny</h4>
       <p>Ocena reaktywności sensorycznej (nadwrażliwości, podwrażliwości, poszukiwania stymulacji) i wpływu bodźców środowiskowych na dysregulację dziecka.</p>
@@ -269,10 +290,7 @@
     </div>
   </div>
 
-  <div class="parent">
-    <div class="i">👨‍👩‍👧</div>
-    <div><b>Informacja dla rodzica.</b> Niniejszy raport stanowi opinię placówki o funkcjonowaniu dziecka i jest przekazywany rodzicowi oraz zespołowi orzekającemu poradni. Wyniki obserwacji służą zaplanowaniu wsparcia, a nie ocenie dziecka. Zachęcamy do rozmowy z Zespołem o każdej części dokumentu.</div>
-  </div>
+  <div class="parent"><b>Informacja dla rodzica.</b> Niniejszy raport stanowi opinię placówki o funkcjonowaniu dziecka i jest przekazywany rodzicowi oraz zespołowi orzekającemu poradni. Wyniki obserwacji służą zaplanowaniu wsparcia, a nie ocenie dziecka. Zachęcamy do rozmowy z Zespołem o każdej części dokumentu.</div>
 
   <div class="sigs">
     <div class="sig">Koordynator Zespołu<small>podpis i data</small></div>
@@ -281,7 +299,7 @@
     <div class="sig wide">Rodzic / opiekun prawny – zapoznałam/em się z raportem<small>podpis i data</small></div>
   </div>
 
-  <div class="footer"><span>Raport Oceny Funkcjonalnej · EduPlaner 2026 · RODO · Dokument poufny</span><span>Strona <b>3</b> z 3</span></div>
+  <div class="footer"><span>EduPlaner 2026 · PCTP</span><span>Strona <b>3</b> z 3 · Narzędzia</span></div>
 </section>
 
 </body>
