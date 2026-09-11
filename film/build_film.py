@@ -103,10 +103,10 @@ SCENY = [
                   p("ks", "§ 6 treść IPET · § 7 dodatkowa osoba"), p("ppp", "formy pomocy · 45 min"),
                   p("pp", "cele dostosowuje się, nie obniża"), p("icf", "domeny d1–d9, KPOF / KSzOF"), p("rodo", "poufność")],
         "kroki": [
-            {"f": 0.00, "fd": 0.25, "typ": "kamera", "sel": "table.grid", "pad": 20, "zoom": 1.15},
-            {"f": 0.04, "fd": 0.80, "typ": "pokaz", "sel": "table.grid tr"},
-            {"f": 0.10, "fd": 0.30, "typ": "kamera", "sel": "table.grid tr:nth-child(2)", "pad": 30, "zoom": 1.5},
-            {"f": 0.50, "fd": 0.40, "typ": "kamera", "sel": "table.grid", "pad": 20, "zoom": 1.15},
+            {"f": 0.00, "fd": 0.25, "typ": "kamera", "sel": "table.grid", "pad": 6, "zoom": 1.3},
+            {"f": 0.04, "fd": 0.60, "typ": "pokaz", "sel": "table.grid tr"},
+            {"f": 0.10, "fd": 0.30, "typ": "kamera", "sel": "table.grid tr:nth-child(2)", "pad": 16, "zoom": 1.55},
+            {"f": 0.50, "fd": 0.40, "typ": "kamera", "sel": "table.grid", "pad": 6, "zoom": 1.3},
         ],
     },
     {  # 4
@@ -396,7 +396,7 @@ body{margin:0;background:var(--f-ui-bg);color:var(--f-ui-ink);font-family:var(--
 .f-druk .page{display:none;margin:0;box-shadow:var(--f-shadow);width:794px;position:relative}
 .f-druk .page.f-on{display:block}
 .f-druk .page::after{content:"";position:absolute;inset:0;pointer-events:none;box-shadow:inset 0 0 0 1px rgba(45,27,105,.08)}
-.f-hid{opacity:0;transform:translateY(8px)}
+.f-hid{opacity:.35}
 .f-cur{position:relative}
 .f-cur::after{content:"";display:inline-block;width:2px;height:1em;background:var(--f-orange);vertical-align:-.15em;margin-left:1px;animation:f-blink 1s steps(2) infinite}
 .f-remotion .f-cur::after{animation:none}
@@ -558,6 +558,20 @@ S.forEach((s,si)=>{ s.kroki.forEach(k=>{ if(k.typ==='strona') return; const nr=k
   if(k.typ==='podpis'){ k.els.forEach((el,i)=>{ const svg=document.createElementNS('http://www.w3.org/2000/svg','svg'); svg.setAttribute('viewBox','0 0 150 44'); svg.setAttribute('class','f-sigsvg'); const path=document.createElementNS('http://www.w3.org/2000/svg','path'); const d=['M6 30 C 14 6, 24 40, 34 22 S 52 8, 60 26 S 76 36, 86 16 S 102 30, 112 20 S 128 10, 142 24','M8 26 C 20 4, 26 38, 40 24 S 56 6, 66 28 S 84 34, 94 14 S 110 32, 124 18 S 136 12, 144 26','M6 28 C 12 10, 22 36, 32 20 S 50 4, 58 24 S 74 38, 88 18 S 104 28, 116 22 S 130 8, 144 28','M8 30 C 18 8, 26 34, 38 24 S 54 8, 64 26 S 80 36, 92 16 S 106 30, 120 20 S 134 10, 144 26'][i%4]; path.setAttribute('d',d); svg.appendChild(path); el.insertBefore(svg, el.firstChild); const L=path.getTotalLength(); path.style.strokeDasharray=L; path.style.strokeDashoffset=L; k.paths=k.paths||[]; k.paths.push({path,L}); }); }
 }); });
 
+// ---------- automatyczne wypełnianie: każda rubryka pokazywanej strony wpisuje się w kolejności czytania ----------
+const FILL_SEL='.hdr .name, .fields .field span, .ph, .fill, td:not(.code), .tool p, .step p, .flow5 p, .res p, .res .rec, .box p, ul.tick li, .kv .v, .voice p, .team li span, .op-stamp b, ul.op li, .lead p';
+S.forEach((s,si)=>{ if(s.awatar==='full') return;
+  const zmiany=[{f:0,nr:s.strona}].concat(s.kroki.filter(k=>k.typ==='strona').map(k=>({f:k.f,nr:k.nr})));
+  zmiany.forEach((z,i)=>{ const fKoniec=i+1<zmiany.length?zmiany[i+1].f:1; const pg=pageByNr(z.nr); if(pg.dataset.auto) return; pg.dataset.auto='1';
+    const pokryte=[]; S.forEach(x=>x.kroki.forEach(k=>{ if(k.els && k.nr===z.nr && (k.typ==='wpisz'||k.typ==='licz')) pokryte.push(...k.els); }));
+    let kand=$$(FILL_SEL,pg).filter(el=>!el.closest('.footer')&&!el.closest('th')&&el.textContent.trim().length>0);
+    kand=kand.filter(el=>!pokryte.some(c=>c===el||c.contains(el)||el.contains(c)));
+    kand=kand.filter(el=>!kand.some(o=>o!==el&&el.contains(o)));
+    if(!kand.length) return;
+    kand.forEach(el=>{ el.dataset.len=totalChars(el); revealTo(el,0); });
+    const dl=fKoniec-z.f; s.kroki.push({typ:'wpisz',auto:true,nr:z.nr,f:z.f+0.02*dl,fd:0.9*dl,els:kand}); });
+});
+
 // ---------- foto ----------
 function fotoSrc(id){ try{ const v=localStorage.getItem('film_foto_'+id); if(v) return v; }catch(e){} return FOTO[id].src; }
 let fotoId=null;
@@ -632,7 +646,7 @@ function render(T){
 function krok(k,p){
   switch(k.typ){
     case 'wpisz': { const n=k.els.length; k.els.forEach((el,i)=>{ const q=clamp(p*n-i,0,1); const len=+el.dataset.len; revealTo(el, Math.round(q*len)); el.classList.toggle('f-cur', q>0&&q<1); }); break; }
-    case 'pokaz': { const n=k.els.length; k.els.forEach((el,i)=>{ const q=easeOut(clamp(p*(n+1)-i,0,1)); el.style.opacity=q; el.style.transform='translateY('+(8*(1-q)).toFixed(1)+'px)'; el.classList.toggle('f-hid', false); }); break; }
+    case 'pokaz': { const n=k.els.length; k.els.forEach((el,i)=>{ const q=easeOut(clamp(p*(n+1)-i,0,1)); el.style.opacity=(0.35+0.65*q).toFixed(3); el.style.transform='translateY('+(4*(1-q)).toFixed(1)+'px)'; el.classList.toggle('f-hid', false); }); break; }
     case 'zaznacz': { const n=k.els.length; k.els.forEach((el,i)=>{ const q=k.stagger?clamp(p*n-i,0,1):p; const on=q>=0.999; const cb=el.classList.contains('cb')?el:$('.cb',el); const host=el.closest('[data-sel]')||el; if(cb) cb.classList.toggle('on', on); host.classList.toggle('sel', on); }); break; }
     case 'pasek': { const n=k.els.length; k.els.forEach((el,i)=>{ const q=easeOut(clamp(p*(n+2)-i,0,1)); el.style.setProperty('--w', (parseFloat(el.dataset.w)*q).toFixed(1)+'%'); }); break; }
     case 'licz': { const q=easeOut(p); k.els.forEach(el=>{ const v=(k.do*q); el.innerHTML=k.wzor.replace('{n}', v.toFixed(k.dec||0).replace('.',',')); }); break; }
@@ -681,7 +695,7 @@ if(REMOTION){ // Remotion: ?dur=<sekundy MP3>&srt=napisy.srt  → sceny w rytmie
   if(srtUrl){ fetch(srtUrl).then(r=>r.ok?r.text():Promise.reject()).then(txt=>{ zastosujSrt(txt); go(); }).catch(go); } else go();
 } else {
   seek(isFinite(t0)?t0:0);
-  fontsReady.then(()=>{ camCache.clear(); render(T); readyResolve(true); });
+  fontsReady.then(()=>{ camCache.clear(); render(T); readyResolve(true); if(Q.get('auto')!=='0' && !matchMedia('(prefers-reduced-motion: reduce)').matches) setTimeout(play, 600); });
 }
 })();
 """
