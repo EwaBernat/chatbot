@@ -1,0 +1,288 @@
+<!doctype html>
+<html lang="pl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Raport Oceny Funkcjonalnej · EduPlaner 2026</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,700&family=DM+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --purple:#2D1B69; --orange:#E8450A; --green:#0D7D5C; --red:#B8350D;
+    --amber:#C47A10; --teal:#2B6E6E; --muted:#6B6378; --rule:#D8D2C5;
+    --paper:#FBF9F4; --ink:#1A1530; --purpleMist:#F3F1FB; --orangeMist:#FEF0E8;
+    --serif:"Fraunces",Georgia,"Times New Roman",serif;
+    --sans:"DM Sans","Segoe UI",Arial,sans-serif;
+    --mono:"JetBrains Mono",Consolas,monospace;
+  }
+  *{box-sizing:border-box}
+  html,body{margin:0;background:#EAE6DE;color:var(--ink);font-family:var(--sans);font-size:14px;line-height:1.5}
+  .page{background:#fff;width:210mm;min-height:297mm;margin:12mm auto;padding:16mm 18mm 20mm;box-shadow:0 12px 40px rgba(45,27,105,.14);position:relative}
+  .page + .page{page-break-before:always}
+
+  /* ---- pasek marki ---- */
+  .brandbar{display:flex;justify-content:space-between;align-items:center;border-bottom:2px solid var(--purple);padding-bottom:6px;margin-bottom:22px;font-size:11px;letter-spacing:.06em;text-transform:uppercase}
+  .brandbar b{color:var(--purple)} .brandbar .doc{color:var(--orange);font-weight:700}
+  .brandbar .right{color:var(--muted);letter-spacing:.02em;text-transform:none}
+
+  /* ---- okładka ---- */
+  .cover-top{display:flex;gap:14px;align-items:center;margin-bottom:34px}
+  .logo{width:52px;height:52px;border-radius:14px;background:linear-gradient(135deg,var(--purple),#4B33A6);display:grid;place-items:center;color:#fff;font-family:var(--serif);font-weight:700;font-size:22px;box-shadow:inset 0 0 0 2px rgba(255,255,255,.12)}
+  .logo::after{content:"";position:absolute}
+  .brandname{font-family:var(--serif);font-weight:700;font-size:19px;color:var(--purple);line-height:1.1}
+  .brandsub{font-size:11px;color:var(--muted);letter-spacing:.08em;text-transform:uppercase;margin-top:3px}
+  .eyebrow{display:inline-block;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--orange);font-weight:700;border-left:4px solid var(--orange);padding-left:10px;margin-bottom:14px}
+  h1.title{font-family:var(--serif);font-weight:700;font-size:44px;line-height:1.02;color:var(--purple);margin:0 0 10px;letter-spacing:-.01em}
+  .title-sub{font-family:var(--serif);font-size:20px;color:var(--ink);font-weight:500;margin:0 0 26px}
+  .date-line{display:flex;align-items:baseline;gap:12px;font-size:14px;color:var(--muted);margin-bottom:34px}
+  .date-line .fill{flex:0 0 200px;border-bottom:1px dotted var(--muted);height:16px}
+
+  .team{background:var(--purpleMist);border-left:5px solid var(--orange);padding:18px 22px;border-radius:0 12px 12px 0;margin-bottom:26px}
+  .team h3{margin:0 0 12px;font-family:var(--serif);font-size:17px;color:var(--purple)}
+  .team ol{margin:0;padding:0;list-style:none;display:grid;grid-template-columns:1fr 1fr;gap:10px 28px;counter-reset:m}
+  .team li{counter-increment:m;display:flex;align-items:flex-end;gap:10px;font-size:13px;color:var(--muted)}
+  .team li::before{content:counter(m);width:24px;height:24px;border-radius:50%;background:var(--purple);color:#fff;display:grid;place-items:center;font-weight:700;font-size:12px;flex:0 0 24px}
+  .team li span{flex:1;border-bottom:1px dotted var(--muted);height:20px}
+
+  .legal{display:grid;grid-template-columns:44px 1fr;gap:14px;border:1px solid var(--rule);border-radius:12px;padding:16px 18px;background:var(--paper)}
+  .legal .ico{width:44px;height:44px;border-radius:10px;background:var(--orangeMist);color:var(--orange);display:grid;place-items:center;font-size:22px}
+  .legal h3{margin:0 0 6px;font-family:var(--serif);font-size:16px;color:var(--purple)}
+  .legal p{margin:0;font-size:12.5px;line-height:1.55;color:var(--ink)}
+  .legal .ref{font-family:var(--mono);font-size:11px;color:var(--purple);background:#fff;border:1px solid var(--rule);border-radius:6px;padding:2px 6px;white-space:nowrap}
+
+  .cover-foot{position:absolute;left:18mm;right:18mm;bottom:14mm;display:flex;justify-content:space-between;font-size:11px;color:var(--muted);border-top:1px solid var(--rule);padding-top:8px}
+  .chips{display:flex;gap:8px;flex-wrap:wrap;margin-top:22px}
+  .chip{font-size:11px;font-weight:600;padding:5px 11px;border-radius:999px;border:1px solid var(--rule);background:#fff;color:var(--purple)}
+  .chip.o{background:var(--orangeMist);border-color:transparent;color:var(--orange)}
+  .chip.g{background:#E6F4EF;border-color:transparent;color:var(--green)}
+  .chip.t{background:#E4F0F0;border-color:transparent;color:var(--teal)}
+
+  .toc{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:26px}
+  .toc > div{border:1px solid var(--rule);border-radius:12px;padding:14px 14px 12px;background:#fff;border-top:5px solid var(--orange)}
+  .toc .k{font-family:var(--serif);font-size:26px;font-weight:700;color:var(--orange);line-height:1}
+  .toc h4{margin:6px 0 4px;font-family:var(--serif);font-size:14px;color:var(--purple)}
+  .toc p{margin:0;font-size:11.5px;color:var(--muted);line-height:1.45}
+  .toc h5{margin:0 0 8px;grid-column:1/-1;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);font-weight:700}
+
+  /* ---- sekcje ---- */
+  .sec{display:flex;align-items:center;gap:12px;margin:26px 0 14px}
+  .sec .n{font-family:var(--serif);font-size:30px;font-weight:700;color:var(--orange);line-height:1}
+  .sec h2{margin:0;font-family:var(--serif);font-size:21px;color:var(--purple);font-weight:700}
+  .sec::after{content:"";flex:1;height:2px;background:linear-gradient(90deg,var(--purple),transparent)}
+  .sec .n{min-width:36px}
+
+  /* ---- metryczka ---- */
+  table.meta{width:100%;border-collapse:collapse;font-size:13px}
+  table.meta th{width:31%;text-align:left;vertical-align:top;padding:11px 14px;background:var(--purple);color:#fff;font-weight:600;font-size:11px;letter-spacing:.06em;text-transform:uppercase;border-bottom:1px solid rgba(255,255,255,.18)}
+  table.meta th:first-child{border-radius:0}
+  table.meta td{padding:10px 14px;border-bottom:1px solid var(--rule);vertical-align:top;background:#fff}
+  table.meta tr:nth-child(even) td{background:var(--paper)}
+  .ph{color:var(--muted);font-style:italic}
+  .variant{display:flex;flex-direction:column;gap:8px}
+  .opt{display:flex;gap:10px;align-items:flex-start}
+  .box{width:16px;height:16px;border:2px solid var(--purple);border-radius:4px;flex:0 0 16px;margin-top:2px}
+  .opt b{color:var(--purple)}
+  .kv{font-family:var(--mono);font-size:12px;color:var(--purple);background:var(--purpleMist);padding:1px 6px;border-radius:4px}
+
+  /* ---- procedura ---- */
+  .flow{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin:14px 0 18px}
+  .step{border:1px solid var(--rule);border-radius:12px;padding:12px 12px 12px;background:#fff;position:relative}
+  .step .k{font-family:var(--serif);font-size:26px;font-weight:700;color:var(--orange);line-height:1;margin-bottom:6px}
+  .step h4{margin:0 0 4px;font-size:12.5px;color:var(--purple)}
+  .step p{margin:0;font-size:11.5px;color:var(--muted);line-height:1.4}
+  .step:not(:last-child)::after{content:"›";position:absolute;right:-9px;top:38%;color:var(--orange);font-size:20px;font-weight:700;background:#fff}
+  .note{background:var(--purpleMist);border-left:5px solid var(--orange);padding:14px 18px;border-radius:0 10px 10px 0;font-size:13px;line-height:1.6;color:var(--purple)}
+  .note b{color:var(--orange)}
+
+  /* ---- narzędzia ---- */
+  .lead{font-size:13px;line-height:1.6;margin:0 0 14px}
+  .tools{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+  .tool{border:1px solid var(--rule);border-radius:12px;padding:14px 16px;background:#fff;border-top:5px solid var(--c,var(--purple));break-inside:avoid}
+  .tool .tag{font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--c,var(--purple))}
+  .tool h4{margin:4px 0 6px;font-family:var(--serif);font-size:15.5px;color:var(--purple);line-height:1.2}
+  .tool p{margin:0;font-size:12px;line-height:1.5;color:var(--ink)}
+  .tool.wide{grid-column:1/-1}
+  .abc{display:flex;gap:8px;margin-top:10px}
+  .abc span{flex:1;text-align:center;font-size:11px;padding:6px 4px;border-radius:8px;background:var(--orangeMist);color:var(--red);font-weight:600}
+  .abc span b{display:block;font-family:var(--serif);font-size:18px;line-height:1}
+
+  /* ---- ICF pas ---- */
+  .icf{display:flex;gap:10px;margin-top:20px;font-size:11px}
+  .icf div{flex:1;text-align:center;padding:9px 6px;border-radius:10px;background:var(--paper);border:1px dashed var(--rule);color:var(--purple);font-weight:600}
+  .icf div small{display:block;color:var(--muted);font-weight:400;margin-top:2px}
+
+  /* ---- rodzic ---- */
+  .parent{margin-top:20px;background:var(--orangeMist);border-radius:12px;padding:14px 18px;font-size:12.5px;line-height:1.55;display:grid;grid-template-columns:36px 1fr;gap:12px;align-items:start}
+  .parent .i{font-size:22px}
+  .parent b{color:var(--orange)}
+
+  /* ---- podpisy ---- */
+  .sigs{display:grid;grid-template-columns:1fr 1fr 1fr;gap:26px;margin-top:34px}
+  .sig{border-top:1.5px solid var(--ink);padding-top:6px;text-align:center;font-size:11.5px;color:var(--purple);font-style:italic;font-weight:600}
+  .sig small{display:block;font-style:normal;font-weight:400;color:var(--muted);font-size:10px}
+  .sig.wide{grid-column:1/-1;max-width:60%;margin:0 auto;width:100%}
+  .footer{position:absolute;left:18mm;right:18mm;bottom:12mm;display:flex;justify-content:space-between;font-size:10.5px;color:var(--muted);border-top:1px solid var(--rule);padding-top:6px}
+  .footer b{color:var(--orange)}
+
+  /* ---- mobile ---- */
+  @media screen and (max-width:760px){
+    .page{width:auto;min-height:0;margin:0;padding:22px 18px 40px;box-shadow:none}
+    h1.title{font-size:32px}
+    .team ol,.tools,.flow,.toc{grid-template-columns:1fr}
+    .step:not(:last-child)::after{display:none}
+    .sigs{grid-template-columns:1fr} .sig.wide{max-width:100%}
+    .cover-foot,.footer{position:static;margin-top:24px}
+    table.meta th{width:38%}
+  }
+  @media print{
+    html,body{background:#fff}
+    .page{margin:0;box-shadow:none;width:auto;min-height:0;padding:14mm 16mm 18mm}
+    @page{size:A4;margin:0}
+    .tool,.step,.legal,.team,.note{break-inside:avoid}
+  }
+</style>
+</head>
+<body>
+
+<!-- ======================= STRONA 1 · OKŁADKA ======================= -->
+<section class="page">
+  <div class="cover-top">
+    <div class="logo">E</div>
+    <div>
+      <div class="brandname">EduPlaner 2026</div>
+      <div class="brandsub">PCTP Koszalin · EduPlaner2026-MJ-PCTP</div>
+    </div>
+  </div>
+
+  <div class="eyebrow">Dokument dla rodzica i zespołu orzekającego</div>
+  <h1 class="title">Raport Oceny<br>Funkcjonalnej</h1>
+  <p class="title-sub">opinia przedszkola / szkoły o funkcjonowaniu dziecka w obszarach ICF</p>
+
+  <div class="date-line">z dnia <span class="fill"></span></div>
+
+  <div class="team">
+    <h3>Opracowany przez Zespół w składzie</h3>
+    <ol>
+      <li><span></span></li><li><span></span></li>
+      <li><span></span></li><li><span></span></li>
+      <li><span></span></li><li><span></span></li>
+    </ol>
+  </div>
+
+  <div class="legal">
+    <div class="ico">§</div>
+    <div>
+      <h3>Podstawa prawna</h3>
+      <p>Zgodnie z Rozporządzeniem Ministra Edukacji z dnia 2 marca 2026 r. w sprawie orzeczeń i opinii wydawanych przez zespoły orzekające działające w publicznych poradniach psychologiczno-pedagogicznych <span class="ref">Dz. U. z 2026 r. poz. 428</span>, a w szczególności wchodzącymi w życie z dniem 1 września 2026 r. przepisami <span class="ref">§ 7 ust. 6 i ust. 7</span>, opinia przedszkola/szkoły wydawana dla zespołu poradni (i przekazywana rodzicowi) musi mieć ściśle określoną strukturę opartą na obszarach ICF: odrębnych dla dziecka w wieku przedszkolnym oraz dla ucznia szkoły.</p>
+    </div>
+  </div>
+
+  <div class="toc">
+    <h5>Zawartość raportu</h5>
+    <div><div class="k">1</div><h4>Metryczka bazowa</h4><p>dane dziecka, wariant wsparcia, podstawa formalna, zdrowie i farmakoterapia</p></div>
+    <div><div class="k">2</div><h4>Obserwacja wstępna</h4><p>procedura wrześniowej obserwacji Kwestionariuszem Oceny Funkcjonalnej w obszarach ICF</p></div>
+    <div><div class="k">3</div><h4>Obserwacja pogłębiona</h4><p>wskazania i narzędzia: ABC, Profil Biopsychospołeczny, Profil Sensoryczny, mowa i AAC, ToM</p></div>
+  </div>
+
+  <div class="chips">
+    <span class="chip">ICF</span><span class="chip o">KSzOF</span><span class="chip g">ABC</span>
+    <span class="chip t">Profil Sensoryczny</span><span class="chip">AAC</span><span class="chip o">ToM</span>
+  </div>
+
+  <div class="cover-foot"><span>Karta Funkcjonalna · rok szkolny 2026/2027</span><span>RODO · Dokument poufny</span></div>
+</section>
+
+<!-- ======================= STRONA 2 · METRYCZKA + PROCEDURA ======================= -->
+<section class="page">
+  <div class="brandbar"><span><b>EduPlaner2026-MJ-PCTP</b> &nbsp;·&nbsp; <span class="doc">Raport Oceny Funkcjonalnej</span></span><span class="right">Dziecko / uczeń: <i>…………………………</i></span></div>
+
+  <div class="sec"><span class="n">1</span><h2>Metryczka bazowa</h2></div>
+  <table class="meta">
+    <tr><th>Imię i nazwisko</th><td><span class="ph">[Imię i Nazwisko dziecka / ucznia]</span></td></tr>
+    <tr><th>Data urodzenia</th><td><span class="ph">[Data urodzenia]</span></td></tr>
+    <tr><th>Placówka / Oddział</th><td><span class="ph">[Nazwa przedszkola / szkoły, grupa / klasa]</span></td></tr>
+    <tr><th>Wariant wsparcia</th><td class="variant">
+      <div class="opt"><span class="box"></span><div><b>Wariant A</b> – wsparcie na podstawie orzeczenia o potrzebie kształcenia specjalnego</div></div>
+      <div class="opt"><span class="box"></span><div><b>Wariant B</b> – wsparcie w ramach pomocy psychologiczno-pedagogicznej (bez orzeczenia)</div></div>
+    </td></tr>
+    <tr><th>Jednostka / Podstawa formalna</th><td>Na podstawie dołączonego dokumentu: <span class="ph">[Orzeczenie / Opinia]</span> nr <span class="ph">[Numer]</span> z dnia <span class="ph">[Data]</span>, wydanego przez: <span class="ph">[Nazwa Poradni]</span>, z uwagi na: <span class="ph">[np. autyzm, w tym zespół Aspergera / niepełnosprawność ruchowa / inne]</span></td></tr>
+    <tr><th>Schorzenia przewlekłe</th><td class="variant">
+      <div class="opt"><span class="box"></span><div>Brak</div></div>
+      <div class="opt"><span class="box"></span><div>Występują: <span class="ph">[np. cukrzyca, astma, epilepsja]</span></div></div>
+    </td></tr>
+    <tr><th>Farmakoterapia i wskazania lekarza</th><td>Zgodnie ze wskazaniami lekarza dziecko/uczeń <b>stale / doraźnie</b> przyjmuje leki: <span class="ph">[Nazwa leków, zalecenia postępowania / Nie dotyczy]</span></td></tr>
+  </table>
+
+  <div class="sec"><span class="n">2</span><h2>Podstawa i procedura obserwacji wstępnej</h2></div>
+  <div class="flow">
+    <div class="step"><div class="k">①</div><h4>Zgłoszenie</h4><p>zgłaszane trudności w funkcjonowaniu oraz wniosek rodzica</p></div>
+    <div class="step"><div class="k">②</div><h4>Dokumentacja</h4><p>posiadana opinia / orzeczenie poradni psychologiczno-pedagogicznej</p></div>
+    <div class="step"><div class="k">③</div><h4>Obserwacja · wrzesień</h4><p>Kwestionariusz Przedszkolnej / Szkolnej Oceny Funkcjonalnej</p></div>
+    <div class="step"><div class="k">④</div><h4>Analiza ICF</h4><p>obszary zgodne z Międzynarodową Klasyfikacją Funkcjonowania</p></div>
+  </div>
+  <div class="note">Z uwagi na zgłaszane trudności w funkcjonowaniu, wniosek rodzica oraz posiadaną dokumentację (w tym opinię/orzeczenie poradni), w placówce przeprowadzono <b>we wrześniu</b> obserwację poziomu funkcjonowania z wykorzystaniem <b>Kwestionariusza Przedszkolnej / Szkolnej Oceny Funkcjonalnej</b>, analizującego funkcjonowanie w obszarach zgodnych z Międzynarodową Klasyfikacją Funkcjonowania, Niepełnosprawności i Zdrowia (ICF).</div>
+
+  <div class="icf">
+    <div>Funkcje ciała<small>b</small></div>
+    <div>Struktury ciała<small>s</small></div>
+    <div>Aktywność i uczestnictwo<small>d</small></div>
+    <div>Czynniki środowiskowe<small>e</small></div>
+    <div>Czynniki osobowe<small>—</small></div>
+  </div>
+
+  <div class="footer"><span>Raport Oceny Funkcjonalnej · EduPlaner 2026 · RODO · Dokument poufny</span><span>Strona <b>2</b> z 3</span></div>
+</section>
+
+<!-- ======================= STRONA 3 · NARZĘDZIA ======================= -->
+<section class="page">
+  <div class="brandbar"><span><b>EduPlaner2026-MJ-PCTP</b> &nbsp;·&nbsp; <span class="doc">Raport Oceny Funkcjonalnej</span></span><span class="right">Dziecko / uczeń: <i>…………………………</i></span></div>
+
+  <div class="sec"><span class="n">3</span><h2>Wskazania do obserwacji pogłębionej i zastosowane narzędzia</h2></div>
+  <p class="lead">W związku ze zidentyfikowanymi w toku oceny wstępnej trudnościami w funkcjonowaniu – w szczególności w zakresie <b>trudnych zachowań</b>, <b>rozwoju funkcji poznawczych</b>, <b>przetwarzania bodźców</b> oraz <b>komunikacji</b> – przeprowadzono obserwację pogłębioną z wykorzystaniem następujących narzędzi specjalistycznych:</p>
+
+  <div class="tools">
+    <div class="tool wide" style="--c:var(--red)">
+      <div class="tag">Zachowania trudne</div>
+      <h4>Arkusz Obserwacji Behawioralnej ABC</h4>
+      <p>Zastosowany z uwagi na występowanie zachowań trudnych – identyfikacja bodźców wyzwalających, formy zachowania oraz funkcji i skutków podtrzymujących.</p>
+      <div class="abc"><span><b>A</b>bodźce wyzwalające</span><span><b>B</b>forma zachowania</span><span><b>C</b>funkcja i skutki podtrzymujące</span></div>
+    </div>
+    <div class="tool" style="--c:var(--purple)">
+      <div class="tag">Całościowy obraz</div>
+      <h4>Profil Biopsychospołeczny</h4>
+      <p>Ujęcie funkcjonowania dziecka w wymiarze biologicznym, psychologicznym i społecznym – zgodnie z modelem ICF.</p>
+    </div>
+    <div class="tool" style="--c:var(--teal)">
+      <div class="tag">Przetwarzanie bodźców</div>
+      <h4>Profil Sensoryczny</h4>
+      <p>Ocena reaktywności sensorycznej (nadwrażliwości, podwrażliwości, poszukiwania stymulacji) i wpływu bodźców środowiskowych na dysregulację dziecka.</p>
+    </div>
+    <div class="tool" style="--c:var(--orange)">
+      <div class="tag">Komunikacja</div>
+      <h4>Arkusz Oceny Rozwoju Mowy i Komunikacji</h4>
+      <p>Zastosowany w związku ze specyficznymi trudnościami w nadawaniu i rozumieniu mowy, echolaliami lub potrzebą wdrożenia / rozwijania AAC.</p>
+    </div>
+    <div class="tool" style="--c:var(--green)">
+      <div class="tag">Funkcje poznawcze i społeczne</div>
+      <h4>Arkusz Poziomu Rozwoju Teorii Umysłu (ToM)</h4>
+      <p>Zbadanie poziomu rozumienia stanów mentalnych, intencji, perspektywy i emocji innych osób w sytuacjach społecznych.</p>
+    </div>
+  </div>
+
+  <div class="parent">
+    <div class="i">👨‍👩‍👧</div>
+    <div><b>Informacja dla rodzica.</b> Niniejszy raport stanowi opinię placówki o funkcjonowaniu dziecka i jest przekazywany rodzicowi oraz zespołowi orzekającemu poradni. Wyniki obserwacji służą zaplanowaniu wsparcia, a nie ocenie dziecka. Zachęcamy do rozmowy z Zespołem o każdej części dokumentu.</div>
+  </div>
+
+  <div class="sigs">
+    <div class="sig">Koordynator Zespołu<small>podpis i data</small></div>
+    <div class="sig">Dyrektor placówki<small>podpis i data</small></div>
+    <div class="sig">Specjalista<small>podpis i data</small></div>
+    <div class="sig wide">Rodzic / opiekun prawny – zapoznałam/em się z raportem<small>podpis i data</small></div>
+  </div>
+
+  <div class="footer"><span>Raport Oceny Funkcjonalnej · EduPlaner 2026 · RODO · Dokument poufny</span><span>Strona <b>3</b> z 3</span></div>
+</section>
+
+</body>
+</html>
