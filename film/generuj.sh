@@ -14,7 +14,7 @@ glos() {
   #   python3 $SK/skonfiguruj_glos.py nagranie.mp4 --nazwa "Ewa - narracja PL"
   python3 "$SK/skonfiguruj_glos.py" --pokaz
   python3 "$SK/elevenlabs_tts.py" film/narracja.txt -o "$OUT/narracja.mp3" --srt "$OUT/napisy.srt" \
-          --model eleven_multilingual_v2 --stability 0.6 --similarity 0.75 --speed 0.97
+          --model eleven_v3 --stability 0.6 --similarity 0.75 --speed 0.97
 }
 
 awatar() {

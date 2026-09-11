@@ -9,7 +9,7 @@ film/
 ├── ocena_funkcjonalna_film.html   ← gotowy film (otwórz w przeglądarce)
 ├── build_film.py                  ← generator: oryginalny druk + silnik animacji + scenariusz scen
 ├── narracja.txt                   ← tekst lektorski (16 akapitów = 16 scen, liczby słownie)
-├── narracja.mp3                   ← nagranie Twoim głosem (ElevenLabs, klon „Ewa-głos_do skils”, 6:20)
+├── narracja.mp3                   ← nagranie Twoim głosem (ElevenLabs, klon „Ewa1”, eleven_v3)
 ├── SCENARIUSZ.md                  ← scenariusz: kadr, sceny, animacje, podstawa prawna, zdjęcia
 ├── generuj.sh                     ← potok: głos (ElevenLabs) → awatar (HeyGen) → MP4 (Remotion)
 ├── foto/*.webp                    ← 5 zdjęć scen (ElevenLabs, gpt-image-2)
@@ -25,8 +25,8 @@ kliknij „Odtwórz”. Bez pliku dźwięku film startuje sam, w ciszy z napisam
 ## 2. Twój głos (ElevenLabs)
 
 Skill `dane-i-glos` nie tworzy nagrań cudzym głosem. Twój klon na koncie ElevenLabs nazywa się
-„Ewa-głos_do skils” (`voice_id` `jq4ZUryuBeDqmtkKtBZ4`); w nowym środowisku zapamiętaj go jednym poleceniem
-(`export ELEVENLABS_VOICE_ID=jq4ZUryuBeDqmtkKtBZ4` albo `skonfiguruj_glos.py` z nagraniem):
+„Ewa1” (`voice_id` `D0Yz6dyyxHOodq3Zqi45`, model eleven_v3); w nowym środowisku zapamiętaj go jednym poleceniem
+(`export ELEVENLABS_VOICE_ID=D0Yz6dyyxHOodq3Zqi45` albo `skonfiguruj_glos.py` z nagraniem):
 
 ```bash
 export ELEVENLABS_API_KEY="..."
