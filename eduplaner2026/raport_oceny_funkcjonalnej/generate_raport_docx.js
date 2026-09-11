@@ -112,18 +112,19 @@ const cover = [
     P([ run(t[2], { size:14, color:C.muted }) ], { after:0, line:240 })
   ], { width:3302, borders:{ top:{ style:BorderStyle.SINGLE, size:24, color:C.orange }, bottom:ln(), left:ln(), right:ln() }, margins:{ top:90, bottom:100, left:160, right:160 } })) ) ]),
   empty(90),
-  P([ run('■ ', { size:14, color:C.purple }), run('CZĘŚĆ II · WYNIKI ILOŚCIOWE I JAKOŚCIOWE, OCENA POGŁĘBIONA, KIERUNKI WSPARCIA W IPE', { size:12, bold:true, color:C.purple, spacing:14 }) ], { after:80 }),
-  tbl([1981,1981,1981,1981,1982], [ row([
+  P([ run('■ ', { size:14, color:C.purple }), run('CZĘŚĆ II · WYNIKI ILOŚCIOWE I JAKOŚCIOWE, OCENA POGŁĘBIONA, KIERUNKI WSPARCIA W IPE, ZALECENIA PORADNI', { size:12, bold:true, color:C.purple, spacing:14 }) ], { after:80 }),
+  tbl([1651,1651,1651,1651,1651,1651], [ row([
     ['4','Funkcjonowanie w placówce','mocne strony, uzdolnienia i trudności'],
     ['5','Wyniki liczbowe','KPOF / KSzOF w 9 domenach ICF'],
     ['6','Analiza jakościowa','opis barier i zalecenia do IPE'],
     ['7','Obserwacja pogłębiona','wyniki arkuszy specjalistycznych'],
-    ['8','Podjęte działania','zakres wsparcia i efektywność']
+    ['8','Podjęte działania','zakres wsparcia i efektywność'],
+    ['9','Zalecenia poradni','sposoby realizacji w placówce']
   ].map((t,i) => cell([
     P([ run(t[0], { size:26, bold:true, color:C.orange }) ], { after:30 }),
-    P([ run(t[1], { size:16, bold:true, color:C.purple }) ], { after:40, line:230 }),
-    P([ run(t[2], { size:13, color:C.muted }) ], { after:0, line:230 })
-  ], { width:i===4?1982:1981, borders:{ top:{ style:BorderStyle.SINGLE, size:24, color:C.orange }, bottom:ln(), left:ln(), right:ln() }, margins:{ top:80, bottom:90, left:130, right:110 } })) ) ]),
+    P([ run(t[1], { size:15, bold:true, color:C.purple }) ], { after:40, line:220 }),
+    P([ run(t[2], { size:12, color:C.muted }) ], { after:0, line:220 })
+  ], { width:1651, borders:{ top:{ style:BorderStyle.SINGLE, size:24, color:C.orange }, bottom:ln(), left:ln(), right:ln() }, margins:{ top:80, bottom:90, left:130, right:110 } })) ) ]),
   new Paragraph({ children:[ new PageBreak() ] })
 ];
 
@@ -202,9 +203,9 @@ const tools = [
   ])
 ];
 
-const sigCell = (role, width, span) => new TableCell({
+const sigCell = (role, width, span, top=300) => new TableCell({
   width:{ size:width, type:WidthType.DXA }, columnSpan: span,
-  margins:{ top:560, bottom:40, left:220, right:220 }, borders:noBorders,
+  margins:{ top, bottom:20, left:220, right:220 }, borders:noBorders,
   children:[
     new Paragraph({ alignment:AlignmentType.CENTER, spacing:{ before:0, after:0 }, border:{ top:{ style:BorderStyle.SINGLE, size:6, color:C.purple, space:5 } }, children:[ run(role, { size:16, bold:true, color:C.purple }) ] }),
     new Paragraph({ alignment:AlignmentType.CENTER, spacing:{ before:10, after:0 }, children:[ run('podpis i data', { size:12, color:C.muted }) ] })
@@ -213,7 +214,7 @@ const sigCell = (role, width, span) => new TableCell({
 const SGW = Math.floor(CW/3);
 const sigs = tbl([SGW,SGW,SGW], [
   row([ sigCell('Koordynator Zespołu',SGW), sigCell('Dyrektor placówki',SGW), sigCell('Specjalista',SGW) ]),
-  row([ sigCell('Rodzic / opiekun prawny – zapoznałam/em się z raportem', SGW*3, 3) ])
+  row([ sigCell('Rodzic / opiekun prawny – zapoznałam/em się z raportem', SGW*3, 3, 180) ])
 ]);
 
 // =============== STOPKA ===============
@@ -226,7 +227,7 @@ const footerPara = new Paragraph({
 
 // =============== CZĘŚĆ II · WYNIKI ARKUSZY ===============
 const gridHead = (cols, widths, colors=[]) => row(cols.map((t,i) => cell(P([ run(t, { size:13, bold:true, color:colors[i]||C.purple, caps:true, spacing:10 }) ], { after:0 }), { width:widths[i], bg:C.lav, borders:{ top:ln(), bottom:ln(), left:ln(), right:ln() }, margins:{ top:100, bottom:100, left:140, right:120 } })));
-const gcell = (children, width, o={}) => cell(Array.isArray(children)?children:[children], { width, bg:o.bg, borders:{ top:ln(C.line2), bottom:ln(C.line2), right:ln(C.line2), left: o.edge ? { style:BorderStyle.SINGLE, size:24, color:o.edge } : ln(C.line2) }, margins:{ top:100, bottom:100, left:140, right:120 } });
+const gcell = (children, width, o={}) => cell(Array.isArray(children)?children:[children], { width, bg:o.bg, borders:{ top:ln(C.line2), bottom:ln(C.line2), right:ln(C.line2), left: o.edge ? { style:BorderStyle.SINGLE, size:24, color:o.edge } : ln(C.line2) }, margins:{ top:70, bottom:70, left:140, right:120 } });
 const txt = (t, o={}) => P([ run(t, { size:o.size||16, bold:o.bold, color:o.color }) ], { after:0, line:250 });
 const bullets = (items) => items.map(t => new Paragraph({ spacing:{ before:0, after:40, line:245 }, indent:{ left:200, hanging:200 }, children:[ run('•  ', { size:16, color:C.orange, bold:true }), run(t, { size:16 }) ] }));
 const lead2 = (ref, t) => P([ ...(ref ? [run(ref+' ', { size:16, bold:true, color:C.purple })] : []), run(t, { size:16, color:C.muted }) ], { after:140, line:260, align:AlignmentType.JUSTIFIED });
@@ -258,10 +259,16 @@ const W5 = [600, 2500, 1500, 800, 1700, 2806];
 const statTile = (l, v, sub, width, top=C.orange) => cell([
   P([ run(l, { size:12, bold:true, color:C.lavText, spacing:12 }) ], { after:40 }),
   P([ run(v, { size:26, bold:true, color:C.purple }), run(sub ? '  '+sub : '', { size:15, color:C.muted }) ], { after:0 })
-], { width, borders:{ top:{ style:BorderStyle.SINGLE, size:24, color:top }, bottom:ln(), left:ln(), right:ln() }, margins:{ top:110, bottom:120, left:160, right:120 } });
+], { width, borders:{ top:{ style:BorderStyle.SINGLE, size:24, color:top }, bottom:ln(), left:ln(), right:ln() }, margins:{ top:90, bottom:90, left:160, right:120 } });
 const SWT = Math.floor(CW/4);
-const stats5 = tbl([SWT,SWT,SWT,SWT], [ row([ statTile('NARZĘDZIE BAZOWE','KPOF','/ KSzOF',SWT), statTile('PUNKTY SUROWE','68','/ 180 pkt',SWT), statTile('ŚREDNIA / STEN','Śr: 2,1','· Sten 4',SWT), statTile('OGÓLNY POZIOM WSPARCIA','Poziom 2','(Umiarkowany)',SWT,C.amber) ]) ]);
-const table5 = tbl(W5, [ gridHead(['Kod','Domena ICF','Punkty / śr.','Sten','Poziom wsparcia','Wskaźnik funkcjonalny'], W5),
+const stats5 = tbl([SWT,SWT,SWT,SWT], [ row([ statTile('NARZĘDZIE BAZOWE','KPOF / KSzOF','',SWT), statTile('PUNKTY SUROWE','68','/ 180 pkt',SWT), statTile('ŚREDNIA','Śr: 2,1','w skali 0–5',SWT), statTile('OGÓLNY POZIOM WSPARCIA','Poziom 2','(Umiarkowany)',SWT,C.amber) ]) ]);
+const toolChoice = tbl([CW], [ row([ cell(P([
+  run('NARZĘDZIE BAZOWE:  ', { size:12, bold:true, color:C.lavText, spacing:12 }),
+  run('☐  ', { size:20, color:C.purple }), run('Przedszkole · KPOF', { size:16, bold:true, color:C.purple }), run('  (bez stenów)', { size:14, color:C.muted }),
+  run('        ', { size:16 }),
+  run('☐  ', { size:20, color:C.purple }), run('Szkoła · KSzOF', { size:16, bold:true, color:C.purple }), run('  (ze stenami)', { size:14, color:C.muted })
+], { after:0 }), { width:CW, bg:C.lav, borders:noBorders, margins:{ top:70, bottom:70, left:180, right:180 } }) ]) ]);
+const table5 = tbl(W5, [ gridHead(['Kod','Domena ICF','Punkty / śr.','Sten (KSzOF)','Poziom wsparcia','Wskaźnik funkcjonalny'], W5),
   ...dom.map(d => row([
     gcell(txt(d[0], { bold:true, color:C.orange }), W5[0]),
     gcell(txt(d[1], { bold:true }), W5[1]),
@@ -270,13 +277,19 @@ const table5 = tbl(W5, [ gridHead(['Kod','Domena ICF','Punkty / śr.','Sten','Po
     gcell(P([ run(' Poziom '+d[5]+' · '+d[6]+' ', { size:14, bold:true, color:LVL[d[5]].fg, bg:LVL[d[5]].bg }) ], { after:0 }), W5[4]),
     gcell(txt(d[7]), W5[5])
   ])) ]);
+const stenNote = P([ run('Zasada: ', { size:13, bold:true, color:C.purple }), run('KPOF (przedszkole) nie posiada norm stenowych – kolumnę „Sten” pozostawia się pustą, a interpretacja opiera się na punktach, średniej i poziomie wsparcia. KSzOF (szkoła) – steny podaje się wyłącznie w kolumnie „Sten” dla poszczególnych domen. Średniej nigdy nie opisuje się stenem.', { size:14, color:C.muted }) ], { before:80, after:0, line:250, align:AlignmentType.JUSTIFIED });
 const legend5 = P([ run('Poziom 1 · Niski', { size:13, bold:true, color:LVL[1].fg, bg:LVL[1].bg }), run('    ', { size:13 }), run('Poziom 2 · Średni', { size:13, bold:true, color:LVL[2].fg, bg:LVL[2].bg }), run('    ', { size:13 }), run('Poziom 3 · Wysoki', { size:13, bold:true, color:LVL[3].fg, bg:LVL[3].bg }) ], { align:AlignmentType.RIGHT, before:100, after:0 });
 
 const rows6 = [
- ['Uczenie się i stosowanie wiedzy','d1, d2','Dziecko/uczeń przyswaja wiedzę głównie kanałem wzrokowym. Występuje trudność w samodzielnej organizacji pracy, rozumieniu poleceń złożonych oraz transferze wiedzy. Przebodźcowanie powoduje dekoncentrację i rezygnację z zadania.',['Wprowadzenie planów aktywności w formie piktogramów / checklist.','Dzielenie instrukcji na pojedyncze, sekwencyjne kroki.','Stosowanie pomocy sensorycznych (stoper, zegar time-timer).','Wydłużenie czasu na realizację zadań pisemnych i wykonawczych.']],
- ['Komunikacja i porozumiewanie się','d3','Wypowiedzi cechują się trudnościami pragmatycznymi, obecnością echolalii oraz dosłownością interpretacji. W chwilach przeciążenia emocjonalnego następuje mutyzm wybiórczy lub krzyk zamiast komunikacji intencjonalnej.',['Wdrożenie tablic wyboru i skryptów dialogowych AAC.','Unikanie metafor, sarkazmu, dwuznaczności w komunikatach personelu.','Trening komunikacji funkcjonalnej (FCT – sygnalizowanie: „chcę przerwę”, „nie rozumiem”).','Indywidualna terapia logopedyczna/neurologopedyczna (2x w tyg.).']],
- ['Relacje i interakcje międzyludzkie','d7, d9','Trudności w inicjowaniu i podtrzymywaniu zabawy naprzemiennej. Brak umiejętności rozpoznawania sygnałów niewerbalnych wysyłanych przez rówieśników. Częste nieporozumienia prowadzące do zachowań oporowych.',['Udział w Treningu Umiejętności Społecznych (TUS) w małej grupie.','Modelowanie zachowań prospołecznych z wykorzystaniem Historyjek Społecznych (Social Stories).','Asystowanie w zabawach grupowych na zasadzie rówieśnika-mentora.','Jasne, wizualne zasady panujące w klasie/grupie.']],
- ['Dbanie o siebie i motoryka','d4, d5, d6','Samoobsługa zaburzona przez silne reakcje nadwrażliwości na bodźce dotykowe (ubrania, mokre ręce) i zapachowe. Spowolniona koordynacja ruchowa i trudności z planowaniem motorycznym (dyspraksja).',['Dostosowanie przyborów (nakładki ergonomiczne na ołówki, nożyczki sprężynowe).','Stała kolejność czynności toaletowych wsparta paskiem wizualnym.','Indywidualne ćwiczenia rewalidacyjne ukierunkowane na motorykę małą i dużą.']]
+ ['Uczenie się i stosowanie wiedzy','d1','Dziecko/uczeń przyswaja wiedzę głównie kanałem wzrokowym. Występuje trudność w rozumieniu poleceń złożonych oraz w transferze (uogólnianiu) wiedzy. Przebodźcowanie powoduje dekoncentrację i rezygnację z zadania.',['Plany aktywności w formie piktogramów / checklist.','Dzielenie instrukcji na pojedyncze, sekwencyjne kroki.','Wydłużenie czasu na realizację zadań pisemnych i wykonawczych.']],
+ ['Ogólne zadania i wymagania','d2','Trudność w samodzielnej organizacji pracy i realizacji zadań wieloetapowych. Brak elastyczności – silny stres przy nagłych zmianach planu i przejściach między aktywnościami.',['Stały, wizualny plan dnia i zapowiadanie zmian z wyprzedzeniem.','Pomoce sensoryczne do orientacji w czasie (stoper, zegar time-timer).','Protokół wyprzedzający przed trudnymi przejściami.']],
+ ['Komunikacja i porozumiewanie się','d3','Wypowiedzi cechują się trudnościami pragmatycznymi, obecnością echolalii oraz dosłownością interpretacji. W chwilach przeciążenia emocjonalnego następuje mutyzm wybiórczy lub krzyk zamiast komunikacji intencjonalnej.',['Tablice wyboru i skrypty dialogowe AAC.','Unikanie metafor, sarkazmu i dwuznaczności w komunikatach personelu.','Trening komunikacji funkcjonalnej (FCT: „chcę przerwę”, „nie rozumiem”).','Indywidualna terapia logopedyczna/neurologopedyczna (2x w tyg.).']],
+ ['Poruszanie się i motoryka','d4','Motoryka duża prawidłowa (bieganie, wspinanie). Obniżona precyzja motoryki małej, koordynacji wzrokowo-ruchowej i planowania motorycznego (dyspraksja); nieprawidłowy chwyt pisarski i narzędzi.',['Dostosowanie przyborów (nakładki ergonomiczne na ołówki, nożyczki sprężynowe).','Indywidualne ćwiczenia rewalidacyjne ukierunkowane na motorykę małą i dużą.','Ćwiczenia integracji sensorycznej (SI).']],
+ ['Dbanie o siebie i samoobsługa','d5','Samoobsługa zaburzona przez silne reakcje nadwrażliwości na bodźce dotykowe (ubrania, mokre ręce) i zapachowe; wybiórczość pokarmowa; trudność z odzieżą o skomplikowanych zapięciach.',['Stała kolejność czynności toaletowych wsparta paskiem wizualnym.','Stopniowe oswajanie faktur i zapachów w bezpiecznych warunkach.','Odzież bez trudnych zapięć; nadzór dorosłego przy posiłkach.']],
+ ['Życie domowe / Obowiązki placówki','d6','Wykonuje obowiązki grupowe (sprzątanie kącika zabaw, dyżury) po bezpośrednim przypomnieniu. Trudność w samodzielnym inicjowaniu czynności i doprowadzaniu ich do końca.',['Lista zadań na rzepy z odhaczaniem wykonanych czynności.','Stałe dyżury z modelowaniem przez dorosłego.','Wzmocnienia pozytywne (pochwała opisowa, system żetonowy).']],
+ ['Relacje i kontakty międzyludzkie','d7','Trudności w inicjowaniu i podtrzymywaniu zabawy naprzemiennej. Brak umiejętności rozpoznawania sygnałów niewerbalnych wysyłanych przez rówieśników. Częste nieporozumienia prowadzące do zachowań oporowych.',['Trening Umiejętności Społecznych (TUS) w małej grupie.','Historyjki Społeczne (Social Stories) modelujące zachowania prospołeczne.','Asystowanie w zabawach grupowych na zasadzie rówieśnika-mentora.','Jasne, wizualne zasady panujące w klasie/grupie.']],
+ ['Główne dziedziny życia (Edukacja)','d8','Uczestnictwo w zajęciach edukacyjnych wymaga dostosowania metod, tempa i form pracy oraz stałego nadzoru nauczyciela. Szybka męczliwość przy zadaniach pisemnych i instrukcjach wieloetapowych.',['Dostosowane karty pracy (mniej bodźców, większa czcionka, jedno polecenie na raz).','Wsparcie nauczyciela współorganizującego / asystenta w zadaniach kierowanych.','Przerwy sensoryczne wpisane w plan zajęć.']],
+ ['Życie społecznościowe i obywatelskie','d9','Trudność w uczestnictwie w apelach, uroczystościach i wyjściach zbiorowych z powodu przeciążenia sensorycznego i tłumu – wycofanie lub zachowania trudne.',['Wcześniejsze przygotowanie (historyjka społeczna, zdjęcia miejsca, plan wydarzenia).','Słuchawki wygłuszające i miejsce z możliwością wyjścia.','Stopniowe wydłużanie czasu udziału w wydarzeniach grupowych.']]
 ];
 const W6 = [1900, 3900, 4106];
 const table6 = tbl(W6, [ gridHead(['Domena ICF','Opis funkcjonowania i bariery','Zalecenia do IPE (metody / dostosowania)'], W6, [C.purple, C.purple, C.orange]),
@@ -307,6 +320,22 @@ const W8 = [2000, 4300, 3606];
 const table8 = tbl(W8, [ gridHead(['Rodzaj wsparcia','Zakres wdrożonych działań i metody','Efektywność i obserwowane zmiany'], W8, [C.purple, C.purple, C.green]),
   ...rows8.map(r => row([ gcell(txt(r[0], { bold:true, color:C.purple }), W8[0]), gcell(txt(r[1]), W8[1]), gcell(txt(r[2]), W8[2], { edge:C.green }) ])) ]);
 
+
+const zal = [
+ ['Zajęcia rewalidacyjne rozwijające kompetencje społeczno-komunikacyjne (2 godz. tyg.)','Rewalidacja indywidualna 2 × 30 min tygodniowo: trening komunikacji funkcjonalnej, rozpoznawanie emocji, historyjki społeczne; zadania generalizowane w grupie.','Pedagog specjalny · 2 × 30 min / tydz.'],
+ ['Terapia logopedyczna z elementami komunikacji wspomagającej (AAC)','Indywidualne zajęcia logopedyczne; wdrożenie tablic wyboru i skryptów dialogowych w sali; szkolenie kadry z obsługi pomocy AAC.','Logopeda / neurologopeda · 1 × 30 min / tydz.'],
+ ['Terapia integracji sensorycznej i dieta sensoryczna w ciągu dnia','Zajęcia SI na sali gimnastycznej; przerwy sensoryczne wpisane w plan dnia; słuchawki wygłuszające; strefa wyciszenia w sali.','Terapeuta SI · 1 × 45 min / tydz.; nauczyciele codziennie'],
+ ['Wsparcie nauczyciela współorganizującego kształcenie','Obecność nauczyciela współorganizującego w czasie zajęć kierowanych i przejść między aktywnościami; pomoc w dekodowaniu poleceń.','Nauczyciel współorganizujący · zgodnie z arkuszem organizacji'],
+ ['Dostosowanie wymagań edukacyjnych oraz form i metod pracy','Karty pracy z jednym poleceniem, większa czcionka, ograniczenie bodźców; wydłużony czas; ocenianie wysiłku i postępu; instrukcje wsparte piktogramami.','Wychowawca i nauczyciele przedmiotów · na bieżąco'],
+ ['Trening umiejętności społecznych (TUS) w małej grupie','Zajęcia TUS w grupie 3–5 osób: naprzemienność, rozpoznawanie intencji, radzenie sobie z przegraną; rówieśnik-mentor w zabawach swobodnych.','Psycholog / pedagog · 1 × 45 min / tydz.'],
+ ['Zapewnienie stałości, przewidywalności i struktury otoczenia','Wizualny plan dnia na rzepy; zapowiadanie zmian; stały skład kadry; protokół wyprzedzający przed wydarzeniami grupowymi.','Wychowawca · codziennie'],
+ ['Ścisła współpraca z rodzicami i ujednolicenie oddziaływań','Cotygodniowe konsultacje; zeszyt korespondencji dom–placówka; wspólny system komunikatów i wzmocnień; udział rodziców w ewaluacji IPET.','Koordynator zespołu · 1 × / tydz.']
+];
+const W9 = [400, 2550, 3500, 2200, 1256];
+const statusCell = () => gcell(['wdrożone','w trakcie','planowane'].map(t => P([ run('☐ ', { size:15, color:'B6A6DF' }), run(t, { size:12, color:C.muted }) ], { after:0, line:220 })), W9[4]);
+const table9 = tbl(W9, [ gridHead(['Lp.','Zalecenie poradni (z orzeczenia / opinii)','Sposób realizacji w placówce','Realizator / wymiar','Status'], W9, [C.purple, C.purple, C.orange, C.purple, C.purple]),
+  ...zal.map((z,i) => row([ gcell(txt(String(i+1), { bold:true, color:C.orange, size:15 }), W9[0]), gcell(txt(z[0], { bold:true, size:15 }), W9[1]), gcell(txt(z[1], { size:15 }), W9[2]), gcell(txt(z[2], { bold:true, color:C.purple, size:15 }), W9[3]), statusCell() ])) ]);
+
 const parentBox = tbl([CW], [ row([ cell(P([ run('Informacja dla rodzica. ', { size:17, bold:true, color:C.orange }), run('Niniejszy raport stanowi opinię placówki o funkcjonowaniu dziecka i jest przekazywany rodzicowi oraz zespołowi orzekającemu poradni. Wyniki obserwacji służą zaplanowaniu wsparcia, a nie ocenie dziecka. Zachęcamy do rozmowy z Zespołem o każdej części dokumentu.', { size:17 }) ], { after:0, line:270 }), { width:CW, bg:C.paper, borders:{ top:ln(C.line2), bottom:ln(C.line2), left:ln(C.line2), right:ln(C.line2) }, margins:{ top:120, bottom:120, left:220, right:220 } }) ]) ]);
 
 const part2 = [
@@ -322,27 +351,34 @@ const part2 = [
   ...pageHeader('Raport Oceny Funkcjonalnej · Część II · Wyniki liczbowe'),
   section('5','Aktualna wielospecjalistyczna ocena poziomu funkcjonowania – wyniki liczbowe'),
   lead2('§ 7 ust. 6 pkt 4.','Zestawienie parametrów ilościowych uzyskanych z narzędzia bazowego (KPOF dla przedszkola / KSzOF dla szkoły) w 9 obszarach Międzynarodowej Klasyfikacji ICF:'),
+  toolChoice,
+  empty(60),
   stats5,
-  empty(140),
+  empty(80),
   table5,
   legend5,
+  stenNote,
   new Paragraph({ children:[ new PageBreak() ] }),
   ...pageHeader('Raport Oceny Funkcjonalnej · Część II · Analiza jakościowa'),
   section('6','Analiza jakościowa obszarów obserwacji oraz zalecenia do IPE'),
-  lead2('','Szczegółowa diagnoza funkcjonalna powiązana bezpośrednio ze sformułowanymi rekomendacjami do Indywidualnego Programu Edukacyjnego (IPE):'),
+  lead2('','Szczegółowa diagnoza funkcjonalna we wszystkich 9 domenach ICF, powiązana bezpośrednio ze sformułowanymi rekomendacjami do Indywidualnego Programu Edukacyjnego (IPE):'),
   table6,
   new Paragraph({ children:[ new PageBreak() ] }),
   ...pageHeader('Raport Oceny Funkcjonalnej · Część II · Obserwacja pogłębiona'),
   section('7','Wyniki obserwacji pogłębionej (narzędzia specjalistyczne)'),
   ...resCards,
   new Paragraph({ children:[ new PageBreak() ] }),
-  ...pageHeader('Raport Oceny Funkcjonalnej · Część II · Podjęte działania i podpisy'),
+  ...pageHeader('Raport Oceny Funkcjonalnej · Część II · Podjęte działania'),
   section('8','Informacja o działaniach podjętych w celu poprawy funkcjonowania'),
   lead2('§ 7 ust. 6 pkt 6.',''),
   table8,
   empty(140),
   parentBox,
-  empty(60),
+  new Paragraph({ children:[ new PageBreak() ] }),
+  ...pageHeader('Raport Oceny Funkcjonalnej · Część II · Zalecenia poradni i podpisy'),
+  section('9','Zalecenia z poradni i sposoby ich realizacji w placówce'),
+  P([ run('Zalecenia zawarte w ', { size:16, color:C.muted }), run('orzeczeniu / opinii poradni psychologiczno-pedagogicznej', { size:16, bold:true, color:C.purple }), run(' nr ', { size:16, color:C.muted }), ph('[Numer]'), run(' z dnia ', { size:16, color:C.muted }), ph('[Data]'), run(' oraz przyjęte przez Zespół sposoby ich realizacji, realizatorzy i wymiar wsparcia:', { size:16, color:C.muted }) ], { after:100, line:260, align:AlignmentType.JUSTIFIED }),
+  table9,
   sigs
 ];
 
