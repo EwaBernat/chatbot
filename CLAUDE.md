@@ -19,7 +19,7 @@ Pliki raportów: `eduplaner2026/raport_oceny_funkcjonalnej/`. **Jedno źródło 
 - **Załączniki ewaluacyjne:** dziecko z orzeczeniem – aktualna **WOPFU**; dziecko objęte zajęciami rewalidacyjno-wychowawczymi – aktualna **okresowa ocena funkcjonowania**.
 - **Obszary ICF (§ 7 ust. 7 pkt 1, dokładne brzmienie):** dziecko do ukończenia wychowania przedszkolnego – 5: uczenie się i stosowanie wiedzy · zachowania społeczne we wzajemnych kontaktach – przystosowanie społeczne i emocjonalne · porozumiewanie się · aktywność ruchowa – poruszanie się · dbanie o siebie. Uczeń – **7**: uczenie się i stosowanie wiedzy · ogólne zadania i obowiązki · porozumiewanie się · motoryka, poruszanie się, w tym mobilność i aktywność manualna · dbanie o siebie, samoobsługa i samodzielność · życie domowe · wzajemne kontakty i związki międzyludzkie, życie w społeczności szkolnej i lokalnej.
 - **§ 8 to ocena zespołu PORADNI, nie opinia placówki:** bariery i ułatwienia, funkcje i struktury ciała, informacje od rodziców, nauczycieli i dziecka, nagrania rodziców, transmisja / nagranie za zgodą. W opinii placówki te treści są tylko fakultatywną częścią „informacje uzupełniające”.
-- **Bez reklam:** druk dla poradni i rodzica bez brandowania (nagłówek = nazwa placówki; dopuszczalna jedynie drobna sygnatura „sporządzono w EduPlaner 2026” w stopce). Opinia jako osobny, czysty załącznik na końcu raportu (i osobny plik `Opinia_dla_poradni.docx`); sekcja 4 raportu ma tabelę A (przedszkole 5) i B (uczeń 7).
+- **Bez reklam – zasada stała:** wszystkie druki, które idą do rodziców lub do poradni, są „wordowskie” (edytowalne DOCX) z danymi placówki (nazwa, adres, pieczęć) w nagłówku; żadnego brandowania EduPlaner w treści ani nagłówkach. Dopuszczalny jedynie maleńki znak w rogu / stopce („sporządzono w EduPlaner 2026”, ok. 6–8 pt), że to nasz druk. Opinia jako osobny, czysty załącznik na końcu raportu (i osobny plik `Opinia_dla_poradni.docx`); sekcja 4 raportu ma tabelę A (przedszkole 5) i B (uczeń 7).
 
 ## Zasady merytoryczne – Raport Oceny Funkcjonalnej (zapamiętane na życzenie autorki)
 
@@ -34,7 +34,7 @@ Pliki raportów: `eduplaner2026/raport_oceny_funkcjonalnej/`. **Jedno źródło 
 
 ## Czytelność
 
-- **Czcionka treści minimum 12 pt** (HTML/PDF: 16 px dla akapitów, tabel, list; Word: 24 half-points). Drobne mogą być tylko etykiety, plakietki i stopki (≥ 9 pt).
+- **Czcionka treści minimum 12 pt** (HTML/PDF: 16 px dla akapitów, tabel, list; Word: 24 half-points). Etykiety, nagłówki tabel i noty minimum 9–10 pt (HTML ≥ 12 px, Word ≥ 18–20 half-points). Autorka wielokrotnie prosiła o większą czcionkę – w razie wątpliwości powiększać, nie zmniejszać.
 - Druk ciągły: każda sekcja zaczyna się na nowej stronie, ale może zajmować kilka stron; numer strony liczy przeglądarka (`@page` margin boxes w Chromium) lub Word.
 
 ## Styl graficzny
