@@ -1,6 +1,13 @@
 # EduPlaner 2026 · zasady dokumentów (PCTP Koszalin)
 
-Pliki raportów: `eduplaner2026/raport_oceny_funkcjonalnej/` (HTML + PDF + Word, generator `generate_raport_docx.js`).
+Pliki raportów: `eduplaner2026/raport_oceny_funkcjonalnej/`. **Jedno źródło treści:** `raport_data.json` (sekcje 4–16). HTML buduje `build_html.py` (styles.css + part1_pages.html + JSON), PDF powstaje z HTML przez Chromium, Word buduje `generate_raport_docx.js` (czyta ten sam JSON). Zmiana treści = edycja JSON i przebudowa trzech plików.
+
+## Struktura raportu (16 sekcji, bez dublowania – ustalona na życzenie autorki)
+
+- **Część I · Podstawa:** 1 metryczka · 2 obserwacja wstępna · 3 narzędzia obserwacji pogłębionej.
+- **Część II · Wyniki oceny:** 4 funkcjonowanie w placówce · 5 wyniki liczbowe KPOF/KSzOF · 6 wyniki arkuszy (ABC, sensoryczny, biopsychospołeczny, mowa, ToM) · 7 Mój głos (perspektywa dziecka) · 8 działania dotychczas podjęte · 9 analiza jakościowa 9 domen z kierunkami pracy · 10 decyzja Zespołu o poziomie wsparcia (I/II/III) z uzasadnieniem.
+- **Część III · Program wsparcia:** 11 zakres i sposób dostosowania programu wychowania przedszkolnego / podstawy programowej + dostosowania organizacyjne + nowe technologie · 12 zintegrowane działania nauczycieli i specjalistów · 13 zajęcia: A rewalidacja, B pomoc psychologiczno-pedagogiczna (forma, czas, termin, okres, miejsce), C mapa zaleceń poradni → sekcje raportu · 14 uzasadnienie wsparcia dodatkowej osoby · 15 współpraca z rodzicami (zakres, konkretne działania wspierające rodziców) i z poradnią · 16 terminy okresowej oceny efektywności · podpisy.
+- Zasada „bez dualizmu”: każde zalecenie poradni jest opisane raz, w sekcji, która je realizuje; sekcja 13 C tylko odsyła do właściwej sekcji.
 
 ## Zasady merytoryczne – Raport Oceny Funkcjonalnej (zapamiętane na życzenie autorki)
 
