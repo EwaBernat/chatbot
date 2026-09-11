@@ -215,6 +215,8 @@ const footerPara = new Paragraph({
 
 
 // =============== CZĘŚĆ II–III · DANE Z raport_data.json ===============
+const lawP = (law) => law ? P([ run(' § Podstawa prawna: '+law+' ', { size:12, bold:true, color:C.purple, bg:C.lav }) ], { before:0, after:120 }) : empty(0);
+const secL = (n, title, law) => [ section(n, title), lawP(law) ];
 const path = require('path');
 const D = JSON.parse(fs.readFileSync(path.join(__dirname, 'raport_data.json'), 'utf8'));
 const pb = () => new Paragraph({ pageBreakBefore:true, spacing:{ before:0, after:0, line:20, lineRule:'exact' }, children:[ run('', { size:2 }) ] });
@@ -244,14 +246,14 @@ const half = Math.floor(CW/2);
 const s4 = D.s4, W4 = [1900, 4003, 4003];
 const part4 = [ pb(), ...pageHeader('Raport Oceny Funkcjonalnej · Część II · Funkcjonowanie w placówce'),
   ...bandW('II','Wyniki oceny funkcjonalnej','obserwacja · wyniki liczbowe · arkusze · głos dziecka · analiza · decyzja Zespołu'),
-  section('4', s4.title), lead2(s4.ref, s4.lead),
+  ...secL('4', s4.title, s4.law), lead2(s4.ref, s4.lead),
   tbl(W4, [ gridHead(['Obszar obserwacji','✓ Mocne strony, zasoby i uzdolnienia','▸ Trudności, ograniczenia i bariery'], W4, [C.purple, C.green, C.red]),
     ...s4.rows.map(r => row([ gcell(txt(r[0], { bold:true, color:C.purple }), W4[0]), gcell(txt(r[1]), W4[1], { edge:C.green }), gcell(txt(r[2]), W4[2], { edge:C.red }) ])) ]) ];
 
 // ---- 5 ----
 const s5 = D.s5, W5 = [600, 2500, 1500, 800, 1700, 2806], SWT = Math.floor(CW/4);
 const part5 = [ pb(), ...pageHeader('Raport Oceny Funkcjonalnej · Część II · Wyniki liczbowe'),
-  section('5', s5.title), lead2(s5.ref, s5.lead),
+  ...secL('5', s5.title, s5.law), lead2(s5.ref, s5.lead),
   tbl([CW], [ row([ cell(P([ run('NARZĘDZIE BAZOWE:  ', { size:12, bold:true, color:C.lavText, spacing:12 }), chk(false), run('Przedszkole · KPOF', { size:16, bold:true, color:C.purple }), run('  (bez stenów)', { size:14, color:C.muted }), run('        ', { size:16 }), chk(false), run('Szkoła · KSzOF', { size:16, bold:true, color:C.purple }), run('  (ze stenami)', { size:14, color:C.muted }) ], { after:0 }), { width:CW, bg:C.lav, borders:noBorders, margins:{ top:70, bottom:70, left:180, right:180 } }) ]) ]),
   empty(60),
   tbl([SWT,SWT,SWT,SWT], [ row([ statTile('NARZĘDZIE BAZOWE','KPOF / KSzOF','',SWT), statTile('PUNKTY SUROWE',s5.punkty,'/ '+s5.punktyMax+' pkt',SWT), statTile('ŚREDNIA','Śr: '+s5.srednia,'w skali 0–5',SWT), statTile('OGÓLNY POZIOM WSPARCIA',s5.poziom,s5.poziomOpis,SWT,C.amber) ]) ]),
@@ -263,7 +265,7 @@ const part5 = [ pb(), ...pageHeader('Raport Oceny Funkcjonalnej · Część II �
 
 // ---- 6 ----
 const s6 = D.s6, CC = { red:C.red, blue:C.blue, purple:C.purple, orange:C.orange, green:C.green };
-const part6 = [ pb(), ...pageHeader('Raport Oceny Funkcjonalnej · Część II · Wyniki arkuszy specjalistycznych'), section('6', s6.title),
+const part6 = [ pb(), ...pageHeader('Raport Oceny Funkcjonalnej · Część II · Wyniki arkuszy specjalistycznych'), ...secL('6', s6.title, s6.law),
   ...s6.cards.flatMap(([c, title, parts, rec]) => [
     tbl([CW], [ row([ cell([
       P([ run(title, { size:18, bold:true, color:C.purple }) ], { after:50 }),
@@ -275,7 +277,7 @@ const part6 = [ pb(), ...pageHeader('Raport Oceny Funkcjonalnej · Część II �
 const s7 = D.s7;
 const cbGrid = (items) => tbl([half, half], (() => { const rows=[]; for (let i=0;i<items.length;i+=2) rows.push(row([0,1].map(j => { const it=items[i+j]; return cell(it ? P([ chk(it[1]), run(it[0], { size:15 }) ], { after:0 }) : empty(), { width:half, borders:noBorders, margins:{ top:30, bottom:30, left:0, right:100 } }); }))); return rows; })());
 const moodCols = ['2E9D52','7EB800','DFA22E','E77309','BF382A'];
-const part7 = [ pb(), ...pageHeader('Raport Oceny Funkcjonalnej · Część II · Mój głos'), section('7', s7.title), lead2('', s7.lead),
+const part7 = [ pb(), ...pageHeader('Raport Oceny Funkcjonalnej · Część II · Mój głos'), ...secL('7', s7.title, s7.law), lead2('', s7.lead),
   labelP('Sposób pozyskania głosu dziecka – zaznaczono'), cbGrid(s7.sposoby), empty(80),
   tbl([half, half], [ row([0,1].map(i => { const [c,t,v]=s7.pola[i]; return cell([ labelP(t), P([ run(v, { size:16, italic:true }) ], { after:0, line:250 }) ], { width:half, borders:{ top:ln(), bottom:ln(), right:ln(), left:{ style:BorderStyle.SINGLE, size:24, color:CC[c] } }, margins:{ top:60, bottom:100, left:200, right:160 } }); })), row([2,3].map(i => { const [c,t,v]=s7.pola[i]; return cell([ labelP(t), P([ run(v, { size:16, italic:true }) ], { after:0, line:250 }) ], { width:half, borders:{ top:ln(), bottom:ln(), right:ln(), left:{ style:BorderStyle.SINGLE, size:24, color:CC[c] } }, margins:{ top:60, bottom:100, left:200, right:160 } }); })) ]),
   empty(80), labelP('Co mi najbardziej pomaga – zaznaczono'), cbGrid(s7.pomaga), empty(60),
@@ -286,20 +288,20 @@ const part7 = [ pb(), ...pageHeader('Raport Oceny Funkcjonalnej · Część II �
 
 // ---- 8 ----
 const s8 = D.s8, W8 = [2000, 4300, 3606];
-const part8 = [ pb(), ...pageHeader('Raport Oceny Funkcjonalnej · Część II · Działania dotychczas podjęte'), section('8', s8.title), lead2(s8.ref, s8.lead),
+const part8 = [ pb(), ...pageHeader('Raport Oceny Funkcjonalnej · Część II · Działania dotychczas podjęte'), ...secL('8', s8.title, s8.law), lead2(s8.ref, s8.lead),
   tbl(W8, [ gridHead(['Rodzaj wsparcia','Zakres wdrożonych działań i metody','Efektywność i obserwowane zmiany'], W8, [C.purple, C.purple, C.green]),
     ...s8.rows.map(r => row([ gcell(txt(r[0], { bold:true, color:C.purple }), W8[0]), gcell(txt(r[1]), W8[1]), gcell(txt(r[2]), W8[2], { edge:C.green }) ])) ]),
   empty(140), parentBox('Wyniki z sekcji 4–8 są podstawą analizy (sekcja 9) i decyzji Zespołu o poziomie wsparcia (sekcja 10). Część III opisuje, jak placówka zorganizuje wsparcie w tym roku szkolnym.') ];
 
 // ---- 9 ----
 const s9 = D.s9, W6 = [1900, 3900, 4106];
-const part9 = [ pb(), ...pageHeader('Raport Oceny Funkcjonalnej · Część II · Analiza jakościowa'), section('9', s9.title), lead2('', s9.lead),
+const part9 = [ pb(), ...pageHeader('Raport Oceny Funkcjonalnej · Część II · Analiza jakościowa'), ...secL('9', s9.title, s9.law), lead2('', s9.lead),
   tbl(W6, [ gridHead(['Domena ICF','Opis funkcjonowania i bariery','Kierunki pracy w IPE (metody / dostosowania)'], W6, [C.purple, C.purple, C.orange]),
     ...s9.rows.map(r => row([ gcell([ txt(r[1], { bold:true, color:C.purple }), txt(r[0], { size:14, color:C.orange, bold:true }) ], W6[0]), gcell(txt(r[2]), W6[1]), gcell(bullets(r[3]), W6[2]) ])) ]) ];
 
 // ---- 10 ----
 const s10 = D.s10, TW = Math.floor(CW/3);
-const part10 = [ pb(), ...pageHeader('Raport Oceny Funkcjonalnej · Część II · Decyzja Zespołu'), section('10', s10.title), lead2('', s10.lead),
+const part10 = [ pb(), ...pageHeader('Raport Oceny Funkcjonalnej · Część II · Decyzja Zespołu'), ...secL('10', s10.title, s10.law), lead2('', s10.lead),
   tbl([TW,TW,TW], [ row(s10.poziomy.map(([k,t,d,on]) => cell([ P([ chk(on), run(t, { size:16, bold:true, color:C.purple }) ], { after:40 }), P([ run(d, { size:14, color:C.muted }) ], { after:0, line:240 }) ], { width:TW, bg: on ? C.orangeMist : C.white, borders:{ top:ln(on?C.orange:C.line), bottom:ln(on?C.orange:C.line), left:ln(on?C.orange:C.line), right:ln(on?C.orange:C.line) }, margins:{ top:110, bottom:110, left:160, right:140 } }))) ]),
   empty(120), box([ labelP('Uzasadnienie decyzji Zespołu'), P([ run(s10.uzasadnienie, { size:16 }) ], { after:0, line:260, align:AlignmentType.JUSTIFIED }) ], C.orange), empty(100),
   tbl([SWT,SWT,SWT,SWT], [ row(s10.wymiar.map(([k,v]) => cell([ P([ run(k.toUpperCase(), { size:12, bold:true, color:C.lavText, spacing:12 }) ], { after:30 }), P([ run(v, { size:15, bold:true, color:C.purple }) ], { after:0, line:240 }) ], { width:SWT, bg:C.lav, borders:{ top:ln(C.white,12), bottom:ln(C.white,12), left:ln(C.white,12), right:ln(C.white,12) }, margins:{ top:90, bottom:90, left:140, right:100 } }))) ]),
@@ -310,7 +312,7 @@ const s11 = D.s11, W11 = [2400, CW-2400];
 const kvTable = (rows, h1, h2) => tbl(W11, [ gridHead([h1,h2], W11), ...rows.map(r => row([ gcell(txt(r[0], { bold:true, color:C.purple }), W11[0]), gcell(txt(r[1]), W11[1]) ])) ]);
 const part11 = [ pb(), ...pageHeader('Raport Oceny Funkcjonalnej · Część III · Dostosowanie programu'),
   ...bandW('III','Program wsparcia i organizacja','dostosowania · zintegrowane działania · zajęcia · dodatkowa osoba · rodzice i poradnia · ocena efektywności'),
-  section('11', s11.title),
+  ...secL('11', s11.title, s11.law),
   P([ run('Dostosowania wynikają z analizy jakościowej (sekcja 9) i decyzji o poziomie wsparcia (sekcja 10). Dotyczą:  ', { size:16, color:C.muted }), chk(false), run('programu wychowania przedszkolnego    ', { size:16, bold:true, color:C.purple }), chk(false), run('podstawy programowej kształcenia ogólnego (szkoła)', { size:16, bold:true, color:C.purple }) ], { after:120, line:260 }),
   sub9('A', s11.A.title, '', C.orange), kvTable(s11.A.rows, 'Zakres', 'Sposób dostosowania'),
   pb(), ...pageHeader('Raport Oceny Funkcjonalnej · Część III · Organizacja i technologie'),
@@ -319,7 +321,7 @@ const part11 = [ pb(), ...pageHeader('Raport Oceny Funkcjonalnej · Część III
 
 // ---- 12 ----
 const s12 = D.s12, W12 = [1800, 3000, 3000, 2106];
-const part12 = [ pb(), ...pageHeader('Raport Oceny Funkcjonalnej · Część III · Zintegrowane działania'), section('12', s12.title), lead2('', s12.lead),
+const part12 = [ pb(), ...pageHeader('Raport Oceny Funkcjonalnej · Część III · Zintegrowane działania'), ...secL('12', s12.title, s12.law), lead2('', s12.lead),
   tbl(W12, [ gridHead(['Wspólny cel','Nauczyciel / wychowawca (codziennie w grupie)','Specjaliści (zajęcia)','Sposób koordynacji'], W12),
     ...s12.rows.map(r => row([ gcell(txt(r[0], { bold:true, color:C.purple }), W12[0]), gcell(txt(r[1]), W12[1]), gcell(txt(r[2]), W12[2]), gcell(txt(r[3]), W12[3]) ])) ]),
   empty(120), box([ P([ run('Koordynacja. ', { size:16, bold:true, color:C.orange }), run(s12.koordynacja, { size:16 }) ], { after:0, line:260, align:AlignmentType.JUSTIFIED }) ], C.orange, { bg:C.lav2 }) ];
@@ -333,7 +335,7 @@ const pppTable = tbl(WP, [ gridHead(['Forma pomocy','Cel','Prowadzący','Forma i
   ...s13.ppp.map(r => row([ gcell(txt(r[0], { bold:true, color:C.purple, size:13 }), WP[0], { edge:C.blue, pad:40 }), gcell(txt(r[1], { size:13 }), WP[1], { pad:40 }), gcell(txt(r[2], { bold:true, color:C.purple, size:13 }), WP[2], { pad:40 }), gcell(txt(r[3], { size:13 }), WP[3], { pad:40 }), gcell(txt(r[4], { bold:true, color:C.purple, size:13 }), WP[4], { pad:40 }), gcell(txt(r[5], { size:13 }), WP[5], { pad:40 }) ])),
   row([ cell(txt('Razem pomoc psychologiczno-pedagogiczna', { bold:true, color:C.purple, size:15 }), { width:CW-WP[5], span:5, bg:C.lav, borders:{ top:ln(), bottom:ln(), left:ln(), right:ln() }, margins:{ top:80, bottom:80, left:140, right:120 } }), cell([ txt(s13.sumPpp[0], { bold:true, color:C.purple, size:15 }), txt(s13.sumPpp[1], { size:12, color:C.muted }) ], { width:WP[5], bg:C.lav, borders:{ top:ln(), bottom:ln(), left:ln(), right:ln() }, margins:{ top:80, bottom:80, left:140, right:120 } }) ]) ]);
 const statusCell = (w) => gcell(['wdrożone','w trakcie','planowane'].map(t => P([ run('☐ ', { size:15, color:'B6A6DF' }), run(t, { size:12, color:C.muted }) ], { after:0, line:220 })), w);
-const part13 = [ pb(), ...pageHeader('Raport Oceny Funkcjonalnej · Część III · Zajęcia: rewalidacja i PPP'), section('13', s13.title), lead2('', s13.lead),
+const part13 = [ pb(), ...pageHeader('Raport Oceny Funkcjonalnej · Część III · Zajęcia: rewalidacja i PPP'), ...secL('13', s13.title, s13.law), lead2('', s13.lead),
   tbl([half, CW-half], [ row([ statTile('A · ZAJĘCIA REWALIDACYJNE · RAZEM', s13.sumRew[0], '= '+s13.sumRew[1]+' · '+s13.sumRew[2], half), statTile('B · POMOC PSYCHOLOGICZNO-PEDAGOGICZNA · RAZEM', s13.sumPpp[0], '= '+s13.sumPpp[1]+' · '+s13.sumPpp[2], CW-half, C.blue) ]) ]),
   sub9('A','Zajęcia rewalidacyjne przydzielone dziecku / uczniowi','kształcenie specjalne · na podstawie orzeczenia', C.orange), zajTable(s13.rew, C.orange, 'Razem zajęcia rewalidacyjne', s13.sumRew[0], s13.sumRew[1]),
   pb(), ...pageHeader('Raport Oceny Funkcjonalnej · Część III · Pomoc psychologiczno-pedagogiczna'),
@@ -347,7 +349,7 @@ const part13 = [ pb(), ...pageHeader('Raport Oceny Funkcjonalnej · Część III
 
 // ---- 14 ----
 const s14 = D.s14;
-const part14 = [ pb(), ...pageHeader('Raport Oceny Funkcjonalnej · Część III · Dodatkowa osoba'), section('14', s14.title),
+const part14 = [ pb(), ...pageHeader('Raport Oceny Funkcjonalnej · Część III · Dodatkowa osoba'), ...secL('14', s14.title, s14.law),
   P(s14.rodzaj.flatMap(([t,on]) => [ chk(on), run(t+'      ', { size:15, bold:true, color:C.purple }) ]), { after:120 }),
   tbl([Math.floor(CW/3), CW-Math.floor(CW/3)], [ row([ cell([ P([ run('WYMIAR I SYTUACJE', { size:12, bold:true, color:C.lavText, spacing:12 }) ], { after:30 }), P([ run(s14.wymiar, { size:15, bold:true, color:C.purple }) ], { after:0, line:240 }) ], { width:Math.floor(CW/3), bg:C.lav, borders:noBorders, margins:{ top:90, bottom:90, left:140, right:100 } }), cell([ P([ run('PODSTAWA PRAWNA I FORMALNA', { size:12, bold:true, color:C.lavText, spacing:12 }) ], { after:30 }), P([ run(s14.podstawa, { size:14, color:C.purple }) ], { after:0, line:240 }) ], { width:CW-Math.floor(CW/3), bg:C.lav, borders:{ top:NOB, bottom:NOB, right:NOB, left:ln(C.white,12) }, margins:{ top:90, bottom:90, left:140, right:100 } }) ]) ]),
   empty(120), box([ labelP('Uzasadnienie wynikające z oceny funkcjonalnej'), P([ run(s14.uzasadnienie, { size:16 }) ], { after:0, line:260, align:AlignmentType.JUSTIFIED }) ], C.orange), empty(100),
@@ -356,14 +358,14 @@ const part14 = [ pb(), ...pageHeader('Raport Oceny Funkcjonalnej · Część III
 
 // ---- 15 ----
 const s15 = D.s15, W15 = [2200, 3700, 2000, 2006];
-const part15 = [ pb(), ...pageHeader('Raport Oceny Funkcjonalnej · Część III · Współpraca z rodzicami i poradnią'), section('15', s15.title),
+const part15 = [ pb(), ...pageHeader('Raport Oceny Funkcjonalnej · Część III · Współpraca z rodzicami i poradnią'), ...secL('15', s15.title, s15.law),
   sub9('A', s15.A.title, '', C.orange), simpleTable(['Forma współpracy','Zakres','Odpowiedzialny','Częstotliwość'], W15, s15.A.rows, { purpleCols:[2], boldCols:[2], pad:50 }),
   sub9('B', s15.B.title, '', C.green), box([ ...bullets(s15.B.items, '✓', C.green) ], C.green),
   sub9('C', s15.C.title, '', C.purple), simpleTable(['Działanie','Zakres / cel','Kto','Termin'], W15, s15.C.rows, { purpleCols:[2], boldCols:[2], pad:50 }) ];
 
 // ---- 16 + podpisy ----
 const s16 = D.s16, W16 = [1600, 3500, 2300, 1400, 1106], STC = { 'wykonano':LVL[1], 'w trakcie':LVL[2], 'planowane':{ bg:C.lav, fg:C.purple } };
-const part16 = [ pb(), ...pageHeader('Raport Oceny Funkcjonalnej · Część III · Ocena efektywności · podpisy'), section('16', s16.title), lead2('', s16.lead),
+const part16 = [ pb(), ...pageHeader('Raport Oceny Funkcjonalnej · Część III · Ocena efektywności · podpisy'), ...secL('16', s16.title, s16.law), lead2('', s16.lead),
   tbl(W16, [ gridHead(['Termin','Zakres oceny','Narzędzia','Odpowiedzialny','Status'], W16),
     ...s16.rows.map(r => row([ gcell(txt(r[0], { bold:true, color:C.purple, size:15 }), W16[0]), gcell(txt(r[1], { size:15 }), W16[1]), gcell(txt(r[2], { size:15 }), W16[2]), gcell(txt(r[3], { size:15 }), W16[3]), gcell(P([ run(' '+r[4]+' ', { size:13, bold:true, color:STC[r[4]].fg, bg:STC[r[4]].bg }) ], { after:0 }), W16[4]) ])) ]),
   empty(140), parentBox('Niniejszy raport stanowi opinię placówki o funkcjonowaniu dziecka i jest przekazywany rodzicowi oraz zespołowi orzekającemu poradni. Wyniki obserwacji służą zaplanowaniu wsparcia, a nie ocenie dziecka. Zachęcamy do rozmowy z Zespołem o każdej części dokumentu.'),
@@ -371,8 +373,20 @@ const part16 = [ pb(), ...pageHeader('Raport Oceny Funkcjonalnej · Część III
 
 const part2 = [ ...part4, ...part5, ...part6, ...part7, ...part8, ...part9, ...part10, ...part11, ...part12, ...part13, ...part14, ...part15, ...part16 ];
 
+const PR = D.prawo, WL = [3300, 1300, 5306];
+const lawPage = [
+  ...pageHeader('Raport Oceny Funkcjonalnej · Podstawy prawne i jak czytać raport'),
+  section('§', PR.title+' i jak czytać raport'), lead2('', PR.lead),
+  tbl(WL, [ gridHead(['Akt prawny','Publikacja','Zakres zastosowania w raporcie'], WL),
+    ...PR.rows.map(r => row([ gcell(txt(r[0], { bold:true, color:C.purple, size:13 }), WL[0], { pad:50 }), gcell(txt(r[1], { bold:true, color:C.orange, size:12 }), WL[1], { pad:50 }), gcell(P([ run(r[2]+'  ', { size:13 }), run(' '+r[3]+' ', { size:11, bold:true, color:C.orange, bg:C.orangeMist }) ], { after:0, line:230 }), WL[2], { pad:50 }) ])) ]),
+  sub9('?','Jak czytać ten raport','pięć kroków od obserwacji do oceny efektów · Część I–II = opinia dla rodzica i poradni, Część III = organizacja wsparcia', C.purple),
+  tbl([1981,1981,1981,1981,1982], [ row(PR.jakczytac.map((k,i) => cell([ P([ run('CZĘŚĆ '+k[0], { size:11, bold:true, color:C.orange, spacing:12 }) ], { after:20 }), P([ run(k[1], { size:15, bold:true, color:C.purple }) ], { after:30 }), P([ run(k[2], { size:12, color:C.muted }) ], { after:0, line:220 }) ], { width: i===4?1982:1981, margins:{ top:80, bottom:80, left:120, right:100 } }))) ]),
+  pb()
+];
+
 const children = [
   ...cover,
+  ...lawPage,
   ...pageHeader('Raport Oceny Funkcjonalnej · Metryczka i obserwacja wstępna'),
   section('1','Metryczka bazowa'),
   meta,

@@ -1,232 +1,1137 @@
 {
-  "meta": { "nrOrzeczenia": "[Numer]", "dataOrzeczenia": "[Data]", "rokSzkolny": "2026/2027" },
-
-  "toc": {
-    "I":  { "title": "Część I · Podstawa, metryczka i narzędzia", "items": [
-      ["1","Metryczka bazowa","dane dziecka, wariant wsparcia, podstawa formalna, zdrowie"],
-      ["2","Obserwacja wstępna","procedura wrześniowej obserwacji w obszarach ICF"],
-      ["3","Obserwacja pogłębiona","wskazania i narzędzia: ABC, biopsychospołeczny, sensoryczny, mowa, ToM"] ] },
-    "II": { "title": "Część II · Wyniki oceny funkcjonalnej", "items": [
-      ["4","Funkcjonowanie w placówce"],["5","Wyniki liczbowe KPOF / KSzOF"],["6","Wyniki arkuszy specjalistycznych"],["7","Mój głos – perspektywa dziecka"],
-      ["8","Działania dotychczas podjęte"],["9","Analiza jakościowa 9 domen ICF"],["10","Decyzja Zespołu: poziom wsparcia"] ] },
-    "III": { "title": "Część III · Program wsparcia i organizacja", "items": [
-      ["11","Dostosowanie programu, organizacji i technologii"],["12","Zintegrowane działania nauczycieli i specjalistów"],["13","Zajęcia: rewalidacja, PPP, zalecenia poradni"],
-      ["14","Uzasadnienie wsparcia dodatkowej osoby"],["15","Współpraca z rodzicami i poradnią"],["16","Terminy oceny efektywności · podpisy"] ] }
-  },
-
-  "s4": {
-    "title": "Informacja o funkcjonowaniu w placówce – trudności, mocne strony i uzdolnienia",
-    "ref": "§ 7 ust. 6 pkt 3.",
-    "lead": "Syntetyczne zestawienie potencjału rozwojowego oraz barier zidentyfikowanych w toku codziennej aktywności przez nauczycieli, wychowawców i specjalistów prowadzących zajęcia z dzieckiem/uczniem:",
-    "rows": [
-      ["Aktywność poznawcza i uczenie się","Bardzo dobra pamięć wzrokowa; szybkie zapamiętywanie schematów graficznych; wąskie, ale głębokie zainteresowania tematyczne; wysoka motywacja do pracy z ulubionymi pomocami dydaktycznymi.","Trudności z przerzutnością i podzielnością uwagi; szybka męczliwość przy instrukcjach wieloetapowych; problem z uogólnianiem (generalizacją) wiedzy; wymagane stałe tempo i pomoce wizualne."],
-      ["Komunikacja i porozumiewanie się","Prawidłowe rozumienie prostych, jednoznacznych komunikatów słownych wspartych gestem; sygnalizowanie podstawowych potrzeb fizjologicznych.","Dosłowne rozumienie wypowiedzi (trudność z metaforą i żartem); echolalie odroczone; trudności w inicjowaniu dialogu i naprzemienności wypowiedzi w grupie rówieśniczej; potrzeba wsparcia AAC."],
-      ["Relacje społeczne i emocje","Chęć przebywania w pobliżu grupy; pozytywna reakcja na stałych, przewidywalnych dorosłych; przestrzeganie czytelnych zasad wizualnych.","Trudności w odczytywaniu emocji i intencji innych (słaba teoria umysłu); niska tolerancja frustracji w sytuacjach przegranej lub nagłej zmiany; tendencja do wycofywania się lub zachowań trudnych."],
-      ["Motoryka i sprawność fizyczna","Sprawność w zakresie motoryki dużej (bieganie, wspinanie się); chętne uczestnictwo w zabawach ruchowych w otwartej przestrzeni.","Obniżona precyzja motoryki małej i koordynacji wzrokowo-ruchowej; nieprawidłowy chwyt pisarski / narzędzi; wzmożone lub obniżone napięcie posturalne; męczliwość ręki wiodącej."],
-      ["Samoobsługa i autonomia","Samodzielność w zakresie podstawowych nawyków higienicznych i toaletowych; znajomość własnej szafki i osobistych przyborów.","Opór sensoryczny przy myciu rąk (wrażliwość na fakturę mydła/wodę); wybiórczość pokarmowa; problem z ubieraniem odzieży wierzchniej ze skomplikowanymi zapięciami; potrzeba nadzoru dorosłego."]
+ "meta": {
+  "nrOrzeczenia": "[Numer]",
+  "dataOrzeczenia": "[Data]",
+  "rokSzkolny": "2026/2027"
+ },
+ "toc": {
+  "I": {
+   "title": "Część I · Podstawa, metryczka i narzędzia",
+   "items": [
+    [
+     "1",
+     "Metryczka bazowa",
+     "dane dziecka, wariant wsparcia, podstawa formalna, zdrowie"
+    ],
+    [
+     "2",
+     "Obserwacja wstępna",
+     "procedura wrześniowej obserwacji w obszarach ICF"
+    ],
+    [
+     "3",
+     "Obserwacja pogłębiona",
+     "wskazania i narzędzia: ABC, biopsychospołeczny, sensoryczny, mowa, ToM"
     ]
+   ]
   },
-
-  "s5": {
-    "title": "Aktualna wielospecjalistyczna ocena poziomu funkcjonowania – wyniki liczbowe",
-    "ref": "§ 7 ust. 6 pkt 4.",
-    "lead": "Zestawienie parametrów ilościowych uzyskanych z narzędzia bazowego (KPOF dla przedszkola / KSzOF dla szkoły) w 9 obszarach Międzynarodowej Klasyfikacji ICF:",
-    "punkty": "68", "punktyMax": "180", "srednia": "2,1", "poziom": "Poziom 2", "poziomOpis": "(Umiarkowany)",
-    "dom": [
-      ["d1","Uczenie się i stosowanie wiedzy",2.4,12,4,2,"Średni","Wymaga podziału zadań na etapy i wsparcia wizualnego."],
-      ["d2","Ogólne zadania i wymagania",1.8,9,3,3,"Wysoki","Brak elastyczności, silny stres przy nagłych zmianach."],
-      ["d3","Komunikacja i porozumiewanie się",2.0,10,4,2,"Średni","Echolalie, konieczność wdrażania schematów AAC."],
-      ["d4","Poruszanie się i motoryka",3.2,16,6,1,"Niski","Ogólna motoryka dobra; obniżona grafomotoryka."],
-      ["d5","Dbanie o siebie i samoobsługa",2.2,11,4,2,"Średni","Wybiórczość sensoryczna przy posiłkach i toalecie."],
-      ["d6","Życie domowe / Obowiązki placówki",2.8,14,5,1,"Niski","Sprząta kącik zabaw po bezpośrednim przypomnieniu."],
-      ["d7","Relacje i kontakty międzyludzkie",1.6,8,3,3,"Wysoki","Bariery w interakcjach rówieśniczych, konflikty, wycofanie."],
-      ["d8","Główne dziedziny życia (Edukacja)",2.0,10,4,2,"Średni","Wymaga dostosowania metod i stałego nadzoru nauczyciela."],
-      ["d9","Życie społecznościowe i obywatelskie",1.8,9,3,3,"Wysoki","Trudność w uczestnictwie w apelach i wyjściach zbiorowych."]
+  "II": {
+   "title": "Część II · Wyniki oceny funkcjonalnej",
+   "items": [
+    [
+     "4",
+     "Funkcjonowanie w placówce"
     ],
-    "zasadaKpof": "wybrano KPOF (przedszkole) – narzędzie nie posiada norm stenowych, dlatego w raporcie nie podaje się stenów; interpretacja wyłącznie na podstawie punktów, średniej i poziomu wsparcia.",
-    "zasadaKszof": "wybrano KSzOF (szkoła) – steny podaje się wyłącznie w kolumnie „Sten” dla poszczególnych domen; średniej nigdy nie opisuje się stenem."
-  },
-
-  "s6": {
-    "title": "Wyniki obserwacji pogłębionej (narzędzia specjalistyczne)",
-    "cards": [
-      ["red","Arkusz Obserwacji Behawioralnej ABC",[["Zidentyfikowano ",0],["14 epizodów",1],[" zachowań trudnych. ",0],["Bodźce wyzwalające (A): ",1],["trudne polecenia pisemne, hałas, niespodziewane przejścia między aktywnościami. ",0],["Topografia zachowania (B): ",1],["głośny krzyk, odmowa zejścia z dywanu, odpychanie kart pracy. ",0],["Funkcja (C): ",1],["ucieczka przed przeciążeniem sensorycznym / zadaniem trudnym poznawczo.",0]],"protokół wyprzedzający i nauka komunikatu zastępczego."],
-      ["blue","Profil Sensoryczny (Kwestionariusz Przetwarzania)",[["Reaktywność mieszana. ",0],["Układ słuchowy",1],[" – silna nadwrażliwość na nagłe dźwięki i gwar korytarza (zalecane słuchawki); ",0],["układ dotykowy",1],[" – obronność dotykowa na faktury klejące i mokre; ",0],["układ proprioceptywny i przedsionkowy",1],[" – poszukiwanie stymulacji dociskowej i ruchowej (huśtanie, kołysanie się).",0]],null],
-      ["purple","Profil Biopsychospołeczny",[["Uwarunkowania biologiczne: ",1],["spektrum autyzmu, zaburzenia snu wpływają na zmęczenie poranne. ",0],["Uwarunkowania psychologiczne: ",1],["silny lęk przed zmianą schematu, sztywność poznawcza. ",0],["Czynniki środowiskowe: ",1],["wysokie zaangażowanie rodziny, pozytywna reakcja na stałą kadrę.",0]],null],
-      ["orange","Arkusz Oceny Rozwoju Mowy i Komunikacji",[["Zasób słownika biernego w normie wiekowej; wąski zasób czynny w sytuacjach swobodnych. Występują ",0],["echolalie natychmiastowe",1],[" i trudności pragmatyczne (brak intonacji, trudność w podtrzymaniu dialogu).",0]],"schematy dialogowe i piktogramy wspierające."],
-      ["green","Arkusz Poziomu Rozwoju Teorii Umysłu (ToM)",[["Poziom rozwoju ToM ",0],["poniżej normy wiekowej",1],[". Trudność w zadaniach z fałszywym przekonaniem (False Belief Task) oraz w rozpoznawaniu perspektywy i intencji innych osób. Trudności te generują konflikty rówieśnicze przez błędną interpretację zachowań kolegów.",0]],null]
+    [
+     "5",
+     "Wyniki liczbowe KPOF / KSzOF"
+    ],
+    [
+     "6",
+     "Wyniki arkuszy specjalistycznych"
+    ],
+    [
+     "7",
+     "Mój głos – perspektywa dziecka"
+    ],
+    [
+     "8",
+     "Działania dotychczas podjęte"
+    ],
+    [
+     "9",
+     "Analiza jakościowa 9 domen ICF"
+    ],
+    [
+     "10",
+     "Decyzja Zespołu: poziom wsparcia"
     ]
+   ]
   },
-
-  "s7": {
-    "title": "Mój głos – perspektywa dziecka / ucznia",
-    "lead": "Głos dziecka pozyskano w sposób dostosowany do jego możliwości komunikacyjnych: w naturalnych sytuacjach, przez proste pytania, obrazki, piktogramy i informacje od rodziców. Zapisano autentyczną perspektywę dziecka – jego słowami lub przez wskazanie.",
-    "sposoby": [["Rozmowa dostosowana do możliwości dziecka",1],["Obserwacja w naturalnych sytuacjach",1],["Wybór z obrazków / piktogramów / kart wyboru",1],["Komunikacja wspomagająca i alternatywna (AAC)",1],["Odczytanie z gestu, mimiki, zabawy, rysunku",0],["Informacje od rodziców / opiekunów",1],["Skala buziek / termometr emocji",1],["Wskazanie „tak / nie” na symbolach",0]],
-    "pola": [
-      ["green","Moje mocne strony i supermoce","„Umiem układać klocki i znam wszystkie planety. Pamiętam, gdzie co leży.”"],
-      ["red","Z czym mam największą trudność w przedszkolu / szkole","„Jak jest głośno i jak pani zmienia plan. Nie lubię mokrych rąk i kleju.”"],
-      ["orange","Moje ulubione zabawy i czynności","klocki konstrukcyjne, tablet z aplikacją o kosmosie, huśtanie się, oglądanie map"],
-      ["purple","Moje marzenie / czego bym chciał(a)","„Żeby kolega bawił się ze mną w rakiety i żeby nie było apeli.”"]
+  "III": {
+   "title": "Część III · Program wsparcia i organizacja",
+   "items": [
+    [
+     "11",
+     "Dostosowanie programu, organizacji i technologii"
     ],
-    "pomaga": [["cisza",1],["czas",1],["ruch",1],["piktogramy",1],["praca na komputerze / tablecie",1],["przerwy",1],["wsparcie nauczyciela",1],["przewidywalny plan dnia",1],["słuchawki",1],["moje własne miejsce",0]],
-    "komunikacja": "Mowa proste zdania + tablica wyboru (piktogramy); rozumie polecenia wsparte gestem; potrzebuje chwili na odpowiedź; nie lubi pytań „dlaczego”. Wskazówki do rozmowy: jedno pytanie na raz, obrazek lub wybór z dwóch, bez metafor i żartów.",
-    "nastroj": ["Super","Dobrze","Tak sobie","Słabo","Źle"], "nastrojWybor": 1,
-    "podstawa": "Uwzględnienie perspektywy dziecka wspiera indywidualizację i podmiotowe traktowanie zgodnie z modelem ICF. „Mój głos” to element nowego modelu 2026/27."
-  },
-
-  "s8": {
-    "title": "Informacja o działaniach dotychczas podjętych w celu poprawy funkcjonowania",
-    "ref": "§ 7 ust. 6 pkt 6.",
-    "lead": "Działania wdrożone w placówce przed sporządzeniem raportu oraz ich obserwowana efektywność (podstawa do zaplanowania programu wsparcia w Części III):",
-    "rows": [
-      ["Dostosowania środowiskowe i dydaktyczne","Wyznaczenie strefy wyciszenia w sali; zredukowanie bodźców wzrokowych na tablicach ściennych; zastosowanie słuchawek wygłuszających podczas pracy stolikowej; wprowadzenie indywidualnego planu dnia na rzepy.","Spadek liczby epizodów trudnych zachowań o ok. 40%; wydłużenie czasu skupienia na pojedynczym zadaniu z 3 do 8 minut."],
-      ["Pomoc psychologiczno-pedagogiczna i rewalidacja","Zajęcia rozwijające kompetencje emocjonalno-społeczne (TUS – 1x w tyg.); indywidualne zajęcia logopedyczne (1x w tyg.); ćwiczenia integracji sensorycznej (SI) na sali gimnastycznej.","Lepsze tolerowanie obecności innych dzieci w trakcie zajęć kierowanych; pierwsze próby proszenia o przerwę za pomocą gestu/piktogramu."],
-      ["Współpraca z domem rodzinnym","Cotygodniowe konsultacje z rodzicami; zeszyt korespondencji dom-placówka; ujednolicenie systemu komunikatów i nagród behawioralnych.","Wysoka spójność w reakcjach dorosłych na zachowania trudne; wzrost poczucia bezpieczeństwa u dziecka."]
+    [
+     "12",
+     "Zintegrowane działania nauczycieli i specjalistów"
+    ],
+    [
+     "13",
+     "Zajęcia: rewalidacja, PPP, zalecenia poradni"
+    ],
+    [
+     "14",
+     "Uzasadnienie wsparcia dodatkowej osoby"
+    ],
+    [
+     "15",
+     "Współpraca z rodzicami i poradnią"
+    ],
+    [
+     "16",
+     "Terminy oceny efektywności · podpisy"
     ]
-  },
-
-  "s9": {
-    "title": "Analiza jakościowa obszarów obserwacji oraz kierunki pracy w IPE",
-    "lead": "Szczegółowa diagnoza funkcjonalna we wszystkich 9 domenach ICF. Kolumna „Kierunki pracy” wskazuje cele i metody; ich organizację (kto, kiedy, ile) opisuje Część III.",
-    "rows": [
-      ["d1","Uczenie się i stosowanie wiedzy","Dziecko/uczeń przyswaja wiedzę głównie kanałem wzrokowym. Występuje trudność w rozumieniu poleceń złożonych oraz w transferze (uogólnianiu) wiedzy. Przebodźcowanie powoduje dekoncentrację i rezygnację z zadania.",["Plany aktywności w formie piktogramów / checklist.","Dzielenie instrukcji na pojedyncze, sekwencyjne kroki.","Wydłużenie czasu na realizację zadań pisemnych i wykonawczych."]],
-      ["d2","Ogólne zadania i wymagania","Trudność w samodzielnej organizacji pracy i realizacji zadań wieloetapowych. Brak elastyczności – silny stres przy nagłych zmianach planu i przejściach między aktywnościami.",["Stały, wizualny plan dnia i zapowiadanie zmian z wyprzedzeniem.","Pomoce sensoryczne do orientacji w czasie (stoper, zegar time-timer).","Protokół wyprzedzający przed trudnymi przejściami."]],
-      ["d3","Komunikacja i porozumiewanie się","Wypowiedzi cechują się trudnościami pragmatycznymi, obecnością echolalii oraz dosłownością interpretacji. W chwilach przeciążenia emocjonalnego następuje mutyzm wybiórczy lub krzyk zamiast komunikacji intencjonalnej.",["Tablice wyboru i skrypty dialogowe AAC.","Unikanie metafor, sarkazmu i dwuznaczności w komunikatach personelu.","Trening komunikacji funkcjonalnej (FCT: „chcę przerwę”, „nie rozumiem”).","Terapia logopedyczna/neurologopedyczna."]],
-      ["d4","Poruszanie się i motoryka","Motoryka duża prawidłowa (bieganie, wspinanie). Obniżona precyzja motoryki małej, koordynacji wzrokowo-ruchowej i planowania motorycznego (dyspraksja); nieprawidłowy chwyt pisarski i narzędzi.",["Dostosowanie przyborów (nakładki ergonomiczne na ołówki, nożyczki sprężynowe).","Ćwiczenia rewalidacyjne ukierunkowane na motorykę małą i dużą.","Ćwiczenia integracji sensorycznej (SI)."]],
-      ["d5","Dbanie o siebie i samoobsługa","Samoobsługa zaburzona przez silne reakcje nadwrażliwości na bodźce dotykowe (ubrania, mokre ręce) i zapachowe; wybiórczość pokarmowa; trudność z odzieżą o skomplikowanych zapięciach.",["Stała kolejność czynności toaletowych wsparta paskiem wizualnym.","Stopniowe oswajanie faktur i zapachów w bezpiecznych warunkach.","Odzież bez trudnych zapięć; nadzór dorosłego przy posiłkach."]],
-      ["d6","Życie domowe / Obowiązki placówki","Wykonuje obowiązki grupowe (sprzątanie kącika zabaw, dyżury) po bezpośrednim przypomnieniu. Trudność w samodzielnym inicjowaniu czynności i doprowadzaniu ich do końca.",["Lista zadań na rzepy z odhaczaniem wykonanych czynności.","Stałe dyżury z modelowaniem przez dorosłego.","Wzmocnienia pozytywne (pochwała opisowa, system żetonowy)."]],
-      ["d7","Relacje i kontakty międzyludzkie","Trudności w inicjowaniu i podtrzymywaniu zabawy naprzemiennej. Brak umiejętności rozpoznawania sygnałów niewerbalnych wysyłanych przez rówieśników. Częste nieporozumienia prowadzące do zachowań oporowych.",["Trening Umiejętności Społecznych (TUS) w małej grupie.","Historyjki Społeczne (Social Stories) modelujące zachowania prospołeczne.","Rówieśnik-mentor w zabawach grupowych.","Jasne, wizualne zasady panujące w klasie/grupie."]],
-      ["d8","Główne dziedziny życia (Edukacja)","Uczestnictwo w zajęciach edukacyjnych wymaga dostosowania metod, tempa i form pracy oraz stałego nadzoru nauczyciela. Szybka męczliwość przy zadaniach pisemnych i instrukcjach wieloetapowych.",["Dostosowane karty pracy (mniej bodźców, większa czcionka, jedno polecenie na raz).","Wsparcie nauczyciela współorganizującego w zadaniach kierowanych.","Przerwy sensoryczne wpisane w plan zajęć."]],
-      ["d9","Życie społecznościowe i obywatelskie","Trudność w uczestnictwie w apelach, uroczystościach i wyjściach zbiorowych z powodu przeciążenia sensorycznego i tłumu – wycofanie lub zachowania trudne.",["Wcześniejsze przygotowanie (historyjka społeczna, zdjęcia miejsca, plan wydarzenia).","Słuchawki wygłuszające i miejsce z możliwością wyjścia.","Stopniowe wydłużanie czasu udziału w wydarzeniach grupowych."]]
-    ]
-  },
-
-  "s10": {
-    "title": "Ustalenie decyzją Zespołu poziomu wsparcia dla dziecka / ucznia",
-    "lead": "Na podstawie wyników KPOF/KSzOF (sekcja 5), arkuszy specjalistycznych (sekcja 6), głosu dziecka (sekcja 7), dotychczasowych działań (sekcja 8) oraz zaleceń poradni Zespół ustala poziom wsparcia:",
-    "poziomy": [
-      ["I","Poziom I – niski","wsparcie w ramach bieżącej pracy nauczyciela i dostosowań; monitorowanie",0],
-      ["II","Poziom II – umiarkowany","dostosowania + zajęcia specjalistyczne i rewalidacja; wsparcie dodatkowej osoby w wybranych sytuacjach",1],
-      ["III","Poziom III – wysoki","intensywne, codzienne wsparcie specjalistyczne i stała obecność dodatkowej osoby",0]
-    ],
-    "uzasadnienie": "Średnia funkcjonowania 2,1 (68/180 pkt) z trzema domenami na poziomie wysokim (d2, d7, d9) i czterema na poziomie średnim. Zachowania trudne (14 epizodów wg ABC) mają funkcję ucieczkową i są kontrolowalne przy dostosowaniu środowiska – po wdrożonych działaniach spadły o ok. 40%. Dziecko dobrze reaguje na strukturę i stałą kadrę, co uzasadnia poziom II z wsparciem dodatkowej osoby w zajęciach kierowanych i przejściach (sekcja 14), a nie stałą obecnością.",
-    "wymiar": [["Rewalidacja","2 godz. / tydz."],["Pomoc psychologiczno-pedagogiczna","3 godz. 30 min / tydz."],["Dodatkowa osoba","nauczyciel współorganizujący – zajęcia kierowane"],["Ocena efektywności","styczeń i czerwiec (sekcja 16)"]],
-    "dataDecyzji": "[Data posiedzenia Zespołu]", "zgodaRodzica": "Rodzic uczestniczył w posiedzeniu Zespołu i otrzymał kopię raportu."
-  },
-
-  "s11": {
-    "title": "Zakres i sposób dostosowania programu, organizacji kształcenia i technologii",
-    "lead": "Dostosowania wynikają z analizy jakościowej (sekcja 9) i decyzji o poziomie wsparcia (sekcja 10). Dotyczą: ☐ programu wychowania przedszkolnego  ☐ podstawy programowej kształcenia ogólnego (szkoła).",
-    "A": { "title": "Zakres i sposób dostosowania programu wychowania przedszkolnego / podstawy programowej", "rows": [
-      ["Cele i treści","Cele realizowane w pełnym zakresie podstawy; treści dzielone na mniejsze kroki, priorytet dla umiejętności funkcjonalnych (komunikacja, samodzielność, uczestnictwo); w szkole – modyfikacja w obszarach d1, d8 bez obniżania wymagań."],
-      ["Metody i formy pracy","Metody wizualne i strukturalne (TEACCH, plany aktywności, piktogramy); nauczanie sytuacyjne; praca indywidualna i w parze przed pracą w grupie; modelowanie i wzmocnienia pozytywne."],
-      ["Środki dydaktyczne","Karty pracy z jednym poleceniem i większą czcionką; pomoce manipulacyjne; tablet z aplikacją AAC; time-timer; nakładki ergonomiczne, nożyczki sprężynowe."],
-      ["Sprawdzanie i ocenianie osiągnięć","Ocena wysiłku i postępu względem samego siebie; forma odpowiedzi do wyboru (wskazanie, obrazek, tablet); wydłużony czas; brak sprawdzianów bez zapowiedzi; w przedszkolu – obserwacja w naturalnych sytuacjach."],
-      ["Tempo i czas pracy","Zadania krótsze, z przerwą sensoryczną po 8–10 min pracy; wydłużony czas na zadania pisemne i wykonawcze; brak przymusu dokończenia w tempie grupy."],
-      ["Wymagania wobec zachowania","Jasne, wizualne zasady; ostrzeżenie przed zmianą; nauka komunikatu zastępczego zamiast karania; brak wymogu udziału w apelach w pełnym wymiarze (stopniowe wydłużanie)."]
-    ] },
-    "B": { "title": "Dostosowania organizacyjne kształcenia", "rows": [
-      ["Miejsce w sali","Ławka/stolik blisko nauczyciela, z dala od drzwi i okna; stały, oznaczony piktogramem; dostęp do strefy wyciszenia."],
-      ["Organizacja dnia","Wizualny plan dnia; stałe rytuały rozpoczęcia i zakończenia; zapowiadane przejścia; przerwy sensoryczne 2–3 × dziennie."],
-      ["Liczebność i skład grupy","Praca w małej grupie (3–5 osób) na zajęciach specjalistycznych; stały skład kadry; w miarę możliwości ta sama osoba wspierająca."],
-      ["Wydarzenia i wyjścia","Udział w apelach i wyjściach po przygotowaniu (historyjka społeczna, zdjęcia); możliwość wcześniejszego wyjścia; opieka dodatkowej osoby."],
-      ["Posiłki i samoobsługa","Stałe miejsce przy stole; akceptacja wybiórczości pokarmowej z powolnym poszerzaniem; pasek wizualny czynności toaletowych."]
-    ] },
-    "C": { "title": "Nowe technologie wspierające dziecko / ucznia", "rows": [
-      ["Komunikacja (AAC)","Tablet z aplikacją komunikacyjną (symbole, syntezator mowy) dostępny w sali i w domu; ta sama baza symboli w placówce i u rodziców."],
-      ["Struktura i czas","Time-timer / aplikacja z wizualnym odliczaniem; cyfrowy plan dnia z odhaczaniem; przypomnienia dźwiękowe zamiast poleceń słownych."],
-      ["Uczenie się","Materiały z obrazem i dźwiękiem; nagrane instrukcje do odtworzenia; aplikacje do ćwiczeń grafomotorycznych i emocji (rozpoznawanie mimiki)."],
-      ["Regulacja sensoryczna","Słuchawki wygłuszające; aplikacje z muzyką relaksacyjną / białym szumem w strefie wyciszenia."],
-      ["Współpraca i monitoring","EduPlaner 2026 – wspólny zapis obserwacji i postępów; dziennik elektroniczny / aplikacja do kontaktu z rodzicami; rejestr ABC w formie cyfrowej."]
-    ] }
-  },
-
-  "s12": {
-    "title": "Zintegrowane działania nauczycieli i specjalistów",
-    "lead": "Wszystkie osoby pracujące z dzieckiem realizują te same cele w spójny sposób. Tabela pokazuje, kto co robi wobec wspólnego celu i jak działania są koordynowane:",
-    "rows": [
-      ["Komunikacja funkcjonalna i AAC","Używa tablicy wyboru w każdej sytuacji; modeluje komunikaty; nie wymaga mowy tam, gdzie wystarczy wskazanie.","Logopeda: trening symboli i skryptów; pedagog specjalny: FCT w rewalidacji; psycholog: komunikacja emocji.","Wspólna baza symboli; miesięczny przegląd słownika AAC."],
-      ["Regulacja emocji i zachowania","Stosuje protokół wyprzedzający; zapowiada zmiany; rejestruje ABC; nagradza komunikat zastępczy.","Psycholog: analiza ABC i plan wsparcia zachowania; terapeuta SI: dieta sensoryczna; pedagog: historyjki społeczne.","Jeden plan wsparcia zachowania dla wszystkich; przegląd rejestru ABC co miesiąc."],
-      ["Uczestnictwo społeczne","Organizuje zabawy z rówieśnikiem-mentorem; wprowadza wizualne zasady grupy.","Psycholog: TUS w małej grupie; pedagog: ToM w rewalidacji.","Umiejętności z TUS ćwiczone w grupie w tym samym tygodniu."],
-      ["Samodzielność i motoryka","Pasek wizualny czynności; dostosowane przybory; czas na samoobsługę.","Terapeuta pedagogiczny: motoryka mała; terapeuta SI: obronność dotykowa.","Ten sam pasek czynności w sali, na zajęciach i w domu."]
-    ],
-    "koordynacja": "Koordynator Zespołu zwołuje spotkanie zespołu raz w miesiącu (30 min): przegląd celów, rejestru ABC, postępów w AAC; ustalenia zapisywane w EduPlaner 2026 i przekazywane rodzicom."
-  },
-
-  "s13": {
-    "title": "Zajęcia przydzielone dziecku / uczniowi i realizacja zaleceń poradni",
-    "lead": "Zajęcia zestawiono w podziale na rewalidację (kształcenie specjalne) i pomoc psychologiczno-pedagogiczną z dokładnym określeniem formy, czasu, okresu i miejsca udzielania. Blok C pokazuje, gdzie w programie realizowane jest każde zalecenie poradni.",
-    "sumRew": ["2 godz.","120 min / tydz.","3 rodzaje zajęć"], "sumPpp": ["3 godz. 30 min","210 min / tydz.","5 form pomocy"],
-    "rew": [
-      ["Rewalidacja: rozwijanie kompetencji komunikacyjnych i wdrażanie AAC","tablice wyboru, skrypty dialogowe, trening komunikacji funkcjonalnej (FCT)","Pedagog specjalny / neurologopeda","indywidualnie","1 × 60 min","60 min / tydz."],
-      ["Rewalidacja: trening umiejętności społecznych i teorii umysłu (ToM)","rozpoznawanie emocji i intencji, historyjki społeczne, naprzemienność","Pedagog specjalny","indywidualnie / w parze","1 × 30 min","30 min / tydz."],
-      ["Rewalidacja: usprawnianie motoryki małej i grafomotoryki","chwyt pisarski, koordynacja wzrokowo-ruchowa, planowanie ruchu","Terapeuta pedagogiczny","indywidualnie","1 × 30 min","30 min / tydz."]
-    ],
-    "ppp": [
-      ["Zajęcia logopedyczne","artykulacja, pragmatyka wypowiedzi, redukcja echolalii, dialog","Logopeda","indywidualnie · gabinet logopedyczny","1 × 45 min · wtorek 9:00","IX 2026 – VI 2027"],
-      ["Zajęcia rozwijające kompetencje emocjonalno-społeczne (TUS)","naprzemienność, radzenie sobie z przegraną, odczytywanie sygnałów rówieśników","Psycholog","grupa 3–5 osób · sala terapii","1 × 45 min · czwartek 11:00","IX 2026 – VI 2027"],
-      ["Zajęcia korekcyjno-kompensacyjne","uwaga, pamięć, uogólnianie wiedzy, organizacja pracy","Terapeuta pedagogiczny","grupa do 5 osób · sala nr 4","1 × 45 min · poniedziałek 12:00","IX 2026 – VI 2027"],
-      ["Zajęcia specjalistyczne: integracja sensoryczna (SI)","modulacja sensoryczna, dieta sensoryczna, przerwy sensoryczne","Terapeuta SI","indywidualnie · sala SI","1 × 45 min · środa 10:00","IX 2026 – I 2027, po ocenie: kontynuacja"],
-      ["Porady i konsultacje dla rodziców","ujednolicenie oddziaływań dom–placówka, instruktaż AAC i ABC","Psycholog / koordynator","rodzice · gabinet lub online","1 × 30 min · piątek 15:00","cały rok szkolny"]
-    ],
-    "mapa": [
-      ["Zajęcia rewalidacyjne 2 godz. tyg. (komunikacja, ToM, motoryka)","Blok A – rewalidacja","sekcja 13 A"],
-      ["Terapia logopedyczna z elementami AAC","Blok B – zajęcia logopedyczne; AAC także w sali i w domu","sekcje 13 B, 11 C"],
-      ["Terapia integracji sensorycznej i dieta sensoryczna","Blok B – SI; przerwy sensoryczne w organizacji dnia","sekcje 13 B, 11 B"],
-      ["Trening umiejętności społecznych w małej grupie","Blok B – TUS; ToM w rewalidacji","sekcje 13 B, 13 A"],
-      ["Wsparcie nauczyciela współorganizującego kształcenie","Uzasadnienie i zadania dodatkowej osoby","sekcja 14"],
-      ["Dostosowanie wymagań, metod i form pracy","Dostosowanie programu / podstawy i organizacji","sekcja 11 A–B"],
-      ["Stałość i przewidywalność otoczenia","Organizacja dnia, technologie (time-timer, plan cyfrowy)","sekcja 11 B–C"],
-      ["Współpraca z rodzicami i ujednolicenie oddziaływań","Zakres współpracy, działania wspierające rodziców, poradnia","sekcja 15"]
-    ],
-    "uwaga": "godzina rewalidacji = 60 min; godzina zajęć PPP = 45 min (w przedszkolu czas dostosowany do możliwości dziecka)."
-  },
-
-  "s14": {
-    "title": "Uzasadnienie wsparcia dodatkowej osoby",
-    "rodzaj": [["Nauczyciel współorganizujący kształcenie",1],["Pomoc nauczyciela",0],["Asystent / osoba wspierająca (za zgodą organu prowadzącego)",0]],
-    "wymiar": "zajęcia kierowane, przejścia między aktywnościami, wydarzenia grupowe – ok. 20 godz. tygodniowo (zgodnie z arkuszem organizacji)",
-    "podstawa": "§ 7 rozporządzenia MEN z 9 sierpnia 2017 r. w sprawie warunków organizowania kształcenia, wychowania i opieki dla dzieci i młodzieży niepełnosprawnych (Dz. U. z 2020 r. poz. 1309); orzeczenie o potrzebie kształcenia specjalnego z uwagi na autyzm.",
-    "uzasadnienie": "Wyniki oceny funkcjonalnej wskazują poziom wysoki potrzeby wsparcia w domenach d2 (zadania i wymagania), d7 (relacje) i d9 (uczestnictwo społeczne). Rejestr ABC wykazał 14 epizodów zachowań trudnych o funkcji ucieczkowej, wyzwalanych głównie w przejściach między aktywnościami i przy poleceniach wieloetapowych – czyli w sytuacjach, w których nauczyciel prowadzący grupę nie może udzielić natychmiastowego, indywidualnego wsparcia. Dziecko reaguje pozytywnie na stałego, przewidywalnego dorosłego (sekcja 4), a po wprowadzeniu wsparcia liczba epizodów spadła o ok. 40% (sekcja 8). Obecność dodatkowej osoby jest więc warunkiem bezpiecznego uczestnictwa w zajęciach grupowych, a nie zastąpieniem aktywności dziecka.",
-    "zadania": ["Modelowanie użycia tablicy AAC i komunikatu zastępczego w sytuacjach trudnych.","Uprzedzanie o zmianach i prowadzenie protokołu wyprzedzającego przed przejściami.","Dekodowanie poleceń nauczyciela na pojedyncze kroki i piktogramy.","Wsparcie w wydarzeniach grupowych (apele, wyjścia) z możliwością wycofania do strefy wyciszenia.","Prowadzenie rejestru ABC i przekazywanie obserwacji Zespołowi.","Stopniowe wycofywanie się z pomocy w czynnościach opanowanych (budowanie samodzielności)."],
-    "ocena": "Zasadność wsparcia dodatkowej osoby oceniana w terminach z sekcji 16; kryterium zmniejszenia wymiaru: spadek epizodów ABC poniżej 3 miesięcznie i samodzielne przejścia między aktywnościami w 80% sytuacji."
-  },
-
-  "s15": {
-    "title": "Współpraca z rodzicami i poradnią psychologiczno-pedagogiczną",
-    "A": { "title": "Zakres współpracy nauczycieli i specjalistów z rodzicami", "rows": [
-      ["Konsultacje indywidualne","omówienie postępów, rejestru ABC, planu tygodnia","Koordynator / psycholog","1 × / tydz. (piątek 15:00, 30 min)"],
-      ["Zeszyt korespondencji / aplikacja","codzienna informacja: co się udało, co było trudne, co ćwiczyć w domu","Wychowawca, dodatkowa osoba","codziennie"],
-      ["Udział w posiedzeniach Zespołu","opiniowanie programu, decyzje o poziomie wsparcia, ewaluacja","Dyrektor / koordynator","wrzesień, styczeń, czerwiec"],
-      ["Wgląd w dokumentację i wyniki","raport, IPET, arkusze obserwacji – kopia dla rodzica","Koordynator","na każde życzenie, po każdej ocenie"],
-      ["Obserwacja zajęć przez rodzica","udział w zajęciach rewalidacji / logopedii w celu przeniesienia metod do domu","Specjaliści","1 × / miesiąc"]
-    ] },
-    "B": { "title": "Konkretne działania nauczycieli i specjalistów wspierające rodziców", "items": [
-      "Instruktaż użycia tablicy AAC w domu i przekazanie tej samej bazy symboli (logopeda).",
-      "Pakiet piktogramów i wzór planu dnia na weekend oraz paska czynności toaletowych (wychowawca).",
-      "Wskazówki postępowania w zachowaniach trudnych na podstawie analizy ABC – „co robić przed, w trakcie i po” (psycholog).",
-      "Warsztat dla rodziców: regulacja sensoryczna w domu, dieta sensoryczna, przygotowanie do wyjść (terapeuta SI).",
-      "Pomoc w przygotowaniu wniosków: aktualizacja orzeczenia, zajęcia rewalidacyjno-wychowawcze, świadczenia (koordynator).",
-      "Informacja o grupach wsparcia dla rodziców i ofercie PCTP; kontakt do specjalistów zewnętrznych za zgodą rodziców."
-    ] },
-    "C": { "title": "Współdziałanie z poradnią psychologiczno-pedagogiczną i innymi instytucjami", "rows": [
-      ["Przekazanie raportu oceny funkcjonalnej","zespół orzekający poradni – do wniosku o orzeczenie / aktualizację","Koordynator, za zgodą rodzica","po sporządzeniu raportu (wrzesień) i po ocenie końcoworocznej"],
-      ["Konsultacje specjalistyczne","wspólna analiza wyników, dobór metod AAC i wsparcia zachowania","Psycholog placówki ↔ psycholog poradni","1 × / semestr lub na wniosek"],
-      ["Obserwacja dziecka w placówce przez pracownika poradni","weryfikacja funkcjonowania w naturalnym środowisku","Poradnia, dyrektor","na wniosek rodzica lub Zespołu"],
-      ["Współpraca z lekarzem / terapeutami zewnętrznymi","ujednolicenie zaleceń (sen, farmakoterapia, terapia SI poza placówką)","Koordynator, za zgodą rodzica","w razie potrzeby"],
-      ["Instytucje wspierające rodzinę","PCPR, OPS, organizacje pozarządowe – informacja i pośrednictwo","Pedagog","w razie potrzeby"]
-    ] }
-  },
-
-  "s16": {
-    "title": "Terminy okresowej oceny efektywności programu",
-    "lead": "Ocena efektywności obejmuje cele z sekcji 9, wymiar zajęć (sekcja 13) i zasadność wsparcia dodatkowej osoby (sekcja 14). Rodzic uczestniczy w każdej ocenie i otrzymuje jej kopię.",
-    "rows": [
-      ["Wrzesień 2026","Ocena wstępna i pogłębiona – niniejszy raport","KPOF/KSzOF, ABC, profil sensoryczny, mowa, ToM","Zespół, koordynator","wykonano"],
-      ["Na bieżąco (co miesiąc)","Monitoring: rejestr ABC, słownik AAC, postępy w celach","Rejestr ABC, karta postępów w EduPlaner 2026","Koordynator, dodatkowa osoba","w trakcie"],
-      ["Styczeń 2027","Ocena śródroczna (WOPF) – modyfikacja celów i wymiaru zajęć, decyzja o kontynuacji SI","KPOF/KSzOF (wybrane domeny), ABC, obserwacja","Zespół z udziałem rodzica","planowane"],
-      ["Czerwiec 2027","Ocena końcoworoczna – efektywność programu, wnioski do IPET na kolejny rok, ocena zasadności dodatkowej osoby","Pełny KPOF/KSzOF, arkusze, opinia rodzica i dziecka („Mój głos”)","Zespół z udziałem rodzica","planowane"],
-      ["Wrzesień 2027","Aktualizacja raportu oceny funkcjonalnej","zgodnie z § 7 ust. 6 i 7","Zespół","planowane"]
-    ]
+   ]
   }
+ },
+ "s4": {
+  "title": "Informacja o funkcjonowaniu w placówce – trudności, mocne strony i uzdolnienia",
+  "ref": "§ 7 ust. 6 pkt 3.",
+  "lead": "Syntetyczne zestawienie potencjału rozwojowego oraz barier zidentyfikowanych w toku codziennej aktywności przez nauczycieli, wychowawców i specjalistów prowadzących zajęcia z dzieckiem/uczniem:",
+  "rows": [
+   [
+    "Aktywność poznawcza i uczenie się",
+    "Bardzo dobra pamięć wzrokowa; szybkie zapamiętywanie schematów graficznych; wąskie, ale głębokie zainteresowania tematyczne; wysoka motywacja do pracy z ulubionymi pomocami dydaktycznymi.",
+    "Trudności z przerzutnością i podzielnością uwagi; szybka męczliwość przy instrukcjach wieloetapowych; problem z uogólnianiem (generalizacją) wiedzy; wymagane stałe tempo i pomoce wizualne."
+   ],
+   [
+    "Komunikacja i porozumiewanie się",
+    "Prawidłowe rozumienie prostych, jednoznacznych komunikatów słownych wspartych gestem; sygnalizowanie podstawowych potrzeb fizjologicznych.",
+    "Dosłowne rozumienie wypowiedzi (trudność z metaforą i żartem); echolalie odroczone; trudności w inicjowaniu dialogu i naprzemienności wypowiedzi w grupie rówieśniczej; potrzeba wsparcia AAC."
+   ],
+   [
+    "Relacje społeczne i emocje",
+    "Chęć przebywania w pobliżu grupy; pozytywna reakcja na stałych, przewidywalnych dorosłych; przestrzeganie czytelnych zasad wizualnych.",
+    "Trudności w odczytywaniu emocji i intencji innych (słaba teoria umysłu); niska tolerancja frustracji w sytuacjach przegranej lub nagłej zmiany; tendencja do wycofywania się lub zachowań trudnych."
+   ],
+   [
+    "Motoryka i sprawność fizyczna",
+    "Sprawność w zakresie motoryki dużej (bieganie, wspinanie się); chętne uczestnictwo w zabawach ruchowych w otwartej przestrzeni.",
+    "Obniżona precyzja motoryki małej i koordynacji wzrokowo-ruchowej; nieprawidłowy chwyt pisarski / narzędzi; wzmożone lub obniżone napięcie posturalne; męczliwość ręki wiodącej."
+   ],
+   [
+    "Samoobsługa i autonomia",
+    "Samodzielność w zakresie podstawowych nawyków higienicznych i toaletowych; znajomość własnej szafki i osobistych przyborów.",
+    "Opór sensoryczny przy myciu rąk (wrażliwość na fakturę mydła/wodę); wybiórczość pokarmowa; problem z ubieraniem odzieży wierzchniej ze skomplikowanymi zapięciami; potrzeba nadzoru dorosłego."
+   ]
+  ],
+  "law": "§ 7 ust. 6 pkt 3 rozp. z 2.03.2026 (poz. 428) · § 6 ust. 10 pkt 1 i 3 rozp. o kształceniu specjalnym"
+ },
+ "s5": {
+  "title": "Aktualna wielospecjalistyczna ocena poziomu funkcjonowania – wyniki liczbowe",
+  "ref": "§ 7 ust. 6 pkt 4.",
+  "lead": "Zestawienie parametrów ilościowych uzyskanych z narzędzia bazowego (KPOF dla przedszkola / KSzOF dla szkoły) w 9 obszarach Międzynarodowej Klasyfikacji ICF:",
+  "punkty": "68",
+  "punktyMax": "180",
+  "srednia": "2,1",
+  "poziom": "Poziom 2",
+  "poziomOpis": "(Umiarkowany)",
+  "dom": [
+   [
+    "d1",
+    "Uczenie się i stosowanie wiedzy",
+    2.4,
+    12,
+    4,
+    2,
+    "Średni",
+    "Wymaga podziału zadań na etapy i wsparcia wizualnego."
+   ],
+   [
+    "d2",
+    "Ogólne zadania i wymagania",
+    1.8,
+    9,
+    3,
+    3,
+    "Wysoki",
+    "Brak elastyczności, silny stres przy nagłych zmianach."
+   ],
+   [
+    "d3",
+    "Komunikacja i porozumiewanie się",
+    2.0,
+    10,
+    4,
+    2,
+    "Średni",
+    "Echolalie, konieczność wdrażania schematów AAC."
+   ],
+   [
+    "d4",
+    "Poruszanie się i motoryka",
+    3.2,
+    16,
+    6,
+    1,
+    "Niski",
+    "Ogólna motoryka dobra; obniżona grafomotoryka."
+   ],
+   [
+    "d5",
+    "Dbanie o siebie i samoobsługa",
+    2.2,
+    11,
+    4,
+    2,
+    "Średni",
+    "Wybiórczość sensoryczna przy posiłkach i toalecie."
+   ],
+   [
+    "d6",
+    "Życie domowe / Obowiązki placówki",
+    2.8,
+    14,
+    5,
+    1,
+    "Niski",
+    "Sprząta kącik zabaw po bezpośrednim przypomnieniu."
+   ],
+   [
+    "d7",
+    "Relacje i kontakty międzyludzkie",
+    1.6,
+    8,
+    3,
+    3,
+    "Wysoki",
+    "Bariery w interakcjach rówieśniczych, konflikty, wycofanie."
+   ],
+   [
+    "d8",
+    "Główne dziedziny życia (Edukacja)",
+    2.0,
+    10,
+    4,
+    2,
+    "Średni",
+    "Wymaga dostosowania metod i stałego nadzoru nauczyciela."
+   ],
+   [
+    "d9",
+    "Życie społecznościowe i obywatelskie",
+    1.8,
+    9,
+    3,
+    3,
+    "Wysoki",
+    "Trudność w uczestnictwie w apelach i wyjściach zbiorowych."
+   ]
+  ],
+  "zasadaKpof": "wybrano KPOF (przedszkole) – narzędzie nie posiada norm stenowych, dlatego w raporcie nie podaje się stenów; interpretacja wyłącznie na podstawie punktów, średniej i poziomu wsparcia.",
+  "zasadaKszof": "wybrano KSzOF (szkoła) – steny podaje się wyłącznie w kolumnie „Sten” dla poszczególnych domen; średniej nigdy nie opisuje się stenem.",
+  "law": "§ 7 ust. 6 pkt 4 rozp. z 2.03.2026 (poz. 428) · ICF d1–d9"
+ },
+ "s6": {
+  "title": "Wyniki obserwacji pogłębionej (narzędzia specjalistyczne)",
+  "cards": [
+   [
+    "red",
+    "Arkusz Obserwacji Behawioralnej ABC",
+    [
+     [
+      "Zidentyfikowano ",
+      0
+     ],
+     [
+      "14 epizodów",
+      1
+     ],
+     [
+      " zachowań trudnych. ",
+      0
+     ],
+     [
+      "Bodźce wyzwalające (A): ",
+      1
+     ],
+     [
+      "trudne polecenia pisemne, hałas, niespodziewane przejścia między aktywnościami. ",
+      0
+     ],
+     [
+      "Topografia zachowania (B): ",
+      1
+     ],
+     [
+      "głośny krzyk, odmowa zejścia z dywanu, odpychanie kart pracy. ",
+      0
+     ],
+     [
+      "Funkcja (C): ",
+      1
+     ],
+     [
+      "ucieczka przed przeciążeniem sensorycznym / zadaniem trudnym poznawczo.",
+      0
+     ]
+    ],
+    "protokół wyprzedzający i nauka komunikatu zastępczego."
+   ],
+   [
+    "blue",
+    "Profil Sensoryczny (Kwestionariusz Przetwarzania)",
+    [
+     [
+      "Reaktywność mieszana. ",
+      0
+     ],
+     [
+      "Układ słuchowy",
+      1
+     ],
+     [
+      " – silna nadwrażliwość na nagłe dźwięki i gwar korytarza (zalecane słuchawki); ",
+      0
+     ],
+     [
+      "układ dotykowy",
+      1
+     ],
+     [
+      " – obronność dotykowa na faktury klejące i mokre; ",
+      0
+     ],
+     [
+      "układ proprioceptywny i przedsionkowy",
+      1
+     ],
+     [
+      " – poszukiwanie stymulacji dociskowej i ruchowej (huśtanie, kołysanie się).",
+      0
+     ]
+    ],
+    null
+   ],
+   [
+    "purple",
+    "Profil Biopsychospołeczny",
+    [
+     [
+      "Uwarunkowania biologiczne: ",
+      1
+     ],
+     [
+      "spektrum autyzmu, zaburzenia snu wpływają na zmęczenie poranne. ",
+      0
+     ],
+     [
+      "Uwarunkowania psychologiczne: ",
+      1
+     ],
+     [
+      "silny lęk przed zmianą schematu, sztywność poznawcza. ",
+      0
+     ],
+     [
+      "Czynniki środowiskowe: ",
+      1
+     ],
+     [
+      "wysokie zaangażowanie rodziny, pozytywna reakcja na stałą kadrę.",
+      0
+     ]
+    ],
+    null
+   ],
+   [
+    "orange",
+    "Arkusz Oceny Rozwoju Mowy i Komunikacji",
+    [
+     [
+      "Zasób słownika biernego w normie wiekowej; wąski zasób czynny w sytuacjach swobodnych. Występują ",
+      0
+     ],
+     [
+      "echolalie natychmiastowe",
+      1
+     ],
+     [
+      " i trudności pragmatyczne (brak intonacji, trudność w podtrzymaniu dialogu).",
+      0
+     ]
+    ],
+    "schematy dialogowe i piktogramy wspierające."
+   ],
+   [
+    "green",
+    "Arkusz Poziomu Rozwoju Teorii Umysłu (ToM)",
+    [
+     [
+      "Poziom rozwoju ToM ",
+      0
+     ],
+     [
+      "poniżej normy wiekowej",
+      1
+     ],
+     [
+      ". Trudność w zadaniach z fałszywym przekonaniem (False Belief Task) oraz w rozpoznawaniu perspektywy i intencji innych osób. Trudności te generują konflikty rówieśnicze przez błędną interpretację zachowań kolegów.",
+      0
+     ]
+    ],
+    null
+   ]
+  ],
+  "law": "§ 7 ust. 6 pkt 4–5 rozp. z 2.03.2026 (poz. 428) · § 6 ust. 10 pkt 3 rozp. o kształceniu specjalnym"
+ },
+ "s7": {
+  "title": "Mój głos – perspektywa dziecka / ucznia",
+  "lead": "Głos dziecka pozyskano w sposób dostosowany do jego możliwości komunikacyjnych: w naturalnych sytuacjach, przez proste pytania, obrazki, piktogramy i informacje od rodziców. Zapisano autentyczną perspektywę dziecka – jego słowami lub przez wskazanie.",
+  "sposoby": [
+   [
+    "Rozmowa dostosowana do możliwości dziecka",
+    1
+   ],
+   [
+    "Obserwacja w naturalnych sytuacjach",
+    1
+   ],
+   [
+    "Wybór z obrazków / piktogramów / kart wyboru",
+    1
+   ],
+   [
+    "Komunikacja wspomagająca i alternatywna (AAC)",
+    1
+   ],
+   [
+    "Odczytanie z gestu, mimiki, zabawy, rysunku",
+    0
+   ],
+   [
+    "Informacje od rodziców / opiekunów",
+    1
+   ],
+   [
+    "Skala buziek / termometr emocji",
+    1
+   ],
+   [
+    "Wskazanie „tak / nie” na symbolach",
+    0
+   ]
+  ],
+  "pola": [
+   [
+    "green",
+    "Moje mocne strony i supermoce",
+    "„Umiem układać klocki i znam wszystkie planety. Pamiętam, gdzie co leży.”"
+   ],
+   [
+    "red",
+    "Z czym mam największą trudność w przedszkolu / szkole",
+    "„Jak jest głośno i jak pani zmienia plan. Nie lubię mokrych rąk i kleju.”"
+   ],
+   [
+    "orange",
+    "Moje ulubione zabawy i czynności",
+    "klocki konstrukcyjne, tablet z aplikacją o kosmosie, huśtanie się, oglądanie map"
+   ],
+   [
+    "purple",
+    "Moje marzenie / czego bym chciał(a)",
+    "„Żeby kolega bawił się ze mną w rakiety i żeby nie było apeli.”"
+   ]
+  ],
+  "pomaga": [
+   [
+    "cisza",
+    1
+   ],
+   [
+    "czas",
+    1
+   ],
+   [
+    "ruch",
+    1
+   ],
+   [
+    "piktogramy",
+    1
+   ],
+   [
+    "praca na komputerze / tablecie",
+    1
+   ],
+   [
+    "przerwy",
+    1
+   ],
+   [
+    "wsparcie nauczyciela",
+    1
+   ],
+   [
+    "przewidywalny plan dnia",
+    1
+   ],
+   [
+    "słuchawki",
+    1
+   ],
+   [
+    "moje własne miejsce",
+    0
+   ]
+  ],
+  "komunikacja": "Mowa proste zdania + tablica wyboru (piktogramy); rozumie polecenia wsparte gestem; potrzebuje chwili na odpowiedź; nie lubi pytań „dlaczego”. Wskazówki do rozmowy: jedno pytanie na raz, obrazek lub wybór z dwóch, bez metafor i żartów.",
+  "nastroj": [
+   "Super",
+   "Dobrze",
+   "Tak sobie",
+   "Słabo",
+   "Źle"
+  ],
+  "nastrojWybor": 1,
+  "podstawa": "Uwzględnienie perspektywy dziecka wspiera indywidualizację i podmiotowe traktowanie zgodnie z modelem ICF. „Mój głos” to element nowego modelu 2026/27.",
+  "law": "model oceny funkcjonalnej 2026/27 · ICF: czynniki osobowe · art. 127 Prawa oświatowego (podmiotowość ucznia)"
+ },
+ "s8": {
+  "title": "Informacja o działaniach dotychczas podjętych w celu poprawy funkcjonowania",
+  "ref": "§ 7 ust. 6 pkt 6.",
+  "lead": "Działania wdrożone w placówce przed sporządzeniem raportu oraz ich obserwowana efektywność (podstawa do zaplanowania programu wsparcia w Części III):",
+  "rows": [
+   [
+    "Dostosowania środowiskowe i dydaktyczne",
+    "Wyznaczenie strefy wyciszenia w sali; zredukowanie bodźców wzrokowych na tablicach ściennych; zastosowanie słuchawek wygłuszających podczas pracy stolikowej; wprowadzenie indywidualnego planu dnia na rzepy.",
+    "Spadek liczby epizodów trudnych zachowań o ok. 40%; wydłużenie czasu skupienia na pojedynczym zadaniu z 3 do 8 minut."
+   ],
+   [
+    "Pomoc psychologiczno-pedagogiczna i rewalidacja",
+    "Zajęcia rozwijające kompetencje emocjonalno-społeczne (TUS – 1x w tyg.); indywidualne zajęcia logopedyczne (1x w tyg.); ćwiczenia integracji sensorycznej (SI) na sali gimnastycznej.",
+    "Lepsze tolerowanie obecności innych dzieci w trakcie zajęć kierowanych; pierwsze próby proszenia o przerwę za pomocą gestu/piktogramu."
+   ],
+   [
+    "Współpraca z domem rodzinnym",
+    "Cotygodniowe konsultacje z rodzicami; zeszyt korespondencji dom-placówka; ujednolicenie systemu komunikatów i nagród behawioralnych.",
+    "Wysoka spójność w reakcjach dorosłych na zachowania trudne; wzrost poczucia bezpieczeństwa u dziecka."
+   ]
+  ],
+  "law": "§ 7 ust. 6 pkt 6 rozp. z 2.03.2026 (poz. 428) · § 6 ust. 10 pkt 2 rozp. o kształceniu specjalnym"
+ },
+ "s9": {
+  "title": "Analiza jakościowa obszarów obserwacji oraz kierunki pracy w IPE",
+  "lead": "Szczegółowa diagnoza funkcjonalna we wszystkich 9 domenach ICF. Kolumna „Kierunki pracy” wskazuje cele i metody; ich organizację (kto, kiedy, ile) opisuje Część III.",
+  "rows": [
+   [
+    "d1",
+    "Uczenie się i stosowanie wiedzy",
+    "Dziecko/uczeń przyswaja wiedzę głównie kanałem wzrokowym. Występuje trudność w rozumieniu poleceń złożonych oraz w transferze (uogólnianiu) wiedzy. Przebodźcowanie powoduje dekoncentrację i rezygnację z zadania.",
+    [
+     "Plany aktywności w formie piktogramów / checklist.",
+     "Dzielenie instrukcji na pojedyncze, sekwencyjne kroki.",
+     "Wydłużenie czasu na realizację zadań pisemnych i wykonawczych."
+    ]
+   ],
+   [
+    "d2",
+    "Ogólne zadania i wymagania",
+    "Trudność w samodzielnej organizacji pracy i realizacji zadań wieloetapowych. Brak elastyczności – silny stres przy nagłych zmianach planu i przejściach między aktywnościami.",
+    [
+     "Stały, wizualny plan dnia i zapowiadanie zmian z wyprzedzeniem.",
+     "Pomoce sensoryczne do orientacji w czasie (stoper, zegar time-timer).",
+     "Protokół wyprzedzający przed trudnymi przejściami."
+    ]
+   ],
+   [
+    "d3",
+    "Komunikacja i porozumiewanie się",
+    "Wypowiedzi cechują się trudnościami pragmatycznymi, obecnością echolalii oraz dosłownością interpretacji. W chwilach przeciążenia emocjonalnego następuje mutyzm wybiórczy lub krzyk zamiast komunikacji intencjonalnej.",
+    [
+     "Tablice wyboru i skrypty dialogowe AAC.",
+     "Unikanie metafor, sarkazmu i dwuznaczności w komunikatach personelu.",
+     "Trening komunikacji funkcjonalnej (FCT: „chcę przerwę”, „nie rozumiem”).",
+     "Terapia logopedyczna/neurologopedyczna."
+    ]
+   ],
+   [
+    "d4",
+    "Poruszanie się i motoryka",
+    "Motoryka duża prawidłowa (bieganie, wspinanie). Obniżona precyzja motoryki małej, koordynacji wzrokowo-ruchowej i planowania motorycznego (dyspraksja); nieprawidłowy chwyt pisarski i narzędzi.",
+    [
+     "Dostosowanie przyborów (nakładki ergonomiczne na ołówki, nożyczki sprężynowe).",
+     "Ćwiczenia rewalidacyjne ukierunkowane na motorykę małą i dużą.",
+     "Ćwiczenia integracji sensorycznej (SI)."
+    ]
+   ],
+   [
+    "d5",
+    "Dbanie o siebie i samoobsługa",
+    "Samoobsługa zaburzona przez silne reakcje nadwrażliwości na bodźce dotykowe (ubrania, mokre ręce) i zapachowe; wybiórczość pokarmowa; trudność z odzieżą o skomplikowanych zapięciach.",
+    [
+     "Stała kolejność czynności toaletowych wsparta paskiem wizualnym.",
+     "Stopniowe oswajanie faktur i zapachów w bezpiecznych warunkach.",
+     "Odzież bez trudnych zapięć; nadzór dorosłego przy posiłkach."
+    ]
+   ],
+   [
+    "d6",
+    "Życie domowe / Obowiązki placówki",
+    "Wykonuje obowiązki grupowe (sprzątanie kącika zabaw, dyżury) po bezpośrednim przypomnieniu. Trudność w samodzielnym inicjowaniu czynności i doprowadzaniu ich do końca.",
+    [
+     "Lista zadań na rzepy z odhaczaniem wykonanych czynności.",
+     "Stałe dyżury z modelowaniem przez dorosłego.",
+     "Wzmocnienia pozytywne (pochwała opisowa, system żetonowy)."
+    ]
+   ],
+   [
+    "d7",
+    "Relacje i kontakty międzyludzkie",
+    "Trudności w inicjowaniu i podtrzymywaniu zabawy naprzemiennej. Brak umiejętności rozpoznawania sygnałów niewerbalnych wysyłanych przez rówieśników. Częste nieporozumienia prowadzące do zachowań oporowych.",
+    [
+     "Trening Umiejętności Społecznych (TUS) w małej grupie.",
+     "Historyjki Społeczne (Social Stories) modelujące zachowania prospołeczne.",
+     "Rówieśnik-mentor w zabawach grupowych.",
+     "Jasne, wizualne zasady panujące w klasie/grupie."
+    ]
+   ],
+   [
+    "d8",
+    "Główne dziedziny życia (Edukacja)",
+    "Uczestnictwo w zajęciach edukacyjnych wymaga dostosowania metod, tempa i form pracy oraz stałego nadzoru nauczyciela. Szybka męczliwość przy zadaniach pisemnych i instrukcjach wieloetapowych.",
+    [
+     "Dostosowane karty pracy (mniej bodźców, większa czcionka, jedno polecenie na raz).",
+     "Wsparcie nauczyciela współorganizującego w zadaniach kierowanych.",
+     "Przerwy sensoryczne wpisane w plan zajęć."
+    ]
+   ],
+   [
+    "d9",
+    "Życie społecznościowe i obywatelskie",
+    "Trudność w uczestnictwie w apelach, uroczystościach i wyjściach zbiorowych z powodu przeciążenia sensorycznego i tłumu – wycofanie lub zachowania trudne.",
+    [
+     "Wcześniejsze przygotowanie (historyjka społeczna, zdjęcia miejsca, plan wydarzenia).",
+     "Słuchawki wygłuszające i miejsce z możliwością wyjścia.",
+     "Stopniowe wydłużanie czasu udziału w wydarzeniach grupowych."
+    ]
+   ]
+  ],
+  "law": "§ 7 ust. 6 pkt 4 rozp. z 2.03.2026 (poz. 428) · § 6 ust. 10 rozp. o kształceniu specjalnym"
+ },
+ "s10": {
+  "title": "Ustalenie decyzją Zespołu poziomu wsparcia dla dziecka / ucznia",
+  "lead": "Na podstawie wyników KPOF/KSzOF (sekcja 5), arkuszy specjalistycznych (sekcja 6), głosu dziecka (sekcja 7), dotychczasowych działań (sekcja 8) oraz zaleceń poradni Zespół ustala poziom wsparcia:",
+  "poziomy": [
+   [
+    "I",
+    "Poziom I – niski",
+    "wsparcie w ramach bieżącej pracy nauczyciela i dostosowań; monitorowanie",
+    0
+   ],
+   [
+    "II",
+    "Poziom II – umiarkowany",
+    "dostosowania + zajęcia specjalistyczne i rewalidacja; wsparcie dodatkowej osoby w wybranych sytuacjach",
+    1
+   ],
+   [
+    "III",
+    "Poziom III – wysoki",
+    "intensywne, codzienne wsparcie specjalistyczne i stała obecność dodatkowej osoby",
+    0
+   ]
+  ],
+  "uzasadnienie": "Średnia funkcjonowania 2,1 (68/180 pkt) z trzema domenami na poziomie wysokim (d2, d7, d9) i czterema na poziomie średnim. Zachowania trudne (14 epizodów wg ABC) mają funkcję ucieczkową i są kontrolowalne przy dostosowaniu środowiska – po wdrożonych działaniach spadły o ok. 40%. Dziecko dobrze reaguje na strukturę i stałą kadrę, co uzasadnia poziom II z wsparciem dodatkowej osoby w zajęciach kierowanych i przejściach (sekcja 14), a nie stałą obecnością.",
+  "wymiar": [
+   [
+    "Rewalidacja",
+    "2 godz. / tydz."
+   ],
+   [
+    "Pomoc psychologiczno-pedagogiczna",
+    "3 godz. 30 min / tydz."
+   ],
+   [
+    "Dodatkowa osoba",
+    "nauczyciel współorganizujący – zajęcia kierowane"
+   ],
+   [
+    "Ocena efektywności",
+    "styczeń i czerwiec (sekcja 16)"
+   ]
+  ],
+  "dataDecyzji": "[Data posiedzenia Zespołu]",
+  "zgodaRodzica": "Rodzic uczestniczył w posiedzeniu Zespołu i otrzymał kopię raportu.",
+  "law": "art. 127 Prawa oświatowego · § 6 ust. 2–3 rozp. o kształceniu specjalnym (zespół, udział rodziców)"
+ },
+ "s11": {
+  "title": "Zakres i sposób dostosowania programu, organizacji kształcenia i technologii",
+  "lead": "Dostosowania wynikają z analizy jakościowej (sekcja 9) i decyzji o poziomie wsparcia (sekcja 10). Dotyczą: ☐ programu wychowania przedszkolnego  ☐ podstawy programowej kształcenia ogólnego (szkoła).",
+  "A": {
+   "title": "Zakres i sposób dostosowania programu wychowania przedszkolnego / podstawy programowej",
+   "rows": [
+    [
+     "Cele i treści",
+     "Cele realizowane w pełnym zakresie podstawy; treści dzielone na mniejsze kroki, priorytet dla umiejętności funkcjonalnych (komunikacja, samodzielność, uczestnictwo); w szkole – modyfikacja w obszarach d1, d8 bez obniżania wymagań."
+    ],
+    [
+     "Metody i formy pracy",
+     "Metody wizualne i strukturalne (TEACCH, plany aktywności, piktogramy); nauczanie sytuacyjne; praca indywidualna i w parze przed pracą w grupie; modelowanie i wzmocnienia pozytywne."
+    ],
+    [
+     "Środki dydaktyczne",
+     "Karty pracy z jednym poleceniem i większą czcionką; pomoce manipulacyjne; tablet z aplikacją AAC; time-timer; nakładki ergonomiczne, nożyczki sprężynowe."
+    ],
+    [
+     "Sprawdzanie i ocenianie osiągnięć",
+     "Ocena wysiłku i postępu względem samego siebie; forma odpowiedzi do wyboru (wskazanie, obrazek, tablet); wydłużony czas; brak sprawdzianów bez zapowiedzi; w przedszkolu – obserwacja w naturalnych sytuacjach."
+    ],
+    [
+     "Tempo i czas pracy",
+     "Zadania krótsze, z przerwą sensoryczną po 8–10 min pracy; wydłużony czas na zadania pisemne i wykonawcze; brak przymusu dokończenia w tempie grupy."
+    ],
+    [
+     "Wymagania wobec zachowania",
+     "Jasne, wizualne zasady; ostrzeżenie przed zmianą; nauka komunikatu zastępczego zamiast karania; brak wymogu udziału w apelach w pełnym wymiarze (stopniowe wydłużanie)."
+    ]
+   ]
+  },
+  "B": {
+   "title": "Dostosowania organizacyjne kształcenia",
+   "rows": [
+    [
+     "Miejsce w sali",
+     "Ławka/stolik blisko nauczyciela, z dala od drzwi i okna; stały, oznaczony piktogramem; dostęp do strefy wyciszenia."
+    ],
+    [
+     "Organizacja dnia",
+     "Wizualny plan dnia; stałe rytuały rozpoczęcia i zakończenia; zapowiadane przejścia; przerwy sensoryczne 2–3 × dziennie."
+    ],
+    [
+     "Liczebność i skład grupy",
+     "Praca w małej grupie (3–5 osób) na zajęciach specjalistycznych; stały skład kadry; w miarę możliwości ta sama osoba wspierająca."
+    ],
+    [
+     "Wydarzenia i wyjścia",
+     "Udział w apelach i wyjściach po przygotowaniu (historyjka społeczna, zdjęcia); możliwość wcześniejszego wyjścia; opieka dodatkowej osoby."
+    ],
+    [
+     "Posiłki i samoobsługa",
+     "Stałe miejsce przy stole; akceptacja wybiórczości pokarmowej z powolnym poszerzaniem; pasek wizualny czynności toaletowych."
+    ]
+   ]
+  },
+  "C": {
+   "title": "Nowe technologie wspierające dziecko / ucznia",
+   "rows": [
+    [
+     "Komunikacja (AAC)",
+     "Tablet z aplikacją komunikacyjną (symbole, syntezator mowy) dostępny w sali i w domu; ta sama baza symboli w placówce i u rodziców."
+    ],
+    [
+     "Struktura i czas",
+     "Time-timer / aplikacja z wizualnym odliczaniem; cyfrowy plan dnia z odhaczaniem; przypomnienia dźwiękowe zamiast poleceń słownych."
+    ],
+    [
+     "Uczenie się",
+     "Materiały z obrazem i dźwiękiem; nagrane instrukcje do odtworzenia; aplikacje do ćwiczeń grafomotorycznych i emocji (rozpoznawanie mimiki)."
+    ],
+    [
+     "Regulacja sensoryczna",
+     "Słuchawki wygłuszające; aplikacje z muzyką relaksacyjną / białym szumem w strefie wyciszenia."
+    ],
+    [
+     "Współpraca i monitoring",
+     "EduPlaner 2026 – wspólny zapis obserwacji i postępów; dziennik elektroniczny / aplikacja do kontaktu z rodzicami; rejestr ABC w formie cyfrowej."
+    ]
+   ]
+  },
+  "law": "§ 6 ust. 1 pkt 1 i 7 rozp. o kształceniu specjalnym · rozp. o podstawie programowej"
+ },
+ "s12": {
+  "title": "Zintegrowane działania nauczycieli i specjalistów",
+  "lead": "Wszystkie osoby pracujące z dzieckiem realizują te same cele w spójny sposób. Tabela pokazuje, kto co robi wobec wspólnego celu i jak działania są koordynowane:",
+  "rows": [
+   [
+    "Komunikacja funkcjonalna i AAC",
+    "Używa tablicy wyboru w każdej sytuacji; modeluje komunikaty; nie wymaga mowy tam, gdzie wystarczy wskazanie.",
+    "Logopeda: trening symboli i skryptów; pedagog specjalny: FCT w rewalidacji; psycholog: komunikacja emocji.",
+    "Wspólna baza symboli; miesięczny przegląd słownika AAC."
+   ],
+   [
+    "Regulacja emocji i zachowania",
+    "Stosuje protokół wyprzedzający; zapowiada zmiany; rejestruje ABC; nagradza komunikat zastępczy.",
+    "Psycholog: analiza ABC i plan wsparcia zachowania; terapeuta SI: dieta sensoryczna; pedagog: historyjki społeczne.",
+    "Jeden plan wsparcia zachowania dla wszystkich; przegląd rejestru ABC co miesiąc."
+   ],
+   [
+    "Uczestnictwo społeczne",
+    "Organizuje zabawy z rówieśnikiem-mentorem; wprowadza wizualne zasady grupy.",
+    "Psycholog: TUS w małej grupie; pedagog: ToM w rewalidacji.",
+    "Umiejętności z TUS ćwiczone w grupie w tym samym tygodniu."
+   ],
+   [
+    "Samodzielność i motoryka",
+    "Pasek wizualny czynności; dostosowane przybory; czas na samoobsługę.",
+    "Terapeuta pedagogiczny: motoryka mała; terapeuta SI: obronność dotykowa.",
+    "Ten sam pasek czynności w sali, na zajęciach i w domu."
+   ]
+  ],
+  "koordynacja": "Koordynator Zespołu zwołuje spotkanie zespołu raz w miesiącu (30 min): przegląd celów, rejestru ABC, postępów w AAC; ustalenia zapisywane w EduPlaner 2026 i przekazywane rodzicom.",
+  "law": "§ 6 ust. 1 pkt 2 rozp. o kształceniu specjalnym"
+ },
+ "s13": {
+  "title": "Zajęcia przydzielone dziecku / uczniowi i realizacja zaleceń poradni",
+  "lead": "Zajęcia zestawiono w podziale na rewalidację (kształcenie specjalne) i pomoc psychologiczno-pedagogiczną z dokładnym określeniem formy, czasu, okresu i miejsca udzielania. Blok C pokazuje, gdzie w programie realizowane jest każde zalecenie poradni.",
+  "sumRew": [
+   "2 godz.",
+   "120 min / tydz.",
+   "3 rodzaje zajęć"
+  ],
+  "sumPpp": [
+   "3 godz. 30 min",
+   "210 min / tydz.",
+   "5 form pomocy"
+  ],
+  "rew": [
+   [
+    "Rewalidacja: rozwijanie kompetencji komunikacyjnych i wdrażanie AAC",
+    "tablice wyboru, skrypty dialogowe, trening komunikacji funkcjonalnej (FCT)",
+    "Pedagog specjalny / neurologopeda",
+    "indywidualnie",
+    "1 × 60 min",
+    "60 min / tydz."
+   ],
+   [
+    "Rewalidacja: trening umiejętności społecznych i teorii umysłu (ToM)",
+    "rozpoznawanie emocji i intencji, historyjki społeczne, naprzemienność",
+    "Pedagog specjalny",
+    "indywidualnie / w parze",
+    "1 × 30 min",
+    "30 min / tydz."
+   ],
+   [
+    "Rewalidacja: usprawnianie motoryki małej i grafomotoryki",
+    "chwyt pisarski, koordynacja wzrokowo-ruchowa, planowanie ruchu",
+    "Terapeuta pedagogiczny",
+    "indywidualnie",
+    "1 × 30 min",
+    "30 min / tydz."
+   ]
+  ],
+  "ppp": [
+   [
+    "Zajęcia logopedyczne",
+    "artykulacja, pragmatyka wypowiedzi, redukcja echolalii, dialog",
+    "Logopeda",
+    "indywidualnie · gabinet logopedyczny",
+    "1 × 45 min · wtorek 9:00",
+    "IX 2026 – VI 2027"
+   ],
+   [
+    "Zajęcia rozwijające kompetencje emocjonalno-społeczne (TUS)",
+    "naprzemienność, radzenie sobie z przegraną, odczytywanie sygnałów rówieśników",
+    "Psycholog",
+    "grupa 3–5 osób · sala terapii",
+    "1 × 45 min · czwartek 11:00",
+    "IX 2026 – VI 2027"
+   ],
+   [
+    "Zajęcia korekcyjno-kompensacyjne",
+    "uwaga, pamięć, uogólnianie wiedzy, organizacja pracy",
+    "Terapeuta pedagogiczny",
+    "grupa do 5 osób · sala nr 4",
+    "1 × 45 min · poniedziałek 12:00",
+    "IX 2026 – VI 2027"
+   ],
+   [
+    "Zajęcia specjalistyczne: integracja sensoryczna (SI)",
+    "modulacja sensoryczna, dieta sensoryczna, przerwy sensoryczne",
+    "Terapeuta SI",
+    "indywidualnie · sala SI",
+    "1 × 45 min · środa 10:00",
+    "IX 2026 – I 2027, po ocenie: kontynuacja"
+   ],
+   [
+    "Porady i konsultacje dla rodziców",
+    "ujednolicenie oddziaływań dom–placówka, instruktaż AAC i ABC",
+    "Psycholog / koordynator",
+    "rodzice · gabinet lub online",
+    "1 × 30 min · piątek 15:00",
+    "cały rok szkolny"
+   ]
+  ],
+  "mapa": [
+   [
+    "Zajęcia rewalidacyjne 2 godz. tyg. (komunikacja, ToM, motoryka)",
+    "Blok A – rewalidacja",
+    "sekcja 13 A"
+   ],
+   [
+    "Terapia logopedyczna z elementami AAC",
+    "Blok B – zajęcia logopedyczne; AAC także w sali i w domu",
+    "sekcje 13 B, 11 C"
+   ],
+   [
+    "Terapia integracji sensorycznej i dieta sensoryczna",
+    "Blok B – SI; przerwy sensoryczne w organizacji dnia",
+    "sekcje 13 B, 11 B"
+   ],
+   [
+    "Trening umiejętności społecznych w małej grupie",
+    "Blok B – TUS; ToM w rewalidacji",
+    "sekcje 13 B, 13 A"
+   ],
+   [
+    "Wsparcie nauczyciela współorganizującego kształcenie",
+    "Uzasadnienie i zadania dodatkowej osoby",
+    "sekcja 14"
+   ],
+   [
+    "Dostosowanie wymagań, metod i form pracy",
+    "Dostosowanie programu / podstawy i organizacji",
+    "sekcja 11 A–B"
+   ],
+   [
+    "Stałość i przewidywalność otoczenia",
+    "Organizacja dnia, technologie (time-timer, plan cyfrowy)",
+    "sekcja 11 B–C"
+   ],
+   [
+    "Współpraca z rodzicami i ujednolicenie oddziaływań",
+    "Zakres współpracy, działania wspierające rodziców, poradnia",
+    "sekcja 15"
+   ]
+  ],
+  "uwaga": "godzina rewalidacji = 60 min; godzina zajęć PPP = 45 min (w przedszkolu czas dostosowany do możliwości dziecka).",
+  "law": "§ 6 ust. 1 pkt 3, 5 i 8 rozp. o kształceniu specjalnym · rozp. o PPP (formy, czas 45 min)"
+ },
+ "s14": {
+  "title": "Uzasadnienie wsparcia dodatkowej osoby",
+  "rodzaj": [
+   [
+    "Nauczyciel współorganizujący kształcenie",
+    1
+   ],
+   [
+    "Pomoc nauczyciela",
+    0
+   ],
+   [
+    "Asystent / osoba wspierająca (za zgodą organu prowadzącego)",
+    0
+   ]
+  ],
+  "wymiar": "zajęcia kierowane, przejścia między aktywnościami, wydarzenia grupowe – ok. 20 godz. tygodniowo (zgodnie z arkuszem organizacji)",
+  "podstawa": "§ 7 rozporządzenia MEN z 9 sierpnia 2017 r. w sprawie warunków organizowania kształcenia, wychowania i opieki dla dzieci i młodzieży niepełnosprawnych (Dz. U. z 2020 r. poz. 1309); orzeczenie o potrzebie kształcenia specjalnego z uwagi na autyzm.",
+  "uzasadnienie": "Wyniki oceny funkcjonalnej wskazują poziom wysoki potrzeby wsparcia w domenach d2 (zadania i wymagania), d7 (relacje) i d9 (uczestnictwo społeczne). Rejestr ABC wykazał 14 epizodów zachowań trudnych o funkcji ucieczkowej, wyzwalanych głównie w przejściach między aktywnościami i przy poleceniach wieloetapowych – czyli w sytuacjach, w których nauczyciel prowadzący grupę nie może udzielić natychmiastowego, indywidualnego wsparcia. Dziecko reaguje pozytywnie na stałego, przewidywalnego dorosłego (sekcja 4), a po wprowadzeniu wsparcia liczba epizodów spadła o ok. 40% (sekcja 8). Obecność dodatkowej osoby jest więc warunkiem bezpiecznego uczestnictwa w zajęciach grupowych, a nie zastąpieniem aktywności dziecka.",
+  "zadania": [
+   "Modelowanie użycia tablicy AAC i komunikatu zastępczego w sytuacjach trudnych.",
+   "Uprzedzanie o zmianach i prowadzenie protokołu wyprzedzającego przed przejściami.",
+   "Dekodowanie poleceń nauczyciela na pojedyncze kroki i piktogramy.",
+   "Wsparcie w wydarzeniach grupowych (apele, wyjścia) z możliwością wycofania do strefy wyciszenia.",
+   "Prowadzenie rejestru ABC i przekazywanie obserwacji Zespołowi.",
+   "Stopniowe wycofywanie się z pomocy w czynnościach opanowanych (budowanie samodzielności)."
+  ],
+  "ocena": "Zasadność wsparcia dodatkowej osoby oceniana w terminach z sekcji 16; kryterium zmniejszenia wymiaru: spadek epizodów ABC poniżej 3 miesięcznie i samodzielne przejścia między aktywnościami w 80% sytuacji.",
+  "law": "§ 7 ust. 2–7 rozp. o kształceniu specjalnym"
+ },
+ "s15": {
+  "title": "Współpraca z rodzicami i poradnią psychologiczno-pedagogiczną",
+  "A": {
+   "title": "Zakres współpracy nauczycieli i specjalistów z rodzicami",
+   "rows": [
+    [
+     "Konsultacje indywidualne",
+     "omówienie postępów, rejestru ABC, planu tygodnia",
+     "Koordynator / psycholog",
+     "1 × / tydz. (piątek 15:00, 30 min)"
+    ],
+    [
+     "Zeszyt korespondencji / aplikacja",
+     "codzienna informacja: co się udało, co było trudne, co ćwiczyć w domu",
+     "Wychowawca, dodatkowa osoba",
+     "codziennie"
+    ],
+    [
+     "Udział w posiedzeniach Zespołu",
+     "opiniowanie programu, decyzje o poziomie wsparcia, ewaluacja",
+     "Dyrektor / koordynator",
+     "wrzesień, styczeń, czerwiec"
+    ],
+    [
+     "Wgląd w dokumentację i wyniki",
+     "raport, IPET, arkusze obserwacji – kopia dla rodzica",
+     "Koordynator",
+     "na każde życzenie, po każdej ocenie"
+    ],
+    [
+     "Obserwacja zajęć przez rodzica",
+     "udział w zajęciach rewalidacji / logopedii w celu przeniesienia metod do domu",
+     "Specjaliści",
+     "1 × / miesiąc"
+    ]
+   ]
+  },
+  "B": {
+   "title": "Konkretne działania nauczycieli i specjalistów wspierające rodziców",
+   "items": [
+    "Instruktaż użycia tablicy AAC w domu i przekazanie tej samej bazy symboli (logopeda).",
+    "Pakiet piktogramów i wzór planu dnia na weekend oraz paska czynności toaletowych (wychowawca).",
+    "Wskazówki postępowania w zachowaniach trudnych na podstawie analizy ABC – „co robić przed, w trakcie i po” (psycholog).",
+    "Warsztat dla rodziców: regulacja sensoryczna w domu, dieta sensoryczna, przygotowanie do wyjść (terapeuta SI).",
+    "Pomoc w przygotowaniu wniosków: aktualizacja orzeczenia, zajęcia rewalidacyjno-wychowawcze, świadczenia (koordynator).",
+    "Informacja o grupach wsparcia dla rodziców i ofercie PCTP; kontakt do specjalistów zewnętrznych za zgodą rodziców."
+   ]
+  },
+  "C": {
+   "title": "Współdziałanie z poradnią psychologiczno-pedagogiczną i innymi instytucjami",
+   "rows": [
+    [
+     "Przekazanie raportu oceny funkcjonalnej",
+     "zespół orzekający poradni – do wniosku o orzeczenie / aktualizację",
+     "Koordynator, za zgodą rodzica",
+     "po sporządzeniu raportu (wrzesień) i po ocenie końcoworocznej"
+    ],
+    [
+     "Konsultacje specjalistyczne",
+     "wspólna analiza wyników, dobór metod AAC i wsparcia zachowania",
+     "Psycholog placówki ↔ psycholog poradni",
+     "1 × / semestr lub na wniosek"
+    ],
+    [
+     "Obserwacja dziecka w placówce przez pracownika poradni",
+     "weryfikacja funkcjonowania w naturalnym środowisku",
+     "Poradnia, dyrektor",
+     "na wniosek rodzica lub Zespołu"
+    ],
+    [
+     "Współpraca z lekarzem / terapeutami zewnętrznymi",
+     "ujednolicenie zaleceń (sen, farmakoterapia, terapia SI poza placówką)",
+     "Koordynator, za zgodą rodzica",
+     "w razie potrzeby"
+    ],
+    [
+     "Instytucje wspierające rodzinę",
+     "PCPR, OPS, organizacje pozarządowe – informacja i pośrednictwo",
+     "Pedagog",
+     "w razie potrzeby"
+    ]
+   ]
+  },
+  "law": "§ 6 ust. 1 pkt 4 i 6 rozp. o kształceniu specjalnym · rozp. o PPP (informowanie rodziców)"
+ },
+ "s16": {
+  "title": "Terminy okresowej oceny efektywności programu",
+  "lead": "Ocena efektywności obejmuje cele z sekcji 9, wymiar zajęć (sekcja 13) i zasadność wsparcia dodatkowej osoby (sekcja 14). Rodzic uczestniczy w każdej ocenie i otrzymuje jej kopię.",
+  "rows": [
+   [
+    "Wrzesień 2026",
+    "Ocena wstępna i pogłębiona – niniejszy raport",
+    "KPOF/KSzOF, ABC, profil sensoryczny, mowa, ToM",
+    "Zespół, koordynator",
+    "wykonano"
+   ],
+   [
+    "Na bieżąco (co miesiąc)",
+    "Monitoring: rejestr ABC, słownik AAC, postępy w celach",
+    "Rejestr ABC, karta postępów w EduPlaner 2026",
+    "Koordynator, dodatkowa osoba",
+    "w trakcie"
+   ],
+   [
+    "Styczeń 2027",
+    "Ocena śródroczna (WOPF) – modyfikacja celów i wymiaru zajęć, decyzja o kontynuacji SI",
+    "KPOF/KSzOF (wybrane domeny), ABC, obserwacja",
+    "Zespół z udziałem rodzica",
+    "planowane"
+   ],
+   [
+    "Czerwiec 2027",
+    "Ocena końcoworoczna – efektywność programu, wnioski do IPET na kolejny rok, ocena zasadności dodatkowej osoby",
+    "Pełny KPOF/KSzOF, arkusze, opinia rodzica i dziecka („Mój głos”)",
+    "Zespół z udziałem rodzica",
+    "planowane"
+   ],
+   [
+    "Wrzesień 2027",
+    "Aktualizacja raportu oceny funkcjonalnej",
+    "zgodnie z § 7 ust. 6 i 7",
+    "Zespół",
+    "planowane"
+   ]
+  ],
+  "law": "§ 6 ust. 9 rozp. o kształceniu specjalnym (okresowa WOPF co najmniej 2 × w roku, ocena efektywności)"
+ },
+ "prawo": {
+  "title": "Podstawy prawne dokumentu",
+  "lead": "Raport łączy trzy obowiązki placówki: opinię dla zespołu orzekającego poradni (Część I–II), wielospecjalistyczną ocenę poziomu funkcjonowania (Część II) oraz elementy indywidualnego programu edukacyjno-terapeutycznego (Część III). Każda sekcja raportu wskazuje przepis, z którego wynika.",
+  "rows": [
+   [
+    "Rozporządzenie Ministra Edukacji z 2 marca 2026 r. w sprawie orzeczeń i opinii wydawanych przez zespoły orzekające w publicznych poradniach psychologiczno-pedagogicznych",
+    "Dz. U. z 2026 r. poz. 428",
+    "§ 7 ust. 6–7 (od 1.09.2026): struktura opinii przedszkola/szkoły dla zespołu orzekającego – odrębne obszary ICF dla przedszkola i szkoły; opinia przekazywana rodzicowi.",
+    "sekcje 1–10"
+   ],
+   [
+    "Ustawa z 14 grudnia 2016 r. – Prawo oświatowe",
+    "Dz. U. z 2024 r. poz. 737 ze zm.",
+    "art. 127: kształcenie specjalne, IPET, wielospecjalistyczna ocena poziomu funkcjonowania, udział rodziców w pracach zespołu.",
+    "Część II–III"
+   ],
+   [
+    "Rozporządzenie MEN z 9 sierpnia 2017 r. w sprawie warunków organizowania kształcenia, wychowania i opieki dla dzieci i młodzieży niepełnosprawnych (kształcenie specjalne)",
+    "Dz. U. z 2020 r. poz. 1309",
+    "§ 6 ust. 1 pkt 1–8: treść IPET – dostosowanie programu, zintegrowane działania, formy i okres PPP, wsparcie rodziców i współdziałanie z poradniami, rewalidacja, współpraca z rodzicami, organizacja kształcenia i technologie; § 6 ust. 9–10: okresowa WOPF i ocena efektywności; § 7: dodatkowa osoba.",
+    "sekcje 4, 8–16"
+   ],
+   [
+    "Rozporządzenie MEN z 9 sierpnia 2017 r. w sprawie zasad organizacji i udzielania pomocy psychologiczno-pedagogicznej",
+    "Dz. U. z 2023 r. poz. 1798",
+    "Formy pomocy (logopedyczne, korekcyjno-kompensacyjne, emocjonalno-społeczne, inne specjalistyczne, porady i konsultacje); godzina zajęć 45 min; informowanie rodziców o formach, okresie i wymiarze.",
+    "sekcje 13 B, 15"
+   ],
+   [
+    "Rozporządzenie MEN z 14 lutego 2017 r. w sprawie podstawy programowej wychowania przedszkolnego oraz kształcenia ogólnego",
+    "Dz. U. z 2017 r. poz. 356 ze zm.",
+    "Cele i treści, które są dostosowywane (nie obniżane) w programie wsparcia.",
+    "sekcja 11 A"
+   ],
+   [
+    "ICF – Międzynarodowa Klasyfikacja Funkcjonowania, Niepełnosprawności i Zdrowia (WHO) · model oceny funkcjonalnej 2026/27",
+    "ramy merytoryczne",
+    "Domeny d1–d9, czynniki środowiskowe i osobowe; narzędzia KPOF (przedszkole) / KSzOF (szkoła); głos dziecka.",
+    "sekcje 2–7, 9"
+   ],
+   [
+    "RODO – rozporządzenie (UE) 2016/679",
+    "Dz. Urz. UE L 119",
+    "art. 9: dane o zdrowiu – dokument poufny, udostępniany rodzicowi i poradni za zgodą rodzica.",
+    "cały dokument"
+   ]
+  ],
+  "jakczytac": [
+   [
+    "I",
+    "Obserwujemy",
+    "sekcje 1–3: kto, kiedy, jakimi narzędziami"
+   ],
+   [
+    "II",
+    "Opisujemy wyniki",
+    "sekcje 4–9: funkcjonowanie, liczby, arkusze, głos dziecka, analiza"
+   ],
+   [
+    "II",
+    "Decydujemy",
+    "sekcja 10: Zespół ustala poziom wsparcia"
+   ],
+   [
+    "III",
+    "Planujemy wsparcie",
+    "sekcje 11–15: program, zajęcia, osoby, rodzice, poradnia"
+   ],
+   [
+    "III",
+    "Sprawdzamy efekty",
+    "sekcja 16: terminy oceny i podpisy"
+   ]
+  ]
+ }
 }

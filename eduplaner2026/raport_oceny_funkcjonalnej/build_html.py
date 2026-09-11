@@ -38,6 +38,17 @@ EXTRA_CSS = '''
   .ref-pill{display:inline-block;font-size:9px;font-weight:800;color:var(--orange);background:var(--orangeMist);padding:2px 7px;border-radius:4px;white-space:nowrap}
   .signbox{border:1px dashed var(--line);border-radius:8px;padding:8px 12px;font-size:10.5px;color:var(--muted);margin-top:8px}
   .signbox b{color:var(--purple)}
+  table.grid.small td{font-size:9.6px;padding:6px 8px;line-height:1.4} table.grid.small th{padding:6px 8px}
+  table.grid.tight td{padding:6px 9px}
+  .hours.tight .stat{padding:6px 10px}
+  .lawref{display:inline-block;font-size:9px;font-weight:700;color:var(--purple);background:var(--lav);border-radius:4px;padding:3px 9px;margin:-6px 0 10px}
+  table.grid td.act{font-weight:800;color:var(--purple)} table.grid td.dz{white-space:nowrap;color:var(--orange);font-weight:800;font-size:9.5px}
+  .flow5{display:grid;grid-template-columns:repeat(5,1fr);gap:8px;margin:8px 0 12px}
+  .flow5 > div{border:1px solid var(--line);border-radius:8px;padding:8px 10px;position:relative}
+  .flow5 .p{font-size:8px;font-weight:800;letter-spacing:.12em;color:var(--orange)}
+  .flow5 h4{margin:2px 0 2px;font-size:11px;color:var(--purple);font-weight:800}
+  .flow5 p{margin:0;font-size:9.5px;color:var(--muted);line-height:1.35}
+  .flow5 > div:not(:last-child)::after{content:"›";position:absolute;right:-8px;top:36%;color:var(--orange);font-weight:800;background:#fff}
 '''
 
 pages = []  # list of (name, inner_html)
@@ -52,7 +63,7 @@ def hdr(cap):
     <div class="field"><label>Data</label><span></span><i class="r">r.</i></div>
   </div>
 '''
-def sec(n, title): return f'  <div class="sec"><span class="n">{n}</span><h2>{title}</h2></div>\n'
+def sec(n, title, law=None): return f'  <div class="sec"><span class="n">{n}</span><h2>{title}</h2></div>\n'+(f'  <div class="lawref">§ Podstawa prawna: {law}</div>\n' if law else '')
 def sub(tag, title, note='', color='var(--orange)'):
     return f'  <div class="sub9" style="--c:{color}"><span class="tag9">{tag}</span><h3>{title}</h3>{"<small>· "+note+"</small>" if note else ""}</div>\n'
 def lead(ref, text): return f'  <p class="lead2">{("<b>"+ref+"</b> ") if ref else ""}{text}</p>\n'
@@ -71,13 +82,13 @@ def band(part, h, sub_):
 
 # ---------- 4 ----------
 s=D['s4']; b=band('II','Wyniki oceny funkcjonalnej','obserwacja w placówce · wyniki liczbowe · arkusze specjalistyczne · głos dziecka · analiza · decyzja Zespołu')
-b+=sec(4,s['title'])+lead(s['ref'],s['lead'])
+b+=sec(4, s['title'], s.get('law'))+lead(s['ref'],s['lead'])
 b+='  <table class="grid">\n    <tr><th>Obszar obserwacji</th><th class="plus">✓ Mocne strony, zasoby i uzdolnienia</th><th class="minus">▸ Trudności, ograniczenia i bariery</th></tr>\n'
 b+=''.join(f'    <tr><td class="area">{a}</td><td class="plus">{x}</td><td class="minus">{y}</td></tr>\n' for a,x,y in s['rows'])+'  </table>\n'
 page('Funkcjonowanie','Część II · Funkcjonowanie w placówce',b)
 
 # ---------- 5 ----------
-s=D['s5']; b=sec(5,s['title'])+lead(s['ref'],s['lead'])
+s=D['s5']; b=sec(5, s['title'], s.get('law'))+lead(s['ref'],s['lead'])
 b+='''  <div class="switch">
     <span class="t">Narzędzie bazowe</span>
     <label><input type="radio" name="tool" value="kpof"> Przedszkole · KPOF <small>· bez stenów</small></label>
@@ -102,14 +113,14 @@ b+=f'''  </table>
 page('Wyniki liczbowe','Część II · Wyniki liczbowe',b,'kszof','sek5')
 
 # ---------- 6 ----------
-s=D['s6']; b=sec(6,s['title'])
+s=D['s6']; b=sec(6, s['title'], s.get('law'))
 for c,t,parts,rec in s['cards']:
     txt=''.join((f'<b>{x}</b>' if bold else x) for x,bold in parts)
     b+=f'  <div class="res" style="--c:var(--{c})"><h4>{t}</h4><p>{txt}</p>'+(f'<div class="rec"><b>Zalecenie:</b> {rec}</div>' if rec else '')+'</div>\n'
 page('Wyniki arkuszy','Część II · Wyniki arkuszy specjalistycznych',b)
 
 # ---------- 7 Mój głos ----------
-s=D['s7']; b=sec(7,s['title'])+lead('',s['lead'])
+s=D['s7']; b=sec(7, s['title'], s.get('law'))+lead('',s['lead'])
 b+='  <div class="lbl" style="font-size:8.5px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:var(--purple)">Sposób pozyskania głosu dziecka – zaznaczono</div>\n  <div class="cbl">'+''.join(f'<span>{cb(on)}{t}</span>' for t,on in s['sposoby'])+'</div>\n'
 b+='  <div class="voice">\n'+''.join(f'    <div class="box{" wide" if i==3 else ""}" style="--c:var(--{c})"><div class="lbl">{t}</div><p>{v}</p></div>\n' for i,(c,t,v) in enumerate(s['pola']))+'  </div>\n'
 b+='  <div class="lbl" style="font-size:8.5px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:var(--purple)">Co mi najbardziej pomaga – zaznaczono</div>\n  <div class="cbl">'+''.join(f'<span>{cb(on)}{t}</span>' for t,on in s['pomaga'])+'</div>\n'
@@ -120,7 +131,7 @@ b+=f'  <p class="stnote"><b>Podstawa.</b> {s["podstawa"]}</p>\n'
 page('Mój głos','Część II · Mój głos',b)
 
 # ---------- 8 ----------
-s=D['s8']; b=sec(8,s['title'])+lead(s['ref'],s['lead'])
+s=D['s8']; b=sec(8, s['title'], s.get('law'))+lead(s['ref'],s['lead'])
 b+='  <table class="grid">\n    <tr><th>Rodzaj wsparcia</th><th>Zakres wdrożonych działań i metody</th><th class="plus">Efektywność i obserwowane zmiany</th></tr>\n'
 b+=''.join(f'    <tr><td class="area">{a}</td><td>{x}</td><td class="plus">{y}</td></tr>\n' for a,x,y in s['rows'])+'  </table>\n'
 b+='  <div class="parent"><b>Informacja dla rodzica.</b> Wyniki z sekcji 4–8 są podstawą analizy (sekcja 9) i decyzji Zespołu o poziomie wsparcia (sekcja 10). Część III opisuje, jak placówka zorganizuje wsparcie w tym roku szkolnym.</div>\n'
@@ -130,11 +141,11 @@ page('Podjęte działania','Część II · Działania dotychczas podjęte',b)
 s=D['s9']
 thead='  <table class="grid">\n    <tr><th>Domena ICF</th><th>Opis funkcjonowania i bariery</th><th style="color:var(--orange)">Kierunki pracy w IPE (metody / dostosowania)</th></tr>\n'
 def rows9(sel): return ''.join(f'    <tr><td class="area">{n}<br><span style="color:var(--orange);font-size:9px">{k}</span></td><td>{d}</td><td><ul>'+''.join(f'<li>{x}</li>' for x in r)+'</ul></td></tr>\n' for k,n,d,r in sel)
-page('Analiza d1–d5','Część II · Analiza jakościowa', sec(9,s['title'])+lead('',s['lead'])+thead+rows9(s['rows'][:5])+'  </table>\n')
+page('Analiza d1–d5','Część II · Analiza jakościowa', sec(9, s['title'], s.get('law'))+lead('',s['lead'])+thead+rows9(s['rows'][:5])+'  </table>\n')
 page('Analiza d6–d9','Część II · Analiza jakościowa · cd.', sec(9,s['title']+' · cd.')+thead+rows9(s['rows'][5:])+'  </table>\n')
 
 # ---------- 10 decyzja ----------
-s=D['s10']; b=sec(10,s['title'])+lead('',s['lead'])
+s=D['s10']; b=sec(10, s['title'], s.get('law'))+lead('',s['lead'])
 b+='  <div class="lvlbox">\n'+''.join(f'    <div class="{"sel" if on else ""}">{cb(on)}<div><h4>{t}</h4><p>{d}</p></div></div>\n' for k,t,d,on in s['poziomy'])+'  </div>\n'
 b+=f'  <div class="box" style="--c:var(--orange)"><div class="lbl">Uzasadnienie decyzji Zespołu</div><p class="just" style="margin:0">{s["uzasadnienie"]}</p></div>\n'
 b+='  <div class="kv">'+''.join(f'<div><div class="l">{k}</div><div class="v">{v}</div></div>' for k,v in s['wymiar'])+'</div>\n'
@@ -146,7 +157,7 @@ s=D['s11']
 def kvtable(rows, c1='Zakres', c2='Sposób dostosowania'):
     return f'  <table class="grid">\n    <tr><th style="width:24%">{c1}</th><th>{c2}</th></tr>\n'+''.join(f'    <tr><td class="area">{a}</td><td>{x}</td></tr>\n' for a,x in rows)+'  </table>\n'
 b=band('III','Program wsparcia i organizacja','dostosowania · zintegrowane działania · zajęcia · dodatkowa osoba · rodzice i poradnia · ocena efektywności')
-b+=sec(11,s['title'])+lead('',s['lead'].replace('☐',cb()))
+b+=sec(11, s['title'], s.get('law'))+lead('',s['lead'].replace('☐',cb()))
 b+=sub('A',s['A']['title'])+kvtable(s['A']['rows'])
 page('Dostosowanie programu','Część III · Dostosowanie programu',b)
 b=sub('B',s['B']['title'],'',"var(--blue)")+kvtable(s['B']['rows'],'Obszar organizacji','Sposób dostosowania')
@@ -154,25 +165,25 @@ b+=sub('C',s['C']['title'],'',"var(--purple)")+kvtable(s['C']['rows'],'Obszar','
 page('Organizacja i technologie','Część III · Organizacja i technologie',b)
 
 # ---------- 12 ----------
-s=D['s12']; b=sec(12,s['title'])+lead('',s['lead'])
+s=D['s12']; b=sec(12, s['title'], s.get('law'))+lead('',s['lead'])
 b+='  <table class="grid">\n    <tr><th style="width:18%">Wspólny cel</th><th>Nauczyciel / wychowawca (codziennie w grupie)</th><th>Specjaliści (zajęcia)</th><th style="width:20%">Sposób koordynacji</th></tr>\n'
 b+=''.join(f'    <tr><td class="area">{a}</td><td>{x}</td><td>{y}</td><td>{z}</td></tr>\n' for a,x,y,z in s['rows'])+'  </table>\n'
 b+=f'  <div class="note" style="margin-top:10px"><b>Koordynacja.</b> {s["koordynacja"]}</div>\n'
 page('Zintegrowane działania','Część III · Zintegrowane działania',b)
 
 # ---------- 13 (2 strony: A+B | C) ----------
-s=D['s13']; b=sec(13,s['title'])+lead('',s['lead']+' <i>Uwaga: '+s['uwaga']+'</i>')
-b+=f'''  <div class="hours">
+s=D['s13']; b=sec(13, s['title'], s.get('law'))+lead('',s['lead']+' <i>Uwaga: '+s['uwaga']+'</i>')
+b+=f'''  <div class="hours tight">
     <div class="stat"><div class="l">A · Zajęcia rewalidacyjne · razem</div><div class="v">{s['sumRew'][0]} <small>= {s['sumRew'][1]} · {s['sumRew'][2]}</small></div></div>
     <div class="stat b"><div class="l">B · Pomoc psychologiczno-pedagogiczna · razem</div><div class="v">{s['sumPpp'][0]} <small>= {s['sumPpp'][1]} · {s['sumPpp'][2]}</small></div></div>
   </div>
 '''
 b+=sub('A','Zajęcia rewalidacyjne przydzielone dziecku / uczniowi','kształcenie specjalne · na podstawie orzeczenia')
-b+='  <table class="grid rew">\n    <tr><th style="width:31%">Rodzaj zajęć</th><th style="width:29%">Zakres / cel</th><th style="width:15%">Prowadzący</th><th style="width:12%">Forma</th><th>Wymiar tyg.</th></tr>\n'
+b+='  <table class="grid rew tight">\n    <tr><th style="width:31%">Rodzaj zajęć</th><th style="width:29%">Zakres / cel</th><th style="width:15%">Prowadzący</th><th style="width:12%">Forma</th><th>Wymiar tyg.</th></tr>\n'
 b+=''.join(f'    <tr><td class="area">{r[0]}</td><td>{r[1]}</td><td style="color:var(--purple);font-weight:700">{r[2]}</td><td>{r[3]}</td><td class="time">{r[4]}<small>{r[5]}</small></td></tr>\n' for r in s['rew'])
 b+=f'    <tr class="sum"><td colspan="4">Razem zajęcia rewalidacyjne</td><td class="time">{s["sumRew"][0]}<small>{s["sumRew"][1]}</small></td></tr>\n  </table>\n'
 b+=sub('B','Zajęcia z zakresu pomocy psychologiczno-pedagogicznej','forma · czas · termin · okres udzielania · miejsce',"var(--blue)")
-b+='  <table class="grid ppp">\n    <tr><th style="width:24%">Forma pomocy</th><th style="width:22%">Cel</th><th style="width:13%">Prowadzący</th><th style="width:15%">Forma i miejsce</th><th style="width:14%">Czas i termin</th><th>Okres udzielania</th></tr>\n'
+b+='  <table class="grid ppp tight">\n    <tr><th style="width:24%">Forma pomocy</th><th style="width:22%">Cel</th><th style="width:13%">Prowadzący</th><th style="width:15%">Forma i miejsce</th><th style="width:14%">Czas i termin</th><th>Okres udzielania</th></tr>\n'
 b+=''.join(f'    <tr><td class="area">{r[0]}</td><td>{r[1]}</td><td style="color:var(--purple);font-weight:700">{r[2]}</td><td>{r[3]}</td><td class="time" style="white-space:normal">{r[4]}</td><td>{r[5]}</td></tr>\n' for r in s['ppp'])
 b+=f'    <tr class="sum"><td colspan="5">Razem pomoc psychologiczno-pedagogiczna</td><td class="time">{s["sumPpp"][0]}<small>{s["sumPpp"][1]}</small></td></tr>\n  </table>\n'
 page('Zajęcia','Część III · Zajęcia: rewalidacja i PPP',b)
@@ -183,7 +194,7 @@ b+=''.join(f'    <tr><td class="code">{i+1}</td><td><b>{a}</b></td><td>{x}</td><
 page('Zalecenia poradni','Część III · Realizacja zaleceń poradni',b)
 
 # ---------- 14 ----------
-s=D['s14']; b=sec(14,s['title'])
+s=D['s14']; b=sec(14, s['title'], s.get('law'))
 b+='  <div class="cbl" style="grid-template-columns:1fr 1fr 1fr">'+''.join(f'<span>{cb(on)}<b>{t}</b></span>' for t,on in s['rodzaj'])+'</div>\n'
 b+='  <div class="kv" style="grid-template-columns:1fr 2fr"><div><div class="l">Wymiar i sytuacje</div><div class="v">'+s['wymiar']+'</div></div><div><div class="l">Podstawa prawna i formalna</div><div class="v" style="font-weight:600">'+s['podstawa']+'</div></div></div>\n'
 b+=f'  <div class="box" style="--c:var(--orange)"><div class="lbl">Uzasadnienie wynikające z oceny funkcjonalnej</div><p class="just" style="margin:0">{s["uzasadnienie"]}</p></div>\n'
@@ -192,7 +203,7 @@ b+=f'  <div class="note" style="margin-top:10px"><b>Ocena zasadności.</b> {s["o
 page('Dodatkowa osoba','Część III · Dodatkowa osoba',b)
 
 # ---------- 15 ----------
-s=D['s15']; b=sec(15,s['title'])
+s=D['s15']; b=sec(15, s['title'], s.get('law'))
 b+=sub('A',s['A']['title'])+'  <table class="grid">\n    <tr><th style="width:22%">Forma współpracy</th><th>Zakres</th><th style="width:20%">Odpowiedzialny</th><th style="width:20%">Częstotliwość</th></tr>\n'
 b+=''.join(f'    <tr><td class="area">{a}</td><td>{x}</td><td style="color:var(--purple);font-weight:700">{y}</td><td>{z}</td></tr>\n' for a,x,y,z in s['A']['rows'])+'  </table>\n'
 b+=sub('B',s['B']['title'],'',"var(--green)")+'  <div class="box" style="--c:var(--green)"><ul class="tick" style="margin:0">'+''.join(f'<li>{x}</li>' for x in s['B']['items'])+'</ul></div>\n'
@@ -201,7 +212,7 @@ b+=''.join(f'    <tr><td class="area">{a}</td><td>{x}</td><td style="color:var(-
 page('Rodzice i poradnia','Część III · Współpraca z rodzicami i poradnią',b)
 
 # ---------- 16 + podpisy ----------
-s=D['s16']; b=sec(16,s['title'])+lead('',s['lead'])
+s=D['s16']; b=sec(16, s['title'], s.get('law'))+lead('',s['lead'])
 stc={'wykonano':'done','w trakcie':'now','planowane':'plan'}
 b+='  <table class="grid">\n    <tr><th style="width:16%">Termin</th><th>Zakres oceny</th><th style="width:24%">Narzędzia</th><th style="width:16%">Odpowiedzialny</th><th style="width:11%">Status</th></tr>\n'
 b+=''.join(f'    <tr><td class="area">{a}</td><td>{x}</td><td>{y}</td><td>{z}</td><td><span class="status-pill {stc[st]}">{st}</span></td></tr>\n' for a,x,y,z,st in s['rows'])+'  </table>\n'
@@ -215,17 +226,30 @@ b+='''  <div class="parent" style="margin-top:12px"><b>Informacja dla rodzica.</
 '''
 page('Ocena efektywności i podpisy','Część III · Ocena efektywności · podpisy',b)
 
+# ---------- strona 2: podstawy prawne + jak czytać ----------
+pr=D['prawo']
+lp='<section class="page">\n'+hdr('Podstawy prawne i jak czytać raport')+'''
+  <div class="sec"><span class="n">§</span><h2>'''+pr['title']+'''</h2></div>
+  <p class="lead2">'''+pr['lead']+'''</p>
+  <table class="grid small">
+    <tr><th style="width:30%">Akt prawny</th><th style="width:11%">Publikacja</th><th>Zakres zastosowania w raporcie</th><th style="width:12%">Sekcje</th></tr>
+'''+''.join(f'    <tr><td class="act">{a}</td><td class="dz">{b}</td><td>{c}</td><td><span class="ref-pill">{d}</span></td></tr>\n' for a,b,c,d in pr['rows'])+'''  </table>
+  <div class="sub9" style="--c:var(--purple);margin-top:12px"><span class="tag9">?</span><h3>Jak czytać ten raport</h3><small>· pięć kroków od obserwacji do oceny efektów · Część I–II = opinia dla rodzica i poradni, Część III = organizacja wsparcia</small></div>
+  <div class="flow5">'''+''.join(f'<div><div class="p">CZĘŚĆ {p}</div><h4>{h}</h4><p>{t}</p></div>' for p,h,t in pr['jakczytac'])+'''</div>
+'''
 # ---------- składanie ----------
-TOTAL = 3 + len(pages)
+TOTAL = 4 + len(pages)
 toc = D['toc']
 tochtml = '  <div class="toc">\n    <h5>'+toc['I']['title']+'</h5>\n'+''.join(f'    <div><div class="k">{n}</div><h4>{t}</h4><p>{d}</p></div>\n' for n,t,d in toc['I']['items'])+'  </div>\n'
 for part in ('II','III'):
     tochtml += f'  <div class="toc" style="grid-template-columns:repeat(7,1fr);margin-top:8px">\n    <h5>{toc[part]["title"]}</h5>\n'
     tochtml += ''.join(f'    <div style="padding:7px 8px 6px"><div class="k" style="font-size:16px">{n}</div><h4 style="font-size:9.5px;margin:3px 0 0">{t}</h4></div>\n' for n,t in toc[part]['items'])+'  </div>\n'
-p1 = P1.replace('{{TOTAL}}', str(TOTAL)).replace('{{TOC}}\n', tochtml)
+p1 = P1.replace('{{TOTAL}}', str(TOTAL)).replace('{{TOC}}\n', tochtml).replace('Strona <b>3</b> z','Strona <b>4</b> z').replace('Strona <b>2</b> z','Strona <b>3</b> z')
+cut = p1.index('<!-- ======================= STRONA 2')
+p1 = p1[:cut] + lp + f'  <div class="footer"><span>EduPlaner 2026 · PCTP</span><span>Strona <b>2</b> z {TOTAL} · Podstawy prawne</span></div>\n</section>\n\n' + p1[cut:]
 body = p1
 for i,(name,inner) in enumerate(pages):
-    n = 4+i
+    n = 5+i
     body += inner + f'  <div class="footer"><span>EduPlaner 2026 · PCTP</span><span>Strona <b>{n}</b> z {TOTAL} · {name}</span></div>\n</section>\n\n'
 
 JS='''<script>
@@ -250,7 +274,7 @@ HEAD = '''<!doctype html>
 <style>
 '''
 css = CSS.replace('\n  @media screen and (max-width:760px){', EXTRA_CSS+'\n  @media screen and (max-width:760px){',1)
-css = css.replace('.fields,.team ol,.tools,.flow,.toc,.stats,.hours{grid-template-columns:1fr}','.fields,.team ol,.tools,.flow,.toc,.stats,.hours,.voice,.lvlbox,.kv,.cbl{grid-template-columns:1fr !important}')
+css = css.replace('.fields,.team ol,.tools,.flow,.toc,.stats,.hours{grid-template-columns:1fr}','.fields,.team ol,.tools,.flow,.toc,.stats,.hours,.voice,.lvlbox,.kv,.cbl,.flow5{grid-template-columns:1fr !important}')
 out = HEAD+css+'\n</style>\n</head>\n<body>\n\n'+body+JS+'\n</body>\n</html>\n'
 open('Raport_Oceny_Funkcjonalnej.html','w',encoding='utf-8').write(out)
 print('pages', TOTAL)
