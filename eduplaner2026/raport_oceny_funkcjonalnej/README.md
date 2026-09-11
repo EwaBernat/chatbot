@@ -3,12 +3,14 @@
 Wzór opinii przedszkola/szkoły o funkcjonowaniu dziecka w obszarach ICF, przygotowany
 dla rodzica i zespołu orzekającego poradni (Rozp. MEN z 2 marca 2026 r., Dz. U. 2026 poz. 428, § 7 ust. 6–7).
 
-Styl graficzny wg wzoru IPET EduPlaner 2026: biały papier, lawendowe pola `#EFE9F9`, cienkie linie `#D9D0F0`, fiolet `#2D1B69` tylko w akcentach, pomarańczowe plakietki `#E74509`, tytuł wyśrodkowany. A4, czcionka treści min. 12 pt, druk ciągły z numeracją stron w marginesie; ok. 25 stron PDF / 31 stron Word, w tym załącznik „Opinia o funkcjonowaniu dziecka / ucznia” dla poradni: Część I (okładka · metryczka i procedura · narzędzia) oraz Część II (funkcjonowanie w placówce · wyniki liczbowe KPOF/KSzOF w 9 domenach ICF · analiza jakościowa d1–d9 i zalecenia do IPE · wyniki arkuszy ABC, sensorycznego, biopsychospołecznego, mowy i ToM · podjęte działania · zalecenia z poradni: A) rewalidacja, B) pomoc psychologiczno-pedagogiczna z wymiarem godzin, C) pozostałe zalecenia i sposoby realizacji · podpisy). Część II zawiera przykładowe wyniki do nadpisania.
+Styl graficzny wg wzoru IPET EduPlaner 2026: biały papier, lawendowe pola `#EFE9F9`, cienkie linie `#D9D0F0`, fiolet `#2D1B69` tylko w akcentach, pomarańczowe plakietki `#E74509`, tytuł wyśrodkowany. A4, czcionka treści 11 pt (jednolita), druk ciągły bez pustych stron, numeracja w marginesie; trzy rodzaje dokumentu × trzy edycje w roku; w raporcie pełnym i z oceny załącznik „Opinia o funkcjonowaniu dziecka / ucznia” dla poradni: Część I (okładka · metryczka i procedura · narzędzia) oraz Część II (funkcjonowanie w placówce · wyniki liczbowe KPOF/KSzOF w 9 domenach ICF · analiza jakościowa d1–d9 i zalecenia do IPE · wyniki arkuszy ABC, sensorycznego, biopsychospołecznego, mowy i ToM · podjęte działania · zalecenia z poradni: A) rewalidacja, B) pomoc psychologiczno-pedagogiczna z wymiarem godzin, C) pozostałe zalecenia i sposoby realizacji · podpisy). Część II zawiera przykładowe wyniki do nadpisania.
 
 | Plik | Przeznaczenie |
 |---|---|
 | `Raport_Oceny_Funkcjonalnej.html` | wersja do aplikacji EduPlaner 2026 (ekran + druk A4, responsywna na telefon) |
-| `Raport_Oceny_Funkcjonalnej.pdf` | gotowy wydruk / wysyłka dla rodzica |
+| `Raport_Oceny_Funkcjonalnej.pdf` | raport całościowy (ocena + IPET + opinia) – ok. 31 stron |
+| `Raport_Ocena_Funkcjonalna_WOPF.pdf` / `.docx` | tylko ocena funkcjonalna: Część I–II + opinia dla poradni |
+| `Raport_IPET.pdf` / `.docx` | tylko program: decyzja Zespołu + Część III |
 | `Raport_Oceny_Funkcjonalnej.docx` | wersja edytowalna Word (Arial, nagłówek i stopka z paginacją) |
 | `Opinia_dla_poradni.docx` | sama opinia dla zespołu orzekającego (5 stron, czysty druk bez brandowania) – `node generate_raport_docx.js --opinia Opinia_dla_poradni.docx` |
 | `raport_data.json` | **jedno źródło treści** sekcji 4–16 (przykładowe dane do nadpisania) |
@@ -35,3 +37,7 @@ Część I: 1 metryczka · 2 obserwacja wstępna · 3 narzędzia. Część II: 4
 ## Opinia dla poradni (załącznik) – wg § 7 ust. 6–7 rozp. ME z 2.03.2026 (Dz. U. 2026 poz. 428)
 
 1 data wydania i dane dziecka · 2 podstawa opinii (obserwacje i działania diagnostyczne w placówce) · 3 informacja o funkcjonowaniu – trudności, mocne strony, uzdolnienia w obszarach ICF (A przedszkole 5, B uczeń 7) · 4 trudności w realizacji programu · 5 załączniki (WOPF / okresowa ocena) · 6 działania, formy i zakres pomocy, okres, efekty · 7 wnioski do dalszej pracy · 8 fakultatywnie: informacje dla oceny zespołu (§ 8: funkcje ciała, bariery i ułatwienia, głos dziecka i rodziców, stanowisko placówki) · 9 podpisy i potwierdzenie kopii dla rodziców. Nagłówki bez reklamy – tylko nazwa placówki.
+
+## Edycje w roku szkolnym i rodzaje dokumentu
+
+Na okładce tabelka do zaznaczenia edycji: **01 wrzesień** (raport podstawowy „na start”), **02 styczeń** (ocena działań), **03 czerwiec** (ocena końcoworoczna efektów i stanu funkcjonowania). Trzy rodzaje dokumentu: całościowy, sama ocena funkcjonalna (WOPF + opinia), sam IPET. HTML: przełącznik „Rodzaj dokumentu” i „Edycja” u góry (także przez `#tryb=ocena&ed=02`). Word: `node generate_raport_docx.js --tryb=ocena|ipet`. PDF: Chromium z `#tryb=...` w adresie.

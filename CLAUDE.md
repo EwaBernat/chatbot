@@ -34,7 +34,8 @@ Pliki raportów: `eduplaner2026/raport_oceny_funkcjonalnej/`. **Jedno źródło 
 
 ## Czytelność
 
-- **Czcionka treści minimum 12 pt** (HTML/PDF: 16 px dla akapitów, tabel, list; Word: 24 half-points). Etykiety, nagłówki tabel i noty minimum 9–10 pt (HTML ≥ 12 px, Word ≥ 18–20 half-points). Autorka wielokrotnie prosiła o większą czcionkę – w razie wątpliwości powiększać, nie zmniejszać.
+- **Czcionka treści 11 pt, jednolita** (HTML/PDF 15 px dla akapitów, tabel, list; Word 22 half-points; etykiety 18, nagłówki sekcji 26). 12 pt rozjeżdżało układ – autorka wybrała 11 pt z równym, czytelnym składem. Nie mieszać rozmiarów w treści.
+- **Trzy edycje w roku i trzy rodzaje dokumentu:** tabelka edycji na okładce (01 wrzesień – start, 02 styczeń – ocena działań, 03 czerwiec – ocena końcowa); rodzaje: całościowy, sama ocena funkcjonalna (Część I–II + opinia), sam IPET (sekcja 10 + Część III). HTML ma przełączniki, Word `--tryb=`, PDF przez `#tryb=`.
 - **Druk ciągły bez pustych stron:** sekcje płyną jedna po drugiej; nowa strona tylko po okładce, na początku Części II i III (PDF) i przed załącznikiem z opinią. Kontekst strony (placówka, dziecko) w marginesie: PDF przez `@page` margin boxes (Chromium), Word przez nagłówek sekcji. Numer strony liczy przeglądarka / Word.
 - **Jednolita czcionka w Wordzie:** treść i tabele 24 half-points (12 pt), etykiety 20 (10 pt), nagłówki sekcji 28 (14 pt); nie mieszać rozmiarów w treści.
 

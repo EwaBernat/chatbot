@@ -1600,5 +1600,46 @@
    "dyrektor": "Dyrektor przedszkola / szkoły",
    "kopia": "Kopię opinii przekazano rodzicom / pełnoletniemu uczniowi (§ 7 ust. 5) dnia ……………… · podpis rodzica / ucznia: ………………………………"
   }
+ },
+ "edycje": {
+  "title": "Edycja raportu w roku szkolnym – zaznaczyć właściwą",
+  "lead": "Raport sporządza się trzy razy w roku szkolnym. Edycja 01 jest podstawowa: ustala punkt wyjścia i program. Edycje 02 i 03 oceniają podjęte działania i stan funkcjonowania dziecka.",
+  "items": [
+   [
+    "01",
+    "Wrzesień",
+    "Raport podstawowy „na start”",
+    "pełna ocena funkcjonalna (obserwacja wstępna i pogłębiona), głos dziecka, decyzja Zespołu o poziomie wsparcia, ustalenie IPET i wymiaru zajęć"
+   ],
+   [
+    "02",
+    "Styczeń",
+    "Raport śródroczny – ocena działań",
+    "ocena podjętych działań i efektów pomocy, WOPF w wybranych domenach, aktualizacja celów, zajęć i wymiaru wsparcia, decyzja o kontynuacji"
+   ],
+   [
+    "03",
+    "Czerwiec",
+    "Raport końcoworoczny – ocena efektów i stanu funkcjonowania",
+    "pełna WOPF, ocena efektywności programu i zasadności dodatkowej osoby, wnioski do IPET na kolejny rok, opinia dla poradni jeśli potrzebna"
+   ]
+  ]
+ },
+ "tryby": {
+  "pelny": {
+   "title": "Ocena Funkcjonalna",
+   "sub": "Raport – podsumowanie WOPF i IPET · obszary ICF",
+   "opis": "raport całościowy: ocena funkcjonalna + program wsparcia (IPET) + opinia dla poradni"
+  },
+  "ocena": {
+   "title": "Ocena Funkcjonalna",
+   "sub": "Raport z wielospecjalistycznej oceny poziomu funkcjonowania (WOPF) · obszary ICF",
+   "opis": "tylko ocena: Część I–II (sekcje 1–10) + opinia dla poradni"
+  },
+  "ipet": {
+   "title": "Indywidualny Program Edukacyjno-Terapeutyczny",
+   "sub": "IPET – program wsparcia na podstawie oceny funkcjonalnej",
+   "opis": "tylko program: decyzja Zespołu (sekcja 10) + Część III (sekcje 11–16)"
+  }
  }
 }

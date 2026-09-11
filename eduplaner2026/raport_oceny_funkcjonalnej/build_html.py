@@ -8,13 +8,13 @@ P1 = open('part1_pages.html', encoding='utf-8').read()
 EXTRA_CSS = '''
   /* ---- rozszerzenia: części II–III ---- */
   .partband.p3 .badge{background:var(--purple)}
-  .cbl{display:grid;grid-template-columns:1fr 1fr;gap:5px 14px;font-size:16px;margin:6px 0 10px}
+  .cbl{display:grid;grid-template-columns:1fr 1fr;gap:5px 14px;font-size:15px;margin:6px 0 10px}
   .cbl span{display:flex;align-items:center;gap:7px}
   .cbl .cb{margin:0}
   .cb.on{background:var(--orange);border-color:var(--orange);position:relative}
   .cb.on::after{content:"";position:absolute;left:4px;top:1px;width:4px;height:8px;border:solid #fff;border-width:0 2px 2px 0;transform:rotate(45deg)}
   .voice{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:8px 0}
-  .voice .box{padding:8px 12px 10px} .voice .box p{margin:0;font-size:16px;line-height:1.5;font-style:italic;color:var(--ink)}
+  .voice .box{padding:8px 12px 10px} .voice .box p{margin:0;font-size:15px;line-height:1.5;font-style:italic;color:var(--ink)}
   .voice .box.wide{grid-column:1/-1}
   .mood{display:flex;gap:14px;align-items:center;margin:6px 0 10px;font-size:12px;color:var(--muted)}
   .mood div{display:flex;flex-direction:column;align-items:center;gap:3px}
@@ -23,70 +23,92 @@ EXTRA_CSS = '''
   .lvlbox{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin:8px 0 12px}
   .lvlbox > div{border:1px solid var(--line);border-radius:8px;padding:10px 12px;display:grid;grid-template-columns:18px 1fr;gap:8px;align-items:start}
   .lvlbox > div.sel{background:var(--orangeMist);border-color:var(--orange)}
-  .lvlbox h4{margin:0 0 3px;font-size:16px;color:var(--purple);font-weight:800}
-  .lvlbox p{margin:0;font-size:16px;color:var(--muted);line-height:1.4}
+  .lvlbox h4{margin:0 0 3px;font-size:15px;color:var(--purple);font-weight:800}
+  .lvlbox p{margin:0;font-size:15px;color:var(--muted);line-height:1.4}
   .kv{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin:8px 0}
   .kv div{background:var(--lav);border-radius:8px;padding:8px 10px}
   .kv .l{font-size:12px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:var(--lav-text)}
-  .kv .v{font-size:16px;font-weight:800;color:var(--purple);margin-top:2px;line-height:1.3}
-  .just{text-align:justify;font-size:16px;line-height:1.6;margin:6px 0}
-  ul.tick{margin:4px 0 0;padding-left:0;list-style:none;font-size:16px;line-height:1.5}
+  .kv .v{font-size:15px;font-weight:800;color:var(--purple);margin-top:2px;line-height:1.3}
+  .just{text-align:justify;font-size:15px;line-height:1.6;margin:6px 0}
+  ul.tick{margin:4px 0 0;padding-left:0;list-style:none;font-size:15px;line-height:1.5}
   ul.tick li{padding-left:16px;position:relative;margin-bottom:3px}
   ul.tick li::before{content:"✓";position:absolute;left:0;color:var(--green);font-weight:800}
   .status-pill{display:inline-block;font-size:12px;font-weight:800;padding:2px 8px;border-radius:999px;white-space:nowrap}
   .status-pill.done{background:#E6F4EC;color:var(--green)} .status-pill.now{background:#FBF1DC;color:#9A6A0A} .status-pill.plan{background:var(--lav);color:var(--purple)}
   .ref-pill{display:inline-block;font-size:12px;font-weight:800;color:var(--orange);background:var(--orangeMist);padding:2px 7px;border-radius:4px;white-space:nowrap}
-  .signbox{border:1px dashed var(--line);border-radius:8px;padding:8px 12px;font-size:16px;color:var(--muted);margin-top:8px}
+  .signbox{border:1px dashed var(--line);border-radius:8px;padding:8px 12px;font-size:15px;color:var(--muted);margin-top:8px}
   .signbox b{color:var(--purple)}
   table.grid.small td{font-size:12px;padding:6px 8px;line-height:1.4} table.grid.small th{padding:6px 8px}
   table.grid.tight td{padding:6px 9px}
-  .hours.tight .stat{padding:6px 10px} .hours.tight .stat .v{font-size:17px}
+  .hours.tight .stat{padding:6px 10px} .hours.tight .stat .v{font-size:15px}
   .varbox{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:8px 0 10px}
-  .varbox > div{border:1px solid var(--line);border-radius:8px;padding:9px 12px;font-size:16px;line-height:1.5;display:grid;grid-template-columns:22px 1fr;gap:8px;align-items:start}
-  .varbox .tag9{font-size:16px;padding:2px 0;width:22px;text-align:center;border-radius:4px;color:#fff;font-weight:800}
+  .varbox > div{border:1px solid var(--line);border-radius:8px;padding:9px 12px;font-size:15px;line-height:1.5;display:grid;grid-template-columns:22px 1fr;gap:8px;align-items:start}
+  .varbox .tag9{font-size:15px;padding:2px 0;width:22px;text-align:center;border-radius:4px;color:#fff;font-weight:800}
   .varbox b{color:var(--purple)}
   table.grid td.ok{color:var(--green);font-weight:800} table.grid td.no{color:var(--red);font-weight:800}
-  .rek{display:grid;grid-template-columns:1fr 1fr;gap:5px 14px;font-size:16px;margin:6px 0 8px}
+  .rek{display:grid;grid-template-columns:1fr 1fr;gap:5px 14px;font-size:15px;margin:6px 0 8px}
   .rek span{display:flex;align-items:flex-start;gap:7px}
   .gen{font-style:normal;font-size:8px;color:#B6A6DF}
-  .logo{font-size:18px;font-weight:800}
+  .logo{font-size:16px;font-weight:800}
   /* ---- OPINIA dla zespołu orzekającego (czysty druk) ---- */
   .op-head{display:grid;grid-template-columns:1fr 1fr;gap:16px;align-items:start;margin-bottom:14px}
   .op-stamp{border:1px dashed var(--line);border-radius:8px;min-height:56px;padding:8px 12px;font-size:12px;color:var(--muted)}
-  .op-stamp b{display:block;color:var(--purple);font-size:16px}
-  .op-right{text-align:right;font-size:16px;color:var(--muted);line-height:1.6}
+  .op-stamp b{display:block;color:var(--purple);font-size:15px}
+  .op-right{text-align:right;font-size:15px;color:var(--muted);line-height:1.6}
   .op-right .fill{display:inline-block;min-width:150px;border-bottom:1px solid #B6A6DF}
   .op-title{text-align:center;margin:10px 0 4px}
   .op-title h1{margin:0;font-size:24px;font-weight:800;color:var(--purple);letter-spacing:.01em}
-  .op-title .s{font-size:16px;color:var(--orange);font-weight:700;letter-spacing:.16em;text-transform:uppercase;margin-top:4px}
+  .op-title .s{font-size:15px;color:var(--orange);font-weight:700;letter-spacing:.16em;text-transform:uppercase;margin-top:4px}
   .op-law{font-size:12px;color:var(--muted);text-align:justify;border:1px solid var(--line);border-radius:8px;padding:6px 10px;margin:6px 0 8px;line-height:1.45}
   .op-law b{color:var(--purple)}
   .op-sec{display:flex;align-items:center;gap:8px;margin:9px 0 5px}
-  .op-sec .r{font-weight:800;color:var(--orange);font-size:16px;min-width:26px}
-  .op-sec h3{margin:0;font-size:16px;color:var(--purple);font-weight:800;text-transform:uppercase;letter-spacing:.04em}
+  .op-sec .r{font-weight:800;color:var(--orange);font-size:15px;min-width:26px}
+  .op-sec h3{margin:0;font-size:15px;color:var(--purple);font-weight:800;text-transform:uppercase;letter-spacing:.04em}
   .op-sec::after{content:"";flex:1;height:1px;background:var(--line)}
-  table.op{width:100%;border-collapse:collapse;font-size:16px}
+  table.op{width:100%;border-collapse:collapse;font-size:15px}
   table.op td,table.op th{border:1px solid var(--line);padding:4px 8px;vertical-align:top;line-height:1.4}
   table.op th{background:var(--lav);color:var(--purple);font-size:12px;letter-spacing:.1em;text-transform:uppercase;text-align:left}
   table.op td.k{width:31%;font-weight:700;color:var(--purple);background:var(--lav2)}
   table.op td.lv{white-space:nowrap;font-weight:700;color:var(--purple)}
-  ul.op{margin:2px 0 0;padding-left:16px;font-size:16px;line-height:1.45} ul.op li{margin-bottom:2px}
-  .op-cb{display:grid;grid-template-columns:1fr 1fr;gap:4px 14px;font-size:16px;margin:4px 0 6px}
+  ul.op{margin:2px 0 0;padding-left:16px;font-size:15px;line-height:1.45} ul.op li{margin-bottom:2px}
+  .op-cb{display:grid;grid-template-columns:1fr 1fr;gap:4px 14px;font-size:15px;margin:4px 0 6px}
   .op-cb span{display:flex;gap:7px;align-items:flex-start}
   .op-sign{display:grid;grid-template-columns:1fr 1fr;gap:14px 24px;margin-top:18px}
   .op-sign .sig{text-align:left;padding-top:4px}
   .op-sign .sig small{font-size:12px}
   .op-dir{margin-top:22px;display:grid;grid-template-columns:1fr 1fr;gap:24px}
-  .op-dir .sig{border-top:1px solid var(--purple);padding-top:5px;text-align:center;font-size:16px;color:var(--purple);font-weight:700}
+  .op-dir .sig{border-top:1px solid var(--purple);padding-top:5px;text-align:center;font-size:15px;color:var(--purple);font-weight:700}
   .op-dir .sig small{display:block;font-weight:400;color:var(--muted);font-size:12px}
   .op-note{font-size:12px;color:var(--muted);margin-top:10px;line-height:1.5;border-top:1px dashed var(--line);padding-top:6px}
   @media print{ .op-page{page:opinia} @page opinia{ @top-left{content:"Opinia o funkcjonowaniu dziecka / ucznia – załącznik";font:9px Arial,sans-serif;color:#7D6FB0} @top-right{content:"[Imię i nazwisko dziecka / ucznia]";font:9px Arial,sans-serif;color:#7D6FB0} @bottom-left{content:"Załącznik – opinia o funkcjonowaniu dziecka / ucznia · dokument poufny (RODO)";font:9px Arial,sans-serif;color:#6B6378} } }
+  /* ---- edycje 01/02/03 i tryby dokumentu ---- */
+  .ed{margin-top:14px}
+  .ed h5{margin:0 0 6px;font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--purple);font-weight:800}
+  .ed p{margin:0 0 8px;font-size:14px;color:var(--muted);line-height:1.45}
+  .ed-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+  .ed-grid > div{border:1px solid var(--line);border-radius:8px;padding:7px 10px;display:grid;grid-template-columns:20px 1fr;gap:8px;align-items:start}
+  .ed-grid .k{font-size:22px;font-weight:800;color:var(--orange);line-height:1}
+  .ed-grid h4{margin:0 0 2px;font-size:13px;color:var(--purple);font-weight:800}
+  .ed-grid p{margin:0;font-size:11px;color:var(--muted);line-height:1.3}
+  .ed-grid .cb{margin-top:3px}
+  .ed-grid > div.sel{background:var(--orangeMist);border-color:var(--orange)}
+  .modebar{display:flex;flex-wrap:wrap;gap:10px 18px;align-items:center;background:#fff;border:1px solid var(--line);border-radius:10px;padding:10px 14px;margin:10px auto;width:210mm;max-width:100%;font-size:14px}
+  .modebar b{color:var(--purple);font-size:12px;letter-spacing:.1em;text-transform:uppercase}
+  .modebar label{display:flex;gap:6px;align-items:center;cursor:pointer}
+  .modebar select{font:inherit;padding:4px 8px;border:1px solid var(--line);border-radius:6px;color:var(--purple)}
+  body[data-tryb="ocena"] .m-ipet{display:none !important} body[data-tryb="ipet"] .m-ocena{display:none !important}
+  @media print{.modebar{display:none}}
+  .toclist{margin-top:10px;border:1px solid var(--line);border-radius:8px;padding:6px 12px;display:grid;gap:4px}
+  .toclist > div{display:grid;grid-template-columns:150px 1fr;gap:10px;font-size:12px;line-height:1.4;align-items:baseline}
+  .toclist b{color:var(--purple);font-size:11px;letter-spacing:.08em;text-transform:uppercase}
+  .toclist i{font-style:normal;font-weight:800;color:var(--orange)}
+  .ed{margin-top:10px;break-inside:avoid}
   .lawref{display:inline-block;font-size:12px;font-weight:700;color:var(--purple);background:var(--lav);border-radius:4px;padding:3px 9px;margin:-6px 0 10px}
   table.grid td.act{font-weight:800;color:var(--purple)} table.grid td.dz{white-space:nowrap;color:var(--orange);font-weight:800;font-size:12px}
   .flow5{display:grid;grid-template-columns:repeat(5,1fr);gap:8px;margin:8px 0 12px}
   .flow5 > div{border:1px solid var(--line);border-radius:8px;padding:8px 10px;position:relative}
   .flow5 .p{font-size:12px;font-weight:800;letter-spacing:.12em;color:var(--orange)}
-  .flow5 h4{margin:2px 0 2px;font-size:16px;color:var(--purple);font-weight:800}
+  .flow5 h4{margin:2px 0 2px;font-size:15px;color:var(--purple);font-weight:800}
   .flow5 p{margin:0;font-size:12px;color:var(--muted);line-height:1.35}
   .flow5 > div:not(:last-child)::after{content:"›";position:absolute;right:-8px;top:36%;color:var(--orange);font-weight:800;background:#fff}
 '''
@@ -109,8 +131,8 @@ def sub(tag, title, note='', color='var(--orange)'):
 def lead(ref, text): return f'  <p class="lead2">{("<b>"+ref+"</b> ") if ref else ""}{text}</p>\n'
 def cb(on=False): return f'<i class="cb{" on" if on else ""}"></i>'
 def status(): return '<div class="st"><span><i class="cb"></i>wdrożone</span><span><i class="cb"></i>w trakcie</span><span><i class="cb"></i>planowane</span></div>'
-def page(name, cap, body, cls='', pid='', brk=False):
-    pages.append((name, f'<section class="page {cls}{" brk" if brk else ""}"{(" id="+chr(34)+pid+chr(34)) if pid else ""}>\n'+hdr(cap)+body))
+def page(name, cap, body, cls='', pid='', brk=False, mode='ocena'):
+    pages.append((name, f'<section class="page {cls}{" brk" if brk else ""} m-{mode}"{(" id="+chr(34)+pid+chr(34)) if pid else ""}>\n'+hdr(cap)+body))
 def band(part, h, sub_):
     cls = ' p3' if part=='III' else ''
     return f'''  <div class="partband{cls}">
@@ -124,9 +146,9 @@ def band(part, h, sub_):
 s=D['s4']; b=band('II','Wyniki oceny funkcjonalnej','obserwacja w placówce · wyniki liczbowe · arkusze specjalistyczne · głos dziecka · analiza · decyzja Zespołu')
 b+=sec(4, s['title'], s.get('law'))+lead(s['ref'],s['lead'])
 def t4(rows):
-    return '  <table class="grid">\n    <tr><th>Obszar (ICF)</th><th class="plus">✓ Mocne strony, zasoby i uzdolnienia</th><th class="minus">▸ Trudności, ograniczenia i bariery</th></tr>\n'+''.join(f'    <tr><td class="area">{a}</td><td class="plus">{x}</td><td class="minus">{y}</td></tr>\n' for a,x,y in rows)+'  </table>\n'
+    return '  <table class="grid">\n    <tr><th style="width:24%">Obszar (ICF)</th><th class="plus">✓ Mocne strony, zasoby i uzdolnienia</th><th class="minus">▸ Trudności, ograniczenia i bariery</th></tr>\n'+''.join(f'    <tr><td class="area">{a}</td><td class="plus">{x}</td><td class="minus">{y}</td></tr>\n' for a,x,y in rows)+'  </table>\n'
 b+=sub('A',s['titleA'],'wypełnić dla dziecka w przedszkolu')+t4(s['rows'])
-page('Funkcjonowanie A','Część II · Funkcjonowanie w placówce · przedszkole',b,brk=True)
+page('Funkcjonowanie A','Część II · Funkcjonowanie w placówce · przedszkole',b)
 b=sec(4, s['title']+' · cd.', None)+sub('B',s['titleB'],'wypełnić dla ucznia szkoły',"var(--blue)")+t4(s['rowsSzkola'])
 page('Funkcjonowanie B','Część II · Funkcjonowanie w placówce · szkoła',b)
 
@@ -164,11 +186,11 @@ page('Wyniki arkuszy','Część II · Wyniki arkuszy specjalistycznych',b)
 
 # ---------- 7 Mój głos ----------
 s=D['s7']; b=sec(7, s['title'], s.get('law'))+lead('',s['lead'])
-b+='  <div class="lbl" style="font-size:16px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:var(--purple)">Sposób pozyskania głosu dziecka – zaznaczono</div>\n  <div class="cbl">'+''.join(f'<span>{cb(on)}{t}</span>' for t,on in s['sposoby'])+'</div>\n'
+b+='  <div class="lbl" style="font-size:15px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:var(--purple)">Sposób pozyskania głosu dziecka – zaznaczono</div>\n  <div class="cbl">'+''.join(f'<span>{cb(on)}{t}</span>' for t,on in s['sposoby'])+'</div>\n'
 b+='  <div class="voice">\n'+''.join(f'    <div class="box{" wide" if i==3 else ""}" style="--c:var(--{c})"><div class="lbl">{t}</div><p>{v}</p></div>\n' for i,(c,t,v) in enumerate(s['pola']))+'  </div>\n'
-b+='  <div class="lbl" style="font-size:16px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:var(--purple)">Co mi najbardziej pomaga – zaznaczono</div>\n  <div class="cbl">'+''.join(f'<span>{cb(on)}{t}</span>' for t,on in s['pomaga'])+'</div>\n'
+b+='  <div class="lbl" style="font-size:15px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:var(--purple)">Co mi najbardziej pomaga – zaznaczono</div>\n  <div class="cbl">'+''.join(f'<span>{cb(on)}{t}</span>' for t,on in s['pomaga'])+'</div>\n'
 cols=['#2E9D52','#7EB800','#DFA22E','#E77309','#BF382A']
-b+='  <div class="lbl" style="font-size:16px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:var(--purple)">Jak się dziś czuję – wskazanie dziecka</div>\n  <div class="mood">'+''.join(f'<div class="{"sel" if i==s["nastrojWybor"] else ""}"><i style="background:{cols[i]}"></i>{n}</div>' for i,n in enumerate(s['nastroj']))+'</div>\n'
+b+='  <div class="lbl" style="font-size:15px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:var(--purple)">Jak się dziś czuję – wskazanie dziecka</div>\n  <div class="mood">'+''.join(f'<div class="{"sel" if i==s["nastrojWybor"] else ""}"><i style="background:{cols[i]}"></i>{n}</div>' for i,n in enumerate(s['nastroj']))+'</div>\n'
 b+=f'  <div class="box" style="--c:var(--blue)"><div class="lbl">Preferowany sposób komunikacji dziecka i wskazówki do rozmowy</div><p class="just" style="margin:0">{s["komunikacja"]}</p></div>\n'
 b+=f'  <p class="stnote"><b>Podstawa.</b> {s["podstawa"]}</p>\n'
 page('Mój głos','Część II · Mój głos',b)
@@ -195,9 +217,8 @@ b+='  <div class="kv">'+''.join(f'<div><div class="l">{k}</div><div class="v">{v
 rk=s['rekomendacje']
 b+=sub('B','Rekomendacje placówki dla zespołu orzekającego poradni','',"var(--blue)")+f'  <p class="lead2" style="margin-bottom:4px">{rk["lead"]}</p>\n'
 b+='  <div class="rek">'+''.join(f'<span>{cb(on)}<span>{t}</span></span>' for t,on in rk['items'])+'</div>\n'
-b+=f'  <div class="note" style="margin:0 0 8px"><b>Uzasadnienie rekomendacji.</b> {rk["uzasadnienie"]}</div>\n'
-b+=f'  <div class="signbox"><b>Data posiedzenia Zespołu:</b> <span class="ph">{s["dataDecyzji"]}</span> &nbsp;·&nbsp; {s["zgodaRodzica"]} &nbsp;·&nbsp; <b>Podpisy Zespołu i rodzica:</b> na końcu dokumentu (sekcja 16).</div>\n'
-page('Decyzja Zespołu','Część II · Decyzja Zespołu',b)
+b+=f'  <div class="note" style="margin:0 0 8px"><b>Uzasadnienie rekomendacji.</b> {rk["uzasadnienie"]}<span style="display:block;margin-top:6px;border-top:1px dashed var(--line);padding-top:6px"><b>Data posiedzenia Zespołu:</b> <span class="ph">{s["dataDecyzji"]}</span> &nbsp;·&nbsp; {s["zgodaRodzica"]} &nbsp;·&nbsp; <b>Podpisy Zespołu i rodzica:</b> na końcu dokumentu (sekcja 16).</span></div>\n'
+page('Decyzja Zespołu','Część II · Decyzja Zespołu',b, mode='both')
 
 # ---------- 11 dostosowania (2 strony: A | B+C) ----------
 s=D['s11']
@@ -206,17 +227,17 @@ def kvtable(rows, c1='Zakres', c2='Sposób dostosowania'):
 b=band('III','Program wsparcia i organizacja','dostosowania · zintegrowane działania · zajęcia · dodatkowa osoba · rodzice i poradnia · ocena efektywności')
 b+=sec(11, s['title'], s.get('law'))+lead('',s['lead'].replace('☐',cb()))
 b+=sub('A',s['A']['title'])+kvtable(s['A']['rows'])
-page('Dostosowanie programu','Część III · Dostosowanie programu',b,brk=True)
+page('Dostosowanie programu','Część III · Dostosowanie programu',b, mode='ipet')
 b=sub('B',s['B']['title'],'',"var(--blue)")+kvtable(s['B']['rows'],'Obszar organizacji','Sposób dostosowania')
 b+=sub('C',s['C']['title'],'',"var(--purple)")+kvtable(s['C']['rows'],'Obszar','Narzędzia i sposób wykorzystania')
-page('Organizacja i technologie','Część III · Organizacja i technologie',b)
+page('Organizacja i technologie','Część III · Organizacja i technologie',b, mode='ipet')
 
 # ---------- 12 ----------
 s=D['s12']; b=sec(12, s['title'], s.get('law'))+lead('',s['lead'])
 b+='  <table class="grid">\n    <tr><th style="width:18%">Wspólny cel</th><th>Nauczyciel / wychowawca (codziennie w grupie)</th><th>Specjaliści (zajęcia)</th><th style="width:20%">Sposób koordynacji</th></tr>\n'
 b+=''.join(f'    <tr><td class="area">{a}</td><td>{x}</td><td>{y}</td><td>{z}</td></tr>\n' for a,x,y,z in s['rows'])+'  </table>\n'
 b+=f'  <div class="note" style="margin-top:10px"><b>Koordynacja.</b> {s["koordynacja"]}</div>\n'
-page('Zintegrowane działania','Część III · Zintegrowane działania',b)
+page('Zintegrowane działania','Część III · Zintegrowane działania',b, mode='ipet')
 
 # ---------- 13 (2 strony: A+B | C) ----------
 s=D['s13']; b=sec(13, s['title'], s.get('law'))+lead('',s['lead'])
@@ -229,17 +250,17 @@ b+=sub('A','Zajęcia rewalidacyjne przydzielone dziecku / uczniowi','kształceni
 b+='  <table class="grid rew tight">\n    <tr><th style="width:31%">Rodzaj zajęć</th><th style="width:29%">Zakres / cel</th><th style="width:15%">Prowadzący</th><th style="width:12%">Forma</th><th>Wymiar tyg.</th></tr>\n'
 b+=''.join(f'    <tr><td class="area">{r[0]}</td><td>{r[1]}</td><td style="color:var(--purple);font-weight:700">{r[2]}</td><td>{r[3]}</td><td class="time">{r[4]}<small>{r[5]}</small></td></tr>\n' for r in s['rew'])
 b+=f'    <tr class="sum"><td colspan="4">Razem zajęcia rewalidacyjne</td><td class="time">{s["sumRew"][0]}<small>{s["sumRew"][1]}</small></td></tr>\n  </table>\n'
-page('Zajęcia: rewalidacja','Część III · Zajęcia: rewalidacja',b)
+page('Zajęcia: rewalidacja','Część III · Zajęcia: rewalidacja',b, mode='ipet')
 b=sub('B','Zajęcia z zakresu pomocy psychologiczno-pedagogicznej','forma · czas · termin · okres udzielania · miejsce',"var(--blue)")
-b+='  <table class="grid ppp tight">\n    <tr><th style="width:22%">Forma pomocy</th><th style="width:27%">Cel</th><th style="width:12%">Prowadzący</th><th style="width:14%">Forma i miejsce</th><th style="width:12%">Czas i termin</th><th>Okres udzielania</th></tr>\n'
-b+=''.join(f'    <tr><td class="area">{r[0]}</td><td>{r[1]}</td><td style="color:var(--purple);font-weight:700">{r[2]}</td><td>{r[3]}</td><td class="time" style="white-space:normal">{r[4]}</td><td>{r[5]}</td></tr>\n' for r in s['ppp'])
-b+=f'    <tr class="sum"><td colspan="5">Razem pomoc psychologiczno-pedagogiczna</td><td class="time">{s["sumPpp"][0]}<small>{s["sumPpp"][1]}</small></td></tr>\n  </table>\n'
-page('Zajęcia: PPP','Część III · Zajęcia: pomoc psychologiczno-pedagogiczna',b)
+b+='  <table class="grid ppp tight">\n    <tr><th style="width:26%">Forma pomocy</th><th style="width:30%">Cel</th><th style="width:22%">Prowadzący · forma · miejsce</th><th>Czas · termin · okres</th></tr>\n'
+b+=''.join(f'    <tr><td class="area">{r[0]}</td><td>{r[1]}</td><td><b style="color:var(--purple)">{r[2]}</b><br>{r[3]}</td><td class="time" style="white-space:normal">{r[4]}<small style="white-space:normal">{r[5]}</small></td></tr>\n' for r in s['ppp'])
+b+=f'    <tr class="sum"><td colspan="3">Razem pomoc psychologiczno-pedagogiczna</td><td class="time">{s["sumPpp"][0]}<small>{s["sumPpp"][1]}</small></td></tr>\n  </table>\n'
+page('Zajęcia: PPP','Część III · Zajęcia: pomoc psychologiczno-pedagogiczna',b, mode='ipet')
 b=sub('C','Zalecenia poradni i miejsce ich realizacji w programie','każde zalecenie wskazuje sekcję, w której jest realizowane',"var(--purple)")
 b+=f'  <p class="lead2">Orzeczenie / opinia nr <span class="ph">{D["meta"]["nrOrzeczenia"]}</span> z dnia <span class="ph">{D["meta"]["dataOrzeczenia"]}</span>. <i>Uwaga: {s["uwaga"]}</i></p>\n'
 b+='  <table class="grid">\n    <tr><th style="width:24px">Lp.</th><th>Zalecenie poradni (z orzeczenia / opinii)</th><th style="color:var(--orange)">Sposób realizacji w placówce</th><th style="width:14%">Gdzie w raporcie</th><th style="width:13%">Status</th></tr>\n'
 b+=''.join(f'    <tr><td class="code">{i+1}</td><td><b>{a}</b></td><td>{x}</td><td><span class="ref-pill">{r}</span></td><td>{status()}</td></tr>\n' for i,(a,x,r) in enumerate(s['mapa']))+'  </table>\n'
-page('Zalecenia poradni','Część III · Realizacja zaleceń poradni',b)
+page('Zalecenia poradni','Część III · Realizacja zaleceń poradni',b, mode='ipet')
 
 # ---------- 14 ----------
 s=D['s14']; b=sec(14, s['title'], s.get('law'))
@@ -249,7 +270,7 @@ b+=f'  <div class="box" style="--c:var(--orange)"><div class="lbl">Uzasadnienie 
 b+='  <div class="box" style="--c:var(--green);margin-top:10px"><div class="lbl">Zadania dodatkowej osoby</div><ul class="tick">'+''.join(f'<li>{x}</li>' for x in s['zadania'])+'</ul></div>\n'
 b+=f'  <div class="note" style="margin-top:10px"><b>Ocena zasadności.</b> {s["ocena"]}</div>\n'
 b+=f'  <p class="stnote"><b>Wariant B:</b> {s["wariantNote"]}</p>\n'
-page('Dodatkowa osoba','Część III · Dodatkowa osoba',b)
+page('Dodatkowa osoba','Część III · Dodatkowa osoba',b, mode='ipet')
 
 # ---------- 15 ----------
 s=D['s15']; b=sec(15, s['title'], s.get('law'))
@@ -258,22 +279,24 @@ b+=''.join(f'    <tr><td class="area">{a}</td><td>{x}</td><td style="color:var(-
 b+=sub('B',s['B']['title'],'',"var(--green)")+'  <div class="box" style="--c:var(--green)"><ul class="tick" style="margin:0">'+''.join(f'<li>{x}</li>' for x in s['B']['items'])+'</ul></div>\n'
 b+=sub('C',s['C']['title'],'',"var(--purple)")+'  <table class="grid">\n    <tr><th style="width:24%">Działanie</th><th>Zakres / cel</th><th style="width:20%">Kto</th><th style="width:20%">Termin</th></tr>\n'
 b+=''.join(f'    <tr><td class="area">{a}</td><td>{x}</td><td style="color:var(--purple);font-weight:700">{y}</td><td>{z}</td></tr>\n' for a,x,y,z in s['C']['rows'])+'  </table>\n'
-page('Rodzice i poradnia','Część III · Współpraca z rodzicami i poradnią',b)
+page('Rodzice i poradnia','Część III · Współpraca z rodzicami i poradnią',b, mode='ipet')
 
 # ---------- 16 + podpisy ----------
 s=D['s16']; b=sec(16, s['title'], s.get('law'))+lead('',s['lead'])
 stc={'wykonano':'done','w trakcie':'now','planowane':'plan'}
 b+='  <table class="grid">\n    <tr><th style="width:16%">Termin</th><th>Zakres oceny</th><th style="width:24%">Narzędzia</th><th style="width:16%">Odpowiedzialny</th><th style="width:11%">Status</th></tr>\n'
 b+=''.join(f'    <tr><td class="area">{a}</td><td>{x}</td><td>{y}</td><td>{z}</td><td><span class="status-pill {stc[st]}">{st}</span></td></tr>\n' for a,x,y,z,st in s['rows'])+'  </table>\n'
-b+='''  <div class="parent" style="margin-top:12px"><b>Informacja dla rodzica.</b> Niniejszy raport stanowi opinię placówki o funkcjonowaniu dziecka i jest przekazywany rodzicowi oraz zespołowi orzekającemu poradni. Wyniki obserwacji służą zaplanowaniu wsparcia, a nie ocenie dziecka. Zachęcamy do rozmowy z Zespołem o każdej części dokumentu.</div>
+b+='''  <div style="break-inside:avoid">
+  <div class="parent" style="margin-top:8px"><b>Informacja dla rodzica.</b> Niniejszy raport stanowi opinię placówki o funkcjonowaniu dziecka i jest przekazywany rodzicowi oraz zespołowi orzekającemu poradni. Wyniki obserwacji służą zaplanowaniu wsparcia, a nie ocenie dziecka. Zachęcamy do rozmowy z Zespołem o każdej części dokumentu.</div>
   <div class="sigs">
     <div class="sig">Koordynator Zespołu<small>podpis i data</small></div>
     <div class="sig">Dyrektor placówki<small>podpis i data</small></div>
     <div class="sig">Specjalista<small>podpis i data</small></div>
     <div class="sig wide">Rodzic / opiekun prawny – zapoznałam/em się z raportem i uczestniczyłam/em w ustaleniu poziomu wsparcia<small>podpis i data</small></div>
   </div>
+  </div>
 '''
-page('Ocena efektywności i podpisy','Część III · Ocena efektywności · podpisy',b)
+page('Ocena efektywności i podpisy','Część III · Ocena efektywności · podpisy',b, mode='ipet')
 
 # ---------- strona 2: jak czytać + warianty; strona 3: podstawy prawne ----------
 pr=D['prawo']; wv=D['warianty']
@@ -306,14 +329,14 @@ lp3='<section class="page">\n'+hdr('Podstawy prawne')+'''
 op=D['opinia']; pl=D['placowka']
 def opsec(r,t): return f'  <div class="op-sec"><span class="r">{r}</span><h3>{t}</h3></div>\n'
 def ophead(): return f'''  <div class="op-head">
-    <div class="op-stamp"><b>{pl['nazwa']}</b>{pl['adres']}<br><span style="font-size:16px">(pieczęć placówki)</span></div>
+    <div class="op-stamp"><b>{pl['nazwa']}</b>{pl['adres']}<br><span style="font-size:15px">(pieczęć placówki)</span></div>
     <div class="op-right">{pl['miejscowosc']}, dnia <span class="fill"></span><br>Znak sprawy: <span class="fill"></span><br>Zespół orzekający: <span class="fill">[Nazwa Poradni Psychologiczno-Pedagogicznej]</span></div>
   </div>
 '''
 opages=[]
 def optable(rows):
     return '  <table class="op">\n    <tr><th style="width:23%">Obszar (ICF)</th><th style="color:var(--green)">Mocne strony i uzdolnienia</th><th style="color:var(--red)">Trudności</th><th style="width:17%">Poziom potrzeby wsparcia</th></tr>\n'+''.join(f'    <tr><td class="k">{a}</td><td>{x}</td><td>{y}</td><td class="lv" style="white-space:normal">{z}</td></tr>\n' for a,x,y,z in rows)+'  </table>\n'
-def opsub(tag,t,color='var(--orange)'): return f'  <div class="sub9" style="--c:{color};margin:8px 0 5px"><span class="tag9">{tag}</span><h3 style="font-size:16px">{t}</h3></div>\n'
+def opsub(tag,t,color='var(--orange)'): return f'  <div class="sub9" style="--c:{color};margin:8px 0 5px"><span class="tag9">{tag}</span><h3 style="font-size:15px">{t}</h3></div>\n'
 def opkv(rows): return '  <table class="op">\n'+''.join(f'    <tr><td class="k">{k}</td><td>{v.replace("☐",cb())}</td></tr>\n' for k,v in rows)+'  </table>\n'
 # strona 1: nagłówek, dane (pkt 1–2), podstawa opinii
 b=ophead()+f'''  <div class="op-title"><h1>{op['title']}</h1><div class="s">{op['sub']}</div></div>
@@ -322,7 +345,7 @@ b=ophead()+f'''  <div class="op-title"><h1>{op['title']}</h1><div class="s">{op[
 b+=opsec('2.',op['podstawaOpinii']['title'])+opkv(op['podstawaOpinii']['rows'])
 opages.append(('Opinia · dane i podstawa',b))
 # strona 2: funkcjonowanie A (przedszkole)
-b=ophead()+opsec('3.',op['II']['title'])+f'  <p class="lead2" style="font-size:16px;margin-bottom:4px">{op["II"]["lead"]}</p>\n'
+b=ophead()+opsec('3.',op['II']['title'])+f'  <p class="lead2" style="font-size:15px;margin-bottom:4px">{op["II"]["lead"]}</p>\n'
 b+=opsub('A',op['II']['titleA'])+optable(op['II']['rows'])
 opages.append(('Opinia · funkcjonowanie A',b))
 # strona 3: funkcjonowanie B (uczeń) + trudności w programie
@@ -336,11 +359,11 @@ b+=opsec('7.',op['VI']['title'])+'  <ul class="op">'+''.join(f'<li>{x}</li>' for
 opages.append(('Opinia · pomoc i wnioski',b))
 # strona 5: informacje uzupełniające (§ 8) + podpisy
 u=op['uzup']
-b=ophead()+opsec('8.',u['title'])+f'  <p class="lead2" style="font-size:16px;margin-bottom:6px">{u["lead"]}</p>\n'
-b+=f'  <p class="just" style="margin:0 0 6px;font-size:16px">{u["funkcje"]}</p>\n'
+b=ophead()+opsec('8.',u['title'])+f'  <p class="lead2" style="font-size:15px;margin-bottom:6px">{u["lead"]}</p>\n'
+b+=f'  <p class="just" style="margin:0 0 6px;font-size:15px">{u["funkcje"]}</p>\n'
 b+='  <table class="op">\n    <tr><th style="color:var(--green);width:50%">Ułatwienia w środowisku placówki (co pomaga)</th><th style="color:var(--red)">Bariery (co utrudnia)</th></tr>\n    <tr><td><ul class="op" style="margin:0">'+''.join(f'<li>{x}</li>' for x in u['ulatwienia'])+'</ul></td><td><ul class="op" style="margin:0">'+''.join(f'<li>{x}</li>' for x in u['bariery'])+'</ul></td></tr>\n  </table>\n'
-b+=f'  <p class="just" style="margin:6px 0;font-size:16px"><b style="color:var(--purple)">Informacje od dziecka i rodziców (§ 8 ust. 3 pkt 1 i 3):</b> {u["glos"]}</p>\n'
-b+=opsub('!',u['rekTitle'],'var(--blue)')+'  <div class="op-cb">'+''.join(f'<span>{cb(on)}<span>{t}</span></span>' for t,on in op['VI']['items'])+'</div>\n'+f'  <p class="just" style="margin:0;font-size:16px"><b style="color:var(--purple)">Uzasadnienie:</b> {op["VI"]["uzasadnienie"]}</p>\n'
+b+=f'  <p class="just" style="margin:6px 0;font-size:15px"><b style="color:var(--purple)">Informacje od dziecka i rodziców (§ 8 ust. 3 pkt 1 i 3):</b> {u["glos"]}</p>\n'
+b+=opsub('!',u['rekTitle'],'var(--blue)')+'  <div class="op-cb">'+''.join(f'<span>{cb(on)}<span>{t}</span></span>' for t,on in op['VI']['items'])+'</div>\n'+f'  <p class="just" style="margin:0;font-size:15px"><b style="color:var(--purple)">Uzasadnienie:</b> {op["VI"]["uzasadnienie"]}</p>\n'
 b+=opsec('9.',op['podpisy']['osoby'])+'  <div class="op-sign">'+''.join(f'<div class="sig" style="border-top:0;text-align:left"><b style="color:var(--purple)">{r}:</b> {n}<br><small>podpis: ………………………………………</small></div>' for r,n in op['sporzadzili'])+'</div>\n'
 b+=f'''  <div class="op-dir">
     <div class="sig">{op['podpisy']['dyrektor']}<small>podpis i pieczęć · data</small></div>
@@ -352,11 +375,13 @@ opages.append(('Opinia · informacje uzupełniające i podpisy',b))
 # ---------- składanie ----------
 TOTAL = 5 + len(pages) + len(opages)
 toc = D['toc']
-tochtml = '  <div class="toc">\n    <h5>'+toc['I']['title']+'</h5>\n'+''.join(f'    <div><div class="k">{n}</div><h4>{t}</h4><p>{d}</p></div>\n' for n,t,d in toc['I']['items'])+'  </div>\n'
-for part in ('II','III'):
-    tochtml += f'  <div class="toc" style="grid-template-columns:repeat(7,1fr);margin-top:8px">\n    <h5>{toc[part]["title"]}</h5>\n'
-    tochtml += ''.join(f'    <div style="padding:7px 8px 6px"><div class="k" style="font-size:18px">{n}</div><h4 style="font-size:16px;margin:3px 0 0">{t}</h4></div>\n' for n,t in toc[part]['items'])+'  </div>\n'
-p1 = re.sub(r'Strona <b>\\d+</b> z \\{\\{TOTAL\\}\\} · ', '', P1).replace('{{TOC}}\n', tochtml)
+tochtml = '  <div class="toclist">\n'
+for part in ('I','II','III'):
+    tochtml += f'    <div><b>{toc[part]["title"]}</b><span>'+' &nbsp;·&nbsp; '.join(f'<i>{n}</i> {t}' for n,t,*_ in toc[part]['items'])+'</span></div>\n'
+tochtml += '  </div>\n'
+ed=D['edycje']
+edhtml='  <div class="ed"><h5>'+ed['title']+'</h5><div class="ed-grid" id="ed-grid">'+''.join(f'<div data-ed="{k}">{cb()}<div><div class="k">{k}</div><h4>{m} · {t}</h4><p>{z}</p></div></div>' for k,m,t,z in ed['items'])+'</div></div>\n'
+p1 = re.sub(r'Strona <b>\\d+</b> z \\{\\{TOTAL\\}\\} · ', '', P1).replace('{{EDYCJE}}\n', edhtml).replace('{{TOC}}\n', tochtml)
 cut = p1.index('<!-- ======================= STRONA 2')
 p1 = p1[:cut] + lp2 + f'  <div class="footer"><span>[Nazwa placówki] · dokument poufny (RODO) <i class="gen">· sporządzono w EduPlaner 2026</i></span><span>Jak czytać · warianty</span></div>\n</section>\n\n' + lp3 + f'  <div class="footer"><span>[Nazwa placówki] · dokument poufny (RODO) <i class="gen">· sporządzono w EduPlaner 2026</i></span><span>Podstawy prawne</span></div>\n</section>\n\n' + p1[cut:]
 body = p1
@@ -364,11 +389,23 @@ for i,(name,inner) in enumerate(pages + [('OP:'+n, x) for n,x in opages]):
     n = 6+i
     if name.startswith('OP:'):
         name = name[3:]
-        body += '<section class="page op-page' + (' brk' if i == len(pages) else '') + '">\n' + inner + f'  <div class="footer"><span>Załącznik – opinia o funkcjonowaniu dziecka / ucznia · dokument poufny (RODO)</span><span>{name}</span></div>\n</section>\n\n'
+        body += '<section class="page op-page m-ocena' + (' brk' if i == len(pages) else '') + '">\n' + inner + f'  <div class="footer"><span>Załącznik – opinia o funkcjonowaniu dziecka / ucznia · dokument poufny (RODO)</span><span>{name}</span></div>\n</section>\n\n'
         continue
     body += inner + f'  <div class="footer"><span>[Nazwa placówki] · dokument poufny (RODO) <i class="gen">· sporządzono w EduPlaner 2026</i></span><span>{name}</span></div>\n</section>\n\n'
 
+TRYBY=json.dumps(D['tryby'],ensure_ascii=False)
 JS='''<script>
+var TRYBY='''+TRYBY+''';
+(function(){
+  var sel=document.getElementById('tryb'); var eds=document.querySelectorAll('input[name="ed"]');
+  function applyTryb(v){ document.body.setAttribute('data-tryb', v); var t=TRYBY[v]; var h=document.getElementById('doc-title'), sb=document.getElementById('doc-sub'); if(h) h.textContent=t.title; if(sb) sb.textContent=t.sub; if(sel) sel.value=v; try{ localStorage.setItem('rof_tryb', v); }catch(e){} }
+  function applyEd(v){ document.querySelectorAll('#ed-grid > div').forEach(function(d){ var on=d.getAttribute('data-ed')===v; d.classList.toggle('sel', on); var c=d.querySelector('.cb'); if(c) c.classList.toggle('on', on); }); eds.forEach(function(r){ r.checked = (r.value===v); }); try{ localStorage.setItem('rof_ed', v); }catch(e){} }
+  var hash={}; location.hash.replace(/^#/,'').split('&').forEach(function(kv){ var p=kv.split('='); if(p[0]) hash[p[0]]=decodeURIComponent(p[1]||''); });
+  var tryb=hash.tryb, ed=hash.ed; try{ if(!tryb) tryb=localStorage.getItem('rof_tryb'); if(ed==null) ed=localStorage.getItem('rof_ed'); }catch(e){}
+  applyTryb(TRYBY[tryb]?tryb:'pelny'); applyEd(ed||'');
+  if(sel) sel.addEventListener('change', function(){ applyTryb(sel.value); });
+  eds.forEach(function(r){ r.addEventListener('change', function(){ applyEd(r.value); }); });
+})();
 (function(){
   var sec=document.getElementById('sek5'); if(!sec) return;
   var KEY='rof_tool_v1';
@@ -379,6 +416,7 @@ JS='''<script>
   sec.querySelectorAll('input[name="tool"]').forEach(function(i){ i.addEventListener('change',function(){ apply(i.value); try{ localStorage.setItem(KEY,i.value); }catch(e){} }); });
 })();
 </script>'''
+MODEBAR='''<div class="modebar"><b>Rodzaj dokumentu</b><select id="tryb"><option value="pelny">Raport całościowy (ocena + IPET + opinia)</option><option value="ocena">Raport z oceny funkcjonalnej (WOPF + opinia)</option><option value="ipet">Raport z IPET (program wsparcia)</option></select><b>Edycja</b><label><input type="radio" name="ed" value="01"> 01 wrzesień</label><label><input type="radio" name="ed" value="02"> 02 styczeń</label><label><input type="radio" name="ed" value="03"> 03 czerwiec</label><label><input type="radio" name="ed" value="" checked> bez zaznaczenia</label></div>\n'''
 HEAD = '''<!doctype html>
 <html lang="pl">
 <head>
@@ -391,6 +429,6 @@ HEAD = '''<!doctype html>
 '''
 css = CSS.replace('\n  @media screen and (max-width:760px){', EXTRA_CSS+'\n  @media screen and (max-width:760px){',1)
 css = css.replace('.fields,.team ol,.tools,.flow,.toc,.stats,.hours{grid-template-columns:1fr}','.fields,.team ol,.tools,.flow,.toc,.stats,.hours,.voice,.lvlbox,.kv,.cbl,.flow5,.op-head,.op-cb,.op-sign,.op-dir{grid-template-columns:1fr !important}')
-out = HEAD+css+'\n</style>\n</head>\n<body>\n\n'+body+JS+'\n</body>\n</html>\n'
+out = HEAD+css+'\n</style>\n</head>\n<body data-tryb="pelny">\n\n'+MODEBAR+body+JS+'\n</body>\n</html>\n'
 open('Raport_Oceny_Funkcjonalnej.html','w',encoding='utf-8').write(out)
 print('pages', TOTAL)
