@@ -3,7 +3,7 @@
 Wzór opinii przedszkola/szkoły o funkcjonowaniu dziecka w obszarach ICF, przygotowany
 dla rodzica i zespołu orzekającego poradni (Rozp. MEN z 2 marca 2026 r., Dz. U. 2026 poz. 428, § 7 ust. 6–7).
 
-Styl graficzny wg wzoru IPET EduPlaner 2026: biały papier, lawendowe pola `#EFE9F9`, cienkie linie `#D9D0F0`, fiolet `#2D1B69` tylko w akcentach, pomarańczowe plakietki `#E74509`, tytuł wyśrodkowany. A4, 20 stron (HTML/PDF) / 21 stron (Word): Część I (okładka · metryczka i procedura · narzędzia) oraz Część II (funkcjonowanie w placówce · wyniki liczbowe KPOF/KSzOF w 9 domenach ICF · analiza jakościowa d1–d9 i zalecenia do IPE · wyniki arkuszy ABC, sensorycznego, biopsychospołecznego, mowy i ToM · podjęte działania · zalecenia z poradni: A) rewalidacja, B) pomoc psychologiczno-pedagogiczna z wymiarem godzin, C) pozostałe zalecenia i sposoby realizacji · podpisy). Część II zawiera przykładowe wyniki do nadpisania.
+Styl graficzny wg wzoru IPET EduPlaner 2026: biały papier, lawendowe pola `#EFE9F9`, cienkie linie `#D9D0F0`, fiolet `#2D1B69` tylko w akcentach, pomarańczowe plakietki `#E74509`, tytuł wyśrodkowany. A4, 22 strony (HTML/PDF / Word): Część I (okładka · metryczka i procedura · narzędzia) oraz Część II (funkcjonowanie w placówce · wyniki liczbowe KPOF/KSzOF w 9 domenach ICF · analiza jakościowa d1–d9 i zalecenia do IPE · wyniki arkuszy ABC, sensorycznego, biopsychospołecznego, mowy i ToM · podjęte działania · zalecenia z poradni: A) rewalidacja, B) pomoc psychologiczno-pedagogiczna z wymiarem godzin, C) pozostałe zalecenia i sposoby realizacji · podpisy). Część II zawiera przykładowe wyniki do nadpisania.
 
 | Plik | Przeznaczenie |
 |---|---|
