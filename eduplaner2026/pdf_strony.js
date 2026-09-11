@@ -78,6 +78,11 @@ const STYL_DRUKU = `
   /* Karty, tabele i zdjęcia nie mają się łamać w połowie między kartkami. */
   .offer, .tier, .buy-card, .stage, figure, details, .trust-strip li,
   .faq-grid details, .prices, .poz-side { break-inside: avoid; page-break-inside: avoid; }
+  /* Obraz przeciety na pol miedzy stronami wyglada jak blad druku, nie jak makieta.
+     Kadr, karta oferty i zrzut z wycieczki maja zostac w calosci na jednej stronie. */
+  figure, .shot, .photo, .offer, .szk-karta, .bro-karta, .dok-lista li, .stakes li,
+  .baza-lista li, .buy-card, .step-card { break-inside: avoid; page-break-inside: avoid; }
+  img { break-inside: avoid; page-break-inside: avoid; }
   section { break-inside: auto; }
   h2, h3 { break-after: avoid; page-break-after: avoid; }
 
@@ -153,15 +158,48 @@ async function przygotuj(page) {
   });
 
   // 5. Doczekaj czcionek i obrazów; bez tego pierwsze strony wychodzą puste.
-  await page.evaluate(() => document.fonts.ready);
-  await page.evaluate(async () => {
-    const obrazy = [...document.images].filter(i => !i.complete);
-    await Promise.all(obrazy.map(i => new Promise(r => {
-      i.addEventListener('load', r, { once: true });
-      i.addEventListener('error', r, { once: true });
-      setTimeout(r, 4000);
-    })));
+  //
+  // Kroki 2 i 3 dokładają do strony karty i zrzuty, których wcześniej nie było,
+  // a te obrazy mają loading="lazy" i leżą daleko poniżej okna. Samo czekanie na
+  // zdarzenie „load" ich nie doczyta: przeglądarka w ogóle nie zaczyna pobierania,
+  // więc po czterech sekundach limit czasu puszczał druk z pustymi kadrami.
+  // Dlatego najpierw odbieramy leniwość, potem jeszcze raz przewijamy (strona
+  // urosła po rozwinięciu), a na końcu czekamy na faktyczne zdekodowanie.
+  await page.evaluate(() => {
+    document.querySelectorAll('img').forEach(i => {
+      i.loading = 'eager';
+      i.decoding = 'sync';
+      if (i.hasAttribute('loading')) i.setAttribute('loading', 'eager');
+    });
   });
+  await page.evaluate(async () => {
+    const krok = window.innerHeight * 0.8;
+    for (let y = 0; y < document.body.scrollHeight; y += krok) {
+      window.scrollTo(0, y);
+      await new Promise(r => setTimeout(r, 60));
+    }
+    window.scrollTo(0, 0);
+  });
+  await page.evaluate(() => document.fonts.ready);
+  const braki = await page.evaluate(async () => {
+    const czekaj = (i) => new Promise(r => {
+      const gotowe = () => r(i.naturalWidth > 0);
+      if (i.complete) { (i.decode ? i.decode().then(gotowe, gotowe) : gotowe()); return; }
+      i.addEventListener('load', gotowe, { once: true });
+      i.addEventListener('error', () => r(false), { once: true });
+      setTimeout(() => r(i.naturalWidth > 0), 8000);
+    });
+    const wyniki = await Promise.all([...document.images].map(czekaj));
+    return {
+      wszystkie: wyniki.length,
+      puste: [...document.images].filter((i, n) => !wyniki[n]).map(i => i.currentSrc || i.src).slice(0, 8)
+    };
+  });
+  console.log('  obrazy: ' + (braki.wszystkie - braki.puste.length) + ' z ' + braki.wszystkie + ' gotowych');
+  if (braki.puste.length) {
+    console.log('  UWAGA: nie wczytały się: ' + braki.puste
+      .map(u => u.length > 70 ? u.slice(0, 40) + '…' : u).join(', '));
+  }
 }
 
 /* ---------- druk ------------------------------------------------------ */
