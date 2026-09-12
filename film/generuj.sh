@@ -9,6 +9,8 @@ cd "$(dirname "$0")/.."
 SK=.claude/skills/dane-i-glos/scripts
 OUT=film/out; mkdir -p "$OUT"
 ETAP="${1:-wszystko}"
+# Awatar Ewy PCTP z konta HeyGen (podany przez autorkę); głos „Ewa - narracja PL” podaj w HEYGEN_VOICE_ID.
+export HEYGEN_AVATAR_ID="${HEYGEN_AVATAR_ID:-2e72ce3de82f419b8ac71983ab705b59}"
 # Pierwszy akapit narracja.txt to intro Ewy (gotowy klip ze skilla) – do nagrania idzie tekst od 2. akapitu.
 NARR="$OUT/narracja_bez_intro.txt"; awk -v RS= -v ORS="\n\n" "NR>1" film/narracja.txt > "$NARR"
 
