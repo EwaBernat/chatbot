@@ -76,6 +76,13 @@ def p(klucz, co):
 
 
 SCENY = [
+    {  # 0 · intro Ewy PCTP – klip ze skilla awatar-ewa (jej twarz, jej głos), stała długość klipu
+        "id": "powitanie", "tytul": "Ewa PCTP wita", "strona": 1, "awatar": "full", "intro": True, "dur_stala": 13.0,
+        "foto": "zespol",
+        "ekran": {"nad": "EduPlaner 2026 · PCTP Koszalin", "tytul": "Dzień dobry, mam na imię Ewa", "pod": "Twoja przewodniczka po systemie EduPlaner 2026"},
+        "prawo": [],
+        "kroki": [],
+    },
     {  # 1
         "id": "intro", "tytul": "Jak powstaje raport", "strona": 1, "awatar": "full", "foto": "klocki",
         "ekran": {"nad": "EduPlaner 2026 · Ocena Funkcjonalna", "tytul": "Jak powstaje raport", "pod": "opinia · WOPF · IPET na jednym druku, od 1 września 2026"},
@@ -262,7 +269,7 @@ SCENY = [
             {"f": 0.02, "fd": 0.18, "typ": "wpisz", "sel": ".op-right .fill", "teksty": [D["data_opinii"], D["znak"], D["poradnia"]]},
             {"f": 0.24, "fd": 0.20, "typ": "kamera", "sel": "table.op", "pad": 16, "zoom": 1.15},
             {"f": 0.26, "fd": 0.50, "typ": "wpisz", "sel": "table.op .ph",
-             "teksty": [D["data_opinii"], D["dziecko"], D["data_ur"], "dane przykładowe", D["placowka"] + ", " + D["adres"].split(" · ")[0], D["grupa"],
+             "teksty": [D["data_opinii"], D["dziecko"], D["data_ur"], D["placowka"] + ", " + D["adres"].split(" · ")[0], D["grupa"],
                         D["rodzice"], "16.09.2026", "PPP-1.4123.15.2026", D["orzeczenie"], D["nr"], D["data_orz"], D["poradnia"], "2025", "wrzesień 2026"]},
             {"f": 0.40, "fd": 0.05, "typ": "zaznacz", "sel": "table.op tr:nth-child(4) .cb:nth-of-type(1)"},
             {"f": 0.55, "fd": 0.05, "typ": "zaznacz", "sel": "table.op tr:nth-child(6) .cb:nth-of-type(1)"},
@@ -349,6 +356,8 @@ def przygotuj_druk(html: str) -> tuple[str, str]:
         s = s.replace("[Nazwa placówki]", D["placowka_krotko"])
         if "op-page" in s[:120]:
             s = s.replace("[Adres placówki, tel., e-mail]", D["adres"]).replace("[Miejscowość]", D["miejscowosc"])
+            s = s.replace('<td class="k">Data urodzenia · PESEL</td><td>[Data urodzenia] · [PESEL]</td>',
+                          '<td class="k">Data urodzenia</td><td>[Data urodzenia]</td>')
             # placeholdery w tabelach opinii → span.ph, żeby dało się je wpisać
             s = re.sub(r"\[(Data wydania|Imię i Nazwisko|Data urodzenia|PESEL|Nazwa i adres placówki|grupa / klasa|Imiona i nazwiska, adres do korespondencji|Data otrzymania|Znak sprawy|Orzeczenie / Opinia|Numer|Data|Nazwa Poradni|rok|miesiąc rok)\]",
                        r'<span class="ph">[\1]</span>', s)
@@ -453,7 +462,9 @@ body{margin:0;background:var(--f-ui-bg);color:var(--f-ui-ink);font-family:var(--
 .f-av .ring2{position:absolute;inset:-22px;border-radius:50%;border:1px solid rgba(232,69,10,.22)}
 .f-av .disc{position:absolute;inset:0;border-radius:50%;overflow:hidden;clip-path:circle(50% at 50% 50%);-webkit-clip-path:circle(50% at 50% 50%);isolation:isolate;transform:translateZ(0);background:radial-gradient(circle at 40% 35%,#3B2A80,#1A1240 70%);box-shadow:0 20px 60px rgba(0,0,0,.5)}
 .f-av video{width:100%;height:100%;object-fit:cover;display:none}
-.f-av.has video{display:block}
+.f-av.has video.hg{display:block}
+.f-av.intro-on video.intro{display:block;position:absolute;inset:0;object-position:50% 0;transform:scale(1.55);transform-origin:50% 18%;z-index:2}
+.f-av.intro-on video.hg{display:none}
 .f-av .ph{position:absolute;inset:0;display:grid;place-items:center;text-align:center;padding:12%;color:var(--f-muted)}
 .f-av .ph{padding:0;overflow:hidden;border-radius:50%;clip-path:circle(50% at 50% 50%)}
 .f-av .ph .ewa{position:absolute;left:0;top:5%;width:100%;height:100%;object-fit:cover;object-position:50% 0;transform:none;padding:0}
@@ -529,6 +540,8 @@ if (REMOTION) document.documentElement.classList.add('f-remotion');
 
 // ---------- czas scen ----------
 function ustawCzasy(starty){ let t=0; S.forEach((s,i)=>{ if(starty){ s.start=starty[i]; s.dur=(i+1<S.length?starty[i+1]:starty[i]+s.dur0)-s.start; } else { s.start=t; s.dur=s.dur0; t+=s.dur; } }); }
+const OFFSET = () => S[0].intro ? S[0].dur : 0;   // nagranie narracji zaczyna się po intro
+function skalujDoNagrania(sek){ const bez=S.filter(s=>!s.intro); const suma=bez.reduce((a,s)=>a+s.dur0,0); const k=sek/suma; bez.forEach(s=>s.dur0*=k); ustawCzasy(null); }
 S.forEach(s=>{ s.dur0=s.dur; }); ustawCzasy(null);
 const total = () => S[S.length-1].start + S[S.length-1].dur;
 
@@ -541,7 +554,7 @@ let SRT=null; // [{start,end,text}]
 const stage=$('#f-stage'), box=$('#f-stage-box'), cam=$('#f-cam'), pages=$$('#f-cam .page');
 const pageByNr = nr => pages[nr-1];
 const VW=1160, VH=916;
-const av=$('#f-av'), avVideo=$('#f-av video'), title=$('#f-title'), sub=$('#f-sub'), law=$('#f-law'), fotoEl=$('#f-foto'), fotoImg=$('#f-foto img'), fotoCap=$('#f-foto .cap');
+const av=$('#f-av'), avVideo=$('#f-av video.hg'), introVideo=$('#f-av video.intro'), title=$('#f-title'), sub=$('#f-sub'), law=$('#f-law'), fotoEl=$('#f-foto'), fotoImg=$('#f-foto img'), fotoCap=$('#f-foto .cap');
 const sceneK=$('#f-scene .k'), sceneH=$('#f-scene h2'), timeEl=$('#f-time'), chapters=$('#f-chapters'), dim=$('#f-dim');
 
 // skalowanie sceny do szerokości kontenera
@@ -652,12 +665,14 @@ function render(T){
   if(txt!==lastSub){ sub.innerHTML='<div>'+words.map(w=>'<span class="w">'+w+'</span>').join(' ')+'</div>'; lastSub=txt; }
   const n=words.length, on=Math.floor(clamp(wp,0,1)*n+0.35); $$('.w',sub).forEach((w,i)=>w.classList.toggle('on',i<on));
   talk(T, txt.length>0 && wp<0.97);
+  if(s.intro && !REMOTION && playing && introVideo && introVideo.paused && T<OFFSET()-0.2){ introVideo.currentTime=T; introVideo.play().catch(()=>{}); }
   // pasek rozdziałów, czas
   $$('span',chapters).forEach((sp,i)=>{ sp.classList.toggle('done',i<si); sp.style.setProperty('--p', i===si?p.toFixed(3):(i<si?1:0)); });
   const mm=t=>{ t=Math.max(0,t); return Math.floor(t/60)+':'+String(Math.floor(t%60)).padStart(2,'0'); };
   timeEl.textContent=mm(T)+' / '+mm(total()); $('#f-ctl-time').textContent=mm(T)+' / '+mm(total()); $('#f-range').value=(T/total()*1000).toFixed(0);
   $$('.f-chaplist button').forEach((b,i)=>b.classList.toggle('on',i===si));
-  if(avVideo.src && av.classList.contains('has')){ if(Math.abs(avVideo.currentTime-T)>0.35 || REMOTION) avVideo.currentTime=T; }
+  av.classList.toggle('intro-on', !!s.intro); if(s.intro && introVideo && (Math.abs(introVideo.currentTime-T)>0.4 || REMOTION)) introVideo.currentTime=Math.max(0,T);
+  if(avVideo.src && av.classList.contains('has')){ const a=Math.max(0,T-OFFSET()); if(Math.abs(avVideo.currentTime-a)>0.35 || REMOTION) avVideo.currentTime=a; }
 }
 function krok(k,p){
   switch(k.typ){
@@ -673,10 +688,10 @@ function krok(k,p){
 // ---------- zegar ----------
 let T=0, playing=false, rate=1, raf=null, lastNow=0;
 const audio=$('#f-audio');
-function tick(now){ if(!playing) return; if(audio.src && !audio.paused){ T=audio.currentTime; } else { T+= (now-lastNow)/1000*rate; } lastNow=now; if(T>=total()){ T=total()-0.001; pause(); } render(T); raf=requestAnimationFrame(tick); }
-function play(){ if(playing) return; if(T>=total()-0.05) T=0; playing=true; lastNow=performance.now(); if(audio.src){ audio.currentTime=T; audio.playbackRate=rate; audio.play().catch(()=>{}); } if(avVideo.src){ avVideo.currentTime=T; avVideo.play().catch(()=>{}); } $('#f-play').innerHTML='&#10074;&#10074; Pauza'; raf=requestAnimationFrame(tick); }
-function pause(){ playing=false; cancelAnimationFrame(raf); audio.pause(); avVideo.pause(); $('#f-play').innerHTML='&#9654; Odtwórz'; }
-function seek(t){ T=clamp(t,0,total()-0.001); if(audio.src) audio.currentTime=T; if(avVideo.src) avVideo.currentTime=T; render(T); }
+function tick(now){ if(!playing) return; const off=OFFSET(); if(audio.src && !audio.paused){ T=audio.currentTime+off; } else { T+= (now-lastNow)/1000*rate; if(audio.src && T>=off && audio.paused && !audio.ended){ audio.currentTime=Math.max(0,T-off); audio.play().catch(()=>{}); } } lastNow=now; if(T>=total()){ T=total()-0.001; pause(); } render(T); raf=requestAnimationFrame(tick); }
+function play(){ if(playing) return; if(T>=total()-0.05) T=0; playing=true; lastNow=performance.now(); const off=OFFSET(); if(audio.src && T>=off){ audio.currentTime=T-off; audio.playbackRate=rate; audio.play().catch(()=>{}); } if(avVideo.src){ avVideo.currentTime=Math.max(0,T-off); avVideo.play().catch(()=>{}); } if(introVideo && T<off){ introVideo.currentTime=T; introVideo.playbackRate=rate; introVideo.play().catch(()=>{}); } $('#f-play').innerHTML='&#10074;&#10074; Pauza'; raf=requestAnimationFrame(tick); }
+function pause(){ playing=false; cancelAnimationFrame(raf); audio.pause(); avVideo.pause(); if(introVideo) introVideo.pause(); $('#f-play').innerHTML='&#9654; Odtwórz'; }
+function seek(t){ T=clamp(t,0,total()-0.001); const off=OFFSET(); if(audio.src){ if(T>=off) audio.currentTime=T-off; else { audio.pause(); audio.currentTime=0; } } if(avVideo.src) avVideo.currentTime=Math.max(0,T-off); if(introVideo){ if(T<off){ introVideo.currentTime=T; if(!playing) introVideo.pause(); } else introVideo.pause(); } render(T); }
 
 // ---------- sterowanie ----------
 if(!REMOTION){
@@ -692,14 +707,14 @@ if(!REMOTION){
   const cl=$('#f-chaplist'); S.forEach((s,i)=>{ const b=document.createElement('button'); b.type='button'; const mm=t=>Math.floor(t/60)+':'+String(Math.floor(t%60)).padStart(2,'0'); b.innerHTML='<b>'+mm(s.start)+'</b><span>'+s.tytul+'</span><small>strona '+s.strona+' druku · '+NAR[i].split(' ').length+' słów</small>'; b.addEventListener('click',()=>{ seek(s.start); if(!playing) play(); }); cl.appendChild(b); });
   document.addEventListener('keydown', e=>{ if(e.target.matches('input,select,textarea,button,summary')) return; if(e.key===' '){ e.preventDefault(); playing?pause():play(); } if(e.key==='ArrowRight'){ $('#f-next').click(); } if(e.key==='ArrowLeft'){ $('#f-prev').click(); } });
   // zasoby: głos, napisy, awatar
-  function wczytajAudio(src, nazwa){ pause(); audio.src=src; audio.addEventListener('loadedmetadata', ()=>{ if(!SRT){ const k=audio.duration/(S[S.length-1].start+S[S.length-1].dur); S.forEach(s=>s.dur0*=k); ustawCzasy(null); } $('#f-st-mp3').textContent='Wczytano: '+nazwa+' · '+Math.round(audio.duration)+' s. Kliknij „Odtwórz”.'; $('#f-st-mp3').classList.add('ok'); seek(0); }, {once:true}); }
+  function wczytajAudio(src, nazwa){ pause(); audio.src=src; audio.addEventListener('loadedmetadata', ()=>{ if(!SRT){ skalujDoNagrania(audio.duration); } $('#f-st-mp3').textContent='Wczytano: '+nazwa+' · '+Math.round(audio.duration)+' s. Kliknij „Odtwórz”.'; $('#f-st-mp3').classList.add('ok'); seek(0); }, {once:true}); }
   $('#f-file-mp3').addEventListener('change', e=>{ const f=e.target.files[0]; if(!f) return; wczytajAudio(URL.createObjectURL(f), f.name); });
   $('#f-glos').addEventListener('change', e=>{ const v=e.target.value; if(!v){ pause(); audio.removeAttribute('src'); audio.load(); S.forEach(s=>s.dur0=s.dur); ustawCzasy(null); $('#f-st-mp3').textContent='Film gra w ciszy.'; $('#f-st-mp3').classList.remove('ok'); seek(0); return; } wczytajAudio(v, e.target.options[e.target.selectedIndex].text); });
   $('#f-file-srt').addEventListener('change', e=>{ const f=e.target.files[0]; if(!f) return; f.text().then(txt=>{ const ok=zastosujSrt(txt); $('#f-st-srt').textContent='Wczytano: '+f.name+' · '+SRT.length+' napisów'+(ok?' · sceny dosunięte do napisów.':' · nie udało się dopasować scen, zostają proporcje.'); $('#f-st-srt').classList.add('ok'); render(T); }); });
   $('#f-file-mp4').addEventListener('change', e=>{ const f=e.target.files[0]; if(!f) return; avVideo.src=URL.createObjectURL(f); avVideo.muted=!!audio.src; av.classList.add('has'); $('#f-st-mp4').textContent='Wczytano: '+f.name+'. Awatar mówi w kole i na pełnym ekranie.'; $('#f-st-mp4').classList.add('ok'); });
   $('#f-mute-av').addEventListener('change', e=>{ avVideo.muted=e.target.checked; });
 }
-function zastosujSrt(txt){ SRT=parseSrt(txt); const norm=x=>x.toLowerCase().replace(/[^\p{L}\p{N} ]/gu,''); const starty=S.map((s,i)=>{ const first=norm(NAR[i]).split(' ').slice(0,3).join(' '); const cue=SRT.find(c=>norm(c.text).includes(first)); return cue?cue.start:null; }); const ok=starty.every(x=>x!==null); if(ok) ustawCzasy(starty); return ok; }
+function zastosujSrt(txt){ SRT=parseSrt(txt); const off=OFFSET(); SRT.forEach(c=>{ c.start+=off; c.end+=off; }); const norm=x=>x.toLowerCase().replace(/[^\p{L}\p{N} ]/gu,''); const starty=S.map((s,i)=>{ if(s.intro) return 0; const first=norm(NAR[i]).split(' ').slice(0,3).join(' '); const cue=SRT.find(c=>norm(c.text).includes(first)); return cue?cue.start:null; }); const ok=starty.every(x=>x!==null); if(ok) ustawCzasy(starty); return ok; }
 function parseSrt(txt){ const out=[]; const bl=txt.replace(/\r/g,'').split(/\n\n+/); const tm=s=>{ const m=s.match(/(\d+):(\d+):(\d+)[,.](\d+)/); return +m[1]*3600+ +m[2]*60+ +m[3]+ +m[4]/1000; }; for(const b of bl){ const L=b.split('\n'); const ti=L.findIndex(l=>l.includes('-->')); if(ti<0) continue; const [a,c]=L[ti].split('-->'); out.push({start:tm(a),end:tm(c),text:L.slice(ti+1).join(' ').trim()}); } return out; }
 
 // ---------- start ----------
@@ -709,13 +724,14 @@ const t0=parseFloat(Q.get('t')||'0');
 const fontsReady = (document.fonts && document.fonts.ready) || Promise.resolve();
 if(REMOTION){ // Remotion: ?dur=<sekundy MP3>&srt=napisy.srt  → sceny w rytmie nagrania; awatar rysuje Remotion
   const dur=parseFloat(Q.get('dur')||'0'), srtUrl=Q.get('srt');
-  const go=()=>{ if(dur>0 && !SRT){ const k=dur/total(); S.forEach(s=>s.dur0*=k); ustawCzasy(null); } fontsReady.then(()=>{ camCache.clear(); seek(isFinite(t0)?t0:0); readyResolve(true); }); };
+  const go=()=>{ if(dur>0 && !SRT){ skalujDoNagrania(dur); } fontsReady.then(()=>{ camCache.clear(); seek(isFinite(t0)?t0:0); readyResolve(true); }); };
   if(srtUrl){ fetch(srtUrl).then(r=>r.ok?r.text():Promise.reject()).then(txt=>{ zastosujSrt(txt); go(); }).catch(go); } else go();
 } else {
   seek(isFinite(t0)?t0:0);
   // domyślne nagranie Twoim głosem (narracja.mp3 obok filmu) – jeśli jest, film gra z dźwiękiem po kliknięciu „Odtwórz”
   const domyslneAudio = Q.get('audio') || 'narracja.mp3';
-  fetch(domyslneAudio, {method:'HEAD'}).then(r=>{ if(!r.ok) throw 0; audio.src=domyslneAudio; audio.addEventListener('loadedmetadata', ()=>{ if(!SRT){ const k=audio.duration/total(); S.forEach(s=>s.dur0*=k); ustawCzasy(null); } $('#f-st-mp3').textContent='Nagranie Twoim głosem (ElevenLabs) jest wczytane: '+Math.round(audio.duration)+' s. Kliknij „Odtwórz”.'; $('#f-st-mp3').classList.add('ok'); render(T); }, {once:true}); }).catch(()=>{ if(Q.get('auto')!=='0' && !matchMedia('(prefers-reduced-motion: reduce)').matches) setTimeout(play, 600); });
+  const zapasoweAudio = 'narracje/ewa1_v3.mp3';
+  fetch(domyslneAudio, {method:'HEAD'}).then(r=>r.ok?domyslneAudio:fetch(zapasoweAudio,{method:'HEAD'}).then(r2=>{ if(!r2.ok) throw 0; const sel=$('#f-glos'); if(sel) sel.value=zapasoweAudio; return zapasoweAudio; })).then(src=>{ audio.src=src; audio.addEventListener('loadedmetadata', ()=>{ if(!SRT){ skalujDoNagrania(audio.duration); } $('#f-st-mp3').textContent='Nagranie z ElevenLabs wczytane: '+Math.round(audio.duration)+' s. Kliknij „Odtwórz”.'; $('#f-st-mp3').classList.add('ok'); render(T); }, {once:true}); }).catch(()=>{ if(Q.get('auto')!=='0' && !matchMedia('(prefers-reduced-motion: reduce)').matches) setTimeout(play, 600); });
   fontsReady.then(()=>{ camCache.clear(); render(T); readyResolve(true); });
 }
 })();
@@ -729,7 +745,7 @@ def buduj():
     sceny = []
     for s, a in zip(SCENY, nar):
         s2 = dict(s)
-        s2["dur"] = dur_sceny(a)
+        s2["dur"] = s.get("dur_stala") or dur_sceny(a)
         sceny.append(s2)
 
     foto = {
@@ -787,7 +803,8 @@ def buduj():
       <div class="f-av" id="f-av">
         <div class="ring2"></div><div class="ring"></div>
         <div class="disc">
-          <video playsinline preload="auto"></video>
+          <video class="hg" playsinline preload="auto"></video>
+          <video class="intro" playsinline preload="auto" src="awatar/ewa_pctp_intro.webm"></video>
           <div class="ph"><img class="ewa" src="awatar/ewa_pctp.png" alt="Ewa PCTP – awatar autorki"></div>
         </div>
         <div class="talk"><i></i><i></i><i></i><i></i><i></i></div>

@@ -8,7 +8,7 @@ po prawej stronie i na pełnym ekranie w intro i zakończeniu.
 | | |
 |---|---|
 | Format | 16:9 · 1920×1080 · 30 kl./s |
-| Czas | ok. 4:45 (16 scen; dokładny czas wyznacza nagranie MP3) |
+| Czas | ok. 5:00 (intro 13 s + 16 scen; dokładny czas wyznacza nagranie MP3) |
 | Odbiorca | dyrektorzy i nauczyciele przedszkoli i szkół, specjaliści, rodzice |
 | Bohater przykładu | „Antek”, 5 lat, przedszkole, orzeczenie z uwagi na autyzm – **dane fikcyjne** |
 | Marka | fiolet `#2D1B69`, pomarańcz `#E8450A`, Mulish; scena ciemnofioletowa, druk biały |
@@ -43,7 +43,8 @@ Czas orientacyjny przy 150 słowach/min. Po wczytaniu MP3 i SRT sceny dosuwają 
 
 | # | Czas | Strona druku | Co robi druk (animacja) | Narracja (skrót) | § Podstawa prawna | Zdjęcie |
 |---|---|---|---|---|---|---|
-| 1 | 0:00 | okładka (tło) | awatar na pełnym ekranie, tytuł „Jak powstaje raport” | haczyk: od 1.09.2026 opinia ma jedną strukturę; druk wypełni się na przykładzie Antka | poz. 428 § 7 ust. 6–7 | klocki i planety |
+| 0 | 0:00 | okładka (tło) | **intro Ewy PCTP ze skilla**: jej awatar w ruchu i jej głos z klipu `awatar/ewa_pctp_intro.webm` (13 s), tytuł „Dzień dobry, mam na imię Ewa” | „Dzień dobry. Mam na imię Ewa i będę Twoją przewodniczką po systemie EduPlaner 2026…” | – | zespół |
+| 1 | 0:13 | okładka (tło) | awatar na pełnym ekranie, tytuł „Jak powstaje raport” | haczyk: od 1.09.2026 opinia ma jedną strukturę; druk wypełni się na przykładzie Antka | poz. 428 § 7 ust. 6–7 | klocki i planety |
 | 2 | 0:18 | 1 · okładka | kamera: nagłówek → pola → edycja → zespół; wpisuje się placówka, dziecko, grupa, data; ptaszek „01 Wrzesień”; 6 nazwisk zespołu | okładka, edycja „na start”, skład Zespołu, rodzic od pierwszego dnia | art. 127 PO, RODO art. 9 | zespół przy stole |
 | 3 | 0:34 | 3 · podstawy prawne | 9 wierszy tabeli aktów wjeżdża po kolei; zbliżenie na poz. 428 | siedem podstaw prawnych, najważniejsza nowa (poz. 428, § 7) | wszystkie 7 aktów | podpis |
 | 4 | 1:01 | 2 · jak czytać | 5 kroków (obserwujemy → sprawdzamy efekty), warianty A/B | pięć kroków, Część I–II = opinia, Część III = organizacja | poz. 428, rozp. KS | zespół |

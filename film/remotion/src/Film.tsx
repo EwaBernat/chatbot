@@ -3,6 +3,7 @@ import {
   AbsoluteFill,
   Audio,
   OffthreadVideo,
+  Sequence,
   continueRender,
   delayRender,
   staticFile,
@@ -26,6 +27,8 @@ type FilmOkno = Window & {
  * Film HTML (oryginalny druk + silnik animacji) liczy każdą klatkę deterministycznie
  * z czasu: window.__film.seek(t). Remotion tylko ustawia czas, dokłada dźwięk i awatar.
  */
+const INTRO = 13.0;
+
 export const Film: React.FC<Props> = ({audio, awatar, srt, sekundy}) => {
   const frame = useCurrentFrame();
   const {fps} = useVideoConfig();
@@ -73,7 +76,17 @@ export const Film: React.FC<Props> = ({audio, awatar, srt, sekundy}) => {
         title="Ocena Funkcjonalna – film"
         style={{width: 1920, height: 1080, border: 0, display: 'block'}}
       />
-      {audio ? <Audio src={staticFile(audio)} /> : null}
+      {/* intro Ewy PCTP: jej twarz i jej głos z klipu ze skilla, przez pierwsze 13 s */}
+      <Sequence from={0} durationInFrames={Math.round(INTRO * fps)}>
+        <div style={{position: 'absolute', left: pos.ax - pos.ad / 2, top: pos.ay - pos.ad / 2, width: pos.ad, height: pos.ad, borderRadius: '50%', overflow: 'hidden', clipPath: 'circle(50% at 50% 50%)'}}>
+          <OffthreadVideo src={staticFile('awatar/ewa_pctp_intro.webm')} transparent style={{width: '100%', height: '100%', objectFit: 'cover', objectPosition: '50% 0', transform: 'scale(1.55)', transformOrigin: '50% 18%'}} />
+        </div>
+      </Sequence>
+      {audio ? (
+        <Sequence from={Math.round(INTRO * fps)}>
+          <Audio src={staticFile(audio)} />
+        </Sequence>
+      ) : null}
       {awatar ? (
         <div
           style={{
@@ -87,11 +100,13 @@ export const Film: React.FC<Props> = ({audio, awatar, srt, sekundy}) => {
             boxShadow: '0 20px 60px rgba(0,0,0,.5)',
           }}
         >
-          <OffthreadVideo
-            src={staticFile(awatar)}
-            muted
-            style={{width: '100%', height: '100%', objectFit: 'cover'}}
-          />
+          <Sequence from={Math.round(INTRO * fps)} layout="none">
+            <OffthreadVideo
+              src={staticFile(awatar)}
+              muted
+              style={{width: '100%', height: '100%', objectFit: 'cover'}}
+            />
+          </Sequence>
         </div>
       ) : null}
     </AbsoluteFill>

@@ -4,6 +4,7 @@ import {getAudioDurationInSeconds} from '@remotion/media-utils';
 import {Film, type Props} from './Film';
 
 const FPS = 30;
+export const INTRO = 13.0; // długość intro Ewy (awatar/ewa_pctp_intro.webm)
 
 async function istnieje(nazwa: string): Promise<boolean> {
   try {
@@ -46,7 +47,8 @@ export const RemotionRoot: React.FC = () => (
       let sekundy = await czasScenZHtml();
       if (maAudio) {
         try {
-          sekundy = await getAudioDurationInSeconds(staticFile('narracja.mp3'));
+          // narracja zaczyna się po 13-sekundowym intro Ewy PCTP (klip ze skilla awatar-ewa)
+          sekundy = INTRO + (await getAudioDurationInSeconds(staticFile('narracja.mp3')));
         } catch {
           // zostaje długość scen
         }
@@ -57,7 +59,7 @@ export const RemotionRoot: React.FC = () => (
           audio: maAudio ? 'narracja.mp3' : null,
           awatar: maAwatar ? 'awatar.mp4' : null,
           srt: maSrt ? 'napisy.srt' : null,
-          sekundy,
+          sekundy: sekundy - INTRO,
         },
       };
     }}
