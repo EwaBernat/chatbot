@@ -400,7 +400,11 @@ body{margin:0;background:var(--f-ui-bg);color:var(--f-ui-ink);font-family:var(--
 /* druk */
 .f-druk{position:absolute;left:48px;top:84px;width:1160px;height:916px;border-radius:12px;overflow:hidden;background:#0E0A1F;box-shadow:inset 0 0 0 1px var(--f-line)}
 .f-druk-cam{position:absolute;left:0;top:0;transform-origin:0 0;will-change:transform}
-.f-druk .page{display:none;margin:0;box-shadow:var(--f-shadow);width:794px;position:relative}
+.f-druk{color-scheme:light}
+.f-druk .page{display:none;margin:0;box-shadow:var(--f-shadow);width:794px;position:relative;color:var(--ink);background:#fff;forced-color-adjust:none}
+.f-druk .page .lead2,.f-druk .page .step p,.f-druk .page .flow5 p,.f-druk .page .lvlbox p,.f-druk .page .ed-grid p,.f-druk .page .toc p,.f-druk .page .stnote,.f-druk .page .legend,.f-druk .page .op-law,.f-druk .page .op-right,.f-druk .page .op-stamp,.f-druk .page .mood,.f-druk .page .sig small,.f-druk .page .hdr .cap,.f-druk .page .footer{color:#5A536B}
+.f-druk .page .ph{color:#5A536B}
+.f-druk .page .field label,.f-druk .page .stat .l,.f-druk .page .kv .l,.f-druk .page .icf small{color:#6A5BA8}
 .f-druk .page.f-on{display:block}
 .f-druk .page::after{content:"";position:absolute;inset:0;pointer-events:none;box-shadow:inset 0 0 0 1px rgba(45,27,105,.08)}
 .f-hid{opacity:.35}
@@ -686,7 +690,9 @@ if(!REMOTION){
   const cl=$('#f-chaplist'); S.forEach((s,i)=>{ const b=document.createElement('button'); b.type='button'; const mm=t=>Math.floor(t/60)+':'+String(Math.floor(t%60)).padStart(2,'0'); b.innerHTML='<b>'+mm(s.start)+'</b><span>'+s.tytul+'</span><small>strona '+s.strona+' druku · '+NAR[i].split(' ').length+' słów</small>'; b.addEventListener('click',()=>{ seek(s.start); if(!playing) play(); }); cl.appendChild(b); });
   document.addEventListener('keydown', e=>{ if(e.target.matches('input,select,textarea,button,summary')) return; if(e.key===' '){ e.preventDefault(); playing?pause():play(); } if(e.key==='ArrowRight'){ $('#f-next').click(); } if(e.key==='ArrowLeft'){ $('#f-prev').click(); } });
   // zasoby: głos, napisy, awatar
-  $('#f-file-mp3').addEventListener('change', e=>{ const f=e.target.files[0]; if(!f) return; audio.src=URL.createObjectURL(f); audio.addEventListener('loadedmetadata', ()=>{ if(!SRT){ const k=audio.duration/total(); S.forEach(s=>s.dur0*=k); ustawCzasy(null); } $('#f-st-mp3').textContent='Wczytano: '+f.name+' · '+Math.round(audio.duration)+' s. Film ma teraz długość nagrania.'; $('#f-st-mp3').classList.add('ok'); render(T); }, {once:true}); });
+  function wczytajAudio(src, nazwa){ pause(); audio.src=src; audio.addEventListener('loadedmetadata', ()=>{ if(!SRT){ const k=audio.duration/(S[S.length-1].start+S[S.length-1].dur); S.forEach(s=>s.dur0*=k); ustawCzasy(null); } $('#f-st-mp3').textContent='Wczytano: '+nazwa+' · '+Math.round(audio.duration)+' s. Kliknij „Odtwórz”.'; $('#f-st-mp3').classList.add('ok'); seek(0); }, {once:true}); }
+  $('#f-file-mp3').addEventListener('change', e=>{ const f=e.target.files[0]; if(!f) return; wczytajAudio(URL.createObjectURL(f), f.name); });
+  $('#f-glos').addEventListener('change', e=>{ const v=e.target.value; if(!v){ pause(); audio.removeAttribute('src'); audio.load(); S.forEach(s=>s.dur0=s.dur); ustawCzasy(null); $('#f-st-mp3').textContent='Film gra w ciszy.'; $('#f-st-mp3').classList.remove('ok'); seek(0); return; } wczytajAudio(v, e.target.options[e.target.selectedIndex].text); });
   $('#f-file-srt').addEventListener('change', e=>{ const f=e.target.files[0]; if(!f) return; f.text().then(txt=>{ const ok=zastosujSrt(txt); $('#f-st-srt').textContent='Wczytano: '+f.name+' · '+SRT.length+' napisów'+(ok?' · sceny dosunięte do napisów.':' · nie udało się dopasować scen, zostają proporcje.'); $('#f-st-srt').classList.add('ok'); render(T); }); });
   $('#f-file-mp4').addEventListener('change', e=>{ const f=e.target.files[0]; if(!f) return; avVideo.src=URL.createObjectURL(f); avVideo.muted=!!audio.src; av.classList.add('has'); $('#f-st-mp4').textContent='Wczytano: '+f.name+'. Awatar mówi w kole i na pełnym ekranie.'; $('#f-st-mp4').classList.add('ok'); });
   $('#f-mute-av').addEventListener('change', e=>{ avVideo.muted=e.target.checked; });
@@ -802,7 +808,7 @@ def buduj():
   <div class="f-chaplist" id="f-chaplist"></div>
 
   <div class="f-grid">
-    <div class="f-card"><h3><i>1</i>Twój głos · ElevenLabs</h3><p>Nagranie narracji Twoim sklonowanym głosem. Wczytany plik MP3 staje się zegarem filmu, a sceny rozciągają się do jego długości.</p><input type="file" id="f-file-mp3" accept="audio/*"><div class="st" id="f-st-mp3">Bez nagrania film gra w ciszy, w tempie ok. 150 słów na minutę.</div></div>
+    <div class="f-card"><h3><i>1</i>Twój głos · ElevenLabs</h3><p>Nagranie narracji Twoim sklonowanym głosem. Wczytany plik MP3 staje się zegarem filmu, a sceny rozciągają się do jego długości.</p><label class="sw" style="margin-bottom:6px">Nagranie z ElevenLabs: <select id="f-glos"><option value="">brak (film w ciszy)</option><option value="narracje/ewa1_v3.mp3">klon „Ewa1” · eleven_v3 · 8:30</option><option value="narracje/do_skils_v2.mp3">klon „Ewa-głos_do skils” · multilingual_v2 · 6:20</option></select></label><input type="file" id="f-file-mp3" accept="audio/*"><div class="st" id="f-st-mp3">Bez nagrania film gra w ciszy, w tempie ok. 150 słów na minutę.</div></div>
     <div class="f-card"><h3><i>2</i>Napisy · SRT</h3><p>Plik z ElevenLabs (<code>--srt</code>). Sceny dosuwają się do początków zdań, a napisy mają prawdziwe znaczniki czasu.</p><input type="file" id="f-file-srt" accept=".srt,text/plain"><div class="st" id="f-st-srt">Bez SRT napisy liczone są z długości zdań.</div></div>
     <div class="f-card"><h3><i>3</i>Twój awatar · HeyGen</h3><p>Film MP4 z awatarem mówiącym do tego samego MP3 (<code>heygen_awatar.py --audio</code>, tło fioletowe, kadr <code>circle</code>). Gra w kole i na pełnym ekranie.</p><input type="file" id="f-file-mp4" accept="video/mp4,video/webm"><label class="sw" style="margin-top:6px"><input type="checkbox" id="f-mute-av" checked> wycisz dźwięk awatara (głos gra z MP3)</label><div class="st" id="f-st-mp4">Bez pliku w kole stoi Ewa PCTP (postać ze skilla awatar-ewa).</div></div>
     <div class="f-card"><h3><i>4</i>Zdjęcia</h3><p>Kliknij zdjęcie na scenie, aby podmienić je własnym. Podmiana zapamiętuje się w tej przeglądarce. Skróty: spacja – odtwarzanie, strzałki – sceny.</p><div class="st">Render do MP4: <code>film/remotion</code> (patrz README).</div></div>
