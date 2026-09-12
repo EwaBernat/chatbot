@@ -9,7 +9,7 @@ film/
 ├── ocena_funkcjonalna_film.html   ← gotowy film (otwórz w przeglądarce)
 ├── build_film.py                  ← generator: oryginalny druk + silnik animacji + scenariusz scen
 ├── narracja.txt                   ← tekst lektorski (16 akapitów = 16 scen, liczby słownie)
-├── out/narracja_*.mp3             ← próbne nagrania klonami z konta ElevenLabs (do oceny; film gra bez nich)
+├── awatar/                        ← postać Ewy PCTP i intro z jej głosem (ze skilla awatar-ewa)
 ├── SCENARIUSZ.md                  ← scenariusz: kadr, sceny, animacje, podstawa prawna, zdjęcia
 ├── generuj.sh                     ← potok: głos (ElevenLabs) → awatar (HeyGen) → MP4 (Remotion)
 ├── foto/*.webp                    ← 5 zdjęć scen (ElevenLabs, gpt-image-2)
