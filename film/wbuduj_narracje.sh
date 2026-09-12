@@ -13,7 +13,7 @@ LISTA="$OUT/czesci.txt"; : > "$LISTA"
 for f in "$@"; do [ -f "$f" ] || { echo "nie ma pliku: $f"; exit 4; }; printf "file '%s'\n" "$(realpath "$f")" >> "$LISTA"; done
 # sklejenie z przekodowaniem do jednolitego MP3 (44,1 kHz, mono, 128 kb/s) – niezależnie od źródeł
 "$FF" -y -loglevel error -f concat -safe 0 -i "$LISTA" -ac 1 -ar 44100 -codec:a libmp3lame -b:a 128k film/narracja.mp3
-DUR=$("$FF" -i film/narracja.mp3 2>&1 | sed -n 's/.*Duration: \([0-9:.]*\).*/\1/p')
+DUR=$( { "$FF" -i film/narracja.mp3 2>&1 || true; } | sed -n 's/.*Duration: \([0-9:.]*\).*/\1/p')
 echo "narracja.mp3: $DUR (części: $#)"
 mkdir -p film/remotion/public/foto film/remotion/public/awatar
 cp film/narracja.mp3 film/remotion/public/narracja.mp3

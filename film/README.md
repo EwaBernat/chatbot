@@ -35,6 +35,15 @@ bash film/wbuduj_narracje.sh czesc1.mp3 [czesc2.mp3 ...]   # → film/narracja.m
 RENDER=1 bash film/wbuduj_narracje.sh czesc1.mp3           # to samo + render film/out/film.mp4
 ```
 
+Potem dopasuj sceny do pauz w nagraniu (16 akapitów po intro → 15 granic wybranych spośród pauz
+`silencedetect`, proporcjonalnie do długości akapitów) i przebuduj film – `napisy.srt` obok filmu
+wczytuje się sam, tak jak `narracja.mp3`:
+
+```bash
+python3 film/napisy_z_pauz.py        # → film/out/napisy.srt + kopie film/napisy.srt, remotion/public/napisy.srt
+python3 film/build_film.py
+```
+
 Droga z kluczem API (na własnym komputerze, klucz tylko w zmiennej środowiskowej):
 
 ```bash

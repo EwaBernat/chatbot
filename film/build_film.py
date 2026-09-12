@@ -8,7 +8,7 @@ Film zachowuje oryginalny CSS i markup druku. Silnik dokłada:
   * oś czasu ze scenami (każda scena = akapit narracji z film/narracja.txt),
   * kamerę (najazd na wypełniane pole), wpisywanie tekstu, ptaszki, paski, podpisy,
   * awatar (koło / pełny ekran) na film MP4 z HeyGen,
-  * głos (MP3 z ElevenLabs) i napisy (SRT) — wczytywane w przeglądarce,
+  * głos (narracja.mp3) i napisy (napisy.srt) — wczytywane same, gdy leżą obok filmu, albo ręcznie w przeglądarce,
   * karty „§ podstawa prawna” i zdjęcia dla każdej sceny,
   * sterowanie (odtwarzanie, suwak, rozdziały, klawiatura) i tryb ?remotion=1 dla renderu MP4.
 
@@ -708,14 +708,15 @@ if(!REMOTION){
   const cl=$('#f-chaplist'); S.forEach((s,i)=>{ const b=document.createElement('button'); b.type='button'; const mm=t=>Math.floor(t/60)+':'+String(Math.floor(t%60)).padStart(2,'0'); b.innerHTML='<b>'+mm(s.start)+'</b><span>'+s.tytul+'</span><small>strona '+s.strona+' druku · '+NAR[i].split(' ').length+' słów</small>'; b.addEventListener('click',()=>{ seek(s.start); if(!playing) play(); }); cl.appendChild(b); });
   document.addEventListener('keydown', e=>{ if(e.target.matches('input,select,textarea,button,summary')) return; if(e.key===' '){ e.preventDefault(); playing?pause():play(); } if(e.key==='ArrowRight'){ $('#f-next').click(); } if(e.key==='ArrowLeft'){ $('#f-prev').click(); } });
   // zasoby: głos, napisy, awatar
-  function wczytajAudio(src, nazwa){ pause(); audio.src=src; audio.addEventListener('loadedmetadata', ()=>{ if(!SRT){ skalujDoNagrania(audio.duration); } $('#f-st-mp3').textContent='Wczytano: '+nazwa+' · '+Math.round(audio.duration)+' s. Kliknij „Odtwórz”.'; $('#f-st-mp3').classList.add('ok'); seek(0); }, {once:true}); }
+  function wczytajAudio(src, nazwa){ pause(); audio.src=src; audio.addEventListener('loadedmetadata', ()=>{ if(!SRT){ skalujDoNagrania(audio.duration); } else { dosunKoniec(audio.duration); } $('#f-st-mp3').textContent='Wczytano: '+nazwa+' · '+Math.round(audio.duration)+' s. Kliknij „Odtwórz”.'; $('#f-st-mp3').classList.add('ok'); seek(0); }, {once:true}); }
   $('#f-file-mp3').addEventListener('change', e=>{ const f=e.target.files[0]; if(!f) return; wczytajAudio(URL.createObjectURL(f), f.name); });
   $('#f-glos').addEventListener('change', e=>{ const v=e.target.value; if(!v){ pause(); audio.removeAttribute('src'); audio.load(); S.forEach(s=>s.dur0=s.dur); ustawCzasy(null); $('#f-st-mp3').textContent='Film gra w ciszy.'; $('#f-st-mp3').classList.remove('ok'); seek(0); return; } wczytajAudio(v, e.target.options[e.target.selectedIndex].text); });
   $('#f-file-srt').addEventListener('change', e=>{ const f=e.target.files[0]; if(!f) return; f.text().then(txt=>{ const ok=zastosujSrt(txt); $('#f-st-srt').textContent='Wczytano: '+f.name+' · '+SRT.length+' napisów'+(ok?' · sceny dosunięte do napisów.':' · nie udało się dopasować scen, zostają proporcje.'); $('#f-st-srt').classList.add('ok'); render(T); }); });
   $('#f-file-mp4').addEventListener('change', e=>{ const f=e.target.files[0]; if(!f) return; avVideo.src=URL.createObjectURL(f); avVideo.muted=!!audio.src; av.classList.add('has'); $('#f-st-mp4').textContent='Wczytano: '+f.name+'. Awatar mówi w kole i na pełnym ekranie.'; $('#f-st-mp4').classList.add('ok'); });
   $('#f-mute-av').addEventListener('change', e=>{ avVideo.muted=e.target.checked; });
 }
-function zastosujSrt(txt){ SRT=parseSrt(txt); const off=OFFSET(); SRT.forEach(c=>{ c.start+=off; c.end+=off; }); const norm=x=>x.toLowerCase().replace(/[^\p{L}\p{N} ]/gu,''); const starty=S.map((s,i)=>{ if(s.intro) return 0; const first=norm(NAR[i]).split(' ').slice(0,3).join(' '); const cue=SRT.find(c=>norm(c.text).includes(first)); return cue?cue.start:null; }); const ok=starty.every(x=>x!==null); if(ok) ustawCzasy(starty); return ok; }
+function dosunKoniec(sek){ const last=S[S.length-1]; const koniec=OFFSET()+sek; if(koniec>last.start) last.dur=koniec-last.start; } // ostatnia scena trwa do końca nagrania
+function zastosujSrt(txt){ SRT=parseSrt(txt); const off=OFFSET(); SRT.forEach(c=>{ c.start+=off; c.end+=off; }); const norm=x=>x.toLowerCase().replace(/[^\p{L}\p{N} ]/gu,''); const starty=S.map((s,i)=>{ if(s.intro) return 0; const first=norm(NAR[i]).split(' ').slice(0,3).join(' '); const cue=SRT.find(c=>norm(c.text).includes(first)); return cue?cue.start:null; }); const ok=starty.every(x=>x!==null); if(ok){ ustawCzasy(starty); dosunKoniec(SRT[SRT.length-1].end-off); if(audio.duration>0) dosunKoniec(audio.duration); } return ok; }
 function parseSrt(txt){ const out=[]; const bl=txt.replace(/\r/g,'').split(/\n\n+/); const tm=s=>{ const m=s.match(/(\d+):(\d+):(\d+)[,.](\d+)/); return +m[1]*3600+ +m[2]*60+ +m[3]+ +m[4]/1000; }; for(const b of bl){ const L=b.split('\n'); const ti=L.findIndex(l=>l.includes('-->')); if(ti<0) continue; const [a,c]=L[ti].split('-->'); out.push({start:tm(a),end:tm(c),text:L.slice(ti+1).join(' ').trim()}); } return out; }
 
 // ---------- start ----------
@@ -725,13 +726,16 @@ const t0=parseFloat(Q.get('t')||'0');
 const fontsReady = (document.fonts && document.fonts.ready) || Promise.resolve();
 if(REMOTION){ // Remotion: ?dur=<sekundy MP3>&srt=napisy.srt  → sceny w rytmie nagrania; awatar rysuje Remotion
   const dur=parseFloat(Q.get('dur')||'0'), srtUrl=Q.get('srt');
-  const go=()=>{ if(dur>0 && !SRT){ skalujDoNagrania(dur); } fontsReady.then(()=>{ camCache.clear(); seek(isFinite(t0)?t0:0); readyResolve(true); }); };
+  const go=()=>{ if(dur>0){ if(!SRT) skalujDoNagrania(dur); else dosunKoniec(dur); } fontsReady.then(()=>{ camCache.clear(); seek(isFinite(t0)?t0:0); readyResolve(true); }); };
   if(srtUrl){ fetch(srtUrl).then(r=>r.ok?r.text():Promise.reject()).then(txt=>{ zastosujSrt(txt); go(); }).catch(go); } else go();
 } else {
   seek(isFinite(t0)?t0:0);
   // domyślne nagranie Twoim głosem (narracja.mp3 obok filmu) – jeśli jest, film gra z dźwiękiem po kliknięciu „Odtwórz”
   const domyslneAudio = Q.get('audio') || 'narracja.mp3';
-  fetch(domyslneAudio, {method:'HEAD'}).then(r=>{ if(!r.ok) throw 0; return domyslneAudio; }).then(src=>{ audio.src=src; audio.addEventListener('loadedmetadata', ()=>{ if(!SRT){ skalujDoNagrania(audio.duration); } $('#f-st-mp3').textContent='Nagranie z ElevenLabs wczytane: '+Math.round(audio.duration)+' s. Kliknij „Odtwórz”.'; $('#f-st-mp3').classList.add('ok'); render(T); }, {once:true}); }).catch(()=>{ $('#f-st-mp3').textContent='Po intro film gra w ciszy z napisami. Narrację Twoim głosem z HeyGen dodasz plikiem MP3 albo z listy.'; });
+  fetch(domyslneAudio, {method:'HEAD'}).then(r=>{ if(!r.ok) throw 0; return domyslneAudio; }).then(src=>{ audio.src=src; audio.addEventListener('loadedmetadata', ()=>{ if(!SRT){ skalujDoNagrania(audio.duration); } else { dosunKoniec(audio.duration); } $('#f-st-mp3').textContent='Nagranie z ElevenLabs wczytane: '+Math.round(audio.duration)+' s. Kliknij „Odtwórz”.'; $('#f-st-mp3').classList.add('ok'); render(T); }, {once:true}); }).catch(()=>{ $('#f-st-mp3').textContent='Po intro film gra w ciszy z napisami. Narrację Twoim głosem z HeyGen dodasz plikiem MP3 albo z listy.'; });
+  // domyślne napisy (napisy.srt obok filmu) – jeśli są, sceny dosuwają się do prawdziwych zdań nagrania
+  const domyslneSrt = Q.get('srt') || 'napisy.srt';
+  fetch(domyslneSrt).then(r=>r.ok?r.text():Promise.reject()).then(txt=>{ const ok=zastosujSrt(txt); $('#f-st-srt').textContent='Napisy wczytane: '+SRT.length+' zdań'+(ok?' · sceny dosunięte do nagrania.':' · nie udało się dopasować scen, zostają proporcje.'); $('#f-st-srt').classList.add('ok'); render(T); }).catch(()=>{});
   fontsReady.then(()=>{ camCache.clear(); render(T); readyResolve(true); });
 }
 })();
