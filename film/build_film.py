@@ -61,11 +61,11 @@ D = {
 # strona = numer strony druku (1–28). Selektory działają wewnątrz tej strony.
 # ----------------------------------------------------------------------------
 PRAWO = {
-    "428": {"akt": "Rozp. ME z 2.03.2026 – orzeczenia i opinie", "dz": "Dz. U. 2026 poz. 428"},
+    "428": {"akt": "Rozp. MEN z 2.03.2026 – orzeczenia i opinie", "dz": "Dz. U. 2026 poz. 428"},
     "po": {"akt": "Prawo oświatowe – art. 127", "dz": "Dz. U. 2024 poz. 737"},
     "ks": {"akt": "Rozp. MEN z 9.08.2017 – kształcenie specjalne", "dz": "Dz. U. 2020 poz. 1309"},
     "ppp": {"akt": "Rozp. MEN z 9.08.2017 – pomoc psych.-ped.", "dz": "Dz. U. 2023 poz. 1798"},
-    "pp": {"akt": "Rozp. ME z 11.03.2026 – nowa podstawa programowa", "dz": "Dz. U. 2026 poz. 378"},
+    "pp": {"akt": "Rozp. MEN z 11.03.2026 – nowa podstawa programowa", "dz": "Dz. U. 2026 poz. 378"},
     "icf": {"akt": "ICF – klasyfikacja WHO", "dz": "model 2026/27"},
     "rodo": {"akt": "RODO – art. 9 (dane o zdrowiu)", "dz": "Dz. Urz. UE L 119"},
 }
@@ -465,6 +465,7 @@ body{margin:0;background:var(--f-ui-bg);color:var(--f-ui-ink);font-family:var(--
 .f-av.has video.hg{display:block}
 .f-av.intro-on video.intro{display:block;position:absolute;inset:0;object-position:50% 0;transform:scale(1.55);transform-origin:50% 18%;z-index:2}
 .f-av.intro-on video.hg{display:none}
+.f-av.intro-on .ph{display:none}
 .f-av .ph{position:absolute;inset:0;display:grid;place-items:center;text-align:center;padding:12%;color:var(--f-muted)}
 .f-av .ph{padding:0;overflow:hidden;border-radius:50%;clip-path:circle(50% at 50% 50%)}
 .f-av .ph .ewa{position:absolute;left:0;top:5%;width:100%;height:100%;object-fit:cover;object-position:50% 0;transform:none;padding:0}
@@ -730,8 +731,7 @@ if(REMOTION){ // Remotion: ?dur=<sekundy MP3>&srt=napisy.srt  → sceny w rytmie
   seek(isFinite(t0)?t0:0);
   // domyślne nagranie Twoim głosem (narracja.mp3 obok filmu) – jeśli jest, film gra z dźwiękiem po kliknięciu „Odtwórz”
   const domyslneAudio = Q.get('audio') || 'narracja.mp3';
-  const zapasoweAudio = 'narracje/ewa1_v3.mp3';
-  fetch(domyslneAudio, {method:'HEAD'}).then(r=>r.ok?domyslneAudio:fetch(zapasoweAudio,{method:'HEAD'}).then(r2=>{ if(!r2.ok) throw 0; const sel=$('#f-glos'); if(sel) sel.value=zapasoweAudio; return zapasoweAudio; })).then(src=>{ audio.src=src; audio.addEventListener('loadedmetadata', ()=>{ if(!SRT){ skalujDoNagrania(audio.duration); } $('#f-st-mp3').textContent='Nagranie z ElevenLabs wczytane: '+Math.round(audio.duration)+' s. Kliknij „Odtwórz”.'; $('#f-st-mp3').classList.add('ok'); render(T); }, {once:true}); }).catch(()=>{ if(Q.get('auto')!=='0' && !matchMedia('(prefers-reduced-motion: reduce)').matches) setTimeout(play, 600); });
+  fetch(domyslneAudio, {method:'HEAD'}).then(r=>{ if(!r.ok) throw 0; return domyslneAudio; }).then(src=>{ audio.src=src; audio.addEventListener('loadedmetadata', ()=>{ if(!SRT){ skalujDoNagrania(audio.duration); } $('#f-st-mp3').textContent='Nagranie z ElevenLabs wczytane: '+Math.round(audio.duration)+' s. Kliknij „Odtwórz”.'; $('#f-st-mp3').classList.add('ok'); render(T); }, {once:true}); }).catch(()=>{ $('#f-st-mp3').textContent='Po intro film gra w ciszy z napisami. Narrację Twoim głosem z HeyGen dodasz plikiem MP3 albo z listy.'; });
   fontsReady.then(()=>{ camCache.clear(); render(T); readyResolve(true); });
 }
 })();
@@ -827,7 +827,7 @@ def buduj():
   <div class="f-chaplist" id="f-chaplist"></div>
 
   <div class="f-grid">
-    <div class="f-card"><h3><i>1</i>Twój głos · ElevenLabs</h3><p>Nagranie narracji Twoim sklonowanym głosem. Wczytany plik MP3 staje się zegarem filmu, a sceny rozciągają się do jego długości.</p><label class="sw" style="margin-bottom:6px">Nagranie z ElevenLabs: <select id="f-glos"><option value="">brak (film w ciszy)</option><option value="narracje/ewa1_v3.mp3">klon „Ewa1” · eleven_v3 · 8:30</option><option value="narracje/do_skils_v2.mp3">klon „Ewa-głos_do skils” · multilingual_v2 · 6:20</option></select></label><input type="file" id="f-file-mp3" accept="audio/*"><div class="st" id="f-st-mp3">Bez nagrania film gra w ciszy, w tempie ok. 150 słów na minutę.</div></div>
+    <div class="f-card"><h3><i>1</i>Twój głos · ElevenLabs</h3><p>Nagranie narracji Twoim sklonowanym głosem. Wczytany plik MP3 staje się zegarem filmu, a sceny rozciągają się do jego długości.</p><label class="sw" style="margin-bottom:6px">Nagranie z ElevenLabs: <select id="f-glos"><option value="">brak – czeka na Twój głos z HeyGen (intro Ewy gra zawsze)</option><option value="narracje/ewa1_v3.mp3">próba: klon „Ewa1” z ElevenLabs · eleven_v3</option><option value="narracje/do_skils_v2.mp3">próba: klon „Ewa-głos_do skils” · multilingual_v2</option></select></label><input type="file" id="f-file-mp3" accept="audio/*"><div class="st" id="f-st-mp3">Bez nagrania film gra w ciszy, w tempie ok. 150 słów na minutę.</div></div>
     <div class="f-card"><h3><i>2</i>Napisy · SRT</h3><p>Plik z ElevenLabs (<code>--srt</code>). Sceny dosuwają się do początków zdań, a napisy mają prawdziwe znaczniki czasu.</p><input type="file" id="f-file-srt" accept=".srt,text/plain"><div class="st" id="f-st-srt">Bez SRT napisy liczone są z długości zdań.</div></div>
     <div class="f-card"><h3><i>3</i>Twój awatar · HeyGen</h3><p>Film MP4 z awatarem mówiącym do tego samego MP3 (<code>heygen_awatar.py --audio</code>, tło fioletowe, kadr <code>circle</code>). Gra w kole i na pełnym ekranie.</p><input type="file" id="f-file-mp4" accept="video/mp4,video/webm"><label class="sw" style="margin-top:6px"><input type="checkbox" id="f-mute-av" checked> wycisz dźwięk awatara (głos gra z MP3)</label><div class="st" id="f-st-mp4">Bez pliku w kole stoi Ewa PCTP (postać ze skilla awatar-ewa).</div></div>
     <div class="f-card"><h3><i>4</i>Zdjęcia</h3><p>Kliknij zdjęcie na scenie, aby podmienić je własnym. Podmiana zapamiętuje się w tej przeglądarce. Skróty: spacja – odtwarzanie, strzałki – sceny.</p><div class="st">Render do MP4: <code>film/remotion</code> (patrz README).</div></div>
