@@ -24,18 +24,26 @@ kliknij „Odtwórz”. Bez pliku dźwięku film startuje sam, w ciszy z napisam
 
 ## 2. Twój głos (ElevenLabs)
 
-Skill `dane-i-glos` nie tworzy nagrań cudzym głosem. Na koncie ElevenLabs są trzy szybkie klony
-(„Ewa-głos_do skils”, „Ewa1”, „Ewa2”) oraz profesjonalny klon „Głos bez tytułu” (`1tw3WuUEU1Wt8m68hw81`),
-który nie jest jeszcze wytrenowany – po jego weryfikacji i treningu w ElevenLabs ustaw go jako głos narracji:
-`export ELEVENLABS_VOICE_ID=1tw3WuUEU1Wt8m68hw81`. Zapamiętanie w skillu:
+Skill `dane-i-glos` nie tworzy nagrań cudzym głosem. Głos autorki („Ewa Jurczyszyn”) jest na jej
+koncie ElevenLabs. Najprostsza droga, bez kluczy: w przeglądarce ElevenLabs (Text to Speech, głos
+„Ewa Jurczyszyn”, model Eleven Multilingual v2) wklej tekst z `film/out/narracja_bez_intro.txt`
+(powstaje po `bash film/generuj.sh`, to `narracja.txt` bez pierwszego akapitu-intro), pobierz MP3
+(jeden plik albo kilka części) i wbuduj:
 
 ```bash
-export ELEVENLABS_API_KEY="..."
-python3 .claude/skills/dane-i-glos/scripts/skonfiguruj_glos.py nagranie.mp4 --nazwa "Ewa - narracja PL"
+bash film/wbuduj_narracje.sh czesc1.mp3 [czesc2.mp3 ...]   # → film/narracja.mp3 + kopie do remotion/public
+RENDER=1 bash film/wbuduj_narracje.sh czesc1.mp3           # to samo + render film/out/film.mp4
+```
+
+Droga z kluczem API (na własnym komputerze, klucz tylko w zmiennej środowiskowej):
+
+```bash
+export ELEVENLABS_API_KEY="..." ELEVENLABS_VOICE_ID="<id głosu Ewa Jurczyszyn>"
 bash film/generuj.sh glos          # → film/out/narracja.mp3 + napisy.srt
 ```
 
-W filmie HTML wczytaj MP3 i SRT w kartach pod kadrem – sceny dopasują się do nagrania.
+W filmie HTML `narracja.mp3` obok pliku filmu wczytuje się sam; MP3 i SRT można też wczytać
+w kartach pod kadrem – sceny dopasują się do nagrania.
 
 ## 3. Twój awatar (HeyGen)
 
