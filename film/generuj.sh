@@ -9,12 +9,14 @@ cd "$(dirname "$0")/.."
 SK=.claude/skills/dane-i-glos/scripts
 OUT=film/out; mkdir -p "$OUT"
 ETAP="${1:-wszystko}"
+# Pierwszy akapit narracja.txt to intro Ewy (gotowy klip ze skilla) – do nagrania idzie tekst od 2. akapitu.
+NARR="$OUT/narracja_bez_intro.txt"; awk -v RS= -v ORS="\n\n" "NR>1" film/narracja.txt > "$NARR"
 
 glos() {
   # Skrypt odmawia, gdy skill nie ma zapamiętanego Twojego głosu (kod 4). Najpierw:
   #   python3 $SK/skonfiguruj_glos.py nagranie.mp4 --nazwa "Ewa - narracja PL"
   python3 "$SK/skonfiguruj_glos.py" --pokaz
-  python3 "$SK/elevenlabs_tts.py" film/narracja.txt -o "$OUT/narracja.mp3" --srt "$OUT/napisy.srt" \
+  python3 "$SK/elevenlabs_tts.py" "$NARR" -o "$OUT/narracja.mp3" --srt "$OUT/napisy.srt" \
           --model eleven_v3 --stability 0.6 --similarity 0.75 --speed 0.97
 }
 
@@ -23,7 +25,7 @@ awatar() {
   # HeyGen – tym samym, którym mówi intro Ewy PCTP. Ścieżkę dźwięku wyciągamy z filmu do narracja.mp3.
   : "${HEYGEN_AVATAR_ID:?Ustaw HEYGEN_AVATAR_ID (python3 $SK/heygen_awatar.py --awatary)}"
   if [ -n "${HEYGEN_VOICE_ID:-}" ]; then
-    python3 "$SK/heygen_awatar.py" film/narracja.txt --avatar-id "$HEYGEN_AVATAR_ID" --voice-id "$HEYGEN_VOICE_ID" \
+    python3 "$SK/heygen_awatar.py" "$NARR" --avatar-id "$HEYGEN_AVATAR_ID" --voice-id "$HEYGEN_VOICE_ID" \
             --styl circle --tlo "#2D1B69" --czekaj -o "$OUT/awatar.mp4"
     ffmpeg -y -i "$OUT/awatar.mp4" -vn -acodec libmp3lame -q:a 2 "$OUT/narracja.mp3"
   else
