@@ -14,9 +14,12 @@ for f in "$@"; do [ -f "$f" ] || { echo "nie ma pliku: $f"; exit 4; }; printf "f
 # sklejenie z przekodowaniem do jednolitego MP3 (44,1 kHz, mono, 128 kb/s) – niezależnie od źródeł
 # każda część osobno: wyrównanie głośności (EBU R128, -16 LUFS) i przycięcie ciszy na końcu do ok. 0,6 s,
 # żeby akapity brzmiały jednakowo głośno, a pauzy między nimi były równe
+# tempo mówienia: każda część dostaje atempo tak, by znaki/sekundę były jednakowe (film/tempo_czesci.py);
+# lekka kompresja wyrównuje głośność wewnątrz akapitu (głos nie gaśnie pod koniec zdania)
 NORM="$OUT/czesci_norm"; rm -rf "$NORM"; mkdir -p "$NORM"; : > "$LISTA"; i=0
-for f in "$@"; do i=$((i+1)); n=$(printf "%s/cz%02d.wav" "$NORM" "$i")
-  "$FF" -y -loglevel error -i "$f" -af "areverse,silenceremove=start_periods=1:start_threshold=-45dB,areverse,apad=pad_dur=0.6,loudnorm=I=-16:TP=-1.5:LRA=9" -ac 1 -ar 44100 "$n"
+mapfile -t TEMPA < <(python3 film/tempo_czesci.py "$@")
+for f in "$@"; do i=$((i+1)); n=$(printf "%s/cz%02d.wav" "$NORM" "$i"); T="${TEMPA[$((i-1))]:-1.0}"
+  "$FF" -y -loglevel error -i "$f" -af "areverse,silenceremove=start_periods=1:start_threshold=-45dB,areverse,atempo=$T,acompressor=threshold=-22dB:ratio=2:attack=15:release=250:makeup=2,apad=pad_dur=0.6,loudnorm=I=-16:TP=-1.5:LRA=7" -ac 1 -ar 44100 "$n"
   printf "file '%s'\n" "$(realpath "$n")" >> "$LISTA"
 done
 "$FF" -y -loglevel error -f concat -safe 0 -i "$LISTA" -ac 1 -ar 44100 -codec:a libmp3lame -b:a 128k film/narracja.mp3
