@@ -661,7 +661,7 @@ function render(T){
   $$('li',law).forEach((li,i)=>{ const q=clamp((lt+0.2-i*0.35)/0.6,0,1); li.style.opacity=easeOut(q); li.style.transform='translateX('+(14*(1-easeOut(q))).toFixed(1)+'px)'; });
   // napisy
   let txt='', words=null, wp=1;
-  if(SRT){ const cue=SRT.find(c=>T>=c.start&&T<c.end); if(cue){ txt=cue.text; words=cue.text.split(/\s+/); wp=(T-cue.start)/(cue.end-cue.start); } }
+  if(SRT){ const cue=SRT.find(c=>T>=c.start&&T<c.end); if(cue){ txt=cue.text; words=cue.text.split(/\s+/); wp=(T-cue.start)/(cue.end-cue.start); } else { words=[]; } }
   else { const q=clamp(lt/(s.dur-0.6),0,1); const z=s.zdania.find(z=>q<z.do_)||s.zdania[s.zdania.length-1]; txt=z.tekst; words=z.slowa; wp=(q-z.od)/(z.do_-z.od); }
   if(txt!==lastSub){ sub.innerHTML='<div>'+words.map(w=>'<span class="w">'+w+'</span>').join(' ')+'</div>'; lastSub=txt; }
   const n=words.length, on=Math.floor(clamp(wp,0,1)*n+0.35); $$('.w',sub).forEach((w,i)=>w.classList.toggle('on',i<on));

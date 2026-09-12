@@ -54,10 +54,24 @@ def zdania(akapit: str) -> list[str]:
     return [z.strip() for z in re.split(r"(?<=[.!?…])\s+", akapit) if z.strip()]
 
 
-def wybierz_granice(pauzy, cele, mowa_od, mowa_do):
-    """Monotoniczne przypisanie 15 celów do pauz (programowanie dynamiczne, koszt = odległość / (1 + długość pauzy))."""
+def wybierz_granice(pauzy, cele, mowa_od, mowa_do, znane=()):
+    """Monotoniczne przypisanie celów do pauz (programowanie dynamiczne, koszt = odległość / (1 + długość pauzy)).
+
+    `znane` – czasy granic pewnych (np. miejsce sklejenia dwóch części nagrania): każda z nich
+    zajmuje najbliższy cel, a pozostałe cele dobiera się osobno po obu stronach.
+    """
+    if znane and len(znane) >= len(cele):  # każdy akapit nagrany osobno – granice są pewne
+        return sorted(znane)[: len(cele)]
+    if znane:
+        z = sorted(znane)[0]
+        idx = min(range(len(cele)), key=lambda i: abs(cele[i] - z))
+        lewo = wybierz_granice([p for p in pauzy if p[1] < z], cele[:idx], mowa_od, z)
+        prawo = wybierz_granice([p for p in pauzy if p[0] > z], cele[idx + 1:], z, mowa_do, [x for x in znane if x > z])
+        return lewo + [z] + prawo
     kand = [(a, b) for a, b in pauzy if a > mowa_od + 0.5 and b < mowa_do - 0.5]
     n, k = len(kand), len(cele)
+    if k == 0:
+        return []
     if n < k:
         raise SystemExit(f"za mało pauz ({n}) na {k} granic – zmniejsz --min-pauza albo podnieś --noise")
     INF = float("inf")
@@ -94,6 +108,8 @@ def main():
     ap.add_argument("--mp3", default=str(TU / "narracja.mp3"))
     ap.add_argument("--noise", default="-35dB")
     ap.add_argument("--min-pauza", type=float, default=0.35)
+    ap.add_argument("--znane", type=float, nargs="*", default=[],
+                    help="pewne granice scen w sekundach, np. miejsce sklejenia części nagrania (wbuduj_narracje.sh podaje je w film/out/czesci_czasy.txt)")
     a = ap.parse_args()
     ff = ffmpeg_exe()
     mp3 = Path(a.mp3)
@@ -110,7 +126,11 @@ def main():
     for w in wagi[:-1]:
         s += w
         cele.append(mowa_od + (mowa_do - mowa_od) * s / suma)
-    granice = wybierz_granice(pauzy, cele, mowa_od, mowa_do)
+    znane = list(a.znane)
+    czasy = TU / "out" / "czesci_czasy.txt"
+    if not znane and czasy.exists():  # granice między częściami nagrania zapisane przez wbuduj_narracje.sh
+        znane = [float(x) for x in czasy.read_text().split()]
+    granice = wybierz_granice(pauzy, cele, mowa_od, mowa_do, znane)
     brzegi = [mowa_od] + granice + [dur]
 
     cues = []
