@@ -1,0 +1,10 @@
+{ "name": "eduplaner2026-ocena-funkcjonalna", "private": true, "version": "1.0.0",
+  "description": "Generator Word (docx-js) dla Oceny Funkcjonalnej EduPlaner 2026",
+  "dependencies": { "docx": "^9.0.0" },
+  "scripts": {
+    "html": "python3 build_html.py",
+    "docx:pelny": "node generate_raport_docx.js Raport_Oceny_Funkcjonalnej.docx",
+    "docx:ocena": "node generate_raport_docx.js --tryb=ocena Raport_Ocena_Funkcjonalna_WOPF.docx",
+    "docx:ipet": "node generate_raport_docx.js --tryb=ipet Raport_IPET.docx",
+    "docx:opinia": "node generate_raport_docx.js --opinia Opinia_dla_poradni.docx"
+  } }
