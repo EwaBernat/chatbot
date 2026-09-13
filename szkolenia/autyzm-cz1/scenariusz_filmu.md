@@ -151,17 +151,89 @@ Kadr: awatar, potem trzy plansze.
 > Wejście w czynność zajmuje bardzo dużo czasu.
 > Wyrwanie z niej kosztuje tyle, co nagłe obudzenie w środku nocy.
 > Dlatego przerwanie ulubionego zajęcia bywa trudniejsze niż samo zadanie.
->
-> Wróćmy na chwilę do Carla Delacato.
+
+## SCENA 7 · SENSORYZMY
+Kadr: awatar, potem plansza z trzema ustawieniami kanału.
+Na ekranie: NADWRAZLIWOSC — PODWRAZLIWOSC — SZUM WLASNY. Ikony pieciu zmyslow.
+
+> Wróćmy teraz do Carla Delacato.
 > To on pierwszy opisał te zachowania jako odpowiedź na bodźce.
-> Twierdził, że każdy zmysł może być nadwrażliwy albo podwrażliwy.
-> W tym miał rację. Dzisiaj sensoryka jest częścią kryteriów diagnostycznych.
+> Nazwał je sensoryzmami.
 >
-> Jego własna metoda terapii nie przeszła jednak weryfikacji naukowej.
+> Sensoryzm to zachowanie, którym dziecko reguluje własny odbiór świata.
+> Kręcenie się, machanie rękami, mruczenie, obwąchiwanie przedmiotów.
+> Dla nas wygląda to bez sensu. Dla dziecka jest to narzędzie.
+>
+> Delacato twierdził, że każdy zmysł może pracować na trzy sposoby.
+> Może być nadwrażliwy, czyli wpuszczać za dużo.
+> Może być podwrażliwy, czyli wpuszczać za mało.
+> Może też wytwarzać własny szum, który zagłusza świat z zewnątrz.
+>
+> Przy nadwrażliwości dziecko się broni. Zatyka uszy i ucieka ze stołówki.
+> Przy podwrażliwości dziecko szuka bodźca. Stuka, krzyczy, uderza w przedmioty.
+> Przy własnym szumie dziecko wygląda na nieobecne i zawieszone.
+> W środku jest wtedy głośniej niż na zewnątrz.
+>
+> Sensoryzmy dotyczą każdego zmysłu z osobna.
+> Wzrokowe to machanie palcami przed oczami i układanie przedmiotów w rzędy.
+> Słuchowe to mruczenie, stukanie i powtarzanie tych samych słów.
+> Dotykowe to pocieranie faktur albo zdzieranie metek z ubrań.
+> Są też smakowe i węchowe. Obwąchiwanie rzeczy i wkładanie ich do ust.
+> Dzisiaj dokładamy jeszcze kołysanie, kręcenie się i chodzenie na palcach.
+>
+> Zapamiętajcie jedną rzecz.
+> To samo dziecko może mieć różne ustawienia w różnych zmysłach.
+> Może mieć nadwrażliwy słuch i podwrażliwy dotyk naraz.
+> Dlatego jedno dziecko ucieka przed hałasem, a drugie ten hałas produkuje.
+>
+> Najważniejszy wniosek jest praktyczny.
+> Sensoryzm nie jest złym nawykiem do wygaszenia.
+> Kiedy zabierzecie go dziecku bez zamiennika, napięcie wzrośnie.
+> Najpierw zmniejszcie bodziec. Potem podajcie bezpieczniejszą formę.
+> Słuchawki zamiast zatykania uszu. Gniotek zamiast obgryzania rękawa.
+>
+> Na koniec uczciwa uwaga o samym Delacato.
+> Jego obserwacja obroniła się w nauce. Jego metoda terapii nie.
 > Nie zalecamy jej i nie o nią tu chodzi.
+> Dzisiaj mówimy raczej o profilu sensorycznym i o autostymulacji.
 > Od Delacato bierzemy pytanie, a nie receptę.
 
-## SCENA 7 · TRZY RZECZY NA JUTRO
+## SCENA 8 · TEORIA UMYSLU
+Kadr: awatar, obok prosta scenka z koszykiem i pudelkiem.
+Na ekranie zdania ucznia i to, co my z nich odczytujemy.
+
+> Jest jeszcze drugi mechanizm i tłumaczy bardzo wiele.
+> Nazywa się teoria umysłu.
+>
+> Teoria umysłu to zdolność domyślania się, co myśli druga osoba.
+> To wiedza, że ktoś inny może wiedzieć mniej niż ja.
+> Że może myśleć inaczej i czuć zupełnie co innego.
+> Dzieci uczą się tego zwykle około czwartego roku życia.
+>
+> U dzieci w spektrum ta umiejętność rozwija się później i inaczej.
+> Zobaczycie to na lekcji w samych drobiazgach.
+>
+> Uczeń opowiada historię od środka, bo zakłada, że wy już wiecie.
+> Pytacie, czy mógłby zamknąć okno. Odpowiada, że mógłby, i nie wstaje.
+> Mówi głośno, że macie plamę na bluzce. Nie chce dokuczyć.
+> Nie zauważa, że kolega się obraził.
+> Nie odczytuje Waszego milczenia jako dezaprobaty.
+>
+> I teraz rzecz najważniejsza w całym tym bloku.
+> To nie jest brak empatii. To jest brak odczytu sygnału.
+> Bardzo wiele dzieci w spektrum przeżywa cudzy smutek dotkliwie.
+> Tylko nie widzi go w twarzy, dopóki mu tego nie nazwiemy.
+>
+> Warto też wiedzieć, że ta trudność jest dwustronna.
+> My równie słabo odczytujemy sygnały dzieci autystycznych.
+> Badacze nazwali to problemem podwójnej empatii.
+> To nie jest wada jednej strony. To jest różnica dwóch stron.
+>
+> Praktyczny wniosek jest bardzo prosty. Mówcie wprost.
+> Nazywajcie swoje stany i swoje oczekiwania słowami.
+> Zamiast pytać, czy mógłbyś, powiedzcie: zamknij proszę okno.
+
+## SCENA 9 · TRZY RZECZY NA JUTRO
 Kadr: awatar, trzy karty numerowane.
 
 > Nie dam Wam dzisiaj dwudziestu metod. Dam trzy rzeczy.
@@ -185,7 +257,7 @@ Kadr: awatar, trzy karty numerowane.
 > Dziesięć sekund ciszy przy trzydzieściorgu dzieci wydaje się wiecznością.
 > Spróbujcie chociaż raz. Policzcie, ile dzieci odpowie, gdy dostaną ten czas.
 
-## SCENA 8 · MITY I FAKTY
+## SCENA 10 · MITY I FAKTY
 Kadr: plansze, każde zdanie ze stemplem NIEPRAWDA.
 
 > Pięć zdań na koniec. Wszystkie pięć to nieprawda.
@@ -209,7 +281,7 @@ Kadr: plansze, każde zdanie ze stemplem NIEPRAWDA.
 > Bardzo wiele dzieci w spektrum uczy się w zwykłej klasie.
 > Potrzebują do tego wsparcia, a nie innego budynku.
 
-## SCENA 9 · ZAMKNIECIE
+## SCENA 11 · ZAMKNIECIE
 Kadr: awatar, na końcu plansza z tytułem części drugiej.
 
 > Na początku napisaliście jedno słowo o autyzmie.
@@ -235,24 +307,26 @@ Kadr: awatar, na końcu plansza z tytułem części drugiej.
 
 | Od | Do | Element |
 |---|---|---|
-| 0:00 | 0:10 | plansza tytułowa: tytuł, autor książki, rok |
-| 0:10 | 1:07 | SCENA 1 · Otwarcie |
-| 1:07 | 2:19 | SCENA 2 · Góra lodowa i Kuba |
-| — | — | **STOP 1** — ćwiczenie na żywo „Cztery sceny z korytarza" (12 min) |
-| 2:19 | 2:57 | SCENA 3 · Trzy kolumny |
-| 2:57 | 4:33 | SCENA 4 · Czym jest spektrum |
-| 4:33 | 4:48 | ostrzeżenie o głośnym dźwięku, możliwość ściszenia |
-| 4:48 | 5:48 | SCENA 5 · Sześćdziesiąt sekund przeciążenia |
-| 5:48 | 7:17 | SCENA 6 · Trzy mechanizmy + nota o Delacato |
-| — | — | **STOP 2** — omówienie symulacji na czacie (4 min) |
-| 7:17 | 8:13 | SCENA 7 · Trzy rzeczy na jutro |
-| 8:13 | 9:10 | SCENA 8 · Mity i fakty |
-| 9:10 | 9:56 | SCENA 9 · Zamknięcie |
-| 9:56 | 10:06 | plansza końcowa: tytuł części drugiej |
+| 0:00 | 0:10 | plansza tytulowa: tytul, autor ksiazki, rok |
+| 0:10 | 1:07 | SCENA 1 · OTWARCIE |
+| 1:07 | 2:19 | SCENA 2 · GORA LODOWA I KUBA |
+| — | — | STOP 1 — cwiczenie na zywo Cztery sceny z korytarza (12 min) |
+| 2:19 | 2:57 | SCENA 3 · TRZY KOLUMNY |
+| 2:57 | 4:34 | SCENA 4 · CZYM JEST SPEKTRUM |
+| 4:34 | 4:49 | ostrzezenie o glosnym dzwieku, mozliwosc sciszenia |
+| 4:49 | 5:49 | SCENA 5 · SZESCDZIESIAT SEKUND PRZECIAZENIA |
+| 5:49 | 6:52 | SCENA 6 · TRZY MECHANIZMY |
+| 6:52 | 8:58 | SCENA 7 · SENSORYZMY |
+| 8:58 | 10:29 | SCENA 8 · TEORIA UMYSLU |
+| — | — | STOP 2 — omowienie symulacji i teorii umyslu na czacie (5 min) |
+| 10:29 | 11:25 | SCENA 9 · TRZY RZECZY NA JUTRO |
+| 11:25 | 12:30 | SCENA 10 · MITY I FAKTY |
+| 12:30 | 13:16 | SCENA 11 · ZAMKNIECIE |
+| 13:16 | 13:26 | plansza koncowa: tytul czesci drugiej |
 
-Narracja: tysiąc sto czterdzieści siedem słów, czyli 7 minut 39 sekund czystego tekstu.
-Z pauzami, planszami i sekwencją dźwiękową film trwa około 10 minut.
-Z dwoma stopami cały webinar zamyka się w 60 minutach.
+Narracja: 1589 slow, czyli 10:35 czystego tekstu.
+Z pauzami, planszami i sekwencja dzwiekowa film trwa 13:26.
+Z dwoma stopami i czescia na zywo webinar zamyka sie w 60 minutach.
 
 ## PRODUKCJA
 
