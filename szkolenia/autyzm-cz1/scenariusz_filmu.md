@@ -190,23 +190,24 @@ Kadr: plansze, każde zdanie ze stemplem NIEPRAWDA.
 
 > Pięć zdań na koniec. Wszystkie pięć to nieprawda.
 >
-> Zdanie pierwsze. Autyzm powodują szczepionki.
-> Badanie, z którego wzięła się ta teza, zostało wycofane.
-> Jego autor stracił prawo wykonywania zawodu lekarza.
->
-> Zdanie drugie. Dziecko z autyzmem nie chce kontaktu z ludźmi.
+> Zdanie pierwsze. Dziecko z autyzmem nie chce kontaktu z ludźmi.
 > Bardzo często chce. Nie ma tylko scenariusza, jak wejść w relację.
 > Odrzucenie boli je dokładnie tak samo jak każde inne dziecko.
 >
-> Zdanie trzecie. Skoro patrzy w oczy, to nie jest autyzm.
+> Zdanie drugie. Skoro patrzy w oczy, to nie jest autyzm.
 > Wiele dzieci uczy się kontaktu wzrokowego. Płacą za to ogromnym wysiłkiem.
 >
-> Zdanie czwarte. Autyzm da się wyleczyć dietą albo suplementami.
-> Nie da się. Część takich metod jest po prostu niebezpieczna.
+> Zdanie trzecie. Autyzm da się wyleczyć dietą albo suplementami.
+> Nie da się. Część takich metod bywa dla dziecka niebezpieczna.
 > Kiedy rodzic pyta Was o taką terapię, kierujcie go do lekarza.
 >
-> Zdanie piąte. Autyzm zawsze oznacza niepełnosprawność intelektualną.
+> Zdanie czwarte. Autyzm zawsze oznacza niepełnosprawność intelektualną.
 > U części dzieci rzeczywiście współwystępuje. U innych nie występuje wcale.
+>
+> Zdanie piąte. Takie dziecko powinno uczyć się w szkole specjalnej.
+> O formie kształcenia decyduje orzeczenie i potrzeby konkretnego dziecka.
+> Bardzo wiele dzieci w spektrum uczy się w zwykłej klasie.
+> Potrzebują do tego wsparcia, a nie innego budynku.
 
 ## SCENA 9 · ZAMKNIECIE
 Kadr: awatar, na końcu plansza z tytułem części drugiej.
