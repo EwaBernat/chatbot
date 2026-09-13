@@ -8,19 +8,27 @@ Film działa też samodzielnie — bez stopów jest zamkniętą całością.
 ---
 
 ## SCENA 1 · OTWARCIE
-Kadr: awatar, półzbliżenie, tło fioletowe. Napis na dole: tytuł w cudzysłowie.
+Kadr: awatar, półzbliżenie, tło fioletowe.
+Na ekranie okładka lub sam zapis bibliograficzny książki Delacato, potem tytuł szkolenia.
 
-> Dziwne dziecko. Niepojęte dziecko.
-> Te dwa określenia usłyszałam w pokoju nauczycielskim.
+> Dziwne, niepojęte.
+> Tak brzmi tytuł książki, którą Carl Delacato napisał o dzieciach autystycznych.
+> Wydał ją w tysiąc dziewięćset siedemdziesiątym czwartym roku.
+> Po polsku ukazała się jako Dziwne, niepojęte. Autystyczne dziecko.
+>
+> Pożyczam ten tytuł, bo on mówi prawdę o nas, a nie o dziecku.
+> Dziecko nie jest niepojęte. To my go nie pojmujemy.
+>
+> Te same dwa słowa usłyszałam w pokoju nauczycielskim.
 > Nie padły złośliwie. Padły z bezradności.
 > Nauczycielka mówiła o czwartoklasiście, którego nie rozumiała.
 > Robił rzeczy, które nie miały dla niej żadnego sensu.
 >
-> Nazywamy dziecko dziwnym wtedy, gdy nie widzimy przyczyny jego zachowania.
-> To nie jest opis dziecka. To jest opis naszej bezradności.
+> Delacato postawił wtedy pytanie, które było zupełnie nowe.
+> Nie pytał, co jest z tym dzieckiem nie tak.
+> Zapytał, co to dziecko odbiera.
 >
-> Przez najbliższy kwadrans pokażę Wam, co leży pod tym zachowaniem.
-> Nie będzie teorii dla samej teorii.
+> Przez najbliższy kwadrans zostaniemy przy jego pytaniu.
 > Na końcu dostaniecie trzy rzeczy do zrobienia w poniedziałek.
 > Bez zgody dyrekcji. Bez pieniędzy. Bez dodatkowej godziny.
 
@@ -143,6 +151,15 @@ Kadr: awatar, potem trzy plansze.
 > Wejście w czynność zajmuje bardzo dużo czasu.
 > Wyrwanie z niej kosztuje tyle, co nagłe obudzenie w środku nocy.
 > Dlatego przerwanie ulubionego zajęcia bywa trudniejsze niż samo zadanie.
+>
+> Wróćmy na chwilę do Carla Delacato.
+> To on pierwszy opisał te zachowania jako odpowiedź na bodźce.
+> Twierdził, że każdy zmysł może być nadwrażliwy albo podwrażliwy.
+> W tym miał rację. Dzisiaj sensoryka jest częścią kryteriów diagnostycznych.
+>
+> Jego własna metoda terapii nie przeszła jednak weryfikacji naukowej.
+> Nie zalecamy jej i nie o nią tu chodzi.
+> Od Delacato bierzemy pytanie, a nie receptę.
 
 ## SCENA 7 · TRZY RZECZY NA JUTRO
 Kadr: awatar, trzy karty numerowane.
@@ -217,22 +234,24 @@ Kadr: awatar, na końcu plansza z tytułem części drugiej.
 
 | Od | Do | Element |
 |---|---|---|
-| 0:00 | 0:08 | plansza tytułowa, bez narracji |
-| 0:08 | 0:45 | SCENA 1 · Otwarcie |
-| 0:45 | 2:00 | SCENA 2 · Góra lodowa i Kuba |
+| 0:00 | 0:10 | plansza tytułowa: tytuł, autor książki, rok |
+| 0:10 | 1:07 | SCENA 1 · Otwarcie |
+| 1:07 | 2:19 | SCENA 2 · Góra lodowa i Kuba |
 | — | — | **STOP 1** — ćwiczenie na żywo „Cztery sceny z korytarza" (12 min) |
-| 2:00 | 2:40 | SCENA 3 · Trzy kolumny |
-| 2:40 | 4:15 | SCENA 4 · Czym jest spektrum |
-| 4:15 | 4:30 | ostrzeżenie o głośnym dźwięku + możliwość ściszenia |
-| 4:30 | 5:30 | SCENA 5 · Sześćdziesiąt sekund przeciążenia |
-| 5:30 | 6:35 | SCENA 6 · Trzy mechanizmy |
+| 2:19 | 2:57 | SCENA 3 · Trzy kolumny |
+| 2:57 | 4:33 | SCENA 4 · Czym jest spektrum |
+| 4:33 | 4:48 | ostrzeżenie o głośnym dźwięku, możliwość ściszenia |
+| 4:48 | 5:48 | SCENA 5 · Sześćdziesiąt sekund przeciążenia |
+| 5:48 | 7:17 | SCENA 6 · Trzy mechanizmy + nota o Delacato |
 | — | — | **STOP 2** — omówienie symulacji na czacie (4 min) |
-| 6:35 | 7:32 | SCENA 7 · Trzy rzeczy na jutro |
-| 7:32 | 8:30 | SCENA 8 · Mity i fakty |
-| 8:30 | 9:20 | SCENA 9 · Zamknięcie |
-| 9:20 | 9:30 | plansza końcowa: tytuł części drugiej |
+| 7:17 | 8:13 | SCENA 7 · Trzy rzeczy na jutro |
+| 8:13 | 9:10 | SCENA 8 · Mity i fakty |
+| 9:10 | 9:56 | SCENA 9 · Zamknięcie |
+| 9:56 | 10:06 | plansza końcowa: tytuł części drugiej |
 
-Czas filmu: ok. 9 minut 30 sekund. Z dwoma stopami cały webinar zamyka się w 60 minutach.
+Narracja: tysiąc sto czterdzieści siedem słów, czyli 7 minut 39 sekund czystego tekstu.
+Z pauzami, planszami i sekwencją dźwiękową film trwa około 10 minut.
+Z dwoma stopami cały webinar zamyka się w 60 minutach.
 
 ## PRODUKCJA
 
@@ -248,3 +267,19 @@ Czas filmu: ok. 9 minut 30 sekund. Z dwoma stopami cały webinar zamyka się w 6
 
     python3 .claude/skills/dane-i-glos/scripts/elevenlabs_tts.py narracja.txt -o film.mp3 --srt napisy.srt
     python3 .claude/skills/dane-i-glos/scripts/heygen_awatar.py --audio film.mp3 --avatar-id <id> --tlo "#2D1B69" --czekaj -o film.mp4
+
+## ZRODLO TYTULU (nota dla prowadzacej)
+
+Carl H. Delacato, „The Ultimate Stranger: The Autistic Child", 1974.
+Wydanie polskie: „Dziwne, niepojęte. Autystyczne dziecko" (Fundacja Synapsis).
+Dane wydania polskiego zweryfikować na egzemplarzu przed umieszczeniem na planszy.
+
+Dlaczego tytuł zostaje, mimo zastrzeżeń do metody:
+- Delacato jako pierwszy potraktował zachowania autystyczne jako reakcje sensoryczne,
+  a nie jako objawy zaburzenia relacji. To pytanie obroniło się w nauce.
+- Metoda organizacji neurologicznej Domana-Delacato nie ma potwierdzenia w badaniach
+  i nie jest rekomendowana. Film mówi o tym wprost w scenie szóstej.
+- Bez tego zastrzeżenia scena ósma o nieudowodnionych terapiach byłaby niespójna.
+
+Na planszy tytułowej podajemy autora i rok. Szkolenie nie jest powiązane
+z autorem ani z wydawcą książki.
