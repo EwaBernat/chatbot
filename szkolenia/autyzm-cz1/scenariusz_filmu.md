@@ -108,7 +108,6 @@ Kadr: awatar, plansze wsuwane obok.
 >
 > Powiem teraz, czym autyzm nie jest.
 > Nie jest skutkiem błędów wychowawczych.
-> Nie jest chorobą, którą się leczy.
 > Nie jest wyborem ani złośliwością.
 > Nie oznacza automatycznie niepełnosprawności intelektualnej.
 > I nie mija z wiekiem.
@@ -312,20 +311,20 @@ Kadr: awatar, na końcu plansza z tytułem części drugiej.
 | 1:07 | 2:19 | SCENA 2 · GORA LODOWA I KUBA |
 | — | — | STOP 1 — cwiczenie na zywo Cztery sceny z korytarza (12 min) |
 | 2:19 | 2:57 | SCENA 3 · TRZY KOLUMNY |
-| 2:57 | 4:34 | SCENA 4 · CZYM JEST SPEKTRUM |
-| 4:34 | 4:49 | ostrzezenie o glosnym dzwieku, mozliwosc sciszenia |
-| 4:49 | 5:49 | SCENA 5 · SZESCDZIESIAT SEKUND PRZECIAZENIA |
-| 5:49 | 6:52 | SCENA 6 · TRZY MECHANIZMY |
-| 6:52 | 8:58 | SCENA 7 · SENSORYZMY |
-| 8:58 | 10:29 | SCENA 8 · TEORIA UMYSLU |
+| 2:57 | 4:31 | SCENA 4 · CZYM JEST SPEKTRUM |
+| 4:31 | 4:46 | ostrzezenie o glosnym dzwieku, mozliwosc sciszenia |
+| 4:46 | 5:46 | SCENA 5 · SZESCDZIESIAT SEKUND PRZECIAZENIA |
+| 5:46 | 6:49 | SCENA 6 · TRZY MECHANIZMY |
+| 6:49 | 8:55 | SCENA 7 · SENSORYZMY |
+| 8:55 | 10:26 | SCENA 8 · TEORIA UMYSLU |
 | — | — | STOP 2 — omowienie symulacji i teorii umyslu na czacie (5 min) |
-| 10:29 | 11:25 | SCENA 9 · TRZY RZECZY NA JUTRO |
-| 11:25 | 12:30 | SCENA 10 · MITY I FAKTY |
-| 12:30 | 13:16 | SCENA 11 · ZAMKNIECIE |
-| 13:16 | 13:26 | plansza koncowa: tytul czesci drugiej |
+| 10:26 | 11:22 | SCENA 9 · TRZY RZECZY NA JUTRO |
+| 11:22 | 12:27 | SCENA 10 · MITY I FAKTY |
+| 12:27 | 13:13 | SCENA 11 · ZAMKNIECIE |
+| 13:13 | 13:23 | plansza koncowa: tytul czesci drugiej |
 
-Narracja: 1589 slow, czyli 10:35 czystego tekstu.
-Z pauzami, planszami i sekwencja dzwiekowa film trwa 13:26.
+Narracja: 1583 slow, czyli 10:33 czystego tekstu.
+Z pauzami, planszami i sekwencja dzwiekowa film trwa 13:23.
 Z dwoma stopami i czescia na zywo webinar zamyka sie w 60 minutach.
 
 ## PRODUKCJA
