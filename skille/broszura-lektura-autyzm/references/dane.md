@@ -43,7 +43,7 @@ je escapuje. W ćwiczeniach teorii umysłu `\n` w polu `tresc` oznacza nowy akap
 "wydawca": {
   "organizacja": "Pomorskie Centrum Terapii Pedagogicznej",
   "autorka": "Mirosława Ewa Jurczyszyn",
-  "mail": "kontakt@eduplaner2026",
+  "mail": "kontakt@eduplaner2026.pl",
   "skrot": "PCTP",
   "logo_svg": "logo_pctp"
 }

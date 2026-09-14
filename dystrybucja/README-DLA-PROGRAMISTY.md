@@ -5,8 +5,8 @@ darmowy fragment, obrazy na kartę produktu, metadane i instrukcja zabezpieczeni
 płatnych plików.
 
 **Wydawca:** Pomorskie Centrum Terapii Pedagogicznej
-**Autorka:** Mirosława Ewa Jurczyszyn · kontakt@eduplaner2026
-**Wersja:** wydanie pierwsze, 2026
+**Autorka:** Mirosława Ewa Jurczyszyn · kontakt@eduplaner2026.pl
+**Wersja:** wydanie pierwsze, wersja 1.1, 2026
 
 ---
 
@@ -178,10 +178,7 @@ Sugerowana struktura sprzedaży:
 
 ## 5a. Licencje i ceny
 
-Osobny plik: **`LICENCJE-I-CENY.md`** — trzy licencje (nauczycielska 79 zł, placówki
-249 zł, darmowy fragment), cena wprowadzająca, gotowy tekst do regulaminu, plan
-sześciotomowej serii „Lektura bez domysłów” i przedpłata na całą serię. Te same dane
-w polach `licencje`, `przedplata_seria` i `seria` w `metadane.json`.
+Osobny plik: **`LICENCJE-I-CENY.md`** opisuje jedną imienną licencję nauczyciela powiązaną z aktywną licencją EduPlanner 2026. Pola licencjobiorcy, numeru oraz daty ważności są wypełniane przez system przed wydaniem pliku.
 
 Z tego wynikają trzy rzeczy dla sklepu: pole **NIP** obowiązkowe przy licencji
 placówki (kupują z budżetu, faktura jest warunkiem), mechanizm **kodów rabatowych**
@@ -199,11 +196,7 @@ Akwarele przygotowano w narzędziu generatywnym i dobrano do scen; rysunki
 wektorowe, plansza, termometr i karty powstały na potrzeby tej broszury.
 Pełna nota jest na stronie 2 pliku (metryczka wydawnicza).
 
-Licencja dla kupującego, którą warto wpisać w regulamin: **jedna licencja =
-jedna placówka**; wolno drukować i kopiować na potrzeby własnej szkoły,
-poradni lub gabinetu; nie wolno odsprzedawać ani publikować pliku w sieci.
-
-## 7. Regeneracja paczki
+Pełne warunki licencji muszą być zgodne z regulaminem EduPlanner 2026 i udostępnione użytkownikowi przed aktywacją.\n\n## 7. Regeneracja paczki
 
 Treść broszury żyje w repozytorium jako JSON + generator w Pythonie, nie jako
 ręcznie pisany HTML. Po zmianie treści:
@@ -243,4 +236,4 @@ bo w druku wyjdą puste strony.
 
 Pytania o treść, licencję i kolejne broszury z serii:
 **Mirosława Ewa Jurczyszyn**, Pomorskie Centrum Terapii Pedagogicznej,
-kontakt@eduplaner2026
+kontakt@eduplaner2026.pl

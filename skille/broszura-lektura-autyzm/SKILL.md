@@ -18,7 +18,7 @@ description: >-
 
 Ten skill produkuje **jeden samodzielny plik HTML** złożony na A4 — do druku albo do PDF-a.
 Wzorcem jest gotowa broszura „Mały Książę moim bohaterem — podróż emocjonalna”
-(107 stron, PCTP). Pełny przykład danych: `assets/maly-ksiaze.json`.
+(124 strony, PCTP). Pełny przykład danych: `assets/maly-ksiaze.json`.
 
 Wartość tego materiału nie leży w uproszczeniu treści, tylko w **odsłonięciu tego, co
 literatura zwykle ukrywa**: intencji postaci, ukrytych uczuć, drugiego znaczenia przenośni,
@@ -149,11 +149,13 @@ W części G zostają wyłącznie materiały ogólne — termometr, krążki oce
 kilka zdań do czytelnika, duże inicjały autorki i jej nazwisko. Danych wydawcy nie powtarzaj —
 są już w metryczce na stronie 2.
 
-**Broszura sprzedawana musi nieść swoje własne warunki.** Poza metryczką na stronie 2 daj
-osobną **stronę licencji** (strona 3): dwa rodzaje licencji, wypisane wprost „co wolno” i „czego
-nie wolno”, nota o prawach i kropkowana linia „Egzemplarz dla: ………” do wpisania kupującego.
-Nauczyciel nie wraca do regulaminu sklepu — wraca do pliku, który ma pod ręką. Dołóż
-**dyskretny znak wodny** na każdej stronie (`--znak-wodny` na `.page`, jedna reguła CSS) oraz
+**Broszura licencjonowana musi nieść własne warunki.** Poza metryczką na stronie 2 daj
+osobną **stronę licencji** (strona 3). Dla tego produktu stosuj jedną imienną,
+niewyłączną i niezbywalną licencję nauczyciela powiązaną z aktywną licencją EduPlanner 2026.
+Pokaż cztery dyskretne pola: licencjobiorca, numer licencji, data ważności i wersja publikacji.
+W pliku źródłowym stosuj tokeny `{{LICENSE_HOLDER}}`, `{{LICENSE_NUMBER}}` oraz
+`{{LICENSE_VALID_UNTIL}}`; system sprzedaży ma je wypełnić przed wydaniem egzemplarza.
+Wypisz osobno „co wolno” i „czego nie wolno”, dodaj znak wodny z numerem licencji oraz
 przedostatnią **stronę serii** z zapowiedzią kolejnych tomów i notą o autorce: produkt sprzedaje
 wtedy następny produkt.
 

@@ -218,6 +218,7 @@ class Broszura:
             ("Odbiorcy", m.get("odbiorcy", "")),
             ("Zastosowanie", m.get("zastosowanie", "")),
             ("Format", "A4, {{STR:koniec}} stron; plik HTML i PDF, " + m.get("wydanie", "")),
+            ("WWW", w.get("www", "")),
         ]
         wiersze = "".join(f"<tr><td><b>{E(k)}</b></td><td>{E(v)}</td></tr>" for k, v in karta)
         kroki = "".join(f"<li>{E(x)}</li>" for x in m.get("druk", []))
@@ -246,19 +247,24 @@ class Broszura:
             return ""
         rodz = "".join(f'<div class="spec"><b>{E(r["nazwa"])}</b><p>{E(r["opis"])}</p></div>'
                        for r in L.get("rodzaje", []))
+        ident = "".join(
+            f'<div class="lic-pole"><span>{E(x.get("etykieta", ""))}</span><b>{E(x.get("wartosc", ""))}</b></div>'
+            for x in L.get("identyfikacja", [])
+        )
         wolno = "".join(f"<li>{E(x)}</li>" for x in L.get("wolno", []))
         nie = "".join(f"<li>{E(x)}</li>" for x in L.get("nie_wolno", []))
         return f'''
 <section class="page" id="licencja">
   <h2 class="dzial-h">{E(L.get("naglowek", "Licencja"))}</h2>
   <p class="lead">{E(L.get("wstep", ""))}</p>
-  <div class="specjalne dwa">{rodz}</div>
+  <div class="lic-ident">{ident}</div>
+  <div class="specjalne">{rodz}</div>
   <div class="lic-2kol">
     <div class="lic-tak"><h3>Co wolno?</h3><ul>{wolno}</ul></div>
     <div class="lic-nie"><h3>Czego nie wolno?</h3><ul>{nie}</ul></div>
   </div>
   <div class="uwaga">{E(L.get("nota", ""))}</div>
-  <div class="lic-egz"><span>{E(L.get("egzemplarz", "Egzemplarz dla:"))}</span><i></i></div>
+  <div class="lic-egz"><span>{E(L.get("egzemplarz", "Identyfikator egzemplarza:"))}</span><b>{{LICENSE_NUMBER}}</b></div>
 </section>'''
 
     # ---- zapowiedz serii (przed zakonczeniem) ----

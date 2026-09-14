@@ -4,7 +4,7 @@
   "nadtytul": "Adaptacja lektury dla młodzieży ze spektrum autyzmu",
   "autorka": "Mirosława Ewa Jurczyszyn",
   "wydawca": "Pomorskie Centrum Terapii Pedagogicznej",
-  "kontakt": "kontakt@eduplaner2026",
+  "kontakt": "kontakt@eduplaner2026.pl",
   "wydanie": "wydanie pierwsze, 2026",
   "jezyk": "pl",
   "format": "A4 pionowo",
@@ -92,8 +92,8 @@
     }
   ],
   "zrodlo": "Na podstawie „Le Petit Prince” Antoine’a de Saint-Exupéry’ego (1943)",
-  "prawa": "„Le Petit Prince” należy w Polsce do domeny publicznej od 2015 roku. Streszczenie, pytania, ćwiczenia, gra i scenariusz są samodzielnym opracowaniem autorki. Broszurę można kopiować i drukować na potrzeby własnej szkoły, poradni lub gabinetu; rozpowszechnianie komercyjne — po uzgodnieniu z autorką.",
-  "licencja_dla_kupujacego": "Jedna licencja = jedna placówka. Wolno drukować i kopiować na potrzeby własnej szkoły, poradni lub gabinetu. Nie wolno odsprzedawać ani publikować pliku w sieci.",
+  "prawa": "© 2026 Mirosława Ewa Jurczyszyn / Pomorskie Centrum Terapii Pedagogicznej. „Le Petit Prince” Antoine’a de Saint-Exupéry’ego pozostaje w Polsce w domenie publicznej; niniejsze streszczenia, objaśnienia, pytania, ćwiczenia, gra, scenariusz, ilustracje i układ są samodzielnym opracowaniem. Broszura nie korzysta z chronionego polskiego przekładu jako podstawy tekstowej. Korzystanie z opracowania wymaga aktywnej imiennej licencji nauczyciela EduPlanner 2026.",
+  "licencja_dla_kupujacego": "Jedna imienna licencja = jeden nauczyciel. Prawo korzystania obowiązuje wyłącznie w okresie aktywnej licencji EduPlanner 2026. Nauczyciel może drukować karty dla uczniów, z którymi osobiście pracuje, ale nie może przekazywać pełnego pliku ani udostępniać go innym osobom.",
   "pliki": {
     "pelna_pdf": {
       "sciezka": "pelna/maly-ksiaze-broszura.pdf",
@@ -169,36 +169,14 @@
   },
   "licencje": [
     {
-      "kod": "nauczycielska",
-      "nazwa": "Licencja nauczycielska",
-      "cena_brutto_pln": 79,
-      "cena_wprowadzajaca_pln": 59,
-      "dni_promocji": 30,
-      "zakres": "jedna osoba, ze swoimi uczniami",
-      "zawiera": [
-        "pdf",
-        "html"
-      ]
-    },
-    {
-      "kod": "placowki",
-      "nazwa": "Licencja placówki",
-      "cena_brutto_pln": 249,
-      "zakres": "wszyscy nauczyciele jednej szkoły, poradni lub gabinetu",
-      "zawiera": [
-        "pdf",
-        "html"
-      ],
-      "wymaga_nip": true
-    },
-    {
-      "kod": "fragment",
-      "nazwa": "Darmowy fragment",
-      "cena_brutto_pln": 0,
-      "zakres": "14 stron, bez ograniczeń",
-      "zawiera": [
-        "demo_pdf",
-        "demo_html"
+      "id": "nauczyciel_eduplanner_2026",
+      "nazwa": "Imienna licencja nauczyciela",
+      "zakres": "Jeden nauczyciel wskazany na koncie EduPlanner 2026",
+      "okres": "Do daty wygaśnięcia aktywnej licencji EduPlanner 2026",
+      "pola": [
+        "{{LICENSE_HOLDER}}",
+        "{{LICENSE_NUMBER}}",
+        "{{LICENSE_VALID_UNTIL}}"
       ]
     }
   ],
@@ -217,5 +195,7 @@
     }
   ],
   "podatek": "Ceny brutto. Stawkę VAT dla publikacji elektronicznej potwierdzić z księgowością — zależy od charakteru materiału i formy sprzedaży.",
-  "znak_wodny": "Każda strona ma dyskretny znak wodny „PCTP · egzemplarz licencjonowany”. Na stronie 3 jest linia „Egzemplarz dla: ………” do wypełnienia danymi kupującego."
+  "znak_wodny": "Każda strona pełnej wersji zawiera dyskretny identyfikator „PCTP · licencja [numer]”. Strona licencyjna podaje licencjobiorcę, numer licencji, datę ważności i wersję publikacji.",
+  "wersja": "1.1",
+  "model_licencji": "Imienna licencja jednego nauczyciela w ramach aktywnej licencji EduPlanner 2026"
 }

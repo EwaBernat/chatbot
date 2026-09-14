@@ -589,3 +589,10 @@ def css(skala=1.0):
     if abs(skala - 1.0) < 1e-9:
         return CSS
     return _re.sub(r"([\d.]+)pt", lambda m: f"{float(m.group(1)) * skala:.2f}pt", CSS)
+
+/* Imienna licencja EduPlanner 2026 */
+.lic-ident{display:grid;grid-template-columns:1fr 1fr;gap:3mm;margin:4mm 0}
+.lic-pole{border:1px solid var(--z200);border-radius:3mm;padding:3mm 4mm;background:#f7fbf8}
+.lic-pole span{display:block;font-size:8.5pt;letter-spacing:.08em;text-transform:uppercase;color:var(--z600);margin-bottom:1mm}
+.lic-pole b{font-size:10.5pt;color:var(--z900);overflow-wrap:anywhere}
+.lic-egz b{font-family:var(--font-h);font-size:9pt;color:var(--z700)}

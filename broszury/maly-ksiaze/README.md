@@ -1,7 +1,7 @@
 # Mały Książę moim bohaterem — podróż emocjonalna
 
 **Pomorskie Centrum Terapii Pedagogicznej**
-opracowanie: Mirosława Ewa Jurczyszyn · kontakt@eduplaner2026
+opracowanie: Mirosława Ewa Jurczyszyn · kontakt@eduplaner2026.pl
 
 Broszura edukacyjna: adaptacja lektury „Mały Książę” Antoine'a de Saint-Exupéry'ego
 dla młodzieży ze spektrum autyzmu.
@@ -27,7 +27,7 @@ po zmianie treści.
 | Część | Strony | Co zawiera |
 |---|---|---|
 | Okładka | 1 | — |
-| Metryczka wydawnicza | 1 | dane wydawcy, karta broszury, prawa, instrukcja druku — zawsze strona 2 |
+| Metryczka wydawnicza | 1 | dane wydawcy, wersja, prawa, kontakt, WWW i instrukcja druku — zawsze strona 2 |
 | Spis treści | 2 | części broszury + spis 27 rozdziałów z etapami E1–E5 i numerami stron |
 | A. Jak korzystać | 2 | wskazówki dla ucznia, nauczyciela i rodzica; założenia adaptacji |
 | B. Trzy narzędzia | 2 | termometr emocji, sygnalizator oceny sytuacji, drabina teorii umysłu |
