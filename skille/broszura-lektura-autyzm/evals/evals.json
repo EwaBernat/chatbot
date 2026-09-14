@@ -1,0 +1,41 @@
+{
+  "skill_name": "broszura-lektura-autyzm",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "Mam klasę VIII, troje uczniów ze spektrum, czytamy teraz Opowieść wigilijną i oni się gubią — rozumieją co się dzieje, ale kompletnie nie łapią dlaczego Scrooge się zmienia. Zrób mi z tego materiał na zajęcia rewalidacyjne, mniej więcej 5-6 rozdziałów, do wydrukowania.",
+      "expected_output": "Broszura HTML A4: rozdziały po 3 strony, słowniki pojęć i przenośni, tabele emocji z sygnałami ciała, pary przyczyna-skutek, oceny sytuacji z przewagą żółtych, ćwiczenia teorii umysłu E1-E5, pytania na dwóch poziomach, ćwiczenia końcowe, gra, scenariusz. PDF = liczbie sekcji.",
+      "assertions": [
+        "Każdy rozdział zajmuje dokładnie 3 sekcje strony",
+        "Każdy rozdział ma ćwiczenie teorii umysłu z etapem E1-E5",
+        "Każda emocja w tabeli ma obserwowalny sygnał zachowania, nie opis stanu wewnętrznego",
+        "Oceny sytuacji zaczynają się od ZIELONE/ŻÓŁTE/CZERWONE i przeważają żółte",
+        "PDF ma tyle stron, ile jest sekcji (brak pustych i rozlanych stron)",
+        "Żadna sekcja nie przekracza 297 mm"
+      ],
+      "files": []
+    },
+    {
+      "id": 2,
+      "prompt": "potrzebuję dostosowania Kamieni na szaniec dla ucznia z Aspergerem, 1 klasa liceum. najbardziej chodzi mi o to zeby zrozumiał motywacje bohaterów i te wszystkie niedopowiedzenia",
+      "expected_output": "Broszura z naciskiem na ćwiczenia teorii umysłu na etapach E4-E5, przenośnie z podanymi dwoma znaczeniami, uwaga o trudnych tematach (śmierć, przemoc) w meta.uwaga_trudne_tematy.",
+      "assertions": [
+        "Przenośnie w słowniczku mają podane oba znaczenia: dosłowne i ukryte",
+        "meta.uwaga_trudne_tematy wypełnione i wskazuje konkretne rozdziały",
+        "Rozdziały o niedopowiedzeniach mają etap E4 lub E5"
+      ],
+      "files": []
+    },
+    {
+      "id": 3,
+      "prompt": "Zrób broszurę do Małego Księcia dla młodzieży ze spektrum, kolory zielone, z grą i scenariuszem przedstawienia. Dane wydawcy: Pomorskie Centrum Terapii Pedagogicznej, Mirosława Ewa Jurczyszyn, kontakt@eduplaner2026",
+      "expected_output": "Pełna broszura 27-rozdziałowa (107 stron) z logo i danymi wydawcy na okładce, w stopce każdej strony i w metryczce na końcu; numeracja stron 1-107 i spis treści z numerami.",
+      "assertions": [
+        "Dane wydawcy są na okładce, w stopce każdej strony i w metryczce",
+        "Numeracja stron jest ciągła i zgadza się z numerami w spisie treści",
+        "Spis treści zawiera kolumnę z numerem strony dla każdego rozdziału"
+      ],
+      "files": []
+    }
+  ]
+}
