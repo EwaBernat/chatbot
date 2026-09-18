@@ -1,0 +1,512 @@
+<title>Karta KSzOF Szkoła</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,700&family=DM+Sans:wght@400;500;700&display=swap">
+<style>
+:root{
+  --purple:#2D1B69; --purple-deep:#1F1144; --purple-soft:#5A4A8E; --purple-mist:#F1EEFA;
+  --orange:#E8450A; --green:#0D7D5C; --red:#B8350D; --amber:#9A5E06;
+  --ink:#1A1530; --muted:#645C76; --rule:#DAD4E4; --paper:#FBFAF6; --panel:#FFFFFF;
+  --field:#FFFFFF; --shadow:0 1px 2px rgba(31,17,68,.06);
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){
+    --purple:#B9A9EE; --purple-deep:#C9BDF3; --purple-soft:#9A8BD0; --purple-mist:#251C42;
+    --orange:#FF8A5B; --green:#4FC79D; --red:#F08A6B; --amber:#E0B25C;
+    --ink:#EDE9F7; --muted:#A79FBC; --rule:#39325A; --paper:#161226; --panel:#1E1834;
+    --field:#241D3E; --shadow:0 1px 2px rgba(0,0,0,.35);
+  }
+}
+:root[data-theme="dark"]{
+  --purple:#B9A9EE; --purple-deep:#C9BDF3; --purple-soft:#9A8BD0; --purple-mist:#251C42;
+  --orange:#FF8A5B; --green:#4FC79D; --red:#F08A6B; --amber:#E0B25C;
+  --ink:#EDE9F7; --muted:#A79FBC; --rule:#39325A; --paper:#161226; --panel:#1E1834;
+  --field:#241D3E; --shadow:0 1px 2px rgba(0,0,0,.35);
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--paper);color:var(--ink);
+  font:400 15px/1.55 "DM Sans",system-ui,-apple-system,Segoe UI,sans-serif;}
+.wrap{max-width:940px;margin:0 auto;padding:0 16px;padding-block:0 48px}
+h1,h2,h3{font-family:"Fraunces",Georgia,serif;font-weight:700;text-wrap:balance;margin:0}
+
+/* ——— pasek górny ——— */
+.bar{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;background:var(--panel);
+  border-bottom:1px solid var(--rule);box-shadow:var(--shadow)}
+.bar-in{max-width:940px;margin:0 auto;padding:10px 16px;display:flex;gap:12px;align-items:center;flex-wrap:wrap}
+.mark{width:30px;height:30px;border-radius:7px;background:var(--purple);color:#fff;display:grid;place-items:center;
+  font-family:"Fraunces",serif;font-weight:700;font-size:15px;flex:none}
+:root[data-theme="dark"] .mark,:root:not([data-theme="light"]) .mark{color:#1F1144}
+@media (prefers-color-scheme:light){:root:not([data-theme="dark"]) .mark{color:#fff}}
+.bar-title{font-family:"Fraunces",serif;font-weight:700;font-size:16px;line-height:1.2;margin-right:auto}
+.bar-title small{display:block;font-family:"DM Sans",sans-serif;font-weight:400;font-size:11px;
+  letter-spacing:.07em;text-transform:uppercase;color:var(--muted)}
+.btn{font:500 13px/1 "DM Sans",sans-serif;padding:9px 13px;border-radius:8px;border:1px solid var(--rule);
+  background:var(--field);color:var(--ink);cursor:pointer}
+.btn:hover{border-color:var(--purple-soft)}
+.btn.primary{background:var(--purple);border-color:var(--purple);color:#fff}
+:root[data-theme="dark"] .btn.primary,:root:not([data-theme="light"]) .btn.primary{color:#1F1144}
+@media (prefers-color-scheme:light){:root:not([data-theme="dark"]) .btn.primary{color:#fff}}
+.btn:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-visible,summary:focus-visible{
+  outline:2px solid var(--orange);outline-offset:2px}
+.saved{font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:var(--green);opacity:0;transition:opacity .25s}
+.saved.on{opacity:1}
+
+/* ——— nagłówek dokumentu ——— */
+.head{padding-block:26px 18px;border-bottom:2px solid var(--purple)}
+.eyebrow{font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--orange);font-weight:700}
+.head h1{font-size:clamp(23px,5vw,32px);margin:6px 0 4px;color:var(--purple-deep)}
+.head p{margin:0;color:var(--muted);font-size:14px;max-width:62ch}
+
+/* ——— pola ——— */
+label{display:block;font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);
+  font-weight:500;margin-bottom:4px}
+input,select,textarea{width:100%;font:400 14px/1.5 "DM Sans",sans-serif;color:var(--ink);background:var(--field);
+  border:1px solid var(--rule);border-radius:7px;padding:8px 10px}
+textarea{resize:vertical;min-height:62px}
+.grid{display:grid;gap:12px}
+.g4{grid-template-columns:repeat(4,1fr)}
+.g3{grid-template-columns:repeat(3,1fr)}
+.g2{grid-template-columns:repeat(2,1fr)}
+@media (max-width:760px){.g4{grid-template-columns:repeat(2,1fr)}.g3,.g2{grid-template-columns:1fr}}
+@media (max-width:420px){.g4{grid-template-columns:1fr}}
+
+.block{background:var(--panel);border:1px solid var(--rule);border-radius:12px;padding:16px;margin-top:18px;
+  box-shadow:var(--shadow)}
+.block>h2{font-size:17px;color:var(--purple-deep);margin-bottom:12px}
+
+/* ——— skróty do obszarów ——— */
+.chips{display:flex;flex-wrap:wrap;gap:6px;margin-top:14px}
+.chip{font:500 12px/1 "DM Sans",sans-serif;padding:7px 10px;border-radius:999px;border:1px solid var(--rule);
+  background:var(--panel);color:var(--muted);text-decoration:none}
+.chip b{color:var(--purple);font-family:"Fraunces",serif}
+.chip:hover{border-color:var(--purple-soft);color:var(--ink)}
+
+/* ——— obszar ——— */
+.area{background:var(--panel);border:1px solid var(--rule);border-left:4px solid var(--purple);
+  border-radius:10px;margin-top:14px;box-shadow:var(--shadow);scroll-margin-top:72px}
+.area>summary{list-style:none;cursor:pointer;display:flex;gap:12px;align-items:center;padding:14px 16px}
+.area>summary::-webkit-details-marker{display:none}
+.code{width:32px;height:32px;flex:none;border-radius:8px;background:var(--purple-mist);color:var(--purple);
+  display:grid;place-items:center;font-family:"Fraunces",serif;font-weight:700;font-size:16px}
+.area h3{font-size:16px;color:var(--purple-deep)}
+.src{font-size:11px;letter-spacing:.07em;text-transform:uppercase;color:var(--muted)}
+.tally{margin-left:auto;display:flex;gap:6px;align-items:center;font-size:11px;color:var(--muted);text-align:right}
+.dot{width:8px;height:8px;border-radius:50%;background:var(--rule)}
+.dot.on{background:var(--orange)}
+.area-body{padding:0 16px 16px;border-top:1px solid var(--rule);margin-top:0;padding-top:14px}
+.sub{font-size:11px;letter-spacing:.1em;text-transform:uppercase;font-weight:700;color:var(--purple);
+  margin:18px 0 8px;display:flex;gap:8px;align-items:baseline}
+.sub span{font-weight:400;letter-spacing:0;text-transform:none;color:var(--muted);font-size:12px}
+.bank{display:grid;gap:2px}
+.bank label{display:flex;gap:9px;align-items:flex-start;text-transform:none;letter-spacing:0;font-size:13.5px;
+  color:var(--ink);font-weight:400;margin:0;padding:6px 8px;border-radius:6px;cursor:pointer;line-height:1.45}
+.bank label:hover{background:var(--purple-mist)}
+.bank input{width:auto;margin:2px 0 0;accent-color:var(--orange);flex:none}
+.bank.goals input{accent-color:var(--green)}
+.scales{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:14px}
+.syn{background:var(--purple-mist);border-left:3px solid var(--orange);border-radius:0 8px 8px 0;padding:12px;margin-top:16px}
+.syn label{color:var(--purple)}
+.note{font-size:12.5px;color:var(--muted);margin:6px 0 0}
+dialog{border:1px solid var(--rule);border-radius:12px;background:var(--panel);color:var(--ink);
+  max-width:min(640px,92vw);padding:18px}
+dialog::backdrop{background:rgba(26,21,48,.55)}
+dialog textarea{min-height:240px;font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:12px}
+.row{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px}
+footer{margin-top:28px;padding-top:14px;border-top:1px solid var(--rule);font-size:12px;color:var(--muted)}
+
+/* ——— druk A4 ——— */
+@media print{
+  @page{size:A4;margin:16mm 14mm}
+  body{background:#fff;color:#000;font-size:10pt}
+  .bar,.chips,.no-print{display:none!important}
+  .wrap{max-width:none;padding:0}
+  .block,.area{box-shadow:none;break-inside:auto;border-color:#999}
+  .area{border-left:3px solid #2D1B69}
+  .area-body{display:block!important}
+  details{display:block}
+  details>summary{list-style:none}
+  input,select,textarea{border:none;border-bottom:1px solid #bbb;border-radius:0;padding:2px 0;background:#fff}
+  textarea{min-height:0;height:auto;overflow:visible}
+  .bank label{padding:1px 0;break-inside:avoid}
+  .head h1,.area h3{color:#2D1B69}
+}
+</style>
+
+<div class="bar no-print">
+  <div class="bar-in">
+    <div class="mark">P</div>
+    <div class="bar-title">Karta KSzOF · szkoła<small>PCTP Koszalin · EduPlaner 2026</small></div>
+    <span class="saved" id="saved">zapisano</span>
+    <button class="btn" id="btn-json">Dane (JSON)</button>
+    <button class="btn" id="btn-print">Drukuj</button>
+    <button class="btn primary" id="btn-clear">Wyczyść</button>
+  </div>
+</div>
+
+<div class="wrap">
+  <header class="head">
+    <div class="eyebrow">Karta obserwacji funkcjonalnej · wersja szkolna</div>
+    <h1>Karta Szacowania Obszarów Funkcjonowania</h1>
+    <p>Robocza karta dla ucznia szkoły — osiem obszarów KSzOF opisanych realiami lekcji, przerw,
+      sprawdzianów i zadań domowych. Wpisy zapisują się w przeglądarce; „Dane (JSON)” przenosi je dalej,
+      do WOPF i IPET.</p>
+    <div class="chips" id="chips"></div>
+  </header>
+
+  <section class="block">
+    <h2>Uczeń i kontekst obserwacji</h2>
+    <div class="grid g4">
+      <div><label for="f-name">Imię i nazwisko</label><input id="f-name" data-k="name"></div>
+      <div><label for="f-class">Klasa</label><input id="f-class" data-k="class" placeholder="np. V B"></div>
+      <div><label for="f-stage">Etap edukacyjny</label>
+        <select id="f-stage" data-k="stage">
+          <option>szkoła podstawowa I–III</option>
+          <option selected>szkoła podstawowa IV–VIII</option>
+          <option>szkoła ponadpodstawowa</option>
+          <option>szkoła specjalna / przysposabiająca</option>
+        </select></div>
+      <div><label for="f-dob">Data urodzenia</label><input id="f-dob" data-k="dob" placeholder="dd.mm.rrrr"></div>
+      <div><label for="f-orz">Orzeczenie nr</label><input id="f-orz" data-k="orzeczenie" placeholder="PPP-…/2026"></div>
+      <div><label for="f-diag">Podstawa orzeczenia</label><input id="f-diag" data-k="diagnosis"></div>
+      <div><label for="f-tutor">Wychowawca</label><input id="f-tutor" data-k="tutor"></div>
+      <div><label for="f-coord">Prowadząca obserwację</label><input id="f-coord" data-k="coordinator"></div>
+      <div><label for="f-period">Okres obserwacji</label><input id="f-period" data-k="period" placeholder="01.09 – 30.11.2026"></div>
+      <div><label for="f-date">Data sporządzenia</label><input id="f-date" data-k="date" placeholder="dd.mm.rrrr"></div>
+      <div><label for="f-year">Rok szkolny</label><input id="f-year" data-k="year" placeholder="2026/2027"></div>
+      <div><label for="f-hours">Liczba godzin obserwacji</label><input id="f-hours" data-k="hours" placeholder="np. 8 h / 4 sesje"></div>
+    </div>
+    <div class="sub">Sytuacje szkolne objęte obserwacją</div>
+    <div class="bank" id="contexts"></div>
+    <div style="margin-top:14px"><label for="f-subjects">Przedmioty sprawiające największą trudność</label>
+      <input id="f-subjects" data-k="subjects" placeholder="np. matematyka, język polski (dłuższe wypowiedzi pisemne)"></div>
+  </section>
+
+  <div id="areas"></div>
+
+  <section class="block">
+    <h2>Synteza całościowa</h2>
+    <div class="grid g2">
+      <div><label for="f-str">Mocne strony ucznia w szkole</label><textarea id="f-str" data-k="strengths"></textarea></div>
+      <div><label for="f-dif">Trudności wpływające na naukę</label><textarea id="f-dif" data-k="difficulties"></textarea></div>
+    </div>
+    <div style="margin-top:12px"><label for="f-hyp">Hipotezy — co podtrzymuje trudność</label>
+      <textarea id="f-hyp" data-k="hypotheses"></textarea></div>
+    <div style="margin-top:12px"><label for="f-rec">Rekomendacje do IPET i dostosowań</label>
+      <textarea id="f-rec" data-k="recommendations"></textarea></div>
+    <div class="grid g3" style="margin-top:14px">
+      <div><label for="f-s1">Podpis — prowadząca obserwację</label><input id="f-s1" data-k="sig1"></div>
+      <div><label for="f-s2">Podpis — wychowawca</label><input id="f-s2" data-k="sig2"></div>
+      <div><label for="f-s3">Podpis — dyrektor</label><input id="f-s3" data-k="sig3"></div>
+    </div>
+  </section>
+
+  <footer>Karta robocza KSzOF · wersja szkolna · PCTP Koszalin. Dane pozostają w tej przeglądarce —
+    przed zamknięciem skopiuj je przyciskiem „Dane (JSON)”.</footer>
+</div>
+
+<dialog id="dlg">
+  <h2 style="font-size:17px;color:var(--purple-deep)">Dane karty w formacie JSON</h2>
+  <p class="note">Skopiuj i zachowaj, albo wklej wcześniejszy zapis i kliknij „Wczytaj”.</p>
+  <textarea id="dlg-ta" spellcheck="false" style="margin-top:10px"></textarea>
+  <div class="row">
+    <button class="btn primary" id="dlg-copy">Kopiuj</button>
+    <button class="btn" id="dlg-load">Wczytaj z pola</button>
+    <button class="btn" id="dlg-close" style="margin-left:auto">Zamknij</button>
+  </div>
+</dialog>
+
+<script>
+const AREAS = [
+  {id:'poznaw',code:'A',name:'Funkcjonowanie poznawcze',src:'KSzOF',
+   fields:[['uwaga','Uwaga i koncentracja na lekcji'],['pamiec','Pamięć i przyswajanie materiału'],
+           ['myslenie','Myślenie i funkcje wykonawcze'],['tempo','Tempo pracy na lekcji']],
+   diff:['Utrzymuje uwagę krócej niż 5 minut przy zadaniu na lekcji',
+     'Gubi wątek przy dłuższym wykładzie lub czytaniu ze zrozumieniem',
+     'Nie nadąża z przepisywaniem z tablicy',
+     'Nie kończy zadań w czasie przeznaczonym na lekcję lub sprawdzian',
+     'Rozumie polecenie jednoetapowe, gubi się przy trzyetapowym',
+     'Trudność z zapamiętaniem materiału do sprawdzianu mimo nauki',
+     'Trudność z przejściem między przedmiotami i typami zadań',
+     'Nie rozpoznaje własnego błędu w zeszycie bez wskazania nauczyciela',
+     'Szybka męczliwość — spadek jakości pracy po 3. lekcji',
+     'Trudność z zastosowaniem reguły w nowym zadaniu (transfer)'],
+   goals:['Uczeń pracuje nad zadaniem bez przerwy … minut w 8/10 lekcji',
+     'Uczeń wykona polecenie trzyetapowe po jednokrotnym usłyszeniu w 7/10 prób',
+     'Uczeń przepisze notatkę z tablicy w czasie lekcji w 4/5 dni',
+     'Uczeń zastosuje plan „co najpierw – co potem” przy zadaniu tekstowym w 7/10 prób',
+     'Uczeń sprawdzi swoją pracę wg listy kontrolnej przed oddaniem w 8/10 zadań',
+     'Uczeń ukończy sprawdzian w wydłużonym czasie bez pomocy w 4/5 sprawdzianów']},
+  {id:'spol',code:'B',name:'Funkcjonowanie społeczne',src:'KSzOF · ToM',
+   fields:[['relacje','Relacje z klasą'],['wspolpraca','Praca w parze i w grupie'],
+           ['normy','Zasady klasowe i regulamin szkoły'],['konflikty','Konflikty i przerwy']],
+   diff:['Nie inicjuje kontaktu z rówieśnikami, przerwy spędza sam',
+     'Wycofuje się z pracy w grupie lub przejmuje ją w całości',
+     'Trudność z czekaniem na swoją kolej przy odpowiedzi',
+     'Nie prosi kolegi ani nauczyciela o pomoc',
+     'Nie odczytuje sygnałów niewerbalnych rówieśników',
+     'Sztywno trzyma się zasad, nie akceptuje wyjątków',
+     'Reaguje wybuchem lub odejściem w sytuacji sporu',
+     'Trudno znosi przegraną w grze, rywalizację na WF',
+     'Narusza przestrzeń osobistą kolegów',
+     'Wchodzi w konflikty w miejscach bez struktury (szatnia, stołówka, korytarz)'],
+   goals:['Uczeń zainicjuje rozmowę z rówieśnikiem na przerwie w 3/5 dni',
+     'Uczeń wykona zadanie w parze do końca lekcji w 8/10 prób',
+     'Uczeń poprosi o pomoc pełnym zdaniem w 7/10 sytuacji',
+     'Uczeń poczeka na swoją kolej przy odpowiedzi w 4/5 lekcji',
+     'Uczeń zaproponuje rozwiązanie sporu bez udziału dorosłego w 3/5 sytuacji',
+     'Uczeń przyjmie przegraną bez eskalacji w 4/5 sytuacji']},
+  {id:'emo',code:'C',name:'Funkcjonowanie emocjonalne',src:'KSzOF',
+   fields:[['rozpoznawanie','Rozpoznawanie i nazywanie emocji'],['regulacja','Samoregulacja na lekcji'],
+           ['tolerancja','Tolerancja na ocenę i niepowodzenie'],['reakcje','Reakcje w sytuacjach oceny']],
+   diff:['Nie nazywa własnego stanu emocjonalnego',
+     'Nie ma strategii wyciszenia się w klasie',
+     'Niska tolerancja na błąd — porzuca zadanie po pierwszej pomyłce',
+     'Silna reakcja na ocenę niedostateczną lub uwagę',
+     'Napięcie i lęk przed sprawdzianem, odpowiedzią przy tablicy',
+     'Reakcje nieproporcjonalne do sytuacji lekcyjnej',
+     'Długo wraca do równowagi — traci resztę lekcji',
+     'Obniżona samoocena szkolna („i tak tego nie umiem”)',
+     'Trudność z rozstaniem z rodzicem rano lub z powrotem po nieobecności',
+     'Nie sygnalizuje przeciążenia, aż do wybuchu'],
+   goals:['Uczeń nazwie swój stan na skali 1–5 w 8/10 sytuacji trudnych',
+     'Uczeń poprosi o przerwę zamiast eskalacji w 4/5 sytuacji',
+     'Uczeń zastosuje uzgodnioną technikę wyciszenia w 6/8 sytuacji',
+     'Uczeń wróci do zadania po pomyłce w 7/10 zadań',
+     'Uczeń przystąpi do sprawdzianu bez odmowy w 4/5 sprawdzianów',
+     'Uczeń wróci do pracy po wybuchu w czasie do … minut w 4/5 zdarzeń']},
+  {id:'kom',code:'D',name:'Komunikacja i mowa',src:'KSzOF',
+   fields:[['czynna','Wypowiedzi na forum klasy'],['bierna','Rozumienie poleceń i tekstów'],
+           ['niewerbalna','Komunikacja niewerbalna'],['pragmatyka','Rozmowa z nauczycielem i rówieśnikiem']],
+   diff:['Nie zgłasza się, nie odpowiada na forum klasy',
+     'Wypowiedzi jednozdaniowe, ubogie słownictwo',
+     'Trudność z dłuższą wypowiedzią ustną i pisemną',
+     'Rozumie dosłownie — myli się przy poleceniach z przenośnią',
+     'Nie nadąża za poleceniem podanym tylko ustnie',
+     'Trudność z utrzymaniem tematu rozmowy',
+     'Monologi o własnym temacie, brak naprzemienności',
+     'Ograniczony kontakt wzrokowy z nauczycielem',
+     'Nie zgłasza, że czegoś nie rozumie',
+     'Korzysta ze wsparcia AAC / komunikacji wspomaganej'],
+   goals:['Uczeń odpowie pełnym zdaniem na pytanie nauczyciela w 7/10 prób',
+     'Uczeń zgłosi, że nie rozumie polecenia, w 8/10 sytuacji',
+     'Uczeń zbuduje wypowiedź trzyzdaniową na zadany temat w 4/5 prób',
+     'Uczeń utrzyma temat rozmowy przez 3 wymiany w 4/5 prób',
+     'Uczeń wyjaśni znaczenie związku frazeologicznego z podręcznika w 6/10 prób',
+     'Uczeń zada pytanie doprecyzowujące przed rozpoczęciem zadania w 5/7 lekcji']},
+  {id:'beh',code:'E',name:'Funkcjonowanie behawioralne',src:'ABC',
+   fields:[['zachowania','Zachowania trudne na lekcji'],['powtarzalne','Zachowania powtarzalne'],
+           ['zasady','Adaptacja do zasad klasowych'],['zmiana','Reakcja na zmianę planu i zastępstwo']],
+   diff:['Odmawia przystąpienia do zadania',
+     'Opuszcza salę bez zgody',
+     'Wybuch złości trwający powyżej … minut',
+     'Zachowania autoagresywne',
+     'Zachowania agresywne wobec rówieśników lub przedmiotów',
+     'Wokalizacje, komentarze zaburzające tok lekcji',
+     'Zachowania powtarzalne nasilające się przy napięciu',
+     'Sztywne rytuały (to samo miejsce, ta sama kolejność)',
+     'Zastępstwo lub zmiana planu wywołuje eskalację',
+     'Nie wraca na lekcję po przerwie bez przypomnienia'],
+   goals:['Uczeń zmniejszy liczbę epizodów z … do … tygodniowo',
+     'Uczeń poprosi o przerwę kartą lub słowem zamiast zachowania trudnego w 6/8 sytuacji',
+     'Uczeń przyjmie zmianę planu uprzedzoną 5 minut wcześniej w 4/5 sytuacji',
+     'Uczeń wróci do sali w czasie do … minut w 4/5 zdarzeń',
+     'Uczeń wykona polecenie nauczyciela w ciągu 30 sekund w 8/10 sytuacji',
+     'Uczeń skorzysta z miejsca wyciszenia samodzielnie w 4/6 sytuacji']},
+  {id:'tom',code:'F',name:'Teoria umysłu i empatia',src:'ToM',
+   fields:[['emocje_innych','Rozpoznawanie emocji innych'],['perspektywa','Przyjmowanie perspektywy'],
+           ['intencje','Rozumienie intencji kolegów'],['metafory','Metafory i ironia w tekstach']],
+   diff:['Nie rozpoznaje emocji z twarzy rozmówcy',
+     'Nie zakłada, że kolega może wiedzieć lub myśleć co innego',
+     'Nie odróżnia żartu od zaczepki',
+     'Nie rozumie ironii nauczyciela lub rówieśników',
+     'Nie interpretuje intencji bohatera w lekturze',
+     'Trudność z przewidywaniem, co zrobi druga osoba',
+     'Nie rozpoznaje gafy społecznej ani jej skutków',
+     'Nie odróżnia pomyłki od celowego działania',
+     'Trudność z odczytaniem nastroju klasy',
+     'Nie przewiduje, jak jego zachowanie odbierze kolega'],
+   goals:['Uczeń rozpozna 6 podstawowych emocji ze zdjęcia w 9/10 prób',
+     'Uczeń wskaże, czego bohater lektury nie wie, w 4/5 zadań',
+     'Uczeń odróżni żart od zaczepki w 6/8 scenek',
+     'Uczeń wyjaśni intencję postaci w 7/10 zadań z tekstem',
+     'Uczeń poda 3 możliwe powody emocji kolegi w 5/7 sytuacji',
+     'Uczeń rozpozna gafę społeczną w 5/7 przykładów']},
+  {id:'sen',code:'G',name:'Profil sensoryczno-motoryczny',src:'Sensoryka',
+   fields:[['duza','Motoryka duża i lekcje WF'],['mala','Motoryka mała'],
+           ['grafo','Grafomotoryka — pismo i zeszyt'],['sensor','Przetwarzanie sensoryczne w szkole']],
+   diff:['Nadwrażliwość słuchowa — dzwonek, gwar na korytarzu, stołówka',
+     'Nadwrażliwość wzrokowa — jarzeniówki, przeładowane tablice',
+     'Nadwrażliwość dotykowa — metki, strój na WF, tłok w szatni',
+     'Poszukuje stymulacji — kołysze się, chodzi po klasie',
+     'Pismo nieczytelne, nierówne, nie mieści się w liniaturze',
+     'Szybkie męczenie ręki przy pisaniu, ból nadgarstka',
+     'Trudność z posługiwaniem się nożyczkami, cyrklem, linijką',
+     'Niezgrabność ruchowa na WF, unikanie gier zespołowych',
+     'Trudność z planowaniem sekwencji ruchowej (taniec, tor)',
+     'Obniżone napięcie — pozycja przy ławce, podpieranie głowy'],
+   goals:['Uczeń skorzysta ze słuchawek wygłuszających w 6/8 sytuacji hałaśliwych',
+     'Uczeń wytrzyma w stołówce … minut w 4/5 dni',
+     'Uczeń napisze czytelnie 5 zdań mieszczących się w liniaturze w 7/10 prób',
+     'Uczeń wykona przerwę ruchową wg planu 3× dziennie',
+     'Uczeń przebierze się na WF w wyznaczonym czasie w 4/5 lekcji',
+     'Uczeń wskaże swój poziom pobudzenia na skali 1–5 w 8/10 sytuacji']},
+  {id:'samo',code:'H',name:'Samodzielność i organizacja pracy',src:'KSzOF',
+   fields:[['warsztat','Organizacja warsztatu pracy'],['plecak','Plecak, przybory, plan lekcji'],
+           ['orientacja','Orientacja w szkole i w czasie'],['codzienne','Samodzielność w szkole']],
+   diff:['Nie przygotowuje przyborów przed lekcją',
+     'Gubi przybory, zeszyty, strój na WF',
+     'Nie zapisuje zadania domowego',
+     'Nie oddaje prac w terminie',
+     'Nie spakuje plecaka wg planu lekcji',
+     'Nie orientuje się w czasie trwania lekcji i przerwy',
+     'Gubi się przy zmianie sali, trafia na złą lekcję',
+     'Wymaga pomocy w szatni i przy przebieraniu na WF',
+     'Wymaga wsparcia w stołówce (kolejka, taca, sztućce)',
+     'Nie prosi dorosłego o pomoc w sytuacji trudnej'],
+   goals:['Uczeń przygotuje przybory przed dzwonkiem w 4/5 lekcji',
+     'Uczeń zapisze zadanie domowe w 8/10 lekcji',
+     'Uczeń spakuje plecak wg planu lekcji w 4/5 dni',
+     'Uczeń odda pracę w wyznaczonym terminie w 4/5 zadań',
+     'Uczeń dotrze do właściwej sali samodzielnie w 9/10 przejść',
+     'Uczeń poprosi dorosłego o pomoc w 8/10 sytuacji trudnych']}
+];
+const CONTEXTS = ['Lekcje przedmiotowe','Praca w grupie na lekcji','Sprawdziany i odpowiedzi ustne',
+  'Przerwy i korytarz','Szatnia i lekcje WF','Stołówka','Zajęcia rewalidacyjne','Świetlica',
+  'Wycieczki i wyjścia','Zadania domowe (relacja rodziców)'];
+const FREQ = ['nigdy','rzadko','czasem','często','zawsze'];
+const KEY = 'kszof_szkola_v1';
+
+function blank(){
+  const s = {meta:{}, contexts:[], areas:{}};
+  AREAS.forEach(a=>{ s.areas[a.id] = {obs:{}, diff:[], goals:[], freq:'', int:'', summary:''}; });
+  return s;
+}
+let state = blank();
+try{ const raw = localStorage.getItem(KEY); if(raw) state = Object.assign(blank(), JSON.parse(raw)); }catch(e){}
+
+const save = (()=>{ let t; return ()=>{ clearTimeout(t); t = setTimeout(()=>{
+  try{ localStorage.setItem(KEY, JSON.stringify(state)); }catch(e){}
+  const b = document.getElementById('saved'); b.classList.add('on'); setTimeout(()=>b.classList.remove('on'), 1100);
+}, 350); }; })();
+
+function esc(s){ return String(s).replace(/[&<>"]/g, c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c])); }
+
+/* konteksty */
+document.getElementById('contexts').innerHTML = CONTEXTS.map((c,i)=>
+  `<label><input type="checkbox" data-ctx="${i}"><span>${esc(c)}</span></label>`).join('');
+
+/* skróty */
+document.getElementById('chips').innerHTML = AREAS.map(a=>
+  `<a class="chip" href="#a-${a.id}"><b>${a.code}</b> ${esc(a.name)}</a>`).join('');
+
+/* obszary */
+document.getElementById('areas').innerHTML = AREAS.map(a=>`
+<details class="area" id="a-${a.id}" data-area="${a.id}">
+  <summary>
+    <div class="code">${a.code}</div>
+    <div><h3>${esc(a.name)}</h3><div class="src">${esc(a.src)}</div></div>
+    <div class="tally"><span class="dot" data-dot="${a.id}"></span><span data-tally="${a.id}">0 trudności · 0 celów</span></div>
+  </summary>
+  <div class="area-body">
+    <div class="grid g2">
+      ${a.fields.map(([k,l])=>`<div><label for="o-${a.id}-${k}">${esc(l)}</label>
+        <textarea id="o-${a.id}-${k}" data-obs="${a.id}|${k}"></textarea></div>`).join('')}
+    </div>
+    <div class="sub">Trudności <span>zaznacz to, co widać w szkole</span></div>
+    <div class="bank">${a.diff.map((d,i)=>
+      `<label><input type="checkbox" data-bank="${a.id}|diff|${i}"><span>${esc(d)}</span></label>`).join('')}</div>
+    <div class="sub">Cele SMART <span>uzupełnij kropki wartościami dla ucznia</span></div>
+    <div class="bank goals">${a.goals.map((g,i)=>
+      `<label><input type="checkbox" data-bank="${a.id}|goals|${i}"><span>${esc(g)}</span></label>`).join('')}</div>
+    <div class="scales">
+      <div><label for="fr-${a.id}">Częstotliwość trudności</label>
+        <select id="fr-${a.id}" data-scale="${a.id}|freq"><option value="">—</option>
+        ${FREQ.map((f,i)=>`<option value="${i}">${f}</option>`).join('')}</select></div>
+      <div><label for="in-${a.id}">Intensywność</label>
+        <select id="in-${a.id}" data-scale="${a.id}|int"><option value="">—</option>
+        ${[1,2,3,4,5].map(n=>`<option value="${n}">${n}/5</option>`).join('')}</select></div>
+    </div>
+    <div class="syn"><label for="sy-${a.id}">Synteza obszaru</label>
+      <textarea id="sy-${a.id}" data-syn="${a.id}"></textarea></div>
+  </div>
+</details>`).join('');
+
+/* wczytanie stanu do pól */
+function apply(){
+  document.querySelectorAll('[data-k]').forEach(el=>{
+    if(state.meta[el.dataset.k] === undefined) state.meta[el.dataset.k] = el.value;
+    else el.value = state.meta[el.dataset.k];
+  });
+  document.querySelectorAll('[data-ctx]').forEach(el=>{ el.checked = state.contexts.includes(+el.dataset.ctx); });
+  document.querySelectorAll('[data-obs]').forEach(el=>{
+    const [a,k] = el.dataset.obs.split('|'); el.value = state.areas[a].obs[k] || ''; });
+  document.querySelectorAll('[data-bank]').forEach(el=>{
+    const [a,b,i] = el.dataset.bank.split('|'); el.checked = state.areas[a][b].includes(+i); });
+  document.querySelectorAll('[data-scale]').forEach(el=>{
+    const [a,k] = el.dataset.scale.split('|'); el.value = state.areas[a][k] ?? ''; });
+  document.querySelectorAll('[data-syn]').forEach(el=>{ el.value = state.areas[el.dataset.syn].summary || ''; });
+  AREAS.forEach(a=>tally(a.id));
+}
+function tally(id){
+  const a = state.areas[id];
+  document.querySelector(`[data-tally="${id}"]`).textContent =
+    `${a.diff.length} trudności · ${a.goals.length} celów`;
+  document.querySelector(`[data-dot="${id}"]`).classList.toggle('on', a.diff.length + a.goals.length > 0);
+}
+function toggle(arr, i, on){ const k = arr.indexOf(i); if(on && k<0) arr.push(i); if(!on && k>=0) arr.splice(k,1); arr.sort((x,y)=>x-y); }
+
+document.addEventListener('input', e=>{
+  const el = e.target;
+  if(el.dataset.k) state.meta[el.dataset.k] = el.value;
+  else if(el.dataset.obs){ const [a,k] = el.dataset.obs.split('|'); state.areas[a].obs[k] = el.value; }
+  else if(el.dataset.scale){ const [a,k] = el.dataset.scale.split('|'); state.areas[a][k] = el.value; }
+  else if(el.dataset.syn) state.areas[el.dataset.syn].summary = el.value;
+  else return;
+  save();
+});
+document.addEventListener('change', e=>{
+  const el = e.target;
+  if(el.dataset.ctx !== undefined && el.type === 'checkbox'){ toggle(state.contexts, +el.dataset.ctx, el.checked); save(); }
+  else if(el.dataset.bank){ const [a,b,i] = el.dataset.bank.split('|');
+    toggle(state.areas[a][b], +i, el.checked); tally(a); save(); }
+});
+
+/* JSON */
+const dlg = document.getElementById('dlg'), ta = document.getElementById('dlg-ta');
+document.getElementById('btn-json').onclick = ()=>{
+  const out = {karta:'KSzOF · wersja szkolna', brand:'EduPlaner2026-MJ-PCTP', ...state,
+    banki:Object.fromEntries(AREAS.map(a=>[a.id,{nazwa:a.name,
+      trudnosci:state.areas[a.id].diff.map(i=>a.diff[i]),
+      cele:state.areas[a.id].goals.map(i=>a.goals[i])}]))};
+  ta.value = JSON.stringify(out, null, 2); dlg.showModal();
+};
+document.getElementById('dlg-close').onclick = ()=>dlg.close();
+document.getElementById('dlg-copy').onclick = async ()=>{
+  const b = document.getElementById('dlg-copy');
+  try{ await navigator.clipboard.writeText(ta.value); b.textContent = 'Skopiowano'; }
+  catch(e){ ta.select(); b.textContent = 'Zaznaczono — Ctrl+C'; }
+  setTimeout(()=>b.textContent = 'Kopiuj', 1800);
+};
+document.getElementById('dlg-load').onclick = ()=>{
+  try{
+    const inc = JSON.parse(ta.value); const next = blank();
+    next.meta = inc.meta || {}; next.contexts = inc.contexts || [];
+    AREAS.forEach(a=>{ const s = (inc.areas||{})[a.id]; if(s) next.areas[a.id] = {
+      obs:s.obs||{}, diff:s.diff||[], goals:s.goals||[], freq:s.freq??'', int:s.int??'', summary:s.summary||''}; });
+    state = next; apply(); save(); dlg.close();
+  }catch(e){ alert('To nie jest poprawny zapis karty — sprawdź, czy wklejony tekst jest kompletny.'); }
+};
+document.getElementById('btn-print').onclick = ()=>{
+  document.querySelectorAll('details.area').forEach(d=>d.open = true);
+  document.querySelectorAll('textarea').forEach(t=>{ t.style.height = 'auto'; t.style.height = t.scrollHeight + 4 + 'px'; });
+  window.print();
+};
+document.getElementById('btn-clear').onclick = ()=>{
+  if(!confirm('Wyczyścić całą kartę? Zapisanych wpisów nie da się odzyskać.')) return;
+  state = blank(); try{ localStorage.removeItem(KEY); }catch(e){}
+  document.querySelectorAll('input,textarea').forEach(el=>{ if(el.type === 'checkbox') el.checked = false; else el.value = ''; });
+  document.querySelectorAll('select[data-scale]').forEach(el=>el.value = '');
+  apply();
+};
+
+apply();
+if(!state.meta.name) document.querySelector('details.area').open = true;
+</script>
