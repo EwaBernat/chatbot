@@ -45,6 +45,29 @@ Metryczka: usunięte 2 zduplikowane pola („Imię i nazwisko”, „Klasa/oddzi
 — powtarzały dane już wpisywane w nagłówku strony), zostały te same 2 pola
 co w 1-3.
 
+## Konstrukcja tabeli obserwacji — przebudowana na wzór klasy 1-3
+
+Prawdziwa różnica nie była w kolorze kółek, tylko w konstrukcji: strony 2-3
+miały **osobną tabelę na każdy z 5 obszarów** (własny nagłówek z nazwą
+obszaru, a podsumowanie — suma/średnia/poziom — w osobnym kolorowym boksie
+pod tabelą). Wzór klasy 1-3 ma **jedną ciągłą tabelę** na stronę, z ogólnym
+nagłówkiem („Wskaźnik obserwacji"), a granice obszarów to wiersze-nagłówki
+*wewnątrz* tej samej tabeli (fioletowe tło, numer + nazwa obszaru +
+podsumowanie w jednej linii).
+
+Przebudowane 1:1 na ten wzór (`table.qtable`, `tr.area-row`/`.arow`/`.anum`/
+`.atitle`/`.asten`, `.ocena[data-area]` zamiast osobnych tabel `table.rt` +
+`.asum`) — CSS skopiowane z `klasy_1-3`. Wszystkie 25 pozycji i 5 obszarów
+zachowane bez zmian treści, tylko przeniesione do nowej konstrukcji.
+
+Mechanizm liczenia (`areaStats`) przepisany na dopasowywanie po atrybucie
+`data-area` (jak w 1-3) zamiast po tym, w której osobnej tabeli coś się
+znajduje — bogatsze funkcje klasy 4-6 (wykres słupkowy, mapa radarowa,
+automatyczny opis wyników na str. 5) zostały nietknięte i nadal działają:
+sprawdzone testem interaktywnym (zaznaczenie ocen → poprawne przeliczenie
+sumy/średniej/poziomu w nagłówku obszaru → poprawne zasilenie wykresu i
+opisu wyników), zero błędów JS.
+
 ## Kółeczka oceny 0/1/2 — przebudowane na wzór klasy 1-3
 
 Oryginał miał kółeczka na stałe pokolorowane (czerwony/żółty/zielony
