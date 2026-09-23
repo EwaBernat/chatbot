@@ -1,0 +1,64 @@
+# Druki — dokumenty i formularze PCTP
+
+Jedno miejsce na wszystkie oficjalne druki i kwestionariusze ekosystemu
+**EduPlaner2026-MJ-PCTP** · Pomorskie Centrum Terapii Pedagogicznej. Każdy
+dokument ma własny podfolder ze źródłem, gotowym PDF-em i opisem.
+
+## Spis druków
+
+| Dokument | Zakres | Pliki | Status |
+|---|---|---|---|
+| [`IPET_2026_przedszkole/`](IPET_2026_przedszkole/README.md) | IPET 2026 · WOPF (ICF) — przedszkole | generator (docx) + docx + pdf | gotowe (przedszkole) · wersja dla szkoły — do zrobienia |
+| [`Metryczka_dziecka/`](Metryczka_dziecka/README.md) | karta podstawowych danych dziecka | html | gotowe (źródło) · PDF na żądanie |
+| [`KSzOF_I-III/`](KSzOF_I-III/README.md) | kwestionariusz funkcjonowania, sfery I–III | html + pdf | gotowe |
+| [`KSzOF_IV-VI/`](KSzOF_IV-VI/README.md) | kwestionariusz funkcjonowania, sfery IV–VI | html + pdf | gotowe |
+
+## Konwencja folderu
+
+Każdy druk to osobny podfolder `druki/<Nazwa_Druku>/` zawierający:
+
+- **źródło** — plik HTML (samodzielny, z CSS pod druk `@page{size:A4}`) albo
+  generator (np. `generate_ipet_druk.js` + biblioteka `docx`) — zawsze jedno
+  źródło prawdy, z którego da się odtworzyć PDF,
+- **gotowy PDF** — wersja do wydruku,
+- **`README.md`** — co to za dokument, jak z niego korzystać, jak odtworzyć PDF.
+
+## Wersjonowanie
+
+Wersje to historia gita, nie osobne pliki `_v2_final.docx`. Każda zmiana to
+commit z opisem *dlaczego*. Duża rewizja dokumentu (np. inny rok szkolny)
+dostaje nowy folder obok starego (`IPET_2026_...` → `IPET_2027_...`) —
+stary zostaje jako archiwum, nic nie ginie.
+
+**Zasada dla nowych druków: gotowy dokument scalamy do `main` od razu.**
+Dotąd każdy druk/broszura powstawał na osobnej gałęzi i tam zostawał —
+`main` nie miał żadnego z nich. Ten folder ma to zmienić.
+
+## Jak dodać kolejny druk
+
+1. Nowy podfolder `druki/<Nazwa>/`.
+2. Źródło (HTML albo generator) + wygenerowany z niego PDF.
+3. `README.md` w podfolderze + wpis w tabeli powyżej.
+4. Do dokumentów pedagogicznych PCTP (WOPF, IPET, Raport Ucznia, Baza
+   Uczniów) użyj gotowych skilli — `eduplaner-pctp` albo `ipet-raport-pctp` —
+   zamiast pisać generator od zera; do podglądu/wydruku żywego wewnątrz
+   aplikacji — `eduplaner-clean-print-ui`.
+
+## Znany dług techniczny (świadomie nieruszany w tym porządkowaniu)
+
+Nic z poniższego nie zostało zmienione teraz, żeby nie ryzykować zepsucia
+już dobrze wyglądających PDF-ów — to propozycje na osobny, następny krok:
+
+1. **Marka powielona w trzech plikach.** Kolory i czcionka PCTP (fiolet
+   `#2D1B69`, pomarańcz `#E8450A`, Mulish/Arial) są zaszyte identycznie w
+   `Metryczka_dziecka.html`, `KSzOF_I-III_interaktywny.html` i
+   `KSzOF_IV-VI_interaktywny.html` (pierwsze ~270 linii CSS są bajt w bajt
+   takie same w obu KSzOF). Zmiana koloru dziś wymaga edycji w kilku
+   miejscach naraz. Da się to bezpiecznie wydzielić do jednego wspólnego
+   pliku marki i podmienić z wizualną weryfikacją każdej strony przed i po.
+2. **Zapis tylko lokalny.** Interaktywne kwestionariusze i metryczka
+   trzymają odpowiedzi w `localStorage` przeglądarki — nie idą do żadnej
+   bazy ani do aplikacji. Jeśli mają się realnie łączyć z danymi w aplikacji
+   (a nie być tylko narzędziem do wypełnienia i wydruku), to osobna decyzja
+   projektowa — inny zakres niż samo porządkowanie plików.
+3. **IPET tylko dla przedszkola.** Brak wersji szkolnej.
