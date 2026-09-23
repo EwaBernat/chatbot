@@ -43,17 +43,25 @@ wzór klasy 1-3: „Cele SMART" (str. 5) i „Proponowane formy wsparcia"
 (str. 6) — patrz sekcje niżej.
 
 **Co dokładnie zniknęło wraz z dawnymi stronami 7-9** (żeby było jasne, a
-nie tylko "przenumerowane"): opisowe akapity „Zalecenia do pracy" dla
-każdego z 5 komponentów osobno (konkretne pomysły na ćwiczenia w klasie —
-ten tekst nie ma odpowiednika nigdzie indziej w pliku, więc jest realnie
-usunięty, nie tylko przeniesiony) oraz tabela „VI Poziom rozwoju Teorii
-umysłu — norma rozwojowa a obecne funkcjonowanie" (klasa 1-3 nie ma takiej
-tabeli wcale). Nie zniknęły natomiast: podpis prowadzącego (jest już na
-str. 5, w bloku podpisów Cele SMART, tak jak w klasie 1-3) ani naukowa
-podstawa narzędzia — cytowania Wellman i Liu / Baron-Cohen / Perner /
-Premack i Woodruff są od dawna w sekcji „Więcej" na str. 1 (nieukrywanej
-przy druku), dokładnie tak jak w klasie 1-3, więc usunięcie tego samego
-tekstu z dawnej str. 9 nie traci nic unikalnego.
+nie tylko "przenumerowane"): tabela „VI Poziom rozwoju Teorii umysłu —
+norma rozwojowa a obecne funkcjonowanie" (klasa 1-3 nie ma takiej tabeli
+wcale) — to realnie usunięte, nie ma tego nigdzie indziej. Nie zniknęły
+natomiast: podpis prowadzącego (jest już na str. 5, w bloku podpisów Cele
+SMART, tak jak w klasie 1-3), naukowa podstawa narzędzia — cytowania
+Wellman i Liu / Baron-Cohen / Perner / Premack i Woodruff są od dawna w
+sekcji „Więcej" na str. 1, dokładnie tak jak w klasie 1-3 — **i** opisowe
+akapity „Zalecenia do pracy" dla każdego z 5 komponentów osobno (konkretne
+pomysły na ćwiczenia w klasie), dopisane z powrotem do tej samej sekcji
+„Więcej" jako nowy blok „Zalecenia do pracy — wg komponentu", żeby nie
+przepadły na dobre.
+
+Uwaga: sekcja „Więcej" (`<details class="rozwijak no-print">`) jest
+**ekranowa** — widoczna po rozwinięciu w przeglądarce, ale nie drukuje się
+(sprawdzone: żadne z tych 9 akapitów, łącznie z nowymi „Zalecenia do
+pracy", nie pojawia się w wygenerowanym PDF) — tak samo działa u wzoru w
+klasie 1-3. Więc druk zostaje dokładnie 7-stronicowy, a zalecenia są
+dostępne do odczytania/skopiowania w interaktywnej wersji HTML, nie na
+wydruku dla ucznia.
 
 ## Strona 1 przebudowana na wzór klasy 1-3 — ⚠️ do potwierdzenia
 
