@@ -20,11 +20,16 @@ ale — jak cała reszta serii ToM — jeszcze **nieprzeniesione do
 
 ## Co jest w środku
 
-- **Str. 1** — tytuł, „Karta scalająca", sekcja I „Dane ucznia" (10 pól, bez
-  danych zbędnych — RODO).
-- **Str. 2** — sekcja Ia „Ścieżka dokumentacyjna" (Ścieżka A z orzeczeniem →
-  IPET / Ścieżka B bez orzeczenia → PWES), rodzaj oceny, sekcja II „Zespół
-  specjalistów" (tabela 8 ról).
+- **Str. 1** — tytuł, sekcja I „Dane ucznia" (10 pól, bez danych zbędnych —
+  RODO), sekcja Ia „Ścieżka dokumentacyjna i rodzaj oceny" (Ścieżka A z
+  orzeczeniem → IPET / Ścieżka B bez orzeczenia → PWES, plus 4 rodzaje
+  oceny) — przeniesione tu ze strony 2 na prośbę autorki, żeby cały „setup"
+  oceny (dane, ścieżka, rodzaj) był widoczny na jednej stronie.
+- **Str. 2** — „Tryb postępowania" (3 pola: współpraca z poradnią,
+  zawiadomienie rodziców, obecność rodzica — to, co zostało z dawnego „Ia"
+  po przeniesieniu ścieżki i rodzaju oceny na str. 1), sekcja II „Zespół
+  specjalistów" (tabela 8 ról, węższa niż pełna szerokość strony i bez
+  sztucznie rozciągniętych wierszy — patrz błąd konstrukcyjny niżej).
 - **Str. 3** — sekcja III „Mapa dokumentów źródłowych" (11 druków źródłowych
   i sekcja, do której trafia ich wynik — „zasada jednego źródła").
 - **Str. 4** — sytuacje szkolne objęte obserwacją, zakres i czas obserwacji,
@@ -127,7 +132,11 @@ reguła konfliktowała z `table-layout:fixed` i powodowała, że **ostatni
 wiersz tabeli był rysowany, ale zasłaniany przez następny blok**
 (niewidoczny mimo poprawnej pozycji w DOM). Naprawione przez jawne
 wyłączenie tego rozciągania (`flex:0 0 auto;height:auto`) na każdej tabeli
-budowanej dla WOPF.
+budowanej dla WOPF. Ten sam efekt (tym razem jako absurdalnie wysokie
+wiersze, nie znikający wiersz) dotknął też tabelę „Zespół specjalistów" na
+str. 2, dopiero po przeniesieniu ścieżki dokumentacyjnej na str. 1 zrobił
+się z niej jedyny większy blok na stronie — naprawione tak samo, plus
+zawężone do 170mm na wyraźną prośbę autorki.
 
 ## Do potwierdzenia przez autorkę
 
