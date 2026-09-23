@@ -34,6 +34,16 @@ prawie pustej stronie.
 skracania samego tekstu klinicznego (5 opisów umiejętności na str. 6–7),
 a to już nie jest zmiana układu, tylko treści — do decyzji autorki.
 
+## Logo PCTP
+
+Nagłówek każdej strony miał okrągły fioletowy placeholder z samym tekstem
+„PCTP". Podmieniony na to samo prawdziwe logo (kwiat lawendy + napis PCTP,
+`logo-lawenda.webp` z korzenia repo), które klasa 1-3 ma od dawna i które
+klasa 4-6 dostała w tym samym kroku — teraz identyczne w całej serii ToM.
+To jedyna dotąd zrobiona poprawka konstrukcji dla tego wariantu; kółeczka,
+konstrukcja tabeli obserwacji, strona 1 i strony 4-6 czekają jeszcze na te
+same poprawki, które klasa 4-6 ma już za sobą (patrz jego README).
+
 ## Jak powstał PDF
 
 Tak jak reszta serii: `@page{size:A4}` + `@media print` w HTML, PDF to

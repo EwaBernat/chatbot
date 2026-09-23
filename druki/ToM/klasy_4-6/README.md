@@ -11,7 +11,7 @@ ekosystem **EduPlaner2026-MJ-PCTP**. Ta sama seria co `klasy_1-3/` i
 | `ToM_karta_oceny.html` | źródło — zredukowane z oryginału 11-stronicowego (patrz niżej) |
 | `ToM_karta_oceny.pdf` | wydruk wygenerowany z powyższego HTML (headless Chromium, druk A4) |
 
-## Status: 8 stron (było 11) — zredukowane na wzór klasy 1-3
+## Status: 9 stron (było 11) — zredukowane na wzór klasy 1-3
 
 Oryginał przysłany przez autorkę miał 11 stron. Na jej prośbę zredukowane do
 wzoru strukturalnego z `klasy_1-3/` (tam druk ma 7 stron) — bez zmiany
@@ -32,9 +32,9 @@ prawie pustej stronie.
 
 **Nie zredukowane do 7 stron** — dalsze skrócenie wymagałoby skracania
 samego tekstu klinicznego (5 opisów umiejętności), a to już nie jest zmiana
-układu, tylko treści — do decyzji autorki. Za to strona 5 przybyła: nowa
-„Cele SMART" na wzór klasy 1-3, której klasa 4-6 wcześniej nie miała wcale
-(patrz sekcja „Strony 4 i 5" niżej).
+układu, tylko treści — do decyzji autorki. Za to przybyły 2 strony, których
+klasa 4-6 wcześniej nie miała wcale, obie na wzór klasy 1-3: „Cele SMART"
+(str. 5) i „Proponowane formy wsparcia" (str. 6) — patrz sekcje niżej.
 
 ## Strona 1 przebudowana na wzór klasy 1-3 — ⚠️ do potwierdzenia
 
@@ -164,13 +164,37 @@ poprawne sumy w tabeli obserwacji → poprawny wykres → poprawny automatyczny
 opis wyników → „Zasugeruj cele" poprawnie układa tabelę wg pozycji
 ocenionych nisko, zero błędów JS.
 
-Strony 6, 7, 8 to dawne strony 5, 6, 7 (szczegółowy opis każdego z 5
+## Strona 6 — nowa: „VI Proponowane formy wsparcia"
+
+Klasa 4-6 nie miała odpowiednika tej strony wcale. Dodana wg dokładnie tego
+samego wzoru co klasa 1-3: tabela ścieżek A (uczeń z orzeczeniem — zajęcia
+rewalidacyjne) / B (uczeń z opinią PPP — pomoc psychologiczno-pedagogiczna)
+z podstawą prawną, potem „Wybór realizowanego programu" (tabela z
+checkboxami: program rewalidacyjny / program PPP) i notka o tym, że o
+wyborze decyduje dokument ucznia i zespół specjalistów, nie karta ToM.
+
+Treść przepisana słowo w słowo z klasy 1-3, bez żadnej zmiany — to opis
+polskiego prawa oświatowego (rozporządzenia MEN z 9.08.2017 r.), identyczny
+niezależnie od wieku ucznia, więc nie ma tu nic specyficznego dla klasy 1-3
+do „przetłumaczenia" na klasy 4-6.
+
+Strony 7, 8, 9 to dawne strony 5, 6, 7 (szczegółowy opis każdego z 5
 komponentów: poziom funkcjonowania, zalecenia, cel SMART, podstawa prawna) —
 przeniesione bez żadnej zmiany treści, tylko przenumerowane.
+
+## Logo PCTP
+
+Nagłówek każdej strony miał okrągły fioletowy placeholder z samym tekstem
+„PCTP" (`background:#2D1B69` + tekst), podczas gdy klasa 1-3 od dawna ma tam
+prawdziwe logo — fioletowe kółko z ikoną kwiatu lawendy i napisem PCTP,
+zaszyte jako obrazek `background-image` (base64 PNG) w CSS. Podmienione na
+dokładnie to samo osadzenie (ta sama grafika, ten sam PNG) — teraz identyczne
+w całej serii ToM, klasy 1-3/4-6/7-8. To ten sam plik, który autorka wgrała
+do repo jako `logo-lawenda.webp`.
 
 ## Jak powstał PDF
 
 Tak jak reszta serii: `@page{size:A4}` + `@media print` w HTML, PDF to
 odpowiednik **Ctrl+P → Zapisz jako PDF**, wygenerowany tu automatycznie
 (headless Chromium, `print_background` + `prefer_css_page_size`).
-Zweryfikowane renderem: 8 fizycznych stron, żadna nie ucina treści.
+Zweryfikowane renderem: 9 fizycznych stron, żadna nie ucina treści.
