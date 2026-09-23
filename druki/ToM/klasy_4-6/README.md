@@ -11,7 +11,7 @@ ekosystem **EduPlaner2026-MJ-PCTP**. Ta sama seria co `klasy_1-3/` i
 | `ToM_karta_oceny.html` | źródło — zredukowane z oryginału 11-stronicowego (patrz niżej) |
 | `ToM_karta_oceny.pdf` | wydruk wygenerowany z powyższego HTML (headless Chromium, druk A4) |
 
-## Status: 9 stron (było 11) — zredukowane na wzór klasy 1-3
+## Status: 8 stron (było 11) — zredukowane na wzór klasy 1-3
 
 Oryginał przysłany przez autorkę miał 11 stron. Na jej prośbę zredukowane do
 wzoru strukturalnego z `klasy_1-3/` (tam druk ma 7 stron) — bez zmiany
@@ -32,10 +32,9 @@ prawie pustej stronie.
 
 **Nie zredukowane do 7 stron** — dalsze skrócenie wymagałoby skracania
 samego tekstu klinicznego (5 opisów umiejętności), a to już nie jest zmiana
-układu, tylko treści — do decyzji autorki. Strony 4–6 zostały następnie
-rozbudowane z powrotem do 9 (patrz sekcja „Strony 4, 5, 6" niżej) — nie po
-to, by dodać nową treść, tylko żeby to, co już było, zmieściło się bez
-ucinania i wyglądało jak wzór klasy 1-3.
+układu, tylko treści — do decyzji autorki. Za to strona 5 przybyła: nowa
+„Cele SMART" na wzór klasy 1-3, której klasa 4-6 wcześniej nie miała wcale
+(patrz sekcja „Strony 4 i 5" niżej).
 
 ## Strona 1 przebudowana na wzór klasy 1-3 — ⚠️ do potwierdzenia
 
@@ -97,51 +96,75 @@ KSzOF IV-VI. To dopasowanie tematyczne jest interpretacją, nie jedynym
 możliwym przyporządkowaniem — **wymaga sprawdzenia przez autorkę**, w
 odróżnieniu od reszty pliku, która jest przeniesieniem istniejącej treści.
 
-## Strony 4, 5, 6 — przebudowane na wzór klasy 1-3
+## Strony 4 i 5 — przebudowane na wzór klasy 1-3
 
-Pierwsza wersja strony „IV Wynik i priorytety" łączyła wykres i 8-wierszową
-tabelę barier na jednej stronie — wizualnie inny wykres niż wzór (wysoki,
-z siatką co 1 pkt i dekoracyjnymi ramkami pod słupkami) i, po sprawdzeniu
-renderem, tabela się ucinała (wiersze III, IV, V i „Rekomendacje ogólne"
-znikały pod stopką). Poprawione:
+Pierwsza wersja strony „IV Wynik i priorytety" różniła się od wzoru na dwa
+niezależne sposoby, poprawione w dwóch kolejnych przejściach:
 
-- **Strona 4 („IV Wynik i priorytety")** — wykres przebudowany 1:1 na
-  konstrukcję z klasy 1-3: ten sam `viewBox`, te same proporcje słupków,
-  siatka tylko na 0/5/10 z przerywaną linią na połowie, etykiety I–V i
-  nazwy komponentów w SVG. Usunięty wstępny akapit i opisowa notka pod
-  wykresem (wzór klasy 1-3 nie ma żadnego z nich). Mechanizm liczenia
-  (`updateCharts()`, atrybuty `data-top/bot/max` na `<svg>`) — nietknięty,
-  słupki nadal kolorują się wg poziomu i liczą z tych samych ocen co tabela
-  obserwacji.
-- **Automatyczny opis wyników** dostał wreszcie stałe miejsce — boks
-  `#autoOpis` (styl `.note`, jak `#priorytety` w klasie 1-3) tuż pod
-  wykresem. Wcześniej, gdy żaden statyczny element o tym `id` nie istniał,
-  skrypt dokładał go sam gdzie indziej (obok tabeli „Wynik na komponent" na
-  stronie 3) — teraz tego automatycznego doklejania już nie ma.
-- **Strona 5** — 8-wierszowa tabela „Profil komponentów — katalog barier i
-  trudności" dostała własną stronę (za dużo treści, żeby zmieścić się pod
-  wykresem tak jak w klasie 1-3, gdzie ten sam typ tabeli ma tylko 5
-  ogólnych wierszy TUE/TUS/TUK). Treść wierszy bez zmian.
-- **Strona 6 — nowa: „V Cele SMART"**, dokładnie wg wzoru klasy 1-3: cel
-  główny, tabela `#tab-smart` (Lp./cel/pilny/termin/odpowiedzialny),
-  przyciski „Zasugeruj cele wg wyników" i „+ Dodaj cel", pola „Termin
-  przeglądu"/„Osoba koordynująca", podpisy. Wcześniej klasa 4-6 nie miała
-  takiej strony wcale. Tabela wypełniona 5 gotowymi celami — po jednym na
-  komponent, przepisane słowo w słowo z „Cel SMART" na obecnych stronach
-  7–9 (tam też zostają, nietknięte — to jest skrót/podgląd, nie
-  zastąpienie). Cel główny to nowe zdanie łączące wszystkie 5 komponentów w
-  jeden ogólny cel, na wzór klasy 1-3 — **do sprawdzenia przez autorkę**,
-  w odróżnieniu od reszty tabeli, która jest przeniesieniem istniejącej
-  treści.
-  Przyciski działają naprawdę: `zasugerujCele()` i `dodajCelSmart()`
-  przeniesione 1:1 z klasy 1-3 (są w pełni ogólne — nie odwołują się do
-  niczego specyficznego dla klasy 1-3 — więc zadziałały bez żadnych zmian
-  na danych klasy 4-6). Sprawdzone testem interaktywnym: zaznaczenie ocen →
-  poprawne sumy w tabeli obserwacji → poprawny wykres → poprawny automatyczny
-  opis wyników → „Zasugeruj cele" poprawnie układa tabelę wg pozycji
-  ocenionych nisko, zero błędów JS.
+**1. Konstrukcja wykresu i tabeli.** Wykres był wizualnie inny niż wzór
+(wysoki `viewBox`, siatka co 1 pkt, dekoracyjne ramki pod słupkami, zbędny
+wstępny akapit i notka pod spodem), a tabela barier miała 8 wierszy: po
+jednym na każdy z 5 komponentów (I–V) plus „Zasoby", „Profil ogólny" i
+„Rekomendacje" — inny podział niż wzór klasy 1-3, który dzieli tabelę wg
+**kategorii treningu** (Profil ToM ogólny / TUE / TUS / TUK / Rekomendacje
+ogólne), nie wg numeru komponentu. Poprawione:
+- wykres przebudowany 1:1 na konstrukcję z klasy 1-3: ten sam `viewBox`,
+  te same proporcje słupków, siatka tylko na 0/5/10 z przerywaną linią na
+  połowie, etykiety I–V i nazwy komponentów w SVG, bez wstępnego akapitu.
+  Mechanizm liczenia (`updateCharts()`, atrybuty `data-top/bot/max` na
+  `<svg>`) — nietknięty, słupki nadal kolorują się wg poziomu i liczą z
+  tych samych ocen co tabela obserwacji;
+- automatyczny opis wyników dostał stałe miejsce — boks `#autoOpis` (styl
+  `.note`, jak `#priorytety` w klasie 1-3) tuż pod wykresem, zamiast być
+  doklejanym przez skrypt gdzie indziej, gdy żaden statyczny element o tym
+  `id` nie istniał (wcześniej lądował obok tabeli „Wynik na komponent" na
+  stronie 3);
+- tabela „Profil komponentów — katalog barier i trudności" przebudowana na
+  te same 5 wierszy/kategorii co w klasie 1-3 (Profil ToM ogólny / TUE /
+  TUS / TUK / Rekomendacje ogólne), `id="tab-profil"` jak we wzorze. TUE
+  (trening emocjonalny) zbudowany z opisu komponentu I, TUS (społeczny) z
+  komponentów II i V, TUK (komunikacyjny) z komponentów III i IV —
+  dokładny opis każdego komponentu osobno zostaje bez zmian tam, gdzie już
+  był (str. 6–8, patrz niżej) — to jest przegrupowanie tego samego
+  materiału w skrócie na stronie 4, nie utrata treści.
 
-Strony 7, 8, 9 to dawne strony 5, 6, 7 (szczegółowy opis każdego z 5
+**2. Rozmiar tabel pod wykresem.** Niezależnie od podziału na kategorie,
+same komórki tabeli były znacznie większe/szersze niż we wzorze — bo
+klasie 4-6 brakowało całego bloku CSS, który klasa 1-3 ma pod koniec
+arkusza stylów i który: (a) blokuje flex-owe rozciąganie `.blk`/`table.tb`
+na całą wysokość strony (`flex:0 0 auto!important;height:auto!important`),
+(b) zmniejsza padding komórek (`3.6px 7px` zamiast `5.5px 8px`) i
+zagęszcza `line-height`, (c) ustawia dokładną wysokość wiersza `#tab-profil`
+(48px). Bez tego bloku tabela rozciągała się na wolną przestrzeń strony i
+każdy wiersz robił się nienaturalnie wysoki. Skopiowany 1:1 z klasy 1-3 —
+dotyczy każdej tabeli `table.tb`/`table.qtable` i każdego wykresu w `.ta`
+w całym pliku, nie tylko tej jednej.
+
+Dzięki krótszej (5 zamiast 8 wierszy), węższej tabeli wykres i tabela znowu
+mieszczą się razem na jednej stronie 4 — dokładnie tak jak w klasie 1-3 —
+więc osobna strona na samą tabelę już niepotrzebna.
+
+**Strona 5 — nowa: „V Cele SMART"**, dokładnie wg wzoru klasy 1-3: cel
+główny, tabela `#tab-smart` (Lp./cel/pilny/termin/odpowiedzialny), przyciski
+„Zasugeruj cele wg wyników" i „+ Dodaj cel", pola „Termin przeglądu"/„Osoba
+koordynująca", podpisy. Wcześniej klasa 4-6 nie miała takiej strony wcale.
+Tabela wypełniona 5 gotowymi celami — po jednym na komponent, przepisane
+słowo w słowo z „Cel SMART" na obecnych stronach 6–8 (tam też zostają,
+nietknięte — to jest skrót/podgląd, nie zastąpienie). Cel główny to nowe
+zdanie łączące wszystkie 5 komponentów w jeden ogólny cel, na wzór klasy
+1-3 — **do sprawdzenia przez autorkę**, w odróżnieniu od reszty tabeli,
+która jest przeniesieniem istniejącej treści.
+Przyciski działają naprawdę: `zasugerujCele()` i `dodajCelSmart()`
+przeniesione 1:1 z klasy 1-3 (są w pełni ogólne — nie odwołują się do
+niczego specyficznego dla klasy 1-3 — więc zadziałały bez żadnych zmian na
+danych klasy 4-6).
+
+Sprawdzone testem interaktywnym po obu przejściach: zaznaczenie ocen →
+poprawne sumy w tabeli obserwacji → poprawny wykres → poprawny automatyczny
+opis wyników → „Zasugeruj cele" poprawnie układa tabelę wg pozycji
+ocenionych nisko, zero błędów JS.
+
+Strony 6, 7, 8 to dawne strony 5, 6, 7 (szczegółowy opis każdego z 5
 komponentów: poziom funkcjonowania, zalecenia, cel SMART, podstawa prawna) —
 przeniesione bez żadnej zmiany treści, tylko przenumerowane.
 
@@ -150,4 +173,4 @@ przeniesione bez żadnej zmiany treści, tylko przenumerowane.
 Tak jak reszta serii: `@page{size:A4}` + `@media print` w HTML, PDF to
 odpowiednik **Ctrl+P → Zapisz jako PDF**, wygenerowany tu automatycznie
 (headless Chromium, `print_background` + `prefer_css_page_size`).
-Zweryfikowane renderem: 9 fizycznych stron, żadna nie ucina treści.
+Zweryfikowane renderem: 8 fizycznych stron, żadna nie ucina treści.
