@@ -8,10 +8,13 @@ dokument ma własny podfolder ze źródłem, gotowym PDF-em i opisem.
 
 | Dokument | Zakres | Pliki | Status |
 |---|---|---|---|
-| [`IPET_2026_przedszkole/`](IPET_2026_przedszkole/README.md) | IPET 2026 · WOPF (ICF) — przedszkole | generator (docx) + docx + pdf | gotowe (przedszkole) · wersja dla szkoły — do zrobienia |
+| IPET — klasa 1-3 | szkoła podstawowa, klasy 1-3 | — | do dodania (zrobiony w innej sesji, jeszcze nie w tym folderze) |
 | [`Metryczka_dziecka/`](Metryczka_dziecka/README.md) | karta podstawowych danych dziecka | html | gotowe (źródło) · PDF na żądanie |
 | [`KSzOF_I-III/`](KSzOF_I-III/README.md) | kwestionariusz funkcjonowania, sfery I–III | html + pdf | gotowe |
 | [`KSzOF_IV-VI/`](KSzOF_IV-VI/README.md) | kwestionariusz funkcjonowania, sfery IV–VI | html + pdf | gotowe |
+
+Wersja IPET dla przedszkola została celowo usunięta z tego projektu —
+projekt obejmuje wyłącznie druki dla szkoły.
 
 ## Konwencja folderu
 
@@ -61,4 +64,5 @@ już dobrze wyglądających PDF-ów — to propozycje na osobny, następny krok:
    bazy ani do aplikacji. Jeśli mają się realnie łączyć z danymi w aplikacji
    (a nie być tylko narzędziem do wypełnienia i wydruku), to osobna decyzja
    projektowa — inny zakres niż samo porządkowanie plików.
-3. **IPET tylko dla przedszkola.** Brak wersji szkolnej.
+3. **IPET dla klas 1-3 jeszcze nie tutaj.** Powstał w osobnej sesji —
+   trzeba go odnaleźć w repozytorium i przenieść do tego folderu.
