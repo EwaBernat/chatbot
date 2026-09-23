@@ -100,6 +100,11 @@ ma teraz nawet pół strony pustego miejsca pod treścią) — to naturalna
 konsekwencja usunięcia tekstu, a nie błąd. Numeracja stron i sekcji
 (I–XXVI) pozostała bez zmian.
 
+Dodatkowo usunięta ramka „Karta scalająca — WOPF szkolny · jeden druk, dwie
+ścieżki" na str. 1 (opisowy akapit o tym, czym jest WOPF) — z tego samego
+powodu, ta sama kategoria „informacji/wyjaśnień", tylko nie wychwycona przy
+pierwszym przejściu, bo nie miała stylu `.howto` ani „Podstawa prawna".
+
 ## Interaktywność
 
 Tylko sekcja V (wyniki KSzOF) ma pełne przeliczanie automatyczne — to
