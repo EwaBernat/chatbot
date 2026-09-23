@@ -34,6 +34,26 @@ prawie pustej stronie.
 skracania samego tekstu klinicznego (5 opisów umiejętności na str. 6–7),
 a to już nie jest zmiana układu, tylko treści — do decyzji autorki.
 
+## Strona 1 przebudowana na wzór klasy 1-3 — ⚠️ do potwierdzenia
+
+Na prośbę autorki strona 1 ma teraz dokładnie tę samą kolejność sekcji co
+`klasy_1-3/`: metryczka (2 pola) → tytuł → „Czym jest ToM” → skala →
+„Więcej” (ukryte przy druku, jak w 1-3) → nagłówek „Arkusz obserwacji” →
+tabela „Zastosowanie ToM w KSzOF”.
+
+Metryczka: usunięte 2 zduplikowane pola („Imię i nazwisko”, „Klasa/oddział”
+— powtarzały dane już wpisywane w nagłówku strony), zostały te same 2 pola
+co w 1-3.
+
+**Tabela „Zastosowanie ToM w KSzOF (klasy IV–VI)” — nowa, zbudowana teraz.**
+1-3 miała gotową tabelę TUE/TUS/TUK dla swojego KSzOF; dla klas 4-6 takiej
+nie było. Zbudowana od podstaw na bazie **rzeczywistej** treści
+`druki/Zatwierdzone/KSzOF_IV-VI/` (52 pozycje, 9 obszarów, kody ICF) —
+każdy z 5 komponentów ToM dopasowany do tematycznie najbliższych pozycji
+KSzOF IV-VI. To dopasowanie tematyczne jest interpretacją, nie jedynym
+możliwym przyporządkowaniem — **wymaga sprawdzenia przez autorkę**, w
+odróżnieniu od reszty pliku, która jest przeniesieniem istniejącej treści.
+
 ## Jak powstał PDF
 
 Tak jak reszta serii: `@page{size:A4}` + `@media print` w HTML, PDF to
