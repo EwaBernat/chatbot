@@ -6,12 +6,17 @@ drukach (KSzOF, karta ABC/FBA, ToM, kwestionariusz mowy, profil sensoryczny,
 profil biopsychospołeczny). Wspólna marka i konstrukcja z serii `ToM/` —
 wzorem jest `klasy_1-3`.
 
-## Status: 27 z 27 stron — komplet, do potwierdzenia
+## Status: 26 stron — komplet, do potwierdzenia
 
 | Plik | Opis |
 |---|---|
-| `WOPF_karta_oceny.html` | źródło — wszystkie 27 stron |
+| `WOPF_karta_oceny.html` | źródło — wszystkie 26 stron |
 | `WOPF_karta_oceny.pdf` | pełny wydruk (headless Chromium, druk A4) |
+
+Pierwotnie zbudowane jako 27 stron 1:1 z oryginalnym PDF-em autorki;
+zmniejszone do 26 po tym, jak autorka poprosiła o przeniesienie kilku
+sekcji na wcześniejsze strony z wolnym miejscem (patrz „Co jest w środku”
+i historia commitów) — treść identyczna, tylko inny układ na stronach.
 
 Zbudowane partiami po kilka stron, każda partia renderowana i zweryfikowana
 wizualnie względem oryginalnego 27-stronicowego PDF-a autorki. Kompletne,
@@ -27,61 +32,62 @@ ale — jak cała reszta serii ToM — jeszcze **nieprzeniesione do
   rodziców, obecność rodzica) — wszystko przeniesione tu ze strony 2 na
   prośbę autorki, żeby cały „setup" oceny (dane, ścieżka, rodzaj, tryb) był
   widoczny na jednej stronie.
-- **Str. 2** — wyłącznie sekcja II „Zespół specjalistów" (tabela 8 ról, na
-  pełną szerokość strony, bez sztucznie rozciągniętych wierszy — patrz
-  błąd konstrukcyjny niżej).
-- **Str. 3** — sekcja III „Mapa dokumentów źródłowych" (11 druków źródłowych
-  i sekcja, do której trafia ich wynik — „zasada jednego źródła").
-- **Str. 4** — sytuacje szkolne objęte obserwacją, zakres i czas obserwacji,
+- **Str. 2** — sekcja II „Zespół specjalistów" (tabela 8 ról) i sekcja III
+  „Mapa dokumentów źródłowych" (11 druków źródłowych i sekcja, do której
+  trafia ich wynik — „zasada jednego źródła") — obie na pełną szerokość
+  strony, bez sztucznie rozciągniętych wierszy (patrz błąd konstrukcyjny
+  niżej). Mapa dokumentów przeniesiona tu ze swojej dawnej osobnej strony
+  na prośbę autorki, bo obok tabeli zespołu było dość wolnego miejsca.
+- **Str. 3** — sytuacje szkolne objęte obserwacją, zakres i czas obserwacji,
   sekcja IV „Informacje medyczne".
-- **Str. 5–9** — sekcja V „Wyniki oceny funkcjonalnej KSzOF": panel
+- **Str. 4–8** — sekcja V „Wyniki oceny funkcjonalnej KSzOF": panel
   synchronizacji druków (`.synbox`), tabela 9 obszarów ICF z **edytowalnymi
   stenami (1–10)**, wykres słupkowy + mapa radarowa (nowa, zbudowana dla
   WOPF — 9 osi), opis wyników **generowany automatycznie** z wpisanych
   stenów, sekcja Va (charakterystyka jakościowa 9 obszarów) i Vb (synteza
   opisowa, 4 punkty).
-- **Str. 10** — sekcja VI „Zachowanie — funkcje zachowań trudnych" (transfer
+- **Str. 9** — sekcja VI „Zachowanie — funkcje zachowań trudnych" (transfer
   z karty ABC/FBA).
-- **Str. 11** — plan pozytywnego wsparcia (PBS), nota o Standardach Ochrony
+- **Str. 10** — plan pozytywnego wsparcia (PBS), nota o Standardach Ochrony
   Małoletnich, sekcja VII „Poznanie społeczne — teoria umysłu" (transfer z
   ToM), sekcja VIII „Mowa i komunikacja" (transfer z kwestionariusza mowy).
-- **Str. 12** — sposób porozumiewania się, kierunki terapii logopedycznej,
+- **Str. 11** — sposób porozumiewania się, kierunki terapii logopedycznej,
   sekcja IX „Przetwarzanie sensoryczne" (transfer z profilu sensorycznego,
   model Dunn).
-- **Str. 13** — wnioski sensoryczne, sekcja X „Kontekst biopsychospołeczny"
+- **Str. 12** — wnioski sensoryczne, sekcja X „Kontekst biopsychospołeczny"
   (12 czynników środowiskowych ICF), ułatwienia/bariery/dobrostan, nagłówek
   sekcji XI.
-- **Str. 14** — sekcja XI „Całościowy obraz funkcjonowania" (tabela synteza
+- **Str. 13** — sekcja XI „Całościowy obraz funkcjonowania" (tabela synteza
   8 obszarów), sekcja XII „Indywidualne potrzeby rozwojowe i edukacyjne".
-- **Str. 15** — sekcja XIII „Przyczyny niepowodzeń edukacyjnych, bariery i
+- **Str. 14** — sekcja XIII „Przyczyny niepowodzeń edukacyjnych, bariery i
   ograniczenia", sekcja XIV „Zakres i charakter wsparcia", nagłówek XV.
-- **Str. 16** — tabela metod pracy wg obszaru/przedmiotu, „Metody stosowane
+- **Str. 15** — tabela metod pracy wg obszaru/przedmiotu, „Metody stosowane
   w pracy z uczniem" (16 pozycji — 2 zaznaczone jako przykład, tak jak w
   oryginale), „Formy organizacyjne pracy".
-- **Str. 17** — sekcja XVI „Zakres i sposób dostosowania wymagań
+- **Str. 16** — sekcja XVI „Zakres i sposób dostosowania wymagań
   edukacyjnych" (4 kanały), dostosowanie sprawdzania wiedzy, dostosowanie
   warunków egzaminu ósmoklasisty.
-- **Str. 18** — sekcja XVII „Rekomendowane zajęcia i programy
+- **Str. 17** — sekcja XVII „Rekomendowane zajęcia i programy
   terapeutyczne" — rewalidacja / pomoc psychologiczno-pedagogiczna, tabela
   programów terapeutycznych.
-- **Str. 19** — sekcja XVIII „Zintegrowane działania nauczycieli i
+- **Str. 18** — sekcja XVIII „Zintegrowane działania nauczycieli i
   specjalistów", wspólne strategie.
-- **Str. 20** — sekcja XIX „Współpraca z rodzicami i współpraca
+- **Str. 19** — sekcja XIX „Współpraca z rodzicami i współpraca
   międzysektorowa" — tabela zobowiązań, formy współpracy, instytucje.
-- **Str. 21** — sekcja XX „Decyzja posiedzenia zespołu" (rekomendowany
+- **Str. 20** — sekcja XX „Decyzja posiedzenia zespołu" (rekomendowany
   poziom wsparcia), sekcja XXI „Cele SMART" — tabela + 2 karty przykładowe
   (`ta-smart-e`/`ta-smart-t`, ta sama konstrukcja co w ToM).
-- **Str. 22** — sekcja XXII „Ocena efektywności udzielanego wsparcia" —
+- **Str. 21** — sekcja XXII „Ocena efektywności udzielanego wsparcia" —
   tabela 8 zakresów × 3 pomiary (start/półrocze/koniec roku).
-- **Str. 23–24** — sekcja XXIII „Przeniesienie informacji — do IPET albo do
+- **Str. 22–23** — sekcja XXIII „Przeniesienie informacji — do IPET albo do
   PWES" (tabela 9 wierszy, dwie kolumny ścieżek), priorytety na najbliższe
   półrocze.
-- **Str. 25–26** — **„Opinia zespołu ds. wsparcia o funkcjonowaniu ucznia"**
+- **Str. 24–25** — **„Opinia zespołu ds. wsparcia o funkcjonowaniu ucznia"**
   — samodzielny, 2-stronicowy dokument osadzony wewnątrz WOPF, oznaczony
   „dokument do wydania na zewnątrz" (do poradni pp). Własny tytuł w stylu
   strony 1 (`.tt-kick`/`.tt-h1`), własna metryczka, 6 ponumerowanych
   punktów, miejsce na podpisy koordynatora i dyrektora.
-- **Str. 27** — sekcja XXIV „Podpisy zespołu ds. WOPF" (7 podpisów), sekcja
+- **Str. 26** — sekcja XXIV „Podpisy zespołu ds. WOPF" (7 podpisów), sekcja
   XXV „Wykaz załączników" (12 pozycji), sekcja XXVI „Klauzula informacyjna
   RODO i ważność dokumentu".
 
@@ -175,6 +181,6 @@ strony.
 Tak jak reszta serii: `@page{size:A4}` + `@media print` w HTML, PDF to
 odpowiednik **Ctrl+P → Zapisz jako PDF**, wygenerowany tu automatycznie
 (headless Chromium, `print_background` + `prefer_css_page_size`).
-Zweryfikowane renderem: 27 fizycznych stron, żadna nie ucina treści
+Zweryfikowane renderem: 26 fizycznych stron, żadna nie ucina treści
 (sprawdzone programowo — margines do stopki dodatni na każdej stronie),
 zero błędów JS, interaktywność sekcji V przetestowana.
