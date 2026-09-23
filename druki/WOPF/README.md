@@ -38,8 +38,14 @@ ale — jak cała reszta serii ToM — jeszcze **nieprzeniesione do
   strony, bez sztucznie rozciągniętych wierszy (patrz błąd konstrukcyjny
   niżej). Mapa dokumentów przeniesiona tu ze swojej dawnej osobnej strony
   na prośbę autorki, bo obok tabeli zespołu było dość wolnego miejsca.
-- **Str. 3** — sytuacje szkolne objęte obserwacją, zakres i czas obserwacji,
-  sekcja IV „Informacje medyczne".
+- **Str. 3** — sytuacje szkolne objęte obserwacją, zakres i czas obserwacji
+  (pole „Czas objęty obserwacją od / do" — dwa osobne kafelki zamiast
+  jednego pola „od–do"), sekcja IV „Informacje medyczne". Na dole strony —
+  „Przyjmowane leki i sposób podania" oraz „Zalecenia i przeciwwskazania (w
+  tym dieta)" obok siebie w jednym rzędzie, a „Postępowanie w sytuacji
+  nagłej" w drugim rzędzie pod nimi (dawniej rozrzucone na dwóch stronach
+  jako statyczny tekst) — wszystkie trzy jako w pełni edytowalne karty
+  (`.ta`/`.ed`, ta sama konstrukcja co karty celów SMART).
 - **Str. 4–8** — sekcja V „Wyniki oceny funkcjonalnej KSzOF": panel
   synchronizacji druków (`.synbox`), tabela 9 obszarów ICF z **edytowalnymi
   stenami (1–10)**, wykres słupkowy + mapa radarowa (nowa, zbudowana dla
