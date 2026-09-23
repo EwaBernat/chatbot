@@ -4,14 +4,22 @@ Jedno miejsce na wszystkie oficjalne druki i kwestionariusze ekosystemu
 **EduPlaner2026-MJ-PCTP** · Pomorskie Centrum Terapii Pedagogicznej. Każdy
 dokument ma własny podfolder ze źródłem, gotowym PDF-em i opisem.
 
+## Foldery: zatwierdzone vs w trakcie
+
+`Zatwierdzone/` — druki, które zostały przejrzane i potwierdzone, gotowe do
+użycia bez zastrzeżeń. Wszystko poza tym folderem to praca w toku: szukane,
+sprawdzane albo czekające na potwierdzenie. Gdy kolejny druk zostanie
+potwierdzony, przenosimy go do `Zatwierdzone/` (`git mv`, bez zmiany treści).
+
 ## Spis druków
 
 | Dokument | Zakres | Pliki | Status |
 |---|---|---|---|
-| IPET — klasa 1-3 | szkoła podstawowa, klasy 1-3 | — | do dodania (zrobiony w innej sesji, jeszcze nie w tym folderze) |
-| [`Metryczka_dziecka/`](Metryczka_dziecka/README.md) | karta podstawowych danych dziecka | html | gotowe (źródło) · PDF na żądanie |
-| [`KSzOF_I-III/`](KSzOF_I-III/README.md) | kwestionariusz funkcjonowania, sfery I–III | html + pdf | gotowe |
-| [`KSzOF_IV-VI/`](KSzOF_IV-VI/README.md) | kwestionariusz funkcjonowania, sfery IV–VI | html + pdf | gotowe |
+| [`Zatwierdzone/Metryczka_dziecka/`](Zatwierdzone/Metryczka_dziecka/README.md) | karta podstawowych danych dziecka | html | ✅ zatwierdzone (szkoła) |
+| [`Zatwierdzone/KSzOF_I-III/`](Zatwierdzone/KSzOF_I-III/README.md) | kwestionariusz funkcjonowania, sfery I–III | html + pdf | ✅ zatwierdzone |
+| [`Zatwierdzone/KSzOF_IV-VI/`](Zatwierdzone/KSzOF_IV-VI/README.md) | kwestionariusz funkcjonowania, sfery IV–VI | html + pdf | ✅ zatwierdzone |
+| [`ToM/`](ToM/README.md) | Karta oceny Teorii Umysłu, klasy I–III | html + pdf | ⚠️ **niekompletny plik** — patrz README w folderze |
+| IPET — klasa 1-3 | szkoła podstawowa, klasy 1-3 | — | do dodania — szukane w repozytorium, jeszcze nie znalezione |
 
 Wersja IPET dla przedszkola została celowo usunięta z tego projektu —
 projekt obejmuje wyłącznie druki dla szkoły.
@@ -52,13 +60,14 @@ Dotąd każdy druk/broszura powstawał na osobnej gałęzi i tam zostawał —
 Nic z poniższego nie zostało zmienione teraz, żeby nie ryzykować zepsucia
 już dobrze wyglądających PDF-ów — to propozycje na osobny, następny krok:
 
-1. **Marka powielona w trzech plikach.** Kolory i czcionka PCTP (fiolet
-   `#2D1B69`, pomarańcz `#E8450A`, Mulish/Arial) są zaszyte identycznie w
-   `Metryczka_dziecka.html`, `KSzOF_I-III_interaktywny.html` i
-   `KSzOF_IV-VI_interaktywny.html` (pierwsze ~270 linii CSS są bajt w bajt
-   takie same w obu KSzOF). Zmiana koloru dziś wymaga edycji w kilku
-   miejscach naraz. Da się to bezpiecznie wydzielić do jednego wspólnego
-   pliku marki i podmienić z wizualną weryfikacją każdej strony przed i po.
+1. **Marka powielona w kilku plikach.** Kolory PCTP (fiolet `#2D1B69`,
+   pomarańcz `#E8450A`) i czcionka Mulish są zaszyte niezależnie w
+   `Metryczka_dziecka.html`, `KSzOF_I-III_interaktywny.html`,
+   `KSzOF_IV-VI_interaktywny.html` i `ToM_karta_oceny.html` (pierwsze ~270
+   linii CSS są bajt w bajt takie same w obu KSzOF). Zmiana koloru dziś
+   wymaga edycji w kilku miejscach naraz. Da się to bezpiecznie wydzielić do
+   jednego wspólnego pliku marki i podmienić z wizualną weryfikacją każdej
+   strony przed i po.
 2. **Zapis tylko lokalny.** Interaktywne kwestionariusze i metryczka
    trzymają odpowiedzi w `localStorage` przeglądarki — nie idą do żadnej
    bazy ani do aplikacji. Jeśli mają się realnie łączyć z danymi w aplikacji
