@@ -45,6 +45,23 @@ Metryczka: usunięte 2 zduplikowane pola („Imię i nazwisko”, „Klasa/oddzi
 — powtarzały dane już wpisywane w nagłówku strony), zostały te same 2 pola
 co w 1-3.
 
+## Kółeczka oceny 0/1/2 — przebudowane na wzór klasy 1-3
+
+Oryginał miał kółeczka na stałe pokolorowane (czerwony/żółty/zielony
+zaszyty w każdej opcji przez `style="border-color:..."`) i skrypt
+uruchamiany przy **każdym wczytaniu strony**, który automatycznie zaznaczał
+przykładowe oceny (`window.addEventListener("load", ...)` + tablica
+`EXAMPLE`) — więc plik nigdy nie ładował się naprawdę pusty. Wzór klasy 1-3
+nie ma nic z tego: kółeczka są neutralnie szare i kolorują się dopiero po
+kliknięciu (przez klasy CSS `.sel.v0/v1/v2`), a strona ładuje się pusta.
+
+Zmiana: te same klasy CSS co w klasie 1-3 (`td.oc i.sel`, `.v0/v1/v2`),
+`data-v="0/1/2"` zamiast koloru w stylu inline, i usunięty routine
+auto-zaznaczania przy starcie. Mechanizm liczenia wyników (sumy, średnie,
+wykresy) — nietknięty, dalej działa identycznie, tylko teraz liczy od zera
+zamiast od przykładowych danych. Sprawdzone: brak błędów JS, wykresy
+poprawnie pokazują pusty stan (0 słupków, pusty radar) zamiast się wywalać.
+
 **Tabela „Zastosowanie ToM w KSzOF (klasy IV–VI)” — nowa, zbudowana teraz.**
 1-3 miała gotową tabelę TUE/TUS/TUK dla swojego KSzOF; dla klas 4-6 takiej
 nie było. Zbudowana od podstaw na bazie **rzeczywistej** treści
