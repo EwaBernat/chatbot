@@ -11,7 +11,7 @@ ekosystem **EduPlaner2026-MJ-PCTP**. Ta sama seria co `klasy_1-3/` i
 | `ToM_karta_oceny.html` | źródło — zredukowane z oryginału 11-stronicowego (patrz niżej) |
 | `ToM_karta_oceny.pdf` | wydruk wygenerowany z powyższego HTML (headless Chromium, druk A4) |
 
-## Status: 9 stron (było 11) — zredukowane na wzór klasy 1-3
+## Status: 7 stron (było 11) — dokładnie tyle, co klasa 1-3
 
 Oryginał przysłany przez autorkę miał 11 stron. Na jej prośbę zredukowane do
 wzoru strukturalnego z `klasy_1-3/` (tam druk ma 7 stron) — bez zmiany
@@ -30,11 +30,30 @@ Podpis prowadzącego i podstawa prawna (dawna końcówka str. 10) zostały
 przeniesione na koniec obecnej strony 8 zamiast zostawać na osobnej,
 prawie pustej stronie.
 
-**Nie zredukowane do 7 stron** — dalsze skrócenie wymagałoby skracania
-samego tekstu klinicznego (5 opisów umiejętności), a to już nie jest zmiana
-układu, tylko treści — do decyzji autorki. Za to przybyły 2 strony, których
-klasa 4-6 wcześniej nie miała wcale, obie na wzór klasy 1-3: „Cele SMART"
-(str. 5) i „Proponowane formy wsparcia" (str. 6) — patrz sekcje niżej.
+Po drodze było 8, potem 9 stron — zanim wszystkie sekcje zostały dopasowane
+do wzoru, klasa 4-6 miała chwilowo 3 dodatkowe strony ze szczegółowym
+opisem każdego z 5 komponentów osobno (poziom funkcjonowania, zalecenia,
+cel SMART, podstawa prawna — dawne str. 7-9), których klasa 1-3 nie ma
+wcale. Na wyraźną prośbę autorki („zrób według wzoru klasy 1-3 a daj dane
+z klas 4-6") te 3 strony zostały **usunięte**, a w ich miejsce jedna nowa
+strona 7 „Zastosowanie ToM w ocenie ABC i FBA" — dokładnie jak w klasie
+1-3. Efekt: **7 stron, tak jak klasa 1-3**, żadnej dodatkowej. Za to
+przybyły 2 strony, których klasa 4-6 wcześniej nie miała wcale, obie na
+wzór klasy 1-3: „Cele SMART" (str. 5) i „Proponowane formy wsparcia"
+(str. 6) — patrz sekcje niżej.
+
+**Co dokładnie zniknęło wraz z dawnymi stronami 7-9** (żeby było jasne, a
+nie tylko "przenumerowane"): opisowe akapity „Zalecenia do pracy" dla
+każdego z 5 komponentów osobno (konkretne pomysły na ćwiczenia w klasie —
+ten tekst nie ma odpowiednika nigdzie indziej w pliku, więc jest realnie
+usunięty, nie tylko przeniesiony) oraz tabela „VI Poziom rozwoju Teorii
+umysłu — norma rozwojowa a obecne funkcjonowanie" (klasa 1-3 nie ma takiej
+tabeli wcale). Nie zniknęły natomiast: podpis prowadzącego (jest już na
+str. 5, w bloku podpisów Cele SMART, tak jak w klasie 1-3) ani naukowa
+podstawa narzędzia — cytowania Wellman i Liu / Baron-Cohen / Perner /
+Premack i Woodruff są od dawna w sekcji „Więcej" na str. 1 (nieukrywanej
+przy druku), dokładnie tak jak w klasie 1-3, więc usunięcie tego samego
+tekstu z dawnej str. 9 nie traci nic unikalnego.
 
 ## Strona 1 przebudowana na wzór klasy 1-3 — ⚠️ do potwierdzenia
 
@@ -123,10 +142,13 @@ ogólne), nie wg numeru komponentu. Poprawione:
   te same 5 wierszy/kategorii co w klasie 1-3 (Profil ToM ogólny / TUE /
   TUS / TUK / Rekomendacje ogólne), `id="tab-profil"` jak we wzorze. TUE
   (trening emocjonalny) zbudowany z opisu komponentu I, TUS (społeczny) z
-  komponentów II i V, TUK (komunikacyjny) z komponentów III i IV —
-  dokładny opis każdego komponentu osobno zostaje bez zmian tam, gdzie już
-  był (str. 6–8, patrz niżej) — to jest przegrupowanie tego samego
-  materiału w skrócie na stronie 4, nie utrata treści.
+  komponentów II i V, TUK (komunikacyjny) z komponentów III i IV. W chwili
+  budowania tej tabeli pełny opis każdego komponentu osobno („Aktualny
+  poziom funkcjonowania") wciąż istniał na dawnych stronach 6–8 — było to
+  więc przegrupowanie w skrócie, a nie utrata treści. Te strony zostały
+  później usunięte na wyraźną prośbę autorki (patrz „Status" wyżej) — więc
+  dziś ta tabela na str. 4 jest jedynym miejscem, gdzie ten opis w ogóle
+  występuje.
 
 **2. Rozmiar tabel pod wykresem.** Niezależnie od podziału na kategorie,
 same komórki tabeli były znacznie większe/szersze niż we wzorze — bo
@@ -149,8 +171,10 @@ główny, tabela `#tab-smart` (Lp./cel/pilny/termin/odpowiedzialny), przyciski
 „Zasugeruj cele wg wyników" i „+ Dodaj cel", pola „Termin przeglądu"/„Osoba
 koordynująca", podpisy. Wcześniej klasa 4-6 nie miała takiej strony wcale.
 Tabela wypełniona 5 gotowymi celami — po jednym na komponent, przepisane
-słowo w słowo z „Cel SMART" na obecnych stronach 6–8 (tam też zostają,
-nietknięte — to jest skrót/podgląd, nie zastąpienie). Cel główny to nowe
+słowo w słowo z „Cel SMART" na dawnych stronach 6–8, w chwili budowania tej
+tabeli wciąż obecnych osobno (to był wtedy skrót/podgląd, nie zastąpienie).
+Po usunięciu tamtych stron (patrz „Status" wyżej) ta tabela na str. 5 jest
+jedynym miejscem, gdzie te cele SMART w ogóle występują. Cel główny to nowe
 zdanie łączące wszystkie 5 komponentów w jeden ogólny cel, na wzór klasy
 1-3 — **do sprawdzenia przez autorkę**, w odróżnieniu od reszty tabeli,
 która jest przeniesieniem istniejącej treści.
@@ -178,9 +202,28 @@ polskiego prawa oświatowego (rozporządzenia MEN z 9.08.2017 r.), identyczny
 niezależnie od wieku ucznia, więc nie ma tu nic specyficznego dla klasy 1-3
 do „przetłumaczenia" na klasy 4-6.
 
-Strony 7, 8, 9 to dawne strony 5, 6, 7 (szczegółowy opis każdego z 5
-komponentów: poziom funkcjonowania, zalecenia, cel SMART, podstawa prawna) —
-przeniesione bez żadnej zmiany treści, tylko przenumerowane.
+## Strona 7 — nowa: „VII Zastosowanie ToM w ocenie ABC i FBA" (zastępuje dawne strony 7-9)
+
+Ostatnia strona klasy 1-3 to tabela 8 funkcji zachowania (Ucieczka /
+Unikanie / Uzyskanie / Dostęp / Stymulacja sensoryczna / Regulacja emocji /
+Regulacja komunikacyjna / Wielofunkcyjne) — dla każdej: definicja
+operacyjna i jej związek z deficytami teorii umysłu. Ten sam checkbox +
+`<details>` co przy tabeli KSzOF na str. 1 (wzorowany na mechanizmie już
+działającym w tym pliku, nie na CSS-owym mechanizmie klasy 1-3 — oba dają
+ten sam efekt na wydruku).
+
+„Funkcja zachowania" i „Definicja operacyjna" to ogólna metodyka ABC/FBA,
+identyczna niezależnie od wieku — przepisana bez zmian. Trzecia kolumna
+(„Związek z deficytami teorii umysłu") w klasie 1-3 odwołuje się do jej 5
+komponentów — tu przepisana na nowo pod komponenty klasy 4-6 (np.
+„Regulacja emocji" → komponent I „Rozpoznawanie emocji mieszanych", zamiast
+ogólnego „nazywanie emocji" z klasy 1-3; „Ucieczka"/"Unikanie" → odczytanie
+podtekstu/ironii i przyjęcie cudzej perspektywy, komponenty II-III).
+Pozostałe dwie funkcje (Stymulacja sensoryczna, Wielofunkcyjne) są z natury
+ogólne i zostały bez zmian.
+
+To zastępuje dawne strony 7-9 — co dokładnie z nich zniknęło, opisane w
+sekcji „Status" na górze tego pliku.
 
 ## Logo PCTP
 
@@ -197,4 +240,4 @@ do repo jako `logo-lawenda.webp`.
 Tak jak reszta serii: `@page{size:A4}` + `@media print` w HTML, PDF to
 odpowiednik **Ctrl+P → Zapisz jako PDF**, wygenerowany tu automatycznie
 (headless Chromium, `print_background` + `prefer_css_page_size`).
-Zweryfikowane renderem: 9 fizycznych stron, żadna nie ucina treści.
+Zweryfikowane renderem: 7 fizycznych stron, żadna nie ucina treści.
