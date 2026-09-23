@@ -8,25 +8,35 @@ ekosystem **EduPlaner2026-MJ-PCTP**. Ta sama seria co `klasy_1-3/` i
 
 | Plik | Opis |
 |---|---|
-| `ToM_karta_oceny.html` | źródło — dokładnie plik przesłany przez autorkę, bez żadnej zmiany |
+| `ToM_karta_oceny.html` | źródło — zredukowane z oryginału 11-stronicowego (patrz niżej) |
 | `ToM_karta_oceny.pdf` | wydruk wygenerowany z powyższego HTML (headless Chromium, druk A4) |
 
-## Status: ✅ kompletny (11 z 11 stron) — do potwierdzenia przez autorkę
+## Status: 8 stron (było 11) — zredukowane na wzór klasy 1-3
 
-W przeciwieństwie do wersji dla klas I–III, ten plik **nie ma** mechanizmu
-ukrywania gotowej treści za checkboxem „Dołącz do wydruku” — sprawdzone
-(`grep 'id="drukuj-'` nie znajduje nic). Stopka na wszystkich 11 stronach
-zgadza się z liczbą stron w PDF.
+Oryginał przysłany przez autorkę miał 11 stron. Na jej prośbę zredukowane do
+wzoru strukturalnego z `klasy_1-3/` (tam druk ma 7 stron) — bez zmiany
+**żadnego** tekstu obserwacji, zaleceń ani celów SMART dla żadnej z 5
+umiejętności (Rozpoznawanie emocji mieszanych, Decentracja, Ironia i
+podtekst, Fałszywe przekonanie II rzędu, Faux pas) — te są celowo różne niż
+w klasie 1-3 i zostają nietknięte.
 
-Sprawdzone wizualnie (wszystkie strony, kontakt-sheet + pełna rozdzielczość
-dla stron budzących wątpliwości): puste miejsca, które widać na stronach
-4, 10 i 11, to celowe pola do wypełnienia (przykładowy szary tekst do
-nadpisania własnym opisem, albo miejsce na notatki zespołu) — nie błąd
-układu. Żadna strona nie ucina treści.
+**Usunięte w całości** (nie ma tego wcale we wzorze klasy 1-3):
+- cały cykl re-ewaluacji — tabela „Postęp wg komponentów”, „Wnioski i
+  decyzja”, „Nowe zalecenia po ewaluacji” (dawne str. 8 (część)–9),
+- sekcja „Synchronizacja druków — przeniesienie wyników” z WOPF (dawne
+  str. 10–11).
+
+Podpis prowadzącego i podstawa prawna (dawna końcówka str. 10) zostały
+przeniesione na koniec obecnej strony 8 zamiast zostawać na osobnej,
+prawie pustej stronie.
+
+**Nie zredukowane do 7 stron, tylko do 8** — dalsze skrócenie wymagałoby
+skracania samego tekstu klinicznego (5 opisów umiejętności na str. 6–7),
+a to już nie jest zmiana układu, tylko treści — do decyzji autorki.
 
 ## Jak powstał PDF
 
-`ToM_karta_oceny.html` ma wbudowany układ pod druk (`@page{size:A4}` +
-`@media print`). PDF to dokładnie to, co wyszłoby z **Ctrl+P → Zapisz jako
-PDF** w przeglądarce — wygenerowany tu automatycznie (headless Chromium,
-`print_background` + `prefer_css_page_size`), bez ingerencji w HTML.
+Tak jak reszta serii: `@page{size:A4}` + `@media print` w HTML, PDF to
+odpowiednik **Ctrl+P → Zapisz jako PDF**, wygenerowany tu automatycznie
+(headless Chromium, `print_background` + `prefer_css_page_size`).
+Zweryfikowane renderem: 8 fizycznych stron, żadna nie ucina treści.
