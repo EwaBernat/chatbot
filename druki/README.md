@@ -18,7 +18,9 @@ potwierdzony, przenosimy go do `Zatwierdzone/` (`git mv`, bez zmiany treści).
 | [`Zatwierdzone/Metryczka_dziecka/`](Zatwierdzone/Metryczka_dziecka/README.md) | karta podstawowych danych dziecka | html | ✅ zatwierdzone (szkoła) |
 | [`Zatwierdzone/KSzOF_I-III/`](Zatwierdzone/KSzOF_I-III/README.md) | kwestionariusz funkcjonowania, sfery I–III | html + pdf | ✅ zatwierdzone |
 | [`Zatwierdzone/KSzOF_IV-VI/`](Zatwierdzone/KSzOF_IV-VI/README.md) | kwestionariusz funkcjonowania, sfery IV–VI | html + pdf | ✅ zatwierdzone |
-| [`ToM/`](ToM/README.md) | Karta oceny Teorii Umysłu, klasy I–III | html + pdf | ⚠️ **niekompletny plik** — patrz README w folderze |
+| [`ToM/klasy_1-3/`](ToM/klasy_1-3/README.md) | Karta oceny Teorii Umysłu, klasy I–III | html + pdf | ⚠️ niekompletny — 7 z 11 stron |
+| [`ToM/klasy_4-6/`](ToM/klasy_4-6/README.md) | Karta oceny Teorii Umysłu, klasy IV–VI | html + pdf | ✅ kompletny (11/11) — do potwierdzenia |
+| [`ToM/klasy_7-8/`](ToM/klasy_7-8/README.md) | Karta oceny Teorii Umysłu, klasy VII–VIII | html + pdf | ✅ kompletny (11/11) — do potwierdzenia |
 | IPET — klasa 1-3 | szkoła podstawowa, klasy 1-3 | — | do dodania — szukane w repozytorium, jeszcze nie znalezione |
 
 Wersja IPET dla przedszkola została celowo usunięta z tego projektu —
@@ -63,11 +65,12 @@ już dobrze wyglądających PDF-ów — to propozycje na osobny, następny krok:
 1. **Marka powielona w kilku plikach.** Kolory PCTP (fiolet `#2D1B69`,
    pomarańcz `#E8450A`) i czcionka Mulish są zaszyte niezależnie w
    `Metryczka_dziecka.html`, `KSzOF_I-III_interaktywny.html`,
-   `KSzOF_IV-VI_interaktywny.html` i `ToM_karta_oceny.html` (pierwsze ~270
-   linii CSS są bajt w bajt takie same w obu KSzOF). Zmiana koloru dziś
-   wymaga edycji w kilku miejscach naraz. Da się to bezpiecznie wydzielić do
-   jednego wspólnego pliku marki i podmienić z wizualną weryfikacją każdej
-   strony przed i po.
+   `KSzOF_IV-VI_interaktywny.html` i we wszystkich trzech wariantach
+   `ToM_karta_oceny.html` (klasy 1-3, 4-6, 7-8) — pierwsze ~270 linii CSS są
+   bajt w bajt takie same w obu KSzOF. Zmiana koloru dziś wymaga edycji w
+   kilku miejscach naraz. Da się to bezpiecznie wydzielić do jednego
+   wspólnego pliku marki i podmienić z wizualną weryfikacją każdej strony
+   przed i po.
 2. **Zapis tylko lokalny.** Interaktywne kwestionariusze i metryczka
    trzymają odpowiedzi w `localStorage` przeglądarki — nie idą do żadnej
    bazy ani do aplikacji. Jeśli mają się realnie łączyć z danymi w aplikacji
