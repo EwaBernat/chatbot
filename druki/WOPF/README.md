@@ -6,11 +6,11 @@ drukach (KSzOF, karta ABC/FBA, ToM, kwestionariusz mowy, profil sensoryczny,
 profil biopsychospołeczny). Wspólna marka i konstrukcja z serii `ToM/` —
 wzorem jest `klasy_1-3`.
 
-## Status: 23 strony — komplet, do potwierdzenia
+## Status: 24 strony — komplet, do potwierdzenia
 
 | Plik | Opis |
 |---|---|
-| `WOPF_karta_oceny.html` | źródło — wszystkie 23 strony |
+| `WOPF_karta_oceny.html` | źródło — wszystkie 24 strony |
 | `WOPF_karta_oceny.pdf` | pełny wydruk (headless Chromium, druk A4) |
 
 Pierwotnie zbudowane jako 27 stron 1:1 z oryginalnym PDF-em autorki;
@@ -19,6 +19,11 @@ sekcji na wcześniejsze strony z wolnym miejscem i o usunięcie panelu
 synchronizacji oraz obu podsumowujących stron sekcji V — „wynik ogólny/
 synteza wg poziomów” i „Vb — synteza opisowa” (patrz „Co jest w środku” i
 historia commitów) — reszta treści identyczna, inny układ i mniej stron.
+Potem z powrotem do 24: autorka poprosiła o dwa nowe punkty zaraz przy
+wynikach KSzOF — sekcję Vc „Czynniki kontekstowe wg ICF” (zmieściła się
+jeszcze na str. 5) i sekcję Vd „Indywidualne potrzeby rozwojowe — na
+podstawie dodatkowych obserwacji” (już nie zmieściła się — dostała własną
+str. 6, stąd +1 strona łącznie mimo dwóch dodanych punktów).
 
 Zbudowane partiami po kilka stron, każda partia renderowana i zweryfikowana
 wizualnie względem oryginalnego 27-stronicowego PDF-a autorki. Kompletne,
@@ -56,52 +61,75 @@ ale — jak cała reszta serii ToM — jeszcze **nieprzeniesione do
   autorki — nic nie stoi już między tytułem a tabelą.
 - **Str. 5** — sekcja Va „Charakterystyka obszarów — mocne strony i
   trudności" — w pełni edytowalna tabela 9 obszarów, bezpośrednio po
-  wynikach ilościowych.
-- **Str. 6** — sekcja VI „Zachowanie — funkcje zachowań trudnych" (transfer
+  wynikach ilościowych. Zaraz pod nią sekcja Vb „Zakres i charakter
+  wsparcia" (6 pozycji: kto wspiera ucznia) — dodana wcześniej na prośbę
+  autorki, tą samą treścią co sekcja XIV dalej w dokumencie (str. 12),
+  tylko od razu tutaj, obok wyników KSzOF. Na dole strony nowa sekcja Vc
+  „Czynniki kontekstowe wg ICF" — dwie krótkie grupy: czynniki
+  środowiskowe (przykłady, pełny wykaz w sekcji X na str. 10) i czynniki
+  osobowe (ICF ich nie koduje, ale je uwzględnia — tu w ogóle nowa treść,
+  nigdzie indziej w dokumencie nieopisana). Grupy skrócone do 2 pozycji
+  każda, żeby zmieścić się na tej samej stronie co Va/Vb. **Uwaga:**
+  sekcja Vb to świadome powtórzenie sekcji XIV w dwóch miejscach — do
+  potwierdzenia, czy oba mają zostać.
+- **Str. 6** — nowa sekcja Vd „Indywidualne potrzeby rozwojowe — na
+  podstawie dodatkowych obserwacji": tabela 4 wierszy (Zachowania trudne —
+  analiza ABC/FBA, Profil sensoryczny, Kwestionariusz rozwoju mowy, Profil
+  ToM), każdy wiersz z edytowalną komórką na charakterystykę dodatkowego
+  obszaru. Dodana na wyraźną prośbę autorki; nie zmieściła się już na str.
+  5, więc dostała własną stronę — stąd dużo wolnego miejsca pod tabelą
+  (naturalny efekt, nie błąd, ten sam wzorzec co reszta dokumentu po
+  usunięciu pouczeń). **Uwaga:** te same 4 narzędzia są opisane
+  szczegółowo dalej — ABC/FBA w sekcji VI (str. 7), ToM w sekcji VII (str.
+  8), mowa w sekcji VIII (str. 8-9), profil sensoryczny w sekcji IX (str.
+  9) — do potwierdzenia, czy Vd ma być krótkim podglądem tych czterech
+  sekcji (jak Vb dla XIV), czy jest zbędny, skoro te same informacje
+  pojawiają się dalej w pełnej formie.
+- **Str. 7** — sekcja VI „Zachowanie — funkcje zachowań trudnych" (transfer
   z karty ABC/FBA). Dawna sekcja Vb „Opis wyników oceny funkcjonalnej —
   synteza opisowa" (4 punkty, jak i wcześniej usunięta strona „Wynik
   ogólny / reguła nadrzędna / synteza wg poziomów") usunięta w całości na
-  prośbę autorki — sekcja V kończy się teraz na tabeli Va.
-- **Str. 7** — plan pozytywnego wsparcia (PBS), nota o Standardach Ochrony
+  prośbę autorki — sekcja V kończy się teraz na tabelach Va/Vb/Vc.
+- **Str. 8** — plan pozytywnego wsparcia (PBS), nota o Standardach Ochrony
   Małoletnich, sekcja VII „Poznanie społeczne — teoria umysłu" (transfer z
   ToM), sekcja VIII „Mowa i komunikacja" (transfer z kwestionariusza mowy).
-- **Str. 8** — sposób porozumiewania się, kierunki terapii logopedycznej,
+- **Str. 9** — sposób porozumiewania się, kierunki terapii logopedycznej,
   sekcja IX „Przetwarzanie sensoryczne" (transfer z profilu sensorycznego,
   model Dunn).
-- **Str. 9** — wnioski sensoryczne, sekcja X „Kontekst biopsychospołeczny"
+- **Str. 10** — wnioski sensoryczne, sekcja X „Kontekst biopsychospołeczny"
   (12 czynników środowiskowych ICF), ułatwienia/bariery/dobrostan, nagłówek
   sekcji XI.
-- **Str. 10** — sekcja XI „Całościowy obraz funkcjonowania" (tabela synteza
+- **Str. 11** — sekcja XI „Całościowy obraz funkcjonowania" (tabela synteza
   8 obszarów), sekcja XII „Indywidualne potrzeby rozwojowe i edukacyjne".
-- **Str. 11** — sekcja XIII „Przyczyny niepowodzeń edukacyjnych, bariery i
+- **Str. 12** — sekcja XIII „Przyczyny niepowodzeń edukacyjnych, bariery i
   ograniczenia", sekcja XIV „Zakres i charakter wsparcia", nagłówek XV.
-- **Str. 12** — tabela metod pracy wg obszaru/przedmiotu, „Metody stosowane
+- **Str. 13** — tabela metod pracy wg obszaru/przedmiotu, „Metody stosowane
   w pracy z uczniem" (16 pozycji — 2 zaznaczone jako przykład, tak jak w
   oryginale), „Formy organizacyjne pracy".
-- **Str. 13** — sekcja XVI „Zakres i sposób dostosowania wymagań
+- **Str. 14** — sekcja XVI „Zakres i sposób dostosowania wymagań
   edukacyjnych" (4 kanały), dostosowanie sprawdzania wiedzy, dostosowanie
   warunków egzaminu ósmoklasisty.
-- **Str. 14** — sekcja XVII „Rekomendowane zajęcia i programy
+- **Str. 15** — sekcja XVII „Rekomendowane zajęcia i programy
   terapeutyczne" — rewalidacja / pomoc psychologiczno-pedagogiczna, tabela
   programów terapeutycznych.
-- **Str. 15** — sekcja XVIII „Zintegrowane działania nauczycieli i
+- **Str. 16** — sekcja XVIII „Zintegrowane działania nauczycieli i
   specjalistów", wspólne strategie.
-- **Str. 16** — sekcja XIX „Współpraca z rodzicami i współpraca
+- **Str. 17** — sekcja XIX „Współpraca z rodzicami i współpraca
   międzysektorowa" — tabela zobowiązań, formy współpracy, instytucje.
-- **Str. 17** — sekcja XX „Decyzja posiedzenia zespołu" (rekomendowany
+- **Str. 18** — sekcja XX „Decyzja posiedzenia zespołu" (rekomendowany
   poziom wsparcia), sekcja XXI „Cele SMART" — tabela + 2 karty przykładowe
   (`ta-smart-e`/`ta-smart-t`, ta sama konstrukcja co w ToM).
-- **Str. 18** — sekcja XXII „Ocena efektywności udzielanego wsparcia" —
+- **Str. 19** — sekcja XXII „Ocena efektywności udzielanego wsparcia" —
   tabela 8 zakresów × 3 pomiary (start/półrocze/koniec roku).
-- **Str. 19–20** — sekcja XXIII „Przeniesienie informacji — do IPET albo do
+- **Str. 20–21** — sekcja XXIII „Przeniesienie informacji — do IPET albo do
   PWES" (tabela 9 wierszy, dwie kolumny ścieżek), priorytety na najbliższe
   półrocze.
-- **Str. 21–22** — **„Opinia zespołu ds. wsparcia o funkcjonowaniu ucznia"**
+- **Str. 22–23** — **„Opinia zespołu ds. wsparcia o funkcjonowaniu ucznia"**
   — samodzielny, 2-stronicowy dokument osadzony wewnątrz WOPF, oznaczony
   „dokument do wydania na zewnątrz" (do poradni pp). Własny tytuł w stylu
   strony 1 (`.tt-kick`/`.tt-h1`), własna metryczka, 6 ponumerowanych
   punktów, miejsce na podpisy koordynatora i dyrektora.
-- **Str. 23** — sekcja XXIV „Podpisy zespołu ds. WOPF" (7 podpisów), sekcja
+- **Str. 24** — sekcja XXIV „Podpisy zespołu ds. WOPF" (7 podpisów), sekcja
   XXV „Wykaz załączników" (12 pozycji), sekcja XXVI „Klauzula informacyjna
   RODO i ważność dokumentu".
 
@@ -136,9 +164,8 @@ Tylko sekcja V (wyniki KSzOF) ma pełne przeliczanie automatyczne — to
 jedyna sekcja, w której WOPF prezentuje liczby (steny), więc tylko tu ma to
 sens. Wpisanie stenu 1–10 w dowolnym z 9 wierszy tabeli automatycznie:
 poziom wsparcia w tym samym wierszu (kolor + etykieta Poziom I/II/III),
-słupek i punkt na mapie radarowej, średnia ogólna i poziom wsparcia na
-stronie 7, opis wyników pod tabelą (zamraża się po pierwszej ręcznej
-poprawce — ten sam wzorzec co `#autoOpis` w ToM). Pozostałe sekcje to pola
+słupek i punkt na mapie radarowej, opis wyników pod tabelą (zamraża się po
+pierwszej ręcznej poprawce — ten sam wzorzec co `#autoOpis` w ToM). Pozostałe sekcje to pola
 i tabele do ręcznego wypełnienia — WOPF tylko *rejestruje* to, co przenosi
 się z innych druków, nie przelicza tego samodzielnie.
 
@@ -162,10 +189,10 @@ strony.
 ## Do potwierdzenia przez autorkę
 
 - **Dwie różne skale KSzOF w tym samym dokumencie — to jest ten „dualizm",
-  o który prosiłaś na sprawdzić.** Sekcja V (str. 5–9) używa skali
+  o który prosiłaś na sprawdzić.** Sekcja V (str. 4–5) używa skali
   **sten 1–10** (średnia 5 → Poziom II) — to realna skala z Twoich
   kwestionariuszy KSzOF_I-III/IV-VI (`druki/Zatwierdzone/`). Ale „Opinia
-  zespołu" (str. 25, punkt 2) w tym samym oryginalnym PDF-ie opisuje **tę
+  zespołu" (str. 22–23, punkt 2) w tym samym oryginalnym PDF-ie opisuje **tę
   samą ocenę** zupełnie inną skalą: **średnia 1–5** z progami 4,0–5,0
   zasób / 3,0–3,9 poziom I / 2,0–2,9 poziom II / poniżej 2,0 poziom III
   (przykładowa średnia 2,79, obszar I = 4,20 itd.) — inne liczby, inny
@@ -175,6 +202,29 @@ strony.
   „Opinia zespołu" to starszy fragment sprzed przejścia na steny (wtedy do
   przeliczenia), czy to sekcja, która celowo używa innej, prostszej skali
   do komunikacji z poradnią.
+- **Sekcja Vb i sekcja XIV — to samo pytanie „zakres i charakter wsparcia"
+  w dwóch miejscach (str. 5 i str. 12).** Dodane na wyraźną prośbę zaraz po
+  charakterystyce obszarów KSzOF, tą samą treścią co już istniejąca sekcja
+  XIV dalej w dokumencie. Zostawiam obie — do potwierdzenia, czy to
+  zamierzone powtórzenie (np. Vb jako pierwsza, szybka ocena tuż po KSzOF,
+  a XIV jako ostateczna decyzja przy planowaniu IPET/PWES), czy któraś ma
+  zniknąć.
+- **Sekcja Vc a sekcja X — czynniki środowiskowe wg ICF, znowu w dwóch
+  miejscach (str. 5 i str. 10).** Ten sam wzorzec co Vb/XIV: Vc daje krótki
+  podgląd (2 pozycje, przykładowe) tuż przy wynikach KSzOF, a pełny wykaz
+  (12 pozycji z kodami ICF) zostaje w sekcji X. Część Vc o czynnikach
+  *osobowych* jest natomiast całkiem nowa — nie duplikuje niczego, bo ICF
+  wprawdzie nie klasyfikuje czynników osobowych kodem, ale wymienia je jako
+  drugą (obok środowiskowych) kategorię czynników kontekstowych.
+- **Sekcja Vd — tabela 4 dodatkowych obserwacji (str. 6) — czy to podgląd
+  czy powtórka.** Zawiera po jednym wierszu na: analizę ABC/FBA, profil
+  sensoryczny, kwestionariusz mowy, profil ToM — te same cztery narzędzia
+  są potem opisane szczegółowo w sekcjach VI–IX (str. 7–9). Dodana na
+  wyraźną prośbę tuż po sekcji V, ale w przeciwieństwie do Vb/Vc nie ma tu
+  jeszcze żadnej treści do przepisania z oryginalnego PDF-u — komórki
+  wynikowe są puste, do wypełnienia przez zespół. Do potwierdzenia: czy ma
+  zostać jako szybkie podsumowanie „co jeszcze obserwowaliśmy" zaraz przy
+  KSzOF, czy to zbędne powtórzenie nagłówków sekcji VI–IX.
 - **Sekcja VII, komponenty ToM (K1–K5)**: oryginalny PDF autorki używa
   innego zestawu komponentów („Świadomość emocji własnych", „Rozpoznawanie
   emocji innych", „Przyjmowanie perspektywy", „Rozumienie intencji", „Język
@@ -183,7 +233,7 @@ strony.
   komponentów). Przepisane tu **dosłownie z oryginału WOPF** — wymaga
   Twojej decyzji, czy to osobny, uproszczony zestaw K1–K5, czy pomyłka do
   poprawienia.
-- **„Opinia zespołu" (str. 25–26)** — potwierdzone, że to NIE jest błąd
+- **„Opinia zespołu" (str. 22–23)** — potwierdzone, że to NIE jest błąd
   składu PDF-u, tylko celowy, samodzielny dokument do wydania na zewnątrz,
   osadzony przed podpisami WOPF. Zostawione dokładnie w tym miejscu i w tej
   formie.
@@ -195,6 +245,6 @@ strony.
 Tak jak reszta serii: `@page{size:A4}` + `@media print` w HTML, PDF to
 odpowiednik **Ctrl+P → Zapisz jako PDF**, wygenerowany tu automatycznie
 (headless Chromium, `print_background` + `prefer_css_page_size`).
-Zweryfikowane renderem: 23 fizyczne strony, żadna nie ucina treści
+Zweryfikowane renderem: 24 fizyczne strony, żadna nie ucina treści
 (sprawdzone programowo — margines do stopki dodatni na każdej stronie),
 zero błędów JS, interaktywność sekcji V przetestowana.
