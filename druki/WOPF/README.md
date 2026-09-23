@@ -6,18 +6,18 @@ drukach (KSzOF, karta ABC/FBA, ToM, kwestionariusz mowy, profil sensoryczny,
 profil biopsychospołeczny). Wspólna marka i konstrukcja z serii `ToM/` —
 wzorem jest `klasy_1-3`.
 
-## Status: 14 z 27 stron (w budowie)
+## Status: 19 z 27 stron (w budowie)
 
 | Plik | Opis |
 |---|---|
-| `WOPF_karta_oceny.html` | źródło — w budowie, strony 1–14 gotowe |
-| `WOPF_karta_oceny.pdf` | wydruk 14 pierwszych stron (headless Chromium, druk A4) |
+| `WOPF_karta_oceny.html` | źródło — w budowie, strony 1–19 gotowe |
+| `WOPF_karta_oceny.pdf` | wydruk 19 pierwszych stron (headless Chromium, druk A4) |
 
 Budowa idzie partiami po kilka stron, każda partia renderowana i
 zweryfikowana wizualnie względem oryginalnego 27-stronicowego PDF-a autorki,
 zanim ruszy kolejna.
 
-## Co jest gotowe (strony 1–14)
+## Co jest gotowe (strony 1–19)
 
 - **Str. 1** — tytuł, „Karta scalająca", sekcja I „Dane ucznia" (10 pól, bez
   danych zbędnych — RODO).
@@ -49,6 +49,22 @@ zanim ruszy kolejna.
 - **Str. 14** — sekcja XI „Całościowy obraz funkcjonowania" (tabela synteza
   8 obszarów z kodami ICF i źródłem), sekcja XII „Indywidualne potrzeby
   rozwojowe i edukacyjne" (3 pola opisowe).
+- **Str. 15** — sekcja XIII „Przyczyny niepowodzeń edukacyjnych, bariery i
+  ograniczenia" (tabela 8 zakresów), sekcja XIV „Zakres i charakter
+  wsparcia" (10 pozycji), nagłówek sekcji XV.
+- **Str. 16** — tabela metod pracy wg obszaru/przedmiotu (6 wierszy),
+  „Metody stosowane w pracy z uczniem" (16 pozycji — 2 zaznaczone jako
+  przykład, tak jak w oryginale), „Formy organizacyjne pracy" (8 pozycji).
+- **Str. 17** — sekcja XVI „Zakres i sposób dostosowania wymagań
+  edukacyjnych" (4 kanały dostosowania), dostosowanie sprawdzania wiedzy i
+  oceniania (12 pozycji), dostosowanie warunków egzaminu ósmoklasisty.
+- **Str. 18** — sekcja XVII „Rekomendowane zajęcia i programy
+  terapeutyczne" — dwie rubryki (rewalidacja / pomoc psychologiczno-
+  pedagogiczna) i tabela programów terapeutycznych (5 wierszy do
+  wypełnienia).
+- **Str. 19** — sekcja XVIII „Zintegrowane działania nauczycieli i
+  specjalistów" (tabela 8 ról), wspólne strategie (8 pozycji), ustalenia
+  zespołu, termin spotkań, koordynator.
 
 ## Interaktywność
 
@@ -86,9 +102,9 @@ tabeli budowanej dla WOPF. Przy okazji dociśnięto odstępy na stronach
   Twojej decyzji, czy to osobny, uproszczony zestaw K1–K5 (możliwe, że to
   wcześniejsza wersja ToM klasy 1-3, zanim ją rozbudowano), czy pomyłka do
   poprawienia.
-- Strony 15–27 jeszcze nie zbudowane (sekcje XIII–XXIII: bariery i
-  przyczyny niepowodzeń, sposób pracy, zajęcia i programy, decyzja zespołu,
-  cele SMART, ocena efektywności, przekazanie do IPET/PWES).
+- Strony 20–27 jeszcze nie zbudowane (sekcje XIX–XXIII: współpraca z
+  rodzicami, decyzja zespołu, cele SMART, ocena efektywności, przekazanie
+  do IPET/PWES).
 - Przy stronach 25–26 oryginalnego PDF-u autorki zauważona wcześniej
   anomalia w kolejności „Opinia zespołu" — do sprawdzenia przy budowie tej
   partii.
@@ -98,5 +114,5 @@ tabeli budowanej dla WOPF. Przy okazji dociśnięto odstępy na stronach
 Tak jak reszta serii: `@page{size:A4}` + `@media print` w HTML, PDF to
 odpowiednik **Ctrl+P → Zapisz jako PDF**, wygenerowany tu automatycznie
 (headless Chromium, `print_background` + `prefer_css_page_size`).
-Zweryfikowane renderem: 14 fizycznych stron, żadna nie ucina treści
+Zweryfikowane renderem: 19 fizycznych stron, żadna nie ucina treści
 (sprawdzone programowo — margines do stopki dodatni na każdej stronie).
