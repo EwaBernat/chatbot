@@ -6,11 +6,11 @@ drukach (KSzOF, karta ABC/FBA, ToM, kwestionariusz mowy, profil sensoryczny,
 profil biopsychospołeczny). Wspólna marka i konstrukcja z serii `ToM/` —
 wzorem jest `klasy_1-3`.
 
-## Status: 22 strony — komplet, do potwierdzenia
+## Status: 21 stron — komplet, do potwierdzenia
 
 | Plik | Opis |
 |---|---|
-| `WOPF_karta_oceny.html` | źródło — wszystkie 22 strony |
+| `WOPF_karta_oceny.html` | źródło — wszystkie 21 stron |
 | `WOPF_karta_oceny.pdf` | pełny wydruk (headless Chromium, druk A4) |
 
 Pierwotnie zbudowane jako 27 stron 1:1 z oryginalnym PDF-em autorki;
@@ -30,6 +30,23 @@ XXIV–XXVI (podpisy, załączniki, RODO) przesunęły się o 2 strony w górę.
 **To przy okazji rozwiązuje dualizm skali KSzOF** opisywany wcześniej w
 „Do potwierdzenia": skoro jedyne miejsce z alternatywną skalą 1–5 zniknęło,
 sekcja V (steny 1–10) jest teraz jedyną skalą KSzOF w całym dokumencie.
+
+I znowu w dół, do 21: ostatnie dwie strony (dawne 21–22) miały sporo
+pustego miejsca — głównie przez oderwaną od reszty, absurdalnie wysoką
+(640px) pustą notatkę „priorytety" i przez to, że sekcja XXIV (podpisy)
+została wcześniej sama na drugiej z tych stron. Naprawione w dwóch
+krokach: (1) notatka „priorytety" przycięta do rozsądnego rozmiaru, sekcja
+XXIV dosunięta do niej na tę samą stronę; (2) po dosunięciu wciąż było
+sporo miejsca na obu stronach, więc sekcje XXV i XXVI dołączyły też —
+całość (XXIII dokończenie + XXIV + XXV + XXVI) mieści się teraz na
+**jednej, dobrze wypełnionej ostatniej stronie** zamiast dwóch w połowie
+pustych. Przy tej samej okazji wyszło na jaw, że **klauzula RODO (sekcja
+XXVI) była całkowicie niewidoczna** — jej tekst przechodził przez tę samą
+funkcję, która usunęła „pouczenia prawne" (`legal_note()`, wyzerowana na
+Twoją prośbę), a klauzula informacyjna RODO to nie pouczenie o tym, po co
+jest dany punkt druku, tylko obowiązkowy zapis wymagany samym RODO (art.
+13/14) dla dokumentu z danymi wrażliwymi o uczniu — przywrócona jako
+widoczny, drobny druk (patrz „Pouczenia prawne" niżej).
 
 Zbudowane partiami po kilka stron, każda partia renderowana i zweryfikowana
 wizualnie względem oryginalnego 27-stronicowego PDF-a autorki. Kompletne,
@@ -113,10 +130,13 @@ ale — jak cała reszta serii ToM — jeszcze **nieprzeniesione do
   komórki tabel — wcześniej wyglądały jak zwykłe puste miejsce, a nie pole
   do wypełnienia, mimo że były edytowalne (`contenteditable`) od początku.
 - **Str. 12** — sekcja XIII „Przyczyny niepowodzeń edukacyjnych, bariery i
-  ograniczenia", sekcja XIV „Zakres i charakter wsparcia", nagłówek XV.
-- **Str. 13** — tabela metod pracy wg obszaru/przedmiotu, „Metody stosowane
-  w pracy z uczniem" (16 pozycji — 2 zaznaczone jako przykład, tak jak w
-  oryginale), „Formy organizacyjne pracy".
+  ograniczenia", sekcja XIV „Zakres i charakter wsparcia".
+- **Str. 13** — sekcja XV „Metody i formy pracy z uczniem" — tytuł
+  przeniesiony tu, na stronę z jego własną tabelą (wcześniej został sam na
+  końcu str. 12, bez żadnej treści pod nim — tabela zaczynała się dopiero
+  na kolejnej stronie). Tabela metod pracy wg obszaru/przedmiotu, „Metody
+  stosowane w pracy z uczniem" (16 pozycji — 2 zaznaczone jako przykład,
+  tak jak w oryginale), „Formy organizacyjne pracy".
 - **Str. 14** — sekcja XVI „Zakres i sposób dostosowania wymagań
   edukacyjnych" (4 kanały), dostosowanie sprawdzania wiedzy, dostosowanie
   warunków egzaminu ósmoklasisty.
@@ -132,17 +152,17 @@ ale — jak cała reszta serii ToM — jeszcze **nieprzeniesione do
   (`ta-smart-e`/`ta-smart-t`, ta sama konstrukcja co w ToM).
 - **Str. 19** — sekcja XXII „Ocena efektywności udzielanego wsparcia" —
   tabela 8 zakresów × 3 pomiary (start/półrocze/koniec roku).
-- **Str. 20–21** — sekcja XXIII „Przeniesienie informacji — do IPET albo do
-  PWES" (tabela 9 wierszy, dwie kolumny ścieżek), priorytety na najbliższe
-  półrocze.
-- **Str. 22** — sekcja XXIV „Podpisy zespołu ds. WOPF" (7 podpisów), sekcja
-  XXV „Wykaz załączników" (12 pozycji), sekcja XXVI „Klauzula informacyjna
-  RODO i ważność dokumentu" — dawniej str. 24, teraz od razu po sekcji
-  XXIII, bo „Opinia zespołu" (dawne str. 22–23) została usunięta w całości
-  na wyraźną prośbę autorki (był to samodzielny, 2-stronicowy dokument
-  osadzony wewnątrz WOPF, oznaczony „dokument do wydania na zewnątrz" —
-  do poradni pp, z własnym tytułem w stylu strony 1, własną metryczką i 6
-  ponumerowanymi punktami).
+- **Str. 20** — sekcja XXIII „Przeniesienie informacji — do IPET albo do
+  PWES" — tabela 9 wierszy, dwie kolumny ścieżek (A → IPET, B → PWES).
+- **Str. 21 (ostatnia)** — dokończenie sekcji XXIII (dokument wynikowy,
+  termin, osoba odpowiedzialna, priorytety na najbliższe półrocze), sekcja
+  XXIV „Podpisy zespołu ds. WOPF" (7 podpisów), sekcja XXV „Wykaz
+  załączników" (12 pozycji), sekcja XXVI „Klauzula informacyjna RODO i
+  ważność dokumentu" — cztery sekcje na jednej stronie, bo osobno każda
+  zostawiała sporo pustego miejsca (patrz wyżej „Potem do 24... i znowu w
+  dół, do 21"). „Opinia zespołu" (dawne str. 22–23, samodzielny
+  2-stronicowy dokument do wydania na zewnątrz) i tak już zniknęła
+  wcześniej na wyraźną prośbę autorki.
 
 ## Pouczenia prawne i wyjaśnienia — usunięte
 
@@ -167,6 +187,16 @@ Dodatkowo usunięta ramka „Karta scalająca — WOPF szkolny · jeden druk, dw
 ścieżki" na str. 1 (opisowy akapit o tym, czym jest WOPF) — z tego samego
 powodu, ta sama kategoria „informacji/wyjaśnień", tylko nie wychwycona przy
 pierwszym przejściu, bo nie miała stylu `.howto` ani „Podstawa prawna".
+
+**Poprawka:** jedna z usuniętych „Podstawa prawna" trafiła tu przez
+pomyłkę — klauzula informacyjna RODO (sekcja XXVI, str. 21) szła przez tę
+samą funkcję co cytowania przepisów uzasadniające poszczególne pola druku,
+więc zniknęła razem z nimi, choć to nie to samo. Cytowania przepisów
+tłumaczyły PO CO jest dany punkt druku — zbędne dla kogoś, kto już wie,
+jak z druku korzystać. Klauzula RODO to co innego: obowiązkowy zapis,
+wymagany samym RODO (art. 13/14), dla dokumentu zawierającego dane
+wrażliwe o uczniu. Dlatego przywrócona jako widoczna treść, w stylu
+drobnego druku (`.legal`).
 
 ## Interaktywność
 
@@ -253,6 +283,6 @@ dokumentu.
 Tak jak reszta serii: `@page{size:A4}` + `@media print` w HTML, PDF to
 odpowiednik **Ctrl+P → Zapisz jako PDF**, wygenerowany tu automatycznie
 (headless Chromium, `print_background` + `prefer_css_page_size`).
-Zweryfikowane renderem: 22 fizyczne strony, żadna nie ucina treści
+Zweryfikowane renderem: 21 fizycznych stron, żadna nie ucina treści
 (sprawdzone programowo — margines do stopki dodatni na każdej stronie),
 zero błędów JS, interaktywność sekcji V przetestowana.
