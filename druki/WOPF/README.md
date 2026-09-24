@@ -128,7 +128,10 @@ odgórnie w dół strony) to:
 - **2 · Indywidualne potrzeby rozwojowe i edukacyjne** — niebieski,
   siatka 2 kolumn.
 - **3 · Przyczyny niepowodzeń, trudności, bariery i ograniczenia** —
-  czerwony (ten sam odcień, co Poziom III), siatka 2 kolumn.
+  czerwony (ten sam odcień, co Poziom III), siatka 2 kolumn, **rozbite na
+  3 osobne kategorie** (na Twoją prośbę): bariery komunikacyjne, bariery
+  regulacyjne i bariery środowiskowe — wcześniej pierwsze dwie były
+  połączone w jeden punkt „komunikacyjne i regulacyjne".
 - **4 · Zakres i charakter wsparcia** — fiolet marki PCTP, lista ról
   (kto + co robi) zamiast checkboxów, bo to już ustalone zadania
   zespołu, nie opcje do zaznaczenia.
