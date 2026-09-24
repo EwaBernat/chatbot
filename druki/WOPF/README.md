@@ -126,6 +126,14 @@ tam było 391 px pustego miejsca). Aktualny układ: **Str. 1** Sekcja I,
 Sekcja VI, **Str. 5** Sekcja VII + VIII.1–3, **Str. 6** Sekcja VIII.4 +
 IX + X.
 
+**Ścieżka A/B — teraz realnie do zaznaczenia (str. 1).** Karty Ścieżki A i
+Ścieżki B były na starcie samym opisowym tekstem — informowały, ale nie
+dało się zaznaczyć, którą ścieżkę zespół faktycznie wybrał dla danego
+ucznia. Dodałam pod spód przycisk radiowy (jak w pozostałych dwóch
+dokumentach) i podświetlenie wybranej karty (pomarańczowa ramka i jasne
+tło) — wybór jest jeden z dwóch (A **albo** B, nie oba naraz) i widać go
+gołym okiem od razu na wydruku, nie tylko przy zaznaczonym kółku.
+
 ## Nowość: wersja „bez obserwacji pogłębionej" (6 stron)
 
 Wkleiłaś w czacie pełny tekst innej, dużo krótszej wersji WOPF (9 sekcji
