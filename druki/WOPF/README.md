@@ -104,12 +104,14 @@ stronę 3. Przeniosłam tę sekcję na dół strony 2, razem z Sekcją II
 
 Trzy karty pod checklistą chorób („Leki podawane w szkole", „Zalecenia
 i przeciwwskazania", „Postępowanie w sytuacji nagłej") stały pionowo
-jedna pod drugą — na Twoją prośbę stoją teraz **w jednym rzędzie, obok
-siebie (siatka 3 kolumn)**, tak jak „Wyniki w skrócie" na stronie
-wykresów. To zamieniło 3 pełnej szerokości kartki w jeden zwarty pasek
-i dało dużo więcej oddechu tej stronie (margines do stopki: ze 6 px do
-107 px) — treść bez zmian merytorycznych, tylko odrobinę skrócona,
-żeby zmieściła się w węższej, 3-kolumnowej karcie.
+jedna pod drugą — najpierw stanęły w jednym rzędzie obok siebie (siatka
+3 kolumn), a na Twoją kolejną prośbę są teraz w układzie **„2+1"**: „Leki"
+i „Zalecenia" obok siebie w jednym, węższym rzędzie (2 kolumny), a
+„Postępowanie w sytuacji nagłej" osobno, w pełnej szerokości karty w
+rzędzie pod spodem — bo to dłuższy, ważniejszy tekst (procedura na
+wypadek nagłej sytuacji), który zasługuje na więcej miejsca niż wąska
+1/3 karty. Treść bez zmian merytorycznych. Margines do stopki nadal
+dodatni (81 px).
 
 ### Sekcja VII (Synteza funkcjonalna) przeprojektowana — była zbyt monotonna
 
@@ -118,21 +120,27 @@ Funkcjonalna (dawna str. 6, teraz str. 5) — nie. Miała rację: to był
 rząd identycznych, kremowych, przerywaną linią obramowanych karteczek,
 bez koloru i bez wyraźnego podziału. Przeprojektowałam ją na 4 kolorowe
 karty, po jednej na każdy z 4 punktów syntezy — kolor koduje charakter
-punktu, spójnie z resztą dokumentu:
+punktu, spójnie z resztą dokumentu. Kolejność kart (na Twoją prośbę,
+odgórnie w dół strony) to:
 
-- **1 · Indywidualne potrzeby** — niebieski, siatka 2 kolumn.
-- **2 · Mocne strony i uzdolnienia** — zielony (ten sam odcień, co
-  Poziom I w tabeli KSzOF), siatka 2 kolumn.
-- **3 · Zakres i charakter wsparcia** — fiolet marki PCTP, lista ról
+- **1 · Mocne strony, zainteresowania i uzdolnienia** — zielony (ten sam
+  odcień, co Poziom I w tabeli KSzOF), siatka 2 kolumn.
+- **2 · Indywidualne potrzeby rozwojowe i edukacyjne** — niebieski,
+  siatka 2 kolumn.
+- **3 · Przyczyny niepowodzeń, trudności, bariery i ograniczenia** —
+  czerwony (ten sam odcień, co Poziom III), siatka 2 kolumn.
+- **4 · Zakres i charakter wsparcia** — fiolet marki PCTP, lista ról
   (kto + co robi) zamiast checkboxów, bo to już ustalone zadania
   zespołu, nie opcje do zaznaczenia.
-- **4 · Przyczyny niepowodzeń i bariery** — czerwony (ten sam odcień,
-  co Poziom III), siatka 2 kolumn.
 
-Każda karta ma numerowany, kolorowy okrągły znacznik zamiast tekstu
-„1 ·", „2 ·" itd. Treść merytoryczna bez zmian — tylko przeorganizowana
-z pionowego stosu jednakowych karteczek w coś z wyraźną hierarchią i
-kolorem. Margines do stopki nadal dodatni.
+Karty pierwotnie stanęły w kolejności Indywidualne potrzeby → Mocne
+strony → Zakres wsparcia → Przyczyny/bariery; obecna kolejność to wynik
+dwóch kolejnych próśb (najpierw „Mocne strony" na samą górę i
+„Indywidualne potrzeby" na drugie miejsce, potem „Przyczyny/bariery" na
+trzecie). Każda karta zachowała swój oryginalny kolor i całą treść —
+zmieniła się wyłącznie kolejność kart i numer na znaczniku (numeracja
+zawsze odpowiada aktualnej pozycji na stronie, 1–4 od góry). Margines do
+stopki nadal dodatni.
 
 **Ta wersja zastępuje poprzednią** (19 ponumerowanych punktów wg ręcznie
 wpisanego „Planu WOPF") — przesłałaś plik `WOPF.docx`, który jest
