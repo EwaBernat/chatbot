@@ -148,6 +148,14 @@ miejscach. Instruktażowe notki (szare, kursywą, np. „Wpisz tylko
 informacje potwierdzone...") celowo zostają nieedytowalne — to podpowiedzi
 do czytania, nie pola do wypełnienia.
 
+**Dodana klauzula RODO (na końcu, str. 6).** Twój wzór PDF w ogóle jej nie
+miał — ani pełnej, ani skróconej. Dodałam dokładnie ten sam, jednoakapitowy
+tekst, który jest już w pełnym dokumencie (Sekcja XXV): „Dane przetwarzane
+są w celu realizacji zadań związanych z organizacją kształcenia specjalnego
+i pomocy psychologiczno-pedagogicznej zgodnie z przepisami prawa oświatowego
+oraz RODO." — na samym końcu strony 6, po „Podstawie odniesienia", tym
+samym drobnym, szarym stylem `.legal`.
+
 ## Nowość: wersja „bez obserwacji pogłębionej" (6 stron)
 
 Wkleiłaś w czacie pełny tekst innej, dużo krótszej wersji WOPF (9 sekcji
