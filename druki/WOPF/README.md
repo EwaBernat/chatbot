@@ -100,11 +100,16 @@ Ta krótsza wersja nie miała jeszcze wykresów KSzOF, które pełna,
 Informacje medyczne (Sekcja IV) miały wcześniej własną, w połowie pustą
 stronę 3. Przeniosłam tę sekcję na dół strony 2, razem z Sekcją II
 (Zespół) i Sekcją III (Mapa źródeł) — cały dokument skrócił się z 7 do
-**6 stron**. Żeby to się zmieściło, checklista chorób i 3 karty
-(„Leki", „Zalecenia", „Postępowanie w sytuacji nagłej") są odrobinę
-zwarciejsze niż w pierwszej wersji (mniejszy odstęp, bez zmiany treści
-merytorycznej) — margines do stopki nadal dodatni, ale ciasny (kilka
-pikseli), więc to jedna z gęściej wypełnionych stron w dokumencie.
+**6 stron**.
+
+Trzy karty pod checklistą chorób („Leki podawane w szkole", „Zalecenia
+i przeciwwskazania", „Postępowanie w sytuacji nagłej") stały pionowo
+jedna pod drugą — na Twoją prośbę stoją teraz **w jednym rzędzie, obok
+siebie (siatka 3 kolumn)**, tak jak „Wyniki w skrócie" na stronie
+wykresów. To zamieniło 3 pełnej szerokości kartki w jeden zwarty pasek
+i dało dużo więcej oddechu tej stronie (margines do stopki: ze 6 px do
+107 px) — treść bez zmian merytorycznych, tylko odrobinę skrócona,
+żeby zmieściła się w węższej, 3-kolumnowej karcie.
 
 ### Sekcja VII (Synteza funkcjonalna) przeprojektowana — była zbyt monotonna
 
