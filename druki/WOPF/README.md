@@ -62,13 +62,13 @@ systemu.
 | `WOPF_karta_oceny.pdf` | pełny wydruk (headless Chromium, druk A4) |
 | `WOPF_SP_bez_poglebionej.html` | wersja skrócona (9 sekcji, **6 stron**), gdy zespół nie prowadzi obserwacji pogłębionej |
 | `WOPF_SP_bez_poglebionej.pdf` | wydruk wersji skróconej |
-| `WOPF_SP_arkusz_zespolowy.html` | **nowość** — trzeci wariant, „arkusz zespołowy" (10 sekcji, 7 stron), zbudowany wg Twojego przesłanego wzoru PDF |
+| `WOPF_SP_arkusz_zespolowy.html` | **nowość** — trzeci wariant, „arkusz zespołowy" (10 sekcji, 6 stron), zbudowany wg Twojego przesłanego wzoru PDF |
 | `WOPF_SP_arkusz_zespolowy.pdf` | wydruk arkusza zespołowego |
 
 Szukasz najlepszej opcji spośród trzech — żaden z wariantów nie jest jeszcze
 przeniesiony do `Zatwierdzone/`.
 
-## Nowość: „arkusz zespołowy" (10 sekcji, 7 stron) — trzeci wariant
+## Nowość: „arkusz zespołowy" (10 sekcji, 6 stron) — trzeci wariant
 
 Przesłałaś PDF „piękny WOPF-z czata" — inny, prostszy arkusz (bez kolorów,
 bez wykresów, same tabele do wypełnienia), z prośbą „zrób według tego wzoru,
@@ -113,15 +113,18 @@ dokumentach) — bardziej pasuje do charakteru „arkusza roboczego", który
 zaczyna pusty i wypełnia się na żywo.
 
 **Podział na strony — moja decyzja, nie z Twojego PDF-a.** Twój dokument
-miał 7 stron płynących bez podziału A4; ja też wyszłam na 7, ale inaczej
-rozłożonych: **Str. 1** Sekcja I, **Str. 2** Sekcje II+III+IV, **Str. 3**
-Sekcja V + wykresy, **Str. 4** Sekcja VI, **Str. 5** Sekcja VII + VIII.1–2,
-**Str. 6** Sekcja VIII.3, **Str. 7** Sekcja VIII.4 + IX + X. Kilka stron
-(1, 5, 6) ma sporo pustego miejsca u dołu — próbowałam łączyć je gęściej
-(np. Sekcja VI+VII razem, albo VIII.3 z sąsiadami), ale każda taka próba
-realnie nie mieściła się na jednej stronie A4 (ujemny margines do stopki),
-więc zostawiłam bezpieczny podział zamiast ściskać czcionkę. Jeśli wolisz
-gęściej upakowane strony kosztem mniejszej czcionki — daj znać.
+miał 7 stron płynących bez podziału A4. Pierwsza wersja tutaj też wyszła na
+7 stron, ale str. 5 (Sekcja VII) i str. 6 (VIII.3 „Zakres i charakter
+wsparcia") miały osobno sporo pustego miejsca u dołu. Na Twoją prośbę
+przeniosłam VIII.3 na str. 5, razem z Sekcją VII i VIII.1–2 — żeby to się
+zmieściło, ścieśniłam trochę tabelę ról (mniejsza czcionka/padding w
+komórkach) i skróciłam 2 puste pola do wypełnienia w VIII.1/VIII.2 (były
+nadmiarowo wysokie). Dokument skrócił się z 7 do **6 stron**, a str. 5
+jest teraz gęsto, ładnie wypełniona (margines do stopki: 67 px, wcześniej
+tam było 391 px pustego miejsca). Aktualny układ: **Str. 1** Sekcja I,
+**Str. 2** Sekcje II+III+IV, **Str. 3** Sekcja V + wykresy, **Str. 4**
+Sekcja VI, **Str. 5** Sekcja VII + VIII.1–3, **Str. 6** Sekcja VIII.4 +
+IX + X.
 
 ## Nowość: wersja „bez obserwacji pogłębionej" (6 stron)
 
