@@ -156,6 +156,18 @@ i pomocy psychologiczno-pedagogicznej zgodnie z przepisami prawa oświatowego
 oraz RODO." — na samym końcu strony 6, po „Podstawie odniesienia", tym
 samym drobnym, szarym stylem `.legal`.
 
+**Tabela „Współpraca z rodzicami" (Sekcja IX, str. 6) — rozszerzona o 2
+nowe wiersze.** 4 istniejące wiersze były na sztywno ustalonymi typami
+współpracy z Twojego wzoru (zawiadomienie o spotkaniu, informacje od
+rodzica, forma konsultacji, przekazanie kopii WOPFU/IPET) — nie było
+miejsca na nic więcej. Dodałam: **„Zgoda na przetwarzanie danych osobowych
+(RODO)"** jako nazwany wiersz (data/sposób/osoba do wypełnienia, tak jak
+reszta), oraz **całkiem pusty, w pełni edytowalny wiersz na końcu** —
+zarówno nazwa ustalenia, jak i data/sposób/osoba są do wpisania, więc
+zespół może dopisać dowolny inny rodzaj współpracy z rodzicem, którego
+nie przewiduje żaden z 5 gotowych wierszy. Sprawdziłam klikiem i wpisaniem
+tekstu, że oba pola pustego wiersza faktycznie działają.
+
 ## Nowość: wersja „bez obserwacji pogłębionej" (6 stron)
 
 Wkleiłaś w czacie pełny tekst innej, dużo krótszej wersji WOPF (9 sekcji
