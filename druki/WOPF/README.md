@@ -12,10 +12,10 @@ wzorem jest `klasy_1-3`.
 |---|---|
 | `WOPF_karta_oceny.html` | źródło — pełna wersja, wszystkie 14 stron |
 | `WOPF_karta_oceny.pdf` | pełny wydruk (headless Chromium, druk A4) |
-| `WOPF_SP_bez_poglebionej.html` | **nowość** — wersja skrócona (9 sekcji, 7 stron), gdy zespół nie prowadzi obserwacji pogłębionej |
+| `WOPF_SP_bez_poglebionej.html` | wersja skrócona (9 sekcji, **6 stron**), gdy zespół nie prowadzi obserwacji pogłębionej |
 | `WOPF_SP_bez_poglebionej.pdf` | wydruk wersji skróconej |
 
-## Nowość: wersja „bez obserwacji pogłębionej" (7 stron)
+## Nowość: wersja „bez obserwacji pogłębionej" (6 stron)
 
 Wkleiłaś w czacie pełny tekst innej, dużo krótszej wersji WOPF (9 sekcji
 rzymskich I–X zamiast 25) i poprosiłaś o taki sam druk, ale bez
@@ -67,9 +67,10 @@ obserwacji pogłębionej":**
   konstrukcję druku (fiolet `#2D1B69` + pomarańcz `#E8450A`, Mulish/Lora,
   te same `.sec`/`.tb`/`.ta`/`.cbgrid`, co reszta serii).
 
-Zweryfikowane: 7 fizycznych stron, margines do stopki dodatni na każdej,
-zero błędów JS, steny w Sekcji V przeliczają poziom i zakres punktu
-automatycznie (tak jak w pełnej wersji).
+Zweryfikowane: 6 fizycznych stron (patrz niżej — str. 3 połączona ze
+str. 2), margines do stopki dodatni na każdej, zero błędów JS, steny
+w Sekcji V przeliczają poziom i zakres punktu automatycznie (tak jak
+w pełnej wersji).
 
 ### Dodane wykresy i „Wyniki w skrócie" (Sekcja V, str. 4)
 
@@ -93,6 +94,40 @@ Ta krótsza wersja nie miała jeszcze wykresów KSzOF, które pełna,
   (numer + nazwa + sten + poziom obok siebie), a nie pełnej,
   rozbudowanej karty — pierwsza wersja z pełnowymiarowymi kartami nie
   mieściła się na stronie (wychodziła o ok. 170 px za stopkę).
+
+### Sekcja IV przeniesiona na dół str. 2 (dawna str. 3 zniknęła)
+
+Informacje medyczne (Sekcja IV) miały wcześniej własną, w połowie pustą
+stronę 3. Przeniosłam tę sekcję na dół strony 2, razem z Sekcją II
+(Zespół) i Sekcją III (Mapa źródeł) — cały dokument skrócił się z 7 do
+**6 stron**. Żeby to się zmieściło, checklista chorób i 3 karty
+(„Leki", „Zalecenia", „Postępowanie w sytuacji nagłej") są odrobinę
+zwarciejsze niż w pierwszej wersji (mniejszy odstęp, bez zmiany treści
+merytorycznej) — margines do stopki nadal dodatni, ale ciasny (kilka
+pikseli), więc to jedna z gęściej wypełnionych stron w dokumencie.
+
+### Sekcja VII (Synteza funkcjonalna) przeprojektowana — była zbyt monotonna
+
+Zwróciłaś uwagę, że strona z wykresami wygląda dobrze, ale Synteza
+Funkcjonalna (dawna str. 6, teraz str. 5) — nie. Miała rację: to był
+rząd identycznych, kremowych, przerywaną linią obramowanych karteczek,
+bez koloru i bez wyraźnego podziału. Przeprojektowałam ją na 4 kolorowe
+karty, po jednej na każdy z 4 punktów syntezy — kolor koduje charakter
+punktu, spójnie z resztą dokumentu:
+
+- **1 · Indywidualne potrzeby** — niebieski, siatka 2 kolumn.
+- **2 · Mocne strony i uzdolnienia** — zielony (ten sam odcień, co
+  Poziom I w tabeli KSzOF), siatka 2 kolumn.
+- **3 · Zakres i charakter wsparcia** — fiolet marki PCTP, lista ról
+  (kto + co robi) zamiast checkboxów, bo to już ustalone zadania
+  zespołu, nie opcje do zaznaczenia.
+- **4 · Przyczyny niepowodzeń i bariery** — czerwony (ten sam odcień,
+  co Poziom III), siatka 2 kolumn.
+
+Każda karta ma numerowany, kolorowy okrągły znacznik zamiast tekstu
+„1 ·", „2 ·" itd. Treść merytoryczna bez zmian — tylko przeorganizowana
+z pionowego stosu jednakowych karteczek w coś z wyraźną hierarchią i
+kolorem. Margines do stopki nadal dodatni.
 
 **Ta wersja zastępuje poprzednią** (19 ponumerowanych punktów wg ręcznie
 wpisanego „Planu WOPF") — przesłałaś plik `WOPF.docx`, który jest
