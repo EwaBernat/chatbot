@@ -71,6 +71,29 @@ Zweryfikowane: 7 fizycznych stron, margines do stopki dodatni na każdej,
 zero błędów JS, steny w Sekcji V przeliczają poziom i zakres punktu
 automatycznie (tak jak w pełnej wersji).
 
+### Dodane wykresy i „Wyniki w skrócie" (Sekcja V, str. 4)
+
+Ta krótsza wersja nie miała jeszcze wykresów KSzOF, które pełna,
+14-stronicowa wersja już ma — dogoniłam to tutaj:
+
+- **Wykres słupkowy i mapa radarowa** — te same, co w pełnej wersji
+  (`build_bar_svg`/`build_radar_svg`), słupki i punkty kolorowane wg
+  poziomu (zielony/żółty/czerwony), liczą się automatycznie razem ze
+  stenami w tabeli powyżej.
+- **„Wyniki w skrócie"** — 9 kompaktowych „chipów" w siatce 3×3 (3
+  rzędy), po jednym na obszar: numer rzymski, skrócona nazwa, duży sten
+  i poziom, też kolorowane i też aktualizowane na żywo przy edycji
+  stenu. To „wybrane elementy pod wykresem" — skrót tabeli powyżej,
+  żeby stronę dało się ogarnąć jednym rzutem oka, nie tylko z tabeli.
+- **Czcionka podniesiona do 10px** w tabeli i w opisie syntetycznym
+  (było 9,9px / 8,6px) — zgodnie z prośbą, żeby tekst na tej stronie
+  było wygodniej czytać.
+- Żeby to wszystko zmieściło się na jednej stronie bez białych
+  przestrzeni, „chipy" są w formie zwartego jednowierszowego paska
+  (numer + nazwa + sten + poziom obok siebie), a nie pełnej,
+  rozbudowanej karty — pierwsza wersja z pełnowymiarowymi kartami nie
+  mieściła się na stronie (wychodziła o ok. 170 px za stopkę).
+
 **Ta wersja zastępuje poprzednią** (19 ponumerowanych punktów wg ręcznie
 wpisanego „Planu WOPF") — przesłałaś plik `WOPF.docx`, który jest
 dokładniejszym, autorytatywnym źródłem: 25 sekcji rzymskich (I–XXV) z
