@@ -29,6 +29,27 @@ problemu pustych stron, połączyłam kilka lżejszych sekcji na wspólne
 strony A4 (patrz niżej, „Co jest w środku") — kolejność sekcji jest
 dokładnie taka, jak w Twoim pliku, zmieniły się tylko podziały stron.
 
+## Podział na etapy (moduły)
+
+Wg przesłanej „Mapy architektury druku WOPF" (PDF) druk jest teraz wizualnie
+podzielony na 4 etapy — bez zmiany numeracji sekcji rzymskich ani liczby
+stron (12), tylko dodane kolorowe paski-banery nad sekcją, która rozpoczyna
+dany etap:
+
+| Etap | Kolor | Gdzie zaczyna się | Sekcje |
+|---|---|---|---|
+| **MODUŁ I** — Część bazowa | fiolet | str. 1, nad Sekcją I | I–VI |
+| **PUNKT KONTROLNY** — Decyzja zespołu | czerwony | str. 5, po tabeli Sekcji VI | — (bramka) |
+| **MODUŁ II** — Obserwacja pogłębiona | fiolet | str. 5, nad Sekcją VII | VII–XI |
+| **CZĘŚĆ KOŃCOWA** — Planowanie wsparcia | fiolet | str. 7, nad Sekcją XII | XII–XXV |
+
+„Punkt kontrolny" to nowa treść, nie tylko baner — dodałam pod nim 2
+checkboxy („Uruchamiam moduł pogłębiony (Sekcje VII–XI)" / „Zamykam na
+module I → Część Końcowa (Sekcja XII)"), bo Twoja mapa opisuje to jako
+prawdziwą bramkę decyzyjną zespołu, nie tylko nagłówek. Kolor czerwony
+(taki sam jak Poziom III w tabeli stenów) celowo odróżnia to jako moment
+decyzji, a nie kolejny moduł.
+
 ## Co jest w środku
 
 - **Str. 1** — **Sekcja I: Dane ucznia i ścieżka dokumentacyjna** — pola
@@ -170,6 +191,17 @@ obowiązuje wszędzie, gdzie te funkcje są użyte w tym dokumencie.
   To sensowne wnioski wynikające z tego, co już jest w dokumencie, ale to
   synteza, nie gotowy tekst z któregoś z Twoich źródeł — sprawdź, czy te
   konkretne sformułowania Ci odpowiadają.
+- **9 obszarów (Sekcja V) vs. 8 obszarów (Sekcja XII) — to samo, co flagowała
+  Twoja „Mapa architektury"** w notatce „Do uzgodnienia przed wdrożeniem".
+  Potwierdzam, że to realna niezgodność w tym dokumencie: Sekcja V liczy 9
+  obszarów ICF (I–IX), a tabela syntezy w Sekcji XII ma inny, 8-punktowy
+  podział (Poznawczy, Społeczny, Emocjonalny, Komunikacja i mowa,
+  Zachowanie, Sensoryczno-motoryczny, Samoobsługa, Uczestnictwo w życiu
+  szkoły) — to inna kategoryzacja, nie te same nazwy przycięte do ośmiu.
+  Obie wersje pochodzą z Twojego `.docx` bez zmian z mojej strony. Trzeba
+  ustalić, czy Sekcja XII ma używać dokładnie tych samych 9 obszarów co
+  Sekcja V, czy to świadomie inny, bardziej ogólny podział na potrzeby
+  syntezy — nie zmieniałam żadnej z tabel, dopóki się nie zdecydujesz.
 - Żaden z czterech wariantów ToM ani WOPF nie jest jeszcze przeniesiony do
   `Zatwierdzone/` — czeka na Twoje potwierdzenie powyższych punktów.
 
