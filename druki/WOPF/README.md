@@ -6,11 +6,11 @@ drukach (KSzOF, karta ABC/FBA, ToM, kwestionariusz mowy, profil sensoryczny,
 profil biopsychospołeczny). Wspólna marka i konstrukcja z serii `ToM/` —
 wzorem jest `klasy_1-3`.
 
-## Status: 12 stron — przebudowa wg przesłanego pliku WOPF.docx
+## Status: 14 stron — przebudowa wg przesłanego pliku WOPF.docx
 
 | Plik | Opis |
 |---|---|
-| `WOPF_karta_oceny.html` | źródło — wszystkie 12 stron |
+| `WOPF_karta_oceny.html` | źródło — wszystkie 14 stron |
 | `WOPF_karta_oceny.pdf` | pełny wydruk (headless Chromium, druk A4) |
 
 **Ta wersja zastępuje poprzednią** (19 ponumerowanych punktów wg ręcznie
@@ -31,10 +31,9 @@ dokładnie taka, jak w Twoim pliku, zmieniły się tylko podziały stron.
 
 ## Podział na etapy (moduły)
 
-Wg przesłanej „Mapy architektury druku WOPF" (PDF) druk jest teraz wizualnie
-podzielony na 4 etapy — bez zmiany numeracji sekcji rzymskich ani liczby
-stron (12), tylko dodane kolorowe paski-banery nad sekcją, która rozpoczyna
-dany etap:
+Wg przesłanej „Mapy architektury druku WOPF" (PDF) druk jest wizualnie
+podzielony na 4 etapy — bez zmiany numeracji sekcji rzymskich, tylko
+dodane kolorowe paski-banery nad sekcją, która rozpoczyna dany etap:
 
 | Etap | Kolor | Gdzie zaczyna się | Sekcje |
 |---|---|---|---|
@@ -49,6 +48,13 @@ module I → Część Końcowa (Sekcja XII)"), bo Twoja mapa opisuje to jako
 prawdziwą bramkę decyzyjną zespołu, nie tylko nagłówek. Kolor czerwony
 (taki sam jak Poziom III w tabeli stenów) celowo odróżnia to jako moment
 decyzji, a nie kolejny moduł.
+
+**Nowość:** pod checkboxami doszła krótka notka zamykająca obie ścieżki —
+„Zamknięcie na module I" wprost mówi, że obserwacja kończy się tu i zespół
+przechodzi od razu do Części Końcowej, a przy module pogłębionym jest
+klikalny link **„Załącznik"**, który w HTML (i w większości czytników PDF)
+przenosi bezpośrednio do nowego załącznika na str. 13–14 — nie trzeba
+kartkować ręcznie.
 
 ## Co jest w środku
 
@@ -135,7 +141,22 @@ decyzji, a nie kolejny moduł.
   (Twój jednozdaniowy opis „mostu transferowego", nie rozbudowana tabela
   jak w mojej poprzedniej wersji), **Sekcja XXIV: Podpisy** (5 podpisów —
   Twój plik łączy niektóre role, np. „Psycholog / Pedagog specjalny" w
-  jednym podpisie) i **Sekcja XXV: Wykaz załączników i RODO**.
+  jednym podpisie) i **Sekcja XXV: Wykaz załączników i RODO** (karta
+  „Załączniki" teraz też wskazuje str. 13–14 jako miejsce zbiorczego
+  zestawienia obserwacji pogłębionej).
+- **Str. 13–14 — nowy Załącznik: „Zbiorcze zestawienie obserwacji
+  pogłębionej"** (poza numeracją rzymską — to materiał pomocniczy, nie
+  kolejna sekcja WOPF). Str. 13: intro + **A1** tabelka ABC (Sekcja VII),
+  **A2** tabelka ToM (Sekcja VIII), **A3** tabelka Mowa (Sekcja IX) — te
+  same tabele, co w głównym dokumencie, po prostu przedrukowane razem do
+  szybkiego przeglądu. Str. 14: **A4** tabelka Profil sensoryczny (Sekcja
+  X), potem „Zakres dostosowań i działań podjętych" (metody wiodące z
+  Sekcji XV + tabela dostosowań z Sekcji XVI, też przedrukowane) i na
+  końcu „Zalecenia do pracy — podsumowanie" — **to jedyny fragment
+  załącznika, który jest moją syntezą**, nie przedrukiem: krótki akapit
+  łączący kierunki pracy rozproszone po wnioskach w tabelach A1–A4.
+  Dotyczy wyłącznie sytuacji, gdy zespół faktycznie uruchomił moduł
+  pogłębiony — dlatego intro na str. 13 wprost to zaznacza.
 
 ## Interaktywność
 
@@ -178,7 +199,7 @@ obowiązuje wszędzie, gdzie te funkcje są użyte w tym dokumencie.
 
 ## Do potwierdzenia przez autorkę
 
-- **Klauzula RODO (str. 12) — krótsza wersja z Twojego pliku, nie pełna
+- **Klauzula RODO (str. 12, Sekcja XXV) — krótsza wersja z Twojego pliku, nie pełna
   7-punktowa.** Twój `.docx` ma jeden akapit RODO. Wcześniej w tej sesji
   (poprzednia wersja WOPF) była pełna, 7-punktowa klauzula informacyjna
   RODO (administrator, IOD, cel i podstawa prawna, kategorie danych,
@@ -217,6 +238,19 @@ obowiązuje wszędzie, gdzie te funkcje są użyte w tym dokumencie.
   ustalić, czy Sekcja XII ma używać dokładnie tych samych 9 obszarów co
   Sekcja V, czy to świadomie inny, bardziej ogólny podział na potrzeby
   syntezy — nie zmieniałam żadnej z tabel, dopóki się nie zdecydujesz.
+- **Interpretacja prośby „zakończ druk po obserwacji podstawowej / załącznik
+  po kliknięciu na informacje pogłębione".** Twoja wiadomość miała kilka
+  możliwych odczytań, więc wybrałam wersję, która działa i na papierze, i
+  na ekranie: (1) „zakończ druk" — krótka notka przy checkboxie „Zamykam
+  na module I", że ta ścieżka kończy się przejściem od razu do Części
+  Końcowej (nie da się fizycznie „ukryć" stron w papierowym A4, więc to
+  informacja, nie mechanizm pomijania stron); (2) „po kliknięciu" —
+  prawdziwy klikalny link (`<a href="#...">`) przy checkboxie „Uruchamiam
+  moduł pogłębiony", który w HTML i w czytnikach PDF przenosi do nowego
+  Załącznika (str. 13–14) — w druku papierowym to po prostu odsyłacz
+  „patrz Załącznik". Jeśli miałaś na myśli coś innego (np. żeby to
+  zachowanie dodać w interaktywnym **panelu nauczyciela**, a nie w tym
+  drukowanym dokumencie) — daj znać, łatwo to przenieść lub poprawić.
 - Żaden z czterech wariantów ToM ani WOPF nie jest jeszcze przeniesiony do
   `Zatwierdzone/` — czeka na Twoje potwierdzenie powyższych punktów.
 
@@ -225,7 +259,7 @@ obowiązuje wszędzie, gdzie te funkcje są użyte w tym dokumencie.
 Tak jak reszta serii: `@page{size:A4}` + `@media print` w HTML, PDF to
 odpowiednik **Ctrl+P → Zapisz jako PDF**, wygenerowany tu automatycznie
 (headless Chromium, `print_background` + `prefer_css_page_size`).
-Zweryfikowane renderem: 12 fizycznych stron, żadna nie ucina treści
+Zweryfikowane renderem: 14 fizycznych stron, żadna nie ucina treści
 (sprawdzone programowo — margines do stopki dodatni na każdej stronie, i
 zbalansowane tagi `<div>` w całym dokumencie), zero błędów JS,
 interaktywność stenów przetestowana.
