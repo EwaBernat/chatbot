@@ -377,9 +377,9 @@ table.ptab td.pz{text-align:center}
 .icell input{accent-color:#2D1B69;cursor:pointer}
 </style><script>
 function wopfStenPoziom(v){
- if(v>=8)return{lab:"Poziom I",col:"#16A34A"};
- if(v>=5)return{lab:"Poziom II",col:"#D6A400"};
- return{lab:"Poziom III",col:"#DC2626"};
+ if(v>=8)return{lab:"Poziom I",col:"#16A34A",barCol:"#12B451"};
+ if(v>=5)return{lab:"Poziom II",col:"#D6A400",barCol:"#FFD500"};
+ return{lab:"Poziom III",col:"#DC2626",barCol:"#E8253D"};
 }
 function updateWopfKszof(){
  var cells=document.querySelectorAll(".stenval"),vals=[];
@@ -408,7 +408,7 @@ function updateWopfKszof(){
  if(svg){var top=14,bot=94;
   svg.querySelectorAll(".cg-bar").forEach(function(bar){
    var i=parseInt(bar.dataset.i),v=vals[i];
-   if(v!=null){var h=(v/10)*(bot-top);bar.setAttribute("y",bot-h);bar.setAttribute("height",h);bar.setAttribute("fill",wopfStenPoziom(v).col);}
+   if(v!=null){var h=(v/10)*(bot-top);bar.setAttribute("y",bot-h);bar.setAttribute("height",h);bar.setAttribute("fill",wopfStenPoziom(v).barCol);}
    else{bar.setAttribute("height",0);bar.setAttribute("y",bot);}
   });
   svg.querySelectorAll(".cg-val").forEach(function(tx){

@@ -33,6 +33,27 @@ Poziom I/III w tabeli KSzOF"). Jasne, pastelowe tła (np. `#eafaef`,
 neutralne, bardzo jasne podkłady, które dobrze współgrają z każdym
 odcieniem pierwszego planu i nie wyglądały na „brązowe" same w sobie.
 
+**Druga runda — same słupki wykresów jeszcze bardziej soczyste.** Napisałaś
+jeszcze raz, mocniej, że kolory słupków w wykresach mają być piękne,
+soczyste. Rozdzieliłam więc kolor na dwa warianty: `col` (jak wyżej —
+używany tam, gdzie kolor jest jednocześnie tekstem: „Poziom I/II/III"
+w tabeli, etykiety w chipach, checkboxy decyzji — tam musi zostać
+czytelny na białym tle) i nowy `barCol`, używany wyłącznie do wypełnienia
+słupków wykresu — bo słupek to duży, jednolity kwadrat koloru bez tekstu
+na sobie, więc może być dużo bardziej nasycony bez utraty czytelności:
+
+| Poziom | `col` (tekst, chipy, checkboxy) | `barCol` (tylko słupki wykresu) |
+|---|---|---|
+| I (zielony) | `#16A34A` | `#12B451` |
+| II (żółty) | `#D6A400` | `#FFD500` — prawdziwy, czysty żółty |
+| III (czerwony) | `#DC2626` | `#E8253D` |
+
+Zmiana jest w jednym miejscu (`wopfStenPoziom()`) w każdym z **trzech**
+dokumentów (w tym w nowym arkuszu zespołowym), więc słupki wyglądają
+identycznie we wszystkich. Mapa radarowa i tak nie używała kolorów
+Poziomu — jej fiolet/pomarańcz to kolorystyka marki, niezależna od tego
+systemu.
+
 ## Status: trzy warianty druku — do porównania i wyboru najlepszej opcji
 
 | Plik | Opis |
