@@ -33,14 +33,74 @@ Poziom I/III w tabeli KSzOF"). Jasne, pastelowe tła (np. `#eafaef`,
 neutralne, bardzo jasne podkłady, które dobrze współgrają z każdym
 odcieniem pierwszego planu i nie wyglądały na „brązowe" same w sobie.
 
-## Status: 15 stron — przebudowa wg przesłanego pliku WOPF.docx
+## Status: trzy warianty druku — do porównania i wyboru najlepszej opcji
 
 | Plik | Opis |
 |---|---|
-| `WOPF_karta_oceny.html` | źródło — pełna wersja, wszystkie 15 stron |
+| `WOPF_karta_oceny.html` | pełna wersja, 25 sekcji, 15 stron |
 | `WOPF_karta_oceny.pdf` | pełny wydruk (headless Chromium, druk A4) |
 | `WOPF_SP_bez_poglebionej.html` | wersja skrócona (9 sekcji, **6 stron**), gdy zespół nie prowadzi obserwacji pogłębionej |
 | `WOPF_SP_bez_poglebionej.pdf` | wydruk wersji skróconej |
+| `WOPF_SP_arkusz_zespolowy.html` | **nowość** — trzeci wariant, „arkusz zespołowy" (10 sekcji, 7 stron), zbudowany wg Twojego przesłanego wzoru PDF |
+| `WOPF_SP_arkusz_zespolowy.pdf` | wydruk arkusza zespołowego |
+
+Szukasz najlepszej opcji spośród trzech — żaden z wariantów nie jest jeszcze
+przeniesiony do `Zatwierdzone/`.
+
+## Nowość: „arkusz zespołowy" (10 sekcji, 7 stron) — trzeci wariant
+
+Przesłałaś PDF „piękny WOPF-z czata" — inny, prostszy arkusz (bez kolorów,
+bez wykresów, same tabele do wypełnienia), z prośbą „zrób według tego wzoru,
+dodaj stronę z kolorowymi wykresami". Zapytałam, czy ma to zastąpić wersję
+skróconą, czy być osobnym dokumentem — wybrałaś **osobny, trzeci plik**, bo
+szukasz najlepszej opcji, nie jednej ostatecznej wersji.
+
+**Co jest wierne Twojemu wzorowi:**
+
+- Dokładnie 10 sekcji rzymskich (I–X) z Twojego PDF-a, w tej samej
+  kolejności i z tym samym tekstem — łącznie z sekcją **VII: Decyzja
+  zespołu o obserwacji pogłębionej** (Twój wzór jej nie usuwa, tylko
+  zostawia otwartą: kontynuować / uzupełnić dane / przejść do planowania),
+  czym ten wariant różni się od wersji skróconej (która tę sekcję usuwa
+  całkowicie) i od pełnej wersji (która zakłada, że zespół już zdecydował
+  się na obserwację pogłębioną).
+- Wszystkie pola są **puste, do wypełnienia** — zgodnie z Twoim wzorem
+  („Pola należy wypełnić danymi konkretnego ucznia; wcześniejsze przykłady
+  wyników nie są przenoszone do druku"), łącznie z notatkami metodologicznymi
+  z Twojego PDF-a (np. „Nie obliczaj średniej ze stenów jako nowego wyniku
+  narzędzia bez podstawy metodologicznej").
+- Ścieżka A/B, mapa 10 dokumentów źródłowych, tabela 6 ról zespołu, 6 ról
+  „Zakresu i charakteru wsparcia" (VIII.3) — treść przepisana z Twojego
+  pliku bez zmian, tylko przeniesiona w konstrukcję `.page`/`.sec`/`.tb`
+  fioletu `#2D1B69` + pomarańczu `#E8450A`, Mulish/Lora, zamiast gołego,
+  czarno-białego układu z PDF-a.
+
+**Jedno odstępstwo od wzoru — „strona z kolorowymi wykresami", o którą
+prosiłaś:** Twój PDF ma w Sekcji V samą pustą tabelę (Nr / Obszar / Wynik /
+Poziom / Źródło), bez żadnego wykresu. Dodałam pod tabelą dokładnie ten sam
+zestaw wykresów, co w pozostałych dwóch dokumentach — słupkowy + mapa
+radarowa + siatka „Wyniki w skrócie" (9 kolorowych chipów) — i **wypełniłam
+tabelę tym samym przykładowym przypadkiem, co reszta serii** (steny
+8,5,3,7,6,5,4,5,4), żeby wykresy było faktycznie widać kolorowe przy
+otwarciu, a nie pustą oś. Reszta dokumentu (sekcje I–IV, VI–X) zostaje
+pusta zgodnie z Twoim wzorem — steny w tabeli i wykresy są w pełni
+edytowalne i przeliczają się automatycznie, tak jak w pozostałych dwóch
+dokumentach (wpisz nowy sten → poziom, wykresy i „Wyniki w skrócie"
+aktualizują się same). **Opis syntetyczny pod wykresami liczy się też sam
+od razu przy otwarciu pliku** (nie jest zamrożony jak w pozostałych dwóch
+dokumentach) — bardziej pasuje do charakteru „arkusza roboczego", który
+zaczyna pusty i wypełnia się na żywo.
+
+**Podział na strony — moja decyzja, nie z Twojego PDF-a.** Twój dokument
+miał 7 stron płynących bez podziału A4; ja też wyszłam na 7, ale inaczej
+rozłożonych: **Str. 1** Sekcja I, **Str. 2** Sekcje II+III+IV, **Str. 3**
+Sekcja V + wykresy, **Str. 4** Sekcja VI, **Str. 5** Sekcja VII + VIII.1–2,
+**Str. 6** Sekcja VIII.3, **Str. 7** Sekcja VIII.4 + IX + X. Kilka stron
+(1, 5, 6) ma sporo pustego miejsca u dołu — próbowałam łączyć je gęściej
+(np. Sekcja VI+VII razem, albo VIII.3 z sąsiadami), ale każda taka próba
+realnie nie mieściła się na jednej stronie A4 (ujemny margines do stopki),
+więc zostawiłam bezpieczny podział zamiast ściskać czcionkę. Jeśli wolisz
+gęściej upakowane strony kosztem mniejszej czcionki — daj znać.
 
 ## Nowość: wersja „bez obserwacji pogłębionej" (6 stron)
 
