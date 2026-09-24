@@ -6,275 +6,205 @@ drukach (KSzOF, karta ABC/FBA, ToM, kwestionariusz mowy, profil sensoryczny,
 profil biopsychospołeczny). Wspólna marka i konstrukcja z serii `ToM/` —
 wzorem jest `klasy_1-3`.
 
-## Status: 21 stron — komplet, do potwierdzenia
+## Status: 24 strony — przebudowa wg „Planu WOPF", do potwierdzenia
 
 | Plik | Opis |
 |---|---|
-| `WOPF_karta_oceny.html` | źródło — wszystkie 21 stron |
+| `WOPF_karta_oceny.html` | źródło — wszystkie 24 strony |
 | `WOPF_karta_oceny.pdf` | pełny wydruk (headless Chromium, druk A4) |
 
-Pierwotnie zbudowane jako 27 stron 1:1 z oryginalnym PDF-em autorki;
-zmniejszone do 23 po tym, jak autorka poprosiła o przeniesienie kilku
-sekcji na wcześniejsze strony z wolnym miejscem i o usunięcie panelu
-synchronizacji oraz obu podsumowujących stron sekcji V — „wynik ogólny/
-synteza wg poziomów” i „Vb — synteza opisowa” (patrz „Co jest w środku” i
-historia commitów) — reszta treści identyczna, inny układ i mniej stron.
-Potem do 24: autorka poprosiła o dwa nowe punkty zaraz przy wynikach
-KSzOF — sekcję Vc „Czynniki kontekstowe wg ICF” (zmieściła się jeszcze na
-str. 5) i sekcję Vd „Indywidualne potrzeby rozwojowe — na podstawie
-dodatkowych obserwacji” (już nie zmieściła się — dostała własną str. 6).
-Na koniec z powrotem w dół do 22: autorka poprosiła o usunięcie w całości
-osadzonej „Opinii zespołu ds. wsparcia" (dawne str. 22–23, dokument do
-wydania na zewnątrz) — zniknęła razem z jej dwiema stronami, a sekcje
-XXIV–XXVI (podpisy, załączniki, RODO) przesunęły się o 2 strony w górę.
-**To przy okazji rozwiązuje dualizm skali KSzOF** opisywany wcześniej w
-„Do potwierdzenia": skoro jedyne miejsce z alternatywną skalą 1–5 zniknęło,
-sekcja V (steny 1–10) jest teraz jedyną skalą KSzOF w całym dokumencie.
+**Ta wersja to pełna przebudowa struktury** na podstawie przesłanego przez
+Ciebie „Planu WOPF" — 19 ponumerowanych punktów (część z podpunktami a–e).
+Poprzednia struktura (sekcje rzymskie I–XXVI, 21 stron) jest w historii
+gita — nic nie zginęło, tylko zmienił się układ. Zachowana **dokładnie**
+grafika, kolorystyka i styl (fiolet `#2D1B69` + pomarańcz `#E8450A`,
+Mulish/Lora, ta sama konstrukcja `.page`/`.sec`/`.cbgrid`/`.ta` co reszta
+serii) — zmieniła się tylko kolejność i grupowanie treści, oraz numeracja
+(rzymskie I–XXVI → arabskie 1–23, plus podpunkty 7a–7f).
 
-I znowu w dół, do 21: ostatnie dwie strony (dawne 21–22) miały sporo
-pustego miejsca — głównie przez oderwaną od reszty, absurdalnie wysoką
-(640px) pustą notatkę „priorytety" i przez to, że sekcja XXIV (podpisy)
-została wcześniej sama na drugiej z tych stron. Naprawione w dwóch
-krokach: (1) notatka „priorytety" przycięta do rozsądnego rozmiaru, sekcja
-XXIV dosunięta do niej na tę samą stronę; (2) po dosunięciu wciąż było
-sporo miejsca na obu stronach, więc sekcje XXV i XXVI dołączyły też —
-całość (XXIII dokończenie + XXIV + XXV + XXVI) mieści się teraz na
-**jednej, dobrze wypełnionej ostatniej stronie** zamiast dwóch w połowie
-pustych. Przy tej samej okazji wyszło na jaw, że **klauzula RODO (sekcja
-XXVI) była całkowicie niewidoczna** — jej tekst przechodził przez tę samą
-funkcję, która usunęła „pouczenia prawne" (`legal_note()`, wyzerowana na
-Twoją prośbę), a klauzula informacyjna RODO to nie pouczenie o tym, po co
-jest dany punkt druku, tylko obowiązkowy zapis wymagany samym RODO (art.
-13/14) dla dokumentu z danymi wrażliwymi o uczniu — przywrócona jako
-widoczny, drobny druk (patrz „Pouczenia prawne" niżej).
-
-Zbudowane partiami po kilka stron, każda partia renderowana i zweryfikowana
-wizualnie względem oryginalnego 27-stronicowego PDF-a autorki. Kompletne,
-ale — jak cała reszta serii ToM — jeszcze **nieprzeniesione do
-`Zatwierdzone/`**, bo zawiera punkty wymagające Twojej decyzji (patrz niżej).
+Prawie cała treść to **przeniesienie 1:1** z poprzedniej wersji, tylko
+przełożone w nowe miejsce wg Twojego planu. Nowe fragmenty (patrz „Do
+potwierdzenia" niżej) to: część punktu 5 i 6 (przełożone na Twoje własne
+kategorie), cały punkt 8 (wskrzesza dawno usuniętą syntezę „wynik ogólny"),
+cały punkt 9 (nowa synteza obserwacji pogłębionej), część punktu 10
+(dołączone metody i formy pracy) i cały punkt 11 (zupełnie nowa treść —
+trudności we włączeniu).
 
 ## Co jest w środku
 
-- **Str. 1** — tytuł, sekcja I „Dane ucznia" (10 pól, bez danych zbędnych —
-  RODO), sekcja Ia „Ścieżka dokumentacyjna i rodzaj oceny" (Ścieżka A z
-  orzeczeniem → IPET / Ścieżka B bez orzeczenia → PWES, 4 rodzaje oceny) i
-  „Tryb postępowania" (3 pola: współpraca z poradnią, zawiadomienie
-  rodziców, obecność rodzica) — wszystko przeniesione tu ze strony 2 na
-  prośbę autorki, żeby cały „setup" oceny (dane, ścieżka, rodzaj, tryb) był
-  widoczny na jednej stronie.
-- **Str. 2** — sekcja II „Zespół specjalistów" (tabela 8 ról) i sekcja III
-  „Mapa dokumentów źródłowych" (11 druków źródłowych i sekcja, do której
-  trafia ich wynik — „zasada jednego źródła") — obie na pełną szerokość
-  strony, bez sztucznie rozciągniętych wierszy (patrz błąd konstrukcyjny
-  niżej). Mapa dokumentów przeniesiona tu ze swojej dawnej osobnej strony
-  na prośbę autorki, bo obok tabeli zespołu było dość wolnego miejsca.
-- **Str. 3** — sytuacje szkolne objęte obserwacją, zakres i czas obserwacji
-  (pole „Czas objęty obserwacją od / do" — dwa osobne kafelki zamiast
-  jednego pola „od–do"), sekcja IV „Informacje medyczne". Na dole strony —
-  „Przyjmowane leki i sposób podania" oraz „Zalecenia i przeciwwskazania (w
-  tym dieta)" obok siebie w jednym rzędzie, a „Postępowanie w sytuacji
-  nagłej" w drugim rzędzie pod nimi (dawniej rozrzucone na dwóch stronach
-  jako statyczny tekst) — wszystkie trzy jako w pełni edytowalne karty
-  (`.ta`/`.ed`, ta sama konstrukcja co karty celów SMART).
-- **Str. 4** — sekcja V „Wyniki oceny funkcjonalnej KSzOF" — tytuł
-  bezpośrednio nad tabelą 9 obszarów ICF z **edytowalnymi stenami (1–10)**,
-  opis wyników **generowany automatycznie** z wpisanych stenów, wykres
-  słupkowy + mapa radarowa (9 osi). Panel synchronizacji druków (`.synbox`)
-  oraz pola „zastosowany wariant/liczba twierdzeń/data" usunięte na prośbę
-  autorki — nic nie stoi już między tytułem a tabelą.
-- **Str. 5** — sekcja Va „Charakterystyka obszarów — mocne strony i
-  trudności" — w pełni edytowalna tabela 9 obszarów, bezpośrednio po
-  wynikach ilościowych. Zaraz pod nią sekcja Vb „Zakres i charakter
-  wsparcia" (6 pozycji: kto wspiera ucznia) — dodana wcześniej na prośbę
-  autorki, tą samą treścią co sekcja XIV dalej w dokumencie (str. 12),
-  tylko od razu tutaj, obok wyników KSzOF. Na dole strony nowa sekcja Vc
-  „Czynniki kontekstowe wg ICF" — dwie krótkie grupy: czynniki
-  środowiskowe (przykłady, pełny wykaz w sekcji X na str. 10) i czynniki
-  osobowe (ICF ich nie koduje, ale je uwzględnia — tu w ogóle nowa treść,
-  nigdzie indziej w dokumencie nieopisana). Grupy skrócone do 2 pozycji
-  każda, żeby zmieścić się na tej samej stronie co Va/Vb. **Uwaga:**
-  sekcja Vb to świadome powtórzenie sekcji XIV w dwóch miejscach — do
-  potwierdzenia, czy oba mają zostać.
-- **Str. 6** — nowa sekcja Vd „Indywidualne potrzeby rozwojowe — na
-  podstawie dodatkowych obserwacji": tabela 4 wierszy (Zachowania trudne —
-  analiza ABC/FBA, Profil sensoryczny, Kwestionariusz rozwoju mowy, Profil
-  ToM), każdy wiersz z edytowalną komórką na charakterystykę dodatkowego
-  obszaru. Dodana na wyraźną prośbę autorki; nie zmieściła się już na str.
-  5, więc dostała własną stronę — stąd dużo wolnego miejsca pod tabelą
-  (naturalny efekt, nie błąd, ten sam wzorzec co reszta dokumentu po
-  usunięciu pouczeń). **Uwaga:** te same 4 narzędzia są opisane
-  szczegółowo dalej — ABC/FBA w sekcji VI (str. 7), ToM w sekcji VII (str.
-  8), mowa w sekcji VIII (str. 8-9), profil sensoryczny w sekcji IX (str.
-  9) — do potwierdzenia, czy Vd ma być krótkim podglądem tych czterech
-  sekcji (jak Vb dla XIV), czy jest zbędny, skoro te same informacje
-  pojawiają się dalej w pełnej formie.
-- **Str. 7** — sekcja VI „Zachowanie — funkcje zachowań trudnych" (transfer
-  z karty ABC/FBA). Dawna sekcja Vb „Opis wyników oceny funkcjonalnej —
-  synteza opisowa" (4 punkty, jak i wcześniej usunięta strona „Wynik
-  ogólny / reguła nadrzędna / synteza wg poziomów") usunięta w całości na
-  prośbę autorki — sekcja V kończy się teraz na tabelach Va/Vb/Vc.
-- **Str. 8** — plan pozytywnego wsparcia (PBS), nota o Standardach Ochrony
-  Małoletnich, sekcja VII „Poznanie społeczne — teoria umysłu" (transfer z
-  ToM), sekcja VIII „Mowa i komunikacja" (transfer z kwestionariusza mowy).
-- **Str. 9** — sposób porozumiewania się, kierunki terapii logopedycznej,
-  sekcja IX „Przetwarzanie sensoryczne" (transfer z profilu sensorycznego,
-  model Dunn).
-- **Str. 10** — wnioski sensoryczne, sekcja X „Kontekst biopsychospołeczny"
-  (12 czynników środowiskowych ICF), ułatwienia/bariery/dobrostan, nagłówek
-  sekcji XI.
-- **Str. 11** — sekcja XI „Całościowy obraz funkcjonowania" (tabela synteza
-  8 obszarów), sekcja XII „Indywidualne potrzeby rozwojowe i edukacyjne" —
-  jej 3 puste pola („Indywidualne potrzeby rozwojowe i edukacyjne",
-  „Mocne strony i możliwości psychofizyczne", „Zainteresowania,
-  uzdolnienia...") dostały widoczną kropkowaną linię, tak jak puste
-  komórki tabel — wcześniej wyglądały jak zwykłe puste miejsce, a nie pole
-  do wypełnienia, mimo że były edytowalne (`contenteditable`) od początku.
-- **Str. 12** — sekcja XIII „Przyczyny niepowodzeń edukacyjnych, bariery i
-  ograniczenia", sekcja XIV „Zakres i charakter wsparcia".
-- **Str. 13** — sekcja XV „Metody i formy pracy z uczniem" — tytuł
-  przeniesiony tu, na stronę z jego własną tabelą (wcześniej został sam na
-  końcu str. 12, bez żadnej treści pod nim — tabela zaczynała się dopiero
-  na kolejnej stronie). Tabela metod pracy wg obszaru/przedmiotu, „Metody
-  stosowane w pracy z uczniem" (16 pozycji — 2 zaznaczone jako przykład,
-  tak jak w oryginale), „Formy organizacyjne pracy".
-- **Str. 14** — sekcja XVI „Zakres i sposób dostosowania wymagań
-  edukacyjnych" (4 kanały), dostosowanie sprawdzania wiedzy, dostosowanie
-  warunków egzaminu ósmoklasisty.
-- **Str. 15** — sekcja XVII „Rekomendowane zajęcia i programy
-  terapeutyczne" — rewalidacja / pomoc psychologiczno-pedagogiczna, tabela
-  programów terapeutycznych.
-- **Str. 16** — sekcja XVIII „Zintegrowane działania nauczycieli i
-  specjalistów", wspólne strategie.
-- **Str. 17** — sekcja XIX „Współpraca z rodzicami i współpraca
-  międzysektorowa" — tabela zobowiązań, formy współpracy, instytucje.
-- **Str. 18** — sekcja XX „Decyzja posiedzenia zespołu" (rekomendowany
-  poziom wsparcia), sekcja XXI „Cele SMART" — tabela + 2 karty przykładowe
-  (`ta-smart-e`/`ta-smart-t`, ta sama konstrukcja co w ToM).
-- **Str. 19** — sekcja XXII „Ocena efektywności udzielanego wsparcia" —
-  tabela 8 zakresów × 3 pomiary (start/półrocze/koniec roku).
-- **Str. 20** — sekcja XXIII „Przeniesienie informacji — do IPET albo do
-  PWES" — tabela 9 wierszy, dwie kolumny ścieżek (A → IPET, B → PWES).
-- **Str. 21 (ostatnia)** — dokończenie sekcji XXIII (dokument wynikowy,
-  termin, osoba odpowiedzialna, priorytety na najbliższe półrocze), sekcja
-  XXIV „Podpisy zespołu ds. WOPF" (7 podpisów), sekcja XXV „Wykaz
-  załączników" (12 pozycji), sekcja XXVI „Klauzula informacyjna RODO i
-  ważność dokumentu" — cztery sekcje na jednej stronie, bo osobno każda
-  zostawiała sporo pustego miejsca (patrz wyżej „Potem do 24... i znowu w
-  dół, do 21"). „Opinia zespołu" (dawne str. 22–23, samodzielny
-  2-stronicowy dokument do wydania na zewnątrz) i tak już zniknęła
-  wcześniej na wyraźną prośbę autorki.
-
-## Pouczenia prawne i wyjaśnienia — usunięte
-
-Na wyraźną prośbę autorki usunięte zostały wszystkie ramki „Podstawa
-prawna" (cytowania przepisów) oraz wszystkie boksy „✍ Jak wypełnić"
-(instrukcje wypełniania) na wszystkich 27 stronach — zajmowały dużo miejsca
-przy niewielkiej wartości użytkowej dla kogoś, kto już wie, jak z druku
-korzystać. Usunięte też pojedyncze notki czysto wyjaśniające bez
-konkretnych danych o uczniu (np. „legenda" profilu sensorycznego, „granica
-dostosowania", „sprawdzian celu SMART"). **Zostały** notatki, które są
-faktyczną treścią kliniczną/proceduralną dotyczącą konkretnego ucznia albo
-konkretnej procedury szkoły (np. procedura na wypadek sytuacji nagłej, plan
-pozytywnego wsparcia PBS, hipoteza funkcjonalna) — to nie są „pouczenia",
-tylko wypełniona treść, taka sama jak wiersz w tabeli.
-
-Efekt uboczny: każda strona zyskała sporo wolnej przestrzeni (część stron
-ma teraz nawet pół strony pustego miejsca pod treścią) — to naturalna
-konsekwencja usunięcia tekstu, a nie błąd. Numeracja stron i sekcji
-(I–XXVI) pozostała bez zmian.
-
-Dodatkowo usunięta ramka „Karta scalająca — WOPF szkolny · jeden druk, dwie
-ścieżki" na str. 1 (opisowy akapit o tym, czym jest WOPF) — z tego samego
-powodu, ta sama kategoria „informacji/wyjaśnień", tylko nie wychwycona przy
-pierwszym przejściu, bo nie miała stylu `.howto` ani „Podstawa prawna".
-
-**Poprawka:** jedna z usuniętych „Podstawa prawna" trafiła tu przez
-pomyłkę — klauzula informacyjna RODO (sekcja XXVI, str. 21) szła przez tę
-samą funkcję co cytowania przepisów uzasadniające poszczególne pola druku,
-więc zniknęła razem z nimi, choć to nie to samo. Cytowania przepisów
-tłumaczyły PO CO jest dany punkt druku — zbędne dla kogoś, kto już wie,
-jak z druku korzystać. Klauzula RODO to co innego: obowiązkowy zapis,
-wymagany samym RODO (art. 13/14), dla dokumentu zawierającego dane
-wrażliwe o uczniu. Dlatego przywrócona jako widoczna treść, w stylu
-drobnego druku (`.legal`).
+- **Str. 1** — **1. Dane ucznia** (10 pól) i **2. Ścieżka dokumentacyjna i
+  rodzaj oceny** (ścieżka A/B, 4 rodzaje oceny, tryb postępowania) — bez
+  zmian względem poprzedniej wersji, tylko przenumerowane z I/Ia na 1/2.
+- **Str. 2** — **3. Zespół specjalistów** (tabela 8 ról, koordynator jako
+  pierwszy wiersz) i **4. Mapa dokumentów źródłowych** (11 druków) — ostatnia
+  kolumna mapy zaktualizowana: zamiast „sekcja V/VI/VII..." wskazuje teraz
+  nowy numer punktu (np. „7a", „7c").
+- **Str. 3** — **5. Sytuacje szkolne objęte obserwacją** — przełożone z
+  płaskiej listy 12 pozycji na Twoich 5 kategorii (lekcje / przerwy /
+  zajęcia ppp / zajęcia rewalidacyjne / inne), każda jako osobna grupa
+  checkboxów. Plus zakres i czas obserwacji.
+- **Str. 4** — **6. Informacje medyczne** — przełożone na Twoich 7 kategorii
+  (leki / choroby przewlekłe / dysfunkcje sensoryczne / wady genetyczne /
+  diety / alergie / zachowania behawioralne). Dwie kategorie nie miały
+  wcześniej żadnej pozycji na liście — **dysfunkcje sensoryczne** i **wady
+  genetyczne** — dodane jako nowe pozycje checkboxów. Plus leki/zalecenia i
+  procedura nagła. **Uwaga:** punkty 5 i 6 nie zmieściły się już razem na
+  jednej stronie (jak w starej wersji) — nowy układ z 5–7 osobnymi grupami
+  zamiast jednej płaskiej listy zajął więcej miejsca, więc dostały dwie
+  osobne strony.
+- **Str. 5–6** — **7. Wyniki obserwacji, 7a) Obserwacja podstawowa — KSzOF**:
+  a) wyniki liczbowe (tabela stenów, **edytowalna**), b) wykres (słupkowy +
+  radar, liczą się automatycznie), c) opis merytoryczny (tabela mocne
+  strony/trudności) — to dokładnie dawna sekcja V + Va, tylko podpisana
+  jako „7a" i z wyraźnym a)/b)/c) wg Twojego planu.
+- **Str. 7** — **8. Synteza wyników — wynik podstawowy** (NOWA treść — patrz
+  „Do potwierdzenia"). Wskrzesza syntezę „wynik ogólny / reguła nadrzędna",
+  którą usunęłaś wcześniej w tej sesji (`git log`: „Uprość sekcję V: usuń
+  panel synchronizacji i całą stronę »wynik ogólny/synteza«") — teraz Twój
+  plan chce ją z powrotem jako osobny punkt 8, więc ją odtworzyłam. Przy
+  okazji **ożywia dwa martwe elementy JS**, które od tamtej zmiany istniały
+  tylko w kodzie bez żadnego miejsca na stronie: `#wopfAvgSten` i
+  `#wopfAvgPoziom` (średni sten i poziom, liczone automatycznie z tabeli w
+  7a) — teraz mają wreszcie gdzie się wyświetlić. Osobno: „Synteza wg
+  poziomów" to ten sam autouzupełniany tekst co dawny `#autoOpisKszof` pod
+  tabelą w 7a, tylko przeniesiony tutaj i bez duplikatu w 7a.
+- **Str. 8** — **Obserwacja pogłębiona** (nagłówek), **7b) Profil
+  biopsychospołeczny** — dawna sekcja X, bez zmian treści, tylko bez
+  tytułowego „Kontekst biopsychospołeczny — czynniki środowiskowe ICF" (Twój
+  plan nazywa to wprost „Profil biopsychospołeczny").
+- **Str. 9** — **7c) Analiza ABC/FBA — zachowania trudne** — dawna sekcja
+  VI, plus hipoteza funkcjonalna, plus plan pozytywnego wsparcia (PBS) i
+  nota o Standardach Ochrony Małoletnich (dawniej rozdzielone między dwie
+  strony, teraz razem przy ABC/FBA, bo tematycznie do siebie należą).
+- **Str. 10** — **7d) Profil sensoryczny** (dawna IX + wnioski sensoryczne)
+  i **7e) Ocena poziomu rozwoju mowy** (dawna VIII, początek tabeli).
+- **Str. 11** — dokończenie 7e (sposób porozumiewania się, kierunki terapii
+  logopedycznej) i **7f) Ocena ToM** (dawna VII). **Kolejność zmieniona**
+  względem starej wersji (była: ABC/FBA → ToM → mowa → sensoryczny →
+  biopsychospołeczny) na kolejność z Twojego planu (biopsychospołeczny →
+  ABC/FBA → sensoryczny → mowa → ToM, czyli 7b→7c→7d→7e→7f).
+- **Str. 12** — **9. Synteza wszystkich wyników z obserwacji pogłębionej
+  oraz z zaleceń poradni pp** (CAŁKOWICIE NOWA treść — patrz „Do
+  potwierdzenia"). Tabela: jeden wiersz na każde z pięciu narzędzi 7b–7f,
+  edytowalna komórka na najważniejszy wniosek; osobno notatka na zalecenia
+  z poradni i notatka na samą syntezę.
+- **Str. 13–14** — **10. Synteza wyników zintegrowanych** — łączy dawną
+  sekcję XI (tabela synteza 8 obszarów: mocne strony/trudności) i dawną
+  XIII (przyczyny niepowodzeń, bariery, ograniczenia — 8-wierszowa tabela),
+  plus **metody i formy pracy** dołączone tutaj w skróconej formie (Twój
+  plan wymienia „metody i formy pracy" jako element tej syntezy, a nie jako
+  osobny punkt — więc dawna, pełna sekcja XV ze szczegółową tabelą
+  metoda/przedmiot **zniknęła**, został tylko skrócony checklist metod i
+  form). „Zintegrowane działania" mają tu tylko jednozdaniowy skrót — pełny
+  zakres jest w punkcie 15.
+- **Str. 15** — **11. Trudności w zakresie włączenia ucznia** w zajęciach
+  wspólnych z oddziałem (CAŁKOWICIE NOWA treść — patrz „Do potwierdzenia").
+  Checklist sytuacji grupowych, opis obserwowalny, checklist wsparcia
+  ułatwiającego włączenie.
+- **Str. 16** — **12. Decyzja zespołu** — poziom wsparcia (dawna XX) i
+  **13. Zalecenia i cele do realizacji w IPET/programie** — początek tabeli
+  celów SMART (dawna XXI).
+- **Str. 17** — dokończenie 13 (2 przykładowe karty SMART) i **14. Zakres
+  dostosowań wymagań edukacyjnych** — początek (dawna XVI, tabela 4
+  kanałów).
+- **Str. 18** — dokończenie 14 (checklist sprawdzania wiedzy, dostosowania
+  egzaminu ósmoklasisty) i **15. Zintegrowane działania nauczycieli i
+  specjalistów** — początek (dawna XVIII, tabela).
+- **Str. 19** — dokończenie 15 (wspólne strategie, ustalenia, termin
+  spotkań) i **16. Zakres proponowanego wsparcia** — początek: checklist
+  „kto wspiera ucznia" (dawna Vb/XIV — teraz scalona w jednym miejscu,
+  patrz „Do potwierdzenia").
+- **Str. 20** — dokończenie 16 (zajęcia rewalidacyjne, zajęcia z ppp,
+  programy terapeutyczne — dawna XVII).
+- **Str. 21** — **17. Współpraca z rodzicami** i **18. Współpraca
+  międzysektorowa** — obie połowy dawnej sekcji XIX, teraz jako dwa osobne
+  punkty wg Twojego planu.
+- **Str. 22** — **19. Plan modyfikacji w ciągu roku szkolnego** — terminy
+  ewaluacji i oceny efektywności (dawna XXII), z odsyłaczami do nowych
+  numerów punktów zamiast starych sekcji rzymskich.
+- **Str. 23** — **20. Przeniesienie informacji — do IPET albo do PWES**
+  (dawna XXIII, tabela 9 wierszy + dokończenie: dokument wynikowy,
+  priorytety na półrocze) — odsyłacze w tabeli zaktualizowane do nowych
+  numerów punktów.
+- **Str. 24** — **21. Podpisy zespołu ds. WOPF**, **22. Wykaz załączników**,
+  **23. Klauzula informacyjna RODO i ważność dokumentu** — dawne XXIV–XXVI,
+  bez zmian treści, tylko przenumerowane (kontynuacja 1–23, żeby cała
+  numeracja w dokumencie była jednym ciągiem, a nie mieszanką cyfr i liter).
 
 ## Interaktywność
 
-Tylko sekcja V (wyniki KSzOF) ma pełne przeliczanie automatyczne — to
-jedyna sekcja, w której WOPF prezentuje liczby (steny), więc tylko tu ma to
-sens. Wpisanie stenu 1–10 w dowolnym z 9 wierszy tabeli automatycznie:
-poziom wsparcia w tym samym wierszu (kolor + etykieta Poziom I/II/III),
-słupek i punkt na mapie radarowej, opis wyników pod tabelą (zamraża się po
-pierwszej ręcznej poprawce — ten sam wzorzec co `#autoOpis` w ToM). Pozostałe sekcje to pola
-i tabele do ręcznego wypełnienia — WOPF tylko *rejestruje* to, co przenosi
-się z innych druków, nie przelicza tego samodzielnie.
+Tabela stenów w **7a** ma pełne przeliczanie automatyczne — jedyne miejsce,
+gdzie WOPF prezentuje liczby. Wpisanie stenu 1–10 w dowolnym z 9 wierszy
+automatycznie liczy: poziom wsparcia w tym samym wierszu, słupek i punkt na
+mapie radarowej (oba w 7a), **a teraz też średni sten i poziom ogólny w
+punkcie 8** (`#wopfAvgSten`/`#wopfAvgPoziom` — martwe od poprzedniej sesji,
+ożywione tym razem) oraz syntezę wg poziomów pod nimi (zamraża się po
+pierwszej ręcznej poprawce, jak poprzednio `#autoOpisKszof`). Pozostałe
+punkty to pola i tabele do ręcznego wypełnienia.
 
-## Znaleziony i naprawiony błąd konstrukcyjny
+## Znaleziony i naprawiony błąd konstrukcyjny (z poprzednich wersji, nadal aktualny)
 
 Współdzielony arkusz stylów (ten sam co w całej serii ToM) ma regułę, która
 automatycznie rozciąga JEDYNĄ tabelę na stronie na 100% wysokości karty
-(`flex:1 1 auto;height:100%`), żeby wiersze ładnie wypełniały pustą
-przestrzeń. Na stronach, gdzie po tabeli jest jeszcze dużo innej treści, ta
-reguła konfliktowała z `table-layout:fixed` i powodowała, że **ostatni
-wiersz tabeli był rysowany, ale zasłaniany przez następny blok**
-(niewidoczny mimo poprawnej pozycji w DOM). Naprawione przez jawne
-wyłączenie tego rozciągania (`flex:0 0 auto;height:auto`) na każdej tabeli
-budowanej dla WOPF. Ten sam efekt (tym razem jako absurdalnie wysokie
-wiersze, nie znikający wiersz) dotknął też tabelę „Zespół specjalistów" na
-str. 2, gdy po przeniesieniu ścieżki dokumentacyjnej na str. 1 zrobiła się
-z niej jedyny większy blok na stronie — naprawione tak samo (wiersze mają
-teraz naturalną, zwartą wysokość), tabela zostaje na pełną szerokość
-strony.
-
-Drugi, mniejszy przypadek tej samej rodziny problemów: puste pola
-`contenteditable` bez żadnej treści (np. 3 pola sekcji XII) nie miały
-żadnego wizualnego znaku, że są do wypełnienia — wyglądały jak zwykła
-pusta przestrzeń, identycznie jak np. już wypełniona notatka „Hipoteza
-funkcjonalna" wygląda, gdy jest pusta. Naprawione dodaniem tej samej
-kropkowanej linii, jaką puste komórki tabel już miały (`:empty::after`),
-tylko jako nowa, celowo wąsko wyselekcjonowana klasa (`.note.blankfill`),
-żeby nie zmieniać wyglądu pozostałych, już wypełnionych notatek w reszcie
-dokumentu.
+(`flex:1 1 auto;height:100%`). Na stronach, gdzie po tabeli jest jeszcze
+dużo innej treści, ta reguła konfliktowała z `table-layout:fixed` i
+powodowała, że **ostatni wiersz tabeli był rysowany, ale zasłaniany przez
+następny blok**. Naprawione przez jawne wyłączenie tego rozciągania
+(`flex:0 0 auto;height:auto`) na każdej tabeli budowanej dla WOPF —
+zachowane we wszystkich tabelach tej przebudowy.
 
 ## Do potwierdzenia przez autorkę
 
-- ~~Dwie różne skale KSzOF w tym samym dokumencie~~ — **rozwiązane**:
-  usunięcie „Opinii zespołu" (patrz wyżej) usunęło też jedyne miejsce,
-  które używało alternatywnej skali średnia 1–5. Sekcja V (str. 4, skala
-  sten 1–10 — realna skala z Twoich kwestionariuszy KSzOF_I-III/IV-VI w
-  `druki/Zatwierdzone/`) jest teraz jedynym miejscem w WOPF, które podaje
-  liczby KSzOF.
-- **Sekcja Vb i sekcja XIV — to samo pytanie „zakres i charakter wsparcia"
-  w dwóch miejscach (str. 5 i str. 12).** Dodane na wyraźną prośbę zaraz po
-  charakterystyce obszarów KSzOF, tą samą treścią co już istniejąca sekcja
-  XIV dalej w dokumencie. Zostawiam obie — do potwierdzenia, czy to
-  zamierzone powtórzenie (np. Vb jako pierwsza, szybka ocena tuż po KSzOF,
-  a XIV jako ostateczna decyzja przy planowaniu IPET/PWES), czy któraś ma
-  zniknąć.
-- **Sekcja Vc a sekcja X — czynniki środowiskowe wg ICF, znowu w dwóch
-  miejscach (str. 5 i str. 10).** Ten sam wzorzec co Vb/XIV: Vc daje krótki
-  podgląd (2 pozycje, przykładowe) tuż przy wynikach KSzOF, a pełny wykaz
-  (12 pozycji z kodami ICF) zostaje w sekcji X. Część Vc o czynnikach
-  *osobowych* jest natomiast całkiem nowa — nie duplikuje niczego, bo ICF
-  wprawdzie nie klasyfikuje czynników osobowych kodem, ale wymienia je jako
-  drugą (obok środowiskowych) kategorię czynników kontekstowych.
-- **Sekcja Vd — tabela 4 dodatkowych obserwacji (str. 6) — czy to podgląd
-  czy powtórka.** Zawiera po jednym wierszu na: analizę ABC/FBA, profil
-  sensoryczny, kwestionariusz mowy, profil ToM — te same cztery narzędzia
-  są potem opisane szczegółowo w sekcjach VI–IX (str. 7–9). Dodana na
-  wyraźną prośbę tuż po sekcji V, ale w przeciwieństwie do Vb/Vc nie ma tu
-  jeszcze żadnej treści do przepisania z oryginalnego PDF-u — komórki
-  wynikowe są puste, do wypełnienia przez zespół. Do potwierdzenia: czy ma
-  zostać jako szybkie podsumowanie „co jeszcze obserwowaliśmy" zaraz przy
-  KSzOF, czy to zbędne powtórzenie nagłówków sekcji VI–IX.
-- **Sekcja VII, komponenty ToM (K1–K5)**: oryginalny PDF autorki używa
-  innego zestawu komponentów („Świadomość emocji własnych", „Rozpoznawanie
-  emocji innych", „Przyjmowanie perspektywy", „Rozumienie intencji", „Język
-  niedosłowny") niż którykolwiek z trzech gotowych wariantów ToM w tym
-  repozytorium (klasy 1-3/4-6/7-8 mają inne, bardziej rozbudowane nazwy
-  komponentów). Przepisane tu **dosłownie z oryginału WOPF** — wymaga
-  Twojej decyzji, czy to osobny, uproszczony zestaw K1–K5, czy pomyłka do
-  poprawienia.
+Ta przebudowa jest większa niż poprzednie zmiany w tej sesji — przełożyłam
+prawie cały dokument w nowy układ na podstawie Twojego planu, ale kilka
+miejsc wymagało decyzji, których plan wprost nie rozstrzygał. Zaznaczam je
+tu, żebyś mogła sprawdzić, czy trafiłam:
+
+- **Punkt 8 „Synteza — wynik podstawowy" (str. 7) — czy dobrze odtworzyłam
+  usuniętą wcześniej treść.** Twój plan wymienia to jako osobny punkt, ale
+  nie opisuje go szczegółowo. Odtworzyłam średni sten + poziom ogólny +
+  „regułę nadrzędną" (progi 8–10/5–7/1–4) — to była dokładnie treść, którą
+  usunęłaś w tej sesji wcześniej pod nazwą „wynik ogólny / reguła
+  nadrzędna / synteza wg poziomów". Jeśli chodziło Ci o coś innego pod tą
+  nazwą — daj znać.
+- **Punkt 9 „Synteza obserwacji pogłębionej i zaleceń poradni" (str. 12) —
+  całkiem nowa treść, moja interpretacja.** Zbudowałam to jako tabelę z
+  jednym wierszem na każde z 5 narzędzi z punktu 7 (7b–7f) plus osobną
+  notatkę na zalecenia z poradni psychologiczno-pedagogicznej. To jest
+  szkielet do wypełnienia, nie gotowa treść — sprawdź, czy taki układ
+  (tabela + 2 notatki) Ci odpowiada, czy wolisz inną formę.
+- **Punkt 10 — „metody i formy pracy" bez osobnej, szczegółowej sekcji
+  (str. 13–14).** Twój plan wymienia metody i formy pracy jako SKŁADNIK
+  syntezy w punkcie 10, a nie jako osobny punkt — więc dawna sekcja XV (ze
+  szczegółową tabelą metoda/forma/kto na każdy przedmiot) zniknęła, a
+  został tylko skrócony checklist metod i form. Jeśli to za duża strata
+  szczegółowości — mogę dodać skróconą wersję tamtej tabeli z powrotem.
+- **Punkt 11 „Trudności w zakresie włączenia" (str. 15) — cała treść nowa,
+  moja propozycja.** Nic w poprzedniej wersji WOPF nie odpowiadało temu
+  punktowi wprost, więc checklist sytuacji grupowych i wsparcia
+  ułatwiającego napisałam od zera, wzorując się stylistycznie na
+  analogicznych checklistach gdzie indziej w dokumencie — to nie jest
+  przepisane z żadnego istniejącego druku źródłowego, tak jak reszta
+  dokumentu. Do sprawdzenia najbardziej ze wszystkich nowych fragmentów.
+- **Punkt 16 „Zakres proponowanego wsparcia" (str. 19–20) łączy trzy dawne
+  fragmenty w jeden punkt** — checklist „kto wspiera" (dawna Vb/XIV, do tej
+  pory duplikowana w dwóch miejscach dokumentu — teraz jest tylko tutaj,
+  raz), zajęcia rewalidacyjne i zajęcia z ppp (dawna XVII). To rozwiązuje
+  przy okazji dawny „dualizm" Vb/XIV, który wcześniej flagowałam do
+  potwierdzenia — teraz jest tylko jedno miejsce z tym pytaniem.
+- **Sekcja VII / punkt 7f, komponenty ToM (K1–K5) — nierozwiązane z
+  poprzednich sesji.** Oryginalny PDF autorki używa innego zestawu
+  komponentów niż którykolwiek z trzech gotowych wariantów ToM w tym
+  repozytorium. Przepisane tu **dosłownie z oryginału WOPF**, bez zmian w
+  tej przebudowie — nadal wymaga Twojej decyzji, czy to osobny, uproszczony
+  zestaw K1–K5, czy pomyłka do poprawienia.
+- **Odsyłacze do numerów punktów w tekście** (np. w tabeli mapy dokumentów
+  na str. 2, w tabeli przeniesienia informacji na str. 23, w tabeli oceny
+  efektywności na str. 22) zostały zaktualizowane ze starych sekcji
+  rzymskich na nowe numery — sprawdziłam wszystkie tabele i tagi nagłówków,
+  ale przy dokumencie tej wielkości niewykluczone, że gdzieś w treści
+  notatek zostało przeoczone odwołanie do starego numeru sekcji. Daj znać,
+  jeśli coś takiego zauważysz.
 - Żaden z czterech wariantów ToM ani WOPF nie jest jeszcze przeniesiony do
   `Zatwierdzone/` — czeka na Twoje potwierdzenie powyższych punktów.
 
@@ -283,6 +213,7 @@ dokumentu.
 Tak jak reszta serii: `@page{size:A4}` + `@media print` w HTML, PDF to
 odpowiednik **Ctrl+P → Zapisz jako PDF**, wygenerowany tu automatycznie
 (headless Chromium, `print_background` + `prefer_css_page_size`).
-Zweryfikowane renderem: 21 fizycznych stron, żadna nie ucina treści
-(sprawdzone programowo — margines do stopki dodatni na każdej stronie),
-zero błędów JS, interaktywność sekcji V przetestowana.
+Zweryfikowane renderem: 24 fizyczne strony, żadna nie ucina treści
+(sprawdzone programowo — margines do stopki dodatni na każdej stronie, i
+zbalansowane tagi `<div>` w całym dokumencie), zero błędów JS,
+interaktywność stenów i nowo ożywionej średniej (punkt 8) przetestowana.
