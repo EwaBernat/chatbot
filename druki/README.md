@@ -21,7 +21,7 @@ potwierdzony, przenosimy go do `Zatwierdzone/` (`git mv`, bez zmiany treści).
 | [`ToM/klasy_1-3/`](ToM/klasy_1-3/README.md) | Karta oceny Teorii Umysłu, klasy I–III | html + pdf | ⚠️ niekompletny — 7 z 11 stron |
 | [`ToM/klasy_4-6/`](ToM/klasy_4-6/README.md) | Karta oceny Teorii Umysłu, klasy IV–VI | html + pdf | zredukowane 11→8 stron wg wzoru klasy 1-3 — do potwierdzenia |
 | [`ToM/klasy_7-8/`](ToM/klasy_7-8/README.md) | Karta oceny Teorii Umysłu, klasy VII–VIII | html + pdf | zredukowane 11→8 stron wg wzoru klasy 1-3 — do potwierdzenia |
-| [`WOPF/`](WOPF/README.md) | Wielospecjalistyczna Ocena Poziomu Funkcjonowania — karta scalająca | html + pdf | przebudowana wg przesłanego WOPF.docx (25 sekcji rzymskich) + załącznik obserwacji pogłębionej, 14 stron — do potwierdzenia |
+| [`WOPF/`](WOPF/README.md) | Wielospecjalistyczna Ocena Poziomu Funkcjonowania — karta scalająca | html + pdf | pełna wersja (25 sekcji, 14 stron) + nowa wersja skrócona bez obserwacji pogłębionej (9 sekcji, 7 stron) — obie do potwierdzenia |
 | IPET — klasa 1-3 | szkoła podstawowa, klasy 1-3 | — | do dodania — szukane w repozytorium, jeszcze nie znalezione |
 
 Wersja IPET dla przedszkola została celowo usunięta z tego projektu —

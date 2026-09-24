@@ -10,8 +10,66 @@ wzorem jest `klasy_1-3`.
 
 | Plik | Opis |
 |---|---|
-| `WOPF_karta_oceny.html` | źródło — wszystkie 14 stron |
+| `WOPF_karta_oceny.html` | źródło — pełna wersja, wszystkie 14 stron |
 | `WOPF_karta_oceny.pdf` | pełny wydruk (headless Chromium, druk A4) |
+| `WOPF_SP_bez_poglebionej.html` | **nowość** — wersja skrócona (9 sekcji, 7 stron), gdy zespół nie prowadzi obserwacji pogłębionej |
+| `WOPF_SP_bez_poglebionej.pdf` | wydruk wersji skróconej |
+
+## Nowość: wersja „bez obserwacji pogłębionej" (7 stron)
+
+Wkleiłaś w czacie pełny tekst innej, dużo krótszej wersji WOPF (9 sekcji
+rzymskich I–X zamiast 25) i poprosiłaś o taki sam druk, ale bez
+obserwacji pogłębionej. Zbudowałam go jako **osobny plik** obok pełnej,
+14-stronicowej wersji — to inny, krótszy dokument, nie zamiennik tamtego,
+więc żadna z Twoich wcześniej zatwierdzanych stron się nie zmieniła.
+
+**Co zrobiłam z Twoim wklejonym tekstem, żeby faktycznie pasował do „bez
+obserwacji pogłębionej":**
+
+- **Usunęłam całą Sekcję VII** („Punkt kontrolny — decyzja zespołu o
+  obserwacji pogłębionej") — w Twoim wklejonym tekście ta sekcja
+  dokumentowała, że zespół **zdecydował się** przeprowadzić obserwację
+  pogłębioną (protokół: „Zespół zarządza przeprowadzenie obserwacji
+  pogłębionej..."). To wprost sprzeczne z „bez obserwacji pogłębionej",
+  więc ta sekcja nie mogła zostać — nie ma jej w wersji skróconej.
+  Kolejne sekcje przesunęłam o jeden numer w dół (VIII→VII, IX→VIII,
+  X→IX), żeby nie było dziury w numeracji.
+- **Sekcja III (Mapa dokumentów źródłowych) — skrócona z 10 do 5
+  wierszy.** Twój wklejony tekst wymieniał też Kartę ABC/FBA, Test ToM,
+  Kwestionariusz rozwoju mowy i Profil sensoryczny/biopsychospołeczny —
+  to wszystko narzędzia Modułu II (obserwacji pogłębionej). Skoro tej
+  obserwacji nie ma, te narzędzia nie zostały użyte, więc usunęłam te 4
+  wiersze z mapy źródeł (zostawiłam tylko: metryczka, orzeczenie/opinia,
+  KSzOF, wywiad z rodzicem, opinie nauczycieli) i dopisałam pod tabelą
+  notkę tłumaczącą dlaczego. **To moja interpretacja — jeśli wolisz mieć
+  tam wszystkie 10 wierszy tak jak wkleiłaś, mimo że część nie została
+  wykorzystana, daj znać.**
+- **Poprawiłam 2 odsyłacze do sekcji, które w Twoim tekście wskazywały
+  poza ten dokument** („Wywiad z rodzicem" → „Sekcja X–XII", „Opinie
+  nauczycieli" → „Sekcja XI–XVIII") — to sekcje z dłuższej, 25-sekcyjnej
+  wersji, których tu nie ma. Zamieniłam na realne sekcje tego dokumentu
+  (odpowiednio VII+IX i V–VII).
+- **Jedno zdanie w nowej Sekcji VII (Synteza funkcjonalna) zmienione.**
+  Punkt 3 w Twoim tekście uzasadniał terapię psychologiczną słowami „w
+  oparciu o wyniki ToM" — ale Test Teorii Umysłu to narzędzie Modułu II,
+  którego tu nie ma. Usunęłam to uzasadnienie (zdanie zostaje, tylko bez
+  tego dopisku) — reszta syntezy w tej sekcji opiera się wyłącznie na
+  KSzOF i charakterystyce jakościowej (Sekcje V–VI), więc nie wymagała
+  zmian.
+- **Kolumnę „Zakres punktu" w tabeli KSzOF (Sekcja V) wypełniłam** —
+  w Twoim wklejonym tekście była obecna w nagłówku, ale pusta w każdym
+  wierszu. Wpisałam tam zakresy stenów odpowiadające legendzie nad
+  tabelą (8–10 / 5–7 / 1–4) — liczy się automatycznie razem z poziomem,
+  gdy zmienisz sten.
+- **Reszta treści (Sekcje I, II, IV, V, VI, oraz punkty 1, 2 i 4 nowej
+  Sekcji VII, Sekcja VIII/Współpraca z rodzicami, Sekcja IX/Podpisy) to
+  Twój tekst praktycznie bez zmian** — tylko przeniesiony w gotową
+  konstrukcję druku (fiolet `#2D1B69` + pomarańcz `#E8450A`, Mulish/Lora,
+  te same `.sec`/`.tb`/`.ta`/`.cbgrid`, co reszta serii).
+
+Zweryfikowane: 7 fizycznych stron, margines do stopki dodatni na każdej,
+zero błędów JS, steny w Sekcji V przeliczają poziom i zakres punktu
+automatycznie (tak jak w pełnej wersji).
 
 **Ta wersja zastępuje poprzednią** (19 ponumerowanych punktów wg ręcznie
 wpisanego „Planu WOPF") — przesłałaś plik `WOPF.docx`, który jest
