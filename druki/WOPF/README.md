@@ -134,6 +134,20 @@ dokumentach) i podświetlenie wybranej karty (pomarańczowa ramka i jasne
 tło) — wybór jest jeden z dwóch (A **albo** B, nie oba naraz) i widać go
 gołym okiem od razu na wydruku, nie tylko przy zaznaczonym kółku.
 
+**Naprawiony błąd — 5 pustych pól do wypełnienia nie dawało się kliknąć
+i wpisać tekstu.** Zauważyłaś to przy „Mocne strony" (VIII.2) i punkcie
+pod nim; sprawdziłam cały dokument i ten sam błąd miały jeszcze 3 inne
+puste pola: „Wyniki niewykonane / nieobserwowane" (str. 3), „Indywidualne
+potrzeby rozwojowe" (VIII.1, tuż nad „Mocne strony") oraz oba pola w
+VIII.4 „Przyczyny trudności" (str. 6). Wszystkie pięć wyglądały jak pola
+do wypełnienia (jasnofioletowe tło, obramowanie), ale brakowało im atrybutu
+`contenteditable`, więc kliknięcie i pisanie nic nie robiło — czysto
+techniczne przeoczenie przy budowie tego dokumentu, teraz naprawione i
+sprawdzone (wpisanie tekstu faktycznie działa) we wszystkich pięciu
+miejscach. Instruktażowe notki (szare, kursywą, np. „Wpisz tylko
+informacje potwierdzone...") celowo zostają nieedytowalne — to podpowiedzi
+do czytania, nie pola do wypełnienia.
+
 ## Nowość: wersja „bez obserwacji pogłębionej" (6 stron)
 
 Wkleiłaś w czacie pełny tekst innej, dużo krótszej wersji WOPF (9 sekcji
