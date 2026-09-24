@@ -6,6 +6,53 @@ drukach (KSzOF, karta ABC/FBA, ToM, kwestionariusz mowy, profil sensoryczny,
 profil biopsychospołeczny). Wspólna marka i konstrukcja z serii `ToM/` —
 wzorem jest `klasy_1-3`.
 
+## Nowość: Załącznik „Obserwacja pogłębiona" dopisany do arkusza zespołowego (str. 7–10)
+
+Przesłałaś osobny plik Word — `EduPlanner_2026_WOPF_SP_uzupełnienie_i_obserwacja_pogłębiona_2.docx` —
+i poprosiłaś o „piękny druk" z tego jako Załącznik. To 4-sekcyjny,
+samodzielny dokument roboczy do prowadzenia obserwacji pogłębionej: nie
+duplikuje niczego z arkusza zespołowego, tylko rozwija to, na czym Sekcja
+VII tego dokumentu (Punkt Kontrolny) się kończy — decyzję „uruchamiam
+obserwację pogłębioną". Dlatego dopisałam go jako 4 nowe strony na końcu
+`WOPF_SP_arkusz_zespolowy` (6→**10 stron**), w tej samej konstrukcji
+`.page`/`.sec`/`.tb`, a nie jako osobny plik.
+
+- **Str. 7 — Załącznik, Sekcja 1: Decyzja o obserwacji pogłębionej.**
+  Czerwony baner „ZAŁĄCZNIK" (ten sam wzór, co „PUNKT KONTROLNY"), 3
+  przesłanki z Twojego pliku (KSzOF, wpisy ABC, brakujące wyniki mowy/
+  ToM/sensoryki), tabela „jakie arkusze włączyć" (5 wierszy: ABC/FBA,
+  profil sensoryczny, arkusz mowy, profil ToM warunkowo, profil
+  biopsychospołeczny) i tabela ustaleń zespołu (koordynator, termin,
+  data syntezy).
+- **Str. 8 — Sekcja 2: Wyniki arkuszy źródłowych.** Duża tabela — dla
+  każdego z 5 arkuszy osobno: metryczka (data/autor/nr arkusza) i pola
+  na konkretne wyniki tego narzędzia (np. dla mowy: rozumienie poleceń,
+  wypowiedź, gest/symbole/AAC). Poniżej 3 checkboxy stanu danych i pole
+  na brakujące arkusze.
+- **Str. 9 — Sekcja 3: Synteza obserwacji.** Dwie tabele: „co wynika z
+  kilku źródeł" (4 obszary × ustalenie × źródło/niepewność) i „opis
+  zbiorczy do WOPF-SP" (mocne strony / trudności / warunki / dane
+  brakujące) — dokładnie Twoje pola, puste do wypełnienia.
+- **Str. 10 — Sekcja 4: Zalecenia z orzeczenia i oceny.** Część A
+  (zalecenia z orzeczenia — dane dokumentu, checkbox „uczeń nie ma
+  orzeczenia", 3 puste wiersze na zalecenia) i część B (zalecenia
+  zespołu z oceny, też 3 puste wiersze).
+
+**Jedna zmiana treści — z konieczności, nie wyboru.** Twój plik w dwóch
+miejscach mówił „jeżeli zaleceń jest więcej, dodaj wiersze w Wordzie" —
+to nie ma sensu w gotowym, statycznym druku HTML/PDF (nie da się „dodać
+wiersza" na wydrukowanej kartce). Zamieniłam na „kontynuuj na osobnej
+kartce, zachowując numer punktu/strony" — ta sama intencja (jest miejsce
+na więcej niż 3 zalecenia), tylko sformułowana dla fizycznego wydruku,
+a nie edytowalnego pliku Word.
+
+**Kilka stron (7, 9, 10) ma sporo pustego miejsca u dołu** — próbowałam
+łączyć sekcje 3+4 na jedną stronę, ale realnie nie mieściło się (margines
+do stopki wychodził na -180 px), więc zostały osobno. Czteroelementowa
+treść z Twojego Worda naturalnie rozkłada się na 4 strony w tej
+konstrukcji wizualnej — gdybyś wolała gęściej upakowane strony kosztem
+mniejszej czcionki, daj znać.
+
 ## Kolory poziomów wsparcia odświeżone (oba dokumenty)
 
 Zwróciłaś uwagę, że kolory Poziomu I/II/III (używane wszędzie: tabele
@@ -62,13 +109,13 @@ systemu.
 | `WOPF_karta_oceny.pdf` | pełny wydruk (headless Chromium, druk A4) |
 | `WOPF_SP_bez_poglebionej.html` | wersja skrócona (9 sekcji, **6 stron**), gdy zespół nie prowadzi obserwacji pogłębionej |
 | `WOPF_SP_bez_poglebionej.pdf` | wydruk wersji skróconej |
-| `WOPF_SP_arkusz_zespolowy.html` | **nowość** — trzeci wariant, „arkusz zespołowy" (10 sekcji, 6 stron), zbudowany wg Twojego przesłanego wzoru PDF |
+| `WOPF_SP_arkusz_zespolowy.html` | trzeci wariant, „arkusz zespołowy" (10 sekcji + Załącznik „Obserwacja pogłębiona", **10 stron**), zbudowany wg Twojego przesłanego wzoru PDF |
 | `WOPF_SP_arkusz_zespolowy.pdf` | wydruk arkusza zespołowego |
 
 Szukasz najlepszej opcji spośród trzech — żaden z wariantów nie jest jeszcze
 przeniesiony do `Zatwierdzone/`.
 
-## Nowość: „arkusz zespołowy" (10 sekcji, 6 stron) — trzeci wariant
+## „Arkusz zespołowy" (10 sekcji, 6 stron podstawowych) — trzeci wariant
 
 Przesłałaś PDF „piękny WOPF-z czata" — inny, prostszy arkusz (bez kolorów,
 bez wykresów, same tabele do wypełnienia), z prośbą „zrób według tego wzoru,
