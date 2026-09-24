@@ -6,11 +6,11 @@ drukach (KSzOF, karta ABC/FBA, ToM, kwestionariusz mowy, profil sensoryczny,
 profil biopsychospołeczny). Wspólna marka i konstrukcja z serii `ToM/` —
 wzorem jest `klasy_1-3`.
 
-## Status: 14 stron — przebudowa wg przesłanego pliku WOPF.docx
+## Status: 15 stron — przebudowa wg przesłanego pliku WOPF.docx
 
 | Plik | Opis |
 |---|---|
-| `WOPF_karta_oceny.html` | źródło — pełna wersja, wszystkie 14 stron |
+| `WOPF_karta_oceny.html` | źródło — pełna wersja, wszystkie 15 stron |
 | `WOPF_karta_oceny.pdf` | pełny wydruk (headless Chromium, druk A4) |
 | `WOPF_SP_bez_poglebionej.html` | wersja skrócona (9 sekcji, **6 stron**), gdy zespół nie prowadzi obserwacji pogłębionej |
 | `WOPF_SP_bez_poglebionej.pdf` | wydruk wersji skróconej |
@@ -145,6 +145,42 @@ zmieniła się wyłącznie kolejność kart i numer na znaczniku (numeracja
 zawsze odpowiada aktualnej pozycji na stronie, 1–4 od góry). Margines do
 stopki nadal dodatni.
 
+**Karta 4 („Zakres i charakter wsparcia") — opisy ról rozbudowane
+Twoim dokładnym tekstem.** Wcześniej role miały bardzo skrócone,
+hasłowe opisy (np. Psycholog: „redukcja lęku, interpretacja sygnałów
+społecznych, wsparcie emocjonalne"); podmieniłam je na Twój pełny tekst
+z pytania o ten sam zestaw 5 ról, więc opisy są teraz pełnymi zdaniami z
+konkretami (np. Pedagog specjalny doszło „eliminowanie barier
+środowiskowych", nazwa roli doprecyzowana na „Pedagog specjalny /
+Nauczyciel współorganizujący"). Dodałam też podtytuł karty „(nauczyciele,
+specjaliści, pomoc nauczyciela)" z Twojego tekstu. **Jedna rzecz do
+sprawdzenia:** Twój tekst dla roli Psychologa zawiera dopisek „(w oparciu
+o wyniki ToM)" — zostawiłam go dokładnie tak, jak podałaś, ale zwracam
+uwagę, że to ten sam odnośnik do Testu Teorii Umysłu, który wcześniej
+świadomie usunęłam z tej wersji dokumentu (patrz „Nowość: wersja «bez
+obserwacji pogłębionej»" na górze), bo ToM jest narzędziem Modułu II,
+którego ta wersja nie obejmuje. Zostawiłam go na Twoje wyraźne życzenie
+(wkleiłaś pełny tekst), ale jeśli to przeoczenie z kopiowania z pełnego
+dokumentu, daj znać, usunę dopisek tak jak poprzednio.
+
+### Sekcja VIII (Współpraca z rodzicami) — doszedł podtytuł „Potwierdzenie zapoznania się z dokumentem"
+
+Drobne dopełnienie struktury na Twoją prośbę (przesłałaś pełny tekst tej
+sekcji do porównania) — data zawiadomienia rodziców i miejsce na podpis
+rodzica miały już dokładnie tę treść, tylko bez własnego podtytułu nad
+nimi; teraz mają, spójnie z pozostałymi dwoma podpunktami tej sekcji
+(„Formy i harmonogram bieżącej współpracy", „Działania wspomagające w
+środowisku domowym", które już tam były). **Do zaznaczenia:** Twój
+wklejony tekst nazywa kolejną sekcję „SEKCJA X: Podpisy członków zespołu
+specjalistów", a w tym dokumencie jest ona Sekcją IX — to nie pomyłka z
+mojej strony, tylko konsekwencja wcześniejszej zmiany opisanej na górze
+(„Usunęłam całą Sekcję VII" — usunięcie punktu kontrolnego pogłębionej
+obserwacji z Twojego pierwotnego tekstu przesunęło całą resztę numeracji
+o 1 w dół, więc Twoje „X" z oryginału odpowiada tu „IX"). Zostawiłam
+numerację taką, jaka już jest w dokumencie, żeby nie rozjechała się z
+resztą — treść i 5 ról podpisów zgadzają się z Twoim tekstem jeden do
+jednego.
+
 **Ta wersja zastępuje poprzednią** (19 ponumerowanych punktów wg ręcznie
 wpisanego „Planu WOPF") — przesłałaś plik `WOPF.docx`, który jest
 dokładniejszym, autorytatywnym źródłem: 25 sekcji rzymskich (I–XXV) z
@@ -170,9 +206,9 @@ dodane kolorowe paski-banery nad sekcją, która rozpoczyna dany etap:
 | Etap | Kolor | Gdzie zaczyna się | Sekcje |
 |---|---|---|---|
 | **MODUŁ I** — Część bazowa | fiolet | str. 1, nad Sekcją I | I–VI |
-| **PUNKT KONTROLNY** — Decyzja zespołu | czerwony | str. 5, po tabeli Sekcji VI | — (bramka) |
-| **MODUŁ II** — Obserwacja pogłębiona | fiolet | str. 5, nad Sekcją VII | VII–XI |
-| **CZĘŚĆ KOŃCOWA** — Planowanie wsparcia | fiolet | str. 7, nad Sekcją XII | XII–XXV |
+| **PUNKT KONTROLNY** — Decyzja zespołu | czerwony | str. 6, na początku strony | — (bramka) |
+| **MODUŁ II** — Obserwacja pogłębiona | fiolet | str. 6, nad Sekcją VII | VII–XI |
+| **CZĘŚĆ KOŃCOWA** — Planowanie wsparcia | fiolet | str. 8, nad Sekcją XII | XII–XXV |
 
 „Punkt kontrolny" to nowa treść, nie tylko baner — dodałam pod nim 2
 checkboxy („Uruchamiam moduł pogłębiony (Sekcje VII–XI)" / „Zamykam na
@@ -181,12 +217,45 @@ prawdziwą bramkę decyzyjną zespołu, nie tylko nagłówek. Kolor czerwony
 (taki sam jak Poziom III w tabeli stenów) celowo odróżnia to jako moment
 decyzji, a nie kolejny moduł.
 
+Pod banerem doszła notka **„Rekomendowany poziom wsparcia"** — edytowalny
+akapit uzasadniający decyzję zespołu (Twój dokładny tekst: obszary III,
+VII i IX na poziomie III wsparcia → zespół zarządza obserwację pogłębioną
+przy użyciu wskazanych narzędzi diagnostycznych), żeby bramka miała realne
+uzasadnienie merytoryczne, a nie same puste checkboxy. Jeśli w konkretnym
+przypadku zespół decyduje inaczej niż ten domyślny, wypełniony tekst —
+treść jest w pełni edytowalna (`contenteditable`), można ją nadpisać albo
+wyczyścić.
+
+Pod tą notką doszła też tabelka **„Plan obserwacji pogłębionej — obszary
+priorytetowe (Poziom III)"** (Twój dokładny tekst, 6 kolumn: Lp. / Obszar /
+Cel obserwacji — Pytanie badawcze / Narzędzie — Metoda diagnozy /
+Odpowiedzialni / Termin), po jednym wierszu na każdy z 3 obszarów Poziomu
+III (III, VII, IX) — konkretny, przypisany do osób i terminu plan działania,
+nie tylko nazwa obszaru. **Wiersz 3 (Obszar IX) uzupełniłam sama** — wklejony
+tekst urwał się w połowie zdania („analiza środowiskow...") i bez osoby
+odpowiedzialnej/terminu; dokończyłam „analiza środowiskowa", a jako
+odpowiedzialnych wpisałam Pedagoga specjalnego i Psychologa (ci sami, co
+w Zakresie wsparcia zajmują się lękiem/wycofaniem — pasuje do celu tego
+wiersza) i „do 14 dni" (tak jak w wierszach 1–2). Sprawdź, czy to
+dobrze oddaje Twoją intencję.
+
 **Nowość:** pod checkboxami doszła krótka notka zamykająca obie ścieżki —
 „Zamknięcie na module I" wprost mówi, że obserwacja kończy się tu i zespół
 przechodzi od razu do Części Końcowej, a przy module pogłębionym jest
 klikalny link **„Załącznik"**, który w HTML (i w większości czytników PDF)
-przenosi bezpośrednio do nowego załącznika na str. 13–14 — nie trzeba
+przenosi bezpośrednio do nowego załącznika na str. 14–15 — nie trzeba
 kartkować ręcznie.
+
+**Punkt kontrolny dostał własną stronę (str. 6), oddzielną od Sekcji VI.**
+Wcześniej tabela Sekcji VI, cały Punkt Kontrolny i początek Modułu II
+(Sekcja VII) były upchnięte na jednej stronie — po dodaniu „Rekomendowanego
+poziomu wsparcia" strona zaczęła się realnie nie mieścić (ujemny margines
+do stopki). Zamiast dalej ściskać czcionkę, rozdzieliłam to na dwie strony:
+str. 5 to teraz tylko Sekcja VI (i ma dzięki temu dużo więcej oddechu — patrz
+niżej), a str. 6 to Punkt Kontrolny + Moduł II + Sekcja VII w komfortowym,
+nieściśniętym rozmiarze czcionki. Dokument urósł z 14 do **15 stron**;
+wszystkie odsyłacze do numerów stron dalej w dokumencie (Załącznik,
+Sekcja XXV) zostały poprawione.
 
 ## Co jest w środku
 
@@ -217,28 +286,37 @@ kartkować ręcznie.
   czerwony i żółty poziom oraz czego dotyczyły trudności w każdym z nich —
   wszystko wyliczone z tych samych stenów co tabela i wykres powyżej.
 - **Str. 5** — **Sekcja VI: Charakterystyka jakościowa obszarów KSzOF**
-  (tabela mocne strony/trudności, Twój dokładny tekst) i **Sekcja VII:
-  Obserwacja pogłębiona — zachowania trudne (ABC/FBA) oraz PBS** — połączone
-  na jednej stronie, bo osobno zostawały w połowie puste. **Nowość:** na
-  górze Sekcji VII, przed „Zachowanie kluczowe", doszła prawdziwa **tabelka
-  ABC** (Data / Poprzednik (A) / Zachowanie (B) / Konsekwencja (C)) — 2
-  przykładowe zdarzenia z obserwacji (te same, co w prototypie panelu
-  nauczyciela z tej samej sesji, dla spójności). To dokładnie metoda, od
-  której sekcja bierze nazwę — wcześniej był tylko jeden opisowy akapit
-  „zachowanie kluczowe", teraz jest pod nim jako synteza tabeli powyżej.
-  Reszta (plan pozytywnego wsparcia, nota o Standardach Ochrony
-  Małoletnich) bez zmian treściowych, tylko odrobinę zwarciejszy odstęp,
-  żeby nowa tabela zmieściła się na tej samej stronie.
-- **Str. 6** — **Sekcja VIII: Poznanie społeczne (ToM)** (tabela 5
+  (tabela mocne strony/trudności) — **teraz na własnej stronie, z
+  rozbudowanymi opisami.** Wcześniej dzieliła stronę z Sekcją VII i miała
+  krótkie, hasłowe opisy w komórkach; na Twoją prośbę („większe opisy w
+  tabelce, żeby wypełniała całą stronę") rozwinęłam każdy z 18 opisów
+  (9 obszarów × mocne strony/trudności) o dodatkowe, spójne z resztą
+  profilu ucznia zdanie, i powiększyłam czcionkę/odstępy w komórkach
+  (9,9px→11px, dopasowany padding) — tabela teraz realnie wypełnia stronę
+  zamiast zostawiać duży pusty pas na dole.
+- **Str. 6** — **Punkt Kontrolny** (banner + nowa notka „Rekomendowany
+  poziom wsparcia" + 2 checkboxy decyzji + notka zamykająca, opisane wyżej
+  w „Podział na etapy") i **Sekcja VII: Obserwacja pogłębiona — zachowania
+  trudne (ABC/FBA) oraz PBS** — dawniej dzieliła stronę z Sekcją VI, teraz
+  ma własną, pełnowymiarową stronę (patrz „Punkt kontrolny dostał własną
+  stronę" wyżej). **Nowość:** na górze Sekcji VII, przed „Zachowanie
+  kluczowe", jest prawdziwa **tabelka ABC** (Data / Poprzednik (A) /
+  Zachowanie (B) / Konsekwencja (C)) — 2 przykładowe zdarzenia z obserwacji
+  (te same, co w prototypie panelu nauczyciela z tej samej sesji, dla
+  spójności). To dokładnie metoda, od której sekcja bierze nazwę —
+  wcześniej był tylko jeden opisowy akapit „zachowanie kluczowe", teraz
+  jest pod nim jako synteza tabeli powyżej.
+- **Str. 7** — **Sekcja VIII: Poznanie społeczne (ToM)** (tabela 5
   komponentów — wniosek do pracy wypełniony tylko przy pierwszych dwóch,
   tak jak w Twoim pliku, reszta pusta do wypełnienia) i **Sekcja IX: Mowa
-  i komunikacja** — połączone z tego samego powodu. **Nowość:** Sekcja IX
-  ma teraz tę samą tabelkę co ToM (Sposób porozumiewania się / Wynik 0–2 /
-  Wniosek do pracy) zamiast checklisty — 6 sposobów porozumiewania się z
-  Twojego pliku jako wiersze, wniosek logopedyczny przy „Mowa werbalna",
-  reszta pusta do wypełnienia. Pod tabelą osobna karta „Kierunki terapii i
-  zasady pracy w grupie" z resztą oryginalnego tekstu.
-- **Str. 7** — **Sekcja X: Przetwarzanie sensoryczne (model Dunna)** —
+  i komunikacja** — połączone na jednej stronie, bo osobno zostawały w
+  połowie puste. **Nowość:** Sekcja IX ma teraz tę samą tabelkę co ToM
+  (Sposób porozumiewania się / Wynik 0–2 / Wniosek do pracy) zamiast
+  checklisty — 6 sposobów porozumiewania się z Twojego pliku jako wiersze,
+  wniosek logopedyczny przy „Mowa werbalna", reszta pusta do wypełnienia.
+  Pod tabelą osobna karta „Kierunki terapii i zasady pracy w grupie" z
+  resztą oryginalnego tekstu.
+- **Str. 8** — **Sekcja X: Przetwarzanie sensoryczne (model Dunna)** —
   **też przebudowana na tabelkę w stylu ToM** (Układ zmysłowy / Wynik 0–2 /
   Wniosek do pracy): 5 układów zmysłowych, wniosek wypełniony przy
   „Słuchowy" i „Przedsionkowo-proprioceptywny" (dokładnie to, co było w
@@ -248,25 +326,25 @@ kartkować ręcznie.
   (ułatwienia/bariery/dobrostan) — trzy sekcje razem na tej samej stronie,
   każda z nich osobno zostawiała najwięcej pustego miejsca ze wszystkich
   stron.
-- **Str. 8** — **Sekcja XII: Całościowy obraz funkcjonowania (synteza)**
+- **Str. 9** — **Sekcja XII: Całościowy obraz funkcjonowania (synteza)**
   (tabela 8 obszarów, kolumna opisu pusta do wypełnienia — poprawiłam też
   literówkę „FUNKCELONOWANIA" → „FUNKCJONOWANIA" z tytułu w Twoim pliku).
-- **Str. 9** — **Sekcja XIII: Przyczyny niepowodzeń i bariery** (4 krótkie
+- **Str. 10** — **Sekcja XIII: Przyczyny niepowodzeń i bariery** (4 krótkie
   notatki z Twoim tekstem) i **Sekcja XIV: Zakres i charakter wsparcia**
   (checklist 8 form wsparcia + doprecyzowanie organizacji).
-- **Str. 10** — **Sekcja XV: Metody i formy pracy z uczniem** (5 metod
+- **Str. 11** — **Sekcja XV: Metody i formy pracy z uczniem** (5 metod
   wiodących z Twojego pliku, zaznaczone jako już stosowane — tak jak
   „PDF" obok każdej sugerowało w źródle, że to już ustalona treść, nie
   przykład do wyboru) i **Sekcja XVI: Dostosowanie wymagań i warunków
   pracy** (tabela 4 kanałów — **w pełni wypełniona Twoimi przykładami**,
   nie pusty szablon jak w poprzedniej wersji).
-- **Str. 11** — **Sekcja XVII: Rekomendowane zajęcia specjalistyczne i
+- **Str. 12** — **Sekcja XVII: Rekomendowane zajęcia specjalistyczne i
   rewalidacyjne**, **Sekcja XVIII: Zintegrowane działania nauczycieli i
   specjalistów**, **Sekcja XIX: Współpraca z rodzicami i międzysektorowa**,
   **Sekcja XX: Decyzja zespołu dotycząca poziomu wsparcia** i **Sekcja
   XXI: Cele SMART** (cel edukacyjny) — pięć sekcji na jednej stronie,
   wszystkie krótkie w Twoim pliku.
-- **Str. 12** — dokończenie Sekcji XXI (cel terapeutyczny), **Sekcja XXII:
+- **Str. 13** — dokończenie Sekcji XXI (cel terapeutyczny), **Sekcja XXII:
   Ocena efektywności udzielanego wsparcia** (tabela — Twój plik ma tu
   jeden zbiorczy wiersz „1–8", nie osobny wiersz na każdy zakres, więc tak
   to zostawiłam), **Sekcja XXIII: Przeniesienie informacji do IPET/PWES**
@@ -274,21 +352,21 @@ kartkować ręcznie.
   jak w mojej poprzedniej wersji), **Sekcja XXIV: Podpisy** (5 podpisów —
   Twój plik łączy niektóre role, np. „Psycholog / Pedagog specjalny" w
   jednym podpisie) i **Sekcja XXV: Wykaz załączników i RODO** (karta
-  „Załączniki" teraz też wskazuje str. 13–14 jako miejsce zbiorczego
+  „Załączniki" teraz też wskazuje str. 14–15 jako miejsce zbiorczego
   zestawienia obserwacji pogłębionej).
-- **Str. 13–14 — nowy Załącznik: „Zbiorcze zestawienie obserwacji
+- **Str. 14–15 — nowy Załącznik: „Zbiorcze zestawienie obserwacji
   pogłębionej"** (poza numeracją rzymską — to materiał pomocniczy, nie
-  kolejna sekcja WOPF). Str. 13: intro + **A1** tabelka ABC (Sekcja VII),
+  kolejna sekcja WOPF). Str. 14: intro + **A1** tabelka ABC (Sekcja VII),
   **A2** tabelka ToM (Sekcja VIII), **A3** tabelka Mowa (Sekcja IX) — te
   same tabele, co w głównym dokumencie, po prostu przedrukowane razem do
-  szybkiego przeglądu. Str. 14: **A4** tabelka Profil sensoryczny (Sekcja
+  szybkiego przeglądu. Str. 15: **A4** tabelka Profil sensoryczny (Sekcja
   X), potem „Zakres dostosowań i działań podjętych" (metody wiodące z
   Sekcji XV + tabela dostosowań z Sekcji XVI, też przedrukowane) i na
   końcu „Zalecenia do pracy — podsumowanie" — **to jedyny fragment
   załącznika, który jest moją syntezą**, nie przedrukiem: krótki akapit
   łączący kierunki pracy rozproszone po wnioskach w tabelach A1–A4.
   Dotyczy wyłącznie sytuacji, gdy zespół faktycznie uruchomił moduł
-  pogłębiony — dlatego intro na str. 13 wprost to zaznacza.
+  pogłębiony — dlatego intro na str. 14 wprost to zaznacza.
 
 ## Interaktywność
 
