@@ -168,6 +168,22 @@ zespół może dopisać dowolny inny rodzaj współpracy z rodzicem, którego
 nie przewiduje żaden z 5 gotowych wierszy. Sprawdziłam klikiem i wpisaniem
 tekstu, że oba pola pustego wiersza faktycznie działają.
 
+**Wzór uzasadnienia na Punkcie Kontrolnym (Sekcja VII, str. 5) — nowy,
+szary „ściągawkowy" box.** Blankiet obserwacji pogłębionej i pole „Wybór i
+uzasadnienie" były zupełnie puste, bez podpowiedzi jak wygląda dobrze
+napisane uzasadnienie. Dodałam między tabelą obserwacji a checkboxami
+decyzji nowy komponent `.example-box` — jasnoszare tło, szara plakietka
+„WZÓR UZASADNIENIA" — z przykładowym tekstem wskazującym na Poziom III
+(ten sam, którego użyłam w analogicznym miejscu pełnego dokumentu):
+„Na podstawie analizy zebranych danych wstępnych oraz KSzOF, Zespół
+Specjalistów stwierdza, że uczeń w obszarach III, VII oraz IX funkcjonuje
+na poziomie III wsparcia. (...)" — spójne z demo-danymi w tym samym
+dokumencie (Sekcja V: obszary III, VII, IX rzeczywiście wychodzą na
+Poziom III). To czysty wzór do naśladowania, nie pole do wypełnienia —
+prawdziwe uzasadnienie zespół wpisuje osobno, w kolumnie „Wybór i
+uzasadnienie" tabeli Decyzji. Żeby to się zmieściło, dociążyłam trochę
+resztę strony (mniejsze pola VIII.1/VIII.2) — margines do stopki: 25 px.
+
 ## Nowość: wersja „bez obserwacji pogłębionej" (6 stron)
 
 Wkleiłaś w czacie pełny tekst innej, dużo krótszej wersji WOPF (9 sekcji
