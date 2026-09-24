@@ -87,14 +87,22 @@ decyzji, a nie kolejny moduł.
 - **Str. 6** — **Sekcja VIII: Poznanie społeczne (ToM)** (tabela 5
   komponentów — wniosek do pracy wypełniony tylko przy pierwszych dwóch,
   tak jak w Twoim pliku, reszta pusta do wypełnienia) i **Sekcja IX: Mowa
-  i komunikacja** (checklist sposobów porozumiewania się + wnioski
-  logopedyczne) — połączone z tego samego powodu.
-- **Str. 7** — dokończenie Sekcji IX (wnioski logopedyczne) i **Sekcja X:
-  Przetwarzanie sensoryczne (model Dunna)** (profil + 4-punktowa lista
-  „Dieta sensoryczna i organizacja przestrzeni") oraz **Sekcja XI: Kontekst
-  biopsychospołeczny (ICF) oraz dobrostan** (ułatwienia/bariery/dobrostan)
-  — trzy sekcje razem, każda z nich osobno zostawiała najwięcej pustego
-  miejsca ze wszystkich stron.
+  i komunikacja** — połączone z tego samego powodu. **Nowość:** Sekcja IX
+  ma teraz tę samą tabelkę co ToM (Sposób porozumiewania się / Wynik 0–2 /
+  Wniosek do pracy) zamiast checklisty — 6 sposobów porozumiewania się z
+  Twojego pliku jako wiersze, wniosek logopedyczny przy „Mowa werbalna",
+  reszta pusta do wypełnienia. Pod tabelą osobna karta „Kierunki terapii i
+  zasady pracy w grupie" z resztą oryginalnego tekstu.
+- **Str. 7** — **Sekcja X: Przetwarzanie sensoryczne (model Dunna)** —
+  **też przebudowana na tabelkę w stylu ToM** (Układ zmysłowy / Wynik 0–2 /
+  Wniosek do pracy): 5 układów zmysłowych, wniosek wypełniony przy
+  „Słuchowy" i „Przedsionkowo-proprioceptywny" (dokładnie to, co było w
+  Twoim opisie profilu), reszta pusta — plus niezmieniona 4-punktowa lista
+  „Dieta sensoryczna i organizacja przestrzeni" pod tabelą. Dalej **Sekcja
+  XI: Kontekst biopsychospołeczny (ICF) oraz dobrostan**
+  (ułatwienia/bariery/dobrostan) — trzy sekcje razem na tej samej stronie,
+  każda z nich osobno zostawiała najwięcej pustego miejsca ze wszystkich
+  stron.
 - **Str. 8** — **Sekcja XII: Całościowy obraz funkcjonowania (synteza)**
   (tabela 8 obszarów, kolumna opisu pusta do wypełnienia — poprawiłam też
   literówkę „FUNKCELONOWANIA" → „FUNKCJONOWANIA" z tytułu w Twoim pliku).
