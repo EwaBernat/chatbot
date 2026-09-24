@@ -6,11 +6,11 @@ drukach (KSzOF, karta ABC/FBA, ToM, kwestionariusz mowy, profil sensoryczny,
 profil biopsychospołeczny). Wspólna marka i konstrukcja z serii `ToM/` —
 wzorem jest `klasy_1-3`.
 
-## Status: 24 strony — komplet, do potwierdzenia
+## Status: 22 strony — komplet, do potwierdzenia
 
 | Plik | Opis |
 |---|---|
-| `WOPF_karta_oceny.html` | źródło — wszystkie 24 strony |
+| `WOPF_karta_oceny.html` | źródło — wszystkie 22 strony |
 | `WOPF_karta_oceny.pdf` | pełny wydruk (headless Chromium, druk A4) |
 
 Pierwotnie zbudowane jako 27 stron 1:1 z oryginalnym PDF-em autorki;
@@ -19,11 +19,17 @@ sekcji na wcześniejsze strony z wolnym miejscem i o usunięcie panelu
 synchronizacji oraz obu podsumowujących stron sekcji V — „wynik ogólny/
 synteza wg poziomów” i „Vb — synteza opisowa” (patrz „Co jest w środku” i
 historia commitów) — reszta treści identyczna, inny układ i mniej stron.
-Potem z powrotem do 24: autorka poprosiła o dwa nowe punkty zaraz przy
-wynikach KSzOF — sekcję Vc „Czynniki kontekstowe wg ICF” (zmieściła się
-jeszcze na str. 5) i sekcję Vd „Indywidualne potrzeby rozwojowe — na
-podstawie dodatkowych obserwacji” (już nie zmieściła się — dostała własną
-str. 6, stąd +1 strona łącznie mimo dwóch dodanych punktów).
+Potem do 24: autorka poprosiła o dwa nowe punkty zaraz przy wynikach
+KSzOF — sekcję Vc „Czynniki kontekstowe wg ICF” (zmieściła się jeszcze na
+str. 5) i sekcję Vd „Indywidualne potrzeby rozwojowe — na podstawie
+dodatkowych obserwacji” (już nie zmieściła się — dostała własną str. 6).
+Na koniec z powrotem w dół do 22: autorka poprosiła o usunięcie w całości
+osadzonej „Opinii zespołu ds. wsparcia" (dawne str. 22–23, dokument do
+wydania na zewnątrz) — zniknęła razem z jej dwiema stronami, a sekcje
+XXIV–XXVI (podpisy, załączniki, RODO) przesunęły się o 2 strony w górę.
+**To przy okazji rozwiązuje dualizm skali KSzOF** opisywany wcześniej w
+„Do potwierdzenia": skoro jedyne miejsce z alternatywną skalą 1–5 zniknęło,
+sekcja V (steny 1–10) jest teraz jedyną skalą KSzOF w całym dokumencie.
 
 Zbudowane partiami po kilka stron, każda partia renderowana i zweryfikowana
 wizualnie względem oryginalnego 27-stronicowego PDF-a autorki. Kompletne,
@@ -100,7 +106,12 @@ ale — jak cała reszta serii ToM — jeszcze **nieprzeniesione do
   (12 czynników środowiskowych ICF), ułatwienia/bariery/dobrostan, nagłówek
   sekcji XI.
 - **Str. 11** — sekcja XI „Całościowy obraz funkcjonowania" (tabela synteza
-  8 obszarów), sekcja XII „Indywidualne potrzeby rozwojowe i edukacyjne".
+  8 obszarów), sekcja XII „Indywidualne potrzeby rozwojowe i edukacyjne" —
+  jej 3 puste pola („Indywidualne potrzeby rozwojowe i edukacyjne",
+  „Mocne strony i możliwości psychofizyczne", „Zainteresowania,
+  uzdolnienia...") dostały widoczną kropkowaną linię, tak jak puste
+  komórki tabel — wcześniej wyglądały jak zwykłe puste miejsce, a nie pole
+  do wypełnienia, mimo że były edytowalne (`contenteditable`) od początku.
 - **Str. 12** — sekcja XIII „Przyczyny niepowodzeń edukacyjnych, bariery i
   ograniczenia", sekcja XIV „Zakres i charakter wsparcia", nagłówek XV.
 - **Str. 13** — tabela metod pracy wg obszaru/przedmiotu, „Metody stosowane
@@ -124,14 +135,14 @@ ale — jak cała reszta serii ToM — jeszcze **nieprzeniesione do
 - **Str. 20–21** — sekcja XXIII „Przeniesienie informacji — do IPET albo do
   PWES" (tabela 9 wierszy, dwie kolumny ścieżek), priorytety na najbliższe
   półrocze.
-- **Str. 22–23** — **„Opinia zespołu ds. wsparcia o funkcjonowaniu ucznia"**
-  — samodzielny, 2-stronicowy dokument osadzony wewnątrz WOPF, oznaczony
-  „dokument do wydania na zewnątrz" (do poradni pp). Własny tytuł w stylu
-  strony 1 (`.tt-kick`/`.tt-h1`), własna metryczka, 6 ponumerowanych
-  punktów, miejsce na podpisy koordynatora i dyrektora.
-- **Str. 24** — sekcja XXIV „Podpisy zespołu ds. WOPF" (7 podpisów), sekcja
+- **Str. 22** — sekcja XXIV „Podpisy zespołu ds. WOPF" (7 podpisów), sekcja
   XXV „Wykaz załączników" (12 pozycji), sekcja XXVI „Klauzula informacyjna
-  RODO i ważność dokumentu".
+  RODO i ważność dokumentu" — dawniej str. 24, teraz od razu po sekcji
+  XXIII, bo „Opinia zespołu" (dawne str. 22–23) została usunięta w całości
+  na wyraźną prośbę autorki (był to samodzielny, 2-stronicowy dokument
+  osadzony wewnątrz WOPF, oznaczony „dokument do wydania na zewnątrz" —
+  do poradni pp, z własnym tytułem w stylu strony 1, własną metryczką i 6
+  ponumerowanymi punktami).
 
 ## Pouczenia prawne i wyjaśnienia — usunięte
 
@@ -144,9 +155,8 @@ konkretnych danych o uczniu (np. „legenda" profilu sensorycznego, „granica
 dostosowania", „sprawdzian celu SMART"). **Zostały** notatki, które są
 faktyczną treścią kliniczną/proceduralną dotyczącą konkretnego ucznia albo
 konkretnej procedury szkoły (np. procedura na wypadek sytuacji nagłej, plan
-pozytywnego wsparcia PBS, hipoteza funkcjonalna, wnioski sekcji „Opinia
-zespołu") — to nie są „pouczenia", tylko wypełniona treść, taka sama jak
-wiersz w tabeli.
+pozytywnego wsparcia PBS, hipoteza funkcjonalna) — to nie są „pouczenia",
+tylko wypełniona treść, taka sama jak wiersz w tabeli.
 
 Efekt uboczny: każda strona zyskała sporo wolnej przestrzeni (część stron
 ma teraz nawet pół strony pustego miejsca pod treścią) — to naturalna
@@ -186,22 +196,24 @@ z niej jedyny większy blok na stronie — naprawione tak samo (wiersze mają
 teraz naturalną, zwartą wysokość), tabela zostaje na pełną szerokość
 strony.
 
+Drugi, mniejszy przypadek tej samej rodziny problemów: puste pola
+`contenteditable` bez żadnej treści (np. 3 pola sekcji XII) nie miały
+żadnego wizualnego znaku, że są do wypełnienia — wyglądały jak zwykła
+pusta przestrzeń, identycznie jak np. już wypełniona notatka „Hipoteza
+funkcjonalna" wygląda, gdy jest pusta. Naprawione dodaniem tej samej
+kropkowanej linii, jaką puste komórki tabel już miały (`:empty::after`),
+tylko jako nowa, celowo wąsko wyselekcjonowana klasa (`.note.blankfill`),
+żeby nie zmieniać wyglądu pozostałych, już wypełnionych notatek w reszcie
+dokumentu.
+
 ## Do potwierdzenia przez autorkę
 
-- **Dwie różne skale KSzOF w tym samym dokumencie — to jest ten „dualizm",
-  o który prosiłaś na sprawdzić.** Sekcja V (str. 4–5) używa skali
-  **sten 1–10** (średnia 5 → Poziom II) — to realna skala z Twoich
-  kwestionariuszy KSzOF_I-III/IV-VI (`druki/Zatwierdzone/`). Ale „Opinia
-  zespołu" (str. 22–23, punkt 2) w tym samym oryginalnym PDF-ie opisuje **tę
-  samą ocenę** zupełnie inną skalą: **średnia 1–5** z progami 4,0–5,0
-  zasób / 3,0–3,9 poziom I / 2,0–2,9 poziom II / poniżej 2,0 poziom III
-  (przykładowa średnia 2,79, obszar I = 4,20 itd.) — inne liczby, inny
-  podział na poziomy, a nawet nieco inna kolejność obszarów w opisie.
-  Przepisane tu **dosłownie z oryginału, każde w swojej sekcji** — nie
-  ujednoliciłam tego samodzielnie, bo nie wiem, która skala ma zostać: czy
-  „Opinia zespołu" to starszy fragment sprzed przejścia na steny (wtedy do
-  przeliczenia), czy to sekcja, która celowo używa innej, prostszej skali
-  do komunikacji z poradnią.
+- ~~Dwie różne skale KSzOF w tym samym dokumencie~~ — **rozwiązane**:
+  usunięcie „Opinii zespołu" (patrz wyżej) usunęło też jedyne miejsce,
+  które używało alternatywnej skali średnia 1–5. Sekcja V (str. 4, skala
+  sten 1–10 — realna skala z Twoich kwestionariuszy KSzOF_I-III/IV-VI w
+  `druki/Zatwierdzone/`) jest teraz jedynym miejscem w WOPF, które podaje
+  liczby KSzOF.
 - **Sekcja Vb i sekcja XIV — to samo pytanie „zakres i charakter wsparcia"
   w dwóch miejscach (str. 5 i str. 12).** Dodane na wyraźną prośbę zaraz po
   charakterystyce obszarów KSzOF, tą samą treścią co już istniejąca sekcja
@@ -233,10 +245,6 @@ strony.
   komponentów). Przepisane tu **dosłownie z oryginału WOPF** — wymaga
   Twojej decyzji, czy to osobny, uproszczony zestaw K1–K5, czy pomyłka do
   poprawienia.
-- **„Opinia zespołu" (str. 22–23)** — potwierdzone, że to NIE jest błąd
-  składu PDF-u, tylko celowy, samodzielny dokument do wydania na zewnątrz,
-  osadzony przed podpisami WOPF. Zostawione dokładnie w tym miejscu i w tej
-  formie.
 - Żaden z czterech wariantów ToM ani WOPF nie jest jeszcze przeniesiony do
   `Zatwierdzone/` — czeka na Twoje potwierdzenie powyższych punktów.
 
@@ -245,6 +253,6 @@ strony.
 Tak jak reszta serii: `@page{size:A4}` + `@media print` w HTML, PDF to
 odpowiednik **Ctrl+P → Zapisz jako PDF**, wygenerowany tu automatycznie
 (headless Chromium, `print_background` + `prefer_css_page_size`).
-Zweryfikowane renderem: 24 fizyczne strony, żadna nie ucina treści
+Zweryfikowane renderem: 22 fizyczne strony, żadna nie ucina treści
 (sprawdzone programowo — margines do stopki dodatni na każdej stronie),
 zero błędów JS, interaktywność sekcji V przetestowana.
