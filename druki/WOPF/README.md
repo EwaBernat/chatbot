@@ -80,10 +80,17 @@ decyzji, a nie kolejny moduł.
   wszystko wyliczone z tych samych stenów co tabela i wykres powyżej.
 - **Str. 5** — **Sekcja VI: Charakterystyka jakościowa obszarów KSzOF**
   (tabela mocne strony/trudności, Twój dokładny tekst) i **Sekcja VII:
-  Obserwacja pogłębiona — zachowania trudne (ABC/FBA) oraz PBS** (zachowanie
-  kluczowe, plan pozytywnego wsparcia, nota o Standardach Ochrony
-  Małoletnich) — połączone na jednej stronie, bo osobno zostawały w połowie
-  puste.
+  Obserwacja pogłębiona — zachowania trudne (ABC/FBA) oraz PBS** — połączone
+  na jednej stronie, bo osobno zostawały w połowie puste. **Nowość:** na
+  górze Sekcji VII, przed „Zachowanie kluczowe", doszła prawdziwa **tabelka
+  ABC** (Data / Poprzednik (A) / Zachowanie (B) / Konsekwencja (C)) — 2
+  przykładowe zdarzenia z obserwacji (te same, co w prototypie panelu
+  nauczyciela z tej samej sesji, dla spójności). To dokładnie metoda, od
+  której sekcja bierze nazwę — wcześniej był tylko jeden opisowy akapit
+  „zachowanie kluczowe", teraz jest pod nim jako synteza tabeli powyżej.
+  Reszta (plan pozytywnego wsparcia, nota o Standardach Ochrony
+  Małoletnich) bez zmian treściowych, tylko odrobinę zwarciejszy odstęp,
+  żeby nowa tabela zmieściła się na tej samej stronie.
 - **Str. 6** — **Sekcja VIII: Poznanie społeczne (ToM)** (tabela 5
   komponentów — wniosek do pracy wypełniony tylko przy pierwszych dwóch,
   tak jak w Twoim pliku, reszta pusta do wypełnienia) i **Sekcja IX: Mowa
