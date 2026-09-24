@@ -6,6 +6,33 @@ drukach (KSzOF, karta ABC/FBA, ToM, kwestionariusz mowy, profil sensoryczny,
 profil biopsychospołeczny). Wspólna marka i konstrukcja z serii `ToM/` —
 wzorem jest `klasy_1-3`.
 
+## Kolory poziomów wsparcia odświeżone (oba dokumenty)
+
+Zwróciłaś uwagę, że kolory Poziomu I/II/III (używane wszędzie: tabele
+stenów, wykresy słupkowe i radarowe, „Wyniki w skrócie", karty Syntezy,
+checkboxy decyzji zespołu) wyglądały stonowanie — a Poziom II konkretnie
+jak brąz zamiast żółtego. Zmieniłam całą paletę na wersję bardziej
+soczystą/nasyconą, w obu dokumentach naraz (jeden wspólny słownik
+`POZIOM_COL` + jedna funkcja `wopfStenPoziom()` w JS, więc zmiana jest
+spójna wszędzie, gdzie te kolory się pojawiają):
+
+| Poziom | Było | Jest |
+|---|---|---|
+| I (zielony) | `#2E7D46` | `#16A34A` |
+| II (żółty) | `#9a6b00` (wyglądał na brązowy) | `#D6A400` |
+| III (czerwony) | `#b3261e` | `#DC2626` |
+
+Konsekwentnie zmieniłam też 2 miejsca, które świadomie **kopiowały** te
+same kolory dla spójności wizualnej, więc zostawienie ich po staremu
+zepsułoby tę spójność: gradient banera „PUNKT KONTROLNY" w pełnym
+dokumencie (używał tego samego czerwonego, co Poziom III) oraz karty
+1 i 3 Syntezy funkcjonalnej w wersji skróconej („Mocne strony" i
+„Przyczyny/bariery" — dobrałam im wcześniej kolory „ten sam odcień, co
+Poziom I/III w tabeli KSzOF"). Jasne, pastelowe tła (np. `#eafaef`,
+`#fff6da`, `#fdecec` pod kartami/chipami) zostawiłam bez zmian — to
+neutralne, bardzo jasne podkłady, które dobrze współgrają z każdym
+odcieniem pierwszego planu i nie wyglądały na „brązowe" same w sobie.
+
 ## Status: 15 stron — przebudowa wg przesłanego pliku WOPF.docx
 
 | Plik | Opis |
