@@ -50,7 +50,13 @@ dokładnie taka, jak w Twoim pliku, zmieniły się tylko podziały stron.
   syntetyczny** („Średni wynik ogólny (sten): 5/10 (Poziom II)...").
   Ten opis jest zapisany jako już wypełniony (nie nadpisze się sam po
   zmianie stenów, tak jak reszta zamrożonych notatek w tym dokumencie) —
-  dokładnie taki tekst, jaki jest w Twoim `.docx`.
+  dokładnie taki tekst, jaki jest w Twoim `.docx`. **Nowość:** pod opisem
+  syntetycznym doszły 3 kolorowe kafle „Podsumowanie — mocne strony i
+  priorytety wsparcia" (zielony/czerwony/żółty, ten sam wzór `.lvl`, co w
+  kartach ToM) — mocne strony (Poziom I: obszar I), priorytetowe działania
+  (Poziom III: obszary III, VII, IX) i średni poziom wsparcia (Poziom II:
+  obszary II, IV, V, VI, VIII), wyliczone z tych samych stenów co tabela
+  powyżej.
 - **Str. 5** — **Sekcja VI: Charakterystyka jakościowa obszarów KSzOF**
   (tabela mocne strony/trudności, Twój dokładny tekst) i **Sekcja VII:
   Obserwacja pogłębiona — zachowania trudne (ABC/FBA) oraz PBS** (zachowanie
@@ -107,6 +113,17 @@ inna ręcznie uzupełniona notatka w tym dokumencie. Jeśli będziesz chciała,
 skasować treść notatki — mechanizm auto-generowania nadal działa pod
 spodem, tylko czeka na pustą notatkę.
 
+Nowe 3 kafle „Podsumowanie" pod opisem syntetycznym **nie przeliczają się
+same** po zmianie stenów — to świadoma decyzja, nie przeoczenie. W
+przeciwieństwie do opisu syntetycznego (jedno uogólnione zdanie), te kafle
+łączą listę obszarów z konkretnym, dopasowanym do każdego obszaru
+działaniem — po zmianie stenów dla innego ucznia trzeba by przenieść całe
+zdania między kaflami, nie tylko przeliczyć listę numerów, więc automatyczne
+przeliczanie mogłoby rozjechać listę obszarów z opisanymi dla nich
+działaniami. Każdy kafel jest więc zwykłym polem do edycji (tak jak
+wszystkie inne pola w tym dokumencie) — dla nowego ucznia podmieniasz
+treść ręcznie.
+
 ## Znalezione i naprawione błędy konstrukcyjne
 
 **Ten sam błąd co poprzednio, tym razem na kartach `.ta`.** Współdzielony
@@ -142,6 +159,15 @@ obowiązuje wszędzie, gdzie te funkcje są użyte w tym dokumencie.
   np. każdą sekcję na osobnej stronie mimo pustego miejsca (łatwiej
   komuś dopisywać ręcznie po wydruku) — daj znać, mogę rozdzielić z
   powrotem.
+- **Treść nowych kafli „Podsumowanie" (str. 4) — moja synteza, nie cytat z
+  jednego źródła.** Listę obszarów w każdym poziomie wzięłam wprost z
+  tabeli/wykresu nad nią (te same steny), ale zdania „najpilniejsze
+  działania" (Poziom III) i „działania" (Poziom II) ułożyłam sama na
+  podstawie trudności opisanych dla tych samych obszarów w Sekcji VI
+  (str. 5, „Charakterystyka jakościowa" — kolumna „Trudności"). To sensowne
+  wnioski wynikające z tego, co już jest w dokumencie, ale to synteza, nie
+  gotowy tekst z któregoś z Twoich źródeł — sprawdź, czy te konkretne
+  sformułowania działań Ci odpowiadają.
 - Żaden z czterech wariantów ToM ani WOPF nie jest jeszcze przeniesiony do
   `Zatwierdzone/` — czeka na Twoje potwierdzenie powyższych punktów.
 
