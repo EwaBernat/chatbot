@@ -23,7 +23,7 @@ potwierdzony, przenosimy go do `Zatwierdzone/` (`git mv`, bez zmiany treści).
 | [`ToM/klasy_7-8/`](ToM/klasy_7-8/README.md) | Karta oceny Teorii Umysłu, klasy VII–VIII | html + pdf | zredukowane 11→8 stron wg wzoru klasy 1-3 — do potwierdzenia |
 | [`WOPF/`](WOPF/README.md) | Wielospecjalistyczna Ocena Poziomu Funkcjonowania — karta scalająca | html + pdf | trzy warianty do porównania: pełna wersja (25 sekcji, 15 stron), wersja skrócona bez obserwacji pogłębionej (9 sekcji, 6 stron), arkusz zespołowy wg wzoru autorki z Załącznikiem „Obserwacja pogłębiona" (10 sekcji, 11 stron) — żaden jeszcze nie potwierdzony |
 | [`Profil_biopsychospoleczny/`](Profil_biopsychospoleczny/README.md) | Profil biopsychospołeczny ucznia — obserwacja zasobów, barier i ułatwiaczy wg modelu ICF | html + pdf | zmaksymalnie skrócony z 3 do **1 strony** (2+1 rzędów), z prawdziwym logo PCTP — do potwierdzenia |
-| [`Profil_sensoryczny/`](Profil_sensoryczny/README.md) | Profil sensoryczny (model Dunn) — obserwacja modulacji sensorycznej, 7 zmysłów | html + pdf | przebudowany na wspólny system PCTP (16→**9 stron**), charakterystyka jako tabelka w stylu ToM — do potwierdzenia |
+| [`Profil_sensoryczny/`](Profil_sensoryczny/README.md) | Profil sensoryczny (model Dunn) — obserwacja modulacji sensorycznej, 7 zmysłów | html + pdf | przebudowany na wspólny system PCTP (16→**8 stron**), charakterystyka jako tabelka w stylu ToM — do potwierdzenia |
 | IPET — klasa 1-3 | szkoła podstawowa, klasy 1-3 | — | do dodania — szukane w repozytorium, jeszcze nie znalezione |
 
 Wersja IPET dla przedszkola została celowo usunięta z tego projektu —
