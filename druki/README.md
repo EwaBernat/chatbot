@@ -26,6 +26,9 @@ potwierdzony, przenosimy go do `Zatwierdzone/` (`git mv`, bez zmiany treści).
 | [`Profil_sensoryczny/`](Profil_sensoryczny/README.md) | Profil sensoryczny (model Dunn) — obserwacja modulacji sensorycznej, 7 zmysłów | html + pdf | przebudowany na wspólny system PCTP (16→**8 stron**), charakterystyka jako tabelka w stylu ToM — do potwierdzenia |
 | [`Dziennik_ABC/`](Dziennik_ABC/README.md) | Dziennik Obserwacji ABC + Arkusz Samooceny Obserwatora | html + pdf | zbudowany od podstaw na wspólnym systemie PCTP, **2 strony**, dodana metryczka i podpisy — do potwierdzenia |
 | [`FBA_kwestionariusz/`](FBA_kwestionariusz/README.md) | Kwestionariusz funkcji zachowania (FBA · 0–3) — hipoteza funkcji i kierunek planu pozytywnego wsparcia (PBS) | html + pdf | ujednolicone z dwóch przesłanych plików (inny system szablonów + gotowy wzorzec PDF) na wspólny system PCTP, **8/10 → 4 strony**, auto-sumowanie i wykresy zachowane — do potwierdzenia |
+| [`Mowa/klasy_1-3/`](Mowa/klasy_1-3/README.md) | Kwestionariusz oceny rozwoju mowy, klasy I–III — 5 działów komunikacji, konwersja na sten 1–10 | html + pdf | ujednolicone na wspólny system PCTP, **5→4 strony**, formuła stenowa zachowana automatyczna — do potwierdzenia |
+| [`Mowa/klasy_4-6/`](Mowa/klasy_4-6/README.md) | Kwestionariusz oceny rozwoju mowy, klasy IV–VI | html + pdf | jw., wg wzoru klasy_1-3, poprawiona niespójność nazw działów — do potwierdzenia |
+| [`Mowa/klasy_7-8/`](Mowa/klasy_7-8/README.md) | Kwestionariusz oceny rozwoju mowy, klasy VII–VIII | html + pdf | jw., wg wzoru klasy_1-3, poprawiona niespójność nazw działów — do potwierdzenia |
 | IPET — klasa 1-3 | szkoła podstawowa, klasy 1-3 | — | do dodania — szukane w repozytorium, jeszcze nie znalezione |
 
 Wersja IPET dla przedszkola została celowo usunięta z tego projektu —
