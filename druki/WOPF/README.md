@@ -6,6 +6,21 @@ drukach (KSzOF, karta ABC/FBA, ToM, kwestionariusz mowy, profil sensoryczny,
 profil biopsychospołeczny). Wspólna marka i konstrukcja z serii `ToM/` —
 wzorem jest `klasy_1-3`.
 
+## Załącznik: podpisy zespołu na końcu (str. 10)
+
+Załącznik „Obserwacja pogłębiona" kończył się polami „Data ustalenia
+zaleceń" i „Zespół" — bez miejsca na faktyczne podpisy, mimo że to
+osobny, samodzielny dokument roboczy (patrz niżej), więc powinien mieć
+własne zamknięcie, tak jak główny dokument ma swoje na str. 6 (Sekcja X).
+Dodałam na samym końcu str. 10 nowy nagłówek „Podpisy zespołu
+prowadzącego obserwację pogłębioną" i 4 linie podpisu: **Koordynator
+zespołu** (nazwany, tak jak w tabeli ustaleń na str. 7) oraz 3 ogólne
+**„Członek zespołu"** — celowo bez sztywno przypisanych ról (logopeda,
+psycholog, terapeuta SI...), bo to, kto faktycznie podpisuje, zależy od
+tego, które arkusze zespół włączył do konkretnej obserwacji. Ładnie
+wypełniło to też sporo pustego miejsca na dole ostatniej strony
+(margines spadł z 344 do 130 px).
+
 ## Załącznik: lepsze uzasadnienie obserwacji + przycisk „dodaj wiersz" + naprawiony błąd w tle
 
 **Lepsze, rozwinięte uzasadnienie na str. 7.** Poprzednia wersja Załącznika
