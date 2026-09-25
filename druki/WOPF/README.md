@@ -6,6 +6,52 @@ drukach (KSzOF, karta ABC/FBA, ToM, kwestionariusz mowy, profil sensoryczny,
 profil biopsychospołeczny). Wspólna marka i konstrukcja z serii `ToM/` —
 wzorem jest `klasy_1-3`.
 
+## Arkusz zespołowy: nowa strona 9 — KSzOF połączone z ocenami (kody ICF + zalecenia wg 9 obszarów)
+
+**Nowa strona, dopisana pod tabelą „Wyniki arkuszy źródłowych" (Sekcja 2).**
+Na Twoją prośbę doszła strona 9 — 9 kart, po jednej na każdy obszar KSzOF (te
+same nazwy, steny i poziomy co w Sekcji V, str. 4), a w każdej karcie:
+- **Kody ICF pasujące do stwierdzonych trudności** tego obszaru (np. Obszar
+  III „Porozumiewanie się" → d310, d330, d350; Obszar IV „Motoryka" → d445,
+  b760) — dobrane do opisów trudności z Sekcji VI (str. 5), nie generyczne.
+- **Obszar VII „Wzajemne kontakty i związki" połączony dodatkowo z Profilem
+  ToM i ABC/FBA** (zgodnie z Twoim przykładem) — osobna notka pod nagłówkiem
+  wprost mówi, że niski wynik tego obszaru łączy się z trudnością ToM
+  (rozumienie cudzych intencji) i wzorcem ABC/FBA (ucieczka/unikanie przy
+  zmianie aktywności), z odsyłaczem do str. 8. Kody ICF tego obszaru też to
+  odzwierciedlają: d710/d720 (interakcje) + b152 (funkcje emocjonalne, z ToM)
+  + d7203 (kontrolowanie zachowania w interakcji, z ABC/FBA).
+- **6 kategorii zaleceń do realizacji**, dokładnie te, o które prosiłaś:
+  metody i formy pracy, zakres dostosowań, zintegrowane działania
+  nauczycieli, materiały dydaktyczne, zalecenia, cele edukacyjne i
+  terapeutyczne — w zwartej siatce 2 kolumny × 3 wiersze pod każdą kartą.
+
+Wszystko edytowalne (kody ICF i każde z 6 pól), tak jak reszta dokumentu —
+treść to przykładowe uzupełnienie na bazie tego samego przypadku demo, do
+podmiany dla konkretnego ucznia.
+
+**Techniczna pułapka po drodze: `justify-content:space-between` na całej
+stronie maskowało prawdziwy rozmiar treści.** Współdzielony CSS ma regułę,
+która domyślnie rozciąga zawartość strony równomiernie na całą wysokość,
+jeśli strona nie zawiera żadnego z kilku konkretnych, niepowiązanych z tym
+komponentów (używanych gdzie indziej w dokumencie). Moje karty nie pasowały
+do żadnego z nich, więc ta reguła się włączała: skracanie treści nie
+zmieniało w ogóle zmierzonego marginesu na dole strony (wciąż ~12px), bo
+oszczędzone piksele po prostu zamieniały się w większe odstępy MIĘDZY
+kartami zamiast zmniejszać całkowitą wysokość — złapane dopiero pomiarem
+rzeczywistej wysokości każdego bloku, nie tylko marginesu na dole. Efekt
+uboczny: 9 kart przy tej regule wyglądałoby na ekranie/wydruku z ogromnymi,
+nierównymi odstępami zamiast zwartej listy. Naprawione lokalnie (tylko na
+tej stronie, nie w współdzielonym pliku CSS) przez jawne
+`justify-content:flex-start` na tej jednej stronie. Po naprawie 9 kart
+zmieściło się wygodnie na jednej stronie z marginesem 138px — początkowo
+myślałam, że będą potrzebne 2 strony, ale to był efekt tej samej maskowanej
+miary.
+
+Zweryfikowane: `render_check_team.py` (11 stron, wszystkie bez przelewania),
+edytowalność sprawdzona klikaniem i wpisywaniem tekstu, wizualnie na
+rzeczywistym PDF-ie, zero błędów JS.
+
 ## Arkusz zespołowy: „Autor" → „Sporządzający" oraz nowa linia „Zalecenie do programu" w każdym profilu (str. 8)
 
 **„Autor" → „Sporządzający" w metryczce każdego arkusza.** Na Twoją prośbę
@@ -157,8 +203,9 @@ samodzielny dokument roboczy do prowadzenia obserwacji pogłębionej: nie
 duplikuje niczego z arkusza zespołowego, tylko rozwija to, na czym Sekcja
 VII tego dokumentu (Punkt Kontrolny) się kończy — decyzję „uruchamiam
 obserwację pogłębioną". Dlatego dopisałam go jako 4 nowe strony na końcu
-`WOPF_SP_arkusz_zespolowy` (6→**10 stron**), w tej samej konstrukcji
-`.page`/`.sec`/`.tb`, a nie jako osobny plik.
+`WOPF_SP_arkusz_zespolowy` (6→10 stron w tamtym momencie; od dopisania str. 9
+z kodami ICF — patrz sekcja na górze pliku — dokument ma już **11 stron**),
+w tej samej konstrukcji `.page`/`.sec`/`.tb`, a nie jako osobny plik.
 
 - **Str. 7 — Załącznik, Sekcja 1: Decyzja o obserwacji pogłębionej.**
   Czerwony baner „ZAŁĄCZNIK" (ten sam wzór, co „PUNKT KONTROLNY"), 3
@@ -174,14 +221,17 @@ obserwację pogłębioną". Dlatego dopisałam go jako 4 nowe strony na końcu
   sekcja na górze pliku), w kolejności: profil biopsychospołeczny, ABC/FBA,
   profil sensoryczny, rozwój mowy, profil ToM. Poniżej 3 checkboxy stanu
   danych i pole na brakujące arkusze.
-- **Str. 9 — Sekcja 3: Synteza obserwacji.** Dwie tabele: „co wynika z
-  kilku źródeł" (4 obszary × ustalenie × źródło/niepewność) i „opis
-  zbiorczy do WOPF-SP" (mocne strony / trudności / warunki / dane
-  brakujące) — dokładnie Twoje pola, puste do wypełnienia.
-- **Str. 10 — Sekcja 4: Zalecenia z orzeczenia i oceny.** Część A
-  (zalecenia z orzeczenia — dane dokumentu, checkbox „uczeń nie ma
-  orzeczenia", 3 puste wiersze na zalecenia) i część B (zalecenia
-  zespołu z oceny, też 3 puste wiersze).
+- **Str. 9 — Sekcja 2 (ciąg dalszy): KSzOF połączone z ocenami.** Dopisana
+  później — patrz sekcja na górze pliku.
+- **Str. 10 — Sekcja 3: Synteza obserwacji** (przesunięta ze str. 9 po
+  dopisaniu str. 9 z kodami ICF). Dwie tabele: „co wynika z kilku źródeł"
+  (4 obszary × ustalenie × źródło/niepewność) i „opis zbiorczy do WOPF-SP"
+  (mocne strony / trudności / warunki / dane brakujące) — dokładnie Twoje
+  pola, puste do wypełnienia.
+- **Str. 11 — Sekcja 4: Zalecenia z orzeczenia i oceny** (przesunięta ze
+  str. 10). Część A (zalecenia z orzeczenia — dane dokumentu, checkbox
+  „uczeń nie ma orzeczenia", 3 puste wiersze na zalecenia) i część B
+  (zalecenia zespołu z oceny, też 3 puste wiersze).
 
 **Jedna zmiana treści — z konieczności, nie wyboru.** Twój plik w dwóch
 miejscach mówił „jeżeli zaleceń jest więcej, dodaj wiersze w Wordzie" —
@@ -254,7 +304,7 @@ systemu.
 | `WOPF_karta_oceny.pdf` | pełny wydruk (headless Chromium, druk A4) |
 | `WOPF_SP_bez_poglebionej.html` | wersja skrócona (9 sekcji, **6 stron**), gdy zespół nie prowadzi obserwacji pogłębionej |
 | `WOPF_SP_bez_poglebionej.pdf` | wydruk wersji skróconej |
-| `WOPF_SP_arkusz_zespolowy.html` | trzeci wariant, „arkusz zespołowy" (10 sekcji + Załącznik „Obserwacja pogłębiona", **10 stron**), zbudowany wg Twojego przesłanego wzoru PDF |
+| `WOPF_SP_arkusz_zespolowy.html` | trzeci wariant, „arkusz zespołowy" (10 sekcji + Załącznik „Obserwacja pogłębiona", **11 stron**), zbudowany wg Twojego przesłanego wzoru PDF |
 | `WOPF_SP_arkusz_zespolowy.pdf` | wydruk arkusza zespołowego |
 
 Szukasz najlepszej opcji spośród trzech — żaden z wariantów nie jest jeszcze
