@@ -25,6 +25,7 @@ potwierdzony, przenosimy go do `Zatwierdzone/` (`git mv`, bez zmiany treści).
 | [`Profil_biopsychospoleczny/`](Profil_biopsychospoleczny/README.md) | Profil biopsychospołeczny ucznia — obserwacja zasobów, barier i ułatwiaczy wg modelu ICF | html + pdf | zmaksymalnie skrócony z 3 do **1 strony** (2+1 rzędów), z prawdziwym logo PCTP — do potwierdzenia |
 | [`Profil_sensoryczny/`](Profil_sensoryczny/README.md) | Profil sensoryczny (model Dunn) — obserwacja modulacji sensorycznej, 7 zmysłów | html + pdf | przebudowany na wspólny system PCTP (16→**8 stron**), charakterystyka jako tabelka w stylu ToM — do potwierdzenia |
 | [`Dziennik_ABC/`](Dziennik_ABC/README.md) | Dziennik Obserwacji ABC + Arkusz Samooceny Obserwatora | html + pdf | zbudowany od podstaw na wspólnym systemie PCTP, **2 strony**, dodana metryczka i podpisy — do potwierdzenia |
+| [`FBA_kwestionariusz/`](FBA_kwestionariusz/README.md) | Kwestionariusz funkcji zachowania (FBA · 0–3) — hipoteza funkcji i kierunek planu pozytywnego wsparcia (PBS) | html + pdf | ujednolicone z dwóch przesłanych plików (inny system szablonów + gotowy wzorzec PDF) na wspólny system PCTP, **8/10 → 4 strony**, auto-sumowanie i wykresy zachowane — do potwierdzenia |
 | IPET — klasa 1-3 | szkoła podstawowa, klasy 1-3 | — | do dodania — szukane w repozytorium, jeszcze nie znalezione |
 
 Wersja IPET dla przedszkola została celowo usunięta z tego projektu —
