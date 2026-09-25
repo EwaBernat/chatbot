@@ -6,6 +6,44 @@ drukach (KSzOF, karta ABC/FBA, ToM, kwestionariusz mowy, profil sensoryczny,
 profil biopsychospołeczny). Wspólna marka i konstrukcja z serii `ToM/` —
 wzorem jest `klasy_1-3`.
 
+## Arkusz zespołowy: Sekcja 2 Załącznika przebudowana — charakterystyka i zalecenia zamiast pustych pól (str. 8)
+
+**Problem: „wyniki arkuszy źródłowych" był mdły i zbyt wąsko rejestrował dane.**
+Poprzednia wersja tabeli miała same wąskie pola do ręcznego uzupełnienia
+(„Liczba zapisanych zdarzeń: ___", „Wynik: ___") — bez żadnej gotowej treści
+merytorycznej, więc strona wyglądała pusto i nie pokazywała, jak faktycznie
+korzystać z danych z innych narzędzi.
+
+**Nowa kolejność źródeł: Profil biopsychospołeczny → ABC/FBA → Profil
+sensoryczny → Rozwój mowy → Profil ToM** (poprzednio: ABC/FBA, sensoryczny,
+mowa, ToM, biopsychospołeczny — na Twoją prośbę biopsychospołeczny przeszedł
+na pierwsze miejsce, ToM na ostatnie).
+
+**Każde źródło ma teraz prawdziwą charakterystykę i zalecenia**, nie puste
+pola — na bazie tego samego przypadku demonstracyjnego, co w pozostałych
+dwóch drukach WOPF (te same steny, te same karty Ułatwienia/Bariery/
+Dobrostan, ten sam ABC, ten sam profil Dunna, ta sama ocena ToM i mowy), więc
+wszystkie trzy dokumenty opisują teraz spójnie jednego przykładowego ucznia:
+- **Profil biopsychospołeczny** — ułatwienia/bariery/dobrostan + czynniki
+  środowiskowe (e310, e330/e425) i zalecenie utrzymania struktury dnia.
+- **ABC/FBA** — 2 zdarzenia z arkusza, zachowanie kluczowe (ucieczka/unikanie
+  wymagań) i plan PBS (modyfikacja poprzedników + zachowanie zastępcze).
+- **Profil sensoryczny** — wrażliwość słuchowa i poszukiwanie bodźców
+  przedsionkowo-proprioceptywnych, z konkretną dietą sensoryczną.
+- **Rozwój mowy** — poziom mowy werbalnej i kierunki terapii logopedycznej.
+- **Profil ToM** — poziom świadomości emocji i konkretne metody pracy (TUS,
+  historyjki społeczne, zamiana ról).
+
+Metryczka (Data / Autor / Nr arkusza) została bez zmian — to pola, które
+faktycznie różnią się dla każdego ucznia, więc zostają puste i edytowalne.
+Charakterystyka i zalecenia są też w pełni edytowalne (osobne `contenteditable`
+pod etykietami „Charakterystyka:"/„Zalecenia:", żeby po podmianie ucznia dało
+się je nadpisać, tak jak wszystkie inne pola w dokumencie) — zweryfikowane
+przez faktyczne kliknięcie i wpisanie tekstu w przeglądarce, nie tylko
+wizualnie. Zweryfikowane też `render_check_team.py` (margines na str. 8 spadł
+z dużego zapasu do 140px — bez przelewania) i wizualnie na renderze
+rzeczywistego PDF-a.
+
 ## Druk podstawowy: przywrócona pełna klauzula RODO oraz czynniki kontekstowe wg ICF
 
 **Pełna, 7-punktowa klauzula informacyjna RODO + ważność dokumentu (str. 13,
@@ -102,10 +140,11 @@ obserwację pogłębioną". Dlatego dopisałam go jako 4 nowe strony na końcu
   biopsychospołeczny) i tabela ustaleń zespołu (koordynator, termin,
   data syntezy).
 - **Str. 8 — Sekcja 2: Wyniki arkuszy źródłowych.** Duża tabela — dla
-  każdego z 5 arkuszy osobno: metryczka (data/autor/nr arkusza) i pola
-  na konkretne wyniki tego narzędzia (np. dla mowy: rozumienie poleceń,
-  wypowiedź, gest/symbole/AAC). Poniżej 3 checkboxy stanu danych i pole
-  na brakujące arkusze.
+  każdego z 5 arkuszy osobno: metryczka (data/autor/nr arkusza) i
+  charakterystyka + zalecenia na bazie wyników z tego narzędzia (nie puste
+  pola — patrz sekcja na górze pliku), w kolejności: profil
+  biopsychospołeczny, ABC/FBA, profil sensoryczny, rozwój mowy, profil ToM.
+  Poniżej 3 checkboxy stanu danych i pole na brakujące arkusze.
 - **Str. 9 — Sekcja 3: Synteza obserwacji.** Dwie tabele: „co wynika z
   kilku źródeł" (4 obszary × ustalenie × źródło/niepewność) i „opis
   zbiorczy do WOPF-SP" (mocne strony / trudności / warunki / dane
