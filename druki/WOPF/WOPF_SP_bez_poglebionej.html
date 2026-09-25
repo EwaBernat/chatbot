@@ -6,7 +6,7 @@ body{font-family:'Mulish',sans-serif;font-size:10.6px;color:#2b2733;line-height:
  -webkit-print-color-adjust:exact;print-color-adjust:exact}
 /* ===== strona A4 z ramką ===== */
 .page{width:210mm;height:297mm;padding:7mm 8mm;position:relative;overflow:hidden}
-@media print{.page{page-break-after:always}}
+@media print{.page{page-break-after:always}.no-print{display:none!important}}
 .frame{position:absolute;inset:5mm;border:1.4px solid #cfc4e8;border-radius:14px;pointer-events:none}
 .inner{position:relative;height:100%;display:flex;flex-direction:column;padding:2mm 3mm}
 /* nagłówek strony */

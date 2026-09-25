@@ -6,6 +6,40 @@ drukach (KSzOF, karta ABC/FBA, ToM, kwestionariusz mowy, profil sensoryczny,
 profil biopsychospołeczny). Wspólna marka i konstrukcja z serii `ToM/` —
 wzorem jest `klasy_1-3`.
 
+## Załącznik: lepsze uzasadnienie obserwacji + przycisk „dodaj wiersz" + naprawiony błąd w tle
+
+**Lepsze, rozwinięte uzasadnienie na str. 7.** Poprzednia wersja Załącznika
+miała po przesłankach tylko jedno zdanie („Dwa wpisy ABC wskazują sytuacje
+do sprawdzenia..."), które samo w sobie nie uzasadniało decyzji o
+obserwacji. Zamieniłam je na pełny, szary „WZÓR UZASADNIENIA" (ten sam
+komponent `.example-box`, co na Punkcie Kontrolnym w głównym dokumencie):
+łączy wszystkie 3 przesłanki (niskie wyniki KSzOF, zdarzenia ABC, brakujące
+wyniki mowy/ToM/sensoryki) we wniosek, dlaczego obserwacja jest zasadna i
+co ma dać (weryfikacja hipotez, uzupełnienie danych, cele do IPET).
+
+**Tabela „Współpraca z rodzicami" (str. 6) — teraz z przyciskiem „+ Dodaj
+kolejną formę współpracy".** Poprzednio jedyny sposób na dopisanie
+kolejnej formy współpracy to ręczne wpisanie w jeden zapasowy, pusty
+wiersz. Dodałam działający przycisk (widoczny tylko na ekranie, nie na
+wydruku) — każde kliknięcie dokłada nowy, w pełni edytowalny wiersz do
+tabeli przez JavaScript, więc można dopisać dowolną liczbę własnych form
+współpracy, nie tylko jedną. Sprawdzone dwoma kliknięciami i wpisaniem
+tekstu w nowo dodany wiersz — działa.
+
+**Przy okazji budowy przycisku znalazłam i naprawiłam realny błąd w
+mechanizmie „nie drukuj".** Klasa `no-print` (używana m.in. na górnym
+pasku narzędzi ✍️ we wszystkich trzech dokumentach) nie miała **żadnej**
+reguły CSS, która faktycznie by ją ukrywała przy druku — pasek narzędzi
+znikał z PDF-ów tylko przypadkiem, bo jest `position:fixed` (Chromium
+samo pomija taki element przy łamaniu na strony). Gdy dodałam przycisk
+zwykłym blokiem (`position` domyślne), `no-print` nic nie robiło i
+przycisk **pojawiał się w PDF-ie** — złapałam to, renderując rzeczywisty
+plik PDF, nie tylko podgląd w przeglądarce. Naprawione we wspólnym pliku
+CSS (`@media print{.no-print{display:none}}`), więc `no-print` teraz
+faktycznie działa **we wszystkich trzech dokumentach**, na każdym
+elemencie, nie tylko na pasku narzędzi. Zweryfikowane renderując gotowy
+PDF (nie tylko podgląd HTML) — przycisk zniknął, reszta bez zmian.
+
 ## Nowość: Załącznik „Obserwacja pogłębiona" dopisany do arkusza zespołowego (str. 7–10)
 
 Przesłałaś osobny plik Word — `EduPlanner_2026_WOPF_SP_uzupełnienie_i_obserwacja_pogłębiona_2.docx` —
