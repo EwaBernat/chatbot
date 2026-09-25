@@ -6,6 +6,34 @@ drukach (KSzOF, karta ABC/FBA, ToM, kwestionariusz mowy, profil sensoryczny,
 profil biopsychospołeczny). Wspólna marka i konstrukcja z serii `ToM/` —
 wzorem jest `klasy_1-3`.
 
+## Arkusz zespołowy: „Autor" → „Sporządzający" oraz nowa linia „Zalecenie do programu" w każdym profilu (str. 8)
+
+**„Autor" → „Sporządzający" w metryczce każdego arkusza.** Na Twoją prośbę
+zmieniłam etykietę w metryczce (Data / ~~Autor~~ Sporządzający / Nr arkusza)
+we wszystkich 5 profilach w Sekcji 2 Załącznika — krótsza wersja z Twoich
+dwóch propozycji, bo pełne „Nauczyciel sporządzający obserwację i opis" nie
+mieściło się w wąskiej (46mm) kolumnie metryczki bez rozbicia na kilka linii.
+
+**Nowa, trzecia linia w każdym profilu: „Zalecenie do programu
+(IPET/PWES)".** Osobno od ogólnej „Charakterystyki" i „Zaleceń" (kierunki
+pracy na co dzień), każdy z 5 profili dostał teraz wyróżnioną pomarańczowym
+kolorem linię mówiącą wprost, co z tego wyniku wynika dla dokumentu
+wynikowego — jaki to rodzaj wpisu (cel SMART, dostosowanie organizacyjne czy
+warunek pracy) i jak decyzja zależy od faktycznego wyniku, np. dla ABC/FBA:
+„jeśli ucieczka nadal występuje mimo modyfikacji poprzedników → cel SMART w
+IPET; jeśli ustąpiła → utrzymać dostosowania profilaktycznie, bez osobnego
+celu". To domyka most: Sekcja 2 (wyniki) → ta nowa linia (co to znaczy dla
+programu) → Sekcja 4 (zalecenia zbiorcze) → IPET/PWES.
+
+**Strona się przelała po dodaniu trzeciej linii (margines -85px), więc
+skompresowałam styl tabeli** (padding 6px 9px→5px 8px, czcionka 8.8px→8.3px,
+interlinia 1.5→1.3) zamiast skracać treść — margines wrócił do +71px, bez
+przelewania. Czcionka jest teraz mała, ale wciąż czytelna (podobna gęstość
+już zaakceptowana wcześniej na str. 3 i 5 tego dokumentu). Zweryfikowane:
+`render_check_team.py`, edytowalność nowej linii sprawdzona klikaniem i
+wpisywaniem tekstu, „Autor" faktycznie zniknął ze strony (sprawdzone
+programowo), zero błędów JS.
+
 ## Arkusz zespołowy: Sekcja 2 Załącznika przebudowana — charakterystyka i zalecenia zamiast pustych pól (str. 8)
 
 **Problem: „wyniki arkuszy źródłowych" był mdły i zbyt wąsko rejestrował dane.**
@@ -140,11 +168,12 @@ obserwację pogłębioną". Dlatego dopisałam go jako 4 nowe strony na końcu
   biopsychospołeczny) i tabela ustaleń zespołu (koordynator, termin,
   data syntezy).
 - **Str. 8 — Sekcja 2: Wyniki arkuszy źródłowych.** Duża tabela — dla
-  każdego z 5 arkuszy osobno: metryczka (data/autor/nr arkusza) i
-  charakterystyka + zalecenia na bazie wyników z tego narzędzia (nie puste
-  pola — patrz sekcja na górze pliku), w kolejności: profil
-  biopsychospołeczny, ABC/FBA, profil sensoryczny, rozwój mowy, profil ToM.
-  Poniżej 3 checkboxy stanu danych i pole na brakujące arkusze.
+  każdego z 5 arkuszy osobno: metryczka (data / sporządzający / nr arkusza)
+  i trzy linie na bazie wyników z tego narzędzia — charakterystyka, zalecenia
+  i wyróżnione „Zalecenie do programu (IPET/PWES)" (nie puste pola — patrz
+  sekcja na górze pliku), w kolejności: profil biopsychospołeczny, ABC/FBA,
+  profil sensoryczny, rozwój mowy, profil ToM. Poniżej 3 checkboxy stanu
+  danych i pole na brakujące arkusze.
 - **Str. 9 — Sekcja 3: Synteza obserwacji.** Dwie tabele: „co wynika z
   kilku źródeł" (4 obszary × ustalenie × źródło/niepewność) i „opis
   zbiorczy do WOPF-SP" (mocne strony / trudności / warunki / dane
