@@ -6,6 +6,34 @@ drukach (KSzOF, karta ABC/FBA, ToM, kwestionariusz mowy, profil sensoryczny,
 profil biopsychospołeczny). Wspólna marka i konstrukcja z serii `ToM/` —
 wzorem jest `klasy_1-3`.
 
+## Druk podstawowy: przywrócona pełna klauzula RODO oraz czynniki kontekstowe wg ICF
+
+**Pełna, 7-punktowa klauzula informacyjna RODO + ważność dokumentu (str. 13,
+Sekcja XXV).** Na Twoją prośbę zamieniłam skróconą, jednoakapitową wersję
+RODO w druku podstawowym (`WOPF_karta_oceny`) na pełną klauzulę informacyjną
+z art. 13/14 RODO — 7 punktów: administrator danych, inspektor ochrony
+danych, cel i podstawa prawna, kategorie danych, odbiorcy, okres
+przechowywania, prawa osób. Dodałam też osobną notkę „Bezpieczeństwo i
+ważność dokumentu" (podpisy zespołu potwierdzają dokonanie oceny; podpis
+rodzica potwierdza zapoznanie się z oceną, ale jego brak nie wstrzymuje
+oceny — ewentualną odmowę należy odnotować). Nagłówek sekcji zmienił się na
+„Wykaz załączników, RODO i ważność dokumentu". Ta pełna klauzula była już
+raz napisana wcześniej w tej sesji i świadomie skrócona pod fidelity do
+wzoru — przywróciłam ją teraz jednym ruchem z historii gita (commit
+`50d405c`), tak jak zapowiadałam w sekcji „Do potwierdzenia przez autorkę"
+niżej.
+
+**Czynniki kontekstowe wg ICF (str. 8, Sekcja XI).** Dopisałam osobny
+podrozdział „Czynniki kontekstowe wg ICF — czynniki środowiskowe i osobowe"
+pod istniejącą triadą ułatwienia/bariery/dobrostan: checklisty czynników
+środowiskowych (wsparcie rodziny i otoczenia — e310, postawy nauczycieli i
+rówieśników — e330/e425) oraz czynników osobowych (temperament i styl
+radzenia sobie ze stresem, motywacja i poczucie sprawczości). Też
+przywrócone z historii gita (commit `6bfd4a2`), gdzie ta treść była już
+raz napisana. Zweryfikowane: `render_check.py` (bez przelewania na żadnej
+z 15 stron), `js_check.py` (zero błędów, przeliczanie stenów dalej działa)
+i wizualnie na renderze rzeczywistego pliku PDF (nie tylko podglądu HTML).
+
 ## Załącznik: podpisy zespołu na końcu (str. 10)
 
 Załącznik „Obserwacja pogłębiona" kończył się polami „Data ustalenia
@@ -590,7 +618,11 @@ Sekcja XXV) zostały poprawione.
   XI: Kontekst biopsychospołeczny (ICF) oraz dobrostan**
   (ułatwienia/bariery/dobrostan) — trzy sekcje razem na tej samej stronie,
   każda z nich osobno zostawiała najwięcej pustego miejsca ze wszystkich
-  stron.
+  stron. **Na Twoją prośbę doszedł tu też podrozdział „Czynniki
+  kontekstowe wg ICF"** — czynniki środowiskowe (wsparcie rodziny i
+  otoczenia, postawy nauczycieli i rówieśników) i czynniki osobowe
+  (temperament, motywacja) jako checklisty; przywrócone z historii gita
+  (patrz sekcja na górze pliku).
 - **Str. 9** — **Sekcja XII: Całościowy obraz funkcjonowania (synteza)**
   (tabela 8 obszarów, kolumna opisu pusta do wypełnienia — poprawiłam też
   literówkę „FUNKCELONOWANIA" → „FUNKCJONOWANIA" z tytułu w Twoim pliku).
@@ -616,9 +648,14 @@ Sekcja XXV) zostały poprawione.
   (Twój jednozdaniowy opis „mostu transferowego", nie rozbudowana tabela
   jak w mojej poprzedniej wersji), **Sekcja XXIV: Podpisy** (5 podpisów —
   Twój plik łączy niektóre role, np. „Psycholog / Pedagog specjalny" w
-  jednym podpisie) i **Sekcja XXV: Wykaz załączników i RODO** (karta
-  „Załączniki" teraz też wskazuje str. 14–15 jako miejsce zbiorczego
-  zestawienia obserwacji pogłębionej).
+  jednym podpisie) i **Sekcja XXV: Wykaz załączników, RODO i ważność
+  dokumentu** (karta „Załączniki" wskazuje str. 14–15 jako miejsce
+  zbiorczego zestawienia obserwacji pogłębionej; **na Twoją prośbę
+  przywrócona pełna, 7-punktowa klauzula informacyjna RODO** —
+  administrator, IOD, cel i podstawa prawna, kategorie danych, odbiorcy,
+  okres przechowywania, prawa osób — w miejsce krótszego akapitu, plus
+  osobna notka „Bezpieczeństwo i ważność dokumentu"; patrz sekcja na górze
+  pliku).
 - **Str. 14–15 — nowy Załącznik: „Zbiorcze zestawienie obserwacji
   pogłębionej"** (poza numeracją rzymską — to materiał pomocniczy, nie
   kolejna sekcja WOPF). Str. 14: intro + **A1** tabelka ABC (Sekcja VII),
@@ -674,15 +711,10 @@ obowiązuje wszędzie, gdzie te funkcje są użyte w tym dokumencie.
 
 ## Do potwierdzenia przez autorkę
 
-- **Klauzula RODO (str. 12, Sekcja XXV) — krótsza wersja z Twojego pliku, nie pełna
-  7-punktowa.** Twój `.docx` ma jeden akapit RODO. Wcześniej w tej sesji
-  (poprzednia wersja WOPF) była pełna, 7-punktowa klauzula informacyjna
-  RODO (administrator, IOD, cel i podstawa prawna, kategorie danych,
-  odbiorcy, okres przechowywania, prawa osób) — to bardziej kompletne
-  spełnienie obowiązku informacyjnego z art. 13/14 RODO. Zostawiłam tu
-  Twoją krótszą wersję (fidelity do przesłanego pliku), ale jeśli wolisz
-  pełną klauzulę z powrotem — jest w historii gita (`git log`), mogę ją
-  przywrócić jednym ruchem.
+- ~~Klauzula RODO (Sekcja XXV) — krótsza wersja, nie pełna 7-punktowa.~~
+  **Zrobione.** Na Twoją wyraźną prośbę przywróciłam pełną, 7-punktową
+  klauzulę z historii gita (teraz str. 13 — dokument urósł do 15 stron od
+  czasu, gdy pisałam tę notatkę) — patrz sekcja na samej górze pliku.
 - **Poprawka przesunięcia numerów sekcji w mapie dokumentów (str. 2,
   Sekcja III)** — opisana wyżej w „Co jest w środku". Sprawdź, czy to
   faktycznie była pomyłka w oryginalnym pliku, czy numeracja w Twoim
