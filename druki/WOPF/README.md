@@ -6,7 +6,31 @@ drukach (KSzOF, karta ABC/FBA, ToM, kwestionariusz mowy, profil sensoryczny,
 profil biopsychospołeczny). Wspólna marka i konstrukcja z serii `ToM/` —
 wzorem jest `klasy_1-3`.
 
-## Arkusz zespołowy: konkretne godziny zajęć, dopasowanie do rozporządzenia MEN i likwidacja ostatniego dualizmu sten/poziom (str. 4–12, 15–17)
+## Arkusz zespołowy: usunięta pusta strona 17 (str. 16, 22 strony zamiast 23)
+
+Zwróciłaś uwagę, że strona 17 „Zintegrowane działania nauczycieli —
+wspólne strategie" wyglądała na bardzo pustą. Miałaś rację — to był
+realny błąd układu, nie tylko wrażenie: strona nie miała ustawionego
+`justify-content: flex-start` (w przeciwieństwie do stron obszarów 4–12),
+więc jej niewielka zawartość (nagłówek, notka, jedna siatka checkboxów,
+druga notka) była rozciągana przez całą wysokość strony zamiast układać
+się od góry — stąd duże, puste odstępy między blokami, mimo że ostatni
+element kończył się blisko stopki.
+
+Po poprawieniu układu okazało się, że ta strona ma realnie tylko ok. 230px
+treści na dostępne ~940px — więc **zamiast łatać pusty układ, połączyłam
+ją z powrotem z poprzednią stroną** („3. Rekomendowane zajęcia i programy
+terapeutyczne", str. 16), która miała akurat tyle wolnego miejsca. Obie
+części mieszczą się teraz razem na jednej, dobrze wypełnionej stronie —
+osobna strona 17 zniknęła, dokument ma z powrotem **22 strony**. Przy
+okazji lekko zagęściłam siatki checkboxów (mniejsze wewnętrzne odstępy)
+w całym dokumencie, żeby połączona strona miała bezpieczny margines.
+
+Zweryfikowane: `render_check_team.py` (wszystkie 22 strony, marginesy
+dodatnie, 9–429px), skan poziomego przelewania (0 elementów), podgląd
+graficzny połączonej strony 16.
+
+## Arkusz zespołowy: konkretne godziny zajęć, dopasowanie do rozporządzenia MEN i likwidacja ostatniego dualizmu sten/poziom (str. 4–12, 16)
 
 Cztery kolejne prośby, wszystkie wpisane w tę samą, jedną charakterystykę
 obszaru — bez tworzenia nowych, osobnych miejsc:
@@ -16,10 +40,10 @@ obszaru — bez tworzenia nowych, osobnych miejsc:
    tylko puste checklisty bez wymiaru). Dodana tabela z 4 przykładowymi
    programami (prowadzący, wymiar h/tydz., okres realizacji), wiersz do
    uzupełnienia własnego oraz podsumowanie łącznego wymiaru — z
-   zastrzeżeniem, że ostateczny wymiar zatwierdza dyrektor. Żeby to się
-   zmieściło bez przelewania strony, punkt 4 „Zintegrowane działania
-   nauczycieli — wspólne strategie" przeniesiony na osobną, nową stronę
-   (str. 17) — stąd dokument ma teraz **23 strony** zamiast 22.
+   zastrzeżeniem, że ostateczny wymiar zatwierdza dyrektor. Punkt 3 i
+   punkt 4 „Zintegrowane działania nauczycieli — wspólne strategie" razem
+   mieszczą się na jednej, gęściej złożonej stronie (str. 16) — dokument
+   zostaje przy **22 stronach**.
 2. **Dopasowanie do rozporządzenia MEN na każdej karcie obszaru** — nowa
    sekcja „Rekomendowane zajęcia zgodnie z rozporządzeniem MEN" w każdej
    z 9 kart: te same, oficjalne nazwy zajęć co w Sekcji IX (8 rodzajów
