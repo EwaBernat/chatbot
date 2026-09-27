@@ -6,6 +6,96 @@ drukach (KSzOF, karta ABC/FBA, ToM, kwestionariusz mowy, profil sensoryczny,
 profil biopsychospołeczny). Wspólna marka i konstrukcja z serii `ToM/` —
 wzorem jest `klasy_1-3`.
 
+## Arkusz zespołowy: uzupełniony o brakujące elementy wymagane rozporządzeniami (nowa Sekcja IX, str. 7–8; rozszerzone X i XI, str. 9–10)
+
+Poprosiłaś o porównanie arkusza zespołowego z przesłanym pełnym drukiem
+„Wielospecjalistyczna Ocena Poziomu Funkcjonowania (WOPF)" (27 stron,
+sekcje I–XXVI, każda z osobną podstawą prawną) i uzupełnienie ważnych
+elementów, które wynikają wprost z rozporządzeń, a których w arkuszu
+zespołowym jeszcze nie było.
+
+**Metoda porównania:** wyciągnęłam pełny tekst obu druków i sprawdziłam
+każdą sekcję referencyjnego WOPF pod kątem tego, czy jej odpowiednik (treść,
+nie koniecznie ta sama numeracja) już istnieje w arkuszu zespołowym. Część
+sekcji referencyjnego WOPF (VI Zachowanie/ABC·FBA, VII Teoria umysłu, VIII
+Mowa, IX Przetwarzanie sensoryczne) **celowo pominęłam** — to szczegółowe
+wyniki osobnych druków źródłowych (karta ABC/FBA, ToM, kwestionariusze mowy,
+profil sensoryczny), które już istnieją jako samodzielne druki w tym
+ekosystemie; zgodnie z zasadą „jedno źródło — jedno miejsce" (którą sam
+referencyjny WOPF opisuje w swojej Sekcji III) arkusz zespołowy je tylko
+przywołuje w Załączniku, nie duplikuje.
+
+**Rzeczywiste braki — dodane jako nowa Sekcja IX „Sposób pracy z uczniem"
+(str. 7–8, między dotychczasową Sekcją VIII a Współpracą z rodzicami):**
+
+1. **Metody i formy pracy — nazwa metody, nie hasło** (§ 6 ust. 1 pkt 1
+   rozp. 1578): checklista 16 konkretnych, nazwanych metod (metoda ośrodków
+   pracy, symultaniczno-sekwencyjna, 18 struktur wyrazowych, Dobrego Startu,
+   Knillów, TEACCH, ART, żetonowa, video-modeling i in.) — wcześniej arkusz
+   nie miał żadnego miejsca na nazwę metody, tylko ogólne „formy
+   organizacyjne".
+2. **Zakres i sposób dostosowania wymagań edukacyjnych oraz warunków
+   pracy** (§ 6 ust. 1 pkt 1 rozp. 1578, § 3 rozp. 1591) — czterokanałowa
+   tabelka (otoczenie, materiały, sposób przekazywania treści, sprawdzanie
+   wiedzy) + checklista 9 sposobów dostosowania oceniania + pole na
+   dostosowanie egzaminu ósmoklasisty (klasy VII–VIII) — tego wcześniej nie
+   było wcale, mimo że to obowiązkowy element IPET.
+3. **Rekomendowane zajęcia i programy terapeutyczne** — dwie osobne
+   checklisty w pełnym, wynikającym wprost z przepisów brzmieniu: 8 rodzajów
+   zajęć rewalidacyjnych (wyłącznie ścieżka A, w tym obowiązkowy przy
+   autyzmie TUS) oraz 11 form pomocy psychologiczno-pedagogicznej (§ 6 ust.
+   1 rozp. 1591: korekcyjno-kompensacyjne, dydaktyczno-wyrównawcze,
+   logopedyczne, emocjonalno-społeczne, terapeutyczne, integracja
+   sensoryczna, rozwijające uzdolnienia, doradztwo zawodowe klasy VII–VIII,
+   zindywidualizowana ścieżka, porady i konsultacje) + tabelka na programy
+   terapeutyczne z wymiarem godzin. Wcześniej arkusz miał tylko 7 ogólnych
+   „zalecanych form organizacyjnych" — bez pełnego, wymaganego wykazu.
+4. **Zintegrowane działania nauczycieli i specjalistów — wspólne
+   strategie** (§ 6 ust. 1 pkt 2 rozp. 1578) — wcześniej to był jeden
+   checkbox w tabeli wsparcia; teraz osobny punkt z checklistą 8 wspólnych
+   strategii (jeden sposób zapowiadania zmian, ten sam system znaków,
+   wspólna karta motywacyjna itd.) + pole na ustalenia zespołu, termin
+   spotkań i osobę koordynującą.
+
+**Dodane do istniejących sekcji:**
+
+- **Sekcja X (dawna IX) Współpraca z rodzicami** — doszła checklista
+  „Współpraca międzysektorowa" (9 instytucji: poradnia pp, SCWEW, poradnia
+  zdrowia psychicznego, lekarz POZ, OPS, asystent rodziny, kurator sądowy,
+  PCPR, ośrodek wczesnej interwencji) — referencyjny WOPF ma to jako osobną
+  część Sekcji XIX, w arkuszu zespołowym wcześniej nie było tego wcale.
+- **Sekcja XI (dawna X) Decyzja zespołu, cele i przyjęcie oceny** —
+  przemianowana i rozszerzona o dwa nowe punkty na początku: „Rekomendowany
+  poziom wsparcia — decyzja zespołu" (legenda Poziom I/II/III + pole
+  decyzji + kierunek dalszej pracy IPET/PWES) oraz „Cele SMART" (tabelka:
+  obszar priorytetowy / cel SMART / kryterium pomiaru / termin, osobno
+  edukacyjny i terapeutyczny) — obu wcześniej nie było, mimo że są
+  centralnym elementem oceny okresowej i już były przywoływane (jako
+  odnośnik do „Sekcji XXII") w jednej z kart KSzOF w Załączniku — ten
+  odnośnik poprawiłam na właściwy numer sekcji (XI).
+
+**Świadomie NIE dodane** (niższy priorytet niż powyższe albo już pokryte
+inaczej): pełna 7-punktowa klauzula informacyjna RODO (arkusz ma już
+krótką klauzulę, spójną z resztą serii dokumentów `WOPF/`), tabela
+przeniesienia informacji do IPET/PWES (dokument i tak wskazuje to przy
+każdej sekcji), wykaz załączników, pełna tabela oceny efektywności wsparcia
+(dotyczy głównie oceny okresowej, nie wstępnej) oraz rozbudowa Sekcji I o
+zawiadomienie rodziców / obecność rodzica na posiedzeniu (już jest ścieżka
+A/B, rodzaj oceny i podstawa — reszta to drobne pola proceduralne). Daj
+znać, jeśli któreś z nich też mają się znaleźć w druku.
+
+**Strona z nową Sekcją IX (str. 7–8) i połączona strona X+XI (dawne IX+X,
+str. 9) się przelały po dodaniu tylu nowych checklist** — Sekcja IX dostała
+dwie własne strony (metody+dostosowania / zajęcia+zintegrowane), a dawna
+wspólna strona „IX+X" została rozdzielona na dwie osobne strony (X i XI),
+bo dodanie międzysektorowej checklisty oraz poziomu wsparcia i celów SMART
+dawało łącznie ok. -601px. Dokument ma teraz **15 stron zamiast 12** — bez
+ścieśniania czcionki ani skracania treści. Zweryfikowane: `render_check_team.py`
+(wszystkie 15 stron bez przelewania), podgląd graficzny 4 nowych/zmienionych
+stron, klikalność checkboxów sprawdzona programowo w każdej z 4 nowych
+checklist (Strategie TEACCH, Terapia integracji sensorycznej, SCWEW, Poziom
+II), zero błędów JS.
+
 ## Arkusz zespołowy: „Zakres wsparcia" przeniesiony pod punkt 3 i połączony z tabelą (str. 6)
 
 Poprawka na Twoją prośbę: obie checklisty z „C · Zakres wsparcia" (które
