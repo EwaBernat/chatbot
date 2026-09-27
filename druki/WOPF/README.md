@@ -6,6 +6,62 @@ drukach (KSzOF, karta ABC/FBA, ToM, kwestionariusz mowy, profil sensoryczny,
 profil biopsychospołeczny). Wspólna marka i konstrukcja z serii `ToM/` —
 wzorem jest `klasy_1-3`.
 
+## Arkusz zespołowy: pełny „Zindywidualizowany Plan Wsparcia" wypełnia każdą kartę obszaru (str. 4–12)
+
+Przesłałaś gotowy, bardzo szczegółowy „Zindywidualizowany Plan Wsparcia
+Ucznia" dla wszystkich 9 obszarów KSzOF i poprosiłaś o wpisanie go do
+istniejącej, jednej charakterystyki obszaru (bez tworzenia nowego,
+osobnego miejsca — **bez dualizmu**), tak żeby strony były „piękne,
+symetryczne, wyraziste, bez białych niewykorzystanych pól", w pełni
+edytowalne, oraz o dodanie jawnej oceny poziomu wsparcia z uzasadnieniem
+(dotąd był tylko zielony/czerwony podział mocna strona / trudność, bez
+wprost nazwanego poziomu i etapu).
+
+**Zaktualizowane pola** (Twoja treść zastąpiła moją wcześniejszą, krótszą
+wersję): *Metody i formy pracy*, *Dostosowania*, *Zintegrowane działania*,
+*Cel główny* i *Cele szczegółowe* — Twoje sformułowania są bardziej
+konkretne i łączą metodę z narzędziem diagnostycznym, które ją uzasadnia.
+
+**Nowe pola dodane do tej samej karty** (żadne nie trafiło do osobnej
+tabeli):
+
+- **Ocena wsparcia** — nowy, wyróżniony kolorem baner tuż pod nagłówkiem:
+  poziom wsparcia (z pełną nazwą, np. „Poziom II — zindywidualizowana
+  pomoc psychologiczno-pedagogiczna") oraz etap edukacyjny / klasy, z
+  dopiskiem „na podstawie trudności opisanych niżej" — odsyła wprost do
+  sekcji Trudność zamiast jej powielać. Kolor baneru (i teraz też cały
+  lewy pasek karty oraz numer obszaru) idzie za Twoim poziomem wsparcia;
+  mały plakiet „sten X (KSzOF)" w nagłówku zostaje jako osobny, wyraźnie
+  podpisany surowy wynik testu, żeby nie kolidował nazwą z nowym banerem
+  (to jedyne miejsce, gdzie zostały dwie liczby obok siebie — celowo
+  opisane różnymi etykietami, żeby to nie było ponowne zdublowanie).
+- **Współpraca z rodzicami** — dołączona jako szósta pozycja w istniejącej
+  siatce „Wsparcie" (obok dostosowań, metod, działań, pomocy i zaleceń).
+- **Tematy zajęć bazowych** — 2 tematy na obszar, jako małe „chipy" pod
+  siatką wsparcia.
+- **Propozycje ćwiczeń terapeutycznych do wyboru** — 2 ćwiczenia na
+  obszar, w tym samym stylu wiersza co „Pasujące obserwacje pogłębione"
+  (nazwa ćwiczenia jako plakietka — tym razem pomarańczowa, żeby
+  odróżnić ją od fioletowych plakietek narzędzi diagnostycznych — plus
+  pełny opis).
+
+Wszystkie nowe pola są w pełni edytowalne (`contenteditable`), tak jak
+reszta karty.
+
+**Wynik gęstości stron — dokładnie to, o co prosiłaś.** Przed tą zmianą
+każda strona obszaru miała 373–502px pustego miejsca (bo scalona
+charakterystyka i tak była już dość krótka). Po dopisaniu Twojej treści
+margines spadł do **72–201px** na wszystkich 9 stronach — bez zmiany
+liczby stron (nadal 22) i bez żadnego przelewania. To jest bezpośredni
+efekt bogatszej treści, nie zmiany layoutu: strony wyglądają teraz na
+pełne i „dopracowane", zamiast w połowie puste.
+
+Zweryfikowane: `render_check_team.py` (wszystkie 22 strony, marginesy
+dodatnie), programowy skan poziomego przelewania (0 elementów poza
+`.page`), edytowalność nowych pól (temat, ćwiczenie, ocena wsparcia)
+sprawdzona programowo, podgląd graficzny dwóch pełnych kart (obszar I i
+obszar VII z notatką łączącą ToM/ABC), zero błędów JS.
+
 ## Arkusz zespołowy: zlikwidowany dualizm — jedna, pełna charakterystyka obszaru (nowa Sekcja VI, str. 4–12)
 
 Zwróciłaś uwagę, że w druku był dualizm: ten sam zestaw 9 obszarów KSzOF
