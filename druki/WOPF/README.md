@@ -6,6 +6,68 @@ drukach (KSzOF, karta ABC/FBA, ToM, kwestionariusz mowy, profil sensoryczny,
 profil biopsychospołeczny). Wspólna marka i konstrukcja z serii `ToM/` —
 wzorem jest `klasy_1-3`.
 
+## Arkusz zespołowy: nowy punkt 5 — trudności we włączeniu w zajęcia z oddziałem (str. 6, Sekcja VIII)
+
+Poprosiłaś o dodanie punktu o treści: „napotkane trudności w zakresie
+włączenia ucznia w zajęcia realizowane wspólnie z oddziałem szkolnym oraz
+efekty podejmowanych działań w celu przezwyciężenia występujących
+trudności", w małej tabelce, wkomponowanego w treść druku.
+
+Dodałam go jako **punkt „5."** w Sekcji VIII (Synteza funkcjonalna, str. 6),
+zaraz po istniejącym punkcie 4 „Przyczyny trudności, bariery i ograniczenia"
+— tematycznie to najbliższe miejsce (punkt 4 mówi ogólnie o barierach i
+dotychczasowych działaniach, punkt 5 doprecyzowuje to akurat pod kątem
+włączania ucznia we wspólne zajęcia z klasą) i jednocześnie ostatni punkt
+Sekcji VIII przed Sekcją IX (Współpraca z rodzicami).
+
+Treść wpisana jako mała, dwukolumnowa tabelka (`ttable()`, ten sam komponent
+co reszta dokumentu): **„Napotykane trudności"** / **„Efekty podjętych
+działań"**, jeden wiersz do wypełnienia przez zespół — pełne brzmienie
+punktu (z Twojego zlecenia) jest w nagłówku punktu nad tabelką, więc nagłówki
+kolumn mogły zostać krótkie i się nie łamać w komórce.
+
+**Strona się przelała po dodaniu (margines -29px)** — to była już dość
+gęsta strona (łączy punkt 4, nowy punkt 5, całą Sekcję IX i całą Sekcję X).
+Skróciłam nagłówki kolumn tabelki (-13px), zmniejszyłam tabelkę do jednego
+wiersza (-27px) i lekko przycięłam dwa istniejące pola notatek w punkcie 4
+(46px→40px wysokości minimalnej, -8px) — bez ruszania samej treści ani
+przenoszenia sekcji między stronami. Strona wyszła na plusie (margines
+23px, w normie pozostałych stron dokumentu). Zweryfikowane: `render_check_team.py`
+(wszystkie 11 stron bez przelewania, zero błędów), podgląd graficzny strony.
+
+## Arkusz zespołowy: nowa podsekcja „C · Zakres wsparcia" w Zaleceniach (str. 11)
+
+Poprosiłaś o uzupełnienie sekcji „Zalecenia z orzeczenia i oceny" (Sekcja 4
+Załącznika, ostatnia strona) o listę osób/form wsparcia i zalecanych form
+organizacyjnych do zaznaczenia — sprawdziłam całość dokumentu i żadnej z
+tych dwóch checklist jeszcze nie było, więc dodałam obie jako nową
+podsekcję **„C · Zakres wsparcia"**, zaraz po istniejącej podsekcji B
+(Zalecenia zespołu), przed polami „Data ustalenia zaleceń"/podpisami:
+
+- **Osoby i formy wsparcia** (8 pozycji do zaznaczenia): wsparcie
+  nauczyciela w bieżącej pracy, pomoc nauczyciela, wsparcie psychologa,
+  wsparcie opiekuna, wsparcie nauczyciela współorganizującego kształcenie,
+  wsparcie pedagoga specjalnego, wsparcie logopedy, zintegrowane działania
+  nauczycieli.
+- **Zalecane formy organizacyjne** (7 pozycji): praca indywidualna, zajęcia
+  rewalidacyjne grupowe, zajęcia rewalidacyjne indywidualne, komunikacja
+  wspomagająca/alternatywna (AAC, PECS, MAKATON), praca w małej grupie,
+  dostosowanie tempa pracy i czasu, konsultacje rodzinne.
+
+Obie listy to zwykłe klikalne checkboxy (`checkbox_grid()`, ten sam
+komponent co reszta dokumentu), w kolejności i dokładnym brzmieniu, jakie
+podałaś.
+
+**Strona się przelała po dodaniu (margines -233px), więc przeniosłam
+podsekcję A („Zalecenia z orzeczenia") na koniec poprzedniej strony 10** —
+tam, gdzie kończy się Synteza obserwacji, było 416px wolnego miejsca, więc
+połączenie się zmieściło bez ściskania czcionki. Strona 11 zaczyna się teraz
+od podsekcji B. Liczba stron dokumentu bez zmian (11) — tylko przesunięcie
+treści o pół strony wstecz. Zweryfikowane: `render_check_team.py` (obie
+strony 10 i 11 bez przelewania, marginesy 42 i 141px), checkbox
+klikalność sprawdzona programowo (Wsparcie logopedy, Konsultacje rodzinne),
+zero błędów JS.
+
 ## Arkusz zespołowy: nowa strona 9 — KSzOF połączone z ocenami (kody ICF + zalecenia wg 9 obszarów)
 
 **Nowa strona, dopisana pod tabelą „Wyniki arkuszy źródłowych" (Sekcja 2).**
