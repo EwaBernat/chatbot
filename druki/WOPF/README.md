@@ -6,6 +6,54 @@ drukach (KSzOF, karta ABC/FBA, ToM, kwestionariusz mowy, profil sensoryczny,
 profil biopsychospołeczny). Wspólna marka i konstrukcja z serii `ToM/` —
 wzorem jest `klasy_1-3`.
 
+## Arkusz zespołowy: własny audyt zgodności — zaktualizowana podstawa prawna „poziomu wsparcia" (nowa podstawa programowa 2026/2027) i limity liczebności grup (str. 16, 18)
+
+Zapytałaś, czy zrobiłam własny audyt tego druku i czy jest w nim wszystko —
+wcześniej tylko reagowałam na Twój wklejony audyt zewnętrzny, więc zrobiłam
+to teraz porządnie: sprawdziłam aktualny stan prawny (wyszukiwarka + próby
+odczytu ISAP/eli.gov.pl/portali oświatowych — **rządowe i większość portali
+prawniczych są zablokowane dla bezpośredniego odczytu w tym środowisku**,
+więc poniższe opiera się na streszczeniach z portali oświatowych, nie na
+odczycie source'u ustawy — przy tak ważnym dokumencie warto to zweryfikować
+jeszcze raz u źródła albo z doradcą metodycznym).
+
+**8 punktów z Twojego audytu — potwierdzam z pamięci budowy tego druku:**
+7 z 8 jest tam, gdzie audyt wskazał (potrzeby rozwojowe, mocne strony,
+zakres wsparcia z tabelą prowadzący/wymiar/okres, przyczyny trudności,
+uczestnictwo społeczne, sekcja o włączeniu w zajęcia z oddziałem, współpraca
+z rodzicami). **Jeden punkt audyt przecenił**: „zajęcia w grupie do 5 osób"
+— w druku są rodzaje zajęć (checklisty), ale limitów liczebności grup
+faktycznie nigdzie nie było wpisane wprost. Dodane teraz jako notka przy
+checklistach w Sekcji IX (str. 16): ogólna zasada + dwa potwierdzone
+przykłady (korekcyjno-kompensacyjne do 5, logopedyczne do 4, zgodnie z
+Dz.U. 2023 poz. 1798) i odesłanie do sprawdzenia limitu dla wybranego
+rodzaju zajęć — bez zgadywania limitów dla wszystkich 19 rodzajów naraz.
+
+**Ważniejsze znalezisko, którego nie było w Twoim audycie:** od 1 września
+2026 r. (dosłownie kilka tygodni temu) obowiązuje nowe rozporządzenie MEN
+o podstawie programowej (11 marca 2026 r., Dz.U. 2026 poz. 378), które dla
+uczniów z niepełnosprawnością intelektualną w stopniu umiarkowanym lub
+znacznym wprowadza nowy, trzystopniowy model poziomów wsparcia — oparty na
+realnej ocenie funkcjonowania (samodzielność, komunikacja, mobilność,
+możliwości poznawcze, uczestnictwo, zakres pomocy), **nie** na samym
+stopniu niepełnosprawności z orzeczenia. Potwierdziłaś, że ten arkusz
+WOPF-SP jest używany też dla tej grupy uczniów, więc zmiana dotyczy tego
+druku wprost. Osobno: 1 września 2026 weszło też w życie rozporządzenie o
+„ocenie funkcjonalnej" (Dz.U. 2026 poz. 428) — to odrębny dokument
+przygotowywany przez poradnię przy orzeczeniu, nie zastępuje WOPFU.
+
+**Naprawione** (Sekcja XI, str. 18): do notatki „Podstawa odniesienia"
+dopisana nowa podstawa prawna trzystopniowego modelu; do opisu Poziomu
+I/II/III dopisane zdanie wprost stwierdzające, że poziom wynika z realnej
+oceny funkcjonowania w obszarach KSzOF, a nie ze stopnia niepełnosprawności
+z orzeczenia — dokładnie zasada, której wymaga nowe rozporządzenie. Struktura
+Poziom I/II/III oparta na najniższym wyniku obszarowym KSzOF, którą ten
+druk już miał, okazała się zgodna z duchem nowego modelu — nie trzeba jej
+było przebudowywać, tylko jawnie nazwać i podeprzeć właściwym przepisem.
+
+Zweryfikowane: `render_check_team.py` (wszystkie 22 strony, marginesy
+dodatnie, 9–429px), skan poziomego przelewania (0 elementów).
+
 ## Arkusz zespołowy: usunięty ostatni realny dualizm — Sekcja 2 załącznika miała własną, gotową charakterystykę (str. 20)
 
 Zewnętrzny audyt zgodności z rozporządzeniem MEN (formalnie: komplet
