@@ -6,6 +6,37 @@ drukach (KSzOF, karta ABC/FBA, ToM, kwestionariusz mowy, profil sensoryczny,
 profil biopsychospołeczny). Wspólna marka i konstrukcja z serii `ToM/` —
 wzorem jest `klasy_1-3`.
 
+## Arkusz zespołowy: nowa tabela „Zintegrowane obserwacje wielospecjalistyczne" (str. 13–14, Załącznik Sekcja 1)
+
+Przesłałaś gotową, szczegółową tabelę: 9 obszarów KSzOF, dla każdego —
+kody ICF, kluczowe badane zachowania, główna procedura obserwacji
+pogłębionej i konkretny zakres powiązania z wnioskami do planu wsparcia.
+Poprosiłaś o „piękną tabelkę" umieszczoną tam, gdzie najlepiej pasuje.
+
+**Umiejscowienie:** Załącznik, Sekcja 1 „Decyzja o obserwacji pogłębionej",
+zaraz po istniejącej tabeli „Jakie arkusze włączyć i co z nich zebrać" —
+ta tabela mówi ogólnie, co zbierać z każdego narzędzia; Twoja nowa tabela
+dopowiada, KTÓRE narzędzie wybrać DLA KTÓREGO obszaru KSzOF i dlaczego —
+naturalne dopełnienie tej samej decyzji, więc trafiła do tej samej sekcji,
+tuż przed jej domykającym polem „Ustalenie zespołu" (koordynator / termin
+/ data syntezy), które teraz zamyka całość na końcu.
+
+**Forma:** żeby było „ładnie graficznie" i spójnie z resztą druku, przeszłam
+z surowej tabeli na te same karty (`.qcard`), których użyłam w poprzedniej
+poprawce Sekcji VI — każdy z 9 obszarów to jedna karta z kolorowym paskiem
+wg poziomu wsparcia, kodami ICF w rogu, kursywą „Badane zachowania w KSzOF"
+jako zdaniem wprowadzającym, a pod spodem — dla każdego z dwóch powiązanych
+narzędzi osobny wiersz: **fioletowa plakietka z nazwą narzędzia** (nowy
+wariant `.qc-tag.tool`, odróżniony kolorem od zielonej/czerwonej plakietki
+z Sekcji VI) + pełne wyjaśnienie powiązania, dokładnie w treści, którą
+podałaś (skróciłam tylko nazwy narzędzi w nagłówkach kart, żeby się
+mieściły w jednej linii — pełne nazwy zostały w treści wyjaśnień).
+
+Rozłożone na dwie strony (13–14, podział 5+4) — dokument ma teraz **18
+stron zamiast 16**. Zweryfikowane: `render_check_team.py` (wszystkie 18
+stron bez przelewania, marginesy 198 i 281px), podgląd graficzny obu stron,
+zero błędów JS.
+
 ## Arkusz zespołowy: Sekcja VI przeprojektowana na karty, na dwóch stronach (str. 4–5)
 
 Poprosiłaś o poprawienie „Charakterystyki jakościowej obszarów" (Sekcja
