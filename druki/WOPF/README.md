@@ -6,7 +6,54 @@ drukach (KSzOF, karta ABC/FBA, ToM, kwestionariusz mowy, profil sensoryczny,
 profil biopsychospołeczny). Wspólna marka i konstrukcja z serii `ToM/` —
 wzorem jest `klasy_1-3`.
 
-## Arkusz zespołowy: uzupełniony o brakujące elementy wymagane rozporządzeniami (nowa Sekcja IX, str. 7–8; rozszerzone X i XI, str. 9–10)
+## Arkusz zespołowy: Sekcja VI przeprojektowana na karty, na dwóch stronach (str. 4–5)
+
+Poprosiłaś o poprawienie „Charakterystyki jakościowej obszarów" (Sekcja
+VI): więcej miejsca, rozłożenie na dwie strony, ładniejsza grafika, lepsza
+widoczność poszczególnych elementów i wytłuszczenia w treści charakterystyki
+— „żeby chciało się czytać".
+
+**Było:** gęsta 9-wierszowa tabela (obszar / mocna strona / trudność /
+źródło) na jednej stronie, wszystkie 9 obszarów wciśnięte w wąskie komórki,
+jednolity szary tekst bez żadnego wyróżnienia.
+
+**Jest:** każdy z 9 obszarów KSzOF dostał osobną, dużą kartę (`.qcard`) —
+nowy komponent graficzny dodany do stylów tego druku:
+
+- **Kolorowy pasek i numer obszaru** po lewej stronie karty — w kolorze
+  faktycznego poziomu wsparcia z Sekcji V (zielony = Poziom I, złoty =
+  Poziom II, czerwony = Poziom III), więc po samym rzucie oka widać, które
+  obszary są priorytetowe, bez czytania liczb.
+- **„Mocna strona" i „Trudność" jako osobne, kolorowe plakietki** (zielona
+  / czerwona) zamiast dwóch kolumn tabeli — od razu wiadomo, co się patrzy.
+- **Wytłuszczone kluczowe fragmenty w każdym opisie** — np. „**Rozumie
+  polecenia, kojarzy fakty**", „**Nie inicjuje kontaktu słownego**" —
+  wyróżniłam najważniejszą, najbardziej obserwowalną frazę w każdej mocnej
+  stronie i trudności, żeby dało się przeczytać istotę obszaru jednym
+  rzutem oka, a resztę zdania doczytać przy potrzebie szczegółu.
+- Nazwa obszaru czcionką Lora (jak nagłówki w reszcie druku), plakietka
+  źródła w rogu karty.
+
+**Rozłożone na dwie strony (str. 4–5)** — obszary I–IV na pierwszej, V–IX
+na drugiej — to jeszcze jedna strona więcej niż poprzednio (dokument ma
+teraz **16 stron**), ale każdy obszar ma teraz dużo miejsca na pełny opis
+zamiast ściśniętej komórki tabeli.
+
+**Techniczna pułapka po drodze — ta sama, co przy stronie z kartami KSzOF
+(patrz wpis o „nowej stronie 9" niżej): `justify-content:space-between`
+maskował prawdziwy rozmiar treści.** Przy podziale 6+3 karty drugą stronę
+zmierzyłam na 14px marginesu, a wizualnie karty rozjeżdżały się z ogromnymi,
+nierównymi odstępami między sobą (dokładnie ten sam efekt, opisany już
+wcześniej w tym README). Naprawione tak samo: `justify-content:flex-start`
+na obu nowych stronach. Po naprawie dopiero było widać prawdziwy zapas
+miejsca, więc dobrałam **podział 4+5 kart** (zamiast intuicyjnego 5+4) —
+najbardziej wyrównany z przetestowanych (marginesy 278px i 258px, żadna
+strona ani przepełniona, ani rażąco pusta). Zweryfikowane:
+`render_check_team.py` (wszystkie 16 stron bez przelewania), podgląd
+graficzny obu stron, edytowalność pól tekstowych w kartach sprawdzona
+programowo, zero błędów JS.
+
+## Arkusz zespołowy: uzupełniony o brakujące elementy wymagane rozporządzeniami (nowa Sekcja IX, str. 8–9; rozszerzone X i XI, str. 10–11)
 
 Poprosiłaś o porównanie arkusza zespołowego z przesłanym pełnym drukiem
 „Wielospecjalistyczna Ocena Poziomu Funkcjonowania (WOPF)" (27 stron,
