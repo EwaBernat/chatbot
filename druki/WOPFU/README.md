@@ -1,4 +1,4 @@
-# WOPF — Wielospecjalistyczna Ocena Poziomu Funkcjonowania
+# WOPFU — Wielospecjalistyczna Ocena Poziomu Funkcjonowania
 
 Karta scalająca ekosystemu **EduPlaner2026-MJ-PCTP**: nie ocenia ucznia od
 nowa, tylko zbiera w jednym miejscu wyniki, które powstały wcześniej w innych
@@ -61,7 +61,7 @@ znacznym wprowadza nowy, trzystopniowy model poziomów wsparcia — oparty na
 realnej ocenie funkcjonowania (samodzielność, komunikacja, mobilność,
 możliwości poznawcze, uczestnictwo, zakres pomocy), **nie** na samym
 stopniu niepełnosprawności z orzeczenia. Potwierdziłaś, że ten arkusz
-WOPF-SP jest używany też dla tej grupy uczniów, więc zmiana dotyczy tego
+WOPFU-SP jest używany też dla tej grupy uczniów, więc zmiana dotyczy tego
 druku wprost. Osobno: 1 września 2026 weszło też w życie rozporządzenie o
 „ocenie funkcjonalnej" (Dz.U. 2026 poz. 428) — to odrębny dokument
 przygotowywany przez poradnię przy orzeczeniu, nie zastępuje WOPFU.
@@ -444,20 +444,20 @@ programowo, zero błędów JS.
 ## Arkusz zespołowy: uzupełniony o brakujące elementy wymagane rozporządzeniami (nowa Sekcja IX, str. 8–9; rozszerzone X i XI, str. 10–11)
 
 Poprosiłaś o porównanie arkusza zespołowego z przesłanym pełnym drukiem
-„Wielospecjalistyczna Ocena Poziomu Funkcjonowania (WOPF)" (27 stron,
+„Wielospecjalistyczna Ocena Poziomu Funkcjonowania (WOPFU)" (27 stron,
 sekcje I–XXVI, każda z osobną podstawą prawną) i uzupełnienie ważnych
 elementów, które wynikają wprost z rozporządzeń, a których w arkuszu
 zespołowym jeszcze nie było.
 
 **Metoda porównania:** wyciągnęłam pełny tekst obu druków i sprawdziłam
-każdą sekcję referencyjnego WOPF pod kątem tego, czy jej odpowiednik (treść,
+każdą sekcję referencyjnego WOPFU pod kątem tego, czy jej odpowiednik (treść,
 nie koniecznie ta sama numeracja) już istnieje w arkuszu zespołowym. Część
-sekcji referencyjnego WOPF (VI Zachowanie/ABC·FBA, VII Teoria umysłu, VIII
+sekcji referencyjnego WOPFU (VI Zachowanie/ABC·FBA, VII Teoria umysłu, VIII
 Mowa, IX Przetwarzanie sensoryczne) **celowo pominęłam** — to szczegółowe
 wyniki osobnych druków źródłowych (karta ABC/FBA, ToM, kwestionariusze mowy,
 profil sensoryczny), które już istnieją jako samodzielne druki w tym
 ekosystemie; zgodnie z zasadą „jedno źródło — jedno miejsce" (którą sam
-referencyjny WOPF opisuje w swojej Sekcji III) arkusz zespołowy je tylko
+referencyjny WOPFU opisuje w swojej Sekcji III) arkusz zespołowy je tylko
 przywołuje w Załączniku, nie duplikuje.
 
 **Rzeczywiste braki — dodane jako nowa Sekcja IX „Sposób pracy z uczniem"
@@ -497,12 +497,12 @@ przywołuje w Załączniku, nie duplikuje.
 - **Sekcja X (dawna IX) Współpraca z rodzicami** — doszła checklista
   „Współpraca międzysektorowa" (9 instytucji: poradnia pp, SCWEW, poradnia
   zdrowia psychicznego, lekarz POZ, OPS, asystent rodziny, kurator sądowy,
-  PCPR, ośrodek wczesnej interwencji) — referencyjny WOPF ma to jako osobną
+  PCPR, ośrodek wczesnej interwencji) — referencyjny WOPFU ma to jako osobną
   część Sekcji XIX, w arkuszu zespołowym wcześniej nie było tego wcale.
 - **Sekcja XI (dawna X) Decyzja zespołu, cele i przyjęcie oceny** —
   przemianowana i rozszerzona o dwa nowe punkty na początku: „Rekomendowany
   poziom wsparcia — decyzja zespołu" (legenda Poziom I/II/III + pole
-  decyzji + kierunek dalszej pracy IPET/PWES) oraz „Cele SMART" (tabelka:
+  decyzji + kierunek dalszej pracy IPET/PEWS) oraz „Cele SMART" (tabelka:
   obszar priorytetowy / cel SMART / kryterium pomiaru / termin, osobno
   edukacyjny i terapeutyczny) — obu wcześniej nie było, mimo że są
   centralnym elementem oceny okresowej i już były przywoływane (jako
@@ -511,8 +511,8 @@ przywołuje w Załączniku, nie duplikuje.
 
 **Świadomie NIE dodane** (niższy priorytet niż powyższe albo już pokryte
 inaczej): pełna 7-punktowa klauzula informacyjna RODO (arkusz ma już
-krótką klauzulę, spójną z resztą serii dokumentów `WOPF/`), tabela
-przeniesienia informacji do IPET/PWES (dokument i tak wskazuje to przy
+krótką klauzulę, spójną z resztą serii dokumentów `WOPFU/`), tabela
+przeniesienia informacji do IPET/PEWS (dokument i tak wskazuje to przy
 każdej sekcji), wykaz załączników, pełna tabela oceny efektywności wsparcia
 (dotyczy głównie oceny okresowej, nie wstępnej) oraz rozbudowa Sekcji I o
 zawiadomienie rodziców / obecność rodzica na posiedzeniu (już jest ścieżka
@@ -662,7 +662,7 @@ dwóch propozycji, bo pełne „Nauczyciel sporządzający obserwację i opis" n
 mieściło się w wąskiej (46mm) kolumnie metryczki bez rozbicia na kilka linii.
 
 **Nowa, trzecia linia w każdym profilu: „Zalecenie do programu
-(IPET/PWES)".** Osobno od ogólnej „Charakterystyki" i „Zaleceń" (kierunki
+(IPET/PEWS)".** Osobno od ogólnej „Charakterystyki" i „Zaleceń" (kierunki
 pracy na co dzień), każdy z 5 profili dostał teraz wyróżnioną pomarańczowym
 kolorem linię mówiącą wprost, co z tego wyniku wynika dla dokumentu
 wynikowego — jaki to rodzaj wpisu (cel SMART, dostosowanie organizacyjne czy
@@ -670,7 +670,7 @@ warunek pracy) i jak decyzja zależy od faktycznego wyniku, np. dla ABC/FBA:
 „jeśli ucieczka nadal występuje mimo modyfikacji poprzedników → cel SMART w
 IPET; jeśli ustąpiła → utrzymać dostosowania profilaktycznie, bez osobnego
 celu". To domyka most: Sekcja 2 (wyniki) → ta nowa linia (co to znaczy dla
-programu) → Sekcja 4 (zalecenia zbiorcze) → IPET/PWES.
+programu) → Sekcja 4 (zalecenia zbiorcze) → IPET/PEWS.
 
 **Strona się przelała po dodaniu trzeciej linii (margines -85px), więc
 skompresowałam styl tabeli** (padding 6px 9px→5px 8px, czcionka 8.8px→8.3px,
@@ -696,7 +696,7 @@ na pierwsze miejsce, ToM na ostatnie).
 
 **Każde źródło ma teraz prawdziwą charakterystykę i zalecenia**, nie puste
 pola — na bazie tego samego przypadku demonstracyjnego, co w pozostałych
-dwóch drukach WOPF (te same steny, te same karty Ułatwienia/Bariery/
+dwóch drukach WOPFU (te same steny, te same karty Ułatwienia/Bariery/
 Dobrostan, ten sam ABC, ten sam profil Dunna, ta sama ocena ToM i mowy), więc
 wszystkie trzy dokumenty opisują teraz spójnie jednego przykładowego ucznia:
 - **Profil biopsychospołeczny** — ułatwienia/bariery/dobrostan + czynniki
@@ -723,7 +723,7 @@ rzeczywistego PDF-a.
 
 **Pełna, 7-punktowa klauzula informacyjna RODO + ważność dokumentu (str. 13,
 Sekcja XXV).** Na Twoją prośbę zamieniłam skróconą, jednoakapitową wersję
-RODO w druku podstawowym (`WOPF_karta_oceny`) na pełną klauzulę informacyjną
+RODO w druku podstawowym (`WOPFU_karta_oceny`) na pełną klauzulę informacyjną
 z art. 13/14 RODO — 7 punktów: administrator danych, inspektor ochrony
 danych, cel i podstawa prawna, kategorie danych, odbiorcy, okres
 przechowywania, prawa osób. Dodałam też osobną notkę „Bezpieczeństwo i
@@ -798,13 +798,13 @@ PDF (nie tylko podgląd HTML) — przycisk zniknął, reszta bez zmian.
 
 ## Nowość: Załącznik „Obserwacja pogłębiona" dopisany do arkusza zespołowego (str. 7–10)
 
-Przesłałaś osobny plik Word — `EduPlanner_2026_WOPF_SP_uzupełnienie_i_obserwacja_pogłębiona_2.docx` —
+Przesłałaś osobny plik Word — `EduPlanner_2026_WOPFU_SP_uzupełnienie_i_obserwacja_pogłębiona_2.docx` —
 i poprosiłaś o „piękny druk" z tego jako Załącznik. To 4-sekcyjny,
 samodzielny dokument roboczy do prowadzenia obserwacji pogłębionej: nie
 duplikuje niczego z arkusza zespołowego, tylko rozwija to, na czym Sekcja
 VII tego dokumentu (Punkt Kontrolny) się kończy — decyzję „uruchamiam
 obserwację pogłębioną". Dlatego dopisałam go jako 4 nowe strony na końcu
-`WOPF_SP_arkusz_zespolowy` (6→10 stron w tamtym momencie; od dopisania str. 9
+`WOPFU_SP_arkusz_zespolowy` (6→10 stron w tamtym momencie; od dopisania str. 9
 z kodami ICF — patrz sekcja na górze pliku — dokument ma już **11 stron**),
 w tej samej konstrukcji `.page`/`.sec`/`.tb`, a nie jako osobny plik.
 
@@ -818,7 +818,7 @@ w tej samej konstrukcji `.page`/`.sec`/`.tb`, a nie jako osobny plik.
 - **Str. 8 — Sekcja 2: Wyniki arkuszy źródłowych.** Duża tabela — dla
   każdego z 5 arkuszy osobno: metryczka (data / sporządzający / nr arkusza)
   i trzy linie na bazie wyników z tego narzędzia — charakterystyka, zalecenia
-  i wyróżnione „Zalecenie do programu (IPET/PWES)" (nie puste pola — patrz
+  i wyróżnione „Zalecenie do programu (IPET/PEWS)" (nie puste pola — patrz
   sekcja na górze pliku), w kolejności: profil biopsychospołeczny, ABC/FBA,
   profil sensoryczny, rozwój mowy, profil ToM. Poniżej 3 checkboxy stanu
   danych i pole na brakujące arkusze.
@@ -826,7 +826,7 @@ w tej samej konstrukcji `.page`/`.sec`/`.tb`, a nie jako osobny plik.
   później — patrz sekcja na górze pliku.
 - **Str. 10 — Sekcja 3: Synteza obserwacji** (przesunięta ze str. 9 po
   dopisaniu str. 9 z kodami ICF). Dwie tabele: „co wynika z kilku źródeł"
-  (4 obszary × ustalenie × źródło/niepewność) i „opis zbiorczy do WOPF-SP"
+  (4 obszary × ustalenie × źródło/niepewność) i „opis zbiorczy do WOPFU-SP"
   (mocne strony / trudności / warunki / dane brakujące) — dokładnie Twoje
   pola, puste do wypełnienia.
 - **Str. 11 — Sekcja 4: Zalecenia z orzeczenia i oceny** (przesunięta ze
@@ -901,19 +901,19 @@ systemu.
 
 | Plik | Opis |
 |---|---|
-| `WOPF_karta_oceny.html` | pełna wersja, 25 sekcji, 15 stron |
-| `WOPF_karta_oceny.pdf` | pełny wydruk (headless Chromium, druk A4) |
-| `WOPF_SP_bez_poglebionej.html` | wersja skrócona (9 sekcji, **6 stron**), gdy zespół nie prowadzi obserwacji pogłębionej |
-| `WOPF_SP_bez_poglebionej.pdf` | wydruk wersji skróconej |
-| `WOPF_SP_arkusz_zespolowy.html` | trzeci wariant, „arkusz zespołowy" (10 sekcji + Załącznik „Obserwacja pogłębiona", **11 stron**), zbudowany wg Twojego przesłanego wzoru PDF |
-| `WOPF_SP_arkusz_zespolowy.pdf` | wydruk arkusza zespołowego |
+| `WOPFU_karta_oceny.html` | pełna wersja, 25 sekcji, 15 stron |
+| `WOPFU_karta_oceny.pdf` | pełny wydruk (headless Chromium, druk A4) |
+| `WOPFU_SP_bez_poglebionej.html` | wersja skrócona (9 sekcji, **6 stron**), gdy zespół nie prowadzi obserwacji pogłębionej |
+| `WOPFU_SP_bez_poglebionej.pdf` | wydruk wersji skróconej |
+| `WOPFU_SP_arkusz_zespolowy.html` | trzeci wariant, „arkusz zespołowy" (10 sekcji + Załącznik „Obserwacja pogłębiona", **11 stron**), zbudowany wg Twojego przesłanego wzoru PDF |
+| `WOPFU_SP_arkusz_zespolowy.pdf` | wydruk arkusza zespołowego |
 
 Szukasz najlepszej opcji spośród trzech — żaden z wariantów nie jest jeszcze
 przeniesiony do `Zatwierdzone/`.
 
 ## „Arkusz zespołowy" (10 sekcji, 6 stron podstawowych) — trzeci wariant
 
-Przesłałaś PDF „piękny WOPF-z czata" — inny, prostszy arkusz (bez kolorów,
+Przesłałaś PDF „piękny WOPFU-z czata" — inny, prostszy arkusz (bez kolorów,
 bez wykresów, same tabele do wypełnienia), z prośbą „zrób według tego wzoru,
 dodaj stronę z kolorowymi wykresami". Zapytałam, czy ma to zastąpić wersję
 skróconą, czy być osobnym dokumentem — wybrałaś **osobny, trzeci plik**, bo
@@ -1029,7 +1029,7 @@ resztę strony (mniejsze pola VIII.1/VIII.2) — margines do stopki: 25 px.
 
 ## Nowość: wersja „bez obserwacji pogłębionej" (6 stron)
 
-Wkleiłaś w czacie pełny tekst innej, dużo krótszej wersji WOPF (9 sekcji
+Wkleiłaś w czacie pełny tekst innej, dużo krótszej wersji WOPFU (9 sekcji
 rzymskich I–X zamiast 25) i poprosiłaś o taki sam druk, ale bez
 obserwacji pogłębionej. Zbudowałam go jako **osobny plik** obok pełnej,
 14-stronicowej wersji — to inny, krótszy dokument, nie zamiennik tamtego,
@@ -1194,7 +1194,7 @@ resztą — treść i 5 ról podpisów zgadzają się z Twoim tekstem jeden do
 jednego.
 
 **Ta wersja zastępuje poprzednią** (19 ponumerowanych punktów wg ręcznie
-wpisanego „Planu WOPF") — przesłałaś plik `WOPF.docx`, który jest
+wpisanego „Planu WOPFU") — przesłałaś plik `WOPFU.docx`, który jest
 dokładniejszym, autorytatywnym źródłem: 25 sekcji rzymskich (I–XXV) z
 konkretną, gotową treścią (nie szablonem). Wróciliśmy więc do układu
 sekcji rzymskich, ale z **prawdziwą treścią wyciągniętą z Twojego pliku**
@@ -1211,7 +1211,7 @@ dokładnie taka, jak w Twoim pliku, zmieniły się tylko podziały stron.
 
 ## Podział na etapy (moduły)
 
-Wg przesłanej „Mapy architektury druku WOPF" (PDF) druk jest wizualnie
+Wg przesłanej „Mapy architektury druku WOPFU" (PDF) druk jest wizualnie
 podzielony na 4 etapy — bez zmiany numeracji sekcji rzymskich, tylko
 dodane kolorowe paski-banery nad sekcją, która rozpoczyna dany etap:
 
@@ -1363,7 +1363,7 @@ Sekcja XXV) zostały poprawione.
 - **Str. 13** — dokończenie Sekcji XXI (cel terapeutyczny), **Sekcja XXII:
   Ocena efektywności udzielanego wsparcia** (tabela — Twój plik ma tu
   jeden zbiorczy wiersz „1–8", nie osobny wiersz na każdy zakres, więc tak
-  to zostawiłam), **Sekcja XXIII: Przeniesienie informacji do IPET/PWES**
+  to zostawiłam), **Sekcja XXIII: Przeniesienie informacji do IPET/PEWS**
   (Twój jednozdaniowy opis „mostu transferowego", nie rozbudowana tabela
   jak w mojej poprzedniej wersji), **Sekcja XXIV: Podpisy** (5 podpisów —
   Twój plik łączy niektóre role, np. „Psycholog / Pedagog specjalny" w
@@ -1377,7 +1377,7 @@ Sekcja XXV) zostały poprawione.
   pliku).
 - **Str. 14–15 — nowy Załącznik: „Zbiorcze zestawienie obserwacji
   pogłębionej"** (poza numeracją rzymską — to materiał pomocniczy, nie
-  kolejna sekcja WOPF). Str. 14: intro + **A1** tabelka ABC (Sekcja VII),
+  kolejna sekcja WOPFU). Str. 14: intro + **A1** tabelka ABC (Sekcja VII),
   **A2** tabelka ToM (Sekcja VIII), **A3** tabelka Mowa (Sekcja IX) — te
   same tabele, co w głównym dokumencie, po prostu przedrukowane razem do
   szybkiego przeglądu. Str. 15: **A4** tabelka Profil sensoryczny (Sekcja
@@ -1477,7 +1477,7 @@ obowiązuje wszędzie, gdzie te funkcje są użyte w tym dokumencie.
   „patrz Załącznik". Jeśli miałaś na myśli coś innego (np. żeby to
   zachowanie dodać w interaktywnym **panelu nauczyciela**, a nie w tym
   drukowanym dokumencie) — daj znać, łatwo to przenieść lub poprawić.
-- Żaden z czterech wariantów ToM ani WOPF nie jest jeszcze przeniesiony do
+- Żaden z czterech wariantów ToM ani WOPFU nie jest jeszcze przeniesiony do
   `Zatwierdzone/` — czeka na Twoje potwierdzenie powyższych punktów.
 
 ## Jak powstał PDF

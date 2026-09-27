@@ -1,16 +1,16 @@
-# PWES — Plan Wsparcia Edukacyjnego
+# PEWS — Program Edukacyjno-Wspierający Szkolny
 
 Dokument wynikowy **ścieżki B** (uczeń **bez orzeczenia** o potrzebie
 kształcenia specjalnego) — odpowiednik IPET dla ścieżki A. Dotąd istniał
-tylko jako nazwa/pole wyboru wewnątrz trzech druków WOPF (`WOPF_SP_arkusz_zespolowy`,
-`WOPF_SP_bez_poglebionej`, `WOPF_karta_oceny`), z zastrzeżeniem wprost w
+tylko jako nazwa/pole wyboru wewnątrz trzech druków WOPFU (`WOPFU_SP_arkusz_zespolowy`,
+`WOPFU_SP_bez_poglebionej`, `WOPFU_karta_oceny`), z zastrzeżeniem wprost w
 tekście: „Nie oznaczaj tej ścieżki jako formalnej WOPFU ani IPET" — czyli
-żaden z tych druków nie jest, ani nie miał być, samym PWES. Ten folder
+żaden z tych druków nie jest, ani nie miał być, samym PEWS. Ten folder
 dodaje brakujący, samodzielny dokument.
 
-## Dlaczego to inny dokument niż WOPF-SP
+## Dlaczego to inny dokument niż WOPFU-SP
 
-WOPF-SP (i jego 9-obszarowy aparat KSzOF/ICF/sten) to narzędzie dla ścieżki A
+WOPFU-SP (i jego 9-obszarowy aparat KSzOF/ICF/sten) to narzędzie dla ścieżki A
 — wymóg wynika z § 6 rozporządzenia o kształceniu specjalnym (Dz.U. 2020
 poz. 1309), które dotyczy wyłącznie uczniów **z orzeczeniem**. Dla ucznia
 **bez orzeczenia** korzystającego z pomocy psychologiczno-pedagogicznej
@@ -19,9 +19,9 @@ udzielania pomocy psychologiczno-pedagogicznej (Dz.U. 2017 poz. 1591; tekst
 jednolity: Dz.U. 2023 poz. 1798) — które nie wymaga pełnej wielospecjalistycznej
 oceny w 9 obszarach, tylko: rozpoznania indywidualnych potrzeb, ustalonych
 form/wymiaru/okresu pomocy, poinformowania rodziców i okresowej oceny
-efektywności. Dlatego PWES **celowo nie ma** KSzOF, sten, kart obszarów ani
+efektywności. Dlatego PEWS **celowo nie ma** KSzOF, sten, kart obszarów ani
 sekcji rewalidacji (rewalidacja jest zarezerwowana dla ścieżki A) — to nie
-skrót WOPF-SP, tylko osobny dokument dopasowany do innej podstawy prawnej.
+skrót WOPFU-SP, tylko osobny dokument dopasowany do innej podstawy prawnej.
 
 ## Struktura (4 strony)
 
@@ -34,7 +34,7 @@ skrót WOPF-SP, tylko osobny dokument dopasowany do innej podstawy prawnej.
    rozpoznania) i **wpływ trudności na funkcjonowanie** — w tym mała
    tabelka „Napotykane trudności w zakresie włączenia ucznia w zajęcia
    realizowane wspólnie z oddziałem szkolnym oraz efekty działań" (ten
-   sam element, który jest w WOPF-SP).
+   sam element, który jest w WOPFU-SP).
 3. **Ustalone formy pomocy pp** (11 kategorii z rozporządzenia, bez
    rewalidacji) z tabelą prowadzący/wymiar/okres i notą o limitach
    liczebności grup, **dostosowania metod pracy** i **cele planu
@@ -45,7 +45,7 @@ skrót WOPF-SP, tylko osobny dokument dopasowany do innej podstawy prawnej.
 
 Ta sama marka PCTP (fiolet `#2D1B69` + pomarańcz `#E8450A`, Mulish/Lora,
 `.page`/`.phead`/`.pmeta`/`.pbody`/`.pfoot`, wspólny `base_css.html`) co
-cała rodzina WOPF — inna treść, ten sam system wizualny.
+cała rodzina WOPFU — inna treść, ten sam system wizualny.
 
 ## Gęstość stron
 
@@ -60,8 +60,8 @@ sprawdzona programowo.
 
 ## Odtworzenie PDF
 
-Źródło: generator Python (`build_pwes.py`, poza repozytorium — w
-scratchpadzie sesji), analogiczny do `WOPF/` — reużywa te same funkcje
+Źródło: generator Python (`build_pews.py`, poza repozytorium — w
+scratchpadzie sesji), analogiczny do `WOPFU/` — reużywa te same funkcje
 pomocnicze (`page`, `sec_header`, `checkbox_grid`, `ttable`, `note_p`...) i
 ten sam `base_css.html`. PDF renderowany przez headless Chromium
 (Playwright `page.pdf()`, A4).
