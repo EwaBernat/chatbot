@@ -6,6 +6,21 @@ drukach (KSzOF, karta ABC/FBA, ToM, kwestionariusz mowy, profil sensoryczny,
 profil biopsychospołeczny). Wspólna marka i konstrukcja z serii `ToM/` —
 wzorem jest `klasy_1-3`.
 
+## Arkusz zespołowy: znaki zapytania przy tytułach pytających (str. 19, 21)
+
+Sprawdziłam systematycznie cały druk pod kątem sformułowań pytających bez
+znaku zapytania. W treści (notatki, pola, „Pytania pomocnicze" na str. 12)
+wszystkie pytania już go miały. Znalazłam za to dwa **tytuły podrozdziałów**
+napisane w formie pytania, ale bez „?": „Jakie arkusze włączyć i co z nich
+zebrać" (str. 19, Załącznik Sekcja 1) i „Co wynika z kilku źródeł" (str. 21,
+Załącznik Sekcja 3) — oba dodane. Pozostałe tytuły i nagłówki tabel w całym
+dokumencie (np. „Kto odpowiada", „Zalecane formy organizacyjne") są noun
+phrase'ami lub trybem rozkazującym, nie pytaniami, więc zostają bez zmian —
+to jest jednolita konwencja w tym druku, nie przeoczenie.
+
+Zweryfikowane: `render_check_team.py` (wszystkie 22 strony, marginesy
+dodatnie, 9–429px), skan poziomego przelewania (0 elementów).
+
 ## Arkusz zespołowy: własny audyt zgodności — zaktualizowana podstawa prawna „poziomu wsparcia" (nowa podstawa programowa 2026/2027) i limity liczebności grup (str. 16, 18)
 
 Zapytałaś, czy zrobiłam własny audyt tego druku i czy jest w nim wszystko —
