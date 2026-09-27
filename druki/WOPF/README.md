@@ -6,14 +6,55 @@ drukach (KSzOF, karta ABC/FBA, ToM, kwestionariusz mowy, profil sensoryczny,
 profil biopsychospołeczny). Wspólna marka i konstrukcja z serii `ToM/` —
 wzorem jest `klasy_1-3`.
 
-## Arkusz zespołowy: nowy punkt 5 — trudności we włączeniu w zajęcia z oddziałem (str. 6, Sekcja VIII)
+## Arkusz zespołowy: „Zakres wsparcia" przeniesiony pod punkt 3 i połączony z tabelą (str. 6)
+
+Poprawka na Twoją prośbę: obie checklisty z „C · Zakres wsparcia" (które
+poprzednio dodałam w Sekcji 4 Załącznika, ostatnia strona) przeniosłam pod
+istniejący punkt „3. Zakres i charakter wsparcia" (Sekcja VIII, str. 6) i
+połączyłam z tamtejszą tabelą zamiast trzymać je osobno:
+
+- **Osoby i formy wsparcia** (8 pozycji) — zamiast osobnej checklisty,
+  dodałam checkbox bezpośrednio przy każdej osobie/funkcji w istniejącej
+  tabeli „Zakres i charakter wsparcia" (kolumna 1: `<input type="checkbox">`
+  + etykieta w Twoim dokładnym brzmieniu). 6 z 8 pozycji już miało tam swój
+  wiersz (tylko przemianowałam etykiety na Twoje brzmienie, np. „Wychowawca
+  / nauczyciel prowadzący" → „Wsparcie nauczyciela w bieżącej pracy", nie
+  ruszając opisu w kolumnie 2); dodałam 2 nowe wiersze dla pozycji, których
+  tam jeszcze nie było — „Wsparcie opiekuna" i „Zintegrowane działania
+  nauczycieli" — z krótkim opisem w tym samym stylu co pozostałe wiersze.
+- **Zalecane formy organizacyjne** (7 pozycji) — to inny wymiar (formy
+  pracy, nie osoby), więc nie dało się ich wpisać jako wierszy tej samej
+  tabeli; zostały jako osobna, mała checklista `checkbox_grid()` zaraz pod
+  tabelą, w tym samym miejscu (punkt 3), w Twoim dokładnym brzmieniu i
+  kolejności.
+
+Podsekcja „C · Zakres wsparcia" (dawniej ostatnia strona) została usunięta
+w całości, a podsekcja „A · Zalecenia z orzeczenia" wróciła na swoje
+pierwotne miejsce (ostatnia strona, przed podsekcją B) — ten fragment
+dokumentu wygląda teraz tak, jak przed poprzednią zmianą.
+
+**Strona z punktem 3 przelała się po połączeniu (margines -231px)** —
+rozszerzona tabela i nowa checklista to znacznie więcej treści niż dotąd
+mieściło się na tej stronie (dzielonej z punktem kontrolnym Sekcji VII i
+punktami VIII.1–VIII.2). W pobliżu nie było strony z wystarczającym
+zapasem miejsca, więc zamiast zmniejszać czcionkę albo ciąć treść, punkt 3
+dostał **własną, nową stronę** — dokument ma teraz **12 stron zamiast 11**
+(reszta dokumentu przesunęła się o jedną stronę dalej, numeracja w stopce
+i punkt 5 poniżej podążają już za tą zmianą). Zweryfikowane:
+`render_check_team.py` (wszystkie 12 stron bez przelewania), podgląd
+graficzny obu zmienionych stron, klikalność checkboxów sprawdzona
+programowo (Wsparcie opiekuna, Konsultacje rodzinne), zero błędów JS.
+
+## Arkusz zespołowy: nowy punkt 5 — trudności we włączeniu w zajęcia z oddziałem (str. 7, Sekcja VIII)
 
 Poprosiłaś o dodanie punktu o treści: „napotkane trudności w zakresie
 włączenia ucznia w zajęcia realizowane wspólnie z oddziałem szkolnym oraz
 efekty podejmowanych działań w celu przezwyciężenia występujących
 trudności", w małej tabelce, wkomponowanego w treść druku.
 
-Dodałam go jako **punkt „5."** w Sekcji VIII (Synteza funkcjonalna, str. 6),
+Dodałam go jako **punkt „5."** w Sekcji VIII (Synteza funkcjonalna, str. 7 —
+po późniejszym przeniesieniu „Zakresu wsparcia" pod punkt 3 dokument ma o
+jedną stronę więcej, więc punkt 5 przesunął się z ówczesnej str. 6 na str. 7),
 zaraz po istniejącym punkcie 4 „Przyczyny trudności, bariery i ograniczenia"
 — tematycznie to najbliższe miejsce (punkt 4 mówi ogólnie o barierach i
 dotychczasowych działaniach, punkt 5 doprecyzowuje to akurat pod kątem
@@ -32,41 +73,14 @@ Skróciłam nagłówki kolumn tabelki (-13px), zmniejszyłam tabelkę do jednego
 wiersza (-27px) i lekko przycięłam dwa istniejące pola notatek w punkcie 4
 (46px→40px wysokości minimalnej, -8px) — bez ruszania samej treści ani
 przenoszenia sekcji między stronami. Strona wyszła na plusie (margines
-23px, w normie pozostałych stron dokumentu). Zweryfikowane: `render_check_team.py`
-(wszystkie 11 stron bez przelewania, zero błędów), podgląd graficzny strony.
+23px, w normie pozostałych stron dokumentu — po późniejszej zmianie opisanej
+wyżej ta strona to str. 7, margines bez zmian). Zweryfikowane:
+`render_check_team.py`, podgląd graficzny strony.
 
-## Arkusz zespołowy: nowa podsekcja „C · Zakres wsparcia" w Zaleceniach (str. 11)
-
-Poprosiłaś o uzupełnienie sekcji „Zalecenia z orzeczenia i oceny" (Sekcja 4
-Załącznika, ostatnia strona) o listę osób/form wsparcia i zalecanych form
-organizacyjnych do zaznaczenia — sprawdziłam całość dokumentu i żadnej z
-tych dwóch checklist jeszcze nie było, więc dodałam obie jako nową
-podsekcję **„C · Zakres wsparcia"**, zaraz po istniejącej podsekcji B
-(Zalecenia zespołu), przed polami „Data ustalenia zaleceń"/podpisami:
-
-- **Osoby i formy wsparcia** (8 pozycji do zaznaczenia): wsparcie
-  nauczyciela w bieżącej pracy, pomoc nauczyciela, wsparcie psychologa,
-  wsparcie opiekuna, wsparcie nauczyciela współorganizującego kształcenie,
-  wsparcie pedagoga specjalnego, wsparcie logopedy, zintegrowane działania
-  nauczycieli.
-- **Zalecane formy organizacyjne** (7 pozycji): praca indywidualna, zajęcia
-  rewalidacyjne grupowe, zajęcia rewalidacyjne indywidualne, komunikacja
-  wspomagająca/alternatywna (AAC, PECS, MAKATON), praca w małej grupie,
-  dostosowanie tempa pracy i czasu, konsultacje rodzinne.
-
-Obie listy to zwykłe klikalne checkboxy (`checkbox_grid()`, ten sam
-komponent co reszta dokumentu), w kolejności i dokładnym brzmieniu, jakie
-podałaś.
-
-**Strona się przelała po dodaniu (margines -233px), więc przeniosłam
-podsekcję A („Zalecenia z orzeczenia") na koniec poprzedniej strony 10** —
-tam, gdzie kończy się Synteza obserwacji, było 416px wolnego miejsca, więc
-połączenie się zmieściło bez ściskania czcionki. Strona 11 zaczyna się teraz
-od podsekcji B. Liczba stron dokumentu bez zmian (11) — tylko przesunięcie
-treści o pół strony wstecz. Zweryfikowane: `render_check_team.py` (obie
-strony 10 i 11 bez przelewania, marginesy 42 i 141px), checkbox
-klikalność sprawdzona programowo (Wsparcie logopedy, Konsultacje rodzinne),
-zero błędów JS.
+<!-- Historia: „C · Zakres wsparcia" początkowo trafiło na ostatnią stronę
+(Sekcja 4 Załącznika), zob. wpis „Zakres wsparcia przeniesiony pod punkt 3"
+na górze tego pliku — ta wersja została później przeniesiona i połączona z
+punktem 3, więc nie ma jej już jako osobnej podsekcji C. -->
 
 ## Arkusz zespołowy: nowa strona 9 — KSzOF połączone z ocenami (kody ICF + zalecenia wg 9 obszarów)
 
