@@ -6,6 +6,63 @@ drukach (KSzOF, karta ABC/FBA, ToM, kwestionariusz mowy, profil sensoryczny,
 profil biopsychospołeczny). Wspólna marka i konstrukcja z serii `ToM/` —
 wzorem jest `klasy_1-3`.
 
+## Arkusz zespołowy: konkretne godziny zajęć, dopasowanie do rozporządzenia MEN i likwidacja ostatniego dualizmu sten/poziom (str. 4–12, 15–17)
+
+Cztery kolejne prośby, wszystkie wpisane w tę samą, jedną charakterystykę
+obszaru — bez tworzenia nowych, osobnych miejsc:
+
+1. **Konkretna liczba godzin** zaproponowanych zajęć rewalidacyjnych i
+   pomocy psychologiczno-pedagogicznej (Sekcja IX, dawny punkt 3 miał
+   tylko puste checklisty bez wymiaru). Dodana tabela z 4 przykładowymi
+   programami (prowadzący, wymiar h/tydz., okres realizacji), wiersz do
+   uzupełnienia własnego oraz podsumowanie łącznego wymiaru — z
+   zastrzeżeniem, że ostateczny wymiar zatwierdza dyrektor. Żeby to się
+   zmieściło bez przelewania strony, punkt 4 „Zintegrowane działania
+   nauczycieli — wspólne strategie" przeniesiony na osobną, nową stronę
+   (str. 17) — stąd dokument ma teraz **23 strony** zamiast 22.
+2. **Dopasowanie do rozporządzenia MEN na każdej karcie obszaru** — nowa
+   sekcja „Rekomendowane zajęcia zgodnie z rozporządzeniem MEN" w każdej
+   z 9 kart: te same, oficjalne nazwy zajęć co w Sekcji IX (8 rodzajów
+   rewalidacji + 11 rodzajów pomocy psychologiczno-pedagogicznej), dobrane
+   do wyników obserwacji akurat tego obszaru — jako kolorowe plakietki
+   (niebieskie = rewalidacja, zielone = pomoc P-P). Obszar VIII (Edukacja
+   szkolna) nie ma dopasowanej rewalidacji — zamiast pustego miejsca
+   pokazuje się opisowa notka „brak specyficznej rekomendacji — wsparcie
+   w ramach pomocy psychologiczno-pedagogicznej obok".
+3. **Zlikwidowany ostatni dualizm: sten/poziom.** Miałaś rację, że osobny
+   plakiet „sten X (KSzOF)" w nagłówku, obok banera „Ocena wsparcia", to
+   dwa niezależne wskazania poziomu na jednej karcie. Plakiet usunięty —
+   numer stenu jest teraz wyłącznie wewnątrz banera: „Ocena wsparcia (sten
+   X wg KSzOF): Poziom … — etap …", jednym zdaniem. Kolor lewego paska
+   karty, numeru obszaru i banera („lampeczka" zielona/żółta/czerwona)
+   nadal idzie za jednym, tym samym wskazaniem poziomu.
+4. **Poprawiona widoczność na ekranie** — przy tej zmianie znalazłam i
+   naprawiłam też dwa realne błędy, które odpowiadały za wrażenie, że
+   strona jest „słabo widoczna":
+   - tekst wpisany w baner „Ocena wsparcia" był **biały na kremowym tle**
+     pola edytowalnego — niewidoczny na ekranie mimo że dane tam były;
+     ma teraz ciemny, czytelny kolor;
+   - w siatce „Wsparcie" (dostosowania / metody / działania / pomoce /
+     współpraca) i w polu „Cel główny" treść do edycji nachodziła na
+     pogrubioną etykietę nad nią (etykieta wyglądała na przekreśloną) —
+     etykieta i treść są teraz rozdzielone na osobne linie.
+   Baner „Ocena wsparcia" ma też pełne, kontrastowe tło w kolorze poziomu
+   (zamiast delikatnego podbarwienia jak wcześniej), więc rzuca się w oczy
+   od razu przy przewijaniu strony.
+
+Wszystkie karty 9 obszarów zostają w układzie „1 obszar = 1 strona"
+(str. 4–12); po dopisaniu sekcji MEN odstępy w karcie są odrobinę
+zagęszczone (mniejsze marginesy między blokami, minimalnie węższe
+wiersze), żeby żaden obszar się nie przelał — Twoje opisy, cele i metody
+są niezmienione co do słowa.
+
+Zweryfikowane: `render_check_team.py` (wszystkie 23 strony, marginesy
+dodatnie, 9–429px), programowy skan poziomego przelewania (0 elementów
+poza `.page`), edytowalność sprawdzona programowo na trzech typach pól
+(baner poziomu, pole siatki wsparcia, cel główny — tekst poprawnie
+wstawiany w miejscu kliknięcia), podgląd graficzny obszaru I (najciaśniejsza
+strona) i obszaru VIII (brak dopasowanej rewalidacji) — zero błędów JS.
+
 ## Arkusz zespołowy: pełny „Zindywidualizowany Plan Wsparcia" wypełnia każdą kartę obszaru (str. 4–12)
 
 Przesłałaś gotowy, bardzo szczegółowy „Zindywidualizowany Plan Wsparcia
