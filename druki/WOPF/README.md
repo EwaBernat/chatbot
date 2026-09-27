@@ -6,6 +6,77 @@ drukach (KSzOF, karta ABC/FBA, ToM, kwestionariusz mowy, profil sensoryczny,
 profil biopsychospołeczny). Wspólna marka i konstrukcja z serii `ToM/` —
 wzorem jest `klasy_1-3`.
 
+## Arkusz zespołowy: zlikwidowany dualizm — jedna, pełna charakterystyka obszaru (nowa Sekcja VI, str. 4–12)
+
+Zwróciłaś uwagę, że w druku był dualizm: ten sam zestaw 9 obszarów KSzOF
+miał trzy osobne, niepełne rozbicia w trzech różnych miejscach dokumentu:
+
+1. Sekcja VI „Charakterystyka jakościowa" — tylko mocna strona / trudność.
+2. Tabela „Zintegrowane obserwacje wielospecjalistyczne" (Załącznik,
+   Sekcja 1) — tylko kody ICF, badane zachowania i pasujące narzędzia
+   obserwacji pogłębionej.
+3. „Sekcja 2 (ciąg dalszy)" w Załączniku — tylko metody, dostosowania,
+   zintegrowane działania, pomoce i jedno hasłowe „zalecenie do programu"
+   na obszar, bez żadnego celu SMART.
+
+Poprosiłaś o połączenie tego w jedną charakterystykę na obszar, z opisem
+zachowań (KSzOF po prawej stronie nagłówka), pasującymi obserwacjami
+pogłębionymi pod spodem, trudnościami, dostosowaniami, metodami,
+zintegrowanymi działaniami, pomocami dydaktycznymi — oraz, czego wcześniej
+nie było wcale, celem głównym i celami szczegółowymi przypisanymi do
+obszaru, wyniku, poziomu wsparcia i etapu/klasy.
+
+**Zrobione: wszystkie trzy rozbicia scalone w jedną kartę na obszar**
+(nowy `full_area_card()`), w Sekcji VI, w tej kolejności:
+
+- **Nagłówek** — numer i nazwa obszaru, a **po prawej stronie** dwie
+  plakietki z wynikiem KSzOF: sten i poziom wsparcia (kolor zielony/złoty/
+  czerwony, zgodny z Sekcją V) oraz kody ICF i numer źródła z Sekcji III.
+- **Opis zachowań** — Mocna strona / Trudność (dawna Sekcja VI), z
+  pogrubionymi kluczowymi obserwacjami.
+- **Pasujące obserwacje pogłębione** — dokładnie spod dawnej tabeli
+  „Zintegrowane obserwacje": które 1–2 narzędzia (Profil Sensoryczny,
+  Profil Biopsychospołeczny, ABC/FBA, ToM, Kwestionariusz Rozwoju Mowy)
+  najlepiej wyjaśniają wynik tego obszaru i dlaczego.
+- **Wsparcie — dostosowania, metody, działania, pomoce** — zwarta siatka
+  2 kolumn z dawnej „Sekcji 2 (ciąg dalszy)": dostosowania, metody i formy
+  pracy, zintegrowane działania nauczycieli, pomoce dydaktyczne oraz
+  bieżące zalecenie — wszystko zależne od poziomu wsparcia tego
+  konkretnego obszaru (kolor karty).
+- **Cele** *(nowość)* — cel główny (jedno zdanie syntezujące kierunek
+  pracy) oraz 2 cele szczegółowe w formie SMART (zachowanie + kryterium +
+  termin), zbudowane na bazie dotychczasowego pojedynczego „zalecenia do
+  programu", rozpisanego teraz na konkretne, mierzalne cele. Zamiast
+  pisać 3 osobne wersje celów na każdy etap wiekowy (co przy 9 obszarach
+  dałoby 27 wariantów w samym wzorze), na początku sekcji dodałam notę:
+  cele dostosuj do klasy wpisanej w Sekcji I — uprość słownictwo i skróć
+  kryteria w klasach I–III, uwzględnij wymagania przedmiotowe i orientację
+  zawodową w klasach VII–VIII.
+
+**Usunięte w całości** (treść w nich w 100% pokrywa nowa karta, więc
+zostawienie ich byłoby ponownym dualizmem): tabela „Zintegrowane
+obserwacje wielospecjalistyczne" (Załącznik, Sekcja 1) oraz „Sekcja 2
+(ciąg dalszy)" z dawnymi kartami `area_card()` w Załączniku. Tabela
+„Wyniki arkuszy źródłowych" (Sekcja 2, teraz str. 20) zostaje —  to inny
+przekrój (WEDŁUG NARZĘDZIA, nie według obszaru: Profil biopsychospołeczny,
+ABC/FBA, Profil sensoryczny, Rozwój mowy, Profil ToM jako pięć wierszy) i
+nie dublował się z resztą.
+
+**Strony.** Każda pełna karta obszaru (nagłówek + opis zachowań +
+obserwacje pogłębione + siatka wsparcia + cele) jest zbyt obszerna, żeby
+bezpiecznie zmieścić dwie na jednej stronie — próba parowania (np. obszary
+I+II) przelewała stronę o ponad 100px. Zamiast ryzykować przelewanie przy
+ciasnym parowaniu, każdy z 9 obszarów dostał **własną stronę** (str. 4–12)
+— to więcej stron niż zajmowały osobno trzy dawne, niepełne rozbicia
+razem, ale każda karta ma teraz dużo miejsca i komplet informacji w jednym
+miejscu, bez przeskakiwania po dokumencie. Po usunięciu dwóch zbędnych
+sekcji z Załącznika łączny bilans to **22 strony zamiast 18**.
+Zweryfikowane: `render_check_team.py` (wszystkie 22 strony bez
+przelewania, marginesy 373–502px na nowych stronach Sekcji VI), programowy
+skan poziomego przelewania (0 elementów poza `.page` na żadnej stronie),
+edytowalność wszystkich nowych pól (cel główny, cele szczegółowe, siatka
+wsparcia) sprawdzona programowo, zero błędów JS.
+
 ## Arkusz zespołowy: poprawki kart (`.qcard`) — przelewanie w prawo i brak edytowalności
 
 Zgłosiłaś dwa błędy w komponencie kart, którego użyłam w Sekcji VI
