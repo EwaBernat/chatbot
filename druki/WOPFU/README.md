@@ -6,6 +6,52 @@ drukach (KSzOF, karta ABC/FBA, ToM, kwestionariusz mowy, profil sensoryczny,
 profil biopsychospołeczny). Wspólna marka i konstrukcja z serii `ToM/` —
 wzorem jest `klasy_1-3`.
 
+## Arkusz zespołowy: naprawiony błąd sten↔poziom — 8 z 9 obszarów pokazywało zły poziom wsparcia (str. 4–12)
+
+Poprosiłaś o sprawdzenie stenów i przedziałów punktowych jako ekspert —
+znalazłam realny, poważny błąd. Oficjalny próg tego druku (str. 18,
+Sekcja XI): **Poziom I = sten 8–10, Poziom II = sten 5–7, Poziom III =
+sten 1–4**. Baner „Ocena wsparcia" na każdej karcie obszaru (str. 4–12)
+pokazywał sten obok poziomu — ale poziom był tekstem wpisanym ręcznie dla
+każdego obszaru, nigdy nie porównanym z progiem. **8 z 9 obszarów miało
+poziom niezgodny ze stenem**:
+
+| Obszar | Sten | Poziom wg progu | Poziom pokazany (błędnie) |
+|---|---|---|---|
+| I | 8 | I | ~~II~~ |
+| II | 5 | II | ~~II / III~~ |
+| III | 3 | III | ~~II~~ |
+| IV | 7 | II | II ✓ (jedyny poprawny) |
+| V | 6 | II | ~~I / II~~ |
+| VI | 5 | II | ~~I~~ |
+| VII | 4 | III | ~~II~~ |
+| VIII | 5 | II | ~~I / II~~ |
+| IX | 4 | III | ~~I / II~~ |
+
+Najpoważniejsze: obszary III, VII i IX naprawdę wymagają **Poziomu III**
+(wsparcie specjalistyczne) — a baner pokazywał II albo nawet „I / II",
+czyli realnie zaniżał pilność wsparcia. Kolor paska i numeru obszaru szedł
+za tym samym błędnym tekstem, więc to nie była tylko pomyłka słowna —
+cała karta (kolor + tekst) wskazywała niewłaściwy poziom.
+
+**Przyczyna:** we wcześniejszej sesji istniała już poprawna tablica
+`DEMO_POZIOM`, w 100% zgodna z `DEMO_STEN` i progiem — ale gdy scalałam
+dawny osobny plakiet „sten X · Poziom Y" z banerem „Ocena wsparcia" (żeby
+zlikwidować dualizm), użyłam zamiast niej ręcznie wpisanego dla każdego
+obszaru pola `poziom_full`, którego nigdy nie zweryfikowałam względem
+stenu. Naprawiając jeden dualizm, przypadkiem wprowadziłam inny błąd.
+
+**Naprawione:** `poziom_full` jest teraz zawsze **wyliczany** z
+`DEMO_STEN`/`DEMO_POZIOM` (a nie wpisywany ręcznie osobno) — więc ten
+konkretny błąd nie może się już powtórzyć przy kolejnej edycji, nawet
+jeśli sten się zmieni.
+
+Zweryfikowane: każdy z 9 banerów sprawdzony programowo (sten → poziom
+zgodny z progiem 8–10/5–7/1–4 na wszystkich), podgląd graficzny obszaru
+III (kolor paska poprawnie czerwony/Poziom III, było błędnie złoty/II),
+`render_check_team.py` (wszystkie 22 strony, marginesy dodatnie),
+skan poziomego przelewania (0 elementów).
+
 ## Arkusz zespołowy: znaki zapytania przy tytułach pytających (str. 4, 19, 21)
 
 Sprawdziłam systematycznie cały druk pod kątem sformułowań pytających bez
