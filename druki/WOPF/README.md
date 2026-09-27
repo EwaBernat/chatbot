@@ -6,6 +6,41 @@ drukach (KSzOF, karta ABC/FBA, ToM, kwestionariusz mowy, profil sensoryczny,
 profil biopsychospołeczny). Wspólna marka i konstrukcja z serii `ToM/` —
 wzorem jest `klasy_1-3`.
 
+## Arkusz zespołowy: poprawki kart (`.qcard`) — przelewanie w prawo i brak edytowalności
+
+Zgłosiłaś dwa błędy w komponencie kart, którego użyłam w Sekcji VI
+(Charakterystyka) i w nowej tabeli „Zintegrowane obserwacje
+wielospecjalistyczne": tabelka wychodziła poza zakres strony w prawo, a
+pola „Zintegrowanych obserwacji" nie dawały się edytować.
+
+**1. Nieedytowalne pola w „Zintegrowanych obserwacjach" — potwierdzony
+błąd.** Budując tę kartę skopiowałam strukturę z Sekcji VI, ale
+przeoczyłam `contenteditable="true"` przy przepisywaniu funkcji
+`integr_card()` — pola z wyjaśnieniem powiązania (przy każdej fioletowej
+plakietce narzędzia) i linijka „Badane zachowania w KSzOF" zostały
+zwykłym, martwym tekstem zamiast edytowalnym polem jak wszędzie indziej w
+tym druku. Naprawione — oba typy pól mają teraz `contenteditable`,
+sprawdzone programowo (kliknięcie + wpisanie tekstu w polu wyjaśnienia).
+
+**2. Przelewanie w prawo.** Nie udało mi się odtworzyć przelewania ani w
+przeglądarce (skan całego dokumentu pod kątem elementów wychodzących poza
+`.page` — zero trafień), ani w samym PDF (żaden blok tekstu nie
+przekraczał szerokości strony) — możliwe, że widziałaś to w innym oknie/
+powiększeniu albo zanim strona się w pełni doładowała. Niezależnie od
+przyczyny, w kodzie CSS kart faktycznie był na to realny mechanizm: nowa
+fioletowa plakietka z nazwą narzędzia (`.qc-tag.tool`) miała
+`white-space:nowrap` i nie mogła się zwężać — przy długiej nazwie narzędzia
+(np. „Karta Oceny Teorii Umysłu — ToM (komponenty I–V)") mogła w
+skrajnym przypadku wypchnąć wiersz szerzej niż karta. Naprawione na
+zapas w całym komponencie kart (obu tabelach): plakietki i wiersze mogą
+się teraz zawijać (`flex-wrap`), długie nazwy łamią się na dwie linie
+zamiast rozpychać wiersz, a każdemu elastycznemu polu dodałam `min-width:0`
+i `overflow-wrap`, żeby żaden przyszły długi tekst nie mógł już wypchnąć
+karty poza stronę. Zweryfikowane: programowy skan całego dokumentu (0
+elementów wychodzących poza `.page` na żadnej z 18 stron), `render_check_team.py`
+(wszystkie strony bez przelewania pionowego), podgląd graficzny obu
+poprawionych tabel.
+
 ## Arkusz zespołowy: nowa tabela „Zintegrowane obserwacje wielospecjalistyczne" (str. 13–14, Załącznik Sekcja 1)
 
 Przesłałaś gotową, szczegółową tabelę: 9 obszarów KSzOF, dla każdego —
