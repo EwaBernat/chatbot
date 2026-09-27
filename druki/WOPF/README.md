@@ -6,6 +6,48 @@ drukach (KSzOF, karta ABC/FBA, ToM, kwestionariusz mowy, profil sensoryczny,
 profil biopsychospołeczny). Wspólna marka i konstrukcja z serii `ToM/` —
 wzorem jest `klasy_1-3`.
 
+## Arkusz zespołowy: usunięty ostatni realny dualizm — Sekcja 2 załącznika miała własną, gotową charakterystykę (str. 20)
+
+Zewnętrzny audyt zgodności z rozporządzeniem MEN (formalnie: komplet
+wymaganych elementów jest obecny) trafnie wskazał, że w załączniku
+„Obserwacja pogłębiona", w Sekcji 2 „Wyniki arkuszy źródłowych" (str. 20),
+tabela wyników pięciu narzędzi (Profil biopsychospołeczny, ABC/FBA, Profil
+sensoryczny, Rozwój mowy, Profil ToM) była **w całości wypełniona gotowym
+przykładem** — pełnym opisem „Charakterystyka / Zalecenia / Zalecenie do
+programu" dla każdego narzędzia. To naruszało własną, udokumentowaną
+zasadę tego druku („pola wypełnia się danymi konkretnego ucznia; przykłady
+nie są przenoszone do druku" — wyjątek miały mieć tylko Sekcja V i VI) i
+faktycznie dublowało/kolidowało z pełną charakterystyką obszarów w Sekcji
+VI (str. 4–12), opisując przy tym inny, niespójny przebieg tego samego
+„przypadku przykładowego".
+
+**Naprawione:** tabela w Sekcji 2 jest teraz w pełni pusta i edytowalna —
+metryczka (data / sporządzający / nr arkusza) i trzy pola na wiersz
+(Charakterystyka, Zalecenia, Zalecenie do programu) czekają na wpisanie
+wyników konkretnego ucznia; wprowadzenie doprecyzowano zdaniem, że pełny
+opis obszaru jest w Sekcji VI, a tu wpisuje się tylko surowe ustalenie z
+danego arkusza źródłowego. To realnie skraca dokument (mniej „podręcznikowej"
+treści) i usuwa jedyne miejsce, w którym dwa fragmenty druku opisywały to
+samo inaczej.
+
+**Nie zmieniłam** bogatej treści kart obszarów (str. 4–12, Sekcja VI) — to,
+że jest ich dużo, wynika wprost z Twoich wcześniejszych próśb o pełny,
+edytowalny plan wsparcia „bez białych niewykorzystanych pól" dla każdego
+obszaru; usunięcie stamtąd czegokolwiek byłoby cofnięciem tamtej pracy.
+Jeśli chcesz, żeby i to było krótsze, powiedz co dokładnie skrócić (np.
+opisy ćwiczeń, wyjaśnienia narzędzi) — to świadoma decyzja co do objętości,
+nie duplikacja, więc nie ruszam tego bez wyraźnej prośby.
+
+Sugestia audytu o dynamicznym ukrywaniu nieużywanych sekcji w interfejsie
+aplikacji dotyczy samej aplikacji EduPlaner (warstwa UI/logika generowania
+wydruku), nie tego pliku — ten druk jest statycznym, gotowym do wydrukowania
+HTML/PDF i nie ma w sobie takiej logiki; to osobna funkcja do rozważenia na
+poziomie aplikacji, nie tego dokumentu.
+
+Zweryfikowane: `render_check_team.py` (wszystkie 22 strony, marginesy
+dodatnie, 9–429px), skan poziomego przelewania (0 elementów), podgląd
+graficzny strony 20.
+
 ## Arkusz zespołowy: usunięta pusta strona 17 (str. 16, 22 strony zamiast 23)
 
 Zwróciłaś uwagę, że strona 17 „Zintegrowane działania nauczycieli —
