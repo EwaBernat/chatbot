@@ -20,6 +20,14 @@ A simple Streamlit app that shows how to build a chatbot using OpenAI's GPT-3.5.
 
 ---
 
+## 🗂️ Druki — dokumenty i formularze PCTP
+
+Wszystkie oficjalne druki i kwestionariusze ekosystemu EduPlaner2026-MJ-PCTP
+(IPET, KSzOF, Metryczka dziecka) są w jednym miejscu: [`druki/`](druki/README.md).
+Tam też opis, jak dodawać kolejne i jak odtwarzać PDF ze źródła.
+
+---
+
 ## 🎙️ Skill `dane-i-glos` — dane zamienione w nagranie
 
 W `.claude/skills/dane-i-glos/` znajduje się skill, który prowadzi jedną drogę:

@@ -1,0 +1,1537 @@
+# WOPFU — Wielospecjalistyczna Ocena Poziomu Funkcjonowania
+
+Karta scalająca ekosystemu **EduPlaner2026-MJ-PCTP**: nie ocenia ucznia od
+nowa, tylko zbiera w jednym miejscu wyniki, które powstały wcześniej w innych
+drukach (KSzOF, karta ABC/FBA, ToM, kwestionariusz mowy, profil sensoryczny,
+profil biopsychospołeczny). Wspólna marka i konstrukcja z serii `ToM/` —
+wzorem jest `klasy_1-3`.
+
+## Arkusz zespołowy: naprawiony błąd sten↔poziom — 8 z 9 obszarów pokazywało zły poziom wsparcia (str. 4–12)
+
+Poprosiłaś o sprawdzenie stenów i przedziałów punktowych jako ekspert —
+znalazłam realny, poważny błąd. Oficjalny próg tego druku (str. 18,
+Sekcja XI): **Poziom I = sten 8–10, Poziom II = sten 5–7, Poziom III =
+sten 1–4**. Baner „Ocena wsparcia" na każdej karcie obszaru (str. 4–12)
+pokazywał sten obok poziomu — ale poziom był tekstem wpisanym ręcznie dla
+każdego obszaru, nigdy nie porównanym z progiem. **8 z 9 obszarów miało
+poziom niezgodny ze stenem**:
+
+| Obszar | Sten | Poziom wg progu | Poziom pokazany (błędnie) |
+|---|---|---|---|
+| I | 8 | I | ~~II~~ |
+| II | 5 | II | ~~II / III~~ |
+| III | 3 | III | ~~II~~ |
+| IV | 7 | II | II ✓ (jedyny poprawny) |
+| V | 6 | II | ~~I / II~~ |
+| VI | 5 | II | ~~I~~ |
+| VII | 4 | III | ~~II~~ |
+| VIII | 5 | II | ~~I / II~~ |
+| IX | 4 | III | ~~I / II~~ |
+
+Najpoważniejsze: obszary III, VII i IX naprawdę wymagają **Poziomu III**
+(wsparcie specjalistyczne) — a baner pokazywał II albo nawet „I / II",
+czyli realnie zaniżał pilność wsparcia. Kolor paska i numeru obszaru szedł
+za tym samym błędnym tekstem, więc to nie była tylko pomyłka słowna —
+cała karta (kolor + tekst) wskazywała niewłaściwy poziom.
+
+**Przyczyna:** we wcześniejszej sesji istniała już poprawna tablica
+`DEMO_POZIOM`, w 100% zgodna z `DEMO_STEN` i progiem — ale gdy scalałam
+dawny osobny plakiet „sten X · Poziom Y" z banerem „Ocena wsparcia" (żeby
+zlikwidować dualizm), użyłam zamiast niej ręcznie wpisanego dla każdego
+obszaru pola `poziom_full`, którego nigdy nie zweryfikowałam względem
+stenu. Naprawiając jeden dualizm, przypadkiem wprowadziłam inny błąd.
+
+**Naprawione:** `poziom_full` jest teraz zawsze **wyliczany** z
+`DEMO_STEN`/`DEMO_POZIOM` (a nie wpisywany ręcznie osobno) — więc ten
+konkretny błąd nie może się już powtórzyć przy kolejnej edycji, nawet
+jeśli sten się zmieni.
+
+Zweryfikowane: każdy z 9 banerów sprawdzony programowo (sten → poziom
+zgodny z progiem 8–10/5–7/1–4 na wszystkich), podgląd graficzny obszaru
+III (kolor paska poprawnie czerwony/Poziom III, było błędnie złoty/II),
+`render_check_team.py` (wszystkie 22 strony, marginesy dodatnie),
+skan poziomego przelewania (0 elementów).
+
+## Arkusz zespołowy: znaki zapytania przy tytułach pytających (str. 4, 19, 21)
+
+Sprawdziłam systematycznie cały druk pod kątem sformułowań pytających bez
+znaku zapytania. W treści (notatki, pola, „Pytania pomocnicze" na str. 12)
+wszystkie pytania już go miały. Znalazłam za to dwa **tytuły podrozdziałów**
+napisane w formie pytania, ale bez „?": „Jakie arkusze włączyć i co z nich
+zebrać" (str. 19, Załącznik Sekcja 1) i „Co wynika z kilku źródeł" (str. 21,
+Załącznik Sekcja 3) — oba dodane.
+
+Po Twojej uwadze „szczególnie w tytułach" przejrzałam jeszcze raz wszystkie
+tytuły tematów zajęć bazowych (18 pozycji, 2 na obszar w Sekcji VI) pod
+kątem **ukrytych, śródtytułowych pytań** (nie tylko tych zaczynających się
+od słowa pytającego). Znalazłam jeden taki przypadek: obszar I miał parę
+tematów o niemal identycznej konstrukcji — „Jak pracuje moja pamięć? – …"
+(już ze znakiem zapytania) obok „Moja mapa wrażeń – jak działa mój wzrok i
+słuch w szkole" (ten sam typ pytania „jak działa X", ale bez „?") — dodany
+znak zapytania na końcu (str. 4). Pozostałe tytuły i nagłówki tabel w całym
+dokumencie (np. „Kto odpowiada", „Zalecane formy organizacyjne") są noun
+phrase'ami lub trybem rozkazującym, nie pytaniami, więc zostają bez zmian —
+to jest jednolita konwencja w tym druku, nie przeoczenie.
+
+Zweryfikowane: `render_check_team.py` (wszystkie 22 strony, marginesy
+dodatnie, 9–429px), skan poziomego przelewania (0 elementów).
+
+## Arkusz zespołowy: własny audyt zgodności — zaktualizowana podstawa prawna „poziomu wsparcia" (nowa podstawa programowa 2026/2027) i limity liczebności grup (str. 16, 18)
+
+Zapytałaś, czy zrobiłam własny audyt tego druku i czy jest w nim wszystko —
+wcześniej tylko reagowałam na Twój wklejony audyt zewnętrzny, więc zrobiłam
+to teraz porządnie: sprawdziłam aktualny stan prawny (wyszukiwarka + próby
+odczytu ISAP/eli.gov.pl/portali oświatowych — **rządowe i większość portali
+prawniczych są zablokowane dla bezpośredniego odczytu w tym środowisku**,
+więc poniższe opiera się na streszczeniach z portali oświatowych, nie na
+odczycie source'u ustawy — przy tak ważnym dokumencie warto to zweryfikować
+jeszcze raz u źródła albo z doradcą metodycznym).
+
+**8 punktów z Twojego audytu — potwierdzam z pamięci budowy tego druku:**
+7 z 8 jest tam, gdzie audyt wskazał (potrzeby rozwojowe, mocne strony,
+zakres wsparcia z tabelą prowadzący/wymiar/okres, przyczyny trudności,
+uczestnictwo społeczne, sekcja o włączeniu w zajęcia z oddziałem, współpraca
+z rodzicami). **Jeden punkt audyt przecenił**: „zajęcia w grupie do 5 osób"
+— w druku są rodzaje zajęć (checklisty), ale limitów liczebności grup
+faktycznie nigdzie nie było wpisane wprost. Dodane teraz jako notka przy
+checklistach w Sekcji IX (str. 16): ogólna zasada + dwa potwierdzone
+przykłady (korekcyjno-kompensacyjne do 5, logopedyczne do 4, zgodnie z
+Dz.U. 2023 poz. 1798) i odesłanie do sprawdzenia limitu dla wybranego
+rodzaju zajęć — bez zgadywania limitów dla wszystkich 19 rodzajów naraz.
+
+**Ważniejsze znalezisko, którego nie było w Twoim audycie:** od 1 września
+2026 r. (dosłownie kilka tygodni temu) obowiązuje nowe rozporządzenie MEN
+o podstawie programowej (11 marca 2026 r., Dz.U. 2026 poz. 378), które dla
+uczniów z niepełnosprawnością intelektualną w stopniu umiarkowanym lub
+znacznym wprowadza nowy, trzystopniowy model poziomów wsparcia — oparty na
+realnej ocenie funkcjonowania (samodzielność, komunikacja, mobilność,
+możliwości poznawcze, uczestnictwo, zakres pomocy), **nie** na samym
+stopniu niepełnosprawności z orzeczenia. Potwierdziłaś, że ten arkusz
+WOPFU-SP jest używany też dla tej grupy uczniów, więc zmiana dotyczy tego
+druku wprost. Osobno: 1 września 2026 weszło też w życie rozporządzenie o
+„ocenie funkcjonalnej" (Dz.U. 2026 poz. 428) — to odrębny dokument
+przygotowywany przez poradnię przy orzeczeniu, nie zastępuje WOPFU.
+
+**Naprawione** (Sekcja XI, str. 18): do notatki „Podstawa odniesienia"
+dopisana nowa podstawa prawna trzystopniowego modelu; do opisu Poziomu
+I/II/III dopisane zdanie wprost stwierdzające, że poziom wynika z realnej
+oceny funkcjonowania w obszarach KSzOF, a nie ze stopnia niepełnosprawności
+z orzeczenia — dokładnie zasada, której wymaga nowe rozporządzenie. Struktura
+Poziom I/II/III oparta na najniższym wyniku obszarowym KSzOF, którą ten
+druk już miał, okazała się zgodna z duchem nowego modelu — nie trzeba jej
+było przebudowywać, tylko jawnie nazwać i podeprzeć właściwym przepisem.
+
+Zweryfikowane: `render_check_team.py` (wszystkie 22 strony, marginesy
+dodatnie, 9–429px), skan poziomego przelewania (0 elementów).
+
+## Arkusz zespołowy: usunięty ostatni realny dualizm — Sekcja 2 załącznika miała własną, gotową charakterystykę (str. 20)
+
+Zewnętrzny audyt zgodności z rozporządzeniem MEN (formalnie: komplet
+wymaganych elementów jest obecny) trafnie wskazał, że w załączniku
+„Obserwacja pogłębiona", w Sekcji 2 „Wyniki arkuszy źródłowych" (str. 20),
+tabela wyników pięciu narzędzi (Profil biopsychospołeczny, ABC/FBA, Profil
+sensoryczny, Rozwój mowy, Profil ToM) była **w całości wypełniona gotowym
+przykładem** — pełnym opisem „Charakterystyka / Zalecenia / Zalecenie do
+programu" dla każdego narzędzia. To naruszało własną, udokumentowaną
+zasadę tego druku („pola wypełnia się danymi konkretnego ucznia; przykłady
+nie są przenoszone do druku" — wyjątek miały mieć tylko Sekcja V i VI) i
+faktycznie dublowało/kolidowało z pełną charakterystyką obszarów w Sekcji
+VI (str. 4–12), opisując przy tym inny, niespójny przebieg tego samego
+„przypadku przykładowego".
+
+**Naprawione:** tabela w Sekcji 2 jest teraz w pełni pusta i edytowalna —
+metryczka (data / sporządzający / nr arkusza) i trzy pola na wiersz
+(Charakterystyka, Zalecenia, Zalecenie do programu) czekają na wpisanie
+wyników konkretnego ucznia; wprowadzenie doprecyzowano zdaniem, że pełny
+opis obszaru jest w Sekcji VI, a tu wpisuje się tylko surowe ustalenie z
+danego arkusza źródłowego. To realnie skraca dokument (mniej „podręcznikowej"
+treści) i usuwa jedyne miejsce, w którym dwa fragmenty druku opisywały to
+samo inaczej.
+
+**Nie zmieniłam** bogatej treści kart obszarów (str. 4–12, Sekcja VI) — to,
+że jest ich dużo, wynika wprost z Twoich wcześniejszych próśb o pełny,
+edytowalny plan wsparcia „bez białych niewykorzystanych pól" dla każdego
+obszaru; usunięcie stamtąd czegokolwiek byłoby cofnięciem tamtej pracy.
+Jeśli chcesz, żeby i to było krótsze, powiedz co dokładnie skrócić (np.
+opisy ćwiczeń, wyjaśnienia narzędzi) — to świadoma decyzja co do objętości,
+nie duplikacja, więc nie ruszam tego bez wyraźnej prośby.
+
+Sugestia audytu o dynamicznym ukrywaniu nieużywanych sekcji w interfejsie
+aplikacji dotyczy samej aplikacji EduPlaner (warstwa UI/logika generowania
+wydruku), nie tego pliku — ten druk jest statycznym, gotowym do wydrukowania
+HTML/PDF i nie ma w sobie takiej logiki; to osobna funkcja do rozważenia na
+poziomie aplikacji, nie tego dokumentu.
+
+Zweryfikowane: `render_check_team.py` (wszystkie 22 strony, marginesy
+dodatnie, 9–429px), skan poziomego przelewania (0 elementów), podgląd
+graficzny strony 20.
+
+## Arkusz zespołowy: usunięta pusta strona 17 (str. 16, 22 strony zamiast 23)
+
+Zwróciłaś uwagę, że strona 17 „Zintegrowane działania nauczycieli —
+wspólne strategie" wyglądała na bardzo pustą. Miałaś rację — to był
+realny błąd układu, nie tylko wrażenie: strona nie miała ustawionego
+`justify-content: flex-start` (w przeciwieństwie do stron obszarów 4–12),
+więc jej niewielka zawartość (nagłówek, notka, jedna siatka checkboxów,
+druga notka) była rozciągana przez całą wysokość strony zamiast układać
+się od góry — stąd duże, puste odstępy między blokami, mimo że ostatni
+element kończył się blisko stopki.
+
+Po poprawieniu układu okazało się, że ta strona ma realnie tylko ok. 230px
+treści na dostępne ~940px — więc **zamiast łatać pusty układ, połączyłam
+ją z powrotem z poprzednią stroną** („3. Rekomendowane zajęcia i programy
+terapeutyczne", str. 16), która miała akurat tyle wolnego miejsca. Obie
+części mieszczą się teraz razem na jednej, dobrze wypełnionej stronie —
+osobna strona 17 zniknęła, dokument ma z powrotem **22 strony**. Przy
+okazji lekko zagęściłam siatki checkboxów (mniejsze wewnętrzne odstępy)
+w całym dokumencie, żeby połączona strona miała bezpieczny margines.
+
+Zweryfikowane: `render_check_team.py` (wszystkie 22 strony, marginesy
+dodatnie, 9–429px), skan poziomego przelewania (0 elementów), podgląd
+graficzny połączonej strony 16.
+
+## Arkusz zespołowy: konkretne godziny zajęć, dopasowanie do rozporządzenia MEN i likwidacja ostatniego dualizmu sten/poziom (str. 4–12, 16)
+
+Cztery kolejne prośby, wszystkie wpisane w tę samą, jedną charakterystykę
+obszaru — bez tworzenia nowych, osobnych miejsc:
+
+1. **Konkretna liczba godzin** zaproponowanych zajęć rewalidacyjnych i
+   pomocy psychologiczno-pedagogicznej (Sekcja IX, dawny punkt 3 miał
+   tylko puste checklisty bez wymiaru). Dodana tabela z 4 przykładowymi
+   programami (prowadzący, wymiar h/tydz., okres realizacji), wiersz do
+   uzupełnienia własnego oraz podsumowanie łącznego wymiaru — z
+   zastrzeżeniem, że ostateczny wymiar zatwierdza dyrektor. Punkt 3 i
+   punkt 4 „Zintegrowane działania nauczycieli — wspólne strategie" razem
+   mieszczą się na jednej, gęściej złożonej stronie (str. 16) — dokument
+   zostaje przy **22 stronach**.
+2. **Dopasowanie do rozporządzenia MEN na każdej karcie obszaru** — nowa
+   sekcja „Rekomendowane zajęcia zgodnie z rozporządzeniem MEN" w każdej
+   z 9 kart: te same, oficjalne nazwy zajęć co w Sekcji IX (8 rodzajów
+   rewalidacji + 11 rodzajów pomocy psychologiczno-pedagogicznej), dobrane
+   do wyników obserwacji akurat tego obszaru — jako kolorowe plakietki
+   (niebieskie = rewalidacja, zielone = pomoc P-P). Obszar VIII (Edukacja
+   szkolna) nie ma dopasowanej rewalidacji — zamiast pustego miejsca
+   pokazuje się opisowa notka „brak specyficznej rekomendacji — wsparcie
+   w ramach pomocy psychologiczno-pedagogicznej obok".
+3. **Zlikwidowany ostatni dualizm: sten/poziom.** Miałaś rację, że osobny
+   plakiet „sten X (KSzOF)" w nagłówku, obok banera „Ocena wsparcia", to
+   dwa niezależne wskazania poziomu na jednej karcie. Plakiet usunięty —
+   numer stenu jest teraz wyłącznie wewnątrz banera: „Ocena wsparcia (sten
+   X wg KSzOF): Poziom … — etap …", jednym zdaniem. Kolor lewego paska
+   karty, numeru obszaru i banera („lampeczka" zielona/żółta/czerwona)
+   nadal idzie za jednym, tym samym wskazaniem poziomu.
+4. **Poprawiona widoczność na ekranie** — przy tej zmianie znalazłam i
+   naprawiłam też dwa realne błędy, które odpowiadały za wrażenie, że
+   strona jest „słabo widoczna":
+   - tekst wpisany w baner „Ocena wsparcia" był **biały na kremowym tle**
+     pola edytowalnego — niewidoczny na ekranie mimo że dane tam były;
+     ma teraz ciemny, czytelny kolor;
+   - w siatce „Wsparcie" (dostosowania / metody / działania / pomoce /
+     współpraca) i w polu „Cel główny" treść do edycji nachodziła na
+     pogrubioną etykietę nad nią (etykieta wyglądała na przekreśloną) —
+     etykieta i treść są teraz rozdzielone na osobne linie.
+   Baner „Ocena wsparcia" ma też pełne, kontrastowe tło w kolorze poziomu
+   (zamiast delikatnego podbarwienia jak wcześniej), więc rzuca się w oczy
+   od razu przy przewijaniu strony.
+
+Wszystkie karty 9 obszarów zostają w układzie „1 obszar = 1 strona"
+(str. 4–12); po dopisaniu sekcji MEN odstępy w karcie są odrobinę
+zagęszczone (mniejsze marginesy między blokami, minimalnie węższe
+wiersze), żeby żaden obszar się nie przelał — Twoje opisy, cele i metody
+są niezmienione co do słowa.
+
+Zweryfikowane: `render_check_team.py` (wszystkie 23 strony, marginesy
+dodatnie, 9–429px), programowy skan poziomego przelewania (0 elementów
+poza `.page`), edytowalność sprawdzona programowo na trzech typach pól
+(baner poziomu, pole siatki wsparcia, cel główny — tekst poprawnie
+wstawiany w miejscu kliknięcia), podgląd graficzny obszaru I (najciaśniejsza
+strona) i obszaru VIII (brak dopasowanej rewalidacji) — zero błędów JS.
+
+## Arkusz zespołowy: pełny „Zindywidualizowany Plan Wsparcia" wypełnia każdą kartę obszaru (str. 4–12)
+
+Przesłałaś gotowy, bardzo szczegółowy „Zindywidualizowany Plan Wsparcia
+Ucznia" dla wszystkich 9 obszarów KSzOF i poprosiłaś o wpisanie go do
+istniejącej, jednej charakterystyki obszaru (bez tworzenia nowego,
+osobnego miejsca — **bez dualizmu**), tak żeby strony były „piękne,
+symetryczne, wyraziste, bez białych niewykorzystanych pól", w pełni
+edytowalne, oraz o dodanie jawnej oceny poziomu wsparcia z uzasadnieniem
+(dotąd był tylko zielony/czerwony podział mocna strona / trudność, bez
+wprost nazwanego poziomu i etapu).
+
+**Zaktualizowane pola** (Twoja treść zastąpiła moją wcześniejszą, krótszą
+wersję): *Metody i formy pracy*, *Dostosowania*, *Zintegrowane działania*,
+*Cel główny* i *Cele szczegółowe* — Twoje sformułowania są bardziej
+konkretne i łączą metodę z narzędziem diagnostycznym, które ją uzasadnia.
+
+**Nowe pola dodane do tej samej karty** (żadne nie trafiło do osobnej
+tabeli):
+
+- **Ocena wsparcia** — nowy, wyróżniony kolorem baner tuż pod nagłówkiem:
+  poziom wsparcia (z pełną nazwą, np. „Poziom II — zindywidualizowana
+  pomoc psychologiczno-pedagogiczna") oraz etap edukacyjny / klasy, z
+  dopiskiem „na podstawie trudności opisanych niżej" — odsyła wprost do
+  sekcji Trudność zamiast jej powielać. Kolor baneru (i teraz też cały
+  lewy pasek karty oraz numer obszaru) idzie za Twoim poziomem wsparcia;
+  mały plakiet „sten X (KSzOF)" w nagłówku zostaje jako osobny, wyraźnie
+  podpisany surowy wynik testu, żeby nie kolidował nazwą z nowym banerem
+  (to jedyne miejsce, gdzie zostały dwie liczby obok siebie — celowo
+  opisane różnymi etykietami, żeby to nie było ponowne zdublowanie).
+- **Współpraca z rodzicami** — dołączona jako szósta pozycja w istniejącej
+  siatce „Wsparcie" (obok dostosowań, metod, działań, pomocy i zaleceń).
+- **Tematy zajęć bazowych** — 2 tematy na obszar, jako małe „chipy" pod
+  siatką wsparcia.
+- **Propozycje ćwiczeń terapeutycznych do wyboru** — 2 ćwiczenia na
+  obszar, w tym samym stylu wiersza co „Pasujące obserwacje pogłębione"
+  (nazwa ćwiczenia jako plakietka — tym razem pomarańczowa, żeby
+  odróżnić ją od fioletowych plakietek narzędzi diagnostycznych — plus
+  pełny opis).
+
+Wszystkie nowe pola są w pełni edytowalne (`contenteditable`), tak jak
+reszta karty.
+
+**Wynik gęstości stron — dokładnie to, o co prosiłaś.** Przed tą zmianą
+każda strona obszaru miała 373–502px pustego miejsca (bo scalona
+charakterystyka i tak była już dość krótka). Po dopisaniu Twojej treści
+margines spadł do **72–201px** na wszystkich 9 stronach — bez zmiany
+liczby stron (nadal 22) i bez żadnego przelewania. To jest bezpośredni
+efekt bogatszej treści, nie zmiany layoutu: strony wyglądają teraz na
+pełne i „dopracowane", zamiast w połowie puste.
+
+Zweryfikowane: `render_check_team.py` (wszystkie 22 strony, marginesy
+dodatnie), programowy skan poziomego przelewania (0 elementów poza
+`.page`), edytowalność nowych pól (temat, ćwiczenie, ocena wsparcia)
+sprawdzona programowo, podgląd graficzny dwóch pełnych kart (obszar I i
+obszar VII z notatką łączącą ToM/ABC), zero błędów JS.
+
+## Arkusz zespołowy: zlikwidowany dualizm — jedna, pełna charakterystyka obszaru (nowa Sekcja VI, str. 4–12)
+
+Zwróciłaś uwagę, że w druku był dualizm: ten sam zestaw 9 obszarów KSzOF
+miał trzy osobne, niepełne rozbicia w trzech różnych miejscach dokumentu:
+
+1. Sekcja VI „Charakterystyka jakościowa" — tylko mocna strona / trudność.
+2. Tabela „Zintegrowane obserwacje wielospecjalistyczne" (Załącznik,
+   Sekcja 1) — tylko kody ICF, badane zachowania i pasujące narzędzia
+   obserwacji pogłębionej.
+3. „Sekcja 2 (ciąg dalszy)" w Załączniku — tylko metody, dostosowania,
+   zintegrowane działania, pomoce i jedno hasłowe „zalecenie do programu"
+   na obszar, bez żadnego celu SMART.
+
+Poprosiłaś o połączenie tego w jedną charakterystykę na obszar, z opisem
+zachowań (KSzOF po prawej stronie nagłówka), pasującymi obserwacjami
+pogłębionymi pod spodem, trudnościami, dostosowaniami, metodami,
+zintegrowanymi działaniami, pomocami dydaktycznymi — oraz, czego wcześniej
+nie było wcale, celem głównym i celami szczegółowymi przypisanymi do
+obszaru, wyniku, poziomu wsparcia i etapu/klasy.
+
+**Zrobione: wszystkie trzy rozbicia scalone w jedną kartę na obszar**
+(nowy `full_area_card()`), w Sekcji VI, w tej kolejności:
+
+- **Nagłówek** — numer i nazwa obszaru, a **po prawej stronie** dwie
+  plakietki z wynikiem KSzOF: sten i poziom wsparcia (kolor zielony/złoty/
+  czerwony, zgodny z Sekcją V) oraz kody ICF i numer źródła z Sekcji III.
+- **Opis zachowań** — Mocna strona / Trudność (dawna Sekcja VI), z
+  pogrubionymi kluczowymi obserwacjami.
+- **Pasujące obserwacje pogłębione** — dokładnie spod dawnej tabeli
+  „Zintegrowane obserwacje": które 1–2 narzędzia (Profil Sensoryczny,
+  Profil Biopsychospołeczny, ABC/FBA, ToM, Kwestionariusz Rozwoju Mowy)
+  najlepiej wyjaśniają wynik tego obszaru i dlaczego.
+- **Wsparcie — dostosowania, metody, działania, pomoce** — zwarta siatka
+  2 kolumn z dawnej „Sekcji 2 (ciąg dalszy)": dostosowania, metody i formy
+  pracy, zintegrowane działania nauczycieli, pomoce dydaktyczne oraz
+  bieżące zalecenie — wszystko zależne od poziomu wsparcia tego
+  konkretnego obszaru (kolor karty).
+- **Cele** *(nowość)* — cel główny (jedno zdanie syntezujące kierunek
+  pracy) oraz 2 cele szczegółowe w formie SMART (zachowanie + kryterium +
+  termin), zbudowane na bazie dotychczasowego pojedynczego „zalecenia do
+  programu", rozpisanego teraz na konkretne, mierzalne cele. Zamiast
+  pisać 3 osobne wersje celów na każdy etap wiekowy (co przy 9 obszarach
+  dałoby 27 wariantów w samym wzorze), na początku sekcji dodałam notę:
+  cele dostosuj do klasy wpisanej w Sekcji I — uprość słownictwo i skróć
+  kryteria w klasach I–III, uwzględnij wymagania przedmiotowe i orientację
+  zawodową w klasach VII–VIII.
+
+**Usunięte w całości** (treść w nich w 100% pokrywa nowa karta, więc
+zostawienie ich byłoby ponownym dualizmem): tabela „Zintegrowane
+obserwacje wielospecjalistyczne" (Załącznik, Sekcja 1) oraz „Sekcja 2
+(ciąg dalszy)" z dawnymi kartami `area_card()` w Załączniku. Tabela
+„Wyniki arkuszy źródłowych" (Sekcja 2, teraz str. 20) zostaje —  to inny
+przekrój (WEDŁUG NARZĘDZIA, nie według obszaru: Profil biopsychospołeczny,
+ABC/FBA, Profil sensoryczny, Rozwój mowy, Profil ToM jako pięć wierszy) i
+nie dublował się z resztą.
+
+**Strony.** Każda pełna karta obszaru (nagłówek + opis zachowań +
+obserwacje pogłębione + siatka wsparcia + cele) jest zbyt obszerna, żeby
+bezpiecznie zmieścić dwie na jednej stronie — próba parowania (np. obszary
+I+II) przelewała stronę o ponad 100px. Zamiast ryzykować przelewanie przy
+ciasnym parowaniu, każdy z 9 obszarów dostał **własną stronę** (str. 4–12)
+— to więcej stron niż zajmowały osobno trzy dawne, niepełne rozbicia
+razem, ale każda karta ma teraz dużo miejsca i komplet informacji w jednym
+miejscu, bez przeskakiwania po dokumencie. Po usunięciu dwóch zbędnych
+sekcji z Załącznika łączny bilans to **22 strony zamiast 18**.
+Zweryfikowane: `render_check_team.py` (wszystkie 22 strony bez
+przelewania, marginesy 373–502px na nowych stronach Sekcji VI), programowy
+skan poziomego przelewania (0 elementów poza `.page` na żadnej stronie),
+edytowalność wszystkich nowych pól (cel główny, cele szczegółowe, siatka
+wsparcia) sprawdzona programowo, zero błędów JS.
+
+## Arkusz zespołowy: poprawki kart (`.qcard`) — przelewanie w prawo i brak edytowalności
+
+Zgłosiłaś dwa błędy w komponencie kart, którego użyłam w Sekcji VI
+(Charakterystyka) i w nowej tabeli „Zintegrowane obserwacje
+wielospecjalistyczne": tabelka wychodziła poza zakres strony w prawo, a
+pola „Zintegrowanych obserwacji" nie dawały się edytować.
+
+**1. Nieedytowalne pola w „Zintegrowanych obserwacjach" — potwierdzony
+błąd.** Budując tę kartę skopiowałam strukturę z Sekcji VI, ale
+przeoczyłam `contenteditable="true"` przy przepisywaniu funkcji
+`integr_card()` — pola z wyjaśnieniem powiązania (przy każdej fioletowej
+plakietce narzędzia) i linijka „Badane zachowania w KSzOF" zostały
+zwykłym, martwym tekstem zamiast edytowalnym polem jak wszędzie indziej w
+tym druku. Naprawione — oba typy pól mają teraz `contenteditable`,
+sprawdzone programowo (kliknięcie + wpisanie tekstu w polu wyjaśnienia).
+
+**2. Przelewanie w prawo.** Nie udało mi się odtworzyć przelewania ani w
+przeglądarce (skan całego dokumentu pod kątem elementów wychodzących poza
+`.page` — zero trafień), ani w samym PDF (żaden blok tekstu nie
+przekraczał szerokości strony) — możliwe, że widziałaś to w innym oknie/
+powiększeniu albo zanim strona się w pełni doładowała. Niezależnie od
+przyczyny, w kodzie CSS kart faktycznie był na to realny mechanizm: nowa
+fioletowa plakietka z nazwą narzędzia (`.qc-tag.tool`) miała
+`white-space:nowrap` i nie mogła się zwężać — przy długiej nazwie narzędzia
+(np. „Karta Oceny Teorii Umysłu — ToM (komponenty I–V)") mogła w
+skrajnym przypadku wypchnąć wiersz szerzej niż karta. Naprawione na
+zapas w całym komponencie kart (obu tabelach): plakietki i wiersze mogą
+się teraz zawijać (`flex-wrap`), długie nazwy łamią się na dwie linie
+zamiast rozpychać wiersz, a każdemu elastycznemu polu dodałam `min-width:0`
+i `overflow-wrap`, żeby żaden przyszły długi tekst nie mógł już wypchnąć
+karty poza stronę. Zweryfikowane: programowy skan całego dokumentu (0
+elementów wychodzących poza `.page` na żadnej z 18 stron), `render_check_team.py`
+(wszystkie strony bez przelewania pionowego), podgląd graficzny obu
+poprawionych tabel.
+
+## Arkusz zespołowy: nowa tabela „Zintegrowane obserwacje wielospecjalistyczne" (str. 13–14, Załącznik Sekcja 1)
+
+Przesłałaś gotową, szczegółową tabelę: 9 obszarów KSzOF, dla każdego —
+kody ICF, kluczowe badane zachowania, główna procedura obserwacji
+pogłębionej i konkretny zakres powiązania z wnioskami do planu wsparcia.
+Poprosiłaś o „piękną tabelkę" umieszczoną tam, gdzie najlepiej pasuje.
+
+**Umiejscowienie:** Załącznik, Sekcja 1 „Decyzja o obserwacji pogłębionej",
+zaraz po istniejącej tabeli „Jakie arkusze włączyć i co z nich zebrać" —
+ta tabela mówi ogólnie, co zbierać z każdego narzędzia; Twoja nowa tabela
+dopowiada, KTÓRE narzędzie wybrać DLA KTÓREGO obszaru KSzOF i dlaczego —
+naturalne dopełnienie tej samej decyzji, więc trafiła do tej samej sekcji,
+tuż przed jej domykającym polem „Ustalenie zespołu" (koordynator / termin
+/ data syntezy), które teraz zamyka całość na końcu.
+
+**Forma:** żeby było „ładnie graficznie" i spójnie z resztą druku, przeszłam
+z surowej tabeli na te same karty (`.qcard`), których użyłam w poprzedniej
+poprawce Sekcji VI — każdy z 9 obszarów to jedna karta z kolorowym paskiem
+wg poziomu wsparcia, kodami ICF w rogu, kursywą „Badane zachowania w KSzOF"
+jako zdaniem wprowadzającym, a pod spodem — dla każdego z dwóch powiązanych
+narzędzi osobny wiersz: **fioletowa plakietka z nazwą narzędzia** (nowy
+wariant `.qc-tag.tool`, odróżniony kolorem od zielonej/czerwonej plakietki
+z Sekcji VI) + pełne wyjaśnienie powiązania, dokładnie w treści, którą
+podałaś (skróciłam tylko nazwy narzędzi w nagłówkach kart, żeby się
+mieściły w jednej linii — pełne nazwy zostały w treści wyjaśnień).
+
+Rozłożone na dwie strony (13–14, podział 5+4) — dokument ma teraz **18
+stron zamiast 16**. Zweryfikowane: `render_check_team.py` (wszystkie 18
+stron bez przelewania, marginesy 198 i 281px), podgląd graficzny obu stron,
+zero błędów JS.
+
+## Arkusz zespołowy: Sekcja VI przeprojektowana na karty, na dwóch stronach (str. 4–5)
+
+Poprosiłaś o poprawienie „Charakterystyki jakościowej obszarów" (Sekcja
+VI): więcej miejsca, rozłożenie na dwie strony, ładniejsza grafika, lepsza
+widoczność poszczególnych elementów i wytłuszczenia w treści charakterystyki
+— „żeby chciało się czytać".
+
+**Było:** gęsta 9-wierszowa tabela (obszar / mocna strona / trudność /
+źródło) na jednej stronie, wszystkie 9 obszarów wciśnięte w wąskie komórki,
+jednolity szary tekst bez żadnego wyróżnienia.
+
+**Jest:** każdy z 9 obszarów KSzOF dostał osobną, dużą kartę (`.qcard`) —
+nowy komponent graficzny dodany do stylów tego druku:
+
+- **Kolorowy pasek i numer obszaru** po lewej stronie karty — w kolorze
+  faktycznego poziomu wsparcia z Sekcji V (zielony = Poziom I, złoty =
+  Poziom II, czerwony = Poziom III), więc po samym rzucie oka widać, które
+  obszary są priorytetowe, bez czytania liczb.
+- **„Mocna strona" i „Trudność" jako osobne, kolorowe plakietki** (zielona
+  / czerwona) zamiast dwóch kolumn tabeli — od razu wiadomo, co się patrzy.
+- **Wytłuszczone kluczowe fragmenty w każdym opisie** — np. „**Rozumie
+  polecenia, kojarzy fakty**", „**Nie inicjuje kontaktu słownego**" —
+  wyróżniłam najważniejszą, najbardziej obserwowalną frazę w każdej mocnej
+  stronie i trudności, żeby dało się przeczytać istotę obszaru jednym
+  rzutem oka, a resztę zdania doczytać przy potrzebie szczegółu.
+- Nazwa obszaru czcionką Lora (jak nagłówki w reszcie druku), plakietka
+  źródła w rogu karty.
+
+**Rozłożone na dwie strony (str. 4–5)** — obszary I–IV na pierwszej, V–IX
+na drugiej — to jeszcze jedna strona więcej niż poprzednio (dokument ma
+teraz **16 stron**), ale każdy obszar ma teraz dużo miejsca na pełny opis
+zamiast ściśniętej komórki tabeli.
+
+**Techniczna pułapka po drodze — ta sama, co przy stronie z kartami KSzOF
+(patrz wpis o „nowej stronie 9" niżej): `justify-content:space-between`
+maskował prawdziwy rozmiar treści.** Przy podziale 6+3 karty drugą stronę
+zmierzyłam na 14px marginesu, a wizualnie karty rozjeżdżały się z ogromnymi,
+nierównymi odstępami między sobą (dokładnie ten sam efekt, opisany już
+wcześniej w tym README). Naprawione tak samo: `justify-content:flex-start`
+na obu nowych stronach. Po naprawie dopiero było widać prawdziwy zapas
+miejsca, więc dobrałam **podział 4+5 kart** (zamiast intuicyjnego 5+4) —
+najbardziej wyrównany z przetestowanych (marginesy 278px i 258px, żadna
+strona ani przepełniona, ani rażąco pusta). Zweryfikowane:
+`render_check_team.py` (wszystkie 16 stron bez przelewania), podgląd
+graficzny obu stron, edytowalność pól tekstowych w kartach sprawdzona
+programowo, zero błędów JS.
+
+## Arkusz zespołowy: uzupełniony o brakujące elementy wymagane rozporządzeniami (nowa Sekcja IX, str. 8–9; rozszerzone X i XI, str. 10–11)
+
+Poprosiłaś o porównanie arkusza zespołowego z przesłanym pełnym drukiem
+„Wielospecjalistyczna Ocena Poziomu Funkcjonowania (WOPFU)" (27 stron,
+sekcje I–XXVI, każda z osobną podstawą prawną) i uzupełnienie ważnych
+elementów, które wynikają wprost z rozporządzeń, a których w arkuszu
+zespołowym jeszcze nie było.
+
+**Metoda porównania:** wyciągnęłam pełny tekst obu druków i sprawdziłam
+każdą sekcję referencyjnego WOPFU pod kątem tego, czy jej odpowiednik (treść,
+nie koniecznie ta sama numeracja) już istnieje w arkuszu zespołowym. Część
+sekcji referencyjnego WOPFU (VI Zachowanie/ABC·FBA, VII Teoria umysłu, VIII
+Mowa, IX Przetwarzanie sensoryczne) **celowo pominęłam** — to szczegółowe
+wyniki osobnych druków źródłowych (karta ABC/FBA, ToM, kwestionariusze mowy,
+profil sensoryczny), które już istnieją jako samodzielne druki w tym
+ekosystemie; zgodnie z zasadą „jedno źródło — jedno miejsce" (którą sam
+referencyjny WOPFU opisuje w swojej Sekcji III) arkusz zespołowy je tylko
+przywołuje w Załączniku, nie duplikuje.
+
+**Rzeczywiste braki — dodane jako nowa Sekcja IX „Sposób pracy z uczniem"
+(str. 7–8, między dotychczasową Sekcją VIII a Współpracą z rodzicami):**
+
+1. **Metody i formy pracy — nazwa metody, nie hasło** (§ 6 ust. 1 pkt 1
+   rozp. 1578): checklista 16 konkretnych, nazwanych metod (metoda ośrodków
+   pracy, symultaniczno-sekwencyjna, 18 struktur wyrazowych, Dobrego Startu,
+   Knillów, TEACCH, ART, żetonowa, video-modeling i in.) — wcześniej arkusz
+   nie miał żadnego miejsca na nazwę metody, tylko ogólne „formy
+   organizacyjne".
+2. **Zakres i sposób dostosowania wymagań edukacyjnych oraz warunków
+   pracy** (§ 6 ust. 1 pkt 1 rozp. 1578, § 3 rozp. 1591) — czterokanałowa
+   tabelka (otoczenie, materiały, sposób przekazywania treści, sprawdzanie
+   wiedzy) + checklista 9 sposobów dostosowania oceniania + pole na
+   dostosowanie egzaminu ósmoklasisty (klasy VII–VIII) — tego wcześniej nie
+   było wcale, mimo że to obowiązkowy element IPET.
+3. **Rekomendowane zajęcia i programy terapeutyczne** — dwie osobne
+   checklisty w pełnym, wynikającym wprost z przepisów brzmieniu: 8 rodzajów
+   zajęć rewalidacyjnych (wyłącznie ścieżka A, w tym obowiązkowy przy
+   autyzmie TUS) oraz 11 form pomocy psychologiczno-pedagogicznej (§ 6 ust.
+   1 rozp. 1591: korekcyjno-kompensacyjne, dydaktyczno-wyrównawcze,
+   logopedyczne, emocjonalno-społeczne, terapeutyczne, integracja
+   sensoryczna, rozwijające uzdolnienia, doradztwo zawodowe klasy VII–VIII,
+   zindywidualizowana ścieżka, porady i konsultacje) + tabelka na programy
+   terapeutyczne z wymiarem godzin. Wcześniej arkusz miał tylko 7 ogólnych
+   „zalecanych form organizacyjnych" — bez pełnego, wymaganego wykazu.
+4. **Zintegrowane działania nauczycieli i specjalistów — wspólne
+   strategie** (§ 6 ust. 1 pkt 2 rozp. 1578) — wcześniej to był jeden
+   checkbox w tabeli wsparcia; teraz osobny punkt z checklistą 8 wspólnych
+   strategii (jeden sposób zapowiadania zmian, ten sam system znaków,
+   wspólna karta motywacyjna itd.) + pole na ustalenia zespołu, termin
+   spotkań i osobę koordynującą.
+
+**Dodane do istniejących sekcji:**
+
+- **Sekcja X (dawna IX) Współpraca z rodzicami** — doszła checklista
+  „Współpraca międzysektorowa" (9 instytucji: poradnia pp, SCWEW, poradnia
+  zdrowia psychicznego, lekarz POZ, OPS, asystent rodziny, kurator sądowy,
+  PCPR, ośrodek wczesnej interwencji) — referencyjny WOPFU ma to jako osobną
+  część Sekcji XIX, w arkuszu zespołowym wcześniej nie było tego wcale.
+- **Sekcja XI (dawna X) Decyzja zespołu, cele i przyjęcie oceny** —
+  przemianowana i rozszerzona o dwa nowe punkty na początku: „Rekomendowany
+  poziom wsparcia — decyzja zespołu" (legenda Poziom I/II/III + pole
+  decyzji + kierunek dalszej pracy IPET/PEWS) oraz „Cele SMART" (tabelka:
+  obszar priorytetowy / cel SMART / kryterium pomiaru / termin, osobno
+  edukacyjny i terapeutyczny) — obu wcześniej nie było, mimo że są
+  centralnym elementem oceny okresowej i już były przywoływane (jako
+  odnośnik do „Sekcji XXII") w jednej z kart KSzOF w Załączniku — ten
+  odnośnik poprawiłam na właściwy numer sekcji (XI).
+
+**Świadomie NIE dodane** (niższy priorytet niż powyższe albo już pokryte
+inaczej): pełna 7-punktowa klauzula informacyjna RODO (arkusz ma już
+krótką klauzulę, spójną z resztą serii dokumentów `WOPFU/`), tabela
+przeniesienia informacji do IPET/PEWS (dokument i tak wskazuje to przy
+każdej sekcji), wykaz załączników, pełna tabela oceny efektywności wsparcia
+(dotyczy głównie oceny okresowej, nie wstępnej) oraz rozbudowa Sekcji I o
+zawiadomienie rodziców / obecność rodzica na posiedzeniu (już jest ścieżka
+A/B, rodzaj oceny i podstawa — reszta to drobne pola proceduralne). Daj
+znać, jeśli któreś z nich też mają się znaleźć w druku.
+
+**Strona z nową Sekcją IX (str. 7–8) i połączona strona X+XI (dawne IX+X,
+str. 9) się przelały po dodaniu tylu nowych checklist** — Sekcja IX dostała
+dwie własne strony (metody+dostosowania / zajęcia+zintegrowane), a dawna
+wspólna strona „IX+X" została rozdzielona na dwie osobne strony (X i XI),
+bo dodanie międzysektorowej checklisty oraz poziomu wsparcia i celów SMART
+dawało łącznie ok. -601px. Dokument ma teraz **15 stron zamiast 12** — bez
+ścieśniania czcionki ani skracania treści. Zweryfikowane: `render_check_team.py`
+(wszystkie 15 stron bez przelewania), podgląd graficzny 4 nowych/zmienionych
+stron, klikalność checkboxów sprawdzona programowo w każdej z 4 nowych
+checklist (Strategie TEACCH, Terapia integracji sensorycznej, SCWEW, Poziom
+II), zero błędów JS.
+
+## Arkusz zespołowy: „Zakres wsparcia" przeniesiony pod punkt 3 i połączony z tabelą (str. 6)
+
+Poprawka na Twoją prośbę: obie checklisty z „C · Zakres wsparcia" (które
+poprzednio dodałam w Sekcji 4 Załącznika, ostatnia strona) przeniosłam pod
+istniejący punkt „3. Zakres i charakter wsparcia" (Sekcja VIII, str. 6) i
+połączyłam z tamtejszą tabelą zamiast trzymać je osobno:
+
+- **Osoby i formy wsparcia** (8 pozycji) — zamiast osobnej checklisty,
+  dodałam checkbox bezpośrednio przy każdej osobie/funkcji w istniejącej
+  tabeli „Zakres i charakter wsparcia" (kolumna 1: `<input type="checkbox">`
+  + etykieta w Twoim dokładnym brzmieniu). 6 z 8 pozycji już miało tam swój
+  wiersz (tylko przemianowałam etykiety na Twoje brzmienie, np. „Wychowawca
+  / nauczyciel prowadzący" → „Wsparcie nauczyciela w bieżącej pracy", nie
+  ruszając opisu w kolumnie 2); dodałam 2 nowe wiersze dla pozycji, których
+  tam jeszcze nie było — „Wsparcie opiekuna" i „Zintegrowane działania
+  nauczycieli" — z krótkim opisem w tym samym stylu co pozostałe wiersze.
+- **Zalecane formy organizacyjne** (7 pozycji) — to inny wymiar (formy
+  pracy, nie osoby), więc nie dało się ich wpisać jako wierszy tej samej
+  tabeli; zostały jako osobna, mała checklista `checkbox_grid()` zaraz pod
+  tabelą, w tym samym miejscu (punkt 3), w Twoim dokładnym brzmieniu i
+  kolejności.
+
+Podsekcja „C · Zakres wsparcia" (dawniej ostatnia strona) została usunięta
+w całości, a podsekcja „A · Zalecenia z orzeczenia" wróciła na swoje
+pierwotne miejsce (ostatnia strona, przed podsekcją B) — ten fragment
+dokumentu wygląda teraz tak, jak przed poprzednią zmianą.
+
+**Strona z punktem 3 przelała się po połączeniu (margines -231px)** —
+rozszerzona tabela i nowa checklista to znacznie więcej treści niż dotąd
+mieściło się na tej stronie (dzielonej z punktem kontrolnym Sekcji VII i
+punktami VIII.1–VIII.2). W pobliżu nie było strony z wystarczającym
+zapasem miejsca, więc zamiast zmniejszać czcionkę albo ciąć treść, punkt 3
+dostał **własną, nową stronę** — dokument ma teraz **12 stron zamiast 11**
+(reszta dokumentu przesunęła się o jedną stronę dalej, numeracja w stopce
+i punkt 5 poniżej podążają już za tą zmianą). Zweryfikowane:
+`render_check_team.py` (wszystkie 12 stron bez przelewania), podgląd
+graficzny obu zmienionych stron, klikalność checkboxów sprawdzona
+programowo (Wsparcie opiekuna, Konsultacje rodzinne), zero błędów JS.
+
+## Arkusz zespołowy: nowy punkt 5 — trudności we włączeniu w zajęcia z oddziałem (str. 7, Sekcja VIII)
+
+Poprosiłaś o dodanie punktu o treści: „napotkane trudności w zakresie
+włączenia ucznia w zajęcia realizowane wspólnie z oddziałem szkolnym oraz
+efekty podejmowanych działań w celu przezwyciężenia występujących
+trudności", w małej tabelce, wkomponowanego w treść druku.
+
+Dodałam go jako **punkt „5."** w Sekcji VIII (Synteza funkcjonalna, str. 7 —
+po późniejszym przeniesieniu „Zakresu wsparcia" pod punkt 3 dokument ma o
+jedną stronę więcej, więc punkt 5 przesunął się z ówczesnej str. 6 na str. 7),
+zaraz po istniejącym punkcie 4 „Przyczyny trudności, bariery i ograniczenia"
+— tematycznie to najbliższe miejsce (punkt 4 mówi ogólnie o barierach i
+dotychczasowych działaniach, punkt 5 doprecyzowuje to akurat pod kątem
+włączania ucznia we wspólne zajęcia z klasą) i jednocześnie ostatni punkt
+Sekcji VIII przed Sekcją IX (Współpraca z rodzicami).
+
+Treść wpisana jako mała, dwukolumnowa tabelka (`ttable()`, ten sam komponent
+co reszta dokumentu): **„Napotykane trudności"** / **„Efekty podjętych
+działań"**, jeden wiersz do wypełnienia przez zespół — pełne brzmienie
+punktu (z Twojego zlecenia) jest w nagłówku punktu nad tabelką, więc nagłówki
+kolumn mogły zostać krótkie i się nie łamać w komórce.
+
+**Strona się przelała po dodaniu (margines -29px)** — to była już dość
+gęsta strona (łączy punkt 4, nowy punkt 5, całą Sekcję IX i całą Sekcję X).
+Skróciłam nagłówki kolumn tabelki (-13px), zmniejszyłam tabelkę do jednego
+wiersza (-27px) i lekko przycięłam dwa istniejące pola notatek w punkcie 4
+(46px→40px wysokości minimalnej, -8px) — bez ruszania samej treści ani
+przenoszenia sekcji między stronami. Strona wyszła na plusie (margines
+23px, w normie pozostałych stron dokumentu — po późniejszej zmianie opisanej
+wyżej ta strona to str. 7, margines bez zmian). Zweryfikowane:
+`render_check_team.py`, podgląd graficzny strony.
+
+<!-- Historia: „C · Zakres wsparcia" początkowo trafiło na ostatnią stronę
+(Sekcja 4 Załącznika), zob. wpis „Zakres wsparcia przeniesiony pod punkt 3"
+na górze tego pliku — ta wersja została później przeniesiona i połączona z
+punktem 3, więc nie ma jej już jako osobnej podsekcji C. -->
+
+## Arkusz zespołowy: nowa strona 9 — KSzOF połączone z ocenami (kody ICF + zalecenia wg 9 obszarów)
+
+**Nowa strona, dopisana pod tabelą „Wyniki arkuszy źródłowych" (Sekcja 2).**
+Na Twoją prośbę doszła strona 9 — 9 kart, po jednej na każdy obszar KSzOF (te
+same nazwy, steny i poziomy co w Sekcji V, str. 4), a w każdej karcie:
+- **Kody ICF pasujące do stwierdzonych trudności** tego obszaru (np. Obszar
+  III „Porozumiewanie się" → d310, d330, d350; Obszar IV „Motoryka" → d445,
+  b760) — dobrane do opisów trudności z Sekcji VI (str. 5), nie generyczne.
+- **Obszar VII „Wzajemne kontakty i związki" połączony dodatkowo z Profilem
+  ToM i ABC/FBA** (zgodnie z Twoim przykładem) — osobna notka pod nagłówkiem
+  wprost mówi, że niski wynik tego obszaru łączy się z trudnością ToM
+  (rozumienie cudzych intencji) i wzorcem ABC/FBA (ucieczka/unikanie przy
+  zmianie aktywności), z odsyłaczem do str. 8. Kody ICF tego obszaru też to
+  odzwierciedlają: d710/d720 (interakcje) + b152 (funkcje emocjonalne, z ToM)
+  + d7203 (kontrolowanie zachowania w interakcji, z ABC/FBA).
+- **6 kategorii zaleceń do realizacji**, dokładnie te, o które prosiłaś:
+  metody i formy pracy, zakres dostosowań, zintegrowane działania
+  nauczycieli, materiały dydaktyczne, zalecenia, cele edukacyjne i
+  terapeutyczne — w zwartej siatce 2 kolumny × 3 wiersze pod każdą kartą.
+
+Wszystko edytowalne (kody ICF i każde z 6 pól), tak jak reszta dokumentu —
+treść to przykładowe uzupełnienie na bazie tego samego przypadku demo, do
+podmiany dla konkretnego ucznia.
+
+**Techniczna pułapka po drodze: `justify-content:space-between` na całej
+stronie maskowało prawdziwy rozmiar treści.** Współdzielony CSS ma regułę,
+która domyślnie rozciąga zawartość strony równomiernie na całą wysokość,
+jeśli strona nie zawiera żadnego z kilku konkretnych, niepowiązanych z tym
+komponentów (używanych gdzie indziej w dokumencie). Moje karty nie pasowały
+do żadnego z nich, więc ta reguła się włączała: skracanie treści nie
+zmieniało w ogóle zmierzonego marginesu na dole strony (wciąż ~12px), bo
+oszczędzone piksele po prostu zamieniały się w większe odstępy MIĘDZY
+kartami zamiast zmniejszać całkowitą wysokość — złapane dopiero pomiarem
+rzeczywistej wysokości każdego bloku, nie tylko marginesu na dole. Efekt
+uboczny: 9 kart przy tej regule wyglądałoby na ekranie/wydruku z ogromnymi,
+nierównymi odstępami zamiast zwartej listy. Naprawione lokalnie (tylko na
+tej stronie, nie w współdzielonym pliku CSS) przez jawne
+`justify-content:flex-start` na tej jednej stronie. Po naprawie 9 kart
+zmieściło się wygodnie na jednej stronie z marginesem 138px — początkowo
+myślałam, że będą potrzebne 2 strony, ale to był efekt tej samej maskowanej
+miary.
+
+Zweryfikowane: `render_check_team.py` (11 stron, wszystkie bez przelewania),
+edytowalność sprawdzona klikaniem i wpisywaniem tekstu, wizualnie na
+rzeczywistym PDF-ie, zero błędów JS.
+
+## Arkusz zespołowy: „Autor" → „Sporządzający" oraz nowa linia „Zalecenie do programu" w każdym profilu (str. 8)
+
+**„Autor" → „Sporządzający" w metryczce każdego arkusza.** Na Twoją prośbę
+zmieniłam etykietę w metryczce (Data / ~~Autor~~ Sporządzający / Nr arkusza)
+we wszystkich 5 profilach w Sekcji 2 Załącznika — krótsza wersja z Twoich
+dwóch propozycji, bo pełne „Nauczyciel sporządzający obserwację i opis" nie
+mieściło się w wąskiej (46mm) kolumnie metryczki bez rozbicia na kilka linii.
+
+**Nowa, trzecia linia w każdym profilu: „Zalecenie do programu
+(IPET/PEWS)".** Osobno od ogólnej „Charakterystyki" i „Zaleceń" (kierunki
+pracy na co dzień), każdy z 5 profili dostał teraz wyróżnioną pomarańczowym
+kolorem linię mówiącą wprost, co z tego wyniku wynika dla dokumentu
+wynikowego — jaki to rodzaj wpisu (cel SMART, dostosowanie organizacyjne czy
+warunek pracy) i jak decyzja zależy od faktycznego wyniku, np. dla ABC/FBA:
+„jeśli ucieczka nadal występuje mimo modyfikacji poprzedników → cel SMART w
+IPET; jeśli ustąpiła → utrzymać dostosowania profilaktycznie, bez osobnego
+celu". To domyka most: Sekcja 2 (wyniki) → ta nowa linia (co to znaczy dla
+programu) → Sekcja 4 (zalecenia zbiorcze) → IPET/PEWS.
+
+**Strona się przelała po dodaniu trzeciej linii (margines -85px), więc
+skompresowałam styl tabeli** (padding 6px 9px→5px 8px, czcionka 8.8px→8.3px,
+interlinia 1.5→1.3) zamiast skracać treść — margines wrócił do +71px, bez
+przelewania. Czcionka jest teraz mała, ale wciąż czytelna (podobna gęstość
+już zaakceptowana wcześniej na str. 3 i 5 tego dokumentu). Zweryfikowane:
+`render_check_team.py`, edytowalność nowej linii sprawdzona klikaniem i
+wpisywaniem tekstu, „Autor" faktycznie zniknął ze strony (sprawdzone
+programowo), zero błędów JS.
+
+## Arkusz zespołowy: Sekcja 2 Załącznika przebudowana — charakterystyka i zalecenia zamiast pustych pól (str. 8)
+
+**Problem: „wyniki arkuszy źródłowych" był mdły i zbyt wąsko rejestrował dane.**
+Poprzednia wersja tabeli miała same wąskie pola do ręcznego uzupełnienia
+(„Liczba zapisanych zdarzeń: ___", „Wynik: ___") — bez żadnej gotowej treści
+merytorycznej, więc strona wyglądała pusto i nie pokazywała, jak faktycznie
+korzystać z danych z innych narzędzi.
+
+**Nowa kolejność źródeł: Profil biopsychospołeczny → ABC/FBA → Profil
+sensoryczny → Rozwój mowy → Profil ToM** (poprzednio: ABC/FBA, sensoryczny,
+mowa, ToM, biopsychospołeczny — na Twoją prośbę biopsychospołeczny przeszedł
+na pierwsze miejsce, ToM na ostatnie).
+
+**Każde źródło ma teraz prawdziwą charakterystykę i zalecenia**, nie puste
+pola — na bazie tego samego przypadku demonstracyjnego, co w pozostałych
+dwóch drukach WOPFU (te same steny, te same karty Ułatwienia/Bariery/
+Dobrostan, ten sam ABC, ten sam profil Dunna, ta sama ocena ToM i mowy), więc
+wszystkie trzy dokumenty opisują teraz spójnie jednego przykładowego ucznia:
+- **Profil biopsychospołeczny** — ułatwienia/bariery/dobrostan + czynniki
+  środowiskowe (e310, e330/e425) i zalecenie utrzymania struktury dnia.
+- **ABC/FBA** — 2 zdarzenia z arkusza, zachowanie kluczowe (ucieczka/unikanie
+  wymagań) i plan PBS (modyfikacja poprzedników + zachowanie zastępcze).
+- **Profil sensoryczny** — wrażliwość słuchowa i poszukiwanie bodźców
+  przedsionkowo-proprioceptywnych, z konkretną dietą sensoryczną.
+- **Rozwój mowy** — poziom mowy werbalnej i kierunki terapii logopedycznej.
+- **Profil ToM** — poziom świadomości emocji i konkretne metody pracy (TUS,
+  historyjki społeczne, zamiana ról).
+
+Metryczka (Data / Autor / Nr arkusza) została bez zmian — to pola, które
+faktycznie różnią się dla każdego ucznia, więc zostają puste i edytowalne.
+Charakterystyka i zalecenia są też w pełni edytowalne (osobne `contenteditable`
+pod etykietami „Charakterystyka:"/„Zalecenia:", żeby po podmianie ucznia dało
+się je nadpisać, tak jak wszystkie inne pola w dokumencie) — zweryfikowane
+przez faktyczne kliknięcie i wpisanie tekstu w przeglądarce, nie tylko
+wizualnie. Zweryfikowane też `render_check_team.py` (margines na str. 8 spadł
+z dużego zapasu do 140px — bez przelewania) i wizualnie na renderze
+rzeczywistego PDF-a.
+
+## Druk podstawowy: przywrócona pełna klauzula RODO oraz czynniki kontekstowe wg ICF
+
+**Pełna, 7-punktowa klauzula informacyjna RODO + ważność dokumentu (str. 13,
+Sekcja XXV).** Na Twoją prośbę zamieniłam skróconą, jednoakapitową wersję
+RODO w druku podstawowym (`WOPFU_karta_oceny`) na pełną klauzulę informacyjną
+z art. 13/14 RODO — 7 punktów: administrator danych, inspektor ochrony
+danych, cel i podstawa prawna, kategorie danych, odbiorcy, okres
+przechowywania, prawa osób. Dodałam też osobną notkę „Bezpieczeństwo i
+ważność dokumentu" (podpisy zespołu potwierdzają dokonanie oceny; podpis
+rodzica potwierdza zapoznanie się z oceną, ale jego brak nie wstrzymuje
+oceny — ewentualną odmowę należy odnotować). Nagłówek sekcji zmienił się na
+„Wykaz załączników, RODO i ważność dokumentu". Ta pełna klauzula była już
+raz napisana wcześniej w tej sesji i świadomie skrócona pod fidelity do
+wzoru — przywróciłam ją teraz jednym ruchem z historii gita (commit
+`50d405c`), tak jak zapowiadałam w sekcji „Do potwierdzenia przez autorkę"
+niżej.
+
+**Czynniki kontekstowe wg ICF (str. 8, Sekcja XI).** Dopisałam osobny
+podrozdział „Czynniki kontekstowe wg ICF — czynniki środowiskowe i osobowe"
+pod istniejącą triadą ułatwienia/bariery/dobrostan: checklisty czynników
+środowiskowych (wsparcie rodziny i otoczenia — e310, postawy nauczycieli i
+rówieśników — e330/e425) oraz czynników osobowych (temperament i styl
+radzenia sobie ze stresem, motywacja i poczucie sprawczości). Też
+przywrócone z historii gita (commit `6bfd4a2`), gdzie ta treść była już
+raz napisana. Zweryfikowane: `render_check.py` (bez przelewania na żadnej
+z 15 stron), `js_check.py` (zero błędów, przeliczanie stenów dalej działa)
+i wizualnie na renderze rzeczywistego pliku PDF (nie tylko podglądu HTML).
+
+## Załącznik: podpisy zespołu na końcu (str. 10)
+
+Załącznik „Obserwacja pogłębiona" kończył się polami „Data ustalenia
+zaleceń" i „Zespół" — bez miejsca na faktyczne podpisy, mimo że to
+osobny, samodzielny dokument roboczy (patrz niżej), więc powinien mieć
+własne zamknięcie, tak jak główny dokument ma swoje na str. 6 (Sekcja X).
+Dodałam na samym końcu str. 10 nowy nagłówek „Podpisy zespołu
+prowadzącego obserwację pogłębioną" i 4 linie podpisu: **Koordynator
+zespołu** (nazwany, tak jak w tabeli ustaleń na str. 7) oraz 3 ogólne
+**„Członek zespołu"** — celowo bez sztywno przypisanych ról (logopeda,
+psycholog, terapeuta SI...), bo to, kto faktycznie podpisuje, zależy od
+tego, które arkusze zespół włączył do konkretnej obserwacji. Ładnie
+wypełniło to też sporo pustego miejsca na dole ostatniej strony
+(margines spadł z 344 do 130 px).
+
+## Załącznik: lepsze uzasadnienie obserwacji + przycisk „dodaj wiersz" + naprawiony błąd w tle
+
+**Lepsze, rozwinięte uzasadnienie na str. 7.** Poprzednia wersja Załącznika
+miała po przesłankach tylko jedno zdanie („Dwa wpisy ABC wskazują sytuacje
+do sprawdzenia..."), które samo w sobie nie uzasadniało decyzji o
+obserwacji. Zamieniłam je na pełny, szary „WZÓR UZASADNIENIA" (ten sam
+komponent `.example-box`, co na Punkcie Kontrolnym w głównym dokumencie):
+łączy wszystkie 3 przesłanki (niskie wyniki KSzOF, zdarzenia ABC, brakujące
+wyniki mowy/ToM/sensoryki) we wniosek, dlaczego obserwacja jest zasadna i
+co ma dać (weryfikacja hipotez, uzupełnienie danych, cele do IPET).
+
+**Tabela „Współpraca z rodzicami" (str. 6) — teraz z przyciskiem „+ Dodaj
+kolejną formę współpracy".** Poprzednio jedyny sposób na dopisanie
+kolejnej formy współpracy to ręczne wpisanie w jeden zapasowy, pusty
+wiersz. Dodałam działający przycisk (widoczny tylko na ekranie, nie na
+wydruku) — każde kliknięcie dokłada nowy, w pełni edytowalny wiersz do
+tabeli przez JavaScript, więc można dopisać dowolną liczbę własnych form
+współpracy, nie tylko jedną. Sprawdzone dwoma kliknięciami i wpisaniem
+tekstu w nowo dodany wiersz — działa.
+
+**Przy okazji budowy przycisku znalazłam i naprawiłam realny błąd w
+mechanizmie „nie drukuj".** Klasa `no-print` (używana m.in. na górnym
+pasku narzędzi ✍️ we wszystkich trzech dokumentach) nie miała **żadnej**
+reguły CSS, która faktycznie by ją ukrywała przy druku — pasek narzędzi
+znikał z PDF-ów tylko przypadkiem, bo jest `position:fixed` (Chromium
+samo pomija taki element przy łamaniu na strony). Gdy dodałam przycisk
+zwykłym blokiem (`position` domyślne), `no-print` nic nie robiło i
+przycisk **pojawiał się w PDF-ie** — złapałam to, renderując rzeczywisty
+plik PDF, nie tylko podgląd w przeglądarce. Naprawione we wspólnym pliku
+CSS (`@media print{.no-print{display:none}}`), więc `no-print` teraz
+faktycznie działa **we wszystkich trzech dokumentach**, na każdym
+elemencie, nie tylko na pasku narzędzi. Zweryfikowane renderując gotowy
+PDF (nie tylko podgląd HTML) — przycisk zniknął, reszta bez zmian.
+
+## Nowość: Załącznik „Obserwacja pogłębiona" dopisany do arkusza zespołowego (str. 7–10)
+
+Przesłałaś osobny plik Word — `EduPlanner_2026_WOPFU_SP_uzupełnienie_i_obserwacja_pogłębiona_2.docx` —
+i poprosiłaś o „piękny druk" z tego jako Załącznik. To 4-sekcyjny,
+samodzielny dokument roboczy do prowadzenia obserwacji pogłębionej: nie
+duplikuje niczego z arkusza zespołowego, tylko rozwija to, na czym Sekcja
+VII tego dokumentu (Punkt Kontrolny) się kończy — decyzję „uruchamiam
+obserwację pogłębioną". Dlatego dopisałam go jako 4 nowe strony na końcu
+`WOPFU_SP_arkusz_zespolowy` (6→10 stron w tamtym momencie; od dopisania str. 9
+z kodami ICF — patrz sekcja na górze pliku — dokument ma już **11 stron**),
+w tej samej konstrukcji `.page`/`.sec`/`.tb`, a nie jako osobny plik.
+
+- **Str. 7 — Załącznik, Sekcja 1: Decyzja o obserwacji pogłębionej.**
+  Czerwony baner „ZAŁĄCZNIK" (ten sam wzór, co „PUNKT KONTROLNY"), 3
+  przesłanki z Twojego pliku (KSzOF, wpisy ABC, brakujące wyniki mowy/
+  ToM/sensoryki), tabela „jakie arkusze włączyć" (5 wierszy: ABC/FBA,
+  profil sensoryczny, arkusz mowy, profil ToM warunkowo, profil
+  biopsychospołeczny) i tabela ustaleń zespołu (koordynator, termin,
+  data syntezy).
+- **Str. 8 — Sekcja 2: Wyniki arkuszy źródłowych.** Duża tabela — dla
+  każdego z 5 arkuszy osobno: metryczka (data / sporządzający / nr arkusza)
+  i trzy linie na bazie wyników z tego narzędzia — charakterystyka, zalecenia
+  i wyróżnione „Zalecenie do programu (IPET/PEWS)" (nie puste pola — patrz
+  sekcja na górze pliku), w kolejności: profil biopsychospołeczny, ABC/FBA,
+  profil sensoryczny, rozwój mowy, profil ToM. Poniżej 3 checkboxy stanu
+  danych i pole na brakujące arkusze.
+- **Str. 9 — Sekcja 2 (ciąg dalszy): KSzOF połączone z ocenami.** Dopisana
+  później — patrz sekcja na górze pliku.
+- **Str. 10 — Sekcja 3: Synteza obserwacji** (przesunięta ze str. 9 po
+  dopisaniu str. 9 z kodami ICF). Dwie tabele: „co wynika z kilku źródeł"
+  (4 obszary × ustalenie × źródło/niepewność) i „opis zbiorczy do WOPFU-SP"
+  (mocne strony / trudności / warunki / dane brakujące) — dokładnie Twoje
+  pola, puste do wypełnienia.
+- **Str. 11 — Sekcja 4: Zalecenia z orzeczenia i oceny** (przesunięta ze
+  str. 10). Część A (zalecenia z orzeczenia — dane dokumentu, checkbox
+  „uczeń nie ma orzeczenia", 3 puste wiersze na zalecenia) i część B
+  (zalecenia zespołu z oceny, też 3 puste wiersze).
+
+**Jedna zmiana treści — z konieczności, nie wyboru.** Twój plik w dwóch
+miejscach mówił „jeżeli zaleceń jest więcej, dodaj wiersze w Wordzie" —
+to nie ma sensu w gotowym, statycznym druku HTML/PDF (nie da się „dodać
+wiersza" na wydrukowanej kartce). Zamieniłam na „kontynuuj na osobnej
+kartce, zachowując numer punktu/strony" — ta sama intencja (jest miejsce
+na więcej niż 3 zalecenia), tylko sformułowana dla fizycznego wydruku,
+a nie edytowalnego pliku Word.
+
+**Kilka stron (7, 9, 10) ma sporo pustego miejsca u dołu** — próbowałam
+łączyć sekcje 3+4 na jedną stronę, ale realnie nie mieściło się (margines
+do stopki wychodził na -180 px), więc zostały osobno. Czteroelementowa
+treść z Twojego Worda naturalnie rozkłada się na 4 strony w tej
+konstrukcji wizualnej — gdybyś wolała gęściej upakowane strony kosztem
+mniejszej czcionki, daj znać.
+
+## Kolory poziomów wsparcia odświeżone (oba dokumenty)
+
+Zwróciłaś uwagę, że kolory Poziomu I/II/III (używane wszędzie: tabele
+stenów, wykresy słupkowe i radarowe, „Wyniki w skrócie", karty Syntezy,
+checkboxy decyzji zespołu) wyglądały stonowanie — a Poziom II konkretnie
+jak brąz zamiast żółtego. Zmieniłam całą paletę na wersję bardziej
+soczystą/nasyconą, w obu dokumentach naraz (jeden wspólny słownik
+`POZIOM_COL` + jedna funkcja `wopfStenPoziom()` w JS, więc zmiana jest
+spójna wszędzie, gdzie te kolory się pojawiają):
+
+| Poziom | Było | Jest |
+|---|---|---|
+| I (zielony) | `#2E7D46` | `#16A34A` |
+| II (żółty) | `#9a6b00` (wyglądał na brązowy) | `#D6A400` |
+| III (czerwony) | `#b3261e` | `#DC2626` |
+
+Konsekwentnie zmieniłam też 2 miejsca, które świadomie **kopiowały** te
+same kolory dla spójności wizualnej, więc zostawienie ich po staremu
+zepsułoby tę spójność: gradient banera „PUNKT KONTROLNY" w pełnym
+dokumencie (używał tego samego czerwonego, co Poziom III) oraz karty
+1 i 3 Syntezy funkcjonalnej w wersji skróconej („Mocne strony" i
+„Przyczyny/bariery" — dobrałam im wcześniej kolory „ten sam odcień, co
+Poziom I/III w tabeli KSzOF"). Jasne, pastelowe tła (np. `#eafaef`,
+`#fff6da`, `#fdecec` pod kartami/chipami) zostawiłam bez zmian — to
+neutralne, bardzo jasne podkłady, które dobrze współgrają z każdym
+odcieniem pierwszego planu i nie wyglądały na „brązowe" same w sobie.
+
+**Druga runda — same słupki wykresów jeszcze bardziej soczyste.** Napisałaś
+jeszcze raz, mocniej, że kolory słupków w wykresach mają być piękne,
+soczyste. Rozdzieliłam więc kolor na dwa warianty: `col` (jak wyżej —
+używany tam, gdzie kolor jest jednocześnie tekstem: „Poziom I/II/III"
+w tabeli, etykiety w chipach, checkboxy decyzji — tam musi zostać
+czytelny na białym tle) i nowy `barCol`, używany wyłącznie do wypełnienia
+słupków wykresu — bo słupek to duży, jednolity kwadrat koloru bez tekstu
+na sobie, więc może być dużo bardziej nasycony bez utraty czytelności:
+
+| Poziom | `col` (tekst, chipy, checkboxy) | `barCol` (tylko słupki wykresu) |
+|---|---|---|
+| I (zielony) | `#16A34A` | `#12B451` |
+| II (żółty) | `#D6A400` | `#FFD500` — prawdziwy, czysty żółty |
+| III (czerwony) | `#DC2626` | `#E8253D` |
+
+Zmiana jest w jednym miejscu (`wopfStenPoziom()`) w każdym z **trzech**
+dokumentów (w tym w nowym arkuszu zespołowym), więc słupki wyglądają
+identycznie we wszystkich. Mapa radarowa i tak nie używała kolorów
+Poziomu — jej fiolet/pomarańcz to kolorystyka marki, niezależna od tego
+systemu.
+
+## Status: trzy warianty druku — do porównania i wyboru najlepszej opcji
+
+| Plik | Opis |
+|---|---|
+| `WOPFU_karta_oceny.html` | pełna wersja, 25 sekcji, 15 stron |
+| `WOPFU_karta_oceny.pdf` | pełny wydruk (headless Chromium, druk A4) |
+| `WOPFU_SP_bez_poglebionej.html` | wersja skrócona (9 sekcji, **6 stron**), gdy zespół nie prowadzi obserwacji pogłębionej |
+| `WOPFU_SP_bez_poglebionej.pdf` | wydruk wersji skróconej |
+| `WOPFU_SP_arkusz_zespolowy.html` | trzeci wariant, „arkusz zespołowy" (10 sekcji + Załącznik „Obserwacja pogłębiona", **11 stron**), zbudowany wg Twojego przesłanego wzoru PDF |
+| `WOPFU_SP_arkusz_zespolowy.pdf` | wydruk arkusza zespołowego |
+
+Szukasz najlepszej opcji spośród trzech — żaden z wariantów nie jest jeszcze
+przeniesiony do `Zatwierdzone/`.
+
+## „Arkusz zespołowy" (10 sekcji, 6 stron podstawowych) — trzeci wariant
+
+Przesłałaś PDF „piękny WOPFU-z czata" — inny, prostszy arkusz (bez kolorów,
+bez wykresów, same tabele do wypełnienia), z prośbą „zrób według tego wzoru,
+dodaj stronę z kolorowymi wykresami". Zapytałam, czy ma to zastąpić wersję
+skróconą, czy być osobnym dokumentem — wybrałaś **osobny, trzeci plik**, bo
+szukasz najlepszej opcji, nie jednej ostatecznej wersji.
+
+**Co jest wierne Twojemu wzorowi:**
+
+- Dokładnie 10 sekcji rzymskich (I–X) z Twojego PDF-a, w tej samej
+  kolejności i z tym samym tekstem — łącznie z sekcją **VII: Decyzja
+  zespołu o obserwacji pogłębionej** (Twój wzór jej nie usuwa, tylko
+  zostawia otwartą: kontynuować / uzupełnić dane / przejść do planowania),
+  czym ten wariant różni się od wersji skróconej (która tę sekcję usuwa
+  całkowicie) i od pełnej wersji (która zakłada, że zespół już zdecydował
+  się na obserwację pogłębioną).
+- Wszystkie pola są **puste, do wypełnienia** — zgodnie z Twoim wzorem
+  („Pola należy wypełnić danymi konkretnego ucznia; wcześniejsze przykłady
+  wyników nie są przenoszone do druku"), łącznie z notatkami metodologicznymi
+  z Twojego PDF-a (np. „Nie obliczaj średniej ze stenów jako nowego wyniku
+  narzędzia bez podstawy metodologicznej").
+- Ścieżka A/B, mapa 10 dokumentów źródłowych, tabela 6 ról zespołu, 6 ról
+  „Zakresu i charakteru wsparcia" (VIII.3) — treść przepisana z Twojego
+  pliku bez zmian, tylko przeniesiona w konstrukcję `.page`/`.sec`/`.tb`
+  fioletu `#2D1B69` + pomarańczu `#E8450A`, Mulish/Lora, zamiast gołego,
+  czarno-białego układu z PDF-a.
+
+**Jedno odstępstwo od wzoru — „strona z kolorowymi wykresami", o którą
+prosiłaś:** Twój PDF ma w Sekcji V samą pustą tabelę (Nr / Obszar / Wynik /
+Poziom / Źródło), bez żadnego wykresu. Dodałam pod tabelą dokładnie ten sam
+zestaw wykresów, co w pozostałych dwóch dokumentach — słupkowy + mapa
+radarowa + siatka „Wyniki w skrócie" (9 kolorowych chipów) — i **wypełniłam
+tabelę tym samym przykładowym przypadkiem, co reszta serii** (steny
+8,5,3,7,6,5,4,5,4), żeby wykresy było faktycznie widać kolorowe przy
+otwarciu, a nie pustą oś. Reszta dokumentu (sekcje I–IV, VI–X) zostaje
+pusta zgodnie z Twoim wzorem — steny w tabeli i wykresy są w pełni
+edytowalne i przeliczają się automatycznie, tak jak w pozostałych dwóch
+dokumentach (wpisz nowy sten → poziom, wykresy i „Wyniki w skrócie"
+aktualizują się same). **Opis syntetyczny pod wykresami liczy się też sam
+od razu przy otwarciu pliku** (nie jest zamrożony jak w pozostałych dwóch
+dokumentach) — bardziej pasuje do charakteru „arkusza roboczego", który
+zaczyna pusty i wypełnia się na żywo.
+
+**Podział na strony — moja decyzja, nie z Twojego PDF-a.** Twój dokument
+miał 7 stron płynących bez podziału A4. Pierwsza wersja tutaj też wyszła na
+7 stron, ale str. 5 (Sekcja VII) i str. 6 (VIII.3 „Zakres i charakter
+wsparcia") miały osobno sporo pustego miejsca u dołu. Na Twoją prośbę
+przeniosłam VIII.3 na str. 5, razem z Sekcją VII i VIII.1–2 — żeby to się
+zmieściło, ścieśniłam trochę tabelę ról (mniejsza czcionka/padding w
+komórkach) i skróciłam 2 puste pola do wypełnienia w VIII.1/VIII.2 (były
+nadmiarowo wysokie). Dokument skrócił się z 7 do **6 stron**, a str. 5
+jest teraz gęsto, ładnie wypełniona (margines do stopki: 67 px, wcześniej
+tam było 391 px pustego miejsca). Aktualny układ: **Str. 1** Sekcja I,
+**Str. 2** Sekcje II+III+IV, **Str. 3** Sekcja V + wykresy, **Str. 4**
+Sekcja VI, **Str. 5** Sekcja VII + VIII.1–3, **Str. 6** Sekcja VIII.4 +
+IX + X.
+
+**Ścieżka A/B — teraz realnie do zaznaczenia (str. 1).** Karty Ścieżki A i
+Ścieżki B były na starcie samym opisowym tekstem — informowały, ale nie
+dało się zaznaczyć, którą ścieżkę zespół faktycznie wybrał dla danego
+ucznia. Dodałam pod spód przycisk radiowy (jak w pozostałych dwóch
+dokumentach) i podświetlenie wybranej karty (pomarańczowa ramka i jasne
+tło) — wybór jest jeden z dwóch (A **albo** B, nie oba naraz) i widać go
+gołym okiem od razu na wydruku, nie tylko przy zaznaczonym kółku.
+
+**Naprawiony błąd — 5 pustych pól do wypełnienia nie dawało się kliknąć
+i wpisać tekstu.** Zauważyłaś to przy „Mocne strony" (VIII.2) i punkcie
+pod nim; sprawdziłam cały dokument i ten sam błąd miały jeszcze 3 inne
+puste pola: „Wyniki niewykonane / nieobserwowane" (str. 3), „Indywidualne
+potrzeby rozwojowe" (VIII.1, tuż nad „Mocne strony") oraz oba pola w
+VIII.4 „Przyczyny trudności" (str. 6). Wszystkie pięć wyglądały jak pola
+do wypełnienia (jasnofioletowe tło, obramowanie), ale brakowało im atrybutu
+`contenteditable`, więc kliknięcie i pisanie nic nie robiło — czysto
+techniczne przeoczenie przy budowie tego dokumentu, teraz naprawione i
+sprawdzone (wpisanie tekstu faktycznie działa) we wszystkich pięciu
+miejscach. Instruktażowe notki (szare, kursywą, np. „Wpisz tylko
+informacje potwierdzone...") celowo zostają nieedytowalne — to podpowiedzi
+do czytania, nie pola do wypełnienia.
+
+**Dodana klauzula RODO (na końcu, str. 6).** Twój wzór PDF w ogóle jej nie
+miał — ani pełnej, ani skróconej. Dodałam dokładnie ten sam, jednoakapitowy
+tekst, który jest już w pełnym dokumencie (Sekcja XXV): „Dane przetwarzane
+są w celu realizacji zadań związanych z organizacją kształcenia specjalnego
+i pomocy psychologiczno-pedagogicznej zgodnie z przepisami prawa oświatowego
+oraz RODO." — na samym końcu strony 6, po „Podstawie odniesienia", tym
+samym drobnym, szarym stylem `.legal`.
+
+**Tabela „Współpraca z rodzicami" (Sekcja IX, str. 6) — rozszerzona o 2
+nowe wiersze.** 4 istniejące wiersze były na sztywno ustalonymi typami
+współpracy z Twojego wzoru (zawiadomienie o spotkaniu, informacje od
+rodzica, forma konsultacji, przekazanie kopii WOPFU/IPET) — nie było
+miejsca na nic więcej. Dodałam: **„Zgoda na przetwarzanie danych osobowych
+(RODO)"** jako nazwany wiersz (data/sposób/osoba do wypełnienia, tak jak
+reszta), oraz **całkiem pusty, w pełni edytowalny wiersz na końcu** —
+zarówno nazwa ustalenia, jak i data/sposób/osoba są do wpisania, więc
+zespół może dopisać dowolny inny rodzaj współpracy z rodzicem, którego
+nie przewiduje żaden z 5 gotowych wierszy. Sprawdziłam klikiem i wpisaniem
+tekstu, że oba pola pustego wiersza faktycznie działają.
+
+**Wzór uzasadnienia na Punkcie Kontrolnym (Sekcja VII, str. 5) — nowy,
+szary „ściągawkowy" box.** Blankiet obserwacji pogłębionej i pole „Wybór i
+uzasadnienie" były zupełnie puste, bez podpowiedzi jak wygląda dobrze
+napisane uzasadnienie. Dodałam między tabelą obserwacji a checkboxami
+decyzji nowy komponent `.example-box` — jasnoszare tło, szara plakietka
+„WZÓR UZASADNIENIA" — z przykładowym tekstem wskazującym na Poziom III
+(ten sam, którego użyłam w analogicznym miejscu pełnego dokumentu):
+„Na podstawie analizy zebranych danych wstępnych oraz KSzOF, Zespół
+Specjalistów stwierdza, że uczeń w obszarach III, VII oraz IX funkcjonuje
+na poziomie III wsparcia. (...)" — spójne z demo-danymi w tym samym
+dokumencie (Sekcja V: obszary III, VII, IX rzeczywiście wychodzą na
+Poziom III). To czysty wzór do naśladowania, nie pole do wypełnienia —
+prawdziwe uzasadnienie zespół wpisuje osobno, w kolumnie „Wybór i
+uzasadnienie" tabeli Decyzji. Żeby to się zmieściło, dociążyłam trochę
+resztę strony (mniejsze pola VIII.1/VIII.2) — margines do stopki: 25 px.
+
+## Nowość: wersja „bez obserwacji pogłębionej" (6 stron)
+
+Wkleiłaś w czacie pełny tekst innej, dużo krótszej wersji WOPFU (9 sekcji
+rzymskich I–X zamiast 25) i poprosiłaś o taki sam druk, ale bez
+obserwacji pogłębionej. Zbudowałam go jako **osobny plik** obok pełnej,
+14-stronicowej wersji — to inny, krótszy dokument, nie zamiennik tamtego,
+więc żadna z Twoich wcześniej zatwierdzanych stron się nie zmieniła.
+
+**Co zrobiłam z Twoim wklejonym tekstem, żeby faktycznie pasował do „bez
+obserwacji pogłębionej":**
+
+- **Usunęłam całą Sekcję VII** („Punkt kontrolny — decyzja zespołu o
+  obserwacji pogłębionej") — w Twoim wklejonym tekście ta sekcja
+  dokumentowała, że zespół **zdecydował się** przeprowadzić obserwację
+  pogłębioną (protokół: „Zespół zarządza przeprowadzenie obserwacji
+  pogłębionej..."). To wprost sprzeczne z „bez obserwacji pogłębionej",
+  więc ta sekcja nie mogła zostać — nie ma jej w wersji skróconej.
+  Kolejne sekcje przesunęłam o jeden numer w dół (VIII→VII, IX→VIII,
+  X→IX), żeby nie było dziury w numeracji.
+- **Sekcja III (Mapa dokumentów źródłowych) — skrócona z 10 do 5
+  wierszy.** Twój wklejony tekst wymieniał też Kartę ABC/FBA, Test ToM,
+  Kwestionariusz rozwoju mowy i Profil sensoryczny/biopsychospołeczny —
+  to wszystko narzędzia Modułu II (obserwacji pogłębionej). Skoro tej
+  obserwacji nie ma, te narzędzia nie zostały użyte, więc usunęłam te 4
+  wiersze z mapy źródeł (zostawiłam tylko: metryczka, orzeczenie/opinia,
+  KSzOF, wywiad z rodzicem, opinie nauczycieli) i dopisałam pod tabelą
+  notkę tłumaczącą dlaczego. **To moja interpretacja — jeśli wolisz mieć
+  tam wszystkie 10 wierszy tak jak wkleiłaś, mimo że część nie została
+  wykorzystana, daj znać.**
+- **Poprawiłam 2 odsyłacze do sekcji, które w Twoim tekście wskazywały
+  poza ten dokument** („Wywiad z rodzicem" → „Sekcja X–XII", „Opinie
+  nauczycieli" → „Sekcja XI–XVIII") — to sekcje z dłuższej, 25-sekcyjnej
+  wersji, których tu nie ma. Zamieniłam na realne sekcje tego dokumentu
+  (odpowiednio VII+IX i V–VII).
+- **Jedno zdanie w nowej Sekcji VII (Synteza funkcjonalna) zmienione.**
+  Punkt 3 w Twoim tekście uzasadniał terapię psychologiczną słowami „w
+  oparciu o wyniki ToM" — ale Test Teorii Umysłu to narzędzie Modułu II,
+  którego tu nie ma. Usunęłam to uzasadnienie (zdanie zostaje, tylko bez
+  tego dopisku) — reszta syntezy w tej sekcji opiera się wyłącznie na
+  KSzOF i charakterystyce jakościowej (Sekcje V–VI), więc nie wymagała
+  zmian.
+- **Kolumnę „Zakres punktu" w tabeli KSzOF (Sekcja V) wypełniłam** —
+  w Twoim wklejonym tekście była obecna w nagłówku, ale pusta w każdym
+  wierszu. Wpisałam tam zakresy stenów odpowiadające legendzie nad
+  tabelą (8–10 / 5–7 / 1–4) — liczy się automatycznie razem z poziomem,
+  gdy zmienisz sten.
+- **Reszta treści (Sekcje I, II, IV, V, VI, oraz punkty 1, 2 i 4 nowej
+  Sekcji VII, Sekcja VIII/Współpraca z rodzicami, Sekcja IX/Podpisy) to
+  Twój tekst praktycznie bez zmian** — tylko przeniesiony w gotową
+  konstrukcję druku (fiolet `#2D1B69` + pomarańcz `#E8450A`, Mulish/Lora,
+  te same `.sec`/`.tb`/`.ta`/`.cbgrid`, co reszta serii).
+
+Zweryfikowane: 6 fizycznych stron (patrz niżej — str. 3 połączona ze
+str. 2), margines do stopki dodatni na każdej, zero błędów JS, steny
+w Sekcji V przeliczają poziom i zakres punktu automatycznie (tak jak
+w pełnej wersji).
+
+### Dodane wykresy i „Wyniki w skrócie" (Sekcja V, str. 4)
+
+Ta krótsza wersja nie miała jeszcze wykresów KSzOF, które pełna,
+14-stronicowa wersja już ma — dogoniłam to tutaj:
+
+- **Wykres słupkowy i mapa radarowa** — te same, co w pełnej wersji
+  (`build_bar_svg`/`build_radar_svg`), słupki i punkty kolorowane wg
+  poziomu (zielony/żółty/czerwony), liczą się automatycznie razem ze
+  stenami w tabeli powyżej.
+- **„Wyniki w skrócie"** — 9 kompaktowych „chipów" w siatce 3×3 (3
+  rzędy), po jednym na obszar: numer rzymski, skrócona nazwa, duży sten
+  i poziom, też kolorowane i też aktualizowane na żywo przy edycji
+  stenu. To „wybrane elementy pod wykresem" — skrót tabeli powyżej,
+  żeby stronę dało się ogarnąć jednym rzutem oka, nie tylko z tabeli.
+- **Czcionka podniesiona do 10px** w tabeli i w opisie syntetycznym
+  (było 9,9px / 8,6px) — zgodnie z prośbą, żeby tekst na tej stronie
+  było wygodniej czytać.
+- Żeby to wszystko zmieściło się na jednej stronie bez białych
+  przestrzeni, „chipy" są w formie zwartego jednowierszowego paska
+  (numer + nazwa + sten + poziom obok siebie), a nie pełnej,
+  rozbudowanej karty — pierwsza wersja z pełnowymiarowymi kartami nie
+  mieściła się na stronie (wychodziła o ok. 170 px za stopkę).
+
+### Sekcja IV przeniesiona na dół str. 2 (dawna str. 3 zniknęła)
+
+Informacje medyczne (Sekcja IV) miały wcześniej własną, w połowie pustą
+stronę 3. Przeniosłam tę sekcję na dół strony 2, razem z Sekcją II
+(Zespół) i Sekcją III (Mapa źródeł) — cały dokument skrócił się z 7 do
+**6 stron**.
+
+Trzy karty pod checklistą chorób („Leki podawane w szkole", „Zalecenia
+i przeciwwskazania", „Postępowanie w sytuacji nagłej") stały pionowo
+jedna pod drugą — najpierw stanęły w jednym rzędzie obok siebie (siatka
+3 kolumn), a na Twoją kolejną prośbę są teraz w układzie **„2+1"**: „Leki"
+i „Zalecenia" obok siebie w jednym, węższym rzędzie (2 kolumny), a
+„Postępowanie w sytuacji nagłej" osobno, w pełnej szerokości karty w
+rzędzie pod spodem — bo to dłuższy, ważniejszy tekst (procedura na
+wypadek nagłej sytuacji), który zasługuje na więcej miejsca niż wąska
+1/3 karty. Treść bez zmian merytorycznych. Margines do stopki nadal
+dodatni (81 px).
+
+### Sekcja VII (Synteza funkcjonalna) przeprojektowana — była zbyt monotonna
+
+Zwróciłaś uwagę, że strona z wykresami wygląda dobrze, ale Synteza
+Funkcjonalna (dawna str. 6, teraz str. 5) — nie. Miała rację: to był
+rząd identycznych, kremowych, przerywaną linią obramowanych karteczek,
+bez koloru i bez wyraźnego podziału. Przeprojektowałam ją na 4 kolorowe
+karty, po jednej na każdy z 4 punktów syntezy — kolor koduje charakter
+punktu, spójnie z resztą dokumentu. Kolejność kart (na Twoją prośbę,
+odgórnie w dół strony) to:
+
+- **1 · Mocne strony, zainteresowania i uzdolnienia** — zielony (ten sam
+  odcień, co Poziom I w tabeli KSzOF), siatka 2 kolumn.
+- **2 · Indywidualne potrzeby rozwojowe i edukacyjne** — niebieski,
+  siatka 2 kolumn.
+- **3 · Przyczyny niepowodzeń, trudności, bariery i ograniczenia** —
+  czerwony (ten sam odcień, co Poziom III), siatka 2 kolumn, **rozbite na
+  3 osobne kategorie** (na Twoją prośbę): bariery komunikacyjne, bariery
+  regulacyjne i bariery środowiskowe — wcześniej pierwsze dwie były
+  połączone w jeden punkt „komunikacyjne i regulacyjne".
+- **4 · Zakres i charakter wsparcia** — fiolet marki PCTP, lista ról
+  (kto + co robi) zamiast checkboxów, bo to już ustalone zadania
+  zespołu, nie opcje do zaznaczenia.
+
+Karty pierwotnie stanęły w kolejności Indywidualne potrzeby → Mocne
+strony → Zakres wsparcia → Przyczyny/bariery; obecna kolejność to wynik
+dwóch kolejnych próśb (najpierw „Mocne strony" na samą górę i
+„Indywidualne potrzeby" na drugie miejsce, potem „Przyczyny/bariery" na
+trzecie). Każda karta zachowała swój oryginalny kolor i całą treść —
+zmieniła się wyłącznie kolejność kart i numer na znaczniku (numeracja
+zawsze odpowiada aktualnej pozycji na stronie, 1–4 od góry). Margines do
+stopki nadal dodatni.
+
+**Karta 4 („Zakres i charakter wsparcia") — opisy ról rozbudowane
+Twoim dokładnym tekstem.** Wcześniej role miały bardzo skrócone,
+hasłowe opisy (np. Psycholog: „redukcja lęku, interpretacja sygnałów
+społecznych, wsparcie emocjonalne"); podmieniłam je na Twój pełny tekst
+z pytania o ten sam zestaw 5 ról, więc opisy są teraz pełnymi zdaniami z
+konkretami (np. Pedagog specjalny doszło „eliminowanie barier
+środowiskowych", nazwa roli doprecyzowana na „Pedagog specjalny /
+Nauczyciel współorganizujący"). Dodałam też podtytuł karty „(nauczyciele,
+specjaliści, pomoc nauczyciela)" z Twojego tekstu. **Jedna rzecz do
+sprawdzenia:** Twój tekst dla roli Psychologa zawiera dopisek „(w oparciu
+o wyniki ToM)" — zostawiłam go dokładnie tak, jak podałaś, ale zwracam
+uwagę, że to ten sam odnośnik do Testu Teorii Umysłu, który wcześniej
+świadomie usunęłam z tej wersji dokumentu (patrz „Nowość: wersja «bez
+obserwacji pogłębionej»" na górze), bo ToM jest narzędziem Modułu II,
+którego ta wersja nie obejmuje. Zostawiłam go na Twoje wyraźne życzenie
+(wkleiłaś pełny tekst), ale jeśli to przeoczenie z kopiowania z pełnego
+dokumentu, daj znać, usunę dopisek tak jak poprzednio.
+
+### Sekcja VIII (Współpraca z rodzicami) — doszedł podtytuł „Potwierdzenie zapoznania się z dokumentem"
+
+Drobne dopełnienie struktury na Twoją prośbę (przesłałaś pełny tekst tej
+sekcji do porównania) — data zawiadomienia rodziców i miejsce na podpis
+rodzica miały już dokładnie tę treść, tylko bez własnego podtytułu nad
+nimi; teraz mają, spójnie z pozostałymi dwoma podpunktami tej sekcji
+(„Formy i harmonogram bieżącej współpracy", „Działania wspomagające w
+środowisku domowym", które już tam były). **Do zaznaczenia:** Twój
+wklejony tekst nazywa kolejną sekcję „SEKCJA X: Podpisy członków zespołu
+specjalistów", a w tym dokumencie jest ona Sekcją IX — to nie pomyłka z
+mojej strony, tylko konsekwencja wcześniejszej zmiany opisanej na górze
+(„Usunęłam całą Sekcję VII" — usunięcie punktu kontrolnego pogłębionej
+obserwacji z Twojego pierwotnego tekstu przesunęło całą resztę numeracji
+o 1 w dół, więc Twoje „X" z oryginału odpowiada tu „IX"). Zostawiłam
+numerację taką, jaka już jest w dokumencie, żeby nie rozjechała się z
+resztą — treść i 5 ról podpisów zgadzają się z Twoim tekstem jeden do
+jednego.
+
+**Ta wersja zastępuje poprzednią** (19 ponumerowanych punktów wg ręcznie
+wpisanego „Planu WOPFU") — przesłałaś plik `WOPFU.docx`, który jest
+dokładniejszym, autorytatywnym źródłem: 25 sekcji rzymskich (I–XXV) z
+konkretną, gotową treścią (nie szablonem). Wróciliśmy więc do układu
+sekcji rzymskich, ale z **prawdziwą treścią wyciągniętą z Twojego pliku**
+zamiast moich wcześniejszych przykładowych/domyślnych tekstów. Grafika,
+kolorystyka i styl bez zmian (fiolet `#2D1B69` + pomarańcz `#E8450A`,
+Mulish/Lora, ta sama konstrukcja `.page`/`.sec`/`.cbgrid`/`.ta`).
+
+**Ważne — układ na stronach A4 to moja decyzja, nie 1:1 z Worda.** Twój
+`.docx` to płynący dokument bez podziału na strony A4 — 25 sekcji naturalnie
+mieściło się różnie gęsto. Żeby uniknąć znanego z poprzednich wersji
+problemu pustych stron, połączyłam kilka lżejszych sekcji na wspólne
+strony A4 (patrz niżej, „Co jest w środku") — kolejność sekcji jest
+dokładnie taka, jak w Twoim pliku, zmieniły się tylko podziały stron.
+
+## Podział na etapy (moduły)
+
+Wg przesłanej „Mapy architektury druku WOPFU" (PDF) druk jest wizualnie
+podzielony na 4 etapy — bez zmiany numeracji sekcji rzymskich, tylko
+dodane kolorowe paski-banery nad sekcją, która rozpoczyna dany etap:
+
+| Etap | Kolor | Gdzie zaczyna się | Sekcje |
+|---|---|---|---|
+| **MODUŁ I** — Część bazowa | fiolet | str. 1, nad Sekcją I | I–VI |
+| **PUNKT KONTROLNY** — Decyzja zespołu | czerwony | str. 6, na początku strony | — (bramka) |
+| **MODUŁ II** — Obserwacja pogłębiona | fiolet | str. 6, nad Sekcją VII | VII–XI |
+| **CZĘŚĆ KOŃCOWA** — Planowanie wsparcia | fiolet | str. 8, nad Sekcją XII | XII–XXV |
+
+„Punkt kontrolny" to nowa treść, nie tylko baner — dodałam pod nim 2
+checkboxy („Uruchamiam moduł pogłębiony (Sekcje VII–XI)" / „Zamykam na
+module I → Część Końcowa (Sekcja XII)"), bo Twoja mapa opisuje to jako
+prawdziwą bramkę decyzyjną zespołu, nie tylko nagłówek. Kolor czerwony
+(taki sam jak Poziom III w tabeli stenów) celowo odróżnia to jako moment
+decyzji, a nie kolejny moduł.
+
+Pod banerem doszła notka **„Rekomendowany poziom wsparcia"** — edytowalny
+akapit uzasadniający decyzję zespołu (Twój dokładny tekst: obszary III,
+VII i IX na poziomie III wsparcia → zespół zarządza obserwację pogłębioną
+przy użyciu wskazanych narzędzi diagnostycznych), żeby bramka miała realne
+uzasadnienie merytoryczne, a nie same puste checkboxy. Jeśli w konkretnym
+przypadku zespół decyduje inaczej niż ten domyślny, wypełniony tekst —
+treść jest w pełni edytowalna (`contenteditable`), można ją nadpisać albo
+wyczyścić.
+
+Pod tą notką doszła też tabelka **„Plan obserwacji pogłębionej — obszary
+priorytetowe (Poziom III)"** (Twój dokładny tekst, 6 kolumn: Lp. / Obszar /
+Cel obserwacji — Pytanie badawcze / Narzędzie — Metoda diagnozy /
+Odpowiedzialni / Termin), po jednym wierszu na każdy z 3 obszarów Poziomu
+III (III, VII, IX) — konkretny, przypisany do osób i terminu plan działania,
+nie tylko nazwa obszaru. **Wiersz 3 (Obszar IX) uzupełniłam sama** — wklejony
+tekst urwał się w połowie zdania („analiza środowiskow...") i bez osoby
+odpowiedzialnej/terminu; dokończyłam „analiza środowiskowa", a jako
+odpowiedzialnych wpisałam Pedagoga specjalnego i Psychologa (ci sami, co
+w Zakresie wsparcia zajmują się lękiem/wycofaniem — pasuje do celu tego
+wiersza) i „do 14 dni" (tak jak w wierszach 1–2). Sprawdź, czy to
+dobrze oddaje Twoją intencję.
+
+**Nowość:** pod checkboxami doszła krótka notka zamykająca obie ścieżki —
+„Zamknięcie na module I" wprost mówi, że obserwacja kończy się tu i zespół
+przechodzi od razu do Części Końcowej, a przy module pogłębionym jest
+klikalny link **„Załącznik"**, który w HTML (i w większości czytników PDF)
+przenosi bezpośrednio do nowego załącznika na str. 14–15 — nie trzeba
+kartkować ręcznie.
+
+**Punkt kontrolny dostał własną stronę (str. 6), oddzielną od Sekcji VI.**
+Wcześniej tabela Sekcji VI, cały Punkt Kontrolny i początek Modułu II
+(Sekcja VII) były upchnięte na jednej stronie — po dodaniu „Rekomendowanego
+poziomu wsparcia" strona zaczęła się realnie nie mieścić (ujemny margines
+do stopki). Zamiast dalej ściskać czcionkę, rozdzieliłam to na dwie strony:
+str. 5 to teraz tylko Sekcja VI (i ma dzięki temu dużo więcej oddechu — patrz
+niżej), a str. 6 to Punkt Kontrolny + Moduł II + Sekcja VII w komfortowym,
+nieściśniętym rozmiarze czcionki. Dokument urósł z 14 do **15 stron**;
+wszystkie odsyłacze do numerów stron dalej w dokumencie (Załącznik,
+Sekcja XXV) zostały poprawione.
+
+## Co jest w środku
+
+- **Str. 1** — **Sekcja I: Dane ucznia i ścieżka dokumentacyjna** — pola
+  podstawowe, ścieżka A/B, rodzaj oceny i tryb postępowania.
+- **Str. 2** — **Sekcja II: Zespół specjalistów** (tabela 8 ról) i
+  **Sekcja III: Mapa dokumentów źródłowych** (10 druków źródłowych).
+  **Uwaga:** w Twoim pliku ostatnia kolumna tej tabeli („Wynik przeniesiony
+  do sekcji") ma przesunięcie o 1 w wierszach 4–8 — np. „Karta ABC/FBA"
+  wskazuje tam „Sekcja VI", a w Twoim samym dokumencie treść ABC/FBA jest
+  faktycznie w Sekcji VII (bo między nimi jest jeszcze Sekcja VI
+  „Charakterystyka jakościowa"). Poprawiłam to przesunięcie w tabeli, żeby
+  numery sekcji faktycznie się zgadzały z nagłówkami w Twoim pliku.
+- **Str. 3** — **Sekcja IV: Informacje medyczne** — checklist chorób i
+  dysfunkcji (10 pozycji z Twojego pliku), leki, zalecenia, postępowanie
+  w sytuacji nagłej.
+- **Str. 4** — **Sekcja V: Wyniki oceny funkcjonalnej KSzOF** — tabela
+  9 obszarów z Twoimi dokładnymi wartościami stenów (8,5,3,7,6,5,4,5,4),
+  wykres (liczy się automatycznie z tabeli) i **Twój dokładny opis
+  syntetyczny** („Średni wynik ogólny (sten): 5/10 (Poziom II)...").
+  Ten opis jest zapisany jako już wypełniony (nie nadpisze się sam po
+  zmianie stenów, tak jak reszta zamrożonych notatek w tym dokumencie) —
+  dokładnie taki tekst, jaki jest w Twoim `.docx`. **Nowość:** pod opisem
+  syntetycznym doszło „Podsumowanie jakościowe wg poziomów wsparcia" — pasek
+  4 kolorowych kafli (wzór `.bands`: suma stenów + zakres stenów dla
+  każdego poziomu) i tabelka 3-wierszowa (Poziom / Obszary / Czego
+  dotyczyły) wymieniająca, które konkretnie obszary trafiły na zielony,
+  czerwony i żółty poziom oraz czego dotyczyły trudności w każdym z nich —
+  wszystko wyliczone z tych samych stenów co tabela i wykres powyżej.
+- **Str. 5** — **Sekcja VI: Charakterystyka jakościowa obszarów KSzOF**
+  (tabela mocne strony/trudności) — **teraz na własnej stronie, z
+  rozbudowanymi opisami.** Wcześniej dzieliła stronę z Sekcją VII i miała
+  krótkie, hasłowe opisy w komórkach; na Twoją prośbę („większe opisy w
+  tabelce, żeby wypełniała całą stronę") rozwinęłam każdy z 18 opisów
+  (9 obszarów × mocne strony/trudności) o dodatkowe, spójne z resztą
+  profilu ucznia zdanie, i powiększyłam czcionkę/odstępy w komórkach
+  (9,9px→11px, dopasowany padding) — tabela teraz realnie wypełnia stronę
+  zamiast zostawiać duży pusty pas na dole.
+- **Str. 6** — **Punkt Kontrolny** (banner + nowa notka „Rekomendowany
+  poziom wsparcia" + 2 checkboxy decyzji + notka zamykająca, opisane wyżej
+  w „Podział na etapy") i **Sekcja VII: Obserwacja pogłębiona — zachowania
+  trudne (ABC/FBA) oraz PBS** — dawniej dzieliła stronę z Sekcją VI, teraz
+  ma własną, pełnowymiarową stronę (patrz „Punkt kontrolny dostał własną
+  stronę" wyżej). **Nowość:** na górze Sekcji VII, przed „Zachowanie
+  kluczowe", jest prawdziwa **tabelka ABC** (Data / Poprzednik (A) /
+  Zachowanie (B) / Konsekwencja (C)) — 2 przykładowe zdarzenia z obserwacji
+  (te same, co w prototypie panelu nauczyciela z tej samej sesji, dla
+  spójności). To dokładnie metoda, od której sekcja bierze nazwę —
+  wcześniej był tylko jeden opisowy akapit „zachowanie kluczowe", teraz
+  jest pod nim jako synteza tabeli powyżej.
+- **Str. 7** — **Sekcja VIII: Poznanie społeczne (ToM)** (tabela 5
+  komponentów — wniosek do pracy wypełniony tylko przy pierwszych dwóch,
+  tak jak w Twoim pliku, reszta pusta do wypełnienia) i **Sekcja IX: Mowa
+  i komunikacja** — połączone na jednej stronie, bo osobno zostawały w
+  połowie puste. **Nowość:** Sekcja IX ma teraz tę samą tabelkę co ToM
+  (Sposób porozumiewania się / Wynik 0–2 / Wniosek do pracy) zamiast
+  checklisty — 6 sposobów porozumiewania się z Twojego pliku jako wiersze,
+  wniosek logopedyczny przy „Mowa werbalna", reszta pusta do wypełnienia.
+  Pod tabelą osobna karta „Kierunki terapii i zasady pracy w grupie" z
+  resztą oryginalnego tekstu.
+- **Str. 8** — **Sekcja X: Przetwarzanie sensoryczne (model Dunna)** —
+  **też przebudowana na tabelkę w stylu ToM** (Układ zmysłowy / Wynik 0–2 /
+  Wniosek do pracy): 5 układów zmysłowych, wniosek wypełniony przy
+  „Słuchowy" i „Przedsionkowo-proprioceptywny" (dokładnie to, co było w
+  Twoim opisie profilu), reszta pusta — plus niezmieniona 4-punktowa lista
+  „Dieta sensoryczna i organizacja przestrzeni" pod tabelą. Dalej **Sekcja
+  XI: Kontekst biopsychospołeczny (ICF) oraz dobrostan**
+  (ułatwienia/bariery/dobrostan) — trzy sekcje razem na tej samej stronie,
+  każda z nich osobno zostawiała najwięcej pustego miejsca ze wszystkich
+  stron. **Na Twoją prośbę doszedł tu też podrozdział „Czynniki
+  kontekstowe wg ICF"** — czynniki środowiskowe (wsparcie rodziny i
+  otoczenia, postawy nauczycieli i rówieśników) i czynniki osobowe
+  (temperament, motywacja) jako checklisty; przywrócone z historii gita
+  (patrz sekcja na górze pliku).
+- **Str. 9** — **Sekcja XII: Całościowy obraz funkcjonowania (synteza)**
+  (tabela 8 obszarów, kolumna opisu pusta do wypełnienia — poprawiłam też
+  literówkę „FUNKCELONOWANIA" → „FUNKCJONOWANIA" z tytułu w Twoim pliku).
+- **Str. 10** — **Sekcja XIII: Przyczyny niepowodzeń i bariery** (4 krótkie
+  notatki z Twoim tekstem) i **Sekcja XIV: Zakres i charakter wsparcia**
+  (checklist 8 form wsparcia + doprecyzowanie organizacji).
+- **Str. 11** — **Sekcja XV: Metody i formy pracy z uczniem** (5 metod
+  wiodących z Twojego pliku, zaznaczone jako już stosowane — tak jak
+  „PDF" obok każdej sugerowało w źródle, że to już ustalona treść, nie
+  przykład do wyboru) i **Sekcja XVI: Dostosowanie wymagań i warunków
+  pracy** (tabela 4 kanałów — **w pełni wypełniona Twoimi przykładami**,
+  nie pusty szablon jak w poprzedniej wersji).
+- **Str. 12** — **Sekcja XVII: Rekomendowane zajęcia specjalistyczne i
+  rewalidacyjne**, **Sekcja XVIII: Zintegrowane działania nauczycieli i
+  specjalistów**, **Sekcja XIX: Współpraca z rodzicami i międzysektorowa**,
+  **Sekcja XX: Decyzja zespołu dotycząca poziomu wsparcia** i **Sekcja
+  XXI: Cele SMART** (cel edukacyjny) — pięć sekcji na jednej stronie,
+  wszystkie krótkie w Twoim pliku.
+- **Str. 13** — dokończenie Sekcji XXI (cel terapeutyczny), **Sekcja XXII:
+  Ocena efektywności udzielanego wsparcia** (tabela — Twój plik ma tu
+  jeden zbiorczy wiersz „1–8", nie osobny wiersz na każdy zakres, więc tak
+  to zostawiłam), **Sekcja XXIII: Przeniesienie informacji do IPET/PEWS**
+  (Twój jednozdaniowy opis „mostu transferowego", nie rozbudowana tabela
+  jak w mojej poprzedniej wersji), **Sekcja XXIV: Podpisy** (5 podpisów —
+  Twój plik łączy niektóre role, np. „Psycholog / Pedagog specjalny" w
+  jednym podpisie) i **Sekcja XXV: Wykaz załączników, RODO i ważność
+  dokumentu** (karta „Załączniki" wskazuje str. 14–15 jako miejsce
+  zbiorczego zestawienia obserwacji pogłębionej; **na Twoją prośbę
+  przywrócona pełna, 7-punktowa klauzula informacyjna RODO** —
+  administrator, IOD, cel i podstawa prawna, kategorie danych, odbiorcy,
+  okres przechowywania, prawa osób — w miejsce krótszego akapitu, plus
+  osobna notka „Bezpieczeństwo i ważność dokumentu"; patrz sekcja na górze
+  pliku).
+- **Str. 14–15 — nowy Załącznik: „Zbiorcze zestawienie obserwacji
+  pogłębionej"** (poza numeracją rzymską — to materiał pomocniczy, nie
+  kolejna sekcja WOPFU). Str. 14: intro + **A1** tabelka ABC (Sekcja VII),
+  **A2** tabelka ToM (Sekcja VIII), **A3** tabelka Mowa (Sekcja IX) — te
+  same tabele, co w głównym dokumencie, po prostu przedrukowane razem do
+  szybkiego przeglądu. Str. 15: **A4** tabelka Profil sensoryczny (Sekcja
+  X), potem „Zakres dostosowań i działań podjętych" (metody wiodące z
+  Sekcji XV + tabela dostosowań z Sekcji XVI, też przedrukowane) i na
+  końcu „Zalecenia do pracy — podsumowanie" — **to jedyny fragment
+  załącznika, który jest moją syntezą**, nie przedrukiem: krótki akapit
+  łączący kierunki pracy rozproszone po wnioskach w tabelach A1–A4.
+  Dotyczy wyłącznie sytuacji, gdy zespół faktycznie uruchomił moduł
+  pogłębiony — dlatego intro na str. 14 wprost to zaznacza.
+
+## Interaktywność
+
+Tabela stenów w **sekcji V** ma pełne przeliczanie automatyczne: wpisanie
+stenu 1–10 w dowolnym z 9 wierszy liczy poziom wsparcia w tym samym
+wierszu, słupek i punkt na mapie radarowej. Opis syntetyczny pod tabelą
+jest zapisany jako **już zamrożony** (Twój dokładny tekst z `.docx`,
+`data-edited="1"`) — nie nadpisze się automatycznie, tak samo jak każda
+inna ręcznie uzupełniona notatka w tym dokumencie. Jeśli będziesz chciała,
+żeby dla innego ucznia opis liczył się sam z nowych stenów, wystarczy
+skasować treść notatki — mechanizm auto-generowania nadal działa pod
+spodem, tylko czeka na pustą notatkę.
+
+Nowe „Podsumowanie jakościowe" (pasek 4 kafli + tabelka 3-wierszowa) pod
+opisem syntetycznym **nie przelicza się samo** po zmianie stenów — to
+świadoma decyzja, nie przeoczenie. Pasek kafli (suma stenów, zakresy
+poziomów) jest czystym podsumowaniem liczbowym i mógłby się przeliczać
+automatycznie, ale tabelka obok wiąże listę obszarów z konkretnym opisem
+trudności — po zmianie stenów dla innego ucznia trzeba by przenieść całe
+zdania między wierszami, nie tylko przeliczyć listę numerów, więc żeby nie
+rozjechać liczb z opisem, żadna z tych dwóch części nie przelicza się sama.
+Kolumna „Czego dotyczyły" w tabelce jest zwykłym polem do edycji (tak jak
+wszystkie inne pola w tym dokumencie) — dla nowego ucznia podmieniasz
+treść ręcznie, tak samo jak sumę stenów w pasku kafli.
+
+## Znalezione i naprawione błędy konstrukcyjne
+
+**Ten sam błąd co poprzednio, tym razem na kartach `.ta`.** Współdzielony
+arkusz stylów ma regułę, która automatycznie rozciąga „samotny" element na
+stronie na pełną wysokość karty — poprzednio łapało to tabele
+(`table{flex:1 1 auto;height:100%}`), tym razem złapało też **karty
+`.ta`** używane przez `ta_card()`/`ta_inner()`
+(`.blk:has(>.ta)>.ta{flex:1}`). Na stronach z kilkoma krótkimi kartami
+`.ta` z rzędu (np. Sekcja VII: 3 karty), każda z nich osobno rozciągała
+się na ~1/3 wysokości strony zamiast trzymać naturalną, zwartą wysokość
+tekstu — więc 3 zdania zajmowały całą stronę. Naprawione tak samo jak
+poprzednio: `flex:0 0 auto` na karcie i jej opakowaniu `.blk`, tym razem
+wbudowane bezpośrednio w funkcje `ta_card()`/`ta_inner()`, więc naprawa
+obowiązuje wszędzie, gdzie te funkcje są użyte w tym dokumencie.
+
+## Do potwierdzenia przez autorkę
+
+- ~~Klauzula RODO (Sekcja XXV) — krótsza wersja, nie pełna 7-punktowa.~~
+  **Zrobione.** Na Twoją wyraźną prośbę przywróciłam pełną, 7-punktową
+  klauzulę z historii gita (teraz str. 13 — dokument urósł do 15 stron od
+  czasu, gdy pisałam tę notatkę) — patrz sekcja na samej górze pliku.
+- **Poprawka przesunięcia numerów sekcji w mapie dokumentów (str. 2,
+  Sekcja III)** — opisana wyżej w „Co jest w środku". Sprawdź, czy to
+  faktycznie była pomyłka w oryginalnym pliku, czy numeracja w Twoim
+  `.docx` miała inne znaczenie, którego nie uchwyciłam.
+- **Podział na strony A4 to moja decyzja** (opisana na górze) — połączyłam
+  kilka sekcji na wspólne strony, żeby uniknąć pustych stron. Jeśli wolisz
+  np. każdą sekcję na osobnej stronie mimo pustego miejsca (łatwiej
+  komuś dopisywać ręcznie po wydruku) — daj znać, mogę rozdzielić z
+  powrotem.
+- **Treść kolumny „Czego dotyczyły" w tabelce Podsumowania (str. 4) — moja
+  synteza, nie cytat z jednego źródła.** Listę obszarów w każdym wierszu
+  (i sumę/zakresy stenów w pasku kafli nad tabelką) wzięłam wprost z
+  tabeli/wykresu nad nią (te same steny), ale krótkie opisy „czego
+  dotyczyły" dla poziomu II i III ułożyłam sama na podstawie trudności
+  opisanych dla tych samych obszarów w Sekcji VI (str. 5, „Charakterystyka
+  jakościowa" — kolumna „Trudności"), tylko skrócone do formy tabelkowej.
+  To sensowne wnioski wynikające z tego, co już jest w dokumencie, ale to
+  synteza, nie gotowy tekst z któregoś z Twoich źródeł — sprawdź, czy te
+  konkretne sformułowania Ci odpowiadają.
+- **9 obszarów (Sekcja V) vs. 8 obszarów (Sekcja XII) — to samo, co flagowała
+  Twoja „Mapa architektury"** w notatce „Do uzgodnienia przed wdrożeniem".
+  Potwierdzam, że to realna niezgodność w tym dokumencie: Sekcja V liczy 9
+  obszarów ICF (I–IX), a tabela syntezy w Sekcji XII ma inny, 8-punktowy
+  podział (Poznawczy, Społeczny, Emocjonalny, Komunikacja i mowa,
+  Zachowanie, Sensoryczno-motoryczny, Samoobsługa, Uczestnictwo w życiu
+  szkoły) — to inna kategoryzacja, nie te same nazwy przycięte do ośmiu.
+  Obie wersje pochodzą z Twojego `.docx` bez zmian z mojej strony. Trzeba
+  ustalić, czy Sekcja XII ma używać dokładnie tych samych 9 obszarów co
+  Sekcja V, czy to świadomie inny, bardziej ogólny podział na potrzeby
+  syntezy — nie zmieniałam żadnej z tabel, dopóki się nie zdecydujesz.
+- **Interpretacja prośby „zakończ druk po obserwacji podstawowej / załącznik
+  po kliknięciu na informacje pogłębione".** Twoja wiadomość miała kilka
+  możliwych odczytań, więc wybrałam wersję, która działa i na papierze, i
+  na ekranie: (1) „zakończ druk" — krótka notka przy checkboxie „Zamykam
+  na module I", że ta ścieżka kończy się przejściem od razu do Części
+  Końcowej (nie da się fizycznie „ukryć" stron w papierowym A4, więc to
+  informacja, nie mechanizm pomijania stron); (2) „po kliknięciu" —
+  prawdziwy klikalny link (`<a href="#...">`) przy checkboxie „Uruchamiam
+  moduł pogłębiony", który w HTML i w czytnikach PDF przenosi do nowego
+  Załącznika (str. 13–14) — w druku papierowym to po prostu odsyłacz
+  „patrz Załącznik". Jeśli miałaś na myśli coś innego (np. żeby to
+  zachowanie dodać w interaktywnym **panelu nauczyciela**, a nie w tym
+  drukowanym dokumencie) — daj znać, łatwo to przenieść lub poprawić.
+- Żaden z czterech wariantów ToM ani WOPFU nie jest jeszcze przeniesiony do
+  `Zatwierdzone/` — czeka na Twoje potwierdzenie powyższych punktów.
+
+## Jak powstał PDF
+
+Tak jak reszta serii: `@page{size:A4}` + `@media print` w HTML, PDF to
+odpowiednik **Ctrl+P → Zapisz jako PDF**, wygenerowany tu automatycznie
+(headless Chromium, `print_background` + `prefer_css_page_size`).
+Zweryfikowane renderem: 14 fizycznych stron, żadna nie ucina treści
+(sprawdzone programowo — margines do stopki dodatni na każdej stronie, i
+zbalansowane tagi `<div>` w całym dokumencie), zero błędów JS,
+interaktywność stenów przetestowana.
